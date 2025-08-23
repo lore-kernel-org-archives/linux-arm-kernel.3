@@ -4,117 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C8A7CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 15:47:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C72ACA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 16:00:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sp9Fwlp5vR3qv+8aPcSWowrMQzl0dd+8oxkxBXjsn0s=; b=uph5tfuXC/P7tVUbjGvz48RaAy
-	GB4GXmHtV6Ycee/kz1VU2Nmb6hSo00n4LQBIE3OVneKRojjzZOXpCjvIc/v9KNq4ofoIyHGASab8k
-	F9OLxG5PujluWGJk4J8J3DJKdrJ1+f9jrZFDSbERbh3YlHCfkeQJlGud184EFEfY19c86HBLshhXx
-	d5qQuWmZ/yziHk3fpYK6WBSYkomeuF/kHDZvQDMcUcR51m9cIzQlz5CEBkMIF2ijjP16JDNcmm4nf
-	pJRC7ospVz8a+YZgG++6iZVEfDBC+Lox7j/3a3lu6TrxwI7W45jDaVgxD55tCrSsrC0ExhKbAFvnI
-	MJ+ffuMw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KcCpnBLU5SW4Qcwjb69jiEIVlUGumwXne/sA34CSyLE=; b=u4q46VUbMiINOC0jS7/eB76tDU
+	KRA03QtB+1vqAXJsmzb7JpfkF0ZnZXZ4jIP5RMfquBHRgv0xMEUP3h8hBIptBjQwqjvis99WaIRQ0
+	eMJhGLN9et+XvOcpwCXQVRaqXnq60fL75StsqFduXGUX53n2/CBeu5oPZULBoxtx9RJBIuGHpUXcX
+	tXQfXLf01ImaaH7jNVCdn/rsUXQKoNQfJbSxmCzDcC1U6DpQbb/CaLvKfFQ2hapTNPa4vBMjS5xrB
+	dZv9UxG7dS/qTzG6cW8wyZuLyAqfMxURWLQ7HSKinh4/xbrGnYsFoaOdAVB0ICUwSbvYVPjQPiT0S
+	OutgbKfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upqSu-00000004wBV-2fZU;
-	Sat, 23 Aug 2025 15:47:36 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1upqfA-00000004xTY-0LDl;
+	Sat, 23 Aug 2025 16:00:16 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upqLK-00000004vdO-1DaD
+	id 1upqcV-00000004wsr-3K6M
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 Aug 2025 15:39:47 +0000
+	Sat, 23 Aug 2025 15:57:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 023095C473A;
-	Sat, 23 Aug 2025 15:39:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02549C4CEE7;
-	Sat, 23 Aug 2025 15:39:37 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id A34DC5C4D22;
+	Sat, 23 Aug 2025 15:57:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32D1FC4CEE7;
+	Sat, 23 Aug 2025 15:57:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755963584;
-	bh=eCWEVQ/IDr6HBl39bDbTJnSVhaF7UusUbAAetwjFyRI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Q2lhz6drHJ+EAZhnkvrZi1FMwLk+q78p3rpldJ6qe0h6jqFMYqCSqrUJkMkCDqwhs
-	 ajHCtO96f77lUToL/LHN71Tnuv3qiGhh+c7qZlN+5tdXqte/C/gi9JmieS/DhbPfBw
-	 YEPI7HAmtbOEoXk3Wrl8cHYdIJl5T5TRghNA36n2fEX8nc47h09JfUrLI2xmYU8EIO
-	 cXs7ky52lZ7k2MrsZMmIa/00pmuAtMKHggo7yeSOvqER/Gd9lOK32YuPUnNnXNy9sx
-	 ohKy5bLrvihQjfnYk4PoIzp+65mVKiArkJdE/XxhRyDnwdaCfUg9mzzODl5cl/1UH7
-	 2h0I6Nv7BFIhQ==
-Message-ID: <41434afa-fecd-4507-bcca-735d358ac925@kernel.org>
-Date: Sat, 23 Aug 2025 17:39:36 +0200
+	s=k20201202; t=1755964650;
+	bh=0XuIgGw0B2/H3cOMG5TY7c8D1m3XnC9XDsKnG2GChy8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=d+eMjV70Mk0uZnsqOzD2NOWsm7XUzl02UNnvcJIZi1lBB+/+6we7LqsOzXAWMI/sD
+	 NYEuKrT+DCb30sVv4a6fBv+9V1wdpbAW/c6MMXCwNXuKX6usZVTQTCYK42RH3DJjwM
+	 FbQ3rpcfDTzfTQFIWQz5N6QrjTYgsbIM0kNFxDsUozcYBpm08MqOF0ik+I7v3hyFT1
+	 MhNRomCend1nsP3UXJ40dtY5tV2/5esbwidDrBtHZMWaT959ikcOKVMl69vg/eS4S+
+	 /p0F7+o+S/oMm/WvH2fTAl6+XVbYiSarWUkLMnt7OASCIJ4IbYNJ0CcxGVPyv9zrJd
+	 ymTk14LPL7moA==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Vinod Koul <vkoul@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>
+Cc: dmaengine@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 00/14] dmaengine: dma350: Support slave_sg, cyclic and DMA-250
+Date: Sat, 23 Aug 2025 23:39:55 +0800
+Message-ID: <20250823154009.25992-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.50.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 04/12] arm64: dts: fsd: Add CSI nodes
-To: Inbaraj E <inbaraj.e@samsung.com>, mturquette@baylibre.com,
- sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- s.nawrocki@samsung.com, s.hauer@pengutronix.de, shawnguo@kernel.org,
- cw00.choi@samsung.com, rmfrfs@gmail.com, laurent.pinchart@ideasonboard.com,
- martink@posteo.de, mchehab@kernel.org, linux-fsd@tesla.com, will@kernel.org,
- catalin.marinas@arm.com, pankaj.dubey@samsung.com, shradha.t@samsung.com,
- ravi.patel@samsung.com
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, alim.akhtar@samsung.com,
- linux-samsung-soc@vger.kernel.org, kernel@puri.sm, kernel@pengutronix.de,
- festevam@gmail.com, linux-media@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20250814140943.22531-1-inbaraj.e@samsung.com>
- <CGME20250814141019epcas5p2f957b934d5b60d4649cf9c6abd6969d5@epcas5p2.samsung.com>
- <20250814140943.22531-5-inbaraj.e@samsung.com>
- <1919de68-99ea-47f7-b3d2-cae4611f9c52@kernel.org>
- <00d101dc136c$aa037020$fe0a5060$@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <00d101dc136c$aa037020$fe0a5060$@samsung.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250823_083946_406153_CC07C9EC 
-X-CRM114-Status: GOOD (  18.84  )
+X-CRM114-CacheID: sfid-20250823_085731_875496_F711F3BD 
+X-CRM114-Status: UNSURE (   6.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,70 +76,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/08/2025 15:57, Inbaraj E wrote:
-> 
-> Hi Krzysztof,
-> 
-> Thanks for the review.
-> 
->>
->> On 14/08/2025 16:09, Inbaraj E wrote:
->>> There is a csi dma and csis interface that bundles together to allow
->>
->> CSI DMA?
->> What is CSIS?
->>
->>> csi2 capture.
->>
->> CSI2?
-> 
-> CSIS stands for Camera Serial Interface Slave.
+This series firstly does some cleanups, then add support of
+device_prep_slave_sg and device_prep_dma_cyclic to DMA-350. 
 
-Googling for "MIPI CSIS" gives me 0 results, so I still claim this is
-not a generic name.
+Lastly, add support for ARM DMA-250 IP. Compared with DMA-350, DMA-250
+is a simplified version. They share many common parts, but they do
+have difference. Add DMA-250 support by handling their difference by
+using different device_prep_slave_sg, device_prep_dma_cyclic and
+device_prep_dma_memcpy. DMA-250 doesn't support device_prep_dma_memset.
 
-> 
-> Samsung v4.3 CSIS IP bundles both the CSIS link operation and the CSIS
-> DMA operation. The DMA-related operation are referred to as CSIS DMA and
-> are handled by the fsd-csis driver. The link related operations are
-> referred to simply as CSIS and are integrated into imx-mipi-csis driver.
-> 
-> I'll update the commit message and commit description accordingly,
-> and maintain consistency across the patches.
-> 
->>
->>>
->>> Signed-off-by: Inbaraj E <inbaraj.e@samsung.com>
->>> ---
->>>  arch/arm64/boot/dts/tesla/fsd-evb.dts |  96 +++++
->>> +++ b/arch/arm64/boot/dts/tesla/fsd.dtsi
->>> @@ -493,6 +493,558 @@ clock_mfc: clock-controller@12810000 {
->>>  			clock-names = "fin_pll";
->>>  		};
->>>
->>> +		mipicsis0: mipi-csis@12640000 {
->>
->> Messed ordering. See DTS coding style.
-> 
-> I'll fix the ordering in next patchset.
-> 
->>
->> Node names should be generic. See also an explanation and list of examples
->> (not exhaustive) in DT specification:
->> https://protect2.fireeye.com/v1/url?k=a30d23f8-c28636dd-a30ca8b7-
->> 74fe485cbff6-ee12f8a711c584c8&q=1&e=b96506d8-2d5d-4303-b9e8-
->> 0e1189db1585&u=https%3A%2F%2Fdevicetree-
->> specification.readthedocs.io%2Fen%2Flatest%2Fchapter2-devicetree-
->> basics.html%23generic-names-recommendation
->>
-> 
-> There is no generic name directly related to CSI apart from camera. That's
-> why I used mipi-csis. If preferred, I can move the name to csis or simply csi.
-> Please let me know which one is more appropriate.
 
-I don't think you really tried to solve this. How this device is called
-in all other vendors?
+Jisheng Zhang (14):
+  dmaengine: dma350: Fix CH_CTRL_USESRCTRIGIN definition
+  dmaengine: dma350: Add missing dch->coherent setting
+  dmaengine: dma350: Check vchan_next_desc() return value
+  dmaengine: dma350: Check dma_cookie_status() ret code and txstate
+  dmaengine: dma350: Register the DMA controller to DT DMA helpers
+  dmaengine: dma350: Use dmaenginem_async_device_register
+  dmaengine: dma350: Remove redundant err msg if platform_get_irq()
+    fails
+  dt-bindings: dma: dma350: Document interrupt-names
+  dmaengine: dma350: Support dma-channel-mask
+  dmaengine: dma350: Alloc command[] from dma pool
+  dmaengine: dma350: Support device_prep_slave_sg
+  dmaengine: dma350: Support device_prep_dma_cyclic
+  dt-bindings: dma: dma350: Support ARM DMA-250
+  dmaengine: dma350: Support ARM DMA-250
 
-Best regards,
-Krzysztof
+ .../devicetree/bindings/dma/arm,dma-350.yaml  |   6 +
+ drivers/dma/arm-dma350.c                      | 909 ++++++++++++++++--
+ 2 files changed, 852 insertions(+), 63 deletions(-)
+
+-- 
+2.50.0
+
 
