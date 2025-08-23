@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72040CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 08:21:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A0B7CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 08:24:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WjN8r4xZcz2LPldV/c6Zr/HcnO5MPthTtKM0QTDRRHw=; b=M3Et2e96TfD3CZ589gDrRgXApy
-	la1VwZX338tIq+f9uUQb9vyEKf4mULKI9Xx/L9c+vfJWNVqc7p1LBCVqCDXjhr7JVUgt/3GVLrzkz
-	mvPqsliiQL7vvUXqhWePNEWOA4zEhPxhl5ltKCg5iTgXoxQw5Kaa2ktsqoM9xEH0r+e7y+aKa8Puk
-	xq25JeZeQ+M9afuSbMlPZqG48wj6SqkOKjNRiKd3Ac+Jj1TTf8CcouNYy5luISsG8K/yFRPsKhuZv
-	exeieKALIH4n4dcz3ktN1SbojuwGpunV03B0pwoiKJpkbctM39AIBGd9oZ7IX4JYXdtCoan95wBdd
-	Rp/iHMkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BeM6rbfuQ7/eKK3heob3gEL4LBxqV7gnyc21mHxBHBk=; b=2plT3F2m2NqWgqOJCIc/itthFP
+	gEJTzdggl7JjMLuCH7bwAtHF+Eq/7ksIVKuMC8dsnqmW4P0RTRXoVyndr6egXSnjKakK3s0Gb4cwe
+	kRk7rb218BYum3PwsLc2/Mdo2wkfWbp7iwkWeQjXOKQnjj1c9yz2mdxKu5/1HecQDzy8hACQzgFLy
+	0ji6Vj7q8QbvgTBIHv8N21J36a3YM5UZOT3jyEwvj9BUiXOq/rgetbRk8lVoXxY6+3YFhySmLwg9L
+	TDz5QM5Ae/CaPrbNOM7qpX0qRZISml3FrS+3K2kuLoIzRPuqqGJvIufx/ff3fK0AuwVPmlPZRaE3m
+	z3ckHpSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upjUc-00000004MxO-2aev;
-	Sat, 23 Aug 2025 08:20:54 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1upjY2-00000004O5s-0TTq;
+	Sat, 23 Aug 2025 08:24:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upZIT-00000003Uyv-0HgW
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 21:27:43 +0000
+	id 1upj76-00000004JRg-0coc;
+	Sat, 23 Aug 2025 07:56:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 37187A58C00;
-	Fri, 22 Aug 2025 21:27:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7DAEC4CEF1;
-	Fri, 22 Aug 2025 21:27:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8BB886023E;
+	Sat, 23 Aug 2025 07:56:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2B80C4CEE7;
+	Sat, 23 Aug 2025 07:56:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755898059;
-	bh=HpMSsYpyCPlFj74ZKEihN0J4dnJzaki8VEY4sa1qWsQ=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=c2SDqyJScPESg1glrinrRFpy9UCxzbJCA6GcUNaYpTyIXMkZ5nhtCk/toPGPkQEe8
-	 WRqxHBLe+21e5iEUMWMIpsGGMaD/G1gGR+tuB8JFuJliC76OQkMv16v+MxqiZA9h59
-	 SZf2a/U7wfpeHpktuydgkejUFxMHFa9g6KOZpN2DbEgbW/o0kvMI86dj7uRV86D/hG
-	 cRsAxOnaHhGR6BHovF0z47TkjrxS5+xlNZOnIiu+CxJ9o5XHGfrb+wCpTrhQi0FHMa
-	 GcBiFFh6yQ/199NWzIfBD895L2/MGoXJyvN1vdiZCNquyo9ILoodvYZuFXhjUuy0pq
-	 b7bh9BsfoALLg==
-Date: Fri, 22 Aug 2025 16:27:39 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20201202; t=1755935793;
+	bh=Tbme8j5p7op4L6staVb0SYIyNq6Rfw+asaK7RC4Bgu4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=DEuA0nsmNpRsG8Zr7JOf1GFl3750lOiEqavhv6ysiK3Ksg9bjVyWxn/yXWGZGxKBm
+	 b7zSJ4Hd8kb+x02iBWxRe0Q3ZSpTtRDr8XoJy2QOhcG3T1P1/KsYVSGW76UwuYCBBq
+	 USEdK3WFEj1wkd815C1Rveo4Vq0b3dVfO9KPBY2an4U+DCLzSg8u+nCM7gfuOxbWP0
+	 DIa78dXZyatZWFqq4tCH9HhZ6Las2mSYbnsRKC77l5PuF1JTnZUTQFL/S1AIIwKLXH
+	 Q5Sw6uWW2poyl99pa1/O17VXdXEnK0V4csM8+KLFUZAcTAfyCfk21zARXIF7HO7WQh
+	 cHCplH6gqkKOw==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Sat, 23 Aug 2025 09:56:04 +0200
+Subject: [PATCH net-next v3 3/3] net: airoha: Introduce check_skb callback
+ in ppe_dev ops
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
- devicetree@vger.kernel.org, Gregory Clement <gregory.clement@bootlin.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20250822133329.312326-3-krzysztof.kozlowski@linaro.org>
-References: <20250822133329.312326-3-krzysztof.kozlowski@linaro.org>
-Message-Id: <175589786306.518460.17450425303264875357.robh@kernel.org>
-Subject: Re: [PATCH 1/2] arm64: dts: marvell: armada-37xx: Add default PCI
- interrup controller address cells
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_142741_266443_44C82F14 
-X-CRM114-Status: GOOD (  16.98  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250823-airoha-en7581-wlan-rx-offload-v3-3-f78600ec3ed8@kernel.org>
+References: <20250823-airoha-en7581-wlan-rx-offload-v3-0-f78600ec3ed8@kernel.org>
+In-Reply-To: <20250823-airoha-en7581-wlan-rx-offload-v3-0-f78600ec3ed8@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,130 +72,216 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Export airoha_ppe_check_skb routine in ppe_dev ops. check_skb callback
+will be used by the MT76 driver in order to offload the traffic received
+by the wlan NIC and forwarded to the ethernet one.
+Add rx_wlan parameter to airoha_ppe_check_skb routine signature.
 
-On Fri, 22 Aug 2025 15:33:30 +0200, Krzysztof Kozlowski wrote:
-> Add missing address-cells 0 to the PCI interrupt node to silence W=1
-> warning:
-> 
->   armada-37xx.dtsi:518.4-521.29: Warning (interrupt_map): /soc/pcie@d0070000:interrupt-map:
->     Missing property '#address-cells' in node /soc/pcie@d0070000/interrupt-controller, using 0 as fallback
-> 
-> Value '0' is correct because:
-> 1. GIC interrupt controller does not have children,
-> 2. interrupt-map property (in PCI node) consists of five components and
->    the fourth component "parent unit address", which size is defined by
->    '#address-cells' of the node pointed to by the interrupt-parent
->    component, is not used (=0)
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> ---
->  arch/arm64/boot/dts/marvell/armada-37xx.dtsi | 1 +
->  1 file changed, 1 insertion(+)
-> 
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/ethernet/airoha/airoha_eth.c  |  3 ++-
+ drivers/net/ethernet/airoha/airoha_eth.h  |  8 ++------
+ drivers/net/ethernet/airoha/airoha_ppe.c  | 25 ++++++++++++++-----------
+ include/linux/soc/airoha/airoha_offload.h | 20 ++++++++++++++++++++
+ 4 files changed, 38 insertions(+), 18 deletions(-)
 
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index 5a04f90dd3de47ae0ee8e90bfe221618076297e6..81ea01a652b9c545c348ad6390af8be873a4997f 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -698,7 +698,8 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
+ 
+ 		reason = FIELD_GET(AIROHA_RXD4_PPE_CPU_REASON, msg1);
+ 		if (reason == PPE_CPU_REASON_HIT_UNBIND_RATE_REACHED)
+-			airoha_ppe_check_skb(eth->ppe, q->skb, hash);
++			airoha_ppe_check_skb(&eth->ppe->dev, q->skb, hash,
++					     false);
+ 
+ 		done++;
+ 		napi_gro_receive(&q->napi, q->skb);
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+index 9060b1d2814e0e4023d42a05ecb5265212df588f..77fd13d466dcd235a3ab39a488aa26d8f793cf77 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.h
++++ b/drivers/net/ethernet/airoha/airoha_eth.h
+@@ -229,10 +229,6 @@ struct airoha_hw_stats {
+ 	u64 rx_len[7];
+ };
+ 
+-enum {
+-	PPE_CPU_REASON_HIT_UNBIND_RATE_REACHED = 0x0f,
+-};
+-
+ enum {
+ 	AIROHA_FOE_STATE_INVALID,
+ 	AIROHA_FOE_STATE_UNBIND,
+@@ -622,8 +618,8 @@ static inline bool airhoa_is_lan_gdm_port(struct airoha_gdm_port *port)
+ bool airoha_is_valid_gdm_port(struct airoha_eth *eth,
+ 			      struct airoha_gdm_port *port);
+ 
+-void airoha_ppe_check_skb(struct airoha_ppe *ppe, struct sk_buff *skb,
+-			  u16 hash);
++void airoha_ppe_check_skb(struct airoha_ppe_dev *dev, struct sk_buff *skb,
++			  u16 hash, bool rx_wlan);
+ int airoha_ppe_setup_tc_block_cb(struct airoha_ppe_dev *dev, void *type_data);
+ int airoha_ppe_init(struct airoha_eth *eth);
+ void airoha_ppe_deinit(struct airoha_eth *eth);
+diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+index 03d9b1f24bb34008b36d9590ec355f4503f9b01c..78473527ff508919fa60a464917617cb882aac20 100644
+--- a/drivers/net/ethernet/airoha/airoha_ppe.c
++++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+@@ -616,7 +616,7 @@ static bool airoha_ppe_foe_compare_entry(struct airoha_flow_table_entry *e,
+ 
+ static int airoha_ppe_foe_commit_entry(struct airoha_ppe *ppe,
+ 				       struct airoha_foe_entry *e,
+-				       u32 hash)
++				       u32 hash, bool rx_wlan)
+ {
+ 	struct airoha_foe_entry *hwe = ppe->foe + hash * sizeof(*hwe);
+ 	u32 ts = airoha_ppe_get_timestamp(ppe);
+@@ -639,7 +639,8 @@ static int airoha_ppe_foe_commit_entry(struct airoha_ppe *ppe,
+ 		goto unlock;
+ 	}
+ 
+-	airoha_ppe_foe_flow_stats_update(ppe, npu, hwe, hash);
++	if (!rx_wlan)
++		airoha_ppe_foe_flow_stats_update(ppe, npu, hwe, hash);
+ 
+ 	if (hash < PPE_SRAM_NUM_ENTRIES) {
+ 		dma_addr_t addr = ppe->foe_dma + hash * sizeof(*hwe);
+@@ -665,7 +666,7 @@ static void airoha_ppe_foe_remove_flow(struct airoha_ppe *ppe,
+ 		e->data.ib1 &= ~AIROHA_FOE_IB1_BIND_STATE;
+ 		e->data.ib1 |= FIELD_PREP(AIROHA_FOE_IB1_BIND_STATE,
+ 					  AIROHA_FOE_STATE_INVALID);
+-		airoha_ppe_foe_commit_entry(ppe, &e->data, e->hash);
++		airoha_ppe_foe_commit_entry(ppe, &e->data, e->hash, false);
+ 		e->hash = 0xffff;
+ 	}
+ 	if (e->type == FLOW_TYPE_L2_SUBFLOW) {
+@@ -704,7 +705,7 @@ static void airoha_ppe_foe_flow_remove_entry(struct airoha_ppe *ppe,
+ static int
+ airoha_ppe_foe_commit_subflow_entry(struct airoha_ppe *ppe,
+ 				    struct airoha_flow_table_entry *e,
+-				    u32 hash)
++				    u32 hash, bool rx_wlan)
+ {
+ 	u32 mask = AIROHA_FOE_IB1_BIND_PACKET_TYPE | AIROHA_FOE_IB1_BIND_UDP;
+ 	struct airoha_foe_entry *hwe_p, hwe;
+@@ -745,14 +746,14 @@ airoha_ppe_foe_commit_subflow_entry(struct airoha_ppe *ppe,
+ 	}
+ 
+ 	hwe.bridge.data = e->data.bridge.data;
+-	airoha_ppe_foe_commit_entry(ppe, &hwe, hash);
++	airoha_ppe_foe_commit_entry(ppe, &hwe, hash, rx_wlan);
+ 
+ 	return 0;
+ }
+ 
+ static void airoha_ppe_foe_insert_entry(struct airoha_ppe *ppe,
+ 					struct sk_buff *skb,
+-					u32 hash)
++					u32 hash, bool rx_wlan)
+ {
+ 	struct airoha_flow_table_entry *e;
+ 	struct airoha_foe_bridge br = {};
+@@ -785,7 +786,7 @@ static void airoha_ppe_foe_insert_entry(struct airoha_ppe *ppe,
+ 		if (!airoha_ppe_foe_compare_entry(e, hwe))
+ 			continue;
+ 
+-		airoha_ppe_foe_commit_entry(ppe, &e->data, hash);
++		airoha_ppe_foe_commit_entry(ppe, &e->data, hash, rx_wlan);
+ 		commit_done = true;
+ 		e->hash = hash;
+ 	}
+@@ -797,7 +798,7 @@ static void airoha_ppe_foe_insert_entry(struct airoha_ppe *ppe,
+ 	e = rhashtable_lookup_fast(&ppe->l2_flows, &br,
+ 				   airoha_l2_flow_table_params);
+ 	if (e)
+-		airoha_ppe_foe_commit_subflow_entry(ppe, e, hash);
++		airoha_ppe_foe_commit_subflow_entry(ppe, e, hash, rx_wlan);
+ unlock:
+ 	spin_unlock_bh(&ppe_lock);
+ }
+@@ -1301,9 +1302,10 @@ int airoha_ppe_setup_tc_block_cb(struct airoha_ppe_dev *dev, void *type_data)
+ 	return err;
+ }
+ 
+-void airoha_ppe_check_skb(struct airoha_ppe *ppe, struct sk_buff *skb,
+-			  u16 hash)
++void airoha_ppe_check_skb(struct airoha_ppe_dev *dev, struct sk_buff *skb,
++			  u16 hash, bool rx_wlan)
+ {
++	struct airoha_ppe *ppe = dev->priv;
+ 	u16 now, diff;
+ 
+ 	if (hash > PPE_HASH_MASK)
+@@ -1315,7 +1317,7 @@ void airoha_ppe_check_skb(struct airoha_ppe *ppe, struct sk_buff *skb,
+ 		return;
+ 
+ 	ppe->foe_check_time[hash] = now;
+-	airoha_ppe_foe_insert_entry(ppe, skb, hash);
++	airoha_ppe_foe_insert_entry(ppe, skb, hash, rx_wlan);
+ }
+ 
+ void airoha_ppe_init_upd_mem(struct airoha_gdm_port *port)
+@@ -1404,6 +1406,7 @@ int airoha_ppe_init(struct airoha_eth *eth)
+ 		return -ENOMEM;
+ 
+ 	ppe->dev.ops.setup_tc_block_cb = airoha_ppe_setup_tc_block_cb;
++	ppe->dev.ops.check_skb = airoha_ppe_check_skb;
+ 	ppe->dev.priv = ppe;
+ 
+ 	foe_size = PPE_NUM_ENTRIES * sizeof(struct airoha_foe_entry);
+diff --git a/include/linux/soc/airoha/airoha_offload.h b/include/linux/soc/airoha/airoha_offload.h
+index 4b4b8b9e426dbc555bec4438b5e110cd235d2edc..1dc5b4e35ef9eaa1d06072a6b6dad52902468f79 100644
+--- a/include/linux/soc/airoha/airoha_offload.h
++++ b/include/linux/soc/airoha/airoha_offload.h
+@@ -9,10 +9,17 @@
+ #include <linux/spinlock.h>
+ #include <linux/workqueue.h>
+ 
++enum {
++	PPE_CPU_REASON_HIT_UNBIND_RATE_REACHED = 0x0f,
++};
++
+ struct airoha_ppe_dev {
+ 	struct {
+ 		int (*setup_tc_block_cb)(struct airoha_ppe_dev *dev,
+ 					 void *type_data);
++		void (*check_skb)(struct airoha_ppe_dev *dev,
++				  struct sk_buff *skb, u16 hash,
++				  bool rx_wlan);
+ 	} ops;
+ 
+ 	void *priv;
+@@ -27,6 +34,13 @@ static inline int airoha_ppe_dev_setup_tc_block_cb(struct airoha_ppe_dev *dev,
+ {
+ 	return dev->ops.setup_tc_block_cb(dev, type_data);
+ }
++
++static inline void airoha_ppe_dev_check_skb(struct airoha_ppe_dev *dev,
++					    struct sk_buff *skb,
++					    u16 hash, bool rx_wlan)
++{
++	dev->ops.check_skb(dev, skb, hash, rx_wlan);
++}
+ #else
+ static inline struct airoha_ppe_dev *airoha_ppe_get_dev(struct device *dev)
+ {
+@@ -42,6 +56,12 @@ static inline int airoha_ppe_setup_tc_block_cb(struct airoha_ppe_dev *dev,
+ {
+ 	return -EOPNOTSUPP;
+ }
++
++static inline void airoha_ppe_dev_check_skb(struct airoha_ppe_dev *dev,
++					    struct sk_buff *skb, u16 hash,
++					    bool rx_wlan)
++{
++}
+ #endif
+ 
+ #define NPU_NUM_CORES		8
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: tags/next-20250822 (exact match)
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/marvell/' for 20250822133329.312326-3-krzysztof.kozlowski@linaro.org:
-
-arch/arm64/boot/dts/marvell/cn9130-cf-pro.dtb: /soc/bus@f0000000/system-controller@6f8000/clock-cpu: failed to match any schema with compatible: ['marvell,ap807-cpu-clock']
-arch/arm64/boot/dts/marvell/cn9130-db.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/cn9130-cf-pro.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/cn9130-cf-base.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/cn9131-db.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/armada-7040-db.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/armada-3720-espressobin-emmc.dtb: usb@58000 (marvell,armada3700-xhci): Unevaluated properties are not allowed ('marvell,usb-misc-reg' was unexpected)
-	from schema $id: http://devicetree.org/schemas/usb/generic-xhci.yaml#
-arch/arm64/boot/dts/marvell/armada-7040-mochabin.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/cn9131-db.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/cn9132-clearfog.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/cn9132-clearfog.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/cn9130-db-B.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/armada-3720-espressobin-v7-emmc.dtb: mmc@d8000 (marvell,armada-3700-sdhci): Unevaluated properties are not allowed ('marvell,xenon-emmc' was unexpected)
-	from schema $id: http://devicetree.org/schemas/mmc/marvell,xenon-sdhci.yaml#
-arch/arm64/boot/dts/marvell/armada-8040-puzzle-m801.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-arch/arm64/boot/dts/marvell/armada-8040-puzzle-m801.dtb: connector (usb-a-connector): Unevaluated properties are not allowed ('phy-supply' was unexpected)
-	from schema $id: http://devicetree.org/schemas/connector/usb-connector.yaml#
-arch/arm64/boot/dts/marvell/cn9131-db-B.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/armada-8040-puzzle-m801.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/cn9131-db-B.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/armada-8040-clearfog-gt-8k.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/cn9131-db-B.dtb: /cp1-bus/bus@f4000000/system-controller@440000/clock: failed to match any schema with compatible: ['marvell,cp110-clock']
-arch/arm64/boot/dts/marvell/cn9131-cf-solidwan.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/cn9132-db-B.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/armada-8040-mcbin-singleshot.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/cn9131-cf-solidwan.dtb: /cp0-bus/bus@f2000000/system-controller@400000/thermal-sensor@70: failed to match any schema with compatible: ['marvell,armada-cp110-thermal']
-arch/arm64/boot/dts/marvell/ac5x-rd-carrier-cn9131.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/armada-8040-clearfog-gt-8k.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/cn9132-db-B.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/armada-8040-mcbin-singleshot.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/ac5x-rd-carrier-cn9131.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/cn9132-db-B.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/cn9131-cf-solidwan.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/cn9132-db.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/armada-8040-db.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/cn9130-crb-B.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/cn9130-crb-A.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/armada-8040-db.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/cn9132-db.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-arch/arm64/boot/dts/marvell/cn9132-db.dtb: interrupt-controller@1e0000 (marvell,cp110-icu): interrupt-controller@10: '#address-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/marvell,cp110-icu.yaml#
-
-
-
-
+-- 
+2.50.1
 
 
