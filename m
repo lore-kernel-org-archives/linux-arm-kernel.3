@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ED39CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 16:24:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C09CCA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 16:27:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r8VX6q4SLW6XTQ4SBgLqTZXOM7mhPBvjlSBRKSc2NaI=; b=IGN82em1M+Zvay/cIhdITmFKmQ
-	Kvn2RDAriSeLGzZWiY+O5O789YeQssZOmQeXQGRrJzbEQGBBTGRHzbnCK8GQlG1twAGZS+S2tVRTx
-	Afk5lVTcUorhuLWdSH02nbvE/g2qHRW3DGNW9gFQZqo+pV8QRa6JwVX+IJDfZ3VMfpsB6dKA90et5
-	tnEx8cB4d7s/QMFLUcBZE8UEZMwbwIHCBKzZFfTHDc6uhjmRtTxHY8fpnt/hXSFuaTSTppJGwmEO/
-	xSAYF4xBTuPyHzcLpGrijRjYBMwspV+ygglo5h/WJwAWkYBHbEfkY5pD+0ah1Ri2neqLoBgAfrn87
-	pGswmB7Q==;
+	bh=rU7gWusshSJ6qaRoA/42+WybwOoeRAujT5OsyNjleYU=; b=c6uktfeLzlxeVo/oGO6Wryl6aU
+	LWBthPsooFeLErF2mJVkJg8uPH6VqaQk+31aG63faK+09oN0OWJEvvHdxbkTN15XdB/WAc0hKrLM7
+	f/TDyeoxDpWwR9ecm73+un8DfNEW+bFMYC0aRUCYYfZf3aVGMcf6NhBfC8J2z6PTpECA82PtQOWq9
+	wEc70BGpTW+G7KTSE66uCFrsNyHWgAX64M1W2Da0oxJLpbrALTEcC7Nink8Q+qV25vHJ1dVbjQNxj
+	GAJftYqYdiwtb8SWxbG+MqA2fFcy2TIFJlK6YYpjliKa1c5N+Y6OtiRbKclKs4Vod8J+kZu5dOo17
+	y2yXr7JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upr2b-000000051lb-0N2T;
-	Sat, 23 Aug 2025 16:24:29 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1upr5B-000000051uK-3lVG;
+	Sat, 23 Aug 2025 16:27:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upqcw-00000004wzY-1pkv
+	id 1upqd0-00000004x0W-1Hsp
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 Aug 2025 15:57:59 +0000
+	Sat, 23 Aug 2025 15:58:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id F0D125C4573;
-	Sat, 23 Aug 2025 15:57:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD23BC116B1;
-	Sat, 23 Aug 2025 15:57:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7024C60007;
+	Sat, 23 Aug 2025 15:58:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 437F9C116B1;
+	Sat, 23 Aug 2025 15:57:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755964677;
-	bh=pVQUvqJRO5H4sWHsAkGOHbGYc59txE4I2DP6q9gpHjo=;
+	s=k20201202; t=1755964681;
+	bh=eRF0y8k9gBqSWRmWw3RnFEXQjPJyHVaqp9mzsJmVrLg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KAgudiOBs/ydEz7Y58Rut0JazrdH1up7gt3gCUfUXKuw+UnVYsonvPtJg3vchhnM7
-	 kOfA9WWGjieQlf68ZZs7oj6+fL9R9SZOVUssw6YaLnKJrMgiy1D6wRHzp53xyUUk7g
-	 r3bbW89sWFMnv7ct8puViNlM/ZeSTPlkS0BHydhJCZPtUo2JuE+kbO0GCXNDZ3ieds
-	 jFXzWZSFHnJ+YP72rg4kENj7myFu8IkVw91IiTW0OVtXpKp9l4PWy2EULSjoy7bZXu
-	 7evyz9/jIoOtmeEcqcbkMNNbuUD5LJAeic3whvG1tiGEQ/Ju93efldoTWG0sEygFl8
-	 cDEGXocRB0zXQ==
+	b=CeF86+0yhUk+/N7XRTd+EFTcLdsIqcBniToNywamiSlQP1uXKp/0hQsEkvclMka1D
+	 tdhju8kL5Kn202gKepoh9ZWI3HUVsWs1saxwlFc/YNJrO+5v3xBxqk9jOKcN0fbyUc
+	 nNp438NTCjsObF4kh/pTJrkRNQ7ucIiMyBmrcID1SjD/IcLkrwaPzjw4Sx7P4sLtT8
+	 2HWroMI6+Ub+zSjinWZ5ATbQplQDvP9/Kae1D21yKpj4em7gbjqdK+O/YzrKTnT8YL
+	 gRKJOOp3m2B/oS+ryY1i2JaLSssdNYhnSVoKtIe4PDjz+989OkmCRnjQKr4NV7yRK2
+	 2dJuTypWkffRA==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Vinod Koul <vkoul@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -52,17 +52,14 @@ Cc: dmaengine@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 09/14] dmaengine: dma350: Support dma-channel-mask
-Date: Sat, 23 Aug 2025 23:40:04 +0800
-Message-ID: <20250823154009.25992-10-jszhang@kernel.org>
+Subject: [PATCH 10/14] dmaengine: dma350: Alloc command[] from dma pool
+Date: Sat, 23 Aug 2025 23:40:05 +0800
+Message-ID: <20250823154009.25992-11-jszhang@kernel.org>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250823154009.25992-1-jszhang@kernel.org>
 References: <20250823154009.25992-1-jszhang@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250823_085758_514143_FD18D964 
-X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,66 +74,302 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Not all channels are available to kernel, we need to support
-dma-channel-mask.
+Currently, the command[] is allocated with kzalloc(), but dma350 may be
+used on dma-non-coherent platforms, to prepare the support of peripheral
+and scatter-gather chaining on both dma-coherent and dma-non-coherent
+platforms, let's alloc them from dma pool.
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
- drivers/dma/arm-dma350.c | 20 ++++++++++++++++++--
- 1 file changed, 18 insertions(+), 2 deletions(-)
+ drivers/dma/arm-dma350.c | 143 +++++++++++++++++++++++++++++++--------
+ 1 file changed, 113 insertions(+), 30 deletions(-)
 
 diff --git a/drivers/dma/arm-dma350.c b/drivers/dma/arm-dma350.c
-index 6a6d1c2a3ee6..72067518799e 100644
+index 72067518799e..3d26a1f020df 100644
 --- a/drivers/dma/arm-dma350.c
 +++ b/drivers/dma/arm-dma350.c
-@@ -534,7 +534,7 @@ static int d350_probe(struct platform_device *pdev)
- 	struct device *dev = &pdev->dev;
- 	struct d350 *dmac;
- 	void __iomem *base;
--	u32 reg;
-+	u32 reg, dma_chan_mask;
- 	int ret, nchan, dw, aw, r, p;
- 	bool coherent, memset;
+@@ -4,6 +4,7 @@
  
-@@ -563,6 +563,15 @@ static int d350_probe(struct platform_device *pdev)
+ #include <linux/bitfield.h>
+ #include <linux/dmaengine.h>
++#include <linux/dmapool.h>
+ #include <linux/dma-mapping.h>
+ #include <linux/io.h>
+ #include <linux/of.h>
+@@ -143,6 +144,7 @@
+ #define LINK_LINKADDR		BIT(30)
+ #define LINK_LINKADDRHI		BIT(31)
  
- 	dmac->nchan = nchan;
++#define D350_MAX_CMDS		16
  
-+	/* Enable all channels by default */
-+	dma_chan_mask = nchan - 1;
+ enum ch_ctrl_donetype {
+ 	CH_CTRL_DONETYPE_NONE = 0,
+@@ -169,18 +171,25 @@ enum ch_cfg_memattr {
+ 	MEMATTR_WB = 0xff
+ };
+ 
+-struct d350_desc {
+-	struct virt_dma_desc vd;
+-	u32 command[16];
++struct d350_sg {
++	u32 *command;
++	dma_addr_t phys;
+ 	u16 xsize;
+ 	u16 xsizehi;
+ 	u8 tsz;
+ };
+ 
++struct d350_desc {
++	struct virt_dma_desc vd;
++	u32 sglen;
++	struct d350_sg sg[] __counted_by(sglen);
++};
 +
-+	ret = of_property_read_u32(dev->of_node, "dma-channel-mask", &dma_chan_mask);
-+	if (ret < 0 && (ret != -EINVAL)) {
-+		dev_err(&pdev->dev, "dma-channel-mask is not complete.\n");
-+		return ret;
+ struct d350_chan {
+ 	struct virt_dma_chan vc;
+ 	struct d350_desc *desc;
+ 	void __iomem *base;
++	struct dma_pool *cmd_pool;
+ 	int irq;
+ 	enum dma_status status;
+ 	dma_cookie_t cookie;
+@@ -210,7 +219,14 @@ static inline struct d350_desc *to_d350_desc(struct virt_dma_desc *vd)
+ 
+ static void d350_desc_free(struct virt_dma_desc *vd)
+ {
+-	kfree(to_d350_desc(vd));
++	struct d350_chan *dch = to_d350_chan(vd->tx.chan);
++	struct d350_desc *desc = to_d350_desc(vd);
++	int i;
++
++	for (i = 0; i < desc->sglen; i++)
++		dma_pool_free(dch->cmd_pool, desc->sg[i].command, desc->sg[i].phys);
++
++	kfree(desc);
+ }
+ 
+ static struct dma_async_tx_descriptor *d350_prep_memcpy(struct dma_chan *chan,
+@@ -218,22 +234,32 @@ static struct dma_async_tx_descriptor *d350_prep_memcpy(struct dma_chan *chan,
+ {
+ 	struct d350_chan *dch = to_d350_chan(chan);
+ 	struct d350_desc *desc;
++	struct d350_sg *sg;
++	dma_addr_t phys;
+ 	u32 *cmd;
+ 
+-	desc = kzalloc(sizeof(*desc), GFP_NOWAIT);
++	desc = kzalloc(struct_size(desc, sg, 1), GFP_NOWAIT);
+ 	if (!desc)
+ 		return NULL;
+ 
+-	desc->tsz = __ffs(len | dest | src | (1 << dch->tsz));
+-	desc->xsize = lower_16_bits(len >> desc->tsz);
+-	desc->xsizehi = upper_16_bits(len >> desc->tsz);
++	sg = &desc->sg[0];
++	sg->command = dma_pool_zalloc(dch->cmd_pool, GFP_NOWAIT, &phys);
++	if (unlikely(!sg->command)) {
++		kfree(desc);
++		return NULL;
++	}
++	sg->phys = phys;
++
++	sg->tsz = __ffs(len | dest | src | (1 << dch->tsz));
++	sg->xsize = lower_16_bits(len >> sg->tsz);
++	sg->xsizehi = upper_16_bits(len >> sg->tsz);
+ 
+-	cmd = desc->command;
++	cmd = sg->command;
+ 	cmd[0] = LINK_CTRL | LINK_SRCADDR | LINK_SRCADDRHI | LINK_DESADDR |
+ 		 LINK_DESADDRHI | LINK_XSIZE | LINK_XSIZEHI | LINK_SRCTRANSCFG |
+ 		 LINK_DESTRANSCFG | LINK_XADDRINC | LINK_LINKADDR;
+ 
+-	cmd[1] = FIELD_PREP(CH_CTRL_TRANSIZE, desc->tsz) |
++	cmd[1] = FIELD_PREP(CH_CTRL_TRANSIZE, sg->tsz) |
+ 		 FIELD_PREP(CH_CTRL_XTYPE, CH_CTRL_XTYPE_CONTINUE) |
+ 		 FIELD_PREP(CH_CTRL_DONETYPE, CH_CTRL_DONETYPE_CMD);
+ 
+@@ -241,13 +267,15 @@ static struct dma_async_tx_descriptor *d350_prep_memcpy(struct dma_chan *chan,
+ 	cmd[3] = upper_32_bits(src);
+ 	cmd[4] = lower_32_bits(dest);
+ 	cmd[5] = upper_32_bits(dest);
+-	cmd[6] = FIELD_PREP(CH_XY_SRC, desc->xsize) | FIELD_PREP(CH_XY_DES, desc->xsize);
+-	cmd[7] = FIELD_PREP(CH_XY_SRC, desc->xsizehi) | FIELD_PREP(CH_XY_DES, desc->xsizehi);
++	cmd[6] = FIELD_PREP(CH_XY_SRC, sg->xsize) | FIELD_PREP(CH_XY_DES, sg->xsize);
++	cmd[7] = FIELD_PREP(CH_XY_SRC, sg->xsizehi) | FIELD_PREP(CH_XY_DES, sg->xsizehi);
+ 	cmd[8] = dch->coherent ? TRANSCFG_WB : TRANSCFG_NC;
+ 	cmd[9] = dch->coherent ? TRANSCFG_WB : TRANSCFG_NC;
+ 	cmd[10] = FIELD_PREP(CH_XY_SRC, 1) | FIELD_PREP(CH_XY_DES, 1);
+ 	cmd[11] = 0;
+ 
++	mb();
++
+ 	return vchan_tx_prep(&dch->vc, &desc->vd, flags);
+ }
+ 
+@@ -256,34 +284,46 @@ static struct dma_async_tx_descriptor *d350_prep_memset(struct dma_chan *chan,
+ {
+ 	struct d350_chan *dch = to_d350_chan(chan);
+ 	struct d350_desc *desc;
++	struct d350_sg *sg;
++	dma_addr_t phys;
+ 	u32 *cmd;
+ 
+-	desc = kzalloc(sizeof(*desc), GFP_NOWAIT);
++	desc = kzalloc(struct_size(desc, sg, 1), GFP_NOWAIT);
+ 	if (!desc)
+ 		return NULL;
+ 
+-	desc->tsz = __ffs(len | dest | (1 << dch->tsz));
+-	desc->xsize = lower_16_bits(len >> desc->tsz);
+-	desc->xsizehi = upper_16_bits(len >> desc->tsz);
++	sg = &desc->sg[0];
++	sg->command = dma_pool_zalloc(dch->cmd_pool, GFP_NOWAIT, &phys);
++	if (unlikely(!sg->command)) {
++		kfree(desc);
++		return NULL;
++	}
++	sg->phys = phys;
++
++	sg->tsz = __ffs(len | dest | (1 << dch->tsz));
++	sg->xsize = lower_16_bits(len >> sg->tsz);
++	sg->xsizehi = upper_16_bits(len >> sg->tsz);
+ 
+-	cmd = desc->command;
++	cmd = sg->command;
+ 	cmd[0] = LINK_CTRL | LINK_DESADDR | LINK_DESADDRHI |
+ 		 LINK_XSIZE | LINK_XSIZEHI | LINK_DESTRANSCFG |
+ 		 LINK_XADDRINC | LINK_FILLVAL | LINK_LINKADDR;
+ 
+-	cmd[1] = FIELD_PREP(CH_CTRL_TRANSIZE, desc->tsz) |
++	cmd[1] = FIELD_PREP(CH_CTRL_TRANSIZE, sg->tsz) |
+ 		 FIELD_PREP(CH_CTRL_XTYPE, CH_CTRL_XTYPE_FILL) |
+ 		 FIELD_PREP(CH_CTRL_DONETYPE, CH_CTRL_DONETYPE_CMD);
+ 
+ 	cmd[2] = lower_32_bits(dest);
+ 	cmd[3] = upper_32_bits(dest);
+-	cmd[4] = FIELD_PREP(CH_XY_DES, desc->xsize);
+-	cmd[5] = FIELD_PREP(CH_XY_DES, desc->xsizehi);
++	cmd[4] = FIELD_PREP(CH_XY_DES, sg->xsize);
++	cmd[5] = FIELD_PREP(CH_XY_DES, sg->xsizehi);
+ 	cmd[6] = dch->coherent ? TRANSCFG_WB : TRANSCFG_NC;
+ 	cmd[7] = FIELD_PREP(CH_XY_DES, 1);
+ 	cmd[8] = (u8)value * 0x01010101;
+ 	cmd[9] = 0;
+ 
++	mb();
++
+ 	return vchan_tx_prep(&dch->vc, &desc->vd, flags);
+ }
+ 
+@@ -319,8 +359,9 @@ static int d350_resume(struct dma_chan *chan)
+ 
+ static u32 d350_get_residue(struct d350_chan *dch)
+ {
+-	u32 res, xsize, xsizehi, hi_new;
+-	int retries = 3; /* 1st time unlucky, 2nd improbable, 3rd just broken */
++	u32 res, xsize, xsizehi, linkaddr, linkaddrhi, hi_new;
++	int i, sgcur, retries = 3; /* 1st time unlucky, 2nd improbable, 3rd just broken */
++	struct d350_desc *desc = dch->desc;
+ 
+ 	hi_new = readl_relaxed(dch->base + CH_XSIZEHI);
+ 	do {
+@@ -329,10 +370,26 @@ static u32 d350_get_residue(struct d350_chan *dch)
+ 		hi_new = readl_relaxed(dch->base + CH_XSIZEHI);
+ 	} while (xsizehi != hi_new && --retries);
+ 
++	hi_new = readl_relaxed(dch->base + CH_LINKADDRHI);
++	do {
++		linkaddrhi = hi_new;
++		linkaddr = readl_relaxed(dch->base + CH_LINKADDR);
++		hi_new = readl_relaxed(dch->base + CH_LINKADDRHI);
++	} while (linkaddrhi != hi_new && --retries);
++
++	for (i = 0; i < desc->sglen; i++) {
++		if (desc->sg[i].phys == (((u64)linkaddrhi << 32) | (linkaddr & ~CH_LINKADDR_EN)))
++			sgcur = i;
 +	}
 +
- 	reg = readl_relaxed(base + DMAINFO + DMA_BUILDCFG1);
- 	dmac->nreq = FIELD_GET(DMA_CFG_NUM_TRIGGER_IN, reg);
- 
-@@ -592,6 +601,11 @@ static int d350_probe(struct platform_device *pdev)
- 	memset = true;
- 	for (int i = 0; i < nchan; i++) {
- 		struct d350_chan *dch = &dmac->channels[i];
-+		char ch_irqname[8];
+ 	res = FIELD_GET(CH_XY_DES, xsize);
+ 	res |= FIELD_GET(CH_XY_DES, xsizehi) << 16;
++	res <<= desc->sg[sgcur].tsz;
 +
-+		/* skip for reserved channels */
-+		if (!test_bit(i, (unsigned long *)&dma_chan_mask))
-+			continue;
++	for (i = sgcur + 1; i < desc->sglen; i++)
++		res += (((u32)desc->sg[i].xsizehi << 16 | desc->sg[i].xsize) << desc->sg[i].tsz);
  
- 		dch->coherent = coherent;
- 		dch->base = base + DMACH(i);
-@@ -602,7 +616,9 @@ static int d350_probe(struct platform_device *pdev)
- 			dev_warn(dev, "No command link support on channel %d\n", i);
- 			continue;
- 		}
--		dch->irq = platform_get_irq(pdev, i);
+-	return res << dch->desc->tsz;
++	return res;
+ }
+ 
+ static int d350_terminate_all(struct dma_chan *chan)
+@@ -365,7 +422,13 @@ static void d350_synchronize(struct dma_chan *chan)
+ 
+ static u32 d350_desc_bytes(struct d350_desc *desc)
+ {
+-	return ((u32)desc->xsizehi << 16 | desc->xsize) << desc->tsz;
++	int i;
++	u32 bytes = 0;
 +
-+		snprintf(ch_irqname, sizeof(ch_irqname), "ch%d", i);
-+		dch->irq = platform_get_irq_byname(pdev, ch_irqname);
- 		if (dch->irq < 0)
- 			return dch->irq;
++	for (i = 0; i < desc->sglen; i++)
++		bytes += (((u32)desc->sg[i].xsizehi << 16 | desc->sg[i].xsize) << desc->sg[i].tsz);
++
++	return bytes;
+ }
  
+ static enum dma_status d350_tx_status(struct dma_chan *chan, dma_cookie_t cookie,
+@@ -415,8 +478,8 @@ static void d350_start_next(struct d350_chan *dch)
+ 	dch->cookie = dch->desc->vd.tx.cookie;
+ 	dch->residue = d350_desc_bytes(dch->desc);
+ 
+-	hdr = dch->desc->command[0];
+-	reg = &dch->desc->command[1];
++	hdr = dch->desc->sg[0].command[0];
++	reg = &dch->desc->sg[0].command[1];
+ 
+ 	if (hdr & LINK_INTREN)
+ 		writel_relaxed(*reg++, dch->base + CH_INTREN);
+@@ -512,11 +575,29 @@ static irqreturn_t d350_irq(int irq, void *data)
+ static int d350_alloc_chan_resources(struct dma_chan *chan)
+ {
+ 	struct d350_chan *dch = to_d350_chan(chan);
+-	int ret = request_irq(dch->irq, d350_irq, IRQF_SHARED,
+-			      dev_name(&dch->vc.chan.dev->device), dch);
+-	if (!ret)
+-		writel_relaxed(CH_INTREN_DONE | CH_INTREN_ERR, dch->base + CH_INTREN);
++	int ret;
++
++	dch->cmd_pool = dma_pool_create(dma_chan_name(chan),
++					  chan->device->dev,
++					  D350_MAX_CMDS * sizeof(u32),
++					  sizeof(u32), 0);
++	if (!dch->cmd_pool) {
++		dev_err(chan->device->dev, "No memory for cmd pool\n");
++		return -ENOMEM;
++	}
++
++	ret = request_irq(dch->irq, d350_irq, 0,
++			  dev_name(&dch->vc.chan.dev->device), dch);
++	if (ret < 0)
++		goto err_irq;
++
++	writel_relaxed(CH_INTREN_DONE | CH_INTREN_ERR, dch->base + CH_INTREN);
++
++	return 0;
+ 
++err_irq:
++	dma_pool_destroy(dch->cmd_pool);
++	dch->cmd_pool = NULL;
+ 	return ret;
+ }
+ 
+@@ -527,6 +608,8 @@ static void d350_free_chan_resources(struct dma_chan *chan)
+ 	writel_relaxed(0, dch->base + CH_INTREN);
+ 	free_irq(dch->irq, dch);
+ 	vchan_free_chan_resources(&dch->vc);
++	dma_pool_destroy(dch->cmd_pool);
++	dch->cmd_pool = NULL;
+ }
+ 
+ static int d350_probe(struct platform_device *pdev)
 -- 
 2.50.0
 
