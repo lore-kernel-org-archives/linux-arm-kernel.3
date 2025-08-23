@@ -4,65 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BCE9CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:37:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DAC8CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:37:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Vk+Vft+FY8iaRLLaOZ3HBsVpqh3sXMCnKyfCefpECp4=; b=HUD5l8E/MwC06SoVS+mNTAni6D
-	nxR7ns5s0abkPOOr330ioYEwd0lsKbtub9OFxHtpunZ1z65u17iazEEdu5BIWsEVHfqo0QG1F2I0A
-	91nsXNtSSyc7oRYEORCkuamU2D2FaAEwbjrQ93F1FcPtdpdF4bjjVeuS4/CZolnwHhEbt+KXuqz5z
-	b4rPpEG8gZ37SbPyYLwxOfmKC2l0XSLF4qN51Kxxeb9vsrc6AlzvK933eexfpZ76ybHMruxVGud85
-	OLp3FjVdprXIkVflFH6iPjy9ITy/HEdB7LpXSP085WWkZj7M8mo+FxaEkHhKMdGhNyoDcEX90Ueca
-	qF8phyhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=afEq9bHX/2s3KBTTklyPlyvAIAF9EeHEPeuOYA/bDc0=; b=XNTsMtELBPTo5jMboVQMaorq7Q
+	IROaAf58pBtP+Vp/6YYa57Rz/2IPvKC0eCXF1CZ8h9GB21p7Jlw0BLXTd9PEDAsUhuBoJj2ORQrF+
+	h2LSeSiQJ0rL9HxtvHO8pZ7u2LZGAGG4mi6EGz9Qo0bCpCXVAmI1bs8yIqbaR3wu+sMMuIefjmHxH
+	DoYe3KlqZwIfBs9dJPPKWvSaeUU9WmYuEsWTwPk3YzPMeYDBpuDPEqblaZGl9xLNsxmveaqLdnkzv
+	za2pV54DTSi6Y2KGueqdr5/SLlX2rRYhJwmfmufrkOiq4ZuaHdgdtJ5VdWnYc2uuTa3Xbx1b9sCVB
+	YzDaH1Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upkgK-00000004WIE-2jPg;
-	Sat, 23 Aug 2025 09:37:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1upkgL-00000004WLT-44GL;
+	Sat, 23 Aug 2025 09:37:06 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upahA-00000003cvs-40yb
+	id 1upbw3-00000003h2Y-21os
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 22:57:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 58EAA601D3;
-	Fri, 22 Aug 2025 22:57:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1160C4CEED;
-	Fri, 22 Aug 2025 22:57:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755903436;
-	bh=MllpE7EOiK57XkYC3Q0CVPiFqSbds9CUyBPa1yFXM5g=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Td2gekp76Ho02tvvrbx7Vlo1iciPPdsxDPPV7wU6Ylea/HMKF3IEqkR2FA02F/KWA
-	 0wtRgOKeWe2QuLErwPDVNpfU4yu3RXEc/Pgpj6pNu6smrLAtxUrTfTaDUPvgI07EZN
-	 Uug0+oe/THvd0u3wEwG8kmHkwm/OohZy5BwUvvwZqmw3oxgfltS7lT2sLCQmMWmNO7
-	 qgfSftAoDZLhP99vGRM0ANqLC71PgtT3uTxSKtjJFSfJnO41BJdIrcC7P1xhCwCjly
-	 8nlXKf2KAw0/xfp0UEUFOwclvHFqYsscv3SAMc3yl/lH2mxeM1ilMQgNO5Fh9eH6XY
-	 +dI9xqob0svfg==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>,
-	Lukasz Luba <lukasz.luba@arm.com>,
-	Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org
-Subject: [PATCH v2] dt-binding: thermal: Convert marvell,armada-ap806-thermal to DT schema
-Date: Fri, 22 Aug 2025 17:57:00 -0500
-Message-ID: <20250822225701.766947-1-robh@kernel.org>
+	Sat, 23 Aug 2025 00:16:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ftAEZ83I2HSeasLcwriuYki1Rf2EHLPruZg2QIu6yTVL6lYJHGWHGr10VKbwa/ZpTYaAQmH1v6LOHqweYh0lU19CUHHVwODIwUlKj33IuoqjB7nxOgkgvshG2qz5flgIbJI5lUg05umtN549bhg0nQ2Ko9SeGqrxWE6JCQVvlouZyrMoy3UTjulFAdLMe1NMS9GclEpXb+r6hAXsIMlTZhVUsZo6UD1Ai/pzlNMCl2QKUQBvEnL5e/QmVFlXmThKa0WEae3duAIO6TWKWrkeIuxyja0RcdDwwftDL2fLUeNeiCnOimjt/eBtW8Qyanjl3nFiUZwAcK1/0b0VbRUqyA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=afEq9bHX/2s3KBTTklyPlyvAIAF9EeHEPeuOYA/bDc0=;
+ b=oUQuR+gGvXhO4m6G8ZEE2EWGDLIW5IzwXpZcNo9nmiSm6yAAoNARz2pq91i9rNhd+KS1v1UoEKRrDx8+sJbI4chaY9fK0I3GiWGBKbySDAViHVbxD3H/6opht/kMKGyhJdSW9jzpB3f7OOkYGEVVo1MpQHEsvsXTsAP13FONXACMS4wjXZShM5+d3jEFIs4p+JbZb7j5iID6438NvlaboXoOZCFxYwYCc/Cy745n/YzmiT7tNYnUFxKHYImRvoXDSXl7VGiV2TQ0Rsf/HLMVfR/UHlf1FNyYRGSrlpOq0fBiKZcLAkPpflSqpop280HGxG7czkQWbC/Njw4Z1ZBEfg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
+ dkim=pass header.d=iopsys.eu; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=afEq9bHX/2s3KBTTklyPlyvAIAF9EeHEPeuOYA/bDc0=;
+ b=lmjkNaG7K25pNmKSFtEq708XZCAQI8UJcyBEoUa5vsZZ/uTbgPXcCo4hMWdRU4rhObOVQGddqOA2T4Ydzk28FrA0xuRFIkqZ8JITBEz+vgsd7NpBOEMTK2Bbm+Mqi4ajslfYuRyiJnk4hLJWkAD1vy6r6+rQ81A4Edpdz1zUkrJXuOeXf6/w8z1yn9EtKtXbjoHvz1vAactNDr2d64yh7Xo0BvqBsdEjlZW7XNH21VE+zS7a8bcUolQo6XQQg/W4B3HJpbrPBaE8Y1LhrYSYrBoMb0uNrMzU6slNtjwfKvquQCK9iWmIkFayf493Y2DG05p82QcLMCwetfWyThk7lg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=iopsys.eu;
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
+ by AM8PR08MB5618.eurprd08.prod.outlook.com (2603:10a6:20b:1d7::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.24; Sat, 23 Aug
+ 2025 00:16:35 +0000
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0%4]) with mapi id 15.20.9031.018; Sat, 23 Aug 2025
+ 00:16:35 +0000
+From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+To: Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ray Liu <ray.liu@airoha.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jyothi Kumar Seerapu <quic_jseerapu@quicinc.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
+	Frieder Schrempf <frieder.schrempf@kontron.de>
+Subject: [PATCH v4 01/13] spi: airoha: return an error for continuous mode dirmap creation cases
+Date: Sat, 23 Aug 2025 03:16:13 +0300
+Message-ID: <20250823001626.3641935-2-mikhail.kshevetskiy@iopsys.eu>
 X-Mailer: git-send-email 2.50.1
-MIME-Version: 1.0
+In-Reply-To: <20250823001626.3641935-1-mikhail.kshevetskiy@iopsys.eu>
+References: <aKgSY7bOrC8-qZE3@lore-rh-laptop>
+ <20250823001626.3641935-1-mikhail.kshevetskiy@iopsys.eu>
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: GVZP280CA0047.SWEP280.PROD.OUTLOOK.COM
+ (2603:10a6:150:273::8) To GV2PR08MB8121.eurprd08.prod.outlook.com
+ (2603:10a6:150:7d::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|AM8PR08MB5618:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2b1fc31a-5a67-4951-c188-08dde1da51e4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?aq4a8zCk2NnnXripadfqog3QVkgjFD01CAMW8aZn1TM+sgY3LuXOzd4R/CCo?=
+ =?us-ascii?Q?Y/xH7oz1KQxljt3zrUi86d7c7oDOI0haW35F4R4gZjb0ieQ2MidSck1fibJF?=
+ =?us-ascii?Q?keUQT3AA2vIPffKO7tCZPFh8FDlBGfcsmcqzIavyadDJZ/gpNbRug1QnKK5h?=
+ =?us-ascii?Q?Gp8XH0S+6PP6JVq5VCOStYTlgbZWNXsZG6Yx29I+nsxssWoLNdqHKcHKoEOR?=
+ =?us-ascii?Q?jtn5ULTSeYVawfGHL0N67hzlUuM2JrnhDUNrKgkpptoxr0okQoKRq+D4xSw4?=
+ =?us-ascii?Q?M+aT2xWH1v1HO4GCvxI1Xuf9XG7BcWINGu7iq1YkpUIfyPQzuKJ3/LFqC5IP?=
+ =?us-ascii?Q?yDQSY/n+ISgOUByK4yAii6V4r2dEXnp6tX/S5j4+/gAAiaIamSW4mzj36zEm?=
+ =?us-ascii?Q?qMycXWhInQU+tziQpVly4DZC358Z0gmN7gH2/1SJINnXzAc/ZypD1DPEpvep?=
+ =?us-ascii?Q?HUagQhTqMVQcJac7JofBZMDhuzVihPunn5Nblhk8Haf1FlAioklDyOc477CR?=
+ =?us-ascii?Q?55qGYvFs6KtYP1WJscYhbTVJvYO2/twV9fxlTPxzMS0gcxhrMzsY7yQDQQHT?=
+ =?us-ascii?Q?7iEOjjISDAhdLTjzGfAucO0ZD6dv4rr4hp9DIzAT9zpI4ahNtPlWI3O5JWfp?=
+ =?us-ascii?Q?ai8UOQAtCILgFICHa4sG5CheIESP0jt8tFbV3Qvj5dIf5+h96ZPU9Xus81Fd?=
+ =?us-ascii?Q?E6PSewAv/2Rd0sG/9Nh0gs2UB8u8m44sDt4pJE9L6loznLkaGMtNbC6JnQxo?=
+ =?us-ascii?Q?u3L2fku2EPb2BZQ9KeHDBQQ7T3k+jcbduHHcIP0HxCgnyHISyvztxeaIbwBD?=
+ =?us-ascii?Q?ONz/eH40DVdFlSx4+o/LTgtvDrHZliDLMSsYyLDkNEHKFfpEaP9NmGUbOFIn?=
+ =?us-ascii?Q?8L8U3A/KkKAO22wISjq44W6qQGaSpLy7dlo/iWFfXKllI1gBkcGbaV2N2dP+?=
+ =?us-ascii?Q?Y8q3GpcJiOVonfVmuaKgVbUCfbPN4KoN7qz+NZYw2R6Mp5Ihn59olQiXRA20?=
+ =?us-ascii?Q?nF+ZvCU7+8d//pT435FUXkTkXXya/7K640kCFOae6+Zr+nmWHgp8iYCr+rGm?=
+ =?us-ascii?Q?s4Md9CButDLIs3DLAEJDL0D4rzL/fMLtR7ESbYO7qOuAp4T1QoZtYp7FiuMn?=
+ =?us-ascii?Q?bl7SYwvmrIfFyeowwSRQYxc3TKnZVGWI2Qoaa96mK5o9J2szOblNDlt1cASF?=
+ =?us-ascii?Q?EVoM+NGHYlKkr1gVKyUjb394Nn6PxSi81dC0fxrbEmn5hJXRzePOWsvsuzDV?=
+ =?us-ascii?Q?xRyNw0mbwgvGgIHgr8H6Eeb5gCPRUR4tt/VwVmpOvacb+BGlA7uiqqHqe2kn?=
+ =?us-ascii?Q?V/77r+YuXLvD2MdIpbxO2nTp81xyUWvss0Eoh5vJB3Gpq2lfiPvPrBi1Tskv?=
+ =?us-ascii?Q?HRawfLIPgAXGEnDeG7gnXT2zayXkOQvcctz8lkp6VZ2FWAbgg7bDDVFEaQsI?=
+ =?us-ascii?Q?q4ZRcy6lPxFOG2CiQb8KitcJonwFwEHMXCdU80+iJO/MxLMJyuXSRw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(52116014)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Kwoljv3Ji+PZ5vV6nHkNvUb4RmBB606sB74caxAVUlipADkIxfAxmQ7OXHKj?=
+ =?us-ascii?Q?fAVe/DpnZSZwgXlDOt7hRGB+DjzM3yuAlXupDG+ALbawlrLXjAava5/VOAaA?=
+ =?us-ascii?Q?TEANAv5uVvZhw9yh2KCPv3v/UPgN3gJtkV4FF2KDN81Km0WEFGZ9xD1puUZj?=
+ =?us-ascii?Q?G/MhpQKlmpQlPj8633bH7SuWc5d84lOfTiGmujZMnoJntjq+RfnCjH6NleHJ?=
+ =?us-ascii?Q?c7j3PqCFdlrhEWIG5lDhGrJU6HVg2WLiXW3iEkBl8350vL3f1orEXLvrJw8t?=
+ =?us-ascii?Q?rBcXrmBGiaqHj0W9eWLx2/RZnvBnd4GfDYABfQDNb9qHFR5chpvt5Kayn0kN?=
+ =?us-ascii?Q?zdLmB2N65A4R/lir5foufXSHN3trxoEHoZnO5dyvzR38+KpmQSJpeWuLYOeD?=
+ =?us-ascii?Q?AE0AKqbqcOMCO2KEpt2lKYvw40LpaqGMhYiVmYLRjmPcYDsLJTh1Bo/DI0zE?=
+ =?us-ascii?Q?Q9izfLQy7cXzJ96NnXyDqhUyHL/dBMXYkbuUer0f+ILYty5YAPqissER/wXg?=
+ =?us-ascii?Q?sqFDY+4qPItAWaeMAkwt6V5t16Y61+Jd/gMOthCJ96z7/7wuhx01veg0s/1+?=
+ =?us-ascii?Q?nPIWcUpM+8FHOnoIPl8jqyD1TnMWmhzJSooV5g+TXCqx5HEvhIE+NRe5uV2p?=
+ =?us-ascii?Q?BbfJcckHtzfE2Pd6+IcM3uAi6DlWdX0RHJwd00uH6XkDjs5csHKfg6wKa0KZ?=
+ =?us-ascii?Q?rUkOOfvHaXJmfDVGzgqSF5GmpagekMmCjbutAARBICiltihCZI3KN8eIOfQS?=
+ =?us-ascii?Q?3IqrETu8a6LpiL1iUbVdZTv1LmNR+tXQPxT9mReZO4MZowa1mMjqMQs0XVR3?=
+ =?us-ascii?Q?4FZrZ56zzxUZ1QCTyPOtiU+Z3FZcEGrLpu5M+1n9+4ne8NcoAKToG8NM2IdC?=
+ =?us-ascii?Q?C++FMi9kzR1cvXH8VI6JJ0cGpy6J5vrt5346DuJhpVKd2Ht0o/VrofBC1HMt?=
+ =?us-ascii?Q?uLmGeSMrrfsg8vRP5iwg/r5oAeN+8/bAr9TZproMd85+SeqE3ev7b9NXHYV6?=
+ =?us-ascii?Q?FMDzF6FqH+JthNAguUB+ce8FaMaVGe1KBUDZucgx8naFugkBQ1hkgJy7C+ny?=
+ =?us-ascii?Q?4Wxk4HwucLVWxNEJDzRaM+lLu2xHknYasVhQ/DKpFSwqezT+fzCCd3RHX+ag?=
+ =?us-ascii?Q?DNFZF66t+62k/D1cb3jeWUjJSnEenG5g1wKeTwgMK+W8OTV6IzeH+6ww5fW/?=
+ =?us-ascii?Q?5iWFfdRaXkP10myPZ133yvoya6QkiwE6OOedlDnpGMyDKcNqrpKBwS2QBF+Z?=
+ =?us-ascii?Q?DLSWAjFq7cgsiltbGngd06xGlnt8yrQR3e7eGOrPBbdyJYxgTTglH4kSdMKt?=
+ =?us-ascii?Q?y3d445AXieRWjH+/u5uxRNXS9YBBHp7m4YDPEK4GGZaHNEXVgL1hu3MWmF9U?=
+ =?us-ascii?Q?G2p9NmAG/UQuuNOqDMiWQAgt3STubC66VUFzoL2euk0WiYeSllj60nJ6utMc?=
+ =?us-ascii?Q?5eXi6FVlK18yel+VBix0ewUe1RIzNy8U/yy5zednd5FFHsm8P3d+W9wW8iv/?=
+ =?us-ascii?Q?J79xWhS0zKe8wcPI7z7mD7o2diEmRR5UOWpU9bAVnLyTBNYweYw/epBjHPf+?=
+ =?us-ascii?Q?7tI2j0mv1QVQjNghG/88mB3/jyGUfrh1GqO6q4WB9pqKxcufuufC4kHvLhRG?=
+ =?us-ascii?Q?l4VlkRCOvy0R69yh0pKbqbE=3D?=
+X-OriginatorOrg: iopsys.eu
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2b1fc31a-5a67-4951-c188-08dde1da51e4
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Aug 2025 00:16:35.1224
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4Wf4QN4aZL9GjJRrTQj7dVwERSY88XtMg+DDlMKDyGeAHZHe8G+mM6PCJl342KVFDq33HZwpBm1HQNmqrL4Sau4/4+/lXF4bsI+7BLieN6A=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR08MB5618
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250822_171644_095096_EBA73BD0 
+X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,174 +165,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the Marvell Armada AP80x/CP110 thermal binding to schema. It is
-a straight forward conversion.
+This driver can accelerate single page operations only, thus
+continuous reading mode should not be used.
 
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
----
-v2:
- - Mention the SEI connection
----
- .../arm/marvell/ap80x-system-controller.txt   | 39 ----------------
- .../arm/marvell/cp110-system-controller.txt   | 43 -----------------
- .../thermal/marvell,armada-ap806-thermal.yaml | 46 +++++++++++++++++++
- 3 files changed, 46 insertions(+), 82 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/thermal/marvell,armada-ap806-thermal.yaml
+Continuous reading will use sizes up to the size of one erase block.
+This size is much larger than the size of single flash page. Use this
+difference to identify continuous reading and return an error.
 
-diff --git a/Documentation/devicetree/bindings/arm/marvell/ap80x-system-controller.txt b/Documentation/devicetree/bindings/arm/marvell/ap80x-system-controller.txt
-index c83245065d44..72de11bd2ef0 100644
---- a/Documentation/devicetree/bindings/arm/marvell/ap80x-system-controller.txt
-+++ b/Documentation/devicetree/bindings/arm/marvell/ap80x-system-controller.txt
-@@ -115,45 +115,6 @@ ap_syscon: system-controller@6f4000 {
- SYSTEM CONTROLLER 1
- ===================
+Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+Reviewed-by: Frieder Schrempf <frieder.schrempf@kontron.de>
+---
+ drivers/spi/spi-airoha-snfi.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/drivers/spi/spi-airoha-snfi.c b/drivers/spi/spi-airoha-snfi.c
+index dbe640986825..043a03cd90a1 100644
+--- a/drivers/spi/spi-airoha-snfi.c
++++ b/drivers/spi/spi-airoha-snfi.c
+@@ -618,6 +618,10 @@ static int airoha_snand_dirmap_create(struct spi_mem_dirmap_desc *desc)
+ 	if (desc->info.offset + desc->info.length > U32_MAX)
+ 		return -EINVAL;
  
--Thermal:
----------
--
--For common binding part and usage, refer to
--Documentation/devicetree/bindings/thermal/thermal*.yaml
--
--The thermal IP can probe the temperature all around the processor. It
--may feature several channels, each of them wired to one sensor.
--
--It is possible to setup an overheat interrupt by giving at least one
--critical point to any subnode of the thermal-zone node.
--
--Required properties:
--- compatible: must be one of:
--  * marvell,armada-ap806-thermal
--- reg: register range associated with the thermal functions.
--
--Optional properties:
--- interrupts: overheat interrupt handle. Should point to line 18 of the
--  SEI irqchip. See interrupt-controller/interrupts.txt
--- #thermal-sensor-cells: shall be <1> when thermal-zones subnodes refer
--  to this IP and represents the channel ID. There is one sensor per
--  channel. O refers to the thermal IP internal channel, while positive
--  IDs refer to each CPU.
--
--Example:
--ap_syscon1: system-controller@6f8000 {
--	compatible = "syscon", "simple-mfd";
--	reg = <0x6f8000 0x1000>;
--
--	ap_thermal: thermal-sensor@80 {
--		compatible = "marvell,armada-ap806-thermal";
--		reg = <0x80 0x10>;
--		interrupt-parent = <&sei>;
--		interrupts = <18>;
--		#thermal-sensor-cells = <1>;
--	};
--};
--
- Cluster clocks:
- ---------------
++	/* continuous reading is not supported */
++	if (desc->info.length > SPI_NAND_CACHE_SIZE)
++		return -E2BIG;
++
+ 	if (!airoha_snand_supports_op(desc->mem, &desc->info.op_tmpl))
+ 		return -EOPNOTSUPP;
  
-diff --git a/Documentation/devicetree/bindings/arm/marvell/cp110-system-controller.txt b/Documentation/devicetree/bindings/arm/marvell/cp110-system-controller.txt
-index 9d5d70c98058..54ff9f218328 100644
---- a/Documentation/devicetree/bindings/arm/marvell/cp110-system-controller.txt
-+++ b/Documentation/devicetree/bindings/arm/marvell/cp110-system-controller.txt
-@@ -189,46 +189,3 @@ CP110_LABEL(syscon0): system-controller@440000 {
- 	};
- 
- };
--
--SYSTEM CONTROLLER 1
--===================
--
--Thermal:
----------
--
--The thermal IP can probe the temperature all around the processor. It
--may feature several channels, each of them wired to one sensor.
--
--It is possible to setup an overheat interrupt by giving at least one
--critical point to any subnode of the thermal-zone node.
--
--For common binding part and usage, refer to
--Documentation/devicetree/bindings/thermal/thermal*.yaml
--
--Required properties:
--- compatible: must be one of:
--  * marvell,armada-cp110-thermal
--- reg: register range associated with the thermal functions.
--
--Optional properties:
--- interrupts-extended: overheat interrupt handle. Should point to
--  a line of the ICU-SEI irqchip (116 is what is usually used by the
--  firmware). The ICU-SEI will redirect towards interrupt line #37 of the
--  AP SEI which is shared across all CPs.
--  See interrupt-controller/interrupts.txt
--- #thermal-sensor-cells: shall be <1> when thermal-zones subnodes refer
--  to this IP and represents the channel ID. There is one sensor per
--  channel. O refers to the thermal IP internal channel.
--
--Example:
--CP110_LABEL(syscon1): system-controller@6f8000 {
--	compatible = "syscon", "simple-mfd";
--	reg = <0x6f8000 0x1000>;
--
--	CP110_LABEL(thermal): thermal-sensor@70 {
--		compatible = "marvell,armada-cp110-thermal";
--		reg = <0x70 0x10>;
--		interrupts-extended = <&CP110_LABEL(icu_sei) 116 IRQ_TYPE_LEVEL_HIGH>;
--		#thermal-sensor-cells = <1>;
--	};
--};
-diff --git a/Documentation/devicetree/bindings/thermal/marvell,armada-ap806-thermal.yaml b/Documentation/devicetree/bindings/thermal/marvell,armada-ap806-thermal.yaml
-new file mode 100644
-index 000000000000..2c370317a40e
---- /dev/null
-+++ b/Documentation/devicetree/bindings/thermal/marvell,armada-ap806-thermal.yaml
-@@ -0,0 +1,46 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/thermal/marvell,armada-ap806-thermal.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Marvell Armada AP80x/CP110 thermal management
-+
-+maintainers:
-+  - Miquel Raynal <miquel.raynal@bootlin.com>
-+
-+properties:
-+  compatible:
-+    enum:
-+      - marvell,armada-ap806-thermal
-+      - marvell,armada-ap807-thermal
-+      - marvell,armada-cp110-thermal
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    description:
-+      Overheat interrupt. The interrupt is connected thru a System Error
-+      Interrupt (SEI) controller.
-+    maxItems: 1
-+
-+  '#thermal-sensor-cells':
-+    description: Cell represents the channel ID. There is one sensor per
-+      channel. O refers to the thermal IP internal channel.
-+    const: 1
-+
-+required:
-+  - compatible
-+  - reg
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    thermal-sensor@80 {
-+        compatible = "marvell,armada-ap806-thermal";
-+        reg = <0x80 0x10>;
-+        interrupts = <18>;
-+        #thermal-sensor-cells = <1>;
-+    };
 -- 
 2.50.1
 
