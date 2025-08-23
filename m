@@ -4,107 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 192C0CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 18:50:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9698ACA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 18:52:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eZJMYZpdf+akKCyE472PW2r0ddz8nrNKGLl/+c8K/V4=; b=STv413Uh2vLe8Bd74LPiBAwnPE
-	ckg7FnbT4xIfvYghPPZOJ3m+EtVPMW0XBmC34NtJ761Yq54knB0T3XAP5qefz1AK1JytWyOu/6XQC
-	mjSNJVbGiTnofi4SFRYsvytL19s/NJ7JSNsbWBu7sUTxfD8Mv8yJAUjGo8y0cAIwwQpihYpGIE6C6
-	78dWpVyTOhd/yNqPHytEMlmoOTabbA9QNria9xBdUe06NIwy9nGSyUe/C0pomSyTjPx4VPrbcnpj9
-	SAjjffXiny1a3fej54Ef5OndyhylCqS7NJ40voQCVBpHsRox/5a8t7dZGR7CLPD0s2EYjrYnSZ9/e
-	DXjoqHGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DcoXsYIjaBtcL7QL8FUHWo9FxoVRQus5TrRk0YzmKTk=; b=lrBOtvDMys1AWWmWBi9s78Vq6w
+	lx5nOleH36bo335oQql6qbuJ7sFtFW7vlArP4EoJHWf2+t6x19oSzkOa6wQJOKCSydKWRyP0Pk6Zt
+	jJtyDwmzzvEQfRJIrDaMZmlogrNt0FpAykzir31mMagLhzaa6Xi34NmBA8YV71YHgbNFwmoYKrnDM
+	4zTZ9/Emlerw5lv3ngR7ztXSQiewgRx6XtzTyRu6EXJiS0iJcJeNRsqI49voKF5Fq+VYT3limp/B7
+	4M+UaVbwrsA0rvR01rVgq5U7gjS7+K2ObgBl/7ncsZSwcuq3zAXw044rz6cRO/Ki5NX3/o0uSP4e8
+	2z1P+0PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uptJV-00000005Bxh-0LgN;
-	Sat, 23 Aug 2025 18:50:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uptM6-00000005C7M-0fWW;
+	Sat, 23 Aug 2025 18:52:46 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upqrn-00000004ztD-0BeC
+	id 1upr9E-00000005268-2bru
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 Aug 2025 16:13:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8ECC642B92;
-	Sat, 23 Aug 2025 16:13:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 297E7C4CEE7;
-	Sat, 23 Aug 2025 16:13:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755965598;
-	bh=ZeW3RXOU2C8HuaW/Q/Dz90rTuwyjzrVLADpjszYvC1Y=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eXzQD+JHWLMU00xgMRgN9cNl+cGT74Hsdz/NhBFkoFttFgacupR9Allwyt25mBwkU
-	 Hg2LkyOh3BnY54dUhU7j1UhoS8Fd8aaTl2cqV74oW8Yx/3aDfAzC3SPurcRNrs1dGr
-	 NedzZlufM63QkeCWBorIJzWtgapc2qovRPUn7zoHWfmhLB2yekE4OIQiq/W4zuQZgh
-	 58y12DKdhoxyZPEekmbweViVD4UOyIEKstGtgImVZDZi+0MZNkpTTieeJm/ZSrWW1b
-	 hHWyPTAnlGoiLjRL+sPM7Xpa7VYSJxEjat4Rdsi6WplNAD49PZ30z0Ns8sYuaCL2F4
-	 xKedwPvF5gHEg==
-Message-ID: <8995c33a-8ff2-4fec-8849-73f18d04a3ab@kernel.org>
-Date: Sat, 23 Aug 2025 18:13:14 +0200
+	Sat, 23 Aug 2025 16:31:21 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57NGVHU8467550;
+	Sat, 23 Aug 2025 11:31:17 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1755966677;
+	bh=DcoXsYIjaBtcL7QL8FUHWo9FxoVRQus5TrRk0YzmKTk=;
+	h=From:To:CC:Subject:Date;
+	b=oiv07CJ7vGqx2aenMP28t8spnWA5guxVqEQ8tYFDsuCGWc9eyOGP0RJYm7cVGUNxd
+	 PNqLl1c01gb6jeOq0pCEU5fViD1zjjeIvTgg9g+uNNl5G/h4X/sbEPVRdpiCOQQUB7
+	 8VOVn7w6qlJq9qJ3jL7mnLvANZGN5gbSPqcYro9w=
+Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57NGVG4k249151
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Sat, 23 Aug 2025 11:31:16 -0500
+Received: from DFLE114.ent.ti.com (10.64.6.35) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Sat, 23
+ Aug 2025 11:31:16 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Sat, 23 Aug 2025 11:31:16 -0500
+Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [172.24.234.212])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57NGVBxV1006218;
+	Sat, 23 Aug 2025 11:31:12 -0500
+From: Beleswar Padhi <b-padhi@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <afd@ti.com>, <u-kumar1@ti.com>, <hnagalla@ti.com>, <jm@ti.com>,
+        <b-padhi@ti.com>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH v2] arm64: dts: ti: k3-j742s2-mcu-wakeup: Override firmware-name for MCU R5F cores
+Date: Sat, 23 Aug 2025 22:01:11 +0530
+Message-ID: <20250823163111.2237199-1-b-padhi@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 14/14] dmaengine: dma350: Support ARM DMA-250
-To: Jisheng Zhang <jszhang@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Robin Murphy <robin.murphy@arm.com>
-Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250823154009.25992-1-jszhang@kernel.org>
- <20250823154009.25992-15-jszhang@kernel.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250823154009.25992-15-jszhang@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250823_091319_128206_B52A9FD0 
-X-CRM114-Status: GOOD (  16.29  )
+X-CRM114-CacheID: sfid-20250823_093120_787991_5ED8153C 
+X-CRM114-Status: GOOD (  14.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,119 +83,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/08/2025 17:40, Jisheng Zhang wrote:
->  	struct device *dev = &pdev->dev;
-> @@ -893,8 +1262,9 @@ static int d350_probe(struct platform_device *pdev)
->  	r = FIELD_GET(IIDR_VARIANT, reg);
->  	p = FIELD_GET(IIDR_REVISION, reg);
->  	if (FIELD_GET(IIDR_IMPLEMENTER, reg) != IMPLEMENTER_ARM ||
-> -	    FIELD_GET(IIDR_PRODUCTID, reg) != PRODUCTID_DMA350)
-> -		return dev_err_probe(dev, -ENODEV, "Not a DMA-350!");
-> +	    ((FIELD_GET(IIDR_PRODUCTID, reg) != PRODUCTID_DMA350) &&
-> +	    FIELD_GET(IIDR_PRODUCTID, reg) != PRODUCTID_DMA250))
-> +		return dev_err_probe(dev, -ENODEV, "Not a DMA-350/DMA-250!");
->  
->  	reg = readl_relaxed(base + DMAINFO + DMA_BUILDCFG0);
->  	nchan = FIELD_GET(DMA_CFG_NUM_CHANNELS, reg) + 1;
-> @@ -917,13 +1287,38 @@ static int d350_probe(struct platform_device *pdev)
->  		return ret;
->  	}
->  
-> +	if (device_is_compatible(dev, "arm,dma-250")) {
+The J742S2 SoC reuses the common k3-j784s4-j742s2-mcu-wakeup-common.dtsi
+for its MCU domain, but it does not override the firmware-name property
+for its R5F cores. This causes the wrong firmware binaries to be
+referenced.
 
-No, don't sprinkle compatibles through driver code. driver match data is
-for that.
+Introduce a new k3-j742s2-mcu-wakeup.dtsi file to override the
+firmware-name property with correct names for J742s2.
 
-> +		u32 cfg2;
-> +		int secext_present;
-> +
-> +		dmac->is_d250 = true;
-> +
-> +		cfg2 = readl_relaxed(base + DMAINFO + DMA_BUILDCFG2);
-> +		secext_present = (cfg2 & DMA_CFG_HAS_TZ) ? 1 : 0;
-> +		dmac->cntx_mem_size = nchan * 64 * (1 + secext_present);
-> +		dmac->cntx_mem = dma_alloc_coherent(dev, dmac->cntx_mem_size,
-> +						    &dmac->cntx_mem_paddr,
-> +						    GFP_KERNEL);
-> +		if (!dmac->cntx_mem)
-> +			return dev_err_probe(dev, -ENOMEM, "Failed to alloc context memory\n");
-> +
-> +		ret = devm_add_action_or_reset(dev, d250_cntx_mem_release, dmac);
-> +		if (ret) {
-> +			dma_free_coherent(dev, dmac->cntx_mem_size,
-> +					  dmac->cntx_mem, dmac->cntx_mem_paddr);
-> +			return ret;
-> +		}
-> +		writel_relaxed(dmac->cntx_mem_paddr, base + DMANSECCTRL + NSEC_CNTXBASE);
-> +	}
-> +
->  	dma_set_mask_and_coherent(dev, DMA_BIT_MASK(aw));
->  	coherent = device_get_dma_attr(dev) == DEV_DMA_COHERENT;
->  
->  	reg = readl_relaxed(base + DMAINFO + DMA_BUILDCFG1);
->  	dmac->nreq = FIELD_GET(DMA_CFG_NUM_TRIGGER_IN, reg);
->  
-> -	dev_dbg(dev, "DMA-350 r%dp%d with %d channels, %d requests\n", r, p, dmac->nchan, dmac->nreq);
-> +	dev_info(dev, "%s r%dp%d with %d channels, %d requests\n",
-> +		 dmac->is_d250 ? "DMA-250" : "DMA-350", r, p, dmac->nchan, dmac->nreq);
+Fixes: 38fd90a3e1ac ("arm64: dts: ti: Introduce J742S2 SoC family")
+Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
+---
+v2: Changelog:
+1. Posted this patch as a fix as decided in v1, so added Fixes tag.
 
-No, don't makek drivers more verbose. Please follow Linux driver
-design/coding style - this should be silent on success.
+Link to v1:
+https://lore.kernel.org/all/20250522073426.329344-2-b-padhi@ti.com/
 
->  
->  	for (int i = min(dw, 16); i > 0; i /= 2) {
->  		dmac->dma.src_addr_widths |= BIT(i);
-> @@ -935,7 +1330,10 @@ static int d350_probe(struct platform_device *pdev)
->  	dmac->dma.device_alloc_chan_resources = d350_alloc_chan_resources;
->  	dmac->dma.device_free_chan_resources = d350_free_chan_resources;
->  	dma_cap_set(DMA_MEMCPY, dmac->dma.cap_mask);
-> -	dmac->dma.device_prep_dma_memcpy = d350_prep_memcpy;
-> +	if (dmac->is_d250)
-> +		dmac->dma.device_prep_dma_memcpy = d250_prep_memcpy;
-> +	else
-> +		dmac->dma.device_prep_dma_memcpy = d350_prep_memcpy;
->  	dmac->dma.device_pause = d350_pause;
->  	dmac->dma.device_resume = d350_resume;
->  	dmac->dma.device_terminate_all = d350_terminate_all;
-> @@ -971,8 +1369,8 @@ static int d350_probe(struct platform_device *pdev)
->  			return dch->irq;
->  
->  		dch->has_wrap = FIELD_GET(CH_CFG_HAS_WRAP, reg);
-> -		dch->has_trig = FIELD_GET(CH_CFG_HAS_TRIGIN, reg) &
-> -				FIELD_GET(CH_CFG_HAS_TRIGSEL, reg);
-> +		dch->has_xsizehi = FIELD_GET(CH_CFG_HAS_XSIZEHI, reg);
-> +		dch->has_trig = FIELD_GET(CH_CFG_HAS_TRIGIN, reg);
->  
->  		/* Fill is a special case of Wrap */
->  		memset &= dch->has_wrap;
-> @@ -994,8 +1392,13 @@ static int d350_probe(struct platform_device *pdev)
->  		dma_cap_set(DMA_SLAVE, dmac->dma.cap_mask);
->  		dma_cap_set(DMA_CYCLIC, dmac->dma.cap_mask);
->  		dmac->dma.device_config = d350_slave_config;
-> -		dmac->dma.device_prep_slave_sg = d350_prep_slave_sg;
-> -		dmac->dma.device_prep_dma_cyclic = d350_prep_cyclic;
-> +		if (dmac->is_d250) {
-> +			dmac->dma.device_prep_slave_sg = d250_prep_slave_sg;
-> +			dmac->dma.device_prep_dma_cyclic = d250_prep_cyclic;
-> +		} else {
-> +			dmac->dma.device_prep_slave_sg = d350_prep_slave_sg;
-> +			dmac->dma.device_prep_dma_cyclic = d350_prep_cyclic;
-> +		}
->  	}
->  
->  	if (memset) {
-> @@ -1019,6 +1422,7 @@ static void d350_remove(struct platform_device *pdev)
->  
->  static const struct of_device_id d350_of_match[] __maybe_unused = {
->  	{ .compatible = "arm,dma-350" },
-> +	{ .compatible = "arm,dma-250" },
+ .../arm64/boot/dts/ti/k3-j742s2-mcu-wakeup.dtsi | 17 +++++++++++++++++
+ arch/arm64/boot/dts/ti/k3-j742s2.dtsi           |  1 +
+ 2 files changed, 18 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-j742s2-mcu-wakeup.dtsi
 
-And based on that devices would be compatible...
+diff --git a/arch/arm64/boot/dts/ti/k3-j742s2-mcu-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-j742s2-mcu-wakeup.dtsi
+new file mode 100644
+index 000000000000..61db2348d6a4
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-j742s2-mcu-wakeup.dtsi
+@@ -0,0 +1,17 @@
++// SPDX-License-Identifier: GPL-2.0-only OR MIT
++/*
++ * Device Tree Source for J742S2 SoC Family
++ *
++ * TRM: https://www.ti.com/lit/pdf/spruje3
++ *
++ * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
++ *
++ */
++
++&mcu_r5fss0_core0 {
++	firmware-name = "j742s2-mcu-r5f0_0-fw";
++};
++
++&mcu_r5fss0_core1 {
++	firmware-name = "j742s2-mcu-r5f0_1-fw";
++};
+diff --git a/arch/arm64/boot/dts/ti/k3-j742s2.dtsi b/arch/arm64/boot/dts/ti/k3-j742s2.dtsi
+index 7a72f82f56d6..d265df1abade 100644
+--- a/arch/arm64/boot/dts/ti/k3-j742s2.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j742s2.dtsi
+@@ -96,3 +96,4 @@ cpu3: cpu@3 {
+ };
+ 
+ #include "k3-j742s2-main.dtsi"
++#include "k3-j742s2-mcu-wakeup.dtsi"
+-- 
+2.34.1
 
-BTW, incorrect order - 2 < 3.
-
-
-
-Best regards,
-Krzysztof
 
