@@ -4,73 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B18BECA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 18:31:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2998FCA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 18:34:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nYC81kzz6wEEKM57Cs/xzmiRcdYeQlReAo3sPZEaGuM=; b=XJSZGJS92VQpFnamMWwdxZ5WBa
-	WfpBkiApPlciwDjxWoXZ5uq4xdqVK2imEFk6M90YX9C6IOMOGKhJEpDPEK6wuJZrnQlWJ9N+HJ/Xk
-	jbOUDu24Lqqg3G3n2pq8k6Sp1BexHn7d8xvkZLGRpbzNxuddIHn/ylgvgU6HHsbOtYgauOvL7CBTM
-	XoMMW39x1nSVH2zC8ze2tGT0yvaqjAY3BjE1WQvFIB29F5OyL9PNEaADYVryu+AvIEudZRIcvJZUy
-	8sb5w1li3bV75tjNdPe/e7XrvSo0TosNmJwY0TKpc5s8FIdR7FdxKkfTf2EI9pNz9eI9hPl507yCk
-	287pg2tQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o3yiRnEQpksSh9Bqg8UdZPnIjXlfYhR7PI62rVCXaB4=; b=nMNug9nSl4oV/OtEZGO1oRu4LN
+	JuOtW2WkoEMvqcRSaQ9l0DPjT+1uiMd/EVIqPPceoPe5ud2eHZPAyZqYsWQVUakia7aNTTd13l0ZB
+	aUeBPnmmjNWloBvXaoe74KTpbRv/8rwSvVCkvklhqPNk/bycDW5K2zm4JU57i0yxGzzury6XQAaoq
+	c3gV2yePy3It7vBbO6J2CZQiIJvoHqBX11QFfzD1gahc2pwJepFkgz+7rpNVgDiJGRMcjtenF1IW3
+	IVkn4W2LeC20iwtbfDPJQtsbKjcZsMtRQZrZf/HKz85TFDH45QkIQWhOHSQ3d61DvGu0dxdCwvhe5
+	bkOjClwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upt1N-00000005B36-1RXx;
-	Sat, 23 Aug 2025 18:31:21 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1upt3y-00000005BBw-0PV1;
+	Sat, 23 Aug 2025 18:34:02 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upqq7-00000004zgy-3fn0
+	id 1upqqC-00000004zhV-3bfP
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 Aug 2025 16:11:37 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57NGBX6Q468640;
-	Sat, 23 Aug 2025 11:11:33 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755965493;
-	bh=nYC81kzz6wEEKM57Cs/xzmiRcdYeQlReAo3sPZEaGuM=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=XSrWu8oAU2ZjhrpYosNDZRYrlwaxxYDNxn118HxgVS/440rzU0Nx/QQ2Vss3ndi8F
-	 neriFMAib9hHE3qIIgWUDv5OeOiufl6n4qAYznJm8zF6QpOdcR6CILYU+SAcB3aPJT
-	 //0CIlSsTOToYsTj/x2r6LUpJraw8iWGomIf2uCc=
-Received: from DLEE110.ent.ti.com (dlee110.ent.ti.com [157.170.170.21])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57NGBXtk240061
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Sat, 23 Aug 2025 11:11:33 -0500
-Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE110.ent.ti.com
- (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Sat, 23
- Aug 2025 11:11:32 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Sat, 23 Aug 2025 11:11:32 -0500
-Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [172.24.234.212])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57NG9Exj1274978;
-	Sat, 23 Aug 2025 11:11:29 -0500
-From: Beleswar Padhi <b-padhi@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <afd@ti.com>, <u-kumar1@ti.com>, <hnagalla@ti.com>, <jm@ti.com>,
-        <b-padhi@ti.com>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v2 29/33] arm64: dts: ti: k3-am62p-ti-ipc-firmware: Refactor IPC cfg into new dtsi
-Date: Sat, 23 Aug 2025 21:38:57 +0530
-Message-ID: <20250823160901.2177841-30-b-padhi@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250823160901.2177841-1-b-padhi@ti.com>
-References: <20250823160901.2177841-1-b-padhi@ti.com>
+	Sat, 23 Aug 2025 16:11:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 578935C51B3;
+	Sat, 23 Aug 2025 16:11:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A91E5C4CEE7;
+	Sat, 23 Aug 2025 16:11:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755965500;
+	bh=ZF5SDUwpsdIucy0NM8w7JIE2oZvTAmxlaR1Ek6Mouj4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ePTvIIIFS8XVLbuYdbf/VK1wh1q983TwzscfudZViQuchy4LJkjO8LawDusTlC6QO
+	 oZrgxZnJ4AVwb8RUADK7/xS2TJKOZ8WlEBoYU1HOO5XITJRH85CgTfFDtt3d54nAKi
+	 Bpnudih1J0VJP9QtP5qP+mANAawXTAIMxppq+i+Fb+xzIacvjRxeVYo17L4YJszls9
+	 P+ZgwjonO7UnudJ4H+aQ233soDhUi27fmuoISs3npTQfr0FDH+OYw7JExrJVNFypta
+	 U8nKju/86Nkgis/OXqa5cvSIJwD88nxqk4x1ArwcOuaCLKcHCsfC5Oct8MuiGxMKLW
+	 FgW0n/O4EWXHQ==
+Message-ID: <0aea52e1-4bfa-43ca-a527-f3ae198118dc@kernel.org>
+Date: Sat, 23 Aug 2025 18:11:35 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 13/14] dt-bindings: dma: dma350: Support ARM DMA-250
+To: Jisheng Zhang <jszhang@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Robin Murphy <robin.murphy@arm.com>
+Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250823154009.25992-1-jszhang@kernel.org>
+ <20250823154009.25992-14-jszhang@kernel.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250823154009.25992-14-jszhang@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250823_091136_008772_A35E2C3A 
-X-CRM114-Status: GOOD (  16.72  )
+X-CRM114-CacheID: sfid-20250823_091140_984360_7F0CAB56 
+X-CRM114-Status: GOOD (  11.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,236 +119,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The TI K3 AM62P SoCs have multiple programmable remote processors like
-R5Fs. The TI SDKs for AM62P SoCs offer sample firmwares which could be
-run on these cores to demonstrate an "echo" IPC test. Those firmware
-require certain memory carveouts to be reserved from system memory,
-timers to be reserved, and certain mailbox configurations for interrupt
-based messaging. These configurations could be different for a different
-firmware.
+On 23/08/2025 17:40, Jisheng Zhang wrote:
+> Compared with ARM DMA-350, DMA-250 is a simplified version, they share
+> many common parts, but they do have difference. The difference will be
+> handled in next driver patch, while let's add DMA-250 compatible string
+> to dt-binding now.
+> 
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>  Documentation/devicetree/bindings/dma/arm,dma-350.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/dma/arm,dma-350.yaml b/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
+> index 94752516e51a..d49736b7de5e 100644
+> --- a/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
+> +++ b/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
+> @@ -15,6 +15,7 @@ allOf:
+>  properties:
+>    compatible:
+>      const: arm,dma-350
+> +    const: arm,dma-250
 
-While DT is not meant for system configurations, at least refactor these
-configurations from board level DTS into a dtsi for now. This dtsi for
-TI IPC firmware is board-independent and can be applied to all boards
-from the same SoC Family. This gets rid of code duplication and allows
-more freedom for users developing custom firmware (or no firmware) to
-utilize system resources better; easily by swapping out this dtsi. To
-maintain backward compatibility, the dtsi is included in all boards.
+This obviously cannot work and was NEVER tested. Please test your code
+before you send it to mailing lists.
 
-Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
----
-v2: Changelog:
-1. Re-ordered patch from [PATCH 17/33] to [PATCH v2 29/33].
-
-Link to v1:
-https://lore.kernel.org/all/20250814223839.3256046-18-b-padhi@ti.com/
-
- .../boot/dts/ti/k3-am62p-ti-ipc-firmware.dtsi | 60 +++++++++++++++++++
- arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi   | 42 +------------
- arch/arm64/boot/dts/ti/k3-am62p5-sk.dts       | 54 +----------------
- 3 files changed, 64 insertions(+), 92 deletions(-)
- create mode 100644 arch/arm64/boot/dts/ti/k3-am62p-ti-ipc-firmware.dtsi
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-ti-ipc-firmware.dtsi
-new file mode 100644
-index 000000000000..5c0c42648cb5
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am62p-ti-ipc-firmware.dtsi
-@@ -0,0 +1,60 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/**
-+ * Device Tree Source for enabling IPC using TI SDK firmware on AM62P SoCs
-+ *
-+ * Copyright (C) 2023-2025 Texas Instruments Incorporated - https://www.ti.com/
-+ */
-+
-+&reserved_memory {
-+	mcu_r5fss0_core0_dma_memory_region: mcu-r5fss-dma-memory-region@9b800000 {
-+		compatible = "shared-dma-pool";
-+		reg = <0x00 0x9b800000 0x00 0x100000>;
-+		no-map;
-+	};
-+
-+	mcu_r5fss0_core0_memory_region: mcu-r5fss-memory-region@9b900000 {
-+		compatible = "shared-dma-pool";
-+		reg = <0x00 0x9b900000 0x00 0xf00000>;
-+		no-map;
-+	};
-+};
-+
-+&mailbox0_cluster0 {
-+	status = "okay";
-+
-+	mbox_r5_0: mbox-r5-0 {
-+		ti,mbox-rx = <0 0 0>;
-+		ti,mbox-tx = <1 0 0>;
-+	};
-+};
-+
-+&mailbox0_cluster1 {
-+	status = "okay";
-+
-+	mbox_mcu_r5_0: mbox-mcu-r5-0 {
-+		ti,mbox-rx = <0 0 0>;
-+		ti,mbox-tx = <1 0 0>;
-+	};
-+};
-+
-+&wkup_r5fss0 {
-+	status = "okay";
-+};
-+
-+&wkup_r5fss0_core0 {
-+	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
-+	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
-+			<&wkup_r5fss0_core0_memory_region>;
-+	status = "okay";
-+};
-+
-+&mcu_r5fss0 {
-+	status = "okay";
-+};
-+
-+&mcu_r5fss0_core0 {
-+	mboxes = <&mailbox0_cluster1 &mbox_mcu_r5_0>;
-+	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
-+			<&mcu_r5fss0_core0_memory_region>;
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
-index 0687debf3bbb..e2ab98e65fd5 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
-@@ -848,46 +848,6 @@ &epwm2 {
- 	status = "disabled";
- };
- 
--&mailbox0_cluster0 {
--	status = "okay";
--
--	mbox_r5_0: mbox-r5-0 {
--		ti,mbox-rx = <0 0 0>;
--		ti,mbox-tx = <1 0 0>;
--	};
--};
--
--&mailbox0_cluster1 {
--	status = "okay";
--
--	mbox_mcu_r5_0: mbox-mcu-r5-0 {
--		ti,mbox-rx = <0 0 0>;
--		ti,mbox-tx = <1 0 0>;
--	};
--};
--
--&wkup_r5fss0 {
--	status = "okay";
--};
--
--&wkup_r5fss0_core0 {
--	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
--	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
--			<&wkup_r5fss0_core0_memory_region>;
--	status = "okay";
--};
--
--&mcu_r5fss0 {
--	status = "okay";
--};
--
--&mcu_r5fss0_core0 {
--	mboxes = <&mailbox0_cluster1 &mbox_mcu_r5_0>;
--	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
--			<&mcu_r5fss0_core0_memory_region>;
--	status = "okay";
--};
--
- &main0_alert {
- 	temperature = <95000>;
- };
-@@ -1466,3 +1426,5 @@ &wkup_uart0 {
- 	uart-has-rtscts;
- 	status = "disabled";
- };
-+
-+#include "k3-am62p-ti-ipc-firmware.dtsi"
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-index c5b5b00c42b9..42886ecf1521 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-@@ -49,18 +49,6 @@ reserved_memory: reserved-memory {
- 		#size-cells = <2>;
- 		ranges;
- 
--		mcu_r5fss0_core0_dma_memory_region: mcu-r5fss-dma-memory-region@9b800000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0x9b800000 0x00 0x100000>;
--			no-map;
--		};
--
--		mcu_r5fss0_core0_memory_region: mcu-r5fss-memory-region@9b900000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0x9b900000 0x00 0xf00000>;
--			no-map;
--		};
--
- 		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
- 			compatible = "shared-dma-pool";
- 			reg = <0x00 0x9c800000 0x00 0x100000>;
-@@ -699,46 +687,6 @@ partition@3fc0000 {
- 	};
- };
- 
--&mailbox0_cluster0 {
--	status = "okay";
--
--	mbox_r5_0: mbox-r5-0 {
--		ti,mbox-rx = <0 0 0>;
--		ti,mbox-tx = <1 0 0>;
--	};
--};
--
--&mailbox0_cluster1 {
--	status = "okay";
--
--	mbox_mcu_r5_0: mbox-mcu-r5-0 {
--		ti,mbox-rx = <0 0 0>;
--		ti,mbox-tx = <1 0 0>;
--	};
--};
--
--&wkup_r5fss0 {
--	status = "okay";
--};
--
--&wkup_r5fss0_core0 {
--	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
--	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
--			<&wkup_r5fss0_core0_memory_region>;
--	status = "okay";
--};
--
--&mcu_r5fss0 {
--	status = "okay";
--};
--
--&mcu_r5fss0_core0 {
--	mboxes = <&mailbox0_cluster1 &mbox_mcu_r5_0>;
--	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
--			<&mcu_r5fss0_core0_memory_region>;
--	status = "okay";
--};
--
- &main_uart0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_uart0_pins_default>;
-@@ -810,3 +758,5 @@ &epwm1 {
- 	pinctrl-0 = <&main_epwm1_pins_default>;
- 	status = "okay";
- };
-+
-+#include "k3-am62p-ti-ipc-firmware.dtsi"
--- 
-2.34.1
-
+Best regards,
+Krzysztof
 
