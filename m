@@ -4,91 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75387CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 18:47:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 192C0CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 18:50:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0qSJXIx/Az+pQiYKBZLEErDNdCpixl/qOO1S4KvmcYg=; b=PyjrDc2m0E+UKZluC3wewjRYGv
-	opzbcN4NZZHzybmU+i39i+0UtKcs/N8QXxHJL42M2OaqYyjQ+smBMBVQgiWJ1YFJG85YF1nC04szG
-	UWbWMGGlZIOQstDbvP8nfpBUpho1jAq4lMkfuw3cJAo7AjMZ0AdMKOqu9DwMSTMMpjSBiWsZg6THv
-	nMtZS6/J2B7YL1iVMl2AZ3mM3X9P26yCu2bqgyHuE4x5LXdTjnQbGzITJ+CAvr/F+JnbCm9GbJygT
-	O6LbqQhHuqDZan1yh3GO7fYwCJJBeDAtTGehlKwekQCxAXNDWufqQOqmFL4TOC8WUpY83RdJlCeMc
-	w0f+fIyQ==;
+	bh=eZJMYZpdf+akKCyE472PW2r0ddz8nrNKGLl/+c8K/V4=; b=STv413Uh2vLe8Bd74LPiBAwnPE
+	ckg7FnbT4xIfvYghPPZOJ3m+EtVPMW0XBmC34NtJ761Yq54knB0T3XAP5qefz1AK1JytWyOu/6XQC
+	mjSNJVbGiTnofi4SFRYsvytL19s/NJ7JSNsbWBu7sUTxfD8Mv8yJAUjGo8y0cAIwwQpihYpGIE6C6
+	78dWpVyTOhd/yNqPHytEMlmoOTabbA9QNria9xBdUe06NIwy9nGSyUe/C0pomSyTjPx4VPrbcnpj9
+	SAjjffXiny1a3fej54Ef5OndyhylCqS7NJ40voQCVBpHsRox/5a8t7dZGR7CLPD0s2EYjrYnSZ9/e
+	DXjoqHGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uptGv-00000005Br5-0UZc;
-	Sat, 23 Aug 2025 18:47:25 +0000
-Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
+	id 1uptJV-00000005Bxh-0LgN;
+	Sat, 23 Aug 2025 18:50:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upqrc-00000004zsT-3ink
+	id 1upqrn-00000004ztD-0BeC
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 Aug 2025 16:13:10 +0000
-Received: by mail-ot1-x32f.google.com with SMTP id 46e09a7af769-74381df8cf1so1004211a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 23 Aug 2025 09:13:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1755965587; x=1756570387; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=0qSJXIx/Az+pQiYKBZLEErDNdCpixl/qOO1S4KvmcYg=;
-        b=yFCNGe2TCDxDozOsPyAnCK1JOnt1a+1ZdjEDcFEmSR3XmyQPnzDugyz1tFYq2OAJPp
-         kX82RiIrkD+gK7CeHDH4MvVEFNQpabIFHnUxPOgqn9oAYvEUe2hXXpuGO2TCDCTD02H+
-         e6rcHXrGustsIhfX59DTMUYcHqqTq7y+wsyd9rg/Mx2njjmQ15XwXj46EafP/3uPG0iv
-         Hf+++U507SC/NPZCAdRrEJHYx40ztJBhlgkXymn62F8/bbnnKHEsrhHI2C/wEkUTwg4T
-         Yick/HVzsFgxGxGIehz5hFqJj5sKlMPTQH9ts8TUf3/YbpVzvFuA8oinprkmDv3M5Ue5
-         ZmmA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755965587; x=1756570387;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=0qSJXIx/Az+pQiYKBZLEErDNdCpixl/qOO1S4KvmcYg=;
-        b=oUM0VfyqxdmZhzVJSR8H1gYZNkWDIdkr4+nENGZkat9oHNdHJb0+OdHe+qU8fN37yR
-         sSgbDktuOlFbQ+EDKlpn9l+Fa9bMMGfiS6AwZKhVsV6DIMnkkfIyHDY7DRptvm8ZW1pR
-         oyl89TNRT5NPd0Fpx3RN0exbGCtvYhnvNfKxg/wVKPvJZFJwbvxwIcN4OlcCD8gmiQFK
-         cyoJJZ5EWoxP9oj1+UljaARmj5xseEMwUkEjMbwBwCtivn506wHFvn7KyOu+GLlMwUxD
-         5qrCggC4QlK1c2TL+bm4PEjIQMBZWcLmzTlOaeyi0wNZFs1DkjqRzgesj7fOIMxVJc7/
-         Imsw==
-X-Forwarded-Encrypted: i=1; AJvYcCXRq3SgR6LeMoFy/TLuvXr6cDGhhrQJdd2/sr2fBvR/p4DxLVp6OEDfbNx723o8ebw3Yus8fC3LE2cw3C+wewy5@lists.infradead.org
-X-Gm-Message-State: AOJu0YzSYCMa7ZP9PBfNEJYDdv90jfCMPgEVqGHfh+aaB+FW1O3I3fzq
-	L8ujfxc3zlriaN3Hca8gS/vVGtYRftn/HfIdhDxyYGN9Y4lMPV/Gqn0yenE5mFOu9Yk=
-X-Gm-Gg: ASbGnct4mRUYoaULmE97Lmq6/6zZEPt/mQvzcBxWrUfklGhGHmmx0kUB0U0yNxJAhaM
-	OjinCrdn4ym1wL+qwCr97QWD0P+H8zPjal+6Y8SSESfuUUq/P9Fv746wqLuxBhAY96pdbTR6epc
-	s+W5RB8QYHvHxHiDVKlbntve13x6IkjIuhvJde+x4ZSvBEu7gCEpLCFNI4QtLx6aGMrp3cC5ewS
-	fd3rq//kdM3u87sGw4i812KM/Y7dSGVNGo8eFaZouTBQ1z2KlWYVN3SfDd5nczFb5lovH5RPJKL
-	QTIulgczMC0KrAqTWu/NTW33LazDLudDg3l/1sw9fEPQDwAF+mk37eYsvwwpzWrxuwTB2DUcVkz
-	s+O0kGHZ5oNFf4kYoS0NB4M56jzkZK86L4AUyjJV/cIMO/NuAZ3ljaYiFeLT19PbbIEYUMXho
-X-Google-Smtp-Source: AGHT+IHi+cV4E+X1M0r2JR6jBROtlJPHA685XBWxXWqnrw1xyZGt7gGfo8sipwJMU4bNKZjw4ng8ZA==
-X-Received: by 2002:a05:6830:f94:b0:744:f0db:a1a1 with SMTP id 46e09a7af769-74500a8b38fmr3364972a34.29.1755965587401;
-        Sat, 23 Aug 2025 09:13:07 -0700 (PDT)
-Received: from ?IPV6:2600:8803:e7e4:1d00:4d25:af10:67ec:53d? ([2600:8803:e7e4:1d00:4d25:af10:67ec:53d])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7450e26887csm663095a34.3.2025.08.23.09.13.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 23 Aug 2025 09:13:07 -0700 (PDT)
-Message-ID: <e61c2e01-cd8d-4193-afcf-5ddaef34300e@baylibre.com>
-Date: Sat, 23 Aug 2025 11:13:06 -0500
+	Sat, 23 Aug 2025 16:13:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8ECC642B92;
+	Sat, 23 Aug 2025 16:13:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 297E7C4CEE7;
+	Sat, 23 Aug 2025 16:13:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755965598;
+	bh=ZeW3RXOU2C8HuaW/Q/Dz90rTuwyjzrVLADpjszYvC1Y=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=eXzQD+JHWLMU00xgMRgN9cNl+cGT74Hsdz/NhBFkoFttFgacupR9Allwyt25mBwkU
+	 Hg2LkyOh3BnY54dUhU7j1UhoS8Fd8aaTl2cqV74oW8Yx/3aDfAzC3SPurcRNrs1dGr
+	 NedzZlufM63QkeCWBorIJzWtgapc2qovRPUn7zoHWfmhLB2yekE4OIQiq/W4zuQZgh
+	 58y12DKdhoxyZPEekmbweViVD4UOyIEKstGtgImVZDZi+0MZNkpTTieeJm/ZSrWW1b
+	 hHWyPTAnlGoiLjRL+sPM7Xpa7VYSJxEjat4Rdsi6WplNAD49PZ30z0Ns8sYuaCL2F4
+	 xKedwPvF5gHEg==
+Message-ID: <8995c33a-8ff2-4fec-8849-73f18d04a3ab@kernel.org>
+Date: Sat, 23 Aug 2025 18:13:14 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] MAINTAINERS: Update xilinx-ams driver maintainers
-To: Salih Erim <salih.erim@amd.com>, conall.ogriofa@amd.com, jic23@kernel.org
-Cc: nuno.sa@analog.com, andy@kernel.org, michal.simek@amd.com,
- krzk@kernel.org, linux-iio@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <20250820100519.2272509-1-salih.erim@amd.com>
+Subject: Re: [PATCH 14/14] dmaengine: dma350: Support ARM DMA-250
+To: Jisheng Zhang <jszhang@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Robin Murphy <robin.murphy@arm.com>
+Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250823154009.25992-1-jszhang@kernel.org>
+ <20250823154009.25992-15-jszhang@kernel.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: David Lechner <dlechner@baylibre.com>
-In-Reply-To: <20250820100519.2272509-1-salih.erim@amd.com>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250823154009.25992-15-jszhang@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250823_091308_927424_C233665F 
-X-CRM114-Status: UNSURE (   8.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250823_091319_128206_B52A9FD0 
+X-CRM114-Status: GOOD (  16.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,16 +119,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/20/25 5:05 AM, Salih Erim wrote:
-> Anand left AMD/Xilinx some time ago. Salih and Connall are new
-> maintainers of xilinx-ams driver.
-> 
-> Signed-off-by: Salih Erim <salih.erim@amd.com>
+On 23/08/2025 17:40, Jisheng Zhang wrote:
+>  	struct device *dev = &pdev->dev;
+> @@ -893,8 +1262,9 @@ static int d350_probe(struct platform_device *pdev)
+>  	r = FIELD_GET(IIDR_VARIANT, reg);
+>  	p = FIELD_GET(IIDR_REVISION, reg);
+>  	if (FIELD_GET(IIDR_IMPLEMENTER, reg) != IMPLEMENTER_ARM ||
+> -	    FIELD_GET(IIDR_PRODUCTID, reg) != PRODUCTID_DMA350)
+> -		return dev_err_probe(dev, -ENODEV, "Not a DMA-350!");
+> +	    ((FIELD_GET(IIDR_PRODUCTID, reg) != PRODUCTID_DMA350) &&
+> +	    FIELD_GET(IIDR_PRODUCTID, reg) != PRODUCTID_DMA250))
+> +		return dev_err_probe(dev, -ENODEV, "Not a DMA-350/DMA-250!");
+>  
+>  	reg = readl_relaxed(base + DMAINFO + DMA_BUILDCFG0);
+>  	nchan = FIELD_GET(DMA_CFG_NUM_CHANNELS, reg) + 1;
+> @@ -917,13 +1287,38 @@ static int d350_probe(struct platform_device *pdev)
+>  		return ret;
+>  	}
+>  
+> +	if (device_is_compatible(dev, "arm,dma-250")) {
 
-Looks like you forgot to pick up all of the trailers from v1.
+No, don't sprinkle compatibles through driver code. driver match data is
+for that.
 
-Also, there should be a changelog of what changed from v1 to
-v2. Just rewording the commit message, I assume.
+> +		u32 cfg2;
+> +		int secext_present;
+> +
+> +		dmac->is_d250 = true;
+> +
+> +		cfg2 = readl_relaxed(base + DMAINFO + DMA_BUILDCFG2);
+> +		secext_present = (cfg2 & DMA_CFG_HAS_TZ) ? 1 : 0;
+> +		dmac->cntx_mem_size = nchan * 64 * (1 + secext_present);
+> +		dmac->cntx_mem = dma_alloc_coherent(dev, dmac->cntx_mem_size,
+> +						    &dmac->cntx_mem_paddr,
+> +						    GFP_KERNEL);
+> +		if (!dmac->cntx_mem)
+> +			return dev_err_probe(dev, -ENOMEM, "Failed to alloc context memory\n");
+> +
+> +		ret = devm_add_action_or_reset(dev, d250_cntx_mem_release, dmac);
+> +		if (ret) {
+> +			dma_free_coherent(dev, dmac->cntx_mem_size,
+> +					  dmac->cntx_mem, dmac->cntx_mem_paddr);
+> +			return ret;
+> +		}
+> +		writel_relaxed(dmac->cntx_mem_paddr, base + DMANSECCTRL + NSEC_CNTXBASE);
+> +	}
+> +
+>  	dma_set_mask_and_coherent(dev, DMA_BIT_MASK(aw));
+>  	coherent = device_get_dma_attr(dev) == DEV_DMA_COHERENT;
+>  
+>  	reg = readl_relaxed(base + DMAINFO + DMA_BUILDCFG1);
+>  	dmac->nreq = FIELD_GET(DMA_CFG_NUM_TRIGGER_IN, reg);
+>  
+> -	dev_dbg(dev, "DMA-350 r%dp%d with %d channels, %d requests\n", r, p, dmac->nchan, dmac->nreq);
+> +	dev_info(dev, "%s r%dp%d with %d channels, %d requests\n",
+> +		 dmac->is_d250 ? "DMA-250" : "DMA-350", r, p, dmac->nchan, dmac->nreq);
+
+No, don't makek drivers more verbose. Please follow Linux driver
+design/coding style - this should be silent on success.
+
+>  
+>  	for (int i = min(dw, 16); i > 0; i /= 2) {
+>  		dmac->dma.src_addr_widths |= BIT(i);
+> @@ -935,7 +1330,10 @@ static int d350_probe(struct platform_device *pdev)
+>  	dmac->dma.device_alloc_chan_resources = d350_alloc_chan_resources;
+>  	dmac->dma.device_free_chan_resources = d350_free_chan_resources;
+>  	dma_cap_set(DMA_MEMCPY, dmac->dma.cap_mask);
+> -	dmac->dma.device_prep_dma_memcpy = d350_prep_memcpy;
+> +	if (dmac->is_d250)
+> +		dmac->dma.device_prep_dma_memcpy = d250_prep_memcpy;
+> +	else
+> +		dmac->dma.device_prep_dma_memcpy = d350_prep_memcpy;
+>  	dmac->dma.device_pause = d350_pause;
+>  	dmac->dma.device_resume = d350_resume;
+>  	dmac->dma.device_terminate_all = d350_terminate_all;
+> @@ -971,8 +1369,8 @@ static int d350_probe(struct platform_device *pdev)
+>  			return dch->irq;
+>  
+>  		dch->has_wrap = FIELD_GET(CH_CFG_HAS_WRAP, reg);
+> -		dch->has_trig = FIELD_GET(CH_CFG_HAS_TRIGIN, reg) &
+> -				FIELD_GET(CH_CFG_HAS_TRIGSEL, reg);
+> +		dch->has_xsizehi = FIELD_GET(CH_CFG_HAS_XSIZEHI, reg);
+> +		dch->has_trig = FIELD_GET(CH_CFG_HAS_TRIGIN, reg);
+>  
+>  		/* Fill is a special case of Wrap */
+>  		memset &= dch->has_wrap;
+> @@ -994,8 +1392,13 @@ static int d350_probe(struct platform_device *pdev)
+>  		dma_cap_set(DMA_SLAVE, dmac->dma.cap_mask);
+>  		dma_cap_set(DMA_CYCLIC, dmac->dma.cap_mask);
+>  		dmac->dma.device_config = d350_slave_config;
+> -		dmac->dma.device_prep_slave_sg = d350_prep_slave_sg;
+> -		dmac->dma.device_prep_dma_cyclic = d350_prep_cyclic;
+> +		if (dmac->is_d250) {
+> +			dmac->dma.device_prep_slave_sg = d250_prep_slave_sg;
+> +			dmac->dma.device_prep_dma_cyclic = d250_prep_cyclic;
+> +		} else {
+> +			dmac->dma.device_prep_slave_sg = d350_prep_slave_sg;
+> +			dmac->dma.device_prep_dma_cyclic = d350_prep_cyclic;
+> +		}
+>  	}
+>  
+>  	if (memset) {
+> @@ -1019,6 +1422,7 @@ static void d350_remove(struct platform_device *pdev)
+>  
+>  static const struct of_device_id d350_of_match[] __maybe_unused = {
+>  	{ .compatible = "arm,dma-350" },
+> +	{ .compatible = "arm,dma-250" },
+
+And based on that devices would be compatible...
+
+BTW, incorrect order - 2 < 3.
 
 
+
+Best regards,
+Krzysztof
 
