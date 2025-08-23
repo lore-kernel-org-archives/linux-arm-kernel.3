@@ -4,103 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2997ECA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:38:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1829ACA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:38:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=056qMw93bZTj6RT6PqmY6ev0BP/BPL7ocy27ahF9+hc=; b=wrst4yib3u+p+Ki/3I2EIKLGwn
-	EYKMuVjnCvTZ6StO43wDJtfl4RaNnXW66SjqjY9XpjjVDogrSXqy3cnMXGpNl/Fu4N+nNtK6O4o1J
-	ohYy8Mv5OcPdb5dzyRD5YpksVpzXBTice/ZSqsGFy4iTJTapXIp5RhAnXG9oqiyb05fHa2ooJm7a5
-	KBf4EOJQ/hjyFqh2eEm9OwR4ZEGnSWWDtTZpgWUzqNNPjveerjvZMkoNarJoMBBIEfAOhblpDpqEi
-	dl1guUhX3ZpOzBH0zw1USIctZXKuK4zgQK25j2Pqd0uAYJesoQ4b1EibBF++prH0Dw5zLanp7Po7K
-	SYlnVyPw==;
+	bh=2fwDxiYfMdN2nLz2ZuEX+Y4mrEUZVapu4NUeLLR1y3c=; b=cWPJ+Cr0SCuA8KmK5IQht5eyeH
+	rpq+1P5oSQwNGg1ZnumuuzZxKkdubqpo2YZZV7T4eAomzW9aQ59BvMfyIw3n8DeW6yFwpmyv42KVr
+	YfxGhGh0+0VD0a93hA0ON0c55C8PNb7Q+r1GW2xFHhSj1JJSqhQQwfEjbijdUrOSjPKmc36vjG9de
+	TFyajQzzsx0EYo8X9zjJiVgzAOa8bU6yp8+GCUKnitIkWEXR7y9d3DOFwOWq424zRu28sO4W8tsAe
+	1pOmvR0qejjWv/Y95itne9HMEDGXIHVipyiheA8dSLzsVME1lUIo6/1tUejIPQDLYa4vm1RFynRBI
+	fzsjrjXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upkhG-00000004Y1o-2Rt7;
-	Sat, 23 Aug 2025 09:38:02 +0000
+	id 1upkhJ-00000004Y5N-0EAg;
+	Sat, 23 Aug 2025 09:38:05 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphwd-00000004DcA-2bPq
+	id 1upiQ0-00000004HFl-0BP7
 	for linux-arm-kernel@bombadil.infradead.org;
-	Sat, 23 Aug 2025 06:41:43 +0000
+	Sat, 23 Aug 2025 07:12:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=056qMw93bZTj6RT6PqmY6ev0BP/BPL7ocy27ahF9+hc=; b=Mz2hgVcJaupOUT7pFC3O1jPn2n
-	Pq25DGokcO/f9nO+cWaUrn6hTAIt90eH+Dabvy/gVfS4Z3jIgltKi9Kizdch3CKUHgroWLDy9NZUh
-	u5ModosoZItylznWHrqGHGpy2TXkRlkHYcn2XfMbryjfBw/fk9sTPObUN5cgsHwdMvYHvtqC/Sf6g
-	pqV3G/35Ev0p4v0lfhg0PhgM/pfJKg+WjuKGtZfzSPLarAKsXnygp/IXrGX5Zj3jEbsQdrbY5KggT
-	Fp0lYa0zpvdhfMabpE+27gL4J8l8hdPPaF1UBjQwQGRlh6UevuZSJfCUEPkoEG9znfb9RGhS4M6C1
-	EOs9P8LA==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=2fwDxiYfMdN2nLz2ZuEX+Y4mrEUZVapu4NUeLLR1y3c=; b=nSLYQD6BYx4VDwx60qexuAFbIJ
+	XGiIZj0TTp6PH28cfAv8zsZ5JJuymLB08/iHMEx8BJ7lyJg9hNVgyLFr+XdAPZgwPxmwgthDCchLV
+	j07OrWNVSbqjWQklP6p12SA9oRwcuj0Q7oc2wHphwFCJXw/6A5ZOuVigzAdvAHv31NYNa3OlhjW4R
+	+HaKPnA7vT4bh5b2idOymUwK+ukc9vgYVzjt7n3tTYuFQMUbbqH++FS+hSrkLDQRROLKsWMcFvLlK
+	jarH2Uc8M1a4OTz5rNo5AejOf3onsd54aPICNuoYJ7Ha9D04wyVRgaHqsNST6BOIIDKDmHKWv9opd
+	UBDPEy5A==;
+Received: from mgamail.intel.com ([192.198.163.13])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphwZ-00000001IqG-3WCb
+	id 1upiPw-00000001JnO-0Lxr
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 Aug 2025 06:41:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AAA2F434E0;
-	Sat, 23 Aug 2025 06:41:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05EA8C4CEE7;
-	Sat, 23 Aug 2025 06:41:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1755931297;
-	bh=W2xSsVTOfKvNUrTWf8mlEmNx+BmGW/cRdE/WDxMwuCQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Tgjf3fhy/95FjTkdKOoetheW/ejk9PsgRrIfYJ69pvVByfXzZF+BDHUjnaUQTFFI2
-	 3etnY578RIuxhkTxEA9FHO4kZx8DLjXtNyKuW91mwTNcvLc/XSosyAAO8NMKMPEebd
-	 cb/ucLkpzVx2e0jIOuR3lkwh0JJ22rHLQNsd98Ww=
-Date: Sat, 23 Aug 2025 08:41:34 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Markus Elfring <Markus.Elfring@web.de>
-Cc: James Morse <james.morse@arm.com>, linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
-	LKML <linux-kernel@vger.kernel.org>,
-	Amit Singh Tomar <amitsinght@marvell.com>,
-	Baisheng Gao <baisheng.gao@unisoc.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	bobo.shaobowang@huawei.com,
-	Carl Worth <carl@os.amperecomputing.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
+	Sat, 23 Aug 2025 07:12:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1755933120; x=1787469120;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=jGVpPERW5NP1rnaGTAcvIEIQaG44vKcBtYOfI1JBcS8=;
+  b=cwKF9I5R4f0AVKzcpECgS2uRHgjGzgvSEea708qMoUz8k/3gA+MFqUkt
+   /+GrD1TwbKU0t2VC214ZCaUIAJ43aQPc0IoKzPJnzUeAiptMUsQlOazr5
+   oghzlFItikW6cPwHPHkv+UfKtogoa6Y6TysoZ7uRUlelp/nVdiydx92DV
+   hTrBhMS46LIfMNA1uKTrdnFKbOEZpg1ISYfsPDG9qrfdrwCIFHMpavxB9
+   i7qg9AuscAP5OeVXH5zSADI9c9SriCtvX8/tN5D30Ssn0j+l59qajTxoO
+   7HRYrzH60GsMRV1evTV+0HTZuDrCRz4JmxKTwpiVY2FUjbw5oZxIN/ABI
+   w==;
+X-CSE-ConnectionGUID: TqiQ/OUYQvCIvVaTy00gQg==
+X-CSE-MsgGUID: +3jSLvc1RziZcQvsgCIMEw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11529"; a="60858176"
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
+   d="scan'208";a="60858176"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Aug 2025 00:11:49 -0700
+X-CSE-ConnectionGUID: Jubo2rtVTOGHdEnsPCW6Yg==
+X-CSE-MsgGUID: BWV5dKzARCmUx6HMiM7IWA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
+   d="scan'208";a="199755162"
+Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
+  by fmviesa001.fm.intel.com with ESMTP; 23 Aug 2025 00:11:45 -0700
+Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1upiPe-000M9n-32;
+	Sat, 23 Aug 2025 07:11:42 +0000
+Date: Sat, 23 Aug 2025 15:10:57 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jie Gan <jie.gan@oss.qualcomm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Dave Martin <Dave.Martin@arm.com>,
-	David Hildenbrand <david@redhat.com>,
-	Drew Fustini <dfustini@baylibre.com>,
-	D Scott Phillips <scott@os.amperecomputing.com>,
-	Fenghua Yu <fenghuay@nvidia.com>, Hanjun Guo <guohanjun@huawei.com>,
-	Jamie Iles <quic_jiles@quicinc.com>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Koba Ko <kobak@nvidia.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Len Brown <lenb@kernel.org>, Linu Cherian <lcherian@marvell.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Peter Newman <peternewman@google.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Rex Nie <rex.nie@jaguarmicro.com>, Rob Herring <robh@kernel.org>,
-	Rohit Mathew <rohit.mathew@arm.com>,
-	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Shaopeng Tan <tan.shaopeng@fujitsu.com>,
-	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
-	Xin Hao <xhao@linux.alibaba.com>
-Subject: Re: [PATCH 10/33] arm_mpam: Add probe/remove for mpam msc driver and
- kbuild boiler plate
-Message-ID: <2025082328-acorn-wound-5c3d@gregkh>
-References: <20250822153048.2287-11-james.morse@arm.com>
- <00053767-352d-4185-8542-687da0fb5e57@web.de>
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+	Mao Jinlong <jinlmao.mao@oss.qualcomm.com>,
+	Tao Zhang <quic_taozha@quicinc.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 2/3] coresight: tpdm: add static tpdm support
+Message-ID: <202508231400.bELUAEeq-lkp@intel.com>
+References: <20250822103008.1029-3-jie.gan@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <00053767-352d-4185-8542-687da0fb5e57@web.de>
+In-Reply-To: <20250822103008.1029-3-jie.gan@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250823_074140_296130_D2A00289 
-X-CRM114-Status: GOOD (  19.83  )
+X-CRM114-CacheID: sfid-20250823_081200_663324_3A2CF452 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,74 +114,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 22, 2025 at 09:55:33PM +0200, Markus Elfring wrote:
-> …
-> …
-> > +static int mpam_msc_drv_probe(struct platform_device *pdev)
-> > +{
-> …
-> > +	} while (0);
-> > +	mutex_unlock(&mpam_list_lock);
-> > +
-> > +	if (!err) {
-> > +		/* Create RIS entries described by firmware */
-> > +		if (!acpi_disabled)
-> > +			err = acpi_mpam_parse_resources(msc, plat_data);
-> > +		else
-> > +			err = mpam_dt_parse_resources(msc, plat_data);
-> > +	}
-> > +
-> > +	if (!err && fw_num_msc == mpam_num_msc)
-> > +		mpam_discovery_complete();
-> > +
-> > +	if (err && msc)
-> > +		mpam_msc_drv_remove(pdev);
-> > +
-> > +	return err;
-> > +}
-> …
-> 
-> * Would you like to integrate anything from the following source code variant?
-> 
-> 	if (!err)
-> 		/* Create RIS entries described by firmware */
-> 		err = acpi_disabled
-> 		      ? mpam_dt_parse_resources(msc, plat_data)
-> 		      : acpi_mpam_parse_resources(msc, plat_data);
-> 
-> 	if (err) {
-> 		if (msc)
-> 			mpam_msc_drv_remove(pdev);
-> 	} else {
-> 		if (fw_num_msc == mpam_num_msc)
-> 			mpam_discovery_complete();
-> 	}
-> 
-> * How do you think about to increase the application of scope-based resource management
->   at further places?
-> 
-> 
-> Regards,
-> Markus
+Hi Jie,
 
-Hi,
+kernel test robot noticed the following build errors:
 
-This is the semi-friendly patch-bot of Greg Kroah-Hartman.
+[auto build test ERROR on next-20250822]
+[also build test ERROR on v6.17-rc2]
+[cannot apply to robh/for-next linus/master v6.17-rc2 v6.17-rc1 v6.16]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Markus, you seem to have sent a nonsensical or otherwise pointless
-review comment to a patch submission on a Linux kernel developer mailing
-list.  I strongly suggest that you not do this anymore.  Please do not
-bother developers who are actively working to produce patches and
-features with comments that, in the end, are a waste of time.
+url:    https://github.com/intel-lab-lkp/linux/commits/Jie-Gan/dt-bindings-arm-document-the-static-TPDM-compatible/20250822-183421
+base:   next-20250822
+patch link:    https://lore.kernel.org/r/20250822103008.1029-3-jie.gan%40oss.qualcomm.com
+patch subject: [PATCH v1 2/3] coresight: tpdm: add static tpdm support
+config: arm-randconfig-002-20250823 (https://download.01.org/0day-ci/archive/20250823/202508231400.bELUAEeq-lkp@intel.com/config)
+compiler: arm-linux-gnueabi-gcc (GCC) 15.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250823/202508231400.bELUAEeq-lkp@intel.com/reproduce)
 
-Patch submitter, please ignore Markus's suggestion; you do not need to
-follow it at all.  The person/bot/AI that sent it is being ignored by
-almost all Linux kernel maintainers for having a persistent pattern of
-behavior of producing distracting and pointless commentary, and
-inability to adapt to feedback.  Please feel free to also ignore emails
-from them.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202508231400.bELUAEeq-lkp@intel.com/
 
-thanks,
+All errors (new ones prefixed by >>):
 
-greg k-h's patch email bot
+   drivers/hwtracing/coresight/coresight-tpda.c: In function 'tpdm_read_element_size':
+>> drivers/hwtracing/coresight/coresight-tpda.c:77:17: error: label 'out' used but not defined
+      77 |                 goto out;
+         |                 ^~~~
+
+
+vim +/out +77 drivers/hwtracing/coresight/coresight-tpda.c
+
+    57	
+    58	/*
+    59	 * Read the element size from the TPDM device. One TPDM must have at least one of the
+    60	 * element size property.
+    61	 * Returns
+    62	 *    0 - The element size property is read
+    63	 *    Others - Cannot read the property of the element size
+    64	 */
+    65	static int tpdm_read_element_size(struct tpda_drvdata *drvdata,
+    66					  struct coresight_device *csdev)
+    67	{
+    68		int rc = -EINVAL;
+    69		struct tpdm_drvdata *tpdm_data = dev_get_drvdata(csdev->dev.parent);
+    70	
+    71		if (coresight_is_static_tpdm(csdev)) {
+    72			rc = fwnode_property_read_u32(dev_fwnode(csdev->dev.parent),
+    73						      "qcom,dsb-element-bits", &drvdata->dsb_esize);
+    74			rc &= fwnode_property_read_u32(dev_fwnode(csdev->dev.parent),
+    75						       "qcom,cmb-element-bits", &drvdata->cmb_esize);
+    76	
+  > 77			goto out;
+    78		}
+    79	
+    80		if (tpdm_data->dsb) {
+    81			rc = fwnode_property_read_u32(dev_fwnode(csdev->dev.parent),
+    82					"qcom,dsb-element-bits", &drvdata->dsb_esize);
+    83		}
+    84	
+    85		if (tpdm_data->cmb) {
+    86			rc = fwnode_property_read_u32(dev_fwnode(csdev->dev.parent),
+    87					"qcom,cmb-element-bits", &drvdata->cmb_esize);
+    88		}
+    89	
+    90		if (rc)
+    91			dev_warn_once(&csdev->dev,
+    92				"Failed to read TPDM Element size: %d\n", rc);
+    93	
+    94		return rc;
+    95	}
+    96	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
