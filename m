@@ -4,102 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1829ACA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:38:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1586CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 10:09:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2fwDxiYfMdN2nLz2ZuEX+Y4mrEUZVapu4NUeLLR1y3c=; b=cWPJ+Cr0SCuA8KmK5IQht5eyeH
-	rpq+1P5oSQwNGg1ZnumuuzZxKkdubqpo2YZZV7T4eAomzW9aQ59BvMfyIw3n8DeW6yFwpmyv42KVr
-	YfxGhGh0+0VD0a93hA0ON0c55C8PNb7Q+r1GW2xFHhSj1JJSqhQQwfEjbijdUrOSjPKmc36vjG9de
-	TFyajQzzsx0EYo8X9zjJiVgzAOa8bU6yp8+GCUKnitIkWEXR7y9d3DOFwOWq424zRu28sO4W8tsAe
-	1pOmvR0qejjWv/Y95itne9HMEDGXIHVipyiheA8dSLzsVME1lUIo6/1tUejIPQDLYa4vm1RFynRBI
-	fzsjrjXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oT5aGklpLSOry0yNA9sTS19R2dJWWLhIf5yLUeAuuD0=; b=4udZu/ScnanGkZa3f73BcfVngN
+	vtnsQJf5hsPkuyjgOaA+dB2BWsldXMc2tEPQMwxddZjUvU4d7nu2gM0lUlhOFfd4RbPMm5fyQwkCm
+	2EGb2xi8PilbhI12jgjoQopLSMgCocfjUxeC5h0nXj7uQGVJy5PuPBQ7ipThR+ATyrRNUb/M+Sne+
+	7NRlhJQzMJKKNcGdUgCJ78Cw7xXXPUFpyF52ZcRZbE5Z8RGlW+CK6NEomHo5NfwPndhWRUp23RxXr
+	Km/nYTIWb+KvekzPYowqYRzGtypIFf1d7RjArf9zBCVRBHVbA59FsB2bAi7l3sDvHhp1vrmd7d/O7
+	s96QLiOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upkhJ-00000004Y5N-0EAg;
-	Sat, 23 Aug 2025 09:38:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uplBM-00000004b8s-08O4;
+	Sat, 23 Aug 2025 10:09:08 +0000
+Received: from fout-b3-smtp.messagingengine.com ([202.12.124.146])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upiQ0-00000004HFl-0BP7
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sat, 23 Aug 2025 07:12:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=2fwDxiYfMdN2nLz2ZuEX+Y4mrEUZVapu4NUeLLR1y3c=; b=nSLYQD6BYx4VDwx60qexuAFbIJ
-	XGiIZj0TTp6PH28cfAv8zsZ5JJuymLB08/iHMEx8BJ7lyJg9hNVgyLFr+XdAPZgwPxmwgthDCchLV
-	j07OrWNVSbqjWQklP6p12SA9oRwcuj0Q7oc2wHphwFCJXw/6A5ZOuVigzAdvAHv31NYNa3OlhjW4R
-	+HaKPnA7vT4bh5b2idOymUwK+ukc9vgYVzjt7n3tTYuFQMUbbqH++FS+hSrkLDQRROLKsWMcFvLlK
-	jarH2Uc8M1a4OTz5rNo5AejOf3onsd54aPICNuoYJ7Ha9D04wyVRgaHqsNST6BOIIDKDmHKWv9opd
-	UBDPEy5A==;
-Received: from mgamail.intel.com ([192.198.163.13])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upiPw-00000001JnO-0Lxr
+	id 1upksk-00000004Zo9-276l
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 Aug 2025 07:12:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1755933120; x=1787469120;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=jGVpPERW5NP1rnaGTAcvIEIQaG44vKcBtYOfI1JBcS8=;
-  b=cwKF9I5R4f0AVKzcpECgS2uRHgjGzgvSEea708qMoUz8k/3gA+MFqUkt
-   /+GrD1TwbKU0t2VC214ZCaUIAJ43aQPc0IoKzPJnzUeAiptMUsQlOazr5
-   oghzlFItikW6cPwHPHkv+UfKtogoa6Y6TysoZ7uRUlelp/nVdiydx92DV
-   hTrBhMS46LIfMNA1uKTrdnFKbOEZpg1ISYfsPDG9qrfdrwCIFHMpavxB9
-   i7qg9AuscAP5OeVXH5zSADI9c9SriCtvX8/tN5D30Ssn0j+l59qajTxoO
-   7HRYrzH60GsMRV1evTV+0HTZuDrCRz4JmxKTwpiVY2FUjbw5oZxIN/ABI
-   w==;
-X-CSE-ConnectionGUID: TqiQ/OUYQvCIvVaTy00gQg==
-X-CSE-MsgGUID: +3jSLvc1RziZcQvsgCIMEw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11529"; a="60858176"
-X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
-   d="scan'208";a="60858176"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Aug 2025 00:11:49 -0700
-X-CSE-ConnectionGUID: Jubo2rtVTOGHdEnsPCW6Yg==
-X-CSE-MsgGUID: BWV5dKzARCmUx6HMiM7IWA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
-   d="scan'208";a="199755162"
-Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
-  by fmviesa001.fm.intel.com with ESMTP; 23 Aug 2025 00:11:45 -0700
-Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1upiPe-000M9n-32;
-	Sat, 23 Aug 2025 07:11:42 +0000
-Date: Sat, 23 Aug 2025 15:10:57 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jie Gan <jie.gan@oss.qualcomm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-	Mao Jinlong <jinlmao.mao@oss.qualcomm.com>,
-	Tao Zhang <quic_taozha@quicinc.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-msm@vger.kernel.org,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 2/3] coresight: tpdm: add static tpdm support
-Message-ID: <202508231400.bELUAEeq-lkp@intel.com>
-References: <20250822103008.1029-3-jie.gan@oss.qualcomm.com>
+	Sat, 23 Aug 2025 09:49:55 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.stl.internal (Postfix) with ESMTP id E5D731D0008C;
+	Sat, 23 Aug 2025 05:49:51 -0400 (EDT)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-04.internal (MEProxy); Sat, 23 Aug 2025 05:49:52 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1755942591;
+	 x=1756028991; bh=oT5aGklpLSOry0yNA9sTS19R2dJWWLhIf5yLUeAuuD0=; b=
+	PsmckjTlqae1lzwYkRfHYHvkr1cUa9njigPTloF8nOtyz/B4Ttuv113Kjzr6kGcI
+	vK0OH+ogsVQvJoFKT8qFq6x8eSwoprY35gR3Eteerv8VaSGIYDKa6Hjg5Y3+qo70
+	tsWaX0QLrgeW+ldCjjr25SdI5GUHvPJidTY47odLmciBuHZ5dKH1Fi3ghz5/HyQA
+	/gAhMMwicQP8XFWpFdgsy8jJ8wfEbJ+v3Ex3cw4+r7wSHlz9WCzrTPOmvGx5j9HG
+	iEl9I+62zsSMsbNS6mwiKpuo8XgRj14G1JORPth0VEe9ZJ6A803YkVzh3GEEIH3m
+	Z75PHMOjhBVijvaR72hpXA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1755942591; x=
+	1756028991; bh=oT5aGklpLSOry0yNA9sTS19R2dJWWLhIf5yLUeAuuD0=; b=A
+	LLfk5UiO+4wciDQXn8d1rsxQHnKNXs0ZY7x3Jbzu558TTwrrUF50VESKq8EiAwLv
+	7B4Z3Z9uH6hRtZu+CPQiUmiIEFDJyGYdJOYCUvCLKXHJ3j7C2H5Pc62JOL+ed3Zh
+	8Sg/d5OBbGlmhwFEi4e48y2I2ylUv1YfYNmgcvAOxCeOFop3rXbA8woQgjEJydmW
+	UlYOePR9YYTpCriRRtYSBjUc6W04wqInkXR3h36sBuFvTFpw2RkRDujuXDkl5VAa
+	8UzAbwXtoZqWSl8LyuVRcLKIOTVtjsFRIj8+gj8zLF3DT9BUjKRF4498uuyKmZWg
+	3MfY1gw9QFdeU96TKHc8w==
+X-ME-Sender: <xms:v46paESoL9nOr8W_9fuyBJPaGAgXL8aKjEKQWUR1MWLqg6szQm7mvA>
+    <xme:v46paJAKnygnQ3RdYhuqz-VMTmsqbyZmrG4Wx1ouKSFz7mHrisrk7z0HQomZ8Vq53
+    _2Hp5nq03XXFg4MxCE>
+X-ME-Received: <xmr:v46paMsmdfwL_TvWSRMC5RX7Uia4umjDkDC7WFWSnByVreM9EDAbfScoJmGUDvYgf1v4n51a-AnBZkHHeSTtO2V2WiIHqGRAIYQUVg>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduieeifedvucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhephfffufggtgfgkfhfjgfvvefosehtjeertdertdejnecuhfhrohhmpeflrghnnhgv
+    ucfirhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqnecuggftrfgrthhtvghrnhepfe
+    ehheeileduffehteeihfdvtdelffdutdeludduiedutedvfeffheekhefgtedtnecuvehl
+    uhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepjhesjhgrnhhnrg
+    hurdhnvghtpdhnsggprhgtphhtthhopedufedpmhhouggvpehsmhhtphhouhhtpdhrtghp
+    thhtohepuggvvhhitggvthhrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpth
+    htohepkhgvthhtvghnihhssehophgvnhgsshgurdhorhhgpdhrtghpthhtoheprhhosghh
+    sehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdroh
+    hrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthht
+    oheprghsrghhiheslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehlihhnuh
+    igqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhn
+    uhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprh
+    gtphhtthhopehmrghrtggrnhesmhgrrhgtrghnrdhsth
+X-ME-Proxy: <xmx:v46paH9uSqvBPi4pV69nlfBxQvECSeMpaWEB10Y_JsURF-wUrmB3vA>
+    <xmx:v46paDRlKWv1VICqoBM2IcUeeMF2dhWVGCESTwHM3WZgzvndZPCs8A>
+    <xmx:v46paJVi-BcKniuKXUwOhrmawJ3WOfImcNqLKzDQIuazjp-CCiPpag>
+    <xmx:v46paF9XkLUzIRQs5y-lkDhSTPi8iVZvAXtZrVNBK3tckZhF_mv3ZQ>
+    <xmx:v46paP8Vq3GfE5mS-00p1ZZxVGzADhTQqRbgxaDMmQgZzix2quaGW3Vg>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
+ 23 Aug 2025 05:49:51 -0400 (EDT)
+From: Janne Grunau <j@jannau.net>
+Date: Sat, 23 Aug 2025 11:49:44 +0200
+Subject: [PATCH v2 1/5] arm64: dts: apple: t8103-j457: Fix PCIe ethernet
+ iommu-map
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250822103008.1029-3-jie.gan@oss.qualcomm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250823-apple-dt-sync-6-17-v2-1-6dc0daeb4786@jannau.net>
+References: <20250823-apple-dt-sync-6-17-v2-0-6dc0daeb4786@jannau.net>
+In-Reply-To: <20250823-apple-dt-sync-6-17-v2-0-6dc0daeb4786@jannau.net>
+To: Sven Peter <sven@kernel.org>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+ Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Mark Kettenis <kettenis@openbsd.org>, 
+ Hector Martin <marcan@marcan.st>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Janne Grunau <j@jannau.net>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1730; i=j@jannau.net;
+ s=yk2024; h=from:subject:message-id;
+ bh=XWIZbXwdxDJd23FH6/oKGvuq/lQptExK9nszv65rwJI=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhoyVfTuvnRMX2tB3Sq7zV2rls5l2B/wZZFXY5rpVecpsq
+ NmrFpnaUcrCIMbFICumyJKk/bKDYXWNYkztgzCYOaxMIEMYuDgFYCI3Ixn+2eca3eDfwuYy51u3
+ vaTXxjWJrPzTkuff1t7RE3tGsrWpiJFhWt3/gr/uj5rqGUq2J/9fdSnzZbFyfF55pU+Cfv+Ui4U
+ MAA==
+X-Developer-Key: i=j@jannau.net; a=openpgp;
+ fpr=8B336A6BE4E5695E89B8532B81E806F586338419
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250823_081200_663324_3A2CF452 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20250823_024954_597841_8669D0B9 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,82 +129,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jie,
+PCIe `port01` of t8103-j457 (iMac, M1, 2 USB-C ports, 2021) is unused
+and disabled. Linux' PCI subsystem assigns the ethernet nic from
+`port02` to bus 02. This results into assigning `pcie0_dart_1` from the
+disabled port as iommu. The `pcie0_dart_1` instance is disabled and
+probably fused off (it is on the M2 Pro Mac mini which has a disabled
+PCIe port as well).
+Without iommu the ethernet nic is not expected work.
+Adjusts the "bus-range" and the PCIe devices "reg" property to PCI
+subsystem's bus number.
 
-kernel test robot noticed the following build errors:
+Fixes: 7c77ab91b33d ("arm64: dts: apple: Add missing M1 (t8103) devices")
+Reviewed-by: Neal Gompa <neal@gompa.dev>
+Reviewed-by: Sven Peter <sven@kernel.org>
+Signed-off-by: Janne Grunau <j@jannau.net>
+---
+ arch/arm64/boot/dts/apple/t8103-j457.dts | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
 
-[auto build test ERROR on next-20250822]
-[also build test ERROR on v6.17-rc2]
-[cannot apply to robh/for-next linus/master v6.17-rc2 v6.17-rc1 v6.16]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Jie-Gan/dt-bindings-arm-document-the-static-TPDM-compatible/20250822-183421
-base:   next-20250822
-patch link:    https://lore.kernel.org/r/20250822103008.1029-3-jie.gan%40oss.qualcomm.com
-patch subject: [PATCH v1 2/3] coresight: tpdm: add static tpdm support
-config: arm-randconfig-002-20250823 (https://download.01.org/0day-ci/archive/20250823/202508231400.bELUAEeq-lkp@intel.com/config)
-compiler: arm-linux-gnueabi-gcc (GCC) 15.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250823/202508231400.bELUAEeq-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202508231400.bELUAEeq-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   drivers/hwtracing/coresight/coresight-tpda.c: In function 'tpdm_read_element_size':
->> drivers/hwtracing/coresight/coresight-tpda.c:77:17: error: label 'out' used but not defined
-      77 |                 goto out;
-         |                 ^~~~
-
-
-vim +/out +77 drivers/hwtracing/coresight/coresight-tpda.c
-
-    57	
-    58	/*
-    59	 * Read the element size from the TPDM device. One TPDM must have at least one of the
-    60	 * element size property.
-    61	 * Returns
-    62	 *    0 - The element size property is read
-    63	 *    Others - Cannot read the property of the element size
-    64	 */
-    65	static int tpdm_read_element_size(struct tpda_drvdata *drvdata,
-    66					  struct coresight_device *csdev)
-    67	{
-    68		int rc = -EINVAL;
-    69		struct tpdm_drvdata *tpdm_data = dev_get_drvdata(csdev->dev.parent);
-    70	
-    71		if (coresight_is_static_tpdm(csdev)) {
-    72			rc = fwnode_property_read_u32(dev_fwnode(csdev->dev.parent),
-    73						      "qcom,dsb-element-bits", &drvdata->dsb_esize);
-    74			rc &= fwnode_property_read_u32(dev_fwnode(csdev->dev.parent),
-    75						       "qcom,cmb-element-bits", &drvdata->cmb_esize);
-    76	
-  > 77			goto out;
-    78		}
-    79	
-    80		if (tpdm_data->dsb) {
-    81			rc = fwnode_property_read_u32(dev_fwnode(csdev->dev.parent),
-    82					"qcom,dsb-element-bits", &drvdata->dsb_esize);
-    83		}
-    84	
-    85		if (tpdm_data->cmb) {
-    86			rc = fwnode_property_read_u32(dev_fwnode(csdev->dev.parent),
-    87					"qcom,cmb-element-bits", &drvdata->cmb_esize);
-    88		}
-    89	
-    90		if (rc)
-    91			dev_warn_once(&csdev->dev,
-    92				"Failed to read TPDM Element size: %d\n", rc);
-    93	
-    94		return rc;
-    95	}
-    96	
+diff --git a/arch/arm64/boot/dts/apple/t8103-j457.dts b/arch/arm64/boot/dts/apple/t8103-j457.dts
+index 152f95fd49a2118093396838fbd8b6bd1b518f81..7089ccf3ce55661f3f83810496daed40c8199189 100644
+--- a/arch/arm64/boot/dts/apple/t8103-j457.dts
++++ b/arch/arm64/boot/dts/apple/t8103-j457.dts
+@@ -21,6 +21,14 @@ aliases {
+ 	};
+ };
+ 
++/*
++ * Adjust pcie0's iommu-map to account for the disabled port01.
++ */
++&pcie0 {
++	iommu-map = <0x100 &pcie0_dart_0 1 1>,
++			<0x200 &pcie0_dart_2 1 1>;
++};
++
+ &bluetooth0 {
+ 	brcm,board-type = "apple,santorini";
+ };
+@@ -36,10 +44,10 @@ &wifi0 {
+  */
+ 
+ &port02 {
+-	bus-range = <3 3>;
++	bus-range = <2 2>;
+ 	status = "okay";
+ 	ethernet0: ethernet@0,0 {
+-		reg = <0x30000 0x0 0x0 0x0 0x0>;
++		reg = <0x20000 0x0 0x0 0x0 0x0>;
+ 		/* To be filled by the loader */
+ 		local-mac-address = [00 10 18 00 00 00];
+ 	};
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.50.1
+
 
