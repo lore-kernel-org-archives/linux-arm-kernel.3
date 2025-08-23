@@ -4,154 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0894CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 19:06:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D826CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 19:09:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HHmDOPbnpVlBZN85+1DnJ5UG5L/VqNy2oOxWyq5NUIY=; b=Z/z1yoiRfP9Pj2nheMSuOORhwY
-	aemMotujrJngsZ9buHurb4nFzS59wKtbZ9dSrsBJWgel6m4wI8dT38fyujJ8wwAWBxOaJgCmPldta
-	kR9uijmU5vX4ezozABdWqEoQboyBUsL04n4ScPIEmVu7cNjGMrVkwZpHuvk7QfHRuNfyXvdkdY92H
-	IIR4PX8mGrszH900NKBjm1iMhCqUFLzvQi9LATXikplRhYpj4ZzL9qL2ivE5DJO+RgPlFZE4uDxPY
-	sucmY71BsmYrW7zScg21HFh+XeAM5uBBxfkecmrQnXlhM1sUjoGCaJF28kJg/ryHznkOP9/QFHbqQ
-	M0px7kwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=al4cMcBWRH9QgIUZIz9Q7Wj6h73BaDiii1apCj2i8oI=; b=IXmIMRupmUsurr1jYW4/r9SFKr
+	ZBQ1hlALfYgyvZkqy2T6VrDPkrJrs1wNETf5lwhpjxN/am+A2raL2WU+H1F61n9CscQFCmLlstlai
+	sm96jMb5om77qIFlOxQKbSe0imFvfP7W0yXUcLvogi7YKHIemagQXLVPQyVl/ofOau25M89G6jPsT
+	zgSSj8dIE3+Xby1pgYg2RmALWnipMKWNWHLV8kFlp6cfsjZg+hP3y/eBed+oCOaBQ1nEe4eUfXkNv
+	3nE5qVVhtbYLwO1M5KSghqT3yL6ibj/GS/fDj7p38saI7ySSGWazooXYTqWfYtdmCuS7vfGXkSt7u
+	EsdrCabQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uptZ6-00000005D9k-1a2K;
-	Sat, 23 Aug 2025 19:06:12 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1uptbi-00000005DKy-0iyp;
+	Sat, 23 Aug 2025 19:08:54 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upqgT-00000004xiZ-3Mra
+	id 1uprL5-000000054ZH-0tOH
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 Aug 2025 16:01:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Vq4lnGOaOeG6TmSVjbn6WiohPj6wF/rWqOr/2ixs0ydfJ5dxVEmlm+kA9bjOfYPPwhYdx7eFCdF5euBcNYtcq7i813021MxcrzdswcltIFYwIGWuLxvvxWUTt3XVty0jpcQEHzGJgLFVX1m+qXVLhFD2Ypz2zB5sQArRVdcqoldrqZnGPB5uL/I9UJV6hy1mtqNt7VmYM5Zle7k7XZbhec90gma7a3aCg2NSTX3JXmnNL+gAKKkvrGi7bamDkLM7RKfWlJ4KzR1L3bnuycp+//pdN8vOI8r08SPyYobhoipnsyTGJBSzUVrj9tPQOpcbwvz0mE9LLxuOPingaGEp/A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HHmDOPbnpVlBZN85+1DnJ5UG5L/VqNy2oOxWyq5NUIY=;
- b=uGFg59I79++68iho8JJZlU77AMPwBD32T/AcUcQzRzkURl6517tRRQ6BXi88W2oGGKpysiTDly0Foy2dEJ5J8rt5yOWcd+jcsOnoZHWBygI1TS54gILK6GCHYcFgaJFkIJWkubauiRV7gClTQrQxsqK3dsUxWvMOKZlDT1HOYEmT4KIajLYmC6qgSfqDWANso5OZlyoxWnoJjm6Q2AXHf7aGCfqsMzjeeKFk/pgZw0HZZ8iW2esqvRvaf9QCQq7Nd0Sj4DeIDc2ChfjfP6fBMp4IOmJIVooSRTkvQmk47yYVYSrSXM9on2B762bD8sqQWr0caqqnl9xSgJi+Vc0JSQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
- dkim=pass header.d=iopsys.eu; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HHmDOPbnpVlBZN85+1DnJ5UG5L/VqNy2oOxWyq5NUIY=;
- b=SM2sSNNOqONOo7RtoxdRduSAFZdO+Du8xMYXhYHeST7WoysETckgd/Z+JNxSGepF4silvXfBNkb/ofECudcoENYUofyfzNXiGlYo7v0oRLH/jgEQMtpA3xf605ijq4UH8WSF0iq+nCs5bkccas20R3YeNkKO+cSzeQeuQDOzecvnXHZQ+XpskFSfcLol0pc8RvWcYmsbxuQPkWVqs/XBA0rxMAb50bzpKfUW2q4AjRuZU2AXm1FO9Xv6QpjAe1zZk37peZduG5q8/nQ5VUW0zJAU8xtLv+UD1X/rTc2FbMcoQmSI4/G4lC3SKfpwjUzxj5kkd+l0pcdPdhDG+20enw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=iopsys.eu;
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
- by DU0PR08MB7519.eurprd08.prod.outlook.com (2603:10a6:10:321::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.15; Sat, 23 Aug
- 2025 16:01:27 +0000
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0%4]) with mapi id 15.20.9031.018; Sat, 23 Aug 2025
- 16:01:27 +0000
-From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-To: Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ray Liu <ray.liu@airoha.com>,
-	Mark Brown <broonie@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Andy Shevchenko <andy@kernel.org>,
+	Sat, 23 Aug 2025 16:43:37 +0000
+Received: from gaggiata.pivistrello.it (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id A770F22BD1;
+	Sat, 23 Aug 2025 18:43:26 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1755967406;
+	bh=al4cMcBWRH9QgIUZIz9Q7Wj6h73BaDiii1apCj2i8oI=;
+	h=Received:Received:From:To:Subject;
+	b=VDwQcKNfKWVRs3Ur1vxksqe0mDrvIRYusFgqfjqnoWR4gfhuN2nVjF2k664KWqZ92
+	 1iw/Vyy+i86F6UAE+Bsu7BUP4KkgDvepAuMwAyveFyXIKtSBtJCk+nylsDtp5CKPXf
+	 PnIEe2Jd8w2WqFP4cJN1vkLpbGHVots+a4HgbTcbqn9TC4Ri5hpB0m5ZNRweKGmRLB
+	 56qtB+TLS2SREtdusePEGjXBPk67NLt7amc2eJDLgxSq0dGe8kNCJnG+PruISc75S/
+	 yHJEiLUR9DM4jE9x7N7ClfovxOJHn2OvpUmQUOlcZqLqorZmg4m9+3lBIPl9D1QwbX
+	 vCxc3pE3MfWyQ==
+Received: from livingston (unknown [192.168.42.11])
+	by gaggiata.pivistrello.it (Postfix) with ESMTP id 608B67F996;
+	Sat, 23 Aug 2025 18:43:26 +0200 (CEST)
+Received: from pivi by livingston with local (Exim 4.96)
+	(envelope-from <francesco@dolcini.it>)
+	id 1uprKw-0002Hl-0k;
+	Sat, 23 Aug 2025 18:43:26 +0200
+Date: Sat, 23 Aug 2025 18:43:26 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Beleswar Prasad Padhi <b-padhi@ti.com>
+Cc: Francesco Dolcini <francesco@dolcini.it>, nm@ti.com, vigneshr@ti.com,
+	kristo@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, afd@ti.com, u-kumar1@ti.com, hnagalla@ti.com,
+	jm@ti.com, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Jyothi Kumar Seerapu <quic_jseerapu@quicinc.com>
-Cc: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-Subject: [PATCH v5 03/13] spi: airoha: add support of dual/quad wires spi modes to exec_op() handler
-Date: Sat, 23 Aug 2025 19:01:06 +0300
-Message-ID: <20250823160116.3762730-4-mikhail.kshevetskiy@iopsys.eu>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250823160116.3762730-1-mikhail.kshevetskiy@iopsys.eu>
-References: <20250823001626.3641935-1-mikhail.kshevetskiy@iopsys.eu>
- <20250823160116.3762730-1-mikhail.kshevetskiy@iopsys.eu>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: GV2PEPF00007568.SWEP280.PROD.OUTLOOK.COM
- (2603:10a6:158:401::3e6) To GV2PR08MB8121.eurprd08.prod.outlook.com
- (2603:10a6:150:7d::22)
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
+	Parth Pancholi <parth.pancholi@toradex.com>,
+	Jo_o Paulo Gon_alves <joao.goncalves@toradex.com>
+Subject: Re: [PATCH 16/33] arm64: dts: ti: k3-am62p-verdin: Add missing cfg
+ for TI IPC Firmware
+Message-ID: <aKnvrh2TSksb_39i@livingston.pivistrello.it>
+References: <20250814223839.3256046-1-b-padhi@ti.com>
+ <20250814223839.3256046-17-b-padhi@ti.com>
+ <20250821060629.GB7503@francesco-nb>
+ <ecff956d-1019-41d0-9bfc-b0bdc30e87ba@ti.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|DU0PR08MB7519:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6dce5b94-ff63-4c47-59f8-08dde25e5114
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?FITBamlyWbR1ahr1m7T5rP37T1w9kGOa7oa1Blnu3P2Hey1h7DIFlEob/h17?=
- =?us-ascii?Q?ECm7o/4OQ3o0O/j41lxCRsD8akYbMrG0fjzsXypV8tSAfrMgpl2lICvLU00N?=
- =?us-ascii?Q?+8r+b94OHlVg1tYZu1U5xaAPT9nccUO0zj7vMJyU2tRo+hCpqg1AigxFx4CB?=
- =?us-ascii?Q?Uh8aCz7yGrNhgK8VemMdU8CD4O3i3TQjU7MkDkezxb/dAEGtbE/O1G6TS2B+?=
- =?us-ascii?Q?AU07GOBZRH5bVUI5BuliZotXzNiJOIUfPQ+Esy7tPpsyqCsWIqjP3mUbZDDG?=
- =?us-ascii?Q?SlO8m4mCNLMeCvvQ5YmqwDtt2GlNj0av1pcxIQAr5Nk2jUEIhCbVr7Qbd8dj?=
- =?us-ascii?Q?Z7n77XfLOnMPKMV7ibafs7izXGNcPndUnxpjCJDaEqX0QuJ3zXBdAuv9/Hdi?=
- =?us-ascii?Q?UOuhJ/dlGMTAvbxghrHaSqgzy6pI8i1oP9nkhqpFp1a4CPrmDSQTEO+eevHd?=
- =?us-ascii?Q?iU1uX+1xCfGOGdshr08I0pWKRcWEYlxgIe5GgNhfGfFH71AAQkM6oj6t9Fn6?=
- =?us-ascii?Q?yar9sPd8f0BpOE0DCkhnbI/GpjKJVMWkwRQSfTAplKbv1XZytLFr4nJeFTmI?=
- =?us-ascii?Q?HNyN4C6QtN4aT5Wgmw9jAhnKun0W/78Bu7v0tSsJ86Xt6c9/soDVu17V0LKP?=
- =?us-ascii?Q?X5eqqZO2RN8ZP8xLW1AmCTbP7WOe7RXjDm/Jip9VB0PcHyUUv1MP5twnkmWE?=
- =?us-ascii?Q?8a9wkGidJxG7VpnR/Imd8zCQtQa0SIchoZvRrA7TmQB2YuCQ0GC5rFhUjRsN?=
- =?us-ascii?Q?kCN62t9IXi1END+NMUZoZqzRDU8rL7Dg/OE5To6uWP6Cix1hbZZYcbhwD2SS?=
- =?us-ascii?Q?cQ6UQ6yQ28iHabXPtSeDigxUpv4p8llq27jtQh2r37mAar4Ld+fhg1qIx2NV?=
- =?us-ascii?Q?rKAp7SP1HlTHtCcBvXi7FSlSHq6Nxcpqn+kJhjf81yraK3CpZnzdOO7BJAIf?=
- =?us-ascii?Q?BxV2bP/nU3OMNRIYubYDJ8NXJJ0FImy4h4uuU4+T1IembJhun9i1bOCnoR9t?=
- =?us-ascii?Q?YBsebWBxQhlvb5F0NQDa861wqOwUJ4n6QViY+0bwOThzd2LFHvyCt4JN1nHB?=
- =?us-ascii?Q?vkoEln5quSyK4NmTYrnM+lnP2RiqBNgAfpicndBCj/V7XP4bG9jIENtIkPm3?=
- =?us-ascii?Q?HXmdobXQwDghFawvJTWaiiOUlgQT2EtZeKHdS2oSHhYTwZkNHyy0W1WhqaU7?=
- =?us-ascii?Q?PFOEvHl7RgUyodZ+j9RqE/vsagXXu6/bi8MqZq1+R3Gs9Oo5zZQ/XFxoaPg0?=
- =?us-ascii?Q?XwmRLFTMLad6bqYgwR03uSJ8m3cUDHkIUWQN9g8PX6oQ3xpXCZWnWZ2tO8A5?=
- =?us-ascii?Q?Zrlp65jXq2pASD09OSdXG5nY1nC9TIlss6vp9OxvOnHuEJZSN9QPNaRi56gC?=
- =?us-ascii?Q?dS+A9+Ca/kAevCQh4yfhwHLnNKVX/XF4hIba9+h8TpynKb6mw6Q3zl/P/5rA?=
- =?us-ascii?Q?r1lbapVI1H+86qqCRxMlugyk2c/m33whCv8kFKhgobeR2LTt/R1XuQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(1800799024)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uo/vPCUZJAqWyvNiLxn5Y9spHQQXdy2DtP8805egsnNQU4BbYVNK2cDKwjSE?=
- =?us-ascii?Q?gyX0txxRPs1sExDHCAQfAvOZqLDPHVKl+roCKgfJw/wny5KoGDHdVxYbK+jm?=
- =?us-ascii?Q?iGrXdNLqAmADmRa7JAbQ9WnirD3NQa0OKq/7IwaOFn9jLcaK2VukB4vbAyZa?=
- =?us-ascii?Q?5DxC+Rb4l12AHidBCilyMrgXDMgdOsIPdqNkEhpDpCbgA0Eeg0r71FR4oxLx?=
- =?us-ascii?Q?Y0qrhwpBkjuJAs1kyo0AtZsHKBftSh6iucwSHQuO1Wcm49btjeRrTO4GUatR?=
- =?us-ascii?Q?oVItnKb6WCwkRxYc+RUqKeeUmjnwkUhMNYYBJgOZrkcUROa8n4QKyrQz/onp?=
- =?us-ascii?Q?DJJmcFBlIf0fjbhEl+vcthxPz1rXV5ZlkBJGyIanObmX2+Fy+zupXy4n5hqB?=
- =?us-ascii?Q?+7+Wf3edpFKmAroZQzGcZ2eDAEU54q60yi9YjoN3JHYbJrD4S4DBE0iE9Bu+?=
- =?us-ascii?Q?5/j7JWJXoFo+wFGSqRtG4d1U9GGXDczIOTadCYmXDIPuDZfl+Vhtq9/g07sP?=
- =?us-ascii?Q?HI6x1GvqdpOiOkMGtT2NNs3fGdlJUHeZSs2Gg0ZBXge9DDOKG/N5mKZ+tkMc?=
- =?us-ascii?Q?883gg0wvE4XBl/U//q79D3kJfTrUlm28RD867QMUBK93K9ez9Pmp+wUBXArI?=
- =?us-ascii?Q?Yiy/O3U8UTzyLHNGH+c3VAJ39b+4efxNj0axw+KtdpTue5Ea/dfcc+epDlw7?=
- =?us-ascii?Q?tENXM4Gthv473CJUOCGKhvTxpVlbBTzJC3SoRUE0vw6eaVrXsPlFrmzx8nlp?=
- =?us-ascii?Q?9KkLuUS69N0bpnjlv5/NLEFDCVWOuJZ0ZTTNtf8usJ7E9ag2AC8xcsoS/TqJ?=
- =?us-ascii?Q?VNh71gJ9AvukDKACR+JkHJABMrrK+SKgg9E4zPj8MTQdXL4e3UaL7ZNrmLho?=
- =?us-ascii?Q?HzkZgXsP+bYOgCC+XEf4WmkMMR+29nesU/r6knMFEDmk+9Kz/4kw5nRo5SoZ?=
- =?us-ascii?Q?hLwMmz7myr18KafVb1NUZ23jOLCb5z5fOwadeZjaGjkCJoEt1P1cVxa5+HNP?=
- =?us-ascii?Q?q+wS9NBuoSyOlsS/datxosEDhJQLfIdbygYT9kPWA4Py5wnxRBrUA3tvMqha?=
- =?us-ascii?Q?241w455+rFQLzIsbF4j/YiulanggKaZAWHTOsDcDKs/Up7HUJUkd+pRnZvbZ?=
- =?us-ascii?Q?9Fg8MSZ7OI6xKHP5bM2VoZ7rfc0KtwhDBok7y6EX8bNeoONb1IXtMEv27iwd?=
- =?us-ascii?Q?GrIyUUj1wm5GV5cRVLQ5CWqOOszG3dn0StPU7Txl42gz0eSxuJ5y+pnIWNit?=
- =?us-ascii?Q?cbhACRcGzqdkbQdxpT1DXJixdnRq5IF64iFlSurKwUzrTkvfq9235FT21pqT?=
- =?us-ascii?Q?uBK1wdUI717p/niAbBH6uRZf7l2SvoAtLPP4Ce+up7n2R9gqLYv3F/954NQt?=
- =?us-ascii?Q?viPbRib/JuGV3gKTGZBSAqsvehWp8yAAmH2pUeID7fdmbtdsNgFRV2Wllp4S?=
- =?us-ascii?Q?naTucov51rZtBgAxrWf8h7jEivGk6Ba+ZA6M7R2x3M4KhqkUlpOmf+yOGLpm?=
- =?us-ascii?Q?dOnSu552dWm5HyKlPX9+8FNKMGthhGYhGLsGGC1GEh5c9dJoJSHYdubA28Ef?=
- =?us-ascii?Q?O13KADNXCRUlV8Xa3UCdQGX8Mgj/daFP/slyPuHWxXL0TlqyqaYwJ3OcD7WY?=
- =?us-ascii?Q?3vQyaUAuJbFnAeVziIH+Moc=3D?=
-X-OriginatorOrg: iopsys.eu
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6dce5b94-ff63-4c47-59f8-08dde25e5114
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Aug 2025 16:01:27.3500
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 5BuiILtXLncho8bQMaJBJxeZxcCN7WCOZks1Y9n30CsShDGYxTg4cL9iKR8TjuCS07sxl3ITma0OG/zL7ERbbGo2dzknjIV67u7tY7N0wn0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB7519
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ecff956d-1019-41d0-9bfc-b0bdc30e87ba@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250823_090137_851350_0393FB13 
-X-CRM114-Status: GOOD (  21.23  )
+X-CRM114-CacheID: sfid-20250823_094336_292527_646EF2B4 
+X-CRM114-Status: GOOD (  27.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,211 +87,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Booting without this patch and disabled dirmap support results in
+On Fri, Aug 22, 2025 at 10:09:48PM +0530, Beleswar Prasad Padhi wrote:
+> 
+> On 8/21/2025 11:36 AM, Francesco Dolcini wrote:
+> > On Fri, Aug 15, 2025 at 04:08:22AM +0530, Beleswar Padhi wrote:
+> > > The wkup_r5fss0_core0_memory_region is used to store the text/data
+> > > sections of the Device Manager (DM) firmware itself and is necessary for
+> > > platform boot. Whereas the wkup_r5fss0_core0_dma_memory_region is used
+> > > for allocating the Virtio buffers needed for IPC with the DM core which
+> > > could be optional. The labels were incorrectly used in the
+> > > k3-am62p-verdin.dtsi file. Correct the firmware memory region label.
+> > > 
+> > > Currently, only mailbox node is enabled with FIFO assignment. However,
+> > > there are no users of the enabled mailboxes. Add the missing carveouts
+> > > for WKUP and MCU R5F remote processors, and enable those by associating
+> > > to the above carveout and mailboxes. This config aligns with other AM62P
+> > > boards and can be refactored out later.
+> > > 
+> > > Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
+> > > ---
+> > > Cc: Francesco Dolcini <francesco.dolcini@toradex.com>
+> > > Cc: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
+> > > Cc: Parth Pancholi <parth.pancholi@toradex.com>
+> > > Cc: Jo_o Paulo Gon_alves <joao.goncalves@toradex.com>
+> > > Requesting for a review/test.
+> > > 
+> > >   arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi | 42 ++++++++++++++++++++-
+> > >   1 file changed, 41 insertions(+), 1 deletion(-)
+> > > 
+> > > diff --git a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+> > > index 6a04b370d149..0687debf3bbb 100644
+> > > --- a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+> > > +++ b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+> > > @@ -162,7 +162,25 @@ secure_ddr: optee@9e800000 {
+> > >   			no-map;
+> > >   		};
+> > > -		wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
+> > > +		mcu_r5fss0_core0_dma_memory_region: mcu-r5fss-dma-memory-region@9b800000 {
+> > > +			compatible = "shared-dma-pool";
+> > > +			reg = <0x00 0x9b800000 0x00 0x100000>;
+> > > +			no-map;
+> > > +		};
+> > > +
+> > > +		mcu_r5fss0_core0_memory_region: mcu-r5fss-memory-region@9b900000 {
+> > Node name should be generic, `memory@9b900000` ?
+> 
+> 
+> Humm, that memory is reserved and has the 'no-map' property. So it
+> technically is only used by the node which references it (a particular
+> rproc in this case), and never used by Linux for any allocations. So it
+> is not generic memory per say...
+> 
+> So I was inclined for putting the specific node name which uses the
+> carveout in the label. What do you think?
 
-[    2.980719] spi-nand spi0.0: Micron SPI NAND was found.
-[    2.986040] spi-nand spi0.0: 256 MiB, block size: 128 KiB, page size: 2048, OOB size: 128
-[    2.994709] 2 fixed-partitions partitions found on MTD device spi0.0
-[    3.001075] Creating 2 MTD partitions on "spi0.0":
-[    3.005862] 0x000000000000-0x000000020000 : "bl2"
-[    3.011272] 0x000000020000-0x000010000000 : "ubi"
-...
-[    6.195594] ubi0: attaching mtd1
-[   13.338398] ubi0: scanning is finished
-[   13.342188] ubi0 error: ubi_read_volume_table: the layout volume was not found
-[   13.349784] ubi0 error: ubi_attach_mtd_dev: failed to attach mtd1, error -22
-[   13.356897] UBI error: cannot attach mtd1
+My understanding is that the node name must be generic, as required by
+the DT specification. What matters is that this is memory, not what is used
+for.
 
-If dirmap is disabled or not supported in the spi driver, the dirmap requests
-will be executed via exec_op() handler. Thus, if the hardware supports
-dual/quad spi modes, then corresponding requests will be sent to exec_op()
-handler. Current driver does not support such requests, so error is arrised.
-As result the flash can't be read/write.
 
-This patch adds support of dual and quad wires spi modes to exec_op() handler.
+So it should be something like
 
-Fixes: a403997c12019 ("spi: airoha: add SPI-NAND Flash controller driver")
-Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
----
- drivers/spi/spi-airoha-snfi.c | 108 ++++++++++++++++++++++++++--------
- 1 file changed, 82 insertions(+), 26 deletions(-)
 
-diff --git a/drivers/spi/spi-airoha-snfi.c b/drivers/spi/spi-airoha-snfi.c
-index bcc464ec9c61..fffed26ff990 100644
---- a/drivers/spi/spi-airoha-snfi.c
-+++ b/drivers/spi/spi-airoha-snfi.c
-@@ -192,6 +192,14 @@
- #define SPI_NAND_OP_RESET			0xff
- #define SPI_NAND_OP_DIE_SELECT			0xc2
- 
-+/* SNAND FIFO commands */
-+#define SNAND_FIFO_TX_BUSWIDTH_SINGLE		0x08
-+#define SNAND_FIFO_TX_BUSWIDTH_DUAL		0x09
-+#define SNAND_FIFO_TX_BUSWIDTH_QUAD		0x0a
-+#define SNAND_FIFO_RX_BUSWIDTH_SINGLE		0x0c
-+#define SNAND_FIFO_RX_BUSWIDTH_DUAL		0x0e
-+#define SNAND_FIFO_RX_BUSWIDTH_QUAD		0x0f
-+
- #define SPI_NAND_CACHE_SIZE			(SZ_4K + SZ_256)
- #define SPI_MAX_TRANSFER_SIZE			511
- 
-@@ -387,10 +395,26 @@ static int airoha_snand_set_mode(struct airoha_snand_ctrl *as_ctrl,
- 	return regmap_write(as_ctrl->regmap_ctrl, REG_SPI_CTRL_DUMMY, 0);
- }
- 
--static int airoha_snand_write_data(struct airoha_snand_ctrl *as_ctrl, u8 cmd,
--				   const u8 *data, int len)
-+static int airoha_snand_write_data(struct airoha_snand_ctrl *as_ctrl,
-+				   const u8 *data, int len, int buswidth)
- {
- 	int i, data_len;
-+	u8 cmd;
-+
-+	switch (buswidth) {
-+	case 0:
-+	case 1:
-+		cmd = SNAND_FIFO_TX_BUSWIDTH_SINGLE;
-+		break;
-+	case 2:
-+		cmd = SNAND_FIFO_TX_BUSWIDTH_DUAL;
-+		break;
-+	case 4:
-+		cmd = SNAND_FIFO_TX_BUSWIDTH_QUAD;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
- 
- 	for (i = 0; i < len; i += data_len) {
- 		int err;
-@@ -409,16 +433,32 @@ static int airoha_snand_write_data(struct airoha_snand_ctrl *as_ctrl, u8 cmd,
- 	return 0;
- }
- 
--static int airoha_snand_read_data(struct airoha_snand_ctrl *as_ctrl, u8 *data,
--				  int len)
-+static int airoha_snand_read_data(struct airoha_snand_ctrl *as_ctrl,
-+				  u8 *data, int len, int buswidth)
- {
- 	int i, data_len;
-+	u8 cmd;
-+
-+	switch (buswidth) {
-+	case 0:
-+	case 1:
-+		cmd = SNAND_FIFO_RX_BUSWIDTH_SINGLE;
-+		break;
-+	case 2:
-+		cmd = SNAND_FIFO_RX_BUSWIDTH_DUAL;
-+		break;
-+	case 4:
-+		cmd = SNAND_FIFO_RX_BUSWIDTH_QUAD;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
- 
- 	for (i = 0; i < len; i += data_len) {
- 		int err;
- 
- 		data_len = min(len - i, SPI_MAX_TRANSFER_SIZE);
--		err = airoha_snand_set_fifo_op(as_ctrl, 0xc, data_len);
-+		err = airoha_snand_set_fifo_op(as_ctrl, cmd, data_len);
- 		if (err)
- 			return err;
- 
-@@ -895,12 +935,28 @@ static ssize_t airoha_snand_dirmap_write(struct spi_mem_dirmap_desc *desc,
- static int airoha_snand_exec_op(struct spi_mem *mem,
- 				const struct spi_mem_op *op)
- {
--	u8 data[8], cmd, opcode = op->cmd.opcode;
- 	struct airoha_snand_ctrl *as_ctrl;
-+	int op_len, addr_len, dummy_len;
-+	u8 buf[20], *data;
- 	int i, err;
- 
- 	as_ctrl = spi_controller_get_devdata(mem->spi->controller);
- 
-+	op_len = op->cmd.nbytes;
-+	addr_len = op->addr.nbytes;
-+	dummy_len = op->dummy.nbytes;
-+
-+	if (op_len + dummy_len + addr_len > sizeof(buf))
-+		return -EIO;
-+
-+	data = buf;
-+	for (i = 0; i < op_len; i++)
-+		*data++ = op->cmd.opcode >> (8 * (op_len - i - 1));
-+	for (i = 0; i < addr_len; i++)
-+		*data++ = op->addr.val >> (8 * (addr_len - i - 1));
-+	for (i = 0; i < dummy_len; i++)
-+		*data++ = 0xff;
-+
- 	/* switch to manual mode */
- 	err = airoha_snand_set_mode(as_ctrl, SPI_MODE_MANUAL);
- 	if (err < 0)
-@@ -911,40 +967,40 @@ static int airoha_snand_exec_op(struct spi_mem *mem,
- 		return err;
- 
- 	/* opcode */
--	err = airoha_snand_write_data(as_ctrl, 0x8, &opcode, sizeof(opcode));
-+	data = buf;
-+	err = airoha_snand_write_data(as_ctrl, data, op_len,
-+				      op->cmd.buswidth);
- 	if (err)
- 		return err;
- 
- 	/* addr part */
--	cmd = opcode == SPI_NAND_OP_GET_FEATURE ? 0x11 : 0x8;
--	put_unaligned_be64(op->addr.val, data);
--
--	for (i = ARRAY_SIZE(data) - op->addr.nbytes;
--	     i < ARRAY_SIZE(data); i++) {
--		err = airoha_snand_write_data(as_ctrl, cmd, &data[i],
--					      sizeof(data[0]));
-+	data += op_len;
-+	if (addr_len) {
-+		err = airoha_snand_write_data(as_ctrl, data, addr_len,
-+					      op->addr.buswidth);
- 		if (err)
- 			return err;
- 	}
- 
- 	/* dummy */
--	data[0] = 0xff;
--	for (i = 0; i < op->dummy.nbytes; i++) {
--		err = airoha_snand_write_data(as_ctrl, 0x8, &data[0],
--					      sizeof(data[0]));
-+	data += addr_len;
-+	if (dummy_len) {
-+		err = airoha_snand_write_data(as_ctrl, data, dummy_len,
-+					      op->dummy.buswidth);
- 		if (err)
- 			return err;
- 	}
- 
- 	/* data */
--	if (op->data.dir == SPI_MEM_DATA_IN) {
--		err = airoha_snand_read_data(as_ctrl, op->data.buf.in,
--					     op->data.nbytes);
--		if (err)
--			return err;
--	} else {
--		err = airoha_snand_write_data(as_ctrl, 0x8, op->data.buf.out,
--					      op->data.nbytes);
-+	if (op->data.nbytes) {
-+		if (op->data.dir == SPI_MEM_DATA_IN)
-+			err = airoha_snand_read_data(as_ctrl, op->data.buf.in,
-+						     op->data.nbytes,
-+						     op->data.buswidth);
-+		else
-+			err = airoha_snand_write_data(as_ctrl, op->data.buf.out,
-+						      op->data.nbytes,
-+						      op->data.buswidth);
- 		if (err)
- 			return err;
- 	}
--- 
-2.50.1
+mcu_r5fss0_core0_dma_memory: memory@9c900000 {
+	compatible = "shared-dma-pool";
+	reg = <0x00 0x9b800000 0x00 0x100000>;
+	no-map;
+};
+
+
+Francesco
 
 
