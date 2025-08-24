@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36CBBCA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 15:33:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E73AACA0EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 15:36:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5/cOzwznWze0e2caIIrIR9+B7xob1y98dBFdXYzq38Y=; b=utwQvqA/Zw003Y+Z0Hfdc7j6du
-	oAmQtxkmUkndOEoAeeZ7Vs4hVVaE417AMYc0cAMYBiE7eN6Pr/sK8fL061ZpQer2R+ujJsrRjiGak
-	WMCTu6gBcJzCCiS7esU9rAbAh8foj3STy/c2xZUh6wZihs5qX+vikIjCbhmAdY17sXjEcaWy2Foso
-	8tIvu5i+95Rqh1tnEM/rz8l9vC2O9Jk+hH2PdhyyBzTOlBmu0Ri3ndgyrXFzESrAYVs/bytFWI2Zg
-	npiL8o6xRVHc4YUnxxVvYGwNibO+uZ0+B+i82NKsCx4ZWMGwsveHSdhAPWiBih7x5py2LTZz1YJXP
-	+MslrjxQ==;
+	bh=WhYDHBRCLKp0rQmygAJEr46pIhbWJXwTrDFc0/JepzA=; b=iea4LKfuemlmxETQrddHIGIc8P
+	RoTLM9c4hOHuTLkryncVAxgZhHtlxtPBMvnnFri9iGl34gpMRbSkCk+ZXWdZeb6LPcXRwwU+u3tCc
+	xBz/rfb7Oz0VV3C6JwX/IYEB0nuq7OvM2bOoOvrAPy56CRej2QvZo7ZxYlxmhG5xaU1V5E91gIsoc
+	DrUe/AT3RfwybaIlx5MIjoiwxYeOBg59xkcZ2uj/ZF8eoQAjlpHErvpJmqAe1RbAMcIJi95GNwLt/
+	FpBuMGO4MYtqsXfzXW2uuv73I6ihOZNY/A+RBt7OrlYA1HDaiB6pKJqiPTDgZKcHWVYeEwr644WYM
+	zBTVCVog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqCit-00000006IcU-0Hhn;
-	Sun, 24 Aug 2025 15:33:35 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uqClk-00000006Iri-1DDZ;
+	Sun, 24 Aug 2025 15:36:32 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqCgH-00000006ITK-10Ko;
-	Sun, 24 Aug 2025 15:30:54 +0000
+	id 1uqCj7-00000006If9-0rc9;
+	Sun, 24 Aug 2025 15:33:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 15E845C53E7;
-	Sun, 24 Aug 2025 15:30:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87FA4C4CEEB;
-	Sun, 24 Aug 2025 15:30:47 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 59D9A5C55A4;
+	Sun, 24 Aug 2025 15:33:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAC7BC4CEEB;
+	Sun, 24 Aug 2025 15:33:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756049451;
-	bh=ELLwqf337+Rd50ax2qN36UfLgzngTVAA0cqVt1cHHyE=;
+	s=k20201202; t=1756049627;
+	bh=oQzQEC/j+B5UVSDuvC80FiJ+MKY+IFlYoW/dIszqcuU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HIg7lPy3Sgx8WOylmQSBMhEjLKRNW7fydmaIE3ZvCCmlsEHrLxejsws4nqDSfn2HY
-	 Ymh6+xtYDx9K7b0OgLWsrXjjJa/zVe9kWDsBCb3VLbQzZKaS2TR5r80S+OmiT5tI2D
-	 S0YeBDT50nkosDRlJ5uFwjuImOKOW4JrAN0l9ysax8fKgNSMYzij1hTROpiC23XPLq
-	 L408tHOYgMkiJTgahdacgK+llPRyEcQJ8mwSUX+P7uoV/43iS1ge34HnnUkiSgA16t
-	 kS1pFQ2ghgeFqdOZ5SKDOmMNedlDgf/F5U87w5xjEYrM8VhQdCjwgrxS/en3buO++r
-	 ZX5vwrf+OGawQ==
-Message-ID: <8e6b19e1-e1fc-40fd-bf5c-e36180aefd19@kernel.org>
-Date: Sun, 24 Aug 2025 17:30:45 +0200
+	b=HSnUMQ4tlsLUIC9Waj7DTcg0C+4Q5PkV2X/ONEbyFx2fbKxd/S3t4gW3/5YBlJ6M2
+	 UaiOBj+2tBwtGm2siDG6q0+wzYRi3f3ljnCA6Ug/37/MUj3lx04md6wZrKTgskj8JN
+	 2O3YacNREIgXwcqlJKRKDMipgyBFG/eMHKD7C52ICZxZ8rnP5elIAr9uFNxDWfHHlD
+	 oGLqLFzninpwNUMcMkW16ZlHBmO2mOCihjqPZUbNShr1voctFsQ8WbBjhAc/s9+eUO
+	 qfcKyYqC5XAq1miXvOvqzDlxverCrf9L0Qc1AOU1RdfVhqbfQd6mlU1MvgKTY/80CN
+	 HhLAeT1kmlVsw==
+Message-ID: <96409a43-b3f7-4b9e-a1e8-fd0ac6503cd9@kernel.org>
+Date: Sun, 24 Aug 2025 17:33:42 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 02/22] dt-bindings: usb: Add Apple dwc3
-To: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH RFC 03/22] dt-bindings: phy: Add Apple Type-C PHY
+To: Rob Herring <robh@kernel.org>, Janne Grunau <j@jannau.net>
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Felipe Balbi <balbi@kernel.org>,
- Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
- Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Felipe Balbi <balbi@kernel.org>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>,
+ Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
  Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
  Heikki Krogerus <heikki.krogerus@linux.intel.com>,
  Philipp Zabel <p.zabel@pengutronix.de>, linux-usb@vger.kernel.org,
@@ -60,17 +59,17 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-phy@lists.infradead.org
 References: <20250821-atcphy-6-17-v1-0-172beda182b8@kernel.org>
- <20250821-atcphy-6-17-v1-2-172beda182b8@kernel.org>
- <20250822-banana-ferret-of-opposition-0bcfad@kuoka>
+ <20250821-atcphy-6-17-v1-3-172beda182b8@kernel.org>
+ <20250821163320.GE1270980@robin.jannau.net>
+ <CAL_JsqL=y2OT4YrzT8z0O0T2hpM5X1k2pFEb8XjBRPoNMdO5kw@mail.gmail.com>
 Content-Language: en-US
 From: Sven Peter <sven@kernel.org>
-In-Reply-To: <20250822-banana-ferret-of-opposition-0bcfad@kuoka>
+In-Reply-To: <CAL_JsqL=y2OT4YrzT8z0O0T2hpM5X1k2pFEb8XjBRPoNMdO5kw@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_083053_330306_57370FFA 
-X-CRM114-Status: UNSURE (   8.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250824_083349_289392_A68940B2 
+X-CRM114-Status: GOOD (  12.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,33 +84,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22.08.25 09:24, Krzysztof Kozlowski wrote:
-> On Thu, Aug 21, 2025 at 03:38:54PM +0000, Sven Peter wrote:
->> +
->> +  The common content of the node is defined in snps,dwc3.yaml.
+On 22.08.25 01:00, Rob Herring wrote:
+> On Thu, Aug 21, 2025 at 11:33 AM Janne Grunau <j@jannau.net> wrote:
+>>
+>> On Thu, Aug 21, 2025 at 03:38:55PM +0000, Sven Peter wrote:
+
+[...]
+
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    enum:
+>>> +      - apple,t6000-atcphy
+>>> +      - apple,t6000-atcphy-dp-only # PHY hardwired to DP-to-HDMI converter on M2 Pro MacBook
+>>
+>> The comment is misleading, "t6000-atcphy-dp-only" would be for M1
+>> Pro/Max Macbooks. M2 Pro/Max Macbooks use the same design so the
+>> corresponding "apple,t6020-atcphy-dp-only" compatible is missing.
+>> I'm not sure this is the correct design though as the HW block is
+>> identical to "apple,t6000-atcphy".
+>> I think it might be better to have either the DRM KMS driver or a
+>> custom DP->HDMI drm_bridge switch the mode to DP-only.
+>> Or atcphy could initialize itself to DP-only based on the available
+>> ports.
 > 
-> Drop sentence, redundant. Schema tells that.
+> Doesn't sound like this should be a different compatible. There's a
+> 'phy-mode' property or you can define the mode in the 'phys' cells for
+> the DP controller.
 
-Ok, will drop it.
+Okay, makes sense. I'll drop the compatible.
 
-> 
-> ...
-> 
-
-[..]
-
->> +
->> +unevaluatedProperties: false
-> 
-> This goes after required.
-
-Ack, moved after required.
+I've only found "intel,phy-mode" inside bindings/phy but we can figure 
+this out later once we actually get to upstreaming what's required for 
+DisplayPort and mostly focus on USB3 for this series.
 
 
-
-Thanks,
+Thanks
 
 
 Sven
+
 
 
