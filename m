@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCBA7CA0EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 18:30:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 963EECA0EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 18:33:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CEafLyG5nPp8xRk2DyJfXKl6A5LJAUohr1IN6M/U9Rs=; b=IcJBmD0YF7HWk+yv/4/OJRm/Me
-	xAFhzW7BzIKrPaT8CSVOfitDP1ITalirsEyTx9K2IwwMT9azBMolWrL7DqfMM0KnX7UmM2dPKLNRc
-	xc5RH86YDkrwSBiprjbTpMmE5W/aVz/gvHVhVmp1S+fXzoyKhIEQbUpGImFCXDIWpMJZRcTBsrSiT
-	a6per89w0rZS1h9oO2PSYISB6vQD2OYm3OjpVxfonHBAViojS8tVlA96TWHbMGpNfKsOlmVfg2tQ0
-	XDAJ6RQHcHPdSQWhEFXJOi3rgl53toorfH1e4irPPyE+GUIbBWmeokmUFdjwY9hnI0OGp9408Wjar
-	1bO/9elg==;
+	bh=ZN+jwSA0gDlwFJbI3mLOutWWlyvvyAI4wr4MA+MMrrM=; b=hf6xU1PAZmQi5Vph4FsyOEu+MA
+	+fZQ9brLDZAAYbhBTtH7noM1KYJuuj4Xx7jI95b2UsSrpf3P2lfrXodgBKHffJOHqmtQlgcuNFL/n
+	iQTEWFNt6mJUhV0go3VHc6sfiicR84QQOovwsUyNZUWCP4zOcvHESxBZJR/H5YsXlOfm/LhyxeY3o
+	J7S06TQmA3LyXwxpy3KCTcf2C6V8ZtMtc17RZNAvm2E2FD9EijxGEgTHylmraypsknpkRbY05wj0C
+	C3CQl2kkfatIWVS8GLBjwh7AB/Oxclj0LYLIRaD4gAgLLxxX3C/JIMIch5Uh+i7vxiY/HTKzDf8YE
+	MF8Iqw/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqFTs-00000006Rk9-1vux;
-	Sun, 24 Aug 2025 18:30:16 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uqFWS-00000006Ru7-1Ayo;
+	Sun, 24 Aug 2025 18:32:56 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqF9e-00000006Pzf-0QPy
+	id 1uqF9h-00000006Q0a-2ERh
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Aug 2025 18:09:23 +0000
+	Sun, 24 Aug 2025 18:09:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5AD765C57BC;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 100255C57BC;
+	Sun, 24 Aug 2025 18:09:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DCF3C4CEEB;
 	Sun, 24 Aug 2025 18:09:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F7C4C116C6;
-	Sun, 24 Aug 2025 18:09:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756058961;
-	bh=iPbQM7eQEDWhHlOv6zZRNIcUTBEBN8jCIsD9OOZwY+U=;
+	s=k20201202; t=1756058964;
+	bh=6xwCyuADMxUWNMqY6ctIoE11fZEZ1HKzp+/zu1QHHaI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jOvpHgzpPDo9tVHRtKb5N3xmgEM2rhVGCcrliFcFam4iC/S7mkN7LUvHQO1H4M25y
-	 sDeeFpuiiyf3GOe7OCSpGbDdrjZaL5NF8hL7w79tLqkzqh72le0q5IYRiwIjXtWfuj
-	 0ikKLi5/f4jAtPAOn7/bw+Smhea4qnw/OeI8CSVl0XigcVYUZGfQwpJhXC6I9scBvz
-	 DCFzj5Dac8/AhVaEXQak5DgJ/pMHXp/xCxH5CntrM8TYmsSalD5x16sjfRsx8Cp6UC
-	 GjSZejp7tVElro0tnAYdWHOIqB5F01gQrfDTcMu7RqnOP+02a0X9Catfy3rzkzz4Bb
-	 XpAL0YSLhGqnQ==
-Message-ID: <4858376a-be7e-4eb8-a68c-fbd00532a106@kernel.org>
-Date: Sun, 24 Aug 2025 19:13:29 +0200
+	b=L7YkPPbOmOrD9BnBR4Wdcf0+6tQC8kef/OFN2zPv4IDHgMXl2YS+jWoO+eXBexl1Z
+	 PAnI317KEYx2/LkOuM/a0gxoQ7ZTVhHPLqbGnxRrNHixhHS0UzMrZ20gG95Ancth0N
+	 I6WgO/NXTrrkq7TN9xKgLgKdwSIqDsWM+5IexId/uUknEkQkJBM+115MtbR0DByfOF
+	 RhhRY5jYIqrVNXYicspO+ZrHyw3KDOmLJOjw6JPYYa5Vg6H+KIfiUEBQSNk3GFd+Sr
+	 KtLDdWTDgj7mjF2rLZ3zLcOLt/SKSX/0dxYbKcLwOfXXsVVPxGeXy9+TJScHqXx/dB
+	 3TXMhO6irsqmA==
+Message-ID: <539ede1a-eab6-4e8d-b108-11033cb39512@kernel.org>
+Date: Sun, 24 Aug 2025 19:14:36 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/4] arm64: defconfig: enable Maxim MAX77759 fuel-gauge
- driver
+Subject: Re: [PATCH v5 4/4] arm64: dts: exynos: google: add Maxim MAX77759
+ Fuel-gauge
 To: t.antoine@uclouvain.be, Sebastian Reichel <sre@kernel.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Dimitri Fedrau <dima.fedrau@gmail.com>,
@@ -60,7 +60,7 @@ Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-samsung-soc@vger.kernel.org
 References: <20250804-b4-gs101_max77759_fg-v5-0-03a40e6c0e3d@uclouvain.be>
- <20250804-b4-gs101_max77759_fg-v5-3-03a40e6c0e3d@uclouvain.be>
+ <20250804-b4-gs101_max77759_fg-v5-4-03a40e6c0e3d@uclouvain.be>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,12 +106,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250804-b4-gs101_max77759_fg-v5-3-03a40e6c0e3d@uclouvain.be>
+In-Reply-To: <20250804-b4-gs101_max77759_fg-v5-4-03a40e6c0e3d@uclouvain.be>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_110922_233889_2B736122 
-X-CRM114-Status: GOOD (  10.01  )
+X-CRM114-CacheID: sfid-20250824_110925_654027_114E5213 
+X-CRM114-Status: GOOD (  18.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,18 +129,36 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 04/08/2025 16:26, Thomas Antoine via B4 Relay wrote:
 > From: Thomas Antoine <t.antoine@uclouvain.be>
 > 
-> Enable the Maxim MAX77759 fuel gauge as it is used by the gs101-oriole
-> (Google Pixel 6) and gs101-raven (Google Pixe 6 Pro) boards.
+> Add the node for the Maxim MAX77759 fuel gauge as a slave of the i2c.
+> 
+> The TODO is still applicable given there are other slaves on the
+> bus (e.g. PCA9468, other MAX77759 functions and the MAX20339 OVP).
+> 
+> For the device specific values (full design capacity and terminal
+> current), the device should check an EEPROM at address 0x50 of the
+> hsi2c_8 for a battery id stored in register 0x17. A set of parameters
+> for the initialization of the fuel gauge should be chosen based on
+> this id. Those sets are defined here:
+> 
+> Link: https://android.googlesource.com/kernel/gs/+/refs/heads/android-gs-raviole-5.10-android15/arch/arm64/boot/dts/google/gs101-oriole-battery-data.dtsi
+> Link: https://android.googlesource.com/kernel/gs/+/refs/heads/android-gs-raviole-5.10-android15/arch/arm64/boot/dts/google/gs101-raven-battery-data.dtsi
+> 
+> This does not seem to be a standard pattern in the kernel currently
+> so it is not implemented. Values observed on tested devices are
+> instead used. The driver or the devicetree should be should be
+> extended in the future to take versions into account.
+> 
+> The pinctrl name follows the convention proposed in
+> Link: https://lore.kernel.org/all/20250524-b4-max77759-mfd-dts-v2-2-b479542eb97d@linaro.org/
 > 
 > Signed-off-by: Thomas Antoine <t.antoine@uclouvain.be>
 > ---
->  arch/arm64/configs/defconfig | 1 +
->  1 file changed, 1 insertion(+)
+>  arch/arm64/boot/dts/exynos/google/gs101-oriole.dts | 10 ++++++++
+>  .../boot/dts/exynos/google/gs101-pixel-common.dtsi | 30 ++++++++++++++++++++++
+>  arch/arm64/boot/dts/exynos/google/gs101-raven.dts  | 11 ++++++++
+>  3 files changed, 51 insertions(+)
 
-
-I think the driver part was not applied. I'll drop it from my queue,
-please resend SoC bits separately once driver gets applied by its
-maintainer.
+Code looks fine, so same comment as for defconfig change.
 
 Best regards,
 Krzysztof
