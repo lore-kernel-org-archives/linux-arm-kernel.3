@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71CA3CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 08:19:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AA8BCA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 08:22:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fnWE9Fe0g4wJ/3U8KDjxxbbP41MHO8A9BhJTQkLQ9Ho=; b=R4aIqnH+80OU5mIMcrfgUyc9CT
-	P12CCV3m6Ni5VQeroTuKvbrqXHs8LIHA8fitdypDHlKs3DrCp+ENYeQOpseOqujUdJIr7ka6GhOQ/
-	3j4dWSMM0kkkrQmHDeZHyfL7uUmJxqtx+ygjIBImdsUzEuM1X2N8clXlSt1q1Mvqsoj6wUXyuC/Pq
-	/Suu6QT4DtmVFrlBl7Dr/7Cd/iA3O072ywiXJr+o2jYZ9jmfouLkXqbMLkYsg63AicA1VMREPyMUg
-	yPsZEiQkZdh/uYvvK8/RGm9yG7HacjnE76jcJPoBUu73UvZ76WOCGzQ/rZvkUuI8qAruuYFVg50yI
-	t35CMAnA==;
+	bh=Rd+XTqzZLqA3Z3jPvncVC8fXQoGJaEHxCZ4qNhKrpS4=; b=JHOfrwwY8Qrzre0jQOLc0P6ssd
+	JGF7ypW47MyTiRv2h1liug1T0tIFypDkUqSGt15OiPKevOeasTC4mn2iQhDIqspwmDfKnY/5iMzm1
+	aWJTpvJGHUGDi/F5/uhxHA6wM2KdUx7Ivz06mVK3aND5J2H7aBY9RXSSlt8/9+oPekoqrOpUB7fDh
+	7hLAcBw3jIBldzX6UHYUi88GiE6/nqWLvcaK8fRqjgylPPtr5tZzsVJu9DhtxH6xb/vSIDyjVgIwG
+	cA35wUuWrcI03/5fNXR6Jf8oL/z/2AzUAiz/oXMnwtMiTlh+PO918mtAeFvRSZYQxaN4IoC/ZSXDR
+	EtsyZjRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq5wh-00000005rb8-0RHf;
-	Sun, 24 Aug 2025 08:19:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uq5zI-00000005rkA-3VJ0;
+	Sun, 24 Aug 2025 08:22:04 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq5u4-00000005rRu-2wGT
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Aug 2025 08:16:41 +0000
+	id 1uq5vj-00000005rWl-1m6Y;
+	Sun, 24 Aug 2025 08:18:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 948A644E5B;
-	Sun, 24 Aug 2025 08:16:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F220C4CEEB;
-	Sun, 24 Aug 2025 08:16:35 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C63EE5C551B;
+	Sun, 24 Aug 2025 08:18:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1811EC116B1;
+	Sun, 24 Aug 2025 08:18:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756023398;
-	bh=l32x1Te9bfGPB+4kp584f73PJmc+yVGlWYYCPw2loOM=;
+	s=k20201202; t=1756023502;
+	bh=oHY8OrdokFhF9Tm6xfVR/OccCYS48FlYN6uDPMMED8s=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=U05VL8FtfGd9U7XQVld8V3O7lu0RdEa/rOG3OcJ41FNXbwBF0mtieHVDOmKYsLepX
-	 j+nPossdZtKREZch761bomNH0k2PDKm8N0r4J5T8uRA54DUUDVrCbHts+zyTogRgJ/
-	 DaSEIXKExNJ+wm4LKNcXkmPEFoIVMSn5t+zwZsfsSXxgYHQr654qK7HCjl59RTzGQz
-	 C1WmbsDEF7dsqFleAXApLBZ/LvPwg7R/7Tgkf1C5CPop3MjhVzsj+U9YUA+zd/sjNz
-	 TKCO3nDzQI5F5cFVr8PCaMKJnm6RFXsWF3S+pwagL5JmK69vAIO6fZKUpCSNPbRcQz
-	 200qMiH9I1OEg==
-Message-ID: <e0c5b9b4-889f-4571-b265-fb6b2885871a@kernel.org>
-Date: Sun, 24 Aug 2025 10:16:33 +0200
+	b=jrhkJror9galOzDN74KNPV22Ga9RO2olY3QdhX8Y/R4P0zRnLS1pYUpiRnk9cltlo
+	 NOH6ApLq/11DjkKROJ0H0Y+c0NAgLJ89ytaiW1g+LDOeMYWsT710uOwODTR/Jrlu24
+	 g4L4ReLk7c2rrk4U/IQwyHd4bLE3o870TkH9UYRB2KKCT31SHvabBJ8DxXCTc5Jxs6
+	 syWxwtcePCTNqi+++6k1UcU8Qf2A+yIxZsMBAvwb8hjge3fBLdkBC3i0Pmi797Lc44
+	 W2693szUpkzwJqC7Vwlu1rky+HezAXiK93/sDN1oLi7a1PUiY4ZSKGR14DF38oywWq
+	 GVxW1PeQQyBOQ==
+Message-ID: <df9a09a5-15eb-4760-b312-d54e4e57283c@kernel.org>
+Date: Sun, 24 Aug 2025 10:18:16 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] dt-bindings: clock: exynos990: Reorder IDs clocks
- and extend
-To: Denzeel Oliva <wachiturroxd150@gmail.com>, Conor Dooley <conor@kernel.org>
-Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-samsung-soc@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-References: <20250820-2-v2-0-bd45e196d4c4@gmail.com>
- <20250820-2-v2-2-bd45e196d4c4@gmail.com>
- <20250820-diffused-impaired-ba776d39692f@spud>
- <aKn6AYIAG9eUeSx2@codespaces-a28d22>
+Subject: Re: [PATCH v1 1/2] dt-bindings: phy: mtk-tphy: add property for
+ software role switch
+To: Arseniy Velikanov <me@adomerle.pw>
+Cc: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht
+References: <20250814234825.810-1-me@adomerle.pw>
+ <20250815-important-warm-dove-03dde5@kuoka>
+ <ce4f990c-c336-4aa4-93b0-7b9f4d9663b4@adomerle.pw>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,13 +104,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <aKn6AYIAG9eUeSx2@codespaces-a28d22>
+In-Reply-To: <ce4f990c-c336-4aa4-93b0-7b9f4d9663b4@adomerle.pw>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_011640_784589_59550888 
-X-CRM114-Status: UNSURE (   9.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250824_011823_548993_D6BE70B6 
+X-CRM114-Status: GOOD (  13.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,29 +124,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/08/2025 19:27, Denzeel Oliva wrote:
->> This looks like a massive ABI break, where is the justification for
->> doing it?
+On 24/08/2025 08:25, Arseniy Velikanov wrote:
+> On 15.08.2025 10:28, Krzysztof Kozlowski wrote:
+>> On Fri, Aug 15, 2025 at 03:48:24AM +0400, Arseniy Velikanov wrote:
+>>> Add a boolean property to enable software control of the PHY mode
+>>> switching.
+>>>
+>>> Signed-off-by: Arseniy Velikanov <me@adomerle.pw>
+>>> ---
+>>>   Documentation/devicetree/bindings/phy/mediatek,tphy.yaml | 6 ++++++
+>>>   1 file changed, 6 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/phy/mediatek,tphy.yaml b/Documentation/devicetree/bindings/phy/mediatek,tphy.yaml
+>>> index b2218c151939..a90890d4a86f 100644
+>>> --- a/Documentation/devicetree/bindings/phy/mediatek,tphy.yaml
+>>> +++ b/Documentation/devicetree/bindings/phy/mediatek,tphy.yaml
+>>> @@ -255,6 +255,12 @@ patternProperties:
+>>>             use the property "mediatek,syscon-type" for newer SoCs that support it.
+>>>           type: boolean
+>>>   
+>>> +      mediatek,software-role-switch:
 >>
->> Cheers,
->> Conor.
+>> No, bindings do not describe software.
+> Sorry, I didn't quite understand you.
 > 
-> Hi Conor,
+> With this property the driver changes phy mode manually using debug regs 
+
+
+Here is the problem:     ^^^^^^^^, driver.
+
+> instead of configuring hardware mode switching (because it's broken on 
+> some platforms). So every time the role in usb-role-switch changes, it 
+> has to switch phy mode. That's what I mean by "software".
 > 
-> I reordered because the current IDs don’t match CMU_TOP:
-> the PLL mux select is in PLL_CON0, not CON3, which gave wrong/low rates.
+> I can rename this property to `mediatek,force-mode-switch` if that's a 
+> issue.
 
 
-IDs are abstract, they cannot give wrong/low rates.
+Describe the hardware problem, characteristic, wiring or whatever else,
+but not the drivers and not software.
 
-> I also added DPU/CMUREF and a missing fixed-factor path to stop bad rates
-> and clk_summary hangs on hardware.
-
-
-Not really related to ABI.
-
-None of these justify changing the ABI or I don't understand the problem
-at all.
+force-media-switch is the same uninformative and same underlying
+instruction for the driver.
 
 Best regards,
 Krzysztof
