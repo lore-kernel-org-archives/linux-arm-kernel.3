@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63455CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 11:40:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2142CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 11:43:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iZLSoUGx93BuoSrHUBR6RC0cpPevI52X1DUHAzH/ShE=; b=3FwtqAFXmjh0rQ2K2gf2dJ/q85
-	bwwLFcpVFack7wF7ZuOJeVpMfRSy2ZJF1Bna1kEE9ol36ObCG1u0lIOZkGT2cMTrvZ3Y7vKIBPs4m
-	DoajECk0kgVpi2GaazCM9wTOQWFpJp7t8QnzRW/oCiOAx69JSJd+VWXm+i4H0NMtBed7kz0/yHJ2J
-	w0MJOvmDlvTWV4r5fvHnJIwnUkvucrtGc76FZAE0QhhZJOP95yDpSiBz2lKz755MaTc8SOXCVVsnR
-	JPKISVozGqmsfkkrsboc++4cxoEq/ZtIKpYZCp8GJg2VX71nehjkBQWvkKopaZDxnIKwkg+VY4ed1
-	eCXe+iDw==;
+	bh=+v4lmj3pcvjIZMygiKWy4F9xkrLHO8dXGOX+x7OOUL0=; b=uy/6DvgEwF1qL9Ac+KAiBlN691
+	GO4yBb1rK86/VeN7t95DF77jNXdgpgvxkvVwt/rpFSUpe/StWEUmjhfVTzn9xPr7Lpx4Incmpox0X
+	gXbF4LxKe2hJhGjzEB3vS+ujvg/tlFwEdZ68cHdfZhtimLKuU/F8T3e4X0QAu8TPkgTW0RaSFsi4m
+	ZXsy/hemGPxniEvBkqXLjSQWdiFha5AupfL5HhuSrXVztthX22n2I/gEA+0bC3tJyvWLP+/Cm1c0w
+	o+XIuKOH3QatIMBevSTSTBbEZLoTVL/8TxKsMIchq+FH3sXlhRoVEbcZ3N1nZlvt9gk6EbF+kO9M/
+	uUYr7NCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq95A-000000066Bu-0qfM;
-	Sun, 24 Aug 2025 11:40:20 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uq97j-000000066Kv-403t;
+	Sun, 24 Aug 2025 11:42:59 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq8uW-000000064v2-3FGD
+	id 1uq8vA-0000000650a-2L8Y
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Aug 2025 11:29:20 +0000
+	Sun, 24 Aug 2025 11:30:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2C5E4601E2;
-	Sun, 24 Aug 2025 11:29:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6503C4CEEB;
-	Sun, 24 Aug 2025 11:29:16 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0DC615C55B6;
+	Sun, 24 Aug 2025 11:30:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BFC7C4CEEB;
+	Sun, 24 Aug 2025 11:29:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756034959;
-	bh=8IP81whtAjPKNNsMkPh9mE8F1GTRMoO3BkzclUKZ9zc=;
+	s=k20201202; t=1756034999;
+	bh=uAuzrEaFAqZocxfJJj59TJTpm00inOxyjcf7OH/wdAA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=J6hBmk+bD45JJt1PjS1pyoIC3B09CgON0nhPHlp6XDOLs5g0EBos7hTjtT9bz0kHe
-	 i2T/z+zkTetgYKs7zmbLPGZhloW3uf79/YoAhJKwakvFaSSSLLU4mEytsGBg0bUrgv
-	 NYaL4vt4ueI2k0MFqd8zszJxExgMyBAPOUyXSL+rY1Vy8Fe4sl9vCibXliHeaWQY96
-	 LfPGiKothFMvIoRtKAY+4/XSZqHo3hb1yyxmau3u3d8UIxXC+Zc+4/ch6v0/85OUK+
-	 SdGsNlQXQD2qk1ySWXkLE6qcwZad05/3LY2qMRaQekJiHTDiSJ1FNo8qOWlvWwzQBm
-	 1sVqgudUNm+7Q==
-Message-ID: <e25494da-9d27-4416-ac79-317c8b9a6653@kernel.org>
-Date: Sun, 24 Aug 2025 13:29:15 +0200
+	b=iHpqFjstEx3UfPRTB5O5tHvHxdvkVz5MVXhROt1sPwZO+WxxFnKBj88B7TRP8KXZa
+	 nRxINcps3xkskiiX5YRMhyDpihXPdz1Zla6m7v1KyM95kuLntTwtrWJpXlN4FBkWl2
+	 hNojPNW+IVRFEvadN6zshuX2tVX5Ju9eEWz4moJvqYQZoKDpq1h2VfJQ1fy+jb5Ik0
+	 4MYvQ4HzJmosxkXhfa3hWDbg8CyZDBa5IGN02ENqJWZoam+OeFQt2bSKKsVhA6bp+U
+	 GeCCsiVbkTO0R2lRjtTo4lVBklodm5RP/4orlsy3dHq8aUJ+OFQcijXgv5lrQLdmdA
+	 gTFjcKxBDDEGw==
+Message-ID: <cc465cae-a1b2-4116-82fa-ae42ad0706d3@kernel.org>
+Date: Sun, 24 Aug 2025 13:29:54 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] arm64: dts: imx8mp: convert 'aips5' to 'aipstz5'
+Subject: Re: [PATCH 3/4] arm64: dts: imx8mp: add aipstz-related definitions
 To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
@@ -56,7 +56,7 @@ Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
  devicetree@vger.kernel.org, imx@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20250821105634.1893-1-laurentiumihalcea111@gmail.com>
- <20250821105634.1893-3-laurentiumihalcea111@gmail.com>
+ <20250821105634.1893-4-laurentiumihalcea111@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,9 +102,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250821105634.1893-3-laurentiumihalcea111@gmail.com>
+In-Reply-To: <20250821105634.1893-4-laurentiumihalcea111@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250824_043000_686768_DD747FC3 
+X-CRM114-Status: UNSURE (   8.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,49 +124,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 21/08/2025 12:56, Laurentiu Mihalcea wrote:
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> 
-> AIPS5 is actually AIPSTZ5 as it offers some security-related
-> configurations. Since these configurations need to be applied before
-> accessing any of the peripherals on the bus, it's better to make AIPSTZ5
-> be their parent instead of keeping AIPS5 and adding a child node for
-> AIPSTZ5. Also, because of the security configurations, the address space
-> of the bus has to be changed to that of the configuration registers.
-> 
-> Finally, since AIPSTZ5 belongs to the AUDIOMIX power domain, add the
-> missing 'power-domains' property. The domain needs to be powered on before
-> attempting to configure the security-related registers.
-> 
-> The DT node name is not changed to avoid potential issues with DTs in
-> which this node is referenced.
-> 
-> Co-developed-by: Daniel Baluta <daniel.baluta@nxp.com>
-> Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
-> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-
-Where did it happen?
-
-> ---
->  arch/arm64/boot/dts/freescale/imx8mp.dtsi | 10 ++++++----
->  1 file changed, 6 insertions(+), 4 deletions(-)
-> 
+> +#endif /* __IMX8MP_AIPSTZ_H */
 > diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> index bb24dba7338e..b62bb821cf61 100644
+> index b62bb821cf61..afcd8c785cfd 100644
 > --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
 > +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> @@ -1396,12 +1396,14 @@ eqos: ethernet@30bf0000 {
->  			};
->  		};
+> @@ -13,6 +13,7 @@
+>  #include <dt-bindings/interrupt-controller/arm-gic.h>
+>  #include <dt-bindings/thermal/thermal.h>
 >  
-> -		aips5: bus@30c00000 {
-> -			compatible = "fsl,aips-bus", "simple-bus";
+> +#include "imx8mp-aipstz.h"
 
+Completely unused define. Your patchset is not organized in logical chunks.
 
-This breaks all the users. I understood explanation as "it is better",
-no real reasons.
+>  #include "imx8mp-pinfunc.h"
+>  
+>  / {
 
-No, you cannot do that.
 
 Best regards,
 Krzysztof
