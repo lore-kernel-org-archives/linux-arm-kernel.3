@@ -4,82 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EAFBCA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 18:43:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30C20CA0EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 19:41:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cJNInCKotokpg08dFdCyoptfoiTsDxT23ewwFqVxTWc=; b=sjNm817OeTAsgjrjTh5xzTNUJt
-	CVQ4BB3Mkf6yc66wVTM5hHpwhiB8J4Kx62Dmb9ZHroe1gfD8BrKu+SS325b7OQlO8ME7UjrJrZXkN
-	XHjVwpOdjA/BuNre0NGL+1mBqwEscLdkaXoIN+r2nz9hBeB1huqzMkp48tMEZvT0Qfye+8cXEr0Nz
-	s9Hw9fpQCamGq3KxII2H06O4AnUjkkOvyeflP6RcpG3R5JjUESo6i30t/MHCYU/Ppc7jOBWDiwKdA
-	8cgWa/Ji9lYRlaqEphIUAfJdsy+if3oLEleE+q81P48vgxMRYx0ezLWgT/nuIkHA4GeHYzILGxGg3
-	ISxEhtQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3G7G57FudEO6/xGHV3Q+SctALPt3jhm1oRfT46ePAKc=; b=GLqCk8SqcjGHku0Cy46f+O143R
+	1l3XbH07SG4EnRffZ+iVkNy6izvr2HzaOeq/FrkFnkdKdfIXMeA9YsUt6axVzGgz5VKcZ26MC4Od/
+	pVe9YnyG+BHyOkPQllVOkxOWsbt6p1Zr9g5NcVerVrVyzqDhA2nkyqlIaq3J5Q3GXzpY1YQ/uJFjf
+	eCcvLsqeLLqePHDq/kDbxXhtCnh61rSLsVYkDF141qOnzJ0AAq+IMO44bXaiAyBuOdn58m9vvyWR2
+	JDSa7z/IxY0cXnVsAZRopru/uAQctaEHLiWo4Tj9yHAHKejM45sZDlKAaNpYRTlYBjQLFDQJgUu5k
+	CZLL8yZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqFgm-00000006Skj-3au5;
-	Sun, 24 Aug 2025 18:43:36 +0000
-Received: from mail-wr1-f51.google.com ([209.85.221.51])
+	id 1uqGb5-00000006VME-2Kr8;
+	Sun, 24 Aug 2025 19:41:47 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqFaU-00000006S6v-2SDB
+	id 1uqGYT-00000006VGX-02Ts
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Aug 2025 18:37:07 +0000
-Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-3c7edd71bbfso1034603f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 Aug 2025 11:37:06 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756060624; x=1756665424;
-        h=content-transfer-encoding:in-reply-to:from:content-language:subject
-         :references:cc:to:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=cJNInCKotokpg08dFdCyoptfoiTsDxT23ewwFqVxTWc=;
-        b=YrgIEs3V9UCii/WQPjGzUXfCQmz4ZT5a4tgQYN95FU5n/YSnhkZf+p09JZeT7/VYNt
-         fsfCQGK0HpK0//6mixc7shW1ltxTnnrEKYIXU3/zORrhB5/SlBziNCBOTg/yrCDrPMbl
-         WAXWNUrPGpwLeOPiiqgbzplYG5N2hDjb7uufQiEOxPaKTtmfPOUei1hOL1FrKgU/Vx5s
-         vAifRfm8xwJvm9aY0rONU9V6d6pRsKtSczxFixwV2Ue8OLWqn3KSyjtLJ3YbA9xVIout
-         /ZVPTGRHY381Srha9+TkbLFklJSMxOtcVWvZKPyNAl9rRYXR10v+5aRkkPmZmUU07lgf
-         Fofg==
-X-Forwarded-Encrypted: i=1; AJvYcCVgOSiovIemILg1JdXXzksUkLqqSdHDI38Ymi0oaUyOI9ZtjeWJjh9LF3Ed7HQcV9dsSu+S0KZTOlcYm4qPba/o@lists.infradead.org
-X-Gm-Message-State: AOJu0YyhS2ni7qmrQN2WXQrz5ujQOI0fHSNun+PdH38yJkY0L2G3/JEo
-	XvCrmCAizfLHtKWk32uT8Fiz738gBKiaHpjZ7hPg6XQs2jnFy0RgXayg
-X-Gm-Gg: ASbGnctG/Otw5D5USU5xrrHlAOORg5VSPbUOteePWw1KIpk+RQ16utQeKJcxpbkZDwa
-	5b9NmsWS45EOBI0CZlkGcGDYdxjrc05CJUJiA/1u9sKLh8BspX3xCbJQspBP3A18XUN7sc5pb3T
-	18GPJ3cQEmVYdd4gPgpIlSU3dAiORedcI+JGFKAFJlWwBYMU4jGLrlKApMouU6OEdwRnkXpSHH0
-	EnWh4yYzH46zIWSdmVIIG7RPqTO9rlASiJr+00iQduSHhpwiVhXIb7gApMUQl1afp9p70Frm7P/
-	qxMDH0C+kcwH+AHfh8jXKAlPLc5dDBHL00NwAU2dhOBAk+6DqX2XiZDcBSkJ8zaX4oAIRgPMsVX
-	q7hmZKfo20LGeT7xks9rzmccy9GzjZlJYMwoJbKrHZ8CEDqi4xhAJ+IAHFdcd0DqG9hj688RaDS
-	/x9bFtzF56XpmeH4CRiQimxAhf6yBzMeUsQRCnbnC/QtcBmoIYJiRjBury
-X-Google-Smtp-Source: AGHT+IH5j0UvIS82bjhhqeCU8DCDhmiIbkeoK5enM/feDWHI+hOlE37X2eJAFtCPWPCGzoWvQE05+g==
-X-Received: by 2002:a05:6000:2089:b0:3c4:4e8:2539 with SMTP id ffacd0b85a97d-3c5dae0572dmr7290484f8f.14.1756060624369;
-        Sun, 24 Aug 2025 11:37:04 -0700 (PDT)
-Received: from ?IPV6:2003:e0:6f2b:f231:547b:d9c0:96ec:4a8d? (p200300e06f2bf231547bd9c096ec4a8d.dip0.t-ipconnect.de. [2003:e0:6f2b:f231:547b:d9c0:96ec:4a8d])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3c70e4ba390sm8680981f8f.12.2025.08.24.11.37.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 24 Aug 2025 11:37:03 -0700 (PDT)
-Message-ID: <dafff4b4-f022-453e-935f-6d79c4c57292@dietpi.com>
-Date: Sun, 24 Aug 2025 20:37:03 +0200
+	Sun, 24 Aug 2025 19:39:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1756064345; x=1787600345;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=8DlnE/rWJ6b3Mfl7JEc3Sc72YTacrmk6cJufKubDOs4=;
+  b=YQ1bP1dcQSYiRfFcZ34dckjkpCgD7KInfPvYLrzlV8dUOniJDv6RG4yu
+   T8ldZsW110cE2oTvNcI2waEYXhSgcPm+YD1U+RFV/fbfXTy4rQgKh1mfY
+   nXBSin08xbxTxY7eXkzaifnXQ5zUbUTCVdxQun8V94Sh3Sl0SWG8loiSF
+   KmVoSYYi5b90sripJFKLffd3CsMiYXeq6YD4ALKGzcFtqkIERXtIrHKjt
+   K43rwo+34vc0hXp9qFlQH53Eks7uipRknn2bo5NrlM7jyvSjeDDuuXCN5
+   FpB/4eb4AUHyeLhfvcSr3S/F2eQ9o10lzA5qv8yMsGUIVp+sZddLAtnNx
+   g==;
+X-CSE-ConnectionGUID: sJo6sS05Spi6qSu89Rl0Zg==
+X-CSE-MsgGUID: Rkh0QexMT/C3VWm8SOSx3g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11532"; a="69386973"
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
+   d="scan'208";a="69386973"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Aug 2025 12:39:00 -0700
+X-CSE-ConnectionGUID: MSw73TzIQPKqeRD6Q/wQQw==
+X-CSE-MsgGUID: E77TZh/xTvu73DwINgJcmQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
+   d="scan'208";a="192793643"
+Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
+  by fmviesa002.fm.intel.com with ESMTP; 24 Aug 2025 12:38:58 -0700
+Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uqGYJ-000NBP-1Q;
+	Sun, 24 Aug 2025 19:38:55 +0000
+Date: Mon, 25 Aug 2025 03:38:06 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jisheng Zhang <jszhang@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 14/14] dmaengine: dma350: Support ARM DMA-250
+Message-ID: <202508250351.vxyvTsJa-lkp@intel.com>
+References: <20250823154009.25992-15-jszhang@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: wahrenst@gmx.net
-Cc: arnd@arndb.de, bcm-kernel-feedback-list@broadcom.com,
- dan.carpenter@linaro.org, florian.fainelli@broadcom.com,
- gregkh@linuxfoundation.org, kernel-list@raspberrypi.com,
- kieran.bingham@ideasonboard.com, laurent.pinchart@ideasonboard.com,
- linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev,
- mcanal@igalia.com
-References: <0c2840c2-241c-4f98-9518-6a3676286823@gmx.net>
-Subject: Re: [PATCH 4/5] staging: vchiq_arm: Create keep-alive thread during
- probe
-Content-Language: en-GB, de-DE
-From: MichaIng <micha@dietpi.com>
-In-Reply-To: <0c2840c2-241c-4f98-9518-6a3676286823@gmx.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250823154009.25992-15-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_113706_628961_DADF4A8D 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20250824_123905_125580_08CEA823 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,42 +92,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
- > Okay, after disabling all VCHIQ users including VCHIQ_CDEV and 
-enabling DETECT_HUNG_TASK, i was able to reproduce it.
+Hi Jisheng,
 
- > I will try to fix that.
+kernel test robot noticed the following build warnings:
 
-Hi Stefan,
+[auto build test WARNING on vkoul-dmaengine/next]
+[also build test WARNING on robh/for-next krzk-dt/for-next linus/master v6.17-rc2 next-20250822]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-is there any progress in this regards, or a way we can help? Would it 
-make sense to share the issue to the RPi Ltd. downstream repository?
-https://github.com/raspberrypi/linux
+url:    https://github.com/intel-lab-lkp/linux/commits/Jisheng-Zhang/dmaengine-dma350-Fix-CH_CTRL_USESRCTRIGIN-definition/20250824-000425
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/vkoul/dmaengine.git next
+patch link:    https://lore.kernel.org/r/20250823154009.25992-15-jszhang%40kernel.org
+patch subject: [PATCH 14/14] dmaengine: dma350: Support ARM DMA-250
+config: x86_64-buildonly-randconfig-002-20250824 (https://download.01.org/0day-ci/archive/20250825/202508250351.vxyvTsJa-lkp@intel.com/config)
+compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250825/202508250351.vxyvTsJa-lkp@intel.com/reproduce)
 
-We ship images with downstream RPi Ltd. kernel packages, but with 
-non-GUI/server setups and low memory usage in mind, we disable/blacklist 
-camera and GPU related kernel modules by default, and reduce the 
-dedicated GPU memory to the minimal 16 MiB, so that our users report as 
-well these errors every few minutes on their main console, until GUI, 
-video codec, or camera features are enabled.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202508250351.vxyvTsJa-lkp@intel.com/
 
-I am thinking about letting one kernel module load by default which 
-releases the hanging task. But the majority of systems are headless, and 
-really don't require any of those. Reducing the console log level or 
-muting hung task timeout messages would be another workaround, but that 
-could mute important messages as well.
+All warnings (new ones prefixed by >>):
 
-Just in case someone else is in the same situation: I found the VC CMA 
-driver "vc_sm_cma" module to be the lightest way of releasing the 
-waiting task. Other than the camera/video modules, it does not pull in a 
-large stack of dependency modules. With less than 32 MiB GPU memory 
-(where the cut-down firmware is used automatically), it fails to 
-initialise, but releases the vchiq-keep thread regardless. Its size is 
-also tiny compared to the Broadcom camera/video drivers.
+>> drivers/dma/arm-dma350.c:849:34: warning: variable 'sg' is uninitialized when used here [-Wuninitialized]
+     849 |         sglen = DIV_ROUND_UP(sg_dma_len(sg), step_max) * periods;
+         |                                         ^~
+   include/linux/scatterlist.h:34:27: note: expanded from macro 'sg_dma_len'
+      34 | #define sg_dma_len(sg)          ((sg)->dma_length)
+         |                                   ^~
+   include/uapi/linux/const.h:51:40: note: expanded from macro '__KERNEL_DIV_ROUND_UP'
+      51 | #define __KERNEL_DIV_ROUND_UP(n, d) (((n) + (d) - 1) / (d))
+         |                                        ^
+   drivers/dma/arm-dma350.c:835:24: note: initialize the variable 'sg' to silence this warning
+     835 |         struct scatterlist *sg;
+         |                               ^
+         |                                = NULL
+   1 warning generated.
+
+
+vim +/sg +849 drivers/dma/arm-dma350.c
+
+   824	
+   825	static struct dma_async_tx_descriptor *
+   826	d250_prep_cyclic(struct dma_chan *chan, dma_addr_t buf_addr,
+   827			 size_t buf_len, size_t period_len, enum dma_transfer_direction dir,
+   828			 unsigned long flags)
+   829	{
+   830		struct d350_chan *dch = to_d350_chan(chan);
+   831		u32 len, periods, trig, *cmd, tsz;
+   832		dma_addr_t src, dst, phys, mem_addr;
+   833		size_t xfer_len, step_max;
+   834		struct d350_desc *desc;
+   835		struct scatterlist *sg;
+   836		struct d350_sg *dsg;
+   837		int sglen, i;
+   838	
+   839		if (unlikely(!is_slave_direction(dir) || !buf_len || !period_len))
+   840			return NULL;
+   841	
+   842		if (dir == DMA_MEM_TO_DEV)
+   843			tsz = __ffs(dch->config.dst_addr_width | (1 << dch->tsz));
+   844		else
+   845			tsz = __ffs(dch->config.src_addr_width | (1 << dch->tsz));
+   846		step_max = ((1UL << 16) - 1) << tsz;
+   847	
+   848		periods = buf_len / period_len;
+ > 849		sglen = DIV_ROUND_UP(sg_dma_len(sg), step_max) * periods;
+   850	
+   851		desc = kzalloc(struct_size(desc, sg, sglen), GFP_NOWAIT);
+   852		if (!desc)
+   853			return NULL;
+   854	
+   855		dch->cyclic = true;
+   856		dch->periods = periods;
+   857		desc->sglen = sglen;
+   858	
+   859		sglen = 0;
+   860		for (i = 0; i < periods; i++) {
+   861			len = period_len;
+   862			mem_addr = buf_addr + i * period_len;
+   863			do {
+   864				desc->sg[sglen].command = dma_pool_zalloc(dch->cmd_pool, GFP_NOWAIT, &phys);
+   865				if (unlikely(!desc->sg[sglen].command))
+   866					goto err_cmd_alloc;
+   867	
+   868				xfer_len = (len > step_max) ? step_max : len;
+   869				desc->sg[sglen].phys = phys;
+   870				dsg = &desc->sg[sglen];
+   871	
+   872				if (dir == DMA_MEM_TO_DEV) {
+   873					src = mem_addr;
+   874					dst = dch->config.dst_addr;
+   875					trig = CH_CTRL_USEDESTRIGIN;
+   876				} else {
+   877					src = dch->config.src_addr;
+   878					dst = mem_addr;
+   879					trig = CH_CTRL_USESRCTRIGIN;
+   880				}
+   881				dsg->tsz = tsz;
+   882				dsg->xsize = lower_16_bits(xfer_len >> dsg->tsz);
+   883	
+   884				cmd = dsg->command;
+   885				cmd[0] = LINK_CTRL | LINK_SRCADDR | LINK_DESADDR |
+   886					 LINK_XSIZE | LINK_SRCTRANSCFG |
+   887					 LINK_DESTRANSCFG | LINK_XADDRINC | LINK_LINKADDR;
+   888	
+   889				cmd[1] = FIELD_PREP(CH_CTRL_TRANSIZE, dsg->tsz) |
+   890					 FIELD_PREP(CH_CTRL_XTYPE, CH_CTRL_XTYPE_CONTINUE) |
+   891					 FIELD_PREP(CH_CTRL_DONETYPE, CH_CTRL_DONETYPE_CMD) | trig;
+   892	
+   893				cmd[2] = lower_32_bits(src);
+   894				cmd[3] = lower_32_bits(dst);
+   895				cmd[4] = FIELD_PREP(CH_XY_SRC, dsg->xsize) |
+   896					 FIELD_PREP(CH_XY_DES, dsg->xsize);
+   897				if (dir == DMA_MEM_TO_DEV) {
+   898					cmd[0] |= LINK_DESTRIGINCFG;
+   899					cmd[5] = dch->coherent ? TRANSCFG_WB : TRANSCFG_NC;
+   900					cmd[6] = TRANSCFG_DEVICE;
+   901					cmd[7] = FIELD_PREP(CH_XY_SRC, 1);
+   902					cmd[8] = FIELD_PREP(CH_DESTRIGINMODE, CH_DESTRIG_DMA_FC) |
+   903						  FIELD_PREP(CH_DESTRIGINTYPE, CH_DESTRIG_HW_REQ);
+   904				} else {
+   905					cmd[0] |= LINK_SRCTRIGINCFG;
+   906					cmd[5] = TRANSCFG_DEVICE;
+   907					cmd[6] = dch->coherent ? TRANSCFG_WB : TRANSCFG_NC;
+   908					cmd[7] = FIELD_PREP(CH_XY_DES, 1);
+   909					cmd[8] = FIELD_PREP(CH_SRCTRIGINMODE, CH_SRCTRIG_DMA_FC) |
+   910						  FIELD_PREP(CH_SRCTRIGINTYPE, CH_SRCTRIG_HW_REQ);
+   911				}
+   912	
+   913				if (sglen)
+   914					desc->sg[sglen - 1].command[9] = phys | CH_LINKADDR_EN;
+   915	
+   916				len -= xfer_len;
+   917				mem_addr += xfer_len;
+   918				sglen++;
+   919			} while (len);
+   920			desc->sg[sglen - 1].command[1] |= FIELD_PREP(CH_CTRL_DONETYPE,
+   921								     CH_CTRL_DONETYPE_CMD);
+   922		}
+   923	
+   924		/* cyclic list */
+   925		desc->sg[sglen - 1].command[9] = desc->sg[0].phys | CH_LINKADDR_EN;
+   926	
+   927		mb();
+   928	
+   929		return vchan_tx_prep(&dch->vc, &desc->vd, flags);
+   930	
+   931	err_cmd_alloc:
+   932		for (i = 0; i < sglen; i++)
+   933			dma_pool_free(dch->cmd_pool, desc->sg[i].command, desc->sg[i].phys);
+   934		kfree(desc);
+   935		return NULL;
+   936	}
+   937	
 
 -- 
-Best regards,
-
-Micha (aka MichaIng)
-DietPi project lead
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
