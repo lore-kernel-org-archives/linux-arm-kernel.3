@@ -4,93 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE986CA0EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 13:20:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32A57CA0EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 13:22:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2N4Xz/BxoJnUC9kUOnfvhJZVau4iCsVpuk+xhLKOTWE=; b=dv1AVXHzQCuL4xZGxQ3QAiwaxX
-	rIc1h7KbjGGLEHw6ssVE1p45k35pG/lGjG9gGZjPgs6Ev7juguOqgFxoAJwRhb7d+MO2X4KqxWfpy
-	zDfCTiyqlq//9G42GxqxAZaYuS5P7YyPeGus7M9NKjus069utD3kfPxElNBDQFF39qRnMjRiUjvsa
-	Zs1ZoraQF30K7oZGJ9dUgQ2XyRoteGuaV0+po8h/emcrcXJalZpG3hBhfz0zVHTr/KoQurK7cQA9P
-	1+S2wnXljLrjFErXLje5SiHfMpw2Jjum+c4WBFsjwRpYkRzjkVmHkpzL3vIHkYNSGjASS15eXGtAE
-	mzJdWAog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3prZoZB8qtUY6cMZZ2NVeXAFCSeqIEGUhlmdlNJvu3c=; b=bltopFGCpdREhE5z1TBhPqZN3k
+	5fq1MI08/5KlSIarZjet4T2UuI/7bs2204kE6wxED1eb9mLo4zDS3d/dDwDY7ksrL44udzIRzZ5+M
+	du+QB9qhuaqyL34FR9VoT3wHMCsuLAMjkJ5QaknHtxbWSWrL6c1FEKYA7y83uSr1DquhAPYZ5UOZp
+	PhW7hiswaB1a+ylydjH+FoQFlaRdORQzndNBx7zKZghm00Nls48YZCTXVqLOEFHoVtYX/tnNMgPDf
+	QOXflZIFDB2IgUJRLzLXx/7PIkhZUaVCE7wsntllpZgaulgaB4JDhHu9x/a0F5a3lqL+qRiIfGZzS
+	VjBdFVcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqAdX-00000006AtH-1gEV;
-	Sun, 24 Aug 2025 13:19:55 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1uqAg8-00000006B4Q-0VBf;
+	Sun, 24 Aug 2025 13:22:36 +0000
+Received: from fout-b4-smtp.messagingengine.com ([202.12.124.147])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqAav-00000006AhA-1wjX
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Aug 2025 13:17:14 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-45a1b04f8b5so21814925e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 Aug 2025 06:17:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756041431; x=1756646231; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=2N4Xz/BxoJnUC9kUOnfvhJZVau4iCsVpuk+xhLKOTWE=;
-        b=Dda/2B25HnANM7DOTquTqyRpvWA4w69gjB+FTOkSC8HyGR2Ij6IOrN1PfzncZU6bH/
-         x3RPx+VVS59fQLGSpcpeUeNi9NczEobyHAouU27ueXXW+cHqBaufvHb97dHkVCXF8HSR
-         397u/1dadpMCN6+Uxi+PRfI9LXXytq9GR0YEeEPRSmSKMjoAUi5RBSQYXMSCorvumLFe
-         drVhsIZ+Oi6PUzzwg8qrma3LJO+OhsjudZq6lmdXhYkh+1SSBhW1IlCHlWugkNoc9rzn
-         pxC/bq09KJh+5CPfYNNHOIkrCiXNj+G+x8z6qOOEjIq7LQM4aQ4inCwdi9D2G3pij1xa
-         lB1A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756041431; x=1756646231;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=2N4Xz/BxoJnUC9kUOnfvhJZVau4iCsVpuk+xhLKOTWE=;
-        b=fKk7g9/piLmrXizweISRXYaUzgk8jXTqxu653+7kR7HRREwDgA3WSYryqm8sT5xjl6
-         vGK3ebikdno/LKxmqx3g8yEmP2ixPL8qpa3k81A+wbF/jBt7bOmyaCx+xCAOIIHwNtv5
-         wXYsVsDa5LRzHPZnB5aHbm9ZXpdmn6y6TMXnz2kJWGpKr+MH3LyP7iLBeUnO90cRVuxJ
-         AYROcwiMASy5opxxbi3FkRlYMSjFrJhRn/ECr1q0oIA9BpzI0AUfaGveUvtZ7RnPvA0m
-         PmjBlidm6X377LFDj8ZWEtELZEFMlu1MnFc1RqJH3RlQU8E3oXXfGH3iBIyNNSGwh/gq
-         Gqsg==
-X-Gm-Message-State: AOJu0YxoGDoXJNhYTsPiGNM2zXozEYATaLnEhqeLPP3+7b3NHTQkq8Pv
-	pbT6K7PTmYCrnL9qbXv/cCQ5qRQG3we1QRiHwjnwho7UjUHo9SBjWGKr
-X-Gm-Gg: ASbGncuC+QAlUgqgXtUTjwpZoAoQwtEzBmgGvZUxbauSrtQtML+j+1YYVBj6+5sv10K
-	PJWu7SOeWEB1yoRr1UcwNMoWjFaPCRUCbE7YegHgsbMnzdlN60MBsh9a4KhA9nPXCiVDEPLOfZC
-	KLVbzJsbfP6ktzcF9KOxjc2kIpO1dGNZZwyDTwgUQlEMwaYKNxzNqEOcRupNnau10KTURKkGAkh
-	vBeEVD8JHB3qadUGGM7njBkPiixtZB9fWh4z1LuD+aHNh9XkxGWMYuWlyG84EOuu/chPTV5+Lwa
-	96CTohHyMfxqG5bKbjEUvcVAYiJz0ZVmmMcjXYPR3OSw7fGxpBmGGPnyeI4igA0Id8sX+ucff8M
-	xqFkyuirhtotWUChyVI5rsU2Uvd4qZAyPOz9szV5CfUgEkK5ubJEDKGsldr2afdw+m37Kym0zD5
-	Y97GPHXZuNwQ==
-X-Google-Smtp-Source: AGHT+IF0p6X6DqMaft8bVb+xHZzWcrilM0oEkMehJr2d4YlsCBG5vyIsnO0FKQC5OMwp0lsuPqbhag==
-X-Received: by 2002:a05:600c:198f:b0:459:d709:e5cf with SMTP id 5b1f17b1804b1-45b5179b710mr77565375e9.3.1756041431473;
-        Sun, 24 Aug 2025 06:17:11 -0700 (PDT)
-Received: from localhost.localdomain ([46.10.223.24])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b4e8f4552sm75658355e9.8.2025.08.24.06.17.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 24 Aug 2025 06:17:11 -0700 (PDT)
-From: "Nikola Z. Ivanov" <zlatistiv@gmail.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	shuah@kernel.org,
-	ebiggers@google.com,
-	martin.petersen@oracle.com,
-	ardb@kernel.org,
-	broonie@kernel.org,
-	thiago.bauermann@linaro.org,
-	linux-kselftest@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-kernel-mentees@lists.linux.dev,
-	"Nikola Z. Ivanov" <zlatistiv@gmail.com>
-Subject: [PATCH] selftests/arm64: Fix typos in malloc return value check
-Date: Sun, 24 Aug 2025 16:16:47 +0300
-Message-ID: <20250824131647.490439-1-zlatistiv@gmail.com>
-X-Mailer: git-send-email 2.50.1
+	id 1uqAcT-00000006An2-1vBU;
+	Sun, 24 Aug 2025 13:18:51 +0000
+Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
+	by mailfout.stl.internal (Postfix) with ESMTP id BE2501D00095;
+	Sun, 24 Aug 2025 09:18:45 -0400 (EDT)
+Received: from phl-mailfrontend-02 ([10.202.2.163])
+  by phl-compute-06.internal (MEProxy); Sun, 24 Aug 2025 09:18:46 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm2; t=1756041525; x=1756127925; bh=3prZoZB8qt
+	UY6cMZZ2NVeXAFCSeqIEGUhlmdlNJvu3c=; b=dY0Fki/UXlewD9rNROFjTngj5X
+	j4+oBWxM5/68hjgRw0rcab6Qjc532yYJs1TwVwAALlBwai8sqbS7sVOjHRwn4ZGL
+	nCFZ5bsAW1TeIVDCk5pJwtw0bqiAao7H1tC1Nxq/qTkdfuK4Fj9bu9qY5YBTJxPE
+	0rPSm5MbTZ1OpAzjQDzqkd8aDh+7WhnsvkFyRPk/Y4iU4O+wI41/fAclQXJlsN9A
+	57jsxzBOvas0e/BmUe8jX61e7Hph2QSKZzJpBNq6uV+8QTqb5PzXHTzFQljcyAhN
+	/TtbwKKJiTBScVxdTaXMRRwSgkjAImipuLumyQCJ/Os/RshRNzf8KvcuU9Wg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1756041525; x=1756127925; bh=3prZoZB8qtUY6cMZZ2NVeXAFCSeqIEGUhlm
+	dlNJvu3c=; b=ezBPRlDERXj9t162ceFYHGaikmaDdpwRVQPtjblaCgeHZj42Y2U
+	+Wlr3l2OIwFHpJRz+7bINCxDMy8nu/u7mTGwIE5aP7RH3DnZ7+qusBNlJuRPug5j
+	0fF45hIPYMvLYV+i/mo0kMXFPwnPa1CXiu2kak97SBvR9BPjPMyj2LaEkjEWZeWL
+	0e4R5JTOdV6z9yJ5geKX5hytpx3l97WGe4sVu8vF9XLjcex6Z2GfCx++zdo733kY
+	FXClxJ1MFdYTVB4m2QfafjDe9d+m7BKLhXVRlXMXhaJOkWRtCSbA25n22dwwMr4B
+	TobLERzrHFBFuptb43LGjpnq088M3Gy/P+A==
+X-ME-Sender: <xms:NBGraIKCqo-GFIKftdCgEmK2UwGG5cg-SEkjE40So6oWlqn3gmgIqA>
+    <xme:NBGraF1ExnEVCFABdybfg36CZCNsM0bymCUDrPdpPRcAeq7xEI50wKmIMb-iZezDn
+    Ah3dHiSd0BHnI-bvEs>
+X-ME-Received: <xmr:NBGraKeTBZKmc6v9HXIv4n_mjzCXbUjpPfcp72k12dL81XuqNHe1RVN8GeNRByYn0rTDur5fQO8SqEYTdpRzl465jvWT5dhXMx0>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduieeliedtucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepfffhvfevuffkfhggtggujgesthdtredttddtjeenucfhrhhomheplfgrnhhnvgcu
+    ifhruhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenucggtffrrghtthgvrhhnpefgvd
+    ffveelgedujeeffeehheekheelheefgfejffeftedugeethfeuudefheefteenucevlhhu
+    shhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehjsehjrghnnhgruh
+    drnhgvthdpnhgspghrtghpthhtohepudelpdhmohguvgepshhmthhpohhuthdprhgtphht
+    thhopehthhhinhhhrdhnghhuhigvnhesshihnhhophhshihsrdgtohhmpdhrtghpthhtoh
+    epshhvvghnsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehgrhgvghhkhheslhhinhhu
+    gihfohhunhgurghtihhonhdrohhrghdprhgtphhtthhopehrohgshheskhgvrhhnvghlrd
+    horhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthht
+    oheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegsrghlsghise
+    hkvghrnhgvlhdrohhrghdprhgtphhtthhopegrlhihshhsrgesrhhoshgvnhiifigvihhg
+    rdhiohdprhgtphhtthhopehnvggrlhesghhomhhprgdruggvvh
+X-ME-Proxy: <xmx:NBGraB6hZ5q-Svkbm2ty2CCEP_CAbOL495fy91yKgR8Wq7eaHVgzvw>
+    <xmx:NBGraF8k5CTxPZAkjPP5BMWybAClWCipgkqeV3tw6ZVKNCpH_N_Mag>
+    <xmx:NBGraAL4LqFl6Tm4RJuOqEqtUcF6E8g_MkxVJLNkQqXN-hRnzOLXPQ>
+    <xmx:NBGraAgZuPu3S5haJ24eHA7YcubO9p9kyHm7-tbxABj9KjuFjLgRFA>
+    <xmx:NRGraDmBjBJnwCIeb4-lr5-V1cpi2gSP19-8yGyHidyMMe0wHDHneZkU>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
+ 24 Aug 2025 09:18:43 -0400 (EDT)
+Date: Sun, 24 Aug 2025 15:18:41 +0200
+From: Janne Grunau <j@jannau.net>
+To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Cc: Sven Peter <sven@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Felipe Balbi <balbi@kernel.org>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"asahi@lists.linux.dev" <asahi@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>
+Subject: Re: [PATCH RFC 04/22] usb: dwc3: apple: Reset dwc3 during role
+ switches
+Message-ID: <20250824131841.GG1270980@robin.jannau.net>
+References: <20250821-atcphy-6-17-v1-0-172beda182b8@kernel.org>
+ <20250821-atcphy-6-17-v1-4-172beda182b8@kernel.org>
+ <20250821232547.qzplkafogsacnbti@synopsys.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250821232547.qzplkafogsacnbti@synopsys.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_061713_501479_DE8532EB 
-X-CRM114-Status: GOOD (  11.86  )
+X-CRM114-CacheID: sfid-20250824_061850_085598_C05C7851 
+X-CRM114-Status: GOOD (  32.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,62 +126,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix double "-ed" in malloc return value check
+On Thu, Aug 21, 2025 at 11:25:51PM +0000, Thinh Nguyen wrote:
+> On Thu, Aug 21, 2025, Sven Peter wrote:
+> > As mad as it sounds, the dwc3 controller present on the Apple M1 must be
+> > reset and reinitialized whenever a device is unplugged from the root
+> > port or when the PHY mode is changed.
+> > 
+> > This is required for at least the following reasons:
+> > 
+> >   - The USB2 D+/D- lines are connected through a stateful eUSB2 repeater
+> >     which in turn is controlled by a variant of the TI TPS6598x USB PD
+> >     chip. When the USB PD controller detects a hotplug event it resets
+> >     the eUSB2 repeater. Afterwards, no new device is recognized before
+> >     the DWC3 core and PHY are reset as well because the eUSB2 repeater
+> >     and the PHY/dwc3 block disagree about the current state.
+> > 
+> >   - It's possible to completely break the dwc3 controller by switching
+> >     it to device mode and unplugging the cable at just the wrong time.
+> >     If this happens dwc3 behaves as if no device is connected.
+> >     CORESOFTRESET will also never clear after it has been set. The only
+> >     workaround is to trigger a hard reset of the entire dwc3 core with
+> >     its external reset line.
+> > 
+> >   - Whenever the PHY mode is changed (to e.g. transition to DisplayPort
+> >     alternate mode or USB4) dwc3 has to be shutdown and reinitialized.
+> >     Otherwise the Type-C port will not be usable until the entire SoC
+> >     has been reset.
+> > 
+> > All of this can be easily worked around by respecting transitions to
+> > USB_ROLE_NONE and making sure the external reset line is asserted when
+> > switching roles. We additionally have to ensure that the PHY is
+> > suspended during init.
+> > 
+> > Signed-off-by: Sven Peter <sven@kernel.org>
+> > ---
+> >  drivers/usb/dwc3/core.c | 61 +++++++++++++++++++++++++++++++++++++++++++++----
+> >  drivers/usb/dwc3/core.h |  3 +++
+> >  drivers/usb/dwc3/drd.c  | 11 ++++++++-
+> >  drivers/usb/dwc3/host.c |  3 ++-
+> >  4 files changed, 72 insertions(+), 6 deletions(-)
+> > 
+> > diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
+> > index 8002c23a5a02acb8f3e87b2662a53998a4cf4f5c..26aa507a738f001409a97ef563c6561433a1cac5 100644
+> > --- a/drivers/usb/dwc3/core.c
+> > +++ b/drivers/usb/dwc3/core.c
 
-Signed-off-by: Nikola Z. Ivanov <zlatistiv@gmail.com>
----
- tools/testing/selftests/arm64/fp/fp-stress.c   | 2 +-
- tools/testing/selftests/arm64/fp/kernel-test.c | 4 ++--
- tools/testing/selftests/arm64/gcs/gcs-stress.c | 2 +-
- 3 files changed, 4 insertions(+), 4 deletions(-)
+...
 
-diff --git a/tools/testing/selftests/arm64/fp/fp-stress.c b/tools/testing/selftests/arm64/fp/fp-stress.c
-index 74e23208b94c..ddc01efea3f9 100644
---- a/tools/testing/selftests/arm64/fp/fp-stress.c
-+++ b/tools/testing/selftests/arm64/fp/fp-stress.c
-@@ -549,7 +549,7 @@ int main(int argc, char **argv)
- 
- 	evs = calloc(tests, sizeof(*evs));
- 	if (!evs)
--		ksft_exit_fail_msg("Failed to allocated %d epoll events\n",
-+		ksft_exit_fail_msg("Failed to allocate %d epoll events\n",
- 				   tests);
- 
- 	for (i = 0; i < cpus; i++) {
-diff --git a/tools/testing/selftests/arm64/fp/kernel-test.c b/tools/testing/selftests/arm64/fp/kernel-test.c
-index e3cec3723ffa..0c40007d1282 100644
---- a/tools/testing/selftests/arm64/fp/kernel-test.c
-+++ b/tools/testing/selftests/arm64/fp/kernel-test.c
-@@ -188,13 +188,13 @@ static bool create_socket(void)
- 
- 	ref = malloc(digest_len);
- 	if (!ref) {
--		printf("Failed to allocated %d byte reference\n", digest_len);
-+		printf("Failed to allocate %d byte reference\n", digest_len);
- 		return false;
- 	}
- 
- 	digest = malloc(digest_len);
- 	if (!digest) {
--		printf("Failed to allocated %d byte digest\n", digest_len);
-+		printf("Failed to allocate %d byte digest\n", digest_len);
- 		return false;
- 	}
- 
-diff --git a/tools/testing/selftests/arm64/gcs/gcs-stress.c b/tools/testing/selftests/arm64/gcs/gcs-stress.c
-index bbc7f4950c13..cf316d78ea97 100644
---- a/tools/testing/selftests/arm64/gcs/gcs-stress.c
-+++ b/tools/testing/selftests/arm64/gcs/gcs-stress.c
-@@ -433,7 +433,7 @@ int main(int argc, char **argv)
- 
- 	evs = calloc(tests, sizeof(*evs));
- 	if (!evs)
--		ksft_exit_fail_msg("Failed to allocated %d epoll events\n",
-+		ksft_exit_fail_msg("Failed to allocate %d epoll events\n",
- 				   tests);
- 
- 	for (i = 0; i < gcs_threads; i++)
--- 
-2.50.1
+> >  	/*
+> >  	 * When current_dr_role is not set, there's no role switching.
+> >  	 * Only perform GCTL.CoreSoftReset when there's DRD role switching.
+> >  	 */
+> > -	if (dwc->current_dr_role && ((DWC3_IP_IS(DWC3) ||
+> > +	if (dwc->role_switch_reset_quirk ||
+> 
+> Don't override the use of GCTL.CoreSoftReset with this quirk. Not all
+> controller versions should use GCTL.CoreSoftReset, the new controller
+> version don't even have it. What version is this vendor using?
 
+It reports DWC31, revision 190A and the unlisted version_types
+0x736f3035 (M1), 0x736f3039 (M1 Pro/Max/Ultra) and 0x736f3130 (M2, M2
+Pro/Max/Ultra).
+
+> I'm concern how this condition is needed...
+> 
+> > +		(dwc->current_dr_role && ((DWC3_IP_IS(DWC3) ||
+> >  			DWC3_VER_IS_PRIOR(DWC31, 190A)) &&
+> > -			desired_dr_role != DWC3_GCTL_PRTCAP_OTG)) {
+> > +			desired_dr_role != DWC3_GCTL_PRTCAP_OTG))) {
+> >  		reg = dwc3_readl(dwc->regs, DWC3_GCTL);
+> >  		reg |= DWC3_GCTL_CORESOFTRESET;
+> >  		dwc3_writel(dwc->regs, DWC3_GCTL, reg);
+
+Janne
 
