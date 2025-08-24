@@ -4,65 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D806CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 18:14:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B260CA0EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 18:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KMoEN9Iz6y5S4L+XSEPqMDMPgXs2EJdu1jAE6eGH/YQ=; b=VuwMEJY0zHlMxsnQwTjZ0Af9yV
-	MMfPkQ1qlkbktVCRK7zr/cShYtBlUyEH3guJdEdmaqnZxxz+Vl/XNBsQhwh+V5CmskG/pO4xbQHAH
-	4g5wnWJUslWEVY18x2OL8bAIJjShsw6G9k93Kl6/MmwKNEVdACaYRwGbeFBrZrtCI2uoFCQ+cdOIk
-	TEx4Uy4Csf1zJqnD5gX+votw/MiaqJWrrxUEzdtPc9aUaxG4gaE9QUxqxVF+DiqzSeYRvILdvMMnv
-	GfYE/jOcjY8+Tzbw35yhiccudxg6FS42Nm3ixBFMn5uRSjy3G0Q0IENfR/xozH9XSNeepOmH+OBF2
-	xnuiK0/g==;
+	bh=kv7slnfjer5WNOFBMkorkB8dao1yjRR5k3BJud9MPrQ=; b=BKnTAfGATdKlG85aesbCfkjwUo
+	boeqXix4ey9L2KFL3za1UIlMsu4WpLaWnKYvPmABvPtQ2/Pa1S0VnKwG19Dga7iC8WdJSGcfB8713
+	KP0RJujjwA/FFcVtTTtfPzc9DmNnlxsdDISRUE9cQrP5UXJW2l+eujFr54xyZ1fSkMGokEv40iY6l
+	jDJnttlAh+qRxnWTQantY8yiuUPTrk+ha8jaEHc2bzkSdHOIApiOxzBuccY/OF1ikxgQkzcmPj9g/
+	VYyFkugJRRWAo0Fs40etv4OvKsODA/H5g/p6TTvl7HYZJwGiPxNhSQEeWLrlPgVWAypY0B0bc2hF+
+	EcL5GLZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqFEM-00000006Qdu-17dF;
-	Sun, 24 Aug 2025 18:14:14 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uqFGx-00000006QrU-0WIs;
+	Sun, 24 Aug 2025 18:16:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqF9D-00000006Pui-2lgf
+	id 1uqF9G-00000006PvL-2o56
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Aug 2025 18:08:56 +0000
+	Sun, 24 Aug 2025 18:08:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 627B744EE6;
+	by sea.source.kernel.org (Postfix) with ESMTP id 6B0FE44F89;
+	Sun, 24 Aug 2025 18:08:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5CD2C4CEEB;
 	Sun, 24 Aug 2025 18:08:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBDFBC4CEF4;
-	Sun, 24 Aug 2025 18:08:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756058935;
-	bh=Dz7Bfvd9yeGmrDyimftkClMOiIZZVoc2BNo3QLV9xDQ=;
+	s=k20201202; t=1756058938;
+	bh=umSWfjb0DeNRj76EhSEDH+9yf9Ho17weEZf8IVkMMHw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PFTb7IICSB6VIZsIJZDJjVob3tQ8CZmPW74JzIJbagvutRUdosnP1xIZYMfHcp+uO
-	 CwIpNl+GLqcBnJJWA2kUpvAA+Dr4o8A6PuXGfGpQd1Ghh7aZuUc4Fx1kNGdMbh38Vx
-	 DgIog86BnKa/u+gIkPikmIPtDj6WB/8mugwhTwH0MzJN1RFfSB1c7NOqno3pbTI8oY
-	 J9QqmVUjFEbZ8BgvxUrR2VRMtwUP0RuSsfdolrAC83m3Or57a504tnCRBNIszNhNTk
-	 LjXhbZSswZvxq7QFi7qk01rpRLEpz18I+lWe163Ol0kgEoyRQHBK1IhGlL3FWvy9P+
-	 pZg0MdYWeZ2gw==
-Message-ID: <b7bfe424-2cfd-4897-ab0d-69c8e92acf24@kernel.org>
-Date: Sun, 24 Aug 2025 19:00:22 +0200
+	b=sdb2TdsBUzB87L+57Uj73zfJA9WbnICffrdUV4toJEf3b072FbnO/zWBlq5UdjC0A
+	 4OigGIJxOGzC9wqOFGYhhqszbIJHfVqR7bOViIyFxyK58TZwauhR6d3IzYPNhWESgB
+	 uj/icIIcoiZArv9W8J5EhtooCCJZTTw5lzoWIAOLL8z98AOT3B5fW9G6cVvc3+JKMd
+	 eNQQmWLuleZxp+rz8gBkYBkpzD//OrUAAXSkUxqMRf+Uiiy1cMF9Y24UYZQXpfApnp
+	 9VSlz1U/NZvgKwlt83eaIkSyNx+K8DvFwzSMeNTdJeZBjqKHvD7MlSIl2JuTgRBFkJ
+	 eY2CkrzFjmSmw==
+Message-ID: <aafe8482-7017-47e8-b035-7adc49e69a06@kernel.org>
+Date: Sun, 24 Aug 2025 19:00:52 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: firmware: google,gs101-acpm-ipc: add
- clocks node
-To: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Peter Griffin
- <peter.griffin@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, linux-kernel@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
- willmcvicker@google.com, kernel-team@android.com
-References: <20250819-acpm-clk-v1-0-6bbd97474671@linaro.org>
- <20250819-acpm-clk-v1-1-6bbd97474671@linaro.org>
- <20250822135521.GA3487754-robh@kernel.org>
- <ebea336e-c43f-4519-b2c6-4f8812e29448@linaro.org>
+Subject: Re: [PATCH] arm64: defconfig: enable Exynos ACPM clocks
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, alim.akhtar@samsung.com,
+ linux-samsung-soc@vger.kernel.org
+Cc: peter.griffin@linaro.org, andre.draszik@linaro.org,
+ willmcvicker@google.com, kernel-team@android.com,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250819-acpm-clk-defconfig-v1-1-70f5963ef90a@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,12 +99,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <ebea336e-c43f-4519-b2c6-4f8812e29448@linaro.org>
+In-Reply-To: <20250819-acpm-clk-defconfig-v1-1-70f5963ef90a@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_110855_743214_342983CC 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20250824_110858_728564_36A9EFBB 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,28 +119,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/08/2025 17:03, Tudor Ambarus wrote:
-> Hi, Rob,
+On 19/08/2025 14:21, Tudor Ambarus wrote:
+> Enable the Exynos ACPM clocks driver. Samsung Exynos platforms
+> implement ACPM to provide support for clock configuration, PMIC
+> and temperature sensors.
 > 
-> On 8/22/25 2:55 PM, Rob Herring wrote:
->> On Tue, Aug 19, 2025 at 11:45:36AM +0000, Tudor Ambarus wrote:
->>> The firmware exposes clocks that can be controlled via the ACPM
->>> interface. Describe the clocks exposed by the APM firmware.
->>
->> ACPM? APM is Advanced Power Management aka the predecessor to ACPI?
+> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+> ---
+> The patch should go through the Samsung SoC tree.
 > 
-> ACPM (Alive Clock and Power Manager) is a firmware that operates on the     
+> The driver is proposed at:
+> https://lore.kernel.org/linux-samsung-soc/20250819-acpm-clk-v1-0-6bbd97474671@linaro.org/
 
-Please unwrap the acronym in one place of bindings commit msgs.
 
-> APM (Active Power Management) module that handles overall power management                              
-> activities. APM is built around a GREBE processor.
-> 
-> In linux we have an ACPM protocol driver that communicates with the firmware
-> via mailbox channels. It's similar to arm,scmi if you want.
-
-Rest of Rob's comment seems valid, so this also invalidates the DTS.
-
+Please send it with above patchset - it target's same maintainer: me.
 
 Best regards,
 Krzysztof
