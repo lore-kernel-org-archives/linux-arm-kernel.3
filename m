@@ -4,57 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E83D5CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 18:11:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D806CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 18:14:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FX8qdGqsrXVWUXePoXwR9TpDu1W1Q4CqLiHzrnl1dZA=; b=TbO499KgyyAKkmZh2LmcZAIo8t
-	D3601Mt9Dc4uc4TcwivGvm83gYjsnJd88PoBYW4XGQDkoJTB67FUEmuePjI6DvrbHvK/Mz+511EWO
-	ABpV1n6jgeG7hNNLMO71q62uaZkfwA5Powc0f2qVtYBD1QUa4e0+O9G6IS6+x3gaxAUkLLijnAzFb
-	ROJty6DFgQ2RBS6HTeX2JQNYVIEmNLsGkFXAD1fa9K8BC7fm1JXc48qNZtWxtoEvOtr/2Paq5qhUQ
-	BPueLIOx6D3PQY+NtV0X10vb8vURVqbNS1MKwI+jSFiz1LcRRMUcmhbLOOAjawuLXFyk3CLqutVPW
-	agWRwivw==;
+	bh=KMoEN9Iz6y5S4L+XSEPqMDMPgXs2EJdu1jAE6eGH/YQ=; b=VuwMEJY0zHlMxsnQwTjZ0Af9yV
+	MMfPkQ1qlkbktVCRK7zr/cShYtBlUyEH3guJdEdmaqnZxxz+Vl/XNBsQhwh+V5CmskG/pO4xbQHAH
+	4g5wnWJUslWEVY18x2OL8bAIJjShsw6G9k93Kl6/MmwKNEVdACaYRwGbeFBrZrtCI2uoFCQ+cdOIk
+	TEx4Uy4Csf1zJqnD5gX+votw/MiaqJWrrxUEzdtPc9aUaxG4gaE9QUxqxVF+DiqzSeYRvILdvMMnv
+	GfYE/jOcjY8+Tzbw35yhiccudxg6FS42Nm3ixBFMn5uRSjy3G0Q0IENfR/xozH9XSNeepOmH+OBF2
+	xnuiK0/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqFBm-00000006QFZ-2DGX;
-	Sun, 24 Aug 2025 18:11:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uqFEM-00000006Qdu-17dF;
+	Sun, 24 Aug 2025 18:14:14 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqF99-00000006Pt9-0SBG
+	id 1uqF9D-00000006Pui-2lgf
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Aug 2025 18:08:52 +0000
+	Sun, 24 Aug 2025 18:08:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 25D9540860;
-	Sun, 24 Aug 2025 18:08:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D027C4CEF4;
-	Sun, 24 Aug 2025 18:08:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 627B744EE6;
+	Sun, 24 Aug 2025 18:08:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBDFBC4CEF4;
+	Sun, 24 Aug 2025 18:08:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756058930;
-	bh=An8jfmhWOdf46fE9qIQpX/BSyD/SCxzw9pyGE/aqGpo=;
+	s=k20201202; t=1756058935;
+	bh=Dz7Bfvd9yeGmrDyimftkClMOiIZZVoc2BNo3QLV9xDQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=W0366qJtN3N2wIlY1SJIG8b3r7bvUUeT3lqqwHq0HEMaD48hi+7u6KQa/0gnA9n68
-	 Vh35oBCU7hLI4g0sVT3ayS8qnIsOfvdZ5ONIHz+gMf4uvHNPaxwwIR17Jehf4HrxEG
-	 tUMVko4Ox4WI6s6xsQHqXFnRgArMcxfAdGP/CqI39Vi0x8m9rBIJeFzW1PzUVtTHN2
-	 40JKNKZumbTj2p39RNK+GFo0x8C+qWTaK6DyWOBI5bSEEaDf9lCYtyDXAQuHB/kFPZ
-	 58Nxsf058Eu9OJreMJd+0d9kiaJKbtjammqzKXePDqC0LTKupl/aHt3a0T6Q0SBqBd
-	 4nXTO3/txUuOQ==
-Message-ID: <c744f5da-ed3a-4559-80b1-9cef5254224b@kernel.org>
-Date: Sun, 24 Aug 2025 18:50:59 +0200
+	b=PFTb7IICSB6VIZsIJZDJjVob3tQ8CZmPW74JzIJbagvutRUdosnP1xIZYMfHcp+uO
+	 CwIpNl+GLqcBnJJWA2kUpvAA+Dr4o8A6PuXGfGpQd1Ghh7aZuUc4Fx1kNGdMbh38Vx
+	 DgIog86BnKa/u+gIkPikmIPtDj6WB/8mugwhTwH0MzJN1RFfSB1c7NOqno3pbTI8oY
+	 J9QqmVUjFEbZ8BgvxUrR2VRMtwUP0RuSsfdolrAC83m3Or57a504tnCRBNIszNhNTk
+	 LjXhbZSswZvxq7QFi7qk01rpRLEpz18I+lWe163Ol0kgEoyRQHBK1IhGlL3FWvy9P+
+	 pZg0MdYWeZ2gw==
+Message-ID: <b7bfe424-2cfd-4897-ab0d-69c8e92acf24@kernel.org>
+Date: Sun, 24 Aug 2025 19:00:22 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] firmware: exynos-acpm: fix PMIC returned errno
-To: Tudor Ambarus <tudor.ambarus@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, peter.griffin@linaro.org,
- andre.draszik@linaro.org, willmcvicker@google.com, kernel-team@android.com,
- Dan Carpenter <dan.carpenter@linaro.org>, stable@vger.kernel.org
-References: <20250821-acpm-pmix-fix-errno-v1-1-771a5969324c@linaro.org>
+Subject: Re: [PATCH 1/3] dt-bindings: firmware: google,gs101-acpm-ipc: add
+ clocks node
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Peter Griffin
+ <peter.griffin@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
+ <andre.draszik@linaro.org>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, linux-kernel@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+ willmcvicker@google.com, kernel-team@android.com
+References: <20250819-acpm-clk-v1-0-6bbd97474671@linaro.org>
+ <20250819-acpm-clk-v1-1-6bbd97474671@linaro.org>
+ <20250822135521.GA3487754-robh@kernel.org>
+ <ebea336e-c43f-4519-b2c6-4f8812e29448@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,12 +108,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250821-acpm-pmix-fix-errno-v1-1-771a5969324c@linaro.org>
+In-Reply-To: <ebea336e-c43f-4519-b2c6-4f8812e29448@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_110851_188587_EDC5512C 
-X-CRM114-Status: GOOD (  16.59  )
+X-CRM114-CacheID: sfid-20250824_110855_743214_342983CC 
+X-CRM114-Status: GOOD (  11.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,72 +128,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/08/2025 15:28, Tudor Ambarus wrote:
-> ACPM PMIC command handlers returned a u8 value when they should
-> have returned either zero or negative error codes.
-> Translate the APM PMIC errno to linux errno.
+On 22/08/2025 17:03, Tudor Ambarus wrote:
+> Hi, Rob,
 > 
-> Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-> Closes: https://lore.kernel.org/linux-input/aElHlTApXj-W_o1r@stanley.mountain/
-> Fixes: a88927b534ba ("firmware: add Exynos ACPM protocol driver")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
-> ---
->  drivers/firmware/samsung/exynos-acpm-pmic.c | 36 +++++++++++++++++++++++++----
->  1 file changed, 31 insertions(+), 5 deletions(-)
+> On 8/22/25 2:55 PM, Rob Herring wrote:
+>> On Tue, Aug 19, 2025 at 11:45:36AM +0000, Tudor Ambarus wrote:
+>>> The firmware exposes clocks that can be controlled via the ACPM
+>>> interface. Describe the clocks exposed by the APM firmware.
+>>
+>> ACPM? APM is Advanced Power Management aka the predecessor to ACPI?
 > 
-> diff --git a/drivers/firmware/samsung/exynos-acpm-pmic.c b/drivers/firmware/samsung/exynos-acpm-pmic.c
-> index 39b33a356ebd240506b6390163229a70a2d1fe68..a355ee194027c09431f275f0fd296f45652af536 100644
-> --- a/drivers/firmware/samsung/exynos-acpm-pmic.c
-> +++ b/drivers/firmware/samsung/exynos-acpm-pmic.c
-> @@ -5,6 +5,7 @@
->   * Copyright 2024 Linaro Ltd.
->   */
->  #include <linux/bitfield.h>
-> +#include <linux/errno.h>
->  #include <linux/firmware/samsung/exynos-acpm-protocol.h>
->  #include <linux/ktime.h>
->  #include <linux/types.h>
-> @@ -33,6 +34,26 @@ enum exynos_acpm_pmic_func {
->  	ACPM_PMIC_BULK_WRITE,
->  };
->  
-> +enum acpm_pmic_error_codes {
+> ACPM (Alive Clock and Power Manager) is a firmware that operates on the     
 
-This enum is not used. Size is not needed and you can just use
-designated initializers in the array.
+Please unwrap the acronym in one place of bindings commit msgs.
 
-> +	ACPM_PMIC_SUCCESS = 0,
-> +	ACPM_PMIC_ERR_READ = 1,
-> +	ACPM_PMIC_ERR_WRITE = 2,
-> +	ACPM_PMIC_ERR_MAX
-> +};
-> +
-> +static int acpm_pmic_linux_errmap[ACPM_PMIC_ERR_MAX] = {
+> APM (Active Power Management) module that handles overall power management                              
+> activities. APM is built around a GREBE processor.
+> 
+> In linux we have an ACPM protocol driver that communicates with the firmware
+> via mailbox channels. It's similar to arm,scmi if you want.
 
-const
-
-> +	0, /* ACPM_PMIC_SUCCESS */
-> +	-EACCES, /* Read register can't be accessed or issues to access it. */
-> +	-EACCES, /* Write register can't be accessed or issues to access it. */
-> +};
-> +
-> +static inline int acpm_pmic_to_linux_errno(int errno)
-
-Drop inline
-
-s/int errno/int err/
-(or code?)
-
-errno is just too similar to Linux errno.
-
-
-> +{
-> +	if (errno >= ACPM_PMIC_SUCCESS && errno < ACPM_PMIC_ERR_MAX)
-> +		return acpm_pmic_linux_errmap[errno];
-> +	return -EIO;
-> +}
-
+Rest of Rob's comment seems valid, so this also invalidates the DTS.
 
 
 Best regards,
