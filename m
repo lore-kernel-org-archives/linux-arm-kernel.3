@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 101D3CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 12:47:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9D28CA0EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 12:49:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GTOytYWOlBy0nOH17CPBrR9He4HmEI+ipxiCgnbzGMk=; b=tXg5LC6Xsj6ulGN9Wl7bNHz7Xt
-	AAVXLkq3D0WYdMSrAoAXVZL0B1e1HVc7FFo3TFRRdr+dDEHfWPAmtphTJdOZNUbHx3Mr/zOf+NTv1
-	nT4KViB3CiPh3QGWCFQiEVr+QF0Nn5/oAOHSKfBso6Dyvqg34jvPLed3iYEpqhdqfEAYC8J3bK4mt
-	MOxyDNlAVmGdc0AXMP+X0uLc+1QGuUC75tl/N+8/YMNWzHQgT/GVQ+bjVl1Wp0x+cm8Zx3QWoVciQ
-	KeXpQvd6G+WRade1zRJ9K9CUIdA4TMWUeK6ZnPE62/gbg+cEk4+GUpo9Ux/pwDS9vItz57gwTTTQ3
-	xCuQmO3w==;
+	bh=cRCOPBQpxMVp1mQ5L56eMMro6pGbJq8sfWgVp3Ozzo8=; b=Ojrw+NBVNo0Rpm9qpYnw0Ikc3e
+	Uu3XoygpC3NwEUrwmFXtQVcmsBQGdL7sPqnBPndUg3w5LitmcG4azxPB3VtdDR4U6Mnm4M86J+uue
+	LK4uBYq9c8ar87WrXOU7KtMX1BooQzcRcFvFT0aGn3hfLgoxBbO44vdi4+AAQtt3nwpIeGuHvJWta
+	iP0PLM9xyUpDCBvAIfL/cyeXRcyDM2bLdjReYErUj7rIGuZBJuW/y/tvpNCkY5Ev1Ez34KFDqTIGM
+	j1sNt7u88edfwMDlV4UdeXV5EuqQfxOygBwE3rB64GVS/WWJlaUooncsV0ueEsBMLie03NMNK2tUe
+	1krys0FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqA7Y-000000069Iu-1rT7;
-	Sun, 24 Aug 2025 12:46:52 +0000
+	id 1uqAA9-000000069Qq-0soe;
+	Sun, 24 Aug 2025 12:49:33 +0000
 Received: from smtps.ntu.edu.tw ([140.112.2.142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqA4u-0000000699e-1xFv
+	id 1uqA4u-00000006995-0osK
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 24 Aug 2025 12:44:10 +0000
 Received: from x415ea.vlan11.wl120.cc.ntu.edu.tw (ip24-218.wifi.cc.ntu.edu.tw [140.112.24.218])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtps.ntu.edu.tw (Postfix) with ESMTPSA id 75BB22E6C1;
-	Sun, 24 Aug 2025 20:43:56 +0800 (CST)
+	by smtps.ntu.edu.tw (Postfix) with ESMTPSA id 7502C2F104;
+	Sun, 24 Aug 2025 20:43:50 +0800 (CST)
 From: b10902118 <b10902118@ntu.edu.tw>
 To: oleg@redhat.com,
 	linux@armlinux.org.uk,
@@ -41,17 +41,17 @@ To: oleg@redhat.com,
 Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	b10902118 <b10902118@ntu.edu.tw>
-Subject: [PATCH 2/3] arm64: ptrace: minimize default bp_len for hw breakpoints to pass check
-Date: Sun, 24 Aug 2025 20:43:16 +0800
-Message-Id: <20250824124317.390795-3-b10902118@ntu.edu.tw>
+Subject: [PATCH 1/3] arm64: ptrace: fix hw_break_set() by setting addr and ctrl together
+Date: Sun, 24 Aug 2025 20:43:15 +0800
+Message-Id: <20250824124317.390795-2-b10902118@ntu.edu.tw>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250824124317.390795-1-b10902118@ntu.edu.tw>
 References: <20250824124317.390795-1-b10902118@ntu.edu.tw>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_054408_635073_793D1DED 
-X-CRM114-Status: GOOD (  15.36  )
+X-CRM114-CacheID: sfid-20250824_054408_373129_CFA8E7C3 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,68 +66,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PTRACE_SETHBPREGS fails when setting a hardware breakpoint on a
+PTRACE_SETREGSET fails when setting a hardware breakpoint on a
 non-4-byte aligned address with a valid length to a 32-bit tracee. The
 length should be valid as long as the range started from the address
 is within one aligned 4 bytes.
 
-The cause is that compat_ptrace_hbp_set() can only modify either
-addr or ctrl of a breakpoint per call, but always checks alignment in
-hw_breakpoint_arch_parse(). If a breakpoint has ctrl.len=4 (the
-default), then users cannot set the addr to a non-4-byte aligned
-address. Likewise, if the addr was previously set unaligned, users
-cannot set ctrl.len to 4.
+The cause is that hw_break_set() modifies a breakpoint's addr
+first and then ctrl. This calls modify_user_hw_breakpoint() twice,
+although once registering both suffices. The first modification causes
+errors because new addr and old ctrl can be an invalid combination at
+hw_breakpoint_arch_parse(). For example, when a user sets a hardware
+breakpoint with addr=0x2 and ctrl.len=1, hw_breakpoint_arch_parse()
+will first see addr=0x2 and ctrl.len=4 (the default) and return
+-EINVAL. On the other hand, if a user sets the same value to
+a breakpoint whose ctrl.len has previously been set to 1 or 2,
+it succeeds.
 
-This patch mitigates the issue by minimizing the default bp_len, so
-that any possibly valid address can pass the check with it. However, it
-does not solve misaligned addr/len in modifying existing breakpoints;
-further work may be needed to remove or relax the alignment check.
+The fix is to set addr and ctrl in one modify_user_hw_breakpoint(),
+effectively eliminating the discrepancy in validation.
 
 Signed-off-by: b10902118 <b10902118@ntu.edu.tw>
 ---
- arch/arm64/kernel/ptrace.c | 15 +++++++++++++--
- 1 file changed, 13 insertions(+), 2 deletions(-)
+ arch/arm64/kernel/ptrace.c | 34 +++++++++++++++++++++++++++++-----
+ 1 file changed, 29 insertions(+), 5 deletions(-)
 
 diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-index 73c67f743..70c9acd94 100644
+index 4b001121c..73c67f743 100644
 --- a/arch/arm64/kernel/ptrace.c
 +++ b/arch/arm64/kernel/ptrace.c
-@@ -288,14 +288,25 @@ static struct perf_event *ptrace_hbp_create(unsigned int note_type,
- {
- 	struct perf_event *bp;
- 	struct perf_event_attr attr;
--	int err, type;
-+	int err, type, min_len;
+@@ -467,6 +467,32 @@ static int ptrace_hbp_set_addr(unsigned int note_type,
+ 	return err;
+ }
  
-+	/*
-+	 * min_len ensures any possibly valid address can pass alignment
-+	 * validation with it.
-+	 * This is for compat mode, in which addr and ctrl can only be set
-+	 * one after one with SETHBPREGS. If addr is set first, ctrl will
-+	 * remain as initial value.
-+	 */
- 	switch (note_type) {
- 	case NT_ARM_HW_BREAK:
- 		type = HW_BREAKPOINT_X;
-+		min_len = (tsk && is_compat_thread(task_thread_info(tsk))) ?
-+				  HW_BREAKPOINT_LEN_2 :
-+				  HW_BREAKPOINT_LEN_4;
- 		break;
- 	case NT_ARM_HW_WATCH:
- 		type = HW_BREAKPOINT_RW;
-+		min_len = HW_BREAKPOINT_LEN_1;
- 		break;
- 	default:
- 		return ERR_PTR(-EINVAL);
-@@ -308,7 +319,7 @@ static struct perf_event *ptrace_hbp_create(unsigned int note_type,
- 	 * (i.e. values that will pass validation).
- 	 */
- 	attr.bp_addr	= 0;
--	attr.bp_len	= HW_BREAKPOINT_LEN_4;
-+	attr.bp_len	= min_len;
- 	attr.bp_type	= type;
- 	attr.disabled	= 1;
++/* Set the address and control together for non-compat ptrace */
++static int ptrace_hbp_set(unsigned int note_type, struct task_struct *tsk,
++			  unsigned long idx, u64 addr, u32 uctrl)
++{
++	int err;
++	struct perf_event *bp;
++	struct perf_event_attr attr;
++	struct arch_hw_breakpoint_ctrl ctrl;
++
++	bp = ptrace_hbp_get_initialised_bp(note_type, tsk, idx);
++	if (IS_ERR(bp)) {
++		err = PTR_ERR(bp);
++		return err;
++	}
++
++	attr = bp->attr;
++	attr.bp_addr = addr;
++
++	decode_ctrl_reg(uctrl, &ctrl);
++	err = ptrace_hbp_fill_attr_ctrl(note_type, ctrl, &attr);
++	if (err)
++		return err;
++
++	return modify_user_hw_breakpoint(bp, &attr);
++}
++
+ #define PTRACE_HBP_ADDR_SZ	sizeof(u64)
+ #define PTRACE_HBP_CTRL_SZ	sizeof(u32)
+ #define PTRACE_HBP_PAD_SZ	sizeof(u32)
+@@ -524,9 +550,6 @@ static int hw_break_set(struct task_struct *target,
+ 			return -EINVAL;
+ 		ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, &addr,
+ 					 offset, offset + PTRACE_HBP_ADDR_SZ);
+-		if (ret)
+-			return ret;
+-		ret = ptrace_hbp_set_addr(note_type, target, idx, addr);
+ 		if (ret)
+ 			return ret;
+ 		offset += PTRACE_HBP_ADDR_SZ;
+@@ -537,10 +560,11 @@ static int hw_break_set(struct task_struct *target,
+ 					 offset, offset + PTRACE_HBP_CTRL_SZ);
+ 		if (ret)
+ 			return ret;
+-		ret = ptrace_hbp_set_ctrl(note_type, target, idx, ctrl);
++		offset += PTRACE_HBP_CTRL_SZ;
++
++		ret = ptrace_hbp_set(note_type, target, idx, addr, ctrl);
+ 		if (ret)
+ 			return ret;
+-		offset += PTRACE_HBP_CTRL_SZ;
  
+ 		user_regset_copyin_ignore(&pos, &count, &kbuf, &ubuf,
+ 					  offset, offset + PTRACE_HBP_PAD_SZ);
 -- 
 2.50.1
 
