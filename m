@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C4BECA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 18:35:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74395CA0EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 18:38:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IZWYO8oXJpDhXoVMox1ByYk1+5MhPSxUWVSQ/e0udE8=; b=DEKESak2oQ6G7Jfgi95T+zaDrH
-	o6EQfotjmf48h1AEms0n2c5l33NY36QCQ0stWiSHurKifer/3Vy059sHAeAI/LzPg91QZ2QgsAycy
-	sQxa/spJkZNNIzMw4rvoCL04ziEDXgMlbM1J8vzH5HgLNtNi3L1/ExK8oFZP0SWDkzVVjKlyFdugX
-	YsIcGCdMEd7gcHVuJHblzh1PYAu2hHQHdav/Fnhg3ThIApdfAzTsxBZxdn5fgO16CIxbNYvSf5CMu
-	re4hJiPAO26ebaNx2E2AUs/aej9ZZX5B0Rh/RvyJCBq4yTA0izGNuzlvlH4tVXFG6z20NlLvw0c9h
-	Tzu5wXuw==;
+	bh=i1WV+fTtSxS7ICxOctYjusuFCETWs86uu+AHCrX42tk=; b=QmfCuR2fKBY86FpZyzvcpnMrfY
+	DwHdwXBCRx6MoPQbTa5F8jo4OeXxuXgH8s61ioAN2k09cqVZPrfZoahG9UEKP5jd8RWpnFh8tTbRJ
+	gO3YZg2VoYu3n3esqjG2QmKOIrRRep+axj0bXHfGHlNJrPbPQc9UUcpJ9lGpXj/ON6KpHJQ7UhElV
+	SIPJRbue5Sv0MQ1NhdLs4xzzIsdftkTQbidU5+gLIjWA9BqJD/y3ebWWY9TG8HrW3lV1jXuoPSXdL
+	ENEAujm1dhB+X8lidOuUycDS2gAfUIo4DlzTLnytTDiFiSKYI0uBl4J/irNCYIY5L+rVyyRnCa11Q
+	h3bIe+Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqFZ0-00000006S1w-4AxG;
-	Sun, 24 Aug 2025 18:35:34 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uqFba-00000006S8h-3Smw;
+	Sun, 24 Aug 2025 18:38:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqF9t-00000006Q38-47gP
+	id 1uqFAC-00000006Q7M-2z6n
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Aug 2025 18:09:39 +0000
+	Sun, 24 Aug 2025 18:09:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5BE915C5636;
+	by sea.source.kernel.org (Postfix) with ESMTP id 708C0433DD;
+	Sun, 24 Aug 2025 18:09:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1A2EC4CEF4;
 	Sun, 24 Aug 2025 18:09:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24DB1C4CEEB;
-	Sun, 24 Aug 2025 18:09:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756058977;
-	bh=y0/reVtRZ0GYrGQ7Fxsls5cjah4RtDLIcll/K48+B3c=;
+	s=k20201202; t=1756058985;
+	bh=2jFcS7RMzBU3cP0FxT/WG01cmzVqgCgNvZZKtC23fog=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=re7nT/rlt1N2SM2Ixwux4yCMVMMg7L8eLYaEh9d8R09AZqqZQai/1VmjfUFZOGYlB
-	 19DZQVpxImsdA8GqqgtuI+BMfGLsCV+74nX9kNTg69i6MouSiUy4ctmny5TwHfQeyQ
-	 JfHgAQHh6dGSgy/fgfTobfhwTBWluGlL2i7lAcFJQc9bLVHxIrzK7mq3f1mp04noFI
-	 35ZzrUu7bTTKGARV0vQSzNXc+DvDd53nhWwATdE+kLk+fYRJzIHvXfGRbQZnfE6Abw
-	 ZS7qlF/Cev2n1YOuLyB7BEd79pQe2aJIDwbFfKYsW4h2RPbXTf00T3kJNflcuPLRSw
-	 LkPmbEuF+nAKw==
-Message-ID: <6fdc9ddc-7411-462e-ae71-82c81f7f8f1e@kernel.org>
-Date: Sun, 24 Aug 2025 19:24:11 +0200
+	b=PxkUux/dfAZ5WdFrXk1fI8RkhNPTfdhbdVU4+dfXg7oWG67LIFao2MaHOrxLOF0QE
+	 O8e2rla0zuY5bMKRvB5xbIA2312MgxI4S3m9I4SHfWwOmrQTBsSBXKupQTec38kxat
+	 kr7ehTBIt9ELHz9aTtglbQG0B4LsPY1xzfy/Q+RILYJo9OTs32wJj7/RXqCHijXZML
+	 +J0/VMiL4Kn1Toqb8MJ7lyA88QFAzngNq56HN8GA5kBQy/GeqimGgXScoasHfBKg1S
+	 EEZWRNfzEixN6LOvUb/BF/Nw3ElkQ1GrhAIZ1iMR+2vRzP/wFuPsuRCHC5lJomzGUf
+	 PqmSoW4h8X2tw==
+Message-ID: <172e9dd6-3b25-4fdf-943e-2bd559117519@kernel.org>
+Date: Sun, 24 Aug 2025 19:25:20 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/33] arm_mpam: Add basic mpam driver
+Subject: Re: [PATCH 02/33] drivers: base: cacheinfo: Add helper to find the
+ cache size from cpu+level
 To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
  devicetree@vger.kernel.org
@@ -71,6 +72,7 @@ Cc: shameerali.kolothum.thodi@huawei.com,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Danilo Krummrich <dakr@kernel.org>
 References: <20250822153048.2287-1-james.morse@arm.com>
+ <20250822153048.2287-3-james.morse@arm.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -116,12 +118,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250822153048.2287-1-james.morse@arm.com>
+In-Reply-To: <20250822153048.2287-3-james.morse@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_110938_112694_A4C6F444 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20250824_110956_793702_E369F068 
+X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,31 +140,22 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 22/08/2025 17:29, James Morse wrote:
-> Hello,
+> MPAM needs to know the size of a cache associated with a particular CPU.
+> The DT/ACPI agnostic way of doing this is to ask cacheinfo.
 > 
-> This is just enough MPAM driver for the ACPI and DT pre-requisites.
-> It doesn't contain any of the resctrl code, meaning you can't actually drive it
-> from user-space yet. Becuase of that, its hidden behind CONFIG_EXPERT.
-> This will change once the user interface is connected up.
+> Add a helper to do this.
 > 
-> This is the initial group of patches that allows the resctrl code to be built
-> on top. Including that will increase the number of trees that may need to
-> coordinate, so breaking it up make sense.
+> Signed-off-by: James Morse <james.morse@arm.com>
 > 
+> ---
+> Changes since v1:
 
-There was v1 of this, so that's a v2. Start using b4 to get it right,
-because you just make it difficult for us to review.
+You marked this as v1.
 
-Try yourself:
-
-b4 diff <this-patchset>
-
-Works? No.
-
-Also, for some reason you sent it twice, so again: use b4.
-
-
-
+>  * Converted to kdoc.
+>  * Simplified helper to use get_cpu_cacheinfo_level().
+Please use consistent subject prefixes. Look at previous patch subject
+prefix.
 
 Best regards,
 Krzysztof
