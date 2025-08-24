@@ -4,127 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74395CA0EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 18:38:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D754CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 18:41:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i1WV+fTtSxS7ICxOctYjusuFCETWs86uu+AHCrX42tk=; b=QmfCuR2fKBY86FpZyzvcpnMrfY
-	DwHdwXBCRx6MoPQbTa5F8jo4OeXxuXgH8s61ioAN2k09cqVZPrfZoahG9UEKP5jd8RWpnFh8tTbRJ
-	gO3YZg2VoYu3n3esqjG2QmKOIrRRep+axj0bXHfGHlNJrPbPQc9UUcpJ9lGpXj/ON6KpHJQ7UhElV
-	SIPJRbue5Sv0MQ1NhdLs4xzzIsdftkTQbidU5+gLIjWA9BqJD/y3ebWWY9TG8HrW3lV1jXuoPSXdL
-	ENEAujm1dhB+X8lidOuUycDS2gAfUIo4DlzTLnytTDiFiSKYI0uBl4J/irNCYIY5L+rVyyRnCa11Q
-	h3bIe+Hw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Eq1PAeKV1s4YmLBR80pZHsmgpoZjucg9Fy7oCVrjUFc=; b=b/ZKQNhIEuYjfOj4O9uE/7plpv
+	FCHA8qHoKRPrbDen5PwBk0rU/thLW1wLpGYqz971Ms2cCHSmE3D65aF/ccA+aSpzl7ZiYCVR0fGEX
+	MYkvYtfqE4y+BsQ3xEeo2yy1a0KQAHAutpZExHpqty9F0GZ9qH3mwfwcjdu/IpG+nQ6YRcyg1NfZW
+	ijJ/FIlWxxWTEZ2pPDGwCcWBIChM8ViNko7crhY08wayLVGWy7KfZgDbgthN+jBhOHvwrLY4sbSTu
+	V1Z/p1ZbdyuBypavZCy2npwbzCECUghuN1alV8/Mpc0ptrRHGD43+QH8qyde7yMkqqrN2qf2QM8QX
+	XF8fwskw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqFba-00000006S8h-3Smw;
-	Sun, 24 Aug 2025 18:38:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uqFeC-00000006SdV-3m0q;
+	Sun, 24 Aug 2025 18:40:57 +0000
+Received: from jabberwock.ucw.cz ([46.255.230.98])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqFAC-00000006Q7M-2z6n
+	id 1uqFXl-00000006RzE-0miu
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Aug 2025 18:09:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 708C0433DD;
-	Sun, 24 Aug 2025 18:09:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1A2EC4CEF4;
-	Sun, 24 Aug 2025 18:09:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756058985;
-	bh=2jFcS7RMzBU3cP0FxT/WG01cmzVqgCgNvZZKtC23fog=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PxkUux/dfAZ5WdFrXk1fI8RkhNPTfdhbdVU4+dfXg7oWG67LIFao2MaHOrxLOF0QE
-	 O8e2rla0zuY5bMKRvB5xbIA2312MgxI4S3m9I4SHfWwOmrQTBsSBXKupQTec38kxat
-	 kr7ehTBIt9ELHz9aTtglbQG0B4LsPY1xzfy/Q+RILYJo9OTs32wJj7/RXqCHijXZML
-	 +J0/VMiL4Kn1Toqb8MJ7lyA88QFAzngNq56HN8GA5kBQy/GeqimGgXScoasHfBKg1S
-	 EEZWRNfzEixN6LOvUb/BF/Nw3ElkQ1GrhAIZ1iMR+2vRzP/wFuPsuRCHC5lJomzGUf
-	 PqmSoW4h8X2tw==
-Message-ID: <172e9dd6-3b25-4fdf-943e-2bd559117519@kernel.org>
-Date: Sun, 24 Aug 2025 19:25:20 +0200
+	Sun, 24 Aug 2025 18:34:19 +0000
+Received: by jabberwock.ucw.cz (Postfix, from userid 1017)
+	id 9666C1C008E; Sun, 24 Aug 2025 20:34:11 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ucw.cz; s=gen1;
+	t=1756060451;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Eq1PAeKV1s4YmLBR80pZHsmgpoZjucg9Fy7oCVrjUFc=;
+	b=B4VU3iGTH9nM/JqJF4J+vybBadFPzi6y5LR/UqbO4j3SefwKu6bw86OHvi0Hv4THWNA5LM
+	Xh+5LbdIoGBkbgLUoj3Xl6l9W81w1Bwq6uM52kYhR5p1QB43MKEksANjoZXZNa9yTeWCWl
+	ZoErlrdWU2y/VUduG+HDJh9sCQaBLPM=
+Date: Sun, 24 Aug 2025 20:34:03 +0200
+From: Pavel Machek <pavel@ucw.cz>
+To: Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>
+Cc: Arnd Bergmann <arnd@arndb.de>, soc@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] MAINTAINERS: Update Nobuhiro Iwamatsu's email address
+Message-ID: <aKtbG1xk/8sbyHmW@duo.ucw.cz>
+References: <1755663767-1612-1-git-send-email-nobuhiro.iwamatsu.x90@mail.toshiba>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 02/33] drivers: base: cacheinfo: Add helper to find the
- cache size from cpu+level
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
- devicetree@vger.kernel.org
-Cc: shameerali.kolothum.thodi@huawei.com,
- D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
- Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
- baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
- Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>
-References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-3-james.morse@arm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250822153048.2287-3-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha1;
+	protocol="application/pgp-signature"; boundary="moKA/m+8I1Jc/KOW"
+Content-Disposition: inline
+In-Reply-To: <1755663767-1612-1-git-send-email-nobuhiro.iwamatsu.x90@mail.toshiba>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_110956_793702_E369F068 
-X-CRM114-Status: UNSURE (   9.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250824_113417_668911_0D3F9997 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,24 +68,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/08/2025 17:29, James Morse wrote:
-> MPAM needs to know the size of a cache associated with a particular CPU.
-> The DT/ACPI agnostic way of doing this is to ask cacheinfo.
-> 
-> Add a helper to do this.
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> 
-> ---
-> Changes since v1:
 
-You marked this as v1.
+--moKA/m+8I1Jc/KOW
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
->  * Converted to kdoc.
->  * Simplified helper to use get_cpu_cacheinfo_level().
-Please use consistent subject prefixes. Look at previous patch subject
-prefix.
+Hi!
+
+> The company's email address has been changed, so update my email
+> address in MAINTAINERS and .mailmap files.
+>=20
+> Signed-off-by: Nobuhiro Iwamatsu
+> <nobuhiro.iwamatsu.x90@mail.toshiba>
+
+
+> index 4bb3a7f253b9b..328b04f82dac7 100644
+> --- a/.mailmap
+> +++ b/.mailmap
+> @@ -585,6 +585,7 @@ Nikolay Aleksandrov <razor@blackwall.org> <nikolay@re=
+dhat.com>
+>  Nikolay Aleksandrov <razor@blackwall.org> <nikolay@cumulusnetworks.com>
+>  Nikolay Aleksandrov <razor@blackwall.org> <nikolay@nvidia.com>
+>  Nikolay Aleksandrov <razor@blackwall.org> <nikolay@isovalent.com>
+> +Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba> <nobuhiro 1.iwama=
+tsu@toshiba.co.jp>
+>  Odelu Kukatla <quic_okukatla@quicinc.com> <okukatla@codeaurora.org>
+
+There seems to be typo (extra space) in <nobuhiro 1.iwamatsu@toshiba.co.jp>.
 
 Best regards,
-Krzysztof
+											Pavel
+
+>  ARM/TOSHIBA VISCONTI ARCHITECTURE
+> -M:	Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
+> +M:	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>
+>  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+>  S:	Supported
+>  T:	git git://git.kernel.org/pub/scm/linux/kernel/git/iwamatsu/linux-visc=
+onti.git
+
+--=20
+I don't work for Nazis and criminals, and neither should you.
+Boycott Putin, Trump, Netanyahu and Musk!
+
+--moKA/m+8I1Jc/KOW
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iF0EABECAB0WIQRPfPO7r0eAhk010v0w5/Bqldv68gUCaKtbGwAKCRAw5/Bqldv6
+8j3iAJwJWCnZC/1x6bmybPkhEm68FTqfXgCggl6QXqnEit2A6S8N/QTn8TOCtG0=
+=trmY
+-----END PGP SIGNATURE-----
+
+--moKA/m+8I1Jc/KOW--
 
