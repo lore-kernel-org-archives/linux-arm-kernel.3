@@ -4,73 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC9E4CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 11:27:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7AF1CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 11:29:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BIttbaon04d2Rvlw9j5ImGFlCSyQwHXs+hliMJ7LO+o=; b=uv6Y2fBcmPGJIy2DrX/hrCaNM+
-	zGEuKJwpvE1lLRh6RQ1HQ8KL1cFgUi2BJbstRwUTWnUdAbwK7EJeWvPz2QcI8awmLUPVOihy3rDrP
-	BOTEPkZw/MLoDx16KZzKaUhzWmiFcpr4WEa4Drw0ky/ra3VPl7y7VUW8iHViAIR2iQaSpIV/7e9Zh
-	jCXmgZ3No4okyFd+EmYkoVBp+sivnhjKGeuIMa4rYusK+l/DkMtbPNnq2xpl9pLQsE2UA7Y8fG7cq
-	e5IhdSH+HgAw7a9LrhSIjkwr6eF/6ffDK0TBxd3krGosCT18TkVdeREqaPkT34W6CkLtoqUgmyLax
-	ZzhTHrJQ==;
+	bh=qy8hKknXZKfrw9LaKKMC9V6qgW7h9iunRUbjgQOZBq0=; b=T/7X1csqrkpMUU2ktSnmqhsned
+	TtBjwHGxKEHDrddpBbjLSVHxRFlD6A9wG68U0kACAILdWSN/SLhXumNrbfoXMXuiHjI+q1gud42MS
+	rnBeZFFlC0HtownCDrveJTB7Ep3B0JnWcRf+R9daiatfu/sSxJ50v4sMA0vCGHgaI+JN9vB+5tqys
+	6mqiAtBlCnUjF2kCMaD3sQ5ssGjk+GH2vRVHfKFFnkXe2N0svKtilD7Pr5ArL41vTCBJzk6wXDh6X
+	JEdwY+FkPzEz79QdmhrM2ciENgPignuJCn1o9OOLTaEBaMLrS0AIot/f3t5OAa43zdlFoGISVu/C3
+	dZ6hkPRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq8sD-000000064jB-2lg5;
-	Sun, 24 Aug 2025 11:26:57 +0000
-Received: from smtp1.ms.mff.cuni.cz ([2001:718:1e03:801::4])
+	id 1uq8un-000000064xj-2HJR;
+	Sun, 24 Aug 2025 11:29:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq8UF-000000062NX-0QDI
+	id 1uq8fO-000000063SW-3BNY
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Aug 2025 11:02:14 +0000
-X-SubmittedBy: id balejk@matfyz.cz subject /postalCode=110+2000/O=Univerzita+20Karlova/street=Ovocn+5CxC3+5CxBD+20trh+20560/5/ST=Praha,+20Hlavn+5CxC3+5CxAD+20m+5CxC4+5Cx9Bsto/C=CZ/CN=Karel+20Balej/emailAddress=balejk@matfyz.cz
-	serial F5FD910E8FE2121B897F7E55B84E351D
-	issued by /C=NL/O=GEANT+20Vereniging/CN=GEANT+20Personal+20CA+204
-	auth type TLS.CUNI
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mff.cuni.cz;
-	s=submission; t=1756033282; x=1757333282;
-	bh=BIttbaon04d2Rvlw9j5ImGFlCSyQwHXs+hliMJ7LO+o=; h=From;
-	b=AkLRjobEuUDghIilXe3TbwaEbnRywcDUzkz+gRf8Xt0NDsSJ0aZ4MIl+HGE9aHUSM
-	 m9TK1pWAvaDQY5nguuP+HT0iM9dcmDC8b2G5R4EKPdAY4fmZUob9Hpu93gxWll8BVV
-	 odXnZvDoXpcnu3++yj3+Snoj20kFUzW5XkRz3SoVf9a3t8Zjd5sAGqdgONCM0Zn4MB
-	 8OHd6b1CsGYAYZigjCjtvUxAr1hbh2llGPNTWb6WNFm6Be15d6yjzswiYiexipXJeX
-	 8FkPlHYw24vtKcSkD3j46vUib8cP5k6z22+DZ+7BnWBBP2Iop6TGnJ/HxcvaNyWRNu
-	 1h7QUM9DxATGw==
-Received: from localhost (internet5.mraknet.com [185.200.108.250])
-	(authenticated)
-	by smtp1.ms.mff.cuni.cz (8.16.1/8.16.1) with ESMTPS id 57OB1L4X083631
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=OK);
-	Sun, 24 Aug 2025 13:01:22 +0200 (CEST)
-	(envelope-from balejk@matfyz.cz)
-From: Karel Balej <balejk@matfyz.cz>
-To: linux-mmc@vger.kernel.org, ulf.hansson@linaro.org,
-        =?UTF-8?q?Duje=20Mihanovi=C4=87?= <duje@dujemihanovic.xyz>,
-        Andrew Lunn <andrew@lunn.ch>,
-        Gregory Clement <gregory.clement@bootlin.com>,
-        Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-Cc: ~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org,
-        Karel Balej <balejk@matfyz.cz>
-Subject: [PATCH mmc/next 1/3] arm64: dts: samsung,coreprimevelte: add PMIC
-Date: Sun, 24 Aug 2025 12:53:43 +0200
-Message-ID: <20250824110039.28258-2-balejk@matfyz.cz>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250824110039.28258-1-balejk@matfyz.cz>
-References: <20250824110039.28258-1-balejk@matfyz.cz>
+	Sun, 24 Aug 2025 11:13:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DA062601E2;
+	Sun, 24 Aug 2025 11:13:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35C94C4CEEB;
+	Sun, 24 Aug 2025 11:13:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756034021;
+	bh=mv/bsRsVdM7pQCuwt1SnavPyP9K9Bv9tTNozHds6S8Q=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=q1FooV2SVNS+J+o5HD1EFtwyz4Squld/IWRpQQomvuqnpBezptQ35W+wxahx5C4vC
+	 dTrdpWV3JnhwEYm9AVvK8BXKNPLIL92P+YxNMqF2la7deN50Wvy+Nixy4NngeHjXUu
+	 w9jKLBLmszlZ1jnj6RctxWi3Od5i7SGzDawrVSn2d3W6MGLi9glEFOfYYAwfCXX7uh
+	 0uAhO2Ow+8FxhN5rm4FyEhKghmUB19m8j8PhWcMDjEQuUstj9QRJyuOrqYS4e0Re/6
+	 wCZmr2iPOhOeZFPP6hGpM4r31hGTg4R+xFf1XJEJ5zX9MGkLSbpYmR9ewTZX1ceSiA
+	 4cTCSPMkK064w==
+Message-ID: <6e9cf11f-c160-4833-b3f4-cb22ecf6a26c@kernel.org>
+Date: Sun, 24 Aug 2025 13:13:36 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_040211_732254_402000F2 
-X-CRM114-Status: UNSURE (   8.88  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH mmc/next 1/3] arm64: dts: samsung,coreprimevelte: add PMIC
+To: Karel Balej <balejk@matfyz.cz>, linux-mmc@vger.kernel.org,
+ ulf.hansson@linaro.org, =?UTF-8?Q?Duje_Mihanovi=C4=87?=
+ <duje@dujemihanovic.xyz>, Andrew Lunn <andrew@lunn.ch>,
+ Gregory Clement <gregory.clement@bootlin.com>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: ~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org
+References: <20250824110039.28258-1-balejk@matfyz.cz>
+ <20250824110039.28258-2-balejk@matfyz.cz>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250824110039.28258-2-balejk@matfyz.cz>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,56 +120,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Bind power management chip to the samsung,coreprimevelte smartphone.
-This enables support for onkey and RTC as well as for regulators two of
-which are explicitly bound here to the SD card.
+On 24/08/2025 12:53, Karel Balej wrote:
+> Bind power management chip to the samsung,coreprimevelte smartphone.
+> This enables support for onkey and RTC as well as for regulators two of
+> which are explicitly bound here to the SD card.
 
-Signed-off-by: Karel Balej <balejk@matfyz.cz>
----
- .../mmp/pxa1908-samsung-coreprimevelte.dts    | 24 +++++++++++++++++++
- 1 file changed, 24 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts b/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
-index 47a4f01a7077..240021e7a371 100644
---- a/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
-+++ b/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
-@@ -303,6 +303,28 @@ &twsi1 {
- 
- &twsi2 {
- 	status = "okay";
-+
-+	pmic@30 {
-+		compatible = "marvell,88pm886-a1";
-+		reg = <0x30>;
-+		interrupts = <0 4 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-parent = <&gic>;
-+		wakeup-source;
-+
-+		regulators {
-+			ldo6: ldo6 {
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1200000>;
-+				regulator-max-microvolt = <3300000>;
-+			};
-+
-+			ldo14: ldo14 {
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1200000>;
-+				regulator-max-microvolt = <3300000>;
-+			};
-+		};
-+	};
- };
- 
- &twsi3 {
-@@ -328,4 +350,6 @@ &sdh0 {
- 	cd-inverted;
- 	bus-width = <4>;
- 	wp-inverted;
-+	vmmc-supply = <&ldo14>;
-+	vqmmc-supply = <&ldo6>;
- };
--- 
-2.50.1
+Your patches have confusing mmc/next prefix. This is a SoC patchset, not
+mmc.
 
+> 
+> Signed-off-by: Karel Balej <balejk@matfyz.cz>
+
+Best regards,
+Krzysztof
 
