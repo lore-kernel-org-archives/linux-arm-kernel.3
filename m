@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42D07CA0EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 11:37:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63455CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 11:40:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y7nvNDe3URDieU4SpOG0YDNG2gjUfXlr6SoMa3lJxjA=; b=EeBnC5RAuv+YCfh12Gz/Z39tic
-	SFolkxH4UukY5kssU29+tDi2PeqmjnW5A7rjLs5rR88yIcHIhPt9wyu3qRihajnGXq7zTbaIOOoUG
-	D1ml1YlkpmiYccjYbRfQ5kvn1QYnwLNLiXKIhOOSAEjUA3Z3MEkrszKeAtxkniKtLXfkTIviFMHv3
-	lRrXIibKS0a9gymGVIhTsTILAsB1nkM14harsAKHSHTUirsvsbVShBLs8LatbS5FPXikPnO0sjzqC
-	A8pId8CPL4aLV4494//cSSXQzEPd7CRHRFxypxy8/WyJFS+HLf59Z7ftVBcEOsBz5RwQEWAW9AMFt
-	rEcTw/DQ==;
+	bh=iZLSoUGx93BuoSrHUBR6RC0cpPevI52X1DUHAzH/ShE=; b=3FwtqAFXmjh0rQ2K2gf2dJ/q85
+	bwwLFcpVFack7wF7ZuOJeVpMfRSy2ZJF1Bna1kEE9ol36ObCG1u0lIOZkGT2cMTrvZ3Y7vKIBPs4m
+	DoajECk0kgVpi2GaazCM9wTOQWFpJp7t8QnzRW/oCiOAx69JSJd+VWXm+i4H0NMtBed7kz0/yHJ2J
+	w0MJOvmDlvTWV4r5fvHnJIwnUkvucrtGc76FZAE0QhhZJOP95yDpSiBz2lKz755MaTc8SOXCVVsnR
+	JPKISVozGqmsfkkrsboc++4cxoEq/ZtIKpYZCp8GJg2VX71nehjkBQWvkKopaZDxnIKwkg+VY4ed1
+	eCXe+iDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq92Z-000000065q6-1YEd;
-	Sun, 24 Aug 2025 11:37:39 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uq95A-000000066Bu-0qfM;
+	Sun, 24 Aug 2025 11:40:20 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq8t8-000000064qb-1dFh
+	id 1uq8uW-000000064v2-3FGD
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Aug 2025 11:27:55 +0000
+	Sun, 24 Aug 2025 11:29:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E119F5C55AB;
-	Sun, 24 Aug 2025 11:27:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78C1BC4CEEB;
-	Sun, 24 Aug 2025 11:27:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2C5E4601E2;
+	Sun, 24 Aug 2025 11:29:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6503C4CEEB;
+	Sun, 24 Aug 2025 11:29:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756034873;
-	bh=mNR+dy5ZUFLhj+Ehn7WKvPiI2nRpHfXPZVi3JgGCj0I=;
+	s=k20201202; t=1756034959;
+	bh=8IP81whtAjPKNNsMkPh9mE8F1GTRMoO3BkzclUKZ9zc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ESFbhtxpKuok84wjPsZSJe8cIJgQ4AQhpBhWTVsmlr77wXkcX4lJSQLM5H57CC1aU
-	 jzw+tkcjbN5iIbWql8+qmFoUaDvrWjqMi0IFGvXJtezEDrn2OgWESQHsFSIDY9tiTz
-	 twWNsISDkXPqGcYORZTB4yH8jcoHm8Jg2/XV4715Ba5iC5852M8SYhtiCi6rLzzX7p
-	 lSKa/GJixOa1Hda7frnYRhjgz62DzZ3BNMt8fnXlkjkWtEfclSlnIkS+wC6KGuQK03
-	 WikArDf/o3a9iKkX60T+uSYc5GURMl9UUB2IJc882432LiPV7w73Zz5zFuPe+8vxQ2
-	 UQhbDdr1jh0MQ==
-Message-ID: <255d3a30-9e44-41d8-8b38-ced6c245d025@kernel.org>
-Date: Sun, 24 Aug 2025 13:27:48 +0200
+	b=J6hBmk+bD45JJt1PjS1pyoIC3B09CgON0nhPHlp6XDOLs5g0EBos7hTjtT9bz0kHe
+	 i2T/z+zkTetgYKs7zmbLPGZhloW3uf79/YoAhJKwakvFaSSSLLU4mEytsGBg0bUrgv
+	 NYaL4vt4ueI2k0MFqd8zszJxExgMyBAPOUyXSL+rY1Vy8Fe4sl9vCibXliHeaWQY96
+	 LfPGiKothFMvIoRtKAY+4/XSZqHo3hb1yyxmau3u3d8UIxXC+Zc+4/ch6v0/85OUK+
+	 SdGsNlQXQD2qk1ySWXkLE6qcwZad05/3LY2qMRaQekJiHTDiSJ1FNo8qOWlvWwzQBm
+	 1sVqgudUNm+7Q==
+Message-ID: <e25494da-9d27-4416-ac79-317c8b9a6653@kernel.org>
+Date: Sun, 24 Aug 2025 13:29:15 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] arm64: defconfig: enable i.MX AIPSTZ driver
+Subject: Re: [PATCH 2/4] arm64: dts: imx8mp: convert 'aips5' to 'aipstz5'
 To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
@@ -56,7 +56,7 @@ Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
  devicetree@vger.kernel.org, imx@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20250821105634.1893-1-laurentiumihalcea111@gmail.com>
- <20250821105634.1893-2-laurentiumihalcea111@gmail.com>
+ <20250821105634.1893-3-laurentiumihalcea111@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,13 +102,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250821105634.1893-2-laurentiumihalcea111@gmail.com>
+In-Reply-To: <20250821105634.1893-3-laurentiumihalcea111@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_042754_517617_2B8BD260 
-X-CRM114-Status: UNSURE (   6.63  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,13 +122,47 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 21/08/2025 12:56, Laurentiu Mihalcea wrote:
 > From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 > 
-> Enable the config (CONFIG_IMX_AIPSTZ) for the i.MX AIPSTZ driver, which
-> is required for platforms using the AIPSTZ bridge (e.g. i.MX8MP).
+> AIPS5 is actually AIPSTZ5 as it offers some security-related
+> configurations. Since these configurations need to be applied before
+> accessing any of the peripherals on the bus, it's better to make AIPSTZ5
+> be their parent instead of keeping AIPS5 and adding a child node for
+> AIPSTZ5. Also, because of the security configurations, the address space
+> of the bus has to be changed to that of the configuration registers.
+> 
+> Finally, since AIPSTZ5 belongs to the AUDIOMIX power domain, add the
+> missing 'power-domains' property. The domain needs to be powered on before
+> attempting to configure the security-related registers.
+> 
+> The DT node name is not changed to avoid potential issues with DTs in
+> which this node is referenced.
+> 
+> Co-developed-by: Daniel Baluta <daniel.baluta@nxp.com>
+> Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
+> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Qualcomm i.MX8MP? You are changing wide defconfig.
+Where did it happen?
 
-Which boards use it?
+> ---
+>  arch/arm64/boot/dts/freescale/imx8mp.dtsi | 10 ++++++----
+>  1 file changed, 6 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> index bb24dba7338e..b62bb821cf61 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> @@ -1396,12 +1396,14 @@ eqos: ethernet@30bf0000 {
+>  			};
+>  		};
+>  
+> -		aips5: bus@30c00000 {
+> -			compatible = "fsl,aips-bus", "simple-bus";
 
+
+This breaks all the users. I understood explanation as "it is better",
+no real reasons.
+
+No, you cannot do that.
 
 Best regards,
 Krzysztof
