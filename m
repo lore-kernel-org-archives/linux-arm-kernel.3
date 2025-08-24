@@ -4,108 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7AF1CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 11:29:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A67BECA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 11:32:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:Cc:From:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qy8hKknXZKfrw9LaKKMC9V6qgW7h9iunRUbjgQOZBq0=; b=T/7X1csqrkpMUU2ktSnmqhsned
-	TtBjwHGxKEHDrddpBbjLSVHxRFlD6A9wG68U0kACAILdWSN/SLhXumNrbfoXMXuiHjI+q1gud42MS
-	rnBeZFFlC0HtownCDrveJTB7Ep3B0JnWcRf+R9daiatfu/sSxJ50v4sMA0vCGHgaI+JN9vB+5tqys
-	6mqiAtBlCnUjF2kCMaD3sQ5ssGjk+GH2vRVHfKFFnkXe2N0svKtilD7Pr5ArL41vTCBJzk6wXDh6X
-	JEdwY+FkPzEz79QdmhrM2ciENgPignuJCn1o9OOLTaEBaMLrS0AIot/f3t5OAa43zdlFoGISVu/C3
-	dZ6hkPRQ==;
+	bh=ADa+fVNGO4WZmlPkY9EPlfFvm3fduD+G2BAy5zB2N7o=; b=DGDNAsZf65+dh0f4jM3qJCmoKB
+	JKJUVFvI4gE/kVh4G+GeHSTMnmZsoghHdlGXBKa2UidSkS9vPpOK6Iadx70zn260zxF1OfspileKp
+	Pp1wQawC890zfwXzmaLZ4Q+AtRjuVzzYM3AXKh0PsBa8RsQZbLSsrtPFHdN2agBz13a/E8g415L3B
+	w/lyiR8l3ynhLB5I8vY0uCjD1AkatNRW46rbAgnT135tUKIMrhDcZYXec+JIfZQOzHQn/fZsccWW0
+	lSKrqqXggSEuAMnzJPGnKsuOgFdNwbOg9LrRvIjZFHdX0q2+ls87VnWeIlANL5LaFCuIpgO+R11ht
+	C2kjPwcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq8un-000000064xj-2HJR;
-	Sun, 24 Aug 2025 11:29:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uq8xP-000000065EV-2GSw;
+	Sun, 24 Aug 2025 11:32:19 +0000
+Received: from smtp1.ms.mff.cuni.cz ([2001:718:1e03:801::4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq8fO-000000063SW-3BNY
+	id 1uq8fr-000000063Yi-25Ag
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Aug 2025 11:13:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DA062601E2;
-	Sun, 24 Aug 2025 11:13:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35C94C4CEEB;
-	Sun, 24 Aug 2025 11:13:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756034021;
-	bh=mv/bsRsVdM7pQCuwt1SnavPyP9K9Bv9tTNozHds6S8Q=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=q1FooV2SVNS+J+o5HD1EFtwyz4Squld/IWRpQQomvuqnpBezptQ35W+wxahx5C4vC
-	 dTrdpWV3JnhwEYm9AVvK8BXKNPLIL92P+YxNMqF2la7deN50Wvy+Nixy4NngeHjXUu
-	 w9jKLBLmszlZ1jnj6RctxWi3Od5i7SGzDawrVSn2d3W6MGLi9glEFOfYYAwfCXX7uh
-	 0uAhO2Ow+8FxhN5rm4FyEhKghmUB19m8j8PhWcMDjEQuUstj9QRJyuOrqYS4e0Re/6
-	 wCZmr2iPOhOeZFPP6hGpM4r31hGTg4R+xFf1XJEJ5zX9MGkLSbpYmR9ewTZX1ceSiA
-	 4cTCSPMkK064w==
-Message-ID: <6e9cf11f-c160-4833-b3f4-cb22ecf6a26c@kernel.org>
-Date: Sun, 24 Aug 2025 13:13:36 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH mmc/next 1/3] arm64: dts: samsung,coreprimevelte: add PMIC
-To: Karel Balej <balejk@matfyz.cz>, linux-mmc@vger.kernel.org,
- ulf.hansson@linaro.org, =?UTF-8?Q?Duje_Mihanovi=C4=87?=
- <duje@dujemihanovic.xyz>, Andrew Lunn <andrew@lunn.ch>,
- Gregory Clement <gregory.clement@bootlin.com>,
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: ~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org
-References: <20250824110039.28258-1-balejk@matfyz.cz>
- <20250824110039.28258-2-balejk@matfyz.cz>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250824110039.28258-2-balejk@matfyz.cz>
+	Sun, 24 Aug 2025 11:14:12 +0000
+X-SubmittedBy: id balejk@matfyz.cz subject /postalCode=110+2000/O=Univerzita+20Karlova/street=Ovocn+5CxC3+5CxBD+20trh+20560/5/ST=Praha,+20Hlavn+5CxC3+5CxAD+20m+5CxC4+5Cx9Bsto/C=CZ/CN=Karel+20Balej/emailAddress=balejk@matfyz.cz
+	serial F5FD910E8FE2121B897F7E55B84E351D
+	issued by /C=NL/O=GEANT+20Vereniging/CN=GEANT+20Personal+20CA+204
+	auth type TLS.CUNI
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mff.cuni.cz;
+	s=submission; t=1756034023; x=1757334023;
+	bh=ADa+fVNGO4WZmlPkY9EPlfFvm3fduD+G2BAy5zB2N7o=; h=From;
+	b=BIX6Ywury7THcZTUYmmkJAPhdSkdCI4UXdME4S4FwGX213bfIVVUGxYziYzSB4Otd
+	 aO7LNYITNTTfZc+bz5Gwt2lOk+o4BkyNAAHPccl0otCve2rbHcP4sCS0lFu+TXV+85
+	 YSYIPBEU/wmSzQAXhb9Fu7kdkMdkhw4alxrSmbgn1JrEZIbgBIdaEg16EWXKt9/DUC
+	 SyF0oFa9HIR8p2phDhHrQnxf/mfczW3shD7zzKiiFdmPjV56J+XCYNF9ZODDAK+sV4
+	 siF/aep1v4S1dUr2OgxYgbswwnmpG9uRE2lQIpI7RktRhjAEVqzwF++EhoQDY+EjTl
+	 HZp07okK8RPMQ==
+Received: from localhost (internet5.mraknet.com [185.200.108.250])
+	(authenticated)
+	by smtp1.ms.mff.cuni.cz (8.16.1/8.16.1) with ESMTPS id 57OBDf7f084268
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=OK);
+	Sun, 24 Aug 2025 13:13:43 +0200 (CEST)
+	(envelope-from balejk@matfyz.cz)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Date: Sun, 24 Aug 2025 13:13:41 +0200
+Message-Id: <DCAM3WTJ4EXA.32GZBS4G7GWFJ@matfyz.cz>
+To: <linux-mmc@vger.kernel.org>, <ulf.hansson@linaro.org>,
+        =?utf-8?q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>,
+        "Andrew Lunn"
+ <andrew@lunn.ch>,
+        "Gregory Clement" <gregory.clement@bootlin.com>,
+        "Sebastian Hesselbarth" <sebastian.hesselbarth@gmail.com>,
+        "Rob Herring"
+ <robh@kernel.org>,
+        "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+        "Conor
+ Dooley" <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+From: "Karel Balej" <balejk@matfyz.cz>
+Cc: <~postmarketos/upstreaming@lists.sr.ht>, <phone-devel@vger.kernel.org>
+Subject: Re: [PATCH mmc/next 3/3] arm64: dts: samsung,coreprimevelte: add
+ SDIO
+References: <20250824110039.28258-1-balejk@matfyz.cz>
+ <20250824110039.28258-4-balejk@matfyz.cz>
+In-Reply-To: <20250824110039.28258-4-balejk@matfyz.cz>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250824_041411_830321_AF36555E 
+X-CRM114-Status: UNSURE (   5.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,18 +89,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/08/2025 12:53, Karel Balej wrote:
-> Bind power management chip to the samsung,coreprimevelte smartphone.
-> This enables support for onkey and RTC as well as for regulators two of
-> which are explicitly bound here to the SD card.
+Karel Balej, 2025-08-24T12:53:45+02:00:
+> +	sdh2_pins_0: sdh2-pins-0 {
+> +		pinctrl-single,pins =3D <
+> +			0x24 1
+> +			0x28 1
+> +			0x2c 1
+> +			0x30 1
+> +			0x34 1
+> +			0x38 1
+> +			0x3c 1
+> +			0x40 1
+> +		>;
+> +		pinctrl-single,drive-strength =3D <0x1000 0x1800>;
+> +		pinctrl-single,bias-pullup =3D <0 0xc000 0 0xc000>;
+> +		pinctrl-single,bias-pulldown =3D <0 0xa000 0 0xa000>;
+> +		pinctrl-single,input-schmitt =3D <0 0x30>;
+> +		pinctrl-single,input-schmitt-enable =3D <0x40 0 0x40 0x40>;
+> +		pinctrl-single,low-power-mode =3D <0 0x388>;
+> +	};
+> +
+> +	sdh2_pins_1: sdh2-pins-1 {
+> +		pinctrl-single,pins =3D <0x64 1>;
+> +		pinctrl-single,drive-strength =3D <0x1000 0x1800>;
+> +		pinctrl-single,bias-pullup =3D <0 0xc000 0 0xc000>;
+> +		pinctrl-single,bias-pulldown =3D <0 0xa000 0 0xa000>;
+> +		pinctrl-single,input-schmitt =3D <0 0x30>;
+> +		pinctrl-single,input-schmitt-enable =3D <0x40 0 0x40 0x40>;
+> +		pinctrl-single,low-power-mode =3D <0x208 0x388>;
+> +	};
+> +
+> +	sdh2_pins_2: sdh2-pins-2 {
+> +		pinctrl-single,pins =3D <0x5c 1>;
+> +		pinctrl-single,bias-pullup =3D <0xc000 0xc000 0 0xc000>;
+> +		pinctrl-single,bias-pulldown =3D <0x8000 0xa000 0x8000 0xa000>;
+> +		pinctrl-single,low-power-mode =3D <0x288 0x388>;
+> +	};
+> +
+> +	sdh2_fast_pins_0: sdh2-fast-pins-0 {
+> +		pinctrl-single,pins =3D <
+> +			0x24 1
+> +			0x28 1
+> +			0x2c 1
+> +			0x30 1
+> +			0x34 1
+> +			0x38 1
+> +			0x3c 1
+> +			0x40 1
+> +		>;
+> +		pinctrl-single,drive-strength =3D <0x1800 0x1800>;
+> +		pinctrl-single,bias-pullup =3D <0 0xc000 0 0xc000>;
+> +		pinctrl-single,bias-pulldown =3D <0 0xa000 0 0xa000>;
+> +		pinctrl-single,input-schmitt =3D <0 0x30>;
+> +		pinctrl-single,input-schmitt-enable =3D <0x40 0 0x40 0x40>;
+> +		pinctrl-single,low-power-mode =3D <0 0x388>;
+> +	};
+> +
+> +	sdh2_fast_pins_1: sdh2-fast-pins-1 {
+> +		pinctrl-single,pins =3D <0x64 1>;
+> +		pinctrl-single,drive-strength =3D <0x1800 0x1800>;
+> +		pinctrl-single,bias-pullup =3D <0 0xc000 0 0xc000>;
+> +		pinctrl-single,bias-pulldown =3D <0 0xa000 0 0xa000>;
+> +		pinctrl-single,input-schmitt =3D <0 0x30>;
+> +		pinctrl-single,input-schmitt-enable =3D <0x40 0 0x40 0x40>;
+> +		pinctrl-single,low-power-mode =3D <0x208 0x388>;
+> +	};
+> +
+> +	sdh2_fast_pins_2: sdh2-fast-pins-2 {
+> +		pinctrl-single,pins =3D <0x5c 1>;
+> +		pinctrl-single,drive-strength =3D <0x1800 0x1800>;
+> +		pinctrl-single,bias-pullup =3D <0xc000 0xc000 0 0xc000>;
+> +		pinctrl-single,bias-pulldown =3D <0x8000 0xa000 0x8000 0xa000>;
+> +		pinctrl-single,low-power-mode =3D <0x288 0x388>;
+> +	};
 
+Sorry, these got mixed in by accident and should be in a separate future
+patch enabling the eMMC support. I will drop them from here when I send
+the next version.
 
-Your patches have confusing mmc/next prefix. This is a SoC patchset, not
-mmc.
-
-> 
-> Signed-off-by: Karel Balej <balejk@matfyz.cz>
-
-Best regards,
-Krzysztof
+K. B.
 
