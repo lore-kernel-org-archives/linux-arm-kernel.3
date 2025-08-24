@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DDE6CA0EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 09:03:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D2E2CA0EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 09:24:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bBpIwJuz3DbYEaP26/bWChJ0cjV2K/N4eN4y5+1NDLI=; b=nR84v9NtbLo+NRLl7MGjFTDcx3
-	c7G5oNssPjpNK6OiUPQxyxcG2nA5mVwCk999MAtMOJWMEVIsxOzy3XFTXa61rmVpoYCi6Pobra3Mv
-	A4gFiipTe7tGQh5pkclTYerIkES7drrvYB1hQJUtC1K7nJDgVic5wd23yZUPPBoEKuBrnC6RNrkXx
-	EOaS+XxxMnyZFVd4eH0d4JRD7pPVg6RA/o90p7esFTf84NqYx4Gas4VjfVpTXNUFXyM348+2GaQ7z
-	5AZdMdNe2RmKGiAXtTL4UEgGqf/Hk4sbila+ennnMDpOkNjoku7aqffxCfQo4r9ChcN7Tv/iYV0J7
-	mQp/fjZw==;
+	bh=61RJs0R1+dMfFMecC0IVRraflX2zMgW6UKmCTkQSkJU=; b=AJhQLeaGJWFxaYlWpU/lSszvLa
+	nVeYNYU6CbcjKdKuPBmFxsUwtIFlOoUSTdMDlMbS0ETzA7auYNUmCWpsCyGzjGK1iG+0cETmNoZJn
+	fxwAVd748Ua+FtWvim7uKdwxiZEvV7c/sK8UmoiH0gJy0eErt8DWTd/RsZp2xjCHW1L6TRbEmRgSc
+	220B48UCXMstRfbp7yJiJjQcYX7ZmSoQFD4PELqd7jU7+4FU1OfNqmPK2tp95rdbsxtqV6iwbr3i4
+	Yfee87yd8EAqDerX4BUbncdVx+NGwYwaoLXsvlX9bTCgPti+Mj5ECRfAqbP8F3fPf6QQIRlKzEgLZ
+	vyv1KrHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq6dh-00000005vUw-0JP9;
-	Sun, 24 Aug 2025 09:03:49 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uq6xJ-00000005weV-03RL;
+	Sun, 24 Aug 2025 09:24:05 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq6Wc-00000005uqk-0JXO
+	id 1uq6uh-00000005wQX-01i8
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Aug 2025 08:56:31 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1756025786;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bBpIwJuz3DbYEaP26/bWChJ0cjV2K/N4eN4y5+1NDLI=;
-	b=4n536GwYkvbLwvdv+vqmVfBOP3uNQLiZzq2FL8QoNPAjnX3Tj/7xJYdHQ5dS8YUvfaX7ik
-	OGsWXfFDek/awOEe+38Migkl1Nw1HRsVjivYm8xTx34tuzz2l1yAyKJgxhp2mtzdUVqVVT
-	GrlFQbKPp9LaxBSjxaWNZsyfy/mz+wMJn61LZ7jH0VyDGrdbXASaS5Oyl7xVmWrC4JwEOX
-	dQXCzvS+2CMAek3g8uU5g1D76w3idohRZ4gp6wCbwIz/wvPJ7Nz7YRta+N0h4+tz4z3Fcw
-	raMvAnwOQv2H6cWUrSwTyicQfn8elTtZb8USiAgAkhffomfzC/mwnYgSVSerXw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1756025786;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bBpIwJuz3DbYEaP26/bWChJ0cjV2K/N4eN4y5+1NDLI=;
-	b=vLI+jrISeoNNmvB9tfK3kDd0BuynX0VGAXpbiVVR1tOIffXrnc8z4kL8J7NE07PAzztN9r
-	JHf1yQTDn5L33HCQ==
-To: Rob Herring <robh@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>
-Subject: Re: [PATCH] of/irq: Convert of_msi_map_id() callers to of_msi_xlate()
-In-Reply-To: <20250813185244.GA553867-robh@kernel.org>
-References: <20250805133443.936955-1-lpieralisi@kernel.org>
- <20250813185244.GA553867-robh@kernel.org>
-Date: Sun, 24 Aug 2025 10:56:24 +0200
-Message-ID: <87v7md2j47.ffs@tglx>
+	Sun, 24 Aug 2025 09:21:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CBEFA40BE1;
+	Sun, 24 Aug 2025 09:21:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAA99C4CEEB;
+	Sun, 24 Aug 2025 09:21:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756027273;
+	bh=TePubqI9AcNR0qwMPahOp4rbJX0w3i3fs/cTg7AxDBw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=stF7yeXZ5mOGTtkj4CiErJFbaGQkPc6jD4ShIx/+320L7sJ+H9Z3hJUFPA8Sc/TGN
+	 bIsal3EESgk6YXHGWDGTU8Jy+zONb2NYcE8exzsll9WFvkJuYB+IKGkly+k08dlIZs
+	 7AFKxJ2spcI6mgUuo+TllH6K/847OR/WkpXvv5Rnb3KIZgPZ/HFLiPqiKdlREArlzM
+	 NcwjGukxzx8o7mC1hffG+cF9sHwu+97j8lKO+Yum/MqOvjcBeLjgpSY2vJjYEZGDGf
+	 5PJrptVmXakzz+3HboG8ntIaKWvWHM0BqrbzleAvHW/iZ9Jnh1A85s+iw+6j7xk9st
+	 lRo+aDUnlN/3Q==
+Date: Sun, 24 Aug 2025 11:21:10 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+Cc: Yannick Fertre <yannick.fertre@foss.st.com>, 
+	Philippe Cornu <philippe.cornu@foss.st.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Christophe Roullier <christophe.roullier@foss.st.com>, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 01/13] dt-bindings: display: st: add two new
+ compatibles to LTDC device
+Message-ID: <20250824-stimulating-herring-of-romance-df21ea@kuoka>
+References: <20250822-drm-misc-next-v5-0-9c825e28f733@foss.st.com>
+ <20250822-drm-misc-next-v5-1-9c825e28f733@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250822-drm-misc-next-v5-1-9c825e28f733@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_015630_257801_47A8C840 
-X-CRM114-Status: GOOD (  14.59  )
+X-CRM114-CacheID: sfid-20250824_022123_056957_809AA20A 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,39 +81,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 13 2025 at 13:52, Rob Herring wrote:
-> On Tue, Aug 05, 2025 at 03:34:43PM +0200, Lorenzo Pieralisi wrote:
->> With the introduction of the of_msi_xlate() function, the OF layer
->> provides an API to map a device ID and retrieve the MSI controller
->> node the ID is mapped to with a single call.
->> 
->> of_msi_map_id() is currently used to map a deviceID to a specific
->> MSI controller node; of_msi_xlate() can be used for that purpose
->> too, there is no need to keep the two functions.
->> 
->> Convert of_msi_map_id() to of_msi_xlate() calls and update the
->> of_msi_xlate() documentation to describe how the struct device_node
->> pointer passed in should be set-up to either provide the MSI controller
->> node target or receive its pointer upon mapping completion.
->> 
->> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
->> Cc: Thomas Gleixner <tglx@linutronix.de>
->> Cc: Rob Herring <robh@kernel.org>
->> Cc: Marc Zyngier <maz@kernel.org>
->> ---
->> As suggested by RobH:
->> 
->> https://lore.kernel.org/lkml/20250627213241.GA168190-robh@kernel.org/
->> 
->>  drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c |  2 +-
->>  drivers/of/irq.c                            | 25 +++++----------------
->>  drivers/pci/msi/irqdomain.c                 |  2 +-
->>  include/linux/of_irq.h                      |  6 -----
->>  4 files changed, 7 insertions(+), 28 deletions(-)
->
-> Looks good to me. I'm happy to take it with some acks.
->
+On Fri, Aug 22, 2025 at 04:34:10PM +0200, Raphael Gallais-Pou wrote:
+> The new STMicroelectronics SoC features a display controller similar to
+> the one used in previous SoCs.  Because there is additional registers,
+> and different mandatory clocks it is incompatible with existing IPs.  On
+> STM32MP251, the device only needs two clocks while on STM32MP255 it
+> needs four.
+> 
+> Add the new names to the list of compatible string and handle each
+> quirks accordingly.
+> 
+> Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+> ---
+>  .../devicetree/bindings/display/st,stm32-ltdc.yaml | 52 +++++++++++++++++++++-
+>  1 file changed, 50 insertions(+), 2 deletions(-)
 
-Acked-by: Thomas Gleixner <tglx@linutronix.de>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+Best regards,
+Krzysztof
 
 
