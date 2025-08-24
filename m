@@ -4,88 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E936ACA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 02:59:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 682AECA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 03:01:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SiOd0XzAn1FM61r0kM/cs9yS59gZHmDbNmnaFYT6kPU=; b=DDHFaM653Joa248MK2MsosAiYq
-	wfpNxK2/CFs5vGqwCN+PDHsj1m64sR00l5J0Wn9C5lIYIQhC6RkIh4qyGC/wjJz7qJe3C1O14w9+3
-	Eq9gQO61xGa8D2mwRafs6dcyMEusjFPKgm9bxOsUxTdvl+ce7piNV27flQff8Z/tQEaSw867MCPxL
-	eNu6SnfSuunAtJJxLkh6pNO6JpwbjxYVUsuPnkfSmn4dn9/DgE7NHeSr4AuQ98QjC+TfdfIGeJdfq
-	L/qIxp3u9DupEO9kRR9SfP7u9VdlVuhv2pcODKl1FAdBRH4/AYCu3z//cRI5smE9leyAlfxiNeleD
-	leywxLVQ==;
+	bh=bygLAnRkgu/g1UeZjW8EqFSIAuIJuX3ZKve3EtD7HJ0=; b=KXQ/89oX0m2WBM0w4hseFCQtCj
+	CQrbMrhCJW/KtcMVlZS/ydYm/gGaa4XlPfxSooUrHJDKjnbzRPgkl7/IktJN2iepjCL6e46pdJ4xE
+	yvJu5xsAr+qEjIirP9axDUph0HCEtk4ANLVlrQdtMLLrueGG6tGMPN/lEV0bpptL9c7P7lSdcQI6n
+	NhXUW3DrQbMnkMDScTeu5b5OynIIlu+SX7UbaIvPNxQupDNm6NWH4vAcU/KHTDwLuFzCPGjWXkCu0
+	/mVvc3znAS7rBxXhioLvhnID1guvgpwb9kUPIAIBQeWgeOlde7ARQnqvvGMTmmKTXcidd/giTyj9s
+	lAOQFWGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq0wU-00000005dhW-2zMA;
-	Sun, 24 Aug 2025 02:58:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uq0zB-00000005eAw-22q8;
+	Sun, 24 Aug 2025 03:01:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq0tn-00000005dJK-2yy8
+	id 1uq0u6-00000005dMC-2IKh
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Aug 2025 02:56:08 +0000
+	Sun, 24 Aug 2025 02:56:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8B077402BB;
-	Sun, 24 Aug 2025 02:56:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63AD6C4CEE7;
-	Sun, 24 Aug 2025 02:55:58 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4661944EF1;
+	Sun, 24 Aug 2025 02:56:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF6D0C116C6;
+	Sun, 24 Aug 2025 02:56:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756004160;
-	bh=+OE4zk2QOOZCHgX82O6BSFFjtdDPcgXJ/GXAHDpLonY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=LnR50E6QfsaE6+wSpYXZysqcrTN9KQ+uP78ptO2NQxUXzvuVhewgxe/RoHsPCj1Sp
-	 0TPHDcTpz+Gi5fIOUZFS2d6U04pj2K7nG62H+y3MZ3Do3cxXUFcFUfCa0dCY+JxyPQ
-	 pEc569a7+UMwpbFtugTZ3Avhot3Yq1IOAq3PLMe6ztbrUbodgT1sT9dFiEnawpcw0X
-	 zKsTHT8dNv8kZfBwhvNf18xNaDnEs4qFV7ZGrq1QMtY/NKv6aT0hIWDSpCAaATdEnW
-	 e7Zc+yEHilL1pDTvx8Gnble7gd712hzuqq5IZ33VC/WcogO5syktkLFKpCnRJyiDVy
-	 3QVTZ+mKw9CYg==
+	s=k20201202; t=1756004182;
+	bh=7uCO5QGKPLdTmQRErw2/3WU/j0xuo3RdC6BhuqtSQas=;
+	h=From:To:Subject:Date:In-Reply-To:References:From;
+	b=ILSLiQ9RZ2wki2fsvcet2zD73wakvdfxmfiqQqb4gagYaq8Lf08VVt2P9BxN8rPZA
+	 BZ2OHFjkveMm+mUWZ512K4vfeKBaoAgKn4n08/1tAoCdW+A4oIUe8Jr9Uf4jePV6lk
+	 nWzt9XbBj95XFD41WFZyRKV1WTXhFNyFhuwFBn9jwMkBusdBjfMDoxKEB/fGwY0V73
+	 Nr2cob4J40vegAvAs2oqQJlQJEbychvwnVt0qklc43pyXHAH4ojFqsqGQ2hrEsVXmb
+	 A/iNGLgO9/afoBhCP0VF9hGpSJ4BoFK31sPyCdjPvessks8MIhAnj0ip3mp7sf7lMn
+	 y3LWWIQjjA3kg==
 From: Bjorn Andersson <andersson@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Rob Clark <robin.clark@oss.qualcomm.com>,
-	Sean Paul <sean@poorly.run>,
+To: linux-kernel@vger.kernel.org,
+	Russell King <linux@armlinux.org.uk>,
 	Konrad Dybcio <konradybcio@kernel.org>,
+	Eric Biggers <ebiggers@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Takashi Iwai <tiwai@suse.de>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Kory Maincent <kory.maincent@bootlin.com>,
 	Dmitry Baryshkov <lumag@kernel.org>,
-	Abhinav Kumar <abhinav.kumar@linux.dev>,
-	Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
-	Marijn Suijten <marijn.suijten@somainline.org>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Viresh Kumar <vireshk@kernel.org>,
-	Nishanth Menon <nm@ti.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Akhil P Oommen <akhilpo@oss.qualcomm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	linux-arm-kernel@lists.infradead.org,
 	linux-arm-msm@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	freedreno@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	Jens Glathe <jens.glathe@oldschoolsolutions.biz>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Aleksandrs Vinarskis <alex.vinarskis@gmail.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Subject: Re: (subset) [PATCH v4 0/4] Support for Adreno X1-45 GPU
-Date: Sat, 23 Aug 2025 21:55:33 -0500
-Message-ID: <175600415279.952266.17398839743993518772.b4-ty@kernel.org>
+	Trevor Woerner <twoerner@gmail.com>
+Subject: Re: [PATCH] ARM: defconfig: cleanup orphaned CONFIGs
+Date: Sat, 23 Aug 2025 21:55:55 -0500
+Message-ID: <175600415292.952266.3226011014636924307.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250623-x1p-adreno-v4-0-d2575c839cbb@oss.qualcomm.com>
-References: <20250623-x1p-adreno-v4-0-d2575c839cbb@oss.qualcomm.com>
+In-Reply-To: <20250819231652.15938-1-twoerner@gmail.com>
+References: <20250819231652.15938-1-twoerner@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250823_195603_772995_14D0C3E7 
-X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-CacheID: sfid-20250823_195622_604257_B89F1847 
+X-CRM114-Status: UNSURE (   7.36  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,20 +89,20 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 23 Jun 2025 19:42:05 +0530, Akhil P Oommen wrote:
-> Add support for X1-45 GPU found in X1P41200 chipset (8 cpu core
-> version). X1-45 is a smaller version of X1-85 with lower core count and
-> smaller memories. From UMD perspective, this is similar to "FD735"
-> present in Mesa.
+On Tue, 19 Aug 2025 19:16:30 -0400, Trevor Woerner wrote:
+> Drop CONFIG_ARCH_MSM8X60 and CONFIG_ARCH_MSM8960 which were removed in
+> commit 99497df59427 ("ARM: qcom: merge remaining subplatforms into sensible
+> Kconfig entry").
 > 
-> Tested Glmark & Vkmark on Debian Gnome desktop.
+> Drop CONFIG_ARCH_MSM8916 and CONFIG_ARCH_MSM8974 which were removed in
+> commit 85148df36835 ("ARM: qcom: drop most of 32-bit ARCH_QCOM subtypes").
 > 
 > [...]
 
 Applied, thanks!
 
-[2/4] arm64: defconfig: Enable X1P42100 GPUCC driver
-      commit: cf0ed173d27a2a832642aa441eb28a4dca53fd19
+[1/1] ARM: defconfig: cleanup orphaned CONFIGs
+      commit: bcafdbaff25930db6c8866056e0f4071dc71ca97
 
 Best regards,
 -- 
