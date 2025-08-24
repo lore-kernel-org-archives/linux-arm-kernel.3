@@ -4,49 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07774CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 06:28:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A728CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 06:30:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XJNcRjw5toGkbDMbVP0D+FBSoxAKho17jgy82++k1Xw=; b=3tKVtoIqYmxi+FsXIVhZGycoZp
-	NDt94v4eHXgljEo5SlJsEIfxCuHz7yoXQ0MWaq2qBoAXzxpy3g10I8VQUE2G5ipODUuFmLAea8vzT
-	1bc9QA9ibdIjqWCvxEUeR2k7b6ClorjMpWYaNTLd02kgNrNH0Zwgvb4+qE01J45D1jYmcxR1Gyxs9
-	/8MI7q1jfKct2PuaLd6nkCK3SSl+XAT2Xl+VGZ7wIb6ODN12db6qNNM4ZTA8oByk/SEEfQO0BbbYt
-	88KEOFvKkRsfadplMT6Y1anB3J+KEfQhJ8K1J4IJrVCe39LnE17ku86B6sErsWHgGtBOCo0izFGLb
-	GTX78O6A==;
+	bh=BuLN7x9nhSvGMNIfHWMLb/XTLbgUL01zpnHuUy4VHko=; b=HSNAux2FynDVdhwrL4xFEuu3qg
+	t9CtjaRUyBM/2o8Mn0aRYCF/Mty3HVK/aClQysGDIj3lI6T5oBw0j9TYTfyWf2Q3Cqyx5apMrAdW+
+	bwgUeN2kc2jahhikrlJtwB1FzqWffNmvuO8ESRym2+WIbDMc3z7WSoE9w52xt/6g/yu2LxrKOq8SK
+	4r3QpK52aldmimSQjgzWRBD6Apz0rJ/o3ES4YTCmihdiCXBnf+6So28Rc0VM2Yibb6/gi4cyC0+35
+	8xIk0Ge6EgNL2Ge1ZzoloSdxCijWajUiu2OfkzF7uTkEpOPN5slAX3EM1/wUlgCg/m1c1/etxGPVl
+	yHHLdqng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq4Cx-00000005lsh-2yjG;
-	Sun, 24 Aug 2025 06:28:03 +0000
-Received: from [50.53.25.54] (helo=[192.168.254.17])
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq40G-00000005lAr-3R3b;
-	Sun, 24 Aug 2025 06:14:56 +0000
-Message-ID: <277661e8-dd75-475e-b798-b384a66c7a93@infradead.org>
-Date: Sat, 23 Aug 2025 23:14:56 -0700
+	id 1uq4FY-00000005m2y-1s0Z;
+	Sun, 24 Aug 2025 06:30:44 +0000
+Received: from mail.adomerle.pw ([185.125.100.172])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uq4BE-00000005lpb-0JGT;
+	Sun, 24 Aug 2025 06:26:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; s=202506r; d=adomerle.pw; c=relaxed/relaxed;
+	h=From:To:Subject:Date:Message-ID; t=1756016758; bh=BuLN7x9nhSvGMNIfHWMLb/X
+	TLbgUL01zpnHuUy4VHko=; b=V0h69TQMBju8848JG9r/KT95nNI/nsVGLpj2QO6Y6KWFnc3hoM
+	9tMRwTMOff43dUrhGOA0dbD6PtKc21p5W5PxUdpkYhSAZAzk8E9YFwNL9zsKvpGutkf467Xo3u2
+	TpxHdZZL3gYIWTzJD02QIDv1mvxxsNo4uMh9BK7PexBQFhpSwTsCwCV38JHDYak9DqPtN96m/NO
+	oQv/bDt6c7d3gfoqp5hcAg7LyCtXrjkqIilFTr3xheSBDlOmXjfyYO5FQQxnZH6hZ2I9e7HZ43+
+	ZgUTHjG+szlw19+SGDK4Pj4i6XJLVG0/SATpdaUYs/zHAYLDN/cvmcdTTvGMIdGBPeQ==;
+DKIM-Signature: v=1; a=ed25519-sha256; s=202506e; d=adomerle.pw; c=relaxed/relaxed;
+	h=From:To:Subject:Date:Message-ID; t=1756016758; bh=BuLN7x9nhSvGMNIfHWMLb/X
+	TLbgUL01zpnHuUy4VHko=; b=ZJvQ/Yw0N3qYSsvJcCKBj3EgIuNJgk7GEHWq93sVfgMf3oJyKx
+	mpUE5cXAjEkAJ0WlvX+avXWn2wOgFKLHPIAQ==;
+Message-ID: <ce4f990c-c336-4aa4-93b0-7b9f4d9663b4@adomerle.pw>
+Date: Sun, 24 Aug 2025 10:25:56 +0400
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: stmmac: fix stmmac_simple_pm_ops build
- errors
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
- Paolo Abeni <pabeni@redhat.com>
-References: <E1uojpo-00BMoL-4W@rmk-PC.armlinux.org.uk>
+Subject: Re: [PATCH v1 1/2] dt-bindings: phy: mtk-tphy: add property for
+ software role switch
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht
+References: <20250814234825.810-1-me@adomerle.pw>
+ <20250815-important-warm-dove-03dde5@kuoka>
 Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <E1uojpo-00BMoL-4W@rmk-PC.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8
+From: Arseniy Velikanov <me@adomerle.pw>
+In-Reply-To: <20250815-important-warm-dove-03dde5@kuoka>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250823_232616_263120_FED9EF92 
+X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,51 +76,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 8/20/25 7:30 AM, Russell King (Oracle) wrote:
-> The kernel test robot reports that various drivers have an undefined
-> reference to stmmac_simple_pm_ops. This is caused by
-> EXPORT_SYMBOL_GPL_SIMPLE_DEV_PM_OPS() defining the struct as static
-> and omitting the export when CONFIG_PM=n, unlike DEFINE_SIMPLE_PM_OPS()
-> which still defines the struct non-static.
+On 15.08.2025 10:28, Krzysztof Kozlowski wrote:
+> On Fri, Aug 15, 2025 at 03:48:24AM +0400, Arseniy Velikanov wrote:
+>> Add a boolean property to enable software control of the PHY mode
+>> switching.
+>>
+>> Signed-off-by: Arseniy Velikanov <me@adomerle.pw>
+>> ---
+>>   Documentation/devicetree/bindings/phy/mediatek,tphy.yaml | 6 ++++++
+>>   1 file changed, 6 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/phy/mediatek,tphy.yaml b/Documentation/devicetree/bindings/phy/mediatek,tphy.yaml
+>> index b2218c151939..a90890d4a86f 100644
+>> --- a/Documentation/devicetree/bindings/phy/mediatek,tphy.yaml
+>> +++ b/Documentation/devicetree/bindings/phy/mediatek,tphy.yaml
+>> @@ -255,6 +255,12 @@ patternProperties:
+>>             use the property "mediatek,syscon-type" for newer SoCs that support it.
+>>           type: boolean
+>>   
+>> +      mediatek,software-role-switch:
 > 
-> Switch to using DEFINE_SIMPLE_PM_OPS() + EXPORT_SYMBOL_GPL(), which
-> means we always define stmmac_simple_pm_ops, and it will always be
-> visible for dwmac-* to reference whether modular or built-in.
+> No, bindings do not describe software.
+Sorry, I didn't quite understand you.
+
+With this property the driver changes phy mode manually using debug regs 
+instead of configuring hardware mode switching (because it's broken on 
+some platforms). So every time the role in usb-role-switch changes, it 
+has to switch phy mode. That's what I mean by "software".
+
+I can rename this property to `mediatek,force-mode-switch` if that's a 
+issue.
+
 > 
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202508132051.a7hJXkrd-lkp@intel.com/
-> Closes: https://lore.kernel.org/oe-kbuild-all/202508132158.dEwQdick-lkp@intel.com/
-> Closes: https://lore.kernel.org/oe-kbuild-all/202508140029.V6tDuUxc-lkp@intel.com/
-> Closes: https://lore.kernel.org/oe-kbuild-all/202508161406.RwQuZBkA-lkp@intel.com/
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-
-Tested-by: Randy Dunlap <rdunlap@infradead.org>
-
-Thanks.
-
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 5 +++--
->  1 file changed, 3 insertions(+), 2 deletions(-)
+> Also, never tested.
 > 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index a55e43804670..fa3d26c28502 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -8024,8 +8024,9 @@ int stmmac_resume(struct device *dev)
->  }
->  EXPORT_SYMBOL_GPL(stmmac_resume);
->  
-> -EXPORT_GPL_SIMPLE_DEV_PM_OPS(stmmac_simple_pm_ops, stmmac_suspend,
-> -			     stmmac_resume);
-> +/* This is not the same as EXPORT_GPL_SIMPLE_DEV_PM_OPS() when CONFIG_PM=n */
-> +DEFINE_SIMPLE_DEV_PM_OPS(stmmac_simple_pm_ops, stmmac_suspend, stmmac_resume);
-> +EXPORT_SYMBOL_GPL(stmmac_simple_pm_ops);
->  
->  #ifndef MODULE
->  static int __init stmmac_cmdline_opt(char *str)
+> Best regards,
+> Krzysztof
 
 -- 
-~Randy
+Kind regards,
+Arseniy.
 
