@@ -4,79 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 535E2CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 07:26:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23524CA0EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 07:41:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bzOfEpNdjJTuxZ1kpLwZLOSeGO8C4SiGKyC8MoOHcz4=; b=WXxCFfUV15bBsG
-	v/lifvLt6oD53bIGMmeVOIN7M2/qDoW7zTqbpLwu/yCP83muDkn2wI8bSjNBGk2h4oZNeKsL7Aki/
-	6WDbqwB5gkKtufT8fpf+YvZR+B3kIXkoTVr+396TFMCVJIZlNMVNwQ4jPkvyEplz8F+ezAc/DTlVD
-	RxIuLo68lRVJE12x1PmwW82rqVq3XaxyupfuzgK5Xnov1y02D18xuGCgFnoo5mx7GqMOqCib3LTye
-	eKhBUXkmFAvNp1jHZXGwooZVwz7qX1i9xTDCDcuzS7TGbdjPrD2BaI3Yn/sG7ZwdJsRRPFaabD+CA
-	gY10GK0oPwav2T07mz3w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b612zyZuwwWZsTfE+gJ72Y9isVumaiaCq1dyAr8cbwI=; b=x9Bdg1ncV7sz9UAiDQuMY6utEq
+	Ya7FQw/x087Kani1AaAsL1ZGG27qkW4TZLmH9xh+kxmU/KMN2D3rnWwVOlRIS+nAIunLXxx96IgkB
+	Y03JggL/gDfMiBNo6CBPBrEAuyun/X47UvirIjNoq45UmWokLfCl3hQC9s8V11vbhJfvLCg3D6Pmu
+	pJ69Q0EejMX0rXhXi2M4aYmzzFJrAPZ/NOteGqbM0WgsGB/lBRgl20Mv9lks3IOLGAGCjrqZjIIgy
+	emM55WfGswolSSDA2EoNaHZlvulFshgNi6pDe4/Zagr1KPJD0hpc0NpG7Q+9Ek93F32Ie0FDCaU6v
+	CElBraxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq57q-00000005pS5-09l5;
-	Sun, 24 Aug 2025 07:26:50 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uq5LS-00000005qDG-2S7t;
+	Sun, 24 Aug 2025 07:40:54 +0000
+Received: from smx-b.mailgw.jp ([210.171.6.216] helo=rmx-b.mailgw.jp)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq4zU-00000005oxZ-455F
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Aug 2025 07:18:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C53C8A5864D
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 24 Aug 2025 07:18:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67281C16AAE
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 24 Aug 2025 07:18:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756019890;
-	bh=0fh0gGpu0t//MXZ11+UqTS4MNTzyq/dz/PwrJz2CL/g=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=GpY7tpEmUzWQ22Ku/8Aky16LAV3UD5t3Z971mEpzjCUmAoio4DZ7IA4GlDl4szkk3
-	 h8v2g+R4zUzOcepxb89+3pSTHdO67PEjvXym3zcGjr4bThbWkFDowPpE6ukY3xpEYz
-	 bA4WsCdIKq8HR9j8nQAJgbKyzc3+fxwwY38X9cTQ0fI+cC9quWaEVeW7+xUxSr54Is
-	 I4bD38wF7zSwtS02Ndp+9HkZMT3D3PrsYl33GxopTuesUKzRLcm47hCCZF9VO27i9e
-	 /lILvLBNVZS4IavTMLQ9nMg8uvnAxKhuLTYFUh3ayol2R7wm6T6rcHpyZ/A3Hp/GV4
-	 xO5ZjLFsli/qg==
-Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-3366766118aso4799241fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 Aug 2025 00:18:10 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCV5W9tnP3Vh+WxNWXb7VcPH9PRRRqq4vL5WXmHLu4fXhOxL4jKGNxL8065hY/POTPvO/lEUyY72d412ggynYUa1@lists.infradead.org
-X-Gm-Message-State: AOJu0YyiEvgoTX79eAGkKjo7lxgURTjehf5Z/a9z+I2wp53KWpkqg7ii
-	PANE8T9oNLRHaYBcfpP8402IFeyqBYJ0CjOdJ8wbrXqchRROM/77WFHPRMiG6fvJphUJRlcjGxb
-	lNq8F7IDboRYEs/ATpm7paM1TBVEkecM=
-X-Google-Smtp-Source: AGHT+IEJYKJm9oxMtoKhPUUIqoRJqzRy7kx4QCxWtWwOw/B6CTvUqPHyV5enNtb9irkZ5kRX/OIWTP9CV/YtH0uF8lM=
-X-Received: by 2002:a05:651c:31ca:20b0:30b:edfc:5d8a with SMTP id
- 38308e7fff4ca-33650b8a25fmr13646791fa.0.1756019888725; Sun, 24 Aug 2025
- 00:18:08 -0700 (PDT)
+	id 1uq5Io-00000005q3E-180z;
+	Sun, 24 Aug 2025 07:38:12 +0000
+Received: from bccml.bai.ne.jp (bccml-a.bai.ne.jp [210.171.3.161])
+	by rmx-b.mailgw.jp  with ESMTP id 57O7bqps028395-57O7bqpt028395;
+	Sun, 24 Aug 2025 16:37:52 +0900
+Received: from [192.168.11.8] (bai859bcd79.bai.ne.jp [133.155.205.121])
+	by bccml.bai.ne.jp (Postfix) with ESMTPA id 9DF3781AA6;
+	Sun, 24 Aug 2025 16:37:51 +0900 (JST)
+Message-ID: <5c5e6fe7-866c-4b79-bf52-35a393fbeb3d@bcc.bai.ne.jp>
+Date: Sun, 24 Aug 2025 16:37:51 +0900
 MIME-Version: 1.0
-References: <20250813145540.2577789-1-wens@kernel.org> <20250813145540.2577789-7-wens@kernel.org>
- <aJyraGJ3JbvfGfEw@shell.armlinux.org.uk> <CAGb2v67cKrQygew2CVaq5GCGvzcpkSdU_12Gjq9KR7tFFBow0Q@mail.gmail.com>
- <aJy_qUbmqoOG-GBC@shell.armlinux.org.uk>
-In-Reply-To: <aJy_qUbmqoOG-GBC@shell.armlinux.org.uk>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Sun, 24 Aug 2025 09:17:56 +0200
-X-Gmail-Original-Message-ID: <CAGb2v6532sc3tk99OYWu5A92NYgPF3J51vsDGnMM=TtrS4TQCw@mail.gmail.com>
-X-Gm-Features: Ac12FXxzg5NyZyTyJnQtY_4IH-x_XLg3gCT00louWNGK9on2RVQmjCu1YaIrTDY
-Message-ID: <CAGb2v6532sc3tk99OYWu5A92NYgPF3J51vsDGnMM=TtrS4TQCw@mail.gmail.com>
-Subject: Re: [PATCH net-next v2 06/10] arm64: dts: allwinner: a527: cubie-a5e:
- Add ethernet PHY reset setting
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Andre Przywara <andre.przywara@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] rm64: dts: rockchip: Enables sound output from the audio
+ jack on OrangePI5 Plus
+To: Maud Spierings <maud_spierings@hotmail.com>
+Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, heiko@sntech.de,
+ krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-sound@vger.kernel.org, robh@kernel.org
+References: <20250821041555.4781-2-opi5plus@bcc.bai.ne.jp>
+ <AM7P189MB1009A6BCD143F9BE5C3341FAE33CA@AM7P189MB1009.EURP189.PROD.OUTLOOK.COM>
+Content-Language: en-US
+From: Hide Hako <opi5plus@bcc.bai.ne.jp>
+In-Reply-To: <AM7P189MB1009A6BCD143F9BE5C3341FAE33CA@AM7P189MB1009.EURP189.PROD.OUTLOOK.COM>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-FE-Last-Public-Client-IP: 210.171.3.161
+X-FE-Policy-ID: 3:1:2:SYSTEM
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; d=bcc.bai.ne.jp; s=20240516; c=relaxed/relaxed;
+ h=message-id:date:mime-version:subject:to:cc:references:from:content-type;
+ bh=b612zyZuwwWZsTfE+gJ72Y9isVumaiaCq1dyAr8cbwI=;
+ b=e2L96bCAWEGTgj74lXbRoZnxCIbWVL3ppVqDGlL0ZnVtS7RoSJm2HWDELDPzNuqRkIYFGDW1EkJ5
+	rpHcIPzY025bY5XYdVQTqXqPXJIGgfV7VWbrEhojVRuwnePBlI83Sew7IpdlAL91zFnWDrnuAVy5
+	ieE4VEQrqIqoxC7Vu5j4A+rkFKucGIzVg0AwKXnK971z1rYMff+5hFbB9GCcTKNTaP03rJvyZEb6
+	d3rBs8470uc7P0ZW1bJ9bg9Ge0vfA9vu1rB8Ic32JvSApbE5QqIJj3wmoZklAY+CugAfxanWNy0w
+	/g7lLA3rXnPXxcislm2I01rkBglnTvpUA4F+HA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_001813_142498_CE465DFA 
-X-CRM114-Status: GOOD (  34.01  )
+X-CRM114-CacheID: sfid-20250824_003810_873040_C693967E 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,69 +74,56 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 13, 2025 at 6:39=E2=80=AFPM Russell King (Oracle)
-<linux@armlinux.org.uk> wrote:
+Hello Muad
+
+On 2025/08/23 19:00, Maud Spierings wrote:
+> Hello Hide,
 >
-> On Wed, Aug 13, 2025 at 11:51:18PM +0800, Chen-Yu Tsai wrote:
-> > On Wed, Aug 13, 2025 at 11:12=E2=80=AFPM Russell King (Oracle)
-> > <linux@armlinux.org.uk> wrote:
-> > >
-> > > On Wed, Aug 13, 2025 at 10:55:36PM +0800, Chen-Yu Tsai wrote:
-> > > > diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dt=
-s b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-> > > > index 70d439bc845c..d4cee2222104 100644
-> > > > --- a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-> > > > +++ b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-> > > > @@ -94,6 +94,9 @@ &mdio0 {
-> > > >       ext_rgmii_phy: ethernet-phy@1 {
-> > > >               compatible =3D "ethernet-phy-ieee802.3-c22";
-> > > >               reg =3D <1>;
-> > > > +             reset-gpios =3D <&pio 7 8 GPIO_ACTIVE_LOW>; /* PH8 */
-> > > > +             reset-assert-us =3D <10000>;
-> > > > +             reset-deassert-us =3D <150000>;
-> > >
-> > > Please verify that kexec works with this, as if the calling kernel
-> > > places the PHY in reset and then kexec's, and the reset remains
-> > > asserted, the PHY will not be detected.
-> >
-> > I found this to be a bit confusing to be honest.
-> >
-> > If I put the reset description in the PHY (where I think it belongs),
-> > then it wouldn't work if the reset isn't by default deasserted (through
-> > some pull-up). This would be similar to the kexec scenario.
+>> Currently, analog sound is not output from the audio jack.
+>> This patch allows you to select analog headphones in alsamixer.
+>> Works with kernel 6.16.1, but not 6.17.
+>>
+>> Signed-off-by: Hide Hako <opi5plus@bcc.bai.ne.jp>
+>> ---
+>>   arch/arm64/boot/dts/rockchip/rk3588-orangepi-5.dtsi 
+>> <https://lore.kernel.org/all/20250821041555.4781-2-opi5plus@bcc.bai.ne.jp/#Z2e.:20250821041555.4781-2-opi5plus::40bcc.bai.ne.jp:1arch:arm64:boot:dts:rockchip:rk3588-orangepi-5.dtsi> 
+>> | 1 +
+>>   1 filechanged 
+>> <https://lore.kernel.org/all/20250821041555.4781-2-opi5plus@bcc.bai.ne.jp/#related>, 
+>> 1 insertion(+)
+>>
+>> diff 
+>> <https://lore.kernel.org/all/20250821041555.4781-2-opi5plus@bcc.bai.ne.jp/#iZ2e.:20250821041555.4781-2-opi5plus::40bcc.bai.ne.jp:1arch:arm64:boot:dts:rockchip:rk3588-orangepi-5.dtsi> 
+>> --git a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5.dtsi 
+>> b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5.dtsi index 
+>> 91d56c34a..656aac2df 100644 --- 
+>> a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5.dtsi +++ 
+>> b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5.dtsi @@ -113,6 
+>> +113,7 @@ analog_sound: sound { simple-audio-card,mclk-fs = <256>;
+>>           simple-audio-card,bitclock-master = <&daicpu>;
+>>           simple-audio-card,frame-master = <&daicpu>;
+>> + simple-audio-card,pin-switches = "Headphones"; /*TODO: SARADC_IN3 
+>> is used as MIC detection / key input */
+>>             daicpu: simple-audio-card,cpu {
+>> -- 
+>> 2.48.1
+> I tried this patch, but I am not able to get any audio out on my 
+> headphones. using kernel 6.16.1
 >
-> The reason for this is quite simple. While it's logical to put it in
-> there, the problem is that the PHY doesn't respond on the MDIO bus
-> while it's reset pin is asserted.
->
-> Consequently, when we probe the MDIO bus to detect PHYs and discover
-> the PHY IDs, we get no response, and thus we believe there isn't a
-> device at the address. That means we don't create a device, and thus
-> there's no mdio device for the address.
+> I did see headphones in alsamixer, but cannot get it to actually 
+> output any audio. Any hints?
+I use ubuntu 25.04.
+Setting -> Sound -> Output Device.
+Two Analog Output-Built-in-Audio are displayed.
+Please select second Analog Output-Built-in-Audio.
 
-It feels like a limitation of the implementation though. With the split
-of mdio_device and phy_device, maybe it's possible to add some API that
-registers mdio_device first based on information from the DT, have its
-reset deasserted, read back the PHY ID, then create the PHY device?
+I'm currently working on another patch. As pointed out by Jimmy, I'm 
+creating a patch for rk3588-orangepi-5-plus.dts.
+Thank you Muad.
 
-This limitation also applies to handling regulator supplies for the PHY,
-which we currently resort to sticking under the MAC, which is even worse?
+Hide
 
-> There is a work-around, which is to encode the PHY ID in the DT
-> compatible (check the ethernet-phy binding). However, note that we
-> will then not read the actual PHY ID (maybe we should?) which means
-> if the driver wants to know e.g. the revision, or during production
-> the PHY changes, it will require DT to change.
-
-Judging from previous board iterations, I think this is quite likely
-to happen. If the additional SoC internal delay values stay the same,
-I would prefer we not run into this.
-
-
-Thanks
-ChenYu
 
