@@ -4,57 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4BCFCA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 11:35:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42D07CA0EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 11:37:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bRP+bQSlP/rz2SZHY+8wOZ1fJ6zY7u9EMSF+74YoXIY=; b=S+CBKDs3AClxT/PJLv1aGudyxz
-	pMg3NQjt5dGfT9HP6F88F0sbGF88Uvxo4++ijyCGQqRhdSQYcMefjU3HYNKY3xJDHeVleCnGjVyZa
-	4u+WTzq2WXNmyN6SxTa5hW0TJFBol/dJKEdYbDh3GD1SG9mNgsr/sRPOCzbHvpxw8WmJLkU1ioyZC
-	Z+O0ejXXOLGW8or4G0FQZe96KiBd0Km/S5GAqBrd4w/NFmfsa+OmD+WJvidIPZ+Ac+EzM1HjS7GdA
-	jfM9kG8sseUxDR+l7DEOHceA4LIoeaRBPnG8mlTXK4yRzbnqVrI+mOTKoPFUHKR4XXIfJAYT2xSbi
-	0KAN1NgA==;
+	bh=Y7nvNDe3URDieU4SpOG0YDNG2gjUfXlr6SoMa3lJxjA=; b=EeBnC5RAuv+YCfh12Gz/Z39tic
+	SFolkxH4UukY5kssU29+tDi2PeqmjnW5A7rjLs5rR88yIcHIhPt9wyu3qRihajnGXq7zTbaIOOoUG
+	D1ml1YlkpmiYccjYbRfQ5kvn1QYnwLNLiXKIhOOSAEjUA3Z3MEkrszKeAtxkniKtLXfkTIviFMHv3
+	lRrXIibKS0a9gymGVIhTsTILAsB1nkM14harsAKHSHTUirsvsbVShBLs8LatbS5FPXikPnO0sjzqC
+	A8pId8CPL4aLV4494//cSSXQzEPd7CRHRFxypxy8/WyJFS+HLf59Z7ftVBcEOsBz5RwQEWAW9AMFt
+	rEcTw/DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq8zy-000000065Pp-1S7Y;
-	Sun, 24 Aug 2025 11:34:58 +0000
+	id 1uq92Z-000000065q6-1YEd;
+	Sun, 24 Aug 2025 11:37:39 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq8s4-000000064iE-3EZa
+	id 1uq8t8-000000064qb-1dFh
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Aug 2025 11:26:49 +0000
+	Sun, 24 Aug 2025 11:27:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3E6795C5577;
-	Sun, 24 Aug 2025 11:26:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A3D1C4CEEB;
-	Sun, 24 Aug 2025 11:26:45 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E119F5C55AB;
+	Sun, 24 Aug 2025 11:27:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78C1BC4CEEB;
+	Sun, 24 Aug 2025 11:27:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756034807;
-	bh=G0X5KAiGbQXwXme/9DQ45ryvRr7jmbQA+SV3yZrBKK0=;
+	s=k20201202; t=1756034873;
+	bh=mNR+dy5ZUFLhj+Ehn7WKvPiI2nRpHfXPZVi3JgGCj0I=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cVI9+3i3NnWt9Z8FJIFiV5HkjkWE5GfAUH64rSEcWYwYUmev5Y7pIP1SyBnx+JWMu
-	 M7PTJdclOq/9dHP+MQVr2uGPuiniSwPqkS3SDL0QZtcrshoAX/9EdDgnHRmSzPdk/H
-	 ekLd+CtD6SdEDKosKtfa8hkBMKHm3DrJxLK3Gqszo7heiGhrkCOUFGMUXFABwoqszJ
-	 TRAWzP18G3Iu1Ds+JzagcXR6tj97FmG3JJeKFhWrMv1dHxU5ETWJFwxhDDj22R2CBQ
-	 NHBkRp+UgjG5mq6SNL4wjr0m1ifg5ZLljnC9eKRTvuRfi4/NFB/2SQaVMWxqyudKYP
-	 kZrDM4ZRQfzKw==
-Message-ID: <dc6af2fc-5e7f-4ec8-a7aa-6bde6518a83b@kernel.org>
-Date: Sun, 24 Aug 2025 13:26:43 +0200
+	b=ESFbhtxpKuok84wjPsZSJe8cIJgQ4AQhpBhWTVsmlr77wXkcX4lJSQLM5H57CC1aU
+	 jzw+tkcjbN5iIbWql8+qmFoUaDvrWjqMi0IFGvXJtezEDrn2OgWESQHsFSIDY9tiTz
+	 twWNsISDkXPqGcYORZTB4yH8jcoHm8Jg2/XV4715Ba5iC5852M8SYhtiCi6rLzzX7p
+	 lSKa/GJixOa1Hda7frnYRhjgz62DzZ3BNMt8fnXlkjkWtEfclSlnIkS+wC6KGuQK03
+	 WikArDf/o3a9iKkX60T+uSYc5GURMl9UUB2IJc882432LiPV7w73Zz5zFuPe+8vxQ2
+	 UQhbDdr1jh0MQ==
+Message-ID: <255d3a30-9e44-41d8-8b38-ced6c245d025@kernel.org>
+Date: Sun, 24 Aug 2025 13:27:48 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/1] arm64: defconfig: Enable Marvell WiFi-Ex USB
- driver
-To: Alexander Stein <alexander.stein@ew.tq-group.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Sascha Hauer <s.hauer@pengutronix.de>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, Pengutronix Kernel Team <kernel@pengutronix.de>
-References: <20250822135715.3335023-1-alexander.stein@ew.tq-group.com>
+Subject: Re: [PATCH 1/4] arm64: defconfig: enable i.MX AIPSTZ driver
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250821105634.1893-1-laurentiumihalcea111@gmail.com>
+ <20250821105634.1893-2-laurentiumihalcea111@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,12 +102,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250822135715.3335023-1-alexander.stein@ew.tq-group.com>
+In-Reply-To: <20250821105634.1893-2-laurentiumihalcea111@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_042648_901215_AE43958B 
-X-CRM114-Status: UNSURE (   5.86  )
+X-CRM114-CacheID: sfid-20250824_042754_517617_2B8BD260 
+X-CRM114-Status: UNSURE (   6.63  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -121,13 +123,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/08/2025 15:57, Alexander Stein wrote:
-> MBa91xxCA (imx93-tqma9352-mba91xxca.dts) features a USB attached WiFi
-> module. lsusb says:
->  ID 1286:204e Marvell Semiconductor, Inc. Bluetooth and Wireless LAN Composite Device
-> Enable the corresponding driver.
+On 21/08/2025 12:56, Laurentiu Mihalcea wrote:
+> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> 
+> Enable the config (CONFIG_IMX_AIPSTZ) for the i.MX AIPSTZ driver, which
+> is required for platforms using the AIPSTZ bridge (e.g. i.MX8MP).
 
-This does not answer my questions. You can plug there something else...
+Qualcomm i.MX8MP? You are changing wide defconfig.
+
+Which boards use it?
+
 
 Best regards,
 Krzysztof
