@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFAEACA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 18:19:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47D00CA0EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 18:22:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SEFmXUPrEPY3MTZYb606T9VoG2A/YWxyILdPYIot/sk=; b=XxFRDGdmXh3qRnZgjZzgJnz0eP
-	fr0iBkSMp7KDmyKR/AWvI6hznOvAQd8/wji7tBhJG44HWs1hLRZgA05uXKJnj4HsQEjcb31tP+G8g
-	Kp9dUuQJQAiHpEv8prjGUO0LodpytHrDQk7O37CVI/l6mAYMZePddmT4DatQ4mVKyKF3dStSWZ/PA
-	1W1GleWPwnTz+RfhKt1OmPEtzjR6+qPZOJ79XM20VJM4bzGQjdF3+4aKZoAzbAhnW96oDzVcvYxh0
-	RfNYHJe0R3tWxLvo16oL78xG64Df6XWIC7gm/U5+hQkH9dCx4GXYzrGsGNKRYvSCAtZYN0mlkmbRb
-	LXx3OPyQ==;
+	bh=wBiQc9SJKXZ5NmknCACa8zj0lqy19lEfVzn9b4J305M=; b=SHnAtIBgAkdpfxteWGIMG/rKEl
+	5gF0CZNv4UDx2/O7mFmnnp1TWWVqhtwmwdt0h6FgTCrnU7FqfPyd2WNi2+GxsLqSTRWRpJsmT8Wre
+	a7rkYS1b/Y6JwJgWApzZtra+B4gSjZ/hVCwmgiv7/5tYoPe9nh0BcNgH8/SYMDhGK3ZWjVYr7u1Tb
+	vypaeZVv6CX6l65AZ7N07SED2lJU7JEdQUnG10xv11gZY4fd//3hRVTiYBeQi0+6K8YZvVB63oGez
+	PeMKeAXF/7fCEy06Rklk5IjbO4XMDoW1qa8BRiJoTisiH1iTen2457Qz5Cr4i9oyaXjikIje9ovpn
+	g3FI726w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqFJX-00000006R7t-3gXe;
-	Sun, 24 Aug 2025 18:19:35 +0000
+	id 1uqFM8-00000006RHu-07up;
+	Sun, 24 Aug 2025 18:22:16 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqF9L-00000006PwF-0dcN
+	id 1uqF9O-00000006Pxg-2jkG
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Aug 2025 18:09:04 +0000
+	Sun, 24 Aug 2025 18:09:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DDD61435C3;
-	Sun, 24 Aug 2025 18:09:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 257ABC116B1;
-	Sun, 24 Aug 2025 18:08:58 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6847E44F84;
+	Sun, 24 Aug 2025 18:09:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A928C116B1;
+	Sun, 24 Aug 2025 18:09:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756058942;
-	bh=C2PJV2yfHtKCww4nJMYQFz7mbBK02PRR3JX5m8Cqrus=;
+	s=k20201202; t=1756058946;
+	bh=g0ilQfX+/tsXpJe+/dm6xg4GYotqHJ7yh3Hp5H7k3BU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ufe4bkjQejooZua/NUHBmxvYak4gljv5eCIJytQ1jRmXPx+cE7dMU2NytlykjOANW
-	 XUx2scPvpTMR4wC8IMB3jT50xauDxYH/tlGOFCoMMJE2pZRWY2dHaKGh+YqYsGUBzA
-	 UE6Yz2v7ZK9pf8T25//N+v3zNLCIycz/LnLFOfzbREUOdN8A+b+xs8oHl3DNfqt3m1
-	 1/mXfp8ogY7CTYXqMddsc7YVRha37r+X5/5z8SBy1IK483vH4wTV9IWyXriLV79N1m
-	 mcwE6qibhVBjDTbgIAerP088pw2mR/GNIrRdBv06cHC6dGl+BHrEy9hm6Gm69BYlKI
-	 UZM9dDoBLTNKg==
-Message-ID: <0e7651c5-e624-4d91-8939-db39d72d79b6@kernel.org>
-Date: Sun, 24 Aug 2025 19:01:42 +0200
+	b=cYORHDT1EcCVhK+jIa47dA1py4lK3SaU7oZxMBVxZ5k6HS2X5nhIKSTPRyL/HZxlE
+	 v1C49Hjmg1HYxFbwkMzStqUD9scByM8CrMC/5CHHpEiI5Y6s52Lpj68+c7BYxAR1E8
+	 EgZ7mBt5CtXlGWvswvqgdt6oyIIsTAb7l65TDk6YaCmkIkxt0MWmq8/zan33Ux97BV
+	 UJwbhUzF6aACPpUgSXdc3uexK506UUpseFgNY/jJyF0pLPXRsAxU01tv6ax2KdlvvL
+	 FSAu5AlROFUy6M6hu3ZS6q4mqp2pnJdPhzC72Cl+jsrsrUBjtv7Zlv7y8j1lfRPWfE
+	 t8fDhUp+3uWRg==
+Message-ID: <ded0bf9a-29f1-40c5-9b55-a4c7dcb2b439@kernel.org>
+Date: Sun, 24 Aug 2025 19:02:14 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] arm64: dts: exynos: gs101: add CPU clocks
+Subject: Re: [PATCH 1/3] arm64: dts: exynos: gs101: add
+ google,gs101-acpm-dvfs-clocks
 To: Tudor Ambarus <tudor.ambarus@linaro.org>,
  Peter Griffin <peter.griffin@linaro.org>,
  =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
@@ -57,7 +58,7 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  willmcvicker@google.com, kernel-team@android.com
 References: <20250819-acpm-dvfs-dt-v1-0-4e38b95408c4@linaro.org>
- <20250819-acpm-dvfs-dt-v1-2-4e38b95408c4@linaro.org>
+ <20250819-acpm-dvfs-dt-v1-1-4e38b95408c4@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,12 +104,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250819-acpm-dvfs-dt-v1-2-4e38b95408c4@linaro.org>
+In-Reply-To: <20250819-acpm-dvfs-dt-v1-1-4e38b95408c4@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_110903_230598_382F634A 
-X-CRM114-Status: UNSURE (   7.65  )
+X-CRM114-CacheID: sfid-20250824_110906_734148_1D0BD90B 
+X-CRM114-Status: UNSURE (   7.86  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,16 +126,14 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 19/08/2025 14:10, Tudor Ambarus wrote:
-> The GS101 CPU clocks are exposed through the ACPM protocol. Add them.
-
-"Add GS101 CPU clocks exposed through ...".
-
+> Define the clocks exposed by the ACPM interface.
 > 
 > Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 > ---
->  arch/arm64/boot/dts/exynos/google/gs101.dtsi | 8 ++++++++
->  1 file changed, 8 insertions(+)
-
+>  arch/arm64/boot/dts/exynos/google/gs101.dtsi | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+This will need changes as discussed in the bindings.
 
 Best regards,
 Krzysztof
