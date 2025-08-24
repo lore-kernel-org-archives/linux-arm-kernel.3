@@ -4,63 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79AD1CA0EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 11:16:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E66FCA0EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 11:19:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SvhkTLwnsyU6LHTKXKMHL524UpqTw6jFMLYcBdGhtHU=; b=vTTChKSA3aayt52HULnG8bjRyW
-	au9DJvb0eQ+kMGXBez2IEzX9q+hmVTKGhqBYWBxjxB6PPgOmvHPBihqJMYbtjkaZWu2d7f+n69/88
-	hVVqon/Ofb63nD+xwDeBlM8hfH0Igtv8IPfl3HS25VdCdfvp5CBa16a4JrRpEDKU2+bZCfvUoub7E
-	UMysAzDKTpduqkbVG+hjrOyu6YeJE3Xm4Uat4lkj385/40VWsjha9ivrkn2ACB9forURRxqzVsVi1
-	rBzhKD4blr1ese5fFKh4T1gFsHlTMMUT/qyper9WdwdjnrYMEpo9zYPLQlygj4wTHDWOlkamaQPJ3
-	SQTahIug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XpMC3BrM1uIB0XbsX1fqE/ZITuthT+QHhc9H0DCFYDU=; b=PJKpAIcYv68JeDJ2n0XC9GjrKt
+	V/uveSxDl2mD4J4QjwTj7MiZCMJTV0zMX2bUncc3dEmZA/rXljwgKdpEOaetVRVyl38CJjxVTFEv4
+	7XnmkHO1SQow3rRakIubJDQn18eAwVx5Rk0YVbPb7AYtbF4PeRdafi3pPArqFooTyWrqafk9tEsvz
+	Rla3y9ybmJcnaaf2YJNXepY6HFsCyRFE+JPGtpDscI2aqe6QHP/sbWi6bnLpZllbH1TpnvUH8Ps2q
+	o+PBxhaqn0ULZtsQJaZOKod6YUUqcq+FRSlW30PBpX/orKBvb9siNen9TWT1kSZOGkGW7piFTYCFr
+	GD06W6jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq8hs-000000063gf-3fno;
-	Sun, 24 Aug 2025 11:16:16 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uq8kT-0000000642c-1ImX;
+	Sun, 24 Aug 2025 11:18:57 +0000
+Received: from smtp1.ms.mff.cuni.cz ([2001:718:1e03:801::4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq8PL-000000061se-1wxl;
-	Sun, 24 Aug 2025 10:57:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=SvhkTLwnsyU6LHTKXKMHL524UpqTw6jFMLYcBdGhtHU=; b=a4kTDiris9yS3x12O7/dXFjzBQ
-	mNtLHCnN4WqJdpm+eNdWPbTyLsNyWsRq5b8cslO5gYhxfU0jQtFdSC6WqV1Cyw4ZPbqe+LKXAE+5K
-	r7HRh4OjrJ4n7PJM6X0GEvHjddsnMTGyqC7LPYN48Xzmr7j0gBDchFpMNscsM8ghogIMeIWIELLc5
-	/IDma2X/PeG/q/HJ5V7J/nL/2zHIxXGyumfeeQVjwWgpHIX2qd6KIP1eRc6ZNh0xzRDbpZpx5u9Jg
-	1c8Ffu4QhIKVDJSwpnh0TgGvs/Vv7lGJfyC56s9sNpPs+deAnQM/w8VEd2BTuaQhVJayOm0yQf5pJ
-	b/GPTOZQ==;
-Received: from [62.245.128.201] (helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uq8PJ-0005c9-Ne; Sun, 24 Aug 2025 12:57:05 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Hsun Lai <i@chainsx.cn>,
- Alex Bee <knaerzche@gmail.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: stable+noautosel@kernel.org
-Subject: Re: (subset) [PATCH 1/2] arm64: dts: rockchip: Fix wifi interrupts flag on
- Sakura Pi RK3308B
-Date: Sun, 24 Aug 2025 12:57:05 +0200
-Message-ID: <16812972.uLZWGnKmhe@phil>
-In-Reply-To: <175603280229.3445205.18144135063810636432.b4-ty@sntech.de>
-References: <20250818090445.28112-3-krzysztof.kozlowski@linaro.org>
- <175603280229.3445205.18144135063810636432.b4-ty@sntech.de>
+	id 1uq8UF-000000062NV-0MJI
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 24 Aug 2025 11:02:13 +0000
+X-SubmittedBy: id balejk@matfyz.cz subject /postalCode=110+2000/O=Univerzita+20Karlova/street=Ovocn+5CxC3+5CxBD+20trh+20560/5/ST=Praha,+20Hlavn+5CxC3+5CxAD+20m+5CxC4+5Cx9Bsto/C=CZ/CN=Karel+20Balej/emailAddress=balejk@matfyz.cz
+	serial F5FD910E8FE2121B897F7E55B84E351D
+	issued by /C=NL/O=GEANT+20Vereniging/CN=GEANT+20Personal+20CA+204
+	auth type TLS.CUNI
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mff.cuni.cz;
+	s=submission; t=1756033284; x=1757333284;
+	bh=XpMC3BrM1uIB0XbsX1fqE/ZITuthT+QHhc9H0DCFYDU=; h=From;
+	b=bXRStTSjPngcKJy7ovasYiZxGDbWwFqFjxD7iCJDgaYdEg2czS3dN9Xwq17YhZh94
+	 LdpKiMYPy9/2x75MYkbmijSSQZUrU9r9fYu5uXS6M4AmVSgF5v5aBtl02sjXFIwqF8
+	 43YlJDgh3l0/Wv9PMgV5TdZkKpDwBXhHnhQ2OYSsQ4PoGnFJDkemrPVHqXHxILVl6D
+	 3iRpkoGXsxGKh5DIHx/t9zLMy9hMuVKHDQ22lUEvm133+5zScxn6QuQ47XZ7KIR8It
+	 gHw/PBFLLEHK6bptL9cTxSHwgJnKs/KrLAT0LF9RFZfs7clzEApjUXlSI5HaXEKvnN
+	 rwfEun+gfal9w==
+Received: from localhost (internet5.mraknet.com [185.200.108.250])
+	(authenticated)
+	by smtp1.ms.mff.cuni.cz (8.16.1/8.16.1) with ESMTPS id 57OB1N4a083637
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=OK);
+	Sun, 24 Aug 2025 13:01:24 +0200 (CEST)
+	(envelope-from balejk@matfyz.cz)
+From: Karel Balej <balejk@matfyz.cz>
+To: linux-mmc@vger.kernel.org, ulf.hansson@linaro.org,
+        =?UTF-8?q?Duje=20Mihanovi=C4=87?= <duje@dujemihanovic.xyz>,
+        Andrew Lunn <andrew@lunn.ch>,
+        Gregory Clement <gregory.clement@bootlin.com>,
+        Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+Cc: ~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org,
+        Karel Balej <balejk@matfyz.cz>
+Subject: [PATCH mmc/next 2/3] arm64: dts: samsung,coreprimevelte: add touchscreen
+Date: Sun, 24 Aug 2025 12:53:44 +0200
+Message-ID: <20250824110039.28258-3-balejk@matfyz.cz>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250824110039.28258-1-balejk@matfyz.cz>
+References: <20250824110039.28258-1-balejk@matfyz.cz>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_035707_499868_D7F2D46C 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20250824_040211_718101_815C4947 
+X-CRM114-Status: UNSURE (   8.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,31 +85,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Sonntag, 24. August 2025, 12:54:43 Mitteleurop=C3=A4ische Sommerzeit sch=
-rieb Heiko Stuebner:
->=20
-> On Mon, 18 Aug 2025 11:04:46 +0200, Krzysztof Kozlowski wrote:
-> > GPIO_ACTIVE_x flags are not correct in the context of interrupt flags.
-> > These are simple defines so they could be used in DTS but they will not
-> > have the same meaning: GPIO_ACTIVE_HIGH =3D 0 =3D IRQ_TYPE_NONE.
-> >=20
-> > Correct the interrupt flags, assuming the author of the code wanted same
-> > logical behavior behind the name "ACTIVE_xxx", this is:
-> >   ACTIVE_HIGH  =3D> IRQ_TYPE_LEVEL_HIGH
-> >=20
-> > [...]
->=20
-> Applied, thanks!
->=20
-> [2/2] arm64: dts: rockchip: Fix Bluetooth interrupts flag on Neardi LBA33=
-68
->       commit: c9f986a54d4031a9b9dff1eb616b0796aa28c730
+Bind touchscreen for the samsung,coreprimevelte smartphone. The
+downstream code sets the VDD voltage to the exact value of 3.1 V,
+however it's been empirically verified that the lower bound used here
+sufficies for the proper operation of the chip and is thus used for
+power-saving purposes.
 
-Waiting a bit more for patch1, to possibly get some testing.
+Signed-off-by: Karel Balej <balejk@matfyz.cz>
+---
+ .../mmp/pxa1908-samsung-coreprimevelte.dts        | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-
-Heiko
-
-
+diff --git a/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts b/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
+index 240021e7a371..834b2cf1a204 100644
+--- a/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
++++ b/arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts
+@@ -312,6 +312,11 @@ pmic@30 {
+ 		wakeup-source;
+ 
+ 		regulators {
++			ldo2: ldo2 {
++				regulator-min-microvolt = <1900000>;
++				regulator-max-microvolt = <3100000>;
++			};
++
+ 			ldo6: ldo6 {
+ 				regulator-boot-on;
+ 				regulator-min-microvolt = <1200000>;
+@@ -329,6 +334,16 @@ ldo14: ldo14 {
+ 
+ &twsi3 {
+ 	status = "okay";
++
++	touchscreen@50 {
++		compatible = "imagis,ist3032c";
++		reg = <0x50>;
++		interrupt-parent = <&gpio>;
++		interrupts = <72 IRQ_TYPE_EDGE_FALLING>;
++		vdd-supply = <&ldo2>;
++		touchscreen-size-x = <480>;
++		touchscreen-size-y = <800>;
++	};
+ };
+ 
+ &usb {
+-- 
+2.50.1
 
 
