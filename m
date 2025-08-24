@@ -4,63 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 963EECA0EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 18:33:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C4BECA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 18:35:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZN+jwSA0gDlwFJbI3mLOutWWlyvvyAI4wr4MA+MMrrM=; b=hf6xU1PAZmQi5Vph4FsyOEu+MA
-	+fZQ9brLDZAAYbhBTtH7noM1KYJuuj4Xx7jI95b2UsSrpf3P2lfrXodgBKHffJOHqmtQlgcuNFL/n
-	iQTEWFNt6mJUhV0go3VHc6sfiicR84QQOovwsUyNZUWCP4zOcvHESxBZJR/H5YsXlOfm/LhyxeY3o
-	J7S06TQmA3LyXwxpy3KCTcf2C6V8ZtMtc17RZNAvm2E2FD9EijxGEgTHylmraypsknpkRbY05wj0C
-	C3CQl2kkfatIWVS8GLBjwh7AB/Oxclj0LYLIRaD4gAgLLxxX3C/JIMIch5Uh+i7vxiY/HTKzDf8YE
-	MF8Iqw/w==;
+	bh=IZWYO8oXJpDhXoVMox1ByYk1+5MhPSxUWVSQ/e0udE8=; b=DEKESak2oQ6G7Jfgi95T+zaDrH
+	o6EQfotjmf48h1AEms0n2c5l33NY36QCQ0stWiSHurKifer/3Vy059sHAeAI/LzPg91QZ2QgsAycy
+	sQxa/spJkZNNIzMw4rvoCL04ziEDXgMlbM1J8vzH5HgLNtNi3L1/ExK8oFZP0SWDkzVVjKlyFdugX
+	YsIcGCdMEd7gcHVuJHblzh1PYAu2hHQHdav/Fnhg3ThIApdfAzTsxBZxdn5fgO16CIxbNYvSf5CMu
+	re4hJiPAO26ebaNx2E2AUs/aej9ZZX5B0Rh/RvyJCBq4yTA0izGNuzlvlH4tVXFG6z20NlLvw0c9h
+	Tzu5wXuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqFWS-00000006Ru7-1Ayo;
-	Sun, 24 Aug 2025 18:32:56 +0000
+	id 1uqFZ0-00000006S1w-4AxG;
+	Sun, 24 Aug 2025 18:35:34 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqF9h-00000006Q0a-2ERh
+	id 1uqF9t-00000006Q38-47gP
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Aug 2025 18:09:26 +0000
+	Sun, 24 Aug 2025 18:09:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 100255C57BC;
-	Sun, 24 Aug 2025 18:09:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DCF3C4CEEB;
-	Sun, 24 Aug 2025 18:09:21 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5BE915C5636;
+	Sun, 24 Aug 2025 18:09:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24DB1C4CEEB;
+	Sun, 24 Aug 2025 18:09:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756058964;
-	bh=6xwCyuADMxUWNMqY6ctIoE11fZEZ1HKzp+/zu1QHHaI=;
+	s=k20201202; t=1756058977;
+	bh=y0/reVtRZ0GYrGQ7Fxsls5cjah4RtDLIcll/K48+B3c=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=L7YkPPbOmOrD9BnBR4Wdcf0+6tQC8kef/OFN2zPv4IDHgMXl2YS+jWoO+eXBexl1Z
-	 PAnI317KEYx2/LkOuM/a0gxoQ7ZTVhHPLqbGnxRrNHixhHS0UzMrZ20gG95Ancth0N
-	 I6WgO/NXTrrkq7TN9xKgLgKdwSIqDsWM+5IexId/uUknEkQkJBM+115MtbR0DByfOF
-	 RhhRY5jYIqrVNXYicspO+ZrHyw3KDOmLJOjw6JPYYa5Vg6H+KIfiUEBQSNk3GFd+Sr
-	 KtLDdWTDgj7mjF2rLZ3zLcOLt/SKSX/0dxYbKcLwOfXXsVVPxGeXy9+TJScHqXx/dB
-	 3TXMhO6irsqmA==
-Message-ID: <539ede1a-eab6-4e8d-b108-11033cb39512@kernel.org>
-Date: Sun, 24 Aug 2025 19:14:36 +0200
+	b=re7nT/rlt1N2SM2Ixwux4yCMVMMg7L8eLYaEh9d8R09AZqqZQai/1VmjfUFZOGYlB
+	 19DZQVpxImsdA8GqqgtuI+BMfGLsCV+74nX9kNTg69i6MouSiUy4ctmny5TwHfQeyQ
+	 JfHgAQHh6dGSgy/fgfTobfhwTBWluGlL2i7lAcFJQc9bLVHxIrzK7mq3f1mp04noFI
+	 35ZzrUu7bTTKGARV0vQSzNXc+DvDd53nhWwATdE+kLk+fYRJzIHvXfGRbQZnfE6Abw
+	 ZS7qlF/Cev2n1YOuLyB7BEd79pQe2aJIDwbFfKYsW4h2RPbXTf00T3kJNflcuPLRSw
+	 LkPmbEuF+nAKw==
+Message-ID: <6fdc9ddc-7411-462e-ae71-82c81f7f8f1e@kernel.org>
+Date: Sun, 24 Aug 2025 19:24:11 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 4/4] arm64: dts: exynos: google: add Maxim MAX77759
- Fuel-gauge
-To: t.antoine@uclouvain.be, Sebastian Reichel <sre@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Dimitri Fedrau <dima.fedrau@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org
-References: <20250804-b4-gs101_max77759_fg-v5-0-03a40e6c0e3d@uclouvain.be>
- <20250804-b4-gs101_max77759_fg-v5-4-03a40e6c0e3d@uclouvain.be>
+Subject: Re: [PATCH 00/33] arm_mpam: Add basic mpam driver
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
+ devicetree@vger.kernel.org
+Cc: shameerali.kolothum.thodi@huawei.com,
+ D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
+ Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
+ baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>
+References: <20250822153048.2287-1-james.morse@arm.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,12 +116,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250804-b4-gs101_max77759_fg-v5-4-03a40e6c0e3d@uclouvain.be>
+In-Reply-To: <20250822153048.2287-1-james.morse@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_110925_654027_114E5213 
-X-CRM114-Status: GOOD (  18.07  )
+X-CRM114-CacheID: sfid-20250824_110938_112694_A4C6F444 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,39 +136,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/08/2025 16:26, Thomas Antoine via B4 Relay wrote:
-> From: Thomas Antoine <t.antoine@uclouvain.be>
+On 22/08/2025 17:29, James Morse wrote:
+> Hello,
 > 
-> Add the node for the Maxim MAX77759 fuel gauge as a slave of the i2c.
+> This is just enough MPAM driver for the ACPI and DT pre-requisites.
+> It doesn't contain any of the resctrl code, meaning you can't actually drive it
+> from user-space yet. Becuase of that, its hidden behind CONFIG_EXPERT.
+> This will change once the user interface is connected up.
 > 
-> The TODO is still applicable given there are other slaves on the
-> bus (e.g. PCA9468, other MAX77759 functions and the MAX20339 OVP).
+> This is the initial group of patches that allows the resctrl code to be built
+> on top. Including that will increase the number of trees that may need to
+> coordinate, so breaking it up make sense.
 > 
-> For the device specific values (full design capacity and terminal
-> current), the device should check an EEPROM at address 0x50 of the
-> hsi2c_8 for a battery id stored in register 0x17. A set of parameters
-> for the initialization of the fuel gauge should be chosen based on
-> this id. Those sets are defined here:
-> 
-> Link: https://android.googlesource.com/kernel/gs/+/refs/heads/android-gs-raviole-5.10-android15/arch/arm64/boot/dts/google/gs101-oriole-battery-data.dtsi
-> Link: https://android.googlesource.com/kernel/gs/+/refs/heads/android-gs-raviole-5.10-android15/arch/arm64/boot/dts/google/gs101-raven-battery-data.dtsi
-> 
-> This does not seem to be a standard pattern in the kernel currently
-> so it is not implemented. Values observed on tested devices are
-> instead used. The driver or the devicetree should be should be
-> extended in the future to take versions into account.
-> 
-> The pinctrl name follows the convention proposed in
-> Link: https://lore.kernel.org/all/20250524-b4-max77759-mfd-dts-v2-2-b479542eb97d@linaro.org/
-> 
-> Signed-off-by: Thomas Antoine <t.antoine@uclouvain.be>
-> ---
->  arch/arm64/boot/dts/exynos/google/gs101-oriole.dts | 10 ++++++++
->  .../boot/dts/exynos/google/gs101-pixel-common.dtsi | 30 ++++++++++++++++++++++
->  arch/arm64/boot/dts/exynos/google/gs101-raven.dts  | 11 ++++++++
->  3 files changed, 51 insertions(+)
 
-Code looks fine, so same comment as for defconfig change.
+There was v1 of this, so that's a v2. Start using b4 to get it right,
+because you just make it difficult for us to review.
+
+Try yourself:
+
+b4 diff <this-patchset>
+
+Works? No.
+
+Also, for some reason you sent it twice, so again: use b4.
+
+
+
 
 Best regards,
 Krzysztof
