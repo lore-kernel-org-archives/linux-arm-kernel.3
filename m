@@ -4,56 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B260CA0EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 18:17:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFAEACA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 18:19:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kv7slnfjer5WNOFBMkorkB8dao1yjRR5k3BJud9MPrQ=; b=BKnTAfGATdKlG85aesbCfkjwUo
-	boeqXix4ey9L2KFL3za1UIlMsu4WpLaWnKYvPmABvPtQ2/Pa1S0VnKwG19Dga7iC8WdJSGcfB8713
-	KP0RJujjwA/FFcVtTTtfPzc9DmNnlxsdDISRUE9cQrP5UXJW2l+eujFr54xyZ1fSkMGokEv40iY6l
-	jDJnttlAh+qRxnWTQantY8yiuUPTrk+ha8jaEHc2bzkSdHOIApiOxzBuccY/OF1ikxgQkzcmPj9g/
-	VYyFkugJRRWAo0Fs40etv4OvKsODA/H5g/p6TTvl7HYZJwGiPxNhSQEeWLrlPgVWAypY0B0bc2hF+
-	EcL5GLZA==;
+	bh=SEFmXUPrEPY3MTZYb606T9VoG2A/YWxyILdPYIot/sk=; b=XxFRDGdmXh3qRnZgjZzgJnz0eP
+	fr0iBkSMp7KDmyKR/AWvI6hznOvAQd8/wji7tBhJG44HWs1hLRZgA05uXKJnj4HsQEjcb31tP+G8g
+	Kp9dUuQJQAiHpEv8prjGUO0LodpytHrDQk7O37CVI/l6mAYMZePddmT4DatQ4mVKyKF3dStSWZ/PA
+	1W1GleWPwnTz+RfhKt1OmPEtzjR6+qPZOJ79XM20VJM4bzGQjdF3+4aKZoAzbAhnW96oDzVcvYxh0
+	RfNYHJe0R3tWxLvo16oL78xG64Df6XWIC7gm/U5+hQkH9dCx4GXYzrGsGNKRYvSCAtZYN0mlkmbRb
+	LXx3OPyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqFGx-00000006QrU-0WIs;
-	Sun, 24 Aug 2025 18:16:55 +0000
+	id 1uqFJX-00000006R7t-3gXe;
+	Sun, 24 Aug 2025 18:19:35 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqF9G-00000006PvL-2o56
+	id 1uqF9L-00000006PwF-0dcN
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Aug 2025 18:08:59 +0000
+	Sun, 24 Aug 2025 18:09:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6B0FE44F89;
+	by sea.source.kernel.org (Postfix) with ESMTP id DDD61435C3;
+	Sun, 24 Aug 2025 18:09:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 257ABC116B1;
 	Sun, 24 Aug 2025 18:08:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5CD2C4CEEB;
-	Sun, 24 Aug 2025 18:08:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756058938;
-	bh=umSWfjb0DeNRj76EhSEDH+9yf9Ho17weEZf8IVkMMHw=;
+	s=k20201202; t=1756058942;
+	bh=C2PJV2yfHtKCww4nJMYQFz7mbBK02PRR3JX5m8Cqrus=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=sdb2TdsBUzB87L+57Uj73zfJA9WbnICffrdUV4toJEf3b072FbnO/zWBlq5UdjC0A
-	 4OigGIJxOGzC9wqOFGYhhqszbIJHfVqR7bOViIyFxyK58TZwauhR6d3IzYPNhWESgB
-	 uj/icIIcoiZArv9W8J5EhtooCCJZTTw5lzoWIAOLL8z98AOT3B5fW9G6cVvc3+JKMd
-	 eNQQmWLuleZxp+rz8gBkYBkpzD//OrUAAXSkUxqMRf+Uiiy1cMF9Y24UYZQXpfApnp
-	 9VSlz1U/NZvgKwlt83eaIkSyNx+K8DvFwzSMeNTdJeZBjqKHvD7MlSIl2JuTgRBFkJ
-	 eY2CkrzFjmSmw==
-Message-ID: <aafe8482-7017-47e8-b035-7adc49e69a06@kernel.org>
-Date: Sun, 24 Aug 2025 19:00:52 +0200
+	b=ufe4bkjQejooZua/NUHBmxvYak4gljv5eCIJytQ1jRmXPx+cE7dMU2NytlykjOANW
+	 XUx2scPvpTMR4wC8IMB3jT50xauDxYH/tlGOFCoMMJE2pZRWY2dHaKGh+YqYsGUBzA
+	 UE6Yz2v7ZK9pf8T25//N+v3zNLCIycz/LnLFOfzbREUOdN8A+b+xs8oHl3DNfqt3m1
+	 1/mXfp8ogY7CTYXqMddsc7YVRha37r+X5/5z8SBy1IK483vH4wTV9IWyXriLV79N1m
+	 mcwE6qibhVBjDTbgIAerP088pw2mR/GNIrRdBv06cHC6dGl+BHrEy9hm6Gm69BYlKI
+	 UZM9dDoBLTNKg==
+Message-ID: <0e7651c5-e624-4d91-8939-db39d72d79b6@kernel.org>
+Date: Sun, 24 Aug 2025 19:01:42 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: defconfig: enable Exynos ACPM clocks
-To: Tudor Ambarus <tudor.ambarus@linaro.org>, alim.akhtar@samsung.com,
- linux-samsung-soc@vger.kernel.org
-Cc: peter.griffin@linaro.org, andre.draszik@linaro.org,
- willmcvicker@google.com, kernel-team@android.com,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250819-acpm-clk-defconfig-v1-1-70f5963ef90a@linaro.org>
+Subject: Re: [PATCH 2/3] arm64: dts: exynos: gs101: add CPU clocks
+To: Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ willmcvicker@google.com, kernel-team@android.com
+References: <20250819-acpm-dvfs-dt-v1-0-4e38b95408c4@linaro.org>
+ <20250819-acpm-dvfs-dt-v1-2-4e38b95408c4@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -99,12 +103,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250819-acpm-clk-defconfig-v1-1-70f5963ef90a@linaro.org>
+In-Reply-To: <20250819-acpm-dvfs-dt-v1-2-4e38b95408c4@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_110858_728564_36A9EFBB 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20250824_110903_230598_382F634A 
+X-CRM114-Status: UNSURE (   7.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,20 +124,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/08/2025 14:21, Tudor Ambarus wrote:
-> Enable the Exynos ACPM clocks driver. Samsung Exynos platforms
-> implement ACPM to provide support for clock configuration, PMIC
-> and temperature sensors.
+On 19/08/2025 14:10, Tudor Ambarus wrote:
+> The GS101 CPU clocks are exposed through the ACPM protocol. Add them.
+
+"Add GS101 CPU clocks exposed through ...".
+
 > 
 > Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 > ---
-> The patch should go through the Samsung SoC tree.
-> 
-> The driver is proposed at:
-> https://lore.kernel.org/linux-samsung-soc/20250819-acpm-clk-v1-0-6bbd97474671@linaro.org/
+>  arch/arm64/boot/dts/exynos/google/gs101.dtsi | 8 ++++++++
+>  1 file changed, 8 insertions(+)
 
-
-Please send it with above patchset - it target's same maintainer: me.
 
 Best regards,
 Krzysztof
