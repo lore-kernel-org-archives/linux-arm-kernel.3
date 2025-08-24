@@ -4,60 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C327CA0EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 10:28:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F95ECA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 10:33:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jupBRNGbZTH5sfVvjiXo6IJQ04ioAEEK5nIOYwjl318=; b=dmm5B0fKS8+dwuYry30ipd0LBf
-	dyezMahSWNVBXyejH8a8eMxBXrZ5+zevtTn/xcUGI2U0j1vbNvSEWoQDEJg10leUlRbyg9cvLadhD
-	/b4QhtnXTif5kCAaG23hCYwlDiIo/XGmvH/rej0O3SoGm8Tzdf+DBQ3daaA/4jZX3k+nQMRDMGMYZ
-	8WEdHqPFuxqAvlke3j5zn6vtvoKxJ3iZ5DNrws3wZkCmMMLEPsf7oLQ3ahgbZAOJJVEYEtBe5eYrA
-	OHd/l2Jp3xFuX3gT7wVRk6Gb/GLPvuE2qiIEp0u6+/YL9n4FRzwn18APtGsSz3o4JocFGpNMW1Cv2
-	mVQbUM1w==;
+	bh=QKZ5RVgjtYNRNUhJov5Gfl6WEeC8CVyNpV/Jp46kNqI=; b=J5Qtsc63h+5zmM321voegwnA81
+	P8FbT7hXHd1QLk27SqrZObkkO6r8rrzmp+s2yIxP+pCbWKsSnEg+jpgbrmwXH84fejupKSmTblj7p
+	Gp/Dr2aCd1kvkWpWoelZ20bxojyQ6LTB6k28GIDrB6tl/7YCpHCV//IHgUaUqnVtreZ+Ckr1CcXK5
+	+uAgaDQgt/x9JGLksgY4r3nX75+Iybwq5Y5mk+r/leipY1eiAa+eDHFckLHxIKt/6IzgGaK8lyUpF
+	Pn7wpfMeBljS7MjNWtZo8GBZa3vU7Yul8JlMCkSrVR1fiiazdFu6dApzQEqZK0BGMyvCdZh0r89ke
+	qgv0+5Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq7xA-000000060ZX-1wkz;
-	Sun, 24 Aug 2025 10:28:00 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uq82R-000000060uB-23dQ;
+	Sun, 24 Aug 2025 10:33:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq7uX-000000060LL-1LlT
+	id 1uq7zq-000000060m1-1I7T
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 Aug 2025 10:25:18 +0000
+	Sun, 24 Aug 2025 10:30:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A4F725C5592;
-	Sun, 24 Aug 2025 10:25:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F31DEC4CEEB;
-	Sun, 24 Aug 2025 10:25:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7510F601E2;
+	Sun, 24 Aug 2025 10:30:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC9C8C4CEEB;
+	Sun, 24 Aug 2025 10:30:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756031116;
-	bh=QFKBLC8hv3oESZsf2kTb8bpZ3+ypUZIq2+WqHmKO6T4=;
+	s=k20201202; t=1756031445;
+	bh=9oE5tb2390AHhqVifgcMfJ4rl+xy0eQcN8W0J8YXps8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TqRQ6bU0b+S52MoDMNJZpeS9sWTKmJJaN4/b34nGTkBSXR/XTjCzQqf/vuNlRqXR9
-	 5wZzHdz4b2gY5R691UcOk2Hk9mr0wRaboljiDMCp1Ftfo4IgzZXmmBglFgvJMbn0Pl
-	 RdSrXmu3Tj66ag35pBV2iF2hsAvzrbyQG7vBMRk1vv4Rs8LD+5MaRB9tL8y/6T5WgV
-	 5mBy50+9d3h94W30onx/wWvp9vSshjiTC6Gf0zUonhBx2sTpil5678/VL2enwNqA8S
-	 jL9Oos5DFGDSsGeUNtpZzHaiJzx8p+Zw48Dz8gW6Yj6pylD7a+HRBMpA7//HRBeY61
-	 J8lU0WJ1i+d6w==
-Message-ID: <a8dcbaa1-3145-4d25-b8c5-a6e9c9bc05fd@kernel.org>
-Date: Sun, 24 Aug 2025 12:25:11 +0200
+	b=LwSLN3OLapslV151YMZZEFd20qU2jxZX9ywbmWrIibU8XGlbD+JThPNBekNQDXLHw
+	 hSVwVS1HeLtVNXI50c5TI4SusZC8rT0samdJH1/cJQMpwRBVoX8ozNxBIhEcO8gtnE
+	 XTBgjeTf91QIwhgvsIJNWPEeLQ5poLtXxwhSEYYgQP4dUOZVzn5yZJd/5eEFFdotE3
+	 uDx/Om6bS1ia+F26NDOKNzqs9pm1J6FtV0lPqQtH/+v4h8HXaZ7ukdHUXhji+qRLRc
+	 13vQeUvuQDZhDI+rIH1/8J9v40dLvZRrwBLpA08UTwzKCfo4dC5fW0NKEa0p0O72Az
+	 +pToygNe2MYgg==
+Message-ID: <f28fd898-83f2-46af-9f5d-b98be4518520@kernel.org>
+Date: Sun, 24 Aug 2025 12:30:40 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/6] Support for Exynos7870's display stack (DECON,
- MIPIPHY, DSIM, etc.)
-To: Kaustabh Chakraborty <kauschluss@disroot.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250627-exynos7870-drm-dts-v2-0-d4a59207390d@disroot.org>
- <3f4f28cf-417b-4f12-8a3d-c1f70f6871c4@kernel.org>
- <45fc52d9988d1bf17eca392364c63193@disroot.org>
- <2bfa6c0b-1f23-4d57-b618-688ed8dc7fae@kernel.org>
- <afd9e6c8095df785fa7f39265111e357@disroot.org>
+Subject: Re: [PATCH 08/14] dt-bindings: dma: dma350: Document interrupt-names
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+ dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250823154009.25992-1-jszhang@kernel.org>
+ <20250823154009.25992-9-jszhang@kernel.org>
+ <eda79403-375b-4d49-9fec-12bc98bf9e47@kernel.org> <aKrgDVaynJxnmR9r@xhacker>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,12 +101,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <afd9e6c8095df785fa7f39265111e357@disroot.org>
+In-Reply-To: <aKrgDVaynJxnmR9r@xhacker>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_032517_441967_6248FE62 
-X-CRM114-Status: GOOD (  15.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,58 +118,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/08/2025 19:08, Kaustabh Chakraborty wrote:
-> On 2025-08-18 06:32, Krzysztof Kozlowski wrote:
->> On 17/08/2025 16:49, Kaustabh Chakraborty wrote:
->>> On 2025-08-13 07:58, Krzysztof Kozlowski wrote:
->>>> On 26/06/2025 22:13, Kaustabh Chakraborty wrote:
->>>>> This series implements changes in the SoC subsystem, which includes
->>>>> devicetree additions. It depends on all sub-series listed below:
->>>>> (Legend: [R]eviewed, [A]ccepted)
->>>>>
->>>>> exynosdrm-decon            -
->>>>> https://lore.kernel.org/r/20250627-exynosdrm-decon-v3-0-5b456f88cfea@disroot.org
->>>>> exynos7870-mipi-phy        A
->>>>> https://lore.kernel.org/r/20250612-exynos7870-mipi-phy-v1-0-3fff0b62d9d3@disroot.org
->>>>> exynos7870-mipi-phy-fix    -
->>>>> https://lore.kernel.org/r/20250627-exynos7870-mipi-phy-fix-v1-0-2eefab8b50df@disroot.org
->>>>> exynos7870-dsim            -
->>>>> https://lore.kernel.org/r/20250627-exynos7870-dsim-v2-0-1433b67378d3@disroot.org
->>>>> panel-samsung-s6e8aa5x01   -
->>>>> https://lore.kernel.org/r/20250625-panel-samsung-s6e8aa5x01-v3-0-9a1494fe6c50@disroot.org
->>>>> panel-synaptics-tddi       -
->>>>> https://lore.kernel.org/r/20250625-panel-synaptics-tddi-v2-0-7a62ab1d13c7@disroot.org
->>>>>
->>>>> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
->>>>
->>>> What is the status of the bindings from dependencies? I think they 
->>>> were
->>>> not accepted.
->>>
->>> Except panel-synaptics-tddi, all have been accepted. A lot of them
->>> haven't hit next though. I'm waiting for that to send the next 
->>> revision.
+On 24/08/2025 11:49, Jisheng Zhang wrote:
+> On Sat, Aug 23, 2025 at 06:09:22PM +0200, Krzysztof Kozlowski wrote:
+>> On 23/08/2025 17:40, Jisheng Zhang wrote:
+>>> Currently, the dma350 driver assumes all channels are available to
+>>> linux, this may not be true on some platforms, so it's possible no
+>>> irq(s) for the unavailable channel(s). What's more, the available
+>>> channels may not be continuous. To handle this case, we'd better
+>>> get the irq of each channel by name.
 >>
->> What does it mean - accepted but not hit next? If it is accepted, it
->> must be visible in next. Which maintainer's tree are not in the next?
+>> You did not solve the actual problem - binding still lists the
+>> interrupts in specific order.
+>>
+>>>
+>>> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+>>> ---
+>>>  Documentation/devicetree/bindings/dma/arm,dma-350.yaml | 5 +++++
+>>>  1 file changed, 5 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/dma/arm,dma-350.yaml b/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
+>>> index 429f682f15d8..94752516e51a 100644
+>>> --- a/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
+>>> +++ b/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
+>>> @@ -32,6 +32,10 @@ properties:
+>>>        - description: Channel 6 interrupt
+>>>        - description: Channel 7 interrupt
+>>>  
+>>> +  interrupt-names:
+>>> +    minItems: 1
+>>> +    maxItems: 8
+>>
+>> You need to list the items.
 > 
-> drm-exynos [1] branches haven't been rebased to v6.17-rc1. This should
-> include all some DECON and all DSIM patches.
+> I found in current dt-bindings, not all doc list the items. So is it
+> changed now?
+
+Close to impossible... :) But even if you found 1% of bindings with
+mistake, please kindly take 99% of bindings as the example. Not 1%.
+
+Which bindings were these with undefined names?
+
 > 
-> Although [2] has been accepted, I don't see the commit in [3] anymore.
+>>
+>>
+>>> +
+>>>    "#dma-cells":
+>>>      const: 1
+>>>      description: The cell is the trigger input number
+>>> @@ -40,5 +44,6 @@ required:
+>>>    - compatible
+>>>    - reg
+>>>    - interrupts
+>>> +  - interrupt-names
+>>
+>> That's ABI break, so no.
+> 
+> If there's no users of arm-dma350 in upstream so far, is ABI break
+> allowed? The reason is simple: to simplify the driver to parse
+> the irq.
 
-I don't understand this. How can you find a commit via web interface?
-You should be having linux-next and there you can go through the history
-to check if commit is there or not.
-
-> But, there's [4] which mentions my panel patches, but then I don't see
-> them in next (there should be a panel-samsung-s6e8aa5x01-ams561ra01.c
-> in [5]).
-
-so that's the problem to solve.
-
-I'll drop the patchset from my queue. I think you got here some other
-comments as well, so I will be expecting v3 anyway.
+You can try to make your case - see writing bindings. But what about all
+out of tree users? All other open source projects? All other kernels? I
+really do not ask about anything new here - that's a policy since long time.
 
 
 Best regards,
