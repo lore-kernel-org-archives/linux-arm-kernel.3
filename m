@@ -4,69 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CDC4CA0EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 08:51:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8A62CA0EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 Aug 2025 08:58:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SEE3Icu1LY1PL/GKZgBheDfrMD818ly/kwkNaiY5rI0=; b=ze4qCnRRRw5Tnbi0SuRIAx7GC3
-	TLagVQfb2oFbV2AuUmgjPmz0AVpVIYTd23AhSMB7MFEYRrgNP0p/pEAHSChvSgkJctojLAq8gebKy
-	513YXSiFukHnutmchNH4pawXlACp9sVXqgvDMZopgczXWBwBzVZJjmLBtpfhpRwvT3AIst3tbP5Z5
-	RjnGRezKeCcgRpWDzBEda51CSjkssWO3rugq4v61k+1ykvTxFZ8r+9l8jo1JobK41VXcSAdFyPUwI
-	VCpVQ0m0Ea5Qv97BQl/yN68AYBvDEfsYMLEgcrfIKBsEjC4D4KK/E3UZhvVujc7JWjx8Uqi9EmwTQ
-	G/Xo7dAQ==;
+	bh=mLdSjNg/viWQRivXucDrLBYaj/yJSQQ3QRqrUvinP9k=; b=Dls2TEEgUhyFqpNXp1uh+3JwqS
+	oRinmXBF7LbQm3l8yhsiLdDdbzUUzKvN5MMA5F1DIF+0FuxEeX/KY4z9s1RK1YE3Le5649zUHbSW+
+	HaxnJuPu07pFaM5ok5ts8AsjA5OTnC7J+EPZ3qKLuO5IvmwBnXz1u1masBOyVevyYYOf+ab1WucI7
+	hUIJ3mWytySwYw+rRis80sKcDagK4DKo/bBJlTOxuHMqhizPoatBvuOjw7NDoMYJdt4v94+3Rrjmo
+	SNitPd+imrgMO6brbM9DwDj+oxnm7VehDAFG18aEH2GkusyQgY8LYEwNZZHpfbncFW7rcUtJ6t659
+	RTYZX/4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq6Ry-00000005uMC-2ie1;
-	Sun, 24 Aug 2025 08:51:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uq6YV-00000005uyu-0sJ4;
+	Sun, 24 Aug 2025 08:58:27 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uq6Nh-00000005tqA-1Mje;
-	Sun, 24 Aug 2025 08:47:18 +0000
+	id 1uq6Vq-00000005ulZ-3uaw
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 24 Aug 2025 08:55:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DE0FA44440;
-	Sun, 24 Aug 2025 08:47:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32A63C4CEEB;
-	Sun, 24 Aug 2025 08:47:16 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 93F915C5560;
+	Sun, 24 Aug 2025 08:55:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 344FCC116B1;
+	Sun, 24 Aug 2025 08:55:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756025236;
-	bh=8SpFJtgIL6w/2FAMyvt1dybDDF3Ptssrpv3lA6j0/pM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XVbVRWmYjffMzkM2Tn8yjdKVNjoYQwoT+ItD9JzikzGjlTmRrxVICMOi+/qhD5Cba
-	 TLVo/ma3qleuaH5wdQ/xdjD8b5CEW5hf7+kwXlSjPVMiIB/4sGHuCZMaD45FZ+sCYZ
-	 GSC8cJXlPPd5b9ExYZskzJ4Ws6QylCvAM+3XA5LY5BLSiNFbW2FEpxzPzqTDrqba/8
-	 UldSRRq7Ow0RQtAEDIFlVfhw/G+dERmSRbP/Fqm+ov1PhVFnpHbu4Kbc7z6Bq6Nszi
-	 yXW71S/OPbi1xjmLcKUw3DrU1JacEbKCWs7SFChjcNh01qVNaT10Y14Tx3mNsasiR8
-	 PMxvu3Yk5PCpg==
-Date: Sun, 24 Aug 2025 10:47:14 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Pritam Manohar Sutar <pritam.sutar@samsung.com>
-Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com, 
-	andre.draszik@linaro.org, peter.griffin@linaro.org, kauschluss@disroot.org, 
-	ivo.ivanov.ivanov1@gmail.com, igor.belwon@mentallysanemainliners.org, johan@kernel.org, 
-	m.szyprowski@samsung.com, s.nawrocki@samsung.com, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com, 
-	dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com, 
-	selvarasu.g@samsung.com
-Subject: Re: [PATCH v7 3/6] dt-bindings: phy: samsung,usb3-drd-phy: add
- ExynosAutov920 combo hsphy
-Message-ID: <20250824-hopping-asp-of-painting-fbbfc2@kuoka>
-References: <20250822093845.1179395-1-pritam.sutar@samsung.com>
- <CGME20250822093015epcas5p1f479af38c65a6decc900c37fe37537e5@epcas5p1.samsung.com>
- <20250822093845.1179395-4-pritam.sutar@samsung.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250822093845.1179395-4-pritam.sutar@samsung.com>
+	s=k20201202; t=1756025741;
+	bh=3efWoqKGeWKkhZdCmvOAtelROBxMcZQovbTe+Bsz4Qo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=c0fc+ImnS9/BDevSzy+t+aRAEDOYCniaBkwi+IW58oy+IcTfmR81WTqGPM9Cpat8E
+	 dZAfuYb7yESRUBrATeBON5H6c8cjU6Zi2LVycUupFtpbgdy4Zo0+dz79cnxU3lkNnh
+	 883c6cMkhi40MH2YimoXW8ymsup5QT4Vbl6lDMh+ss6yaFa7/CWGll5eWqIXIE6TNh
+	 aIpryI0WHxHwuIAZjNgo5u2oIIMFPa+vyYc/qkq1NGrF9Dl2wFgnWPlUdZa3Msteco
+	 kGgVI6VvU8gB78ERpXSZI7UcFQYCDbChtC1hFyAYo0atd10lGNPoHeFkwxoigQ0HqL
+	 me7zEt6/mQaiA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uq6Vm-00AWlW-E3;
+	Sun, 24 Aug 2025 09:55:38 +0100
+Date: Sun, 24 Aug 2025 09:55:34 +0100
+Message-ID: <874itx14l5.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sam Edwards <cfsworks@gmail.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Baruch Siach <baruch@tkos.co.il>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] arm64/boot: Zero-initialize idmap PGDs before use
+In-Reply-To: <CAH5Ym4h+2w6aayzsVu__3qu3-6ETq1HK7u18yGzOrRqZ--2H9w@mail.gmail.com>
+References: <20250822041526.467434-1-CFSworks@gmail.com>
+	<CAMj1kXH38gOUpDDdarCXPAY3BHBbuFzdD=Dq7Knsg-qHJoNqzQ@mail.gmail.com>
+	<CAH5Ym4gTTLcyucnXjxFtNutVR1HQ0G2k_YBSNO-7G3-4YXUtag@mail.gmail.com>
+	<CAMj1kXF00Y0=67apXVbOC+rpbEEvyEovFYf4r_edr6mXjrj0+A@mail.gmail.com>
+	<CAH5Ym4h+2w6aayzsVu__3qu3-6ETq1HK7u18yGzOrRqZ--2H9w@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: cfsworks@gmail.com, ardb@kernel.org, catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org, anshuman.khandual@arm.com, ryan.roberts@arm.com, baruch@tkos.co.il, kevin.brodsky@arm.com, joey.gouly@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_014717_382092_98AAD214 
-X-CRM114-Status: UNSURE (   8.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250824_015543_055800_EB0ACCFB 
+X-CRM114-Status: GOOD (  18.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,22 +98,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 22, 2025 at 03:08:42PM +0530, Pritam Manohar Sutar wrote:
-> This phy only supports USB2.0 HS(480Mbps), FS(12Mbps) and
-> LS(1.5Mbps) data rates. It requires two clocks, named as "phy" and "ref".
-> The required supplies for this phy, named as vdd075_usb20(0.75v),
-> vdd18_usb20(1.8v), vdd33_usb20(3.3v).
-> 
-> Add schema for combo hsphy found on this SoC.
-> 
-> Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
-> ---
->  .../devicetree/bindings/phy/samsung,usb3-drd-phy.yaml          | 3 +++
->  1 file changed, 3 insertions(+)
+Hi Sam,
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+On Sun, 24 Aug 2025 04:05:05 +0100,
+Sam Edwards <cfsworks@gmail.com> wrote:
+>=20
+> On Sat, Aug 23, 2025 at 5:29=E2=80=AFPM Ard Biesheuvel <ardb@kernel.org> =
+wrote:
+> >
 
-Best regards,
-Krzysztof
+[...]
 
+> > Under which conditions would PGD_SIZE assume a value greater than PAGE_=
+SIZE?
+>=20
+> I might be doing my math wrong, but wouldn't 52-bit VA with 4K
+> granules and 5 levels result in this?
+
+No. 52bit VA at 4kB granule results in levels 0-3 each resolving 9
+bits, and level -1 resolving 4 bits. That's a total of 40 bits, plus
+the 12 bits coming directly from the VA making for the expected 52.
+
+> Each PTE represents 4K of virtual memory, so covers VA bits [11:0]
+> (this is level 3)
+
+That's where you got it wrong. The architecture is pretty clear that
+each level resolves PAGE_SHIFT-3 bits, hence the computation
+above. The bottom PAGE_SHIFT bits are directly extracted from the VA,
+without any translation.
+
+> Each PMD has 512 PTEs, the index of which covers VA bits [20:12] (this
+> is level 2)
+> Each PUD references 512 PMDs, the index covering VA [29:21] (this is leve=
+l 1)
+> Each P4D references 512 PUDs, indexed by VA [38:30] (this is level 0)
+> The PGD, at level -1, therefore has to cover VA bits [51:39], which
+> means it has a 13-bit index: 8192 entries of 8 bytes each would make
+> it 16 pages in size.
+>
+> > Note that at stage 1, arm64 does not support page table concatenation,
+> > and so the root page table is never larger than a page.
+>=20
+> Doesn't PGD_SIZE refer to the size used for userspace PGDs after the
+> boot progresses beyond stage 1? (What do you mean by "never" here?
+> "Under no circumstances is it larger than a page at stage 1"? Or
+> "during the entire lifecycle of the system, there is no time at which
+> it's larger than a page"?)
+
+Never, ever, is a S1 table bigger than a page. This concept doesn't
+exist in the architecture. Only S2 tables can use concatenation at the
+top-most level, for up to 16 pages (in order to skip a level when
+possible).
+
+The top-level can be smaller than a page, with some alignment
+constraints, but that's about the only degree of freedom you have for
+S1 page tables.
+
+Thanks,
+
+	M.
+
+--=20
+Jazz isn't dead. It just smells funny.
 
