@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5BAECA0FE9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 11:42:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FAC1CA0FE1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 11:42:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WXaHk4K+s24VBmtL4dXNZUlCL0/SaAL9iu/1d7cospI=; b=NEMxbcLZOixTocoqhgf4Jxs0Dm
-	sIjNeFApC6nO+ehYumYqkrKgfgUSoYgPrAMjPqFH+716S3jZafQ7J9oL6N+9Rwk6qbE4KQanHe3fe
-	IzAFRKhulb6mv+F4Wf0eEic2Cg1aAt4LupQJxnhuECnPa4SJ4TQLxFb4643NTq7/I7lp6viSXc7g+
-	lSians3kz4rpGhH+edHeKx7VGraqJkEmKTU2RfOtBw1n/J6AdMyiYAjnqGYANLpMbDCR6pxHGRZ8V
-	0a4+z/W6yijyesE4pijclWHUeV/mPqEvh5AHL+7g/wzhvAl7+L/aNWqBqjouIdKipUD1EfSFCwlwA
-	0d+8lJ7g==;
+	bh=1HKRkJcIiVO6UYzDdv2ewz/f//YeIhAmqiIA8QRzvzg=; b=GRvn9PwzMrRDN7WZ/qgnKh9UuA
+	tToNJOraajSM4mdl2vjY5t61zd6YyD/xD6AMkXOqwmqjUPbLxUs+vqzDeO2CPEhqU7kOy4+4oV9dv
+	4ABHHxaYFs4khfnDEqUJk4B9oiYHWKmKoU2bNDnR4qMQqlXxb5f6OsdrrdnjBV9kf20OnoUxJWtgY
+	KO8nF9YN2V2Ra52fAMhhAHeFDDNCssW+nkNXHgeniPLa0OqwWqiusBL2YjZYZdgVDheuJtMqVHm2E
+	pquExqiKXbbggrPT+9f1BKMTnM5pwbQN4lHz4Zv6kcirGen7mW7L5NIGzY7kWmOWiepUwFfAMvX5W
+	C7zHBypQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqVaR-00000007nPL-06lm;
-	Mon, 25 Aug 2025 11:42:07 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uqVaU-00000007nX2-39H4;
+	Mon, 25 Aug 2025 11:42:10 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqU85-00000007as8-3SkR;
-	Mon, 25 Aug 2025 10:08:47 +0000
+	id 1uqU87-00000007asq-1FHA;
+	Mon, 25 Aug 2025 10:08:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1756116524;
-	bh=xRhWfS3GzLuu0hrFBIPELg5N4OvgD+riMqL2Fl9jd18=;
+	s=mail; t=1756116525;
+	bh=3G3s3b+bMWx+gvtGHMFmONy0Xwu3Z1ERqLscvT9IJDw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=WPd41UW4AqZaWVrsYRNC47yN86rXILVX5hv/GZIUP2jQ8lO5U/vjgZjUfAZ95+LqG
-	 iY9ri7vWbbvbYdkk8oagRSPe9XaIaSrwvr/LowQ+SySS62L/AtW0YbyKr5ZZzSTg9c
-	 7YWhv00iP3cxYNdGeja2buDeBG3rin6HJaMuzgVU89j2M5CKNFoKHNBdYfZ5Nyj0SH
-	 gljoVg4jiCDKr3wwq0GLwf0nM7spK447K2W0UcTMoXTXwVBmZ3SSdJo4FbYrUOZUtA
-	 I4VpeZ9iTsIb61soKmzxgbtxPvFBJ9PWvUz3hjaRsGOL1iZSTpBxrUvEaosaOftqsB
-	 bNbY9maRqV9/Q==
+	b=QMnJmqmLdr7CPbVMdRebH+5H61vFfZ1n77eFAUSO5k6ajbS9gVtFnB8Ppos7nYfK0
+	 2/0vAvfASgAnZdDTn21A61RloKYe+5cRZrD4XimhBB/4dvFYQdtys3MXMhYBFqnwd2
+	 0i+F3ww+rfdblgizOVwyOxGkEG0waxPCUiCq0xLQG5UiNz+oua9nE2NnQ2dXvR8Slf
+	 ZdRAK8bWI6OW4+se+D+7axGBZlC38WBNrxFLfGuLZFue67jKDfKJqk9Mmsn4MI4evg
+	 s3/VTW1YZNJydzh3EtGVEyk9yHL2Hmx2yBwww58VxNpbH+eBDpyrB3MoC/R5M1ULz3
+	 wZ+So90KMqtjw==
 Received: from localhost (unknown [82.79.138.60])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 3B6C317E07F2;
-	Mon, 25 Aug 2025 12:08:44 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id C3DAE17E0957;
+	Mon, 25 Aug 2025 12:08:45 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Mon, 25 Aug 2025 13:08:33 +0300
-Subject: [PATCH v2 2/5] drm/bridge: dw-hdmi-qp: Handle platform supported
- formats and color depth
+Date: Mon, 25 Aug 2025 13:08:35 +0300
+Subject: [PATCH v2 4/5] drm/rockchip: dw_hdmi_qp: Use bit macros for RK3576
+ regs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250825-rk3588-10bpc-v2-2-955622d16985@collabora.com>
+Message-Id: <20250825-rk3588-10bpc-v2-4-955622d16985@collabora.com>
 References: <20250825-rk3588-10bpc-v2-0-955622d16985@collabora.com>
 In-Reply-To: <20250825-rk3588-10bpc-v2-0-955622d16985@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -68,8 +68,9 @@ Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
  linux-kernel@vger.kernel.org
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_030846_017699_607DAC8D 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20250825_030847_510230_2A496529 
+X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,63 +85,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extend struct dw_hdmi_qp_plat_data to include the supported display
-output formats and maximum bits per color channel.  When provided by the
-platform driver, use them to setup the HDMI bridge accordingly.
+For consistency and improved readability, redefine a few RK3576 specific
+register configurations by relying on GENMASK() and unshifted values for
+color depth and output format.  Those are not used at the moment, but
+will be needed soon to support the related features.
 
-Additionally, improve debug logging in dw_hdmi_qp_bridge_atomic_enable()
-to also show the current HDMI output format and bpc.
+While at it, drop a few other defines which are unlikely to be ever
+required.
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 11 +++++++++--
- include/drm/bridge/dw_hdmi_qp.h              |  4 ++++
- 2 files changed, 13 insertions(+), 2 deletions(-)
+ drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 21 ++++++++-------------
+ 1 file changed, 8 insertions(+), 13 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-index 42a90e0383061dad6c8416af21b27db7a3ba6d7d..8ff8ea8e0714ed6d6fa4b7865c86d04c32565d90 100644
---- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-@@ -869,8 +869,9 @@ static void dw_hdmi_qp_bridge_atomic_enable(struct drm_bridge *bridge,
- 		return;
+diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+index 6f2006e7999b540f29841ec4ef679a3ab1e8f497..0f2b421134af9f935758266af45c5779407b4144 100644
+--- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
++++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+@@ -38,21 +38,16 @@
+ #define RK3576_HDMI_HDCP14_MEM_EN	BIT(15)
  
- 	if (connector->display_info.is_hdmi) {
--		dev_dbg(hdmi->dev, "%s mode=HDMI rate=%llu\n",
--			__func__, conn_state->hdmi.tmds_char_rate);
-+		dev_dbg(hdmi->dev, "%s mode=HDMI %s rate=%llu bpc=%u\n", __func__,
-+			drm_hdmi_connector_get_output_format_name(conn_state->hdmi.output_format),
-+			conn_state->hdmi.tmds_char_rate, conn_state->hdmi.output_bpc);
- 		op_mode = 0;
- 		hdmi->tmds_char_rate = conn_state->hdmi.tmds_char_rate;
- 	} else {
-@@ -1299,6 +1300,12 @@ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
- 	hdmi->bridge.vendor = "Synopsys";
- 	hdmi->bridge.product = "DW HDMI QP TX";
+ #define RK3576_VO0_GRF_SOC_CON8		0x0020
+-#define RK3576_COLOR_FORMAT_MASK	(0xf << 4)
+-#define RK3576_COLOR_DEPTH_MASK		(0xf << 8)
+-#define RK3576_RGB			(0 << 4)
+-#define RK3576_YUV422			(0x1 << 4)
+-#define RK3576_YUV444			(0x2 << 4)
+-#define RK3576_YUV420			(0x3 << 4)
+-#define RK3576_8BPC			(0x0 << 8)
+-#define RK3576_10BPC			(0x6 << 8)
++#define RK3576_COLOR_DEPTH_MASK		GENMASK(11, 8)
++#define RK3576_8BPC			0x0
++#define RK3576_10BPC			0x6
++#define RK3576_COLOR_FORMAT_MASK	GENMASK(7, 4)
++#define RK3576_RGB			0x9
++#define RK3576_YUV422			0x1
++#define RK3576_YUV444			0x2
++#define RK3576_YUV420			0x3
+ #define RK3576_CECIN_MASK		BIT(3)
  
-+	if (plat_data->supported_formats)
-+		hdmi->bridge.supported_formats = plat_data->supported_formats;
-+
-+	if (plat_data->max_bpc)
-+		hdmi->bridge.max_bpc = plat_data->max_bpc;
-+
- 	hdmi->bridge.ddc = dw_hdmi_qp_i2c_adapter(hdmi);
- 	if (IS_ERR(hdmi->bridge.ddc))
- 		return ERR_CAST(hdmi->bridge.ddc);
-diff --git a/include/drm/bridge/dw_hdmi_qp.h b/include/drm/bridge/dw_hdmi_qp.h
-index 76ecf31301997718604a05f70ce9eab8695e26b5..3f461f6b9bbfbf67934bf642452d3c6f9253c4f9 100644
---- a/include/drm/bridge/dw_hdmi_qp.h
-+++ b/include/drm/bridge/dw_hdmi_qp.h
-@@ -25,6 +25,10 @@ struct dw_hdmi_qp_plat_data {
- 	int main_irq;
- 	int cec_irq;
- 	unsigned long ref_clk_rate;
-+	/* Supported output formats: bitmask of @hdmi_colorspace */
-+	unsigned int supported_formats;
-+	/* Maximum bits per color channel: 8, 10 or 12 */
-+	unsigned int max_bpc;
- };
- 
- struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
+-#define RK3576_VO0_GRF_SOC_CON12	0x0030
+-#define RK3576_GRF_OSDA_DLYN		(0xf << 12)
+-#define RK3576_GRF_OSDA_DIV		(0x7f << 1)
+-#define RK3576_GRF_OSDA_DLY_EN		BIT(0)
+-
+ #define RK3576_VO0_GRF_SOC_CON14	0x0038
+ #define RK3576_I2S_SEL_MASK		BIT(0)
+ #define RK3576_SPDIF_SEL_MASK		BIT(1)
 
 -- 
 2.50.1
