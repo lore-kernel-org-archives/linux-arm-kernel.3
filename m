@@ -4,87 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84AF1CA0FE8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F38BCCA0FEE
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 14:59:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4KrVFImLWWMk4u+RCG6atSptECAqVlbM836WIDvTOgE=; b=iGmxRPToR02TVBO73llew+NYw/
-	837o8zXg98JYr01W+HxlQNGHtYMBAqOZLdXHUZIBACO47xegj7P3B3sMiN/LWKonC9z5y7ncarS6J
-	l0JKP90dTELBf43hQ6YW6cU337W72Z8Hdi1lD6PJ4lbB6VYQRYN3yV+uaBYdSo41mXFwHICiTSBNb
-	Cm7dGpidPwQQ0/259pEmVQcxW4TwM3MMIhBgBE0SqhnA1x9zOLcL5OV9aBA9ET/AiCRuCCwpMCztv
-	Pf/SjjJJE/0QSMC2phkBu88o5tcBAqtfd36zKDmAg7yMDfiqBkHF/j+0v68e8fHzdNhcbx0zpQmnN
-	9jq4OqSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W4oY2oiTfCUt1+MOP5G5IqQvEA4mJfEjXMDK2BOiY2g=; b=uIdAw6KDkpf6NbXhIESdGhjsll
+	rhpRfi1M5k+/YFanZhztBLoMI2DFj2tpPxLCqDY7sndopthJgjJw57MBXXso8BzzBbhobifLZNviJ
+	OSa2RXTBsXO3ej7NHFmiJ8G3GqbEn8g7927Yb5/EmAeDkoNc5Waf9PhT0A+HNSE0OCOqSDpm3x7LX
+	/80Myqia05zEeO4hn+CPs7JKd12LIKT0CaLzC3eU2h5hkwdbwdYyjxzrE95WLWnr9cFiZCsdlZBFm
+	1wUKh+rhychftlvfFQ+iwLXgULRIq6mTvOGfAVpxLykBbZ1pUdFKxzmlqLfi5NjTpm+5LyT19z7sR
+	KUWZC+Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqYeo-00000008L2j-3AvG;
-	Mon, 25 Aug 2025 14:58:50 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1uqYev-00000008L8b-3xhu;
+	Mon, 25 Aug 2025 14:58:57 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqVz5-00000007sBX-1IQE
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 12:07:36 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250825120733epoutp01635da5a0c345b09c84e59fdf7184a394~fASiNfgC10269602696epoutp01u
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 12:07:33 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250825120733epoutp01635da5a0c345b09c84e59fdf7184a394~fASiNfgC10269602696epoutp01u
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1756123653;
-	bh=4KrVFImLWWMk4u+RCG6atSptECAqVlbM836WIDvTOgE=;
+	id 1uqWVS-00000007wqz-29a7;
+	Mon, 25 Aug 2025 12:41:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1756125659;
+	bh=DTT7025o6QZOA9whxQI3H5F2CGpujugULOrA7+jZGEc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=U1/TmrCqoyvCzSZXahR4NgruaIiy5XmE7CF7hFIIjejetp4ZqBShD1bOIDhASJm62
-	 SVp6ieBJuvGspLyJ7FWdD4kSFbr4LIP0VYzGY01Trj8GPEXfoKBpvbxacilYbpcKD3
-	 +RlUzb9eYbSa875ZlXlRj4fl+I0kl86rAG/gx5pg=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
-	20250825120732epcas5p4e2a69e6f20490ca8708f2c879e7763dc~fAShY-spP3220632206epcas5p4Y;
-	Mon, 25 Aug 2025 12:07:32 +0000 (GMT)
-Received: from epcas5p2.samsung.com (unknown [182.195.38.94]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4c9V0g3yC7z6B9m5; Mon, 25 Aug
-	2025 12:07:31 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
-	20250825120730epcas5p347b6acfa329848471d55191150c8c983~fASfk49tU2789627896epcas5p3o;
-	Mon, 25 Aug 2025 12:07:30 +0000 (GMT)
-Received: from Jaguar.samsungds.net (unknown [107.109.115.6]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250825120725epsmtip2eb025832c49be2d2926c812e51782b51~fASbCU4Y50171501715epsmtip2H;
-	Mon, 25 Aug 2025 12:07:25 +0000 (GMT)
-From: Ravi Patel <ravi.patel@samsung.com>
-To: jesper.nilsson@axis.com, mturquette@baylibre.com, sboyd@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, krzk@kernel.org,
-	s.nawrocki@samsung.com, cw00.choi@samsung.com, alim.akhtar@samsung.com,
-	linus.walleij@linaro.org, tomasz.figa@gmail.com, catalin.marinas@arm.com,
-	will@kernel.org, arnd@arndb.de
-Cc: ksk4725@coasia.com, kenkim@coasia.com, pjsin865@coasia.com,
-	gwk1013@coasia.com, hgkim05@coasia.com, mingyoungbo@coasia.com,
-	smn1196@coasia.com, pankaj.dubey@samsung.com, shradha.t@samsung.com,
-	ravi.patel@samsung.com, inbaraj.e@samsung.com, swathi.ks@samsung.com,
-	hrishikesh.d@samsung.com, dj76.yang@samsung.com, hypmean.kim@samsung.com,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@axis.com,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-gpio@vger.kernel.org, soc@lists.linux.dev
-Subject: [PATCH v3 07/10] dt-bindings: arm: axis: Add ARTPEC-8 grizzly board
-Date: Mon, 25 Aug 2025 17:14:33 +0530
-Message-Id: <20250825114436.46882-8-ravi.patel@samsung.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20250825114436.46882-1-ravi.patel@samsung.com>
-X-CMS-MailID: 20250825120730epcas5p347b6acfa329848471d55191150c8c983
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-541,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250825120730epcas5p347b6acfa329848471d55191150c8c983
-References: <20250825114436.46882-1-ravi.patel@samsung.com>
-	<CGME20250825120730epcas5p347b6acfa329848471d55191150c8c983@epcas5p3.samsung.com>
+	b=XxWTc/E5VW0OQ92f92pKw17Q3jfIUceMh07Qfy80KNq0z9U9rRY1PmnQ7RvWJ8QOA
+	 k/RLPcz22lYDsI/+tpqx7W4JOpRl6l+svWld0mQk7h8Bi9Cd0C94j7oaHtkW3ISMBg
+	 mBF3rYU1axmMRpzsHkyR0+y8vFIQB691g0lBYWEOVS8H0WUjFGmZ9Dvn9vwb1AfqoQ
+	 OojGbnLeI1c+s0W7M+8HL2aJKr1rRVxttQILAwcPMJdnnyt9hC1S1JAutElkWWwOXt
+	 aKagE4e71XnMYGrxdGDsvIf5M9Ipi3ty3FgTXuviUmeYsQKMqwmb19wsj8R/eM0yaa
+	 D+/x4sLR478eA==
+Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:b1df:895a:e67b:5cd4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laura.nao)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6BDEC17E0523;
+	Mon, 25 Aug 2025 14:40:58 +0200 (CEST)
+From: Laura Nao <laura.nao@collabora.com>
+To: wenst@chromium.org
+Cc: angelogioacchino.delregno@collabora.com,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	guangjie.song@mediatek.com,
+	kernel@collabora.com,
+	krzk+dt@kernel.org,
+	laura.nao@collabora.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	matthias.bgg@gmail.com,
+	mturquette@baylibre.com,
+	netdev@vger.kernel.org,
+	nfraprado@collabora.com,
+	p.zabel@pengutronix.de,
+	richardcochran@gmail.com,
+	robh@kernel.org,
+	sboyd@kernel.org
+Subject: Re: [PATCH v4 02/27] clk: mediatek: clk-pll: Add ops for PLLs using set/clr regs and FENC
+Date: Mon, 25 Aug 2025 14:39:52 +0200
+Message-Id: <20250825123952.208448-1-laura.nao@collabora.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <CAGXv+5Fnaict=9Agixn1vCrP3GkugaR3qEKmEYyYiXCGx8ZZ6w@mail.gmail.com>
+References: <CAGXv+5Fnaict=9Agixn1vCrP3GkugaR3qEKmEYyYiXCGx8ZZ6w@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_050735_662942_F857F0DD 
-X-CRM114-Status: GOOD (  12.68  )
+X-CRM114-CacheID: sfid-20250825_054102_744923_FC38A405 
+X-CRM114-Status: GOOD (  25.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,45 +90,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: SungMin Park <smn1196@coasia.com>
+Hi Chen-Yu,
 
-Document the Axis ARTPEC-8 SoC binding and the grizzly board
-which uses ARTPEC-8 SoC.
+On 8/15/25 05:18, Chen-Yu Tsai wrote:
+> On Tue, Aug 5, 2025 at 10:55 PM Laura Nao <laura.nao@collabora.com> wrote:
+>>
+>> MT8196 uses a combination of set/clr registers to control the PLL
+>> enable state, along with a FENC bit to check the preparation status.
+>> Add new set of PLL clock operations with support for set/clr enable and
+>> FENC status logic.
+>>
+>> Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+>> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> Signed-off-by: Laura Nao <laura.nao@collabora.com>
+>> ---
+>>  drivers/clk/mediatek/clk-pll.c | 42 +++++++++++++++++++++++++++++++++-
+>>  drivers/clk/mediatek/clk-pll.h |  5 ++++
+>>  2 files changed, 46 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/clk/mediatek/clk-pll.c b/drivers/clk/mediatek/clk-pll.c
+>> index 49ca25dd5418..8f46de77f42d 100644
+>> --- a/drivers/clk/mediatek/clk-pll.c
+>> +++ b/drivers/clk/mediatek/clk-pll.c
+>> @@ -37,6 +37,13 @@ int mtk_pll_is_prepared(struct clk_hw *hw)
+>>         return (readl(pll->en_addr) & BIT(pll->data->pll_en_bit)) != 0;
+>>  }
+>>
+>> +static int mtk_pll_fenc_is_prepared(struct clk_hw *hw)
+>> +{
+>> +       struct mtk_clk_pll *pll = to_mtk_clk_pll(hw);
+>> +
+>> +       return readl(pll->fenc_addr) & pll->fenc_mask;
+>
+> Nits:
+>
+> I'd do a double-negate (!!) just to indicate that we only care about
+> true or false.
+>
+> Also, why do we need to store fenc_mask instead of just shifting the bit
+> here? Same goes for the register address. |pll| has the base address.
+> Why do we need to pre-calculate it?
+>
+> The code is OK; it just seems a bit wasteful on memory.
+>
 
-Signed-off-by: SungMin Park <smn1196@coasia.com>
-Signed-off-by: SeonGu Kang <ksk4725@coasia.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
----
- Documentation/devicetree/bindings/arm/axis.yaml | 7 +++++++
- 1 file changed, 7 insertions(+)
+Thanks for the heads up - since these are only used here for now, I
+agree they’re not really adding value. I’ll drop fenc_mask and fenc_addr
+in the next revision.
 
-diff --git a/Documentation/devicetree/bindings/arm/axis.yaml b/Documentation/devicetree/bindings/arm/axis.yaml
-index f9c218dc6883..63e9aca85db7 100644
---- a/Documentation/devicetree/bindings/arm/axis.yaml
-+++ b/Documentation/devicetree/bindings/arm/axis.yaml
-@@ -8,6 +8,7 @@ title: Axis ARTPEC platforms
- 
- maintainers:
-   - Jesper Nilsson <jesper.nilsson@axis.com>
-+  - Lars Persson <lars.persson@axis.com>
-   - linux-arm-kernel@axis.com
- 
- description: |
-@@ -24,6 +25,12 @@ properties:
-               - axis,artpec6-dev-board
-           - const: axis,artpec6
- 
-+      - description: Axis ARTPEC-8 SoC board
-+        items:
-+          - enum:
-+              - axis,artpec8-grizzly
-+          - const: axis,artpec8
-+
- additionalProperties: true
- 
- ...
--- 
-2.49.0
+Best,
+
+Laura
+
+> Either way, this is
+>
+> Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
+>
+>> +}
+>> +
+>>  static unsigned long __mtk_pll_recalc_rate(struct mtk_clk_pll *pll, u32 fin,
+>>                 u32 pcw, int postdiv)
+>>  {
+>> @@ -274,6 +281,25 @@ void mtk_pll_unprepare(struct clk_hw *hw)
+>>         writel(r, pll->pwr_addr);
+>>  }
+>>
+>> +static int mtk_pll_prepare_setclr(struct clk_hw *hw)
+>> +{
+>> +       struct mtk_clk_pll *pll = to_mtk_clk_pll(hw);
+>> +
+>> +       writel(BIT(pll->data->pll_en_bit), pll->en_set_addr);
+>> +
+>> +       /* Wait 20us after enable for the PLL to stabilize */
+>> +       udelay(20);
+>> +
+>> +       return 0;
+>> +}
+>> +
+>> +static void mtk_pll_unprepare_setclr(struct clk_hw *hw)
+>> +{
+>> +       struct mtk_clk_pll *pll = to_mtk_clk_pll(hw);
+>> +
+>> +       writel(BIT(pll->data->pll_en_bit), pll->en_clr_addr);
+>> +}
+>> +
+>>  const struct clk_ops mtk_pll_ops = {
+>>         .is_prepared    = mtk_pll_is_prepared,
+>>         .prepare        = mtk_pll_prepare,
+>> @@ -283,6 +309,16 @@ const struct clk_ops mtk_pll_ops = {
+>>         .set_rate       = mtk_pll_set_rate,
+>>  };
+>>
+>> +const struct clk_ops mtk_pll_fenc_clr_set_ops = {
+>> +       .is_prepared    = mtk_pll_fenc_is_prepared,
+>> +       .prepare        = mtk_pll_prepare_setclr,
+>> +       .unprepare      = mtk_pll_unprepare_setclr,
+>> +       .recalc_rate    = mtk_pll_recalc_rate,
+>> +       .round_rate     = mtk_pll_round_rate,
+>> +       .set_rate       = mtk_pll_set_rate,
+>> +};
+>> +EXPORT_SYMBOL_GPL(mtk_pll_fenc_clr_set_ops);
+>> +
+>>  struct clk_hw *mtk_clk_register_pll_ops(struct mtk_clk_pll *pll,
+>>                                         const struct mtk_pll_data *data,
+>>                                         void __iomem *base,
+>> @@ -315,6 +351,9 @@ struct clk_hw *mtk_clk_register_pll_ops(struct mtk_clk_pll *pll,
+>>         pll->hw.init = &init;
+>>         pll->data = data;
+>>
+>> +       pll->fenc_addr = base + data->fenc_sta_ofs;
+>> +       pll->fenc_mask = BIT(data->fenc_sta_bit);
+>> +
+>>         init.name = data->name;
+>>         init.flags = (data->flags & PLL_AO) ? CLK_IS_CRITICAL : 0;
+>>         init.ops = pll_ops;
+>> @@ -337,12 +376,13 @@ struct clk_hw *mtk_clk_register_pll(const struct mtk_pll_data *data,
+>>  {
+>>         struct mtk_clk_pll *pll;
+>>         struct clk_hw *hw;
+>> +       const struct clk_ops *pll_ops = data->ops ? data->ops : &mtk_pll_ops;
+>>
+>>         pll = kzalloc(sizeof(*pll), GFP_KERNEL);
+>>         if (!pll)
+>>                 return ERR_PTR(-ENOMEM);
+>>
+>> -       hw = mtk_clk_register_pll_ops(pll, data, base, &mtk_pll_ops);
+>> +       hw = mtk_clk_register_pll_ops(pll, data, base, pll_ops);
+>>         if (IS_ERR(hw))
+>>                 kfree(pll);
+>>
+>> diff --git a/drivers/clk/mediatek/clk-pll.h b/drivers/clk/mediatek/clk-pll.h
+>> index c4d06bb11516..7fdc5267a2b5 100644
+>> --- a/drivers/clk/mediatek/clk-pll.h
+>> +++ b/drivers/clk/mediatek/clk-pll.h
+>> @@ -29,6 +29,7 @@ struct mtk_pll_data {
+>>         u32 reg;
+>>         u32 pwr_reg;
+>>         u32 en_mask;
+>> +       u32 fenc_sta_ofs;
+>>         u32 pd_reg;
+>>         u32 tuner_reg;
+>>         u32 tuner_en_reg;
+>> @@ -51,6 +52,7 @@ struct mtk_pll_data {
+>>         u32 en_clr_reg;
+>>         u8 pll_en_bit; /* Assume 0, indicates BIT(0) by default */
+>>         u8 pcw_chg_bit;
+>> +       u8 fenc_sta_bit;
+>>  };
+>>
+>>  /*
+>> @@ -72,6 +74,8 @@ struct mtk_clk_pll {
+>>         void __iomem    *en_addr;
+>>         void __iomem    *en_set_addr;
+>>         void __iomem    *en_clr_addr;
+>> +       void __iomem    *fenc_addr;
+>> +       u32             fenc_mask;
+>>         const struct mtk_pll_data *data;
+>>  };
+>>
+>> @@ -82,6 +86,7 @@ void mtk_clk_unregister_plls(const struct mtk_pll_data *plls, int num_plls,
+>>                              struct clk_hw_onecell_data *clk_data);
+>>
+>>  extern const struct clk_ops mtk_pll_ops;
+>> +extern const struct clk_ops mtk_pll_fenc_clr_set_ops;
+>>
+>>  static inline struct mtk_clk_pll *to_mtk_clk_pll(struct clk_hw *hw)
+>>  {
+>> --
+>> 2.39.5
+>>
 
 
