@@ -4,89 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16F0BCA0FEE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 140A7CA0FE8
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 15:55:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=60iKAkP3LNe0WedWNS1417UnpVB5oYJPCUr+7fQ2LGY=; b=0cul7prXoY5SNQbz2pWTAPhiXj
-	vsSXMOvzR+rSa9BItofAkmwWp5b479CFy+0VFe7HD16UskGfYAaa9TqKbVo00gXXxZ1dcXDWvDMxo
-	1tGYb6e3OUcBRSYx/AjdaxF0gt2iQ6ydCXXTPVCr75i5jPqXhNlkY1tc2J+F3DcjWajPbhfiLUA8Q
-	fc+InC3FSouMomY25X+CJQrNRVet/Bgph47NqhDlEE8cRk/vfxCOI15I4LQb7iH8ekYzlC2uBRGLw
-	auE+qTM+9x9alHJubZE0og0/65cOn/5yGBIUxRZSAmuFNsHDjo9j4nFy7sK2KSjvBtQmOtwcabyox
-	E/GwsHiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qkD+sthOFrkZQBgyD/Brdao7sTCKGDTnrvrWEf6+780=; b=qg8wsXvW1yJzBoNxvDqZjTn9bU
+	dNkMeqdCbfmo04zvI0RZMtfqYsMItV/H/ErcJFa2NZAmvlva1YF0BXtebAq+HImq2S13STHzaq/Gn
+	qWaGrdk4C0c1pXqDGbsOyU9WbjClJoFMx8ydOg3IeA2XwnVEzv7WXYhVy+Iz5tOlGfNFXI16vNiYr
+	AD49VnuiFNx1Yal3BqmRzcGYznDLY2A/vvmX3lMOa3GJbUlVM/QFSBAkAiBuR7jD53lo3A+OqhYXH
+	QuOq7+TDt+AR+uoagZP2V9488iBANZ6XYWYMheepvsm2rB/pWXw9wJF3/bg70YXNDkW/mkntfAT7S
+	T3vGM7TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqZXb-00000008ZlQ-1Omp;
-	Mon, 25 Aug 2025 15:55:27 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1uqZXa-00000008ZlE-0d60;
+	Mon, 25 Aug 2025 15:55:26 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqYhN-00000008OWC-1KIb;
-	Mon, 25 Aug 2025 15:01:31 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2467e454c46so1880785ad.2;
-        Mon, 25 Aug 2025 08:01:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756134088; x=1756738888; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=60iKAkP3LNe0WedWNS1417UnpVB5oYJPCUr+7fQ2LGY=;
-        b=g90Kugcs4eYjgD+5l/Skt1yDJUuFGUGQBUh6sQglPN9dCQJTzc+am3sqwUjkAPIs1P
-         Ktp64RMLMswgNhA+lcRe8oEgPfODWsYeQD3m+EJwM/GiOuSD62yG3DTkv8zXZHwS+6XQ
-         2UcJ5XC2BVeS+ry7F0iUCJZ5astDz/YPVM5lnlFv544mb7oZkmR0Mjoq4+nhD8feNNEz
-         12To2flHwgIjNfEiaSrm3xCbNM1XwR7ZPuyatKbqN7l0Ky7Y3UdVigblFfca+tsozk4p
-         HrSuGUbngf6CBOAXhVuDk/yY0EKrdXKfnMQ70D2FnzLc/uMUHCKF7YGhINNAYrbcJU36
-         hM0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756134088; x=1756738888;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=60iKAkP3LNe0WedWNS1417UnpVB5oYJPCUr+7fQ2LGY=;
-        b=bmZv/ij4MQAcZ6Z3cry0KA9PoT4W11wK9zA9ArjK3tAp9Fq0o03YdBPzoPk9QVL6XH
-         Lx8yUEB0x9I1z/hxdUAbeCymrfgtbb2SB/4EJHKbmlaahvPfkB0uX+51QZA7lni7GVOC
-         woZSBc+N5bwmiSpZJWOd5JuyVoTs/BZVXBkC4gvqFDKVOtAJ7eW8rJThd9FwMhm9isPq
-         /BjRY3OjsCRFEEQrUeUnAhpStZKsRnM7Xa2anFk7m204RUoC9QLLxYIbiGG4qm1thYzL
-         ZYzIrQni/PbnEVlut2NkEnTNzrZiFSR9FMLclBhnauWNFb045zSV75nI6Eh1fGguvsV/
-         CTPw==
-X-Forwarded-Encrypted: i=1; AJvYcCUwxD+CwazumbHKA1lJtezkF80oIQSSz0rnMOVI2Ji0KixJuFy7gLadBzW6Y5BZyl3kkjVmjZWGTJjKfRk=@lists.infradead.org, AJvYcCXvumkknbA4HnPyvdB1vBm2u5sEWDLbks8OxaVyw3cHRftA+E9ZdpRK2ig7N5un8uuSwglPDwOBVaU7mDl9HC2i@lists.infradead.org
-X-Gm-Message-State: AOJu0YzV/BlyfrA0jit0T/vFPXwzsYSuxr3RJQPs7QxQ3t4ZYuw1/5dG
-	JqvwzrBszXip4C4mmwjmpRqrxjD8I1qcifgsFXY1bR/LVxatn20pcwJ5iMHWpJasIkdMl1vzrkt
-	55gpACBks/oKQhNqC1Pad0O0jjUqJ4J8=
-X-Gm-Gg: ASbGncvdfsd0iiSu0bhMS3gqj6DfssEGZhfjYAExaS7fgARuIGyTlJE84mf6SnP6h6O
-	joe4jvKHq3H5MR6WwM4eQgWt5BdqLPhVbKLbUzU7QN/VxyozWGWz9P4J5Id7VHn8jzZUwmPNOPJ
-	je2Aicfm4Ja71d2r0K2WXfyKB+InLzo3vQtNhdDlGSDmy3SQ4emI3X85HtWeHHDe7dUuh6s/UwX
-	1YdYs2gCZPkZyvr0emgF+n8YTEllezYtSQUez64Ez8pPJ0NbtKsQO6BT5A3382GTCal4MIRjKHq
-	aBKBxLUXXo94cTEsRjXRtcBnjg==
-X-Google-Smtp-Source: AGHT+IH6iiTQnmspwpwZFl3fWU7ZoF4htCbSAXCmYOC5YgyGhCHecWhDJChnNEZn0Tbpwb/nBEcItL6vKFF5JoBFO9I=
-X-Received: by 2002:a17:902:e5d1:b0:246:9df4:d10 with SMTP id
- d9443c01a7336-2469df4127fmr48184305ad.8.1756134087549; Mon, 25 Aug 2025
- 08:01:27 -0700 (PDT)
+	id 1uqYfc-00000008MEJ-3FuF;
+	Mon, 25 Aug 2025 14:59:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id EDFB95C5988;
+	Mon, 25 Aug 2025 14:59:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B3D6C4CEED;
+	Mon, 25 Aug 2025 14:59:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756133979;
+	bh=YtWwiemXxXk/HndwfafEfgJsQeylyFu02jnoMvbgzgo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Jn0AZo3pPFK0BugUL3OMCDpCV1HmeNy40TLdNKtLX5SypUoRptbAF9EKk4ejmZPkz
+	 4+fhto2i95Q8o+P1Az66DJeNk8sJ/NyNwPVZIk6s6vBe389Ho9bI4oPnQEWOp80T7O
+	 GtLnp1xpVgMb/AC15WB27oS0HJcJwkR6UUktQVbU3ti8iXBP/sjXLozRWAuvgf0GjM
+	 wZgTeBgQn1M3OOuOkCDIwQMCPIaP4blPKHTb9cXNDnLZlHu07Wyh1OfkyGZAnS83zw
+	 dhcVTO4etdblD/32knv8disDXUulJuw7B97TzcOXKyT3A66aD23GWc4jfTztl6wlSw
+	 r5yMDLTA1mfKw==
+Date: Mon, 25 Aug 2025 17:59:22 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: David Hildenbrand <david@redhat.com>
+Cc: Mika =?iso-8859-1?Q?Penttil=E4?= <mpenttil@redhat.com>,
+	linux-kernel@vger.kernel.org,
+	Alexander Potapenko <glider@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Brendan Jackman <jackmanb@google.com>,
+	Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>,
+	Dmitry Vyukov <dvyukov@google.com>, dri-devel@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org, iommu@lists.linux.dev,
+	io-uring@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com,
+	kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org, linux-ide@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Marco Elver <elver@google.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+	netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
+	Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
+	Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
+	virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
+	wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
+Subject: Re: [PATCH RFC 10/35] mm/hugetlb: cleanup
+ hugetlb_folio_init_tail_vmemmap()
+Message-ID: <aKx6SlYrj_hiPXBB@kernel.org>
+References: <20250821200701.1329277-1-david@redhat.com>
+ <20250821200701.1329277-11-david@redhat.com>
+ <9156d191-9ec4-4422-bae9-2e8ce66f9d5e@redhat.com>
+ <7077e09f-6ce9-43ba-8f87-47a290680141@redhat.com>
+ <aKmDBobyvEX7ZUWL@kernel.org>
+ <a90cf9a3-d662-4239-ad54-7ea917c802a5@redhat.com>
+ <aKxz9HLQTflFNYEu@kernel.org>
+ <a72080b4-5156-4add-ac7c-1160b44e0dfe@redhat.com>
 MIME-Version: 1.0
-References: <20250825141316.work.967-kees@kernel.org> <20250825142603.1907143-5-kees@kernel.org>
-In-Reply-To: <20250825142603.1907143-5-kees@kernel.org>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Mon, 25 Aug 2025 17:01:13 +0200
-X-Gm-Features: Ac12FXzL7PU_Is1-tccv7Hdj8Uae-cmowXNNIswc_ypx-UP0ygKjVjE1oakxuiw
-Message-ID: <CANiq72kc7Ky6+7Ny7jR04s8vU-g23qBQC0rQrOZDxDzXT+m1TQ@mail.gmail.com>
-Subject: Re: [PATCH 5/5] kcfi: Rename CONFIG_CFI_CLANG to CONFIG_CFI
-To: Kees Cook <kees@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Kees Cook <kees@outflux.net>, 
-	Sami Tolvanen <samitolvanen@google.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Puranjay Mohan <puranjay@kernel.org>, 
-	David Woodhouse <dwmw2@infradead.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Nathan Chancellor <nathan@kernel.org>, x86@kernel.org, linux-doc@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
-	linux-hardening@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <a72080b4-5156-4add-ac7c-1160b44e0dfe@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_080129_488333_AB2AC1C1 
-X-CRM114-Status: GOOD (  10.37  )
+X-CRM114-CacheID: sfid-20250825_075940_960377_7252E8F9 
+X-CRM114-Status: GOOD (  29.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,22 +105,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 25, 2025 at 4:28=E2=80=AFPM Kees Cook <kees@kernel.org> wrote:
->
-> -config CFI_CLANG
-> -       bool "Use Clang's Control Flow Integrity (CFI)"
-> -       depends on ARCH_SUPPORTS_CFI_CLANG
-> +config CFI
-> +       bool "Use Kernel Control Flow Integrity (kCFI)"
-> +       depends on ARCH_SUPPORTS_CFI
->         depends on $(cc-option,-fsanitize=3Dkcfi)
->         help
+On Mon, Aug 25, 2025 at 04:38:03PM +0200, David Hildenbrand wrote:
+> On 25.08.25 16:32, Mike Rapoport wrote:
+> > On Mon, Aug 25, 2025 at 02:48:58PM +0200, David Hildenbrand wrote:
+> > > On 23.08.25 10:59, Mike Rapoport wrote:
+> > > > On Fri, Aug 22, 2025 at 08:24:31AM +0200, David Hildenbrand wrote:
+> > > > > On 22.08.25 06:09, Mika Penttilä wrote:
+> > > > > > 
+> > > > > > On 8/21/25 23:06, David Hildenbrand wrote:
+> > > > > > 
+> > > > > > > All pages were already initialized and set to PageReserved() with a
+> > > > > > > refcount of 1 by MM init code.
+> > > > > > 
+> > > > > > Just to be sure, how is this working with MEMBLOCK_RSRV_NOINIT, where MM is supposed not to
+> > > > > > initialize struct pages?
+> > > > > 
+> > > > > Excellent point, I did not know about that one.
+> > > > > 
+> > > > > Spotting that we don't do the same for the head page made me assume that
+> > > > > it's just a misuse of __init_single_page().
+> > > > > 
+> > > > > But the nasty thing is that we use memblock_reserved_mark_noinit() to only
+> > > > > mark the tail pages ...
+> > > > 
+> > > > And even nastier thing is that when CONFIG_DEFERRED_STRUCT_PAGE_INIT is
+> > > > disabled struct pages are initialized regardless of
+> > > > memblock_reserved_mark_noinit().
+> > > > 
+> > > > I think this patch should go in before your updates:
+> > > 
+> > > Shouldn't we fix this in memblock code?
+> > > 
+> > > Hacking around that in the memblock_reserved_mark_noinit() user sound wrong
+> > > -- and nothing in the doc of memblock_reserved_mark_noinit() spells that
+> > > behavior out.
+> > 
+> > We can surely update the docs, but unfortunately I don't see how to avoid
+> > hacking around it in hugetlb.
+> > Since it's used to optimise HVO even further to the point hugetlb open
+> > codes memmap initialization, I think it's fair that it should deal with all
+> > possible configurations.
+> 
+> Remind me, why can't we support memblock_reserved_mark_noinit() when
+> CONFIG_DEFERRED_STRUCT_PAGE_INIT is disabled?
 
-Do we need to do something to make the transition smoother, i.e.
-keeping the old one for a while to avoid a new question etc.?
+When CONFIG_DEFERRED_STRUCT_PAGE_INIT is disabled we initialize the entire
+memmap early (setup_arch()->free_area_init()), and we may have a bunch of
+memblock_reserved_mark_noinit() afterwards
+ 
+> -- 
+> Cheers
+> 
+> David / dhildenb
+> 
 
-Thanks!
-
-Cheers,
-Miguel
+-- 
+Sincerely yours,
+Mike.
 
