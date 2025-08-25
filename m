@@ -4,78 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D853CA0FE7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 14:59:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44E0ACA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 14:59:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mu27s0rLhB9VCaNtx7J0nkuTiISkvGv0sr9qtMOPv4A=; b=rx5HyqWdPOrCP2fq6JPnA9pGfQ
-	NbfgRN+zJaU99uanwI6rWB/oQzWU9cKqZE9gUAoz5OE1of5WeXbh+O31ifJXpTMmeI2+R8hKq+GSi
-	b4NekBHlqmlXGQ7UQoPhmI68TGvTC7BTbtGCQ/jUtzl5vDgqJVCOZ8WKKGM9IFwGC1+X+tGDAzc0j
-	/ki8L23NXKgNbIALdRpqBwHpWNJ6wPJm7FPq6XA7K0iCEFTAlSV7+gIe66An1RYkzODtQ6cO6gYgD
-	DfHyeKvWLB2qgNUIObyQAV1914BOXb7s2NcBGqEllg5JEDLkIjKFl8k+pgTPyLmJ7mzXras/tiIZ6
-	WHMAUxkA==;
+	bh=qnMFRUI7OrpeFHOHQnTbYDUskSBfz/K49TJPo7jgp3o=; b=guzkP6PWV4cuOA07q/k/xhYhV3
+	KFe0mu1kiB2w8BzWYQSZxjOnBaSiUoomE0qdcFpgzx0bwbHu+s9GIEwORSQIbxO8Da1yldS+cR8re
+	Y9v7jD6US/mMLZuKF4x3aQSVKWnm2IXb8wMf2YjviFdwld7USQfrSV97F6b3Pv0zqqX1L6CTIjuA4
+	VauOELDSqKU1XmSt+f27si7y9PIO6h/uI9x+wcYiCF5pEoStnz1KvAsCjTQ6Ango1HrvZiAJhgFLA
+	dfwxwqs/1kawWN5q6YahEA2INnW+4q2asbV2itJDEdXqwkDIt37u98Oc/akGsREYuRDQo7q5vv/hd
+	KZAKAP7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqYfL-00000008LoR-3YaU;
-	Mon, 25 Aug 2025 14:59:23 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uqYfO-00000008LsH-1Mpr;
+	Mon, 25 Aug 2025 14:59:26 +0000
+Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqWjZ-000000080N4-2vgE;
-	Mon, 25 Aug 2025 12:55:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1756126536;
-	bh=jVaErzpkbBb5kQVUHxnb7jL9Y9M/5d+ZZP5UlZ/Us0o=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Wp4RD6okHgd1+oa9kr5BJhRxkSudWhgt0gxErtIF77SMtmVowdSnjBKcTMOgz6q6Q
-	 c+ouGWUc0V3qil0CbYY6Jc83PP6hUVrH0bndU7BzUTpTC963gXN4/moGlaTUM1ZHl7
-	 YXZYhRlwOoQ7pLpLcWhWQcOa5uIGY0hGBj9AcQn7Lsy72M/NL4QchXTSyHzFGsLMp7
-	 8+fMnQwO90GamZEfsguUuxCJTIPjbU5DcXUOHMvWwglpOkPTwK4sihrVg5lkTu1+VS
-	 Aqk1s+4WCAf/KLOMF+oTKCU8kwDQsm4OMpANbNMf/ut573xmTDIa4NnIXfJ6HVV54j
-	 JV5/PnGHw5vkg==
-Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:b1df:895a:e67b:5cd4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 31E3D17E0478;
-	Mon, 25 Aug 2025 14:55:35 +0200 (CEST)
-From: Laura Nao <laura.nao@collabora.com>
-To: wenst@chromium.org
-Cc: angelogioacchino.delregno@collabora.com,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	guangjie.song@mediatek.com,
-	kernel@collabora.com,
-	krzk+dt@kernel.org,
-	laura.nao@collabora.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	matthias.bgg@gmail.com,
-	mturquette@baylibre.com,
-	netdev@vger.kernel.org,
-	nfraprado@collabora.com,
-	p.zabel@pengutronix.de,
-	richardcochran@gmail.com,
-	robh@kernel.org,
-	sboyd@kernel.org
-Subject: Re: [PATCH v4 15/27] clk: mediatek: Add MT8196 ufssys clock support
-Date: Mon, 25 Aug 2025 14:54:25 +0200
-Message-Id: <20250825125425.210123-1-laura.nao@collabora.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <CAGXv+5GH6ypcuXn9+XED7du_CJaeDs3M1ODjtN7pDH_FA0gmjg@mail.gmail.com>
-References: <CAGXv+5GH6ypcuXn9+XED7du_CJaeDs3M1ODjtN7pDH_FA0gmjg@mail.gmail.com>
+	id 1uqWkm-000000080yv-1oOw
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 25 Aug 2025 12:56:54 +0000
+Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-3367e0f9c1cso3402531fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 05:56:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756126610; x=1756731410; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qnMFRUI7OrpeFHOHQnTbYDUskSBfz/K49TJPo7jgp3o=;
+        b=YH/Rr/XaqlrEZwvxJH66zRFup1N5B04dfeW92kqI/R8LAbyatnq1x3aACI4C+FNbOp
+         j2wpVgNCzIPNLXePRr62Lq+oRh185m8149vBuaiLJ9SKEXqr6Qenw6rl4LTvikpkAMbE
+         O4G2gY8qxs1mcR1i32N0aEdFzU4NKtuABkfR9oPFuJowvb+3hjtuBjH/n1e7SAKUazVt
+         gqdItK6z9OxZR54Z1aD8MxdBbuyrEpWZfGeMD3OuMZpqbJYT+BXn4qlM2Ih8t4GaJfwh
+         q0XQgtV3bsl8/Psyi9Noz5mpy0YL56SLxcJUtt6599AunYwtBKjjnSjsSeUxEt49s6/V
+         1ivQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756126610; x=1756731410;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=qnMFRUI7OrpeFHOHQnTbYDUskSBfz/K49TJPo7jgp3o=;
+        b=YWJsQJPNhGO0HCctwGDGV6JKGP42zey+10YrLh6ivxGFXrO0+BESEJd1TRf0HUQNiy
+         3fPR3xgeetr21FScSu6W1ZwkWD4UUhgiC04sNmtb0uK4eWbmZ3d/BQwqZVMY7hZXreES
+         Ts9o4Ed4ZKq9QYpL26VBb/IUNj1ul+V/ObNp49MFvt3D/IxtBGrPVhgThDGeYMeL1lHG
+         /xOUuoJJztWlJSamqr1kAaIMAh/bZWBx9o2RA/q5nfXz5I8AyShMvSRs6cxwvW5W+56w
+         N4pBh4g8AHygpjSxamlN8ZGzNHvCZK58urFalw3HQhKauncLK32nEHF/hFdvMHBjnirn
+         bYuw==
+X-Forwarded-Encrypted: i=1; AJvYcCVViXN6JePnzOEr25ragTXQ91gzC6dneDllJUHS4YPuPYAAap37RbDs8OsnyLnTY25XeCcQe3GAak5Flxty4HFh@lists.infradead.org
+X-Gm-Message-State: AOJu0YxFe28DeGUBoS6JFoUBAJJ3CkbqVK57GfbY3o8RHf9+fWSvQHzC
+	ofN+izHl3Snsnz7/juuj0SVrizIMks7n8D5IHS1n3/t8P9xAFk/MLQlfXa3RemZ3CJwcE71cfV5
+	gvY3sGid/qI+lpbEl8kJRnsMD2UIqlz4MVoMCXtDo6A==
+X-Gm-Gg: ASbGncsbCiVpXZb5Pt4SyvKywvoQ8TShMYUyDs/PQLGMgfs+kQ4dbCV7a602kttMj+Q
+	r5NgOI6bhQkQImse+/+3AIX+3d52UN9WjKWG2faklESZk+9W33zZJgLuBfEdcPwDMAMc4WEc6Nn
+	XW32/0V1tWap4u3dVNxaKInqTPIJc+F+3XOkO/lN8iwOqZMdfcVtHGF5V0R3Gh9W74AW7F7jwnJ
+	KT4a4E6jf7z9IHq30Elr8PhOVNte7vuKTvo3Zg=
+X-Google-Smtp-Source: AGHT+IEKuRSYDRBEFcUoSaQJpuUMdlcesI/FHii7hOjk4oxM01a0EqmTFPiCYNu0z4GmlScnxLvw71vWU7C0gmCrYWM=
+X-Received: by 2002:a05:651c:e0a:b0:333:faea:760e with SMTP id
+ 38308e7fff4ca-33650e28035mr29572141fa.4.1756126610386; Mon, 25 Aug 2025
+ 05:56:50 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <cover.1756104334.git.christophe.leroy@csgroup.eu> <e05a0959d794016bde79e48e25ff71253cf51aae.1756104334.git.christophe.leroy@csgroup.eu>
+In-Reply-To: <e05a0959d794016bde79e48e25ff71253cf51aae.1756104334.git.christophe.leroy@csgroup.eu>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Mon, 25 Aug 2025 14:56:39 +0200
+X-Gm-Features: Ac12FXyribtDrV6nGrkt8B-SxFaigB01Pq-K7rMjlp_S8j2j5Cn5-EuT5Gchlm4
+Message-ID: <CAMRc=MfPTtdFtE63UKfbuK3h1mLEk2aUGazBsbRS-OLZzm7e9g@mail.gmail.com>
+Subject: Re: [PATCH v3 2/6] soc: fsl: qe: Change GPIO driver to a proper
+ platform driver
+To: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Qiang Zhao <qiang.zhao@nxp.com>, Linus Walleij <linus.walleij@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_055537_935631_CE9BE80E 
-X-CRM114-Status: GOOD (  24.41  )
+X-CRM114-CacheID: sfid-20250825_055652_471736_8FBEE025 
+X-CRM114-Status: GOOD (  18.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,198 +100,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/15/25 05:50, Chen-Yu Tsai wrote:
-> On Tue, Aug 5, 2025 at 10:55 PM Laura Nao <laura.nao@collabora.com> wrote:
->>
->> Add support for the MT8196 ufssys clock controller, which provides clock
->> gate control for UFS.
->>
->> Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
->> Co-developed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> Signed-off-by: Laura Nao <laura.nao@collabora.com>
->> ---
->>  drivers/clk/mediatek/Kconfig             |   7 ++
->>  drivers/clk/mediatek/Makefile            |   1 +
->>  drivers/clk/mediatek/clk-mt8196-ufs_ao.c | 109 +++++++++++++++++++++++
->>  3 files changed, 117 insertions(+)
->>  create mode 100644 drivers/clk/mediatek/clk-mt8196-ufs_ao.c
->>
->> diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
->> index 1e0c6f177ecd..d99c39a7f10e 100644
->> --- a/drivers/clk/mediatek/Kconfig
->> +++ b/drivers/clk/mediatek/Kconfig
->> @@ -1010,6 +1010,13 @@ config COMMON_CLK_MT8196
->>         help
->>           This driver supports MediaTek MT8196 basic clocks.
->>
->> +config COMMON_CLK_MT8196_UFSSYS
->> +       tristate "Clock driver for MediaTek MT8196 ufssys"
->> +       depends on COMMON_CLK_MT8196
->> +       default COMMON_CLK_MT8196
->> +       help
->> +         This driver supports MediaTek MT8196 ufssys clocks.
->> +
->>  config COMMON_CLK_MT8365
->>         tristate "Clock driver for MediaTek MT8365"
->>         depends on ARCH_MEDIATEK || COMPILE_TEST
->> diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
->> index 8888ffd3d7ba..1a497de00846 100644
->> --- a/drivers/clk/mediatek/Makefile
->> +++ b/drivers/clk/mediatek/Makefile
->> @@ -153,6 +153,7 @@ obj-$(CONFIG_COMMON_CLK_MT8195_WPESYS) += clk-mt8195-wpe.o
->>  obj-$(CONFIG_COMMON_CLK_MT8196) += clk-mt8196-apmixedsys.o clk-mt8196-topckgen.o \
->>                                    clk-mt8196-topckgen2.o clk-mt8196-vlpckgen.o \
->>                                    clk-mt8196-peri_ao.o
->> +obj-$(CONFIG_COMMON_CLK_MT8196_UFSSYS) += clk-mt8196-ufs_ao.o
->>  obj-$(CONFIG_COMMON_CLK_MT8365) += clk-mt8365-apmixedsys.o clk-mt8365.o
->>  obj-$(CONFIG_COMMON_CLK_MT8365_APU) += clk-mt8365-apu.o
->>  obj-$(CONFIG_COMMON_CLK_MT8365_CAM) += clk-mt8365-cam.o
->> diff --git a/drivers/clk/mediatek/clk-mt8196-ufs_ao.c b/drivers/clk/mediatek/clk-mt8196-ufs_ao.c
->> new file mode 100644
->> index 000000000000..858706b3ba6f
->> --- /dev/null
->> +++ b/drivers/clk/mediatek/clk-mt8196-ufs_ao.c
->> @@ -0,0 +1,109 @@
->> +// SPDX-License-Identifier: GPL-2.0-only
->> +/*
->> + * Copyright (c) 2025 MediaTek Inc.
->> + *                    Guangjie Song <guangjie.song@mediatek.com>
->> + * Copyright (c) 2025 Collabora Ltd.
->> + *                    Laura Nao <laura.nao@collabora.com>
->> + */
->> +#include <dt-bindings/clock/mediatek,mt8196-clock.h>
->> +#include <dt-bindings/reset/mediatek,mt8196-resets.h>
+On Mon, Aug 25, 2025 at 8:53=E2=80=AFAM Christophe Leroy
+<christophe.leroy@csgroup.eu> wrote:
 >
-> Nit: add empty line here for separation.
+> In order to be able to add interrupts to the GPIOs, first change the
+> QE GPIO driver to the proper platform driver in order to allow
+> initialisation to be done in the right order, otherwise the GPIOs
+> get added before the interrupts are registered.
 >
+> Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+> Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-Ack.
+Hi! I retracted my review tag under v1 because...
 
->> +#include <linux/clk-provider.h>
->> +#include <linux/module.h>
->> +#include <linux/of_device.h>
->> +#include <linux/platform_device.h>
->> +
->> +#include "clk-gate.h"
->> +#include "clk-mtk.h"
->> +
->> +#define MT8196_UFSAO_RST0_SET_OFFSET   0x48
->> +#define MT8196_UFSAO_RST1_SET_OFFSET   0x148
->> +
->> +static const struct mtk_gate_regs ufsao0_cg_regs = {
->> +       .set_ofs = 0x108,
->> +       .clr_ofs = 0x10c,
->> +       .sta_ofs = 0x104,
->> +};
->> +
->> +static const struct mtk_gate_regs ufsao1_cg_regs = {
->> +       .set_ofs = 0x8,
->> +       .clr_ofs = 0xc,
->> +       .sta_ofs = 0x4,
->> +};
->> +
->> +#define GATE_UFSAO0(_id, _name, _parent, _shift) {     \
->> +               .id = _id,                              \
->> +               .name = _name,                          \
->> +               .parent_name = _parent,                 \
->> +               .regs = &ufsao0_cg_regs,                \
->> +               .shift = _shift,                        \
->> +               .flags = CLK_OPS_PARENT_ENABLE,         \
+[snip]
+
+> -       return 0;
+> +       qe_gc =3D devm_kzalloc(dev, sizeof(*qe_gc), GFP_KERNEL);
+> +       if (!qe_gc)
+> +               return -ENOMEM;
+> +
+> +       spin_lock_init(&qe_gc->lock);
+> +
+> +       mm_gc =3D &qe_gc->mm_gc;
+> +       gc =3D &mm_gc->gc;
+> +
+> +       mm_gc->save_regs =3D qe_gpio_save_regs;
+> +       gc->ngpio =3D QE_PIO_PINS;
+> +       gc->direction_input =3D qe_gpio_dir_in;
+> +       gc->direction_output =3D qe_gpio_dir_out;
+> +       gc->get =3D qe_gpio_get;
+> +       gc->set =3D qe_gpio_set;
+> +       gc->set_multiple =3D qe_gpio_set_multiple;
+> +
+> +       return of_mm_gpiochip_add_data(np, mm_gc, qe_gc);
+
+... I believe this can be dropped now and replaced with
+devm_gpiochip_add_data().
+
+Bart
+
+> +}
+> +
+> +static const struct of_device_id qe_gpio_match[] =3D {
+> +       {
+> +               .compatible =3D "fsl,mpc8323-qe-pario-bank",
+> +       },
+> +       {},
+> +};
+> +MODULE_DEVICE_TABLE(of, qe_gpio_match);
+> +
+> +static struct platform_driver qe_gpio_driver =3D {
+> +       .probe          =3D qe_gpio_probe,
+> +       .driver         =3D {
+> +               .name   =3D "qe-gpio",
+> +               .of_match_table =3D qe_gpio_match,
+> +       },
+> +};
+> +
+> +static int __init qe_gpio_init(void)
+> +{
+> +       return platform_driver_register(&qe_gpio_driver);
+>  }
+> -arch_initcall(qe_add_gpiochips);
+> +arch_initcall(qe_gpio_init);
+> --
+> 2.49.0
 >
-> This probably doesn't work correctly, since not every clock defined
-> below has the "ufs" clock as its parent. If the requirement is that
-> the "ufs" clock be enabled for accessing this register, it is going
-> to fail (badly).
->
-
-Thanks for pointing this out - I missed this because, as you noted,
-other drivers using this flag defined gates with the same parent and
-worked correctly (i.e., I2C). I don’t have a way to justify keeping this
-flag at the moment, and I can’t test whether the ufs clock is required
-for register access at this stage of upstream support (same goes for the
-other drivers with this issue).
-
-I’m thinking of removing it here and in the other affected drivers, and
-revisit the issue once we have actual users for these clocks upstream.
-
-Best,
-
-Laura
-
-> ChenYu
->
->> +               .ops = &mtk_clk_gate_ops_setclr,        \
->> +       }
->> +
->> +#define GATE_UFSAO1(_id, _name, _parent, _shift) {     \
->> +               .id = _id,                              \
->> +               .name = _name,                          \
->> +               .parent_name = _parent,                 \
->> +               .regs = &ufsao1_cg_regs,                \
->> +               .shift = _shift,                        \
->> +               .flags = CLK_OPS_PARENT_ENABLE,         \
->> +               .ops = &mtk_clk_gate_ops_setclr,        \
->> +       }
->> +
->> +static const struct mtk_gate ufsao_clks[] = {
->> +       /* UFSAO0 */
->> +       GATE_UFSAO0(CLK_UFSAO_UFSHCI_UFS, "ufsao_ufshci_ufs", "ufs", 0),
->> +       GATE_UFSAO0(CLK_UFSAO_UFSHCI_AES, "ufsao_ufshci_aes", "aes_ufsfde", 1),
->> +       /* UFSAO1 */
->> +       GATE_UFSAO1(CLK_UFSAO_UNIPRO_TX_SYM, "ufsao_unipro_tx_sym", "clk26m", 0),
->> +       GATE_UFSAO1(CLK_UFSAO_UNIPRO_RX_SYM0, "ufsao_unipro_rx_sym0", "clk26m", 1),
->> +       GATE_UFSAO1(CLK_UFSAO_UNIPRO_RX_SYM1, "ufsao_unipro_rx_sym1", "clk26m", 2),
->> +       GATE_UFSAO1(CLK_UFSAO_UNIPRO_SYS, "ufsao_unipro_sys", "ufs", 3),
->> +       GATE_UFSAO1(CLK_UFSAO_UNIPRO_SAP, "ufsao_unipro_sap", "clk26m", 4),
->> +       GATE_UFSAO1(CLK_UFSAO_PHY_SAP, "ufsao_phy_sap", "clk26m", 8),
->> +};
->> +
->> +static u16 ufsao_rst_ofs[] = {
->> +       MT8196_UFSAO_RST0_SET_OFFSET,
->> +       MT8196_UFSAO_RST1_SET_OFFSET
->> +};
->> +
->> +static u16 ufsao_rst_idx_map[] = {
->> +       [MT8196_UFSAO_RST0_UFS_MPHY] = 8,
->> +       [MT8196_UFSAO_RST1_UFS_UNIPRO] = 1 * RST_NR_PER_BANK + 0,
->> +       [MT8196_UFSAO_RST1_UFS_CRYPTO] = 1 * RST_NR_PER_BANK + 1,
->> +       [MT8196_UFSAO_RST1_UFSHCI] = 1 * RST_NR_PER_BANK + 2,
->> +};
->> +
->> +static const struct mtk_clk_rst_desc ufsao_rst_desc = {
->> +       .version = MTK_RST_SET_CLR,
->> +       .rst_bank_ofs = ufsao_rst_ofs,
->> +       .rst_bank_nr = ARRAY_SIZE(ufsao_rst_ofs),
->> +       .rst_idx_map = ufsao_rst_idx_map,
->> +       .rst_idx_map_nr = ARRAY_SIZE(ufsao_rst_idx_map),
->> +};
->> +
->> +static const struct mtk_clk_desc ufsao_mcd = {
->> +       .clks = ufsao_clks,
->> +       .num_clks = ARRAY_SIZE(ufsao_clks),
->> +       .rst_desc = &ufsao_rst_desc,
->> +};
->> +
->> +static const struct of_device_id of_match_clk_mt8196_ufs_ao[] = {
->> +       { .compatible = "mediatek,mt8196-ufscfg-ao", .data = &ufsao_mcd },
->> +       { /* sentinel */ }
->> +};
->> +MODULE_DEVICE_TABLE(of, of_match_clk_mt8196_ufs_ao);
->> +
->> +static struct platform_driver clk_mt8196_ufs_ao_drv = {
->> +       .probe = mtk_clk_simple_probe,
->> +       .remove = mtk_clk_simple_remove,
->> +       .driver = {
->> +               .name = "clk-mt8196-ufs-ao",
->> +               .of_match_table = of_match_clk_mt8196_ufs_ao,
->> +       },
->> +};
->> +
->> +module_platform_driver(clk_mt8196_ufs_ao_drv);
->> +MODULE_DESCRIPTION("MediaTek MT8196 ufs_ao clocks driver");
->> +MODULE_LICENSE("GPL");
->> --
->> 2.39.5
->>
 
