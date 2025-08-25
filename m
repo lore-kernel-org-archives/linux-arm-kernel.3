@@ -4,98 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 576DBCA0FE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 14:59:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59673CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 14:59:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IyZaAnO05abMqFNQPoye38pNw/RRf81HOUABNDFs+ow=; b=X2JcOtprm5vGet0EbD8YiAGqhr
-	DgXwDIWak9kU3kNEqAnYYQZJFLqPGpglWhJn9ysnq+UFHiN7uKCFQUiycWLhwmktBWbUm9q/7nLlD
-	NateXXti2VZHLvavLbiij4TxS1CEt1pM1S1HL7U9XGWJHA3FYAQX5+XxSqJXlIsGwonhh7ibSdI+d
-	7x66hbypR/oPe7z0+yJGn4rk6+9NSTTF0aBLdk+m9xjHZVuP48vMj+d5dLC9k3fd4aazHGHattwv5
-	GloyreNQDtEFfHj7oDntc1+3skzEblYNFG5b5RHqiXTykZ7Tey7SwpW8/G7ZrH0RFYQXoTXs5K7LR
-	w6Jz4YLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4EQUO9uZ0iCJ6TiGfFUQMxCSBU7gkSepVVETsOcLgjg=; b=hyaNNfYztLBdYy5rX5S2uMXPf1
+	+dWha3mvSB8aShYBaZFet4oMM0S8rMgPOnOS4TWYpNJ1PdD00n0Nt3HEj2sQI/vAwwROE1fJV6X2L
+	Yw6U/YYFh1Gdwquw8c81MBz+WivwrP/vXmoFq9FvAld9gLLNB1J4X3TraNFkjFYTT1E+Bdem6diJC
+	8vSUe/MTuoGYrmXFmsbylg4NWFKJU6HEvkoU/wK6uqZuxoOjH5io9gRIJKQXKaKc77YN5DvoHHa0p
+	vnLSinF4c2/F0OFUdRQ1IE2gFfbnkX3Ei+A4i0eDD6BMbWF8a6jKPe815SC4VXVcExF2uaqtWdm0B
+	K1HxzDsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqYf7-00000008LRC-2Giv;
-	Mon, 25 Aug 2025 14:59:09 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1uqYf9-00000008LV4-2LBW;
+	Mon, 25 Aug 2025 14:59:11 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqWf5-00000007y5V-0IiG
+	id 1uqWgU-00000007yGS-3j7T
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 12:51:01 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250825125054epoutp02c3faa36b3fbe7efcff6df19b63d9e6da~fA4YVBhuo2081820818epoutp026
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 12:50:54 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250825125054epoutp02c3faa36b3fbe7efcff6df19b63d9e6da~fA4YVBhuo2081820818epoutp026
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1756126254;
-	bh=IyZaAnO05abMqFNQPoye38pNw/RRf81HOUABNDFs+ow=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=AMh285rdmU623jHntaAR4Uc/mjZOaKCdNV28Ulz6Y8YFW4MLqPqU9eQrLry+2PA5e
-	 ful1ZrE3jAecQhBtGRFTOPZ3iCsxrDZjsbVrnFoa/JIQ4nGUsxCSoecAGP75ts7x/3
-	 3eXVslFmwYW4edJjEgHeDXPOGDpotI/AG6N10jFc=
-Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250825125053epcas5p294541daa3b844dd44558dd8ff6676e60~fA4XffRJ20205802058epcas5p2S;
-	Mon, 25 Aug 2025 12:50:53 +0000 (GMT)
-Received: from epcas5p1.samsung.com (unknown [182.195.38.88]) by
-	epsnrtp02.localdomain (Postfix) with ESMTP id 4c9Vyh1bXbz2SSKY; Mon, 25 Aug
-	2025 12:50:52 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20250825125051epcas5p4f1fd9b26b26e388fdeef403aa802c252~fA4V6hK7A1505115051epcas5p4O;
-	Mon, 25 Aug 2025 12:50:51 +0000 (GMT)
-Received: from FDSFTE196 (unknown [107.116.189.214]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250825125047epsmtip11752ab6f3c0ad6db5a0093669b0fc3db~fA4SKmAoD3254932549epsmtip1I;
-	Mon, 25 Aug 2025 12:50:47 +0000 (GMT)
-From: "Inbaraj E" <inbaraj.e@samsung.com>
-To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <mturquette@baylibre.com>,
-	<sboyd@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <s.nawrocki@samsung.com>, <s.hauer@pengutronix.de>,
-	<shawnguo@kernel.org>, <cw00.choi@samsung.com>, <rmfrfs@gmail.com>,
-	<laurent.pinchart@ideasonboard.com>, <martink@posteo.de>,
-	<mchehab@kernel.org>, <linux-fsd@tesla.com>, <will@kernel.org>,
-	<catalin.marinas@arm.com>, <pankaj.dubey@samsung.com>,
-	<shradha.t@samsung.com>, <ravi.patel@samsung.com>
-Cc: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <alim.akhtar@samsung.com>,
-	<linux-samsung-soc@vger.kernel.org>, <kernel@puri.sm>,
-	<kernel@pengutronix.de>, <festevam@gmail.com>,
-	<linux-media@vger.kernel.org>, <imx@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>
-In-Reply-To: <926e9bb2-cdde-4048-9ae2-159d088aa935@kernel.org>
-Subject: RE: [PATCH v2 03/12] dt-bindings: media: nxp: Add support for FSD
- SoC
-Date: Mon, 25 Aug 2025 18:20:46 +0530
-Message-ID: <016301dc15be$e3256300$a9702900$@samsung.com>
+	Mon, 25 Aug 2025 12:52:28 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 1D8F1A05C6;
+	Mon, 25 Aug 2025 14:52:15 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=mail; bh=4EQUO9uZ0iCJ6TiGfFUQMxCSBU7gkSepVVETsOcLgjg=; b=
+	grD7m/XeXhE5qIjaVKYgSduEHqXmqCL/nrRWDyhlz798QOa3ZmLrRujq4xvKMluh
+	uimv1LzdaPwqe77Rh2htX9RcXI5/rRJbMlMS7qwV4awdZ/LOoY5QrJ9rsZW7o1+I
+	KaEEiWXrfedJX2XjN11J1U3ysy3USshL7EggKf4/QfLLrUimIK+pLfdjI7xKtmU1
+	rJh2Urhw5qzpns5bKGSSo3pVTP1kWpEoALMuwjYnnR0mA8FR48huWhSfB3yvMUl+
+	IevPNA1QZiaOR8+D0GSgez44T6oNa9UeT1RAHhbU4Us6aYlq3EfQP8gZte2kNBud
+	afiYEINbh5qjJNhUNSKFrpYsl9HAiVZ+sv+tuQlqrc5vtAB1nU4Hn6Nge9NsurP1
+	Wr0gID6LObwDS6n5oigR/TsP0RJxlSN0P/mJnMudCwchlsRcP5oU/Ill19sZ9sWU
+	Uud66ELIy5i7W9HScqF6995lx/eprTgPRnQlw2zRlEH2kNDILsYA2N+G9oqywGvZ
+	qMa9iAqsgIYbbO4dR3gNAl8mvsf7CnsQdNTy8ReemfUZsS0SnB5nqErCyxnugsTA
+	sn6I6H5/9BUbvJpgjlJ8ydr6UzgH7GsLjiecCF4iqC9o1fKazGcf4YiPB7gVLjH6
+	vlhlbVAgjshKtzLQgN1mqxXXnfozEZpLUqZEKD5To7w=
+From: =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+Date: Mon, 25 Aug 2025 14:52:09 +0200
+Subject: [PATCH v2] ARM: dts: imx6ul-tx6ul: Switch away from deprecated
+ `phy-reset-gpios`
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQK5oFMD+tt4mLQU5V9KgVyIDaUIUQF6bLd9AsRKNAMBJ/ZVhAEp+FCyAvdCX9oBWhQiOgImNHTdsk/6UEA=
-Content-Language: en-in
-X-CMS-MailID: 20250825125051epcas5p4f1fd9b26b26e388fdeef403aa802c252
-X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-541,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250814141014epcas5p410d41ede7e8ae4f3cf8db6d041d03946
-References: <20250814140943.22531-1-inbaraj.e@samsung.com>
-	<CGME20250814141014epcas5p410d41ede7e8ae4f3cf8db6d041d03946@epcas5p4.samsung.com>
-	<20250814140943.22531-4-inbaraj.e@samsung.com>
-	<ac9769af-9ab6-4b48-9890-ec3bcda3b180@kernel.org>
-	<00d001dc136a$36ad7230$a4085690$@samsung.com>
-	<7b7f6958-3178-4c6f-8be3-f52ef77464f7@kernel.org>
-	<00d201dc136d$1fdd6bc0$5f984340$@samsung.com>
-	<926e9bb2-cdde-4048-9ae2-159d088aa935@kernel.org>
+Content-Transfer-Encoding: 8bit
+Message-ID: <20250825-b4-tx6ul-dt-phy-rst-v2-1-0d3ba9736b0e@prolan.hu>
+X-B4-Tracking: v=1; b=H4sIAHhcrGgC/32OQQ6DIBREr9Kw7m9Bi5aueo/GBQgKiQXzQaMx3
+ r3oAbp8ycyb2Ug06Ewkr8tG0MwuuuAzFNcLaa30vQGnM5OCFpw+GQf1gLRU0wA6wWhXwJigll3
+ LBJWVoDXJzRFN55bT+mkyKxkNKJS+tYcroOudv39lTAaPvHUxBVzPEzM7Wv/3ZgYMhKq4KRnXQ
+ pfvEcMg/c1OpNn3/Qf2ChcS1gAAAA==
+X-Change-ID: 20250815-b4-tx6ul-dt-phy-rst-7afc190a6907
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "Sascha
+ Hauer" <s.hauer@pengutronix.de>, Pengutronix Kernel Team
+	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
+CC: <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	"Csaba Buday" <buday.csaba@prolan.hu>, =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?=
+	<csokas.bence@prolan.hu>
+X-Mailer: b4 0.14.2
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1756126334;VERSION=7996;MC=126871935;ID=493941;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A296767155E607067
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_055059_416143_0643EAE8 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20250825_055227_395461_5AC61CC5 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,33 +88,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+The Ethernet PHY's reset GPIO should be specified in the node of the PHY
+itself, instead of the MAC (`fec`). The latter is deprecated, and was an
+i.MX-specific extension, incompatible with the new reset controller
+subsystem.
 
-> >
-> > Using tesla,syscon-csis results in a =22prefix not found=22 issue when
-> > running dtbs_check
-> Because you develop on ancient, 10 year old downstream kernel?
->=20
-> You really do not try enough and this is just wasting our time.
->=20
-> Please think and really carefully check your replies. What prefix do you =
-have
-> in compatible? This command:
-> git grep tesla, =7C wc -l
->=20
-> gives '99' results including obviously vendor prefix.
->=20
-> So your warning is basically impossible or your code is just broken.
-> Don't just ask maintainers on every little trouble you have. You must deb=
-ug
-> it. Not we.
->=20
+Co-developed-by: Csaba Buday <buday.csaba@prolan.hu>
+Signed-off-by: Csaba Buday <buday.csaba@prolan.hu>
+Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+---
+Changes in v2:
+- Remove `reset-names` that was generating warnings
+  - This is how it is already in `polytouch`
+- Also move `etnphy1`'s reset
+- Link to v1: https://lore.kernel.org/r/20250815-b4-tx6ul-dt-phy-rst-v1-1-9b65e315d9d3@prolan.hu
+---
+ arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
 
-Sorry, I made a mistake while  running dtbs_check. I'll use the tesla prefi=
-x in the next
-patchset
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
+index f053358bc9317f8447d65013a18670cb470106b2..5c7e9556b5ce823b339798ec8f1bd351afa07185 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
+@@ -246,7 +246,6 @@ &fec1 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_enet1 &pinctrl_enet1_mdio &pinctrl_etnphy0_rst>;
+ 	phy-mode = "rmii";
+-	phy-reset-gpios = <&gpio5 6 GPIO_ACTIVE_LOW>;
+ 	phy-supply = <&reg_3v3_etn>;
+ 	phy-handle = <&etnphy0>;
+ 	status = "okay";
+@@ -262,6 +261,11 @@ etnphy0: ethernet-phy@0 {
+ 			pinctrl-0 = <&pinctrl_etnphy0_int>;
+ 			interrupt-parent = <&gpio5>;
+ 			interrupts = <5 IRQ_TYPE_EDGE_FALLING>;
++			reset-gpios = <&gpio5 6 GPIO_ACTIVE_LOW>;
++			reset-assert-us = <100>;
++			reset-deassert-us = <25000>;
++			/* Energy detect sometimes causes link failures */
++			smsc,disable-energy-detect;
+ 			status = "okay";
+ 		};
+ 
+@@ -272,6 +276,9 @@ etnphy1: ethernet-phy@2 {
+ 			pinctrl-0 = <&pinctrl_etnphy1_int>;
+ 			interrupt-parent = <&gpio4>;
+ 			interrupts = <27 IRQ_TYPE_EDGE_FALLING>;
++			reset-gpios = <&gpio4 28 GPIO_ACTIVE_LOW>;
++			reset-assert-us = <100>;
++			reset-deassert-us = <25000>;
+ 			status = "okay";
+ 		};
+ 	};
+@@ -281,7 +288,6 @@ &fec2 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_enet2 &pinctrl_etnphy1_rst>;
+ 	phy-mode = "rmii";
+-	phy-reset-gpios = <&gpio4 28 GPIO_ACTIVE_LOW>;
+ 	phy-supply = <&reg_3v3_etn>;
+ 	phy-handle = <&etnphy1>;
+ 	status = "disabled";
 
-Regards,
-Inbaraj E
+---
+base-commit: 0cc53520e68bea7fb80fdc6bdf8d226d1b6a98d9
+change-id: 20250815-b4-tx6ul-dt-phy-rst-7afc190a6907
+
+Best regards,
+-- 
+Bence Csókás <csokas.bence@prolan.hu>
+
 
 
