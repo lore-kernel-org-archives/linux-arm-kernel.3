@@ -4,64 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9899ACA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 12:52:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44513CA0FE7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 12:52:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Cru0KQXdUgkdgtaf3ule6TMYGc98I0BCcQuHfuD5Og=; b=2LCTclesA58sbTwFZexwkTBChm
-	qEkNpnKC5YF+6zfibk5AGiuNh0BL5nRRo9d2cCZs+Vzxo53+XtgF2QcB+y2XZjVVXQ0yKIC3ENAeV
-	Dx2WRZOAjsc51/MXLDrmC3JfTetr8HtookOuIKIFr62BpnSuLBPtjtqqev+n1rhfp+cC78mtpC1J3
-	Ox4ISYDMlNU71v+RyJOWR4S0K31kwwflFuehGhnzUG0bVaP1MkH6yr6UpG0eyDL3hDaSfXcq2ZpXd
-	2w9tOLKfzVR2amYH6iC64UPWGyDeOFlPi/H4Ivlp+FjGMYOnhcA8mQQ7kt38GLlKwxJx3Ylr7kXvC
-	txOhbseg==;
+	bh=/fa4+ZI2ynYvAnmTSBhg899GLSJbeJtzYjuSjpeEGlo=; b=CpbhBP3D3+0RAgo+mt2E8DRtjJ
+	WeW9IJqdqjDZ3izAvK7rQZ/qBqe/ThOm8DBym8YA9Xo6HviPwN6R8qPhl9nrL0QaJnPmrmZk9SoUo
+	M4HGjY4BrI0RCc3B5xfc8UT8i9ZudAa+93TRUIxeS2tx6QTVBxXyh40kAKztuCSkRe0Zsd/tdyqkn
+	afzS5eLtW6G/dA26+vbgI+XJC8UFGk9erukaOzlHXYW3z+WYM7T9rh8trEqkmk/dPi7bQgDa9Vut7
+	dHo7f26dz6VjG55XOyYIJ4IcFdWy8ZTfCa0DhPqBJIws+YuyvIcanHVEMNPBNzG6TJIIzkUZ/Dh5y
+	9QSjE7wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqWga-00000007yKs-2qeg;
-	Mon, 25 Aug 2025 12:52:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uqWgW-00000007yHw-1XK3;
+	Mon, 25 Aug 2025 12:52:28 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqVJT-00000007jMu-3rhE
+	id 1uqUpc-00000007gQU-3zPI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 11:24:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3A53D60207;
-	Mon, 25 Aug 2025 11:24:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A13ADC4CEED;
-	Mon, 25 Aug 2025 11:24:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756121074;
-	bh=XFCAtpJ/d92BaV2RcCmleQHUp/r6mqPPDKzSnsbrl8w=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=ojMEJtVlaHdhwhg3QiH8bqRwbUWNBQRFRH5BtImPXDFnLkv5odG0KffEEct+EESFE
-	 Q0SYEmrpBSdkhcIbbvZOY303oFUEcqz6i+Xq1zGnt4YYqEhsq5LqlOzpo6XydJUmsr
-	 lZUraNH/7jNFVIQTohJu/0Xc9OHWuKoTUmhbT+sMEeRvZwUP/6LjiCxvnakdNQb2ET
-	 UXVB9Vp5YvzhlEYT0lOWjZ0N+19LJJSSLYekOcmq4fowV3dh5GyH05fyoVNxOAjogP
-	 PWzT3rdK/0hFbWUoQk1tcOf9nyuO2jsBLewpg7T697upcvAoMmOZk4GV9opPMqxCwq
-	 JdbjyVmlkAljQ==
-Date: Mon, 25 Aug 2025 12:24:25 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: "O'Griofa, Conall" <conall.ogriofa@amd.com>
-Cc: Sean Anderson <sean.anderson@linux.dev>, Anand Ashok Dumbre
- <anand.ashok.dumbre@xilinx.com>, "linux-iio@vger.kernel.org"
- <linux-iio@vger.kernel.org>, Andy Shevchenko <andy@kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "Simek,
- Michal" <michal.simek@amd.com>, "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, David Lechner
- <dlechner@baylibre.com>, Manish Narani <manish.narani@xilinx.com>, Nuno
- =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>
-Subject: Re: [PATCH] iio: xilinx-ams: Fix AMS_ALARM_THR_DIRECT_MASK
-Message-ID: <20250825122425.4c656d31@jic23-huawei>
-In-Reply-To: <MN2PR12MB4223B775F240DFD91C6131138B33A@MN2PR12MB4223.namprd12.prod.outlook.com>
-References: <20250715003058.2035656-1-sean.anderson@linux.dev>
-	<MN2PR12MB4223B775F240DFD91C6131138B33A@MN2PR12MB4223.namprd12.prod.outlook.com>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
+	Mon, 25 Aug 2025 10:53:47 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250825105340euoutp015322d13668cb6b9bb9bd2f59449f8ab3~e-SBbcf0A0149201492euoutp01l
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 10:53:40 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250825105340euoutp015322d13668cb6b9bb9bd2f59449f8ab3~e-SBbcf0A0149201492euoutp01l
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1756119220;
+	bh=/fa4+ZI2ynYvAnmTSBhg899GLSJbeJtzYjuSjpeEGlo=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=O7Cv3imsFNC7IeAXaIsQOTVSs76RWqKfhuY1jXd2FZM3Ej/vljQpDs3xEZkUN5oVS
+	 yD3dDR5BV5Iy+WZgQeEsmHuWRu5jXr5enJzwDjpRONP0YLo+IUG8+2kMY+tteupH4e
+	 6arTUTVUhfF3zVlfow0G8gUAI3YCMMvTsmHj+HwI=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250825105339eucas1p13cf980f9b7f4ba4f465f5953b97f149c~e-SA9vcu40800108001eucas1p1m;
+	Mon, 25 Aug 2025 10:53:39 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250825105337eusmtip19068233323fe8c45892597caf271a2e6~e-R-X77KD1201812018eusmtip19;
+	Mon, 25 Aug 2025 10:53:37 +0000 (GMT)
+Message-ID: <809848c9-2ffa-4743-adda-b8b714b404de@samsung.com>
+Date: Mon, 25 Aug 2025 12:53:37 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH net-next v3] net: ethernet: stmmac: dwmac-rk: Make the
+ clk_phy could be used for external phy
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>, Chaoyi Chen
+	<kernel@airkyi.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue
+	<alexandre.torgue@foss.st.com>, "Russell King (Oracle)"
+	<rmk+kernel@armlinux.org.uk>, Jonas Karlman <jonas@kwiboo.se>, David Wu
+	<david.wu@rock-chips.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <d0fe6d16-181f-4b38-9457-1099fb6419d0@rock-chips.com>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20250825105339eucas1p13cf980f9b7f4ba4f465f5953b97f149c
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20250825072312eucas1p2d4751199c0ea069c7938218be60e5e93
+X-EPHeader: CA
+X-CMS-RootMailID: 20250825072312eucas1p2d4751199c0ea069c7938218be60e5e93
+References: <20250815023515.114-1-kernel@airkyi.com>
+	<CGME20250825072312eucas1p2d4751199c0ea069c7938218be60e5e93@eucas1p2.samsung.com>
+	<a30a8c97-6b96-45ba-bad7-8a40401babc2@samsung.com>
+	<d0fe6d16-181f-4b38-9457-1099fb6419d0@rock-chips.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250825_035345_590166_C9AD976C 
+X-CRM114-Status: GOOD (  20.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,66 +94,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 20 Aug 2025 12:31:12 +0000
-"O'Griofa, Conall" <conall.ogriofa@amd.com> wrote:
+On 25.08.2025 11:57, Chaoyi Chen wrote:
+> On 8/25/2025 3:23 PM, Marek Szyprowski wrote:
+>> On 15.08.2025 04:35, Chaoyi Chen wrote:
+>>> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>>>
+>>> For external phy, clk_phy should be optional, and some external phy
+>>> need the clock input from clk_phy. This patch adds support for setting
+>>> clk_phy for external phy.
+>>>
+>>> Signed-off-by: David Wu <david.wu@rock-chips.com>
+>>> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>>> ---
+>>>
+>>> Changes in v3:
+>>> - Link to V2: 
+>>> https://lore.kernel.org/netdev/20250812012127.197-1-kernel@airkyi.com/
+>>> - Rebase to net-next/main
+>>>
+>>> Changes in v2:
+>>> - Link to V1: 
+>>> https://lore.kernel.org/netdev/20250806011405.115-1-kernel@airkyi.com/
+>>> - Remove get clock frequency from DT prop
+>>>
+>>>    drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 11 +++++++----
+>>>    1 file changed, 7 insertions(+), 4 deletions(-)
+>>>
+>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c 
+>>> b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+>>> index ac8288301994..5d921e62c2f5 100644
+>>> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+>>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+>>> @@ -1412,12 +1412,15 @@ static int rk_gmac_clk_init(struct 
+>>> plat_stmmacenet_data *plat)
+>>>            clk_set_rate(plat->stmmac_clk, 50000000);
+>>>        }
+>>>    -    if (plat->phy_node && bsp_priv->integrated_phy) {
+>>> +    if (plat->phy_node) {
+>>>            bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
+>>>            ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
+>>> -        if (ret)
+>>> -            return dev_err_probe(dev, ret, "Cannot get PHY clock\n");
+>>> -        clk_set_rate(bsp_priv->clk_phy, 50000000);
+>>> +        /* If it is not integrated_phy, clk_phy is optional */
+>>> +        if (bsp_priv->integrated_phy) {
+>>> +            if (ret)
+>>> +                return dev_err_probe(dev, ret, "Cannot get PHY 
+>>> clock\n");
+>>> +            clk_set_rate(bsp_priv->clk_phy, 50000000);
+>>> +        }
+>
+> I think  we should set bsp_priv->clk_phy to NULL here if we failed to 
+> get the clock.
+>
+> Could you try this on your board? Thank you.
 
-> Hi,
->=20
-> Good spot, thanks again!
-Applied to the fixes-togreg branch of iio.git and marked for stable.
-Thanks,
+Right, the following change also fixes this issue:
 
-Jonathan
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c 
+b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+index 9fc41207cc45..2d19d48be01f 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+@@ -1415,6 +1415,8 @@ static int rk_gmac_clk_init(struct 
+plat_stmmacenet_data *plat)
+         if (plat->phy_node) {
+                 bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
+                 ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
++               if (ret)
++                       bsp_priv->clk_phy = NULL;
+                 /* If it is not integrated_phy, clk_phy is optional */
+                 if (bsp_priv->integrated_phy) {
+                         if (ret)
 
->=20
-> Cheers,
-> Conall.
->=20
-> > -----Original Message-----
-> > From: Sean Anderson <sean.anderson@linux.dev>
-> > Sent: 15 July 2025 01:31
-> > To: Anand Ashok Dumbre <anand.ashok.dumbre@xilinx.com>; Jonathan Cameron
-> > <jic23@kernel.org>; linux-iio@vger.kernel.org
-> > Cc: Andy Shevchenko <andy@kernel.org>; linux-kernel@vger.kernel.org; Si=
-mek,
-> > Michal <michal.simek@amd.com>; linux-arm-kernel@lists.infradead.org; Da=
-vid
-> > Lechner <dlechner@baylibre.com>; Manish Narani <manish.narani@xilinx.co=
-m>;
-> > Nuno S=C3=A1 <nuno.sa@analog.com>; Sean Anderson <sean.anderson@linux.d=
-ev>
-> > Subject: [PATCH] iio: xilinx-ams: Fix AMS_ALARM_THR_DIRECT_MASK
-> >=20
-> > AMS_ALARM_THR_DIRECT_MASK should be bit 0, not bit 1. This would cause
-> > hysteresis to be enabled with a lower threshold of -28C. The temperatur=
-e alarm
-> > would never deassert even if the temperature dropped below the upper th=
-reshold.
-> >=20
-> > Fixes: d5c70627a794 ("iio: adc: Add Xilinx AMS driver")
-> > Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
-> > ---
-> >=20
-> >  drivers/iio/adc/xilinx-ams.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >=20
-> > diff --git a/drivers/iio/adc/xilinx-ams.c b/drivers/iio/adc/xilinx-ams.=
-c index
-> > 76dd0343f5f7..552190dd0e6e 100644
-> > --- a/drivers/iio/adc/xilinx-ams.c
-> > +++ b/drivers/iio/adc/xilinx-ams.c
-> > @@ -118,7 +118,7 @@
-> >  #define AMS_ALARM_THRESHOLD_OFF_10	0x10
-> >  #define AMS_ALARM_THRESHOLD_OFF_20	0x20
-> >=20
-> > -#define AMS_ALARM_THR_DIRECT_MASK	BIT(1)
-> > +#define AMS_ALARM_THR_DIRECT_MASK	BIT(0)
-> >  #define AMS_ALARM_THR_MIN		0x0000
-> >  #define AMS_ALARM_THR_MAX		(BIT(16) - 1)
-> >=20
-> > --
-> > 2.35.1.1320.gc452695387.dirty =20
->=20
-> Reviewed-by: O'Griofa, Conall <conall.ogriofa@amd.com>
+
+ > ...
+
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
 
