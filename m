@@ -4,88 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 415A5CA0FEF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5D01CA0FED
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 14:59:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ei/NeTCCzsFUiMaHhKgEEWTgoZdYOJOjSv/L+yVAyog=; b=JvXPDmVlMbRyWpGIAYbtsJidIf
-	aAsPVQ0WitWw3oYy9DPbKh1J9Sr8mglimmey7mRYkXXAzpnT2V+guyPkjZN8ZHhY5LQGAf2rpwEnA
-	GP0MYbr0E+yB/SUN7NdyaSXdSjvAjVR3qMLPPhBwRB0s91kgTEElQznisUkc6nNKkXwFBCmhNbR53
-	V44XThWPPhW+ARVyoZ5I49T2LqDyCJohZAPg63wvfcYe4qIFNRBfGMDMj+pRdftjkbtDN7lWD4IeG
-	seAILDh6beAkCgSsHdbjQum4EwxD1CBSBA9XsCllXF0PXzIjKjZ8aJKPV4AbTZ2zJJNq+oyq/8iQo
-	Sm7qV0lg==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B3ggiGG3zGwf6IwROz+KzPW9tQZQRZy1LRUC1d2oO7M=; b=VP15BlmP7DE8l0Rmyxhx64i83H
+	hKccE964qE2snEvL+5vaRC1BHPu+bKMoUasctO2Fcbc9r7PaYMlaXbA4I5B0TEWyRQigxY7RE5e4G
+	O+mY1XvQ5qU1H4DmDY5nKqJ2skdfYca8HXMsb9q/TH3VB5SHwWHzDdGywzMKgcooT09omLEjRE/KE
+	3WBlyUdrFeDoiB3/8IcmQTOn60ScQiXYT8k1558QiqHLTRRnmmGInM6w3Z3/GOkgZVjBTBEACbtOy
+	zWtQmkpYvATPzE6+D3YnUoPUYUK2Nuts9TJcrAiFPYVdbLT4bNIPG6x550hvwYU0gyNPqdn9BX+cM
+	6DYItriA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqYeo-00000008L1a-0ZgY;
-	Mon, 25 Aug 2025 14:58:50 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1uqYey-00000008LCn-1YK8;
+	Mon, 25 Aug 2025 14:59:00 +0000
+Received: from mailout1.samsung.com ([203.254.224.24])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqVyz-00000007s9T-1Oci
+	id 1uqWab-00000007xGN-1Ce0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 12:07:30 +0000
+	Mon, 25 Aug 2025 12:46:23 +0000
 Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250825120727epoutp02f958794044c67c4f2070502bbb0a72e7~fASc4jV242053620536epoutp02A
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 12:07:27 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250825120727epoutp02f958794044c67c4f2070502bbb0a72e7~fASc4jV242053620536epoutp02A
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250825124615epoutp019275e6a8912a40fdd4a29c7fe4a1cc87~fA0VOiVxH0085500855epoutp01K
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 12:46:15 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250825124615epoutp019275e6a8912a40fdd4a29c7fe4a1cc87~fA0VOiVxH0085500855epoutp01K
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1756123647;
-	bh=Ei/NeTCCzsFUiMaHhKgEEWTgoZdYOJOjSv/L+yVAyog=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=joOM4RsXPKxZJbgEAoQtFhEAU4dqLaJWtESlDxyQtJiK0hIxlwGuEKU/ol9+tn0N/
-	 oiai/2zSAwnY1pk2kD3oUyqqJbeIpG7mqRwL7mUus2piMpxLjywmwS3VWZKc7jZSzB
-	 EbFkRgUr3JId2uTs17sYSSVAyg2c+wxfuiI0QzrU=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	s=mail20170921; t=1756125975;
+	bh=B3ggiGG3zGwf6IwROz+KzPW9tQZQRZy1LRUC1d2oO7M=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=bsTLrN2fmBI3qons8febwMl4Kuo6F04Wrr59HZpCwC+XWAHKvlUECmiO5eosy6067
+	 L9iKzGVTrP0s2rKPCBIBrOPo8T4CwvYrjbED1UdLZCm6RRw/isyaO9+qLvdggTuOM7
+	 AMkoneyn0EQBttsRbgpkDEfgZL3rA/wY+au2vK/Y=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
 	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250825120726epcas5p28620320dcbcb2688312536c5ea44d50b~fAScPJ0Cn1102111021epcas5p2I;
-	Mon, 25 Aug 2025 12:07:26 +0000 (GMT)
-Received: from epcas5p2.samsung.com (unknown [182.195.38.93]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4c9V0Y75Rrz6B9m5; Mon, 25 Aug
-	2025 12:07:25 +0000 (GMT)
+	20250825124614epcas5p2ae7004efd1bd437a7c96737bb944d2df~fA0T3T3Eb0139601396epcas5p2h;
+	Mon, 25 Aug 2025 12:46:14 +0000 (GMT)
+Received: from epcas5p4.samsung.com (unknown [182.195.38.93]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4c9VsK3Nzhz3hhT4; Mon, 25 Aug
+	2025 12:46:13 +0000 (GMT)
 Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
-	20250825120725epcas5p36cdf2c4e839db307f1cc0dc81346b913~fASazDxdW2789627896epcas5p3h;
-	Mon, 25 Aug 2025 12:07:25 +0000 (GMT)
-Received: from Jaguar.samsungds.net (unknown [107.109.115.6]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250825120720epsmtip2db3d64839a45053623581dab6453fdbc~fASWRSwAH0172901729epsmtip2n;
-	Mon, 25 Aug 2025 12:07:20 +0000 (GMT)
-From: Ravi Patel <ravi.patel@samsung.com>
-To: jesper.nilsson@axis.com, mturquette@baylibre.com, sboyd@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, krzk@kernel.org,
-	s.nawrocki@samsung.com, cw00.choi@samsung.com, alim.akhtar@samsung.com,
-	linus.walleij@linaro.org, tomasz.figa@gmail.com, catalin.marinas@arm.com,
-	will@kernel.org, arnd@arndb.de
-Cc: ksk4725@coasia.com, kenkim@coasia.com, pjsin865@coasia.com,
-	gwk1013@coasia.com, hgkim05@coasia.com, mingyoungbo@coasia.com,
-	smn1196@coasia.com, pankaj.dubey@samsung.com, shradha.t@samsung.com,
-	ravi.patel@samsung.com, inbaraj.e@samsung.com, swathi.ks@samsung.com,
-	hrishikesh.d@samsung.com, dj76.yang@samsung.com, hypmean.kim@samsung.com,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@axis.com,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-gpio@vger.kernel.org, soc@lists.linux.dev
-Subject: [PATCH v3 06/10] dt-bindings: arm: Convert Axis board/soc bindings
- to json-schema
-Date: Mon, 25 Aug 2025 17:14:32 +0530
-Message-Id: <20250825114436.46882-7-ravi.patel@samsung.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20250825114436.46882-1-ravi.patel@samsung.com>
-X-CMS-MailID: 20250825120725epcas5p36cdf2c4e839db307f1cc0dc81346b913
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250825124612epcas5p1bd59a975b75029ee366a424379ad6dee~fA0SV3_FU1396413964epcas5p1g;
+	Mon, 25 Aug 2025 12:46:12 +0000 (GMT)
+Received: from FDSFTE196 (unknown [107.116.189.214]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250825124608epsmtip2bfc35ca4c6d5c979e37d4c4cca04ef7c~fA0Oi-Efs2384823848epsmtip2R;
+	Mon, 25 Aug 2025 12:46:08 +0000 (GMT)
+From: "Inbaraj E" <inbaraj.e@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <mturquette@baylibre.com>,
+	<sboyd@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <s.nawrocki@samsung.com>, <s.hauer@pengutronix.de>,
+	<shawnguo@kernel.org>, <cw00.choi@samsung.com>, <rmfrfs@gmail.com>,
+	<laurent.pinchart@ideasonboard.com>, <martink@posteo.de>,
+	<mchehab@kernel.org>, <linux-fsd@tesla.com>, <will@kernel.org>,
+	<catalin.marinas@arm.com>, <pankaj.dubey@samsung.com>,
+	<shradha.t@samsung.com>, <ravi.patel@samsung.com>
+Cc: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <alim.akhtar@samsung.com>,
+	<linux-samsung-soc@vger.kernel.org>, <kernel@puri.sm>,
+	<kernel@pengutronix.de>, <festevam@gmail.com>,
+	<linux-media@vger.kernel.org>, <imx@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>
+In-Reply-To: <4af38093-007e-4bfc-8439-0c3dc84012d8@kernel.org>
+Subject: RE: [PATCH v2 12/12] media: fsd-csis: Add support for FSD CSIS DMA
+Date: Mon, 25 Aug 2025 18:16:07 +0530
+Message-ID: <016201dc15be$3d032ca0$b70985e0$@samsung.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQK5oFMD+tt4mLQU5V9KgVyIDaUIUQLOIzgLAmiUCqAC0LEeUQJu3YaUAdjFWtWyVbegcA==
+Content-Language: en-in
+X-CMS-MailID: 20250825124612epcas5p1bd59a975b75029ee366a424379ad6dee
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 CMS-TYPE: 105P
 cpgsPolicy: CPGSC10-541,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250825120725epcas5p36cdf2c4e839db307f1cc0dc81346b913
-References: <20250825114436.46882-1-ravi.patel@samsung.com>
-	<CGME20250825120725epcas5p36cdf2c4e839db307f1cc0dc81346b913@epcas5p3.samsung.com>
+X-CMS-RootMailID: 20250814141103epcas5p14516cbe45c21d28ba9e231da99940aa1
+References: <20250814140943.22531-1-inbaraj.e@samsung.com>
+	<CGME20250814141103epcas5p14516cbe45c21d28ba9e231da99940aa1@epcas5p1.samsung.com>
+	<20250814140943.22531-13-inbaraj.e@samsung.com>
+	<b1f59033-12d0-4395-85f1-e296a5dbca5f@kernel.org>
+	<00e301dc1424$033ed5a0$09bc80e0$@samsung.com>
+	<4af38093-007e-4bfc-8439-0c3dc84012d8@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_050729_694772_A4684073 
-X-CRM114-Status: GOOD (  13.70  )
+X-CRM114-CacheID: sfid-20250825_054621_633296_6668776C 
+X-CRM114-Status: GOOD (  24.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,75 +107,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert Axis SoC bindings to DT schema format using json-schema.
-Existing bindings supports ARTPEC-6 SoC and board.
 
-Signed-off-by: SungMin Park <smn1196@coasia.com>
-Signed-off-by: SeonGu Kang <ksk4725@coasia.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
----
- .../devicetree/bindings/arm/axis.txt          | 13 ---------
- .../devicetree/bindings/arm/axis.yaml         | 29 +++++++++++++++++++
- 2 files changed, 29 insertions(+), 13 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/arm/axis.txt
- create mode 100644 Documentation/devicetree/bindings/arm/axis.yaml
+Hi Krzysztof,
 
-diff --git a/Documentation/devicetree/bindings/arm/axis.txt b/Documentation/devicetree/bindings/arm/axis.txt
-deleted file mode 100644
-index ebd33a88776f..000000000000
---- a/Documentation/devicetree/bindings/arm/axis.txt
-+++ /dev/null
-@@ -1,13 +0,0 @@
--Axis Communications AB
--ARTPEC series SoC Device Tree Bindings
--
--ARTPEC-6 ARM SoC
--================
--
--Required root node properties:
--- compatible = "axis,artpec6";
--
--ARTPEC-6 Development board:
-----------------------------
--Required root node properties:
--- compatible = "axis,artpec6-dev-board", "axis,artpec6";
-diff --git a/Documentation/devicetree/bindings/arm/axis.yaml b/Documentation/devicetree/bindings/arm/axis.yaml
-new file mode 100644
-index 000000000000..f9c218dc6883
---- /dev/null
-+++ b/Documentation/devicetree/bindings/arm/axis.yaml
-@@ -0,0 +1,29 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/arm/axis.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Axis ARTPEC platforms
-+
-+maintainers:
-+  - Jesper Nilsson <jesper.nilsson@axis.com>
-+  - linux-arm-kernel@axis.com
-+
-+description: |
-+  ARM platforms using SoCs designed by Axis branded as "ARTPEC".
-+
-+properties:
-+  $nodename:
-+    const: '/'
-+  compatible:
-+    oneOf:
-+      - description: Axis ARTPEC-6 SoC board
-+        items:
-+          - enum:
-+              - axis,artpec6-dev-board
-+          - const: axis,artpec6
-+
-+additionalProperties: true
-+
-+...
--- 
-2.49.0
+> >> Even more questions why?
+> >
+> > If CONFIG_PM is enabled, the clocks are enabled manually in the driver
+> > through fsd_csis_runtime_resume API.
+> >
+> > If CONFIG_PM is enabled, the clocks are managed through the PM runtime
+> > framework.
+> >
+> > Can you please help me understand what wrong here?
+>=20
+> I think I see such code for the first time, so wrong is doing something
+> common in completely unusual way.
+>=20
+
+Driver should ensure a device can be also used normally when runtime
+PM is disabled. So enabling clocks manually in probe, if CONFIG_PM is
+disabled.
+
+A Couple of other drivers also doing it in same way
+drivers/media/platform/nxp/imx-mipi-csis.c and=20
+drivers/media/platform/samsung/exynos4-is/fimc-core.c
+
+> >
+> > I'll fix in next patchset.
+> >
+> >>> +
+> >>> +	ret =3D fsd_csis_async_register(csis);
+> >>> +	if (ret)
+> >>> +		goto err_media_cleanup;
+> >>> +
+> >>> +	return 0;
+> >>> +
+> >>> +err_media_cleanup:
+> >>> +	fsd_csis_media_cleanup(csis);
+> >>
+> >> Also this...
+> >>
+> >
+> > if fsd_csis_media_init fails, the cleanup is handled internally.
+>=20
+> What does it mean internally?
+
+I mean that in case fsd_csis_media_init fails, the cleanup of resources is =
+handled
+Within the same function itself.
+
+>=20
+> > Here, cleanup is used only for fsd_csis_async_register failure.
+> >
+> > can you please help me understand what is wrong here?
+>=20
+> Yeah, you leak clock resources.
+
+I'll fix in next patchset
+
+Regards,
+Inbaraj E
 
 
