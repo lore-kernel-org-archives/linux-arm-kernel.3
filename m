@@ -4,71 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AE53CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 03:56:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB8F5CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 03:59:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1pcrLohvrD/CJTUV8ZAH7m4b1jxNWxv5+mBvbFEvHjQ=; b=jG/PQeCAJEOxJaa8ap9mlrWerR
-	st+L9AttvP4SJOPvG95Pc7ftlp5P7FeGNrmjCF5EonqpflbWTR+/a9cLHScfGsejOqIya+mOANQ5S
-	sFuvVkxmebH75ma/o04UxGI7yExTE3QgZPLgYsJB28exWQUXMhqjY3O/GjVPHYvJ/DXxnos5isyfG
-	XUIkxDcc9tNb9MTAPNcyo0eshE1H/ygKaEF41FAM2DveztraAOg2iUos9L0g/5pVqDrZ4zL12NT2k
-	oG/xW4hIttH65s2tL/G5MRT0BfIUlimnEcAMnrVqAB1PoPj7zSjwJQ1bfHLnXp4m011f6MhuNbfdg
-	lSrDN5VA==;
+	bh=6Jla5beV2t2z5D0nAWo+a0ebiE0Ok8ugNH6Zp9HBN34=; b=jsOBpLgDrrR/sWIqqx8+PQXM5K
+	oqC3jkxqdQqOuLzRUf0w8kKofBg/fq78+fSpCaiFl7Uob57CZ0T07c/ledfgaUHq005aZf9oU7the
+	NOKo8slg7wTKzdaOqh7R8ZhdG1b4pLir0w2r+lKwS6m8Fz/tZy7yhMNoiQ7JM67Li9KSrHBPTnbOC
+	TK93ek+MwIdBI96GCzvAzJJPg1E//Zvkj/NEYywYND6fDPr2t5MNKY2ZSc9C66OmJV2UaU0jv28UU
+	0PBKE/trx8TbfU3zarF/4joYYzwA5fvJwgBHUnZqiG/8RRYjzGhk5E2m9siZgRGOJHMkMR4cdwbtL
+	u5/07o5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqOK8-00000006qpq-3eoy;
-	Mon, 25 Aug 2025 03:56:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqNyl-00000006olI-3wDo
+	id 1uqOMn-00000006r5h-2nAX;
+	Mon, 25 Aug 2025 03:59:33 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uqOI0-00000006qdw-3bDp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 03:34:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E632A15A1;
-	Sun, 24 Aug 2025 20:34:34 -0700 (PDT)
-Received: from u200865.usa.arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0F7043F63F;
-	Sun, 24 Aug 2025 20:34:42 -0700 (PDT)
-From: Jeremy Linton <jeremy.linton@arm.com>
-To: linux-trace-kernel@vger.kernel.org
-Cc: linux-perf-users@vger.kernel.org,
-	mhiramat@kernel.org,
-	oleg@redhat.com,
-	peterz@infradead.org,
-	mingo@redhat.com,
-	acme@kernel.org,
-	namhyung@kernel.org,
-	mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org,
-	irogers@google.com,
-	adrian.hunter@intel.com,
-	kan.liang@linux.intel.com,
-	thiago.bauermann@linaro.org,
-	broonie@kernel.org,
-	yury.khrustalev@arm.com,
-	kristina.martsenko@arm.com,
-	liaochang1@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jeremy Linton <jeremy.linton@arm.com>
-Subject: [PATCH v7 7/7] uprobes: uprobe_warn should use passed task
-Date: Sun, 24 Aug 2025 22:34:21 -0500
-Message-ID: <20250825033421.463669-8-jeremy.linton@arm.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250825033421.463669-1-jeremy.linton@arm.com>
-References: <20250825033421.463669-1-jeremy.linton@arm.com>
+	Mon, 25 Aug 2025 03:54:38 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.252])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4c9GzY0NZ2z13NG3;
+	Mon, 25 Aug 2025 11:50:49 +0800 (CST)
+Received: from kwepemk200017.china.huawei.com (unknown [7.202.194.83])
+	by mail.maildlp.com (Postfix) with ESMTPS id 6DD6C180B58;
+	Mon, 25 Aug 2025 11:54:28 +0800 (CST)
+Received: from [10.174.178.219] (10.174.178.219) by
+ kwepemk200017.china.huawei.com (7.202.194.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 25 Aug 2025 11:54:27 +0800
+Subject: Re: [PATCH v2 2/3] irqchip/gic-v5: Fix forever loop in
+ gicv5_its_create_itt_two_level() error handling
+To: Dan Carpenter <dan.carpenter@linaro.org>
+CC: Lorenzo Pieralisi <lpieralisi@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Timothy Hayes <timothy.hayes@arm.com>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <cover.1752777667.git.dan.carpenter@linaro.org>
+ <a6dd885a-5a1b-41b5-9673-0d42f7fa929d@sabinyo.mountain>
+From: Zenghui Yu <yuzenghui@huawei.com>
+Message-ID: <e360d42c-bd83-0cb9-7298-86e197668508@huawei.com>
+Date: Mon, 25 Aug 2025 11:54:27 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.12.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <a6dd885a-5a1b-41b5-9673-0d42f7fa929d@sabinyo.mountain>
+Content-Type: text/plain; charset="utf-8"
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.174.178.219]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemk200017.china.huawei.com (7.202.194.83)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_203444_011145_269B8580 
-X-CRM114-Status: GOOD (  10.53  )
+X-CRM114-CacheID: sfid-20250824_205437_060144_7FA9895F 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,33 +76,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-uprobe_warn() is passed a task structure, yet its using current. For
-the most part this shouldn't matter, but since a task structure is
-provided, lets use it.
+On 2025/7/18 2:45, Dan Carpenter wrote:
+> The "i" variable needs to be signed otherwise there is a forever loop
+> in the cleanup code.
+> 
+> Fixes: 57d72196dfc8 ("irqchip/gic-v5: Add GICv5 ITS support")
+> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+> ---
+> v2: no change
+> 
+>  drivers/irqchip/irq-gic-v5-its.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 
-Fixes: 248d3a7b2f10 ("uprobes: Change uprobe_copy_process() to dup return_instances")
-Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-Acked-by: Oleg Nesterov <oleg@redhat.com>
-Acked-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
----
- kernel/events/uprobes.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/kernel/events/uprobes.c b/kernel/events/uprobes.c
-index 7ca1940607bd..4b97d16f731c 100644
---- a/kernel/events/uprobes.c
-+++ b/kernel/events/uprobes.c
-@@ -121,7 +121,7 @@ struct xol_area {
- 
- static void uprobe_warn(struct task_struct *t, const char *msg)
- {
--	pr_warn("uprobe: %s:%d failed to %s\n", current->comm, current->pid, msg);
-+	pr_warn("uprobe: %s:%d failed to %s\n", t->comm, t->pid, msg);
- }
- 
- /*
--- 
-2.50.1
-
+Reviewed-by: Zenghui Yu <yuzenghui@huawei.com>
 
