@@ -4,114 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51E4BCA0FE7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 18:34:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97FA3CA0FE7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 18:37:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zWiX+6VTPBW9oMyyTDAuGR0ExNJ3ZNdezl4Ijz6qJzY=; b=AbJgCTUoN7F+eQ6VgeLjoWr+dg
-	R8DUuVqNBeHnrZhKI/OgqInclm8QhdIGORgpUNarnCwCzaytd/TTkxxjkY80HlSAOAZLCWvV5HrT6
-	O8wK4kaId6Qpuhgu5Aj0YuYveD3yji+YH+LeEZWpIAT27N2QUNYhUxWJSzKRDH6cbS0qg0eqcFx3r
-	gH6R7xE5BfvLrbS4HjTcnstkOXFq8x7P38RP+efN/GIXtcQvSo6QabEkj/Bh1hcjxd2jkScrkRMd3
-	M9ZpNIm5lzmOal8nz28aZzu/xYf5MzqSA9Gm0IH4VyaLwVK7xgaJvIZD3r/4kqo0SxDYd0Y4SWR7i
-	qoHap/Lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bluti57k39MttADONVHVsAxBvXyqb5R7ZWo2ok70EgM=; b=u1jsUv0P29GImo+tPWvxirl0sF
+	Oc2yPggnmHThBjgIJH/rTxzosZbZ4HDsvRqCtwBireRAGusUzndte7qoS7BTZLGbtAboqcm0fkhyE
+	DJM3H3Mj/j6HZJpyYvtARPpz7+2DAhDw8c4TVmPw2fd24Y/2ufmyO+h6mHsHMwOZIrCpJPttXMNei
+	Ann2t+YXhTwlOUOP4J9j0yWR/rdUx/dzgWTW+o0tAJybISM2iHtQtiYTHRspkO34W1UJoHgGAlYO0
+	8dTN+FUy9Em+1+ggjzWRGyhgDITA6Rc7e2xIv13r3olAjv88IPxkPLXsXZNfWV7wYCq+iqu0xpUZi
+	4rHHVe5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqc1M-000000091iY-1i9m;
-	Mon, 25 Aug 2025 18:34:20 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uqc46-000000092yk-0LYq;
+	Mon, 25 Aug 2025 18:37:10 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqbyb-000000090BX-3Nj1
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 25 Aug 2025 18:31:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=zWiX+6VTPBW9oMyyTDAuGR0ExNJ3ZNdezl4Ijz6qJzY=; b=VkTR86BJcbuznv8ukhsg8lmxk8
-	YAY8fhZ9MmxC6F89YDQXw+gqYoS/H64JtPpFZLitcu4VbdDvDA8qSqA3UK4ruUJaAp+RHYs51XOKd
-	Zn8P9W5/Ih76kEyP/6tIl/pToObq/rsWVeZUhPkZxJ6/5yrkzAJnTW3aw+0JfXa1GK7oeIdjDWsnE
-	8PMy8wsg/yN0qsvEIql7pED45MC+RoHsAXVqML9w93QFASrSgSBMYZh2ciRjpNujHKLRHk/gP19E3
-	/98NKDoq3Xmura+bRJkKN8tsFPbrBXhNsSPsb5e12ozF4aZFxwwd5jv/OjrPnJwqzzD+XoJq3ekCa
-	FNLk4AHg==;
-Received: from mail-qk1-x72b.google.com ([2607:f8b0:4864:20::72b])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqbyY-00000001zwu-1pFQ
+	id 1uqbzh-000000090PV-3FlC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 18:31:28 +0000
-Received: by mail-qk1-x72b.google.com with SMTP id af79cd13be357-7e8704b7a3dso510950285a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 11:31:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1756146684; x=1756751484; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=zWiX+6VTPBW9oMyyTDAuGR0ExNJ3ZNdezl4Ijz6qJzY=;
-        b=UZ5g9RjZXHOC0azysMCqywxsugPh3JZbxXi/NK9M55+mXgq4ZTWWKXFCxY+U63coTs
-         WJpaDbBE5/x2MwvDHAYc+Q5rUEunX0maXlYv5MgQi4ckFebnrtsRCr392TtxA3dKpRxk
-         cVOyc6SZNkyeZGIBVVvh3wKFFh2ZgL7bXxFefWvbqBkP29hPhJiw4aWd50jSc4znlbsA
-         a9lTYHfsrhRbWRgBVTLwcOiFhOEy8tcX6IQqfflTL2YA+sj2SUqa/ZnDiYRvR46aeNbp
-         ffwxiEe+gtNNNqd1BEXTfcFWZvvRVvCsnzFCNyBy8Yz8oZSgaSQinmEdy28eRoTPuNKE
-         /6eQ==
+	Mon, 25 Aug 2025 18:32:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756146756;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=bluti57k39MttADONVHVsAxBvXyqb5R7ZWo2ok70EgM=;
+	b=QaLwgUM67P0pBnaSlF9vPnbSSsU1jQ5fdcdb836XP332LaK56RqlzQ0LdHEXkMzIiwfdmA
+	J20fW4Qj+4j2DKlTPDDhqd7SFkzXCCD7UPwrTttYN6gmDuEcZnTOuHoK/5kiPSiEgxCRlz
+	ayUbNNmjYi6wd8c2NXkTC3Op0q2JugM=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-425-MaD20n01OoOoqEMjmf9fSA-1; Mon, 25 Aug 2025 14:32:33 -0400
+X-MC-Unique: MaD20n01OoOoqEMjmf9fSA-1
+X-Mimecast-MFC-AGG-ID: MaD20n01OoOoqEMjmf9fSA_1756146752
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-45a1b0ccb6cso23633605e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 11:32:33 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756146684; x=1756751484;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zWiX+6VTPBW9oMyyTDAuGR0ExNJ3ZNdezl4Ijz6qJzY=;
-        b=i+WlS9WSXK9S+WUk/wM7XRmYu7o7j2L0jWtPgO9Fy5rQ29flqw684CF2zxbbkuQUeL
-         v8A1yxvJKMpe85+l0uhMoxXbFbL69Jy6UDt0+NFN4pKJBfhku5QTC0hBIy/gJQpLhjnx
-         gIyPMLMV2Hvyx/riiOI+999JS54peS4/5buVIHqZ+XurGjs0ObdLEud+l2YaKphjbKAy
-         6ocPYZdj+gfh240JosIwdYQ7GzNNYA8QfeomFpCa2st+bAzkdkgnLcu4lyrxpJTkn/mk
-         7FHAhHyz1LcDa8qPMtf2AqqpdJspgyx2ebJApXo6pfQbvUjq+1VM8ZsSSqbLT4l48Cgu
-         evqQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVxI9sKXaedEiAnR6HLgSDeoil6MqXm1Z57r7eu1FNlGlwXNQ4D3o17XWtIFOPuy3Skgv014veld5hwwTpke/7Z@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCiQGNk5pPIRleNh+78tenrsNzhnaNhi62U1Rgmf8lhwOkKyT6
-	lRXKfDZBKlignNDc0YWQn8ImB1ZmKV1p+Si+2FT+pgJwo4hQZv6s6xvkgikH9/zLIfQ=
-X-Gm-Gg: ASbGncvkcXe1W4+5Zx9/egCW3dLdbv9zLG3mtccZoGrV+ySdXnIopcq7hbTnU2Adwy2
-	lfX8YeKNruK3jBtUrK0DYa4MVmML/NXrfz/tegkhnLtxJ5Y6mMKTn9PkWIpLKNCkUA1mXy5pIJV
-	0h6y9KGFpuofVK9kc4WtvrtX8QQTkpgl4eIrJgAxzK/A4SRFHCDHXbQIimZDJ46vv+NKximNoG9
-	Wf7UWFqn9Ug6tO2AALux6jXT8tJIf4ykh/fcjLxDoIBUib1jQ/eO5lJcrpTnqaYOWP1IRKDWo5i
-	mPFY0Pwey/2heqeROYVJMqondE+Kl/x3Yw0K+sgq7Z5SZOnNMEgZ4vqKg+nlDJxeCghgLWoF38Z
-	OIAJcwa+WTij8RksrichCbGsikvY3vqGeRIeW3YBOICkW6oSLfRcFfCIgfDEEkJ9NOfe+
-X-Google-Smtp-Source: AGHT+IGrrqtb5FLiQ6yBv5bSbXionDmSOOeGsus0fmtyrIvrknH2Q5meU+RUaqrB7rQ0ZREIDsRXNA==
-X-Received: by 2002:a05:620a:1726:b0:7e9:f820:2b95 with SMTP id af79cd13be357-7ea110baa0emr1337281385a.86.1756146683666;
-        Mon, 25 Aug 2025 11:31:23 -0700 (PDT)
-Received: from ziepe.ca (hlfxns017vw-47-55-120-4.dhcp-dynamic.fibreop.ns.bellaliant.net. [47.55.120.4])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4b2b8c631b8sm57949871cf.3.2025.08.25.11.31.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 25 Aug 2025 11:31:23 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1uqbyU-00000008lWr-2NRj;
-	Mon, 25 Aug 2025 15:31:22 -0300
-Date: Mon, 25 Aug 2025 15:31:22 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Cc: Benjamin Gaignard <benjamin.gaignard@collabora.com>, joro@8bytes.org,
-	will@kernel.org, robin.murphy@arm.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
-	p.zabel@pengutronix.de, mchehab@kernel.org, iommu@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, kernel@collabora.com,
-	linux-media@vger.kernel.org
-Subject: Re: [PATCH v7 4/6] media: verisilicon: AV1: Restore IOMMU context
- before decoding a frame
-Message-ID: <20250825183122.GB1899851@ziepe.ca>
-References: <20250825153450.150071-1-benjamin.gaignard@collabora.com>
- <20250825153450.150071-5-benjamin.gaignard@collabora.com>
- <20250825170531.GA1899851@ziepe.ca>
- <01c327e8353bb5b986ef6fb1e7311437659aea4a.camel@collabora.com>
+        d=1e100.net; s=20230601; t=1756146752; x=1756751552;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=bluti57k39MttADONVHVsAxBvXyqb5R7ZWo2ok70EgM=;
+        b=Jc1dnml9t/Vbbxhc0WrI8c8aPUeqZ0iqVQsNwCYWCgeeqxttCfjzNiYNTvpt5n69Vz
+         dolQqWYcASw/6Ts2ZFanzKZOJBI6cUhUNUC2Y44Q61bj4Qm7++Wjm4l5o+f5DbY1caVt
+         mJSisMidfsWTqsuUzasKJHksf/TYQlZzv55M/91FQAW1Cu0FcP4qbX7NkQu0AGc1uhcO
+         mNCNRzuSvJKf5UzEuX2vobEGT/Q0OapVm6ss/mf/iBZxGNGPH909shpmLfTPLpxEzvbh
+         oBRdVakzDZR72qThLK4SjeTT4ZL9GpP6cNvEYtx4LHH8LwF2C1ALSS6Pw9OfjCFOBX3p
+         rLNg==
+X-Forwarded-Encrypted: i=1; AJvYcCVjcBWA9b4WIwsUpbN/deYcSfWY5dtHGO/XVNsOBrsQMCM3jEJ9sqbltL1OkMoCdXTR/Bie2PrBwDpZhbmnOgsE@lists.infradead.org
+X-Gm-Message-State: AOJu0YyW1Nw4sUJ7UwZZ1bw0cOIUsfk1orIfhZIgm2I12H49IL44id4S
+	5b3XQBtS7UMyKck4vBYmwlPJnyyVPkxgXh1rzi5vjc6ZKv4SHsJqEmbQTH+ADBhktLBaTqP8HD2
+	J85mMPXDczQ9Ao8zzqsdMUCXjsD7t5565RraJ9VdbGbYAhjrbOqlwA4ZiHPEnJmkGEnJkEStw76
+	Kr
+X-Gm-Gg: ASbGnctYJ18Bbz5Qmw3ljStaBLvrZdk2t9wCJYqY54YEWc/O9fsXdbkgrJkXzcU7IBb
+	SL8sI293s62tPxsdVFDiq0cY4cEXbrJBiqme/Se877119SLxVUyKqKhwrwpBCIFXTzWwxAcYAE/
+	SOGdzTivPqxgHG1Kuecvn3zcVyZ3fFid5KG//xnViQz68v/aLwSAekCFEAPLx1Aotkpuu0R92pe
+	x/2G7+BjiqopWwG7PJyvfGJEOBMsDg0A0w7W1JnXiVPNenv8B34alHuVEafdMS6JkkVQ2baSiqC
+	hpBUdgjkwsFYFOIaUMGMs2mXFIJxjnRUXnkeYm9kx59Q9AJGHN2xcgdguFCO4r/olOzc8upx79A
+	0MTxXZa2MkaZhN5pj0pCYUWa9zVBnXzZHg8WYYy89e6UQ2tdTAfgCIjmrXrnYD/ymeoU=
+X-Received: by 2002:a05:600c:4e90:b0:458:a559:a693 with SMTP id 5b1f17b1804b1-45b517b957emr126710525e9.18.1756146752225;
+        Mon, 25 Aug 2025 11:32:32 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFxuQzAylX90vNEmmjxyPSaWFpv8tCbOTWCm8WazHqaDOnMAPM4HK8CKvM3oYkR/BEIZaOMIA==
+X-Received: by 2002:a05:600c:4e90:b0:458:a559:a693 with SMTP id 5b1f17b1804b1-45b517b957emr126710235e9.18.1756146751795;
+        Mon, 25 Aug 2025 11:32:31 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f4f:1300:42f1:98e5:ddf8:3a76? (p200300d82f4f130042f198e5ddf83a76.dip0.t-ipconnect.de. [2003:d8:2f4f:1300:42f1:98e5:ddf8:3a76])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3c7119c4200sm12481975f8f.53.2025.08.25.11.32.28
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 25 Aug 2025 11:32:31 -0700 (PDT)
+Message-ID: <7ffd0abd-27a1-40a8-b538-9a01e21abb29@redhat.com>
+Date: Mon, 25 Aug 2025 20:32:27 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <01c327e8353bb5b986ef6fb1e7311437659aea4a.camel@collabora.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: update kernel-doc for MEMBLOCK_RSRV_NOINIT
+To: Mike Rapoport <rppt@kernel.org>
+Cc: =?UTF-8?Q?Mika_Penttil=C3=A4?= <mpenttil@redhat.com>,
+ linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
+ Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
+ dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+ iommu@lists.linux.dev, io-uring@vger.kernel.org,
+ Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
+ Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
+ kasan-dev@googlegroups.com, kvm@vger.kernel.org,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
+ linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+ linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-scsi@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Marco Elver <elver@google.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+ netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
+ Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
+ Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
+ virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
+ wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
+References: <9156d191-9ec4-4422-bae9-2e8ce66f9d5e@redhat.com>
+ <7077e09f-6ce9-43ba-8f87-47a290680141@redhat.com>
+ <aKmDBobyvEX7ZUWL@kernel.org>
+ <a90cf9a3-d662-4239-ad54-7ea917c802a5@redhat.com>
+ <aKxz9HLQTflFNYEu@kernel.org>
+ <a72080b4-5156-4add-ac7c-1160b44e0dfe@redhat.com>
+ <aKx6SlYrj_hiPXBB@kernel.org>
+ <f8140a17-c4ec-489b-b314-d45abe48bf36@redhat.com>
+ <aKyMfvWe8JetkbRL@kernel.org>
+ <dbd2ec55-0e7f-407a-a8bd-e1ac83ac2a0a@redhat.com>
+ <aKyWIriZ1bmnIrBW@kernel.org>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <aKyWIriZ1bmnIrBW@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: jZSp_rAX6ptoPO_6ByUQhb5BxvIQOJChAgAgG7IV8AI_1756146752
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_193126_734215_A7C12522 
-X-CRM114-Status: GOOD (  14.88  )
+X-CRM114-CacheID: sfid-20250825_113237_897784_A5A889D5 
+X-CRM114-Status: GOOD (  22.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,47 +188,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 25, 2025 at 01:50:16PM -0400, Nicolas Dufresne wrote:
+On 25.08.25 18:58, Mike Rapoport wrote:
+> On Mon, Aug 25, 2025 at 06:23:48PM +0200, David Hildenbrand wrote:
+>>
+>> I don't quite understand the interaction with PG_Reserved and why anybody
+>> using this function should care.
+>>
+>> So maybe you can rephrase in a way that is easier to digest, and rather
+>> focuses on what callers of this function are supposed to do vs. have the
+>> liberty of not doing?
+> 
+> How about
+>   
+> diff --git a/include/linux/memblock.h b/include/linux/memblock.h
+> index b96746376e17..fcda8481de9a 100644
+> --- a/include/linux/memblock.h
+> +++ b/include/linux/memblock.h
+> @@ -40,8 +40,9 @@ extern unsigned long long max_possible_pfn;
+>    * via a driver, and never indicated in the firmware-provided memory map as
+>    * system RAM. This corresponds to IORESOURCE_SYSRAM_DRIVER_MANAGED in the
+>    * kernel resource tree.
+> - * @MEMBLOCK_RSRV_NOINIT: memory region for which struct pages are
+> - * not initialized (only for reserved regions).
+> + * @MEMBLOCK_RSRV_NOINIT: reserved memory region for which struct pages are not
+> + * fully initialized. Users of this flag are responsible to properly initialize
+> + * struct pages of this region
+>    * @MEMBLOCK_RSRV_KERN: memory region that is reserved for kernel use,
+>    * either explictitly with memblock_reserve_kern() or via memblock
+>    * allocation APIs. All memblock allocations set this flag.
+> diff --git a/mm/memblock.c b/mm/memblock.c
+> index 154f1d73b61f..46b411fb3630 100644
+> --- a/mm/memblock.c
+> +++ b/mm/memblock.c
+> @@ -1091,13 +1091,20 @@ int __init_memblock memblock_clear_nomap(phys_addr_t base, phys_addr_t size)
+>   
+>   /**
+>    * memblock_reserved_mark_noinit - Mark a reserved memory region with flag
+> - * MEMBLOCK_RSRV_NOINIT which results in the struct pages not being initialized
+> - * for this region.
+> + * MEMBLOCK_RSRV_NOINIT
+> + *
+>    * @base: the base phys addr of the region
+>    * @size: the size of the region
+>    *
+> - * struct pages will not be initialized for reserved memory regions marked with
+> - * %MEMBLOCK_RSRV_NOINIT.
+> + * The struct pages for the reserved regions marked %MEMBLOCK_RSRV_NOINIT will
+> + * not be fully initialized to allow the caller optimize their initialization.
+> + *
+> + * When %CONFIG_DEFERRED_STRUCT_PAGE_INIT is enabled, setting this flag
+> + * completely bypasses the initialization of struct pages for such region.
+> + *
+> + * When %CONFIG_DEFERRED_STRUCT_PAGE_INIT is disabled, struct pages in this
+> + * region will be initialized with default values but won't be marked as
+> + * reserved.
 
-> Jason, the point is that the iommu and the VPU are not separate devices, which
-> comes with side effects. On RKVDec side, the iommu configuration get resets
-> whenever a decoding error leads to a VPU "self reset". I can't remember who from
-> the iommu subsystem suggested that, but the empty domain method was agreed to be
+Sounds good.
 
-IDK, that seems really goofy too me an defiantly needs to be
-extensively documented this is restoring the default with some lore
-link of the original suggestion.
+I am surprised regarding "reserved", but I guess that's because we don't 
+end up calling "reserve_bootmem_region()" on these regions in 
+memmap_init_reserved_pages().
 
-> the least invasive way to workaround that issue. I believe Detlev tried multiple
-> time to add APIs for that before the discussion lead to this path.
 
-You mean this:
+-- 
+Cheers
 
-https://lore.kernel.org/linux-iommu/20250318152049.14781-1-detlev.casanova@collabora.com/
+David / dhildenb
 
-Which came back with the same remark I would give:
-
- Please have some kind of proper reset notifier mechanism - in fact
- with runtime PM could you not already invoke a suspend/resume cycle
- via the device links?
-
-Or another reasonable option:
-
-  Or at worst just export a public interface for the other driver to
-  invoke rk_iommu_resume() directly.
-
-Sigh.
-
-> Benjamin, please improve the naming, comment and description, I agree with Jason
-> its not completely clear. I'm also surprised that you do that every frame, seems
-> excessive.
-
-Indeed if it is just error recovery.
-
-> [0] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ff8c5622f9f7c644e995d013af320b59e4d61b93
-
-This is already merged? And now you want two copies of this? I think
-this is a very poor direction..
-
-Jason
 
