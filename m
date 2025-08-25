@@ -4,74 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73D35CA0FEB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 11:28:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 771AACA0FE1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 11:28:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SvpsnnKSxT2F7HCJH8+1BYgotbi9PPcVO1YjvoQk68U=; b=Mwu1+dZMD7InDoFd9sk/SQ+GVU
-	DKdHfi7h/fFWyGo90omnuKcDYxYrbG7666ucfry6z8bLxbhkLQk9JDLFlzKHkv2v9GvCi3zcu9ged
-	bih7zsh/O/M4GO1onkXcimCjZnX9DyTCHfyVWmnGmQ6HcVTHrLaLNgf/dJtFU+Zi3abhJ26CSQrAC
-	jL0j/Qz71zKvxxTJkg7lZxUmkP4sAhVhFmwmhBu8lEnP0iu+TJ7QCwqQpp3sE7ewPrL3Oiw4bYho4
-	n1mEBRop3eHsAUYbWw2kAjZgz137nlbCDuXsqtIOKtaLYt7HRjAgza+u+3Ry2lqvuyR7O0T5J0Nll
-	Tp8ok7XA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+4yXWiX6K2isw9x/YNqdhJMYYh5eNkqXU3l1cDLonN4=; b=enCG6rkxYyz3S/4tRZxhmcHulI
+	HLbKIJpIOEGFIzPX0lHlxMR5/Sj75ZtnkKUHMST1sJHU0QCfkiYQpooW3ZlAtBzBbagfAclEs6hV8
+	JbhvFjVKXwHMHK+AiH+CSr0jHBRmci9JbGxMxAFowx7rj3hWlKlSvw87dC1P5pukBiOqX/sOMqjSC
+	K1a8sfAwweolPUBPok49eqdiptBySPhlAMzc/0Ty9orlqut4RMyih3qLabwwKSuNMlUG8rLo1HkS2
+	a2OryjvDlv6heDO3vYX174tuz72ynWgTTygJmNVc+D1QgxRU8Zqv0JfecnUYdgs98+ZbELbhitPz1
+	hnq+L5Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqVN4-00000007jnB-1cvt;
-	Mon, 25 Aug 2025 11:28:18 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uqVN8-00000007jrp-3qlF;
+	Mon, 25 Aug 2025 11:28:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqT0r-00000007Pth-3zMt;
-	Mon, 25 Aug 2025 08:57:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1756112232;
-	bh=7+Og7rUGyFk1HcTP8p4Uyc/PYhGejFb5kkEHeMTwBtE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=e8t1tZDPcuW161VQWs4w0ue0FAugHx845eecL9ak/QF7jzENLXTW2i1NZ1kuPpOo3
-	 QureLvkUvzB5b7fxs2ahRl3275k+M7fu/ByWkA3i0FVS58OFRshrBmv9Xx+8s1dZQ2
-	 tvq8nGYXON2E0muImZxp1q+NkjOcH07rX9DExONsKx1coznAInXe1YJQv/pVBIc4aQ
-	 IUjjFdpj0HyPT0oUs9J7q2j5WcDmbe6KhrdwzYcilOPy722smVYgGYhze7hL06WdIj
-	 A+hj7gYWCleSVtkdIvrRVwRDuxfHrKY9g7uPolB7re9Kz5g1YPbNednZJWezpx8sQG
-	 7lWCoUvLQKTcg==
-Received: from localhost (unknown [82.79.138.60])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 7752817E059E;
-	Mon, 25 Aug 2025 10:57:12 +0200 (CEST)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Mon, 25 Aug 2025 11:56:45 +0300
-Subject: [PATCH v3 5/6] drm/rockchip: dw_hdmi_qp: Provide ref clock rate in
- dw_hdmi_qp_plat_data
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250825-rk3588-hdmi-cec-v3-5-95324fb22592@collabora.com>
-References: <20250825-rk3588-hdmi-cec-v3-0-95324fb22592@collabora.com>
-In-Reply-To: <20250825-rk3588-hdmi-cec-v3-0-95324fb22592@collabora.com>
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.14.2
+	id 1uqTG3-00000007S8M-18wq
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 25 Aug 2025 09:12:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AA0AE443B0;
+	Mon, 25 Aug 2025 09:12:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8146FC4CEED;
+	Mon, 25 Aug 2025 09:12:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756113174;
+	bh=F13Y4FbWAU6xrLfR84xXT+EMfWvjmDKA3j1lzEZ9/Ys=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Ldus4Vwn80Hyx52ZVG9s5XbnsBhRtoP72Az1zyDa7qEa6fharS/QAYTaHoZUkgVYe
+	 V75f4D1PccdTOlqvTvL4n2O2gcWfyAFygCcCLzB+Q2orFW2nXb/AwytJwVldjRzS58
+	 q0/dqeEFdXAwuYso4gIJWZSNMgwtkTBURl1GyQrWTIJJ7xY+CE97h7LL3OZ/T+eHIq
+	 BQQaqhFU1fNYWF0Tdd0W3Al2KIO3xsWcsSiWvOGmEYdF96PnTMUpF6w8Ub8EPqXv62
+	 DRUT7AsU5AmluAoAQuY9T0UWUF5EpXjSEIRDVjHREIcmD3tuVFDnbhXQeiRJ6vtDB+
+	 B8OZ8ovdJ4zsA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1uqTG0-00000000AfV-0BxV;
+	Mon, 25 Aug 2025 09:12:52 +0000
+Date: Mon, 25 Aug 2025 10:12:50 +0100
+Message-ID: <871poz2299.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sam Edwards <cfsworks@gmail.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Baruch Siach <baruch@tkos.co.il>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] arm64/boot: Zero-initialize idmap PGDs before use
+In-Reply-To: <CAH5Ym4iqvQuO6JxO-jypTp05Ug_2vDokCDoBgGB+cOzgmTQpkQ@mail.gmail.com>
+References: <20250822041526.467434-1-CFSworks@gmail.com>
+	<CAMj1kXH38gOUpDDdarCXPAY3BHBbuFzdD=Dq7Knsg-qHJoNqzQ@mail.gmail.com>
+	<CAH5Ym4gTTLcyucnXjxFtNutVR1HQ0G2k_YBSNO-7G3-4YXUtag@mail.gmail.com>
+	<CAMj1kXF00Y0=67apXVbOC+rpbEEvyEovFYf4r_edr6mXjrj0+A@mail.gmail.com>
+	<CAH5Ym4h+2w6aayzsVu__3qu3-6ETq1HK7u18yGzOrRqZ--2H9w@mail.gmail.com>
+	<874itx14l5.wl-maz@kernel.org>
+	<CAH5Ym4iqvQuO6JxO-jypTp05Ug_2vDokCDoBgGB+cOzgmTQpkQ@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: cfsworks@gmail.com, ardb@kernel.org, catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org, anshuman.khandual@arm.com, ryan.roberts@arm.com, baruch@tkos.co.il, kevin.brodsky@arm.com, joey.gouly@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_015714_140636_F42CF8D8 
-X-CRM114-Status: GOOD (  12.77  )
+X-CRM114-CacheID: sfid-20250825_021255_352158_18D49437 
+X-CRM114-Status: GOOD (  36.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,56 +100,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to support correct initialization of the timer base in the HDMI
-QP IP block, setup platform data to include the required reference clock
-rate.
+On Mon, 25 Aug 2025 00:43:08 +0100,
+Sam Edwards <cfsworks@gmail.com> wrote:
+>=20
+> Hi, Marc! It's been a while; hope you're well.
+>=20
+> On Sun, Aug 24, 2025 at 1:55=E2=80=AFAM Marc Zyngier <maz@kernel.org> wro=
+te:
+> >
+> > Hi Sam,
+> >
+> > On Sun, 24 Aug 2025 04:05:05 +0100,
+> > Sam Edwards <cfsworks@gmail.com> wrote:
+> > >
+> > > On Sat, Aug 23, 2025 at 5:29=E2=80=AFPM Ard Biesheuvel <ardb@kernel.o=
+rg> wrote:
+> > > >
+> >
+> > [...]
+> >
+> > > > Under which conditions would PGD_SIZE assume a value greater than P=
+AGE_SIZE?
+> > >
+> > > I might be doing my math wrong, but wouldn't 52-bit VA with 4K
+> > > granules and 5 levels result in this?
+> >
+> > No. 52bit VA at 4kB granule results in levels 0-3 each resolving 9
+> > bits, and level -1 resolving 4 bits. That's a total of 40 bits, plus
+> > the 12 bits coming directly from the VA making for the expected 52.
+>=20
+> Thank you, that makes it clear: I made an off-by-one mistake in my
+> counting of the levels.
+>=20
+> > > Each PTE represents 4K of virtual memory, so covers VA bits [11:0]
+> > > (this is level 3)
+> >
+> > That's where you got it wrong. The architecture is pretty clear that
+> > each level resolves PAGE_SHIFT-3 bits, hence the computation
+> > above. The bottom PAGE_SHIFT bits are directly extracted from the VA,
+> > without any translation.
+>=20
+> Bear with me a moment while I unpack which part of that I got wrong:
+> A PTE is the terminal entry of the MMU walk, so I believe I'm correct
+> (in this example, and assuming no hugepages) that each PTE represents
+> 4K of virtual memory: that means the final step of computing a PA
+> takes a (valid) PTE and the low 12 bits of the VA, then just adds
+> those bits to the physical frame address.
+> It sounds like what you're saying is "That isn't a *level* though:
+> that's just concatenation. A 'level' always takes a bitslice of the VA
+> and uses it as an index into a table of word-sized entries. PTEs don't
+> point to a further table: they have all of the final information
+> encoded directly."
 
-While at it, ensure plat_data is zero-initialized in
-dw_hdmi_qp_rockchip_bind().
+That's mostly it, yes. Each valid descriptor has an output address,
+which either points to another table or to actual memory, further to
+be indexed by the remaining bits of the VA (for 4kB pages: 12 bits for
+a level-3, 21 bits for a level-2...). Level-3 (aka PTEs in x86
+parlance) are always final.
 
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 11 ++++++++++-
- 1 file changed, 10 insertions(+), 1 deletion(-)
+> That makes a lot more sense to me, but contradicts how I read this
+> comment from pgtable-hwdef.h:
+>  * Level 3 descriptor (PTE).
+> I took this as, "a PTE describes how to perform level 3 of the
+> translation." But because in fact there are no "levels" after a PTE,
+> it must actually be saying "Level 3 of the translation is a lookup
+> into an array of PTEs."? The problem with that latter reading is that
+> this comment...
+>  * Level -1 descriptor (PGD).
+> ...when read the same way, is saying "Level -1 of the translation is a
+> lookup into an array of PGDs." An "array of PGDs" is nonsense, so I
+> reverted back to my earlier readings: "PGD describes how to do level
+> -1." and "PTE describes how to do level 3."
 
-diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index 39b46327afd8e4753d96962fad66792d22b33402..5280383febe25cf579c306ec1642557600595e58 100644
---- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-@@ -431,14 +431,15 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
- 				    void *data)
- {
- 	struct platform_device *pdev = to_platform_device(dev);
-+	struct dw_hdmi_qp_plat_data plat_data = {};
- 	const struct rockchip_hdmi_qp_cfg *cfg;
--	struct dw_hdmi_qp_plat_data plat_data;
- 	struct drm_device *drm = data;
- 	struct drm_connector *connector;
- 	struct drm_encoder *encoder;
- 	struct rockchip_hdmi_qp *hdmi;
- 	struct resource *res;
- 	struct clk_bulk_data *clks;
-+	struct clk *ref_clk;
- 	int ret, irq, i;
- 
- 	if (!pdev->dev.of_node)
-@@ -508,6 +509,14 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
- 	if (ret < 0)
- 		return dev_err_probe(hdmi->dev, ret, "Failed to get clocks\n");
- 
-+	ref_clk = clk_get(hdmi->dev, "ref");
-+	if (IS_ERR(ref_clk))
-+		return dev_err_probe(hdmi->dev, PTR_ERR(ref_clk),
-+				     "Failed to get ref clock\n");
-+
-+	plat_data.ref_clk_rate = clk_get_rate(ref_clk);
-+	clk_put(ref_clk);
-+
- 	hdmi->enable_gpio = devm_gpiod_get_optional(hdmi->dev, "enable",
- 						    GPIOD_OUT_HIGH);
- 	if (IS_ERR(hdmi->enable_gpio))
+The initial level of lookup *is* an array: you take the base address
+from TTBR, index it with the correct slice of bits from the VA, read
+the value at that address, and you have the information needed for the
+next level. The only difference is that you obtain that initial
+address from a register instead of getting it from memory.
 
--- 
-2.50.1
+>=20
+> This smells like a classic "fencepost problem": The "PXX" Linuxisms
+> refer to the *nodes* along the MMU walk, while the "levels" in ARM
+> parlance are the actual steps of the walk taken by hardware -- edges,
+> not nodes, getting us from fencepost to fencepost. A fence with five
+> segments needs six posts, but we only have five currently.
+>=20
+> So: where do the terms P4D, PUD, and PMD fit in here? And which one's
+> our missing fencepost?
+> PGD ----> ??? ----> ??? ----> ??? ----> ??? ----> PTE (|| low VA bits
+> =3D final PA)
 
+I'm struggling to see what you consider a problem, really. For me, the
+original mistake is that you seem to have started off the LSBs of the
+VA, instead of the MSBs.
+
+As for the naming, the comments in pgtable-hwdef.h do apply. Except
+that they only match a full 5-level walk, while the kernel can be
+configured for as little as 2 levels. Hence the macro hell of folding
+levels to hide the fact that we don't have 5 levels in most cases.
+
+I find it much easier to reason about a start level (anywhere from -1
+to 2, depending on the page size and the number of VA bits), and the
+walk to always finish at level 3. The x86 naming is just compatibility
+cruft that I tend to ignore.
+
+Thanks,
+
+	M.
+
+--=20
+Jazz isn't dead. It just smells funny.
 
