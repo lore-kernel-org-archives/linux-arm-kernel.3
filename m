@@ -4,57 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 972BECA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 01:27:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11A17CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 01:36:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Date:Cc:To:From:Subject:Message-ID:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9eI//ifONMcYx8OuZ4RyDvs/wIE713deTiuA/p5E0LQ=; b=SZft17dxfJFeLFzkROvnpJMI/f
-	itWSPbSdaydRs6bW92tbDVigBWgTRDDzV5LzTV0gju7kbpBmT8XV+NXS6Kud/pgtjSRmpzr3l+o1I
-	L/vp7dRrwwRY95pXEsWoR7NgiQ5fa68jOVcjD/0U/f0WhcxOSE5AyiNnGxHM8gvFz81gF2jZSJWed
-	YA+8o6gyjFMFVZbHjEkS30tUeU7+et593JY3cbjJG+HN7K/F/Vi/3IdChYmqAQ+MpE4hrYDqRf+qT
-	uOOmUpOm6nyOcXLWgw1PMJlJbqIZPHdWABc2py/29hTIctJH5QP7A+T2thTRcU30hBwxnw/Oorrz8
-	PtASYuMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K6E22yah7RSaBBMqG2z+3SW7CvB325/vsH5zTcMNA9Q=; b=NlxUUYbXrLAuAZAIw9Db86Jcle
+	P0UlPOKacVzRG9FGwAyyiQzPENExzNQf2MCKLSil2lnaSYpGZ+eJCxyq+YydDO60GVRG9APOxlnu4
+	d7fpk1Uo/LmsV7WGpprD2PxFmfCIYsYGihGGF3B6VomRf+xAScEd/RM9MZrZAhJpoX3dlMfyLhQ46
+	7fL2LA23/7PXAfUgw5QISPiTwm1KP9AJHzuq2fiTCMR7bF2NC0B0r/QfXUnTw1Xgk2WR/CQnqiw7y
+	YVoMjnKVoW3RhDRpEgvKIbowj1CMmu7M96S7wJUY5PaZ72DmmE0ENVL/1JA4SulYju1zztc0KM1hI
+	bFywZ9bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqLzk-00000006gXl-2MSO;
-	Mon, 25 Aug 2025 01:27:36 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1uqM7x-00000006h9f-0lxv;
+	Mon, 25 Aug 2025 01:36:05 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqLx7-00000006gLV-3DhA
+	id 1uqM54-00000006gsm-2vnu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 01:24:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1756085087;
-	bh=9eI//ifONMcYx8OuZ4RyDvs/wIE713deTiuA/p5E0LQ=;
-	h=Subject:From:To:Cc:Date;
-	b=Pc9r9rdwKIaqaqFzHA42xd2Qij0DYpICdtD6inYMnMEaNit74E9HeNCQSjMXPJfuw
-	 BXaPrlnESDziCtFHqGheuy67ZBJ09aJE44B4x6OcsQxbR8GLAuTn4HLAxfzVDapRwn
-	 uwMR3ac0XAQBt8vgVXVaY1k5uLYYgrM/P0yeSOZNFoG2Agl0iv7iGK+9lG3fXWGwe1
-	 8HPmxKn7y90ohEJmUF6d6UCE815cSOs8Tt3umXNPMUNToPZZr4LzLJcQVP23+QLWZ8
-	 bXPQvlvPbzQnimiYxIIYisQwU3KvWt99aE/fSVg+okhGF+V4EVR7keS5+01VdvvKEL
-	 mGM4DjglucP8w==
-Received: from [192.168.68.112] (unknown [180.150.112.213])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 7653064C1A;
-	Mon, 25 Aug 2025 09:24:45 +0800 (AWST)
-Message-ID: <cb634cffaf0db9d25fb3062f0eee41e03955321f.camel@codeconstruct.com.au>
-Subject: [GIT PULL] aspeed: early devicetree changes for 6.18
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: soc <soc@lists.linux.dev>
-Cc: linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org, Joel Stanley <joel@jms.id.au>
-Date: Mon, 25 Aug 2025 10:54:44 +0930
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	Mon, 25 Aug 2025 01:33:08 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57ONZO5a030514
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 01:33:05 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	K6E22yah7RSaBBMqG2z+3SW7CvB325/vsH5zTcMNA9Q=; b=W9KN47ch+CdMX9XM
+	MP7DMdWXixwcEekg2jQ1kogTdnBPsM6//cCJVzKzGoXNggSXYcTIwzRTAesfC1R9
+	ebmxW2ujk5pR4O5HAMUpnprbBnn9q1pk6bagr3GW/Qxe2d3imsG6gGOxzJmKrm0Z
+	vXabB3r61hRyM606cAe87ZO53ewpZSptRMbNTzh8V+9ns/b2s+JrrczBJpeqtOEk
+	lQUL8JAJyrR6QrCiLQOo1KJiBuYetCr73jB4Ts4M6Q9oiIt/jOsYHNBWl6xtIOnj
+	nECZM3J/Y07kmbY6vrr/76knhY1MVyzL/Thf9sl5Jxfo9XsxT5hMWWxXhT4dcI2e
+	UreKDw==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48q6thu7rm-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 01:33:05 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-246164c4743so67810545ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 Aug 2025 18:33:05 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756085585; x=1756690385;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=K6E22yah7RSaBBMqG2z+3SW7CvB325/vsH5zTcMNA9Q=;
+        b=eQO/XDDpPUspvtNEKjtqb9Z6+dw/nX/biKhhptbLM7pKZdrZXdKcHwVOg/hFDyHglh
+         wkNLY7tSP4Wm4HY49mrwIlfhEK+xh+K8Vp8XxnP8m2v1xLjureaaywWrxL3p9ZPBnXLK
+         JhlkkNVI+p8WjcWskTbwYnRXgEqp863Ouf/wmb32X+fBR9TVaPvc9+/R31aIp7WJqarQ
+         8wlvGeDNMmFzbxItWgm4xfieJJ1x2SwGd0nUPlohnMfkWN3qSOoVIkQ0i5QX2QvbnmSN
+         Gs3kteU14UmngEaBFG64JFv5IpztLtBkSdfEQJwjRgN08E5bb8kg+lcGMRKc6KmIwPmY
+         pUNA==
+X-Forwarded-Encrypted: i=1; AJvYcCUGacgTwU5arVldaz9QK8mTEZT3XRwsevQdV2JQfiV7BVq8lCyWJt4xfdPEfiL7ifRzyVOmEFjfwgK63O6UfJuy@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywp1dtTf3Qw2ODlKWBhxumIjwtmwWdXqVzDNuJ4lMLCJ1QUY8OU
+	QQkVeY/2j41BkWHoYdNEkmcrGgXKCkVK8FupsJviMu54079V5S9bjdXWSNLpkZXqPWLvZVakCTm
+	lfYuFBEC5SGePd7Z+zYoG4zwpTUi847Y2Y/UexRkr+u583GsOT6BeKVNn2En/Zm2dmpXlrGbIvO
+	Aobg==
+X-Gm-Gg: ASbGncupCYz9uwYZiQMRmx47nRW1C0j9rhTfLSLSLVnSrB5/G06ZZ5AUDgDN4IS6Zdl
+	ra90ctFvtufzYteeRmR8b/VPQm2cHWn4/R/V2dlhNuhfzvS4oaLPcyskCgFtpxrsBjcgcJF0xw6
+	ZOh7OcXuWPNnJOk9bQmbaDi1CN3U0ZzO7co1J1m+NOfxmZUMKo41o5bDEGqrheKJdVspxrTu1cZ
+	Bton382imv5CvqjZ4bXF9tsgvsaus68Gmc2Z3VhtMQV3hKqG4VVkE2suTs0W6x+Dr4pGziJzIqz
+	IBDqbJrarvWMgZ5eLHiCm50iRp1EY+zltRfzwOru78b+YFRT8MAUvXw5TabNqr0Dz4+ibYQBwR3
+	xg7TUdES7sNo9XZz3Es8PyyEOJ6EtiA==
+X-Received: by 2002:a17:902:ecc6:b0:243:38d:b3c5 with SMTP id d9443c01a7336-2462ef1564amr146761625ad.47.1756085584626;
+        Sun, 24 Aug 2025 18:33:04 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFJHNnP7iSIPuTBnCfkd1kHAo6DmPEz7vDeIdsiBninAkHPKiPmI83toT+uDqJlo73Uw+Et1Q==
+X-Received: by 2002:a17:902:ecc6:b0:243:38d:b3c5 with SMTP id d9443c01a7336-2462ef1564amr146761305ad.47.1756085584073;
+        Sun, 24 Aug 2025 18:33:04 -0700 (PDT)
+Received: from [10.133.33.155] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-246687b0feasm52811395ad.46.2025.08.24.18.32.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 24 Aug 2025 18:33:03 -0700 (PDT)
+Message-ID: <74038a79-8c59-496c-9a61-08dc786f9c10@oss.qualcomm.com>
+Date: Mon, 25 Aug 2025 09:32:57 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/2] Enable CTCU device for QCS8300
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+To: Mike Leach <mike.leach@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, coresight@lists.linaro.org,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250624095905.7609-1-jie.gan@oss.qualcomm.com>
+ <c7cca483-f1d3-45b4-abef-ec5019ad57dd@oss.qualcomm.com>
+ <c6f74d55-6ea8-498f-a05a-000599f93ac6@oss.qualcomm.com>
+ <b5f8fce0-afe8-409b-b43d-fa9f413cd442@oss.qualcomm.com>
+ <CAJ9a7VgZ61oL4LLxKSon3LXsYDtaHaPcGNxW=cwzhSOs3ea1PQ@mail.gmail.com>
+ <bbbec517-cc2b-444b-b76b-a4930902d667@oss.qualcomm.com>
+Content-Language: en-US
+In-Reply-To: <bbbec517-cc2b-444b-b76b-a4930902d667@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDA0MyBTYWx0ZWRfX6YL0DbShaS5V
+ xRb8PDyTbiZi/6qZ+YNIooWB+aic9Y1bBZdLcR/oMRPf+TLA7qVqauFeSxympvGKyJc15nh/AKA
+ CX6tB4XKt5iTMTZneax//ifzbWcaNIZLYSZEQBUUgLGKmA5EJyHapzTNHRb99afBcUFAAXoG3U1
+ 90E1UTNFSsNRKdbq7qQ/MjDOrKPZM/HNK4PfOFZ6FWIBA7bs3oy5Vh1poNNwedqseNQYUgk6sZw
+ KqpXPSG3PeO5BE7/eX+xduDqwxGjsqotGBWB8QERdYq8UX5jb2s0AlCI21oPYtfh3NJWgcbFGzY
+ P/b/I65txLhzGpNPNhALehqHpNq9tNAgQ2hOSmi/vOh8eZj3bx7MH7VNqmSia5UeB42Li7q+ns4
+ V1kjpIVO
+X-Proofpoint-ORIG-GUID: MX-H9T2Ece5zC9RfkhA70oWIDKcHWBZt
+X-Proofpoint-GUID: MX-H9T2Ece5zC9RfkhA70oWIDKcHWBZt
+X-Authority-Analysis: v=2.4 cv=W544VQWk c=1 sm=1 tr=0 ts=68abbd51 cx=c_pps
+ a=JL+w9abYAAE89/QcEU+0QA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
+ a=KrWnKaeQ6KOPjblB_ggA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=324X-CrmTo6CU4MGRt3R:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-24_08,2025-08-20_03,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 spamscore=0 clxscore=1015 suspectscore=0 phishscore=0
+ bulkscore=0 impostorscore=0 adultscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508230043
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_182454_032621_910F3822 
-X-CRM114-Status: UNSURE (   8.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250824_183306_741678_57D762EB 
+X-CRM114-Status: GOOD (  20.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,145 +143,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello SoC maintainers,
 
-The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585=
-:
 
-  Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
+On 8/5/2025 6:25 PM, Jie Gan wrote:
+> 
+> 
+> On 8/5/2025 5:53 PM, Mike Leach wrote:
+>> Hi Jie,
+>>
+>> On Tue, 5 Aug 2025 at 05:11, Jie Gan <jie.gan@oss.qualcomm.com> wrote:
+>>>
+>>>
+>>>
+>>> On 7/28/2025 9:08 AM, Jie Gan wrote:
+>>>>
+>>>>
+>>>> On 7/15/2025 8:41 AM, Jie Gan wrote:
+>>>>>
+>>>>>
+>>>>> On 6/24/2025 5:59 PM, Jie Gan wrote:
+>>>>>> Enable CTCU device for QCS8300 platform. Add a fallback mechnasim in
+>>>>>> binding to utilize
+>>>>>> the compitable of the SA8775p platform becuase the CTCU for QCS8300
+>>>>>> shares same
+>>>>>> configurations as SA8775p platform.
+>>>>>
+>>>>> Gentle ping.
+>>>>
+>>>> Gentle ping.
+>>>
+>>> Gentle ping.
+>>> Hi Coresight maintainers,
+>>>
+>>> Can you please help to review the patch?
+>>>
+>>> Thanks,
+>>> Jie
+>>>
+>>>>
+>>>> Thanks,
+>>>> Jie
+>>>>
+>>>>>
+>>>>> Hi Suzuki, Mike, James, Rob
+>>>>>
+>>>>> Can you plz help to review the patch from Coresight view?
+>>>>>
+>>>>> Thanks,
+>>>>> Jie
+>>>>>
+>>>>>>
+>>>>>> Changes in V2:
+>>>>>> 1. Add Krzysztof's R-B tag for dt-binding patch.
+>>>>>> 2. Add Konrad's Acked-by tag for dt patch.
+>>>>>> 3. Rebased on tag next-20250623.
+>>>>>> 4. Missed email addresses for coresight's maintainers in V1, loop 
+>>>>>> them.
+>>>>>> Link to V1 - https://lore.kernel.org/all/20250327024943.3502313-1-
+>>>>>> jie.gan@oss.qualcomm.com/
+>>>>>>
+>>>>>> Jie Gan (2):
+>>>>>>     dt-bindings: arm: add CTCU device for QCS8300
+>>>>>>     arm64: dts: qcom: qcs8300: Add CTCU and ETR nodes
+>>>>>>
+>>>>>>    .../bindings/arm/qcom,coresight-ctcu.yaml     |   9 +-
+>>>>>>    arch/arm64/boot/dts/qcom/qcs8300.dtsi         | 153 +++++++++++ 
+>>>>>> +++++++
+>>>>>>    2 files changed, 160 insertions(+), 2 deletions(-)
+>>>>>>
+>>>>>
+>>>>>
+>>>>
+>>>
+>>
+>> You need to send a new patch addressing the comments made by Krzysztof..
+> 
+> Hi Mike,
+> 
+> I just proposed an idea to add a common compatible for CTCU device, its 
+> not about the patch series itself. We dropped the idea and prefer to add 
+> the board specific compatible for each platform.
+> 
+> Thanks,
+> Jie
 
-are available in the Git repository at:
+Hi Suzuki, Mike, James
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux.git tags/aspeed=
--6.18-devicetree-0
+We already have the tag from dt-binding and dt maintainers. We haven't 
+additional modification for this patch series. Can you please help to 
+review the patch series from Coresight View?
 
-for you to fetch changes up to b785b5d88cc27a521ea22b3afd85804c4c321d4a:
+Thanks,
+Jie
 
-  ARM: dts: aspeed: x570d4u: convert NVMEM content to layout syntax (2025-0=
-8-11 09:37:48 +0930)
-
-----------------------------------------------------------------
-Early ASPEED devicetree updates for 6.18
-
-Notable changes:
-
-- Meta's Wedge400 and Fuji boards have had parallel devicetrees added for a
-  transition to a new static flash layout. The original layout is deprecate=
-d and
-  I anticipate removing related devicetrees in future releases.
-
-New platforms:
-
-- Darwin (Meta)
-
-  Darwin is Meta's rack switch platform with an AST2600 BMC integrated for
-  health monitoring purpose.
-
-Updates and fixes:
-
-- GB200NVL (Nvidia): Networking, I2C, regulators, GPIOs
-- Wedge400, Fuji (Meta): Fix warnings from devicetree bindings
-- Use fixed-layout for NVMEM on Asrock platforms
-- Various: minor fixes for warnings from FSI devicetree bindings
-
-----------------------------------------------------------------
-Rob Herring (Arm) (3):
-      ARM: dts: aspeed: Drop "no-gpio-delays"
-      ARM: dts: aspeed: Drop "fsi-master" compatibles
-      ARM: dts: aspeed: Add missing "ibm,spi-fsi" compatibles
-
-Tan Siewert (4):
-      ARM: dts: aspeed: e3c246d4i: convert NVMEM content to layout syntax
-      ARM: dts: aspeed: e3c256d4i: convert NVMEM content to layout syntax
-      ARM: dts: aspeed: romed8hm3: convert NVMEM content to layout syntax
-      ARM: dts: aspeed: x570d4u: convert NVMEM content to layout syntax
-
-Tao Ren (13):
-      ARM: dts: aspeed: wedge400: Fix DTB warnings
-      ARM: dts: aspeed: fuji: Fix DTB warnings
-      ARM: dts: aspeed: Fix DTB warnings in ast2600-facebook-netbmc-common.=
-dtsi
-      ARM: dts: aspeed: Move eMMC out of ast2600-facebook-netbmc-common.dts=
-i
-      ARM: dts: aspeed: Add facebook-bmc-flash-layout-128-data64.dtsi
-      dt-bindings: arm: aspeed: add Facebook Wedge400-data64 board
-      ARM: dts: aspeed: Add Facebook Wedge400-data64 (AST2500) BMC
-      ARM: dts: aspeed: wedge400: Include wedge400-data64.dts
-      dt-bindings: arm: aspeed: add Facebook Fuji-data64 board
-      ARM: dts: aspeed: Add Facebook Fuji-data64 (AST2600) Board
-      ARM: dts: aspeed: facebook-fuji: Include facebook-fuji-data64.dts
-      dt-bindings: arm: aspeed: add Facebook Darwin board
-      ARM: dts: aspeed: Add Facebook Darwin (AST2600) BMC
-
-Willie Thai (4):
-      ARM: dts: aspeed: nvidia: gb200nvl: Add VCC Supply
-      ARM: dts: aspeed: nvidia: gb200nvl: Enable i2c3 bus
-      ARM: dts: aspeed: nvidia: gb200nvl: Repurpose the HMC gpio pin
-      ARM: dts: aspeed: nvidia: gb200nvl: Enable MAC0 for BMC network
-
- Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml           |    3 =
-+
- arch/arm/boot/dts/aspeed/Makefile                                  |    3 =
-+
- arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-e3c246d4i.dts           |   12 =
-+-
- arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-e3c256d4i.dts           |   12 =
-+-
- arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-romed8hm3.dts           |   12 =
-+-
- arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x570d4u.dts             |   18 =
-+-
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dts            |   72 =
-+++++
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-elbert.dts            |   12 =
-+
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-fuji-data64.dts       | 1256 =
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=
-++++++++
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-fuji.dts              | 1247 =
-+--------------------------------------------------------------------------=
--------
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-wedge400-data64.dts   |  375 =
-+++++++++++++++++++++++++
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-wedge400.dts          |  366 =
-+-----------------------
- arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-everest.dts                |   24 =
-+-
- arch/arm/boot/dts/aspeed/aspeed-bmc-inspur-fp5280g2.dts            |    3 =
-+-
- arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts        |   54 =
-+++-
- arch/arm/boot/dts/aspeed/aspeed-bmc-opp-lanyang.dts                |    2 =
-+-
- arch/arm/boot/dts/aspeed/aspeed-bmc-opp-mowgli.dts                 |    2 =
-+-
- arch/arm/boot/dts/aspeed/aspeed-bmc-opp-nicole.dts                 |    3 =
-+-
- arch/arm/boot/dts/aspeed/aspeed-bmc-opp-palmetto.dts               |    2 =
-+-
- arch/arm/boot/dts/aspeed/aspeed-bmc-opp-romulus.dts                |    3 =
-+-
- arch/arm/boot/dts/aspeed/aspeed-bmc-opp-witherspoon.dts            |    2 =
-+-
- arch/arm/boot/dts/aspeed/aspeed-bmc-opp-zaius.dts                  |    2 =
-+-
- arch/arm/boot/dts/aspeed/aspeed-g6.dtsi                            |    4 =
-+-
- arch/arm/boot/dts/aspeed/ast2600-facebook-netbmc-common.dtsi       |   22 =
-+-
- arch/arm/boot/dts/aspeed/facebook-bmc-flash-layout-128-data64.dtsi |   60 =
-++++
- arch/arm/boot/dts/aspeed/ibm-power10-dual.dtsi                     |   12 =
-+-
- arch/arm/boot/dts/aspeed/ibm-power10-quad.dtsi                     |   12 =
-+-
- 27 files changed, 1925 insertions(+), 1670 deletions(-)
- create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dts
- create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-fuji-data6=
-4.dts
- create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-wedge400-d=
-ata64.dts
- create mode 100644 arch/arm/boot/dts/aspeed/facebook-bmc-flash-layout-128-=
-data64.dtsi
+> 
+>>
+>> Regards
+>>
+>> Mike
+> 
+> 
 
 
