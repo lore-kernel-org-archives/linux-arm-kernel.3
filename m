@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 324B2CA0FEE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 08:53:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E81ACCA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 08:58:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i7fpQmLGEczuIEc9Ts8TLjt4d9CDgwNS9tmnnXBAOG8=; b=Pm7lxOxUA6a1JTrZmLkyBsKWcT
-	l4HwTQVC4+kJglLXgKsMAanRIN6nVMWIOIzJdM02hllgCJtou7ykGuE99z4EOpM6cZ08u5O8Lny9m
-	vYQuKuEWd5/id0uK4gbDhPEinIRsNdrTUje6emGNuqqnTJAHOOt6acN69JTdXQ2jWrCaoIF5gPtfy
-	RiwoscmsMCnRtW0ex+ihiOPihAIa76Qp2csYqaCiymmB7w5Of5eh5GonBoUYyLCFS6CMdd65CF683
-	tmfYfY5NeCZeXQSy1XA0mpgv/gG4nbhKc8ZoPPovETvRSMffacUmXLHjV77HV4QmAV2yN8CjZaLdY
-	Vp9NfCTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=X4DPtLl5IrIynjpjGtlWEHRVfkwFu8gJ5N5pGgPIdqQ=; b=xczqPtyFEVu9R7N8cBlTeixsWa
+	vIhQt3CfzTo7VXmhWxrjFfE0EABtz2Nej/FcTzCLZnvOsIePHRspQBcL9aEm4tQWdm1ddVRRQquiK
+	KtJh3kqswJnWIKcn+4KM+Cm10WP+lwSjPFnxP0pTkHY/nK/6e6Ks39Bl2418eYLgYZC6v8bt7ja7N
+	i3kHCluyxMq2xCYwMOcgoAqIdD/MT8pgnOQLaYooyAS9fjzLS7a1+TRN93hSl017I6GBSeG7RGM+V
+	6CCqrcCQAS5YUfp3mpbARlRtkGRdQO+VFq5MZw7d/t43KEmmIg4doO/a0VbfJcS4jU3oO1byyIwQa
+	hMQXKwqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqSx9-00000007OtP-3VDJ;
-	Mon, 25 Aug 2025 08:53:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uqT25-00000007QCw-0EwM;
+	Mon, 25 Aug 2025 08:58:29 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqScZ-00000007JZz-0aRs
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 08:32:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 639504324A;
-	Mon, 25 Aug 2025 08:32:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 833F4C4CEED;
-	Mon, 25 Aug 2025 08:31:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756110726;
-	bh=YtLquqnrZFkL+9TrwMrCafRYQgPgCKY67KeGNrtiSPY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=rp2A+/RyJolPR8cWUJlVT1SQ5O2QvNnnBaXZpgc497a4bqRfsfnGKyxRWXVaF2z5h
-	 sKfZZFcYCUiY1AQue7/udSAtjsA/YV9MuvSmc2Xod0WF/RKgS8xp/cCXZIZaMvwsTJ
-	 iPder646D5Cpcm/lqe30SdiEAH+3vnj2lUa2bfUNCs+B7Qibul7iawHSm3czGpw/7D
-	 NnMxGWMXaCUgA0HQ/wgLNUlN/ceKbTio9Ox8LCT0jiH3txBkvCUIzbH8i5Uol8oYhK
-	 qr1wlTV4h0/W/maZJdovsHVQSIYrNd3cnXuRq3tKN0qPoP2Zd9uUbkFkU9lTYAcuWb
-	 tBQTB0fVzNq0g==
-Date: Mon, 25 Aug 2025 09:31:50 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Dixit Parmar <dixitparmar19@gmail.com>
-Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Lars-Peter Clausen
- <lars@metafoo.de>, Michael Hennerich <Michael.Hennerich@analog.com>, Ray
- Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, Broadcom
- internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
- Support Opensource <support.opensource@diasemi.com>, Krzysztof Kozlowski
- <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Haibo Chen
- <haibo.chen@nxp.com>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Cai Huoqing <cai.huoqing@linux.dev>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Andreas Klinger <ak@it-klinger.de>, Crt
- Mori <cmo@melexis.com>, linux-iio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev,
- linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH 00/10] iio: Drop unnecessary -ENOMEM messages
-Message-ID: <20250825093150.3ba23f2a@jic23-huawei>
-In-Reply-To: <20250822-enomam_logs-v1-0-db87f2974552@gmail.com>
-References: <20250822-enomam_logs-v1-0-db87f2974552@gmail.com>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
+	id 1uqSlb-00000007MIj-1aKB;
+	Mon, 25 Aug 2025 08:41:28 +0000
+X-UUID: 471f9e7a818f11f09f706fa2197c6ceb-20250825
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=X4DPtLl5IrIynjpjGtlWEHRVfkwFu8gJ5N5pGgPIdqQ=;
+	b=MDXCrUx41MXHgzMvY4CbAR6cCE8c4wDxG9JzlpwBRAQOJAGd5bzdijbW8FvqXRRsf0iQ1lwAt/Vmalrn6AeV52X0iqtVLrbvleBvReVN1MEQjAT4wcZKWQjnmCH2ICygc6rmo/oToocWFMFXbbfpDWFFtQMQbu59QRb3Rnvmk28=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.3,REQID:d6417ea4-c3d0-4506-a26c-952d540961ce,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:f1326cf,CLOUDID:d390d644-18c5-4075-a135-4c0afe29f9d6,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:-5,Content:0|15|50,EDM:-3,IP:
+	nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,L
+	ES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 3,DMD|SSN|SDN
+X-CID-BAS: 3,DMD|SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 471f9e7a818f11f09f706fa2197c6ceb-20250825
+Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw01.mediatek.com
+	(envelope-from <xion.wang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1058386385; Mon, 25 Aug 2025 01:41:22 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Mon, 25 Aug 2025 16:41:19 +0800
+Received: from mbjsdccf07.gcn.mediatek.inc (10.15.20.246) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Mon, 25 Aug 2025 16:41:18 +0800
+From: <xion.wang@mediatek.com>
+To: Arnd Bergmann <arnd@arndb.de>, Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+CC: <wsd_upstream@mediatek.com>, <huadian.liu@mediatek.com>, Xion Wang
+	<xion.wang@mediatek.com>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+Subject: [PATCH 0/1] misc: Prevent double registration and deregistration of miscdevice
+Date: Mon, 25 Aug 2025 16:45:46 +0800
+Message-ID: <20250825084556.10358-1-xion.wang@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_013207_220705_D64F7F24 
-X-CRM114-Status: GOOD (  14.36  )
+X-CRM114-CacheID: sfid-20250825_014127_425406_02224DFE 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,84 +85,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 22 Aug 2025 09:19:48 +0530
-Dixit Parmar <dixitparmar19@gmail.com> wrote:
+From: Xion Wang <xion.wang@mediatek.com>
 
-> The drivers do not require their own error messages for error
-> -ENOMEM, memory allocation failures. So remove the dev_err
-> messages from the probe().
-> With these patches, all the iio drivers now has uniform handling
-> of the -ENOMEM while device_allocation and trigger_allocation
-> calls.
-> 
-> Signed-off-by: Dixit Parmar <dixitparmar19@gmail.com>
-Series looks fine to me, after the minor tweaks to commit messages
-that Andy requested.  However as it touches a lot of drivers
-I'd like to leave it on list a little longer.
+Dear maintainers,
 
-Thanks,
+I am submitting a patch to improve the robustness of the misc device subsystem in the Linux kernel.
 
-Jonathan
+In the current implementation, repeated calls to misc_register() or misc_deregister() on the same miscdevice instance may result in corruption of the misc_list or kernel crash due to multiple INIT_LIST_HEAD or list_del operations on the same list node.
 
-> ---
-> Dixit Parmar (10):
->       iio: accel: Drop unnecessary -ENOMEM messages
->       iio: adc: Drop unnecessary -ENOMEM messages
->       iio: dac: Drop unnecessary -ENOMEM messages
->       iio: health: Drop unnecessary -ENOMEM messages
->       iio: humidity: Drop unnecessary -ENOMEM messages
->       iio: light: Drop unnecessary -ENOMEM messages
->       iio: potentiostat: Drop unnecessary -ENOMEM messages
->       iio: pressure: Drop unnecessary -ENOMEM messages
->       iio: proximity: Drop unnecessary -ENOMEM messages
->       iio: temperature: Drop unnecessary -ENOMEM messages
-> 
->  drivers/iio/accel/bma220_spi.c      | 4 +---
->  drivers/iio/accel/dmard06.c         | 4 +---
->  drivers/iio/accel/dmard09.c         | 4 +---
->  drivers/iio/accel/dmard10.c         | 4 +---
->  drivers/iio/accel/mc3230.c          | 4 +---
->  drivers/iio/accel/mma7660.c         | 4 +---
->  drivers/iio/accel/stk8312.c         | 4 +---
->  drivers/iio/accel/stk8ba50.c        | 4 +---
->  drivers/iio/adc/ad7949.c            | 4 +---
->  drivers/iio/adc/bcm_iproc_adc.c     | 4 +---
->  drivers/iio/adc/cpcap-adc.c         | 6 ++----
->  drivers/iio/adc/da9150-gpadc.c      | 5 ++---
->  drivers/iio/adc/dln2-adc.c          | 9 +++------
->  drivers/iio/adc/exynos_adc.c        | 4 +---
->  drivers/iio/adc/imx7d_adc.c         | 4 +---
->  drivers/iio/adc/imx8qxp-adc.c       | 4 +---
->  drivers/iio/adc/mxs-lradc-adc.c     | 4 +---
->  drivers/iio/adc/palmas_gpadc.c      | 4 +---
->  drivers/iio/adc/rn5t618-adc.c       | 4 +---
->  drivers/iio/adc/stm32-dfsdm-adc.c   | 4 +---
->  drivers/iio/adc/stmpe-adc.c         | 4 +---
->  drivers/iio/adc/ti-adc084s021.c     | 4 +---
->  drivers/iio/adc/ti-ads131e08.c      | 8 ++------
->  drivers/iio/adc/ti_am335x_adc.c     | 5 ++---
->  drivers/iio/adc/twl4030-madc.c      | 4 +---
->  drivers/iio/adc/viperboard_adc.c    | 4 +---
->  drivers/iio/dac/ad5380.c            | 4 +---
->  drivers/iio/dac/ad5764.c            | 4 +---
->  drivers/iio/dac/ds4424.c            | 4 +---
->  drivers/iio/dac/ti-dac7311.c        | 4 +---
->  drivers/iio/dac/vf610_dac.c         | 4 +---
->  drivers/iio/health/afe4403.c        | 4 +---
->  drivers/iio/health/afe4404.c        | 4 +---
->  drivers/iio/humidity/am2315.c       | 4 +---
->  drivers/iio/humidity/dht11.c        | 4 +---
->  drivers/iio/light/stk3310.c         | 4 +---
->  drivers/iio/potentiostat/lmp91000.c | 4 +---
->  drivers/iio/pressure/dlhl60d.c      | 4 +---
->  drivers/iio/proximity/ping.c        | 4 +---
->  drivers/iio/proximity/srf04.c       | 4 +---
->  drivers/iio/temperature/mlx90632.c  | 4 +---
->  41 files changed, 47 insertions(+), 130 deletions(-)
-> ---
-> base-commit: d7b8f8e20813f0179d8ef519541a3527e7661d3a
-> change-id: 20250822-enomam_logs-f66642957fb3
-> 
-> Best regards,
+This patch introduces additional checks in both misc_register() and misc_deregister() to prevent double registration and double deregistration. By using misc->this_device as a status flag, the driver can safely determine whether the device has already been registered or deregistered, and avoid performing dangerous operations on the misc_list.
+
+With these changes, the misc device subsystem becomes more stable and reliable, reducing the risks of list corruption and improving overall system safety.
+
+Feedback and suggestions are welcome.
+
+Thank you for your time and consideration.
+
+Best regards,
+Xion Wang
+
+Xion Wang (1):
+  misc: Prevent double registration and deregistration of miscdevice
+
+ drivers/char/misc.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+-- 
+2.45.2
 
 
