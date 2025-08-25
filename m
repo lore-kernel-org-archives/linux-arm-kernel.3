@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDDB0CA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 19:08:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6A80CA0FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 19:08:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CYkENkG86CGpJX8tlASGD4qcKwdlUFc6LyyYgBUp7bk=; b=Nnn3OJC1f4SszZrUOsH9PVbVGQ
-	96g0HxIexBE1bYZG+kyfHpDTrTUcPH44y8sIo+YFNgq6hcsMh+HPWPNtFJ6S3wLVwRBBHwfjkSOLw
-	yBezKa7o/mixvHhlSx7YZtA0H0/3zVDE4lwmtPWFvO4sy7941haS+UcHGawCrsZfAj6KN/Z1OhMw6
-	qfGSQdKA7WRsl9ZmcSwa8FHrbMB+WgKAd1faWXwLq/23Fm/6j67Z+muW4/3FQt3jeBCxGEVFNZK+v
-	q7yKUarpCUFIimjNn1Y8gXcxIfXn4CKhZdB98ATMx2u9hSTIsfNFCvhEdNqF/RSS4/mhDsUmcfO7n
-	PDpR0baQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2WyGocCgHBIIkkkxcd3AEqFZiqE4Qc8dTTZQnUK0iu8=; b=cO6y6S2Ec8NXam7jGX8meSQOQM
+	kUI9Sd0TrF+CXilcKv/gXIcNvoqOfpm+obMZZsxzyFAqIINU0+fOeAAXDnmGCqxlOuZ2UWpwVy5fc
+	1w9ZSMIV9CGiBfRNBXwc+GkrkLq8lC7Ha/fdQAfzWA3lTwt0WslOY7nBo93npHydWBGuS8/HnjuZW
+	O+b+eRGi73qBAz2n4SYnJdPZKSscR6ErHuMQ6XYEbSgQ7z665iSEubiBb6BoMXvEX9zAxaHx2KrAY
+	vstFcezN6LSY4SmkxS583tYUZywlIu0staiomanZO4E84H01mzh1CIftCeYk1KLhZamD1YJUzS3Oa
+	gES0uvwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqcY9-00000009Aia-29w2;
-	Mon, 25 Aug 2025 19:08:13 +0000
+	id 1uqcYA-00000009Aji-1hzc;
+	Mon, 25 Aug 2025 19:08:14 +0000
 Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqaAm-00000008hNb-1Odr
+	id 1uqaAn-00000008hNb-2iRe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 16:35:57 +0000
+	Mon, 25 Aug 2025 16:35:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1756139756; x=1787675756;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=L2un3Tp24kq84D49bPeqtKFgx0ttvdt2Oi+LfIRW2Jk=;
-  b=aQ4JtXe64l+megZLLTslxyNO3mJqjxdtJ26XSa/vg7Ok0/CPcoWHylNS
-   sy7pZklbtxpurn/BksnbsqCcROHvDk6acKNemmeoCLgviZMx9To+ysikz
-   EdWm7ujPGtjUyp8MohOgTFCufJzi5KQ0cMNvOl+AzGO5N52dsnVC/dpTp
-   JP2GkFp+B4U7cXsOqor3Jq6ku+sW4EGsBmdVrX1dLtNXZFulX9PA0+ZxU
-   TCqaefv5XJmYMQdXjFqGC7ZsHjmSKJQCskjGAauLG/aMOV77ejuZpgaHC
-   daCGL962vrAplIU/KS0uGjxyp1jnq+tEWKEflG7ocsis59TMXvx69grQ2
-   g==;
-X-CSE-ConnectionGUID: dRJsnVnfS/aOxHAzofQpuw==
-X-CSE-MsgGUID: uMRazMkWRPKtNwoj2asBsA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11533"; a="69459514"
+  t=1756139757; x=1787675757;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=WzmZWMms4bv8taptRv7sWNE6UwWdfM4GmVI+cXRz004=;
+  b=QNF9pf7Oa43vX5VKBm0IwM5wQiF3GZTS+ueXNkqn8A2F02I46VDZXmPk
+   CBm1bPp608VXM9kvfv7ZjVUvyb2hxfqiH8QR8dSbCV23fI2xMX+2Eec73
+   hF7Mcj/z03hIpWoVNIByBOOuITe2Ps6YmDboYZGmy/0/uy9PJ/jp3/J3T
+   /pY5A9L7EtBQ7FIvzPqQTFCf1OldDIZYoNr+7b3LMb7HjtCwYJXvbsokV
+   iHlko925VR0vchIkfkMEcHT/2TDPyUb8JKQoIcB+PvBsuq9JaK4YypoHn
+   3L8T+pHCINCmnduIokMIlhN2LbxlIPnr6TNyc9Z04ZwVaEtLIkIYckXBq
+   Q==;
+X-CSE-ConnectionGUID: yoDnlggSTICHwGTwh5X4mQ==
+X-CSE-MsgGUID: jD/2kPYPQVSSfxa4w+6rhA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11533"; a="69459537"
 X-IronPort-AV: E=Sophos;i="6.18,213,1751266800"; 
-   d="scan'208";a="69459514"
+   d="scan'208";a="69459537"
 Received: from orviesa007.jf.intel.com ([10.64.159.147])
   by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Aug 2025 09:35:55 -0700
-X-CSE-ConnectionGUID: orFQ8jjkTR+a1kLWJels8Q==
-X-CSE-MsgGUID: l5OrMqmGT8icT6nXAJqR8A==
+X-CSE-ConnectionGUID: wGy2mzdEQBu6ep/2AqbnXQ==
+X-CSE-MsgGUID: NAapVdSxTk+ZacKhIWFZ9w==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.18,213,1751266800"; 
-   d="scan'208";a="169241087"
+   d="scan'208";a="169241086"
 Received: from black.igk.intel.com ([10.91.253.5])
   by orviesa007.jf.intel.com with ESMTP; 25 Aug 2025 09:35:48 -0700
 Received: by black.igk.intel.com (Postfix, from userid 1003)
-	id D581B94; Mon, 25 Aug 2025 18:35:46 +0200 (CEST)
+	id E1D6697; Mon, 25 Aug 2025 18:35:46 +0200 (CEST)
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Helge Deller <deller@gmx.de>,
 	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
@@ -91,15 +91,17 @@ Cc: Richard Henderson <richard.henderson@linaro.org>,
 	Denis Efremov <efremov@linux.com>,
 	Jens Axboe <axboe@kernel.dk>,
 	Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v2 0/3] floppy: A couple of cleanups
-Date: Mon, 25 Aug 2025 18:32:54 +0200
-Message-ID: <20250825163545.39303-1-andriy.shevchenko@linux.intel.com>
+Subject: [PATCH v2 3/3] floppy: Sort headers alphabetically
+Date: Mon, 25 Aug 2025 18:32:57 +0200
+Message-ID: <20250825163545.39303-4-andriy.shevchenko@linux.intel.com>
 X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250825163545.39303-1-andriy.shevchenko@linux.intel.com>
+References: <20250825163545.39303-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_093556_448230_184D8594 
-X-CRM114-Status: GOOD (  12.06  )
+X-CRM114-CacheID: sfid-20250825_093557_734445_911403F8 
+X-CRM114-Status: GOOD (  12.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,33 +116,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There are a few places in architecture code for the floppy driver
-that may be cleaned up. Do it so.
+Sorting headers alphabetically helps locating duplicates, and makes it
+easier to figure out where to insert new headers.
 
-Assumed to route via Andrew Morton's tree as floppy is basically orphaned.
+Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+---
+ drivers/block/floppy.c | 54 +++++++++++++++++++++---------------------
+ 1 file changed, 27 insertions(+), 27 deletions(-)
 
-Changelog v2:
-- combined separate patches sent earlier into a series
-- added tags (Helge, Geert)
-- fixed typo in the commit message (Geert)
-
-Andy Shevchenko (3):
-  floppy: Remove unused CROSS_64KB() macro from arch/ code
-  floppy: Replace custom SZ_64K constant
-  floppy: Sort headers alphabetically
-
- arch/alpha/include/asm/floppy.h    | 19 ----------
- arch/arm/include/asm/floppy.h      |  2 --
- arch/m68k/include/asm/floppy.h     |  4 ---
- arch/mips/include/asm/floppy.h     | 15 --------
- arch/parisc/include/asm/floppy.h   | 11 +++---
- arch/powerpc/include/asm/floppy.h  |  5 ---
- arch/sparc/include/asm/floppy_32.h |  3 --
- arch/sparc/include/asm/floppy_64.h |  3 --
- arch/x86/include/asm/floppy.h      |  8 ++---
- drivers/block/floppy.c             | 56 ++++++++++++++----------------
- 10 files changed, 34 insertions(+), 92 deletions(-)
-
+diff --git a/drivers/block/floppy.c b/drivers/block/floppy.c
+index d769a223fcc8..61d62019a38d 100644
+--- a/drivers/block/floppy.c
++++ b/drivers/block/floppy.c
+@@ -163,35 +163,35 @@
+ 
+ /* do print messages for unexpected interrupts */
+ static int print_unex = 1;
+-#include <linux/module.h>
+-#include <linux/sched.h>
+-#include <linux/fs.h>
+-#include <linux/kernel.h>
+-#include <linux/timer.h>
+-#include <linux/workqueue.h>
+-#include <linux/fdreg.h>
+-#include <linux/fd.h>
+-#include <linux/hdreg.h>
+-#include <linux/errno.h>
+-#include <linux/slab.h>
+-#include <linux/mm.h>
+-#include <linux/bio.h>
+-#include <linux/string.h>
+-#include <linux/jiffies.h>
+-#include <linux/fcntl.h>
+-#include <linux/delay.h>
+-#include <linux/mc146818rtc.h>	/* CMOS defines */
+-#include <linux/ioport.h>
+-#include <linux/interrupt.h>
+-#include <linux/init.h>
+-#include <linux/major.h>
+-#include <linux/platform_device.h>
+-#include <linux/mod_devicetable.h>
+-#include <linux/mutex.h>
+-#include <linux/io.h>
+-#include <linux/uaccess.h>
+ #include <linux/async.h>
++#include <linux/bio.h>
+ #include <linux/compat.h>
++#include <linux/delay.h>
++#include <linux/errno.h>
++#include <linux/fcntl.h>
++#include <linux/fd.h>
++#include <linux/fdreg.h>
++#include <linux/fs.h>
++#include <linux/hdreg.h>
++#include <linux/init.h>
++#include <linux/interrupt.h>
++#include <linux/io.h>
++#include <linux/ioport.h>
++#include <linux/jiffies.h>
++#include <linux/kernel.h>
++#include <linux/major.h>
++#include <linux/mc146818rtc.h>	/* CMOS defines */
++#include <linux/mm.h>
++#include <linux/mod_devicetable.h>
++#include <linux/module.h>
++#include <linux/mutex.h>
++#include <linux/platform_device.h>
++#include <linux/sched.h>
++#include <linux/slab.h>
++#include <linux/string.h>
++#include <linux/timer.h>
++#include <linux/uaccess.h>
++#include <linux/workqueue.h>
+ 
+ /*
+  * PS/2 floppies have much slower step rates than regular floppies.
 -- 
 2.50.1
 
