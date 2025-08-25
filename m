@@ -4,89 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FB08CA0FE7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 14:59:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F667CA0FE8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 14:59:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OarwR/ERDNc0Ml+9OWlKLdmjV+iAjoP8ec7vM3/HCIc=; b=Kj4Na7vpA71NC8NtqwOOaUyTIV
-	9JtLumRiaRhQlEhDAv/MXZSLb2UTYWaNCnd9Ke2fY0F5xcjF4+yhi4jMfA8RS9asM63gn8lhLzHu/
-	uwXYwDHmJfPwu8KEOO8JS0UnS9j6zNC0Sy5aHSH5ElTW+skMHFnANkCdMtB16VaAYKC+tHn4tST1C
-	GXZAcfwGSP9nO9E2taffc8wkGZ69OhCx7ROxWbDmtU4VjaF3Sy/A+AeiAnyZ5xzXWTiiHj9o+SU0X
-	ZWQINjAhMjpt3zh5jdH2TZ6k1S7hkU1q+UlB6+lcOWFQafrOiU0AakMoBBRbJTmeUe1b+RDsD8jim
-	pVmNPtlg==;
+	bh=dQlK3wXG7sop1i8Jgraua6l3U7jzqZIBJa/jEdUPy4M=; b=bdUWsJyOxGRwzUjV4wxfcyk9+5
+	VIi9a8G59pCCb+527dXr6jM3kHcYPB24VopOnl09a6KH/2lZadAzTrW5v5mNG3W6e07EqkZHHLMn/
+	7dZoQV0OrO1yHTN081KJXz2JZaCZBTAYtrzZEzx4wN0mUQiGRxTRMgDqXIn8I36sVqBpBdN9jO1AU
+	pJYrZU++uqXwak10r2PcewdXY1C4gu+g2rISkIO8Ql5X5TiwdPigUDwYHl2pEgigA6pB0b4Z0PJAM
+	4YXemzSMibZbyZEWhRC2b2Qgk7y0HmYjd07362mRhp5zB+nPmiShV/s2j0WNOsKmjFzIZBSY0u1nq
+	OHYG0vHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqYfS-00000008Lyc-1DC6;
-	Mon, 25 Aug 2025 14:59:30 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1uqYfW-00000008M5S-34CS;
+	Mon, 25 Aug 2025 14:59:34 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqWlv-000000081D6-46Vm;
-	Mon, 25 Aug 2025 12:58:05 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-afcb7a3a085so682241666b.2;
-        Mon, 25 Aug 2025 05:58:03 -0700 (PDT)
+	id 1uqWp8-000000081yc-0fMS
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 25 Aug 2025 13:01:23 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-55ce5243f6dso4702511e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 06:01:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756126682; x=1756731482; darn=lists.infradead.org;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756126880; x=1756731680; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=OarwR/ERDNc0Ml+9OWlKLdmjV+iAjoP8ec7vM3/HCIc=;
-        b=d5KA12bmdj3AI50dUaoWdArcfYWxKFM4fFD1GSO7+ec6KwjlKyhNtDPF0DTvws0MCU
-         oVBaC6t6DYjaIOZEkMlaB72PShbKq7G/WwMbDe2hYAO9BIK0NFHpMztJ2Uo2gUn8XRR7
-         IgmEAv0aKtjD+lFO4cThHvbGHllCUBxGzHSpdcuS22MpG76Y2Ukjnt1irHK+/PWHcdqe
-         EQv9QZD1OK+AuH0NnqFWWRG+vaXiqI0/6AxwtUa8F1QV7hpsF30G8PkVjK6Utvxo5fGP
-         T+SwS5GXG3IPiQssTj78aZ9LA+S9NjL9CuKkLVYuk1sbpyIcHBGrzIk0ZJGZjJBhO30V
-         N8uA==
+        bh=dQlK3wXG7sop1i8Jgraua6l3U7jzqZIBJa/jEdUPy4M=;
+        b=cqDgJys9XtYEfjGy/BJkJ7ZmfRkuMtIncdTJCv2LeGI+LHmIZHNt8iniUJWoVw8qt2
+         8iIBCQ46cQXulti8LTWm8xl+8treGA1eRb/IhYO7z4R/oh6miGfFKVZ1qaVfMtKiEmdq
+         1ZE2KVh36P5ubUMZHpcYYhzMbpGzOIWLYUF33y+DfVgO6lkD8vJ8J55YFGcdcNY6xHOJ
+         /HsjDEQLOLq6LSXp66z4K7iYy7kqDjYxb/5TerGs3unEzM8RRXcuiach3s+lwb2+f5nG
+         6MmJi454GbB5OhOvnflxljuLDbwQnoYMcAYoT/ArIma7W8RsBaAF+vCTk+nRmRU2xIzR
+         Iang==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756126682; x=1756731482;
+        d=1e100.net; s=20230601; t=1756126880; x=1756731680;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=OarwR/ERDNc0Ml+9OWlKLdmjV+iAjoP8ec7vM3/HCIc=;
-        b=YMWkD/0ug8r+1gQYViLyHH5BPZKrPsuaW/i3PYLjxkyuR0OtFzWrCbAZMksCffCckv
-         rRaCIYiSzlH2tGcQ6klfMH9RMWLcD3ig6se0TE3m1PGiZGBHMA/KoDacTj9telBj/88T
-         RIcJuAeME2phvHZrfsTxl/e/OGx3rDTSLP+lJu5fO4rVTx8CRRNCJvHShPqw5sQi+VzL
-         zx5Dy4JOdObTp+p1mWkGE/Yt+8eT8P2TnIYLNp1X9B3P7WBVmCCNsPaMBH9fmHifEUnt
-         tpmNqraVbJ81MPO/p8VhMnlKSvlWkp4fqss7ws/sr1e32QoQwtnTuEALA6tX0zyGBCVZ
-         lOOg==
-X-Forwarded-Encrypted: i=1; AJvYcCVc8zgnLj4ExGBozYk5yE+1MgjEq9vov3ATJmfIuDlGo3nTaRuCAYdx6f3PHxvpJgBhqv0F0/pwQoEKtL4T7nzfLQ==@lists.infradead.org, AJvYcCWlpbEFneKFsXhVzNOT3OgvuBxTBjIwbI3f+fdOXs/jFHeFgj1VUZxk3dZDA7XZzOt0I3OTDJXdpXENPPBA@lists.infradead.org
-X-Gm-Message-State: AOJu0YwU9eGK4t3U8Xjqw9e06vJ/S0/AcG6jPz3USlE0mgaKCQs819SM
-	dEgrNDLAsVnKmFQ9qQBcwvQatFPQ2DOLLJc98R2GPphHasGmnQSBdDgZjG0Qk2FOYE0M5NRui0T
-	9WZ0+cLS+9TEWOO4qLLFMB0OUkEeigLw8o89I
-X-Gm-Gg: ASbGncsjWYyPlmYzEn2njqHVxLWuYxNxbbxHDNjUFCTRx1f6T/jeL7WkgvYcZPpeu/2
-	1+3Gg1fvIOv/yjjt0esvgPE858Wdf4cpAJ5W66C+HfIRvr/zsgF/It8/ua1AwL6oNbOjEmQBTf9
-	OjJsqYf2vslVs0sXMtWqHhkfthqAAY2e69iAioK8BYl3RHIW8VFSxFYqAZ/5HRqu5raPsOmxfH1
-	S25MA==
-X-Google-Smtp-Source: AGHT+IHaOgzAzLmJeyLPt5DqrZUSYGHwc/5ongY9XyH18a2Jkpiqoy7KErW13Szg0Ppe2orviqO2JQkWL38+o+volS0=
-X-Received: by 2002:a17:907:3e1c:b0:ae0:d4b1:b5f0 with SMTP id
- a640c23a62f3a-afe29548f25mr992674266b.35.1756126682080; Mon, 25 Aug 2025
- 05:58:02 -0700 (PDT)
+        bh=dQlK3wXG7sop1i8Jgraua6l3U7jzqZIBJa/jEdUPy4M=;
+        b=U9hf/oeEb1BPEGY3oEerxQRHpO9Xi+Wn3FYRk9yq5S3IIDngsIE0H+EYb1Sb5u+i50
+         YzUZciSmcVFIA+TLH2kHs+MMAYQXFfQ+BCyxOjTkBIkWZ7Wy82CYN+AgF95khaaBgkIB
+         J64EKgk37XXEmG7tE34oUCSHpsHOeYfqp8Efd5B9LaATMATwCN9aPs8h5np3uMgkkTki
+         UxTjunCIiQE8zNcQ4LAE9+vlawu+v/kemL0DZi3CDl/jBa4K55tAZUvrAGn3L/CLSJsF
+         FxHg9Kp6Q3V4KP8ApoDz4Vqu5fp9LjLOJOUdIm+8SBSEbyblCVRSn1eT0EYu39Owpgd/
+         v5mg==
+X-Forwarded-Encrypted: i=1; AJvYcCXDaNrUX74QmP7l21QqnvcWbD8q0SoiLAczEqFAfxn9BcQd0WVKI+4t6v8Smi0PAMaN1gPG7sy9+TQSxBk/Ea6O@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXPdyEnyHJ9cmXYVCv681S2VXrzXN12FJe0M128BFRP493qT+8
+	3H8QBFXEobYn+JbWPhBIinpIkD255hCWJQK8o35FxZajxVQ/NFKm80fMHWJEsRM1ShntpjAFWzC
+	cPk+j1CnJO3s1EgmUvcx32ICeRXmryi5zf+eJmHFDzQ==
+X-Gm-Gg: ASbGncs8u1v8zoFyODhxZqJD/PkESrewV/Sj1NErY2isO9jUmdeg2UHmrs1XAxn2AU5
+	jHoDVHpig44ln+oxzVwR3id01XykNIKwyDMU5MCsPWOlutZGjaJ546oQL5kQd1ANW4679KOk0XP
+	HaFP+obCDUZ7/9hlo8ETUoFuJf1alnFNFnQyhOPT5UfgtUJ4UuHGJTxpAheHxaK9ulTBGPpyltv
+	qEeiJJJCBm38YT5gLD1O7nE6SYYvqcEuetSENP4CUL6D1AMDWbM2+PbWEAf
+X-Google-Smtp-Source: AGHT+IH5N5gh1e2Wid0aMR0FMRyM9pyDqp/u65+mskc935zM8TPlDDSTI+H4ckU5CTPXH5byLfWl83YU1oyPWy+p/Uw=
+X-Received: by 2002:a05:6512:135a:b0:55e:11ca:1549 with SMTP id
+ 2adb3069b0e04-55f0c6b5589mr4032238e87.19.1756126880025; Mon, 25 Aug 2025
+ 06:01:20 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250825065240.22577-1-linux.amoon@gmail.com> <20250825065240.22577-2-linux.amoon@gmail.com>
- <19AB5D06-DEB6-4C38-B90D-FCDD9719312C@hewittfamily.org.uk>
-In-Reply-To: <19AB5D06-DEB6-4C38-B90D-FCDD9719312C@hewittfamily.org.uk>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Mon, 25 Aug 2025 18:27:44 +0530
-X-Gm-Features: Ac12FXwRodlBz_UjLLJd6RTuYXAAOzs3SHAzCQ_66M5mw-OW-pZnPXMBgXjfwxw
-Message-ID: <CANAwSgQT7Y9_TKsYVignTOX1AWpcK6xEEU5+Dhy6Yd=ZG4qCjw@mail.gmail.com>
-Subject: Re: [PATCH v2 01/11] arm64: dts: amlogic: Add cache information to
- the Amlogic GXBB and GXL SoC
-To: Christian Hewitt <christian@hewittfamily.org.uk>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	"moderated list:ARM/Amlogic Meson SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"open list:ARM/Amlogic Meson SoC support" <linux-amlogic@lists.infradead.org>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>
+References: <cover.1756104334.git.christophe.leroy@csgroup.eu>
+ <e05a0959d794016bde79e48e25ff71253cf51aae.1756104334.git.christophe.leroy@csgroup.eu>
+ <CAMRc=MfPTtdFtE63UKfbuK3h1mLEk2aUGazBsbRS-OLZzm7e9g@mail.gmail.com>
+In-Reply-To: <CAMRc=MfPTtdFtE63UKfbuK3h1mLEk2aUGazBsbRS-OLZzm7e9g@mail.gmail.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Mon, 25 Aug 2025 15:01:09 +0200
+X-Gm-Features: Ac12FXwiA1VNOuENMZgX8e0TVhBXubdvgS_jWd_PUQ_1hAXM92SKRJ_pWmQYzEg
+Message-ID: <CAMRc=Mcsvkt1OJfVmB2peQJPpEKqFJ=6=86m=fd+VOEoMGf8Yw@mail.gmail.com>
+Subject: Re: [PATCH v3 2/6] soc: fsl: qe: Change GPIO driver to a proper
+ platform driver
+To: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Qiang Zhao <qiang.zhao@nxp.com>, Linus Walleij <linus.walleij@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_055804_016982_DCB86AFA 
-X-CRM114-Status: GOOD (  16.44  )
+X-CRM114-CacheID: sfid-20250825_060122_194409_253A435C 
+X-CRM114-Status: GOOD (  14.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,90 +102,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Christian,
-
-On Mon, 25 Aug 2025 at 13:29, Christian Hewitt
-<christian@hewittfamily.org.uk> wrote:
->
-> > On 25 Aug 2025, at 10:51=E2=80=AFam, Anand Moon <linux.amoon@gmail.com>=
+On Mon, Aug 25, 2025 at 2:56=E2=80=AFPM Bartosz Golaszewski <brgl@bgdev.pl>=
  wrote:
+>
+> On Mon, Aug 25, 2025 at 8:53=E2=80=AFAM Christophe Leroy
+> <christophe.leroy@csgroup.eu> wrote:
 > >
-> > As per S905 and S905X datasheet add missing cache information to
-> > the Amlogic GXBB and GXL SoC.
+> > In order to be able to add interrupts to the GPIOs, first change the
+> > QE GPIO driver to the proper platform driver in order to allow
+> > initialisation to be done in the right order, otherwise the GPIOs
+> > get added before the interrupts are registered.
 > >
-> > - Each Cortex-A53 core has 32KB of L1 instruction cache available and
-> > 32KB of L1 data cache available.
-> > - Along with 512KB Unified L2 cache.
-> >
-> > Cache memory significantly reduces the time it takes for the CPU
-> > to access data and instructions, leading to faster program execution
-> > and overall system responsiveness.
+> > Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+> > Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 >
-> Hello Anand,
->
-> I=E2=80=99m wondering if we are =E2=80=9Cenabling caching=E2=80=9D in the=
-se patches (could be
-> a significant gain, as per text) or we are =E2=80=9Coptimising caching=E2=
-=80=9D meaning
-> the kernel currently assumes generic/safe defaults so having accurate
-> descriptions in dt allows better efficiency (marginal gain)?
->
-> Stats are also subjective to the workload used, but do you have any
-> kind of before/after benchmarks? (for any of the SoCs in the patchset)
+> Hi! I retracted my review tag under v1 because...
 >
 
-This is a fundamental feature of Arm64 CPUs that tracks active instructions
-and data within cache-mapped memory pages.
-Enabling it can significantly enhance overall system performance.
+Ah, sorry for the noise, you did that in a separate patch, please keep my R=
+-b.
 
-We can configure more l2 cache memory which is confribable as per the
-Arm TRM document.
-Arm Cortex - A53  - Configurable L2 cache size of 128KB, 256KB, 512KB,
-1MB and 2MB.
-Arm Cortex - A55  - Configurable L2 cache size of 64KB, 128KB, or 256KB
-Arm Cortex - A73 -  Configurable L2 cache size of 256KB, 512KB, 1MB,
-2MB, 4MB, or 8MB.
-
-Here's an article that provides detailed insights into the cache feature.
-[0] http://jake.dothome.co.kr/cache4/
-
-I tested with a small benchmark to test factorial.
-
-Before:>
-alarm@archl-librecm:~$ sudo perf stat -e cache-references,cache-misses ./te=
-st
-Simulated Cache Miss Time (avg): 589 ns
-Factorial(10) =3D 3628800
-
- Performance counter stats for './test':
-
-           3017286      cache-references
-             45414      cache-misses                     #    1.51% of
-all cache refs
-
-       0.054512394 seconds time elapsed
-
-       0.004209000 seconds user
-       0.041866000 seconds sys
-
-After:>
- # sudo perf stat -e cache-references,cache-misses ./test
-Simulated Cache Miss Time (avg): 426 ns
-Factorial(10) =3D 3628800
-
- Performance counter stats for './test':
-
-           2814633      cache-references
-             27054      cache-misses                     #    0.96% of
-all cache refs
-
-       0.041041585 seconds time elapsed
-
-       0.007976000 seconds user
-       0.032009000 seconds sys
-
-> Christian
-
-Thanks
--Anand
+Bartosz
 
