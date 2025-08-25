@@ -4,69 +4,179 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1384CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 12:57:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 804AFCA0FE7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 13:00:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DxpJnRecUPASciFmdQMnSMfwuCJuu7rYK9MIa3xWrQs=; b=q9oCvIYDm7obrPddeKuzqLtzcG
-	3eWF/PNAAvkw7NXUVKirXlagt9XG8vi0loWglLQn9EZScFmpPGCQnHBAvY2PjFrj1HBNHs2pXkA7D
-	2kJv7d6dw7X4rRKsXKfImLFwnBMPKOcTDk9s0yNM62svxWj8lWOkopc6WfaXMXIILscjo3SbkCwCD
-	4Te7zFnl6m/41UUxauGELoN0SFqhL7qMKNOcK1fwm51sf9a+ZYNLXiIL4DKiFy/Ep4rEjOycL+JTo
-	jzarlHSftcl9ErgMxIMXk7Ai1A3ZRdh5A8Sobv2LIpEXGAPsTAMb/TXwVgD7QdKcKsy1MBV2obVQx
-	aouPxcKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uHhvOgLzLHdXMxqSeEyVTm4tb1Q2Qv22OhA7C73pPSM=; b=fkKCrUSVA2W07XsTipS1wM/zeg
+	PBKwUKQwe8EE0wtQKjcKrnKA64P1/rOEjiL0MlzqkjA+uGLfKoErnUFfFal+s/M1GJc4bnYMv76ja
+	xukg9/0wJBtOTqL+SnZRlkDKyc6CFJNBBhtMxbE2uS3clmtpl7PMmg4sh9P7nMFXX1PNXhhPvWk7y
+	eVJVkR4NHLYUlze7WA7+3NW8EsPSAjpf1wU+x8MUBI2VrnBH0XwkVdpm0Hu4FlG3TYBiBm66cjpDv
+	K5LcycbqvvwjvSR5a/lvGejz7GlyGQIEuc8G7Bqs5lLuNuO497nQheFHIwifBuuTaL042AurFHOOL
+	KS8hyzhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqWlW-00000008179-49k4;
-	Mon, 25 Aug 2025 12:57:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uqWoD-000000081hz-0bN1;
+	Mon, 25 Aug 2025 13:00:25 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqW6d-00000007tXW-2va0;
-	Mon, 25 Aug 2025 12:15:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6E61F443B8;
-	Mon, 25 Aug 2025 12:15:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44F4BC4CEED;
-	Mon, 25 Aug 2025 12:15:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756124123;
-	bh=FYacGFcvtziYaQU23dkF5qhnNiOq+YUOP4jCmJ/AMb8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=un5ESlkHE/jiWQ4E7w+MIAM9BFrs7ubsGv3bHkx9mxVJvkwmG0FHmZOydp0W/iSt1
-	 ZyDJ/xT+9FwjUymkV61Vt8c2kUlYCso7GjA59LPhV8503jRYJuJqHe8t6J411TZMod
-	 slufIfhAYejxpbmfnTPe1aGvMMHd1ZFkT+5gbsMSVi1n9bSWAa0qhHPbJq+hGQ8Iph
-	 ZiUE7lVH1fpuOn0Vjk094HIuDQ/tkqyJcBkOsbsfxXUYuLpj80dboesibKEjCEt6ia
-	 QeoS5R5UqXl+AGXnjA/u/aNpS5kpp0tFJ3A44ppfZxZAUag3xJ/9zypter6lYfBsIz
-	 94/9r4/4Liofw==
-From: Sasha Levin <sashal@kernel.org>
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Cc: Piotr Zalewski <pZ010001011111@proton.me>,
-	Diederik de Haas <didi.debian@cknow.org>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Sasha Levin <sashal@kernel.org>,
-	hjc@rock-chips.com,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.16-6.12] drm/rockchip: vop2: make vp registers nonvolatile
-Date: Mon, 25 Aug 2025 08:15:00 -0400
-Message-ID: <20250825121505.2983941-11-sashal@kernel.org>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250825121505.2983941-1-sashal@kernel.org>
-References: <20250825121505.2983941-1-sashal@kernel.org>
+	id 1uqWCb-00000007uL8-3uS6;
+	Mon, 25 Aug 2025 12:21:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZgjFRGG9HTcgDTdask01urFrNpcC4pEa2Ytk+LaYjl9Fbs8ZRNn0XN8E+nu7HshN/f6C3kmD+AT7uUDob7z6QnF+v5kvI14ceJ9+cA685SN2HHWjTA6Fr0jS5ROkLHJ1BShlN30RnyMl4I5eYFI8q8+apFVq+gluvoWMZe85rVe/VpPE9qzSzsxKVM8hNwtDsiVE3wolDoFv7KrhtXeqiy8XWEHpfMNnPfyl4hPXb7Q9HEz+0GTl/QK86BT+DFlMW4uU5gui4SQHuY6U7ChlNxieVTlK3dOKp4x7I4g+7LPByOzGFV1j+oDP3QgLtmx0QZ2+2rvylBDt9QT4ZutsKQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uHhvOgLzLHdXMxqSeEyVTm4tb1Q2Qv22OhA7C73pPSM=;
+ b=L94+f7jMS0oB0DSfKmmunBwSy7L2V1/u0Ls3wosI4BO6OHWZWLYqQNYfE0GKSjvSTCAYhVT0UJxYfzQ1MPPdrmqU8KL8PgzlHjHXRids2nRnx9jaYypA2YacO70kbmmYcBnWQWTOUU0TPj0N8D8MtJeTleLuWLK5IqPTpMGuiUjzMO6g1eaXyPAWlXv8kYH5HGXBueIWzvQUKJ8UEWWZqu+jjbXlbwckb4AB2j5MIw/bAATnrgnpiJQ6rQ1IYPrG4bRFNO4ijHJmAVyTECmkq+EYxRxBiEydqmVN6ijWU1uzi8xicDnffBpP1tFQIKrPcvdNa8gcyWOuVdKnplZOzg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=siemens.com; dmarc=pass action=none header.from=siemens.com;
+ dkim=pass header.d=siemens.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=siemens.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uHhvOgLzLHdXMxqSeEyVTm4tb1Q2Qv22OhA7C73pPSM=;
+ b=NYou2pCFuXjvkbwTXi3MERCeZLUuE41L7lUjjRegJqH1l/RYFB+xTZ36X0qjLxHevCUwJWWNhMYV9cX82yG8Ju0DMoBXvad5Ib6JIgcuXxInsK86QzZ7n1EnwqWivupRHG+v4auGpvFxa1UzkzvXpuBUSqoj9lagrz3aWyJOfUjF9jHnwENgNDZ4K5aBs5el/lNfnlZiKAFd2hVLAGkG3426uzx1L8nVHrKZtUuZRBzXDMHSwMOzI+nnzOWNrf0Gc78iphtFdlgWetqQrwNcd2Jt4hpttKzxGpXJ8eGT+f7+eDl/d6OibXpy/vJZif5BQFayf1H/xV6FIMyreK/93A==
+Received: from AS8PR10MB6867.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:5b6::22)
+ by VI0PR10MB9169.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:800:235::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.20; Mon, 25 Aug
+ 2025 12:21:24 +0000
+Received: from AS8PR10MB6867.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::baa6:3ada:fbe6:98f4]) by AS8PR10MB6867.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::baa6:3ada:fbe6:98f4%5]) with mapi id 15.20.9052.019; Mon, 25 Aug 2025
+ 12:21:24 +0000
+From: "Sverdlin, Alexander" <alexander.sverdlin@siemens.com>
+To: "Balamanikandan.Gunasundar@microchip.com"
+	<Balamanikandan.Gunasundar@microchip.com>, "miquel.raynal@bootlin.com"
+	<miquel.raynal@bootlin.com>, "claudiu.beznea@tuxon.dev"
+	<claudiu.beznea@tuxon.dev>, "nicolas.ferre@microchip.com"
+	<nicolas.ferre@microchip.com>, "richard@nod.at" <richard@nod.at>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "vigneshr@ti.com" <vigneshr@ti.com>,
+	"alexandre.belloni@bootlin.com" <alexandre.belloni@bootlin.com>,
+	"linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>,
+	"bbrezillon@kernel.org" <bbrezillon@kernel.org>, "stable@vger.kernel.org"
+	<stable@vger.kernel.org>
+Subject: Re: [PATCH v2] mtd: nand: raw: atmel: Respect tAR, tCLR in read setup
+ timing
+Thread-Topic: [PATCH v2] mtd: nand: raw: atmel: Respect tAR, tCLR in read
+ setup timing
+Thread-Index: AQHcEpNMap6XZeIVvkickt5PeawpyLRzOl4AgAAWBYA=
+Date: Mon, 25 Aug 2025 12:21:24 +0000
+Message-ID: <3d0259caac9925e3d5dd3dd27a6785b2a2e82c0b.camel@siemens.com>
+References: <20250821120106.346869-1-alexander.sverdlin@siemens.com>
+	 <20250825-uneven-barman-7f932d0ca964@thorsis.com>
+In-Reply-To: <20250825-uneven-barman-7f932d0ca964@thorsis.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Evolution 3.54.3 (3.54.3-1.fc41) 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=siemens.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS8PR10MB6867:EE_|VI0PR10MB9169:EE_
+x-ms-office365-filtering-correlation-id: d681e1d0-054c-4d59-5130-08dde3d1e870
+x-ms-exchange-atpmessageproperties: SA
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|38070700018|921020;
+x-microsoft-antispam-message-info: =?utf-8?B?KzVpQ3ZhTjRhOFJGZmpNSGpueEVQSjQrM0lwa2praXVSTXJvOEhmdDFWMGNO?=
+ =?utf-8?B?UXNPbm9XakR5WHc5bDJuV3QxcU9oSlFIV1hmTzNWVEYzTExiTCtGdVBOenFx?=
+ =?utf-8?B?QTFrS0cxUUNmZjlUR0xKc3VsaG11RGhaZENKczc3NktqK0syZGJ1YVY1eFV3?=
+ =?utf-8?B?anVzYW1rb1lCK0hLbzVOcE9UUWkxYmh6dnIrMENzdXdWL0s0MFBLTmtHOUZG?=
+ =?utf-8?B?NGpYR052UFlxcVFkS1RFWXZMeC9UdGN6bnNkSGx5VmJmVmM3YlREbDBHY29P?=
+ =?utf-8?B?SEdmUWNxQytQWXgzZlNJQWVSQWJOZy9TbTBZdVVDWThMOUs5SzZ0eDhIQ0pN?=
+ =?utf-8?B?M21QbzVFZ25sc2x0SFZaaERaNitLWjczUWxCN2xBblorTjZ2Mk13eVgxUHU5?=
+ =?utf-8?B?ejhYdE1teXE5V2pqTmJVZ2dlWlR2TzdneDVCdVVGRG9lTkRmQzc1K2xpOFBj?=
+ =?utf-8?B?ak1ZbDRSTUphOWVzMFN0SW83b0Z2Ny9XdXhab2NPTitHaytHbFRuWGsvZ2hK?=
+ =?utf-8?B?bnFJa2g0VkFBVDV6V0VNanVoRWE5Y20zYm9DZDFhUkFzQXBWSEdLdUFTbG1z?=
+ =?utf-8?B?cVZsd2c2OVNGS2F1MnJueERDUFRDSnh1RkNBbnNEMlpOU3NiUUdRRTJDMGEy?=
+ =?utf-8?B?WHZZSEdjdFp3Qm9TdHhTTGJzcnJlRmNiajBJTERaWHdzNVlIWDFiMGlZNDRZ?=
+ =?utf-8?B?ZDAzMWtLUTlRSC9meEx1QkViVzJFSU5oY1NhTnkzTFF2ZnFwQ3BPWXQxUlZX?=
+ =?utf-8?B?SENKb1owblhXdGl3NTYyQmRpUXdpdFlnVW5LRWc3YmFveHIvQyt5TnRBREJn?=
+ =?utf-8?B?b05JelpJcFRKOEtmVkdIMWllWVp5Y0tMczJkNVF2YVFSRzRoWlpxOWQwVE1G?=
+ =?utf-8?B?ZUhZYWRQdmtsUDFlVWREZFk2cGVlK2UvaVI4RWtjQm1td2RYU29qTklwUXBS?=
+ =?utf-8?B?OFlmZU1jMXZ2ejVDTUs2NDJEcGIxR0syYjVkdkxDY2VuTVhJQitUMXJRWmEw?=
+ =?utf-8?B?U09rVjdCMGx3TnBOWEdLQVlKVGNGR2p5eXp0Q2hPN0RWVU5UdVNmenE1SVBI?=
+ =?utf-8?B?bzYxdGFxZTJwYmxPUmlmYmpEZk8xdHBqU2pqSUZ2UEQzMDFxSWdrUU82Smhw?=
+ =?utf-8?B?NUZFcWY1aDVWbHJqRTVVMVJaWEYvdGt3RWRTbmdhMWE0K21vdTlzZ3BnNExF?=
+ =?utf-8?B?K2tXaDZ2d1JxWFJ1NjVzUHE2YVR3VDB2SHV4OTNhNDZLVzNqS2hOYWJjZEJX?=
+ =?utf-8?B?bms3a3FvdldabDlMUVg0U2FaQjhDUEhuNWtOMU9nRWFLUnUrZ0tFeGlnSmNq?=
+ =?utf-8?B?aEQ1MlhTMndHelRoWXJsUG4rYkFKL2N4RzVBTFlLTGphN3d1VHFmNms4TXN5?=
+ =?utf-8?B?MWJnT1FPRWliMkFtQ2JkN0dpQURwM0xvamU2VWltWG1iQjQ2NVNFRmkyN2xa?=
+ =?utf-8?B?YnFsRG9DZDdheXM2ait4eFhsVTRVNjdodjk3OTJMcWFQTUNXb1BWQTdtYTNG?=
+ =?utf-8?B?bkZQVmtLVWtDa3hJZWpUZXkxYXhLUXpYQXl4eTViT1ppMDB6Q2RQRlhDalFq?=
+ =?utf-8?B?Mjg1WmwxdHMwQ1RiK3hFQk1kNE92QXhVR253U2JSenNqZE9vdGE4TnRkaUlR?=
+ =?utf-8?B?SWx4VlQxT2FoVlRvZlJOSnVJNnI4MVB5bnZUSGRzWERKODhEZDl0ZWllc2NZ?=
+ =?utf-8?B?ZmlCSkI4R2IzdjJ2NnJCQVRBTFFyVjBWQlJaaTJDd3ZjRUdUM3NrOUFzWEVo?=
+ =?utf-8?B?QTJjZDhQbnRiVzEzdlFraXpUQlVjRjBobHZOQm9XTzJPN0tXZTlYMDhCY1E4?=
+ =?utf-8?B?UzdkU0RncXlMNHc1WjBsV0h1UzdEQlhOVVZENzNxdFFmVTh6aXdPWUs3ZDhP?=
+ =?utf-8?B?dUVpOUs4cnlrVW5zdnNxL0JDbkhUYzFWOXhMT0ErSDYrMC80U0N4YXJNdkNt?=
+ =?utf-8?Q?0ZOj/hSiZkXdadNpBVhunuaK4YdQBg7R?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR10MB6867.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(38070700018)(921020);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?MTBWbXIxRFFOQWxmU2JVMGo2M3hlVWYzU2hoazd2eTlubmhubC9ZRG9HYXlE?=
+ =?utf-8?B?NmlBV1U5YUNzTlZtTklXRm5mOGdQRlp6RUZaT2F5a2d1TmRwaHpWYkJPTzBT?=
+ =?utf-8?B?aG9QaFRxSFowSTJpdEFYYmZETkt1V05tZXZ3ZU5wb1EzbkNDTG05dUx3SDhP?=
+ =?utf-8?B?bVFMd3FTbG03NGF0Z2Evc0EwRmdWS0x5VzhtOFNMU0ZLL05IQzRGSzNocG5n?=
+ =?utf-8?B?cUs0QU1wQWxlSDdjV3pqYjMzTnZtVE10V1RsT1pFTDNUbCtBdERERUFGQ2M4?=
+ =?utf-8?B?R1ZtSWs3TVVjd1VqT1hFTUMrbFd1N3pxOW5aOUxwNjdnZytJYTc0OWIvamxk?=
+ =?utf-8?B?dUhwWWgyak1aeUw2Z09XSXdKNFk0THFRQy9aYUNJdmE2L1VtMGlpaFAvOXY5?=
+ =?utf-8?B?aVFXRTJTQ1Nsd0lqSU51WDEvblZFYlBKc0xBM1RlalJxeThiRi9RdEdOL3RL?=
+ =?utf-8?B?SjE5bUphNUp5VXcrcUc2WG83bUEvSGVPbDkxZTFVQnJhMXlsejN6Y25aR2pQ?=
+ =?utf-8?B?UUY5MHZlSGhVUXMwaHRvRkpMcXpYTGNsNUs4Q3FiNW9ZRk1LTkhmT0FSMVBU?=
+ =?utf-8?B?LzFBYnVWOU5mOG5LZXVRcVVMRjI5NDRCd2V4RTN5U2NPeWRobG5icnAxYVkw?=
+ =?utf-8?B?UlNqR3Y5TE13Z2VTWEkvdDdGaldHT05KRmYwREhLNG0yRVkzZlBZRXFlRmRB?=
+ =?utf-8?B?MjBTZkt4NjdTNnI5Vkt2dXF4UDN1TEVMdkJLN0tTdHBrYzVseW5URGQ1SlVn?=
+ =?utf-8?B?bFhrOTE4MXdKM3laS3NaVEgyM1cvbWprdno3WTF6dmRxMVBNNTNZZFdiNkZH?=
+ =?utf-8?B?Q29vSnh6VFh5SlZ4aGl6TGRIeS80QUJyeTdWcEZQNUV2TUpQQng0cVl1SWp4?=
+ =?utf-8?B?SVdHa21nUUZnZlZ1U3k4cy82Y0JVNWJENnE4R05aellRZzdtbzVDY0FIVWN5?=
+ =?utf-8?B?dWxsbFdOUk1EQ2VsZDlialNGRjRCY1ZYRGE2MDdFSUkwanRHL1gzSE9QaHNt?=
+ =?utf-8?B?ckpkVDM3RWVKQ2JBN0U1RFp1bnNPNllHSHZCcXEyQzRjQU9PUUk3VWpaM2Rv?=
+ =?utf-8?B?dVl0ZTdKL0t1NVpsTzhkR1BZUkZ3RWtQc2tlaWZDR3ZzRGw3dEQ3TFJpbkdF?=
+ =?utf-8?B?RGFIUGZPRXE4UnhRWkwwUUJHcmR6RXlkd25SbnBIQTNZQjVsVlVBbmNTMVlx?=
+ =?utf-8?B?YXJQb3FkM1BYbUtGaUFWd21ZMGxBak1BOElMQVBVY01VTEhDNG1qUlJublVz?=
+ =?utf-8?B?c0xNWXE3ZUxCYlE1UUI5VlAxWHhGU2kxMkp0WXdSMTBjSDlqcGhDcGkrZE1N?=
+ =?utf-8?B?NDE3WS9hUE1TYzhTL0lNc0g4aTY4ekNEWURvUFh0SUJiWFIyQU9mZjMvMndB?=
+ =?utf-8?B?N01NRHpCVXNQYnVaNnhTTHhwVE5ySHhqeDZWdkRnUFQ3Kzh5NzgwU1l5bWZ0?=
+ =?utf-8?B?TjVzK2dJbG9ULzJDQzNNWURWM29rWUdhRUZTdGw1OWg5VFVVYlVLaUQweFlM?=
+ =?utf-8?B?VnJuTDlHQUhSejJZUnhGaGtGSXN1RlFJL205UFMxMXZaZ1RWRlpBZ2VQdmdt?=
+ =?utf-8?B?aUtiOVpCM01CcFR6YjA5WnVTMEk3UzdSb3FBczN4M0k5eElGUUVBODRmN3lD?=
+ =?utf-8?B?M2Fid2pvL0pmZndjTEpzRFFDVi8rb1puYzhEQjhzUERlM1p5VDVCUnJxZE5t?=
+ =?utf-8?B?N0ttVld6MWpiQ0VXTW1rWWg5V1FOanRxdnY4UXNYUnRtcVdQaUJBVWErRGFX?=
+ =?utf-8?B?eklwWS9HV2xsMytyOGU3RS9xOHdoeFRnVXg5VjNUUlo1T3BlMWxMaTJUcUJP?=
+ =?utf-8?B?eTU5eFlwMnl1TDVCRUQzZG9FczRkQ25sR0NINUtML1NkdGRBQ2dlL0o2eDh2?=
+ =?utf-8?B?RzF3L2NtMDZwUTJJWXNZdmpVcTZVcEZoeWZOaHhMS0QyQ2xVOUowQmdMREFm?=
+ =?utf-8?B?ZVNUWWVCOTFnYWpFMHJoaVk2bThFNFBhMm51OXJSSEp2SjRSYUF4TWh6aTQ3?=
+ =?utf-8?B?dzNxWUpnaEt0ZFc5bWZJYkNaY2FlSzMvem1sMitIZ3dJZzJoUnJJK0ZHSW5o?=
+ =?utf-8?B?VFl5WDY2NlZEQ0IrcCt0dEZNM25zdmRkcnA2SHMwb21vRGJ3OWtTdUlMeGlr?=
+ =?utf-8?B?b252UVpZdVZWZGdCZjFNQVVIVU5sQzRDNHBQY0ZuZTRvNEsvTWFCanRRaSs3?=
+ =?utf-8?Q?lVecP2Uh78UySdS0t3WK0ac=3D?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <3EE36111E4308249806ED69D3B683AD9@EURPRD10.PROD.OUTLOOK.COM>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.16.3
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: siemens.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR10MB6867.EURPRD10.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: d681e1d0-054c-4d59-5130-08dde3d1e870
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Aug 2025 12:21:24.3501
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 38ae3bcd-9579-4fd4-adda-b42e1495d55a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: kbnhJiqxQXmtwSXABsNJ5PrHYDkaOGRbJuGCKgFJDWtO5cgvcGf6FJobV2OYXtvOxSx09Eq2AUt+tv2I2gIFyoFBHmsPtbKhq35AFD00YoE=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR10MB9169
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_051523_789171_F5D34CD1 
-X-CRM114-Status: GOOD (  23.58  )
+X-CRM114-CacheID: sfid-20250825_052134_075751_47BC8F1E 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,138 +191,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Piotr Zalewski <pZ010001011111@proton.me>
-
-[ Upstream commit a52dffaa46c2c5ff0b311c4dc1288581f7b9109e ]
-
-Make video port registers nonvolatile. As DSP_CTRL register is written
-to twice due to gamma LUT enable bit which is set outside of the main
-DSP_CTRL initialization within atomic_enable (for rk356x case it is also
-necessary to always disable gamma LUT before writing a new LUT) there is
-a chance that DSP_CTRL value read-out in gamma LUT init/update code is
-not the one which was written by the preceding DSP_CTRL initialization
-code within atomic_enable. This might result in misconfigured DSP_CTRL
-which leads to no visual output[1]. Since DSP_CTRL write takes effect
-after VSYNC[1] the issue is not always present. When tested on Pinetab2
-with kernel 6.14 it happenes only when DRM is compiled as a module[1].
-In order to confirm that it is a timing issue I inserted 18ms udelay
-before vop2_crtc_atomic_try_set_gamma in atomic enable and compiled DRM
-as module - this has also fixed the issue.
-
-[1] https://lore.kernel.org/linux-rockchip/562b38e5.a496.1975f09f983.Coremail.andyshrk@163.com/
-
-Reported-by: Diederik de Haas <didi.debian@cknow.org>
-Closes: https://lore.kernel.org/linux-rockchip/DAEVDSTMWI1E.J454VZN0R9MA@cknow.org/
-Suggested-by: Andy Yan <andy.yan@rock-chips.com>
-Signed-off-by: Piotr Zalewski <pZ010001011111@proton.me>
-Tested-by: Diederik de Haas <didi.debian@cknow.org>
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-Link: https://lore.kernel.org/r/20250706083629.140332-2-pZ010001011111@proton.me
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
-
-LLM Generated explanations, may be completely bogus:
-
-Based on my analysis of the commit, let me provide my determination:
-
-**Backport Status: YES**
-
-## Extensive Analysis:
-
-This commit is a strong candidate for backporting to stable kernel trees
-for the following reasons:
-
-### 1. **Bug Fix Nature**
-The commit fixes a real bug that causes **no visual output** on
-displays. This is a critical user-visible issue where the display driver
-fails to produce any image output. The commit message clearly describes
-this as fixing a situation where "misconfigured DSP_CTRL which leads to
-no visual output."
-
-### 2. **Race Condition Fix**
-The code changes address a race condition in register access patterns.
-The issue occurs because:
-- DSP_CTRL register is written twice during atomic_enable
-- The second write happens for gamma LUT configuration
-- Due to the register being volatile, read-modify-write operations can
-  read stale values
-- DSP_CTRL writes only take effect after VSYNC, creating a timing window
-  for the race
-
-### 3. **Small and Contained Change**
-The actual code change is minimal - just one line adding the VP register
-range to the nonvolatile list:
-```c
-+       regmap_reg_range(RK3568_VP0_CTRL_BASE, RK3588_VP3_CTRL_BASE +
-255),
-```
-
-This makes the video port registers (0xc00-0xeff based on the offsets)
-use the regmap cache instead of reading back from hardware, preventing
-the race condition.
-
-### 4. **Hardware-Specific Fix**
-The fix is specific to Rockchip VOP2 hardware (RK3568/RK3588 SoCs) and
-doesn't affect other subsystems. It's confined to the DRM/Rockchip
-display driver.
-
-### 5. **Tested and Confirmed**
-The commit includes:
-- A "Reported-by" tag indicating a real user issue
-- A "Tested-by" tag confirming the fix works
-- Clear reproduction details (happens on Pinetab2 with kernel 6.14 when
-  DRM is compiled as module)
-
-### 6. **Low Risk of Regression**
-The change only affects how registers are cached in the regmap
-framework. It doesn't change any functional logic, algorithms, or
-introduce new features. The comment update accurately reflects that both
-window AND video port registers are now marked as non-volatile for cache
-coherency.
-
-### 7. **Follows Stable Rules**
-This fix aligns with stable kernel rules:
-- Fixes a real bug that users are hitting
-- Small change (essentially 1 line of functional code)
-- Already tested by reporter
-- Fix is obvious once the problem is understood
-- No new features or architectural changes
-
-### 8. **Critical Display Functionality**
-Display output is fundamental functionality. A bug that causes "no
-visual output" severely impacts usability of devices using these SoCs,
-making this a high-priority fix for stable trees.
-
-The commit properly documents the issue with external references and
-follows good practices for a bug fix that should be backported to stable
-kernels.
-
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 9 +++++----
- 1 file changed, 5 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 186f6452a7d3..b50927a824b4 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -2579,12 +2579,13 @@ static int vop2_win_init(struct vop2 *vop2)
- }
- 
- /*
-- * The window registers are only updated when config done is written.
-- * Until that they read back the old value. As we read-modify-write
-- * these registers mark them as non-volatile. This makes sure we read
-- * the new values from the regmap register cache.
-+ * The window and video port registers are only updated when config
-+ * done is written. Until that they read back the old value. As we
-+ * read-modify-write these registers mark them as non-volatile. This
-+ * makes sure we read the new values from the regmap register cache.
-  */
- static const struct regmap_range vop2_nonvolatile_range[] = {
-+	regmap_reg_range(RK3568_VP0_CTRL_BASE, RK3588_VP3_CTRL_BASE + 255),
- 	regmap_reg_range(0x1000, 0x23ff),
- };
- 
--- 
-2.50.1
-
+SGkgQWxleGFuZGVyLA0KDQpPbiBNb24sIDIwMjUtMDgtMjUgYXQgMTM6MDIgKzAyMDAsIEFsZXhh
+bmRlciBEYWhsIHdyb3RlOg0KPiA+IEhhdmluZyBzZXR1cCB0aW1lIDAgdmlvbGF0ZXMgdEFSLCB0
+Q0xSIG9mIHNvbWUgY2hpcHMsIGZvciBpbnN0YW5jZQ0KPiA+IFRPU0hJQkEgVEM1OE5WRzJTM0VU
+QUkwIGNhbm5vdCBiZSBkZXRlY3RlZCBzdWNjZXNzZnVsbHkgKGZpcnN0IElEIGJ5dGUNCj4gPiBi
+ZWluZyByZWFkIGR1cGxpY2F0ZWQsIGkuZS4gOTggOTggZGMgOTAgMTUgNzYgMTQgMDMgaW5zdGVh
+ZCBvZg0KPiA+IDk4IGRjIDkwIDE1IDc2IC4uLikuDQo+ID4gDQo+ID4gQXRtZWwgQXBwbGljYXRp
+b24gTm90ZXMgcG9zdHVsYXRlZCAxIGN5Y2xlIE5SRF9TRVRVUCB3aXRob3V0IGV4cGxhbmF0aW9u
+DQo+ID4gWzFdLCBidXQgaXQgbG9va3MgbW9yZSBhcHByb3ByaWF0ZSB0byBqdXN0IGNhbGN1bGF0
+ZSBzZXR1cCB0aW1lIHByb3Blcmx5Lg0KPiA+IA0KPiA+IFsxXSBMaW5rOiBodHRwczovL3d3MS5t
+aWNyb2NoaXAuY29tL2Rvd25sb2Fkcy9hZW1Eb2N1bWVudHMvZG9jdW1lbnRzL01QVTMyL0FwcGxp
+Y2F0aW9uTm90ZXMvQXBwbGljYXRpb25Ob3Rlcy9kb2M2MjU1LnBkZg0KPiA+IENjOiBzdGFibGVA
+dmdlci5rZXJuZWwub3JnDQo+ID4gRml4ZXM6IGY5Y2UyZWRkZjE3NiAoIm10ZDogbmFuZDogYXRt
+ZWw6IEFkZCAtPnNldHVwX2RhdGFfaW50ZXJmYWNlKCkgaG9va3MiKQ0KPiA+IFNpZ25lZC1vZmYt
+Ynk6IEFsZXhhbmRlciBTdmVyZGxpbiA8YWxleGFuZGVyLnN2ZXJkbGluQHNpZW1lbnMuY29tPg0K
+PiANCj4gVGVzdGVkLWJ5OiBBbGV4YW5kZXIgRGFobCA8YWRhQHRob3JzaXMuY29tPg0KPiANCj4g
+VGhyZXcgdGhpcyBvbiB0b3Agb2YgNi4xMi4zOS1ydDExIGFuZCB0ZXN0ZWQgb24gdHdvIGN1c3Rv
+bSBwbGF0Zm9ybXMNCj4gYm90aCB3aXRoIGEgU3BhbnNpb24gUzM0TUwwMkcxIFNMQyAyR0JpdCBm
+bGFzaCBjaGlwLCBidXQgd2l0aA0KPiBkaWZmZXJlbnQgU29DcyAoc2FtYTVkMiwgc2FtOXg2MCku
+wqAgV2UgaGFkIGRpZmZpY3VsdGllcyB3aXRoIHRoZQ0KPiB0aW1pbmcgb2YgdGhvc2UgTkFORCBm
+bGFzaCBjaGlwcyBpbiB0aGUgcGFzdCBhbmQgSSB3YW50ZWQgdG8gbWFrZSBzdXJlDQo+IHRoaXMg
+cGF0Y2ggZG9lcyBub3QgYnJlYWsgb3VyIHNldHVwLsKgIFNlZW1zIGZpbmUgaW4gYSBxdWljayB0
+ZXN0LA0KPiByZWFkaW5nIGFuZCB3cml0aW5nIGFuZCByZWFkaW5nIGJhY2sgaXMgc3VjY2Vzc2Z1
+bC4NCg0KdGhhbmsgeW91IGZvciB5b3VyIGZlZWRiYWNrIQ0KDQpEbyB5b3Ugc2VlIGFuIG9wcG9y
+dHVuaXR5IHRvIGRyb3AgdGhlIGRvd25zdHJlYW0gdGltaW5nIHF1aXJrcyB3aXRoIG15IHBhdGNo
+Pw0KSSBhY3R1YWxseSBoYXZlIGFub3RoZXIgcGF0Y2ggcmVsYXRlZCB0byB0aW1pbmdzLCBidXQg
+aXQncyBiYXNlZCBvbiBjb2RlLXJldmlldw0Kb25seSBhbmQgdGhlIHRoZW9yZXRpY2FsIGlzc3Vl
+IG5ldmVyIG1hbmlmZXN0ZWQgaXRzZWxmIGluIHByYWN0aWNlIG9uIG91ciBzaWRlLi4uDQooaXQn
+cyBhYm91dCBtaXNzaW5nIG5kZWxheSBhdCB0aGUgZW5kIG9mIGF0bWVsX3NtY19uYW5kX2V4ZWNf
+aW5zdHIoKSkNCg0KUmVnYXJkcywNCi0tIA0KQWxleGFuZGVyIFN2ZXJkbGluDQpTaWVtZW5zIEFH
+DQp3d3cuc2llbWVucy5jb20NCg==
 
