@@ -4,103 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50BEBCA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 01:23:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 972BECA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 01:27:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EN6ZzdP3i0zcjEggG2p78XDuwapKqNbwvZSSMTRqchw=; b=VXY6P+d+VPbQ+adgCCyaQ2RAzh
-	/gsxzlegWAg86+VpvZ41TplFNZ2sVO54hH1KfN+672Q8tsAmH8qxJvYb9nR3M/KCzzhcrcnapXWP2
-	mGTh6hK47WVVEbdq83YqjSQWV57rNLXr+LGnpaXqjPcP8FkEjx6SnvBpxepBdU2JMzsWQSKK+SNeB
-	O7olcY10Dm0j0XG28jmYpzr7vYeYrpjMnX9bNPl2sdwYK7y2wkbYDjiDsCf1Epd3c8wFoAW9TMLr9
-	uUlqZxVndZFLpj/GQlLBc58kpSUoyG1pxhGzmCGLRhG466pzo5YpoZACJ0peevnlqnkBmC8zpZc/k
-	eFdlQ4bg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Date:Cc:To:From:Subject:Message-ID:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9eI//ifONMcYx8OuZ4RyDvs/wIE713deTiuA/p5E0LQ=; b=SZft17dxfJFeLFzkROvnpJMI/f
+	itWSPbSdaydRs6bW92tbDVigBWgTRDDzV5LzTV0gju7kbpBmT8XV+NXS6Kud/pgtjSRmpzr3l+o1I
+	L/vp7dRrwwRY95pXEsWoR7NgiQ5fa68jOVcjD/0U/f0WhcxOSE5AyiNnGxHM8gvFz81gF2jZSJWed
+	YA+8o6gyjFMFVZbHjEkS30tUeU7+et593JY3cbjJG+HN7K/F/Vi/3IdChYmqAQ+MpE4hrYDqRf+qT
+	uOOmUpOm6nyOcXLWgw1PMJlJbqIZPHdWABc2py/29hTIctJH5QP7A+T2thTRcU30hBwxnw/Oorrz8
+	PtASYuMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqLw7-00000006gH8-1y02;
-	Mon, 25 Aug 2025 01:23:51 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uqLzk-00000006gXl-2MSO;
+	Mon, 25 Aug 2025 01:27:36 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqLtR-00000006g6n-0OKI
+	id 1uqLx7-00000006gLV-3DhA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 01:21:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756084863;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=EN6ZzdP3i0zcjEggG2p78XDuwapKqNbwvZSSMTRqchw=;
-	b=KiNcJk7ZY8KydszYotLuLpeLozxtHLUdr4PPCe+gbzUhdIfNacxboW+B9nbh1vRNq4lsDe
-	eswCAGfHGf/Db6g5+zRzfYrvdCerpt1x/kYbAcovf9iKfSy9i7fu8YxHaHOa76xvkNoObi
-	uBMJ1N70jGPJnzwUkoou0pJYCeL8Su0=
-Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com
- [209.85.215.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-5-kniEnhw8PTmrQBfDNb65fQ-1; Sun, 24 Aug 2025 21:20:59 -0400
-X-MC-Unique: kniEnhw8PTmrQBfDNb65fQ-1
-X-Mimecast-MFC-AGG-ID: kniEnhw8PTmrQBfDNb65fQ_1756084858
-Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-b474b68cff7so3181415a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 Aug 2025 18:20:59 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756084858; x=1756689658;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EN6ZzdP3i0zcjEggG2p78XDuwapKqNbwvZSSMTRqchw=;
-        b=sH41EJ0L0RhzvqsRuQy5GpcjBEgpfYoC6BsaOaL7lxL21woxjqcqIntPsaekH0M0KA
-         0z/lkytXRiKd0VyDIq8uWbTN2fpweEmgBXr9pfT8XEIFhYjEfvcuzED4YixU7NrruklN
-         CSXO9oXIa0ImmcJM9zCv0sdqc0ysjJ3GdSABknJA2Et83J42Vz14/9j+6T4U86PthHjX
-         lay757e1Sq9a/J2EvTouYaEGQ0ddaI7VhxHCNK77/IcU086BwvcFV3sA93KTK+HUEgb/
-         pMiurempCGJyLjmi3tDWRVJWL5oJDSkZ3MK6Wrg4XQzACj5AOKBxAAHqF4grYSQT8occ
-         b1nA==
-X-Forwarded-Encrypted: i=1; AJvYcCVofBCxVo839B2m4CV46G996D6QC98QYKAN3zeLOqHgM/bmoMlJM74sYUZEErrTaLZzorm0tdXlE1dAXYDYaBs+@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrvOAsiVe/Z0eDqzduUtQRVwD20C14s/9ZFY9unyfUcN701fNI
-	efccaZqDEvWimBO9C+AzPlAu+3U4matfa11tcW6D3zuHUoYYTDNPoGWJUyn/tf+EU0Z5Il5V7XJ
-	xXu3fqIAyWjNu1fKIKhrcvzaplyPJjwkP8e3oGC+i9v4JqRPkL1mb5EuUbwo5d1AHerdK2DhmIC
-	pp
-X-Gm-Gg: ASbGnctKFpt5sxnE7qUMBIfUu4oIsQdX6C11wJzCDP/fTdlGQLfi+sQa25IUNY/Iey6
-	YiMFKz/T5mD4ad467fUK+ACIplKNt7CnMjeyBCDlrPIYHgHwhsVGlGOur6iU2wFtPNYhfQXy3fm
-	xuVgk1j7rYd3D/DDSBTXNwn9EylfUYNr2+Aj13X4wDoDBgC2/sSJm67XHk3bol991rnKU89ut72
-	jNeFQVXYk0pO+yZOQoQ/l8R1letPmlfNfxbA3iUcWa/x1XbokfNTf4DpCn5upqa5LQnmBN3xzqr
-	DZyUNAJmexGF8pmUO2rWYkuWJeaADZs=
-X-Received: by 2002:a05:6a20:7d9d:b0:240:387:cee with SMTP id adf61e73a8af0-2434081ccd3mr14767784637.0.1756084858451;
-        Sun, 24 Aug 2025 18:20:58 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGZ52vj5/0XeOFHIZn6b33Fi9CgvtFLe7y13b+QMfcBUf40D3kWJXZtVu67hRZNEFoDn1nUGA==
-X-Received: by 2002:a05:6a20:7d9d:b0:240:387:cee with SMTP id adf61e73a8af0-2434081ccd3mr14767754637.0.1756084858035;
-        Sun, 24 Aug 2025 18:20:58 -0700 (PDT)
-Received: from localhost ([209.132.188.88])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b49cbb98e8asm5143369a12.38.2025.08.24.18.20.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 24 Aug 2025 18:20:57 -0700 (PDT)
-Date: Mon, 25 Aug 2025 09:18:53 +0800
-From: Coiby Xu <coxu@redhat.com>
-To: Breno Leitao <leitao@debian.org>
-Cc: kexec@lists.infradead.org, Ondrej Kozina <okozina@redhat.com>, 
-	Milan Broz <gmazyland@gmail.com>, Thomas Staudt <tstaudt@de.ibm.com>, 
-	Daniel P =?utf-8?B?LiBCZXJyYW5nw6k=?= <berrange@redhat.com>, Kairui Song <ryncsn@gmail.com>, 
-	Pingfan Liu <kernelfans@gmail.com>, Baoquan He <bhe@redhat.com>, Dave Young <dyoung@redhat.com>, 
-	linux-kernel@vger.kernel.org, x86@kernel.org, Dave Hansen <dave.hansen@intel.com>, 
-	Vitaly Kuznetsov <vkuznets@redhat.com>, Arnaud Lefebvre <arnaud.lefebvre@clever-cloud.com>, 
-	Jan Pazdziora <jpazdziora@redhat.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v9 1/8] kexec_file: allow to place kexec_buf randomly
-Message-ID: <yng55a2z25m5upehczerzhi6zawe3j4ka7amfu4vw4cu27bbg2@x2lgbuk3iqyf>
-References: <20250502011246.99238-1-coxu@redhat.com>
- <20250502011246.99238-2-coxu@redhat.com>
- <oninomspajhxp4omtdapxnckxydbk2nzmrix7rggmpukpnzadw@c67o7njgdgm3>
+	Mon, 25 Aug 2025 01:24:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1756085087;
+	bh=9eI//ifONMcYx8OuZ4RyDvs/wIE713deTiuA/p5E0LQ=;
+	h=Subject:From:To:Cc:Date;
+	b=Pc9r9rdwKIaqaqFzHA42xd2Qij0DYpICdtD6inYMnMEaNit74E9HeNCQSjMXPJfuw
+	 BXaPrlnESDziCtFHqGheuy67ZBJ09aJE44B4x6OcsQxbR8GLAuTn4HLAxfzVDapRwn
+	 uwMR3ac0XAQBt8vgVXVaY1k5uLYYgrM/P0yeSOZNFoG2Agl0iv7iGK+9lG3fXWGwe1
+	 8HPmxKn7y90ohEJmUF6d6UCE815cSOs8Tt3umXNPMUNToPZZr4LzLJcQVP23+QLWZ8
+	 bXPQvlvPbzQnimiYxIIYisQwU3KvWt99aE/fSVg+okhGF+V4EVR7keS5+01VdvvKEL
+	 mGM4DjglucP8w==
+Received: from [192.168.68.112] (unknown [180.150.112.213])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 7653064C1A;
+	Mon, 25 Aug 2025 09:24:45 +0800 (AWST)
+Message-ID: <cb634cffaf0db9d25fb3062f0eee41e03955321f.camel@codeconstruct.com.au>
+Subject: [GIT PULL] aspeed: early devicetree changes for 6.18
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: soc <soc@lists.linux.dev>
+Cc: linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org, Joel Stanley <joel@jms.id.au>
+Date: Mon, 25 Aug 2025 10:54:44 +0930
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-In-Reply-To: <oninomspajhxp4omtdapxnckxydbk2nzmrix7rggmpukpnzadw@c67o7njgdgm3>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: GHNuD9m8X09g3dLVJIdeQE4BFqtjzVG-dkPNYiAJzh4_1756084858
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii; format=flowed
-Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_182105_199568_5BB23D66 
-X-CRM114-Status: GOOD (  21.57  )
+X-CRM114-CacheID: sfid-20250824_182454_032621_910F3822 
+X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,82 +69,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 21, 2025 at 04:15:53AM -0700, Breno Leitao wrote:
->Hello Coiby,
+Hello SoC maintainers,
 
-Hi Breno,
+The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585=
+:
 
->
->On Fri, May 02, 2025 at 09:12:35AM +0800, Coiby Xu wrote:
->> +static inline void kexec_random_range_start(unsigned long start,
->> +					    unsigned long end,
->> +					    struct kexec_buf *kbuf,
->> +					    unsigned long *temp_start)
->> +{
->> +	unsigned short i;
->> +
->> +	if (kbuf->random) {
->> +		get_random_bytes(&i, sizeof(unsigned short));
->> +		*temp_start = start + (end - start) / USHRT_MAX * i;
->> +	}
->> +}
->
->On arm64, I am getting the following UBSAN warning when accessing
->kbuf->random:
->
->[   32.362428] ------------[ cut here ]------------
->[   32.362488] UBSAN: invalid-load in ./include/linux/kexec.h:210:10
->[   32.362649] load of value 252 is not a valid value for type '_Bool'
->
->and line 210 is your `if (kbuf->random)`.
->
->Basically kbuf was not initialized in arm hosts, and probably has
->garbage.
+  Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
 
-Thank for explaining the problem to me!
+are available in the Git repository at:
 
->
->I am wondering if we should have something like , while the support for arm64 is
->not done:
->
->commit 2608bd8c26b62a9a7cc50106e93d3a1ffb1e1188
->Author: Breno Leitao <leitao@debian.org>
->Date:   Thu Aug 21 04:11:21 2025 -0700
->
->    Initialize the random field of kbuf to zero in the ARM64 kexec image loader
->
->    Ads an explicit initialization for the random member of the kbuf
->    structure within the image_load function in
->    arch/arm64/kernel/kexec_image.c. Setting kbuf.random to zero ensures
->    a deterministic and clean starting state for the buffer used during
->    kernel image loading, avoiding this UBSAN issue later, when kbuf.random
->    is read.
->
->            [   32.362488] UBSAN: invalid-load in ./include/linux/kexec.h:210:10
->            [   32.362649] load of value 252 is not a valid value for type '_Bool'
->
->    Signed-off-by: Breno Leitao <leitao@debian.org>
->
->diff --git a/arch/arm64/kernel/kexec_image.c b/arch/arm64/kernel/kexec_image.c
->index 532d72ea42ee8..287b25e674d76 100644
->--- a/arch/arm64/kernel/kexec_image.c
->+++ b/arch/arm64/kernel/kexec_image.c
->@@ -76,6 +76,7 @@ static void *image_load(struct kimage *image,
-> 	kbuf.buf_min = 0;
-> 	kbuf.buf_max = ULONG_MAX;
-> 	kbuf.top_down = false;
->+	kbuf.random = 0;
->
-> 	kbuf.buffer = kernel;
-> 	kbuf.bufsz = kernel_len;
->
+  https://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux.git tags/aspeed=
+-6.18-devicetree-0
 
-And also thanks for posing a fix! The patch LGTM. Can you add a Fixes
-tag 'Fixes: bf454ec31add ("kexec_file: allow to place kexec_buf
-randomly")' and then send it to kexec@lists.infradead.org? Thanks!
+for you to fetch changes up to b785b5d88cc27a521ea22b3afd85804c4c321d4a:
 
--- 
-Best regards,
-Coiby
+  ARM: dts: aspeed: x570d4u: convert NVMEM content to layout syntax (2025-0=
+8-11 09:37:48 +0930)
+
+----------------------------------------------------------------
+Early ASPEED devicetree updates for 6.18
+
+Notable changes:
+
+- Meta's Wedge400 and Fuji boards have had parallel devicetrees added for a
+  transition to a new static flash layout. The original layout is deprecate=
+d and
+  I anticipate removing related devicetrees in future releases.
+
+New platforms:
+
+- Darwin (Meta)
+
+  Darwin is Meta's rack switch platform with an AST2600 BMC integrated for
+  health monitoring purpose.
+
+Updates and fixes:
+
+- GB200NVL (Nvidia): Networking, I2C, regulators, GPIOs
+- Wedge400, Fuji (Meta): Fix warnings from devicetree bindings
+- Use fixed-layout for NVMEM on Asrock platforms
+- Various: minor fixes for warnings from FSI devicetree bindings
+
+----------------------------------------------------------------
+Rob Herring (Arm) (3):
+      ARM: dts: aspeed: Drop "no-gpio-delays"
+      ARM: dts: aspeed: Drop "fsi-master" compatibles
+      ARM: dts: aspeed: Add missing "ibm,spi-fsi" compatibles
+
+Tan Siewert (4):
+      ARM: dts: aspeed: e3c246d4i: convert NVMEM content to layout syntax
+      ARM: dts: aspeed: e3c256d4i: convert NVMEM content to layout syntax
+      ARM: dts: aspeed: romed8hm3: convert NVMEM content to layout syntax
+      ARM: dts: aspeed: x570d4u: convert NVMEM content to layout syntax
+
+Tao Ren (13):
+      ARM: dts: aspeed: wedge400: Fix DTB warnings
+      ARM: dts: aspeed: fuji: Fix DTB warnings
+      ARM: dts: aspeed: Fix DTB warnings in ast2600-facebook-netbmc-common.=
+dtsi
+      ARM: dts: aspeed: Move eMMC out of ast2600-facebook-netbmc-common.dts=
+i
+      ARM: dts: aspeed: Add facebook-bmc-flash-layout-128-data64.dtsi
+      dt-bindings: arm: aspeed: add Facebook Wedge400-data64 board
+      ARM: dts: aspeed: Add Facebook Wedge400-data64 (AST2500) BMC
+      ARM: dts: aspeed: wedge400: Include wedge400-data64.dts
+      dt-bindings: arm: aspeed: add Facebook Fuji-data64 board
+      ARM: dts: aspeed: Add Facebook Fuji-data64 (AST2600) Board
+      ARM: dts: aspeed: facebook-fuji: Include facebook-fuji-data64.dts
+      dt-bindings: arm: aspeed: add Facebook Darwin board
+      ARM: dts: aspeed: Add Facebook Darwin (AST2600) BMC
+
+Willie Thai (4):
+      ARM: dts: aspeed: nvidia: gb200nvl: Add VCC Supply
+      ARM: dts: aspeed: nvidia: gb200nvl: Enable i2c3 bus
+      ARM: dts: aspeed: nvidia: gb200nvl: Repurpose the HMC gpio pin
+      ARM: dts: aspeed: nvidia: gb200nvl: Enable MAC0 for BMC network
+
+ Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml           |    3 =
++
+ arch/arm/boot/dts/aspeed/Makefile                                  |    3 =
++
+ arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-e3c246d4i.dts           |   12 =
++-
+ arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-e3c256d4i.dts           |   12 =
++-
+ arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-romed8hm3.dts           |   12 =
++-
+ arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x570d4u.dts             |   18 =
++-
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dts            |   72 =
++++++
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-elbert.dts            |   12 =
++
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-fuji-data64.dts       | 1256 =
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=
+++++++++
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-fuji.dts              | 1247 =
++--------------------------------------------------------------------------=
+-------
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-wedge400-data64.dts   |  375 =
++++++++++++++++++++++++++
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-wedge400.dts          |  366 =
++-----------------------
+ arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-everest.dts                |   24 =
++-
+ arch/arm/boot/dts/aspeed/aspeed-bmc-inspur-fp5280g2.dts            |    3 =
++-
+ arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts        |   54 =
++++-
+ arch/arm/boot/dts/aspeed/aspeed-bmc-opp-lanyang.dts                |    2 =
++-
+ arch/arm/boot/dts/aspeed/aspeed-bmc-opp-mowgli.dts                 |    2 =
++-
+ arch/arm/boot/dts/aspeed/aspeed-bmc-opp-nicole.dts                 |    3 =
++-
+ arch/arm/boot/dts/aspeed/aspeed-bmc-opp-palmetto.dts               |    2 =
++-
+ arch/arm/boot/dts/aspeed/aspeed-bmc-opp-romulus.dts                |    3 =
++-
+ arch/arm/boot/dts/aspeed/aspeed-bmc-opp-witherspoon.dts            |    2 =
++-
+ arch/arm/boot/dts/aspeed/aspeed-bmc-opp-zaius.dts                  |    2 =
++-
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi                            |    4 =
++-
+ arch/arm/boot/dts/aspeed/ast2600-facebook-netbmc-common.dtsi       |   22 =
++-
+ arch/arm/boot/dts/aspeed/facebook-bmc-flash-layout-128-data64.dtsi |   60 =
+++++
+ arch/arm/boot/dts/aspeed/ibm-power10-dual.dtsi                     |   12 =
++-
+ arch/arm/boot/dts/aspeed/ibm-power10-quad.dtsi                     |   12 =
++-
+ 27 files changed, 1925 insertions(+), 1670 deletions(-)
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dts
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-fuji-data6=
+4.dts
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-wedge400-d=
+ata64.dts
+ create mode 100644 arch/arm/boot/dts/aspeed/facebook-bmc-flash-layout-128-=
+data64.dtsi
 
 
