@@ -4,75 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D59CCA0FE9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D55ACA0EFA
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 12:54:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r3UKRVzBRwZahN2/BuzvZw20exQ5+wh08eFNd5uls48=; b=z2WGK6divagyl9mbvgLz4Ls6XK
-	Zmz0R3+dJrfKIDJ0TqhxPIj2V88D0EAsLQufFF9pCzAsNFxEf/asfEE6Ft/O+ChkBJW/ku1UQroqm
-	miW3JWv0Kj5Xilaxudn3QIOghJXtyQ/NTOsEftUJVUxQvDuQVBN5n1rkNTZ7+nlMMJHsFjbG6ArmV
-	RPsdvYb27SxMT3LaXYol/Gp7Vz21L5yXimsxdjEkyBPRS2hbJcGNuVHcJ2LRAhlJ4zj4gdSfBLBfB
-	EQkz88Uf+7oqcW5/yog0HItP3/Prl7Q1NQkil1/jrBxeuGZD8D7zEmTI6KjMHzfk+esE+R20B++zp
-	ntu/kceA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BKtyNwTMP9J0TkBkc6bERFF21TZVg5XRFFjChO7I9cA=; b=gn8euq9UaYlSSsCpq5D86NZv4i
+	MP/j16dZ73Cjd6STWHVqq3bBLE5iBWDOG5E9280lbAp9aUkHciiiNbbzRCOarSl6nu/qfkOazcfkh
+	6g9gDUmUqD3CVN5Qi+znFBLZHrzNYZHa5RNrSqlPS3zQtoahE1Pu0XKqMnMtaSVUR8WBPo8l3Z3wZ
+	5oD98MNNxgmiV9FsOjquG7mPJUXHkt4aQ3Vkjamdm+ZMs1fvoxIAOeLWycqQw8+WJARXZplAgcdaQ
+	bddE/OJ7CSTW29SlFnF++SyotmqwHFavVxCrLxQ8W1fjj9ER66Rqe4x+naVczIOknWstEi2aFZD3v
+	bnujznSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqWii-00000007zJv-1xTy;
-	Mon, 25 Aug 2025 12:54:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uqWih-00000007zJa-3p3y;
+	Mon, 25 Aug 2025 12:54:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqVQ5-00000007lwb-0pM9
+	id 1uqVOy-00000007li1-1kut
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 11:31:26 +0000
+	Mon, 25 Aug 2025 11:30:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B01DC40B8D;
-	Mon, 25 Aug 2025 11:31:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AE62C4CEED;
-	Mon, 25 Aug 2025 11:31:04 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D07A54494E;
+	Mon, 25 Aug 2025 11:30:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0BE4C4CEED;
+	Mon, 25 Aug 2025 11:30:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756121473;
-	bh=OgbR/W4gItCa2yQLXixaqQP3APnO9bdaKfA3LJBQfCg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=L/bp8JiSSu+DlgC5Jlw27azJqw5qLfIPDzMWuWAVBFPdKWEEDCulvu0L+jZv6fqfs
-	 8t/v6LSdy7Eo44fugSbuHh85J3k7JnIBwt4hbQMAAr5kmbgIN+Y1HaadG7wACwCM32
-	 Uk01Y6fBU95g41Qx4lOb75wliUbj41wOVpN4415IB84qZot8lJoPgwvH1qqse6qsVv
-	 ZSxCqjrUCOwcZFqTFWpBvo4CZqbQhuJBAAkGHz4Fp+7DlHCIqeE+Tj2g9ES2VT5JWw
-	 iY8BLMV9Ej4+JIfEV2QrNjEVEdzfAQMicwOeUVuk94uDqkSzX6Bh9HQpcwPQe487Bh
-	 iv1JIsfuKy/HQ==
-Date: Mon, 25 Aug 2025 12:31:00 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Dixit Parmar <dixitparmar19@gmail.com>
-Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Lars-Peter Clausen
- <lars@metafoo.de>, Michael Hennerich <Michael.Hennerich@analog.com>, Ray
- Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, Broadcom
- internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
- Support Opensource <support.opensource@diasemi.com>, Krzysztof Kozlowski
- <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Haibo Chen
- <haibo.chen@nxp.com>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Cai Huoqing <cai.huoqing@linux.dev>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Andreas Klinger <ak@it-klinger.de>, Crt
- Mori <cmo@melexis.com>, linux-iio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev,
- linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH 03/10] iio: dac: Drop unnecessary -ENOMEM messages
-Message-ID: <20250825123100.43d8c4ff@jic23-huawei>
-In-Reply-To: <20250822-enomam_logs-v1-3-db87f2974552@gmail.com>
-References: <20250822-enomam_logs-v1-0-db87f2974552@gmail.com>
-	<20250822-enomam_logs-v1-3-db87f2974552@gmail.com>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
+	s=k20201202; t=1756121414;
+	bh=3IHQNx2wrG20tcpiuH47GBZaxIUHfLatzNtTwPWBAJc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Cu8R6Ml8hgPAFNXJ3urcJe2DA/DwaerKI9hS5K95Dj/iVuMKIl+WvKpmc91YAr/f3
+	 KbQGqfuYwSNxbexZG+GBmsNpU0PH/FM3sGwHe2gSkv8f5AHuaLi4//ol7rxFIWKCI4
+	 2Re4C593+G9oUPJXS8yJdwPUak+xt+Z4KiUyNiTnahE5YuZ1dPge//kDUUwmdn2vRp
+	 sqF3Ku8TdWpiuczfb5gH68oLe3hiBjzRYKJoiwuqOzQMGyBAERvUrpfTMEgqatrwLp
+	 zxG+rn5TVs2DbsBLwV1dXAtkxQMFasnKZxBDBGxFQ76FAdZpgS1N5esrE/uHXAjQTk
+	 Htd3lrHS+/+fA==
+Date: Mon, 25 Aug 2025 13:30:08 +0200
+From: Vinod Koul <vkoul@kernel.org>
+To: "Gupta, Suraj" <Suraj.Gupta2@amd.com>
+Cc: "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+	"davem@davemloft.net" <davem@davemloft.net>,
+	"kuba@kernel.org" <kuba@kernel.org>,
+	"pabeni@redhat.com" <pabeni@redhat.com>,
+	"Simek, Michal" <michal.simek@amd.com>,
+	"Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"dmaengine@vger.kernel.org" <dmaengine@vger.kernel.org>,
+	"Katakam, Harini" <harini.katakam@amd.com>
+Subject: Re: [PATCH V2 1/4] dmaengine: Add support to configure and read IRQ
+ coalescing parameters
+Message-ID: <aKxJQLx6yprNdU03@vaman>
+References: <20250710101229.804183-1-suraj.gupta2@amd.com>
+ <20250710101229.804183-2-suraj.gupta2@amd.com>
+ <aICPiS1_ITwELrxq@vaman>
+ <BL3PR12MB65713879CB569E3B330C1E76C95FA@BL3PR12MB6571.namprd12.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <BL3PR12MB65713879CB569E3B330C1E76C95FA@BL3PR12MB6571.namprd12.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_043125_259430_709FBF65 
-X-CRM114-Status: GOOD (  10.36  )
+X-CRM114-CacheID: sfid-20250825_043016_479273_E9F77514 
+X-CRM114-Status: GOOD (  15.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,24 +84,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 22 Aug 2025 09:19:51 +0530
-Dixit Parmar <dixitparmar19@gmail.com> wrote:
-
-> The drivers do not require their own error messages for error
-> -ENOMEM, memory allocation failures. So remove the dev_err
-> messages from the probe().
+On 23-07-25, 11:49, Gupta, Suraj wrote:
+> > >  struct dma_slave_caps {
+> > >       u32 src_addr_widths;
+> > > @@ -520,6 +528,8 @@ struct dma_slave_caps {
+> > >       bool cmd_terminate;
+> > >       enum dma_residue_granularity residue_granularity;
+> > >       bool descriptor_reuse;
+> > > +     u32 coalesce_cnt;
+> > > +     u32 coalesce_usecs;
+> >
+> > Why not selectively set interrupts for the descriptor. The dma descriptors are in order,
+> > so one a descriptor is notified and complete, you can also complete the descriptors
+> > before that. I would suggest to use that rather than define a new interface for this
+> >
 > 
-> Signed-off-by: Dixit Parmar <dixitparmar19@gmail.com>
-> ---
->  drivers/iio/dac/ad5380.c     | 4 +---
->  drivers/iio/dac/ad5764.c     | 4 +---
->  drivers/iio/dac/ds4424.c     | 4 +---
->  drivers/iio/dac/ti-dac7311.c | 4 +---
->  drivers/iio/dac/vf610_dac.c  | 4 +---
-Raced with another series doing a dev_err_probe() conversion and the relevant
-lines are gone.
+> The reason I used struct dma_slave_config to pass coalesce and delay information to DMA driver is that the coalesce count is configured per channel in AXI DMA channel control register[1].
+> AXI DMA IP doesn't have provision to set interrupt per descriptor[2].
+> I can explore other ways to pass this information via struct dma_async_tx_descriptor or metadata, or any other way.
+> Please let me know your thoughts.
 
-I'll fix up.
+dma_async_tx_descriptor has dma_ctrl_flags and one of them is
+DMA_PREP_INTERRUPT which you can set for a descriptor and control when
+you get the interrupt
 
-Jonathan
+I am not a fan of adding custom interfaces.
+
+-- 
+~Vinod
 
