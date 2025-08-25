@@ -4,78 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47DDECA0FE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 14:59:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 576DBCA0FE8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 14:59:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wfmgXxgD0qt+5wz0o9XoN8d8sCZxVxXNPtnswF+FPKE=; b=fveibC+T6rcGLQVlvq5N51yQoP
-	A38B4jYYzL/xwGMMPS2oGRiCIP4gOx7AiH1bNioXCjtENkFq8lXjK9bGiZaYWiED8USAMgPvcp3Ky
-	RfEToNuXE0YRY2T68A62R7Bd6f1GwfQAvojrclYpG2aHi7EDoQwlnVHXEpYRcjafiEQnpv+TGfLeo
-	tvUc8B9YBjBaPtQLTN0OL/G+/V8GXsU1mtap74jpAgOVZy6xwjSqIkt9N2Dsu7BpLp6yufO5mx1xx
-	R8A8tIjLxc2DyU+3icrzYbc9xaA06LShLYtJUNfS9xm/cXGKCO9ShUXLycRb6GJG6fXu3Y9WBT2Kq
-	S7CRkBQA==;
+	bh=IyZaAnO05abMqFNQPoye38pNw/RRf81HOUABNDFs+ow=; b=X2JcOtprm5vGet0EbD8YiAGqhr
+	DgXwDIWak9kU3kNEqAnYYQZJFLqPGpglWhJn9ysnq+UFHiN7uKCFQUiycWLhwmktBWbUm9q/7nLlD
+	NateXXti2VZHLvavLbiij4TxS1CEt1pM1S1HL7U9XGWJHA3FYAQX5+XxSqJXlIsGwonhh7ibSdI+d
+	7x66hbypR/oPe7z0+yJGn4rk6+9NSTTF0aBLdk+m9xjHZVuP48vMj+d5dLC9k3fd4aazHGHattwv5
+	GloyreNQDtEFfHj7oDntc1+3skzEblYNFG5b5RHqiXTykZ7Tey7SwpW8/G7ZrH0RFYQXoTXs5K7LR
+	w6Jz4YLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqYf5-00000008LNw-37Ec;
-	Mon, 25 Aug 2025 14:59:07 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uqYf7-00000008LRC-2Giv;
+	Mon, 25 Aug 2025 14:59:09 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqWeR-00000007y1Y-2n0m;
-	Mon, 25 Aug 2025 12:50:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1756126218;
-	bh=UVJPdiqJAwlNJSMs+WTVCoHBLtI29kqg/HsLe9G8lgk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fb/dQwQEQErrvatkebCZRMmRsZ9gWRIfTk/rSJvIMBEyKLGM/iLeiV9CMeQnf7VGS
-	 quo5slxDPnXNxaIIhkYrs9GGWjuSuPKJ2BJfqj8VsEzNZkW+DQalvdvJSE6/yySxfb
-	 clXVceBVCD07LsjoUfLY3S+0hRyn1s9ixkuTYdj42px8KxDReqPtw/E3L1eWFOs+ll
-	 WTmcAi9YeiEvzSjZXSeXGBJBPQiujdxzNKYolhLIRNs3/AuTtnHL+KTTq3Vz5GIeY4
-	 WoMuz3uZZXtIvqa+ndgImrQVhf1E5WN6SmFnrJR3cRv+vgT5fvvgsg+4AOT0N2hU8X
-	 r8mWiW9xneSLw==
-Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:b1df:895a:e67b:5cd4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1FB9317E0478;
-	Mon, 25 Aug 2025 14:50:17 +0200 (CEST)
-From: Laura Nao <laura.nao@collabora.com>
-To: wenst@chromium.org
-Cc: angelogioacchino.delregno@collabora.com,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	guangjie.song@mediatek.com,
-	kernel@collabora.com,
-	krzk+dt@kernel.org,
-	laura.nao@collabora.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	matthias.bgg@gmail.com,
-	mturquette@baylibre.com,
-	netdev@vger.kernel.org,
-	nfraprado@collabora.com,
-	p.zabel@pengutronix.de,
-	richardcochran@gmail.com,
-	robh@kernel.org,
-	sboyd@kernel.org
-Subject: Re: [PATCH v4 06/27] clk: mediatek: clk-gate: Refactor mtk_clk_register_gate to use mtk_gate struct
-Date: Mon, 25 Aug 2025 14:49:00 +0200
-Message-Id: <20250825124900.209515-1-laura.nao@collabora.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <CAGXv+5GxJs03EcMt0jm-x_fDuy_RtCrnOmyJvVVgAP9O9R6E2Q@mail.gmail.com>
-References: <CAGXv+5GxJs03EcMt0jm-x_fDuy_RtCrnOmyJvVVgAP9O9R6E2Q@mail.gmail.com>
+	id 1uqWf5-00000007y5V-0IiG
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 25 Aug 2025 12:51:01 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250825125054epoutp02c3faa36b3fbe7efcff6df19b63d9e6da~fA4YVBhuo2081820818epoutp026
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 12:50:54 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250825125054epoutp02c3faa36b3fbe7efcff6df19b63d9e6da~fA4YVBhuo2081820818epoutp026
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1756126254;
+	bh=IyZaAnO05abMqFNQPoye38pNw/RRf81HOUABNDFs+ow=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=AMh285rdmU623jHntaAR4Uc/mjZOaKCdNV28Ulz6Y8YFW4MLqPqU9eQrLry+2PA5e
+	 ful1ZrE3jAecQhBtGRFTOPZ3iCsxrDZjsbVrnFoa/JIQ4nGUsxCSoecAGP75ts7x/3
+	 3eXVslFmwYW4edJjEgHeDXPOGDpotI/AG6N10jFc=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
+	20250825125053epcas5p294541daa3b844dd44558dd8ff6676e60~fA4XffRJ20205802058epcas5p2S;
+	Mon, 25 Aug 2025 12:50:53 +0000 (GMT)
+Received: from epcas5p1.samsung.com (unknown [182.195.38.88]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4c9Vyh1bXbz2SSKY; Mon, 25 Aug
+	2025 12:50:52 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250825125051epcas5p4f1fd9b26b26e388fdeef403aa802c252~fA4V6hK7A1505115051epcas5p4O;
+	Mon, 25 Aug 2025 12:50:51 +0000 (GMT)
+Received: from FDSFTE196 (unknown [107.116.189.214]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250825125047epsmtip11752ab6f3c0ad6db5a0093669b0fc3db~fA4SKmAoD3254932549epsmtip1I;
+	Mon, 25 Aug 2025 12:50:47 +0000 (GMT)
+From: "Inbaraj E" <inbaraj.e@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <mturquette@baylibre.com>,
+	<sboyd@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <s.nawrocki@samsung.com>, <s.hauer@pengutronix.de>,
+	<shawnguo@kernel.org>, <cw00.choi@samsung.com>, <rmfrfs@gmail.com>,
+	<laurent.pinchart@ideasonboard.com>, <martink@posteo.de>,
+	<mchehab@kernel.org>, <linux-fsd@tesla.com>, <will@kernel.org>,
+	<catalin.marinas@arm.com>, <pankaj.dubey@samsung.com>,
+	<shradha.t@samsung.com>, <ravi.patel@samsung.com>
+Cc: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <alim.akhtar@samsung.com>,
+	<linux-samsung-soc@vger.kernel.org>, <kernel@puri.sm>,
+	<kernel@pengutronix.de>, <festevam@gmail.com>,
+	<linux-media@vger.kernel.org>, <imx@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>
+In-Reply-To: <926e9bb2-cdde-4048-9ae2-159d088aa935@kernel.org>
+Subject: RE: [PATCH v2 03/12] dt-bindings: media: nxp: Add support for FSD
+ SoC
+Date: Mon, 25 Aug 2025 18:20:46 +0530
+Message-ID: <016301dc15be$e3256300$a9702900$@samsung.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQK5oFMD+tt4mLQU5V9KgVyIDaUIUQF6bLd9AsRKNAMBJ/ZVhAEp+FCyAvdCX9oBWhQiOgImNHTdsk/6UEA=
+Content-Language: en-in
+X-CMS-MailID: 20250825125051epcas5p4f1fd9b26b26e388fdeef403aa802c252
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-541,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250814141014epcas5p410d41ede7e8ae4f3cf8db6d041d03946
+References: <20250814140943.22531-1-inbaraj.e@samsung.com>
+	<CGME20250814141014epcas5p410d41ede7e8ae4f3cf8db6d041d03946@epcas5p4.samsung.com>
+	<20250814140943.22531-4-inbaraj.e@samsung.com>
+	<ac9769af-9ab6-4b48-9890-ec3bcda3b180@kernel.org>
+	<00d001dc136a$36ad7230$a4085690$@samsung.com>
+	<7b7f6958-3178-4c6f-8be3-f52ef77464f7@kernel.org>
+	<00d201dc136d$1fdd6bc0$5f984340$@samsung.com>
+	<926e9bb2-cdde-4048-9ae2-159d088aa935@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_055019_850397_749EE634 
-X-CRM114-Status: GOOD (  16.36  )
+X-CRM114-CacheID: sfid-20250825_055059_416143_0643EAE8 
+X-CRM114-Status: GOOD (  13.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,98 +110,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/15/25 05:42, Chen-Yu Tsai wrote:
-> On Tue, Aug 5, 2025 at 10:55 PM Laura Nao <laura.nao@collabora.com> wrote:
->>
->> MT8196 uses a HW voter for gate enable/disable control, with
->> set/clr/sta registers located in a separate regmap. Refactor
->> mtk_clk_register_gate() to take a struct mtk_gate instead of individual
->> parameters, avoiding the need to add three extra arguments to support
->> HW voter register offsets.
->>
->> Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
->> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> Signed-off-by: Laura Nao <laura.nao@collabora.com>
->> ---
->>  drivers/clk/mediatek/clk-gate.c | 35 ++++++++++++---------------------
->>  1 file changed, 13 insertions(+), 22 deletions(-)
->>
->> diff --git a/drivers/clk/mediatek/clk-gate.c b/drivers/clk/mediatek/clk-gate.c
->> index 67d9e741c5e7..0375ccad4be3 100644
->> --- a/drivers/clk/mediatek/clk-gate.c
->> +++ b/drivers/clk/mediatek/clk-gate.c
->> @@ -152,12 +152,9 @@ const struct clk_ops mtk_clk_gate_ops_no_setclr_inv = {
->>  };
->>  EXPORT_SYMBOL_GPL(mtk_clk_gate_ops_no_setclr_inv);
->>
->> -static struct clk_hw *mtk_clk_register_gate(struct device *dev, const char *name,
->> -                                        const char *parent_name,
->> -                                        struct regmap *regmap, int set_ofs,
->> -                                        int clr_ofs, int sta_ofs, u8 bit,
->> -                                        const struct clk_ops *ops,
->> -                                        unsigned long flags)
->> +static struct clk_hw *mtk_clk_register_gate(struct device *dev,
->> +                                               const struct mtk_gate *gate,
->> +                                               struct regmap *regmap)
->>  {
->>         struct mtk_clk_gate *cg;
->>         int ret;
->> @@ -167,17 +164,17 @@ static struct clk_hw *mtk_clk_register_gate(struct device *dev, const char *name
->>         if (!cg)
->>                 return ERR_PTR(-ENOMEM);
->>
->> -       init.name = name;
->> -       init.flags = flags | CLK_SET_RATE_PARENT;
->> -       init.parent_names = parent_name ? &parent_name : NULL;
->> -       init.num_parents = parent_name ? 1 : 0;
->> -       init.ops = ops;
->> +       init.name = gate->name;
->> +       init.flags = gate->flags | CLK_SET_RATE_PARENT;
->> +       init.parent_names = gate->parent_name ? &gate->parent_name : NULL;
->> +       init.num_parents = gate->parent_name ? 1 : 0;
->> +       init.ops = gate->ops;
->>
->>         cg->regmap = regmap;
->> -       cg->set_ofs = set_ofs;
->> -       cg->clr_ofs = clr_ofs;
->> -       cg->sta_ofs = sta_ofs;
->> -       cg->bit = bit;
->> +       cg->set_ofs = gate->regs->set_ofs;
->> +       cg->clr_ofs = gate->regs->clr_ofs;
->> +       cg->sta_ofs = gate->regs->sta_ofs;
->> +       cg->bit = gate->shift;
->
-> I'd rather see |struct mtk_clk_gate| (the runtime data) gain a pointer
-> to the static data |struct mtk_gate| instead of doing all the copying.
-> This is just needless duplication.
->
+Hi Krzysztof,
 
-Ack - I'll refactor this in the next revision.
+> >
+> > Using tesla,syscon-csis results in a =22prefix not found=22 issue when
+> > running dtbs_check
+> Because you develop on ancient, 10 year old downstream kernel?
+>=20
+> You really do not try enough and this is just wasting our time.
+>=20
+> Please think and really carefully check your replies. What prefix do you =
+have
+> in compatible? This command:
+> git grep tesla, =7C wc -l
+>=20
+> gives '99' results including obviously vendor prefix.
+>=20
+> So your warning is basically impossible or your code is just broken.
+> Don't just ask maintainers on every little trouble you have. You must deb=
+ug
+> it. Not we.
+>=20
 
-Thanks,
+Sorry, I made a mistake while  running dtbs_check. I'll use the tesla prefi=
+x in the next
+patchset
 
-Laura
+Regards,
+Inbaraj E
 
-> ChenYu
->
->>         cg->hw.init = &init;
->>
->> @@ -228,13 +225,7 @@ int mtk_clk_register_gates(struct device *dev, struct device_node *node,
->>                         continue;
->>                 }
->>
->> -               hw = mtk_clk_register_gate(dev, gate->name, gate->parent_name,
->> -                                           regmap,
->> -                                           gate->regs->set_ofs,
->> -                                           gate->regs->clr_ofs,
->> -                                           gate->regs->sta_ofs,
->> -                                           gate->shift, gate->ops,
->> -                                           gate->flags);
->> +               hw = mtk_clk_register_gate(dev, gate, regmap);
->>
->>                 if (IS_ERR(hw)) {
->>                         pr_err("Failed to register clk %s: %pe\n", gate->name,
->> --
->> 2.39.5
->>
 
