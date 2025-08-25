@@ -4,70 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EDDFCA0FE1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 08:15:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21B56CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 08:18:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=M/TwANByS8GbPPy4BtdqH5o/3ijPPSO7Y5K83ExNaD4=; b=iAhLloGwOktcsZ4mb2gNSwtmPq
-	04Tat1qj3AgaAfjjL+PF393VP2Z2T92S8xThfSYExLLomjZnMl2j0McvXLG+SSIPwTlguttN7F8iD
-	GykBRlYei/PhEp8OCMqKSxrIn+VYPE3nISeSFZVLgeiryZdOfGr0GXqFpvEfTWV1JdYYOZZUqPTYb
-	o0kpU2DpSapENkCRI6FZeykdVoVVEtUTUEc4NqVGcUXJRcb8XfMPns/FrOyf1HIVzUUv17nPNqTpN
-	E0EmsabsqrktvQb2/Qonc6a6I/Tg0tghBD0MZi0JC2nxrYSXaSQA4ErDiogZS4LUZ4d00BvEUhAoJ
-	sNxZsvkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:To:From:Cc:Message-Id:Date:Content-Type:Reply-To:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W3kYuC9PS9XSvrxs3ONBNdUCPTWsXaUqGEN513hR79k=; b=pd85l8vKKuJe/KIM4Hxp/sWgN2
+	8jTJzgou0iXVXlz5seUJviP0oIdRQkcE226C7KbChmUnmjyvPFRDZUXMY/yWhdQ10j++r4UB3EEBz
+	+j59GwAweucIJa/cheHssYIX01lxbxBgG8BhrNsKAp+3nZGYMzCxiIeznAVrWtCSK54WaucbRVN/B
+	EqYWtJZUbRmY19NJ+i4eu1nAWEa4boJW8lPsMH8cDrooAzml8JdW5Gnk1Q+ca5dJp57XMt5hFcmX/
+	vUUj1M2aWNkSYvAxtLWQKaZ9UCPpNRHDaD2AdEQczwXXrkmWLiubGo6fdTBFfPa2i9DO19Ak9ZdKT
+	TKbCMaXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqSMd-00000007H2D-1dQE;
-	Mon, 25 Aug 2025 08:15:39 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uqSPF-00000007HET-0cKC;
+	Mon, 25 Aug 2025 08:18:21 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqRcK-00000007AJi-1wKL;
-	Mon, 25 Aug 2025 07:27:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1756106849; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=mEPfe+LalKrrED4ZK5hjFQelQk78dSO66JLcyZz+RAmvLO3g8HM5Pm3SbGFXG4yOXX0/Rm7cmtOYhbujBqyAun+tKkJPoRckkoDxuUeNcbx4nnvdX25nKAu1Cqv2BY9PlDQS+onShisZ3icAiCmCL2EJDB/MDr9s+z0PS3w9Rbs=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1756106849; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=M/TwANByS8GbPPy4BtdqH5o/3ijPPSO7Y5K83ExNaD4=; 
-	b=VRMDlxMy6Ow3JvjULJlwASYl3/3F86yEo/usN9SjmdntDVkrDTuXlzJFwEUZ9lGn0SO7+cT/so7iiCRdaouujuyDCRcbCxc/nfptf9efCvtpWnkz7V1i7rdPnFqbcJ7p0lOdv9l4cz5J5qEaLvf7ihGk3PNoooMjpAzHTzZSeps=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1756106849;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:To:To:Cc:Cc:Reply-To;
-	bh=M/TwANByS8GbPPy4BtdqH5o/3ijPPSO7Y5K83ExNaD4=;
-	b=Idm4c4//UOrazztLZtVF9PkLSf/WuAxutdVS1v3bOR/RjiHPa2EHOZffvBd+fMPx
-	My2PtOpzd3oV12TdAHpylBo0CGEjrjW9fawJAi5FzPxPysZ86eABz47sj6Yhhm94Ii7
-	aPDtWeWom/MbM+6bfYIotPgU0XXTx9kPzqPYh+H4=
-Received: by mx.zohomail.com with SMTPS id 175610684796468.22818037101536;
-	Mon, 25 Aug 2025 00:27:27 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Mon, 25 Aug 2025 09:27:08 +0200
-Subject: [PATCH] arm64: dts: rockchip: fix USB on RADXA ROCK 5T
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250825-rock5t-usb-fix-v1-1-de71954a1bb5@collabora.com>
-X-B4-Tracking: v=1; b=H4sIAEsQrGgC/yWMQQ6CMBAAv9Ls2TVttWj4iuHQllU3BqrbQkwIf
- 6eB40wys0AmYcrQqgWEZs6cxgrmpCC+/fgi5L4yWG2dvluHkuLHFZxywCf/sQm611ey5MlAjb5
- CVe/DR3ew0G+q33JICD4TxjQMXFo1N2dzQ4kX6NZ1A18a/nONAAAA
-X-Change-ID: 20250825-rock5t-usb-fix-6b0d04e2eae1
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: FUKAUMI Naoki <naoki@radxa.com>, kernel@collabora.com, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.14.2
+	id 1uqRdC-00000007AQN-2gmZ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 25 Aug 2025 07:28:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D2EA65C5A8D;
+	Mon, 25 Aug 2025 07:28:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C98EC4CEED;
+	Mon, 25 Aug 2025 07:28:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756106920;
+	bh=OHl2l7fwcSBs2PnP0cy1ul4eRIrzpQHu81WxmlH2tY8=;
+	h=Date:Cc:From:To:Subject:References:In-Reply-To:From;
+	b=Hj5sfPcu+0GZO8ZMxzNtpk2D3hDwuorOx/VaVXaSdlFYUg25YCacBi2RzIKDjLwc9
+	 OSxoJ3BfdjPKlCKrQQA5vb1iWAEobDoaM4vFbHlTGtIrr4o/C903UnkugX2HW65tej
+	 R1e3GzYuyURQoJdYO0llKI6gxDPC8MHc77Xw+AgADdLcO7Hv/RjckYy+t5u8PBuMpq
+	 GVSeBvBT5ikpD6pNNMSamc0FY9j/vF/UgYhUYISaU+2JejMF7xwI2SBZTGOVtybrlv
+	 BUQwQnMyz9fMU/9kCIjr8MZp3j7BZa1HPKMZ++pvva+t+UuIq3w7YPyj95aiJYicbB
+	 qzzCyqE4DRYXA==
+Content-Type: multipart/signed;
+ boundary=fd4931382990d6306de8142488bafb3cdc9bb19db8a764e4efedf063a500;
+ micalg=pgp-sha384; protocol="application/pgp-signature"
+Date: Mon, 25 Aug 2025 09:28:36 +0200
+Message-Id: <DCBBY4827XAZ.11UHI6NWP7RT0@kernel.org>
+Cc: "Vignesh Raghavendra" <vigneshr@ti.com>, "Tero Kristo"
+ <kristo@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Jean Delvare"
+ <jdelvare@suse.com>, "Guenter Roeck" <linux@roeck-us.net>, "Lee Jones"
+ <lee@kernel.org>, "Srinivas Kandagatla" <srini@kernel.org>, "Wim Van
+ Sebroeck" <wim@linux-watchdog.org>, <linux-arm-kernel@lists.infradead.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-hwmon@vger.kernel.org>, <linux-watchdog@vger.kernel.org>
+From: "Michael Walle" <mwalle@kernel.org>
+To: "Nishanth Menon" <nm@ti.com>
+Subject: Re: [PATCH v1 0/7] Initial Kontron SMARC-sAM67 support
+X-Mailer: aerc 0.16.0
+References: <20250822131531.1366437-1-mwalle@kernel.org>
+ <20250822152313.vjzjtzik2q5ek5kq@sadly>
+In-Reply-To: <20250822152313.vjzjtzik2q5ek5kq@sadly>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_002748_584361_F6A6C5BE 
-X-CRM114-Status: UNSURE (   9.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250825_002842_789395_66B68C46 
+X-CRM114-Status: GOOD (  25.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,53 +79,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RADXA ROCK 5T board uses the same GPIO pin for controlling the USB
-host port regulator. This control pin was mistakenly left out of the
-ROCK 5T device tree.
+--fd4931382990d6306de8142488bafb3cdc9bb19db8a764e4efedf063a500
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Reported-by: FUKAUMI Naoki <naoki@radxa.com>
-Closes: https://libera.catirclogs.org/linux-rockchip/2025-08-25#38609886;
-Fixes: 0ea651de9b79 ("arm64: dts: rockchip: add ROCK 5T device tree")
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
- arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+On Fri Aug 22, 2025 at 5:23 PM CEST, Nishanth Menon wrote:
+> On 15:15-20250822, Michael Walle wrote:
+> > Now that the PMIC support is there, we can finally, upstream the
+> > support for this board. Besides the usual device tree, this
+> > patchset contains the support for the on-board house keeping MCU. It
+> > make extensive reuse of the drivers for the former SMARC-sAL28
+> > board. Besides different hwmon sensors, all the dt binding patches
+> > will just add a board specific compatible (in addition to the old
+> > sl28 compatible) to make any future board specific quirks possible.
+> >=20
+> > I'm aware that there is a patch [1] which moves the sl28cpld MFD
+> > schema to a different directory. Once that patch is merged, I'll
+> > repost this series. But I already want to get some early feedback.
+> >=20
+> > [1] https://lore.kernel.org/r/20250822075712.27314-2-krzysztof.kozlowsk=
+i@linaro.org/
+> >=20
+> > Michael Walle (7):
+> >   dt-bindings: arm: ti: Add bindings for Kontron SMARC-sAM67 module
+> >   dt-bindings: mfd: sl28cpld: add sa67mcu compatible
+> >   dt-bindings: hwmon: sl28cpld: add sa67mcu compatible
+> >   dt-bindings: watchdog: add SMARC-sAM67 support
+> >   dt-bindings: nvmem: sl28cpld: add sa67mcu compatible
+> >   hwmon: sl28cpld: add SMARC-sAM67 support
+> >   arm64: dts: ti: Add support for Kontron SMARC-sAM67
+>
+> Since this goes through multiple maintainers, may I suggest the
+> following strategy?
+>
+> for this window:
+> * send dts and board binding changes dropping the nodes that are yet to
+>  be upstream
+> * send the compatible changes to each of the maintainers
+>
+> Next window:
+> * add the nodes based on acceptance of the driver bindings
+>
+> This removes multiple maintainers needing to give me immutable tags etc.
+>
+> What do you think?
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts
-index 258c7400301d7f77517197ab433946bbfa39cf63..6acc7a8a5a12eee9cd3506910b40235813ec43b1 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts
-@@ -95,6 +95,12 @@ hp_detect: hp-detect {
- 			rockchip,pins = <4 RK_PC3 RK_FUNC_GPIO &pcfg_pull_none>;
- 		};
- 	};
-+
-+	usb {
-+		vcc5v0_host_en: vcc5v0-host-en {
-+			rockchip,pins = <1 RK_PA1 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
- };
- 
- &vcc3v3_pcie2x1l0 {
-@@ -103,3 +109,10 @@ &vcc3v3_pcie2x1l0 {
- 	pinctrl-0 = <&pcie2_0_vcc3v3_en>;
- 	status = "okay";
- };
-+
-+&vcc5v0_host {
-+	enable-active-high;
-+	gpio = <&gpio1 RK_PA1 GPIO_ACTIVE_HIGH>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&vcc5v0_host_en>;
-+};
+Not sure, if this needs an IB anyway or if the DTS can be pulled by
+the corresponding SoC subsys and the DT binding can go through
+another tree in the same cycle. If not, I can certainly split the
+device tree (to my knowledge, it was said that it should be a
+complete description :).
 
----
-base-commit: 89d926fa53d0a6c257c4e8ac1c00c3d9a194ef31
-change-id: 20250825-rock5t-usb-fix-6b0d04e2eae1
+I'd expect that Lee is picking up the first 6 patches after they got
+an ACK. Please correct me if I'm wrong, Lee.
 
-Best regards,
--- 
-Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+In any case, I'd give this v1 some time to get some feedback on the
+patches.
 
+-michael
+
+--fd4931382990d6306de8142488bafb3cdc9bb19db8a764e4efedf063a500
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCaKwQpRIcbXdhbGxlQGtl
+cm5lbC5vcmcACgkQEic87j4CH/hMEAF/Vhvuizfo2QflfI6C2/jHtRw3dLRPlo28
+HIDgT2LP6cbtUavEPx2nq1ESho4HXf7EAYCPD4RX3DAZ96VoKuiMPWtrhByKmEo8
+LvQhb/8169l6w+5b/5Suq4WzzVE4BArZHes=
+=DIAl
+-----END PGP SIGNATURE-----
+
+--fd4931382990d6306de8142488bafb3cdc9bb19db8a764e4efedf063a500--
 
