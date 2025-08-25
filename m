@@ -4,91 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBA08CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 15:44:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16F0BCA0FEE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 15:55:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=31laoDor+DKdLySueg4nAlgo6l/Od+GBgTYs+d1By2g=; b=3br5AA6obw7BD/3cgVzneE4oTf
-	bA8CXrZPshK775Pxku7AFsi+SMSOohHHlHh+2xg2fi84PLBpahwQ+ozpXHIiHnrPzp+lgnteX7lfL
-	q2Nt7hhI+X/DjFXs1wvSkzVKgD0dtfQAnFczbAqqTlHXhFoVAgTebABQQAjv+qxbvx3e87SCKGJZe
-	W+ektXmPOkWkc/ua/7QeJr5NEYaehJyExMv3OajjjfTyhoXufsspW9kSVRJrrl4Ro/56WLn6ng0yi
-	XCsUe/zsmKwBOYL81dB2zGskJGTUYJ9yXQwiLCU4yQFEpCNZn+/HWg6mESfvj5FquF+Wjh+jd5pMs
-	ciGdJ/cw==;
+	bh=60iKAkP3LNe0WedWNS1417UnpVB5oYJPCUr+7fQ2LGY=; b=0cul7prXoY5SNQbz2pWTAPhiXj
+	vsSXMOvzR+rSa9BItofAkmwWp5b479CFy+0VFe7HD16UskGfYAaa9TqKbVo00gXXxZ1dcXDWvDMxo
+	1tGYb6e3OUcBRSYx/AjdaxF0gt2iQ6ydCXXTPVCr75i5jPqXhNlkY1tc2J+F3DcjWajPbhfiLUA8Q
+	fc+InC3FSouMomY25X+CJQrNRVet/Bgph47NqhDlEE8cRk/vfxCOI15I4LQb7iH8ekYzlC2uBRGLw
+	auE+qTM+9x9alHJubZE0og0/65cOn/5yGBIUxRZSAmuFNsHDjo9j4nFy7sK2KSjvBtQmOtwcabyox
+	E/GwsHiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqZMs-00000008Yba-1bZB;
-	Mon, 25 Aug 2025 15:44:22 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uqZXb-00000008ZlQ-1Omp;
+	Mon, 25 Aug 2025 15:55:27 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqYXY-00000008JhC-3deV
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 14:51:22 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57PEdf3l029476;
-	Mon, 25 Aug 2025 16:50:51 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	31laoDor+DKdLySueg4nAlgo6l/Od+GBgTYs+d1By2g=; b=gBL1zgHlFG1i+vG8
-	sHR3BY79R9r2+5mkIbUSTLE3skJ6ei5w1EfRLcTl+hppvHwOY5j7Zrujatt+oedK
-	zec7GTyTDPieBIqSDzEkKXjpZqqvclo7lPkBKSYMSWo6vuVJW4K5Wpdss2vUIEbc
-	j23THcwMRHSoEamghxzZKpiTJiaiIpKN+V51E66ndqY/9HsdiUOLIMSWWw0tjeul
-	eY//tnmBYM+vkzWMHgohgabbLQQJAwsjnGe/iXx+8JIdegVbiS5tw9jvN+nTQoMh
-	8CY0+uPEpSKSEgoKe3/bnW3C3W6jtel7HP7Hn6Z3gWMEaatUeCzlQIpPMp/ph+ZQ
-	pOsfFA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48q5uyybbj-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 25 Aug 2025 16:50:51 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 8640B40044;
-	Mon, 25 Aug 2025 16:49:04 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id AC2CF71FDBE;
-	Mon, 25 Aug 2025 16:47:42 +0200 (CEST)
-Received: from [10.130.77.120] (10.130.77.120) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 25 Aug
- 2025 16:47:41 +0200
-Message-ID: <7378edca-12f4-44a1-9c2a-ea07ebab4ad0@foss.st.com>
-Date: Mon, 25 Aug 2025 16:47:40 +0200
+	id 1uqYhN-00000008OWC-1KIb;
+	Mon, 25 Aug 2025 15:01:31 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2467e454c46so1880785ad.2;
+        Mon, 25 Aug 2025 08:01:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756134088; x=1756738888; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=60iKAkP3LNe0WedWNS1417UnpVB5oYJPCUr+7fQ2LGY=;
+        b=g90Kugcs4eYjgD+5l/Skt1yDJUuFGUGQBUh6sQglPN9dCQJTzc+am3sqwUjkAPIs1P
+         Ktp64RMLMswgNhA+lcRe8oEgPfODWsYeQD3m+EJwM/GiOuSD62yG3DTkv8zXZHwS+6XQ
+         2UcJ5XC2BVeS+ry7F0iUCJZ5astDz/YPVM5lnlFv544mb7oZkmR0Mjoq4+nhD8feNNEz
+         12To2flHwgIjNfEiaSrm3xCbNM1XwR7ZPuyatKbqN7l0Ky7Y3UdVigblFfca+tsozk4p
+         HrSuGUbngf6CBOAXhVuDk/yY0EKrdXKfnMQ70D2FnzLc/uMUHCKF7YGhINNAYrbcJU36
+         hM0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756134088; x=1756738888;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=60iKAkP3LNe0WedWNS1417UnpVB5oYJPCUr+7fQ2LGY=;
+        b=bmZv/ij4MQAcZ6Z3cry0KA9PoT4W11wK9zA9ArjK3tAp9Fq0o03YdBPzoPk9QVL6XH
+         Lx8yUEB0x9I1z/hxdUAbeCymrfgtbb2SB/4EJHKbmlaahvPfkB0uX+51QZA7lni7GVOC
+         woZSBc+N5bwmiSpZJWOd5JuyVoTs/BZVXBkC4gvqFDKVOtAJ7eW8rJThd9FwMhm9isPq
+         /BjRY3OjsCRFEEQrUeUnAhpStZKsRnM7Xa2anFk7m204RUoC9QLLxYIbiGG4qm1thYzL
+         ZYzIrQni/PbnEVlut2NkEnTNzrZiFSR9FMLclBhnauWNFb045zSV75nI6Eh1fGguvsV/
+         CTPw==
+X-Forwarded-Encrypted: i=1; AJvYcCUwxD+CwazumbHKA1lJtezkF80oIQSSz0rnMOVI2Ji0KixJuFy7gLadBzW6Y5BZyl3kkjVmjZWGTJjKfRk=@lists.infradead.org, AJvYcCXvumkknbA4HnPyvdB1vBm2u5sEWDLbks8OxaVyw3cHRftA+E9ZdpRK2ig7N5un8uuSwglPDwOBVaU7mDl9HC2i@lists.infradead.org
+X-Gm-Message-State: AOJu0YzV/BlyfrA0jit0T/vFPXwzsYSuxr3RJQPs7QxQ3t4ZYuw1/5dG
+	JqvwzrBszXip4C4mmwjmpRqrxjD8I1qcifgsFXY1bR/LVxatn20pcwJ5iMHWpJasIkdMl1vzrkt
+	55gpACBks/oKQhNqC1Pad0O0jjUqJ4J8=
+X-Gm-Gg: ASbGncvdfsd0iiSu0bhMS3gqj6DfssEGZhfjYAExaS7fgARuIGyTlJE84mf6SnP6h6O
+	joe4jvKHq3H5MR6WwM4eQgWt5BdqLPhVbKLbUzU7QN/VxyozWGWz9P4J5Id7VHn8jzZUwmPNOPJ
+	je2Aicfm4Ja71d2r0K2WXfyKB+InLzo3vQtNhdDlGSDmy3SQ4emI3X85HtWeHHDe7dUuh6s/UwX
+	1YdYs2gCZPkZyvr0emgF+n8YTEllezYtSQUez64Ez8pPJ0NbtKsQO6BT5A3382GTCal4MIRjKHq
+	aBKBxLUXXo94cTEsRjXRtcBnjg==
+X-Google-Smtp-Source: AGHT+IH6iiTQnmspwpwZFl3fWU7ZoF4htCbSAXCmYOC5YgyGhCHecWhDJChnNEZn0Tbpwb/nBEcItL6vKFF5JoBFO9I=
+X-Received: by 2002:a17:902:e5d1:b0:246:9df4:d10 with SMTP id
+ d9443c01a7336-2469df4127fmr48184305ad.8.1756134087549; Mon, 25 Aug 2025
+ 08:01:27 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 04/11] PCI: stm32: Add PCIe host support for STM32MP25
-To: Philipp Zabel <p.zabel@pengutronix.de>, <lpieralisi@kernel.org>,
-        <kwilczynski@kernel.org>, <mani@kernel.org>, <robh@kernel.org>,
-        <bhelgaas@google.com>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
-        <linus.walleij@linaro.org>, <corbet@lwn.net>, <shradha.t@samsung.com>,
-        <mayank.rana@oss.qualcomm.com>, <namcao@linutronix.de>,
-        <qiang.yu@oss.qualcomm.com>, <thippeswamy.havalige@amd.com>,
-        <inochiama@gmail.com>, <quic_schintav@quicinc.com>
-CC: <johan+linaro@kernel.org>, <linux-pci@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-gpio@vger.kernel.org>, <linux-doc@vger.kernel.org>
-References: <20250820075411.1178729-1-christian.bruel@foss.st.com>
- <20250820075411.1178729-5-christian.bruel@foss.st.com>
- <e67d5a27fb00040ba87a0b108322747ecca8d05b.camel@pengutronix.de>
-From: Christian Bruel <christian.bruel@foss.st.com>
-Content-Language: en-US
-In-Reply-To: <e67d5a27fb00040ba87a0b108322747ecca8d05b.camel@pengutronix.de>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.130.77.120]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-25_07,2025-08-20_03,2025-03-28_01
+References: <20250825141316.work.967-kees@kernel.org> <20250825142603.1907143-5-kees@kernel.org>
+In-Reply-To: <20250825142603.1907143-5-kees@kernel.org>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Mon, 25 Aug 2025 17:01:13 +0200
+X-Gm-Features: Ac12FXzL7PU_Is1-tccv7Hdj8Uae-cmowXNNIswc_ypx-UP0ygKjVjE1oakxuiw
+Message-ID: <CANiq72kc7Ky6+7Ny7jR04s8vU-g23qBQC0rQrOZDxDzXT+m1TQ@mail.gmail.com>
+Subject: Re: [PATCH 5/5] kcfi: Rename CONFIG_CFI_CLANG to CONFIG_CFI
+To: Kees Cook <kees@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Kees Cook <kees@outflux.net>, 
+	Sami Tolvanen <samitolvanen@google.com>, Linus Walleij <linus.walleij@linaro.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Puranjay Mohan <puranjay@kernel.org>, 
+	David Woodhouse <dwmw2@infradead.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Nathan Chancellor <nathan@kernel.org>, x86@kernel.org, linux-doc@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
+	linux-hardening@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_075121_422796_777D0C1E 
-X-CRM114-Status: GOOD (  17.92  )
+X-CRM114-CacheID: sfid-20250825_080129_488333_AB2AC1C1 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,119 +101,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Aug 25, 2025 at 4:28=E2=80=AFPM Kees Cook <kees@kernel.org> wrote:
+>
+> -config CFI_CLANG
+> -       bool "Use Clang's Control Flow Integrity (CFI)"
+> -       depends on ARCH_SUPPORTS_CFI_CLANG
+> +config CFI
+> +       bool "Use Kernel Control Flow Integrity (kCFI)"
+> +       depends on ARCH_SUPPORTS_CFI
+>         depends on $(cc-option,-fsanitize=3Dkcfi)
+>         help
 
+Do we need to do something to make the transition smoother, i.e.
+keeping the old one for a while to avoid a new question etc.?
 
-On 8/25/25 11:15, Philipp Zabel wrote:
-> On Mi, 2025-08-20 at 09:54 +0200, Christian Bruel wrote:
->> Add driver for the STM32MP25 SoC PCIe Gen1 2.5 GT/s and Gen2 5GT/s
->> controller based on the DesignWare PCIe core.
->>
->> Supports MSI via GICv2m, Single Virtual Channel, Single Function
->>
->> Supports WAKE# GPIO.
->>
->> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
->> ---
->>   drivers/pci/controller/dwc/Kconfig      |  12 +
->>   drivers/pci/controller/dwc/Makefile     |   1 +
->>   drivers/pci/controller/dwc/pcie-stm32.c | 360 ++++++++++++++++++++++++
->>   drivers/pci/controller/dwc/pcie-stm32.h |  15 +
->>   4 files changed, 388 insertions(+)
->>   create mode 100644 drivers/pci/controller/dwc/pcie-stm32.c
->>   create mode 100644 drivers/pci/controller/dwc/pcie-stm32.h
->>
->> diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
->> index deafc512b079..a8174817fd5b 100644
->> --- a/drivers/pci/controller/dwc/Kconfig
->> +++ b/drivers/pci/controller/dwc/Kconfig
->> @@ -423,6 +423,18 @@ config PCIE_SPEAR13XX
->>   	help
->>   	  Say Y here if you want PCIe support on SPEAr13XX SoCs.
->>   
->> +config PCIE_STM32_HOST
->> +	tristate "STMicroelectronics STM32MP25 PCIe Controller (host mode)"
->> +	depends on ARCH_STM32 || COMPILE_TEST
->> +	depends on PCI_MSI
->> +	select PCIE_DW_HOST
->> +	help
->> +	  Enables Root Complex (RC) support for the DesignWare core based PCIe
->> +	  controller found in STM32MP25 SoC.
->> +
->> +	  This driver can also be built as a module. If so, the module
->> +	  will be called pcie-stm32.
->> +
->>   config PCI_DRA7XX
->>   	tristate
->>   
->> diff --git a/drivers/pci/controller/dwc/Makefile b/drivers/pci/controller/dwc/Makefile
->> index 6919d27798d1..1307a87b1cf0 100644
->> --- a/drivers/pci/controller/dwc/Makefile
->> +++ b/drivers/pci/controller/dwc/Makefile
->> @@ -31,6 +31,7 @@ obj-$(CONFIG_PCIE_UNIPHIER) += pcie-uniphier.o
->>   obj-$(CONFIG_PCIE_UNIPHIER_EP) += pcie-uniphier-ep.o
->>   obj-$(CONFIG_PCIE_VISCONTI_HOST) += pcie-visconti.o
->>   obj-$(CONFIG_PCIE_RCAR_GEN4) += pcie-rcar-gen4.o
->> +obj-$(CONFIG_PCIE_STM32_HOST) += pcie-stm32.o
->>   
->>   # The following drivers are for devices that use the generic ACPI
->>   # pci_root.c driver but don't support standard ECAM config access.
->> diff --git a/drivers/pci/controller/dwc/pcie-stm32.c b/drivers/pci/controller/dwc/pcie-stm32.c
->> new file mode 100644
->> index 000000000000..964fa6f674c8
->> --- /dev/null
->> +++ b/drivers/pci/controller/dwc/pcie-stm32.c
->> @@ -0,0 +1,360 @@
->> +// SPDX-License-Identifier: GPL-2.0-only
->> +/*
->> + * STMicroelectronics STM32MP25 PCIe root complex driver.
->> + *
->> + * Copyright (C) 2025 STMicroelectronics
->> + * Author: Christian Bruel <christian.bruel@foss.st.com>
->> + */
->> +
->> +#include <linux/clk.h>
->> +#include <linux/mfd/syscon.h>
->> +#include <linux/of_platform.h>
->> +#include <linux/phy/phy.h>
->> +#include <linux/pinctrl/consumer.h>
->> +#include <linux/platform_device.h>
->> +#include <linux/pm_runtime.h>
->> +#include <linux/pm_wakeirq.h>
->> +#include <linux/regmap.h>
->> +#include <linux/reset.h>
->> +#include "pcie-designware.h"
->> +#include "pcie-stm32.h"
->> +#include "../../pci.h"
->> +
->> +struct stm32_pcie {
->> +	struct dw_pcie pci;
->> +	struct regmap *regmap;
->> +	struct reset_control *rst;
-> 
-> This could be a local variable in stm32_pcie_probe().
+Thanks!
 
-
-Thank you for pointing that out.
-
-Since we use the same common resources in stm32_pcie for both the host 
-and endpoint drivers, aligning the same fields in the struct stm32_pcie 
-seems more consistent.
-
-Additionally, we could improve the code by moving regmap, clk, and rst 
-out of probe into a new function, stm32_pcie_resource_get().
-
-Which approach do you think is best? Moving rst to stm32_pcie_probe() 
-offers slight optimization, while using a new stm32_pcie_resource_get() 
-provides better modularity.
-
-Shall I re-spin a v14 with either of these options?
-
-thank you,
-
-Christian
-
-> 
-> regards
-> Philipp
-
+Cheers,
+Miguel
 
