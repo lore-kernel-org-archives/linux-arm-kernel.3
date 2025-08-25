@@ -4,81 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06B92CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 04:51:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1D4CCA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 04:54:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zGGl/FpueenXlNlnV9x0L/4MLLvevyhCR31dkWtnz68=; b=wl5AdMT5LFrhK52AuT3vsQhFrr
-	UtPacVlFJ9oXZjQfA2DyjJeUXf40r6nACh7PPbLdyW9htZ3T8JKFBqfRcq5NNTbTmRVdxxakUTFwp
-	N5pNS58su6UMtfbn/vb60nDHZ0/S4nzjl2gEqdcmumlXeR+MC/btc7MKUN3UYVdJfju6w6Z4IjcEh
-	hToskLxVLeF2C3WzKkHxxqiuzUEEpO+WQDuMI/crO96NGbMA4b8I2zooiM0TG64h8BIUDvGLFGkD6
-	Wo9z1pgiQJK+Sf/071/XBjituRVVogHLrEolQErQx8nw+1HZ4DlSBT+2bnZTdMUf1TFsSEMc7hEs8
-	KOc4K0Iw==;
+	bh=JyUP00cWbb14rAirUBQRIORCjenMTRA6DeX7+PzevOE=; b=vqpJEdrYhYe2w8Syq2y20dgnZ+
+	6NHITy3FPhAfjjjdI+w08LuVo5onNsWNAbhFLIz087G/2a35PcHrgIcp5nDmIkI8W1huYs6pCdIaO
+	jx1ZBqkUiqSrQRSP3zToLYPujmB+zwWBCYKPiY5X6dF0fyRn0Vam9RCl89tMOnkM5IQ8mi1J/MKTN
+	pusKd6MHRsQ2UNRwEgDvkWdd5ehGDwOqKDpbR6xYNy+2+baq4vyV3l5uqrQFFLwkv4j4tEgoVKwO8
+	HzoYy8DnYIK0r+tNHgqmsb8CY/5C5sgI6gCNBjXVc7NI5/pd8GljoRt0dj2+kXpH7/MWTYmuVbQ3d
+	uPvx5Qcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqPAq-00000006wJm-1N6B;
-	Mon, 25 Aug 2025 04:51:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uqPDP-00000006wUM-0dmF;
+	Mon, 25 Aug 2025 04:53:55 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqOxD-00000006tDb-45fk
+	id 1uqOzi-00000006tml-2xbG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 04:37:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C403460250;
-	Mon, 25 Aug 2025 04:37:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 8ED3BC16AAE;
-	Mon, 25 Aug 2025 04:37:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756096629;
-	bh=ybvae2Us24QQdhHAuMB8pyUUuzHIpPAy3rGRBQp46KE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=VXmmoFxUvmN/RKP8X0WxHWlcHErhqkKv1nEW0RhAykBgxI0mfX5y/4/yrzC8jx6r/
-	 NGjh1mMo0BnMceW1Ijx9w10M2wwRS1IjO+ju5Vt4fB40qTApKQst4itHEpLbkdjDuc
-	 6pg129cnxGr6dJ1mUWoFbdxolbiGsOw/CmfHoOc1m45iQ6SsilfwFmp6weQKN1rt7z
-	 F/uybpcGCZfeMxcQAb8cQ8cdrQmn+JnHO5GTldhbK8rAPz5fEB1bgR189JZofHS9cV
-	 G4d9CPDzeHJwi+IhG0SVaEdyNpud2EgYNp4ylTXfRZzcCsHlFZkijd0BpOEkcmwShm
-	 djo6xk0NAsRYw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7FCB7CA0FE7;
-	Mon, 25 Aug 2025 04:37:09 +0000 (UTC)
-From: Rohan G Thomas via B4 Relay <devnull+rohan.g.thomas.altera.com@kernel.org>
-Date: Mon, 25 Aug 2025 12:36:53 +0800
-Subject: [PATCH net v3 2/3] net: stmmac: xgmac: Correct supported speed
- modes
+	Mon, 25 Aug 2025 04:39:48 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57P4dQKX1195045;
+	Sun, 24 Aug 2025 23:39:26 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1756096766;
+	bh=JyUP00cWbb14rAirUBQRIORCjenMTRA6DeX7+PzevOE=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=zNfKKnm6hktqPhTyiEO8kv550jEw4hSHeQggowdjiX8sRLfYkdwXokFiB0VDq9WQI
+	 WKuGaA87pYkkJjFl314qmptUkXxyg+XweHlWH9bwuqGCZnsseh62rTzGld45pH1ZNa
+	 Z4735O329PTJJkmmWGNeJSe6UKacFoeQHJ+zoO2Y=
+Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57P4dQbn609297
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Sun, 24 Aug 2025 23:39:26 -0500
+Received: from DFLE110.ent.ti.com (10.64.6.31) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Sun, 24
+ Aug 2025 23:39:25 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE110.ent.ti.com
+ (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Sun, 24 Aug 2025 23:39:25 -0500
+Received: from [172.24.234.212] (uda0510294.dhcp.ti.com [172.24.234.212])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57P4dKiC3303762;
+	Sun, 24 Aug 2025 23:39:21 -0500
+Message-ID: <c56a779f-d4dc-49ce-874a-30ef96a0a1f0@ti.com>
+Date: Mon, 25 Aug 2025 10:09:20 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 16/33] arm64: dts: ti: k3-am62p-verdin: Add missing cfg
+ for TI IPC Firmware
+To: Francesco Dolcini <francesco@dolcini.it>
+CC: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <afd@ti.com>,
+        <u-kumar1@ti.com>, <hnagalla@ti.com>, <jm@ti.com>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Francesco Dolcini <francesco.dolcini@toradex.com>,
+        Emanuele Ghidoli
+	<emanuele.ghidoli@toradex.com>,
+        Parth Pancholi <parth.pancholi@toradex.com>,
+        Jo_o Paulo Gon_alves <joao.goncalves@toradex.com>
+References: <20250814223839.3256046-1-b-padhi@ti.com>
+ <20250814223839.3256046-17-b-padhi@ti.com>
+ <20250821060629.GB7503@francesco-nb>
+ <ecff956d-1019-41d0-9bfc-b0bdc30e87ba@ti.com>
+ <aKnvrh2TSksb_39i@livingston.pivistrello.it>
+Content-Language: en-US
+From: Beleswar Prasad Padhi <b-padhi@ti.com>
+In-Reply-To: <aKnvrh2TSksb_39i@livingston.pivistrello.it>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250825-xgmac-minor-fixes-v3-2-c225fe4444c0@altera.com>
-References: <20250825-xgmac-minor-fixes-v3-0-c225fe4444c0@altera.com>
-In-Reply-To: <20250825-xgmac-minor-fixes-v3-0-c225fe4444c0@altera.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Jose Abreu <Jose.Abreu@synopsys.com>, 
- Romain Gantois <romain.gantois@bootlin.com>, 
- Serge Semin <fancer.lancer@gmail.com>, 
- Ong Boon Leong <boon.leong.ong@intel.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Rohan G Thomas <rohan.g.thomas@altera.com>, 
- Matthew Gerlach <matthew.gerlach@altera.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756096627; l=3721;
- i=rohan.g.thomas@altera.com; s=20250815; h=from:subject:message-id;
- bh=v7jKKlpJKKZxKVJEECl3l+uzpfLCSrlkjiiQ+9FsT98=;
- b=1bxAqjx4gTVyMo0s/j495nV6T5gag2LNSexWze59UHl5vLoX4KlIumiId0x8JibbHqsJtRdZ5
- 2jaVP0lehYnAkmbx4ZPsC1O8IjeVED7mxH1hrxVI63HkBrcp54lrKpk
-X-Developer-Key: i=rohan.g.thomas@altera.com; a=ed25519;
- pk=5yZXkXswhfUILKAQwoIn7m6uSblwgV5oppxqde4g4TY=
-X-Endpoint-Received: by B4 Relay for rohan.g.thomas@altera.com/20250815
- with auth_id=494
-X-Original-From: Rohan G Thomas <rohan.g.thomas@altera.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250824_213946_837893_86A95AB2 
+X-CRM114-Status: GOOD (  20.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,96 +94,86 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: rohan.g.thomas@altera.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rohan G Thomas <rohan.g.thomas@altera.com>
 
-Correct supported speed modes as per the XGMAC databook.
-Commit 9cb54af214a7 ("net: stmmac: Fix IP-cores specific
-MAC capabilities") removes support for 10M, 100M and
-1000HD. 1000HD is not supported by XGMAC IP, but it does
-support 10M and 100M FD mode for XGMAC version >= 2_20,
-and it also supports 10M and 100M HD mode if the HDSEL bit
-is set in the MAC_HW_FEATURE0 reg. This commit enables support
-for 10M and 100M speed modes for XGMAC IP based on XGMAC
-version and MAC capabilities.
-
-Fixes: 9cb54af214a7 ("net: stmmac: Fix IP-cores specific MAC capabilities")
-Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
-Reviewed-by: Matthew Gerlach <matthew.gerlach@altera.com>
----
- drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c | 13 +++++++++++--
- drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c  |  5 +++++
- 2 files changed, 16 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-index 6cadf8de4fdfdb18af1a112b883b3d33a53da638..00e929bf280baec7aa8d2a75fc5ceea4a52c9979 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-@@ -49,6 +49,14 @@ static void dwxgmac2_core_init(struct mac_device_info *hw,
- 	writel(XGMAC_INT_DEFAULT_EN, ioaddr + XGMAC_INT_EN);
- }
- 
-+static void dwxgmac2_update_caps(struct stmmac_priv *priv)
-+{
-+	if (!priv->dma_cap.mbps_10_100)
-+		priv->hw->link.caps &= ~(MAC_10 | MAC_100);
-+	else if (!priv->dma_cap.half_duplex)
-+		priv->hw->link.caps &= ~(MAC_10HD | MAC_100HD);
-+}
-+
- static void dwxgmac2_set_mac(void __iomem *ioaddr, bool enable)
- {
- 	u32 tx = readl(ioaddr + XGMAC_TX_CONFIG);
-@@ -1424,6 +1432,7 @@ static void dwxgmac2_set_arp_offload(struct mac_device_info *hw, bool en,
- 
- const struct stmmac_ops dwxgmac210_ops = {
- 	.core_init = dwxgmac2_core_init,
-+	.update_caps = dwxgmac2_update_caps,
- 	.set_mac = dwxgmac2_set_mac,
- 	.rx_ipc = dwxgmac2_rx_ipc,
- 	.rx_queue_enable = dwxgmac2_rx_queue_enable,
-@@ -1532,8 +1541,8 @@ int dwxgmac2_setup(struct stmmac_priv *priv)
- 		mac->mcast_bits_log2 = ilog2(mac->multicast_filter_bins);
- 
- 	mac->link.caps = MAC_ASYM_PAUSE | MAC_SYM_PAUSE |
--			 MAC_1000FD | MAC_2500FD | MAC_5000FD |
--			 MAC_10000FD;
-+			 MAC_10 | MAC_100 | MAC_1000FD |
-+			 MAC_2500FD | MAC_5000FD | MAC_10000FD;
- 	mac->link.duplex = 0;
- 	mac->link.speed10 = XGMAC_CONFIG_SS_10_MII;
- 	mac->link.speed100 = XGMAC_CONFIG_SS_100_MII;
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
-index 7201a38842651a865493fce0cefe757d6ae9bafa..4d6bb995d8d84cd31b8c552036a647281de06fbb 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
-@@ -382,8 +382,11 @@ static int dwxgmac2_dma_interrupt(struct stmmac_priv *priv,
- static int dwxgmac2_get_hw_feature(void __iomem *ioaddr,
- 				   struct dma_features *dma_cap)
- {
-+	struct stmmac_priv *priv;
- 	u32 hw_cap;
- 
-+	priv = container_of(dma_cap, struct stmmac_priv, dma_cap);
-+
- 	/* MAC HW feature 0 */
- 	hw_cap = readl(ioaddr + XGMAC_HW_FEATURE0);
- 	dma_cap->edma = (hw_cap & XGMAC_HWFEAT_EDMA) >> 31;
-@@ -406,6 +409,8 @@ static int dwxgmac2_get_hw_feature(void __iomem *ioaddr,
- 	dma_cap->vlhash = (hw_cap & XGMAC_HWFEAT_VLHASH) >> 4;
- 	dma_cap->half_duplex = (hw_cap & XGMAC_HWFEAT_HDSEL) >> 3;
- 	dma_cap->mbps_1000 = (hw_cap & XGMAC_HWFEAT_GMIISEL) >> 1;
-+	if (dma_cap->mbps_1000 && priv->synopsys_id >= DWXGMAC_CORE_2_20)
-+		dma_cap->mbps_10_100 = 1;
- 
- 	/* MAC HW feature 1 */
- 	hw_cap = readl(ioaddr + XGMAC_HW_FEATURE1);
-
--- 
-2.25.1
+On 23/08/25 22:13, Francesco Dolcini wrote:
+> On Fri, Aug 22, 2025 at 10:09:48PM +0530, Beleswar Prasad Padhi wrote:
+>> On 8/21/2025 11:36 AM, Francesco Dolcini wrote:
+>>> On Fri, Aug 15, 2025 at 04:08:22AM +0530, Beleswar Padhi wrote:
+>>>> The wkup_r5fss0_core0_memory_region is used to store the text/data
+>>>> sections of the Device Manager (DM) firmware itself and is necessary for
+>>>> platform boot. Whereas the wkup_r5fss0_core0_dma_memory_region is used
+>>>> for allocating the Virtio buffers needed for IPC with the DM core which
+>>>> could be optional. The labels were incorrectly used in the
+>>>> k3-am62p-verdin.dtsi file. Correct the firmware memory region label.
+>>>>
+>>>> Currently, only mailbox node is enabled with FIFO assignment. However,
+>>>> there are no users of the enabled mailboxes. Add the missing carveouts
+>>>> for WKUP and MCU R5F remote processors, and enable those by associating
+>>>> to the above carveout and mailboxes. This config aligns with other AM62P
+>>>> boards and can be refactored out later.
+>>>>
+>>>> Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
+>>>> ---
+>>>> Cc: Francesco Dolcini <francesco.dolcini@toradex.com>
+>>>> Cc: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
+>>>> Cc: Parth Pancholi <parth.pancholi@toradex.com>
+>>>> Cc: Jo_o Paulo Gon_alves <joao.goncalves@toradex.com>
+>>>> Requesting for a review/test.
+>>>>
+>>>>   arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi | 42 ++++++++++++++++++++-
+>>>>   1 file changed, 41 insertions(+), 1 deletion(-)
+>>>>
+>>>> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+>>>> index 6a04b370d149..0687debf3bbb 100644
+>>>> --- a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+>>>> +++ b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+>>>> @@ -162,7 +162,25 @@ secure_ddr: optee@9e800000 {
+>>>>   			no-map;
+>>>>   		};
+>>>> -		wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
+>>>> +		mcu_r5fss0_core0_dma_memory_region: mcu-r5fss-dma-memory-region@9b800000 {
+>>>> +			compatible = "shared-dma-pool";
+>>>> +			reg = <0x00 0x9b800000 0x00 0x100000>;
+>>>> +			no-map;
+>>>> +		};
+>>>> +
+>>>> +		mcu_r5fss0_core0_memory_region: mcu-r5fss-memory-region@9b900000 {
+>>> Node name should be generic, `memory@9b900000` ?
+>>
+>> Humm, that memory is reserved and has the 'no-map' property. So it
+>> technically is only used by the node which references it (a particular
+>> rproc in this case), and never used by Linux for any allocations. So it
+>> is not generic memory per say...
+>>
+>> So I was inclined for putting the specific node name which uses the
+>> carveout in the label. What do you think?
+> My understanding is that the node name must be generic, as required by
+> the DT specification. What matters is that this is memory, not what is used
+> for.
 
 
+Sorry, I misinterpreted node name with label. I will fix this in v3
+Will wait for any other comments on v2:
+https://lore.kernel.org/all/20250823160901.2177841-1-b-padhi@ti.com/
+
+Thanks,
+Beleswar
+
+>
+>
+> So it should be something like
+>
+>
+> mcu_r5fss0_core0_dma_memory: memory@9c900000 {
+> 	compatible = "shared-dma-pool";
+> 	reg = <0x00 0x9b800000 0x00 0x100000>;
+> 	no-map;
+> };
+>
+>
+> Francesco
+>
 
