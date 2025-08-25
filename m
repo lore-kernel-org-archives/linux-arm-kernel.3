@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17DCECA0EFA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1545CA0FE9
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 11:42:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,70 +12,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=leTFdfCJ6+RyienTiSwh2q3pg0tznaooZOPdYThkYBU=; b=hRgJNZ2tcY4kLIt5BUu4kWeTWl
-	dJOqOukTRXjcJTXUJaqbgMSNfV8M3RFf/2R1a06bP/Yq1ruf2vHmEpC3IYORkM6nYzmKj2IR8RAAh
-	IFwyDmcDNg9TrzR+iwEAV06O0DeOBvrAE8ZOpUW1iys9LtSgGqyvDTHM3LE356ls8F5cnvii3avmj
-	X3jOtZc8yK/jfUiK1dh+5EjuZt9cMppKNybwSc6wwppBXfWL9gG4MgG1CA1fn4XDJmTn/XzuwqS6L
-	qs0uKF6cXutf4MMqeKoJBlUDabF3hzNZVB8GrJSSSa/2J3jGh76LIDutwEN1cPvDMtUr4vXviam5+
-	oFvJdSlg==;
+	bh=3XL7geZnhEu2GHgbcJnrbk4PK9+gLE9ZfzKbGFcoVdE=; b=H/4Mh2GgqQL+mQUCrFTUIFY9HU
+	cSjy10la6vpkE0LDw8h8WtubW1BMzFy6Tr5QVLaxqQH8J8cT/Q/+jDL6b4YXcOkHHuJ3bKaGQn0VT
+	bMvnFajMO35lVkuEPlllyt9uqtkpDQSKV79A8v0pz4ViLBCPkxi+0jt1euR+NO/VTc7pjyJwNQXcB
+	22lN/IuDqwXEtr9xHsQb9J1ah9UisdONNXl3jaBbVXymCVVoazu7Ciq1Ie8JtivAsRaQsl1Xz2WeO
+	/bzAI4crcxhGRPPNTw3T9UnYrMfankzN8oIuhB/2peSqnwVsyxWIQy5Tb1MX2Q+TwUCq1Id9h4YS3
+	rexbbP/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqVaF-00000007n6t-38lJ;
-	Mon, 25 Aug 2025 11:41:55 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1uqVaI-00000007nAB-1mN4;
+	Mon, 25 Aug 2025 11:41:58 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqTou-00000007YDd-3YoY
+	id 1uqToy-00000007YGj-1otA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 09:48:58 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3c7aa4ce823so921078f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 02:48:56 -0700 (PDT)
+	Mon, 25 Aug 2025 09:49:01 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-45b49f7aaf5so24494265e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 02:49:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756115335; x=1756720135; darn=lists.infradead.org;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756115339; x=1756720139; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=leTFdfCJ6+RyienTiSwh2q3pg0tznaooZOPdYThkYBU=;
-        b=vaboA/Pp2/iN7mUMPfJyByYnsPrwt0OkPTBfbD+SO5FBhK9OEKRAcESPouOZGkbyeJ
-         O9+EPLxXk6G+3ijlLcMOCdBQp91plo5LJE7nfABP/eq19+3QVlE5S6wfA6YYvHsqf2zA
-         h1uVwIZUrBKD2MVhqzyRTWte1Zfkc77guky3azrB77wfxlH9E10/Lj0O9iIsKh+dJAEq
-         JFCirOpZ8WJKKhxlHCrYGeCY6TfM4HRZVRNxAvkT5+anU/8fYwN4M3aMMmHW2THsKgcf
-         4IjsrLrEX/ZGQCB+fqW/C9nGrfwfFrX4MrFvAdxDTmHtyHM84RI/FqwBhnKylbO0HGOD
-         7ERw==
+        bh=3XL7geZnhEu2GHgbcJnrbk4PK9+gLE9ZfzKbGFcoVdE=;
+        b=dU96RGdD6SAESYW+r1SRcxnmsTcgAKAetJYursyMj0J8che5EGngv5doKzG+0qmE7k
+         eIhujLE7X7DOdb10xpXIVtL3puiwO4/5+N8nomGCj3LxEm/XL++v5XMhKv0Pf0S401S2
+         al7tYFC9EIMqSefOXfb7NQNF0HfHu6h/G04nL8oLBz8RO29bxGIshBs7rTq1blOv/OG6
+         GII41cs6P5qT5SQcsJEWUjpk+Abg/hbWtYbajtt0J8kcvCamoEZRzsTUjsp0XdcV11X+
+         OGdY8DJXpqeQLC/xemt4ylE7mFSkhL6l8mkV9pJGOutfilJE3XQ9rz5/oHsCAVQuAXE9
+         npqg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756115335; x=1756720135;
+        d=1e100.net; s=20230601; t=1756115339; x=1756720139;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=leTFdfCJ6+RyienTiSwh2q3pg0tznaooZOPdYThkYBU=;
-        b=czTgezbP2F9E/gzu+gOnURcncfdqqMM7tv63h+4uqcALawdKrAWkpPRw9j1KLEaEhz
-         p3vRKxgRuGdGhh54WIPxZ9Q8+2GTdpbSbhAyelPb0NRPLB5iKzB/GOPTXiqdNJB4ugG7
-         oDbPDymvl9nDS6xswHlBX8tuzZY4LvvNNLHFALcX99dwvNqHYxwD8tUgHv/PhLHYQM3l
-         b0HS2J79EP74eX8CWWnsGb9QksHx8ADfcLthdC7eR+HA6oRq4Vk15TLXuqleyJ90jBJL
-         Yv5zBQgRTrNOOgvP5FN8xGmRFBJEiHwzeE6QKa+g/koJOK5CiccKdOGLjs9/kGzdu3YF
-         ZQbw==
-X-Forwarded-Encrypted: i=1; AJvYcCXumCErlyqV7Emb7vfSXNMJdF6DErYFD/WsGGO+JJbfo+67K596eLOKYLwIy5d3oHwx9tgJjJVCbQlV1+/HoqUl@lists.infradead.org
-X-Gm-Message-State: AOJu0Yziws9Mb4iJDXBfRYXHS/p/+rtFk/jLziedoQ35VVnZ569imscu
-	ua9FLedJDx1UvqcV1wJMk8XvO4d9cyJ0I3rHrD4Qkyt1sWO5DI85lja4DyzYP5Y1Wk4=
-X-Gm-Gg: ASbGnctjyTr9iZEJyt7uCTndg04VFyt76/9+621+cJUzoPduuNOoc/FShT0iZeDHobq
-	/qg3ChZEU4cJyLQjJibQGU6yhSmYgt/k1JebOKvsTIc2NaG/GcnuCAA8xBHxk50Z5azuj8Jm5oH
-	ktg6/FeY/2yKMSglYcfwCBmvuI32OP0Iv1BIJ71R/Y66mRgduJUeZZLOxBAY3bKyercCrqwx76f
-	OUqU7Cz4DXMdYJM31lRW0R2zC1cK6kHXioAVP2FpPxfs8Erufmw0ePX4UcB4K+QAdZG9l/ZVKvT
-	NTxVCmT12GPMnkNiNGASnyTwRA5uycATxw0SyiiGInFg8qq0NmktIueTh7j6lT4WlyaBdX0kUHK
-	9gcFRq9kr1VYF70sJl7F561nMw9v+
-X-Google-Smtp-Source: AGHT+IFbF1QkRyFdeFIpemljyVtx1j4nGrxdAWd7UTjvbIZ/NucsIqQcYHn9FKmS3KUU/3Oc/4PNpg==
-X-Received: by 2002:a5d:5f44:0:b0:3a5:3a03:79c1 with SMTP id ffacd0b85a97d-3c5dcdfabccmr8075233f8f.48.1756115335456;
-        Mon, 25 Aug 2025 02:48:55 -0700 (PDT)
+        bh=3XL7geZnhEu2GHgbcJnrbk4PK9+gLE9ZfzKbGFcoVdE=;
+        b=tYxsPhEtG+jfBaLtxc4lW8qHr/NGunc1gLP8ILUUsOg0yvIP3+JJVzZyUhIcN5QX/X
+         OvQApN07JkhUifhjT6kmr+FTLxx0tLJt5amXXdFbKMIxUDrAOM/LwyJhME7W9dQf6ObK
+         mJk5XoCB5jxXjiBUlfWvSrRDMqgdvKJ/YB6WKkozDTiN+zmZEYKIueEUn6WLpACvrc7O
+         YWhJ1FcpnohOnhRnMpSCeVnOn6LFUX/dJ/iTZ103kKO+bOUXOmtdo/FhMxYRCisUiS/d
+         /j8Um+ib1gNKR6Fo8c8yUnzq/Nwjys+jyNxgyzKMyTgJp8kP3hnOwzJt9wjuY8CGB3K5
+         G3Fw==
+X-Forwarded-Encrypted: i=1; AJvYcCWJqSz0esO9SU1rbsnUO25O/u9ixTGQVui4hS8zWiwlXIyDL53YBACmj8LCD8Qe6lQ/cY+JLb4vRB7hgTyay8+W@lists.infradead.org
+X-Gm-Message-State: AOJu0YwaucgqrQ9sAHLNwIudTbh9MXYTOOqRRqbXcz5jcExPyFDfJSqh
+	RGz9KSDYXUXH3CZ2QaJRpkv3jXxyMu+vBe5Zrng0IK+YL0uWsEVW/U1SEd/zL+eIdTs=
+X-Gm-Gg: ASbGnct4RagHx9IGXC59rfsVa2F6fh+DGHaHUUeeGK7UVw+DsrSa9XKfXtncmArVuw4
+	dIAKc6Y+DP77fADdHrq46auZW6+ieqB7Sb+a6t0K3e/UPquRKkZ48yABqDLJjYer97qyCFx1QUF
+	We2J1mPvS4kDATMgBy6wMuH4lAQBvZc/cUb5eiuw+5juRY5SU1wp4ZJXQ7SYKpJx1kpRL4Zt2Mp
+	ljreXXj/bwZPvSKSMyrPz769roNsWsmUCNkNkZfr4RyfFnxFrPsM9e+RG3TVypLKoNgGxjgaVsK
+	jFmXE8yVKstNdBWQ1211mXBAdwkWY/hqaYFIBpfhQ8A8jpCicFmK/LiXUshaFk0bf/zLiavXfr5
+	s8TCnDwWXfE4EkR16nA==
+X-Google-Smtp-Source: AGHT+IEegOIMU9MY8ViLpXUpgmi0qzunmqMgdKsRZ/R1rOCcGUkKbBKLGa79Jl9AtpUG8cW2p0LW0A==
+X-Received: by 2002:a05:6000:3105:b0:3ba:cff3:2e9 with SMTP id ffacd0b85a97d-3c5daa27683mr7362068f8f.1.1756115338987;
+        Mon, 25 Aug 2025 02:48:58 -0700 (PDT)
 Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:ef52:fc8d:34ad:9bfe])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3c711bb1e3asm10877449f8f.57.2025.08.25.02.48.54
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3c711bb1e3asm10877449f8f.57.2025.08.25.02.48.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 25 Aug 2025 02:48:54 -0700 (PDT)
+        Mon, 25 Aug 2025 02:48:58 -0700 (PDT)
 From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Mon, 25 Aug 2025 11:48:46 +0200
-Subject: [PATCH RESEND 05/14] gpio: ts4800: use generic device properties
+Date: Mon, 25 Aug 2025 11:48:49 +0200
+Subject: [PATCH RESEND 08/14] gpio: loongson-64bit: use new generic GPIO
+ chip API
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250825-gpio-mmio-gpio-conv-v1-5-356b4b1d5110@linaro.org>
+Message-Id: <20250825-gpio-mmio-gpio-conv-v1-8-356b4b1d5110@linaro.org>
 References: <20250825-gpio-mmio-gpio-conv-v1-0-356b4b1d5110@linaro.org>
 In-Reply-To: <20250825-gpio-mmio-gpio-conv-v1-0-356b4b1d5110@linaro.org>
 To: Linus Walleij <linus.walleij@linaro.org>, 
@@ -86,26 +87,26 @@ Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-unisoc@lists.infradead.org, 
  Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1370;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3657;
  i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=nK9pJAlcVqEpACXDhaB9m0pP1KYR56NEQPbKtHUMK9c=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBorDF+zSvsNgnA4MkSV214FMk4hgTfqPRZk/vzh
- JSKtylhcNCJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaKwxfgAKCRARpy6gFHHX
- chIpD/wODQ6RNrQ10R5exK6P3KwuVo4VF97VRbQIzI1f+A3TIWDad/BmeS36AyNp4PwuRlJMngB
- 6mJjEWXcBfghlW9QAkHy9WMA/4Q8SaJ4KiDclJ5MzJUcJlzmtwiIHBlD0/MZWneUYbuHYFL//vk
- 5n/yTd52sg3WX/EN6FM8eQ3quntJ3iWRcm86AXUTkEQDu1StFteUN9bbgC4AooFBvf9W/tyUhmy
- AxBDLI8N2GVwrTXbzuSyQHK+lgpFd5eAOUAu/8nzM81wIYyhYl+dc14rbs/GrN6Y0MEsdVfqPlD
- MUIsrMEkb4zEyOwFPouMX0fsxJzDxAjZMRH9+D88u6O3s3xGckD7++1W2RvQQmiLGxSBjn2hArD
- Rok/kMi0DZmgIbzMACspy6cYCLVvuyROJdWWmqtiCwzG8xnk76qjUq6xacuWbrF/aetGfDsi/8y
- XsBLHSxCWYkct+BjW0f7s7whUn5jLdMlFvZ2vrkjX5I/6HtSJPL5G5IqooATzbdiEG7VcF49VvN
- 2iExbHcR5HkWTn02XrtoxBNBhIGnYSGT2q/K5f22PoLADna2Nt8r7FvJVJWICNfFF+RuHqSdj/q
- rzspBevqVhg8+l5TIY46YAe9YJ3UZ9fJpQcGu9smfxNXqeZwdLIg/U78tuOh9PuPro8joDK9ddk
- GSMH+QtpLGoLslQ==
+ bh=q0nDOolzmEolL80kYOdLVFVSG8jdJDB+vSKLox1kAgw=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBorDF/z4zF1+EzbSX44wW9kp5C98zyXeFWHMG99
+ qM5rdbUe8eJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaKwxfwAKCRARpy6gFHHX
+ cgkAEADb79ImSyrjWksRjQwnS5++P92g47dudBXPy9h3Q0D8aRDzB4vpmH49EUY9gzVQP23hHEs
+ hZngF6HTmH6JBuL0DT5v453QiPforXrkouXp7V3AvUMrZP+Di/tSXxwNDFz9N+dEHgx0Y8//3eS
+ aacgJ8wdtl+k+y9VAwkQ8Gw0jOspifdoMpiP7PCs2W8wE+J2SuPR+hHGwBdmykLlLmjeBWFsVkm
+ g85RWVYDwM4xVEYUyaRb844JrOxkEfXvL4IbQcdve3kCL7JJqujpSxwNeS6eUfKnoH2PbnN5LiW
+ ZrsBdVU+Sp6Y1EtS4lgX5MpnRYtdh9eacHK3m/Uw7x80+2rV0uEZGP5zo0zRpdwt0nBHRncgkNz
+ w8ZWYThFpX4J6vchCC8vrRPIszWRXmVm1Gv/APHMPSSysfaeeTBLR2f4C++5RzpkwOe1dwWLZgv
+ UJ/Gs9uqXy0Dml0IUrBcCoKOBUqgKn+Ut3YFwwbuw+fPOlothO9+MbySYEv2godYhJ3woXtd6Ef
+ tKNGmZfVUEseCIGCdSDoBVCrzytkAZ8e1hlLySQipfHjW5pFNswyBgMvqFE6s2q47zjo0eDe6nS
+ KNP/jh4kjpCU/Xdmftn/ElIAHKxVghpEIs+oNhQWsV0nIicqVpvt1fp1VVuFsYOg7K+Zu8hIG14
+ zOPbKvV5wIPoaEw==
 X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_024856_899423_9CA6123B 
-X-CRM114-Status: GOOD (  14.24  )
+X-CRM114-CacheID: sfid-20250825_024900_491679_8C430FC2 
+X-CRM114-Status: GOOD (  15.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,49 +123,102 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-Avoid pulling in linux/of.h by using the generic device properties.
+Convert the driver to using the new generic GPIO chip interfaces from
+linux/gpio/generic.h.
 
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 ---
- drivers/gpio/gpio-ts4800.c | 10 +++-------
- 1 file changed, 3 insertions(+), 7 deletions(-)
+ drivers/gpio/gpio-loongson-64bit.c | 42 ++++++++++++++++++++++----------------
+ 1 file changed, 24 insertions(+), 18 deletions(-)
 
-diff --git a/drivers/gpio/gpio-ts4800.c b/drivers/gpio/gpio-ts4800.c
-index 86f7947ca9b2d23292c1e6660fe93c611e0cb837..f4ae87325393c909c66eda3bb7b2f849e645b7a4 100644
---- a/drivers/gpio/gpio-ts4800.c
-+++ b/drivers/gpio/gpio-ts4800.c
-@@ -7,8 +7,8 @@
- 
+diff --git a/drivers/gpio/gpio-loongson-64bit.c b/drivers/gpio/gpio-loongson-64bit.c
+index 818c606fbc5149b2e4274f0776e558332700d916..482e64ba9b4209443c2f64ae7426b8fa9034011a 100644
+--- a/drivers/gpio/gpio-loongson-64bit.c
++++ b/drivers/gpio/gpio-loongson-64bit.c
+@@ -11,6 +11,7 @@
+ #include <linux/spinlock.h>
+ #include <linux/err.h>
  #include <linux/gpio/driver.h>
- #include <linux/module.h>
--#include <linux/of.h>
++#include <linux/gpio/generic.h>
  #include <linux/platform_device.h>
-+#include <linux/property.h>
+ #include <linux/bitops.h>
+ #include <asm/types.h>
+@@ -30,7 +31,7 @@ struct loongson_gpio_chip_data {
+ };
  
- #define DEFAULT_PIN_NUMBER      16
- #define INPUT_REG_OFFSET        0x00
-@@ -17,7 +17,7 @@
+ struct loongson_gpio_chip {
+-	struct gpio_chip	chip;
++	struct gpio_generic_chip chip;
+ 	spinlock_t		lock;
+ 	void __iomem		*reg_base;
+ 	const struct loongson_gpio_chip_data *chip_data;
+@@ -38,7 +39,8 @@ struct loongson_gpio_chip {
  
- static int ts4800_gpio_probe(struct platform_device *pdev)
+ static inline struct loongson_gpio_chip *to_loongson_gpio_chip(struct gpio_chip *chip)
  {
--	struct device_node *node;
-+	struct device *dev = &pdev->dev;
- 	struct gpio_chip *chip;
- 	void __iomem *base_addr;
- 	int retval;
-@@ -31,11 +31,7 @@ static int ts4800_gpio_probe(struct platform_device *pdev)
- 	if (IS_ERR(base_addr))
- 		return PTR_ERR(base_addr);
+-	return container_of(chip, struct loongson_gpio_chip, chip);
++	return container_of(to_gpio_generic_chip(chip),
++			    struct loongson_gpio_chip, chip);
+ }
  
--	node = pdev->dev.of_node;
--	if (!node)
--		return -EINVAL;
--
--	retval = of_property_read_u32(node, "ngpios", &ngpios);
-+	retval = device_property_read_u32(dev, "ngpios", &ngpios);
- 	if (retval == -EINVAL)
- 		ngpios = DEFAULT_PIN_NUMBER;
- 	else if (retval)
+ static inline void loongson_commit_direction(struct loongson_gpio_chip *lgpio, unsigned int pin,
+@@ -138,36 +140,40 @@ static int loongson_gpio_to_irq(struct gpio_chip *chip, unsigned int offset)
+ static int loongson_gpio_init(struct device *dev, struct loongson_gpio_chip *lgpio,
+ 			      void __iomem *reg_base)
+ {
++	struct gpio_generic_chip_config config;
+ 	int ret;
+ 
+ 	lgpio->reg_base = reg_base;
+ 	if (lgpio->chip_data->mode == BIT_CTRL_MODE) {
+-		ret = bgpio_init(&lgpio->chip, dev, 8,
+-				lgpio->reg_base + lgpio->chip_data->in_offset,
+-				lgpio->reg_base + lgpio->chip_data->out_offset,
+-				NULL, NULL,
+-				lgpio->reg_base + lgpio->chip_data->conf_offset,
+-				0);
++		config = (typeof(config)){
++			.dev = dev,
++			.sz = 8,
++			.dat = lgpio->reg_base + lgpio->chip_data->in_offset,
++			.set = lgpio->reg_base + lgpio->chip_data->out_offset,
++			.dirin = lgpio->reg_base + lgpio->chip_data->conf_offset,
++		};
++
++		ret = gpio_generic_chip_init(&lgpio->chip, &config);
+ 		if (ret) {
+ 			dev_err(dev, "unable to init generic GPIO\n");
+ 			return ret;
+ 		}
+ 	} else {
+-		lgpio->chip.direction_input = loongson_gpio_direction_input;
+-		lgpio->chip.get = loongson_gpio_get;
+-		lgpio->chip.get_direction = loongson_gpio_get_direction;
+-		lgpio->chip.direction_output = loongson_gpio_direction_output;
+-		lgpio->chip.set = loongson_gpio_set;
+-		lgpio->chip.parent = dev;
++		lgpio->chip.gc.direction_input = loongson_gpio_direction_input;
++		lgpio->chip.gc.get = loongson_gpio_get;
++		lgpio->chip.gc.get_direction = loongson_gpio_get_direction;
++		lgpio->chip.gc.direction_output = loongson_gpio_direction_output;
++		lgpio->chip.gc.set = loongson_gpio_set;
++		lgpio->chip.gc.parent = dev;
+ 		spin_lock_init(&lgpio->lock);
+ 	}
+ 
+-	lgpio->chip.label = lgpio->chip_data->label;
+-	lgpio->chip.can_sleep = false;
++	lgpio->chip.gc.label = lgpio->chip_data->label;
++	lgpio->chip.gc.can_sleep = false;
+ 	if (lgpio->chip_data->inten_offset)
+-		lgpio->chip.to_irq = loongson_gpio_to_irq;
++		lgpio->chip.gc.to_irq = loongson_gpio_to_irq;
+ 
+-	return devm_gpiochip_add_data(dev, &lgpio->chip, lgpio);
++	return devm_gpiochip_add_data(dev, &lgpio->chip.gc, lgpio);
+ }
+ 
+ static int loongson_gpio_probe(struct platform_device *pdev)
 
 -- 
 2.48.1
