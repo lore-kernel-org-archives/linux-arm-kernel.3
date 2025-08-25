@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0E6FCA0FE7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 14:59:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 415A5CA0FEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 14:59:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
 	In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OVf2kzdOSE35zubTYhy5p4HObUjPisVXLQwG/uTgz0Q=; b=WPf/4Fw10DJ5FevC15b+jgdYPW
-	goheVP6ok03RpcqsqeCo4BSSe8E7M2sr5J7/DgjaC2EiQHg+WlOPfi1n9sEe55f3Uw1yv+8w60meW
-	YEkvH6bwVkiBkYg1bg8Dg0frozq5qu0sregJcMYJn+WfTFJezMizbwPVD1nUbZR5gbbdFtRMPDmWW
-	2sy6WLHdGeX/CLwBODPpCkSnOp7eJmM/WbYO1w9deH7EeW71k23n9Ky22b4xeuoB0K1tXeRRCs0Hf
-	vSWKgQWb8/0KKtvQWBqeJ6LNJ2eibpUSClbhbP2jJS4PG5ZQ0a2KvR33SFOGoeYLj2ywsjOBmU+Sx
-	3lZhXVyQ==;
+	bh=Ei/NeTCCzsFUiMaHhKgEEWTgoZdYOJOjSv/L+yVAyog=; b=JvXPDmVlMbRyWpGIAYbtsJidIf
+	aAsPVQ0WitWw3oYy9DPbKh1J9Sr8mglimmey7mRYkXXAzpnT2V+guyPkjZN8ZHhY5LQGAf2rpwEnA
+	GP0MYbr0E+yB/SUN7NdyaSXdSjvAjVR3qMLPPhBwRB0s91kgTEElQznisUkc6nNKkXwFBCmhNbR53
+	V44XThWPPhW+ARVyoZ5I49T2LqDyCJohZAPg63wvfcYe4qIFNRBfGMDMj+pRdftjkbtDN7lWD4IeG
+	seAILDh6beAkCgSsHdbjQum4EwxD1CBSBA9XsCllXF0PXzIjKjZ8aJKPV4AbTZ2zJJNq+oyq/8iQo
+	Sm7qV0lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqYem-00000008L0A-3ea9;
-	Mon, 25 Aug 2025 14:58:49 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1uqYeo-00000008L1a-0ZgY;
+	Mon, 25 Aug 2025 14:58:50 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqVyu-00000007s8M-2g17
+	id 1uqVyz-00000007s9T-1Oci
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 12:07:26 +0000
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250825120722epoutp04d63cdfeb30217aaae322bdaf5cf25f18~fASYd3egZ0983409834epoutp04w
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 12:07:22 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250825120722epoutp04d63cdfeb30217aaae322bdaf5cf25f18~fASYd3egZ0983409834epoutp04w
+	Mon, 25 Aug 2025 12:07:30 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250825120727epoutp02f958794044c67c4f2070502bbb0a72e7~fASc4jV242053620536epoutp02A
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 12:07:27 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250825120727epoutp02f958794044c67c4f2070502bbb0a72e7~fASc4jV242053620536epoutp02A
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1756123642;
-	bh=OVf2kzdOSE35zubTYhy5p4HObUjPisVXLQwG/uTgz0Q=;
+	s=mail20170921; t=1756123647;
+	bh=Ei/NeTCCzsFUiMaHhKgEEWTgoZdYOJOjSv/L+yVAyog=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=i0faqWSNP74IrBiOCN/Dxc4zuPbZtxApXeWYctvTqALtr6j50fAratjAAiFHhgPU8
-	 OUEKYX7lbF9r8YHvLN+zq0QRAEuqlie/JQASuDu+spuv9QjA8njLz0DmTTgcr37ScC
-	 4aEnb7TmwYM04xdP2NIM36v4bHguqnL6cGEfVdDQ=
+	b=joOM4RsXPKxZJbgEAoQtFhEAU4dqLaJWtESlDxyQtJiK0hIxlwGuEKU/ol9+tn0N/
+	 oiai/2zSAwnY1pk2kD3oUyqqJbeIpG7mqRwL7mUus2piMpxLjywmwS3VWZKc7jZSzB
+	 EbFkRgUr3JId2uTs17sYSSVAyg2c+wxfuiI0QzrU=
 Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
-	20250825120721epcas5p46a1ee09c32bcc3ee067b1ce313d4af9e~fASXic9-S1293312933epcas5p4g;
-	Mon, 25 Aug 2025 12:07:21 +0000 (GMT)
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
+	20250825120726epcas5p28620320dcbcb2688312536c5ea44d50b~fAScPJ0Cn1102111021epcas5p2I;
+	Mon, 25 Aug 2025 12:07:26 +0000 (GMT)
 Received: from epcas5p2.samsung.com (unknown [182.195.38.93]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4c9V0S6Vwtz6B9m8; Mon, 25 Aug
-	2025 12:07:20 +0000 (GMT)
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4c9V0Y75Rrz6B9m5; Mon, 25 Aug
+	2025 12:07:25 +0000 (GMT)
 Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20250825120720epcas5p491e16bbfbdbcd751acbb0c0e55f9e2a2~fASWB8hUb3220132201epcas5p4d;
-	Mon, 25 Aug 2025 12:07:20 +0000 (GMT)
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20250825120725epcas5p36cdf2c4e839db307f1cc0dc81346b913~fASazDxdW2789627896epcas5p3h;
+	Mon, 25 Aug 2025 12:07:25 +0000 (GMT)
 Received: from Jaguar.samsungds.net (unknown [107.109.115.6]) by
 	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250825120715epsmtip271ff86decb41b6d85cd503e1e3e7221d~fASRXLW0B0204202042epsmtip2B;
-	Mon, 25 Aug 2025 12:07:15 +0000 (GMT)
+	20250825120720epsmtip2db3d64839a45053623581dab6453fdbc~fASWRSwAH0172901729epsmtip2n;
+	Mon, 25 Aug 2025 12:07:20 +0000 (GMT)
 From: Ravi Patel <ravi.patel@samsung.com>
 To: jesper.nilsson@axis.com, mturquette@baylibre.com, sboyd@kernel.org,
 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, krzk@kernel.org,
@@ -67,26 +67,25 @@ Cc: ksk4725@coasia.com, kenkim@coasia.com, pjsin865@coasia.com,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@axis.com,
 	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-gpio@vger.kernel.org, soc@lists.linux.dev, Priyadarsini G
-	<priya.ganesh@samsung.com>
-Subject: [PATCH v3 05/10] pinctrl: samsung: Add ARTPEC-8 SoC specific
- configuration
-Date: Mon, 25 Aug 2025 17:14:31 +0530
-Message-Id: <20250825114436.46882-6-ravi.patel@samsung.com>
+	linux-gpio@vger.kernel.org, soc@lists.linux.dev
+Subject: [PATCH v3 06/10] dt-bindings: arm: Convert Axis board/soc bindings
+ to json-schema
+Date: Mon, 25 Aug 2025 17:14:32 +0530
+Message-Id: <20250825114436.46882-7-ravi.patel@samsung.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20250825114436.46882-1-ravi.patel@samsung.com>
-X-CMS-MailID: 20250825120720epcas5p491e16bbfbdbcd751acbb0c0e55f9e2a2
+X-CMS-MailID: 20250825120725epcas5p36cdf2c4e839db307f1cc0dc81346b913
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 CMS-TYPE: 105P
 cpgsPolicy: CPGSC10-541,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250825120720epcas5p491e16bbfbdbcd751acbb0c0e55f9e2a2
+X-CMS-RootMailID: 20250825120725epcas5p36cdf2c4e839db307f1cc0dc81346b913
 References: <20250825114436.46882-1-ravi.patel@samsung.com>
-	<CGME20250825120720epcas5p491e16bbfbdbcd751acbb0c0e55f9e2a2@epcas5p4.samsung.com>
+	<CGME20250825120725epcas5p36cdf2c4e839db307f1cc0dc81346b913@epcas5p3.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_050724_997848_439D6E85 
-X-CRM114-Status: GOOD (  16.09  )
+X-CRM114-CacheID: sfid-20250825_050729_694772_A4684073 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,131 +100,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: SeonGu Kang <ksk4725@coasia.com>
+Convert Axis SoC bindings to DT schema format using json-schema.
+Existing bindings supports ARTPEC-6 SoC and board.
 
-Add Axis ARTPEC-8 SoC specific configuration data to enable pinctrl.
-
+Signed-off-by: SungMin Park <smn1196@coasia.com>
 Signed-off-by: SeonGu Kang <ksk4725@coasia.com>
-Signed-off-by: Priyadarsini G <priya.ganesh@samsung.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
 ---
- .../pinctrl/samsung/pinctrl-exynos-arm64.c    | 50 +++++++++++++++++++
- drivers/pinctrl/samsung/pinctrl-exynos.h      | 10 ++++
- drivers/pinctrl/samsung/pinctrl-samsung.c     |  2 +
- drivers/pinctrl/samsung/pinctrl-samsung.h     |  1 +
- 4 files changed, 63 insertions(+)
+ .../devicetree/bindings/arm/axis.txt          | 13 ---------
+ .../devicetree/bindings/arm/axis.yaml         | 29 +++++++++++++++++++
+ 2 files changed, 29 insertions(+), 13 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/arm/axis.txt
+ create mode 100644 Documentation/devicetree/bindings/arm/axis.yaml
 
-diff --git a/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c b/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
-index 5fe7c4b9f7bd..323487dfa8c2 100644
---- a/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
-+++ b/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
-@@ -76,6 +76,15 @@ static const struct samsung_pin_bank_type exynos8895_bank_type_off  = {
- 	.reg_offset = { 0x00, 0x04, 0x08, 0x0c, 0x10, 0x14, },
- };
- 
-+/*
-+ * Bank type for non-alive type. Bit fields:
-+ * CON: 4, DAT: 1, PUD: 4, DRV: 4
-+ */
-+static const struct samsung_pin_bank_type artpec_bank_type_off = {
-+	.fld_width = { 4, 1, 4, 4, },
-+	.reg_offset = { 0x00, 0x04, 0x08, 0x0c, },
-+};
+diff --git a/Documentation/devicetree/bindings/arm/axis.txt b/Documentation/devicetree/bindings/arm/axis.txt
+deleted file mode 100644
+index ebd33a88776f..000000000000
+--- a/Documentation/devicetree/bindings/arm/axis.txt
++++ /dev/null
+@@ -1,13 +0,0 @@
+-Axis Communications AB
+-ARTPEC series SoC Device Tree Bindings
+-
+-ARTPEC-6 ARM SoC
+-================
+-
+-Required root node properties:
+-- compatible = "axis,artpec6";
+-
+-ARTPEC-6 Development board:
+----------------------------
+-Required root node properties:
+-- compatible = "axis,artpec6-dev-board", "axis,artpec6";
+diff --git a/Documentation/devicetree/bindings/arm/axis.yaml b/Documentation/devicetree/bindings/arm/axis.yaml
+new file mode 100644
+index 000000000000..f9c218dc6883
+--- /dev/null
++++ b/Documentation/devicetree/bindings/arm/axis.yaml
+@@ -0,0 +1,29 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/arm/axis.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- /* Pad retention control code for accessing PMU regmap */
- static atomic_t exynos_shared_retention_refcnt;
- 
-@@ -1816,3 +1825,44 @@ const struct samsung_pinctrl_of_match_data gs101_of_data __initconst = {
- 	.ctrl		= gs101_pin_ctrl,
- 	.num_ctrl	= ARRAY_SIZE(gs101_pin_ctrl),
- };
++title: Axis ARTPEC platforms
 +
-+/* pin banks of artpec8 pin-controller (FSYS0) */
-+static const struct samsung_pin_bank_data artpec8_pin_banks0[] __initconst = {
-+	ARTPEC_PIN_BANK_EINTG(5, 0x000, "gpf0", 0x00),
-+	ARTPEC_PIN_BANK_EINTG(4, 0x020, "gpf1", 0x04),
-+	ARTPEC_PIN_BANK_EINTG(8, 0x040, "gpf2", 0x08),
-+	ARTPEC_PIN_BANK_EINTG(4, 0x060, "gpf3", 0x0c),
-+	ARTPEC_PIN_BANK_EINTG(7, 0x080, "gpf4", 0x10),
-+	ARTPEC_PIN_BANK_EINTG(8, 0x0a0, "gpe0", 0x14),
-+	ARTPEC_PIN_BANK_EINTG(8, 0x0c0, "gpe1", 0x18),
-+	ARTPEC_PIN_BANK_EINTG(6, 0x0e0, "gpe2", 0x1c),
-+	ARTPEC_PIN_BANK_EINTG(8, 0x100, "gps0", 0x20),
-+	ARTPEC_PIN_BANK_EINTG(8, 0x120, "gps1", 0x24),
-+};
++maintainers:
++  - Jesper Nilsson <jesper.nilsson@axis.com>
++  - linux-arm-kernel@axis.com
 +
-+/* pin banks of artpec8 pin-controller (PERIC) */
-+static const struct samsung_pin_bank_data artpec8_pin_banks1[] __initconst = {
-+	ARTPEC_PIN_BANK_EINTG(8, 0x000, "gpa0", 0x00),
-+	ARTPEC_PIN_BANK_EINTG(8, 0x020, "gpa1", 0x04),
-+	ARTPEC_PIN_BANK_EINTG(8, 0x040, "gpa2", 0x08),
-+	ARTPEC_PIN_BANK_EINTG(2, 0x060, "gpk0", 0x0c),
-+};
++description: |
++  ARM platforms using SoCs designed by Axis branded as "ARTPEC".
 +
-+static const struct samsung_pin_ctrl artpec8_pin_ctrl[] __initconst = {
-+	{
-+		/* pin-controller instance 0 FSYS data */
-+		.pin_banks	= artpec8_pin_banks0,
-+		.nr_banks	= ARRAY_SIZE(artpec8_pin_banks0),
-+		.eint_gpio_init	= exynos_eint_gpio_init,
-+	}, {
-+		/* pin-controller instance 1 PERIC data */
-+		.pin_banks	= artpec8_pin_banks1,
-+		.nr_banks	= ARRAY_SIZE(artpec8_pin_banks1),
-+		.eint_gpio_init	= exynos_eint_gpio_init,
-+	},
-+};
++properties:
++  $nodename:
++    const: '/'
++  compatible:
++    oneOf:
++      - description: Axis ARTPEC-6 SoC board
++        items:
++          - enum:
++              - axis,artpec6-dev-board
++          - const: axis,artpec6
 +
-+const struct samsung_pinctrl_of_match_data artpec8_of_data __initconst = {
-+	.ctrl		= artpec8_pin_ctrl,
-+	.num_ctrl	= ARRAY_SIZE(artpec8_pin_ctrl),
-+};
-diff --git a/drivers/pinctrl/samsung/pinctrl-exynos.h b/drivers/pinctrl/samsung/pinctrl-exynos.h
-index 362dc533186f..c9c38f8988dd 100644
---- a/drivers/pinctrl/samsung/pinctrl-exynos.h
-+++ b/drivers/pinctrl/samsung/pinctrl-exynos.h
-@@ -236,6 +236,16 @@
- 		.name			= id				\
- 	}
- 
-+#define ARTPEC_PIN_BANK_EINTG(pins, reg, id, offs)			\
-+	{								\
-+		.type			= &artpec_bank_type_off,	\
-+		.pctl_offset		= reg,				\
-+		.nr_pins		= pins,				\
-+		.eint_type		= EINT_TYPE_GPIO,		\
-+		.eint_offset		= offs,				\
-+		.name			= id				\
-+	}
++additionalProperties: true
 +
- /**
-  * struct exynos_weint_data: irq specific data for all the wakeup interrupts
-  * generated by the external wakeup interrupt controller.
-diff --git a/drivers/pinctrl/samsung/pinctrl-samsung.c b/drivers/pinctrl/samsung/pinctrl-samsung.c
-index 24745e1d78ce..c099195fc464 100644
---- a/drivers/pinctrl/samsung/pinctrl-samsung.c
-+++ b/drivers/pinctrl/samsung/pinctrl-samsung.c
-@@ -1482,6 +1482,8 @@ static const struct of_device_id samsung_pinctrl_dt_match[] = {
- 		.data = &s5pv210_of_data },
- #endif
- #ifdef CONFIG_PINCTRL_EXYNOS_ARM64
-+	{ .compatible = "axis,artpec8-pinctrl",
-+		.data = &artpec8_of_data },
- 	{ .compatible = "google,gs101-pinctrl",
- 		.data = &gs101_of_data },
- 	{ .compatible = "samsung,exynos2200-pinctrl",
-diff --git a/drivers/pinctrl/samsung/pinctrl-samsung.h b/drivers/pinctrl/samsung/pinctrl-samsung.h
-index 1cabcbe1401a..be2dee886d81 100644
---- a/drivers/pinctrl/samsung/pinctrl-samsung.h
-+++ b/drivers/pinctrl/samsung/pinctrl-samsung.h
-@@ -381,6 +381,7 @@ struct samsung_pmx_func {
- };
- 
- /* list of all exported SoC specific data */
-+extern const struct samsung_pinctrl_of_match_data artpec8_of_data;
- extern const struct samsung_pinctrl_of_match_data exynos2200_of_data;
- extern const struct samsung_pinctrl_of_match_data exynos3250_of_data;
- extern const struct samsung_pinctrl_of_match_data exynos4210_of_data;
++...
 -- 
 2.49.0
 
