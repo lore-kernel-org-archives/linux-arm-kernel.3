@@ -4,120 +4,201 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87D3BCA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 08:42:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDB5ACA0FE1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 08:45:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TnsZ6L300ZKgc1COVNFcUJ5H1mGue0Pdof2dEQV2XRs=; b=qHnNDB5OlXgyP0Je+F917HOb7j
-	7szWHmc3Uvb3NlCAnCQ8aTLYCxjBuO7tgaC3nK0RiLnKiMf/krJWBLTVdHfqCcrneVxzMJpNgwzK5
-	6C1Uc+mRhMU8KHC2nGkwLtd2DMVJcocgvF51SzghZLgECvcM+kPIhZQ4PeTWNMrX391eHuGglCFbf
-	/jQgO9zSy6NGVqVOpkmKBMJUymqXIw+UW6T2idoOp5XkbkGFlGBxM3Dc3v7FfDqnb5TvnB2jF2NhG
-	8WOtqseMzMfXRGnkvwHuyk9Aikks50lk5lLAItOw5k3YgVSArAhWx/SOhfgi/1U6ZbSMZ8USATvHb
-	AlldOALg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9kgzJokI6npNzXE5CJN5iey9qv2Qmu2wXRPfxEcZC3I=; b=2nGNiOqtmWIaGp4qq7kTbIAIIm
+	TPI3Edkd6+b+vL0thhIn4Agd9TbUdmddF4dTBJOd+VvHzHbTgH0BDbOwlMXUhwiczIslsUEbvvudM
+	Icij86fpAlMDudFshMGK0yJUdrWqTAr8a+qJkPOgx7WhWs8RdlRZ1HQi49FlauYhgO8X7mL5VmJsw
+	spOAbtkCkZUy/KJX5pXPPjR8PEn91fFTdegUT+XCS7Q5BF3+O4xc2LKuqfGcQOrXLQkiCeSQZ4GFT
+	Gs81SZmki3PJS0vuI5PDevfjOpmVHSCkpdXRIhKqCl0rGzbkjjhW2Wu5VIhbLF5RRdAZM/lwTw2wP
+	so74Fsqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqSmd-00000007MVe-3Kda;
-	Mon, 25 Aug 2025 08:42:31 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1uqSpG-00000007NLe-1xbP;
+	Mon, 25 Aug 2025 08:45:14 +0000
+Received: from esa7.fujitsucc.c3s2.iphmx.com ([68.232.159.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqSJE-00000007GX4-42X8
+	id 1uqSUA-00000007I1t-0K5d
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 08:12:10 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-61c46cde065so54062a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 01:12:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756109527; x=1756714327; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=TnsZ6L300ZKgc1COVNFcUJ5H1mGue0Pdof2dEQV2XRs=;
-        b=Evoor17zti4D4yH8vl55dy5WzTY1AZZ4Kwxg0I4Ld7sCueVgM17ZZVsuLrxtcq4zlS
-         hHrpQwvT6O63Xh8wsobs9pNc+RZMf1qazpWiH1CZbV2zvCuF39ctjqxZklBubLCjuUoE
-         eSb9n1kNrgMzwxlqBH0TYItHYF8wF2oQkfAfZ7yTgjG9GWNkWy2TxK9IPqHB1R5ziqec
-         Gmqsz8N0+O9/hucqdOX43chZZS4sN7rR1le0SDCRy4iu9OdvQCMKaoizEWhQUDVxJh6k
-         W6M0woseUKUCZ6k/oS5gvl9FV4UJ5bs2KdgffgfCVLx+wGoFbMs7XhRjSx8Y6NZYf/+W
-         OgSA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756109527; x=1756714327;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TnsZ6L300ZKgc1COVNFcUJ5H1mGue0Pdof2dEQV2XRs=;
-        b=T6DiV9tzBQw6GKRDXalvXI6YGu/9NzTVtntjL7hYsLc9X6c2ZQ8todDe/sypIozuqG
-         H+r2UMq9pAIgeuikcNYY2z47GOXTfo4m9IOQ58y9tiPGnKzi8XtVVrWdN7NfWbp6hJtc
-         oTnk+GmnZ5P/yO2K/9pfRaERWrKSgyv86T7b2cANFcxxcZfWe5HqNfcNMHBv74h63Lpc
-         SLTJpBek/7SZfZjElOlR84lWcC2Ja0df2IezPZUyEgLcx2QB2krQEwlopVEJHOFbz7eM
-         PsfWjx2m8X4m8Xi/yCwZ6xXLW4bDVmQ4ytRmmFYjmx8mz67l3NKMbMx49agFlmPt3DEt
-         5TaA==
-X-Forwarded-Encrypted: i=1; AJvYcCUmZorUZu0szGlfRxqlFDZpD+gmCKkDLKXl07zyWlTxxv9vtKCKgWQReadDadA27p10hPXazgbaKJ+AhLeqGc/2@lists.infradead.org
-X-Gm-Message-State: AOJu0YytwzZeWBnfGaX3qhdI/q/6DxhvHfzGmS9lHHl+nocIaretL/nc
-	GyNl8y5kxyjmoCB8yrfG+smby6KKEysH9SLYMxfSAdqNXPrTmJwsfogsijAiydDCq10=
-X-Gm-Gg: ASbGnctTw8QPoOWzOu5HqyzxIkr6Yn9M0665Z1WVCadQ5AQoHcwQzGMzKRC4bV0aSUl
-	Il+kch4/OTQgt9SO2rt6NMmNaVA2brzzEHghijQ4ZZMjjnTbdfyycy/XI/gEPo0KwW6C5vZyTl8
-	bcCy2d7GSLD7E/Fs/7M0Iyua6hZ9VzDr/vzcG95Om3JiPe7uiSIDZNbCyGpCbCx8/0p5RY5MMAR
-	6KqmJ6wylwu2JrQQSgH1iOuttDnqSsH/I9P0ixsR8MUlY9wp87sJWZm+pPAf1aC1h170POEoRx+
-	j27UI/50gMfeX+vDz9//UuQnBYDoztWuUS36aJIBDVUY0m3km2DIO8ZdLYc3V0c4ON5O8m5Ng0E
-	jpx+Q3IDqIORuvkPC2lvyPrMxJa+hNbaYmg==
-X-Google-Smtp-Source: AGHT+IGMFHVCfgzqOUh+pGDLejurh3U7hp17R5KFUc6Wa/vTUBiH/N42R6EI9BDD6UgsghTGJU7GvA==
-X-Received: by 2002:a05:6402:2748:b0:61c:6855:d917 with SMTP id 4fb4d7f45d1cf-61c6855df51mr1226404a12.6.1756109526816;
-        Mon, 25 Aug 2025 01:12:06 -0700 (PDT)
-Received: from kuoka.. ([213.244.170.152])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-61c312a57e6sm4553003a12.14.2025.08.25.01.12.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 25 Aug 2025 01:12:06 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Benson Leung <bleung@chromium.org>,
-	Guenter Roeck <groeck@chromium.org>,
-	Tim Harvey <tharvey@gateworks.com>,
-	Pengyu Luo <mitltlatltl@gmail.com>,
-	Michael Walle <mwalle@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Jean Delvare <jdelvare@suse.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Lee Jones <lee@kernel.org>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Cheng-Yi Chiang <cychiang@chromium.org>,
-	Tzung-Bi Shih <tzungbi@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Nikita Travkin <nikita@trvn.ru>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Tinghan Shen <tinghan.shen@mediatek.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	chrome-platform@lists.linux.dev,
-	linux-gpio@vger.kernel.org,
-	linux-hwmon@vger.kernel.org,
-	linux-pwm@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-sound@vger.kernel.org,
-	linux-watchdog@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Mathew McBride <matt@traverse.com.au>
-Subject: [PATCH v3] dt-bindings: mfd: Move embedded controllers to own directory
-Date: Mon, 25 Aug 2025 10:12:02 +0200
-Message-ID: <20250825081201.9775-2-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.48.1
+	Mon, 25 Aug 2025 08:23:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj1;
+  t=1756110206; x=1787646206;
+  h=from:to:subject:date:message-id:references:in-reply-to:
+   content-transfer-encoding:mime-version;
+  bh=9kgzJokI6npNzXE5CJN5iey9qv2Qmu2wXRPfxEcZC3I=;
+  b=PjgpcKOHcBNcNCoN+QAMcaVqLeQBrJfpZrqcAZPGdODYE0Z9iQbXmWG8
+   rT3yoSrebGHvIc7DyMVuNZ81S0FvKNh9xupDl6K6vp2daDzKRwfOAx3j+
+   vjmVeCgdnndwkwYmi8FaXOxEYWq56xWnu8bwCCuMvwJmYNAa36a81D594
+   iNDv6fYRtyuHpA59owxRvhs/11C2vlrtMfArfc1DEpn2LsQmeWtr8uwiy
+   xD/93jeyGBAMAp6aefTrk1CZVLAaT8lHgI/dpRuZMXs3S4YDq0vWwZidg
+   lo2luwjBZOY9Gw1QxWbuxzH3JTgRhbwXCvbL1pjL/SkPP1SJlOlWNBDzS
+   Q==;
+X-CSE-ConnectionGUID: oJyFgnavQ8G2eGw5rNY0Bg==
+X-CSE-MsgGUID: vyRyXNipQtGbbUjG9htGRw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11532"; a="165596215"
+X-IronPort-AV: E=Sophos;i="6.17,312,1747666800"; 
+   d="scan'208";a="165596215"
+Received: from mail-japaneastazon11010070.outbound.protection.outlook.com (HELO TY3P286CU002.outbound.protection.outlook.com) ([52.101.229.70])
+  by ob1.fujitsucc.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Aug 2025 17:22:50 +0900
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qymnd3LFM0xHWOkY1wrf02yJLsXUErCPMMBjwdXWIIaICfWToTF2XF92gMJb9u645k9nBByzmHm+jIiUg53ZF8xcxZzpgyAQSJQldu53Hj2d+1h8Au9D2YuyaibRLNu2rHy43xgDeh6ZiJ6IJKT0AVH8Eg77mXHZ6UxCWa9+MXHCJAYJbe6bgahVrJHhxNubHL7xgerlw3W/bYZwaB1BghlhVkyPih6AbNe/EpgsgU/5F4zDHrHfQKhXx54pVdELyth5Qr2iglCFg40zyCv0XQvUsTw022RYkDrmEbjH5FR8i232lOBptS9AlqrBvQqfzOm6byC/g8M0hocJZ7qAOg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9kgzJokI6npNzXE5CJN5iey9qv2Qmu2wXRPfxEcZC3I=;
+ b=EqYnu/X2rziuQQqd0yplVcxfCpE3xyKAhG5wjuJDJ0OXVtlJ+FiF0aBiQ7DPyeC9z3vluYxWRlhXTqiQAAk3F8xOHRsvobetqigNbGVqPqYqcP/p13WDq928T1huB7kBXsmhN40JHeoS5AQ1cosOhVnHxKipWqAV4x4efdbVOxVe6gq1gqtlauLQHr5pO5Zew5Ic64++hscPcUHPRuHwlR7FYwgoEN/qux2/6rWMhYdupnbkP9dBmyei7Ba3tVB+Fd7ZtCKZEkZM2ql0Lc9EjGYqPeGAg7RDTXCByHZJkP1idzut+uA6MMvzyFvw2qXCvw1O12owwzxYdovKRDFbdw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
+ dkim=pass header.d=fujitsu.com; arc=none
+Received: from TY3PR01MB9983.jpnprd01.prod.outlook.com (2603:1096:400:1dc::6)
+ by TYCPR01MB8551.jpnprd01.prod.outlook.com (2603:1096:400:150::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.20; Mon, 25 Aug
+ 2025 08:22:47 +0000
+Received: from TY3PR01MB9983.jpnprd01.prod.outlook.com
+ ([fe80::f8a:4f35:cc76:bdc1]) by TY3PR01MB9983.jpnprd01.prod.outlook.com
+ ([fe80::f8a:4f35:cc76:bdc1%6]) with mapi id 15.20.9052.017; Mon, 25 Aug 2025
+ 08:22:47 +0000
+From: "Kazuhiro Abe (Fujitsu)" <fj1078ii@fujitsu.com>
+To: 'Hanjun Guo' <guohanjun@huawei.com>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>, "Rafael J.
+ Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+	"linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH] ACPI: AGDI: Add interrupt signaling mode support
+Thread-Topic: [PATCH] ACPI: AGDI: Add interrupt signaling mode support
+Thread-Index: AQHcEA0DtJrppafZxEO8iry1iSQK/rRqEFqAgAj9y4A=
+Date: Mon, 25 Aug 2025 08:22:47 +0000
+Message-ID: <TY3PR01MB9983ACD7CF3A638D96083536D53EA@TY3PR01MB9983.jpnprd01.prod.outlook.com>
+References: <20250818065437.85905-1-fj1078ii@aa.jp.fujitsu.com>
+ <57c0e289-8d03-785b-15a7-18df3763be8a@huawei.com>
+In-Reply-To: <57c0e289-8d03-785b-15a7-18df3763be8a@huawei.com>
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: =?utf-8?B?TVNJUF9MYWJlbF8xZTkyZWY3My0wYWQxLTQwYzUtYWQ1NS00NmRlMzM5Njgw?=
+ =?utf-8?B?MmZfQWN0aW9uSWQ9YjZkZjY1YjktMGNmZC00OTU5LTg4ODgtYjk5MWE0ZjMz?=
+ =?utf-8?B?MGE1O01TSVBfTGFiZWxfMWU5MmVmNzMtMGFkMS00MGM1LWFkNTUtNDZkZTMz?=
+ =?utf-8?B?OTY4MDJmX0NvbnRlbnRCaXRzPTA7TVNJUF9MYWJlbF8xZTkyZWY3My0wYWQx?=
+ =?utf-8?B?LTQwYzUtYWQ1NS00NmRlMzM5NjgwMmZfRW5hYmxlZD10cnVlO01TSVBfTGFi?=
+ =?utf-8?B?ZWxfMWU5MmVmNzMtMGFkMS00MGM1LWFkNTUtNDZkZTMzOTY4MDJmX01ldGhv?=
+ =?utf-8?B?ZD1Qcml2aWxlZ2VkO01TSVBfTGFiZWxfMWU5MmVmNzMtMGFkMS00MGM1LWFk?=
+ =?utf-8?B?NTUtNDZkZTMzOTY4MDJmX05hbWU9RlVKSVRTVS1QVUJMSUPigIs7TVNJUF9M?=
+ =?utf-8?B?YWJlbF8xZTkyZWY3My0wYWQxLTQwYzUtYWQ1NS00NmRlMzM5NjgwMmZfU2V0?=
+ =?utf-8?B?RGF0ZT0yMDI1LTA4LTI1VDA4OjA2OjQ0WjtNU0lQX0xhYmVsXzFlOTJlZjcz?=
+ =?utf-8?B?LTBhZDEtNDBjNS1hZDU1LTQ2ZGUzMzk2ODAyZl9TaXRlSWQ9YTE5ZjEyMWQt?=
+ =?utf-8?Q?81e1-4858-a9d8-736e267fd4c7;?=
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=fujitsu.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TY3PR01MB9983:EE_|TYCPR01MB8551:EE_
+x-ms-office365-filtering-correlation-id: 678e12fb-4e83-40df-f342-08dde3b092d0
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|38070700018|1580799027;
+x-microsoft-antispam-message-info: =?utf-8?B?Ny9Kb250VHg1Szd5aDU4WUJsQTJ1L1pESStCdkVNYlc3VHBCUW80dDZhQjZx?=
+ =?utf-8?B?UDlzZ0xLaXZ2QUZpejI2TDFzZjZxV09hRHlQeWJRTW9ieU9hb2lRdisySE1T?=
+ =?utf-8?B?VHlSN0RnZTFHYWlwNG9YemJpamx5R1g5bkZUY0xWTzZROXhDeS9SWkRtdmxr?=
+ =?utf-8?B?NHdOZTRMRm1mQnRURUFmam5ocXZJUDAySEluVml0UGxkb0IvMnNZUXVWNzh3?=
+ =?utf-8?B?MDYvZ0xIQTRNRFQ3b09ucFBzWndueUNFQWhnMUN5RWtLWGM1d1FEakFtL1pa?=
+ =?utf-8?B?Q2IwQXZYTEVFVzhIL1VjMWQyUWFPQWxBYUFsMS8ydjlVU1RjcmJxQ3l6czRB?=
+ =?utf-8?B?U08vbnJYaVlQZXFpNTdpNDlienEwRHRLbW9OSUZJWWxManZtU0w3TWVsek15?=
+ =?utf-8?B?VG5yWHQwMEk3blBiSGtkMVdDUnkyWXk1K2NnQldrSk9ETjhKRUk3NzFkRU1L?=
+ =?utf-8?B?VGZVdUdId2luZU1ZZGJKbzJnUDNsZFRMY25abmxISXhhWlNiemE0dE91ZGxT?=
+ =?utf-8?B?aVNBeGVaSFlTM1hLWkE0RENjeVBDMDRaNVovQWRlVWpZZ3UyQ2pKRlIzK212?=
+ =?utf-8?B?dG5hOU43MnI1Q3k2d2Uydm0yK2hhR0FEQ0JEOUF0bmNNTGNENmE5dDRDM24r?=
+ =?utf-8?B?STVKK1VseldjeitHdlZYK2ZZS3RRMVl5bTFWS2lDbFZjc0ZhdUtnYWx3ZU1B?=
+ =?utf-8?B?VFlSQWpMWGEwQVJuMmM0a2FrUlJaVy9ROW9sUm54THBwZi9Vblk4d3ZjZERM?=
+ =?utf-8?B?M2pnTTRsOVoxTUdkbFY5cG9uanowYUtUaStUMTlIdDk3dUZyUFVvKytjMEw0?=
+ =?utf-8?B?amlUR2wwOXdlMDZabjZnZ0paZWY1L252MmxVRGc3bFFkZDgrcDJ5YTQ4N2Vm?=
+ =?utf-8?B?VkVXVzExOWRPQjZwRElYQWZBWGUvNVRDTTRvV3B6UGFCN2p5eGEzbEJCWm9J?=
+ =?utf-8?B?RjJoanZHL0lJU2Z3MXlMMFg3d1ZSTit2b0c4YnhBcWhVc1VoL0o3UG5PQTRs?=
+ =?utf-8?B?UFRiSElLRENiUnBNdTBYbEpLN3lpSGlNMHY0dEVvMjZNQnNRbHFreVhkZnQw?=
+ =?utf-8?B?VDJFMXJmZWpacStvbm1iMm8rYWhJOW5OcTk1b2piYUFyU3BCNWV4ekZhb0dt?=
+ =?utf-8?B?YnlkL2g0U2I3d01pa1R3NTJyZ1poMTBITmxMNHFGUTZONDgrS3ZucjBQQ1l4?=
+ =?utf-8?B?RSs3cnVta0VNcG0xeEtGZ2NBcld1ZVVOS0VXNmJOZ2s2Y01uR2xZRlhoelQy?=
+ =?utf-8?B?NGl1VTFPNVgxZXE0c1pCUHE4S05temJvNUpLa2srcGFDSnpVNUVPSnQzOSty?=
+ =?utf-8?B?UFY4ZUpOTWttcmFCWmFqdWtaRWY4QmQyOWN6QVFYNUdhNDU1emNWTk1KQWhB?=
+ =?utf-8?B?Q3BRc2wzYU5weHVhM296azA0VVVJK3JrTzRYdzdpK1pjZUhENXhCWHNDNEZh?=
+ =?utf-8?B?bzc5RVprWDlSTzI1cmVNWmFwYnhoU1l5YmpBdmFvY0JpeER1Mmozb1JuS0pY?=
+ =?utf-8?B?Q1hOQlVCMkJrUmxJTzFRY2FrRWJlbE1rNnpvZ21RVWJrem0vZXM0MWtYMUlM?=
+ =?utf-8?B?NFlxandNNmllOUh1NkJxVmp3WFRzWGtGTDFMMDkzYWJPaXB1TCtreHZDdjVM?=
+ =?utf-8?B?bGJDUGxJWDROdjVWaStkdW94bE0vMlJ6eXpxaElRTzQ3bE9FZm0raEtUK0Qy?=
+ =?utf-8?B?Z1Uvem5NVUpNTnVYbnRaZ2lxWFFpdTl2bWNPZ3VpMDEyZUl5YUhVS3JLNnpn?=
+ =?utf-8?B?OWNNL2FtVit3SmdaeFl3cnBwMmEwV2JlS3ZycXJHS0tsN0V1SFNSRWpBMjZn?=
+ =?utf-8?B?dFdLNnlxRmREZ1A5WWlQWURodDZNWU5ObWdWRnJ2MW40MkhrUm0xQ1o3ZTR3?=
+ =?utf-8?B?ZC95b2d6N2o4b05Rc0ZBeFp5Vmw0MmJlQXFGbnJreTFnOUNzUDAvQ3RWOWNo?=
+ =?utf-8?B?dC9yT0hTOEJVYS8vd3lMK3Jsc1lOaEtWV3h5UU5CV1NFb3JoQlRZS2U3ZE83?=
+ =?utf-8?B?b2JxbTI0UmlOQXh2TUpuVDBKL3lnRko5ai9vclQ3WVpxY1M3VS9FNjd1U2hN?=
+ =?utf-8?Q?sKktyP?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY3PR01MB9983.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(38070700018)(1580799027);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?MTE1VDA1QzJJV2JoanhBQXNJSVdWSFhlSHN0UkFjZ0k2VWtzc1RjS3c0d2pC?=
+ =?utf-8?B?K2d6T0ZFVlV2UDVrSVFaMU9Yd2sxVXRvWDBMSXh3U1hsaVN3ZlhISGhaVlhL?=
+ =?utf-8?B?d2o3dHNPcER2L3N4SWV5ek1ETFZkVlAwWmJoTENPNXE0Q1NxRzEzWSsrTkdB?=
+ =?utf-8?B?dk56TEFwSGh2UHNCN280K0hGZXZKcUNtTWNlSlcyR0pQOEhkZlJOYTMwRGU3?=
+ =?utf-8?B?Q1VDdkNGYUpPNk5IOGZjNlZ4Q1RjcEU5YVdsUldrWjhTUldkelZpNFQyMDBo?=
+ =?utf-8?B?UmthTWdBbEg0S3hRT1ZNTWVOMmFjbDV6N3IyUlNqTGU2Mi93bytCbTQ5MjNl?=
+ =?utf-8?B?SklEdmVxcEErN0NmN1VlK2FrVUl5dmhybHJyOGhndTRTUHNYN1NoWUZWWUpU?=
+ =?utf-8?B?T0lWdmVKSC9aa1hqbUd4SlBmMSsvbWNRdVptQ0R0VUprdVNNVkFMZUJuNTRZ?=
+ =?utf-8?B?SjlmRXEzdWZjQnFFSlBKTUFoeWZWVFdESFQzYnNDOTlZcGhFRUVXN3hWRDVS?=
+ =?utf-8?B?N1NaVEZNYkV1dzlkR0ttbkh6bXloNnIzTmVmejZsQkF4aXVZeEs2cXA3K2hV?=
+ =?utf-8?B?OE9Vc3J2WjlrRlpISisvNVl2QmJDYVI1YnJEOWFYeW1BYVVtNWVFMGdaWVh1?=
+ =?utf-8?B?MGozT0V2QXZVejkzTE5PNjNxSnNEVkJRWGxmNk9OTWNKMEVFeHFqY3BoR0RU?=
+ =?utf-8?B?U0Y1TFhENnkrWjdmRU1vMW9Yc0xFUXR0enhoRjNQVGhXMkhuZW1hVWlFNVlZ?=
+ =?utf-8?B?ZXRSZk9vbW9mM3M5V2x3emYrWVJZYlltclZDZm5tWDhRb3A4Z0EvL0hqZHNX?=
+ =?utf-8?B?QW1zekQwRTgzU0VIMHVXdUovSVhnSGpEVkQ3V0VZdGNhWFpEQU1uLy9OanA1?=
+ =?utf-8?B?ZWc1bnpNNzFMaStNMkFaMFFPdk50Wk5aYTRhU3k5bkEyMGJvRGVrUGpKMTU2?=
+ =?utf-8?B?Q0sraVJXb3VmOE00YUczTXd0c3BEUVlzc2l4aU1CcGxnUWhOckhLKzhtZlRW?=
+ =?utf-8?B?U3o0M1NkMlp6WXJMbldEaHJjTTl1eGxmS0ZhenBNZExIbEczaWhIL1VsUjhU?=
+ =?utf-8?B?OGY2UDlGclZobjdRM09lMEw3RE80U3FRUnpsY2ZidStxSFJnQXM4dWtFOTBo?=
+ =?utf-8?B?ZGpyTFpyNXBka2xvN1V5dXZMbFhHbGdhV1oxVndOeEhWTVBERGJEelY1U1Zz?=
+ =?utf-8?B?cjAyZG1zNFYyVkNLMU9xbVpOZFZjb0dxeFNFSEpVeTl0UHRzNndGOWVFZjAz?=
+ =?utf-8?B?aFJsYlQ3eDdVTS90aTVNMnhYSFNNL0pla3c2dzVlUXNEc3pRTDhqVzlxdWk0?=
+ =?utf-8?B?eUVJcmJkUmpDc1VOTnB5S3lIVVFQOEQvVVo5M2pRcEtxbFc2L2FZS05Icmk4?=
+ =?utf-8?B?U3ZDdmErTGl0YldNRnJ5WmZudit3VnptWDBvUlk4czBWL1hncmhKQ1I0aDFN?=
+ =?utf-8?B?SE1OL3E0QzhiZWlIakNoTXhqWWtIeG5ZL05LcWY1c1N1RDFrcTQxemtwSmRH?=
+ =?utf-8?B?cTYzMVdTUDB1OURtRVlsTm52ZGNZVHMwaUNqK1RmdEZ1UzBUZWhpSVBqczVU?=
+ =?utf-8?B?WlJhZkZ0c04wU2hoRkJYcEZtcU1pYng4d09LMExkVExzTWNUcU5YMGhmc2tl?=
+ =?utf-8?B?bVZwK3l1TWt0UTQwSVhkRVZ1M09OOGVKR3FvR1dBYzEwdk44TTgwRTE0LzB4?=
+ =?utf-8?B?aXErOHA4ZzBTWnFST0U1dm96ZVh0cjhQdlg0MG1WNWhjZlloT2lvV205dXZL?=
+ =?utf-8?B?TFJZQ3MxazhjaDM0Y1hOWHk3UmJadVI1ZGxWcisrWVBrTytjK3lySkdsUTg2?=
+ =?utf-8?B?Vks4YjF1cVI2OVhVSG5MZXZKc3ByVCtIVklDSjZZTWtUNHRXaFdPU3M5dXZ3?=
+ =?utf-8?B?SUxMUCtFMzBjL0FQU3FrKzVwa0JvWEZFMVNKbk40cmRGLzlmM3hKaVJaZ21F?=
+ =?utf-8?B?YWFJbklXbmxYUnRGLytpS3pWSjg3Y3dxOFZNTzdPZmVKb29Yczl5a3kyeFBh?=
+ =?utf-8?B?N0JsUDNHM29zdUpDc21ZeVBwbVl3cmswTFRheW9hZ0d1Lzk3VVBrU2xCZmtm?=
+ =?utf-8?B?RGFtd0tTUHlKRWVncVJBRFE1QTRrWFVtV0dSYVBRUzVZTWxhNzU1YnpkTk5X?=
+ =?utf-8?B?NWk0VmtENTB4VkFicGZUTXlrc2EwNnIveklNNnNOTDRNWC9JcFkwNWt1aWtX?=
+ =?utf-8?B?QVE9PQ==?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: HODbw+PKGd54V1yvwITZ18Iq06D+zXH4QrFNsFRTMoZ8Py3N4W3IK5rohqUK5R/j4FSn4hB6K5WOUH4yy0klYGefpUyxgFGgZ2wm2EMCaYVSyQEBFWNYVV3sFuEEMs88f06eF3fMlHp4h4vTlGs8udouaexhPtpemxWo136FqCMmHhz2y50aje9eNJ+XIZ7nppHpVpb2W0cZjXGCsQrxAPNjTotb0d/7IpMjKAE1blUggw5l1GK68CgQLO1+e4U2qUq6EhwkMtKIc3rPKRmxQ5DY7RNxhbmZ/dxMjr9wjvU70Fv99g0H+aTGOHLhC/vtsmgg5ZVqgItk3fV3lkOwK4+SnVErRIhdv8kTxtLcTuVIjnWRddtZ82gzJBtMeaq3ilfvg2IkpffSoxG6/CNhaBdu6aLGFSw4Az8mYzs/Q4LW1mhXJmMi4naSzjqaskuisXYtjLq5Z0aNfjQxLQz6idbxnNukag0Aln2aS5qKHGAnhAqv4hzxSZzCVwhIkI5/++KT75Xnm5pzoP8eBT3i8ltmG85saNKjtg6beqrA0RXXaKkMsX6RCR3dy6xQxXArYvCl60XfJUJUeTJLntkGp8Ny7eZzSOSoRsilRZt4qAtwf6DJAUDtqAosQdQzvVj6
+X-OriginatorOrg: fujitsu.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TY3PR01MB9983.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 678e12fb-4e83-40df-f342-08dde3b092d0
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Aug 2025 08:22:47.3026
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 6zSU1eiNurbuanUbsN+Xr9iR9LGloLGk8BNUauaqlpN8UNle0j5gdr/0J7nniD1n6kTtybqaqnp5kSxDCSq09QiQR0R6Mu5ZDAnuDFIGHoU=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCPR01MB8551
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_011209_019419_5F912330 
-X-CRM114-Status: GOOD (  15.50  )
+X-CRM114-CacheID: sfid-20250825_012326_534711_537532E0 
+X-CRM114-Status: GOOD (  28.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,328 +213,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move several embedded controller bindings (like ChromeOS EC, Gateworks
-System Controller and Kontron sl28cpld Board Management) to new
-subdirectory "embedded-controller" matching their purpose.
-
-An embedded controller (EC) is a discrete component that contains a
-microcontroller (i.e. a small CPU running a small firmware without
-operating system) mounted into a larger computer system running
-a fully fledged operating system that needs to utilize the embedded
-controller as part of its operation.
-
-So far the EC bindings were split between "mfd" and "platform"
-directory.  MFD name comes from Linux, not hardware, and "platform" is a
-bit too generic.
-
-Rename Gateworks GSC and Huawei Gaokun filenames to match compatible, as
-preferred for bindings.
-
-Acked-by: Michael Walle <mwalle@kernel.org> # for sl28cpld
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
-
-Lee,
-Can you take it via MFD?
-There is a patch on the lists touching kontron,sl28cpld.
-
-Changes in v3:
-1. Move more files from "platform" directory.
-2. Grow commit msg, based on feedback from Linus.
-3. Add Rb (patch changed, though).
-
-Changes in v2:
-1. Correct remaining paths in other schemas ($ref and descriptions).
-2. Add Ack.
-
-Cc: Mathew McBride <matt@traverse.com.au>
----
- .../{platform => embedded-controller}/acer,aspire1-ec.yaml  | 2 +-
- .../{mfd => embedded-controller}/google,cros-ec.yaml        | 2 +-
- .../gateworks-gsc.yaml => embedded-controller/gw,gsc.yaml}  | 2 +-
- .../huawei,gaokun3-ec.yaml}                                 | 2 +-
- .../{mfd => embedded-controller}/kontron,sl28cpld.yaml      | 2 +-
- .../lenovo,yoga-c630-ec.yaml                                | 2 +-
- .../microsoft,surface-sam.yaml                              | 2 +-
- .../devicetree/bindings/gpio/kontron,sl28cpld-gpio.yaml     | 2 +-
- .../devicetree/bindings/hwmon/kontron,sl28cpld-hwmon.yaml   | 2 +-
- .../interrupt-controller/kontron,sl28cpld-intc.yaml         | 2 +-
- .../devicetree/bindings/pwm/google,cros-ec-pwm.yaml         | 2 +-
- .../devicetree/bindings/pwm/kontron,sl28cpld-pwm.yaml       | 2 +-
- Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml   | 4 ++--
- .../devicetree/bindings/sound/google,cros-ec-codec.yaml     | 2 +-
- .../devicetree/bindings/watchdog/kontron,sl28cpld-wdt.yaml  | 2 +-
- MAINTAINERS                                                 | 6 +++---
- 16 files changed, 19 insertions(+), 19 deletions(-)
- rename Documentation/devicetree/bindings/{platform => embedded-controller}/acer,aspire1-ec.yaml (94%)
- rename Documentation/devicetree/bindings/{mfd => embedded-controller}/google,cros-ec.yaml (99%)
- rename Documentation/devicetree/bindings/{mfd/gateworks-gsc.yaml => embedded-controller/gw,gsc.yaml} (98%)
- rename Documentation/devicetree/bindings/{platform/huawei,gaokun-ec.yaml => embedded-controller/huawei,gaokun3-ec.yaml} (97%)
- rename Documentation/devicetree/bindings/{mfd => embedded-controller}/kontron,sl28cpld.yaml (97%)
- rename Documentation/devicetree/bindings/{platform => embedded-controller}/lenovo,yoga-c630-ec.yaml (95%)
- rename Documentation/devicetree/bindings/{platform => embedded-controller}/microsoft,surface-sam.yaml (92%)
-
-diff --git a/Documentation/devicetree/bindings/platform/acer,aspire1-ec.yaml b/Documentation/devicetree/bindings/embedded-controller/acer,aspire1-ec.yaml
-similarity index 94%
-rename from Documentation/devicetree/bindings/platform/acer,aspire1-ec.yaml
-rename to Documentation/devicetree/bindings/embedded-controller/acer,aspire1-ec.yaml
-index 7cb0134134ff..01ee61768527 100644
---- a/Documentation/devicetree/bindings/platform/acer,aspire1-ec.yaml
-+++ b/Documentation/devicetree/bindings/embedded-controller/acer,aspire1-ec.yaml
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
- %YAML 1.2
- ---
--$id: http://devicetree.org/schemas/platform/acer,aspire1-ec.yaml#
-+$id: http://devicetree.org/schemas/embedded-controller/acer,aspire1-ec.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: Acer Aspire 1 Embedded Controller
-diff --git a/Documentation/devicetree/bindings/mfd/google,cros-ec.yaml b/Documentation/devicetree/bindings/embedded-controller/google,cros-ec.yaml
-similarity index 99%
-rename from Documentation/devicetree/bindings/mfd/google,cros-ec.yaml
-rename to Documentation/devicetree/bindings/embedded-controller/google,cros-ec.yaml
-index 50f457090066..3ab5737c9a8f 100644
---- a/Documentation/devicetree/bindings/mfd/google,cros-ec.yaml
-+++ b/Documentation/devicetree/bindings/embedded-controller/google,cros-ec.yaml
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
- %YAML 1.2
- ---
--$id: http://devicetree.org/schemas/mfd/google,cros-ec.yaml#
-+$id: http://devicetree.org/schemas/embedded-controller/google,cros-ec.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: ChromeOS Embedded Controller
-diff --git a/Documentation/devicetree/bindings/mfd/gateworks-gsc.yaml b/Documentation/devicetree/bindings/embedded-controller/gw,gsc.yaml
-similarity index 98%
-rename from Documentation/devicetree/bindings/mfd/gateworks-gsc.yaml
-rename to Documentation/devicetree/bindings/embedded-controller/gw,gsc.yaml
-index dc379f3ebf24..82d4b2dadbae 100644
---- a/Documentation/devicetree/bindings/mfd/gateworks-gsc.yaml
-+++ b/Documentation/devicetree/bindings/embedded-controller/gw,gsc.yaml
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
- %YAML 1.2
- ---
--$id: http://devicetree.org/schemas/mfd/gateworks-gsc.yaml#
-+$id: http://devicetree.org/schemas/embedded-controller/gw,gsc.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: Gateworks System Controller
-diff --git a/Documentation/devicetree/bindings/platform/huawei,gaokun-ec.yaml b/Documentation/devicetree/bindings/embedded-controller/huawei,gaokun3-ec.yaml
-similarity index 97%
-rename from Documentation/devicetree/bindings/platform/huawei,gaokun-ec.yaml
-rename to Documentation/devicetree/bindings/embedded-controller/huawei,gaokun3-ec.yaml
-index 4a03b0ee3149..cd9e65b6c2ea 100644
---- a/Documentation/devicetree/bindings/platform/huawei,gaokun-ec.yaml
-+++ b/Documentation/devicetree/bindings/embedded-controller/huawei,gaokun3-ec.yaml
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
- %YAML 1.2
- ---
--$id: http://devicetree.org/schemas/platform/huawei,gaokun-ec.yaml#
-+$id: http://devicetree.org/schemas/embedded-controller/huawei,gaokun3-ec.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: Huawei Matebook E Go Embedded Controller
-diff --git a/Documentation/devicetree/bindings/mfd/kontron,sl28cpld.yaml b/Documentation/devicetree/bindings/embedded-controller/kontron,sl28cpld.yaml
-similarity index 97%
-rename from Documentation/devicetree/bindings/mfd/kontron,sl28cpld.yaml
-rename to Documentation/devicetree/bindings/embedded-controller/kontron,sl28cpld.yaml
-index 37207a97e06c..0b752f3baaa9 100644
---- a/Documentation/devicetree/bindings/mfd/kontron,sl28cpld.yaml
-+++ b/Documentation/devicetree/bindings/embedded-controller/kontron,sl28cpld.yaml
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
- %YAML 1.2
- ---
--$id: http://devicetree.org/schemas/mfd/kontron,sl28cpld.yaml#
-+$id: http://devicetree.org/schemas/embedded-controller/kontron,sl28cpld.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: Kontron's sl28cpld board management controller
-diff --git a/Documentation/devicetree/bindings/platform/lenovo,yoga-c630-ec.yaml b/Documentation/devicetree/bindings/embedded-controller/lenovo,yoga-c630-ec.yaml
-similarity index 95%
-rename from Documentation/devicetree/bindings/platform/lenovo,yoga-c630-ec.yaml
-rename to Documentation/devicetree/bindings/embedded-controller/lenovo,yoga-c630-ec.yaml
-index 3180ce1a22d4..a029b38e8dc0 100644
---- a/Documentation/devicetree/bindings/platform/lenovo,yoga-c630-ec.yaml
-+++ b/Documentation/devicetree/bindings/embedded-controller/lenovo,yoga-c630-ec.yaml
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
- %YAML 1.2
- ---
--$id: http://devicetree.org/schemas/platform/lenovo,yoga-c630-ec.yaml#
-+$id: http://devicetree.org/schemas/embedded-controller/lenovo,yoga-c630-ec.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: Lenovo Yoga C630 Embedded Controller.
-diff --git a/Documentation/devicetree/bindings/platform/microsoft,surface-sam.yaml b/Documentation/devicetree/bindings/embedded-controller/microsoft,surface-sam.yaml
-similarity index 92%
-rename from Documentation/devicetree/bindings/platform/microsoft,surface-sam.yaml
-rename to Documentation/devicetree/bindings/embedded-controller/microsoft,surface-sam.yaml
-index b33d26f15b2a..9202cfca0b35 100644
---- a/Documentation/devicetree/bindings/platform/microsoft,surface-sam.yaml
-+++ b/Documentation/devicetree/bindings/embedded-controller/microsoft,surface-sam.yaml
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
- %YAML 1.2
- ---
--$id: http://devicetree.org/schemas/platform/microsoft,surface-sam.yaml#
-+$id: http://devicetree.org/schemas/embedded-controller/microsoft,surface-sam.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: Surface System Aggregator Module (SAM, SSAM)
-diff --git a/Documentation/devicetree/bindings/gpio/kontron,sl28cpld-gpio.yaml b/Documentation/devicetree/bindings/gpio/kontron,sl28cpld-gpio.yaml
-index b032471831e7..02663d67eac7 100644
---- a/Documentation/devicetree/bindings/gpio/kontron,sl28cpld-gpio.yaml
-+++ b/Documentation/devicetree/bindings/gpio/kontron,sl28cpld-gpio.yaml
-@@ -11,7 +11,7 @@ maintainers:
- 
- description: |
-   This module is part of the sl28cpld multi-function device. For more
--  details see ../mfd/kontron,sl28cpld.yaml.
-+  details see ../embedded-controller/kontron,sl28cpld.yaml.
- 
-   There are three flavors of the GPIO controller, one full featured
-   input/output with interrupt support (kontron,sl28cpld-gpio), one
-diff --git a/Documentation/devicetree/bindings/hwmon/kontron,sl28cpld-hwmon.yaml b/Documentation/devicetree/bindings/hwmon/kontron,sl28cpld-hwmon.yaml
-index 010333cb25c0..5803a1770cad 100644
---- a/Documentation/devicetree/bindings/hwmon/kontron,sl28cpld-hwmon.yaml
-+++ b/Documentation/devicetree/bindings/hwmon/kontron,sl28cpld-hwmon.yaml
-@@ -11,7 +11,7 @@ maintainers:
- 
- description: |
-   This module is part of the sl28cpld multi-function device. For more
--  details see ../mfd/kontron,sl28cpld.yaml.
-+  details see ../embedded-controller/kontron,sl28cpld.yaml.
- 
- properties:
-   compatible:
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/kontron,sl28cpld-intc.yaml b/Documentation/devicetree/bindings/interrupt-controller/kontron,sl28cpld-intc.yaml
-index e8dfa6507f64..87df07beda59 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/kontron,sl28cpld-intc.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/kontron,sl28cpld-intc.yaml
-@@ -11,7 +11,7 @@ maintainers:
- 
- description: |
-   This module is part of the sl28cpld multi-function device. For more
--  details see ../mfd/kontron,sl28cpld.yaml.
-+  details see ../embedded-controller/kontron,sl28cpld.yaml.
- 
-   The following interrupts are available. All types and levels are fixed
-   and handled by the board management controller.
-diff --git a/Documentation/devicetree/bindings/pwm/google,cros-ec-pwm.yaml b/Documentation/devicetree/bindings/pwm/google,cros-ec-pwm.yaml
-index f7bc84b05a87..8f5a468cfb91 100644
---- a/Documentation/devicetree/bindings/pwm/google,cros-ec-pwm.yaml
-+++ b/Documentation/devicetree/bindings/pwm/google,cros-ec-pwm.yaml
-@@ -14,7 +14,7 @@ description: |
-   Google's ChromeOS EC PWM is a simple PWM attached to the Embedded Controller
-   (EC) and controlled via a host-command interface.
-   An EC PWM node should be only found as a sub-node of the EC node (see
--  Documentation/devicetree/bindings/mfd/google,cros-ec.yaml).
-+  Documentation/devicetree/bindings/embedded-controller/google,cros-ec.yaml).
- 
- allOf:
-   - $ref: pwm.yaml#
-diff --git a/Documentation/devicetree/bindings/pwm/kontron,sl28cpld-pwm.yaml b/Documentation/devicetree/bindings/pwm/kontron,sl28cpld-pwm.yaml
-index 981cfec53f37..19a9d2e15a96 100644
---- a/Documentation/devicetree/bindings/pwm/kontron,sl28cpld-pwm.yaml
-+++ b/Documentation/devicetree/bindings/pwm/kontron,sl28cpld-pwm.yaml
-@@ -11,7 +11,7 @@ maintainers:
- 
- description: |
-   This module is part of the sl28cpld multi-function device. For more
--  details see ../mfd/kontron,sl28cpld.yaml.
-+  details see ../embedded-controller/kontron,sl28cpld.yaml.
- 
-   The controller supports one PWM channel and supports only four distinct
-   frequencies (250Hz, 500Hz, 1kHz, 2kHz).
-diff --git a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-index adc6b3f36fde..179c98b33b4d 100644
---- a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-+++ b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-@@ -58,7 +58,7 @@ properties:
-     maxItems: 1
- 
-   cros-ec-rpmsg:
--    $ref: /schemas/mfd/google,cros-ec.yaml
-+    $ref: /schemas/embedded-controller/google,cros-ec.yaml
-     description:
-       This subnode represents the rpmsg device. The properties
-       of this node are defined by the individual bindings for
-@@ -126,7 +126,7 @@ patternProperties:
-         maxItems: 1
- 
-       cros-ec-rpmsg:
--        $ref: /schemas/mfd/google,cros-ec.yaml
-+        $ref: /schemas/embedded-controller/google,cros-ec.yaml
-         description:
-           This subnode represents the rpmsg device. The properties
-           of this node are defined by the individual bindings for
-diff --git a/Documentation/devicetree/bindings/sound/google,cros-ec-codec.yaml b/Documentation/devicetree/bindings/sound/google,cros-ec-codec.yaml
-index 1434f4433738..dd51e8c5b8c2 100644
---- a/Documentation/devicetree/bindings/sound/google,cros-ec-codec.yaml
-+++ b/Documentation/devicetree/bindings/sound/google,cros-ec-codec.yaml
-@@ -15,7 +15,7 @@ description: |
-   Embedded Controller (EC) and is controlled via a host-command
-   interface.  An EC codec node should only be found inside the "codecs"
-   subnode of a cros-ec node.
--  (see Documentation/devicetree/bindings/mfd/google,cros-ec.yaml).
-+  (see Documentation/devicetree/bindings/embedded-controller/google,cros-ec.yaml).
- 
- allOf:
-   - $ref: dai-common.yaml#
-diff --git a/Documentation/devicetree/bindings/watchdog/kontron,sl28cpld-wdt.yaml b/Documentation/devicetree/bindings/watchdog/kontron,sl28cpld-wdt.yaml
-index 179272f74de5..872a8471ef65 100644
---- a/Documentation/devicetree/bindings/watchdog/kontron,sl28cpld-wdt.yaml
-+++ b/Documentation/devicetree/bindings/watchdog/kontron,sl28cpld-wdt.yaml
-@@ -11,7 +11,7 @@ maintainers:
- 
- description: |
-   This module is part of the sl28cpld multi-function device. For more
--  details see ../mfd/kontron,sl28cpld.yaml.
-+  details see ../embedded-controller/kontron,sl28cpld.yaml.
- 
- allOf:
-   - $ref: watchdog.yaml#
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 7969d09dff17..ef41ae022a36 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -10129,7 +10129,7 @@ F:	drivers/media/i2c/gc2145.c
- GATEWORKS SYSTEM CONTROLLER (GSC) DRIVER
- M:	Tim Harvey <tharvey@gateworks.com>
- S:	Maintained
--F:	Documentation/devicetree/bindings/mfd/gateworks-gsc.yaml
-+F:	Documentation/devicetree/bindings/embedded-controller/gw,gsc.yaml
- F:	Documentation/hwmon/gsc-hwmon.rst
- F:	drivers/hwmon/gsc-hwmon.c
- F:	drivers/mfd/gateworks-gsc.c
-@@ -11300,7 +11300,7 @@ F:	drivers/net/ethernet/huawei/hinic3/
- HUAWEI MATEBOOK E GO EMBEDDED CONTROLLER DRIVER
- M:	Pengyu Luo <mitltlatltl@gmail.com>
- S:	Maintained
--F:	Documentation/devicetree/bindings/platform/huawei,gaokun-ec.yaml
-+F:	Documentation/devicetree/bindings/embedded-controller/huawei,gaokun3-ec.yaml
- F:	drivers/platform/arm64/huawei-gaokun-ec.c
- F:	drivers/power/supply/huawei-gaokun-battery.c
- F:	drivers/usb/typec/ucsi/ucsi_huawei_gaokun.c
-@@ -23177,10 +23177,10 @@ F:	drivers/usb/misc/sisusbvga/
- SL28 CPLD MFD DRIVER
- M:	Michael Walle <mwalle@kernel.org>
- S:	Maintained
-+F:	Documentation/devicetree/bindings/embedded-controller/kontron,sl28cpld.yaml
- F:	Documentation/devicetree/bindings/gpio/kontron,sl28cpld-gpio.yaml
- F:	Documentation/devicetree/bindings/hwmon/kontron,sl28cpld-hwmon.yaml
- F:	Documentation/devicetree/bindings/interrupt-controller/kontron,sl28cpld-intc.yaml
--F:	Documentation/devicetree/bindings/mfd/kontron,sl28cpld.yaml
- F:	Documentation/devicetree/bindings/pwm/kontron,sl28cpld-pwm.yaml
- F:	Documentation/devicetree/bindings/watchdog/kontron,sl28cpld-wdt.yaml
- F:	drivers/gpio/gpio-sl28cpld.c
--- 
-2.48.1
-
+SGksIEhhbmp1bg0KDQpUaGFuayB5b3UgZm9yIHlvdXIgY29tbWVudC4NCg0KPiBIaSBLYXp1aGly
+bywNCj4gDQo+IE9uIDIwMjUvOC8xOCAxNDo1NCwgS2F6dWhpcm8gQWJlIHdyb3RlOg0KPiA+IEFH
+REkgaGFzIHR3byB0eXBlcyBvZiBzaWduYWxpbmcgbW9kZXM6IFNERUkgYW5kIGludGVycnVwdC4N
+Cj4gPiBDdXJyZW50bHksIHRoZSBBR0RJIGRyaXZlciBvbmx5IHN1cHBvcnRzIFNERUkuDQo+ID4g
+VGhlcmVmb3JlLCBhZGQgc3VwcG9ydCBmb3IgaW50ZXJydXB0IHNpbmdhbGluZyBtb2RlIFRoZSBp
+bnRlcnJ1cHQNCj4gPiB2ZWN0b3IgaXMgcmV0cmlldmVkIGZyb20gdGhlIEFHREkgdGFibGUsIGFu
+ZCBjYWxsIHBhbmljIGZ1bmN0aW9uIHdoZW4NCj4gPiBhbiBpbnRlcnJ1cHQgb2NjdXJzLg0KPiAN
+Cj4gDQo+ID4gU0RFSSAmIEludGVycnVwdCBtb2RlIGlzIG5vdCBzdXBwb3J0ZWQuDQo+IA0KPiBJ
+IHRoaW5rIHRoaXMgY2FuIGJlIHJlbW92ZWQsIGl0J3Mgbm90IGFsbG93ZWQgbmF0dXJlbHkuDQoN
+CkkgbWVudGlvbmVkIHRoaXMgYmVjYXVzZSBpdCB3YXMgYWRkZWQgaW4gIkFDUEkgZm9yIEFybSBD
+b21wb25lbnRzIDEuMiBQbGF0Zm9ybSBEZXNpZ24gRG9jdW1lbnQiDQpJIHRoaW5rIEknbGwgcmVt
+b3ZlIGl0IGZyb20gdGhlIGNvdmVyIGxldHRlci4NCg0KPiANCj4gPg0KPiA+IFNpZ25lZC1vZmYt
+Ynk6IEthenVoaXJvIEFiZSA8ZmoxMDc4aWlAYWEuanAuZnVqaXRzdS5jb20+DQo+ID4gLS0tDQo+
+ID4gICBkcml2ZXJzL2FjcGkvYXJtNjQvYWdkaS5jIHwgMTE0DQo+ICsrKysrKysrKysrKysrKysr
+KysrKysrKysrKysrKysrKysrLS0tDQo+ID4gICBpbmNsdWRlL2FjcGkvYWN0YmwyLmggICAgIHwg
+ICA0ICstDQo+ID4gICAyIGZpbGVzIGNoYW5nZWQsIDExMCBpbnNlcnRpb25zKCspLCA4IGRlbGV0
+aW9ucygtKQ0KPiA+DQo+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvYWNwaS9hcm02NC9hZ2RpLmMg
+Yi9kcml2ZXJzL2FjcGkvYXJtNjQvYWdkaS5jDQo+ID4gaW5kZXggZTBkZjNkYWE0YWJmMC4uYzUx
+NGJiODc0YzVkMyAxMDA2NDQNCj4gPiAtLS0gYS9kcml2ZXJzL2FjcGkvYXJtNjQvYWdkaS5jDQo+
+ID4gKysrIGIvZHJpdmVycy9hY3BpL2FybTY0L2FnZGkuYw0KPiA+IEBAIC0xNiw3ICsxNiwxMSBA
+QA0KPiA+ICAgI2luY2x1ZGUgImluaXQuaCINCj4gPg0KPiA+ICAgc3RydWN0IGFnZGlfZGF0YSB7
+DQo+ID4gKwl1bnNpZ25lZCBjaGFyIGZsYWdzOw0KPiA+ICAgCWludCBzZGVpX2V2ZW50Ow0KPiA+
+ICsJdW5zaWduZWQgaW50IGdzaXY7DQo+ID4gKwlib29sIHVzZV9ubWk7DQo+IA0KPiB3aWxsIHdl
+IHVzZSBub3JtYWwgaW50ZXJydXB0IGFzIHRoZSBzaWduYWxpbmc/DQo+IA0KPiBJbiB0aGUgc3Bl
+YywgaXQgc2F5czoNCj4gDQo+IFNvbWUgdXNlLWNhc2VzLCBzdWNoIGFzIHN5c3RlbSBtYW5hZ2Vt
+ZW50LCByZXF1aXJlIHRoZSBhYmlsaXR5IHRvIGdlbmVyYXRlIGENCj4gbm9uLW1hc2thYmxlIGV2
+ZW50IHRvIHRoZSBPUyB0byByZXF1ZXN0IHRoZSBPUyBrZXJuZWwgdG8gcGVyZm9ybSBhIGRpYWdu
+b3N0aWMNCj4gZHVtcCBhbmQgcmVzZXQgdGhlIHN5c3RlbS4NCg0KSSBhbHNvIGluY2x1ZGVkIHJl
+cXVlc3RfaXJxIGFzIGEgZmFsbGJhY2ssIGFzIE5NSSBtaWdodCBub3QgYmUgZW5hYmxlZC4NCkhv
+d2V2ZXIsIGlmIHRoaXMgaXMgbm90IGFsbG93ZWQgYnkgdGhlIHNwZWNpZmljYXRpb25zLCBJJ2Qg
+bGlrZSB0byByZW1vdmUgaXQuDQoNCj4gDQo+IFNlZW1zIG9ubHkgbm9uLW1hc2thYmxlIGV2ZW50
+IGlzIGFsbG93ZWQsIFN1ZGVlcCwgYW55IGlkZWEgYWJvdXQgdGhpcz8NCj4gDQo+ID4gKwlpbnQg
+aXJxOw0KPiA+ICAgfTsNCj4gPg0KPiA+ICAgc3RhdGljIGludCBhZ2RpX3NkZWlfaGFuZGxlcih1
+MzIgc2RlaV9ldmVudCwgc3RydWN0IHB0X3JlZ3MgKnJlZ3MsDQo+ID4gdm9pZCAqYXJnKSBAQCAt
+NDgsNiArNTIsNTUgQEAgc3RhdGljIGludCBhZ2RpX3NkZWlfcHJvYmUoc3RydWN0DQo+IHBsYXRm
+b3JtX2RldmljZSAqcGRldiwNCj4gPiAgIAlyZXR1cm4gMDsNCj4gPiAgIH0NCj4gPg0KPiA+ICtz
+dGF0aWMgaXJxcmV0dXJuX3QgYWdkaV9pbnRlcnJ1cHRfaGFuZGxlcl9ubWkoaW50IGlycSwgdm9p
+ZCAqZGV2X2lkKQ0KPiA+ICt7DQo+ID4gKwlubWlfcGFuaWMoTlVMTCwgIkFybSBHZW5lcmljIERp
+YWdub3N0aWMgRHVtcCBhbmQgUmVzZXQgTk1JDQo+IEludGVycnVwdCBldmVudCBpc3N1ZWRcbiIp
+Ow0KPiA+ICsJcmV0dXJuIElSUV9IQU5ETEVEOw0KPiA+ICt9DQo+ID4gKw0KPiA+ICtzdGF0aWMg
+aXJxcmV0dXJuX3QgYWdkaV9pbnRlcnJ1cHRfaGFuZGxlcl9pcnEoaW50IGlycSwgdm9pZCAqZGV2
+X2lkKQ0KPiA+ICt7DQo+ID4gKwlwYW5pYygiQXJtIEdlbmVyaWMgRGlhZ25vc3RpYyBEdW1wIGFu
+ZCBSZXNldCBJbnRlcnJ1cHQgZXZlbnQNCj4gaXNzdWVkXG4iKTsNCj4gPiArCXJldHVybiBJUlFf
+SEFORExFRDsNCj4gPiArfQ0KPiA+ICsNCj4gPiArc3RhdGljIGludCBhZ2RpX2ludGVycnVwdF9w
+cm9iZShzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGV2LA0KPiA+ICsJCQkJc3RydWN0IGFnZGlf
+ZGF0YSAqYWRhdGEpDQo+ID4gK3sNCj4gPiArCXVuc2lnbmVkIGxvbmcgaXJxX2ZsYWdzOw0KPiA+
+ICsJaW50IHJldDsNCj4gPiArCWludCBpcnE7DQo+ID4gKw0KPiA+ICsJaXJxID0gYWNwaV9yZWdp
+c3Rlcl9nc2koTlVMTCwgYWRhdGEtPmdzaXYsIEFDUElfRURHRV9TRU5TSVRJVkUsDQo+IEFDUElf
+QUNUSVZFX0hJR0gpOw0KPiA+ICsJaWYgKGlycSA8IDApIHsNCj4gPiArCQlkZXZfZXJyKCZwZGV2
+LT5kZXYsICJjYW5ub3QgcmVnaXN0ZXIgR1NJIyVkICglZClcbiIsDQo+IGFkYXRhLT5nc2l2LCBp
+cnEpOw0KPiA+ICsJCXJldHVybiBpcnE7DQo+ID4gKwl9DQo+ID4gKw0KPiA+ICsJaXJxX2ZsYWdz
+ID0gSVJRRl9QRVJDUFUgfCBJUlFGX05PQkFMQU5DSU5HIHwNCj4gSVJRRl9OT19BVVRPRU4gfA0K
+PiA+ICsJCSAgICBJUlFGX05PX1RIUkVBRDsNCj4gPiArCS8qIHRyeSBOTUkgZmlyc3QgKi8NCj4g
+PiArCXJldCA9IHJlcXVlc3Rfbm1pKGlycSwgJmFnZGlfaW50ZXJydXB0X2hhbmRsZXJfbm1pLCBp
+cnFfZmxhZ3MsDQo+ID4gKwkJCSAgImFnZGlfaW50ZXJydXB0X25taSIsIE5VTEwpOw0KPiA+ICsJ
+aWYgKHJldCkgew0KPiA+ICsJCXJldCA9IHJlcXVlc3RfaXJxKGlycSwgJmFnZGlfaW50ZXJydXB0
+X2hhbmRsZXJfaXJxLA0KPiA+ICsJCQkJICBpcnFfZmxhZ3MsICJhZ2RpX2ludGVycnVwdF9pcnEi
+LCBOVUxMKTsNCj4gPiArCQlpZiAocmV0KSB7DQo+ID4gKwkJCWRldl9lcnIoJnBkZXYtPmRldiwg
+ImNhbm5vdCByZWdpc3RlciBJUlEgJWRcbiIsDQo+IHJldCk7DQo+ID4gKwkJCWFjcGlfdW5yZWdp
+c3Rlcl9nc2koYWRhdGEtPmdzaXYpOw0KPiA+ICsJCQlyZXR1cm4gcmV0Ow0KPiA+ICsJCX0NCj4g
+PiArCQllbmFibGVfaXJxKGlycSk7DQo+ID4gKwkJYWRhdGEtPmlycSA9IGlycTsNCj4gPiArCX0g
+ZWxzZSB7DQo+ID4gKwkJZW5hYmxlX25taShpcnEpOw0KPiA+ICsJCWFkYXRhLT5pcnEgPSBpcnE7
+DQo+ID4gKwkJYWRhdGEtPnVzZV9ubWkgPSB0cnVlOw0KPiA+ICsJfQ0KPiA+ICsNCj4gPiArCXJl
+dHVybiAwOw0KPiA+ICt9DQo+ID4gKw0KPiA+ICAgc3RhdGljIGludCBhZ2RpX3Byb2JlKHN0cnVj
+dCBwbGF0Zm9ybV9kZXZpY2UgKnBkZXYpDQo+ID4gICB7DQo+ID4gICAJc3RydWN0IGFnZGlfZGF0
+YSAqYWRhdGEgPSBkZXZfZ2V0X3BsYXRkYXRhKCZwZGV2LT5kZXYpOyBAQCAtNTUsMTINCj4gPiAr
+MTA4LDIwIEBAIHN0YXRpYyBpbnQgYWdkaV9wcm9iZShzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpw
+ZGV2KQ0KPiA+ICAgCWlmICghYWRhdGEpDQo+ID4gICAJCXJldHVybiAtRUlOVkFMOw0KPiA+DQo+
+ID4gLQlyZXR1cm4gYWdkaV9zZGVpX3Byb2JlKHBkZXYsIGFkYXRhKTsNCj4gPiArCXN3aXRjaCAo
+YWRhdGEtPmZsYWdzICYgQUNQSV9BR0RJX1NJR05BTElOR19NT0RFX01BU0spIHsNCj4gPiArCWNh
+c2UgQUNQSV9BR0RJX1NJR05BTElOR19NT0RFX1NERUk6DQo+ID4gKwkJcmV0dXJuIGFnZGlfc2Rl
+aV9wcm9iZShwZGV2LCBhZGF0YSk7DQo+ID4gKw0KPiA+ICsJY2FzZSBBQ1BJX0FHRElfU0lHTkFM
+SU5HX01PREVfSU5URVJSVVBUOg0KPiA+ICsJCXJldHVybiBhZ2RpX2ludGVycnVwdF9wcm9iZShw
+ZGV2LCBhZGF0YSk7DQo+ID4gKwl9DQo+ID4gKw0KPiA+ICsJcmV0dXJuIDA7DQo+ID4gICB9DQo+
+ID4NCj4gPiAtc3RhdGljIHZvaWQgYWdkaV9yZW1vdmUoc3RydWN0IHBsYXRmb3JtX2RldmljZSAq
+cGRldikNCj4gPiArc3RhdGljIHZvaWQgYWdkaV9zZGVpX3JlbW92ZShzdHJ1Y3QgcGxhdGZvcm1f
+ZGV2aWNlICpwZGV2LA0KPiA+ICsJCQkgICAgIHN0cnVjdCBhZ2RpX2RhdGEgKmFkYXRhKQ0KPiA+
+ICAgew0KPiA+IC0Jc3RydWN0IGFnZGlfZGF0YSAqYWRhdGEgPSBkZXZfZ2V0X3BsYXRkYXRhKCZw
+ZGV2LT5kZXYpOw0KPiA+ICAgCWludCBlcnIsIGk7DQo+ID4NCj4gPiAgIAllcnIgPSBzZGVpX2V2
+ZW50X2Rpc2FibGUoYWRhdGEtPnNkZWlfZXZlbnQpOw0KPiA+IEBAIC04Myw2ICsxNDQsMzQgQEAg
+c3RhdGljIHZvaWQgYWdkaV9yZW1vdmUoc3RydWN0IHBsYXRmb3JtX2RldmljZQ0KPiAqcGRldikN
+Cj4gPiAgIAkJCWFkYXRhLT5zZGVpX2V2ZW50LCBFUlJfUFRSKGVycikpOw0KPiA+ICAgfQ0KPiA+
+DQo+ID4gK3N0YXRpYyB2b2lkIGFnZGlfaW50ZXJydXB0X3JlbW92ZShzdHJ1Y3QgcGxhdGZvcm1f
+ZGV2aWNlICpwZGV2LA0KPiA+ICsJCQkJICBzdHJ1Y3QgYWdkaV9kYXRhICphZGF0YSkNCj4gPiAr
+ew0KPiA+ICsJaWYgKGFkYXRhLT5pcnEgIT0gLTEpIHsNCj4gPiArCQlpZiAoYWRhdGEtPnVzZV9u
+bWkpDQo+ID4gKwkJCWZyZWVfbm1pKGFkYXRhLT5pcnEsIE5VTEwpOw0KPiA+ICsJCWVsc2UNCj4g
+PiArCQkJZnJlZV9pcnEoYWRhdGEtPmlycSwgTlVMTCk7DQo+ID4gKw0KPiA+ICsJCWFjcGlfdW5y
+ZWdpc3Rlcl9nc2koYWRhdGEtPmdzaXYpOw0KPiA+ICsJfQ0KPiA+ICt9DQo+ID4gKw0KPiA+ICtz
+dGF0aWMgdm9pZCBhZ2RpX3JlbW92ZShzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGV2KSB7DQo+
+ID4gKwlzdHJ1Y3QgYWdkaV9kYXRhICphZGF0YSA9IGRldl9nZXRfcGxhdGRhdGEoJnBkZXYtPmRl
+dik7DQo+ID4gKw0KPiA+ICsJc3dpdGNoIChhZGF0YS0+ZmxhZ3MgJiBBQ1BJX0FHRElfU0lHTkFM
+SU5HX01PREVfTUFTSykgew0KPiA+ICsJY2FzZSBBQ1BJX0FHRElfU0lHTkFMSU5HX01PREVfU0RF
+SToNCj4gPiArCQlhZ2RpX3NkZWlfcmVtb3ZlKHBkZXYsIGFkYXRhKTsNCj4gPiArCQlicmVhazsN
+Cj4gPiArDQo+ID4gKwljYXNlIEFDUElfQUdESV9TSUdOQUxJTkdfTU9ERV9JTlRFUlJVUFQ6DQo+
+ID4gKwkJYWdkaV9pbnRlcnJ1cHRfcmVtb3ZlKHBkZXYsIGFkYXRhKTsNCj4gPiArCQlicmVhazsN
+Cj4gPiArCX0NCj4gPiArfQ0KPiA+ICsNCj4gPiAgIHN0YXRpYyBzdHJ1Y3QgcGxhdGZvcm1fZHJp
+dmVyIGFnZGlfZHJpdmVyID0gew0KPiA+ICAgCS5kcml2ZXIgPSB7DQo+ID4gICAJCS5uYW1lID0g
+ImFnZGkiLA0KPiA+IEBAIC05NCw3ICsxODMsNyBAQCBzdGF0aWMgc3RydWN0IHBsYXRmb3JtX2Ry
+aXZlciBhZ2RpX2RyaXZlciA9IHsNCj4gPiAgIHZvaWQgX19pbml0IGFjcGlfYWdkaV9pbml0KHZv
+aWQpDQo+ID4gICB7DQo+ID4gICAJc3RydWN0IGFjcGlfdGFibGVfYWdkaSAqYWdkaV90YWJsZTsN
+Cj4gPiAtCXN0cnVjdCBhZ2RpX2RhdGEgcGRhdGE7DQo+ID4gKwlzdHJ1Y3QgYWdkaV9kYXRhIHBk
+YXRhID0gezB9Ow0KPiA+ICAgCXN0cnVjdCBwbGF0Zm9ybV9kZXZpY2UgKnBkZXY7DQo+ID4gICAJ
+YWNwaV9zdGF0dXMgc3RhdHVzOw0KPiA+DQo+ID4gQEAgLTEwMywxMiArMTkyLDIzIEBAIHZvaWQg
+X19pbml0IGFjcGlfYWdkaV9pbml0KHZvaWQpDQo+ID4gICAJaWYgKEFDUElfRkFJTFVSRShzdGF0
+dXMpKQ0KPiA+ICAgCQlyZXR1cm47DQo+ID4NCj4gPiAtCWlmIChhZ2RpX3RhYmxlLT5mbGFncyAm
+IEFDUElfQUdESV9TSUdOQUxJTkdfTU9ERSkgew0KPiA+IC0JCXByX3dhcm4oIkludGVycnVwdCBz
+aWduYWxpbmcgaXMgbm90IHN1cHBvcnRlZCIpOw0KPiA+ICsJc3dpdGNoIChhZ2RpX3RhYmxlLT5m
+bGFncyAmIEFDUElfQUdESV9TSUdOQUxJTkdfTU9ERV9NQVNLKQ0KPiB7DQo+ID4gKwljYXNlIEFD
+UElfQUdESV9TSUdOQUxJTkdfTU9ERV9TREVJOg0KPiA+ICsJCXBkYXRhLnNkZWlfZXZlbnQgPSBh
+Z2RpX3RhYmxlLT5zZGVpX2V2ZW50Ow0KPiA+ICsJCWJyZWFrOw0KPiA+ICsNCj4gPiArCWNhc2Ug
+QUNQSV9BR0RJX1NJR05BTElOR19NT0RFX0lOVEVSUlVQVDoNCj4gPiArCQlwZGF0YS5nc2l2ID0g
+YWdkaV90YWJsZS0+Z3NpdjsNCj4gPiArCQlicmVhazsNCj4gPiArDQo+ID4gKwlkZWZhdWx0Og0K
+PiA+ICsJCXByX3dhcm4oIlNpZ25hbGluZyBtb2RlKCVkKSBpcyBub3Qgc3VwcG9ydGVkIiwNCj4g
+PiArCQkJYWdkaV90YWJsZS0+ZmxhZ3MgJg0KPiBBQ1BJX0FHRElfU0lHTkFMSU5HX01PREVfTUFT
+Syk7DQo+ID4gICAJCWdvdG8gZXJyX3B1dF90YWJsZTsNCj4gPiAgIAl9DQo+ID4NCj4gPiAtCXBk
+YXRhLnNkZWlfZXZlbnQgPSBhZ2RpX3RhYmxlLT5zZGVpX2V2ZW50Ow0KPiA+ICsJcGRhdGEuaXJx
+ID0gLTE7DQo+ID4gKwlwZGF0YS5mbGFncyA9IGFnZGlfdGFibGUtPmZsYWdzOw0KPiANCj4gTXkg
+bWFqb3IgY29uY2VybiBpcyBhYm91dCB0aGUgbm9ybWFsIGludGVycnJ1cHQgYXMgdGhlIGV2ZW50
+LCBub3Qgc3VyZSBpZiBpdCBpcyBvaywNCj4gbGV0J3MgZmlndXJlIGl0IG91dCBmaXJzdC4NCg0K
+QXMgbWVudGlvbmVkIGFib3ZlLCBJJ2QgbGlrZSB0byByZW1vdmUgbm9ybWFsIGludGVycnVwdCBo
+YW5kbGluZyBpZiB0aGlzIGlzIG5vdCBhbGxvd2VkIGJ5IHRoZSBzcGVjaWZpY2F0aW9ucy4NCg0K
+PiANCj4gPg0KPiA+ICAgCXBkZXYgPSBwbGF0Zm9ybV9kZXZpY2VfcmVnaXN0ZXJfZGF0YShOVUxM
+LCAiYWdkaSIsIDAsICZwZGF0YSwNCj4gc2l6ZW9mKHBkYXRhKSk7DQo+ID4gICAJaWYgKElTX0VS
+UihwZGV2KSkNCj4gPiBkaWZmIC0tZ2l0IGEvaW5jbHVkZS9hY3BpL2FjdGJsMi5oIGIvaW5jbHVk
+ZS9hY3BpL2FjdGJsMi5oIGluZGV4DQo+ID4gMDQ4ZjVmNDdmOGI4OC4uOWRkYmRkNzcyZjEzOSAx
+MDA2NDQNCj4gPiAtLS0gYS9pbmNsdWRlL2FjcGkvYWN0YmwyLmgNCj4gPiArKysgYi9pbmNsdWRl
+L2FjcGkvYWN0YmwyLmgNCj4gPiBAQCAtMzM5LDcgKzMzOSw5IEBAIHN0cnVjdCBhY3BpX3RhYmxl
+X2FnZGkgew0KPiA+DQo+ID4gICAvKiBNYXNrIGZvciBGbGFncyBmaWVsZCBhYm92ZSAqLw0KPiA+
+DQo+ID4gLSNkZWZpbmUgQUNQSV9BR0RJX1NJR05BTElOR19NT0RFICgxKQ0KPiA+ICsjZGVmaW5l
+IEFDUElfQUdESV9TSUdOQUxJTkdfTU9ERV9NQVNLICgzKSAjZGVmaW5lDQo+ID4gK0FDUElfQUdE
+SV9TSUdOQUxJTkdfTU9ERV9TREVJICgwKSAjZGVmaW5lDQo+ID4gK0FDUElfQUdESV9TSUdOQUxJ
+TkdfTU9ERV9JTlRFUlJVUFQgKDEpDQo+IA0KPiBZb3UgbmVlZCB0byBzZW5kIGEgcGF0Y2ggdG8g
+QUNQSUNBIGZpcnN0IHRvIGFkZCBpbnRlcnJ1cHQgc3VwcG9ydCwgdGhpcyBmaWxlDQo+IGJlbG9u
+Z3MgYWNwaWNhLg0KDQpVbmRlcnN0b29kLiBJIHdpbGwgc2VuZCBhIHBhdGNoIHRvIEFDUElDQSBm
+aXJzdC4gT25jZSBpdCBpcyBtZXJnZWQsIEkgd2lsbCBzZW5kIHYyLg0KDQpCZXN0IFJlZ2FyZHMs
+DQpLYXp1aGlybyBBYmUNCg0KPiANCj4gVGhhbmtzDQo+IEhhbmp1bg0K
 
