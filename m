@@ -4,97 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F357C8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 19:08:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D997FCA0FE7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 19:08:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z6KxvMDzVSOwTyVOOifum1zHj+Q1NMnnZSanrfOQhBQ=; b=ilNB44VeQtyWvQm3ULB7Va07q3
-	/VycVV5nQCIFS3gMjoWadr0BhfMJrmjV1VsFtZTyhXRRoHSBJtCoF+hld8fGKfNKGMNkemlCfxbFe
-	aH4LkLhuDvZ1gJ22t2kLBLAs4lj88tyglaE9iTseIfZcJBL17QOUOeYohSJMHgjPst+O8vd/s/ij+
-	oB4YKHdvWNUkKIZpHkL+aAKgHp4xKqi3228sxOIzqaIwrB9B1C0mFUxtEGfi5HJEHnemYn4cL765K
-	oysx39KZaivYiatZYBuJj88atl33Hnhtefb74bLHI16V8g5HsL8KPYSBTLvJX+hd3xXnvl0gFsbhe
-	xx7KiG8g==;
+	bh=bvfYaRBOsqgg9T3AWRsCKLpVkMgeI8wkL7WYk9/VCmQ=; b=dIbC8JGfX5YCbe2xFKoX7sybUu
+	LwvFaoxvKDrBWg6HcviCPA8d3qB4CT27U2YGgnzDYVDGvVW+llZrB8HmvKg/yRVtouWme8/9d0NBm
+	TfUbbekLOq3GClRp5HKYTomfnrJAhOidM59zp25mz4xyoAlGJPC+6dQLVeOBWbsT+2J0abm8AqB4t
+	O4JOuxpkMNH6Q1FIqZkCBpCsw7v+tJ/sGT4rngt0Q2FqJeURE6mcgx0TZgtlvvS4s49CLmrD8inGW
+	q1YsXk8/y105EK86Tz7r2/vtMb9I3HglvbuP7dDVji4dVsJtirA4bkXrjmHMLb/5YUVFTmiJYc/v6
+	hWGwsG3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqcYI-00000009AwE-14ao;
-	Mon, 25 Aug 2025 19:08:22 +0000
-Received: from mail-qv1-xf2b.google.com ([2607:f8b0:4864:20::f2b])
+	id 1uqcYJ-00000009AyG-1l9w;
+	Mon, 25 Aug 2025 19:08:23 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqadT-00000008mf2-1ofg
+	id 1uqade-00000008mgr-01gd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 17:05:36 +0000
-Received: by mail-qv1-xf2b.google.com with SMTP id 6a1803df08f44-70bb007a821so60140186d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 10:05:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1756141534; x=1756746334; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=z6KxvMDzVSOwTyVOOifum1zHj+Q1NMnnZSanrfOQhBQ=;
-        b=NmVlTBflaICm62z8NJu8Oh5uYxvKJ5DWcVdGc4TNElgBbprmIRc6cHb/L0cjFnDyJJ
-         FkcSdKxpJ1L8afrrTu+MGitiDYK2IE9b4ZT4/2Syb+nsXgTr/XTrKu8d/i3bgfI5yysf
-         KhdjMz1+pZYB5OUq5rRGIMdY4AP3drEEMpC6cs7lcaM5TSGh3bjoHsG/7PDQqD0hOk2y
-         3BFbk6jaGJU5phx34rtME4MTdKUBlZ+2gG8Kbo6GhodLXncHHY1pE/7cMqQEZvlV8r+J
-         2w+oDIq94ZxX/jENyPfWjCEz4lpci266TMXbOP1bTHNjjZHD6uyTnZY9WEdtlKSENLVa
-         hGoQ==
+	Mon, 25 Aug 2025 17:05:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756141543;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bvfYaRBOsqgg9T3AWRsCKLpVkMgeI8wkL7WYk9/VCmQ=;
+	b=cYazCprx42BX0fEeZkwW84GGNgUABkLY1mDCwnmi253D9t9OhCu+kgPea/SbLVCWXht3+G
+	+B/ERt/f/80P1uDYefXYkaaCWETy33DrQDqrZ717K/vx8xXomOzEPBwgudPgU+a3Y+eYj2
+	CC5+Vb1Lr/VtSJbgImMNn09aCvC7MIc=
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
+ [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-450-Imj-0ne6PyWvZA658Mozmg-1; Mon, 25 Aug 2025 13:05:42 -0400
+X-MC-Unique: Imj-0ne6PyWvZA658Mozmg-1
+X-Mimecast-MFC-AGG-ID: Imj-0ne6PyWvZA658Mozmg_1756141541
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-70d9a65c18fso96241596d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 10:05:42 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756141534; x=1756746334;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=z6KxvMDzVSOwTyVOOifum1zHj+Q1NMnnZSanrfOQhBQ=;
-        b=o8PKGuvS23ntgGKqfi4umeXLSqggo4jjmBY4ZYP6CuGVqRaX4N3vNejHXOpj2epOuy
-         RDF44aIZaYP8qfjNie8Hid87pEuVvQpzn/ozccainAIFp92E8lvBaXCH3HHi4GPndiY+
-         vFgo7d+VM3+b3M7PSp1NLeW5A7L3KkQZIrXwAliDGStGj+PZ7141kTBHUvWDksdbEs88
-         8Ca61O5o6ikAj/C88zW6GS1BK63dhVIOTWaDYog6yHyiN62jELnykZPMEh9XrDepzFG3
-         nhYV+V2QlQBoHGvyMR7HaHJmAfD1Or2VhThPK7mmGSamrDqGTMdWfypIE6hjSdVxop84
-         eGVQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUVPrUXICFkL21mp1wKiFpJVWZdlf61w0tfDaHbKOXI94tEJxPPJuIqWMUyrsgUHF2L3P13/Yg24NQ7FIX2T7RB@lists.infradead.org
-X-Gm-Message-State: AOJu0YyciIGvqIbMI5G/tvz++9FVTA9WZlfAbYNqbVY8UAivpquop1F0
-	25IyJxo5W6hOsMhxVuD8wrJeCI0/bxdn2NAmaFFp5EOWy4VU062QMe4MeaWDxsKmVB4=
-X-Gm-Gg: ASbGncseqeGgmxMiKkdMJrUTYf1F35GURKi8TKI8Vh+87VFC1Ba+ctVEh9O7obONDB2
-	i6ms91BoeVH0a5vG6okOEceNZZTLpqrOKcmF87lkltFaSkGaVYRW4g0CEbtx3HSHpRZYXeVUZ/o
-	ScftvqBb8rM9GeGI1ZwsuncGLZKb1Q4JEn+Jy+VLAnagN0ISal5TkwjtKhKT/ewZy+6t0dYj4ci
-	mDz2YCp4t8K7uzI0sZ6zjnO47CB1Hxz32EESnrTkADng16XKAwcJDtb2jA8qqtBsTK/BRN3rDqi
-	phQSmoRbsXc3BYmsPzvWANjHXB+cTChsorpkfkP2YbcF904D4pFU+UzTMu2uMnXWiKTVyv7fJz2
-	OU/bYWjFkRFwhIOQ9poJwTS5ZZJr2dkEV0DAAdvsxYlBP8Ql4I1M37XJu6P7hB4Dv7fa9
-X-Google-Smtp-Source: AGHT+IH8RaHjAylVQJBbbz2fVViy55MQyOlXslCXu2TNEUhwTy4uudrftYMxMziT/A2NjRI6tuUcow==
-X-Received: by 2002:a05:6214:2a83:b0:70d:be38:8ee8 with SMTP id 6a1803df08f44-70dbe3890e3mr56021826d6.63.1756141533729;
-        Mon, 25 Aug 2025 10:05:33 -0700 (PDT)
-Received: from ziepe.ca (hlfxns017vw-47-55-120-4.dhcp-dynamic.fibreop.ns.bellaliant.net. [47.55.120.4])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-70da714727csm48193006d6.13.2025.08.25.10.05.32
+        d=1e100.net; s=20230601; t=1756141541; x=1756746341;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=bvfYaRBOsqgg9T3AWRsCKLpVkMgeI8wkL7WYk9/VCmQ=;
+        b=hO2+BRUJYDHaOZP99wM+ahktPQpxS3oG0Sbag6Ru7ujsn8mcWZeAJuCmNwvdSu09SC
+         OCbW64N5H/2MSifMOHjWr+Tnem/YxwHUOphNHN/CNk4o34nQsmlXDyqpk9ygGbX4SSSP
+         b1CzfDv5HjIxugWaMGE0RW8PSh4WxRP20CkXFfNPuXtJd+EOki4ulHrHybVt1p3sR7lj
+         0zlQjkXYa3llRnLUFerFYtZhvi69nJeJXnAO1O6MTbX1vYZAhx97kikfw8801iF3QooJ
+         AsxGhsNZqsmytfJ/6tbYsD/lGVj09oQQPEJjoxeV5zhevy6kvF+v77+BhP4s35iL7HAV
+         2tbw==
+X-Forwarded-Encrypted: i=1; AJvYcCWoDVZyQL1xcsNBSk87o7qLNXSr2+JPfoKfmTR6WT2cgnjhnuiJwKRFUUKPFRbngHdQ/t+y1gxpoo/UHQyfevu7@lists.infradead.org
+X-Gm-Message-State: AOJu0YxE8s3GLZLlm0YzeL9ugMm3Tj/x1eKCunt/xNFOOeuF67HLWl7A
+	G7AY8NBKWMUDBxZy955FfZ8szZxkjdb9M/JOvTIn2kd7kxh85tyw47RBJ1Fq+vu3v7b04Tw0Fbf
+	JLv2ZFqggW8x5mHnNBdU3EC6ZRuCOKMFY19gwX3V7fAlLOTMlgP+yJIkVPPSeoZqEDucAwsTLrr
+	Hd
+X-Gm-Gg: ASbGncvgwydhbKOb6ZlQbHcoOEZS0GI7f9xECBy1Lpt/TB6G7Mu7zc4DSq2nn/MSXSg
+	CiFsYluOp37ZggwtpO5GFhon95AG/VcIXwf4RoL/Z8SEsHXZqxDM3yYdsYqxAU49jOnK621fVwL
+	fQzgmdLd9joeOyJFB7+Ouo1MWKEIvXJ8vJQoaGCDdOwX//R/RYkFev2nYhVzpcHUN2f0n+sNGEv
+	5/lYLG/OADmXJLoJNBehVkOceMg8hzd+ChCAiNH5UC01w4ppDlBbmE6EqyqNABVQLTL8jqpkXfX
+	Ks4qcKie/O8n4HU5tlBzaAbkDcPPcT/Oy8/Aa4P3QQ/a5wJiHecc6aNH6ivxxEtDYu2V4yH0e8l
+	sNQ/5bdd1esGeuVgV1vQ=
+X-Received: by 2002:ad4:5ec5:0:b0:70d:ad2e:cedb with SMTP id 6a1803df08f44-70dad2ed081mr83964516d6.43.1756141541400;
+        Mon, 25 Aug 2025 10:05:41 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGnj7pgLgYj0gnzZFl+kk2EVSGRa08xMAzv363arIwLdssNid6xlYMbYTH85va++EtXnTmBAA==
+X-Received: by 2002:ad4:5ec5:0:b0:70d:ad2e:cedb with SMTP id 6a1803df08f44-70dad2ed081mr83963686d6.43.1756141540665;
+        Mon, 25 Aug 2025 10:05:40 -0700 (PDT)
+Received: from x1 (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-70da714727csm48194826d6.13.2025.08.25.10.05.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 25 Aug 2025 10:05:32 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1uqadP-00000008iJN-3bFh;
-	Mon, 25 Aug 2025 14:05:31 -0300
-Date: Mon, 25 Aug 2025 14:05:31 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
-	nicolas.dufresne@collabora.com, p.zabel@pengutronix.de,
-	mchehab@kernel.org, iommu@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, kernel@collabora.com,
-	linux-media@vger.kernel.org
-Subject: Re: [PATCH v7 4/6] media: verisilicon: AV1: Restore IOMMU context
- before decoding a frame
-Message-ID: <20250825170531.GA1899851@ziepe.ca>
-References: <20250825153450.150071-1-benjamin.gaignard@collabora.com>
- <20250825153450.150071-5-benjamin.gaignard@collabora.com>
+        Mon, 25 Aug 2025 10:05:39 -0700 (PDT)
+Date: Mon, 25 Aug 2025 13:05:37 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Claudiu <claudiu.beznea@tuxon.dev>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, geert+renesas@glider.be,
+	linux@armlinux.org.uk, linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+Subject: Re: [PATCH 0/2] clk: renesas: rzg2l: Disable unused clocks after
+ resume
+Message-ID: <aKyX4YJswZLuqA6Y@x1>
+References: <20250821080333.27049-1-claudiu.beznea.uj@bp.renesas.com>
 MIME-Version: 1.0
+In-Reply-To: <20250821080333.27049-1-claudiu.beznea.uj@bp.renesas.com>
+User-Agent: Mutt/2.2.14 (2025-02-20)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: KXrR6SCrZD94RFgDvT2ioCQgrywXkm6EGezZgukKqzk_1756141541
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250825153450.150071-5-benjamin.gaignard@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_100535_602185_E9A6392B 
-X-CRM114-Status: GOOD (  16.19  )
+X-CRM114-CacheID: sfid-20250825_100546_112856_5E83FC89 
+X-CRM114-Status: GOOD (  18.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,41 +113,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 25, 2025 at 05:34:43PM +0200, Benjamin Gaignard wrote:
-> diff --git a/drivers/media/platform/verisilicon/hantro.h b/drivers/media/platform/verisilicon/hantro.h
-> index 81328c63b796..a28a181013b9 100644
-> --- a/drivers/media/platform/verisilicon/hantro.h
-> +++ b/drivers/media/platform/verisilicon/hantro.h
-> @@ -12,6 +12,9 @@
->  #ifndef HANTRO_H_
->  #define HANTRO_H_
->  
-> +#include <linux/dma-map-ops.h>
-> +#include <linux/iommu.h>
-> +#include <linux/iommu-dma.h>
+Hi Claudiu,
 
-This is an internal header it should not be included in drivers.
+On Thu, Aug 21, 2025 at 11:03:30AM +0300, Claudiu wrote:
+> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> 
+> Hi,
+> 
+> This series disables clocks that remain unused after resume.
+> This is necessary when the resume process is done with the help of the
+> bootloader, as the bootloader enables various clocks when returning from
+> resume.
+> 
+> On the RZ/G3S SoC (where this series was tested), the bootloader enables
+> the SDHI clocks (for all SDHI modules, of which 2 are used by Linux and
+> 1 is unused) and the clocks for a serial IP (unused by Linux).
+> 
+> Testing was done on the RZ/G3S SMARC Carrier II board.
 
-> +static void rockchip_vpu981_av1_restore_iommu(struct hantro_ctx *ctx)
-> +{
-> +	if (ctx->iommu_domain) {
-> +		iommu_attach_device(ctx->iommu_domain, ctx->dev->v4l2_dev.dev);
-> +		iommu_detach_device(ctx->iommu_domain, ctx->dev->v4l2_dev.dev);
-> +	}
-> +}
+Do you think that other boards would also benefit from this change? If
+so, what do you think about putting the call to register_pm_notifier()
+inside an __init block in clk.c so that this same change doesn't have to
+be implemented across various clk drivers?
 
-What is this supposed to do? Put it back to the default domain? Who
-changed it away from the default domain?
+Alternatively, if this is board specific, could this be fixed in the
+boot loader so that the clock that's not used by Linus is properly shut
+down on resume?
 
-Did some other driver change the attached domain (if so that's wild
-and wrong)? The commit message hints at that but it should be
-explained alot more.
+I'm not the subsystem maintainer, so I'm not asking you to make any of
+these changes.
 
-This just seems wrong and goofy. Driver shouldn't be changing their
-iommu domains if they are using the default domain at all. We now have
-APIs to allow you to allocate wide chunks of IOVA space and manage
-them directly. Maybe these 'multiple stream's should be doing that
-instead of mucking with iommu domains?
+Brian
 
-Jason
 
