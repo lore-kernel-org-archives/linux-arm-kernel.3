@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F0F7CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 04:38:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6825CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 04:40:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Date:Cc:To:From:Subject:Message-ID:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KRq/IwotzLLYuVj7PpxaygrL44sgkinwI3pjoy5upqE=; b=Xjv/EA/HBg+YUxM/4MzrxOtdN9
-	H9B6lzxcTgMfa9ggsMTo++mtLGrCbIBFqCF+ayB/5oYmbcoW8GoCCnd4d7760QlDmUpe/0/qRXbcm
-	tF+hLVh9IJ/l13jTRGv27THnh2HiaXzV9da4mI4cjPCvhwT8HSR5Xi3+MmyIZ4/ryJm/f1+WhvAW1
-	so84cJx/Awjie0P4MP25bA/GAcYUkGCf0urt7r0vYSspVf+sXbeiXo6O21SyE4O3qrxOZo9QjcL14
-	E3Jy5qlCaqXY9RWCHWCnQwavXZ1y/uCkEDc7CtxfYwPUYOVOPPXvFopIhkWV6EzpcvCWtnUDayXxX
-	K3y+wlAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:Cc:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BKwnAQ4D1V1AfW/HNQ+jL2TtT+0KjP2VdZBXoNPgdnY=; b=roaI53C2eQD5JQv5QlbdO9F/5q
+	GrlUjilLVHtUYH8rnBpwFqp8NG5VCV/+BNOUOk7jmVUf1DrX5oAyY8UMhIad/PiWTMg1VS6Uq60gS
+	PiDIvGf0YgRhq1NSEqS/7UMF3fy/sHvpze78+k6gfvk85o/wu0QGmUxNftbe8V0q9rdaCzh2IU6xZ
+	zajk8QcXqB8A+uN7IEmTNnoh65JXQiiHpgpY0XmaUH1Dl20pcFk7wrRHVOrjvPuLWvb9FBtVlr8qC
+	WY7BhtNZ/RKuNo+SPFp2AOtOq5xs4TGD25y3rpBPnQhOpTrwQrhLRSGUaoQu88NAYE0oYpZZZAm6k
+	wnjn7PrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqOxt-00000006tMk-1Vgy;
-	Mon, 25 Aug 2025 04:37:53 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqOvF-00000006t2R-3Sa0
+	id 1uqP0U-00000006tyG-0NBx;
+	Mon, 25 Aug 2025 04:40:34 +0000
+Received: from mx.socionext.com ([202.248.49.38])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uqOwb-00000006t6b-3RPn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 04:35:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1756096505;
-	bh=KRq/IwotzLLYuVj7PpxaygrL44sgkinwI3pjoy5upqE=;
-	h=Subject:From:To:Cc:Date;
-	b=migGjffZRA8dfDHH3+sAjmK/q1cv6bIL74ULtRDFN4fleamO+S7VfU1iVs73cw2eG
-	 Hhad4DV03Lc3c3k3DdISvGbgygzgVJXRkD9w34lcbiQEaGqAvzj4rw5tRG42P8neKq
-	 B96gwzXu3tu7TlesGJafzo3oPV4LZKB2IzzMh1869QVs6TDbjTi45UMpSQ0sOaSrFJ
-	 8R3tJ4wQyfp1Y8cnm2vhaI4LkfIqqT5Gq1jiy6O9iKz98HV5xaFxRej5Rc0M9NZPFV
-	 Radu8EiQmbWWrVgj2YX1O0Q3HBvzQ8lwu0U82giBbxbMnPzh45GBmqSnd6p+1wBvAc
-	 3B4G9FiNf2JNw==
-Received: from [192.168.68.112] (unknown [180.150.112.213])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 179C0640BB;
-	Mon, 25 Aug 2025 12:35:03 +0800 (AWST)
-Message-ID: <bf3734aab62a5fcc8959261551bb4b1fa636efbd.camel@codeconstruct.com.au>
-Subject: [GIT PULL] nuvoton arm64: early devicetree changes for 6.18
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: soc <soc@lists.linux.dev>
-Cc: linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org, Joel Stanley <joel@jms.id.au>
-Date: Mon, 25 Aug 2025 14:05:03 +0930
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	Mon, 25 Aug 2025 04:36:35 +0000
+Received: from unknown (HELO iyokan3-ex.css.socionext.com) ([172.31.9.54])
+  by mx.socionext.com with ESMTP; 25 Aug 2025 13:36:29 +0900
+Received: from mail.mfilter.local (mail-arc01.css.socionext.com [10.213.46.36])
+	by iyokan3-ex.css.socionext.com (Postfix) with ESMTP id 5C1832091489;
+	Mon, 25 Aug 2025 13:36:29 +0900 (JST)
+Received: from iyokan3.css.socionext.com ([172.31.9.53]) by m-FILTER with ESMTP; Mon, 25 Aug 2025 13:36:29 +0900
+Received: from [10.213.136.107] (unknown [10.213.136.107])
+	by iyokan3.css.socionext.com (Postfix) with ESMTP id EF23410A016;
+	Mon, 25 Aug 2025 13:36:28 +0900 (JST)
+Message-ID: <cb453b09-4aa0-45f4-8cf6-abcf5c625007@socionext.com>
+Date: Mon, 25 Aug 2025 13:36:28 +0900
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] arm64: dts: socionext: uniphier-ld20: Add default PCI
+ interrup controller address cells
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+References: <20250822133318.312232-3-krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+From: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20250822133318.312232-3-krzysztof.kozlowski@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_213510_054457_A75B6118 
-X-CRM114-Status: UNSURE (   5.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250824_213633_973876_D3DD1320 
+X-CRM114-Status: GOOD (  13.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,41 +70,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello SoC maintainers,
+Hi Krzysztof,
 
-The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585=
-:
+On 2025/08/22 22:33, Krzysztof Kozlowski wrote:
+> Add missing address-cells 0 to the PCI interrupt node to silence W=1
+> warning:
+> 
+>    uniphier-ld20.dtsi:941.4-944.29: Warning (interrupt_map):
+> /soc@0/pcie@66000000:interrupt-map:
+>      Missing property '#address-cells' in node
+> /soc@0/pcie@66000000/legacy-interrupt-controller, using 0 as fallback
+> 
+> Value '0' is correct because:
+> 1. GIC interrupt controller does not have children,
+> 2. interrupt-map property (in PCI node) consists of five components and
+>     the fourth component "parent unit address", which size is defined by
+>     '#address-cells' of the node pointed to by the interrupt-parent
+>     component, is not used (=0)
 
-  Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
+I understand that "parent unit address" is omitted, and according to
+the devicetree specification, "#address-cells" define the the size of
+the address. However, GIC doesn't specify the address, so this line
+is needed to indicate it.
 
-are available in the Git repository at:
+For both patches,
+Reviewed-by: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux.git tags/nuvoto=
-n-arm64-6.18-devicetree-0
+There is no tree to manage the SoC-specified commits, so please apply
+this series into the DT tree.
 
-for you to fetch changes up to 13587befb34ffa5d605196494c243420e045f28e:
+Thank you,
 
-  arm64: dts: nuvoton: add refclk and update peripheral clocks for NPCM845 =
-(2025-08-11 09:38:08 +0930)
-
-----------------------------------------------------------------
-Early Nuvoton arm64 devicetree updates for 6.18
-
-Integrate changes from Tomer reworking devicetree pinctrl, reset, and clk n=
-odes
-for NPCM845-based platforms.
-
-----------------------------------------------------------------
-Tomer Maimon (3):
-      arm64: dts: nuvoton: npcm845: Add pinctrl groups
-      arm64: dts: nuvoton: combine NPCM845 reset and clk nodes
-      arm64: dts: nuvoton: add refclk and update peripheral clocks for NPCM=
-845
-
- arch/arm64/boot/dts/nuvoton/nuvoton-common-npcm8xx.dtsi | 669 ++++++++++++=
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=
-++++++--
- arch/arm64/boot/dts/nuvoton/nuvoton-npcm845-evb.dts     |   6 +
- 2 files changed, 663 insertions(+), 12 deletions(-)
-
+---
+Best Regards
+Kunihiko Hayashi
 
