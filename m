@@ -4,85 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46862CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 03:19:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71743CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 03:35:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qw+q++iXApkFCictU+JnrDV0WoGH/kGrKHYiqPaX22I=; b=L9AuFbWSzfeGUqRh/duO0cVJJE
-	2Il1jSA8y5NzgS2OURCLYobw6C5q/JtzEHdrQjSRfO4K7c7Cx/651E0arPQAhDfg961lFGQT6XjYK
-	yEocjQ/UFBjQLOx0ZoBMCq49ukxTei2KDpzn5rE2lhwgR1kbYR/+IJn4hRGU8BAmzwrREOQ6JwCI8
-	hCzNul1bs7XRWZpFTlVcoJy2UIrKxDuMzMZX2UoC38joNscrL/ZV5ABQsKPUW1CUthcpIntitBxhA
-	Z2hwr18eYYwjiXCC6K9Rnwf1EaBZF/Pj2SZo0ICeYW34WBMjSfcPPADyCG7IjYKq03cb4ZSQVO1zo
-	/7PNo9Sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ou2C/zcmNmDM+9xeKUZQlGrujbR/kb6UxxUv3SCOO+s=; b=k1V7wKGMMjTD7cCpdVLuOwCbOI
+	z/YgO4+Qpq59OQN7NqwfSJUD9REB5Jx2csm2gU/Uirxx1+y8SwWA4bt7kWiAaqTYjh5+KZhsfpxz2
+	7BmYgefejDwJuB9YU+whVbxVlglkENuZB89VUaft2hfzOthIaqowmikK3YAvDQEw+VkA6/EbCbP93
+	mpxAN7DtnhGOetlcwgdAEIAo0hLN8q1sIGpoYmPKGJYVmEkO+L407YVZkiI8nEhfPVSHirect4nK1
+	xZdAKJi5lTJtxS16otWHG7FQ4bKQbDJ8N5sgeNYM/Oqz+Xf8HHSLE8+Yp9i0gbiy9L+yA6krsiCSh
+	bm56yevg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqNk6-00000006nlH-0rDP;
-	Mon, 25 Aug 2025 03:19:34 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1uqNzS-00000006oqF-35G2;
+	Mon, 25 Aug 2025 03:35:26 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqNTq-00000006mPt-0sOo
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 03:02:48 +0000
-X-UUID: ee08adec815f11f0b29709d653e92f7d-20250825
+	id 1uqNwp-00000006oKw-3IKI;
+	Mon, 25 Aug 2025 03:32:44 +0000
+X-UUID: 24a47e36816411f09eb0dd999d3936bf-20250824
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=ou2C/zcmNmDM+9xeKUZQlGrujbR/kb6UxxUv3SCOO+s=;
+	b=pgXBssemJlUu9KzDGjs3lZUyePFTpvzRUTshs++6qQOHtY5feiNpkALoDtjb5pu9WuL+q8zPNMNjWYW4bm+V3fEo6lkQGMivrYlmNje3ExuUMXmtDe2t+rsgLuJa4irukPcs6SdetUZkxBfMqB9Mep/hOBuO8YNOFjoCNGTiWiQ=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.45,REQID:406728a0-26b9-4e5b-a5aa-ff1ba4498ec2,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:6493067,CLOUDID:bda81044142043a00ecf4e221c9a24fe,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|83|102|850,TC:nil,Content:0|50,EDM
-	:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0
-	,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
+X-CID-O-INFO: VERSION:1.3.3,REQID:32d2b3b1-286f-47e9-900f-fcea3720ae40,IP:0,UR
+	L:0,TC:0,Content:50,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:50
+X-CID-META: VersionHash:f1326cf,CLOUDID:f39e7b7a-966c-41bd-96b5-7d0b3c22e782,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|801,TC:-5,Content:3|15|50,EDM:-3
+	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: ee08adec815f11f0b29709d653e92f7d-20250825
-Received: from mail.kylinos.cn [(10.44.16.175)] by mailgw.kylinos.cn
-	(envelope-from <cuiguoqi@kylinos.cn>)
-	(Generic MTA)
-	with ESMTP id 425965928; Mon, 25 Aug 2025 11:02:26 +0800
-Received: from mail.kylinos.cn (localhost [127.0.0.1])
-	by mail.kylinos.cn (NSMail) with SMTP id 205FDE008FA3;
-	Mon, 25 Aug 2025 11:02:26 +0800 (CST)
-X-ns-mid: postfix-68ABD241-930007515
-Received: from localhost.localdomain (unknown [10.41.103.97])
-	by mail.kylinos.cn (NSMail) with ESMTPA id 2A0E9E008FA2;
-	Mon, 25 Aug 2025 11:02:21 +0800 (CST)
-From: cuiguoqi <cuiguoqi@kylinos.cn>
-To: pmladek@suse.com
-Cc: akpm@linux-foundation.org,
-	bigeasy@linutronix.de,
-	catalin.marinas@arm.com,
-	clrkwllms@kernel.org,
-	cuiguoqi@kylinos.cn,
-	farbere@amazon.com,
-	feng.tang@linux.alibaba.com,
-	guoqi0226@163.com,
-	joel.granados@kernel.org,
-	john.ogness@linutronix.de,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev,
-	namcao@linutronix.de,
-	rostedt@goodmis.org,
-	sravankumarlpu@gmail.com,
-	takakura@valinux.co.jp,
-	tglx@linutronix.de,
-	will@kernel.org
-Subject: Re: [PATCH] drivers: example: fix memory leak
-Date: Mon, 25 Aug 2025 11:02:17 +0800
-Message-Id: <20250825030217.1663575-1-cuiguoqi@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <aKR-eBMoMBa4fnrF@pathway.suse.cz>
-References: <aKR-eBMoMBa4fnrF@pathway.suse.cz>
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 24a47e36816411f09eb0dd999d3936bf-20250824
+Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw02.mediatek.com
+	(envelope-from <zhanzhan.ge@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 2105217404; Sun, 24 Aug 2025 20:32:35 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Mon, 25 Aug 2025 11:32:33 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Mon, 25 Aug 2025 11:32:32 +0800
+From: Zhanzhan Ge <zhanzhan.ge@mediatek.com>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner
+	<tglx@linutronix.de>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<sirius.wang@mediatek.com>, <vince-wl.liu@mediatek.com>,
+	<jh.hsu@mediatek.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, Zhanzhan Ge <zhanzhan.ge@mediatek.com>
+Subject: [PATCH] dt-bindings: timer: mediatek,timer: Add compatible for MT8189
+Date: Mon, 25 Aug 2025 11:31:13 +0800
+Message-ID: <20250825033136.7705-1-zhanzhan.ge@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_200246_549264_7494715F 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20250824_203243_835384_C745E322 
+X-CRM114-Status: UNSURE (   8.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,52 +90,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Petr Mladek <pmladek@suse.com>
+Add the compatible for mt8189 timer to the binding.
 
-Hi Petr:
-> How did you find this problem, please?
-> Were you investigating why a log was missing?
-> Or was is just be reading the code?
+Signed-off-by: Zhanzhan Ge <zhanzhan.ge@mediatek.com>
+---
+ Documentation/devicetree/bindings/timer/mediatek,timer.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-  When I was developing the Linux real-time kernel, the system abnormally=
- crashed,=20
-and kdump triggered the inability to normally enter the second kernel for=
- demsg&vmcore saving.=20
-When an abnormal panic is triggered simultaneously, the abnormal scene an=
-d some of the jump logs
-of kexec are not output, which to some extent affects the efficiency of d=
-ebugging and testing
+diff --git a/Documentation/devicetree/bindings/timer/mediatek,timer.yaml b/Documentation/devicetree/bindings/timer/mediatek,timer.yaml
+index e3e38066c2cb..5ceedc3a4f91 100644
+--- a/Documentation/devicetree/bindings/timer/mediatek,timer.yaml
++++ b/Documentation/devicetree/bindings/timer/mediatek,timer.yaml
+@@ -43,6 +43,7 @@ properties:
+               - mediatek,mt8183-timer
+               - mediatek,mt8186-timer
+               - mediatek,mt8188-timer
++              - mediatek,mt8189-timer
+               - mediatek,mt8192-timer
+               - mediatek,mt8195-timer
+               - mediatek,mt8196-timer
+--
+2.45.2
 
-Motivation for the fix:
-1. For RT kernels with Kdump deployed, ensure that all relevant informati=
-on such as call stacks is fully
-output to the serial port during the entire process from panic occurrence=
- to transition to the second kernel,
- which can better enhance debugging efficiency.
-
-2. When Kdump is not deployed, the call stack can be directly output in R=
-T kernels as shown below:
-```c
-vpanic{
-+ printk_legacy_allow_panic_sync();
-
-+debug_locks_off();
-+console_flush_on_panic(CONSOLE_FLUSH_PENDING);
-+console_flush_on_panic(CONSOLE_FLUSH_PENDING);
-+nbcon_atomic_flush_unsafe();
-}
-```
-
-3. Therefore, currently I am wondering whether the issue lies with `debug=
-_locks_off();` or if there is an issue with=20
-the logical placement of `printk_legacy_allow_panic_sync();`.
-
-My understanding is that by the time we reach machine_kexec(kexec_crash_i=
-mage);
-other cores should have already been notified and shut down. Additionally=
-,=20
-since this is clearly an emergency situation, flushing the log buffer to =
-the terminal=20
-should not introduce further adverse effects.
-I would greatly appreciate your insights and guidance on this matter.
 
