@@ -4,78 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2B8DCA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 12:52:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9580ECA0FE7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 12:52:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b6xnnOWxU5iOspNsDZprgcmihfZ1HupGLGLAbK4wzWk=; b=KmjlW7S/QJ/j7nn9ELcBS9fyQH
-	al1g+JFU7APz6M1WHPaNh00ewgc6wWTo7ZBkQUSkBj4ACWFTiluuTMQq2bCEKjFJZ1W0UzKZ/wWEl
-	HzTqtPczzD+gT079MOThOsrQbQuUf0oJUPSiicod5KM33Dji7JAKUo2+mz+m1YnMQpmrgn1uli5CK
-	wSHA1CXQzV3a8Zwf4Me0TGa2GBpzXXC5Ha0J8IGahEfKJWyrfRVhMvV4Tz8wR/1X2Y7gCDXiFOms2
-	QzJD37caHSw1qFMN9vGU5AqFFcmUlAd2UtxpbZ7s1FOXKIenbbzuQyFyRIO81xJxQKCOtsHJL+DXl
-	orex8KKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+5dcga0EHhcXJEXP2fihUBPBXwLy6dSXtW4R0XbiMWA=; b=dw9lwKHjLguFYcYXRyFY2dhcVk
+	VhT8Al+cqedsppZVL67Sg0KmN405pk+NdEOZm9rdozmo59tFVS46QuINXKha9TFZTDWN329LNorDz
+	BxcTnCSmAvTutHnMq3gAk2ZM3ktX8UV9rIcZPXgE7WpgrIIq0CrG+bJzdijJBvgfzwoUybzoX/mh0
+	LDJtLqpA+s/dehjtg0+E7LGl3VF/8XxqQNxn2AxngBfquBtM+3ZbxE6wAR8hDIw3OXZUFFhhPk5Ip
+	GLfFosYJz9Fs5iyJEMd62mxp1yf709Iax/pjuRnHLo2CFlPSq/9BfxyW9AI5Li9/onyC1at5UYO3Y
+	A6Usml/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqWgW-00000007yJ9-47uV;
-	Mon, 25 Aug 2025 12:52:28 +0000
-Received: from mail.thorsis.com ([217.92.40.78])
+	id 1uqWga-00000007yKY-0OzU;
+	Mon, 25 Aug 2025 12:52:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqUyQ-00000007hhG-0Qn6;
-	Mon, 25 Aug 2025 11:02:52 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1D3931480453;
-	Mon, 25 Aug 2025 13:02:38 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
-	t=1756119762; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=b6xnnOWxU5iOspNsDZprgcmihfZ1HupGLGLAbK4wzWk=;
-	b=FQ58mAI9pOap707dWMZNES/WSPKZC3aSwdxpENbbxayKwuspVlE5RtCQgI5k0WD5BbTD4G
-	Luv4owtXLzJxH8F0gGU8Xboq9enPfaJRk6DvNzFho8W58s6h3rlZJNi1hKjdlEqVDQLHGs
-	pbSUdoRwy+90La/w/IFyOeCpLELu93WTZA5YmiTCDjcJSVepgZ8Yd4Gz3/j+JZ7ZaQpI+T
-	WrJu8tcH2f9+wO+S+ljpZtUvINdheKYRMnQlqq0ixtmM4cGdP40GO2cYageD+QMsqJ9zNB
-	P5iH54L+GsGg69VbE/LyHmegpYjxb2y+7MlJ7qTJAqod8FpRKwiJoCMABTUI5w==
-Date: Mon, 25 Aug 2025 13:02:34 +0200
-From: Alexander Dahl <ada@thorsis.com>
-To: "A. Sverdlin" <alexander.sverdlin@siemens.com>
-Cc: Boris Brezillon <bbrezillon@kernel.org>, linux-mtd@lists.infradead.org,
-	Balamanikandan.Gunasundar@microchip.com,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2] mtd: nand: raw: atmel: Respect tAR, tCLR in read
- setup timing
-Message-ID: <20250825-uneven-barman-7f932d0ca964@thorsis.com>
-Mail-Followup-To: "A. Sverdlin" <alexander.sverdlin@siemens.com>,
-	Boris Brezillon <bbrezillon@kernel.org>,
-	linux-mtd@lists.infradead.org,
-	Balamanikandan.Gunasundar@microchip.com,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-References: <20250821120106.346869-1-alexander.sverdlin@siemens.com>
+	id 1uqVIQ-00000007jGF-3Esj
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 25 Aug 2025 11:23:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D437C6024D;
+	Mon, 25 Aug 2025 11:23:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65378C4CEED;
+	Mon, 25 Aug 2025 11:23:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756121008;
+	bh=YLuNmgSadAAEa3ZPFUF8jemmpIic3MiIIXQgw34LGCc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Bs1rW+FWDWAleftJfB7xKa9mjQQdPJNZ/Zzp4ntGcsViBYLF6U0gI0zKbK3YLazYz
+	 7alACQs4GSarDiHQQKACslPn1mvRer+tqybHgrb+eOK0lxvvNqafRXqIqIvrVQiVXH
+	 TLdY2St9l3iQZiF5yu1UcpLW91NOphcvJYwwQzdfQWiuFx7/nk8q4QlisJgssHyQTF
+	 njPc3JWQu+B23QGe4xzXLfp0wgwXSTTy+hFCcq0zorsQzW4Ebdr59TuP3xe9zJoxnd
+	 c/x2bdkb5sWqF5tetlYapWoUcHE4qNiNzLThxc41foH2pJ4HLMJsYBVctTonKpCOjh
+	 YUUlHexCWNQsw==
+Date: Mon, 25 Aug 2025 12:23:19 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: "O'Griofa, Conall" <conall.ogriofa@amd.com>
+Cc: Sean Anderson <sean.anderson@linux.dev>, Anand Ashok Dumbre
+ <anand.ashok.dumbre@xilinx.com>, "linux-iio@vger.kernel.org"
+ <linux-iio@vger.kernel.org>, David Lechner <dlechner@baylibre.com>, Nuno
+ =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "Simek, Michal"
+ <michal.simek@amd.com>, Andy Shevchenko <andy@kernel.org>, Manish Narani
+ <manish.narani@xilinx.com>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] iio: xilinx-ams: Unmask interrupts after updating
+ alarms
+Message-ID: <20250825122319.6faf8782@jic23-huawei>
+In-Reply-To: <MN2PR12MB42237EC0AA00D05DE52F8C988B33A@MN2PR12MB4223.namprd12.prod.outlook.com>
+References: <20250715002847.2035228-1-sean.anderson@linux.dev>
+	<MN2PR12MB42237EC0AA00D05DE52F8C988B33A@MN2PR12MB4223.namprd12.prod.outlook.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250821120106.346869-1-alexander.sverdlin@siemens.com>
-User-Agent: Mutt/2.2.12 (2023-09-09)
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_040250_758281_65E1DCBB 
-X-CRM114-Status: GOOD (  23.10  )
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,145 +78,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hei hei,
+On Wed, 20 Aug 2025 11:28:27 +0000
+"O'Griofa, Conall" <conall.ogriofa@amd.com> wrote:
 
-Am Thu, Aug 21, 2025 at 02:00:57PM +0200 schrieb A. Sverdlin:
-> From: Alexander Sverdlin <alexander.sverdlin@siemens.com>
-> 
-> Having setup time 0 violates tAR, tCLR of some chips, for instance
-> TOSHIBA TC58NVG2S3ETAI0 cannot be detected successfully (first ID byte
-> being read duplicated, i.e. 98 98 dc 90 15 76 14 03 instead of
-> 98 dc 90 15 76 ...).
-> 
-> Atmel Application Notes postulated 1 cycle NRD_SETUP without explanation
-> [1], but it looks more appropriate to just calculate setup time properly.
-> 
-> [1] Link: https://ww1.microchip.com/downloads/aemDocuments/documents/MPU32/ApplicationNotes/ApplicationNotes/doc6255.pdf
-> Cc: stable@vger.kernel.org
-> Fixes: f9ce2eddf176 ("mtd: nand: atmel: Add ->setup_data_interface() hooks")
-> Signed-off-by: Alexander Sverdlin <alexander.sverdlin@siemens.com>
+> Hi,
+>=20
+> Looks good, thank you for taking the time to submit this patch.
+Applied to the fixes-togreg branch of iio.git and marked for stable.
 
-Tested-by: Alexander Dahl <ada@thorsis.com>
+Thanks,
 
-Threw this on top of 6.12.39-rt11 and tested on two custom platforms
-both with a Spansion S34ML02G1 SLC 2GBit flash chip, but with
-different SoCs (sama5d2, sam9x60).  We had difficulties with the
-timing of those NAND flash chips in the past and I wanted to make sure
-this patch does not break our setup.  Seems fine in a quick test,
-reading and writing and reading back is successful.
+Jonathan
 
-Kernel log output is unobtrusive, here for the first device:
+>=20
+> Cheers,
+> Conall.
+>=20
+> > -----Original Message-----
+> > From: Sean Anderson <sean.anderson@linux.dev>
+> > Sent: 15 July 2025 01:29
+> > To: Anand Ashok Dumbre <anand.ashok.dumbre@xilinx.com>; Jonathan Cameron
+> > <jic23@kernel.org>; linux-iio@vger.kernel.org
+> > Cc: David Lechner <dlechner@baylibre.com>; Nuno S=C3=A1 <nuno.sa@analog=
+.com>;
+> > linux-arm-kernel@lists.infradead.org; Simek, Michal <michal.simek@amd.c=
+om>;
+> > Andy Shevchenko <andy@kernel.org>; Manish Narani
+> > <manish.narani@xilinx.com>; linux-kernel@vger.kernel.org; Sean Anderson
+> > <sean.anderson@linux.dev>
+> > Subject: [PATCH] iio: xilinx-ams: Unmask interrupts after updating alar=
+ms
+> >=20
+> > To convert level-triggered alarms into edge-triggered IIO events, alarm=
+s are masked
+> > when they are triggered. To ensure we catch subsequent alarms, we then
+> > periodically poll to see if the alarm is still active.
+> > If it isn't, we unmask it. Active but masked alarms are stored in
+> > current_masked_alarm.
+> >=20
+> > If an active alarm is disabled, it will remain set in current_masked_al=
+arm until
+> > ams_unmask_worker clears it. If the alarm is re-enabled before
+> > ams_unmask_worker runs, then it will never be cleared from
+> > current_masked_alarm. This will prevent the alarm event from being push=
+ed even if
+> > the alarm is still active.
+> >=20
+> > Fix this by recalculating current_masked_alarm immediately when enablin=
+g or
+> > disabling alarms.
+> >=20
+> > Fixes: d5c70627a794 ("iio: adc: Add Xilinx AMS driver")
+> > Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
+> > ---
+> >=20
+> >  drivers/iio/adc/xilinx-ams.c | 45 ++++++++++++++++++++----------------
+> >  1 file changed, 25 insertions(+), 20 deletions(-)
+> >=20
+> > diff --git a/drivers/iio/adc/xilinx-ams.c b/drivers/iio/adc/xilinx-ams.=
+c index
+> > 76dd0343f5f7..180d4140993d 100644
+> > --- a/drivers/iio/adc/xilinx-ams.c
+> > +++ b/drivers/iio/adc/xilinx-ams.c
+> > @@ -389,6 +389,29 @@ static void ams_update_pl_alarm(struct ams *ams,
+> > unsigned long alarm_mask)
+> >  	ams_pl_update_reg(ams, AMS_REG_CONFIG3,
+> > AMS_REGCFG3_ALARM_MASK, cfg);  }
+> >=20
+> > +static void ams_unmask(struct ams *ams) {
+> > +	unsigned int status, unmask;
+> > +
+> > +	status =3D readl(ams->base + AMS_ISR_0);
+> > +
+> > +	/* Clear those bits which are not active anymore */
+> > +	unmask =3D (ams->current_masked_alarm ^ status) &
+> > +ams->current_masked_alarm;
+> > +
+> > +	/* Clear status of disabled alarm */
+> > +	unmask |=3D ams->intr_mask;
+> > +
+> > +	ams->current_masked_alarm &=3D status;
+> > +
+> > +	/* Also clear those which are masked out anyway */
+> > +	ams->current_masked_alarm &=3D ~ams->intr_mask;
+> > +
+> > +	/* Clear the interrupts before we unmask them */
+> > +	writel(unmask, ams->base + AMS_ISR_0);
+> > +
+> > +	ams_update_intrmask(ams, ~AMS_ALARM_MASK,
+> > ~AMS_ALARM_MASK); }
+> > +
+> >  static void ams_update_alarm(struct ams *ams, unsigned long alarm_mask=
+)  {
+> >  	unsigned long flags;
+> > @@ -401,6 +424,7 @@ static void ams_update_alarm(struct ams *ams, unsig=
+ned
+> > long alarm_mask)
+> >=20
+> >  	spin_lock_irqsave(&ams->intr_lock, flags);
+> >  	ams_update_intrmask(ams, AMS_ISR0_ALARM_MASK, ~alarm_mask);
+> > +	ams_unmask(ams);
+> >  	spin_unlock_irqrestore(&ams->intr_lock, flags);  }
+> >=20
+> > @@ -1035,28 +1059,9 @@ static void ams_handle_events(struct iio_dev
+> > *indio_dev, unsigned long events)  static void ams_unmask_worker(struct
+> > work_struct *work)  {
+> >  	struct ams *ams =3D container_of(work, struct ams, ams_unmask_work.wo=
+rk);
+> > -	unsigned int status, unmask;
+> >=20
+> >  	spin_lock_irq(&ams->intr_lock);
+> > -
+> > -	status =3D readl(ams->base + AMS_ISR_0);
+> > -
+> > -	/* Clear those bits which are not active anymore */
+> > -	unmask =3D (ams->current_masked_alarm ^ status) & ams- =20
+> > >current_masked_alarm; =20
+> > -
+> > -	/* Clear status of disabled alarm */
+> > -	unmask |=3D ams->intr_mask;
+> > -
+> > -	ams->current_masked_alarm &=3D status;
+> > -
+> > -	/* Also clear those which are masked out anyway */
+> > -	ams->current_masked_alarm &=3D ~ams->intr_mask;
+> > -
+> > -	/* Clear the interrupts before we unmask them */
+> > -	writel(unmask, ams->base + AMS_ISR_0);
+> > -
+> > -	ams_update_intrmask(ams, ~AMS_ALARM_MASK,
+> > ~AMS_ALARM_MASK);
+> > -
+> > +	ams_unmask(ams);
+> >  	spin_unlock_irq(&ams->intr_lock);
+> >=20
+> >  	/* If still pending some alarm re-trigger the timer */
+> > --
+> > 2.35.1.1320.gc452695387.dirty =20
+>=20
+> Reviewed-by: O'Griofa, Conall <conall.ogriofa@amd.com>
 
-  [  +0.001100] AT91: Detected SoC family: sam9x60
-  [  +0.000024] AT91: Detected SoC: sam9x60 64MiB DDR2 SiP, revision 2
-  …
-  [  +0.011069] atmel-nand-controller 10000000.ebi:nand-controller: using dma0chan5 for DMA transfers
-  [  +0.000836] nand: device found, Manufacturer ID: 0x01, Chip ID: 0xda
-  [  +0.000031] nand: AMD/Spansion S34ML02G1
-  [  +0.000011] nand: 256 MiB, SLC, erase size: 128 KiB, page size: 2048, OOB size: 64
-  [  +0.051629] Bad block table found at page 131008, version 0xFF
-  [  +0.005350] Bad block table found at page 130944, version 0xFF
-  [  +0.000479] 5 fixed-partitions partitions found on MTD device atmel_nand
-  [  +0.000047] Creating 5 MTD partitions on "atmel_nand":
-  [  +0.000025] 0x000000000000-0x000000040000 : "at91bootstrap"
-  [  +0.001104] 0x000000040000-0x000000140000 : "u-boot"
-  [  +0.001063] 0x000000140000-0x000000180000 : "U-Boot Env"
-  [  +0.026887] 0x000000180000-0x0000001c0000 : "U-Boot Env Redundant"
-  [  +0.001022] 0x000000200000-0x00000ff00000 : "UBI"
-  …
-  [  +0.043872] ubi0: attaching mtd4
-  [  +0.932080] ubi0: scanning is finished
-  [  +0.032686] ubi0: attached mtd4 (name "UBI", size 253 MiB)
-  [  +0.000048] ubi0: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes
-  [  +0.000022] ubi0: min./max. I/O unit sizes: 2048/2048, sub-page size 2048
-  [  +0.000018] ubi0: VID header offset: 2048 (aligned 2048), data offset: 4096
-  [  +0.000018] ubi0: good PEBs: 2024, bad PEBs: 0, corrupted PEBs: 0
-  [  +0.000017] ubi0: user volume: 4, internal volumes: 1, max. volumes count: 128
-  [  +0.000017] ubi0: max/mean erase counter: 7/3, WL threshold: 4096, image sequence number: 1905565080
-  [  +0.000023] ubi0: available PEBs: 2, total reserved PEBs: 2022, PEBs reserved for bad PEB handling: 40
-  [  +0.000043] ubi0: background thread "ubi_bgt0d" started, PID 47
-
-And for the second:
-
-  [  +0.001519] AT91: Detected SoC family: sama5d2
-  [  +0.000030] AT91: Detected SoC: sama5d27c 128MiB SiP, revision 2
-  …
-  [  +0.002585] atmel-nand-controller 10000000.ebi:nand-controller: using dma0chan5 for DMA transfers
-  [  +0.036590] nand: device found, Manufacturer ID: 0x01, Chip ID: 0xda
-  [  +0.000044] nand: AMD/Spansion S34ML02G1
-  [  +0.000017] nand: 256 MiB, SLC, erase size: 128 KiB, page size: 2048, OOB size: 64
-  [  +0.001571] Bad block table found at page 131008, version 0xFF
-  [  +0.001249] Bad block table found at page 130944, version 0xFF
-  [  +0.000572] 6 cmdlinepart partitions found on MTD device atmel_nand
-  [  +0.000037] Creating 6 MTD partitions on "atmel_nand":
-  [  +0.000026] 0x000000000000-0x000000040000 : "bootstrap"
-  [  +0.001496] 0x000000040000-0x000000100000 : "uboot"
-  [  +0.031417] 0x000000100000-0x000000140000 : "env1"
-  [  +0.013718] 0x000000140000-0x000000180000 : "env2"
-  [  +0.001276] 0x000000180000-0x000000200000 : "reserved"
-  [  +0.001209] 0x000000200000-0x000010000000 : "UBI"
-  …
-  [  +0.055885] ubi0: attaching mtd5
-  [  +1.468075] ubi0: scanning is finished
-  [  +0.047323] ubi0: attached mtd5 (name "UBI", size 254 MiB)
-  [  +0.000065] ubi0: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes
-  [  +0.000022] ubi0: min./max. I/O unit sizes: 2048/2048, sub-page size 2048
-  [  +0.000017] ubi0: VID header offset: 2048 (aligned 2048), data offset: 4096
-  [  +0.000017] ubi0: good PEBs: 2028, bad PEBs: 4, corrupted PEBs: 0
-  [  +0.000016] ubi0: user volume: 4, internal volumes: 1, max. volumes count: 128
-  [  +0.000018] ubi0: max/mean erase counter: 6/3, WL threshold: 4096, image sequence number: 1534026892
-  [  +0.000022] ubi0: available PEBs: 0, total reserved PEBs: 2028, PEBs reserved for bad PEB handling: 36
-  [  +0.000050] ubi0: background thread "ubi_bgt0d" started, PID 49
-
-Thanks and greets
-Alex
-
-> ---
-> v2:
-> - Cc'ed stable
-> - reformatted atmel_smc_cs_conf_set_setup() call
-> - rebased onto mtd/fixes
-> 
->  drivers/mtd/nand/raw/atmel/nand-controller.c | 16 +++++++++++++---
->  1 file changed, 13 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/mtd/nand/raw/atmel/nand-controller.c b/drivers/mtd/nand/raw/atmel/nand-controller.c
-> index dedcca87defc7..ad0eff385e123 100644
-> --- a/drivers/mtd/nand/raw/atmel/nand-controller.c
-> +++ b/drivers/mtd/nand/raw/atmel/nand-controller.c
-> @@ -1377,14 +1377,24 @@ static int atmel_smc_nand_prepare_smcconf(struct atmel_nand *nand,
->  	if (ret)
->  		return ret;
->  
-> +	/*
-> +	 * Read setup timing depends on the operation done on the NAND:
-> +	 *
-> +	 * NRD_SETUP = max(tAR, tCLR)
-> +	 */
-> +	timeps = max(conf->timings.sdr.tAR_min, conf->timings.sdr.tCLR_min);
-> +	ncycles = DIV_ROUND_UP(timeps, mckperiodps);
-> +	totalcycles += ncycles;
-> +	ret = atmel_smc_cs_conf_set_setup(smcconf, ATMEL_SMC_NRD_SHIFT, ncycles);
-> +	if (ret)
-> +		return ret;
-> +
->  	/*
->  	 * The read cycle timing is directly matching tRC, but is also
->  	 * dependent on the setup and hold timings we calculated earlier,
->  	 * which gives:
->  	 *
-> -	 * NRD_CYCLE = max(tRC, NRD_PULSE + NRD_HOLD)
-> -	 *
-> -	 * NRD_SETUP is always 0.
-> +	 * NRD_CYCLE = max(tRC, NRD_SETUP + NRD_PULSE + NRD_HOLD)
->  	 */
->  	ncycles = DIV_ROUND_UP(conf->timings.sdr.tRC_min, mckperiodps);
->  	ncycles = max(totalcycles, ncycles);
-> -- 
-> 2.50.1
-> 
-> 
-> ______________________________________________________
-> Linux MTD discussion mailing list
-> http://lists.infradead.org/mailman/listinfo/linux-mtd/
 
