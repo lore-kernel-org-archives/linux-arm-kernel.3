@@ -4,57 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6E07CA0FE1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 09:36:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA1ABCA0FE9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 09:36:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+CiOwls730Y5YNa1VbYPxCowqXv0hlXR/6JnptjbABY=; b=JBiavupuVmWIbS
-	hue58LwraU/W14UMw93CrERLf9yvPwEgxayuC37I7YXeWn8KZNcx0DccsALo8xBZWLNJfoYPVrvol
-	SbGRDIfU6QypQOMepJQBC5rePA0OAqy3MkNH43uDjfaS4TDQ9DPL7FjhnVLwmpvjN9y4aBJXwam9a
-	R1bdwcuGhnCV9zPmrqKhC07KBxCrjA/ygacDwhsbBlgNMJUvCeGToKdqs615EAaUPLMC280LHHy8g
-	Ioxf+XQh/9d8BWm6wU+yifW5C0GgIYdpXoYUScsWPDuqq2EBxs+mMtfB0VupgYkfdN7ii04wd0b/t
-	tarE49GMtTJx3F+n6Iuw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xItNKg1VDmNWcc0DtcHdaB+5vnIWXQTnd7bSQ7T2FOw=; b=3LWSSgXw9P9NQAglgXmTyDhZBn
+	7aTFDE/KVMg4RKlIIUBauRFWHvfjrxBF1790vIB9chNEo33DwVX5STtkQN0YlvSRBC7LtRKY1o7H5
+	Xatcl9fcfGhN2v1Ng6Em3Q+NoMfW0KZZdpwVHvP82j0t2ME1BI0MxCMHuolVK2jIl20PKm6Md5JED
+	xFwRef+6Zt0WV/F3Xyaaafx6ww1+aGEsZLXftOW0Cc8Qhxbz1v7U4xhD0aj7o3hv9rvix2Jq6pNVv
+	f5za6TFWaosuecR8Gpz4bSPgNY+ewFYG+nBZx74DZ0TBwSHImVxD24v8T1OkKLnbN+G+QTZfp2Tyx
+	D0NRl9kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqTce-00000007Vzr-1jhd;
-	Mon, 25 Aug 2025 09:36:16 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uqTcg-00000007W2T-2sbp;
+	Mon, 25 Aug 2025 09:36:18 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqT0o-00000007PsW-3JDp;
-	Mon, 25 Aug 2025 08:57:12 +0000
+	id 1uqT0p-00000007Psa-2rpJ;
+	Mon, 25 Aug 2025 08:57:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1756112228;
-	bh=zvLW3wGbwKzkUggXielrONki1B8NjgaxEZomqsZuCj4=;
-	h=From:Subject:Date:To:Cc:From;
-	b=DQaBwUH7hMiLAHA+D+yHNopUPEEk6DXw9wHz3qC+FRRDXgqPygb14HJt4xDCL+E6L
-	 rZ9qlgFduewudbmw+rRqNllYVJI33HtUCQtgbuGzkP8F22mXU66dExiOe9hg9NUbeq
-	 0GjF+wMgyCExM8xQ5aRt6yQ3h+G7cQvPtEMEM2dBJvo0e97ijYPLuP9ndVGlcWE/6V
-	 atWexI5xZpEZWwjXRHKHQ18lsyWnQllXiV5WiPOeHNdvj9IgdzzMpMIrlG+AQH8KWB
-	 dUJDEpU5+DBoIOZPqRnM90K4wAT84erxxDumEeQAIrnGaOqlWidfKpEoLvra+VMIy+
-	 6u16A++YFhbvg==
+	s=mail; t=1756112230;
+	bh=qZJVzvB3RYpOJBlaQE6hqE/Fp8nZMiJrz+TTlwmiAgM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=mLv63d/+/8+H3yf17N8H6yqChGhHVHwgC7VK3Q4XO+ioqw01iGN8jef7nujur1mrn
+	 JR08cMTTaVdOmADo+7ODNRXC2eNTvDG2iIFZYCDoCRgN5o6wnBGpT1Q1sNGgikXsCW
+	 qEMewjB7NYR/J14XXCK8g8h8rU+APjkTRrdnolYjRpfhyk/drWHB1kpHucNTKaQZL0
+	 PhxHiVNgR4cMPHVJUrdHi9RmNZITi77Q1hLz8m4LZ8fRQYnsBsIM5UPDiQpNrhvb+J
+	 LRVi36dC252sKCbZkduMWbRtosWI66aO8w7+KLwu4Ik6bPJh8KFuJPd0Ruj3fRm0Qn
+	 mujoaySQAtAqQ==
 Received: from localhost (unknown [82.79.138.60])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 7A6E817E0478;
-	Mon, 25 Aug 2025 10:57:08 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 2A72D17E0523;
+	Mon, 25 Aug 2025 10:57:10 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Subject: [PATCH v3 0/6] Add HDMI CEC support to Rockchip RK3588/RK3576 SoCs
-Date: Mon, 25 Aug 2025 11:56:40 +0300
-Message-Id: <20250825-rk3588-hdmi-cec-v3-0-95324fb22592@collabora.com>
+Date: Mon, 25 Aug 2025 11:56:42 +0300
+Subject: [PATCH v3 2/6] drm/bridge: dw-hdmi-qp: Fixup timer base setup
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAEglrGgC/2XNTQrCMBAF4KuUrI3krzS48h7iIplMbLBtJJGgl
- N7dtCCIXcziPXjfzCRjCpjJqZlJwhJyiFMN8tAQ6M10QxpczUQw0bKOSZrustWa9m4MFBDqGe1
- bIZ1XmtTVI6EPr028XGvuQ37G9N4eFL62X0vtrMIpo8I67VB3jIE7QxwGY2MyR4gjWb0ifgzO9
- oaohq+VsiiVBf5vLMvyAWoGu9z2AAAA
-X-Change-ID: 20250703-rk3588-hdmi-cec-cea8f523df48
+Message-Id: <20250825-rk3588-hdmi-cec-v3-2-95324fb22592@collabora.com>
+References: <20250825-rk3588-hdmi-cec-v3-0-95324fb22592@collabora.com>
+In-Reply-To: <20250825-rk3588-hdmi-cec-v3-0-95324fb22592@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
  =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
  Andy Yan <andy.yan@rock-chips.com>, 
@@ -69,12 +66,11 @@ To: Sandy Huang <hjc@rock-chips.com>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
 Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Algea Cao <algea.cao@rock-chips.com>, 
- Derek Foreman <derek.foreman@collabora.com>
+ linux-kernel@vger.kernel.org
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_015711_023258_AE833CAF 
-X-CRM114-Status: GOOD (  13.29  )
+X-CRM114-CacheID: sfid-20250825_015711_904795_4877E59C 
+X-CRM114-Status: GOOD (  13.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,65 +85,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The first patch in the series implements the CEC capability of the
-Synopsys DesignWare HDMI QP TX controller found in RK3588 & RK3576 Socs.
-This is based on the downstream code, but rewritten on top of the CEC
-helpers added recently to the DRM HDMI connector framework.
+Currently the TIMER_BASE_CONFIG0 register gets initialized to a fixed
+value as initially found in vendor driver code supporting the RK3588
+SoC.  As a matter of fact the value matches the rate of the HDMI TX
+reference clock, which is roughly 428.57 MHz.
 
-The second patch is needed for RK3576 in order to fixup the timer base
-setup according to the actual reference clock rate, which differs
-slightly from RK3588.
+However, on RK3576 SoC that rate is slightly lower, i.e. 396.00 MHz, and
+the incorrect register configuration breaks CEC functionality.
 
-The following three patches setup platform data with the new information
-expected by the HDMI QP transmitter library, while improving the error
-handling in the probe path.
+Set the timer base according to the actual reference clock rate that
+shall be provided by the platform driver.
 
-Please note the CEC helpers were affected by a resource deallocation
-issue which could crash the kernel and freeze the system under certain
-test conditions.  This has been already fixed in v6.17-rc1 via commit
-19920ab98e17 ("drm/display: hdmi-cec-helper: Fix adapter
-unregistration").
+While at it, also drop the unnecessary empty lines in
+dw_hdmi_qp_init_hw().
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
-Changes in v3:
-- Fixup PATCH 1 according to the recent upstream commit 02bb63d1a593
-  ("drm/bridge: Make dp/hdmi_audio_* callback keep the same paramter
-  order with get_modes") which changed the signature of ->hdmi_cec_init()
-  callback of struct drm_bridge_funcs; while at it, also update the
-  copyright section
-- Updated cover letter to indicate that the CEC helpers fix is already
-  available since v6.17-rc1
-- Rebased series onto next-20250825
-- Link to v2: https://lore.kernel.org/r/20250710-rk3588-hdmi-cec-v2-0-f5884be34bc1@collabora.com
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 11 ++++++++---
+ include/drm/bridge/dw_hdmi_qp.h              |  1 +
+ 2 files changed, 9 insertions(+), 3 deletions(-)
 
-Changes in v2:
-- Collected R-b tag from Dmitry
-- Restructured the generic bridge patches to not depend on the
-  platform-specific changes and updated cover letter accordingly (Heiko)
-- Replaced the loop searching for "ref" clock with clk_get() (Maxime)
-- Added new patch "drm/rockchip: dw_hdmi_qp: Improve error handling with
-  dev_err_probe()"
-- Link to v1: https://lore.kernel.org/r/20250704-rk3588-hdmi-cec-v1-0-2bd8de8700cd@collabora.com
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+index 96455b3bb7b6a3f6ad488d10bc9ba90a1b56e4c8..42a90e0383061dad6c8416af21b27db7a3ba6d7d 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+@@ -162,6 +162,7 @@ struct dw_hdmi_qp {
+ 		void *data;
+ 	} phy;
+ 
++	unsigned long ref_clk_rate;
+ 	struct regmap *regm;
+ 
+ 	unsigned long tmds_char_rate;
+@@ -1223,13 +1224,11 @@ static void dw_hdmi_qp_init_hw(struct dw_hdmi_qp *hdmi)
+ {
+ 	dw_hdmi_qp_write(hdmi, 0, MAINUNIT_0_INT_MASK_N);
+ 	dw_hdmi_qp_write(hdmi, 0, MAINUNIT_1_INT_MASK_N);
+-	dw_hdmi_qp_write(hdmi, 428571429, TIMER_BASE_CONFIG0);
++	dw_hdmi_qp_write(hdmi, hdmi->ref_clk_rate, TIMER_BASE_CONFIG0);
+ 
+ 	/* Software reset */
+ 	dw_hdmi_qp_write(hdmi, 0x01, I2CM_CONTROL0);
+-
+ 	dw_hdmi_qp_write(hdmi, 0x085c085c, I2CM_FM_SCL_CONFIG0);
+-
+ 	dw_hdmi_qp_mod(hdmi, 0, I2CM_FM_EN, I2CM_INTERFACE_CONTROL0);
+ 
+ 	/* Clear DONE and ERROR interrupts */
+@@ -1255,6 +1254,11 @@ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
+ 		return ERR_PTR(-ENODEV);
+ 	}
+ 
++	if (!plat_data->ref_clk_rate) {
++		dev_err(dev, "Missing ref_clk rate\n");
++		return ERR_PTR(-ENODEV);
++	}
++
+ 	hdmi = devm_drm_bridge_alloc(dev, struct dw_hdmi_qp, bridge,
+ 				     &dw_hdmi_qp_bridge_funcs);
+ 	if (IS_ERR(hdmi))
+@@ -1274,6 +1278,7 @@ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
+ 
+ 	hdmi->phy.ops = plat_data->phy_ops;
+ 	hdmi->phy.data = plat_data->phy_data;
++	hdmi->ref_clk_rate = plat_data->ref_clk_rate;
+ 
+ 	dw_hdmi_qp_init_hw(hdmi);
+ 
+diff --git a/include/drm/bridge/dw_hdmi_qp.h b/include/drm/bridge/dw_hdmi_qp.h
+index b4a9b739734ec7b67013b683fe6017551aa19172..76ecf31301997718604a05f70ce9eab8695e26b5 100644
+--- a/include/drm/bridge/dw_hdmi_qp.h
++++ b/include/drm/bridge/dw_hdmi_qp.h
+@@ -24,6 +24,7 @@ struct dw_hdmi_qp_plat_data {
+ 	void *phy_data;
+ 	int main_irq;
+ 	int cec_irq;
++	unsigned long ref_clk_rate;
+ };
+ 
+ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
 
----
-Cristian Ciocaltea (6):
-      drm/bridge: dw-hdmi-qp: Add CEC support
-      drm/bridge: dw-hdmi-qp: Fixup timer base setup
-      drm/rockchip: dw_hdmi_qp: Improve error handling with dev_err_probe()
-      drm/rockchip: dw_hdmi_qp: Provide CEC IRQ in dw_hdmi_qp_plat_data
-      drm/rockchip: dw_hdmi_qp: Provide ref clock rate in dw_hdmi_qp_plat_data
-      arm64: defconfig: Enable DW HDMI QP CEC support
-
- arch/arm64/configs/defconfig                   |   1 +
- drivers/gpu/drm/bridge/synopsys/Kconfig        |   8 +
- drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c   | 232 ++++++++++++++++++++++++-
- drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.h   |  14 ++
- drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c |  77 ++++----
- include/drm/bridge/dw_hdmi_qp.h                |   2 +
- 6 files changed, 292 insertions(+), 42 deletions(-)
----
-base-commit: 6c68f4c0a147c025ae0b25fab688c7c47964a02f
-change-id: 20250703-rk3588-hdmi-cec-cea8f523df48
+-- 
+2.50.1
 
 
