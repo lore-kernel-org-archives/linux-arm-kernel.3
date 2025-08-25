@@ -4,59 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C59D1CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 08:23:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90B2CCA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 08:26:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V4x2zNZEIoMHDbtroiz4SUUlPmmTyZjdipVw/uaoxec=; b=gf/H1SbcUOSjdUWQtYY808Ys/9
-	uL7ZiacVy+A+Xb4VM2kvWqEe77/gqJDIDYXT2qCSVAXoiKpC+r5yure2n8s8sWNdf3AXITJQMTwIv
-	KFHeMx71BGEel7Asj7G4kXfdDZKbc0rrB28PUa/IP5L7AiFalEcUiHbqwfzUpYcdcesJTETkpc+id
-	4eXO2Sdo6pkFaopCEb88Gw1l+8zgKqLD7qzk+ytZjbC3zw7mCS44ZVxLZm4qCubQJcHKHun8eqEyJ
-	JTW+aIEPLhESUO/RuQL2WWx+r6FQkx+zQUXHoReLBknoJJN1YOkxh22Pwx9PIEQGdKSwbKOZFVRkh
-	ypqJuIFA==;
+	bh=BIZg+Y4Hq2P4C9dkf/c1Ru54fsxH+/sITSGGfeNuhjA=; b=3MF61+UDUPISkYM+Slu3+Xo9jC
+	K9Ff/HcnBtk9mp664LInf2473jWXnLH0VPQQU2GYQlo4FRhpnNBVjjxSOcu/H7hDqbrWmHxT8M06I
+	+Cmu7BXo5khdlZ4oYCeIT4FpnFe88d0MS8Sw+P2q8hVllgtpMgy3UKDyIkZUWVUWmYYUtHHG8LB4e
+	WEscLqIEZ/mh6X6WmgosFbLZ8MW5EbMVePELrd4Uu00xoUWu+bPjwengdlRhVg0isGUBxmSwkJi2M
+	V/PkF9532rndvdoOL1MVlOArzchSynPKg9TQ8JNnpk3NtZTBTOY4IVgxCHiCr/S2HfEgIUaf4J8BQ
+	zWESmcuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqSUP-00000007I3J-3B5r;
-	Mon, 25 Aug 2025 08:23:41 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uqSX0-00000007IKs-0oIe;
+	Mon, 25 Aug 2025 08:26:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqRhV-00000007BMA-1EYh
+	id 1uqRjP-00000007BWJ-02Cg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 07:33:10 +0000
+	Mon, 25 Aug 2025 07:35:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BEB775C5A86;
-	Mon, 25 Aug 2025 07:33:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68A27C116B1;
-	Mon, 25 Aug 2025 07:33:06 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 860EB44A8C;
+	Mon, 25 Aug 2025 07:35:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5DEFC4CEED;
+	Mon, 25 Aug 2025 07:35:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756107188;
-	bh=9/TBYORLfxODfzMBYG3cg/3Ags9DoW+lvt+FsEDPCUY=;
+	s=k20201202; t=1756107306;
+	bh=BQgg4s8ZelqTBQ8X8cIjpfniAbGXYuy7MuR+MQT5Bpc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Q7q1PnRG7mybEwP/iaA8fxd+bVdPYpK16Tb6GJ+B199KISRpka5MMYEWH+3HwbZ0x
-	 ZYTCJNOjXJpyQztCFyf++C1hszoCEhpSeFfeo7SqSzBvAcV85AfIKVK6Lpv8C1YEhJ
-	 YnMS5qB9djDL6co0tHJuGPvq0dKTQ4Jb/XpKDDDDvI7z/VsDbLWpEP2J9xTGYe6SkM
-	 PkYd9KaWFBiTOiQL/znft7Rx4Oy6mCDIJEPooFOAcVBhl3AvmO082orlWXhLY3MIWC
-	 uE6IHqN60nicD5CAtSCH+EhNlmCA05dMQE5NfEn5sRYxa/Ab9mkp2BO4LfoZ1/NWg4
-	 3+1lH/sDDR8bw==
-Message-ID: <5d43578b-53a9-4f7f-a27e-7183dc05bd2e@kernel.org>
-Date: Mon, 25 Aug 2025 09:33:04 +0200
+	b=tfoY60M+LEEyB/DjpGghuDetWg9i1sWkZDL6PdbflytmYRZs0z2fyuW4Zu6vQ7Gfg
+	 lSuDRk4ntJ9RFgcD44oqJi8Xon5evU7oVSHQGJ+hoxqhLRRGAi+14nRlBqs0mIEY17
+	 KYnL0HhMwT/5OfenqZ15WPqQ8kb3LxKD+HagZ6a4JFdXoXoYMZ5sLuGLJLuGKym0xm
+	 O49651h/oGNn8XDuXf0j/4nq0hZ81mM4gFi03jf5XSRNdy1jbx/a9jBXbDeLWoLi/g
+	 ckIlSK+96nbbDgVgNfitgAdf+eI4m5H6SnMDFBTjkb8Fx6nOuyrBM5hBZsYCyXgLEm
+	 VUUAIxmqn0sQw==
+Message-ID: <609e4ec2-a7a2-4252-9b4b-4560d220068b@kernel.org>
+Date: Mon, 25 Aug 2025 09:34:59 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/1] arm64: defconfig: Enable Marvell WiFi-Ex USB
- driver
-To: Alexander Stein <alexander.stein@ew.tq-group.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Sascha Hauer <s.hauer@pengutronix.de>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, Pengutronix Kernel Team <kernel@pengutronix.de>
-References: <20250822135715.3335023-1-alexander.stein@ew.tq-group.com>
- <dc6af2fc-5e7f-4ec8-a7aa-6bde6518a83b@kernel.org>
- <2800962.mvXUDI8C0e@steina-w>
+Subject: Re: [PATCH v2 10/12] dt-bindings: media: fsd: Document CSIS DMA
+ controller
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Inbaraj E <inbaraj.e@samsung.com>, mturquette@baylibre.com,
+ sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ s.nawrocki@samsung.com, s.hauer@pengutronix.de, shawnguo@kernel.org,
+ cw00.choi@samsung.com, rmfrfs@gmail.com, martink@posteo.de,
+ mchehab@kernel.org, linux-fsd@tesla.com, will@kernel.org,
+ catalin.marinas@arm.com, pankaj.dubey@samsung.com, shradha.t@samsung.com,
+ ravi.patel@samsung.com, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ alim.akhtar@samsung.com, linux-samsung-soc@vger.kernel.org, kernel@puri.sm,
+ kernel@pengutronix.de, festevam@gmail.com, linux-media@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20250814140943.22531-1-inbaraj.e@samsung.com>
+ <CGME20250814141051epcas5p14dccee388087372973988aeebcb872cf@epcas5p1.samsung.com>
+ <20250814140943.22531-11-inbaraj.e@samsung.com>
+ <c46c6f66-dee6-4efa-a624-de62aa705206@kernel.org>
+ <20250824211513.GA30196@pendragon.ideasonboard.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,12 +110,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <2800962.mvXUDI8C0e@steina-w>
+In-Reply-To: <20250824211513.GA30196@pendragon.ideasonboard.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_003309_427130_3255370D 
-X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-CacheID: sfid-20250825_003507_087266_3E55F1B7 
+X-CRM114-Status: UNSURE (   9.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -123,24 +131,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/08/2025 08:03, Alexander Stein wrote:
-> Hi,
+On 24/08/2025 23:15, Laurent Pinchart wrote:
+> Hi Krzysztof,
 > 
-> Am Sonntag, 24. August 2025, 13:26:43 CEST schrieb Krzysztof Kozlowski:
->> On 22/08/2025 15:57, Alexander Stein wrote:
->>> MBa91xxCA (imx93-tqma9352-mba91xxca.dts) features a USB attached WiFi
->>> module. lsusb says:
->>>  ID 1286:204e Marvell Semiconductor, Inc. Bluetooth and Wireless LAN Composite Device
->>> Enable the corresponding driver.
+> On Mon, Aug 18, 2025 at 10:45:17AM +0200, Krzysztof Kozlowski wrote:
+>> On 14/08/2025 16:09, Inbaraj E wrote:
+>>> +
+>>> +required:
+>>> +  - compatible
+>>> +  - reg
+>>> +  - interrupts
+>>> +  - clocks
+>>> +  - clock-names
+>>> +  - iommus
+>>> +  - port
 >>
->> This does not answer my questions. You can plug there something else...
+>> Also, you miss here supplies (as required).
 > 
-> It's not pluggable, it's soldered on the mainboard.
+> Did you perhaps mean power-domains ? As far as I understand this is an
+> IP core internal to an SoC, so *-supply would be quite uncommon.
 
-Would be worth to say it in the commit msg, because USB usually is used
-via connectors.
+Yes, power domains.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
