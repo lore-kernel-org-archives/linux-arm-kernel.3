@@ -4,98 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51419CA0EFA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA860CA0FE9
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 12:55:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IJvbqf/yt1tsn43VAwo8VG/RGkLizif52M9SXD1q9EE=; b=f21RyjEVLsa36Zq9cxbwwVWaB7
-	Ig7dVgI4UPTgAmntKOwt99M7Sjtn/pvurNygI0kg1ezGPB/u0b4pmC857IYatEhbiq+kZkSvH/OaJ
-	7kj120OjoNTPBaOM+PPBAWB5twSXFQIVdjjj0E8fRjA+eH6Ih0VC47x4PhRiHeEl3M21wlLi2Kzfl
-	4Yh5Sg8AjJLM2Pgymd2GyS7dwz5dtvrWW38b/gw4kuADRhyIREqQ5JlrPOWx3gf4lGEbxBgdcUYN/
-	q98XW8ODI6w7tAPEHHpxyf9K4PlLFI92PhtU9UuAp5PJNvIFa1FbFgk+JDQk+Qwxd4J3WeCH+iTzc
-	kOEHBB4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	List-Owner; bh=LnrUabi+motNP2W3fXtOlX7jntZTBw7sGO/bXvmj/9o=; b=RUFDnSMcSxtG6B
+	bJDAchEYgjyRXFT1//0S4yuR96qWX8V+FfbPqWLQCMhnfH8s69DZRlujpNOXo4HiBPOd0DRCL6CFy
+	mR6a+LGesNxa/mHBBV+EmYMT9M9z4ZbimaDuUmzf6DNtBwv5Eape15AQnudYN1aLlpZjBBuv9Mp4Z
+	rwLoGU9YZEyY05X43tACCoHfORYCoYRmiBHbhYC39R7NqlRzotr0tPNF4VVrR93iu2nayDDemZooc
+	bzDyXZ6iZ/jguQR/LevzwVY5G/MeVQwEnDEKRH0TMCTnKIo/Yro42JEHcvAJCulc5mBIM4JMEDuFl
+	dP/u9dOo6t7hT41V0y1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqWiw-00000007zcX-45wB;
-	Mon, 25 Aug 2025 12:54:58 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1uqWiy-00000007zeO-0qnS;
+	Mon, 25 Aug 2025 12:55:00 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqVuL-00000007rXZ-3dDf
+	id 1uqVyY-00000007s1c-40oH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 12:02:43 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3c607029266so1807629f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 05:02:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756123360; x=1756728160; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=IJvbqf/yt1tsn43VAwo8VG/RGkLizif52M9SXD1q9EE=;
-        b=FXaBEdelv9KE/qBBcsNsbwnIKQQn5B8FUnQWcse23g8N5GNW5YHhEn+UG4nWcodY66
-         8kbrY+jYWMg5wQQCq/BCfpFlefSAwL8FTvr2lnotCS8FQVpyLwox5Zfyfl6zQjjx5EdF
-         MAzC/is4MZN5Bm5HB1AbajkrMLMh5HHkc8Z1jSVNPFOlBgXX9AFx2x0Kj1v3GfhnXCbJ
-         cpQYUop9IvIVvOmcIRn1dYf4DHbZq+tt29WifzZQCw2MjkslEvAdSHHRZP7xRVlSSXMO
-         +SoUZWEJt1MQozEhWv7MQvVR01NchHryzSqZkrs0XsjiFVR+SmxpQHPCWJ0P0Co+5le/
-         lSHQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756123360; x=1756728160;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=IJvbqf/yt1tsn43VAwo8VG/RGkLizif52M9SXD1q9EE=;
-        b=rVoYZNckT7wTI2XXEHaledf4p8grk9QkzWriAtMNdCJ/oKVgizrTkVNdQiqq5RHUlm
-         mYcDNodfmO4Mzd/Bv6O8VKKIMkQQCh7oID49zIVV5Om0yf8ubk4sYkPxix38aiEKpVFu
-         TpRqKz4vdVS5Km0oXWbGi3lYod2hundl3/1VNpvGkD6zH0K6hcgq6Ud/bRROQhnBW8Cr
-         Z+kKFEEW+MeT1Nx4mbiJ8LZnMRbX1qceB+FBwZT5CXgArIkWmXu1xTJaSJl+fTo1I8VW
-         YCqddgevx8tI5Fj12z57EcBimjvgP0FJBqldpPV4pzBYi69zBYfCb3/WsT5p2W+cYyvI
-         emSQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVHyH1TMuRKknh1c9YO3lRW5sjFYb3qKzRDyEfZcR4vMTC1StSultFWn432lUE3IR5l4l/dk2cDMvx7trnVIDHl@lists.infradead.org
-X-Gm-Message-State: AOJu0YzBiBy62DXl689XCSNCZ8Y9iyysgZilFqg1PWi7RSub/AzRh8Di
-	3SCof0k25KedSklaPk9sjw5K2y4zWMhJ8DIf22+pBGmR86iUoUl2BCDqszg6lpfZix4=
-X-Gm-Gg: ASbGncsutdbk69f/Fqfgm1vZfKqSNbjP16f7wy6VA0n6R0oyXKFGCi0gwXsXOfvRHW0
-	O6kYcz/yAQUU2SNItzqCBcmcraYPh3D59B4IjsZw8KeJtrVrc8oYsPorN49EhmqfqdssQiT22Eg
-	IXb61/vaqQ5MoCPMN+vHx7TrKm/uLzWc3qZQh1G81ZpaATY7HxPVxzWEBiti6WSgN9gmwWMR95D
-	Zw17XoOIxFE+hu0qTjqN/m0xflrFpeMA0xmKMvIqZ7Ei3DSxXS/64SGarASf7gSSKiNxsD65+Qq
-	T76NTXWuBy7dLgqvuFVXHkb9JijT5g9PCcsX8N9C7/bzn14jwXeaFi/3g4EoiiGrb+2hJucmBfR
-	gpbfVVo0nfSX/eqFWPrrabehvqGQV40w=
-X-Google-Smtp-Source: AGHT+IHNjJgvFd7vseEGAj3DNMBQJ1GiUVz6n+LYqvwtjb1i5BLxin1zHA6RIo01dWv3lsPQdAUdIQ==
-X-Received: by 2002:a05:6000:310b:b0:3a4:f70e:abda with SMTP id ffacd0b85a97d-3c5db8aae86mr8234480f8f.10.1756123360040;
-        Mon, 25 Aug 2025 05:02:40 -0700 (PDT)
-Received: from [192.168.0.251] ([82.76.204.34])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3c711211bd7sm11550954f8f.38.2025.08.25.05.02.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 25 Aug 2025 05:02:39 -0700 (PDT)
-Message-ID: <c82cb87e-c793-45b1-bfad-fa00fae1d9c7@linaro.org>
-Date: Mon, 25 Aug 2025 13:02:37 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] firmware: exynos-acpm: add DVFS protocol
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
-References: <20250819-acpm-clk-v1-0-6bbd97474671@linaro.org>
- <20250819-acpm-clk-v1-2-6bbd97474671@linaro.org>
- <ca2b3b24-91dd-478f-888e-4f46dd26a672@kernel.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <ca2b3b24-91dd-478f-888e-4f46dd26a672@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Mon, 25 Aug 2025 12:07:04 +0000
+Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250825120656epoutp04f8a3dd8d9375a67578c8c89daaf02420~fASAHeOkX0863508635epoutp044
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 12:06:56 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250825120656epoutp04f8a3dd8d9375a67578c8c89daaf02420~fASAHeOkX0863508635epoutp044
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1756123616;
+	bh=LnrUabi+motNP2W3fXtOlX7jntZTBw7sGO/bXvmj/9o=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=tBSD4cAReCuMQWrHGBWQHouuzbXvGOiPyrpcJdqWjoSx1bVYwlAVSSDRVdziHMtTs
+	 dVm70cpuavqM4bFyn3QUlNTVj4z1TfgDLQEoFhhGt3mFiGQVPMkVvRvr+sX2JyOdEx
+	 gmO/tcPy4CtTqoaHKZ9sjJAAiU7Q+efUg50Ym+QQ=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
+	20250825120655epcas5p3194550434026be4e68ec34c0032b0e14~fAR-MTwna3066630666epcas5p36;
+	Mon, 25 Aug 2025 12:06:55 +0000 (GMT)
+Received: from epcas5p4.samsung.com (unknown [182.195.38.88]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4c9Tzy61nlz3hhT7; Mon, 25 Aug
+	2025 12:06:54 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250825120654epcas5p17bdbd92679d2b4c0f0c9bbb348163c0b~fAR9ubDzA2738827388epcas5p1k;
+	Mon, 25 Aug 2025 12:06:54 +0000 (GMT)
+Received: from Jaguar.samsungds.net (unknown [107.109.115.6]) by
+	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250825120649epsmtip28073d42ad5a52004046753102d30c975~fAR5LIFym0154801548epsmtip2E;
+	Mon, 25 Aug 2025 12:06:49 +0000 (GMT)
+From: Ravi Patel <ravi.patel@samsung.com>
+To: jesper.nilsson@axis.com, mturquette@baylibre.com, sboyd@kernel.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, krzk@kernel.org,
+	s.nawrocki@samsung.com, cw00.choi@samsung.com, alim.akhtar@samsung.com,
+	linus.walleij@linaro.org, tomasz.figa@gmail.com, catalin.marinas@arm.com,
+	will@kernel.org, arnd@arndb.de
+Cc: ksk4725@coasia.com, kenkim@coasia.com, pjsin865@coasia.com,
+	gwk1013@coasia.com, hgkim05@coasia.com, mingyoungbo@coasia.com,
+	smn1196@coasia.com, pankaj.dubey@samsung.com, shradha.t@samsung.com,
+	ravi.patel@samsung.com, inbaraj.e@samsung.com, swathi.ks@samsung.com,
+	hrishikesh.d@samsung.com, dj76.yang@samsung.com, hypmean.kim@samsung.com,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@axis.com,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-gpio@vger.kernel.org, soc@lists.linux.dev
+Subject: [PATCH v3 00/10] Add support for the Axis ARTPEC-8 SoC
+Date: Mon, 25 Aug 2025 17:14:26 +0530
+Message-Id: <20250825114436.46882-1-ravi.patel@samsung.com>
+X-Mailer: git-send-email 2.17.1
+X-CMS-MailID: 20250825120654epcas5p17bdbd92679d2b4c0f0c9bbb348163c0b
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-541,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250825120654epcas5p17bdbd92679d2b4c0f0c9bbb348163c0b
+References: <CGME20250825120654epcas5p17bdbd92679d2b4c0f0c9bbb348163c0b@epcas5p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_050241_918178_F19AB54D 
-X-CRM114-Status: GOOD (  15.51  )
+X-CRM114-CacheID: sfid-20250825_050703_313578_4F3BC35F 
+X-CRM114-Status: GOOD (  21.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,66 +97,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add basic support for the Axis ARTPEC-8 SoC which contains
+quad-core Cortex-A53 CPU and other several IPs. This SoC is an
+Axis-designed chipset used in surveillance camera products such as
+the AXIS Q1656-LE and AXIS Q3538-LVE.
 
+This ARTPEC-8 SoC has a variety of Samsung-specific IP blocks and
+Axis-specific IP blocks and SoC is manufactured by Samsung Foundry.
 
-On 8/24/25 6:11 PM, Krzysztof Kozlowski wrote:
-> On 19/08/2025 13:45, Tudor Ambarus wrote:
->> Add ACPM DVFS protocol handler. It constructs DVFS messages that
->> the APM firmware can understand.
->>
->> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
->> ---
->>  drivers/firmware/samsung/Makefile                  |  4 +-
->>  drivers/firmware/samsung/exynos-acpm-dvfs.c        | 85 ++++++++++++++++++++++
->>  drivers/firmware/samsung/exynos-acpm-dvfs.h        | 21 ++++++
->>  drivers/firmware/samsung/exynos-acpm.c             |  5 ++
->>  .../linux/firmware/samsung/exynos-acpm-protocol.h  | 10 +++
->>  5 files changed, 124 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/firmware/samsung/Makefile b/drivers/firmware/samsung/Makefile
->> index 7b4c9f6f34f54fd731886d97a615fe1aa97ba9a0..80d4f89b33a9558b68c9083da675c70ec3d05f19 100644
->> --- a/drivers/firmware/samsung/Makefile
->> +++ b/drivers/firmware/samsung/Makefile
->> @@ -1,4 +1,6 @@
->>  # SPDX-License-Identifier: GPL-2.0-only
->>  
->> -acpm-protocol-objs			:= exynos-acpm.o exynos-acpm-pmic.o
->> +acpm-protocol-objs			:= exynos-acpm.o
->> +acpm-protocol-objs			+= exynos-acpm-pmic.o
->> +acpm-protocol-objs			+= exynos-acpm-dvfs.o
->>  obj-$(CONFIG_EXYNOS_ACPM_PROTOCOL)	+= acpm-protocol.o
->> diff --git a/drivers/firmware/samsung/exynos-acpm-dvfs.c b/drivers/firmware/samsung/exynos-acpm-dvfs.c
->> new file mode 100644
->> index 0000000000000000000000000000000000000000..ee457c1a3de2ff2e4395d9fc3ff4c13294473b2d
->> --- /dev/null
->> +++ b/drivers/firmware/samsung/exynos-acpm-dvfs.c
->> @@ -0,0 +1,85 @@
->> +// SPDX-License-Identifier: GPL-2.0-only
->> +/*
->> + * Copyright 2020 Samsung Electronics Co., Ltd.
->> + * Copyright 2020 Google LLC.
->> + * Copyright 2025 Linaro Ltd.
->> + */
->> +
->> +#include <linux/bitfield.h>
->> +#include <linux/firmware/samsung/exynos-acpm-protocol.h>
->> +#include <linux/ktime.h>
->> +#include <linux/types.h>
->> +#include <linux/units.h>
->> +
->> +#include "exynos-acpm.h"
->> +#include "exynos-acpm-dvfs.h"
->> +
->> +#define ACPM_DVFS_ID			GENMASK(11, 0)
->> +#define ACPM_DVFS_REQ_TYPE		GENMASK(15, 0)
->> +
->> +enum exynos_acpm_dvfs_func {
->> +	ACPM_DVFS_FREQ_REQ,
->> +	ACPM_DVFS_FREQ_GET,
->> +};
-> 
-> These are actual values for hardware/firmware? If so, please use rather
-> defines.
+List of Samsung-provided IPs:
+- UART
+- Ethernet (Vendor: Synopsys)
+- SDIO
+- SPI
+- HSI2C
+- I2S
+- CMU (Clock Management Unit)
+- Pinctrl (GPIO)
+- PCIe (Vendor: Synopsys)
+- USB (Vendor: Synopsys)
 
-yes, they are. Will do, thanks!
+List of Axis-provided IPs:
+- VIP (Image Sensor Processing IP)
+- VPP (Video Post Processing)
+- GPU
+- CDC (Video Encoder)
+
+This patch series includes below changes:
+- CMU (Clock Management Unit) driver and its bindings
+- GPIO pinctrl configuration and its bindings
+- Basic Device Tree for ARTPEC-8 SoC and boards
+
+The patch series has been tested on the ARTPEC-8 EVB with
+Linux v6.15-rc5 and intended to be merged via the `arm-soc` tree.
+
+---
+Changes in v3:
+- Rebased patchset on linux-samsung-soc "for-next" branch which includes round_rate() drop
+- Add CPU mask in dtsi patch #8
+
+Link to v2: https://lore.kernel.org/all/20250821123310.94089-1-ravi.patel@samsung.com/
+
+---
+Changes in v2:
+- Update SoB sections in all patches
+- Update the copyright year to 2025
+- Add CMU abbreviation description
+- Merge dt-bindings patch 01 and 02 into single patch
+- Modify yaml file to fit coding style in CMU
+- Modify clock-names
+- Reorder config macros to fit coding style
+- Remove the unused macro in clock driver code
+- Squash all clock driver patches (4 to 10) into single patch
+- Split yaml conversion patch translation and add ARTPEC-8 SoC
+- Remove "clock-frequency" property from cpu node in dtsi
+- Remove the "status" property in dts and dtsi
+- Reorder the DTS and pin nodes to follow the alphabetical and DTS coding style
+- Change items property in axis.yaml
+- Move dts files to exynos folder
+- Removed ARCH_ARTPEC8 from platform Kconfig
+- Add pattern in MAINTAINER file
+- Merge dtsi and pinctrl dtsi file
+- Split board dts file
+
+Link to v1: https://lore.kernel.org/all/20250710002047.1573841-1-ksk4725@coasia.com/
+NOTE: The first version has been sent by Coasia.
+      After that, it has been agreed between Coasia and Samsung that Samsung will take
+      ownership of upstreaming ARTPEC-8 and ARTPEC-9 platforms.
+---
+
+Hakyeong Kim (3):
+  dt-bindings: clock: Add ARTPEC-8 clock controller
+  clk: samsung: Add clock PLL support for ARTPEC-8 SoC
+  clk: samsung: artpec-8: Add initial clock support for ARTPEC-8 SoC
+
+Ravi Patel (1):
+  dt-bindings: arm: Convert Axis board/soc bindings to json-schema
+
+SeonGu Kang (3):
+  dt-bindings: pinctrl: samsung: Add compatible for ARTPEC-8 SoC
+  pinctrl: samsung: Add ARTPEC-8 SoC specific configuration
+  arm64: dts: axis: Add ARTPEC-8 Grizzly dts support
+
+SungMin Park (3):
+  dt-bindings: arm: axis: Add ARTPEC-8 grizzly board
+  arm64: dts: exynos: axis: Add initial ARTPEC-8 SoC support
+  arm64: defconfig: Enable Axis ARTPEC SoC
+
+ .../devicetree/bindings/arm/axis.txt          |   13 -
+ .../devicetree/bindings/arm/axis.yaml         |   36 +
+ .../bindings/clock/axis,artpec8-clock.yaml    |  213 ++++
+ .../bindings/pinctrl/samsung,pinctrl.yaml     |    1 +
+ MAINTAINERS                                   |   12 +
+ arch/arm64/Kconfig.platforms                  |    7 +
+ arch/arm64/boot/dts/exynos/Makefile           |    1 +
+ arch/arm64/boot/dts/exynos/axis/Makefile      |    4 +
+ .../boot/dts/exynos/axis/artpec-pinctrl.h     |   36 +
+ .../boot/dts/exynos/axis/artpec8-grizzly.dts  |   35 +
+ .../boot/dts/exynos/axis/artpec8-pinctrl.dtsi |  120 ++
+ arch/arm64/boot/dts/exynos/axis/artpec8.dtsi  |  244 ++++
+ arch/arm64/configs/defconfig                  |    1 +
+ drivers/clk/samsung/Makefile                  |    1 +
+ drivers/clk/samsung/clk-artpec8.c             | 1044 +++++++++++++++++
+ drivers/clk/samsung/clk-pll.c                 |  128 +-
+ drivers/clk/samsung/clk-pll.h                 |    2 +
+ .../pinctrl/samsung/pinctrl-exynos-arm64.c    |   50 +
+ drivers/pinctrl/samsung/pinctrl-exynos.h      |   10 +
+ drivers/pinctrl/samsung/pinctrl-samsung.c     |    2 +
+ drivers/pinctrl/samsung/pinctrl-samsung.h     |    1 +
+ include/dt-bindings/clock/axis,artpec8-clk.h  |  169 +++
+ 22 files changed, 2116 insertions(+), 14 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/arm/axis.txt
+ create mode 100644 Documentation/devicetree/bindings/arm/axis.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/axis,artpec8-clock.yaml
+ create mode 100644 arch/arm64/boot/dts/exynos/axis/Makefile
+ create mode 100644 arch/arm64/boot/dts/exynos/axis/artpec-pinctrl.h
+ create mode 100644 arch/arm64/boot/dts/exynos/axis/artpec8-grizzly.dts
+ create mode 100644 arch/arm64/boot/dts/exynos/axis/artpec8-pinctrl.dtsi
+ create mode 100644 arch/arm64/boot/dts/exynos/axis/artpec8.dtsi
+ create mode 100644 drivers/clk/samsung/clk-artpec8.c
+ create mode 100644 include/dt-bindings/clock/axis,artpec8-clk.h
+
+--
+2.49.0
+
 
