@@ -4,109 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B54DCA0FE7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 17:00:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A149CA0FE7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 17:04:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yaUcnQjozmvTYDYURkWMjBxCsSnXy41d7hzIH1GSQGQ=; b=svQCswr45rNwy3jRMZ5QazSWWY
-	Z98Q4gPllJ8ZNvdjr3bfDhsNR9tqScBFei6vkInisg6hoiHUPeFevBUtFJW+opBUcyY/fI1mOW922
-	S+rXsPO9tFcWC8JH3iA1dsgEV6OTNW8D/ofIsrlwXPJANbzarh4cHGQHLqkNkWGHsiCSTtcDM7qMv
-	hOhM5di884Uokfeq042qzwifTRVImzWV9iI5/9FGgnmBLNt2lnfqsOByUIlXhgjrwBSUe9cbwajCr
-	w17uK/TuhZRfJMjju9zM1rRSTFt/basdao+Hvr7OKfs0W4KUUPee6lDz7ijIkQP6vmmRX3XZj1uzf
-	ok2M12bQ==;
+	bh=gaSCgp+9x9wgETscmsm6/J/E9Z0jSnaLlgjGoTawuZE=; b=zRSMc/SaXEqMJChNLWfFKtf5g2
+	K9ZcMkKhwR7YGMcebpY+siLeg21yc660EBeUOvLhRJcKttlqUTq/vecdH628PaP1WI92z0CmHS9xJ
+	2T4JGZchiNCqjoBSnnrFgzphXHQa4zvTzkQpYjZFjHmi+pYsJMC5sFB7KgtytKmlDrpefm/ivn1am
+	x2/qmKqukx5efd9RVK2V4kufGzWTkOP0b+THlbrtqGbvIr0/nnxCzvtpW5+yWXsS6rBbk8KHtAmd2
+	9ahsAeyzxALWi5YwPIfJD+dYuBI1e8KMstXR50CsPRpnLlkOJWmRIVqnScbxfEJaxmPm22fnIff2p
+	8hUlw8VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqaYs-00000008kWs-2hnq;
-	Mon, 25 Aug 2025 17:00:50 +0000
+	id 1uqabw-00000008mSA-2t2p;
+	Mon, 25 Aug 2025 17:04:00 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqZss-00000008dH6-2Z0W;
-	Mon, 25 Aug 2025 16:17:26 +0000
+	id 1uqZcp-00000008ba5-2D4m;
+	Mon, 25 Aug 2025 16:00:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=yaUcnQjozmvTYDYURkWMjBxCsSnXy41d7hzIH1GSQGQ=; b=D+k3JKrOeXBEthO1Dh5I4BQiH6
-	cj4qZS/6JooVxFpUxP92Dqyaz7To4r+5jNzJf8tqLZ9u3l2IA7SdBKmTjrwf4dC34HLEPazgZKtV5
-	WUdKqoVC/ZbaGKNBawuC0UrKA7Vd9PQrb4wlbpgpYaeWvAHpuSYGU863VOhF3LNDmUZYjeXuxJRQa
-	nhZn2mf9Z1DehtXYg49Gr2PynIKYgCWpDqhtvKF6oc98xlG+zIe1fOvZr/af4CrLBo5K7Q1PKaqnt
-	Z4kIhekSzao2u376MSOg2AQoJKz04bwWoF1dTL0ytmUAXhO3nyZ/QuLXoaS7urY0iE6Dk1NCdbizy
-	DCDhkHNQ==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	bh=gaSCgp+9x9wgETscmsm6/J/E9Z0jSnaLlgjGoTawuZE=; b=rKlaxKiecO6by1bn0DLtFNBDXA
+	BmgKGRJR0Fs5X9kwz7LEMOz3m7ZR/jXMP8P0zmv+BHXkQNKCjyB3S0P4tMAK2jBytun2I2mgckYE/
+	Cbc3uaIssoEk99ZwaE+JlAyYyjYr30MN2W8f+pOZL6o0n/v2/yZmTThMtr1XZcs6AouekfrMvSjFr
+	dQ0DK1Nda4d6ux2slgSvZpp6WM6Br+Qee2D6nguvtZb8XoVM5NYvun5HodjDE/29zA6683Eg1KwOz
+	zYrglqeIImApIJEGyyKiSnf4F3GWH1fBio7c6XPcNpkClHUOU56QaVomE/0+ZsUCHFyS9Mzlud3ty
+	wJiCmAMw==;
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqZsp-00000001vs0-1rPb;
-	Mon, 25 Aug 2025 16:17:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 523095C5FB5;
-	Mon, 25 Aug 2025 16:17:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3323DC4CEED;
-	Mon, 25 Aug 2025 16:17:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756138640;
-	bh=FANVRTF6GTKZEwwkEPlW/tWs0ubXGJ7R1OcvtRKQmn8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z1X+B0ZGv7uHOoHuOLd4SJt16FexWEbZsjEQFQqRUrapr3OCpVgaCrasYjPdbbOyy
-	 eytOcCBL+pDQ3AWWdM11/NupldPVN7n787Ac52JA6muufv5Aq5hmbyZm6HiI3UG9/E
-	 S3WLhadcDWFA0vrOLjkLNWku02BCbOZumOEeIy+mLkW7A9OWvR0HBF0JMJQllwxMjH
-	 McwQict10AbNwzUaf3Fe4rhbDyKvQqV4mNkpdYsg1XXv1bkWDE2ZZQycNZSZHCAubw
-	 xxCEDJgzUrllwHg0O5i5LR3vB8H9ddKiEeoiX5nxByJsLox/KvefidsYGinF192ZU3
-	 LkZva/mIcA0xQ==
-Date: Mon, 25 Aug 2025 19:17:02 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: David Hildenbrand <david@redhat.com>
-Cc: Mika =?iso-8859-1?Q?Penttil=E4?= <mpenttil@redhat.com>,
-	linux-kernel@vger.kernel.org,
-	Alexander Potapenko <glider@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Brendan Jackman <jackmanb@google.com>,
-	Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>,
-	Dmitry Vyukov <dvyukov@google.com>, dri-devel@lists.freedesktop.org,
-	intel-gfx@lists.freedesktop.org, iommu@lists.linux.dev,
-	io-uring@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
-	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
-	John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com,
-	kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
-	linux-crypto@vger.kernel.org, linux-ide@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-mmc@vger.kernel.org, linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Marco Elver <elver@google.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
-	netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
-	Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
-	Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
-	virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
-	wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
-Subject: Re: [PATCH RFC 10/35] mm/hugetlb: cleanup
- hugetlb_folio_init_tail_vmemmap()
-Message-ID: <aKyMfvWe8JetkbRL@kernel.org>
-References: <20250821200701.1329277-1-david@redhat.com>
- <20250821200701.1329277-11-david@redhat.com>
- <9156d191-9ec4-4422-bae9-2e8ce66f9d5e@redhat.com>
- <7077e09f-6ce9-43ba-8f87-47a290680141@redhat.com>
- <aKmDBobyvEX7ZUWL@kernel.org>
- <a90cf9a3-d662-4239-ad54-7ea917c802a5@redhat.com>
- <aKxz9HLQTflFNYEu@kernel.org>
- <a72080b4-5156-4add-ac7c-1160b44e0dfe@redhat.com>
- <aKx6SlYrj_hiPXBB@kernel.org>
- <f8140a17-c4ec-489b-b314-d45abe48bf36@redhat.com>
+	id 1uqZcm-00000001vR7-2goK;
+	Mon, 25 Aug 2025 16:00:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1756137644;
+	bh=gaSCgp+9x9wgETscmsm6/J/E9Z0jSnaLlgjGoTawuZE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=K5cSiuiNyUlYig3gKw/Pjj8VRjMsSG/tQRnivKT87u8PoxdsqfWiKfs/lEN/BjDul
+	 YXcr+hei3+I2ZidXLOkn8JZnAmouiTOcVvtekkzgZkg2fjxKznWWD1UoyquCGhh5F5
+	 lM8M/Mqx2PvIN0+1c+3CA64FuDBiBS26UgHtt0fNtR+3h4O4/EcTl4Qjnu0p0Ve0v8
+	 g5U0haJrieuKeHvC5yLqOY0MSLzy2UdA8XXs1vKabJ9EMn5dA+cTVh8xXMpml6gf7c
+	 fKWl9gSQTYKapeF5r+YHs4yQN5nxRNeHiJCEYT3MzfbinYdWkeM1FivxAGgdiyLVg7
+	 LOYmef7KeMQqA==
+Received: from 2a01cb0892f2d600c8f85cf092d4af51.ipv6.abo.wanadoo.fr (2a01cb0892f2d600c8f85Cf092D4Af51.ipv6.abo.wanadoo.fr [IPv6:2a01:cb08:92f2:d600:c8f8:5cf0:92d4:af51])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: jmassot)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A47A017E053B;
+	Mon, 25 Aug 2025 18:00:43 +0200 (CEST)
+Message-ID: <9c544d68ec10da176b062333b8a04903ce77a406.camel@collabora.com>
+Subject: Re: [PATCH v2 2/6] ASoC: dt-binding: Convert mt8183-afe-pcm binding
+ to YAML
+From: Julien Massot <julien.massot@collabora.com>
+To: Rob Herring <robh@kernel.org>
+Cc: kernel@collabora.com, Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,  Matthias Brugger
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>,  Ikjoon Jang
+ <ikjn@chromium.org>, Enric Balletbo i Serra <eballetbo@kernel.org>, Chen-Yu
+ Tsai	 <wenst@chromium.org>, Weiyi Lu <weiyi.lu@mediatek.com>, Eugen Hristev
+	 <eugen.hristev@linaro.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark
+ Brown	 <broonie@kernel.org>, Julien Massot <jmassot@collabora.com>, Sean
+ Wang	 <sean.wang@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org, 
+	linux-gpio@vger.kernel.org
+Date: Mon, 25 Aug 2025 18:00:43 +0200
+In-Reply-To: <20250822143945.GA3709669-robh@kernel.org>
+References: <20250820-mtk-dtb-warnings-v2-0-cf4721e58f4e@collabora.com>
+	 <20250820-mtk-dtb-warnings-v2-2-cf4721e58f4e@collabora.com>
+	 <20250822143945.GA3709669-robh@kernel.org>
+Organization: Collabora Ltd.
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <f8140a17-c4ec-489b-b314-d45abe48bf36@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_171723_877670_30A42F9C 
-X-CRM114-Status: GOOD (  49.54  )
+X-CRM114-CacheID: sfid-20250825_170048_811764_030A011A 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,152 +103,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 25, 2025 at 05:42:33PM +0200, David Hildenbrand wrote:
-> On 25.08.25 16:59, Mike Rapoport wrote:
-> > On Mon, Aug 25, 2025 at 04:38:03PM +0200, David Hildenbrand wrote:
-> > > On 25.08.25 16:32, Mike Rapoport wrote:
-> > > > On Mon, Aug 25, 2025 at 02:48:58PM +0200, David Hildenbrand wrote:
-> > > > > On 23.08.25 10:59, Mike Rapoport wrote:
-> > > > > > On Fri, Aug 22, 2025 at 08:24:31AM +0200, David Hildenbrand wrote:
-> > > > > > > On 22.08.25 06:09, Mika Penttilä wrote:
-> > > > > > > > 
-> > > > > > > > On 8/21/25 23:06, David Hildenbrand wrote:
-> > > > > > > > 
-> > > > > > > > > All pages were already initialized and set to PageReserved() with a
-> > > > > > > > > refcount of 1 by MM init code.
-> > > > > > > > 
-> > > > > > > > Just to be sure, how is this working with MEMBLOCK_RSRV_NOINIT, where MM is supposed not to
-> > > > > > > > initialize struct pages?
-> > > > > > > 
-> > > > > > > Excellent point, I did not know about that one.
-> > > > > > > 
-> > > > > > > Spotting that we don't do the same for the head page made me assume that
-> > > > > > > it's just a misuse of __init_single_page().
-> > > > > > > 
-> > > > > > > But the nasty thing is that we use memblock_reserved_mark_noinit() to only
-> > > > > > > mark the tail pages ...
-> > > > > > 
-> > > > > > And even nastier thing is that when CONFIG_DEFERRED_STRUCT_PAGE_INIT is
-> > > > > > disabled struct pages are initialized regardless of
-> > > > > > memblock_reserved_mark_noinit().
-> > > > > > 
-> > > > > > I think this patch should go in before your updates:
-> > > > > 
-> > > > > Shouldn't we fix this in memblock code?
-> > > > > 
-> > > > > Hacking around that in the memblock_reserved_mark_noinit() user sound wrong
-> > > > > -- and nothing in the doc of memblock_reserved_mark_noinit() spells that
-> > > > > behavior out.
-> > > > 
-> > > > We can surely update the docs, but unfortunately I don't see how to avoid
-> > > > hacking around it in hugetlb.
-> > > > Since it's used to optimise HVO even further to the point hugetlb open
-> > > > codes memmap initialization, I think it's fair that it should deal with all
-> > > > possible configurations.
-> > > 
-> > > Remind me, why can't we support memblock_reserved_mark_noinit() when
-> > > CONFIG_DEFERRED_STRUCT_PAGE_INIT is disabled?
-> > 
-> > When CONFIG_DEFERRED_STRUCT_PAGE_INIT is disabled we initialize the entire
-> > memmap early (setup_arch()->free_area_init()), and we may have a bunch of
-> > memblock_reserved_mark_noinit() afterwards
-> 
-> Oh, you mean that we get effective memblock modifications after already
-> initializing the memmap.
-> 
-> That sounds ... interesting :)
+Hi Rob,
+On Fri, 2025-08-22 at 09:39 -0500, Rob Herring wrote:
+> On Wed, Aug 20, 2025 at 03:44:53PM +0200, Julien Massot wrote:
+> > Convert the MediaTek MT8183 AFE PCM Device Tree binding from the old
+> > .txt format to YAML schema format to improve validation.
+> >=20
+> > While converting, also document all clock inputs and memory-region
+> > used by the AFE block.
+> >=20
+> > Reviewed-by: AngeloGioacchino Del Regno
+> > <angelogioacchino.delregno@collabora.com>
+> > Signed-off-by: Julien Massot <julien.massot@collabora.com>
+> >=20
 
-It's memmap, not the free lists. Without deferred init, memblock is active
-for a while after memmap initialized and before the memory goes to the free
-lists.
- 
-> So yeah, we have to document this for memblock_reserved_mark_noinit().
-> 
-> Is it also a problem for kexec_handover?
+> > ...
 
-With KHO it's also interesting, but it does not support deferred struct
-page init for now :)
- 
-> We should do something like:
-> 
-> diff --git a/mm/memblock.c b/mm/memblock.c
-> index 154f1d73b61f2..ed4c563d72c32 100644
-> --- a/mm/memblock.c
-> +++ b/mm/memblock.c
-> @@ -1091,13 +1091,16 @@ int __init_memblock memblock_clear_nomap(phys_addr_t base, phys_addr_t size)
->  /**
->   * memblock_reserved_mark_noinit - Mark a reserved memory region with flag
-> - * MEMBLOCK_RSRV_NOINIT which results in the struct pages not being initialized
-> - * for this region.
-> + * MEMBLOCK_RSRV_NOINIT which allows for the "struct pages" corresponding
-> + * to this region not getting initialized, because the caller will take
-> + * care of it.
->   * @base: the base phys addr of the region
->   * @size: the size of the region
->   *
-> - * struct pages will not be initialized for reserved memory regions marked with
-> - * %MEMBLOCK_RSRV_NOINIT.
-> + * "struct pages" will not be initialized for reserved memory regions marked
-> + * with %MEMBLOCK_RSRV_NOINIT if this function is called before initialization
-> + * code runs. Without CONFIG_DEFERRED_STRUCT_PAGE_INIT, it is more likely
-> + * that this function is not effective.
->   *
->   * Return: 0 on success, -errno on failure.
->   */
+> > +
+> > +additionalProperties: false
+> > +
+> > +examples:
+> > +=C2=A0 - |
+> > +=C2=A0=C2=A0=C2=A0 #include <dt-bindings/clock/mt8183-clk.h>
+> > +=C2=A0=C2=A0=C2=A0 #include <dt-bindings/interrupt-controller/arm-gic.=
+h>
+> > +=C2=A0=C2=A0=C2=A0 #include <dt-bindings/interrupt-controller/irq.h>
+> > +=C2=A0=C2=A0=C2=A0 #include <dt-bindings/power/mt8183-power.h>
+> > +=C2=A0=C2=A0=C2=A0 #include <dt-bindings/reset/mt8183-resets.h>
+> > +
+> > +=C2=A0=C2=A0=C2=A0 afe: mt8183-afe-pcm {
+>=20
+> audio-controller {
+>=20
+> like you changed the .dts.
+>=20
+> With that,
+>=20
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Thanks, I will fix the node name in V3.
 
-I have a different version :)
- 
-diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-index b96746376e17..d20d091c6343 100644
---- a/include/linux/memblock.h
-+++ b/include/linux/memblock.h
-@@ -40,8 +40,9 @@ extern unsigned long long max_possible_pfn;
-  * via a driver, and never indicated in the firmware-provided memory map as
-  * system RAM. This corresponds to IORESOURCE_SYSRAM_DRIVER_MANAGED in the
-  * kernel resource tree.
-- * @MEMBLOCK_RSRV_NOINIT: memory region for which struct pages are
-- * not initialized (only for reserved regions).
-+ * @MEMBLOCK_RSRV_NOINIT: memory region for which struct pages don't have
-+ * PG_Reserved set and are completely not initialized when
-+ * %CONFIG_DEFERRED_STRUCT_PAGE_INIT is enabled (only for reserved regions).
-  * @MEMBLOCK_RSRV_KERN: memory region that is reserved for kernel use,
-  * either explictitly with memblock_reserve_kern() or via memblock
-  * allocation APIs. All memblock allocations set this flag.
-diff --git a/mm/memblock.c b/mm/memblock.c
-index 154f1d73b61f..02de5ffb085b 100644
---- a/mm/memblock.c
-+++ b/mm/memblock.c
-@@ -1091,13 +1091,15 @@ int __init_memblock memblock_clear_nomap(phys_addr_t base, phys_addr_t size)
- 
- /**
-  * memblock_reserved_mark_noinit - Mark a reserved memory region with flag
-- * MEMBLOCK_RSRV_NOINIT which results in the struct pages not being initialized
-- * for this region.
-+ * MEMBLOCK_RSRV_NOINIT
-+ *
-  * @base: the base phys addr of the region
-  * @size: the size of the region
-  *
-- * struct pages will not be initialized for reserved memory regions marked with
-- * %MEMBLOCK_RSRV_NOINIT.
-+ * The struct pages for the reserved regions marked %MEMBLOCK_RSRV_NOINIT will
-+ * not have %PG_Reserved flag set.
-+ * When %CONFIG_DEFERRED_STRUCT_PAGE_INIT is enabled, setting this flags also
-+ * completly bypasses the initialization of struct pages for this region.
-  *
-  * Return: 0 on success, -errno on failure.
-  */
- 
-> Optimizing the hugetlb code could be done, but I am not sure how high
-> the priority is (nobody complained so far about the double init).
-> 
-> -- 
-> Cheers
-> 
-> David / dhildenb
-> 
-
--- 
-Sincerely yours,
-Mike.
+Regards,
+Julien
 
