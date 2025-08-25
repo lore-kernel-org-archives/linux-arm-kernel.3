@@ -4,77 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36208CA0FEF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14F0ACA0FED
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 16:31:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZdPdKFQoNhRfp7nGl67a6/mU++5J5ZoaijcInuGadhg=; b=JEcqOnN++vcnUoE3dt3Lm2Ax86
-	m6wcARD/DPqc4C8fcyhaMAMNMkpik5dbp98JYseK/TjMjXCYuOaM4DOzhRB2qNdv74CfwqRzNFf6K
-	y21ZeDbCgFxMxq3jElxp9pSZ38EykB65nOZOW/aKjnBqiDP/+1lkW5846JQk6SuZ68IpvOn1ILlSl
-	YQ/pfE3siY2T1EG81xxDyfkScPEnhpLqDr6y8lkxKv3ccZYhpKEFD0sh9flz6Cr2jHCba0lRlm5Eb
-	Ft1HetDtk2JdLjAAb3f3b1NfGSFYWhZ5R888ckKOmHOJdsJCs62WU8aDe4dJRVazhGua33OqRpPpu
-	e70h4C9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Dt3bZHXB6Pw2aBzNRDnFUH71ehaQs545/ECq/BqLHbE=; b=n73WtGR1vdcwihRtfgCVPFjaXr
+	HKbZgRNINaZ78+kNlDVOmZbqEJmdeW07zycQvGO4c5ddlIcpTWASR2zI3HA/kQvvmlGz8UMRoFj43
+	KNdi9jGfRm8hFDkP3EKzbB7vOAGWY2Ypca7sTs38qHduw3RzCoyBkprAFWLfdMVsjobpVkkybwdzn
+	53WzQWruzSN7xzMf1Lr1xmJtB3xkAJdVnNvYmKiUqHfh0L5sx9unW9k6YLzyhGy2nF4hmMhGP0FYU
+	H0vhur6mjNszN2+ljAxF67OUC2ACWngn1aGRIYjkPDgxPTElnX2yTUtqDS2TlE8X6amV0ohUk91+5
+	H2pK63NA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqa6T-00000008fOy-3Rd6;
-	Mon, 25 Aug 2025 16:31:29 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uqa6P-00000008fKs-1z74;
+	Mon, 25 Aug 2025 16:31:25 +0000
+Received: from mail.thorsis.com ([217.92.40.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqZDp-00000008XAl-18qF;
-	Mon, 25 Aug 2025 15:35:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1756136099;
-	bh=q5GwU4MYKLNZYOjfJdedkBXBEIKaRbZFbJqlrk3qFCc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pJXK99r8q7qfgWHLV5nCqYBArceAS8ycljzwYSVpiBAeVF9kQV8nFXeI70r4aVXXy
-	 6+vepSn7R4VV5a2aBpIzFN1mitzokM8Nv1Kq4rONz3oLocTc8G8vhoEcZZ8HWxOVQe
-	 +5cGJJsypITs6qCNsf4b7HdrYj7BbwdBAG9EEQkPPchc4mImcwpXbpCrVFdb/tIfCu
-	 7y6jsPwK5KxWZ59+H8xrh0ghrnzoWaNgQutWOtrhkwpvevRpybSmwBPMysGDLM/D/S
-	 dVTEUreMGQezN5eoQm8O8cdaAq7+wCjfWCpb1kYA0N/17ueoD2cKzcljlQ5lQbT0uK
-	 mWyQm0Mwp0vNQ==
-Received: from benjamin-XPS-13-9310.. (unknown [IPv6:2a01:e0a:120:3210:f39:d9a9:8ef1:f69a])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: benjamin.gaignard)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id EC8C817E0985;
-	Mon, 25 Aug 2025 17:34:58 +0200 (CEST)
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-To: joro@8bytes.org,
-	will@kernel.org,
-	robin.murphy@arm.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	heiko@sntech.de,
-	nicolas.dufresne@collabora.com,
-	jgg@ziepe.ca,
-	p.zabel@pengutronix.de,
-	mchehab@kernel.org
-Cc: iommu@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	kernel@collabora.com,
-	linux-media@vger.kernel.org,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Subject: [PATCH v7 5/6] arm64: dts: rockchip: Add verisilicon IOMMU node on RK3588
-Date: Mon, 25 Aug 2025 17:34:44 +0200
-Message-ID: <20250825153450.150071-6-benjamin.gaignard@collabora.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250825153450.150071-1-benjamin.gaignard@collabora.com>
-References: <20250825153450.150071-1-benjamin.gaignard@collabora.com>
+	id 1uqX9g-000000084Ki-2geE;
+	Mon, 25 Aug 2025 13:22:38 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D10431485849;
+	Mon, 25 Aug 2025 15:22:30 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
+	t=1756128154; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=Dt3bZHXB6Pw2aBzNRDnFUH71ehaQs545/ECq/BqLHbE=;
+	b=TiJ2yGu/EIyLweS6Rmf8/EcDyy6SW4NeWhK4WYeHGsm+cYyJPXK13GVlLgbT83mswrnIO+
+	aYPIdv+fEOuEv3/UACURpcsfkiQW6CW4A2hrRrpaMxOLp440xjHFq9RKfH7DmSyZFOXgX+
+	JuWeqI4AwpJAUHU0vs4zAr57uEpv3mALFU8NIgntRAZa5GHi9N67wdL60ZZqm72xDDhxow
+	vv9TQ7FG+y2CeCwtzxqmmPBCzqBci0m9oWH3OUCkwuKJx+4pKeWUdI0mT+2x0YkyHCYaw5
+	9OKfn5L0FRsRZ4GfhvIzPdviJhb+77SjE751fi/jMwrLxf0puKFVNKvhIKdj9A==
+Date: Mon, 25 Aug 2025 15:22:29 +0200
+From: Alexander Dahl <ada@thorsis.com>
+To: "Sverdlin, Alexander" <alexander.sverdlin@siemens.com>
+Cc: "Balamanikandan.Gunasundar@microchip.com" <Balamanikandan.Gunasundar@microchip.com>,
+	"miquel.raynal@bootlin.com" <miquel.raynal@bootlin.com>,
+	"claudiu.beznea@tuxon.dev" <claudiu.beznea@tuxon.dev>,
+	"nicolas.ferre@microchip.com" <nicolas.ferre@microchip.com>,
+	"richard@nod.at" <richard@nod.at>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"vigneshr@ti.com" <vigneshr@ti.com>,
+	"alexandre.belloni@bootlin.com" <alexandre.belloni@bootlin.com>,
+	"linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>,
+	"bbrezillon@kernel.org" <bbrezillon@kernel.org>,
+	"stable@vger.kernel.org" <stable@vger.kernel.org>
+Subject: Re: [PATCH v2] mtd: nand: raw: atmel: Respect tAR, tCLR in read
+ setup timing
+Message-ID: <20250825-vista-cuddle-c159a6bd97ec@thorsis.com>
+Mail-Followup-To: "Sverdlin, Alexander" <alexander.sverdlin@siemens.com>,
+	"Balamanikandan.Gunasundar@microchip.com" <Balamanikandan.Gunasundar@microchip.com>,
+	"miquel.raynal@bootlin.com" <miquel.raynal@bootlin.com>,
+	"claudiu.beznea@tuxon.dev" <claudiu.beznea@tuxon.dev>,
+	"nicolas.ferre@microchip.com" <nicolas.ferre@microchip.com>,
+	"richard@nod.at" <richard@nod.at>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"vigneshr@ti.com" <vigneshr@ti.com>,
+	"alexandre.belloni@bootlin.com" <alexandre.belloni@bootlin.com>,
+	"linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>,
+	"bbrezillon@kernel.org" <bbrezillon@kernel.org>,
+	"stable@vger.kernel.org" <stable@vger.kernel.org>
+References: <20250821120106.346869-1-alexander.sverdlin@siemens.com>
+ <20250825-uneven-barman-7f932d0ca964@thorsis.com>
+ <3d0259caac9925e3d5dd3dd27a6785b2a2e82c0b.camel@siemens.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <3d0259caac9925e3d5dd3dd27a6785b2a2e82c0b.camel@siemens.com>
+User-Agent: Mutt/2.2.12 (2023-09-09)
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_083501_460065_DE9EDDB0 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250825_062236_842427_389C3A51 
+X-CRM114-Status: GOOD (  21.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,38 +95,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the device tree node for the Verisilicon IOMMU present
-in the RK3588 SoC.
-This IOMMU handles address translation for the VPU hardware blocks.
+Hello Alexander,
 
-Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
----
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+Am Mon, Aug 25, 2025 at 12:21:24PM +0000 schrieb Sverdlin, Alexander:
+> Hi Alexander,
+> 
+> On Mon, 2025-08-25 at 13:02 +0200, Alexander Dahl wrote:
+> > > Having setup time 0 violates tAR, tCLR of some chips, for instance
+> > > TOSHIBA TC58NVG2S3ETAI0 cannot be detected successfully (first ID byte
+> > > being read duplicated, i.e. 98 98 dc 90 15 76 14 03 instead of
+> > > 98 dc 90 15 76 ...).
+> > > 
+> > > Atmel Application Notes postulated 1 cycle NRD_SETUP without explanation
+> > > [1], but it looks more appropriate to just calculate setup time properly.
+> > > 
+> > > [1] Link: https://ww1.microchip.com/downloads/aemDocuments/documents/MPU32/ApplicationNotes/ApplicationNotes/doc6255.pdf
+> > > Cc: stable@vger.kernel.org
+> > > Fixes: f9ce2eddf176 ("mtd: nand: atmel: Add ->setup_data_interface() hooks")
+> > > Signed-off-by: Alexander Sverdlin <alexander.sverdlin@siemens.com>
+> > 
+> > Tested-by: Alexander Dahl <ada@thorsis.com>
+> > 
+> > Threw this on top of 6.12.39-rt11 and tested on two custom platforms
+> > both with a Spansion S34ML02G1 SLC 2GBit flash chip, but with
+> > different SoCs (sama5d2, sam9x60).  We had difficulties with the
+> > timing of those NAND flash chips in the past and I wanted to make sure
+> > this patch does not break our setup.  Seems fine in a quick test,
+> > reading and writing and reading back is successful.
+> 
+> thank you for your feedback!
+> 
+> Do you see an opportunity to drop the downstream timing quirks with my patch?
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index 70f03e68ba55..8656e46ad288 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-@@ -1263,6 +1263,17 @@ av1d: video-codec@fdc70000 {
- 		clock-names = "aclk", "hclk";
- 		power-domains = <&power RK3588_PD_AV1>;
- 		resets = <&cru SRST_A_AV1>, <&cru SRST_P_AV1>, <&cru SRST_A_AV1_BIU>, <&cru SRST_P_AV1_BIU>;
-+		iommus = <&av1d_mmu>;
-+	};
-+
-+	av1d_mmu: iommu@fdca0000 {
-+		compatible = "rockchip,rk3588-av1-iommu", "verisilicon,iommu-1.2";
-+		reg = <0x0 0xfdca0000 0x0 0x600>;
-+		interrupts = <GIC_SPI 109 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru ACLK_AV1>, <&cru PCLK_AV1>;
-+		clock-names = "core", "iface";
-+		#iommu-cells = <0>;
-+		power-domains = <&power RK3588_PD_AV1>;
- 	};
- 
- 	vop: vop@fdd90000 {
--- 
-2.43.0
+Which downstream do you refer to?
+
+> I actually have another patch related to timings, but it's based on code-review
+> only and the theoretical issue never manifested itself in practice on our side...
+
+I also have another one, for which fixes got merged in at91bootstrap
+and U-Boot already, but I never found the time to upstream it on
+Linux.  It's related to pulse timing.
+
+> (it's about missing ndelay at the end of atmel_smc_nand_exec_instr())
+
+That does not ring a bell here, sorry.
+
+Greets
+Alex
 
 
