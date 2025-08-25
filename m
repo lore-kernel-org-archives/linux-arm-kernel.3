@@ -4,97 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2029C8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 18:48:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B39F0C8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 19:08:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q2zMojxEaqSXvN7rZ89UIzDP+AqmDlozbvrUX8uFGJo=; b=BPAlH8/NungQOzdu7b52wCW18E
-	1bRZbTvozqajuIqBWqOvC/hU+ln3RYaOmW3jJ+Afuu9V8OjVW/EDk7H2CkghaJP99nUxXEsXsegAQ
-	13MqfDV0dMkd7V8wnFwzUHcMQ2u+GVJjUVIjdlwJ8b0tSNTvEsCX3P/KTkSKUZKtf5b0L+VhsQovt
-	mFMZaXw+njaFqNvXog+RCwcYTIRlU+Ncy/tIlHfXWHWbNTRcQSGnItc/2cz+c2m7dYioryqgefV5j
-	M3ambSHCA/BrnolutOJr36AncXATcpoA4m61eBnjUyilggurFhklx/PzF2cszq7ZAMSARavsKJGz9
-	8w5M1fhw==;
+	bh=pD1fM5mNexRcRDe0akAYaCMgEryR6TBOYFbY57YoMGo=; b=hSEtHn9nL/gZqbCD5uD3jDTPCP
+	EdTLUULsfPjOCkq1InJ7rddutwtn1zY9+1Ei5NL6Z/+aAp9s2eEzGpgpZuIYc/rAtMz9Oxn/xaqNf
+	pd2AfecyQBnMo6yNILOI/tfXkL0L/F35f83oPKGgpjxcOtSkVv8ef0rUOX+fW3p/soRz/wCSR0GMX
+	S1VisKpeamdwqEDKtEHppKFE00RbLHiri0ziarOT3kAcHiEk7pMIbUO3U3giznXcZw9x/2ASm0j7m
+	CP3esDYaXoDTf7UQZmi1JeHlrS+x/VIitBQNiGqVheackC6c+4CsU84NOgRcxQdm87Czx7eq/QqDB
+	tbCgjXXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqcF4-000000096wM-2Kjh;
-	Mon, 25 Aug 2025 18:48:30 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1uqcY5-00000009AfR-377j;
+	Mon, 25 Aug 2025 19:08:09 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqcCL-000000096Qa-0JSJ;
-	Mon, 25 Aug 2025 18:45:42 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-afcb7a16441so757896266b.2;
-        Mon, 25 Aug 2025 11:45:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756147539; x=1756752339; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Q2zMojxEaqSXvN7rZ89UIzDP+AqmDlozbvrUX8uFGJo=;
-        b=PdS3lWmwsa0wDn7pOscJmJdttsQqs+XkAp/whJTdoSP4KZJEE2pTQ3MisOgE3Mw+h9
-         9ugmeqhkYCALiTpN7yJiyeT6/WFH6c4hXPk08PpP2ZVxalP79u3A0cYU67EbwMrWvgGX
-         TnjhhGFnbYIOijvU/8eDgGt36jdsdrPOq7wuVdimz+teQZo0v5pNBJyR/NybuX+hscnh
-         8UD11YoBm1tNZGmWOYIFPIA4to5KTY+ugbQTZuwhcWQ/s5pvP0rEPgOVhouGl4EgoKJ5
-         1Zw6tKmxvGAiZ9YMCO+a0M976orGVQCdLE9xWBMdewkVE2/g5WBA0uSGlNdT7LCmcZfq
-         ffZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756147539; x=1756752339;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Q2zMojxEaqSXvN7rZ89UIzDP+AqmDlozbvrUX8uFGJo=;
-        b=rIJokGYz6dhV2O7W7ACkXkupqOdFRhHwNnrsD3Xq4kjDFGDTsg1gJ7xzI39LX/4cST
-         +h5KKKMkoaus7M2hAyUsK0yDts4O5VUt9qAiij6FpAttnD8cfIwL2InrvWCrsYqnfZi9
-         O1tbvlzlbD5cF8ZhQzsdfKf/FDR2Uk93EHKHEBw4Lh+3RYpf7XwzhDfUIjg8M4qIsUVQ
-         O279YQFp3k1CBDKebx8WgjH2VlHCML3GW6d88cAhybLox0vQiXQbQSxjGbmnhWdQlqm5
-         6cq90I6crbns4UIqYX/LvcQmo5EwkYmh33KcA58MV1hxB4Zf3TLm+IiWlLA65zxtNtM4
-         rNkA==
-X-Forwarded-Encrypted: i=1; AJvYcCUU63w0zYM1yEDCSZkRe428UiRam4F4X0GC1yMGQJYTsSv1OKfhJaIMLQL75LADabqaNFHXrsXIh9g9LWty3XGe@lists.infradead.org, AJvYcCUyxs2CRAnzTs/wswGGxBrSACMgJehEnAPBbRhNhPju90sIYz9fYprzKh2Su7dCesnnMhjIs+GKel6tRy0S4xI=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYbnX1zIS8zTslaG7BUZVTppD1HHMadqjgbyWL/IaHwJGqC0Ja
-	pEl2honhqZotsiHHFuC8Ahk2iX44oWgIv0rkhje8HYgaxyByzmnqp/u4XObxaRAtWClrrbi03R6
-	oUOex/pgl9KSR5P0kQwb37hzuF8Kv18M=
-X-Gm-Gg: ASbGncvfsRakzIga3keXr5l2+KEQDVCfaYK1J3FSilwbJVo1esqL1EH7oIYc3OqwFeD
-	GGm+8gvBUC2FWoQd4ttYS/JKssxB+Cuud2iyxattVBGNcVQ4UNcevugh+pBBxoerocKBUG3VFe9
-	7JG4UX6s2fvYaBYhccmu6tN3I8tXCrxuNW+M4Mn9aF/8joT3Ibaog3Vo+YIfi/5eU23gBn7A3Ix
-	Yz2q1lCtRVisoYvSGsJTWrJrfmTIEDnmtMr06hv
-X-Google-Smtp-Source: AGHT+IHSoLDTkq5deXOI5kOXvOEJGs7/045c3SFr+zmXA7JcB8nnmgDCdO7Qbzl8FAm2rty6nUd0qaQ2gfQlRQ8Uk8I=
-X-Received: by 2002:a17:907:d10:b0:af9:1be8:c2aa with SMTP id
- a640c23a62f3a-afe295e56d1mr1138094366b.45.1756147538797; Mon, 25 Aug 2025
- 11:45:38 -0700 (PDT)
+	id 1uqZDK-00000008X5I-1BON
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 25 Aug 2025 15:34:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gemx1K9n/DKb8MF2ZFtcX1XynHTUCi3wwvxmBi0XPoN3o7Z8LvaR83EPmWae+xS98tWmJ7ZqPH17XF6xLZDs+XnzUmpnd4vk/tNmuMOaK5AQVAep/vm/OlAQBZasVoDJ3zUeFywT+lvLz9k1Ja536ghDwGhB4xyuojYzgdZClshy+ncYCUucbqsd98I3aqyOLWTF8WZe53K8PG/NZHNn7mvTxItW0+wn0uhFwBg8LsxRxDzjaqWiKJwEY366y9OLXyK7/bYEP0TYY43n3aXL8EkaSWC4/lao9Y9EQ5PR/F3fF5c/uWjRArIWUp11DDryWG7+zO9awQSve44J+/niQw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pD1fM5mNexRcRDe0akAYaCMgEryR6TBOYFbY57YoMGo=;
+ b=CF13BJ+P22HTEjtIgRg8h1iKpXisQ24/nX11AiGFVKhFZFVJN4WMxHIophphKpaquxhhv4pHkVzDngdk7BhTDtiyCz9wxZwie51XUj/KVSwgXMXgF7D9Vp7fBKoXmFpRKKHCPIAdCm3OPeavXL3be+txIOMehbwc5i4E4DDrgsPLTxT+I5WZBGAUmsoEmkzQvnTka8bHzxY4CfQR6F6YSxPfzkJ+pUWFRlufBf29KCjwfveM7Jd0hBRZ91D2tmq2sro6ELow01xZdNH3xDH0IgR8BpYLgs2PcZ20Ya4sIT8T5+ZznBJGcBmfy5LXOCYxjhFytne6WgRpDnZK/j614Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pD1fM5mNexRcRDe0akAYaCMgEryR6TBOYFbY57YoMGo=;
+ b=EVnPlGxT1XZmJKfWaZ8Ceo7QaR0S5m02Rpjr7JGPzb1MoMHcW047TdHq9CJZ5ar1bZvozIfR+aSW/wKmOsa0Dgj4eNw5aES6bhyA3muZPUvCfJV4POfAxr2+8v5uWNls1kmgod9YqvLWX1HKyRoxTIPzzF+74c89FY9uFXOEXqbmC/h6OyiHKSJYzFxHna9ZkwVMB/RsllVLzRXqWNFrXz8sQar4qyf9NVAcugRnc1LXcVQSwJKNu5VbM5uZJrKtSN4xLfhQmPJxL1lWqbbIWgC6Pr4BshUYQ1qPNo+Zei2rz24AuooJGpjvhmV4v2RXTyStIOt4OsJNns0UuDuZMw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by PAXPR04MB9301.eurprd04.prod.outlook.com (2603:10a6:102:2b9::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.11; Mon, 25 Aug
+ 2025 15:34:19 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d%5]) with mapi id 15.20.9073.009; Mon, 25 Aug 2025
+ 15:34:19 +0000
+Date: Mon, 25 Aug 2025 11:34:10 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Guoniu Zhou <guoniu.zhou@nxp.com>
+Cc: Rui Miguel Silva <rmfrfs@gmail.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/4] media: dt-bindings: nxp,imx8mq-mipi-csi2: Add
+ i.MX8ULP compatible string
+Message-ID: <aKyCcv6zvq4qI34d@lizhi-Precision-Tower-5810>
+References: <20250825-csi2_imx8ulp-v3-0-35885aba62bc@nxp.com>
+ <20250825-csi2_imx8ulp-v3-1-35885aba62bc@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250825-csi2_imx8ulp-v3-1-35885aba62bc@nxp.com>
+X-ClientProxiedBy: BYAPR01CA0032.prod.exchangelabs.com (2603:10b6:a02:80::45)
+ To DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
 MIME-Version: 1.0
-References: <20250822-mtk-post-blend-color-pipeline-v1-0-a9446d4aca82@collabora.com>
- <20250822-mtk-post-blend-color-pipeline-v1-1-a9446d4aca82@collabora.com> <CAPj87rPAoD2D99zTdsvJ=9K8+G17mTS2jDYHMPYmXNtUyp2L_Q@mail.gmail.com>
-In-Reply-To: <CAPj87rPAoD2D99zTdsvJ=9K8+G17mTS2jDYHMPYmXNtUyp2L_Q@mail.gmail.com>
-From: Xaver Hugl <xaver.hugl@gmail.com>
-Date: Mon, 25 Aug 2025 20:45:27 +0200
-X-Gm-Features: Ac12FXwIBvZYaDx3nXuRC59YLfGWHPRaFpCScdKvQ4nArJPhSi57cSubMBYyjfo
-Message-ID: <CAFZQkGwotQ6cxVCSgp-BhUi5DaZ7MyVvbnrDJW11Z7ztzqy58g@mail.gmail.com>
-Subject: Re: [PATCH RFC 1/5] drm: Support post-blend color pipeline API
-To: Daniel Stone <daniel@fooishbar.org>
-Cc: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Alex Hung <alex.hung@amd.com>, 
-	wayland-devel@lists.freedesktop.org, harry.wentland@amd.com, leo.liu@amd.com, 
-	ville.syrjala@linux.intel.com, pekka.paalanen@collabora.com, 
-	contact@emersion.fr, mwen@igalia.com, jadahl@redhat.com, 
-	sebastian.wick@redhat.com, shashank.sharma@amd.com, agoins@nvidia.com, 
-	joshua@froggi.es, mdaenzer@redhat.com, aleixpol@kde.org, 
-	victoria@system76.com, uma.shankar@intel.com, quic_naseer@quicinc.com, 
-	quic_cbraga@quicinc.com, quic_abhinavk@quicinc.com, marcan@marcan.st, 
-	Liviu.Dudau@arm.com, sashamcintosh@google.com, 
-	chaitanya.kumar.borah@intel.com, louis.chauvet@bootlin.com, mcanal@igalia.com, 
-	kernel@collabora.com, daniels@collabora.com, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, Simona Vetter <simona.vetter@ffwll.ch>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|PAXPR04MB9301:EE_
+X-MS-Office365-Filtering-Correlation-Id: ac5a641c-9dd5-487c-3d18-08dde3ecdbc2
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|7416014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?e3CD2XYHr7BsGgMnibeA8p0QC5apW8AxCcS7bq1uPdk/QQnGEmRSDxK6ovJ4?=
+ =?us-ascii?Q?WqFivhBPMGCOSbh6ZIFGT16QTReoz0Q1wJDmSWs6+IscyhWAXX2ya+rVHfG7?=
+ =?us-ascii?Q?PZMV7hCgzohnsNxECC0zWC+3zKUr4R//gSw5B1InzLqfdtKHLJo0JXF7qRXf?=
+ =?us-ascii?Q?WKPaEmAfVnNZZu0CuN+WLp02boAgkyQZkJgB0yibb88dF+t836+OBVnthJyI?=
+ =?us-ascii?Q?Uz+ET0joby4leTPTgomHUJj/5IAmpNVhLrZ7yn/umzEWezDoO6yr0/ve2tCP?=
+ =?us-ascii?Q?UvNtuuqq7q2LmtCPRlWq8Jt/uRO+VDc3Q8dLbF5PJtZ4LyheEtqEpUOoEww8?=
+ =?us-ascii?Q?UTgaqjkAEZ2lmVqz8fyIKJ9QcjPZ3Cnm8Q7xVc8DYk4YsYgCJ4E4EF0B+Ey+?=
+ =?us-ascii?Q?ih69r1SC3yw2PYm2fM/WEYvLLocOci+Fy5nC7AaXo3lFetuPr/nQ3Cp0spK+?=
+ =?us-ascii?Q?gNnCXetbMBjSzhAN2VhlM3FiF3pM2937FybQ66eJTjoFOO33OTCOmvfVgUUT?=
+ =?us-ascii?Q?ZiGU1B1Vm3vtsfC0im5ZtsgQTYWW8sDZjcTiyFMVkoe6DgiezSiNiBoL11aO?=
+ =?us-ascii?Q?TS+q/nTHGHQRLl1Dly/4lI2ZGFV3cx2+rBfQPN+7pdknhAq5F4/ZVHQGSBMI?=
+ =?us-ascii?Q?XggsbpSirQVrIR7GF4yz4OMWO6aq/Cg36DpWBjiEVC5s50KiFalpHg+KhHs1?=
+ =?us-ascii?Q?NZPYyS9a5PRHtLuazZqkMs+b1Swllb41Q4xFqIKerZWI1y0q+1aW6jUjm+R8?=
+ =?us-ascii?Q?lfPJfYEQP8o2v1yXzPimScrUkxl7kz5I++6PMfK/dm5Ukuopruz302BNGE+w?=
+ =?us-ascii?Q?ATD5D9deH7nw0yPUmvSo80kwwcJ7YvC4Fes5/3dFjO7fiQa/kaWhjwU/ydn0?=
+ =?us-ascii?Q?umNPJAo/ah7RsEydaB0mbOiQSY5WxRqMB8dpRPV0cfLwvfHvVJ4nW/QjwYH/?=
+ =?us-ascii?Q?CFOQQd56m4UtuhQvnFN4G+ytqr2xuXYbY62Lz+xCzjubfRaYzviEUXOr2ET7?=
+ =?us-ascii?Q?NLZwAcdFAEC/4PIkETOSXtjoAMxA2W4L1gLOnZB2fniQXf7JCgwM0r50kR79?=
+ =?us-ascii?Q?ZDQ1sFtcFKhSCGjZFLOiJFyn2oq1jiXGzvCed5oSbCqvLRpR999x7DECpQTb?=
+ =?us-ascii?Q?YPo+qG7g2+svwkx6Y0i9TrdwzagU9+guoIzIt+/YcNHEQLW1TmmiBSe0CJBN?=
+ =?us-ascii?Q?jt6eUR3PlLwf411tHJ8gDz9cRVH4iKr6pYABvgDmICp4DzDNzug8ag4mzTsD?=
+ =?us-ascii?Q?R5A5CHnlNE841lPiuN7m/OGV2GIVgE62JDFtCgnAKlqtl6Am+BTZDkJsiQ5f?=
+ =?us-ascii?Q?hsaQMy5+DnBF4JoYuDTCjOCxY2kAoi72tufBmBUzeNmQVoJQQpibLioa/yOi?=
+ =?us-ascii?Q?XrhkHdVbZOBGPXa2RSYxM0qBnVMHWtzi+5O0q4R+7OWTlixEZCzfJjTxZ6ba?=
+ =?us-ascii?Q?0cd+SC7xHlQ=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hrTGlhGG0RLIYTY+9xE0gzq8LsNeBT54ZFR+3oCOpVrSDakA33c4hUWvvbv/?=
+ =?us-ascii?Q?ed6V7DRW/Y6VK/BVMns+kEg4bGGeJIV4QirEjHmD3BI2hYRYDJwfRwT+1sQT?=
+ =?us-ascii?Q?ekTNuV3lAvmhA9pCeS3KPNUKSTJaAYJLdE/TSGdbRso76yjxZEWMub5M5w0/?=
+ =?us-ascii?Q?zhf8kxXKb8sR86JHJwGZTvDYH5UHXPeC1Z3xbE9PFaezZw6rSRp/9gJzWNi5?=
+ =?us-ascii?Q?ajuF/64XTcarUrMWSHDqQsdI2GGr6YWilFp0ebbsfYQhUxVMb8jTDxcL5d8K?=
+ =?us-ascii?Q?RuEqIaj/3lDiwxJ1FqG7zuZnKJ2kxOafCZbNcOjhyGqjZmFDEkufzSbJM7VJ?=
+ =?us-ascii?Q?y3a7C0pLnLNqoSvuwQpe+y7Oryt/ua12IP6avWOcvQyBzO/Wc/8WgYefHaX0?=
+ =?us-ascii?Q?H04eMXgpu0UPvZhyvvXYJPBo+yTYboWnplQe9PB6sY9f8BzHLOvTK/uPvWbb?=
+ =?us-ascii?Q?7IC5+Sar1vFhlIsX4V6zsfxcvSNnKkBv3mp0TYdzcX7fqk/jBVhiZ2tieW7o?=
+ =?us-ascii?Q?eXXNy88xXg62RmXKIo0NVMdTvoLiodsZxFdNNKYfZritLVcQS8CxPN3QrnkI?=
+ =?us-ascii?Q?EnH/oG8zJEvQPwI8L6mM8Ut7HYaigddrYHvf1JkZMKCw2egMmP+aT81SVXnT?=
+ =?us-ascii?Q?Rcbf9U1Lk8XM3HY6b2/87eiVNDFfrkC5foCdQhQ0IABn8R6ymGWYoT6oCdUX?=
+ =?us-ascii?Q?lYd74eIVvxP2YvTb1k5LbMuKDT8Lay+oXvRNTnSPd5lPfY0A8To4EtWSWrm2?=
+ =?us-ascii?Q?5tOcbxgwxTN6z97Me3REm33c79BrLSq70LsoVJF8xFHv6I8YU0rMzeCMS+4B?=
+ =?us-ascii?Q?ddlq7/yC3gb8HzKnt2NMar11CWCKOMVIvpCgU+hAk4qPbE6eqUeqsvvt/orj?=
+ =?us-ascii?Q?2CTzcaFXjB8ZYeRiwXwGAgtPGYl78L/rfpjdWp5oh6oYzONKXeo2FaFvukND?=
+ =?us-ascii?Q?HRf4/P+C7GvCizQvmnBZuyqNRIM0pl+xay8WQ8ToOC9zB9S4tOokr2VixFbI?=
+ =?us-ascii?Q?eNamzAitJhKAjaeqFs0RMPVYIDxspStjnLNCOidZtv/OkEVZG8/YkPxiY/kc?=
+ =?us-ascii?Q?DrbzOZMuT5dsh2guj+IdTmCwMQNt1bTDnDwfU+DdlVlHrBfgHOiZtoN8dEzA?=
+ =?us-ascii?Q?xXsu1wi2nrTeQOyn/2AijZX2cbBX+hDCwYgVbGOWKRdbrQgmC3qWtofsiJnU?=
+ =?us-ascii?Q?xqlqWXpyRJHKBd/ViYDjaAyAe1A1g2lg1sjETNDs5V68YMznENk/8SrcU6Wh?=
+ =?us-ascii?Q?xqv0sgQ0dfPP1Ml8bcyK3Dj3Owz2Ufcj4Zvbdmj90GUailJq5tZA0nTHfFKF?=
+ =?us-ascii?Q?gAqlGbNqhJm2lBIGENMEZ0Q1oR+GlGiQDh+AXK+DwcY65IOVxGgBbUHVe6CY?=
+ =?us-ascii?Q?aydp+TDTO5/4KxffPrQTFYXmJCzczUT3U3ENhNwMWXUm9e/1IV4IVvA9g0oI?=
+ =?us-ascii?Q?ZdWr84GCDmeW/w6/ZQQzTXPztJ1QHpBnmmtvCWdiOdLM3JwwoxXEJQQF27hZ?=
+ =?us-ascii?Q?jx9q5V7eT14aP7U957jzP/ll3scgLzeyAqCUwCCfM1it2Aw+yqNu+atMav6P?=
+ =?us-ascii?Q?Gljrl+i5yA78E/Emclo=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ac5a641c-9dd5-487c-3d18-08dde3ecdbc2
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Aug 2025 15:34:19.7571
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Fn2uCqDdBtl/5D6u0L29NHAJNPVrz/Utyrgwe6U3zXsEWfsz7vxTG5YevOOK52aF+ow9wc48E4+WMzgljwjbIQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9301
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_114541_121785_7D39E7DD 
-X-CRM114-Status: GOOD (  16.13  )
+X-CRM114-CacheID: sfid-20250825_083430_324383_39C3A1E1 
+X-CRM114-Status: GOOD (  24.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,45 +169,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > @@ -416,6 +417,24 @@ int drm_mode_object_get_properties(struct drm_mode_object *obj, bool atomic,
-> >                                 continue;
-> >                 }
-> >
-> > +               if (post_blend_color_pipeline && obj->type == DRM_MODE_OBJECT_CRTC) {
-> > +                       struct drm_crtc *crtc = obj_to_crtc(obj);
-> > +                       struct drm_mode_config mode_config = crtc->dev->mode_config;
-> > +
-> > +                       if (prop == mode_config.gamma_lut_property ||
-> > +                           prop == mode_config.degamma_lut_property ||
-> > +                           prop == mode_config.gamma_lut_size_property ||
-> > +                           prop == mode_config.ctm_property)
-> > +                               continue;
-> > +               }
-> > +
-> > +               if (!post_blend_color_pipeline && obj->type == DRM_MODE_OBJECT_CRTC) {
-> > +                       struct drm_crtc *crtc = obj_to_crtc(obj);
-> > +
-> > +                       if (prop == crtc->color_pipeline_property)
-> > +                               continue;
-> > +               }
->
-> Hmmm. One issue with this is that it makes things like drm_info
-> harder: if drm_info opted into the client cap, it would no longer be
-> able to see any GAMMA_LUT/etc programmed by the prior userspace. So I
-> think allowing at least read-only access would be reasonable here.
-FWIW the cap for per-plane pipelines also hides COLOR_RANGE and
-COLOR_ENCODING properties from the client.
+On Mon, Aug 25, 2025 at 06:10:10PM +0800, Guoniu Zhou wrote:
+> The CSI-2 receiver in the i.MX8ULP is almost identical to the version
+> present in the i.MX8QXP/QM. They both include an optional Control and
+> Status Register (CSR) interface. The csr clock is the input clock for
+> its APB interface. For i.MXQXP/QM, the clock is always on when system
+                                         ^^^^
+Do you means APB clock? you need specific it.
 
-From a compositor POV, I slightly prefer hiding the properties
-entirely, but ignoring them on the compositor side when a color
-pipeline is available would also be trivial.
+> power up. For i.MX8ULP, the clock needs to be controlled by consumer.
 
-> Having a client cap without a driver cap also puts userspace in a
-> difficult position. If the driver doesn't support post-blend colorops,
-> then enabling the client cap strictly removes support without a
-> replacement. And without a driver cap, the client doesn't have a way
-> to know which is better.
+
+> For i.MX8MQ, it doesn't include CSR module.
+
+About reason is enough, you can remove it.
+
+> So add a device-specific
+> compatible string for i.MX8ULP to handle the difference.
 >
-> Cheers,
-> Daniel
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+> ---
+>  .../bindings/media/nxp,imx8mq-mipi-csi2.yaml       | 40 ++++++++++++++++++++--
+>  1 file changed, 38 insertions(+), 2 deletions(-)
+>
+> diff --git a/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
+> index 3389bab266a9adbda313c8ad795b998641df12f3..0bdd419a7ea12651bd514b6570fe208a99f0d6d9 100644
+> --- a/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
+> +++ b/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
+> @@ -21,7 +21,9 @@ properties:
+>            - fsl,imx8mq-mipi-csi2
+>            - fsl,imx8qxp-mipi-csi2
+>        - items:
+> -          - const: fsl,imx8qm-mipi-csi2
+> +          - enum:
+> +              - fsl,imx8qm-mipi-csi2
+> +              - fsl,imx8ulp-mipi-csi2
+>            - const: fsl,imx8qxp-mipi-csi2
+>
+>    reg:
+> @@ -39,12 +41,16 @@ properties:
+>                       clock that the RX DPHY receives.
+>        - description: ui is the pixel clock (phy_ref up to 333Mhz).
+>                       See the reference manual for details.
+> +      - description: csr is the APB pclk for CSR APB interface.
+> +    minItems: 3
+>
+>    clock-names:
+>      items:
+>        - const: core
+>        - const: esc
+>        - const: ui
+> +      - const: csr
+> +    minItems: 3
+
+You loss the restriction for fsl,imx8qm-mipi-csi2 and fsl,imx8qxp-mipi-csi2
+previous is maxItems is 3, now become 4.
+
+Opitons 1:
+
+commit message: allow other platform at add apb clock, which normally
+always on, but real reflact hardware clock's schema.
+
+The key point is
+
+You add new compatible string, which loss clocks and clocks-name restriction
+for exised compatible string. Reviewer is not sure if it is what your
+expected or just a mistake.
+
+If you still have question, please ping me by team.
+
+Frank
+
+>
+>    power-domains:
+>      maxItems: 1
+> @@ -125,19 +131,49 @@ required:
+>    - ports
+>
+>  allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - fsl,imx8ulp-mipi-csi2
+> +    then:
+> +      properties:
+> +        reg:
+> +          minItems: 2
+> +        resets:
+> +          minItems: 2
+> +          maxItems: 2
+> +        clocks:
+> +          minItems: 4
+> +        clock-names:
+> +          minItems: 4
+> +
+>    - if:
+>        properties:
+>          compatible:
+>            contains:
+>              enum:
+>                - fsl,imx8qxp-mipi-csi2
+> +              - fsl,imx8qm-mipi-csi2
+> +          not:
+> +            contains:
+> +              enum:
+> +                - fsl,imx8ulp-mipi-csi2
+>      then:
+>        properties:
+>          reg:
+>            minItems: 2
+>          resets:
+>            maxItems: 1
+
+options:
+	 clocks:
+           maxItems: 3
+         clock-names:
+           maxItems: 3
+
+
+> -    else:
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - fsl,imx8mq-mipi-csi2
+> +    then:
+>        properties:
+>          reg:
+>            maxItems: 1
+>
+> --
+> 2.34.1
+>
 
