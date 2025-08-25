@@ -4,52 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 834C6CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 02:50:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 957D7CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 02:53:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pASWifJy+mDV9TDONvW/oRyWGhZRp7fLEvB1CU+fq5I=; b=OSO6M5GfjHeO4DBAuQMZFAnuAw
-	UlpC3Erxrlzyr/yCqRhEJVCGoxNwL9YarzRwC9cTEaI9BerOBZVJflUMsSaaOP8i4TtCqB7HhuC1y
-	FWmhttBB9Q0SXuD2ND6tf4d5IISB8EVdxfm8IeJzYMNBrhPIRFBYP8g+J4haHimnpDabsgrfg6Q4w
-	EZE0bHkr/HwxNCr1dgRFK9TOS55Z87ikv4qcZfL7ofunE0s/yI+oGmjM0do8su3iAx8QlKyEDcQK7
-	o46pDrhlsap0Wge8Oy9ltfShW8DSbkIYe4nQcdwGjLrc3p0sTzUUgDB25UOM9JQ6C9ThQvFychpVG
-	DCmq3uBg==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vupsa8Wc+11LT8Bhr83RtnZuvmp0CEA2CGtItKye+4c=; b=XblBTtDg0tXNv9rpZoX9Sz0NsC
+	wTmelyaZZpBLv+SYHEDKwYMxkVHnG+2OXgmgLaP3Fnc7ZUMFr+zE8jwnfqN8Y741722KOQrPShUKO
+	K37rzktAjPwdtGQNC3xq7huqToZ8u7TjV8q/SVg+HpWH5rEcwjdMvSzGuhLzBU13dcMRaI+OpY4Gh
+	V6JAW6Vk//JU8UcILP7u2x4Q2mVqErM0wN026h09W5h0vDejkMP7sQtyKBv5X7VT/opv30fsn0fNl
+	cB+IV0RO36mMmtlaaFyHdYc+O+QEWqxOL1i6Sp60gMS2pL1IYIlNmKQAVX3UsMAc8cvNA3KEq1B6k
+	ATclaHEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqNHq-00000006l0u-02Bd;
-	Mon, 25 Aug 2025 02:50:22 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1uqNKQ-00000006lFC-3AaB;
+	Mon, 25 Aug 2025 02:53:02 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqNFB-00000006ks1-3cK4
+	id 1uqNFB-00000006ks5-3GiD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 02:47:39 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.194])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4c9FZJ51K2z14LnR;
-	Mon, 25 Aug 2025 10:47:20 +0800 (CST)
-Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 95C2B140133;
-	Mon, 25 Aug 2025 10:47:26 +0800 (CST)
+	Mon, 25 Aug 2025 02:47:40 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.44])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4c9FW60gDVz2VRKL;
+	Mon, 25 Aug 2025 10:44:34 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 2995B14027A;
+	Mon, 25 Aug 2025 10:47:29 +0800 (CST)
 Received: from kwepemq200004.china.huawei.com (7.202.195.237) by
- dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 25 Aug 2025 10:47:26 +0800
+ 15.2.1544.11; Mon, 25 Aug 2025 10:47:29 +0800
 Received: from huawei.com (10.90.31.46) by kwepemq200004.china.huawei.com
  (7.202.195.237) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 25 Aug
- 2025 10:47:25 +0800
+ 2025 10:47:28 +0800
 From: Zhou Wang <wangzhou1@hisilicon.com>
 To: <kvmarm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
 CC: <maz@kernel.org>, <oliver.upton@linux.dev>, <tangnianyao@huawei.com>,
 	<wangwudi@hisilicon.com>, <liuyonglong@huawei.com>,
 	<prime.zeng@hisilicon.com>, Zhou Wang <wangzhou1@hisilicon.com>
-Subject: [PATCH v2 0/4] Add workaround for HIP10/HIP10C erratum 162200802
-Date: Mon, 25 Aug 2025 10:39:50 +0800
-Message-ID: <20250825023954.3516381-1-wangzhou1@hisilicon.com>
+Subject: [PATCH v2 1/4] KVM: arm64: Allow userspace to write GICD_TYPER.num_LPIs
+Date: Mon, 25 Aug 2025 10:39:51 +0800
+Message-ID: <20250825023954.3516381-2-wangzhou1@hisilicon.com>
 X-Mailer: git-send-email 2.30.0
+In-Reply-To: <20250825023954.3516381-1-wangzhou1@hisilicon.com>
+References: <20250825023954.3516381-1-wangzhou1@hisilicon.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -57,9 +59,8 @@ X-Originating-IP: [10.90.31.46]
 X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
  kwepemq200004.china.huawei.com (7.202.195.237)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_194738_064920_976E4D87 
-X-CRM114-Status: UNSURE (   9.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250824_194738_120251_D98868B0 
+X-CRM114-Status: GOOD (  18.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,35 +75,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As the discussion from V1 series, V2 series firstly adds GICD.num_LPIs
-writable support, then add HiSilicon erratum 162200802.
+Allow userspace to write GICD_TYPER.num_LPIs. If GICD_TYPER.num_LPIs is
+0, number of LPIs is indicated by GICD_TYPER.IDbits, so the default
+value of GICD_TYPER.num_LPIs is still set as 0.
 
-Erratum number should be 162200802, make a mistake in V1, so fix it as
-well.
+Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
+---
+ arch/arm64/kvm/vgic/vgic-init.c       |  2 ++
+ arch/arm64/kvm/vgic/vgic-its.c        |  9 +++++++--
+ arch/arm64/kvm/vgic/vgic-kvm-device.c |  1 +
+ arch/arm64/kvm/vgic/vgic-mmio-v3.c    | 16 ++++++++++++++++
+ include/kvm/arm_vgic.h                |  1 +
+ include/linux/irqchip/arm-gic-v3.h    |  1 +
+ 6 files changed, 28 insertions(+), 2 deletions(-)
 
-Zhou Wang (4):
-  KVM: arm64: Allow userspace to write GICD_TYPER.num_LPIs
-  KVM: arm64: selftests: Add test for GICD.num_LPIs
-  Documentation: KVM: arm64: Add GICD_TYPER.num_LPIs writable
-    description
-  ARM64: errata: Add workaround for HIP10/HIP10C erratum 162200802
-
- Documentation/arch/arm64/silicon-errata.rst   |  2 ++
- .../virt/kvm/devices/arm-vgic-v3.rst          |  6 ++++
- arch/arm64/Kconfig                            | 12 +++++++
- arch/arm64/include/asm/cputype.h              |  4 +++
- arch/arm64/kernel/cpu_errata.c                | 15 +++++++++
- arch/arm64/kvm/vgic/vgic-init.c               |  9 +++++
- arch/arm64/kvm/vgic/vgic-its.c                |  9 +++--
- arch/arm64/kvm/vgic/vgic-kvm-device.c         |  1 +
- arch/arm64/kvm/vgic/vgic-mmio-v3.c            | 22 +++++++++++++
- arch/arm64/tools/cpucaps                      |  1 +
- include/kvm/arm_vgic.h                        |  1 +
- include/linux/irqchip/arm-gic-v3.h            |  1 +
- tools/testing/selftests/kvm/arm64/vgic_init.c | 33 +++++++++++++++++++
- .../selftests/kvm/include/arm64/gic_v3.h      |  2 ++
- 14 files changed, 116 insertions(+), 2 deletions(-)
-
+diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+index 1e680ad6e863..46468cb97536 100644
+--- a/arch/arm64/kvm/vgic/vgic-init.c
++++ b/arch/arm64/kvm/vgic/vgic-init.c
+@@ -389,6 +389,7 @@ int vgic_init(struct kvm *kvm)
+ 	/* freeze the number of spis */
+ 	if (!dist->nr_spis)
+ 		dist->nr_spis = VGIC_NR_IRQS_LEGACY - VGIC_NR_PRIVATE_IRQS;
++	dist->nr_lpis = 0;
+ 
+ 	ret = kvm_vgic_dist_init(kvm, dist->nr_spis);
+ 	if (ret)
+@@ -428,6 +429,7 @@ static void kvm_vgic_dist_destroy(struct kvm *kvm)
+ 	kfree(dist->spis);
+ 	dist->spis = NULL;
+ 	dist->nr_spis = 0;
++	dist->nr_lpis = 0;
+ 	dist->vgic_dist_base = VGIC_ADDR_UNDEF;
+ 
+ 	if (dist->vgic_model == KVM_DEV_TYPE_ARM_VGIC_V3) {
+diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+index 7368c13f16b7..d8ee617cfa6f 100644
+--- a/arch/arm64/kvm/vgic/vgic-its.c
++++ b/arch/arm64/kvm/vgic/vgic-its.c
+@@ -377,9 +377,14 @@ static void update_affinity_collection(struct kvm *kvm, struct vgic_its *its,
+ 	}
+ }
+ 
+-static u32 max_lpis_propbaser(u64 propbaser)
++static u32 max_lpis_propbaser(struct vgic_dist *dist)
+ {
++	u64 propbaser = dist->propbaser;
+ 	int nr_idbits = (propbaser & 0x1f) + 1;
++	int nr_lpis = dist->nr_lpis;
++
++	if (nr_lpis)
++		return min(8192 + nr_lpis, 1 << nr_idbits);
+ 
+ 	return 1U << min(nr_idbits, INTERRUPT_ID_BITS_ITS);
+ }
+@@ -1047,7 +1052,7 @@ static int vgic_its_cmd_handle_mapi(struct kvm *kvm, struct vgic_its *its,
+ 	else
+ 		lpi_nr = event_id;
+ 	if (lpi_nr < GIC_LPI_OFFSET ||
+-	    lpi_nr >= max_lpis_propbaser(kvm->arch.vgic.propbaser))
++	    lpi_nr >= max_lpis_propbaser(&kvm->arch.vgic))
+ 		return E_ITS_MAPTI_PHYSICALID_OOR;
+ 
+ 	/* If there is an existing mapping, behavior is UNPREDICTABLE. */
+diff --git a/arch/arm64/kvm/vgic/vgic-kvm-device.c b/arch/arm64/kvm/vgic/vgic-kvm-device.c
+index 3d1a776b716d..f4268b60c4dd 100644
+--- a/arch/arm64/kvm/vgic/vgic-kvm-device.c
++++ b/arch/arm64/kvm/vgic/vgic-kvm-device.c
+@@ -514,6 +514,7 @@ static bool reg_allowed_pre_init(struct kvm_device_attr *attr)
+ 		return false;
+ 
+ 	switch (attr->attr & KVM_DEV_ARM_VGIC_OFFSET_MASK) {
++	case GICD_TYPER:
+ 	case GICD_IIDR:
+ 	case GICD_TYPER2:
+ 		return true;
+diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+index a3ef185209e9..3a53b63f7b20 100644
+--- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
++++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+@@ -90,6 +90,8 @@ static unsigned long vgic_mmio_read_v3_misc(struct kvm_vcpu *vcpu,
+ 		if (vgic_has_its(vcpu->kvm)) {
+ 			value |= (INTERRUPT_ID_BITS_ITS - 1) << 19;
+ 			value |= GICD_TYPER_LPIS;
++			if (vgic->nr_lpis)
++				value |= (ilog2(vgic->nr_lpis) - 1) << 11;
+ 		} else {
+ 			value |= (INTERRUPT_ID_BITS_SPIS - 1) << 19;
+ 		}
+@@ -167,6 +169,20 @@ static int vgic_mmio_uaccess_write_v3_misc(struct kvm_vcpu *vcpu,
+ 	u32 reg;
+ 
+ 	switch (addr & 0x0c) {
++	case GICD_TYPER:
++		reg = vgic_mmio_read_v3_misc(vcpu, addr, len);
++
++		if (reg == val)
++			return 0;
++		if (vgic_initialized(vcpu->kvm))
++			return -EBUSY;
++		if ((reg ^ val) & ~GICD_TYPER_NUM_LPIS_MASK)
++			return -EINVAL;
++		if (GICD_TYPER_NUM_LPIS(val) > INTERRUPT_ID_BITS_ITS)
++			return -EINVAL;
++
++		dist->nr_lpis = 2 ^ GICD_TYPER_NUM_LPIS(val);
++		return 0;
+ 	case GICD_TYPER2:
+ 		reg = vgic_mmio_read_v3_misc(vcpu, addr, len);
+ 
+diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
+index 404883c7af6e..774bfd008230 100644
+--- a/include/kvm/arm_vgic.h
++++ b/include/kvm/arm_vgic.h
+@@ -303,6 +303,7 @@ struct vgic_dist {
+ 	 * else.
+ 	 */
+ 	struct its_vm		its_vm;
++	int			nr_lpis;
+ };
+ 
+ struct vgic_v2_cpu_if {
+diff --git a/include/linux/irqchip/arm-gic-v3.h b/include/linux/irqchip/arm-gic-v3.h
+index 70c0948f978e..517d9f2edc44 100644
+--- a/include/linux/irqchip/arm-gic-v3.h
++++ b/include/linux/irqchip/arm-gic-v3.h
+@@ -85,6 +85,7 @@
+ #define GICD_TYPER_ESPI			(1U << 8)
+ 
+ #define GICD_TYPER_ID_BITS(typer)	((((typer) >> 19) & 0x1f) + 1)
++#define GICD_TYPER_NUM_LPIS_MASK	GENMASK(15, 11)
+ #define GICD_TYPER_NUM_LPIS(typer)	((((typer) >> 11) & 0x1f) + 1)
+ #define GICD_TYPER_SPIS(typer)		((((typer) & 0x1f) + 1) * 32)
+ #define GICD_TYPER_ESPIS(typer)						\
 -- 
 2.33.0
 
