@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF70BCA0FE1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 08:34:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04D61CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 08:37:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Cc:Subject:Message-Id:Date:Content-Type:Reply-To:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=80dzrh8aYZfGg2XUHBNmSgUetz0wp59La7rrflIHLYk=; b=HED0LxBjDqsOMAvCuffPH52h+B
-	5gHGRD/v23FlOTp1JhQPLZIxJy4MQt32T3m/P11Qs9VQaPlJ6rGwr8Njxwyhr2glQxZtt2xU6+AHl
-	OtvS1i/3h+1eJHIiFhK43nCTE744uhOr0b2TE4TVW5SEMuJaLsic/8vu/vygaVWK/PAIBKUOJ3N37
-	2lkgD5c55IbM8xhfiLjJfTe/3liFyLd1sZEBwuRqtdoqOkk87Pbp6dzr2Ae1x2Ho8ElNOvsq7+UrT
-	IjFOBvdVoUs74XDHbG5VmJF1USOq38xIO7voNd0LtzC18jO2SJt0GAjvTTFNCP1Dz9u388uF/YXkw
-	X8fUFv0Q==;
+	bh=nGWCOM3e+bRXnE2xzumNuc9vBFJEQJOY8QZmmJ0IlQQ=; b=bOvILIEm3jnV7SpFgzitltXjo/
+	ZFqPKPbiI1DuqO2iMto5PVPOBlt5f0fT825nf3zAklHtFy2tDFo4tKXFtckxX9aXe1JHl4KUfOAx7
+	0HRv9tYz8g5+fZWYg2iQh1yO1CVU0iFYFcCef4ZsxlTgxAMtkA2p7KYqWya2mddiyZiWbbs5FGpJB
+	CVMxYJWsWH861ulSIpM+IOWBzymzkaJgqfLPdZHJGOcoBNr8w1bNQshpvYKaOO/CB8whzhZ//gO2w
+	dYY7aPH61N8NwXFsrkCoSdw8ipdq4lb5BSNEyW1HvQ6rS5uYWMjZ+SpwGoqtq2G6Dz+swJUO4k4MM
+	xXP2DdvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqSeo-00000007KH7-04TV;
-	Mon, 25 Aug 2025 08:34:26 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1uqShR-00000007L4m-03bi;
+	Mon, 25 Aug 2025 08:37:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqRwI-00000007D0r-0b9W;
-	Mon, 25 Aug 2025 07:48:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1756108093; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Mif53jBa6MJhiFA3/aeaKEpanFEPOgAIH7H2ZuUdsrAtRPu/MgbOT3DP6FBY2rj6ePbMjSECj12yIiQqzo9EC3onYNcemMOPA7kexfcK9xKDYPuR6j4sRJVelnLZBLEQG0X38Apa47eBKSzmFFuNz9vrZ2uFGldXO/K346zQY/c=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1756108093; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=80dzrh8aYZfGg2XUHBNmSgUetz0wp59La7rrflIHLYk=; 
-	b=hTrQDB+vFRUoh2TzCLNct7ZH6mA+ZiLxyi08MHJ278n9kJefJSS8W0fZv6yV5vnJvzDAcQZhLzydoq1k/A5PczB6y4tbslyaC/qdgSZhpG/4L25+svqU468G3JXb+BZHKPSOMfmr/+kta3MYdiQArODPHxGvpuzc+7VGFRmUwYk=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1756108093;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=80dzrh8aYZfGg2XUHBNmSgUetz0wp59La7rrflIHLYk=;
-	b=F+CZpcEHNCcVVD5E2eusUhfW3VOUS/ZWUIpDXxI5z5QeKjtOV9RCcGxyZ/bOxE14
-	x+XVoB1b6xaPLKM4peUQofBqgx8GIHy0CMMo5WJvpvX22tuJAS78545/+5x34SM4fh0
-	HU9zR45BRWmSNqHl8sXRyIGwQroD2o9wsHxVH/9U=
-Received: by mx.zohomail.com with SMTPS id 1756108090913704.2939268893988;
-	Mon, 25 Aug 2025 00:48:10 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Stephen Boyd <sboyd@kernel.org>
-Cc: kernel@collabora.com, linux-kernel@vger.kernel.org,
- linux-mmc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-phy@lists.infradead.org,
- linux-sound@vger.kernel.org, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com, linux-pci@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-clk@vger.kernel.org, llvm@lists.linux.dev
-Subject: Re: [PATCH v2 19/20] clk: sp7021: switch to FIELD_PREP_WM16 macro
-Date: Mon, 25 Aug 2025 09:48:05 +0200
-Message-ID: <2795210.mvXUDI8C0e@workhorse>
-In-Reply-To: <175340605069.3513.18204498860033427106@lazor>
-References: <20250623-byeword-update-v2-0-cf1fc08a2e1f@collabora.com>
- <20250623-byeword-update-v2-19-cf1fc08a2e1f@collabora.com>
- <175340605069.3513.18204498860033427106@lazor>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+	id 1uqS1S-00000007E6k-2xo6
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 25 Aug 2025 07:53:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 16BA544960;
+	Mon, 25 Aug 2025 07:53:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16345C4CEED;
+	Mon, 25 Aug 2025 07:53:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756108425;
+	bh=siHquftZz0T1lNm1I/MwnFut9RzLZNKPq03XuIRiIPo=;
+	h=Date:Subject:Cc:From:To:References:In-Reply-To:From;
+	b=k8k6sKazH9DJEFs5CtJJZLnhiTBHEO1bX/rnpwXPJNZo48yymmubbIOmwJXqmv3ZT
+	 SXMv8m+oCNZ4P77DBsHf83wsZJBEwPkYslRFxaRNV+8uFmTJwqoQnOnwxwIImhSujO
+	 ni/5YRSbxTbT41bL5jHSDuALdxqcnA4cXU5ObFuGB3xObZAq6i4/BPlzIl3Zgdmz0S
+	 WqoV7Ysfn9mtf77GxKI1gNL7195/rMrSIzzXw+s2BnenqJqgy2M9yC4U4CYB2oU/ub
+	 nv7PO6XkeDpTpKuL+SR6yzrdxjS7GHP8IcX6ZrK84U9e7fkyamhoXFLjPCDukgNsM8
+	 88TAAehP6HF9g==
+Content-Type: multipart/signed;
+ boundary=4ea3e07d3396ec2b46c8f27f87f01aae1de62acf24971f2d21860800c284;
+ micalg=pgp-sha384; protocol="application/pgp-signature"
+Date: Mon, 25 Aug 2025 09:53:41 +0200
+Message-Id: <DCBCHBIVM5IE.12J0BRE4I5KXZ@kernel.org>
+Subject: Re: [PATCH v1 0/7] Initial Kontron SMARC-sAM67 support
+Cc: <devicetree@vger.kernel.org>, "Tero Kristo" <kristo@kernel.org>, "Jean
+ Delvare" <jdelvare@suse.com>, "Srinivas Kandagatla" <srini@kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-watchdog@vger.kernel.org>,
+ "Wim Van Sebroeck" <wim@linux-watchdog.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Lee Jones"
+ <lee@kernel.org>, <linux-hwmon@vger.kernel.org>, "Vignesh Raghavendra"
+ <vigneshr@ti.com>, "Nishanth Menon" <nm@ti.com>,
+ <linux-kernel@vger.kernel.org>, "Guenter Roeck" <linux@roeck-us.net>
+From: "Michael Walle" <mwalle@kernel.org>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+X-Mailer: aerc 0.16.0
+References: <20250822131531.1366437-1-mwalle@kernel.org>
+ <175589786195.518444.15005080125108403794.robh@kernel.org>
+In-Reply-To: <175589786195.518444.15005080125108403794.robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_004826_250656_47397A73 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20250825_005346_761878_DFBD4B0A 
+X-CRM114-Status: UNSURE (   6.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,28 +80,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Friday, 25 July 2025 03:14:10 Central European Summer Time Stephen Boyd wrote:
-> Quoting Nicolas Frattaroli (2025-06-23 09:05:47)
-> > The sp7021 clock driver has its own shifted high word mask macro,
-> > similar to the ones many Rockchip drivers have.
-> > 
-> > Remove it, and replace instances of it with hw_bitfield.h's
-> > FIELD_PREP_WM16 macro, which does the same thing except in a common
-> > macro that also does compile-time error checking.
-> > 
-> > This was compile-tested with 32-bit ARM with Clang, no runtime tests
-> > were performed as I lack the hardware. However, I verified that fix
-> > commit 5c667d5a5a3e ("clk: sp7021: Adjust width of _m in HWM_FIELD_PREP()")
-> > is not regressed. No warning is produced.
-> 
-> Does it generate the same code before and after?
-> 
+--4ea3e07d3396ec2b46c8f27f87f01aae1de62acf24971f2d21860800c284
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Yes, the generated machine code is exactly the same, at least with
-clang, and I'll assume it'll be the same for gcc.
+On Fri Aug 22, 2025 at 11:27 PM CEST, Rob Herring (Arm) wrote:
+> New warnings running 'make CHECK_DTBS=3Dy for arch/arm64/boot/dts/ti/' fo=
+r 20250822131531.1366437-1-mwalle@kernel.org:
+>
+> arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-base.dtb: pmic@44 (ti,tps652=
+g1): 'gpio-line-names' does not match any of the regexes: '^buck([1-5]|12|3=
+4|123|1234)-supply$', '^ldo[1-4]-supply$', '^pinctrl-[0-9]+$'
+> 	from schema $id: http://devicetree.org/schemas/mfd/ti,tps6594.yaml#
 
-Kind regards,
-Nicolas Frattaroli
+Damn, very late change on the device tree :o I'll add a new patch to add
 
+  gpio-line-names: true
 
+to bindings/mfd/ti,tps6594.yaml
+
+-michael
+
+--4ea3e07d3396ec2b46c8f27f87f01aae1de62acf24971f2d21860800c284
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCaKwWhRIcbXdhbGxlQGtl
+cm5lbC5vcmcACgkQEic87j4CH/gPpgF+MlSY31S0rn1uDnKEPRt4gulqhcaJE2kZ
+Hy1IB+bI3+b9ZHbrP259Ugakq5SnfCa5AYCq7S6UcN4nPsU+gNFqo7B76clPp/xf
+6zY9VAtwCedukMzpOu/ekK8Jl3HXM63sn+Q=
+=KZxC
+-----END PGP SIGNATURE-----
+
+--4ea3e07d3396ec2b46c8f27f87f01aae1de62acf24971f2d21860800c284--
 
