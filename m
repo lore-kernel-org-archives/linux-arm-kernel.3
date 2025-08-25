@@ -4,101 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D997FCA0FE7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 19:08:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E875CA0FE7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 19:35:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bvfYaRBOsqgg9T3AWRsCKLpVkMgeI8wkL7WYk9/VCmQ=; b=dIbC8JGfX5YCbe2xFKoX7sybUu
-	LwvFaoxvKDrBWg6HcviCPA8d3qB4CT27U2YGgnzDYVDGvVW+llZrB8HmvKg/yRVtouWme8/9d0NBm
-	TfUbbekLOq3GClRp5HKYTomfnrJAhOidM59zp25mz4xyoAlGJPC+6dQLVeOBWbsT+2J0abm8AqB4t
-	O4JOuxpkMNH6Q1FIqZkCBpCsw7v+tJ/sGT4rngt0Q2FqJeURE6mcgx0TZgtlvvS4s49CLmrD8inGW
-	q1YsXk8/y105EK86Tz7r2/vtMb9I3HglvbuP7dDVji4dVsJtirA4bkXrjmHMLb/5YUVFTmiJYc/v6
-	hWGwsG3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=81ThnHgRyfJ3VAWTq+xvaABvLIKtK3i4qxFSEaYkKCo=; b=DvSw25sLyiCDTp4hddGcJezysn
+	I3F8UP0gb07lEhC65mjBwprgwgevIjZSobZCMql7Wx3Lmd/ZxJOY2d6xVHoEAyDnu7YheyJ/PLxST
+	30Mep/rRCvnKtrOvq3mQbYL44G/kKJtrIzWNxCBp7Wd9O3aG2yV/WKz9qNVvs1huM2HipEl3K+kLg
+	Hl2injthP/fjJmc+eURxYob4bnreoZJt1tZRQELVJ28UzoMrM/Xsok2sT7WPj16pIbSnFpqbPZKsL
+	W4KyLMGFaWzg9T2bA1IcAtLOTh3A0j1hOolMOvyonpdq6tBfOCpl9juFzpEU8nM/jwKdOmzArz4gi
+	E0kwAM2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqcYJ-00000009AyG-1l9w;
-	Mon, 25 Aug 2025 19:08:23 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uqcyB-00000009MJI-0wWo;
+	Mon, 25 Aug 2025 19:35:07 +0000
+Received: from mta.outflux.net ([2001:19d0:2:6:c0de:0:736d:7471] helo=smtp.outflux.net)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqade-00000008mgr-01gd
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 17:05:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756141543;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bvfYaRBOsqgg9T3AWRsCKLpVkMgeI8wkL7WYk9/VCmQ=;
-	b=cYazCprx42BX0fEeZkwW84GGNgUABkLY1mDCwnmi253D9t9OhCu+kgPea/SbLVCWXht3+G
-	+B/ERt/f/80P1uDYefXYkaaCWETy33DrQDqrZ717K/vx8xXomOzEPBwgudPgU+a3Y+eYj2
-	CC5+Vb1Lr/VtSJbgImMNn09aCvC7MIc=
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
- [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-450-Imj-0ne6PyWvZA658Mozmg-1; Mon, 25 Aug 2025 13:05:42 -0400
-X-MC-Unique: Imj-0ne6PyWvZA658Mozmg-1
-X-Mimecast-MFC-AGG-ID: Imj-0ne6PyWvZA658Mozmg_1756141541
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-70d9a65c18fso96241596d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 10:05:42 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756141541; x=1756746341;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bvfYaRBOsqgg9T3AWRsCKLpVkMgeI8wkL7WYk9/VCmQ=;
-        b=hO2+BRUJYDHaOZP99wM+ahktPQpxS3oG0Sbag6Ru7ujsn8mcWZeAJuCmNwvdSu09SC
-         OCbW64N5H/2MSifMOHjWr+Tnem/YxwHUOphNHN/CNk4o34nQsmlXDyqpk9ygGbX4SSSP
-         b1CzfDv5HjIxugWaMGE0RW8PSh4WxRP20CkXFfNPuXtJd+EOki4ulHrHybVt1p3sR7lj
-         0zlQjkXYa3llRnLUFerFYtZhvi69nJeJXnAO1O6MTbX1vYZAhx97kikfw8801iF3QooJ
-         AsxGhsNZqsmytfJ/6tbYsD/lGVj09oQQPEJjoxeV5zhevy6kvF+v77+BhP4s35iL7HAV
-         2tbw==
-X-Forwarded-Encrypted: i=1; AJvYcCWoDVZyQL1xcsNBSk87o7qLNXSr2+JPfoKfmTR6WT2cgnjhnuiJwKRFUUKPFRbngHdQ/t+y1gxpoo/UHQyfevu7@lists.infradead.org
-X-Gm-Message-State: AOJu0YxE8s3GLZLlm0YzeL9ugMm3Tj/x1eKCunt/xNFOOeuF67HLWl7A
-	G7AY8NBKWMUDBxZy955FfZ8szZxkjdb9M/JOvTIn2kd7kxh85tyw47RBJ1Fq+vu3v7b04Tw0Fbf
-	JLv2ZFqggW8x5mHnNBdU3EC6ZRuCOKMFY19gwX3V7fAlLOTMlgP+yJIkVPPSeoZqEDucAwsTLrr
-	Hd
-X-Gm-Gg: ASbGncvgwydhbKOb6ZlQbHcoOEZS0GI7f9xECBy1Lpt/TB6G7Mu7zc4DSq2nn/MSXSg
-	CiFsYluOp37ZggwtpO5GFhon95AG/VcIXwf4RoL/Z8SEsHXZqxDM3yYdsYqxAU49jOnK621fVwL
-	fQzgmdLd9joeOyJFB7+Ouo1MWKEIvXJ8vJQoaGCDdOwX//R/RYkFev2nYhVzpcHUN2f0n+sNGEv
-	5/lYLG/OADmXJLoJNBehVkOceMg8hzd+ChCAiNH5UC01w4ppDlBbmE6EqyqNABVQLTL8jqpkXfX
-	Ks4qcKie/O8n4HU5tlBzaAbkDcPPcT/Oy8/Aa4P3QQ/a5wJiHecc6aNH6ivxxEtDYu2V4yH0e8l
-	sNQ/5bdd1esGeuVgV1vQ=
-X-Received: by 2002:ad4:5ec5:0:b0:70d:ad2e:cedb with SMTP id 6a1803df08f44-70dad2ed081mr83964516d6.43.1756141541400;
-        Mon, 25 Aug 2025 10:05:41 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGnj7pgLgYj0gnzZFl+kk2EVSGRa08xMAzv363arIwLdssNid6xlYMbYTH85va++EtXnTmBAA==
-X-Received: by 2002:ad4:5ec5:0:b0:70d:ad2e:cedb with SMTP id 6a1803df08f44-70dad2ed081mr83963686d6.43.1756141540665;
-        Mon, 25 Aug 2025 10:05:40 -0700 (PDT)
-Received: from x1 (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-70da714727csm48194826d6.13.2025.08.25.10.05.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 25 Aug 2025 10:05:39 -0700 (PDT)
-Date: Mon, 25 Aug 2025 13:05:37 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Claudiu <claudiu.beznea@tuxon.dev>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, geert+renesas@glider.be,
-	linux@armlinux.org.uk, linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-Subject: Re: [PATCH 0/2] clk: renesas: rzg2l: Disable unused clocks after
- resume
-Message-ID: <aKyX4YJswZLuqA6Y@x1>
-References: <20250821080333.27049-1-claudiu.beznea.uj@bp.renesas.com>
+	id 1uqcvO-00000009KgR-1h7C;
+	Mon, 25 Aug 2025 19:32:15 +0000
+Received: from auth (localhost [127.0.0.1]) (authenticated bits=0)
+	by vinyl.outflux.net (8.15.2/8.15.2/Debian-10) with ESMTPSA id 57PJVcXW012364
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NO);
+	Mon, 25 Aug 2025 12:31:39 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=outflux.net;
+	s=2016010; t=1756150300;
+	bh=Cc0A7KST88BbLESFvBNiNEgFzJEi7Yi2EVmfXhRgL6M=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=dmm7Uk1rljY/b4/3j8njDIEy+Scks4cnfZAOL8qtbXCH9h9jV621co70Fuer5Vf17
+	 2vNGEXeFRnmarqqQKCQXq3nlyBV+sTTzdmwDNFgEktyxTZkW7g83isIllAWQ5Jvik2
+	 /8fn12aBvHvvu5EXYWBmhf7ySJSjrTUnGPHeNjnY=
+Date: Mon, 25 Aug 2025 15:31:34 -0400
+From: Kees Cook <kees@outflux.net>
+To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
+        Kees Cook <kees@kernel.org>
+CC: Peter Zijlstra <peterz@infradead.org>,
+        Sami Tolvanen <samitolvanen@google.com>,
+        Linus Walleij <linus.walleij@linaro.org>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Puranjay Mohan <puranjay@kernel.org>,
+        David Woodhouse <dwmw2@infradead.org>,
+        Jonathan Corbet <corbet@lwn.net>,
+        Nathan Chancellor <nathan@kernel.org>, x86@kernel.org,
+        linux-doc@vger.kernel.org, linux-kbuild@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+        llvm@lists.linux.dev, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH 5/5] kcfi: Rename CONFIG_CFI_CLANG to CONFIG_CFI
+User-Agent: K-9 Mail for Android
+In-Reply-To: <CANiq72mQsLqhpX29NP3Zm8HZ5m429tSXjgFcRYJM3e=Zac1G1w@mail.gmail.com>
+References: <20250825141316.work.967-kees@kernel.org> <20250825142603.1907143-5-kees@kernel.org> <CANiq72kc7Ky6+7Ny7jR04s8vU-g23qBQC0rQrOZDxDzXT+m1TQ@mail.gmail.com> <202508250834.E2456B9@keescook> <CANiq72mQsLqhpX29NP3Zm8HZ5m429tSXjgFcRYJM3e=Zac1G1w@mail.gmail.com>
+Message-ID: <9CCDBE93-7DBD-41D0-B9B6-05900F2AB1EE@outflux.net>
 MIME-Version: 1.0
-In-Reply-To: <20250821080333.27049-1-claudiu.beznea.uj@bp.renesas.com>
-User-Agent: Mutt/2.2.14 (2025-02-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: KXrR6SCrZD94RFgDvT2ioCQgrywXkm6EGezZgukKqzk_1756141541
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-MIMEDefang-Filter: outflux$Revision: 1.316 $
+X-HELO: [IPv6:::1]
+X-Scanned-By: MIMEDefang 2.83
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_100546_112856_5E83FC89 
-X-CRM114-Status: GOOD (  18.70  )
+X-CRM114-CacheID: sfid-20250825_123214_457925_1DE5E44C 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,36 +81,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Claudiu,
 
-On Thu, Aug 21, 2025 at 11:03:30AM +0300, Claudiu wrote:
-> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-> 
-> Hi,
-> 
-> This series disables clocks that remain unused after resume.
-> This is necessary when the resume process is done with the help of the
-> bootloader, as the bootloader enables various clocks when returning from
-> resume.
-> 
-> On the RZ/G3S SoC (where this series was tested), the bootloader enables
-> the SDHI clocks (for all SDHI modules, of which 2 are used by Linux and
-> 1 is unused) and the clocks for a serial IP (unused by Linux).
-> 
-> Testing was done on the RZ/G3S SMARC Carrier II board.
 
-Do you think that other boards would also benefit from this change? If
-so, what do you think about putting the call to register_pm_notifier()
-inside an __init block in clk.c so that this same change doesn't have to
-be implemented across various clk drivers?
+On August 25, 2025 1:00:22 PM EDT, Miguel Ojeda <miguel=2Eojeda=2Esandonis=
+@gmail=2Ecom> wrote:
+>On Mon, Aug 25, 2025 at 5:35=E2=80=AFPM Kees Cook <kees@kernel=2Eorg> wro=
+te:
+>>
+>> Yeah, that's a good idea=2E What the right way to do that?
+>>
+>> config CFI_CLANG
+>>         bool "Use Clang's Control Flow Integrity (CFI)"
+>>         depends on ARCH_SUPPORTS_CFI
+>>         select CFI
+>>
+>> ?
+>
+>I don't recall what is the idiomatic solution for renames, but I
+>remember Linus talking about this topic and about avoiding losing old
+>values if possible (perhaps getting a new question in `oldconfig` is
+>OK as long as the `olddefconfig` respects the old value)=2E
+>
+>I think your suggestion above will still make it appear twice in
+>`menuconfig` -- there may be a way to play with visibility to make it
+>better=2E
+>
+>A simple possibility I can think of (assuming it works) is having the
+>CFI symbol for the time being introduced just as a `def_bool
+>CFI_CLANG` for a few releases so that people get the new one in their
+>configs=2E
 
-Alternatively, if this is board specific, could this be fixed in the
-boot loader so that the clock that's not used by Linus is properly shut
-down on resume?
+Ah, I think this works:
 
-I'm not the subsystem maintainer, so I'm not asking you to make any of
-these changes.
+config CFI_CLANG
+    bool
 
-Brian
+config CFI
+    bool "=2E=2E=2E=2E"
+    default CFI_CLANG
 
+I will add that for v2=2E
+
+-Kees
+
+--=20
+Kees Cook
 
