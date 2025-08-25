@@ -4,67 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A8ACCA0FE7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 20:10:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B3D7CA0FE7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 20:13:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
-	From:Subject:Message-ID:Mime-Version:Date:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8pR7rIORhhha7uQoj/L4UbVHOw9HCPKdRxBVZAbw60c=; b=eCzn8BWuOYy9T0nJyl976wcTLw
-	1ZFWYxFD/bgzfLyTHKbIX5clnb42TvgitWB17FPPgQIGkoj+TFcTLRHKXcp7Fb/YrDjdwnhagSf8v
-	1X9y97ZeRz29J7s8R92S2tCQjl4MSoalPUvQnMCPQ36/y3cx5tjRYb8se0thucX5dmlcPXKfTR/7K
-	e4WUx+Kz6+X/a33kab6UMLEenFYLUU9h7DmKYGs0eOgdjTx0G83SKhtmneICTKo3E0NPMI2PcmpoP
-	Ft2/GD8yvPB8lKPWaGTb3e7o7b0ycdg/FgeAFXhxb8jOe8I222fnkLwG+w41/LAuK+i8mzPRzNNLr
-	KMeaZcBg==;
+	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n6KAJgpe+g35DHpdkouiNXTkH/lGhIRNqTvdrNu3evo=; b=kTYNaRai/6SnRKj5q/fpmOWuJA
+	nurfAdk4iCPm5bMPsqE/3qWRDjTCEGuQFGDV9ifcM0WFnSCX/zzf7gqbAAFMAqlJWwcLbtkz/BhAr
+	GSeY2oUa68l+W2slfamLLt76Zwslnw5+FZU4oxcOu1wADezzGCv7er+afMy9IEzESC7fksT0yPz9V
+	km1QdiQYp78Z6wY9ayCrMibvBofwm7w6lF5OJvAO+z8fH5XIS4fmfFqqLnt2dT7JFJVI6HcqDc/Ds
+	2styhp27wuUs1WhbyUHpeg+kNAK/l/nzQDuYguTfal2tI2trkt0d5B3KZyIIlBueCwo3SyVEWfeZm
+	6zkYukOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqdWG-00000009W6W-2VAn;
-	Mon, 25 Aug 2025 20:10:20 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1uqdYx-00000009WXc-1rp7;
+	Mon, 25 Aug 2025 20:13:07 +0000
+Received: from mail-pg1-f201.google.com ([209.85.215.201])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqdSU-00000009Ule-4Ad1
+	id 1uqdSX-00000009Uo9-0jcD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 20:06:28 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-3253c517fecso2671193a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 13:06:26 -0700 (PDT)
+	Mon, 25 Aug 2025 20:06:30 +0000
+Received: by mail-pg1-f201.google.com with SMTP id 41be03b00d2f7-b49c4e7ba85so1528260a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 13:06:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1756152385; x=1756757185; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8pR7rIORhhha7uQoj/L4UbVHOw9HCPKdRxBVZAbw60c=;
-        b=QtAciMiajsWy7QN0C/UY5PvpBCwaGsuHXpHkZL36Ly+i+wA5rBRKWaaGYfT//aQTWa
-         CoTXLU7CrzQ7BtVefV5RX2HBYmNiY8jpQ0miVa2wgtDapL560Eq9+2t8tTtiBcuj+y9M
-         V+kPk7YO81QTJYt+7sncPDeTvsEoYGByIt5F/s0DJwVnBqItFHHPHOon6x4g8yXlCPay
-         7yQ7OhMGhshpIT4meVguCXG/dyYB6P8JNDOcdu7AI+7ZladDsfDV8XlyPeeU9jf+9t/F
-         rp6k6yQGX5Bd44Wf8NEY6AQ8rJqnrb5OytuhXbHMRyoCETICM80xGiRZY7k3dWX23Jft
-         mErg==
+        d=google.com; s=20230601; t=1756152387; x=1756757187; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=n6KAJgpe+g35DHpdkouiNXTkH/lGhIRNqTvdrNu3evo=;
+        b=HNFfglC5ZJDY0CHIJXtFj9QSU4kEkAnNTerNsplmzP9TTkXD1d+WNBT9gVprCnEDNR
+         fDJTkqLBFvq5RrbQZlCHaOiVEhWZG78iXlITcOFqthk3pY7l+Xz0AkVDJutWo21L7WOi
+         vBpaiNE79N+85I86or4rNeFL8un/gAcQpUSJa1p4DsThlOvdgr0ze7Om2Go8gLw3Ykwu
+         ik6G79XrHzVU+eltN6uwK2+f5vmFuH5lMxRINxaa/YL4tJOZu3JNGwCyB/SH66nMOfY/
+         YbWlykrj/w1I3rXsn1vZGPAdCUBpVIZ8DWAWWGD1wPwSVdjWWznRDMIE5o/waRadBdFG
+         lIUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756152385; x=1756757185;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8pR7rIORhhha7uQoj/L4UbVHOw9HCPKdRxBVZAbw60c=;
-        b=dKyEWBhFJmOgXUhArA9U5jxBqrRqJ8IPNQ6aWVcCPKWywXHwTOnMfqUjGspn8t5Zkg
-         TzNkamO2+7OlqJ09odJc/ONsK3d9uLewNWyBp/4wBFZQhqBv79vhFECdjMDLWLLWQCrc
-         LTkPp8S1NJCyBrlQASlFP9387Y3WnSdF48096fy0bhWiyW6X9EA4CHXtxxVV9NkwHTCt
-         OZgRx1YoOC4t8UP8MUWGz7hYzLGbcgDOD2GbLve9rAtXqVR2jY6v1HNOx0YhDUYtu0j7
-         CEmVdeIb93gWdQqqZPYKYKBbAL4eaLJVZfNHWQSBNtGkBYZPGm3wVtnp9nUStWr9OJky
-         sclA==
-X-Forwarded-Encrypted: i=1; AJvYcCU2Ihl9vmxCothvBV0zjtyJ8SpfBr0U5sH0N+RS7GIDC2KeC0zuvgWYVnXlfCkb9DcIWtEC9J83TM4I5UrXAl2i@lists.infradead.org
-X-Gm-Message-State: AOJu0YwvJI2JJ+FpsJpgVEgaILW+jnrcxbBnsnPI1MFqCo44KXgW05zd
-	o+HwWlZeMnLuE1uWhAZK35zsfMU758PvMEyYzFThYmok1Y4Av/s6UH6sozsDMnKwK9+7mMLH4cO
-	MSd4e1A==
-X-Google-Smtp-Source: AGHT+IEXEoKFvYTs3DYHIb6MyIfVoxfIwlslpUf6Y9Z1lNFDWyuIZVc83JO2uwlvd4IbE+BY+ZPFpeZDEbc=
-X-Received: from pjkk5.prod.google.com ([2002:a17:90b:57e5:b0:325:9fa7:5d07])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2ccd:b0:324:eac4:2968
- with SMTP id 98e67ed59e1d1-32515ee13cdmr17210596a91.33.1756152385445; Mon, 25
- Aug 2025 13:06:25 -0700 (PDT)
-Date: Mon, 25 Aug 2025 13:06:17 -0700
+        d=1e100.net; s=20230601; t=1756152387; x=1756757187;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=n6KAJgpe+g35DHpdkouiNXTkH/lGhIRNqTvdrNu3evo=;
+        b=CVXoquAHNxacjSnSR7fPELE1mp6raTBUXzYJVm7dgbG5Ft8HOOupT3yyUYV7eokH9F
+         hPhwOixUC6AeMoPTNyIJYogOIOLm/jcEFll68/LswtY7l9N4Wqmd0wuo4ywgle725Kxk
+         cF8SHW4M8/h6rhgYDWvRIEVsHAHNaRbRVVydatyocDMpkLHbzcNx6zVgyNybmBGYyHgc
+         D//KOknEzprJSPIXdBJ9Q/BchJbzwWby/uOjTIJvPLhL3DpykRApUsn2mcHw8uuxqauk
+         d1FFK77otDlOA13M2HvG0hz7rX9suxt+a5z5TCjq7bmdCCzrphvx3H9P6xz7tvsYf+Mt
+         9HHw==
+X-Forwarded-Encrypted: i=1; AJvYcCV1qo4NYBZjsfcoBvhyYF9Mt7yOKjPF4l+8ZgNC1QSaecQsU6t8lT7xEJhEPbLFVBHcz7M/BkzPa2Ta0DMMBGtR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/dav0+k7yHDRG8FVbQrTMbRCMRoGRyKYw3rw/INZPw1QihpQ0
+	KqVvGp+OTgum7GxYFO8Kme92NB+SmghPZsn0NgcGxAqc3IgxD102mtT5xic7JLXRO+lNe0Q2Ttb
+	hPZLnfA==
+X-Google-Smtp-Source: AGHT+IF91dn1j6fIvX+uRWorld3If0wpZl5jf5hDJFPUly2WnQsNSAnJfoCi7L3EWOQImM7m2slTmOJmyMA=
+X-Received: from pjbok14.prod.google.com ([2002:a17:90b:1d4e:b0:325:8fba:708c])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:fc4b:b0:246:76ed:e25d
+ with SMTP id d9443c01a7336-24676edecf2mr117886095ad.50.1756152387296; Mon, 25
+ Aug 2025 13:06:27 -0700 (PDT)
+Date: Mon, 25 Aug 2025 13:06:18 -0700
+In-Reply-To: <20250825200622.3759571-1-seanjc@google.com>
 Mime-Version: 1.0
+References: <20250825200622.3759571-1-seanjc@google.com>
 X-Mailer: git-send-email 2.51.0.261.g7ce5a0a67e-goog
-Message-ID: <20250825200622.3759571-1-seanjc@google.com>
-Subject: [PATCH 0/5] Drivers: hv: Fix NEED_RESCHED_LAZY and use common APIs
+Message-ID: <20250825200622.3759571-2-seanjc@google.com>
+Subject: [PATCH 1/5] Drivers: hv: Move TIF pre-guest work handling fully into mshv_common.c
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
@@ -86,8 +89,8 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-hyperv@vger.kernel.org, rcu@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_130627_043058_46C2DB57 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20250825_130629_226400_B4C5BDAE 
+X-CRM114-Status: GOOD (  17.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,51 +106,119 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix a bug where MSHV root partitions don't honor NEED_RESCHED_LAZY, and then
-deduplicate the TIF related MSHV code by turning the "kvm" entry APIs into
-more generic "virt" APIs (which ideally would have been done when MSHV root
-support was added).
+Move the root partition's handling of pending thread work fully into
+mshv_common.c so that the "work pending" and "do work" code is co-located.
+Splitting the flags-to-check logic makes the code unnnecessarily difficult
+to maintain, e.g. it would be all too easy to add a check in "do work" but
+not in "work pending", and vice versa.
 
-Assuming all is well, maybe this could go through the tip tree?
+Note, this adds an extra CALL+RET when no work is pending; that will be
+remedied in the near feature by switching to common virtualization entry
+APIs.
 
-The Hyper-V stuff and non-x86 architectures are compile-tested only.
+No functional change intended.
 
-Sean Christopherson (5):
-  Drivers: hv: Move TIF pre-guest work handling fully into mshv_common.c
-  Drivers: hv: Handle NEED_RESCHED_LAZY before transferring to guest
-  entry/kvm: KVM: Move KVM details related to signal/-EINTR into KVM
-    proper
-  entry: Rename "kvm" entry code assets to "virt" to genericize APIs
-  Drivers: hv: Use common "entry virt" APIs to do work before running
-    guest
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ drivers/hv/mshv.h           |  2 +-
+ drivers/hv/mshv_common.c    | 24 +++++++++++++++++++++++-
+ drivers/hv/mshv_root_main.c | 24 +-----------------------
+ 3 files changed, 25 insertions(+), 25 deletions(-)
 
- MAINTAINERS                                 |  2 +-
- arch/arm64/kvm/Kconfig                      |  2 +-
- arch/arm64/kvm/arm.c                        |  3 +-
- arch/loongarch/kvm/Kconfig                  |  2 +-
- arch/loongarch/kvm/vcpu.c                   |  3 +-
- arch/riscv/kvm/Kconfig                      |  2 +-
- arch/riscv/kvm/vcpu.c                       |  3 +-
- arch/x86/kvm/Kconfig                        |  2 +-
- arch/x86/kvm/vmx/vmx.c                      |  1 -
- arch/x86/kvm/x86.c                          |  3 +-
- drivers/hv/Kconfig                          |  1 +
- drivers/hv/mshv.h                           |  2 --
- drivers/hv/mshv_common.c                    | 22 ---------------
- drivers/hv/mshv_root_main.c                 | 31 ++++-----------------
- include/linux/{entry-kvm.h => entry-virt.h} | 19 +++++--------
- include/linux/kvm_host.h                    | 17 +++++++++--
- include/linux/rcupdate.h                    |  2 +-
- kernel/entry/Makefile                       |  2 +-
- kernel/entry/{kvm.c => virt.c}              | 15 ++++------
- kernel/rcu/tree.c                           |  6 ++--
- virt/kvm/Kconfig                            |  2 +-
- 21 files changed, 49 insertions(+), 93 deletions(-)
- rename include/linux/{entry-kvm.h => entry-virt.h} (83%)
- rename kernel/entry/{kvm.c => virt.c} (66%)
-
-
-base-commit: 1b237f190eb3d36f52dffe07a40b5eb210280e00
+diff --git a/drivers/hv/mshv.h b/drivers/hv/mshv.h
+index 0340a67acd0a..db3aa3831c43 100644
+--- a/drivers/hv/mshv.h
++++ b/drivers/hv/mshv.h
+@@ -25,6 +25,6 @@ int hv_call_set_vp_registers(u32 vp_index, u64 partition_id, u16 count,
+ int hv_call_get_partition_property(u64 partition_id, u64 property_code,
+ 				   u64 *property_value);
+ 
+-int mshv_do_pre_guest_mode_work(ulong th_flags);
++int mshv_do_pre_guest_mode_work(void);
+ 
+ #endif /* _MSHV_H */
+diff --git a/drivers/hv/mshv_common.c b/drivers/hv/mshv_common.c
+index 6f227a8a5af7..1acc47c4be0d 100644
+--- a/drivers/hv/mshv_common.c
++++ b/drivers/hv/mshv_common.c
+@@ -146,7 +146,7 @@ EXPORT_SYMBOL_GPL(hv_call_get_partition_property);
+  *
+  * Returns: 0 on success, -errno on error.
+  */
+-int mshv_do_pre_guest_mode_work(ulong th_flags)
++static int __mshv_do_pre_guest_mode_work(ulong th_flags)
+ {
+ 	if (th_flags & (_TIF_SIGPENDING | _TIF_NOTIFY_SIGNAL))
+ 		return -EINTR;
+@@ -159,4 +159,26 @@ int mshv_do_pre_guest_mode_work(ulong th_flags)
+ 
+ 	return 0;
+ }
++
++int mshv_do_pre_guest_mode_work(void)
++{
++	const ulong work_flags = _TIF_NOTIFY_SIGNAL | _TIF_SIGPENDING |
++				 _TIF_NEED_RESCHED  | _TIF_NOTIFY_RESUME;
++	ulong th_flags;
++
++	th_flags = read_thread_flags();
++	while (th_flags & work_flags) {
++		int ret;
++
++		/* nb: following will call schedule */
++		ret = __mshv_do_pre_guest_mode_work(th_flags);
++		if (ret)
++			return ret;
++
++		th_flags = read_thread_flags();
++	}
++
++	return 0;
++
++}
+ EXPORT_SYMBOL_GPL(mshv_do_pre_guest_mode_work);
+diff --git a/drivers/hv/mshv_root_main.c b/drivers/hv/mshv_root_main.c
+index 72df774e410a..6f677fb93af0 100644
+--- a/drivers/hv/mshv_root_main.c
++++ b/drivers/hv/mshv_root_main.c
+@@ -487,28 +487,6 @@ mshv_vp_wait_for_hv_kick(struct mshv_vp *vp)
+ 	return 0;
+ }
+ 
+-static int mshv_pre_guest_mode_work(struct mshv_vp *vp)
+-{
+-	const ulong work_flags = _TIF_NOTIFY_SIGNAL | _TIF_SIGPENDING |
+-				 _TIF_NEED_RESCHED  | _TIF_NOTIFY_RESUME;
+-	ulong th_flags;
+-
+-	th_flags = read_thread_flags();
+-	while (th_flags & work_flags) {
+-		int ret;
+-
+-		/* nb: following will call schedule */
+-		ret = mshv_do_pre_guest_mode_work(th_flags);
+-
+-		if (ret)
+-			return ret;
+-
+-		th_flags = read_thread_flags();
+-	}
+-
+-	return 0;
+-}
+-
+ /* Must be called with interrupts enabled */
+ static long mshv_run_vp_with_root_scheduler(struct mshv_vp *vp)
+ {
+@@ -529,7 +507,7 @@ static long mshv_run_vp_with_root_scheduler(struct mshv_vp *vp)
+ 		u32 flags = 0;
+ 		struct hv_output_dispatch_vp output;
+ 
+-		ret = mshv_pre_guest_mode_work(vp);
++		ret = mshv_do_pre_guest_mode_work();
+ 		if (ret)
+ 			break;
+ 
 -- 
 2.51.0.261.g7ce5a0a67e-goog
 
