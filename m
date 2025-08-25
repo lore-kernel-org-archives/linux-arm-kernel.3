@@ -4,76 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27214CA0FE7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 20:55:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E289CA0FE7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 20:57:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qx/nBrJgEy4ACj8BLrfZhPmHWNsIJJlIdSPVY29XGDo=; b=3PEOcVhQ0etyJ6ylCwguv4JYjh
-	Q210wwRFmLKlF5lrXzo7AsH7RcggjdBQc0YhTpP1f0FiaPY4/zEk1e6INIVRUrWFekNBuJhlxHqY7
-	zBIHKKqMRbUnxYopCiNQiLMKHKo+OzPBSWgZSNvE9IC4QTpm1kEQlEj7oQzs63FkdHSIOTgBaXmWb
-	XPFAn/n/KJReR9jZpl/dUv8OUo2gIX8ItV8vESNuREeQbFe6539mcOwkOsB5vND4X6QXi6m8teCcT
-	QVfnnSGyKxbXxbcvXHkTYp7BxpuCeEOVEKEBZ92/w/mxCfNZhEAF8TjNXVvCmQ3WS/SrmX2mhAQMG
-	NC1NAG7w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=304g+X8HMdNg1Y9olmLeyO+hMV2r3ASCyS4oyM9+cKU=; b=IGKoSMzbWYqR/C7BkqFI60EsWy
+	RYeYOpi1VBfy8ZhsZ7NDHmZKOP6UJmYxbv9lsW/Zf62nM7w1lP3kkDiMmIq1RqkxzsK8uBwwyHN/g
+	Jia4XIOMxo+68++nKxT6gRDWmCYwYBnyT7m1sb0Swe5F/ji6Icl4UsU3gCI3bran3ySv/FhAutqNy
+	RekxWxTP5tF8xCCwMrpLU9Z8XuIlYQgT8t7tZYoa5NiSZPgbawZRFejPSDd4pyjKhnBUM+qgzQ9lb
+	qvBlEqDJF1Z+EksMT6Jo6j+rN2bFCzln0Awk2uqkftpxbaTM+8USIgxk2WQ0PsWKU5AMDYWDd9fR0
+	+elbIAWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqeDV-00000009hBy-1N9K;
-	Mon, 25 Aug 2025 20:55:01 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1uqeG8-00000009hko-12DF;
+	Mon, 25 Aug 2025 20:57:44 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqeAn-00000009gez-3Bfk
+	id 1uqeBy-00000009guQ-3of9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 20:52:15 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id C277FA0D0C;
-	Mon, 25 Aug 2025 22:52:09 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=Qx/nBrJgEy4ACj8BLrfZ
-	hPmHWNsIJJlIdSPVY29XGDo=; b=KOTwHdFwrlssuKhGmYQi1pNHWmLpcDzUjzuD
-	5aSkfx5fPlX5pUFG2CmstfASRrQ63+dQM5mTlVid5T6muXMYB1NQQUAAIcxcfrzy
-	wHUURmxj/lFJZAf9AZ1E5GPMpW8r0RLdLBSOwLv/moIdG/Q3qaT908u6u1oIgu9b
-	PskeO6wLgT32xzj9mL/h7ao0HKZxhnR/sjaTDQ2sG3vLM4aOncH4LGfBi7Jx7DV3
-	LKXZRwYxi9Q5XbgRNzrXFTTkRSG1Y5FAbUa1UB7b+nUTSwWc1gTqNOsr364oQfPL
-	bctg3oo0ldAphuHR+xxR6pWRCdWendzWdkuHtkXYvmZdnkyoZUElOPHQgszzQzeo
-	CrN51MHMVNPoIq5z/1oRqDhsoVFxFXAcYLVnYeE7H4GvXVtuMemZhTqD+BA/6NwT
-	SqTUsy33vVPmSFJjmn/tvfSVIgrlhtwm6JkSpb07cPbNQMeKU/GxTB2LFnXGrdr/
-	wAwHDZztY0tpsDvixH8M6s2lGM/0u1DDmCxHziFGkzW/J6/LevhVXjR4FN7XRU0w
-	IxboxRGK2GlTkinQ2lm+ZQT8pormbrRNl14AqXHt6qooU9worejDL6dKUzG5O3S3
-	+0g/e1RMg1vpECBPGfocTU2K7/5W0JRByN/Hk/LW6RsMP3DFBCW8B589f4RdeBzx
-	KjxnBXU=
-Message-ID: <8d951db9-80a5-4209-ada5-6bba854e994d@prolan.hu>
-Date: Mon, 25 Aug 2025 22:52:06 +0200
+	Mon, 25 Aug 2025 20:53:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1756155208; x=1787691208;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=s3tmR7nxofceGS0RADamNfNDc9paoHZFEDJVu8jYTu8=;
+  b=hcg+SA8PdBODQtxoUuf8O59CF403mjgLdNtgLc5aj92Y4TnU4WYidPVx
+   u013Z7Rgc3JpvCtW2/JDR7rxc/Z32jEhKILXqxxMhMlClcsrJA23GNFMn
+   8cmAJtCzftdNlb/HpboA7iPWQ50aU6dSKrcnZOCif4l8VLwZSUUtoNPdO
+   vyfbLh1lW3P0WG3+qrDboo1MFzCA+f+2ppdxFw5L1rg3ftEZdNn8YRTdh
+   8LlTyMKKGMr3LX5hDc8dw5X1ZIMVdVdrbx3WpvAk0HAGOvCvAnUECOU37
+   hu+6dEsImx+XZKcg2zVruz5fxeBnwmRPu+Y4OMqaQ5g3pm/rfxM3XHc/O
+   A==;
+X-CSE-ConnectionGUID: No3S9QQHRtyx11rSzIO+ug==
+X-CSE-MsgGUID: lV/dXThcQiifFbxbGibA4Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="62205757"
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
+   d="scan'208";a="62205757"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Aug 2025 13:52:43 -0700
+X-CSE-ConnectionGUID: F+7z9UEqTpCLzRepANTSzQ==
+X-CSE-MsgGUID: hMmmi/nIT2mlfySCXjSzQg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,214,1751266800"; 
+   d="scan'208";a="200286930"
+Received: from rvuia-mobl.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.245.157])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Aug 2025 13:52:39 -0700
+Received: from punajuuri.localdomain (unknown [192.168.240.130])
+	by kekkonen.fi.intel.com (Postfix) with ESMTP id 33C1C11FB0F;
+	Mon, 25 Aug 2025 23:52:36 +0300 (EEST)
+Received: from sailus by punajuuri.localdomain with local (Exim 4.98.2)
+	(envelope-from <sakari.ailus@linux.intel.com>)
+	id 1uqeBA-00000007PWX-0Pyt;
+	Mon, 25 Aug 2025 23:52:36 +0300
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: David Lechner <dlechner@baylibre.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-iio@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Subject: [PATCH v4 1/1] iio: dac: Remove redundant pm_runtime_mark_last_busy() calls
+Date: Mon, 25 Aug 2025 23:52:35 +0300
+Message-ID: <20250825205235.1766401-1-sakari.ailus@linux.intel.com>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] ARM: dts: imx6-hummingboard: Replace license text
- comment with SPDX identifier
-To: Russell King <linux@armlinux.org.uk>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>
-CC: <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Rabeeh Khoury <rabeeh@solid-run.com>
-References: <20250709-hb-dts-lic-v2-1-a168bd9d24bd@prolan.hu>
-Content-Language: en-US
-From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
-In-Reply-To: <20250709-hb-dts-lic-v2-1-a168bd9d24bd@prolan.hu>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.254.253.7]
-X-ClientProxiedBy: sinope.intranet.prolan.hu (10.254.0.237) To
- ATLAS.intranet.prolan.hu (10.254.0.229)
-X-EsetResult: clean, is OK
-X-EsetId: 37303A296767155E60706B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_135214_264156_971E4C80 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20250825_135327_200745_3129CC92 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,29 +97,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+pm_runtime_put_autosuspend(), pm_runtime_put_sync_autosuspend(),
+pm_runtime_autosuspend() and pm_request_autosuspend() now include a call
+to pm_runtime_mark_last_busy(). Remove the now-reduntant explicit call to
+pm_runtime_mark_last_busy().
 
-On 2025. 07. 09. 9:28, Bence Csókás wrote:
-> Replace verbatim license text with a `SPDX-License-Identifier`
-> 
-> The comment header mis-attributes this license to be "X11", but the
-> license text does not include the last line "Except as contained in this
-> notice, the name of the X Consortium shall not be used in advertising or
-> otherwise to promote the sale, use or other dealings in this Software
-> without prior written authorization from the X Consortium.". Therefore,
-> this license is actually equivalent to the SPDX "MIT" license (confirmed
-> by text diffing).
-> 
-> On top, half of the files have the fragment "either version 2 of the
-> License" for some reason, and not follow up with "or any later version".
-> So the resulting SPDX license is still "GPL-2.0-only".
-> 
-> Cc: Rabeeh Khoury <rabeeh@solid-run.com>
-> Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+Also clean up error handling in stm32_dac_set_enable_state().
 
-So, Rabeeh, Russell, what do you think? Is there something else I need 
-to change?
+Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
+---
+since v3:
 
-Bence
+- Fix condition for calling pm_runtime_put_autosuspend().
+
+ drivers/iio/dac/stm32-dac.c | 18 ++++--------------
+ 1 file changed, 4 insertions(+), 14 deletions(-)
+
+diff --git a/drivers/iio/dac/stm32-dac.c b/drivers/iio/dac/stm32-dac.c
+index 344388338d9b..874e6dcc0d61 100644
+--- a/drivers/iio/dac/stm32-dac.c
++++ b/drivers/iio/dac/stm32-dac.c
+@@ -82,9 +82,9 @@ static int stm32_dac_set_enable_state(struct iio_dev *indio_dev, int ch,
+ 
+ 	ret = regmap_update_bits(dac->common->regmap, STM32_DAC_CR, msk, en);
+ 	mutex_unlock(&dac->lock);
+-	if (ret < 0) {
++	if (ret) {
+ 		dev_err(&indio_dev->dev, "%s failed\n", str_enable_disable(en));
+-		goto err_put_pm;
++		goto err_pm_put;
+ 	}
+ 
+ 	/*
+@@ -95,18 +95,9 @@ static int stm32_dac_set_enable_state(struct iio_dev *indio_dev, int ch,
+ 	if (en && dac->common->hfsel)
+ 		udelay(1);
+ 
+-	if (!enable) {
+-		pm_runtime_mark_last_busy(dev);
+-		pm_runtime_put_autosuspend(dev);
+-	}
+-
+-	return 0;
+-
+-err_put_pm:
+-	if (enable) {
+-		pm_runtime_mark_last_busy(dev);
++err_pm_put:
++	if (!enable || (enable && ret))
+ 		pm_runtime_put_autosuspend(dev);
+-	}
+ 
+ 	return ret;
+ }
+@@ -349,7 +340,6 @@ static int stm32_dac_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto err_pm_put;
+ 
+-	pm_runtime_mark_last_busy(dev);
+ 	pm_runtime_put_autosuspend(dev);
+ 
+ 	return 0;
+-- 
+2.47.2
 
 
