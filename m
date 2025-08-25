@@ -4,72 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58AE0CA0FE7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 22:44:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33425C8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 23:11:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A/tN0NLfjxSsSgKXVE1s79iana+OHd+gutd0JuogVFw=; b=iV86Kqq5h9qUtWmT340kAG6FFy
-	3ntafZwj7kxp4FNAt6QuoP+E7ILazY9GQnkOyEYiD7ncf2YRPNbJog6ez3FpdrKPNd2IFBPjlmhTW
-	OttF0OQ8VjP3gYad8xw7ChUloPAZF8t50eNhxzZqZEKACuqI1fcWPRaKnCVjX+hUDFdvCvPbTwQD/
-	9Ze4A58YApgegHVwo7uqYFKl1LKQf39N+QlwZz9m8QsDMX3PznGr5AtTMQ0T7m8OS1QU6Vj3OJ+sk
-	TeveTBZuvSoFStqb9uBGoIdCXpHMt6S890lXuI4lAQ6FuL6ipg4C6fheybBpo7rZHG4YMAA5iHeEc
-	vl856X2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yjj+T4F6X5Rb2NiUbWNootXcw5MYUgeaYi89zI0rqQM=; b=HdhYB0Wectl9mK80GRaXf/zbAp
+	ICZ1ds5vvYykPfQes7ya66wJY9ETq3IQJt/exc7ShiE0RDOVo3wKEQkwv2Iqrk8+/1U0dwnS8PaFn
+	tiNGSTSl20Dp8qvfQ4bPys6XTn8oOsZ2crSbZ80bjB/8gTc/l3fsWw70xSP6OCc7HD5v9hpeqxl6L
+	Z2rm6bjgG9RLuEISCt6Wds59fxD0p+6dNmlN5nHybYPcv2/eyc5+XTA8nZ4zwi1fpPhU5gxZ8sjHe
+	HXXxoWKnchZ12l9hpbaDb41oLCR+metntD2VyQRTnk1vt+N9uzYZW7GIE3A+ZjOIJXRWPW2lTcZr8
+	zpQ2tsFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqfux-0000000A0oK-0dCY;
-	Mon, 25 Aug 2025 22:43:59 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqfsE-0000000A09M-0Vop;
-	Mon, 25 Aug 2025 22:41:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7B3375C6563;
-	Mon, 25 Aug 2025 22:41:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1F71C4CEED;
-	Mon, 25 Aug 2025 22:41:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756161669;
-	bh=hcgh5oqMsvEek9C9auiVRt+yT8DF3gRRdz8vIwAO460=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TuzhpasJSKONwmodl29hxEeu1B+jNP9tEnNDVUu5J+c2hP06IPu8smtAiAy/paA5D
-	 nQ7OpGab4minbAOsbjXXcQSkH/TI61SiMOxo7linJiZDbP6Jo2Fh2gtIHiIiZjiP/N
-	 mf9A26nzWQ+DOGu7DynGHvPP7N0ZHQU2sT68opCJns/zJBs6HWbEVSHmxXzvpyh5pp
-	 xl3cWCdgAOSNlciX9GaNuWSCTfhoxsI0v3bx0ke0VA8L3vRNHy/ALm9wKcVRs/LBDI
-	 Jfa0gF4IsoAKqhjqPYzyz0kQSIj32X8rbLnBzfg2E6cmQXIvI3A4c5qKxfv4HGvFMC
-	 zijfQ4ECgtsWA==
-Date: Mon, 25 Aug 2025 17:41:08 -0500
-From: Rob Herring <robh@kernel.org>
-To: Michael Riesch <michael.riesch@collabora.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Jagan Teki <jagan@amarulasolutions.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Diederik de Haas <didi.debian@cknow.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Collabora Kernel Team <kernel@collabora.com>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org
-Subject: Re: [PATCH v2 3/7] dt-bindings: phy: rockchip-inno-csi-dphy: add
- rk3588 variant
-Message-ID: <20250825224108.GA766877-robh@kernel.org>
-References: <20250616-rk3588-csi-dphy-v2-0-7a94f079b712@collabora.com>
- <20250616-rk3588-csi-dphy-v2-3-7a94f079b712@collabora.com>
+	id 1uqgLs-0000000A6pW-2UIq;
+	Mon, 25 Aug 2025 23:11:48 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uqgJB-0000000A6Wd-3hiV;
+	Mon, 25 Aug 2025 23:09:03 +0000
+Received: from [100.64.0.200] (unknown [20.29.225.195])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 1E032211829D;
+	Mon, 25 Aug 2025 16:08:59 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 1E032211829D
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1756163339;
+	bh=yjj+T4F6X5Rb2NiUbWNootXcw5MYUgeaYi89zI0rqQM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GTT5fOzUX6bjgmJRyTtl5Nlh5JACcr0YCsgajA504/VguHTsD2kG9KDvDG5alk+gF
+	 AlqgkFhhFVQMT3abN68Y5Bm44usX4MzHqG7q2W8uP1gfSybPvK8eBGyTYKXvPevQWI
+	 Yg63eHOsilGGsMx/M0Y6URyOnRsPjGUV5RxxijdQ=
+Message-ID: <3188ca61-2591-4576-9777-1671689b7235@linux.microsoft.com>
+Date: Mon, 25 Aug 2025 16:08:45 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250616-rk3588-csi-dphy-v2-3-7a94f079b712@collabora.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/5] Drivers: hv: Fix NEED_RESCHED_LAZY and use common
+ APIs
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+ Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Paolo Bonzini <pbonzini@redhat.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "K. Y. Srinivasan" <kys@microsoft.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, Peter Zijlstra <peterz@infradead.org>,
+ Andy Lutomirski <luto@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>,
+ Frederic Weisbecker <frederic@kernel.org>,
+ Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+ Joel Fernandes <joelagnelf@nvidia.com>, Josh Triplett
+ <josh@joshtriplett.org>, Boqun Feng <boqun.feng@gmail.com>,
+ Uladzislau Rezki <urezki@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-hyperv@vger.kernel.org, rcu@vger.kernel.org
+References: <20250825200622.3759571-1-seanjc@google.com>
+Content-Language: en-US
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+In-Reply-To: <20250825200622.3759571-1-seanjc@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_154110_249139_18B9AFA4 
-X-CRM114-Status: GOOD (  17.27  )
+X-CRM114-CacheID: sfid-20250825_160901_990782_77D076A8 
+X-CRM114-Status: GOOD (  14.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,119 +89,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 19, 2025 at 01:00:37AM +0200, Michael Riesch wrote:
-> The Rockchip RK3588 variant of the CSI-2 DPHY features two reset lines.
-> Add the variant and allow for the additional reset.
+On 8/25/2025 1:06 PM, Sean Christopherson wrote:
+> Fix a bug where MSHV root partitions don't honor NEED_RESCHED_LAZY, and then
+> deduplicate the TIF related MSHV code by turning the "kvm" entry APIs into
+> more generic "virt" APIs (which ideally would have been done when MSHV root
+> support was added).
 > 
-> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
-> ---
->  .../bindings/phy/rockchip-inno-csi-dphy.yaml       | 60 ++++++++++++++++++++--
->  1 file changed, 56 insertions(+), 4 deletions(-)
+> Assuming all is well, maybe this could go through the tip tree?
 > 
-> diff --git a/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml b/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
-> index 42da616ae2e3..10197cc9dc47 100644
-> --- a/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
-> +++ b/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
-> @@ -21,6 +21,7 @@ properties:
->        - rockchip,rk3326-csi-dphy
->        - rockchip,rk3368-csi-dphy
->        - rockchip,rk3568-csi-dphy
-> +      - rockchip,rk3588-csi-dphy
->  
->    reg:
->      maxItems: 1
-> @@ -39,18 +40,50 @@ properties:
->      maxItems: 1
->  
->    resets:
-> -    items:
-> -      - description: exclusive PHY reset line
-> +    minItems: 1
-> +    maxItems: 2
-
-Add a description for the 2nd reset here.
-
->  
->    reset-names:
-> -    items:
-> -      - const: apb
-> +    minItems: 1
-> +    maxItems: 2
-
-Add 'phy' to the list here and just minItems.
-
->  
->    rockchip,grf:
->      $ref: /schemas/types.yaml#/definitions/phandle
->      description:
->        Some additional phy settings are access through GRF regs.
->  
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - rockchip,px30-csi-dphy
-> +              - rockchip,rk1808-csi-dphy
-> +              - rockchip,rk3326-csi-dphy
-> +              - rockchip,rk3368-csi-dphy
-> +              - rockchip,rk3568-csi-dphy
-> +    then:
-> +      properties:
-> +        resets:
-> +          items:
-> +            - description: exclusive PHY reset line
-> +
-> +        reset-names:
-> +          items:
-> +            - const: apb
-
-Then just 'maxItems: 1' here.
-
-> +    else:
-> +      properties:
-> +        resets:
-> +          items:
-> +            - description: APB reset line
-> +            - description: PHY reset line
-> +
-> +        reset-names:
-> +          items:
-> +            - const: apb
-> +            - const: phy
-
-And 'minItems: 2' here.
-
-> +
->  required:
->    - compatible
->    - reg
-> @@ -77,3 +110,22 @@ examples:
->          reset-names = "apb";
->          rockchip,grf = <&grf>;
->      };
-> +  - |
-> +    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
-> +    #include <dt-bindings/reset/rockchip,rk3588-cru.h>
-> +
-> +    soc {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +
-> +        phy@fedc0000 {
-> +            compatible = "rockchip,rk3588-csi-dphy";
-> +            reg = <0x0 0xfedc0000 0x0 0x8000>;
-> +            clocks = <&cru PCLK_CSIPHY0>;
-> +            clock-names = "pclk";
-> +            #phy-cells = <0>;
-> +            resets = <&cru SRST_P_CSIPHY0>, <&cru SRST_CSIPHY0>;
-> +            reset-names = "apb", "phy";
-> +            rockchip,grf = <&csidphy0_grf>;
-> +        };
-> +    };
+> The Hyper-V stuff and non-x86 architectures are compile-tested only.
 > 
-> -- 
-> 2.39.5
+
+Thanks Sean, I can test the root partition changes.
+
+A similar change will be needed in mshv_vtl_main.c since it also calls
+mshv_do_pre_guest_mode_work() (hence the "common" in mshv_common.c).
+
+Also, is it possible to make all the mshv driver changes in a single patch?
+It seems like it would be cleaner than refactoring it in patches 1 & 2 and
+then deleting all the refactored code in patch 5.
+
+Thanks
+Nuno
+
+> Sean Christopherson (5):
+>   Drivers: hv: Move TIF pre-guest work handling fully into mshv_common.c
+>   Drivers: hv: Handle NEED_RESCHED_LAZY before transferring to guest
+>   entry/kvm: KVM: Move KVM details related to signal/-EINTR into KVM
+>     proper
+>   entry: Rename "kvm" entry code assets to "virt" to genericize APIs
+>   Drivers: hv: Use common "entry virt" APIs to do work before running
+>     guest
 > 
+>  MAINTAINERS                                 |  2 +-
+>  arch/arm64/kvm/Kconfig                      |  2 +-
+>  arch/arm64/kvm/arm.c                        |  3 +-
+>  arch/loongarch/kvm/Kconfig                  |  2 +-
+>  arch/loongarch/kvm/vcpu.c                   |  3 +-
+>  arch/riscv/kvm/Kconfig                      |  2 +-
+>  arch/riscv/kvm/vcpu.c                       |  3 +-
+>  arch/x86/kvm/Kconfig                        |  2 +-
+>  arch/x86/kvm/vmx/vmx.c                      |  1 -
+>  arch/x86/kvm/x86.c                          |  3 +-
+>  drivers/hv/Kconfig                          |  1 +
+>  drivers/hv/mshv.h                           |  2 --
+>  drivers/hv/mshv_common.c                    | 22 ---------------
+>  drivers/hv/mshv_root_main.c                 | 31 ++++-----------------
+>  include/linux/{entry-kvm.h => entry-virt.h} | 19 +++++--------
+>  include/linux/kvm_host.h                    | 17 +++++++++--
+>  include/linux/rcupdate.h                    |  2 +-
+>  kernel/entry/Makefile                       |  2 +-
+>  kernel/entry/{kvm.c => virt.c}              | 15 ++++------
+>  kernel/rcu/tree.c                           |  6 ++--
+>  virt/kvm/Kconfig                            |  2 +-
+>  21 files changed, 49 insertions(+), 93 deletions(-)
+>  rename include/linux/{entry-kvm.h => entry-virt.h} (83%)
+>  rename kernel/entry/{kvm.c => virt.c} (66%)
+> 
+> 
+> base-commit: 1b237f190eb3d36f52dffe07a40b5eb210280e00
+
 
