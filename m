@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21B56CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 08:18:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 371E3CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 08:21:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:To:From:Cc:Message-Id:Date:Content-Type:Reply-To:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W3kYuC9PS9XSvrxs3ONBNdUCPTWsXaUqGEN513hR79k=; b=pd85l8vKKuJe/KIM4Hxp/sWgN2
-	8jTJzgou0iXVXlz5seUJviP0oIdRQkcE226C7KbChmUnmjyvPFRDZUXMY/yWhdQ10j++r4UB3EEBz
-	+j59GwAweucIJa/cheHssYIX01lxbxBgG8BhrNsKAp+3nZGYMzCxiIeznAVrWtCSK54WaucbRVN/B
-	EqYWtJZUbRmY19NJ+i4eu1nAWEa4boJW8lPsMH8cDrooAzml8JdW5Gnk1Q+ca5dJp57XMt5hFcmX/
-	vUUj1M2aWNkSYvAxtLWQKaZ9UCPpNRHDaD2AdEQczwXXrkmWLiubGo6fdTBFfPa2i9DO19Ak9ZdKT
-	TKbCMaXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r50dDkvFDO+w+5+hTwJQC3IZEVejQAJBD9RW2mT+j/0=; b=MFe63JFXD/rpMwddgK0U/DQN99
+	WTYOzJPNulxfGmVYFbA1TWQc4IJXcMAU1apfujoGnXXZ0fxEHT+ZoHtSb3Ze5TAHflud1NQPY04D6
+	aQlkZqe+gAA4/e3VkzKhwGbqwVHiO+dlEME2mxBXkk7dk6LGSFrOPrQyFAAXbadKmEE0U32FvJCXH
+	D2NXKfaBBkzrgreKqbIJpCpIgwoVX+ofqx8Vt9aaeZYFIyT8iCBjLffpCMoH1mQNuLEusYiShM3px
+	C3kAx1CKCjjXAzULg+T4yXaJ7Y09pf6I8eyJOVvhnRvSJOnOHtajW8TIXdTONsrPS7wSLQMUmxu0z
+	L2T75pqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqSPF-00000007HET-0cKC;
-	Mon, 25 Aug 2025 08:18:21 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqRdC-00000007AQN-2gmZ
+	id 1uqSRp-00000007HdO-49eN;
+	Mon, 25 Aug 2025 08:21:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uqRgL-00000007BET-046g
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 07:28:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D2EA65C5A8D;
-	Mon, 25 Aug 2025 07:28:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C98EC4CEED;
-	Mon, 25 Aug 2025 07:28:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756106920;
-	bh=OHl2l7fwcSBs2PnP0cy1ul4eRIrzpQHu81WxmlH2tY8=;
-	h=Date:Cc:From:To:Subject:References:In-Reply-To:From;
-	b=Hj5sfPcu+0GZO8ZMxzNtpk2D3hDwuorOx/VaVXaSdlFYUg25YCacBi2RzIKDjLwc9
-	 OSxoJ3BfdjPKlCKrQQA5vb1iWAEobDoaM4vFbHlTGtIrr4o/C903UnkugX2HW65tej
-	 R1e3GzYuyURQoJdYO0llKI6gxDPC8MHc77Xw+AgADdLcO7Hv/RjckYy+t5u8PBuMpq
-	 GVSeBvBT5ikpD6pNNMSamc0FY9j/vF/UgYhUYISaU+2JejMF7xwI2SBZTGOVtybrlv
-	 BUQwQnMyz9fMU/9kCIjr8MZp3j7BZa1HPKMZ++pvva+t+UuIq3w7YPyj95aiJYicbB
-	 qzzCyqE4DRYXA==
-Content-Type: multipart/signed;
- boundary=fd4931382990d6306de8142488bafb3cdc9bb19db8a764e4efedf063a500;
- micalg=pgp-sha384; protocol="application/pgp-signature"
-Date: Mon, 25 Aug 2025 09:28:36 +0200
-Message-Id: <DCBBY4827XAZ.11UHI6NWP7RT0@kernel.org>
-Cc: "Vignesh Raghavendra" <vigneshr@ti.com>, "Tero Kristo"
- <kristo@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Jean Delvare"
- <jdelvare@suse.com>, "Guenter Roeck" <linux@roeck-us.net>, "Lee Jones"
- <lee@kernel.org>, "Srinivas Kandagatla" <srini@kernel.org>, "Wim Van
- Sebroeck" <wim@linux-watchdog.org>, <linux-arm-kernel@lists.infradead.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-hwmon@vger.kernel.org>, <linux-watchdog@vger.kernel.org>
-From: "Michael Walle" <mwalle@kernel.org>
-To: "Nishanth Menon" <nm@ti.com>
-Subject: Re: [PATCH v1 0/7] Initial Kontron SMARC-sAM67 support
-X-Mailer: aerc 0.16.0
-References: <20250822131531.1366437-1-mwalle@kernel.org>
- <20250822152313.vjzjtzik2q5ek5kq@sadly>
-In-Reply-To: <20250822152313.vjzjtzik2q5ek5kq@sadly>
+	Mon, 25 Aug 2025 07:31:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 601921D70;
+	Mon, 25 Aug 2025 00:31:45 -0700 (PDT)
+Received: from [10.57.89.148] (unknown [10.57.89.148])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 366D23F738;
+	Mon, 25 Aug 2025 00:31:47 -0700 (PDT)
+Message-ID: <8e4e5648-9b70-4257-92c5-14c60928e240@arm.com>
+Date: Mon, 25 Aug 2025 09:31:44 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v5 00/18] pkeys-based page table hardening
+To: Yang Shi <yang@os.amperecomputing.com>, linux-hardening@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+ Andy Lutomirski <luto@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@redhat.com>, Ira Weiny <ira.weiny@intel.com>,
+ Jann Horn <jannh@google.com>, Jeff Xu <jeffxu@chromium.org>,
+ Joey Gouly <joey.gouly@arm.com>, Kees Cook <kees@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Marc Zyngier <maz@kernel.org>,
+ Mark Brown <broonie@kernel.org>, Matthew Wilcox <willy@infradead.org>,
+ Maxwell Bland <mbland@motorola.com>, "Mike Rapoport (IBM)"
+ <rppt@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Pierre Langlois <pierre.langlois@arm.com>,
+ Quentin Perret <qperret@google.com>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, x86@kernel.org
+References: <20250815085512.2182322-1-kevin.brodsky@arm.com>
+ <98c9689f-157b-4fbb-b1b4-15e5a68e2d32@os.amperecomputing.com>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <98c9689f-157b-4fbb-b1b4-15e5a68e2d32@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_002842_789395_66B68C46 
-X-CRM114-Status: GOOD (  25.04  )
+X-CRM114-CacheID: sfid-20250825_003157_155436_918ECF33 
+X-CRM114-Status: GOOD (  23.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,77 +80,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---fd4931382990d6306de8142488bafb3cdc9bb19db8a764e4efedf063a500
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-
-On Fri Aug 22, 2025 at 5:23 PM CEST, Nishanth Menon wrote:
-> On 15:15-20250822, Michael Walle wrote:
-> > Now that the PMIC support is there, we can finally, upstream the
-> > support for this board. Besides the usual device tree, this
-> > patchset contains the support for the on-board house keeping MCU. It
-> > make extensive reuse of the drivers for the former SMARC-sAL28
-> > board. Besides different hwmon sensors, all the dt binding patches
-> > will just add a board specific compatible (in addition to the old
-> > sl28 compatible) to make any future board specific quirks possible.
-> >=20
-> > I'm aware that there is a patch [1] which moves the sl28cpld MFD
-> > schema to a different directory. Once that patch is merged, I'll
-> > repost this series. But I already want to get some early feedback.
-> >=20
-> > [1] https://lore.kernel.org/r/20250822075712.27314-2-krzysztof.kozlowsk=
-i@linaro.org/
-> >=20
-> > Michael Walle (7):
-> >   dt-bindings: arm: ti: Add bindings for Kontron SMARC-sAM67 module
-> >   dt-bindings: mfd: sl28cpld: add sa67mcu compatible
-> >   dt-bindings: hwmon: sl28cpld: add sa67mcu compatible
-> >   dt-bindings: watchdog: add SMARC-sAM67 support
-> >   dt-bindings: nvmem: sl28cpld: add sa67mcu compatible
-> >   hwmon: sl28cpld: add SMARC-sAM67 support
-> >   arm64: dts: ti: Add support for Kontron SMARC-sAM67
+On 21/08/2025 19:29, Yang Shi wrote:
+> Hi Kevin,
 >
-> Since this goes through multiple maintainers, may I suggest the
-> following strategy?
+> On 8/15/25 1:54 AM, Kevin Brodsky wrote:
+>> This is a proposal to leverage protection keys (pkeys) to harden
+>> critical kernel data, by making it mostly read-only. The series includes
+>> a simple framework called "kpkeys" to manipulate pkeys for in-kernel
+>> use,
+>> as well as a page table hardening feature based on that framework,
+>> "kpkeys_hardened_pgtables". Both are implemented on arm64 as a proof of
+>> concept, but they are designed to be compatible with any architecture
+>> that supports pkeys.
 >
-> for this window:
-> * send dts and board binding changes dropping the nodes that are yet to
->  be upstream
-> * send the compatible changes to each of the maintainers
+> [...]
 >
-> Next window:
-> * add the nodes based on acceptance of the driver bindings
+>>
+>> Note: the performance impact of set_memory_pkey() is likely to be
+>> relatively low on arm64 because the linear mapping uses PTE-level
+>> descriptors only. This means that set_memory_pkey() simply changes the
+>> attributes of some PTE descriptors. However, some systems may be able to
+>> use higher-level descriptors in the future [5], meaning that
+>> set_memory_pkey() may have to split mappings. Allocating page tables
 >
-> This removes multiple maintainers needing to give me immutable tags etc.
+> I'm supposed the page table hardening feature will be opt-in due to
+> its overhead? If so I think you can just keep kernel linear mapping
+> using PTE, just like debug page alloc.
+
+Indeed, I don't expect it to be turned on by default (in defconfig). If
+the overhead proves too large when block mappings are used, it seems
+reasonable to force PTE mappings when kpkeys_hardened_pgtables is enabled.
+
 >
-> What do you think?
+>> from a contiguous cache of pages could help minimise the overhead, as
+>> proposed for x86 in [1].
+>
+> I'm a little bit confused about how this can work. The contiguous
+> cache of pages should be some large page, for example, 2M. But the
+> page table pages allocated from the cache may have different
+> permissions if I understand correctly. The default permission is RO,
+> but some of them may become R/W at sometime, for example, when calling
+> set_pte_at(). You still need to split the linear mapping, right?
 
-Not sure, if this needs an IB anyway or if the DTS can be pulled by
-the corresponding SoC subsys and the DT binding can go through
-another tree in the same cycle. If not, I can certainly split the
-device tree (to my knowledge, it was said that it should be a
-complete description :).
+When such a helper is called, *all* PTPs become writeable - there is no
+per-PTP permission switching.
 
-I'd expect that Lee is picking up the first 6 patches after they got
-an ACK. Please correct me if I'm wrong, Lee.
+PTPs remain mapped RW (i.e. the base permissions set at the PTE level
+are RW). With this series, they are also all mapped with the same pkey
+(1). By default, the pkey register is configured so that pkey 1 provides
+RO access. The net result is that PTPs are RO by default, since the pkey
+restricts the effective permissions.
 
-In any case, I'd give this v1 some time to get some feedback on the
-patches.
+When calling e.g. set_pte(), the pkey register is modified to enable RW
+access to pkey 1, making it possible to write to any PTP. Its value is
+restored when the function exit so that PTPs are once again RO.
 
--michael
-
---fd4931382990d6306de8142488bafb3cdc9bb19db8a764e4efedf063a500
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCaKwQpRIcbXdhbGxlQGtl
-cm5lbC5vcmcACgkQEic87j4CH/hMEAF/Vhvuizfo2QflfI6C2/jHtRw3dLRPlo28
-HIDgT2LP6cbtUavEPx2nq1ESho4HXf7EAYCPD4RX3DAZ96VoKuiMPWtrhByKmEo8
-LvQhb/8169l6w+5b/5Suq4WzzVE4BArZHes=
-=DIAl
------END PGP SIGNATURE-----
-
---fd4931382990d6306de8142488bafb3cdc9bb19db8a764e4efedf063a500--
+- Kevin
 
