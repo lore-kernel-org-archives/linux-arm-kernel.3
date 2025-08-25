@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 781D1CA0FE7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 21:11:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18E9BC8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 21:26:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
-	:Message-ID:Date:MIME-Version:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BqZ4/31f0Gtlx5+7VYAHWFz+uBSEbjWh2SiS3l8pvq8=; b=csSc67YrzMzmKTrdMBLSKvSLDg
-	av/xxZdjgeZEEL9WiL4d1hR8n4xcNnNNZxRg/fVCG5+GQBsXd2ofC7ijnd5SVmlCDS+KiLmYrkKtN
-	cOp4EouysmfVV06N6ub1ku/MkLeAOEEfrV5oscTRD4KL+lmzrfOonv6Gn9va+KOenaQP8Z4Rm5Z48
-	LWRKcXVDz5K1OwZJCQcjTDPyoK7r5mJx9ZekQ2UxyGGrImRRDR9KhkYzPith8CjyuENciQP55su7k
-	gPelon6D/0pDw1JiIckaS/g+KtEsURh9SdFZA7P1yLoxR6f4QUMm4Pjez7pqhNynmOaoxj8H5SL2O
-	+1RexOWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TLCAM/aenf/B6rJGb3K/NYYxfklMigmm0bvZNOcD3CE=; b=X+o9cxiMkHMWqs5sO5y192Eb0L
+	3yIUaZe6A7n/5KkftKkVV/QSTBOnJVsowt2YokjbCbUUEXnszqh+R8M44+yZ06V9PG1hgMF7aTqMJ
+	zvjdQMOXQDVTWEgnEUii8sUSPhUIuw5f+qORIJoEnJjxrBs5BDHQJGpm1t8fm0elNo/o4JZvt+GC5
+	R3aMqQ7925Bi0KmQTQc/7R3mwYjfPWnRW/RIxq+ZaIF4O1RoxtNANAxiCxB79VOxvYxn9lVRN5eq4
+	ih6qtUYQqAFBBWmlYeGq6dGU+Pz5pkXAD6SydRc0lHKtgkiNqbCO+pMqGaWLFbExHF8EKpgVr7vuU
+	N39r8RLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqeTP-00000009kWn-2EOn;
-	Mon, 25 Aug 2025 21:11:27 +0000
-Received: from mail-io1-f78.google.com ([209.85.166.78])
+	id 1uqehR-00000009lss-29GS;
+	Mon, 25 Aug 2025 21:25:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqeQk-00000009kGJ-3i4t
+	id 1uqeeg-00000009lRv-45G7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 21:08:44 +0000
-Received: by mail-io1-f78.google.com with SMTP id ca18e2360f4ac-88432e1ea71so1274961239f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 14:08:42 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756156121; x=1756760921;
-        h=to:from:subject:message-id:date:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=BqZ4/31f0Gtlx5+7VYAHWFz+uBSEbjWh2SiS3l8pvq8=;
-        b=NmJA1NcwK7FAu8hQimWP06liBM6ZJYRadQXUlkHp8kVGNVhzzS64giomtcOcsPMr+D
-         2byaxC/D1jpadxSyroiODRWh6DeR3nFGr4DOyC7JfCM/0OBNoVEQoxjv/bNL5/YUuf58
-         7JLJFocxjUVdBQ6h23E7mcBIcS2gVojItK+GSHwei5++9j0WSkNNXZWIMuXaDJ+pVS3Q
-         QiyfnpIfRppL4xx0Ez6alMk80MD26zL4BQ0zPSPrjEoiy7vvW5qwLiaqdz+E5yOc4RJP
-         YDJcraZBLOA/WXOldZWEU6dRgZOrBtUZzqTsNkA9EjQiw2Kx1PizbUPKAoAJh2R3+Xmw
-         5WTA==
-X-Forwarded-Encrypted: i=1; AJvYcCUP8o3nsb6wuLyLYFg9mR/paFWIfiXLqKdMfX8DjiugxY5FTl/WWvJPdGiv/jWN0exk3jJO7QvU8DZomtMDJ49Q@lists.infradead.org
-X-Gm-Message-State: AOJu0YzBbH4kB1plN01DPQalU5RzGydlubUMgCNKy7FH4kxJfug4L0LX
-	z6YIlPIbtYa2iQOob1t+NkSgQ2c44SiqYiheS44EUBKaEQ6xUIYaLd4H2bzpdYnocCxW9YLP92T
-	iR4KAp68bb0HrA8A1KFAvvVNxXtuh5sBkTgqSbgjL/gMjDxxSeoBD8jxkCzE=
-X-Google-Smtp-Source: AGHT+IGpS1LzWvp0I6RmvMl/qq93Vsp8qCYZ44qc949rEp5qDgNdDz744+IAFZov/EbEy+xcBL5nFoRh5qOVdUWsvpJwmA8GhIZ1
+	Mon, 25 Aug 2025 21:23:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5CAB76023B;
+	Mon, 25 Aug 2025 21:23:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6B47C4CEED;
+	Mon, 25 Aug 2025 21:22:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756156975;
+	bh=l+302sdoxhUbhMzKkT4wkwdq4eHKUpQjmtWZfxKoga8=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=UcgMEh3p+CplQZ32HJ2eXNNfERFHlx365eJRZvmWsrUE8QEntcuBZdVWBWBjL6Fck
+	 +uwxzDPaocOckAC/Q0YdbYr+xE/kKh/E+NLeDYF1RdVAAL08h6p0TIxvgoLk2hfbDB
+	 ZpedqxOv/j02bonBagtjTvG+WOhcW/p+d7J4zqw9ESEKT7w9jrLh7F3tFEXUo3uESj
+	 NNl5HjdOrcGIeOX7nZH8Xy7HGDVV9JCZ4edcm5RMfN3QSoy8Mk9JQf5l+OSdcKkd8n
+	 KGGULcvX7dr46Ew4nmlswKf/6+jHQJOzLvk5mrkkQ8r6Eg9glMpjmQeg48exFXRMx1
+	 urbRBOcojTj3Q==
+Date: Mon, 25 Aug 2025 16:22:54 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-X-Received: by 2002:a05:6e02:1fe1:b0:3e5:7e26:2f90 with SMTP id
- e9e14a558f8ab-3e922504b72mr209775655ab.24.1756156121309; Mon, 25 Aug 2025
- 14:08:41 -0700 (PDT)
-Date: Mon, 25 Aug 2025 14:08:41 -0700
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <68acd0d9.a00a0220.33401d.048b.GAE@google.com>
-Subject: [syzbot] [kvmarm?] [kvm?] WARNING: locking bug in vgic_put_irq
-From: syzbot <syzbot+cef594105ac7e60c6d93@syzkaller.appspotmail.com>
-To: catalin.marinas@arm.com, joey.gouly@arm.com, kvm@vger.kernel.org, 
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
-	suzuki.poulose@arm.com, syzkaller-bugs@googlegroups.com, will@kernel.org, 
-	yuzenghui@huawei.com
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_140842_924836_D36154F1 
-X-CRM114-Status: UNSURE (   7.37  )
-X-CRM114-Notice: Please train this message.
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-pm@vger.kernel.org, kernel@pengutronix.de, primoz.fiser@norik.com, 
+ davem@davemloft.net, festevam@gmail.com, alexandre.torgue@foss.st.com, 
+ Markus.Niebel@ew.tq-group.com, krzk+dt@kernel.org, shawnguo@kernel.org, 
+ edumazet@google.com, devicetree@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, s.hauer@pengutronix.de, 
+ linux-arm-kernel@lists.infradead.org, pabeni@redhat.com, Frank.Li@nxp.com, 
+ kuba@kernel.org, othacehe@gnu.org, linux-kernel@vger.kernel.org, 
+ alexander.stein@ew.tq-group.com, mcoquelin.stm32@gmail.com, 
+ frieder.schrempf@kontron.de, conor+dt@kernel.org, linux@ew.tq-group.com, 
+ imx@lists.linux.dev, andrew+netdev@lunn.ch, netdev@vger.kernel.org, 
+ richardcochran@gmail.com
+To: Joy Zou <joy.zou@nxp.com>
+In-Reply-To: <20250825091223.1378137-1-joy.zou@nxp.com>
+References: <20250825091223.1378137-1-joy.zou@nxp.com>
+Message-Id: <175615562513.578111.8377939047997958239.robh@kernel.org>
+Subject: Re: [PATCH v9 0/6] Add i.MX91 platform support
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,96 +77,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
 
-syzbot found the following issue on:
+On Mon, 25 Aug 2025 17:12:17 +0800, Joy Zou wrote:
+> The design of i.MX91 platform is very similar to i.MX93.
+> Extracts the common parts in order to reuse code.
+> 
+> The mainly difference between i.MX91 and i.MX93 is as follows:
+> - i.MX91 removed some clocks and modified the names of some clocks.
+> - i.MX91 only has one A core.
+> - i.MX91 has different pinmux.
+> 
+> ---
+> Changes for v9:
+> - rebased onto commit 0f4c93f7eb86 ("Add linux-next specific files for 20250822")
+>   to align with latest changes.
+> - there is no functional changes for these patches.
+> - Link to v8: https://lore.kernel.org/imx/20250806114119.1948624-1-joy.zou@nxp.com/
+> 
+> Changes for v8:
+> - add Reviewed-by tag for patch #2/3/4/5/6/7/8/9/11.
+> - modify commit message for patch #10.
+> - move imx91 before imx93 in Makefile for patch #6.
+> - modify the commit message to keep wrap at 75 chars for patch #5.
+> - Link to v7: https://lore.kernel.org/imx/20250728071438.2332382-1-joy.zou@nxp.com/
+> 
+> Changes for v7:
+> - Optimize i.MX91 num_clks hardcode with ARRAY_SIZE()for patch #10.
+> - Add new patch in order to optimize i.MX93 num_clks hardcode
+>   with ARRAY_SIZE() for patch #9.
+> - remove this unused comments for patch #6.
+> - align all pinctrl value to the same column for patch #6.
+> - add aliases because remove aliases from common dtsi for patch #6.
+> - remove fec property eee-broken-1000t from imx91 and imx93 board dts
+>   for patch #6 and #7.
+> - The aliases are removed from common.dtsi because the imx93.dtsi
+>   aliases are removed for patch #4.
+> - Add new patch that move aliases from imx93.dtsi to board dts for
+>   patch #3.
+> - These aliases aren't common, so need to drop in imx93.dtsi for patch #3.
+> - Only add aliases using to imx93 board dts for patch #3.
+> - patch #3 changes come from review comments:
+>   https://lore.kernel.org/imx/4e8f2426-92a1-4c7e-b860-0e10e8dd886c@kernel.org/
+> - add clocks constraints in the if-else branch for patch #2.
+> - reorder the imx93 and imx91 if-else branch for patch #2.
+> - patch #2 changes come from review comments:
+>   https://lore.kernel.org/imx/urgfsmkl25woqy5emucfkqs52qu624po6rd532hpusg3fdnyg3@s5iwmhnfsi26/
+> - add Reviewed-by tag for patch #2.
+> - Link to v6: https://lore.kernel.org/imx/20250623095732.2139853-1-joy.zou@nxp.com/
+> 
+> Changes for v6:
+> - add changelog in per patch.
+> - correct commit message spell for patch #1.
+> - merge rename imx93.dtsi to imx91_93_common.dtsi and move i.MX93
+>   specific part from imx91_93_common.dtsi to imx93.dtsi for patch #3.
+> - modify the commit message for patch #3.
+> - restore copyright time and add modification time for common dtsi for
+>   patch #3.
+> - remove unused map0 label in imx91_93_common.dtsi for patch #3.
+> - remove tmu related node for patch #4.
+> - remove unused regulators and pinctrl settings for patch #5.
+> - add new modification for aliases change patch #6.
+> - Link to v5: https://lore.kernel.org/imx/20250613100255.2131800-1-joy.zou@nxp.com/
+> 
+> Changes for v5:
+> - rename imx93.dtsi to imx91_93_common.dtsi.
+> - move imx93 specific part from imx91_93_common.dtsi to imx93.dtsi.
+> - modify the imx91.dtsi to use imx91_93_common.dtsi.
+> - add new the imx93-blk-ctrl binding and driver patch for imx91 support.
+> - add new net patch for imx91 support.
+> - change node name codec and lsm6dsm into common name audio-codec and
+>   inertial-meter, and add BT compatible string for imx91 board dts.
+> - Link to v4: https://lore.kernel.org/imx/20250121074017.2819285-1-joy.zou@nxp.com/
+> 
+> Changes for v4:
+> - Add one imx93 patch that add labels in imx93.dtsi
+> - modify the references in imx91.dtsi
+> - modify the code alignment
+> - remove unused newline
+> - delete the status property
+> - align pad hex values
+> - Link to v3: https://lore.kernel.org/imx/20241120094945.3032663-1-pengfei.li_1@nxp.com/
+> 
+> Changes for v3:
+> - Add Conor's ack on patch #1
+> - format imx91-11x11-evk.dts with the dt-format tool
+> - add lpi2c1 node
+> - Link to v2: https://lore.kernel.org/imx/20241118051541.2621360-1-pengfei.li_1@nxp.com/
+> 
+> Changes for v2:
+> - change ddr node pmu compatible
+> - remove mu1 and mu2
+> - change iomux node compatible and enable 91 pinctrl
+> - refine commit message for patch #2
+> - change hex to lowercase in pinfunc.h
+> - ordering nodes with the dt-format tool
+> - Link to v1: https://lore.kernel.org/imx/20241108022703.1877171-1-pengfei.li_1@nxp.com/
+> 
+> Joy Zou (6):
+>   arm64: dts: freescale: move aliases from imx93.dtsi to board dts
+>   arm64: dts: freescale: rename imx93.dtsi to imx91_93_common.dtsi and
+>     modify them
+>   arm64: dts: imx91: add i.MX91 dtsi support
+>   arm64: dts: freescale: add i.MX91 11x11 EVK basic support
+>   arm64: dts: imx93-11x11-evk: remove fec property eee-broken-1000t
+>   net: stmmac: imx: add i.MX91 support
+> 
+>  arch/arm64/boot/dts/freescale/Makefile        |    1 +
+>  .../boot/dts/freescale/imx91-11x11-evk.dts    |  674 ++++++++
+>  arch/arm64/boot/dts/freescale/imx91-pinfunc.h |  770 +++++++++
+>  arch/arm64/boot/dts/freescale/imx91.dtsi      |   71 +
+>  .../{imx93.dtsi => imx91_93_common.dtsi}      |  176 +-
+>  .../boot/dts/freescale/imx93-11x11-evk.dts    |   20 +-
+>  .../boot/dts/freescale/imx93-14x14-evk.dts    |   15 +
+>  .../boot/dts/freescale/imx93-9x9-qsb.dts      |   18 +
+>  .../dts/freescale/imx93-kontron-bl-osm-s.dts  |   21 +
+>  .../dts/freescale/imx93-phyboard-nash.dts     |   21 +
+>  .../dts/freescale/imx93-phyboard-segin.dts    |    9 +
+>  .../freescale/imx93-tqma9352-mba91xxca.dts    |   11 +
+>  .../freescale/imx93-tqma9352-mba93xxca.dts    |   25 +
+>  .../freescale/imx93-tqma9352-mba93xxla.dts    |   25 +
+>  .../dts/freescale/imx93-var-som-symphony.dts  |   17 +
+>  arch/arm64/boot/dts/freescale/imx93.dtsi      | 1518 ++---------------
+>  .../net/ethernet/stmicro/stmmac/dwmac-imx.c   |    2 +
+>  17 files changed, 1863 insertions(+), 1531 deletions(-)
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx91-pinfunc.h
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx91.dtsi
+>  copy arch/arm64/boot/dts/freescale/{imx93.dtsi => imx91_93_common.dtsi} (90%)
+>  rewrite arch/arm64/boot/dts/freescale/imx93.dtsi (97%)
+> 
+> --
+> 2.37.1
+> 
+> 
+> 
 
-HEAD commit:    7b8346bd9fce KVM: arm64: Don't attempt vLPI mappings when ..
-git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git next
-console output: https://syzkaller.appspot.com/x/log.txt?x=17b4e862580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=7c53d3478750eda0
-dashboard link: https://syzkaller.appspot.com/bug?extid=cef594105ac7e60c6d93
-compiler:       Debian clang version 20.1.7 (++20250616065708+6146a88f6049-1~exp1~20250616065826.132), Debian LLD 20.1.7
-userspace arch: arm64
-syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=15860634580000
-C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=1074e862580000
 
-Downloadable assets:
-disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/fa3fbcfdac58/non_bootable_disk-7b8346bd.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/74f545807499/vmlinux-7b8346bd.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/d83062566dc7/Image-7b8346bd.gz.xz
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+cef594105ac7e60c6d93@syzkaller.appspotmail.com
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
-=============================
-[ BUG: Invalid wait context ]
-6.16.0-rc3-syzkaller-g7b8346bd9fce #0 Not tainted
------------------------------
-syz.0.29/3743 is trying to lock:
-a3ff80008e2e9e18 (&xa->xa_lock#20){....}-{3:3}, at: vgic_put_irq+0xb4/0x190 arch/arm64/kvm/vgic/vgic.c:137
-other info that might help us debug this:
-context-{5:5}
-3 locks held by syz.0.29/3743:
- #0: a3ff80008e2e90a8 (&kvm->slots_lock){+.+.}-{4:4}, at: kvm_vgic_destroy+0x50/0x624 arch/arm64/kvm/vgic/vgic-init.c:499
- #1: a3ff80008e2e9fa0 (&kvm->arch.config_lock){+.+.}-{4:4}, at: kvm_vgic_destroy+0x5c/0x624 arch/arm64/kvm/vgic/vgic-init.c:500
- #2: 58f0000021be1428 (&vgic_cpu->ap_list_lock){....}-{2:2}, at: vgic_flush_pending_lpis+0x3c/0x31c arch/arm64/kvm/vgic/vgic.c:150
-stack backtrace:
-CPU: 0 UID: 0 PID: 3743 Comm: syz.0.29 Not tainted 6.16.0-rc3-syzkaller-g7b8346bd9fce #0 PREEMPT 
-Hardware name: linux,dummy-virt (DT)
-Call trace:
- show_stack+0x2c/0x3c arch/arm64/kernel/stacktrace.c:466 (C)
- __dump_stack+0x30/0x40 lib/dump_stack.c:94
- dump_stack_lvl+0xd8/0x12c lib/dump_stack.c:120
- dump_stack+0x1c/0x28 lib/dump_stack.c:129
- print_lock_invalid_wait_context kernel/locking/lockdep.c:4833 [inline]
- check_wait_context kernel/locking/lockdep.c:4905 [inline]
- __lock_acquire+0x978/0x299c kernel/locking/lockdep.c:5190
- lock_acquire+0x14c/0x2e0 kernel/locking/lockdep.c:5871
- __raw_spin_lock_irqsave include/linux/spinlock_api_smp.h:110 [inline]
- _raw_spin_lock_irqsave+0x5c/0x7c kernel/locking/spinlock.c:162
- vgic_put_irq+0xb4/0x190 arch/arm64/kvm/vgic/vgic.c:137
- vgic_flush_pending_lpis+0x24c/0x31c arch/arm64/kvm/vgic/vgic.c:158
- __kvm_vgic_vcpu_destroy+0x44/0x500 arch/arm64/kvm/vgic/vgic-init.c:455
- kvm_vgic_destroy+0x100/0x624 arch/arm64/kvm/vgic/vgic-init.c:505
- kvm_arch_destroy_vm+0x80/0x138 arch/arm64/kvm/arm.c:244
- kvm_destroy_vm virt/kvm/kvm_main.c:1308 [inline]
- kvm_put_kvm+0x800/0xff8 virt/kvm/kvm_main.c:1344
- kvm_vm_release+0x58/0x78 virt/kvm/kvm_main.c:1367
- __fput+0x4ac/0x980 fs/file_table.c:465
- ____fput+0x20/0x58 fs/file_table.c:493
- task_work_run+0x1bc/0x254 kernel/task_work.c:227
- resume_user_mode_work include/linux/resume_user_mode.h:50 [inline]
- do_notify_resume+0x1b4/0x270 arch/arm64/kernel/entry-common.c:151
- exit_to_user_mode_prepare arch/arm64/kernel/entry-common.c:169 [inline]
- exit_to_user_mode arch/arm64/kernel/entry-common.c:178 [inline]
- el0_svc+0xb4/0x160 arch/arm64/kernel/entry-common.c:768
- el0t_64_sync_handler+0x78/0x108 arch/arm64/kernel/entry-common.c:786
- el0t_64_sync+0x198/0x19c arch/arm64/kernel/entry.S:600
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
 
 
----
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
+This patch series was applied (using b4) to base:
+ Base: attempting to guess base-commit...
+ Base: tags/v6.17-rc1-2-ge0a4a651f7c8 (best guess, 12/14 blobs matched)
 
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
 
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20250825091223.1378137-1-joy.zou@nxp.com:
 
-If you want syzbot to run the reproducer, reply with:
-#syz test: git://repo/address.git branch-or-commit-hash
-If you attach or paste a git patch, syzbot will apply it before testing.
+arch/arm64/boot/dts/freescale/imx91-11x11-evk.dtb: /: failed to match any schema with compatible: ['fsl,imx91-11x11-evk', 'fsl,imx91']
+arch/arm64/boot/dts/freescale/imx91-11x11-evk.dtb: /: failed to match any schema with compatible: ['fsl,imx91-11x11-evk', 'fsl,imx91']
+arch/arm64/boot/dts/freescale/imx91-11x11-evk.dtb: /soc@0/system-controller@4ac10000: failed to match any schema with compatible: ['fsl,imx91-media-blk-ctrl', 'syscon']
 
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
 
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
 
-If you want to undo deduplication, reply with:
-#syz undup
+
+
 
