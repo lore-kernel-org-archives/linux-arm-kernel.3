@@ -4,171 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14F82CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 17:00:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9882ECA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 17:00:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j81oU7h6ABS8mu4/DagiCSXowt1eIsZjjrFZIC0vquU=; b=W6EzZCvpgEke04JLbkdOKzNjRY
-	BaJC+XaDX7vANVtrTsvTNWL0V9a+L7faKk1mdHaP3pYiAXF7MPztI4xl/8qZgLDagW+3YddLDT98G
-	pTGW+3ex3BsDpe/6n26jyv9W2PvwjrW08KujhKgyjGfa339JCOAENQrS57CUGe5Xi+hiVB7L+6Oja
-	yMagbzBMEdO55fzIws/buNLhZSQpmtBWmJrc8WJKuXIZwghR4dne+HRXBtqP/dqymqOnO+jcgNn0o
-	SuNb76UmB40BNr8eKkRzSB56JIAJERAcBhUS+7GJW3hUPixnF9yYt9/ii6mBpZNok0UP05sXdY6aK
-	2iqfq/Aw==;
+	bh=UUQlllS1YaOp8C8/NcaD7sakXB3UI3KoPJiNbK9veQg=; b=p+fphZnZtKGrbYLC3AD9izmNFS
+	Jduo2QsWaagLceTgeFdWInbGlVlzvtVLlU7fFeh7y88lSZKBlBkgLHDonQ55J1ze74t/q97XSZ1Li
+	5RCxka4fXxd1m19okyTDOKGTkEkX7FsjGZvT6ngm7u176caE2fKYheRtmUSYjD9guHlBq37159Ww/
+	wvu7y/dOoWv3UjbpbCwn+suwV6d2X/xhvyCSxK3w/39JUctjbqrxukgiFGGaChMpLvJY1/ku3CwZ5
+	fqjuvfsOHQsRSUObxk97ntWl/q183QYZVNM8DRduyiw6eTXCZgfLQV9TT6w6yqpQm6NGrzHpJwHIu
+	iSIglyaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqaYf-00000008kEN-1loo;
-	Mon, 25 Aug 2025 17:00:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uqaYg-00000008kFC-0aJG;
+	Mon, 25 Aug 2025 17:00:38 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqZYF-00000008aWz-1qBZ;
-	Mon, 25 Aug 2025 15:56:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=j81oU7h6ABS8mu4/DagiCSXowt1eIsZjjrFZIC0vquU=; b=lKkoydstCQUp/Kc5N91UIidqIY
-	QV+4nTxljPtbBG48h0fUJx6dKIJ66r2jy35Qb7VpWSacb4o6RbrEb4kJVBIOFpZee28kOtDrxcmC+
-	/eV4RoPnqW+FjkDfG4g/tqfeXJCcMUgwlEv0MgVfiuBXFIczWMupeNLizTzGV23qp4q66yFFumKyx
-	TzELFI2/7QoZRxeyDhJT7aDPg0jw6eBCPDCUTaaKYmE+KtQ2N4kV23N5jjqkq3ufzmhWDvA7IM4o5
-	TRY/N55iIK4ZQfMr/q7I6UF7KYUQLPbupXL4PcWj0X16OiwFECepYGIaZB+bD2rpWpBZC88LRKxP7
-	4nYTCHew==;
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqZYA-00000001v65-0NJ2;
-	Mon, 25 Aug 2025 15:56:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pZScElYaTUCqZxl1caT+Vf2O5YrwCYd3QULH7A9Ykbljt6vQ/ocr5fP33ruCsmxcjivZLVwjBtMhGu5mfhhIvHdrkQS9sluPdxfNPC6pDKxJO3MjFb3++r1jo8Q2qivF6sYzdrWrpu2DoXZ13ozB2UtoK1X+2OV3jgckZ6BjTaJSz3+zJi/KlAtWhWPp8cU74POZX/q4e9Fx+7OPXRRIoCcdif0g1TTSApY3V0nyMGwycDMayKxILAT5zHPyl5Mq9CiXj8D2AVG7hs8rkk00y+atcaMT34XC63tKgrE+Fo4KPF+/CXXVvqWrCObQyKDUu0oYBd5SAr5FOvvb7U29Ig==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=j81oU7h6ABS8mu4/DagiCSXowt1eIsZjjrFZIC0vquU=;
- b=GZhXNV8HP9/hdAb2WQtJWngdQ45jlNEX99Lr/UBLLCjZDamGbiV/Chukuurn/KYBvbMZyFH/aSr5EsFoDEGafqxT9OkX3YFCz6rJavpw836G35uB93ERc/Jsviw9UWONkXejG5hDEs8s8ixfIyiZJ3XseMeZHZv2lhqCKq1thnINui+QMd5gvmLgbUWu92b+qe8ROGPCPGjZB6DD62x/S1MvkzL0EBBZxY6rddvvVTO8IKS0iXcKwkQjPuxqCd+k28q5r14lKGmn6AZu0wfHlPiagP40Mvf5D9enbVubEgC9EJAaGrqgLxJLKFFQ8lOVipXF0Y0cEpBia443s+yXYw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=j81oU7h6ABS8mu4/DagiCSXowt1eIsZjjrFZIC0vquU=;
- b=eyFwikItbn0VNnAvK7TdtvH81O8GLRtVv+0oZ6lEJhbk8hZ2+NBl+nMppa9sFsTQtvFBvghB80Gt9PQtpMjJ/CdkLZeix8RvXCvOVREBTdH40WLiPi9fUWacsj8IF4nnIhNdwnycHCUl72tVvusiJuHrOk3vVZXaznAHzRGuZkf8s7IqxZACbw0YIa+/mZo0pCJ5idQ7YKN82+zTGrn+ht1p2fYtMLuiOLgGk4QcnowuvyIXR3kHAU7zCEIea2Qbu99BLFx4KJAJ0xUwGzZQGbEpchdGcnIZLLEM45kA3fxn/GtnwVD8p8bRf6EzKgWJfv3MdQ+A3abfv0FliXiFpw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by GV1PR04MB9213.eurprd04.prod.outlook.com (2603:10a6:150:28::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.12; Mon, 25 Aug
- 2025 15:55:48 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d%5]) with mapi id 15.20.9073.009; Mon, 25 Aug 2025
- 15:55:47 +0000
-Date: Mon, 25 Aug 2025 11:55:38 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Marc Kleine-Budde <mkl@pengutronix.de>,
-	Vincent Mailhol <mailhol.vincent@wanadoo.fr>,
-	Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Aswath Govindraju <a-govindraju@ti.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Haibo Chen <haibo.chen@nxp.com>,
-	linux-can@vger.kernel.org, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 4/5] arm64: dts: imx8mp-evk: Use phys to replace
- xceiver-supply
-Message-ID: <aKyHehTGrQHWQJaD@lizhi-Precision-Tower-5810>
-References: <20250825-can-v2-0-c461e9fcbc14@nxp.com>
- <20250825-can-v2-4-c461e9fcbc14@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250825-can-v2-4-c461e9fcbc14@nxp.com>
-X-ClientProxiedBy: SJ0PR03CA0204.namprd03.prod.outlook.com
- (2603:10b6:a03:2ef::29) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+	id 1uqZZ3-00000008av9-2kGu
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 25 Aug 2025 15:56:58 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1uqZYd-0003lu-Pz; Mon, 25 Aug 2025 17:56:31 +0200
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1uqZYZ-0025Zy-04;
+	Mon, 25 Aug 2025 17:56:27 +0200
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1uqZYY-000dPY-2w;
+	Mon, 25 Aug 2025 17:56:26 +0200
+Message-ID: <ca0aabeae81758a64bcad5f8113962e79b06ffd5.camel@pengutronix.de>
+Subject: Re: [PATCH v13 04/11] PCI: stm32: Add PCIe host support for
+ STM32MP25
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Christian Bruel <christian.bruel@foss.st.com>, lpieralisi@kernel.org, 
+ kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
+ bhelgaas@google.com,  krzk+dt@kernel.org, conor+dt@kernel.org,
+ mcoquelin.stm32@gmail.com,  alexandre.torgue@foss.st.com,
+ linus.walleij@linaro.org, corbet@lwn.net,  shradha.t@samsung.com,
+ mayank.rana@oss.qualcomm.com, namcao@linutronix.de, 
+ qiang.yu@oss.qualcomm.com, thippeswamy.havalige@amd.com,
+ inochiama@gmail.com,  quic_schintav@quicinc.com
+Cc: johan+linaro@kernel.org, linux-pci@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-doc@vger.kernel.org
+Date: Mon, 25 Aug 2025 17:56:26 +0200
+In-Reply-To: <7378edca-12f4-44a1-9c2a-ea07ebab4ad0@foss.st.com>
+References: <20250820075411.1178729-1-christian.bruel@foss.st.com>
+	 <20250820075411.1178729-5-christian.bruel@foss.st.com>
+	 <e67d5a27fb00040ba87a0b108322747ecca8d05b.camel@pengutronix.de>
+	 <7378edca-12f4-44a1-9c2a-ea07ebab4ad0@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|GV1PR04MB9213:EE_
-X-MS-Office365-Filtering-Correlation-Id: a71a7b84-28c5-47df-231f-08dde3efdb5a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|19092799006|376014|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?7oa0Of8KE7aliVo0NsOWzwfpqgS0WRk1qfKnrmgzywfxem2hJoSNcInbYVQS?=
- =?us-ascii?Q?iW7JR9QvMz4s8xypjq5ChnrRva4837Y7C66DGQl0bs2iM/c5Tmx3itakIdVb?=
- =?us-ascii?Q?LTLKnquWRvraFlbb+ZiFL7ZnDwP2KZp3rexOYrL9RfMVwvjKlLySbmqzEmcG?=
- =?us-ascii?Q?kkwoQ3rl7/w3nx68WJOO0IfLRAPhLXC4GCQzLX6CxhGEzItC6PF1uZgdi+GE?=
- =?us-ascii?Q?D5sJmK9vN2hB+hd7lbZEjbYaqUwZW9qXPxt/Czja1GSMwqCbR1a8nYPew3aw?=
- =?us-ascii?Q?6Wd9a5cnior/ALSCPBDJb1iYNeSlXc0H1x/S3+oTWqiKSVCxvmd3LNN9vsjc?=
- =?us-ascii?Q?mQ6qwa0iVmwc0GiDtaw8UZaGxPBnRaRkcSAgMpqBZTSjEPLkflaqGuNSlV+K?=
- =?us-ascii?Q?MK12Lqm5SYSBjT4jK8e+icqtHbIL6cp160fksGup+CeDrjbQxXRdb45qVsbb?=
- =?us-ascii?Q?eq/DiOqa3meMc/q/hkQdmBvT/xXXYrjvStGWrQuRD0/2x0mUeBdc6tBGlDi4?=
- =?us-ascii?Q?vAxhC+sTtzQ1TzPbPZTwuucSYXT5hE5wk6sHQqKiG/fySOWz9z0ub1RmH7km?=
- =?us-ascii?Q?rhAHkvNPvzUipXs9Bvbs7bp8LG8r5mRdMUKIx/nGrVA07pTFeQI62wPRgcer?=
- =?us-ascii?Q?EcRL4RZV8cDtrhGpmugcten6Vd/nNp92ReHcMRlf5NqPGM7qJuw1z6JwwIbq?=
- =?us-ascii?Q?raI9fXEsPszE7ityWsBAmEhLfgAtl9b0VaEBk/EyuF8lIMpycWt99enN96I5?=
- =?us-ascii?Q?Y16zShlIKeOFDJnB/QXkzj2DFOI6K/rGR78nnxAY/3PF0zhTiv5DoY2bfDiA?=
- =?us-ascii?Q?aYF/YFOnmuEUFhsjGENC+cWB+2XZZ+yds1YHUdvc4za3/5s5UJda/hy9lgPO?=
- =?us-ascii?Q?5esVeic6sRKeupw7EIxgHxUFPuCt+icQ0TaH5r0iwLeZoOrFV5Lj8jwnKkYe?=
- =?us-ascii?Q?v7lbAjQNE6RnWD+9fc3lmgZyRNSA1LLW/s/3pQfjyZ273CcVTzjvIJKFWfFL?=
- =?us-ascii?Q?R6m+7cnt+1DBu2Wl6d5n/KoATuye4gW3wyZZSafxO3KSvmvFKdVOmv1bDURB?=
- =?us-ascii?Q?QiQEPgyONbDnkMA3TKHQHIhEA2vBNtTdogfebWWTO/rU/RKpyq40lKWEZ/Nz?=
- =?us-ascii?Q?wv86IOO8ZLnckuLqU6ddnn3IfaKB+r5x/c9OZo0sVIod30wf/Xoehulu0rQj?=
- =?us-ascii?Q?dR/34Ma6q7ox7WlC7ZUBU6/+YGNDGnifmML8v3WPrUkh2gzTPGWfLVVgQyWH?=
- =?us-ascii?Q?ruO/TW4tgsLQT8hnnRldW9WUONhK6Q8Eszo463B9yoyExVasRA53gzm6W62O?=
- =?us-ascii?Q?4Xpv96Qp3coiQqXgxWlsVcMYNhlcq1aS8AUf+FnlEU4ngBNquJtkM+AIUZ85?=
- =?us-ascii?Q?C3H/ofzYAkjAxssJMAw9OpyAMFOkBEUDZ4qBcbnPWJvxGKodpQ/yMYqwV4nC?=
- =?us-ascii?Q?yFkz2R6Ue4zRXLfzr/5Wz1DHV04ewaLz3AIxldyT2vismCS2W5qKtw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(19092799006)(376014)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ucFFrcEbM4lV+rZTAldT05ky1pCkdr0YuKAlBGhpYI7cjlLaJ3fbgLobD8QB?=
- =?us-ascii?Q?05goKOGRcD0g870JsHFoXmmq8o45JYCY6NcShhUaAEHocHmJlt2W7jKAaNWd?=
- =?us-ascii?Q?5KMbeEh9oRJlGcSd9Ifz7mzutXaMb1kYu5JHHtHA3VuGJ9iY0MlaRAq7dYaB?=
- =?us-ascii?Q?Xh2tfOdeQh04IvUFsoj9wUe98SVNW4J0xnWozzkJG6Sg7TrjQeE6zTa2uWkl?=
- =?us-ascii?Q?lfj4mmk6goKVT6GyMQjbE0ILzPDgOpAjcPXUz3CPm0NbhmAjvJvrP1MIWWf/?=
- =?us-ascii?Q?ZrmylwJTsBKD5jT5dNLg4ZojWo1+ySjaAerpMmS2vV/TZhajWm48fQlLx8Cz?=
- =?us-ascii?Q?htHARTKhw0L4mlpKaXjXjLpyAP8Eu4Evv3FafY3nG9k6YgTdU2aRjLdIeuAX?=
- =?us-ascii?Q?07P7N1oHLQVhiPs6+JkZJsHjd/ZiQ4Ys4nKCGbxtchgvhYl2xZ5lXlBgHqk+?=
- =?us-ascii?Q?ML2I/7a1u2vv49G5K4k5Ql3i82s74eRe4o7ivGqKkUszdIonNdg8OVph/lVE?=
- =?us-ascii?Q?uxeNcFcoG0VDtqaw8Ls3EBkLWgz2f4OVbFBXeqiiuSyFwiim9j8h8Yrd3gIm?=
- =?us-ascii?Q?MDmRrWW2MQlpqkBX5ddxPOSC88G1Ky1EXD3a3jCQxhHGZA1TQoRWbU+5QpMx?=
- =?us-ascii?Q?zzfu/UWsEtmpM6sboO8GkljnLBr5xiTAVQtr+wqfexErUy0ABa1KfAPj8fJw?=
- =?us-ascii?Q?FoEMlvH9pkHl7g9dgr426d6okl4WyUHJDxNgu7mpmqBixSbX3K7Hp3SFjoW9?=
- =?us-ascii?Q?vZwRood3eDy+JjdGRnwST3C7dU8KU4GodTm5C6Tr9Ytk6eHYPa6q4xiq4ju4?=
- =?us-ascii?Q?QrBmZUf4FH6SDgEsavYZg/vEl9AvqaOcuiRn9asHGoiSo2yW6Qp2qWdGDs+g?=
- =?us-ascii?Q?qpi70SZChE2xz7zyAdV+3+yls+9A8aix5ThZuv8oNfaNd7pevL/Vqr4FnB89?=
- =?us-ascii?Q?xhk1M/7TRLW1ICnVnFfooZyRmHE6CiunEs76v2LBs2qaUUnpHrvnWYyTPhgw?=
- =?us-ascii?Q?gHnXTP5920/jWuVNKEiokDNe3dNJDYn5akoEwShJp1xGgk6JT5gZD1pnaca+?=
- =?us-ascii?Q?aeFd88IHYeFzSgT9mhKc7O0GfV5jsYQdHcP1IDFzzm3ePTyDuYOM6WLiJycU?=
- =?us-ascii?Q?NF3TT/+Cd+HvHlDnOQQ2bOaUZrVZUV7yoAkO++DFKdg5BR0yXZR0Ms628kEJ?=
- =?us-ascii?Q?fuveUQPxOEtvgutqGm1jvZj1wuhsCw2ahexnNf9tIiG+xbWJxK4O9x6FXbh/?=
- =?us-ascii?Q?WtixwwNK2s5bOVcoPuS/Mcdb8sElHBQZd2CG5pXj6m3QR8I+5pDf/zjNBj1m?=
- =?us-ascii?Q?c9+JUB2ykUv+OeW9aaXGH0t448OO+ZpjtRbqWSfubziFTyrcmQjbHjN0jmPX?=
- =?us-ascii?Q?aKctJhS+Q2PDnIC2hmahCqtx8HzSys0U9FkpIf0wfvA4l/WPgP8IkCXfTPKQ?=
- =?us-ascii?Q?jgYL9n2ZsewLlvJ7Zo/6DvlMW8lUpfrw6ch69JuFDqQC6WRoDkLlMg/DNXth?=
- =?us-ascii?Q?rjk7COOBa5SCb30VWd59tXgkDVDTKyk8pOtHkkWyq7MNOB3FiuRc6kSz6kBY?=
- =?us-ascii?Q?YSHSxsA+2eBURFtGRYIJrdvmx2Z4EooRD1OxlFf/?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a71a7b84-28c5-47df-231f-08dde3efdb5a
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Aug 2025 15:55:47.5132
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: mHpdIwDv15a6hcmK7qESDgzG0g/QZH309Ra9LInjAbuIWGFi1hf80Z3KxZb9r0FFg6+cJEk5D/XZt02ECRgagA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB9213
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_165602_371287_1FD744DA 
-X-CRM114-Status: GOOD (  16.64  )
+X-CRM114-CacheID: sfid-20250825_085657_693717_47FECC6E 
+X-CRM114-Status: GOOD (  34.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,105 +89,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 25, 2025 at 04:36:45PM +0800, Peng Fan wrote:
-> The TJA1048 used on i.MX8MP-EVK is actually high-speed CAN
-> transceiver, not a regulator supply. So use phys to reflect the truth.
+On Mo, 2025-08-25 at 16:47 +0200, Christian Bruel wrote:
+>=20
+> On 8/25/25 11:15, Philipp Zabel wrote:
+> > On Mi, 2025-08-20 at 09:54 +0200, Christian Bruel wrote:
+> > > Add driver for the STM32MP25 SoC PCIe Gen1 2.5 GT/s and Gen2 5GT/s
+> > > controller based on the DesignWare PCIe core.
+> > >=20
+> > > Supports MSI via GICv2m, Single Virtual Channel, Single Function
+> > >=20
+> > > Supports WAKE# GPIO.
+> > >=20
+> > > Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+> > > ---
+> > >   drivers/pci/controller/dwc/Kconfig      |  12 +
+> > >   drivers/pci/controller/dwc/Makefile     |   1 +
+> > >   drivers/pci/controller/dwc/pcie-stm32.c | 360 +++++++++++++++++++++=
++++
+> > >   drivers/pci/controller/dwc/pcie-stm32.h |  15 +
+> > >   4 files changed, 388 insertions(+)
+> > >   create mode 100644 drivers/pci/controller/dwc/pcie-stm32.c
+> > >   create mode 100644 drivers/pci/controller/dwc/pcie-stm32.h
+> > >=20
+> > > diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/control=
+ler/dwc/Kconfig
+> > > index deafc512b079..a8174817fd5b 100644
+> > > --- a/drivers/pci/controller/dwc/Kconfig
+> > > +++ b/drivers/pci/controller/dwc/Kconfig
+> > > @@ -423,6 +423,18 @@ config PCIE_SPEAR13XX
+> > >   	help
+> > >   	  Say Y here if you want PCIe support on SPEAr13XX SoCs.
+> > >  =20
+> > > +config PCIE_STM32_HOST
+> > > +	tristate "STMicroelectronics STM32MP25 PCIe Controller (host mode)"
+> > > +	depends on ARCH_STM32 || COMPILE_TEST
+> > > +	depends on PCI_MSI
+> > > +	select PCIE_DW_HOST
+> > > +	help
+> > > +	  Enables Root Complex (RC) support for the DesignWare core based P=
+CIe
+> > > +	  controller found in STM32MP25 SoC.
+> > > +
+> > > +	  This driver can also be built as a module. If so, the module
+> > > +	  will be called pcie-stm32.
+> > > +
+> > >   config PCI_DRA7XX
+> > >   	tristate
+> > >  =20
+> > > diff --git a/drivers/pci/controller/dwc/Makefile b/drivers/pci/contro=
+ller/dwc/Makefile
+> > > index 6919d27798d1..1307a87b1cf0 100644
+> > > --- a/drivers/pci/controller/dwc/Makefile
+> > > +++ b/drivers/pci/controller/dwc/Makefile
+> > > @@ -31,6 +31,7 @@ obj-$(CONFIG_PCIE_UNIPHIER) +=3D pcie-uniphier.o
+> > >   obj-$(CONFIG_PCIE_UNIPHIER_EP) +=3D pcie-uniphier-ep.o
+> > >   obj-$(CONFIG_PCIE_VISCONTI_HOST) +=3D pcie-visconti.o
+> > >   obj-$(CONFIG_PCIE_RCAR_GEN4) +=3D pcie-rcar-gen4.o
+> > > +obj-$(CONFIG_PCIE_STM32_HOST) +=3D pcie-stm32.o
+> > >  =20
+> > >   # The following drivers are for devices that use the generic ACPI
+> > >   # pci_root.c driver but don't support standard ECAM config access.
+> > > diff --git a/drivers/pci/controller/dwc/pcie-stm32.c b/drivers/pci/co=
+ntroller/dwc/pcie-stm32.c
+> > > new file mode 100644
+> > > index 000000000000..964fa6f674c8
+> > > --- /dev/null
+> > > +++ b/drivers/pci/controller/dwc/pcie-stm32.c
+> > > @@ -0,0 +1,360 @@
+> > > +// SPDX-License-Identifier: GPL-2.0-only
+> > > +/*
+> > > + * STMicroelectronics STM32MP25 PCIe root complex driver.
+> > > + *
+> > > + * Copyright (C) 2025 STMicroelectronics
+> > > + * Author: Christian Bruel <christian.bruel@foss.st.com>
+> > > + */
+> > > +
+> > > +#include <linux/clk.h>
+> > > +#include <linux/mfd/syscon.h>
+> > > +#include <linux/of_platform.h>
+> > > +#include <linux/phy/phy.h>
+> > > +#include <linux/pinctrl/consumer.h>
+> > > +#include <linux/platform_device.h>
+> > > +#include <linux/pm_runtime.h>
+> > > +#include <linux/pm_wakeirq.h>
+> > > +#include <linux/regmap.h>
+> > > +#include <linux/reset.h>
+> > > +#include "pcie-designware.h"
+> > > +#include "pcie-stm32.h"
+> > > +#include "../../pci.h"
+> > > +
+> > > +struct stm32_pcie {
+> > > +	struct dw_pcie pci;
+> > > +	struct regmap *regmap;
+> > > +	struct reset_control *rst;
+> >=20
+> > This could be a local variable in stm32_pcie_probe().
+>
+> Thank you for pointing that out.
+>=20
+> Since we use the same common resources in stm32_pcie for both the host=
+=20
+> and endpoint drivers, aligning the same fields in the struct stm32_pcie=
+=20
+> seems more consistent.
 
-nit: wrap at 75 chars. 'transceiver', should be at first line.
+I hadn't seen the host driver at that point.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Aligning struct stm32_pcie with another struct in another .c file as an
+unwritten rule doesn't make sense to me. If parts of the structs should
+be kept aligned between host and endpoint drivers, it would be better
+to define a common base struct in a shared header.
 
->
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->  arch/arm64/boot/dts/freescale/imx8mp-evk.dts | 43 +++++++++-------------------
->  1 file changed, 13 insertions(+), 30 deletions(-)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-> index c0cc5611048e6a739f13c14bbd2e7b26f2715696..d238d419d87cc7c99d472720c96aade90275cb0f 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-> @@ -56,6 +56,16 @@ memory@40000000 {
->  		      <0x1 0x00000000 0 0xc0000000>;
->  	};
->
-> +	flexcan_phy: can-phy {
-> +		compatible = "nxp,tja1048";
-> +		#phy-cells = <1>;
-> +		max-bitrate = <5000000>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pinctrl_flexcan_phy>;
-> +		standby-gpios = <&gpio5 5 GPIO_ACTIVE_LOW>,
-> +				<&gpio4 27 GPIO_ACTIVE_LOW>;
-> +	};
-> +
->  	native-hdmi-connector {
->  		compatible = "hdmi-connector";
->  		label = "HDMI OUT";
-> @@ -103,28 +113,6 @@ reg_audio_pwr: regulator-audio-pwr {
->  		enable-active-high;
->  	};
->
-> -	reg_can1_stby: regulator-can1-stby {
-> -		compatible = "regulator-fixed";
-> -		regulator-name = "can1-stby";
-> -		pinctrl-names = "default";
-> -		pinctrl-0 = <&pinctrl_flexcan1_reg>;
-> -		regulator-min-microvolt = <3300000>;
-> -		regulator-max-microvolt = <3300000>;
-> -		gpio = <&gpio5 5 GPIO_ACTIVE_HIGH>;
-> -		enable-active-high;
-> -	};
-> -
-> -	reg_can2_stby: regulator-can2-stby {
-> -		compatible = "regulator-fixed";
-> -		regulator-name = "can2-stby";
-> -		pinctrl-names = "default";
-> -		pinctrl-0 = <&pinctrl_flexcan2_reg>;
-> -		regulator-min-microvolt = <3300000>;
-> -		regulator-max-microvolt = <3300000>;
-> -		gpio = <&gpio4 27 GPIO_ACTIVE_HIGH>;
-> -		enable-active-high;
-> -	};
-> -
->  	reg_pcie0: regulator-pcie {
->  		compatible = "regulator-fixed";
->  		pinctrl-names = "default";
-> @@ -431,14 +419,14 @@ ethphy1: ethernet-phy@1 {
->  &flexcan1 {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_flexcan1>;
-> -	xceiver-supply = <&reg_can1_stby>;
-> +	phys = <&flexcan_phy 0>;
->  	status = "okay";
->  };
->
->  &flexcan2 {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_flexcan2>;
-> -	xceiver-supply = <&reg_can2_stby>;
-> +	phys = <&flexcan_phy 1>;
->  	status = "disabled";/* can2 pin conflict with pdm */
->  };
->
-> @@ -903,14 +891,9 @@ MX8MP_IOMUXC_SAI5_RXD3__CAN2_TX         0x154
->  		>;
->  	};
->
-> -	pinctrl_flexcan1_reg: flexcan1reggrp {
-> +	pinctrl_flexcan_phy: flexcanphygrp {
->  		fsl,pins = <
->  			MX8MP_IOMUXC_SPDIF_EXT_CLK__GPIO5_IO05  0x154   /* CAN1_STBY */
-> -		>;
-> -	};
-> -
-> -	pinctrl_flexcan2_reg: flexcan2reggrp {
-> -		fsl,pins = <
->  			MX8MP_IOMUXC_SAI2_MCLK__GPIO4_IO27      0x154   /* CAN2_STBY */
->  		>;
->  	};
->
-> --
-> 2.37.1
->
+> Additionally, we could improve the code by moving regmap, clk, and rst=
+=20
+> out of probe into a new function, stm32_pcie_resource_get().
+>=20
+> Which approach do you think is best? Moving rst to stm32_pcie_probe()=20
+> offers slight optimization,
+
+This option would be my preference, but it's not a strong one.
+
+Storing a single pointer unnecessarily isn't a big deal.
+My mind just went "where is it used? - oh, nowhere", so I thought I'd
+point that out.
+
+> while using a new stm32_pcie_resource_get()=20
+> provides better modularity.
+
+I think this isn't enough code to warrant sharing
+stm32_pcie_resource_get() between host and endpoint drivers in the
+absence of other shared code.
+
+Whether splitting this out in each driver improves readability of the
+probe functions is a matter of taste. I think it's fine as-is. I
+wouldn't argue against the change either.
+
+> Shall I re-spin a v14 with either of these options?
+
+Don't respin just for this.
+
+regards
+Philipp
 
