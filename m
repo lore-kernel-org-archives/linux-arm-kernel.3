@@ -4,107 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20B5BCA0FE7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 15:01:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65194CA0FEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 15:01:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pDTMpOHUU+5woUIgWQOxnynpQcS2ptNxqXsiFnt7QfQ=; b=QTwEV/47cB0z3VmFD54lz4TTXe
-	XkzLLfWOwLBYg/uSsniaPazOhPidR5w9rMWKmLhBktf/jDsG+/BMTIOzqfjEoBdFLBVz05yrterGl
-	G7JOnJtyG4bvzdT8m1fcbSXCN37TWtPxdRf3AWQXbNepHqzaRbR+onmGeRLK3Nd+TD15Cm1rsdb2s
-	3aXfRv/sRg7Aly8rxKm/NRRPTKzmilzvY8YPPsDBFATJjIPpmlaFaANBLJvsllUoNVcknD5ZDjNQB
-	zILRwTDcuL8dclzNFJrOsdNnqty7tQhZHWhPZQsVeFYwnHbUCL5vvrjv4J5K1W4p0SpHc1Il50Fft
-	utT8AkVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PVgYUvPT1vPM01I1nr9R+3H7BRFArSAfjzLQN6iJKvQ=; b=D0ZE1pfMuUT1Pcdh8X8qFON7JR
+	TkKKOrw92ArYaN0ZkMqKQwURuunMJSvCw1a0St85RtD++gUGEw5NIKijjSQ3b/p1b83hM8SidRREP
+	G6WhWbsLGang8ZG9kGks6ca8YVGmZt1M//8bMLF/meKm54XNBdHvJ0fW3WEADVF72BxnbOaPjNt0j
+	g1eOffCD1a+JYXeHRlpXHGcccgEByKyq2PhOooUHX3UeOXqlglScs25Y0nX5LIuA0B/McNXcX/Pa5
+	W0fribp/xL1Cj1j1sbSp8X/2PWi7s5mt+MMVuY4yseImxCLFFOtp6c808InGi2KZPohXkais5KMgB
+	IAcV5G8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqYgo-00000008Nks-1NwT;
-	Mon, 25 Aug 2025 15:00:54 +0000
-Received: from mail-ed1-x543.google.com ([2a00:1450:4864:20::543])
+	id 1uqYgp-00000008No8-43Wa;
+	Mon, 25 Aug 2025 15:00:55 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqXNW-000000086OI-0W54
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 13:36:55 +0000
-Received: by mail-ed1-x543.google.com with SMTP id 4fb4d7f45d1cf-6188b5ad4f0so6126692a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 06:36:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756129012; x=1756733812; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=pDTMpOHUU+5woUIgWQOxnynpQcS2ptNxqXsiFnt7QfQ=;
-        b=tfrrggVhEPc5BadVskfc3zWf4oalAIK9d/if2bV899VlhFptVanYmttwUB9nscY1Rm
-         PSTGbWOvUML5IYoSlnti3ZVVPBYlpT+/XOtusDEGTfYYKC05AqexTh/uiGJDlME8s3BE
-         eytJQaZZHpAUfogqgPQw0NCjqs1TuTkNpphvIsVPDd0Dkb/nhs7uolqSVa/X8/J3gfZ+
-         HRuxRDsnaxhwLauP5PrVJbRRsfKg/0WB3Lmr5FHCN0rJll84nRn+3xHP9Jwrf39toAeP
-         MbsgFmIMUMmANqqD/zdXiIjspz3C1RgkSO0TKiLG2IbOCEa26CjHVTZtvncbCu7n9Kjc
-         3R5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756129012; x=1756733812;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=pDTMpOHUU+5woUIgWQOxnynpQcS2ptNxqXsiFnt7QfQ=;
-        b=MIfqUE8gKAMWgJ3QSsx34eZwxVHFqfihhvxE2vPILpk2RTp+jguBEMUPpl/b9ODES6
-         d/MU+b8Gecouy0yHEjBVFXrNECovdbXWHoKZiDQ1TA+BfowWt4ocpsN0IVrzwSDqQFAv
-         njBbGzNUsvXOshLPqQDcEAqXByyMUcrlXru8AOwHNbfbPQ/FbZNSjONaCmx4jzTJXRFs
-         lKaU5hS936t6NQi15OpHG46G0WYrdrNEDQDYY3trGjv8mrkj2LqWgq3TceK9QItKcugI
-         xPaGXB5AE7bXuw5OtqRKtncpowVcs7QE2z7NKWsNh2Uq9EY7uSIZTJALmVW+IhFSTyNR
-         vjEg==
-X-Forwarded-Encrypted: i=1; AJvYcCV9JwbuapmJab1aJLJRS4Li6VLyHrR4KgfkXBZ7IS0QJUwXTmF7ZM6FI0qCr7ngNftwSb/I0VsXe6pXnN7Bk6eh@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmQlItW1RHNFp0qRPswAdhwGqAijJ+qstPbxZdN36CDie5WhEN
-	cGOc5qExkIcw2iAloB70GpQ7V3k/6mszO2fYGKzqChaxYcUhicQmIuxr5v6g9zNKKNA=
-X-Gm-Gg: ASbGncv6boqI9//iO2q6Vf96XJ7kUM9WcBnsWh9yuSPVcIITd22De3t3EgH4KoAqabd
-	84aAQWq69IIfSq5XAxzgoYnPnAV1blXwLM1IleVCXAZK5BVq9UY/v0nvqZJMZ5lcsUop8rbnmJo
-	Ouzoes9zjO7DmGkpv+plh98CN5/AnVpgSknuiUFf9RDKiWfBQtehiQ3xz7Hu2b7hB4Xb56OpGo6
-	5TBMHNWEoJpJh6dFPBbThSc06g/hZW1ixYK1J5a4YyRAFRv6GEa4y+zJU84P3H6B3yKlcn308hQ
-	y567anW3bmIuA8oRYdSSE9TshMVjquFcnR08UrCn48Y4VGAQhT7yqLKwylwCU4PIPgKOp90srHU
-	2b64wNdRv+tv0B9XjLuozSsMPM1DfdQ==
-X-Google-Smtp-Source: AGHT+IFLBUsjEEaRTMKTTS5UYe1p7dIIzUWH6NZxIBU0sDo3Xlc4F0hHutvr4vh9c1wWtrm9SoU6bw==
-X-Received: by 2002:a17:907:7202:b0:af9:bfef:156b with SMTP id a640c23a62f3a-afe296a7876mr865808766b.59.1756129012418;
-        Mon, 25 Aug 2025 06:36:52 -0700 (PDT)
-Received: from [192.168.0.24] ([82.76.24.202])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afe91744c66sm72984966b.88.2025.08.25.06.36.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 25 Aug 2025 06:36:52 -0700 (PDT)
-Message-ID: <01c67173-818c-48cf-8515-060751074c37@linaro.org>
-Date: Mon, 25 Aug 2025 16:36:50 +0300
+	id 1uqXOd-000000086Zb-1i6y;
+	Mon, 25 Aug 2025 13:38:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=PVgYUvPT1vPM01I1nr9R+3H7BRFArSAfjzLQN6iJKvQ=; b=SCimNEDupFMkyQhB1L09lOvN6L
+	2R2NcLUFXj3aX6q1C9zMzhUzbva/YBhfegk7MxjDN9oyQchc03Y+e3j+lu0irp5X2jaAcQNfcLzkw
+	57qcs0A5jOaIq5wT7QANf9CQw6k4yxggPLKlR2yYU9Hywo3l9qD2g0f/WNHW+WeGYkILoDqzSx59i
+	64jBpaJd1/A5X2fUoTAm8taxCXd+syedJ0xfiDBwokuWNqMVpiwgI0EQCCMmjCy8MeQ3DEWfab/9z
+	P/l3yoCWe6alpUfHXrf9VaRE17B1xFYZ0brzJFjmu3wKvk3yrOAqMNfujbdN1WPD7tVxWtSF8RFUT
+	iH3woFiQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:53562)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1uqXOF-000000006XF-25Id;
+	Mon, 25 Aug 2025 14:37:39 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1uqXO9-0000000089m-0a0b;
+	Mon, 25 Aug 2025 14:37:33 +0100
+Date: Mon, 25 Aug 2025 14:37:32 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Chaoyi Chen <kernel@airkyi.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jonas Karlman <jonas@kwiboo.se>, David Wu <david.wu@rock-chips.com>,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH net-next v3] net: ethernet: stmmac: dwmac-rk: Make the
+ clk_phy could be used for external phy
+Message-ID: <aKxnHFSrVeM7Be5A@shell.armlinux.org.uk>
+References: <20250815023515.114-1-kernel@airkyi.com>
+ <CGME20250825072312eucas1p2d4751199c0ea069c7938218be60e5e93@eucas1p2.samsung.com>
+ <a30a8c97-6b96-45ba-bad7-8a40401babc2@samsung.com>
+ <d0fe6d16-181f-4b38-9457-1099fb6419d0@rock-chips.com>
+ <809848c9-2ffa-4743-adda-b8b714b404de@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC][PATCH v2 22/29] mm/numa: Register information into Kmemdump
-To: David Hildenbrand <david@redhat.com>, Michal Hocko <mhocko@suse.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-mm@kvack.org, tglx@linutronix.de,
- andersson@kernel.org, pmladek@suse.com,
- linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
- corbet@lwn.net, mojha@qti.qualcomm.com, rostedt@goodmis.org,
- jonechou@google.com, tudor.ambarus@linaro.org,
- Christoph Hellwig <hch@infradead.org>,
- Sergey Senozhatsky <senozhatsky@chromium.org>
-References: <20250724135512.518487-1-eugen.hristev@linaro.org>
- <20250724135512.518487-23-eugen.hristev@linaro.org>
- <ffc43855-2263-408d-831c-33f518249f96@redhat.com>
- <e66f29c2-9f9f-4b04-b029-23383ed4aed4@linaro.org>
- <751514db-9e03-4cf3-bd3e-124b201bdb94@redhat.com>
- <aJCRgXYIjbJ01RsK@tiehlicka>
- <e2c031e8-43bd-41e5-9074-c8b1f89e04e6@linaro.org>
- <23e7ec80-622e-4d33-a766-312c1213e56b@redhat.com>
- <f43a61b4-d302-4009-96ff-88eea6651e16@linaro.org>
- <77d17dbf-1609-41b1-9244-488d2ce75b33@redhat.com>
- <ecd33fa3-8362-48f0-b3c2-d1a11d8b02e3@linaro.org>
- <9f13df6f-3b76-4d02-aa74-40b913f37a8a@redhat.com>
- <64a93c4a-5619-4208-9e9f-83848206d42b@linaro.org>
- <f1f290fc-b2f0-483b-96d5-5995362e5a8b@redhat.com>
-From: Eugen Hristev <eugen.hristev@linaro.org>
-Content-Language: en-US
-In-Reply-To: <f1f290fc-b2f0-483b-96d5-5995362e5a8b@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <809848c9-2ffa-4743-adda-b8b714b404de@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_063654_180096_E9A403CE 
-X-CRM114-Status: GOOD (  43.09  )
+X-CRM114-CacheID: sfid-20250825_063803_446555_F9AA29FE 
+X-CRM114-Status: GOOD (  26.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,139 +93,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Aug 25, 2025 at 12:53:37PM +0200, Marek Szyprowski wrote:
+> On 25.08.2025 11:57, Chaoyi Chen wrote:
+> > On 8/25/2025 3:23 PM, Marek Szyprowski wrote:
+> >> On 15.08.2025 04:35, Chaoyi Chen wrote:
+> >>> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> >>>
+> >>> For external phy, clk_phy should be optional, and some external phy
+> >>> need the clock input from clk_phy. This patch adds support for setting
+> >>> clk_phy for external phy.
+> >>>
+> >>> Signed-off-by: David Wu <david.wu@rock-chips.com>
+> >>> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> >>> ---
+> >>>
+> >>> Changes in v3:
+> >>> - Link to V2: 
+> >>> https://lore.kernel.org/netdev/20250812012127.197-1-kernel@airkyi.com/
+> >>> - Rebase to net-next/main
+> >>>
+> >>> Changes in v2:
+> >>> - Link to V1: 
+> >>> https://lore.kernel.org/netdev/20250806011405.115-1-kernel@airkyi.com/
+> >>> - Remove get clock frequency from DT prop
+> >>>
+> >>>    drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 11 +++++++----
+> >>>    1 file changed, 7 insertions(+), 4 deletions(-)
+> >>>
+> >>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c 
+> >>> b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> >>> index ac8288301994..5d921e62c2f5 100644
+> >>> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> >>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> >>> @@ -1412,12 +1412,15 @@ static int rk_gmac_clk_init(struct 
+> >>> plat_stmmacenet_data *plat)
+> >>>            clk_set_rate(plat->stmmac_clk, 50000000);
+> >>>        }
+> >>>    -    if (plat->phy_node && bsp_priv->integrated_phy) {
+> >>> +    if (plat->phy_node) {
+> >>>            bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
+> >>>            ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
+> >>> -        if (ret)
+> >>> -            return dev_err_probe(dev, ret, "Cannot get PHY clock\n");
+> >>> -        clk_set_rate(bsp_priv->clk_phy, 50000000);
+> >>> +        /* If it is not integrated_phy, clk_phy is optional */
+> >>> +        if (bsp_priv->integrated_phy) {
+> >>> +            if (ret)
+> >>> +                return dev_err_probe(dev, ret, "Cannot get PHY 
+> >>> clock\n");
+> >>> +            clk_set_rate(bsp_priv->clk_phy, 50000000);
+> >>> +        }
+> >
+> > I think  we should set bsp_priv->clk_phy to NULL here if we failed to 
+> > get the clock.
+> >
+> > Could you try this on your board? Thank you.
+> 
+> Right, the following change also fixes this issue:
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c 
+> b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> index 9fc41207cc45..2d19d48be01f 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> @@ -1415,6 +1415,8 @@ static int rk_gmac_clk_init(struct 
+> plat_stmmacenet_data *plat)
+>          if (plat->phy_node) {
+>                  bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
+>                  ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
+> +               if (ret)
+> +                       bsp_priv->clk_phy = NULL;
 
+Or just:
 
-On 8/25/25 16:20, David Hildenbrand wrote:
-> 
->>>
->>> IIRC, kernel/vmcore_info.c is never built as a module, as it also
->>> accesses non-exported symbols.
->>
->> Hello David,
->>
->> I am looking again into this, and there are some things which in my
->> opinion would be difficult to achieve.
->> For example I looked into my patch #11 , which adds the `runqueues` into
->> kmemdump.
->>
->> The runqueues is a variable of `struct rq` which is defined in
->> kernel/sched/sched.h , which is not supposed to be included outside of
->> sched.
->> Now moving all the struct definition outside of sched.h into another
->> public header would be rather painful and I don't think it's a really
->> good option (The struct would be needed to compute the sizeof inside
->> vmcoreinfo). Secondly, it would also imply moving all the nested struct
->> definitions outside as well. I doubt this is something that we want for
->> the sched subsys. How the subsys is designed, out of my understanding,
->> is to keep these internal structs opaque outside of it.
-> 
-> All the kmemdump module needs is a start and a length, correct? So the 
-> only tricky part is getting the length.
+		clk = of_clk_get(plat->phy_node, 0);
+		if (clk == ERR_PTR(-EPROBE_DEFER))
+			...
+		else if (!IS_ERR)
+			bsp_priv->clk_phy = clk;
 
-I also have in mind the kernel user case. How would a kernel programmer
-want to add some kernel structs/info/buffers into kmemdump such that the
-dump would contain their data ? Having "KMEMDUMP_VAR(...)" looks simple
-enough.
-Otherwise maybe the programmer has to write helpers to compute lengths
-etc, and stitch them into kmemdump core.
-I am not saying it's impossible, but just tiresome perhaps.
+I don't have a free terminal to work out what "..." should be.
 
-> 
-> One could just add a const variable that holds this information, or even 
-> better, a simple helper function to calculate that.
-> 
-> Maybe someone else reading along has a better idea.
-
-This could work, but it requires again adding some code into the
-specific subsystem. E.g. struct_rq_get_size()
-I am open to ideas , and thank you very much for your thoughts.
-
-> 
-> Interestingly, runqueues is a percpu variable, which makes me wonder if 
-> what you had would work as intended (maybe it does, not sure).
-
-I would not really need to dump the runqueues. But the crash tool which
-I am using for testing, requires it. Without the runqueues it will not
-progress further to load the kernel dump.
-So I am not really sure what it does with the runqueues, but it works.
-Perhaps using crash/gdb more, to actually do something with this data,
-would give more insight about its utility.
-For me, it is a prerequisite to run crash, and then to be able to
-extract the log buffer from the dump.
-
-> 
->>
->>  From my perspective it's much simpler and cleaner to just add the
->> kmemdump annotation macro inside the sched/core.c as it's done in my
->> patch. This macro translates to a noop if kmemdump is not selected.
-> 
-> I really don't like how we are spreading kmemdump all over the kernel, 
-> and adding complexity with __section when really, all we need is a place 
-> to obtain a start and a length.
-> 
-
-I understand. The section idea was suggested by Thomas. Initially I was
-skeptic, but I like how it turned out.
-
-> So we should explore if there is anything easier possible.
-> 
->>>
->>>>
->>>> So I am unsure whether just removing the static and adding them into
->>>> header files would be more acceptable.
->>>>
->>>> Added in CC Cristoph Hellwig and Sergey Senozhatsky maybe they could
->>>> tell us directly whether they like or dislike this approach, as kmemdump
->>>> would be builtin and would not require exports.
->>>>
->>>> One other thing to mention is the fact that the printk code dynamically
->>>> allocates memory that would need to be registered. There is no mechanism
->>>> for kmemdump to know when this process has been completed (or even if it
->>>> was at all, because it happens on demand in certain conditions).
->>>
->>> If we are talking about memblock allocations, they sure are finished at
->>> the time ... the buddy is up.
->>>
->>> So it's just a matter of placing yourself late in the init stage where
->>> the buddy is already up and running.
->>>
->>> I assume dumping any dynamically allocated stuff through the buddy is
->>> out of the picture for now.
->>>
->>
->> The dumping mechanism needs to work for dynamically allocated stuff, and
->> right now, it works for e.g. printk, if the buffer is dynamically
->> allocated later on in the boot process.
-> 
-> You are talking about the memblock_alloc() result, correct? Like
-> 
-> new_log_buf = memblock_alloc(new_log_buf_len, LOG_ALIGN);
-> 
-> The current version is always stored in
-> 
-> static char *log_buf = __log_buf;
-> 
-> 
-> Once early boot is done and memblock gets torn down, you can just use 
-> log_buf and be sure that it will not change anymore.
-> 
->>
->> To have this working outside of printk, it would be required to walk
->> through all the printk structs/allocations and select the required info.
->> Is this something that we want to do outside of printk ?
-> 
-> I don't follow, please elaborate.
-> 
-> How is e.g., log_buf_len_get() + log_buf_addr_get() not sufficient, 
-> given that you run your initialization after setup_log_buf() ?
-> 
-> 
-
-My initial thought was the same. However I got some feedback from Petr
-Mladek here :
-
-https://lore.kernel.org/lkml/aBm5QH2p6p9Wxe_M@localhost.localdomain/
-
-Where he explained how to register the structs correctly.
-It can be that setup_log_buf is called again at a later time perhaps.
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
