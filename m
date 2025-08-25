@@ -4,82 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44513CA0FE7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 12:52:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9D4FCA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 12:52:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/fa4+ZI2ynYvAnmTSBhg899GLSJbeJtzYjuSjpeEGlo=; b=CpbhBP3D3+0RAgo+mt2E8DRtjJ
-	WeW9IJqdqjDZ3izAvK7rQZ/qBqe/ThOm8DBym8YA9Xo6HviPwN6R8qPhl9nrL0QaJnPmrmZk9SoUo
-	M4HGjY4BrI0RCc3B5xfc8UT8i9ZudAa+93TRUIxeS2tx6QTVBxXyh40kAKztuCSkRe0Zsd/tdyqkn
-	afzS5eLtW6G/dA26+vbgI+XJC8UFGk9erukaOzlHXYW3z+WYM7T9rh8trEqkmk/dPi7bQgDa9Vut7
-	dHo7f26dz6VjG55XOyYIJ4IcFdWy8ZTfCa0DhPqBJIws+YuyvIcanHVEMNPBNzG6TJIIzkUZ/Dh5y
-	9QSjE7wA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=e1TAC4JB1aCLzQopA/pMqP1k8qqoWrMTjSNzHCIhNVg=; b=nrix7zDW0x2AWP
+	wwPfnLlFoFz3mEGC5cyzxZkBG1lTCA7ERrAGlHXUIIdpxE+4xhBOHkw967Sr+SESz2fh3tkovHEa/
+	F/bndOniKSjDXtDC+yCBtix25/2es2bEJDsKRrCw/5AB8a3LvjuuwnzWVu3aUaR4PsY0t/dFkqcM4
+	lQejSOQyoo/mI2BREN45NEBU7jba9Q4jN9Tpfq1s27tNKT4ZnRopQef/ybOykvURQKagcW2F5qRz4
+	87HfeHpgx22n0blX3i2NXIX9oQVvyoNqZhC+mpTj8BzQjGXdEZsKzCbAeEj80J+WZXbVIngPgqPZm
+	L9Z0Rf7hB6MHJuHXRzDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqWgW-00000007yHw-1XK3;
-	Mon, 25 Aug 2025 12:52:28 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1uqWgV-00000007yHq-3NVl;
+	Mon, 25 Aug 2025 12:52:27 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqUpc-00000007gQU-3zPI
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 10:53:47 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250825105340euoutp015322d13668cb6b9bb9bd2f59449f8ab3~e-SBbcf0A0149201492euoutp01l
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 10:53:40 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250825105340euoutp015322d13668cb6b9bb9bd2f59449f8ab3~e-SBbcf0A0149201492euoutp01l
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1756119220;
-	bh=/fa4+ZI2ynYvAnmTSBhg899GLSJbeJtzYjuSjpeEGlo=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=O7Cv3imsFNC7IeAXaIsQOTVSs76RWqKfhuY1jXd2FZM3Ej/vljQpDs3xEZkUN5oVS
-	 yD3dDR5BV5Iy+WZgQeEsmHuWRu5jXr5enJzwDjpRONP0YLo+IUG8+2kMY+tteupH4e
-	 6arTUTVUhfF3zVlfow0G8gUAI3YCMMvTsmHj+HwI=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250825105339eucas1p13cf980f9b7f4ba4f465f5953b97f149c~e-SA9vcu40800108001eucas1p1m;
-	Mon, 25 Aug 2025 10:53:39 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250825105337eusmtip19068233323fe8c45892597caf271a2e6~e-R-X77KD1201812018eusmtip19;
-	Mon, 25 Aug 2025 10:53:37 +0000 (GMT)
-Message-ID: <809848c9-2ffa-4743-adda-b8b714b404de@samsung.com>
-Date: Mon, 25 Aug 2025 12:53:37 +0200
+	id 1uqU85-00000007as4-0IMu;
+	Mon, 25 Aug 2025 10:08:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1756116522;
+	bh=it5FFa21DEVOmToBYVfJbzv1d4wyjQlQ0/n5ky7NZLE=;
+	h=From:Subject:Date:To:Cc:From;
+	b=SjKxfUdOsmc74i2wI3UDREW4VtozOBQigB4OrN2p1Ox3OHsiVvNh4YMhlhrVg4IUd
+	 LQZ5LBDkmEIK9TlMnATchDCUejCHiEqy1xTQo0EUS/CGnlm1acqUgTvYluvN7J4gIo
+	 CcYVCcO+hpbf8eEQXb2QuUyxDPJ4x8A/2+7HJylLmuIYtyVKs75/M8wgz204pBUWMf
+	 fyNTxv/EA7u7Xkhr1bW2CatPQX7SQtpIJEBe6BrYdsrbxdZj0qvDsibHqh3nP25MZ2
+	 +xGvGBOCzCiMt6WLKdcIFVN6s43BwRGm2CFdBG8I6gH73sAwtrp/lAcsEsXq+k4VfC
+	 0qG9qnplbw6EQ==
+Received: from localhost (unknown [82.79.138.60])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id A0A8817E053B;
+	Mon, 25 Aug 2025 12:08:42 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Subject: [PATCH v2 0/5] High color depth support for RK3576/RK3588 HDMI
+ output
+Date: Mon, 25 Aug 2025 13:08:31 +0300
+Message-Id: <20250825-rk3588-10bpc-v2-0-955622d16985@collabora.com>
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH net-next v3] net: ethernet: stmmac: dwmac-rk: Make the
- clk_phy could be used for external phy
-To: Chaoyi Chen <chaoyi.chen@rock-chips.com>, Chaoyi Chen
-	<kernel@airkyi.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue
-	<alexandre.torgue@foss.st.com>, "Russell King (Oracle)"
-	<rmk+kernel@armlinux.org.uk>, Jonas Karlman <jonas@kwiboo.se>, David Wu
-	<david.wu@rock-chips.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <d0fe6d16-181f-4b38-9457-1099fb6419d0@rock-chips.com>
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250825105339eucas1p13cf980f9b7f4ba4f465f5953b97f149c
-X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20250825072312eucas1p2d4751199c0ea069c7938218be60e5e93
-X-EPHeader: CA
-X-CMS-RootMailID: 20250825072312eucas1p2d4751199c0ea069c7938218be60e5e93
-References: <20250815023515.114-1-kernel@airkyi.com>
-	<CGME20250825072312eucas1p2d4751199c0ea069c7938218be60e5e93@eucas1p2.samsung.com>
-	<a30a8c97-6b96-45ba-bad7-8a40401babc2@samsung.com>
-	<d0fe6d16-181f-4b38-9457-1099fb6419d0@rock-chips.com>
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAB82rGgC/3WOMQ7CMAxFr1Jlxih1GwiduAdiSFOHRtAGklKBE
+ HfHBCEmBg/f0n//PUSi6CmJpniISLNPPowccFEI25vxQOA7zgIlKrnGEuKxUlpDKduzBa2cqy2
+ iplUluHKO5Pwt43Z7zr1PU4j3TJ/L9/cPaC5BAm2UqU1rXa1xa8PpZNoQzdKGQeyfH3qky5Udp
+ 8/ET5GNM1dWX27fDR4sWT6jncKqY2wzZ83WJALGDn5qipFuE+S2RsVDzxfd3dG/FAEAAA==
+X-Change-ID: 20250721-rk3588-10bpc-85ff4c228e63
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_035345_590166_C9AD976C 
-X-CRM114-Status: GOOD (  20.63  )
+X-CRM114-CacheID: sfid-20250825_030845_275500_9664C3DD 
+X-CRM114-Status: UNSURE (   7.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,85 +88,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25.08.2025 11:57, Chaoyi Chen wrote:
-> On 8/25/2025 3:23 PM, Marek Szyprowski wrote:
->> On 15.08.2025 04:35, Chaoyi Chen wrote:
->>> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->>>
->>> For external phy, clk_phy should be optional, and some external phy
->>> need the clock input from clk_phy. This patch adds support for setting
->>> clk_phy for external phy.
->>>
->>> Signed-off-by: David Wu <david.wu@rock-chips.com>
->>> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->>> ---
->>>
->>> Changes in v3:
->>> - Link to V2: 
->>> https://lore.kernel.org/netdev/20250812012127.197-1-kernel@airkyi.com/
->>> - Rebase to net-next/main
->>>
->>> Changes in v2:
->>> - Link to V1: 
->>> https://lore.kernel.org/netdev/20250806011405.115-1-kernel@airkyi.com/
->>> - Remove get clock frequency from DT prop
->>>
->>>    drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 11 +++++++----
->>>    1 file changed, 7 insertions(+), 4 deletions(-)
->>>
->>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c 
->>> b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->>> index ac8288301994..5d921e62c2f5 100644
->>> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->>> @@ -1412,12 +1412,15 @@ static int rk_gmac_clk_init(struct 
->>> plat_stmmacenet_data *plat)
->>>            clk_set_rate(plat->stmmac_clk, 50000000);
->>>        }
->>>    -    if (plat->phy_node && bsp_priv->integrated_phy) {
->>> +    if (plat->phy_node) {
->>>            bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
->>>            ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
->>> -        if (ret)
->>> -            return dev_err_probe(dev, ret, "Cannot get PHY clock\n");
->>> -        clk_set_rate(bsp_priv->clk_phy, 50000000);
->>> +        /* If it is not integrated_phy, clk_phy is optional */
->>> +        if (bsp_priv->integrated_phy) {
->>> +            if (ret)
->>> +                return dev_err_probe(dev, ret, "Cannot get PHY 
->>> clock\n");
->>> +            clk_set_rate(bsp_priv->clk_phy, 50000000);
->>> +        }
->
-> I think  we should set bsp_priv->clk_phy to NULL here if we failed to 
-> get the clock.
->
-> Could you try this on your board? Thank you.
+Since both Rockchip RK3576 and RK3588 SoCs are capable of handling 10
+bpc color depth HDMI output and we've already landed the required HDPTX
+PHY driver changes to support the setup, let's add the missing bits and
+pieces to VOP2, DW HDMI QP encoder and bridge library.
 
-Right, the following change also fixes this issue:
+Please note this conflicts with the HDMI CEC series [1], hence I added
+that as a b4-managed dependency.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c 
-b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-index 9fc41207cc45..2d19d48be01f 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-@@ -1415,6 +1415,8 @@ static int rk_gmac_clk_init(struct 
-plat_stmmacenet_data *plat)
-         if (plat->phy_node) {
-                 bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
-                 ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
-+               if (ret)
-+                       bsp_priv->clk_phy = NULL;
-                 /* If it is not integrated_phy, clk_phy is optional */
-                 if (bsp_priv->integrated_phy) {
-                         if (ret)
+[1] https://lore.kernel.org/all/20250825-rk3588-hdmi-cec-v3-0-95324fb22592@collabora.com/
 
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+Changes in v2:
+- Replaced patch 'drm/rockchip: vop2: Add high color depth support' with
+  'drm/rockchip: vop2: Check bpc before switching DCLK source'
+- Rebased series onto next-20250825 while adding the HDMI CEC series as
+  a dependency
+- Link to v1: https://lore.kernel.org/r/20250721-rk3588-10bpc-v1-0-e95a4abcf482@collabora.com
 
- > ...
+---
+Cristian Ciocaltea (5):
+      drm/rockchip: vop2: Check bpc before switching DCLK source
+      drm/bridge: dw-hdmi-qp: Handle platform supported formats and color depth
+      drm/rockchip: dw_hdmi_qp: Switch to phy_configure()
+      drm/rockchip: dw_hdmi_qp: Use bit macros for RK3576 regs
+      drm/rockchip: dw_hdmi_qp: Add high color depth support
 
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c   |  11 ++-
+ drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 113 ++++++++++++++++++-------
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c   |  60 +++++++------
+ include/drm/bridge/dw_hdmi_qp.h                |   4 +
+ 4 files changed, 130 insertions(+), 58 deletions(-)
+---
+base-commit: 0c5416a62c0e4df1b3f79b5c74c03cd48df51357
+change-id: 20250721-rk3588-10bpc-85ff4c228e63
+prerequisite-change-id: 20250703-rk3588-hdmi-cec-cea8f523df48:v3
+prerequisite-patch-id: 6d0ed574c38c15e66677e704b2d0260226430d78
+prerequisite-patch-id: 014adacca1c18f77c1cd80cf6877aa5d653b8f48
+prerequisite-patch-id: 79fd783c35b5979cc99f3f0420309f63ac49ad01
+prerequisite-patch-id: 4e7d4735f222b9fabfff3987c578c5d954579ae5
+prerequisite-patch-id: 7960aba70d8916b60e81187cfa0253025b532774
+prerequisite-patch-id: 2f0338d330aee42e0acc62fb815f08a3eeef58aa
 
 
