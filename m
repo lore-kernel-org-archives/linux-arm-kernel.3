@@ -4,87 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12B1DC8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 22:30:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58AE0CA0FE7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 22:44:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JYwi+0oKLYDyDskrsw+31gFX40pKxXE2Q84qmgPR+V8=; b=AxDIhhJw1FKUEyTg9jTMM0Mad4
-	FPQ8vLuuj4BhQxbggBHso+ZiTZx2bUcp4y2izS8N0HzeAN2MrsS3WFxb3yDPEwx+aTDNXK+OUWefz
-	/ZH4uPFWTFR43BSIZbbBfzxF8TYKWfglQl36SUUz9sfabp8O/iJWDXOH5X2D0E/cLygVDSroqxSce
-	YPPPzUkZB7wxtSc+zcRBubk44NUDxCWC7K037S1fvNVLJUBZ5PZ2y0FCo8z56985DDBBFMMCwPCAI
-	EtfGZd4qoDRj3A78UAc1wSRlZu75r6k695zdfc081/d05MNA2bKBT1v4DlW6i72SKajJsxYpqam2Z
-	IlMzvWbg==;
+	bh=A/tN0NLfjxSsSgKXVE1s79iana+OHd+gutd0JuogVFw=; b=iV86Kqq5h9qUtWmT340kAG6FFy
+	3ntafZwj7kxp4FNAt6QuoP+E7ILazY9GQnkOyEYiD7ncf2YRPNbJog6ez3FpdrKPNd2IFBPjlmhTW
+	OttF0OQ8VjP3gYad8xw7ChUloPAZF8t50eNhxzZqZEKACuqI1fcWPRaKnCVjX+hUDFdvCvPbTwQD/
+	9Ze4A58YApgegHVwo7uqYFKl1LKQf39N+QlwZz9m8QsDMX3PznGr5AtTMQ0T7m8OS1QU6Vj3OJ+sk
+	TeveTBZuvSoFStqb9uBGoIdCXpHMt6S890lXuI4lAQ6FuL6ipg4C6fheybBpo7rZHG4YMAA5iHeEc
+	vl856X2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqfhs-00000009xz3-3MT6;
-	Mon, 25 Aug 2025 22:30:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uqfux-0000000A0oK-0dCY;
+	Mon, 25 Aug 2025 22:43:59 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqfeD-00000009x1h-2cGA;
-	Mon, 25 Aug 2025 22:26:42 +0000
+	id 1uqfsE-0000000A09M-0Vop;
+	Mon, 25 Aug 2025 22:41:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B63F940704;
-	Mon, 25 Aug 2025 22:26:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01FEDC4CEED;
-	Mon, 25 Aug 2025 22:26:39 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7B3375C6563;
+	Mon, 25 Aug 2025 22:41:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1F71C4CEED;
+	Mon, 25 Aug 2025 22:41:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756160800;
-	bh=GoT/IDAj0/zl52GctB7u4AkgxxaowB1GBSt3qSkJ1E4=;
+	s=k20201202; t=1756161669;
+	bh=hcgh5oqMsvEek9C9auiVRt+yT8DF3gRRdz8vIwAO460=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NWhRXs6Cbt9IBasNjzbrSoMfcGqD7tsG+V408f534nn6Bx+XQJj85bVx7NsFSy+yU
-	 TmOztuBY/wqLhaH+5EZk96/TwXUXIkZZXJhymLz/XqCycTtAp21dM7xDlt7u77Efi9
-	 i650eYZ5SRgcoXWnDHonuVKfPSVk7N9gIJBPt4VR0KeDj/UrZnQxBpWGz/KEXpMEC5
-	 KC+SFUbdvyPM/aYHhQlv8UHOZRNBZQnoYRbhwKGap+ReS6crF/1t/uenNLY9qNSDYf
-	 irJDfpr3g/Zb1UeuMJWMPgi888bpBrHyT/dBPpbUsGxoLlDL0YFx55ub3z9UObaIVS
-	 hCBvdVm4TTUeA==
-Date: Mon, 25 Aug 2025 22:26:38 +0000
-From: Wei Liu <wei.liu@kernel.org>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>,
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"K. Y. Srinivasan" <kys@microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Uladzislau Rezki <urezki@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org, loongarch@lists.linux.dev,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-hyperv@vger.kernel.org, rcu@vger.kernel.org
-Subject: Re: [PATCH 0/5] Drivers: hv: Fix NEED_RESCHED_LAZY and use common
- APIs
-Message-ID: <aKzjHjtI2fbFjBpe@liuwe-devbox-ubuntu-v2.tail21d00.ts.net>
-References: <20250825200622.3759571-1-seanjc@google.com>
- <20250825222319.GO3419281@noisy.programming.kicks-ass.net>
+	b=TuzhpasJSKONwmodl29hxEeu1B+jNP9tEnNDVUu5J+c2hP06IPu8smtAiAy/paA5D
+	 nQ7OpGab4minbAOsbjXXcQSkH/TI61SiMOxo7linJiZDbP6Jo2Fh2gtIHiIiZjiP/N
+	 mf9A26nzWQ+DOGu7DynGHvPP7N0ZHQU2sT68opCJns/zJBs6HWbEVSHmxXzvpyh5pp
+	 xl3cWCdgAOSNlciX9GaNuWSCTfhoxsI0v3bx0ke0VA8L3vRNHy/ALm9wKcVRs/LBDI
+	 Jfa0gF4IsoAKqhjqPYzyz0kQSIj32X8rbLnBzfg2E6cmQXIvI3A4c5qKxfv4HGvFMC
+	 zijfQ4ECgtsWA==
+Date: Mon, 25 Aug 2025 17:41:08 -0500
+From: Rob Herring <robh@kernel.org>
+To: Michael Riesch <michael.riesch@collabora.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Jagan Teki <jagan@amarulasolutions.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Diederik de Haas <didi.debian@cknow.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Collabora Kernel Team <kernel@collabora.com>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org
+Subject: Re: [PATCH v2 3/7] dt-bindings: phy: rockchip-inno-csi-dphy: add
+ rk3588 variant
+Message-ID: <20250825224108.GA766877-robh@kernel.org>
+References: <20250616-rk3588-csi-dphy-v2-0-7a94f079b712@collabora.com>
+ <20250616-rk3588-csi-dphy-v2-3-7a94f079b712@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250825222319.GO3419281@noisy.programming.kicks-ass.net>
+In-Reply-To: <20250616-rk3588-csi-dphy-v2-3-7a94f079b712@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_152641_690165_879B5A26 
-X-CRM114-Status: GOOD (  15.40  )
+X-CRM114-CacheID: sfid-20250825_154110_249139_18B9AFA4 
+X-CRM114-Status: GOOD (  17.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,27 +84,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 26, 2025 at 12:23:19AM +0200, Peter Zijlstra wrote:
-> On Mon, Aug 25, 2025 at 01:06:17PM -0700, Sean Christopherson wrote:
-> > Fix a bug where MSHV root partitions don't honor NEED_RESCHED_LAZY, and then
-> > deduplicate the TIF related MSHV code by turning the "kvm" entry APIs into
-> > more generic "virt" APIs (which ideally would have been done when MSHV root
-> > support was added).
-> > 
-> > Assuming all is well, maybe this could go through the tip tree?
-> > 
-> > The Hyper-V stuff and non-x86 architectures are compile-tested only.
+On Tue, Aug 19, 2025 at 01:00:37AM +0200, Michael Riesch wrote:
+> The Rockchip RK3588 variant of the CSI-2 DPHY features two reset lines.
+> Add the variant and allow for the additional reset.
 > 
-> I suspect there's more of this wreckage in the new VTL driver that
-> they just put in:
+> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+> ---
+>  .../bindings/phy/rockchip-inno-csi-dphy.yaml       | 60 ++++++++++++++++++++--
+>  1 file changed, 56 insertions(+), 4 deletions(-)
 > 
->   https://lore.kernel.org/all/20250729051436.190703-3-namjain@linux.microsoft.com/
-> 
-> although ideally they rip that thing out. I don't know how that code can
-> ever be correct.
+> diff --git a/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml b/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
+> index 42da616ae2e3..10197cc9dc47 100644
+> --- a/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
+> @@ -21,6 +21,7 @@ properties:
+>        - rockchip,rk3326-csi-dphy
+>        - rockchip,rk3368-csi-dphy
+>        - rockchip,rk3568-csi-dphy
+> +      - rockchip,rk3588-csi-dphy
+>  
+>    reg:
+>      maxItems: 1
+> @@ -39,18 +40,50 @@ properties:
+>      maxItems: 1
+>  
+>    resets:
+> -    items:
+> -      - description: exclusive PHY reset line
+> +    minItems: 1
+> +    maxItems: 2
 
-Please give us some time, Peter. I have asked the corresponding team to
-respond to your comments.
+Add a description for the 2nd reset here.
 
-Wei
+>  
+>    reset-names:
+> -    items:
+> -      - const: apb
+> +    minItems: 1
+> +    maxItems: 2
+
+Add 'phy' to the list here and just minItems.
+
+>  
+>    rockchip,grf:
+>      $ref: /schemas/types.yaml#/definitions/phandle
+>      description:
+>        Some additional phy settings are access through GRF regs.
+>  
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - rockchip,px30-csi-dphy
+> +              - rockchip,rk1808-csi-dphy
+> +              - rockchip,rk3326-csi-dphy
+> +              - rockchip,rk3368-csi-dphy
+> +              - rockchip,rk3568-csi-dphy
+> +    then:
+> +      properties:
+> +        resets:
+> +          items:
+> +            - description: exclusive PHY reset line
+> +
+> +        reset-names:
+> +          items:
+> +            - const: apb
+
+Then just 'maxItems: 1' here.
+
+> +    else:
+> +      properties:
+> +        resets:
+> +          items:
+> +            - description: APB reset line
+> +            - description: PHY reset line
+> +
+> +        reset-names:
+> +          items:
+> +            - const: apb
+> +            - const: phy
+
+And 'minItems: 2' here.
+
+> +
+>  required:
+>    - compatible
+>    - reg
+> @@ -77,3 +110,22 @@ examples:
+>          reset-names = "apb";
+>          rockchip,grf = <&grf>;
+>      };
+> +  - |
+> +    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
+> +    #include <dt-bindings/reset/rockchip,rk3588-cru.h>
+> +
+> +    soc {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +        phy@fedc0000 {
+> +            compatible = "rockchip,rk3588-csi-dphy";
+> +            reg = <0x0 0xfedc0000 0x0 0x8000>;
+> +            clocks = <&cru PCLK_CSIPHY0>;
+> +            clock-names = "pclk";
+> +            #phy-cells = <0>;
+> +            resets = <&cru SRST_P_CSIPHY0>, <&cru SRST_CSIPHY0>;
+> +            reset-names = "apb", "phy";
+> +            rockchip,grf = <&csidphy0_grf>;
+> +        };
+> +    };
+> 
+> -- 
+> 2.39.5
+> 
 
