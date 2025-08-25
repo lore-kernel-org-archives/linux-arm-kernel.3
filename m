@@ -4,157 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D618CA0FE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 17:00:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B54DCA0FE7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 17:00:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SlGAlqfLjWnMrJ/GM8GXOgCUtPCDx5iM/72erW7IsG0=; b=sJtCIlkqEDKwOwaFtnNORCLuKl
-	A2k/ZoBnWqw/u++ig12IACZgVmyuuGvqn/uxppU4XsRiILBSurix94rtw0q6Jh18zw1EEETcDh6ua
-	S44NJN0ob4NsnPLX5+GmjkshuriHaOKdixdo6AvO9TLHYi7XR7HTMMgMjXKtsQVPuWYOEDmuNUWne
-	pqwUqWmsPu+dt1kR1ydrBI1RGNYKsP4fzJOZICfn4kqEZVXy7cp11kS0GYni6vBtZh8g0l55r6C9F
-	epuX/2ltoMDvS/jU0glmmIgygqg2tSIrBhD9ExuAlGX1JrPAoR/dfN92ffNAXBxHvpeUEe59ym2ei
-	3BJAnhyA==;
+	bh=yaUcnQjozmvTYDYURkWMjBxCsSnXy41d7hzIH1GSQGQ=; b=svQCswr45rNwy3jRMZ5QazSWWY
+	Z98Q4gPllJ8ZNvdjr3bfDhsNR9tqScBFei6vkInisg6hoiHUPeFevBUtFJW+opBUcyY/fI1mOW922
+	S+rXsPO9tFcWC8JH3iA1dsgEV6OTNW8D/ofIsrlwXPJANbzarh4cHGQHLqkNkWGHsiCSTtcDM7qMv
+	hOhM5di884Uokfeq042qzwifTRVImzWV9iI5/9FGgnmBLNt2lnfqsOByUIlXhgjrwBSUe9cbwajCr
+	w17uK/TuhZRfJMjju9zM1rRSTFt/basdao+Hvr7OKfs0W4KUUPee6lDz7ijIkQP6vmmRX3XZj1uzf
+	ok2M12bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqaYj-00000008kIz-3XuL;
-	Mon, 25 Aug 2025 17:00:41 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1uqaYs-00000008kWs-2hnq;
+	Mon, 25 Aug 2025 17:00:50 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqZb5-00000008bLp-0t2B;
-	Mon, 25 Aug 2025 15:59:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=W5/GgOSVF4LBhAtytpLLeXlg2uc4D6utl/8RHJXokzM3GWare1VkPHAQeEYZhwwpoHOLEerTSRzaher6YlHPIB3pPpR1yv1rNlSeXH3A1Sb4jcpQmzTkzbJh33fJY68CG6Fv4mFBlXsi3/G4FtdHIPVsJ4a80aGA2gLN1RyLGZ9Kig7DhKKreWqwvtuH+Th8TrIqwTF4XtDsumNMcApvxhMOnv6SS8T3DAPKcHD4VSXiyBybnqUCwrpRTp29oG7PatKcMwu6B6fuZ2WHdr27/qAcsFGclrXtA/hjx0PIkHWyU0065LKZ75LYDqPQWkm77iLq7xYnH9/hdnWKVzi6tA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SlGAlqfLjWnMrJ/GM8GXOgCUtPCDx5iM/72erW7IsG0=;
- b=QbGe+OiIfi/6S+oYYlRXKADgALz3YKOftaODfA3FIfEVzpyLyHoCA8zwngsm6luUogSYZQxZ0cDizHW18X4+Xj4ThMRcWT8Ga+mYAlGoisNlymf5PJk/tkhBiu3MEhUDcRzrBxeRGPFr6WcRNZDDhuuJLm9vT0/qC/zz3G3e1AWQ8Anf5VrJh6kVJevp08kUOM/+s0Olutf33BzC7wMUpgATsg0K4d7KWY7JsSxiGqk7nMtuejLaBtlCJuwvMfss83HR3nKMmgpIbpG2AYGmQi8a3ReIs2g+qyBkCZYkbuRos0qXkW/3rItMtXNOvFKt6J1rHTVFKOFFcHB12fMUNA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SlGAlqfLjWnMrJ/GM8GXOgCUtPCDx5iM/72erW7IsG0=;
- b=R/3xNI3/VKeoLiWB5hU4JdCtYu2fiQK/TNPGrTb+5elpQnQgp3ifbj5ZXYphQLG9WHFNo2rUyA92nPnDL24xhqkpOR+N/o+DCi96qIcAtmEcyVRtKaSfUpO5ZGzq8Ed7+uPUMv8EKNmEAGPBue8/v1f/+LGDFTbUTQJairwJLbfyfGrDUk01TQlWDpMepCKtpu/rKcQsu4s4n4P+DQv1h6P8/rDpozpIARzvvwUCpTqK4i5JipSHlo2CKlPtM04jK/DJI0mJ/XHVnC4JrF/yDp/9tfO4jv/Kkg86dxrn8HjGBntpyLcdHnWVhQTzFip6Z6rdXSvrsows887Mpw520A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by DBAPR04MB7415.eurprd04.prod.outlook.com (2603:10a6:10:1aa::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.12; Mon, 25 Aug
- 2025 15:58:59 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d%5]) with mapi id 15.20.9073.009; Mon, 25 Aug 2025
- 15:58:59 +0000
-Date: Mon, 25 Aug 2025 11:58:53 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Marc Kleine-Budde <mkl@pengutronix.de>,
-	Vincent Mailhol <mailhol.vincent@wanadoo.fr>,
-	Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Aswath Govindraju <a-govindraju@ti.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Haibo Chen <haibo.chen@nxp.com>,
-	linux-can@vger.kernel.org, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 5/5] arm64: dts: imx93-11x11-evk: Use phys to replace
- xceiver-supply
-Message-ID: <aKyIPZfYBAl6mrml@lizhi-Precision-Tower-5810>
-References: <20250825-can-v2-0-c461e9fcbc14@nxp.com>
- <20250825-can-v2-5-c461e9fcbc14@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250825-can-v2-5-c461e9fcbc14@nxp.com>
-X-ClientProxiedBy: AM0PR06CA0107.eurprd06.prod.outlook.com
- (2603:10a6:208:fa::48) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+	id 1uqZss-00000008dH6-2Z0W;
+	Mon, 25 Aug 2025 16:17:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=yaUcnQjozmvTYDYURkWMjBxCsSnXy41d7hzIH1GSQGQ=; b=D+k3JKrOeXBEthO1Dh5I4BQiH6
+	cj4qZS/6JooVxFpUxP92Dqyaz7To4r+5jNzJf8tqLZ9u3l2IA7SdBKmTjrwf4dC34HLEPazgZKtV5
+	WUdKqoVC/ZbaGKNBawuC0UrKA7Vd9PQrb4wlbpgpYaeWvAHpuSYGU863VOhF3LNDmUZYjeXuxJRQa
+	nhZn2mf9Z1DehtXYg49Gr2PynIKYgCWpDqhtvKF6oc98xlG+zIe1fOvZr/af4CrLBo5K7Q1PKaqnt
+	Z4kIhekSzao2u376MSOg2AQoJKz04bwWoF1dTL0ytmUAXhO3nyZ/QuLXoaS7urY0iE6Dk1NCdbizy
+	DCDhkHNQ==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uqZsp-00000001vs0-1rPb;
+	Mon, 25 Aug 2025 16:17:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 523095C5FB5;
+	Mon, 25 Aug 2025 16:17:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3323DC4CEED;
+	Mon, 25 Aug 2025 16:17:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756138640;
+	bh=FANVRTF6GTKZEwwkEPlW/tWs0ubXGJ7R1OcvtRKQmn8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Z1X+B0ZGv7uHOoHuOLd4SJt16FexWEbZsjEQFQqRUrapr3OCpVgaCrasYjPdbbOyy
+	 eytOcCBL+pDQ3AWWdM11/NupldPVN7n787Ac52JA6muufv5Aq5hmbyZm6HiI3UG9/E
+	 S3WLhadcDWFA0vrOLjkLNWku02BCbOZumOEeIy+mLkW7A9OWvR0HBF0JMJQllwxMjH
+	 McwQict10AbNwzUaf3Fe4rhbDyKvQqV4mNkpdYsg1XXv1bkWDE2ZZQycNZSZHCAubw
+	 xxCEDJgzUrllwHg0O5i5LR3vB8H9ddKiEeoiX5nxByJsLox/KvefidsYGinF192ZU3
+	 LkZva/mIcA0xQ==
+Date: Mon, 25 Aug 2025 19:17:02 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: David Hildenbrand <david@redhat.com>
+Cc: Mika =?iso-8859-1?Q?Penttil=E4?= <mpenttil@redhat.com>,
+	linux-kernel@vger.kernel.org,
+	Alexander Potapenko <glider@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Brendan Jackman <jackmanb@google.com>,
+	Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>,
+	Dmitry Vyukov <dvyukov@google.com>, dri-devel@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org, iommu@lists.linux.dev,
+	io-uring@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com,
+	kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org, linux-ide@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Marco Elver <elver@google.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+	netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
+	Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
+	Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
+	virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
+	wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
+Subject: Re: [PATCH RFC 10/35] mm/hugetlb: cleanup
+ hugetlb_folio_init_tail_vmemmap()
+Message-ID: <aKyMfvWe8JetkbRL@kernel.org>
+References: <20250821200701.1329277-1-david@redhat.com>
+ <20250821200701.1329277-11-david@redhat.com>
+ <9156d191-9ec4-4422-bae9-2e8ce66f9d5e@redhat.com>
+ <7077e09f-6ce9-43ba-8f87-47a290680141@redhat.com>
+ <aKmDBobyvEX7ZUWL@kernel.org>
+ <a90cf9a3-d662-4239-ad54-7ea917c802a5@redhat.com>
+ <aKxz9HLQTflFNYEu@kernel.org>
+ <a72080b4-5156-4add-ac7c-1160b44e0dfe@redhat.com>
+ <aKx6SlYrj_hiPXBB@kernel.org>
+ <f8140a17-c4ec-489b-b314-d45abe48bf36@redhat.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|DBAPR04MB7415:EE_
-X-MS-Office365-Filtering-Correlation-Id: 61e71b9f-9407-4734-0ea7-08dde3f04db7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|376014|52116014|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?lfCvwUlTZO9mab359iI1XA1eWlDdXgAuzwuzaNgLkHwctswxF5Qf85mP6wtk?=
- =?us-ascii?Q?ImTnlD+O2QiqZZE3DNARhoJqWSke+ZhiC4DFL3apBxUabdtc3hAe0Qij6XxD?=
- =?us-ascii?Q?1m+cc5DtoJc0VOpbvbqx5rxJjdoLdfis13CVrx9QLv97zC53S2fGB0m0BvDp?=
- =?us-ascii?Q?N+QiiHlFVu8MIHvOBm4nkjbLkQvn1mb9lJxj+LmxjWkJQ9d0tDDIUa+1FO+Z?=
- =?us-ascii?Q?dF5XtKEgwv6Ain7arO+LbPAnpylDozEwDVh+r2jCuFXfIDH/meVMETkSXO7a?=
- =?us-ascii?Q?zm3dGLCE9e4GLvKDh/qhSDeMHQVTIk7OVujRf7klZa9ndBWguTUAfdfGoqTJ?=
- =?us-ascii?Q?Qv/iJuiC4Es0hyDSittzpSVlfeyX3XSIf/VcQWHdDmHyhnvXw3shmdCfNRnQ?=
- =?us-ascii?Q?ERmwrFvOqZNcgYLr3qQpM1DRpZMrPliKyDE/OICfZ7kbouwGsL39ZYAqppLP?=
- =?us-ascii?Q?j2gbxUiQDRL4Cvn0zq5bSGgPzp5AzfvvpnKCRvjh6faaYNJIwoTwGVDaJxE8?=
- =?us-ascii?Q?wr3adZdtFfXMY30mGn4K0/bkOOTfRQHP+myVzCYhDvZxEkRgjSp7NZBLyjKy?=
- =?us-ascii?Q?2nSYvZHEbBcRRIG2hdjSjvQ4hLPXGk7OO2XfP4w2AY7cDiTx4sey6ZHhbRdD?=
- =?us-ascii?Q?eheRcVWbS9ddCW2S25jL7HT9a4D3o8kFl3PBRoEeZFx+aF5MuJRyju/4FPeB?=
- =?us-ascii?Q?zGU6WCL4+WYkT0xsHJpNznT1vBUeKocEVZ3i/NFwIZ03DxLW9K7XopbCre92?=
- =?us-ascii?Q?hd6I1oNc0GJtz0B8UBbZyDTriCn4VL86UxA1IqR1t/fzkWXoU6TL5Op6UPyP?=
- =?us-ascii?Q?OOH19iLr+X27PlTDx1keA/jtoVsDg/6ln8BNgd48ZJW/6tx485Xf9+5z5+WJ?=
- =?us-ascii?Q?Pn+aev3iVoUZ/zl4v4uwrTPnIrdlyajW6yY8xdooC5QEaFK54fk7DIIh0VsI?=
- =?us-ascii?Q?yq5O2UuZ0QY5WXiBN6lHHCg5ORo8NcEHCFTJoni4hw8qwzNrJbwjkbhpDmWs?=
- =?us-ascii?Q?54SVaSCrP5EIIwpxBi8JFodtPoQi3hcxfk55kVUR56tZXBgBftokGhEPlcHZ?=
- =?us-ascii?Q?k9y4gqb3/Ctbted+kLu3sZZY90Hh8caFY8faRNh6u6ELSSZb/aTVGtGfJ7Gg?=
- =?us-ascii?Q?BVdh0Hc8jZkkwyACH3kEbEfA/ESgApB5XiUceD/i4incnCoMraHzV/TIK91x?=
- =?us-ascii?Q?50l/KEvVj0OEoIYOI3PVuMIj5xEyaD7u6bnYkxFvO40to1cD6ZmPSF2VicXR?=
- =?us-ascii?Q?f6TwN/7mG/xuJ1D/0ZZLHqI/BMOWAw0xVZUvJyRQVDWrgip452Kho5HuQCow?=
- =?us-ascii?Q?Gkmp3kBv/wdTLSzU6cD8Q4K54BKcYZ1iI7S4I61OoAyVgcRMWXsY5sCemNF5?=
- =?us-ascii?Q?+XvykMq1Q7gIweq7oThwj/JcudMlhZjnfBA3AJDks22e1m0Y2XSoIvkyMf81?=
- =?us-ascii?Q?1DBk22bSMafA0Tg7XPxAzXYHNscRl3TmGzwaF53iltvKISA94RQSvQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(376014)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?HDjJvDdQizjVeaU2L9guVMRxBPg6oM2++enHmNbMgn1BhGJ0trkGJtWYB/AA?=
- =?us-ascii?Q?rbl1MpDYfGhQ+x0//+/c6H+9RsostT+N5SwIU3pihAtTd02X6TSJ08QKdTGU?=
- =?us-ascii?Q?PzUelPTCD0BaLQa520N1yaycQY45KJql9fAZQFmruOBJWX6eJcrKRu7rR24w?=
- =?us-ascii?Q?NdWhwKXrjygR8q0QoI3GAQzy9qpwTZ3Od37xpX8iBQXCLJSRniDseo9MigOc?=
- =?us-ascii?Q?BRfrj283FovruYovLnLZ3ul/V3m7wySNWRjm4OiPW9GB083rfpjjM9ilm0NP?=
- =?us-ascii?Q?JWTXUZiFWJFWi8qoK7OKuMW0FhsUPqANf3FfFwFa0XeFHis1hlvuc0iuOuSx?=
- =?us-ascii?Q?z//MOuT2QTSkbnoAYqzqyf3hpJJRrh/RFEle+3DeGd1yB2ndGWGJ75tyUXQI?=
- =?us-ascii?Q?R6jY2ksgs7M+mfLdNKgAbI6Dw/Ew1TRkpT8NrGJe/UtBCUSyr6ZHqQns+EVB?=
- =?us-ascii?Q?ufVRzxbwYd4MhfQpA7sC9xixA2A7avwf6Qe5imMSr5mvlwfiwmLuvqTCW/iy?=
- =?us-ascii?Q?K4vVCZoJbjFSBkj4K0huS+QiDmhN21ukRyAIrzxHdAxGFRLdwvtLzhquhKm/?=
- =?us-ascii?Q?pqcm0G9Z2xTtG+aYqOlVZv219UdshbMWX1GY671Z4wL8AUIgTvKxSE0/kw1c?=
- =?us-ascii?Q?ZXdQECR8cA9987FWRJkZ923dfqZ1CBf8+lNy2bIjVMyoq9t0gBbzffbdXUL9?=
- =?us-ascii?Q?n8dEJy8zC4SzFJJtGLlAlUzMRv3NeNg5GUaIdjlnahxjziYY0N2xhgFxgg4S?=
- =?us-ascii?Q?YGO9aiEFsoLsaS24quahEdKe/09AoFwTd7eIYQUuIGrfpWKoPEMCT34CRXhz?=
- =?us-ascii?Q?J5HdObhvjyBD5gBrFNFx7yPEbe3IcsHW7AjQ+gXHoDoU3VXYI9UvSB7yD5IS?=
- =?us-ascii?Q?TdBMbEO7HwFqBhIZZaR0vBsKyu8amehwQ4Nl11+NrYv0EKROpdQKkG9A0Xq8?=
- =?us-ascii?Q?LCOTn+YGduq5mW3CMPgWyglnY3cJuYit1iaO47W6rnVbwsWHe4lhRuumXf9Z?=
- =?us-ascii?Q?lmS0zMmDrJwQWcok2DTpcQOFk9guN28y2dW2xA8XzwmaO43srBNl7cthjE86?=
- =?us-ascii?Q?6KeCvsQd3hEAUhLmciuCEq3J99UJj7cH+ZpOqkvVpeNoqTNN0BxsrSBE1SqG?=
- =?us-ascii?Q?22vf4nu9HfCypPzT051J92u7eTr0MnJkwxBIz0ab27vFS6f33/h0XcSobYv6?=
- =?us-ascii?Q?nyTwq0wZSJf5LaoguOM8nL70NgS6Yl2mFeJfLgbWlzbXizQ4jy80CKCdq9nC?=
- =?us-ascii?Q?mWIIJ87/2xzJTXrjcl8kfBUDexBufdvhYGE2teC0vxxNOm1a1JPbttvq9bZa?=
- =?us-ascii?Q?yz9aVQsOdP8AMqiIj6xsE9W9qOczmr5Z09GXUc+XJO/HJocXPecSGqU50EuC?=
- =?us-ascii?Q?Svdby3hUbzqynyF7CL/Ky9X3fMUIoweJZB1xT1E6zQHMwZCDG3DU7hJAfXEr?=
- =?us-ascii?Q?Bzi7lf4mrqq+nlLf514cvVazqg0DcGVuCMiKwXmsK1kxt2SCOPDIlXZ/6ONZ?=
- =?us-ascii?Q?O/nWkn0yUaRKDH3i1t7r8CvMwHcnsGuGg7cNc+xCW3ymvf6DIVi5Bld7UWw2?=
- =?us-ascii?Q?sSNmBL44L18kxgyjqsuc94JUYFRBaR93gVF79qgb?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 61e71b9f-9407-4734-0ea7-08dde3f04db7
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Aug 2025 15:58:59.3805
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: zjhRWRwOgARMoM9L/TXKYUtyHzNpprzxYwZ07M4QE3/v0tD4KspNSCTR2/N8385uGgBrpAvfdQtqj1y67bvQVw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7415
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <f8140a17-c4ec-489b-b314-d45abe48bf36@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_085903_258485_D59745E9 
-X-CRM114-Status: GOOD (  17.41  )
+X-CRM114-CacheID: sfid-20250825_171723_877670_30A42F9C 
+X-CRM114-Status: GOOD (  49.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,68 +121,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 25, 2025 at 04:36:46PM +0800, Peng Fan wrote:
-> The TJA1057 used on i.MX93 EVK is actually high-speed CAN
-> transceiver, not a regulator supply. So use phys to reflect the truth.
->
-> And TJA1057 is compatible with TJA1051, so use nxp,tja1051 compatible
-> string.
+On Mon, Aug 25, 2025 at 05:42:33PM +0200, David Hildenbrand wrote:
+> On 25.08.25 16:59, Mike Rapoport wrote:
+> > On Mon, Aug 25, 2025 at 04:38:03PM +0200, David Hildenbrand wrote:
+> > > On 25.08.25 16:32, Mike Rapoport wrote:
+> > > > On Mon, Aug 25, 2025 at 02:48:58PM +0200, David Hildenbrand wrote:
+> > > > > On 23.08.25 10:59, Mike Rapoport wrote:
+> > > > > > On Fri, Aug 22, 2025 at 08:24:31AM +0200, David Hildenbrand wrote:
+> > > > > > > On 22.08.25 06:09, Mika Penttilä wrote:
+> > > > > > > > 
+> > > > > > > > On 8/21/25 23:06, David Hildenbrand wrote:
+> > > > > > > > 
+> > > > > > > > > All pages were already initialized and set to PageReserved() with a
+> > > > > > > > > refcount of 1 by MM init code.
+> > > > > > > > 
+> > > > > > > > Just to be sure, how is this working with MEMBLOCK_RSRV_NOINIT, where MM is supposed not to
+> > > > > > > > initialize struct pages?
+> > > > > > > 
+> > > > > > > Excellent point, I did not know about that one.
+> > > > > > > 
+> > > > > > > Spotting that we don't do the same for the head page made me assume that
+> > > > > > > it's just a misuse of __init_single_page().
+> > > > > > > 
+> > > > > > > But the nasty thing is that we use memblock_reserved_mark_noinit() to only
+> > > > > > > mark the tail pages ...
+> > > > > > 
+> > > > > > And even nastier thing is that when CONFIG_DEFERRED_STRUCT_PAGE_INIT is
+> > > > > > disabled struct pages are initialized regardless of
+> > > > > > memblock_reserved_mark_noinit().
+> > > > > > 
+> > > > > > I think this patch should go in before your updates:
+> > > > > 
+> > > > > Shouldn't we fix this in memblock code?
+> > > > > 
+> > > > > Hacking around that in the memblock_reserved_mark_noinit() user sound wrong
+> > > > > -- and nothing in the doc of memblock_reserved_mark_noinit() spells that
+> > > > > behavior out.
+> > > > 
+> > > > We can surely update the docs, but unfortunately I don't see how to avoid
+> > > > hacking around it in hugetlb.
+> > > > Since it's used to optimise HVO even further to the point hugetlb open
+> > > > codes memmap initialization, I think it's fair that it should deal with all
+> > > > possible configurations.
+> > > 
+> > > Remind me, why can't we support memblock_reserved_mark_noinit() when
+> > > CONFIG_DEFERRED_STRUCT_PAGE_INIT is disabled?
+> > 
+> > When CONFIG_DEFERRED_STRUCT_PAGE_INIT is disabled we initialize the entire
+> > memmap early (setup_arch()->free_area_init()), and we may have a bunch of
+> > memblock_reserved_mark_noinit() afterwards
+> 
+> Oh, you mean that we get effective memblock modifications after already
+> initializing the memmap.
+> 
+> That sounds ... interesting :)
 
-Need add TJA1057 into binding, "nxp,tja1057", "ti,tcan1043". You already
-touch binding doc, just add nxp,tja1057.
+It's memmap, not the free lists. Without deferred init, memblock is active
+for a while after memmap initialized and before the memory goes to the free
+lists.
+ 
+> So yeah, we have to document this for memblock_reserved_mark_noinit().
+> 
+> Is it also a problem for kexec_handover?
 
-Frank
+With KHO it's also interesting, but it does not support deferred struct
+page init for now :)
+ 
+> We should do something like:
+> 
+> diff --git a/mm/memblock.c b/mm/memblock.c
+> index 154f1d73b61f2..ed4c563d72c32 100644
+> --- a/mm/memblock.c
+> +++ b/mm/memblock.c
+> @@ -1091,13 +1091,16 @@ int __init_memblock memblock_clear_nomap(phys_addr_t base, phys_addr_t size)
+>  /**
+>   * memblock_reserved_mark_noinit - Mark a reserved memory region with flag
+> - * MEMBLOCK_RSRV_NOINIT which results in the struct pages not being initialized
+> - * for this region.
+> + * MEMBLOCK_RSRV_NOINIT which allows for the "struct pages" corresponding
+> + * to this region not getting initialized, because the caller will take
+> + * care of it.
+>   * @base: the base phys addr of the region
+>   * @size: the size of the region
+>   *
+> - * struct pages will not be initialized for reserved memory regions marked with
+> - * %MEMBLOCK_RSRV_NOINIT.
+> + * "struct pages" will not be initialized for reserved memory regions marked
+> + * with %MEMBLOCK_RSRV_NOINIT if this function is called before initialization
+> + * code runs. Without CONFIG_DEFERRED_STRUCT_PAGE_INIT, it is more likely
+> + * that this function is not effective.
+>   *
+>   * Return: 0 on success, -errno on failure.
+>   */
 
->
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->  arch/arm64/boot/dts/freescale/imx93-11x11-evk.dts | 17 ++++++++---------
->  1 file changed, 8 insertions(+), 9 deletions(-)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-evk.dts b/arch/arm64/boot/dts/freescale/imx93-11x11-evk.dts
-> index e24e12f04526c3a08c0bdc6134297fb010e6e926..94be59771cd05c93a6569ee08fff71bc11da21c1 100644
-> --- a/arch/arm64/boot/dts/freescale/imx93-11x11-evk.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx93-11x11-evk.dts
-> @@ -62,6 +62,13 @@ vdevbuffer: vdevbuffer@a4020000 {
->
->  	};
->
-> +	flexcan_phy: can-phy {
-> +		compatible = "nxp,tja1051", "ti,tcan1043";
-> +		#phy-cells = <0>;
-> +		max-bitrate = <5000000>;
-> +		standby-gpios = <&adp5585 6 GPIO_ACTIVE_HIGH>;
-> +	};
-> +
->  	reg_vdd_12v: regulator-vdd-12v {
->  		compatible = "regulator-fixed";
->  		regulator-name = "VDD_12V";
-> @@ -87,14 +94,6 @@ reg_audio_pwr: regulator-audio-pwr {
->  		enable-active-high;
->  	};
->
-> -	reg_can2_standby: regulator-can2-standby {
-> -		compatible = "regulator-fixed";
-> -		regulator-name = "can2-stby";
-> -		regulator-min-microvolt = <3300000>;
-> -		regulator-max-microvolt = <3300000>;
-> -		gpio = <&adp5585 6 GPIO_ACTIVE_LOW>;
-> -	};
-> -
->  	reg_m2_pwr: regulator-m2-pwr {
->  		compatible = "regulator-fixed";
->  		regulator-name = "M.2-power";
-> @@ -284,7 +283,7 @@ ethphy2: ethernet-phy@2 {
->  &flexcan2 {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_flexcan2>;
-> -	xceiver-supply = <&reg_can2_standby>;
-> +	phys = <&flexcan_phy>;
->  	status = "okay";
->  };
->
->
-> --
-> 2.37.1
->
+I have a different version :)
+ 
+diff --git a/include/linux/memblock.h b/include/linux/memblock.h
+index b96746376e17..d20d091c6343 100644
+--- a/include/linux/memblock.h
++++ b/include/linux/memblock.h
+@@ -40,8 +40,9 @@ extern unsigned long long max_possible_pfn;
+  * via a driver, and never indicated in the firmware-provided memory map as
+  * system RAM. This corresponds to IORESOURCE_SYSRAM_DRIVER_MANAGED in the
+  * kernel resource tree.
+- * @MEMBLOCK_RSRV_NOINIT: memory region for which struct pages are
+- * not initialized (only for reserved regions).
++ * @MEMBLOCK_RSRV_NOINIT: memory region for which struct pages don't have
++ * PG_Reserved set and are completely not initialized when
++ * %CONFIG_DEFERRED_STRUCT_PAGE_INIT is enabled (only for reserved regions).
+  * @MEMBLOCK_RSRV_KERN: memory region that is reserved for kernel use,
+  * either explictitly with memblock_reserve_kern() or via memblock
+  * allocation APIs. All memblock allocations set this flag.
+diff --git a/mm/memblock.c b/mm/memblock.c
+index 154f1d73b61f..02de5ffb085b 100644
+--- a/mm/memblock.c
++++ b/mm/memblock.c
+@@ -1091,13 +1091,15 @@ int __init_memblock memblock_clear_nomap(phys_addr_t base, phys_addr_t size)
+ 
+ /**
+  * memblock_reserved_mark_noinit - Mark a reserved memory region with flag
+- * MEMBLOCK_RSRV_NOINIT which results in the struct pages not being initialized
+- * for this region.
++ * MEMBLOCK_RSRV_NOINIT
++ *
+  * @base: the base phys addr of the region
+  * @size: the size of the region
+  *
+- * struct pages will not be initialized for reserved memory regions marked with
+- * %MEMBLOCK_RSRV_NOINIT.
++ * The struct pages for the reserved regions marked %MEMBLOCK_RSRV_NOINIT will
++ * not have %PG_Reserved flag set.
++ * When %CONFIG_DEFERRED_STRUCT_PAGE_INIT is enabled, setting this flags also
++ * completly bypasses the initialization of struct pages for this region.
+  *
+  * Return: 0 on success, -errno on failure.
+  */
+ 
+> Optimizing the hugetlb code could be done, but I am not sure how high
+> the priority is (nobody complained so far about the double init).
+> 
+> -- 
+> Cheers
+> 
+> David / dhildenb
+> 
+
+-- 
+Sincerely yours,
+Mike.
 
