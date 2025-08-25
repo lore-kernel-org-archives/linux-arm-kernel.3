@@ -4,131 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11A17CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 01:36:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E9D0CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 01:39:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K6E22yah7RSaBBMqG2z+3SW7CvB325/vsH5zTcMNA9Q=; b=NlxUUYbXrLAuAZAIw9Db86Jcle
-	P0UlPOKacVzRG9FGwAyyiQzPENExzNQf2MCKLSil2lnaSYpGZ+eJCxyq+YydDO60GVRG9APOxlnu4
-	d7fpk1Uo/LmsV7WGpprD2PxFmfCIYsYGihGGF3B6VomRf+xAScEd/RM9MZrZAhJpoX3dlMfyLhQ46
-	7fL2LA23/7PXAfUgw5QISPiTwm1KP9AJHzuq2fiTCMR7bF2NC0B0r/QfXUnTw1Xgk2WR/CQnqiw7y
-	YVoMjnKVoW3RhDRpEgvKIbowj1CMmu7M96S7wJUY5PaZ72DmmE0ENVL/1JA4SulYju1zztc0KM1hI
-	bFywZ9bg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Date:Cc:To:From:Subject:Message-ID:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4788WmMOb8QcQZCKza1zlDpD6qQhfOULV+R7eq25UYE=; b=qwmZpZFbajFwb4sd1P8spzLgZD
+	75m/Cd8x3atIf56IKJeXaS2gPNKZ/rm1ojtsowbgWy8c+Bp0qyq6bUzk29VHayLipCwdHa3/hw+8R
+	vXqD0UBdh+/gsuBgBVYrwK3cnv3T+gHeOR+fJGExyiwS2bVL48xtvth09J7z3DuHZ6s+PZm8ajCYe
+	CUMm0bajivlLXrjJg1x/f0rtVU5CwxooNVrABdd7p4MZlgwbWuzdRYR4V6Evh2EccywgdP597E/5r
+	Wu+H3CmYpH30EbWHfp//6dZY1W8g5LXSoc2yRGNa89hgK7bTclcCo8mwRIdX9q6O+zmPckvvShsvL
+	/WHIkrbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqM7x-00000006h9f-0lxv;
-	Mon, 25 Aug 2025 01:36:05 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uqMBL-00000006hTU-49tX;
+	Mon, 25 Aug 2025 01:39:35 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqM54-00000006gsm-2vnu
+	id 1uqM8D-00000006hBY-2zii
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 01:33:08 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57ONZO5a030514
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 01:33:05 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	K6E22yah7RSaBBMqG2z+3SW7CvB325/vsH5zTcMNA9Q=; b=W9KN47ch+CdMX9XM
-	MP7DMdWXixwcEekg2jQ1kogTdnBPsM6//cCJVzKzGoXNggSXYcTIwzRTAesfC1R9
-	ebmxW2ujk5pR4O5HAMUpnprbBnn9q1pk6bagr3GW/Qxe2d3imsG6gGOxzJmKrm0Z
-	vXabB3r61hRyM606cAe87ZO53ewpZSptRMbNTzh8V+9ns/b2s+JrrczBJpeqtOEk
-	lQUL8JAJyrR6QrCiLQOo1KJiBuYetCr73jB4Ts4M6Q9oiIt/jOsYHNBWl6xtIOnj
-	nECZM3J/Y07kmbY6vrr/76knhY1MVyzL/Thf9sl5Jxfo9XsxT5hMWWxXhT4dcI2e
-	UreKDw==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48q6thu7rm-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 01:33:05 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-246164c4743so67810545ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 Aug 2025 18:33:05 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756085585; x=1756690385;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=K6E22yah7RSaBBMqG2z+3SW7CvB325/vsH5zTcMNA9Q=;
-        b=eQO/XDDpPUspvtNEKjtqb9Z6+dw/nX/biKhhptbLM7pKZdrZXdKcHwVOg/hFDyHglh
-         wkNLY7tSP4Wm4HY49mrwIlfhEK+xh+K8Vp8XxnP8m2v1xLjureaaywWrxL3p9ZPBnXLK
-         JhlkkNVI+p8WjcWskTbwYnRXgEqp863Ouf/wmb32X+fBR9TVaPvc9+/R31aIp7WJqarQ
-         8wlvGeDNMmFzbxItWgm4xfieJJ1x2SwGd0nUPlohnMfkWN3qSOoVIkQ0i5QX2QvbnmSN
-         Gs3kteU14UmngEaBFG64JFv5IpztLtBkSdfEQJwjRgN08E5bb8kg+lcGMRKc6KmIwPmY
-         pUNA==
-X-Forwarded-Encrypted: i=1; AJvYcCUGacgTwU5arVldaz9QK8mTEZT3XRwsevQdV2JQfiV7BVq8lCyWJt4xfdPEfiL7ifRzyVOmEFjfwgK63O6UfJuy@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywp1dtTf3Qw2ODlKWBhxumIjwtmwWdXqVzDNuJ4lMLCJ1QUY8OU
-	QQkVeY/2j41BkWHoYdNEkmcrGgXKCkVK8FupsJviMu54079V5S9bjdXWSNLpkZXqPWLvZVakCTm
-	lfYuFBEC5SGePd7Z+zYoG4zwpTUi847Y2Y/UexRkr+u583GsOT6BeKVNn2En/Zm2dmpXlrGbIvO
-	Aobg==
-X-Gm-Gg: ASbGncupCYz9uwYZiQMRmx47nRW1C0j9rhTfLSLSLVnSrB5/G06ZZ5AUDgDN4IS6Zdl
-	ra90ctFvtufzYteeRmR8b/VPQm2cHWn4/R/V2dlhNuhfzvS4oaLPcyskCgFtpxrsBjcgcJF0xw6
-	ZOh7OcXuWPNnJOk9bQmbaDi1CN3U0ZzO7co1J1m+NOfxmZUMKo41o5bDEGqrheKJdVspxrTu1cZ
-	Bton382imv5CvqjZ4bXF9tsgvsaus68Gmc2Z3VhtMQV3hKqG4VVkE2suTs0W6x+Dr4pGziJzIqz
-	IBDqbJrarvWMgZ5eLHiCm50iRp1EY+zltRfzwOru78b+YFRT8MAUvXw5TabNqr0Dz4+ibYQBwR3
-	xg7TUdES7sNo9XZz3Es8PyyEOJ6EtiA==
-X-Received: by 2002:a17:902:ecc6:b0:243:38d:b3c5 with SMTP id d9443c01a7336-2462ef1564amr146761625ad.47.1756085584626;
-        Sun, 24 Aug 2025 18:33:04 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFJHNnP7iSIPuTBnCfkd1kHAo6DmPEz7vDeIdsiBninAkHPKiPmI83toT+uDqJlo73Uw+Et1Q==
-X-Received: by 2002:a17:902:ecc6:b0:243:38d:b3c5 with SMTP id d9443c01a7336-2462ef1564amr146761305ad.47.1756085584073;
-        Sun, 24 Aug 2025 18:33:04 -0700 (PDT)
-Received: from [10.133.33.155] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-246687b0feasm52811395ad.46.2025.08.24.18.32.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 24 Aug 2025 18:33:03 -0700 (PDT)
-Message-ID: <74038a79-8c59-496c-9a61-08dc786f9c10@oss.qualcomm.com>
-Date: Mon, 25 Aug 2025 09:32:57 +0800
+	Mon, 25 Aug 2025 01:36:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1756085780;
+	bh=4788WmMOb8QcQZCKza1zlDpD6qQhfOULV+R7eq25UYE=;
+	h=Subject:From:To:Cc:Date;
+	b=hYDQYF7ICrPQbbVsQ9aGIrolwpB1J3Xl7bPdu3NyuDciq9+EM38ftWyhio1x04cJR
+	 l10v8DPXE3dwOsJVLgYzpCaS/0QhKlpj1ZkX8ydz/89wJ5mLmWEExbZudHAf/mjZE5
+	 yxPCl7gn7ruTzxoRtVfORyVa4ete4LN6Amw3kuEnS0QTFz38c6JHcYa6xdismMexyc
+	 3wn22phg3f22RIhMQSVQW87dmNmu8V3FbOdMe+TEsc/AhHtbBDS6hIFOk3LJXDe3PF
+	 zuYm9BPlJBE3w7gYVxjrJTwnAiTJD/muy1kJbz9OVfznWS9iK91Mq786Ke9RlORuur
+	 u8oGISEBNos1Q==
+Received: from [192.168.68.112] (unknown [180.150.112.213])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 9E95964C1A;
+	Mon, 25 Aug 2025 09:36:19 +0800 (AWST)
+Message-ID: <2d122b5c4a19261148993b66e4b98371a684ba74.camel@codeconstruct.com.au>
+Subject: [GIT PULL] aspeed: early driver changes for 6.18
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: soc <soc@lists.linux.dev>
+Cc: linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org, Joel Stanley <joel@jms.id.au>
+Date: Mon, 25 Aug 2025 11:06:19 +0930
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/2] Enable CTCU device for QCS8300
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-To: Mike Leach <mike.leach@linaro.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, coresight@lists.linaro.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250624095905.7609-1-jie.gan@oss.qualcomm.com>
- <c7cca483-f1d3-45b4-abef-ec5019ad57dd@oss.qualcomm.com>
- <c6f74d55-6ea8-498f-a05a-000599f93ac6@oss.qualcomm.com>
- <b5f8fce0-afe8-409b-b43d-fa9f413cd442@oss.qualcomm.com>
- <CAJ9a7VgZ61oL4LLxKSon3LXsYDtaHaPcGNxW=cwzhSOs3ea1PQ@mail.gmail.com>
- <bbbec517-cc2b-444b-b76b-a4930902d667@oss.qualcomm.com>
-Content-Language: en-US
-In-Reply-To: <bbbec517-cc2b-444b-b76b-a4930902d667@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDA0MyBTYWx0ZWRfX6YL0DbShaS5V
- xRb8PDyTbiZi/6qZ+YNIooWB+aic9Y1bBZdLcR/oMRPf+TLA7qVqauFeSxympvGKyJc15nh/AKA
- CX6tB4XKt5iTMTZneax//ifzbWcaNIZLYSZEQBUUgLGKmA5EJyHapzTNHRb99afBcUFAAXoG3U1
- 90E1UTNFSsNRKdbq7qQ/MjDOrKPZM/HNK4PfOFZ6FWIBA7bs3oy5Vh1poNNwedqseNQYUgk6sZw
- KqpXPSG3PeO5BE7/eX+xduDqwxGjsqotGBWB8QERdYq8UX5jb2s0AlCI21oPYtfh3NJWgcbFGzY
- P/b/I65txLhzGpNPNhALehqHpNq9tNAgQ2hOSmi/vOh8eZj3bx7MH7VNqmSia5UeB42Li7q+ns4
- V1kjpIVO
-X-Proofpoint-ORIG-GUID: MX-H9T2Ece5zC9RfkhA70oWIDKcHWBZt
-X-Proofpoint-GUID: MX-H9T2Ece5zC9RfkhA70oWIDKcHWBZt
-X-Authority-Analysis: v=2.4 cv=W544VQWk c=1 sm=1 tr=0 ts=68abbd51 cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
- a=KrWnKaeQ6KOPjblB_ggA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=324X-CrmTo6CU4MGRt3R:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-24_08,2025-08-20_03,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 spamscore=0 clxscore=1015 suspectscore=0 phishscore=0
- bulkscore=0 impostorscore=0 adultscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508230043
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_183306_741678_57D762EB 
-X-CRM114-Status: GOOD (  20.48  )
+X-CRM114-CacheID: sfid-20250824_183621_946876_5E4D2E37 
+X-CRM114-Status: UNSURE (   5.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,105 +69,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello SoC maintainers,
 
+The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585=
+:
 
-On 8/5/2025 6:25 PM, Jie Gan wrote:
-> 
-> 
-> On 8/5/2025 5:53 PM, Mike Leach wrote:
->> Hi Jie,
->>
->> On Tue, 5 Aug 2025 at 05:11, Jie Gan <jie.gan@oss.qualcomm.com> wrote:
->>>
->>>
->>>
->>> On 7/28/2025 9:08 AM, Jie Gan wrote:
->>>>
->>>>
->>>> On 7/15/2025 8:41 AM, Jie Gan wrote:
->>>>>
->>>>>
->>>>> On 6/24/2025 5:59 PM, Jie Gan wrote:
->>>>>> Enable CTCU device for QCS8300 platform. Add a fallback mechnasim in
->>>>>> binding to utilize
->>>>>> the compitable of the SA8775p platform becuase the CTCU for QCS8300
->>>>>> shares same
->>>>>> configurations as SA8775p platform.
->>>>>
->>>>> Gentle ping.
->>>>
->>>> Gentle ping.
->>>
->>> Gentle ping.
->>> Hi Coresight maintainers,
->>>
->>> Can you please help to review the patch?
->>>
->>> Thanks,
->>> Jie
->>>
->>>>
->>>> Thanks,
->>>> Jie
->>>>
->>>>>
->>>>> Hi Suzuki, Mike, James, Rob
->>>>>
->>>>> Can you plz help to review the patch from Coresight view?
->>>>>
->>>>> Thanks,
->>>>> Jie
->>>>>
->>>>>>
->>>>>> Changes in V2:
->>>>>> 1. Add Krzysztof's R-B tag for dt-binding patch.
->>>>>> 2. Add Konrad's Acked-by tag for dt patch.
->>>>>> 3. Rebased on tag next-20250623.
->>>>>> 4. Missed email addresses for coresight's maintainers in V1, loop 
->>>>>> them.
->>>>>> Link to V1 - https://lore.kernel.org/all/20250327024943.3502313-1-
->>>>>> jie.gan@oss.qualcomm.com/
->>>>>>
->>>>>> Jie Gan (2):
->>>>>>     dt-bindings: arm: add CTCU device for QCS8300
->>>>>>     arm64: dts: qcom: qcs8300: Add CTCU and ETR nodes
->>>>>>
->>>>>>    .../bindings/arm/qcom,coresight-ctcu.yaml     |   9 +-
->>>>>>    arch/arm64/boot/dts/qcom/qcs8300.dtsi         | 153 +++++++++++ 
->>>>>> +++++++
->>>>>>    2 files changed, 160 insertions(+), 2 deletions(-)
->>>>>>
->>>>>
->>>>>
->>>>
->>>
->>
->> You need to send a new patch addressing the comments made by Krzysztof..
-> 
-> Hi Mike,
-> 
-> I just proposed an idea to add a common compatible for CTCU device, its 
-> not about the patch series itself. We dropped the idea and prefer to add 
-> the board specific compatible for each platform.
-> 
-> Thanks,
-> Jie
+  Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
 
-Hi Suzuki, Mike, James
+are available in the Git repository at:
 
-We already have the tag from dt-binding and dt maintainers. We haven't 
-additional modification for this patch series. Can you please help to 
-review the patch series from Coresight View?
+  https://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux.git tags/aspeed=
+-6.18-drivers-0
 
-Thanks,
-Jie
+for you to fetch changes up to c30dcfd4b5a0f0e3fe7138bf287f6de6b1b00278:
 
-> 
->>
->> Regards
->>
->> Mike
-> 
-> 
+  soc: aspeed: socinfo: Add AST27xx silicon IDs (2025-08-11 09:37:53 +0930)
+
+----------------------------------------------------------------
+Early ASPEED driver updates for 6.18
+
+Two small changes, the most interesting being the addition of the silicon I=
+Ds
+for ASPEED's AST2700 SoC family.
+
+----------------------------------------------------------------
+Rob Herring (Arm) (1):
+      soc: aspeed: Use of_reserved_mem_region_to_resource() for "memory-reg=
+ion"
+
+Ryan Chen (1):
+      soc: aspeed: socinfo: Add AST27xx silicon IDs
+
+ drivers/soc/aspeed/aspeed-lpc-ctrl.c | 14 +++-----------
+ drivers/soc/aspeed/aspeed-p2a-ctrl.c | 14 +++-----------
+ drivers/soc/aspeed/aspeed-socinfo.c  |  4 ++++
+ 3 files changed, 10 insertions(+), 22 deletions(-)
 
 
