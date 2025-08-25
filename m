@@ -4,168 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 284D3CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 11:28:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E86BCCA0FEB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 11:28:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=C3kBJo4KkeodiRRcOGr+KTxjWBva96RFH+FgArO6/WU=; b=T1ifgTNBPm7mQJGiOWVimXVCgF
-	8ACtVYqiigQtH8X658J3/sHMV7OUcXOZ/hOzyhuQwahZa/41QhKJzXuashMS7XqZtsmue8tAu8hjA
-	h5ymceH6Sf+zCPzW3kV3kw+EXXDKdUWtp0wmd0sOcfxiQsZr+7bhWpuqrls899FWmopsI7QE1qjyY
-	uBMNouMDOn0eNOq5EPlk4S8dfrw4EbB4Yg+s6GG7BoXPuQnGtSw23umxDMxlOcYTJ6JAe5UAZs2VT
-	xhn0RhHTQwpAvKc5QtTL+PH7OUAOt51nsn2imfP/1XbtCEgngw4E4byql2XF8xqDpjxkvl/3IRn5n
-	Web+Lvtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cP0weFM2+mVOhYEbkmdk331UXDeERciVJHGW33WlzMM=; b=hhrarMdP4hqZflBdIldHHrWMAe
+	XPMgTBbl0bkVewkWC8MMN6yWaxy6joL0R/bY4JJXT9jlIzw0iCfFm72O6fNKRwyHLnMCoEcUJ8z9W
+	UO0bGGt61rM++wDv9YRjQEXiLb03E9m1iXx5nmnnc4Z9o1DIBWoZSW6RKVvOZtG9l8g5Z8u14jFVb
+	Oxu+/K0qNDP60DOINVV4qRhzr9EqaQm7Tjv4jxDm36tN8FI2N6mA98MnXLf9Tz3NSjkw2E5ryHCvE
+	gv2DMycZ++PTrFIIVxjy83fUJs5NDOsp50zWilmfI5C5vIC7P/7VXWFfWqRKEKDh4keEzqb1389ZR
+	5ttAeopA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqVN9-00000007jsU-2IDZ;
-	Mon, 25 Aug 2025 11:28:23 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1uqVND-00000007jxA-0Z9h;
+	Mon, 25 Aug 2025 11:28:27 +0000
+Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqTGT-00000007SC6-0AAd
+	id 1uqTH5-00000007SMm-3Jxv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 09:13:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UOVYc1Qnc9QpzW5CPxD4leEtlBHM2YuOz9i7cVk2Qs271AHgpNSJgUMWFtQv7h/2f/D1iTlZOrLnp8g7WHxyZIftcH10V5liQATp4gN9MiO0gh0eGPOx7mKYttve6nPhX1EWdJdfx0VPLMhycWzew8WoTDMxP5mf5OD9EMjml09FWR2YDp3hkOeVey7+Kq2CfyG7uqP/BIvpy9JGQ6i0Wlry9ubGo4Izjbtdd9lhysjPOkPLtUgYLAvDoswe9WbatdSNDINN6Xm/ARKuWkHxi4ltSIyMKK6Xt53nG9qqIoJprUoRtSUQP/MaApWdKoAOtWpBBxGvumLyQ5Mi4i1X6Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=C3kBJo4KkeodiRRcOGr+KTxjWBva96RFH+FgArO6/WU=;
- b=U4GUWFF1LNk7QrEhppQuvT69JKMMyOrNuaOHKnSVzxM62VPm9/Y71HFd1lUTUYQo89iOljxs8UQiwmOsFqKnqCmYXU+8ZXthukFwKK1PCowb3kDOwBHhQPiuUuxa0VaPmZVe8BMsJgN2FAhLqHm12fWEhapcK8qMCtnkNU/ynArADfRdpzHuKKPw+HWVMO/JgfGYigvDPk1hN/62dQBct/21huwTRL6uqw7oaIOMUOJE/1lgIAjFABHNQOQUoH8TISXuyCrrh//NxHFiYMzVgcIRqmCvA2KH5PmD4CedRXAIO53Ri+ZdS5iipIKmh2zMkjWx+2YlE4CGWBXb5rtOYQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=C3kBJo4KkeodiRRcOGr+KTxjWBva96RFH+FgArO6/WU=;
- b=CEHOK/8oTaldzWLeVq2Xk5V3MjPbJXyQiSBpSd2nlo7833nwPY/Ytt1H1H4oPRxoyQo+8Sk2GgvfHGjYa9JUNNEq1g6taPL+vD3VtwEgySjZI/UzJ0Vvy6ZZfveQbb2BOoUj3zCk/XNkRrTyg84wdl2W1Ugmj35kGSyYdhJhfrgOo8eAhtPALpqrL4MYRqkyGplVYH8DVIy7PtY4evC9t/c+kP9M5y2/VUK2YXfPEmIwqxEU3/Tr1eKhV/n5YVUQvSERfaEDg8PDzwpF4X8fkPEhcnlrOVG7ld8OGynHvJzv5340f8sQjC9h7ZLOu6KOhL/eIT4qvl2kyazsGNA5oQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS4PR04MB9386.eurprd04.prod.outlook.com (2603:10a6:20b:4e9::8)
- by PA1PR04MB11264.eurprd04.prod.outlook.com (2603:10a6:102:4eb::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.10; Mon, 25 Aug
- 2025 09:13:09 +0000
-Received: from AS4PR04MB9386.eurprd04.prod.outlook.com
- ([fe80::261e:eaf4:f429:5e1c]) by AS4PR04MB9386.eurprd04.prod.outlook.com
- ([fe80::261e:eaf4:f429:5e1c%7]) with mapi id 15.20.9073.010; Mon, 25 Aug 2025
- 09:13:09 +0000
-From: Joy Zou <joy.zou@nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	richardcochran@gmail.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	frieder.schrempf@kontron.de,
-	primoz.fiser@norik.com,
-	othacehe@gnu.org,
-	Markus.Niebel@ew.tq-group.com,
-	alexander.stein@ew.tq-group.com
-Cc: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux@ew.tq-group.com,
-	netdev@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Frank.Li@nxp.com
-Subject: [PATCH v9 0/6] Add i.MX91 platform support
-Date: Mon, 25 Aug 2025 17:12:17 +0800
-Message-Id: <20250825091223.1378137-1-joy.zou@nxp.com>
-X-Mailer: git-send-email 2.37.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR01CA0173.apcprd01.prod.exchangelabs.com
- (2603:1096:4:28::29) To AS4PR04MB9386.eurprd04.prod.outlook.com
- (2603:10a6:20b:4e9::8)
+	Mon, 25 Aug 2025 09:14:00 +0000
+Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-333f7ebc44dso40647861fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 02:13:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1756113238; x=1756718038; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=cP0weFM2+mVOhYEbkmdk331UXDeERciVJHGW33WlzMM=;
+        b=R1d1O4d1Ohw9NGaaGGunVEMDvF9sLxXTY0yR7qO4ZmE3qO4rKGX2dN14PLHId+0YPU
+         UZHYnBpE/Mdg1Iy9x0pCn+pS9ViSm52x6jRkiReHwGo0hf3ZfByxshVecr5WXyG6GZOa
+         1rZthGflOV7lOmY5wZzqQRzAgFcgJ7hq4sQ2mQSjnGC3OLG670JV4S4xII7+Oz//tOXs
+         XqU3ZrMbqxheWbLt/l0rxl7fsWmkEo7QCHFiF57Xnc0X/cSjemeqKGpyGIfvCQFzlw9c
+         ozvYbtAs/x1gxMVGCCn/QU8zwSCPKnRcO0vnO1s/4hrG7Kd7D6N4MeXNT9ls28V3EuAh
+         D2bg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756113238; x=1756718038;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=cP0weFM2+mVOhYEbkmdk331UXDeERciVJHGW33WlzMM=;
+        b=VC/YdTqE6Yu4FLgajF1q/OnL+UW6poVvTIYMv0SqgZtaLHfbl2GAH/1esJLV1K4wro
+         x7ap1djjpJsL2Hji0mFTSqUD0nhycnoaxwrWAiouABuXudu70Sv8rMvVON3jWEiyyoIO
+         8qX13l9Ss07rSPZkaJtDs363u1IS6lT2qCUkxwcIcMGqRctEk4WVCVUs4ei2dLXN7lWE
+         4a4E4DeHDuvFO0kMPACjT5zKrTFxIOOHRMWpFlQUEpX3citXTx7Ykdo9D6nHMgKnK0gm
+         M3S5wLlD1GbIZUmjVUupUc6ekPBYlL32SZXXTiyIgjzqgQpRlppVDW8HoiyyR+KJe7dN
+         hqHA==
+X-Forwarded-Encrypted: i=1; AJvYcCVi+7mg+8sh7t/woNyNyCMcF/WYLadj4igPRbvLSSxLwzcu6qhrdL3u7nbXMnewCs0+zfiKK8HxFXKYVI14Gati@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdhJMOPCXA+tyBVvQ0R1cMzZ9JbqhLQaChEqvC/gttigEAExze
+	mOV/YgelY8GqgC/ABkBNGy2eV0DP5PLK6rn6M8xAOadmwTfg96MF+pfqcuzNv0oY6GXptmcVgzI
+	EiD+65njCX4PPtmP/pi+09UFTakRUe3sUPuxhzBOkKw==
+X-Gm-Gg: ASbGncupxAPPnf45OHVhw0R1XYpP2E7q6h0VPa1BgdG7V8C2qi0vOKpTJknxbGzBALs
+	pd+31W11/2anub59auQs3fSzkiH4sXLHVRO469Woqg+3KF8gnu9mdKN8X+6t/KSjhtouWKksmFm
+	2X8YhVWoLnWjbYd1gaX4Zor2NHobKBq8wOynnaR5fxQeC8aIdhjspoQsG7y8i52nFwnm+nj6X4u
+	68QEylrH8H2hi7pnQ==
+X-Google-Smtp-Source: AGHT+IHKuGX2jcjK7CW2YUAF7pKBQi7lJi+f3JtU7wjskayoF+TL/YdXsZFZxfIG1onC6ArpMYTltcHn/C0yATQLfLE=
+X-Received: by 2002:a05:651c:2141:b0:336:5d7d:f034 with SMTP id
+ 38308e7fff4ca-3365d7df730mr16346691fa.1.1756113237446; Mon, 25 Aug 2025
+ 02:13:57 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4PR04MB9386:EE_|PA1PR04MB11264:EE_
-X-MS-Office365-Filtering-Correlation-Id: d03893b9-895b-4e05-8b9f-08dde3b79b5d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|7416014|52116014|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xGUiwdCZWPjuLgY2OffsLMWkWity4iT36dTsshXPnBTKrI+KfdQQDqwULdoL?=
- =?us-ascii?Q?oIsOa6YjPLxQjsoLRDmKYfsOetRwdyWo6TYLI3HvW6wASwLP6uI7J477XSRX?=
- =?us-ascii?Q?BXtuL01D37Ks1Sc+su+DlGIDnJlmdHOdIVznQ3jrp2ljcwCg6qMXZ3BtID06?=
- =?us-ascii?Q?F76Ee40h1HLhRuI936Icg2EPtKRciGB0GDb9xlJYKT63vUWhsBY8QTukd6DH?=
- =?us-ascii?Q?hZA5FxxWPdSjNQbIKDNpVvvQjMOyWIrrVHmIpexfzeKs00QEdwLB1rfR+v40?=
- =?us-ascii?Q?+TCimj0Y2XhzVfmA+dbY99ErfSgb+sPaxc7tVN2y57/vG3eIA5rPX8DgQG7e?=
- =?us-ascii?Q?VvNgQpZHfGmsioGyODTDBhqxPkDJEapH20GqFXizyzxdKASHAGVZl1iK0wdV?=
- =?us-ascii?Q?yBjjPRVzOGjyw1vkYevKRZC1VYV/j4sfFhh4jP0fh1yTH9G+hah0kV4jJy2U?=
- =?us-ascii?Q?6wTDn0n/J7ZmL9xY3SyyBhLdspW8b3RQjlRg14wiK7mOjFVYs9CiKdOM4WLg?=
- =?us-ascii?Q?y+9Hil/5cIVZTP83uESBTxEJnty1YOHlbgBnQYW1MvPnHOFB+9qFofz2gWLr?=
- =?us-ascii?Q?78J4btEo10qnQQ4oQUV1uS/+A7Yy6DizBKEXJZQL5lUxsud88SE9sa9Y+wTv?=
- =?us-ascii?Q?bfWJKxsRdk65o24/qur2pjzHbwc3sQ1T3/GWrE3F22rTq2cHkkGCHd/p6aUi?=
- =?us-ascii?Q?kCSdOMoX3m2E92yZrL21BUQzNNgW4thJ1dIz4HDqYwZent7HZiDMWLeUi0uZ?=
- =?us-ascii?Q?n+C7Kq/TED7ztO52FCxTWkMe1dDfx6VahAj+Fmyv/5m/K8cCmu8oshch+TJ5?=
- =?us-ascii?Q?79XSYXz2sfBt2vHgWuJvwgj3aPMDWSB8GB0CGXP+usJR1sKea54PBLvhUHRs?=
- =?us-ascii?Q?E5DiSSCh3O51RVkf8hSJE1NkH/z8IzyrI0mS2NH13IzR2TQK5IqOq5/huJfG?=
- =?us-ascii?Q?zcuUubYC/4YDs4QnHTO4re3t7e8XkPvWDJ12dDEiX9r/+ROu/o8rgY33zBEi?=
- =?us-ascii?Q?QrRCYkCICuHUtPHsqEVH4BgW7+wAQZYfpMk2X2Y85DSKo/Ak45HMwhgxD7v4?=
- =?us-ascii?Q?Gp+PZe7GwiQFoiPtLLHT0y96a6X6Unuw+1xy3jS8uKB27LT5Lu3AM5SRltIh?=
- =?us-ascii?Q?dRHgF+Rz1EXf7Kihlb96FYfetMejA/0mXgQXWIfN6mumqB/yhQD1A6WB7Vfe?=
- =?us-ascii?Q?ygTlqJOxwl+ViDlNSneg03dJqub1NnmNzR6DbQR1aSrbfnj74OMBXchRIObq?=
- =?us-ascii?Q?UaDp7tXhpuH+zBT01nAnkglD0U3+HrA6kX1ivQoe5lm6cPQk9WGKPNYE0mbZ?=
- =?us-ascii?Q?nk9TcKabbd4KYpqPDykac6GMHBZanzvyP6VpACIpDmHTzCI3g2zSea8W3SC9?=
- =?us-ascii?Q?ul7Eus3mLRV7QPKCCzIVPki6PM3uarG7BC26+0gCtQeh4yLhTXOImnpMGInY?=
- =?us-ascii?Q?nPxpLPn0KAykXCbaDWqzcDQxj/8KZfUv?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9386.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(7416014)(52116014)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hUMD/Ats8L/zpFAzej27S2OyTYA9Wz8RqcPE8qCDwQncybO9Bvv3z8ZX9ndq?=
- =?us-ascii?Q?i8NZ+jsff/KBZVhdftl8t0PMmrbxPz1EsFdQnHCN8w2uzu8OsKI5rIKNbL9L?=
- =?us-ascii?Q?mIuRs3MTmJGh9Q6COy0rNwQ2wSe1fN6R3wKRPv246QdGD9iTWkuDhysh90T/?=
- =?us-ascii?Q?s6/YDsWCyHSaqtPELwBIqPNIkBsXh1jXl1EtruLlLxYuptntA12+prJk0+D2?=
- =?us-ascii?Q?gFrW1w9CSqkS8FR1WYgBycIiBF6AdKagJwksZHPFXQNnMMRTpZt89AcHwRkT?=
- =?us-ascii?Q?83P6z9tBA+aRQ4YEmGbeA+8QlSMFpH6aYalWRqzWUsLoomeiL2t7S1f9+3EC?=
- =?us-ascii?Q?RdqMswX00O5cpsLrIPRLejOohntKPeaYkIQous//d3vDLA+ICyQXPtUQuhxv?=
- =?us-ascii?Q?kFutKOGZ48f1D1pJ3nltwMG46j5cfKjMcEw2NC7NboZT4pBeuzf2PeTy8mXb?=
- =?us-ascii?Q?3joI8JBX68VGMBFjNQRbaEExDLpQQtR8btnPwu4wlr1X8IhZMsBsqTUU0vxX?=
- =?us-ascii?Q?pbw5v1XjYH9UGkAvAXK0zBUjHSV/Tehnicpn7O5TVSgj8ud7TsR33WCE/SXD?=
- =?us-ascii?Q?PxmhLdFkEbHcbkQESZ25atdTBQvC7pdWcbXLjYs87EXDmrq1LjZTNT5iqk0q?=
- =?us-ascii?Q?BQ9LwVGFRbU7g7wwRM6VyZF11VG9l6OgzyKmrdWvmIocswxzpIrfH6vKs+Dq?=
- =?us-ascii?Q?POk7ITRZ2zBSOsXf3JLDWU82TcXQVfETWwUfVHgENY8nOU2vI5Rp6EAgdI4F?=
- =?us-ascii?Q?Tw/LnK8RkSidYxZ+uYE8jQU52db9oL9LxQxHttuLJYQS08guEJ0LEVl1pQLm?=
- =?us-ascii?Q?SBFgxWmZgkzjxPe3HXKE82F6LzyOdDxRiQb7phsYcpLPtgXq7ixMLPunWlX8?=
- =?us-ascii?Q?130LkXtvLXik3WuZndC7B52r27vIQ0ikGOJqY/9BA8ripiS4zeaZ+C5H/d4G?=
- =?us-ascii?Q?7xd9wKJPzEYuRF9g+spACbZfmOE0mCAkkZOVd9ZZ3NOsNy68k29/d61TN80O?=
- =?us-ascii?Q?OICkhOZnTmWxtLbumx7czXxjcxDCLFed9iB8symLyHfZHRGq+D1+lNtdTCP4?=
- =?us-ascii?Q?357o/zw0zTVb2MUZr3296WDDfD2ZXuTJ+/TQ92VzkeQLl36/EBiH4gKcRX7Q?=
- =?us-ascii?Q?2xQF90BCOje64R0DG1/dSBtVya/DstS+5KYfL54mIshG9fnlaqi0UxSBCcCx?=
- =?us-ascii?Q?VSrYFDwE4Pmbk2YWvqX5vH97anIyEYZM2iS92W61QZ8gYPLrmDjSUkStI1Oy?=
- =?us-ascii?Q?PSM9pP+brx+pQfMRJOhTQ4WjPB1jxAoLwPuT2aK+hCJvness5eM0uj0+Xwn/?=
- =?us-ascii?Q?Qn7AZvxX7rSbBYgcMCJ8U1A1PsivcPEuqUYE2NJWoe+yeFNskOjOpD4Hiat3?=
- =?us-ascii?Q?R8lJFtla4BeC8n7vhtij3v7kCX5W9G5eMrcKz7AC7BaubJSt5dh7SMvPnRFD?=
- =?us-ascii?Q?/3hLcOOrqfX6dHO1cU7NLu1Inlsst9oSADGf8QmbZxdFf3zrVkJWQsJO4363?=
- =?us-ascii?Q?LuP3Mh9DVJKy7vHMCf26HMA//+2QHSozEV3L+1im6I9yvBMHnWEG/UsANeGI?=
- =?us-ascii?Q?zXtItYnTGZuREt5v1wCsmg6MoKdCPAqxMNTAiwml?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d03893b9-895b-4e05-8b9f-08dde3b79b5d
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9386.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Aug 2025 09:13:09.0675
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DTWaLaSLw5vdzb8meYwyvZL9TNP8EoEpVr1JQGRMTJMxV9smJ1kZw8oCvra+d4eo
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11264
+References: <20250820164946.3782702-1-Frank.Li@nxp.com>
+In-Reply-To: <20250820164946.3782702-1-Frank.Li@nxp.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Mon, 25 Aug 2025 11:13:46 +0200
+X-Gm-Features: Ac12FXxQ7gXxoDsxZV2IH90hiejwNDEjwFXUKgIGdSa3W_TRCsJ2jdxesORaDrc
+Message-ID: <CACRpkdYCWymgFYenTbw5TzH+De103pwf35Bq_WjCkCPJ999Xng@mail.gmail.com>
+Subject: Re: [PATCH v2 1/1] dt-bindings: gpio: Move fsl,mxs-pinctrl.txt into gpio-mxs.yaml
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
+	NXP S32 Linux Team <s32@nxp.com>, "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>, 
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_021321_236609_1A6F9F44 
-X-CRM114-Status: GOOD (  22.37  )
+X-CRM114-CacheID: sfid-20250825_021359_830751_252635AF 
+X-CRM114-Status: UNSURE (   8.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,134 +104,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The design of i.MX91 platform is very similar to i.MX93.
-Extracts the common parts in order to reuse code.
+On Wed, Aug 20, 2025 at 6:50=E2=80=AFPM Frank Li <Frank.Li@nxp.com> wrote:
 
-The mainly difference between i.MX91 and i.MX93 is as follows:
-- i.MX91 removed some clocks and modified the names of some clocks.
-- i.MX91 only has one A core.
-- i.MX91 has different pinmux.
+> Move mxs-pinctrl part into gpio-mxs.yaml and add pinctrl examples to fix
+> below CHECK_DTB warning:
+>
+> arch/arm/boot/dts/nxp/mxs/imx28-xea.dtb: pinctrl@80018000 (fsl,imx28-pinc=
+trl):
+>    'auart0-2pins@0', 'auart0@0',  ... 'usb1@1' do not match any of the re=
+gexes: 'gpio@[0-9]+$', 'pinctrl-[0-9]+'
+>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
----
-Changes for v9:
-- rebased onto commit 0f4c93f7eb86 ("Add linux-next specific files for 20250822")
-  to align with latest changes.
-- there is no functional changes for these patches.
-- Link to v8: https://lore.kernel.org/imx/20250806114119.1948624-1-joy.zou@nxp.com/
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
-Changes for v8:
-- add Reviewed-by tag for patch #2/3/4/5/6/7/8/9/11.
-- modify commit message for patch #10.
-- move imx91 before imx93 in Makefile for patch #6.
-- modify the commit message to keep wrap at 75 chars for patch #5.
-- Link to v7: https://lore.kernel.org/imx/20250728071438.2332382-1-joy.zou@nxp.com/
+(...)
+>  .../devicetree/bindings/gpio/gpio-mxs.yaml    |  80 ++++++++++-
+>  .../bindings/pinctrl/fsl,mxs-pinctrl.txt      | 127 ------------------
 
-Changes for v7:
-- Optimize i.MX91 num_clks hardcode with ARRAY_SIZE()for patch #10.
-- Add new patch in order to optimize i.MX93 num_clks hardcode
-  with ARRAY_SIZE() for patch #9.
-- remove this unused comments for patch #6.
-- align all pinctrl value to the same column for patch #6.
-- add aliases because remove aliases from common dtsi for patch #6.
-- remove fec property eee-broken-1000t from imx91 and imx93 board dts
-  for patch #6 and #7.
-- The aliases are removed from common.dtsi because the imx93.dtsi
-  aliases are removed for patch #4.
-- Add new patch that move aliases from imx93.dtsi to board dts for
-  patch #3.
-- These aliases aren't common, so need to drop in imx93.dtsi for patch #3.
-- Only add aliases using to imx93 board dts for patch #3.
-- patch #3 changes come from review comments:
-  https://lore.kernel.org/imx/4e8f2426-92a1-4c7e-b860-0e10e8dd886c@kernel.org/
-- add clocks constraints in the if-else branch for patch #2.
-- reorder the imx93 and imx91 if-else branch for patch #2.
-- patch #2 changes come from review comments:
-  https://lore.kernel.org/imx/urgfsmkl25woqy5emucfkqs52qu624po6rd532hpusg3fdnyg3@s5iwmhnfsi26/
-- add Reviewed-by tag for patch #2.
-- Link to v6: https://lore.kernel.org/imx/20250623095732.2139853-1-joy.zou@nxp.com/
+GPIO bindings mostly affected, so I think Bartosz want to apply
+this one. (Else tell me!)
 
-Changes for v6:
-- add changelog in per patch.
-- correct commit message spell for patch #1.
-- merge rename imx93.dtsi to imx91_93_common.dtsi and move i.MX93
-  specific part from imx91_93_common.dtsi to imx93.dtsi for patch #3.
-- modify the commit message for patch #3.
-- restore copyright time and add modification time for common dtsi for
-  patch #3.
-- remove unused map0 label in imx91_93_common.dtsi for patch #3.
-- remove tmu related node for patch #4.
-- remove unused regulators and pinctrl settings for patch #5.
-- add new modification for aliases change patch #6.
-- Link to v5: https://lore.kernel.org/imx/20250613100255.2131800-1-joy.zou@nxp.com/
-
-Changes for v5:
-- rename imx93.dtsi to imx91_93_common.dtsi.
-- move imx93 specific part from imx91_93_common.dtsi to imx93.dtsi.
-- modify the imx91.dtsi to use imx91_93_common.dtsi.
-- add new the imx93-blk-ctrl binding and driver patch for imx91 support.
-- add new net patch for imx91 support.
-- change node name codec and lsm6dsm into common name audio-codec and
-  inertial-meter, and add BT compatible string for imx91 board dts.
-- Link to v4: https://lore.kernel.org/imx/20250121074017.2819285-1-joy.zou@nxp.com/
-
-Changes for v4:
-- Add one imx93 patch that add labels in imx93.dtsi
-- modify the references in imx91.dtsi
-- modify the code alignment
-- remove unused newline
-- delete the status property
-- align pad hex values
-- Link to v3: https://lore.kernel.org/imx/20241120094945.3032663-1-pengfei.li_1@nxp.com/
-
-Changes for v3:
-- Add Conor's ack on patch #1
-- format imx91-11x11-evk.dts with the dt-format tool
-- add lpi2c1 node
-- Link to v2: https://lore.kernel.org/imx/20241118051541.2621360-1-pengfei.li_1@nxp.com/
-
-Changes for v2:
-- change ddr node pmu compatible
-- remove mu1 and mu2
-- change iomux node compatible and enable 91 pinctrl
-- refine commit message for patch #2
-- change hex to lowercase in pinfunc.h
-- ordering nodes with the dt-format tool
-- Link to v1: https://lore.kernel.org/imx/20241108022703.1877171-1-pengfei.li_1@nxp.com/
-
-Joy Zou (6):
-  arm64: dts: freescale: move aliases from imx93.dtsi to board dts
-  arm64: dts: freescale: rename imx93.dtsi to imx91_93_common.dtsi and
-    modify them
-  arm64: dts: imx91: add i.MX91 dtsi support
-  arm64: dts: freescale: add i.MX91 11x11 EVK basic support
-  arm64: dts: imx93-11x11-evk: remove fec property eee-broken-1000t
-  net: stmmac: imx: add i.MX91 support
-
- arch/arm64/boot/dts/freescale/Makefile        |    1 +
- .../boot/dts/freescale/imx91-11x11-evk.dts    |  674 ++++++++
- arch/arm64/boot/dts/freescale/imx91-pinfunc.h |  770 +++++++++
- arch/arm64/boot/dts/freescale/imx91.dtsi      |   71 +
- .../{imx93.dtsi => imx91_93_common.dtsi}      |  176 +-
- .../boot/dts/freescale/imx93-11x11-evk.dts    |   20 +-
- .../boot/dts/freescale/imx93-14x14-evk.dts    |   15 +
- .../boot/dts/freescale/imx93-9x9-qsb.dts      |   18 +
- .../dts/freescale/imx93-kontron-bl-osm-s.dts  |   21 +
- .../dts/freescale/imx93-phyboard-nash.dts     |   21 +
- .../dts/freescale/imx93-phyboard-segin.dts    |    9 +
- .../freescale/imx93-tqma9352-mba91xxca.dts    |   11 +
- .../freescale/imx93-tqma9352-mba93xxca.dts    |   25 +
- .../freescale/imx93-tqma9352-mba93xxla.dts    |   25 +
- .../dts/freescale/imx93-var-som-symphony.dts  |   17 +
- arch/arm64/boot/dts/freescale/imx93.dtsi      | 1518 ++---------------
- .../net/ethernet/stmicro/stmmac/dwmac-imx.c   |    2 +
- 17 files changed, 1863 insertions(+), 1531 deletions(-)
- create mode 100644 arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
- create mode 100644 arch/arm64/boot/dts/freescale/imx91-pinfunc.h
- create mode 100644 arch/arm64/boot/dts/freescale/imx91.dtsi
- copy arch/arm64/boot/dts/freescale/{imx93.dtsi => imx91_93_common.dtsi} (90%)
- rewrite arch/arm64/boot/dts/freescale/imx93.dtsi (97%)
-
--- 
-2.37.1
-
+Yours,
+Linus Walleij
 
