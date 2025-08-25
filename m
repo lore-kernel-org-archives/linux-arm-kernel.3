@@ -4,88 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4CEECA0FE7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 17:00:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14F82CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 17:00:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EAVZJpgvllT4Mhe7ltBfIHVEtwo4VMq7SD8mCyRK+bY=; b=1AW2T45Rsv+BGfXLSab72mLXDZ
-	4QXREwxCHDda3Oz8EYUMQ8/0tDaQeO7KP+zGtHrOilGMgGi2yVR1FffVczkP0iKCxBE6sXURxsxJI
-	jxgDMMtrt/TK/koQGN4Hbi+hTrgc5H1EJqmggDSdgo3nWmjmJKBLFBNTDV+Wu72DQ8sCCTsEM7sA/
-	Bhc26AVklFrGxtkODHia0IujoTw8bnGgqzKDjxW+IeFzrglwj12v4sw0vIwSYrp/9ujvWAqhU72L9
-	vy9x1aWCjEigVhDFOIQ/HXDLVt9437Ln9JpJYT8dccpdLP6WGrrY52txaL4DmwdgBimmE0SZ2D2Q2
-	USlUjndw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j81oU7h6ABS8mu4/DagiCSXowt1eIsZjjrFZIC0vquU=; b=W6EzZCvpgEke04JLbkdOKzNjRY
+	BaJC+XaDX7vANVtrTsvTNWL0V9a+L7faKk1mdHaP3pYiAXF7MPztI4xl/8qZgLDagW+3YddLDT98G
+	pTGW+3ex3BsDpe/6n26jyv9W2PvwjrW08KujhKgyjGfa339JCOAENQrS57CUGe5Xi+hiVB7L+6Oja
+	yMagbzBMEdO55fzIws/buNLhZSQpmtBWmJrc8WJKuXIZwghR4dne+HRXBtqP/dqymqOnO+jcgNn0o
+	SuNb76UmB40BNr8eKkRzSB56JIAJERAcBhUS+7GJW3hUPixnF9yYt9/ii6mBpZNok0UP05sXdY6aK
+	2iqfq/Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqaYe-00000008kDe-1qt6;
-	Mon, 25 Aug 2025 17:00:36 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1uqaYf-00000008kEN-1loo;
+	Mon, 25 Aug 2025 17:00:37 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqYXH-00000008JeU-41P9
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 14:51:06 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-55f48d61ea2so865461e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 07:51:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1756133461; x=1756738261; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EAVZJpgvllT4Mhe7ltBfIHVEtwo4VMq7SD8mCyRK+bY=;
-        b=eaB8mlJl4YAbBhNf5KksFIjU/NG2bzvu57XJ0D2QHrTI+VLZkEVCFzSyoBPudTw90q
-         TPgImQLVzQy3JSGWbsViwjjicmoEvLQi7cFpgkixhgZC1yV2QFYf2VmzTxnyH9Z6RmbC
-         59vAL1fcZzaCPb+a2dYcZd5yLrR0f9yr3B55c=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756133461; x=1756738261;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=EAVZJpgvllT4Mhe7ltBfIHVEtwo4VMq7SD8mCyRK+bY=;
-        b=lXkwDkecaE+1ZwcuFqpJSaYEeZ6iuHU6wsrBlREJffhtwafsR/T50aPolqe6X2Rhiq
-         tKJ8a5XFPPFHpatH7K1Hdr7xxw/8T9RvcR04ULXeX5DfJlnPDRZgUq/2bLMGhi/6ATrF
-         9UmWWe/LIJrCiVpShLZcsgCy6t/beDoiMoue9GZrmdnLj51SUIePdNjWkqS23cqFEm2m
-         Uk8R4o4Ua1oVYDfgTrP7gaEAU3CjlYV2kV2fjdC9aRhB/HVrcBQlxhWl3xd9m1/u1prU
-         w/LWxjAfvHqEk4vOP8eZMDzT+zyiBXSra6sf+F6qJSgiVFeBLw3hsy9yYXok01XwhqmJ
-         nqmw==
-X-Forwarded-Encrypted: i=1; AJvYcCUbczkQLgWR04KumxhIfjkeMrHpaqBFi4gl8u1cR/HgU9rmGOPcYcGtvmTmtNLQ+aTNRXq+mKE/fFV7EVjGCNrF@lists.infradead.org
-X-Gm-Message-State: AOJu0YzrJqIg5KVvx7t6Wv0adiUjEcscUM67ifKSEn4P180JhVnlqbFG
-	LXyRfJ5sJEOb2hXFv0qiBg65wWoTVux98fsNNVNH9gBo8KrW6CSM3mbH71fXbtx8QuqQ51eNBkr
-	Xp+i/X91ugM9o1kEmVZbraMUPfUHeH31SiKnRffL3
-X-Gm-Gg: ASbGnctMx+YhLmWs/wjRWWGEKUxJF9sFnJC9qXTmCBLCP/NVL8kQ72rKj9rlswb4cmU
-	BD85NfhL8tpSwUYEThhMcozXi1sHBpLJuqggTKPSx0aGU7SSsnndP6rzkVfXoAPZ7yK+v+pIY0Z
-	PnI2KlP6I9SDT+TgY1aMl2sjVE3e4hXX936zuHSuJLc3BpyO3pVkp9PiFeGc5Hs2HuhRjNpRXxV
-	p6X/+4smA==
-X-Google-Smtp-Source: AGHT+IEe7w9pVPejypkcEJDKdxceIu7p/7dzKMCCMCcrZIlfu17d7XkyMHIibXiLNiCq+NAGnq/H6nnnbCqYo6xbSyU=
-X-Received: by 2002:a05:6512:230c:b0:55f:496e:99b1 with SMTP id
- 2adb3069b0e04-55f496ea2e6mr746059e87.31.1756133461346; Mon, 25 Aug 2025
- 07:51:01 -0700 (PDT)
+	id 1uqZYF-00000008aWz-1qBZ;
+	Mon, 25 Aug 2025 15:56:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=j81oU7h6ABS8mu4/DagiCSXowt1eIsZjjrFZIC0vquU=; b=lKkoydstCQUp/Kc5N91UIidqIY
+	QV+4nTxljPtbBG48h0fUJx6dKIJ66r2jy35Qb7VpWSacb4o6RbrEb4kJVBIOFpZee28kOtDrxcmC+
+	/eV4RoPnqW+FjkDfG4g/tqfeXJCcMUgwlEv0MgVfiuBXFIczWMupeNLizTzGV23qp4q66yFFumKyx
+	TzELFI2/7QoZRxeyDhJT7aDPg0jw6eBCPDCUTaaKYmE+KtQ2N4kV23N5jjqkq3ufzmhWDvA7IM4o5
+	TRY/N55iIK4ZQfMr/q7I6UF7KYUQLPbupXL4PcWj0X16OiwFECepYGIaZB+bD2rpWpBZC88LRKxP7
+	4nYTCHew==;
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uqZYA-00000001v65-0NJ2;
+	Mon, 25 Aug 2025 15:56:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pZScElYaTUCqZxl1caT+Vf2O5YrwCYd3QULH7A9Ykbljt6vQ/ocr5fP33ruCsmxcjivZLVwjBtMhGu5mfhhIvHdrkQS9sluPdxfNPC6pDKxJO3MjFb3++r1jo8Q2qivF6sYzdrWrpu2DoXZ13ozB2UtoK1X+2OV3jgckZ6BjTaJSz3+zJi/KlAtWhWPp8cU74POZX/q4e9Fx+7OPXRRIoCcdif0g1TTSApY3V0nyMGwycDMayKxILAT5zHPyl5Mq9CiXj8D2AVG7hs8rkk00y+atcaMT34XC63tKgrE+Fo4KPF+/CXXVvqWrCObQyKDUu0oYBd5SAr5FOvvb7U29Ig==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=j81oU7h6ABS8mu4/DagiCSXowt1eIsZjjrFZIC0vquU=;
+ b=GZhXNV8HP9/hdAb2WQtJWngdQ45jlNEX99Lr/UBLLCjZDamGbiV/Chukuurn/KYBvbMZyFH/aSr5EsFoDEGafqxT9OkX3YFCz6rJavpw836G35uB93ERc/Jsviw9UWONkXejG5hDEs8s8ixfIyiZJ3XseMeZHZv2lhqCKq1thnINui+QMd5gvmLgbUWu92b+qe8ROGPCPGjZB6DD62x/S1MvkzL0EBBZxY6rddvvVTO8IKS0iXcKwkQjPuxqCd+k28q5r14lKGmn6AZu0wfHlPiagP40Mvf5D9enbVubEgC9EJAaGrqgLxJLKFFQ8lOVipXF0Y0cEpBia443s+yXYw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=j81oU7h6ABS8mu4/DagiCSXowt1eIsZjjrFZIC0vquU=;
+ b=eyFwikItbn0VNnAvK7TdtvH81O8GLRtVv+0oZ6lEJhbk8hZ2+NBl+nMppa9sFsTQtvFBvghB80Gt9PQtpMjJ/CdkLZeix8RvXCvOVREBTdH40WLiPi9fUWacsj8IF4nnIhNdwnycHCUl72tVvusiJuHrOk3vVZXaznAHzRGuZkf8s7IqxZACbw0YIa+/mZo0pCJ5idQ7YKN82+zTGrn+ht1p2fYtMLuiOLgGk4QcnowuvyIXR3kHAU7zCEIea2Qbu99BLFx4KJAJ0xUwGzZQGbEpchdGcnIZLLEM45kA3fxn/GtnwVD8p8bRf6EzKgWJfv3MdQ+A3abfv0FliXiFpw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by GV1PR04MB9213.eurprd04.prod.outlook.com (2603:10a6:150:28::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.12; Mon, 25 Aug
+ 2025 15:55:48 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d%5]) with mapi id 15.20.9073.009; Mon, 25 Aug 2025
+ 15:55:47 +0000
+Date: Mon, 25 Aug 2025 11:55:38 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Marc Kleine-Budde <mkl@pengutronix.de>,
+	Vincent Mailhol <mailhol.vincent@wanadoo.fr>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Aswath Govindraju <a-govindraju@ti.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Haibo Chen <haibo.chen@nxp.com>,
+	linux-can@vger.kernel.org, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 4/5] arm64: dts: imx8mp-evk: Use phys to replace
+ xceiver-supply
+Message-ID: <aKyHehTGrQHWQJaD@lizhi-Precision-Tower-5810>
+References: <20250825-can-v2-0-c461e9fcbc14@nxp.com>
+ <20250825-can-v2-4-c461e9fcbc14@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250825-can-v2-4-c461e9fcbc14@nxp.com>
+X-ClientProxiedBy: SJ0PR03CA0204.namprd03.prod.outlook.com
+ (2603:10b6:a03:2ef::29) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
 MIME-Version: 1.0
-References: <CAGXv+5HRKFrdjjXkwN6=OLtk=bK3C3mBnrDtmkEWeuxjz0pFKg@mail.gmail.com>
- <20250825125141.209860-1-laura.nao@collabora.com>
-In-Reply-To: <20250825125141.209860-1-laura.nao@collabora.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Mon, 25 Aug 2025 16:50:50 +0200
-X-Gm-Features: Ac12FXymdIbpYgVvUuTRHx1l6uFl8EsOrYD9IbMYYkm6u39sg-0GTOO7AjUR4wY
-Message-ID: <CAGXv+5HQrMY+osCZKVOq28fQi-Be-eZ=_-=5HcrkacivHekOTQ@mail.gmail.com>
-Subject: Re: [PATCH v4 07/27] clk: mediatek: clk-gate: Add ops for gates with
- HW voter
-To: Laura Nao <laura.nao@collabora.com>
-Cc: angelogioacchino.delregno@collabora.com, conor+dt@kernel.org, 
-	devicetree@vger.kernel.org, guangjie.song@mediatek.com, kernel@collabora.com, 
-	krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, matthias.bgg@gmail.com, 
-	mturquette@baylibre.com, netdev@vger.kernel.org, nfraprado@collabora.com, 
-	p.zabel@pengutronix.de, richardcochran@gmail.com, robh@kernel.org, 
-	sboyd@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|GV1PR04MB9213:EE_
+X-MS-Office365-Filtering-Correlation-Id: a71a7b84-28c5-47df-231f-08dde3efdb5a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|19092799006|376014|7416014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?7oa0Of8KE7aliVo0NsOWzwfpqgS0WRk1qfKnrmgzywfxem2hJoSNcInbYVQS?=
+ =?us-ascii?Q?iW7JR9QvMz4s8xypjq5ChnrRva4837Y7C66DGQl0bs2iM/c5Tmx3itakIdVb?=
+ =?us-ascii?Q?LTLKnquWRvraFlbb+ZiFL7ZnDwP2KZp3rexOYrL9RfMVwvjKlLySbmqzEmcG?=
+ =?us-ascii?Q?kkwoQ3rl7/w3nx68WJOO0IfLRAPhLXC4GCQzLX6CxhGEzItC6PF1uZgdi+GE?=
+ =?us-ascii?Q?D5sJmK9vN2hB+hd7lbZEjbYaqUwZW9qXPxt/Czja1GSMwqCbR1a8nYPew3aw?=
+ =?us-ascii?Q?6Wd9a5cnior/ALSCPBDJb1iYNeSlXc0H1x/S3+oTWqiKSVCxvmd3LNN9vsjc?=
+ =?us-ascii?Q?mQ6qwa0iVmwc0GiDtaw8UZaGxPBnRaRkcSAgMpqBZTSjEPLkflaqGuNSlV+K?=
+ =?us-ascii?Q?MK12Lqm5SYSBjT4jK8e+icqtHbIL6cp160fksGup+CeDrjbQxXRdb45qVsbb?=
+ =?us-ascii?Q?eq/DiOqa3meMc/q/hkQdmBvT/xXXYrjvStGWrQuRD0/2x0mUeBdc6tBGlDi4?=
+ =?us-ascii?Q?vAxhC+sTtzQ1TzPbPZTwuucSYXT5hE5wk6sHQqKiG/fySOWz9z0ub1RmH7km?=
+ =?us-ascii?Q?rhAHkvNPvzUipXs9Bvbs7bp8LG8r5mRdMUKIx/nGrVA07pTFeQI62wPRgcer?=
+ =?us-ascii?Q?EcRL4RZV8cDtrhGpmugcten6Vd/nNp92ReHcMRlf5NqPGM7qJuw1z6JwwIbq?=
+ =?us-ascii?Q?raI9fXEsPszE7ityWsBAmEhLfgAtl9b0VaEBk/EyuF8lIMpycWt99enN96I5?=
+ =?us-ascii?Q?Y16zShlIKeOFDJnB/QXkzj2DFOI6K/rGR78nnxAY/3PF0zhTiv5DoY2bfDiA?=
+ =?us-ascii?Q?aYF/YFOnmuEUFhsjGENC+cWB+2XZZ+yds1YHUdvc4za3/5s5UJda/hy9lgPO?=
+ =?us-ascii?Q?5esVeic6sRKeupw7EIxgHxUFPuCt+icQ0TaH5r0iwLeZoOrFV5Lj8jwnKkYe?=
+ =?us-ascii?Q?v7lbAjQNE6RnWD+9fc3lmgZyRNSA1LLW/s/3pQfjyZ273CcVTzjvIJKFWfFL?=
+ =?us-ascii?Q?R6m+7cnt+1DBu2Wl6d5n/KoATuye4gW3wyZZSafxO3KSvmvFKdVOmv1bDURB?=
+ =?us-ascii?Q?QiQEPgyONbDnkMA3TKHQHIhEA2vBNtTdogfebWWTO/rU/RKpyq40lKWEZ/Nz?=
+ =?us-ascii?Q?wv86IOO8ZLnckuLqU6ddnn3IfaKB+r5x/c9OZo0sVIod30wf/Xoehulu0rQj?=
+ =?us-ascii?Q?dR/34Ma6q7ox7WlC7ZUBU6/+YGNDGnifmML8v3WPrUkh2gzTPGWfLVVgQyWH?=
+ =?us-ascii?Q?ruO/TW4tgsLQT8hnnRldW9WUONhK6Q8Eszo463B9yoyExVasRA53gzm6W62O?=
+ =?us-ascii?Q?4Xpv96Qp3coiQqXgxWlsVcMYNhlcq1aS8AUf+FnlEU4ngBNquJtkM+AIUZ85?=
+ =?us-ascii?Q?C3H/ofzYAkjAxssJMAw9OpyAMFOkBEUDZ4qBcbnPWJvxGKodpQ/yMYqwV4nC?=
+ =?us-ascii?Q?yFkz2R6Ue4zRXLfzr/5Wz1DHV04ewaLz3AIxldyT2vismCS2W5qKtw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(19092799006)(376014)(7416014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ucFFrcEbM4lV+rZTAldT05ky1pCkdr0YuKAlBGhpYI7cjlLaJ3fbgLobD8QB?=
+ =?us-ascii?Q?05goKOGRcD0g870JsHFoXmmq8o45JYCY6NcShhUaAEHocHmJlt2W7jKAaNWd?=
+ =?us-ascii?Q?5KMbeEh9oRJlGcSd9Ifz7mzutXaMb1kYu5JHHtHA3VuGJ9iY0MlaRAq7dYaB?=
+ =?us-ascii?Q?Xh2tfOdeQh04IvUFsoj9wUe98SVNW4J0xnWozzkJG6Sg7TrjQeE6zTa2uWkl?=
+ =?us-ascii?Q?lfj4mmk6goKVT6GyMQjbE0ILzPDgOpAjcPXUz3CPm0NbhmAjvJvrP1MIWWf/?=
+ =?us-ascii?Q?ZrmylwJTsBKD5jT5dNLg4ZojWo1+ySjaAerpMmS2vV/TZhajWm48fQlLx8Cz?=
+ =?us-ascii?Q?htHARTKhw0L4mlpKaXjXjLpyAP8Eu4Evv3FafY3nG9k6YgTdU2aRjLdIeuAX?=
+ =?us-ascii?Q?07P7N1oHLQVhiPs6+JkZJsHjd/ZiQ4Ys4nKCGbxtchgvhYl2xZ5lXlBgHqk+?=
+ =?us-ascii?Q?ML2I/7a1u2vv49G5K4k5Ql3i82s74eRe4o7ivGqKkUszdIonNdg8OVph/lVE?=
+ =?us-ascii?Q?uxeNcFcoG0VDtqaw8Ls3EBkLWgz2f4OVbFBXeqiiuSyFwiim9j8h8Yrd3gIm?=
+ =?us-ascii?Q?MDmRrWW2MQlpqkBX5ddxPOSC88G1Ky1EXD3a3jCQxhHGZA1TQoRWbU+5QpMx?=
+ =?us-ascii?Q?zzfu/UWsEtmpM6sboO8GkljnLBr5xiTAVQtr+wqfexErUy0ABa1KfAPj8fJw?=
+ =?us-ascii?Q?FoEMlvH9pkHl7g9dgr426d6okl4WyUHJDxNgu7mpmqBixSbX3K7Hp3SFjoW9?=
+ =?us-ascii?Q?vZwRood3eDy+JjdGRnwST3C7dU8KU4GodTm5C6Tr9Ytk6eHYPa6q4xiq4ju4?=
+ =?us-ascii?Q?QrBmZUf4FH6SDgEsavYZg/vEl9AvqaOcuiRn9asHGoiSo2yW6Qp2qWdGDs+g?=
+ =?us-ascii?Q?qpi70SZChE2xz7zyAdV+3+yls+9A8aix5ThZuv8oNfaNd7pevL/Vqr4FnB89?=
+ =?us-ascii?Q?xhk1M/7TRLW1ICnVnFfooZyRmHE6CiunEs76v2LBs2qaUUnpHrvnWYyTPhgw?=
+ =?us-ascii?Q?gHnXTP5920/jWuVNKEiokDNe3dNJDYn5akoEwShJp1xGgk6JT5gZD1pnaca+?=
+ =?us-ascii?Q?aeFd88IHYeFzSgT9mhKc7O0GfV5jsYQdHcP1IDFzzm3ePTyDuYOM6WLiJycU?=
+ =?us-ascii?Q?NF3TT/+Cd+HvHlDnOQQ2bOaUZrVZUV7yoAkO++DFKdg5BR0yXZR0Ms628kEJ?=
+ =?us-ascii?Q?fuveUQPxOEtvgutqGm1jvZj1wuhsCw2ahexnNf9tIiG+xbWJxK4O9x6FXbh/?=
+ =?us-ascii?Q?WtixwwNK2s5bOVcoPuS/Mcdb8sElHBQZd2CG5pXj6m3QR8I+5pDf/zjNBj1m?=
+ =?us-ascii?Q?c9+JUB2ykUv+OeW9aaXGH0t448OO+ZpjtRbqWSfubziFTyrcmQjbHjN0jmPX?=
+ =?us-ascii?Q?aKctJhS+Q2PDnIC2hmahCqtx8HzSys0U9FkpIf0wfvA4l/WPgP8IkCXfTPKQ?=
+ =?us-ascii?Q?jgYL9n2ZsewLlvJ7Zo/6DvlMW8lUpfrw6ch69JuFDqQC6WRoDkLlMg/DNXth?=
+ =?us-ascii?Q?rjk7COOBa5SCb30VWd59tXgkDVDTKyk8pOtHkkWyq7MNOB3FiuRc6kSz6kBY?=
+ =?us-ascii?Q?YSHSxsA+2eBURFtGRYIJrdvmx2Z4EooRD1OxlFf/?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a71a7b84-28c5-47df-231f-08dde3efdb5a
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Aug 2025 15:55:47.5132
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: mHpdIwDv15a6hcmK7qESDgzG0g/QZH309Ra9LInjAbuIWGFi1hf80Z3KxZb9r0FFg6+cJEk5D/XZt02ECRgagA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB9213
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_075103_993203_F975F893 
-X-CRM114-Status: GOOD (  23.95  )
+X-CRM114-CacheID: sfid-20250825_165602_371287_1FD744DA 
+X-CRM114-Status: GOOD (  16.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,170 +183,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 25, 2025 at 2:52=E2=80=AFPM Laura Nao <laura.nao@collabora.com>=
- wrote:
->
-> On 8/15/25 05:37, Chen-Yu Tsai wrote:
-> > On Tue, Aug 5, 2025 at 10:55=E2=80=AFPM Laura Nao <laura.nao@collabora.=
-com> wrote:
-> >>
-> >> MT8196 use a HW voter for gate enable/disable control. Voting is
-> >> performed using set/clr regs, with a status bit used to verify the vot=
-e
-> >> state. Add new set of gate clock operations with support for voting vi=
-a
-> >> set/clr regs.
-> >>
-> >> Reviewed-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
-> >> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@col=
-labora.com>
-> >> Signed-off-by: Laura Nao <laura.nao@collabora.com>
-> >> ---
-> >>  drivers/clk/mediatek/clk-gate.c | 77 +++++++++++++++++++++++++++++++-=
--
-> >>  drivers/clk/mediatek/clk-gate.h |  3 ++
-> >>  2 files changed, 77 insertions(+), 3 deletions(-)
-> >>
-> >> diff --git a/drivers/clk/mediatek/clk-gate.c b/drivers/clk/mediatek/cl=
-k-gate.c
-> >> index 0375ccad4be3..426f3a25763d 100644
-> >> --- a/drivers/clk/mediatek/clk-gate.c
-> >> +++ b/drivers/clk/mediatek/clk-gate.c
-> >> @@ -5,6 +5,7 @@
-> >>   */
-> >>
-> >>  #include <linux/clk-provider.h>
-> >> +#include <linux/dev_printk.h>
-> >>  #include <linux/mfd/syscon.h>
-> >>  #include <linux/module.h>
-> >>  #include <linux/printk.h>
-> >> @@ -12,14 +13,19 @@
-> >>  #include <linux/slab.h>
-> >>  #include <linux/types.h>
-> >>
-> >> +#include "clk-mtk.h"
-> >>  #include "clk-gate.h"
-> >>
-> >>  struct mtk_clk_gate {
-> >>         struct clk_hw   hw;
-> >>         struct regmap   *regmap;
-> >> +       struct regmap   *regmap_hwv;
-> >>         int             set_ofs;
-> >>         int             clr_ofs;
-> >>         int             sta_ofs;
-> >> +       unsigned int    hwv_set_ofs;
-> >> +       unsigned int    hwv_clr_ofs;
-> >> +       unsigned int    hwv_sta_ofs;
-> >>         u8              bit;
-> >>  };
-> >>
-> >> @@ -100,6 +106,28 @@ static void mtk_cg_disable_inv(struct clk_hw *hw)
-> >>         mtk_cg_clr_bit(hw);
-> >>  }
-> >>
-> >> +static int mtk_cg_hwv_set_en(struct clk_hw *hw, bool enable)
-> >> +{
-> >> +       struct mtk_clk_gate *cg =3D to_mtk_clk_gate(hw);
-> >> +       u32 val;
-> >> +
-> >> +       regmap_write(cg->regmap_hwv, enable ? cg->hwv_set_ofs : cg->hw=
-v_clr_ofs, BIT(cg->bit));
-> >> +
-> >> +       return regmap_read_poll_timeout_atomic(cg->regmap_hwv, cg->hwv=
-_sta_ofs, val,
-> >> +                                              val & BIT(cg->bit),
-> >> +                                              0, MTK_WAIT_HWV_DONE_US=
-);
-> >> +}
-> >> +
-> >> +static int mtk_cg_hwv_enable(struct clk_hw *hw)
-> >> +{
-> >> +       return mtk_cg_hwv_set_en(hw, true);
-> >> +}
-> >> +
-> >> +static void mtk_cg_hwv_disable(struct clk_hw *hw)
-> >> +{
-> >> +       mtk_cg_hwv_set_en(hw, false);
-> >> +}
-> >> +
-> >>  static int mtk_cg_enable_no_setclr(struct clk_hw *hw)
-> >>  {
-> >>         mtk_cg_clr_bit_no_setclr(hw);
-> >> @@ -124,6 +152,15 @@ static void mtk_cg_disable_inv_no_setclr(struct c=
-lk_hw *hw)
-> >>         mtk_cg_clr_bit_no_setclr(hw);
-> >>  }
-> >>
-> >> +static bool mtk_cg_uses_hwv(const struct clk_ops *ops)
-> >> +{
-> >> +       if (ops =3D=3D &mtk_clk_gate_hwv_ops_setclr ||
-> >> +           ops =3D=3D &mtk_clk_gate_hwv_ops_setclr_inv)
-> >> +               return true;
-> >> +
-> >> +       return false;
-> >> +}
-> >> +
-> >>  const struct clk_ops mtk_clk_gate_ops_setclr =3D {
-> >>         .is_enabled     =3D mtk_cg_bit_is_cleared,
-> >>         .enable         =3D mtk_cg_enable,
-> >> @@ -138,6 +175,20 @@ const struct clk_ops mtk_clk_gate_ops_setclr_inv =
-=3D {
-> >>  };
-> >>  EXPORT_SYMBOL_GPL(mtk_clk_gate_ops_setclr_inv);
-> >>
-> >> +const struct clk_ops mtk_clk_gate_hwv_ops_setclr =3D {
-> >> +       .is_enabled     =3D mtk_cg_bit_is_cleared,
-> >> +       .enable         =3D mtk_cg_hwv_enable,
-> >> +       .disable        =3D mtk_cg_hwv_disable,
-> >> +};
-> >> +EXPORT_SYMBOL_GPL(mtk_clk_gate_hwv_ops_setclr);
-> >> +
-> >> +const struct clk_ops mtk_clk_gate_hwv_ops_setclr_inv =3D {
-> >> +       .is_enabled     =3D mtk_cg_bit_is_set,
-> >> +       .enable         =3D mtk_cg_hwv_enable,
-> >> +       .disable        =3D mtk_cg_hwv_disable,
-> >> +};
-> >> +EXPORT_SYMBOL_GPL(mtk_clk_gate_hwv_ops_setclr_inv);
-> >> +
-> >>  const struct clk_ops mtk_clk_gate_ops_no_setclr =3D {
-> >>         .is_enabled     =3D mtk_cg_bit_is_cleared,
-> >>         .enable         =3D mtk_cg_enable_no_setclr,
-> >> @@ -153,8 +204,9 @@ const struct clk_ops mtk_clk_gate_ops_no_setclr_in=
-v =3D {
-> >>  EXPORT_SYMBOL_GPL(mtk_clk_gate_ops_no_setclr_inv);
-> >>
-> >>  static struct clk_hw *mtk_clk_register_gate(struct device *dev,
-> >> -                                               const struct mtk_gate =
-*gate,
-> >> -                                               struct regmap *regmap)
-> >> +                                           const struct mtk_gate *gat=
-e,
-> >> +                                           struct regmap *regmap,
-> >> +                                           struct regmap *regmap_hwv)
-> >>  {
-> >>         struct mtk_clk_gate *cg;
-> >>         int ret;
-> >> @@ -169,11 +221,22 @@ static struct clk_hw *mtk_clk_register_gate(stru=
-ct device *dev,
-> >>         init.parent_names =3D gate->parent_name ? &gate->parent_name :=
- NULL;
-> >>         init.num_parents =3D gate->parent_name ? 1 : 0;
-> >>         init.ops =3D gate->ops;
-> >> +       if (mtk_cg_uses_hwv(init.ops) && !regmap_hwv) {
-> >> +               dev_err(dev, "regmap not found for hardware voter cloc=
-ks\n");
-> >> +               return ERR_PTR(-ENXIO);
-> >
-> > return dev_err_probe()?
-> >
-> > I believe the same applies to the previous patch.
-> >
->
-> mtk_clk_register_gate and mtk_clk_register_mux actually both return a
-> struct clk_hw *.
+On Mon, Aug 25, 2025 at 04:36:45PM +0800, Peng Fan wrote:
+> The TJA1048 used on i.MX8MP-EVK is actually high-speed CAN
+> transceiver, not a regulator supply. So use phys to reflect the truth.
 
-Oops, you're right. If that case I believe dev_err_ptr_probe() could be
-used?
+nit: wrap at 75 chars. 'transceiver', should be at first line.
 
-ChenYu
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  arch/arm64/boot/dts/freescale/imx8mp-evk.dts | 43 +++++++++-------------------
+>  1 file changed, 13 insertions(+), 30 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
+> index c0cc5611048e6a739f13c14bbd2e7b26f2715696..d238d419d87cc7c99d472720c96aade90275cb0f 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
+> @@ -56,6 +56,16 @@ memory@40000000 {
+>  		      <0x1 0x00000000 0 0xc0000000>;
+>  	};
+>
+> +	flexcan_phy: can-phy {
+> +		compatible = "nxp,tja1048";
+> +		#phy-cells = <1>;
+> +		max-bitrate = <5000000>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_flexcan_phy>;
+> +		standby-gpios = <&gpio5 5 GPIO_ACTIVE_LOW>,
+> +				<&gpio4 27 GPIO_ACTIVE_LOW>;
+> +	};
+> +
+>  	native-hdmi-connector {
+>  		compatible = "hdmi-connector";
+>  		label = "HDMI OUT";
+> @@ -103,28 +113,6 @@ reg_audio_pwr: regulator-audio-pwr {
+>  		enable-active-high;
+>  	};
+>
+> -	reg_can1_stby: regulator-can1-stby {
+> -		compatible = "regulator-fixed";
+> -		regulator-name = "can1-stby";
+> -		pinctrl-names = "default";
+> -		pinctrl-0 = <&pinctrl_flexcan1_reg>;
+> -		regulator-min-microvolt = <3300000>;
+> -		regulator-max-microvolt = <3300000>;
+> -		gpio = <&gpio5 5 GPIO_ACTIVE_HIGH>;
+> -		enable-active-high;
+> -	};
+> -
+> -	reg_can2_stby: regulator-can2-stby {
+> -		compatible = "regulator-fixed";
+> -		regulator-name = "can2-stby";
+> -		pinctrl-names = "default";
+> -		pinctrl-0 = <&pinctrl_flexcan2_reg>;
+> -		regulator-min-microvolt = <3300000>;
+> -		regulator-max-microvolt = <3300000>;
+> -		gpio = <&gpio4 27 GPIO_ACTIVE_HIGH>;
+> -		enable-active-high;
+> -	};
+> -
+>  	reg_pcie0: regulator-pcie {
+>  		compatible = "regulator-fixed";
+>  		pinctrl-names = "default";
+> @@ -431,14 +419,14 @@ ethphy1: ethernet-phy@1 {
+>  &flexcan1 {
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&pinctrl_flexcan1>;
+> -	xceiver-supply = <&reg_can1_stby>;
+> +	phys = <&flexcan_phy 0>;
+>  	status = "okay";
+>  };
+>
+>  &flexcan2 {
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&pinctrl_flexcan2>;
+> -	xceiver-supply = <&reg_can2_stby>;
+> +	phys = <&flexcan_phy 1>;
+>  	status = "disabled";/* can2 pin conflict with pdm */
+>  };
+>
+> @@ -903,14 +891,9 @@ MX8MP_IOMUXC_SAI5_RXD3__CAN2_TX         0x154
+>  		>;
+>  	};
+>
+> -	pinctrl_flexcan1_reg: flexcan1reggrp {
+> +	pinctrl_flexcan_phy: flexcanphygrp {
+>  		fsl,pins = <
+>  			MX8MP_IOMUXC_SPDIF_EXT_CLK__GPIO5_IO05  0x154   /* CAN1_STBY */
+> -		>;
+> -	};
+> -
+> -	pinctrl_flexcan2_reg: flexcan2reggrp {
+> -		fsl,pins = <
+>  			MX8MP_IOMUXC_SAI2_MCLK__GPIO4_IO27      0x154   /* CAN2_STBY */
+>  		>;
+>  	};
+>
+> --
+> 2.37.1
+>
 
