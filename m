@@ -4,58 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9D4FCA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 12:52:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66476CA0FE7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 12:52:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=e1TAC4JB1aCLzQopA/pMqP1k8qqoWrMTjSNzHCIhNVg=; b=nrix7zDW0x2AWP
-	wwPfnLlFoFz3mEGC5cyzxZkBG1lTCA7ERrAGlHXUIIdpxE+4xhBOHkw967Sr+SESz2fh3tkovHEa/
-	F/bndOniKSjDXtDC+yCBtix25/2es2bEJDsKRrCw/5AB8a3LvjuuwnzWVu3aUaR4PsY0t/dFkqcM4
-	lQejSOQyoo/mI2BREN45NEBU7jba9Q4jN9Tpfq1s27tNKT4ZnRopQef/ybOykvURQKagcW2F5qRz4
-	87HfeHpgx22n0blX3i2NXIX9oQVvyoNqZhC+mpTj8BzQjGXdEZsKzCbAeEj80J+WZXbVIngPgqPZm
-	L9Z0Rf7hB6MHJuHXRzDg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=daxJNMBJK9UjPQ6hjosR/Dm4dgOD58kxrwKb/QAK6X0=; b=Eyg+QjQDzOfhPCGLGNQUpHnLda
+	j6mH+4lv0HKrj8j9U9lo2ZdGTRbVby/+FTAc7URCSt5eUoU5yqRA6BAfOAz2OVZ8L3cKhuOiMmDac
+	cbIuoTPqv8GZStaGSucMCGmuLsVEQkNdJhZW8s/D4KvAMWfF7C9ppkXVAO86RdLXosC/evWjF4XcI
+	Na223Xr4SSn7lhpB8n4bIHn+tXEmJV3ZNMhs4chbKIXbtb2kKdKI9tA6DzU58g/DVGdgsEqB3O1Sg
+	ePlYCm/Xa0Aih6t91Qdyor9tW+XYwH8ISZB6ykybTCKHZLcYQlMu8pOpESboF+EQlJskzkADzb6Bb
+	btgGHILA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqWgV-00000007yHq-3NVl;
+	id 1uqWgV-00000007yHS-0uXu;
 	Mon, 25 Aug 2025 12:52:27 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqU85-00000007as4-0IMu;
+	id 1uqU85-00000007as5-0ISO;
 	Mon, 25 Aug 2025 10:08:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1756116522;
-	bh=it5FFa21DEVOmToBYVfJbzv1d4wyjQlQ0/n5ky7NZLE=;
-	h=From:Subject:Date:To:Cc:From;
-	b=SjKxfUdOsmc74i2wI3UDREW4VtozOBQigB4OrN2p1Ox3OHsiVvNh4YMhlhrVg4IUd
-	 LQZ5LBDkmEIK9TlMnATchDCUejCHiEqy1xTQo0EUS/CGnlm1acqUgTvYluvN7J4gIo
-	 CcYVCcO+hpbf8eEQXb2QuUyxDPJ4x8A/2+7HJylLmuIYtyVKs75/M8wgz204pBUWMf
-	 fyNTxv/EA7u7Xkhr1bW2CatPQX7SQtpIJEBe6BrYdsrbxdZj0qvDsibHqh3nP25MZ2
-	 +xGvGBOCzCiMt6WLKdcIFVN6s43BwRGm2CFdBG8I6gH73sAwtrp/lAcsEsXq+k4VfC
-	 0qG9qnplbw6EQ==
+	s=mail; t=1756116523;
+	bh=uVOJsredVv4e5nXVxSY8qJOlUNYeVhIe/XTK3wdzwkQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=ffSNh3xn56Ce4vrTMTi/sQkljMCCIznOyQ2pyUbUKSp2vtx3cmFlt10WMEW/njKJh
+	 QKL8W32XQq8j/NZVwpg1uR+j5WjsFBO+0DvruhR1N1i8iPvNvaw77mgcaaOzlu4+c4
+	 tpU1IwkRoTGOreGvJTksbZ7yopJ0MllgsDhUbtEFqjmyR+lt6lAVITQB5RzGhdSJMm
+	 jSIOCu3htJxX3eOeUoqMX+dnBh8IQsLKhalFNTSkhsRPXN5B6KS6ac6yDd/8D++zOk
+	 Za0ksyGh+EqoPubPUs72v1Ppi09RWwLr/CW8DKsLH30ji8VfHih0Oee47bU53TtNbK
+	 EP/XmsG+YDThw==
 Received: from localhost (unknown [82.79.138.60])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id A0A8817E053B;
-	Mon, 25 Aug 2025 12:08:42 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 6C37517E056F;
+	Mon, 25 Aug 2025 12:08:43 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Subject: [PATCH v2 0/5] High color depth support for RK3576/RK3588 HDMI
- output
-Date: Mon, 25 Aug 2025 13:08:31 +0300
-Message-Id: <20250825-rk3588-10bpc-v2-0-955622d16985@collabora.com>
+Date: Mon, 25 Aug 2025 13:08:32 +0300
+Subject: [PATCH v2 1/5] drm/rockchip: vop2: Check bpc before switching DCLK
+ source
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAB82rGgC/3WOMQ7CMAxFr1Jlxih1GwiduAdiSFOHRtAGklKBE
- HfHBCEmBg/f0n//PUSi6CmJpniISLNPPowccFEI25vxQOA7zgIlKrnGEuKxUlpDKduzBa2cqy2
- iplUluHKO5Pwt43Z7zr1PU4j3TJ/L9/cPaC5BAm2UqU1rXa1xa8PpZNoQzdKGQeyfH3qky5Udp
- 8/ET5GNM1dWX27fDR4sWT6jncKqY2wzZ83WJALGDn5qipFuE+S2RsVDzxfd3dG/FAEAAA==
-X-Change-ID: 20250721-rk3588-10bpc-85ff4c228e63
+Message-Id: <20250825-rk3588-10bpc-v2-1-955622d16985@collabora.com>
+References: <20250825-rk3588-10bpc-v2-0-955622d16985@collabora.com>
+In-Reply-To: <20250825-rk3588-10bpc-v2-0-955622d16985@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
  =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
  Andy Yan <andy.yan@rock-chips.com>, 
@@ -71,9 +68,8 @@ Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
  linux-kernel@vger.kernel.org
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_030845_275500_9664C3DD 
-X-CRM114-Status: UNSURE (   7.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250825_030845_277420_3B4155E2 
+X-CRM114-Status: GOOD (  16.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,47 +84,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since both Rockchip RK3576 and RK3588 SoCs are capable of handling 10
-bpc color depth HDMI output and we've already landed the required HDPTX
-PHY driver changes to support the setup, let's add the missing bits and
-pieces to VOP2, DW HDMI QP encoder and bridge library.
+When making use of the HDMI PHY PLL as a VOP2 DCLK source, it's output
+rate does normally match the mode clock.  But this is only applicable
+for default color depth of 8 bpc.  For higher depths, the output clock
+is further divided by the hardware according to the formula:
 
-Please note this conflicts with the HDMI CEC series [1], hence I added
-that as a b4-managed dependency.
+  output rate = PHY PLL rate * 8 / bpc
 
-[1] https://lore.kernel.org/all/20250825-rk3588-hdmi-cec-v3-0-95324fb22592@collabora.com/
+Hence there is no need for VOP2 to compensate for bpc when adjusting
+DCLK, but it is required to do so when computing its maximum operating
+frequency.
+
+Take color depth into consideration before deciding to switch DCLK
+source.
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
-Changes in v2:
-- Replaced patch 'drm/rockchip: vop2: Add high color depth support' with
-  'drm/rockchip: vop2: Check bpc before switching DCLK source'
-- Rebased series onto next-20250825 while adding the HDMI CEC series as
-  a dependency
-- Link to v1: https://lore.kernel.org/r/20250721-rk3588-10bpc-v1-0-e95a4abcf482@collabora.com
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 60 +++++++++++++++++-----------
+ 1 file changed, 36 insertions(+), 24 deletions(-)
 
----
-Cristian Ciocaltea (5):
-      drm/rockchip: vop2: Check bpc before switching DCLK source
-      drm/bridge: dw-hdmi-qp: Handle platform supported formats and color depth
-      drm/rockchip: dw_hdmi_qp: Switch to phy_configure()
-      drm/rockchip: dw_hdmi_qp: Use bit macros for RK3576 regs
-      drm/rockchip: dw_hdmi_qp: Add high color depth support
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+index b50927a824b4020a7ffd57974070ed202cd8b838..977ccbf163448bc1a0423b8af707e9b2cf9b4be6 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+@@ -101,7 +101,7 @@ enum vop2_afbc_format {
+ 	VOP2_AFBC_FMT_INVALID = -1,
+ };
+ 
+-#define VOP2_MAX_DCLK_RATE		600000000
++#define VOP2_MAX_DCLK_RATE		600000000UL
+ 
+ /*
+  * bus-format types.
+@@ -1737,36 +1737,48 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
+ 	 * Switch to HDMI PHY PLL as DCLK source for display modes up
+ 	 * to 4K@60Hz, if available, otherwise keep using the system CRU.
+ 	 */
+-	if ((vop2->pll_hdmiphy0 || vop2->pll_hdmiphy1) && clock <= VOP2_MAX_DCLK_RATE) {
+-		drm_for_each_encoder_mask(encoder, crtc->dev, crtc_state->encoder_mask) {
+-			struct rockchip_encoder *rkencoder = to_rockchip_encoder(encoder);
++	if (vop2->pll_hdmiphy0 || vop2->pll_hdmiphy1) {
++		unsigned long max_dclk;
+ 
+-			if (rkencoder->crtc_endpoint_id == ROCKCHIP_VOP2_EP_HDMI0) {
+-				if (!vop2->pll_hdmiphy0)
+-					break;
++		if (vcstate->output_bpc > 8)
++			max_dclk = DIV_ROUND_CLOSEST_ULL(VOP2_MAX_DCLK_RATE * 8,
++							 vcstate->output_bpc);
++		else
++			max_dclk = VOP2_MAX_DCLK_RATE;
+ 
+-				if (!vp->dclk_src)
+-					vp->dclk_src = clk_get_parent(vp->dclk);
++		if (clock <= max_dclk) {
++			drm_for_each_encoder_mask(encoder, crtc->dev, crtc_state->encoder_mask) {
++				struct rockchip_encoder *rkencoder = to_rockchip_encoder(encoder);
+ 
+-				ret = clk_set_parent(vp->dclk, vop2->pll_hdmiphy0);
+-				if (ret < 0)
+-					drm_warn(vop2->drm,
+-						 "Could not switch to HDMI0 PHY PLL: %d\n", ret);
+-				break;
+-			}
++				if (rkencoder->crtc_endpoint_id == ROCKCHIP_VOP2_EP_HDMI0) {
++					if (!vop2->pll_hdmiphy0)
++						break;
++
++					if (!vp->dclk_src)
++						vp->dclk_src = clk_get_parent(vp->dclk);
+ 
+-			if (rkencoder->crtc_endpoint_id == ROCKCHIP_VOP2_EP_HDMI1) {
+-				if (!vop2->pll_hdmiphy1)
++					ret = clk_set_parent(vp->dclk, vop2->pll_hdmiphy0);
++					if (ret < 0)
++						drm_warn(vop2->drm,
++							 "Could not switch to HDMI0 PHY PLL: %d\n",
++							 ret);
+ 					break;
++				}
+ 
+-				if (!vp->dclk_src)
+-					vp->dclk_src = clk_get_parent(vp->dclk);
++				if (rkencoder->crtc_endpoint_id == ROCKCHIP_VOP2_EP_HDMI1) {
++					if (!vop2->pll_hdmiphy1)
++						break;
+ 
+-				ret = clk_set_parent(vp->dclk, vop2->pll_hdmiphy1);
+-				if (ret < 0)
+-					drm_warn(vop2->drm,
+-						 "Could not switch to HDMI1 PHY PLL: %d\n", ret);
+-				break;
++					if (!vp->dclk_src)
++						vp->dclk_src = clk_get_parent(vp->dclk);
++
++					ret = clk_set_parent(vp->dclk, vop2->pll_hdmiphy1);
++					if (ret < 0)
++						drm_warn(vop2->drm,
++							 "Could not switch to HDMI1 PHY PLL: %d\n",
++							 ret);
++					break;
++				}
+ 			}
+ 		}
+ 	}
 
- drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c   |  11 ++-
- drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 113 ++++++++++++++++++-------
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c   |  60 +++++++------
- include/drm/bridge/dw_hdmi_qp.h                |   4 +
- 4 files changed, 130 insertions(+), 58 deletions(-)
----
-base-commit: 0c5416a62c0e4df1b3f79b5c74c03cd48df51357
-change-id: 20250721-rk3588-10bpc-85ff4c228e63
-prerequisite-change-id: 20250703-rk3588-hdmi-cec-cea8f523df48:v3
-prerequisite-patch-id: 6d0ed574c38c15e66677e704b2d0260226430d78
-prerequisite-patch-id: 014adacca1c18f77c1cd80cf6877aa5d653b8f48
-prerequisite-patch-id: 79fd783c35b5979cc99f3f0420309f63ac49ad01
-prerequisite-patch-id: 4e7d4735f222b9fabfff3987c578c5d954579ae5
-prerequisite-patch-id: 7960aba70d8916b60e81187cfa0253025b532774
-prerequisite-patch-id: 2f0338d330aee42e0acc62fb815f08a3eeef58aa
+-- 
+2.50.1
 
 
