@@ -4,82 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68440CA0FE1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 06:52:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF04FCA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 06:54:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CPxnu8JjaM/yvdOpkZwcHlIZVYiDwFghDn0gsxBWGdg=; b=U4WUmtcErY172gyqTujLr8Yo7V
-	IRL3LfoTEeqpDpv7TZ6HQ8gNvwLrkVXqybN68fE8fDdsg6s/qnMOUu7trG7Fo1wzNfBwGwL3Ji4YQ
-	DGNZgzS5AP12pLbKAHFQbrCSAssLJ+7ZdilF24C4A6w7w0Kgo6ZqD7s9FcFkFdbINNMoNjIzDgWD+
-	s38caL7WnBpra5gq3GLRRB1KI+LP8OqapGI25QbRmPqZOfMsJ7LqFls7kBm5EV/mxvjTOvbT2lOHO
-	19o2rVtWQrSwAyUhq5RxVcjEnD6+lRJuKaCc00m0GKSFEvGm/eqHJh8SkMnMRiea/1n2YiQB6892q
-	CZsgvS3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=BvCmax7ffb3cXbAcpyJB3pHTDlaFx7rbmUGg3s54BhU=; b=AqhcngPHoWJuaTLuXQ7M6IlA5v
+	hAr+RF4b7Kl3k5Jj+N+/ph9FzUIIne0/ShEwZJ29wSYRwVOmgX2y/nu53j5Va3acyfbfE6SjZ595/
+	Bh97S3N78UznzjK8VoSggBS1I0j4jgeuOnr+yTGCB/E/vhGBKXS9MRKHYWArNgVdDwyIKpP2QQ+Xu
+	HbJ4T7IMBvGiNU6MI6BW858xuRDV26sp/yGOaR5gpxKZmw7DDbOMuyd6XdAK2KNTB9o37O3VcCFM3
+	9fEYjnKWKLB0jQaM9nY9Lb5LjBlZrUoeo9UwY1xYuxZgDJBnSx4yxhqhLXSxFqjdyGvelBaf4D+fF
+	am1oBjFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqR3m-000000074cz-2V5e;
-	Mon, 25 Aug 2025 06:52:06 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1uqR6N-0000000758w-1sdd;
+	Mon, 25 Aug 2025 06:54:47 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqR19-000000074Fp-3bWY
+	id 1uqR1S-000000074H2-28Bh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 06:49:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1756104563; x=1787640563;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=CPxnu8JjaM/yvdOpkZwcHlIZVYiDwFghDn0gsxBWGdg=;
-  b=j5OJayz9BM8r+dMFCzUsuH0nNdLzo6YISw2Ef1/dRsUBDt6JqMa5v3BQ
-   EIPRdSIiZUXcErEE2hCfqzN4opaMmPtSpfUEBjUDVsuds+Wi08uarvNfK
-   YffB4Wt3gHrpryeeZeVkRF/xtAMDDWukqAjg3oxLINECE6Gj5UvenUCKU
-   Hs6ypulWZ5USdH9SNvbWeLFLYWD9cD+suKOqun/vEzlF5pv4huRK1pFkN
-   JTj7ysJpxNsktzY0WrgxxBmxs2FhfL+ysxHCOHAONZNC1W8kWG0I/aHAo
-   R1tcXwDONvfUo3WOh1tHUKdvq0X4bcAi0TX78zy23IUstu3SxvEvUGlqT
-   w==;
-X-CSE-ConnectionGUID: EynKlmkURxCd3md4UWSzaw==
-X-CSE-MsgGUID: PvNnWamSSwO7tl4Zz/f09Q==
-X-IronPort-AV: E=Sophos;i="6.17,312,1747692000"; 
-   d="scan'208";a="45885091"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 25 Aug 2025 08:49:18 +0200
-X-CheckPoint: {68AC076E-8-20CAA7DA-EC9DC758}
-X-MAIL-CPID: 835B404CD54FE37D8B940634E0216E79_0
-X-Control-Analysis: str=0001.0A002116.68AC07A3.0064,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8DB3616626E;
-	Mon, 25 Aug 2025 08:49:13 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1756104553;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=CPxnu8JjaM/yvdOpkZwcHlIZVYiDwFghDn0gsxBWGdg=;
-	b=CBpO20PmHcjpgD0YMs8GbLgLQFIV7URaZdaqNCp8IXdnG3A714hhT3v1hWvc8p+1aIBsBc
-	O26e2nu+imD88hGNenwH8vM3KYdbiWwG3KJAETknhc6aw4GOjUigj373L+eMAgk38s8uaH
-	yIMmzKVKSHSMF/Q3+S78qNHfC531lVaj0AhE22VTq5WBOaXiwCcpK314/PAnZN+ilfbO77
-	vstrp5X9rCetDfMVO3dYoh5PvahixFSR5IxqCdXIRB1GM7zTvdQcysiKACsD3aUATWgx3t
-	eidBlT0T1SqKg611a2BpAyW14yYzAxAeYRL4RKyofriwVXfqZT/82ASKN84eqg==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/1] arm64: defconfig: enable backlight device class
-Date: Mon, 25 Aug 2025 08:49:12 +0200
-Message-ID: <5012214.GXAFRqVoOG@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <fozbq6otnko75e4zfsad4c3qp7zgh5n3r4yj3swjd24dxdg4ue@krbmtduwdapm>
-References: <20250408134249.1131127-1-alexander.stein@ew.tq-group.com>
- <2385138.ElGaqSPkdT@steina-w>
- <fozbq6otnko75e4zfsad4c3qp7zgh5n3r4yj3swjd24dxdg4ue@krbmtduwdapm>
+	Mon, 25 Aug 2025 06:49:45 +0000
+Received: from epcas2p2.samsung.com (unknown [182.195.41.54])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250825064935epoutp03e713444abbdc99becfdbd31ff3027eb8~e786q20cR2094220942epoutp03R
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 06:49:35 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250825064935epoutp03e713444abbdc99becfdbd31ff3027eb8~e786q20cR2094220942epoutp03R
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1756104575;
+	bh=BvCmax7ffb3cXbAcpyJB3pHTDlaFx7rbmUGg3s54BhU=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=Uz8SK3iKcH3r2j4BEnzA0IjAtagCHegDJNfSIMtrcsiUPHGm7IKSoG5mbdAIY8HQD
+	 7zOikww4xXtW1PpGqwAGgTLICJbTksrYKX+FGHIz5qpzfie0fPNObHpu8Z/H5Ot2GB
+	 OnV7Vhtp1d63OLe8eYU9fEHT+wFEZYTxLrCtPV2c=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas2p3.samsung.com (KnoxPortal) with ESMTPS id
+	20250825064934epcas2p3d2a77215f5e4ca5413e5ae1529090e68~e786FGRi72272422724epcas2p3R;
+	Mon, 25 Aug 2025 06:49:34 +0000 (GMT)
+Received: from epcas2p3.samsung.com (unknown [182.195.36.99]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4c9Lxp2fslz6B9mF; Mon, 25 Aug
+	2025 06:49:34 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas2p3.samsung.com (KnoxPortal) with ESMTPA id
+	20250825064933epcas2p37665fae32f51b04a43e5395d76759143~e784xdhu70900609006epcas2p3a;
+	Mon, 25 Aug 2025 06:49:33 +0000 (GMT)
+Received: from asswp60 (unknown [10.229.9.60]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250825064933epsmtip128240768c19a2d7ff622f42d9a52d82d~e784qqAbX0875908759epsmtip1f;
+	Mon, 25 Aug 2025 06:49:33 +0000 (GMT)
+From: Shin Son <shin.son@samsung.com>
+To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, Krzysztof Kozlowski
+	<krzk@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, Daniel Lezcano
+	<daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, Lukasz Luba
+	<lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Shin Son <shin.son@samsung.com>, linux-pm@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH 0/3] Add exynosautov920 thermal support
+Date: Mon, 25 Aug 2025 15:49:26 +0900
+Message-ID: <20250825064929.188101-1-shin.son@samsung.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20250825064933epcas2p37665fae32f51b04a43e5395d76759143
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+cpgsPolicy: CPGSC10-234,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250825064933epcas2p37665fae32f51b04a43e5395d76759143
+References: <CGME20250825064933epcas2p37665fae32f51b04a43e5395d76759143@epcas2p3.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250824_234924_200915_D5F4C767 
-X-CRM114-Status: GOOD (  16.51  )
+X-CRM114-CacheID: sfid-20250824_234944_013130_B5480CCE 
+X-CRM114-Status: GOOD (  15.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,56 +94,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+This patch series adds support for exynosautov920, automotive-grade
+processor. Although the exynosautov920's TMU hardware differs slightly
+from exisiting platform, its read and calibration logic closely follow
+our legacy TMU interface. To prevent runtime and build time errors,
+it is kept as a single change rather than being split.
 
-Am Freitag, 22. August 2025, 23:53:11 CEST schrieb Sebastian Reichel:
-> Hi,
->=20
-> On Fri, Aug 22, 2025 at 03:55:12PM +0200, Alexander Stein wrote:
-> > Am Dienstag, 8. April 2025, 15:42:48 CEST schrieb Alexander Stein:
-> > > CONFIG_DRM_PANEL_SIMPLE is enabled in this config. But it depends on
-> > > CONFIG_BACKLIGHT_CLASS_DEVICE which is only transitively enabled by
-> > > DRM_NOUVEAU, iff DRM_NOUVEAU_BACKLIGHT is enabled as well.
-> > > As simple-panel depends on backlight, enable this in defconfig as wel=
-l.
-> > >=20
-> > > Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> > > ---
-> > >  arch/arm64/configs/defconfig | 1 +
-> > >  1 file changed, 1 insertion(+)
-> > >=20
-> > > diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defcon=
-fig
-> > > index 65ec5a5be407d..b70257878812e 100644
-> > > --- a/arch/arm64/configs/defconfig
-> > > +++ b/arch/arm64/configs/defconfig
-> > > @@ -963,6 +963,7 @@ CONFIG_DRM_POWERVR=3Dm
-> > >  CONFIG_FB=3Dy
-> > >  CONFIG_FB_EFI=3Dy
-> > >  CONFIG_FB_MODE_HELPERS=3Dy
-> > > +CONFIG_BACKLIGHT_CLASS_DEVICE=3Dm
-> > >  CONFIG_BACKLIGHT_PWM=3Dm
-> > >  CONFIG_BACKLIGHT_LP855X=3Dm
-> > >  CONFIG_LOGO=3Dy
-> > >=20
-> >=20
-> > gentle ping. Any feedback?
->=20
-> You want to resend with updated mail destination:
->=20
-> https://lore.kernel.org/all/20250818-arm64-defconfig-v1-1-f589553c3d72@co=
-llabora.com/
+This change merges the new exynosautov920-specific register definitions and
+timing parameters into the exynos-tmu driver, ensuring consistent behavior
+across all Exynos series. All new code paths have been tested on a
+exynosautov920 board and verified to correctly read temperatures and
+emulate behavior.
 
-=46ine by me. But this is not SoC-specific rather than a general change.
-So who should be addressed then?
+Shin Son (3):
+  dt-bindings: thermal: samsung: Add tmu-name and sensor-index-ranges
+    properties
+  thermal: exynos_tmu: Support new hardware and update TMU interface
+  arm64: dts: exynosautov920: Add tmu hardware binding
 
-Best regards
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+ .../thermal/samsung,exynos-thermal.yaml       |  23 +-
+ .../boot/dts/exynos/exynosautov920-tmu.dtsi   |  92 +++++
+ .../arm64/boot/dts/exynos/exynosautov920.dtsi |  34 ++
+ drivers/thermal/samsung/exynos_tmu.c          | 336 ++++++++++++++++--
+ 4 files changed, 447 insertions(+), 38 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/exynos/exynosautov920-tmu.dtsi
 
+-- 
+2.50.1
 
 
