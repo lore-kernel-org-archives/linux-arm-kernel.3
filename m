@@ -4,78 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CD9BCA0FED
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84AF1CA0FE8
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 14:59:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jNH2HpXL2x6J5cPK7LmFSbV/xVw/MJ5pTy2RIbZqqcI=; b=2ouN47UI5nzjxZ0EGKDcn28P/0
-	T8VEoJODtspQpi/o0yBqXYD+xhLxqhKBROE3hSCjr2bd9sX2KlpV64o5/LuakblzjqsDu7fOpxwMF
-	eRbNb/px4nxVCtCRPbWKTmVOYp6eCybP6ql0AOwf+XfnhAKuSs2r8PNEI3FLgmG2L1J8eNqtoNyEj
-	js0+IWehp5CbjUbDiAQF5wOnSDR+F2md8pEFidT8k/3S53UAm5DeHl4HHFqcgVWv5tuBye4yuNgwg
-	cJWu6A1coQlFBz4DDkQP/VMf67oESZgHeVwxUejfpxZ1F/VExs0GSj1PzUwqrLdjGQ7QgOtW6606L
-	sa4JTIyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4KrVFImLWWMk4u+RCG6atSptECAqVlbM836WIDvTOgE=; b=iGmxRPToR02TVBO73llew+NYw/
+	837o8zXg98JYr01W+HxlQNGHtYMBAqOZLdXHUZIBACO47xegj7P3B3sMiN/LWKonC9z5y7ncarS6J
+	l0JKP90dTELBf43hQ6YW6cU337W72Z8Hdi1lD6PJ4lbB6VYQRYN3yV+uaBYdSo41mXFwHICiTSBNb
+	Cm7dGpidPwQQ0/259pEmVQcxW4TwM3MMIhBgBE0SqhnA1x9zOLcL5OV9aBA9ET/AiCRuCCwpMCztv
+	Pf/SjjJJE/0QSMC2phkBu88o5tcBAqtfd36zKDmAg7yMDfiqBkHF/j+0v68e8fHzdNhcbx0zpQmnN
+	9jq4OqSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqYew-00000008L9c-3lco;
-	Mon, 25 Aug 2025 14:58:58 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uqYeo-00000008L2j-3AvG;
+	Mon, 25 Aug 2025 14:58:50 +0000
+Received: from mailout1.samsung.com ([203.254.224.24])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqWYF-00000007x4T-0Czk;
-	Mon, 25 Aug 2025 12:43:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1756125833;
-	bh=fDXKom27srg/8aJ0SCn6OiziFHzcEwfEmga+IxfFQk8=;
+	id 1uqVz5-00000007sBX-1IQE
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 25 Aug 2025 12:07:36 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250825120733epoutp01635da5a0c345b09c84e59fdf7184a394~fASiNfgC10269602696epoutp01u
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 12:07:33 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250825120733epoutp01635da5a0c345b09c84e59fdf7184a394~fASiNfgC10269602696epoutp01u
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1756123653;
+	bh=4KrVFImLWWMk4u+RCG6atSptECAqVlbM836WIDvTOgE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=V98QTO3t8wlCyO8mk/hTyx8etU7lVRihXemrytjvGekSs9yuAwddJKGcb2amVUnVX
-	 66/0uIloZfn/tBo/oiCSPnVDd9xZkMy1no2gOBLC7rk0MboFl5/Tm9qs+pT5yJmxYl
-	 Eac1/Sc6GZoqYczxqFCMh0r5jcFQO3dBS6eMyLMoQVMjxp/6kOXpZV7Mp+dVZhLBUL
-	 JHEDIifcW+0tJd6SBJiDk9yZF2GVI6DcLf7HG0AGtEMjE47O+6sPkvlU1IILJSARiz
-	 cxjd8sFVoEMGh0zbxFIJUEWfSy0cMBkT9pZ+goGYRITV/uMUbUE8145H5ZQD6uAhDl
-	 209nUWWVVSlug==
-Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:b1df:895a:e67b:5cd4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3849917E0523;
-	Mon, 25 Aug 2025 14:43:52 +0200 (CEST)
-From: Laura Nao <laura.nao@collabora.com>
-To: wenst@chromium.org
-Cc: angelogioacchino.delregno@collabora.com,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	guangjie.song@mediatek.com,
-	kernel@collabora.com,
-	krzk+dt@kernel.org,
-	laura.nao@collabora.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	matthias.bgg@gmail.com,
-	mturquette@baylibre.com,
-	netdev@vger.kernel.org,
-	nfraprado@collabora.com,
-	p.zabel@pengutronix.de,
-	richardcochran@gmail.com,
-	robh@kernel.org,
-	sboyd@kernel.org
-Subject: Re: [PATCH v4 03/27] clk: mediatek: clk-mux: Add ops for mux gates with set/clr/upd and FENC
-Date: Mon, 25 Aug 2025 14:42:49 +0200
-Message-Id: <20250825124249.208838-1-laura.nao@collabora.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <CAGXv+5Fhsm=JrBP9y-kScw-zK_XFc4Dqfd3VUXx+rA6oBxptJg@mail.gmail.com>
-References: <CAGXv+5Fhsm=JrBP9y-kScw-zK_XFc4Dqfd3VUXx+rA6oBxptJg@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+	b=U1/TmrCqoyvCzSZXahR4NgruaIiy5XmE7CF7hFIIjejetp4ZqBShD1bOIDhASJm62
+	 SVp6ieBJuvGspLyJ7FWdD4kSFbr4LIP0VYzGY01Trj8GPEXfoKBpvbxacilYbpcKD3
+	 +RlUzb9eYbSa875ZlXlRj4fl+I0kl86rAG/gx5pg=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
+	20250825120732epcas5p4e2a69e6f20490ca8708f2c879e7763dc~fAShY-spP3220632206epcas5p4Y;
+	Mon, 25 Aug 2025 12:07:32 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.94]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4c9V0g3yC7z6B9m5; Mon, 25 Aug
+	2025 12:07:31 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20250825120730epcas5p347b6acfa329848471d55191150c8c983~fASfk49tU2789627896epcas5p3o;
+	Mon, 25 Aug 2025 12:07:30 +0000 (GMT)
+Received: from Jaguar.samsungds.net (unknown [107.109.115.6]) by
+	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250825120725epsmtip2eb025832c49be2d2926c812e51782b51~fASbCU4Y50171501715epsmtip2H;
+	Mon, 25 Aug 2025 12:07:25 +0000 (GMT)
+From: Ravi Patel <ravi.patel@samsung.com>
+To: jesper.nilsson@axis.com, mturquette@baylibre.com, sboyd@kernel.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, krzk@kernel.org,
+	s.nawrocki@samsung.com, cw00.choi@samsung.com, alim.akhtar@samsung.com,
+	linus.walleij@linaro.org, tomasz.figa@gmail.com, catalin.marinas@arm.com,
+	will@kernel.org, arnd@arndb.de
+Cc: ksk4725@coasia.com, kenkim@coasia.com, pjsin865@coasia.com,
+	gwk1013@coasia.com, hgkim05@coasia.com, mingyoungbo@coasia.com,
+	smn1196@coasia.com, pankaj.dubey@samsung.com, shradha.t@samsung.com,
+	ravi.patel@samsung.com, inbaraj.e@samsung.com, swathi.ks@samsung.com,
+	hrishikesh.d@samsung.com, dj76.yang@samsung.com, hypmean.kim@samsung.com,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@axis.com,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-gpio@vger.kernel.org, soc@lists.linux.dev
+Subject: [PATCH v3 07/10] dt-bindings: arm: axis: Add ARTPEC-8 grizzly board
+Date: Mon, 25 Aug 2025 17:14:33 +0530
+Message-Id: <20250825114436.46882-8-ravi.patel@samsung.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20250825114436.46882-1-ravi.patel@samsung.com>
+X-CMS-MailID: 20250825120730epcas5p347b6acfa329848471d55191150c8c983
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-541,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250825120730epcas5p347b6acfa329848471d55191150c8c983
+References: <20250825114436.46882-1-ravi.patel@samsung.com>
+	<CGME20250825120730epcas5p347b6acfa329848471d55191150c8c983@epcas5p3.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_054355_237450_4ABFB4D7 
-X-CRM114-Status: GOOD (  22.34  )
+X-CRM114-CacheID: sfid-20250825_050735_662942_F857F0DD 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,217 +99,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/15/25 05:23, Chen-Yu Tsai wrote:
-> On Tue, Aug 5, 2025 at 10:55 PM Laura Nao <laura.nao@collabora.com> wrote:
->>
->> MT8196 uses set/clr/upd registers for mux gate enable/disable control,
->> along with a FENC bit to check the status. Add new set of mux gate
->> clock operations with support for set/clr/upd and FENC status logic.
->>
->> Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
->> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> Signed-off-by: Laura Nao <laura.nao@collabora.com>
->> ---
->>  drivers/clk/mediatek/clk-mtk.h |  2 ++
->>  drivers/clk/mediatek/clk-mux.c | 48 ++++++++++++++++++++++++++++++++++
->>  drivers/clk/mediatek/clk-mux.h | 45 +++++++++++++++++++++++++++++++
->>  3 files changed, 95 insertions(+)
->>
->> diff --git a/drivers/clk/mediatek/clk-mtk.h b/drivers/clk/mediatek/clk-mtk.h
->> index c17fe1c2d732..136a4bc6dbe6 100644
->> --- a/drivers/clk/mediatek/clk-mtk.h
->> +++ b/drivers/clk/mediatek/clk-mtk.h
->> @@ -20,6 +20,8 @@
->>
->>  #define MHZ (1000 * 1000)
->>
->> +#define MTK_WAIT_FENC_DONE_US  30
->> +
->
-> Nit: I think it would be nicer if you define this locally in the mux type
-> clk code, just to keep the two completely separate.
->
+From: SungMin Park <smn1196@coasia.com>
 
-Ack, will move this to clk-mux.c.
+Document the Axis ARTPEC-8 SoC binding and the grizzly board
+which uses ARTPEC-8 SoC.
 
->>  struct platform_device;
->>
->>  /*
->> diff --git a/drivers/clk/mediatek/clk-mux.c b/drivers/clk/mediatek/clk-mux.c
->> index 60990296450b..b1b8eeb0b501 100644
->> --- a/drivers/clk/mediatek/clk-mux.c
->> +++ b/drivers/clk/mediatek/clk-mux.c
->> @@ -15,6 +15,7 @@
->>  #include <linux/spinlock.h>
->>  #include <linux/slab.h>
->>
->> +#include "clk-mtk.h"
->>  #include "clk-mux.h"
->>
->>  struct mtk_clk_mux {
->> @@ -30,6 +31,33 @@ static inline struct mtk_clk_mux *to_mtk_clk_mux(struct clk_hw *hw)
->>         return container_of(hw, struct mtk_clk_mux, hw);
->>  }
->>
->> +static int mtk_clk_mux_fenc_enable_setclr(struct clk_hw *hw)
->> +{
->> +       struct mtk_clk_mux *mux = to_mtk_clk_mux(hw);
->> +       unsigned long flags;
->> +       u32 val;
->> +       int ret;
->> +
->> +       if (mux->lock)
->> +               spin_lock_irqsave(mux->lock, flags);
->> +       else
->> +               __acquire(mux->lock);
->> +
->> +       regmap_write(mux->regmap, mux->data->clr_ofs,
->> +                    BIT(mux->data->gate_shift));
->> +
->> +       ret = regmap_read_poll_timeout_atomic(mux->regmap, mux->data->fenc_sta_mon_ofs,
->> +                                             val, val & BIT(mux->data->fenc_shift), 1,
->> +                                             MTK_WAIT_FENC_DONE_US);
->> +
->> +       if (mux->lock)
->> +               spin_unlock_irqrestore(mux->lock, flags);
->> +       else
->> +               __release(mux->lock);
->> +
->> +       return ret;
->> +}
->> +
->>  static int mtk_clk_mux_enable_setclr(struct clk_hw *hw)
->>  {
->>         struct mtk_clk_mux *mux = to_mtk_clk_mux(hw);
->> @@ -70,6 +98,16 @@ static void mtk_clk_mux_disable_setclr(struct clk_hw *hw)
->>                         BIT(mux->data->gate_shift));
->>  }
->>
->> +static int mtk_clk_mux_fenc_is_enabled(struct clk_hw *hw)
->> +{
->> +       struct mtk_clk_mux *mux = to_mtk_clk_mux(hw);
->> +       u32 val;
->> +
->> +       regmap_read(mux->regmap, mux->data->fenc_sta_mon_ofs, &val);
->> +
->> +       return val & BIT(mux->data->fenc_shift);
->
-> Nit: Do a double negate.
->
+Signed-off-by: SungMin Park <smn1196@coasia.com>
+Signed-off-by: SeonGu Kang <ksk4725@coasia.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
+---
+ Documentation/devicetree/bindings/arm/axis.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-Ack.
+diff --git a/Documentation/devicetree/bindings/arm/axis.yaml b/Documentation/devicetree/bindings/arm/axis.yaml
+index f9c218dc6883..63e9aca85db7 100644
+--- a/Documentation/devicetree/bindings/arm/axis.yaml
++++ b/Documentation/devicetree/bindings/arm/axis.yaml
+@@ -8,6 +8,7 @@ title: Axis ARTPEC platforms
+ 
+ maintainers:
+   - Jesper Nilsson <jesper.nilsson@axis.com>
++  - Lars Persson <lars.persson@axis.com>
+   - linux-arm-kernel@axis.com
+ 
+ description: |
+@@ -24,6 +25,12 @@ properties:
+               - axis,artpec6-dev-board
+           - const: axis,artpec6
+ 
++      - description: Axis ARTPEC-8 SoC board
++        items:
++          - enum:
++              - axis,artpec8-grizzly
++          - const: axis,artpec8
++
+ additionalProperties: true
+ 
+ ...
+-- 
+2.49.0
 
->> +}
->> +
->>  static int mtk_clk_mux_is_enabled(struct clk_hw *hw)
->>  {
->>         struct mtk_clk_mux *mux = to_mtk_clk_mux(hw);
->> @@ -168,6 +206,16 @@ const struct clk_ops mtk_mux_gate_clr_set_upd_ops  = {
->>  };
->>  EXPORT_SYMBOL_GPL(mtk_mux_gate_clr_set_upd_ops);
->>
->> +const struct clk_ops mtk_mux_gate_fenc_clr_set_upd_ops = {
->> +       .enable = mtk_clk_mux_fenc_enable_setclr,
->> +       .disable = mtk_clk_mux_disable_setclr,
->> +       .is_enabled = mtk_clk_mux_fenc_is_enabled,
->> +       .get_parent = mtk_clk_mux_get_parent,
->> +       .set_parent = mtk_clk_mux_set_parent_setclr_lock,
->> +       .determine_rate = mtk_clk_mux_determine_rate,
->> +};
->> +EXPORT_SYMBOL_GPL(mtk_mux_gate_fenc_clr_set_upd_ops);
->> +
->>  static struct clk_hw *mtk_clk_register_mux(struct device *dev,
->>                                            const struct mtk_mux *mux,
->>                                            struct regmap *regmap,
->> diff --git a/drivers/clk/mediatek/clk-mux.h b/drivers/clk/mediatek/clk-mux.h
->> index 943ad1d7ce4b..c65cfb7f8fc3 100644
->> --- a/drivers/clk/mediatek/clk-mux.h
->> +++ b/drivers/clk/mediatek/clk-mux.h
->> @@ -28,11 +28,13 @@ struct mtk_mux {
->>         u32 set_ofs;
->>         u32 clr_ofs;
->>         u32 upd_ofs;
->> +       u32 fenc_sta_mon_ofs;
->>
->>         u8 mux_shift;
->>         u8 mux_width;
->>         u8 gate_shift;
->>         s8 upd_shift;
->> +       u8 fenc_shift;
->>
->>         const struct clk_ops *ops;
->>         signed char num_parents;
->> @@ -77,6 +79,7 @@ struct mtk_mux {
->>
->>  extern const struct clk_ops mtk_mux_clr_set_upd_ops;
->>  extern const struct clk_ops mtk_mux_gate_clr_set_upd_ops;
->> +extern const struct clk_ops mtk_mux_gate_fenc_clr_set_upd_ops;
->>
->>  #define MUX_GATE_CLR_SET_UPD_FLAGS(_id, _name, _parents, _mux_ofs,     \
->>                         _mux_set_ofs, _mux_clr_ofs, _shift, _width,     \
->> @@ -118,6 +121,48 @@ extern const struct clk_ops mtk_mux_gate_clr_set_upd_ops;
->>                         0, _upd_ofs, _upd, CLK_SET_RATE_PARENT,         \
->>                         mtk_mux_clr_set_upd_ops)
->>
->> +#define MUX_GATE_FENC_CLR_SET_UPD_FLAGS(_id, _name, _parents, _paridx,         \
->> +                       _num_parents, _mux_ofs, _mux_set_ofs, _mux_clr_ofs,     \
->> +                       _shift, _width, _gate, _upd_ofs, _upd,                  \
->> +                       _fenc_sta_mon_ofs, _fenc, _flags) {                     \
->> +               .id = _id,                                                      \
->> +               .name = _name,                                                  \
->> +               .mux_ofs = _mux_ofs,                                            \
->> +               .set_ofs = _mux_set_ofs,                                        \
->> +               .clr_ofs = _mux_clr_ofs,                                        \
->> +               .upd_ofs = _upd_ofs,                                            \
->> +               .fenc_sta_mon_ofs = _fenc_sta_mon_ofs,                          \
->> +               .mux_shift = _shift,                                            \
->> +               .mux_width = _width,                                            \
->> +               .gate_shift = _gate,                                            \
->> +               .upd_shift = _upd,                                              \
->> +               .fenc_shift = _fenc,                                            \
->> +               .parent_names = _parents,                                       \
->> +               .parent_index = _paridx,                                        \
->> +               .num_parents = _num_parents,                                    \
->> +               .flags = _flags,                                                \
->> +               .ops = &mtk_mux_gate_fenc_clr_set_upd_ops,                      \
->> +       }
->> +
->> +#define MUX_GATE_FENC_CLR_SET_UPD(_id, _name, _parents,                        \
->> +                       _mux_ofs, _mux_set_ofs, _mux_clr_ofs,           \
->> +                       _shift, _width, _gate, _upd_ofs, _upd,          \
->> +                       _fenc_sta_mon_ofs, _fenc)                       \
->> +               MUX_GATE_FENC_CLR_SET_UPD_FLAGS(_id, _name, _parents,   \
->> +                       NULL, ARRAY_SIZE(_parents), _mux_ofs,           \
->> +                       _mux_set_ofs, _mux_clr_ofs, _shift,             \
->> +                       _width, _gate, _upd_ofs, _upd,                  \
->> +                       _fenc_sta_mon_ofs, _fenc, 0)
->> +
->> +#define MUX_GATE_FENC_CLR_SET_UPD_INDEXED(_id, _name, _parents,        _paridx,        \
->
->                                                                    ^^^^^^
-> This looks like a tab when it should have been a space?
->
-
-Definitely - thanks for the heads up, I'll fix it.
-
-Best,
-
-Laura
-
-> ChenYu
->
->> +                       _mux_ofs, _mux_set_ofs, _mux_clr_ofs,                   \
->> +                       _shift, _width, _gate, _upd_ofs, _upd,                  \
->> +                       _fenc_sta_mon_ofs, _fenc)                               \
->> +               MUX_GATE_FENC_CLR_SET_UPD_FLAGS(_id, _name, _parents, _paridx,  \
->> +                       ARRAY_SIZE(_paridx), _mux_ofs, _mux_set_ofs,            \
->> +                       _mux_clr_ofs, _shift, _width, _gate, _upd_ofs, _upd,    \
->> +                       _fenc_sta_mon_ofs, _fenc, 0)
->> +
->>  int mtk_clk_register_muxes(struct device *dev,
->>                            const struct mtk_mux *muxes,
->>                            int num, struct device_node *node,
->> --
->> 2.39.5
->>
 
