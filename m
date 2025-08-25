@@ -4,72 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA671CA0FE7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 15:30:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69D25CA0FE7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 15:33:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wBDu75etBp3MiaQMTtUxku56TCnr1+buSh8knl+fsk8=; b=1i0fAynrev/09UyTORvcZIrSsn
-	VSrFJXf8okrreVYXWCLYndjEHjA+UM/XVAbZi9rAysfuZNwWFePR4mKZu6KiwDQGEdF3Rzx5Rasfj
-	BOEiow8vYcwNLQyI3tjQsdO5Tjxq4xI81ZBx+VfuXjOSkb1iIdZGQwShmMyj+uDipkpUEnt4Dq+N9
-	jqEinN5IRsehkshLW1eetLVJa+mZRlXoRxce2WMOlwI2K0vxl9KyScps9yX0UBuNj5OQM5P+XzJYt
-	T7SAhOrlQPYOGc094AwBfcf8WAOkJMG051oYaGk6GOJzNrXmyS6o1zDB2paa4fUFn7YiX5JBV39Hi
-	LxiXMLOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7q3aZRioWrrwo6BulP8o1mtOMyDOIQxT+3ZS1iXQjig=; b=5FG3AdX5Omcsevs9O07lUhsp1k
+	N5CqNoDYZ08x9B01JCjUKSDypx9+KsC4FgjjJ4WfYy796CoBsdBhNx9yVljcOTSMjR98MrHFBbtC2
+	uZE4UQ2r8wQDvE7TgMLsnRY+Yhnc6M2Nb2uamP/2nep5PAQXAGe8sjHIOL/NecReoZY589ztcrb9L
+	QKuV3Fzthd+WEvgoU1Ti8EviTYMbhM6ByPxtEK2STDWIEjkOtcvGHUIXJASo6/XdQpb6l6phAyhMK
+	P2lmXPN6pQi98Z9Ae3t8WTIiNVnp+PDcZK4sf98iaXrOd2yqnH4y6g429xSR28KITR6H+LBfin51j
+	aUPPD9hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqZ9L-00000008W9f-0XVA;
-	Mon, 25 Aug 2025 15:30:23 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uqZC7-00000008Wsv-0Sdx;
+	Mon, 25 Aug 2025 15:33:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqY96-00000008FP9-46Lz;
-	Mon, 25 Aug 2025 14:26:06 +0000
+	id 1uqYFY-00000008Got-06Yp;
+	Mon, 25 Aug 2025 14:32:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3EE985C5E4E;
-	Mon, 25 Aug 2025 14:26:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2968C116D0;
-	Mon, 25 Aug 2025 14:26:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 07341407BB;
+	Mon, 25 Aug 2025 14:32:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28395C4CEED;
+	Mon, 25 Aug 2025 14:32:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756131963;
-	bh=HivC8e+d4y482Da6cYyudQLG75+xG2H1Zq0+IirdkmE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pjNfH8WK7wwlxCDAwwhjnZU752SGmoD2ubuqmodGNyfTJWeONXLewWOxmik1Y5Vls
-	 Bc1dheonE3xufvqgfq7BafYodPq5cOFqWkU79VouuWmFze6QMUf8FTpcm7MJ81LJ4s
-	 W5XA+St1iUJ6JGhbM6fdEezFqE0b87qoXhtrkzi5yRg4tKA6whQsgOXnOArjXjiJQm
-	 7OCNj4lYaJ2wPGgePFGihoTH/pDceapGb7AkfDsDx0OgcftbRadjjunHkNT1UtDvzp
-	 QxqRlRLPPuWA9WkzfjE8H9hfNUYXK6aZW9J8mlAZyQ7lprpLGwyLkXQPFGTTV2c4rC
-	 B2xrp+uNa9IiA==
-From: Kees Cook <kees@kernel.org>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Kees Cook <kees@kernel.org>,
-	Kees Cook <kees@outflux.net>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Nathan Chancellor <nathan@kernel.org>,
-	x86@kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kbuild@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	llvm@lists.linux.dev,
-	linux-hardening@vger.kernel.org
-Subject: [PATCH 4/5] x86/cfi: Remove __noinitretpoline and __noretpoline
-Date: Mon, 25 Aug 2025 07:25:51 -0700
-Message-Id: <20250825142603.1907143-4-kees@kernel.org>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250825141316.work.967-kees@kernel.org>
-References: <20250825141316.work.967-kees@kernel.org>
+	s=k20201202; t=1756132360;
+	bh=DU+1S4Dtf6BzIA9TMfJpqm5TRVwGVofXB+Dj9RHsm1g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=n7YZsnMUaPKieR6Aen8NXplrqXq649ng2cWds08Paw0ZE1V9/s04MYuzfMJunBPPM
+	 e9q5l/4IYbHR+zLW6tZ3Ain+SM/EPsptEidQNiwcBG+gIXbD0MDb3NpuMIodH9q/bK
+	 gfUkw7ZqtLUllteesZei9c9/9Nob4tERnp37xBWgOfA8ssretvfGAj7ddnS1nJ/eSw
+	 gYK9m1P9+EEv6DvwLeTd0I1ynl3rIVfEsEIPpMbPhXNcaQgQQCdndA/xeV7DIotpxx
+	 J60e7ZU1ZivKd3L40DdBa/CHbHS/SOS0E/lE/sJu2Rz1DevUCKw6IvTf/zpKfAvZXV
+	 BIxp/l6R3haNQ==
+Date: Mon, 25 Aug 2025 17:32:20 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: David Hildenbrand <david@redhat.com>
+Cc: Mika =?iso-8859-1?Q?Penttil=E4?= <mpenttil@redhat.com>,
+	linux-kernel@vger.kernel.org,
+	Alexander Potapenko <glider@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Brendan Jackman <jackmanb@google.com>,
+	Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>,
+	Dmitry Vyukov <dvyukov@google.com>, dri-devel@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org, iommu@lists.linux.dev,
+	io-uring@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com,
+	kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org, linux-ide@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Marco Elver <elver@google.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+	netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
+	Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
+	Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
+	virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
+	wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
+Subject: Re: [PATCH RFC 10/35] mm/hugetlb: cleanup
+ hugetlb_folio_init_tail_vmemmap()
+Message-ID: <aKxz9HLQTflFNYEu@kernel.org>
+References: <20250821200701.1329277-1-david@redhat.com>
+ <20250821200701.1329277-11-david@redhat.com>
+ <9156d191-9ec4-4422-bae9-2e8ce66f9d5e@redhat.com>
+ <7077e09f-6ce9-43ba-8f87-47a290680141@redhat.com>
+ <aKmDBobyvEX7ZUWL@kernel.org>
+ <a90cf9a3-d662-4239-ad54-7ea917c802a5@redhat.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <a90cf9a3-d662-4239-ad54-7ea917c802a5@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_072605_129859_752B5DE6 
-X-CRM114-Status: GOOD (  17.31  )
+X-CRM114-CacheID: sfid-20250825_073244_098640_455BB37B 
+X-CRM114-Status: GOOD (  26.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,88 +103,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Kees Cook <kees@outflux.net>
+On Mon, Aug 25, 2025 at 02:48:58PM +0200, David Hildenbrand wrote:
+> On 23.08.25 10:59, Mike Rapoport wrote:
+> > On Fri, Aug 22, 2025 at 08:24:31AM +0200, David Hildenbrand wrote:
+> > > On 22.08.25 06:09, Mika Penttilä wrote:
+> > > > 
+> > > > On 8/21/25 23:06, David Hildenbrand wrote:
+> > > > 
+> > > > > All pages were already initialized and set to PageReserved() with a
+> > > > > refcount of 1 by MM init code.
+> > > > 
+> > > > Just to be sure, how is this working with MEMBLOCK_RSRV_NOINIT, where MM is supposed not to
+> > > > initialize struct pages?
+> > > 
+> > > Excellent point, I did not know about that one.
+> > > 
+> > > Spotting that we don't do the same for the head page made me assume that
+> > > it's just a misuse of __init_single_page().
+> > > 
+> > > But the nasty thing is that we use memblock_reserved_mark_noinit() to only
+> > > mark the tail pages ...
+> > 
+> > And even nastier thing is that when CONFIG_DEFERRED_STRUCT_PAGE_INIT is
+> > disabled struct pages are initialized regardless of
+> > memblock_reserved_mark_noinit().
+> > 
+> > I think this patch should go in before your updates:
+> 
+> Shouldn't we fix this in memblock code?
+> 
+> Hacking around that in the memblock_reserved_mark_noinit() user sound wrong
+> -- and nothing in the doc of memblock_reserved_mark_noinit() spells that
+> behavior out.
 
-Commit 66f793099a63 ("x86/retpoline: Avoid retpolines for built-in __init
-functions") disabled retpolines in __init sections (__noinitretpoline)
-as a precaution against potential issues with retpolines in early boot,
-but it has not been a problem in practice (i.e. see Clang below).
-
-Commit 87358710c1fb ("x86/retpoline: Support retpoline builds with Clang")
-narrowed this to only GCC, as Clang doesn't have per-function control
-over retpoline emission. As such, Clang has been booting with retpolines
-in __init since retpoline support was introduced.
-
-Clang KCFI has been instrumenting __init since CFI was introduced.
-
-With the introduction of KCFI for GCC, KCFI instrumentation with
-retpolines disabled means that objtool does not construct .retpoline_sites
-section entries for the non-retpoline KCFI calls. At boot, the KCFI
-rehashing code, via __apply_fineibt(), misses all __init KCFI calls
-(since they are not retpolines), resulting in immediate hash mismatches:
-all preambles are rehashed (via .cfi_sites) and none of the __init call
-sites are rehashed.
-
-Remove __noinitretpoline since it provides no meaningful utility and
-creates problems with CFI. Additionally remove __noretpoline since it
-is now unused.
-
-Alternatively, cfi_rand_callers() could walk the .kcfi_traps section which
-is exactly the list of KCFI instrumentation sites. But it seems better to
-have as few differences in common instruction sequences between compilers
-as possible, so better to remove the special handling of retpolines in
-__init for GCC.
-
-Signed-off-by: Kees Cook <kees@outflux.net>
----
-Cc: David Woodhouse <dwmw2@infradead.org>
----
- include/linux/compiler-gcc.h | 4 ----
- include/linux/init.h         | 8 --------
- 2 files changed, 12 deletions(-)
-
-diff --git a/include/linux/compiler-gcc.h b/include/linux/compiler-gcc.h
-index 5d07c469b571..5de824a0b3d7 100644
---- a/include/linux/compiler-gcc.h
-+++ b/include/linux/compiler-gcc.h
-@@ -35,10 +35,6 @@
- 	(typeof(ptr)) (__ptr + (off));					\
- })
+We can surely update the docs, but unfortunately I don't see how to avoid
+hacking around it in hugetlb. 
+Since it's used to optimise HVO even further to the point hugetlb open
+codes memmap initialization, I think it's fair that it should deal with all
+possible configurations.
  
--#ifdef CONFIG_MITIGATION_RETPOLINE
--#define __noretpoline __attribute__((__indirect_branch__("keep")))
--#endif
--
- #if defined(LATENT_ENTROPY_PLUGIN) && !defined(__CHECKER__)
- #define __latent_entropy __attribute__((latent_entropy))
- #endif
-diff --git a/include/linux/init.h b/include/linux/init.h
-index a60d32d227ee..17c1bc712e23 100644
---- a/include/linux/init.h
-+++ b/include/linux/init.h
-@@ -7,13 +7,6 @@
- #include <linux/stringify.h>
- #include <linux/types.h>
- 
--/* Built-in __init functions needn't be compiled with retpoline */
--#if defined(__noretpoline) && !defined(MODULE)
--#define __noinitretpoline __noretpoline
--#else
--#define __noinitretpoline
--#endif
--
- /* These macros are used to mark some functions or 
-  * initialized data (doesn't apply to uninitialized data)
-  * as `initialization' functions. The kernel can take this
-@@ -50,7 +43,6 @@
- /* These are for everybody (although not all archs will actually
-    discard it in modules) */
- #define __init		__section(".init.text") __cold __latent_entropy	\
--						__noinitretpoline	\
- 						__no_kstack_erase
- #define __initdata	__section(".init.data")
- #define __initconst	__section(".init.rodata")
+> -- 
+> Cheers
+> 
+> David / dhildenb
+> 
+> 
+
 -- 
-2.34.1
-
+Sincerely yours,
+Mike.
 
