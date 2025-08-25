@@ -4,75 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 320D2CA0FE9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 12:54:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D097CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 Aug 2025 12:55:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hn66cCUB0Y2jVSqd/CUbhBNhJ1LVn4cLvjZk6V7mFFI=; b=SrE6OxE++Cs574AisiTD0f3efg
-	t1ghnmvVc5Ijqfc5jWM+r5seZ5bwa1siWNnn1+YV/EJjwz/lkJgf7jeV+/iK+y5DLweeO4mXBo1wd
-	i9MGVwaTAR9dOrXlRQer6Y2FY7yobrFPs+1dyr6CD1VokzAMV7Pn/wRZhvfwca6EFlYA/bbT3KGCD
-	ykCVh2RN08Pil7HZWXlAEYIgX9sm+qj8RFUk5evDZgmaDXTRRdHuMcRAGKv8szTror4Ru92k+CoM4
-	NNIdS333AkbsrJBWZAR9bipms1o7cGat9XUsgejM/fsGehoCe29OJ18H4vNgV9LExanMHpd710Wcq
-	OI8AsTTQ==;
+	bh=t4a7zrF0Xr2ClAN6pV1FixF/O//yC/uzplxDHLALIK4=; b=xLXVKEUDjcOIlUMTX4z3m39V+M
+	XzrhIi5PXVRlPGAw/3XRI2S5sLB4+lp4DeybYNWIkmRI3wg8nUQ9YF1aE+HiX5ltDuogIFx/pWfJA
+	j/aM5/NgCtS7oBm5Mjg+rnS15M9D8D5pg++C/zv+zhEv8l3WyxcXtUeqNSn9duUC73FPGxj8jzvAs
+	BDginoVt+TFsCPaOajkyIBaZA915pwxn7XoO3y80RrIurG13cEHJxG4z1h5G6tTci7jvolZlv0nnY
+	i3fMQxh4P7y7L9Or7UH7ihbq4pcoJQzTkuvyavc1hxJjGTCrnF0v0eqPPYOabq/PhjoxkB8v0eesp
+	flM7PJmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqWij-00000007zKj-0cJh;
-	Mon, 25 Aug 2025 12:54:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uqWit-00000007zXZ-1rFE;
+	Mon, 25 Aug 2025 12:54:55 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqVTw-00000007mKi-10Jo
+	id 1uqVn3-00000007qbm-2cur
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 Aug 2025 11:35:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BBFE441B07;
-	Mon, 25 Aug 2025 11:35:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C408C4CEED;
-	Mon, 25 Aug 2025 11:35:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756121723;
-	bh=G/61tsIfBpP7VYIx9gVTeDZEHhYHjn2CEFnLTjnYXG4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=nvDuF3H6+1NBwrq7nZs/ZMfcyEsTv0fFs/ZGXeBCsb37uLyju05gFfzD//QLGlI6k
-	 dN5TLXERIujUDB7a11P+FR9WpiDdaT+rdNC/SxeiC8E7q7ZJMOs2SnNRalD5wq4oJ2
-	 GfD60mM6gf3O35IKU0qXi+39/nFXFqF8KObK26Ms4aLRiDkSe1wrjXfTrbuWuCfnQF
-	 yhK5zdjN+hHyKEHEChellx6Y+VKnIvrQIJaO5OifVqw+Y/TFH5PW2vPHSdLcbUUCXN
-	 xmwaU56ZZ3e7t5NnKD4P8uVz4EJuGe63faWTe5HhcnmpxjyDyMjVu4CgFnsTHSgFuh
-	 RIHHXiOP8pK0g==
-Date: Mon, 25 Aug 2025 12:35:08 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Dixit Parmar <dixitparmar19@gmail.com>
-Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Lars-Peter Clausen
- <lars@metafoo.de>, Michael Hennerich <Michael.Hennerich@analog.com>, Ray
- Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, Broadcom
- internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
- Support Opensource <support.opensource@diasemi.com>, Krzysztof Kozlowski
- <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Haibo Chen
- <haibo.chen@nxp.com>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Cai Huoqing <cai.huoqing@linux.dev>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Andreas Klinger <ak@it-klinger.de>, Crt
- Mori <cmo@melexis.com>, linux-iio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev,
- linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH 04/10] iio: health: Drop unnecessary -ENOMEM messages
-Message-ID: <20250825123508.7f9e9271@jic23-huawei>
-In-Reply-To: <20250822-enomam_logs-v1-4-db87f2974552@gmail.com>
-References: <20250822-enomam_logs-v1-0-db87f2974552@gmail.com>
-	<20250822-enomam_logs-v1-4-db87f2974552@gmail.com>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
+	Mon, 25 Aug 2025 11:55:13 +0000
+Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250825115504epoutp04df3c2c099d93ad506fecfebb713a07e3~fAHomXRe-2781727817epoutp04E
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 11:55:04 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250825115504epoutp04df3c2c099d93ad506fecfebb713a07e3~fAHomXRe-2781727817epoutp04E
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1756122904;
+	bh=t4a7zrF0Xr2ClAN6pV1FixF/O//yC/uzplxDHLALIK4=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=CI6X0S/Jsv7Kjb6cHe/Y/TBFcxIENb+lsuEYgQ8sV+JGy+RCHJ/rp+AsYvgFCc83y
+	 4sO2ljNm/Q0wTFqR+1D27EXtXh6nABLvgDnA9Nr53VP6mqr+LExS6QbtiXkhGwKL8o
+	 hnztLPGBbBtRKWtnpraFI8mrEMHAsfLjRXvesLoc=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
+	20250825115503epcas5p3cfb8d3f909e3d377f5e0ff6166178520~fAHoFByz-3077330773epcas5p37;
+	Mon, 25 Aug 2025 11:55:03 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.90]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4c9TkG5JQ2z2SSKZ; Mon, 25 Aug
+	2025 11:55:02 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250825115502epcas5p4279b95596caf95a26b0d5c6ccec726e9~fAHmgL5x80820308203epcas5p4B;
+	Mon, 25 Aug 2025 11:55:02 +0000 (GMT)
+Received: from FDSFTE196 (unknown [107.116.189.214]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250825115457epsmtip13e6a6a0580ea03ee165871a0c3831561~fAHinOYHh0161601616epsmtip1X;
+	Mon, 25 Aug 2025 11:54:57 +0000 (GMT)
+From: "Inbaraj E" <inbaraj.e@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <mturquette@baylibre.com>,
+	<sboyd@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <s.nawrocki@samsung.com>, <s.hauer@pengutronix.de>,
+	<shawnguo@kernel.org>, <cw00.choi@samsung.com>, <rmfrfs@gmail.com>,
+	<laurent.pinchart@ideasonboard.com>, <martink@posteo.de>,
+	<mchehab@kernel.org>, <linux-fsd@tesla.com>, <will@kernel.org>,
+	<catalin.marinas@arm.com>, <pankaj.dubey@samsung.com>,
+	<shradha.t@samsung.com>, <ravi.patel@samsung.com>
+Cc: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <alim.akhtar@samsung.com>,
+	<linux-samsung-soc@vger.kernel.org>, <kernel@puri.sm>,
+	<kernel@pengutronix.de>, <festevam@gmail.com>,
+	<linux-media@vger.kernel.org>, <imx@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>
+In-Reply-To: <322df419-10fb-412c-9c3f-7493d9a58670@kernel.org>
+Subject: RE: [PATCH v2 11/12] arm64: defconfig: Enable FSD CSIS DMA driver
+Date: Mon, 25 Aug 2025 17:24:56 +0530
+Message-ID: <015901dc15b7$16a67b40$43f371c0$@samsung.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQK5oFMD+tt4mLQU5V9KgVyIDaUIUQHrKQRZAj9O8PIBXjI9/wIrSUI/Adz/j96ya6VQEA==
+Content-Language: en-in
+X-CMS-MailID: 20250825115502epcas5p4279b95596caf95a26b0d5c6ccec726e9
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-541,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250814141057epcas5p21ca33641e42164886dc1bf404237876d
+References: <20250814140943.22531-1-inbaraj.e@samsung.com>
+	<CGME20250814141057epcas5p21ca33641e42164886dc1bf404237876d@epcas5p2.samsung.com>
+	<20250814140943.22531-12-inbaraj.e@samsung.com>
+	<1b37bc94-8f2b-4da3-be2e-4d0076672169@kernel.org>
+	<00d401dc13d2$65033080$2f099180$@samsung.com>
+	<322df419-10fb-412c-9c3f-7493d9a58670@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_043524_331611_FB30B7C0 
-X-CRM114-Status: GOOD (  17.41  )
+X-CRM114-CacheID: sfid-20250825_045511_762706_AD4970E9 
+X-CRM114-Status: GOOD (  10.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,54 +107,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 22 Aug 2025 09:19:52 +0530
-Dixit Parmar <dixitparmar19@gmail.com> wrote:
+Hi Krzysztof,
 
-> The drivers do not require their own error messages for error
-> -ENOMEM, memory allocation failures. So remove the dev_err
-> messages from the probe().
-> 
-> Signed-off-by: Dixit Parmar <dixitparmar19@gmail.com>
-Some code movement in here so I had applied the equivalent.
+=2E
+> >
+> > I noticed that Exynos and NXP driver configs are added in the defconfig=
+.
+> > Could you please clarify why I shouldn't add my driver config in defcon=
+fig?
+>=20
+> No, I gave you rationale why your commit description is poor.
 
-J
-> ---
->  drivers/iio/health/afe4403.c | 4 +---
->  drivers/iio/health/afe4404.c | 4 +---
->  2 files changed, 2 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/iio/health/afe4403.c b/drivers/iio/health/afe4403.c
-> index 1582cfc03579..8e5db2235de0 100644
-> --- a/drivers/iio/health/afe4403.c
-> +++ b/drivers/iio/health/afe4403.c
-> @@ -531,10 +531,8 @@ static int afe4403_probe(struct spi_device *spi)
->  						   "%s-dev%d",
->  						   indio_dev->name,
->  						   iio_device_id(indio_dev));
-> -		if (!afe->trig) {
-> -			dev_err(afe->dev, "Unable to allocate IIO trigger\n");
-> +		if (!afe->trig)
->  			return -ENOMEM;
-> -		}
->  
->  		iio_trigger_set_drvdata(afe->trig, indio_dev);
->  
-> diff --git a/drivers/iio/health/afe4404.c b/drivers/iio/health/afe4404.c
-> index 99ff68aed27c..11a0f465fd68 100644
-> --- a/drivers/iio/health/afe4404.c
-> +++ b/drivers/iio/health/afe4404.c
-> @@ -538,10 +538,8 @@ static int afe4404_probe(struct i2c_client *client)
->  						   "%s-dev%d",
->  						   indio_dev->name,
->  						   iio_device_id(indio_dev));
-> -		if (!afe->trig) {
-> -			dev_err(afe->dev, "Unable to allocate IIO trigger\n");
-> +		if (!afe->trig)
->  			return -ENOMEM;
-> -		}
->  
->  		iio_trigger_set_drvdata(afe->trig, indio_dev);
->  
-> 
+I'll update the commit description in next patchset.
+
+>=20
+> Best regards,
+> Krzysztof
+
+Regards,
+Inbaraj E
 
 
