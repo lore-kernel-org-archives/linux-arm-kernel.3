@@ -4,66 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0459C8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 01:08:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E8A0C8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 01:19:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uflk8J63v5Vdk+A5T71w43msAplrhyNBzSbyCutgOBw=; b=RfKrnFxfqkX2ERLkhN/NtGLuPX
-	o7fvGSKQPVKoQPLWPSeRVofXdpFoJ4AsuJJ5kRcxxSTFcl7F3KFLJgB37GGxW9U8yuS7wvePUFBGN
-	/PgBVtel9e9N3v6OXzX4jqy/GHB9bL2wKwTMmF7nLW0ma4Q+dPYFTukORipifjxi9k7CT11tIXQdr
-	oAwdvxc7WKv7YuOPpConhbOfDDLBbXO6p4zD4HeEcX1EblpxoOStqr4rCPzqYXZY6nLNWPOC4hINo
-	zh8jgiKMIK+72S2O9jXlKM8IIz7KLIPRdfrsVGyPibuR920q4jKB7+PHipAwnZMN3INjY5QWBgBxL
-	qaeSeofg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BDhBrrex6g5QaN9laTXmAgCa/05IrHo33281B3Hc3OE=; b=zTmffl906IZlPH/HpK8cMY7aTe
+	cEOEQizNU4Fq8V+y6nzd3ZmzoQOwDTqopxIpJSZU/22t2rOs66wBDc6Hd3/CNBT7e+jNIMMnOkZ4l
+	eqNfH8g7fTxjWRPvsnrazKK2LbVmHPC14Z4g/+wZVHz/gJKK8hnG+7BhEDQk43uU8teAfNU8/UKht
+	GH/up3T4jf1DYXUjQg7cNDP4QCDPxDes/F1mmlshJDo1CR/TZx9HIxs0vwxeyCphbIbsutrLuL5R/
+	qlPD63T7wOC1A1zFYiIg9J0PK5Hkt5na1xmZeEGBUgzt/fE3DzQwFymBMMML274hG9Jw2/aesQv9q
+	RXUmmIsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqiAf-0000000AFe8-3kwZ;
-	Tue, 26 Aug 2025 01:08:21 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uqiKs-0000000AH1d-3CCf;
+	Tue, 26 Aug 2025 01:18:54 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqi7x-0000000AFPK-1ZPd;
-	Tue, 26 Aug 2025 01:05:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9A4F7406A6;
-	Tue, 26 Aug 2025 01:05:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1935C4CEED;
-	Tue, 26 Aug 2025 01:05:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
-	s=korg; t=1756170332;
-	bh=9t+LpWoHJIsYPbMjiU2USC8E5Wcpyq+n6+4DJhGHFvo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Y8XBmyN0f/0MgGjeKimTUShtaB8EhLKUUrrmRMR3IbngvR7S1rg8rHkhnN78HfAhX
-	 DkF1xazVTsIy6tOSICzsHTiycb3Y3thNj93LolbqqMl4AQS5gOJlcJyEdyCIp+1zxZ
-	 rCJn2sE5Sff8NjTQL5EKgcgv+i4W35W228YHKaoo=
-Date: Mon, 25 Aug 2025 18:05:31 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Coiby Xu <coxu@redhat.com>
-Cc: Breno Leitao <leitao@debian.org>, kexec@lists.infradead.org, Ondrej
- Kozina <okozina@redhat.com>, Milan Broz <gmazyland@gmail.com>, Thomas
- Staudt <tstaudt@de.ibm.com>, Daniel P . =?ISO-8859-1?Q?Berrang=E9?=
- <berrange@redhat.com>, Kairui Song <ryncsn@gmail.com>, Pingfan Liu
- <kernelfans@gmail.com>, Baoquan He <bhe@redhat.com>, Dave Young
- <dyoung@redhat.com>, linux-kernel@vger.kernel.org, x86@kernel.org, Dave
- Hansen <dave.hansen@intel.com>, Vitaly Kuznetsov <vkuznets@redhat.com>,
- Arnaud Lefebvre <arnaud.lefebvre@clever-cloud.com>, Jan Pazdziora
- <jpazdziora@redhat.com>, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v9 1/8] kexec_file: allow to place kexec_buf randomly
-Message-Id: <20250825180531.94bfb86a26a43127c0a1296f@linux-foundation.org>
-In-Reply-To: <yng55a2z25m5upehczerzhi6zawe3j4ka7amfu4vw4cu27bbg2@x2lgbuk3iqyf>
-References: <20250502011246.99238-1-coxu@redhat.com>
-	<20250502011246.99238-2-coxu@redhat.com>
-	<oninomspajhxp4omtdapxnckxydbk2nzmrix7rggmpukpnzadw@c67o7njgdgm3>
-	<yng55a2z25m5upehczerzhi6zawe3j4ka7amfu4vw4cu27bbg2@x2lgbuk3iqyf>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+	id 1uqiIC-0000000AGrD-24ep
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 26 Aug 2025 01:16:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=BDhBrrex6g5QaN9laTXmAgCa/05IrHo33281B3Hc3OE=; b=cRPzHwlH2A3CccIXuAgXAm325Y
+	nHSRVbx9IlUvvyZdZic8uyC2HzX5LNitVMRtZVdLqAvvUyKTce8HffoUUtbC1NccCL/EF9XoQCgsT
+	jNMQKTo7/ppJb9zQ7QuBHFw4feUYZ7LZsDeGtA1NJbEir05/tktnu45kFpyPv7P/Hm21JztRQmSv/
+	3NYEyXxwPTE1M9MkW9sRb+Kytt5tirClX3ySgYyJtDgci6vWOeCR9rVLUkRhBm9VhbsLWmMEEM11I
+	exXwfqKsHXy8J4qp6u99TgTJn6UsP/yZQnoeBkWAGo1pVIhior2o2lQzNoc+pdW0dHZY32a2z/pBB
+	PeIlKbLw==;
+Received: from linux.microsoft.com ([13.77.154.182])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uqiI6-000000026hr-22ru
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 Aug 2025 01:16:07 +0000
+Received: by linux.microsoft.com (Postfix, from userid 1152)
+	id EC06C211829B; Mon, 25 Aug 2025 18:15:57 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com EC06C211829B
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1756170957;
+	bh=BDhBrrex6g5QaN9laTXmAgCa/05IrHo33281B3Hc3OE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SCOaDPbrhTWDx26NAZDc9zk+UaPWJQFOnMx5s6aDmbJWEJtnk+D0lvohw3+XojSPK
+	 Qv3pWi6wrhkhJMYhP0mVuPXz/iBl6yuihWoQs/Zmwfrsd+rddgzfRP3dWr8jAaSeUM
+	 F+DYnYoRI+Wyl5NUEWaHe385v3/AAG5+kS1Nf69M=
+Date: Mon, 25 Aug 2025 18:15:57 -0700
+From: Shyam Saini <shyamsaini@linux.microsoft.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, virtualization@lists.linux.dev,
+	will@kernel.org, jacob.pan@linux.microsoft.com,
+	eric.auger@redhat.com, code@tyhicks.com,
+	eahariha@linux.microsoft.com, vijayb@linux.microsoft.com,
+	bboscaccy@linux.microsoft.com, robh@kernel.org,
+	saravanak@google.com, krzk+dt@kernel.org, conor+dt@kernel.org,
+	lizhi.hou@amd.com, clement.leger@bootlin.com
+Subject: Re: [PATCH v3 2/3] iommu/of: fix device tree configuration for PCI
+ devices
+Message-ID: <20250826011557.GA2980@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+References: <20250806215539.1240561-1-shyamsaini@linux.microsoft.com>
+ <20250806215539.1240561-3-shyamsaini@linux.microsoft.com>
+ <20250808121515.GE377696@ziepe.ca>
+ <20250814233018.GA31418@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+ <20250815003958.GE599331@ziepe.ca>
+ <20250815023236.GA30997@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+ <20250818155310.GG599331@ziepe.ca>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250818155310.GG599331@ziepe.ca>
+User-Agent: Mutt/1.5.21 (2010-09-15)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_180533_458004_3D0C3B61 
-X-CRM114-Status: GOOD (  16.70  )
+X-CRM114-CacheID: sfid-20250826_021602_980010_AF2BC525 
+X-CRM114-Status: GOOD (  24.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,81 +96,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 25 Aug 2025 09:18:53 +0800 Coiby Xu <coxu@redhat.com> wrote:
+Hi Jason,
 
-> >diff --git a/arch/arm64/kernel/kexec_image.c b/arch/arm64/kernel/kexec_image.c
-> >index 532d72ea42ee8..287b25e674d76 100644
-> >--- a/arch/arm64/kernel/kexec_image.c
-> >+++ b/arch/arm64/kernel/kexec_image.c
-> >@@ -76,6 +76,7 @@ static void *image_load(struct kimage *image,
-> > 	kbuf.buf_min = 0;
-> > 	kbuf.buf_max = ULONG_MAX;
-> > 	kbuf.top_down = false;
-> >+	kbuf.random = 0;
-> >
-> > 	kbuf.buffer = kernel;
-> > 	kbuf.bufsz = kernel_len;
-> >
+On Mon, Aug 18, 2025 at 12:53:10PM -0300, Jason Gunthorpe wrote:
+> On Thu, Aug 14, 2025 at 07:32:36PM -0700, Shyam Saini wrote:
+> > On Thu, Aug 14, 2025 at 09:39:58PM -0300, Jason Gunthorpe wrote:
+> > > On Thu, Aug 14, 2025 at 04:30:18PM -0700, Shyam Saini wrote:
+> > > > or were you referring to [2]?
+> > > > 
+> > > > In that case, the PCI child node data needs to be parsed, which is
+> > > > currently handled individually by each host controller driver.
+> > > 
+> > > Yes, this looks like it may be what I was thinking of, the pci@1,0
+> > > specifes the BDF effectively
+> > 
+> > In that case, we'll need to parse the child DTS nodes properly
+> > within of_iommu_get_resv_regions(). I'll include this in v4.
 > 
-> And also thanks for posing a fix! The patch LGTM. Can you add a Fixes
-> tag 'Fixes: bf454ec31add ("kexec_file: allow to place kexec_buf
-> randomly")' and then send it to kexec@lists.infradead.org? Thanks!
+> Kinda surprised this isn't happening already? It would be good to
+> refer to the original specs and describe how whatetever you propose is
+> aligned there.
 
-I turned all this into a regular patch and queued it (see below),
-thanks.  No additional actions are needed.
+Just to confirm, does the v3 version of this series look good to you?
+If so, I’ll go ahead and respin the series with the iommu_set_sw_msi()
+change and address the other review comments from Jacob.
 
-I'm really not liking that code.  I laboriously verified that all
-fields of kexec_buf are now initialized, except for `cma'.  Is that a
-bug?
+Otherwise having pci devices nodes in the fdt or dts needs additional
+handling, let me know your preference :)
 
-This function has a call frequency of about 3x per week.  Can we please
-just memset the whole thing so people don't have to worry about this
-any more?
-
-
-From: Breno Leitao <leitao@debian.org>
-Subject: kexec/arm64: initialize the random field of kbuf to zero in the image loader
-Date: Thu Aug 21 04:11:21 2025 -0700
-
-Add an explicit initialization for the random member of the kbuf structure
-within the image_load function in arch/arm64/kernel/kexec_image.c. 
-Setting kbuf.random to zero ensures a deterministic and clean starting
-state for the buffer used during kernel image loading, avoiding this UBSAN
-issue later, when kbuf.random is read.
-
-  [   32.362488] UBSAN: invalid-load in ./include/linux/kexec.h:210:10
-  [   32.362649] load of value 252 is not a valid value for type '_Bool'
-
-Link: https://lkml.kernel.org/r/oninomspajhxp4omtdapxnckxydbk2nzmrix7rggmpukpnzadw@c67o7njgdgm3
-Fixes: bf454ec31add ("kexec_file: allow to place kexec_buf randomly
-Signed-off-by: Breno Leitao <leitao@debian.org>
-Cc: Baoquan He <bhe@redhat.com>
-Cc: Coiby Xu <coxu@redhat.com>
-Cc: "Daniel P. Berrange" <berrange@redhat.com>
-Cc: Dave Hansen <dave.hansen@intel.com>
-Cc: Dave Young <dyoung@redhat.com>
-Cc: Kairui Song <ryncsn@gmail.com>
-Cc: Liu Pingfan <kernelfans@gmail.com>
-Cc: Milan Broz <gmazyland@gmail.com>
-Cc: Ondrej Kozina <okozina@redhat.com>
-Cc: Vitaly Kuznetsov <vkuznets@redhat.com>
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
----
-
- arch/arm64/kernel/kexec_image.c |    1 +
- 1 file changed, 1 insertion(+)
-
---- a/arch/arm64/kernel/kexec_image.c~kexec-arm64-initialize-the-random-field-of-kbuf-to-zero-in-the-image-loader
-+++ a/arch/arm64/kernel/kexec_image.c
-@@ -76,6 +76,7 @@ static void *image_load(struct kimage *i
- 	kbuf.buf_min = 0;
- 	kbuf.buf_max = ULONG_MAX;
- 	kbuf.top_down = false;
-+	kbuf.random = 0;
+> 
+> > > Presumably this is a fixed issue of the platform. You never did
+> > > explain how your system has such werdio behavior, or how something
+> > > like iommu=pt can function on it...
+> > Yes, this issue is platform-specific. On this platform, the default MSI IOVA
+> > range overlaps with an address region that is reserved for another purpose,
+> > Other than that we haven't observed any obvious issues for DMA operations
+> 
+> Usually DRAM is at the default MSI IOVA address, so if you run
+> iommu=pt then presumably your DRAM map has a nice hole in it.. But
+> maybe the memory map told the OS about that.
+>
  
- 	kbuf.buffer = kernel;
- 	kbuf.bufsz = kernel_len;
-_
+our DRAM for this platform starts at higher offset, way beyond MSI_IOVA.
 
+
+Thanks,
+Shyam 
 
