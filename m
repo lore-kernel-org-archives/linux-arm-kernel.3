@@ -4,70 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5373CA0FE7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 14:18:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9CF4CA0FE7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 14:21:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bn1Ty2oKRyCYeEeV05qgM4L3O4H99orO+wAZwsaw9aQ=; b=Gu3Rn1HGULMZhaWo39W8NTLK6R
-	kSxa8hEil4ZIQ7NyzeoCrQQW+yQEXSIPHD8Ygw4kicbIQCDEk6nw4JbpDMTlGcPy/0g+ogvr2Nvjz
-	XfdVZDuCp40EhxPNxRAWG36UQ0O2vSkf5EXPiQHxEgDVNbDwdRQhwPtUlxd+SF4U904FdvOMYg+mT
-	tRkqnJvTrFl1tDAmspGIGxJFT+0Kg1hX/Xk71xHRe9FG8JnX87EIkLW2reFMom63AROPQJxWinFWN
-	7WnsPbPBNxwIcYz0P8czNO4APyDbH3xnJIZz5hO/GF7jdWibYRq4xspF9S/IWa4+qgV3FuORJay+1
-	bWA02mfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZULyMtTc2idS17UiaomIDWxS5E26GTUAPz4WEPqaGL4=; b=xlNBIxZH6/mHNYUfA5ibJvkhss
+	8v1qOL0shxumgJvYAQ6sublh1oLmrmRPswzQk12txDUMouKQAFE+Tx/ysPWY/3aNTdgWU3ysa/w5g
+	q9tbbOFc6Z9A8Wu1ZSXF6kq6gXeIUcpoMexk6e6inYmn2L80Olu1iM4ju43iG3m4v+V/WOP3drnXI
+	GNPzxSopFQNwW4JjjlpAxXlRqtU1Rl80OOBW4ccC3mJ/aprOg229dPPx1/5UAUAx8wrDkHxpdwhTn
+	5igphUfAg+kwENsaRpz59sxW50obSlzCa/l/QiKp5Gibe54fnszHWXk7ULUcrIbfyUfS7ArPagD1D
+	Z7TrEnbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uquV3-0000000CEPZ-2LBx;
-	Tue, 26 Aug 2025 14:18:13 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uquXk-0000000CF7b-2MQP;
+	Tue, 26 Aug 2025 14:21:00 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqu5B-0000000C9Sb-01pb;
-	Tue, 26 Aug 2025 13:51:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1756216286;
-	bh=Bn1Ty2oKRyCYeEeV05qgM4L3O4H99orO+wAZwsaw9aQ=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=p6zckXJeDzd31hPqH/Wt8scivMFgELrZ+U2bWHCqgoyw4+klQqcu7t9dlQV1AXcNk
-	 MezT5TwlaqDVIU2FsoIL6aYZ4EiA4C6FGvxTE40So+A6P+5WJimoR3doV5S4CMAjGr
-	 hms5mRT4RbeBhewbCDFodJiLITGiVb25xIJKesUfM7FRmekg8HS9Dw6hNFmmtmQQm0
-	 Nsvo7tQ7QVQDRZPdOGkn/cmFPnTnRp0pEyUn9cDZkGSWrJ+M5ivAuXxbBndTTwtQMm
-	 IrxvRudntCdpISOfHLxr+bPf9tAscCVBH730+JTa2yLxvHZA8oX5kyNT95w/qFpw8+
-	 26+7t41exZI4w==
-Received: from 2a01cb0892f2d600c8f85cf092d4af51.ipv6.abo.wanadoo.fr (2a01cb0892F2D600c8F85cF092D4aF51.ipv6.abo.wanadoo.fr [IPv6:2a01:cb08:92f2:d600:c8f8:5cf0:92d4:af51])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: jmassot)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 138DD17E046C;
-	Tue, 26 Aug 2025 15:51:26 +0200 (CEST)
-Message-ID: <e40f60820ad1a13b2981c65a55babd845349a751.camel@collabora.com>
-Subject: Re: [PATCH 1/3] Input: mtk-pmic-keys - MT6359 has a specific
- release irq
-From: Julien Massot <julien.massot@collabora.com>
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, AngeloGioacchino Del Regno
-	 <angelogioacchino.delregno@collabora.com>
-Cc: kernel@collabora.com, Matthias Brugger <matthias.bgg@gmail.com>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley	 <conor+dt@kernel.org>, linux-input@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org
-Date: Tue, 26 Aug 2025 15:51:25 +0200
-In-Reply-To: <akavphbw2wh5vga3eoe6abqdawdssko4cy2sz7oedef4jvzunn@37whg62gmfoh>
-References: <20250801-radxa-nio-12-l-gpio-v1-0-d0840f85d2c8@collabora.com>
-	 <20250801-radxa-nio-12-l-gpio-v1-1-d0840f85d2c8@collabora.com>
-	 <a9cd33f5-cc37-4a1d-b1fd-094761a146ed@collabora.com>
-	 <akavphbw2wh5vga3eoe6abqdawdssko4cy2sz7oedef4jvzunn@37whg62gmfoh>
-Organization: Collabora Ltd.
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
+	id 1uqu5b-0000000C9Vh-0ZAh
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 Aug 2025 13:51:57 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250826135149euoutp010d3a8a9f4af2f694f28ca5abfcec99a2~fVW3HsXoP1552315523euoutp01B
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 13:51:49 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250826135149euoutp010d3a8a9f4af2f694f28ca5abfcec99a2~fVW3HsXoP1552315523euoutp01B
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1756216309;
+	bh=ZULyMtTc2idS17UiaomIDWxS5E26GTUAPz4WEPqaGL4=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=bHjR9T+BR5tUnH4liPvral9SsKd+bJlZDHZ7KHtU61th59XkHPlp8XlAv5V5/Apz0
+	 I1ntxc+wChLrrwb6cgx0ukA7lcBwo7AFtdeJR0JnCa79mGp/z4lkQ1Zze7SSSv5tl1
+	 WSd83YJ7XtzSf7rYivTV8SqRgODkz8xMtITL0/8k=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250826135149eucas1p2ef79b300c589d967c1533100e84b4049~fVW2pkj3s2476024760eucas1p2-;
+	Tue, 26 Aug 2025 13:51:49 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250826135146eusmtip2cb1cdc8b30562e52ddb197a8da8a70a9~fVWzxQpNd2140921409eusmtip2c;
+	Tue, 26 Aug 2025 13:51:46 +0000 (GMT)
+Message-ID: <8c861182-7e90-4bbf-ac04-173d59f5af69@samsung.com>
+Date: Tue, 26 Aug 2025 15:51:45 +0200
 MIME-Version: 1.0
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v4 3/6] clocksource/drivers/exynos_mct: Set local timer
+ interrupts as percpu
+To: Will McVicker <willmcvicker@google.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Daniel Lezcano
+	<daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, Krzysztof
+	Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Rob
+	Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>
+Cc: Donghoon Yu <hoony.yu@samsung.com>, kernel-team@android.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, John
+	Stultz <jstultz@google.com>, Youngmin Nam <youngmin.nam@samsung.com>, Peter
+	Griffin <peter.griffin@linaro.org>, Tudor Ambarus
+	<tudor.ambarus@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
+	<andre.draszik@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20250620181719.1399856-4-willmcvicker@google.com>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20250826135149eucas1p2ef79b300c589d967c1533100e84b4049
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20250620181827eucas1p297671b9a3783026020bb357d494c2e70
+X-EPHeader: CA
+X-CMS-RootMailID: 20250620181827eucas1p297671b9a3783026020bb357d494c2e70
+References: <20250620181719.1399856-1-willmcvicker@google.com>
+	<CGME20250620181827eucas1p297671b9a3783026020bb357d494c2e70@eucas1p2.samsung.com>
+	<20250620181719.1399856-4-willmcvicker@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_065129_223572_FAAAFC8F 
-X-CRM114-Status: GOOD (  19.31  )
+X-CRM114-CacheID: sfid-20250826_065155_772546_EF30E291 
+X-CRM114-Status: GOOD (  21.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,50 +94,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dmitry
+On 20.06.2025 20:17, Will McVicker wrote:
+> From: Hosung Kim <hosung0.kim@samsung.com>
+>
+> To allow the CPU to handle it's own clock events, we need to set the
+> IRQF_PERCPU flag. This prevents the local timer interrupts from
+> migrating to other CPUs.
+>
+> Signed-off-by: Hosung Kim <hosung0.kim@samsung.com>
+> [Original commit from https://android.googlesource.com/kernel/gs/+/03267fad19f093bac979ca78309483e9eb3a8d16]
+> Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+> Reviewed-by: Youngmin Nam <youngmin.nam@samsung.com>
+> Tested-by: Youngmin Nam <youngmin.nam@samsung.com>
+> Signed-off-by: Will McVicker <willmcvicker@google.com>
 
-On Wed, 2025-08-06 at 09:49 -0700, Dmitry Torokhov wrote:
-> On Mon, Aug 04, 2025 at 10:05:21AM +0200, AngeloGioacchino Del Regno
-> wrote:
-> > Il 01/08/25 15:16, Julien Massot ha scritto:
-> > > A recent commit in linux-next added support for key events.
-> > > However, the key release event is not properly handled: only key
-> > > press events
-> > > are generated, leaving key states stuck in "pressed".
-> > >=20
-> > > This patch ensures that both key press and key release events are
-> > > properly
-> > > emitted by handling the release logic correctly.
-> > >=20
-> > > Note: the code was introduced in linux-next by commit
-> > > bc25e6bf032e ("Input: mtk-pmic-keys - add support for MT6359 PMIC
-> > > keys")
-> > > and is not yet present in mainline.
-> > >=20
-> > > Signed-off-by: Julien Massot <julien.massot@collabora.com>
-> >=20
-> > Well, you are effectively fixing the commit that you pointed out, so
-> > this needs
-> >=20
-> > Fixes: bc25e6bf032e ("Input: mtk-pmic-keys - add support for MT6359
-> > PMIC keys")
-> >=20
-> > and
-> >=20
-> > Reviewed-by: AngeloGioacchino Del Regno
-> > <angelogioacchino.delregno@collabora.com>
->=20
-> I am really interested in how exactly this was developed, tested, and
-> reviewed...
->=20
-> Thanks.
+This patch has been merged some time ago to v6.17-rc1 as commit 
+f3cec54ee3bf ("clocksource/drivers/exynos_mct: Set local timer 
+interrupts as percpu"). Recently I found that it breaks CPU hotplug 
+support for some 'little' cores on Exynos5422 based boards, like 
+OdroidXU3/XU4:
 
-You are right, the issue comes from my side.
-I prepared the patch against a slightly different tree, which led to the
-discrepancy. I=E2=80=99ll respin it on top of the current linux-next and re=
--test
-it properly to ensure the fix behaves as expected.
+# for i in /sys/devices/system/cpu/cpu[1-9]; do echo 0 >$i/online; done
+# for i in /sys/devices/system/cpu/cpu[1-9]; do echo 1 >$i/online; done
+[  117.100195] CPU2: failed to come online
+-bash: echo: write error: Input/output error
+[  118.140426] CPU3: failed to come online
+-bash: echo: write error: Input/output error
+[  118.148428] CPU4: detected I-Cache line size mismatch, workaround 
+enabled
+[  118.169613] CPU5: detected I-Cache line size mismatch, workaround 
+enabled
+[  118.216802] CPU6: detected I-Cache line size mismatch, workaround 
+enabled
+[  118.283725] CPU7: detected I-Cache line size mismatch, workaround 
+enabled
+#
 
-Thanks for catching this, and thanks for your time.
-Julien
+Frankly speaking I have no idea why this happens. CPU hotplug was always 
+broken for the CPU0, but this is not relevant for this case. Maybe this 
+PERCPU flag should be applied only on ARM64-based boards to avoid 
+affecting legacy ARM 32bit cases?
+
+> ---
+>   drivers/clocksource/exynos_mct.c | 3 ++-
+>   1 file changed, 2 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/clocksource/exynos_mct.c b/drivers/clocksource/exynos_mct.c
+> index 96361d5dc57d..a5ef7d64b1c2 100644
+> --- a/drivers/clocksource/exynos_mct.c
+> +++ b/drivers/clocksource/exynos_mct.c
+> @@ -596,7 +596,8 @@ static int __init exynos4_timer_interrupts(struct device_node *np,
+>   			irq_set_status_flags(mct_irq, IRQ_NOAUTOEN);
+>   			if (request_irq(mct_irq,
+>   					exynos4_mct_tick_isr,
+> -					IRQF_TIMER | IRQF_NOBALANCING,
+> +					IRQF_TIMER | IRQF_NOBALANCING |
+> +					IRQF_PERCPU,
+>   					pcpu_mevt->name, pcpu_mevt)) {
+>   				pr_err("exynos-mct: cannot register IRQ (cpu%d)\n",
+>   									cpu);
+
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
+
 
