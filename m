@@ -4,76 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E70A4CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 15:29:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16148CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 15:34:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rVkVgsShdpWJsHwAY7c/HqdSCWng8HRKeool7od41Zc=; b=rOYANgZcloSUbm3FyjVeGgymNh
-	XQgm8kL2DLOoSnl+EipsuslLTsPIwXBKvlq8Wiz+oPpU5o43vP0q8bQB8ZdQ65yhSlXXZKkp5me7y
-	qwTw2peVPsnnZMc6+T3tJPRdCJXMiXhNYhcaiyhIjQNQDw3gHe0oxKjLpVcbbOqwr8Xi85ZesWgXj
-	hqlc3cp/bpodpeI6OPdxaEB+TmvZ8MW0WFbo2bVYlh6QFfYaZQyBput7zLsjFR5vpj0hVhG/4m4MS
-	qKK7ppR6SW/0afHZiqJQ4TVGMHB/7gZIGKilQzDCkCLvlq4ifVk9hPI3bTI63aihPNb+B6HNmkLzm
-	UAVBq/3A==;
+	bh=fJyorkkzXQO6cXvMBgDXFMezoB3vRlc/3/HgpWHOt2M=; b=ts3Kqcaxzl206pBtGXwP2HGdnf
+	kW5lxhXHKmggWBpgeZ0Zqdqa+HGYlMH/ShwWIa5yQ4qEFqB6Woo1fJz91mV5msUJ2nSvkQoQH46IR
+	LIDh1tS11drjx08dcQoogOEAbUusEubIoX5k8Jxj7RaZ4I0Ut+uJGDsvkIu+P4SUlOjJbhJyP56vN
+	Zp2ynxT/uD13A+9DKNDBe5lXHjPW0ygs1CrcmJQA3b2rgXMZP4I/bLTwULG7WUMjwvL/lSqbtJPjL
+	WvFvcETfoVVCQtGyeEswLnwzV6h1nVSK0nJiyKI6WemEKxiDXYKUqCD6a7feptwnEAIRR8xx9p+dM
+	owIFYjqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqvc7-0000000CS2Q-3CPi;
-	Tue, 26 Aug 2025 15:29:35 +0000
-Received: from mail-ej1-f41.google.com ([209.85.218.41])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqvZO-0000000CRnS-2fQn;
-	Tue, 26 Aug 2025 15:26:48 +0000
-Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-afcb61f6044so1103547666b.0;
-        Tue, 26 Aug 2025 08:26:46 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756222005; x=1756826805;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rVkVgsShdpWJsHwAY7c/HqdSCWng8HRKeool7od41Zc=;
-        b=GxOzbmy5EeZcOFkarYm94AYmiMoZ4ns8DwIaa8DUAgdX4cUmL8B0E8plHzyumCox0r
-         FUppR35HCwfwN2cu+9PtBYAV1inGTYbyfqv6XSardHop0ywnnPGQkm6Dq8f8IIAQybL0
-         vw9G7JD+kAK2atr7AnztS88wtVJuZB/22lGvEPspY8+RbFK2u3uEtN2Uy1M1xH1F8Z88
-         P7bIKhjaD8qQ9hB6dsHBo86/6icLmf1sU1AU2MCLFYnzsalwsS2F3eShzezVD6Yo7kqQ
-         0sdryM1pAze1I9kPRuZyzbehW8ZfXLECDNZv834ubCCS3vIuSgPBO61gOGAptJbHbJr8
-         oF/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVpHXWlJHkdBLygbu6++YlsIcTLU5iCyiyslb9hokGrv+W4GbHa9GZZXgF6euSHyhL5lOgFHw==@lists.infradead.org, AJvYcCWgl4DqiWIUu7JpVa1bUgWWJdEWNFLNcJ1EN0ZRZqd5CQWmPqgIne6lB+gmbVUiwiitUCptvDiM9LNXCSE7ygVTCQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwtZ3B4xRiB43Jws5zmTjygBsq/Xrd4P5mP2NaxPXpODcUGQ1MS
-	YNXJs1T+Q2QlBhDwPxdut+1sPUXKm26fnOtkHmFfozFuwjNTtmoWXk4k
-X-Gm-Gg: ASbGncvg16oeYZbk3r2RZ7OJTVdr7PVVbhGeZEsriQtNa5L1V/VUd/wkJnUPxuvlLzS
-	qL/MkAkdX9PDlueYLBZwF+35VaTLqcpbaCggDmj60IwQdGR3fPIYS3XLCodUHJnN6iEFE4/9mTT
-	JA7T5lXYrs1TMJhghiLnnIgKkE9vlKtnjO+k73hEGtSjH0nOC0xsGdriI03S25+ayIinxj2YCPa
-	BqIWx3xKyouXiZSgCQwhQZx4A3LMDaYtKwyOOvx0tXv1zvLZOGkuuKMzwISLQg1MSJ9ipVeo4PP
-	xLl3kIA+5DwT3ugz4CWFoHNu+6WKKyKQof2no0JY+BxDYZ2QWT2Tx/Ja3e6jW13kz9pQA5IBkMG
-	k2ISJDpgVTjacI8pHgBPKg58t
-X-Google-Smtp-Source: AGHT+IFywaQm/SYAEkgpvTya1QCs8x+TYb8PSoO8CqBuiJc0HWJDKYF8Wnxptjc0r0Kk2hzhDgRRvQ==
-X-Received: by 2002:a17:907:7ba7:b0:afe:8ae2:a8fe with SMTP id a640c23a62f3a-afeafeca898mr226076366b.14.1756222004741;
-        Tue, 26 Aug 2025 08:26:44 -0700 (PDT)
-Received: from gmail.com ([2a03:2880:30ff:72::])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afe48fae421sm811426966b.26.2025.08.26.08.26.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 Aug 2025 08:26:44 -0700 (PDT)
-Date: Tue, 26 Aug 2025 08:26:42 -0700
-From: Breno Leitao <leitao@debian.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, bhe@redhat.com, oxu@redhat.com, berrange@redhat.com, 
-	kernel-team@meta.com, Andrew Morton <akpm@linux-foundation.org>
-Subject: Re: [PATCH] arm64: kexec: Initialize kexec_buf struct in image_load()
-Message-ID: <2dq3z3vil5vu2m4kbwdps2enozbqrzbp6fd2utdr6dj6kutzxf@f3vububg3s6j>
-References: <20250826-akpm-v1-1-3c831f0e3799@debian.org>
- <aK3HVqt6I5KxoHia@J2N7QTR9R3>
+	id 1uqvgk-0000000CSm8-0IVO;
+	Tue, 26 Aug 2025 15:34:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uqve1-0000000CSM0-1KKF;
+	Tue, 26 Aug 2025 15:31:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 04F3A169E;
+	Tue, 26 Aug 2025 08:31:24 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 376B93F63F;
+	Tue, 26 Aug 2025 08:31:26 -0700 (PDT)
+Date: Tue, 26 Aug 2025 16:31:23 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: peterz@infradead.org, mingo@redhat.com, will@kernel.org,
+	acme@kernel.org, namhyung@kernel.org,
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+	irogers@google.com, adrian.hunter@intel.com,
+	kan.liang@linux.intel.com, linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, dmaengine@vger.kernel.org,
+	linux-fpga@vger.kernel.org, amd-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org, coresight@lists.linaro.org,
+	iommu@lists.linux.dev, linux-amlogic@lists.infradead.org,
+	linux-cxl@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 02/19] perf/hisilicon: Fix group validation
+Message-ID: <aK3TS3s5_Pczx1nu@J2N7QTR9R3>
+References: <cover.1755096883.git.robin.murphy@arm.com>
+ <c7b877e66ba0d34d8558c5af8bbb620e8c0e47d9.1755096883.git.robin.murphy@arm.com>
+ <aK2XS_GhLw1EQ2ml@J2N7QTR9R3>
+ <ab80cb84-42b2-4ce8-aa6c-4ce6be7a12b7@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aK3HVqt6I5KxoHia@J2N7QTR9R3>
+In-Reply-To: <ab80cb84-42b2-4ce8-aa6c-4ce6be7a12b7@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_082646_675450_3141CB21 
-X-CRM114-Status: GOOD (  27.25  )
+X-CRM114-CacheID: sfid-20250826_083133_438312_65CE223A 
+X-CRM114-Status: GOOD (  44.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,47 +81,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 26, 2025 at 03:40:22PM +0100, Mark Rutland wrote:
-> On Tue, Aug 26, 2025 at 05:08:51AM -0700, Breno Leitao wrote:
-> > The kexec_buf structure was previously declared without initialization
-> > in image_load(). This led to a UBSAN warning when the structure was
-> > expanded and uninitialized fields were accessed [1].
-> 
-> Just to check my understanding, is that only a problem for new fields
-> (e.g. the 'random' field added in [1]), or do we have UBSAN warnigns for
-> any existing fields? I assume there's no problem with existing fields
-> today.
-
-UBSAN is only complaning for this new field that was added to the
-struct, but only populated in x86, later it is read in in common code,
-causing UBSAN to complain (and even wrong code to be executed depending
-on the garabe that is in the memory during kbuf instantiation.
-
-> > Zero-initializing kexec_buf at declaration ensures all fields are
-> > cleanly set, preventing future instances of uninitialized memory being
-> > used.
+On Tue, Aug 26, 2025 at 03:35:48PM +0100, Robin Murphy wrote:
+> On 2025-08-26 12:15 pm, Mark Rutland wrote:
+> > On Wed, Aug 13, 2025 at 06:00:54PM +0100, Robin Murphy wrote:
+> > > The group validation logic shared by the HiSilicon HNS3/PCIe drivers is
+> > > a bit off, in that given a software group leader, it will consider that
+> > > event *in place of* the actual new event being opened. At worst this
+> > > could theoretically allow an unschedulable group if the software event
+> > > config happens to look like one of the hardware siblings.
+> > > 
+> > > The uncore framework avoids that particular issue,
 > > 
-> > Andrew Morton suggested that this function is only called 3x a week[2],
-> > thus, the memset() cost is inexpressive.
-> > 
-> > Link: https://lore.kernel.org/all/oninomspajhxp4omtdapxnckxydbk2nzmrix7rggmpukpnzadw@c67o7njgdgm3/ [1]
-> > Link: https://lore.kernel.org/all/20250825180531.94bfb86a26a43127c0a1296f@linux-foundation.org/ [2]
-> > Suggested-by: Andrew Morton <akpm@linux-foundation.org>
-> > Signed-off-by: Breno Leitao <leitao@debian.org>
+> > What is "the uncore framework"? I'm not sure exactly what you're
+> > referring to, nor how that composes with the problem described above.
 > 
-> This looks fine to me, but I reckon it should be added to the series
-> which extends kexec_buf, unless there's some reason to avoid that?
-> 
-> > ---
-> >  arch/arm64/kernel/kexec_image.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> IIUC arch/arm64/kernel/machine_kexec_file.c would need the same
-> treatment in load_other_segments().
-> 
-> If other architectures need this, it'd probably make sense to clean that
-> up treewide in one go. It looks like at least riscv and s390 need that
-> from a quick grep:
+> Literally that hisi_uncore_pmu.c is actually a framework for half a dozen
+> individual sub-drivers rather than a "driver" itself per se, but I suppose
+> that detail doesn't strictly matter at this level.
 
-Agree. Let me send a v2 addressing it on all archicterures.
+I see. My concern was just that I couldn't figure out what "the uncore
+framework" was, since it sounded more generic. If you say something like
+"the shared code in hisi_uncore_pmu.c", I think that would be clearer.
+
+> > > but all 3 also share the common issue of not preventing racy access to
+> > > the sibling list,
+> > 
+> > Can you please elaborate on this racy access to the silbing list? I'm
+> > not sure exactly what you're referring to.
+> 
+> Hmm, yes, I guess an actual race is probably impossible since if we're still
+> in the middle of opening the group leader event then we haven't yet
+> allocated the fd that userspace would need to start adding siblings, even if
+> it tried to guess. I leaned on "racy" as a concise way to infer "when it
+> isn't locked (even though the reasons for that are more subtle)" repeatedly
+> over several patches - after all, the overall theme of this series is that I
+> dislike repetitive boilerplate :)
+> 
+> I'll dedicate some time for polishing commit messages for v2, especially the
+> common context for these "part 1" patches per your feedback on patch #1.
+
+Thanks!
+
+> > > and some redundant checks which can be cleaned up.
+> > > 
+> > > Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+> > > ---
+> > >   drivers/perf/hisilicon/hisi_pcie_pmu.c   | 17 ++++++-----------
+> > >   drivers/perf/hisilicon/hisi_uncore_pmu.c | 23 +++++++----------------
+> > >   drivers/perf/hisilicon/hns3_pmu.c        | 17 ++++++-----------
+> > >   3 files changed, 19 insertions(+), 38 deletions(-)
+> > > 
+> > > diff --git a/drivers/perf/hisilicon/hisi_pcie_pmu.c b/drivers/perf/hisilicon/hisi_pcie_pmu.c
+> > > index c5394d007b61..3b0b2f7197d0 100644
+> > > --- a/drivers/perf/hisilicon/hisi_pcie_pmu.c
+> > > +++ b/drivers/perf/hisilicon/hisi_pcie_pmu.c
+> > > @@ -338,21 +338,16 @@ static bool hisi_pcie_pmu_validate_event_group(struct perf_event *event)
+> > >   	int counters = 1;
+> > >   	int num;
+> > > -	event_group[0] = leader;
+> > > -	if (!is_software_event(leader)) {
+> > > -		if (leader->pmu != event->pmu)
+> > > -			return false;
+> > > +	if (leader == event)
+> > > +		return true;
+> > > -		if (leader != event && !hisi_pcie_pmu_cmp_event(leader, event))
+> > > -			event_group[counters++] = event;
+> > > -	}
+> > > +	event_group[0] = event;
+> > > +	if (leader->pmu == event->pmu && !hisi_pcie_pmu_cmp_event(leader, event))
+> > > +		event_group[counters++] = leader;
+> > 
+> > Looking at this, the existing logic to share counters (which
+> > hisi_pcie_pmu_cmp_event() is trying to permit) looks to be bogus, given
+> > that the start/stop callbacks will reprogram the HW counters (and hence
+> > can fight with one another).
+> 
+> Yeah, this had a dodgy smell when I first came across it, but after doing
+> all the digging I think it does actually work out - the trick seems to be
+> the group_leader check in hisi_pcie_pmu_get_event_idx(), with the
+> implication the PMU is going to be stopped while scheduling in/out the whole
+> group, so assuming hisi_pcie_pmu_del() doesn't clear the counter value in
+> hardware (even though the first call nukes the rest of the event
+> configuration), then the events should stay in sync.
+
+I don't think that's sufficient. If nothing else, overflow is handled
+per-event, and for a group of two identical events, upon overflow
+hisi_pcie_pmu_irq() will reprogram the shared HW counter when handling
+the first event, and the second event will see an arbitrary
+discontinuity. Maybe no-one has spotted that due to the 2^63 counter
+period that we program, but this is clearly bogus.
+
+In addition, AFAICT the IRQ handler doesn't stop the PMU, so in general
+groups aren't handled atomically, and snapshots of the counters won't be
+atomic.
+
+> It does seem somewhat nonsensical to have multiple copies of the same event
+> in the same group, but I imagine it could happen with some sort of scripted
+> combination of metrics, and supporting it at this level saves needing
+> explicit deduplication further up. So even though my initial instinct was to
+> rip it out too, in the end I concluded that that doesn't seem justified.
+
+As above, I think it's clearly bogus. I don't think we should have
+merged it as-is and it's not something I'd like to see others copy.
+Other PMUs don't do this sort of event deduplication, and in general it
+should be up to the user or userspace software to do that rather than
+doing that badly in the kernel.
+
+Given it was implemented with no rationale I think we should rip it out.
+If that breaks someone's scripting, then we can consider implementing
+something that actually works.
+
+Mark.
 
