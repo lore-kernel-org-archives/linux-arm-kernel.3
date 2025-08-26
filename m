@@ -4,80 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1409CA0FE7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 17:23:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 669A1CA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 18:09:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Message-ID:Date:
-	In-Reply-To:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x7YHGBfWDVADI2xpT7SSYdJvgJ+u1HlsYJPIUxDj/3o=; b=1/eefzTucBA6NxqH28G6I+oAjS
-	9R0bIwpBACNQVGqbbB6R8QzgFqkNENMLbmhrqk5d9KjB9baonZJFkhvFU8LKxBl4XnXzgHSG54DPu
-	SDsbjQDUy+OCdjuYKpGbILk8WnTmXMG/XpNkLOOvECm2ihE7l0EQMc4ElFvTZ3eQ4umWbVybOP3Ua
-	T8pDrMPdmQM6s4KdZCsM/TeDEJV5Fxh6wehbnBgjLLG8GFFgdQx5CYooURRLAZw7wi/+Izyr0ZyM4
-	n0u080/TnJ3vP9Hea8A4CRKCTAD9mKTJnkPfRc60ioQXRtdpehntIqeioeKp1EDlhzwAYzF7eUMX+
-	/dMEqj6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tcEi94+HJkJmAuOl8YquuCHg5PsNZb8Yp9/clB4oVNE=; b=k2qQH+YyfgaFO4TwxGvJoeaTON
+	Bgq2j3MgEMkFiEg9wSKPjV7xFgb62bWumEbXalmXJw4YrWXzhuUB12AHGJ4jTgcAQRmaemK9yr/Hi
+	IYoxlfUTPIpVzYWpQT/kcGgYjli57ym5M5+ehDBu/gHbR/4irdrs/1H+b9mmozt3r8uf98tl25nTy
+	HjNcE3mSDaHd1VuFNL5/1ryk6yMYaYYlTH18ei4WSAtspsrKWoqebyIBWiBzYVfORExpywoyDjedF
+	DdHDxuJx0eoSVWfl60l77xRq3F6uWFpy3I2VZFjv+Sej/SOhLD77dkFjpVPs4/ARmi5rc1Z/oEnjD
+	pqfF0Pbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqxOA-0000000Cl4J-1Zm2;
-	Tue, 26 Aug 2025 17:23:18 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1uqy6F-0000000CqKx-2xmD;
+	Tue, 26 Aug 2025 18:08:51 +0000
+Received: from mail-co1nam11on2062f.outbound.protection.outlook.com ([2a01:111:f403:2416::62f] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqwGY-0000000CbEC-023b
+	id 1uqy3W-0000000Cq7n-2uvO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 16:11:23 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2445827be70so57990015ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 09:11:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756224681; x=1756829481; darn=lists.infradead.org;
-        h=references:message-id:date:in-reply-to:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=x7YHGBfWDVADI2xpT7SSYdJvgJ+u1HlsYJPIUxDj/3o=;
-        b=SjY/0nkZ+5J2+X2zg3jaa8NoYasSD1DViBKcU3LnHeorNr1w7uAsS/gHFpTR0nWalW
-         WGPbu+85lqIvkvZzpXFtfEjJSTiTwX4Mwv9ezvakd6+lxMqeBt9Rel9NyvREawVC1NAv
-         tMe2gqmJXZvUC8AxrlatWxp3MWhxvqn1YTiNR/RzPaONMgsAiEtKxbafxLxyg9nkNXat
-         dZfbqvloO+gAMQjy3emzqL9MkLMbil5zQZ2AJVspYim6FftDX4dNSLzSSGLUFf40l16o
-         9zgqjb2bknGjfvgFkL4yXJxUtbo+7e6iqauMa+sxwaX7F+m91LtBQA4M8bINv3FR0XZM
-         9nCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756224681; x=1756829481;
-        h=references:message-id:date:in-reply-to:subject:cc:to:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=x7YHGBfWDVADI2xpT7SSYdJvgJ+u1HlsYJPIUxDj/3o=;
-        b=YMwOmeEYDQyK3nQB1wjFkt54sIH1PKCiKybyjyxRm3qg77qb2jYQBcVrkqlxCszJVR
-         XxWe9ygjpkeIEMVpqFVR8NttxPnJHLU7Jw4dp2S7EaYw8OZcrX7mhkNaZFK1//+6qyBN
-         ZeRHNj3aGlkdcQCO5gohFc/oppnhro7JQ+/1ankx/UwMBajjduvgYAswHkhlELJenWR/
-         hiAzJugxj+uxg+nga45mdmtG4wneGWpfFe5JkoOtCVUHj5Vx4QPMt2A6yH6rVn3RLmdO
-         MocH2X4sFjL78EZ1eF2w5C/jw8x43dYIm2+y0PS6C7o4f/VEXxrjShsxO/O/pLi0Wbu/
-         ZP1g==
-X-Forwarded-Encrypted: i=1; AJvYcCVXhpPurqGqwoIbSL53rrm5crIIXHm9V+85Y0p4b/9w8uI4gtepiwXFH9DUtj1+VlT5CBL3XEMw2Gi5eRrhJQPb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzeg30qYnL9iICn4jbMUVrQla4ON/n0jw8PWiYz/6FwXP5EKonv
-	BPZKbsKxk4DhiX+xCR4J0FIpf5XIBalqtY6b4APlS/7ABN312egtJlrp
-X-Gm-Gg: ASbGncsaHF7ZBvWDiS4Jo0vBgxB4AJJu92t8CCCB4r0gbzgkNza2zn71qD9NrVbhW0E
-	ALIq2aSKfDlHSwVUABv2koQTmOWZi1l8B6VNJB1/bvmaZUcMHhMCJ4TjERYCDK7Hv0FszvEPm4/
-	u9XGM+0DzN1aDPWE2xaLZZDMg/rqQVrLHkGpRfKAuE7pFcHApIKh3bH4MSz35n7yiw+mVqy0Nk1
-	7wZPSuox65acquvPe0VTBIAbbG8t7se7w4e2+9iwsWxfxJ5OjB7L03xaMDHjIQWvV94sPJDITZR
-	+/G4QdZM712Vn+PVKCWeIlud6egtFTaUy0A2dzTvjoUW+LSNnY7kvka1fRTyWIeevsNotL25kGn
-	zVO1BS1PpY0cxYCNGPYNaBg8+
-X-Google-Smtp-Source: AGHT+IG8j7nkE/RFr7BQwCiAtTrjb1Yni0bb2N7tgW2dyTywLJuPO1I0dLGiPUq7BkTRDYyaGss91w==
-X-Received: by 2002:a17:902:f70a:b0:246:d703:cf7f with SMTP id d9443c01a7336-246d703e121mr117052065ad.5.1756224680346;
-        Tue, 26 Aug 2025 09:11:20 -0700 (PDT)
-Received: from dw-tp ([171.76.82.15])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2466885efc8sm99434355ad.90.2025.08.26.09.11.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 Aug 2025 09:11:19 -0700 (PDT)
-From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-To: Anshuman Khandual <anshuman.khandual@arm.com>, linux-arm-kernel@lists.infradead.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Mark Brown <broonie@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>, linux-kernel@vger.kernel.org
-Subject: Re: [RFC 3/3] arm64/ptdump: Add ARM64_PTDUMP_CONSOLE
-In-Reply-To: <20250818091436.938517-4-anshuman.khandual@arm.com>
-Date: Tue, 26 Aug 2025 21:16:19 +0530
-Message-ID: <87bjo2qe5w.fsf@gmail.com>
-References: <20250818091436.938517-1-anshuman.khandual@arm.com> <20250818091436.938517-4-anshuman.khandual@arm.com>
+	Tue, 26 Aug 2025 18:06:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NYQlpKuuVpOp0dj/RuEjcP+o9YoimMwAmFWyPw0Wf1R7iWmBwdh865O8skMYn3FjCE2bCHh3s3pjGE3gbShYBu1RFBrCH5ghDKvRgYEhIGDrGOJ+1lI6P6Ciob/+4DAUZT3X8WzjeXe4galsqbykqyudO+2//5fFAn9YUbY1yvy0Qq+6+FeGnzPn35H+jsSzWM032dgLS18Rv64uDh1AV+g2MxpO6OdmU8WwVtANly1rxhelNZac4TJwKEb6/zBTbtmBeIEN9/VULOSsdz7heRCqBAzCqqWzMcbIsw11dd09v38Zl2s8hC+Osq21CKIBthFtwZkurH/cKACN4KOmYw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tcEi94+HJkJmAuOl8YquuCHg5PsNZb8Yp9/clB4oVNE=;
+ b=Mzvf3KhepfvJosUkxxaktPkPtJMpf1Dcrmu8SJfWjT+g26O1C/WQS4qgnSGQBScbc3XP/dXAXKKItbmGTW5OgcVSlLC69SEVF0vZIHCYGyvK5roRpuA20qwfuQYHLaOrp62N6UeAtU6+l5mPUGnfWLiNKvjuXyVJT/R713Qz39L4v8w1ccSZpSRypd0fIb9wiI+uXoVDbJa+/r58upHovEX5HiUgJ9Y+kJBnEcjoWlCG84V5gixLXVX4T43n8/Evz72wux+Fs8GZCnzO6hVUHCJ7FpR0YWyqZGK/wZPMMrzPrbi1dN0Q6dCMZI5chvXXHhX0SCSgbl3ggYqK3aJkEg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tcEi94+HJkJmAuOl8YquuCHg5PsNZb8Yp9/clB4oVNE=;
+ b=Eu++oM1mIsHN6pHsbhIMj/zOKbsPTYLLvD3ATaJcBwtwl/aJMysKov1Ez+jT+66FDYcxn+Z2iKA0LkpOH/Ous2WNZEgbhY8j2TTn0l4ul3wDE+dEagMCRIqwvWIKRf2GLKrUr7vGJkEBcISJ4xy8yA93e1xCIxPxf7U/2Oc6sFo=
+Received: from BYAPR06CA0070.namprd06.prod.outlook.com (2603:10b6:a03:14b::47)
+ by SJ5PPFC41ACEE7B.namprd12.prod.outlook.com (2603:10b6:a0f:fc02::9a0) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.14; Tue, 26 Aug
+ 2025 18:05:55 +0000
+Received: from SJ1PEPF00001CDE.namprd05.prod.outlook.com
+ (2603:10b6:a03:14b:cafe::b1) by BYAPR06CA0070.outlook.office365.com
+ (2603:10b6:a03:14b::47) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9052.21 via Frontend Transport; Tue,
+ 26 Aug 2025 18:05:55 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=SATLEXMB03.amd.com; pr=C
+Received: from SATLEXMB03.amd.com (165.204.84.17) by
+ SJ1PEPF00001CDE.mail.protection.outlook.com (10.167.242.6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.9073.11 via Frontend Transport; Tue, 26 Aug 2025 18:05:54 +0000
+Received: from satlexmb08.amd.com (10.181.42.217) by SATLEXMB03.amd.com
+ (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 26 Aug
+ 2025 13:05:54 -0500
+Received: from SATLEXMB03.amd.com (10.181.40.144) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.1748.10; Tue, 26 Aug
+ 2025 11:05:53 -0700
+Received: from xhdradheys41.xilinx.com (10.180.168.240) by SATLEXMB03.amd.com
+ (10.181.40.144) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
+ Transport; Tue, 26 Aug 2025 13:05:49 -0500
+From: Abin Joseph <abin.joseph@amd.com>
+To: <radhey.shyam.pandey@amd.com>, <andrew+netdev@lunn.ch>,
+	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <michal.simek@amd.com>
+CC: <git@amd.com>, <abin.joseph@amd.com>, <netdev@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<stable@vger.kernel.org>
+Subject: [PATCH net-next] net: xilinx: axienet: Add error handling for RX metadata pointer retrieval
+Date: Tue, 26 Aug 2025 23:35:49 +0530
+Message-ID: <20250826180549.2178147-1-abin.joseph@amd.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CDE:EE_|SJ5PPFC41ACEE7B:EE_
+X-MS-Office365-Filtering-Correlation-Id: ed517006-7de1-47c9-6fe0-08dde4cb335e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?a7qKuOdfocFiOPK69Uaf2xS2qx1uUjlpVmNJbu5c+Ljcc02Ndyw4zY3wz9eQ?=
+ =?us-ascii?Q?H7mViYghOHN/MQSE2c3N0/n9pBdiYbxiiruCGSqIBqIknXbVXG7E4Nyo6Taz?=
+ =?us-ascii?Q?0O2CnPluzViTENYc/HCe4Fds7KXvh/LWyYGlXyY2tQ7ipKUVskA3kVAbfPWJ?=
+ =?us-ascii?Q?yGgPTt38aLapFQBQ5oLNEHNAm3nfApcjhsFnF4kK3OAEAte3ag/cbqdLrzwo?=
+ =?us-ascii?Q?BA58tJYdGxtBecqDUkLp8r1TJyTqnAR+vmq8F8xrRU7se8AdH5rwSC2tkgwr?=
+ =?us-ascii?Q?VQEglI8PbQMAjfDKiIv4mWSkuGnN1+cBMkLRFc9m94Rsp6fitwTuG7bAC4OJ?=
+ =?us-ascii?Q?XgNvSCaR7BziwN/y7eNgCY6R401vVhA2EgvgNfsPTUOUqq/kgRlwrsGAgPeU?=
+ =?us-ascii?Q?YFsJJFqRx2ZLDExTwFY3O8kro08oUelkhp0QJAS85AWgJ/5ltvhoS7fXhi0k?=
+ =?us-ascii?Q?mQkPQiMds5QmpIjXjionKqe4FXNs2a9r1ZhQKsNMUfpO/fe3DPAx5i6G/XNL?=
+ =?us-ascii?Q?gyx9PfOHijG7CJr14vXHf5eBhrTm+0uzOWF2zn6+ySGcOsVSbLdU1jLBhYM3?=
+ =?us-ascii?Q?hwXZVFGcT0qfaVQWZgF8i/kW135CW46IKmVHsT3xbEEZh77wrs+wpen67tGQ?=
+ =?us-ascii?Q?l30xogbXWaavGOOoEwIY3vMjyu6jv+6QdFy4EnObF3K4Mn3DmqBpo6/cyQst?=
+ =?us-ascii?Q?XVcpPmwWqZbh97Z60vcVfxMwEYjqtK+06tqlqkxyjnvBHcSUYUqBS8Symy+a?=
+ =?us-ascii?Q?KLYqfSi+5A05w8EJJpA+4i8xWLjAYmBk+Yqn7MDVLD8lkyi+wGUR1v7Zl5qP?=
+ =?us-ascii?Q?B4dZ6fK+HtMuilcduPJW+35hYHO8vlwcgDFfkfA1/tuFHo3x8i8XTlxBpmim?=
+ =?us-ascii?Q?bfyhxsj71E2z/fqmRj9gniSlPSv7Sq4TlOMgoqItjtX3CIF6RGFvgzdB7c1t?=
+ =?us-ascii?Q?SLQl5+xxVEpI9+SXc0umwuNAPDEH4hSEE9AQxGOrz0+8pd1pIw/ofy660KzL?=
+ =?us-ascii?Q?AHrwwDtLiAoyxbeDxfn97hgIik6GdcqTluwhzm85kGkymzmXb7EXbyfA3kgD?=
+ =?us-ascii?Q?qG1R1bsvbjL3xj9IfsxErEmUmocH7WgC1ucDARa1xpdjulz7FVMF70u1df/e?=
+ =?us-ascii?Q?fcdBt/LmF729zU53qzYVnI2Ofulf2cgF9rh9izTKO+DZkSzlRYhT5eR97cZ+?=
+ =?us-ascii?Q?ow0dmTHgCas2rMldgPYcc0eOp4x/2HjB6mUFuPsZQGC2aqdrQ8dw0F0dv39U?=
+ =?us-ascii?Q?bzPXA9B75856cr4Nk3/sbru7i5ApFXXF1MQIVqMJiSGgK3qXOJisNFirsAZt?=
+ =?us-ascii?Q?FV0MRkvGDTmhvQ5d0ftx5huXneVBvtutKnSpq/GTsa1uesc5sQGwGKT11Kmx?=
+ =?us-ascii?Q?34Wc4QlydLgW9TZYbJWlvZmzGCriPtN8h+swykPpFu2avZ3ZeIjtW9SHMpCz?=
+ =?us-ascii?Q?Fxi+6wILnW5M9e+HPgLR9v640HNgQQL5W6vilHBOywUO/5igV8MtQuzoaaQp?=
+ =?us-ascii?Q?3OzAbewuHJm9+/ZUCYZf6Z/356dkXC+eM31X?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Aug 2025 18:05:54.6446
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ed517006-7de1-47c9-6fe0-08dde4cb335e
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB03.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CDE.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPFC41ACEE7B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_091122_046780_ADEC05FF 
-X-CRM114-Status: GOOD (  24.21  )
+X-CRM114-CacheID: sfid-20250826_110602_739322_2C739DBA 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,113 +148,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Anshuman Khandual <anshuman.khandual@arm.com> writes:
+Add proper error checking for dmaengine_desc_get_metadata_ptr() which
+can return an error pointer and lead to potential crashes or undefined
+behaviour if the pointer retrieval fails.
 
-> Enable early kernel page table dump for debug purpose when required via new
-> config ARM64_PDUMP_CONSOLE. This calls existing ptdump_walk() early on just
-> after ptdump has been initialized with ptdump_init().
+Properly handle the error by unmapping DMA buffer, freeing the skb and
+returning early to prevent further processing with invalid data.
 
-I happen to stumble upon this while looking for something else related
-to ptdump and was curious to understand where this will be really
-useful? 
+Fixes: 6a91b846af85 ("net: axienet: Introduce dmaengine support")
+Signed-off-by: Abin Joseph <abin.joseph@amd.com>
+---
+ drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
 
-So instead of dumping it via cat /sys/kernel/debug/kernel_page_tables,
-this will dump at early boot during arch setup and before start_kernel().
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+index 0d8a05fe541a..1729fd21d83b 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+@@ -1166,8 +1166,17 @@ static void axienet_dma_rx_cb(void *data, const struct dmaengine_result *result)
+ 	skb = skbuf_dma->skb;
+ 	app_metadata = dmaengine_desc_get_metadata_ptr(skbuf_dma->desc, &meta_len,
+ 						       &meta_max_len);
+-	dma_unmap_single(lp->dev, skbuf_dma->dma_address, lp->max_frm_size,
+-			 DMA_FROM_DEVICE);
++
++	dma_unmap_single(lp->dev, skbuf_dma->dma_address, lp->max_frm_size, DMA_FROM_DEVICE);
++
++	if (IS_ERR(app_metadata)) {
++		if (net_ratelimit())
++			netdev_err(lp->ndev, "Failed to get RX metadata pointer\n");
++		dev_kfree_skb_any(skb);
++		lp->ndev->stats.rx_dropped++;
++		goto rx_submit;
++	}
++
+ 	/* TODO: Derive app word index programmatically */
+ 	rx_len = (app_metadata[LEN_APP] & 0xFFFF);
+ 	skb_put(skb, rx_len);
+@@ -1180,6 +1189,7 @@ static void axienet_dma_rx_cb(void *data, const struct dmaengine_result *result)
+ 	u64_stats_add(&lp->rx_bytes, rx_len);
+ 	u64_stats_update_end(&lp->rx_stat_sync);
+ 
++rx_submit:
+ 	for (i = 0; i < CIRC_SPACE(lp->rx_ring_head, lp->rx_ring_tail,
+ 				   RX_BUF_NUM_DEFAULT); i++)
+ 		axienet_rx_submit_desc(lp->ndev);
+-- 
+2.34.1
 
-I was curious, since this anyway gets enabled only in debug kernels.
-There we can always just boot with minimal busybox image which can jump
-to shell quickly and dump the kernel page tables, correct?
-
-Also is ARM64_PTDUMP_CONSOLE config option added on purpose? A kernel cmdline
-like early_ptdump=yes|1|true could come much handy, right?
-
-(Since I am fixing few issues on powerpc ptdump - hence was just curious
-to know whether this can come useful for me too or not :) )
-
-Thanks!
--ritesh
-
->
-> Suggested-by: Ryan Roberts <ryan.roberts@arm.com>
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
->  arch/arm64/Kconfig.debug        | 12 ++++++++++++
->  arch/arm64/include/asm/ptdump.h |  7 +++++++
->  arch/arm64/kernel/setup.c       |  1 +
->  arch/arm64/mm/ptdump.c          |  7 +++++++
->  4 files changed, 27 insertions(+)
->
-> diff --git a/arch/arm64/Kconfig.debug b/arch/arm64/Kconfig.debug
-> index 265c4461031f..0f8af0dd0f4c 100644
-> --- a/arch/arm64/Kconfig.debug
-> +++ b/arch/arm64/Kconfig.debug
-> @@ -20,4 +20,16 @@ config ARM64_RELOC_TEST
->  	depends on m
->  	tristate "Relocation testing module"
->  
-> +config ARM64_PTDUMP_CONSOLE
-> +	bool "Dump early kernel page table"
-> +	depends on DEBUG_KERNEL
-> +	depends on ARCH_HAS_PTDUMP
-> +	select PTDUMP
-> +	help
-> +	  Enable this option to dump early kernel page table entries during
-> +	  boot using the PTDUMP framework. This helps in examining kernel's
-> +	  page table mapping entries and their attributes etc.
-> +
-> +	  If in doubt, say N.
-> +
->  source "drivers/hwtracing/coresight/Kconfig"
-> diff --git a/arch/arm64/include/asm/ptdump.h b/arch/arm64/include/asm/ptdump.h
-> index 27e774134e7f..81dc53ca9643 100644
-> --- a/arch/arm64/include/asm/ptdump.h
-> +++ b/arch/arm64/include/asm/ptdump.h
-> @@ -74,8 +74,15 @@ void __init ptdump_debugfs_register(struct ptdump_info *info, const char *name);
->  static inline void ptdump_debugfs_register(struct ptdump_info *info,
->  					   const char *name) { }
->  #endif /* CONFIG_PTDUMP_DEBUGFS */
-> +
-> +#ifdef CONFIG_ARM64_PTDUMP_CONSOLE
-> +void __init arm64_kernel_pgtable_dump(void);
-> +#else
-> +static inline void __init arm64_kernel_pgtable_dump(void) { }
-> +#endif /* CONFIG_ARM64_PTDUMP_CONSOLE */
->  #else
->  static inline void __init ptdump_init(void) { }
-> +static inline void __init arm64_kernel_pgtable_dump(void) { }
->  static inline void note_page(struct ptdump_state *pt_st, unsigned long addr,
->  			     int level, pteval_t val) { }
->  static inline void note_page_pte(struct ptdump_state *st, unsigned long addr, pte_t pte) { }
-> diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
-> index 0a3812c8e177..86bf7607d304 100644
-> --- a/arch/arm64/kernel/setup.c
-> +++ b/arch/arm64/kernel/setup.c
-> @@ -361,6 +361,7 @@ void __init __no_sanitize_address setup_arch(char **cmdline_p)
->  	init_bootcpu_ops();
->  	smp_init_cpus();
->  	smp_build_mpidr_hash();
-> +	arm64_kernel_pgtable_dump();
->  
->  #ifdef CONFIG_ARM64_SW_TTBR0_PAN
->  	/*
-> diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
-> index c78e6b496dea..f6d22462add6 100644
-> --- a/arch/arm64/mm/ptdump.c
-> +++ b/arch/arm64/mm/ptdump.c
-> @@ -407,6 +407,13 @@ void __init ptdump_init(void)
->  	ptdump_initialize();
->  }
->  
-> +#ifdef CONFIG_ARM64_PTDUMP_CONSOLE
-> +void __init arm64_kernel_pgtable_dump(void)
-> +{
-> +	ptdump_walk(CONSOLE, &kernel_ptdump_info);
-> +}
-> +#endif
-> +
->  static int __init ptdump_debugfs_init(void)
->  {
->  	ptdump_debugfs_register(&kernel_ptdump_info, "kernel_page_tables");
-> -- 
-> 2.25.1
 
