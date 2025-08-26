@@ -4,82 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9CF4CA0FE7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 14:21:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85027CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 14:23:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZULyMtTc2idS17UiaomIDWxS5E26GTUAPz4WEPqaGL4=; b=xlNBIxZH6/mHNYUfA5ibJvkhss
-	8v1qOL0shxumgJvYAQ6sublh1oLmrmRPswzQk12txDUMouKQAFE+Tx/ysPWY/3aNTdgWU3ysa/w5g
-	q9tbbOFc6Z9A8Wu1ZSXF6kq6gXeIUcpoMexk6e6inYmn2L80Olu1iM4ju43iG3m4v+V/WOP3drnXI
-	GNPzxSopFQNwW4JjjlpAxXlRqtU1Rl80OOBW4ccC3mJ/aprOg229dPPx1/5UAUAx8wrDkHxpdwhTn
-	5igphUfAg+kwENsaRpz59sxW50obSlzCa/l/QiKp5Gibe54fnszHWXk7ULUcrIbfyUfS7ArPagD1D
-	Z7TrEnbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lHGyXOKrjm5oz81TLpvSpWDaUb0vSgaahBghiDLKLpk=; b=vftoIpKJHm7glMPf6an4GsXd39
+	TG7W3emy15FriNg1Ra3lsfzFYK3vbeSA5Lht5pDno9pku+dxtFTk6+ktqw+8DHZwnCIIsop5aa7tH
+	ZUP/swXoZBpL4VCLOk50BlwhBQPUlCpMT1Wt1zlNlIPSqorR78ld5d1XUHobmcucdqppYN4ZxMWB6
+	hu7CYcW+a+yE5LOr5OFJsk9Aij7DnLxpTJbGRUWmHOAHYSh1RE/VwZjq8so6j3KXKIIVUHqkM+kx0
+	QQM8fhw0ImlKWztjGX1AXwBoZkAduwknXkQKqWdFe/6TzRINpzyCp0LdayfcAzYiamDjyCVj/MjFp
+	kCDec5HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uquXk-0000000CF7b-2MQP;
-	Tue, 26 Aug 2025 14:21:00 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1uquaQ-0000000CFXM-1aj4;
+	Tue, 26 Aug 2025 14:23:46 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqu5b-0000000C9Vh-0ZAh
+	id 1uqu66-0000000C9a1-2Wew
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 13:51:57 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250826135149euoutp010d3a8a9f4af2f694f28ca5abfcec99a2~fVW3HsXoP1552315523euoutp01B
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 13:51:49 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250826135149euoutp010d3a8a9f4af2f694f28ca5abfcec99a2~fVW3HsXoP1552315523euoutp01B
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1756216309;
-	bh=ZULyMtTc2idS17UiaomIDWxS5E26GTUAPz4WEPqaGL4=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=bHjR9T+BR5tUnH4liPvral9SsKd+bJlZDHZ7KHtU61th59XkHPlp8XlAv5V5/Apz0
-	 I1ntxc+wChLrrwb6cgx0ukA7lcBwo7AFtdeJR0JnCa79mGp/z4lkQ1Zze7SSSv5tl1
-	 WSd83YJ7XtzSf7rYivTV8SqRgODkz8xMtITL0/8k=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250826135149eucas1p2ef79b300c589d967c1533100e84b4049~fVW2pkj3s2476024760eucas1p2-;
-	Tue, 26 Aug 2025 13:51:49 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250826135146eusmtip2cb1cdc8b30562e52ddb197a8da8a70a9~fVWzxQpNd2140921409eusmtip2c;
-	Tue, 26 Aug 2025 13:51:46 +0000 (GMT)
-Message-ID: <8c861182-7e90-4bbf-ac04-173d59f5af69@samsung.com>
-Date: Tue, 26 Aug 2025 15:51:45 +0200
+	Tue, 26 Aug 2025 13:52:28 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-24639fbdd87so31050435ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 06:52:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=csie.ntu.edu.tw; s=google; t=1756216346; x=1756821146; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=lHGyXOKrjm5oz81TLpvSpWDaUb0vSgaahBghiDLKLpk=;
+        b=SogrB0nrjcDxu7NuH+FLqk2Tn8MzkJNUIyKp1Ibl6B9Lk+ugjX/ffKV8VrrfkWOCjL
+         3TRYVV7whJo7o/1bX9jXXl2uVwfe1Ae3cVgS2mAs+xr7XRYL5fYYoqn6RoBeiGuFSQXG
+         dSJdFccK9rWonyZdQSYgfkR2h/jnubPU2gsOZv8apcz4V7RKf9nLaJprvLrKLg4odjLb
+         zmw8ncwaDizgqjZL2TVmcUjiiq13Uf/Le2W1t7k/73Qn0lXsW6A7FeebuDgOGI5Y18vu
+         4LNeAIEyz6avyXAM+1B77zUr7P7/ac9feEbvuoclVg2AqZqR9zzg71wNgjU/57EAw+oY
+         Y03Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756216346; x=1756821146;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lHGyXOKrjm5oz81TLpvSpWDaUb0vSgaahBghiDLKLpk=;
+        b=tLAfWMUJSAaUeT94h2xbtFb085/0Xz5hwHiohcGIZllmOl6fcNCBn1/BV3r6+Oz4vH
+         EDdVttm1OFpQJ7v0EcX0pnNlboK3EjKQ/o7XNClotfgPIEDSWctbHRd3I1kuF1OaxuHw
+         pSHuMwWOJH5RCH8eyam7D048cr47OMJorWGtYBZ3V0PKoIU6bQOVrNh7F6gjpS+rSYkR
+         9zsaWPTXUuEyy6zJXuM49oQt2ORbYSKxh1FNm4KFvKZiulaUWZiJzlvOikosIEhBCyWI
+         PqKA4zYt1ZNbQXY0b0rCI/vgXLYDA/G+gBBvDhSXZCHShCQSgp0mTpXQ2K12yEYZsKPp
+         wXGg==
+X-Gm-Message-State: AOJu0YySouRRd2xQpdmx2aujn+mTskPB1qB9vuwi/1l/hlLQsoPmaHWg
+	Wd3r3Wku8nKdyMwmkhNiWsqWkHAkmU2WP51mwGZ2YHNrbN3ufSclVqDcyNBFlwH+UAJDdzgbbWe
+	j1ZIIChcOSZVKVJFDjVDMZUXRVzXUohke60FnH9gnz4IcOm8BWjt9OxtNon6xDD36kTpQ+g==
+X-Gm-Gg: ASbGncv6WsF/8Z7oPaH9CsyZEquUl3x51psRIDd7/3O3MTi32xgpC2lk7lbaBQN00z2
+	LJa5MU38EV86z5ZGAd8oG/+1orCzJwY2iCEaHIy6pifPozetvyJQrgSzNWfthbRSa0ygGJMrEsj
+	WEovOjHNSmOLFhvC5Zqyr4RQBZzkWQcbnr0CcDyrOPxWEsT3X+trqmUZKxsINrD8Jp5iEMmFbdv
+	8K0GTSkCYS9KtdEFatN6wUlMFKEuhcvjVrLpSRryMYCqBbXROBumvpr0BGRMWGtcxzEX+0ckU54
+	xzWJCMNb4r8jeST1P7aoBSwtZDYzOFKANUCVVLvKMq4AY2CvdDJx+8ioEqSjPIQA8W6SPcEZBJR
+	dk/pW/XZkTuhboRF+AHGeYK66lsd+ebYao86xRCRFc1RSEasuSlMw0Nd0d9MvFdhMaJeX
+X-Google-Smtp-Source: AGHT+IGxhWDFYVYxqq2b3637yU3GvKWhKRYnWWKXaAejHtAF5wXzw4/2DHVTT2A4Zo0gjU/UoaN6ZA==
+X-Received: by 2002:a17:903:238a:b0:245:f860:80b1 with SMTP id d9443c01a7336-248753a264dmr23720075ad.11.1756216345708;
+        Tue, 26 Aug 2025 06:52:25 -0700 (PDT)
+Received: from zenbook (1-162-83-231.dynamic-ip.hinet.net. [1.162.83.231])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-24668889dbbsm96756765ad.132.2025.08.26.06.52.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 26 Aug 2025 06:52:25 -0700 (PDT)
+Date: Tue, 26 Aug 2025 21:55:11 +0800
+From: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Subject: Re: [PATCH] KVM: arm64: nv: Allow shadow stage 2 read fault
+Message-ID: <l4ge3jp2leuzxkpn7nowptl7hjzeiq6amqowibycdhuahgafnw@o3dcvj7njix5>
+References: <20250822031853.2007437-1-r09922117@csie.ntu.edu.tw>
+ <aKg3l23hheuQ1dJH@linux.dev>
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v4 3/6] clocksource/drivers/exynos_mct: Set local timer
- interrupts as percpu
-To: Will McVicker <willmcvicker@google.com>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Daniel Lezcano
-	<daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, Krzysztof
-	Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Rob
-	Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>
-Cc: Donghoon Yu <hoony.yu@samsung.com>, kernel-team@android.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, John
-	Stultz <jstultz@google.com>, Youngmin Nam <youngmin.nam@samsung.com>, Peter
-	Griffin <peter.griffin@linaro.org>, Tudor Ambarus
-	<tudor.ambarus@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
-	<andre.draszik@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20250620181719.1399856-4-willmcvicker@google.com>
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250826135149eucas1p2ef79b300c589d967c1533100e84b4049
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20250620181827eucas1p297671b9a3783026020bb357d494c2e70
-X-EPHeader: CA
-X-CMS-RootMailID: 20250620181827eucas1p297671b9a3783026020bb357d494c2e70
-References: <20250620181719.1399856-1-willmcvicker@google.com>
-	<CGME20250620181827eucas1p297671b9a3783026020bb357d494c2e70@eucas1p2.samsung.com>
-	<20250620181719.1399856-4-willmcvicker@google.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aKg3l23hheuQ1dJH@linux.dev>
+X-Gm-Spam: 0
+X-Gm-Phishy: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_065155_772546_EF30E291 
-X-CRM114-Status: GOOD (  21.20  )
+X-CRM114-CacheID: sfid-20250826_065226_639696_1F07298E 
+X-CRM114-Status: GOOD (  29.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,69 +102,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20.06.2025 20:17, Will McVicker wrote:
-> From: Hosung Kim <hosung0.kim@samsung.com>
->
-> To allow the CPU to handle it's own clock events, we need to set the
-> IRQF_PERCPU flag. This prevents the local timer interrupts from
-> migrating to other CPUs.
->
-> Signed-off-by: Hosung Kim <hosung0.kim@samsung.com>
-> [Original commit from https://android.googlesource.com/kernel/gs/+/03267fad19f093bac979ca78309483e9eb3a8d16]
-> Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
-> Reviewed-by: Youngmin Nam <youngmin.nam@samsung.com>
-> Tested-by: Youngmin Nam <youngmin.nam@samsung.com>
-> Signed-off-by: Will McVicker <willmcvicker@google.com>
+Hi Oliver,
 
-This patch has been merged some time ago to v6.17-rc1 as commit 
-f3cec54ee3bf ("clocksource/drivers/exynos_mct: Set local timer 
-interrupts as percpu"). Recently I found that it breaks CPU hotplug 
-support for some 'little' cores on Exynos5422 based boards, like 
-OdroidXU3/XU4:
+On Fri, Aug 22, 2025 at 02:25:43AM -0700, Oliver Upton wrote:
+> Hi Wei-Lin,
+> 
+> You've been finding some good stuff with nested, thank you :)
+> 
+> On Fri, Aug 22, 2025 at 11:18:53AM +0800, Wei-Lin Chang wrote:
+> > I am able to trigger this error with a modified L1 KVM, but I do realize
+> > this requires L1 to be very strange (or even just wrong) so I understand
+> > if we don't want to handle this kind of edge case. On the other hand,
+> > could there also be other ways to trigger this that I have not thought
+> > of?
+> 
+> The architecture is pretty unambiguous here that the stage-2 can
+> represent a translation w/o read permission.
+> 
+> > Another thing is that this change lets L1 get away with not flushing the
+> > TLB, but TLBs are ephemeral so it's fine in this aspect, however I'm not
+> > sure if there are other considerations.
+> 
+> FEAT_ETS3 is an interesting one since it provides software with ordering
+> expectations around MMU faults (including permission faults) and updates
+> to the translation tables. For KVM's shadow stage-2 to comply we need to
+> re-walk the guest's stage-2 before injecting the fault at L1.
 
-# for i in /sys/devices/system/cpu/cpu[1-9]; do echo 0 >$i/online; done
-# for i in /sys/devices/system/cpu/cpu[1-9]; do echo 1 >$i/online; done
-[  117.100195] CPU2: failed to come online
--bash: echo: write error: Input/output error
-[  118.140426] CPU3: failed to come online
--bash: echo: write error: Input/output error
-[  118.148428] CPU4: detected I-Cache line size mismatch, workaround 
-enabled
-[  118.169613] CPU5: detected I-Cache line size mismatch, workaround 
-enabled
-[  118.216802] CPU6: detected I-Cache line size mismatch, workaround 
-enabled
-[  118.283725] CPU7: detected I-Cache line size mismatch, workaround 
-enabled
-#
+Thanks for telling me this, I haven't noticed ETS before, let me learn
+about it.
 
-Frankly speaking I have no idea why this happens. CPU hotplug was always 
-broken for the CPU0, but this is not relevant for this case. Maybe this 
-PERCPU flag should be applied only on ARM64-based boards to avoid 
-affecting legacy ARM 32bit cases?
+> 
+> > ---
+> >  arch/arm64/kvm/mmu.c | 4 ++--
+> >  1 file changed, 2 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> > index 1c78864767c5c..41017ca579b19 100644
+> > --- a/arch/arm64/kvm/mmu.c
+> > +++ b/arch/arm64/kvm/mmu.c
+> > @@ -1508,8 +1508,8 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+> >  	exec_fault = kvm_vcpu_trap_is_exec_fault(vcpu);
+> >  	VM_BUG_ON(write_fault && exec_fault);
+> >  
+> > -	if (fault_is_perm && !write_fault && !exec_fault) {
+> > -		kvm_err("Unexpected L2 read permission error\n");
+> > +	if (fault_is_perm && !write_fault && !exec_fault && !nested) {
+> > +		kvm_err("Unexpected S2 read permission error\n");
+> >  		return -EFAULT;
+> >  	}
+> 
+> Hmm... I'm also willing to just delete this check altogether. The
+> likelihood of KVM creating a stage-2 PTE w/o read permission is rather
+> low.
 
-> ---
->   drivers/clocksource/exynos_mct.c | 3 ++-
->   1 file changed, 2 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/clocksource/exynos_mct.c b/drivers/clocksource/exynos_mct.c
-> index 96361d5dc57d..a5ef7d64b1c2 100644
-> --- a/drivers/clocksource/exynos_mct.c
-> +++ b/drivers/clocksource/exynos_mct.c
-> @@ -596,7 +596,8 @@ static int __init exynos4_timer_interrupts(struct device_node *np,
->   			irq_set_status_flags(mct_irq, IRQ_NOAUTOEN);
->   			if (request_irq(mct_irq,
->   					exynos4_mct_tick_isr,
-> -					IRQF_TIMER | IRQF_NOBALANCING,
-> +					IRQF_TIMER | IRQF_NOBALANCING |
-> +					IRQF_PERCPU,
->   					pcpu_mevt->name, pcpu_mevt)) {
->   				pr_err("exynos-mct: cannot register IRQ (cpu%d)\n",
->   									cpu);
+Agreed, and this is in agreement with Marc, let me drop this in the next
+version.
 
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+Thanks,
+Wei-Lin Chang
 
+> 
+> Thanks,
+> Oliver
 
