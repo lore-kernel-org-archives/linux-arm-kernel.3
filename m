@@ -4,78 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77999CA0FE7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 19:51:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FBACCA0FE7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 19:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C6gESCLwBqMn5oFxc+A3Sws4vzsSLzoYx1R3nBe9zdI=; b=dbcBSczptxeR6STFHq2VcPFald
-	Z4Y4MubzizwGqWALzIKV/igdnXsZtYk1r5kK0LOFr7J16ewSlnsjj+FAyK6FHmoLFy19ZJe0QeJd2
-	C0iccn2na4CudhXfsPRbE8wb0l49ppfj7qW0vljydQTBWq0Xh49RMKSEydIQA4gXHhdIK2dVrSH4a
-	a2BR0sLKkglCsces+kyizsOxEMLO2sNd1YUHFuawSj4Ml6KdoBxKBpma+0iqSkK3iFhCHNXFmF4Jc
-	Rw1il6doXiqSGiZ/LQ0E8uv2uKODoALCTyMm7bf4/vdOBQ7VzCkyeqp58Vu2AxP9bXPoGoDJBxg7O
-	UUFWt7Xw==;
+	bh=3Ioqpg7Zg3T78ff1eAE0JZikPJPCGtibo8SLuhEEzE4=; b=zBxeUn+Z3VwrObt1WzQM6B032u
+	xROJJ4NQBz2MF0n+LBXJ8C46vY2Fcgh0B0900YwP9jj6oRBpT/inkW3pswWZIEwxubixh2l/MsJdL
+	zS3g7InpfBYj0QvtBVrd3tBfzrHWyxReJzwRMNDMqhzxOMNy/bC2Hz4GdAM4rQld410lT08hsdl5Q
+	IipovBHr0N6HShuBv/UuyklEwI80So33hWO8ivBoCAiO9lS8NMZZwxP8MkMgA5hedCPiaTzl3IxLb
+	01nIXppCwtSmCdVdDraNsDsKAWzsUy4zZYI+K01qXcDZJeszQO+Yvv7h4gw6KvoYuij27As8UAHrq
+	c2xiil8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqzhU-0000000D2Z3-3SJ0;
-	Tue, 26 Aug 2025 19:51:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uqzkB-0000000D2yi-0x5l;
+	Tue, 26 Aug 2025 19:54:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqzRM-0000000D0JJ-15Qe;
-	Tue, 26 Aug 2025 19:34:45 +0000
+	id 1uqzS2-0000000D0Xb-3QSD
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 Aug 2025 19:35:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CE6EB43C0C;
-	Tue, 26 Aug 2025 19:34:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D17BC4CEF1;
-	Tue, 26 Aug 2025 19:34:37 +0000 (UTC)
-Date: Tue, 26 Aug 2025 20:34:39 +0100
+	by tor.source.kernel.org (Postfix) with ESMTP id 42A50601F5;
+	Tue, 26 Aug 2025 19:35:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60F3CC4CEF1;
+	Tue, 26 Aug 2025 19:35:24 +0000 (UTC)
+Date: Tue, 26 Aug 2025 20:35:27 +0100
 From: Catalin Marinas <catalin.marinas@arm.com>
-To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
-Cc: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Nam Cao <namcao@linutronix.de>,
-	Russell King <linux@armlinux.org.uk>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Will Deacon <will@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-	Christian Brauner <brauner@kernel.org>,
-	Shuah Khan <shuah@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>
-Subject: Re: [PATCH 10/11] vdso: Drop kconfig GENERIC_VDSO_TIME_NS
-Message-ID: <aK4MTxWGoe461HGb@arm.com>
-References: <20250826-vdso-cleanups-v1-0-d9b65750e49f@linutronix.de>
- <20250826-vdso-cleanups-v1-10-d9b65750e49f@linutronix.de>
+To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>
+Cc: Willy Tarreau <w@1wt.eu>, Will Deacon <will@kernel.org>,
+	Shuah Khan <shuah@kernel.org>, Mark Brown <broonie@kernel.org>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 6/7] kselftest/arm64: tpidr2: Switch to waitpid() over
+ wait4()
+Message-ID: <aK4MfzBhjkChTsvd@arm.com>
+References: <20250821-nolibc-enosys-v1-0-4b63f2caaa89@weissschuh.net>
+ <20250821-nolibc-enosys-v1-6-4b63f2caaa89@weissschuh.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250826-vdso-cleanups-v1-10-d9b65750e49f@linutronix.de>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_123444_316132_009F960E 
-X-CRM114-Status: GOOD (  12.92  )
+In-Reply-To: <20250821-nolibc-enosys-v1-6-4b63f2caaa89@weissschuh.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,24 +63,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 26, 2025 at 08:17:13AM +0200, Thomas Weiﬂschuh wrote:
-> All architectures implementing time-related functionality in the vDSO are
-> using the generic vDSO library which handles time namespaces properly.
+On Thu, Aug 21, 2025 at 05:40:37PM +0200, Thomas Weiﬂschuh wrote:
+> wait4() is deprecated, non-standard and about to be removed from nolibc.
 > 
-> Remove the now unnecessary kconfig symbol.
+> Switch to the equivalent waitpid() call.
 > 
-> Enables the use of time namespaces on architectures, which use the
-> generic vDSO but did not enable GENERIC_VDSO_TIME_NS, namely MIPS and arm.
-> 
-> Signed-off-by: Thomas Weiﬂschuh <thomas.weissschuh@linutronix.de>
-> 
-> ---
-> Technically this is still too restrictive, as it prevents architectures
-> without a real vDSO to enable CONFIG_TIME_NS. Right now this restriction
-> only protects the SPARC vDSO. I have patches to drop it completely,
-> as soon as SPARC is usingthe generic vDSO.
-> ---
->  arch/arm64/Kconfig                   | 1 -
+> Signed-off-by: Thomas Weiﬂschuh <linux@weissschuh.net>
 
 Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 
