@@ -4,83 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7D34CA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 16:38:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3437CA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 16:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cs3lA0xtwHyZRzw7X/rouKWvwTFpddTtyCuNGpxeQfg=; b=0SFfImaWYAWhO0bX97pRgqzSJR
-	vtV2citEI1kzV/vZwbPNl7zuKpCo5hlT57RSIsXq/ynVmWgLBRFMXjryAsXyqXqD0mZ46jmiNwMC0
-	7Cwpe0+hv0lRM2HfFLbiataFyoXdpcedAQIM6N9xnZJdboRAuo4UuOXDL6NeDKQSS7cMBOhW+aVBe
-	0guFs5+A3ONaHofSiJfPysrN2v4wpTNycXBe1rRKz8lv1vPd5mB71fMWQMaCaibC/fpFZ8B+bdipw
-	Hg8VzgDML37xpTNU0uoTL60riwrNzH1rIjXFEptbJIYDD7o6fmqZyMNdXaR7Lb5ngn0XNEyernBwb
-	6k9bNBLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EXjzFWweCUpLGhqs+Qc2v5kfooS7EDEgFn61h3Rxlrg=; b=Li6fO0/oBrYe1MpbfM2RiOwB3Q
+	Bt5NU2fOUNHknowwUOu/vWxvPa4oC5cIrYa30JAomppMXMseXKsbo8yFHA6GExflFaPZ8SudA4OCo
+	7prqneXMT84rKebJ84JKu5YI1eq2tf1IT54PsHw9rzJX4hWtdF77oTIPWECy0Ed9E6bKeHkijINHr
+	BWb5VH4V4cEZteP+eISTsmYNRpBP/PQAlXGapjQ16cbPw4/kWVDrCZFr8rbu3wm3vHJ1Fqx7HEHBq
+	hGiCpz6NroHMeCtNcT6ZEXEz+Ysr3y8fieaKrLxEEAWV6l3bsfVaAmLVv48GSgHELJEgQmUdRuV0G
+	HRim9Hkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqwgb-0000000CfcO-2VdV;
-	Tue, 26 Aug 2025 16:38:17 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uqwjI-0000000Cg4c-2y9h;
+	Tue, 26 Aug 2025 16:41:04 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqwdt-0000000CfGS-3t4L;
-	Tue, 26 Aug 2025 16:35:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Cs3lA0xtwHyZRzw7X/rouKWvwTFpddTtyCuNGpxeQfg=; b=OZceRtTnXpkXN7MsmlPuJoe2Sv
-	+Rd1y+UmaNCfMNS6F6DnEG15mXTIKl38PP6azrJTgsvUJ8Qfkm1NbfJHWBcWSmHwANbvmVVHioKq+
-	hUPbwGnIXx5fahRT2KnJ9WAbAtahJHwGze58fEWMVDcbcQ9VIWGeqOxjM47IS05/ZL2Rznom11Q4q
-	E/VYNrJiReReu22mXB6rzhGSeVZkA5rLojePOBr5LJmJrrw73it16RSDn4NS2V+1fCzJKGM5x15du
-	0cYBZuujm8OpTh/qr96K5hk1EpXJTVJpqk1UYordrgdcaugvo+mTb6PyMy9za8GBzTjym4rDITJrE
-	ktn35v2A==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqwdq-00000002Gk5-2Cim;
-	Tue, 26 Aug 2025 16:35:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8E4571A25;
-	Tue, 26 Aug 2025 09:35:15 -0700 (PDT)
-Received: from [10.57.4.86] (unknown [10.57.4.86])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A5A1B3F694;
-	Tue, 26 Aug 2025 09:35:17 -0700 (PDT)
-Message-ID: <8d6ac059-fc8f-4a5d-b49e-d02777c01cfb@arm.com>
-Date: Tue, 26 Aug 2025 17:35:15 +0100
+	id 1uqwgH-0000000CfYO-27dd
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 Aug 2025 16:37:58 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-45a1abf5466so590645e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 09:37:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1756226276; x=1756831076; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=EXjzFWweCUpLGhqs+Qc2v5kfooS7EDEgFn61h3Rxlrg=;
+        b=gAPmfhLHz60Kn6U5MX+q1CQqPvmSPx5pJbzpc1CWqBNfhRi2SS+AAbKipNYGGHQelV
+         zTdiUXexeZ5VFQ4PH4I6NKDk1X0HtVjTUvYabKrSuBNtINXcvUDcfsqOvXRZGynh2szO
+         WD8r1PwAmZSQKTBntklF0GnbP6Y5uIbP8bJeusjVZM40pHu/lAv96czE4Oc+Tr7nDgW/
+         JgZNUvwjwckpcl59TB6GZO8tnjcD/JrxMfLv4Tf8VngDRtwD/YsRO9WYDygV1FQXqsHH
+         /4JRL+zNfmL5uChPkBVnA/F/9kCLY3PgOO4Iv9W5jBPFP5+Y429k1fBa25LVVcRuEm7Y
+         hhfg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756226276; x=1756831076;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=EXjzFWweCUpLGhqs+Qc2v5kfooS7EDEgFn61h3Rxlrg=;
+        b=TGjf/sJnTaKPI2WByO4C2CNiwCCyyuA6eWJSzELSSaeIEVkpreofpjVyqUuI7GDJaM
+         GMgJZtDkTV29d6DT9Ek3Ksl0Y5PDtxl/ukKSTHY3+OY93HLSyp5La1vgDqvLDA+ls5Ft
+         USq+JJpobZFrAYUg3CCNmGpyKjT5E6GmKX8a9s8+X6a8O+Mct6zHSE+ujJ1dlzU8aiZl
+         Quh5Y+9DMQ3STF2v7Ttp6xadO5EmiWXtDzBiRqPWmKSpQXrD0UwGuNRpy2Ma1pD8gLiM
+         Xce7xxpfGL03yzpE8pqIcDuKwGhgy8E2A/F3+SK+P3/pgaTkyLvGap3lmKSDY4fjDMQO
+         TYiQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUvpJmbdrgpF+PZMuok/maZg9imkcZxAZBIrsN4RxgxNE+2zPIzgmRDseu9qwLMzWx7vxea2bE0OT424PsVMIcz@lists.infradead.org
+X-Gm-Message-State: AOJu0YzL9uUtq88hfkGQHDNS3eQKJhOPkR1SbdCiDafCubq5MjLQbsOd
+	OZPua/uUgGjzrHMGoRG+vxAA3oLkCK4xiW7DUlXDtUbaCwf5E5WBRNVbSj9P3rcknGM=
+X-Gm-Gg: ASbGnctV0fLxhId0psW7DXPTrXpQWsyKZGWYx0vq+sg913ysttbd542MnXIT1Lzn8xc
+	/xt+JdonD4PRRiJIaospDs7LpnwfLESU7lK5Vo02schWYzHAvsmHp3nfELVDLG8+KQ91SWgorLj
+	0ZwtZiNZEJ4I0Xum8HwrsvfIapbw2quK6NT+ZZASsMsObTaPiJpTEA9Uq+KSDau4ZnaQIyQaCA0
+	+zwA1uJC7M75Ugn7+tTTLqNfXzAUcsjNYW+2i0Z5cJvmDAkBCaMJ1F9NIWx2voRAWB52Z1bsIPI
+	Ss/5/AaYkEB7r663hHfQ1Ak8dDaWrRc5OANTxzIy3m7y/KWtzX8vtZG36m78IIy1u4DzDnzzgrq
+	j9+TrYBjl/TxDd3UoHIrWltIRbIQ=
+X-Google-Smtp-Source: AGHT+IFteKF0n9oClwejHyr5agehXDb0k7S2tqnIcjSRDmL+smq006tk4p7iGhuoEHb8FtlFd6aJOA==
+X-Received: by 2002:a05:600c:19ca:b0:45b:47e1:ef7b with SMTP id 5b1f17b1804b1-45b6870e3dfmr26425085e9.17.1756226275893;
+        Tue, 26 Aug 2025 09:37:55 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3c7113fdacfsm16879530f8f.35.2025.08.26.09.37.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 26 Aug 2025 09:37:55 -0700 (PDT)
+Date: Tue, 26 Aug 2025 19:37:51 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Chester Lin <chester62515@gmail.com>
+Cc: Ciprian Costea <ciprianmarian.costea@nxp.com>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	Fabio Estevam <festevam@gmail.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	imx@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Matthias Brugger <mbrugger@suse.com>,
+	NXP S32 Linux Team <s32@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Srinivas Kandagatla <srini@kernel.org>, linaro-s32@linaro.org
+Subject: [PATCH v2 0/3] nvmem: s32g-ocotp: Add driver for S32G OCOTP
+Message-ID: <cover.1756219848.git.dan.carpenter@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 16/19] perf: Introduce positive capability for sampling
-To: Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>
-Cc: mingo@redhat.com, will@kernel.org, acme@kernel.org, namhyung@kernel.org,
- alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com,
- adrian.hunter@intel.com, kan.liang@linux.intel.com,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
- linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-rockchip@lists.infradead.org, dmaengine@vger.kernel.org,
- linux-fpga@vger.kernel.org, amd-gfx@lists.freedesktop.org,
- dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
- intel-xe@lists.freedesktop.org, coresight@lists.linaro.org,
- iommu@lists.linux.dev, linux-amlogic@lists.infradead.org,
- linux-cxl@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <cover.1755096883.git.robin.murphy@arm.com>
- <ae81cb65b38555c628e395cce67ac6c7eaafdd23.1755096883.git.robin.murphy@arm.com>
- <20250826130806.GY4067720@noisy.programming.kicks-ass.net>
- <aK22izKE4r6wI_D9@J2N7QTR9R3>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <aK22izKE4r6wI_D9@J2N7QTR9R3>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_173527_023543_BE579732 
-X-CRM114-Status: GOOD (  15.68  )
+X-CRM114-CacheID: sfid-20250826_093757_557524_17A9CCB3 
+X-CRM114-Status: GOOD (  16.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,54 +105,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-08-26 2:28 pm, Mark Rutland wrote:
-> On Tue, Aug 26, 2025 at 03:08:06PM +0200, Peter Zijlstra wrote:
->> On Wed, Aug 13, 2025 at 06:01:08PM +0100, Robin Murphy wrote:
->>> Sampling is inherently a feature for CPU PMUs, given that the thing
->>> to be sampled is a CPU context. These days, we have many more
->>> uncore/system PMUs than CPU PMUs, so it no longer makes much sense to
->>> assume sampling support by default and force the ever-growing majority
->>> of drivers to opt out of it (or erroneously fail to). Instead, let's
->>> introduce a positive opt-in capability that's more obvious and easier to
->>> maintain.
->>
->>> diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
->>> index 4d439c24c901..bf2cfbeabba2 100644
->>> --- a/include/linux/perf_event.h
->>> +++ b/include/linux/perf_event.h
->>> @@ -294,7 +294,7 @@ struct perf_event_pmu_context;
->>>   /**
->>>    * pmu::capabilities flags
->>>    */
->>> -#define PERF_PMU_CAP_NO_INTERRUPT	0x0001
->>> +#define PERF_PMU_CAP_SAMPLING		0x0001
->>>   #define PERF_PMU_CAP_NO_NMI		0x0002
->>>   #define PERF_PMU_CAP_AUX_NO_SG		0x0004
->>>   #define PERF_PMU_CAP_EXTENDED_REGS	0x0008
->>> @@ -305,6 +305,7 @@ struct perf_event_pmu_context;
->>>   #define PERF_PMU_CAP_EXTENDED_HW_TYPE	0x0100
->>>   #define PERF_PMU_CAP_AUX_PAUSE		0x0200
->>>   #define PERF_PMU_CAP_AUX_PREFER_LARGE	0x0400
->>> +#define PERF_PMU_CAP_NO_INTERRUPT	0x0800
->>
->> So NO_INTERRUPT was supposed to be the negative of your new SAMPLING
->> (and I agree with your reasoning).
->>
->> What I'm confused/curious about is why we retain NO_INTERRUPT?
-> 
-> I see from your other reply that you spotted the next patch does that.
-> 
-> For the sake of other reviewers or anyone digging through the git
-> history it's probably worth adding a line to this commit message to say:
-> 
-> | A subsequent patch will remove PERF_PMU_CAP_NO_INTERRUPT as this
-> | requires some additional cleanup.
+This driver provides a way to access the On Chip One-Time Programmable
+Controller (OCOTP) on the s32g chipset.  There are three versions of this
+chip but they're compatible.
 
-Yup, the main reason is the set of drivers getting the new cap is 
-smaller than the set of drivers currently not rejecting sampling events, 
-so I wanted it to be clearly visible in the patch. Indeed I shall 
-clarify the relationship to NO_INTERRUPT in the commit message.
+v2:
+I have fixed everything that people pointed out about version 1.
 
-Thanks,
-Robin.
+Sorry, Rob and Krzysztof, for the problems with the device tree YAML
+file.  I had an issue with my dtschema installation and it's fixed now.
+
+I also screwed up the From headers in v1.  I called git format-patch
+without passing the --from argument.  I've fixed my scripts so that
+won't happen again.  I also messed up the Signed-off by lines in patch
+1 and 2.  Sorry!
+
+My other mistakes were from not being a familiar enough with the
+subsystem and those are addressed as well.  Especially re-writing the
+driver using keepouts cut down a lot of lines of code.  I've tested it
+and the results are the same before and after.
+
+Ciprian Costea (2):
+  dt-bindings: nvmem: Add the nxp,s32g-ocotp yaml file
+  nvmem: s32g-ocotp: Add driver for S32G OCOTP
+
+Dan Carpenter (1):
+  arm64: dts: s32g: Add device tree information for the OCOTP driver
+
+ .../bindings/nvmem/nxp,s32g-ocotp-nvmem.yaml  |  45 ++++++++
+ arch/arm64/boot/dts/freescale/s32g2.dtsi      |   7 ++
+ arch/arm64/boot/dts/freescale/s32g3.dtsi      |   7 ++
+ drivers/nvmem/Kconfig                         |  10 ++
+ drivers/nvmem/Makefile                        |   2 +
+ drivers/nvmem/s32g-ocotp-nvmem.c              | 101 ++++++++++++++++++
+ 6 files changed, 172 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/nvmem/nxp,s32g-ocotp-nvmem.yaml
+ create mode 100644 drivers/nvmem/s32g-ocotp-nvmem.c
+
+-- 
+2.47.2
+
 
