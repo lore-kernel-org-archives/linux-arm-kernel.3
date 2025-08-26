@@ -4,76 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ADC3CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 10:34:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8FF7CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 10:37:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0XauGVITHjDUPhgu+TX8GpRGjU2vEvzjqgrUvKCxlfw=; b=DNWJa/138Llu/gc+GV9u6zdinq
-	K1s2QPu7O4AZSWRlFGbgMAEEp8SN9nOCLRQ0Nfkyag3wckaPRKJ7etSX0vBLM+xDpPF15ZrBrlX+X
-	TPUf8tWBUxny0V4of5pk1Fx+Nj+lLxlmX4d3bwe1aV9OqE7D55iuNUyII/doKQGeCt9SldhhOnUmB
-	vnjBe/cckb5tdX4guxpgR73xFP8Df0ZUfArxLIIq+hS/14uop9HTz8MWvdMSNZl47+k16oxLzPQ1c
-	/I28qogTwFubWsv3+PHkVcpF6/QHarLusJybShrhX4oXZ+utWmbt4icIEldACStEi0OoCK6paGPXq
-	jqJqMd2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0pUOWx42AgBtSnbqWsfc6CIjNCLJp3kVqSsR4yIRJ/o=; b=X3tcXNsvrN9DPs/feEa9Rg8D55
+	try8r9k4AnGr53JpCzldwjut/Yabrf32z0iB15QMmFUxyiDd9VeeHJZb0WmsnupbcJQcw5REmPWZp
+	zDcsK14ZDHQKCZ9mUzdlgEhfrr9KLv+aO3G9UwER+qOsl3+QN4+27JuGZHEcrYBw9Sruyi/yTtyh7
+	2X4sVamlHtAZhIyiWWqfK7DLziN0tNMEqm4XWRMXMe89Fj3q90Nv7ngGH/lILI1atSeVegsgzxgU6
+	ejRXV+f02TTkX9vHAbA1SE/7fT+SxxrJIWDfI9fWmw02uSFlPjndKEP+YpKGmosAPups+hJBl7xB7
+	ySNktMoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqr0e-0000000BdaH-3X5n;
-	Tue, 26 Aug 2025 10:34:36 +0000
-Received: from mail-m1973195.qiye.163.com ([220.197.31.95])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqqBO-0000000BTZC-3q2g;
-	Tue, 26 Aug 2025 09:41:40 +0000
-Received: from [172.16.12.153] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 20a6cfec2;
-	Tue, 26 Aug 2025 17:41:33 +0800 (GMT+08:00)
-Message-ID: <52c7a4d7-3b78-4f85-a51b-e7bf950983ab@rock-chips.com>
-Date: Tue, 26 Aug 2025 17:41:30 +0800
+	id 1uqr3N-0000000BdtY-0NoO;
+	Tue, 26 Aug 2025 10:37:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uqqJy-0000000BUuY-0g5F
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 Aug 2025 09:50:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3231C1A00;
+	Tue, 26 Aug 2025 02:50:19 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AABA83F63F;
+	Tue, 26 Aug 2025 02:50:22 -0700 (PDT)
+Date: Tue, 26 Aug 2025 10:50:15 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Sam Edwards <cfsworks@gmail.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Baruch Siach <baruch@tkos.co.il>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] arm64/boot: Zero-initialize idmap PGDs before use
+Message-ID: <aK2DV_joOnaU85Tx@J2N7QTR9R3>
+References: <20250822041526.467434-1-CFSworks@gmail.com>
+ <CAMj1kXH38gOUpDDdarCXPAY3BHBbuFzdD=Dq7Knsg-qHJoNqzQ@mail.gmail.com>
+ <CAH5Ym4gTTLcyucnXjxFtNutVR1HQ0G2k_YBSNO-7G3-4YXUtag@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3] net: ethernet: stmmac: dwmac-rk: Make the
- clk_phy could be used for external phy
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>,
- Chaoyi Chen <kernel@airkyi.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jonas Karlman <jonas@kwiboo.se>, David Wu <david.wu@rock-chips.com>,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org
-References: <20250815023515.114-1-kernel@airkyi.com>
- <CGME20250825072312eucas1p2d4751199c0ea069c7938218be60e5e93@eucas1p2.samsung.com>
- <a30a8c97-6b96-45ba-bad7-8a40401babc2@samsung.com>
- <d0fe6d16-181f-4b38-9457-1099fb6419d0@rock-chips.com>
- <809848c9-2ffa-4743-adda-b8b714b404de@samsung.com>
- <aKxnHFSrVeM7Be5A@shell.armlinux.org.uk>
- <8240a3cc-aade-40d8-b2f4-09681f76be68@rock-chips.com>
- <aK19bSmrbXjoVXdO@shell.armlinux.org.uk>
- <ae11b993-5844-4da1-b433-c27b5a73060a@rock-chips.com>
- <aK1_uaBpnix4n4eS@shell.armlinux.org.uk>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <aK1_uaBpnix4n4eS@shell.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a98e5c115b803abkunmbdb30c1512b1a37
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQkpMH1YaGkhNGkJCH0lPHk5WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=QUxjHiA4NRSdDzTOLzXj6ibjiMdunwTZMcqRXDKB2H2d+RGMw5YPYQbuhUr+PYzB9Ib+up3Y4xOJUFAZGzq/4ocV4gs2CjAxu8KXDDHJ9SvZHExlJQusLCP28wEKJevHxEHAlNbWu6fw+CuUGh3B7oldl1eVT1ro2TrhRD2paiA=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=0XauGVITHjDUPhgu+TX8GpRGjU2vEvzjqgrUvKCxlfw=;
-	h=date:mime-version:subject:message-id:from;
+In-Reply-To: <CAH5Ym4gTTLcyucnXjxFtNutVR1HQ0G2k_YBSNO-7G3-4YXUtag@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_024139_149512_6CF6C06A 
-X-CRM114-Status: GOOD (  20.70  )
+X-CRM114-CacheID: sfid-20250826_025030_287097_D84E1320 
+X-CRM114-Status: GOOD (  30.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,95 +74,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/26/2025 5:34 PM, Russell King (Oracle) wrote:
+On Sat, Aug 23, 2025 at 04:55:44PM -0700, Sam Edwards wrote:
+> On Sat, Aug 23, 2025 at 3:25 PM Ard Biesheuvel <ardb@kernel.org> wrote:
+> >
+> > Hi Sam,
+> >
+> > On Fri, 22 Aug 2025 at 14:15, Sam Edwards <cfsworks@gmail.com> wrote:
+> > >
+> > > In early boot, Linux creates identity virtual->physical address mappings
+> > > so that it can enable the MMU before full memory management is ready.
+> > > To ensure some available physical memory to back these structures,
+> > > vmlinux.lds reserves some space (and defines marker symbols) in the
+> > > middle of the kernel image. However, because they are defined outside of
+> > > PROGBITS sections, they aren't pre-initialized -- at least as far as ELF
+> > > is concerned.
+> > >
+> > > In the typical case, this isn't actually a problem: the boot image is
+> > > prepared with objcopy, which zero-fills the gaps, so these structures
+> > > are incidentally zero-initialized (an all-zeroes entry is considered
+> > > absent, so zero-initialization is appropriate).
+> > >
+> > > However, that is just a happy accident: the `vmlinux` ELF output
+> > > authoritatively represents the state of memory at entry. If the ELF
+> > > says a region of memory isn't initialized, we must treat it as
+> > > uninitialized. Indeed, certain bootloaders (e.g. Broadcom CFE) ingest
+> > > the ELF directly -- sidestepping the objcopy-produced image entirely --
+> > > and therefore do not initialize the gaps. This results in the early boot
+> > > code crashing when it attempts to create identity mappings.
+> > >
+> > > Therefore, add boot-time zero-initialization for the following:
+> > > - __pi_init_idmap_pg_dir..__pi_init_idmap_pg_end
+> > > - idmap_pg_dir
+> > > - reserved_pg_dir
+> >
+> > I don't think this is the right approach.
+> >
+> > If the ELF representation is inaccurate, it should be fixed, and this
+> > should be achievable without impacting the binary image at all.
+> 
+> Hi Ard,
+> 
+> I don't believe I can declare the ELF output "inaccurate" per se,
+> since it's the linker's final determination about the state of memory
+> at kernel entry -- including which regions are not the loader's
+> responsibility to initialize (and should therefore be initialized at
+> runtime, e.g. .bss). But, I think I understand your meaning: you would
+> prefer consistent load-time zero-initialization over run-time. I'm
+> open to that approach if that's the consensus here, but it will make
+> `vmlinux` dozens of KBs larger (even though it keeps `Image` the same
+> size).
 
-> On Tue, Aug 26, 2025 at 05:29:04PM +0800, Chaoyi Chen wrote:
->> On 8/26/2025 5:25 PM, Russell King (Oracle) wrote:
->>
->>> On Tue, Aug 26, 2025 at 04:08:40PM +0800, Chaoyi Chen wrote:
->>>> Hi Russell,
->>>>
->>>> On 8/25/2025 9:37 PM, Russell King (Oracle) wrote:
->>>>> On Mon, Aug 25, 2025 at 12:53:37PM +0200, Marek Szyprowski wrote:
->>>>>> On 25.08.2025 11:57, Chaoyi Chen wrote:
->>>>>>> On 8/25/2025 3:23 PM, Marek Szyprowski wrote:
->>>>>>>> On 15.08.2025 04:35, Chaoyi Chen wrote:
->>>>>>>>> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->>>>>>>>>
->>>>>>>>> For external phy, clk_phy should be optional, and some external phy
->>>>>>>>> need the clock input from clk_phy. This patch adds support for setting
->>>>>>>>> clk_phy for external phy.
->>>>>>>>>
->>>>>>>>> Signed-off-by: David Wu <david.wu@rock-chips.com>
->>>>>>>>> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->>>>>>>>> ---
->>>>>>>>>
->>>>>>>>> Changes in v3:
->>>>>>>>> - Link to V2:
->>>>>>>>> https://lore.kernel.org/netdev/20250812012127.197-1-kernel@airkyi.com/
->>>>>>>>> - Rebase to net-next/main
->>>>>>>>>
->>>>>>>>> Changes in v2:
->>>>>>>>> - Link to V1:
->>>>>>>>> https://lore.kernel.org/netdev/20250806011405.115-1-kernel@airkyi.com/
->>>>>>>>> - Remove get clock frequency from DT prop
->>>>>>>>>
->>>>>>>>>       drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 11 +++++++----
->>>>>>>>>       1 file changed, 7 insertions(+), 4 deletions(-)
->>>>>>>>>
->>>>>>>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->>>>>>>>> b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->>>>>>>>> index ac8288301994..5d921e62c2f5 100644
->>>>>>>>> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->>>>>>>>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->>>>>>>>> @@ -1412,12 +1412,15 @@ static int rk_gmac_clk_init(struct
->>>>>>>>> plat_stmmacenet_data *plat)
->>>>>>>>>               clk_set_rate(plat->stmmac_clk, 50000000);
->>>>>>>>>           }
->>>>>>>>>       -    if (plat->phy_node && bsp_priv->integrated_phy) {
->>>>>>>>> +    if (plat->phy_node) {
->>>>>>>>>               bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
->>>>>>>>>               ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
->>>>>>>>> -        if (ret)
->>>>>>>>> -            return dev_err_probe(dev, ret, "Cannot get PHY clock\n");
->>>>>>>>> -        clk_set_rate(bsp_priv->clk_phy, 50000000);
->>>>>>>>> +        /* If it is not integrated_phy, clk_phy is optional */
->>>>>>>>> +        if (bsp_priv->integrated_phy) {
->>>>>>>>> +            if (ret)
->>>>>>>>> +                return dev_err_probe(dev, ret, "Cannot get PHY
->>>>>>>>> clock\n");
->>>>>>>>> +            clk_set_rate(bsp_priv->clk_phy, 50000000);
->>>>>>>>> +        }
->>>>>>> I think  we should set bsp_priv->clk_phy to NULL here if we failed to
->>>>>>> get the clock.
->>>>>>>
->>>>>>> Could you try this on your board? Thank you.
->>>>>> Right, the following change also fixes this issue:
->>>>>>
->>>>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->>>>>> b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->>>>>> index 9fc41207cc45..2d19d48be01f 100644
->>>>>> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->>>>>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->>>>>> @@ -1415,6 +1415,8 @@ static int rk_gmac_clk_init(struct
->>>>>> plat_stmmacenet_data *plat)
->>>>>>             if (plat->phy_node) {
->>>>>>                     bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
->>>>>>                     ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
->>>>>> +               if (ret)
->>>>>> +                       bsp_priv->clk_phy = NULL;
->>>>> Or just:
->>>>>
->>>>> 		clk = of_clk_get(plat->phy_node, 0);
->>>>> 		if (clk == ERR_PTR(-EPROBE_DEFER))
->>>> Do we actually need this? Maybe other devm_clk_get() before it would fail in advance.
->>> Is it the same clock as devm_clk_get()? If it is, what's the point of
->>> getting it a second time. If it isn't, then it could be a different
->>> clock which may be yet to probe.
->> It's not the same clock, but it should be use the same clock controller driver, which is the CRU on the Rockchip platform.
-> Will it always be the same clock controller, including into the future
-> Rockchip devices?
+Our intent was that these are zeroed at build time in the Image. If the
+vmlinux isn't consistent with that, that's a problem with the way we
+generate the vmlinux, and hence "the ELF representation is inaccurate".
 
-Hmm, I'm not sure if it will be the same for the devices that come later. I'll try adding those checks.
+I agree with Ard that it's better to bring the vmlinux into line with
+that (if we need to handlr this at all), even if that means making the
+vmlinux a few KB bigger.
 
+Mark.
 
