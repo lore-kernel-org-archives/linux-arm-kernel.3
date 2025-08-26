@@ -4,51 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4127CA0FE7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 19:48:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77999CA0FE7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 19:51:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mgZYscyVbacE3FEOdMycVAtdYmhk/G00sFJPM14Sy6U=; b=yp2WM1dDkB2JO+Ccz82w6S+77y
-	0rRC4w0RLvDVKYGb3/cg8Lh7e2d399QQHf2r3wX8P3M4F2jTxtlqBZWDRyf/O/w80DenJ0WJH7zRg
-	a/KJLjQ9fJTMc6QXxcobvuBJfdo5Oyo3jZMmnp0uMq7f9s6NbohiJSJzP1tIeQJRSyV9w/JEa11YT
-	CDyCDvaWjsFA1fmTjLL3R7ayo9PUKtf9khi2SjMQo7BA3x/LNKcHWjIyG2DzqTbUC6gvza1UEJWv5
-	BweQJ0c55+64nE4hKs0lQkLVr1aqltsEAJEHsAtLEyOXoL4ARBWlJyqg7/lZr6sN9iW5y2WynxKSY
-	Zvbm7tQA==;
+	bh=C6gESCLwBqMn5oFxc+A3Sws4vzsSLzoYx1R3nBe9zdI=; b=dbcBSczptxeR6STFHq2VcPFald
+	Z4Y4MubzizwGqWALzIKV/igdnXsZtYk1r5kK0LOFr7J16ewSlnsjj+FAyK6FHmoLFy19ZJe0QeJd2
+	C0iccn2na4CudhXfsPRbE8wb0l49ppfj7qW0vljydQTBWq0Xh49RMKSEydIQA4gXHhdIK2dVrSH4a
+	a2BR0sLKkglCsces+kyizsOxEMLO2sNd1YUHFuawSj4Ml6KdoBxKBpma+0iqSkK3iFhCHNXFmF4Jc
+	Rw1il6doXiqSGiZ/LQ0E8uv2uKODoALCTyMm7bf4/vdOBQ7VzCkyeqp58Vu2AxP9bXPoGoDJBxg7O
+	UUFWt7Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqzeo-0000000D2L3-3oCA;
-	Tue, 26 Aug 2025 19:48:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uqzhU-0000000D2Z3-3SJ0;
+	Tue, 26 Aug 2025 19:51:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqzR4-0000000D0ES-2TDT
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 19:34:28 +0000
+	id 1uqzRM-0000000D0JJ-15Qe;
+	Tue, 26 Aug 2025 19:34:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 50E03404CA;
-	Tue, 26 Aug 2025 19:34:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A0ACC4CEF1;
-	Tue, 26 Aug 2025 19:34:24 +0000 (UTC)
-Date: Tue, 26 Aug 2025 20:34:27 +0100
+	by sea.source.kernel.org (Postfix) with ESMTP id CE6EB43C0C;
+	Tue, 26 Aug 2025 19:34:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D17BC4CEF1;
+	Tue, 26 Aug 2025 19:34:37 +0000 (UTC)
+Date: Tue, 26 Aug 2025 20:34:39 +0100
 From: Catalin Marinas <catalin.marinas@arm.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Jinjie Ruan <ruanjinjie@huawei.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>
-Subject: Re: [PATCH] irqchip/gic-v5: Fix kmemleak L2 IST table entries false
- positives
-Message-ID: <aK4MQ3dur0cyluGl@arm.com>
-References: <20250811135001.1333684-1-lpieralisi@kernel.org>
+To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Nam Cao <namcao@linutronix.de>,
+	Russell King <linux@armlinux.org.uk>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Will Deacon <will@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+	Christian Brauner <brauner@kernel.org>,
+	Shuah Khan <shuah@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>
+Subject: Re: [PATCH 10/11] vdso: Drop kconfig GENERIC_VDSO_TIME_NS
+Message-ID: <aK4MTxWGoe461HGb@arm.com>
+References: <20250826-vdso-cleanups-v1-0-d9b65750e49f@linutronix.de>
+ <20250826-vdso-cleanups-v1-10-d9b65750e49f@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20250811135001.1333684-1-lpieralisi@kernel.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250826-vdso-cleanups-v1-10-d9b65750e49f@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_123426_657998_75884AFF 
-X-CRM114-Status: GOOD (  13.60  )
+X-CRM114-CacheID: sfid-20250826_123444_316132_009F960E 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,39 +90,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 11, 2025 at 03:50:01PM +0200, Lorenzo Pieralisi wrote:
-> diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
-> index ad1435a858a4..e8a576f66366 100644
-> --- a/drivers/irqchip/irq-gic-v5-irs.c
-> +++ b/drivers/irqchip/irq-gic-v5-irs.c
-> @@ -5,6 +5,7 @@
->  
->  #define pr_fmt(fmt)	"GICv5 IRS: " fmt
->  
-> +#include <linux/kmemleak.h>
->  #include <linux/log2.h>
->  #include <linux/of.h>
->  #include <linux/of_address.h>
-> @@ -117,6 +118,7 @@ static int __init gicv5_irs_init_ist_linear(struct gicv5_irs_chip_data *irs_data
->  		kfree(ist);
->  		return ret;
->  	}
-> +	kmemleak_ignore(ist);
+On Tue, Aug 26, 2025 at 08:17:13AM +0200, Thomas Weiﬂschuh wrote:
+> All architectures implementing time-related functionality in the vDSO are
+> using the generic vDSO library which handles time namespaces properly.
+> 
+> Remove the now unnecessary kconfig symbol.
+> 
+> Enables the use of time namespaces on architectures, which use the
+> generic vDSO but did not enable GENERIC_VDSO_TIME_NS, namely MIPS and arm.
+> 
+> Signed-off-by: Thomas Weiﬂschuh <thomas.weissschuh@linutronix.de>
+> 
+> ---
+> Technically this is still too restrictive, as it prevents architectures
+> without a real vDSO to enable CONFIG_TIME_NS. Right now this restriction
+> only protects the SPARC vDSO. I have patches to drop it completely,
+> as soon as SPARC is usingthe generic vDSO.
+> ---
+>  arch/arm64/Kconfig                   | 1 -
 
-Nit: if you ever respin, please add a short comment on why this is a
-false positive (easier to see it in the code than the git logs).
-
->  
->  	return 0;
->  }
-> @@ -232,6 +234,7 @@ int gicv5_irs_iste_alloc(const u32 lpi)
->  		kfree(l2ist);
->  		return ret;
->  	}
-> +	kmemleak_ignore(l2ist);
-
-Same here.
-
--- 
-Catalin
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 
