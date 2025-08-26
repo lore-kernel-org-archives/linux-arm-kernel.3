@@ -4,68 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37A5CCA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 14:53:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B90BACA0FEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 14:53:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HMGS7IGSOXk5Q1/Q6qxTcm4ZlvzCxxVLFiwmv/SBWY0=; b=0r9I9qu+t0HeiJz46s6OSy1mDk
-	pJRl7qXUiwvAOEmJAoo7f84YgDsU29OA/X8J+skay74PHF2jTTXcoqa522SQgbiqrTeIU3XE8KwmI
-	zTya6hVbQeCRKryYmNCk1UXo9pn4Wt/lvq/xFw6JKJlIIYIMQn0ptq3T/yxbH6nMXM7Ap3lsoZoHZ
-	4Q+I3UH8K013icIPcxOleGz3IbCfc3N22I03LYceHO6/6hCxM9kfpVo53f/Pk+wmsRWFtrLpDxF9a
-	ewMV++MzZ+dSqYRG9H7y6FKNcu32J+nU1jsxaaad14uw3ZdMpZazLTHEMgIeIK2+vs/tdVYjUv1rM
-	0t4d0wBA==;
+	bh=ApjG81rInNjF1hqd0jas1HuWqCbxWWM3TdhQAfyik1A=; b=v4wyRoD7KczbQieTJ5KKs2Vzrx
+	I41g937U4j/xGs+loxyLFJqrYSWa1PCRGIoyW6O1i6okiYmXz2gw9T/f2b+28yLuwBF9GTrdU4BkP
+	h8QbICk5chjbXeq7UW01TDSytJHAdVlk+jjJpYSYvM9loj1mlWvGCTcdSwKYaEERojX3AlKrZlI3H
+	+HvxhiZOIyro7Z5aVSUUyNteYe0UN0+0aSXzI9HFceadJ9RE5bZH29ATZdiaurULGqxZYInfQUYD+
+	XM157XFb2QCsRFwIIWlsOa+IODVAjOzKR9VUQcajINriFeC9cLAYYel79QTfff+laq+dzTTSzgrkd
+	GE4qghHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqv2y-0000000CKv3-3ZQc;
-	Tue, 26 Aug 2025 14:53:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqtZF-0000000C4ck-3FYB;
-	Tue, 26 Aug 2025 13:18:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B0DEB1A25;
-	Tue, 26 Aug 2025 06:18:20 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E10B23F63F;
-	Tue, 26 Aug 2025 06:18:22 -0700 (PDT)
-Date: Tue, 26 Aug 2025 14:18:16 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: peterz@infradead.org, mingo@redhat.com, will@kernel.org,
-	acme@kernel.org, namhyung@kernel.org,
-	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
-	irogers@google.com, adrian.hunter@intel.com,
-	kan.liang@linux.intel.com, linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, dmaengine@vger.kernel.org,
-	linux-fpga@vger.kernel.org, amd-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org, coresight@lists.linaro.org,
-	iommu@lists.linux.dev, linux-amlogic@lists.infradead.org,
-	linux-cxl@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 02/19] perf/hisilicon: Fix group validation
-Message-ID: <aK20GP5g1iu9DGrQ@J2N7QTR9R3>
-References: <cover.1755096883.git.robin.murphy@arm.com>
- <c7b877e66ba0d34d8558c5af8bbb620e8c0e47d9.1755096883.git.robin.murphy@arm.com>
- <aK2XS_GhLw1EQ2ml@J2N7QTR9R3>
+	id 1uqv30-0000000CKwY-2ltE;
+	Tue, 26 Aug 2025 14:53:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uqtZn-0000000C4jw-31Mj
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 Aug 2025 13:19:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 92646449B6
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 13:19:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DE2DC116B1
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 13:19:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756214341;
+	bh=ApjG81rInNjF1hqd0jas1HuWqCbxWWM3TdhQAfyik1A=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=OaN05jrq4bi1inIfwZLBoKx3WxbZFy61nC/Ox+qKesHiHM6B4L6RWfQ64JcvKeHvv
+	 /EqU5YKXp5d7VS83bfrTVG46y4RQnGER8zHlVVkVoAMMDpnrCl8cNAwQorbMB1xixn
+	 toSpYUzly+7E+/79KvJcMe7eBFMDvQAWahfshq9YyxeKfdXyRcIgD7Lkx9MusAEDsA
+	 b+c1ti+XfMLpGeR427/4gdcTNL5sl+jVKEIxIGF5BR8c7Z+Hf8UhemVq91qqos/UDP
+	 IV09e6418LoxBEv7kdyUg9iZMSSHy7xrYZr8utXhtGCZ+sx9WDQBiUrsDMAw1kBpBV
+	 suB+kG/vNWNFA==
+Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-55f48d61ea2so2358906e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 06:19:01 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXmfG/RfRSraTAEeqDGR+OEm/y9j189kFK9YBwsSE+5NyJ1Ta1lJdhzCgh64AoncQ2uTjKR0n+eWt0L3EdBAvz4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxe0bS8nFSnOunPzI3JlF+E+17sSPgyypLzPa9s4yRQ9KUfbHNJ
+	JO7xqaCaI1k9+4G/5d0/8rN/PJKsrOxNnvHUUwMPz1XuvqVcLriYaClADshPCZ78750RYzUPCE3
+	msLh96MVluQFUhpONzCLPGD/BUrSfBQU=
+X-Google-Smtp-Source: AGHT+IHXfrp3kCO8WaAYTKzmpHz9Y3xyqEAYoduTi5fzZtjnKLnhuV4OCEfMD69+6cml/MqmaABjcDK3g2CbLyEpMrk=
+X-Received: by 2002:a05:6512:61d0:20b0:55f:34e8:b1b0 with SMTP id
+ 2adb3069b0e04-55f34e8ca18mr2581628e87.15.1756214339485; Tue, 26 Aug 2025
+ 06:18:59 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aK2XS_GhLw1EQ2ml@J2N7QTR9R3>
+References: <20250821-bump-min-llvm-ver-15-v2-0-635f3294e5f0@kernel.org>
+ <20250821-bump-min-llvm-ver-15-v2-3-635f3294e5f0@kernel.org>
+ <35178205-7cff-4b4b-abdd-b4cfb9e69dc2@app.fastmail.com> <6b2c0063-1523-4644-a32c-6aa918ad9dd8@app.fastmail.com>
+In-Reply-To: <6b2c0063-1523-4644-a32c-6aa918ad9dd8@app.fastmail.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Tue, 26 Aug 2025 15:18:48 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXEOmvUx8f=_v7_AFhMLobtauSw20t76sEDmzays4NLQnw@mail.gmail.com>
+X-Gm-Features: Ac12FXzs5STcbVyw1zGnE4IpQ5_3OWRNRisWxOHjyZfN8oZRJqnrrFNRfifbWv4
+Message-ID: <CAMj1kXEOmvUx8f=_v7_AFhMLobtauSw20t76sEDmzays4NLQnw@mail.gmail.com>
+Subject: Re: [PATCH v2 03/12] ARM: Clean up definition of ARM_HAS_GROUP_RELOCS
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Nathan Chancellor <nathan@kernel.org>, linux-kernel@vger.kernel.org, 
+	Kees Cook <kees@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, llvm@lists.linux.dev, 
+	patches@lists.linux.dev, Russell King <linux@armlinux.org.uk>, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_061829_940885_FC68B2D6 
-X-CRM114-Status: GOOD (  23.95  )
+X-CRM114-CacheID: sfid-20250826_061903_808002_F3FAFEF5 
+X-CRM114-Status: GOOD (  23.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,60 +87,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 26, 2025 at 12:15:23PM +0100, Mark Rutland wrote:
-> On Wed, Aug 13, 2025 at 06:00:54PM +0100, Robin Murphy wrote:
-> > The group validation logic shared by the HiSilicon HNS3/PCIe drivers is
-> > a bit off, in that given a software group leader, it will consider that
-> > event *in place of* the actual new event being opened. At worst this
-> > could theoretically allow an unschedulable group if the software event
-> > config happens to look like one of the hardware siblings.
-> > 
-> > The uncore framework avoids that particular issue,
-> 
-> What is "the uncore framework"? I'm not sure exactly what you're
-> referring to, nor how that composes with the problem described above.
-> 
-> > but all 3 also share the common issue of not preventing racy access to
-> > the sibling list,
-> 
-> Can you please elaborate on this racy access to the silbing list? I'm
-> not sure exactly what you're referring to.
+On Fri, 22 Aug 2025 at 22:04, Arnd Bergmann <arnd@arndb.de> wrote:
+>
+> On Fri, Aug 22, 2025, at 09:05, Arnd Bergmann wrote:
+> > On Thu, Aug 21, 2025, at 23:15, Nathan Chancellor wrote:
+> >
+> > Would it be possible to either change the macro or to move
+> > the overflow_stack_ptr closer in order to completely eliminate
+> > the CONFIG_ARM_HAS_GROUP_RELOCS symbol and have VMAP_STACK
+> > enabled for all CONFIG_MMU builds?
+> >
+> > Are there any other build testing issues with ARM_HAS_GROUP_RELOCS
+> > besides the one I saw here?
+>
+> With some more randconfig testing, I did come across a few
+> configurations that each fail with hundreds of errors like
+>
+> arm-linux-gnueabi-ld: drivers/crypto/hifn_795x.o(.text+0x99c): overflow whilst splitting 0x10a61854 for group relocation R_ARM_LDR_PC_G2
+>
+> so I guess we'll have to stick with the current dependency,
+> at least for ARMv6 and below.
+>
 
-Ah, I think you're referring to the issue in:
+This is due to LOAD_SYM_ARMV6() (rather than the ldr_this_cpu_armv6
+asm macro), which is used to implement get_current() on configs that
+use a global variable to store the current task pointer (i.e., non-k
+v6 and older). It eliminates the first of two LDRs, which would
+pollute the D-cache otherwise, as every occurrence of get_current()
+emits a literal into .text carrying the address of the __current
+global variable. The D-cache footprint of each such literal is a
+cacheline, which never contains other useful data.
+(The second LDR is needed and always refers to the same address so it
+does not impact D-cache efficiency)
 
-  https://lore.kernel.org/linux-arm-kernel/Zg0l642PgQ7T3a8Z@FVFF77S0Q05N/
-
-... where when creatign a new event which is its own group leader,
-lockdep_assert_event_ctx(event) fires in for_each_sibling_event(),
-because the new event's context isn't locked...
-
-> > diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pmu.c
-> > index a449651f79c9..3c531b36cf25 100644
-> > --- a/drivers/perf/hisilicon/hisi_uncore_pmu.c
-> > +++ b/drivers/perf/hisilicon/hisi_uncore_pmu.c
-> > @@ -101,26 +101,17 @@ static bool hisi_validate_event_group(struct perf_event *event)
-> >  	/* Include count for the event */
-> >  	int counters = 1;
-> >  
-> > -	if (!is_software_event(leader)) {
-> > -		/*
-> > -		 * We must NOT create groups containing mixed PMUs, although
-> > -		 * software events are acceptable
-> > -		 */
-> > -		if (leader->pmu != event->pmu)
-> > -			return false;
-> > +	if (leader == event)
-> > +		return true;
-
-... and hence bailing out here avoids that?
-
-It's not strictly "racy access to the sibling list", becuase there's
-nothing else accessing the list; it's just that this is the simplest way
-to appease lockdep while avoiding false negatives.
-
-It'd probably be better to say something like "the common issue of
-calling for_each_sibling_event() when initialising a new group leader",
-and maybe to spell that out a bit.
-
-Mark.
+The LOAD_SYM_ARMV6() sequence has a range of 256 MiB, which is
+sufficient for any ARM kernel that can be meaningfully used in
+production. However, randconfigs may produce kernels that are larger
+than this, and so we need the COMPILE_TEST check if we are going to
+keep the optimization, and I think it is meaningful enough to do so.
 
