@@ -4,75 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B54C0CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 10:43:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E235DCA0FE9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 10:45:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o6Q7Y3E1cI9YU4bN/X3ZlCOSutz2V8wdoXek4KPsGKk=; b=FAZCo3E7dJorcQKcNU5TzBrMIv
-	2W3pKnlqveiCFXD8ze2mQrN37Xx5nCqiea6qcBBO+GJNo6EgFyz6ps3LjvCSv6J29gzvLJ+Kxd+cz
-	CYziZhX6Eteye9UU46ZOIh18Mg0X7O9XyFn+2bEixgZtkHc+Mw4vDdR6lLzub/ZznioPVPIGtY6bg
-	b47oj8BPHb/K4X5kAX0k36cyTPXRviekvvnKPSdBG68p5BcmPO4lmRlVleLJGpS9DRXFmf+xEqlTm
-	tpTMbin6KcGeXW+AvufEwZB0FcxqDhpPVgudQ7sZneacvoEdCmakbyLK2KJQ3svTR6WF/oTXeMM0x
-	5Xiat8ow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=RKCpxqsXSBWd5rXXvtS9KbFsw7XYgbeW+Y6mgnOOsQs=; b=vUByEL7+mZ2Jsf
+	jJf5QEMp8g4fw0bdL9FNlIcht40WpSeMn8DWOUSFEJ50AiHoCHCS+8VUTlp9QsZRlLXkMEJIzeO+D
+	/dhH4RVm6mR27c+bPAEvb7PVby9p8DL/xvksQ0TOYyakurepe7urWQ7IwqTnMZ6YpqqoV0mJqTEib
+	8wOKZ2a9jaKAsGp+HHlW+j1lqSnV34oJi1yCyWnMOtD6QPmDv8JCNZvUd0nMd3p2Q68FX7WH6wWjR
+	/2qmrSyRPQ5PQRjo2szXpLnq48eZ1xH+hAsISQ9UIutHIVyRJ7IRy6vaJRBJdCHwnoFQjPdiB3Ts6
+	WaUaM0qd/LmpX5OkPfmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqr8l-0000000Becl-2rRc;
-	Tue, 26 Aug 2025 10:42:59 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uqrBT-0000000BfDH-1G0P;
+	Tue, 26 Aug 2025 10:45:47 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqqMT-0000000BVK9-1RtC;
-	Tue, 26 Aug 2025 09:53:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1756201964; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=JqdDCyoBRzA1ioGUjwKcsJArCawzPxSOe3thrDi9ZwZgHt0F9QAZqRvQAfV4esQt0ZAZYxZfIwKBbLA7wAN7myHdr64ix7uqfJlkTjg6/8Z8geKK3qdsikhHWjXZdkwx8jcP4HmdM2znP3ZrQ+jGvAhdUK+s1kfc3IWXPCcePq0=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1756201964; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=o6Q7Y3E1cI9YU4bN/X3ZlCOSutz2V8wdoXek4KPsGKk=; 
-	b=O5Q+G54QW5RkzHJ6dJtSKoVoOCfSKVlAW+tfDEe6CjrFcIrolaNLgkVVGVlXU6YMb0lZSSUL6jajqZN74bUUXUQxUpjgSKaIRLRnXOs2Ay78qz2buhWoyqtXUub8H+w1BJW0kL0ivqY6GnMj28JhPGSLhMYnqndGs68QaJt0/+A=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
-	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1756201964;
-	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=o6Q7Y3E1cI9YU4bN/X3ZlCOSutz2V8wdoXek4KPsGKk=;
-	b=AG9TH54nMsGLH+Z0Jeu4Bj4Bk9uWmYiW+eIryri/67U8aGWVludige0cAmHf5BUe
-	4Vr+Dy3eHegOxtOfj19PKtaH4dbpV48j5LWWIqE/K6aTrdSqjS2YOyqGTZ07W7EP8bU
-	O8Mw0wN5T1Ut623zh1GF4mD75RQRZ9MxZIZT209w=
-Received: by mx.zohomail.com with SMTPS id 1756201961981405.52754025942295;
-	Tue, 26 Aug 2025 02:52:41 -0700 (PDT)
-Message-ID: <441df5ff-8ed4-45ed-8a52-b542c6e7d38c@collabora.com>
-Date: Tue, 26 Aug 2025 11:52:37 +0200
+	id 1uqqO4-0000000BVl0-3S6A
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 Aug 2025 09:54:45 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-45a1b04f8b5so33627605e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 02:54:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756202083; x=1756806883; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=RKCpxqsXSBWd5rXXvtS9KbFsw7XYgbeW+Y6mgnOOsQs=;
+        b=sET0Pz6PO6zH0pH5QJm9V4/y6GAf/865nrCyDyHlVt/mWJ6OHdsRytBQL5TZNgR1D3
+         ZDZKK1VqFcVdrjuYRxHQRL28E9YlJSovxbr0BrbDMQt7awy8fLOFdI6del8FPFAd6anJ
+         gRLmVFAmJYLg7w1gW9kCwycrn33P0ae9jYsWS4uqNiY0AkV1eikZsKxvkeFPfPMdgpxu
+         Bh5QPBIGNRAy/H2rt9vgrWXJCfvG3eRMe+SEkBLCk60Qm1PfsC9WU+dM4BDZ9Pmt0KzG
+         EbfHQG1IjjfJQs6ZAOInc3jIUt0C8JhglBc0pg8utjzQ8rfaKvuTslWrsFM2WrCSNYkG
+         J2pg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756202083; x=1756806883;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RKCpxqsXSBWd5rXXvtS9KbFsw7XYgbeW+Y6mgnOOsQs=;
+        b=ZboyGhRaFa4UZCr+lGqflD8my25RFABG3qSPfcmyIfCW/MiNBo3Ibuf7LUWoublr2D
+         gtBTzcW8uYMPfVxZY1WLM1+tjCj4FWngZ/uuYLw4Rne3c3NRtcvD/uk7uDXBip9k813p
+         B+GMBQUFKwm/qsuqnWfdJiMRK/WcnGhKi8XoUKXEBD8QbruWXrPvhs/JRjlXLJ1QMeZz
+         xQMDehi+pPBHxVoPgQ/kcsUPeFaVzzeLY2hAhGryd7QtFHfxV+hkJY/krEzffBqqe8on
+         OUNZygxgQU4AF2YiqvZkji3jh0TLsyWHJMBTSeqGFkCgAamP2behXwOqts/k+4jXoLrZ
+         fOsw==
+X-Forwarded-Encrypted: i=1; AJvYcCWLC9rgTS8ja9fQQvw9Tz+93UrDfBYRn1Zic0f7xn3QqCbn5R/0nktEVFeEMu/kpN5BF5JLNVvaWHg5bCL11dlA@lists.infradead.org
+X-Gm-Message-State: AOJu0YwwONiNDL7cbyuUV9j6phhaRPORecOgae12e9XLwxeSDHyQVKkK
+	57oLRGZspfpILa0nnoxJESfgIySYo9SvnYJK4NcgH/SPloH/m/7epD6sRK7/4jtfmXA=
+X-Gm-Gg: ASbGncu1dQ7usz/zzvJ/V445n3JCh7C/bh5Po+aLZFUrUBFLd8U7T01Cq5AnWODW8Rh
+	wnETOmSQKKLOAPHcQKFCQZTvpHy7qS5EKoARPxm2dVMkL9asYCWQEchcTIO4yMSoIQ87ZQZvDlW
+	dEvX1WuZwEd1CL3elaf4EWKfAT+ZmS9YtFPI6hmZaRhsgEY/Z8OJvnDzTKOgSmwWExQOdksQ7/c
+	Yn0pZDIwKtKfoZ0QTniqj8w6hTbXj/mybpu94XUQW8nwWCWt6jQpHVReK45V+KmNxtlupHgsDwj
+	y9IbIB0P/4WC8NoEW3xZhYWT9IB+xX1XpA50BPR9JQ2t+m1U6Hboo8ruqDArMJxIDyfiHgV7ald
+	dZMBHJcw2n5ykTlsoBY+koxdpeH4a
+X-Google-Smtp-Source: AGHT+IG+25ORqjof2ATwzWOqh5zMg6Fps3s9la097lt+3O2I/uIH0JvNAAkPT5A+WwcwcTlymgdPXQ==
+X-Received: by 2002:a05:600c:45cd:b0:458:c045:ee99 with SMTP id 5b1f17b1804b1-45b517d4562mr118379285e9.28.1756202082873;
+        Tue, 26 Aug 2025 02:54:42 -0700 (PDT)
+Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:fed4:79fc:9440:6629])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3c7117d5977sm15708447f8f.51.2025.08.26.02.54.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 26 Aug 2025 02:54:42 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Subject: [PATCH 0/6] gpio: remove references to gpio_chip::base from
+ debugfs callbacks
+Date: Tue, 26 Aug 2025 11:54:34 +0200
+Message-Id: <20250826-gpio-dbg-show-base-v1-0-7f27cd7f2256@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 4/6] media: verisilicon: AV1: Restore IOMMU context
- before decoding a frame
-To: Jason Gunthorpe <jgg@ziepe.ca>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
- p.zabel@pengutronix.de, mchehab@kernel.org, iommu@lists.linux.dev,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- kernel@collabora.com, linux-media@vger.kernel.org
-References: <20250825153450.150071-1-benjamin.gaignard@collabora.com>
- <20250825153450.150071-5-benjamin.gaignard@collabora.com>
- <20250825170531.GA1899851@ziepe.ca>
- <01c327e8353bb5b986ef6fb1e7311437659aea4a.camel@collabora.com>
- <20250825183122.GB1899851@ziepe.ca>
-Content-Language: en-US
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-In-Reply-To: <20250825183122.GB1899851@ziepe.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAFqErWgC/x3MQQqAIBBA0avErBvQQsquEi20JptNigMVSHdPW
+ r7F/wWEMpPA1BTIdLFwPCt028B6uDMQ8lYNneqMGrXBkDji5gPKEW/0Tgjd0PvRKL1bZ6GGKdP
+ Ozz+dl/f9ALZCNeNkAAAA
+X-Change-ID: 20250815-gpio-dbg-show-base-a73b8501f9a9
+To: Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+Cc: linux-gpio@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ patches@opensource.cirrus.com, linux-pwm@vger.kernel.org, 
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1398;
+ i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
+ bh=Gn/lKg9DW9+7A7NG/Xm8HI1PObyZ8u17xB6xLp+6Zns=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBorYRdOrntH6xLuqY0RG6LOlTXHAItfAvEs25aM
+ ASHA1ZZdbOJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaK2EXQAKCRARpy6gFHHX
+ cmEtD/9Kspk5oVvRCV8qA4ZGfkv7SpRDLcPGj8xu9wBbaIAEc3SFVsuf56Fk5ofc3w3SsJTnhYr
+ mXtMgsAOjRgswZA0xPsP1/YIRGwVdmHNBywk+6bhKaUz8+sTSyL3+vQ+IBPQ8NN11dV1IdkgrLu
+ 7ch/JoZCDM5HVPLziqdmKKyg2P4IOD1McVr1lXvvjQsKp8yBkyB3LDCOqb5TSb/D6jVQEsQ8X2B
+ PqQGvNnB1Mi7f4vwP8MrjNyzfwQsk0g24n1Hp2RLCzM4ovP5DO2jmHKWP3GIi9bJgmG3ADgZeo9
+ aYZaf0S59RIUz49NIZSjizww7qHTJtVtvWuNsIQVxkUn+6B25mzkZ+lRo+SrPjwKOIdjy/ocfuz
+ 0iHNyDod57+ptCo48ED1p2U4pNrMnkf/oSZKWFjGyt5BUniAqdss1bcCDOB12acGAd3Y7fnf753
+ 2WJjitNAWknKwpilmOMpnqK+RLI1FEffx/OITVlWPCOrSkBdYDGYyWBuMxyouSP8O3wqA/JlrXC
+ 6SuzAVXLdAzBMTP9jYXOjq7ZLUntsdCjCIFtG5C9lILvgvK5UgXEN8t+YrqX0sPkkkshhT2hUhh
+ N5+rsep5nGITtAFlSSOOFWcmJW1x9smqqTHgh0wpaYusTUyCDuJ6CFpj1ZCHWmxmNsjBWvwnvda
+ JoUY+IbaNQ/gW0Q==
+X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_025305_476840_CB30EA0E 
-X-CRM114-Status: GOOD (  16.90  )
+X-CRM114-CacheID: sfid-20250826_025444_867916_64C6238A 
+X-CRM114-Status: UNSURE (   8.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,57 +125,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+We've stopped displaying the global GPIO numbers from core GPIOLIB
+debugfs callbacks. Start dropping it from drivers too.
 
-Le 25/08/2025 à 20:31, Jason Gunthorpe a écrit :
-> On Mon, Aug 25, 2025 at 01:50:16PM -0400, Nicolas Dufresne wrote:
->
->> Jason, the point is that the iommu and the VPU are not separate devices, which
->> comes with side effects. On RKVDec side, the iommu configuration get resets
->> whenever a decoding error leads to a VPU "self reset". I can't remember who from
->> the iommu subsystem suggested that, but the empty domain method was agreed to be
-> IDK, that seems really goofy too me an defiantly needs to be
-> extensively documented this is restoring the default with some lore
-> link of the original suggestion.
->
->> the least invasive way to workaround that issue. I believe Detlev tried multiple
->> time to add APIs for that before the discussion lead to this path.
-> You mean this:
->
-> https://lore.kernel.org/linux-iommu/20250318152049.14781-1-detlev.casanova@collabora.com/
->
-> Which came back with the same remark I would give:
->
->   Please have some kind of proper reset notifier mechanism - in fact
->   with runtime PM could you not already invoke a suspend/resume cycle
->   via the device links?
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+---
+Bartosz Golaszewski (6):
+      gpio: stmpe: don't print out global GPIO numbers in debugfs callbacks
+      gpio: nomadik: don't print out global GPIO numbers in debugfs callbacks
+      gpio: wm831x: don't print out global GPIO numbers in debugfs callbacks
+      gpio: wm8994: don't print out global GPIO numbers in debugfs callbacks
+      gpio: mvebu: don't print out global GPIO numbers in debugfs callbacks
+      gpio: xra1403: don't print out global GPIO numbers in debugfs callbacks
 
-when doing parallel decode suspend/resume are not invoked.
+ drivers/gpio/gpio-mvebu.c                 |  2 +-
+ drivers/gpio/gpio-nomadik.c               | 25 ++++++++++++-------------
+ drivers/gpio/gpio-stmpe.c                 | 14 ++++++--------
+ drivers/gpio/gpio-wm831x.c                |  5 ++---
+ drivers/gpio/gpio-wm8994.c                |  6 ++----
+ drivers/gpio/gpio-xra1403.c               |  3 +--
+ drivers/pinctrl/nomadik/pinctrl-nomadik.c |  2 +-
+ include/linux/gpio/gpio-nomadik.h         |  3 +--
+ 8 files changed, 26 insertions(+), 34 deletions(-)
+---
+base-commit: d0630b758e593506126e8eda6c3d56097d1847c5
+change-id: 20250815-gpio-dbg-show-base-a73b8501f9a9
 
->
-> Or another reasonable option:
->
->    Or at worst just export a public interface for the other driver to
->    invoke rk_iommu_resume() directly.
->
-> Sigh.
+Best regards,
+-- 
+Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-An other solution which is working is to call iommu_flush_iotlb_all()
-before decoding each frame.
-It doesn't require to allocate a domain per decoding context.
-Does that sound as a better solution ?
-
-Benjamin
-
->
->> Benjamin, please improve the naming, comment and description, I agree with Jason
->> its not completely clear. I'm also surprised that you do that every frame, seems
->> excessive.
-> Indeed if it is just error recovery.
->
->> [0] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ff8c5622f9f7c644e995d013af320b59e4d61b93
-> This is already merged? And now you want two copies of this? I think
-> this is a very poor direction..
->
-> Jason
->
 
