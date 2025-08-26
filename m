@@ -4,82 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BFCECA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 10:12:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F89BCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 10:15:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=hkJG+WUZSpEwjO7HzoCtPjyyNbjxdrmMzotvlEggg7g=; b=pdep44IiLGSHYE
-	ao9r59OILrjGf+Iapz/m6OEfAmnf/qZi3e+ZcS2zoNWc/Wy4OCTgq64ohVATAHbOKj5b1b4ga7tS+
-	77tM+r3qFUlBLoaXN4fcZ9TNdB+hqh/VGCu+t8KxEhOiAqbFUuFLNNhENgAgyKeIx233CZBRwb2xi
-	am52O/nX1pmOM9wQtl+KfJPv6rY7XnUS6rRnfKmw6r7jTJnzqtMxOBHWqK4+HshcRjCS9gbvBHuJO
-	fSt//apavGxHnZ0h2ZKUFMG5oWGJTE9F0SHk8nJ08mIBkzmqkU2uhBZ4AfsL391y76YMDYF4EyWTL
-	hqw2RlGzEbYN/6V4FX2Q==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lATIPSy5e6EtCT9cnYgcUD2Ds0mi2iLMFvh/wI5iKp0=; b=s/9FMVsPJdgNNbODUmbs9Qwr/q
+	BWxEsoIR06HP1yMa1dzp3mnDsqSYfAnoGcSstkpxiErUsxCkJU5nzAJdy+DlKESMtSZCSCWNkXQ7j
+	VR/k8EL0wVCcafP5zyOIGNmk6uUN+Oh2N7peonL66TghTkLH+53VQI98my+u5PMB+q5+fnudXjdc1
+	wA1HdVY8G97C91Shl9bchwh80jJHYuHCOxDm2vWK/8NKMdZ2txI/claT7w6ZG9cG+KsaGPLrrBrbB
+	OU5yveyE5FbchxqTQm/Q0kzzRMWgkRqTp2Yr6a8uf2/rr4wTR3IiTHmxgev2YfNfWjTU2wM9tX0w4
+	dOCV0iug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqqeq-0000000BaR0-1gMz;
-	Tue, 26 Aug 2025 10:12:04 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1uqqhd-0000000BbA6-1kQ8;
+	Tue, 26 Aug 2025 10:14:57 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqq5B-0000000BQxF-1eMt
+	id 1uqq5C-0000000BQxg-1zAl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 09:35:14 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-45a1b04f8b5so33451645e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 02:35:13 -0700 (PDT)
+	Tue, 26 Aug 2025 09:35:15 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3cb9268511bso173503f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 02:35:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756200912; x=1756805712; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=hkJG+WUZSpEwjO7HzoCtPjyyNbjxdrmMzotvlEggg7g=;
-        b=PM74xbw+JHn9vSAE1frocFso1083OKK9sPlE+360nPje7/rgGK8H4NbYQnHVnVmmJB
-         lfBY7GZ4ciscRkwVJ9VYeWs9OozgxbUUtl0r7bCXPlKwWzbAgEOb1UAKm14e2KCuZpbV
-         ITlYgyhaieDYQLYsYiZGxcQwwzD9JU+Ljq1OtJIVuAHAJa6JOtDNNNYIrzz0ZlzSz9gj
-         E3y24Zsr5tKwjucokwpsMA+5gt+DWYyYiIhCVCXZGUStftgdqVeEi0nUKLx8dHkQ0KKL
-         eD3Wn5zv3uhcj4kMRMuTDjUKhqxr6ZZvLjJJErUYmJ5as6Qf9yh/2QQ+gSZb0ZN4xs7Y
-         Ex8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756200912; x=1756805712;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756200913; x=1756805713; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=hkJG+WUZSpEwjO7HzoCtPjyyNbjxdrmMzotvlEggg7g=;
-        b=HwQFEJbR9Fjmsw+hywYWl4fx8QuMwxJElnfNPDoopysMfULdLE8AVoxM/mOfREnJWw
-         sKOvaby6OIZIvVeHVhZOoVNxM5rg2oF/NSww3Ld2vJcDE1qwj/H2WPElRYzi3L+0J4Z6
-         7Zj3UOsaHpRO2V+TA387M+XTsKoYqKYr05+TdgKgeo6PZBBl70Pt2kj3qh5uSlwGMswM
-         47CAHbfIKhfmC/DTRo13w2kz4Pm3PYefP/gsCutXrtZvPLLtoxGka/5G/lnFGNn9yjWb
-         TtXnxoOXFZ/Cf/DEcYQzVIpVT2RL/WewsYmhpNr3z6SWG6opt8atXKArdKw+esfzRXIK
-         lLLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVx1FHA5Iu/Z1M+LDQFcBhU8T/LR5qNxfZso+ku97D317jBu+QgehronPgBjRdR9r92bYkaVAIWR5ZS1JTvAGGH@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYD0eLz2bmVe4WFd5xh3fD8PVW4AzyiQN9kB2G3ExlSVq7ey4y
-	r1qKaXIkf/Zc8f9E8sgZzCbEe7WAsLziZiM3NVvZG95QhZtkda99N5kyFH1WUJOgxOE=
-X-Gm-Gg: ASbGnctyKKMbK+dAzs7HBw9ReFFpx6oexeKNyCT+gsX/3SkO+y2fukJ3jhd29eEsh29
-	NRXgndOXJ/XFYvkPOFyqLMiocg5JR3Q0rwUtfkGJLmw/q2qcGfQs2wzfv+20ubU7skHbBJimiv9
-	ozh7EBrQDc/rZmdQAmvr40CGv1s5EG71Q9vacl9Z1uGQ6jxnSR9ZT8I0+4trhdXTl+Q7xHmqLmp
-	dtE5947cCKOqT6GMhQ5XWvhzbh01PCzkICV/5Km0Xgcib7pn8tI31SQh5po9XKmutE55xlcK1od
-	iD30DS/Cw+5zRJpqfazUjxoDg+Ysi+GmcLR1ZUmc5shO0pn2mal4IRL4NoEFrrD9N+R3RT8NXF8
-	dyJLkA7PPRNHpvdp/1hbdtsIpLUI=
-X-Google-Smtp-Source: AGHT+IH2xF7cWf9zPiJpCZDblnQIkHuRl4owRmxgCh3l1f0u4tvEtpqb3bPUkqR7KcRXy8joxsDAmg==
-X-Received: by 2002:a05:600c:3b15:b0:458:c059:7db1 with SMTP id 5b1f17b1804b1-45b517d4580mr149020165e9.30.1756200911704;
-        Tue, 26 Aug 2025 02:35:11 -0700 (PDT)
+        bh=lATIPSy5e6EtCT9cnYgcUD2Ds0mi2iLMFvh/wI5iKp0=;
+        b=n1DjtQY9gBRZTGSM6MX9/O9uQA5+6kYWp9NuSd/2G65xm14onVA38eF+EEG3AJbZGE
+         PJZFAvg4arBfhc78P7u6qTQd8TSEw1yB9BuNV/bN8Zqv6qZPN7EPEop11TycjjFldGfy
+         FMdwoF7uYaKGTOwQ2+OgtCSMahOVfR5LMr+vDTRDKuQWJABBuiN7d/75aOYgjnBnW9ph
+         C3CY8BSUNJnOi2LCks9PdypoarNTMojLaa2WapRdHrMOIdLNFfW86I7jOvHyWPbdvHFT
+         7a8Pa90QkfnZL6ALQXqKXzvJGPftHW1mU0L6YYOsq7DP0LbyyF3DRsTQ7+c1rk7vtXKv
+         P6fQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756200913; x=1756805713;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=lATIPSy5e6EtCT9cnYgcUD2Ds0mi2iLMFvh/wI5iKp0=;
+        b=tW0arPJEVYK7gcUo3mtLfKhGAJOlLGxluXRduoY1CfGBgoEhUfD2Eo1WMaaSaC8eMi
+         pgfmnW+dqPuldBJ7vQRWKQ27nRffqp4ULrUDtu2k362KRgZpH+IUl53L8ovSNdsw8lVP
+         pLzOm7K+8SvXcZK84UOWiHpZuEE8PiV8OEduOsl9hao7QeXQCYFm2Hjo3+gKcb7sNrm/
+         Pr3sU7wGpupIr7DmQMxCWrNf3yo1EyrI6gV+mG//+ZltN7IrC/WiQL4EqMqNrJeXDXBL
+         4ZdSAaHIbCe50Dopqb5nCmTtMjvXc+WQ6QDK4S6sfuLWL6Cr/sdYkCuUfHdjbj92kBEl
+         iZGQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWPbqy9JcNKNPpx1eXkBrjzDNMmZ7MdTGhuB9vMriz6vQbLa50Y88Oj3lbrtt7OVRwt9yoL6z2HrNJ0UtM/t90V@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3cfChQ2QSnhh9R7aiW759hInFJRTSWzvyNDo1QHbOzBliN9f/
+	P8TGL7MSp6LwMPUOpyb7QMqnNYuDNqDbSzvzgfbO6hjKu1UBJAL+2mLRgvYeZfUNbLM=
+X-Gm-Gg: ASbGncuFf9xbYEfPkzRvvtiGzGF/LgVxShxA0fHbCNlCtBlRHe2Qj9UtKSykCDwZ0pn
+	cvkJgv/A2/AzmDpozsjL6w5wT+UE06LFiMCQz4J4ur6tD9omJ7D3TelOyAF7Iv+l5bk2HQqSbTd
+	uh9g4OV8Q0QNe+PSqMZbP9uNFQo1u6EAY6pLJsNGB9guTxxvnwvvQd9kh8DiWbJxJ5UixAeobX2
+	hkrBQ9fnbWGq51TlFKmPxso26A4Q4HwXj4a9cjswm4mF0f7TxIzZ9LOzgbN0Ul+VWfsiIFpAh9K
+	WjQJe5zQe0aRLPFd1FvW/MWmqU4wXk03SM/Kyn5KN2GzIaQgmDq1G3OBKRw5uJv+kp7ScZ6TUCc
+	BsrWvUB2p4MwQyCoVOBNwHF5LyK85IutYOL677w==
+X-Google-Smtp-Source: AGHT+IG4AZWGUoJwLuc2ootBVti7BUMsrtAyRnTnepKJgcUpTo6Dd5cIJq7uF1V4qZbMDI/zddDMAA==
+X-Received: by 2002:a5d:5f50:0:b0:3c8:7303:8fa1 with SMTP id ffacd0b85a97d-3c87303915fmr5611467f8f.32.1756200912864;
+        Tue, 26 Aug 2025 02:35:12 -0700 (PDT)
 Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:fed4:79fc:9440:6629])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3c7117d5b10sm15308255f8f.47.2025.08.26.02.35.10
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3c7117d5b10sm15308255f8f.47.2025.08.26.02.35.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 Aug 2025 02:35:11 -0700 (PDT)
+        Tue, 26 Aug 2025 02:35:12 -0700 (PDT)
 From: Bartosz Golaszewski <brgl@bgdev.pl>
-Subject: [PATCH 00/12] gpio: replace legacy bgpio_init() with its
- modernized alternative - part 2
-Date: Tue, 26 Aug 2025 11:35:01 +0200
-Message-Id: <20250826-gpio-mmio-gpio-conv-part2-v1-0-f67603e4b27e@linaro.org>
+Date: Tue, 26 Aug 2025 11:35:02 +0200
+Subject: [PATCH 01/12] gpio: xgene-sb: use new generic GPIO chip API
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAMV/rWgC/x2MQQqAIBBFryKzbkClSLpKtLCcahapaEgg3T1p8
- /hv8V+FTIkpwyQqJCqcOfgmqhOwndYfhOyag5Z6kEZpPCIHvK6Gf23BF4w23RqlXQ31ZlSud9D
- +MdHOz9+el/f9ALS1ILVrAAAA
-X-Change-ID: 20250812-gpio-mmio-gpio-conv-part2-0ab8e4871d4d
+Message-Id: <20250826-gpio-mmio-gpio-conv-part2-v1-1-f67603e4b27e@linaro.org>
+References: <20250826-gpio-mmio-gpio-conv-part2-v1-0-f67603e4b27e@linaro.org>
+In-Reply-To: <20250826-gpio-mmio-gpio-conv-part2-v1-0-f67603e4b27e@linaro.org>
 To: Linus Walleij <linus.walleij@linaro.org>, 
  Bartosz Golaszewski <brgl@bgdev.pl>, Shawn Guo <shawnguo@kernel.org>, 
  Sascha Hauer <s.hauer@pengutronix.de>, 
@@ -93,27 +91,26 @@ Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1645;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5979;
  i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=Q4ut4up6GX/HdckreW0R8OaX0WDAeyY5hviNTW/p74Y=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBorX/IsQ61XrGh+TV0cTJdfuJwQ0IU2AzJI6U6B
- xODhnvRaf2JAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaK1/yAAKCRARpy6gFHHX
- cmJuD/4s6vLLL4IJvlMcBRWt+fL3p/MdEMPyIgv+IS4S1jqjqxW26UsphEQIOFT4zd+2Ei6Qx4E
- bYgNLNqataNIqWb6AtcX8wjj3CWWIqrMTZD2ZXpw7rLb951R5Dotmo1R6kM58oDlTaNJFZjbg9n
- ChkAEyNlA5GRhB6foaz3+Do5OJTbItx/BFm0lH2dyCt0s/6WsRMwal4Iv66YCXtvOGUGiQtRnEP
- Jl0NjctXUHuT0bmeBEDxXiB9np1PybcUOTk1AhTTyvajEThwU8fCt+oaavXD+6mn4QIBRfnqyTl
- jYArmBFJBtDETk2cAIcyPpsRLaXJQfHPIXK+35E53tBd1AVBBWm9wpL/18OzvnFdcVibRnfb+dz
- DpPzPGdSpxkREQGdv1S4HNICQdTQ/FtrRdk0CEJluBKeMXcPSEI0yuhZMEORT20nSri9kTKJgAL
- BMa8VJSwoEoUkx2+GBgUcJYRyPlZ5d4vMM3eFjuiezT9WnyRp4/QLxWBVFxrBIdwvb30HB3FZ24
- WMbajv8vTcO7A4A+txRMVD1IoNqnjKQ5ZR0KDXSRml9ykbYzC8TKlOXRAEJte+Z96Yt5BWlfzIc
- 5oHMXijNS4BrvrtEiPsnVbf7kA8XquJdZMs1dq7KwCkiXlLtRlhonbsjN9GGfNZBkyhVrchsZNd
- QX+14T53A7wjY2A==
+ bh=9jFh2D6ttrCYJYtJTOU/wJErxn3PlPPm9jnKQyT1lBE=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBorX/M/YFESIOoQ5SAnEVMCLG3mCi3FKtS5BecE
+ Qi6HSZxDFWJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaK1/zAAKCRARpy6gFHHX
+ cjKHEACkTe3hmggUqlQY+tCcGrk7zCxmF559kPKX0+oo9gCa6z7tc5vKsTIU/1ownJEORH/T9mt
+ GueVzDiLUBD4kPeXUyeqMWEnmCCl5jYH0SnUdjp6VSifD915KGXTUybakeQW80q1LQGa339ZMGg
+ wnTPR7gowN9vKdEqGjNFWFR+6i7dCComPP+GBX82+IaWhSBOCEnYReWLPx9HtwUGVahmAb4eNjH
+ ilvp6kzIToZETYcW/JcUU80rLgpJLdVVWQdFDOpg9ePgYAubD4f1cWNgicweX+00tUoGK0FJDvW
+ AqxRkdLJRCdsdu80o70yks5XZnXgijc8H7JuuLclA3OuKrKjkicmdHM9DX//gLZpHZrueo46eIK
+ J4FsFxhx7hoe/iZkWCHnoXYWJ2EwGToeFoxUzOqApHWjkOt/ONKPnkybTNn8IbGKSJbthG+MAK+
+ +YFKujGW+bW28V+fUWkt4CDAh5qTE2iTMv2JioiYmrA0SuqYcX/IePGW+jAdpJIT1elVOELvnmU
+ TQYdoMBNaxwacnDr4kW4pFdYSkbNCTWQ6Ql08eIejPWc6ULocXQzg+YwyqBfgb9aDD2CBD99M3Q
+ laSEjjOylEmwpCLUe2+Orh8PuzbE8T5/vRyzXSiBI0Y/TDyY0FWqlSeqIdYdiCs7oiONEOhnhmM
+ K9HtaDPmq2JRATQ==
 X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_023513_579039_250758B7 
-X-CRM114-Status: UNSURE (   7.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250826_023514_544588_24526FC4 
+X-CRM114-Status: GOOD (  18.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,41 +125,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Here's another round of patches converting GPIO drivers to the
-modernized generic GPIO chip API.
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+
+Convert the driver to using the new generic GPIO chip interfaces from
+linux/gpio/generic.h.
 
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 ---
-Bartosz Golaszewski (12):
-      gpio: xgene-sb: use new generic GPIO chip API
-      gpio: mxs: order includes alphabetically
-      gpio: mxs: use new generic GPIO chip API
-      gpio: mlxbf2: use dev_err_probe() where applicable
-      gpio: mlxbf2: use new generic GPIO chip API
-      gpio: xgs-iproc: use new generic GPIO chip API
-      gpio: ftgpio010: order includes alphabetically
-      gpio: ftgpio010: use new generic GPIO chip API
-      gpio: realtek-otto: use new generic GPIO chip API
-      gpio: hisi: use new generic GPIO chip API
-      gpio: vf610: use new generic GPIO chip API
-      gpio: visconti: use new generic GPIO chip API
+ drivers/gpio/gpio-xgene-sb.c | 53 +++++++++++++++++++++++++-------------------
+ 1 file changed, 30 insertions(+), 23 deletions(-)
 
- drivers/gpio/gpio-ftgpio010.c    | 48 +++++++++++++-----------
- drivers/gpio/gpio-hisi.c         | 46 +++++++++++++----------
- drivers/gpio/gpio-mlxbf2.c       | 81 ++++++++++++++++++----------------------
- drivers/gpio/gpio-mxs.c          | 31 +++++++++------
- drivers/gpio/gpio-realtek-otto.c | 41 +++++++++++---------
- drivers/gpio/gpio-vf610.c        | 27 +++++++++-----
- drivers/gpio/gpio-visconti.c     | 25 ++++++++-----
- drivers/gpio/gpio-xgene-sb.c     | 53 ++++++++++++++------------
- drivers/gpio/gpio-xgs-iproc.c    | 34 +++++++++--------
- 9 files changed, 215 insertions(+), 171 deletions(-)
----
-base-commit: d0630b758e593506126e8eda6c3d56097d1847c5
-change-id: 20250812-gpio-mmio-gpio-conv-part2-0ab8e4871d4d
+diff --git a/drivers/gpio/gpio-xgene-sb.c b/drivers/gpio/gpio-xgene-sb.c
+index b51b1fa726bb5ac6fce21f93e98035b5f684ee88..c559a89aadf7a77bd9cce7e5a7d4a2b241307812 100644
+--- a/drivers/gpio/gpio-xgene-sb.c
++++ b/drivers/gpio/gpio-xgene-sb.c
+@@ -21,6 +21,7 @@
+ #include <linux/types.h>
+ 
+ #include <linux/gpio/driver.h>
++#include <linux/gpio/generic.h>
+ 
+ #include "gpiolib-acpi.h"
+ 
+@@ -40,7 +41,7 @@
+ 
+ /**
+  * struct xgene_gpio_sb - GPIO-Standby private data structure.
+- * @gc:				memory-mapped GPIO controllers.
++ * @chip:			Generic GPIO chip data
+  * @regs:			GPIO register base offset
+  * @irq_domain:			GPIO interrupt domain
+  * @irq_start:			GPIO pin that start support interrupt
+@@ -48,7 +49,7 @@
+  * @parent_irq_base:		Start parent HWIRQ
+  */
+ struct xgene_gpio_sb {
+-	struct gpio_chip	gc;
++	struct gpio_generic_chip chip;
+ 	void __iomem		*regs;
+ 	struct irq_domain	*irq_domain;
+ 	u16			irq_start;
+@@ -91,9 +92,9 @@ static int xgene_gpio_sb_irq_set_type(struct irq_data *d, unsigned int type)
+ 		break;
+ 	}
+ 
+-	xgene_gpio_set_bit(&priv->gc, priv->regs + MPA_GPIO_SEL_LO,
++	xgene_gpio_set_bit(&priv->chip.gc, priv->regs + MPA_GPIO_SEL_LO,
+ 			gpio * 2, 1);
+-	xgene_gpio_set_bit(&priv->gc, priv->regs + MPA_GPIO_INT_LVL,
++	xgene_gpio_set_bit(&priv->chip.gc, priv->regs + MPA_GPIO_INT_LVL,
+ 			d->hwirq, lvl_type);
+ 
+ 	/* Propagate IRQ type setting to parent */
+@@ -109,14 +110,14 @@ static void xgene_gpio_sb_irq_mask(struct irq_data *d)
+ 
+ 	irq_chip_mask_parent(d);
+ 
+-	gpiochip_disable_irq(&priv->gc, d->hwirq);
++	gpiochip_disable_irq(&priv->chip.gc, d->hwirq);
+ }
+ 
+ static void xgene_gpio_sb_irq_unmask(struct irq_data *d)
+ {
+ 	struct xgene_gpio_sb *priv = irq_data_get_irq_chip_data(d);
+ 
+-	gpiochip_enable_irq(&priv->gc, d->hwirq);
++	gpiochip_enable_irq(&priv->chip.gc, d->hwirq);
+ 
+ 	irq_chip_unmask_parent(d);
+ }
+@@ -155,15 +156,15 @@ static int xgene_gpio_sb_domain_activate(struct irq_domain *d,
+ 	u32 gpio = HWIRQ_TO_GPIO(priv, irq_data->hwirq);
+ 	int ret;
+ 
+-	ret = gpiochip_lock_as_irq(&priv->gc, gpio);
++	ret = gpiochip_lock_as_irq(&priv->chip.gc, gpio);
+ 	if (ret) {
+-		dev_err(priv->gc.parent,
++		dev_err(priv->chip.gc.parent,
+ 		"Unable to configure XGene GPIO standby pin %d as IRQ\n",
+ 				gpio);
+ 		return ret;
+ 	}
+ 
+-	xgene_gpio_set_bit(&priv->gc, priv->regs + MPA_GPIO_SEL_LO,
++	xgene_gpio_set_bit(&priv->chip.gc, priv->regs + MPA_GPIO_SEL_LO,
+ 			gpio * 2, 1);
+ 	return 0;
+ }
+@@ -174,8 +175,8 @@ static void xgene_gpio_sb_domain_deactivate(struct irq_domain *d,
+ 	struct xgene_gpio_sb *priv = d->host_data;
+ 	u32 gpio = HWIRQ_TO_GPIO(priv, irq_data->hwirq);
+ 
+-	gpiochip_unlock_as_irq(&priv->gc, gpio);
+-	xgene_gpio_set_bit(&priv->gc, priv->regs + MPA_GPIO_SEL_LO,
++	gpiochip_unlock_as_irq(&priv->chip.gc, gpio);
++	xgene_gpio_set_bit(&priv->chip.gc, priv->regs + MPA_GPIO_SEL_LO,
+ 			gpio * 2, 0);
+ }
+ 
+@@ -237,6 +238,7 @@ static const struct irq_domain_ops xgene_gpio_sb_domain_ops = {
+ 
+ static int xgene_gpio_sb_probe(struct platform_device *pdev)
+ {
++	struct gpio_generic_chip_config config;
+ 	struct xgene_gpio_sb *priv;
+ 	int ret;
+ 	void __iomem *regs;
+@@ -263,14 +265,19 @@ static int xgene_gpio_sb_probe(struct platform_device *pdev)
+ 		return -ENODEV;
+ 	}
+ 
+-	ret = bgpio_init(&priv->gc, &pdev->dev, 4,
+-			regs + MPA_GPIO_IN_ADDR,
+-			regs + MPA_GPIO_OUT_ADDR, NULL,
+-			regs + MPA_GPIO_OE_ADDR, NULL, 0);
++	config = (typeof(config)){
++		.dev = &pdev->dev,
++		.sz = 4,
++		.dat = regs + MPA_GPIO_IN_ADDR,
++		.set = regs + MPA_GPIO_OUT_ADDR,
++		.dirout = regs + MPA_GPIO_OE_ADDR,
++	};
++
++	ret = gpio_generic_chip_init(&priv->chip, &config);
+         if (ret)
+                 return ret;
+ 
+-	priv->gc.to_irq = xgene_gpio_sb_to_irq;
++	priv->chip.gc.to_irq = xgene_gpio_sb_to_irq;
+ 
+ 	/* Retrieve start irq pin, use default if property not found */
+ 	priv->irq_start = XGENE_DFLT_IRQ_START_PIN;
+@@ -283,12 +290,12 @@ static int xgene_gpio_sb_probe(struct platform_device *pdev)
+ 		priv->nirq = val32;
+ 
+ 	/* Retrieve number gpio, use default if property not found */
+-	priv->gc.ngpio = XGENE_DFLT_MAX_NGPIO;
++	priv->chip.gc.ngpio = XGENE_DFLT_MAX_NGPIO;
+ 	if (!device_property_read_u32(&pdev->dev, "apm,nr-gpios", &val32))
+-		priv->gc.ngpio = val32;
++		priv->chip.gc.ngpio = val32;
+ 
+ 	dev_info(&pdev->dev, "Support %d gpios, %d irqs start from pin %d\n",
+-			priv->gc.ngpio, priv->nirq, priv->irq_start);
++			priv->chip.gc.ngpio, priv->nirq, priv->irq_start);
+ 
+ 	platform_set_drvdata(pdev, priv);
+ 
+@@ -298,9 +305,9 @@ static int xgene_gpio_sb_probe(struct platform_device *pdev)
+ 	if (!priv->irq_domain)
+ 		return -ENODEV;
+ 
+-	priv->gc.irq.domain = priv->irq_domain;
++	priv->chip.gc.irq.domain = priv->irq_domain;
+ 
+-	ret = devm_gpiochip_add_data(&pdev->dev, &priv->gc, priv);
++	ret = devm_gpiochip_add_data(&pdev->dev, &priv->chip.gc, priv);
+ 	if (ret) {
+ 		dev_err(&pdev->dev,
+ 			"failed to register X-Gene GPIO Standby driver\n");
+@@ -311,7 +318,7 @@ static int xgene_gpio_sb_probe(struct platform_device *pdev)
+ 	dev_info(&pdev->dev, "X-Gene GPIO Standby driver registered\n");
+ 
+ 	/* Register interrupt handlers for GPIO signaled ACPI Events */
+-	acpi_gpiochip_request_interrupts(&priv->gc);
++	acpi_gpiochip_request_interrupts(&priv->chip.gc);
+ 
+ 	return ret;
+ }
+@@ -320,7 +327,7 @@ static void xgene_gpio_sb_remove(struct platform_device *pdev)
+ {
+ 	struct xgene_gpio_sb *priv = platform_get_drvdata(pdev);
+ 
+-	acpi_gpiochip_free_interrupts(&priv->gc);
++	acpi_gpiochip_free_interrupts(&priv->chip.gc);
+ 
+ 	irq_domain_remove(priv->irq_domain);
+ }
 
-Best regards,
 -- 
-Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+2.48.1
 
 
