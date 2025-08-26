@@ -4,92 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D5DCCA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 12:11:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8F30CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 12:14:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lxFjkTB2P79PoUaLxLAUp+gv0c2aOYdZxNYZuNh3BDw=; b=Ll+GRqnZbRrO1Uz7q/3pE9AVlN
-	Ycl8NDcULjwlHQSmloOhgnHKkR0jWzPbJmADLSJCLRPAkSEzzJxSi+6g0Ox1M19H0RqQpmT9sQ1XE
-	ttcFR6aeruqXfGpylKFgMR10ZFfaBrcHGUth9geR/d0fKwg1XbcP5F70ESh/wwBJzlXwMjNL3veko
-	4wlt/jwPoGDQHybUAEK8cV4H7lF/a862jmgDpd3c3Pmr3dzJk7GhYo539osRdZMbn59SKcI1Ncj/j
-	fueqb8XdQ0uMJ6gOG6ZqgzA71JrXKpcWOwj8yI9Ht9XFInfn1SE1BN4npRo9bnYeCIJGlcBZwdhuT
-	HjrGNbFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fnZPQ9i52dF3KFBSw6s2UAOkbaudTyEedBQwR5Zwpl8=; b=VXg6e/0HdMEzy0QVR25l1L7KcT
+	60oiQfVi4TJL9CjTMvGk1jANlLBIehK7nvLRhgjGwCtZUCTgiT7BuLboAZEJY85fYe12RALm/tSmS
+	9+1pKBiNM6UokYjp0DGp/k9K96rydBo4YBFRlFdstXy3JcEgl+OYpLcv9lw1C3KyW5HWhabVjyuNq
+	GWR6g910fzTX7Dj6TAtkqaPJOW9HAfRsD9ndYZx9P0Lbtsl4lVPfVFtMumXsrW29+5KIpz9gPMHQh
+	7S1BTWRvemaTRs8QjSfuPDoCm3vmfrJCkKy3JI8z1ptuKz5REjhcuZioL9Yhwdc2sawSV8E+tZL0Z
+	xKMXtwUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqsWo-0000000BuRj-0V7x;
-	Tue, 26 Aug 2025 12:11:54 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1uqsZS-0000000Buit-41o9;
+	Tue, 26 Aug 2025 12:14:38 +0000
+Received: from mail-ej1-f45.google.com ([209.85.218.45])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqsRN-0000000BtXR-2xLT
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 12:06:18 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-afcb78ead12so762100366b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 05:06:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756209975; x=1756814775; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=lxFjkTB2P79PoUaLxLAUp+gv0c2aOYdZxNYZuNh3BDw=;
-        b=tQaMZdfeeesi/qJiRvT8Y/7uiAeI6rENdz7lEsIgDAFdogIEvdC1Vz4tL3g8qgp4XM
-         Vx3pgunzgaBhwFUv/yoGp+hyiedptY86sXuU8cGN9Mw7Ud/V89Pt7hhK5ThBIb4VgFdH
-         9ACgpQ3vX+5FYWHkr9Rwm1MuSnDiMk0ri4prdyOL9Oq/O5C0jvTd2Mzj8HyOuv+dsOqq
-         ZL3amI+7XHwOIMQcWKp1+Q6BRk7+RYriT8Gki2qdU43/wSmy/nBmEbiqhI/6nOWQDbvS
-         EEZ8ssACgre0XFJ8f9U7RapLpmytX/tLpE2AiT7IQNhpnaPm4jtX7qq3XRywavNBq55m
-         AGgw==
+	id 1uqsUC-0000000BtvF-23MB;
+	Tue, 26 Aug 2025 12:09:13 +0000
+Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-afcb7ace3baso993491866b.3;
+        Tue, 26 Aug 2025 05:09:11 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756209975; x=1756814775;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1756210151; x=1756814951;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=lxFjkTB2P79PoUaLxLAUp+gv0c2aOYdZxNYZuNh3BDw=;
-        b=cbMFvaSdnkJgT6m9druI1hslbfXtUSxwjfv0BGyV14mlWzCmfFJ+tWYKDL0VfSOY/d
-         AcYXVCw8DWtR3lpZJInmhvlnfTH1oBJHtaIL0jYuezqCk+C6uvpgN3DBvkpYqhT2o3UI
-         6LFxhhv4ZnjAQzQlJlVrjtl2LuiVH5QiYJpbjgkPIb88/XtjsKq7mCwSNzr5HQorgxTN
-         uQ6rMEfBvaSzTBfKov34w52Nv0rwED13d9uC+qOQJ3iKtoWanL9BQk/6kuo8TYXlc0Dz
-         fkq30W5uR5nJ9xcDiVBnslQ0Qb7NqaRRFpiQLIYhlDbfH7DZ65sRG/2EdmQaWUVXrgA5
-         LmBw==
-X-Forwarded-Encrypted: i=1; AJvYcCVwvWUx2luowBNiex2ILw17nbYWHyEnklSB6XwYMEvz9TR+W0lxFC6vCthuoUcggYj9ceI80mA4YXvjblD6gS6i@lists.infradead.org
-X-Gm-Message-State: AOJu0YwE+tR/McU4x8hwDYc9H0vJtfj1d2tMT1Pxj8OZt1Yqw55B1Cwf
-	nR4svSqUkbU0bzFGqLtZ4Eb/DEYvAJiGXluRQHx/+00vr0AOOiZIWmaF4Govq+UNCL90DQ6ZDle
-	qKBvGIW3KYtdvWS6/TBnHvwKjrpqbe5Sczz7sEBOSmA==
-X-Gm-Gg: ASbGncvTY7SnAkuilFRTvdDJFzLyb+1LKBuzq9Oqm203XQsWb3DfSncmQv1F1TH0ex2
-	02VqcuyycpHiIdqRBHhc6D5UIYrSPfoBgxzbbsSB527Tw/Ru1CHw6fHGSzCA3KjXoNKcVwfXleX
-	UHULbTpeeGqD2Cj7//idXPIKOEhNtS74fWS+dYA7sFH5vp3wPJPPuT5R5xTyYi1D3ADTUT8NITt
-	jla8KDaGja8hZgXJmvwMJ7H9xgU33+qMSclAx8=
-X-Google-Smtp-Source: AGHT+IHCPPogA5I5xYJjZ3AF2Jj1OEbjkizkVIqqQo3oG7dsb9k66ChvqgzLqUtgok2+xdd2moMuf4gTw379MNCuFxA=
-X-Received: by 2002:a17:907:3f0f:b0:ae0:b3be:f214 with SMTP id
- a640c23a62f3a-afe28ec592dmr1369727666b.9.1756209975430; Tue, 26 Aug 2025
- 05:06:15 -0700 (PDT)
+        bh=fnZPQ9i52dF3KFBSw6s2UAOkbaudTyEedBQwR5Zwpl8=;
+        b=NDziAA4ATMpit32xe/J4czQIUxa/46UTrI6q7gsXIJ3y8LyuWSeQa55o2gQvVaws6u
+         zRET9xY55QEhnsVftCm1dU+w9fffOHQcpC6DCmPLEzv3t9SgxLtYoq4Ll33CufK5u1/3
+         bsz8/DjxdwD+nJimoRL4XrhIX2QGnCX96k6DatDeJuC5Yr2iGuOyITy7eg3pvdYVtXd+
+         pDNhxvnIbry6hJccuooaryB9EHImjh3psaKgpGP9LNvinATJTuRO4FLFkqrvXbWaEgYv
+         UXh/hHdrJbZ5EQrFwMuQm/d3CJCnCIZHglIT2E/IwnXT5sHCoH0XSeQ8B5x3Ukegj9qQ
+         GflA==
+X-Forwarded-Encrypted: i=1; AJvYcCVX4D7P4+Llwi9Jl0u24o+saSrxGGfPEPVyBsnC9SKGR7fUA+KRN/Zpny3IDpmN0DiLCyaGEg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YznY+aMsB/fjCZ0OdbTN8hGFUAOFHTB9e1GQUT9n72wUrNKCusH
+	XE3Q96aILa5T6fyxIgiXSnReSGvh/YR7wzQChZK8eUFlJhSjYBKCA34h
+X-Gm-Gg: ASbGncuQr8jlLzaQzTaFY9RQM1GXEsDqeNiJjSy6YuROk6bGjlksNkX8HG1EJWwV+PM
+	cpQZ0XnDK6SIBfzbma22cAscN8EImWomo2ra2Fo+8lU2SwiR/vpB6gW/3GPQU37zZYy4HiFQd8G
+	FBOZAk2ceLEJYegbv5Y3fKBEvTxTiQV22x4a1H2KBbbMuFMQTTv3Y1Nn3N0IcdbGTz1tsAP5dQT
+	gijTup4GHFa0rcdwG80/ASV8JFcOM34Njiro2NVV8GX3ri2fJyXuoNP98QTx6S4trWGxbV4REvQ
+	a1CXpI2ZM+uTyAkdhNdmt98duEX5sS9QfiNeAWQgMrYToV9H5PlWhduXCk6I0EgFoo/l+QNXZsq
+	e4+sSjOGT84DaesHPtlxReLv3
+X-Google-Smtp-Source: AGHT+IFXfwKdwQy9L/iDhxQV4Dtj+nleX6usHo1EXmx4Rg1qgQ+BIVTWUPx0QHTGWZ24uy02cSt7dg==
+X-Received: by 2002:a17:906:7308:b0:ae6:c23f:3cf with SMTP id a640c23a62f3a-afe28fc55e7mr1412861966b.16.1756210150317;
+        Tue, 26 Aug 2025 05:09:10 -0700 (PDT)
+Received: from localhost ([2a03:2880:30ff:70::])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afe48e853b3sm788943466b.12.2025.08.26.05.09.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 26 Aug 2025 05:09:09 -0700 (PDT)
+From: Breno Leitao <leitao@debian.org>
+Date: Tue, 26 Aug 2025 05:08:51 -0700
+Subject: [PATCH] arm64: kexec: Initialize kexec_buf struct in image_load()
 MIME-Version: 1.0
-References: <20250818124458.334548733@linuxfoundation.org> <CA+G9fYt5sknJ3jbebYZrqMRhbcLZKLCvTDHfg5feNnOpj-j9Wg@mail.gmail.com>
- <CA+G9fYt6SAsPo6TvfgtnDWHPHO2q7xfppGbCaW0JxpL50zqWew@mail.gmail.com>
- <CACMJSeu_DTVK=XtvaSD3Fj3aTXBJ5d-MpQMuysJYEFBNwznDqQ@mail.gmail.com> <2025081931-chump-uncurled-656b@gregkh>
-In-Reply-To: <2025081931-chump-uncurled-656b@gregkh>
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Date: Tue, 26 Aug 2025 14:06:04 +0200
-X-Gm-Features: Ac12FXzW7NUCjgYWSamJwSOH-347hP9Z3Gi-swjOizdLDz6f5VXnlkQBVvbGglE
-Message-ID: <CACMJSesMDcUM+bvmT76m2s05a+-T7NxGQwe72yS03zkEJ-KzCw@mail.gmail.com>
-Subject: Re: [PATCH 6.15 000/515] 6.15.11-rc1 review
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Naresh Kamboju <naresh.kamboju@linaro.org>, stable@vger.kernel.org, 
-	patches@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	torvalds@linux-foundation.org, akpm@linux-foundation.org, linux@roeck-us.net, 
-	shuah@kernel.org, patches@kernelci.org, lkft-triage@lists.linaro.org, 
-	pavel@denx.de, jonathanh@nvidia.com, f.fainelli@gmail.com, 
-	sudipm.mukherjee@gmail.com, srw@sladewatkins.net, rwarsow@gmx.de, 
-	conor@kernel.org, hargar@microsoft.com, broonie@kernel.org, achill@achill.org, 
-	Ben Copeland <benjamin.copeland@linaro.org>, Anders Roxell <anders.roxell@linaro.org>, 
-	Dan Carpenter <dan.carpenter@linaro.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Bjorn Andersson <andersson@kernel.org>, linux-arm-msm <linux-arm-msm@vger.kernel.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, srinivas.kandagatla@oss.qualcomm.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250826-akpm-v1-1-3c831f0e3799@debian.org>
+X-B4-Tracking: v=1; b=H4sIANKjrWgC/6tWKk4tykwtVrJSqFYqSi3LLM7Mz1OyUjDUUVBKz
+ kjMS0/VzUxRslJQMjIwMjWwMDLTTcwuyNU1tEg0NU81TjS2TEtR0lFQKihKTcusABsTHVtbCwC
+ VQhH7VgAAAA==
+X-Change-ID: 20250826-akpm-18a57e3a39fd
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, kexec@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ bhe@redhat.com, linux-arm-kernel@lists.infradead.org, oxu@redhat.com, 
+ berrange@redhat.com, kernel-team@meta.com, 
+ Andrew Morton <akpm@linux-foundation.org>, Breno Leitao <leitao@debian.org>
+X-Mailer: b4 0.15-dev-dd21f
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1539; i=leitao@debian.org;
+ h=from:subject:message-id; bh=4v6c1/SuN2XBwZ50PJG6PxSplQuP+IBULqjkSZZ05mg=;
+ b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBoraPkzCMlrgJoVHjTxY6CWYJ4qnKJpiFt+KrRe
+ Cxb9YW04tmJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCaK2j5AAKCRA1o5Of/Hh3
+ ba6SD/wOd+iTOQspDn1FBn49r47VwUIch7D1WIFJN9Kbms5RLwJOT9Dj2U+ASaiz5A9miWo5sl0
+ m960HatusN+DH2CMfzLArTbTAJL56rWacWrmT46wROXC1JnlyyxJ4IJf3BpXPok5mCiSlS7pA7s
+ NtnbjVI/Zi01sYoQvEMfKolgB3EJPCP+J1maGWpvzKJX8aM0DnNcwXnMZwYMKMQcv9cjnEHytdO
+ bbifs3IznmEWtBsa5g8GpIdyBXN87X9BUfQXRET3eWo7iSUv2rwdnQTwkAKhD0e9mCJk3t5U9Sd
+ pV/b/PeH6PVhtGR+TKg1188qa/l/Nj2ytRyj35Ruz1KiD47USfFBJZfmQf/3JPNYFveB0XWtiAo
+ MCVki0oFa9cCLq5+wfX1i3PxZlt1lDsK0/6mgbHHbYV9HIqOrFlo0adex1fOI9zite9HWVS8Q2p
+ sKhcAkzzoBH2EtcEwAYB5S+e8aCZHWdhM3O7tIOG15dZFEN7WZbvdIZXmpfKgzMQFsRPAYqE4go
+ /+uZRLDVuJuYODHoiqG0u6WvPQZzNA7rMI1yY8JeJ8n3j6/Vx63Yey39t9W6t+/KV/Ybg7lrEgv
+ Jrt++eUrd802b5ogkawLHDGVTrRUYZTpO+ZaQvChhq9EiYnJnegG2M+n43XgsI8gyyt7BRxpnok
+ 5w04Hln/DSpiuFw==
+X-Developer-Key: i=leitao@debian.org; a=openpgp;
+ fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_050617_749149_E5EE05BF 
-X-CRM114-Status: GOOD (  14.61  )
+X-CRM114-CacheID: sfid-20250826_050912_538329_7399C6F9 
+X-CRM114-Status: GOOD (  11.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,46 +107,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 19 Aug 2025 at 13:52, Greg Kroah-Hartman
-<gregkh@linuxfoundation.org> wrote:
->
-> On Tue, Aug 19, 2025 at 01:30:46PM +0200, Bartosz Golaszewski wrote:
-> > On Tue, 19 Aug 2025 at 12:02, Naresh Kamboju <naresh.kamboju@linaro.org> wrote:
-> > >
-> > > On Tue, 19 Aug 2025 at 00:18, Naresh Kamboju <naresh.kamboju@linaro.org> wrote:
-> > > >
-> > > >
-> > > > Boot regression: stable-rc 6.15.11-rc1 arm64 Qualcomm Dragonboard 410c
-> > > > Unable to handle kernel NULL pointer dereference
-> > > > qcom_scm_shm_bridge_enable
-> > >
-> > > I have reverted the following patch and the regression got fixed.
-> > >
-> > > firmware: qcom: scm: initialize tzmem before marking SCM as available
-> > >     [ Upstream commit 87be3e7a2d0030cda6314d2ec96b37991f636ccd ]
-> > >
-> >
-> > Hi! I'm on vacation, I will look into this next week. I expect there
-> > to be a fix on top of this commit.
->
-> Ok, I'll go and drop this one from the queues now, thanks.
->
-> greg k-h
+The kexec_buf structure was previously declared without initialization
+in image_load(). This led to a UBSAN warning when the structure was
+expanded and uninitialized fields were accessed [1].
 
-Hi!
+Zero-initializing kexec_buf at declaration ensures all fields are
+cleanly set, preventing future instances of uninitialized memory being
+used.
 
-The issue was caused by only picking up commit 7ab36b51c6bee
-("firmware: qcom: scm: request the waitqueue irq *after* initializing
-SCM") into stable, while the following four must be applied instead:
+Andrew Morton suggested that this function is only called 3x a week[2],
+thus, the memset() cost is inexpressive.
 
-23972da96e1ee ("firmware: qcom: scm: remove unused arguments from SHM
-bridge routines")
-dc3f4e75c54c1 ("firmware: qcom: scm: take struct device as argument in
-SHM bridge enable")
-87be3e7a2d003 ("firmware: qcom: scm: initialize tzmem before marking
-SCM as available")
-7ab36b51c6bee ("firmware: qcom: scm: request the waitqueue irq *after*
-initializing SCM")
+Link: https://lore.kernel.org/all/oninomspajhxp4omtdapxnckxydbk2nzmrix7rggmpukpnzadw@c67o7njgdgm3/ [1]
+Link: https://lore.kernel.org/all/20250825180531.94bfb86a26a43127c0a1296f@linux-foundation.org/ [2]
+Suggested-by: Andrew Morton <akpm@linux-foundation.org>
+Signed-off-by: Breno Leitao <leitao@debian.org>
+---
+ arch/arm64/kernel/kexec_image.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Bartosz
+diff --git a/arch/arm64/kernel/kexec_image.c b/arch/arm64/kernel/kexec_image.c
+index 532d72ea42ee8..b70f4df15a1ae 100644
+--- a/arch/arm64/kernel/kexec_image.c
++++ b/arch/arm64/kernel/kexec_image.c
+@@ -41,7 +41,7 @@ static void *image_load(struct kimage *image,
+ 	struct arm64_image_header *h;
+ 	u64 flags, value;
+ 	bool be_image, be_kernel;
+-	struct kexec_buf kbuf;
++	struct kexec_buf kbuf = {};
+ 	unsigned long text_offset, kernel_segment_number;
+ 	struct kexec_segment *kernel_segment;
+ 	int ret;
+
+---
+base-commit: 7a77c6b5ce68a71b9102760a988a4564ff6d4106
+change-id: 20250826-akpm-18a57e3a39fd
+
+Best regards,
+--  
+Breno Leitao <leitao@debian.org>
+
 
