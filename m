@@ -4,85 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5062DCA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 11:44:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BA2DCA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 11:49:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KwLQqQaMoEE+Hv1ZG6dhCcc/rDPs+TlmKuOnBY34Nv0=; b=4BongJe9NGsw+IIsfbtIITU+cV
-	rfTmdYTGr8CPOzJasNu6pe5eeiYjeD9wix1t7goy3IhK+syZ9Z3cFLRlCwtqdepPr10X7GLrthNFK
-	znZxFqvzJnABlsn3wVI58JTMnPSqWJM1xwgVatVBCNkjKj7rKEqzUEobpowEc2MeQryD2av4bwFPp
-	e5qxGfxekzmzQbyPOG5w7T2dJhlunQmq/LVO5Z07VhH/5TKeVU9K0VQahVc6y3rzYV+8iZfaC3Xs3
-	G7p20qShdjj0XfDrFDsYpKvVV9p9LPDdML453Mhj5KKI2qtcRDwQdhtkxnDdPaagRUrLc0U6ZeRY0
-	OH3TlSXA==;
+	bh=WdcZGco1brKkCvqK3OI1tB4ut3wEQd56prbkyXuFUMU=; b=GJwyHFCGAQ4wnVa2JWD5UjBiQ/
+	IKLJqtBGZpSXpZgBX+NOxB3pIaS8ZwukPR8/FkCyxXGipsVn2ZztJYE/GXKs0CFwPrKygqBPM3de8
+	BlP0qWGL3OJ0yUWaVUjn4w+C8oLHJu6FNuC7iYPWOA3QAB2ogkvgzauuica7rg6qXSLQU+vi03gGo
+	mvF+kRfRhYIpmD1Yr41rWPrnt48n7iB6LY6MF8/DzLFVXt9fD+Ox4cRudwPCi7l3OKZKv590f40Sh
+	dwFCWJif+NeC/qf638af7q14TzILE1VECsEWUMnIcMY2mV98PPomCi0w+worr/gwtueUw4rC6n/hF
+	gDgYT9cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqs6Q-0000000BpbA-0E37;
-	Tue, 26 Aug 2025 11:44:38 +0000
-Received: from mail.thorsis.com ([2003:a:e28:26e4::10])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqrA3-0000000BewY-43Vz;
-	Tue, 26 Aug 2025 10:44:21 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 126661484416;
-	Tue, 26 Aug 2025 12:44:12 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
-	t=1756205055; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=KwLQqQaMoEE+Hv1ZG6dhCcc/rDPs+TlmKuOnBY34Nv0=;
-	b=gHASm2ESs1rHyh92A6xH9vOgeJ18Q2+bcxVpa9MXJ00778LYLJ3oO6LyJt5mVWzcS/K5oa
-	GZsAoJCgfuuKMSrkOTD0EL9y/yyo1iTiiW49gR2zKA+cLsdxQwh3Sj9Xvm0fnU5kmYUiy0
-	Vkkjs9KSveVfRuJ/u6/zjR9jRI38SJdat918MpT8nmvsR9JgfC5s4R57eWyKV9LP0RYSXY
-	yNNssAaegaU+Q/K5GsWd8V5w9pMBOy3pqkeXt4/7E7tV9o9/36j+6twrWhXAoyJg3yvVwM
-	CEcN7tCTQmyNt5V0PP4nMoBe5m8xO3BLgDLydiKcN/UQxTcMxmISi+HYIQOoRA==
-Date: Tue, 26 Aug 2025 12:44:08 +0200
-From: Alexander Dahl <ada@thorsis.com>
-To: "Sverdlin, Alexander" <alexander.sverdlin@siemens.com>
-Cc: "Balamanikandan.Gunasundar@microchip.com" <Balamanikandan.Gunasundar@microchip.com>,
-	"miquel.raynal@bootlin.com" <miquel.raynal@bootlin.com>,
-	"claudiu.beznea@tuxon.dev" <claudiu.beznea@tuxon.dev>,
-	"nicolas.ferre@microchip.com" <nicolas.ferre@microchip.com>,
-	"richard@nod.at" <richard@nod.at>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"vigneshr@ti.com" <vigneshr@ti.com>,
-	"alexandre.belloni@bootlin.com" <alexandre.belloni@bootlin.com>,
-	"linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>,
-	"bbrezillon@kernel.org" <bbrezillon@kernel.org>,
-	"stable@vger.kernel.org" <stable@vger.kernel.org>
-Subject: Re: [PATCH v2] mtd: nand: raw: atmel: Respect tAR, tCLR in read
- setup timing
-Message-ID: <20250826-wake-jet-e15c7a209bb4@thorsis.com>
-Mail-Followup-To: "Sverdlin, Alexander" <alexander.sverdlin@siemens.com>,
-	"Balamanikandan.Gunasundar@microchip.com" <Balamanikandan.Gunasundar@microchip.com>,
-	"miquel.raynal@bootlin.com" <miquel.raynal@bootlin.com>,
-	"claudiu.beznea@tuxon.dev" <claudiu.beznea@tuxon.dev>,
-	"nicolas.ferre@microchip.com" <nicolas.ferre@microchip.com>,
-	"richard@nod.at" <richard@nod.at>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"vigneshr@ti.com" <vigneshr@ti.com>,
-	"alexandre.belloni@bootlin.com" <alexandre.belloni@bootlin.com>,
-	"linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>,
-	"bbrezillon@kernel.org" <bbrezillon@kernel.org>,
-	"stable@vger.kernel.org" <stable@vger.kernel.org>
-References: <20250821120106.346869-1-alexander.sverdlin@siemens.com>
- <20250825-uneven-barman-7f932d0ca964@thorsis.com>
- <3d0259caac9925e3d5dd3dd27a6785b2a2e82c0b.camel@siemens.com>
- <20250825-vista-cuddle-c159a6bd97ec@thorsis.com>
- <513ad54017eb96a55176d232ce1464ff51bf452f.camel@siemens.com>
+	id 1uqsBA-0000000BquX-0Rxg;
+	Tue, 26 Aug 2025 11:49:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uqreP-0000000BkGg-1ml9;
+	Tue, 26 Aug 2025 11:15:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0E7AF1A00;
+	Tue, 26 Aug 2025 04:15:32 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 663C13F63F;
+	Tue, 26 Aug 2025 04:15:28 -0700 (PDT)
+Date: Tue, 26 Aug 2025 12:15:23 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: peterz@infradead.org, mingo@redhat.com, will@kernel.org,
+	acme@kernel.org, namhyung@kernel.org,
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+	irogers@google.com, adrian.hunter@intel.com,
+	kan.liang@linux.intel.com, linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, dmaengine@vger.kernel.org,
+	linux-fpga@vger.kernel.org, amd-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org, coresight@lists.linaro.org,
+	iommu@lists.linux.dev, linux-amlogic@lists.infradead.org,
+	linux-cxl@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 02/19] perf/hisilicon: Fix group validation
+Message-ID: <aK2XS_GhLw1EQ2ml@J2N7QTR9R3>
+References: <cover.1755096883.git.robin.murphy@arm.com>
+ <c7b877e66ba0d34d8558c5af8bbb620e8c0e47d9.1755096883.git.robin.murphy@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <513ad54017eb96a55176d232ce1464ff51bf452f.camel@siemens.com>
-User-Agent: Mutt/2.2.12 (2023-09-09)
-X-Last-TLS-Session-Version: TLSv1.3
+In-Reply-To: <c7b877e66ba0d34d8558c5af8bbb620e8c0e47d9.1755096883.git.robin.murphy@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_034420_452343_8565D7FA 
-X-CRM114-Status: GOOD (  21.23  )
+X-CRM114-CacheID: sfid-20250826_041541_548312_553A09F7 
+X-CRM114-Status: GOOD (  25.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,52 +79,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Alexander,
-
-Am Mon, Aug 25, 2025 at 01:41:05PM +0000 schrieb Sverdlin, Alexander:
-> Hi Alexander,
+On Wed, Aug 13, 2025 at 06:00:54PM +0100, Robin Murphy wrote:
+> The group validation logic shared by the HiSilicon HNS3/PCIe drivers is
+> a bit off, in that given a software group leader, it will consider that
+> event *in place of* the actual new event being opened. At worst this
+> could theoretically allow an unschedulable group if the software event
+> config happens to look like one of the hardware siblings.
 > 
-> On Mon, 2025-08-25 at 15:22 +0200, Alexander Dahl wrote:
-> > > > Threw this on top of 6.12.39-rt11 and tested on two custom platforms
-> > > > both with a Spansion S34ML02G1 SLC 2GBit flash chip, but with
-> > > > different SoCs (sama5d2, sam9x60).  We had difficulties with the
->                                           ^^^^^^^^^^^^^^^^^^^
-> [*]
+> The uncore framework avoids that particular issue,
+
+What is "the uncore framework"? I'm not sure exactly what you're
+referring to, nor how that composes with the problem described above.
+
+> but all 3 also share the common issue of not preventing racy access to
+> the sibling list,
+
+Can you please elaborate on this racy access to the silbing list? I'm
+not sure exactly what you're referring to.
+
+> and some redundant checks which can be cleaned up.
 > 
-> > > > timing of those NAND flash chips in the past and I wanted to make sure
-> > > > this patch does not break our setup.  Seems fine in a quick test,
-> > > > reading and writing and reading back is successful.
-> > > 
-> > > thank you for your feedback!
-> > > 
-> > > Do you see an opportunity to drop the downstream timing quirks with my patch?
-> > 
-> > Which downstream do you refer to?
+> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+> ---
+>  drivers/perf/hisilicon/hisi_pcie_pmu.c   | 17 ++++++-----------
+>  drivers/perf/hisilicon/hisi_uncore_pmu.c | 23 +++++++----------------
+>  drivers/perf/hisilicon/hns3_pmu.c        | 17 ++++++-----------
+>  3 files changed, 19 insertions(+), 38 deletions(-)
 > 
-> That's how I understood the phrase above, that some adjustments are still required
-> on your side additionally to standard timings. Sorry for the confusion, if it turns
-> out to be a misunderstanding on my side!
+> diff --git a/drivers/perf/hisilicon/hisi_pcie_pmu.c b/drivers/perf/hisilicon/hisi_pcie_pmu.c
+> index c5394d007b61..3b0b2f7197d0 100644
+> --- a/drivers/perf/hisilicon/hisi_pcie_pmu.c
+> +++ b/drivers/perf/hisilicon/hisi_pcie_pmu.c
+> @@ -338,21 +338,16 @@ static bool hisi_pcie_pmu_validate_event_group(struct perf_event *event)
+>  	int counters = 1;
+>  	int num;
+>  
+> -	event_group[0] = leader;
+> -	if (!is_software_event(leader)) {
+> -		if (leader->pmu != event->pmu)
+> -			return false;
+> +	if (leader == event)
+> +		return true;
+>  
+> -		if (leader != event && !hisi_pcie_pmu_cmp_event(leader, event))
+> -			event_group[counters++] = event;
+> -	}
+> +	event_group[0] = event;
+> +	if (leader->pmu == event->pmu && !hisi_pcie_pmu_cmp_event(leader, event))
+> +		event_group[counters++] = leader;
 
-I don't think your patch is sufficient to solve our problems with
-sam9x60 and S34ML02G1.  Different parts of the timings are affected.
-You changed NRD_SETUP while I changed NRD_PULSE.  I just wanted to
-make sure both patches do not interfere.
+Looking at this, the existing logic to share counters (which
+hisi_pcie_pmu_cmp_event() is trying to permit) looks to be bogus, given
+that the start/stop callbacks will reprogram the HW counters (and hence
+can fight with one another).
 
-For reference, these are the changes in at91bootstrap and u-boot I
-referred to:
+I suspect that can be removed *entirely*, and this can be simplified
+down to allocating N counters, without a quadratic event comparison.  We
+don't try to share counters in other PMU drivers, and there was no
+rationale for trying to do this when this wa introduced in commit:
 
-https://github.com/linux4sam/at91bootstrap/issues/174
-https://github.com/linux4sam/at91bootstrap/commit/e2dfd8141d00613a37acee66ef5724f70f34a538
+  8404b0fbc7fbd42e ("drivers/perf: hisi: Add driver for HiSilicon PCIe PMU")
 
-https://source.denx.de/u-boot/u-boot/-/commit/344e2f2cd4a407f847b301804f37d036e8a0a10c
+The 'link' tag in that comment goes to v13, which doesn't link to prior
+postings, so I'm not going to dig further.
 
-My problem might be fixed with commit f552a7c7e0a1 ("mtd: rawnand:
-atmel: set pmecc data setup time"), but I did not have time to test
-that assumption.
+Mark.
 
-Sorry for the confusion.
-
-Greets
-Alex
-
+>  
+>  	for_each_sibling_event(sibling, event->group_leader) {
+> -		if (is_software_event(sibling))
+> -			continue;
+> -
+>  		if (sibling->pmu != event->pmu)
+> -			return false;
+> +			continue;
+>  
+>  		for (num = 0; num < counters; num++) {
+>  			/*
+> diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pmu.c
+> index a449651f79c9..3c531b36cf25 100644
+> --- a/drivers/perf/hisilicon/hisi_uncore_pmu.c
+> +++ b/drivers/perf/hisilicon/hisi_uncore_pmu.c
+> @@ -101,26 +101,17 @@ static bool hisi_validate_event_group(struct perf_event *event)
+>  	/* Include count for the event */
+>  	int counters = 1;
+>  
+> -	if (!is_software_event(leader)) {
+> -		/*
+> -		 * We must NOT create groups containing mixed PMUs, although
+> -		 * software events are acceptable
+> -		 */
+> -		if (leader->pmu != event->pmu)
+> -			return false;
+> +	if (leader == event)
+> +		return true;
+>  
+> -		/* Increment counter for the leader */
+> -		if (leader != event)
+> -			counters++;
+> -	}
+> +	/* Increment counter for the leader */
+> +	if (leader->pmu == event->pmu)
+> +		counters++;
+>  
+>  	for_each_sibling_event(sibling, event->group_leader) {
+> -		if (is_software_event(sibling))
+> -			continue;
+> -		if (sibling->pmu != event->pmu)
+> -			return false;
+>  		/* Increment counter for each sibling */
+> -		counters++;
+> +		if (sibling->pmu == event->pmu)
+> +			counters++;
+>  	}
+>  
+>  	/* The group can not count events more than the counters in the HW */
+> diff --git a/drivers/perf/hisilicon/hns3_pmu.c b/drivers/perf/hisilicon/hns3_pmu.c
+> index c157f3572cae..382e469257f9 100644
+> --- a/drivers/perf/hisilicon/hns3_pmu.c
+> +++ b/drivers/perf/hisilicon/hns3_pmu.c
+> @@ -1058,21 +1058,16 @@ static bool hns3_pmu_validate_event_group(struct perf_event *event)
+>  	int counters = 1;
+>  	int num;
+>  
+> -	event_group[0] = leader;
+> -	if (!is_software_event(leader)) {
+> -		if (leader->pmu != event->pmu)
+> -			return false;
+> +	if (leader == event)
+> +		return true;
+>  
+> -		if (leader != event && !hns3_pmu_cmp_event(leader, event))
+> -			event_group[counters++] = event;
+> -	}
+> +	event_group[0] = event;
+> +	if (leader->pmu == event->pmu && !hns3_pmu_cmp_event(leader, event))
+> +		event_group[counters++] = leader;
+>  
+>  	for_each_sibling_event(sibling, event->group_leader) {
+> -		if (is_software_event(sibling))
+> -			continue;
+> -
+>  		if (sibling->pmu != event->pmu)
+> -			return false;
+> +			continue;
+>  
+>  		for (num = 0; num < counters; num++) {
+>  			/*
+> -- 
+> 2.39.2.101.g768bb238c484.dirty
+> 
 
