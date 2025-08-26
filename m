@@ -4,67 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ECD5CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 14:54:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B06BECA0FE7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 14:57:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R5+XpSaKAqdNrdtrhR8s6RcQF0jOiI4aPaKM70JAu/c=; b=Hnv/WQ5RQZjTT9l20E/V0S7ubn
-	AGuF5dOti9izfrvTGOMr8u3XBcG9k0CNNG7LM/ekU2regpaRa6hEL/qn83M13vK+ZoEpM1mM8CDpf
-	WJ/paX2sH8uieetR2rbzyXi6QH/rYvFnxJ4S4ATOQ5hfXZY4wJI0NXlWlCT55zg2He/SD9djo9U1t
-	0PLWRtihdW7XCmbahm3kvv7tW2I+njj78HGh5yjx2JFdQI2Sp00uUPrL0XX1rb0hGw/yh8f8L36OQ
-	X1NG/t8QTo58eBh/M0XEdrOuEAljggdbWi6lOlLKiRFTEcac+llgor+7AaR1jAR59JDDa89nubiT+
-	1eXtbitw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uTZR7C2pPWoCS/17WJctZ0INl0LEqmKfSETGH+YqyOs=; b=Py6K0qttKIS4uAbL+AFM3ln7kn
+	J6MQrwwrBKbXIyPt7Z3UmQxTdjUAZpsIAvFFXBdu5mXiBrI5T8iJJWjqMben+AjIdTMCMh7P+b4Mh
+	6z1hJYyjO3nR2o+0nJpDkucoSCx6FBmv8MoC5MNV0qw7YWO85qFZmrlXVImbPPwTrCJtqJ9rAU2AK
+	09/sf2Lm2oUG/eRFzYeH8NghyNAb4J6W85NAfVUahhGEKqc6ZLbmq2LlaOG9P7JCbEdXcx2sLeO+m
+	+cwnxfZnwJA3YKveFhwboybIOpRc+NIszQ0yOR2is8+KZFM8ftuoLNHUXkEVutyNwUyxe4NE37CAJ
+	3lBXPGgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqv3p-0000000CLCB-3K5h;
-	Tue, 26 Aug 2025 14:54:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uquvM-0000000CJSd-3Cb5;
-	Tue, 26 Aug 2025 14:45:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EFE4260229;
-	Tue, 26 Aug 2025 14:45:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54451C113D0;
-	Tue, 26 Aug 2025 14:45:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1756219523;
-	bh=4i76iFBGpqXB28FZCKzzhsSVSXhEQEgSz28LHBmh8r8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gyyhJh5Uj/lCmb8vNaMU0OlfUUbABEbkwgv0SXxjmYQKpyERYQs8UQG9SyHtYkvho
-	 wwdVRXeeEuYmnaaXzr/JAr9PGQfa/4zNbT+FQv962rPy+Hp10Biat3+/SSqNNw/rR7
-	 oU6dDrhWtJgtMJWLq7ZExG/JnlhX2H0Bunt/eK/8=
-Date: Tue, 26 Aug 2025 14:54:10 +0200
-From: "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>
-To: Xion Wang =?utf-8?B?KOeOi+mRqyk=?= <Xion.Wang@mediatek.com>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	wsd_upstream <wsd_upstream@mediatek.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Huadian Liu =?utf-8?B?KOWImOWNjuWFuCk=?= <huadian.liu@mediatek.com>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"arnd@arndb.de" <arnd@arndb.de>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Subject: Re: [PATCH 1/1] misc: Prevent double registration and deregistration
- of miscdevice
-Message-ID: <2025082646-regalia-glass-951d@gregkh>
-References: <20250825084556.10358-1-xion.wang@mediatek.com>
- <20250825084556.10358-2-xion.wang@mediatek.com>
- <2025082533-ranked-simply-4b63@gregkh>
- <d3d0fc0e19f939c093e6df1ff08ce23be71636a3.camel@mediatek.com>
- <2025082638-parlor-retreat-56ff@gregkh>
- <1ffa28bf6e3dcde83a6a6a5dde163596c4db639d.camel@mediatek.com>
- <2025082631-hypnotist-snazzy-147a@gregkh>
- <d3a780c367478868319064c27e0b41c69d4cc722.camel@mediatek.com>
+	id 1uqv6W-0000000CLfL-2mp1;
+	Tue, 26 Aug 2025 14:56:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uquvf-0000000CJWs-3EXa
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 Aug 2025 14:45:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EF0861F91;
+	Tue, 26 Aug 2025 07:45:32 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1305F3F694;
+	Tue, 26 Aug 2025 07:45:35 -0700 (PDT)
+Message-ID: <b032775e-1729-441a-8ec4-dd85f70055e8@arm.com>
+Date: Tue, 26 Aug 2025 15:45:34 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <d3a780c367478868319064c27e0b41c69d4cc722.camel@mediatek.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 03/33] ACPI / PPTT: Add a helper to fill a cpumask from a
+ processor container
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
+ devicetree@vger.kernel.org
+Cc: shameerali.kolothum.thodi@huawei.com,
+ D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
+ Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
+ baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>
+References: <20250822153048.2287-1-james.morse@arm.com>
+ <20250822153048.2287-4-james.morse@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20250822153048.2287-4-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250826_074543_926088_A9929B18 
+X-CRM114-Status: GOOD (  28.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,65 +86,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 26, 2025 at 12:09:01PM +0000, Xion Wang (王鑫) wrote:
-> On Tue, 2025-08-26 at 12:40 +0200, gregkh@linuxfoundation.org wrote:
-> > External email : Please do not click links or open attachments until
-> > you have verified the sender or the content.
-> > 
-> > 
-> > On Tue, Aug 26, 2025 at 07:58:47AM +0000, Xion Wang (王鑫) wrote:
-> > > > Again, this shouldn't be something that any driver should hit as
-> > > > this
-> > > > usage is not in the kernel tree that I can see.  Attempting to
-> > > > re-register a device multiple times is normally never a good
-> > > > idea.
-> > > 
-> > > Thank you for your comments.
-> > > 
-> > > I am not the owner of the WiFi driver and do not have full details
-> > > of
-> > > its internal logic. However, during internal integration and stress
-> > > testing, we observed an issue where repeated registration and
-> > > deregistration of a misc device by the WiFi module led to
-> > > corruption of
-> > > the misc_list. While I cannot provide the exact reasoning behind
-> > > the
-> > > WiFi driver's design, I wanted to report the problem and share our
-> > > findings with the community in case similar patterns exist
-> > > elsewhere,
-> > > including in vendor or out-of-tree drivers.
-> > 
-> > We do not "harden" our internal apis for external drivers, we fix
-> > drivers to not do foolish things :)
-> > 
-> > Please fix your out-of-tree code, it should not be even touching the
-> > miscdev api, as that is not something a wifi driver should be
-> > interacting with.  Please use the correct one instead, and then you
-> > will
-> > not have this type of issue.
-> 
-> Thank you for your feedback.
-> 
-> I agree that the kernel should not be hardened for out-of-tree drivers
-> misusing internal APIs. We will update our internal code to follow best
-> practices and avoid improper use of the miscdevice API.
-> 
-> On a related note, the current 'WARN_ON(list_empty(&misc->list))' check
-> in misc_deregister() does not catch any practical error conditions:
-> 
-> For statically allocated miscdevice structs, the list pointers are
-> zero-initialized, so list_empty() will return false, not true.
-> After list_del(), the pointers are set to LIST_POISON1/2, so repeated
-> deregistration also fails to trigger the check.
-> 
-> Since this condition does not protect in-tree drivers or catch real
-> errors, would it be reasonable to remove it?
+Hi James,
 
-Yes, if it can never be hit, we should remove it.
+The patch logic update makes sense to me. Just a nit.
 
-> I can submit a patch if the community agrees.
+On 8/22/25 16:29, James Morse wrote:
+> The PPTT describes CPUs and caches, as well as processor containers.
+> The ACPI table for MPAM describes the set of CPUs that can access an MSC
+> with the UID of a processor container.
+> 
+> Add a helper to find the processor container by its id, then walk
+> the possible CPUs to fill a cpumask with the CPUs that have this
+> processor container as a parent.
+> 
+> CC: Dave Martin <dave.martin@arm.com>
+> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+> Changes since RFC:
+>  * Dropped has_leaf_flag dodging of acpi_pptt_leaf_node()
+>  * Added missing : in kernel-doc
+>  * Made helper return void as this never actually returns an error.
+> ---
+>  drivers/acpi/pptt.c  | 86 ++++++++++++++++++++++++++++++++++++++++++++
+>  include/linux/acpi.h |  3 ++
+>  2 files changed, 89 insertions(+)
+> 
+> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
+> index 54676e3d82dd..4791ca2bdfac 100644
+> --- a/drivers/acpi/pptt.c
+> +++ b/drivers/acpi/pptt.c
+> @@ -298,6 +298,92 @@ static struct acpi_pptt_processor *acpi_find_processor_node(struct acpi_table_he
+>  	return NULL;
+>  }
+>  
+> +/**
+> + * acpi_pptt_get_child_cpus() - Find all the CPUs below a PPTT processor node
+> + * @table_hdr:		A reference to the PPTT table.
+> + * @parent_node:	A pointer to the processor node in the @table_hdr.
+> + * @cpus:		A cpumask to fill with the CPUs below @parent_node.
+> + *
+> + * Walks up the PPTT from every possible CPU to find if the provided
+> + * @parent_node is a parent of this CPU.
+> + */
+> +static void acpi_pptt_get_child_cpus(struct acpi_table_header *table_hdr,
+> +				     struct acpi_pptt_processor *parent_node,
+> +				     cpumask_t *cpus)
+> +{
+> +	struct acpi_pptt_processor *cpu_node;
+> +	u32 acpi_id;
+> +	int cpu;
+> +
+> +	cpumask_clear(cpus);
+> +
+> +	for_each_possible_cpu(cpu) {
+> +		acpi_id = get_acpi_id_for_cpu(cpu);
+> +		cpu_node = acpi_find_processor_node(table_hdr, acpi_id);
+> +
+> +		while (cpu_node) {
+> +			if (cpu_node == parent_node) {
+> +				cpumask_set_cpu(cpu, cpus);
+> +				break;
+> +			}
+> +			cpu_node = fetch_pptt_node(table_hdr, cpu_node->parent);
+> +		}
+> +	}
+> +}
+> +
+> +/**
+> + * acpi_pptt_get_cpus_from_container() - Populate a cpumask with all CPUs in a
+> + *                                       processor containers
+> + * @acpi_cpu_id:	The UID of the processor container.
+> + * @cpus:		The resulting CPU mask.
+> + *
+> + * Find the specified Processor Container, and fill @cpus with all the cpus
+> + * below it.
+> + *
+> + * Not all 'Processor' entries in the PPTT are either a CPU or a Processor
+> + * Container, they may exist purely to describe a Private resource. CPUs
+> + * have to be leaves, so a Processor Container is a non-leaf that has the
+> + * 'ACPI Processor ID valid' flag set.
+> + *
+> + * Return: 0 for a complete walk, or an error if the mask is incomplete.
+> + */
+> +void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus)
+> +{
+> +	struct acpi_pptt_processor *cpu_node;
+> +	struct acpi_table_header *table_hdr;
+> +	struct acpi_subtable_header *entry;
+> +	unsigned long table_end;
+> +	acpi_status status;
+> +	bool leaf_flag;
+> +	u32 proc_sz;
+> +
+> +	cpumask_clear(cpus);
+> +
+> +	status = acpi_get_table(ACPI_SIG_PPTT, 0, &table_hdr);
+> +	if (ACPI_FAILURE(status))
+> +		return;
+> +
+> +	table_end = (unsigned long)table_hdr + table_hdr->length;
+> +	entry = ACPI_ADD_PTR(struct acpi_subtable_header, table_hdr,
+> +			     sizeof(struct acpi_table_pptt));
+> +	proc_sz = sizeof(struct acpi_pptt_processor);
+> +	while ((unsigned long)entry + proc_sz <= table_end) {
+> +		cpu_node = (struct acpi_pptt_processor *)entry;
+> +		if (entry->type == ACPI_PPTT_TYPE_PROCESSOR &&
+> +		    cpu_node->flags & ACPI_PPTT_ACPI_PROCESSOR_ID_VALID) {
+> +			leaf_flag = acpi_pptt_leaf_node(table_hdr, cpu_node);
+nit: Consider dropping the boolean leaf_flag and just using
+acpi_pptt_leaf_node() in the condition. The name leaf_flag is slightly
+overloaded to include the case when the acpi leaf flag is not supported
+and dropping it would make the code more succinct.
+> +			if (!leaf_flag) {
+> +				if (cpu_node->acpi_processor_id == acpi_cpu_id)
+> +					acpi_pptt_get_child_cpus(table_hdr, cpu_node, cpus);
+> +			}
+> +		}
+> +		entry = ACPI_ADD_PTR(struct acpi_subtable_header, entry,
+> +				     entry->length);
+> +	}
+> +
+> +	acpi_put_table(table_hdr);
+> +}
+> +
+>  static u8 acpi_cache_type(enum cache_type type)
+>  {
+>  	switch (type) {
+> diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+> index 1c5bb1e887cd..f97a9ff678cc 100644
+> --- a/include/linux/acpi.h
+> +++ b/include/linux/acpi.h
+> @@ -1541,6 +1541,7 @@ int find_acpi_cpu_topology(unsigned int cpu, int level);
+>  int find_acpi_cpu_topology_cluster(unsigned int cpu);
+>  int find_acpi_cpu_topology_package(unsigned int cpu);
+>  int find_acpi_cpu_topology_hetero_id(unsigned int cpu);
+> +void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus);
+>  #else
+>  static inline int acpi_pptt_cpu_is_thread(unsigned int cpu)
+>  {
+> @@ -1562,6 +1563,8 @@ static inline int find_acpi_cpu_topology_hetero_id(unsigned int cpu)
+>  {
+>  	return -EINVAL;
+>  }
+> +static inline void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id,
+> +						     cpumask_t *cpus) { }
+>  #endif
+>  
+>  void acpi_arch_init(void);
 
-That would be great, thank you!
+Thanks,
 
-greg k-h
+Ben
+
 
