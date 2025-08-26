@@ -4,62 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71D3BCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 22:56:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73FEDCA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 23:30:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lCWXLw8pvfS3Xa5Pt2zxUceDinzYZ/GlbPCKLUQ/QBA=; b=Fhe7qTzmlLKSNBohdvhtKRb++x
-	6Jht+GREsS19otVEmk4Vq8mHQqmjVf2eb7PLxEqLr7TflR64o8GBwlsfbhTCeMYGKkySk7USZZvAF
-	Ff5i7QdS/kb1G3CmMFq8N3pjaPKuawUO5RyMUVSzwfvlmCDlB4m2/nE3lAs9gzvtRD7STE/rfv/rZ
-	kU13XbmNe4SMoYJRXDEjZyiFtVAiXDsx4bowvJDlbxvYaNivMs/aMRAx2lKN2T/heCfuhLZnZHHyW
-	aLx+dBypplLTCaYX1peQcWPSemCHSwqQffTR5Msx3ggLOkjGU/IfymCAMAFWixbnXK7tYK86DA9W9
-	xDn1f8Xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CD6yjiZ5YQJ32PGJlfbxDHcsoHAZgjFnPcceDJ4tFUI=; b=si1OQpbEBDLcP6JehoTMuz31hW
+	VYWBQTW69RjniyPacW1zFbiSSsUxqBO4OeqE5Z65dB6rWJcre0VVSSpV2lYfPIp2biJAbtiKfuDfy
+	mqvM5fgUMTaFqfkrfALj45OTiF+VoWprnAWXNJvsBQqfp4X1i0gro+gdT7WUxGqNEnckVdwkkOYyL
+	PlVzhup1ucwLwmgO4+DEe5cuADJuR8UwCMaq3FfrufD7NBUlQsq6+3NpbWU8NBepTP1D4z+OSwF3r
+	ebcHtG86gehL3eOTY/tz00PDLWsStFeQfXhR1Dfq8Ymvvqyae2XVnCKKyYmBJcKN88AN3J/gFZqG+
+	t7hG3Zrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ur2aa-0000000DIZC-3Hj0;
-	Tue, 26 Aug 2025 22:56:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ur37j-0000000DLpC-2qU0;
+	Tue, 26 Aug 2025 23:30:43 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ur2Xu-0000000DIOd-1zLb
+	id 1ur350-0000000DLYf-2ekE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 22:53:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E41AE60228;
-	Tue, 26 Aug 2025 22:53:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EB2DC4CEF1;
-	Tue, 26 Aug 2025 22:53:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756248821;
-	bh=HFz4lWMhublzt2u+So74Nn/ex2HhHH9QGaDvdeT52C0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SzqEImEd/wn+wMr3RXHc4YnqD9MqtoakG5cFDI0b3cq7YAWYOcroywG9cJ5lMJhRU
-	 y332TOx71EFetZf1Xr/4sbGaZMXzWTXn5FvMGNo5gX3VGEcO2/z95LVTGIMAPcTr78
-	 pxXmD46WtOt5dmV44Tb7O4yr6DS/gHN/+3tefkBbE/asejRq6A23bWJXgVCNYX/2Fr
-	 zfBuaxF5TvPSVgZbCXSUxPb3ulXvE6ssc65KmDhv6O/oRW3YJWsV9UipTsk4T5O/RZ
-	 KL2Bgj9zA8PeBG/Bsggw+YlCAKjqh6ELavtp2mDGy3+77DEijThMTvX3npVKgKqjjx
-	 Va0Yg6/lBmGhg==
-Date: Tue, 26 Aug 2025 17:53:40 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Janne Grunau <j@jannau.net>
-Cc: linux-kernel@vger.kernel.org, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	asahi@lists.linux.dev, Mark Kettenis <kettenis@openbsd.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Hector Martin <marcan@marcan.st>, Sven Peter <sven@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	Neal Gompa <neal@gompa.dev>
-Subject: Re: [PATCH v2 4/5] dt-bindings: arm: apple: Add t8112 j415 compatible
-Message-ID: <175624882021.642528.5469480421650316999.robh@kernel.org>
-References: <20250823-apple-dt-sync-6-17-v2-0-6dc0daeb4786@jannau.net>
- <20250823-apple-dt-sync-6-17-v2-4-6dc0daeb4786@jannau.net>
+	Tue, 26 Aug 2025 23:27:55 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-b475dfb4f42so4307850a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 16:27:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756250874; x=1756855674; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=CD6yjiZ5YQJ32PGJlfbxDHcsoHAZgjFnPcceDJ4tFUI=;
+        b=N8WMMFWtn8IhPcGU9LMU4+PoPbZ/dfl34oDiEKmpObnkFIDaFey2e8qESlo2tYiA6l
+         tz2b0Jpv/dpIGiY/VlsgYdl/jY4U7bTcB1av78FYIrTabEXi9hPudY0HxQOg0J08TR2Y
+         dUu32kC1eYnKLLcCXsAPaU/Z6yKciv2cJKYjMauM5iMpUxo++Ib56ERXd6IiOcXg8MIt
+         MOpUrLxsBJ20wobrfiTtIqekkwhFckPu2WUq6pnZKDQHUJwmSLw64Rj3rzWXd9pu4e8X
+         0wragCzaG6eGbaJqzP5erH7xMc8vYXiWzAk6C1gO7ipxitcfYvO+1g4sYOoPZQv+0gzc
+         rlgA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756250874; x=1756855674;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=CD6yjiZ5YQJ32PGJlfbxDHcsoHAZgjFnPcceDJ4tFUI=;
+        b=l2w+QyifwlqdIetxv/7C4AfLJGtZrSefR4p/WlefegQe4B6rb4jnpq+GFJH8J58X5h
+         qltw/uLzsO4VyZBuK68SX6+lPzcYxzfgL7IqbREvurAd00ugK1acVQl/KBOjBQOaa4fW
+         MTcmqNe5Wff1l1HVENlvRowqZZjlYb+xZBqg6WDD6zn0jAZRlskyXVctNlllvAaBORS+
+         4BGhSoh29ui/mdaYRuNWzM751BniJK8Vhsoy2zIbmxkfvbeXk7X1iqp4iUPILmr2v4hJ
+         dfRVBAi+KtZjqVE9V1jfLrR3JIyxAo01gM4Fo7+bFtAledc/fWFKLAosSRcXixyjIwm0
+         DvlQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW0Hi4PgjNACpfM0b6Gz4sBUPSzdOMuAFJ4tfkXeCwIVioX58dmc3ckDoxu+C4sux32qhG5kDkWkoJ0bW5Fk0WT@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJ/5y27vthC/ocy0aGdx/ZCazQG4bnXC8GuicBVDI1C32xxGZP
+	RgntOvxVKoWZeZ2DznLp5udRvDTq5/pw3RETq1b5ze0iYG2CR3nz+984
+X-Gm-Gg: ASbGncsPEQiqzsZyNoRKO4N3Le9eLZOSYQmHuJwTbdRx5Fq0f3QB++1Rc6l5zMRjaSQ
+	+E/UqljaKSMVxa92Q76Icnu3MmvaMDZfGoRWnSRqiB6GL3nLVUgCEhM/6HyZrHOWyiUUMTV2FRk
+	hSaX+9GLFxFP7+c266a5BKZmqPJ21FqkCNDcTaDPTr9g3xIi3Q48qUCawCJ02Kghr0Lw24sqoOE
+	/jyFSIPvfSTC9w8WfhyJSTPZJ7fcCDwyvyXoQY1JzPOR9CaInPuC8XfFhCCspC0ccKPOj1zAMUA
+	7TTCXY2uI1XDMAoNeUd91ZkmPCL4xjnJfqTwd3zrZqpmjBshPxZoAktzrZW7h4GmcAYSCpMcEMG
+	a595XanjlKa6B0zHtxccIIPUDtcXqAwU2t19N/7Fy
+X-Google-Smtp-Source: AGHT+IFz/KMAhS4Oimu584tu9uMR736OqQJnjQoNKaXTHKg/3q21BZIuq4aoQ7AMNj16dNs+Rbxpmg==
+X-Received: by 2002:a17:903:4b03:b0:246:cfc4:9a27 with SMTP id d9443c01a7336-246cfc49fefmr102960175ad.13.1756250873707;
+        Tue, 26 Aug 2025 16:27:53 -0700 (PDT)
+Received: from [192.168.0.150] ([103.124.138.155])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2466885efc8sm105526725ad.90.2025.08.26.16.27.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 26 Aug 2025 16:27:53 -0700 (PDT)
+Message-ID: <3b1a2ea1-4456-4f65-91f3-fcf070eeac98@gmail.com>
+Date: Wed, 27 Aug 2025 06:27:47 +0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250823-apple-dt-sync-6-17-v2-4-6dc0daeb4786@jannau.net>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] selftests/arm64: Fix grammatical error in string
+ literals
+To: "Nikola Z. Ivanov" <zlatistiv@gmail.com>, Markus.Elfring@web.de,
+ broonie@kernel.org
+Cc: shuah@kernel.org, will@kernel.org, mark.rutland@arm.com,
+ ebiggers@google.com, catalin.marinas@arm.com, martin.petersen@oracle.com,
+ ardb@kernel.org, thiago.bauermann@linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-kernel-mentees@lists.linux.dev
+References: <20250826214913.866695-1-zlatistiv@gmail.com>
+Content-Language: en-US
+From: Bagas Sanjaya <bagasdotme@gmail.com>
+In-Reply-To: <20250826214913.866695-1-zlatistiv@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250826_162754_679037_A0F67C8C 
+X-CRM114-Status: UNSURE (   6.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,19 +106,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Sat, 23 Aug 2025 11:49:47 +0200, Janne Grunau wrote:
-> This adds the "apple,j415" (MacBook Air (15-inch, M2, 2023) to the
-> apple,t8112 platform.
-> 
-> Reviewed-by: Neal Gompa <neal@gompa.dev>
-> Reviewed-by: Sven Peter <sven@kernel.org>
-> Signed-off-by: Janne Grunau <j@jannau.net>
-> ---
->  Documentation/devicetree/bindings/arm/apple.yaml | 2 ++
->  1 file changed, 2 insertions(+)
+On 8/27/25 04:49, Nikola Z. Ivanov wrote:
+> Fix grammatical error in <past tense verb> + <infinitive>
+> construct related to memory allocation checks.
+> In essence change "Failed to allocated" to "Failed to allocate".
 > 
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+LGTM, thanks!
 
+Reviewed-by: Bagas Sanjaya <bagasdotme@gmail.com>
+
+-- 
+An old man doll... just what I always wanted! - Clara
 
