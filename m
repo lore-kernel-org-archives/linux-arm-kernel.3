@@ -4,85 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82956CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 09:51:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C31A9CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 09:53:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0kksXY6qvH1L0tvsp2dKynLeBCUnDrycYEwOgABE3I8=; b=XX3168evdQOEOxy2StFIOGhOKh
-	iCe+0PnWsYRm7iVn1yIrbnEuDKVlNgZwQvTqHXGFV78DcURV+I3iEnlpYYqUmBB2JW/Lnu4HTmk5Y
-	sfdBRZOimt4HVYiGGuXKDcNBqxL0YjupYV1/jNNs7omnUiJDdM6cZud4aB54SXFKvI+uHqdN5Cn3i
-	+KqGnz+HOP6wwKxp5CGBaIAUFRPzIyAfMISS1RUhbV9Jj5YRQhalpA4InN2GQEOCZ+Wu7MoTNU6e9
-	W4KbLmgtHEioanC7j7/tzA158oxK7IOfdEmyRriAuPB0CSv3Af0sdlInxFUfvqqgXYJCKa3LLTaNE
-	hpJgC8Ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4PEAY8J+2hFqaAcoFBcmAnIffsmjtAPPhfpLBeNAHJE=; b=cXvNoWw0AUMDcBATdmPZ+VotCH
+	fiAao1SnJYO8NO/i0cKrHFexnKmivmvMhpIrZKq0vPRQg3Cs3IAZzniF4KkgUrUeYcTb42//hrlFW
+	o/l8FDAxCe7AhRimo7uL4Q/i4Hlh/RWmTn4VsVa1u2fcXvmy+a5hOBqHFwIDWbcvlxu6vjyzZ9Uy6
+	an6YaNXyRsMHBkW8d7y2DAh0N7Qs6TqpkhTYCc80bBs7IB5NJo+YbeayYZ1CZKkYlWOnXqD74eU51
+	l45iKpNOst7p+UAWuYR1Bw8axPcF0Nhc7nu2RDzgopiGerl/NO23o6JPY0al4A5OP7HgN72uiQFqt
+	LFzhrtLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqqKY-0000000BUze-2oUF;
-	Tue, 26 Aug 2025 09:51:06 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1uqqMc-0000000BVMM-2vkU;
+	Tue, 26 Aug 2025 09:53:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqq57-0000000BQvb-10lG;
-	Tue, 26 Aug 2025 09:35:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=0kksXY6qvH1L0tvsp2dKynLeBCUnDrycYEwOgABE3I8=; b=pEsksbH0GWNkC4oxuPMuoDz4Lv
-	oEVH+1V0RqTirpkdnQphw4N23fltxzOHWvH4oMWynmB2vQLBFc/NdVgMXBvEWNMdtE/JPZT5abkxZ
-	BOLuOh9/uOEFrdX762OF9dTagAm1dx327Z6TS42pJYBD7C1QpphQGmmlv7hMbNRSLY6Q00eVzJ601
-	0FUNVVqOOAq2FXvGBmBh4rUv7dMLsiQ/xK9zby1Q7fHSP6Wrgck0rx2dOFJfsOc+moxoDdnFmotar
-	6VqZB12dNSXOh9vBdzPrClQBiD795n/HjXDXU97wGRSVBJYYwaL5hzxmwXICYPtU12qsJt0aD1g+z
-	lIVGCueQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:41130)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1uqq4r-000000007fR-03bV;
-	Tue, 26 Aug 2025 10:34:53 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1uqq4o-0000000018h-0Pc0;
-	Tue, 26 Aug 2025 10:34:50 +0100
-Date: Tue, 26 Aug 2025 10:34:49 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>,
-	Chaoyi Chen <kernel@airkyi.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jonas Karlman <jonas@kwiboo.se>, David Wu <david.wu@rock-chips.com>,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH net-next v3] net: ethernet: stmmac: dwmac-rk: Make the
- clk_phy could be used for external phy
-Message-ID: <aK1_uaBpnix4n4eS@shell.armlinux.org.uk>
-References: <20250815023515.114-1-kernel@airkyi.com>
- <CGME20250825072312eucas1p2d4751199c0ea069c7938218be60e5e93@eucas1p2.samsung.com>
- <a30a8c97-6b96-45ba-bad7-8a40401babc2@samsung.com>
- <d0fe6d16-181f-4b38-9457-1099fb6419d0@rock-chips.com>
- <809848c9-2ffa-4743-adda-b8b714b404de@samsung.com>
- <aKxnHFSrVeM7Be5A@shell.armlinux.org.uk>
- <8240a3cc-aade-40d8-b2f4-09681f76be68@rock-chips.com>
- <aK19bSmrbXjoVXdO@shell.armlinux.org.uk>
- <ae11b993-5844-4da1-b433-c27b5a73060a@rock-chips.com>
+	id 1uqp9T-0000000B2TT-39bc;
+	Tue, 26 Aug 2025 08:35:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0524E601FC;
+	Tue, 26 Aug 2025 08:35:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93B0BC4CEF1;
+	Tue, 26 Aug 2025 08:35:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756197325;
+	bh=nrG+katxORgoz1280zOJ1BjvEfsOXCrjgMG9haaiYo0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=G0Nlq2+oVHJ6Cf52NPgTzUWVPenNhKHurD15yUf5QZrP3Iy1T8Bm4cBGvZBMcpvp0
+	 3gE6tdomwYIrKJRtAUGcKHVG33jNRRBHUiPUW3Y+qlCj/Frvulqsw/0hd51qaijzsT
+	 UmVsNItVGO6wcuLWiaFnD/xHb59dW6e3jIqL7zyaZHzcmci3Y6CXCx6yuum3xUfagL
+	 JsZEU4AhbnD88yNuDQFeuqa+jUJj/ahsSjoqT0IVJAIiVGW0xoss9/XBGu2HC0j4Md
+	 WtyiotIFbY3eC4K9KpolS/G49BwNc1a8Cm0XHFQ14DeHgiUqoqII6wnuW0PBhsjAPw
+	 j1oEEKb9ie3UQ==
+Message-ID: <83dc9435-5850-425d-b345-52e84ef9262c@kernel.org>
+Date: Tue, 26 Aug 2025 10:35:19 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <ae11b993-5844-4da1-b433-c27b5a73060a@rock-chips.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_023509_285434_1B12266C 
-X-CRM114-Status: GOOD (  36.10  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 5/6] dt-bindings: phy: samsung,usb3-drd-phy: add
+ ExynosAutov920 combo ssphy
+To: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, alim.akhtar@samsung.com, andre.draszik@linaro.org,
+ peter.griffin@linaro.org, kauschluss@disroot.org,
+ ivo.ivanov.ivanov1@gmail.com, igor.belwon@mentallysanemainliners.org,
+ johan@kernel.org, m.szyprowski@samsung.com, s.nawrocki@samsung.com,
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
+ dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
+ selvarasu.g@samsung.com
+References: <20250822093845.1179395-1-pritam.sutar@samsung.com>
+ <CGME20250822093022epcas5p42d8c16c851769dab0e1da9d45743ab1f@epcas5p4.samsung.com>
+ <20250822093845.1179395-6-pritam.sutar@samsung.com>
+ <20250824-rough-fresh-orangutan-eecb2f@kuoka>
+ <007501dc1653$e36c3b50$aa44b1f0$@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <007501dc1653$e36c3b50$aa44b1f0$@samsung.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,96 +125,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 26, 2025 at 05:29:04PM +0800, Chaoyi Chen wrote:
-> On 8/26/2025 5:25 PM, Russell King (Oracle) wrote:
+On 26/08/2025 08:37, Pritam Manohar Sutar wrote:
+> Hi Krzysztof, 
 > 
-> > On Tue, Aug 26, 2025 at 04:08:40PM +0800, Chaoyi Chen wrote:
-> > > Hi Russell,
-> > > 
-> > > On 8/25/2025 9:37 PM, Russell King (Oracle) wrote:
-> > > > On Mon, Aug 25, 2025 at 12:53:37PM +0200, Marek Szyprowski wrote:
-> > > > > On 25.08.2025 11:57, Chaoyi Chen wrote:
-> > > > > > On 8/25/2025 3:23 PM, Marek Szyprowski wrote:
-> > > > > > > On 15.08.2025 04:35, Chaoyi Chen wrote:
-> > > > > > > > From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> > > > > > > > 
-> > > > > > > > For external phy, clk_phy should be optional, and some external phy
-> > > > > > > > need the clock input from clk_phy. This patch adds support for setting
-> > > > > > > > clk_phy for external phy.
-> > > > > > > > 
-> > > > > > > > Signed-off-by: David Wu <david.wu@rock-chips.com>
-> > > > > > > > Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> > > > > > > > ---
-> > > > > > > > 
-> > > > > > > > Changes in v3:
-> > > > > > > > - Link to V2:
-> > > > > > > > https://lore.kernel.org/netdev/20250812012127.197-1-kernel@airkyi.com/
-> > > > > > > > - Rebase to net-next/main
-> > > > > > > > 
-> > > > > > > > Changes in v2:
-> > > > > > > > - Link to V1:
-> > > > > > > > https://lore.kernel.org/netdev/20250806011405.115-1-kernel@airkyi.com/
-> > > > > > > > - Remove get clock frequency from DT prop
-> > > > > > > > 
-> > > > > > > >      drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 11 +++++++----
-> > > > > > > >      1 file changed, 7 insertions(+), 4 deletions(-)
-> > > > > > > > 
-> > > > > > > > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> > > > > > > > b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> > > > > > > > index ac8288301994..5d921e62c2f5 100644
-> > > > > > > > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> > > > > > > > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> > > > > > > > @@ -1412,12 +1412,15 @@ static int rk_gmac_clk_init(struct
-> > > > > > > > plat_stmmacenet_data *plat)
-> > > > > > > >              clk_set_rate(plat->stmmac_clk, 50000000);
-> > > > > > > >          }
-> > > > > > > >      -    if (plat->phy_node && bsp_priv->integrated_phy) {
-> > > > > > > > +    if (plat->phy_node) {
-> > > > > > > >              bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
-> > > > > > > >              ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
-> > > > > > > > -        if (ret)
-> > > > > > > > -            return dev_err_probe(dev, ret, "Cannot get PHY clock\n");
-> > > > > > > > -        clk_set_rate(bsp_priv->clk_phy, 50000000);
-> > > > > > > > +        /* If it is not integrated_phy, clk_phy is optional */
-> > > > > > > > +        if (bsp_priv->integrated_phy) {
-> > > > > > > > +            if (ret)
-> > > > > > > > +                return dev_err_probe(dev, ret, "Cannot get PHY
-> > > > > > > > clock\n");
-> > > > > > > > +            clk_set_rate(bsp_priv->clk_phy, 50000000);
-> > > > > > > > +        }
-> > > > > > I think  we should set bsp_priv->clk_phy to NULL here if we failed to
-> > > > > > get the clock.
-> > > > > > 
-> > > > > > Could you try this on your board? Thank you.
-> > > > > Right, the following change also fixes this issue:
-> > > > > 
-> > > > > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> > > > > b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> > > > > index 9fc41207cc45..2d19d48be01f 100644
-> > > > > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> > > > > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> > > > > @@ -1415,6 +1415,8 @@ static int rk_gmac_clk_init(struct
-> > > > > plat_stmmacenet_data *plat)
-> > > > >            if (plat->phy_node) {
-> > > > >                    bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
-> > > > >                    ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
-> > > > > +               if (ret)
-> > > > > +                       bsp_priv->clk_phy = NULL;
-> > > > Or just:
-> > > > 
-> > > > 		clk = of_clk_get(plat->phy_node, 0);
-> > > > 		if (clk == ERR_PTR(-EPROBE_DEFER))
-> > > Do we actually need this? Maybe other devm_clk_get() before it would fail in advance.
-> > Is it the same clock as devm_clk_get()? If it is, what's the point of
-> > getting it a second time. If it isn't, then it could be a different
-> > clock which may be yet to probe.
+>> -----Original Message-----
+>> From: Krzysztof Kozlowski <krzk@kernel.org>
+>> Sent: 24 August 2025 02:26 PM
+>> To: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+>> Cc: vkoul@kernel.org; kishon@kernel.org; robh@kernel.org;
+>> krzk+dt@kernel.org; conor+dt@kernel.org; alim.akhtar@samsung.com;
+>> andre.draszik@linaro.org; peter.griffin@linaro.org; kauschluss@disroot.org;
+>> ivo.ivanov.ivanov1@gmail.com; igor.belwon@mentallysanemainliners.org;
+>> johan@kernel.org; m.szyprowski@samsung.com; s.nawrocki@samsung.com;
+>> linux-phy@lists.infradead.org; devicetree@vger.kernel.org; linux-
+>> kernel@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-samsung-
+>> soc@vger.kernel.org; rosa.pila@samsung.com; dev.tailor@samsung.com;
+>> faraz.ata@samsung.com; muhammed.ali@samsung.com;
+>> selvarasu.g@samsung.com
+>> Subject: Re: [PATCH v7 5/6] dt-bindings: phy: samsung,usb3-drd-phy: add
+>> ExynosAutov920 combo ssphy
+>>
+>> On Fri, Aug 22, 2025 at 03:08:44PM +0530, Pritam Manohar Sutar wrote:
+>>> This phy supports USB3.1 SSP+(10Gbps) protocol and is backwards
+>>> compatible to the USB3.0 SS(5Gbps). It requires two clocks, named
+>>> "phy" and "ref". The required supplies for USB3.1 are named as
+>>> vdd075_usb30(0.75v), vdd18_usb30(1.8v).
+>>
+>> Please do not describe the schema, but hardware. This sentence does not help
+>> me in my question further.
 > 
-> It's not the same clock, but it should be use the same clock controller driver, which is the CRU on the Rockchip platform.
+> This is a combo phy having Synopsys usb20 and usb30 phys (these 2 phys are totally different). 
+> One PHY only supports usb2.0 and data rates whereas another one does usb3.1 ssp+ and usb3.1 ssp
+> 	
+> This patch only explains about usb30 (since these are two different phys) phy and omitted inclusion of usb20 reference (added separate patch for this patch no 3). 
+> 	
+> Hope this is clear.
 
-Will it always be the same clock controller, including into the future
-Rockchip devices?
+No. That sentence still explains what schema is doing.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+BTW, wrap your email correctly.
+
+> 
+>>
+>>>
+>>> Add schemas for combo ssphy found on this SoC.
+>>>
+>>> Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+>>> ---
+>>>  .../bindings/phy/samsung,usb3-drd-phy.yaml    | 23 +++++++++++++++++++
+>>>  1 file changed, 23 insertions(+)
+>>>
+>>> diff --git
+>>> a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+>>> b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+>>> index f0cfca5736b8..96e5bbb2e42c 100644
+>>> --- a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+>>> +++ b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+>>> @@ -34,6 +34,7 @@ properties:
+>>>        - samsung,exynos7870-usbdrd-phy
+>>>        - samsung,exynos850-usbdrd-phy
+>>>        - samsung,exynos990-usbdrd-phy
+>>> +      - samsung,exynosautov920-usb31drd-combo-ssphy
+>>>        - samsung,exynosautov920-usbdrd-combo-hsphy
+>>>        - samsung,exynosautov920-usbdrd-phy
+>>>
+>>> @@ -118,6 +119,12 @@ properties:
+>>>    vdd18-usb20-supply:
+>>>      description: 1.8V power supply for the USB 2.0 phy.
+>>>
+>>> +  dvdd075-usb30-supply:
+>>> +    description: 0.75V power supply for the USB 3.0 phy.
+>>> +
+>>> +  vdd18-usb30-supply:
+>>> +    description: 1.8V power supply for the USB 3.0 phy.
+>>> +
+>>>  required:
+>>>    - compatible
+>>>    - clocks
+>>> @@ -227,6 +234,7 @@ allOf:
+>>>                - samsung,exynos7870-usbdrd-phy
+>>>                - samsung,exynos850-usbdrd-phy
+>>>                - samsung,exynos990-usbdrd-phy
+>>> +              - samsung,exynosautov920-usb31drd-combo-ssphy
+>>>                - samsung,exynosautov920-usbdrd-combo-hsphy
+>>>                - samsung,exynosautov920-usbdrd-phy
+>>>      then:
+>>> @@ -262,6 +270,21 @@ allOf:
+>>>        properties:
+>>>          dvdd075-usb20-supply: false
+>>>          vdd18-usb20-supply: false
+>>> +  - if:
+>>> +      properties:
+>>> +        compatible:
+>>> +          contains:
+>>> +            enum:
+>>> +              - samsung,exynosautov920-usb31drd-combo-ssphy
+>>> +    then:
+>>> +      required:
+>>> +        - dvdd075-usb30-supply
+>>> +        - vdd18-usb30-supply
+>>
+>> Why are you adding usb20 and usb30 suffixes to the supplies? These are
+>> separate devices, so they do not have both variants at the same time.
+> 
+> This is a combo phy consisting of usb2 and usb3 phys combined. 
+> To drive these separate phys, added suffixes for these supplies respectively.
+
+But they are separate.
+
+> 
+> Moreover, gs101 is also using similar convention for its usb20 and dp supplies. 
+> Added suffix for usb2 and usb3 as per our last communication https://lore.kernel.org/linux-phy/6e1c67d2-9bfa-442a-9d53-8c5970a2a9ef@kernel.org/
+
+Then please review patches on the list and help to improve them BEFORE
+they got merged.
+
+I questioned the suffix there, so I really do not understand why did you
+added it.
+
+> 
+>>
+>> From this device point of view, the supply is called dvdd075 or vdd18.
+>> If you open device datasheet (not SoC datasheet), that's how it will be called,
+>> most likely.
+> 
+> Yes, Agree. In device datasheet, suffixes are not mentioned, but in our board schematic it is mentioned. 
+> Let me know your suggestion about adding suffixes?
+
+I already said, multiple times on various discussions. You name these
+based on how the inputs are called in this device.
+
+Best regards,
+Krzysztof
 
