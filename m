@@ -4,89 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04BBACA0FE9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 09:23:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FF40CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 09:25:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7wjbO+/CzvSzhggdBHtlSBiSOrC+TN4SiqbwtSU008o=; b=LmYo8KpragvtIDVymoCYEwjeW+
-	bYPdaikemBsnaT9uhuxv7UmUNmJ90iwseAb9vJqAOR8mCGCOCWrJYZC/hPlEPOx9mHYTZfvd+Ugbu
-	ylp0WCKORYBrSBDns/FL/J6Nwd3yBlLvN6xUGekmfiqi8TOB8/3Ry3sMKY0ijOZdMn784tIpaaOv3
-	kfr+iet/J4oNvMCancVRfOFt635F1LzGqDZRxwXALtvuVIPmUg1mXE2ceg8tZLzJpsy2AcfQVanrm
-	sW8pdOkcI+gtnXb0+BpZBi2M7on2FwSb2JusDhcsIzB4K+c/LdH70Q+iBUJLOip27vnXZ2Uwx1ZW8
-	nxr3fCwQ==;
+	bh=bARKiXzA6hGcwZbah7s5OpMlMCRfJH9Ze1dsDZvGjrI=; b=w1MA1MgbBkDdgqzU8XVwUuipH2
+	rblC2Y/I8g0z5EJuGurjZrzvmU+MelD2v1/lE32QT2FqqYeFHIvCQt7MWJk8Of3vza3XRmPj2+b4k
+	p50N5bNne4520JydYMG3U6jCCMqLePGqUUieHMnsm4eBnzwttkvBOJvT1gPCWGybci9WT9JM9GWFg
+	hlzQajWu9PWWkUDHnVCN9yaSkf2q7/BxY1HWTMNpMK4WHat7XmXUqCMhUCgCO1W1O76UGHKUs5li9
+	s6fwX+arKg0d5pZWcHiWTNqHp14rtfgnkkdwYjGgHkDf3eTtPoq/x+Y5CKOnmEqbOw3AQ/H/KWkWs
+	ZwUwOaoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqpta-0000000BM3S-20aN;
-	Tue, 26 Aug 2025 09:23:14 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1uqpw8-0000000BNAa-1o3m;
+	Tue, 26 Aug 2025 09:25:52 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqoh4-0000000Ax9s-1roC
+	id 1uqpoY-0000000BJuZ-3jKZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 08:06:15 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-afcb7af30a5so904493866b.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 01:06:13 -0700 (PDT)
+	Tue, 26 Aug 2025 09:18:04 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3c79f0a5c5fso2060703f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 02:18:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756195572; x=1756800372; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7wjbO+/CzvSzhggdBHtlSBiSOrC+TN4SiqbwtSU008o=;
-        b=Y8/2pv5d2nUkKd5W9wW8XoFEgUcnCkQRNoINiCF6ANnLNNxQqvVXUh4QdtiOm6Z5D2
-         61CgOPiSQe5B/n6bJc8jfEYedEzvqcqjZH4+vBM2g5fT3rv/zSsNV+fASBnqUeZMAVi1
-         7KUqNOSd3+d3P8KJmo4YrnV2szfA1koczITD+lAsQuzy/Bl42XcNrld3Tr+CZ1BlENze
-         Q5tpPvBIb9Wa/2kN+ADsNrrQ2pxuxAzQfzi8KwHlpnCaCBj/O4+uRiuKuGOPY6MECiBn
-         PSWN4CITIzMREEQZoXkmCIfxXOafp28Tw3MTb5WGGdKJtoqcpotK+6I3VXLDqXbkJgdC
-         K3Sw==
+        d=linaro.org; s=google; t=1756199881; x=1756804681; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=bARKiXzA6hGcwZbah7s5OpMlMCRfJH9Ze1dsDZvGjrI=;
+        b=b+QIKgRiuGBNPF6ujOfqch5zLbJwnFDuLjz9gUtlp2cx/5jqllv9OuIOV+TdtPnP2k
+         g3X5InwijJnw++tXxBu6pu1T3l17UriPyJX1VXbxN5RpUC7tO71v+M1lYlCjL92MPUtv
+         1lTuz9jcLcGgHicaR78KQhWO87TXgNODisj27QmoAxjARvI1wK3D0/uEGasuncJUHX1k
+         La0bPYGwt2bUb0j+LYSKHylf+zbBTyU6jVYtegGfDv5G6VYhTyOPgD/A0rhxm9gxvfu2
+         +y/Frd7K3Wea8JL8yD6FSBBjdUDbawjdlNnqHwZ4gs63lg1MauQG+agQm7Jf4fAC1pNC
+         7IDQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756195572; x=1756800372;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7wjbO+/CzvSzhggdBHtlSBiSOrC+TN4SiqbwtSU008o=;
-        b=KpDcI3kZNCo1yArOMRfBdwJeMh3DWGb91MbQMYvB894sretg9jYXluAzKjBzsbDrYf
-         EJjDirl54sjlGEdvOMfqVw544kpH4mhIHPAB51CWB+DAGyMQi443GpDmf3UQJZu5AUbB
-         tga2SZEaRTaZNeSQYtEOShYs3id7PHrxIhwG9+yngy6jyueYSF4puEx7Qdg5RD75yUDn
-         Qb0aMDHjCx43XsbLl6t9Uw+h222FFDg1WuOsQEOIPJxJjY8OHLtcIMjktrJpcI4dW+u2
-         VyustlJ6V9Q+zOiG1cDx4DvofboG9Gujw50ZmynoydGF4M6xiw1NH+FlVrETCZIlQ/Wh
-         6weg==
-X-Forwarded-Encrypted: i=1; AJvYcCUm1fp3nrjfUc9QPfOVx6DJMLzN9LFoRXx7clG+bJdOOnBvr8YfBj+DhQU+WqaBs8+zhaK8Wo6/kdtTVErYY1qX@lists.infradead.org
-X-Gm-Message-State: AOJu0YxvLoQJhJwmXiulz3zF69G8DnTxPCADV3gpzyLopu8L6FNOGwpa
-	znXdnCgSmp3Ul9e4a2ls3cxEqSEdIXZ9vfH5p/lGf5EfbGwaPpkkvTOcmxhkoj/8bST6pYoOH09
-	CXuckKUOhzTPXK8LX6gXUnpTt3cVV20g=
-X-Gm-Gg: ASbGnctTb+PRvutNBnN8uw5MJX0yAe2ULvljlFebJ40uArmzGQSjxunfyicTbKax3z+
-	XtU5o4G1o49AZ0RiFahbGQkxdcAG0R08Gu3b6syn3nmzB3zs8beuiogQqYdZP6WHXmCPVtskeA8
-	C3oqkXEcTRqFEOISeCIRimIC680koEIozH7XPzGLfoDI12dHQIdigovOEWsDsGxxIQR986r45Jt
-	fBtyxg=
-X-Google-Smtp-Source: AGHT+IET95gesPsImlWxfCSqXy/xiG2n7VC6emkdon2TKt+AHqmFUOCd9ze1yaM/komtsJdO29Rh9lxV5vuG/ZzJHKo=
-X-Received: by 2002:a17:906:ef05:b0:afe:8761:e77a with SMTP id
- a640c23a62f3a-afe8761fad3mr537764766b.19.1756195572104; Tue, 26 Aug 2025
- 01:06:12 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1756199881; x=1756804681;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=bARKiXzA6hGcwZbah7s5OpMlMCRfJH9Ze1dsDZvGjrI=;
+        b=Ta2Dhgkc9eqGJV45t4NA6e1uKfNMUJoZAZoAPtXfHiaKsu7Ct2SX75n9yd+g8L4Gs+
+         zWeM7/vVQrCRzy1jLvf3e9eOGMvTpkTgx6hzHf0LpaFPGg5BgWXZSTKPSbm131uhdT4G
+         KOEjh/2i8bhygZg0Z414qSWiNQdOcU2WETGTt8s28sPUziyqw5qCdvh6O36RcNRK7E7U
+         mS6OEsKnLOtMjkakpwWYwK9Zsv2TYKPvsYk8qmyaEL8sBZo8iZiGfUWMgxxaboS6bRXh
+         uHpgzCycwNga6Fzd/5q5SRv/FecpTNoUNAaAQZcK8N/gQc5GnR5p1p4IZtkyyoWSjMBg
+         jfrw==
+X-Forwarded-Encrypted: i=1; AJvYcCV+BQKZX4CXmG6Sw1IGua1gs9MCo8EucOLLoL1NNaic0XtSwZzGy1RKvojW84mY63KFso/PIskSk+iQPsRvzSgU@lists.infradead.org
+X-Gm-Message-State: AOJu0YyB1Uar1ykshngioVOQyjPT1in1yfr2xdkUz6LlZKNBGZiUB4jA
+	rgt7LDelsFudU+MoIRTVMu9tpqR158lA7SPJoy29br+JytMYEZLJWGbL4ingyf926w0=
+X-Gm-Gg: ASbGncszeL8DKACt4NKAgMffvYZKNpGrwUdNG3uT9jkSTq9ll5PwkgEQcVfjEkBD3ol
+	EELXj3kYFpPRieFXt7JfEqSOQc+0PbNbByny+kKld5Oivx0l/aj6h6nc4OieIXC/9hlcBdq+9hf
+	ewCLCGsIFd8RNeZBIFtyU5bPT1l/lHYw1mdLOSj/T809wf4HVoL84I6GXm/YezHqLkzgL2ApqyB
+	KoId0IFsiFeZOH0toSNMI5uhmRg58ErJS5/ajqF9xLnPDbizVIKDlVlEqWXtvaBMcctgViz0Zgo
+	u8FS1HkRx/sk/qVVltd26nZO3H3TDGkyI25z9mODBLufQEtDGhDN0g/ulZkoTkO8VbyYV7V6ryg
+	/Xy7m5JLufBlpTfoYnzSX3Z0i/Hg=
+X-Google-Smtp-Source: AGHT+IGAZEs053vHudyipY3XTEBo1QStAY7/xTMg751YeNtyJEeHMj0XEwwbWsuR8ch7OFkISHSqhw==
+X-Received: by 2002:a05:6000:24c7:b0:3c8:1df2:540c with SMTP id ffacd0b85a97d-3c81df25723mr6978339f8f.43.1756199881181;
+        Tue, 26 Aug 2025 02:18:01 -0700 (PDT)
+Received: from [192.168.1.3] ([185.48.76.109])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b5753ae41sm142300465e9.9.2025.08.26.02.18.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 26 Aug 2025 02:18:00 -0700 (PDT)
+Message-ID: <ef2267d2-a6f4-4f51-be44-687a4074a4d3@linaro.org>
+Date: Tue, 26 Aug 2025 10:17:59 +0100
 MIME-Version: 1.0
-References: <20250825205235.1766401-1-sakari.ailus@linux.intel.com>
-In-Reply-To: <20250825205235.1766401-1-sakari.ailus@linux.intel.com>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Tue, 26 Aug 2025 11:05:35 +0300
-X-Gm-Features: Ac12FXwdLHPHoVmXYor1LPriFlV0142umbIIkjkJQym6xu1Er8B2ZfjAPn-xRkY
-Message-ID: <CAHp75Vcyr2gQ_Z7BV5nEJCSb1taWnBOfCfTWMQtMG-65Z+D0Dg@mail.gmail.com>
-Subject: Re: [PATCH v4 1/1] iio: dac: Remove redundant pm_runtime_mark_last_busy()
- calls
-To: Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
-	=?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
-	Andy Shevchenko <andy@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-iio@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/3] coresight: tpda: Add sysfs node for tpda
+ cross-trigger configuration
+To: Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
+References: <20250826070150.5603-1-jie.gan@oss.qualcomm.com>
+ <20250826070150.5603-2-jie.gan@oss.qualcomm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20250826070150.5603-2-jie.gan@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_010614_482707_D57AAAFE 
-X-CRM114-Status: GOOD (  14.51  )
+X-CRM114-CacheID: sfid-20250826_021802_939837_139655A2 
+X-CRM114-Status: GOOD (  12.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,73 +106,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 25, 2025 at 11:53=E2=80=AFPM Sakari Ailus
-<sakari.ailus@linux.intel.com> wrote:
->
-> pm_runtime_put_autosuspend(), pm_runtime_put_sync_autosuspend(),
-> pm_runtime_autosuspend() and pm_request_autosuspend() now include a call
-> to pm_runtime_mark_last_busy(). Remove the now-reduntant explicit call to
-> pm_runtime_mark_last_busy().
->
-> Also clean up error handling in stm32_dac_set_enable_state().
-
-TL;DR: I think this change makes it harder to follow (due to complex
-conditional).
-
-...
-
->         ret =3D regmap_update_bits(dac->common->regmap, STM32_DAC_CR, msk=
-, en);
->         mutex_unlock(&dac->lock);
-> -       if (ret < 0) {
-> +       if (ret) {
->                 dev_err(&indio_dev->dev, "%s failed\n", str_enable_disabl=
-e(en));
-> -               goto err_put_pm;
-> +               goto err_pm_put;
-
-This is one time use for the label and we know that ret is set here.
-
-Just
-
-  if (enable)
-    pm_runtime_put_autosuspend(dev);
-  return ret;
-
-should work.
-
->         }
-
-...
-
-> -       if (!enable) {
-> -               pm_runtime_mark_last_busy(dev);
-> -               pm_runtime_put_autosuspend(dev);
-> -       }
-> -
-> -       return 0;
-> -
-> -err_put_pm:
-> -       if (enable) {
-> -               pm_runtime_mark_last_busy(dev);
-> +err_pm_put:
-> +       if (!enable || (enable && ret))
->                 pm_runtime_put_autosuspend(dev);
-> -       }
->
->         return ret;
 
 
-And here is as simple as
+On 26/08/2025 8:01 am, Jie Gan wrote:
+> From: Tao Zhang <tao.zhang@oss.qualcomm.com>
+> 
+> Introduce sysfs nodes to configure cross-trigger parameters for TPDA.
+> These registers define the characteristics of cross-trigger packets,
+> including generation frequency and flag values.
+> 
+> Signed-off-by: Tao Zhang <tao.zhang@oss.qualcomm.com>
+> Co-developed-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> ---
+>   .../testing/sysfs-bus-coresight-devices-tpda  |  43 ++++
+>   drivers/hwtracing/coresight/coresight-tpda.c  | 241 ++++++++++++++++++
+>   drivers/hwtracing/coresight/coresight-tpda.h  |  27 ++
+>   3 files changed, 311 insertions(+)
+>   create mode 100644 Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
+> 
+[...]
+> +#define TPDA_FPID_CR		(0x084)
+> +
+> +/* Cross trigger FREQ packets timestamp bit */
+> +#define TPDA_CR_FREQTS		BIT(2)
+> +/* Cross trigger FREQ packet request bit */
+> +#define TPDA_CR_FRIE		BIT(3)
+> +/* Cross trigger FLAG packet request interface bit */
+> +#define TPDA_CR_FLRIE		BIT(4)
+> +/* Cross trigger synchronization bit */
+> +#define TPDA_CR_SRIE		BIT(5)
+> +/* Packetize CMB/MCMB traffic bit */
+> +#define TPDA_CR_CMBCHANMODE	BIT(20)
+> +
+>   /* Aggregator port enable bit */
+>   #define TPDA_Pn_CR_ENA		BIT(0)
+>   /* Aggregator port CMB data set element size bit */
+>   #define TPDA_Pn_CR_CMBSIZE		GENMASK(7, 6)
+>   /* Aggregator port DSB data set element size bit */
+>   #define TPDA_Pn_CR_DSBSIZE		BIT(8)
+> +/* Mode control bit */
+> +#define TPDA_MODE_CTRL			BIT(12)
+>   
 
-if (!enable)
-  pm_runtime_put_autosuspend(dev);
+This one is missing the register name prefix, like TPDA_SYNCR_MODE_CTRL
 
-return 0;
 
-and remove the unneeded label altogether with the error path.
 
---=20
-With Best Regards,
-Andy Shevchenko
 
