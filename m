@@ -4,83 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CC12CA0FE9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 09:48:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82956CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 09:51:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UOJpXuRKyIDPDo9RP10Qp7ElMiMthL8KDIbk8MrSYgQ=; b=PrZzkwOgMoPeOm3q82O70LAhQW
-	1yboay64H3xS2nvmbTWcQ3yqd31bhDPBF2yEhCIpIfvV4rwhEizFVx+wcd45mMql+VrBGmTduP/c2
-	lCqHxzxNX9eMY19XJfM6Y9w5AynRxzEXPJENeqf2sUv6/eRk6hM7z0yGb4CdUl/60CMLLtGGRPln6
-	/g1OYjZ+7xd0rqV9gX3g1GNlTjRIuxj+M8cvsQRUoVTC+RukYF6dAYiDkWmSgM+5D8Ke/pf3EvKfG
-	vhk0F9/mgCObfMf6CZ2T9tlZZ+Ay4n/2s2BlbtYLn671YjkOZ/JDlSQPzmNAYzopmd0YfmLHhc2VI
-	AiTkrDKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0kksXY6qvH1L0tvsp2dKynLeBCUnDrycYEwOgABE3I8=; b=XX3168evdQOEOxy2StFIOGhOKh
+	iCe+0PnWsYRm7iVn1yIrbnEuDKVlNgZwQvTqHXGFV78DcURV+I3iEnlpYYqUmBB2JW/Lnu4HTmk5Y
+	sfdBRZOimt4HVYiGGuXKDcNBqxL0YjupYV1/jNNs7omnUiJDdM6cZud4aB54SXFKvI+uHqdN5Cn3i
+	+KqGnz+HOP6wwKxp5CGBaIAUFRPzIyAfMISS1RUhbV9Jj5YRQhalpA4InN2GQEOCZ+Wu7MoTNU6e9
+	W4KbLmgtHEioanC7j7/tzA158oxK7IOfdEmyRriAuPB0CSv3Af0sdlInxFUfvqqgXYJCKa3LLTaNE
+	hpJgC8Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqqHq-0000000BUbA-3LAd;
-	Tue, 26 Aug 2025 09:48:18 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uqqKY-0000000BUze-2oUF;
+	Tue, 26 Aug 2025 09:51:06 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqq53-0000000BQtw-46gP
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 09:35:08 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57Q9OMZc003268;
-	Tue, 26 Aug 2025 11:34:57 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	UOJpXuRKyIDPDo9RP10Qp7ElMiMthL8KDIbk8MrSYgQ=; b=vsHOjsuo4ruMy85Y
-	sDbFFsusydzOyJwrK+zpRDFBlrEN51Ad8+JuilsQXc10qWi59xWXsXS4SxKiO4gG
-	QcEFiCoImaOuVdkCsUmJ3mtP7WlKojT03qx0Iti2DSp08PAWPq3DSA7krmiW/CM3
-	OvaWMBamX2oj/XlR8NLfdXTa5LVnPc396xDblHbLojNe8PAo+m05eeDsOm5GrnHa
-	eGkSCnQ5srVTe/CM0UAjYn54sMFCEklKhMg0zNb81ezlgTrE+H/PO5YxfHJHAR3S
-	Fwfn0pRSDWg/njlCQWaXUAGRwdtn7IHNBnzdlKs2fJFUD1m2ZPYzhqHGB3ry/O/K
-	iUUYrQ==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48q5tstmtd-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 26 Aug 2025 11:34:56 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id C2E6440046;
-	Tue, 26 Aug 2025 11:34:01 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 57DE75E449C;
-	Tue, 26 Aug 2025 11:33:30 +0200 (CEST)
-Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Tue, 26 Aug
- 2025 11:33:29 +0200
-Message-ID: <000f67ea-8d1a-4b04-a5e6-60bcce4390af@foss.st.com>
-Date: Tue, 26 Aug 2025 11:33:29 +0200
+	id 1uqq57-0000000BQvb-10lG;
+	Tue, 26 Aug 2025 09:35:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=0kksXY6qvH1L0tvsp2dKynLeBCUnDrycYEwOgABE3I8=; b=pEsksbH0GWNkC4oxuPMuoDz4Lv
+	oEVH+1V0RqTirpkdnQphw4N23fltxzOHWvH4oMWynmB2vQLBFc/NdVgMXBvEWNMdtE/JPZT5abkxZ
+	BOLuOh9/uOEFrdX762OF9dTagAm1dx327Z6TS42pJYBD7C1QpphQGmmlv7hMbNRSLY6Q00eVzJ601
+	0FUNVVqOOAq2FXvGBmBh4rUv7dMLsiQ/xK9zby1Q7fHSP6Wrgck0rx2dOFJfsOc+moxoDdnFmotar
+	6VqZB12dNSXOh9vBdzPrClQBiD795n/HjXDXU97wGRSVBJYYwaL5hzxmwXICYPtU12qsJt0aD1g+z
+	lIVGCueQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:41130)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1uqq4r-000000007fR-03bV;
+	Tue, 26 Aug 2025 10:34:53 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1uqq4o-0000000018h-0Pc0;
+	Tue, 26 Aug 2025 10:34:50 +0100
+Date: Tue, 26 Aug 2025 10:34:49 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>,
+	Chaoyi Chen <kernel@airkyi.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jonas Karlman <jonas@kwiboo.se>, David Wu <david.wu@rock-chips.com>,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH net-next v3] net: ethernet: stmmac: dwmac-rk: Make the
+ clk_phy could be used for external phy
+Message-ID: <aK1_uaBpnix4n4eS@shell.armlinux.org.uk>
+References: <20250815023515.114-1-kernel@airkyi.com>
+ <CGME20250825072312eucas1p2d4751199c0ea069c7938218be60e5e93@eucas1p2.samsung.com>
+ <a30a8c97-6b96-45ba-bad7-8a40401babc2@samsung.com>
+ <d0fe6d16-181f-4b38-9457-1099fb6419d0@rock-chips.com>
+ <809848c9-2ffa-4743-adda-b8b714b404de@samsung.com>
+ <aKxnHFSrVeM7Be5A@shell.armlinux.org.uk>
+ <8240a3cc-aade-40d8-b2f4-09681f76be68@rock-chips.com>
+ <aK19bSmrbXjoVXdO@shell.armlinux.org.uk>
+ <ae11b993-5844-4da1-b433-c27b5a73060a@rock-chips.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] clocksource/drivers/arm_global_timer: Add
- auto-detection for initial prescaler values
-To: Markus Schneider-Pargmann <msp@baylibre.com>,
-        Daniel Lezcano
-	<daniel.lezcano@linaro.org>,
-        Thomas Gleixner <tglx@linutronix.de>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        "Mendez, Judith" <jm@ti.com>, Kevin Hilman <khilman@baylibre.com>
-References: <20250819-topic-am43-arm-global-timer-v6-16-v2-1-6d082e2a5161@baylibre.com>
-Content-Language: en-US
-From: Patrice CHOTARD <patrice.chotard@foss.st.com>
-In-Reply-To: <20250819-topic-am43-arm-global-timer-v6-16-v2-1-6d082e2a5161@baylibre.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.62]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-26_02,2025-08-26_01,2025-03-28_01
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <ae11b993-5844-4da1-b433-c27b5a73060a@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_023506_641585_BCEE2D5D 
-X-CRM114-Status: GOOD (  34.98  )
+X-CRM114-CacheID: sfid-20250826_023509_285434_1B12266C 
+X-CRM114-Status: GOOD (  36.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,171 +97,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Aug 26, 2025 at 05:29:04PM +0800, Chaoyi Chen wrote:
+> On 8/26/2025 5:25 PM, Russell King (Oracle) wrote:
+> 
+> > On Tue, Aug 26, 2025 at 04:08:40PM +0800, Chaoyi Chen wrote:
+> > > Hi Russell,
+> > > 
+> > > On 8/25/2025 9:37 PM, Russell King (Oracle) wrote:
+> > > > On Mon, Aug 25, 2025 at 12:53:37PM +0200, Marek Szyprowski wrote:
+> > > > > On 25.08.2025 11:57, Chaoyi Chen wrote:
+> > > > > > On 8/25/2025 3:23 PM, Marek Szyprowski wrote:
+> > > > > > > On 15.08.2025 04:35, Chaoyi Chen wrote:
+> > > > > > > > From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> > > > > > > > 
+> > > > > > > > For external phy, clk_phy should be optional, and some external phy
+> > > > > > > > need the clock input from clk_phy. This patch adds support for setting
+> > > > > > > > clk_phy for external phy.
+> > > > > > > > 
+> > > > > > > > Signed-off-by: David Wu <david.wu@rock-chips.com>
+> > > > > > > > Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> > > > > > > > ---
+> > > > > > > > 
+> > > > > > > > Changes in v3:
+> > > > > > > > - Link to V2:
+> > > > > > > > https://lore.kernel.org/netdev/20250812012127.197-1-kernel@airkyi.com/
+> > > > > > > > - Rebase to net-next/main
+> > > > > > > > 
+> > > > > > > > Changes in v2:
+> > > > > > > > - Link to V1:
+> > > > > > > > https://lore.kernel.org/netdev/20250806011405.115-1-kernel@airkyi.com/
+> > > > > > > > - Remove get clock frequency from DT prop
+> > > > > > > > 
+> > > > > > > >      drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 11 +++++++----
+> > > > > > > >      1 file changed, 7 insertions(+), 4 deletions(-)
+> > > > > > > > 
+> > > > > > > > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> > > > > > > > b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> > > > > > > > index ac8288301994..5d921e62c2f5 100644
+> > > > > > > > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> > > > > > > > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> > > > > > > > @@ -1412,12 +1412,15 @@ static int rk_gmac_clk_init(struct
+> > > > > > > > plat_stmmacenet_data *plat)
+> > > > > > > >              clk_set_rate(plat->stmmac_clk, 50000000);
+> > > > > > > >          }
+> > > > > > > >      -    if (plat->phy_node && bsp_priv->integrated_phy) {
+> > > > > > > > +    if (plat->phy_node) {
+> > > > > > > >              bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
+> > > > > > > >              ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
+> > > > > > > > -        if (ret)
+> > > > > > > > -            return dev_err_probe(dev, ret, "Cannot get PHY clock\n");
+> > > > > > > > -        clk_set_rate(bsp_priv->clk_phy, 50000000);
+> > > > > > > > +        /* If it is not integrated_phy, clk_phy is optional */
+> > > > > > > > +        if (bsp_priv->integrated_phy) {
+> > > > > > > > +            if (ret)
+> > > > > > > > +                return dev_err_probe(dev, ret, "Cannot get PHY
+> > > > > > > > clock\n");
+> > > > > > > > +            clk_set_rate(bsp_priv->clk_phy, 50000000);
+> > > > > > > > +        }
+> > > > > > I think  we should set bsp_priv->clk_phy to NULL here if we failed to
+> > > > > > get the clock.
+> > > > > > 
+> > > > > > Could you try this on your board? Thank you.
+> > > > > Right, the following change also fixes this issue:
+> > > > > 
+> > > > > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> > > > > b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> > > > > index 9fc41207cc45..2d19d48be01f 100644
+> > > > > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> > > > > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> > > > > @@ -1415,6 +1415,8 @@ static int rk_gmac_clk_init(struct
+> > > > > plat_stmmacenet_data *plat)
+> > > > >            if (plat->phy_node) {
+> > > > >                    bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
+> > > > >                    ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
+> > > > > +               if (ret)
+> > > > > +                       bsp_priv->clk_phy = NULL;
+> > > > Or just:
+> > > > 
+> > > > 		clk = of_clk_get(plat->phy_node, 0);
+> > > > 		if (clk == ERR_PTR(-EPROBE_DEFER))
+> > > Do we actually need this? Maybe other devm_clk_get() before it would fail in advance.
+> > Is it the same clock as devm_clk_get()? If it is, what's the point of
+> > getting it a second time. If it isn't, then it could be a different
+> > clock which may be yet to probe.
+> 
+> It's not the same clock, but it should be use the same clock controller driver, which is the CRU on the Rockchip platform.
 
+Will it always be the same clock controller, including into the future
+Rockchip devices?
 
-On 8/19/25 09:52, Markus Schneider-Pargmann wrote:
-> am43xx has a clock tree where the global timer clock is an indirect child
-> of the CPU clock used for frequency scaling:
-> 
->   dpll_mpu_ck -- CPU/cpufreq
->         |
->         v
->   dpll_mpu_m2_ck -- divider
->         |
->         v
->   mpu_periphclk -- fixed divider by 2 used for global timer
-> 
-> When CPU frequency changes, the global timer's clock notifier rejects
-> the change because the hardcoded prescaler (1 or 2) cannot accommodate
-> the frequency range across all CPU OPPs (300, 600, 720, 800, 1000 MHz).
-> 
-> Add platform-specific prescaler auto-detection to solve this issue:
-> 
-> - am43xx: prescaler = 50 (calculated as initial_freq/GCD of all OPP
->   freqs) This allows the timer to work across all CPU frequencies after
->   the fixed divider by 2. Tested on am4372-idk-evm.
-> 
-> - zynq-7000: prescaler = 2 (preserves previous Kconfig default)
-> 
-> - Other platforms: prescaler = 1 (previous default)
-> 
-> The Kconfig option now defaults to 0 (auto-detection) but can still
-> override the auto-detected value when set to a non-zero value,
-> preserving existing customization workflows.
-> 
-> Reviewed-by: Kevin Hilman <khilman@baylibre.com>
-> Tested-by: Kevin Hilman <khilman@baylibre.com>
-> Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
-> ---
-> Changes in v2:
-> - Rebased to v6.17-rc1
-> - Link to v1: https://lore.kernel.org/r/20250808-topic-am43-arm-global-timer-v6-16-v1-1-82067d327580@baylibre.com
-> ---
->  drivers/clocksource/Kconfig            |  4 ++--
->  drivers/clocksource/arm_global_timer.c | 44 ++++++++++++++++++++++++++++++----
->  2 files changed, 41 insertions(+), 7 deletions(-)
-> 
-> diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
-> index 645f517a1ac26d0c12d4b2b46591321ddf6e20b3..92df191b25b1af339dffc791f81ff541b09a87a8 100644
-> --- a/drivers/clocksource/Kconfig
-> +++ b/drivers/clocksource/Kconfig
-> @@ -395,8 +395,7 @@ config ARM_GLOBAL_TIMER
->  
->  config ARM_GT_INITIAL_PRESCALER_VAL
->  	int "ARM global timer initial prescaler value"
-> -	default 2 if ARCH_ZYNQ
-> -	default 1
-> +	default 0
->  	depends on ARM_GLOBAL_TIMER
->  	help
->  	  When the ARM global timer initializes, its current rate is declared
-> @@ -406,6 +405,7 @@ config ARM_GT_INITIAL_PRESCALER_VAL
->  	  bounds about how much the parent clock is allowed to decrease or
->  	  increase wrt the initial clock value.
->  	  This affects CPU_FREQ max delta from the initial frequency.
-> +	  Use 0 to use auto-detection in the driver.
->  
->  config ARM_TIMER_SP804
->  	bool "Support for Dual Timer SP804 module"
-> diff --git a/drivers/clocksource/arm_global_timer.c b/drivers/clocksource/arm_global_timer.c
-> index 2d86bbc2764a04944e453038013142b2495d26b9..5e3d6bb7e437badeba45d8bf2c1df14eb3427448 100644
-> --- a/drivers/clocksource/arm_global_timer.c
-> +++ b/drivers/clocksource/arm_global_timer.c
-> @@ -263,14 +263,13 @@ static void __init gt_delay_timer_init(void)
->  	register_current_timer_delay(&gt_delay_timer);
->  }
->  
-> -static int __init gt_clocksource_init(void)
-> +static int __init gt_clocksource_init(unsigned int psv)
->  {
->  	writel(0, gt_base + GT_CONTROL);
->  	writel(0, gt_base + GT_COUNTER0);
->  	writel(0, gt_base + GT_COUNTER1);
->  	/* set prescaler and enable timer on all the cores */
-> -	writel(FIELD_PREP(GT_CONTROL_PRESCALER_MASK,
-> -			  CONFIG_ARM_GT_INITIAL_PRESCALER_VAL - 1) |
-> +	writel(FIELD_PREP(GT_CONTROL_PRESCALER_MASK, psv - 1) |
->  	       GT_CONTROL_TIMER_ENABLE, gt_base + GT_CONTROL);
->  
->  #ifdef CONFIG_CLKSRC_ARM_GLOBAL_TIMER_SCHED_CLOCK
-> @@ -338,11 +337,45 @@ static int gt_clk_rate_change_cb(struct notifier_block *nb,
->  	return NOTIFY_DONE;
->  }
->  
-> +struct gt_prescaler_config {
-> +	const char *compatible;
-> +	unsigned long prescaler;
-> +};
-> +
-> +static const struct gt_prescaler_config gt_prescaler_configs[] = {
-> +	/*
-> +	 * On am43 the global timer clock is a child of the clock used for CPU
-> +	 * OPPs, so the initial prescaler has to be compatible with all OPPs
-> +	 * which are 300, 600, 720, 800 and 1000 with a fixed divider of 2, this
-> +	 * gives us a GCD of 10. Initial frequency is 1000, so the prescaler is
-> +	 * 50.
-> +	 */
-> +	{ .compatible = "ti,am43", .prescaler = 50 },
-> +	{ .compatible = "xlnx,zynq-7000", .prescaler = 2 },
-> +	{ .compatible = NULL }
-> +};
-> +
-> +static unsigned long gt_get_initial_prescaler_value(struct device_node *np)
-> +{
-> +	const struct gt_prescaler_config *config;
-> +
-> +	if (CONFIG_ARM_GT_INITIAL_PRESCALER_VAL != 0)
-> +		return CONFIG_ARM_GT_INITIAL_PRESCALER_VAL;
-> +
-> +	for (config = gt_prescaler_configs; config->compatible; config++) {
-> +		if (of_machine_is_compatible(config->compatible))
-> +			return config->prescaler;
-> +	}
-> +
-> +	return 1;
-> +}
-> +
->  static int __init global_timer_of_register(struct device_node *np)
->  {
->  	struct clk *gt_clk;
->  	static unsigned long gt_clk_rate;
->  	int err;
-> +	unsigned long psv;
->  
->  	/*
->  	 * In A9 r2p0 the comparators for each processor with the global timer
-> @@ -378,8 +411,9 @@ static int __init global_timer_of_register(struct device_node *np)
->  		goto out_unmap;
->  	}
->  
-> +	psv = gt_get_initial_prescaler_value(np);
->  	gt_clk_rate = clk_get_rate(gt_clk);
-> -	gt_target_rate = gt_clk_rate / CONFIG_ARM_GT_INITIAL_PRESCALER_VAL;
-> +	gt_target_rate = gt_clk_rate / psv;
->  	gt_clk_rate_change_nb.notifier_call =
->  		gt_clk_rate_change_cb;
->  	err = clk_notifier_register(gt_clk, &gt_clk_rate_change_nb);
-> @@ -404,7 +438,7 @@ static int __init global_timer_of_register(struct device_node *np)
->  	}
->  
->  	/* Register and immediately configure the timer on the boot CPU */
-> -	err = gt_clocksource_init();
-> +	err = gt_clocksource_init(psv);
->  	if (err)
->  		goto out_irq;
->  
-> 
-> ---
-> base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
-> change-id: 20250808-topic-am43-arm-global-timer-v6-16-66fc0c6981ab
-> 
-> Best regards,
-
-Tested on STMicroelectronics STiH410-B2260 board
-
-Tested-by: Patrice Chotard <patrice.chotard@foss.st.com>
-
-Thanks
-Patrice
-
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
