@@ -4,59 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 806C4CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 05:47:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8161FCA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 06:21:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+jVeb8mmfHz+QG0u2318shOOAVPSgimn7YlIgvE1Sa4=; b=Qjh11iVOgKsSMFpfQLhNRmOeDf
-	/pT249GwLJL7tpfGWN4ziZpV+J85XKHk4cJB5dzKtL0vdHW+0lBiw24yo53Dvib941AZT06Yc2JCp
-	6kdxGoMFoMqT7D7CrJ8O9hyK9zdX9id2Kpjes7oiL8oKy2Wpw2ENdaZtJ4nS7O+jBU+cB+iTVZtbB
-	3JpXdRE3e5uPSHmCuppnCtmB3q3AdWHPXo1ubj1mA4nPU8bNbW83YF0pZKFJmUrqDyI9TbOoRlYVl
-	Y1NrmW0iekWNcHylYJkKpBOrwwbg4Ethaq1OG8GbGnyHUGgeyVR6HMRWODBKBn2ATV8U8fcBokZa3
-	f/D83irA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=8Qx8zdXwUDEN+QDzIjybGTquRbhLyER4hmo5HtXCS3M=; b=M7QL0ugQsWVC3/
+	QtHFbNj28v6X+3QiQ13DpJiOvV2Y1QMoLeICLu2j7k8sTRfhGuStxhZdg48s0u9kruvRzTbSDMA1E
+	q4BB6L9xdNNzHSKxVmEjl5hEo32ptfHhDvmf54tOhRRtoWxCsPJkcKyCgEcvguIqNN1YrViaX3dYW
+	oc1ArCYKYKjAkU2VDvPds82Zf/i6O4N1rsmKGknmQhpx+68/0xh+FetTWo7kZzQYIoCJ7MoIYCSLH
+	AzZ1y1qizO9IWxZ0xWhQjR3VTxOc1sheuF2r3wTMqeyZu5RfQlZaNkpH8eUdnzVL72IFW5utUCpPZ
+	/2TIzd1lE4BOu0/N6BZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqmX3-0000000AcAi-0jgf;
-	Tue, 26 Aug 2025 05:47:45 +0000
-Received: from mx3.molgen.mpg.de ([141.14.17.11])
+	id 1uqn3R-0000000Ag4T-00Qn;
+	Tue, 26 Aug 2025 06:21:13 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqmUI-0000000Ac0L-28UR;
-	Tue, 26 Aug 2025 05:44:56 +0000
-Received: from [192.168.0.192] (ip5f5af7cb.dynamic.kabel-deutschland.de [95.90.247.203])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: pmenzel)
-	by mx.molgen.mpg.de (Postfix) with ESMTPSA id F403A6028826D;
-	Tue, 26 Aug 2025 07:44:37 +0200 (CEST)
-Message-ID: <bdd4c3f0-4ba4-4c86-b1b7-afe3c9834ae0@molgen.mpg.de>
-Date: Tue, 26 Aug 2025 07:44:37 +0200
+	id 1uqn0e-0000000Af9L-1QqQ;
+	Tue, 26 Aug 2025 06:18:21 +0000
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1756189098;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=8Qx8zdXwUDEN+QDzIjybGTquRbhLyER4hmo5HtXCS3M=;
+	b=EoHq8It+802uE8/W/ZgT+WU1MhU30ljvVJg6J8CsR2XdSCY1W8iKO/0yhuhlIWg93gjtVN
+	yjsiguKOCe8MXqL7t5b5NeIYigkWxr9EZY2Mkn3x2W0dIf65A5h/s69Jx20ZLL24VmAnXl
+	wWm91dlrX8UnePleqQexNGzu9SWDwlcPXJ8DztYUIGGk65aJetDl/MNeXhull8xcLDd2T/
+	Xdhztn1zm0BL6qd7sdPVV8txFwrP1lt98FW2I+LmBrQOqG2Iv+EpggKyKaF35t2W+WDCO2
+	x4LqgXrpkfrN62Egk6oQBRYWy9iOgErie977mytBr36Yc1c7jJeu3fV2/Qh79g==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1756189098;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=8Qx8zdXwUDEN+QDzIjybGTquRbhLyER4hmo5HtXCS3M=;
+	b=eX2IPWAG+DvooY6YzvBNYPIk4d7JwL6SQGjcVcR/3nVRkZUD/9wZEdubuxvUX29zgYJ6tr
+	+6ncwJ9ZGLDV8KDQ==
+Subject: [PATCH 00/11] vdso: Various cleanups
+Date: Tue, 26 Aug 2025 08:17:03 +0200
+Message-Id: <20250826-vdso-cleanups-v1-0-d9b65750e49f@linutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] Bluetooth: remove duplicate h4_recv_buf() in header
-From: Paul Menzel <pmenzel@molgen.mpg.de>
-To: Calvin Owens <calvin@wbinvd.org>
-Cc: linux-kernel@vger.kernel.org, Marcel Holtmann <marcel@holtmann.org>,
- Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Sean Wang <sean.wang@mediatek.com>,
- Amitkumar Karwar <amitkumar.karwar@nxp.com>,
- Neeraj Kale <neeraj.sanjaykale@nxp.com>, linux-bluetooth@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <be8edf7f8ba8dea6c61272b02fb20a4ac7e1c5a5.1756179634.git.calvin@wbinvd.org>
- <e9bbe0bb-b70d-445b-a7ff-b0ab2eef6c6f@molgen.mpg.de>
-Content-Language: en-US
-In-Reply-To: <e9bbe0bb-b70d-445b-a7ff-b0ab2eef6c6f@molgen.mpg.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAF9RrWgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDCyNT3bKU4nzd5JzUxLzSgmLdtBSztKQkY6O0ZENLJaCegqLUtMwKsHn
+ RsbW1AHxpxT5fAAAA
+X-Change-ID: 20250825-vdso-cleanups-fd6fbb32fc19
+To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+ Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Nam Cao <namcao@linutronix.de>, 
+ Russell King <linux@armlinux.org.uk>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+ Christophe Leroy <christophe.leroy@csgroup.eu>, 
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Sven Schnelle <svens@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>, 
+ Christian Brauner <brauner@kernel.org>, Shuah Khan <shuah@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, 
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+ linux-s390@vger.kernel.org, linux-arch@vger.kernel.org, 
+ linux-kselftest@vger.kernel.org, 
+ Rasmus Villemoes <linux@rasmusvillemoes.dk>, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1756189098; l=3008;
+ i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
+ bh=OKdbTtNFiNAfKDCNOTVL/ZRLmxAuqZzdXzmwBIqDanM=;
+ b=xXLb28HhyOp2V5PAl7NV8Ih+DLTz+T0EwU3m8mTK7t+YdB+1/WbVwG3q2LXi/d5YbmXMM3lwS
+ UE/A4xDXG50Ay40TUaB+Dz47MZKMYqchu5q89DYuvoo2r9Z3sDlnSRd
+X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
+ pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_224454_835515_E3309084 
-X-CRM114-Status: GOOD (  27.27  )
+X-CRM114-CacheID: sfid-20250825_231820_523672_E54F54B5 
+X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,396 +107,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[Cc: Remove Johan’s bouncing address]
+Various cleanups to the generic vDSO infrastructure and a patch for ARM
+which was never applied.
 
-Am 26.08.25 um 07:40 schrieb Paul Menzel:
-> Dear Calvin,
-> 
-> 
-> Thank you for your patch.
-> 
-> Am 26.08.25 um 06:11 schrieb Calvin Owens:
->> The "h4_recv.h" header contains a duplicate h4_recv_buf() that is nearly
->> but not quite identical to the h4_recv_buf() in hci_h4.c.
->>
->> This duplicated header was added in commit 07eb96a5a7b0 ("Bluetooth:
->> bpa10x: Use separate h4_recv_buf helper"). I wasn't able to find any
->> explanation for duplicating the code in the discussion:
->>
->>      https://lore.kernel.org/all/20180320181855.37297-1-marcel@holtmann.org/
->>      https://lore.kernel.org/all/20180324091954.73229-2-marcel@holtmann.org/
->>
->> Unfortunately, in the years since, several other drivers have come to
->> also rely on this duplicated function, probably by accident. This is, at
->> the very least, *extremely* confusing. It's also caused real issues when
->> it's become out-of-sync, see the following:
->>
->>      ef564119ba83 ("Bluetooth: hci_h4: Add support for ISO packets")
->>      61b27cdf025b ("Bluetooth: hci_h4: Add support for ISO packets in h4_recv.h")
->>
->> This is the full diff between the two implementations today:
->>
->>      --- orig.c
->>      +++ copy.c
->>      @@ -1,117 +1,100 @@
->>       {
->>      -    struct hci_uart *hu = hci_get_drvdata(hdev);
->>      -    u8 alignment = hu->alignment ? hu->alignment : 1;
->>      -
->>           /* Check for error from previous call */
->>           if (IS_ERR(skb))
->>               skb = NULL;
->>
->>           while (count) {
->>               int i, len;
->>
->>      -        /* remove padding bytes from buffer */
->>      -        for (; hu->padding && count > 0; hu->padding--) {
->>      -            count--;
->>      -            buffer++;
->>      -        }
->>      -        if (!count)
->>      -            break;
->>      -
->>               if (!skb) {
->>                   for (i = 0; i < pkts_count; i++) {
->>                       if (buffer[0] != (&pkts[i])->type)
->>                           continue;
->>
->>                       skb = bt_skb_alloc((&pkts[i])->maxlen,
->>                                  GFP_ATOMIC);
->>                       if (!skb)
->>                           return ERR_PTR(-ENOMEM);
->>
->>                       hci_skb_pkt_type(skb) = (&pkts[i])->type;
->>                       hci_skb_expect(skb) = (&pkts[i])->hlen;
->>                       break;
->>                   }
->>
->>                   /* Check for invalid packet type */
->>                   if (!skb)
->>                       return ERR_PTR(-EILSEQ);
->>
->>                   count -= 1;
->>                   buffer += 1;
->>               }
->>
->>               len = min_t(uint, hci_skb_expect(skb) - skb->len, count);
->>               skb_put_data(skb, buffer, len);
->>
->>               count -= len;
->>               buffer += len;
->>
->>               /* Check for partial packet */
->>               if (skb->len < hci_skb_expect(skb))
->>                   continue;
->>
->>               for (i = 0; i < pkts_count; i++) {
->>                   if (hci_skb_pkt_type(skb) == (&pkts[i])->type)
->>                       break;
->>               }
->>
->>               if (i >= pkts_count) {
->>                   kfree_skb(skb);
->>                   return ERR_PTR(-EILSEQ);
->>               }
->>
->>               if (skb->len == (&pkts[i])->hlen) {
->>                   u16 dlen;
->>
->>                   switch ((&pkts[i])->lsize) {
->>                   case 0:
->>                       /* No variable data length */
->>                       dlen = 0;
->>                       break;
->>                   case 1:
->>                       /* Single octet variable length */
->>                       dlen = skb->data[(&pkts[i])->loff];
->>                       hci_skb_expect(skb) += dlen;
->>
->>                       if (skb_tailroom(skb) < dlen) {
->>                           kfree_skb(skb);
->>                           return ERR_PTR(-EMSGSIZE);
->>                       }
->>                       break;
->>                   case 2:
->>                       /* Double octet variable length */
->>                       dlen = get_unaligned_le16(skb->data +
->>                                     (&pkts[i])->loff);
->>                       hci_skb_expect(skb) += dlen;
->>
->>                       if (skb_tailroom(skb) < dlen) {
->>                           kfree_skb(skb);
->>                           return ERR_PTR(-EMSGSIZE);
->>                       }
->>                       break;
->>                   default:
->>                       /* Unsupported variable length */
->>                       kfree_skb(skb);
->>                       return ERR_PTR(-EILSEQ);
->>                   }
->>
->>                   if (!dlen) {
->>      -                hu->padding = (skb->len + 1) % alignment;
->>      -                hu->padding = (alignment - hu->padding) % alignment;
->>      -
->>                       /* No more data, complete frame */
->>                       (&pkts[i])->recv(hdev, skb);
->>                       skb = NULL;
->>                   }
->>               } else {
->>      -            hu->padding = (skb->len + 1) % alignment;
->>      -            hu->padding = (alignment - hu->padding) % alignment;
->>      -
->>                   /* Complete frame */
->>                   (&pkts[i])->recv(hdev, skb);
->>                   skb = NULL;
->>               }
->>           }
->>
->>           return skb;
->>       }
->>      -EXPORT_SYMBOL_GPL(h4_recv_buf)
->>
->> As I read this: If alignment is one, and padding is zero, padding
->> remains zero throughout the loop. So it seems to me that the two
->> functions behave strictly identically in that case. All the duplicated
->> defines are also identical, as is the duplicated h4_recv_pkt structure
->> declaration.
->>
->> All four drivers which use the duplicated function use the default
->> alignment of one, and the default padding of zero. I therefore conclude
->> the duplicate function may be safely replaced with the core one.
->>
->> I raised this in an RFC a few months ago, and didn't get much interest:
->>
->>      https://lore.kernel.org/all/CABBYNZ+ONkYtq2fR-8PtL3X-vetvJ0BdP4MTw9cNpjLDzG3HUQ@mail.gmail.com/
->>
->> ...but I'm still wary I've missed something, and I'd really appreciate
->> more eyeballs on it.
->>
->> I tested this successfully on btnxpuart a few months ago, but
->> unfortunately I no longer have access to that hardware.
-> 
-> Great analysis. Thank you for your time writing this up.
-> 
->> Cc: Marcel Holtmann <marcel@holtmann.org>
->> Signed-off-by: Calvin Owens <calvin@wbinvd.org>
->> ---
->>   drivers/bluetooth/bpa10x.c    |   2 +-
->>   drivers/bluetooth/btmtksdio.c |   2 +-
->>   drivers/bluetooth/btmtkuart.c |   2 +-
->>   drivers/bluetooth/btnxpuart.c |   2 +-
->>   drivers/bluetooth/h4_recv.h   | 153 ----------------------------------
->>   5 files changed, 4 insertions(+), 157 deletions(-)
->>   delete mode 100644 drivers/bluetooth/h4_recv.h
->>
->> diff --git a/drivers/bluetooth/bpa10x.c b/drivers/bluetooth/bpa10x.c
->> index 8b43dfc755de..b7ba667a3d09 100644
->> --- a/drivers/bluetooth/bpa10x.c
->> +++ b/drivers/bluetooth/bpa10x.c
->> @@ -20,7 +20,7 @@
->>   #include <net/bluetooth/bluetooth.h>
->>   #include <net/bluetooth/hci_core.h>
->> -#include "h4_recv.h"
->> +#include "hci_uart.h"
->>   #define VERSION "0.11"
->> diff --git a/drivers/bluetooth/btmtksdio.c b/drivers/bluetooth/btmtksdio.c
->> index 4fc673640bfc..50abefba6d04 100644
->> --- a/drivers/bluetooth/btmtksdio.c
->> +++ b/drivers/bluetooth/btmtksdio.c
->> @@ -29,7 +29,7 @@
->>   #include <net/bluetooth/bluetooth.h>
->>   #include <net/bluetooth/hci_core.h>
->> -#include "h4_recv.h"
->> +#include "hci_uart.h"
->>   #include "btmtk.h"
->>   #define VERSION "0.1"
->> diff --git a/drivers/bluetooth/btmtkuart.c b/drivers/bluetooth/btmtkuart.c
->> index 76995cfcd534..d9b90ea2ad38 100644
->> --- a/drivers/bluetooth/btmtkuart.c
->> +++ b/drivers/bluetooth/btmtkuart.c
->> @@ -27,7 +27,7 @@
->>   #include <net/bluetooth/bluetooth.h>
->>   #include <net/bluetooth/hci_core.h>
->> -#include "h4_recv.h"
->> +#include "hci_uart.h"
->>   #include "btmtk.h"
->>   #define VERSION "0.2"
->> diff --git a/drivers/bluetooth/btnxpuart.c b/drivers/bluetooth/btnxpuart.c
->> index 76e7f857fb7d..d5153fed0518 100644
->> --- a/drivers/bluetooth/btnxpuart.c
->> +++ b/drivers/bluetooth/btnxpuart.c
->> @@ -24,7 +24,7 @@
->>   #include <net/bluetooth/bluetooth.h>
->>   #include <net/bluetooth/hci_core.h>
->> -#include "h4_recv.h"
->> +#include "hci_uart.h"
->>   #define MANUFACTURER_NXP        37
->> diff --git a/drivers/bluetooth/h4_recv.h b/drivers/bluetooth/h4_recv.h
->> deleted file mode 100644
->> index 28cf2d8c2d48..000000000000
->> --- a/drivers/bluetooth/h4_recv.h
->> +++ /dev/null
->> @@ -1,153 +0,0 @@
->> -/* SPDX-License-Identifier: GPL-2.0-or-later */
->> -/*
->> - *
->> - *  Generic Bluetooth HCI UART driver
->> - *
->> - *  Copyright (C) 2015-2018  Intel Corporation
->> - */
->> -
->> -#include <linux/unaligned.h>
->> -
->> -struct h4_recv_pkt {
->> -    u8  type;    /* Packet type */
->> -    u8  hlen;    /* Header length */
->> -    u8  loff;    /* Data length offset in header */
->> -    u8  lsize;    /* Data length field size */
->> -    u16 maxlen;    /* Max overall packet length */
->> -    int (*recv)(struct hci_dev *hdev, struct sk_buff *skb);
->> -};
->> -
->> -#define H4_RECV_ACL \
->> -    .type = HCI_ACLDATA_PKT, \
->> -    .hlen = HCI_ACL_HDR_SIZE, \
->> -    .loff = 2, \
->> -    .lsize = 2, \
->> -    .maxlen = HCI_MAX_FRAME_SIZE \
->> -
->> -#define H4_RECV_SCO \
->> -    .type = HCI_SCODATA_PKT, \
->> -    .hlen = HCI_SCO_HDR_SIZE, \
->> -    .loff = 2, \
->> -    .lsize = 1, \
->> -    .maxlen = HCI_MAX_SCO_SIZE
->> -
->> -#define H4_RECV_EVENT \
->> -    .type = HCI_EVENT_PKT, \
->> -    .hlen = HCI_EVENT_HDR_SIZE, \
->> -    .loff = 1, \
->> -    .lsize = 1, \
->> -    .maxlen = HCI_MAX_EVENT_SIZE
->> -
->> -#define H4_RECV_ISO \
->> -    .type = HCI_ISODATA_PKT, \
->> -    .hlen = HCI_ISO_HDR_SIZE, \
->> -    .loff = 2, \
->> -    .lsize = 2, \
->> -    .maxlen = HCI_MAX_FRAME_SIZE
->> -
->> -static inline struct sk_buff *h4_recv_buf(struct hci_dev *hdev,
->> -                      struct sk_buff *skb,
->> -                      const unsigned char *buffer,
->> -                      int count,
->> -                      const struct h4_recv_pkt *pkts,
->> -                      int pkts_count)
->> -{
->> -    /* Check for error from previous call */
->> -    if (IS_ERR(skb))
->> -        skb = NULL;
->> -
->> -    while (count) {
->> -        int i, len;
->> -
->> -        if (!skb) {
->> -            for (i = 0; i < pkts_count; i++) {
->> -                if (buffer[0] != (&pkts[i])->type)
->> -                    continue;
->> -
->> -                skb = bt_skb_alloc((&pkts[i])->maxlen,
->> -                           GFP_ATOMIC);
->> -                if (!skb)
->> -                    return ERR_PTR(-ENOMEM);
->> -
->> -                hci_skb_pkt_type(skb) = (&pkts[i])->type;
->> -                hci_skb_expect(skb) = (&pkts[i])->hlen;
->> -                break;
->> -            }
->> -
->> -            /* Check for invalid packet type */
->> -            if (!skb)
->> -                return ERR_PTR(-EILSEQ);
->> -
->> -            count -= 1;
->> -            buffer += 1;
->> -        }
->> -
->> -        len = min_t(uint, hci_skb_expect(skb) - skb->len, count);
->> -        skb_put_data(skb, buffer, len);
->> -
->> -        count -= len;
->> -        buffer += len;
->> -
->> -        /* Check for partial packet */
->> -        if (skb->len < hci_skb_expect(skb))
->> -            continue;
->> -
->> -        for (i = 0; i < pkts_count; i++) {
->> -            if (hci_skb_pkt_type(skb) == (&pkts[i])->type)
->> -                break;
->> -        }
->> -
->> -        if (i >= pkts_count) {
->> -            kfree_skb(skb);
->> -            return ERR_PTR(-EILSEQ);
->> -        }
->> -
->> -        if (skb->len == (&pkts[i])->hlen) {
->> -            u16 dlen;
->> -
->> -            switch ((&pkts[i])->lsize) {
->> -            case 0:
->> -                /* No variable data length */
->> -                dlen = 0;
->> -                break;
->> -            case 1:
->> -                /* Single octet variable length */
->> -                dlen = skb->data[(&pkts[i])->loff];
->> -                hci_skb_expect(skb) += dlen;
->> -
->> -                if (skb_tailroom(skb) < dlen) {
->> -                    kfree_skb(skb);
->> -                    return ERR_PTR(-EMSGSIZE);
->> -                }
->> -                break;
->> -            case 2:
->> -                /* Double octet variable length */
->> -                dlen = get_unaligned_le16(skb->data +
->> -                              (&pkts[i])->loff);
->> -                hci_skb_expect(skb) += dlen;
->> -
->> -                if (skb_tailroom(skb) < dlen) {
->> -                    kfree_skb(skb);
->> -                    return ERR_PTR(-EMSGSIZE);
->> -                }
->> -                break;
->> -            default:
->> -                /* Unsupported variable length */
->> -                kfree_skb(skb);
->> -                return ERR_PTR(-EILSEQ);
->> -            }
->> -
->> -            if (!dlen) {
->> -                /* No more data, complete frame */
->> -                (&pkts[i])->recv(hdev, skb);
->> -                skb = NULL;
->> -            }
->> -        } else {
->> -            /* Complete frame */
->> -            (&pkts[i])->recv(hdev, skb);
->> -            skb = NULL;
->> -        }
->> -    }
->> -
->> -    return skb;
->> -}
-> 
-> Reviewed-by: Paul Menzel <pmenzel@molgen.mpg.de>
-> 
-> 
-> Kind regards,
-> 
-> Paul
+This series has one trivial syntactic conflict with "dso/datastore: Allow
+prefaulting by mlockall()" [0] and a semantic one with "sparc64: vdso:
+Switch to generic vDSO library" [1], which still uses the removed
+GENERIC_VDSO_DATA_STORE.
+
+[0] https://lore.kernel.org/lkml/20250812-vdso-mlockall-v1-0-2f49ba7cf819@linutronix.de/
+[1] https://lore.kernel.org/lkml/20250815-vdso-sparc64-generic-2-v2-0-b5ff80672347@linutronix.de/
+
+Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+---
+Rasmus Villemoes (1):
+      ARM: VDSO: remove cntvct_ok global variable
+
+Thomas Weißschuh (10):
+      vdso/datastore: Gate time data behind CONFIG_GENERIC_GETTIMEOFDAY
+      vdso: Move ENABLE_COMPAT_VDSO from core to arm64
+      vdso/gettimeofday: Remove !CONFIG_TIME_NS stubs
+      time: Build generic update_vsyscall() only with generic time vDSO
+      riscv: vdso: Untangle kconfig logic
+      vdso: Drop kconfig GENERIC_VDSO_32
+      vdso: Drop kconfig GENERIC_COMPAT_VDSO
+      vdso: Drop kconfig GENERIC_VDSO_DATA_STORE
+      vdso: Drop kconfig GENERIC_VDSO_TIME_NS
+      vdso: Gate VDSO_GETRANDOM behind HAVE_GENERIC_VDSO
+
+ arch/Kconfig                                      |  2 +-
+ arch/arm/include/asm/vdso/vsyscall.h              |  2 --
+ arch/arm/kernel/vdso.c                            | 10 +++------
+ arch/arm/mm/Kconfig                               |  2 --
+ arch/arm64/Kconfig                                |  3 ---
+ arch/arm64/include/asm/vdso/compat_barrier.h      |  7 +++---
+ arch/arm64/include/asm/vdso/compat_gettimeofday.h |  6 ++---
+ arch/arm64/include/asm/vdso/gettimeofday.h        |  8 +++++++
+ arch/arm64/kernel/vdso32/Makefile                 |  1 -
+ arch/loongarch/Kconfig                            |  2 --
+ arch/mips/Kconfig                                 |  1 -
+ arch/powerpc/Kconfig                              |  2 --
+ arch/riscv/Kconfig                                | 12 +++++-----
+ arch/s390/Kconfig                                 |  2 --
+ arch/x86/Kconfig                                  |  3 ---
+ include/asm-generic/vdso/vsyscall.h               |  4 ----
+ include/vdso/datapage.h                           |  9 +-------
+ init/Kconfig                                      |  2 +-
+ kernel/time/Makefile                              |  2 +-
+ lib/vdso/Kconfig                                  | 25 +--------------------
+ lib/vdso/Makefile                                 |  2 +-
+ lib/vdso/datastore.c                              |  6 ++---
+ lib/vdso/gettimeofday.c                           | 27 -----------------------
+ tools/testing/selftests/pidfd/config              |  1 -
+ 24 files changed, 31 insertions(+), 110 deletions(-)
+---
+base-commit: 3cd1f6bc6aa056cfd32946f9ce0aa3eb3db180e8
+change-id: 20250825-vdso-cleanups-fd6fbb32fc19
+
+Best regards,
+-- 
+Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+
 
