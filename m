@@ -4,67 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EADDACA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 14:10:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6889CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 14:12:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ItcdeWGj2vcIwGGXaTI93spF5Zpn2QNr2lwz0tmbyEQ=; b=pYX3wPlBBpMsfTXU90PE1ZMb6C
-	9ejeE/Aqx6zSJHp4ozg+2JBDxknB0Px0KyQ6ySNi2U8OgNh2fPSu3UBN40Rci/I4u4oR1A7Q0WnGa
-	3PfhefYg9VCEUYSQEUYeQH1SpHqHHDIivaY7mAd0ikwWjSbICIx4SgQDZPzvyJ12UCKzhkDwJBfsm
-	I4RRJjsNXCbp1gP4Psz68zGpsjV7CzRzp4sv64cO6NzpdF/0Rc2Z9tKctrkVnjxqoYaC2FOwWhMni
-	9QEjxnAt9Ajuq6RyZ4o998siJ24oPksfmqm96f/uVKy3DcV2y5mcnPpbAjUs0rOg1OnRxiFHYnuJy
-	BItbSyLA==;
+	bh=osdPfu3X+WvVcN3qUZlA7PO/Is6NQe7OboBpnwUj8qo=; b=dh+ojjGc+0r7WE+Sso/lkw8zjF
+	MP+78RpqNmxoxNXUvLrcUqqKtaODy1lsSTM1+PiLTR6rXW9BuFw8XqgGTTfLMbGwc899IATnIVQeL
+	DHDcniilHqiachc4klQrZD8BOKjG63cuvXzZ0Huv4zSoJ4Hyd3LPTuvGS+gml+tC1E4PqyGjtZ5FV
+	NaaU2BHEv0UShfft+TxPFLeyJkEYPTe9yy/sItK7idWMX17Uuby+M4ij88sow5RTD3jWjelDDDcE8
+	j4NHBzx52bZ1+jZUd/UOFH8xHAbDAyXPj5YLhN1PjcwJGvFOtgcVfvS3aBZK823lv8P6YMrMJBZLO
+	+PnZ2sUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uquN1-0000000CCnB-3d0h;
-	Tue, 26 Aug 2025 14:09:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqtxN-0000000C8d0-1eCq;
-	Tue, 26 Aug 2025 13:43:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5E7311A25;
-	Tue, 26 Aug 2025 06:43:16 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8B8A73F63F;
-	Tue, 26 Aug 2025 06:43:18 -0700 (PDT)
-Date: Tue, 26 Aug 2025 14:43:16 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: peterz@infradead.org, mingo@redhat.com, will@kernel.org,
-	acme@kernel.org, namhyung@kernel.org,
-	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
-	irogers@google.com, adrian.hunter@intel.com,
-	kan.liang@linux.intel.com, linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, dmaengine@vger.kernel.org,
-	linux-fpga@vger.kernel.org, amd-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org, coresight@lists.linaro.org,
-	iommu@lists.linux.dev, linux-amlogic@lists.infradead.org,
-	linux-cxl@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 18/19] perf: Introduce positive capability for raw events
-Message-ID: <aK259PrpyxguQzdN@J2N7QTR9R3>
-References: <cover.1755096883.git.robin.murphy@arm.com>
- <542787fd188ea15ef41c53d557989c962ed44771.1755096883.git.robin.murphy@arm.com>
+	id 1uquPi-0000000CDPq-28Z1;
+	Tue, 26 Aug 2025 14:12:42 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uqu0j-0000000C91k-3mR4
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 Aug 2025 13:46:55 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2445827be70so55993005ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 06:46:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=csie.ntu.edu.tw; s=google; t=1756216010; x=1756820810; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=osdPfu3X+WvVcN3qUZlA7PO/Is6NQe7OboBpnwUj8qo=;
+        b=EbLKI0AoZFoJEbPFAcgET9TkmmX8eZW+UqniB+pm9cfbMChkkme2tHpo+QKIxtvVHh
+         f7sagGIJ7rGQhzi4F8RoB3k+d3y2u0CAxfm8rLiklNdp7Wm3hwFsC8Xv54SGXscjXgb/
+         XRikbHrWOkuCH31O+cNtJ8V21G4hFdu8ExFGnNJTtlUtGqUKciBm2sCpaLKWefpePnNb
+         56K6wopAoYB64n86dT2z67ZQKFtDqACZkWwCbsdd3a8Rrf0E8UI2fOAhKhujOUuflbOW
+         UyvoF6rikfvVqxRkVKe1ubP9PLL/RZ8SkkDfG6Q9nsrAeN8cbKMYwqNRUFwQMirgSTJK
+         CQ7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756216010; x=1756820810;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=osdPfu3X+WvVcN3qUZlA7PO/Is6NQe7OboBpnwUj8qo=;
+        b=sOVRvwIaSvhSZhRdXyQMP37wP5WQXaCUorq9pR65jEDNST7XcvLpK3z2fOLb2TXmht
+         XLai5FVlbmKRMxFHfmANWNUByILc7bI+OjiDGve6wcxiYHhScTvuPtMckOBvwQZG9TAK
+         aVzMblSZrQoZE/mmgu4pzOo8gbIJAk+57gQoyTKAHc18I7wAvC9tWm7nOlHxG62x89yl
+         SoQAS2I0Wnmzc0MmBtkuxX5qZGZC0etfp778s4ieZfrQ8RnevR1SQZSqb1HhzofxqX0L
+         Oj5hL3EWpyULkHYRSE+YdwX2YhNFw/dJQtl5lfA2+9//EwGSwAviBJZ8waFLWiFI5hk6
+         uyZQ==
+X-Gm-Message-State: AOJu0YxCSGWii1OT77ObaSCb7r+TdBrO3nbtY54JBRRnc8syAVYiKWCC
+	dMYR1B/e7KRWUQrk7RFTQb3/wpmAH4rPEH2nMJ/GM58zlM9yDqhjruh8Fuc6EieTFohXO9fHFEE
+	uqmMKvc/1tIrosXtsVVCBowYpiX5R4EuxgS57EEN5I5RpjNEBBHvp2BmVkRXBLAEAcGjcRA==
+X-Gm-Gg: ASbGncvoknOyRCMrui3kr2Xz8j12hmV10k4YHK6zo0ulOmcUEWFShaI0DqmkDCQfI3/
+	vSbuncyhLX2yZqxogLiXREE9WO4NhfQ87jbu1gSczlIJtPtwGxy7Jx8Ilpk+0XqEgZwz0Ioz0nr
+	y+ul9mNWyp3oVIio0MV+xzuOoQFDs/QFiGYu8HAjyMYorvAHvNY5/BBIibQrQm6rTMCzZcM7GnY
+	0Wa64CPwgDVMI+no/UsZja/AIez7PaC+KNhp3keqNchKnv08d2HYhtzlawhIMtpcmOB/ANaPQ+4
+	sLDyegXOPUWTWrQ4CCutA0z6IxXLIFoMAWNF/p8Pe84dUzIciznoun+HkZpVOugyx9/SqUv/PAb
+	eXn1Q9/bMD9kHvYCra8CoQLuAfsQj/zUDT0MAI2kNLVS4lpasS8AAkJQB+A==
+X-Google-Smtp-Source: AGHT+IEapx+qUYn+gnSfpFGolofqtYLrq6ffT2yt159qZt5g4CsSb6AqyhXzJhjpuNXlfxvFnyc/wA==
+X-Received: by 2002:a17:902:c94d:b0:245:f002:d67c with SMTP id d9443c01a7336-2462eeb6325mr197352005ad.30.1756216009581;
+        Tue, 26 Aug 2025 06:46:49 -0700 (PDT)
+Received: from zenbook (1-162-83-231.dynamic-ip.hinet.net. [1.162.83.231])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2466887198dsm96470935ad.110.2025.08.26.06.46.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 26 Aug 2025 06:46:49 -0700 (PDT)
+Date: Tue, 26 Aug 2025 21:49:27 +0800
+From: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Oliver Upton <oliver.upton@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH] KVM: arm64: nv: Allow shadow stage 2 read fault
+Message-ID: <djypsyratk63ovzv3flzb2tmunqtcoryzserwhsaaq5nuogsrx@u3uuwynnafbj>
+References: <20250822031853.2007437-1-r09922117@csie.ntu.edu.tw>
+ <87a53rk83s.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <542787fd188ea15ef41c53d557989c962ed44771.1755096883.git.robin.murphy@arm.com>
+In-Reply-To: <87a53rk83s.wl-maz@kernel.org>
+X-Gm-Spam: 0
+X-Gm-Phishy: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_064325_521255_6B88A02C 
-X-CRM114-Status: GOOD (  32.44  )
+X-CRM114-CacheID: sfid-20250826_064654_221959_118C29F3 
+X-CRM114-Status: GOOD (  52.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,170 +103,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 13, 2025 at 06:01:10PM +0100, Robin Murphy wrote:
-> Only a handful of CPU PMUs accept PERF_TYPE_{RAW,HARDWARE,HW_CACHE}
-> events without registering themselves as PERF_TYPE_RAW in the first
-> place. Add an explicit opt-in for these special cases, so that we can
-> make life easier for every other driver (and probably also speed up the
-> slow-path search) by having perf_try_init_event() do the basic type
-> checking to cover the majority of cases.
+Hi Marc,
+
+On Fri, Aug 22, 2025 at 10:40:07AM +0100, Marc Zyngier wrote:
+> Hey Wei-Lin,
 > 
-> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
-
-
-To bikeshed a little here, I'm not keen on the PERF_PMU_CAP_RAW_EVENTS
-name, because it's not clear what "RAW" really means, and people will
-definitely read that to mean something else.
-
-Could we go with something like PERF_PMU_CAP_COMMON_CPU_EVENTS, to make
-it clear that this is about opting into CPU-PMU specific event types (of
-which PERF_TYPE_RAW is one of)?
-
-Likewise, s/is_raw_pmu()/pmu_supports_common_cpu_events()/.
-
-> ---
+> On Fri, 22 Aug 2025 04:18:53 +0100,
+> Wei-Lin Chang <r09922117@csie.ntu.edu.tw> wrote:
+> > 
+> > We don't expect to ever encounter a stage-2 read permission fault,
+> > because read permission is always granted when mapping stage-2. However,
+> > this isn't certainly the case when NV is involved. The key is the shadow
+> > mapping built for L2 must have the same or stricter permissions than
+> > those that L1 built for L2, hence opening the possibility of mappings
+> > without read permission.
+> > 
+> > Let's continue handling the read fault if we're handling a shadow
+> > stage-2 fault, instead of erroring out.
+> > 
+> > The following illustrates an example, vertical lines stand for either
+> > L0, L1, or L2 running, with left: L0, middle: L1, and right: L2.
+> > Horizontal arrows stand for traps and erets between them.
+> > 
+> > '''
+> > L0                               L1                               L2
+> >                                                L2                 |
+> >                                                writes to an L2 PA |
+> > |<----------------------------------------------------------------|
+> > |
+> > | L0
+> > | finds no mapping in
+> > | L1's s2pt for L2
+> > |
+> > | L0
+> > | injects data abort
+> > |------------------------------->|
+> >                                  | L1
+> >                                  | for whatever reason
+> >                                  | treats this abort specially,
+> >                                  | only gives it W permission
+> >                                  |
+> >        eret traps to L0          |
+> > |<-------------------------------|
+> > |
+> > |      eret back to L2
+> > |---------------------------------------------------------------->|
+> >                                                                   |
+> >                                                    L2             |
+> >                                                    writes to same |
+> >                                                    L2 PA (replay) |
+> > |<----------------------------------------------------------------|
+> > |
+> > | L0
+> > | finds mapping in s2pt that
+> > | L1 built for L2, create
+> > | shadow mapping for L2,
+> > | but only gives it W to match
+> > | what L1 had given
+> > |
+> > |
+> > |      eret back to L2
+> > |---------------------------------------------------------------->|
+> >                                                                   |
+> >                                                    L2             |
+> >                                                    writes to same |
+> >                                                    L2 PA (replay) |
+> >                                                    success        |
+> > |<----------------------------------------------------------------|
+> > |
+> > |
+> > |------------------------------->| L1
+> >                                  | for some reason, relaxes
+> >                                  | L2's permission from W
+> >                                  | to RW, AND, doesn't flush
+> >                                  | TLB
+> >                                  |
+> >        eret traps to L0          |
+> > |<-------------------------------|
+> > |
+> > |      eret back to L2
+> > |---------------------------------------------------------------->|
+> >                                                                   |
+> >                                                     L2            |
+> >                                                     read to L2 PA |
+> > |<----------------------------------------------------------------|
+> > | stage-2 read fault
+> > |
+> > '''
+> > 
+> > Signed-off-by: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
 > 
-> A further possibility is to automatically add the cap to PERF_TYPE_RAW
-> PMUs in perf_pmu_register() to have a single point-of-use condition; I'm
-> undecided...
+> Excellent detective work! Bonus points for the ASCII art -- I'm not
+> sure how practical it will be to keep it in the final commit, but this
+> definitely helps understanding the issue.
 
-I reckon we don't need to automagically do that, but I reckon that
-is_raw_pmu()/pmu_supports_common_cpu_events() should only check the cap,
-and we don't read anything special into any of
-PERF_TYPE_{RAW,HARDWARE,HW_CACHE}.
+Thanks, I tried to make it clear for those that aren't familiar with NV,
+including myself :P
 
-> ---
->  arch/s390/kernel/perf_cpum_cf.c    |  1 +
->  arch/s390/kernel/perf_pai_crypto.c |  2 +-
->  arch/s390/kernel/perf_pai_ext.c    |  2 +-
->  arch/x86/events/core.c             |  2 +-
->  drivers/perf/arm_pmu.c             |  1 +
->  include/linux/perf_event.h         |  1 +
->  kernel/events/core.c               | 15 +++++++++++++++
->  7 files changed, 21 insertions(+), 3 deletions(-)
 > 
-> diff --git a/arch/s390/kernel/perf_cpum_cf.c b/arch/s390/kernel/perf_cpum_cf.c
-> index 1a94e0944bc5..782ab755ddd4 100644
-> --- a/arch/s390/kernel/perf_cpum_cf.c
-> +++ b/arch/s390/kernel/perf_cpum_cf.c
-> @@ -1054,6 +1054,7 @@ static void cpumf_pmu_del(struct perf_event *event, int flags)
->  /* Performance monitoring unit for s390x */
->  static struct pmu cpumf_pmu = {
->  	.task_ctx_nr  = perf_sw_context,
-> +	.capabilities = PERF_PMU_CAP_RAW_EVENTS,
->  	.pmu_enable   = cpumf_pmu_enable,
->  	.pmu_disable  = cpumf_pmu_disable,
->  	.event_init   = cpumf_pmu_event_init,
+> > ---
+> > 
+> > I am able to trigger this error with a modified L1 KVM, but I do realize
+> > this requires L1 to be very strange (or even just wrong) so I understand
+> > if we don't want to handle this kind of edge case. On the other hand,
+> > could there also be other ways to trigger this that I have not thought
+> > of?
+> > 
+> > Another thing is that this change lets L1 get away with not flushing the
+> > TLB, but TLBs are ephemeral so it's fine in this aspect, however I'm not
+> > sure if there are other considerations.
+> 
+> Well, it depends whose TLBs we're talking about. The CPU TLBs are
+> definitely ephemeral. But the KVM-managed TLBs (aka the shadow S2) is
+> pretty static, and I am a bit worried to relax this.
+> 
+> What would happen on actual HW? L1 would take a S2 fault, because the
+> TLBs are out of sync with the S2 PTs. And yes, maybe the TLB pressure
+> woulds make it so that it works *sometimes*, but there wouldn't be any
+> guarantee of forward progress as long as EL2 doesn't issue a TLBI.
+> 
+> I reckon we should implement that particular behaviour whenever
+> possible, and handle permission faults early, possibly ahead of the
+> guest S2 walk (the way we handle VNCR_EL2 faults is IMO a good model).
 
-Tangential, but use of perf_sw_context here looks bogus.
+The parts above make complete sense.
 
-> diff --git a/arch/s390/kernel/perf_pai_crypto.c b/arch/s390/kernel/perf_pai_crypto.c
-> index a64b6b056a21..b5b6d8b5d943 100644
-> --- a/arch/s390/kernel/perf_pai_crypto.c
-> +++ b/arch/s390/kernel/perf_pai_crypto.c
-> @@ -569,7 +569,7 @@ static const struct attribute_group *paicrypt_attr_groups[] = {
->  /* Performance monitoring unit for mapped counters */
->  static struct pmu paicrypt = {
->  	.task_ctx_nr  = perf_hw_context,
-> -	.capabilities = PERF_PMU_CAP_SAMPLING,
-> +	.capabilities = PERF_PMU_CAP_SAMPLING | PERF_PMU_CAP_RAW_EVENTS,
->  	.event_init   = paicrypt_event_init,
->  	.add	      = paicrypt_add,
->  	.del	      = paicrypt_del,
-> diff --git a/arch/s390/kernel/perf_pai_ext.c b/arch/s390/kernel/perf_pai_ext.c
-> index 1261f80c6d52..bcd28c38da70 100644
-> --- a/arch/s390/kernel/perf_pai_ext.c
-> +++ b/arch/s390/kernel/perf_pai_ext.c
-> @@ -595,7 +595,7 @@ static const struct attribute_group *paiext_attr_groups[] = {
->  /* Performance monitoring unit for mapped counters */
->  static struct pmu paiext = {
->  	.task_ctx_nr  = perf_hw_context,
-> -	.capabilities = PERF_PMU_CAP_SAMPLING,
-> +	.capabilities = PERF_PMU_CAP_SAMPLING | PERF_PMU_CAP_RAW_EVENTS,
->  	.event_init   = paiext_event_init,
->  	.add	      = paiext_add,
->  	.del	      = paiext_del,
-> diff --git a/arch/x86/events/core.c b/arch/x86/events/core.c
-> index 789dfca2fa67..764728bb80ae 100644
-> --- a/arch/x86/events/core.c
-> +++ b/arch/x86/events/core.c
-> @@ -2697,7 +2697,7 @@ static bool x86_pmu_filter(struct pmu *pmu, int cpu)
->  }
->  
->  static struct pmu pmu = {
-> -	.capabilities		= PERF_PMU_CAP_SAMPLING,
-> +	.capabilities		= PERF_PMU_CAP_SAMPLING | PERF_PMU_CAP_RAW_EVENTS,
->  
->  	.pmu_enable		= x86_pmu_enable,
->  	.pmu_disable		= x86_pmu_disable,
-> diff --git a/drivers/perf/arm_pmu.c b/drivers/perf/arm_pmu.c
-> index 72d8f38d0aa5..bc772a3bf411 100644
-> --- a/drivers/perf/arm_pmu.c
-> +++ b/drivers/perf/arm_pmu.c
-> @@ -877,6 +877,7 @@ struct arm_pmu *armpmu_alloc(void)
->  		 * specific PMU.
->  		 */
->  		.capabilities	= PERF_PMU_CAP_SAMPLING |
-> +				  PERF_PMU_CAP_RAW_EVENTS |
->  				  PERF_PMU_CAP_EXTENDED_REGS |
->  				  PERF_PMU_CAP_EXTENDED_HW_TYPE,
->  	};
-> diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
-> index 183b7c48b329..c6ad036c0037 100644
-> --- a/include/linux/perf_event.h
-> +++ b/include/linux/perf_event.h
-> @@ -305,6 +305,7 @@ struct perf_event_pmu_context;
->  #define PERF_PMU_CAP_EXTENDED_HW_TYPE	0x0100
->  #define PERF_PMU_CAP_AUX_PAUSE		0x0200
->  #define PERF_PMU_CAP_AUX_PREFER_LARGE	0x0400
-> +#define PERF_PMU_CAP_RAW_EVENTS		0x0800
->  
->  /**
->   * pmu::scope
-> diff --git a/kernel/events/core.c b/kernel/events/core.c
-> index 71b2a6730705..2ecee76d2ae2 100644
-> --- a/kernel/events/core.c
-> +++ b/kernel/events/core.c
-> @@ -12556,11 +12556,26 @@ static inline bool has_extended_regs(struct perf_event *event)
->  	       (event->attr.sample_regs_intr & PERF_REG_EXTENDED_MASK);
->  }
->  
-> +static bool is_raw_pmu(const struct pmu *pmu)
-> +{
-> +	return pmu->type == PERF_TYPE_RAW ||
-> +	       pmu->capabilities & PERF_PMU_CAP_RAW_EVENTS;
-> +}
+> 
+> This would imply taking the guest's S2 permission at face value, and
+> only drop W permission when the memslot is RO -- you'd then need to
+> keep track of the original W bit somewhere. And that's where things
+> become much harder, because KVM can decide to remap arbitrary ranges
+> of IPA space as RO, which implies we should track the W bit at all
+> times, most likely as one of the SW bits in the PTE.
 
-As above, I reckon we should make this:
+But sorry, I struggle to understand this paragraph after reading it many
+times, probably my experience with the code isn't enough for me to make
+the connection. Why are we talking about the W bit suddenly?
+If you don't mind, can you reword what's discussed here?
+I only very vaguely get that there will be 2 W bits, one from what L1 set,
+and one from the L0 memslot, if I didn't completely miss the point..
 
-static bool pmu_supports_common_cpu_events(const struct pmu *pmu)
-{
-	return pmu->capabilities & PERF_PMU_CAP_RAW_EVENTS;
-}
+> 
+> We'll need exactly that if we ever want to implement the
+> Hardware-managed Dirty Bit, but I have the feeling we need an actual
+> design for this, and not a quick hack. Your approach is therefore the
+> correct one for the time being.
+> 
+> > 
+> > ---
+> >  arch/arm64/kvm/mmu.c | 4 ++--
+> >  1 file changed, 2 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> > index 1c78864767c5c..41017ca579b19 100644
+> > --- a/arch/arm64/kvm/mmu.c
+> > +++ b/arch/arm64/kvm/mmu.c
+> > @@ -1508,8 +1508,8 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+> >  	exec_fault = kvm_vcpu_trap_is_exec_fault(vcpu);
+> >  	VM_BUG_ON(write_fault && exec_fault);
+> >  
+> > -	if (fault_is_perm && !write_fault && !exec_fault) {
+> > -		kvm_err("Unexpected L2 read permission error\n");
+> > +	if (fault_is_perm && !write_fault && !exec_fault && !nested) {
+> > +		kvm_err("Unexpected S2 read permission error\n");
+> >  		return -EFAULT;
+> >  	}
+> >  
+> 
+> Honestly, I'd rather kill this check altogether rather than adding
+> another condition to it -- I suggested it to Fuad a while ago. This is
+> the first time we ever see it firing, and I don't think it is bringing
+> much.
 
-Other than the above, this looks good to me.
+No problem and agreed. Let me prepare another version.
 
-Mark.
+Thanks,
+Wei-Lin Chang
 
-> +
->  static int perf_try_init_event(struct pmu *pmu, struct perf_event *event)
->  {
->  	struct perf_event_context *ctx = NULL;
->  	int ret;
->  
-> +	/*
-> +	 * Before touching anything, we can safely skip:
-> +	 * - any event for a specific PMU which is not this one
-> +	 * - any common event if this PMU doesn't support them
-> +	 */
-> +	if (event->attr.type != pmu->type &&
-> +	    (event->attr.type >= PERF_TYPE_MAX || is_raw_pmu(pmu)))
-> +		return -ENOENT;
-> +
->  	if (!try_module_get(pmu->module))
->  		return -ENODEV;
->  
+> 
+> Thanks,
+> 
+> 	M.
+> 
 > -- 
-> 2.39.2.101.g768bb238c484.dirty
-> 
+> Jazz isn't dead. It just smells funny.
 
