@@ -4,113 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C31A9CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 09:53:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6C6ECA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 09:55:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4PEAY8J+2hFqaAcoFBcmAnIffsmjtAPPhfpLBeNAHJE=; b=cXvNoWw0AUMDcBATdmPZ+VotCH
-	fiAao1SnJYO8NO/i0cKrHFexnKmivmvMhpIrZKq0vPRQg3Cs3IAZzniF4KkgUrUeYcTb42//hrlFW
-	o/l8FDAxCe7AhRimo7uL4Q/i4Hlh/RWmTn4VsVa1u2fcXvmy+a5hOBqHFwIDWbcvlxu6vjyzZ9Uy6
-	an6YaNXyRsMHBkW8d7y2DAh0N7Qs6TqpkhTYCc80bBs7IB5NJo+YbeayYZ1CZKkYlWOnXqD74eU51
-	l45iKpNOst7p+UAWuYR1Bw8axPcF0Nhc7nu2RDzgopiGerl/NO23o6JPY0al4A5OP7HgN72uiQFqt
-	LFzhrtLw==;
+	bh=SdMjE/IUNg9nUBZWSwSrF0HUJBl5tL7A+dP3nDcIACE=; b=aV9vrlj/Ehg82zjwlcoSkNVGiC
+	8VIbjhD9PrfmOdH6Emu59blj0CYodqfdmMXh1NeJL+ytawalLbpJiFjd2R4jWk7vmvUdPdsrJZBc6
+	U9xrs3JkMp4Ll5rtf3641LKdu2RfK++RGlVsNIgr7kIcelO9BD+gAipx2VTxFbOi3xY0TeW3KOBMq
+	XCPRcthFSlEwJ0nH1mDt/l3lwxC7+6IsUEX0spCbnPEuQh4RB7v3nsoUF8FVGDDAS9zf9KGfQ5s1q
+	U++bADW2smWXe9wFJ4HStXNQNtTBqGjC3jezwP+uYOlwdVRmt7f7ZzCDqURQYhi6wEoNHULybqUgn
+	r5dVObIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqqMc-0000000BVMM-2vkU;
-	Tue, 26 Aug 2025 09:53:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uqqOX-0000000BVtl-1RTD;
+	Tue, 26 Aug 2025 09:55:13 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqp9T-0000000B2TT-39bc;
-	Tue, 26 Aug 2025 08:35:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0524E601FC;
-	Tue, 26 Aug 2025 08:35:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93B0BC4CEF1;
-	Tue, 26 Aug 2025 08:35:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756197325;
-	bh=nrG+katxORgoz1280zOJ1BjvEfsOXCrjgMG9haaiYo0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=G0Nlq2+oVHJ6Cf52NPgTzUWVPenNhKHurD15yUf5QZrP3Iy1T8Bm4cBGvZBMcpvp0
-	 3gE6tdomwYIrKJRtAUGcKHVG33jNRRBHUiPUW3Y+qlCj/Frvulqsw/0hd51qaijzsT
-	 UmVsNItVGO6wcuLWiaFnD/xHb59dW6e3jIqL7zyaZHzcmci3Y6CXCx6yuum3xUfagL
-	 JsZEU4AhbnD88yNuDQFeuqa+jUJj/ahsSjoqT0IVJAIiVGW0xoss9/XBGu2HC0j4Md
-	 WtyiotIFbY3eC4K9KpolS/G49BwNc1a8Cm0XHFQ14DeHgiUqoqII6wnuW0PBhsjAPw
-	 j1oEEKb9ie3UQ==
-Message-ID: <83dc9435-5850-425d-b345-52e84ef9262c@kernel.org>
-Date: Tue, 26 Aug 2025 10:35:19 +0200
+	id 1uqq5I-0000000BR2T-4BwE
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 Aug 2025 09:35:22 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-45a1b00f23eso31262135e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 02:35:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756200919; x=1756805719; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=SdMjE/IUNg9nUBZWSwSrF0HUJBl5tL7A+dP3nDcIACE=;
+        b=nOT6YZHe/E5ywzUyujHqUdlOppmjvRGcSdkP5cJ0LgpD02ijiP4AL6MrTzIWbJggQd
+         3zO8rPpi0kIFJbjAvWLOq53Nigfg9v9XwZ0Gx3mHGbS7m7L0DHLZUmRArHEyiMyKS7mA
+         Blf+2CFKesfIgigGDNK9mnOHS9Mr/EoJcEXkWZLnT10Y6HKJbpxn4pJt68svGsii1KPM
+         sjIj+ikMBtmVkL+7q/AdUTzem/hSFMMM36HszKkXMY93PU3yANjQi3O9CLbWvrSynGuo
+         P/FgrJwIWGLeQLzb7wDqKuYcOuIU7NzI4atHdzRdJvZ2kMN496Lu0U+sGLosTe5Efs82
+         fgEg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756200919; x=1756805719;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=SdMjE/IUNg9nUBZWSwSrF0HUJBl5tL7A+dP3nDcIACE=;
+        b=lxdr9k8eZ/98kkp9VVSsqQ5+ykxCFrO/VSGY0MXk1xkO7WwYpuEJ/NTOT8r7sm5Vrh
+         wZIhZRMEWm7HRHtwH3w0zn9XjRx+q0c2cyN9eHuTm8Lv1lgOvBNyUqOil4i33tk97GjW
+         4IkpMD9UTQZhVgeOOT8Q4QLQmipiSXMtlNs72tdfszjd7QQ9OFx/w5z8tf8Jn1ywWNBu
+         7VXgxFIjuN25XxtqSTCtzUiY7XZJ/4MHGAzsYviPyvuk22n1wbGI84iHE5WozT6ihWV9
+         pca7M5cv8OIEPArJFnkq1nSSA9UaTBeukWSnAzl+65XTcS0tVlpWPpRMRks64j3UqWFI
+         Y98Q==
+X-Forwarded-Encrypted: i=1; AJvYcCV4IKuAnmocrR2PeZHGHWymcqQkx1piGygSQL6uc3k8VPq2A3sR/M+U2sFO1SIbpUMcLK2/zx/HaE/uPbrY+2DN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzv3pWRvZ08QQy5zsHqXz+cecHr39jtQedwlTB6gGCHqaMTbR+q
+	6jOEvDdLg8VAV8W2L06r+8Il3o75RiOM7Asks0oiZY6ElgFIIzTsK8P4aYjS0A2oLfM=
+X-Gm-Gg: ASbGnctYTndXIb5jv3pxneR55qGzx8nFcQETl0/VFeV7ayhyL78GFYHlneSZIkDaGwm
+	vqC+pXH6RuPdLiXgaomnRzted3AKqYDfkYRsnpfZBE6f2ZC3TPYCCCnO/+/nyhrNjll9+HNis/0
+	LambIshza/rn/eH1w5EWTWtZ2AVsyD937Vll6HjOp2bOo3cyoYd+y+0f9ya3sNblH8Xq0mpqq/N
+	OvqfURCiNx6GSn3Gxc+kTXyjcNBNrsDhG2NafwuMUMbY4kdpqxxg0n/rHfUZY7S+qAVywMm4foY
+	d63bUuZZxsSXuFj+4TFRr29UVuMnjVcGNofICJ/ihAzjRWc/3rgHxAGpUppCbnpgwreRnG5XBwf
+	zw0egRtETzJ+OJsZjf0UZw2rXgg4=
+X-Google-Smtp-Source: AGHT+IGFYppzg7ppfW2qCUHYBmIKcwWqnK+38KV0dVpWZJbB4VXKyNsvmKpRrAApETlF5QIhTbSsTw==
+X-Received: by 2002:a05:6000:220f:b0:3c9:b8b7:ea3d with SMTP id ffacd0b85a97d-3c9b8b7ec0amr4709288f8f.51.1756200919352;
+        Tue, 26 Aug 2025 02:35:19 -0700 (PDT)
+Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:fed4:79fc:9440:6629])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3c7117d5b10sm15308255f8f.47.2025.08.26.02.35.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 26 Aug 2025 02:35:18 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Tue, 26 Aug 2025 11:35:08 +0200
+Subject: [PATCH 07/12] gpio: ftgpio010: order includes alphabetically
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 5/6] dt-bindings: phy: samsung,usb3-drd-phy: add
- ExynosAutov920 combo ssphy
-To: Pritam Manohar Sutar <pritam.sutar@samsung.com>
-Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, alim.akhtar@samsung.com, andre.draszik@linaro.org,
- peter.griffin@linaro.org, kauschluss@disroot.org,
- ivo.ivanov.ivanov1@gmail.com, igor.belwon@mentallysanemainliners.org,
- johan@kernel.org, m.szyprowski@samsung.com, s.nawrocki@samsung.com,
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
- dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
- selvarasu.g@samsung.com
-References: <20250822093845.1179395-1-pritam.sutar@samsung.com>
- <CGME20250822093022epcas5p42d8c16c851769dab0e1da9d45743ab1f@epcas5p4.samsung.com>
- <20250822093845.1179395-6-pritam.sutar@samsung.com>
- <20250824-rough-fresh-orangutan-eecb2f@kuoka>
- <007501dc1653$e36c3b50$aa44b1f0$@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <007501dc1653$e36c3b50$aa44b1f0$@samsung.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250826-gpio-mmio-gpio-conv-part2-v1-7-f67603e4b27e@linaro.org>
+References: <20250826-gpio-mmio-gpio-conv-part2-v1-0-f67603e4b27e@linaro.org>
+In-Reply-To: <20250826-gpio-mmio-gpio-conv-part2-v1-0-f67603e4b27e@linaro.org>
+To: Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Ray Jui <rjui@broadcom.com>, 
+ Scott Branden <sbranden@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Yang Shen <shenyang39@huawei.com>, 
+ Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1018;
+ i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
+ bh=5rbP7dwhRhfDrSbAgYMHtgCgxy4erM0JGqfIF8jsC5k=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBorX/N9SEBtr9CQED5vzENsLuHUQqYMiCsah98i
+ +4dFAPqdECJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaK1/zQAKCRARpy6gFHHX
+ cpDiD/4801Pac5QlHO6D9jKqnSPRvfkYUesEBYjOQoRoQO7T3lf+1NnMxw62VB+bKhsMavf0Pbm
+ hO4Nf/NyHZpSXp3pPIPf9G+kVN6fcNQ5qBrs+gvi7JsR0X2JGRgfZlxh91Vk12yRTsW+NDErwPh
+ JmL+8+8nQeFJ6q3ss63UDHJvgZILjabTP5RSIH0wb7M50VPU+8QwdjAhENUEiBirB8f9QNC6jNb
+ goJ5DFK2XnM7sIEvMN5gTAz9sbtGbRZCKyoI/HbhHu+eITH4TGjUPJPRuPmZHXqnRFoa8nz0T7E
+ cVm1uU1U7CDvOl9ovupCoxm+qdoi4XfEqjtS9aOP6J8pXUCn+WHqJTSDseqMZwEEy8x9eN1gYKE
+ GzQRnaSgDGQdZmp5eheDhiV8FTP+ayHa9JLVmpT+Z85XPGz3YPLU7c/nrRHKNlM+n6XO7w3wqrs
+ B4BGQ9Bnzs1NMsnAQ4IbStfy/yuv9BJrt64xwx96w2WkgjmViYp7gMuz+DfAprX7CHwjoVvR8Zz
+ inkriWAohdiEy6QdfmfNRMyyzE8mbYJDNdWopcB8mztbZOHe+frPa5b3pRbzTNFsFcxOIedt0b3
+ k2dPSKvKi5mp0nqiyLBCC+x3tg02ix1A+UI421kKbUVpGS36GNX4S99VMZqQFJwElEDaiuX68Md
+ 6dX8YoVapsqzaew==
+X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250826_023521_056950_A2774E5B 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,136 +126,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/08/2025 08:37, Pritam Manohar Sutar wrote:
-> Hi Krzysztof, 
-> 
->> -----Original Message-----
->> From: Krzysztof Kozlowski <krzk@kernel.org>
->> Sent: 24 August 2025 02:26 PM
->> To: Pritam Manohar Sutar <pritam.sutar@samsung.com>
->> Cc: vkoul@kernel.org; kishon@kernel.org; robh@kernel.org;
->> krzk+dt@kernel.org; conor+dt@kernel.org; alim.akhtar@samsung.com;
->> andre.draszik@linaro.org; peter.griffin@linaro.org; kauschluss@disroot.org;
->> ivo.ivanov.ivanov1@gmail.com; igor.belwon@mentallysanemainliners.org;
->> johan@kernel.org; m.szyprowski@samsung.com; s.nawrocki@samsung.com;
->> linux-phy@lists.infradead.org; devicetree@vger.kernel.org; linux-
->> kernel@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-samsung-
->> soc@vger.kernel.org; rosa.pila@samsung.com; dev.tailor@samsung.com;
->> faraz.ata@samsung.com; muhammed.ali@samsung.com;
->> selvarasu.g@samsung.com
->> Subject: Re: [PATCH v7 5/6] dt-bindings: phy: samsung,usb3-drd-phy: add
->> ExynosAutov920 combo ssphy
->>
->> On Fri, Aug 22, 2025 at 03:08:44PM +0530, Pritam Manohar Sutar wrote:
->>> This phy supports USB3.1 SSP+(10Gbps) protocol and is backwards
->>> compatible to the USB3.0 SS(5Gbps). It requires two clocks, named
->>> "phy" and "ref". The required supplies for USB3.1 are named as
->>> vdd075_usb30(0.75v), vdd18_usb30(1.8v).
->>
->> Please do not describe the schema, but hardware. This sentence does not help
->> me in my question further.
-> 
-> This is a combo phy having Synopsys usb20 and usb30 phys (these 2 phys are totally different). 
-> One PHY only supports usb2.0 and data rates whereas another one does usb3.1 ssp+ and usb3.1 ssp
-> 	
-> This patch only explains about usb30 (since these are two different phys) phy and omitted inclusion of usb20 reference (added separate patch for this patch no 3). 
-> 	
-> Hope this is clear.
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-No. That sentence still explains what schema is doing.
+For easier maintenance: put includes in alphabetical order.
 
-BTW, wrap your email correctly.
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+---
+ drivers/gpio/gpio-ftgpio010.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
 
-> 
->>
->>>
->>> Add schemas for combo ssphy found on this SoC.
->>>
->>> Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
->>> ---
->>>  .../bindings/phy/samsung,usb3-drd-phy.yaml    | 23 +++++++++++++++++++
->>>  1 file changed, 23 insertions(+)
->>>
->>> diff --git
->>> a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
->>> b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
->>> index f0cfca5736b8..96e5bbb2e42c 100644
->>> --- a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
->>> +++ b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
->>> @@ -34,6 +34,7 @@ properties:
->>>        - samsung,exynos7870-usbdrd-phy
->>>        - samsung,exynos850-usbdrd-phy
->>>        - samsung,exynos990-usbdrd-phy
->>> +      - samsung,exynosautov920-usb31drd-combo-ssphy
->>>        - samsung,exynosautov920-usbdrd-combo-hsphy
->>>        - samsung,exynosautov920-usbdrd-phy
->>>
->>> @@ -118,6 +119,12 @@ properties:
->>>    vdd18-usb20-supply:
->>>      description: 1.8V power supply for the USB 2.0 phy.
->>>
->>> +  dvdd075-usb30-supply:
->>> +    description: 0.75V power supply for the USB 3.0 phy.
->>> +
->>> +  vdd18-usb30-supply:
->>> +    description: 1.8V power supply for the USB 3.0 phy.
->>> +
->>>  required:
->>>    - compatible
->>>    - clocks
->>> @@ -227,6 +234,7 @@ allOf:
->>>                - samsung,exynos7870-usbdrd-phy
->>>                - samsung,exynos850-usbdrd-phy
->>>                - samsung,exynos990-usbdrd-phy
->>> +              - samsung,exynosautov920-usb31drd-combo-ssphy
->>>                - samsung,exynosautov920-usbdrd-combo-hsphy
->>>                - samsung,exynosautov920-usbdrd-phy
->>>      then:
->>> @@ -262,6 +270,21 @@ allOf:
->>>        properties:
->>>          dvdd075-usb20-supply: false
->>>          vdd18-usb20-supply: false
->>> +  - if:
->>> +      properties:
->>> +        compatible:
->>> +          contains:
->>> +            enum:
->>> +              - samsung,exynosautov920-usb31drd-combo-ssphy
->>> +    then:
->>> +      required:
->>> +        - dvdd075-usb30-supply
->>> +        - vdd18-usb30-supply
->>
->> Why are you adding usb20 and usb30 suffixes to the supplies? These are
->> separate devices, so they do not have both variants at the same time.
-> 
-> This is a combo phy consisting of usb2 and usb3 phys combined. 
-> To drive these separate phys, added suffixes for these supplies respectively.
+diff --git a/drivers/gpio/gpio-ftgpio010.c b/drivers/gpio/gpio-ftgpio010.c
+index c35eaa2851d8533309fe04a3e6265d9a7947606d..56666ca8889bc92b91b160751728b65e287b0123 100644
+--- a/drivers/gpio/gpio-ftgpio010.c
++++ b/drivers/gpio/gpio-ftgpio010.c
+@@ -10,12 +10,13 @@
+  * MXC GPIO support. (c) 2008 Daniel Mack <daniel@caiaq.de>
+  * Copyright 2008 Juergen Beisert, kernel@pengutronix.de
+  */
+-#include <linux/gpio/driver.h>
+-#include <linux/io.h>
+-#include <linux/interrupt.h>
+-#include <linux/platform_device.h>
++
+ #include <linux/bitops.h>
+ #include <linux/clk.h>
++#include <linux/gpio/driver.h>
++#include <linux/interrupt.h>
++#include <linux/io.h>
++#include <linux/platform_device.h>
+ 
+ /* GPIO registers definition */
+ #define GPIO_DATA_OUT		0x00
 
-But they are separate.
+-- 
+2.48.1
 
-> 
-> Moreover, gs101 is also using similar convention for its usb20 and dp supplies. 
-> Added suffix for usb2 and usb3 as per our last communication https://lore.kernel.org/linux-phy/6e1c67d2-9bfa-442a-9d53-8c5970a2a9ef@kernel.org/
-
-Then please review patches on the list and help to improve them BEFORE
-they got merged.
-
-I questioned the suffix there, so I really do not understand why did you
-added it.
-
-> 
->>
->> From this device point of view, the supply is called dvdd075 or vdd18.
->> If you open device datasheet (not SoC datasheet), that's how it will be called,
->> most likely.
-> 
-> Yes, Agree. In device datasheet, suffixes are not mentioned, but in our board schematic it is mentioned. 
-> Let me know your suggestion about adding suffixes?
-
-I already said, multiple times on various discussions. You name these
-based on how the inputs are called in this device.
-
-Best regards,
-Krzysztof
 
