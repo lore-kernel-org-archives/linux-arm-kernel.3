@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BA2DCA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 11:49:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F200CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 11:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WdcZGco1brKkCvqK3OI1tB4ut3wEQd56prbkyXuFUMU=; b=GJwyHFCGAQ4wnVa2JWD5UjBiQ/
-	IKLJqtBGZpSXpZgBX+NOxB3pIaS8ZwukPR8/FkCyxXGipsVn2ZztJYE/GXKs0CFwPrKygqBPM3de8
-	BlP0qWGL3OJ0yUWaVUjn4w+C8oLHJu6FNuC7iYPWOA3QAB2ogkvgzauuica7rg6qXSLQU+vi03gGo
-	mvF+kRfRhYIpmD1Yr41rWPrnt48n7iB6LY6MF8/DzLFVXt9fD+Ox4cRudwPCi7l3OKZKv590f40Sh
-	dwFCWJif+NeC/qf638af7q14TzILE1VECsEWUMnIcMY2mV98PPomCi0w+worr/gwtueUw4rC6n/hF
-	gDgYT9cQ==;
+	bh=yoL3Hf8941p4fXWRyo5Ay8D4wG5RNgLQc4Wu3GBeuw4=; b=GN9Glvu/Wg/+EwqTIvYVs4qFdj
+	ls7OQIu6ohcsNT7MiXshLBa5Ybdm5hqQJwjUawWAu5UwKjv692JQYTb5pXw/VT77ZP14dnCm9M65Q
+	KEBBtaLCMTfvCwFxDH23HAK3+Vtxs7/25PQUqr0rFBgoQ1eN0yBmNq+WN9NEr3H+9Mlok9Sn3KiYf
+	NfcZe3xqvta4jB61eOATwUpWy9YkOD4tgTzUU+0sCZDY8s44SxH3frykmT145suAPBqNQg5JAlT2a
+	SiPDKJrZGyXrRyC2YMzsdJwqQl//JArtcjGV+mSmRdgZTuCi3dA3+yi10cjIqQwi+N1q2M+b31BoT
+	RmC0ZB0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqsBA-0000000BquX-0Rxg;
-	Tue, 26 Aug 2025 11:49:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqreP-0000000BkGg-1ml9;
-	Tue, 26 Aug 2025 11:15:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0E7AF1A00;
-	Tue, 26 Aug 2025 04:15:32 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 663C13F63F;
-	Tue, 26 Aug 2025 04:15:28 -0700 (PDT)
-Date: Tue, 26 Aug 2025 12:15:23 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: peterz@infradead.org, mingo@redhat.com, will@kernel.org,
-	acme@kernel.org, namhyung@kernel.org,
-	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
-	irogers@google.com, adrian.hunter@intel.com,
-	kan.liang@linux.intel.com, linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, dmaengine@vger.kernel.org,
-	linux-fpga@vger.kernel.org, amd-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org, coresight@lists.linaro.org,
-	iommu@lists.linux.dev, linux-amlogic@lists.infradead.org,
-	linux-cxl@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 02/19] perf/hisilicon: Fix group validation
-Message-ID: <aK2XS_GhLw1EQ2ml@J2N7QTR9R3>
-References: <cover.1755096883.git.robin.murphy@arm.com>
- <c7b877e66ba0d34d8558c5af8bbb620e8c0e47d9.1755096883.git.robin.murphy@arm.com>
+	id 1uqsDt-0000000BrPy-3pjn;
+	Tue, 26 Aug 2025 11:52:21 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uqs6C-0000000BpXS-3uBo
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 Aug 2025 11:44:26 +0000
+Received: from pendragon.ideasonboard.com (unknown [213.244.170.152])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 8EAF75782;
+	Tue, 26 Aug 2025 13:43:16 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1756208596;
+	bh=gPWFtOfDlGNjTh65kxpE4jTt4VsFGsZ3a+MU5+Da/3E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Diz3q8F8cGUQ/w/QjuhsxnJTf81qtzTaJfBzTLgJwvZfh8WTBjfEMKeNoKOn39uU4
+	 L9aWe1xxOxGgpDRPD/1RExd1TjzLRbSpizQz7XJKYI3+w+Er7M5hym4AEoM5PcSM0L
+	 ycbiNMe17DrMJ3bNbgmuyuY2tRbTEJBvyNPch3KI=
+Date: Tue, 26 Aug 2025 13:43:57 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Inbaraj E <inbaraj.e@samsung.com>, mturquette@baylibre.com,
+	sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, s.nawrocki@samsung.com, s.hauer@pengutronix.de,
+	shawnguo@kernel.org, cw00.choi@samsung.com, rmfrfs@gmail.com,
+	martink@posteo.de, mchehab@kernel.org, linux-fsd@tesla.com,
+	will@kernel.org, catalin.marinas@arm.com, pankaj.dubey@samsung.com,
+	shradha.t@samsung.com, ravi.patel@samsung.com,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, alim.akhtar@samsung.com,
+	linux-samsung-soc@vger.kernel.org, kernel@puri.sm,
+	kernel@pengutronix.de, festevam@gmail.com,
+	linux-media@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 04/12] arm64: dts: fsd: Add CSI nodes
+Message-ID: <20250826114357.GA607@pendragon.ideasonboard.com>
+References: <20250814140943.22531-1-inbaraj.e@samsung.com>
+ <CGME20250814141019epcas5p2f957b934d5b60d4649cf9c6abd6969d5@epcas5p2.samsung.com>
+ <20250814140943.22531-5-inbaraj.e@samsung.com>
+ <1919de68-99ea-47f7-b3d2-cae4611f9c52@kernel.org>
+ <00d101dc136c$aa037020$fe0a5060$@samsung.com>
+ <41434afa-fecd-4507-bcca-735d358ac925@kernel.org>
+ <016401dc15c0$fc0dcfe0$f4296fa0$@samsung.com>
+ <1dfaedc8-88e6-4749-8726-e8f66878e57e@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <c7b877e66ba0d34d8558c5af8bbb620e8c0e47d9.1755096883.git.robin.murphy@arm.com>
+In-Reply-To: <1dfaedc8-88e6-4749-8726-e8f66878e57e@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_041541_548312_553A09F7 
-X-CRM114-Status: GOOD (  25.96  )
+X-CRM114-CacheID: sfid-20250826_044425_128531_978AA6C9 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,154 +84,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 13, 2025 at 06:00:54PM +0100, Robin Murphy wrote:
-> The group validation logic shared by the HiSilicon HNS3/PCIe drivers is
-> a bit off, in that given a software group leader, it will consider that
-> event *in place of* the actual new event being opened. At worst this
-> could theoretically allow an unschedulable group if the software event
-> config happens to look like one of the hardware siblings.
+On Tue, Aug 26, 2025 at 10:36:50AM +0200, Krzysztof Kozlowski wrote:
+> On 25/08/2025 15:05, Inbaraj E wrote:
+> > Hi Krzysztof,
+> > 
+> >>> CSIS stands for Camera Serial Interface Slave.
+> >>
+> >> Googling for "MIPI CSIS" gives me 0 results, so I still claim this is not a generic
+> >> name.
+> > 
+> > I checked other vendors (e.g: freescale), and they are using mipi-csi. I'll adopt for the
+> > same.
 > 
-> The uncore framework avoids that particular issue,
+> Then it is just "csi"? Except that you have some other different nodes
+> called "csi" as well, so two different devices are "csi"?
 
-What is "the uncore framework"? I'm not sure exactly what you're
-referring to, nor how that composes with the problem described above.
+This one is high on my list of unfortunate name clashes. Many NXP SoCs
+(among others, I've seen that in other vendors too) have IP cores named
+"Camera Sensor Interface" that they abbreviate to "CSI". They are
+unrelated to the MIPI Camera Serial Interface. I won't blame NXP, as I
+think they may have started using the acronym before MIPI CSI became a
+big thing.
 
-> but all 3 also share the common issue of not preventing racy access to
-> the sibling list,
+-- 
+Regards,
 
-Can you please elaborate on this racy access to the silbing list? I'm
-not sure exactly what you're referring to.
-
-> and some redundant checks which can be cleaned up.
-> 
-> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
-> ---
->  drivers/perf/hisilicon/hisi_pcie_pmu.c   | 17 ++++++-----------
->  drivers/perf/hisilicon/hisi_uncore_pmu.c | 23 +++++++----------------
->  drivers/perf/hisilicon/hns3_pmu.c        | 17 ++++++-----------
->  3 files changed, 19 insertions(+), 38 deletions(-)
-> 
-> diff --git a/drivers/perf/hisilicon/hisi_pcie_pmu.c b/drivers/perf/hisilicon/hisi_pcie_pmu.c
-> index c5394d007b61..3b0b2f7197d0 100644
-> --- a/drivers/perf/hisilicon/hisi_pcie_pmu.c
-> +++ b/drivers/perf/hisilicon/hisi_pcie_pmu.c
-> @@ -338,21 +338,16 @@ static bool hisi_pcie_pmu_validate_event_group(struct perf_event *event)
->  	int counters = 1;
->  	int num;
->  
-> -	event_group[0] = leader;
-> -	if (!is_software_event(leader)) {
-> -		if (leader->pmu != event->pmu)
-> -			return false;
-> +	if (leader == event)
-> +		return true;
->  
-> -		if (leader != event && !hisi_pcie_pmu_cmp_event(leader, event))
-> -			event_group[counters++] = event;
-> -	}
-> +	event_group[0] = event;
-> +	if (leader->pmu == event->pmu && !hisi_pcie_pmu_cmp_event(leader, event))
-> +		event_group[counters++] = leader;
-
-Looking at this, the existing logic to share counters (which
-hisi_pcie_pmu_cmp_event() is trying to permit) looks to be bogus, given
-that the start/stop callbacks will reprogram the HW counters (and hence
-can fight with one another).
-
-I suspect that can be removed *entirely*, and this can be simplified
-down to allocating N counters, without a quadratic event comparison.  We
-don't try to share counters in other PMU drivers, and there was no
-rationale for trying to do this when this wa introduced in commit:
-
-  8404b0fbc7fbd42e ("drivers/perf: hisi: Add driver for HiSilicon PCIe PMU")
-
-The 'link' tag in that comment goes to v13, which doesn't link to prior
-postings, so I'm not going to dig further.
-
-Mark.
-
->  
->  	for_each_sibling_event(sibling, event->group_leader) {
-> -		if (is_software_event(sibling))
-> -			continue;
-> -
->  		if (sibling->pmu != event->pmu)
-> -			return false;
-> +			continue;
->  
->  		for (num = 0; num < counters; num++) {
->  			/*
-> diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pmu.c
-> index a449651f79c9..3c531b36cf25 100644
-> --- a/drivers/perf/hisilicon/hisi_uncore_pmu.c
-> +++ b/drivers/perf/hisilicon/hisi_uncore_pmu.c
-> @@ -101,26 +101,17 @@ static bool hisi_validate_event_group(struct perf_event *event)
->  	/* Include count for the event */
->  	int counters = 1;
->  
-> -	if (!is_software_event(leader)) {
-> -		/*
-> -		 * We must NOT create groups containing mixed PMUs, although
-> -		 * software events are acceptable
-> -		 */
-> -		if (leader->pmu != event->pmu)
-> -			return false;
-> +	if (leader == event)
-> +		return true;
->  
-> -		/* Increment counter for the leader */
-> -		if (leader != event)
-> -			counters++;
-> -	}
-> +	/* Increment counter for the leader */
-> +	if (leader->pmu == event->pmu)
-> +		counters++;
->  
->  	for_each_sibling_event(sibling, event->group_leader) {
-> -		if (is_software_event(sibling))
-> -			continue;
-> -		if (sibling->pmu != event->pmu)
-> -			return false;
->  		/* Increment counter for each sibling */
-> -		counters++;
-> +		if (sibling->pmu == event->pmu)
-> +			counters++;
->  	}
->  
->  	/* The group can not count events more than the counters in the HW */
-> diff --git a/drivers/perf/hisilicon/hns3_pmu.c b/drivers/perf/hisilicon/hns3_pmu.c
-> index c157f3572cae..382e469257f9 100644
-> --- a/drivers/perf/hisilicon/hns3_pmu.c
-> +++ b/drivers/perf/hisilicon/hns3_pmu.c
-> @@ -1058,21 +1058,16 @@ static bool hns3_pmu_validate_event_group(struct perf_event *event)
->  	int counters = 1;
->  	int num;
->  
-> -	event_group[0] = leader;
-> -	if (!is_software_event(leader)) {
-> -		if (leader->pmu != event->pmu)
-> -			return false;
-> +	if (leader == event)
-> +		return true;
->  
-> -		if (leader != event && !hns3_pmu_cmp_event(leader, event))
-> -			event_group[counters++] = event;
-> -	}
-> +	event_group[0] = event;
-> +	if (leader->pmu == event->pmu && !hns3_pmu_cmp_event(leader, event))
-> +		event_group[counters++] = leader;
->  
->  	for_each_sibling_event(sibling, event->group_leader) {
-> -		if (is_software_event(sibling))
-> -			continue;
-> -
->  		if (sibling->pmu != event->pmu)
-> -			return false;
-> +			continue;
->  
->  		for (num = 0; num < counters; num++) {
->  			/*
-> -- 
-> 2.39.2.101.g768bb238c484.dirty
-> 
+Laurent Pinchart
 
