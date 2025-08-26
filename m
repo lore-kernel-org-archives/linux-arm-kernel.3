@@ -4,61 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18BD1CA0FE7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 15:02:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E70A4CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 15:29:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iTrfIIo2NpXSs0VUQcS4tLNwuwhXMeQFQWFcRoLCwVY=; b=ltsBK+gJ/8A+1zv5OOGGSOHhtf
-	j+QgL572+eMnFSSn9yhXvcioi2g4dCq8HcwA971gsPTmWJF2JHw5RcNtChG63p4wtksMYX7/Kf5JJ
-	cj1OqNk5V9KimH0uDf+pfcaSXeGgQevLcvfXkY7TE0/prO3tZIOTiRiOk8FFOfY3rKfbuRFeLNfxr
-	k+NsW6SSjCh275CW+bMECfhXWEkVoM+jDk9hgXtf2vD2zfeVjw01Jt4uY6NkU6O+Hbr2OduM/GHhe
-	ZRP2KzJrmJ1oiKkuWd6ZfNQiHuZSgX32+aW0DwhxNx2zx4cZcWr6cVCc2s7P0BsAjp2yJQKY7mydH
-	H427I6bA==;
+	bh=rVkVgsShdpWJsHwAY7c/HqdSCWng8HRKeool7od41Zc=; b=rOYANgZcloSUbm3FyjVeGgymNh
+	XQgm8kL2DLOoSnl+EipsuslLTsPIwXBKvlq8Wiz+oPpU5o43vP0q8bQB8ZdQ65yhSlXXZKkp5me7y
+	qwTw2peVPsnnZMc6+T3tJPRdCJXMiXhNYhcaiyhIjQNQDw3gHe0oxKjLpVcbbOqwr8Xi85ZesWgXj
+	hqlc3cp/bpodpeI6OPdxaEB+TmvZ8MW0WFbo2bVYlh6QFfYaZQyBput7zLsjFR5vpj0hVhG/4m4MS
+	qKK7ppR6SW/0afHZiqJQ4TVGMHB/7gZIGKilQzDCkCLvlq4ifVk9hPI3bTI63aihPNb+B6HNmkLzm
+	UAVBq/3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqvBu-0000000CNID-486Q;
-	Tue, 26 Aug 2025 15:02:30 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uqvc7-0000000CS2Q-3CPi;
+	Tue, 26 Aug 2025 15:29:35 +0000
+Received: from mail-ej1-f41.google.com ([209.85.218.41])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqv7f-0000000CM0u-0VrV;
-	Tue, 26 Aug 2025 14:58:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=iTrfIIo2NpXSs0VUQcS4tLNwuwhXMeQFQWFcRoLCwVY=; b=D2XHvLjjqX3PhhxJH6SySYYqgB
-	1O9/+hsF1mXfum+scpQEW7fkvGngUSNtC2AEmRJiYeC+WkkdQF/J7Ju63n5qKhNqHRtj/b16BGD5P
-	7B0427PHgn6FBjyUm43hrKpg9xaPP5nj26FNASxX1bI8hG+SKRfprtXLUJ+SmytMLdUlYV/hmMCkX
-	UfESNgDDTa/reqn3EDauXyxzV6Iv7xUqbKnzpfN9ol/OR7LyeciRfLzh3XUxhfLj9iOoWy6viAd5w
-	G4jnOyHlSvK5YiNw3aoPPKr7bNmUtRzjauWPtBP+WEnF/zk1Y5+oFAb4dWB9SNoCiXJ1tRAPTErGt
-	qvk0NCpQ==;
-Received: from [213.244.170.152] (helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uqv7C-0000eD-0n; Tue, 26 Aug 2025 16:57:38 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Hsun Lai <i@chainsx.cn>, "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Stephen Rothwell <sfr@canb.auug.org.au>,
- linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
- Conor Dooley <conor+dt@kernel.org>, Fred Bloggs <f.blogs@napier.co.nz>,
- linux-arm-kernel@lists.infradead.org,
- Krzysztof Kozlowski <krzk+dt@kernel.org>
-Subject: Re: [PATCH v2 0/2] Add support for 100ASK DShanPi A1
-Date: Tue, 26 Aug 2025 16:57:37 +0200
-Message-ID: <12479023.CDJkKcVGEf@phil>
-In-Reply-To: <175621649670.159455.15557432322730951360.robh@kernel.org>
-References: <20250826030818.3485927-1-i@chainsx.cn>
- <175621649670.159455.15557432322730951360.robh@kernel.org>
+	id 1uqvZO-0000000CRnS-2fQn;
+	Tue, 26 Aug 2025 15:26:48 +0000
+Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-afcb61f6044so1103547666b.0;
+        Tue, 26 Aug 2025 08:26:46 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756222005; x=1756826805;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rVkVgsShdpWJsHwAY7c/HqdSCWng8HRKeool7od41Zc=;
+        b=GxOzbmy5EeZcOFkarYm94AYmiMoZ4ns8DwIaa8DUAgdX4cUmL8B0E8plHzyumCox0r
+         FUppR35HCwfwN2cu+9PtBYAV1inGTYbyfqv6XSardHop0ywnnPGQkm6Dq8f8IIAQybL0
+         vw9G7JD+kAK2atr7AnztS88wtVJuZB/22lGvEPspY8+RbFK2u3uEtN2Uy1M1xH1F8Z88
+         P7bIKhjaD8qQ9hB6dsHBo86/6icLmf1sU1AU2MCLFYnzsalwsS2F3eShzezVD6Yo7kqQ
+         0sdryM1pAze1I9kPRuZyzbehW8ZfXLECDNZv834ubCCS3vIuSgPBO61gOGAptJbHbJr8
+         oF/Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVpHXWlJHkdBLygbu6++YlsIcTLU5iCyiyslb9hokGrv+W4GbHa9GZZXgF6euSHyhL5lOgFHw==@lists.infradead.org, AJvYcCWgl4DqiWIUu7JpVa1bUgWWJdEWNFLNcJ1EN0ZRZqd5CQWmPqgIne6lB+gmbVUiwiitUCptvDiM9LNXCSE7ygVTCQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwtZ3B4xRiB43Jws5zmTjygBsq/Xrd4P5mP2NaxPXpODcUGQ1MS
+	YNXJs1T+Q2QlBhDwPxdut+1sPUXKm26fnOtkHmFfozFuwjNTtmoWXk4k
+X-Gm-Gg: ASbGncvg16oeYZbk3r2RZ7OJTVdr7PVVbhGeZEsriQtNa5L1V/VUd/wkJnUPxuvlLzS
+	qL/MkAkdX9PDlueYLBZwF+35VaTLqcpbaCggDmj60IwQdGR3fPIYS3XLCodUHJnN6iEFE4/9mTT
+	JA7T5lXYrs1TMJhghiLnnIgKkE9vlKtnjO+k73hEGtSjH0nOC0xsGdriI03S25+ayIinxj2YCPa
+	BqIWx3xKyouXiZSgCQwhQZx4A3LMDaYtKwyOOvx0tXv1zvLZOGkuuKMzwISLQg1MSJ9ipVeo4PP
+	xLl3kIA+5DwT3ugz4CWFoHNu+6WKKyKQof2no0JY+BxDYZ2QWT2Tx/Ja3e6jW13kz9pQA5IBkMG
+	k2ISJDpgVTjacI8pHgBPKg58t
+X-Google-Smtp-Source: AGHT+IFywaQm/SYAEkgpvTya1QCs8x+TYb8PSoO8CqBuiJc0HWJDKYF8Wnxptjc0r0Kk2hzhDgRRvQ==
+X-Received: by 2002:a17:907:7ba7:b0:afe:8ae2:a8fe with SMTP id a640c23a62f3a-afeafeca898mr226076366b.14.1756222004741;
+        Tue, 26 Aug 2025 08:26:44 -0700 (PDT)
+Received: from gmail.com ([2a03:2880:30ff:72::])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afe48fae421sm811426966b.26.2025.08.26.08.26.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 26 Aug 2025 08:26:44 -0700 (PDT)
+Date: Tue, 26 Aug 2025 08:26:42 -0700
+From: Breno Leitao <leitao@debian.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, bhe@redhat.com, oxu@redhat.com, berrange@redhat.com, 
+	kernel-team@meta.com, Andrew Morton <akpm@linux-foundation.org>
+Subject: Re: [PATCH] arm64: kexec: Initialize kexec_buf struct in image_load()
+Message-ID: <2dq3z3vil5vu2m4kbwdps2enozbqrzbp6fd2utdr6dj6kutzxf@f3vububg3s6j>
+References: <20250826-akpm-v1-1-3c831f0e3799@debian.org>
+ <aK3HVqt6I5KxoHia@J2N7QTR9R3>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aK3HVqt6I5KxoHia@J2N7QTR9R3>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_075807_179548_C74435F1 
-X-CRM114-Status: GOOD (  25.97  )
+X-CRM114-CacheID: sfid-20250826_082646_675450_3141CB21 
+X-CRM114-Status: GOOD (  27.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,90 +88,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 26. August 2025, 15:56:43 Mitteleurop=C3=A4ische Sommerzeit sc=
-hrieb Rob Herring (Arm):
->=20
-> On Tue, 26 Aug 2025 11:08:15 +0800, Hsun Lai wrote:
-> > This series add support for 100ASK DShanPi A1.
-> >=20
-> > Info of device can be found at:
-> > https://wiki.dshanpi.org/en/docs/DshanPi-A1/intro/
-> >=20
-> > Changes in v2:
-> > - Delete the pwm include file (Chukun Pan, v1)
-> > - Fix vcc3v3_pcie gpios (Chukun Pan, v1)
-> > - Adjust the order of some nodes (Chukun Pan, v1)
-> > - Fix sdmmc (Chukun Pan, v1)
-> > - Add phy-supply for u2phy0_otg (Chukun Pan, v1)
-> >=20
-> > Changes in v1:
-> > - Add support for 100ASK DShanPi A1
-> >=20
-> > Hsun Lai (2):
-> >   dt-bindings: arm: rockchip: Add 100ASK DShanPi A1
-> >   arm64: dts: rockchip: add DTs for 100ASK DShanPi A1
-> >=20
-> >  .../devicetree/bindings/arm/rockchip.yaml     |   5 +
-> >  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
-> >  .../dts/rockchip/rk3576-100ask-dshanpi-a1.dts | 838 ++++++++++++++++++
-> >  3 files changed, 844 insertions(+)
-> >  create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-=
-a1.dts
-> >=20
-> > --
-> > 2.34.1
-> >=20
-> >=20
-> >=20
->=20
->=20
-> My bot found new DTB warnings on the .dts files added or changed in this
-> series.
->=20
-> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-> are fixed by another series. Ultimately, it is up to the platform
-> maintainer whether these warnings are acceptable or not. No need to reply
-> unless the platform maintainer has comments.
->=20
-> If you already ran DT checks and didn't see these error(s), then
-> make sure dt-schema is up to date:
->=20
->   pip3 install dtschema --upgrade
->=20
->=20
-> This patch series was applied (using b4) to base:
->  Base: attempting to guess base-commit...
->  Base: tags/v6.17-rc1-22-g7d11b8c260ea (exact match)
->=20
-> If this is not the correct base, please add 'base-commit' tag
-> (or use b4 which does this automatically)
->=20
-> New warnings running 'make CHECK_DTBS=3Dy for arch/arm64/boot/dts/rockchi=
-p/' for 20250826030818.3485927-1-i@chainsx.cn:
+On Tue, Aug 26, 2025 at 03:40:22PM +0100, Mark Rutland wrote:
+> On Tue, Aug 26, 2025 at 05:08:51AM -0700, Breno Leitao wrote:
+> > The kexec_buf structure was previously declared without initialization
+> > in image_load(). This led to a UBSAN warning when the structure was
+> > expanded and uninitialized fields were accessed [1].
+> 
+> Just to check my understanding, is that only a problem for new fields
+> (e.g. the 'random' field added in [1]), or do we have UBSAN warnigns for
+> any existing fields? I assume there's no problem with existing fields
+> today.
 
-both warnings are not the fault of this board addition, but instead
-come from "unrelated" sources in the main rk3576 dtsi:
+UBSAN is only complaning for this new field that was added to the
+struct, but only populated in x86, later it is read in in common code,
+causing UBSAN to complain (and even wrong code to be executed depending
+on the garabe that is in the memory during kbuf instantiation.
 
+> > Zero-initializing kexec_buf at declaration ensures all fields are
+> > cleanly set, preventing future instances of uninitialized memory being
+> > used.
+> > 
+> > Andrew Morton suggested that this function is only called 3x a week[2],
+> > thus, the memset() cost is inexpressive.
+> > 
+> > Link: https://lore.kernel.org/all/oninomspajhxp4omtdapxnckxydbk2nzmrix7rggmpukpnzadw@c67o7njgdgm3/ [1]
+> > Link: https://lore.kernel.org/all/20250825180531.94bfb86a26a43127c0a1296f@linux-foundation.org/ [2]
+> > Suggested-by: Andrew Morton <akpm@linux-foundation.org>
+> > Signed-off-by: Breno Leitao <leitao@debian.org>
+> 
+> This looks fine to me, but I reckon it should be added to the series
+> which extends kexec_buf, unless there's some reason to avoid that?
+> 
+> > ---
+> >  arch/arm64/kernel/kexec_image.c | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> IIUC arch/arm64/kernel/machine_kexec_file.c would need the same
+> treatment in load_other_segments().
+> 
+> If other architectures need this, it'd probably make sense to clean that
+> up treewide in one go. It looks like at least riscv and s390 need that
+> from a quick grep:
 
-> arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dtb: syscon@2603400=
-0 (rockchip,rk3576-dcphy-grf): clocks: False schema does not allow [[21, 49=
-2]]
-> 	from schema $id: http://devicetree.org/schemas/soc/rockchip/grf.yaml#
-
-I messed up and forgot to add the new syscon to the clocks-required list.
-Will fix that shortly.
-
-
-> arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dtb: /soc/dsi@27d80=
-000: failed to match any schema with compatible: ['rockchip,rk3576-mipi-dsi=
-2']
-
-the rk3576 dsi compatible is in drm-misc-next [0], so should
-hit linux-next shortly.
-
-
-[0] https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/f05530bdaf42aa0=
-e6bb4cde76ba6a081cf473d44
-
-
+Agree. Let me send a v2 addressing it on all archicterures.
 
