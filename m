@@ -4,103 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DC99CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 12:09:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D5DCCA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 12:11:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e53lcb42G3RVNhjNWPFwju1PJTH1cjj9lH1MqnWkPUw=; b=A3/lNH1d0jKCJSMfFg2A5SJnbm
-	kkiH3nBI/y9VSy2MBz0cC9SUEL8krSE4MpJxXZdqflfGUxwJMpMW82m/qwqgNmRzxUkbG3WsvgOXg
-	oFV2TBjxhHBamB0M6rNxkTNwGHQB6h1GBwgDVER5A2iimdcl80dESUp8+PcGAVaQAidnrUdrlmT5e
-	vXyQmmMqylitYwe24XNknolZVWOwXMakEm2Jl+bINv1uv0UzPWqtEvD1QlAGKpgh3fsxPnrO857mm
-	ABIkLM/aPbZHCkCncbre7KwjiiTQiZ2dC7mzICa6e7FtA4ffVY7gPmatRsqUH3IlvVFGgL7Xop5vA
-	eVFUDMpw==;
+	bh=lxFjkTB2P79PoUaLxLAUp+gv0c2aOYdZxNYZuNh3BDw=; b=Ll+GRqnZbRrO1Uz7q/3pE9AVlN
+	Ycl8NDcULjwlHQSmloOhgnHKkR0jWzPbJmADLSJCLRPAkSEzzJxSi+6g0Ox1M19H0RqQpmT9sQ1XE
+	ttcFR6aeruqXfGpylKFgMR10ZFfaBrcHGUth9geR/d0fKwg1XbcP5F70ESh/wwBJzlXwMjNL3veko
+	4wlt/jwPoGDQHybUAEK8cV4H7lF/a862jmgDpd3c3Pmr3dzJk7GhYo539osRdZMbn59SKcI1Ncj/j
+	fueqb8XdQ0uMJ6gOG6ZqgzA71JrXKpcWOwj8yI9Ht9XFInfn1SE1BN4npRo9bnYeCIJGlcBZwdhuT
+	HjrGNbFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqsUA-0000000Btuw-1PR4;
-	Tue, 26 Aug 2025 12:09:10 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uqsWo-0000000BuRj-0V7x;
+	Tue, 26 Aug 2025 12:11:54 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqsEU-0000000BrW2-1Nrk
+	id 1uqsRN-0000000BtXR-2xLT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 11:52:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756209177;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=e53lcb42G3RVNhjNWPFwju1PJTH1cjj9lH1MqnWkPUw=;
-	b=Qy1EjXNH4oKZCtttOpgcAx7Y2QqQcZAX9LsT4ImZG7JkSxjxj3BExoXg6TOw14H4hIL16g
-	pbThSRFTlrAhFMW1GYIpG4CH1gd8Pn0Fq0C1YsmmcJIebtZ0UvLOX+1PDgl5AGjTY4GzCO
-	4Ky7c3IrCVcV3Zj64VGF3SzAXS3tGIw=
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com
- [209.85.222.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-385-YMk0MiCZM4-9giISTEywAA-1; Tue, 26 Aug 2025 07:52:56 -0400
-X-MC-Unique: YMk0MiCZM4-9giISTEywAA-1
-X-Mimecast-MFC-AGG-ID: YMk0MiCZM4-9giISTEywAA_1756209175
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-7e870614b86so1878520885a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 04:52:56 -0700 (PDT)
+	Tue, 26 Aug 2025 12:06:18 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-afcb78ead12so762100366b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 05:06:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1756209975; x=1756814775; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=lxFjkTB2P79PoUaLxLAUp+gv0c2aOYdZxNYZuNh3BDw=;
+        b=tQaMZdfeeesi/qJiRvT8Y/7uiAeI6rENdz7lEsIgDAFdogIEvdC1Vz4tL3g8qgp4XM
+         Vx3pgunzgaBhwFUv/yoGp+hyiedptY86sXuU8cGN9Mw7Ud/V89Pt7hhK5ThBIb4VgFdH
+         9ACgpQ3vX+5FYWHkr9Rwm1MuSnDiMk0ri4prdyOL9Oq/O5C0jvTd2Mzj8HyOuv+dsOqq
+         ZL3amI+7XHwOIMQcWKp1+Q6BRk7+RYriT8Gki2qdU43/wSmy/nBmEbiqhI/6nOWQDbvS
+         EEZ8ssACgre0XFJ8f9U7RapLpmytX/tLpE2AiT7IQNhpnaPm4jtX7qq3XRywavNBq55m
+         AGgw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756209175; x=1756813975;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=e53lcb42G3RVNhjNWPFwju1PJTH1cjj9lH1MqnWkPUw=;
-        b=nhX1qrwpCWloTXH01kysPfr1TTkiA15aK08poC5npQBBKrsHNl14MCUsoqs9M06H0p
-         apAXyIFtqLfYYER6GUsu/Q4an/bi6gegNB0Bd3+Ibcxbl62Bll2aqhazAII9M/jUEzN4
-         +kByMCZ4SAUxm+E7gerMtKPfiN8xzjn5YUGcjqg6Ed9maWVbDxa6BmuNJAj3E5VqCyyU
-         Vs9LcyvMtMcytdrnvtSeimotKSzZTCf9k710Mik7V0fvaM8nUHeEGv73FW4vMjuihsv2
-         ftXOdOqThgCyKQvCyHuGO19JqoHfck3y1qWUB/0Ax+x3KONKepJf0r7rPtVYkn7yE5hE
-         vMkA==
-X-Forwarded-Encrypted: i=1; AJvYcCX33y8Jg+dcPbyI04e1kixbLmfugzrlusTpA1lqMv7JWc2TWUomvJIrUBUSbXtne8CvoGPWmWGEuYypzuD8Oofj@lists.infradead.org
-X-Gm-Message-State: AOJu0YxFlT3nmBedM/yCqu6lTRPbSzGLB1qyn881KgRLHmhKL7WXs/zq
-	I8F0XG2BX7Oh04M9/TPeHWil4Km3LI5HcDL/J0L5LsT+xLanDFWzaDYw/fMlm3iDTWDMJAbdeiF
-	ITpMGTbqSXULmnGhMx21FoNvOlDnJJp5eoYXmIRhxJAEWfHcvArNl7Q7abUVdfnpM/72WSAC7SE
-	dienjpS7Zu
-X-Gm-Gg: ASbGncuTjkba+77VGTC7DZ8bA9jm3VWBN4A1rwzsav7ChRB+pbB5DIoNf8Jr3qmpxET
-	pWossDbPIR05CxxOQh3oTEVZWxgoAo7ZkhWq3ruzqAfKJjlBKU4U/GO0ZpvwSZfA78eCst85tLt
-	FG2j714Ri/ul0Wa+wmMuIuY+Cv45nOF5dkEirUYpNU0qE2+AD1Fpuwo5/3BQYGnbIuqEtGY3y7C
-	u4Kgnda684dPir2xG0X+02j8/Wi8/diDK3FFJu5qtOPAf1hmjRto/WzKAkpIzZ9uVvGnLjhpt1r
-	1rtIe6BBuI6tanxLnXNAYr0mdgpE/hjHJq/rMZQUWK2tml3fRRmpTrZiIBWUCf5kwTJY9C3RgoD
-	kgIk5WeUYHfoOO4BbDDA=
-X-Received: by 2002:a05:620a:a903:b0:7e9:f81f:ce91 with SMTP id af79cd13be357-7ea110a5fc6mr1545014385a.83.1756209174545;
-        Tue, 26 Aug 2025 04:52:54 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEES/HvFR76larcT3Nn6nir0QLpsUJq2+C9kWe3HGsFZh8ETnB9k+QXuGo4sEteZ1xDZAs8Sg==
-X-Received: by 2002:a05:620a:a903:b0:7e9:f81f:ce91 with SMTP id af79cd13be357-7ea110a5fc6mr1545012785a.83.1756209174056;
-        Tue, 26 Aug 2025 04:52:54 -0700 (PDT)
-Received: from x1 (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7ebecb1825bsm661572385a.10.2025.08.26.04.52.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 Aug 2025 04:52:53 -0700 (PDT)
-Date: Tue, 26 Aug 2025 07:52:51 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: claudiu beznea <claudiu.beznea@tuxon.dev>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, geert+renesas@glider.be,
-	linux@armlinux.org.uk, linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-Subject: Re: [PATCH 0/2] clk: renesas: rzg2l: Disable unused clocks after
- resume
-Message-ID: <aK2gE0CysSWisFwB@x1>
-References: <20250821080333.27049-1-claudiu.beznea.uj@bp.renesas.com>
- <aKyX4YJswZLuqA6Y@x1>
- <0d71269f-1c78-4732-8235-5640bf340d00@tuxon.dev>
+        d=1e100.net; s=20230601; t=1756209975; x=1756814775;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=lxFjkTB2P79PoUaLxLAUp+gv0c2aOYdZxNYZuNh3BDw=;
+        b=cbMFvaSdnkJgT6m9druI1hslbfXtUSxwjfv0BGyV14mlWzCmfFJ+tWYKDL0VfSOY/d
+         AcYXVCw8DWtR3lpZJInmhvlnfTH1oBJHtaIL0jYuezqCk+C6uvpgN3DBvkpYqhT2o3UI
+         6LFxhhv4ZnjAQzQlJlVrjtl2LuiVH5QiYJpbjgkPIb88/XtjsKq7mCwSNzr5HQorgxTN
+         uQ6rMEfBvaSzTBfKov34w52Nv0rwED13d9uC+qOQJ3iKtoWanL9BQk/6kuo8TYXlc0Dz
+         fkq30W5uR5nJ9xcDiVBnslQ0Qb7NqaRRFpiQLIYhlDbfH7DZ65sRG/2EdmQaWUVXrgA5
+         LmBw==
+X-Forwarded-Encrypted: i=1; AJvYcCVwvWUx2luowBNiex2ILw17nbYWHyEnklSB6XwYMEvz9TR+W0lxFC6vCthuoUcggYj9ceI80mA4YXvjblD6gS6i@lists.infradead.org
+X-Gm-Message-State: AOJu0YwE+tR/McU4x8hwDYc9H0vJtfj1d2tMT1Pxj8OZt1Yqw55B1Cwf
+	nR4svSqUkbU0bzFGqLtZ4Eb/DEYvAJiGXluRQHx/+00vr0AOOiZIWmaF4Govq+UNCL90DQ6ZDle
+	qKBvGIW3KYtdvWS6/TBnHvwKjrpqbe5Sczz7sEBOSmA==
+X-Gm-Gg: ASbGncvTY7SnAkuilFRTvdDJFzLyb+1LKBuzq9Oqm203XQsWb3DfSncmQv1F1TH0ex2
+	02VqcuyycpHiIdqRBHhc6D5UIYrSPfoBgxzbbsSB527Tw/Ru1CHw6fHGSzCA3KjXoNKcVwfXleX
+	UHULbTpeeGqD2Cj7//idXPIKOEhNtS74fWS+dYA7sFH5vp3wPJPPuT5R5xTyYi1D3ADTUT8NITt
+	jla8KDaGja8hZgXJmvwMJ7H9xgU33+qMSclAx8=
+X-Google-Smtp-Source: AGHT+IHCPPogA5I5xYJjZ3AF2Jj1OEbjkizkVIqqQo3oG7dsb9k66ChvqgzLqUtgok2+xdd2moMuf4gTw379MNCuFxA=
+X-Received: by 2002:a17:907:3f0f:b0:ae0:b3be:f214 with SMTP id
+ a640c23a62f3a-afe28ec592dmr1369727666b.9.1756209975430; Tue, 26 Aug 2025
+ 05:06:15 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <0d71269f-1c78-4732-8235-5640bf340d00@tuxon.dev>
-User-Agent: Mutt/2.2.14 (2025-02-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: CwLArRjvI3blReLLtUPhOm5lY2J6K9ENAdcOE4t3tlw_1756209175
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+References: <20250818124458.334548733@linuxfoundation.org> <CA+G9fYt5sknJ3jbebYZrqMRhbcLZKLCvTDHfg5feNnOpj-j9Wg@mail.gmail.com>
+ <CA+G9fYt6SAsPo6TvfgtnDWHPHO2q7xfppGbCaW0JxpL50zqWew@mail.gmail.com>
+ <CACMJSeu_DTVK=XtvaSD3Fj3aTXBJ5d-MpQMuysJYEFBNwznDqQ@mail.gmail.com> <2025081931-chump-uncurled-656b@gregkh>
+In-Reply-To: <2025081931-chump-uncurled-656b@gregkh>
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Date: Tue, 26 Aug 2025 14:06:04 +0200
+X-Gm-Features: Ac12FXzW7NUCjgYWSamJwSOH-347hP9Z3Gi-swjOizdLDz6f5VXnlkQBVvbGglE
+Message-ID: <CACMJSesMDcUM+bvmT76m2s05a+-T7NxGQwe72yS03zkEJ-KzCw@mail.gmail.com>
+Subject: Re: [PATCH 6.15 000/515] 6.15.11-rc1 review
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Naresh Kamboju <naresh.kamboju@linaro.org>, stable@vger.kernel.org, 
+	patches@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	torvalds@linux-foundation.org, akpm@linux-foundation.org, linux@roeck-us.net, 
+	shuah@kernel.org, patches@kernelci.org, lkft-triage@lists.linaro.org, 
+	pavel@denx.de, jonathanh@nvidia.com, f.fainelli@gmail.com, 
+	sudipm.mukherjee@gmail.com, srw@sladewatkins.net, rwarsow@gmx.de, 
+	conor@kernel.org, hargar@microsoft.com, broonie@kernel.org, achill@achill.org, 
+	Ben Copeland <benjamin.copeland@linaro.org>, Anders Roxell <anders.roxell@linaro.org>, 
+	Dan Carpenter <dan.carpenter@linaro.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Bjorn Andersson <andersson@kernel.org>, linux-arm-msm <linux-arm-msm@vger.kernel.org>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, srinivas.kandagatla@oss.qualcomm.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_045258_442918_633347AB 
-X-CRM114-Status: GOOD (  31.21  )
+X-CRM114-CacheID: sfid-20250826_050617_749149_E5EE05BF 
+X-CRM114-Status: GOOD (  14.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,50 +104,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Claudiu,
+On Tue, 19 Aug 2025 at 13:52, Greg Kroah-Hartman
+<gregkh@linuxfoundation.org> wrote:
+>
+> On Tue, Aug 19, 2025 at 01:30:46PM +0200, Bartosz Golaszewski wrote:
+> > On Tue, 19 Aug 2025 at 12:02, Naresh Kamboju <naresh.kamboju@linaro.org> wrote:
+> > >
+> > > On Tue, 19 Aug 2025 at 00:18, Naresh Kamboju <naresh.kamboju@linaro.org> wrote:
+> > > >
+> > > >
+> > > > Boot regression: stable-rc 6.15.11-rc1 arm64 Qualcomm Dragonboard 410c
+> > > > Unable to handle kernel NULL pointer dereference
+> > > > qcom_scm_shm_bridge_enable
+> > >
+> > > I have reverted the following patch and the regression got fixed.
+> > >
+> > > firmware: qcom: scm: initialize tzmem before marking SCM as available
+> > >     [ Upstream commit 87be3e7a2d0030cda6314d2ec96b37991f636ccd ]
+> > >
+> >
+> > Hi! I'm on vacation, I will look into this next week. I expect there
+> > to be a fix on top of this commit.
+>
+> Ok, I'll go and drop this one from the queues now, thanks.
+>
+> greg k-h
 
-On Tue, Aug 26, 2025 at 02:01:56PM +0300, claudiu beznea wrote:
-> On 8/25/25 20:05, Brian Masney wrote:
-> > On Thu, Aug 21, 2025 at 11:03:30AM +0300, Claudiu wrote:
-> > > From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-> > > This series disables clocks that remain unused after resume.
-> > > This is necessary when the resume process is done with the help of the
-> > > bootloader, as the bootloader enables various clocks when returning from
-> > > resume.
-> > > 
-> > > On the RZ/G3S SoC (where this series was tested), the bootloader enables
-> > > the SDHI clocks (for all SDHI modules, of which 2 are used by Linux and
-> > > 1 is unused) and the clocks for a serial IP (unused by Linux).
-> > > 
-> > > Testing was done on the RZ/G3S SMARC Carrier II board.
-> > 
-> > Do you think that other boards would also benefit from this change? If
-> > so, what do you think about putting the call to register_pm_notifier()
-> > inside an __init block in clk.c so that this same change doesn't have to
-> > be implemented across various clk drivers?
-> 
-> Yes, that was my other approach I was thinking about. I wanted to see how
-> other people consider this version.
-> 
-> > 
-> > Alternatively, if this is board specific, could this be fixed in the
-> > boot loader so that the clock that's not used by Linus is properly shut
-> > down on resume?
-> 
-> As a result of your request I did some more investigations on my side, I can
-> say that, yes, in theory that could be also handled by bootloader.
-> 
-> I can drop this and try to do it in bootloader, if any. Please let me know
-> if you still consider this (or the variant that implements it in a generic
-> way) necessary.
+Hi!
 
-Personally I would go the route of fixing this in the bootloader for
-this particular platform.
+The issue was caused by only picking up commit 7ab36b51c6bee
+("firmware: qcom: scm: request the waitqueue irq *after* initializing
+SCM") into stable, while the following four must be applied instead:
 
-If this issue affects other platforms, particularly across multiple
-SoC vendors, then I think it would be worthwhile to have a discussion
-about adding this functionality to the clk core.
+23972da96e1ee ("firmware: qcom: scm: remove unused arguments from SHM
+bridge routines")
+dc3f4e75c54c1 ("firmware: qcom: scm: take struct device as argument in
+SHM bridge enable")
+87be3e7a2d003 ("firmware: qcom: scm: initialize tzmem before marking
+SCM as available")
+7ab36b51c6bee ("firmware: qcom: scm: request the waitqueue irq *after*
+initializing SCM")
 
-Brian
-
+Bartosz
 
