@@ -4,60 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14C92C8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 00:52:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0459C8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 01:08:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xAEgL/s+4AyLw1xIsmMOQ9Y2qv8NFMBF/S+j10ZgIl8=; b=MNFewamaZBe0hFZOns+uUejyH0
-	rlg1FK2Z/l77JDtlx0HPXbvVaD5pQCsbQlo1ikttWsA0n9pqaB2wCQ1A0UGakkUJnysYnCzizMzBC
-	nZwuNT0xKjU6gwfMvkwD3hHqp2SLk7Ix0A21/kreH8BZqrR8KDWwI8tUfHg+2OxNgIeVXa5lCWlxW
-	EwRzNpsjzLGA8mdsCi/jpz8S27KT8EXjbg3RAxZ0j7IrwNYLueupb2zrDPunhZNIiIPnVWszvRB9N
-	Q6ib9C1N4D7Csi+rtkydMiHuVJhFSmSLf9v2KIAWz0MdqIF0GiCDL7nBU/dC8lb+xPNUAu0tZ+YFT
-	qlcS+DIQ==;
+	bh=uflk8J63v5Vdk+A5T71w43msAplrhyNBzSbyCutgOBw=; b=RfKrnFxfqkX2ERLkhN/NtGLuPX
+	o7fvGSKQPVKoQPLWPSeRVofXdpFoJ4AsuJJ5kRcxxSTFcl7F3KFLJgB37GGxW9U8yuS7wvePUFBGN
+	/PgBVtel9e9N3v6OXzX4jqy/GHB9bL2wKwTMmF7nLW0ma4Q+dPYFTukORipifjxi9k7CT11tIXQdr
+	oAwdvxc7WKv7YuOPpConhbOfDDLBbXO6p4zD4HeEcX1EblpxoOStqr4rCPzqYXZY6nLNWPOC4hINo
+	zh8jgiKMIK+72S2O9jXlKM8IIz7KLIPRdfrsVGyPibuR920q4jKB7+PHipAwnZMN3INjY5QWBgBxL
+	qaeSeofg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqhve-0000000AEYA-1Zaa;
-	Tue, 26 Aug 2025 00:52:50 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uqiAf-0000000AFe8-3kwZ;
+	Tue, 26 Aug 2025 01:08:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqhsx-0000000AEO2-0koJ;
-	Tue, 26 Aug 2025 00:50:03 +0000
+	id 1uqi7x-0000000AFPK-1ZPd;
+	Tue, 26 Aug 2025 01:05:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 33EA860275;
-	Tue, 26 Aug 2025 00:50:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC85DC4CEED;
-	Tue, 26 Aug 2025 00:50:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756169401;
-	bh=nDRA1Tds71oq7lboJgaRNpeXobXorqZWQAvxAvuigEM=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=OcoSPHfIUBQl1xIRHVsfjzVLMeBmlwrSw2M72DHtRntuR55A/fglMAL/P3jtCWzxQ
-	 Z2HsvCnspVf67NJfcoF1ez4WWwyZJHUYKK4gamEOKHp6JrJ2WDnCnXaSNTzyQw04w2
-	 XOn4ArDBxO/rndR26G+Dwum8jUnIJFu0+RBWM0llQyJf5G/0D0ZbX4xnDdE18UGeG9
-	 iwZqLMOUUWIuTuJ/FN0a4OTPLbKY5PdRdurORn15q49APCu5lfrfxht5fgtOm/WHbg
-	 vWoScC5/UvND+wSVyZQiLHbw1e72ZCnP720xt6r/By44hvBAdfb6mk4d1Q3i/EcncM
-	 lhUTrhKiFAY0A==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB1C0383BF70;
-	Tue, 26 Aug 2025 00:50:10 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v3 0/3] net: airoha: Add PPE support for RX wlan
- offload
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <175616940975.3610531.11567535063308274967.git-patchwork-notify@kernel.org>
-Date: Tue, 26 Aug 2025 00:50:09 +0000
-References: <20250823-airoha-en7581-wlan-rx-offload-v3-0-f78600ec3ed8@kernel.org>
-In-Reply-To: <20250823-airoha-en7581-wlan-rx-offload-v3-0-f78600ec3ed8@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+	by sea.source.kernel.org (Postfix) with ESMTP id 9A4F7406A6;
+	Tue, 26 Aug 2025 01:05:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1935C4CEED;
+	Tue, 26 Aug 2025 01:05:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1756170332;
+	bh=9t+LpWoHJIsYPbMjiU2USC8E5Wcpyq+n6+4DJhGHFvo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Y8XBmyN0f/0MgGjeKimTUShtaB8EhLKUUrrmRMR3IbngvR7S1rg8rHkhnN78HfAhX
+	 DkF1xazVTsIy6tOSICzsHTiycb3Y3thNj93LolbqqMl4AQS5gOJlcJyEdyCIp+1zxZ
+	 rCJn2sE5Sff8NjTQL5EKgcgv+i4W35W228YHKaoo=
+Date: Mon, 25 Aug 2025 18:05:31 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Coiby Xu <coxu@redhat.com>
+Cc: Breno Leitao <leitao@debian.org>, kexec@lists.infradead.org, Ondrej
+ Kozina <okozina@redhat.com>, Milan Broz <gmazyland@gmail.com>, Thomas
+ Staudt <tstaudt@de.ibm.com>, Daniel P . =?ISO-8859-1?Q?Berrang=E9?=
+ <berrange@redhat.com>, Kairui Song <ryncsn@gmail.com>, Pingfan Liu
+ <kernelfans@gmail.com>, Baoquan He <bhe@redhat.com>, Dave Young
+ <dyoung@redhat.com>, linux-kernel@vger.kernel.org, x86@kernel.org, Dave
+ Hansen <dave.hansen@intel.com>, Vitaly Kuznetsov <vkuznets@redhat.com>,
+ Arnaud Lefebvre <arnaud.lefebvre@clever-cloud.com>, Jan Pazdziora
+ <jpazdziora@redhat.com>, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v9 1/8] kexec_file: allow to place kexec_buf randomly
+Message-Id: <20250825180531.94bfb86a26a43127c0a1296f@linux-foundation.org>
+In-Reply-To: <yng55a2z25m5upehczerzhi6zawe3j4ka7amfu4vw4cu27bbg2@x2lgbuk3iqyf>
+References: <20250502011246.99238-1-coxu@redhat.com>
+	<20250502011246.99238-2-coxu@redhat.com>
+	<oninomspajhxp4omtdapxnckxydbk2nzmrix7rggmpukpnzadw@c67o7njgdgm3>
+	<yng55a2z25m5upehczerzhi6zawe3j4ka7amfu4vw4cu27bbg2@x2lgbuk3iqyf>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250825_180533_458004_3D0C3B61 
+X-CRM114-Status: GOOD (  16.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,35 +78,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On Mon, 25 Aug 2025 09:18:53 +0800 Coiby Xu <coxu@redhat.com> wrote:
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Sat, 23 Aug 2025 09:56:01 +0200 you wrote:
-> Introduce the missing bits to airoha ppe driver to offload traffic received
-> by the MT76 driver (wireless NIC) and forwarded by the Packet Processor
-> Engine (PPE) to the ethernet interface.
+> >diff --git a/arch/arm64/kernel/kexec_image.c b/arch/arm64/kernel/kexec_image.c
+> >index 532d72ea42ee8..287b25e674d76 100644
+> >--- a/arch/arm64/kernel/kexec_image.c
+> >+++ b/arch/arm64/kernel/kexec_image.c
+> >@@ -76,6 +76,7 @@ static void *image_load(struct kimage *image,
+> > 	kbuf.buf_min = 0;
+> > 	kbuf.buf_max = ULONG_MAX;
+> > 	kbuf.top_down = false;
+> >+	kbuf.random = 0;
+> >
+> > 	kbuf.buffer = kernel;
+> > 	kbuf.bufsz = kernel_len;
+> >
 > 
-> ---
-> Changes in v3:
-> - Fix compilation error when CONFIG_NET_AIROHA is not enabled
-> - Link to v2: https://lore.kernel.org/r/20250822-airoha-en7581-wlan-rx-offload-v2-0-8a76e1d3fec2@kernel.org
-> 
-> [...]
+> And also thanks for posing a fix! The patch LGTM. Can you add a Fixes
+> tag 'Fixes: bf454ec31add ("kexec_file: allow to place kexec_buf
+> randomly")' and then send it to kexec@lists.infradead.org? Thanks!
 
-Here is the summary with links:
-  - [net-next,v3,1/3] net: airoha: Rely on airoha_eth struct in airoha_ppe_flow_offload_cmd signature
-    https://git.kernel.org/netdev/net-next/c/524a43c3a0c1
-  - [net-next,v3,2/3] net: airoha: Add airoha_ppe_dev struct definition
-    https://git.kernel.org/netdev/net-next/c/f45fc18b6de0
-  - [net-next,v3,3/3] net: airoha: Introduce check_skb callback in ppe_dev ops
-    https://git.kernel.org/netdev/net-next/c/a7cc1aa151e3
+I turned all this into a regular patch and queued it (see below),
+thanks.  No additional actions are needed.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+I'm really not liking that code.  I laboriously verified that all
+fields of kexec_buf are now initialized, except for `cma'.  Is that a
+bug?
 
+This function has a call frequency of about 3x per week.  Can we please
+just memset the whole thing so people don't have to worry about this
+any more?
+
+
+From: Breno Leitao <leitao@debian.org>
+Subject: kexec/arm64: initialize the random field of kbuf to zero in the image loader
+Date: Thu Aug 21 04:11:21 2025 -0700
+
+Add an explicit initialization for the random member of the kbuf structure
+within the image_load function in arch/arm64/kernel/kexec_image.c. 
+Setting kbuf.random to zero ensures a deterministic and clean starting
+state for the buffer used during kernel image loading, avoiding this UBSAN
+issue later, when kbuf.random is read.
+
+  [   32.362488] UBSAN: invalid-load in ./include/linux/kexec.h:210:10
+  [   32.362649] load of value 252 is not a valid value for type '_Bool'
+
+Link: https://lkml.kernel.org/r/oninomspajhxp4omtdapxnckxydbk2nzmrix7rggmpukpnzadw@c67o7njgdgm3
+Fixes: bf454ec31add ("kexec_file: allow to place kexec_buf randomly
+Signed-off-by: Breno Leitao <leitao@debian.org>
+Cc: Baoquan He <bhe@redhat.com>
+Cc: Coiby Xu <coxu@redhat.com>
+Cc: "Daniel P. Berrange" <berrange@redhat.com>
+Cc: Dave Hansen <dave.hansen@intel.com>
+Cc: Dave Young <dyoung@redhat.com>
+Cc: Kairui Song <ryncsn@gmail.com>
+Cc: Liu Pingfan <kernelfans@gmail.com>
+Cc: Milan Broz <gmazyland@gmail.com>
+Cc: Ondrej Kozina <okozina@redhat.com>
+Cc: Vitaly Kuznetsov <vkuznets@redhat.com>
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+---
+
+ arch/arm64/kernel/kexec_image.c |    1 +
+ 1 file changed, 1 insertion(+)
+
+--- a/arch/arm64/kernel/kexec_image.c~kexec-arm64-initialize-the-random-field-of-kbuf-to-zero-in-the-image-loader
++++ a/arch/arm64/kernel/kexec_image.c
+@@ -76,6 +76,7 @@ static void *image_load(struct kimage *i
+ 	kbuf.buf_min = 0;
+ 	kbuf.buf_max = ULONG_MAX;
+ 	kbuf.top_down = false;
++	kbuf.random = 0;
+ 
+ 	kbuf.buffer = kernel;
+ 	kbuf.bufsz = kernel_len;
+_
 
 
