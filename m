@@ -4,194 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8887CCA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 13:28:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C6DCCA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 13:31:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+33Ue2Cu5Y5oxJByCwLn3TsnRWViKb51w/F+XvIasfg=; b=P10vLfxJly5NUrdg3Wi/pCGVlY
-	exSTl9u/prENBqfaSZqewHVwcpVqCrHvwgSrRVtoYzr4dtZbSsdjjNkfL4p+C5QuxP4lC3PU75FXf
-	SXWzUU/0pLK+oGSyPHIbKgDIt3xGv07xKyF7oqdDJI4NIx0k9/aGzL9aGCBZyU0BowRRnV52L2VJ7
-	xFB+uRboTAJfhaK39BOWZdP/WCLHwBOkg89jajU8JiNnQ7KDOhLFnXo6hggp+T6JAG/ApROz/ptC/
-	hoAVSK9KGYHZBUBBDC+pwRMIE6rk5XRXtyqF6s/R2fDHTkUKNkpPX/slvwjPI56fCvmh1R1V2Nmhs
-	h5FHcnSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JHZTLFlxAYI1wokhjuCEuruyUylGu43DM7IKjkNYSic=; b=hre3cSVPJ/3DzSwS+q6WDsF8Gp
+	lyK9HLgVQjhkBN8inkLrUHH7jxsAP5iY3FRBTSpSNou9MLDsaHDvfADbQ4wFCoT/AIUphLBpCNypN
+	o/UPX68dQadPwhMSGSrs6kbjxLloW1VB+mcDouumM8IJRHubUnegjSDBojxLS7LIx5KZcH2IFmi8M
+	KAob/gIB4Je+hiNvr4n670vLVVmvWXye0LNELIPT4OAL/yw+rYB8KzzN/f4CKXOR6qND/uslhmgHj
+	Hae9/dfIdPe8iMu4xambwo2Ak2pfp1E8PTja6LfkTqOZ/6/WdQW5KVGAalrGZlOTbBbdQf0xp+rIR
+	dxzctUdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqtit-0000000C6Hm-0Vx0;
-	Tue, 26 Aug 2025 13:28:27 +0000
+	id 1uqtlZ-0000000C6hp-1WSK;
+	Tue, 26 Aug 2025 13:31:13 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqtPT-0000000C2hn-3T3O
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 26 Aug 2025 13:08:23 +0000
+	id 1uqtPf-0000000C2ix-0VFl;
+	Tue, 26 Aug 2025 13:08:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=+33Ue2Cu5Y5oxJByCwLn3TsnRWViKb51w/F+XvIasfg=; b=K6VVERvkVFUQqHM2UKUmx7g2rK
-	zvuRmQR3Y50YGS1jDo8WELZrlF70WRt4X+LVud3/Vu9Un4CDLH4GcV+mFzV0hZ/n5HdgKIl22NTCA
-	Z5NP/G1kELa+UlHJMIoRG9E6U2+l1JBIp5MGwDCv6s1O29wNmyrtCZPcWWcJc9/MMAwqtUXz3H29Y
-	xFohJH8FDdvhuhbjavvjJFdEBRkVSdFDXFSARAmbzP2Pzx/tkX2E2zHSCXXJKV3GcQLJpboo0kPTx
-	y/5Ejg1PGGhiRvTYEea9K9lmzsI+dHjRvGsBQibsfi1BhFN6hVA++uqxyy106watKj54W4E2ujkkK
-	uWWYaHsw==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqtPP-00000002DXJ-3DpB
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 13:08:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756213695;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=+33Ue2Cu5Y5oxJByCwLn3TsnRWViKb51w/F+XvIasfg=;
-	b=EqPZWql64KDxB59p+q4slC/veTjpxGuWK7Wy3CFytfxKsm0zGMCr9ZfZk7ESvvA8DAzCN0
-	c47JMjdHow1OUVRjs3kY5Q/E97KL6sHOr+yYTZFacsSPhZRyciaMHcLaTogGBOvHdQHqCE
-	KLZJGQDcawXlR0bdtJ4AWYVhcWAQwoc=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756213695;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=+33Ue2Cu5Y5oxJByCwLn3TsnRWViKb51w/F+XvIasfg=;
-	b=EqPZWql64KDxB59p+q4slC/veTjpxGuWK7Wy3CFytfxKsm0zGMCr9ZfZk7ESvvA8DAzCN0
-	c47JMjdHow1OUVRjs3kY5Q/E97KL6sHOr+yYTZFacsSPhZRyciaMHcLaTogGBOvHdQHqCE
-	KLZJGQDcawXlR0bdtJ4AWYVhcWAQwoc=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-365-t_TYshUTO7Sxb1Ovfh-dsw-1; Tue, 26 Aug 2025 09:08:14 -0400
-X-MC-Unique: t_TYshUTO7Sxb1Ovfh-dsw-1
-X-Mimecast-MFC-AGG-ID: t_TYshUTO7Sxb1Ovfh-dsw_1756213692
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-45a1b0b2b5cso40594805e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 06:08:12 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756213692; x=1756818492;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+33Ue2Cu5Y5oxJByCwLn3TsnRWViKb51w/F+XvIasfg=;
-        b=hu/u3HYejF3pGG7dBqNyqjH9xc5tFXtn+hAs/YI5fTV8uNksISRmvztz8v08uLU+4N
-         ytAPlGyacc+VYS4x4j4dK+9TS/ckqXGBpvY2VmDlBHgbGvup0E1wVGmPdwa5mBvVgniE
-         6wOnB14AOyk/gwZ//yMTD1guRkPToC8Kqmk4na4pckNF8AuiB2KyvO4OVyeCHF29XW0A
-         7VX/Sbn2mxLrLNJ9czrHo7G8mR7WTBdTKSbjp/0ZU+PrtsfItZfyymvDZNWVT1jWF7wn
-         swP3VkR68p3xnJSkALf/qj/ncztNAi+sSuJQiDkyTRw510gUzdm8w5uxLUW6uoxrMAo7
-         XD9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCW2G9vClLAFc7n6unG9mrDKiqNwT/pUKPL0+XhxFwkaYWF6Mzx7ZnGKHEKPRqCg134YxlcTLDkczqzgbVyhwv2J@lists.infradead.org
-X-Gm-Message-State: AOJu0YzU7BAASUfIsm85NcJHZFTioS+NzxQ7DI6ivplp4TCbtL63NGbR
-	PkjQAxeI06X2MNDhw39cNZ1fddk2mFVFSCeJFVa8lumTGQ8we1jzkt0XHiiedYpQ0OaJfiXAvGy
-	YFphYp2DKwldgYM2IQiTcuBAwd6L6j55hiJZ7HA3Z1UvhaCX3Sjq2Dv1mzs+2utfH6h1u58tF7u
-	Fp
-X-Gm-Gg: ASbGnctipsjvmAp2+vicGrMNqi365MSEX+Tp4dPVOGiL1kEhDn+I61YlpAAGZHQcjFR
-	ecW5pLyMjlbdkVt9jGY+j/jYi6rzfHAnNPxaFwoZThPZqv1ptmeSYvjIWKb/iB5KK0h1SyqspDL
-	001QwcSubnUBsR3KcTzgLlfdGbLugz9c3avDr8WQphUX3e+gfx9Dq5kHQytXxELkP4WF7D2F0a6
-	cbB+GMxMAgNXbVztt9pnUWRHM7tSHPDUUwF8VtLnF0++wwtoKaiT8QBV1T1cS0C8g1esJxAqWf2
-	LI5UWiGdlnFGROjgCdjFW781OydH78j815BMd5WhBe4bZrOhBY69gQSouMlvn8I70/btsBoc/A=
-	=
-X-Received: by 2002:a05:600c:19cb:b0:458:6733:fb5c with SMTP id 5b1f17b1804b1-45b517d2751mr126238595e9.28.1756213691646;
-        Tue, 26 Aug 2025 06:08:11 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE0uVvd3bkBu8Q9HfrtdCgTiP652NIGyMgKGC7lB/H2NXiQPCgnz3LGDq701BEdJbsSh2Pm8g==
-X-Received: by 2002:a05:600c:19cb:b0:458:6733:fb5c with SMTP id 5b1f17b1804b1-45b517d2751mr126238015e9.28.1756213691060;
-        Tue, 26 Aug 2025 06:08:11 -0700 (PDT)
-Received: from ?IPV6:2a09:80c0:192:0:5dac:bf3d:c41:c3e7? ([2a09:80c0:192:0:5dac:bf3d:c41:c3e7])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b57444963sm165603375e9.3.2025.08.26.06.08.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 26 Aug 2025 06:08:10 -0700 (PDT)
-Message-ID: <ecc599ee-4175-4356-ab66-1d76a75f44f7@redhat.com>
-Date: Tue, 26 Aug 2025 15:08:08 +0200
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=JHZTLFlxAYI1wokhjuCEuruyUylGu43DM7IKjkNYSic=; b=etY5PLFfHvVwRjOXszye/DGGB6
+	EeDfwhUfPBBHElGIuEt4CBRy1AldhAFBccZnj543K6AV4Xvqq6pcdNIfqcf1J9sqxP9GTv1Rld421
+	0AuJKLh2CRWDkm+Ul9/DFHMDYluLA3AIkv78pFeyA09fvuZwxu6ukwM8cR1N29k6qKImuFZmW3MMM
+	qCVOi9ccAynQbDiNrFS78BcReEN5xdvzHPhO4NkOVApB1RYQ/p8auBap2lsOA66RFcIqiEM+p/Jrp
+	EIJVtCqUjQE/N3Tepz7e+3E78hAlvb2elxzZDQC0yDBfD4BGP9yDnTXc67Vd2CW73P1jADDmWRbp0
+	QXd2jvjA==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uqtPb-00000002DYZ-2cEd;
+	Tue, 26 Aug 2025 13:08:31 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id A98B6300323; Tue, 26 Aug 2025 15:08:30 +0200 (CEST)
+Date: Tue, 26 Aug 2025 15:08:30 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: mingo@redhat.com, will@kernel.org, mark.rutland@arm.com,
+	acme@kernel.org, namhyung@kernel.org,
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+	irogers@google.com, adrian.hunter@intel.com,
+	kan.liang@linux.intel.com, linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, dmaengine@vger.kernel.org,
+	linux-fpga@vger.kernel.org, amd-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org, coresight@lists.linaro.org,
+	iommu@lists.linux.dev, linux-amlogic@lists.infradead.org,
+	linux-cxl@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 17/19] perf: Retire PERF_PMU_CAP_NO_INTERRUPT
+Message-ID: <20250826130830.GZ4067720@noisy.programming.kicks-ass.net>
+References: <cover.1755096883.git.robin.murphy@arm.com>
+ <32bf39943eef7c7f516d814d749cdbe322eec204.1755096883.git.robin.murphy@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 21/35] mm/cma: refuse handing out non-contiguous page
- ranges
-To: Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
- Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
- dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
- iommu@lists.linux.dev, io-uring@vger.kernel.org,
- Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
- Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
- kasan-dev@googlegroups.com, kvm@vger.kernel.org,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
- linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
- linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-scsi@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Marco Elver <elver@google.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
- Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
- Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
- Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
- Robin Murphy <robin.murphy@arm.com>, Suren Baghdasaryan <surenb@google.com>,
- Tejun Heo <tj@kernel.org>, virtualization@lists.linux.dev,
- Vlastimil Babka <vbabka@suse.cz>, wireguard@lists.zx2c4.com, x86@kernel.org,
- Zi Yan <ziy@nvidia.com>
-References: <20250821200701.1329277-1-david@redhat.com>
- <20250821200701.1329277-22-david@redhat.com> <aK2QZnzS1ErHK5tP@raptor>
- <ad521f4f-47aa-4728-916f-3704bf01f770@redhat.com> <aK2wlGYvCaFQXzBm@raptor>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- qIws/H2t
-In-Reply-To: <aK2wlGYvCaFQXzBm@raptor>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: J8P8ObssJ6SQAJl3CqSVyVwJHvj-UxyQ_MNOkRcGwQ4_1756213692
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_140820_428650_058CEE58 
-X-CRM114-Status: GOOD (  20.35  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <32bf39943eef7c7f516d814d749cdbe322eec204.1755096883.git.robin.murphy@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -206,47 +86,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26.08.25 15:03, Alexandru Elisei wrote:
-> Hi David,
-> 
-> On Tue, Aug 26, 2025 at 01:04:33PM +0200, David Hildenbrand wrote:
-> ..
->>> Just so I can better understand the problem being fixed, I guess you can have
->>> two consecutive pfns with non-consecutive associated struct page if you have two
->>> adjacent memory sections spanning the same physical memory region, is that
->>> correct?
->>
->> Exactly. Essentially on SPARSEMEM without SPARSEMEM_VMEMMAP it is not
->> guaranteed that
->>
->> 	pfn_to_page(pfn + 1) == pfn_to_page(pfn) + 1
->>
->> when we cross memory section boundaries.
->>
->> It can be the case for early boot memory if we allocated consecutive areas
->> from memblock when allocating the memmap (struct pages) per memory section,
->> but it's not guaranteed.
-> 
-> Thank you for the explanation, but I'm a bit confused by the last paragraph. I
-> think what you're saying is that we can also have the reverse problem, where
-> consecutive struct page * represent non-consecutive pfns, because memmap
-> allocations happened to return consecutive virtual addresses, is that right?
+On Wed, Aug 13, 2025 at 06:01:09PM +0100, Robin Murphy wrote:
+> Now that we have a well-defined cap for sampling support, clean up the
+> remains of the mildly unintuitive and inconsistently-applied
+> PERF_PMU_CAP_NO_INTERRUPT. Not to mention the obvious redundancy of
+> some of these drivers still checking for sampling in event_init too.
 
-Exactly, that's something we have to deal with elsewhere [1]. For this 
-code, it's not a problem because we always allocate a contiguous PFN range.
-
-> 
-> If that's correct, I don't think that's the case for CMA, which deals out
-> contiguous physical memory. Or were you just trying to explain the other side of
-> the problem, and I'm just overthinking it?
-
-The latter :)
-
-[1] https://lkml.kernel.org/r/20250814064714.56485-2-lizhe.67@bytedance.com
-
--- 
-Cheers
-
-David / dhildenb
-
+Ah, clearly I should've read the next patch... n/m.
 
