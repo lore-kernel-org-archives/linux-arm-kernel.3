@@ -4,104 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F19A4CA0FE7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 17:01:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88368CA0FE7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 17:15:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B1Ra0sIa1ZhdeCCWkbFdTe10sKp2xTKc4kpjbQJ+L0o=; b=RVfyFRNQ//ocxX/1DU/ydyo6kt
-	89C2WUomGg6+LfAyOBGuvC2DHoCeUTN5WhfVT6AYEnfs1YsXUEKPMZy12jXrqe3PbE69jYSV3J1+q
-	LPoBCAi3hlmXaq27uZp9ur1K80qmMQUs7AhsPN0TqwS26lbfZj9ERH0C2QLkG1HT2dTpmW80mrJYk
-	y7gfJWwTSjMA8sRHA+6Kf/d26Lx8QyY8tCj/SU65eGRgM9JPloHb51WcrLJlKmiqVJb+MjWjv43A9
-	VfWL0FPCR9QDkH8sFpAkiswWh8IZCuAsYDGjuqH00Bu3ZGU4EXuO/sM0ZX0DeW747lzGBsKm8bquq
-	zT5ZPBQA==;
+	bh=kmiQEbEAvOozmFqw9ji6oPoxgyycKFjBNvTezQZX36M=; b=MKfk33K2RC01YU3rq6w51BdHNc
+	w7hkesFAN3lnLEbgqbehf3HVMw9VqWQCpomvyOMnkf/8E0/UdQwojc2eQeirpoJ3wLAJyjueaVQ3/
+	83gS8EzrGmuk4D3ps+vDtM6w+fjoqhqE8F4Gu0pKWl9LHVIEkRIfE3L9xTVcjGMn49JQYdYVI0cTc
+	DQyUbO7aSXsoM2b08eWdg3TyYrOrIa1BTi+7IlJQJi2VgMqZjeqruU4NTPuBLh4+hN2KN02lPeccm
+	8MzwTSG5XDzLhJvQuowaWpW9EhAD+AqQqX1ghs3VZNkaBN5Qcg4XVQmPX9JjHgoVvFT/2sTWgaMUL
+	FvpsLudA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqx2X-0000000Ci1F-44X0;
-	Tue, 26 Aug 2025 17:00:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uqxGm-0000000CjpN-2WBb;
+	Tue, 26 Aug 2025 17:15:40 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqwzp-0000000ChNV-39Ms;
-	Tue, 26 Aug 2025 16:58:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=B1Ra0sIa1ZhdeCCWkbFdTe10sKp2xTKc4kpjbQJ+L0o=; b=O2hOXDu1uzbwlX7OANF+iGx/R+
-	6UoXejCDibkCsBP0Sufh3Cb3m2ROKpT0+iygB0+J2CFV6fsEcSakCSOSpcjcst5wqBNZ9Rl7SvzIa
-	Pp8Cm8v4K61eCclnm95hf4TwyzFqt3VNXXKASCFdrpUfQBmIKmHmZMWxCZeMODzT0/ZSx1BXyXevy
-	LBYUvUvp3c2Jv1v+1UkRNjfGE9F5GZHLGzke7MyECyGMET1vTEOJH00LPKwLlO5Nr2QYb4X85ZH/L
-	8C93B3Ay1P9C54Em9H9JVOShPXXyBlOSfgO6zM9rI1vKDiYjnkTX7V5taI1ycLtBX9hzcD4QAYzEJ
-	9DcRBDbw==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqwzm-00000002HDR-20kM;
-	Tue, 26 Aug 2025 16:58:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 828AA44427;
-	Tue, 26 Aug 2025 16:58:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C82A7C4CEF1;
-	Tue, 26 Aug 2025 16:58:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756227482;
-	bh=fnUtXDAxJfdbxKoWIvjZ0YEMsdquajfs3Wt0vqohrgU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fuvpJ+uRtRM9fzHvRv14jD9ZQo0Z+Ik1UILyoPgPF2jz8dNyPROaEFVvlvQAaXz4X
-	 ttXYaAtJGkub4HtTxq/BEINhmPDYT0kc4MO9Pt7hSTntGG0uTTAcFEzDYKdGxtFeT2
-	 qkjkQ9Njb/UFnPIIvb1+17UQA9vp2juzNUYGm3uywq3v8NTkaS1OlNFYQ09AI39lpx
-	 YQaZvSP4SUfRf4YlPPa54Y1tNy/wsF7ZVJVKqynCB7t8JfsAtW1Xvl7gh2NjEvVbqY
-	 byeS9jwZXrmVRhx6StAaC2vlVi6HX3Ox4JExT2RQEj9zwDNL3tioAysr1mHqOoXhAg
-	 8DUjtPx04KNjg==
-Date: Tue, 26 Aug 2025 16:58:00 +0000
-From: Wei Liu <wei.liu@kernel.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>,
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"K. Y. Srinivasan" <kys@microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Uladzislau Rezki <urezki@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org, loongarch@lists.linux.dev,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-hyperv@vger.kernel.org, rcu@vger.kernel.org
-Subject: Re: [PATCH 0/5] Drivers: hv: Fix NEED_RESCHED_LAZY and use common
- APIs
-Message-ID: <aK3nmOgVl4INJpjG@liuwe-devbox-ubuntu-v2.tail21d00.ts.net>
-References: <20250825200622.3759571-1-seanjc@google.com>
- <3188ca61-2591-4576-9777-1671689b7235@linux.microsoft.com>
- <aKz_ZMvvF0e9nwSn@google.com>
+	id 1uqxE5-0000000CjcJ-2MI7
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 Aug 2025 17:12:54 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-afcb78d5dcbso844787166b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 10:12:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1756228372; x=1756833172; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=kmiQEbEAvOozmFqw9ji6oPoxgyycKFjBNvTezQZX36M=;
+        b=qUQDlx+1sVl/VQoBWEfvmbINYvom/6Qw2Hdjx5Lc14D0MjNcAzyu72jiz+KBufGZxu
+         +/rMvWHds6o+r8/Rs3RKCHTTvMphH4RBsbBNZUTTknSgOOi8tkyhC387YnqzRHQ41Ba3
+         i6bOWQCuqaB/TSv9nImdmNyQpj2j/34TlqJHoogSy8eMzWBUHPpxIhgYr8kryjz/y0SD
+         d9/emO4xK4J28v4Y2P1IChp5idyMykgxSTFfv/nqBW9siN5RIIRSzdARritfP0C4iD+N
+         sVen/nnjDzO+GIHna3gPb6td1v0YM4kJUNnTaTITTGvYb0coYrjrbv8S/G5g2Ig5aYag
+         JLEQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756228372; x=1756833172;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kmiQEbEAvOozmFqw9ji6oPoxgyycKFjBNvTezQZX36M=;
+        b=Hfi0vkwSlseKCs1ctVS+qq5rPezDJi/tSGN951I/C7Fi7CgnWRSawIC7ixOg5BznXY
+         8vU8N5V5gITx5rk7k+kihxXFvTC6hIHKpaSxlogFX7x1bgIh9lgfJEcyQhhcFSx0jAWF
+         Xl+TxUhQLd9jD6Rn/v9dATNIZtg7m0apwZXOXWsFYBNE0Ph3Et1+I1To8BMWTC4I+eBq
+         wChKp8OOWow6yynZqyb40fBYoj95I+LXz9J/rQavp1aaWfKYqvQzANYDxJLOzRn5SAQi
+         453HZpYP3OprAvtfWlGAv89Qaig1E30a6T5jmHrWz2ChOwbi4uwbSszQLYQc7LrUJM5j
+         US/A==
+X-Forwarded-Encrypted: i=1; AJvYcCVparFTOlG5ve+rh4lNsuc5nHgspSjLapdW9YMVVdFty9vJHmIIrLNko0TuTKeGZbBrWNo5nXWK76Ng/i1iXIsy@lists.infradead.org
+X-Gm-Message-State: AOJu0YxsMDfnt2QBZG4fSuLr/YiYRW0QLihOz5AXW2d1Ra5xlGXNMJ9F
+	3r5wGnbKaaKRAaxZtSnxDBp6H1MBT89coDUS2VesK/xTmxUKl+A5P6oXlSRM40igBWLxQ4knbyd
+	jaeW8/UZFRG8DAgnipalzwrgcykPHeMo6yaCgQwFeHw==
+X-Gm-Gg: ASbGnctdXvFLWVrimgh9vmVGbgu0BDeeNMkJIhmyIAe13xA5ah9PoHqTO3fdrivD8QH
+	htfJpFdb8R3hwnbKotxoUw0ql2zm7xg9H/LHvUkS6nBS8O9gPrmL1Ev6hemb4NbovlhyLBc/c1l
+	5dRRmr6mP2PU5OPUXsWpVWeXRfFgxWMIILJsZ43+fyvUG0vaeI6n2PVhNU7dZwl6zN9TGh21OZW
+	AcE6S7MaF88qhPaEQUOTGyILQGzgEt0VTt0HbY=
+X-Google-Smtp-Source: AGHT+IFDZvNaU3eL+sPBd2g+8ckgsa/t5Cv1DlJOj7IrzVfzrcw4klg/uE7e1fiMAWwe/BWU80WL1sKNP8AidkFE6Go=
+X-Received: by 2002:a17:907:3f0c:b0:af9:a2a9:b5f8 with SMTP id
+ a640c23a62f3a-afe28fc1d5dmr1553038066b.18.1756228371757; Tue, 26 Aug 2025
+ 10:12:51 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aKz_ZMvvF0e9nwSn@google.com>
+References: <20250818124458.334548733@linuxfoundation.org> <CA+G9fYt5sknJ3jbebYZrqMRhbcLZKLCvTDHfg5feNnOpj-j9Wg@mail.gmail.com>
+ <CA+G9fYt6SAsPo6TvfgtnDWHPHO2q7xfppGbCaW0JxpL50zqWew@mail.gmail.com>
+ <CACMJSeu_DTVK=XtvaSD3Fj3aTXBJ5d-MpQMuysJYEFBNwznDqQ@mail.gmail.com>
+ <2025081931-chump-uncurled-656b@gregkh> <CACMJSesMDcUM+bvmT76m2s05a+-T7NxGQwe72yS03zkEJ-KzCw@mail.gmail.com>
+ <2025082612-energetic-lair-ee26@gregkh>
+In-Reply-To: <2025082612-energetic-lair-ee26@gregkh>
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Date: Tue, 26 Aug 2025 19:12:40 +0200
+X-Gm-Features: Ac12FXxkgjfxjtCqgbWi4lcdhlWZDxk1sUygzZJ-Vm9DflOQJnoV5kzUn5n4oQw
+Message-ID: <CACMJSeshuCMDiKWBKYD9OB5QvZugkz-87EEu-yi2g+7UF+WUJg@mail.gmail.com>
+Subject: Re: [PATCH 6.15 000/515] 6.15.11-rc1 review
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Naresh Kamboju <naresh.kamboju@linaro.org>, stable@vger.kernel.org, 
+	patches@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	torvalds@linux-foundation.org, akpm@linux-foundation.org, linux@roeck-us.net, 
+	shuah@kernel.org, patches@kernelci.org, lkft-triage@lists.linaro.org, 
+	pavel@denx.de, jonathanh@nvidia.com, f.fainelli@gmail.com, 
+	sudipm.mukherjee@gmail.com, srw@sladewatkins.net, rwarsow@gmx.de, 
+	conor@kernel.org, hargar@microsoft.com, broonie@kernel.org, achill@achill.org, 
+	Ben Copeland <benjamin.copeland@linaro.org>, Anders Roxell <anders.roxell@linaro.org>, 
+	Dan Carpenter <dan.carpenter@linaro.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Bjorn Andersson <andersson@kernel.org>, linux-arm-msm <linux-arm-msm@vger.kernel.org>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, srinivas.kandagatla@oss.qualcomm.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_175806_966277_7C8F639B 
-X-CRM114-Status: GOOD (  30.26  )
+X-CRM114-CacheID: sfid-20250826_101253_607662_B0E35C86 
+X-CRM114-Status: GOOD (  18.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,65 +106,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 25, 2025 at 05:27:16PM -0700, Sean Christopherson wrote:
-> On Mon, Aug 25, 2025, Nuno Das Neves wrote:
-> > On 8/25/2025 1:06 PM, Sean Christopherson wrote:
-> > > Fix a bug where MSHV root partitions don't honor NEED_RESCHED_LAZY, and then
-> > > deduplicate the TIF related MSHV code by turning the "kvm" entry APIs into
-> > > more generic "virt" APIs (which ideally would have been done when MSHV root
-> > > support was added).
-> > > 
-> > > Assuming all is well, maybe this could go through the tip tree?
-> > > 
-> > > The Hyper-V stuff and non-x86 architectures are compile-tested only.
-> > > 
-> > 
-> > Thanks Sean, I can test the root partition changes.
-> > 
-> > A similar change will be needed in mshv_vtl_main.c since it also calls
-> > mshv_do_pre_guest_mode_work() (hence the "common" in mshv_common.c).
-> 
-> Oof, more dependencies.  I suppose the easiest thing would be to send a series
-> against
-> 
->   git://git.kernel.org/pub/scm/linux/kernel/git/hyperv/linux.git queue
-> 
-> and then route everything through there?
+On Tue, 26 Aug 2025 at 16:45, Greg Kroah-Hartman
+<gregkh@linuxfoundation.org> wrote:
+>
+> On Tue, Aug 26, 2025 at 02:06:04PM +0200, Bartosz Golaszewski wrote:
+> > On Tue, 19 Aug 2025 at 13:52, Greg Kroah-Hartman
+> > <gregkh@linuxfoundation.org> wrote:
+> > >
+> > > On Tue, Aug 19, 2025 at 01:30:46PM +0200, Bartosz Golaszewski wrote:
+> > > > On Tue, 19 Aug 2025 at 12:02, Naresh Kamboju <naresh.kamboju@linaro.org> wrote:
+> > > > >
+> > > > > On Tue, 19 Aug 2025 at 00:18, Naresh Kamboju <naresh.kamboju@linaro.org> wrote:
+> > > > > >
+> > > > > >
+> > > > > > Boot regression: stable-rc 6.15.11-rc1 arm64 Qualcomm Dragonboard 410c
+> > > > > > Unable to handle kernel NULL pointer dereference
+> > > > > > qcom_scm_shm_bridge_enable
+> > > > >
+> > > > > I have reverted the following patch and the regression got fixed.
+> > > > >
+> > > > > firmware: qcom: scm: initialize tzmem before marking SCM as available
+> > > > >     [ Upstream commit 87be3e7a2d0030cda6314d2ec96b37991f636ccd ]
+> > > > >
+> > > >
+> > > > Hi! I'm on vacation, I will look into this next week. I expect there
+> > > > to be a fix on top of this commit.
+> > >
+> > > Ok, I'll go and drop this one from the queues now, thanks.
+> > >
+> > > greg k-h
+> >
+> > Hi!
+> >
+> > The issue was caused by only picking up commit 7ab36b51c6bee
+> > ("firmware: qcom: scm: request the waitqueue irq *after* initializing
+> > SCM") into stable, while the following four must be applied instead:
+> >
+> > 23972da96e1ee ("firmware: qcom: scm: remove unused arguments from SHM
+> > bridge routines")
+> > dc3f4e75c54c1 ("firmware: qcom: scm: take struct device as argument in
+> > SHM bridge enable")
+> > 87be3e7a2d003 ("firmware: qcom: scm: initialize tzmem before marking
+> > SCM as available")
+> > 7ab36b51c6bee ("firmware: qcom: scm: request the waitqueue irq *after*
+> > initializing SCM")
+>
+> 6.15.y is long end-of-life, so is anything still to be done here?
+>
 
-Our fixes branch is on 6.17-rc1. You can use it as a base if you want
-to.
+The same applies to all other branches for which Naresh reported an
+issue: 6.12, 6.15 and 6.16. I think only 6.16 is still relevant.
 
-> 
-> Alternatively, frontload the MSHV fixes (which I'll do regardless) and take those
-> through hyperv and the rest through the tip tree?  That seems like an absurd
-> amount of juggling though, especially if we want to get the cleanups into 6.18.
-> And if none of these lands, it's MSHV that'll suffer the most, so betting it all
-> on the hyperv tree doesn't seem terrible.
-> 
-
-I'm happy to do it however the community sees fit.
-
-> > Also, is it possible to make all the mshv driver changes in a single patch?
-> 
-> It's certainly possible, but I'd prefer not do to that.
-> 
-> > It seems like it would be cleaner than refactoring it in patches 1 & 2 and
-> > then deleting all the refactored code in patch 5.
-> 
-> Only if you don't care about backporting fixes, bisection, or maintaining code.
-> 
-> E.g. if checking NEED_RESCHED_LAZY somehow causes issues, it would be really nice
-> for that to bisect to exactly that patch, not a patch that also switches to a
-> completely different set of APIs.
-> 
-> And if someone is wants the fixes in a pre-6.18 kernel, they don't need to
-> backport all of the KVM and entry code changes just to get the fix.
-
-+1 on this.
-
-Thanks,
-Wei
-
-> 
-> As for the maintenance headache, see above.
+Bartosz
 
