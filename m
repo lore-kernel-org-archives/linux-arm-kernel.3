@@ -4,55 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9AC5CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 11:33:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD83DCA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 11:36:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=abKpzBQ7ZB8U0011TBKR9LxTr0YbrhhCi/05F49w6oE=; b=dCj5B5sIqIfVWkLFDyn9Xns0o0
-	FsMJawTH3Pr443HfrEP52aKOvR8UPUEtJp/kAkxvTAzablYJNMGPMpAOaL6ddeemq/TJ/zkWSPDNm
-	W6/pJPjCvEw5ftYcjuV0890FTDdSKO6YFlhlOF4yrLAid/JWDM7SzyzZtoAJJFhE2GN7489vsFoTU
-	PuSBy8v2pIRxKts79iT9Lki3hRDYCL+n8zMeotCI5efx7JX9ckyDi1KNZ7f6o77B8zpfzjriUnQ0S
-	26jkpCPTHS9Nwj08/8Y+qarn7cuntQre0z4vr1rSFr63hOIFELlNw77kgb9g+anCBHN13K+MmL3Ey
-	UmxYM+KQ==;
+	bh=Sse+JASWAhiGrL8IM8MAX4r81dm2IRFOJOQ4hyDiWrE=; b=3ImtcNEi6/I7Sw3s3iHZA5H59Z
+	uEbWV3By2mVZ/N11Ul1J238UG5kGnMXcNlOaJVguWtILJ7hty9gOreBmlotNaQ2FrGsAaJ/tVHG3t
+	BetkJyeYatdaapdcl0AJqfvv7O6kV3BVFrzssahx+QnBuqnUlj4K7sDuEy3uylDOv1mhOsEJ6F6V6
+	1A9oQffnyhMCcikM3CMxnnMGo3DAsxW+WDm3V+XeBG0FEZaSpF5ncGbLSlO7BW2LlPCBPOoWK2dzQ
+	625cPTHTXx3yCx97qTXH+wm44JJs1X2mmD9L3APNg3cvL3tXfoVHqjlyzcXzinZuqIlRRnp9rJ2oe
+	3cN08dew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqrvR-0000000Bn8J-0ZLl;
-	Tue, 26 Aug 2025 11:33:17 +0000
+	id 1uqryB-0000000BoEp-3tee;
+	Tue, 26 Aug 2025 11:36:07 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqr3i-0000000Bdwt-2E95
+	id 1uqr51-0000000Be6d-0FeC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 10:37:47 +0000
+	Tue, 26 Aug 2025 10:39:08 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5E7E31A00;
-	Tue, 26 Aug 2025 03:37:37 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 14D151A00;
+	Tue, 26 Aug 2025 03:38:58 -0700 (PDT)
 Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4D8EC3F694;
-	Tue, 26 Aug 2025 03:37:44 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B1E423F694;
+	Tue, 26 Aug 2025 03:39:04 -0700 (PDT)
 From: Sudeep Holla <sudeep.holla@arm.com>
-To: Cristian Marussi <cristian.marussi@arm.com>,
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+To: cristian.marussi@arm.com,
+	Junnan Wu <junnan01.wu@samsung.com>
 Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	linux-kernel@vger.kernel.org,
-	kernel-janitors@vger.kernel.org,
+	florian.fainelli@broadcom.com,
 	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/2] firmware: arm_scmi: Constify struct scmi_voltage_proto_ops
-Date: Tue, 26 Aug 2025 11:37:40 +0100
-Message-Id: <175620458844.1761583.10265205606346566256.b4-ty@arm.com>
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	lei19.wang@samsung.com,
+	q1.huang@samsung.com
+Subject: Re: [PATCH] firmware: arm_scmi: Set device ready before register scmi_virtio_driver
+Date: Tue, 26 Aug 2025 11:39:01 +0100
+Message-Id: <175620471163.1762592.13282724135201643997.b4-ty@arm.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <2091660c072dd2d5599897243a5d69e89d46ed4d.1753816459.git.christophe.jaillet@wanadoo.fr>
-References: <2091660c072dd2d5599897243a5d69e89d46ed4d.1753816459.git.christophe.jaillet@wanadoo.fr>
+In-Reply-To: <20250812075343.3201365-1-junnan01.wu@samsung.com>
+References: <CGME20250812075350epcas5p1cc4533582704978ec3a4a8b73dc1535c@epcas5p1.samsung.com> <20250812075343.3201365-1-junnan01.wu@samsung.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_033746_616517_73FFFB35 
-X-CRM114-Status: UNSURE (   8.51  )
+X-CRM114-CacheID: sfid-20250826_033907_151377_292604F6 
+X-CRM114-Status: UNSURE (   6.19  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -68,27 +70,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 29 Jul 2025 21:15:03 +0200, Christophe JAILLET wrote:
-> 'struct scmi_voltage_proto_ops' is not modified in this driver.
+On Tue, 12 Aug 2025 15:53:43 +0800, Junnan Wu wrote:
+> Fix irregularities in scmi driver probe.
 > 
-> Constifying this structure moves some data to a read-only section, so
-> increases overall security, especially when the structure holds some
-> function pointers.
-> 
-> On a x86_64, with allmodconfig, as an example:
-> Before:
-> ======
->    text	   data	    bss	    dec	    hex	filename
->   13142	   1808	      0	  14950	   3a66	drivers/firmware/arm_scmi/voltage.o
+> After 'commit 20bda12a0ea0 ("firmware: arm_scmi: Make VirtIO transport a standalone driver")'
+> making SCMI VirtIO transport a standalone driver,
+> `scmi_virtio_probe` will follow `scmi_vio_probe`,
+> and during `scmi_virtio_probe`, it will do `scmi_probe` which will invoke
+> function `scmi_protocol_acquire(handle, SCMI_PROTOCOL_BASE)`,
+> and this function will send message via virtqueue and wait device's reply
 > 
 > [...]
 
 Applied to sudeep.holla/linux (for-next/scmi/updates), thanks!
 
-[1/2] firmware: arm_scmi: Constify struct scmi_voltage_proto_ops
-      https://git.kernel.org/sudeep.holla/c/abd658d3e733
-[2/2] firmware: arm_scmi: Constify struct scmi_transport_ops
-      https://git.kernel.org/sudeep.holla/c/224dcf2968ca
+[1/1] firmware: arm_scmi: Set device ready before register scmi_virtio_driver
+      https://git.kernel.org/sudeep.holla/c/e8faa8a466f6
 --
 Regards,
 Sudeep
