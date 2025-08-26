@@ -4,128 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEE36CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 12:34:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE583CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 12:36:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=paLKss0IUBWc+jaJlEOsMKMsvnxtyXrSg9oZkdly/Ns=; b=qDox5hRArcXH9+bwxa+7Vff4yo
-	zY4FcwBBPskQnEUrd4+Kws3rLDO1VDXrcSPUJTZh/4RaZIEQkRk0GHAF1PgdD5HzjKQ7hnpu59H53
-	qq9YmPNYS+mny70pM91x3t+KahQ/qOdzHTh6IltQMjP68+j/DGYtuf82smUigXzvEpQcjWT3PXPCP
-	Sc2kvfrApOkc3OfaBZaXra7c0cDYVFTsogDdxGfpJd9BsGGj81m2ITe8QRguKBx6Oe39AwkWIaai1
-	jYcP62w68RhSTPS7YmEbkZLRE5GTPKHj9/FYVvhUvBHhsCTTOwuZssBq2aNsZeO3LDO+sMDxeVtbv
-	shhqcbHQ==;
+	bh=ujNkOZE0cuMCrkJwlKMLY6SmezeQ3JXoWavUp7i/iqo=; b=ssY3A8f/Z6e00iOgd18eaSFjHb
+	RFDTXQ0kWgLGXLR+DgOEcZMzgXzzBdcuU+CXNyInU2XvCR6EQHkKFkYtSepctzaI0hZQHfVWdPzeI
+	PX0fMFnaB7nxdwTOm+NaGwZD4JT/8oNsVkkafRaG4Jdrgk59fpDtlL3cer17SlO5cz+46oWs89HTz
+	Ouutpjx7LwDbO0/m8WvTzuWvGW7ntDCHgzF3rlj8BjGCIiNLaaZexydjB40As6GbLRMH8tMsuCz6L
+	lE12k0SuaTfYa3Y1YGCV2YPBvfx5qQY1DaFFTDfD2LicbocM5bYvU84Cb2Ux3ybp2zkoDcUBoFOdR
+	KxeUx5Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqssD-0000000BxNG-3ShY;
-	Tue, 26 Aug 2025 12:34:01 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uqsut-0000000Bxlq-2xJu;
+	Tue, 26 Aug 2025 12:36:47 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqsWk-0000000BuQd-16qR
+	id 1uqseL-0000000BvK6-02SS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 12:11:51 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57Q5VYfb007747
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 12:11:49 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	Tue, 26 Aug 2025 12:19:42 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57QCHvoi002374;
+	Tue, 26 Aug 2025 14:19:21 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	paLKss0IUBWc+jaJlEOsMKMsvnxtyXrSg9oZkdly/Ns=; b=dLqBO4s7mv5mKici
-	wuWjk/+jlVhmLhv4egor9qx27Ty0KbfEn1hKUgeeBFT6BZMy+4bInHT/Wo+JXzdO
-	avLuoNj3sF+GK7l+5A/Xb7F869eadzkLT2QJV/0mIuPCB3p1+hFt72zfFTzU77ml
-	OZcvgQqZOqw0wZpHGXZvcbhwuarwdSTe6RgXKjpzF7lnKup3TIGbn4pEdTzqpF4/
-	Mcliv4vFszOGAPGP8F/rTxjl+ijRZ4JM4gyjE0SkSEF/VEFQM3LI8M/f5fV6UXZe
-	kS8ANmcgsNWqE3zFeZEBce9BzO93PiOtucfRz9qk9ncpFrPj/h2M/T9wPY0T8Q6m
-	wrExPQ==
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48q5xfgnmx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 12:11:49 +0000 (GMT)
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2461907278dso53336465ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 05:11:49 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756210308; x=1756815108;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=paLKss0IUBWc+jaJlEOsMKMsvnxtyXrSg9oZkdly/Ns=;
-        b=QdI+tmLHMV5Z6AGSFFVyLrOLLEUdosrkU9i7trQlz+qT3AkzTkcrjVSD1l+GmeVAMA
-         IDuP851OppPfBKKQlgPoQ1LFZeBM9JULAHhEUcvMybs9uJ41SDJb9vCuIpYy69kn7PRR
-         RI2RQTZpspW6lCoUZ7+oPZaygnzMxyENXTZ7IfKSz9hSMnSrAaPg7B3vHQCHszKDPJVY
-         imh/wo41R9Eanhkn4zeCM7YT4+NqArRLJGQvr2ijvHAFYxRLoqc8lqr0c8jUozsrw9F6
-         CSMH+AUPy/CjJDH3apH2q8vIdmc6qXeZw3BLD3P/gaxvrWuiehkaozXEbM9eMtXLADbK
-         CufQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV1EtN/keFe7p3ed++mH+xp2mRz9SVkJk3jxtTVuZNGCJq5OqkW7aqSXKBxvVcL85bHq5FvrI0Yg2da9IoesNq5@lists.infradead.org
-X-Gm-Message-State: AOJu0YzU2s/s1haA9SyC9dAy6uoW98Y/hOzWXcXaRaEurirEmch7dXyS
-	pZA7ZAnj+h72sMktsFtIAcoYN/Xo4KzeXd7fpqaqnJpQD5AUBo7g43jqhlWgm1WrfiNYdbEsvSH
-	nlbfTM3kfzTjxmCofe17WMPSLJL16A5SQW7mXfw3UiurBuXXdiL8yo/hnH4eeOGOrPD6159ZJR9
-	oGSw==
-X-Gm-Gg: ASbGnctwLPOBzQ9Y1mdMBaFPBVBiAPGh7Qbo00/4COAakDynSZBiFcEyfoVBwd0I3My
-	KhqLbrZPiLLY6ZaADRsxAJGEMmWKAbtXA5uPmEhe1JX6jNdLtYcQiFH+NcVPoCn7uv9rImdHDfs
-	WRDqgzXc3zj+bVy1K4xSYty1+OoZAkrah0XA74yuITYZcsdKpkn6xVK/t3BK5H8xMeO9QGJjxZt
-	kcCxImHdCpD9F/hjnPisgzpgmxfhaBnZcphXgCCT7tQbPTKKk6/thm+m4MWGRFSf2Q3Gk930qRN
-	c43zAwzBvIIC5DAiyAX8TbgPdT7pe9tGY4xPtcRGxXRbVRbn1jv1iFrTFq2uVQxntnsft4EiFsE
-	gI5FldDWzDFaWEyzuLnmZZYp7KLuN5g==
-X-Received: by 2002:a17:903:40d1:b0:246:d00b:4ae3 with SMTP id d9443c01a7336-246d00b549dmr78980185ad.61.1756210307949;
-        Tue, 26 Aug 2025 05:11:47 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGWt+ZKuYL/s7XdOx51tNH2twlSp1YzsVOyChmLbB+Co/aIapze6oU9D35MvVYX1XhVnb+v5w==
-X-Received: by 2002:a17:903:40d1:b0:246:d00b:4ae3 with SMTP id d9443c01a7336-246d00b549dmr78979735ad.61.1756210307420;
-        Tue, 26 Aug 2025 05:11:47 -0700 (PDT)
-Received: from [10.133.33.155] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-246688645eesm94817945ad.99.2025.08.26.05.11.44
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 26 Aug 2025 05:11:47 -0700 (PDT)
-Message-ID: <5df27be9-0347-49d1-ba1e-21d6a2172314@oss.qualcomm.com>
-Date: Tue, 26 Aug 2025 20:11:41 +0800
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	ujNkOZE0cuMCrkJwlKMLY6SmezeQ3JXoWavUp7i/iqo=; b=1/5Dba4O/peeQRSN
+	JloI1F6I0ZRIfDeV4KvyF97b4X2XBjk4UIqo4TnTVCK6Q6OkTQKG7eTENFcUU4PL
+	zXiSvv80PEDoGQxZ2F7RqehPvFLYgJ9ISh4Lj4lccEj9icRRUQU+K4v2J0DGqbp3
+	OGjQCOTIgWbbfEfsAU3F66Mqgf8Ty3LIEe3s6zuL+XEYWyA8WbDJrcvfYA0Zj8FG
+	7i79DDwiUrNiO9ZCFZLCdAOrODpfeqRQkPfSyJOks7JgheNE4z6VAn13KVR6hYps
+	uGBE2G3GvBL1Hs/YdR+T6EZxPuagx2HKq5mXufsSq2cV+ps0aJfVsDmo7QtsaISm
+	aRHKtQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48q5tsu8ym-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 26 Aug 2025 14:19:20 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 3E05640046;
+	Tue, 26 Aug 2025 14:18:21 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id BA55E6C67D9;
+	Tue, 26 Aug 2025 14:17:49 +0200 (CEST)
+Received: from [10.48.87.178] (10.48.87.178) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 26 Aug
+ 2025 14:17:49 +0200
+Message-ID: <33ee08ca-2cf9-4229-b58c-a533814f13ba@foss.st.com>
+Date: Tue, 26 Aug 2025 14:17:47 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 3/3] coresight: tpda: add sysfs node to flush specific
- port
-To: James Clark <james.clark@linaro.org>, Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
- <mike.leach@linaro.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
-References: <20250826070150.5603-1-jie.gan@oss.qualcomm.com>
- <20250826070150.5603-4-jie.gan@oss.qualcomm.com>
- <3ac2954e-5663-4ea0-bc1d-a09e1992af5b@linaro.org>
- <a6be4d7b-d163-47df-9ab3-ca410f703555@oss.qualcomm.com>
- <939eb45c-f48e-40ce-86e8-710afa2b5c9b@linaro.org>
+Subject: Re: [PATCH v2] drm/stm: ltdc: unify log system
+To: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>,
+        Philippe Cornu
+	<philippe.cornu@foss.st.com>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>
+CC: <dri-devel@lists.freedesktop.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250825132951.547899-1-raphael.gallais-pou@foss.st.com>
 Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <939eb45c-f48e-40ce-86e8-710afa2b5c9b@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Yannick FERTRE <yannick.fertre@foss.st.com>
+In-Reply-To: <20250825132951.547899-1-raphael.gallais-pou@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDAzMyBTYWx0ZWRfX4oAbezVT4q7+
- TcUwrueTHrNkO5fTw8BVeRM+7mxdf7CcxCCN58G1+6AFFOS+iDSKuhZDt0Hb0ktOdscQUHziQpI
- EVfnWjc+gJcS4J9Y8jS1gDWvWt4eeygFHQTnbYG/1a8bO6iBdppweFOdXAqOnHMd/K8yhrjDDaA
- pkS7enYR6jmFCW0JjauHcE4hyz1x535UhC5xyQkaCtJpn8yb7y+vJAC/2dmJONA0YSjPri5M/C2
- qbjVz4fvV09JvILP6HWq546ozxLsInuLCbQbnVQqQom8tOL080zolz0cgvXOxxRzY1avTEBO5OJ
- 8AJ0LWx3rviXMkIkudNARtV4wizS9gtsUTSfv1rmWFSUSuG8x1icighZ4IA+/XL9Ag9xuJvTo+e
- 6gclBaj+
-X-Proofpoint-GUID: tDWyvxTN5qi-58ujc5ICoeRDvm1jyrjL
-X-Authority-Analysis: v=2.4 cv=MutS63ae c=1 sm=1 tr=0 ts=68ada485 cx=c_pps
- a=IZJwPbhc+fLeJZngyXXI0A==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=EUspDBNiAAAA:8 a=-hWpzLsPYw3_ZpqOosEA:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=uG9DUKGECoFWVXl0Dc02:22
-X-Proofpoint-ORIG-GUID: tDWyvxTN5qi-58ujc5ICoeRDvm1jyrjL
+X-Originating-IP: [10.48.87.178]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-08-26_02,2025-08-26_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 impostorscore=0 adultscore=0 spamscore=0 malwarescore=0
- suspectscore=0 clxscore=1015 bulkscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508230033
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_051150_424053_BE4D791D 
-X-CRM114-Status: GOOD (  27.33  )
+X-CRM114-CacheID: sfid-20250826_051941_361870_A121630C 
+X-CRM114-Status: GOOD (  23.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,179 +101,492 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Raphael,
 
+Thanks for the patch.
 
-On 8/26/2025 5:54 PM, James Clark wrote:
-> 
-> 
-> On 26/08/2025 10:39 am, Jie Gan wrote:
->>
->>
->> On 8/26/2025 5:27 PM, James Clark wrote:
->>>
->>>
->>> On 26/08/2025 8:01 am, Jie Gan wrote:
->>>> From: Tao Zhang <tao.zhang@oss.qualcomm.com>
->>>>
->>>> Setting bit i in the TPDA_FLUSH_CR register initiates a flush request
->>>> for port i, forcing the data to synchronize and be transmitted to the
->>>> sink device.
->>>>
->>>> Signed-off-by: Tao Zhang <tao.zhang@oss.qualcomm.com>
->>>> Co-developed-by: Jie Gan <jie.gan@oss.qualcomm.com>
->>>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
->>>> ---
->>>>   .../testing/sysfs-bus-coresight-devices-tpda  |  7 +++
->>>>   drivers/hwtracing/coresight/coresight-tpda.c  | 45 +++++++++++++++ 
->>>> ++++
->>>>   drivers/hwtracing/coresight/coresight-tpda.h  |  1 +
->>>>   3 files changed, 53 insertions(+)
->>>>
->>>> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices- 
->>>> tpda b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
->>>> index e827396a0fa1..8803158ba42f 100644
->>>> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
->>>> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
->>>> @@ -41,3 +41,10 @@ Contact:    Jinlong Mao 
->>>> <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qu
->>>>   Description:
->>>>           (RW) Configure the CMB/MCMB channel mode for all enabled 
->>>> ports.
->>>>           Value 0 means raw channel mapping mode. Value 1 means 
->>>> channel pair marking mode.
->>>> +
->>>> +What:        /sys/bus/coresight/devices/<tpda-name>/port_flush_req
->>>> +Date:        August 2025
->>>> +KernelVersion:    6.17
->>>> +Contact:    Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang 
->>>> <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
->>>> +Description:
->>>> +        (RW) Configure the bit i to requests a flush operation of 
->>>> port i on the TPDA.
->>>> diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/ 
->>>> hwtracing/coresight/coresight-tpda.c
->>>> index 9e623732d1e7..c5f169facc51 100644
->>>> --- a/drivers/hwtracing/coresight/coresight-tpda.c
->>>> +++ b/drivers/hwtracing/coresight/coresight-tpda.c
->>>> @@ -509,6 +509,50 @@ static ssize_t cmbchan_mode_store(struct device 
->>>> *dev,
->>>>   }
->>>>   static DEVICE_ATTR_RW(cmbchan_mode);
->>>> +static ssize_t port_flush_req_show(struct device *dev,
->>>> +                   struct device_attribute *attr,
->>>> +                   char *buf)
->>>> +{
->>>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
->>>> +    unsigned long val;
->>>> +
->>>> +    guard(spinlock)(&drvdata->spinlock);
->>>> +    if (!drvdata->csdev->refcnt)
->>>> +        return -EPERM;
->>>> +
->>>> +    val = readl_relaxed(drvdata->base + TPDA_FLUSH_CR);
->>>> +    return sysfs_emit(buf, "%lx\n", val);
->>>
->>> Decimal would be better for a port number that goes from 0 - 127. If 
->>> you really want to use hex then don't you need to prefix it with 0x? 
->>> Otherwise you can't tell the difference between decimal 10 and hex 
->>> 10, and it's not documented that it's hex either.
->>>
->>
->> Got it. I will fix the code here, and update the description in document.
->>
->>>> +}
->>>> +
->>>> +static ssize_t port_flush_req_store(struct device *dev,
->>>> +                    struct device_attribute *attr,
->>>> +                    const char *buf,
->>>> +                    size_t size)
->>>> +{
->>>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
->>>> +    unsigned long val;
->>>> +
->>>> +    if (kstrtoul(buf, 0, &val))
->>>> +        return -EINVAL;
->>>> +
->>>> +    /* The valid value ranges from 0 to 127 */
->>>> +    if (val > 127)
->>>> +        return -EINVAL;
->>>> +
->>>> +    guard(spinlock)(&drvdata->spinlock);
->>>> +    if (!drvdata->csdev->refcnt)
->>>> +        return -EPERM;
->>>> +
->>>> +    if (val) {
->>>
->>> If 0 - 127 are valid don't you want to write 0 too?
->>
->> It's 1-127 here. 0 may leads to an unexpected issue here.
->>
->> Thanks,
->> Jie
->>
-> 
-> Then can't the above be this:
-> 
->    /* The valid value ranges from 1 to 127 */
->    if (val < 1 || val > 127)
->      return -EINVAL;
-> 
-> But I'm wondering how you flush port 0?
-> 
+Acked-by: Yannick Fertre <yannick.fertre@foss.st.com>
 
-BIT(0) represents port 0 with value 1 and the default value 0 means 
-nothing will be triggered here.
-
-> Isn't the default value 0? So if you never write to port_flush_req then 
-> you'd flush port 0, but why can't you change it back to 0 after writing 
-> a different value?
-
-We can change the value back to 0 but I think we shouldn't do this 
-although I haven't suffer issue after I changed it back to 0(for bit).
-Because the document mentioned: "Once set, the bit remains set until the 
-flush operation on port i completes and the bit then clears to 0". So I 
-think we should let the flush operation finish as expected and clear the 
-bit by itself? Or may suffer unexpected error when try to interrupt the 
-flush operation?
-
-Thanks,
-Jie
-  >>>
->>>> +        CS_UNLOCK(drvdata->base);
->>>> +        writel_relaxed(val, drvdata->base + TPDA_FLUSH_CR);
->>>> +        CS_LOCK(drvdata->base);
->>>> +    }
->>>> +
->>>> +    return size;
->>>> +}
->>>> +static DEVICE_ATTR_RW(port_flush_req);
->>>> +
->>>>   static struct attribute *tpda_attrs[] = {
->>>>       &dev_attr_trig_async_enable.attr,
->>>>       &dev_attr_trig_flag_ts_enable.attr,
->>>> @@ -516,6 +560,7 @@ static struct attribute *tpda_attrs[] = {
->>>>       &dev_attr_freq_ts_enable.attr,
->>>>       &dev_attr_global_flush_req.attr,
->>>>       &dev_attr_cmbchan_mode.attr,
->>>> +    &dev_attr_port_flush_req.attr,
->>>>       NULL,
->>>>   };
->>>> diff --git a/drivers/hwtracing/coresight/coresight-tpda.h b/drivers/ 
->>>> hwtracing/coresight/coresight-tpda.h
->>>> index 00d146960d81..55a18d718357 100644
->>>> --- a/drivers/hwtracing/coresight/coresight-tpda.h
->>>> +++ b/drivers/hwtracing/coresight/coresight-tpda.h
->>>> @@ -10,6 +10,7 @@
->>>>   #define TPDA_Pn_CR(n)        (0x004 + (n * 4))
->>>>   #define TPDA_FPID_CR        (0x084)
->>>>   #define TPDA_SYNCR        (0x08C)
->>>> +#define TPDA_FLUSH_CR        (0x090)
->>>>   /* Cross trigger FREQ packets timestamp bit */
->>>>   #define TPDA_CR_FREQTS        BIT(2)
->>>
->>>
->>
-> 
-> 
-
+Le 25/08/2025 à 15:29, Raphael Gallais-Pou a écrit :
+> DRM_ERROR and similar are deprecated.  Use drm_dev based logging.
+>
+> Link: https://lore.kernel.org/r/20250821130356.883553-1-raphael.gallais-pou@foss.st.com
+> Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+> ---
+> Changes in v2:
+> - Fix kernel test robot's warnings
+> https://lore.kernel.org/all/202508250637.nLxtkS26-lkp@intel.com/
+> - Rebased onto latest drm-misc-next
+> - Remove Yannick's acked-by since the patch changed
+> ---
+>   drivers/gpu/drm/stm/ltdc.c | 139 +++++++++++++++++++------------------
+>   1 file changed, 70 insertions(+), 69 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/stm/ltdc.c b/drivers/gpu/drm/stm/ltdc.c
+> index ba315c66a04d..b9477fbec1c1 100644
+> --- a/drivers/gpu/drm/stm/ltdc.c
+> +++ b/drivers/gpu/drm/stm/ltdc.c
+> @@ -641,7 +641,7 @@ static inline void ltdc_set_ycbcr_config(struct drm_plane *plane, u32 drm_pix_fm
+>   		break;
+>   	default:
+>   		/* RGB or not a YCbCr supported format */
+> -		DRM_ERROR("Unsupported pixel format: %u\n", drm_pix_fmt);
+> +		drm_err(plane->dev, "Unsupported pixel format: %u\n", drm_pix_fmt);
+>   		return;
+>   	}
+>   
+> @@ -664,18 +664,19 @@ static inline void ltdc_set_ycbcr_coeffs(struct drm_plane *plane)
+>   	u32 lofs = plane->index * LAY_OFS;
+>   
+>   	if (enc != DRM_COLOR_YCBCR_BT601 && enc != DRM_COLOR_YCBCR_BT709) {
+> -		DRM_ERROR("color encoding %d not supported, use bt601 by default\n", enc);
+> +		drm_err(plane->dev, "color encoding %d not supported, use bt601 by default\n", enc);
+>   		/* set by default color encoding to DRM_COLOR_YCBCR_BT601 */
+>   		enc = DRM_COLOR_YCBCR_BT601;
+>   	}
+>   
+>   	if (ran != DRM_COLOR_YCBCR_LIMITED_RANGE && ran != DRM_COLOR_YCBCR_FULL_RANGE) {
+> -		DRM_ERROR("color range %d not supported, use limited range by default\n", ran);
+> +		drm_err(plane->dev,
+> +			"color range %d not supported, use limited range by default\n", ran);
+>   		/* set by default color range to DRM_COLOR_YCBCR_LIMITED_RANGE */
+>   		ran = DRM_COLOR_YCBCR_LIMITED_RANGE;
+>   	}
+>   
+> -	DRM_DEBUG_DRIVER("Color encoding=%d, range=%d\n", enc, ran);
+> +	drm_err(plane->dev, "Color encoding=%d, range=%d\n", enc, ran);
+>   	regmap_write(ldev->regmap, LTDC_L1CYR0R + lofs,
+>   		     ltdc_ycbcr2rgb_coeffs[enc][ran][0]);
+>   	regmap_write(ldev->regmap, LTDC_L1CYR1R + lofs,
+> @@ -774,7 +775,7 @@ static void ltdc_crtc_atomic_enable(struct drm_crtc *crtc,
+>   	struct ltdc_device *ldev = crtc_to_ltdc(crtc);
+>   	struct drm_device *ddev = crtc->dev;
+>   
+> -	DRM_DEBUG_DRIVER("\n");
+> +	drm_dbg_driver(crtc->dev, "\n");
+>   
+>   	pm_runtime_get_sync(ddev->dev);
+>   
+> @@ -798,7 +799,7 @@ static void ltdc_crtc_atomic_disable(struct drm_crtc *crtc,
+>   	struct drm_device *ddev = crtc->dev;
+>   	int layer_index = 0;
+>   
+> -	DRM_DEBUG_DRIVER("\n");
+> +	drm_dbg_driver(crtc->dev, "\n");
+>   
+>   	drm_crtc_vblank_off(crtc);
+>   
+> @@ -837,7 +838,7 @@ ltdc_crtc_mode_valid(struct drm_crtc *crtc,
+>   
+>   	result = clk_round_rate(ldev->pixel_clk, target);
+>   
+> -	DRM_DEBUG_DRIVER("clk rate target %d, available %d\n", target, result);
+> +	drm_dbg_driver(crtc->dev, "clk rate target %d, available %d\n", target, result);
+>   
+>   	/* Filter modes according to the max frequency supported by the pads */
+>   	if (result > ldev->caps.pad_max_freq_hz)
+> @@ -872,14 +873,14 @@ static bool ltdc_crtc_mode_fixup(struct drm_crtc *crtc,
+>   	int rate = mode->clock * 1000;
+>   
+>   	if (clk_set_rate(ldev->pixel_clk, rate) < 0) {
+> -		DRM_ERROR("Cannot set rate (%dHz) for pixel clk\n", rate);
+> +		drm_err(crtc->dev, "Cannot set rate (%dHz) for pixel clk\n", rate);
+>   		return false;
+>   	}
+>   
+>   	adjusted_mode->clock = clk_get_rate(ldev->pixel_clk) / 1000;
+>   
+> -	DRM_DEBUG_DRIVER("requested clock %dkHz, adjusted clock %dkHz\n",
+> -			 mode->clock, adjusted_mode->clock);
+> +	drm_dbg_driver(crtc->dev, "requested clock %dkHz, adjusted clock %dkHz\n",
+> +		       mode->clock, adjusted_mode->clock);
+>   
+>   	return true;
+>   }
+> @@ -934,20 +935,20 @@ static void ltdc_crtc_mode_set_nofb(struct drm_crtc *crtc)
+>   	if (!pm_runtime_active(ddev->dev)) {
+>   		ret = pm_runtime_get_sync(ddev->dev);
+>   		if (ret) {
+> -			DRM_ERROR("Failed to set mode, cannot get sync\n");
+> +			drm_err(crtc->dev, "Failed to set mode, cannot get sync\n");
+>   			return;
+>   		}
+>   	}
+>   
+> -	DRM_DEBUG_DRIVER("CRTC:%d mode:%s\n", crtc->base.id, mode->name);
+> -	DRM_DEBUG_DRIVER("Video mode: %dx%d", mode->hdisplay, mode->vdisplay);
+> -	DRM_DEBUG_DRIVER(" hfp %d hbp %d hsl %d vfp %d vbp %d vsl %d\n",
+> -			 mode->hsync_start - mode->hdisplay,
+> -			 mode->htotal - mode->hsync_end,
+> -			 mode->hsync_end - mode->hsync_start,
+> -			 mode->vsync_start - mode->vdisplay,
+> -			 mode->vtotal - mode->vsync_end,
+> -			 mode->vsync_end - mode->vsync_start);
+> +	drm_dbg_driver(crtc->dev, "CRTC:%d mode:%s\n", crtc->base.id, mode->name);
+> +	drm_dbg_driver(crtc->dev, "Video mode: %dx%d", mode->hdisplay, mode->vdisplay);
+> +	drm_dbg_driver(crtc->dev, " hfp %d hbp %d hsl %d vfp %d vbp %d vsl %d\n",
+> +		       mode->hsync_start - mode->hdisplay,
+> +		       mode->htotal - mode->hsync_end,
+> +		       mode->hsync_end - mode->hsync_start,
+> +		       mode->vsync_start - mode->vdisplay,
+> +		       mode->vtotal - mode->vsync_end,
+> +		       mode->vsync_end - mode->vsync_start);
+>   
+>   	/* Convert video timings to ltdc timings */
+>   	hsync = mode->hsync_end - mode->hsync_start - 1;
+> @@ -1033,7 +1034,7 @@ static void ltdc_crtc_atomic_flush(struct drm_crtc *crtc,
+>   	struct drm_device *ddev = crtc->dev;
+>   	struct drm_pending_vblank_event *event = crtc->state->event;
+>   
+> -	DRM_DEBUG_ATOMIC("\n");
+> +	drm_dbg_atomic(crtc->dev, "\n");
+>   
+>   	ltdc_crtc_update_clut(crtc);
+>   
+> @@ -1121,7 +1122,7 @@ static int ltdc_crtc_enable_vblank(struct drm_crtc *crtc)
+>   	struct ltdc_device *ldev = crtc_to_ltdc(crtc);
+>   	struct drm_crtc_state *state = crtc->state;
+>   
+> -	DRM_DEBUG_DRIVER("\n");
+> +	drm_dbg_driver(crtc->dev, "\n");
+>   
+>   	if (state->enable)
+>   		regmap_set_bits(ldev->regmap, LTDC_IER, IER_LIE);
+> @@ -1135,7 +1136,7 @@ static void ltdc_crtc_disable_vblank(struct drm_crtc *crtc)
+>   {
+>   	struct ltdc_device *ldev = crtc_to_ltdc(crtc);
+>   
+> -	DRM_DEBUG_DRIVER("\n");
+> +	drm_dbg_driver(crtc->dev, "\n");
+>   	regmap_clear_bits(ldev->regmap, LTDC_IER, IER_LIE);
+>   }
+>   
+> @@ -1144,11 +1145,11 @@ static int ltdc_crtc_set_crc_source(struct drm_crtc *crtc, const char *source)
+>   	struct ltdc_device *ldev;
+>   	int ret;
+>   
+> -	DRM_DEBUG_DRIVER("\n");
+> -
+>   	if (!crtc)
+>   		return -ENODEV;
+>   
+> +	drm_dbg_driver(crtc->dev, "\n");
+> +
+>   	ldev = crtc_to_ltdc(crtc);
+>   
+>   	if (source && strcmp(source, "auto") == 0) {
+> @@ -1168,14 +1169,14 @@ static int ltdc_crtc_set_crc_source(struct drm_crtc *crtc, const char *source)
+>   static int ltdc_crtc_verify_crc_source(struct drm_crtc *crtc,
+>   				       const char *source, size_t *values_cnt)
+>   {
+> -	DRM_DEBUG_DRIVER("\n");
+> -
+>   	if (!crtc)
+>   		return -ENODEV;
+>   
+> +	drm_dbg_driver(crtc->dev, "\n");
+> +
+>   	if (source && strcmp(source, "auto") != 0) {
+> -		DRM_DEBUG_DRIVER("Unknown CRC source %s for %s\n",
+> -				 source, crtc->name);
+> +		drm_dbg_driver(crtc->dev, "Unknown CRC source %s for %s\n",
+> +			       source, crtc->name);
+>   		return -EINVAL;
+>   	}
+>   
+> @@ -1233,7 +1234,7 @@ static int ltdc_plane_atomic_check(struct drm_plane *plane,
+>   	struct drm_framebuffer *fb = new_plane_state->fb;
+>   	u32 src_w, src_h;
+>   
+> -	DRM_DEBUG_DRIVER("\n");
+> +	drm_dbg_driver(plane->dev, "\n");
+>   
+>   	if (!fb)
+>   		return 0;
+> @@ -1244,7 +1245,7 @@ static int ltdc_plane_atomic_check(struct drm_plane *plane,
+>   
+>   	/* Reject scaling */
+>   	if (src_w != new_plane_state->crtc_w || src_h != new_plane_state->crtc_h) {
+> -		DRM_DEBUG_DRIVER("Scaling is not supported");
+> +		drm_dbg_driver(plane->dev, "Scaling is not supported");
+>   
+>   		return -EINVAL;
+>   	}
+> @@ -1270,7 +1271,7 @@ static void ltdc_plane_atomic_update(struct drm_plane *plane,
+>   	enum ltdc_pix_fmt pf;
+>   
+>   	if (!newstate->crtc || !fb) {
+> -		DRM_DEBUG_DRIVER("fb or crtc NULL");
+> +		drm_dbg_driver(plane->dev, "fb or crtc NULL");
+>   		return;
+>   	}
+>   
+> @@ -1280,11 +1281,11 @@ static void ltdc_plane_atomic_update(struct drm_plane *plane,
+>   	src_w = newstate->src_w >> 16;
+>   	src_h = newstate->src_h >> 16;
+>   
+> -	DRM_DEBUG_DRIVER("plane:%d fb:%d (%dx%d)@(%d,%d) -> (%dx%d)@(%d,%d)\n",
+> -			 plane->base.id, fb->base.id,
+> -			 src_w, src_h, src_x, src_y,
+> -			 newstate->crtc_w, newstate->crtc_h,
+> -			 newstate->crtc_x, newstate->crtc_y);
+> +	drm_dbg_driver(plane->dev, "plane:%d fb:%d (%dx%d)@(%d,%d) -> (%dx%d)@(%d,%d)\n",
+> +		       plane->base.id, fb->base.id,
+> +		       src_w, src_h, src_x, src_y,
+> +		       newstate->crtc_w, newstate->crtc_h,
+> +		       newstate->crtc_x, newstate->crtc_y);
+>   
+>   	regmap_read(ldev->regmap, LTDC_BPCR, &bpcr);
+>   
+> @@ -1312,8 +1313,8 @@ static void ltdc_plane_atomic_update(struct drm_plane *plane,
+>   		val = ltdc_set_flexible_pixel_format(plane, pf);
+>   
+>   	if (val == NB_PF) {
+> -		DRM_ERROR("Pixel format %.4s not supported\n",
+> -			  (char *)&fb->format->format);
+> +		drm_err(fb->dev, "Pixel format %.4s not supported\n",
+> +			(char *)&fb->format->format);
+>   		val = 0;	/* set by default ARGB 32 bits */
+>   	}
+>   	regmap_write_bits(ldev->regmap, LTDC_L1PFCR + lofs, LXPFCR_PF, val);
+> @@ -1350,7 +1351,7 @@ static void ltdc_plane_atomic_update(struct drm_plane *plane,
+>   	if (newstate->rotation & DRM_MODE_REFLECT_Y)
+>   		paddr += (fb->pitches[0] * (y1 - y0));
+>   
+> -	DRM_DEBUG_DRIVER("fb: phys 0x%08x", paddr);
+> +	drm_dbg_driver(fb->dev, "fb: phys 0x%08x", paddr);
+>   	regmap_write(ldev->regmap, LTDC_L1CFBAR + lofs, paddr);
+>   
+>   	/* Configures the color frame buffer pitch in bytes & line length */
+> @@ -1517,8 +1518,8 @@ static void ltdc_plane_atomic_disable(struct drm_plane *plane,
+>   		regmap_write_bits(ldev->regmap, LTDC_L1RCR + lofs,
+>   				  LXRCR_IMR | LXRCR_VBR | LXRCR_GRMSK, LXRCR_VBR);
+>   
+> -	DRM_DEBUG_DRIVER("CRTC:%d plane:%d\n",
+> -			 oldstate->crtc->base.id, plane->base.id);
+> +	drm_dbg_driver(plane->dev, "CRTC:%d plane:%d\n",
+> +		       oldstate->crtc->base.id, plane->base.id);
+>   }
+>   
+>   static void ltdc_plane_atomic_print_state(struct drm_printer *p,
+> @@ -1632,7 +1633,7 @@ static struct drm_plane *ltdc_plane_create(struct drm_device *ddev,
+>   
+>   	drm_plane_create_alpha_property(plane);
+>   
+> -	DRM_DEBUG_DRIVER("plane:%d created\n", plane->base.id);
+> +	drm_dbg_driver(plane->dev, "plane:%d created\n", plane->base.id);
+>   
+>   	return plane;
+>   }
+> @@ -1647,7 +1648,7 @@ static int ltdc_crtc_init(struct drm_device *ddev, struct drm_crtc *crtc)
+>   
+>   	primary = ltdc_plane_create(ddev, DRM_PLANE_TYPE_PRIMARY, 0);
+>   	if (!primary) {
+> -		DRM_ERROR("Can not create primary plane\n");
+> +		drm_err(ddev, "Can not create primary plane\n");
+>   		return -EINVAL;
+>   	}
+>   
+> @@ -1668,7 +1669,7 @@ static int ltdc_crtc_init(struct drm_device *ddev, struct drm_crtc *crtc)
+>   		ret = drmm_crtc_init_with_planes(ddev, crtc, primary, NULL,
+>   						 &ltdc_crtc_funcs, NULL);
+>   	if (ret) {
+> -		DRM_ERROR("Can not initialize CRTC\n");
+> +		drm_err(ddev, "Can not initialize CRTC\n");
+>   		return ret;
+>   	}
+>   
+> @@ -1677,13 +1678,13 @@ static int ltdc_crtc_init(struct drm_device *ddev, struct drm_crtc *crtc)
+>   	drm_mode_crtc_set_gamma_size(crtc, CLUT_SIZE);
+>   	drm_crtc_enable_color_mgmt(crtc, 0, false, CLUT_SIZE);
+>   
+> -	DRM_DEBUG_DRIVER("CRTC:%d created\n", crtc->base.id);
+> +	drm_dbg_driver(ddev, "CRTC:%d created\n", crtc->base.id);
+>   
+>   	/* Add planes. Note : the first layer is used by primary plane */
+>   	for (i = 1; i < ldev->caps.nb_layers; i++) {
+>   		overlay = ltdc_plane_create(ddev, DRM_PLANE_TYPE_OVERLAY, i);
+>   		if (!overlay) {
+> -			DRM_ERROR("Can not create overlay plane %d\n", i);
+> +			drm_err(ddev, "Can not create overlay plane %d\n", i);
+>   			return -ENOMEM;
+>   		}
+>   		if (ldev->caps.dynamic_zorder)
+> @@ -1704,7 +1705,7 @@ static void ltdc_encoder_disable(struct drm_encoder *encoder)
+>   	struct drm_device *ddev = encoder->dev;
+>   	struct ltdc_device *ldev = ddev->dev_private;
+>   
+> -	DRM_DEBUG_DRIVER("\n");
+> +	drm_dbg_driver(encoder->dev, "\n");
+>   
+>   	/* Disable LTDC */
+>   	regmap_clear_bits(ldev->regmap, LTDC_GCR, GCR_LTDCEN);
+> @@ -1718,7 +1719,7 @@ static void ltdc_encoder_enable(struct drm_encoder *encoder)
+>   	struct drm_device *ddev = encoder->dev;
+>   	struct ltdc_device *ldev = ddev->dev_private;
+>   
+> -	DRM_DEBUG_DRIVER("\n");
+> +	drm_dbg_driver(encoder->dev, "\n");
+>   
+>   	/* set fifo underrun threshold register */
+>   	if (ldev->caps.fifo_threshold)
+> @@ -1734,7 +1735,7 @@ static void ltdc_encoder_mode_set(struct drm_encoder *encoder,
+>   {
+>   	struct drm_device *ddev = encoder->dev;
+>   
+> -	DRM_DEBUG_DRIVER("\n");
+> +	drm_dbg_driver(encoder->dev, "\n");
+>   
+>   	/*
+>   	 * Set to default state the pinctrl only with DPI type.
+> @@ -1770,7 +1771,7 @@ static int ltdc_encoder_init(struct drm_device *ddev, struct drm_bridge *bridge)
+>   	if (ret)
+>   		return ret;
+>   
+> -	DRM_DEBUG_DRIVER("Bridge encoder:%d created\n", encoder->base.id);
+> +	drm_dbg_driver(encoder->dev, "Bridge encoder:%d created\n", encoder->base.id);
+>   
+>   	return 0;
+>   }
+> @@ -1870,7 +1871,7 @@ void ltdc_suspend(struct drm_device *ddev)
+>   {
+>   	struct ltdc_device *ldev = ddev->dev_private;
+>   
+> -	DRM_DEBUG_DRIVER("\n");
+> +	drm_dbg_driver(ddev, "\n");
+>   	clk_disable_unprepare(ldev->pixel_clk);
+>   }
+>   
+> @@ -1879,11 +1880,11 @@ int ltdc_resume(struct drm_device *ddev)
+>   	struct ltdc_device *ldev = ddev->dev_private;
+>   	int ret;
+>   
+> -	DRM_DEBUG_DRIVER("\n");
+> +	drm_dbg_driver(ddev, "\n");
+>   
+>   	ret = clk_prepare_enable(ldev->pixel_clk);
+>   	if (ret) {
+> -		DRM_ERROR("failed to enable pixel clock (%d)\n", ret);
+> +		drm_err(ddev, "failed to enable pixel clock (%d)\n", ret);
+>   		return ret;
+>   	}
+>   
+> @@ -1903,7 +1904,7 @@ int ltdc_load(struct drm_device *ddev)
+>   	int irq, i, nb_endpoints;
+>   	int ret = -ENODEV;
+>   
+> -	DRM_DEBUG_DRIVER("\n");
+> +	drm_dbg_driver(ddev, "\n");
+>   
+>   	/* Get number of endpoints */
+>   	nb_endpoints = of_graph_get_endpoint_count(np);
+> @@ -1913,12 +1914,12 @@ int ltdc_load(struct drm_device *ddev)
+>   	ldev->pixel_clk = devm_clk_get(dev, "lcd");
+>   	if (IS_ERR(ldev->pixel_clk)) {
+>   		if (PTR_ERR(ldev->pixel_clk) != -EPROBE_DEFER)
+> -			DRM_ERROR("Unable to get lcd clock\n");
+> +			drm_err(ddev, "Unable to get lcd clock\n");
+>   		return PTR_ERR(ldev->pixel_clk);
+>   	}
+>   
+>   	if (clk_prepare_enable(ldev->pixel_clk)) {
+> -		DRM_ERROR("Unable to prepare pixel clock\n");
+> +		drm_err(ddev, "Unable to prepare pixel clock\n");
+>   		return -ENODEV;
+>   	}
+>   
+> @@ -1939,7 +1940,7 @@ int ltdc_load(struct drm_device *ddev)
+>   		if (panel) {
+>   			bridge = drmm_panel_bridge_add(ddev, panel);
+>   			if (IS_ERR(bridge)) {
+> -				DRM_ERROR("panel-bridge endpoint %d\n", i);
+> +				drm_err(ddev, "panel-bridge endpoint %d\n", i);
+>   				ret = PTR_ERR(bridge);
+>   				goto err;
+>   			}
+> @@ -1949,7 +1950,7 @@ int ltdc_load(struct drm_device *ddev)
+>   			ret = ltdc_encoder_init(ddev, bridge);
+>   			if (ret) {
+>   				if (ret != -EPROBE_DEFER)
+> -					DRM_ERROR("init encoder endpoint %d\n", i);
+> +					drm_err(ddev, "init encoder endpoint %d\n", i);
+>   				goto err;
+>   			}
+>   		}
+> @@ -1967,29 +1968,29 @@ int ltdc_load(struct drm_device *ddev)
+>   
+>   	ldev->regs = devm_platform_ioremap_resource(pdev, 0);
+>   	if (IS_ERR(ldev->regs)) {
+> -		DRM_ERROR("Unable to get ltdc registers\n");
+> +		drm_err(ddev, "Unable to get ltdc registers\n");
+>   		ret = PTR_ERR(ldev->regs);
+>   		goto err;
+>   	}
+>   
+>   	ldev->regmap = devm_regmap_init_mmio(&pdev->dev, ldev->regs, &stm32_ltdc_regmap_cfg);
+>   	if (IS_ERR(ldev->regmap)) {
+> -		DRM_ERROR("Unable to regmap ltdc registers\n");
+> +		drm_err(ddev, "Unable to regmap ltdc registers\n");
+>   		ret = PTR_ERR(ldev->regmap);
+>   		goto err;
+>   	}
+>   
+>   	ret = ltdc_get_caps(ddev);
+>   	if (ret) {
+> -		DRM_ERROR("hardware identifier (0x%08x) not supported!\n",
+> -			  ldev->caps.hw_version);
+> +		drm_err(ddev, "hardware identifier (0x%08x) not supported!\n",
+> +			ldev->caps.hw_version);
+>   		goto err;
+>   	}
+>   
+>   	/* Disable all interrupts */
+>   	regmap_clear_bits(ldev->regmap, LTDC_IER, IER_MASK);
+>   
+> -	DRM_DEBUG_DRIVER("ltdc hw version 0x%08x\n", ldev->caps.hw_version);
+> +	drm_dbg_driver(ddev, "ltdc hw version 0x%08x\n", ldev->caps.hw_version);
+>   
+>   	/* initialize default value for fifo underrun threshold & clear interrupt error counters */
+>   	ldev->transfer_err = 0;
+> @@ -2008,27 +2009,27 @@ int ltdc_load(struct drm_device *ddev)
+>   						ltdc_irq_thread, IRQF_ONESHOT,
+>   						dev_name(dev), ddev);
+>   		if (ret) {
+> -			DRM_ERROR("Failed to register LTDC interrupt\n");
+> +			drm_err(ddev, "Failed to register LTDC interrupt\n");
+>   			goto err;
+>   		}
+>   	}
+>   
+>   	crtc = drmm_kzalloc(ddev, sizeof(*crtc), GFP_KERNEL);
+>   	if (!crtc) {
+> -		DRM_ERROR("Failed to allocate crtc\n");
+> +		drm_err(ddev, "Failed to allocate crtc\n");
+>   		ret = -ENOMEM;
+>   		goto err;
+>   	}
+>   
+>   	ret = ltdc_crtc_init(ddev, crtc);
+>   	if (ret) {
+> -		DRM_ERROR("Failed to init crtc\n");
+> +		drm_err(ddev, "Failed to init crtc\n");
+>   		goto err;
+>   	}
+>   
+>   	ret = drm_vblank_init(ddev, NB_CRTC);
+>   	if (ret) {
+> -		DRM_ERROR("Failed calling drm_vblank_init()\n");
+> +		drm_err(ddev, "Failed calling drm_vblank_init()\n");
+>   		goto err;
+>   	}
+>   
+> @@ -2047,7 +2048,7 @@ int ltdc_load(struct drm_device *ddev)
+>   
+>   void ltdc_unload(struct drm_device *ddev)
+>   {
+> -	DRM_DEBUG_DRIVER("\n");
+> +	drm_dbg_driver(ddev, "\n");
+>   
+>   	pm_runtime_disable(ddev->dev);
+>   }
 
