@@ -4,56 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90E97CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 06:32:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2108CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 06:35:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K6H2kK7oB9XL3kf3qEPW1KLZGm1z/W4mCckKnzb/rKs=; b=ic1BUb9erqY7bbDa5TW9B9AOC1
-	dz9EcdTAsufFLnPNGLoqkSGAUnoW5h0TxFia2qrZY5ZZ9TRgriqD98jS1D/0+a4j5sa0MbSKFAufc
-	1EdJCwUVB2TiaWUBt+7x4D6UHLKIa4pgmXP964nbkN40sg9yhcrLzyb0CU/E4F85aSh/kknG+hNZi
-	zmCEmrWpjkb/YrcFnWTtcTr0ZuBnOeHdcPe44a1kmMgm6NMMFr1SR1EnnLf7VfosewxyCrzDbEE1x
-	ZlVN/t0D99Y9gFc3cOJo58z8l7bgwHcneXVfYE11neaPxD1psEfMcmUxvENeKerPj4zWsyLF5AIzn
-	vOaG0tOw==;
+	bh=3/oLlHMS/fCP6P1KLSn+cvJJv6PKUv3DICeaKqETsd4=; b=XHC0+OVPSHdTSoM2N5ey55GjtX
+	zS5sBwWEmoFeEDaajeRqahonqNy8xcWxsYJ/gdzw/ERnrIfzdQ0dwxkNhLesd7Q6Tw/M09iIqnXKi
+	YQh2U1O7eF2PfnlWp4vpqi3ljJ3WBzCaQCTuBf602H+dcmARtGP3G/+O/NVe/c/Onuu08Yd6KUlEi
+	c78WYk4LoxG8vJVJdSQfpDTeYCfLOX+zzbrUUXz2FYTT40xHz7lai+owBdVmwGOECrtU02EpNY4Sf
+	AeBhfc/VtqbPA0CNEjMbKMOoM+8zDydK08VJWqFN7jae40kgSsGqc6X4zCFv7XdudEoZYAucbxFkV
+	shGYaODw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqnEF-0000000AiNU-2ls5;
-	Tue, 26 Aug 2025 06:32:23 +0000
+	id 1uqnGv-0000000Aigh-1Ec8;
+	Tue, 26 Aug 2025 06:35:09 +0000
 Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqn0f-0000000AfA2-2rCY;
-	Tue, 26 Aug 2025 06:18:24 +0000
+	id 1uqn0h-0000000AfBD-0LAu;
+	Tue, 26 Aug 2025 06:18:25 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1756189100;
+	s=2020; t=1756189101;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=K6H2kK7oB9XL3kf3qEPW1KLZGm1z/W4mCckKnzb/rKs=;
-	b=qt50fHhkADqQAuGueYGo1TQTCS9pRKukjkJcKGMOVdY+09d6hUTKCyc1AyfhiAYF831YBL
-	4q99aXnzXtByc6BFg3oxoOao3aYxAJC/4V4yv6pRmF5M82cdIFMVR2cYlHIKLsm2rpv9id
-	oUjPKAO+oKu1SN3APxKQuqKX/DGssbMKCw4Xz2n4zZRJ7UN5maoM+zI/Lf0RlegSXAgyuq
-	/yWxcu5VK+/r04Tbb+GtsRhZKDrv/mWRyQGwmgm3a7+vendx0i7Ty/I1Fshrv0+b0ZWwlG
-	SH+n/VsvVlEtE2tm2DP+xUhGKNTJBp08j1K4fjgxsZPCn8yrdRPmmOis69Lp3w==
+	bh=3/oLlHMS/fCP6P1KLSn+cvJJv6PKUv3DICeaKqETsd4=;
+	b=vM/cvVQMAyhS92V8y5yVESyKxIqQ5R3zffJXNT39DFeEehqGvQ4cgcMYsWOtpmbyjLR+Jk
+	we8S1VPZLk08HyevreXbtrS0WfURWLCD0C1udndZaGXsxcvNVQ2IAa/sI7wZ5EjfeBV3QB
+	Xl1IBk2dQX2DHCg8P+mvsjehyFDzZ/AjK26U/WIM/Dx6E1r9CZ+xl3vYpcz/43dfXeL8zq
+	t+0oYU9wuduujEn9b3gXCqd8/s4+brqyYCVM79YY7DmkOuCIKG5XnjOxrX8XloYENkIp6J
+	frOXYpfPBh2KaqVqKhcgIbWwZ8GW0EG4XRusd22yhv2ylnUvt+X8LNumqRAcrg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1756189100;
+	s=2020e; t=1756189101;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=K6H2kK7oB9XL3kf3qEPW1KLZGm1z/W4mCckKnzb/rKs=;
-	b=4r2qNWGAXu/UOi8WftkYX57YkiorzJNR/wCQ1OowTx3aIeHRybvVVg1TQp7nZhB0xzChNO
-	mlSahIjP53UFu/BQ==
-Date: Tue, 26 Aug 2025 08:17:06 +0200
-Subject: [PATCH 03/11] vdso: Move ENABLE_COMPAT_VDSO from core to arm64
+	bh=3/oLlHMS/fCP6P1KLSn+cvJJv6PKUv3DICeaKqETsd4=;
+	b=vA9RQwkSkeW435dz89cXdm1JlqEJ1IVbHIFd6A9tNEpJZ0qLZJMeeSzlzAhq24mxpdVhVM
+	OJzV+jwkYkep1fAA==
+Date: Tue, 26 Aug 2025 08:17:08 +0200
+Subject: [PATCH 05/11] time: Build generic update_vsyscall() only with
+ generic time vDSO
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250826-vdso-cleanups-v1-3-d9b65750e49f@linutronix.de>
+Message-Id: <20250826-vdso-cleanups-v1-5-d9b65750e49f@linutronix.de>
 References: <20250826-vdso-cleanups-v1-0-d9b65750e49f@linutronix.de>
 In-Reply-To: <20250826-vdso-cleanups-v1-0-d9b65750e49f@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -82,16 +83,17 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  linux-kselftest@vger.kernel.org, 
  Rasmus Villemoes <linux@rasmusvillemoes.dk>, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756189098; l=4201;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1756189098; l=943;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=jRrDQXs97w6WapLhaOa7Pkm+jLScLDYfjSl6yi3XN18=;
- b=zVe/bWMXPBpBICIiM3Xs7CuOoAOqkdw7N9nfQnVMF1yQFhNpPWnyujMRcuO3pxZbGv51ey0DT
- uPROdPxZB3gDVO9rZsFSY0vOzcTTDPeOEOBO9SI9WjiLictQ4yCGkTS
+ bh=0FWlozWesIsQ0qQyaOP1bY0lFjVrbfKxBVeB1PCnS50=;
+ b=9pNh5a5NaguFfKkfKR0EeNJ5Hqk/rS5JHEaeEmX/n8dUdZlkDqHcQrQvn3JOYAA8u+Wl7yvQz
+ BQudoqsm8axAvusAQkTMXCgGoVnMLts+duG7XkK6Eop3MTQ6RNupbR9
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_231821_911867_82EEBC24 
-X-CRM114-Status: GOOD (  15.33  )
+X-CRM114-CacheID: sfid-20250825_231823_360015_29B202AA 
+X-CRM114-Status: UNSURE (   9.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,114 +108,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ENABLE_COMAPT_VDSO symbol is only used by arm64 and only for the
-time-related functionality. There should be no new users, so it doesn't
-need to be in the generic vDSO code.
-
-Move the logic into arm64 architecture-specific code and replace the
-explicit define by the standard '#ifdef __aarch64__'.
+The generic vDSO can be used without the time-related functionality.
+In that case the generic update_vsyscall() from kernel/time/vsyscall.c
+should not be built.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- arch/arm64/include/asm/vdso/compat_barrier.h      | 7 +++----
- arch/arm64/include/asm/vdso/compat_gettimeofday.h | 6 +++---
- arch/arm64/include/asm/vdso/gettimeofday.h        | 8 ++++++++
- arch/arm64/kernel/vdso32/Makefile                 | 1 -
- include/vdso/datapage.h                           | 4 ----
- 5 files changed, 14 insertions(+), 12 deletions(-)
+ kernel/time/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/vdso/compat_barrier.h b/arch/arm64/include/asm/vdso/compat_barrier.h
-index 3ac35f4a667cfc8c03fb6b6913c5a02b230a1659..6d75e03d38274a6b8549ab10a0f3c9732e7fae56 100644
---- a/arch/arm64/include/asm/vdso/compat_barrier.h
-+++ b/arch/arm64/include/asm/vdso/compat_barrier.h
-@@ -7,11 +7,10 @@
- 
- #ifndef __ASSEMBLY__
- /*
-- * Warning: This code is meant to be used with
-- * ENABLE_COMPAT_VDSO only.
-+ * Warning: This code is meant to be used from the compat vDSO only.
-  */
--#ifndef ENABLE_COMPAT_VDSO
--#error This header is meant to be used with ENABLE_COMPAT_VDSO only
-+#ifdef __arch64__
-+#error This header is meant to be used with from the compat vDSO only
- #endif
- 
- #ifdef dmb
-diff --git a/arch/arm64/include/asm/vdso/compat_gettimeofday.h b/arch/arm64/include/asm/vdso/compat_gettimeofday.h
-index d60ea7a72a9cb3457c412d0ece21ed76ae77782d..7d1a116549b1b98d6eb7a78d053958c6a71799ec 100644
---- a/arch/arm64/include/asm/vdso/compat_gettimeofday.h
-+++ b/arch/arm64/include/asm/vdso/compat_gettimeofday.h
-@@ -2,8 +2,8 @@
- /*
-  * Copyright (C) 2018 ARM Limited
-  */
--#ifndef __ASM_VDSO_GETTIMEOFDAY_H
--#define __ASM_VDSO_GETTIMEOFDAY_H
-+#ifndef __ASM_VDSO_COMPAT_GETTIMEOFDAY_H
-+#define __ASM_VDSO_COMPAT_GETTIMEOFDAY_H
- 
- #ifndef __ASSEMBLY__
- 
-@@ -163,4 +163,4 @@ static inline bool vdso_clocksource_ok(const struct vdso_clock *vc)
- 
- #endif /* !__ASSEMBLY__ */
- 
--#endif /* __ASM_VDSO_GETTIMEOFDAY_H */
-+#endif /* __ASM_VDSO_COMPAT_GETTIMEOFDAY_H */
-diff --git a/arch/arm64/include/asm/vdso/gettimeofday.h b/arch/arm64/include/asm/vdso/gettimeofday.h
-index da1ab87595925fdfa74fd10d0c9548f109970588..c59e84105b43cdb0c823da3dd793a83781f84302 100644
---- a/arch/arm64/include/asm/vdso/gettimeofday.h
-+++ b/arch/arm64/include/asm/vdso/gettimeofday.h
-@@ -5,6 +5,8 @@
- #ifndef __ASM_VDSO_GETTIMEOFDAY_H
- #define __ASM_VDSO_GETTIMEOFDAY_H
- 
-+#ifdef __aarch64__
-+
- #ifndef __ASSEMBLY__
- 
- #include <asm/alternative.h>
-@@ -96,4 +98,10 @@ static __always_inline const struct vdso_time_data *__arch_get_vdso_u_time_data(
- 
- #endif /* !__ASSEMBLY__ */
- 
-+#else /* !__aarch64__ */
-+
-+#include "compat_gettimeofday.h"
-+
-+#endif /* __aarch64__ */
-+
- #endif /* __ASM_VDSO_GETTIMEOFDAY_H */
-diff --git a/arch/arm64/kernel/vdso32/Makefile b/arch/arm64/kernel/vdso32/Makefile
-index f2dfdc7dc8185bc045907283b68ab18fed980312..230fdc26796aa5ba561519bcf2de8ccd7ad3b9f8 100644
---- a/arch/arm64/kernel/vdso32/Makefile
-+++ b/arch/arm64/kernel/vdso32/Makefile
-@@ -59,7 +59,6 @@ VDSO_CAFLAGS += -DDISABLE_BRANCH_PROFILING
- VDSO_CAFLAGS += -march=armv8-a
- 
- VDSO_CFLAGS := $(VDSO_CAFLAGS)
--VDSO_CFLAGS += -DENABLE_COMPAT_VDSO=1
- # KBUILD_CFLAGS from top-level Makefile
- VDSO_CFLAGS += -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
-                -fno-strict-aliasing -fno-common \
-diff --git a/include/vdso/datapage.h b/include/vdso/datapage.h
-index 02533038640e53c40291c7e09139e0f9b32f502a..0b1982f15de427723c9ff8502ca1eaa195f9a6a1 100644
---- a/include/vdso/datapage.h
-+++ b/include/vdso/datapage.h
-@@ -196,11 +196,7 @@ enum vdso_pages {
-  * - clock_gettime_fallback(): fallback for clock_gettime.
-  * - clock_getres_fallback(): fallback for clock_getres.
-  */
--#ifdef ENABLE_COMPAT_VDSO
--#include <asm/vdso/compat_gettimeofday.h>
--#else
- #include <asm/vdso/gettimeofday.h>
--#endif /* ENABLE_COMPAT_VDSO */
- 
- #else /* !__ASSEMBLY__ */
- 
+diff --git a/kernel/time/Makefile b/kernel/time/Makefile
+index e6e9b85d4db5f8dd5d9b574ef7bb0a281b9daa6d..f7d52d9543cc7a2d1a18db179229a8d7936317d3 100644
+--- a/kernel/time/Makefile
++++ b/kernel/time/Makefile
+@@ -26,7 +26,7 @@ obj-$(CONFIG_LEGACY_TIMER_TICK)			+= tick-legacy.o
+ ifeq ($(CONFIG_SMP),y)
+  obj-$(CONFIG_NO_HZ_COMMON)			+= timer_migration.o
+ endif
+-obj-$(CONFIG_HAVE_GENERIC_VDSO)			+= vsyscall.o
++obj-$(CONFIG_GENERIC_GETTIMEOFDAY)		+= vsyscall.o
+ obj-$(CONFIG_DEBUG_FS)				+= timekeeping_debug.o
+ obj-$(CONFIG_TEST_UDELAY)			+= test_udelay.o
+ obj-$(CONFIG_TIME_NS)				+= namespace.o
 
 -- 
 2.50.1
