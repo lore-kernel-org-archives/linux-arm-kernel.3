@@ -4,105 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0214CA0FE9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 12:42:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 068BECA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 12:45:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mFuBdDpmjTxJPIC+jvTVeeAVDsVAAyhX1fX5Qkry/n4=; b=vNLYKhjKLrW5eLw/7zmux25c/3
-	n6sXU8bTnOZ+88/xYM79wI22VK//YIY6OQEGp4F0VnY/HNsZaXeCGbstTXMAVnp0Q7SAY20zVoLTX
-	r5LzWz4MXDlJd9DYVAMtRyfbVA/J2Wdt3JKUem2wAESIv5Kr4ynP6Kf4ARlPXqoDfikWmTsD38unN
-	rGjwwghx8wjdykIRhk9BNo7wbB3JfH2jDH6usljhFXXDSSZ3U/NfMT1CPQRm3fKN8nCNtT+JZnwqv
-	2WQecJFAoUtMtktjBKx78ockNrN0FyhxD7XuZUyCvFO36cTRjANwgCkPT2LqLEPIlPEIf7fSXB+AV
-	wO3u8ukw==;
+	bh=T84fHSOjtH7H+COR+2RAmmEuuAs5zWdfFcbzGcITMW0=; b=Oowb7KZaKEv5hSn4FrvRoCF4Vh
+	hzIxMJNDF0KvvHGIzHAhcPxfVnFHClDsadIETDbQlD/GMV8CE2XZrLIVr6DwYdFQoyp92JGBvsk9g
+	U8FWBsz/TZTDfePz6rmzTCFIxkL3L8iH78wvhJuSqxi3YQL3OfnBCv7rXrHzjA+zvwRNtfbSB7BOT
+	JFA8NMqRZQzhS2RLVJJuP7aN/Q4Ogl+fxzVWIHv8y+2wbiChU1wsLSvTCR93GQ23kVK+WdADjc9PD
+	09e3HcOOUTtR3E83J75N0n8aVL5IFFgNI0sL8Zb17dvWdnE67raXdKX1AW2ocPvMscu5Ed3SFgzJ/
+	wpezDqjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqt0F-0000000ByYd-2XY3;
-	Tue, 26 Aug 2025 12:42:19 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1uqt2w-0000000ByzF-0LLk;
+	Tue, 26 Aug 2025 12:45:06 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqsv1-0000000Bxn7-3TaD
+	id 1uqszt-0000000ByTj-34hg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 12:36:57 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-76e6cbb991aso4800426b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 05:36:55 -0700 (PDT)
+	Tue, 26 Aug 2025 12:41:59 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-24664469fd9so31777925ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 05:41:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1756211815; x=1756816615; darn=lists.infradead.org;
+        d=ziepe.ca; s=google; t=1756212117; x=1756816917; darn=lists.infradead.org;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=mFuBdDpmjTxJPIC+jvTVeeAVDsVAAyhX1fX5Qkry/n4=;
-        b=TzwIn4qPjZm1ySVQJbNKsPe4n1lnWa2IU7r9GzRuuvaqfcEBaJv73wyTA3AHAnxNIH
-         L8nvBNcbSL+ZG4SN2W9Q7G45FmBLThUJuKrNsWdnRcrOzoJj5qam4AYspO4gWXV69uPk
-         kTGIP4dll7+vcUOrPBizYcM5AGGhQMgZvbYdeQ6dDLh4rwkzb7ibNEkbcMrUUxwausQ7
-         TbJLkyZwKSyJWMJxuoe8QZ3MU6HJbJ6XKlKENIcKhcB6rA6KaW3QSLx4P5x30Zyo6U5N
-         JvMustyJhci3aMkd08a2mJLHcG4EdhrGubgGbTneoKwuZmEjlMlYuErAe5Rrz/oNuPiP
-         8iRA==
+        bh=T84fHSOjtH7H+COR+2RAmmEuuAs5zWdfFcbzGcITMW0=;
+        b=eMm9XPTfPH4Q687ncXBlzvAm4eRVL9gh2vaOvIgz6i1vDdeg5g28gzA5DjlmJ4Eibf
+         3YQwCXooMISDh9d7gJOOz/pLARVWBb/9Y0MQigVPMEdLy2tKOUThb/d5gO86yMRmsxUU
+         kqTb6vbmpHzoSPxzMrAcllpkI5ane+4nNggVQ/nu3DC7MdjJvBauwq97hYNOff+L0lLm
+         g/Ex6elv9LKaloYuGO1COEvmTkrypHEUnFlWrxDIMyMwPOGLBNpdDagSICp0xoGTYp6d
+         YccFSdkbge4+EKdyRkYWXBZqKgq4+WG1pAz40/BjqT+7HVvDQ3ljnD+iU81Llgnkg0Ty
+         gT4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756211815; x=1756816615;
+        d=1e100.net; s=20230601; t=1756212117; x=1756816917;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=mFuBdDpmjTxJPIC+jvTVeeAVDsVAAyhX1fX5Qkry/n4=;
-        b=XW7mRprX5N7KdVJqIIwbN01Db3+Vub0LeDvYHm3iWuo9+Yrj0SCsyN8oUmk+Oyb9gk
-         9fbgZ2lnFfTWCmg/FWjBXaIcBUbfVL0b6jPVqC4Di1l46TnVc6Echy+vx5kp2oNc5IXl
-         1vBclVgFkejqda1W1EsUMqJGmUZ0cgZxORZfGsmxtcleF7Sar2XqbhykqrR3HoM7HMb9
-         jwc75T01/IjI00n15lOKhr+78EgezgvMKR6hnaYptK9RVGaVMhZNUYHam89ULhXh7B/S
-         kwmK3/4gtHhZfRApJY04rluHGPE1r6rPL8Otntt6FYUsl4tgMudXS5EbIJhjpWB/T11E
-         IOIA==
-X-Forwarded-Encrypted: i=1; AJvYcCVtFBNnhpwJ8hZAx1A2QJebeQ0QrHVi/j6yPzqFU4SVQpq8Z70NkuBTYsg/SovJ5hubKWVLzHFpOSxHtIB4MOU9@lists.infradead.org
-X-Gm-Message-State: AOJu0YynOmnupfwJwtRMEE/Sbcw19JAzIdNgQKI5dX5IUM/naPQb3ybD
-	yXRbITAt2cylXnYEZr7odiojzaCeK1Yu5hZZbOgwZTNQYsJQNZF2pqfxYyIEN3H7J+w=
-X-Gm-Gg: ASbGncvQ8Q43S4QfJsAkrYr7jKqvLrveaeJoD5hSI67PE8LbMmkFmrdAhJaaBPGccdt
-	DQ7IQ18HXcAy1z5tH/E+II8/BEPa64J6YP8R5bft3M/qYJ7lcwMLqE/zI+QhOrVarf9EC0/f+fl
-	Lh7ow6osz7MI+ZwwGXZft6xc8uKP0RWx9eR4ctqOyKjkZLkAaIBs9NTMOaNbdEw0x17o1KMmEup
-	v3d1hC7TPO8uG9wCzzX5I8ZBXRKqZDpIDdG0XyEioxcm8l47lJy5Z4x7etxO1Ic4DRCh/8AvJdN
-	Wfm4e+jcroN8k1hXe0pW3UrSrXdfH//zwkcLFnkTYLk0cvyZ4k7oyzN4S49nJ1E8dgwMDdzXnCp
-	cnCGFuuM=
-X-Google-Smtp-Source: AGHT+IHTh1g6nVXxG5B7xS4T7Fnw4NLjAQ3OfTl5DHXo//wtjXBmCj82vaaqojPvv0EPFyup1w2yOw==
-X-Received: by 2002:a05:6a20:1588:b0:204:432e:5fa4 with SMTP id adf61e73a8af0-24340b5b6ddmr22663293637.23.1756211815043;
-        Tue, 26 Aug 2025 05:36:55 -0700 (PDT)
+        bh=T84fHSOjtH7H+COR+2RAmmEuuAs5zWdfFcbzGcITMW0=;
+        b=OmXjDIO1LGWORMVcolI74LE4XIshfxzkyuLjhc6/5xczxosxi3Qbe0K9R0EKyZojsW
+         A1AL+sz+Ia6qBNKz4diFeRRWXiW48LyiiVjZRkl7GzdITDqg7b+zTKzs13rwmdapW5ju
+         +TC3e6cc/VSiCu0bv75saxGDyRgasBsx0qSqlIuTms9yf1xfwek6b21K9KAyyFAlWBQV
+         ijHARy6lHOdWphEIzQSJkybFzeA1uN2XF3lNDy2YcbsRte3HiFHMgHIoTW+wLBA7nxI8
+         Q2VFxtCofKVQouQzZ1J/9u3OkREL5nHFT0DSLl2VTqGs4UnMxlaEUitEeMJ0i1H17+h8
+         ygyw==
+X-Forwarded-Encrypted: i=1; AJvYcCV1zcdliScYFzXklYWt2vAAlGvM/1aO8yIwKuo8ViRKsei0U2+DtoQjK/MtfC67UbpnqkvkY0SnJAi8NsnL1pJr@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzy8/8RzJfGos7fVRTb2er95axXN7NZSYbGA2mDkRfWflW5iqAM
+	KI/9ZHBs0f43We8aHRmu5/TyIdvB1rcA/V9kQMaKQvJbAfXg+ITysQEs1TmkAsvjqpI=
+X-Gm-Gg: ASbGncssxd6RrgIDQtWCIa08OFXfMiDQiBo3Y6NJi4svP1r8K8a3PPXGqMBT3kBkIvd
+	2DDHMZKsnhPE8mL09yPuQTWCtuG4X8cgnD4zm6ql9bA4PoulNAg8LvbHmqNV3UI3iz1tpThwrOh
+	BYZ1wDXmuSii6pF+OJMPZOwF92ImOr0QprI+u+VPvJ6IfWpEUf7FRjPP3bSEFvqdyqb55L+Ya34
+	PClofENY8aQ45gcNrzzphl1XbzMVHbYtrfd9QFo2mlXBK/XoZq4IH4yHbyfLrIRLWxZ5SpCJPBP
+	s0rNi5uYKFdBlSSofP0nt2qaGdy/Lac/717cEyaK2u3Kcho2Lu+ecK2FQtnafGR9HGmgTM5G
+X-Google-Smtp-Source: AGHT+IEf2ObCWqklpLUBYBGCp1bYhdjq0lZf9FXkeM3wbZQ3D6NSnsFJXJkCjceBlS7IcS93bfZjTg==
+X-Received: by 2002:a17:902:d54e:b0:246:a8d7:5bc1 with SMTP id d9443c01a7336-246a8d75c90mr130116235ad.39.1756212116823;
+        Tue, 26 Aug 2025 05:41:56 -0700 (PDT)
 Received: from ziepe.ca ([130.41.10.202])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3275933d6a2sm567538a91.23.2025.08.26.05.36.54
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-246687b4577sm95940715ad.61.2025.08.26.05.41.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 Aug 2025 05:36:54 -0700 (PDT)
+        Tue, 26 Aug 2025 05:41:56 -0700 (PDT)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1uqsuz-00000008tQD-0mP5;
-	Tue, 26 Aug 2025 09:36:53 -0300
-Date: Tue, 26 Aug 2025 09:36:53 -0300
+	id 1uqszr-00000008tSp-1M5u;
+	Tue, 26 Aug 2025 09:41:55 -0300
+Date: Tue, 26 Aug 2025 09:41:55 -0300
 From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Shyam Saini <shyamsaini@linux.microsoft.com>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, virtualization@lists.linux.dev,
-	will@kernel.org, jacob.pan@linux.microsoft.com,
-	eric.auger@redhat.com, code@tyhicks.com,
-	eahariha@linux.microsoft.com, vijayb@linux.microsoft.com,
-	bboscaccy@linux.microsoft.com, robh@kernel.org,
-	saravanak@google.com, krzk+dt@kernel.org, conor+dt@kernel.org,
-	lizhi.hou@amd.com, clement.leger@bootlin.com
-Subject: Re: [PATCH v3 2/3] iommu/of: fix device tree configuration for PCI
- devices
-Message-ID: <20250826123653.GC1899851@ziepe.ca>
-References: <20250806215539.1240561-1-shyamsaini@linux.microsoft.com>
- <20250806215539.1240561-3-shyamsaini@linux.microsoft.com>
- <20250808121515.GE377696@ziepe.ca>
- <20250814233018.GA31418@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
- <20250815003958.GE599331@ziepe.ca>
- <20250815023236.GA30997@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
- <20250818155310.GG599331@ziepe.ca>
- <20250826011557.GA2980@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>, joro@8bytes.org,
+	will@kernel.org, robin.murphy@arm.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
+	p.zabel@pengutronix.de, mchehab@kernel.org, iommu@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, kernel@collabora.com,
+	linux-media@vger.kernel.org
+Subject: Re: [PATCH v7 4/6] media: verisilicon: AV1: Restore IOMMU context
+ before decoding a frame
+Message-ID: <20250826124155.GD1899851@ziepe.ca>
+References: <20250825153450.150071-1-benjamin.gaignard@collabora.com>
+ <20250825153450.150071-5-benjamin.gaignard@collabora.com>
+ <20250825170531.GA1899851@ziepe.ca>
+ <01c327e8353bb5b986ef6fb1e7311437659aea4a.camel@collabora.com>
+ <20250825183122.GB1899851@ziepe.ca>
+ <441df5ff-8ed4-45ed-8a52-b542c6e7d38c@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250826011557.GA2980@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+In-Reply-To: <441df5ff-8ed4-45ed-8a52-b542c6e7d38c@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_053656_042847_46E068B6 
-X-CRM114-Status: GOOD (  22.13  )
+X-CRM114-CacheID: sfid-20250826_054157_772493_769A7B2D 
+X-CRM114-Status: GOOD (  25.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,41 +114,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 25, 2025 at 06:15:57PM -0700, Shyam Saini wrote:
-> Hi Jason,
+On Tue, Aug 26, 2025 at 11:52:37AM +0200, Benjamin Gaignard wrote:
 > 
-> On Mon, Aug 18, 2025 at 12:53:10PM -0300, Jason Gunthorpe wrote:
-> > On Thu, Aug 14, 2025 at 07:32:36PM -0700, Shyam Saini wrote:
-> > > On Thu, Aug 14, 2025 at 09:39:58PM -0300, Jason Gunthorpe wrote:
-> > > > On Thu, Aug 14, 2025 at 04:30:18PM -0700, Shyam Saini wrote:
-> > > > > or were you referring to [2]?
-> > > > > 
-> > > > > In that case, the PCI child node data needs to be parsed, which is
-> > > > > currently handled individually by each host controller driver.
-> > > > 
-> > > > Yes, this looks like it may be what I was thinking of, the pci@1,0
-> > > > specifes the BDF effectively
-> > > 
-> > > In that case, we'll need to parse the child DTS nodes properly
-> > > within of_iommu_get_resv_regions(). I'll include this in v4.
+> Le 25/08/2025 à 20:31, Jason Gunthorpe a écrit :
+> > On Mon, Aug 25, 2025 at 01:50:16PM -0400, Nicolas Dufresne wrote:
 > > 
-> > Kinda surprised this isn't happening already? It would be good to
-> > refer to the original specs and describe how whatetever you propose is
-> > aligned there.
+> > > Jason, the point is that the iommu and the VPU are not separate devices, which
+> > > comes with side effects. On RKVDec side, the iommu configuration get resets
+> > > whenever a decoding error leads to a VPU "self reset". I can't remember who from
+> > > the iommu subsystem suggested that, but the empty domain method was agreed to be
+> > IDK, that seems really goofy too me an defiantly needs to be
+> > extensively documented this is restoring the default with some lore
+> > link of the original suggestion.
+> > 
+> > > the least invasive way to workaround that issue. I believe Detlev tried multiple
+> > > time to add APIs for that before the discussion lead to this path.
+> > You mean this:
+> > 
+> > https://lore.kernel.org/linux-iommu/20250318152049.14781-1-detlev.casanova@collabora.com/
+> > 
+> > Which came back with the same remark I would give:
+> > 
+> >   Please have some kind of proper reset notifier mechanism - in fact
+> >   with runtime PM could you not already invoke a suspend/resume cycle
+> >   via the device links?
 > 
-> Just to confirm, does the v3 version of this series look good to you?
-> If so, I’ll go ahead and respin the series with the iommu_set_sw_msi()
-> change and address the other review comments from Jacob.
+> when doing parallel decode suspend/resume are not invoked.
+
+It was a proposal for an error recovery path.
+
+> > Or another reasonable option:
+> > 
+> >    Or at worst just export a public interface for the other driver to
+> >    invoke rk_iommu_resume() directly.
+> > 
+> > Sigh.
 > 
-> Otherwise having pci devices nodes in the fdt or dts needs additional
-> handling, let me know your preference :)
+> An other solution which is working is to call iommu_flush_iotlb_all()
+> before decoding each frame.
 
-I think you need to consult with the DT/OF owners on these questions..
+That was already proposed and shot down, it makes no sense at all use
+to use flushing to reset the registers because the HW weirdly lost
+them, and flushing should never happen outside mapping contexts.
 
-I've forgotton so many of the details here.
+If the HW is really resetting the iommu registers after every frame
+that is really just painfully broken, and makes me wonder if it really
+should be an iommu subsystem driver at all if it is so tightly coupled
+to the computing HW. :\
 
-But once you settle on whatever the DT representation is it looks like
-the right direction to me.
+Like we wouldn't try to put a GPU MMU into the iommu subsystem though
+they do fairly similar things.
 
 Jason
 
