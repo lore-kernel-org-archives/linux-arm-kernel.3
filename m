@@ -4,111 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C792FCA0FE9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 11:05:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C21F5CA0FE9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 11:08:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xaRZ3orPuVdXJjVO7RddRtX98nkKU7skjLyME4PeVHk=; b=RTLXncN7mXQMBYGLchrUMrswBa
-	Y1GYEizZgUKOcST4aNdkJBDNn2dw66t9Qc10tmGkmwWMugEWPabyR2wT2o5m6jeE5ayhrd/SVnXKj
-	EbBvIEXLKGcXUDfp351SJCoseCPqrkZ45KYoBpC3aGtn3po/DQoGMAje4o1C/Vg5RtF5Wz0RsdMaE
-	EkrfB3udir4ba8OeDvrkIFHiTp/bP1LgzrurCG110dc6pugc8rLiy447jGcOgJv7z01jxIAGLNfJu
-	SS98yJusx8kkCxBDqph7WWmRPQ7Cz4gt7G0CwoQTgvT9ZYHNGOYyk6jddrbU9uAMc0Sv2QFmJUFll
-	BD4NavMQ==;
+	bh=uOUXkb1uF8zQdB/sKiLIuRwWdep4Dp9YFQhPpYg7e7o=; b=A1eWEXIeIaz5fwlRsQkWk3xBhh
+	gL1xCUMV+m8y6WSg+ywHaG+Eos1sykr4KAfdrhFVkoTIE7CRVu3XAyG/WZkU5CcsrK2MqoqThrE4B
+	Z5oZ3FAKtPJNmlZjgtuuutnywvN94CoJ+Z8ayYhjFufz1lsapXQOC7gJoSU/DzE1f2cw55h1Ay77M
+	CSRgVFZYltLSYgjbDdNs2+dREGGcBeB6RUISXk5zcN7+66FgVg0CvJrr7hEM4hzFB3vcwHJwwsosI
+	Xszqw1aNfXm8AkMqSXrZf+iebkHvVM5ZJatwr854lWJ6BygQQlC5cxli0pvi3CAFMyNwuCUjKYcgV
+	oC0xX8ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqrUU-0000000BiYM-1p3R;
-	Tue, 26 Aug 2025 11:05:26 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1uqrXC-0000000Bj2V-00sB;
+	Tue, 26 Aug 2025 11:08:14 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqqOB-0000000BVo2-3PSF
+	id 1uqqRF-0000000BWVX-0zSe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 09:54:52 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3c6743a10e3so2191542f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 02:54:51 -0700 (PDT)
+	Tue, 26 Aug 2025 09:58:02 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-55f49f96f42so1629306e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 02:58:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756202090; x=1756806890; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xaRZ3orPuVdXJjVO7RddRtX98nkKU7skjLyME4PeVHk=;
-        b=LCCqFagbB8m1bA7/rW3TU+t8UQrKWK7V4qXIQbIUF0Zs1xrvzLoaZKE/DrdLCKFxro
-         Z4EuIVimN6V+ZQ1PZcGFicEESsjpBDxHT7E87AgyojCb78VNGBPoI0NytP8VB0EvK3rk
-         PlEk0pQ89P+LdKk6G4UoegYcUBqcvTd+eXE/stWBBI4AF4GMog2dS3x6RPZrLz0mgCpZ
-         2IyT2t7VyByg4Hb63zeIZ66U7AmPcILwgy5FoEU8qJY4W9HP3+P8RiBl8tfIbmgVNUDi
-         NahqxHxsOwWOECmXjefJib/XR+nU8nnCL+6ptYl9x0jBz6b482/UhwcFwXtWo7o2MRAR
-         gKqQ==
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756202279; x=1756807079; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uOUXkb1uF8zQdB/sKiLIuRwWdep4Dp9YFQhPpYg7e7o=;
+        b=IgQ5mZ3I3m/C6o/Qc5gnG66UW6sbVl4iPClu0MkkKNXkc0xDi3G8kvb7ll+Uj5gxA+
+         PVHbq/ZFfkxW7fQifJwVjZXGdNvieiMWef3v/oLZmaNZ8gY6O38X1TpSVnBxlKc1DIeN
+         voSUOHIKUQ3QkpACVF7xs8YkfFFS2HKnl9jR0M6oJG0PyCWPIp37ZPCDJJsvrhKHvDZ8
+         AM7tK6fr/WikcJWpNNfVcXoFZ0+ciT2FkXRTNbk+dxKnD8nQ60QvWj7Dnq7ROC1wmE3J
+         Kz50G1t4pmQZtSDwZ22FUwsk5IZiibyo/QEl51ZEQ5okhE3EeXTrKQbpyJf8UQGStOIJ
+         nlVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756202090; x=1756806890;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1756202279; x=1756807079;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=xaRZ3orPuVdXJjVO7RddRtX98nkKU7skjLyME4PeVHk=;
-        b=m0Qk6OgKESQNkCX1sTqR4Bfifo9QB7KWvD5XdXtBjzhWFJ5DMPst/yBlE5tyAkzuRs
-         m8BYXqwXd68L3wAmCJo0BlVmMXa59ztst+N3Py+stOypH46ZFvlRy+SHFyf/bZrqNr7l
-         qCgUgeCkVQdIN+ySvbJLO0MhV5/onlNzep7CD2Nyai18GdIC17iOcCYwFhDup2nR2oEC
-         AP34EecXwfzc8CDVRmvxAOyfctwZlwxiumllhOkYWva0std2ZpkDIriUZN0X79P+Kgn/
-         v0UZunGM00GGxEZykpl6t85Kldvc3pzOsf+Jt6NcnmFG38l9f1RUsp2AH7guRUy22qYs
-         /28w==
-X-Forwarded-Encrypted: i=1; AJvYcCWqtCq4dEd8mKDVqUE1JYzVDKdEK2JjR2lBov+xNd1jA/8DG7+hnxdxCThU2yxltEBh9Qx8wIQdS59UFd0HFpcW@lists.infradead.org
-X-Gm-Message-State: AOJu0YxcJ/CFZBq4XpACYUhk9bPfZD4a9HePHeiIx5WOQ+ABqa3QsxR2
-	oMB+4i3L+1BJCNUt9mfrAoYnmwSAS9/2A3vHxSWR9+wXz0++19KdCfTs7TcqofA5ey8=
-X-Gm-Gg: ASbGnct2FxLp6HHt0fyWFZoEyGckXOf+tx94Dh8OpfgnRNM3Sg+UtvjgxMw/ddK0Q+f
-	CbQidyaT6HPkHmLPsyEyjmjqJc3JFi5aKkVciTdnWkc3JuxJKZ/bYWuCcC/8Jso5k0bb1lR8KiA
-	rzUthmGx9m8UKKsz8cj1xldEfY+lFQ28u3MBokeBV6uXp+MZDGSUZn80bXSaXHQ+J1qOMsEbAfV
-	MzWjdjoAbA/EPbQiSaa+Rtj6jOpSIuslb6phCOmzx6uw1yYwv2+QcZFJJJkBkE6EUARj8BLXjRG
-	xpruxZhxshXaLi5gixAFPy6oAq9FYLyDMUQZOaIRT9DRhg401dfntUuWjuBS1gwaZMvW6k6GKM8
-	b+Mu1I/Pi2Iob9H9gVQ==
-X-Google-Smtp-Source: AGHT+IGn0GRxBvM+WD5O7v7/hNVOsDJAMieISnJTHVWyn0GlU/XBWButKenSU4mlUYhOne1RniJKdQ==
-X-Received: by 2002:a05:6000:25ee:b0:3c7:44eb:dd77 with SMTP id ffacd0b85a97d-3c744ebe211mr9929433f8f.12.1756202090400;
-        Tue, 26 Aug 2025 02:54:50 -0700 (PDT)
-Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:fed4:79fc:9440:6629])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3c7117d5977sm15708447f8f.51.2025.08.26.02.54.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 Aug 2025 02:54:50 -0700 (PDT)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 26 Aug 2025 11:54:40 +0200
-Subject: [PATCH 6/6] gpio: xra1403: don't print out global GPIO numbers in
- debugfs callbacks
+        bh=uOUXkb1uF8zQdB/sKiLIuRwWdep4Dp9YFQhPpYg7e7o=;
+        b=X+8gO+VGVEeSquQKv4cOs9QaWGKvjdx1grfqn8bqszgbR9x+EzzQSxhVCJQiZY4ftx
+         wB6sJQKXkDX20ciHABUleRGAUdOKopui8sZigAEP2N6fN4JCP8ONUGkAliEegJhuELcN
+         za24/maQ1ePJib1TLU1SXoMHdM5PEaOytNrZYg7xBD83LbC7rq/6wMpALwKHKtg7exoa
+         /Xb5pBZ/DwE4zGeNThaUu34qOdHYMjvM5OhnkmBtYP6s/mcgQtLBMuCKHM6y49MedgVJ
+         OYdhTsTROMVX1JABfeqcEZde1OpWWojbnKolnvVp/i37kU+BVt7Lq2cIBCPyzUTL8+F6
+         sl1g==
+X-Forwarded-Encrypted: i=1; AJvYcCUzwAu73HVpBAA106gxcAvSuwkoM+uI7boeNhQSz+qUx7GAA5kUAUWXic0UNfD3cchXTV6grIPG6fdcvqScNnjn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzrv83gdsHuP9UNQICjQ4fVKdOb2GyJb5aLXlqKzhmlWG1AeBD3
+	PhwFMo55WaPOOD4J0g6v+ONc1wY/I+nfL4GviBYdtYlIVIDHTZKNWYzz8jRkAco8fT3UgMppm1V
+	gir7vPX0JW5yINldMg6YvSq2n4vLZvtyWLfJQSppuDg==
+X-Gm-Gg: ASbGncusTqj3P0nZDwQxGMXwHVDTeCA5M5Cddh3If2QpGSVzVlzFs1Nq0QS0I9KvfFh
+	3XeY+QUAW+08X44rnVy6eYewVk8Tq2XXlYC4Ouwh6Qh73QTVNE5ZzfU1LhI6lDQThLohEgkeXAe
+	M1ceCIgjiLJMA8LzzhVjd43S7W6m3RDeTWu+Mymn6YZk4W2xVZyCTuyTIF5pO5sSXP9JgPfiVLb
+	UI/hyFW7awlqIaEFfDBckx1XPM0lqvfOzI62NpciWJgiCDb6Q==
+X-Google-Smtp-Source: AGHT+IHZlig7uTIvb1Hm0+VQCqd18Uy1yI/ilX78XfwZSj12J+ieVVBnbFx5cn43CrziQFS1Bp5XyB1Kt9NlfkCCxzM=
+X-Received: by 2002:a05:6512:440e:b0:55f:42ca:cc03 with SMTP id
+ 2adb3069b0e04-55f42cacd56mr3019395e87.56.1756202279297; Tue, 26 Aug 2025
+ 02:57:59 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250826-gpio-dbg-show-base-v1-6-7f27cd7f2256@linaro.org>
-References: <20250826-gpio-dbg-show-base-v1-0-7f27cd7f2256@linaro.org>
-In-Reply-To: <20250826-gpio-dbg-show-base-v1-0-7f27cd7f2256@linaro.org>
-To: Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Cc: linux-gpio@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- patches@opensource.cirrus.com, linux-pwm@vger.kernel.org, 
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1069;
- i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=pqwEZ6klxsSv4inQWR27IXYKVls3Qm/tc/R/XY/nCmk=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBorYRhrRtwf1VkVEx/r9gY3Cm0Cya/2HLTxHfso
- Z84jtpt+hSJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaK2EYQAKCRARpy6gFHHX
- ctnOD/9TINMbHZubtrb6oT50/GRpHQJ063AdQj7zfSKZ59ymB2wM/mX8Pl1NkWFkEcxS9+JVk4Q
- lPCGUt2qfdhvXm5FVVMLwUbmtM9xF3GyeqiUrPPM80PrH0YhwCSOhpd8ghSm6QU6/mcbPNIAxnz
- iHZQDZsDHSgZhL6rcYIzKqG1T6MnBHYERna6eOUJvJflW6t1z+OV3LWM3rbImRGtgzgExtv7SLC
- 30vj3gnkMzlCC3/9UutUGDNB1kPT2iIHcQlPVPX3NT2J2i9c4JjsPzRHKmOJ/tf23t6sF/WcQY8
- 0K/+WFMJgJCYuA+BBeBvluPlLQadUddZSRNVLac8YMfZVbYS+GJgQvIH/51XCZKdmHV4LmsRxW8
- OWeFH5Gxi2NYcqQOuJm92rLshkHQtFYUp9EdF6UniY5jyq2cMRjDlptaZX5r3544iUHG5UFl/px
- k4HJTHxyqPdHLwJDjbPrvddnDgcVqx4s1Jqth/Bz+apACEuyHb6IQAX6QQMzRFNLyE9VSnUNa9C
- iFFiyE1jb5ZspnxT+439i1UlBmTqgbQv2KXU1/QCJAba6Xalc2I3GIjoFd3cmf0xgJ4uhW2RytJ
- GepfYgtLR5FAxX02LJpbPuWxSPU83zXmv7NVjSnrk/lHcncdZLC4mtHIwKf+gcVHuW31WpU23Na
- lZ8o9Gcmx7zGsjA==
-X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
+References: <372550a2633586d2f98b077d3f520f3262ca0e2a.1756104334.git.christophe.leroy@csgroup.eu>
+ <ac7c79b3491cb48ef7c193420b9a9e4614b88436.1756197502.git.christophe.leroy@csgroup.eu>
+In-Reply-To: <ac7c79b3491cb48ef7c193420b9a9e4614b88436.1756197502.git.christophe.leroy@csgroup.eu>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Tue, 26 Aug 2025 11:57:47 +0200
+X-Gm-Features: Ac12FXy4Ibm7fbO9KiNfYE73-dyWntHoWbLgchN6hbkj2Va2bGEIGeT9v8x9Fxc
+Message-ID: <CAMRc=MchS5d3RHjtpc-fAVzKyhMchdUhvZCgTNsJ94u5Cc5FWw@mail.gmail.com>
+Subject: Re: [PATCH v4] soc: fsl: qe: Add support of IRQ in QE GPIO
+To: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Qiang Zhao <qiang.zhao@nxp.com>, Linus Walleij <linus.walleij@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_025451_877421_BA1F9AB0 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20250826_025801_287274_F32D234D 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,33 +99,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+On Tue, Aug 26, 2025 at 10:41=E2=80=AFAM Christophe Leroy
+<christophe.leroy@csgroup.eu> wrote:
+>
+> In the QE, a few GPIOs are IRQ capable. Similarly to
+> commit 726bd223105c ("powerpc/8xx: Adding support of IRQ in MPC8xx
+> GPIO"), add IRQ support to QE GPIO.
+>
+> Add property 'fsl,qe-gpio-irq-mask' similar to
+> 'fsl,cpm1-gpio-irq-mask' that define which of the GPIOs have IRQs.
+>
+> Here is an exemple for port B of mpc8323 which has IRQs for
+> GPIOs PB7, PB9, PB25 and PB27.
+>
+>         qe_pio_b: gpio-controller@1418 {
+>                 compatible =3D "fsl,mpc8323-qe-pario-bank";
+>                 reg =3D <0x1418 0x18>;
+>                 interrupts =3D <4 5 6 7>;
+>                 interrupt-parent =3D <&qepic>;
+>                 gpio-controller;
+>                 #gpio-cells =3D <2>;
+>                 fsl,qe-gpio-irq-mask =3D <0x01400050>;
+>         };
+>
+> Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+> ---
 
-In order to further limit the number of references to the GPIO base
-number stored in struct gpio_chip, replace the global GPIO numbers in
-the output of debugfs callbacks by hardware offsets.
-
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
----
- drivers/gpio/gpio-xra1403.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
-
-diff --git a/drivers/gpio/gpio-xra1403.c b/drivers/gpio/gpio-xra1403.c
-index faadcb4b0b2df0744711b4a8d211adf71ce49a38..7f3c98f9f902013cb4f1c9109dab331609b28997 100644
---- a/drivers/gpio/gpio-xra1403.c
-+++ b/drivers/gpio/gpio-xra1403.c
-@@ -135,8 +135,7 @@ static void xra1403_dbg_show(struct seq_file *s, struct gpio_chip *chip)
- 	gcr = value[XRA_GCR + 1] << 8 | value[XRA_GCR];
- 	gsr = value[XRA_GSR + 1] << 8 | value[XRA_GSR];
- 	for_each_requested_gpio(chip, i, label) {
--		seq_printf(s, " gpio-%-3d (%-12s) %s %s\n",
--			   chip->base + i, label,
-+		seq_printf(s, " gpio-%-3d (%-12s) %s %s\n", i, label,
- 			   (gcr & BIT(i)) ? "in" : "out",
- 			   str_hi_lo(gsr & BIT(i)));
- 	}
-
--- 
-2.48.1
-
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
