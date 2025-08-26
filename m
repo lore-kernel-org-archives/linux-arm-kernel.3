@@ -4,79 +4,182 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30F23CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 19:01:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3D26CA0FE7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 19:21:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HsY3QiK0IbnEstf82hU96UYsRAXIuVACCLqPo2mVzDA=; b=gbNjymHRH/wUObrxg0Eo3RDtQu
-	80LQJEv9Cjols7PIhGMUcWL8sdgRuEsf3R5sS85fM8irWJ4eVDUZ+F54x8fSxrquFQMiSudywZ9Se
-	MS2iP7SmfYp5yxWG4JqKOwDxQHeDwczYbu6YS5D7NXQrTu8rpTB5+NuLcBhaMkzY4PEIlDEja2zdF
-	2Ac16kd57o57IWbx8cbGwQTWucDvd+iZ7hR8zGjoG5bM4IcPe41VHBj8MBPSaaQyCEgL+3+HYTHt6
-	yZ2kutGvp0jz1fnibgX9jlGhEKd9PNFkBHuLZlWdAj9e2KPyKxwyLf9w+xnkoxr7XGCxuxOPPn2/q
-	vNVBM/Bw==;
+	bh=NiqtcqWINXikbKoLo+T0IrVCfefG3llLCvmY3rxNge8=; b=YvKqc22cDULqH7IA/u2NzsnvIh
+	ZcKrL/l4ZPe7+ywDTXqKx4u5kwsKB6CQDM/n6ifPgj8lUk6klW8JQYI4lOgpYbhgOV1/IdBga8c8U
+	5bjbExrP8O/+xIf+ZcXYMFJ0B2/+TS7DNSDw+yVF8H7lEzlq0Cd9YJDc916wlanfnZBi8S9jaQl/q
+	NZ4ck3W11g/AzEcwpL3tA3LdPLjGjzwD5R+rPlXJuvPnOeDEBb/3l5FQhOPR77+sBUzMyfCz604Qx
+	Phd3W5fIsXp2dH814IWOfdNT3220B/sgXFsKkUuEKaWj6vAFDNsbW54N2nEz0gJj+aWcXzvKThgk3
+	KxhY/69g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqyuk-0000000CwgS-36H3;
-	Tue, 26 Aug 2025 19:01:02 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1uqzEg-0000000CyjT-1W3e;
+	Tue, 26 Aug 2025 19:21:38 +0000
+Received: from mail-bn7nam10on20726.outbound.protection.outlook.com ([2a01:111:f403:2009::726] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqys1-0000000CvqW-1Hds
+	id 1uqzBw-0000000CyT7-3VBW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 18:58:14 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-32505dbe21cso4204648a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 11:58:12 -0700 (PDT)
+	Tue, 26 Aug 2025 19:18:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JFZC2BeAZLifJmb82KJ7WLbKEqOl+MzfTWYxXlPaprLjugiDHTi8gqrF/ZElKerjpgrk3us88FhxWC0/gINrJwJo7NymyCIhh6ly64SCFbUaF5ouPAnA8P+SPY3IsY3K78O61XBJUA4WQ29NuU8OgKYmWHYmbOzOcT+dpClVYr5RW4gFapY2QUlJZf5Ptr9eUJOJ4X5zXA3a9OvzEmEG7ZsMKV2cA0Gxif2bQQnoZlVkpirRA1Y1Plm97Dy57qlZuCXZBcuiHn+q5Woyn3Q+XUEPi5FcsfILUeHwpAPj1IXHELyXgpBD9uLwJqBOcNh0fjSWFawQD7VPs2IH8eldaQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NiqtcqWINXikbKoLo+T0IrVCfefG3llLCvmY3rxNge8=;
+ b=YQXKj5uMagGxGdlsU4FcjBwvOtqyH1pWCO25TILg9W4UBOtYNpY8Du8GDbknHquxuX0IjDKeEshPN1egkpOOO89kHIvoAnjR/LkrjzCBeYuwSzNXjHtqpJbB/JyygZ/M20LDxawi0w7tF82Kv5WiTwc9/NoyH5fHHZO9FUUx6/hkAQT2FP1Th5UXcI0D26iuoxy0DkaSwhUxvbBVqsWyIBSag9KzJeIvVOWj2L75mYl2E81iQyGo57/cz6nOXK8GghRK3sJrSLzj1xyTYGA5RCW5qZB7M/RvGVeug5Ykq15sYDwZXh+BSx/NbIqUSj6ONQAvD/S8i+ITJAHTk1hKcQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1756234692; x=1756839492; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=HsY3QiK0IbnEstf82hU96UYsRAXIuVACCLqPo2mVzDA=;
-        b=HDNCyAxXp2inzOlbjyWh7dRxhmLYZNX3wzriNoCJz3L99okG1sMnULEpWd2fsI5qrP
-         B8MXYVrYPO+sRJ3r6Wxm+iM6pejz1Q9nOjaaJDIcEUMEQEHrwX8i3sWrQhT09ALyl9kZ
-         gGbE24NdmC2K19O4mNZEVsvsWLFOSS2CwDIJqJMYiXcnkGABfr1Sl3qWd4qrec44D80w
-         kf4LuW1bKHJA9AN4scUuwBJ+9qugouBuc67xPT14Rsh8AzFe6dZXWnz0EEmTybM0stps
-         oSqT+jXQ9zSf8DOOwCBMSh7qhkHCr8mg2PVqu75dhzuJtCBV0tXCkaKHIqiyRDTPUyfY
-         ZF4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756234692; x=1756839492;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=HsY3QiK0IbnEstf82hU96UYsRAXIuVACCLqPo2mVzDA=;
-        b=Kwaz1vyQYRb0FR717O9OOCn7Wel5hMwiWiE5xaCWRdv3dKhTEUAhD0xfi+AG2rmmYK
-         VG3MxB8xBiAoo9oQS5TAvHq+2Hu9EAN6ze6UGJYfin6InBlXLY7Myg9gcswN0e/uIAZT
-         E+ytr3pkVqGOU6Wym9wBOW8jb04LiZqT+B/zJ1tjy++xh1WsA+kRbaGvfAORGnuJQUVY
-         6qM9k5tNHgAL5U5qSPLvF3HCeCsV+A/w8TFrR4+b3/b+AzSIdCr8FZ68UpACm+DKbVuN
-         qw8JDU/S8OqpthzMvqDod9wkDm8zD7zMEOwdHIGxSPCh7V4hmnUuhk0xDCSKYRCjVn28
-         aKHA==
-X-Forwarded-Encrypted: i=1; AJvYcCV8XG4lNcOdMwbY9iHRgIXZZUlMEZvlTtwm5HkvJUQEG4ndOw8TtcTElWT1N/n3zZ4nO/fir2KQQbbgPe0mSm1I@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/HPEdeyl9HW903YX/gzYJGqREqhdKqIWFYwisLBVaHC8GI5df
-	1qFcpeWBGuIAK+A1wj3yq8Z+Ss/nZVcCWQj2KcIJvfsGCrqsPokQhn+yKuMydK4E4lES33YdLsV
-	PuTiDrw==
-X-Google-Smtp-Source: AGHT+IEbYMyz1OK/7DxpodLpUWaOFW3JDTS/P5ttB89uVykFsbXSvA935+WSo4TPCjtqlt5OUT9tb2npKgM=
-X-Received: from pjbst5.prod.google.com ([2002:a17:90b:1fc5:b0:325:b894:3c5d])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:1d06:b0:321:87fa:e1f1
- with SMTP id 98e67ed59e1d1-32515ea158cmr20429199a91.22.1756234691802; Tue, 26
- Aug 2025 11:58:11 -0700 (PDT)
-Date: Tue, 26 Aug 2025 11:58:10 -0700
-In-Reply-To: <aKeeRynpwFTSONfm@linux.dev>
-Mime-Version: 1.0
-References: <20250821210042.3451147-1-seanjc@google.com> <20250821210042.3451147-6-seanjc@google.com>
- <aKeeRynpwFTSONfm@linux.dev>
-Message-ID: <aK4DwtuQtzYvRei-@google.com>
-Subject: Re: [RFC PATCH 05/16] KVM: arm64: Introduce "struct kvm_page_fault"
- for tracking abort state
-From: Sean Christopherson <seanjc@google.com>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	James Houghton <jthoughton@google.com>
-Content-Type: text/plain; charset="us-ascii"
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NiqtcqWINXikbKoLo+T0IrVCfefG3llLCvmY3rxNge8=;
+ b=UlhnpCJ2g8DTzcbsooLpUFQbFlpnAiJN3ggMDggMtleI5oaSjdzQGIjs4ZgsYJ/I8MpHJe/mYf9tO4l91ZJNrTMhggh5iZfq3bj7JkpN/vohIttYNXp+BsRBw/7uWDchgTvk2pqPU3nq4nErvdZFnzmAEYmfU5Wy0IeCt6MYFXY=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ MWHPR01MB8725.prod.exchangelabs.com (2603:10b6:303:28a::19) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9052.20; Tue, 26 Aug 2025 19:18:42 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460%2]) with mapi id 15.20.9052.019; Tue, 26 Aug 2025
+ 19:18:42 +0000
+Message-ID: <939ac25a-096f-46b3-90c1-d8cd6a9e445e@os.amperecomputing.com>
+Date: Tue, 26 Aug 2025 12:18:35 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v5 00/18] pkeys-based page table hardening
+To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-hardening@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+ Andy Lutomirski <luto@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@redhat.com>, Ira Weiny <ira.weiny@intel.com>,
+ Jann Horn <jannh@google.com>, Jeff Xu <jeffxu@chromium.org>,
+ Joey Gouly <joey.gouly@arm.com>, Kees Cook <kees@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Marc Zyngier <maz@kernel.org>,
+ Mark Brown <broonie@kernel.org>, Matthew Wilcox <willy@infradead.org>,
+ Maxwell Bland <mbland@motorola.com>, "Mike Rapoport (IBM)"
+ <rppt@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Pierre Langlois <pierre.langlois@arm.com>,
+ Quentin Perret <qperret@google.com>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, x86@kernel.org
+References: <20250815085512.2182322-1-kevin.brodsky@arm.com>
+ <98c9689f-157b-4fbb-b1b4-15e5a68e2d32@os.amperecomputing.com>
+ <8e4e5648-9b70-4257-92c5-14c60928e240@arm.com>
+Content-Language: en-US
+From: Yang Shi <yang@os.amperecomputing.com>
+In-Reply-To: <8e4e5648-9b70-4257-92c5-14c60928e240@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: CY5PR04CA0006.namprd04.prod.outlook.com
+ (2603:10b6:930:1e::8) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|MWHPR01MB8725:EE_
+X-MS-Office365-Filtering-Correlation-Id: 80f8a0ae-2cdc-4d5c-d032-08dde4d55e54
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?WERob2xSMVMvb25ROGlWbVY1SnBZRzZHZDRQUENqdlZrSC8zWkpWN0F3bjNq?=
+ =?utf-8?B?SUlGMGhrTXlKd2JDbW95aXJKVHVNMUhZUWtvazFlSjU0ZTAyTTltSGJuSW5y?=
+ =?utf-8?B?WTBZOUNwbmNmb3ZsQXNNTHNrSVY1ZTJDdnVEYkJ2d0gvdFNvMjdKbnFiY3hD?=
+ =?utf-8?B?VlhjcUFsQmVQMVVXTlB0UENWOXRHZ0xoR0laTjFTQkQvRGNYZ3NDK2syMlFL?=
+ =?utf-8?B?b1NkeGZvMDB4TnJBTEc1dHZGRWRDTFQ0MnFEVVh6L3V1cDdOTzQ4NnBTbkdV?=
+ =?utf-8?B?MWtOZkdQS0lEOTNPSnBBSjZoRFVJMTlVWDlXTUwrUDBpSlltVkNFMFQ3dlpj?=
+ =?utf-8?B?ZVdySVlINXpnVFpYRVRVYzZibWVwYUFiNXF0L2I4aE80ais0bUFiSXI3RERk?=
+ =?utf-8?B?LzZrNXA2a1Z3VXR2a0d1aCtLVmNhOUlpWi9CaWtUcHMvVURkYitpVzE5eGlj?=
+ =?utf-8?B?NTlpTDNKR2xOYmhmM2lvYVhESlZUN0IycVNobCtDVGFMbmVBTlJUM2t5MHBa?=
+ =?utf-8?B?Z21mcWZzY0NUUDAvUGZXZmRjODFpdXY5U2ZmUEZrQ2pqV0FZckk5a1Q2Yjc3?=
+ =?utf-8?B?OUNPS0N0T0tsTzExM2lobFJhYmxtdFpHd2RLU3JCTkV5WUlsOXEvbURPcmNv?=
+ =?utf-8?B?NGRyL29OZE9tdnR5S25YdmoxZkVVZXRqaUdhY0N4ZmN2YTZ2REM4MXo3T2xt?=
+ =?utf-8?B?YjVXcFVKRDY1R0hha0VaWGlGcDcwanc5emJnNlh2THpvWkN3Z0c1cUs0UDQ4?=
+ =?utf-8?B?TkRQRkhnNktKTHVHZEg1dEZ0a0pqNW5HYkx0REdQN1hPQmhMV3JWVFFrQ2kw?=
+ =?utf-8?B?UnRKMk9GZVgyNjhUVjJyK1VTZEJQbnAvWXBnOThHZFMrUGtMS3lBaGVuSHNI?=
+ =?utf-8?B?dVNMNXBSMSthckY5YlU1QVBBZmFCcmIvSHVkbnBRVWNoaktIRnNkNzVwcUFV?=
+ =?utf-8?B?eEI5aWJhOUJQR1RXRTBZTVc4akhrUkVzNE50VDdyV2NEWWhZc3RDajM1dkJn?=
+ =?utf-8?B?cUVDQTJ6Z25CTWJpcXRIRzdHLzNMaWlqK2ozbGcrRmJwZmFmb0orM1N2bEZ0?=
+ =?utf-8?B?Vlhsd0pYdGlNOHF2eTB2dGU0ZzRKKzhtRUlOZUpDRGFVcUREV3dyNVRqV2gv?=
+ =?utf-8?B?QU9hRWlCTDRwQm5KMzRSc0xYVE9iVVo0NTE0aUxrVkhqK2xDL0N5eW1pLzJk?=
+ =?utf-8?B?VjFsdW8vVkRVaTByMDRlWTJCbGFmNXl5Wm1laUg2STE1aEdTTGl4RmZsVGht?=
+ =?utf-8?B?c3RwNzA5TXJQTUNDRmdYZ2Y5UFl1T1gzWWhrVEp1VnAvaENBKzhETUxPeGFF?=
+ =?utf-8?B?VUhFNWdRM0R1Z2hiQ2J2Q3JQUlRCWkczUCszc3QrbzhZMWFsR2k1WjdSUC9y?=
+ =?utf-8?B?TEloV05DVnh4TzB5Z3RKdUg2ZHcySXNaZGZWVkNrb2h5MEd5ZmgxV1pFeGVF?=
+ =?utf-8?B?MTVQbHdiRUFEMDdwcDFMZjdIUzRINmNNZUxhOWtabFg5Qi9qc0lHM3ZLa0Q2?=
+ =?utf-8?B?TGxsNlY0ekZRejg2Lzh6MnhNUDdHRndUOGR0QXR1bGhWMDNZdy9za1JhUEl3?=
+ =?utf-8?B?Sk9iUjRnM2FpV3M1UVlrYjhxQnRZWkl3TU5kWEZUNFlzUlNqQUJKeHBUS1ZZ?=
+ =?utf-8?B?TTZZSysvdEtkeWNDZjRuejZ3MFFLU3YvZE5KQ2F1RENBVVVwUjNUWFVHaU1p?=
+ =?utf-8?B?V2oyZDdZZmJXSFBZOTA4SnBqeWh3bDFkVERib25iYXNJNExPYUowSmpkY09Q?=
+ =?utf-8?B?aTM4ekcxcjJuYWFINzJITElNSTJhRFQ1cWppL2xGSjhXN0YxMUpHNG9WdGps?=
+ =?utf-8?B?VE5xcDhzZ1RmTFFHZU41VUpmZkc5Lzg4Z0xsazVWNjVqMmM0dG5TS1pmRmc5?=
+ =?utf-8?B?dDhpa1RHYkZ0SXloUFNkSTVUbW1ucUdkRFBkNURmaXRsclhRUzFoV1BQTVk1?=
+ =?utf-8?Q?2MPxbXdsViU=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?anJodVJyVW5maHh6ekpZTVlWamxsUHFNSXo2WURlRXRkZnZ2Qm42OVNyNE9j?=
+ =?utf-8?B?bXU1THJNNENobXR6dGh2d0hXak1TZ0h5dUxpN0IwZFlXRGF1N2JoY24wU2pK?=
+ =?utf-8?B?NnBRc0VwMTd3VDRodGVxbGJabW1oRDRGSThiRHp1RnIyeUxrdzN1RUhpVXdE?=
+ =?utf-8?B?TnIybEpTenM3OFFkS1M0bHlBYU5JQlJHU1M5eGJ0VW0rZldvSlRTcHJ6N0VU?=
+ =?utf-8?B?VEJyWnp4OUd5Z2VHUVZJaE5YU0cyRzJMVTFLRFZvUEg2NDRTTzNVeGROM0l6?=
+ =?utf-8?B?ZVJzOG1MNEpIVFlHVlN2ck90TWE1c1pMMERmYzZncW04ODh3QW9adWEwYnVj?=
+ =?utf-8?B?KzZWWG04SnB4WVVScG9mL1NpS0k1UWdMTUp4Mml0OUlXMmlPZEdtWVNiRktC?=
+ =?utf-8?B?ZUl5ZEk3VnV3SUxQKzF6T29ldkdwUFB3dFM4Q3hGaUpRNHc2eDRsbnRJblpv?=
+ =?utf-8?B?SGo5KzRhSjJQdTVvak1aSHVJYzdkbVFHSWRtaCtCMXprV3F0U1JBZWZrelhy?=
+ =?utf-8?B?MW8ySUtFNWlKYmZpSU83cDZ5Tmc3UXRJd1p5M0dWN1JFNmZoMmdsbFduSDhP?=
+ =?utf-8?B?RjMwaXBCZTFQNVBCSGZZUlZKd0JETjV6ZXZHSHdvRUNpeFY0N0hQOHAzRldU?=
+ =?utf-8?B?cEVQL1hJT3pFMUdpU2NGOHdxL3dPemJVLzBVYW1SWHFCZ2d2RmtFeHlPTkZY?=
+ =?utf-8?B?cjJmTTM2WEsxbkhFMFlVdGVubzkyQXllRUluUUNvay9wdzhUQTl0SlU5cFNQ?=
+ =?utf-8?B?NFlpcE42cTZac1BOS3NNdS92NnVaUmlpZ0ZTN2tlZUdob1IzRnBXMktQMTRS?=
+ =?utf-8?B?bE5WcjlHYlNCa1JrYTZueHNYWk9RblltSHJYQitlNjFkb25iQk1nRnZvdFBn?=
+ =?utf-8?B?dHR0VEwxVjMwQXl4RDd4SjEyakZkR2FhVnVBUmZSbkh6SytsRVQ1V2hlRGZN?=
+ =?utf-8?B?RjQ2cFcwMGZmaXA5a00rZGZrV3VXR2NZVnk5bjFmMCtPNFlDUVBtaGRRaWJO?=
+ =?utf-8?B?Q0JsRFUvdlhQMmdHZ0J4VEY4MnZGem4vaE55NjMrSldJVnNlUWFVK1JRTWVH?=
+ =?utf-8?B?NW9ySWZtaVFWdXhnN2xhSHR0andqYjl1YTFVc3JJeXI2VlNwNHhtT3lYekk3?=
+ =?utf-8?B?bkZsSW1BVFBkM1lqSlVVU2xGU3k4SE5mTlgxUE1GdzFoR3A3YmhPc2lBeDhQ?=
+ =?utf-8?B?OUMxUEh4TUlKbThuVE94dk5lcEFlN3JQZ0JDMVFqZjhQUWNwaXVvYXZJUzVs?=
+ =?utf-8?B?UkxBNTBKY0RtakVGLzYzdUVabCthOTFtanVIMG15d0lDNWt4eUdiZFBvYy80?=
+ =?utf-8?B?SHdsSDZRbUhWeEhqWGM2WElFTHJVb0dCc2lrdHRzc3praGRBSmViV25Wc2Zl?=
+ =?utf-8?B?bktmRVk1S015Wi80RXNLY09OWXZMYURSUTJNNVdBcmZLWnUrRy9MRzlEU1J0?=
+ =?utf-8?B?MVFOTngvR09Db2FsZE0yRjd3OW5CS2VSWVowNkhlNnNYR1o2cHVwRklhT1h4?=
+ =?utf-8?B?TGYwVGY4dFFHVUk3SUFabVovTHdlRXozWmhBRzRaQUFndnpBc3NDRVdaUGwr?=
+ =?utf-8?B?U056cy9NVmZKb005dERHOW9QUFVDZnc5V2F0MzVoUU10am1lTUIvNm9EanlL?=
+ =?utf-8?B?ZjB3cUtSdVNiNzRFRU1DVjhXQzVubTdvUVNJZVhkUFhDZDVvQkh1WCtIMVVD?=
+ =?utf-8?B?VmtBMXo5ZlUyQnZMVnBnMm9vcUpHMnVSNTFHbmtEaHZUNTFDaUF5MUlsMEZN?=
+ =?utf-8?B?VDdJOHdRR3dQZ2JTejFLK1kxY1NRZjVDTVZlNHh1aW0xVXlMUVlWYnYxNHhF?=
+ =?utf-8?B?akV1aVhBOHZycnYrOGhYcnV6OVZoRm1NYlpiZnJNdEp4V1VOVUdrdjNBbUJ4?=
+ =?utf-8?B?Mk1HOWJvOEhQb3hVdkJJTnd3SWJRK2xCeTlsZ3FIMVZhOHFDSjZab2VPcjVN?=
+ =?utf-8?B?Z2ovTHVac3lpRFFmREwrMXQ3eE9TZnlqd3NCeXpjcWNDQnErbGlsNEdVZVVY?=
+ =?utf-8?B?SWQvdm9QNFJhdE1BaGU1cjVPL2N4UU1scE04eTZ4U3FKNzNIenUzclVkWkRv?=
+ =?utf-8?B?YnpYZVIzL09mNkRwczZSano4ZGJuVTBJKzhRZS9JR1A3QmprcmJrY0Q3RWZ1?=
+ =?utf-8?B?cXMvR3kvNlVJODNibjFKN3NQVVVvOFgrV3JTUTBjOGtPbi9CUmEzc2ZVNDBQ?=
+ =?utf-8?Q?OdMbeSDtY+XRb/gdsJ8yY7Y=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 80f8a0ae-2cdc-4d5c-d032-08dde4d55e54
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Aug 2025 19:18:42.0820
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: BDrE1HbCZaQncVmXDM5cAj64Ht9Q2jgJdg602R+0n2z28XarqEM7W4lLmNSG+cTTvZ/d+MFJpQYbcIaPG1YMfWIh7U2SCA3H2fcs5mvR8cE=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MWHPR01MB8725
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_115813_346019_B7DF3578 
-X-CRM114-Status: GOOD (  26.39  )
+X-CRM114-CacheID: sfid-20250826_121848_889014_73637AE8 
+X-CRM114-Status: GOOD (  23.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,64 +194,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 21, 2025, Oliver Upton wrote:
-> Hey Sean,
-> 
-> On Thu, Aug 21, 2025 at 02:00:31PM -0700, Sean Christopherson wrote:
-> > Add and use a kvm_page_fault structure to track state when handling a
-> > guest abort.  Collecting everything in a single structure will enable a
-> > variety of cleanups (reduce the number of params passed to helpers), and
-> > will pave the way toward using "struct kvm_page_fault" in arch-neutral KVM
-> > code, e.g. to consolidate logic for KVM_EXIT_MEMORY_FAULT.
-> > 
-> > No functional change intended.
-> > 
-> > Cc: James Houghton <jthoughton@google.com>
-> > Link: https://lore.kernel.org/all/20250618042424.330664-1-jthoughton@google.com
-> > Signed-off-by: Sean Christopherson <seanjc@google.com>
-> > ---
-> >  arch/arm64/include/asm/kvm_host.h |  18 ++++
-> >  arch/arm64/kvm/mmu.c              | 143 ++++++++++++++----------------
-> >  2 files changed, 87 insertions(+), 74 deletions(-)
-> > 
-> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> > index 2f2394cce24e..4623cbc1edf4 100644
-> > --- a/arch/arm64/include/asm/kvm_host.h
-> > +++ b/arch/arm64/include/asm/kvm_host.h
-> > @@ -413,6 +413,24 @@ struct kvm_vcpu_fault_info {
-> >  	u64 disr_el1;		/* Deferred [SError] Status Register */
-> >  };
-> >  
-> > +struct kvm_page_fault {
-> > +	const u64 esr;
-> > +	const bool exec;
-> > +	const bool write;
-> > +	const bool is_perm;
-> 
-> Hmm... these might be better represented as predicates that take a
-> pointer to this struct and we just compute it based on ESR. That'd have
-> the benefit in the arch-neutral code where 'struct kvm_page_fault' is an
-> opaque type and we don't need to align field names/types.
 
-We'd need to align function names/types though, so to some extent it's six of one,
-half dozen of the other.  My slight preference would be to require kvm_page_fault
-to have certain fields, but I'm ok with making kvm_page_fault opaque to generic
-code and instead adding arch APIs.  Having a handful of wrappers in x86 isn't the
-end of the world, and it would be more familiar for pretty much everyone.
 
-> > +	phys_addr_t fault_ipa; /* The address we faulted on */
-> > +	phys_addr_t ipa; /* Always the IPA in the L1 guest phys space */
-> 
-> NYC, but this also seems like a good opportunity to rename + retype
-> these guys. Specifically:
-> 
-> 	fault_ipa => ipa
-> 	ipa => canonical_ipa
-> 
-> would clarify these and align with the verbiage we currently use to talk
-> about nested.
+On 8/25/25 12:31 AM, Kevin Brodsky wrote:
+> On 21/08/2025 19:29, Yang Shi wrote:
+>> Hi Kevin,
+>>
+>> On 8/15/25 1:54 AM, Kevin Brodsky wrote:
+>>> This is a proposal to leverage protection keys (pkeys) to harden
+>>> critical kernel data, by making it mostly read-only. The series includes
+>>> a simple framework called "kpkeys" to manipulate pkeys for in-kernel
+>>> use,
+>>> as well as a page table hardening feature based on that framework,
+>>> "kpkeys_hardened_pgtables". Both are implemented on arm64 as a proof of
+>>> concept, but they are designed to be compatible with any architecture
+>>> that supports pkeys.
+>> [...]
+>>
+>>> Note: the performance impact of set_memory_pkey() is likely to be
+>>> relatively low on arm64 because the linear mapping uses PTE-level
+>>> descriptors only. This means that set_memory_pkey() simply changes the
+>>> attributes of some PTE descriptors. However, some systems may be able to
+>>> use higher-level descriptors in the future [5], meaning that
+>>> set_memory_pkey() may have to split mappings. Allocating page tables
+>> I'm supposed the page table hardening feature will be opt-in due to
+>> its overhead? If so I think you can just keep kernel linear mapping
+>> using PTE, just like debug page alloc.
+> Indeed, I don't expect it to be turned on by default (in defconfig). If
+> the overhead proves too large when block mappings are used, it seems
+> reasonable to force PTE mappings when kpkeys_hardened_pgtables is enabled.
+>
+>>> from a contiguous cache of pages could help minimise the overhead, as
+>>> proposed for x86 in [1].
+>> I'm a little bit confused about how this can work. The contiguous
+>> cache of pages should be some large page, for example, 2M. But the
+>> page table pages allocated from the cache may have different
+>> permissions if I understand correctly. The default permission is RO,
+>> but some of them may become R/W at sometime, for example, when calling
+>> set_pte_at(). You still need to split the linear mapping, right?
+> When such a helper is called, *all* PTPs become writeable - there is no
+> per-PTP permission switching.
 
-Heh, I'm so screwed.  x86's use of "canonical" is wildly different.  I can add
-a patch to do those renames (I think doing an "opportunistic" rename would be a
-bit much).
+OK, so all PTPs in the same contiguous cache will become writeable even 
+though the helper (i.e. set_pte_at()) is just called on one of the 
+PTPs.  But doesn't it compromise the page table hardening somehow? The 
+PTPs from the same cache may belong to different processes.
+
+Thanks,
+Yang
+
+>
+> PTPs remain mapped RW (i.e. the base permissions set at the PTE level
+> are RW). With this series, they are also all mapped with the same pkey
+> (1). By default, the pkey register is configured so that pkey 1 provides
+> RO access. The net result is that PTPs are RO by default, since the pkey
+> restricts the effective permissions.
+>
+> When calling e.g. set_pte(), the pkey register is modified to enable RW
+> access to pkey 1, making it possible to write to any PTP. Its value is
+> restored when the function exit so that PTPs are once again RO.
+>
+> - Kevin
+
 
