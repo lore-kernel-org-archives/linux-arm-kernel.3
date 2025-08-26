@@ -4,121 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23795CA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 17:18:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1409CA0FE7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 17:23:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Message-ID:Date:
+	In-Reply-To:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sIIY+Ur2rqJSQSBwUezrJ90xeU4rtN9bpG3yYRpDXzA=; b=fhg7qSi/6UAXQd/TqyCaMc4Vna
-	lv9ibTcIyOHvdQVJFaFDHN5MvnTdDhACPS3KhhebEEbD9ID2eBns2ATQRd45gUMtJyagGO3J0HoA/
-	W7Te8pRtpwGIpcXjkdpQWubFPxAWfWSFJUCxOGuN+IGwuRqF5ucvTItJPIyRjdB4izZVqaG0tbyBx
-	2Z9d1C/yixHqjxzWgGwCrNhHWFmM70xgZLij78uSf1It6Y7GIWjyO0bAj3zEK0lfP8tXYR2wPLWWC
-	9s0Xe6zb1mdgbUGthFcOH23SEWnQCcBDtZidsZVCeXttwtfgp48Vw3RXpdWa8B8XKPj7dk+MzEu3+
-	6FthVOxw==;
+	bh=x7YHGBfWDVADI2xpT7SSYdJvgJ+u1HlsYJPIUxDj/3o=; b=1/eefzTucBA6NxqH28G6I+oAjS
+	9R0bIwpBACNQVGqbbB6R8QzgFqkNENMLbmhrqk5d9KjB9baonZJFkhvFU8LKxBl4XnXzgHSG54DPu
+	SDsbjQDUy+OCdjuYKpGbILk8WnTmXMG/XpNkLOOvECm2ihE7l0EQMc4ElFvTZ3eQ4umWbVybOP3Ua
+	T8pDrMPdmQM6s4KdZCsM/TeDEJV5Fxh6wehbnBgjLLG8GFFgdQx5CYooURRLAZw7wi/+Izyr0ZyM4
+	n0u080/TnJ3vP9Hea8A4CRKCTAD9mKTJnkPfRc60ioQXRtdpehntIqeioeKp1EDlhzwAYzF7eUMX+
+	/dMEqj6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqxJQ-0000000Ck96-1ieC;
-	Tue, 26 Aug 2025 17:18:24 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uqxOA-0000000Cl4J-1Zm2;
+	Tue, 26 Aug 2025 17:23:18 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqxG5-0000000Cjig-3XdJ
+	id 1uqwGY-0000000CbEC-023b
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 17:14:59 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57QDfZlw013270
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 17:14:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=sIIY+Ur2rqJSQSBwUezrJ90x
-	eU4rtN9bpG3yYRpDXzA=; b=HEqDWIIz/efIx5MBARqcKHWuPgHxgk4tMAm6oh6I
-	++GWgbsFKgkkr3/CttCsmJ2I9tmQFIE+1tV613LvgckmMOMGxylPNxOOMLYv+5fe
-	1XC50jWzSd7swI52CiaIKg60OVxe49bo0uyElkQbneIXRqBgZ4CM2du+6NAPxW+5
-	kV1QMMZcXfsCLU0HVmUcAbHVCbNSmT+EWBY/0dYKDiZMjkU1dpGtPBXM7OVg5Oe5
-	cS3NRaMtilkYWb5v3Jf23ZLzZy+DKy1yPmV3zDcmI9SDRxxBp4n28UVcIM3kss5L
-	uYFAjewYYPqRgIeokFpV3LRYfMTeFc5QGL1PQUgPcw59/Q==
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48q5xpswwt-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 17:14:56 +0000 (GMT)
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-246cf6af36dso28849805ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 10:14:56 -0700 (PDT)
+	Tue, 26 Aug 2025 16:11:23 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2445827be70so57990015ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 09:11:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756224681; x=1756829481; darn=lists.infradead.org;
+        h=references:message-id:date:in-reply-to:subject:cc:to:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=x7YHGBfWDVADI2xpT7SSYdJvgJ+u1HlsYJPIUxDj/3o=;
+        b=SjY/0nkZ+5J2+X2zg3jaa8NoYasSD1DViBKcU3LnHeorNr1w7uAsS/gHFpTR0nWalW
+         WGPbu+85lqIvkvZzpXFtfEjJSTiTwX4Mwv9ezvakd6+lxMqeBt9Rel9NyvREawVC1NAv
+         tMe2gqmJXZvUC8AxrlatWxp3MWhxvqn1YTiNR/RzPaONMgsAiEtKxbafxLxyg9nkNXat
+         dZfbqvloO+gAMQjy3emzqL9MkLMbil5zQZ2AJVspYim6FftDX4dNSLzSSGLUFf40l16o
+         9zgqjb2bknGjfvgFkL4yXJxUtbo+7e6iqauMa+sxwaX7F+m91LtBQA4M8bINv3FR0XZM
+         9nCw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756228495; x=1756833295;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=sIIY+Ur2rqJSQSBwUezrJ90xeU4rtN9bpG3yYRpDXzA=;
-        b=fbj9gZX3G+9PmLSweVDoC8h/ULh7lDSI6e/ZYOZRe0+tOE9EQygvGKu+JwOi+pgzx8
-         /Nglb56GC0zuCJwStsm+6SC/EuwZhP+iVf6fTGR1Ri79XeQgx3ry6wNnki5Z7FB1adoZ
-         g3NPGzfPxbIJ5Crt0V5o6rQeI6XZeevVrzKJeJdfiV/8Bwm5+jViJh5Wrzzb7iXJIZt/
-         HvkMJ/d3NGXXjtbQHrjEcQ/o1nEPdZkOVPFO+0VlPuIQZeghxF1tGut7LL9BpTMpae5o
-         zQ2LhEW6ahVBkBa3PE5kAZQWEu8jbBxQKw6YNLjOIQAYocvPmOU1Iz2tl6oBRK4+CxTS
-         8bVw==
-X-Forwarded-Encrypted: i=1; AJvYcCXcmndxKxYMtA0UVOIirDHbSZ2HwtAZqtnWbRELCBg6EkSRP44X3rj2DcvxRgLqxiu9FvdNdlCB6nYisZAnOP4M@lists.infradead.org
-X-Gm-Message-State: AOJu0YweIhWS29GcQExeWXXda5d0o2uC/sRfp/OElGPzJIAMTt0Br3Z7
-	F6WdGY6rMGU6goPqTqn+gJikq/6X0G3sYSb66jY/cyZpqHtOJJQBZrWxRKkUCVoOBUZDrMT1j9k
-	CIWFpppgOJklp1moiclmMtso9j5qMJjWRoJEb78z++7tAcl1TEU6SM70nuDqg+xcSL0738nKARg
-	/HrA==
-X-Gm-Gg: ASbGncsIOaQYQMM1xFGQPi+xIXadcoIoicAi8AuFWjB/AiOrZmIk06+yBK1zqBI2iYj
-	53YBMIPT3byrMpbu8sh8p2k+L/nv0d2vcbLVlwMsX91ndJ8DiTBHxH44TUhWuUbH54ehK7gqSM0
-	1x+/SgmJZHpMSYft2E+cdxwdcVARQgw5Iq/V2Ypo0o58kzPZY4oxn/SVm4PJryn9KUzAG+qr2QD
-	RyEgs6jl0sR92HKZG8lkMBvyUKQqm3H0uj1ShkH5kotOCgVnfThYyPLvVrCy3MuRRxuxjUp1Ac0
-	l0h2lkxUCw5PAts0LfVLe4qcAUnSFOrOBPuqN31iHZRinYk9mCysEp5y2ZkpP8JU0NQ=
-X-Received: by 2002:a17:902:ce8b:b0:240:52c8:2564 with SMTP id d9443c01a7336-2462ee8e8f4mr245573605ad.26.1756228494735;
-        Tue, 26 Aug 2025 10:14:54 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGHntt0G+q9NMI/UOZT8ywGbkhH4ZHMChCz25hbho9klF3RDxKSos+Um1MoE6z7OkYJ8G1s4w==
-X-Received: by 2002:a17:902:ce8b:b0:240:52c8:2564 with SMTP id d9443c01a7336-2462ee8e8f4mr245573115ad.26.1756228494074;
-        Tue, 26 Aug 2025 10:14:54 -0700 (PDT)
-Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-246688801bdsm101007075ad.123.2025.08.26.10.14.50
+        d=1e100.net; s=20230601; t=1756224681; x=1756829481;
+        h=references:message-id:date:in-reply-to:subject:cc:to:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=x7YHGBfWDVADI2xpT7SSYdJvgJ+u1HlsYJPIUxDj/3o=;
+        b=YMwOmeEYDQyK3nQB1wjFkt54sIH1PKCiKybyjyxRm3qg77qb2jYQBcVrkqlxCszJVR
+         XxWe9ygjpkeIEMVpqFVR8NttxPnJHLU7Jw4dp2S7EaYw8OZcrX7mhkNaZFK1//+6qyBN
+         ZeRHNj3aGlkdcQCO5gohFc/oppnhro7JQ+/1ankx/UwMBajjduvgYAswHkhlELJenWR/
+         hiAzJugxj+uxg+nga45mdmtG4wneGWpfFe5JkoOtCVUHj5Vx4QPMt2A6yH6rVn3RLmdO
+         MocH2X4sFjL78EZ1eF2w5C/jw8x43dYIm2+y0PS6C7o4f/VEXxrjShsxO/O/pLi0Wbu/
+         ZP1g==
+X-Forwarded-Encrypted: i=1; AJvYcCVXhpPurqGqwoIbSL53rrm5crIIXHm9V+85Y0p4b/9w8uI4gtepiwXFH9DUtj1+VlT5CBL3XEMw2Gi5eRrhJQPb@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzeg30qYnL9iICn4jbMUVrQla4ON/n0jw8PWiYz/6FwXP5EKonv
+	BPZKbsKxk4DhiX+xCR4J0FIpf5XIBalqtY6b4APlS/7ABN312egtJlrp
+X-Gm-Gg: ASbGncsaHF7ZBvWDiS4Jo0vBgxB4AJJu92t8CCCB4r0gbzgkNza2zn71qD9NrVbhW0E
+	ALIq2aSKfDlHSwVUABv2koQTmOWZi1l8B6VNJB1/bvmaZUcMHhMCJ4TjERYCDK7Hv0FszvEPm4/
+	u9XGM+0DzN1aDPWE2xaLZZDMg/rqQVrLHkGpRfKAuE7pFcHApIKh3bH4MSz35n7yiw+mVqy0Nk1
+	7wZPSuox65acquvPe0VTBIAbbG8t7se7w4e2+9iwsWxfxJ5OjB7L03xaMDHjIQWvV94sPJDITZR
+	+/G4QdZM712Vn+PVKCWeIlud6egtFTaUy0A2dzTvjoUW+LSNnY7kvka1fRTyWIeevsNotL25kGn
+	zVO1BS1PpY0cxYCNGPYNaBg8+
+X-Google-Smtp-Source: AGHT+IG8j7nkE/RFr7BQwCiAtTrjb1Yni0bb2N7tgW2dyTywLJuPO1I0dLGiPUq7BkTRDYyaGss91w==
+X-Received: by 2002:a17:902:f70a:b0:246:d703:cf7f with SMTP id d9443c01a7336-246d703e121mr117052065ad.5.1756224680346;
+        Tue, 26 Aug 2025 09:11:20 -0700 (PDT)
+Received: from dw-tp ([171.76.82.15])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2466885efc8sm99434355ad.90.2025.08.26.09.11.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 Aug 2025 10:14:53 -0700 (PDT)
-Date: Tue, 26 Aug 2025 22:44:47 +0530
-From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-To: Eugen Hristev <eugen.hristev@linaro.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-arch@vger.kernel.org, linux-mm@kvack.org, tglx@linutronix.de,
-        andersson@kernel.org, pmladek@suse.com,
-        linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
-        corbet@lwn.net, mojha@qti.qualcomm.com, rostedt@goodmis.org,
-        jonechou@google.com, tudor.ambarus@linaro.org
-Subject: Re: [RFC][PATCH v2 00/29] introduce kmemdump
-Message-ID: <20250826171447.6w77day5wddppy3s@hu-mojha-hyd.qualcomm.com>
-References: <20250724135512.518487-1-eugen.hristev@linaro.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250724135512.518487-1-eugen.hristev@linaro.org>
-X-Authority-Analysis: v=2.4 cv=KOlaDEFo c=1 sm=1 tr=0 ts=68adeb90 cx=c_pps
- a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=kj9zAlcOel0A:10 a=2OwXVqhp2XgA:10 a=Oh2cFVv5AAAA:8 a=VwQbUJbxAAAA:8
- a=KKAkSRfTAAAA:8 a=vnREMb7VAAAA:8 a=COk6AnOGAAAA:8 a=bLXd17yOAAAA:8
- a=1XWaLZrsAAAA:8 a=349LBZSuyFQcu3wEsZwA:9 a=CjuIK1q_8ugA:10
- a=GvdueXVYPmCkWapjIL-Q:22 a=7KeoIwV6GZqOttXkcoxL:22 a=cvBusfyB2V15izCimMoJ:22
- a=TjNXssC_j7lpFel5tvFf:22 a=XOuVWTVwyKTMzSnUH6Op:22
-X-Proofpoint-GUID: dlDBkW9L4bDV1y19V9Doy6YtO7AlJ4Ey
-X-Proofpoint-ORIG-GUID: dlDBkW9L4bDV1y19V9Doy6YtO7AlJ4Ey
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDAzMyBTYWx0ZWRfX838tVUss86Ie
- 7P4TWKlMUuqqk2uMWNbmSi+9g9G19B9DvdKc4pcbJC8QUbFLO+3Jcmw4Zr5tLusDj8nZtfLK2yp
- tSdu/vGdymbZ4qCey/X8gDbyzp0UktywCePIswQ9Qcbm0xMI67x5fkoMToHanasNpyKC838Lcki
- Sffd/6HBRMd7mom/6KXxEq2J7wpJqOb+Vn4/1D+LRBuepOfHgZi/mBKmSFVc13a8bIyhRr1JvI8
- VMd4wHsxYb8uj4dzMF8zKq1Xzpj4fzPosw6wsFNNXa0vPMOTBMliavQKRZcToRXxWjoPFHo+u4I
- i2HnNXmka3dt2LNQRtxKvxU8Y0qxwH9RdD6wCHIfQokqsOjWgQfRXex0Qe4KJ9OcsQBNy/10NRb
- BzQZt90T
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-26_02,2025-08-26_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 clxscore=1011 bulkscore=0 adultscore=0 phishscore=0
- impostorscore=0 spamscore=0 suspectscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508230033
+        Tue, 26 Aug 2025 09:11:19 -0700 (PDT)
+From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+To: Anshuman Khandual <anshuman.khandual@arm.com>, linux-arm-kernel@lists.infradead.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Mark Brown <broonie@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>, linux-kernel@vger.kernel.org
+Subject: Re: [RFC 3/3] arm64/ptdump: Add ARM64_PTDUMP_CONSOLE
+In-Reply-To: <20250818091436.938517-4-anshuman.khandual@arm.com>
+Date: Tue, 26 Aug 2025 21:16:19 +0530
+Message-ID: <87bjo2qe5w.fsf@gmail.com>
+References: <20250818091436.938517-1-anshuman.khandual@arm.com> <20250818091436.938517-4-anshuman.khandual@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_101457_895903_A608BA8C 
-X-CRM114-Status: GOOD (  49.76  )
+X-CRM114-CacheID: sfid-20250826_091122_046780_ADEC05FF 
+X-CRM114-Status: GOOD (  24.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,282 +92,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 24, 2025 at 04:54:43PM +0300, Eugen Hristev wrote:
-> kmemdump is a mechanism which allows the kernel to mark specific memory
-> areas for dumping or specific backend usage.
-> Once regions are marked, kmemdump keeps an internal list with the regions
-> and registers them in the backend.
-> Further, depending on the backend driver, these regions can be dumped using
-> firmware or different hardware block.
-> Regions being marked beforehand, when the system is up and running, there
-> is no need nor dependency on a panic handler, or a working kernel that can
-> dump the debug information.
-> The kmemdump approach works when pstore, kdump, or another mechanism do not.
-> Pstore relies on persistent storage, a dedicated RAM area or flash, which
-> has the disadvantage of having the memory reserved all the time, or another
-> specific non volatile memory. Some devices cannot keep the RAM contents on
-> reboot so ramoops does not work. Some devices do not allow kexec to run
-> another kernel to debug the crashed one.
-> For such devices, that have another mechanism to help debugging, like
-> firmware, kmemdump is a viable solution.
-> 
-> kmemdump can create a core image, similar with /proc/vmcore, with only
-> the registered regions included. This can be loaded into crash tool/gdb and
-> analyzed.
-> To have this working, specific information from the kernel is registered,
-> and this is done at kmemdump init time, no need for the kmemdump user to
-> do anything.
-> 
-> This version of the kmemdump patch series includes two backend drivers:
-> one is the Qualcomm Minidump backend, and the other one is the Debug Kinfo
-> backend for Android devices, reworked from this source here:
-> https://android.googlesource.com/kernel/common/+/refs/heads/android-mainline/drivers/android/debug_kinfo.c
-> written originally by Jone Chou <jonechou@google.com>
-> 
-> Initial version of kmemdump and discussion is available here:
-> https://lore.kernel.org/lkml/20250422113156.575971-1-eugen.hristev@linaro.org/
-> 
-> Kmemdump has been presented and discussed at Linaro Connect 2025,
-> including motivation, scope, usability and feasability.
-> Video of the recording is available here for anyone interested:
-> https://www.youtube.com/watch?v=r4gII7MX9zQ&list=PLKZSArYQptsODycGiE0XZdVovzAwYNwtK&index=14
-> 
-> The implementation is based on the initial Pstore/directly mapped zones
-> published as an RFC here:
-> https://lore.kernel.org/all/20250217101706.2104498-1-eugen.hristev@linaro.org/
-> 
-> The back-end implementation for qcom_minidump is based on the minidump
-> patch series and driver written by Mukesh Ojha, thanks:
-> https://lore.kernel.org/lkml/20240131110837.14218-1-quic_mojha@quicinc.com/
-> 
-> *** How to use kmemdump with minidump backend on Qualcomm platform guide ***
-> 
-> Prerequisites:
-> Crash tool with target=ARM64 and minor changes required for usual crash mode
-> (minimal mode works without the patch)
-> A patch can be applied from here https://p.calebs.dev/49a048
-> This patch will be eventually sent in a reworked way to crash tool.
-> 
-> Target kernel must be built with :
-> CONFIG_DEBUG_INFO_REDUCED=n ; this will have vmlinux include all the debugging
-> information needed for crash tool.
-> 
-> Otherwise, the kernel requires these as well:
-> CONFIG_KMEMDUMP, CONFIG_KMEMDUMP_COREIMAGE, and the backend
-> CONFIG_KMEMDUMP_QCOM_MINIDUMP_BACKEND
-> 
-> Kernel arguments:
-> Kernel firmware must be set to mode 'mini' by kernel module parameter
-> like this : qcom_scm.download_mode=mini
-> 
-> After the kernel boots, and qcom_minidump module is loaded, everything is ready for
-> a possible crash.
-> 
-> Once the crash happens, the firmware will kick in and you will see on
-> the console the message saying Sahara init, etc, that the firmware is
-> waiting in download mode. (this is subject to firmware supporting this
-> mode, I am using sa8775p-ride board)
-> 
-> Example of log on the console:
-> "
-> [...]
-> B -   1096414 - usb: init start
-> B -   1100287 - usb: qusb_dci_platform , 0x19
-> B -   1105686 - usb: usb3phy: PRIM success: lane_A , 0x60
-> B -   1107455 - usb: usb2phy: PRIM success , 0x4
-> B -   1112670 - usb: dci, chgr_type_det_err
-> B -   1117154 - usb: ID:0x260, value: 0x4
-> B -   1121942 - usb: ID:0x108, value: 0x1d90
-> B -   1124992 - usb: timer_start , 0x4c4b40
-> B -   1129140 - usb: vbus_det_pm_unavail
-> B -   1133136 - usb: ID:0x252, value: 0x4
-> B -   1148874 - usb: SUPER , 0x900e
-> B -   1275510 - usb: SUPER , 0x900e
-> B -   1388970 - usb: ID:0x20d, value: 0x0
-> B -   1411113 - usb: ENUM success
-> B -   1411113 - Sahara Init
-> B -   1414285 - Sahara Open
-> "
-> 
-> Once the board is in download mode, you can use the qdl tool (I
-> personally use edl , have not tried qdl yet), to get all the regions as
-> separate files.
-> The tool from the host computer will list the regions in the order they
-> were downloaded.
-> 
-> Once you have all the files simply use `cat` to put them all together,
-> in the order of the indexes.
-> For my kernel config and setup, here is my cat command : (you can use a script
-> or something, I haven't done that so far):
-> 
-> `cat memory/md_KELF1.BIN memory/md_Kvmcorein2.BIN memory/md_Kconfig3.BIN \
-> memory/md_Kmemsect4.BIN memory/md_Ktotalram5.BIN memory/md_Kcpu_poss6.BIN \
-> memory/md_Kcpu_pres7.BIN memory/md_Kcpu_onli8.BIN memory/md_Kcpu_acti9.BIN \
-> memory/md_Kjiffies10.BIN memory/md_Klinux_ba11.BIN memory/md_Knr_threa12.BIN \
->  memory/md_Knr_irqs13.BIN memory/md_Ktainted_14.BIN memory/md_Ktaint_fl15.BIN \
-> memory/md_Kmem_sect16.BIN memory/md_Knode_dat17.BIN memory/md_Knode_sta18.BIN \
-> memory/md_K__per_cp19.BIN memory/md_Knr_swapf20.BIN memory/md_Kinit_uts21.BIN \
-> memory/md_Kprintk_r22.BIN memory/md_Kprintk_r23.BIN memory/md_Kprb24.BIN \
-> memory/md_Kprb_desc25.BIN memory/md_Kprb_info26.BIN memory/md_Kprb_data27.BIN \
-> memory/md_Krunqueue28.BIN memory/md_Khigh_mem29.BIN memory/md_Kinit_mm30.BIN \
-> memory/md_Kinit_mm_31.BIN memory/md_Kunknown32.BIN memory/md_Kunknown33.BIN \
-> memory/md_Kunknown34.BIN  memory/md_Kunknown35.BIN memory/md_Kunknown36.BIN \
-> memory/md_Kunknown37.BIN memory/md_Kunknown38.BIN memory/md_Kunknown39.BIN \
-> memory/md_Kunknown40.BIN memory/md_Kunknown41.BIN memory/md_Kunknown42.BIN \
-> memory/md_Kunknown43.BIN memory/md_Kunknown44.BIN memory/md_Kunknown45.BIN \
-> memory/md_Kunknown46.BIN memory/md_Kunknown47.BIN  memory/md_Kunknown50.BIN \
-> memory/md_Kunknown51.BIN memory/md_Kunknown52.BIN \
-> memory/md_Kunknown53.BIN > ~/minidump_image`
-> 
-> Once you have the resulted file, use `crash` tool to load it, like this:
-> `./crash --no_modules --no_panic --no_kmem_cache --zero_excluded vmlinux minidump_image`
-> 
-> There is also a --minimal mode for ./crash that would work without any patch applied
-> to crash tool, but you can't inspect symbols, etc.
+Anshuman Khandual <anshuman.khandual@arm.com> writes:
 
-Unfortunately for me, only with --minimal option, I could see the 'log'.
+> Enable early kernel page table dump for debug purpose when required via new
+> config ARM64_PDUMP_CONSOLE. This calls existing ptdump_walk() early on just
+> after ptdump has been initialized with ptdump_init().
 
-./crash --no_modules --no_panic --no_kmem_cache --zero_excluded vmlinux minidump_image
+I happen to stumble upon this while looking for something else related
+to ptdump and was curious to understand where this will be really
+useful? 
 
-WARNING: kernel version inconsistency between vmlinux and dumpfile
+So instead of dumping it via cat /sys/kernel/debug/kernel_page_tables,
+this will dump at early boot during arch setup and before start_kernel().
 
-crash: read error: kernel virtual address: ffffff8ed7f380d8  type: "IRQ stack pointer"
-crash: read error: kernel virtual address: ffffff8ed7f510d8  type: "IRQ stack pointer"
-crash: read error: kernel virtual address: ffffff8ed7f6a0d8  type: "IRQ stack pointer"
-crash: read error: kernel virtual address: ffffff8ed7f830d8  type: "IRQ stack pointer"
-crash: read error: kernel virtual address: ffffff8ed7f9c0d8  type: "IRQ stack pointer"
-crash: read error: kernel virtual address: ffffff8ed7fb50d8  type: "IRQ stack pointer"
-crash: read error: kernel virtual address: ffffff8ed7fce0d8  type: "IRQ stack pointer"
-crash: read error: kernel virtual address: ffffff8ed7fe70d8  type: "IRQ stack pointer"
-crash: read error: kernel virtual address: ffffffc0817c5d80  type: "maple_init read mt_slots"
-crash: read error: kernel virtual address: ffffffc0817c5d78  type: "maple_init read mt_pivots"
-crash: read error: kernel virtual address: ffffff8efb89e2c0  type: "memory section root table"
+I was curious, since this anyway gets enabled only in debug kernels.
+There we can always just boot with minimal busybox image which can jump
+to shell quickly and dump the kernel page tables, correct?
 
-Looks like something more you are using in your setup to make it work.
+Also is ARM64_PTDUMP_CONSOLE config option added on purpose? A kernel cmdline
+like early_ptdump=yes|1|true could come much handy, right?
 
--Mukesh
+(Since I am fixing few issues on powerpc ptdump - hence was just curious
+to know whether this can come useful for me too or not :) )
 
-> 
-> Once you load crash you will see something like this :
-> 
->    KERNEL: /home/eugen/linux-minidump/vmlinux  [TAINTED]
->     DUMPFILE: /home/eugen/new
->         CPUS: 8 [OFFLINE: 7]
->         DATE: Thu Jan  1 02:00:00 EET 1970
->       UPTIME: 00:00:29
->        TASKS: 0
->     NODENAME: qemuarm64
->      RELEASE: 6.16.0-rc7-next-20250721-00029-gf8cffdbf0479-dirty
->      VERSION: #5 SMP PREEMPT Tue Jul 22 18:44:57 EEST 2025
->      MACHINE: aarch64  (unknown Mhz)
->       MEMORY: 34.2 GB
->        PANIC: ""
-> crash> log
-> [    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd4b2]
-> [    0.000000] Linux version 6.16.0-rc7-next-20250721-00029-gf8cffdbf0479-dirty (eugen@eugen-station) (aarch64-none-linux-gnu-gcc (Arm GNU Toolchain 13.3.Rel1 (Build arm-13.24)) 13.3.1 20240614, GNU ld (Arm GNU Toolchain 13.3.Rel1 (Build arm-13.24)) 2.42.0.20240614) #5 SMP PREEMPT Tue Jul 22 18:44:57 EEST 2025
-> 
-> 
-> *** Debug Kinfo backend driver ***
-> I don't have any device to actually test this. So I have not.
-> I hacked the driver to just use a kmalloc'ed area to save things instead
-> of the shared memory, and dumped everything there and checked whether it looks
-> sane. If someone is willing to try it out, thanks ! and let me know.
-> I know there is no binding documentation for the compatible either.
-> 
-> Thanks for everyone reviewing and bringing ideas into the discussion.
-> 
-> Eugen
-> 
-> Changelog since the v1 of the RFC:
-> - Reworked the whole minidump implementation based on suggestions from Thomas Gleixner.
-> This means new API, macros, new way to store the regions inside kmemdump
-> (ditched the IDR, moved to static allocation, have a static default backend, etc)
-> - Reworked qcom_minidump driver based on review from Bjorn Andersson
-> - Reworked printk log buffer registration based on review from Petr Mladek
-> 
-> I appologize if I missed any review comments. I know there is still lots of work
-> on this series and hope I will improve it more and more.
-> Patches are sent on top of next-20250721
-> 
-> Eugen Hristev (29):
->   kmemdump: introduce kmemdump
->   Documentation: add kmemdump
->   kmemdump: add coreimage ELF layer
->   Documentation: kmemdump: add section for coreimage ELF
->   kmemdump: introduce qcom-minidump backend driver
->   soc: qcom: smem: add minidump device
->   init/version: Annotate static information into Kmemdump
->   cpu: Annotate static information into Kmemdump
->   genirq/irqdesc: Annotate static information into Kmemdump
->   panic: Annotate static information into Kmemdump
->   sched/core: Annotate static information into Kmemdump
->   timers: Annotate static information into Kmemdump
->   kernel/fork: Annotate static information into Kmemdump
->   mm/page_alloc: Annotate static information into Kmemdump
->   mm/init-mm: Annotate static information into Kmemdump
->   mm/show_mem: Annotate static information into Kmemdump
->   mm/swapfile: Annotate static information into Kmemdump
->   mm/percpu: Annotate static information into Kmemdump
->   mm/mm_init: Annotate static information into Kmemdump
->   printk: Register information into Kmemdump
->   kernel/configs: Register dynamic information into Kmemdump
->   mm/numa: Register information into Kmemdump
->   mm/sparse: Register information into Kmemdump
->   kernel/vmcore_info: Register dynamic information into Kmemdump
->   kmemdump: Add additional symbols to the coreimage
->   init/version: Annotate init uts name separately into Kmemdump
->   kallsyms: Annotate static information into Kmemdump
->   mm/init-mm: Annotate additional information into Kmemdump
->   kmemdump: Add Kinfo backend driver
-> 
->  Documentation/debug/index.rst      |  17 ++
->  Documentation/debug/kmemdump.rst   | 104 +++++++++
->  MAINTAINERS                        |  18 ++
->  drivers/Kconfig                    |   4 +
->  drivers/Makefile                   |   2 +
->  drivers/debug/Kconfig              |  55 +++++
->  drivers/debug/Makefile             |   6 +
->  drivers/debug/kinfo.c              | 304 +++++++++++++++++++++++++
->  drivers/debug/kmemdump.c           | 239 +++++++++++++++++++
->  drivers/debug/kmemdump_coreimage.c | 223 ++++++++++++++++++
->  drivers/debug/qcom_minidump.c      | 353 +++++++++++++++++++++++++++++
->  drivers/soc/qcom/smem.c            |  10 +
->  include/asm-generic/vmlinux.lds.h  |  13 ++
->  include/linux/kmemdump.h           | 219 ++++++++++++++++++
->  init/version.c                     |   6 +
->  kernel/configs.c                   |   6 +
->  kernel/cpu.c                       |   5 +
->  kernel/fork.c                      |   2 +
->  kernel/irq/irqdesc.c               |   2 +
->  kernel/kallsyms.c                  |  10 +
->  kernel/panic.c                     |   4 +
->  kernel/printk/printk.c             |  28 ++-
->  kernel/sched/core.c                |   2 +
->  kernel/time/timer.c                |   3 +-
->  kernel/vmcore_info.c               |   3 +
->  mm/init-mm.c                       |  12 +
->  mm/mm_init.c                       |   2 +
->  mm/numa.c                          |   5 +-
->  mm/page_alloc.c                    |   2 +
->  mm/percpu.c                        |   3 +
->  mm/show_mem.c                      |   2 +
->  mm/sparse.c                        |  16 +-
->  mm/swapfile.c                      |   2 +
->  33 files changed, 1670 insertions(+), 12 deletions(-)
->  create mode 100644 Documentation/debug/index.rst
->  create mode 100644 Documentation/debug/kmemdump.rst
->  create mode 100644 drivers/debug/Kconfig
->  create mode 100644 drivers/debug/Makefile
->  create mode 100644 drivers/debug/kinfo.c
->  create mode 100644 drivers/debug/kmemdump.c
->  create mode 100644 drivers/debug/kmemdump_coreimage.c
->  create mode 100644 drivers/debug/qcom_minidump.c
->  create mode 100644 include/linux/kmemdump.h
-> 
+Thanks!
+-ritesh
+
+>
+> Suggested-by: Ryan Roberts <ryan.roberts@arm.com>
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
+>  arch/arm64/Kconfig.debug        | 12 ++++++++++++
+>  arch/arm64/include/asm/ptdump.h |  7 +++++++
+>  arch/arm64/kernel/setup.c       |  1 +
+>  arch/arm64/mm/ptdump.c          |  7 +++++++
+>  4 files changed, 27 insertions(+)
+>
+> diff --git a/arch/arm64/Kconfig.debug b/arch/arm64/Kconfig.debug
+> index 265c4461031f..0f8af0dd0f4c 100644
+> --- a/arch/arm64/Kconfig.debug
+> +++ b/arch/arm64/Kconfig.debug
+> @@ -20,4 +20,16 @@ config ARM64_RELOC_TEST
+>  	depends on m
+>  	tristate "Relocation testing module"
+>  
+> +config ARM64_PTDUMP_CONSOLE
+> +	bool "Dump early kernel page table"
+> +	depends on DEBUG_KERNEL
+> +	depends on ARCH_HAS_PTDUMP
+> +	select PTDUMP
+> +	help
+> +	  Enable this option to dump early kernel page table entries during
+> +	  boot using the PTDUMP framework. This helps in examining kernel's
+> +	  page table mapping entries and their attributes etc.
+> +
+> +	  If in doubt, say N.
+> +
+>  source "drivers/hwtracing/coresight/Kconfig"
+> diff --git a/arch/arm64/include/asm/ptdump.h b/arch/arm64/include/asm/ptdump.h
+> index 27e774134e7f..81dc53ca9643 100644
+> --- a/arch/arm64/include/asm/ptdump.h
+> +++ b/arch/arm64/include/asm/ptdump.h
+> @@ -74,8 +74,15 @@ void __init ptdump_debugfs_register(struct ptdump_info *info, const char *name);
+>  static inline void ptdump_debugfs_register(struct ptdump_info *info,
+>  					   const char *name) { }
+>  #endif /* CONFIG_PTDUMP_DEBUGFS */
+> +
+> +#ifdef CONFIG_ARM64_PTDUMP_CONSOLE
+> +void __init arm64_kernel_pgtable_dump(void);
+> +#else
+> +static inline void __init arm64_kernel_pgtable_dump(void) { }
+> +#endif /* CONFIG_ARM64_PTDUMP_CONSOLE */
+>  #else
+>  static inline void __init ptdump_init(void) { }
+> +static inline void __init arm64_kernel_pgtable_dump(void) { }
+>  static inline void note_page(struct ptdump_state *pt_st, unsigned long addr,
+>  			     int level, pteval_t val) { }
+>  static inline void note_page_pte(struct ptdump_state *st, unsigned long addr, pte_t pte) { }
+> diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
+> index 0a3812c8e177..86bf7607d304 100644
+> --- a/arch/arm64/kernel/setup.c
+> +++ b/arch/arm64/kernel/setup.c
+> @@ -361,6 +361,7 @@ void __init __no_sanitize_address setup_arch(char **cmdline_p)
+>  	init_bootcpu_ops();
+>  	smp_init_cpus();
+>  	smp_build_mpidr_hash();
+> +	arm64_kernel_pgtable_dump();
+>  
+>  #ifdef CONFIG_ARM64_SW_TTBR0_PAN
+>  	/*
+> diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
+> index c78e6b496dea..f6d22462add6 100644
+> --- a/arch/arm64/mm/ptdump.c
+> +++ b/arch/arm64/mm/ptdump.c
+> @@ -407,6 +407,13 @@ void __init ptdump_init(void)
+>  	ptdump_initialize();
+>  }
+>  
+> +#ifdef CONFIG_ARM64_PTDUMP_CONSOLE
+> +void __init arm64_kernel_pgtable_dump(void)
+> +{
+> +	ptdump_walk(CONSOLE, &kernel_ptdump_info);
+> +}
+> +#endif
+> +
+>  static int __init ptdump_debugfs_init(void)
+>  {
+>  	ptdump_debugfs_register(&kernel_ptdump_info, "kernel_page_tables");
 > -- 
-> 2.43.0
-> 
-
--- 
--Mukesh Ojha
+> 2.25.1
 
