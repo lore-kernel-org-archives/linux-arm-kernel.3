@@ -4,126 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8564BCA0FE9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 09:31:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53BF7CA0FE9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 09:34:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CfVQerc+uHw+N4krqe/n6SfCqS6EUafruS/6IpTFDa4=; b=yKPG/dridzzKS7KOTJ2ebthujT
-	7FovcwVOlEtDPtugImPH91T6JYLdeT9w6xpEAQpe33PnNwtRa5dzzT0UBOc0+KGZdv6PtqoF7gb2X
-	E6b85P801j8eabdXJmxMbqjEB6tzzBxKh1yJlae51SEh616ce8oY+v6Nm4gNpa/1b9idra7q8YMyz
-	EzReD6fqpJACyUoa+V4DsRyNPYGaYgWQFFQYVd+rB5bBi/HAbPelhaA2XLentAHF5DKGJzxkgDHdb
-	Du3Ov0s2FLTcoYad9t6BL09Y+qB5vY1IYLLwbFNXmdAeoK9Rbfp+D7pakxfcefbbharJUTRAaopn3
-	BKrDMhSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EZLmmxLsJLc5gk0wgGNitzJFT6rBOeESCPORDcRzzpg=; b=Ey2mFMfzOHiT18DTIcTmZtAsLn
+	5+VonR5UF7CalPcC3wHn02f79foN2oDNcOG3ELNhr6tuc5KS4Ohm+QrK3AsOlup6eif9PkSbpH741
+	iKpY0Ro6TfplD77Gk/cOqnX+Dy1M6Gsie/JbZy2DzJDuwofyGJrnF0qHvQXXZjniZEqfwdaM6D3fN
+	gr83ZgFnVg1ycBv7tH9gLupNdGT9Z0Gp/Haqfo4RD9QvmoYwlOKnv7APTkrywosXnX2QvzfGGp0qm
+	tiWZg1r5AXfICILrNz5IyABm1cJqYjUHExMKBozCL0wH+d6kXC5/Eay/Mb0niJvO7oV9RpewcDPVY
+	9NBdscag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqq1X-0000000BPSJ-1Kp0;
-	Tue, 26 Aug 2025 09:31:27 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uqq4F-0000000BQXc-16YX;
+	Tue, 26 Aug 2025 09:34:15 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqpv4-0000000BMkp-2OEv
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 09:24:47 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57Q9Jo3R027023
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 09:24:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	CfVQerc+uHw+N4krqe/n6SfCqS6EUafruS/6IpTFDa4=; b=MsFTymMnI093YRxP
-	U9CBwp95o4AtBT6NO5aEgQ9yvd9CVwwrSzMjZwDx0PhDwPbF0UrfQHjjVa0+QmF+
-	NZbK06MXNPiJm4OlOuYM163DWXlZOt9BbfI6t6pzK6ocy46Y9aCp0L70dlm90NV6
-	yUqvsatYg91DMMyw8WnZyZREPMMVtX0QEIhy8/T8rZEihQSl4Sp0af5Y+6b4u4iu
-	UfVrTEjZj/mn3OfyKD+JXSAgN73N0GJnGGaQNDkTyZ9Po6O5zLkne18rnR4pDH2n
-	Osvq0g8eoTWwOYrYMUqvjCX1/YiS2c4Gh90WwcWtaHJJ5hxY7t0oh2DErM4aiIAB
-	B08kSw==
-Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48s2euhc6t-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 09:24:45 +0000 (GMT)
-Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-771b23c098dso1769297b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 02:24:45 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756200285; x=1756805085;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=CfVQerc+uHw+N4krqe/n6SfCqS6EUafruS/6IpTFDa4=;
-        b=ZAJTDZOW63eBumkNaT09YPp8vLVZErpVlwyzDV4PpfUIRnFMB7nP6MI7ZT+s2fANW3
-         1frqp5DPidkoHZrSVMXzYveVs0bppt5eYcCq4dDtfPCifv1o6EsJfxx4GqhkGOdA8K1w
-         x7oFZ2uGYuDLqe7iFzM59nSuVrjTA7hmdlG0qQpP6/87yqqgWRSpPmUIaA87HHcfR2UW
-         aT0QNJSWL8l3Uzprz1Tst/tlIUDT9ykxuwMReV9aW96Rvi1FcM2CreyQXVbkFP6HuOZM
-         vMLm5iuNQNVcDWbTkltMoC1zaPyvAkhwyGq8OGtyAJZYdmRUf5radrSq64mNRwZACdYK
-         cmsg==
-X-Forwarded-Encrypted: i=1; AJvYcCX82nf+H0gihedYtAnG3YUuZoXDTgIjiwLl1Id8XkqSmLePOVdeKBXP475trLujyCVEe8hoVluSb66rcFP2++EJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxu7rNpkZ/acAptVD32gQ4T7lcx8I5573YUgoeTAgaBrZ8yyfft
-	zuYVZcSRr9gde24Z5vvBZkPa1Pi/ORSsDSYPGcBVTmPAkMAgMjdIFo8KSozwbJryzWjCd21TJvn
-	UujNKzsSJRyynO21P6FjtUeu4lfBAApk+x//eJ3AesOmmLIv6iTvTfvEwzdU6XvuQvnfofVLovH
-	RFFw==
-X-Gm-Gg: ASbGncth1kMgI3/5xM+Eiw0BQUhgmDsN+u9NrFcalvzro0nDRLJiNE6AdHO5WFb3tCG
-	PF7PseXmMmrSE+iCEq9GlB8F37MdsAQnO72m05wMTQoEqz7F6rWCXK39XgAe9KgKDbP5Kwt9b7k
-	Z9gUEEQow6p0oxLdwKEv8oCUqfvGSOwwo7celC7lLt4ylLNNsxq5nJ1kjrgxMqpKtpazBNaa23I
-	XfzHaSrdQJXx6zH5a25lxhHzkptvtVQ+PqSpN45tNbCy7qr0X22CATKettsPFkFS9R4Jv12JWtr
-	1d70e/pVo0Qbv2B/M3KlVSuPXbBQfFae9nV3KEBUZJ9nKXQ1sJJ1dn2WGSLqGu82cAAkg/Tow2f
-	jQh1u2hSPkav/swJiQJkkIegi1Eb4cg==
-X-Received: by 2002:a05:6a20:3d1c:b0:23d:c4c6:f406 with SMTP id adf61e73a8af0-24340e06848mr21993641637.43.1756200285019;
-        Tue, 26 Aug 2025 02:24:45 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFpqloeXmXwEVuJtSSmRHXdt1+2U4Mw4rv0BI++2B779xAglt/pCmwtRWFeQCFBd0qp95/NUQ==
-X-Received: by 2002:a05:6a20:3d1c:b0:23d:c4c6:f406 with SMTP id adf61e73a8af0-24340e06848mr21993602637.43.1756200284591;
-        Tue, 26 Aug 2025 02:24:44 -0700 (PDT)
-Received: from [10.133.33.155] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b4b23a2e8e0sm5281035a12.49.2025.08.26.02.24.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 26 Aug 2025 02:24:44 -0700 (PDT)
-Message-ID: <2c542b10-ba75-4e75-a2cf-964edfbac52a@oss.qualcomm.com>
-Date: Tue, 26 Aug 2025 17:24:40 +0800
+	id 1uqpvm-0000000BN1W-0w1c;
+	Tue, 26 Aug 2025 09:25:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=EZLmmxLsJLc5gk0wgGNitzJFT6rBOeESCPORDcRzzpg=; b=FRQv3YmSJgzipze9JFAMvq5qaC
+	V+BTLxR6lVRumi2AL350wCzKmYriTjqDERiPQ8fkSOaWtjnf96MWR9yPaq1moY8E4L25h9oVBja1U
+	4OBeidVNFkPVGjsDFObo2qaXiuW33nT3kXqrox3kqzJqf2cnlOVokin8LljE+xdW0idr0Q5GLpNn6
+	Arz2vEN6a0tlpRggAplvBJwn2GjUO6NHqyB23Ea/i3VgpCPO2VWnxbjiE3mMvrieDsXiZogBpRsBz
+	iXcGxvpU2GJPFL5VATHFIoU8FeqZlH7eknIg1AyGmF+esZcv8Q6re+A2HSTJb7ZhD1y51p9xyoiNP
+	VFhdIK0g==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:51124)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1uqpvQ-000000007eE-0erY;
+	Tue, 26 Aug 2025 10:25:08 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1uqpvJ-0000000017V-3YDI;
+	Tue, 26 Aug 2025 10:25:01 +0100
+Date: Tue, 26 Aug 2025 10:25:01 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>,
+	Chaoyi Chen <kernel@airkyi.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jonas Karlman <jonas@kwiboo.se>, David Wu <david.wu@rock-chips.com>,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH net-next v3] net: ethernet: stmmac: dwmac-rk: Make the
+ clk_phy could be used for external phy
+Message-ID: <aK19bSmrbXjoVXdO@shell.armlinux.org.uk>
+References: <20250815023515.114-1-kernel@airkyi.com>
+ <CGME20250825072312eucas1p2d4751199c0ea069c7938218be60e5e93@eucas1p2.samsung.com>
+ <a30a8c97-6b96-45ba-bad7-8a40401babc2@samsung.com>
+ <d0fe6d16-181f-4b38-9457-1099fb6419d0@rock-chips.com>
+ <809848c9-2ffa-4743-adda-b8b714b404de@samsung.com>
+ <aKxnHFSrVeM7Be5A@shell.armlinux.org.uk>
+ <8240a3cc-aade-40d8-b2f4-09681f76be68@rock-chips.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/3] coresight: tpda: Add sysfs node for tpda
- cross-trigger configuration
-To: James Clark <james.clark@linaro.org>, Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
- <mike.leach@linaro.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
-References: <20250826070150.5603-1-jie.gan@oss.qualcomm.com>
- <20250826070150.5603-2-jie.gan@oss.qualcomm.com>
- <ef2267d2-a6f4-4f51-be44-687a4074a4d3@linaro.org>
-Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <ef2267d2-a6f4-4f51-be44-687a4074a4d3@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: AYIJe2anVBN1HbMdHLJUluyucSHFyPcf
-X-Proofpoint-GUID: AYIJe2anVBN1HbMdHLJUluyucSHFyPcf
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODI2MDAwMSBTYWx0ZWRfXz0kr9SRS0Brf
- X7inOdSrfwMMV4h6bC+mEkJKFnX2+F++F0giLDsV3uk5PDN8O1mtoR/bdQlN9nmCSlKbHVrzAG+
- F5rfmv2zMOEBbWNV24/mZPuArp2e3w94IfpR2UK0llU8T7inwcuvIiutmBO0XGZkwDUqeAFUNVq
- Gj0MvDbDTSYoKSJEH9CRoxvK2PCOW1PG6cMhOg8K31RMMFuix9aI8K38g+CrsiakGawaRCnqQUL
- MHiV/l/FMIt6WQ9AIjjbYKiLH9J8uSgboXOFJ4drrcmj23xeP479oPiCW/BZIA2zXh3qXuuvm9A
- tXWL/9ceCgK2HEwTRcjLVPJ6M+xeIPfnh22uD3zXRXUN/cq3exAeCnyyxXIWXD7pUt/ZWAqAJoc
- QOWEK6Ql
-X-Authority-Analysis: v=2.4 cv=PJUP+eqC c=1 sm=1 tr=0 ts=68ad7d5e cx=c_pps
- a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=EUspDBNiAAAA:8 a=ytvvUmyFbC-rj0LgiQgA:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=OpyuDcXvxspvyRM73sMx:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-26_02,2025-08-26_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 impostorscore=0 phishscore=0 priorityscore=1501 spamscore=0
- adultscore=0 clxscore=1015 malwarescore=0 bulkscore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2508260001
+In-Reply-To: <8240a3cc-aade-40d8-b2f4-09681f76be68@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_022446_620475_4002B8BA 
-X-CRM114-Status: GOOD (  16.71  )
+X-CRM114-CacheID: sfid-20250826_022530_542777_CEB3C831 
+X-CRM114-Status: GOOD (  32.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,65 +95,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 8/26/2025 5:17 PM, James Clark wrote:
+On Tue, Aug 26, 2025 at 04:08:40PM +0800, Chaoyi Chen wrote:
+> Hi Russell,
 > 
+> On 8/25/2025 9:37 PM, Russell King (Oracle) wrote:
+> > On Mon, Aug 25, 2025 at 12:53:37PM +0200, Marek Szyprowski wrote:
+> > > On 25.08.2025 11:57, Chaoyi Chen wrote:
+> > > > On 8/25/2025 3:23 PM, Marek Szyprowski wrote:
+> > > > > On 15.08.2025 04:35, Chaoyi Chen wrote:
+> > > > > > From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> > > > > > 
+> > > > > > For external phy, clk_phy should be optional, and some external phy
+> > > > > > need the clock input from clk_phy. This patch adds support for setting
+> > > > > > clk_phy for external phy.
+> > > > > > 
+> > > > > > Signed-off-by: David Wu <david.wu@rock-chips.com>
+> > > > > > Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> > > > > > ---
+> > > > > > 
+> > > > > > Changes in v3:
+> > > > > > - Link to V2:
+> > > > > > https://lore.kernel.org/netdev/20250812012127.197-1-kernel@airkyi.com/
+> > > > > > - Rebase to net-next/main
+> > > > > > 
+> > > > > > Changes in v2:
+> > > > > > - Link to V1:
+> > > > > > https://lore.kernel.org/netdev/20250806011405.115-1-kernel@airkyi.com/
+> > > > > > - Remove get clock frequency from DT prop
+> > > > > > 
+> > > > > >     drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 11 +++++++----
+> > > > > >     1 file changed, 7 insertions(+), 4 deletions(-)
+> > > > > > 
+> > > > > > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> > > > > > b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> > > > > > index ac8288301994..5d921e62c2f5 100644
+> > > > > > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> > > > > > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> > > > > > @@ -1412,12 +1412,15 @@ static int rk_gmac_clk_init(struct
+> > > > > > plat_stmmacenet_data *plat)
+> > > > > >             clk_set_rate(plat->stmmac_clk, 50000000);
+> > > > > >         }
+> > > > > >     -    if (plat->phy_node && bsp_priv->integrated_phy) {
+> > > > > > +    if (plat->phy_node) {
+> > > > > >             bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
+> > > > > >             ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
+> > > > > > -        if (ret)
+> > > > > > -            return dev_err_probe(dev, ret, "Cannot get PHY clock\n");
+> > > > > > -        clk_set_rate(bsp_priv->clk_phy, 50000000);
+> > > > > > +        /* If it is not integrated_phy, clk_phy is optional */
+> > > > > > +        if (bsp_priv->integrated_phy) {
+> > > > > > +            if (ret)
+> > > > > > +                return dev_err_probe(dev, ret, "Cannot get PHY
+> > > > > > clock\n");
+> > > > > > +            clk_set_rate(bsp_priv->clk_phy, 50000000);
+> > > > > > +        }
+> > > > I think  we should set bsp_priv->clk_phy to NULL here if we failed to
+> > > > get the clock.
+> > > > 
+> > > > Could you try this on your board? Thank you.
+> > > Right, the following change also fixes this issue:
+> > > 
+> > > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> > > b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> > > index 9fc41207cc45..2d19d48be01f 100644
+> > > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> > > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> > > @@ -1415,6 +1415,8 @@ static int rk_gmac_clk_init(struct
+> > > plat_stmmacenet_data *plat)
+> > >           if (plat->phy_node) {
+> > >                   bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
+> > >                   ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
+> > > +               if (ret)
+> > > +                       bsp_priv->clk_phy = NULL;
+> > Or just:
+> > 
+> > 		clk = of_clk_get(plat->phy_node, 0);
+> > 		if (clk == ERR_PTR(-EPROBE_DEFER))
 > 
-> On 26/08/2025 8:01 am, Jie Gan wrote:
->> From: Tao Zhang <tao.zhang@oss.qualcomm.com>
->>
->> Introduce sysfs nodes to configure cross-trigger parameters for TPDA.
->> These registers define the characteristics of cross-trigger packets,
->> including generation frequency and flag values.
->>
->> Signed-off-by: Tao Zhang <tao.zhang@oss.qualcomm.com>
->> Co-developed-by: Jie Gan <jie.gan@oss.qualcomm.com>
->> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
->> ---
->> Â  .../testing/sysfs-bus-coresight-devices-tpdaÂ  |Â  43 ++++
->> Â  drivers/hwtracing/coresight/coresight-tpda.cÂ  | 241 ++++++++++++++++++
->> Â  drivers/hwtracing/coresight/coresight-tpda.hÂ  |Â  27 ++
->> Â  3 files changed, 311 insertions(+)
->> Â  create mode 100644 Documentation/ABI/testing/sysfs-bus-coresight- 
->> devices-tpda
->>
-> [...]
->> +#define TPDA_FPID_CRÂ Â Â Â Â Â Â  (0x084)
->> +
->> +/* Cross trigger FREQ packets timestamp bit */
->> +#define TPDA_CR_FREQTSÂ Â Â Â Â Â Â  BIT(2)
->> +/* Cross trigger FREQ packet request bit */
->> +#define TPDA_CR_FRIEÂ Â Â Â Â Â Â  BIT(3)
->> +/* Cross trigger FLAG packet request interface bit */
->> +#define TPDA_CR_FLRIEÂ Â Â Â Â Â Â  BIT(4)
->> +/* Cross trigger synchronization bit */
->> +#define TPDA_CR_SRIEÂ Â Â Â Â Â Â  BIT(5)
->> +/* Packetize CMB/MCMB traffic bit */
->> +#define TPDA_CR_CMBCHANMODEÂ Â Â  BIT(20)
->> +
->> Â  /* Aggregator port enable bit */
->> Â  #define TPDA_Pn_CR_ENAÂ Â Â Â Â Â Â  BIT(0)
->> Â  /* Aggregator port CMB data set element size bit */
->> Â  #define TPDA_Pn_CR_CMBSIZEÂ Â Â Â Â Â Â  GENMASK(7, 6)
->> Â  /* Aggregator port DSB data set element size bit */
->> Â  #define TPDA_Pn_CR_DSBSIZEÂ Â Â Â Â Â Â  BIT(8)
->> +/* Mode control bit */
->> +#define TPDA_MODE_CTRLÂ Â Â Â Â Â Â Â Â Â Â  BIT(12)
-> 
-> This one is missing the register name prefix, like TPDA_SYNCR_MODE_CTRL
+> Do we actually need this? Maybe other devm_clk_get() before it would fail in advance.
 
-Yes, you are right. Besides, I made a mistake here. I should put this 
-Macro in patchset 2.
+Is it the same clock as devm_clk_get()? If it is, what's the point of
+getting it a second time. If it isn't, then it could be a different
+clock which may be yet to probe.
 
-Anyway, I will fix it in next version.
-
-Thanks,
-Jie
-
-> 
-> 
-> 
-> 
-
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
