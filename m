@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FF40CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 09:25:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 034A3CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 09:28:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bARKiXzA6hGcwZbah7s5OpMlMCRfJH9Ze1dsDZvGjrI=; b=w1MA1MgbBkDdgqzU8XVwUuipH2
-	rblC2Y/I8g0z5EJuGurjZrzvmU+MelD2v1/lE32QT2FqqYeFHIvCQt7MWJk8Of3vza3XRmPj2+b4k
-	p50N5bNne4520JydYMG3U6jCCMqLePGqUUieHMnsm4eBnzwttkvBOJvT1gPCWGybci9WT9JM9GWFg
-	hlzQajWu9PWWkUDHnVCN9yaSkf2q7/BxY1HWTMNpMK4WHat7XmXUqCMhUCgCO1W1O76UGHKUs5li9
-	s6fwX+arKg0d5pZWcHiWTNqHp14rtfgnkkdwYjGgHkDf3eTtPoq/x+Y5CKOnmEqbOw3AQ/H/KWkWs
-	ZwUwOaoQ==;
+	bh=eaOTCniziyeazJJYkYE2FSNDiQRbUyarefsu1PbqX/E=; b=J70/9T6BG5X66U3G2Tn2/Rs5i1
+	K8s973eWhLBG8W5l9lxXD84LJV0r8jbWXP5IOBmxGKIL7jy5YcU/wVyWBtIyXnxBvhjpT+10gYrYl
+	igCs1xNIIfvPGxxOq3DMGYKnWYo0ugFiZ1fAWDtgNGRtGwuRNtA4rkGnenwaE4NslhgLmkxgyap6q
+	ZPwMqgb7JcGmsWQgy3Vu/GgxxZZR6R5O+v8H2DOB1BbGeleoRneDWv/L25oyId5eBKyAw0Lh14J6r
+	zl4+IJn4mD+Yyv91TMWckSGrgUn81hUPPVwzpjWtxM9+MoMBawTzNduCK84X59AJdUQqgbiyTugsu
+	tt5mFBkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqpw8-0000000BNAa-1o3m;
-	Tue, 26 Aug 2025 09:25:52 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1uqpyo-0000000BOOC-1Co6;
+	Tue, 26 Aug 2025 09:28:38 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqpoY-0000000BJuZ-3jKZ
+	id 1uqpqb-0000000BKkF-3wlP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 09:18:04 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3c79f0a5c5fso2060703f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 02:18:02 -0700 (PDT)
+	Tue, 26 Aug 2025 09:20:11 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3c7aa4ce85dso1513378f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 02:20:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756199881; x=1756804681; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1756200008; x=1756804808; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=bARKiXzA6hGcwZbah7s5OpMlMCRfJH9Ze1dsDZvGjrI=;
-        b=b+QIKgRiuGBNPF6ujOfqch5zLbJwnFDuLjz9gUtlp2cx/5jqllv9OuIOV+TdtPnP2k
-         g3X5InwijJnw++tXxBu6pu1T3l17UriPyJX1VXbxN5RpUC7tO71v+M1lYlCjL92MPUtv
-         1lTuz9jcLcGgHicaR78KQhWO87TXgNODisj27QmoAxjARvI1wK3D0/uEGasuncJUHX1k
-         La0bPYGwt2bUb0j+LYSKHylf+zbBTyU6jVYtegGfDv5G6VYhTyOPgD/A0rhxm9gxvfu2
-         +y/Frd7K3Wea8JL8yD6FSBBjdUDbawjdlNnqHwZ4gs63lg1MauQG+agQm7Jf4fAC1pNC
-         7IDQ==
+        bh=eaOTCniziyeazJJYkYE2FSNDiQRbUyarefsu1PbqX/E=;
+        b=XeVePUoF91RQggTnOfsOPDmPHr0aTZnpn5J+1IcsfLIHCLK0tPNQZVAQncWqfRfsfw
+         TqyNW1KlvDm0YfVcIGX76nedD70gTyvaEwiI1wZAjxwIrZoOtGh9DT50X08NJW+128d1
+         NLmT0Mpb0jOEh82QavpRNpcizQvj3Jw53e5enSxV89k5kn5DOIovcT81/Ie4QUYWMM3M
+         DWPDgqhM08JO1TOYdm1z5pIBF+ZPiH0zlC1KwrDVH8Bc1wwtqgzHHasgOPW2M+g+iIWS
+         /1dl/Oz3atuPIUezEeUB5OFGwOWkcyFAIk4kvfkvTepqlktfyZ12/KWcDCyuX3gw6X7y
+         O8bw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756199881; x=1756804681;
+        d=1e100.net; s=20230601; t=1756200008; x=1756804808;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=bARKiXzA6hGcwZbah7s5OpMlMCRfJH9Ze1dsDZvGjrI=;
-        b=Ta2Dhgkc9eqGJV45t4NA6e1uKfNMUJoZAZoAPtXfHiaKsu7Ct2SX75n9yd+g8L4Gs+
-         zWeM7/vVQrCRzy1jLvf3e9eOGMvTpkTgx6hzHf0LpaFPGg5BgWXZSTKPSbm131uhdT4G
-         KOEjh/2i8bhygZg0Z414qSWiNQdOcU2WETGTt8s28sPUziyqw5qCdvh6O36RcNRK7E7U
-         mS6OEsKnLOtMjkakpwWYwK9Zsv2TYKPvsYk8qmyaEL8sBZo8iZiGfUWMgxxaboS6bRXh
-         uHpgzCycwNga6Fzd/5q5SRv/FecpTNoUNAaAQZcK8N/gQc5GnR5p1p4IZtkyyoWSjMBg
-         jfrw==
-X-Forwarded-Encrypted: i=1; AJvYcCV+BQKZX4CXmG6Sw1IGua1gs9MCo8EucOLLoL1NNaic0XtSwZzGy1RKvojW84mY63KFso/PIskSk+iQPsRvzSgU@lists.infradead.org
-X-Gm-Message-State: AOJu0YyB1Uar1ykshngioVOQyjPT1in1yfr2xdkUz6LlZKNBGZiUB4jA
-	rgt7LDelsFudU+MoIRTVMu9tpqR158lA7SPJoy29br+JytMYEZLJWGbL4ingyf926w0=
-X-Gm-Gg: ASbGncszeL8DKACt4NKAgMffvYZKNpGrwUdNG3uT9jkSTq9ll5PwkgEQcVfjEkBD3ol
-	EELXj3kYFpPRieFXt7JfEqSOQc+0PbNbByny+kKld5Oivx0l/aj6h6nc4OieIXC/9hlcBdq+9hf
-	ewCLCGsIFd8RNeZBIFtyU5bPT1l/lHYw1mdLOSj/T809wf4HVoL84I6GXm/YezHqLkzgL2ApqyB
-	KoId0IFsiFeZOH0toSNMI5uhmRg58ErJS5/ajqF9xLnPDbizVIKDlVlEqWXtvaBMcctgViz0Zgo
-	u8FS1HkRx/sk/qVVltd26nZO3H3TDGkyI25z9mODBLufQEtDGhDN0g/ulZkoTkO8VbyYV7V6ryg
-	/Xy7m5JLufBlpTfoYnzSX3Z0i/Hg=
-X-Google-Smtp-Source: AGHT+IGAZEs053vHudyipY3XTEBo1QStAY7/xTMg751YeNtyJEeHMj0XEwwbWsuR8ch7OFkISHSqhw==
-X-Received: by 2002:a05:6000:24c7:b0:3c8:1df2:540c with SMTP id ffacd0b85a97d-3c81df25723mr6978339f8f.43.1756199881181;
-        Tue, 26 Aug 2025 02:18:01 -0700 (PDT)
+        bh=eaOTCniziyeazJJYkYE2FSNDiQRbUyarefsu1PbqX/E=;
+        b=RfsIwUIjKYvidZwuk0hyavlZFrtXWpc6uWLJ62XlQahk03HfUh0Vogzdd+Slgv8DpF
+         1OC5cv2LXmmAGlKxev5xWjy6NLcFd8pgSpxwI3Mhg1plQaHEgI6dAqayCO0ilDGamNcZ
+         rcqkgxJ1zmg6BRlk2Wt+wNmHv8B/VGsHufgv92P4bgYB8nOIMoFzGWOLiiSmsOyzXysE
+         aVAUjPM5Rm6YyvVeuvuGAR/UUMYagWKGuUaLg0r0I+RVKQGWmLgq0oGf7Rfd1rVMet9t
+         2t8qHGWyjV1LuGIISgky4c2SOR0LvXB7MPkMtay1D3LQ26wxqc8kCD81K2mDsa/Y9Hav
+         fNVg==
+X-Forwarded-Encrypted: i=1; AJvYcCUvr9UtmpalY7+M/AEW3zVDuLW99CqfuFRbOkln/EhmUj1OTZK+rcCxUfA/WEob34CBNVF8EooiUNYJW4a7Cjfn@lists.infradead.org
+X-Gm-Message-State: AOJu0YwaTktz1sZEIGPHFinQYklUYxSGBgmSj4hiDyudhp59U7oUsxPt
+	xupRMrvCzILiYdXtKj/XpGT0c5o/54MigPGSvfREciWCLMtANLB7PqwDLk8Wn0zsM6Q=
+X-Gm-Gg: ASbGncu194OVohDJW+h+QfXC4gp1aLn0Rx/MmghDWgpDK7whQLHm4BA9UycC6HF3nrZ
+	Pa/0DkLeYnNhlUvwFIu8yy8WzQgyXVqKY5At1VWM/oiQsk2rU9bQeYwmj54GxE6dcJ+LaFGS+/w
+	2KZwH+ArK7zHPavYf68s5K3N+b9GCzHjiZqnoDR4faYuD0ufd7cKjDlkVIPSi7aV28PrLr2zBvS
+	3KEu739JfRXeXbGjJP8tXf5oYkwPVy6Scj5SmVsoK5obdQF9Iv0x5vxYvy4ttLJeTq4DDz4jGmI
+	Qgnn4nR0P8+Y5Ri22RLuUaRH3tFvAU3KoFbsQgy5t2y6OuAh6ZDrBLJajcQbSgn+EbsVd6Fq1f9
+	mnr7v7sX+r5HOzmjzdQUxDejGUxg/3oHz1EuFvg==
+X-Google-Smtp-Source: AGHT+IG3O4nYqPPZOTd55R1CACz78Gxy+VGwYkBeN2scTg38UYjMhu5WNHrdDEH4ezcSuJRTDw+VSw==
+X-Received: by 2002:a05:6000:2c04:b0:3c9:469d:c092 with SMTP id ffacd0b85a97d-3c9469dc2b7mr5298437f8f.16.1756200008054;
+        Tue, 26 Aug 2025 02:20:08 -0700 (PDT)
 Received: from [192.168.1.3] ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b5753ae41sm142300465e9.9.2025.08.26.02.18.00
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3c711211b19sm15708101f8f.39.2025.08.26.02.20.07
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 26 Aug 2025 02:18:00 -0700 (PDT)
-Message-ID: <ef2267d2-a6f4-4f51-be44-687a4074a4d3@linaro.org>
-Date: Tue, 26 Aug 2025 10:17:59 +0100
+        Tue, 26 Aug 2025 02:20:07 -0700 (PDT)
+Message-ID: <66cfff9c-e0ec-4171-b62d-80d6139c42f3@linaro.org>
+Date: Tue, 26 Aug 2025 10:20:06 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/3] coresight: tpda: Add sysfs node for tpda
- cross-trigger configuration
+Subject: Re: [PATCH v1 2/3] coresight: tpda: add function to configure
+ TPDA_SYNCR register
 To: Jie Gan <jie.gan@oss.qualcomm.com>
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
@@ -83,15 +83,15 @@ Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
  Alexander Shishkin <alexander.shishkin@linux.intel.com>,
  Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
 References: <20250826070150.5603-1-jie.gan@oss.qualcomm.com>
- <20250826070150.5603-2-jie.gan@oss.qualcomm.com>
+ <20250826070150.5603-3-jie.gan@oss.qualcomm.com>
 Content-Language: en-US
 From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250826070150.5603-2-jie.gan@oss.qualcomm.com>
+In-Reply-To: <20250826070150.5603-3-jie.gan@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_021802_939837_139655A2 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20250826_022010_002608_6886AE1B 
+X-CRM114-Status: GOOD (  21.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,46 +111,84 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 26/08/2025 8:01 am, Jie Gan wrote:
 > From: Tao Zhang <tao.zhang@oss.qualcomm.com>
 > 
-> Introduce sysfs nodes to configure cross-trigger parameters for TPDA.
-> These registers define the characteristics of cross-trigger packets,
-> including generation frequency and flag values.
+> The TPDA_SYNCR register defines the frequency at which TPDA generates
+> ASYNC packets, enabling userspace tools to accurately parse each valid
+> packet.
 > 
 > Signed-off-by: Tao Zhang <tao.zhang@oss.qualcomm.com>
 > Co-developed-by: Jie Gan <jie.gan@oss.qualcomm.com>
 > Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
 > ---
->   .../testing/sysfs-bus-coresight-devices-tpda  |  43 ++++
->   drivers/hwtracing/coresight/coresight-tpda.c  | 241 ++++++++++++++++++
->   drivers/hwtracing/coresight/coresight-tpda.h  |  27 ++
->   3 files changed, 311 insertions(+)
->   create mode 100644 Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
+>   drivers/hwtracing/coresight/coresight-tpda.c | 15 +++++++++++++++
+>   drivers/hwtracing/coresight/coresight-tpda.h |  1 +
+>   2 files changed, 16 insertions(+)
 > 
-[...]
-> +#define TPDA_FPID_CR		(0x084)
-> +
-> +/* Cross trigger FREQ packets timestamp bit */
-> +#define TPDA_CR_FREQTS		BIT(2)
-> +/* Cross trigger FREQ packet request bit */
-> +#define TPDA_CR_FRIE		BIT(3)
-> +/* Cross trigger FLAG packet request interface bit */
-> +#define TPDA_CR_FLRIE		BIT(4)
-> +/* Cross trigger synchronization bit */
-> +#define TPDA_CR_SRIE		BIT(5)
-> +/* Packetize CMB/MCMB traffic bit */
-> +#define TPDA_CR_CMBCHANMODE	BIT(20)
-> +
->   /* Aggregator port enable bit */
->   #define TPDA_Pn_CR_ENA		BIT(0)
->   /* Aggregator port CMB data set element size bit */
->   #define TPDA_Pn_CR_CMBSIZE		GENMASK(7, 6)
->   /* Aggregator port DSB data set element size bit */
->   #define TPDA_Pn_CR_DSBSIZE		BIT(8)
-> +/* Mode control bit */
-> +#define TPDA_MODE_CTRL			BIT(12)
+> diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
+> index cc254d53b8ec..9e623732d1e7 100644
+> --- a/drivers/hwtracing/coresight/coresight-tpda.c
+> +++ b/drivers/hwtracing/coresight/coresight-tpda.c
+> @@ -189,6 +189,18 @@ static void tpda_enable_pre_port(struct tpda_drvdata *drvdata)
+>   		writel_relaxed(0x0, drvdata->base + TPDA_FPID_CR);
+>   }
 >   
+> +static void tpda_enable_post_port(struct tpda_drvdata *drvdata)
+> +{
+> +	uint32_t val;
 
-This one is missing the register name prefix, like TPDA_SYNCR_MODE_CTRL
+Minor nit: this is inconsistent with u32 used elsewhere in this file.
 
+> +
+> +	val = readl_relaxed(drvdata->base + TPDA_SYNCR);
+> +	/* Clear the mode */
+> +	val = val & ~TPDA_MODE_CTRL;
 
+&=
+
+> +	/* Program the counter value */
+> +	val = val | 0xFFF;
+
+|=
+
+Defining a field would be a bit nicer here. Like:
+
+val |= FIELD_PREP(TPDA_SYNCR_COUNTER, UINT32_MAX);
+
+Assuming you wanted to set all bits, and 0xFFF isn't some specific value.
+
+> +	writel_relaxed(val, drvdata->base + TPDA_SYNCR);
+> +}
+> +
+>   static int tpda_enable_port(struct tpda_drvdata *drvdata, int port)
+>   {
+>   	u32 val;
+> @@ -227,6 +239,9 @@ static int __tpda_enable(struct tpda_drvdata *drvdata, int port)
+>   		tpda_enable_pre_port(drvdata);
+>   
+>   	ret = tpda_enable_port(drvdata, port);
+> +	if (!drvdata->csdev->refcnt)
+> +		tpda_enable_post_port(drvdata);
+
+Any reason this can't be done on tpda_enable_pre_port()? It has the same 
+logic where it's only done once for the first port.
+
+If it can't be done there you should add a comment saying why it must be 
+done after enabling the first port.
+
+> +
+>   	CS_LOCK(drvdata->base);
+>   
+>   	return ret;
+> diff --git a/drivers/hwtracing/coresight/coresight-tpda.h b/drivers/hwtracing/coresight/coresight-tpda.h
+> index b651372d4c88..00d146960d81 100644
+> --- a/drivers/hwtracing/coresight/coresight-tpda.h
+> +++ b/drivers/hwtracing/coresight/coresight-tpda.h
+> @@ -9,6 +9,7 @@
+>   #define TPDA_CR			(0x000)
+>   #define TPDA_Pn_CR(n)		(0x004 + (n * 4))
+>   #define TPDA_FPID_CR		(0x084)
+> +#define TPDA_SYNCR		(0x08C)
+>   
+>   /* Cross trigger FREQ packets timestamp bit */
+>   #define TPDA_CR_FREQTS		BIT(2)
 
 
