@@ -4,92 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 507E6CA0FE9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E599ECA0EFA
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 08:08:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WmUdeog4n43JlLPwLzabcivOP3kzq6u9GqxXjjFJfy4=; b=PBC+lpaOdxZOyX+f39B4XyVf/W
-	Hlbo+gNDREiOwIMZw2dwU4sMAtw3c5f3vHkDo26pCtPFzVph2dQFxPRsRzipISGG7lsZTZlFkxEuD
-	9+aMBCNuui5P8VxsF78QfOeIird/BLyV5wdoEuymW65vyfyjtkkBC268E+ZwEZRqMK4HJAwVi/pgj
-	ivFu5No5XUiKnyTvW94Dnqq+Arkc/GQIZC+UHfojDFqJpS25NlFMchwluUb7mQaOkwRgNsKctsHV2
-	2/3N0wef3jNfqJVHsoHtrx35+03ry/J6FernqwZEWa/b7r6vqEZCRuSgJfYDNLUl5jnDvOcIs2a0Q
-	MvLBdE7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=o/PAU65y+x4pXgWv5a2hPhaymtjDm7AI43/Wgvmb97w=; b=wEzbayRzVgPlFuro0xgvWXyAtz
+	2urYihXAzCeQ8BkSGqGl2P6m3IZhpHL6kTJF5sSxlfeWsx8KnnIvscZ5DTlkYpizp9D5BtZ93aSzg
+	cgaqQctWZQpTfIZ8jpfcWUjeOozdhZLHVTSny5gTVMU6+YgVjsopslHEP0GQo7OjgXG+O8xWlKmG9
+	Pb+ywcsektNC/LiOjXCcBTodujZBF/Dj3k6uXVST7JpDGB3bi9LGxiJk8xzV6nMCo4rAVwU89qEnK
+	5OOvUCN5MEUYtBAi7+aptqZ9wK70QETM7eDlhrqOWqxDdMgLZ/uIDKV1jm5WF/EM35jWpOW3dF3AO
+	vM3gnUFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqoj2-0000000AxRW-3SpN;
-	Tue, 26 Aug 2025 08:08:17 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1uqoj4-0000000AxSY-2nhF;
+	Tue, 26 Aug 2025 08:08:18 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqnJJ-0000000Aiwz-3oML
+	id 1uqngs-0000000Amwc-3vd5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 06:37:40 +0000
-Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250826063729epoutp03c5e301f1030198843603b54746458e5f~fPbo4G4ht0309403094epoutp03H
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 06:37:29 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250826063729epoutp03c5e301f1030198843603b54746458e5f~fPbo4G4ht0309403094epoutp03H
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1756190249;
-	bh=WmUdeog4n43JlLPwLzabcivOP3kzq6u9GqxXjjFJfy4=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=NwpRV8dpQsXrqhS60KikOY7MaGduMakQQ8G758Cf91IqQBwawro5WSiQV3XUXOZf6
-	 GqgMDm/pStaDHR9tmWMjcNHJFiV4euJAk6f0xaeV6JIfPTxnRHh1bzOROBGeV8LGIG
-	 Vg27PkGrpBYUCMJ9UhXcHhzbXQdtc0BTMdLfj3Ms=
-Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
-	20250826063728epcas5p35aa5aa8be589c61f897a378fe0a9d6f7~fPboM9AQb0070300703epcas5p3T;
-	Tue, 26 Aug 2025 06:37:28 +0000 (GMT)
-Received: from epcas5p4.samsung.com (unknown [182.195.38.94]) by
-	epsnrtp02.localdomain (Postfix) with ESMTP id 4c9ydM5YS8z2SSKf; Tue, 26 Aug
-	2025 06:37:27 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250826063727epcas5p27b42d9103a77296440ed5f47a9dc9b6c~fPbmaKZFJ0989209892epcas5p2_;
-	Tue, 26 Aug 2025 06:37:27 +0000 (GMT)
-Received: from INBRO001840 (unknown [107.122.3.105]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250826063723epsmtip2624718a1eacb328a03895f36f45a703d~fPbjWQ0-82085020850epsmtip2R;
-	Tue, 26 Aug 2025 06:37:23 +0000 (GMT)
-From: "Pritam Manohar Sutar" <pritam.sutar@samsung.com>
-To: "'Krzysztof Kozlowski'" <krzk@kernel.org>
-Cc: <vkoul@kernel.org>, <kishon@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <alim.akhtar@samsung.com>,
-	<andre.draszik@linaro.org>, <peter.griffin@linaro.org>,
-	<kauschluss@disroot.org>, <ivo.ivanov.ivanov1@gmail.com>,
-	<igor.belwon@mentallysanemainliners.org>, <johan@kernel.org>,
-	<m.szyprowski@samsung.com>, <s.nawrocki@samsung.com>,
-	<linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <rosa.pila@samsung.com>,
-	<dev.tailor@samsung.com>, <faraz.ata@samsung.com>,
-	<muhammed.ali@samsung.com>, <selvarasu.g@samsung.com>
-In-Reply-To: <20250824-rough-fresh-orangutan-eecb2f@kuoka>
-Subject: RE: [PATCH v7 5/6] dt-bindings: phy: samsung,usb3-drd-phy: add
- ExynosAutov920 combo ssphy
-Date: Tue, 26 Aug 2025 12:07:22 +0530
-Message-ID: <007501dc1653$e36c3b50$aa44b1f0$@samsung.com>
+	Tue, 26 Aug 2025 07:02:00 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57Q5sle7008821
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 07:01:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=o/PAU65y+x4pXgWv5a2hPhaymtjDm7AI43/
+	Wgvmb97w=; b=k6MUGUlNzMScGMv7Mn+SeG16LjB2/zI5yNnpTkoQXCQrdzT8aqi
+	b4emxyvi4RDp74rkg0In1cyD3L+3mpfJaJ1Fva7vj+dnFuDUS2hTukO4HG+A5d3l
+	GpVHoKR4XI3Gn+TFp4FaQSdi66SmPoQ2pEocvJ1+r3QyGEaUJv4RX9GAuObcqZCB
+	uPnqEW+POyXQ8TvGSQtDi/sngfGhstkZBZ/nJdF6iysPsWDgQF2UCq9k+mMgDBRr
+	r2UVsrz/g6qMeJ2MsHWCJk7AA9Gm398+pUpNPDhqGU0MhZj6CIAQyuqkXcf1x3w3
+	3AB23yyBDAWgeyd+E8t0Fo1CGQqFW6oWR7w==
+Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48q5w2qx46-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 07:01:57 +0000 (GMT)
+Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-b471737c5efso3959828a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 00:01:57 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756191716; x=1756796516;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=o/PAU65y+x4pXgWv5a2hPhaymtjDm7AI43/Wgvmb97w=;
+        b=b85spppSp4uvwBJRofohBsWOZPZlkfll1O+qSQ7LFnrm143Rs0+9M5Knu8BSFydWUT
+         UgbNu9Y3M1fOywjbnI4sqQY3rD8/r1bu2P37qFh5agedRk57ofgkjPgtVmN1b/ezg3Rz
+         wHgixQkdMrxcpWgM5I17tqn+YzfQaexj6CRKwGfybIIk9SCTcsPbBoOUDG+ITpELRjc0
+         AIWanyokl3JM5wOjz8Je3GkZHle/QwlejcHbT1IAgvUZIFXu3mxUsWAJqpmAK2Ox76Op
+         10zsWro3AN2i+AO8ll7Sn9g3dx/MLtyQAvs8Ts4x26Tgvv1trFB0GcWTOxdWRxozAzLw
+         RIKg==
+X-Forwarded-Encrypted: i=1; AJvYcCU3RGE2hiesjABhnRtRE+QJT0v6TCC9GEcLC42s9Ct2bjGmZYkU+Qkn1twBDuv0xUADbwszIwL73OjymtF22bcd@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9W+uK4euZXF6oj1lUVrgA5NScE6fpZz6t0kSgg+FaaGBCLLyR
+	siFiz1PJm/qXQz+L4OX2dvVS6x+BOLuKxXcL/TACLhpyfr9EF2+Ch8boJgQARRpGVl12kqUSgTt
+	Sdepgk06Ada9BrYzCFA8PguXU6jUp1hOb50yCsCdlxLjokfyJJqjXrrN4upCgxb2zLx8vyTv2Q7
+	n4XeZbzprGbVL0
+X-Gm-Gg: ASbGncsRfGN4arFUdjnppoRQbF8GHg4l5G5cCOUWvlADZUP4gQT7ERFuDne5Wm/S5BM
+	GnOcs0V3mHgZgnd5bvLdgtZb2KV1+g4TVDTL7XqKBBdr/zMNOKYwkLGF+LXFGr+COeFmLG5RWJ0
+	5g9cowpRYr0eSiLI4NfBz3No3oH+rMAoIRITaOA7ZBtHG2W6RQ2xVzxFbJyl4GTKqoj6nc6FGbQ
+	0E/04OlU9ll0gnpmNh4XCTQommusdh6ssuL1F4rylyT7zT4FK69ZKRpryMM2dWoQkZ5Mxr0lD9b
+	Dy/nawnoOKPXsnPz91nhSToZcPtGuxYB+0w7yXox2xEjWGgvznFqjQmHe9NjfyCdM+jTg6z/nY3
+	LdUZze4o2aEe2BqDzYYM8
+X-Received: by 2002:a05:6a20:a122:b0:23d:4777:49ca with SMTP id adf61e73a8af0-24340db08c3mr20573602637.34.1756191716239;
+        Tue, 26 Aug 2025 00:01:56 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHa1tnLz9RnVmTqVK1eB+6nF3z2owo3uluL6pLja7TFL9iYo1XEunkDWrl2sU66obDXiJuEmw==
+X-Received: by 2002:a05:6a20:a122:b0:23d:4777:49ca with SMTP id adf61e73a8af0-24340db08c3mr20573552637.34.1756191715792;
+        Tue, 26 Aug 2025 00:01:55 -0700 (PDT)
+Received: from jiegan.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-770b5bed428sm5628582b3a.16.2025.08.26.00.01.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 26 Aug 2025 00:01:55 -0700 (PDT)
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
+Subject: [PATCH v1 0/3] add sysfs nodes to configure TPDA's registers
+Date: Tue, 26 Aug 2025 15:01:47 +0800
+Message-Id: <20250826070150.5603-1-jie.gan@oss.qualcomm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQGSd8blfqR9gZc/NH28iGAFaSn12QHbdVSHAGa/K48CXY/t+7Tit6wg
-Content-Language: en-in
-X-CMS-MailID: 20250826063727epcas5p27b42d9103a77296440ed5f47a9dc9b6c
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250822093022epcas5p42d8c16c851769dab0e1da9d45743ab1f
-References: <20250822093845.1179395-1-pritam.sutar@samsung.com>
-	<CGME20250822093022epcas5p42d8c16c851769dab0e1da9d45743ab1f@epcas5p4.samsung.com>
-	<20250822093845.1179395-6-pritam.sutar@samsung.com>
-	<20250824-rough-fresh-orangutan-eecb2f@kuoka>
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=Z/vsHGRA c=1 sm=1 tr=0 ts=68ad5be5 cx=c_pps
+ a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=2OwXVqhp2XgA:10 a=JXyblE0GroTofN6fZGsA:9 a=_Vgx9l1VpLgwpw_dHYaR:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDAzMyBTYWx0ZWRfX3HRGnZrXv1ru
+ BA8i2cDJYmmdup2OWEXL7QjXbATyEA1GY7QvN8IgbLQ/k58WjzVhYBC+sJDXLIkA2m5WSCdsD51
+ MRIFltV6GYTzxzGGIjb9mpuspkt2p4diqUp2ictMNFE3g+ZnD585OdDiqkmP8UsQcaUzA0MZXHP
+ dTJt5gSzTIFcIYdgZ1wHRxS3ppkNF1zzukN6JCxZMGdqC0sGjZ2zNxF6d72/THWjQYV3r4L2KYy
+ CmWQ91WIFmtyW8ItTtdvocIm5UrvpUvgg+DUrFu9+aOR2IsY5xS8gsI9zcRZANCTd/wxNzPpBcd
+ VfBhZ9RbjgSfx2+zUVZivVlCxQh+37DZpnlyL7zGL+WfZ+YdJ+QVEgCORUa1sis4L9BrKpBVz/N
+ 0TRsZ7qA
+X-Proofpoint-GUID: RYY5SithbJjT61maq71gc2sf2tvESbzZ
+X-Proofpoint-ORIG-GUID: RYY5SithbJjT61maq71gc2sf2tvESbzZ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-26_02,2025-08-26_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 priorityscore=1501 malwarescore=0 phishscore=0 clxscore=1015
+ suspectscore=0 impostorscore=0 adultscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508230033
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_233738_735745_7FF8016A 
-X-CRM114-Status: GOOD (  24.43  )
+X-CRM114-CacheID: sfid-20250826_000158_993991_4865C2C8 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,139 +128,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,=20
+Patchset 1 introduces configuration of the cross-trigger registers with
+appropriate values to enable proper generation of cross-trigger packets.
 
-> -----Original Message-----
-> From: Krzysztof Kozlowski <krzk=40kernel.org>
-> Sent: 24 August 2025 02:26 PM
-> To: Pritam Manohar Sutar <pritam.sutar=40samsung.com>
-> Cc: vkoul=40kernel.org; kishon=40kernel.org; robh=40kernel.org;
-> krzk+dt=40kernel.org; conor+dt=40kernel.org; alim.akhtar=40samsung.com;
-> andre.draszik=40linaro.org; peter.griffin=40linaro.org; kauschluss=40disr=
-oot.org;
-> ivo.ivanov.ivanov1=40gmail.com; igor.belwon=40mentallysanemainliners.org;
-> johan=40kernel.org; m.szyprowski=40samsung.com; s.nawrocki=40samsung.com;
-> linux-phy=40lists.infradead.org; devicetree=40vger.kernel.org; linux-
-> kernel=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; linux-s=
-amsung-
-> soc=40vger.kernel.org; rosa.pila=40samsung.com; dev.tailor=40samsung.com;
-> faraz.ata=40samsung.com; muhammed.ali=40samsung.com;
-> selvarasu.g=40samsung.com
-> Subject: Re: =5BPATCH v7 5/6=5D dt-bindings: phy: samsung,usb3-drd-phy: a=
-dd
-> ExynosAutov920 combo ssphy
->=20
-> On Fri, Aug 22, 2025 at 03:08:44PM +0530, Pritam Manohar Sutar wrote:
-> > This phy supports USB3.1 SSP+(10Gbps) protocol and is backwards
-> > compatible to the USB3.0 SS(5Gbps). It requires two clocks, named
-> > =22phy=22 and =22ref=22. The required supplies for USB3.1 are named as
-> > vdd075_usb30(0.75v), vdd18_usb30(1.8v).
->=20
-> Please do not describe the schema, but hardware. This sentence does not h=
-elp
-> me in my question further.
+Patchset 2 introduces a function to configure the TPDA_SYNCR register,
+which determines the frequency of ASYNC packet generation. These packets
+assist userspace tools in accurately identifying each valid packet.
 
-This is a combo phy having Synopsys usb20 and usb30 phys (these 2 phys are =
-totally different).=20
-One PHY only supports usb2.0 and data rates whereas another one does usb3.1=
- ssp+ and usb3.1 ssp
-=09
-This patch only explains about usb30 (since these are two different phys) p=
-hy and omitted inclusion of usb20 reference (added separate patch for this =
-patch no 3).=20
-=09
-Hope this is clear.
+Patchset 3 introduces a sysfs node to initiate a flush request for the
+specific port, forcing the data to synchronize and be transmitted to the
+sink device.
 
->=20
-> >
-> > Add schemas for combo ssphy found on this SoC.
-> >
-> > Signed-off-by: Pritam Manohar Sutar <pritam.sutar=40samsung.com>
-> > ---
-> >  .../bindings/phy/samsung,usb3-drd-phy.yaml    =7C 23 +++++++++++++++++=
-++
-> >  1 file changed, 23 insertions(+)
-> >
-> > diff --git
-> > a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-> > b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-> > index f0cfca5736b8..96e5bbb2e42c 100644
-> > --- a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-> > +++ b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-> > =40=40 -34,6 +34,7 =40=40 properties:
-> >        - samsung,exynos7870-usbdrd-phy
-> >        - samsung,exynos850-usbdrd-phy
-> >        - samsung,exynos990-usbdrd-phy
-> > +      - samsung,exynosautov920-usb31drd-combo-ssphy
-> >        - samsung,exynosautov920-usbdrd-combo-hsphy
-> >        - samsung,exynosautov920-usbdrd-phy
-> >
-> > =40=40 -118,6 +119,12 =40=40 properties:
-> >    vdd18-usb20-supply:
-> >      description: 1.8V power supply for the USB 2.0 phy.
-> >
-> > +  dvdd075-usb30-supply:
-> > +    description: 0.75V power supply for the USB 3.0 phy.
-> > +
-> > +  vdd18-usb30-supply:
-> > +    description: 1.8V power supply for the USB 3.0 phy.
-> > +
-> >  required:
-> >    - compatible
-> >    - clocks
-> > =40=40 -227,6 +234,7 =40=40 allOf:
-> >                - samsung,exynos7870-usbdrd-phy
-> >                - samsung,exynos850-usbdrd-phy
-> >                - samsung,exynos990-usbdrd-phy
-> > +              - samsung,exynosautov920-usb31drd-combo-ssphy
-> >                - samsung,exynosautov920-usbdrd-combo-hsphy
-> >                - samsung,exynosautov920-usbdrd-phy
-> >      then:
-> > =40=40 -262,6 +270,21 =40=40 allOf:
-> >        properties:
-> >          dvdd075-usb20-supply: false
-> >          vdd18-usb20-supply: false
-> > +  - if:
-> > +      properties:
-> > +        compatible:
-> > +          contains:
-> > +            enum:
-> > +              - samsung,exynosautov920-usb31drd-combo-ssphy
-> > +    then:
-> > +      required:
-> > +        - dvdd075-usb30-supply
-> > +        - vdd18-usb30-supply
->=20
-> Why are you adding usb20 and usb30 suffixes to the supplies? These are
-> separate devices, so they do not have both variants at the same time.
+Tao Zhang (3):
+  coresight: tpda: Add sysfs node for tpda cross-trigger configuration
+  coresight: tpda: add function to configure TPDA_SYNCR register
+  coresight: tpda: add sysfs node to flush specific port
 
-This is a combo phy consisting of usb2 and usb3 phys combined.=20
-To drive these separate phys, added suffixes for these supplies respectivel=
-y.
+ .../testing/sysfs-bus-coresight-devices-tpda  |  50 +++
+ drivers/hwtracing/coresight/coresight-tpda.c  | 301 ++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-tpda.h  |  29 ++
+ 3 files changed, 380 insertions(+)
+ create mode 100644 Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
 
-Moreover, gs101 is also using similar convention for its usb20 and dp suppl=
-ies.=20
-Added suffix for usb2 and usb3 as per our last communication https://lore.k=
-ernel.org/linux-phy/6e1c67d2-9bfa-442a-9d53-8c5970a2a9ef=40kernel.org/
-
->=20
-> From this device point of view, the supply is called dvdd075 or vdd18.
-> If you open device datasheet (not SoC datasheet), that's how it will be c=
-alled,
-> most likely.
-
-Yes, Agree. In device datasheet, suffixes are not mentioned, but in our boa=
-rd schematic it is mentioned.=20
-Let me know your suggestion about adding suffixes?
-
->=20
-> Best regards,
-> Krzysztof
-
-
-Thank you.
-
-Regards,
-Pritam
+-- 
+2.34.1
 
 
