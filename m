@@ -4,70 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5418ECA0FE9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 11:30:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9AC5CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 11:33:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KF2ObC+OsVZ7or0LZchP/vk8UwZrfHhQgcnlOB8aCz4=; b=4QeZL40pcMfBtw0bBhQ5V3yofn
-	fFIEBtWJlyY6f56EBDK+E1c9mQgSHHqTMOusrfdJsBlAH2lyrJ5cKVJkZdZ9n9Ho76feu+fzNBP8m
-	SZBuYGb3azrbVxoGF9X1Qn+gEOQj/Ivr4DdzPW2ZpHBWs9w5BlEXiercWDj1qiwB+tOLrfbHsS2TZ
-	VQr4lFFj3Ouug7wfdgNWIL1KXIT/zHbTqbjbADWd2F8LxWINMG+nGz9GX6Pli/dIA7Hmlz/sF0guF
-	5gwa1KIR82481sxvwRYdnUVk7wHJAaiPTMpitLhOrP/boI5f7fyJLLiwPGpOpEf/QTaso+1wcnqKB
-	/K2J56ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=abKpzBQ7ZB8U0011TBKR9LxTr0YbrhhCi/05F49w6oE=; b=dCj5B5sIqIfVWkLFDyn9Xns0o0
+	FsMJawTH3Pr443HfrEP52aKOvR8UPUEtJp/kAkxvTAzablYJNMGPMpAOaL6ddeemq/TJ/zkWSPDNm
+	W6/pJPjCvEw5ftYcjuV0890FTDdSKO6YFlhlOF4yrLAid/JWDM7SzyzZtoAJJFhE2GN7489vsFoTU
+	PuSBy8v2pIRxKts79iT9Lki3hRDYCL+n8zMeotCI5efx7JX9ckyDi1KNZ7f6o77B8zpfzjriUnQ0S
+	26jkpCPTHS9Nwj08/8Y+qarn7cuntQre0z4vr1rSFr63hOIFELlNw77kgb9g+anCBHN13K+MmL3Ey
+	UmxYM+KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqrsh-0000000BmPz-0qoM;
-	Tue, 26 Aug 2025 11:30:27 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqqxJ-0000000BdEC-02g4
+	id 1uqrvR-0000000Bn8J-0ZLl;
+	Tue, 26 Aug 2025 11:33:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uqr3i-0000000Bdwt-2E95
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 10:31:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=KF2ObC+OsVZ7or0LZchP/vk8UwZrfHhQgcnlOB8aCz4=; b=jZ6BNJTq2lIQwKfYvco0uRWf8+
-	oV5k1oBfbLni7eapsB1h9rcCAp1N6+8fnG8gR5EdVvRlyLx8tx4l9tdvLBB5RjkYf1FEyZZE4GBvV
-	d4TvThynTfshIl5sypaefRXA470zgUaMTNnq+e80GQOrHvf9C7YojtO6FUDr29BStnggw8ukriw+3
-	BInjVJzkMkOnF5QZsbzLA4ROI8AE75BNQcWnQ3bNw7v9wN74/rFp72E5Ls1vguaXrPbF+AaAnbEBp
-	qqIlvPDcA3eta/73J35HFoH+FUG+qe9MTwnF6vlNvi/TVAfSqxhfYX5kw8YsilHSBnG0eiO++PXWk
-	G8BuwNgQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:45122)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1uqqx5-000000007iq-07K9;
-	Tue, 26 Aug 2025 11:30:55 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1uqqx0-000000001Ap-2cp5;
-	Tue, 26 Aug 2025 11:30:50 +0100
-Date: Tue, 26 Aug 2025 11:30:50 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Alok Tiwari <alok.a.tiwari@oracle.com>
-Cc: david.wu@rock-chips.com, jonas@kwiboo.se, mcoquelin.stm32@gmail.com,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	Tue, 26 Aug 2025 10:37:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5E7E31A00;
+	Tue, 26 Aug 2025 03:37:37 -0700 (PDT)
+Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4D8EC3F694;
+	Tue, 26 Aug 2025 03:37:44 -0700 (PDT)
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Cristian Marussi <cristian.marussi@arm.com>,
+	Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	linux-kernel@vger.kernel.org,
+	kernel-janitors@vger.kernel.org,
+	arm-scmi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net-next] net: stmmac: rk: remove incorrect _DLY_DISABLE
- bit definition
-Message-ID: <aK2M2j7-CpnydtUh@shell.armlinux.org.uk>
-References: <20250826102219.49656-1-alok.a.tiwari@oracle.com>
+Subject: Re: [PATCH 1/2] firmware: arm_scmi: Constify struct scmi_voltage_proto_ops
+Date: Tue, 26 Aug 2025 11:37:40 +0100
+Message-Id: <175620458844.1761583.10265205606346566256.b4-ty@arm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <2091660c072dd2d5599897243a5d69e89d46ed4d.1753816459.git.christophe.jaillet@wanadoo.fr>
+References: <2091660c072dd2d5599897243a5d69e89d46ed4d.1753816459.git.christophe.jaillet@wanadoo.fr>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250826102219.49656-1-alok.a.tiwari@oracle.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_033109_051498_096B5903 
-X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-CacheID: sfid-20250826_033746_616517_73FFFB35 
+X-CRM114-Status: UNSURE (   8.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,26 +68,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 26, 2025 at 03:22:15AM -0700, Alok Tiwari wrote:
-> The RK3328 GMAC clock delay macros define enable/disable controls for
-> TX and RX clock delay. While the TX definitions are correct, the
-> RXCLK_DLY_DISABLE macro incorrectly clears bit 0.
+On Tue, 29 Jul 2025 21:15:03 +0200, Christophe JAILLET wrote:
+> 'struct scmi_voltage_proto_ops' is not modified in this driver.
 > 
-> The macros RK3328_GMAC_TXCLK_DLY_DISABLE and
-> RK3328_GMAC_RXCLK_DLY_DISABLE are not referenced anywhere
-> in the driver code. Remove them to clean up unused definitions.
+> Constifying this structure moves some data to a read-only section, so
+> increases overall security, especially when the structure holds some
+> function pointers.
 > 
-> No functional change.
+> On a x86_64, with allmodconfig, as an example:
+> Before:
+> ======
+>    text	   data	    bss	    dec	    hex	filename
+>   13142	   1808	      0	  14950	   3a66	drivers/firmware/arm_scmi/voltage.o
 > 
-> Signed-off-by: Alok Tiwari <alok.a.tiwari@oracle.com>
+> [...]
 
-Looks correct to me!
+Applied to sudeep.holla/linux (for-next/scmi/updates), thanks!
 
-Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+[1/2] firmware: arm_scmi: Constify struct scmi_voltage_proto_ops
+      https://git.kernel.org/sudeep.holla/c/abd658d3e733
+[2/2] firmware: arm_scmi: Constify struct scmi_transport_ops
+      https://git.kernel.org/sudeep.holla/c/224dcf2968ca
+--
+Regards,
+Sudeep
 
-Thanks!
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
