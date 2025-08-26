@@ -4,94 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EC13CA0FE9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 09:37:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 902F2CA0FE9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 09:40:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qLqmIwK8NZ6hSazvQk4aM7oVEZe5wm9tqFDFQ8D7Dao=; b=ffFtyyp1zJ+AhfEcsBD4gyzcC7
-	TvvtqCUdsvyR6DmF1mATmGRX9qmXl8fyeijmfHXDa8y63gAPe9t+G9u8mws9w1EUo5gGgcot9GWBH
-	uErxA1gIDS+oOJOqptUphtykOGTFTXjSv2HsxBgET4UodKjQYs7rC5TfuYteTllmd/X/sdzLUXuuY
-	7Z8a1UnpFgSimXQxhL7OXa2dUcMzDgYOPhZF51gABmDsk9m893AcVWKaE/cMYGU7Gubw/zHVmleqF
-	ay7gUbb5metmOje+BzSOR9PDF0LcH046JIRyUnTNrd1t1hFxtBVfYn9yJXKkIAqhhoX9cp0StLqjr
-	t3iNU5xg==;
+	bh=lBlDCclLQ1+AiQeVLpAB/kctkShHB5e19AZ8+JDxJP0=; b=Ngzd3OYnbJ92R06BWTgPITSin/
+	79rriz3y+7WG3/e73K89Yfp5GUDURGnkhtaKZjBlsd86fLNDrTq6+ct4SOVQ5ITeuqugTDgFymppS
+	uhWRBh//Mr7vJlPyszETvPn+tGzgAgNz+Qp7K2A4vn+5N2+5vy2UTTdv8FQy2FqQRW6RxHFvCVXyM
+	cAVBdvyYnQu2Pub71pCwlUcRS7qML0s4y73dUYXOwD3wC7oRLNGkctPQtm4tjFBbBfLfx+Epc1igJ
+	WWxofBqZqpEtvOXAKKEfdpHwT9/luZ7b6yJNxSxgO8UiuaQpN484W04qgJBnzAX2TYrYPSHc0lYfb
+	fpJsiUYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqq6z-0000000BRmC-2sDX;
-	Tue, 26 Aug 2025 09:37:05 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1uqq9j-0000000BT3H-3TVP;
+	Tue, 26 Aug 2025 09:39:56 +0000
+Received: from mail-m49211.qiye.163.com ([45.254.49.211])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqpy0-0000000BO1X-335F
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 09:27:49 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3c79f0a5c29so2344717f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 02:27:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756200467; x=1756805267; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=qLqmIwK8NZ6hSazvQk4aM7oVEZe5wm9tqFDFQ8D7Dao=;
-        b=cjlBGjHxXgbhXPapvOgq9Kbr/pNSrw4lW3OSK1vlfZKX6manvU5+K16kgEt1TraGrS
-         UPNJkl+YojczozUWXCqMg2IVonhLiJmBybY3xjaLLCfEdvAIsTztjvAk5N8HwAt81Z4S
-         Wxi3In9SQEOq7mYjdLSte40RnkAdMmf6i/3HRhXLy7vQOJ1L8laWGV5lICJgdZp4iIgv
-         UojpeBBOIx2U08crrnpbMsQpxaI8R5BeZPn7dlIat8n5re+uhIEafyI6YjTTIy/O7s+f
-         u1OyPilPeymfHY8jrJzaXhnYZbDu6WfJ6RkHgkrQ0xLKkzqc7noeoGDVNx0qaPbUPiwz
-         04/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756200467; x=1756805267;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=qLqmIwK8NZ6hSazvQk4aM7oVEZe5wm9tqFDFQ8D7Dao=;
-        b=aQTr19qwKgd0fWvY3zeSw7MTW/6iy9N1oE73OCE39yOpWdikZvksBvrJF1crzBZb+u
-         Cj2Hf4J5cDX2GouIz67yn0DcH1U7C4UMaWd1BF2RHNHzg9lIfk0SNiA0EgzMZfMyKJ19
-         ZUfsRdcy50jKIY6BY6KCh9RdwI49ufymMtCFLiB7S2Tw4istlKd8znum+YNbhdASm8zK
-         X8FyW36YfPIlNo8jsJiM7LjRwfkmT5bx/b7wj7KD+PUwCdx1GlBclDBIQdI4U+bd0jRw
-         2tangVMdf5wsp5qWfZ91qm2mSCDiUPhQ/HPSTXdZo2Dx9s7mqf31+nbl3lK0kcxy9CZc
-         /BfA==
-X-Forwarded-Encrypted: i=1; AJvYcCVTIuPmwyOL8hF059Yn9UnmWcccNbylzgQeEdgrFk4hj/QTRMb1G4+uH8YFcXGHCJNnhKSfmw/1b21XFT681Paa@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUsB9flP6Wi6aXlMgiQ/4e5htvPvaVwwASlUkD23ZtPTeP7JH2
-	YKXIoFopAmA1+0seSE/Qk+3P0no++/qMAwENg0UdDuuhHYFs7H7Xa20nM1TntJHGF48=
-X-Gm-Gg: ASbGncuF+hoLj+uUfWdT0Uyhr5VR+Beomn1n40iLT8RvKUu2Lf5nJPQaqaYv4HMIxtT
-	l2EbRHyz+V6+xlwPvoIZWOvLluGU3Nd6h5JAXvuEviSuiF6mOEjFrm7Zu6bexH+50eKtbetofNj
-	0gRNCbpynlHNxqAoVAAL+kbtwHzGTrncQ3a3CJyM6aQmWDt5HOQCm3TSrD2N8Ei6mPYR6uOBtw+
-	yrT/F0QMTSxDr4+G5yHBXQSEGVrUZmZn+ke6Bws46K8G56J3tFP/5o62OVln56x8TrmbYJjTx8r
-	gy1/LPilGbV2fofLfL+niN2pTkbl36UEQtdYp7TVFFfVRgUbHeTi1IoRKnY54X1JvivtQifLGKr
-	+kPOF6EPTQ8NE7BX/ChlH4UtxABtLXAH0UAvJ1w==
-X-Google-Smtp-Source: AGHT+IFbIYlKW54tLzTd2qlLQcjlN/Yji9BCemb4M6ZN8HZ69VKZDUD6dqfqBp/gsz3qgvx86VJf2w==
-X-Received: by 2002:a05:6000:4011:b0:3b9:13e4:9693 with SMTP id ffacd0b85a97d-3c5dcc0c457mr10671415f8f.52.1756200467087;
-        Tue, 26 Aug 2025 02:27:47 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b5ef818d3sm86633675e9.12.2025.08.26.02.27.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 26 Aug 2025 02:27:46 -0700 (PDT)
-Message-ID: <3ac2954e-5663-4ea0-bc1d-a09e1992af5b@linaro.org>
-Date: Tue, 26 Aug 2025 10:27:45 +0100
+	id 1uqpzL-0000000BOda-0xoz;
+	Tue, 26 Aug 2025 09:29:13 +0000
+Received: from [172.16.12.153] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 20a66879b;
+	Tue, 26 Aug 2025 17:29:06 +0800 (GMT+08:00)
+Message-ID: <ae11b993-5844-4da1-b433-c27b5a73060a@rock-chips.com>
+Date: Tue, 26 Aug 2025 17:29:04 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 3/3] coresight: tpda: add sysfs node to flush specific
- port
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
-References: <20250826070150.5603-1-jie.gan@oss.qualcomm.com>
- <20250826070150.5603-4-jie.gan@oss.qualcomm.com>
+Subject: Re: [PATCH net-next v3] net: ethernet: stmmac: dwmac-rk: Make the
+ clk_phy could be used for external phy
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>,
+ Chaoyi Chen <kernel@airkyi.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jonas Karlman <jonas@kwiboo.se>, David Wu <david.wu@rock-chips.com>,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org
+References: <20250815023515.114-1-kernel@airkyi.com>
+ <CGME20250825072312eucas1p2d4751199c0ea069c7938218be60e5e93@eucas1p2.samsung.com>
+ <a30a8c97-6b96-45ba-bad7-8a40401babc2@samsung.com>
+ <d0fe6d16-181f-4b38-9457-1099fb6419d0@rock-chips.com>
+ <809848c9-2ffa-4743-adda-b8b714b404de@samsung.com>
+ <aKxnHFSrVeM7Be5A@shell.armlinux.org.uk>
+ <8240a3cc-aade-40d8-b2f4-09681f76be68@rock-chips.com>
+ <aK19bSmrbXjoVXdO@shell.armlinux.org.uk>
 Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250826070150.5603-4-jie.gan@oss.qualcomm.com>
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <aK19bSmrbXjoVXdO@shell.armlinux.org.uk>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a98e5b5b15b03abkunm7ebc238e12acdf2
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQkpJHVZIGUJDTEtPTR9JH0tWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=d+nvem5rq+OdX5QANolTVxd6PoZAEDv1TqtFvJ3xCapUp0mrt5rvGanWBQuRmxpya0wc2AL+cDxtbWGKDw1ZAleQS4w0XgNjQvhsDvLOodrUm5jzmofqfL0aOAV645iDH7xQIjlMx/bZ0IEstSGFCxriCCPC15is03iEJTesAgg=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=lBlDCclLQ1+AiQeVLpAB/kctkShHB5e19AZ8+JDxJP0=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_022748_787325_D70DC7E6 
-X-CRM114-Status: GOOD (  23.61  )
+X-CRM114-CacheID: sfid-20250826_022911_782010_7003E569 
+X-CRM114-Status: GOOD (  19.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,122 +86,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 8/26/2025 5:25 PM, Russell King (Oracle) wrote:
 
+> On Tue, Aug 26, 2025 at 04:08:40PM +0800, Chaoyi Chen wrote:
+>> Hi Russell,
+>>
+>> On 8/25/2025 9:37 PM, Russell King (Oracle) wrote:
+>>> On Mon, Aug 25, 2025 at 12:53:37PM +0200, Marek Szyprowski wrote:
+>>>> On 25.08.2025 11:57, Chaoyi Chen wrote:
+>>>>> On 8/25/2025 3:23 PM, Marek Szyprowski wrote:
+>>>>>> On 15.08.2025 04:35, Chaoyi Chen wrote:
+>>>>>>> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>>>>>>>
+>>>>>>> For external phy, clk_phy should be optional, and some external phy
+>>>>>>> need the clock input from clk_phy. This patch adds support for setting
+>>>>>>> clk_phy for external phy.
+>>>>>>>
+>>>>>>> Signed-off-by: David Wu <david.wu@rock-chips.com>
+>>>>>>> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>>>>>>> ---
+>>>>>>>
+>>>>>>> Changes in v3:
+>>>>>>> - Link to V2:
+>>>>>>> https://lore.kernel.org/netdev/20250812012127.197-1-kernel@airkyi.com/
+>>>>>>> - Rebase to net-next/main
+>>>>>>>
+>>>>>>> Changes in v2:
+>>>>>>> - Link to V1:
+>>>>>>> https://lore.kernel.org/netdev/20250806011405.115-1-kernel@airkyi.com/
+>>>>>>> - Remove get clock frequency from DT prop
+>>>>>>>
+>>>>>>>      drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 11 +++++++----
+>>>>>>>      1 file changed, 7 insertions(+), 4 deletions(-)
+>>>>>>>
+>>>>>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+>>>>>>> b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+>>>>>>> index ac8288301994..5d921e62c2f5 100644
+>>>>>>> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+>>>>>>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+>>>>>>> @@ -1412,12 +1412,15 @@ static int rk_gmac_clk_init(struct
+>>>>>>> plat_stmmacenet_data *plat)
+>>>>>>>              clk_set_rate(plat->stmmac_clk, 50000000);
+>>>>>>>          }
+>>>>>>>      -    if (plat->phy_node && bsp_priv->integrated_phy) {
+>>>>>>> +    if (plat->phy_node) {
+>>>>>>>              bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
+>>>>>>>              ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
+>>>>>>> -        if (ret)
+>>>>>>> -            return dev_err_probe(dev, ret, "Cannot get PHY clock\n");
+>>>>>>> -        clk_set_rate(bsp_priv->clk_phy, 50000000);
+>>>>>>> +        /* If it is not integrated_phy, clk_phy is optional */
+>>>>>>> +        if (bsp_priv->integrated_phy) {
+>>>>>>> +            if (ret)
+>>>>>>> +                return dev_err_probe(dev, ret, "Cannot get PHY
+>>>>>>> clock\n");
+>>>>>>> +            clk_set_rate(bsp_priv->clk_phy, 50000000);
+>>>>>>> +        }
+>>>>> I think  we should set bsp_priv->clk_phy to NULL here if we failed to
+>>>>> get the clock.
+>>>>>
+>>>>> Could you try this on your board? Thank you.
+>>>> Right, the following change also fixes this issue:
+>>>>
+>>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+>>>> b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+>>>> index 9fc41207cc45..2d19d48be01f 100644
+>>>> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+>>>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+>>>> @@ -1415,6 +1415,8 @@ static int rk_gmac_clk_init(struct
+>>>> plat_stmmacenet_data *plat)
+>>>>            if (plat->phy_node) {
+>>>>                    bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
+>>>>                    ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
+>>>> +               if (ret)
+>>>> +                       bsp_priv->clk_phy = NULL;
+>>> Or just:
+>>>
+>>> 		clk = of_clk_get(plat->phy_node, 0);
+>>> 		if (clk == ERR_PTR(-EPROBE_DEFER))
+>> Do we actually need this? Maybe other devm_clk_get() before it would fail in advance.
+> Is it the same clock as devm_clk_get()? If it is, what's the point of
+> getting it a second time. If it isn't, then it could be a different
+> clock which may be yet to probe.
 
-On 26/08/2025 8:01 am, Jie Gan wrote:
-> From: Tao Zhang <tao.zhang@oss.qualcomm.com>
-> 
-> Setting bit i in the TPDA_FLUSH_CR register initiates a flush request
-> for port i, forcing the data to synchronize and be transmitted to the
-> sink device.
-> 
-> Signed-off-by: Tao Zhang <tao.zhang@oss.qualcomm.com>
-> Co-developed-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> ---
->   .../testing/sysfs-bus-coresight-devices-tpda  |  7 +++
->   drivers/hwtracing/coresight/coresight-tpda.c  | 45 +++++++++++++++++++
->   drivers/hwtracing/coresight/coresight-tpda.h  |  1 +
->   3 files changed, 53 insertions(+)
-> 
-> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
-> index e827396a0fa1..8803158ba42f 100644
-> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
-> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
-> @@ -41,3 +41,10 @@ Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qu
->   Description:
->   		(RW) Configure the CMB/MCMB channel mode for all enabled ports.
->   		Value 0 means raw channel mapping mode. Value 1 means channel pair marking mode.
-> +
-> +What:		/sys/bus/coresight/devices/<tpda-name>/port_flush_req
-> +Date:		August 2025
-> +KernelVersion:	6.17
-> +Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
-> +Description:
-> +		(RW) Configure the bit i to requests a flush operation of port i on the TPDA.
-> diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
-> index 9e623732d1e7..c5f169facc51 100644
-> --- a/drivers/hwtracing/coresight/coresight-tpda.c
-> +++ b/drivers/hwtracing/coresight/coresight-tpda.c
-> @@ -509,6 +509,50 @@ static ssize_t cmbchan_mode_store(struct device *dev,
->   }
->   static DEVICE_ATTR_RW(cmbchan_mode);
->   
-> +static ssize_t port_flush_req_show(struct device *dev,
-> +				   struct device_attribute *attr,
-> +				   char *buf)
-> +{
-> +	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> +	unsigned long val;
-> +
-> +	guard(spinlock)(&drvdata->spinlock);
-> +	if (!drvdata->csdev->refcnt)
-> +		return -EPERM;
-> +
-> +	val = readl_relaxed(drvdata->base + TPDA_FLUSH_CR);
-> +	return sysfs_emit(buf, "%lx\n", val);
+It's not the same clock, but it should be use the same clock controller driver, which is the CRU on the Rockchip platform.
 
-Decimal would be better for a port number that goes from 0 - 127. If you 
-really want to use hex then don't you need to prefix it with 0x? 
-Otherwise you can't tell the difference between decimal 10 and hex 10, 
-and it's not documented that it's hex either.
-
-> +}
-> +
-> +static ssize_t port_flush_req_store(struct device *dev,
-> +				    struct device_attribute *attr,
-> +				    const char *buf,
-> +				    size_t size)
-> +{
-> +	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> +	unsigned long val;
-> +
-> +	if (kstrtoul(buf, 0, &val))
-> +		return -EINVAL;
-> +
-> +	/* The valid value ranges from 0 to 127 */
-> +	if (val > 127)
-> +		return -EINVAL;
-> +
-> +	guard(spinlock)(&drvdata->spinlock);
-> +	if (!drvdata->csdev->refcnt)
-> +		return -EPERM;
-> +
-> +	if (val) {
-
-If 0 - 127 are valid don't you want to write 0 too?
-
-> +		CS_UNLOCK(drvdata->base);
-> +		writel_relaxed(val, drvdata->base + TPDA_FLUSH_CR);
-> +		CS_LOCK(drvdata->base);
-> +	}
-> +
-> +	return size;
-> +}
-> +static DEVICE_ATTR_RW(port_flush_req);
-> +
->   static struct attribute *tpda_attrs[] = {
->   	&dev_attr_trig_async_enable.attr,
->   	&dev_attr_trig_flag_ts_enable.attr,
-> @@ -516,6 +560,7 @@ static struct attribute *tpda_attrs[] = {
->   	&dev_attr_freq_ts_enable.attr,
->   	&dev_attr_global_flush_req.attr,
->   	&dev_attr_cmbchan_mode.attr,
-> +	&dev_attr_port_flush_req.attr,
->   	NULL,
->   };
->   
-> diff --git a/drivers/hwtracing/coresight/coresight-tpda.h b/drivers/hwtracing/coresight/coresight-tpda.h
-> index 00d146960d81..55a18d718357 100644
-> --- a/drivers/hwtracing/coresight/coresight-tpda.h
-> +++ b/drivers/hwtracing/coresight/coresight-tpda.h
-> @@ -10,6 +10,7 @@
->   #define TPDA_Pn_CR(n)		(0x004 + (n * 4))
->   #define TPDA_FPID_CR		(0x084)
->   #define TPDA_SYNCR		(0x08C)
-> +#define TPDA_FLUSH_CR		(0x090)
->   
->   /* Cross trigger FREQ packets timestamp bit */
->   #define TPDA_CR_FREQTS		BIT(2)
 
 
