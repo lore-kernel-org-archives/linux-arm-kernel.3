@@ -4,113 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE53FCA0FE9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 10:29:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52B49CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 10:31:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O5ozA9Bv06U/8Xqy1iShN9MOTwm74I3ECkjpnomfaao=; b=yYqyCRsIF1e5XYYgBD5svnuU/A
-	30kmfBbjljaOTGGkcaY4orKeWYV7OZbZS4qBZsGIWk3UIYC+FeejUaKSMKPE5Txj3bXoL0+Fj6qB1
-	2ib7e6ogHGQ1Q5tf+tDLTVHy264zDqbuVNQGqGG7ROBmQxhfvNVzbbStNOrWAl4CsYHSSLLte3qjm
-	e07/jOI29ZqO94DXNp12hVgCxW70luqsNH7a36029dOgOECsYRNjxAwlNrM43RZOivhH2U+TMwHBv
-	e5epMv7Qe1GYbNfB/u9gQsDmEPGIBFD6h2qh3/J3Op7e1nxtX0IzGb6JTMSsXIEoe4xnxm9ayg9JT
-	uIAnXYAw==;
+	bh=0rJ7RQ7iMaxrweLuf0/TuG+nG9I0o3A0GkBWILSS2Jw=; b=NN7NfYwRMV9isE5KPCL6egT0jy
+	GpioOc3KWRk+ZXLHyCxwdCxIM3mV3un7feqVG48AmLJiTS4rDZJ4GPxQ1xvjkbfdUowRYt8+lW9X2
+	BZyPQ9XzEoFB600cmYZPtbjzpFENvDIJWCRheP5Tg2faaTzViZLE/xiqEQWnAv7oKtD1F9OLdbRm2
+	t8MrTWA6eKPtEhnfqFQqF55fQlDDKBabPRnRnf0j9Z7GB/7RymGh4wYfYBoSM5E2KF3d1f8UOAMTA
+	vlFTs6xdsyz0zJy9Hp6smoT2+/K6HZbsQ7u8yw3Q/r7jX3I18MuuDUlBFFF//syaBwTu0AjxesA/M
+	34kZkmoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqqvG-0000000BcwW-2jG2;
-	Tue, 26 Aug 2025 10:29:02 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1uqqxx-0000000BdIV-25EZ;
+	Tue, 26 Aug 2025 10:31:49 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqq5H-0000000BR1i-3j22
+	id 1uqq9U-0000000BSxq-0lO8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 09:35:21 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3cbb0df3981so162164f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 02:35:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756200918; x=1756805718; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=O5ozA9Bv06U/8Xqy1iShN9MOTwm74I3ECkjpnomfaao=;
-        b=zhHNjThit98Lp/KRx7ryQ1kCLd6gSvvHwuBdJlNBBkf2ujgGYbmO3tehWJz7vRulcn
-         iJ9TcF939/UUtnv1l75q729qILgRy7oG+e9d+bCZmZoOX29MjcAnF+nS+vcIBJxakN31
-         Velbyp8dMBMAHzVXOsFRJOY/CE0RxW0n62xeU9JkjTLOhoSafhEXQMiljTj0H9W3pw+Y
-         JwxprHdaZwBtWZY1T4gK3DKY0PUrsRjKUwQdzbCUrjcIEwkoj/DGZrSQggTi2MEGvFOZ
-         8bAbWWHYblJ9CDipAEAfEXrK5vVYZz7N6fsXu7LfBDBGHaZ6fgHppVRJkx7SjkM5FuP0
-         8lSQ==
+	Tue, 26 Aug 2025 09:39:41 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57Q4FWlp004580
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 09:39:39 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	0rJ7RQ7iMaxrweLuf0/TuG+nG9I0o3A0GkBWILSS2Jw=; b=N6UacdCJtMrZGCof
+	zoNYCnmYk6/hYjF0l1xbh6YE8HE3vY9pjnHT7erwmcEtd2BR5COTc6lms08za4h9
+	jgqwt6nYb+fFPqMYcMkvlpMATIFBLNJHsevjjrG8BADUXEFe1e2umfhnJSFzDGkk
+	wBePtKKG81c14C693XKDw9Pk9gUGHeVhlPEPYakaulYvSQ7Fu9aQZonxWDnnmvv/
+	3QPDIK6JoxwTiYABG/lMNdWP+NsqEHJbv7KpqwgaEi+i+CQdBHZVzt6ed89UoP9D
+	e9ytboSINW0gpLkoq9WYaz1tRtC4e8DozZvFMnUDhd2ZRLPfJJfEC96nhlPKt02K
+	vwANHw==
+Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48q5um8d5h-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 09:39:39 +0000 (GMT)
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-76e2e5c4734so5409670b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 02:39:39 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756200918; x=1756805718;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=O5ozA9Bv06U/8Xqy1iShN9MOTwm74I3ECkjpnomfaao=;
-        b=FAyF+Y3y5ozwt1WUimRZd10Uot3hZsinNP8bdxsRFbpSLHONur6nhJ0UzU64IRK45b
-         Y6U3qSdrTq7vYEUioUj2HkcB5/26BgqyZnUgwsu0Y9OpjBe0Meb2EgDXZDfPJKjXntRn
-         7S2hz8W0DvtV1x2Xc5eM21wyFl7vBNDDyISlBu6wQJrO7/Spfc0U/EVBAgWGxq2rN/ma
-         Iey1zmdTOXoVeYIC0Ycil8tkRsqox1l1Uil0acZhBH4GEUg9p9rsH/XpygCkgYjP/ThT
-         c59nqi0bCSKXfFoo4akpGPbwQ4nHrmvjfpltCOGKWCAGN/gpcPXMSWYszcNCXNjyD3z5
-         8gvw==
-X-Forwarded-Encrypted: i=1; AJvYcCUA91gn1IARMURp/W9yDu6GlHOhNVNOVrBaySZ3OEGIoULnLgQXGNCYDj36srKifuO30n5JJBL5bcL6NYOVnfeA@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMMhLJxWTCeMMO2PG9LIAuhTCaIGyQug+yuX8BCAVoqP7bFP1K
-	Z6eASP+YOPBWDXuUT7TUY04JumHJGyalKjAn2TVzZTbb+9hpJwtsXsfkG5dQ6kqmxH0=
-X-Gm-Gg: ASbGncsWcc/cr4CYMmh+ua/6hM3aMkpuhezE6qCy6JZcdc1xw1icdjV2hTGvF2ktyNT
-	D2XZeOJK/rdlKTrNe7/Fc3hF5+9P/lR4Ah9Zdggu3MBZ0VSUaiE9VacQ1E6FKwtAjoohv5S/+t+
-	a4Z/cfUP1jS7Olu+gPPyu51N6rSSID2Wo6tgnt000Cq5VBFDSo8Q731umVhLjAM0YB1CRYwyMVh
-	l0IPI3lJ0E3GWFsnztgDAyg3xdpvbkBPjLY1mq8J8FCasrXrSFnYRPxuaNZPGUrRZ7IKu4wcnzw
-	EJMZ4JYIh++aMY/SKAJxKwmyljmuclyhMME9mwR8igqEnqOURZgjwoF1nBXlRPk8Tm/14TpEVw+
-	HpZhhxiEyGWKinj+3JoYvEN9sUuQ=
-X-Google-Smtp-Source: AGHT+IE0tE/RzFmGAas6KXcSeY2T7eMH/vWwACoAstGhW9wtqaD4AW5ZX1XUBkucRXyAbfKxCt47IA==
-X-Received: by 2002:a5d:64ec:0:b0:3a6:d95e:f38c with SMTP id ffacd0b85a97d-3c5dd8aa9e5mr11233482f8f.33.1756200918141;
-        Tue, 26 Aug 2025 02:35:18 -0700 (PDT)
-Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:fed4:79fc:9440:6629])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3c7117d5b10sm15308255f8f.47.2025.08.26.02.35.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 Aug 2025 02:35:17 -0700 (PDT)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 26 Aug 2025 11:35:07 +0200
-Subject: [PATCH 06/12] gpio: xgs-iproc: use new generic GPIO chip API
+        d=1e100.net; s=20230601; t=1756201179; x=1756805979;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=0rJ7RQ7iMaxrweLuf0/TuG+nG9I0o3A0GkBWILSS2Jw=;
+        b=po7ni5NJVzZ2aAnWdCOHyRL5zhE63GeKrX6lVvfLuGhnJvhLlB30EdnHlB6tzxZJ/q
+         rp8+SJBzRCvdITe31Ea3U3EFiQZgJzKrKQsYMjlNG8KcdieBu+TcyK/ZiNR1Up6Dvg++
+         aua222AdU/FYHQsM9bzmlskHiiQx0NNFJumVt/Y6YIgIfeGvuDN1D+Vge3gy3kZ4GK3m
+         uahs8oqmFF3puk+nu/9FmggXkntgrwtPJop2iX3D0OoHrjJa4bV3NZc+z+2SdBXgwtw2
+         r+T1T3s2XMS8CBRlj1W+4Ij7LyiwNxm1bg7zziMCAxeYzDovNbvKpB1Emt9YPpBfZZDO
+         Ws6A==
+X-Forwarded-Encrypted: i=1; AJvYcCUMzXRy5F02HxDuEHt0/unjfNj/WOzKYgcthIVKN7/gXMmO1NcAJEzF1Gr3ULUWoaXuafLaNe3gYMlt6zd5ZRLJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxT5VQ1u5q7PObQf4YON5Xc0iok4vcswSbhM6DBDSsrfO10Gi6B
+	c4sS3OxSoIBUpS6l83YSr0ApheHNJIZ3NzautMoPUhtsIm5YkcXovKI/G69xdNz3pxDGTdtinkl
+	jP5IaK9ro7lFqQXoxnA6oGIFwrzcxwOubim/eEKtHVcagVEPrjpJ9C3txJkdsO8uflQG8xTMmd2
+	T4Hg==
+X-Gm-Gg: ASbGncvOnx3WvCd79Gt9N3F787WNSRPfZRLQqHZkkt/lhBLDxjWzLyD3mBzEINk0k3n
+	6bsZFZhYl4RP4Aw7bW1kLDeTux7JALQXvU2ikvkqQm0PIb2Ft+KobYEuWWULnrdBbJKHPihoEvt
+	GqwGnLANkpqNzIDNUXRRHBXXY95QYB/q1jfc4bSmoPmY5zJw9U+pMc5ik1DGJEcBLupryo4mqgH
+	rymF/hfq5vCqSKM7RqjzbIoM8ly31OV/ivemW2T6HatNZ4sK+M5q5lEmIZKcf6M9jf5yD++n4YY
+	+zoJzhf4qZKsK39kv5AO/GQXtApqA72GLCayfIHSB8BVqKdbt4VhnCYqvBkbHOOp6VoNQBOnAvw
+	U/b3et4zp6nJ9qbkNLQ==
+X-Received: by 2002:a05:6a00:391f:b0:76e:99fc:db8d with SMTP id d2e1a72fcca58-7702fa08e63mr17441217b3a.3.1756201178661;
+        Tue, 26 Aug 2025 02:39:38 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHpC1NlqUJbgFKkBeK5Cltifq2zeEdvWBJDY78r30KUUeQbyAMv/BePEb2dXQpg6uS1/KyxCw==
+X-Received: by 2002:a05:6a00:391f:b0:76e:99fc:db8d with SMTP id d2e1a72fcca58-7702fa08e63mr17441190b3a.3.1756201178152;
+        Tue, 26 Aug 2025 02:39:38 -0700 (PDT)
+Received: from [10.133.33.155] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-770401eb20dsm9889294b3a.79.2025.08.26.02.39.31
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 26 Aug 2025 02:39:37 -0700 (PDT)
+Message-ID: <a6be4d7b-d163-47df-9ab3-ca410f703555@oss.qualcomm.com>
+Date: Tue, 26 Aug 2025 17:39:29 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250826-gpio-mmio-gpio-conv-part2-v1-6-f67603e4b27e@linaro.org>
-References: <20250826-gpio-mmio-gpio-conv-part2-v1-0-f67603e4b27e@linaro.org>
-In-Reply-To: <20250826-gpio-mmio-gpio-conv-part2-v1-0-f67603e4b27e@linaro.org>
-To: Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Ray Jui <rjui@broadcom.com>, 
- Scott Branden <sbranden@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Yang Shen <shenyang39@huawei.com>, 
- Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
-Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3659;
- i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=cwcsufdleTyfdjvLH+M9bpnNNWhHDiBNP0A3nWGPBi0=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBorX/Nc2+ipMdtkTFzhs/H10ajPYFviqGbqVxeG
- qgjKSLlKdqJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaK1/zQAKCRARpy6gFHHX
- cpYaEACHIXIK2YjYL9eAp7i1sQJTexz1MuBdYOPR4A8it3r/OYVQqva9D6wvJZVdOK3RAj6Y4zQ
- +iuzGJOlk9UD+nuWtU9nZoIwOdwUj3KXHEcbNXhhfjBFsbtOpXecDO2wREoTop6Zo55K6rHeLZe
- XryN51bj02LGexSZpj8NppyCVBBJLQkzsYvLXIHlQ23Y5QD5K+HuRNyZrNBsLY03ENxsQnacuP9
- OTio5stWF8A4+eOAFS9K/eO+3wI9xzhxCu1A6NecCbPfcZI/K1KFm2+Z5SgQ+0oaDYN5hP/nP9+
- q7lyO0ih1LJHMm9O/NIME2cxYgqUXnq7Knwbz0AfSu/tNWVXTAlE8e7lZU+DE9D2XStL9LtDtwz
- k+AqgxfltD8j8pFNva1ZbkoNCUaroY6gyC5ZkxwrrK+426A0M201/St6LCyrIT4Gb6fjUIbOOed
- kDKeFy+keX0KrlE+Ts+EaMu4SaFEJxvLp3SQPeV4EAeULWR8SDXH6buihr7r/9QnNnXgThzBedG
- mL4677cYfwCL84zVntm7hmbFH1qCkT+Tc+bc75+NzG1lBUU6aBSZho/JNmqCFzL01+XYJmXIl6K
- WxYgCxGKuIUIxfp//ne7C+TbWCCxccQ5jj9A7N1ZfYseV0hVSo5yKFhXIwGBVboGOe6hqK7mHIz
- dBdf5yVrFHM8zyA==
-X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 3/3] coresight: tpda: add sysfs node to flush specific
+ port
+To: James Clark <james.clark@linaro.org>, Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+ <mike.leach@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
+References: <20250826070150.5603-1-jie.gan@oss.qualcomm.com>
+ <20250826070150.5603-4-jie.gan@oss.qualcomm.com>
+ <3ac2954e-5663-4ea0-bc1d-a09e1992af5b@linaro.org>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <3ac2954e-5663-4ea0-bc1d-a09e1992af5b@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=VtIjA/2n c=1 sm=1 tr=0 ts=68ad80db cx=c_pps
+ a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=EUspDBNiAAAA:8 a=sjPE1cIhIzOb-vUN2KUA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=OpyuDcXvxspvyRM73sMx:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDAzMiBTYWx0ZWRfX7RZ2cg8iEYyz
+ ndV99nDC9a4BAEpnZ/fG8OkcTSnVcWmEZ+quX5JUmitHoXG9ayeuGM9Kkl/ao/iYtXPzDsqjoCG
+ 3mrd2HYfNTFJlE1l8mvl/Ct0jt8HUmphOnlIMw5hqoeaXa9p9WWWV5akm/MtNfOAQoYCYKhcrmV
+ 7EGiJ2Ed7gGleQbZl/zIxpq07wcBPWtci2HEQORvkggiFqAJ6Zc5YRzeEtgPmr/qsrz62jH8rwn
+ fPH+htfGFgy+NWxlVGSi7TMGtWGivCXcc75b4beh4HEf/bHtTwQgP/cO+xjI+xTiobXsk8kT2PO
+ dy9vpGHGQN7RikIG9KefvMOivyQQfMfHPWZhRgzhIbPA5bMu4uW7k/B7KT6g54votcZTlu7chnr
+ 6St7WbQs
+X-Proofpoint-GUID: o_jBoOa---cI5I81eINeoe3c21kC9ZIl
+X-Proofpoint-ORIG-GUID: o_jBoOa---cI5I81eINeoe3c21kC9ZIl
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-26_02,2025-08-26_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 phishscore=0 priorityscore=1501 impostorscore=0 bulkscore=0
+ suspectscore=0 malwarescore=0 adultscore=0 spamscore=0 classifier=typeunknown
+ authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2507300000 definitions=main-2508230032
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_023519_952680_538A8668 
-X-CRM114-Status: GOOD (  19.28  )
+X-CRM114-CacheID: sfid-20250826_023940_224394_A43FDDC1 
+X-CRM114-Status: GOOD (  26.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,120 +138,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-Convert the driver to using the new generic GPIO chip interfaces from
-linux/gpio/generic.h.
 
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
----
- drivers/gpio/gpio-xgs-iproc.c | 34 +++++++++++++++++++---------------
- 1 file changed, 19 insertions(+), 15 deletions(-)
+On 8/26/2025 5:27 PM, James Clark wrote:
+> 
+> 
+> On 26/08/2025 8:01 am, Jie Gan wrote:
+>> From: Tao Zhang <tao.zhang@oss.qualcomm.com>
+>>
+>> Setting bit i in the TPDA_FLUSH_CR register initiates a flush request
+>> for port i, forcing the data to synchronize and be transmitted to the
+>> sink device.
+>>
+>> Signed-off-by: Tao Zhang <tao.zhang@oss.qualcomm.com>
+>> Co-developed-by: Jie Gan <jie.gan@oss.qualcomm.com>
+>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+>> ---
+>>   .../testing/sysfs-bus-coresight-devices-tpda  |  7 +++
+>>   drivers/hwtracing/coresight/coresight-tpda.c  | 45 +++++++++++++++++++
+>>   drivers/hwtracing/coresight/coresight-tpda.h  |  1 +
+>>   3 files changed, 53 insertions(+)
+>>
+>> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices- 
+>> tpda b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
+>> index e827396a0fa1..8803158ba42f 100644
+>> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
+>> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
+>> @@ -41,3 +41,10 @@ Contact:    Jinlong Mao 
+>> <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qu
+>>   Description:
+>>           (RW) Configure the CMB/MCMB channel mode for all enabled ports.
+>>           Value 0 means raw channel mapping mode. Value 1 means 
+>> channel pair marking mode.
+>> +
+>> +What:        /sys/bus/coresight/devices/<tpda-name>/port_flush_req
+>> +Date:        August 2025
+>> +KernelVersion:    6.17
+>> +Contact:    Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang 
+>> <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+>> +Description:
+>> +        (RW) Configure the bit i to requests a flush operation of 
+>> port i on the TPDA.
+>> diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/ 
+>> hwtracing/coresight/coresight-tpda.c
+>> index 9e623732d1e7..c5f169facc51 100644
+>> --- a/drivers/hwtracing/coresight/coresight-tpda.c
+>> +++ b/drivers/hwtracing/coresight/coresight-tpda.c
+>> @@ -509,6 +509,50 @@ static ssize_t cmbchan_mode_store(struct device 
+>> *dev,
+>>   }
+>>   static DEVICE_ATTR_RW(cmbchan_mode);
+>> +static ssize_t port_flush_req_show(struct device *dev,
+>> +                   struct device_attribute *attr,
+>> +                   char *buf)
+>> +{
+>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>> +    unsigned long val;
+>> +
+>> +    guard(spinlock)(&drvdata->spinlock);
+>> +    if (!drvdata->csdev->refcnt)
+>> +        return -EPERM;
+>> +
+>> +    val = readl_relaxed(drvdata->base + TPDA_FLUSH_CR);
+>> +    return sysfs_emit(buf, "%lx\n", val);
+> 
+> Decimal would be better for a port number that goes from 0 - 127. If you 
+> really want to use hex then don't you need to prefix it with 0x? 
+> Otherwise you can't tell the difference between decimal 10 and hex 10, 
+> and it's not documented that it's hex either.
+> 
 
-diff --git a/drivers/gpio/gpio-xgs-iproc.c b/drivers/gpio/gpio-xgs-iproc.c
-index 93544e98ccbd3f8172010658cf82f5692949c772..9cffdedd31b1c39123b93469465f483fbb4d076a 100644
---- a/drivers/gpio/gpio-xgs-iproc.c
-+++ b/drivers/gpio/gpio-xgs-iproc.c
-@@ -3,11 +3,12 @@
-  * Copyright (C) 2017 Broadcom
-  */
- 
--#include <linux/gpio/driver.h>
- #include <linux/init.h>
- #include <linux/interrupt.h>
- #include <linux/io.h>
- #include <linux/irq.h>
-+#include <linux/gpio/driver.h>
-+#include <linux/gpio/generic.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
-@@ -28,7 +29,7 @@
- #define IPROC_GPIO_CCA_INT_EDGE		0x24
- 
- struct iproc_gpio_chip {
--	struct gpio_chip gc;
-+	struct gpio_generic_chip gen_gc;
- 	spinlock_t lock;
- 	struct device *dev;
- 	void __iomem *base;
-@@ -38,7 +39,7 @@ struct iproc_gpio_chip {
- static inline struct iproc_gpio_chip *
- to_iproc_gpio(struct gpio_chip *gc)
- {
--	return container_of(gc, struct iproc_gpio_chip, gc);
-+	return container_of(to_gpio_generic_chip(gc), struct iproc_gpio_chip, gen_gc);
- }
- 
- static void iproc_gpio_irq_ack(struct irq_data *d)
-@@ -213,6 +214,7 @@ static const struct irq_chip iproc_gpio_irq_chip = {
- 
- static int iproc_gpio_probe(struct platform_device *pdev)
- {
-+	struct gpio_generic_chip_config config;
- 	struct device *dev = &pdev->dev;
- 	struct device_node *dn = pdev->dev.of_node;
- 	struct iproc_gpio_chip *chip;
-@@ -231,21 +233,23 @@ static int iproc_gpio_probe(struct platform_device *pdev)
- 	if (IS_ERR(chip->base))
- 		return PTR_ERR(chip->base);
- 
--	ret = bgpio_init(&chip->gc, dev, 4,
--			 chip->base + IPROC_GPIO_CCA_DIN,
--			 chip->base + IPROC_GPIO_CCA_DOUT,
--			 NULL,
--			 chip->base + IPROC_GPIO_CCA_OUT_EN,
--			 NULL,
--			 0);
-+	config = (typeof(config)){
-+		.dev = dev,
-+		.sz = 4,
-+		.dat = chip->base + IPROC_GPIO_CCA_DIN,
-+		.set = chip->base + IPROC_GPIO_CCA_DOUT,
-+		.dirout = chip->base + IPROC_GPIO_CCA_OUT_EN,
-+	};
-+
-+	ret = gpio_generic_chip_init(&chip->gen_gc, &config);
- 	if (ret) {
- 		dev_err(dev, "unable to init GPIO chip\n");
- 		return ret;
- 	}
- 
--	chip->gc.label = dev_name(dev);
-+	chip->gen_gc.gc.label = dev_name(dev);
- 	if (!of_property_read_u32(dn, "ngpios", &num_gpios))
--		chip->gc.ngpio = num_gpios;
-+		chip->gen_gc.gc.ngpio = num_gpios;
- 
- 	irq = platform_get_irq(pdev, 0);
- 	if (irq > 0) {
-@@ -266,13 +270,13 @@ static int iproc_gpio_probe(struct platform_device *pdev)
- 		 * a flow-handler because the irq is shared.
- 		 */
- 		ret = devm_request_irq(dev, irq, iproc_gpio_irq_handler,
--				       IRQF_SHARED, chip->gc.label, &chip->gc);
-+				       IRQF_SHARED, chip->gen_gc.gc.label, &chip->gen_gc.gc);
- 		if (ret) {
- 			dev_err(dev, "Fail to request IRQ%d: %d\n", irq, ret);
- 			return ret;
- 		}
- 
--		girq = &chip->gc.irq;
-+		girq = &chip->gen_gc.gc.irq;
- 		gpio_irq_chip_set_chip(girq, &iproc_gpio_irq_chip);
- 		/* This will let us handle the parent IRQ in the driver */
- 		girq->parent_handler = NULL;
-@@ -282,7 +286,7 @@ static int iproc_gpio_probe(struct platform_device *pdev)
- 		girq->handler = handle_simple_irq;
- 	}
- 
--	ret = devm_gpiochip_add_data(dev, &chip->gc, chip);
-+	ret = devm_gpiochip_add_data(dev, &chip->gen_gc.gc, chip);
- 	if (ret) {
- 		dev_err(dev, "unable to add GPIO chip\n");
- 		return ret;
+Got it. I will fix the code here, and update the description in document.
 
--- 
-2.48.1
+>> +}
+>> +
+>> +static ssize_t port_flush_req_store(struct device *dev,
+>> +                    struct device_attribute *attr,
+>> +                    const char *buf,
+>> +                    size_t size)
+>> +{
+>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>> +    unsigned long val;
+>> +
+>> +    if (kstrtoul(buf, 0, &val))
+>> +        return -EINVAL;
+>> +
+>> +    /* The valid value ranges from 0 to 127 */
+>> +    if (val > 127)
+>> +        return -EINVAL;
+>> +
+>> +    guard(spinlock)(&drvdata->spinlock);
+>> +    if (!drvdata->csdev->refcnt)
+>> +        return -EPERM;
+>> +
+>> +    if (val) {
+> 
+> If 0 - 127 are valid don't you want to write 0 too?
+
+It's 1-127 here. 0 may leads to an unexpected issue here.
+
+Thanks,
+Jie
+
+> 
+>> +        CS_UNLOCK(drvdata->base);
+>> +        writel_relaxed(val, drvdata->base + TPDA_FLUSH_CR);
+>> +        CS_LOCK(drvdata->base);
+>> +    }
+>> +
+>> +    return size;
+>> +}
+>> +static DEVICE_ATTR_RW(port_flush_req);
+>> +
+>>   static struct attribute *tpda_attrs[] = {
+>>       &dev_attr_trig_async_enable.attr,
+>>       &dev_attr_trig_flag_ts_enable.attr,
+>> @@ -516,6 +560,7 @@ static struct attribute *tpda_attrs[] = {
+>>       &dev_attr_freq_ts_enable.attr,
+>>       &dev_attr_global_flush_req.attr,
+>>       &dev_attr_cmbchan_mode.attr,
+>> +    &dev_attr_port_flush_req.attr,
+>>       NULL,
+>>   };
+>> diff --git a/drivers/hwtracing/coresight/coresight-tpda.h b/drivers/ 
+>> hwtracing/coresight/coresight-tpda.h
+>> index 00d146960d81..55a18d718357 100644
+>> --- a/drivers/hwtracing/coresight/coresight-tpda.h
+>> +++ b/drivers/hwtracing/coresight/coresight-tpda.h
+>> @@ -10,6 +10,7 @@
+>>   #define TPDA_Pn_CR(n)        (0x004 + (n * 4))
+>>   #define TPDA_FPID_CR        (0x084)
+>>   #define TPDA_SYNCR        (0x08C)
+>> +#define TPDA_FLUSH_CR        (0x090)
+>>   /* Cross trigger FREQ packets timestamp bit */
+>>   #define TPDA_CR_FREQTS        BIT(2)
+> 
+> 
 
 
