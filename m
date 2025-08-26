@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AE14CA0FE7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 06:40:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FC41CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 06:43:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DrBALLudUMMQIpB9Jb++BwmBRlfN0yHG1/njX6fnTE0=; b=IdOIDv/6f0TZOPRT2d/bb1//Ts
-	frmtnXFgyv2hBc7EWebP7ZhM0aX7yho3cEo5rYo5WKJOZvYupCeBJiiSXJIai7AAno4q+5Mf6hTh9
-	08HIMoeCUIgx5VTaMQyajYfHX0uKSoXUErmCjMD+Mtkh2npN/L3HpCnIqW55dajMxTcD5QX0/Pacl
-	IlEnDUjzm9jQX/BjCUVwpd8cyCp2nvlhXu6x7N1TK67O+slq5trNIYp+JCe8gPIpzAqvq6DXvEp8G
-	58y7eQ0Y9IGeK3+cWS95ok7/tbDjoCw3U5aLlefywGcaUXlMm+P6oKOnjGhS2Q053sBtRkZiiA/+8
-	X+bIt7pw==;
+	bh=0t+60eV41IKUZ9ezcmekgKTWqNgupDcJulsKXmUteXI=; b=gk9TBZLLnEHUpqgcnLKBJJLvOy
+	TMhVa7UGhYlcFQyX7sFwcwMslddQ6dpnwAkdsS5hFEIL7eth3RK2QvN1zOBRfNO5o00gll6CwxQad
+	RccjK6akJ4J06X9UOJWwM9Jbj6UKKxDwzVMTqfpnOPENxBZnxmL9tlbElnlAJHnAR9sSW1FT9hE+c
+	KBtDaBHeSJhFGA3MvsaVlWKUgksGQS/T/gfen+GLf7mYm+m9t8TqvNDbG9qwQphlGHl+/48p0+b9/
+	TQ1EB3/P90t5LahkdB5RzZvf4rwJjNZP4Lfar4VDyftQZQVsSI2wuymnIisF6uCisbd7r5gZmK0Zy
+	LIzU9Lvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqnMF-0000000AjL8-2R14;
-	Tue, 26 Aug 2025 06:40:39 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uqnOt-0000000Aji7-0nwf;
+	Tue, 26 Aug 2025 06:43:23 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqn0i-0000000AfCw-1FJ5;
-	Tue, 26 Aug 2025 06:18:26 +0000
+	id 1uqn0i-0000000AfDL-1b3k;
+	Tue, 26 Aug 2025 06:18:27 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1756189102;
+	s=2020; t=1756189103;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=DrBALLudUMMQIpB9Jb++BwmBRlfN0yHG1/njX6fnTE0=;
-	b=s4Tv7+zxFO1UuAQBOJqY36fYzoMoq9HBwuIpEoBOQcWaZh9/ewd4GAmLh1SU0pUebpqr7O
-	IrbBTzCLj7CJDuzlV6Dcdr1OqFm6SyO764o/62pnvhkTGUXW7ugMG+bh1U2I/2k0NNBSr5
-	OP1XpFRZEaXTaVFqIq3YdSg5+qsRfdKUKvpdsuwozMooSfzSGI0VUbRnkjOqSx5qOrar6I
-	ypdEH+UclFWViex+hKIMMrHA9akYZJ7i5W7/rVbBGGVIoe66Tmy8jOSesu8OQcaEiRtLvM
-	BHYdoRiODg0CG8wUQD0HRSdvaeLU921bXP6hDATICdIR91DBtxAh0Kw0aN0s1A==
+	bh=0t+60eV41IKUZ9ezcmekgKTWqNgupDcJulsKXmUteXI=;
+	b=RgDlVbjO8jhuoPY4mfKuN7Slnu45ISnAWFOw/cSKuUrM166A5Xf4Erm/D2UDrSZRjb+TRd
+	kgmua8gHOCLunG9wwz2DpSTBXdpmSEa71Lb0hP+HK5ysGZ4To/F9r9b4YwQ9GRjarwPVe9
+	uS9AhT4Sz0+dbivk9lEzt4gd1nc4bK5HMZCjdAVtZW/0Fq3ATh+T7SGWw+DWsEEnez8l0S
+	l+JOMfNCM36pb3xgaN/Xdoh5jXwrQ/yCb90R7Ig/RRuSEtYwhJZ6k4ETPQI7pdrgOQZwVs
+	cqIUgd5QTF7ISENOyaqbvQpo+sHhZmxunt2tS6GEfzGIrgBnNf5Lv/0G9tlpGA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1756189102;
+	s=2020e; t=1756189103;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=DrBALLudUMMQIpB9Jb++BwmBRlfN0yHG1/njX6fnTE0=;
-	b=aMy3eGdfoQdV0esGEjqNzj2T+GNVN9Gu5aP0E8xfdTY9CE2D/Ql6h41CsmHASq33jrTvgS
-	d2ksM8s+JfbrYcAg==
-Date: Tue, 26 Aug 2025 08:17:10 +0200
-Subject: [PATCH 07/11] vdso: Drop kconfig GENERIC_VDSO_32
+	bh=0t+60eV41IKUZ9ezcmekgKTWqNgupDcJulsKXmUteXI=;
+	b=8pcUg9DoAWVBxDLyXzgtGwnNadG0alezHP8Es7YoGFl4eRzHD98RNasRncD8HY+yHWoxjq
+	+eUsVcLyCZNMQYCA==
+Date: Tue, 26 Aug 2025 08:17:11 +0200
+Subject: [PATCH 08/11] vdso: Drop kconfig GENERIC_COMPAT_VDSO
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250826-vdso-cleanups-v1-7-d9b65750e49f@linutronix.de>
+Message-Id: <20250826-vdso-cleanups-v1-8-d9b65750e49f@linutronix.de>
 References: <20250826-vdso-cleanups-v1-0-d9b65750e49f@linutronix.de>
 In-Reply-To: <20250826-vdso-cleanups-v1-0-d9b65750e49f@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -82,16 +82,16 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  linux-kselftest@vger.kernel.org, 
  Rasmus Villemoes <linux@rasmusvillemoes.dk>, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756189098; l=1702;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1756189098; l=1240;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=MIu9l2pTXbhJrvGPCmWjImoXUcbBkNjVmM+9aAFDkec=;
- b=VT2YYQvzHfODm57uAqR09c1duKjkkmGSVqmCVlLdgGb/ARCoX9KqMLFcxG4POgZTTs3Rm7rqY
- RTH8Lz9nPvLBWpZeMT5QB55ugWOPWVYU1mHssRVmDUpj+5tIKw9H+EU
+ bh=t5/9HDmyIs2t4g7FWEeD3BGuAZjUNxjgX5TY/5a0ZYE=;
+ b=CNBKp7BJyz4ivh16tO14JDMhakvNZC/uzVXIEyWpElrKLVyg8TDExe/3LZIlXzjfpdnGKz/bi
+ sJVuBe1Vf4yBKs8TudfOmPB/74FMQCcA5A/RjRFrYkYOWqYvHO0ISoL
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_231824_538785_98D72BCC 
-X-CRM114-Status: UNSURE (   7.52  )
+X-CRM114-CacheID: sfid-20250825_231824_647443_92B9E843 
+X-CRM114-Status: UNSURE (   7.50  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -113,51 +113,36 @@ Remove it.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- arch/arm/mm/Kconfig | 1 -
- arch/x86/Kconfig    | 1 -
- lib/vdso/Kconfig    | 7 -------
- 3 files changed, 9 deletions(-)
+ arch/arm64/Kconfig | 1 -
+ lib/vdso/Kconfig   | 5 -----
+ 2 files changed, 6 deletions(-)
 
-diff --git a/arch/arm/mm/Kconfig b/arch/arm/mm/Kconfig
-index 5c1023a6d78c1b4db67b2d62b71af5a79b7e701f..2347988cf6417b91d8d3580387b53e610ed49a00 100644
---- a/arch/arm/mm/Kconfig
-+++ b/arch/arm/mm/Kconfig
-@@ -926,7 +926,6 @@ config VDSO
- 	default y if ARM_ARCH_TIMER
- 	select HAVE_GENERIC_VDSO
- 	select GENERIC_TIME_VSYSCALL
--	select GENERIC_VDSO_32
- 	select GENERIC_GETTIMEOFDAY
- 	select GENERIC_VDSO_DATA_STORE
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index e9bbfacc35a64d7ef1793a5d7f7ff8db138f2814..5c61b19ea9c80559ca3c4d1aa0732c6126494cb0 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1782,7 +1782,6 @@ config COMPAT_VDSO
+ 	bool "Enable vDSO for 32-bit applications"
+ 	depends on !CPU_BIG_ENDIAN
+ 	depends on (CC_IS_CLANG && LD_IS_LLD) || "$(CROSS_COMPILE_COMPAT)" != ""
+-	select GENERIC_COMPAT_VDSO
+ 	default y
  	help
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 58d890fe2100eb6990880bcf5ba600cdefb0a7d1..4f120070a51bd4e225256440649a2dae17025c41 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -14,7 +14,6 @@ config X86_32
- 	select ARCH_WANT_IPC_PARSE_VERSION
- 	select CLKSRC_I8253
- 	select CLONE_BACKWARDS
--	select GENERIC_VDSO_32
- 	select HAVE_DEBUG_STACKOVERFLOW
- 	select KMAP_LOCAL
- 	select MODULES_USE_ELF_REL
+ 	  Place in the process address space of 32-bit applications an
 diff --git a/lib/vdso/Kconfig b/lib/vdso/Kconfig
-index 45df764b49ad62479e6456e00c053e46131936a3..76157c26931d28327750ad53bfcae5109a29d998 100644
+index 76157c26931d28327750ad53bfcae5109a29d998..2594dd7185be762a4a94aa38ecec5db016776f85 100644
 --- a/lib/vdso/Kconfig
 +++ b/lib/vdso/Kconfig
-@@ -12,13 +12,6 @@ config GENERIC_GETTIMEOFDAY
+@@ -12,11 +12,6 @@ config GENERIC_GETTIMEOFDAY
  	  Each architecture that enables this feature has to
  	  provide the fallback implementation.
  
--config GENERIC_VDSO_32
+-config GENERIC_COMPAT_VDSO
 -	bool
--	depends on GENERIC_GETTIMEOFDAY && !64BIT
 -	help
--	  This config option helps to avoid possible performance issues
--	  in 32 bit only architectures.
+-	  This config option enables the compat VDSO layer.
 -
- config GENERIC_COMPAT_VDSO
+ config GENERIC_VDSO_TIME_NS
  	bool
  	help
 
