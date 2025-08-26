@@ -4,72 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 064F4CA0FE9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 08:20:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8F99CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 08:24:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=59s5xl47iUIECmsf5jnpdKqma5NgiHbA2ceA9PEBxGI=; b=EZwO8Mv6lNhTQrBgqK+V4gp9uI
-	2SebKppPM7KsHzubUqVmGOuI/v3YBs6V07wAlWFFtx5DZjztoG/K18lYjco6inO74OMxzRfdfssW9
-	w2BIOAuLzLoovp47mz0wtxDLsjeAcZYtYDGcMLgOTFr1OUdAc9onihjcpipa5+U/FlC/yzMbm2t+e
-	QUW8z6r/r9YeldRo1Bb770Xfo0uVUEy6rtt3Y6EjOr49D3p3SHEINrn4ZGlm5+qlGyE73u9/j97os
-	6Xk4CxlgPCSjmBIuuYWywHoBLL6Vthtf+7HGKt8YM6M8vy/YVxKJXmiTyep8PRI2DRoBcWrD8Qa1h
-	xRtcX94Q==;
+	bh=6ySDUI/SRrsPsEOYJNldpl+U5ofgDVVIZVNgOk0hoDs=; b=IgyWf+3YRGuDufiLNjGXSI69eJ
+	8NGr1gc4Yk6yDUBLeV+uk+ZkT5tiutreH9PrsMFZKViOmdsOOwHzQmK0qnCTTBPxBw/SO7yXjImUL
+	U6lXf3j9vJiQwv71q9T2oGwRrFEKhZtxhQxaye5NtdPrU2w4TPFsVIY73KPkZv/3s/OfrvZ/hljqp
+	dX5U6yK7aXp9CaBWj2aQq3wAwHCHvdlC2cVJQohsY0SIo7C/C4Nw03XH5eFJNsMGnk+ulCHFIaGfA
+	CLpCd7L8L0jqnvo6Un4eghTAvovZ7QViz8YZoWWbz3sW9wn3QdbLFXYYvZ8GJGTkIOMfT6zvBa0no
+	jAp+6ghQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqoub-0000000AzO3-3YEz;
-	Tue, 26 Aug 2025 08:20:13 +0000
-Received: from mail-m1973191.qiye.163.com ([220.197.31.91])
+	id 1uqoz8-0000000B0Jz-1Y78;
+	Tue, 26 Aug 2025 08:24:54 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqooQ-0000000AyTa-3Ob0;
-	Tue, 26 Aug 2025 08:13:52 +0000
-Received: from [172.16.12.153] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 20a3254b0;
-	Tue, 26 Aug 2025 16:08:42 +0800 (GMT+08:00)
-Message-ID: <8240a3cc-aade-40d8-b2f4-09681f76be68@rock-chips.com>
-Date: Tue, 26 Aug 2025 16:08:40 +0800
+	id 1uqowP-0000000AzjE-29ZC
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 Aug 2025 08:22:06 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57Q8LDBH1489926;
+	Tue, 26 Aug 2025 03:21:13 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1756196473;
+	bh=6ySDUI/SRrsPsEOYJNldpl+U5ofgDVVIZVNgOk0hoDs=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=XyRlxjK0Batfes1D08n0MNc+H4i0i2X7zCm6W0V+KG1P/vZdmeoPDlyfPiJrg5hFc
+	 uGvlX6o4QLM9d4Bq6MQU4jkmO8AHHq0U+lIeJe6WrqRf94x0bJ6MOFbKvjQ8EbNX2C
+	 J5CJOXhUYl1DoBLSSdK/rmxGmKZK/X06wY2O+oE4=
+Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57Q8LC1m1538655
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Tue, 26 Aug 2025 03:21:12 -0500
+Received: from DLEE114.ent.ti.com (157.170.170.25) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 26
+ Aug 2025 03:21:11 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Tue, 26 Aug 2025 03:21:11 -0500
+Received: from [10.24.68.198] (abhilash-hp.dhcp.ti.com [10.24.68.198])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57Q8L4uR842435;
+	Tue, 26 Aug 2025 03:21:05 -0500
+Message-ID: <35d6e8f4-2bac-454a-8098-425225437521@ti.com>
+Date: Tue, 26 Aug 2025 13:51:03 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3] net: ethernet: stmmac: dwmac-rk: Make the
- clk_phy could be used for external phy
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>,
- Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: Chaoyi Chen <kernel@airkyi.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jonas Karlman <jonas@kwiboo.se>, David Wu <david.wu@rock-chips.com>,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org
-References: <20250815023515.114-1-kernel@airkyi.com>
- <CGME20250825072312eucas1p2d4751199c0ea069c7938218be60e5e93@eucas1p2.samsung.com>
- <a30a8c97-6b96-45ba-bad7-8a40401babc2@samsung.com>
- <d0fe6d16-181f-4b38-9457-1099fb6419d0@rock-chips.com>
- <809848c9-2ffa-4743-adda-b8b714b404de@samsung.com>
- <aKxnHFSrVeM7Be5A@shell.armlinux.org.uk>
+Subject: Re: [PATCH V2 3/4] dt-bindings: media: ti: vpe: Add bindings for
+ Video Input Port
+To: Krzysztof Kozlowski <krzk@kernel.org>, <mchehab@kernel.org>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <linux@armlinux.org.uk>, <ardb@kernel.org>, <ebiggers@kernel.org>,
+        <geert+renesas@glider.be>, <claudiu.beznea@tuxon.dev>,
+        <bparrot@ti.com>, <andre.draszik@linaro.org>,
+        <kuninori.morimoto.gx@renesas.com>,
+        <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+        <heikki.krogerus@linux.intel.com>, <kory.maincent@bootlin.com>,
+        <florian.fainelli@broadcom.com>, <lumag@kernel.org>,
+        <dale@farnsworth.org>, <sbellary@baylibre.com>,
+        <linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <dagriego@biglakesoftware.com>, <u-kumar1@ti.com>
+References: <20250716111912.235157-1-y-abhilashchandra@ti.com>
+ <20250716111912.235157-4-y-abhilashchandra@ti.com>
+ <a585e539-9847-4252-bfb0-860b5c372d01@kernel.org>
 Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <aKxnHFSrVeM7Be5A@shell.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a98e56c163203abkunmeb456a22128a486
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQhlJTFZJHRpIT0lNTh1KT0hWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=UusjxQNFmrhgPsBeO4BSS3vwfcXBVWMPRqRdZNCreD0Y3L9qO8EqBSlYU2i1ULdp+iyY6GbBaf/00QZeXLzGw3wjtT9ZJo4HN1rR7oYsMs2ha4d9dM+kLxiPLGjbAciiCssQvAVh1ppofzqZbMudcpH4MkQE7IH114QtmiGhntE=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=59s5xl47iUIECmsf5jnpdKqma5NgiHbA2ceA9PEBxGI=;
-	h=date:mime-version:subject:message-id:from;
+From: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+In-Reply-To: <a585e539-9847-4252-bfb0-860b5c372d01@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_011351_293349_BF773768 
-X-CRM114-Status: GOOD (  18.65  )
+X-CRM114-CacheID: sfid-20250826_012205_650577_3083D6C7 
+X-CRM114-Status: GOOD (  35.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,89 +97,324 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Russell,
+Hi Krzysztof,
+Thanks for the review.
 
-On 8/25/2025 9:37 PM, Russell King (Oracle) wrote:
-> On Mon, Aug 25, 2025 at 12:53:37PM +0200, Marek Szyprowski wrote:
->> On 25.08.2025 11:57, Chaoyi Chen wrote:
->>> On 8/25/2025 3:23 PM, Marek Szyprowski wrote:
->>>> On 15.08.2025 04:35, Chaoyi Chen wrote:
->>>>> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->>>>>
->>>>> For external phy, clk_phy should be optional, and some external phy
->>>>> need the clock input from clk_phy. This patch adds support for setting
->>>>> clk_phy for external phy.
->>>>>
->>>>> Signed-off-by: David Wu <david.wu@rock-chips.com>
->>>>> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->>>>> ---
->>>>>
->>>>> Changes in v3:
->>>>> - Link to V2:
->>>>> https://lore.kernel.org/netdev/20250812012127.197-1-kernel@airkyi.com/
->>>>> - Rebase to net-next/main
->>>>>
->>>>> Changes in v2:
->>>>> - Link to V1:
->>>>> https://lore.kernel.org/netdev/20250806011405.115-1-kernel@airkyi.com/
->>>>> - Remove get clock frequency from DT prop
->>>>>
->>>>>     drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 11 +++++++----
->>>>>     1 file changed, 7 insertions(+), 4 deletions(-)
->>>>>
->>>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->>>>> b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->>>>> index ac8288301994..5d921e62c2f5 100644
->>>>> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->>>>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->>>>> @@ -1412,12 +1412,15 @@ static int rk_gmac_clk_init(struct
->>>>> plat_stmmacenet_data *plat)
->>>>>             clk_set_rate(plat->stmmac_clk, 50000000);
->>>>>         }
->>>>>     -    if (plat->phy_node && bsp_priv->integrated_phy) {
->>>>> +    if (plat->phy_node) {
->>>>>             bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
->>>>>             ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
->>>>> -        if (ret)
->>>>> -            return dev_err_probe(dev, ret, "Cannot get PHY clock\n");
->>>>> -        clk_set_rate(bsp_priv->clk_phy, 50000000);
->>>>> +        /* If it is not integrated_phy, clk_phy is optional */
->>>>> +        if (bsp_priv->integrated_phy) {
->>>>> +            if (ret)
->>>>> +                return dev_err_probe(dev, ret, "Cannot get PHY
->>>>> clock\n");
->>>>> +            clk_set_rate(bsp_priv->clk_phy, 50000000);
->>>>> +        }
->>> I think  we should set bsp_priv->clk_phy to NULL here if we failed to
->>> get the clock.
->>>
->>> Could you try this on your board? Thank you.
->> Right, the following change also fixes this issue:
+On 16/07/25 19:35, Krzysztof Kozlowski wrote:
+> On 16/07/2025 13:19, Yemike Abhilash Chandra wrote:
+>> From: Dale Farnsworth <dale@farnsworth.org>
 >>
->> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->> b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->> index 9fc41207cc45..2d19d48be01f 100644
->> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->> @@ -1415,6 +1415,8 @@ static int rk_gmac_clk_init(struct
->> plat_stmmacenet_data *plat)
->>           if (plat->phy_node) {
->>                   bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
->>                   ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
->> +               if (ret)
->> +                       bsp_priv->clk_phy = NULL;
-> Or just:
->
-> 		clk = of_clk_get(plat->phy_node, 0);
-> 		if (clk == ERR_PTR(-EPROBE_DEFER))
+>> Add device tree bindings for the Video Input Port. Video Input Port (VIP)
+>> can be found on devices such as DRA7xx and provides a parallel interface
+>> to a video source such as a sensor or TV decoder.
+>>
+>> Signed-off-by: Dale Farnsworth <dale@farnsworth.org>
+>> Signed-off-by: Benoit Parrot <bparrot@ti.com>
+>> Signed-off-by: Sukrut Bellary <sbellary@baylibre.com>
+>> Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+>> ---
+>> Changelog:
+>> Changes in v2:
+>> - Remove array and just use hsync: true in bindings
+>> - Remove array and use enum for bus width in bindings
+>> - Use pattern properties since properties across ports are same
+>> - Update copyright year
+>>
+> 
+> This fails testing so limited review follows.
+> 
+>>   .../devicetree/bindings/media/ti,vip.yaml     | 211 ++++++++++++++++++
+>>   MAINTAINERS                                   |   1 +
+>>   2 files changed, 212 insertions(+)
+>>   create mode 100644 Documentation/devicetree/bindings/media/ti,vip.yaml
+>>
+>> diff --git a/Documentation/devicetree/bindings/media/ti,vip.yaml b/Documentation/devicetree/bindings/media/ti,vip.yaml
+>> new file mode 100644
+>> index 000000000000..44091c15a537
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/media/ti,vip.yaml
+>> @@ -0,0 +1,211 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +# Copyright (C) 2025 Texas Instruments Incorporated -  http://www.ti.com/
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/media/ti,vip.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: Texas Instruments DRA7x VIDEO INPUT PORT (VIP).
+>> +
+>> +maintainers:
+>> +  - Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+>> +
+>> +description: |-
+>> +  The Video Input Port (VIP) is a key component for image capture
+>> +  applications. The capture module provides the system interface and the
+>> +  processing capability to connect parallel image-sensor as well as
+>> +  BT.656/1120 capable encoder chip to DRA7x device.
+>> +
+>> +  Each VIP instance supports 2 independently configurable external video
+>> +  input capture slices (Slice 0 and Slice 1) each providing up to two video
+>> +  input ports (Port A and Port B) where Port A can be configured as
+>> +  24/16/8-bit port and Port B is fixed as 8-bit port.
+>> +  Here these ports a represented as follows
+>> +    port@0 -> Slice 0 Port A
+>> +    port@1 -> Slice 0 Port B
+>> +    port@2 -> Slice 1 Port A
+>> +    port@3 -> Slice 1 Port B
+>> +
+>> +  Each camera port nodes should contain a 'port' child node with child
+>> +  'endpoint' node. Please refer to the bindings defined in
+>> +  Documentation/devicetree/bindings/media/video-interfaces.yaml.
+>> +
+>> +properties:
+>> +  compatible:
+>> +    enum:
+>> +      - ti,dra7-vip
+>> +
+>> +  label:
+>> +    description: Instance name
+> 
+> Why do you need it? How many instances are there per SoC?
+> 
 
-Do we actually need this? Maybe other devm_clk_get() before it would fail in advance.
+I now understand that specifying instance id is not allowed.
+I will fix this v3.
 
+>> +
+>> +  reg:
+>> +    items:
+>> +      - description: The VIP main register region
+>> +      - description: Video Data Parser (PARSER) register region for Slice0
+>> +      - description: Color Space Conversion (CSC) register region for Slice0
+>> +      - description: Scaler (SC) register region for Slice0
+>> +      - description: Video Data Parser (PARSER) register region for Slice1
+>> +      - description: Color Space Conversion (CSC) register region for Slice1
+>> +      - description: Scaler (SC) register region for Slice1
+>> +      - description: Video Port Direct Memory Access (VPDMA) register region
+>> +
+>> +  reg-names:
+>> +    items:
+>> +      - const: vip
+>> +      - const: parser0
+>> +      - const: csc0
+>> +      - const: sc0
+>> +      - const: parser1
+>> +      - const: csc1
+>> +      - const: sc1
+>> +      - const: vpdma
+>> +
+>> +  interrupts:
+>> +    minItems: 2
+> 
+> Which makes 10 interrupts valid :/
+> 
 
-> 			...
-> 		else if (!IS_ERR)
-> 			bsp_priv->clk_phy = clk;
+Understood, will fix this in v3.
+
+>> +    description:
+>> +      IRQ index 0 is used for Slice0 interrupts
+>> +      IRQ index 1 is used for Slice1 interrupts
+> 
+> No, list the items with description, just like most bindings.
+> 
+
+Understood. will do that way in v3.
+
+>> +
+>> +  ti,vip-clk-polarity:
+>> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+>> +    description:
+>> +      phandle to the device control module. The 1st argument should
+> 
+> Polarity is not a phandle... The name is confusing, especially that
+> nothing in description matches it. Explain what is the purpose of this
+> in THIS device. For what this device needs it?
+> 
+
+Thanks, I Will name this better and also provide rationale on why it is
+needed in v3.
+
+>> +      contain the register offset to the CTRL_CORE_SMA_SW_1 register.
+>> +      2nd argument contains the bit field to slice 0 port A,
+>> +      3rd argument contains the bit field to slice 0 port B,
+>> +      4th argument contains the bit field to slice 1 port A,
+>> +      5th argument contains the bit field to slice 1 port B.
+> 
+> Don't open code schema in any case. Look at other examples how such this
+> is encoded.
+> 
+
+Understood, will fix this in v3
+
+>> +
+>> +patternProperties:
+>> +  '^port@[0-3]$':
+>> +    type: object
+>> +    additionalProperties: false
+> 
+> Missing ref. From which binding did you take port without ref?
+> 
+> What are these ports? Look below:
+> 
+> 
+
+Apologies. I will fix this entire hierarchy using appropriate
+refs and description. Thanks.
+
+>> +
+>> +    properties:
+>> +      "#address-cells":
+>> +        const: 1
+>> +
+>> +      "#size-cells":
+>> +        const: 0
+>> +      reg:
+>> +        description: The port number
+> 
+> You add redundant, obvious descriptions, but you do not add description
+> what each port is.
+> 
+>> +        maxItems: 1
+> 
+> 
+> Order this according to DTS coding style. See other bindings.
+> 
+>> +
+>> +      label:
+>> +        description: Port name. Usually the pin group name
+> 
+> Why do you have labels everywhere?
+> 
+
+I will remove this in v3.
+
+>> +
+>> +      endpoint:
+>> +        $ref: /schemas/graph.yaml#/properties/endpoint
+>> +        type: object
+>> +        additionalProperties: false
+>> +
+>> +        properties:
+>> +          hsync-active: true
+>> +          vsync-active: true
+>> +          pclk-sample: true
+> 
+> Where are definitions of above?
+> 
+>> +          bus-width:
+>> +            enum: [8, 24]
+>> +            default: 8
+>> +
+>> +          remote-endpoint: true
+>> +
+>> +    required:
+>> +      - "#address-cells"
+>> +      - "#size-cells"
+>> +      - port@0
+>> +      - reg
+>> +      - label
+> 
+> So port@0 is next to label, yes? Let's go to your example
+> 
+>> +
+>> +required:
+>> +  - compatible
+>> +  - label
+>> +  - reg
+>> +  - reg-names
+>> +  - interrupts
+>> +  - ti,vip-clk-polarity
+>> +
+>> +additionalProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+>> +
+>> +    vip1: vip@48970000 {
+> 
+> Node names should be generic. See also an explanation and list of
+> examples (not exhaustive) in DT specification:
+> https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+> 
+
+Understood, will correct this in v3.
+
+> 
+>> +        compatible = "ti,dra7-vip1";
+>> +        label = "vip1";
+>> +        reg = <0x48970000 0x114>,
+>> +              <0x48975500 0xD8>,
+>> +              <0x48975700 0x18>,
+>> +              <0x48975800 0x80>,
+>> +              <0x48975a00 0xD8>,
+>> +              <0x48975c00 0x18>,
+>> +              <0x48975d00 0x80>,
+>> +              <0x4897d000 0x400>;
+>> +        reg-names = "vip",
+>> +                    "parser0",
+>> +                    "csc0",
+>> +                    "sc0",
+>> +                    "parser1",
+>> +                    "csc1",
+>> +                    "sc1",
+>> +                    "vpdma";
+>> +        interrupts = <GIC_SPI 351 IRQ_TYPE_LEVEL_HIGH>,
+>> +                     <GIC_SPI 392 IRQ_TYPE_LEVEL_HIGH>;
+>> +        ti,vip-clk-polarity = <&scm_conf 0x534 0x1 0x4 0x2 0x8>;
+>> +
+>> +        ports {
+>> +              #address-cells = <1>;
+>> +              #size-cells = <0>;
+>> +
+> 
+> Where is the label? It is supposed to be required just like port@0 is.
+> 
+
+I will fix this in v3.
+
+> 
+>> +              vin1a: port@0 {
+> 
+> 
+>> +                    reg = <0>;
+>> +                    label = "vin1a";
+>> +
+>> +                    vin1a_ep: endpoint {
+>> +                           remote-endpoint = <&camera1>;
+>> +                           hsync-active = <1>;
+>> +                           vsync-active = <1>;
+>> +                           pclk-sample = <0>;
+>> +                           bus-width = <8>;
+>> +                    };
+>> +              };
+>> +              vin1b: port@1 {
+>> +                    reg = <1>;
+>> +                    label = "vin1b";
+>> +              };
+>> +              vin2a: port@2 {
+>> +                    reg = <2>;
+>> +                    label = "vin2a";
+>> +              };
+>> +              vin2b: port@3 {
+>> +                    reg = <3>;
+>> +                    label = "vin2b";
+>> +              };
+>> +         };
+>> +    };
+>> +
+>> +    i2c {
+> 
+> Drop entire node, not relevant.
 >
-> I don't have a free terminal to work out what "..." should be.
->
+
+I will remove this in v3.
+
+Thanks and Regards
+Yemike Abhilash Chandra
+
+> 
+> Best regards,
+> Krzysztof
+
 
