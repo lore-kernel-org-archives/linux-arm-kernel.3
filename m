@@ -4,68 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EFAACA0FE7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 14:45:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 421E0CA0FE7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 14:48:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GO1qkLwE0Y8tRUojG09Dela9a7ekk/NU74dvZknTC0g=; b=A+sfmqa1m8Sv1PrltclHE/JqvD
-	bT8/BDciPhA3XAT/b25LSia1wrjFmHDdc/r8Gowbb5bV3SdJo7qS3oKXIxYx/lz4ru0bmXBDSh7Bx
-	dHjwQYxRjVV9f4OEaw2noBm7i1T0Rgtrx2aI3Bq54Jl26MHwj5iXmbbVW8wkU7FqWVDfclZ7FHLOr
-	u9yM+xG8yTCG9K2uoKx6nEydK1/Y1/J3E4wmJVOIDG+F7NEOlsM3UsWpz/WVKq3VicNCVtFQYsQjZ
-	vjrDnfKW30EPMng5adSE3RLvY/IMuX56ck26gs4zqBmKdJy+8XKK7wJG3hNTNEUU6EVAxTgD2itoj
-	/O2kgl9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BY3Dc5+127jmRxKleLM8tokdDatFE2dPfa5pg+X+c/c=; b=LUpCd5s4EdGHVDpzOebesUtBRc
+	WWlLOemboAnUjUxOPib8ApJ1sPYOpT2YMDiEGUp1GbZ1EG+0PM5BXyyj7XVokuHMDAGWmOiRrul29
+	f7ao4rGMdDc0uPTduTql//EIhkLVrJDS2F4PNJO7rKAGG/u67SBajIPhtwzlBlvDsV1bu2VVIIeDK
+	Hn4UxHgg0KZ3IjRMhyMKJOwlArmn091iV6mmI3QU5uvBurOt54A91ok55+NLIPWd8isSX1xItA1H/
+	UVfBjF/X+UPtANjBWPPrgLDDoDM5bzsnzegXu5HBRaMlhyXQJ84pQg7z+GPMnqbvlGPxsE1R8m4CN
+	jSHxfCJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uquvn-0000000CJY0-0hnL;
-	Tue, 26 Aug 2025 14:45:51 +0000
+	id 1uquyS-0000000CK3n-1Ynj;
+	Tue, 26 Aug 2025 14:48:36 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqumH-0000000CHlI-2LkZ;
-	Tue, 26 Aug 2025 14:36:03 +0000
+	id 1uquqZ-0000000CIc7-3WEC;
+	Tue, 26 Aug 2025 14:40:29 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8CB231A25;
-	Tue, 26 Aug 2025 07:35:50 -0700 (PDT)
-Received: from [10.57.4.86] (unknown [10.57.4.86])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E899E3F694;
-	Tue, 26 Aug 2025 07:35:51 -0700 (PDT)
-Message-ID: <ab80cb84-42b2-4ce8-aa6c-4ce6be7a12b7@arm.com>
-Date: Tue, 26 Aug 2025 15:35:48 +0100
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7D29D169E;
+	Tue, 26 Aug 2025 07:40:18 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CD3203F694;
+	Tue, 26 Aug 2025 07:40:24 -0700 (PDT)
+Date: Tue, 26 Aug 2025 15:40:22 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Breno Leitao <leitao@debian.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, kexec@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	bhe@redhat.com, oxu@redhat.com, berrange@redhat.com,
+	kernel-team@meta.com, Andrew Morton <akpm@linux-foundation.org>
+Subject: Re: [PATCH] arm64: kexec: Initialize kexec_buf struct in image_load()
+Message-ID: <aK3HVqt6I5KxoHia@J2N7QTR9R3>
+References: <20250826-akpm-v1-1-3c831f0e3799@debian.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 02/19] perf/hisilicon: Fix group validation
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: peterz@infradead.org, mingo@redhat.com, will@kernel.org, acme@kernel.org,
- namhyung@kernel.org, alexander.shishkin@linux.intel.com, jolsa@kernel.org,
- irogers@google.com, adrian.hunter@intel.com, kan.liang@linux.intel.com,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
- linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-rockchip@lists.infradead.org, dmaengine@vger.kernel.org,
- linux-fpga@vger.kernel.org, amd-gfx@lists.freedesktop.org,
- dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
- intel-xe@lists.freedesktop.org, coresight@lists.linaro.org,
- iommu@lists.linux.dev, linux-amlogic@lists.infradead.org,
- linux-cxl@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <cover.1755096883.git.robin.murphy@arm.com>
- <c7b877e66ba0d34d8558c5af8bbb620e8c0e47d9.1755096883.git.robin.murphy@arm.com>
- <aK2XS_GhLw1EQ2ml@J2N7QTR9R3>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <aK2XS_GhLw1EQ2ml@J2N7QTR9R3>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250826-akpm-v1-1-3c831f0e3799@debian.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_073601_740342_A5C9F08F 
-X-CRM114-Status: GOOD (  37.16  )
+X-CRM114-CacheID: sfid-20250826_074027_977502_6A205EB4 
+X-CRM114-Status: GOOD (  21.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,188 +64,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-08-26 12:15 pm, Mark Rutland wrote:
-> On Wed, Aug 13, 2025 at 06:00:54PM +0100, Robin Murphy wrote:
->> The group validation logic shared by the HiSilicon HNS3/PCIe drivers is
->> a bit off, in that given a software group leader, it will consider that
->> event *in place of* the actual new event being opened. At worst this
->> could theoretically allow an unschedulable group if the software event
->> config happens to look like one of the hardware siblings.
->>
->> The uncore framework avoids that particular issue,
+On Tue, Aug 26, 2025 at 05:08:51AM -0700, Breno Leitao wrote:
+> The kexec_buf structure was previously declared without initialization
+> in image_load(). This led to a UBSAN warning when the structure was
+> expanded and uninitialized fields were accessed [1].
+
+Just to check my understanding, is that only a problem for new fields
+(e.g. the 'random' field added in [1]), or do we have UBSAN warnigns for
+any existing fields? I assume there's no problem with existing fields
+today.
+
+> Zero-initializing kexec_buf at declaration ensures all fields are
+> cleanly set, preventing future instances of uninitialized memory being
+> used.
 > 
-> What is "the uncore framework"? I'm not sure exactly what you're
-> referring to, nor how that composes with the problem described above.
-
-Literally that hisi_uncore_pmu.c is actually a framework for half a 
-dozen individual sub-drivers rather than a "driver" itself per se, but I 
-suppose that detail doesn't strictly matter at this level.
-
->> but all 3 also share the common issue of not preventing racy access to
->> the sibling list,
+> Andrew Morton suggested that this function is only called 3x a week[2],
+> thus, the memset() cost is inexpressive.
 > 
-> Can you please elaborate on this racy access to the silbing list? I'm
-> not sure exactly what you're referring to.
+> Link: https://lore.kernel.org/all/oninomspajhxp4omtdapxnckxydbk2nzmrix7rggmpukpnzadw@c67o7njgdgm3/ [1]
+> Link: https://lore.kernel.org/all/20250825180531.94bfb86a26a43127c0a1296f@linux-foundation.org/ [2]
+> Suggested-by: Andrew Morton <akpm@linux-foundation.org>
+> Signed-off-by: Breno Leitao <leitao@debian.org>
 
-Hmm, yes, I guess an actual race is probably impossible since if we're 
-still in the middle of opening the group leader event then we haven't 
-yet allocated the fd that userspace would need to start adding siblings, 
-even if it tried to guess. I leaned on "racy" as a concise way to infer 
-"when it isn't locked (even though the reasons for that are more 
-subtle)" repeatedly over several patches - after all, the overall theme 
-of this series is that I dislike repetitive boilerplate :)
+This looks fine to me, but I reckon it should be added to the series
+which extends kexec_buf, unless there's some reason to avoid that?
 
-I'll dedicate some time for polishing commit messages for v2, especially 
-the common context for these "part 1" patches per your feedback on patch #1.
+> ---
+>  arch/arm64/kernel/kexec_image.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 
->> and some redundant checks which can be cleaned up.
->>
->> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
->> ---
->>   drivers/perf/hisilicon/hisi_pcie_pmu.c   | 17 ++++++-----------
->>   drivers/perf/hisilicon/hisi_uncore_pmu.c | 23 +++++++----------------
->>   drivers/perf/hisilicon/hns3_pmu.c        | 17 ++++++-----------
->>   3 files changed, 19 insertions(+), 38 deletions(-)
->>
->> diff --git a/drivers/perf/hisilicon/hisi_pcie_pmu.c b/drivers/perf/hisilicon/hisi_pcie_pmu.c
->> index c5394d007b61..3b0b2f7197d0 100644
->> --- a/drivers/perf/hisilicon/hisi_pcie_pmu.c
->> +++ b/drivers/perf/hisilicon/hisi_pcie_pmu.c
->> @@ -338,21 +338,16 @@ static bool hisi_pcie_pmu_validate_event_group(struct perf_event *event)
->>   	int counters = 1;
->>   	int num;
->>   
->> -	event_group[0] = leader;
->> -	if (!is_software_event(leader)) {
->> -		if (leader->pmu != event->pmu)
->> -			return false;
->> +	if (leader == event)
->> +		return true;
->>   
->> -		if (leader != event && !hisi_pcie_pmu_cmp_event(leader, event))
->> -			event_group[counters++] = event;
->> -	}
->> +	event_group[0] = event;
->> +	if (leader->pmu == event->pmu && !hisi_pcie_pmu_cmp_event(leader, event))
->> +		event_group[counters++] = leader;
+IIUC arch/arm64/kernel/machine_kexec_file.c would need the same
+treatment in load_other_segments().
+
+If other architectures need this, it'd probably make sense to clean that
+up treewide in one go. It looks like at least riscv and s390 need that
+from a quick grep:
+
+| [mark@lakrids:~/src/linux]% git grep -w 'struct kexec_buf .*;'
+| arch/arm64/kernel/kexec_image.c:        struct kexec_buf kbuf;
+| arch/arm64/kernel/machine_kexec_file.c: struct kexec_buf kbuf;
+| arch/powerpc/include/asm/kexec.h:int arch_kexec_locate_mem_hole(struct kexec_buf *kbuf);
+| arch/powerpc/include/asm/kexec.h:                                 struct kexec_buf *kbuf);
+| arch/riscv/kernel/elf_kexec.c:  struct kexec_buf kbuf;
+| arch/riscv/kernel/elf_kexec.c:  struct kexec_buf kbuf;
+| arch/riscv/kernel/elf_kexec.c:  struct kexec_buf kbuf;
+| arch/s390/kernel/kexec_elf.c:   struct kexec_buf buf;
+| arch/s390/kernel/kexec_image.c: struct kexec_buf buf;
+| arch/s390/kernel/machine_kexec_file.c:  struct kexec_buf buf;
+| arch/s390/kernel/machine_kexec_file.c:  struct kexec_buf buf;
+| arch/s390/kernel/machine_kexec_file.c:  struct kexec_buf buf;
+| include/linux/kexec.h:int kexec_load_purgatory(struct kimage *image, struct kexec_buf *kbuf);
+| include/linux/kexec.h:extern int kexec_add_buffer(struct kexec_buf *kbuf);
+| include/linux/kexec.h:int kexec_locate_mem_hole(struct kexec_buf *kbuf);
+| kernel/kexec_file.c:    struct kexec_buf *kbuf = (struct kexec_buf *)arg;
+
+Mark.
+
 > 
-> Looking at this, the existing logic to share counters (which
-> hisi_pcie_pmu_cmp_event() is trying to permit) looks to be bogus, given
-> that the start/stop callbacks will reprogram the HW counters (and hence
-> can fight with one another).
-
-Yeah, this had a dodgy smell when I first came across it, but after 
-doing all the digging I think it does actually work out - the trick 
-seems to be the group_leader check in hisi_pcie_pmu_get_event_idx(), 
-with the implication the PMU is going to be stopped while scheduling 
-in/out the whole group, so assuming hisi_pcie_pmu_del() doesn't clear 
-the counter value in hardware (even though the first call nukes the rest 
-of the event configuration), then the events should stay in sync.
-
-It does seem somewhat nonsensical to have multiple copies of the same 
-event in the same group, but I imagine it could happen with some sort of 
-scripted combination of metrics, and supporting it at this level saves 
-needing explicit deduplication further up. So even though my initial 
-instinct was to rip it out too, in the end I concluded that that doesn't 
-seem justified.
-
-Thanks,
-Robin.
-
-> I suspect that can be removed *entirely*, and this can be simplified
-> down to allocating N counters, without a quadratic event comparison.  We
-> don't try to share counters in other PMU drivers, and there was no
-> rationale for trying to do this when this wa introduced in commit:
+> diff --git a/arch/arm64/kernel/kexec_image.c b/arch/arm64/kernel/kexec_image.c
+> index 532d72ea42ee8..b70f4df15a1ae 100644
+> --- a/arch/arm64/kernel/kexec_image.c
+> +++ b/arch/arm64/kernel/kexec_image.c
+> @@ -41,7 +41,7 @@ static void *image_load(struct kimage *image,
+>  	struct arm64_image_header *h;
+>  	u64 flags, value;
+>  	bool be_image, be_kernel;
+> -	struct kexec_buf kbuf;
+> +	struct kexec_buf kbuf = {};
+>  	unsigned long text_offset, kernel_segment_number;
+>  	struct kexec_segment *kernel_segment;
+>  	int ret;
 > 
->    8404b0fbc7fbd42e ("drivers/perf: hisi: Add driver for HiSilicon PCIe PMU")
+> ---
+> base-commit: 7a77c6b5ce68a71b9102760a988a4564ff6d4106
+> change-id: 20250826-akpm-18a57e3a39fd
 > 
-> The 'link' tag in that comment goes to v13, which doesn't link to prior
-> postings, so I'm not going to dig further.
+> Best regards,
+> --  
+> Breno Leitao <leitao@debian.org>
 > 
-> Mark.
 > 
->>   
->>   	for_each_sibling_event(sibling, event->group_leader) {
->> -		if (is_software_event(sibling))
->> -			continue;
->> -
->>   		if (sibling->pmu != event->pmu)
->> -			return false;
->> +			continue;
->>   
->>   		for (num = 0; num < counters; num++) {
->>   			/*
->> diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pmu.c
->> index a449651f79c9..3c531b36cf25 100644
->> --- a/drivers/perf/hisilicon/hisi_uncore_pmu.c
->> +++ b/drivers/perf/hisilicon/hisi_uncore_pmu.c
->> @@ -101,26 +101,17 @@ static bool hisi_validate_event_group(struct perf_event *event)
->>   	/* Include count for the event */
->>   	int counters = 1;
->>   
->> -	if (!is_software_event(leader)) {
->> -		/*
->> -		 * We must NOT create groups containing mixed PMUs, although
->> -		 * software events are acceptable
->> -		 */
->> -		if (leader->pmu != event->pmu)
->> -			return false;
->> +	if (leader == event)
->> +		return true;
->>   
->> -		/* Increment counter for the leader */
->> -		if (leader != event)
->> -			counters++;
->> -	}
->> +	/* Increment counter for the leader */
->> +	if (leader->pmu == event->pmu)
->> +		counters++;
->>   
->>   	for_each_sibling_event(sibling, event->group_leader) {
->> -		if (is_software_event(sibling))
->> -			continue;
->> -		if (sibling->pmu != event->pmu)
->> -			return false;
->>   		/* Increment counter for each sibling */
->> -		counters++;
->> +		if (sibling->pmu == event->pmu)
->> +			counters++;
->>   	}
->>   
->>   	/* The group can not count events more than the counters in the HW */
->> diff --git a/drivers/perf/hisilicon/hns3_pmu.c b/drivers/perf/hisilicon/hns3_pmu.c
->> index c157f3572cae..382e469257f9 100644
->> --- a/drivers/perf/hisilicon/hns3_pmu.c
->> +++ b/drivers/perf/hisilicon/hns3_pmu.c
->> @@ -1058,21 +1058,16 @@ static bool hns3_pmu_validate_event_group(struct perf_event *event)
->>   	int counters = 1;
->>   	int num;
->>   
->> -	event_group[0] = leader;
->> -	if (!is_software_event(leader)) {
->> -		if (leader->pmu != event->pmu)
->> -			return false;
->> +	if (leader == event)
->> +		return true;
->>   
->> -		if (leader != event && !hns3_pmu_cmp_event(leader, event))
->> -			event_group[counters++] = event;
->> -	}
->> +	event_group[0] = event;
->> +	if (leader->pmu == event->pmu && !hns3_pmu_cmp_event(leader, event))
->> +		event_group[counters++] = leader;
->>   
->>   	for_each_sibling_event(sibling, event->group_leader) {
->> -		if (is_software_event(sibling))
->> -			continue;
->> -
->>   		if (sibling->pmu != event->pmu)
->> -			return false;
->> +			continue;
->>   
->>   		for (num = 0; num < counters; num++) {
->>   			/*
->> -- 
->> 2.39.2.101.g768bb238c484.dirty
->>
 
