@@ -4,58 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8161FCA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 06:21:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13AE9CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 06:24:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8Qx8zdXwUDEN+QDzIjybGTquRbhLyER4hmo5HtXCS3M=; b=M7QL0ugQsWVC3/
-	QtHFbNj28v6X+3QiQ13DpJiOvV2Y1QMoLeICLu2j7k8sTRfhGuStxhZdg48s0u9kruvRzTbSDMA1E
-	q4BB6L9xdNNzHSKxVmEjl5hEo32ptfHhDvmf54tOhRRtoWxCsPJkcKyCgEcvguIqNN1YrViaX3dYW
-	oc1ArCYKYKjAkU2VDvPds82Zf/i6O4N1rsmKGknmQhpx+68/0xh+FetTWo7kZzQYIoCJ7MoIYCSLH
-	AzZ1y1qizO9IWxZ0xWhQjR3VTxOc1sheuF2r3wTMqeyZu5RfQlZaNkpH8eUdnzVL72IFW5utUCpPZ
-	/2TIzd1lE4BOu0/N6BZA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RkAC4wHTvttqFMA6WXB8e/iq2KZu43nm9iAolOlePoo=; b=w5KSDhPy32RlO9R4ncvDpdhYEw
+	pVJAcXRHP2DzPbwoM+H9wsxasWjO5O2NY5yTe3AS1499jhV2fwe/FQx2iVyTe23ND14eFglCxATgJ
+	7DrHWBNumQn8sLvjR8sJ5tMjh/I5xpadT/LqXpOBWc0OGqg9SXOq42OkxSM/SOmbkj03JEnYfiUOS
+	jlZCUXAEC0NraJs7c0hZJMDhvKHXr0ujOTR4ZW4K0UzmTD7IaHaAlDc58lbDSUG5pOClI0ibjGo2q
+	ANNaXdS80b0fuOEkozJaMLq6Qa4ezXm2jkl6fzUuTN+2OkaKMUgdmRB9AzmWAUK8zKwy/e8tLf9+y
+	2lHrqMCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqn3R-0000000Ag4T-00Qn;
-	Tue, 26 Aug 2025 06:21:13 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uqn69-0000000Agt9-3H51;
+	Tue, 26 Aug 2025 06:24:01 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqn0e-0000000Af9L-1QqQ;
-	Tue, 26 Aug 2025 06:18:21 +0000
+	id 1uqn0f-0000000Af9S-0ZAc;
+	Tue, 26 Aug 2025 06:18:23 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1756189098;
+	s=2020; t=1756189099;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=8Qx8zdXwUDEN+QDzIjybGTquRbhLyER4hmo5HtXCS3M=;
-	b=EoHq8It+802uE8/W/ZgT+WU1MhU30ljvVJg6J8CsR2XdSCY1W8iKO/0yhuhlIWg93gjtVN
-	yjsiguKOCe8MXqL7t5b5NeIYigkWxr9EZY2Mkn3x2W0dIf65A5h/s69Jx20ZLL24VmAnXl
-	wWm91dlrX8UnePleqQexNGzu9SWDwlcPXJ8DztYUIGGk65aJetDl/MNeXhull8xcLDd2T/
-	Xdhztn1zm0BL6qd7sdPVV8txFwrP1lt98FW2I+LmBrQOqG2Iv+EpggKyKaF35t2W+WDCO2
-	x4LqgXrpkfrN62Egk6oQBRYWy9iOgErie977mytBr36Yc1c7jJeu3fV2/Qh79g==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RkAC4wHTvttqFMA6WXB8e/iq2KZu43nm9iAolOlePoo=;
+	b=ftFG8SBnHpOXRL9VAVhckxZYgwanzsVDNpjzugioUWi5H/xnB9LILcjisXIrzH2R+dazDg
+	ZNjj2RdlNZx0OSz5vn6HERSvn8UwHlr7Q5cgeUXzSPD/sDRnQfG0ssQC5o9mys+jB6sDJk
+	z4w6mODqzHiWZ8+UWGykNpJQh+5rXhZlF6+Sa6lPM1KttWeNNlu8lZXimTskuj80uPVBPS
+	FopsXitSUPuUlbMt1Gw/VB/4vy9bj93+g1D7QgcBGF4K5Rs8Zjy0QPAnw0UCOBX5dxoxbz
+	Afa6WIqDtpB2KnfHuFb7U8fOJqpiVBknxb225gAJVwnWK2Be0r1onSEP5TwAsA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1756189098;
+	s=2020e; t=1756189099;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=8Qx8zdXwUDEN+QDzIjybGTquRbhLyER4hmo5HtXCS3M=;
-	b=eX2IPWAG+DvooY6YzvBNYPIk4d7JwL6SQGjcVcR/3nVRkZUD/9wZEdubuxvUX29zgYJ6tr
-	+6ncwJ9ZGLDV8KDQ==
-Subject: [PATCH 00/11] vdso: Various cleanups
-Date: Tue, 26 Aug 2025 08:17:03 +0200
-Message-Id: <20250826-vdso-cleanups-v1-0-d9b65750e49f@linutronix.de>
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RkAC4wHTvttqFMA6WXB8e/iq2KZu43nm9iAolOlePoo=;
+	b=Q8mSoKdiRiKW506l9WVulESL+9134C7qwVPD/h56gDK4cLn2hQDvtAscD0+Y7vY2LhTQCC
+	HHH6+qGbv0QACRBg==
+Date: Tue, 26 Aug 2025 08:17:04 +0200
+Subject: [PATCH 01/11] vdso/datastore: Gate time data behind
+ CONFIG_GENERIC_GETTIMEOFDAY
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAF9RrWgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDCyNT3bKU4nzd5JzUxLzSgmLdtBSztKQkY6O0ZENLJaCegqLUtMwKsHn
- RsbW1AHxpxT5fAAAA
-X-Change-ID: 20250825-vdso-cleanups-fd6fbb32fc19
+Message-Id: <20250826-vdso-cleanups-v1-1-d9b65750e49f@linutronix.de>
+References: <20250826-vdso-cleanups-v1-0-d9b65750e49f@linutronix.de>
+In-Reply-To: <20250826-vdso-cleanups-v1-0-d9b65750e49f@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
  Vincenzo Frascino <vincenzo.frascino@arm.com>, 
  Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -82,17 +83,16 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  linux-kselftest@vger.kernel.org, 
  Rasmus Villemoes <linux@rasmusvillemoes.dk>, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756189098; l=3008;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1756189098; l=1494;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=OKdbTtNFiNAfKDCNOTVL/ZRLmxAuqZzdXzmwBIqDanM=;
- b=xXLb28HhyOp2V5PAl7NV8Ih+DLTz+T0EwU3m8mTK7t+YdB+1/WbVwG3q2LXi/d5YbmXMM3lwS
- UE/A4xDXG50Ay40TUaB+Dz47MZKMYqchu5q89DYuvoo2r9Z3sDlnSRd
+ bh=Xwfsdm0ZK9C/lpd9jqhqOkaZcVVPlOC5pvjRYhkmXtE=;
+ b=tlV3av9IKVXt0yWBFrF5Xv8jBNjjBxHO+JuqtOgaexNgBMaGIsCaUqqbuFYpe8hxCfE7QWU0D
+ myFUv/1mGoXDr2ckk35aDR7U4NUTuoYXHLDHdqVI/Wbr6WCebWnlLLC
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_231820_523672_E54F54B5 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250825_231821_325160_06324975 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,65 +107,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Various cleanups to the generic vDSO infrastructure and a patch for ARM
-which was never applied.
+When the generic vDSO does not provide time functions, as for example on
+riscv32, then the time data store is not necessary.
 
-This series has one trivial syntactic conflict with "dso/datastore: Allow
-prefaulting by mlockall()" [0] and a semantic one with "sparc64: vdso:
-Switch to generic vDSO library" [1], which still uses the removed
-GENERIC_VDSO_DATA_STORE.
+Avoid allocating these time data pages when not used.
 
-[0] https://lore.kernel.org/lkml/20250812-vdso-mlockall-v1-0-2f49ba7cf819@linutronix.de/
-[1] https://lore.kernel.org/lkml/20250815-vdso-sparc64-generic-2-v2-0-b5ff80672347@linutronix.de/
-
+Fixes: df7fcbefa710 ("vdso: Add generic time data storage")
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
-Rasmus Villemoes (1):
-      ARM: VDSO: remove cntvct_ok global variable
+ lib/vdso/datastore.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-Thomas Weißschuh (10):
-      vdso/datastore: Gate time data behind CONFIG_GENERIC_GETTIMEOFDAY
-      vdso: Move ENABLE_COMPAT_VDSO from core to arm64
-      vdso/gettimeofday: Remove !CONFIG_TIME_NS stubs
-      time: Build generic update_vsyscall() only with generic time vDSO
-      riscv: vdso: Untangle kconfig logic
-      vdso: Drop kconfig GENERIC_VDSO_32
-      vdso: Drop kconfig GENERIC_COMPAT_VDSO
-      vdso: Drop kconfig GENERIC_VDSO_DATA_STORE
-      vdso: Drop kconfig GENERIC_VDSO_TIME_NS
-      vdso: Gate VDSO_GETRANDOM behind HAVE_GENERIC_VDSO
+diff --git a/lib/vdso/datastore.c b/lib/vdso/datastore.c
+index 3693c6caf2c4d41a526613d5fb746cb3a981ea2e..a565c30c71a04ff4116c14f43f4450210eba99c5 100644
+--- a/lib/vdso/datastore.c
++++ b/lib/vdso/datastore.c
+@@ -11,14 +11,14 @@
+ /*
+  * The vDSO data page.
+  */
+-#ifdef CONFIG_HAVE_GENERIC_VDSO
++#ifdef CONFIG_GENERIC_GETTIMEOFDAY
+ static union {
+ 	struct vdso_time_data	data;
+ 	u8			page[PAGE_SIZE];
+ } vdso_time_data_store __page_aligned_data;
+ struct vdso_time_data *vdso_k_time_data = &vdso_time_data_store.data;
+ static_assert(sizeof(vdso_time_data_store) == PAGE_SIZE);
+-#endif /* CONFIG_HAVE_GENERIC_VDSO */
++#endif /* CONFIG_GENERIC_GETTIMEOFDAY */
+ 
+ #ifdef CONFIG_VDSO_GETRANDOM
+ static union {
+@@ -46,7 +46,7 @@ static vm_fault_t vvar_fault(const struct vm_special_mapping *sm,
+ 
+ 	switch (vmf->pgoff) {
+ 	case VDSO_TIME_PAGE_OFFSET:
+-		if (!IS_ENABLED(CONFIG_HAVE_GENERIC_VDSO))
++		if (!IS_ENABLED(CONFIG_GENERIC_GETTIMEOFDAY))
+ 			return VM_FAULT_SIGBUS;
+ 		pfn = __phys_to_pfn(__pa_symbol(vdso_k_time_data));
+ 		if (timens_page) {
 
- arch/Kconfig                                      |  2 +-
- arch/arm/include/asm/vdso/vsyscall.h              |  2 --
- arch/arm/kernel/vdso.c                            | 10 +++------
- arch/arm/mm/Kconfig                               |  2 --
- arch/arm64/Kconfig                                |  3 ---
- arch/arm64/include/asm/vdso/compat_barrier.h      |  7 +++---
- arch/arm64/include/asm/vdso/compat_gettimeofday.h |  6 ++---
- arch/arm64/include/asm/vdso/gettimeofday.h        |  8 +++++++
- arch/arm64/kernel/vdso32/Makefile                 |  1 -
- arch/loongarch/Kconfig                            |  2 --
- arch/mips/Kconfig                                 |  1 -
- arch/powerpc/Kconfig                              |  2 --
- arch/riscv/Kconfig                                | 12 +++++-----
- arch/s390/Kconfig                                 |  2 --
- arch/x86/Kconfig                                  |  3 ---
- include/asm-generic/vdso/vsyscall.h               |  4 ----
- include/vdso/datapage.h                           |  9 +-------
- init/Kconfig                                      |  2 +-
- kernel/time/Makefile                              |  2 +-
- lib/vdso/Kconfig                                  | 25 +--------------------
- lib/vdso/Makefile                                 |  2 +-
- lib/vdso/datastore.c                              |  6 ++---
- lib/vdso/gettimeofday.c                           | 27 -----------------------
- tools/testing/selftests/pidfd/config              |  1 -
- 24 files changed, 31 insertions(+), 110 deletions(-)
----
-base-commit: 3cd1f6bc6aa056cfd32946f9ce0aa3eb3db180e8
-change-id: 20250825-vdso-cleanups-fd6fbb32fc19
-
-Best regards,
 -- 
-Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+2.50.1
 
 
