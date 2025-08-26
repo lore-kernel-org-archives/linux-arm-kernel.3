@@ -4,63 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4158ACA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 13:23:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14021CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 13:25:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JM/Ekttc/QGK5Q7dTAm7FoE1Xm5dUqyHKYZqY3T/pug=; b=K1OAwf7fJUltsZFSCgXHN+bAMI
-	TrKgtjc5CDQM0C4DgLup7BkRvVX9GI7xnXdAm2PamgZXMD7+BYDHwzzqxcjLthZOP2PvEoWOz4UG7
-	4HGorTLpeh8gmWyNJllbbrONvmGaTD+rR+toZantMJgZuUEfSiQkgOYRFEWUWMoP59KLdkghZnSJ0
-	MebvabDj9eis+h3aLgCE666OFGZHj83sEJ07iLDiqjzyWwXJit19kuIqItpm59ZyiEfZGIunhJV+O
-	OxkeOdxmSgp0BsJYenk3Yxd7dTUkWI8a5NnRgqhDkX5uII37E6w/z1Jl067sTtsL7e/bgbzfwyKTH
-	LmvZVvbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1anwaqC6FtBZhv/AdRsioHe6z7ff2/NtObpshRSmtXo=; b=oDO6sPl6nFSPg3SYXJL9EarlpN
+	agVd5SrrPjJP1twJppYLcVXMKIwvXFXK6jFgK9sf/GAFr+qMgK3PoogvAtGPvhzFZXOsgks9FUgpg
+	x8LH0291qgKdWJp+khFA5zKOEVm0V7l4LSO+b14TtGTzBkqksi4xeprJ0ZUOYcG84RIhJ6Or8eeVc
+	Wgg0h6ecQWr9l6SSFC8fd5nCIHITRohAnupbD1ICK9Sk6DY6q4PesnF2NJctTOcv+E1CnAYZIbjyd
+	/sWwTJhOawGAPe/z7/Wba/YBkoawonnEEO4yZbE/UnlLlzwsneTyhRKK8hSHNxw/lQyxYFCiBLP3k
+	Jljcc3bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqtdW-0000000C5IS-2n9A;
-	Tue, 26 Aug 2025 13:22:54 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uqtgC-0000000C5gg-3Mtl;
+	Tue, 26 Aug 2025 13:25:40 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqtOS-0000000C2Qy-0CmU
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 13:07:21 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cB7DZ3vGBz6LD9l;
-	Tue, 26 Aug 2025 21:05:02 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 8712F1404FE;
-	Tue, 26 Aug 2025 21:07:18 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Tue, 26 Aug
- 2025 15:07:17 +0200
-Date: Tue, 26 Aug 2025 14:07:16 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Yushan Wang <wangyushan12@huawei.com>
-CC: <will@kernel.org>, <mark.rutland@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<robin.murphy@arm.com>, <yangyicong@huawei.com>, <liuyonglong@huawei.com>,
-	<wanghuiqiang@huawei.com>, <prime.zeng@hisilicon.com>,
-	<hejunhao3@h-partners.com>
-Subject: Re: [PATCH v2 5/9] drivers/perf: hisi: Extend the field of tt_core
-Message-ID: <20250826140716.000079ba@huawei.com>
-In-Reply-To: <20250821135049.2010220-6-wangyushan12@huawei.com>
-References: <20250821135049.2010220-1-wangyushan12@huawei.com>
-	<20250821135049.2010220-6-wangyushan12@huawei.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	id 1uqtPF-0000000C2bD-237g;
+	Tue, 26 Aug 2025 13:08:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=1anwaqC6FtBZhv/AdRsioHe6z7ff2/NtObpshRSmtXo=; b=tTA/3PiAJQSpvqwn9JBse0zv8x
+	XpRRlvytBaU8d04FPgmaRAhvvZSqAROIZ/4ezjLoE6WsNdrr9/VlG41rEHCWsnk6JH8UsrGv5T5LT
+	zWsAXDZBYt6RN2vrodVyAq1DmmcYAol3ljF/QPWtrzgIrZdA+eDohdH+O3MOT2cIfR3SAL6oZFxxT
+	a0buqH4Cjn32e+/T6hw9u+ioPisD3zaMrQKEyQ6W0w6+Ct9SXam4tKJBvFWH9AMfHquCJRKF+Zp4I
+	PdyzFVdx3HFHpHhkOPtwcc+TPPHK59R640Wqk+YmnwDvNpXZJgmWLR1JQJ9jnUMah3B3H6sSqGhBU
+	hjKnAxuQ==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uqtPC-00000002GIP-3rVi;
+	Tue, 26 Aug 2025 13:08:07 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id DB2A63002C5; Tue, 26 Aug 2025 15:08:06 +0200 (CEST)
+Date: Tue, 26 Aug 2025 15:08:06 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: mingo@redhat.com, will@kernel.org, mark.rutland@arm.com,
+	acme@kernel.org, namhyung@kernel.org,
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+	irogers@google.com, adrian.hunter@intel.com,
+	kan.liang@linux.intel.com, linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, dmaengine@vger.kernel.org,
+	linux-fpga@vger.kernel.org, amd-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org, coresight@lists.linaro.org,
+	iommu@lists.linux.dev, linux-amlogic@lists.infradead.org,
+	linux-cxl@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 16/19] perf: Introduce positive capability for sampling
+Message-ID: <20250826130806.GY4067720@noisy.programming.kicks-ass.net>
+References: <cover.1755096883.git.robin.murphy@arm.com>
+ <ae81cb65b38555c628e395cce67ac6c7eaafdd23.1755096883.git.robin.murphy@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml500001.china.huawei.com (7.191.163.213) To
- frapeml500008.china.huawei.com (7.182.85.71)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_060720_233232_D4A039FC 
-X-CRM114-Status: UNSURE (   7.25  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ae81cb65b38555c628e395cce67ac6c7eaafdd23.1755096883.git.robin.murphy@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,17 +86,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 21 Aug 2025 21:50:45 +0800
-Yushan Wang <wangyushan12@huawei.com> wrote:
+On Wed, Aug 13, 2025 at 06:01:08PM +0100, Robin Murphy wrote:
+> Sampling is inherently a feature for CPU PMUs, given that the thing
+> to be sampled is a CPU context. These days, we have many more
+> uncore/system PMUs than CPU PMUs, so it no longer makes much sense to
+> assume sampling support by default and force the ever-growing majority
+> of drivers to opt out of it (or erroneously fail to). Instead, let's
+> introduce a positive opt-in capability that's more obvious and easier to
+> maintain.
+> 
 
-> From: Yicong Yang <yangyicong@hisilicon.com>
-> 
-> Currently the tt_core's using config1's bit [7, 0] and can not be
-> extended. For some platforms there's more the 8 CPUs sharing the
-> L3 cache. So make tt_core use config2's bit [15, 0] and the remaining
-> bits in config2 is reserved for extension.
-> 
-> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-> Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
-Acked-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+> index 4d439c24c901..bf2cfbeabba2 100644
+> --- a/include/linux/perf_event.h
+> +++ b/include/linux/perf_event.h
+> @@ -294,7 +294,7 @@ struct perf_event_pmu_context;
+>  /**
+>   * pmu::capabilities flags
+>   */
+> -#define PERF_PMU_CAP_NO_INTERRUPT	0x0001
+> +#define PERF_PMU_CAP_SAMPLING		0x0001
+>  #define PERF_PMU_CAP_NO_NMI		0x0002
+>  #define PERF_PMU_CAP_AUX_NO_SG		0x0004
+>  #define PERF_PMU_CAP_EXTENDED_REGS	0x0008
+> @@ -305,6 +305,7 @@ struct perf_event_pmu_context;
+>  #define PERF_PMU_CAP_EXTENDED_HW_TYPE	0x0100
+>  #define PERF_PMU_CAP_AUX_PAUSE		0x0200
+>  #define PERF_PMU_CAP_AUX_PREFER_LARGE	0x0400
+> +#define PERF_PMU_CAP_NO_INTERRUPT	0x0800
+
+So NO_INTERRUPT was supposed to be the negative of your new SAMPLING
+(and I agree with your reasoning).
+
+What I'm confused/curious about is why we retain NO_INTERRUPT?
 
