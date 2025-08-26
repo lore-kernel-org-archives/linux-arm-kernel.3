@@ -4,108 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB1D8CA0FE9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 12:31:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEE36CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 12:34:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CLgKkUt/EORHceeO89abTN08otZovq/goeI6WeVPzj4=; b=Pl8loWMZcMrUSt/ssPuH6uSqZU
-	J3A6xGlz7Ghd8HrZAjR8+mC9vTf/PLRHzMXlOSSAF6uKEyUdJN7Cuscmy2rQCkJWieeX4xczISo58
-	BMlH6IWAfIwvtou2KpUsjg0iQAhQrAiUtZRUhndWg/XyZQIpd3Uo0h5AFewloSiiP+8BwwLV+0Lzp
-	WO0CEgdmYO5EIUT7w9L/wOfQu41Un8SkYo/6GN7A5pAdai5ei3WL00p/GW6C+cMz8m7QcV60r5+p1
-	dxIA5UqxMxOhPCM+bYiGxGreMqobff9cDaAwnAqdiQBmlyBsxrZOHo3xiWE8g2xPQ4j1KYKklGom1
-	hK4+/a9w==;
+	bh=paLKss0IUBWc+jaJlEOsMKMsvnxtyXrSg9oZkdly/Ns=; b=qDox5hRArcXH9+bwxa+7Vff4yo
+	zY4FcwBBPskQnEUrd4+Kws3rLDO1VDXrcSPUJTZh/4RaZIEQkRk0GHAF1PgdD5HzjKQ7hnpu59H53
+	qq9YmPNYS+mny70pM91x3t+KahQ/qOdzHTh6IltQMjP68+j/DGYtuf82smUigXzvEpQcjWT3PXPCP
+	Sc2kvfrApOkc3OfaBZaXra7c0cDYVFTsogDdxGfpJd9BsGGj81m2ITe8QRguKBx6Oe39AwkWIaai1
+	jYcP62w68RhSTPS7YmEbkZLRE5GTPKHj9/FYVvhUvBHhsCTTOwuZssBq2aNsZeO3LDO+sMDxeVtbv
+	shhqcbHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqspX-0000000BwzI-1cR2;
-	Tue, 26 Aug 2025 12:31:15 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1uqssD-0000000BxNG-3ShY;
+	Tue, 26 Aug 2025 12:34:01 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqsV2-0000000Bu8j-35jg;
-	Tue, 26 Aug 2025 12:10:05 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-32326e2f0b3so4293899a91.2;
-        Tue, 26 Aug 2025 05:10:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756210204; x=1756815004; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=CLgKkUt/EORHceeO89abTN08otZovq/goeI6WeVPzj4=;
-        b=GEhcVT63l03G44bVZZhX4+d5gmbUxQ908+EL+ehrWM1O3ZMXjdIvggWSe2yG/qWmPq
-         M+PZ/67tB5tdNaddDpOtjZgYWYw+ZD1Rh3MQ/K6RQJSMBDyr8ONBch1D6pxYoYu9pV/Q
-         8N1qBgHEbdmuA3FoUscKYdV/+aZ1NevR7ESCZxjQ34QAHoIAUiLJYs2xyPHCQK0Js446
-         +FrIGblK3HA4UMO/2lx4pWJhv8vesvtnqZdudsg4IOt22b2Pp47j6T2piKHS5g3uNwTR
-         XVewE/E/KJzd11vtE3at7SicXmAnmVcutIFkQTLNZURrnHM563rJlT0irTp3caJia6p2
-         HLeA==
+	id 1uqsWk-0000000BuQd-16qR
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 Aug 2025 12:11:51 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57Q5VYfb007747
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 12:11:49 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	paLKss0IUBWc+jaJlEOsMKMsvnxtyXrSg9oZkdly/Ns=; b=dLqBO4s7mv5mKici
+	wuWjk/+jlVhmLhv4egor9qx27Ty0KbfEn1hKUgeeBFT6BZMy+4bInHT/Wo+JXzdO
+	avLuoNj3sF+GK7l+5A/Xb7F869eadzkLT2QJV/0mIuPCB3p1+hFt72zfFTzU77ml
+	OZcvgQqZOqw0wZpHGXZvcbhwuarwdSTe6RgXKjpzF7lnKup3TIGbn4pEdTzqpF4/
+	Mcliv4vFszOGAPGP8F/rTxjl+ijRZ4JM4gyjE0SkSEF/VEFQM3LI8M/f5fV6UXZe
+	kS8ANmcgsNWqE3zFeZEBce9BzO93PiOtucfRz9qk9ncpFrPj/h2M/T9wPY0T8Q6m
+	wrExPQ==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48q5xfgnmx-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 12:11:49 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2461907278dso53336465ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 05:11:49 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756210204; x=1756815004;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=CLgKkUt/EORHceeO89abTN08otZovq/goeI6WeVPzj4=;
-        b=OytWJDaP2q+ok6SBvIMv8fAUi4ybQ5EAttIrBJ/3euEADiZn0liqCYXG5ZTrWc/fxu
-         DIGgwvv1HghCzO8jvXj0Y2tI6ThEADd02N0V90+8T6g3AjdjT6pTyvzQYChOXDMrgjsd
-         50fse+hF/MMJWWCZJR4OlUE4x2NHjSCb92pS2xJgmZSq6gLhePqCEIqcYEXjX8i2dtAk
-         rl6ZIfVT3LUQ9uWJrQMgv5V9UpWuBMgClf5j5gk3pW3Xr7157hJdZXOmbKB5+m8iI9Ih
-         awcX2kkrDvZ46lF1E9JxTWboDQJ7yEPmKkvLBGauYahxx0USaHf3erGzZIZEpr4q0MQR
-         /buA==
-X-Forwarded-Encrypted: i=1; AJvYcCWnPb+JLWYxntVXBjc5tFFNnzbVqg9oNX0hl1iSFDcv5QX5WDU4X9osknSkiuHq/hj+xdbaSBZ23Rd4ww==@lists.infradead.org, AJvYcCXvtVlLsaVZOiHT8bavCyNtLJSvKpuTT77WBzkKdETxdoc+mUQACcWiuNhbeFg66gP0Kr3fL9D+8+4Zlowj1uyY@lists.infradead.org
-X-Gm-Message-State: AOJu0YwgB4mVeTrtnlxPCNH5F0sCYQzFR6OhKnrUNffkXkIIXBeb1kSo
-	l0N7RoNJzojJp4rZq31TUxTltRt1nYka1+IRPJ4Y+40+eA+3vpTMIyIKcjBnwvIt
-X-Gm-Gg: ASbGncu/XHksSS3sbVpIXS275HsffYGZom7e8zRGwxUrPQ9L0M5usmdEZyHpxB1g1KQ
-	YzuYTPGhyslX+0OgRg/y7DXUt/cMpd5Bsuqm9r6dzNRYIvIVv9NJoZSYsgBl4fKyHYOtB6YRQWd
-	4QLk4s++cnBPZmQ4TkNBjrIQPOmTjFlA4VN0NPLGgBo/4ZPpuEsrskd/IfprDaO8L1UDAJZIm/P
-	Aj4iLZqaSbBdgH1ICa7Mvd7xOnb8MBc/x0sq0Sc19w9FOAvk8ysR/UU48kka2AumwwaMvPxxWmZ
-	EVd1X1fSex2zIGRh27a9/pr51mFxYY5TJnuGsECZu2BT1z93msBpb8WgrImG5kqzeD1V5qvcmtj
-	6NqbgTYt3MoSOZz/n/haUKY3w5/w=
-X-Google-Smtp-Source: AGHT+IGWgie8ZS02lLq0YJgxOyT9OhF17cJYHT5FMDsYYjsiJPCGQK8BxGNo1tID5Q6Dk0AkG/0Bgw==
-X-Received: by 2002:a17:90b:514f:b0:324:e6ea:f959 with SMTP id 98e67ed59e1d1-32515ed12b6mr20451822a91.14.1756210203424;
-        Tue, 26 Aug 2025 05:10:03 -0700 (PDT)
-Received: from [127.0.1.1] ([59.188.211.98])
-        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-327565d3924sm619966a91.13.2025.08.26.05.09.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 Aug 2025 05:10:03 -0700 (PDT)
-From: Nick Chan <towinchenmi@gmail.com>
-Date: Tue, 26 Aug 2025 20:09:15 +0800
-Subject: [PATCH v5 4/4] arm64: dts: apple: t8015: Add NVMe nodes
+        d=1e100.net; s=20230601; t=1756210308; x=1756815108;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=paLKss0IUBWc+jaJlEOsMKMsvnxtyXrSg9oZkdly/Ns=;
+        b=QdI+tmLHMV5Z6AGSFFVyLrOLLEUdosrkU9i7trQlz+qT3AkzTkcrjVSD1l+GmeVAMA
+         IDuP851OppPfBKKQlgPoQ1LFZeBM9JULAHhEUcvMybs9uJ41SDJb9vCuIpYy69kn7PRR
+         RI2RQTZpspW6lCoUZ7+oPZaygnzMxyENXTZ7IfKSz9hSMnSrAaPg7B3vHQCHszKDPJVY
+         imh/wo41R9Eanhkn4zeCM7YT4+NqArRLJGQvr2ijvHAFYxRLoqc8lqr0c8jUozsrw9F6
+         CSMH+AUPy/CjJDH3apH2q8vIdmc6qXeZw3BLD3P/gaxvrWuiehkaozXEbM9eMtXLADbK
+         CufQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV1EtN/keFe7p3ed++mH+xp2mRz9SVkJk3jxtTVuZNGCJq5OqkW7aqSXKBxvVcL85bHq5FvrI0Yg2da9IoesNq5@lists.infradead.org
+X-Gm-Message-State: AOJu0YzU2s/s1haA9SyC9dAy6uoW98Y/hOzWXcXaRaEurirEmch7dXyS
+	pZA7ZAnj+h72sMktsFtIAcoYN/Xo4KzeXd7fpqaqnJpQD5AUBo7g43jqhlWgm1WrfiNYdbEsvSH
+	nlbfTM3kfzTjxmCofe17WMPSLJL16A5SQW7mXfw3UiurBuXXdiL8yo/hnH4eeOGOrPD6159ZJR9
+	oGSw==
+X-Gm-Gg: ASbGnctwLPOBzQ9Y1mdMBaFPBVBiAPGh7Qbo00/4COAakDynSZBiFcEyfoVBwd0I3My
+	KhqLbrZPiLLY6ZaADRsxAJGEMmWKAbtXA5uPmEhe1JX6jNdLtYcQiFH+NcVPoCn7uv9rImdHDfs
+	WRDqgzXc3zj+bVy1K4xSYty1+OoZAkrah0XA74yuITYZcsdKpkn6xVK/t3BK5H8xMeO9QGJjxZt
+	kcCxImHdCpD9F/hjnPisgzpgmxfhaBnZcphXgCCT7tQbPTKKk6/thm+m4MWGRFSf2Q3Gk930qRN
+	c43zAwzBvIIC5DAiyAX8TbgPdT7pe9tGY4xPtcRGxXRbVRbn1jv1iFrTFq2uVQxntnsft4EiFsE
+	gI5FldDWzDFaWEyzuLnmZZYp7KLuN5g==
+X-Received: by 2002:a17:903:40d1:b0:246:d00b:4ae3 with SMTP id d9443c01a7336-246d00b549dmr78980185ad.61.1756210307949;
+        Tue, 26 Aug 2025 05:11:47 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGWt+ZKuYL/s7XdOx51tNH2twlSp1YzsVOyChmLbB+Co/aIapze6oU9D35MvVYX1XhVnb+v5w==
+X-Received: by 2002:a17:903:40d1:b0:246:d00b:4ae3 with SMTP id d9443c01a7336-246d00b549dmr78979735ad.61.1756210307420;
+        Tue, 26 Aug 2025 05:11:47 -0700 (PDT)
+Received: from [10.133.33.155] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-246688645eesm94817945ad.99.2025.08.26.05.11.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 26 Aug 2025 05:11:47 -0700 (PDT)
+Message-ID: <5df27be9-0347-49d1-ba1e-21d6a2172314@oss.qualcomm.com>
+Date: Tue, 26 Aug 2025 20:11:41 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250826-t8015-nvme-v5-4-caee6ab00144@gmail.com>
-References: <20250826-t8015-nvme-v5-0-caee6ab00144@gmail.com>
-In-Reply-To: <20250826-t8015-nvme-v5-0-caee6ab00144@gmail.com>
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Keith Busch <kbusch@kernel.org>, 
- Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>, 
- Sagi Grimberg <sagi@grimberg.me>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-nvme@lists.infradead.org, Nick Chan <towinchenmi@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1720; i=towinchenmi@gmail.com;
- h=from:subject:message-id; bh=n0GU3aHOIbzcpxdfkfvKoQ2JdbUFCoeF/xHA7QnVC2k=;
- b=owEBbQKS/ZANAwAKAQHKCLemxQgkAcsmYgBoraQDdi3xvWrgtoq+xYU0KaEpYAJiSJed9pe6Y
- /L5WzRkEjeJAjMEAAEKAB0WIQRLUnh4XJes95w8aIMBygi3psUIJAUCaK2kAwAKCRABygi3psUI
- JB1eD/9FRaF5x0qOcvMaYKSiP6C7NrIQ2IRtHgqkthJk9bKAJo/6jVT9USMx+2fBKj3XVOlHGd4
- B7k3kwLSivIH7/Jxmhmu8nBktrbBnan5KWHiM24HnMrNompcQOIVKpCrJFlCWdma8sysAdG1w/P
- wCI4oZr+FlHtyx4aIF2e/mqOUe2xB5YuKlcAkZJ3s6x7NdzlY7vPTFatiPFGQxnWt5D2oFgextM
- cpPFRw80SmudDzweipUKE3+XyWBq6x9Q5VHE8xz8B1vbvDYh7rdFy6zrW+Tk2Wq2UdnsC+G+B6N
- lAEUDJscdVObCSnCinkxUnqYBb7322jSRX7ew/QrgJRrZkMMgoPeiXqvyVaYRJvVgvJO8avtqKR
- 8z9KTqP805PtPTpUXsKmjUOQ+xv1bX5dKlhm9+COAwZQNU2D/5JdPqaf71T722PZNsqD5rsIvW6
- Jj7h2LBjsMq21c4EnpSN4Si+iXHUYKo4pkrS+WzIlE1KH7oeQymatyKCowleF4N2IaD/JoJ3B6u
- tTFEdXikWWk9WGngv5wQTUgYKVPuGE5YoGLRW5ZMzsjpWxwbRMgIn/gbrmzt/i8FtQQf57t7RLy
- PZuGQjW2ja7ri7RIjWULGqlcUBwH0Re7h5kta5xXw7DlnwsF1tLY3DQIx3shq7tmy23tw5oPOZr
- uKVWm1K9alCgZKA==
-X-Developer-Key: i=towinchenmi@gmail.com; a=openpgp;
- fpr=4B5278785C97ACF79C3C688301CA08B7A6C50824
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 3/3] coresight: tpda: add sysfs node to flush specific
+ port
+To: James Clark <james.clark@linaro.org>, Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+ <mike.leach@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
+References: <20250826070150.5603-1-jie.gan@oss.qualcomm.com>
+ <20250826070150.5603-4-jie.gan@oss.qualcomm.com>
+ <3ac2954e-5663-4ea0-bc1d-a09e1992af5b@linaro.org>
+ <a6be4d7b-d163-47df-9ab3-ca410f703555@oss.qualcomm.com>
+ <939eb45c-f48e-40ce-86e8-710afa2b5c9b@linaro.org>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <939eb45c-f48e-40ce-86e8-710afa2b5c9b@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDAzMyBTYWx0ZWRfX4oAbezVT4q7+
+ TcUwrueTHrNkO5fTw8BVeRM+7mxdf7CcxCCN58G1+6AFFOS+iDSKuhZDt0Hb0ktOdscQUHziQpI
+ EVfnWjc+gJcS4J9Y8jS1gDWvWt4eeygFHQTnbYG/1a8bO6iBdppweFOdXAqOnHMd/K8yhrjDDaA
+ pkS7enYR6jmFCW0JjauHcE4hyz1x535UhC5xyQkaCtJpn8yb7y+vJAC/2dmJONA0YSjPri5M/C2
+ qbjVz4fvV09JvILP6HWq546ozxLsInuLCbQbnVQqQom8tOL080zolz0cgvXOxxRzY1avTEBO5OJ
+ 8AJ0LWx3rviXMkIkudNARtV4wizS9gtsUTSfv1rmWFSUSuG8x1icighZ4IA+/XL9Ag9xuJvTo+e
+ 6gclBaj+
+X-Proofpoint-GUID: tDWyvxTN5qi-58ujc5ICoeRDvm1jyrjL
+X-Authority-Analysis: v=2.4 cv=MutS63ae c=1 sm=1 tr=0 ts=68ada485 cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=EUspDBNiAAAA:8 a=-hWpzLsPYw3_ZpqOosEA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=uG9DUKGECoFWVXl0Dc02:22
+X-Proofpoint-ORIG-GUID: tDWyvxTN5qi-58ujc5ICoeRDvm1jyrjL
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-26_02,2025-08-26_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 impostorscore=0 adultscore=0 spamscore=0 malwarescore=0
+ suspectscore=0 clxscore=1015 bulkscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508230033
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_051004_774241_1D62006D 
-X-CRM114-Status: GOOD (  10.95  )
+X-CRM114-CacheID: sfid-20250826_051150_424053_BE4D791D 
+X-CRM114-Status: GOOD (  27.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,60 +140,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add nodes for NVMe and associated mailbox and sart for Apple A11 SoC.
 
-Signed-off-by: Nick Chan <towinchenmi@gmail.com>
----
- arch/arm64/boot/dts/apple/t8015.dtsi | 34 ++++++++++++++++++++++++++++++++++
- 1 file changed, 34 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/apple/t8015.dtsi b/arch/arm64/boot/dts/apple/t8015.dtsi
-index 12acf8fc8bc6bcde6b11773cadd97e9ee115f510..84acf2839fb6279dcc956e1f4cee1afa909d2f27 100644
---- a/arch/arm64/boot/dts/apple/t8015.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8015.dtsi
-@@ -402,6 +402,40 @@ pinctrl_smc: pinctrl@236024000 {
- 			 */
- 			status = "disabled";
- 		};
-+
-+		ans_mbox: mbox@257008000 {
-+			compatible = "apple,t8015-asc-mailbox";
-+			reg = <0x2 0x57008000 0x0 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 265 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ 266 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ 267 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ 268 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "send-empty", "send-not-empty",
-+				"recv-empty", "recv-not-empty";
-+			#mbox-cells = <0>;
-+			power-domains = <&ps_ans2>;
-+		};
-+
-+		sart: iommu@259c50000 {
-+			compatible = "apple,t8015-sart";
-+			reg = <0x2 0x59c50000 0x0 0x10000>;
-+			power-domains = <&ps_ans2>;
-+		};
-+
-+		nvme@259cc0000 {
-+			compatible = "apple,t8015-nvme-ans2";
-+			reg = <0x2 0x59cc0000 0x0 0x40000>,
-+				<0x2 0x59d20000 0x0 0x2000>;
-+			reg-names = "nvme", "ans";
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 270 IRQ_TYPE_LEVEL_HIGH>;
-+			mboxes = <&ans_mbox>;
-+			apple,sart = <&sart>;
-+			power-domains = <&ps_ans2>, <&ps_pcie>;
-+			power-domain-names = "ans", "apcie0";
-+			resets = <&ps_ans2>;
-+		};
- 	};
- 
- 	timer {
+On 8/26/2025 5:54 PM, James Clark wrote:
+> 
+> 
+> On 26/08/2025 10:39 am, Jie Gan wrote:
+>>
+>>
+>> On 8/26/2025 5:27 PM, James Clark wrote:
+>>>
+>>>
+>>> On 26/08/2025 8:01 am, Jie Gan wrote:
+>>>> From: Tao Zhang <tao.zhang@oss.qualcomm.com>
+>>>>
+>>>> Setting bit i in the TPDA_FLUSH_CR register initiates a flush request
+>>>> for port i, forcing the data to synchronize and be transmitted to the
+>>>> sink device.
+>>>>
+>>>> Signed-off-by: Tao Zhang <tao.zhang@oss.qualcomm.com>
+>>>> Co-developed-by: Jie Gan <jie.gan@oss.qualcomm.com>
+>>>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+>>>> ---
+>>>>   .../testing/sysfs-bus-coresight-devices-tpda  |  7 +++
+>>>>   drivers/hwtracing/coresight/coresight-tpda.c  | 45 +++++++++++++++ 
+>>>> ++++
+>>>>   drivers/hwtracing/coresight/coresight-tpda.h  |  1 +
+>>>>   3 files changed, 53 insertions(+)
+>>>>
+>>>> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices- 
+>>>> tpda b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
+>>>> index e827396a0fa1..8803158ba42f 100644
+>>>> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
+>>>> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
+>>>> @@ -41,3 +41,10 @@ Contact:    Jinlong Mao 
+>>>> <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qu
+>>>>   Description:
+>>>>           (RW) Configure the CMB/MCMB channel mode for all enabled 
+>>>> ports.
+>>>>           Value 0 means raw channel mapping mode. Value 1 means 
+>>>> channel pair marking mode.
+>>>> +
+>>>> +What:        /sys/bus/coresight/devices/<tpda-name>/port_flush_req
+>>>> +Date:        August 2025
+>>>> +KernelVersion:    6.17
+>>>> +Contact:    Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang 
+>>>> <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+>>>> +Description:
+>>>> +        (RW) Configure the bit i to requests a flush operation of 
+>>>> port i on the TPDA.
+>>>> diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/ 
+>>>> hwtracing/coresight/coresight-tpda.c
+>>>> index 9e623732d1e7..c5f169facc51 100644
+>>>> --- a/drivers/hwtracing/coresight/coresight-tpda.c
+>>>> +++ b/drivers/hwtracing/coresight/coresight-tpda.c
+>>>> @@ -509,6 +509,50 @@ static ssize_t cmbchan_mode_store(struct device 
+>>>> *dev,
+>>>>   }
+>>>>   static DEVICE_ATTR_RW(cmbchan_mode);
+>>>> +static ssize_t port_flush_req_show(struct device *dev,
+>>>> +                   struct device_attribute *attr,
+>>>> +                   char *buf)
+>>>> +{
+>>>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>>>> +    unsigned long val;
+>>>> +
+>>>> +    guard(spinlock)(&drvdata->spinlock);
+>>>> +    if (!drvdata->csdev->refcnt)
+>>>> +        return -EPERM;
+>>>> +
+>>>> +    val = readl_relaxed(drvdata->base + TPDA_FLUSH_CR);
+>>>> +    return sysfs_emit(buf, "%lx\n", val);
+>>>
+>>> Decimal would be better for a port number that goes from 0 - 127. If 
+>>> you really want to use hex then don't you need to prefix it with 0x? 
+>>> Otherwise you can't tell the difference between decimal 10 and hex 
+>>> 10, and it's not documented that it's hex either.
+>>>
+>>
+>> Got it. I will fix the code here, and update the description in document.
+>>
+>>>> +}
+>>>> +
+>>>> +static ssize_t port_flush_req_store(struct device *dev,
+>>>> +                    struct device_attribute *attr,
+>>>> +                    const char *buf,
+>>>> +                    size_t size)
+>>>> +{
+>>>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>>>> +    unsigned long val;
+>>>> +
+>>>> +    if (kstrtoul(buf, 0, &val))
+>>>> +        return -EINVAL;
+>>>> +
+>>>> +    /* The valid value ranges from 0 to 127 */
+>>>> +    if (val > 127)
+>>>> +        return -EINVAL;
+>>>> +
+>>>> +    guard(spinlock)(&drvdata->spinlock);
+>>>> +    if (!drvdata->csdev->refcnt)
+>>>> +        return -EPERM;
+>>>> +
+>>>> +    if (val) {
+>>>
+>>> If 0 - 127 are valid don't you want to write 0 too?
+>>
+>> It's 1-127 here. 0 may leads to an unexpected issue here.
+>>
+>> Thanks,
+>> Jie
+>>
+> 
+> Then can't the above be this:
+> 
+>    /* The valid value ranges from 1 to 127 */
+>    if (val < 1 || val > 127)
+>      return -EINVAL;
+> 
+> But I'm wondering how you flush port 0?
+> 
 
--- 
-2.51.0
+BIT(0) represents port 0 with value 1 and the default value 0 means 
+nothing will be triggered here.
+
+> Isn't the default value 0? So if you never write to port_flush_req then 
+> you'd flush port 0, but why can't you change it back to 0 after writing 
+> a different value?
+
+We can change the value back to 0 but I think we shouldn't do this 
+although I haven't suffer issue after I changed it back to 0(for bit).
+Because the document mentioned: "Once set, the bit remains set until the 
+flush operation on port i completes and the bit then clears to 0". So I 
+think we should let the flush operation finish as expected and clear the 
+bit by itself? Or may suffer unexpected error when try to interrupt the 
+flush operation?
+
+Thanks,
+Jie
+  >>>
+>>>> +        CS_UNLOCK(drvdata->base);
+>>>> +        writel_relaxed(val, drvdata->base + TPDA_FLUSH_CR);
+>>>> +        CS_LOCK(drvdata->base);
+>>>> +    }
+>>>> +
+>>>> +    return size;
+>>>> +}
+>>>> +static DEVICE_ATTR_RW(port_flush_req);
+>>>> +
+>>>>   static struct attribute *tpda_attrs[] = {
+>>>>       &dev_attr_trig_async_enable.attr,
+>>>>       &dev_attr_trig_flag_ts_enable.attr,
+>>>> @@ -516,6 +560,7 @@ static struct attribute *tpda_attrs[] = {
+>>>>       &dev_attr_freq_ts_enable.attr,
+>>>>       &dev_attr_global_flush_req.attr,
+>>>>       &dev_attr_cmbchan_mode.attr,
+>>>> +    &dev_attr_port_flush_req.attr,
+>>>>       NULL,
+>>>>   };
+>>>> diff --git a/drivers/hwtracing/coresight/coresight-tpda.h b/drivers/ 
+>>>> hwtracing/coresight/coresight-tpda.h
+>>>> index 00d146960d81..55a18d718357 100644
+>>>> --- a/drivers/hwtracing/coresight/coresight-tpda.h
+>>>> +++ b/drivers/hwtracing/coresight/coresight-tpda.h
+>>>> @@ -10,6 +10,7 @@
+>>>>   #define TPDA_Pn_CR(n)        (0x004 + (n * 4))
+>>>>   #define TPDA_FPID_CR        (0x084)
+>>>>   #define TPDA_SYNCR        (0x08C)
+>>>> +#define TPDA_FLUSH_CR        (0x090)
+>>>>   /* Cross trigger FREQ packets timestamp bit */
+>>>>   #define TPDA_CR_FREQTS        BIT(2)
+>>>
+>>>
+>>
+> 
+> 
 
 
