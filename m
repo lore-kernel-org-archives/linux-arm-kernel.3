@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6C6ECA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 09:55:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C5F7CA0FE9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 09:58:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SdMjE/IUNg9nUBZWSwSrF0HUJBl5tL7A+dP3nDcIACE=; b=aV9vrlj/Ehg82zjwlcoSkNVGiC
-	8VIbjhD9PrfmOdH6Emu59blj0CYodqfdmMXh1NeJL+ytawalLbpJiFjd2R4jWk7vmvUdPdsrJZBc6
-	U9xrs3JkMp4Ll5rtf3641LKdu2RfK++RGlVsNIgr7kIcelO9BD+gAipx2VTxFbOi3xY0TeW3KOBMq
-	XCPRcthFSlEwJ0nH1mDt/l3lwxC7+6IsUEX0spCbnPEuQh4RB7v3nsoUF8FVGDDAS9zf9KGfQ5s1q
-	U++bADW2smWXe9wFJ4HStXNQNtTBqGjC3jezwP+uYOlwdVRmt7f7ZzCDqURQYhi6wEoNHULybqUgn
-	r5dVObIA==;
+	bh=uAicBEYxH4Wq0iMqjkmBP1ydMlvyJQbxDwaiB57cyeU=; b=0EUIhzPqDwy21Ign9T4i3ezonX
+	LfvUUHKp0DWQM5HGDImM6vMbvB5V9PTthpobhYpyaynpT/CxcrE5crktN0DQn9bPBgRBc5JMKYhQP
+	CMnmav5P6pI9vU4azq7q4D5min1PREI9BXWVoVnJEAmE1wiDbSiQQo4TBXKCyilDYVvs0+/Wo1145
+	qu9Nee5MgeYEhtWO6pwZ9gDbyyJtYo8IefeNGr9bsjSHlYfTZpu6nnExSj3F4CaaYMWgEiOIH9hyo
+	b7x/kdIvseV+F3kqtFyJb7eY4dZi3LlG8Fe3HC1XH/ZWgAOV255tb7S7GDOu9hxNtc9lSqge2gTE8
+	JOLPkpEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqqOX-0000000BVtl-1RTD;
-	Tue, 26 Aug 2025 09:55:13 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1uqqRF-0000000BWVf-0uxk;
+	Tue, 26 Aug 2025 09:58:01 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqq5I-0000000BR2T-4BwE
+	id 1uqq5K-0000000BR3W-1E4k
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 09:35:22 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-45a1b00f23eso31262135e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 02:35:20 -0700 (PDT)
+	Tue, 26 Aug 2025 09:35:23 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3c51f015a1cso2587458f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 02:35:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756200919; x=1756805719; darn=lists.infradead.org;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756200921; x=1756805721; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=SdMjE/IUNg9nUBZWSwSrF0HUJBl5tL7A+dP3nDcIACE=;
-        b=nOT6YZHe/E5ywzUyujHqUdlOppmjvRGcSdkP5cJ0LgpD02ijiP4AL6MrTzIWbJggQd
-         3zO8rPpi0kIFJbjAvWLOq53Nigfg9v9XwZ0Gx3mHGbS7m7L0DHLZUmRArHEyiMyKS7mA
-         Blf+2CFKesfIgigGDNK9mnOHS9Mr/EoJcEXkWZLnT10Y6HKJbpxn4pJt68svGsii1KPM
-         sjIj+ikMBtmVkL+7q/AdUTzem/hSFMMM36HszKkXMY93PU3yANjQi3O9CLbWvrSynGuo
-         P/FgrJwIWGLeQLzb7wDqKuYcOuIU7NzI4atHdzRdJvZ2kMN496Lu0U+sGLosTe5Efs82
-         fgEg==
+        bh=uAicBEYxH4Wq0iMqjkmBP1ydMlvyJQbxDwaiB57cyeU=;
+        b=I/kwyP/MmdzCHZChqngAooOMND9b5z+eSVBUjwtUaAf809EYYQrstzoaCuedhzazy8
+         zLvEdSwAwtcDgC5I6cSpoeawiF2I1/Vnlm7Og5ZOeK8lNvR+ivrht5JnFyqEQAgomjyL
+         DQTqvuoA3lSLzj21qMFSDdGT9Ro0cveCCrw76e8a+BCD9qtVoKCex3DVong8gzXzq+Rf
+         43AK6AZZadxFjbwI5jltSuxrVMva1++CXr5hDJoMvkc9MABJtgXO6eYxR+FvuQlBLEQ8
+         uRU4Z52V/SK+V8iiSLd+RhbeW7UHq1U8wdNSz6rKzjMyRnHzGNeVw2eZK6Tj4oC0IJhB
+         yNSg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756200919; x=1756805719;
+        d=1e100.net; s=20230601; t=1756200921; x=1756805721;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=SdMjE/IUNg9nUBZWSwSrF0HUJBl5tL7A+dP3nDcIACE=;
-        b=lxdr9k8eZ/98kkp9VVSsqQ5+ykxCFrO/VSGY0MXk1xkO7WwYpuEJ/NTOT8r7sm5Vrh
-         wZIhZRMEWm7HRHtwH3w0zn9XjRx+q0c2cyN9eHuTm8Lv1lgOvBNyUqOil4i33tk97GjW
-         4IkpMD9UTQZhVgeOOT8Q4QLQmipiSXMtlNs72tdfszjd7QQ9OFx/w5z8tf8Jn1ywWNBu
-         7VXgxFIjuN25XxtqSTCtzUiY7XZJ/4MHGAzsYviPyvuk22n1wbGI84iHE5WozT6ihWV9
-         pca7M5cv8OIEPArJFnkq1nSSA9UaTBeukWSnAzl+65XTcS0tVlpWPpRMRks64j3UqWFI
-         Y98Q==
-X-Forwarded-Encrypted: i=1; AJvYcCV4IKuAnmocrR2PeZHGHWymcqQkx1piGygSQL6uc3k8VPq2A3sR/M+U2sFO1SIbpUMcLK2/zx/HaE/uPbrY+2DN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzv3pWRvZ08QQy5zsHqXz+cecHr39jtQedwlTB6gGCHqaMTbR+q
-	6jOEvDdLg8VAV8W2L06r+8Il3o75RiOM7Asks0oiZY6ElgFIIzTsK8P4aYjS0A2oLfM=
-X-Gm-Gg: ASbGnctYTndXIb5jv3pxneR55qGzx8nFcQETl0/VFeV7ayhyL78GFYHlneSZIkDaGwm
-	vqC+pXH6RuPdLiXgaomnRzted3AKqYDfkYRsnpfZBE6f2ZC3TPYCCCnO/+/nyhrNjll9+HNis/0
-	LambIshza/rn/eH1w5EWTWtZ2AVsyD937Vll6HjOp2bOo3cyoYd+y+0f9ya3sNblH8Xq0mpqq/N
-	OvqfURCiNx6GSn3Gxc+kTXyjcNBNrsDhG2NafwuMUMbY4kdpqxxg0n/rHfUZY7S+qAVywMm4foY
-	d63bUuZZxsSXuFj+4TFRr29UVuMnjVcGNofICJ/ihAzjRWc/3rgHxAGpUppCbnpgwreRnG5XBwf
-	zw0egRtETzJ+OJsZjf0UZw2rXgg4=
-X-Google-Smtp-Source: AGHT+IGFYppzg7ppfW2qCUHYBmIKcwWqnK+38KV0dVpWZJbB4VXKyNsvmKpRrAApETlF5QIhTbSsTw==
-X-Received: by 2002:a05:6000:220f:b0:3c9:b8b7:ea3d with SMTP id ffacd0b85a97d-3c9b8b7ec0amr4709288f8f.51.1756200919352;
-        Tue, 26 Aug 2025 02:35:19 -0700 (PDT)
+        bh=uAicBEYxH4Wq0iMqjkmBP1ydMlvyJQbxDwaiB57cyeU=;
+        b=CZzAyh0RqKMpiIMUi1alHV1fVN6j4bGbAsDNVWLfTaPfoobH6Cp66kmSgxvMnXiU9H
+         AL9o9fnj4WcxbwaznPj1X0LZVHtaUY1beSyW+8mqY6jawov/Ye5ul/JI3L9/mmwjQtAc
+         zYRyiVvqMv+f3Dt1Bi5THZskLaJpBgqNxcAhHvHtliV/oc8D0hjkMWy6QvIk32q7L9LY
+         cOsvbY4yQFCAAB0n+osqy7C7w+XpEq8Iz5ro4Sw3Z244oeYBBxXIYnrqGEScqkpnpxNu
+         HSnBkzkx1X2sFFcaybNk0cEKv3FbFYbP396Qak6AHdI5zRwsAzdy4quQQ64Vd//z0SBI
+         G8QQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVJRR/8IzWgM8HWlx0RbCU0xLY3D7ZhHeQ5Oh8N/fHiz8Fo7YuquP0du//tOOnAVk7E9GmOcyXdSSXXH4E2ftq2@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHjIBbo2Ivej2P2XVCuKUVHPXAVfOl/+qw9u1J0TcP0XpM03qe
+	YobWrg9cg7SAhD3y34haCpdlC/En+pN9KrPhhtRKpaOXl0Lb7t1waGLx0V+uyFRPqyM=
+X-Gm-Gg: ASbGncsBYmfpNv0CJeBFBcxUtZ3CMxcAynPrCYInAodYNZLwc6eyMmw6slRnK/mbSmx
+	3XScYGzw+GBIReDVh00bdspisnKKPT5Gd0NrX8XqUWLfrTALYfZVWQ0q0H2KViSysRGyCElXT68
+	lkG44KC9Kz5TT1JEl0u4Q579zddTmwOGn7lNWx0LORCIu3YS1lkSUE+xVA9qneN+OL0gPgsV5sE
+	xn4G/Bsb8Rvy5BBJk1txEx6v4C4vRd07QZIqGaJaWKqVHhiFthM1J6E4YKpcN7jhoj5eQYm2zG8
+	p5YbrWsXTBy/7A+udgkBhQoG7k9K6io27K/kAEbkv3TldeUBEgoNdxviQulF3qc5aCZyfPoXOPI
+	KPFf+JjBjaESfLwSu
+X-Google-Smtp-Source: AGHT+IFpS9xXWMY2Dm1hPaoX2TY/sMKcuRIGpn0bg1DjysIZvtrpX2vCzH3rGMaLHK0/5fha31aU9w==
+X-Received: by 2002:a5d:5d87:0:b0:3c9:469d:c054 with SMTP id ffacd0b85a97d-3c9469dc236mr4724123f8f.63.1756200920562;
+        Tue, 26 Aug 2025 02:35:20 -0700 (PDT)
 Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:fed4:79fc:9440:6629])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3c7117d5b10sm15308255f8f.47.2025.08.26.02.35.18
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3c7117d5b10sm15308255f8f.47.2025.08.26.02.35.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 Aug 2025 02:35:18 -0700 (PDT)
+        Tue, 26 Aug 2025 02:35:19 -0700 (PDT)
 From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 26 Aug 2025 11:35:08 +0200
-Subject: [PATCH 07/12] gpio: ftgpio010: order includes alphabetically
+Date: Tue, 26 Aug 2025 11:35:09 +0200
+Subject: [PATCH 08/12] gpio: ftgpio010: use new generic GPIO chip API
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250826-gpio-mmio-gpio-conv-part2-v1-7-f67603e4b27e@linaro.org>
+Message-Id: <20250826-gpio-mmio-gpio-conv-part2-v1-8-f67603e4b27e@linaro.org>
 References: <20250826-gpio-mmio-gpio-conv-part2-v1-0-f67603e4b27e@linaro.org>
 In-Reply-To: <20250826-gpio-mmio-gpio-conv-part2-v1-0-f67603e4b27e@linaro.org>
 To: Linus Walleij <linus.walleij@linaro.org>, 
@@ -91,27 +91,26 @@ Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1018;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3151;
  i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=5rbP7dwhRhfDrSbAgYMHtgCgxy4erM0JGqfIF8jsC5k=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBorX/N9SEBtr9CQED5vzENsLuHUQqYMiCsah98i
- +4dFAPqdECJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaK1/zQAKCRARpy6gFHHX
- cpDiD/4801Pac5QlHO6D9jKqnSPRvfkYUesEBYjOQoRoQO7T3lf+1NnMxw62VB+bKhsMavf0Pbm
- hO4Nf/NyHZpSXp3pPIPf9G+kVN6fcNQ5qBrs+gvi7JsR0X2JGRgfZlxh91Vk12yRTsW+NDErwPh
- JmL+8+8nQeFJ6q3ss63UDHJvgZILjabTP5RSIH0wb7M50VPU+8QwdjAhENUEiBirB8f9QNC6jNb
- goJ5DFK2XnM7sIEvMN5gTAz9sbtGbRZCKyoI/HbhHu+eITH4TGjUPJPRuPmZHXqnRFoa8nz0T7E
- cVm1uU1U7CDvOl9ovupCoxm+qdoi4XfEqjtS9aOP6J8pXUCn+WHqJTSDseqMZwEEy8x9eN1gYKE
- GzQRnaSgDGQdZmp5eheDhiV8FTP+ayHa9JLVmpT+Z85XPGz3YPLU7c/nrRHKNlM+n6XO7w3wqrs
- B4BGQ9Bnzs1NMsnAQ4IbStfy/yuv9BJrt64xwx96w2WkgjmViYp7gMuz+DfAprX7CHwjoVvR8Zz
- inkriWAohdiEy6QdfmfNRMyyzE8mbYJDNdWopcB8mztbZOHe+frPa5b3pRbzTNFsFcxOIedt0b3
- k2dPSKvKi5mp0nqiyLBCC+x3tg02ix1A+UI421kKbUVpGS36GNX4S99VMZqQFJwElEDaiuX68Md
- 6dX8YoVapsqzaew==
+ bh=sNq5AHyzS/pQA5YDfBiBOreqsVgAub+i5MXKUwXqNI0=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBorX/N4KYXmzF6Cg0MaDbG0pp3RTIGwO49gGsAe
+ qJ9pzvJqjSJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaK1/zQAKCRARpy6gFHHX
+ cjcND/9da8AdGmBg/JbIu1BPLF5WyvYdgdS+Dl7+Ag6JInBicBZinpzZjhoKyKl3aTkYpdrI0D4
+ xsleetUZK9dsiSv2qpRP9K27n5kBSYdsvp6wY9Nx6IH3PgR/k9UYkuSgCoj0yJBe0XfUVwrG3LB
+ XhTucuLiOuJ6JTZYCIkxENv80ts3hYZPj+pbR80RymELfoGEdY6JwsJHji424KuSWmJjN1sCap9
+ TgMDX+RQZ22zRItzzh8tmBRRuiLkK4K14fH11aUfrRaE2Fazi0f5/+oimccLNXKtsDov35sksbj
+ OoNnf8hH982iL5RF7zyI1h6qWTARAotWgvYp36flEp4aB1G1dXrarhSP5i6vFoq8TbbndY04mXD
+ ysBeHSj3AqZuKJKzeeO8DTytdX+NqBRH4hcpRLKUdo778w+cIywo+03hi4W24kXSlbJShIf3nq7
+ guElSKzFW4Ez3KW1Enz9YcBi6zfQ3DDtqKU1k4Fy2DtHrpjKH+4I1VfXpYsOhM2i3BdrNX/mIuT
+ akAlgu12pLzJmh1PRhpDJ4B+r1TWbjoMzjGbI3pFuTEfWg693E0c5XHusfIFbVRe9TuaQfCJMpG
+ w7+/+E/XjaRS6BUWGCA+RYXMWtf9HT3fIbglLkNl+48fZ892Fhb+TKXqih6xN6trIbg4J1mgBDT
+ /GvsEwTjY4IVjrA==
 X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_023521_056950_A2774E5B 
-X-CRM114-Status: UNSURE (   9.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250826_023522_346420_A84005F5 
+X-CRM114-Status: GOOD (  17.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,35 +127,104 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-For easier maintenance: put includes in alphabetical order.
+Convert the driver to using the new generic GPIO chip interfaces from
+linux/gpio/generic.h.
 
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 ---
- drivers/gpio/gpio-ftgpio010.c | 9 +++++----
- 1 file changed, 5 insertions(+), 4 deletions(-)
+ drivers/gpio/gpio-ftgpio010.c | 39 ++++++++++++++++++++++-----------------
+ 1 file changed, 22 insertions(+), 17 deletions(-)
 
 diff --git a/drivers/gpio/gpio-ftgpio010.c b/drivers/gpio/gpio-ftgpio010.c
-index c35eaa2851d8533309fe04a3e6265d9a7947606d..56666ca8889bc92b91b160751728b65e287b0123 100644
+index 56666ca8889bc92b91b160751728b65e287b0123..dfa2c9444960a304d411e8d20db9bce0f8afa1c6 100644
 --- a/drivers/gpio/gpio-ftgpio010.c
 +++ b/drivers/gpio/gpio-ftgpio010.c
-@@ -10,12 +10,13 @@
-  * MXC GPIO support. (c) 2008 Daniel Mack <daniel@caiaq.de>
-  * Copyright 2008 Juergen Beisert, kernel@pengutronix.de
-  */
--#include <linux/gpio/driver.h>
--#include <linux/io.h>
--#include <linux/interrupt.h>
--#include <linux/platform_device.h>
-+
+@@ -14,6 +14,7 @@
  #include <linux/bitops.h>
  #include <linux/clk.h>
-+#include <linux/gpio/driver.h>
-+#include <linux/interrupt.h>
-+#include <linux/io.h>
-+#include <linux/platform_device.h>
+ #include <linux/gpio/driver.h>
++#include <linux/gpio/generic.h>
+ #include <linux/interrupt.h>
+ #include <linux/io.h>
+ #include <linux/platform_device.h>
+@@ -41,13 +42,13 @@
+ /**
+  * struct ftgpio_gpio - Gemini GPIO state container
+  * @dev: containing device for this instance
+- * @gc: gpiochip for this instance
++ * @chip: generic GPIO chip for this instance
+  * @base: remapped I/O-memory base
+  * @clk: silicon clock
+  */
+ struct ftgpio_gpio {
+ 	struct device *dev;
+-	struct gpio_chip gc;
++	struct gpio_generic_chip chip;
+ 	void __iomem *base;
+ 	struct clk *clk;
+ };
+@@ -234,6 +235,7 @@ static const struct irq_chip ftgpio_irq_chip = {
  
- /* GPIO registers definition */
- #define GPIO_DATA_OUT		0x00
+ static int ftgpio_gpio_probe(struct platform_device *pdev)
+ {
++	struct gpio_generic_chip_config config;
+ 	struct device *dev = &pdev->dev;
+ 	struct ftgpio_gpio *g;
+ 	struct gpio_irq_chip *girq;
+@@ -262,27 +264,30 @@ static int ftgpio_gpio_probe(struct platform_device *pdev)
+ 		 */
+ 		return PTR_ERR(g->clk);
+ 
+-	ret = bgpio_init(&g->gc, dev, 4,
+-			 g->base + GPIO_DATA_IN,
+-			 g->base + GPIO_DATA_SET,
+-			 g->base + GPIO_DATA_CLR,
+-			 g->base + GPIO_DIR,
+-			 NULL,
+-			 0);
++	config = (typeof(config)){
++		.dev = dev,
++		.sz = 4,
++		.dat = g->base + GPIO_DATA_IN,
++		.set = g->base + GPIO_DATA_SET,
++		.clr = g->base + GPIO_DATA_CLR,
++		.dirout = g->base + GPIO_DIR,
++	};
++
++	ret = gpio_generic_chip_init(&g->chip, &config);
+ 	if (ret)
+ 		return dev_err_probe(dev, ret, "unable to init generic GPIO\n");
+ 
+-	g->gc.label = dev_name(dev);
+-	g->gc.base = -1;
+-	g->gc.parent = dev;
+-	g->gc.owner = THIS_MODULE;
+-	/* ngpio is set by bgpio_init() */
++	g->chip.gc.label = dev_name(dev);
++	g->chip.gc.base = -1;
++	g->chip.gc.parent = dev;
++	g->chip.gc.owner = THIS_MODULE;
++	/* ngpio is set by gpio_generic_chip_init() */
+ 
+ 	/* We need a silicon clock to do debounce */
+ 	if (!IS_ERR(g->clk))
+-		g->gc.set_config = ftgpio_gpio_set_config;
++		g->chip.gc.set_config = ftgpio_gpio_set_config;
+ 
+-	girq = &g->gc.irq;
++	girq = &g->chip.gc.irq;
+ 	gpio_irq_chip_set_chip(girq, &ftgpio_irq_chip);
+ 	girq->parent_handler = ftgpio_gpio_irq_handler;
+ 	girq->num_parents = 1;
+@@ -303,7 +308,7 @@ static int ftgpio_gpio_probe(struct platform_device *pdev)
+ 	/* Clear any use of debounce */
+ 	writel(0x0, g->base + GPIO_DEBOUNCE_EN);
+ 
+-	return devm_gpiochip_add_data(dev, &g->gc, g);
++	return devm_gpiochip_add_data(dev, &g->chip.gc, g);
+ }
+ 
+ static const struct of_device_id ftgpio_gpio_of_match[] = {
 
 -- 
 2.48.1
