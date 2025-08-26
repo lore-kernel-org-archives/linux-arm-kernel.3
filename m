@@ -4,62 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8FF7CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 10:37:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4F9CCA0FE9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 10:43:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0pUOWx42AgBtSnbqWsfc6CIjNCLJp3kVqSsR4yIRJ/o=; b=X3tcXNsvrN9DPs/feEa9Rg8D55
-	try8r9k4AnGr53JpCzldwjut/Yabrf32z0iB15QMmFUxyiDd9VeeHJZb0WmsnupbcJQcw5REmPWZp
-	zDcsK14ZDHQKCZ9mUzdlgEhfrr9KLv+aO3G9UwER+qOsl3+QN4+27JuGZHEcrYBw9Sruyi/yTtyh7
-	2X4sVamlHtAZhIyiWWqfK7DLziN0tNMEqm4XWRMXMe89Fj3q90Nv7ngGH/lILI1atSeVegsgzxgU6
-	ejRXV+f02TTkX9vHAbA1SE/7fT+SxxrJIWDfI9fWmw02uSFlPjndKEP+YpKGmosAPups+hJBl7xB7
-	ySNktMoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Dn3Jicl8olp9EaV0TqV4EBh3aYu+CRSHNFNRqLFHCz8=; b=F/Gkh6VPiX1DIi9onW0MmCOglC
+	SsB/20WTobNtHTMDEV4TS+eGfZx1LW3EVVFaWQZE7eEw8Lkn2cWtaMeJBltzHXFxnL3vs0b+yl5tQ
+	O78UQQ8qYpb/eJJCPDT8VjSuFLe6CMwXgsz+U+stagomRKwmENGfChcsKPe8tuZmqu5vlIptuJ/l2
+	BrH3Y1qFGT3CzqkWqWwBbXGnAElHyW++kASKSUnCqV1S+f70a15LTh28Q15T0jDYOwHb3f0ocyDHL
+	cUuZ6vRs9zHtTWk41KfQCxHZT9fLXFCpkaD8RLJbGGobyfm/3Lz3EbpUGEfR/K7OoHnJFrw7WJznA
+	2sC33U4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqr3N-0000000BdtY-0NoO;
-	Tue, 26 Aug 2025 10:37:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqqJy-0000000BUuY-0g5F
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 09:50:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3231C1A00;
-	Tue, 26 Aug 2025 02:50:19 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AABA83F63F;
-	Tue, 26 Aug 2025 02:50:22 -0700 (PDT)
-Date: Tue, 26 Aug 2025 10:50:15 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Sam Edwards <cfsworks@gmail.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Baruch Siach <baruch@tkos.co.il>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] arm64/boot: Zero-initialize idmap PGDs before use
-Message-ID: <aK2DV_joOnaU85Tx@J2N7QTR9R3>
-References: <20250822041526.467434-1-CFSworks@gmail.com>
- <CAMj1kXH38gOUpDDdarCXPAY3BHBbuFzdD=Dq7Knsg-qHJoNqzQ@mail.gmail.com>
- <CAH5Ym4gTTLcyucnXjxFtNutVR1HQ0G2k_YBSNO-7G3-4YXUtag@mail.gmail.com>
+	id 1uqr8m-0000000BedL-2o35;
+	Tue, 26 Aug 2025 10:43:00 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uqqMw-0000000BVQg-3vk9;
+	Tue, 26 Aug 2025 09:53:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1756201998; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=X3ygrqwUSuwx6dHiIGUQtLF1gLG8fJGjuWMLZdLv54TwSfNdJyatQRzdOHwg8IQikXjAJdmXu2WqkEn1IZA+JnLYycuq0OynB3qzLDRc/t+X2pFpIXOAoF83H/2ieIJGXBdX72EbHm5guOqMpviXNO6BK2zU/9ELbPeEe1pyi8g=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1756201998; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Dn3Jicl8olp9EaV0TqV4EBh3aYu+CRSHNFNRqLFHCz8=; 
+	b=NNnul6sK8D5SZXlwiOdk2Vo/2XiikXGdpMcK9jsQfThAUe78IoXcAFVswPcuX+vbd0O9b8k1xcXw9CWCkqJJOToJEBtxKviFge/LuvSpwCiMFXLX/qyCGA197jrsGey/MA0nAlXGlfdUpkFyJZl4oIsTvELgk4TJxsQ0gL4zcO0=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
+	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1756201998;
+	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=Dn3Jicl8olp9EaV0TqV4EBh3aYu+CRSHNFNRqLFHCz8=;
+	b=fTL3GjBlvFAwIZNuysAvG47xhYwqyFQ1DdN7snGwnhGRKREejSWnp4NRUPxtrwC6
+	7KTnFtpqBWhvVmVvz9hhmlF9hthuyMPDQnpDX8hY9cHYPtjGfr/N9OtCOEWjRm7ofmj
+	0uUOyEhks8tNqzhWrXXScbIoOhM0h8Z4Ci6OCW18=
+Received: by mx.zohomail.com with SMTPS id 1756201996213653.2470978174058;
+	Tue, 26 Aug 2025 02:53:16 -0700 (PDT)
+Message-ID: <002f164b-4296-428b-95ec-1ca10b979070@collabora.com>
+Date: Tue, 26 Aug 2025 11:53:11 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 6/6] arm64: defconfig: enable Verisilicon IOMMU
+To: Krzysztof Kozlowski <krzk@kernel.org>, joro@8bytes.org, will@kernel.org,
+ robin.murphy@arm.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, heiko@sntech.de, nicolas.dufresne@collabora.com,
+ jgg@ziepe.ca, p.zabel@pengutronix.de, mchehab@kernel.org
+Cc: iommu@lists.linux.dev, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, kernel@collabora.com,
+ linux-media@vger.kernel.org
+References: <20250825153450.150071-1-benjamin.gaignard@collabora.com>
+ <20250825153450.150071-7-benjamin.gaignard@collabora.com>
+ <b7869ddb-f44b-4d1f-a6c3-393a28d3cb00@kernel.org>
+Content-Language: en-US
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+In-Reply-To: <b7869ddb-f44b-4d1f-a6c3-393a28d3cb00@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAH5Ym4gTTLcyucnXjxFtNutVR1HQ0G2k_YBSNO-7G3-4YXUtag@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_025030_287097_D84E1320 
-X-CRM114-Status: GOOD (  30.61  )
+X-CRM114-CacheID: sfid-20250826_025335_036048_7E83BE61 
+X-CRM114-Status: UNSURE (   7.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,63 +85,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 23, 2025 at 04:55:44PM -0700, Sam Edwards wrote:
-> On Sat, Aug 23, 2025 at 3:25 PM Ard Biesheuvel <ardb@kernel.org> wrote:
-> >
-> > Hi Sam,
-> >
-> > On Fri, 22 Aug 2025 at 14:15, Sam Edwards <cfsworks@gmail.com> wrote:
-> > >
-> > > In early boot, Linux creates identity virtual->physical address mappings
-> > > so that it can enable the MMU before full memory management is ready.
-> > > To ensure some available physical memory to back these structures,
-> > > vmlinux.lds reserves some space (and defines marker symbols) in the
-> > > middle of the kernel image. However, because they are defined outside of
-> > > PROGBITS sections, they aren't pre-initialized -- at least as far as ELF
-> > > is concerned.
-> > >
-> > > In the typical case, this isn't actually a problem: the boot image is
-> > > prepared with objcopy, which zero-fills the gaps, so these structures
-> > > are incidentally zero-initialized (an all-zeroes entry is considered
-> > > absent, so zero-initialization is appropriate).
-> > >
-> > > However, that is just a happy accident: the `vmlinux` ELF output
-> > > authoritatively represents the state of memory at entry. If the ELF
-> > > says a region of memory isn't initialized, we must treat it as
-> > > uninitialized. Indeed, certain bootloaders (e.g. Broadcom CFE) ingest
-> > > the ELF directly -- sidestepping the objcopy-produced image entirely --
-> > > and therefore do not initialize the gaps. This results in the early boot
-> > > code crashing when it attempts to create identity mappings.
-> > >
-> > > Therefore, add boot-time zero-initialization for the following:
-> > > - __pi_init_idmap_pg_dir..__pi_init_idmap_pg_end
-> > > - idmap_pg_dir
-> > > - reserved_pg_dir
-> >
-> > I don't think this is the right approach.
-> >
-> > If the ELF representation is inaccurate, it should be fixed, and this
-> > should be achievable without impacting the binary image at all.
-> 
-> Hi Ard,
-> 
-> I don't believe I can declare the ELF output "inaccurate" per se,
-> since it's the linker's final determination about the state of memory
-> at kernel entry -- including which regions are not the loader's
-> responsibility to initialize (and should therefore be initialized at
-> runtime, e.g. .bss). But, I think I understand your meaning: you would
-> prefer consistent load-time zero-initialization over run-time. I'm
-> open to that approach if that's the consensus here, but it will make
-> `vmlinux` dozens of KBs larger (even though it keeps `Image` the same
-> size).
 
-Our intent was that these are zeroed at build time in the Image. If the
-vmlinux isn't consistent with that, that's a problem with the way we
-generate the vmlinux, and hence "the ELF representation is inaccurate".
+Le 26/08/2025 à 10:25, Krzysztof Kozlowski a écrit :
+> On 25/08/2025 17:34, Benjamin Gaignard wrote:
+>> Enable Verisilicon IOMMU used by RK3588 AV1 hardware codec.
+> Qualcomm RK3588? This is defconfig for all platforms, so be specific
+> which board uses it.
 
-I agree with Ard that it's better to bring the vmlinux into line with
-that (if we need to handlr this at all), even if that means making the
-vmlinux a few KB bigger.
+It is for rockchip rk3588 SoC.
 
-Mark.
+Regards,
+Benjamin
+
+>
+>
+>
+> Best regards,
+> Krzysztof
+>
 
