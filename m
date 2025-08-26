@@ -4,51 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FBACCA0FE7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 19:54:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CB7ECA0FE9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 19:57:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Ioqpg7Zg3T78ff1eAE0JZikPJPCGtibo8SLuhEEzE4=; b=zBxeUn+Z3VwrObt1WzQM6B032u
-	xROJJ4NQBz2MF0n+LBXJ8C46vY2Fcgh0B0900YwP9jj6oRBpT/inkW3pswWZIEwxubixh2l/MsJdL
-	zS3g7InpfBYj0QvtBVrd3tBfzrHWyxReJzwRMNDMqhzxOMNy/bC2Hz4GdAM4rQld410lT08hsdl5Q
-	IipovBHr0N6HShuBv/UuyklEwI80So33hWO8ivBoCAiO9lS8NMZZwxP8MkMgA5hedCPiaTzl3IxLb
-	01nIXppCwtSmCdVdDraNsDsKAWzsUy4zZYI+K01qXcDZJeszQO+Yvv7h4gw6KvoYuij27As8UAHrq
-	c2xiil8A==;
+	bh=zEUE9aUN8wXQVbxEpHIID3syGeWcmhU2rRqGHrupRBw=; b=45FaIehaq0sgazC1EB5wV0kQui
+	DL1HcpkkdbdrLIE4qYN77wF2ldGhCiPFiEK7cAf+6uFUIMA5d6yFRirgHO8gr2H+hqWgUAWPY9+Mi
+	3fvBlKXP/5/6w7FQaPu+PWDmiOGacqv76RJ7cwY9jxpmoitjEA6Qgn0vdYQ/oz7/+ljjTgVZHgPtM
+	LQIwW4Rjhe+QvSbczjftU1bLP+Z9GgY+rzYtTdAHA8m+mmZU3+N4FttK3L3Qv0Sqt6afQusosNSQW
+	ZegB+xQyq4xe/rv5l9dHIaoeUPufgy6QfXQFctJyM/feaHo70odfsrFaRkbaiahgwZN25nkoGhOrS
+	3ekqO8HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqzkB-0000000D2yi-0x5l;
-	Tue, 26 Aug 2025 19:54:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uqzms-0000000D3O2-3qoH;
+	Tue, 26 Aug 2025 19:56:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqzS2-0000000D0Xb-3QSD
+	id 1uqzTn-0000000D0xH-3AHV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 19:35:26 +0000
+	Tue, 26 Aug 2025 19:37:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 42A50601F5;
-	Tue, 26 Aug 2025 19:35:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60F3CC4CEF1;
-	Tue, 26 Aug 2025 19:35:24 +0000 (UTC)
-Date: Tue, 26 Aug 2025 20:35:27 +0100
+	by tor.source.kernel.org (Postfix) with ESMTP id 1C535601F5;
+	Tue, 26 Aug 2025 19:37:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A72AC4CEF1;
+	Tue, 26 Aug 2025 19:37:13 +0000 (UTC)
+Date: Tue, 26 Aug 2025 20:37:16 +0100
 From: Catalin Marinas <catalin.marinas@arm.com>
-To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>
-Cc: Willy Tarreau <w@1wt.eu>, Will Deacon <will@kernel.org>,
-	Shuah Khan <shuah@kernel.org>, Mark Brown <broonie@kernel.org>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 6/7] kselftest/arm64: tpidr2: Switch to waitpid() over
- wait4()
-Message-ID: <aK4MfzBhjkChTsvd@arm.com>
-References: <20250821-nolibc-enosys-v1-0-4b63f2caaa89@weissschuh.net>
- <20250821-nolibc-enosys-v1-6-4b63f2caaa89@weissschuh.net>
+To: b10902118 <b10902118@ntu.edu.tw>
+Cc: oleg@redhat.com, linux@armlinux.org.uk, will@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/3] ARM/arm64: ptrace: fix unaligned hardware breakpoint
+ validation for 32bit
+Message-ID: <aK4M7P9qb5TVou-p@arm.com>
+References: <20250824124317.390795-1-b10902118@ntu.edu.tw>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250821-nolibc-enosys-v1-6-4b63f2caaa89@weissschuh.net>
+In-Reply-To: <20250824124317.390795-1-b10902118@ntu.edu.tw>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,12 +59,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 21, 2025 at 05:40:37PM +0200, Thomas Weiﬂschuh wrote:
-> wait4() is deprecated, non-standard and about to be removed from nolibc.
-> 
-> Switch to the equivalent waitpid() call.
-> 
-> Signed-off-by: Thomas Weiﬂschuh <linux@weissschuh.net>
+On Sun, Aug 24, 2025 at 08:43:14PM +0800, b10902118 wrote:
+> b10902118 (3):
+>   arm64: ptrace: fix hw_break_set() by setting addr and ctrl together
+>   arm64: ptrace: minimize default bp_len for hw breakpoints to pass
+>     check
+>   ARM: ptrace: minimize default bp_len for hw breakpoints to pass check
 
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+We require real names from kernel contributors. Unless you can show
+b10902118 is your name.
+
+-- 
+Catalin
 
