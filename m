@@ -4,74 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 902F2CA0FE9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 09:40:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46939CA0FE9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 09:42:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lBlDCclLQ1+AiQeVLpAB/kctkShHB5e19AZ8+JDxJP0=; b=Ngzd3OYnbJ92R06BWTgPITSin/
-	79rriz3y+7WG3/e73K89Yfp5GUDURGnkhtaKZjBlsd86fLNDrTq6+ct4SOVQ5ITeuqugTDgFymppS
-	uhWRBh//Mr7vJlPyszETvPn+tGzgAgNz+Qp7K2A4vn+5N2+5vy2UTTdv8FQy2FqQRW6RxHFvCVXyM
-	cAVBdvyYnQu2Pub71pCwlUcRS7qML0s4y73dUYXOwD3wC7oRLNGkctPQtm4tjFBbBfLfx+Epc1igJ
-	WWxofBqZqpEtvOXAKKEfdpHwT9/luZ7b6yJNxSxgO8UiuaQpN484W04qgJBnzAX2TYrYPSHc0lYfb
-	fpJsiUYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ibjPTMAiwCSgwdvKGbpBfuqA/Z8D2h5jZa+FGc831mU=; b=IeVg/O0AQP8lsJfqJZiTBdtEvn
+	S1Wujx3/w4EjiOzfsPzoMXc6NPHEJhUh2tdVuO6K9rwEMX59k551mlFxWgtdegt/X9HSEUBk+pudn
+	x7HXrWuZuDQT4up56szG7qKnXMWvpZ+A1OOSCCdE88MweMro1+1D9QBgybKLjkOTRlH3nA+xKihfC
+	ivuFz9eUx+kqu9V4W+E0z5SB2PXwJzGF+7S3+tJmUjVTwhKEX0ZggN4srpfR36iu2myXG6fhdQJTR
+	UXaMsDjxH6q4bJP6IL/+p8rstPW99mi8TCQ71+JxjxrOJgaNs00L1u1UKrS4QsqxviY4tl+KJCgZr
+	IKshdphw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqq9j-0000000BT3H-3TVP;
-	Tue, 26 Aug 2025 09:39:56 +0000
-Received: from mail-m49211.qiye.163.com ([45.254.49.211])
+	id 1uqqCS-0000000BTl1-1GUV;
+	Tue, 26 Aug 2025 09:42:44 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqpzL-0000000BOda-0xoz;
-	Tue, 26 Aug 2025 09:29:13 +0000
-Received: from [172.16.12.153] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 20a66879b;
-	Tue, 26 Aug 2025 17:29:06 +0800 (GMT+08:00)
-Message-ID: <ae11b993-5844-4da1-b433-c27b5a73060a@rock-chips.com>
-Date: Tue, 26 Aug 2025 17:29:04 +0800
+	id 1uqq0z-0000000BPFS-2ZQg
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 26 Aug 2025 09:30:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=content-type:Content-Transfer-Encoding
+	:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=ibjPTMAiwCSgwdvKGbpBfuqA/Z8D2h5jZa+FGc831mU=; b=mkpTO76eYbkhyACliy9Kl37dTS
+	ABDHE4jr9A7wdrysWlNCy6pJdHSc9KFnQooWjs8BcYuyCVViAp+EKIFKzEAJAsLvxNG+8QnXuCGDZ
+	PepSlH/A+Uylc7wObLNy4/5z60l0b8Yz4oj8B19HEXgWi7zCn5lYBr8AWNX707MBUdcDj9Uo7pOrt
+	P/nPKx8cCLX9tszS/JwIFCIYXCu3muNq/jrD/sf+xxWjWg8dTpRsydCht3FcGPcVvFEW468HrTdcj
+	QUgy0OwAQUBLNQnJEG/MKqjQT4ld/PkF+edY3EiDN0dRA3Hl6QbVrznOPTRVdRo17woQyNwrG6son
+	HUVDFuMA==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uqq0w-00000002BbP-0ZMf
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 26 Aug 2025 09:30:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756200639;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=ibjPTMAiwCSgwdvKGbpBfuqA/Z8D2h5jZa+FGc831mU=;
+	b=L/qxDlLnX01FksgwJsEj0cGh0uxaxm/xN6D+rG5fVpkXw+fajtudzVQYhxgCH6E6W6z+Iy
+	sz5w2DgSu3cGDdkYgPiuWsFefpYuJVccF2oHmmN2+NluUqZhL/fB+cJXU27jQWn7n355Bt
+	gKegJCAXIYO6XxiCjIacMjwiAx4AGyQ=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756200647;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=ibjPTMAiwCSgwdvKGbpBfuqA/Z8D2h5jZa+FGc831mU=;
+	b=KKr9yxWGhUDnf3ZJ4DJsBOZxBiEt+sGpGb4o0SKN3u5ucUvUWlkTDcIOtDtt7GhfQVj/wZ
+	KEnWyEvHk8JlSHrQ0OQWtqsWUq0EHvlTWLrh4NwRToNbfd25ALFLZRz0Q2Aft3m9rck/lg
+	Lv+0BvvVnDdxDdj34KgxhO0brCdpXSE=
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com
+ [209.85.222.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-307-_TGaNIykNSSA9cFul2hy0A-1; Tue, 26 Aug 2025 05:29:08 -0400
+X-MC-Unique: _TGaNIykNSSA9cFul2hy0A-1
+X-Mimecast-MFC-AGG-ID: _TGaNIykNSSA9cFul2hy0A_1756200548
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-7f2942a1aa1so355290785a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 02:29:08 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756200548; x=1756805348;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ibjPTMAiwCSgwdvKGbpBfuqA/Z8D2h5jZa+FGc831mU=;
+        b=MbS+0TWgGHurMF6yZ+Y3bjEi+Q4lcpeHT6xVeRATiy/89R/9/io8598L3SAIReYu6H
+         4OeD6j6Ev73E2ow+ZTSJByqTgI2ITHTyn0RM8D0tUGA7tvftV78PFVHdpfBUr22wvYOF
+         hgEZW0WaFTb66wtGH+IMjtJbq/2CJSv+3iFdGvoNm/tkoGDt7OxJaOn1ugWRqzObs0xs
+         98K7tsOPH3CmLRYVAb95D9HbNnEVXDF7Hru9JXrE+myxS5iSblXFIkJclHDq4MCdLRFx
+         xNG44DuTvJ5IKcjKf/u62L3Ah+CkPQcSijsK0o8piHQPLR82ysLmng7m+J5URtJuH4wG
+         PvYw==
+X-Forwarded-Encrypted: i=1; AJvYcCUNA3vz/kNpragRk37C/4JNeHh8YPNvXvyjYdzkh9GzA+vGH/7QtyyFqOXCdc05J/dUU6mMK6sOoVVmx03aAr+r@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3OXDxiBY/HtQaBuVtLqEbxMPR63gtt/otR27GvIE18gR02gi5
+	TDsg9+pQfioGXNG63M2hsbRwSEJ1LmuBJRPzi8YG4w1JIN7Ul8pJg3sbqd+QRLA+DAlbqyOVeI5
+	U1YtBoGWswNK2qrB4TXH9cYs+SmGicEru74SDvKc8wXJm+Kvobsp6c9E3d3+5xDCJfKJI31Y+76
+	OG
+X-Gm-Gg: ASbGncsen1NkxnsRTVnqkJ7Ym3dgbVhF2HZjm+g2Gs83pV7Sm8ZvmWkL0XbsXDcMxhs
+	4hmYsE25APuPHT6PuKoJv6weAKPq9vmnfSD0teCnAmNu+2vR71Zg/AkstQrAvBH/Jit2C1xrOTA
+	/9zcjqG457YejrFHYqFXRBbNFHy4iolQh6yPeKEliZaC5uS1sttc1iu4UTRt2HazZUIgVBnJtFU
+	g9fJdnp/88ZLEzVxnPdRVOgrlG5cpVFEwAmcv0zUHxO//3f/Qq7CUbFOslLypciRgUyiaJq8SKa
+	v69kqJjmjsy+KtNfn0yMCOoUqxbNFGz0UMBCeUVFluG5Y0rA5jmvsUQ1biPTGu0i3VIC7MqU8Hd
+	hS3eetPwUyg==
+X-Received: by 2002:a05:620a:471e:b0:7e7:f2a2:251 with SMTP id af79cd13be357-7f58d942015mr57565385a.27.1756200548189;
+        Tue, 26 Aug 2025 02:29:08 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGpr7ArFXT7ZO1WWZDThLtmtRC02lQO9+8IZq21Q57x0kWr/JgXF3wJtr0chhDvtcW8744jFg==
+X-Received: by 2002:a05:620a:471e:b0:7e7:f2a2:251 with SMTP id af79cd13be357-7f58d942015mr57563285a.27.1756200547767;
+        Tue, 26 Aug 2025 02:29:07 -0700 (PDT)
+Received: from lbulwahn-thinkpadx1carbongen9.rmtde.csb ([2a02:810d:7e01:ef00:b52:2ad9:f357:f709])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7ebeca23e3csm660193285a.4.2025.08.26.02.29.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 26 Aug 2025 02:29:07 -0700 (PDT)
+From: Lukas Bulwahn <lbulwahn@redhat.com>
+X-Google-Original-From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
+To: Russell King <linux@armlinux.org.uk>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev
+Cc: kernel-janitors@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Lukas Bulwahn <lukas.bulwahn@redhat.com>
+Subject: [PATCH] ARM: imx: Kconfig: Adjust select after renamed config option
+Date: Tue, 26 Aug 2025 11:29:01 +0200
+Message-ID: <20250826092901.43141-1-lukas.bulwahn@redhat.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3] net: ethernet: stmmac: dwmac-rk: Make the
- clk_phy could be used for external phy
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>,
- Chaoyi Chen <kernel@airkyi.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jonas Karlman <jonas@kwiboo.se>, David Wu <david.wu@rock-chips.com>,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org
-References: <20250815023515.114-1-kernel@airkyi.com>
- <CGME20250825072312eucas1p2d4751199c0ea069c7938218be60e5e93@eucas1p2.samsung.com>
- <a30a8c97-6b96-45ba-bad7-8a40401babc2@samsung.com>
- <d0fe6d16-181f-4b38-9457-1099fb6419d0@rock-chips.com>
- <809848c9-2ffa-4743-adda-b8b714b404de@samsung.com>
- <aKxnHFSrVeM7Be5A@shell.armlinux.org.uk>
- <8240a3cc-aade-40d8-b2f4-09681f76be68@rock-chips.com>
- <aK19bSmrbXjoVXdO@shell.armlinux.org.uk>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <aK19bSmrbXjoVXdO@shell.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: mhh6n1pn8967KYvsMqIkfogEu2tJNndd3Mejo4VG9ps_1756200548
+X-Mimecast-Originator: redhat.com
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a98e5b5b15b03abkunm7ebc238e12acdf2
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQkpJHVZIGUJDTEtPTR9JH0tWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=d+nvem5rq+OdX5QANolTVxd6PoZAEDv1TqtFvJ3xCapUp0mrt5rvGanWBQuRmxpya0wc2AL+cDxtbWGKDw1ZAleQS4w0XgNjQvhsDvLOodrUm5jzmofqfL0aOAV645iDH7xQIjlMx/bZ0IEstSGFCxriCCPC15is03iEJTesAgg=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=lBlDCclLQ1+AiQeVLpAB/kctkShHB5e19AZ8+JDxJP0=;
-	h=date:mime-version:subject:message-id:from;
+content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_022911_782010_7003E569 
-X-CRM114-Status: GOOD (  19.72  )
+X-CRM114-CacheID: sfid-20250826_103050_426043_39904E04 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,90 +141,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/26/2025 5:25 PM, Russell King (Oracle) wrote:
+From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
 
-> On Tue, Aug 26, 2025 at 04:08:40PM +0800, Chaoyi Chen wrote:
->> Hi Russell,
->>
->> On 8/25/2025 9:37 PM, Russell King (Oracle) wrote:
->>> On Mon, Aug 25, 2025 at 12:53:37PM +0200, Marek Szyprowski wrote:
->>>> On 25.08.2025 11:57, Chaoyi Chen wrote:
->>>>> On 8/25/2025 3:23 PM, Marek Szyprowski wrote:
->>>>>> On 15.08.2025 04:35, Chaoyi Chen wrote:
->>>>>>> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->>>>>>>
->>>>>>> For external phy, clk_phy should be optional, and some external phy
->>>>>>> need the clock input from clk_phy. This patch adds support for setting
->>>>>>> clk_phy for external phy.
->>>>>>>
->>>>>>> Signed-off-by: David Wu <david.wu@rock-chips.com>
->>>>>>> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->>>>>>> ---
->>>>>>>
->>>>>>> Changes in v3:
->>>>>>> - Link to V2:
->>>>>>> https://lore.kernel.org/netdev/20250812012127.197-1-kernel@airkyi.com/
->>>>>>> - Rebase to net-next/main
->>>>>>>
->>>>>>> Changes in v2:
->>>>>>> - Link to V1:
->>>>>>> https://lore.kernel.org/netdev/20250806011405.115-1-kernel@airkyi.com/
->>>>>>> - Remove get clock frequency from DT prop
->>>>>>>
->>>>>>>      drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 11 +++++++----
->>>>>>>      1 file changed, 7 insertions(+), 4 deletions(-)
->>>>>>>
->>>>>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->>>>>>> b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->>>>>>> index ac8288301994..5d921e62c2f5 100644
->>>>>>> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->>>>>>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->>>>>>> @@ -1412,12 +1412,15 @@ static int rk_gmac_clk_init(struct
->>>>>>> plat_stmmacenet_data *plat)
->>>>>>>              clk_set_rate(plat->stmmac_clk, 50000000);
->>>>>>>          }
->>>>>>>      -    if (plat->phy_node && bsp_priv->integrated_phy) {
->>>>>>> +    if (plat->phy_node) {
->>>>>>>              bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
->>>>>>>              ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
->>>>>>> -        if (ret)
->>>>>>> -            return dev_err_probe(dev, ret, "Cannot get PHY clock\n");
->>>>>>> -        clk_set_rate(bsp_priv->clk_phy, 50000000);
->>>>>>> +        /* If it is not integrated_phy, clk_phy is optional */
->>>>>>> +        if (bsp_priv->integrated_phy) {
->>>>>>> +            if (ret)
->>>>>>> +                return dev_err_probe(dev, ret, "Cannot get PHY
->>>>>>> clock\n");
->>>>>>> +            clk_set_rate(bsp_priv->clk_phy, 50000000);
->>>>>>> +        }
->>>>> I think  we should set bsp_priv->clk_phy to NULL here if we failed to
->>>>> get the clock.
->>>>>
->>>>> Could you try this on your board? Thank you.
->>>> Right, the following change also fixes this issue:
->>>>
->>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->>>> b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->>>> index 9fc41207cc45..2d19d48be01f 100644
->>>> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->>>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->>>> @@ -1415,6 +1415,8 @@ static int rk_gmac_clk_init(struct
->>>> plat_stmmacenet_data *plat)
->>>>            if (plat->phy_node) {
->>>>                    bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
->>>>                    ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
->>>> +               if (ret)
->>>> +                       bsp_priv->clk_phy = NULL;
->>> Or just:
->>>
->>> 		clk = of_clk_get(plat->phy_node, 0);
->>> 		if (clk == ERR_PTR(-EPROBE_DEFER))
->> Do we actually need this? Maybe other devm_clk_get() before it would fail in advance.
-> Is it the same clock as devm_clk_get()? If it is, what's the point of
-> getting it a second time. If it isn't, then it could be a different
-> clock which may be yet to probe.
+Commit 3f490a74a8a1 ("clocksource/drivers/vf-pit: Rename the VF PIT to NXP
+PIT") renames the config VF_PIT_TIMER to NXP_PIT_TIMER, but it misses
+adjusting a reference to VF_PIT_TIMER in arch/arm/mach-imx/Kconfig.
 
-It's not the same clock, but it should be use the same clock controller driver, which is the CRU on the Rockchip platform.
+Adjust the config reference to the new name.
 
+Fixes: 3f490a74a8a1 ("clocksource/drivers/vf-pit: Rename the VF PIT to NXP PIT")
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@redhat.com>
+---
+ arch/arm/mach-imx/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm/mach-imx/Kconfig b/arch/arm/mach-imx/Kconfig
+index dc47b2312127..6ea1bd55acf8 100644
+--- a/arch/arm/mach-imx/Kconfig
++++ b/arch/arm/mach-imx/Kconfig
+@@ -242,7 +242,7 @@ choice
+ 
+ 	config VF_USE_PIT_TIMER
+ 		bool "Use PIT timer"
+-		select VF_PIT_TIMER
++		select NXP_PIT_TIMER
+ 		help
+ 		  Use SoC Periodic Interrupt Timer (PIT) as clocksource
+ 
+-- 
+2.50.1
 
 
