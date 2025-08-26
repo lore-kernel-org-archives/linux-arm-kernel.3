@@ -4,58 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60AC5CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 14:26:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58DB4CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 14:29:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pMEIvNfsGNx1dyI8reuryiMiRqQHFQKDCqcPUfqRKQI=; b=mfaD3OdlTWTySRV7e/+vjzu+zC
-	nI41n7APfO7WLF8UwswL2lvD2C6CwAJg1wn52k5SU8wPSALGBWLBaKmcFqQjYbIGquDtLbBO+9Rqp
-	A8l97BRf83/BPTu2XWvZJm23/mjRHoLJ4UMizL2WjLddkWhG7sv6/oNZHcQGpv6XsSwKfI/WupSwr
-	jKr20dia/ZYV2Y5bf+NBH788DpfKaeedR+WcNI1BA2VT9y8yFyP6ggvQ6Gp7rpAuE4IiGqrEmCXJj
-	111oRVnXxm1pGOv2qbspAcb+7h0LcMoMr8/sCSeDEch2FI7ebps+guvkd8GK5PLmnhMI8obYZcdeT
-	uPvqmXRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=YmNYXzb8/DDy9mVC5KWS7OwwA+q2tx/MnG+z9udMRGw=; b=4B5/W482915VXN
+	0P4xQNEavDNKvcoH/hY/MlL2JdCyilhjr9j6oXj+wqz268UJXkGf03zB/blvP7OFoBW7yeQ+VMEBM
+	fzEMVdEDM4KVIbdvlHODtJUI/ECxi6TuTSLsacMckvc5VcwVbpy+AeLEWakCfL1wwyoi6/7DGogx0
+	R65zIE7T88mujliaqTSy+jSj71tvxvVxhi7LcwgmXu3W25nYHqGcAFOc9u3W0Aa8zbYncJmVevGGQ
+	qr3qrRutqlBGsMXHHs0zRvR9T3QBoLmeDngFAWwZM2aS9oCGQjG2MF2dbJIZJLR/cQMSwtXZ70OMY
+	7s1FiLkxXmj31Zp8bGZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqud6-0000000CG5d-1BKH;
-	Tue, 26 Aug 2025 14:26:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uqufn-0000000CGg5-2V9B;
+	Tue, 26 Aug 2025 14:29:19 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uquAH-0000000CAEf-2bwL;
-	Tue, 26 Aug 2025 13:56:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F339A602B4;
-	Tue, 26 Aug 2025 13:56:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2ECD3C116B1;
-	Tue, 26 Aug 2025 13:56:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756216604;
-	bh=xnXpnVUGFEd1h6mY4HxI1CfSHwBmj/DTXkzjf07zO3M=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=Fl+4kFLi9xi0OWLGHAm4VRn0IfkuXC0HUJqTXNN+bOCMxEQiXBhH6UKAVj3OB0+JU
-	 R9dLFpZxnOvUCB+l3ocd/5YJKtNLBsQQ+ODsjdMGOOIa1rgu/W1yFa+vBWOpP87Xk5
-	 WhwKSgq8R42zh1U0OLIEJs4tTMw9vg4o81ZgOj9gpn6crBdtb9G/ciA+XjwyKFywux
-	 itfSWG/NX1sTzL5+eLtAQUuuAZrHk4t3dgfD+gR+uOrDduhC6gzmYvfn9w6YMqtytF
-	 w4kl7LO5CyPJx6FptL8oVA1e45IiT4U8IC5cWAH+D5Mtodv0UDwwCOxQGWFAuJonV2
-	 2HVI2GfQEBfwQ==
-Date: Tue, 26 Aug 2025 08:56:43 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1uquFI-0000000CBaL-0Psb;
+	Tue, 26 Aug 2025 14:01:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1756216914;
+	bh=QSwZwlauNJhLnv67cXc1P1WfebF0M6T+dK0F4Qjpt7o=;
+	h=From:Subject:Date:To:Cc:From;
+	b=ay+vpxBbFjwyWssKYyrA5ZtEkmCQBG9gG041eMidGHduCgWD/IgCjKUSsHX27TvxO
+	 UegeJPR3aBd4WxtDv7NQz8bessr+E4BawfRRgd+f2mcJAVJf1gcYg9iwMA4zLPvyu8
+	 yiC2TopvL3GJjlznD/ZMs/+ZuAg5QGbFAPTF4S+P0zb3vEF2k5chs5VPBbv/JbXnaI
+	 HqvHoEUFoYIh7WmndyG1j/e25dRLUjr0JzglmmJYYJrLT8qh/4hfKO+GCB78cFDvPM
+	 WKGy8W/EleKml6769jYyrYeiBk5wmm2b8c2C5wqYLwtRP3PdY05GESYo2QbaTvaKHc
+	 YOrDiSQgqasFw==
+Received: from 2a01cb0892f2d600c8f85cf092d4af51.ipv6.abo.wanadoo.fr (2a01cb0892f2d600c8f85cF092d4af51.ipv6.abo.wanadoo.fr [IPv6:2a01:cb08:92f2:d600:c8f8:5cf0:92d4:af51])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: jmassot)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9976C17E046C;
+	Tue, 26 Aug 2025 16:01:53 +0200 (CEST)
+From: Julien Massot <julien.massot@collabora.com>
+Subject: [PATCH v2 0/3] Radxa NIO 12L: Add GPIO keys and LED support
+Date: Tue, 26 Aug 2025 16:01:51 +0200
+Message-Id: <20250826-radxa-nio-12-l-gpio-v2-0-7f18fa3fbfc8@collabora.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Heiko Stuebner <heiko@sntech.de>, 
- Stephen Rothwell <sfr@canb.auug.org.au>, linux-rockchip@lists.infradead.org, 
- devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
- Fred Bloggs <f.blogs@napier.co.nz>, linux-arm-kernel@lists.infradead.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Hsun Lai <i@chainsx.cn>
-In-Reply-To: <20250826030818.3485927-1-i@chainsx.cn>
-References: <20250826030818.3485927-1-i@chainsx.cn>
-Message-Id: <175621649670.159455.15557432322730951360.robh@kernel.org>
-Subject: Re: [PATCH v2 0/2] Add support for 100ASK DShanPi A1
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAFC+rWgC/32NQQqDMBBFryKz7pTJaCB01XsUF2kSdcAaSUqwi
+ Hdv6gG6++/Df3+HHJKEDLdmhxSKZIlLBb404Ca7jAHFVwYm1mRIYbJ+s7hIRMU447jWpLuByTj
+ WbdtCXa4pDLKd1kdfeZL8julznhT1a//7ikJCT6ajwWjPztxdnGf7jMleXXxBfxzHF3tF1Fi6A
+ AAA
+X-Change-ID: 20250801-radxa-nio-12-l-gpio-54f208c25333
+To: kernel@collabora.com, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ devicetree@vger.kernel.org, Julien Massot <julien.massot@collabora.com>
+X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250826_070156_287534_2B72364E 
+X-CRM114-Status: UNSURE (   9.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,69 +83,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This patchset adds support for the GPIO-connected red and blue LEDs,
+as well as the various hardware buttons present on the Radxa NIO 12L
+board.
 
-On Tue, 26 Aug 2025 11:08:15 +0800, Hsun Lai wrote:
-> This series add support for 100ASK DShanPi A1.
-> 
-> Info of device can be found at:
-> https://wiki.dshanpi.org/en/docs/DshanPi-A1/intro/
-> 
-> Changes in v2:
-> - Delete the pwm include file (Chukun Pan, v1)
-> - Fix vcc3v3_pcie gpios (Chukun Pan, v1)
-> - Adjust the order of some nodes (Chukun Pan, v1)
-> - Fix sdmmc (Chukun Pan, v1)
-> - Add phy-supply for u2phy0_otg (Chukun Pan, v1)
-> 
-> Changes in v1:
-> - Add support for 100ASK DShanPi A1
-> 
-> Hsun Lai (2):
->   dt-bindings: arm: rockchip: Add 100ASK DShanPi A1
->   arm64: dts: rockchip: add DTs for 100ASK DShanPi A1
-> 
->  .../devicetree/bindings/arm/rockchip.yaml     |   5 +
->  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
->  .../dts/rockchip/rk3576-100ask-dshanpi-a1.dts | 838 ++++++++++++++++++
->  3 files changed, 844 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dts
-> 
-> --
-> 2.34.1
-> 
-> 
-> 
+It also includes a fix for the missing release (key-up) interrupt
+handling for PMIC-managed GPIO keys.
 
+Signed-off-by: Julien Massot <julien.massot@collabora.com>
+---
+Changes in v2:
+PATCH 1/3
+- Add Fixes tag
+- Drop Angelo's Reviewed-By since I'm now introducing the
+'key_release_irq' member that was missing in v1.
+- Link to v1: https://lore.kernel.org/r/20250801-radxa-nio-12-l-gpio-v1-0-d0840f85d2c8@collabora.com
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+---
+Julien Massot (3):
+      Input: mtk-pmic-keys - MT6359 has a specific release irq
+      arm64: dts: mediatek: mt8395-nio-12l: add PMIC and GPIO keys support
+      arm64: dts: mediatek: mt8395-nio-12l: add support for blue and red LEDs
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+ .../boot/dts/mediatek/mt8395-radxa-nio-12l.dts     | 67 ++++++++++++++++++++++
+ drivers/input/keyboard/mtk-pmic-keys.c             |  5 +-
+ 2 files changed, 71 insertions(+), 1 deletion(-)
+---
+base-commit: 6c68f4c0a147c025ae0b25fab688c7c47964a02f
+change-id: 20250801-radxa-nio-12-l-gpio-54f208c25333
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: tags/v6.17-rc1-22-g7d11b8c260ea (exact match)
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for 20250826030818.3485927-1-i@chainsx.cn:
-
-arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dtb: syscon@26034000 (rockchip,rk3576-dcphy-grf): clocks: False schema does not allow [[21, 492]]
-	from schema $id: http://devicetree.org/schemas/soc/rockchip/grf.yaml#
-arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dtb: /soc/dsi@27d80000: failed to match any schema with compatible: ['rockchip,rk3576-mipi-dsi2']
-
-
-
-
+Best regards,
+-- 
+Julien Massot <julien.massot@collabora.com>
 
 
