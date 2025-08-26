@@ -4,107 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45369C8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 02:45:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2BBACA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 02:50:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xR6DYc89vuHriP+8uKQP0na1daOwB9mmorwHUhrAVP8=; b=yrD/VX8uh739iS6DmqkCBiPBJ4
-	zYRkQitCcRzkJCGu7VP5Ai0CIZDGbmxpzQr4BefKP8xgdOLqk8MlJZsqu9nAg0GDjn4hoQQw6FjlA
-	j2ESs3yoqArraum1Aug8CHF2iIQ71yrhi2vQKXZJ7M7PBGG6yKCi0UopVrmpP17rIdyy7PUEvTPcc
-	5fdXJosrO2GCL0INNeHgIESGn8qP4uEXShZq+Y6Xze0qOupDI8SlaUt34IuoVhCzMTER7sD5M/+Re
-	JHOpgr5bvtBUKnqfYMUDzpe8H6pr58B5sg1xeyA3X8GWd/Ekm8TJp81vppOOhDi72FxN74A2eMp0l
-	SdSerM+Q==;
+	bh=dRsAtwsynj4bwQxFU1Sv98ztyYKIueHeSlIFYiuDoLM=; b=NnwthKeg2O8deYHzGHP1FWM58W
+	T0pzAtq3WhUG1hroasmoGDZmop4ryaHu/fOXkxmXTdTyasTSrt9JVFCglYxXP3svvlp4rRqAvSLOz
+	yDBpSC+dg7pi0Q8CAs4prc8d8lM44Pqf0Dtq+kECm4N+YRt4F5RSCmaX3WY05iJpLud4eRIneqpeN
+	qboXkdlPRiEzEfTAglOUscMkhQQwRCtrIS7zLA/OE4idjm6xbAg8wMBnAmiuXDllFrGGXp3KEs/y0
+	rkhMkdfmxylfRahZGciHeQXMpsaOHnKvtlwovsSXsNlAP2UTVlLm2qp0dCqD3MOM1EufY2pU4RBRw
+	wiEtJJgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqjgP-0000000ANkE-1uyg;
-	Tue, 26 Aug 2025 02:45:13 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1uqjlO-0000000AOHr-1jTY;
+	Tue, 26 Aug 2025 02:50:22 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqjdn-0000000ANa4-1Xcy
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 02:42:32 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-771e4378263so1353768b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 Aug 2025 19:42:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756176150; x=1756780950; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xR6DYc89vuHriP+8uKQP0na1daOwB9mmorwHUhrAVP8=;
-        b=Jm2nCPa8GUwkDq6cvVjlLSdtt2Cxfgr77nhvlKg9r8j/liGL+u6GVAKGLZYq0W0i4+
-         fc9hZ2M66lLL2B6Z6gKVu3/22QYo+ReftUO+eudex4/UIe8Gg+Bj9NiBG2B43yG7zhOa
-         5BrayWkOBVKdlcwaxeynZAnbX7v/jQ3WUFnuVHbnSktM3z8/lieW9ixkl1r+vhv4XYGN
-         /NSjm2EUHsE23EupDCDvgY5T24VqS+LmCAywQmzWWrAeTfaXW1/zr+2NjoF4cFupCzVN
-         eTmn0MMn4EDYDX41aOiyllHWXblUDRsYQcTUifk27Lx0af9ZUwe5a+I0MCLKAyNtfIGv
-         l0yQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756176150; x=1756780950;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xR6DYc89vuHriP+8uKQP0na1daOwB9mmorwHUhrAVP8=;
-        b=NvHOr0/xx1HJZl9+jjAQNnC85PUAdjn5WI6XQ8Idl8pPE24UIgZw2Hd9ZxlUZafrb1
-         Ca8jlleIscd5GM4TL0Uteu04m5dfyoRo7E6wcsrHtubI2JRQe50YDTwlp5ZfXjP1yvkY
-         KBAJqEtpM2GQWS73XRD8TBPd34Kc3GO2nairQ+2b4X+geFn1T3igGtgmTjuxi6GMNWeZ
-         C8ko24RemOrDSFCAumQdhXxtHyr1s/Qpfe8NDQrBVjh3xD6oAILFJQY/yVm/CN/DY6ny
-         wq7xSvb+porS1cgBGW9SWQh6tnV48c08OdjBHrI3rPkYmjqDFQ/LlWu6YUc/i++mJC63
-         vHpg==
-X-Forwarded-Encrypted: i=1; AJvYcCVnquzsn/tNyG/+ghYi8UohTPu70kzI9gxdn18ip7Gv/nSV4PrJw43cXJxvDExgD2PZOQ1CJdefpAEuvMmB0sIV@lists.infradead.org
-X-Gm-Message-State: AOJu0YyiZejh6Tqu2NOelTAKynH2NQPun3OKdQeE6pcu+Ht6Jy7ES2K6
-	tzWXqqOVDk6WlgTjITKp4IO++KOn7MiXYECp42AkTxJo+ODso/I/eI1v
-X-Gm-Gg: ASbGncubWusp3qHTW4jsimCQ1ugoQ10X94iHYYz0Ta+NcgjuQX9chMRuRo7RaRQVK08
-	SC/BdjFSIz3AdyzXlnwa+C9lHPOa4BnDPZNxHyCxG16bG3O7Sg+dxo5YHOe5zeJli8h8a4i6RI8
-	HCr6j0tpnl7AJdUup1MHUDONVIUB3qMI5WgSwL6tMYU/mBx7P5WbalreUmvXHH1V8UIxv+sufoN
-	NAm/ZpFWAmhjwvn0YbKjnkpXg/kE61PLA2xXz5KTF8kybM9lwVKlOKfrsCABkSKBjzWHfpnnwU+
-	GBRjKqhRyqwbGNtxwt2kM9xGntfvyl2H5oqXcIqbCH+89XOMOO3hYdpuBm+wZ42eyoflWeb5AC/
-	ULFdwxPyOvpn92sVrohl7nyI=
-X-Google-Smtp-Source: AGHT+IFpXXOz6jvKmc98oCi1NCiBQLg+bmp0DWJBuKZIBlouXbVcIiSBZxDk5lZs14cKqzF4SAkDxQ==
-X-Received: by 2002:a05:6a20:258c:b0:23d:ded5:12b9 with SMTP id adf61e73a8af0-24340d91d6fmr19374286637.32.1756176150053;
-        Mon, 25 Aug 2025 19:42:30 -0700 (PDT)
-Received: from dixit ([2401:4900:1c42:3335:1f6f:7d68:6bb2:7634])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b49cb8b4b98sm7835430a12.19.2025.08.25.19.42.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 25 Aug 2025 19:42:29 -0700 (PDT)
-Date: Tue, 26 Aug 2025 08:12:11 +0530
-From: Dixit Parmar <dixitparmar19@gmail.com>
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Michael Hennerich <Michael.Hennerich@analog.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Support Opensource <support.opensource@diasemi.com>,
+	id 1uqjil-0000000AO0E-2QrY;
+	Tue, 26 Aug 2025 02:47:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1756176459; x=1787712459;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Wm/2S21Pg6Nmoyskp843r48HknqB72yRjYDtSbAC9eI=;
+  b=LjbGjDUqt2vaVD2V7Ok4h/uK2qaDZc7urERADfrPXGlACG9t0RtqOXqu
+   UvqaJr0RpaL4xgk/aox78GMtadydhgNffx4EpmdOLhxRGBMNHg0nUuKyV
+   3420/akuZby9KIwEeta//Upu8W2HndvtbeY+wfepOa/OjHHfEuUCvzlMU
+   xHq1FBwlcMYlnoh1NsWE3DwkxRT1gDv3MnxXvUvboNrzSIFxhT2vu+QeR
+   5KX7R07xzJScgyeWNXrr2uCCna+UwxMhdcZ78TGdS/Do786Ep9GTQrzxw
+   aPM3ZxiFlK1Zs02LyRvCMxTiRxnKgMkU/BJNARa5pBQLEIEOyxes6rVNp
+   Q==;
+X-CSE-ConnectionGUID: oJeaQtnzRLWx5izaQ7pvWQ==
+X-CSE-MsgGUID: zaBLKdVjQ8KxClARoTVRPQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11533"; a="58467745"
+X-IronPort-AV: E=Sophos;i="6.18,214,1751266800"; 
+   d="scan'208";a="58467745"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Aug 2025 19:47:37 -0700
+X-CSE-ConnectionGUID: olyZ81apQuaoegO1K0ddNw==
+X-CSE-MsgGUID: gZmNKNo5SPmhtImu+Ik1wg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,214,1751266800"; 
+   d="scan'208";a="173760513"
+Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
+  by fmviesa005.fm.intel.com with ESMTP; 25 Aug 2025 19:47:32 -0700
+Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uqjic-000OB9-1g;
+	Tue, 26 Aug 2025 02:47:30 +0000
+Date: Tue, 26 Aug 2025 10:47:09 +0800
+From: kernel test robot <lkp@intel.com>
+To: "Darren.Ye" <darren.ye@mediatek.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Haibo Chen <haibo.chen@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Cai Huoqing <cai.huoqing@linux.dev>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andreas Klinger <ak@it-klinger.de>, Crt Mori <cmo@melexis.com>,
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: oe-kbuild-all@lists.linux.dev, linux-sound@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH 00/10] iio: Drop unnecessary -ENOMEM messages
-Message-ID: <aK0fA4QnFKH5AQas@dixit>
-References: <20250822-enomam_logs-v1-0-db87f2974552@gmail.com>
- <20250825093150.3ba23f2a@jic23-huawei>
- <20250825123919.3c228ef7@jic23-huawei>
+	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
+	Darren Ye <darren.ye@mediatek.com>
+Subject: Re: [PATCH v7 09/10] ASoC: mediatek: mt8196: add machine driver with
+ nau8825
+Message-ID: <202508261004.7adPXk4m-lkp@intel.com>
+References: <20250822125301.12333-10-darren.ye@mediatek.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250825123919.3c228ef7@jic23-huawei>
+In-Reply-To: <20250822125301.12333-10-darren.ye@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250825_194231_406097_41E5B2B8 
-X-CRM114-Status: GOOD (  23.10  )
+X-CRM114-CacheID: sfid-20250825_194739_661824_51EAE977 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,38 +99,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 25, 2025 at 12:39:19PM +0100, Jonathan Cameron wrote:
-> On Mon, 25 Aug 2025 09:31:50 +0100
-> Jonathan Cameron <jic23@kernel.org> wrote:
-> 
-> > On Fri, 22 Aug 2025 09:19:48 +0530
-> > Dixit Parmar <dixitparmar19@gmail.com> wrote:
-> > 
-> > > The drivers do not require their own error messages for error
-> > > -ENOMEM, memory allocation failures. So remove the dev_err
-> > > messages from the probe().
-> > > With these patches, all the iio drivers now has uniform handling
-> > > of the -ENOMEM while device_allocation and trigger_allocation
-> > > calls.
-> > > 
-> > > Signed-off-by: Dixit Parmar <dixitparmar19@gmail.com>  
-> > Series looks fine to me, after the minor tweaks to commit messages
-> > that Andy requested.  However as it touches a lot of drivers
-> > I'd like to leave it on list a little longer.
-> 
-> I changed my mind after taking the dev_err_probe() series earlier.
-> I'm rather too busy at the moment, so clearing this out now will reduce
-> what I need to keep track of.
-> 
-> Fixed up the () that Andy asked for in commit messages and applied
-> to the togreg branch of iio.git, pushed out initially as testing.
-> 
-> There is still the rest of the week (probably) in which I can add
-> tags etc if anyone wants to give them before I push that out as
-> a non rebasing tree.
-> 
-> Thanks,
-> 
-> Jonathan
-Thanks Jonathan.
+Hi Darren.Ye,
+
+kernel test robot noticed the following build warnings:
+
+[auto build test WARNING on broonie-sound/for-next]
+[also build test WARNING on broonie-spi/for-next robh/for-next linus/master v6.17-rc3 next-20250825]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Darren-Ye/ASoC-mediatek-common-modify-mtk-afe-platform-driver-for-mt8196/20250822-210108
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+patch link:    https://lore.kernel.org/r/20250822125301.12333-10-darren.ye%40mediatek.com
+patch subject: [PATCH v7 09/10] ASoC: mediatek: mt8196: add machine driver with nau8825
+config: arm64-randconfig-r131-20250826 (https://download.01.org/0day-ci/archive/20250826/202508261004.7adPXk4m-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project d26ea02060b1c9db751d188b2edb0059a9eb273d)
+reproduce: (https://download.01.org/0day-ci/archive/20250826/202508261004.7adPXk4m-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202508261004.7adPXk4m-lkp@intel.com/
+
+sparse warnings: (new ones prefixed by >>)
+>> sound/soc/mediatek/mt8196/mt8196-nau8825.c:183:33: sparse: sparse: incorrect type in argument 3 (different base types) @@     expected unsigned int to @@     got restricted snd_pcm_format_t [usertype] @@
+   sound/soc/mediatek/mt8196/mt8196-nau8825.c:183:33: sparse:     expected unsigned int to
+   sound/soc/mediatek/mt8196/mt8196-nau8825.c:183:33: sparse:     got restricted snd_pcm_format_t [usertype]
+
+vim +183 sound/soc/mediatek/mt8196/mt8196-nau8825.c
+
+   175	
+   176	static int mt8196_hw_params_fixup(struct snd_soc_pcm_runtime *rtd,
+   177					  struct snd_pcm_hw_params *params)
+   178	{
+   179		dev_info(rtd->dev, "fix format to 32bit\n");
+   180	
+   181		/* fix BE i2s format to 32bit, clean param mask first */
+   182		snd_mask_reset_range(hw_param_mask(params, SNDRV_PCM_HW_PARAM_FORMAT),
+ > 183				     0, SNDRV_PCM_FORMAT_LAST);
+   184	
+   185		params_set_format(params, SNDRV_PCM_FORMAT_S32_LE);
+   186		return 0;
+   187	}
+   188	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
