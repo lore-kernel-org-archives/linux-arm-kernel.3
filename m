@@ -4,108 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F90BCA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 18:22:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A279CA0FE7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 Aug 2025 18:37:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XQz/VrYK3cwCtAlJzmwCDIZSeNenI6Rm8ZKZbd4vuEk=; b=mtB8D65SxpJ9raxnl/QLUh05J2
-	lBgyh3PFqNIiRRNAPd/Udfo1k+lXykj/xizkTPsbQ9kJIGto06tW74L4+0/d9sJSzYcpcyABOSJc5
-	hFct63nwg2mC6shdCKg85LJgdxgrxIrz6c0NBDKVY3SwJu7xbE1qDcc8asc7FabaX36pwctZ21vDR
-	4rhByVWYyorpXhPH/UzUFyq8EjhpHikVlR7vSNtQ/oKsh0UpTpDI+gRM/USqqC11rWpa7heFPXp+g
-	MG5zO1UW4hPOOcCZR1ZoeESBhK3rgHzIx4Kb75n55bt3vYEYavJrh0ulvGQ9qewiw2T8KUDeIevRI
-	iBqQPKnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Date:From:To:Cc:
+	Message-Id:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=32t3WA5lY1KbS0J1wGQdYzWvxfSQThAPTyTv0/UUv9Y=; b=WahPkIodTNnxmwau/jd6DdBJLu
+	yoGK5+rrrCDn9/gWWI+4D3nYiouauKQHWT00X5iVFsYdxahja16Wny7fQ+Qo+Wqk7qYTP4yVZJaDD
+	EtrjdiVOuaW2fTjdSvjoz1EYViTpRrRpuqeogBmAVDnAHWFU2ksC3fzUAFwDPlt/uDrr12fwFcIV+
+	zyKtA3gVJwOjvd64hhd08qJ8GwA5g09jOQPrvcN2S32+xkYRY4vG1X3MPDPIJ8fEl10lj7hNJY+WA
+	ytGvDmp2HQqoRGdGBixtDXf7DsTbzsqZpcWF8Dw+dlTNtNCiesXVGT9lMazWjPYQR5HqF/G1iSk/9
+	yvXvSygA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqyJc-0000000Crft-2LGL;
-	Tue, 26 Aug 2025 18:22:40 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1uqyYK-0000000Ct1C-2RwO;
+	Tue, 26 Aug 2025 18:37:52 +0000
+Received: from www522.your-server.de ([195.201.215.122])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uqyGs-0000000CrFt-0opg
+	id 1uqyVb-0000000Csrl-0DTw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 Aug 2025 18:19:51 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-55f53efe803so102769e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 11:19:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756232388; x=1756837188; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XQz/VrYK3cwCtAlJzmwCDIZSeNenI6Rm8ZKZbd4vuEk=;
-        b=Dh8SOfUPg1/GjcA7fL8lP3NOudRSMM+t3OnUNic5ZTrILRpeTuLe7pH9P40IClLwT0
-         TNSaqrVXe35BVpcoduZ3TEAnS63UFhLBpjWjDWsLIc+csR9iu+CQ0TTEPww54IZL0sYj
-         UjVHXu0RgRLMCjmwcfEI1n462U/wK2YhKgV34exQmciQeO1xHNvDh1uf7OVz1f4G1qJD
-         DWxwNeNIrdKQvGodvi8PbLOOQW0WJWW0AcPpfGloRTx6k+rtd0/UlKSqOgWhhmz5noXc
-         PDLloZKrUMnlkLchqIT6895n1HjVUiBdCN1HGGE7WtDWlDjhaDBezRdaQfT6/sC5XOya
-         Rxzg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756232388; x=1756837188;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=XQz/VrYK3cwCtAlJzmwCDIZSeNenI6Rm8ZKZbd4vuEk=;
-        b=uLXmO1eW0gxbytYjOpOKbmWQR7LIBjyx2RVASIJWAV179ZLd0KyZXUbJxkJyuimS25
-         5PyP3BauV5kWk4pnqNeEDc4WC73vnLK2qhQZ0WNGCCRAo9KSxKHtYXyEY/etn+nePhcf
-         OJUXE+Luz1mXYct5DWQQ9P8fNR2Tzb6ypTzcm4j0MLHHgUIu+y6MW1rXIdXazNm3vZZm
-         EI8WiYZv49NXprriunPRGqAtFM7e6LEnY31WegVKhKaOa+z8L/G077ix4+tytkwqZLeB
-         352U1oNHaUQWBwM84iSNcA/gsKL3Y3v2j6wWkEMvjCQuq1AmlB4sK15T/xbPKtc+WX2h
-         fKEQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXDaac9bPvUZ1FukIc1198GKM7IeMsf8WWD9fNGG+KFYUThIuN+GBA2cVYvTNC+vh1bY4j6ApKIWJjRodQy05J5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCEhMgGcZ30dIvt0kLt8Lqv0723N4kGQeckp8NvNf0zalbdHnX
-	oy9V+ZeZs2AU/VW9NgONRidtbuYiXZFADISFCyR4GB9IpA92GlqQiuCszF5nAgxDq+aU6qoIDuu
-	JOS0hOwoJL8Vsit2cggFldqX4PHgOZVndFpwsaz6OqQ==
-X-Gm-Gg: ASbGncuFN4C0S/IhHVZVwb4D1ndjEN/vctiqfyL8qUJUWV56ci7xagkEeXRfiXqe2kL
-	+blg66/siFN0yJZ/Fvy6VOj0Ib2Yvd3Q2VZlBZnXRHvnwFB84xE+K4fhy8d5VXeIPhvGUbAn5RM
-	+/cHefUATmeWjrewbdC4SDthc+TvjGze4WWylcEX4kKa3J4CkridL0zN5FhhdnAnxfoObNEgkAY
-	wOoJtGPiNfyZrc/L2SI9IaO/LbC82kq7kRoQ5Mc5N2I7fL561LJKAU8R7jq
-X-Google-Smtp-Source: AGHT+IH9/wDD1C5c1pzIo5M6703fhe2Ju79J3Cg57MCbuHB+kMzD9Ry2MpuHtwyxY9EgNTzhw0WfnDm8emGE0JQOveU=
-X-Received: by 2002:a05:6512:3d87:b0:55f:3d7c:387b with SMTP id
- 2adb3069b0e04-55f3d7c3badmr3365498e87.12.1756232388100; Tue, 26 Aug 2025
- 11:19:48 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250815-pinctrl-gpio-pinfuncs-v5-0-955de9fd91db@linaro.org>
- <CACRpkdaDGmdhaik+1saRv7Ts4myQ+tg1aQqGU3xQyT7ma8dJFw@mail.gmail.com>
- <CAHp75VephepLq61HrVy=PX2oKUQd5NK2qS-vOC5h_NR65td3Uw@mail.gmail.com>
- <CACRpkda4soRCLF5=W=6R4wnwT3pjk743j022XfJxjTTQzuarAA@mail.gmail.com> <534ad082-08fa-42c0-9c24-f0c11af7d5b2@sirena.org.uk>
-In-Reply-To: <534ad082-08fa-42c0-9c24-f0c11af7d5b2@sirena.org.uk>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 26 Aug 2025 20:19:37 +0200
-X-Gm-Features: Ac12FXxAYIw0w_2T1YaN-IyY2JYcpKwwddZS_ZNL3wGJGwAsl60-M2w6oLQOL30
-Message-ID: <CAMRc=Mdn0_yPXyYq4sbvH4P9-h71vEc4arLPBfSk1PiEFaB7jQ@mail.gmail.com>
-Subject: Re: [PATCH v5 00/15] pinctrl: introduce the concept of a GPIO pin
- function category
-To: Mark Brown <broonie@kernel.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Andy Shevchenko <andy.shevchenko@gmail.com>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Alexey Klimov <alexey.klimov@linaro.org>, Lorenzo Bianconi <lorenzo@kernel.org>, 
-	Sean Wang <sean.wang@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Paul Cercueil <paul@crapouillou.net>, Kees Cook <kees@kernel.org>, 
-	Andy Shevchenko <andy@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	David Hildenbrand <david@redhat.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, 
-	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
-	Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, NXP S32 Linux Team <s32@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Tony Lindgren <tony@atomide.com>, 
-	Haojian Zhuang <haojian.zhuang@linaro.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
-	linux-hardening@vger.kernel.org, linux-mm@kvack.org, imx@lists.linux.dev, 
-	linux-omap@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Chen-Yu Tsai <wenst@chromium.org>, 
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 26 Aug 2025 18:35:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=folker-schwesinger.de; s=default2212; h=Subject:Date:From:To:Cc:Message-Id:
+	Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References;
+	bh=32t3WA5lY1KbS0J1wGQdYzWvxfSQThAPTyTv0/UUv9Y=; b=FGZJxi8H5ZpSK/A0ycz+GJmB6p
+	WTxipNwpVMeRNkW8b03SENtZt66Ln9nT63Rc/pa/pKIDQMn4rhooGy4D13eAmodGBXC03fYZ5HHX6
+	6TtZLAgUDem9OxdivHB2ShzWZY1ux1Cr4cCPLSwlTk6jP/pLJ6M+iKDp1eFYo58iIRb9O9z/7EY/H
+	UOTCh1PBIDGrs7wJfJvOPdNLifIqhOsDaokSOFPViqYjcni6SS4fs25wtwMT8bVOfk9N4nTA5DonO
+	EMm175skPcGL5kSpJ0ECCdTfyfIPKu7vPR5Xxko/ISymQ80/a3EGZUcWL+I/2EAZqQ+VF5RWp1uUa
+	lO94+bTg==;
+Received: from sslproxy06.your-server.de ([78.46.172.3])
+	by www522.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <dev@folker-schwesinger.de>)
+	id 1uqyVD-000HFG-2F;
+	Tue, 26 Aug 2025 20:34:39 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy06.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <dev@folker-schwesinger.de>)
+	id 1uqyVD-0009Bg-0V;
+	Tue, 26 Aug 2025 20:34:39 +0200
+Message-Id: <DCCKQLKOZC06.2H6LJ8RJQJNV2@folker-schwesinger.de>
+Cc: "Vinod Koul" <vkoul@kernel.org>, "Michal Simek" <michal.simek@amd.com>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Krzysztof Kozlowski"
+ <krzysztof.kozlowski@linaro.org>, =?utf-8?q?Uwe_Kleine-K=C3=B6nig?=
+ <u.kleine-koenig@baylibre.com>, "Marek Vasut" <marex@denx.de>, "Radhey
+ Shyam Pandey" <radhey.shyam.pandey@amd.com>
+To: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>
+From: "Folker Schwesinger" <dev@folker-schwesinger.de>
+Date: Tue, 26 Aug 2025 20:21:10 +0200
+Subject: [PATCH v4] dmaengine: xilinx_dma: Support descriptor setup from
+ dma_vecs
+X-Virus-Scanned: Clear (ClamAV 1.0.7/27744/Tue Aug 26 10:26:45 2025)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_111950_470755_CB12F77D 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20250826_113503_385509_0CE1B8BD 
+X-CRM114-Status: GOOD (  16.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,20 +80,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 20, 2025 at 8:41=E2=80=AFPM Mark Brown <broonie@kernel.org> wro=
-te:
->
-> On Wed, Aug 20, 2025 at 09:12:49AM +0200, Linus Walleij wrote:
->
-> > The qualcomm 32bit platforms fail in next anyway so I dropped the patch=
-es
-> > for now.
->
-> FWIW the i.MX8MP also seems to have been broken by this:
->
+The DMAEngine provides an interface for obtaining DMA transaction
+descriptors from an array of scatter gather buffers represented by
+struct dma_vec. This interface is used in the DMABUF API of the IIO
+framework [1][2].
+To enable DMABUF support through the IIO framework for the Xilinx DMA,
+implement callback .device_prep_peripheral_dma_vec() of struct
+dma_device in the driver.
 
-I can't test it unfortunately - would you mind sharing some info on
-what's failing exactly?
+[1]: 7a86d469983a ("iio: buffer-dmaengine: Support new DMABUF based userspace API")
+[2]: 5878853fc938 ("dmaengine: Add API function dmaengine_prep_peripheral_dma_vec()")
 
-Bartosz
+Signed-off-by: Folker Schwesinger <dev@folker-schwesinger.de>
+Reviewed-by: Suraj Gupta <suraj.gupta2@amd.com>
+Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+
+---
+Changes in v4:
+- Replace external link to relevant source code with commit ids of the
+  changes introducing dmaengine_prep_peripheral_dma_vec() and the IIO
+  DMABUF-based API (suggested by Radhey Shyam Pandey).
+- Collect R-b tags from v3.
+- Link to v3: https://lore.kernel.org/dmaengine/DBZUIRI5Q4A3.1OIBMF9Z5EQ0X@folker-schwesinger.de/
+
+Changes in v3:
+- Collect R-b tags from v2.
+- Rebase onto v6.17-rc1.
+- Link to v2: https://lore.kernel.org/dmaengine/DAQB7EU7UXR3.Z07Q6JQ1V67Y@folker-schwesinger.de/
+
+Changes in v2:
+- Improve commit message to include reasoning behind the change.
+- Rebase onto v6.16-rc1.
+- Link to v1: https://lore.kernel.org/dmaengine/D8TV2MP99NTE.1842MMA04VB9N@folker-schwesinger.de/
+---
+ drivers/dma/xilinx/xilinx_dma.c | 94 +++++++++++++++++++++++++++++++++
+ 1 file changed, 94 insertions(+)
+
+diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
+index a34d8f0ceed8..fabff602065f 100644
+--- a/drivers/dma/xilinx/xilinx_dma.c
++++ b/drivers/dma/xilinx/xilinx_dma.c
+@@ -2172,6 +2172,99 @@ xilinx_cdma_prep_memcpy(struct dma_chan *dchan, dma_addr_t dma_dst,
+ 	return NULL;
+ }
+ 
++/**
++ * xilinx_dma_prep_peripheral_dma_vec - prepare descriptors for a DMA_SLAVE
++ *	transaction from DMA vectors
++ * @dchan: DMA channel
++ * @vecs: Array of DMA vectors that should be transferred
++ * @nb: number of entries in @vecs
++ * @direction: DMA direction
++ * @flags: transfer ack flags
++ *
++ * Return: Async transaction descriptor on success and NULL on failure
++ */
++static struct dma_async_tx_descriptor *xilinx_dma_prep_peripheral_dma_vec(
++	struct dma_chan *dchan, const struct dma_vec *vecs, size_t nb,
++	enum dma_transfer_direction direction, unsigned long flags)
++{
++	struct xilinx_dma_chan *chan = to_xilinx_chan(dchan);
++	struct xilinx_dma_tx_descriptor *desc;
++	struct xilinx_axidma_tx_segment *segment, *head, *prev = NULL;
++	size_t copy;
++	size_t sg_used;
++	unsigned int i;
++
++	if (!is_slave_direction(direction) || direction != chan->direction)
++		return NULL;
++
++	desc = xilinx_dma_alloc_tx_descriptor(chan);
++	if (!desc)
++		return NULL;
++
++	dma_async_tx_descriptor_init(&desc->async_tx, &chan->common);
++	desc->async_tx.tx_submit = xilinx_dma_tx_submit;
++
++	/* Build transactions using information from DMA vectors */
++	for (i = 0; i < nb; i++) {
++		sg_used = 0;
++
++		/* Loop until the entire dma_vec entry is used */
++		while (sg_used < vecs[i].len) {
++			struct xilinx_axidma_desc_hw *hw;
++
++			/* Get a free segment */
++			segment = xilinx_axidma_alloc_tx_segment(chan);
++			if (!segment)
++				goto error;
++
++			/*
++			 * Calculate the maximum number of bytes to transfer,
++			 * making sure it is less than the hw limit
++			 */
++			copy = xilinx_dma_calc_copysize(chan, vecs[i].len,
++					sg_used);
++			hw = &segment->hw;
++
++			/* Fill in the descriptor */
++			xilinx_axidma_buf(chan, hw, vecs[i].addr, sg_used, 0);
++			hw->control = copy;
++
++			if (prev)
++				prev->hw.next_desc = segment->phys;
++
++			prev = segment;
++			sg_used += copy;
++
++			/*
++			 * Insert the segment into the descriptor segments
++			 * list.
++			 */
++			list_add_tail(&segment->node, &desc->segments);
++		}
++	}
++
++	head = list_first_entry(&desc->segments, struct xilinx_axidma_tx_segment, node);
++	desc->async_tx.phys = head->phys;
++
++	/* For the last DMA_MEM_TO_DEV transfer, set EOP */
++	if (chan->direction == DMA_MEM_TO_DEV) {
++		segment->hw.control |= XILINX_DMA_BD_SOP;
++		segment = list_last_entry(&desc->segments,
++					  struct xilinx_axidma_tx_segment,
++					  node);
++		segment->hw.control |= XILINX_DMA_BD_EOP;
++	}
++
++	if (chan->xdev->has_axistream_connected)
++		desc->async_tx.metadata_ops = &xilinx_dma_metadata_ops;
++
++	return &desc->async_tx;
++
++error:
++	xilinx_dma_free_tx_descriptor(chan, desc);
++	return NULL;
++}
++
+ /**
+  * xilinx_dma_prep_slave_sg - prepare descriptors for a DMA_SLAVE transaction
+  * @dchan: DMA channel
+@@ -3180,6 +3273,7 @@ static int xilinx_dma_probe(struct platform_device *pdev)
+ 	xdev->common.device_config = xilinx_dma_device_config;
+ 	if (xdev->dma_config->dmatype == XDMA_TYPE_AXIDMA) {
+ 		dma_cap_set(DMA_CYCLIC, xdev->common.cap_mask);
++		xdev->common.device_prep_peripheral_dma_vec = xilinx_dma_prep_peripheral_dma_vec;
+ 		xdev->common.device_prep_slave_sg = xilinx_dma_prep_slave_sg;
+ 		xdev->common.device_prep_dma_cyclic =
+ 					  xilinx_dma_prep_dma_cyclic;
+
+base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+-- 
+2.50.1
 
