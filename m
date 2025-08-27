@@ -4,74 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7966CA0FF6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 11:57:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D43BFCA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 14:08:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x+vft1O4j7bzhrigQaNq75cEj1lanLo5Kb6/StfmDGg=; b=1Qzwgs7YscXpLgecnfzQWwp/8l
-	45+xaFZ9THjgKc6WzaW/6JQhOaSRE0r595UyZz5RrD8hqM2ehB41jtk8rTYpLpNLt+FGlToxMWwVI
-	u9lG3UtjVEkh+w8LE3/P7vDOBxwkXcS7cX9by6vMK5ZgpUSROUnLq5kEAH6U/kd+ZSUZiyD9Um4Bn
-	CV6x5T+8Iun71juZ3RvDMzWKWaOXiKua3CdPuRUOA4kI2TAHUWSu2LZ9P/7/4iHfnvAgmmEEB07UZ
-	v+iPUYR154Jx+Tr4ZU154BYCf/gd+cqLPN8TCbs6sNzQfKE2ZeJ9VO5DMY5mCO3EYC1n+ShnW/jhH
-	XHYAopMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=gChpukKe/Co4j4eyT56FMO0lc9aier7sQ6umEpqMPig=; b=sDM/3u+ss11cgZ
+	29+aazx6B/iMGTS4XSkggsahTvZutC2pJElLeIxzLevGi06rJT/YCnJ+2xFdEzb17Qo2v6VI9s6zc
+	0Cx1jCIZOrCsbkZtIWOTxbfnCgGCX97lIVSGnlmJMwBGua7pjDxjUVztWUyQ8tJ/r75DF+o+R8sAX
+	PtSB1aKifu4I6/SEtMpbbq7dywX45h51P07d7TpwDIz+2QoDRHtoBCO554djaCc5CrTcgoQOYccX/
+	Hpc+LdyvXitSAdx6tHLFG3la+9wG15j3Htp9iZ8M5XacAG+bhNf/yCI2cWueaJ0vtKDZxrWkh3j5I
+	Xd0s+puzOpsRwXtSGfvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urEmE-0000000FM18-4A22;
-	Wed, 27 Aug 2025 11:57:18 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urDuZ-0000000F9Ac-46da
+	id 1urGpF-0000000FgqI-3wN0;
+	Wed, 27 Aug 2025 14:08:33 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urDzz-0000000FACd-0bbo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 11:01:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9D2EB1688;
-	Wed, 27 Aug 2025 04:01:42 -0700 (PDT)
-Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 24B543F694;
-	Wed, 27 Aug 2025 04:01:45 -0700 (PDT)
-Date: Wed, 27 Aug 2025 12:01:42 +0100
-From: Dave Martin <Dave.Martin@arm.com>
-To: James Morse <james.morse@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
-	shameerali.kolothum.thodi@huawei.com,
-	D Scott Phillips OS <scott@os.amperecomputing.com>,
-	carl@os.amperecomputing.com, lcherian@marvell.com,
-	bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
-	baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
-	Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
-	dfustini@baylibre.com, amitsinght@marvell.com,
-	David Hildenbrand <david@redhat.com>,
-	Rex Nie <rex.nie@jaguarmicro.com>, Koba Ko <kobak@nvidia.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
-	baisheng.gao@unisoc.com,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
-	Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>
-Subject: Re: [PATCH 07/33] arm64: kconfig: Add Kconfig entry for MPAM
-Message-ID: <aK7llvNbXZKWhtoo@e133380.arm.com>
-References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-8-james.morse@arm.com>
+	Wed, 27 Aug 2025 11:07:30 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57RA4cGb026189;
+	Wed, 27 Aug 2025 13:07:13 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=gChpukKe/Co4j4eyT56FMO
+	0lc9aier7sQ6umEpqMPig=; b=7wv4BqlEGcf8Adj3Tl5KlzJClyjpur32grL9Cr
+	AufZtlaYRTrNopWfDqw9lduzT5fSc3+wkQ6aTTbcKdDCqGXP2IHAVZsvH0dOvWfz
+	N2dyRJ7Ese0M053XZd1OpbmPA1a0FCprP5SWvKrV+ivHCd1stclQjcZZ8Fkg8y96
+	ASGvBgVT98r0xXebyHJXXrlH/xzgz6yX88XJ9w+h9eRMzUJa1B1UjcmDw76Phw32
+	a++WzuI1j085Lw8pZbCjzq5FG3h7PEx13wKqVTrGLm7PhB59GkzVtMN71IzBdi3M
+	UAVNE+rm1gbXHiqLZaieOlUTBo+etozvD0ePR/HcILy57gDQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48qq745m9a-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 27 Aug 2025 13:07:13 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 4594240047;
+	Wed, 27 Aug 2025 13:05:58 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 8A10A546F2C;
+	Wed, 27 Aug 2025 13:05:02 +0200 (CEST)
+Received: from localhost (10.252.21.245) by SHFDAG1NODE1.st.com (10.75.129.69)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 27 Aug
+ 2025 13:05:02 +0200
+From: Gatien Chevallier <gatien.chevallier@foss.st.com>
+Subject: [PATCH net-next v3 0/2] net: stmmac: allow generation of flexible
+ PPS relative to MAC time
+Date: Wed, 27 Aug 2025 13:04:57 +0200
+Message-ID: <20250827-relative_flex_pps-v3-0-673e77978ba2@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250822153048.2287-8-james.morse@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAFnmrmgC/23N0QrCIBgF4FcZXudwOmfrqveIGGa/TVg6VGQx9
+ u6ZdFGwy8PhfGdFAbyBgE7VijwkE4yzObBDhdQo7QOwueeMKKGcCMqwh0lGk2DQEyzDPAespaT
+ 6pqQ+Mo7ybvagzVLMC7IQsYUlomtuRhOi869ylprSf912x00NJpgJJTsuBGNdf9YuhDrEWrln8
+ RL9Nfo9g34M4JowTrlq+b+xbdsb3n2FJQIBAAA=
+X-Change-ID: 20250723-relative_flex_pps-faa2fbcaf835
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller"
+	<davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Richard Cochran <richardcochran@gmail.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+CC: <netdev@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        Gatien Chevallier
+	<gatien.chevallier@foss.st.com>
+X-Mailer: b4 0.14.2
+X-Originating-IP: [10.252.21.245]
+X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-27_02,2025-08-26_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_040152_058335_CA950197 
-X-CRM114-Status: GOOD (  35.40  )
+X-CRM114-CacheID: sfid-20250827_040727_927345_C343D88D 
+X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,148 +108,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+When doing some testing on stm32mp2x platforms(MACv5), I noticed that
+the command previously used with a MACv4 for genering a PPS signal:
+echo "0 0 0 1 1" > /sys/class/ptp/ptp0/period
+did not work.
 
-<super-pedantic mode enabled>
+This is because the arguments passed through this command must contain
+the start time at which the PPS should be generated, relative to the
+MAC system time. For some reason, a time set in the past seems to work
+with a MACv4.
 
-(Since this likely be people's go-to patch for understanding what MPAM
-is, it is probably worth going the extra mile.)
+Because passing such an argument is tedious, consider that any time
+set in the past is an offset regarding the MAC system time. This way,
+this does not impact existing scripts and the past time use case is
+handled. Edit: But maybe that's not important and we can just change
+the default behavior to this.
 
-On Fri, Aug 22, 2025 at 03:29:48PM +0000, James Morse wrote:
-> The bulk of the MPAM driver lives outside the arch code because it
-> largely manages MMIO devices that generate interrupts. The driver
-> needs a Kconfig symbol to enable it, as MPAM is only found on arm64
+Example to generate a flexible PPS signal that has a 1s period 3s
+relative to when the command was entered:
 
-Prefer -> "[...] to enable it. As MPAM is only [...]"
+echo "0 3 0 1 1" > /sys/class/ptp/ptp0/period
 
-> platforms, that is where the Kconfig option makes the most sense.
+Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
+---
+Changes in v3:
+- Fix warning on braces for the switch case.
+- Link to v2: https://lore.kernel.org/r/20250729-relative_flex_pps-v2-0-3e5f03525c45@foss.st.com
 
-It could be clearer what "where" refers to, here.
+Changes in v2:
+- Drop STMMAC_RELATIVE_FLEX_PPS config switch
+- Add PTP reference clock in stm32mp13x SoCs
+- Link to v1: https://lore.kernel.org/r/20250724-relative_flex_pps-v1-0-37ca65773369@foss.st.com
 
-Maybe reword from ", that is [...]" -> ", the arm64 tree is the most
-natural home for the Kconfig option."
+---
+Gatien Chevallier (2):
+      drivers: net: stmmac: handle start time set in the past for flexible PPS
+      ARM: dts: stm32: add missing PTP reference clocks on stm32mp13x SoCs
 
-(Or something like that.)
+ arch/arm/boot/dts/st/stm32mp131.dtsi             |  2 ++
+ arch/arm/boot/dts/st/stm32mp133.dtsi             |  2 ++
+ drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c | 35 +++++++++++++++++++++++-
+ 3 files changed, 38 insertions(+), 1 deletion(-)
+---
+base-commit: 242041164339594ca019481d54b4f68a7aaff64e
+change-id: 20250723-relative_flex_pps-faa2fbcaf835
 
-> This Kconfig option will later be used by the arch code to enable
-> or disable the MPAM context-switch code, and registering the CPUs
+Best regards,
+-- 
+Gatien Chevallier <gatien.chevallier@foss.st.com>
 
-Nit: "registering" -> "to register"
-
-> properties with the MPAM driver.
-
-Nit: "CPUs properties" -> "properties of CPUs" ?
-
-(Maybe there was just a missed apostrophe, but it may be more readable
-here if written out longhand.)
-
-
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> ---
->  arch/arm64/Kconfig | 17 +++++++++++++++++
->  1 file changed, 17 insertions(+)
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index e9bbfacc35a6..658e47fc0c5a 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -2060,6 +2060,23 @@ config ARM64_TLB_RANGE
->  	  ARMv8.4-TLBI provides TLBI invalidation instruction that apply to a
->  	  range of input addresses.
->  
-> +config ARM64_MPAM
-> +	bool "Enable support for MPAM"
-> +	help
-
-<pedantic mode on>
-
-> +	  Memory Partitioning and Monitoring is an optional extension
-> +	  that allows the CPUs to mark load and store transactions with
-
-Nit: "memory transactions" ?
-
-(I'm wondering whether there are some transactions such as atomic
-exchanges that are not neatly characterised as "load" or "store".
-Possibly MPAM labels some transactions that really are neither.)
-
-> +	  labels for partition-id and performance-monitoring-group.
-
-Nit: the hyphenation suggests that these are known terms (in this
-specific, hyphenated, form) with specific definitions somewhere.
-I don't think that this is the case?  At least, I have not seen the
-terms presented in this way anywhere else.
-
-Also, the partition ID is itself a label, so "label for partition-id"
-is a tautology.
-
-How about:
-
---8<--
-
-	  Memory System Resource Partitioning and Monitoring (MPAM) is an
-	  optional extension to the Arm architecture that allows each
-	  transaction issued to the memory system to be labelled with a
-	  Partition identifier (PARTID) and Performance Monitoring Group
-	  identifier (PMG).
-
--->8--
-
-(Yes, that really seems to be what MPAM stands for in the published
-specs.  That's quite a mounthful, and news to me...  I can't say I paid
-much attention to the document titles beyond "MPAM"!)
-
-> +	  System components, such as the caches, can use the partition-id
-> +	  to apply a performance policy. MPAM monitors can use the
-
-What is a "performance policy"?
-
-The MPAM specs talk about resource controls; it's probably best to
-stick to the same terminology.
-
-> +	  partition-id and performance-monitoring-group to measure the
-> +	  cache occupancy or data throughput.
-
-So, how about something like:
-
---8<--
-
-	  Memory system components, such as the caches, can be configured with
-	  policies to control how much of various physical resources (such as
-	  memory bandwidth or cache memory) the transactions labelled with each
-	  PARTID can consume.  Depending on the capabilities of the hardware,
-	  the PARTID and PMG can also be used as filtering criteria to measure
-	  the memory system resource consumption of different parts of a
-	  workload.
-
--->8--
-
-(Where "Memory system components" is used in a generic sense and so not
-capitalised.)
-
-> +
-> +	  Use of this extension requires CPU support, support in the
-> +	  memory system components (MSC), and a description from firmware
-
-But here, we are explicitly using an architectural term now, so
-
-	"Memory System Components" (MSC)
-
-makes sense.
-
-> +	  of where the MSC are in the address space.
-
-Prefer "MSCs" ?  (Not everyone agrees about whether TLAs are
-pluralisable but it is easier on the reader if "are" has an obviously
-plural noun to bind to.)
-
-> +
-> +	  MPAM is exposed to user-space via the resctrl pseudo filesystem.
-> +
->  endmenu # "ARMv8.4 architectural features"
->  
->  menu "ARMv8.5 architectural features"
-
-Cheers
----Dave
 
