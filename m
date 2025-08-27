@@ -4,83 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C70C0CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 15:53:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23485CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 15:54:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cDCyI7Q3E3Sarhfs/c6Ldvt091GGY5zBVGpYFi9yaP4=; b=qWu75ylPhNbT3phGRraJBFbYR2
-	TUakQMTLUnTQc3ztivuQsNMkhszOUNTTzDCu3HHPbz8CwCNUlmP55kweN5PyWykUDfznlbY5r0EFz
-	1bhYNi5RRMaC9tdxB0RCJEWCYroui46GzptspssCaNImdSdp2ZMOzjMrOzgymiNDXa1Ehj5vK/dfK
-	qKWzRX7+HTsBTwRujHgWPrxAfA8QXUt3ZASLiUzVqBE8WZPlkvJtT3fnQTmZfz1nNOYMECBslV2jj
-	s2vEw902t3NOJjJKrMk+O1xXyNwjlHKAggEwhwlHL6FpRPq+fnwq5JwJH5JlwMODx/RmVK+t06MGI
-	N6dYxSww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=duT0L2r7FaIbAZcTRZtdLlCsYnyVOXhLkCrUjVK0CJg=; b=uInfVwjfWNo2AUY8iq6T9gvL6c
+	FNpvzdEGuJEy613lDlO23QFgC2yUYu6k1fkVip864oVIxp/AE4X6CAQEV4sB3KChHF7sdTN5nH8Ic
+	X9uiLPZGmhaGkaDETZG1x3CBiIvo8m76urNmdi0wDTAYcllDDY+qTAYTWwcPl5K+8DAIZk8gFUlGM
+	iTlFhU9sLngvoXOrA0C/JnX/VaX0rrcIbPGzC6dQes6xXfwj5KKt4QhNLvyVo2dex/LvRZOXoENS/
+	nd5GSjsc3LZkxaqSnktghwa79+Ngrz0qRAf4mef+A+dAB4boddYZEHphTR58EHLCQQ2bStFJJ53+h
+	aedt+yhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urITA-0000000G3OE-0OW6;
-	Wed, 27 Aug 2025 15:53:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urFsr-0000000FWd6-0fwP
+	id 1urITB-0000000G3Q5-3MJH;
+	Wed, 27 Aug 2025 15:53:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urFuY-0000000FWoG-0Npk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 13:08:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6325760010;
-	Wed, 27 Aug 2025 13:08:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 187D9C4CEEB;
-	Wed, 27 Aug 2025 13:08:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756300092;
-	bh=IpEGFEEfU545ej3QeF5+hs5SmtlfBlWhDI8ZhRwmlgs=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=snBJ2WlHLIctRupH0IhLfUosaWzE7Cju4kyy0lsniZeIChbOLef9dHdVmypF8wmtx
-	 GTxBQaL2ur3CWyPzoUipmCJMQb5gql+q8rE140bjVEJaa1tHLJt0AhkE6g7BE+i+Fp
-	 IFBTiLevWOnfXr4ryw1r6Fq0G9Tmg2MIXHrq4TzdAxIRx+bUNbOvPbVMDgoGTxRfQC
-	 Ujl7kQdI4Tq1m801f4hO7W3HBcGpBaSf8vs7/3xfY9aTEeZGHpkztdLOIPIjuvkyZT
-	 08+FQmvxN7zOdv2ybOlfSzRuL19cKPM9ZicK2Mw71lZyPcfpZqaSqcHTbe5XGoY422
-	 FSmkjaloeEqqw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1urFsn-00000000vBX-20Bc;
-	Wed, 27 Aug 2025 13:08:09 +0000
-Date: Wed, 27 Aug 2025 14:08:09 +0100
-Message-ID: <86frdcewue.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Sean Christopherson <seanjc@google.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Ira Weiny <ira.weiny@intel.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shivank Garg <shivankg@amd.com>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Xiaoyao Li <xiaoyao.li@intel.com>,
-	David Hildenbrand <david@redhat.com>,
-	Fuad Tabba <tabba@google.com>,
-	Ackerley Tng <ackerleytng@google.com>,
-	Tao Chan <chentao@kylinos.cn>,
-	James Houghton <jthoughton@google.com>
-Subject: Re: [PATCH v17 00/24] KVM: Enable mmap() for guest_memfd
-In-Reply-To: <87b10d94-dca2-4ecb-a86f-b38c5c90e0cf@redhat.com>
-References: <20250729225455.670324-1-seanjc@google.com>
-	<87b10d94-dca2-4ecb-a86f-b38c5c90e0cf@redhat.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+	Wed, 27 Aug 2025 13:09:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2DF141688;
+	Wed, 27 Aug 2025 06:09:47 -0700 (PDT)
+Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 119673F694;
+	Wed, 27 Aug 2025 06:09:53 -0700 (PDT)
+Date: Wed, 27 Aug 2025 14:09:38 +0100
+From: Andre Przywara <andre.przywara@arm.com>
+To: Chen-Yu Tsai <wens@kernel.org>
+Cc: Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej@kernel.org>, Samuel
+ Holland <samuel@sholland.org>, linux-sunxi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Mikhail Kalashnikov <iuncuim@gmail.com>
+Subject: Re: [PATCH] arm64: dts: allwinner: t527: orangepi-4a: Limit eMMC
+ clock to 75 MHz
+Message-ID: <20250827140924.1340417f@donnerap.manchester.arm.com>
+In-Reply-To: <20250821132935.2070398-1-wens@kernel.org>
+References: <20250821132935.2070398-1-wens@kernel.org>
+Organization: ARM
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: pbonzini@redhat.com, seanjc@google.com, oliver.upton@linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, ira.weiny@intel.com, gshan@redhat.com, shivankg@amd.com, vbabka@suse.cz, xiaoyao.li@intel.com, david@redhat.com, tabba@google.com, ackerleytng@google.com, chentao@kylinos.cn, jthoughton@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250827_060958_176607_28D75218 
+X-CRM114-Status: GOOD (  21.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,52 +67,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 27 Aug 2025 09:43:54 +0100,
-Paolo Bonzini <pbonzini@redhat.com> wrote:
+On Thu, 21 Aug 2025 21:29:35 +0800
+Chen-Yu Tsai <wens@kernel.org> wrote:
+
+Hi Chen-Yu,
+
+> From: Chen-Yu Tsai <wens@csie.org>
 > 
-> On 7/30/25 00:54, Sean Christopherson wrote:
-> > Paolo,
-> > 
-> > The arm64 patches have been Reviewed-by Marc, and AFAICT the x86 side of
-> > things is a go.  Barring a screwup on my end, this just needs your approval.
-> > 
-> > Assuming everything looks good, it'd be helpful to get this into kvm/next
-> > shortly after rc1.  The x86 Kconfig changes in particular create semantic
-> > conflicts with in-flight series.
-> > 
-> > 
-> > Add support for host userspace mapping of guest_memfd-backed memory for VM
-> > types that do NOT use support KVM_MEMORY_ATTRIBUTE_PRIVATE (which isn't
-> > precisely the same thing as CoCo VMs, since x86's SEV-MEM and SEV-ES have
-> > no way to detect private vs. shared).
-> > 
-> > mmap() support paves the way for several evolving KVM use cases:
-> > 
-> >   * Allows VMMs like Firecracker to run guests entirely backed by
-> >     guest_memfd [1]. This provides a unified memory management model for
-> >     both confidential and non-confidential guests, simplifying VMM design.
-> > 
-> >   * Enhanced Security via direct map removal: When combined with Patrick's
-> >     series for direct map removal [2], this provides additional hardening
-> >     against Spectre-like transient execution attacks by eliminating the
-> >     need for host kernel direct maps of guest memory.
-> > 
-> >   * Lays the groundwork for *restricted* mmap() support for guest_memfd-backed
-> >     memory on CoCo platforms [3] that permit in-place
-> >     sharing of guest memory with the host.
-> > 
-> > Based on kvm/queue.
+> The eMMC on the Orange Pi 4A doesn't function correctly at full speed
+> of 150 MHz under HS200 mode. Either the traces on the board or module
+> aren't great, or the SoC's internal delays are incorrect. Tuning the
+> pin drive strength did not help.
 > 
-> Applied to kvm/next, thanks!
+> After some experimenting, 75 MHz was found to be stable enough. Use this
+> as the maximum frequency for now.
+> 
+> Fixes: de713ccb9934 ("arm64: dts: allwinner: t527: Add OrangePi 4A board")
+> Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+> ---
+>  arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
+> index c52d09cf0888..fb5311a46c2e 100644
+> --- a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
+> +++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
+> @@ -160,6 +160,7 @@ &mmc2 {
+>  	mmc-ddr-1_8v;
+>  	mmc-hs200-1_8v;
+>  	non-removable;
+> +	max-frequency = <75000000>;
 
-Can you please create a stable branch for these patches? It is quite
-likely that whatever I queue for 6.18 will conflict with that, and I'd
-like to be able to resolve the conflicts myself.
+I am not a big fan of this change, as it looks like we are papering over
+something. I think the BSP runs it as a higher frequency just fine, can
+you check that? Traditionally the BSP uses HS400, IIRC, maybe we should
+finally bite the bullet and enable that?
 
-Thanks,
+Mikhail has some other assorted changes to beat his WalnutPi into
+submission, among others a slight increase of the voltage, both I/O (1.9V)
+and supply (3.4V). Also he increased the pins driving capability to 40mA,
+did you try that?
 
-	M.
+On my boards I tried to lower the frequency as well, but didn't get
+consistent results, though there was *some* improvement (at least probed
+the block device and read the partition table). And I needed to go much
+lower (40 MHz), so I wonder if this is all related to some bigger
+underlying issue.
 
--- 
-Without deviation from the norm, progress is not possible.
+Cheers,
+Andre
+
+>  	vmmc-supply = <&reg_cldo3>;
+>  	vqmmc-supply = <&reg_cldo1>;
+>  	status = "okay";
+
 
