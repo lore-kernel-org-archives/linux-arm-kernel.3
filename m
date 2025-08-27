@@ -4,163 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6660CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 03:38:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C822CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 03:46:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Yzuwf5NTP9k1F++9so8IUq4W3mmCEC2/Z14iZ8MxMM=; b=A+X9XqLhEv3I0s2TgZfxyUn/2t
-	Pm6ZfqNGC3jwnkD10l+1rRzRyCChuXFMDVxFv4UvxJ+U1IM24r95RRfPabyiIK3ygFUPXUu92giHr
-	Rmx2gJPgzV8dXf61eciFhjvzuRj9Tu4C/bdoUK58dX49+zXySheob0PqTlyz2nlWylpKMKuw4WZeS
-	5z95ZBJXK1/Hy6NuOEJ5SRJB3FGUF05bU846gDVwLEov95OWqCD63ExF7WqAUQMvX2c10K1grdM2L
-	YEXh3C/QNIw6SSpciOqSMTPjtB4YL17vo1gX+R7MPNka4gsjO3kMx/fGS17Z1ZLGwelSu2o6Q8Ml5
-	iOSg1JZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YJ4vBtt40tupgc2exaOWbgEwIl3Vei6/nr3Jj5vBqQY=; b=rsII/rC48/3mEQ4dbLmnw4ZEEL
+	1OAp0jWJvnf/1zgPBqvmkUSwyuKq8CyfBfIZV+KL+tfN8YSz8irO/xe21i0xyJji/a+oHrrXICi+T
+	2gwj9iAeseeKuK8N6FLDFzDkPOF0ZUaB8rqVYMUj3Lz7KlyFuN5xmOTlqk/g00XtJRRtk0hfhRvyE
+	bgZpOoWGMI3fBPkInGgyDrNOL8WzsNPAOmbD33SQT3Bvo+Uc3tDItX6+41EqsvaN6q+iMrOQ47pwE
+	aw5v+kPmwWZ9ZOhUx2JoJJfM5bnP7eq9qXyDeoqvfcXA7UEqBL6DXr0FnMvZFEM38hcYuOLqSpo8g
+	QwiHnkWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ur6zl-0000000DrCi-0ZAk;
-	Wed, 27 Aug 2025 03:38:45 +0000
-Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1ur77R-0000000DsfD-3dPG;
+	Wed, 27 Aug 2025 03:46:41 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ur6x1-0000000Dqpu-29VO
+	id 1ur74j-0000000Drt1-1zYa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 03:35:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Q+sobYU5sX3p7D6bY1mohtAUidKJ1bxQJ3lwi0Coshol7Fo6h+2E/puqcyefb5Jke6qzs4kzDgx21M66tOW87jyjQbKJ8rQTpTbR1XmxIR6o+8dKQi7fNOPEiHhdmSQINfQuHfFU2FJ/9+XlaDxxC630+ihtwuRJQiB+GKUP0IlIX3QCYWnUtpfk9inAICLGLJ9ovRjfRu/h50uyIcR272pDybuIoKPOCoCOwR8urUPGZnAU/WiEHC9wIX6df0zeICblnTPUwUZCf2yyANPOQMYLNdYBLhMYa3d3rS3Hu79W1NBd3ZIr1x2kTXNFZsIjx78cKU7r9TLSOfT5Vprjnw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5Yzuwf5NTP9k1F++9so8IUq4W3mmCEC2/Z14iZ8MxMM=;
- b=doJACVzyMkwfg+mcXE7sBeSxLr+ylytdzVIn4oxxj+Dd5stPzagsiXU3apioDueo4xqNb/HT63lM3EcbO/VX4OUvbPQdxSt/ve6UzMLB/S0KcUljvCdWKjianVI/tMIbU4OVNkM3CF7tn1hnZ5frUl0lVCJD/Ye5wJ/UxedIM7lVwvwhTcgPApHrfBIAbfuDkAFz8IjDDSR04eZXKQZIPLhw5Xe0RDMpDXNSLzB+jG8FzVsXL8WULzEXeKgP+2ilpYHS9yaggqqFmzozXirFGBL22oR8X8OuHuN0yQ4gm7G2j7J4Zg/6TSfC179FlD0Naz5alM4p2e3vZK2aHRzYvg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5Yzuwf5NTP9k1F++9so8IUq4W3mmCEC2/Z14iZ8MxMM=;
- b=YoPrxRfKocKsMVSPSzEFc3OvGkH3ztwXkYTmMFhWviM+jri8YdbcDD5wiJniDZagPYbOOVUKfARAAVi/xGoiUdvw0SxatmRvIBbGL4EEXnRixACEjKeba9gLkiAezu2dUp3l4uQXb64ytGv9ij8O0W0aNmF7/PT/y5U0qbMw6WVomKUsx4mVlsY2Ny0cDwAbqdEs3TyFhlp8ax103q0tNJq4ZPzwszsD7evYK8LbU+O5MeQ2SiEkgBeTD9mwYphhDM3SJ21xCXbpePU195mtgBNHRboPO5IjLiEO5+iGGZ8oCL+xdG2VGxCnbgCi1wN6UhepHWbmEh9cm1Ekdf7New==
-Received: from SEYPR06MB5134.apcprd06.prod.outlook.com (2603:1096:101:5a::12)
- by TYZPR06MB6956.apcprd06.prod.outlook.com (2603:1096:405:3a::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.14; Wed, 27 Aug
- 2025 03:35:41 +0000
-Received: from SEYPR06MB5134.apcprd06.prod.outlook.com
- ([fe80::6b58:6014:be6e:2f28]) by SEYPR06MB5134.apcprd06.prod.outlook.com
- ([fe80::6b58:6014:be6e:2f28%7]) with mapi id 15.20.9052.019; Wed, 27 Aug 2025
- 03:35:40 +0000
-From: Jacky Chou <jacky_chou@aspeedtech.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-CC: "bhelgaas@google.com" <bhelgaas@google.com>, "lpieralisi@kernel.org"
-	<lpieralisi@kernel.org>, "kwilczynski@kernel.org" <kwilczynski@kernel.org>,
-	"mani@kernel.org" <mani@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "joel@jms.id.au" <joel@jms.id.au>,
-	"andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
-	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "openbmc@lists.ozlabs.org"
-	<openbmc@lists.ozlabs.org>, "linux-gpio@vger.kernel.org"
-	<linux-gpio@vger.kernel.org>, "linus.walleij@linaro.org"
-	<linus.walleij@linaro.org>, "p.zabel@pengutronix.de"
-	<p.zabel@pengutronix.de>, BMC-SW <BMC-SW@aspeedtech.com>
-Subject: [PATCH v2 09/10] PCI: aspeed: Add ASPEED PCIe RC driver
-Thread-Topic: [PATCH v2 09/10] PCI: aspeed: Add ASPEED PCIe RC driver
-Thread-Index: AQHcFwOpd9rD8vzuik6wTsL7lhweZQ==
-Date: Wed, 27 Aug 2025 03:35:40 +0000
-Message-ID: <SEYPR06MB513422076CE2B82FAB2EBBA19D38A@SEYPR06MB5134.apcprd06.prod.outlook.com>
-References: <SEYPR06MB5134692DCCFD55F5ABD812F39D3DA@SEYPR06MB5134.apcprd06.prod.outlook.com>
- <20250822153611.GA684739@bhelgaas>
-In-Reply-To: <20250822153611.GA684739@bhelgaas>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SEYPR06MB5134:EE_|TYZPR06MB6956:EE_
-x-ms-office365-filtering-correlation-id: 97aaabc2-b0b1-48c4-d3fa-08dde51acbde
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?RmO28UxV5e2XGjMYJOqumtUQu4GuUruwp8a1/jKEog4k87ONbzqlnAfsQ+Iz?=
- =?us-ascii?Q?dgs589nu4Ra66XWnLvJQziLiCJ3oePxo+M7pnfBNimESOx1MLFGGCsaM04oE?=
- =?us-ascii?Q?wlyQMcqR+PTEnAx/eypebPuCmMNBPK4Csd64L52ev5u+2lOfnjk8dk55hqwv?=
- =?us-ascii?Q?PBAv9HavGMghuYdqjeMNI689ifpMIG5wpgPo/IKapeCsj9UZrpu4fBmnF7Fh?=
- =?us-ascii?Q?hd/P0Jej9NOm147ax4siVC/AifVMbtCag7/tf2JaiTfSOdVNTQZCSOSbz3ZC?=
- =?us-ascii?Q?q9PnOQZL3IadCDnDF28P3mETOU837az/2CUBuG1EfVn07QFjXnpWE1Or7NGE?=
- =?us-ascii?Q?gQzC45EBzyPNvg4Oo9igAwuuFJI9UzbDlqGAGOt4EHxpOsFmMuIsBySlLeeI?=
- =?us-ascii?Q?kbryozVOvemRmMUsGK/QTJDlJRa5U88SolKqfeM6xEtbeiNjNECA3J1RQRDz?=
- =?us-ascii?Q?6lXypZsvTF0By3Y8rXjhPq2bwpYi3XQxPFyf19SE05e5YiuZlKP81IIwjbD1?=
- =?us-ascii?Q?VEjNCPjx2+1EdowiYsqX3ljUEWzhxKEsEoCvCIBLoKGEOuRLGls6Yo3WOm6V?=
- =?us-ascii?Q?cN9mi6Wh+43ODMoO4XtxdYY2pO+chYHVjuMvUCLeSjhmZ1FI1U4V/GwkDdKV?=
- =?us-ascii?Q?7pfx1ZTGEb9CgGqJxj7z7ERQEmVcLWVsAl//FyFXHY73VpIwwJp0y+XDaX6r?=
- =?us-ascii?Q?IjUTOWwDpsLN0cSeWZsOYsU4C6w1xMfBah7xMSZ+/cBADzTJDKVGKc+auF/w?=
- =?us-ascii?Q?K/nyCTdPgGCWcRqHdbxkhlNoUIoefZEI7gKZFxPW0H9R2EpH7m6hRQBUdYnm?=
- =?us-ascii?Q?iD2o01OnndjXMQKjlRPO0eKLs5Maag8NaKPHn24XfBeZSXrXUdGNRIpbyOal?=
- =?us-ascii?Q?hKwYRI2Sw97If6X1hEpGwgXEVCRQgR+ocbpzByg9NqS2VqMWW+TMdor1cyQB?=
- =?us-ascii?Q?tJkKH04BwAu8o/HMYgBEa3ZUbf9pmJmYGbN+ZKG7TGBgTjjEltnatphtdfZN?=
- =?us-ascii?Q?NctXxzgtN12vizuHJeIcFgShlhT/yv2/TEy/7u3BUZH4tWmjf4YppdFVpJbt?=
- =?us-ascii?Q?AX9/4NN26H7+griI7o82xbx1lIZN9+4LruSgwZeU48mZ95dES6gG3u7I8mdl?=
- =?us-ascii?Q?0B8TvKe91oOrIvlfZFpCj55npyAUzEQTE7jY9aP+Ee8XABnqdzBCtzz1s1CO?=
- =?us-ascii?Q?/mpiTok9I2QJM9U/7YDujfWZ2xOly6onqxHmhPp46RBmcrdBw5snF5vYBQJd?=
- =?us-ascii?Q?L89PDhLKxS2NLnwvKvMInMnyET8ef0XvyLWPgoRHQ7xe5tvOGjkrgvmQx6ai?=
- =?us-ascii?Q?IB3ihuS05G34igdjEDrfyHarPKrLdXX3f5oPeIhYG31wiTVezJU+bklvTooX?=
- =?us-ascii?Q?b1E1p4CZecXkOkTe4T/jSEIzxbItUPWG5+eDEz38ivio4KKfDnujg1OIRbkH?=
- =?us-ascii?Q?HsyqEXbL9wx+90pHySlEoH1DcsXeV5XTWuSkMjv64mpGWIqKVDOvqQ=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB5134.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(38070700018);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?3aXiThf12SOKyDc8eTpx1qVqcCdc+UKsafdgcDBvE/kitPCAzeZuqEsXjqnQ?=
- =?us-ascii?Q?NTCVzZeYbiGq1UvP7jItx2qj0ArMxXWYL6wgVYCKOgiPVyVTcV5ZsrhQKnS0?=
- =?us-ascii?Q?8yBJktx5RIjo7yjZJrNl0SzArZ6QITaFlLH8pPQjcjUoUrdmvV3/fHRHZDZ6?=
- =?us-ascii?Q?RddIDEQhnp9tAcmWIltspst3M036I4l6uTo4KHJUMkAO35XDwTqGkJZ/Trcx?=
- =?us-ascii?Q?jjVEqUwaRgyw9+qdoyWu8ClvUCEMXFGq5sB9rch+qdUF5IkoIqquboCC5A0y?=
- =?us-ascii?Q?qYTThEFNFij1Jl0z0073rTXpD0zjK/XrYZCHNfGLfRUdgSgz+faTDaRW1LJ1?=
- =?us-ascii?Q?bjxsMLg6I9o3rCFr0rfPHbNzEKryvusD45VbvydXUr1wejI/kzwfnNPirfeS?=
- =?us-ascii?Q?HS3phAyrpfm5rD58QZCm4TT/z+uJqrMIc0izINRGDC/c3aUbXlEWGNgvEP7D?=
- =?us-ascii?Q?CSLRO80WJ8alZmCDFpm7xZ/oM/DKRgmrVVguZ/GKM2vGPLHIDbF9T2PRai1Y?=
- =?us-ascii?Q?qHJK/c7B5EvZR8mDvNgTd/B9kgGd0Zl32xqK0BkoxGvXXc4qj4Hb8P+gTokv?=
- =?us-ascii?Q?tgB8W1zNz71aZ4UOaVZuAFn17ErgV0ftGHEMKt0ug9IYwn/xaw6E7LnJZs83?=
- =?us-ascii?Q?pq2WCghzQQ89KILr0iwYM3R4S33DPhQ41BmIUk6vd/HVxM1d+UgIFCPRrUmP?=
- =?us-ascii?Q?5jBo7IxjEoeJ4es+k9+PdLL6GPgiTqKntuG6HxnbWVQDk1ydzI0LN9ZQ8WCo?=
- =?us-ascii?Q?DDX2yLz4NJzeyY4QRH0hxaj0Mzd4yjuSFJJwMje4EwGzz2itVK+aGgvx71BH?=
- =?us-ascii?Q?hWyPV4ovusvvQY1dU8sedl+psa1LzsnP4fdHygsTpebpAPngO/8HqZgee0NE?=
- =?us-ascii?Q?B94+7+E75RZW9FI2R4IiGNkN/W8zV8LVpGeEoE5i7VBa9Q05NDMc+z1upClf?=
- =?us-ascii?Q?IXEY/eIZOzQcAvyTKEACVhISbbTKUxqZUChmMp0yVikyrfujAr6WqLaLOidp?=
- =?us-ascii?Q?tXeqV7kw3u1o6ns9YhPGuidFXjFKyhgJxXF3m97bNwmDV36Wxa6Kp6e6nGUJ?=
- =?us-ascii?Q?kfC4wFDvA1o9Z5uLSEU3uQMCNSYc0y0egbqIZMYUVZ02SpDKrngDjFoGIy3s?=
- =?us-ascii?Q?hui3JSqaUkithiGV9bWD0h2d3VLGI8Cij3NZdgfPpDotbUCwSHIskG/7tEQc?=
- =?us-ascii?Q?GKwlY2G6a6ugnmvzkW289EqNc1GzRJWyJXzoc88vrFhgT+z3YVPDOPutXpAU?=
- =?us-ascii?Q?+GE8YloqDw2MdrB3+G9sxFxI31oYL4NCYQcgZf4t/EZQhPne3H4vyJ5pnZDh?=
- =?us-ascii?Q?LJ2h3X0xvENZu3nYoRujAPtxE9ZixfbgyOBpuiYZCXcTCQpq8iTvzz8MmS0u?=
- =?us-ascii?Q?i7GstNpZB2gkpcHrJfYEu5HBpPYQ3SivlXooNo9lDYyCw5ffZuQJHnKXMdZY?=
- =?us-ascii?Q?ua+TQLSDMBNXC0d7fcLbCnEVF8A0Pvz6B9ZDB2NHu038kWZrVZZseL7ZpxVf?=
- =?us-ascii?Q?/+YEC1yOwQFI9uolfXZaMEPDZbQoZBmCjD+1GTxVnrPYhwDT97E8gHjhUuon?=
- =?us-ascii?Q?tqST1Y4IO4b7wgyB7LE6m1LpNwq3GIyR/wuniZBNyUl3MFQEWfq32ROsfVBw?=
- =?us-ascii?Q?9A=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 27 Aug 2025 03:43:55 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.105])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4cBVdK0LJkzdcBb;
+	Wed, 27 Aug 2025 11:39:17 +0800 (CST)
+Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id 143E71401E9;
+	Wed, 27 Aug 2025 11:43:43 +0800 (CST)
+Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
+ dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 27 Aug 2025 11:43:42 +0800
+Received: from [10.67.121.177] (10.67.121.177) by
+ kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 27 Aug 2025 11:43:42 +0800
+CC: <yangyicong@hisilicon.com>, <robin.murphy@arm.com>,
+	<Jonathan.Cameron@huawei.com>, <liuyonglong@huawei.com>,
+	<wanghuiqiang@huawei.com>, <prime.zeng@hisilicon.com>,
+	<hejunhao3@h-partners.com>, Linuxarm <linuxarm@huawei.com>
+Subject: Re: [PATCH v2 7/9] drivers/perf: hisi: Add support for L3C PMU v3
+To: Yushan Wang <wangyushan12@huawei.com>, <will@kernel.org>,
+	<mark.rutland@arm.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20250821135049.2010220-1-wangyushan12@huawei.com>
+ <20250821135049.2010220-8-wangyushan12@huawei.com>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <96237b52-ab01-36f1-0b3c-16e878e71073@huawei.com>
+Date: Wed, 27 Aug 2025 11:43:41 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB5134.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 97aaabc2-b0b1-48c4-d3fa-08dde51acbde
-X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Aug 2025 03:35:40.8095
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: RCrNfiKSCSnOgAeJSjOP1gd6uNQMcjexiVY/HAPS0RfZXw/pwi+AO1TKp7zlST3LJDp7aU+bZ8nhAcjl6CvRaqHEKB7rx1FhgCO9Tk4xFiI=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB6956
+In-Reply-To: <20250821135049.2010220-8-wangyushan12@huawei.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_203555_550444_F4FEA04B 
-X-CRM114-Status: GOOD (  27.20  )
+X-CRM114-CacheID: sfid-20250826_204353_841003_EFD7A39E 
+X-CRM114-Status: GOOD (  44.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,78 +80,643 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > > > +#define MAX_MSI_HOST_IRQS	64
-> > > > +#define PCIE_RESET_CONFIG_DEVICE_WAIT_MS	500
-> > >
-> > > Where does this value come from?  Is there a generic value from
-> > > drivers/pci/pci.h you can use?
-> >
-> > We check the PCIe specification to find these contents.
-> >
-> > "With a Downstream Port that supports Link speeds greater than 5.0
-> > GT/s, software must wait a minimum of 100 ms after Link training
-> > completes before sending a Configuration Request to the device
-> > immediately below that Port."
-> >
-> > So, we think delay 500ms to let kernel issue the first configuration
-> > command is enough after deassert PERST.
->=20
-> Isn't this PCIE_RESET_CONFIG_WAIT_MS?
->=20
-> I prefer to use #defines from the PCI core whenever possible because it m=
-akes
-> it easier to ensure that all drivers include the required delays.
->=20
+On 2025/8/21 21:50, Yushan Wang wrote:
+> From: Yicong Yang <yangyicong@hisilicon.com>
+> 
+> This patch adds support for L3C PMU v3. The v3 L3C PMU supports
+> an extended events space which can be controlled in up to 2 extra
+> address spaces with separate overflow interrupts. The layout
+> of the control/event registers are kept the same. The extended events
+> with original ones together cover the monitoring job of all transactions
+> on L3C.
+> 
+> The extended events is specified with `ext=[1|2]` option for the
+> driver to distinguish, like below:
+> 
+> perf stat -e hisi_sccl0_l3c0_0/event=<event_id>,ext=1/
+> 
+> Currently only event option using config bit [7, 0]. There's
+> still plenty unused space. Make ext using config [16, 17] and
+> reserve bit [15, 8] for event option for future extension.
+> 
+> With the capability of extra counters, number of counters for HiSilicon
+> uncore PMU could reach up to 24, the usedmap is extended accordingly.
+> 
+> The hw_perf_event::event_base is initialized to the base MMIO
+> address of the event and will be used for later control,
+> overflow handling and counts readout.
+> 
+> We still make use of the Uncore PMU framework for handling the
+> events and interrupt migration on CPU hotplug. The framework's
+> cpuhp callback will handle the event migration and interrupt
+> migration of orginial event, if PMU supports extended events
+> then the interrupt of extended events is migrated to the same
+> CPU choosed by the framework.
+> 
+> A new HID of HISI0215 is used for this version of L3C PMU.
+> 
+> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+> Co-developed-by: Yushan Wang <wangyushan12@huawei.com>
+> Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
 
-Thank you for pointing this define.
-I change to this define in next version.
+some minor comments inline. sorry again for not raising them in previous version.
 
-> > > > +#define PCIE_RESET_CONFIG_RC_WAIT_MS		10
-> > >
-> > > Ditto.  If it's an Aspeed-specific value, can you point to the
-> > > source in the Aspeed datasheet?
-> >
-> > This delay is set to ensure that the RC internal settings are
-> > completely reset.  We do not put its usage in our datasheet.
->=20
-> The "PCIE_" prefix suggests something required by the PCIe base spec.
-> If this is an Aspeed-specific value, perhaps remove the "PCIE_"
-> prefix?
->=20
+> ---
+>  drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c | 352 +++++++++++++++++--
+>  drivers/perf/hisilicon/hisi_uncore_pmu.h     |   2 +-
+>  2 files changed, 321 insertions(+), 33 deletions(-)
+> 
+> diff --git a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
+> index 7928b9bb3e7e..95136c01f17b 100644
+> --- a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
+> +++ b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
+> @@ -55,24 +55,85 @@
+>  #define L3C_V1_NR_EVENTS	0x59
+>  #define L3C_V2_NR_EVENTS	0xFF
+>  
+> +#define L3C_MAX_EXT		2
+> +
+> +HISI_PMU_EVENT_ATTR_EXTRACTOR(ext, config, 17, 16);
+>  HISI_PMU_EVENT_ATTR_EXTRACTOR(tt_req, config1, 10, 8);
+>  HISI_PMU_EVENT_ATTR_EXTRACTOR(datasrc_cfg, config1, 15, 11);
+>  HISI_PMU_EVENT_ATTR_EXTRACTOR(datasrc_skt, config1, 16, 16);
+>  HISI_PMU_EVENT_ATTR_EXTRACTOR(tt_core, config2, 15, 0);
+>  
+> +struct hisi_l3c_pmu {
+> +	struct hisi_pmu l3c_pmu;
+> +
+> +	/* MMIO and IRQ resources for extension events */
+> +	void __iomem *ext_base[L3C_MAX_EXT];
+> +	int ext_irq[L3C_MAX_EXT];
+> +	int ext_num;
+> +};
+> +
+> +#define to_hisi_l3c_pmu(_l3c_pmu) \
+> +	container_of(_l3c_pmu, struct hisi_l3c_pmu, l3c_pmu)
+> +
+> +/*
+> + * The hardware counter idx used in counter enable/disable,
+> + * interrupt enable/disable and status check, etc.
+> + */
+> +#define L3C_HW_IDX(_idx)		((_idx) % L3C_NR_COUNTERS)
+> +
+> +/* The ext resource number to which a hardware counter belongs. */
+> +#define L3C_CNTR_EXT(_idx)		((_idx) / L3C_NR_COUNTERS)
+> +
+> +struct hisi_l3c_pmu_ext {
+> +	bool support_ext;
+> +};
+> +
+> +static bool support_ext(struct hisi_l3c_pmu *pmu)
+> +{
+> +	struct hisi_l3c_pmu_ext *l3c_pmu_ext = pmu->l3c_pmu.dev_info->private;
+> +
+> +	return l3c_pmu_ext->support_ext;
+> +}
+> +
+>  static int hisi_l3c_pmu_get_event_idx(struct perf_event *event)
+>  {
+>  	struct hisi_pmu *l3c_pmu = to_hisi_pmu(event->pmu);
+> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
+>  	unsigned long *used_mask = l3c_pmu->pmu_events.used_mask;
+> -	u32 num_counters = l3c_pmu->num_counters;
+> +	int ext = hisi_get_ext(event);
+>  	int idx;
+>  
+> -	idx = find_first_zero_bit(used_mask, num_counters);
+> -	if (idx == num_counters)
+> +	/*
+> +	 * For an L3C PMU that supports extension events, we can monitor
+> +	 * maximum 2 * num_counters to 3 * num_counters events, depending on
+> +	 * the number of ext regions supported by hardware. Thus use bit
+> +	 * [0, num_counters - 1] for normal events and bit
+> +	 * [ext * num_counters, (ext + 1) * num_counters - 1] for extension
+> +	 * events. The idx allocation will keep unchanged for normal events and
+> +	 * we can also use the idx to distinguish whether it's an extension
+> +	 * event or not.
+> +	 *
+> +	 * Since normal events and extension events locates on the different
+> +	 * address space, save the base address to the event->hw.event_base.
+> +	 */
+> +	if (ext) {
+> +		if (!support_ext(hisi_l3c_pmu))
+> +			return -EOPNOTSUPP;
+> +
+> +		event->hw.event_base = (unsigned long)hisi_l3c_pmu->ext_base[ext - 1];
+> +		idx = find_next_zero_bit(used_mask, L3C_NR_COUNTERS * (ext + 1),
+> +					 L3C_NR_COUNTERS * ext);
+> +	} else {
+> +		event->hw.event_base = (unsigned long)l3c_pmu->base;
+> +		idx = find_next_zero_bit(used_mask, L3C_NR_COUNTERS, 0);
+> +	}
+> +
+> +	if (idx >= L3C_NR_COUNTERS * (ext + 1))
+>  		return -EAGAIN;
+>  
+>  	set_bit(idx, used_mask);
+> -	event->hw.event_base = (unsigned long)l3c_pmu->base;
+> +
+> +	WARN_ON(idx < L3C_NR_COUNTERS * ext || idx >= L3C_NR_COUNTERS * (ext + 1));
+>  
+>  	return idx;
+>  }
+> @@ -143,7 +204,7 @@ static void hisi_l3c_pmu_write_ds(struct perf_event *event, u32 ds_cfg)
+>  {
+>  	struct hw_perf_event *hwc = &event->hw;
+>  	u32 reg, reg_idx, shift, val;
+> -	int idx = hwc->idx;
+> +	int idx = L3C_HW_IDX(hwc->idx);
+>  
+>  	/*
+>  	 * Select the appropriate datasource register(L3C_DATSRC_TYPE0/1).
+> @@ -264,12 +325,23 @@ static void hisi_l3c_pmu_disable_filter(struct perf_event *event)
+>  	}
+>  }
+>  
+> +static int hisi_l3c_pmu_check_filter(struct perf_event *event)
+> +{
+> +	struct hisi_pmu *l3c_pmu = to_hisi_pmu(event->pmu);
+> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
+> +	int ext = hisi_get_ext(event);
+> +
+> +	if (ext < 0 || ext > hisi_l3c_pmu->ext_num)
+> +		return -EINVAL;
 
-Agreed.
+newline here. similar to other places.
 
-> > > > +static int aspeed_ast2700_child_config(struct pci_bus *bus,
-> > > > +unsigned int
-> > > devfn,
-> > > > +				       int where, int size, u32 *val,
-> > > > +				       bool write)
-> > > > +{
-> > > > +	struct aspeed_pcie *pcie =3D bus->sysdata;
-> > > > +	u32 bdf_offset, status, cfg_val;
-> > > > +	int ret;
-> > > > +
-> > > > +	bdf_offset =3D aspeed_pcie_get_bdf_offset(bus, devfn, where);
-> > > > +
-> > > > +	cfg_val =3D CRG_PAYLOAD_SIZE;
-> > > > +	if (write)
-> > > > +		cfg_val |=3D (bus->number =3D=3D 1) ? CRG0_WRITE_FMTTYPE :
-> > > CRG1_WRITE_FMTTYPE;
-> > > > +	else
-> > > > +		cfg_val |=3D (bus->number =3D=3D 1) ? CRG0_READ_FMTTYPE :
-> > > > +CRG1_READ_FMTTYPE;
-> > >
-> > > I don't think you should assume that bus 0 is the root bus.  The
-> > > root bus number should come from the DT bus-range.
->=20
-> Just making sure you saw this part since you didn't mention it.
->=20
+> +	return 0;
+> +}
+> +
+>  /*
+>   * Select the counter register offset using the counter index
+>   */
+>  static u32 hisi_l3c_pmu_get_counter_offset(int cntr_idx)
+>  {
+> -	return (L3C_CNTR0_LOWER + (cntr_idx * 8));
+> +	return (L3C_CNTR0_LOWER + (L3C_HW_IDX(cntr_idx) * 8));
+>  }
+>  
+>  static u64 hisi_l3c_pmu_read_counter(struct hisi_pmu *l3c_pmu,
+> @@ -290,6 +362,8 @@ static void hisi_l3c_pmu_write_evtype(struct hisi_pmu *l3c_pmu, int idx,
+>  	struct hw_perf_event *hwc = &l3c_pmu->pmu_events.hw_events[idx]->hw;
+>  	u32 reg, reg_idx, shift, val;
+>  
+> +	idx = L3C_HW_IDX(idx);
+> +
+>  	/*
+>  	 * Select the appropriate event select register(L3C_EVENT_TYPE0/1).
+>  	 * There are 2 event select registers for the 8 hardware counters.
+> @@ -310,28 +384,63 @@ static void hisi_l3c_pmu_write_evtype(struct hisi_pmu *l3c_pmu, int idx,
+>  
+>  static void hisi_l3c_pmu_start_counters(struct hisi_pmu *l3c_pmu)
+>  {
+> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
+> +	unsigned long *used_mask = l3c_pmu->pmu_events.used_mask;
+> +	unsigned long bit = find_first_bit(used_mask, l3c_pmu->num_counters);
+>  	u32 val;
+> +	int i;
+>  
+>  	/*
+> -	 * Set perf_enable bit in L3C_PERF_CTRL register to start counting
+> -	 * for all enabled counters.
+> +	 * Check if any counter belongs to the normal range (instead of ext
+> +	 * range). If so, enable it.
+>  	 */
+> -	val = readl(l3c_pmu->base + L3C_PERF_CTRL);
+> -	val |= L3C_PERF_CTRL_EN;
+> -	writel(val, l3c_pmu->base + L3C_PERF_CTRL);
+> +	if (bit < L3C_NR_COUNTERS) {
+> +		val = readl(l3c_pmu->base + L3C_PERF_CTRL);
+> +		val |= L3C_PERF_CTRL_EN;
+> +		writel(val, l3c_pmu->base + L3C_PERF_CTRL);
+> +	}
+> +
+> +	/* If not, do enable it on ext ranges. */
+> +	for (i = 0; i < hisi_l3c_pmu->ext_num; i++) {
+> +		bit = find_next_bit(used_mask, L3C_NR_COUNTERS * (i + 2),
+> +				    L3C_NR_COUNTERS * (i + 1));
+> +		if (L3C_CNTR_EXT(bit) == i + 1) {
+> +			val = readl(hisi_l3c_pmu->ext_base[i] + L3C_PERF_CTRL);
+> +			val |= L3C_PERF_CTRL_EN;
+> +			writel(val, hisi_l3c_pmu->ext_base[i] + L3C_PERF_CTRL);
+> +		}
+> +	}
+>  }
+>  
+>  static void hisi_l3c_pmu_stop_counters(struct hisi_pmu *l3c_pmu)
+>  {
+> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
+> +	unsigned long *used_mask = l3c_pmu->pmu_events.used_mask;
+> +	unsigned long bit = find_first_bit(used_mask, l3c_pmu->num_counters);
+>  	u32 val;
+> +	int i;
+>  
+>  	/*
+> -	 * Clear perf_enable bit in L3C_PERF_CTRL register to stop counting
+> -	 * for all enabled counters.
+> +	 * Check if any counter belongs to the normal range (instead of ext
+> +	 * range). If so, stop it.
+>  	 */
+> -	val = readl(l3c_pmu->base + L3C_PERF_CTRL);
+> -	val &= ~(L3C_PERF_CTRL_EN);
+> -	writel(val, l3c_pmu->base + L3C_PERF_CTRL);
+> +	if (bit < L3C_NR_COUNTERS) {
+> +		val = readl(l3c_pmu->base + L3C_PERF_CTRL);
+> +		val &= ~(L3C_PERF_CTRL_EN);
+> +		writel(val, l3c_pmu->base + L3C_PERF_CTRL);
+> +	}
+> +
+> +	/* If not, do stop it on ext ranges. */
+> +	for (i = 0; i < hisi_l3c_pmu->ext_num; i++) {
+> +		bit = find_next_bit(used_mask, L3C_NR_COUNTERS * (i + 2),
+> +				    L3C_NR_COUNTERS * (i + 1));
+> +		if (L3C_CNTR_EXT(bit) != i + 1)
+> +			continue;
+> +
+> +		val = readl(hisi_l3c_pmu->ext_base[i] + L3C_PERF_CTRL);
+> +		val &= ~L3C_PERF_CTRL_EN;
+> +		writel(val, hisi_l3c_pmu->ext_base[i] + L3C_PERF_CTRL);
+> +	}
+>  }
+>  
+>  static void hisi_l3c_pmu_enable_counter(struct hisi_pmu *l3c_pmu,
+> @@ -341,7 +450,7 @@ static void hisi_l3c_pmu_enable_counter(struct hisi_pmu *l3c_pmu,
+>  
+>  	/* Enable counter index in L3C_EVENT_CTRL register */
+>  	val = hisi_l3c_pmu_event_readl(hwc, L3C_EVENT_CTRL);
+> -	val |= (1 << hwc->idx);
+> +	val |= (1 << L3C_HW_IDX(hwc->idx));
+>  	hisi_l3c_pmu_event_writel(hwc, L3C_EVENT_CTRL, val);
+>  }
+>  
+> @@ -352,7 +461,7 @@ static void hisi_l3c_pmu_disable_counter(struct hisi_pmu *l3c_pmu,
+>  
+>  	/* Clear counter index in L3C_EVENT_CTRL register */
+>  	val = hisi_l3c_pmu_event_readl(hwc, L3C_EVENT_CTRL);
+> -	val &= ~(1 << hwc->idx);
+> +	val &= ~(1 << L3C_HW_IDX(hwc->idx));
+>  	hisi_l3c_pmu_event_writel(hwc, L3C_EVENT_CTRL, val);
+>  }
+>  
+> @@ -363,7 +472,7 @@ static void hisi_l3c_pmu_enable_counter_int(struct hisi_pmu *l3c_pmu,
+>  
+>  	val = hisi_l3c_pmu_event_readl(hwc, L3C_INT_MASK);
+>  	/* Write 0 to enable interrupt */
+> -	val &= ~(1 << hwc->idx);
+> +	val &= ~(1 << L3C_HW_IDX(hwc->idx));
+>  	hisi_l3c_pmu_event_writel(hwc, L3C_INT_MASK, val);
+>  }
+>  
+> @@ -374,20 +483,34 @@ static void hisi_l3c_pmu_disable_counter_int(struct hisi_pmu *l3c_pmu,
+>  
+>  	val = hisi_l3c_pmu_event_readl(hwc, L3C_INT_MASK);
+>  	/* Write 1 to mask interrupt */
+> -	val |= (1 << hwc->idx);
+> +	val |= (1 << L3C_HW_IDX(hwc->idx));
+>  	hisi_l3c_pmu_event_writel(hwc, L3C_INT_MASK, val);
+>  }
+>  
+>  static u32 hisi_l3c_pmu_get_int_status(struct hisi_pmu *l3c_pmu)
+>  {
+> -	return readl(l3c_pmu->base + L3C_INT_STATUS);
+> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
+> +	u32 ext_int, status, status_ext = 0;
+> +	int i;
+> +
+> +	status = readl(l3c_pmu->base + L3C_INT_STATUS);
+> +
+> +	if (!support_ext(hisi_l3c_pmu))
+> +		return status;
+> +
+> +	for (i = 0; i < hisi_l3c_pmu->ext_num; i++) {
+> +		ext_int = readl(hisi_l3c_pmu->ext_base[i] + L3C_INT_STATUS);
+> +		status_ext |= ext_int << (L3C_NR_COUNTERS * i);
+> +	}
+> +
+> +	return status | (status_ext << L3C_NR_COUNTERS);
+>  }
+>  
+>  static void hisi_l3c_pmu_clear_int_status(struct hisi_pmu *l3c_pmu, int idx)
+>  {
+>  	struct hw_perf_event *hwc = &l3c_pmu->pmu_events.hw_events[idx]->hw;
+>  
+> -	hisi_l3c_pmu_event_writel(hwc, L3C_INT_CLEAR, 1 << idx);
+> +	hisi_l3c_pmu_event_writel(hwc, L3C_INT_CLEAR, 1 << L3C_HW_IDX(idx));
+>  }
+>  
+>  static int hisi_l3c_pmu_init_data(struct platform_device *pdev,
+> @@ -409,10 +532,6 @@ static int hisi_l3c_pmu_init_data(struct platform_device *pdev,
+>  		return -EINVAL;
+>  	}
+>  
+> -	l3c_pmu->dev_info = device_get_match_data(&pdev->dev);
+> -	if (!l3c_pmu->dev_info)
+> -		return -ENODEV;
+> -
+>  	l3c_pmu->base = devm_platform_ioremap_resource(pdev, 0);
+>  	if (IS_ERR(l3c_pmu->base)) {
+>  		dev_err(&pdev->dev, "ioremap failed for l3c_pmu resource\n");
+> @@ -424,6 +543,46 @@ static int hisi_l3c_pmu_init_data(struct platform_device *pdev,
+>  	return 0;
+>  }
+>  
+> +static int hisi_l3c_pmu_init_ext(struct hisi_pmu *l3c_pmu, struct platform_device *pdev)
+> +{
+> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
+> +	int ret, irq, ext_num, i;
+> +	char *irqname;
+> +
+> +	/* HiSilicon L3C PMU ext should have more than 1 irq resources. */
+> +	ext_num = platform_irq_count(pdev);
+> +	if (ext_num < 2)
 
-Agreed.
-I have checked our design and verified in different root bus number.
-I will modify this part in next version.
+will be more readable using L3C_MAX_EXT:
 
-Thanks,
-Jacky
+if (ext_num < L3C_MAX_EXT)
+	return -ENODEV;
 
+> +		return -ENODEV;
+> +
+> +	hisi_l3c_pmu->ext_num = ext_num - 1;
+> +
+> +	for (i = 0; i < hisi_l3c_pmu->ext_num; i++) {
+> +		hisi_l3c_pmu->ext_base[i] = devm_platform_ioremap_resource(pdev, i + 1);
+> +		if (IS_ERR(hisi_l3c_pmu->ext_base[i]))
+> +			return PTR_ERR(hisi_l3c_pmu->ext_base[i]);
+> +
+> +		irq = platform_get_irq(pdev, i + 1);
+> +		if (irq < 0)
+> +			return irq;
+> +
+> +		irqname = devm_kasprintf(&pdev->dev, GFP_KERNEL, "%s ext%d",
+> +					 dev_name(&pdev->dev), i + 1);
+> +		if (!irqname)
+> +			return -ENOMEM;
+> +
+> +		ret = devm_request_irq(&pdev->dev, irq, hisi_uncore_pmu_isr,
+> +				       IRQF_NOBALANCING | IRQF_NO_THREAD,
+> +				       irqname, l3c_pmu);
+> +		if (ret < 0)
+> +			return dev_err_probe(&pdev->dev, ret,
+> +				"Fail to request EXT IRQ: %d.\n", irq);
+> +
+> +		hisi_l3c_pmu->ext_irq[i] = irq;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  static struct attribute *hisi_l3c_pmu_v1_format_attr[] = {
+>  	HISI_PMU_FORMAT_ATTR(event, "config:0-7"),
+>  	NULL,
+> @@ -448,6 +607,19 @@ static const struct attribute_group hisi_l3c_pmu_v2_format_group = {
+>  	.attrs = hisi_l3c_pmu_v2_format_attr,
+>  };
+>  
+> +static struct attribute *hisi_l3c_pmu_v3_format_attr[] = {
+> +	HISI_PMU_FORMAT_ATTR(event, "config:0-7"),
+> +	HISI_PMU_FORMAT_ATTR(ext, "config:16-17"),
+> +	HISI_PMU_FORMAT_ATTR(tt_req, "config1:8-10"),
+> +	HISI_PMU_FORMAT_ATTR(tt_core, "config2:0-15"),
+> +	NULL
+> +};
+> +
+> +static const struct attribute_group hisi_l3c_pmu_v3_format_group = {
+> +	.name = "format",
+> +	.attrs = hisi_l3c_pmu_v3_format_attr,
+> +};
+> +
+>  static struct attribute *hisi_l3c_pmu_v1_events_attr[] = {
+>  	HISI_PMU_EVENT_ATTR(rd_cpipe,		0x00),
+>  	HISI_PMU_EVENT_ATTR(wr_cpipe,		0x01),
+> @@ -483,6 +655,26 @@ static const struct attribute_group hisi_l3c_pmu_v2_events_group = {
+>  	.attrs = hisi_l3c_pmu_v2_events_attr,
+>  };
+>  
+> +static struct attribute *hisi_l3c_pmu_v3_events_attr[] = {
+> +	HISI_PMU_EVENT_ATTR(rd_spipe,		0x18),
+> +	HISI_PMU_EVENT_ATTR(rd_hit_spipe,	0x19),
+> +	HISI_PMU_EVENT_ATTR(wr_spipe,		0x1a),
+> +	HISI_PMU_EVENT_ATTR(wr_hit_spipe,	0x1b),
+> +	HISI_PMU_EVENT_ATTR(io_rd_spipe,	0x1c),
+> +	HISI_PMU_EVENT_ATTR(io_rd_hit_spipe,	0x1d),
+> +	HISI_PMU_EVENT_ATTR(io_wr_spipe,	0x1e),
+> +	HISI_PMU_EVENT_ATTR(io_wr_hit_spipe,	0x1f),
+> +	HISI_PMU_EVENT_ATTR(cycles,		0x7f),
+> +	HISI_PMU_EVENT_ATTR(l3c_ref,		0xbc),
+> +	HISI_PMU_EVENT_ATTR(l3c2ring,		0xbd),
+> +	NULL
+> +};
+> +
+> +static const struct attribute_group hisi_l3c_pmu_v3_events_group = {
+> +	.name = "events",
+> +	.attrs = hisi_l3c_pmu_v3_events_attr,
+> +};
+> +
+>  static const struct attribute_group *hisi_l3c_pmu_v1_attr_groups[] = {
+>  	&hisi_l3c_pmu_v1_format_group,
+>  	&hisi_l3c_pmu_v1_events_group,
+> @@ -499,16 +691,41 @@ static const struct attribute_group *hisi_l3c_pmu_v2_attr_groups[] = {
+>  	NULL
+>  };
+>  
+> +static const struct attribute_group *hisi_l3c_pmu_v3_attr_groups[] = {
+> +	&hisi_l3c_pmu_v3_format_group,
+> +	&hisi_l3c_pmu_v3_events_group,
+> +	&hisi_pmu_cpumask_attr_group,
+> +	&hisi_pmu_identifier_group,
+> +	NULL
+> +};
+> +
+> +static struct hisi_l3c_pmu_ext hisi_l3c_pmu_support_ext = {
+> +	.support_ext = true,
+> +};
+> +
+> +static struct hisi_l3c_pmu_ext hisi_l3c_pmu_not_support_ext = {
+> +	.support_ext = false,
+> +};
+> +
+>  static const struct hisi_pmu_dev_info hisi_l3c_pmu_v1 = {
+>  	.attr_groups = hisi_l3c_pmu_v1_attr_groups,
+>  	.counter_bits = 48,
+>  	.check_event = L3C_V1_NR_EVENTS,
+> +	.private = &hisi_l3c_pmu_not_support_ext,
+>  };
+>  
+>  static const struct hisi_pmu_dev_info hisi_l3c_pmu_v2 = {
+>  	.attr_groups = hisi_l3c_pmu_v2_attr_groups,
+>  	.counter_bits = 64,
+>  	.check_event = L3C_V2_NR_EVENTS,
+> +	.private = &hisi_l3c_pmu_not_support_ext,
+> +};
+> +
+> +static const struct hisi_pmu_dev_info hisi_l3c_pmu_v3 = {
+> +	.attr_groups = hisi_l3c_pmu_v3_attr_groups,
+> +	.counter_bits = 64,
+> +	.check_event = L3C_V2_NR_EVENTS,
+> +	.private = &hisi_l3c_pmu_support_ext,
+>  };
+>  
+>  static const struct hisi_uncore_ops hisi_uncore_l3c_ops = {
+> @@ -526,11 +743,14 @@ static const struct hisi_uncore_ops hisi_uncore_l3c_ops = {
+>  	.clear_int_status	= hisi_l3c_pmu_clear_int_status,
+>  	.enable_filter		= hisi_l3c_pmu_enable_filter,
+>  	.disable_filter		= hisi_l3c_pmu_disable_filter,
+> +	.check_filter		= hisi_l3c_pmu_check_filter,
+>  };
+>  
+>  static int hisi_l3c_pmu_dev_probe(struct platform_device *pdev,
+>  				  struct hisi_pmu *l3c_pmu)
+>  {
+> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
+> +	struct hisi_l3c_pmu_ext *l3c_pmu_dev_ext = l3c_pmu->dev_info->private;
+>  	int ret;
+>  
+>  	ret = hisi_l3c_pmu_init_data(pdev, l3c_pmu);
+> @@ -549,27 +769,50 @@ static int hisi_l3c_pmu_dev_probe(struct platform_device *pdev,
+>  	l3c_pmu->dev = &pdev->dev;
+>  	l3c_pmu->on_cpu = -1;
+>  
+> +	if (l3c_pmu_dev_ext->support_ext) {
+> +		ret = hisi_l3c_pmu_init_ext(l3c_pmu, pdev);
+> +		if (ret)
+> +			return ret;
+> +		/*
+> +		 * The extension events have their own counters with the
+> +		 * same number of the normal events counters. So we can
+> +		 * have at maximum num_counters * ext events monitored.
+> +		 */
+> +		l3c_pmu->num_counters += hisi_l3c_pmu->ext_num * L3C_NR_COUNTERS;
+> +	}
+> +
+>  	return 0;
+>  }
+>  
+>  static int hisi_l3c_pmu_probe(struct platform_device *pdev)
+>  {
+> +	struct hisi_l3c_pmu *hisi_l3c_pmu;
+>  	struct hisi_pmu *l3c_pmu;
+>  	char *name;
+>  	int ret;
+>  
+> -	l3c_pmu = devm_kzalloc(&pdev->dev, sizeof(*l3c_pmu), GFP_KERNEL);
+> -	if (!l3c_pmu)
+> +	hisi_l3c_pmu = devm_kzalloc(&pdev->dev, sizeof(*hisi_l3c_pmu), GFP_KERNEL);
+> +	if (!hisi_l3c_pmu)
+>  		return -ENOMEM;
+>  
+> +	l3c_pmu = &hisi_l3c_pmu->l3c_pmu;
+>  	platform_set_drvdata(pdev, l3c_pmu);
+>  
+> +	l3c_pmu->dev_info = device_get_match_data(&pdev->dev);
+> +	if (!l3c_pmu->dev_info)
+> +		return -ENODEV;
+> +
+
+any reason to move this out of hisi_l3c_pmu_init_data()? it looks unnecessary.
+
+>  	ret = hisi_l3c_pmu_dev_probe(pdev, l3c_pmu);
+>  	if (ret)
+>  		return ret;
+>  
+> -	name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "hisi_sccl%d_l3c%d",
+> -			      l3c_pmu->topo.sccl_id, l3c_pmu->topo.ccl_id);
+> +	if (l3c_pmu->topo.sub_id >= 0)
+> +		name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "hisi_sccl%d_l3c%d_%d",
+> +				      l3c_pmu->topo.sccl_id, l3c_pmu->topo.ccl_id,
+> +				      l3c_pmu->topo.sub_id);
+> +	else
+> +		name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "hisi_sccl%d_l3c%d",
+> +				      l3c_pmu->topo.sccl_id, l3c_pmu->topo.ccl_id);
+>  	if (!name)
+>  		return -ENOMEM;
+>  
+> @@ -604,6 +847,7 @@ static void hisi_l3c_pmu_remove(struct platform_device *pdev)
+>  static const struct acpi_device_id hisi_l3c_pmu_acpi_match[] = {
+>  	{ "HISI0213", (kernel_ulong_t)&hisi_l3c_pmu_v1 },
+>  	{ "HISI0214", (kernel_ulong_t)&hisi_l3c_pmu_v2 },
+> +	{ "HISI0215", (kernel_ulong_t)&hisi_l3c_pmu_v3 },
+>  	{}
+>  };
+>  MODULE_DEVICE_TABLE(acpi, hisi_l3c_pmu_acpi_match);
+> @@ -618,14 +862,58 @@ static struct platform_driver hisi_l3c_pmu_driver = {
+>  	.remove = hisi_l3c_pmu_remove,
+>  };
+>  
+> +static int hisi_l3c_pmu_online_cpu(unsigned int cpu, struct hlist_node *node)
+> +{
+> +	struct hisi_pmu *l3c_pmu = hlist_entry_safe(node, struct hisi_pmu, node);
+> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
+> +	int ret;
+> +
+> +	ret = hisi_uncore_pmu_online_cpu(cpu, node);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* Avoid L3C pmu not supporting ext from ext irq migrating. */
+> +	if (!support_ext(hisi_l3c_pmu))
+> +		return 0;
+> +
+> +	for (int i = 0; i < hisi_l3c_pmu->ext_num; i++)
+> +		WARN_ON(irq_set_affinity(hisi_l3c_pmu->ext_irq[i],
+> +					 cpumask_of(l3c_pmu->on_cpu)));
+> +	return 0;
+> +}
+> +
+> +static int hisi_l3c_pmu_offline_cpu(unsigned int cpu, struct hlist_node *node)
+> +{
+> +	struct hisi_pmu *l3c_pmu = hlist_entry_safe(node, struct hisi_pmu, node);
+> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
+> +	int ret;
+> +
+> +	ret = hisi_uncore_pmu_offline_cpu(cpu, node);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* If failed to find any available CPU, skip irq migration. */
+> +	if (l3c_pmu->on_cpu <= 0)
+
+0 should be a valid cpu for migration, do I miss something here?
+
+thanks.
+
+> +		return 0;
+> +
+> +	/* Avoid L3C pmu not supporting ext from ext irq migrating. */
+> +	if (!support_ext(hisi_l3c_pmu))
+> +		return 0;
+> +
+> +	for (int i = 0; i < hisi_l3c_pmu->ext_num; i++)
+> +		WARN_ON(irq_set_affinity(hisi_l3c_pmu->ext_irq[i],
+> +					 cpumask_of(l3c_pmu->on_cpu)));
+> +	return 0;
+> +}
+> +
+>  static int __init hisi_l3c_pmu_module_init(void)
+>  {
+>  	int ret;
+>  
+>  	ret = cpuhp_setup_state_multi(CPUHP_AP_PERF_ARM_HISI_L3_ONLINE,
+>  				      "AP_PERF_ARM_HISI_L3_ONLINE",
+> -				      hisi_uncore_pmu_online_cpu,
+> -				      hisi_uncore_pmu_offline_cpu);
+> +				      hisi_l3c_pmu_online_cpu,
+> +				      hisi_l3c_pmu_offline_cpu);
+>  	if (ret) {
+>  		pr_err("L3C PMU: Error setup hotplug, ret = %d\n", ret);
+>  		return ret;
+> diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.h b/drivers/perf/hisilicon/hisi_uncore_pmu.h
+> index 02fa022925d4..0334a797e499 100644
+> --- a/drivers/perf/hisilicon/hisi_uncore_pmu.h
+> +++ b/drivers/perf/hisilicon/hisi_uncore_pmu.h
+> @@ -24,7 +24,7 @@
+>  #define pr_fmt(fmt)     "hisi_pmu: " fmt
+>  
+>  #define HISI_PMU_V2		0x30
+> -#define HISI_MAX_COUNTERS 0x10
+> +#define HISI_MAX_COUNTERS 0x18
+>  #define to_hisi_pmu(p)	(container_of(p, struct hisi_pmu, pmu))
+>  
+>  #define HISI_PMU_ATTR(_name, _func, _config)				\
+> 
 
