@@ -4,75 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A971ECA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 17:09:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE351CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 17:12:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=memrQ7axYdUaYQsPly43343ciuqTBbrMMvXh3RrcAoI=; b=GYA6KgNlxJFCxk94/3jPsrhFUW
-	eOmwgmwK9dFGq7pBoGNc2pgibN8eT9EWjcS8OBfljzgxfRfYr0ePvrkSKd6fzVIb+Qk/0z9K2W9hX
-	5srUSaZJJScK9BG3Bh+BzqIY0clwQI5JR71wppetzKSXukqeerFrymu+qj0SCu6xNDFZuHOkr6ipT
-	D4Zq8LiO8ybw1KDHf5HZLxOGFINsE5g2h+vptYZg2bnGFDQIO4yBYOWniDnjG23/1kEWQG3eoldWa
-	5IgYadkKxxNWEB57Xq6RJ3D0AU0HvXl5kTKZ6eXc0ChEhadNNvoSfBmt/RrUY0RCvtZGBUIxrq7Ew
-	iO+FMhnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JnS9iVBV59ihos3qkTGDp+5B6t1YGemqlDPGPUW3KX8=; b=UJEeoJ8y+9XhsyeAvWaGfMXNr9
+	qtDX3Bo5aYImvROg5gb9CfGH4r+1pN6+XlRUcV4rHgPw8qcPovTR7tRtQykwgPxGelZ6hcZrAsrst
+	sV7h3Tk5dZNFCpjMjDcczQQe5tFpJTR1dhFiU9zXAm1iJk4CPGmzxw7NbhKeaWOiurqzKIiRtFCgc
+	wVB8amGSZooBmf/cgh0BNXkIhm9LtsbTFOLFKjJ8yJULoFFTNVcmxv9cEbOMmG1UM6JM4bSWBtAkD
+	qbwh+3Ix+WaA5VnnSDoZaQ7QW4WdPiNnuiNh8k0SdoHtkJ3xWMYjpaEOizWX1M4o+KDPeVbrKgTdf
+	3IfuHBhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urJeZ-0000000GGjv-2EBs;
-	Wed, 27 Aug 2025 17:09:43 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urHYu-0000000FpLc-1JK9
+	id 1urJhF-0000000GHFm-1bsR;
+	Wed, 27 Aug 2025 17:12:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urHdB-0000000FqR7-0UUo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 14:55:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1756306544; x=1787842544;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=RASQzDEjrALc3K/YuT5UvThKt2BVAZIxpTZ+5exrzzU=;
-  b=GCh0mveRmFhwL3Mt3E4lNTM8HztRQGc33ECG/JteXucpMaNg++xmlTs5
-   Lm3HEUiPF4hSpLJwwmI4rkckmFLW6wTkwM/dJpbL2s8yOm+8BqbjYfUTz
-   cd5PVGlPnCTlv/7OTQcT2ePBByHLJyHrWdahdXMjSpTtTLteuoD9TyRuE
-   jhXt9E9i9EB777oLrBLSUDOFFl05EQ8YEUAOUIqBukMiQZ4ENZ0gHd/fM
-   YHrwVEbku0AahoEFUIian4vjcIVFA65PzD5HDrK2s/IR9G+G4HakYXMfZ
-   yETv1Y3rgY3GZ+yyH06A+cumcLdjbsDXpxZDBl2JazTiH/L53tIXLfH4w
-   Q==;
-X-CSE-ConnectionGUID: qmQ3gJioTdWJF8Sch/45rg==
-X-CSE-MsgGUID: FPpwuLK0SzS4wq4WK45RWQ==
-X-IronPort-AV: E=Sophos;i="6.18,214,1751266800"; 
-   d="scan'208";a="213136671"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 Aug 2025 07:55:43 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Wed, 27 Aug 2025 07:54:39 -0700
-Received: from ROU-LL-M43238.microchip.com (10.10.85.11) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.44 via Frontend Transport; Wed, 27 Aug 2025 07:54:37 -0700
-From: <nicolas.ferre@microchip.com>
-To: ARM Maintainers <arm@kernel.org>, Alexandre Belloni
-	<alexandre.belloni@bootlin.com>, Ryan Wanner <ryan.wanner@microchip.com>,
-	Varshini Rajendran <varshini.rajendran@microchip.com>, Claudiu Beznea
-	<claudiu.beznea@tuxon.dev>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>
-Subject: [PATCH 1/3] ARM: at91: pm: fix .uhp_udp_mask specification for current SoCs
-Date: Wed, 27 Aug 2025 16:54:25 +0200
-Message-ID: <20250827145427.46819-2-nicolas.ferre@microchip.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250827145427.46819-1-nicolas.ferre@microchip.com>
-References: <20250827145427.46819-1-nicolas.ferre@microchip.com>
+	Wed, 27 Aug 2025 15:00:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B2C0D1688
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 07:59:57 -0700 (PDT)
+Received: from [10.57.90.247] (unknown [10.57.90.247])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BB8FD3F694
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 08:00:05 -0700 (PDT)
+Message-ID: <e15754b0-9295-42e6-aa58-c239461c449b@arm.com>
+Date: Wed, 27 Aug 2025 16:00:03 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v6 0/4] arm64: support FEAT_BBM level 2 and large
+ block mapping when rodata=full
+Content-Language: en-GB
+To: linux-arm-kernel@lists.infradead.org
+References: <20250805081350.3854670-1-ryan.roberts@arm.com>
+ <447d4ee9-bf63-44f0-a064-fea5a5f1acef@os.amperecomputing.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <447d4ee9-bf63-44f0-a064-fea5a5f1acef@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_075544_413341_C66F9B96 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20250827_080009_201605_93E4AFA4 
+X-CRM114-Status: GOOD (  29.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,33 +64,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nicolas Ferre <nicolas.ferre@microchip.com>
+Hi Yang,
 
-All SoCs using this structure field .uhp_udp_mask in configuration
-index 4 don't have the bit 7 specified: sam9x60 nor sam9x75.
-Remove this bit from the mask definition to match register layout.
+Sorry for slow reply; for some reason this didn't make it to my mailbox, then
+I've been out on holiday for 2 weeks.
 
-This mask is used in function at91_pm_verify_clocks().
 
-Signed-off-by: Nicolas Ferre <nicolas.ferre@microchip.com>
----
- arch/arm/mach-at91/pm.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On 05/08/2025 19:37, Yang Shi wrote:
+> Hi Ryan
+> 
+> On 8/5/25 1:13 AM, Ryan Roberts wrote:
+>> Hi All,
+>>
+>> This is a new version built on top of Yang Shi's work at [1]. Yang and I have
+>> been discussing (disagreeing?) about the best way to implement the last 2
+>> patches. So I've reworked them and am posting as RFC to illustrate how I think
+>> this feature should be implemented, but I've retained Yang as primary author
+>> since it is all based on his work. I'd appreciate feedback from Catalin and/or
+>> Will on whether this is the right approach, so that hopefully we can get this
+>> into shape for 6.18.
+>>
+>> The first 2 patches are unchanged from Yang's v5; the first patch comes from Dev
+>> and the rest of the series depends upon it.
+> 
+> Thank you for making the prototype and retaining me as primary author. The
+> approach is basically fine to me. But there are some minor concerns. Some of
+> them were raised in the comment for patch #3 and patch #4. I put them together
+> here.
+>     1. Walk page table twice. This has been discussed before. It is not very
+> efficient for small split, for example, 4K. Unfortunately, the most split is
+> still 4K in the current kernel AFAICT.
 
-diff --git a/arch/arm/mach-at91/pm.c b/arch/arm/mach-at91/pm.c
-index 3aa20038ad93..35058b99069c 100644
---- a/arch/arm/mach-at91/pm.c
-+++ b/arch/arm/mach-at91/pm.c
-@@ -1364,7 +1364,7 @@ static const struct pmc_info pmc_infos[] __initconst = {
- 		.version = AT91_PMC_V1,
- 	},
- 	{
--		.uhp_udp_mask = AT91SAM926x_PMC_UHP | AT91SAM926x_PMC_UDP,
-+		.uhp_udp_mask = AT91SAM926x_PMC_UHP,
- 		.mckr = 0x28,
- 		.version = AT91_PMC_V2,
- 	},
--- 
-2.43.0
+I have added a solution to this in my current version; to solve the mutex
+problem, I've ended up passing both start and end to the main split() function
+then have a helper function which the parent calls twice. With that I can avoid
+the second call if the (end - start) is PAGE_SIZE - I just call split() once
+with the "lesser aligned" of the 2 addresses and that guarantees that the page
+is mapped by PTE. Added as it's own optimization patch.
+
+>         Hopefully this can be mitigated by some new development, for example,
+> ROX cache.
+>     2. Take mutex lock twice and do lazy mmu twice. I think it is easy to
+> resolve as I suggested in patch #3.
+
+Yep, I've fixed this, as per above.
+
+>     3. Walk every PTE and call split on every PTE for repainting. It is not very
+> efficient, but may be ok for repainting since it is just called once at boot time.
+
+I've added an optimization patch to avoid splitting to contpmd/contpte in this
+case and we can additionally avoid visiting the pte table at all if it was
+created by splitting a pmd.
+
+> 
+> I don't think these concerns are major blockers IMHO. Anyway let's see what
+> Catalin and/or Will think about this.
+
+I've additionally done some more cleanup; most notably I've removed the
+bbml2_ptes[] array to save those 5 pages. Instead, I'm reusing the same flag
+that kpti uses.
+
+Functional tests all look good. I'll run some benchmarks overnight and if all
+looks good, I'll post by the end of the week.
+
+Hopefully Catalin or Will can provide some comments for this version.
+
+Thanks,
+Ryan
+
+> 
+> Regards,
+> Yang
 
 
