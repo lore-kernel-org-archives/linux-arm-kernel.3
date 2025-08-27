@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 731C6C8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 07:10:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61C42C8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 07:25:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tD4kgbHtGzN85RCyMEKr+q/UoG64pId1DAHinjTVHfQ=; b=yVzkMpJphU6LLHup1Fzq6HGaFT
-	03zt0DQ8LQfZcD/3HNg5UsKEnd5mUQCJdG2iAHtLgfDYgB/vDTiIb60T5ByDCETEAwWLaerzCsXu5
-	h1fasSLBifu73WyWL8s57H/Gu2a3qkmH4ky+mYelHC7NQdjRoFLjjrcK8AZKVjXOovYQ01Kmg0hPe
-	Vu5PpntuB2lELCeFtchsCO/6HWwcCOlIsjBgWm2ZK8Ibn8YC3I1ZX4eP46XqwR+px/+oLJ8rcCAus
-	wEVBURgYkIARQgdBlGEETNdR458qoRPx2jqLXjY0s5/2vP0gp+mCLG3HOVoPIxn2AzqNrtqyD7aem
-	KVIJ5IJw==;
+	bh=kJTzDgS4HrP7FwU9iq+wqQqPBdA0xEUpatyllYQ3AcM=; b=NS9nKHexEQSGcr2OkUmyckGkGE
+	istj310CyEiSV+MspB+Mev5aCRDnH38Z3ZsT1L72gRh+JH74vBJ7hgOMG2VFRjveJF6CXGiLm4SN5
+	tIx3FSQ/G4h5ZFDmndPaTSntGtQTfZt7lW4jRNpJnjUHclq6LsDcm0Bir4yoIEfzXGkh443oCHS2k
+	ysIQkxVzKsYZ1tEQ/hQndMfBykUIOo4XXxkjwJcYst23ks8mWj8vayp0hrHadAYlK8++PsMr83ClH
+	GbCutJ6XtCvSZcs5QYbc5S/BQmF9APN2rvVTrMH8Fd9FZhnkLsO3IPIm+xfGTFZcAgIKiFAgwVBxF
+	o48rj9fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urAIc-0000000ENNR-1QtD;
-	Wed, 27 Aug 2025 07:10:26 +0000
+	id 1urAXO-0000000EPfB-39fp;
+	Wed, 27 Aug 2025 07:25:42 +0000
 Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urAFu-0000000EN1p-0qQ8
+	id 1urAUe-0000000EOzc-0uLj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 07:07:40 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.163])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4cBbBB2d6dz2VRPB;
-	Wed, 27 Aug 2025 15:04:34 +0800 (CST)
-Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 42666180043;
-	Wed, 27 Aug 2025 15:07:32 +0800 (CST)
+	Wed, 27 Aug 2025 07:22:54 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.214])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4cBbV51JHCz2CgJY;
+	Wed, 27 Aug 2025 15:18:21 +0800 (CST)
+Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 0AFD81A016C;
+	Wed, 27 Aug 2025 15:22:47 +0800 (CST)
 Received: from kwepemn100008.china.huawei.com (7.202.194.111) by
- dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
+ dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 27 Aug 2025 15:07:32 +0800
+ 15.2.1544.11; Wed, 27 Aug 2025 15:22:46 +0800
 Received: from [10.67.120.139] (10.67.120.139) by
  kwepemn100008.china.huawei.com (7.202.194.111) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 27 Aug 2025 15:07:31 +0800
-Message-ID: <1a791de7-98ab-4b1f-9605-b06074b5905f@huawei.com>
-Date: Wed, 27 Aug 2025 15:07:30 +0800
+ 15.2.1544.11; Wed, 27 Aug 2025 15:22:46 +0800
+Message-ID: <1a3d5331-2ad6-44fd-9156-f50970d8bf01@huawei.com>
+Date: Wed, 27 Aug 2025 15:22:45 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 7/9] drivers/perf: hisi: Add support for L3C PMU v3
-To: Yicong Yang <yangyicong@huawei.com>
-CC: <robin.murphy@arm.com>, <Jonathan.Cameron@huawei.com>,
-	<liuyonglong@huawei.com>, <wanghuiqiang@huawei.com>,
-	<linux-kernel@vger.kernel.org>, <prime.zeng@hisilicon.com>,
-	<hejunhao3@h-partners.com>, Linuxarm <linuxarm@huawei.com>,
-	<will@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<mark.rutland@arm.com>
+Subject: Re: [PATCH v2 9/9] Documentation: hisi-pmu: Add introduction to
+ HiSilicon
+To: Yicong Yang <yangyicong@huawei.com>, <will@kernel.org>,
+	<mark.rutland@arm.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+CC: <yangyicong@hisilicon.com>, <robin.murphy@arm.com>,
+	<Jonathan.Cameron@huawei.com>, <liuyonglong@huawei.com>,
+	<wanghuiqiang@huawei.com>, <prime.zeng@hisilicon.com>,
+	<hejunhao3@h-partners.com>
 References: <20250821135049.2010220-1-wangyushan12@huawei.com>
- <20250821135049.2010220-8-wangyushan12@huawei.com>
- <96237b52-ab01-36f1-0b3c-16e878e71073@huawei.com>
+ <20250821135049.2010220-10-wangyushan12@huawei.com>
+ <d757a29e-6e13-d528-651b-beff8c2b2c21@huawei.com>
 Content-Language: en-US
 From: wangyushan <wangyushan12@huawei.com>
-In-Reply-To: <96237b52-ab01-36f1-0b3c-16e878e71073@huawei.com>
+In-Reply-To: <d757a29e-6e13-d528-651b-beff8c2b2c21@huawei.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
 X-Originating-IP: [10.67.120.139]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
  kwepemn100008.china.huawei.com (7.202.194.111)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_000738_617248_8DA27868 
-X-CRM114-Status: GOOD (  33.54  )
+X-CRM114-CacheID: sfid-20250827_002252_579114_93BFD9FD 
+X-CRM114-Status: GOOD (  21.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,654 +84,105 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 8/27/2025 11:43 AM, Yicong Yang wrote:
+On 8/27/2025 10:27 AM, Yicong Yang wrote:
+> Hi Yushan,
+>
+> the subject seems to be truncated? should it be like below?
+>
+> Documentation: hisi-pmu: Add introduction to HiSilicon v3 PMU
+>
+> other comments inline. sorry for the late reply..
+
+The subject was automatically wrapped, sorry.
+
+"Add introduction to HiSilicon v3 PMU" it is.
+
+
+
+>
 > On 2025/8/21 21:50, Yushan Wang wrote:
->> From: Yicong Yang <yangyicong@hisilicon.com>
+>> Some of HiSilicon V3 PMU hardware is divided into parts to fulfill the
+>> job of monitoring specific parts of a device.  Add description on that
+>> as well as the newly added ext operand for L3C PMU.
 >>
->> This patch adds support for L3C PMU v3. The v3 L3C PMU supports
->> an extended events space which can be controlled in up to 2 extra
->> address spaces with separate overflow interrupts. The layout
->> of the control/event registers are kept the same. The extended events
->> with original ones together cover the monitoring job of all transactions
->> on L3C.
->>
->> The extended events is specified with `ext=[1|2]` option for the
->> driver to distinguish, like below:
->>
->> perf stat -e hisi_sccl0_l3c0_0/event=<event_id>,ext=1/
->>
->> Currently only event option using config bit [7, 0]. There's
->> still plenty unused space. Make ext using config [16, 17] and
->> reserve bit [15, 8] for event option for future extension.
->>
->> With the capability of extra counters, number of counters for HiSilicon
->> uncore PMU could reach up to 24, the usedmap is extended accordingly.
->>
->> The hw_perf_event::event_base is initialized to the base MMIO
->> address of the event and will be used for later control,
->> overflow handling and counts readout.
->>
->> We still make use of the Uncore PMU framework for handling the
->> events and interrupt migration on CPU hotplug. The framework's
->> cpuhp callback will handle the event migration and interrupt
->> migration of orginial event, if PMU supports extended events
->> then the interrupt of extended events is migrated to the same
->> CPU choosed by the framework.
->>
->> A new HID of HISI0215 is used for this version of L3C PMU.
->>
->> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
->> Co-developed-by: Yushan Wang <wangyushan12@huawei.com>
 >> Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
-> some minor comments inline. sorry again for not raising them in previous version.
->
 >> ---
->>   drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c | 352 +++++++++++++++++--
->>   drivers/perf/hisilicon/hisi_uncore_pmu.h     |   2 +-
->>   2 files changed, 321 insertions(+), 33 deletions(-)
+>>   Documentation/admin-guide/perf/hisi-pmu.rst | 38 +++++++++++++++++++--
+>>   1 file changed, 36 insertions(+), 2 deletions(-)
 >>
->> diff --git a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
->> index 7928b9bb3e7e..95136c01f17b 100644
->> --- a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
->> +++ b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
->> @@ -55,24 +55,85 @@
->>   #define L3C_V1_NR_EVENTS	0x59
->>   #define L3C_V2_NR_EVENTS	0xFF
+>> diff --git a/Documentation/admin-guide/perf/hisi-pmu.rst b/Documentation/admin-guide/perf/hisi-pmu.rst
+>> index a307bce2f5c5..4c7584fe3c1a 100644
+>> --- a/Documentation/admin-guide/perf/hisi-pmu.rst
+>> +++ b/Documentation/admin-guide/perf/hisi-pmu.rst
+>> @@ -12,8 +12,8 @@ The HiSilicon SoC encapsulates multiple CPU and IO dies. Each CPU cluster
+>>   called Super CPU cluster (SCCL) and is made up of 6 CCLs. Each SCCL has
+>>   two HHAs (0 - 1) and four DDRCs (0 - 3), respectively.
 >>   
->> +#define L3C_MAX_EXT		2
->> +
->> +HISI_PMU_EVENT_ATTR_EXTRACTOR(ext, config, 17, 16);
->>   HISI_PMU_EVENT_ATTR_EXTRACTOR(tt_req, config1, 10, 8);
->>   HISI_PMU_EVENT_ATTR_EXTRACTOR(datasrc_cfg, config1, 15, 11);
->>   HISI_PMU_EVENT_ATTR_EXTRACTOR(datasrc_skt, config1, 16, 16);
->>   HISI_PMU_EVENT_ATTR_EXTRACTOR(tt_core, config2, 15, 0);
->>   
->> +struct hisi_l3c_pmu {
->> +	struct hisi_pmu l3c_pmu;
->> +
->> +	/* MMIO and IRQ resources for extension events */
->> +	void __iomem *ext_base[L3C_MAX_EXT];
->> +	int ext_irq[L3C_MAX_EXT];
->> +	int ext_num;
->> +};
->> +
->> +#define to_hisi_l3c_pmu(_l3c_pmu) \
->> +	container_of(_l3c_pmu, struct hisi_l3c_pmu, l3c_pmu)
->> +
->> +/*
->> + * The hardware counter idx used in counter enable/disable,
->> + * interrupt enable/disable and status check, etc.
->> + */
->> +#define L3C_HW_IDX(_idx)		((_idx) % L3C_NR_COUNTERS)
->> +
->> +/* The ext resource number to which a hardware counter belongs. */
->> +#define L3C_CNTR_EXT(_idx)		((_idx) / L3C_NR_COUNTERS)
->> +
->> +struct hisi_l3c_pmu_ext {
->> +	bool support_ext;
->> +};
->> +
->> +static bool support_ext(struct hisi_l3c_pmu *pmu)
->> +{
->> +	struct hisi_l3c_pmu_ext *l3c_pmu_ext = pmu->l3c_pmu.dev_info->private;
->> +
->> +	return l3c_pmu_ext->support_ext;
->> +}
->> +
->>   static int hisi_l3c_pmu_get_event_idx(struct perf_event *event)
->>   {
->>   	struct hisi_pmu *l3c_pmu = to_hisi_pmu(event->pmu);
->> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
->>   	unsigned long *used_mask = l3c_pmu->pmu_events.used_mask;
->> -	u32 num_counters = l3c_pmu->num_counters;
->> +	int ext = hisi_get_ext(event);
->>   	int idx;
->>   
->> -	idx = find_first_zero_bit(used_mask, num_counters);
->> -	if (idx == num_counters)
->> +	/*
->> +	 * For an L3C PMU that supports extension events, we can monitor
->> +	 * maximum 2 * num_counters to 3 * num_counters events, depending on
->> +	 * the number of ext regions supported by hardware. Thus use bit
->> +	 * [0, num_counters - 1] for normal events and bit
->> +	 * [ext * num_counters, (ext + 1) * num_counters - 1] for extension
->> +	 * events. The idx allocation will keep unchanged for normal events and
->> +	 * we can also use the idx to distinguish whether it's an extension
->> +	 * event or not.
->> +	 *
->> +	 * Since normal events and extension events locates on the different
->> +	 * address space, save the base address to the event->hw.event_base.
->> +	 */
->> +	if (ext) {
->> +		if (!support_ext(hisi_l3c_pmu))
->> +			return -EOPNOTSUPP;
->> +
->> +		event->hw.event_base = (unsigned long)hisi_l3c_pmu->ext_base[ext - 1];
->> +		idx = find_next_zero_bit(used_mask, L3C_NR_COUNTERS * (ext + 1),
->> +					 L3C_NR_COUNTERS * ext);
->> +	} else {
->> +		event->hw.event_base = (unsigned long)l3c_pmu->base;
->> +		idx = find_next_zero_bit(used_mask, L3C_NR_COUNTERS, 0);
->> +	}
->> +
->> +	if (idx >= L3C_NR_COUNTERS * (ext + 1))
->>   		return -EAGAIN;
->>   
->>   	set_bit(idx, used_mask);
->> -	event->hw.event_base = (unsigned long)l3c_pmu->base;
->> +
->> +	WARN_ON(idx < L3C_NR_COUNTERS * ext || idx >= L3C_NR_COUNTERS * (ext + 1));
->>   
->>   	return idx;
->>   }
->> @@ -143,7 +204,7 @@ static void hisi_l3c_pmu_write_ds(struct perf_event *event, u32 ds_cfg)
->>   {
->>   	struct hw_perf_event *hwc = &event->hw;
->>   	u32 reg, reg_idx, shift, val;
->> -	int idx = hwc->idx;
->> +	int idx = L3C_HW_IDX(hwc->idx);
->>   
->>   	/*
->>   	 * Select the appropriate datasource register(L3C_DATSRC_TYPE0/1).
->> @@ -264,12 +325,23 @@ static void hisi_l3c_pmu_disable_filter(struct perf_event *event)
->>   	}
->>   }
->>   
->> +static int hisi_l3c_pmu_check_filter(struct perf_event *event)
->> +{
->> +	struct hisi_pmu *l3c_pmu = to_hisi_pmu(event->pmu);
->> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
->> +	int ext = hisi_get_ext(event);
->> +
->> +	if (ext < 0 || ext > hisi_l3c_pmu->ext_num)
->> +		return -EINVAL;
-> newline here. similar to other places.
->
->> +	return 0;
->> +}
->> +
->>   /*
->>    * Select the counter register offset using the counter index
->>    */
->>   static u32 hisi_l3c_pmu_get_counter_offset(int cntr_idx)
->>   {
->> -	return (L3C_CNTR0_LOWER + (cntr_idx * 8));
->> +	return (L3C_CNTR0_LOWER + (L3C_HW_IDX(cntr_idx) * 8));
->>   }
->>   
->>   static u64 hisi_l3c_pmu_read_counter(struct hisi_pmu *l3c_pmu,
->> @@ -290,6 +362,8 @@ static void hisi_l3c_pmu_write_evtype(struct hisi_pmu *l3c_pmu, int idx,
->>   	struct hw_perf_event *hwc = &l3c_pmu->pmu_events.hw_events[idx]->hw;
->>   	u32 reg, reg_idx, shift, val;
->>   
->> +	idx = L3C_HW_IDX(idx);
->> +
->>   	/*
->>   	 * Select the appropriate event select register(L3C_EVENT_TYPE0/1).
->>   	 * There are 2 event select registers for the 8 hardware counters.
->> @@ -310,28 +384,63 @@ static void hisi_l3c_pmu_write_evtype(struct hisi_pmu *l3c_pmu, int idx,
->>   
->>   static void hisi_l3c_pmu_start_counters(struct hisi_pmu *l3c_pmu)
->>   {
->> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
->> +	unsigned long *used_mask = l3c_pmu->pmu_events.used_mask;
->> +	unsigned long bit = find_first_bit(used_mask, l3c_pmu->num_counters);
->>   	u32 val;
->> +	int i;
->>   
->>   	/*
->> -	 * Set perf_enable bit in L3C_PERF_CTRL register to start counting
->> -	 * for all enabled counters.
->> +	 * Check if any counter belongs to the normal range (instead of ext
->> +	 * range). If so, enable it.
->>   	 */
->> -	val = readl(l3c_pmu->base + L3C_PERF_CTRL);
->> -	val |= L3C_PERF_CTRL_EN;
->> -	writel(val, l3c_pmu->base + L3C_PERF_CTRL);
->> +	if (bit < L3C_NR_COUNTERS) {
->> +		val = readl(l3c_pmu->base + L3C_PERF_CTRL);
->> +		val |= L3C_PERF_CTRL_EN;
->> +		writel(val, l3c_pmu->base + L3C_PERF_CTRL);
->> +	}
->> +
->> +	/* If not, do enable it on ext ranges. */
->> +	for (i = 0; i < hisi_l3c_pmu->ext_num; i++) {
->> +		bit = find_next_bit(used_mask, L3C_NR_COUNTERS * (i + 2),
->> +				    L3C_NR_COUNTERS * (i + 1));
->> +		if (L3C_CNTR_EXT(bit) == i + 1) {
->> +			val = readl(hisi_l3c_pmu->ext_base[i] + L3C_PERF_CTRL);
->> +			val |= L3C_PERF_CTRL_EN;
->> +			writel(val, hisi_l3c_pmu->ext_base[i] + L3C_PERF_CTRL);
->> +		}
->> +	}
->>   }
->>   
->>   static void hisi_l3c_pmu_stop_counters(struct hisi_pmu *l3c_pmu)
->>   {
->> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
->> +	unsigned long *used_mask = l3c_pmu->pmu_events.used_mask;
->> +	unsigned long bit = find_first_bit(used_mask, l3c_pmu->num_counters);
->>   	u32 val;
->> +	int i;
->>   
->>   	/*
->> -	 * Clear perf_enable bit in L3C_PERF_CTRL register to stop counting
->> -	 * for all enabled counters.
->> +	 * Check if any counter belongs to the normal range (instead of ext
->> +	 * range). If so, stop it.
->>   	 */
->> -	val = readl(l3c_pmu->base + L3C_PERF_CTRL);
->> -	val &= ~(L3C_PERF_CTRL_EN);
->> -	writel(val, l3c_pmu->base + L3C_PERF_CTRL);
->> +	if (bit < L3C_NR_COUNTERS) {
->> +		val = readl(l3c_pmu->base + L3C_PERF_CTRL);
->> +		val &= ~(L3C_PERF_CTRL_EN);
->> +		writel(val, l3c_pmu->base + L3C_PERF_CTRL);
->> +	}
->> +
->> +	/* If not, do stop it on ext ranges. */
->> +	for (i = 0; i < hisi_l3c_pmu->ext_num; i++) {
->> +		bit = find_next_bit(used_mask, L3C_NR_COUNTERS * (i + 2),
->> +				    L3C_NR_COUNTERS * (i + 1));
->> +		if (L3C_CNTR_EXT(bit) != i + 1)
->> +			continue;
->> +
->> +		val = readl(hisi_l3c_pmu->ext_base[i] + L3C_PERF_CTRL);
->> +		val &= ~L3C_PERF_CTRL_EN;
->> +		writel(val, hisi_l3c_pmu->ext_base[i] + L3C_PERF_CTRL);
->> +	}
->>   }
->>   
->>   static void hisi_l3c_pmu_enable_counter(struct hisi_pmu *l3c_pmu,
->> @@ -341,7 +450,7 @@ static void hisi_l3c_pmu_enable_counter(struct hisi_pmu *l3c_pmu,
->>   
->>   	/* Enable counter index in L3C_EVENT_CTRL register */
->>   	val = hisi_l3c_pmu_event_readl(hwc, L3C_EVENT_CTRL);
->> -	val |= (1 << hwc->idx);
->> +	val |= (1 << L3C_HW_IDX(hwc->idx));
->>   	hisi_l3c_pmu_event_writel(hwc, L3C_EVENT_CTRL, val);
->>   }
->>   
->> @@ -352,7 +461,7 @@ static void hisi_l3c_pmu_disable_counter(struct hisi_pmu *l3c_pmu,
->>   
->>   	/* Clear counter index in L3C_EVENT_CTRL register */
->>   	val = hisi_l3c_pmu_event_readl(hwc, L3C_EVENT_CTRL);
->> -	val &= ~(1 << hwc->idx);
->> +	val &= ~(1 << L3C_HW_IDX(hwc->idx));
->>   	hisi_l3c_pmu_event_writel(hwc, L3C_EVENT_CTRL, val);
->>   }
->>   
->> @@ -363,7 +472,7 @@ static void hisi_l3c_pmu_enable_counter_int(struct hisi_pmu *l3c_pmu,
->>   
->>   	val = hisi_l3c_pmu_event_readl(hwc, L3C_INT_MASK);
->>   	/* Write 0 to enable interrupt */
->> -	val &= ~(1 << hwc->idx);
->> +	val &= ~(1 << L3C_HW_IDX(hwc->idx));
->>   	hisi_l3c_pmu_event_writel(hwc, L3C_INT_MASK, val);
->>   }
->>   
->> @@ -374,20 +483,34 @@ static void hisi_l3c_pmu_disable_counter_int(struct hisi_pmu *l3c_pmu,
->>   
->>   	val = hisi_l3c_pmu_event_readl(hwc, L3C_INT_MASK);
->>   	/* Write 1 to mask interrupt */
->> -	val |= (1 << hwc->idx);
->> +	val |= (1 << L3C_HW_IDX(hwc->idx));
->>   	hisi_l3c_pmu_event_writel(hwc, L3C_INT_MASK, val);
->>   }
->>   
->>   static u32 hisi_l3c_pmu_get_int_status(struct hisi_pmu *l3c_pmu)
->>   {
->> -	return readl(l3c_pmu->base + L3C_INT_STATUS);
->> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
->> +	u32 ext_int, status, status_ext = 0;
->> +	int i;
->> +
->> +	status = readl(l3c_pmu->base + L3C_INT_STATUS);
->> +
->> +	if (!support_ext(hisi_l3c_pmu))
->> +		return status;
->> +
->> +	for (i = 0; i < hisi_l3c_pmu->ext_num; i++) {
->> +		ext_int = readl(hisi_l3c_pmu->ext_base[i] + L3C_INT_STATUS);
->> +		status_ext |= ext_int << (L3C_NR_COUNTERS * i);
->> +	}
->> +
->> +	return status | (status_ext << L3C_NR_COUNTERS);
->>   }
->>   
->>   static void hisi_l3c_pmu_clear_int_status(struct hisi_pmu *l3c_pmu, int idx)
->>   {
->>   	struct hw_perf_event *hwc = &l3c_pmu->pmu_events.hw_events[idx]->hw;
->>   
->> -	hisi_l3c_pmu_event_writel(hwc, L3C_INT_CLEAR, 1 << idx);
->> +	hisi_l3c_pmu_event_writel(hwc, L3C_INT_CLEAR, 1 << L3C_HW_IDX(idx));
->>   }
->>   
->>   static int hisi_l3c_pmu_init_data(struct platform_device *pdev,
->> @@ -409,10 +532,6 @@ static int hisi_l3c_pmu_init_data(struct platform_device *pdev,
->>   		return -EINVAL;
->>   	}
->>   
->> -	l3c_pmu->dev_info = device_get_match_data(&pdev->dev);
->> -	if (!l3c_pmu->dev_info)
->> -		return -ENODEV;
->> -
->>   	l3c_pmu->base = devm_platform_ioremap_resource(pdev, 0);
->>   	if (IS_ERR(l3c_pmu->base)) {
->>   		dev_err(&pdev->dev, "ioremap failed for l3c_pmu resource\n");
->> @@ -424,6 +543,46 @@ static int hisi_l3c_pmu_init_data(struct platform_device *pdev,
->>   	return 0;
->>   }
->>   
->> +static int hisi_l3c_pmu_init_ext(struct hisi_pmu *l3c_pmu, struct platform_device *pdev)
->> +{
->> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
->> +	int ret, irq, ext_num, i;
->> +	char *irqname;
->> +
->> +	/* HiSilicon L3C PMU ext should have more than 1 irq resources. */
->> +	ext_num = platform_irq_count(pdev);
->> +	if (ext_num < 2)
-> will be more readable using L3C_MAX_EXT:
->
-> if (ext_num < L3C_MAX_EXT)
-> 	return -ENODEV;
->
->> +		return -ENODEV;
->> +
->> +	hisi_l3c_pmu->ext_num = ext_num - 1;
->> +
->> +	for (i = 0; i < hisi_l3c_pmu->ext_num; i++) {
->> +		hisi_l3c_pmu->ext_base[i] = devm_platform_ioremap_resource(pdev, i + 1);
->> +		if (IS_ERR(hisi_l3c_pmu->ext_base[i]))
->> +			return PTR_ERR(hisi_l3c_pmu->ext_base[i]);
->> +
->> +		irq = platform_get_irq(pdev, i + 1);
->> +		if (irq < 0)
->> +			return irq;
->> +
->> +		irqname = devm_kasprintf(&pdev->dev, GFP_KERNEL, "%s ext%d",
->> +					 dev_name(&pdev->dev), i + 1);
->> +		if (!irqname)
->> +			return -ENOMEM;
->> +
->> +		ret = devm_request_irq(&pdev->dev, irq, hisi_uncore_pmu_isr,
->> +				       IRQF_NOBALANCING | IRQF_NO_THREAD,
->> +				       irqname, l3c_pmu);
->> +		if (ret < 0)
->> +			return dev_err_probe(&pdev->dev, ret,
->> +				"Fail to request EXT IRQ: %d.\n", irq);
->> +
->> +		hisi_l3c_pmu->ext_irq[i] = irq;
->> +	}
->> +
->> +	return 0;
->> +}
->> +
->>   static struct attribute *hisi_l3c_pmu_v1_format_attr[] = {
->>   	HISI_PMU_FORMAT_ATTR(event, "config:0-7"),
->>   	NULL,
->> @@ -448,6 +607,19 @@ static const struct attribute_group hisi_l3c_pmu_v2_format_group = {
->>   	.attrs = hisi_l3c_pmu_v2_format_attr,
->>   };
->>   
->> +static struct attribute *hisi_l3c_pmu_v3_format_attr[] = {
->> +	HISI_PMU_FORMAT_ATTR(event, "config:0-7"),
->> +	HISI_PMU_FORMAT_ATTR(ext, "config:16-17"),
->> +	HISI_PMU_FORMAT_ATTR(tt_req, "config1:8-10"),
->> +	HISI_PMU_FORMAT_ATTR(tt_core, "config2:0-15"),
->> +	NULL
->> +};
->> +
->> +static const struct attribute_group hisi_l3c_pmu_v3_format_group = {
->> +	.name = "format",
->> +	.attrs = hisi_l3c_pmu_v3_format_attr,
->> +};
->> +
->>   static struct attribute *hisi_l3c_pmu_v1_events_attr[] = {
->>   	HISI_PMU_EVENT_ATTR(rd_cpipe,		0x00),
->>   	HISI_PMU_EVENT_ATTR(wr_cpipe,		0x01),
->> @@ -483,6 +655,26 @@ static const struct attribute_group hisi_l3c_pmu_v2_events_group = {
->>   	.attrs = hisi_l3c_pmu_v2_events_attr,
->>   };
->>   
->> +static struct attribute *hisi_l3c_pmu_v3_events_attr[] = {
->> +	HISI_PMU_EVENT_ATTR(rd_spipe,		0x18),
->> +	HISI_PMU_EVENT_ATTR(rd_hit_spipe,	0x19),
->> +	HISI_PMU_EVENT_ATTR(wr_spipe,		0x1a),
->> +	HISI_PMU_EVENT_ATTR(wr_hit_spipe,	0x1b),
->> +	HISI_PMU_EVENT_ATTR(io_rd_spipe,	0x1c),
->> +	HISI_PMU_EVENT_ATTR(io_rd_hit_spipe,	0x1d),
->> +	HISI_PMU_EVENT_ATTR(io_wr_spipe,	0x1e),
->> +	HISI_PMU_EVENT_ATTR(io_wr_hit_spipe,	0x1f),
->> +	HISI_PMU_EVENT_ATTR(cycles,		0x7f),
->> +	HISI_PMU_EVENT_ATTR(l3c_ref,		0xbc),
->> +	HISI_PMU_EVENT_ATTR(l3c2ring,		0xbd),
->> +	NULL
->> +};
->> +
->> +static const struct attribute_group hisi_l3c_pmu_v3_events_group = {
->> +	.name = "events",
->> +	.attrs = hisi_l3c_pmu_v3_events_attr,
->> +};
->> +
->>   static const struct attribute_group *hisi_l3c_pmu_v1_attr_groups[] = {
->>   	&hisi_l3c_pmu_v1_format_group,
->>   	&hisi_l3c_pmu_v1_events_group,
->> @@ -499,16 +691,41 @@ static const struct attribute_group *hisi_l3c_pmu_v2_attr_groups[] = {
->>   	NULL
->>   };
->>   
->> +static const struct attribute_group *hisi_l3c_pmu_v3_attr_groups[] = {
->> +	&hisi_l3c_pmu_v3_format_group,
->> +	&hisi_l3c_pmu_v3_events_group,
->> +	&hisi_pmu_cpumask_attr_group,
->> +	&hisi_pmu_identifier_group,
->> +	NULL
->> +};
->> +
->> +static struct hisi_l3c_pmu_ext hisi_l3c_pmu_support_ext = {
->> +	.support_ext = true,
->> +};
->> +
->> +static struct hisi_l3c_pmu_ext hisi_l3c_pmu_not_support_ext = {
->> +	.support_ext = false,
->> +};
->> +
->>   static const struct hisi_pmu_dev_info hisi_l3c_pmu_v1 = {
->>   	.attr_groups = hisi_l3c_pmu_v1_attr_groups,
->>   	.counter_bits = 48,
->>   	.check_event = L3C_V1_NR_EVENTS,
->> +	.private = &hisi_l3c_pmu_not_support_ext,
->>   };
->>   
->>   static const struct hisi_pmu_dev_info hisi_l3c_pmu_v2 = {
->>   	.attr_groups = hisi_l3c_pmu_v2_attr_groups,
->>   	.counter_bits = 64,
->>   	.check_event = L3C_V2_NR_EVENTS,
->> +	.private = &hisi_l3c_pmu_not_support_ext,
->> +};
->> +
->> +static const struct hisi_pmu_dev_info hisi_l3c_pmu_v3 = {
->> +	.attr_groups = hisi_l3c_pmu_v3_attr_groups,
->> +	.counter_bits = 64,
->> +	.check_event = L3C_V2_NR_EVENTS,
->> +	.private = &hisi_l3c_pmu_support_ext,
->>   };
->>   
->>   static const struct hisi_uncore_ops hisi_uncore_l3c_ops = {
->> @@ -526,11 +743,14 @@ static const struct hisi_uncore_ops hisi_uncore_l3c_ops = {
->>   	.clear_int_status	= hisi_l3c_pmu_clear_int_status,
->>   	.enable_filter		= hisi_l3c_pmu_enable_filter,
->>   	.disable_filter		= hisi_l3c_pmu_disable_filter,
->> +	.check_filter		= hisi_l3c_pmu_check_filter,
->>   };
->>   
->>   static int hisi_l3c_pmu_dev_probe(struct platform_device *pdev,
->>   				  struct hisi_pmu *l3c_pmu)
->>   {
->> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
->> +	struct hisi_l3c_pmu_ext *l3c_pmu_dev_ext = l3c_pmu->dev_info->private;
->>   	int ret;
->>   
->>   	ret = hisi_l3c_pmu_init_data(pdev, l3c_pmu);
->> @@ -549,27 +769,50 @@ static int hisi_l3c_pmu_dev_probe(struct platform_device *pdev,
->>   	l3c_pmu->dev = &pdev->dev;
->>   	l3c_pmu->on_cpu = -1;
->>   
->> +	if (l3c_pmu_dev_ext->support_ext) {
->> +		ret = hisi_l3c_pmu_init_ext(l3c_pmu, pdev);
->> +		if (ret)
->> +			return ret;
->> +		/*
->> +		 * The extension events have their own counters with the
->> +		 * same number of the normal events counters. So we can
->> +		 * have at maximum num_counters * ext events monitored.
->> +		 */
->> +		l3c_pmu->num_counters += hisi_l3c_pmu->ext_num * L3C_NR_COUNTERS;
->> +	}
->> +
->>   	return 0;
->>   }
->>   
->>   static int hisi_l3c_pmu_probe(struct platform_device *pdev)
->>   {
->> +	struct hisi_l3c_pmu *hisi_l3c_pmu;
->>   	struct hisi_pmu *l3c_pmu;
->>   	char *name;
->>   	int ret;
->>   
->> -	l3c_pmu = devm_kzalloc(&pdev->dev, sizeof(*l3c_pmu), GFP_KERNEL);
->> -	if (!l3c_pmu)
->> +	hisi_l3c_pmu = devm_kzalloc(&pdev->dev, sizeof(*hisi_l3c_pmu), GFP_KERNEL);
->> +	if (!hisi_l3c_pmu)
->>   		return -ENOMEM;
->>   
->> +	l3c_pmu = &hisi_l3c_pmu->l3c_pmu;
->>   	platform_set_drvdata(pdev, l3c_pmu);
->>   
->> +	l3c_pmu->dev_info = device_get_match_data(&pdev->dev);
->> +	if (!l3c_pmu->dev_info)
->> +		return -ENODEV;
->> +
-> any reason to move this out of hisi_l3c_pmu_init_data()? it looks unnecessary.
+>> -HiSilicon SoC uncore PMU driver
+>> --------------------------------
+>> +HiSilicon SoC uncore PMU v1
+> these (and below) new sections will break the ordered list of the options. this should not be
+> necessary to mention the version, just add the newly added options in the current way and
+> mention the introduced version should be enough.
 
-The private data stored in l3c_pmu->dev_info was used in hisi_l3c_pmu_dev_probe(),
-so I moved this before the call right below.
-
-But since the actual usage of l3c_pmu->dev_info is after the hisi_l3c_pmu_init_data()
-call anyway, so leave it unmoved should be neater.
-
-Will fix that in the next version.
+Given ext operand is for L3C PMU only, I could add that to the existing option order lists, as well
+as the relationship between ext and the PMU name formats.
 
 >
->>   	ret = hisi_l3c_pmu_dev_probe(pdev, l3c_pmu);
->>   	if (ret)
->>   		return ret;
+>> +---------------------------
 >>   
->> -	name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "hisi_sccl%d_l3c%d",
->> -			      l3c_pmu->topo.sccl_id, l3c_pmu->topo.ccl_id);
->> +	if (l3c_pmu->topo.sub_id >= 0)
->> +		name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "hisi_sccl%d_l3c%d_%d",
->> +				      l3c_pmu->topo.sccl_id, l3c_pmu->topo.ccl_id,
->> +				      l3c_pmu->topo.sub_id);
->> +	else
->> +		name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "hisi_sccl%d_l3c%d",
->> +				      l3c_pmu->topo.sccl_id, l3c_pmu->topo.ccl_id);
->>   	if (!name)
->>   		return -ENOMEM;
+>>   Each device PMU has separate registers for event counting, control and
+>>   interrupt, and the PMU driver shall register perf PMU drivers like L3C,
+>> @@ -56,6 +56,9 @@ Example usage of perf::
+>>     $# perf stat -a -e hisi_sccl3_l3c0/rd_hit_cpipe/ sleep 5
+>>     $# perf stat -a -e hisi_sccl3_l3c0/config=0x02/ sleep 5
 >>   
->> @@ -604,6 +847,7 @@ static void hisi_l3c_pmu_remove(struct platform_device *pdev)
->>   static const struct acpi_device_id hisi_l3c_pmu_acpi_match[] = {
->>   	{ "HISI0213", (kernel_ulong_t)&hisi_l3c_pmu_v1 },
->>   	{ "HISI0214", (kernel_ulong_t)&hisi_l3c_pmu_v2 },
->> +	{ "HISI0215", (kernel_ulong_t)&hisi_l3c_pmu_v3 },
->>   	{}
->>   };
->>   MODULE_DEVICE_TABLE(acpi, hisi_l3c_pmu_acpi_match);
->> @@ -618,14 +862,58 @@ static struct platform_driver hisi_l3c_pmu_driver = {
->>   	.remove = hisi_l3c_pmu_remove,
->>   };
+>> +HiSilicon SoC uncore PMU v2
+>> +----------------------------------
+>> +
+>>   For HiSilicon uncore PMU v2 whose identifier is 0x30, the topology is the same
+>>   as PMU v1, but some new functions are added to the hardware.
 >>   
->> +static int hisi_l3c_pmu_online_cpu(unsigned int cpu, struct hlist_node *node)
->> +{
->> +	struct hisi_pmu *l3c_pmu = hlist_entry_safe(node, struct hisi_pmu, node);
->> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
->> +	int ret;
+>> @@ -113,6 +116,37 @@ uring channel. It is 2 bits. Some important codes are as follows:
+>>   - 2'b00: default value, count the events which sent to the both uring and
+>>     uring_ext channel;
+>>   
+>> +HiSilicon SoC uncore PMU v3
+>> +----------------------------------
 >> +
->> +	ret = hisi_uncore_pmu_online_cpu(cpu, node);
->> +	if (ret)
->> +		return ret;
+>> +For HiSilicon uncore PMU v3 whose identifier is 0x40, some uncore PMUs are
+>> +further divided into parts for finer granularity of tracing, each part has its
+>> +own dedicated PMU, and all such PMUs together cover the monitoring job of events
+>> +on particular uncore device. Such PMUs are described in sysfs with name format
+>> +slightly changed::
 >> +
->> +	/* Avoid L3C pmu not supporting ext from ext irq migrating. */
->> +	if (!support_ext(hisi_l3c_pmu))
->> +		return 0;
+>> +/sys/bus/event_source/devices/hisi_sccl{X}_<l3c{Y}_{Z}/ddrc{Y}_{Z}/noc{Y}_{Z}>
 >> +
->> +	for (int i = 0; i < hisi_l3c_pmu->ext_num; i++)
->> +		WARN_ON(irq_set_affinity(hisi_l3c_pmu->ext_irq[i],
->> +					 cpumask_of(l3c_pmu->on_cpu)));
->> +	return 0;
->> +}
+>> +Z is the sub-id, indicating different PMUs for part of hardware device.
 >> +
->> +static int hisi_l3c_pmu_offline_cpu(unsigned int cpu, struct hlist_node *node)
->> +{
->> +	struct hisi_pmu *l3c_pmu = hlist_entry_safe(node, struct hisi_pmu, node);
->> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
->> +	int ret;
+>> +Usage of most PMUs with different sub-ids are identical. Specially, L3C PMU
+>> +provides ``ext`` operand to allow exploration of even finer granual statistics
+>> +of L3C PMU, L3C PMU driver use that as hint of termination when delivering perf
+>> +command to hardware:
 >> +
->> +	ret = hisi_uncore_pmu_offline_cpu(cpu, node);
->> +	if (ret)
->> +		return ret;
+>> +- ext=0: Default, could be used with event names.
+>> +- ext=1 and ext=2: Must be used with event codes, event names are not supported.
 >> +
->> +	/* If failed to find any available CPU, skip irq migration. */
->> +	if (l3c_pmu->on_cpu <= 0)
-> 0 should be a valid cpu for migration, do I miss something here?
+>> +An example of perf command could be::
+>> +
+>> +  $# perf stat -a -e hisi_sccl0_l3c1_0/event=0x1,ext=1/ sleep 5
+>> +
+>> +or::
+>> +
+>> +  $# perf stat -a -e hisi_sccl0_l3c1_0/rd_spipe/ sleep 5
+>> +
+>> +As above, ``hisi_sccl0_l3c1_0`` locates PMU on CPU cluster 0, L3 cache 1 pipe0.
+> this isn't correct. sccl0 indicates the Super CPU CLuster 0 which is already
+> described in the document.
 >
 > thanks.
 
-This could be problematic, I will fix this and other above issues.
+Yes, will fix that, thanks.
 
-Thanks!
-
->
->> +		return 0;
->> +
->> +	/* Avoid L3C pmu not supporting ext from ext irq migrating. */
->> +	if (!support_ext(hisi_l3c_pmu))
->> +		return 0;
->> +
->> +	for (int i = 0; i < hisi_l3c_pmu->ext_num; i++)
->> +		WARN_ON(irq_set_affinity(hisi_l3c_pmu->ext_irq[i],
->> +					 cpumask_of(l3c_pmu->on_cpu)));
->> +	return 0;
->> +}
->> +
->>   static int __init hisi_l3c_pmu_module_init(void)
->>   {
->>   	int ret;
->>   
->>   	ret = cpuhp_setup_state_multi(CPUHP_AP_PERF_ARM_HISI_L3_ONLINE,
->>   				      "AP_PERF_ARM_HISI_L3_ONLINE",
->> -				      hisi_uncore_pmu_online_cpu,
->> -				      hisi_uncore_pmu_offline_cpu);
->> +				      hisi_l3c_pmu_online_cpu,
->> +				      hisi_l3c_pmu_offline_cpu);
->>   	if (ret) {
->>   		pr_err("L3C PMU: Error setup hotplug, ret = %d\n", ret);
->>   		return ret;
->> diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.h b/drivers/perf/hisilicon/hisi_uncore_pmu.h
->> index 02fa022925d4..0334a797e499 100644
->> --- a/drivers/perf/hisilicon/hisi_uncore_pmu.h
->> +++ b/drivers/perf/hisilicon/hisi_uncore_pmu.h
->> @@ -24,7 +24,7 @@
->>   #define pr_fmt(fmt)     "hisi_pmu: " fmt
->>   
->>   #define HISI_PMU_V2		0x30
->> -#define HISI_MAX_COUNTERS 0x10
->> +#define HISI_MAX_COUNTERS 0x18
->>   #define to_hisi_pmu(p)	(container_of(p, struct hisi_pmu, pmu))
->>   
->>   #define HISI_PMU_ATTR(_name, _func, _config)				\
->>
 
 
