@@ -4,113 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB391CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 19:40:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D20C5CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 19:43:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t2v2a85AXbX6SArWQ0BV4j82lGc68tYdz81Jm/JS7Vw=; b=PIVB1Z/cN6rSjj7ryWwoUozOpC
-	lScrn+lnywtDfGTn2uyFikVMsRSJl/w49oZa/0Ri2VUFGhOPjVDi7mKeL/8Km7KzdPjQMxfIvsWbw
-	qYtfHZ4tnC/DQoOyvUQ74H/FQu2dt1Bdeai3YBmcL9hkl1Dsjd8mltQxSlSvfNLv4i6kBKqJ7XxjT
-	ithuwzq2Ch+XkGSWyvhhnlTm7Ie6HhYwyzCgKEXtFMmjdiKtGgrosGnVI3JzpEIvoFozd0xKK3Qep
-	7mD2uMyiktgA+wIRPTv9netM9UT5UqYmpNDcoaI2RxwILnnErYSWoMOloji3ve6+4yph0y+y6EmZ0
-	jXey7qig==;
+	bh=ykD/lLpLQIzYGQYMP84WIByvSzZo73XHE+OWuN4k9e8=; b=m5PzCXnotYyrrGNXduxz3v/tfL
+	rpPWd9GsAoLvFRkVSc5FSCEjJqeqfMoUSCdq04V21mf5Vfy75F+eEpd8XByt17rZkKV3pJzzvBXyF
+	Cr9sCNmL6Be9GoCCTtxrPXgMRXvuKufnSLMS3qfZiXDdgLM19mNzRKmNhQHShN0SQBXKpwjlGErrF
+	jij5SiPEm3a3hBcjss8i73pDiuCdHSOFEHf4o0XJZv+h2NC+zNoy7y4ru/dkwmmZh9atmdYRkMhg4
+	BRFu4hBxLq5+Qy7HuEkgJrLVG40i53nYwQ6/Z2B+P2jtxQF5E/ZhWebKWomkao06DNoI/ZwQFjxtA
+	XJY+N18w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urM0R-0000000Ge3h-3sgo;
-	Wed, 27 Aug 2025 19:40:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1urM37-0000000GefR-3JIF;
+	Wed, 27 Aug 2025 19:43:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urFhg-0000000FU9I-0dp8
+	id 1urI1T-0000000Fv1i-32HX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 12:56:41 +0000
+	Wed, 27 Aug 2025 15:25:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D7E584446B;
-	Wed, 27 Aug 2025 12:56:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89221C4CEEB;
-	Wed, 27 Aug 2025 12:56:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 20F4360263;
+	Wed, 27 Aug 2025 15:25:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DC01C4CEEB;
+	Wed, 27 Aug 2025 15:25:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756299399;
-	bh=4LM+AgG6TA9italusUgYvtXCrXrPJentMrXuQS0OtB8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DCz2IbPeIt6NHMSOIkNyAqubzKfTFbaHKe66TVGoj6arHlTrPwOHUJJWs3Y5lfFTB
-	 dBWpdOmUAZlkx++p0fdkODG69aeF/2HVi6SQE33ZzkUhXyX55t1mfLsXyhRs9B4Nnd
-	 O8rvqfkTS6g6fm5+yIReyInQhjPQ4n7t7P6/NL6X21KOHtXkIvp3GgtlEiV2vFXOuq
-	 /04LvduKbeTtcwxpjMNmNq2KPIcMz7ouEwoM5WxnaLfxa2gxxcI6kVXmEV7Y+0pIkc
-	 h91YYZG4FhzfSL+gOGIm9/I4oqtki/QTmgRrN1qZfD+3YSSMoJTViMbBPDGvLZyLt2
-	 bAPPandrZnubw==
-Message-ID: <64b61c82-819f-4248-b4b3-fcbe191b5e11@kernel.org>
-Date: Wed, 27 Aug 2025 14:56:34 +0200
+	s=k20201202; t=1756308314;
+	bh=kfwViz7xFBzpp18djq1NxXlwY0FdLit/f4wL7ogsZY4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=RtMkxQuQXfDVIND2OpDItTfeBrBVaErNTzfPbgeIc6qMJjRlaFluCRBKsGF8z7LSi
+	 MotoQwLj4l5RJV2zdYk50WTDMlSmUvnZC2qu5oxAJAUkouHRpxJd42kHFtJpMHNxp7
+	 5zu/Q96pPUJYvUvT3FhjrogvmGsGEVVt3zYFlxsCPHM+q2ip+ePuv9C23M08bQBqpm
+	 9BRue8DRHRqir8Sie/TVZex4vS46w2DV3lYfQtOtYF5mzvPXlbpE7Jr6NDrK/p1/pQ
+	 owiq44x+kz8ivAEdHOdEZjlSBs6spCFpmuv5v2A2gWLY5cIWTGk7yqFJzSGDo3fCzY
+	 D8tqZ7JO/vLEw==
+Date: Wed, 27 Aug 2025 08:25:12 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Lukasz Majewski <lukasz.majewski@mailbox.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Richard Cochran
+ <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
+ <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>
+Subject: Re: [net-next v19 4/7] net: mtip: Add net_device_ops functions to
+ the L2 switch driver
+Message-ID: <20250827082512.438fd68a@kernel.org>
+In-Reply-To: <20250824220736.1760482-5-lukasz.majewski@mailbox.org>
+References: <20250824220736.1760482-1-lukasz.majewski@mailbox.org>
+	<20250824220736.1760482-5-lukasz.majewski@mailbox.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 3/7] dt-bindings: hwmon: sl28cpld: add sa67mcu
- compatible
-To: Michael Walle <mwalle@kernel.org>, Nishanth Menon <nm@ti.com>,
- Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Jean Delvare <jdelvare@suse.com>,
- Guenter Roeck <linux@roeck-us.net>, Lee Jones <lee@kernel.org>,
- Srinivas Kandagatla <srini@kernel.org>,
- Wim Van Sebroeck <wim@linux-watchdog.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org,
- linux-watchdog@vger.kernel.org
-References: <20250822131531.1366437-1-mwalle@kernel.org>
- <20250822131531.1366437-4-mwalle@kernel.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250822131531.1366437-4-mwalle@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_055640_238388_499CFE66 
-X-CRM114-Status: GOOD (  13.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,33 +78,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/08/2025 15:15, Michael Walle wrote:
-> The Kontron SMARC-sAM67 module features an on-board house keeping uC.
-> It is designed to be compatible with the older sl28cpld implementation,
-> but has different sensors, like voltage and temperature monitoring. Add
-> a new compatible for that board.
-> 
-> Signed-off-by: Michael Walle <mwalle@kernel.org>
-> ---
->  .../devicetree/bindings/hwmon/kontron,sl28cpld-hwmon.yaml        | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/hwmon/kontron,sl28cpld-hwmon.yaml b/Documentation/devicetree/bindings/hwmon/kontron,sl28cpld-hwmon.yaml
-> index 010333cb25c0..0275803e843c 100644
-> --- a/Documentation/devicetree/bindings/hwmon/kontron,sl28cpld-hwmon.yaml
-> +++ b/Documentation/devicetree/bindings/hwmon/kontron,sl28cpld-hwmon.yaml
-> @@ -17,6 +17,7 @@ properties:
->    compatible:
->      enum:
->        - kontron,sl28cpld-fan
-> +      - kontron,sa67mcu-hwmon
+On Mon, 25 Aug 2025 00:07:33 +0200 Lukasz Majewski wrote:
+> +	/* Set buffer length and buffer pointer */
+> +	bufaddr = skb->data;
 
-Please keep sorting alphabetically.
+You can't write (swap) skb->data if the skb is a clone..
 
-With this fixed:
+> +	bdp->cbd_datlen = skb->len;
+> +
+> +	/* On some FEC implementations data must be aligned on
+> +	 * 4-byte boundaries. Use bounce buffers to copy data
+> +	 * and get it aligned.spin
+> +	 */
+> +	if ((unsigned long)bufaddr & MTIP_ALIGNMENT) {
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+add 
+	.. ||
+	(fep->quirks & FEC_QUIRK_SWAP_FRAME && skb_cloned(skb))
 
-Best regards,
-Krzysztof
+here to switch to the local buffer for clones ?
+
+> +		unsigned int index;
+> +
+> +		index = bdp - fep->tx_bd_base;
+> +		memcpy(fep->tx_bounce[index], skb->data, skb->len);
+> +		bufaddr = fep->tx_bounce[index];
+> +	}
+> +
+> +	if (fep->quirks & FEC_QUIRK_SWAP_FRAME)
+> +		swap_buffer(bufaddr, skb->len);
+
+> +	if (unlikely(dma_mapping_error(&fep->pdev->dev, bdp->cbd_bufaddr))) {
+> +		dev_err(&fep->pdev->dev,
+> +			"Failed to map descriptor tx buffer\n");
+
+All per-packet prints must be rate limited
+
+> +		/* Since we have freed up a buffer, the ring is no longer
+> +		 * full.
+> +		 */
+> +		if (fep->tx_full) {
+> +			fep->tx_full = 0;
+> +			if (netif_queue_stopped(dev))
+> +				netif_wake_queue(dev);
+> +		}
+
+I must say I'm still quite confused by the netdev management in this
+driver. You seem to have 2 netdevs, one per port. There's one
+set of queues and one NAPI. Whichever netdev gets up first gets the
+NAPI. What makes my head spin is that you seem to record which
+netdev/port was doing Rx _last_ and then pass that netdev to
+mtip_switch_tx(). Why? Isn't the dev that we're completing Tx for is
+best read from skb->dev packet by packet? Also this wake up logic looks
+like it will wake up _one_ netdev's queue and then set tx_full = 0, so
+presumably it will not wake the other port if both ports queues were
+stopped. Why keep tx_full state in the first place? Just check if the
+queues is stopped..?
 
