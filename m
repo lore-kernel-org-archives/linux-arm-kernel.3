@@ -4,115 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4537CCA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 23:23:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C69ACA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 23:24:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sdduxfP9sOW11CIIetzrq/g2aOdRCb5eN+kQk0XudUI=; b=Z7FYVcfp5buyLCbHVASgZKo0HK
-	l7K81uMqmVV6mzWnRFcS09pioX3ACN2rZCOkwzsEnk09h8f2mSynhZeZcgn9lk2jSLVPbkDJGmS2+
-	gkt8oYROwmEAxJyP0dKPtNXtNCukDYZqH+cVslXwYH7jdwk8yb7o3RFo942b38H102s7tN2CgyHbb
-	irs1DhusVAWlvxN1NwFeI0Me34rCJoafbFO9qFy2v4+voj8HK+VTNx8WrBkDuRFgY8yuxLk6LfmXu
-	WVv4oweEOKYyzTst6ARNxYiNxa3h51GQWFbuiXA7+OtEcOBJSSbCy3Z9e7tyoRDh7LHG1m/5vD8f4
-	JBHQx2tg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cijVVwZfxxgIx8MF0jyEltqSoYAbraikdF/pCMWs3L0=; b=ewKKrIpOA/0mWbTcqY4CblDmMs
+	e1j8uUBmBRNpahPqZEDN2fQUjsa8sjiULBHm0opRE7UMmqxrW7yhUx+QMhqsJ0Dln0LtYEaFkMHa8
+	2GxT7Y3QGLHd9Dp561i2/Sr6hqT7nhXC0pXtMLvZ8kFieuKoPf/0iRDZZ0UQIHaXiwSnkviHZypCb
+	XYnSG9gD9jAB7HqTXT5CSBLuXSxmRgMLuah6LDACiKHS05FNgmfzk2IoQeZ8Zbb/c5ZkHtFm6RPxk
+	nwr+qd2fND9e9bEQ+qbNrdpgH2w6hMo6CpF0uhA76Dl5D0aHjYg1W8ACZcpbejkJVvimUGurQELb8
+	ncQJrJiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urPUM-0000000HEsG-3sau;
-	Wed, 27 Aug 2025 23:23:34 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1urPVF-0000000HF4m-0aCx;
+	Wed, 27 Aug 2025 23:24:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urOGO-0000000Gyba-09QW
+	id 1urPPs-0000000HEQY-2SpE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 22:05:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756332303;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=sdduxfP9sOW11CIIetzrq/g2aOdRCb5eN+kQk0XudUI=;
-	b=f6FiZJT+A0cUl5Gc3BjhR3T0nLMbUVK/qG4krWjK2r0iMTmMCD0J384MiyX/3Ur40wNxSm
-	VNcErtiKnAcfP2NvkT574/6h0rgZMaZhdvcg9Afw3xo22ji3ZhQ7aWbWQRa9WpWbqZT2qM
-	hB4I1+CbtN34KQvSjhtS2GHAqqxyL/Q=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-417-EpEDj_iqOtyJ7pKJWv6ETA-1; Wed,
- 27 Aug 2025 18:04:58 -0400
-X-MC-Unique: EpEDj_iqOtyJ7pKJWv6ETA-1
-X-Mimecast-MFC-AGG-ID: EpEDj_iqOtyJ7pKJWv6ETA_1756332292
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 995B919541AC;
-	Wed, 27 Aug 2025 22:04:52 +0000 (UTC)
-Received: from t14s.redhat.com (unknown [10.22.80.195])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id CAF5B30001A1;
-	Wed, 27 Aug 2025 22:04:36 +0000 (UTC)
-From: David Hildenbrand <david@redhat.com>
-To: linux-kernel@vger.kernel.org
-Cc: David Hildenbrand <david@redhat.com>,
-	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
-	Alexander Potapenko <glider@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Brendan Jackman <jackmanb@google.com>,
-	Christoph Lameter <cl@gentwo.org>,
-	Dennis Zhou <dennis@kernel.org>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	dri-devel@lists.freedesktop.org,
-	intel-gfx@lists.freedesktop.org,
-	iommu@lists.linux.dev,
-	io-uring@vger.kernel.org,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Jens Axboe <axboe@kernel.dk>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	John Hubbard <jhubbard@nvidia.com>,
-	kasan-dev@googlegroups.com,
-	kvm@vger.kernel.org,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	linux-arm-kernel@axis.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-crypto@vger.kernel.org,
-	linux-ide@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-mmc@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Marco Elver <elver@google.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Muchun Song <muchun.song@linux.dev>,
-	netdev@vger.kernel.org,
-	Oscar Salvador <osalvador@suse.de>,
-	Peter Xu <peterx@redhat.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Tejun Heo <tj@kernel.org>,
-	virtualization@lists.linux.dev,
-	Vlastimil Babka <vbabka@suse.cz>,
-	wireguard@lists.zx2c4.com,
-	x86@kernel.org,
-	Zi Yan <ziy@nvidia.com>
-Subject: [PATCH v1 09/36] mm/mm_init: make memmap_init_compound() look more like prep_compound_page()
-Date: Thu, 28 Aug 2025 00:01:13 +0200
-Message-ID: <20250827220141.262669-10-david@redhat.com>
-In-Reply-To: <20250827220141.262669-1-david@redhat.com>
-References: <20250827220141.262669-1-david@redhat.com>
-MIME-Version: 1.0
+	Wed, 27 Aug 2025 23:18:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id F162044CCF;
+	Wed, 27 Aug 2025 23:18:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC86DC4CEF6;
+	Wed, 27 Aug 2025 23:18:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756336735;
+	bh=j8waJiGPLOxyz6bi8Ol4G/oClugFmBhM7jsST0ztxBs=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=E8cyyx/rwL8EQRPsXH7QQFMg+Bii0icmcov7ZtMo654C+ZEw1jaff3nwGrb5nbU6u
+	 u7f+FLe6L17U3cdW5dVzQ1hwlEF/X679YTv03jter5rBP00nHbKxkoQ0Ls/bF6PP54
+	 o6KHm6mwGYxNKBtfYMjjdyRwFeAIRdIaD8e5P2yJd+nk92Gb/pr1fz8hmOYtEhrDME
+	 tlNxpPgCsxDUvlKa9piu9E0+ykq6h1IAFxlTIj+KkKbuRupvsGkwSBle3F/MlwIvIV
+	 +hgBMXbXir10OUizCPspCRXqmfkXAeu7ouF34xWf+KFzRPi5cBpLGSwJmzeoap+Gy9
+	 5TBGoYzI5ptUQ==
+Date: Wed, 27 Aug 2025 18:18:54 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Peter Griffin <peter.griffin@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Conor Dooley <conor+dt@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>, 
+ willmcvicker@google.com, linux-kernel@vger.kernel.org, 
+ linux-samsung-soc@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, kernel-team@android.com, 
+ devicetree@vger.kernel.org, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+To: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20250827-acpm-dvfs-dt-v2-0-e1d2890d12b4@linaro.org>
+References: <20250827-acpm-dvfs-dt-v2-0-e1d2890d12b4@linaro.org>
+Message-Id: <175633665113.3746832.15304875656374701987.robh@kernel.org>
+Subject: Re: [PATCH v2 0/3] arm64: dts: exynos: gs101: add cpufreq support
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_150504_150958_449DBB33 
-X-CRM114-Status: GOOD (  16.00  )
+X-CRM114-CacheID: sfid-20250827_161856_672883_947814AC 
+X-CRM114-Status: GOOD (  18.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,60 +77,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Grepping for "prep_compound_page" leaves on clueless how devdax gets its
-compound pages initialized.
 
-Let's add a comment that might help finding this open-coded
-prep_compound_page() initialization more easily.
+On Wed, 27 Aug 2025 12:59:45 +0000, Tudor Ambarus wrote:
+> Define the CPU clocks and OPPs.
+> 
+> The patch set depends on the bindings sent at:
+> https://lore.kernel.org/linux-samsung-soc/20250827-acpm-clk-v2-1-de5c86b49b64@linaro.org/T/#u
+> 
+> The following error will be seen without the bindings patch:
+> arch/arm64/boot/dts/exynos/google/gs101.dtsi:75.24-25 syntax error
+> FATAL ERROR: Unable to parse input tree
+> 
+> Thanks,
+> ta
+> 
+> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+> ---
+> Changes in v2:
+> - acpm node becomes a clock provider.
+> - reword commit message, extend cover letter with info about dependency
+>   on a bindings patch.
+> - Link to v1: https://lore.kernel.org/r/20250819-acpm-dvfs-dt-v1-0-4e38b95408c4@linaro.org
+> 
+> ---
+> Tudor Ambarus (3):
+>       arm64: dts: exynos: gs101: add #clock-cells to the ACPM protocol node
+>       arm64: dts: exynos: gs101: add CPU clocks
+>       arm64: dts: exynos: gs101: add OPPs
+> 
+>  arch/arm64/boot/dts/exynos/google/gs101.dtsi | 284 +++++++++++++++++++++++++++
+>  1 file changed, 284 insertions(+)
+> ---
+> base-commit: c17b750b3ad9f45f2b6f7e6f7f4679844244f0b9
+> change-id: 20250819-acpm-dvfs-dt-06bc794bdccd
+> 
+> Best regards,
+> --
+> Tudor Ambarus <tudor.ambarus@linaro.org>
+> 
+> 
+> 
 
-Further, let's be less smart about the ordering of initialization and just
-perform the prep_compound_head() call after all tail pages were
-initialized: just like prep_compound_page() does.
 
-No need for a comment to describe the initialization order: again,
-just like prep_compound_page().
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-Signed-off-by: David Hildenbrand <david@redhat.com>
----
- mm/mm_init.c | 15 +++++++--------
- 1 file changed, 7 insertions(+), 8 deletions(-)
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
-diff --git a/mm/mm_init.c b/mm/mm_init.c
-index 5c21b3af216b2..df614556741a4 100644
---- a/mm/mm_init.c
-+++ b/mm/mm_init.c
-@@ -1091,6 +1091,12 @@ static void __ref memmap_init_compound(struct page *head,
- 	unsigned long pfn, end_pfn = head_pfn + nr_pages;
- 	unsigned int order = pgmap->vmemmap_shift;
- 
-+	/*
-+	 * We have to initialize the pages, including setting up page links.
-+	 * prep_compound_page() does not take care of that, so instead we
-+	 * open-code prep_compound_page() so we can take care of initializing
-+	 * the pages in the same go.
-+	 */
- 	__SetPageHead(head);
- 	for (pfn = head_pfn + 1; pfn < end_pfn; pfn++) {
- 		struct page *page = pfn_to_page(pfn);
-@@ -1098,15 +1104,8 @@ static void __ref memmap_init_compound(struct page *head,
- 		__init_zone_device_page(page, pfn, zone_idx, nid, pgmap);
- 		prep_compound_tail(head, pfn - head_pfn);
- 		set_page_count(page, 0);
--
--		/*
--		 * The first tail page stores important compound page info.
--		 * Call prep_compound_head() after the first tail page has
--		 * been initialized, to not have the data overwritten.
--		 */
--		if (pfn == head_pfn + 1)
--			prep_compound_head(head, order);
- 	}
-+	prep_compound_head(head, order);
- }
- 
- void __ref memmap_init_zone_device(struct zone *zone,
--- 
-2.50.1
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: using specified base-commit c17b750b3ad9f45f2b6f7e6f7f4679844244f0b9
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/exynos/' for 20250827-acpm-dvfs-dt-v2-0-e1d2890d12b4@linaro.org:
+
+Error: arch/arm64/boot/dts/exynos/google/gs101.dtsi:75.24-25 syntax error
+FATAL ERROR: Unable to parse input tree
+make[4]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/exynos/google/gs101-oriole.dtb] Error 1
+make[3]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/exynos/google] Error 2
+make[3]: Target 'arch/arm64/boot/dts/exynos/google/gs101-oriole.dtb' not remade because of errors.
+make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/exynos] Error 2
+make[2]: Target 'arch/arm64/boot/dts/exynos/google/gs101-oriole.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1480: exynos/google/gs101-oriole.dtb] Error 2
+Error: arch/arm64/boot/dts/exynos/google/gs101.dtsi:75.24-25 syntax error
+FATAL ERROR: Unable to parse input tree
+make[4]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/exynos/google/gs101-raven.dtb] Error 1
+make[3]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/exynos/google] Error 2
+make[3]: Target 'arch/arm64/boot/dts/exynos/google/gs101-raven.dtb' not remade because of errors.
+make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/exynos] Error 2
+make[2]: Target 'arch/arm64/boot/dts/exynos/google/gs101-raven.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1480: exynos/google/gs101-raven.dtb] Error 2
+make: *** [Makefile:248: __sub-make] Error 2
+make: Target 'exynos/exynos8895-dreamlte.dtb' not remade because of errors.
+make: Target 'exynos/exynos2200-g0s.dtb' not remade because of errors.
+make: Target 'exynos/exynos850-e850-96.dtb' not remade because of errors.
+make: Target 'exynos/exynos7870-on7xelte.dtb' not remade because of errors.
+make: Target 'exynos/exynos7885-jackpotlte.dtb' not remade because of errors.
+make: Target 'exynos/exynos990-x1slte.dtb' not remade because of errors.
+make: Target 'exynos/exynos5433-tm2.dtb' not remade because of errors.
+make: Target 'exynos/exynos990-r8s.dtb' not remade because of errors.
+make: Target 'exynos/exynos7-espresso.dtb' not remade because of errors.
+make: Target 'exynos/google/gs101-oriole.dtb' not remade because of errors.
+make: Target 'exynos/google/gs101-raven.dtb' not remade because of errors.
+make: Target 'exynos/exynosautov920-sadk.dtb' not remade because of errors.
+make: Target 'exynos/exynosautov9-sadk.dtb' not remade because of errors.
+make: Target 'exynos/exynos990-c1s.dtb' not remade because of errors.
+make: Target 'exynos/exynos9810-starlte.dtb' not remade because of errors.
+make: Target 'exynos/exynos990-x1s.dtb' not remade because of errors.
+make: Target 'exynos/exynos7870-a2corelte.dtb' not remade because of errors.
+make: Target 'exynos/exynos5433-tm2e.dtb' not remade because of errors.
+make: Target 'exynos/exynos7870-j6lte.dtb' not remade because of errors.
+
+
+
+
 
 
