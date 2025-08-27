@@ -4,140 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7A88CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 00:23:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB9A5CA0FFE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 00:23:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xokvzkSIEpQffuWgfIG7Waj6e5Wn3/nTay4YDrY+vKU=; b=pL9FsH25xmUQBWjdypFMJTj0OE
-	3IOs2Xhr6Wkden8KdQtoEcNRtklFVGuUHsc9BOqAPtwESD/MucfeHHUfgL9HpxdeII+54y4//EHsl
-	phGlbi2ZkoEWwTpHSA48dweTSwpcqtfMWV2XhAHTV769D7/+7lNAlw4COjur5ZTP8gl6QxEFFC7lC
-	iOCetxL2aWMS7HTxQkr88RoWpmFDlJ8OIvyLHuYUgzWOy+Z49xtohOCISlN2cTDUPvj8q7NrMEmCa
-	nWhTqPYspSMGkJ3l9EC9C9KoF01DoXJCSDSJaymgj63A6c+TBd8JywvxOTtKLH3tzFkMOnHJwXUoG
-	PeaP5GYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wMabvnMiY6aI3QTnrZr9pq+NRKVIz1RxP9V/JHunYhU=; b=svhQ3grdfjbBnlCwVdh05CGQCj
+	+5UuycUPVkgrP+uyhPcS6VfSk+4Sk2ES1PXizKRmO4cEgbFf/6cJzLXqspEshorFzyUwQEd/pSfVU
+	y5C3IuFe11giMqpJZGJOGfU15TflPAvA+COhYs6FIHEPmwDs5DL8kKppiaTtW4ZQ/7069j0h6nDTx
+	6+p8/cgHoF7CdCGl6YmvKK6ivJ6sCXEGhSUWAP3RWxkkzw/q37jL1SUOyo1wFZkZWLup8ua/mx4TO
+	GCzCKEgO4u3HJLWNH6URUuVi0+jTw8lKJXEbFN3ZehHckWyEHXk6HSmWnhPw61DEicUUC8ygTDhze
+	hxruVTlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urQQU-0000000HLac-2NMM;
-	Thu, 28 Aug 2025 00:23:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1urQQV-0000000HLbY-2zDg;
+	Thu, 28 Aug 2025 00:23:39 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urOS3-0000000H3Yt-3i0m
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 27 Aug 2025 22:17:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=xokvzkSIEpQffuWgfIG7Waj6e5Wn3/nTay4YDrY+vKU=; b=jfQXTopkGuVWeA7flc6tKlsixq
-	KrkeSADuw3ARbrlZTDVwcPjfjtL6TdYCKdywLZu+TSy1wLnQjK3/BdXszP1gnEzl4Ul/j2Bb+eOs+
-	NT/1+Xouv3NqDXsvFC6OjWfo5QjDG24gVFWsu8Y82TF1o0A64X1Jr2egUQ1Kg31PwkGGcWO8avvOL
-	UEOLvEj2h57cNSh+JG2jGY0w6CnfwYmhY7XSyCZWDlTSW2lLJ0OTZrcgtENeCYrGKYLi9sunoPLnk
-	/MaqVoCgi8Can3picglHZIuFZTl0eeIMh3eHmuf85ylXW+rouo3zm0yyvUycwTIWe2mq/apynRK99
-	GljFU8qg==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urORz-00000002WAm-019n
+	id 1urOZg-0000000H5j6-1KKb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 22:17:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756333020;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xokvzkSIEpQffuWgfIG7Waj6e5Wn3/nTay4YDrY+vKU=;
-	b=HAkSZhUvuscpr68XSdSVrkMx9Yz7YtEZfBlSgsswE9MTJTTFhTh13cl4oGITSt4wtSH9Nc
-	okhwWF4rG/bHAk6LiA1Cc608ZZwwW4D8QkawpJRf9tXnBF2gxnd+nutoposkaARREhGG91
-	cHeNVWpZAhM7RsBB9iq07G7f0nkT4m8=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756333020;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xokvzkSIEpQffuWgfIG7Waj6e5Wn3/nTay4YDrY+vKU=;
-	b=HAkSZhUvuscpr68XSdSVrkMx9Yz7YtEZfBlSgsswE9MTJTTFhTh13cl4oGITSt4wtSH9Nc
-	okhwWF4rG/bHAk6LiA1Cc608ZZwwW4D8QkawpJRf9tXnBF2gxnd+nutoposkaARREhGG91
-	cHeNVWpZAhM7RsBB9iq07G7f0nkT4m8=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-488-RQvXUovaMI65FI3R-Bh1mA-1; Wed,
- 27 Aug 2025 18:12:26 -0400
-X-MC-Unique: RQvXUovaMI65FI3R-Bh1mA-1
-X-Mimecast-MFC-AGG-ID: RQvXUovaMI65FI3R-Bh1mA_1756332741
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A0A3C19560AA;
-	Wed, 27 Aug 2025 22:12:21 +0000 (UTC)
-Received: from t14s.redhat.com (unknown [10.22.80.195])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 2874830001A5;
-	Wed, 27 Aug 2025 22:12:05 +0000 (UTC)
-From: David Hildenbrand <david@redhat.com>
-To: linux-kernel@vger.kernel.org
-Cc: David Hildenbrand <david@redhat.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Brendan Jackman <jackmanb@google.com>,
-	Christoph Lameter <cl@gentwo.org>,
-	Dennis Zhou <dennis@kernel.org>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	dri-devel@lists.freedesktop.org,
-	intel-gfx@lists.freedesktop.org,
-	iommu@lists.linux.dev,
-	io-uring@vger.kernel.org,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Jens Axboe <axboe@kernel.dk>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	John Hubbard <jhubbard@nvidia.com>,
-	kasan-dev@googlegroups.com,
-	kvm@vger.kernel.org,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	linux-arm-kernel@axis.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-crypto@vger.kernel.org,
-	linux-ide@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-mmc@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Marco Elver <elver@google.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	netdev@vger.kernel.org,
-	Oscar Salvador <osalvador@suse.de>,
-	Peter Xu <peterx@redhat.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Tejun Heo <tj@kernel.org>,
-	virtualization@lists.linux.dev,
-	Vlastimil Babka <vbabka@suse.cz>,
-	wireguard@lists.zx2c4.com,
-	x86@kernel.org,
-	Zi Yan <ziy@nvidia.com>
-Subject: [PATCH v1 36/36] mm: remove nth_page()
-Date: Thu, 28 Aug 2025 00:01:40 +0200
-Message-ID: <20250827220141.262669-37-david@redhat.com>
-In-Reply-To: <20250827220141.262669-1-david@redhat.com>
-References: <20250827220141.262669-1-david@redhat.com>
+	Wed, 27 Aug 2025 22:25:02 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57RGf6Ie031265
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 22:24:59 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=wMabvnMiY6aI3QTnrZr9pq+N
+	RKVIz1RxP9V/JHunYhU=; b=gS4ZBzmCgDeh85coVTvtc5oGJFI2VEr0B4boNmF1
+	O3qPXL7qBbiAVuTr52jGhMBV2zit0RdQ5BLv12Fl+ToaZkvNk+/1F0xHIdrwbb1J
+	wmQxWz6cVISIN9+voNHKu43ytyrWMVYcVBM+BS0zM8uBNyiBQvJhoLQgZ5chaMi0
+	kNfVSdHggJV6j0kxpQnGhrU+rHeMZL+IDFphUzlfQdbC2LQ8TKO68RRBFZkn+mPM
+	vvZN+NnKqUQIHRSN5Yg5A6scSFSLnHBxfQFuoaKEnc5sx9unDcsxRS0YWurBvaQK
+	AtnOt25Q1gVPh0lff1ALoiyTYRPbFDQNtm0WgE6pb8HW2A==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48q615p187-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 22:24:59 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4b109bc5ecaso8890551cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 15:24:59 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756333498; x=1756938298;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wMabvnMiY6aI3QTnrZr9pq+NRKVIz1RxP9V/JHunYhU=;
+        b=ZP08raxi70YFKzsWxk1VUQv90ofibDDNLxHJ190JfiaYncrvnXJZlXMC+HXAxlOKRn
+         yEGNygPex7Muaq4cZ3q0Hz9k/dSri2DQjnJ0XgSexleJlFbfAWAfKUCdDXRdRae6Rzbu
+         frFRkMjZhIPnu5RpcaJgzS1VYPuaQit0XHMjNWUvluInH02M90LK9z7dNQXEybl86+lQ
+         lZp0BIhM2TTXSFVTxep1e2ctvhkVpXhYDZLy9CQPSpNzP9BsQL6dMQnFDqFQsYFg4qLV
+         A9vkqbdWhBPAY/UPho967AuUWgyFiOCBgBufXpzkcHtlpzFmKI6ZdGfK1ljXg4l8cAUr
+         1ioA==
+X-Forwarded-Encrypted: i=1; AJvYcCU2DCRpoARnCx21dIdukTkd4g7iO0EU1YtlffroUPc+CUhB8gQF8/ahmD8uR19KmPiWwioJElZCju2EJR0Dq3Cl@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxe3uZz1s7t1twwSPLKjLsNhcrf9nE7M2x+Fielf/+Oe1NdG8Cj
+	U5EoBo0TXNb+lHIfJUjUupKQEZuBGjjakIHykERc2AHudSnn17+vV/YqJtTqIcIqTS0TqjgMnn0
+	rh7K7MeoiHi+/EGF8H1yO733CcTNoS9/7cPe/Ri2HkFdG1PLa5r18FBXUzegC4n3aWhPh0wpasQ
+	BbcA==
+X-Gm-Gg: ASbGncs413pMVnbdZ1uwkYedo3cJ7xso9BACMJWPxGlQJtf/03aTwtTCfNvr+DLoD2o
+	uxDJBlvCSulBcH+gg+hGPt2WffWfqYZBjA63n6Hov4XoPFwMW5JI9NGkoL5qoKos3FxaSHyRoV1
+	sRz1jGW1wvlw1Xls1Mj33DO+pQ4ILBoKkgbXLvDMzqqaIwwYnbR6PNP+Z+/Hp/kFdOlWL3T+Efa
+	2xq2YLqWjyyBASbdZ81ea9ABnLdEG3nt1mMXtPW2d9QclPj3+e4fAoFMjqKnfffvbMCpi8Taqce
+	/3Ne0npApwWeYz3PBeNFY3u07q7gO9OmILimKjVuvyHeefjVgoDaHnK9Jlf4HS01XWr6m/fu2dC
+	9A/OpRtd8pTeG1aorJdlge/NL4CDIIp7OQbkrO7VHk+pR4+iHt2EY
+X-Received: by 2002:a05:622a:5e1b:b0:4b2:b6dd:3f62 with SMTP id d75a77b69052e-4b2b6dd4850mr141574661cf.15.1756333498279;
+        Wed, 27 Aug 2025 15:24:58 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHWL5d3fRji5RjCf7oZDMHi6+hAavouE1mTTu18gEHtzIXVQqcCSxTkltVNvjDodB9v6M14nQ==
+X-Received: by 2002:a05:622a:5e1b:b0:4b2:b6dd:3f62 with SMTP id d75a77b69052e-4b2b6dd4850mr141574451cf.15.1756333497748;
+        Wed, 27 Aug 2025 15:24:57 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55f35ca6af5sm2954613e87.138.2025.08.27.15.24.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 Aug 2025 15:24:56 -0700 (PDT)
+Date: Thu, 28 Aug 2025 01:24:53 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Andy Yan <andyshrk@163.com>
+Cc: heiko@sntech.de, hjc@rock-chips.com, mripard@kernel.org, naoki@radxa.com,
+        stephen@radxa.com, cristian.ciocaltea@collabora.com,
+        neil.armstrong@linaro.org, Laurent.pinchart@ideasonboard.com,
+        yubing.zhang@rock-chips.com, krzk+dt@kernel.org,
+        devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-rockchip@lists.infradead.org, robh@kernel.org,
+        sebastian.reichel@collabora.com, Andy Yan <andy.yan@rock-chips.com>
+Subject: Re: [PATCH v7 00/10] Add support for RK3588 DisplayPort Controller
+Message-ID: <bochli5u37mhc6eup7h2oz3yeignofbbj4k5nrvm2k7zf6f4ov@t2sje4gmveqa>
+References: <20250822063959.692098-1-andyshrk@163.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250822063959.692098-1-andyshrk@163.com>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDAzNCBTYWx0ZWRfX/RDWU7HjwdEh
+ 5IlsuqXj+WuEpVwtwO/S/ofTSbqblXFDb7mZtLz/FfJu7m090bxPjqMvQzcPDwj+gzG316WPl8B
+ EJQyJVsM4o72WhaKDhHPrFSotbpKI9087Bhg9e8zJC+O5BaKpGFuD3he9m93tn9c9ULWSQi90Uu
+ swxcADjEKr2OuHJs7uHEr13H2+FPSSZxG7FeKrLvBm6Cl9uBRjkDUZSRX91RdaGq2hf0RkRWmFE
+ SnkZQe6cw/+V0BchzgBOo59I7Uhql0B3TtZf4Vd2ii9CoEA1MORIXOka/1+gw0u7cfDNeEA1eHu
+ ykvWzFKLSa1H0CjhdSc5DitcX9nsO907QjK7mU4l8Dr2ijWLg3KuucMZzRHIpK++Frat9cPPWfz
+ I+NGfXqp
+X-Proofpoint-GUID: L_mWrxMVSHvtRfS2nECr3Vc5P6dHNvu3
+X-Authority-Analysis: v=2.4 cv=K+AiHzWI c=1 sm=1 tr=0 ts=68af85bb cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=2OwXVqhp2XgA:10 a=s8YR1HE3AAAA:8 a=IMEu-sUR2OXSz8FBHAsA:9 a=CjuIK1q_8ugA:10
+ a=uxP6HrT_eTzRwkO_Te1X:22 a=jGH_LyMDp9YhSvY-UuyI:22
+X-Proofpoint-ORIG-GUID: L_mWrxMVSHvtRfS2nECr3Vc5P6dHNvu3
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-27_04,2025-08-26_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 suspectscore=0 bulkscore=0 clxscore=1015 adultscore=0
+ impostorscore=0 priorityscore=1501 phishscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508230034
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_231704_884147_422924D1 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20250827_152500_530997_1E34FE97 
+X-CRM114-Status: GOOD (  26.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,41 +133,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that all users are gone, let's remove it.
+On Fri, Aug 22, 2025 at 02:39:44PM +0800, Andy Yan wrote:
+> From: Andy Yan <andy.yan@rock-chips.com>
+> 
+> 
+> There are two DW DPTX based DisplayPort Controller on rk3588 which
+> are compliant with the DisplayPort Specification Version 1.4 with
+> the following features:
+> 
+> * DisplayPort 1.4a
+> * Main Link: 1/2/4 lanes
+> * Main Link Support 1.62Gbps, 2.7Gbps, 5.4Gbps and 8.1Gbps
+> * AUX channel 1Mbps
+> * Single Stream Transport(SST)
+> * Multistream Transport (MST)
+> * Type-C support (alternate mode)
+> * HDCP 2.2, HDCP 1.3
+> * Supports up to 8/10 bits per color component
+> * Supports RBG, YCbCr4:4:4, YCbCr4:2:2, YCbCr4:2:0
+> * Pixel clock up to 594MHz
+> * I2S, SPDIF audio interface
+> 
+> The current version of this patch series only supports basic display outputs.
+> I conducted tests with DP0 in 1080p and 4K@60 YCbCr4:2:0 modes; the ALT/Type-C
+> mode was tested on Rock 5B, DP1 was tested on Rock 5 ITX by Stephen and Piotr.
+> HDCP and audio features remain unimplemented.
+> For RK3588, it's only support SST, while in the upcoming RK3576, it can support
+> MST output.
+> 
 
-Signed-off-by: David Hildenbrand <david@redhat.com>
----
- include/linux/mm.h                   | 2 --
- tools/testing/scatterlist/linux/mm.h | 1 -
- 2 files changed, 3 deletions(-)
+[skipped changelog]
 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 2ca1eb2db63ec..b26ca8b2162d9 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -210,9 +210,7 @@ extern unsigned long sysctl_admin_reserve_kbytes;
- 
- #if defined(CONFIG_SPARSEMEM) && !defined(CONFIG_SPARSEMEM_VMEMMAP)
- bool page_range_contiguous(const struct page *page, unsigned long nr_pages);
--#define nth_page(page,n) pfn_to_page(page_to_pfn((page)) + (n))
- #else
--#define nth_page(page,n) ((page) + (n))
- static inline bool page_range_contiguous(const struct page *page,
- 		unsigned long nr_pages)
- {
-diff --git a/tools/testing/scatterlist/linux/mm.h b/tools/testing/scatterlist/linux/mm.h
-index 5bd9e6e806254..121ae78d6e885 100644
---- a/tools/testing/scatterlist/linux/mm.h
-+++ b/tools/testing/scatterlist/linux/mm.h
-@@ -51,7 +51,6 @@ static inline unsigned long page_to_phys(struct page *page)
- 
- #define page_to_pfn(page) ((unsigned long)(page) / PAGE_SIZE)
- #define pfn_to_page(pfn) (void *)((pfn) * PAGE_SIZE)
--#define nth_page(page,n) pfn_to_page(page_to_pfn((page)) + (n))
- 
- #define __min(t1, t2, min1, min2, x, y) ({              \
- 	t1 min1 = (x);                                  \
+> 
+> Andy Yan (10):
+>   dt-bindings: display: rockchip: Add schema for RK3588 DPTX Controller
+>   drm/bridge: synopsys: Add DW DPTX Controller support library
+>   drm/rockchip: Add RK3588 DPTX output support
+>   MAINTAINERS: Add entry for DW DPTX Controller bridge
+
+I tried pushing patches 1-4, but got the following error:
+
+dim: ERROR: 5a68dcf5837a ("MAINTAINERS: Add entry for DW DPTX Controller bridge"): Mandatory Maintainer Acked-by missing., aborting
+
+I'm not sure how to handle MAINTAINERS changes (or whether it's fine for
+me or not), so I will probably push patches 1-3 in a few days, if nobody
+beats me (or unless somebody points out a correct process for
+MAINTAINERS changes).
+
+>   dt-bindings: display: simple-bridge: Add ra620 compatible
+>   drm/bridge: simple-bridge: Add support for radxa ra620
+>   arm64: dts: rockchip: Add DP0 for rk3588
+>   arm64: dts: rockchip: Add DP1 for rk3588
+>   arm64: dts: rockchip: Enable DisplayPort for rk3588s Cool Pi 4B
+>   arm64: dts: rockchip: Enable DP2HDMI for ROCK 5 ITX
+> 
+>  .../display/bridge/simple-bridge.yaml         |    1 +
+>  .../display/rockchip/rockchip,dw-dp.yaml      |  150 ++
+>  MAINTAINERS                                   |    8 +
+>  arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |   30 +
+>  .../arm64/boot/dts/rockchip/rk3588-extra.dtsi |   30 +
+>  .../boot/dts/rockchip/rk3588-rock-5-itx.dts   |   59 +
+>  .../boot/dts/rockchip/rk3588s-coolpi-4b.dts   |   37 +
+>  drivers/gpu/drm/bridge/simple-bridge.c        |    5 +
+>  drivers/gpu/drm/bridge/synopsys/Kconfig       |    7 +
+>  drivers/gpu/drm/bridge/synopsys/Makefile      |    1 +
+>  drivers/gpu/drm/bridge/synopsys/dw-dp.c       | 2095 +++++++++++++++++
+>  drivers/gpu/drm/rockchip/Kconfig              |    9 +
+>  drivers/gpu/drm/rockchip/Makefile             |    1 +
+>  drivers/gpu/drm/rockchip/dw_dp-rockchip.c     |  150 ++
+>  drivers/gpu/drm/rockchip/rockchip_drm_drv.c   |    1 +
+>  drivers/gpu/drm/rockchip/rockchip_drm_drv.h   |    1 +
+>  include/drm/bridge/dw_dp.h                    |   20 +
+>  17 files changed, 2605 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
+>  create mode 100644 drivers/gpu/drm/bridge/synopsys/dw-dp.c
+>  create mode 100644 drivers/gpu/drm/rockchip/dw_dp-rockchip.c
+>  create mode 100644 include/drm/bridge/dw_dp.h
+> 
+> -- 
+> 2.43.0
+> 
+> base-commit: 18b8261b84ad5462d7261617fbfa49d85d396fd9
+> branch: rk3588-dp-upstream-v7
+> 
+
 -- 
-2.50.1
-
+With best wishes
+Dmitry
 
