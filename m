@@ -4,114 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F93DCA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 15:53:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECDDDCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 15:53:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RAI62g1SD1qTOSmc4DlEd7xrM62RJVSxUdsDhAibVPo=; b=TpRjiPs2XUX+UDQuaWSp8n6766
-	UKzHgj0Ve17Dq4epWSogHLDoBnR1/CQYjM21zLDI8BMksxdVO4us5dwknhi2uopkCxymiyFH60Y0I
-	9eLhxYDPdBcihEAyIRRt6RO82FgKIQsl9h+PocLLZNNQbHqJLiGuqq+rAClLiyg/pLS8jOi+b9K6n
-	WfmT6SBNP90Dz1lAU/geWyBwaNDQszqtdE5yVftMpKyDNDSmcLJqs8BO1+wFpQW61eAyHbLqsjqpe
-	Gbtp2DzMz2ssPGet+SRdvpvZAqRl44IyPjjuNU0hle6VHDcpTQgvG38JDFk02KAvVCP5KHPiQR81+
-	FU4J9vkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=J2+GEmKa2OmE1NjrVANYz5XX9YGwV6aNe/Kh6e6q34E=; b=BYHYthdESQGecb
+	1iDdWRii5ohfiRM7BLEFWP7dEN3f2YRYVt/57KTVLdzo9NR7jj3bViH7hsoCMQpaBHb7lP9Y9fjEz
+	7201RSbvnXJZrC8BtajmTHcSfeLw0NSNvh91Uu9mAE+TjPPJQDKcpu3IUE29F+Qz8qUBucdw7iAJF
+	mhdGuOEul86nICTPysiiRFM2P7syQs37565LIhPUY2+Oap+9sA6JTBKN76LTT2bQcZTOL12jmN1r+
+	0iKwnY9QNmQgHk8i3JqbpxrRE/ESLIC3o/2MaH535QZ5PCuRDbSStPihYkXQFAv9LC/I+Nz1+P9tH
+	uzyQuoLZKrH08jpxGaFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urISE-0000000G2f0-3Qgt;
-	Wed, 27 Aug 2025 15:52:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1urISL-0000000G2ld-3TBI;
+	Wed, 27 Aug 2025 15:53:01 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urFjb-0000000FUZt-1XAb
+	id 1urFkl-0000000FVDD-2KiA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 12:58:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 07A2943847;
-	Wed, 27 Aug 2025 12:58:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CDB8C4CEEB;
-	Wed, 27 Aug 2025 12:58:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756299518;
-	bh=5aNA4WNVqmvubIU0HkdqgATcqIRcv19aYOgpzwLUezM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=iYzgc7TzSMHIIAfWTOZ3hkvCC9eRsFQyXxtv+YtjoorVv+q1XZf/ILrCo/J94WvcW
-	 vlWJ2EKdo1G8TmbX+VAFXBa6L/KpfCnPKYJPGdhjXf6Xt0wsqe+AuL8bIxxbyq+PZ+
-	 kjwKUHnowGBSA3ArdI01L9IhD/g1UVmQf9yc7QooVyYKwjpjc82sGWHnvGTH3mr5U4
-	 rG7Ejj0g4b0nzbr/n+egPZM8LTQd/p44ozaPDv+e1YgqgXaMhAy+3BhU8AgztRLYin
-	 cE9f5zlKq3D+yS4/7abQIGJIjTPbknmqit3AnC8vfzUxCxuHbldQU0gCEys9D2+O6K
-	 zS/1fnsOyUFMA==
-Message-ID: <e01271e4-392b-4ab2-9608-a8e6ebecee91@kernel.org>
-Date: Wed, 27 Aug 2025 14:58:33 +0200
+	Wed, 27 Aug 2025 12:59:52 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-45b4d892175so34511345e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 05:59:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1756299589; x=1756904389; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=J2+GEmKa2OmE1NjrVANYz5XX9YGwV6aNe/Kh6e6q34E=;
+        b=HdDqy1LguvIsJRFSX/yZXBw/cHPlo/x2+HDiqjheGoq8cxpUkBtFONWlexFvCY7Xhi
+         QuR8HcipCHtZZtLztdFcIyh1Q/pFWHCrzFQ8A38kThlUyTOmpY9U08mVxkl0NkzDpCTr
+         32/SGfB76mFiGLVP76hspMFwmxUoa2yG26byDrtio0pexatEglyhBawsYNUkVeI+ujVG
+         +8TP/j6o5gYiaZzXbH/yrNlo8YKaHdvXjQ1A9ZEvcxWCaglxRXR/jJsxRakR66S8sDlB
+         y5fv6H6p01evz+JkSpY2ABlYAmn+BM7ArHa5rjifvCGMYoRtKiLy0iVfbZ7zwjRv6c4i
+         tBIg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756299589; x=1756904389;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=J2+GEmKa2OmE1NjrVANYz5XX9YGwV6aNe/Kh6e6q34E=;
+        b=PBdr8v4Wzbg7L/hS2wAK2Fn+UEGphuTK8+te5DLTPqCdDmGGc4Cdus61/v2+gdEARh
+         jASSNxHMAKYdZwxXupNqnnU8KGOCax+JfoRGzz0g/QSWdETEugo6OjnPb2e37ABTE14Q
+         wjMJb38g8mfHmwJNbsd10yHqU97MoEEhL8cjT7hMRE2fS/5uLsxgSm/NafS64OuEhmQw
+         MWyrinKBPCS6MkJlMsiAkFU6x7aXrPtKxEiBt8lj61Po1RVuxmbFeh4MgRAw5lEJlJpY
+         lIKdUZ0sQxQvDerkaTAy9jM4TWjfNeXOW3N4lUsT6mmT1IPx+RjO8tweKPmg1LU4CaRS
+         xOtQ==
+X-Gm-Message-State: AOJu0YxrfEDh/kculMJBX0Hfv7El8kl57EyxiJQEd5CvnN0gIz+mgrTx
+	7mgLkSW62Iiy/QPgYiGv5E9HK1guyIPFCRuhyRbMubsQ9aUyTUBaDAA5OAMD5nIrRdM=
+X-Gm-Gg: ASbGncsymQqixJzYkJO5RjYjtzDpX0CbVfn8Wb2PXWG3afbvnbkMw77u+27wK5OddgX
+	7Fs6l3OxP3lxZkS179e2gU6/jpUvy3dvI2VMK0DMbzsm+Jhadw6cdl6/XR5Yrzt66dgriFX+LGA
+	ffx/jXXRDZ2Rr/5rY5LDy3c5S6xzuCxM1l8Knt5B6mS+BTGqzqcRQDVcuiNNfYmkl071puIC3RG
+	CkcJHN1QTOG6ob8PcGcg/5tqb/gNNV1x1aUgFHjyGow9WQJyiE1Sl9EantROJiltrrlf7lqzJsP
+	G2AWsXlXTYu1NG1/bz67Dciv2UjjfgOeXBgo4k5ukITYsazgnzQQzKXvIsZ+rfTIWIb11K2UjAg
+	aJjZWfZWUahhmdDTzVGhS/MKKKjNEM6KITYpGJDGNCCmXAyoXW7Lq43eBvUmIFe/hy7bk1tHtx4
+	zoJA==
+X-Google-Smtp-Source: AGHT+IFYbOQDkswd8yZg7ePHjCvgvWKEUD2miqxIlRTjqnawegRIfM+9sdtjHuSQ/AW/K7wL9nEJSQ==
+X-Received: by 2002:a05:6000:43cc:20b0:3c6:aa87:d959 with SMTP id ffacd0b85a97d-3c6aa87dab1mr11788600f8f.26.1756299589300;
+        Wed, 27 Aug 2025 05:59:49 -0700 (PDT)
+Received: from ta2.c.googlers.com (219.43.233.35.bc.googleusercontent.com. [35.233.43.219])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3cc890b178bsm3272069f8f.52.2025.08.27.05.59.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 Aug 2025 05:59:48 -0700 (PDT)
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+Subject: [PATCH v2 0/3] arm64: dts: exynos: gs101: add cpufreq support
+Date: Wed, 27 Aug 2025 12:59:45 +0000
+Message-Id: <20250827-acpm-dvfs-dt-v2-0-e1d2890d12b4@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/5] media: dt-bindings: nxp,imx8-isi: Add i.MX91 ISI
- compatible string
-To: Guoniu Zhou <guoniu.zhou@nxp.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Alice Yuan <alice.yuan@nxp.com>
-References: <20250827-isi_imx93-v1-0-83e6b4b50c4d@nxp.com>
- <20250827-isi_imx93-v1-1-83e6b4b50c4d@nxp.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250827-isi_imx93-v1-1-83e6b4b50c4d@nxp.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAEEBr2gC/3XMQQ6CMBCF4auQWTumxaItK+9hWEBbYBJtyZQ0G
+ sLdrexd/i953wbJM/kEbbUB+0yJYihRnyqwcx8mj+RKQy3qRmhpsLfLC10eE7oVxXWwN6MGZ62
+ DclnYj/Q+uEdXeqa0Rv4cepa/9Q+UJQpU/qIH0yihrbo/KfQcz5En6PZ9/wLSjGgKqQAAAA==
+X-Change-ID: 20250819-acpm-dvfs-dt-06bc794bdccd
+To: Peter Griffin <peter.griffin@linaro.org>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ willmcvicker@google.com, kernel-team@android.com, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1756299588; l=1160;
+ i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
+ bh=oYO2aZrhN1EN+TKF1UnZ/sK5wtemMH9P5gox8Ik8xhE=;
+ b=vFZY7juelyD4nVnYQ7mi3pFO0bqjlNOteUib11Jccm9ahWUZSQbBny11zaRftz6LXZp8Erea+
+ mOSitc7kKe9B+IHnTcctE0okkkdCgc7IFUPuhRPIxgN0UeqElkV7R2t
+X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
+ pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_055839_450900_572CB7BA 
-X-CRM114-Status: UNSURE (   7.08  )
+X-CRM114-CacheID: sfid-20250827_055951_608966_A7A76AFE 
+X-CRM114-Status: UNSURE (   9.12  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -127,18 +114,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/08/2025 11:53, Guoniu Zhou wrote:
-> From: Alice Yuan <alice.yuan@nxp.com>
-> 
-> The ISI module on i.MX91 is reused from i.MX93 and implements one channel
-> and one camera input which only can be connected to parallel camera input.
-> So needn't to select camera source like i.MX93 in gasket ops.
-> 
-> Signed-off-by: Alice Yuan <alice.yuan@nxp.com>
-> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+Define the CPU clocks and OPPs.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+The patch set depends on the bindings sent at:
+https://lore.kernel.org/linux-samsung-soc/20250827-acpm-clk-v2-1-de5c86b49b64@linaro.org/T/#u
+
+The following error will be seen without the bindings patch:
+arch/arm64/boot/dts/exynos/google/gs101.dtsi:75.24-25 syntax error
+FATAL ERROR: Unable to parse input tree
+
+Thanks,
+ta
+
+Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+---
+Changes in v2:
+- acpm node becomes a clock provider.
+- reword commit message, extend cover letter with info about dependency
+  on a bindings patch.
+- Link to v1: https://lore.kernel.org/r/20250819-acpm-dvfs-dt-v1-0-4e38b95408c4@linaro.org
+
+---
+Tudor Ambarus (3):
+      arm64: dts: exynos: gs101: add #clock-cells to the ACPM protocol node
+      arm64: dts: exynos: gs101: add CPU clocks
+      arm64: dts: exynos: gs101: add OPPs
+
+ arch/arm64/boot/dts/exynos/google/gs101.dtsi | 284 +++++++++++++++++++++++++++
+ 1 file changed, 284 insertions(+)
+---
+base-commit: c17b750b3ad9f45f2b6f7e6f7f4679844244f0b9
+change-id: 20250819-acpm-dvfs-dt-06bc794bdccd
 
 Best regards,
-Krzysztof
+-- 
+Tudor Ambarus <tudor.ambarus@linaro.org>
+
 
