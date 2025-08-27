@@ -4,114 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A939CA0FFB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 15:51:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03F86CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 15:51:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yonvyw6arwx9K/j0aRnK/gLYsQrk0m8h8Fj24bZWVVo=; b=Q5pTxy4MBNK6dpNRiTNTHbXCi/
-	ZD2b2k5PgCVK+uZ5zGNkV5DNaS1KHFyK0emJ2AMJzsm6826PZXbd2bJMPKiAxqankfoo9cYCZctDT
-	145TYxEFjrqQdA6FeokJZjjxTX5QMe7nSUXEcAd1SMUVMSfnnWoK6fT08JJMDN+4dQRr6Q9FKRko4
-	b+4KbZ49IOtXWRMG5fcHB78tg6HBiuqwq3X11GPnE1IH5qPVFvGdGsclxKWRXYywQBZsG38LHtGIG
-	cTnwAXQaAuiiFMLt5ov33wlITe0IsAhvr8X68QR2175Z5CJlPfS8bEjSsN305LVecKqueRQhcCbBb
-	hnbQHCEQ==;
+	bh=isKWibVXBVycwFd7et1plNZH4fEqTmzHgURf/OQqBDA=; b=0H/q/6W5qJsZ7W5zr202eBd6Fd
+	OC3WhuvNeaaWFc6BWOquHEMqVPB/VFjs0aazKOT8DtRbLG2MKUDtTs/T3uHAvSa8v44CnRhfR7z/v
+	G69fvBcRHvl8hwFdjaDFE/M8SsPnt8LGBOvhyZrmMq3Yxik3gOyr2lgNCxqVztNEoM4YaqR2omAT2
+	SYY95JLKI2KloRiCkRPMYAPJFJ6gtcf/G0BaRtYDSbyKM6JfAHxrQ4tluoWemVFJy+qaJGUgz7KMl
+	bz08IBoAgD7iH8NVQZL1btKQU6pB9JSr8DQBcSbFtKKHPBnVuWcSfIhj1PXNNn8w3nv4Ut9LeZPJV
+	iTI7p+4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urIQi-0000000G10g-3VCo;
-	Wed, 27 Aug 2025 15:51:21 +0000
-Received: from fout-b7-smtp.messagingengine.com ([202.12.124.150])
+	id 1urIQw-0000000G1EJ-1fni;
+	Wed, 27 Aug 2025 15:51:34 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urFDa-0000000FPxD-3yiq;
-	Wed, 27 Aug 2025 12:25:36 +0000
-Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
-	by mailfout.stl.internal (Postfix) with ESMTP id 1E8F31D001C1;
-	Wed, 27 Aug 2025 08:25:30 -0400 (EDT)
-Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-03.internal (MEProxy); Wed, 27 Aug 2025 08:25:30 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm2; t=1756297529; x=1756383929; bh=Yonvyw6arw
-	x9K/j0aRnK/gLYsQrk0m8h8Fj24bZWVVo=; b=fhO9QFKWc4uMzrvn11qgmZ9pQ5
-	t+v/nSm9aTWz8JSA2QMoXs6HlOwgfJ/H42DS1nDk+3NosbHqCT4z9Y6V8JTuV1J2
-	OGzmQJi56NtNBMeJ7MWHg2M/Np1Vzza2N+Pfv85oUgrFfnELvGAWp8sz61lN0518
-	XUKVyJcZe6PjcYjF2isYM11kSWqK8u6ygfEXO6ehdnHkxAO9tTMgqmQUP43cQatX
-	Wq9q3MVergWjDFkDaj2TbePjnlK/1WZmK7PENaQFVJ3+wnvVSyfvIm1rDp0wHuM/
-	s9wMKYppkiuHJBXQ92DTO0o6SZ9U6A8LT0V8+20iQ3foEkQFZ+NH0uApoSUQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
-	1756297529; x=1756383929; bh=Yonvyw6arwx9K/j0aRnK/gLYsQrk0m8h8Fj
-	24bZWVVo=; b=I/r1W69D/Ua2bm5BXK2wBOajLrzMomNKdk8LBzp8EO49mcvjLCw
-	s182ej2tJ8QcSWmGYUtMEzThRDwe0+tCYLCUvWdAxwaqe55JOg0hYvhsnv6SfBg6
-	OExTKM7VwVL7Df7X1EIwIBamnUu5fATbP2XZHvLTra6IRx6qSU6qd4LtEB3ZR5rF
-	ixMb4Uyzby4voDlGtFBdxDsIJBPHKOSlt+U+oRDZ9y52VYYMhZhTatFXTB0GGfjs
-	UWoP9XaabWAb+nJr0uUsdb3mls7gT7S8bfbiBkV16UWdN+xbnkLAJAkJOTTJN9EQ
-	8hCjx1dq4Dx9i4D/ksR2ZP+YUh3JsyySpoQ==
-X-ME-Sender: <xms:OPmuaCJ6XwkoODGu_w3yn-wMk6IszXtLN1WGKJ8PAk-bWWUCHeGNoA>
-    <xme:OPmuaLflAXWGINpS3XvOwaH7Gexj3422hbdyShh9F0zp8v1VTkNx90LzRG2t-tATt
-    -w3756kC4_Fd5eM-n4>
-X-ME-Received: <xmr:OPmuaFKAD8tGP81yPe2nBq6lMF0ydRlb0Tm1Kp79wc7napXJ3V2GkIEU8NVYyjPnKxpFXMYfPpiEZJP1oT8eCbbTz51h0hLFVAU>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddujeekudehucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepfffhvfevuffkfhggtggujgesthdtredttddtjeenucfhrhhomheplfgrnhhnvgcu
-    ifhruhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenucggtffrrghtthgvrhhnpefgvd
-    ffveelgedujeeffeehheekheelheefgfejffeftedugeethfeuudefheefteenucevlhhu
-    shhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehjsehjrghnnhgruh
-    drnhgvthdpnhgspghrtghpthhtohepvdefpdhmohguvgepshhmthhpohhuthdprhgtphht
-    thhopehkrhiikheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhvvghnsehkvghrnh
-    gvlhdrohhrghdprhgtphhtthhopehtohifihhntghhvghnmhhisehgmhgrihhlrdgtohhm
-    pdhrtghpthhtoheprghlhihsshgrsehrohhsvghniiifvghighdrihhopdhrtghpthhtoh
-    epnhgvrghlsehgohhmphgrrdguvghvpdhrtghpthhtohepjhgrshhsihhsihhnghhhsghr
-    rghrsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrgh
-    dprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegt
-    ohhnohhrodgutheskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:OPmuaNCOOBPZgV55nrQZK9IFTHxW0mIUN89N-HCnFUtdif5869khFA>
-    <xmx:OPmuaGi__3hZHC3DXxgOf5RShzzmzFqlH-f30MMh9ef1fYIj2NNsiw>
-    <xmx:OPmuaPNBhL3_-PK_M3Q2JR0PkUrBaLaEDGJGgUrgmAOIGMIa1heY6A>
-    <xmx:OPmuaFZ43QmRQmAC2d5W9hQdpVeoDBFhFwoVqpaWkjN4GVSmgTCTJA>
-    <xmx:OfmuaCZfFzYt2huFIkk5sW9q3xEFfN6W3-dEaSfzmdnPr45f3ZX2RxxE>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 27 Aug 2025 08:25:27 -0400 (EDT)
-Date: Wed, 27 Aug 2025 14:25:25 +0200
-From: Janne Grunau <j@jannau.net>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Sven Peter <sven@kernel.org>, Nick Chan <towinchenmi@gmail.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Neal Gompa <neal@gompa.dev>, Jassi Brar <jassisinghbrar@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Hector Martin <marcan@marcan.st>, Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>,
-	Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	iommu@lists.linux.dev, linux-nvme@lists.infradead.org
-Subject: Re: [PATCH v2 6/9] dt-bindings: nvme: apple,nvme-ans: Add Apple A11
-Message-ID: <20250827122525.GA204299@robin.jannau.net>
-References: <20250818-t8015-nvme-v2-0-65648cd189e0@gmail.com>
- <20250818-t8015-nvme-v2-6-65648cd189e0@gmail.com>
- <20250819-polite-papaya-catfish-1a9d1a@kuoka>
- <8ac418ae-7ff0-4d5c-9f11-c24e36618ac1@kernel.org>
- <b3cd1b3f-fa0e-4a98-84c7-e4271f262795@kernel.org>
- <8279536d-c4f4-477a-9823-3e7b452c3c33@kernel.org>
- <12ab93b7-1fc2-4ce0-926e-c8141cfe81bf@kernel.org>
+	id 1urFP2-0000000FRW2-40bW
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 27 Aug 2025 12:37:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=isKWibVXBVycwFd7et1plNZH4fEqTmzHgURf/OQqBDA=; b=VcffjXPw/PgTwsJcBxPKr8x0LS
+	NH45jESGr/WF2lfebtS7qCLpXzLVlklMtyUMwkREO7QafooG/b+hsQM7MgiPiUSsBPM//htmY+uZG
+	e1Jj3nkF2Ba09x325c05fpfre772d0m1b8s5CY5NIun5+u21ibGFPEHKtd3sNcO3KLlY=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1urFOs-006D0t-7x; Wed, 27 Aug 2025 14:37:14 +0200
+Date: Wed, 27 Aug 2025 14:37:14 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: weishangjuan@eswincomputing.com
+Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, yong.liang.choong@linux.intel.com,
+	vladimir.oltean@nxp.com, rmk+kernel@armlinux.org.uk,
+	faizal.abdul.rahim@linux.intel.com,
+	prabhakar.mahadev-lad.rj@bp.renesas.com, inochiama@gmail.com,
+	jan.petrous@oss.nxp.com, jszhang@kernel.org, p.zabel@pengutronix.de,
+	boon.khai.ng@altera.com, 0x1207@gmail.com, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com, ningyu@eswincomputing.com,
+	linmin@eswincomputing.com, lizhi2@eswincomputing.com
+Subject: Re: [PATCH v4 2/2] ethernet: eswin: Add eic7700 ethernet driver
+Message-ID: <7a39a658-0a83-4998-ae43-344025996c7b@lunn.ch>
+References: <20250827081135.2243-1-weishangjuan@eswincomputing.com>
+ <20250827081418.2347-1-weishangjuan@eswincomputing.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <12ab93b7-1fc2-4ce0-926e-c8141cfe81bf@kernel.org>
+In-Reply-To: <20250827081418.2347-1-weishangjuan@eswincomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_052535_335783_F25BC9B5 
-X-CRM114-Status: GOOD (  28.30  )
+X-CRM114-CacheID: sfid-20250827_053724_998768_69759B70 
+X-CRM114-Status: GOOD (  11.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,59 +79,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 21, 2025 at 03:09:42PM +0200, Krzysztof Kozlowski wrote:
-> On 21/08/2025 12:25, Sven Peter wrote:
-> > 
-> > 1) For situations like this one where the generic one just doesn't make 
-> > any sense we deprecate "apple,nvme-ans2" in the binding and use
-> > "apple,t8103-nvme-ans2" as the fallback instead, i.e. just
-> > "apple,t8103-nvme-ans2" for M1, "apple,t6000-nvme-ans2", 
-> > "apple,t8103-nvme-ans2" for M1 Pro, and just "apple,t8015-nvme-ans2" for 
-> > A11.
-> > 
-> > We keep the generic one in the driver for now but also add
-> > "apple,t8103-nvme-ans2". We then remove the generic one from all 
-> > upstream DTS files but keep it inside the downstream files we ship to 
-> > users for now to avoid pain with kernel upgrades/downgrades.
-> > A year or two from now we can then delete the deprecated generic 
-> > compatibles everywhere. This all has to be synced with OpenBSD and 
-> > u-boot as well since both also use these bindings.
-> > It's gonna be rather painful but this would clean up the entire mess.
-> > 
-> > 
-> > 2) We keep using the ones that are already upstream and just accept that 
-> > the situation is a mess and add comment above all the bindings that we 
-> > messed up and that this should not be used as pattern.
-> > In this case that means it'll just be "apple,t8015-nvme-ans2" for A11 
-> > without any fallback and we keep everything else the way it is.
-> > 
-> > I prefer option (2) but if you really want to get rid of all this mess 
-> 
-> 
-> I also prefer option (2). That's the least disruptive option for users
-> and inconsistency in bindings naming is just inconsistency, no big deal.
-> You just need to remember not to grow the old items/pattern with generic
-> compatible.
+> +/**
+> + * eic7700_apply_delay - Update TX or RX delay bits in delay parameter value.
+> + * @delay_ps: Delay in picoseconds (capped at 12.7ns).
+> + * @reg:      Pointer to register value to modify.
+> + * @is_rx:    True for RX delay (bits 30:24), false for TX delay (bits 14:8).
+> + *
+> + * Converts delay to 0.1ns units, caps at 0x7F, and sets appropriate bits.
+> + * Only RX or TX bits are updated; other bits remain unchanged.
+> + */
+> +static inline void eic7700_apply_delay(u32 delay_ps, u32 *reg, bool is_rx)
+> +{
+> +	if (!reg)
+> +		return;
+> +
 
-This sounds to me like a mix of option 1) and 2).
+Please don't use inline functions in .c files. Leave the compile to
+decide.
 
-All devices / SoCs already upstream will use the fixed current
-compatibles and thus are following option 2)
 
-New SoCs will have to use
-    compatible = "apple,t6020-nvme-ans2", "apple,t8103-nvme-ans2";
-using t6020 as example even though they will be using the same driver
-code as "apple,nvme-ans2". Using t6020 as an example I planned to submit
-today.
-This will require adding the new fallback "apple,t8103-nvme-ans2"
-compatible string to the driver.
+> +	/* Read rx-internal-delay-ps and update rx_clk delay */
+> +	if (!of_property_read_u32(pdev->dev.of_node,
+> +				  "rx-internal-delay-ps",
+> +				  &dwc_priv->rx_delay_ps)) {
+> +		eic7700_apply_delay(dwc_priv->rx_delay_ps,
+> +				    &eth_dly_param, true);
+> +	} else {
+> +		dev_warn(&pdev->dev, "can't get rx-internal-delay-ps\n");
+> +	}
+> +
+> +	/* Read tx-internal-delay-ps and update tx_clk delay */
+> +	if (!of_property_read_u32(pdev->dev.of_node,
+> +				  "tx-internal-delay-ps",
+> +				  &dwc_priv->tx_delay_ps)) {
+> +		eic7700_apply_delay(dwc_priv->tx_delay_ps,
+> +				    &eth_dly_param, false);
 
-Asking for clarification as I could image such driver changes will raise
-questions from the driver maintainers.
+Given this code, why does eic7700_apply_delay() test for reg?  Don't
+use defensive code, read your own code and make sure it cannot happen.
 
-Is there a way do document/annotate the generic compatibles as
-deprecated / "do not use" for new devices?
+    Andrew
 
-Thanks
-Janne
+---
+pw-bot: cr
 
