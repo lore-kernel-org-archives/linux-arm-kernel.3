@@ -4,62 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF406CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 15:52:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD4AACA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 15:52:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wESyu8uyu3+0onLgBAhRYvU4x04RBrGjXbPntuC9v1o=; b=MkYWeyqeVQ3DCJDSVAAyGyIkSv
-	+bSabnzL25GP5+LopgkHZixdndouPuCh9duNdL7jb8VhaKfWXTxAWsMyulJnOaFAXlvz4D/vCYW7x
-	BjPrPaN3kdQXgih/2+mNV9zQHmOwAusEmkXxmWYOWr/P9AKi+kUfEcqGA8I7XC8klKZUQ3bFQBFng
-	gEheDMsx/5+ki6zIRVYBPXqb4CjbzaZfpeovrb56CEHdDo21LVyR5DB3W/PjZbf8mj2riKZWRQi1r
-	N3zY6zB499SSFHQfifeGKDoYrqG8ml4eudmKgl0mcAzb0Ec0w1BHNUtr5RtXycgGD4YKkVu8DlX1A
-	PRFtOkbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=qCX9OHIqw+xdYsktQQqiE2IMYgIse2ihYLYopEmEHJc=; b=1dftm7s+T3EnUu
+	MWwyW1w9e+vR95CY5G/IfAGnjyczVDbmV47hQ7ETW2jBnJRGjXqKpQuuMTluo2OXhaHWm/6jXWlA9
+	/AwVUsMC41u6KpY719MjM1IChvtToawlNVHTLrnghnSzfjSAbY5t4ks8AYxweNC26AklHo27FosnZ
+	G2zxzFPPMGCGcTjU7BY3aotapj6iNQk1DcyrYPeDgXvsbbKLekEvPGZPGJrEGmEUC4bXktpthoRUk
+	kGNaa8g8ue2e1WOKFb0w8VWxaiKlzIduPXeUjf3YggKvlSTOe5rM4IlDqtv82IsI4Az92VoPRTNTv
+	nV9yf0yPY49azsIZYfKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urIRI-0000000G1dY-204Y;
-	Wed, 27 Aug 2025 15:51:56 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1urIRN-0000000G1iC-3iox;
+	Wed, 27 Aug 2025 15:52:01 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urFSJ-0000000FS0q-0oWm;
-	Wed, 27 Aug 2025 12:40:48 +0000
-Received: from pendragon.ideasonboard.com (unknown [213.244.170.152])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 58F0D2093;
-	Wed, 27 Aug 2025 14:39:35 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1756298375;
-	bh=Oj9INxjIP6sQuRtRZC1XEXWjUDxgq7X4x6/xPaQ16Us=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=neYI6t/LDCSI6Okctg7uyem8zY2jgCfp4upaDeyVGnQp2R7L566zYTjeGqfBKPHxe
-	 po/PaSSgr+A3CNPoSJ6hITWUoUPLVG39eEBdNRSjP9VQTNDgVB089FLlJBaYQQXrFR
-	 SytrLKgNDAkQV9FHQwNEQHxPJeJlpF9UFVUeqU3c=
-Date: Wed, 27 Aug 2025 14:40:16 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Jai Luthra <jai.luthra@ideasonboard.com>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kernel-list@raspberrypi.com,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Umang Jain <uajain@igalia.com>
-Subject: Re: [PATCH 1/5] include: linux: Destage VCHIQ interface headers
-Message-ID: <20250827124016.GF5650@pendragon.ideasonboard.com>
-References: <20250827-vchiq-destage-v1-0-5052a0d81c42@ideasonboard.com>
- <20250827-vchiq-destage-v1-1-5052a0d81c42@ideasonboard.com>
+	id 1urFTm-0000000FSHr-0S7X
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 27 Aug 2025 12:42:19 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-45a1b066b5eso36622695e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 05:42:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1756298536; x=1756903336; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=qCX9OHIqw+xdYsktQQqiE2IMYgIse2ihYLYopEmEHJc=;
+        b=i4w4qfLEVCs5mZcAEkOCwoj/WxVmMjPCNDbw2N+T3Rzpg31zB6GyrrTS/4IXEvl50e
+         Fy7YFnDg84PntXxEiA0QW3wE/iYMISkivOFV2bCRzIV5EfGe/xuKQPD5ZwqS8YkAMLZr
+         aXY3CoVLnvaFlexJPw8cWOzdEh7DNvGrlI9Hfs1PEbpmqPQo/5boaW9rdY98bFbiediS
+         nYjijOxIViZ4VeoWCvE8iJQzT3cuUNGMMw4X9K8mxkUS7CWSWPV+KNkVJi4FtPpJjwCe
+         N7728D1GD8NMha2vMucIRnQIuGGzfb71rmKE0W0ygJTvU2B37Ogh81wuuAx//ZMn6xSU
+         /JMQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756298536; x=1756903336;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=qCX9OHIqw+xdYsktQQqiE2IMYgIse2ihYLYopEmEHJc=;
+        b=tPpQUlNhfXOJoW5daVsMPBjRrqRWP4fQQhODfGtnXb12+JFl+qNUOPA7YY0s3dAAtG
+         WzOEeiNH9guLca1mlbm50E2ljilmvcMQzHVzor/k8MyztYr6Qc4Crut40K+tAOuSwAov
+         pyNDuzCgJiK7xwCCUjIClY0ukyla+Hi2+RFgj6Pda3ZyPkGNhQ6RI63kg6TzcnKfBCUz
+         z7fdJJDxLGmvpOtW+j6vb4yrYgbmrZzWb8+VgdxRgI1fsqIEZLyD40+Mhbc3i7e927oe
+         lsSuQrDN6vF7mXLUVB9HyMcMYHPWq8+oLWUiZyYz8DUBDWz+LHQRFwFsbZYudM4bx8VT
+         cq5Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVHvgOLrafQ3rUrbYXEeK5UCmxdt2d01XYUHYhSIK21aZosDhLJojwWcdx3zoo+TKpNiQ4XUfV5rdLDxm+pGl2q@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy83EKVFRF4Ch+Y59l+R1YCvcR7OnRpAsHoFQIsxfLZhhvGqoe9
+	4yPm/yqmxMfFngD3FcAs1Veqcpf6HnBDKO1EiPhJQWfedgGg1Mqu4uwwTQhwxlEyKZI=
+X-Gm-Gg: ASbGncuVHVeHwroTNfE4nEKxpR79DuDtqMHzsx3FF0Tr764KfU6D9HFfKb3kN8knmM5
+	9+CZF0laE/3Z1V4jG2WiNB8WKKN5UmStharRaLr9lv8+1JygELvWbmDQ1HlPORAH6ESi8edfuYN
+	Rl8aKBdxAehkkbOU8yzYGlB7pzcntWmS4PFNEx2uWCQWt4DrJmgEXyjSP4YmNFCzyQTTnctyjph
+	tC6qt5dwkuXBPgcps3VBLIZ1QQsebU6Nwm8UtaY6czszIH3dwJC8em1DBYXWa6C2CkIOb66tw8A
+	bcfqTnTQrXajsoCqxUGySoTcWADroaKhYOu4Js5N5Stmih4Jnmqy926Am3PsL6UengWBZYVeW5P
+	FXx1EmvbkBtvuBbCYpXWG7JCg/F4pzfi1PSUSLEjjE8ciazn8T7jdDbbBoB5BNgjoBE0l0POJjZ
+	8z4A==
+X-Google-Smtp-Source: AGHT+IHt37j6LI8uNP0iBAJah2pqyimZMIMU1zgKSqocNIoMlPlz3HIKdSdVZSOFodLiybkW1k8Tbw==
+X-Received: by 2002:a5d:5885:0:b0:3ca:43ce:8a72 with SMTP id ffacd0b85a97d-3ca43ce8f6amr6069633f8f.1.1756298535966;
+        Wed, 27 Aug 2025 05:42:15 -0700 (PDT)
+Received: from ta2.c.googlers.com (219.43.233.35.bc.googleusercontent.com. [35.233.43.219])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3cbab3ead0dsm6439420f8f.29.2025.08.27.05.42.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 Aug 2025 05:42:15 -0700 (PDT)
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+Subject: [PATCH v2 0/5] exynos-acpm: add DVFS protocol and clock driver
+Date: Wed, 27 Aug 2025 12:42:10 +0000
+Message-Id: <20250827-acpm-clk-v2-0-de5c86b49b64@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250827-vchiq-destage-v1-1-5052a0d81c42@ideasonboard.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACL9rmgC/23MQQ7CIBCF4as0sxYDWAt15T1MFxTGdmKFBgzRN
+ Nxd7Nrl//LybZAwEia4NBtEzJQo+Bry0ICdjZ+QkasNkssz16Jnxq5PZpcHk9pJozTyE1dQ72v
+ EO7136jbUnim9Qvzscha/9Q+SBeOsG0fXq1a1nRLXhbyJ4RjiBEMp5Qs65JL7oQAAAA==
+X-Change-ID: 20250819-acpm-clk-28d2a78e0307
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1756298535; l=2851;
+ i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
+ bh=IapQAGw++5352d3xzeDl5P6o6TxheEyCzjaqOyMO4SQ=;
+ b=O9xpUqQDN1LzCYV4GZ9rTx2Jek/bWnSZPIckwh8LaFDZ+hx8nuCwS2i9XjAkNMvh7TBz2VJGu
+ 4heJcreMWsKDOjMvCIPXZyNGqcFmMnKD8stlhDXXNdELEPn0qjS+XyD
+X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
+ pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_054047_515269_0D4E23BC 
-X-CRM114-Status: GOOD (  22.95  )
+X-CRM114-CacheID: sfid-20250827_054218_173062_0C0932FA 
+X-CRM114-Status: GOOD (  17.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,298 +119,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jai,
+The Alive CLock and Power Manager (ACPM) firmware exposes clocks that
+are variable and index based. These clocks don't provide an entire range
+of values between the limits but only discrete points within the range.
+The firmware also manages the voltage scaling appropriately with the
+clock scaling. Make the ACPM node a clock provider.
 
-Thank you for the patch.
+Add support for the ACPM DVFS protocol. It translates clock frequency
+requests to messages that can be interpreted by the ACPM firmware.
+Add an ACPM clock driver to model the clocks exposed by the ACPM firmware.
 
-On Wed, Aug 27, 2025 at 11:54:08AM +0530, Jai Luthra wrote:
-> From: Umang Jain <umang.jain@ideasonboard.com>
-> 
-> Move the VCHIQ headers from drivers/staging/vc04_services/include to
-> include/linux/vchiq
-> 
-> This is done so that they can be shared between the VCHIQ interface
-> (which is going to be de-staged in a subsequent commit from staging)
-> and the VCHIQ drivers left in the staging/vc04_services (namely
-> bcm2835-audio, bcm2835-camera).
-> 
-> The include/linux/vchiq/ provides a central location to serve both
-> of these areas.
+All patches can go through the samsung tree.
 
-Lots of SoC-specific headers are stored in include/linux/soc/$vendor/.
-This would be include/linux/soc/bcm/vchiq/ in this case. I'm also fine
-with include/linux/vchiq/ but other people may have a preference.
+Thanks,
+ta
 
-> Signed-off-by: Umang Jain <umang.jain@ideasonboard.com>
-> Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
-> ---
->  MAINTAINERS                                                      | 1 +
->  drivers/staging/vc04_services/bcm2835-audio/bcm2835-vchiq.c      | 5 +++--
->  drivers/staging/vc04_services/bcm2835-audio/bcm2835.c            | 3 ++-
->  drivers/staging/vc04_services/bcm2835-audio/bcm2835.h            | 3 +--
->  drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c    | 3 ++-
->  drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c    | 9 +++++----
->  drivers/staging/vc04_services/interface/vchiq_arm/vchiq_bus.c    | 4 ++--
->  drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c   | 4 ++--
->  .../staging/vc04_services/interface/vchiq_arm/vchiq_debugfs.c    | 6 +++---
->  drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c    | 7 ++++---
->  drivers/staging/vc04_services/interface/vchiq_arm/vchiq_ioctl.h  | 3 +--
->  drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c            | 5 +++--
->  .../include/linux/raspberrypi => include/linux/vchiq}/vchiq.h    | 0
->  .../interface/vchiq_arm => include/linux/vchiq}/vchiq_arm.h      | 0
->  .../interface/vchiq_arm => include/linux/vchiq}/vchiq_bus.h      | 0
->  .../interface/vchiq_arm => include/linux/vchiq}/vchiq_cfg.h      | 0
->  .../interface/vchiq_arm => include/linux/vchiq}/vchiq_core.h     | 2 +-
->  .../interface/vchiq_arm => include/linux/vchiq}/vchiq_debugfs.h  | 0
->  18 files changed, 30 insertions(+), 25 deletions(-)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index fe168477caa45799dfe07de2f54de6d6a1ce0615..f17ebb1fa51bd7e4dcb2ae1b0fced6d41685dc84 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -4754,6 +4754,7 @@ T:	git https://github.com/broadcom/stblinux.git
->  F:	Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
->  F:	drivers/pci/controller/pcie-brcmstb.c
->  F:	drivers/staging/vc04_services
-> +F:	include/linux/vchiq
->  N:	bcm2711
->  N:	bcm2712
->  N:	bcm283*
-> diff --git a/drivers/staging/vc04_services/bcm2835-audio/bcm2835-vchiq.c b/drivers/staging/vc04_services/bcm2835-audio/bcm2835-vchiq.c
-> index 0dbe76ee557032d7861acfc002cc203ff2e6971d..c49f2f7409b84ed6ebdd71787566efb1bc230f55 100644
-> --- a/drivers/staging/vc04_services/bcm2835-audio/bcm2835-vchiq.c
-> +++ b/drivers/staging/vc04_services/bcm2835-audio/bcm2835-vchiq.c
-> @@ -4,11 +4,12 @@
->  #include <linux/slab.h>
->  #include <linux/module.h>
->  #include <linux/completion.h>
-> +
-> +#include <linux/vchiq/vchiq_arm.h>
+Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+---
+Changes in v2:
+- dt-bindings: clocks are not longer a child of ACPM protocol. Instead
+  make Alive Clock and Power Manager (ACPM) node a clock provider.
+  Update commit message.
+- firmware: exynos-acpm: register by hand the ACPM clocks dev (new
+  patch)
+- firmware: exynos-acpm: use defines intead of enum
+- acpm-clk:
+  - switch to determine_rate
+  - drop __init, __refdata, __initconst, this is a module, we need those
+    methods and data, after boot as well.
+  - fix the assumption that the clocks are defined by ID in ascending order.
+    There's still an assumption that the clk_id < nr_clks, but this is
+    now covered by a sanity check in the clock driver.
+- arm64: defconfig: enable Exynos ACPM clocks (add patch together with
+  this patch set) 
+- Link to v1: https://lore.kernel.org/r/20250819-acpm-clk-v1-0-6bbd97474671@linaro.org
 
-You can group this with the other headers above (ideally in alphabetical
-order when #include statements are already sorted). Same comment where
-applicable below.
+---
+Tudor Ambarus (5):
+      dt-bindings: firmware: google,gs101-acpm-ipc: add #clock-cells
+      firmware: exynos-acpm: add DVFS protocol
+      clk: samsung: add Exynos ACPM clock driver
+      firmware: exynos-acpm: register ACPM clocks dev
+      arm64: defconfig: enable Exynos ACPM clocks
 
-With that,
+ .../bindings/firmware/google,gs101-acpm-ipc.yaml   |  11 ++
+ arch/arm64/configs/defconfig                       |   1 +
+ drivers/clk/samsung/Kconfig                        |  10 ++
+ drivers/clk/samsung/Makefile                       |   1 +
+ drivers/clk/samsung/clk-acpm.c                     | 148 +++++++++++++++++++++
+ drivers/firmware/samsung/Makefile                  |   4 +-
+ drivers/firmware/samsung/exynos-acpm-dvfs.c        |  83 ++++++++++++
+ drivers/firmware/samsung/exynos-acpm-dvfs.h        |  21 +++
+ drivers/firmware/samsung/exynos-acpm.c             |  69 +++++++++-
+ include/dt-bindings/clock/google,gs101.h           |  15 +++
+ .../linux/firmware/samsung/exynos-acpm-protocol.h  |  10 ++
+ include/linux/platform_data/clk-acpm.h             |  24 ++++
+ 12 files changed, 395 insertions(+), 2 deletions(-)
+---
+base-commit: c17b750b3ad9f45f2b6f7e6f7f4679844244f0b9
+change-id: 20250819-acpm-clk-28d2a78e0307
 
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-
-> +
->  #include "bcm2835.h"
->  #include "vc_vchi_audioserv_defs.h"
->  
-> -#include "../interface/vchiq_arm/vchiq_arm.h"
-> -
->  struct bcm2835_audio_instance {
->  	struct device *dev;
->  	unsigned int service_handle;
-> diff --git a/drivers/staging/vc04_services/bcm2835-audio/bcm2835.c b/drivers/staging/vc04_services/bcm2835-audio/bcm2835.c
-> index b74cb104e9de00e7688a320949111a419cca084a..5011720940715c12a2d2fe58b40ed84dcb2e6824 100644
-> --- a/drivers/staging/vc04_services/bcm2835-audio/bcm2835.c
-> +++ b/drivers/staging/vc04_services/bcm2835-audio/bcm2835.c
-> @@ -6,7 +6,8 @@
->  #include <linux/slab.h>
->  #include <linux/module.h>
->  
-> -#include "../interface/vchiq_arm/vchiq_bus.h"
-> +#include <linux/vchiq/vchiq_bus.h>
-> +
->  #include "bcm2835.h"
->  
->  static bool enable_hdmi;
-> diff --git a/drivers/staging/vc04_services/bcm2835-audio/bcm2835.h b/drivers/staging/vc04_services/bcm2835-audio/bcm2835.h
-> index 49ec5b496edb4ba8634171b1390c4e15181e4048..7e63ef251c37269032fc20ae1237855245e5e0a7 100644
-> --- a/drivers/staging/vc04_services/bcm2835-audio/bcm2835.h
-> +++ b/drivers/staging/vc04_services/bcm2835-audio/bcm2835.h
-> @@ -5,13 +5,12 @@
->  #define __SOUND_ARM_BCM2835_H
->  
->  #include <linux/device.h>
-> +#include <linux/vchiq/vchiq.h>
->  #include <linux/wait.h>
->  #include <sound/core.h>
->  #include <sound/pcm.h>
->  #include <sound/pcm-indirect.h>
->  
-> -#include "../include/linux/raspberrypi/vchiq.h"
-> -
->  #define MAX_SUBSTREAMS   (8)
->  #define AVAIL_SUBSTREAMS_MASK  (0xff)
->  
-> diff --git a/drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c b/drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c
-> index fa7ea4ca4c36f4ec7f76f6ffbea9f45205116bb8..fcbbe1aa60b768e5a7a08a131f595a0457f4473a 100644
-> --- a/drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c
-> +++ b/drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c
-> @@ -26,7 +26,8 @@
->  #include <media/v4l2-common.h>
->  #include <linux/delay.h>
->  
-> -#include "../interface/vchiq_arm/vchiq_bus.h"
-> +#include <linux/vchiq/vchiq_bus.h>
-> +
->  #include "../vchiq-mmal/mmal-common.h"
->  #include "../vchiq-mmal/mmal-encodings.h"
->  #include "../vchiq-mmal/mmal-vchiq.h"
-> diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
-> index 721b15b7e13b9f25cee7619575bbfa1a4734cce8..10138c1454dd7fdcbab6b95ea41f8e1ac2defc4b 100644
-> --- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
-> +++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
-> @@ -30,11 +30,12 @@
->  #include <linux/uaccess.h>
->  #include <soc/bcm2835/raspberrypi-firmware.h>
->  
-> -#include "vchiq_core.h"
-> +#include <linux/vchiq/vchiq_core.h>
-> +#include <linux/vchiq/vchiq_arm.h>
-> +#include <linux/vchiq/vchiq_bus.h>
-> +#include <linux/vchiq/vchiq_debugfs.h>
-> +
->  #include "vchiq_ioctl.h"
-> -#include "vchiq_arm.h"
-> -#include "vchiq_bus.h"
-> -#include "vchiq_debugfs.h"
->  
->  #define DEVICE_NAME "vchiq"
->  
-> diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_bus.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_bus.c
-> index 41ece91ab88aa647a348910a0b913d0b28a8c761..5d55dbff82150a84b15483e71718c48f5cb8caea 100644
-> --- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_bus.c
-> +++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_bus.c
-> @@ -11,8 +11,8 @@
->  #include <linux/slab.h>
->  #include <linux/string.h>
->  
-> -#include "vchiq_arm.h"
-> -#include "vchiq_bus.h"
-> +#include <linux/vchiq/vchiq_arm.h>
-> +#include <linux/vchiq/vchiq_bus.h>
->  
->  static int vchiq_bus_type_match(struct device *dev, const struct device_driver *drv)
->  {
-> diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
-> index e2cac0898b8faa3c255de6b8562c7096a9683c49..ac0379f5f45dfa331dc2fec8d580d176f931cf2b 100644
-> --- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
-> +++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
-> @@ -15,8 +15,8 @@
->  #include <linux/rcupdate.h>
->  #include <linux/sched/signal.h>
->  
-> -#include "vchiq_arm.h"
-> -#include "vchiq_core.h"
-> +#include <linux/vchiq/vchiq_arm.h>
-> +#include <linux/vchiq/vchiq_core.h>
->  
->  #define VCHIQ_SLOT_HANDLER_STACK 8192
->  
-> diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_debugfs.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_debugfs.c
-> index d5f7f61c5626934b819e8ff322e22ae3d6158b31..b1a8f1abafc2fa83132b1a02ba343d71315950de 100644
-> --- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_debugfs.c
-> +++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_debugfs.c
-> @@ -5,9 +5,9 @@
->   */
->  
->  #include <linux/debugfs.h>
-> -#include "vchiq_core.h"
-> -#include "vchiq_arm.h"
-> -#include "vchiq_debugfs.h"
-> +#include <linux/vchiq/vchiq_core.h>
-> +#include <linux/vchiq/vchiq_arm.h>
-> +#include <linux/vchiq/vchiq_debugfs.h>
->  
->  #ifdef CONFIG_DEBUG_FS
->  
-> diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c
-> index 3b20ba5c736221ce1cacfc9ce86eca623382a30b..781d6dd64ee33816b52b62f1f25bcd33363d8e02 100644
-> --- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c
-> +++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c
-> @@ -11,10 +11,11 @@
->  #include <linux/compat.h>
->  #include <linux/miscdevice.h>
->  
-> -#include "vchiq_core.h"
-> +#include <linux/vchiq/vchiq_core.h>
-> +#include <linux/vchiq/vchiq_arm.h>
-> +#include <linux/vchiq/vchiq_debugfs.h>
-> +
->  #include "vchiq_ioctl.h"
-> -#include "vchiq_arm.h"
-> -#include "vchiq_debugfs.h"
->  
->  static const char *const ioctl_names[] = {
->  	"CONNECT",
-> diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_ioctl.h b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_ioctl.h
-> index afb71a83cfe7035e5dd61003fa99fd514ca18047..638469f18f859a0c7e738ef5bed7bf3c3ebebe59 100644
-> --- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_ioctl.h
-> +++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_ioctl.h
-> @@ -5,8 +5,7 @@
->  #define VCHIQ_IOCTLS_H
->  
->  #include <linux/ioctl.h>
-> -
-> -#include "../../include/linux/raspberrypi/vchiq.h"
-> +#include <linux/vchiq/vchiq.h>
->  
->  #define VCHIQ_IOC_MAGIC 0xc4
->  #define VCHIQ_INVALID_HANDLE (~0)
-> diff --git a/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c b/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c
-> index 3fe482bd279390a7586c49bde00f38c61558ca8e..f5e141908b0f91ca4172d48aee37f0329d239d7c 100644
-> --- a/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c
-> +++ b/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c
-> @@ -22,11 +22,12 @@
->  #include <linux/mm.h>
->  #include <linux/slab.h>
->  #include <linux/completion.h>
-> +#include <linux/vchiq/vchiq.h>
->  #include <linux/vmalloc.h>
->  #include <media/videobuf2-vmalloc.h>
->  
-> -#include "../include/linux/raspberrypi/vchiq.h"
-> -#include "../interface/vchiq_arm/vchiq_arm.h"
-> +#include <linux/vchiq/vchiq_arm.h>
-> +
->  #include "mmal-common.h"
->  #include "mmal-vchiq.h"
->  #include "mmal-msg.h"
-> diff --git a/drivers/staging/vc04_services/include/linux/raspberrypi/vchiq.h b/include/linux/vchiq/vchiq.h
-> similarity index 100%
-> rename from drivers/staging/vc04_services/include/linux/raspberrypi/vchiq.h
-> rename to include/linux/vchiq/vchiq.h
-> diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.h b/include/linux/vchiq/vchiq_arm.h
-> similarity index 100%
-> rename from drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.h
-> rename to include/linux/vchiq/vchiq_arm.h
-> diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_bus.h b/include/linux/vchiq/vchiq_bus.h
-> similarity index 100%
-> rename from drivers/staging/vc04_services/interface/vchiq_arm/vchiq_bus.h
-> rename to include/linux/vchiq/vchiq_bus.h
-> diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_cfg.h b/include/linux/vchiq/vchiq_cfg.h
-> similarity index 100%
-> rename from drivers/staging/vc04_services/interface/vchiq_arm/vchiq_cfg.h
-> rename to include/linux/vchiq/vchiq_cfg.h
-> diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h b/include/linux/vchiq/vchiq_core.h
-> similarity index 99%
-> rename from drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
-> rename to include/linux/vchiq/vchiq_core.h
-> index 9b4e766990a493d6e9d4e0604f2c84f4e7b77804..dbcb19e7a6d39b94967261c4ab23d6325e999249 100644
-> --- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
-> +++ b/include/linux/vchiq/vchiq_core.h
-> @@ -15,7 +15,7 @@
->  #include <linux/spinlock_types.h>
->  #include <linux/wait.h>
->  
-> -#include "../../include/linux/raspberrypi/vchiq.h"
-> +#include "vchiq.h"
->  #include "vchiq_cfg.h"
->  
->  /* Do this so that we can test-build the code on non-rpi systems */
-> diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_debugfs.h b/include/linux/vchiq/vchiq_debugfs.h
-> similarity index 100%
-> rename from drivers/staging/vc04_services/interface/vchiq_arm/vchiq_debugfs.h
-> rename to include/linux/vchiq/vchiq_debugfs.h
-> 
-
+Best regards,
 -- 
-Regards,
+Tudor Ambarus <tudor.ambarus@linaro.org>
 
-Laurent Pinchart
 
