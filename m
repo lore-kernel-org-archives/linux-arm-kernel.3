@@ -4,110 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34534CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 19:15:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3446CCA0FF6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 19:15:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Oe8mL8TjjkGnR2jG5Rxs9VLauseuU6oqwYerqQXRro=; b=FzWVFyMi27uUTMJF/153RLXZA8
-	Q/+EhFXCmlne8KDhsW+h6NCGqDiYgdvgBj7Tx0qxul0xsHTFsiXjvG3vdzWTHNN+U1cm3Ul+kZtIO
-	YWHSbV3+SnyEqGi5K1unD0g4T0xsP0dSHC0zLXA6fte+buegkcDXNLMUZc48ZiaHtCa5/g2aBdjaT
-	PwxkNFzNwETHsyGyUDTHQKyuuUE6eexN9LUG52jlgCPMxaCPJ0hrKQKH0qF4xSwpY+LnjQ0CuiBSS
-	Yi9Ztfob9yKR5Oz2mFCtOAs801ASAIlyH0MLjO8FuKccN9Y8Fw7PgUE0tWgS7Eq8s4uSDEerdjIp6
-	kXDBiGCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7CClwCv0zfIyfXt+CnyLrMXFDS8Rdm/1O46USkOffuA=; b=dRnL9YBdUN8C+IaaGkd+75Ur5B
+	DoW6s5Z7mRuitKDWMiR8cGanVsUeQkDqiMSjOsN9XIN0JfN1VxCFEyyhKryR6Z4hY1PyZQmQbP9lX
+	62VqI8nNzkHTz2yVQWFG76r6LQL/dTOJzWxwBuWlks1H4Tl39UfX8un83EbSqI/ZM40V/KeTKvPZO
+	tICfY4Ns/UUbakJC3wWgWNA1tIIIaQW0c/vCWodUlizqzTEF8x2LOwd6SHAUOi1LJtKRqDsCHbVJs
+	RtOvSYd373iFchs5vi9Vby1dmcCbgJYSCdBqEiSWEaPFvcBvnHPRw4cR5xQAfG5mvGSHx/UL4HFnm
+	ZVCG0XzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urLc4-0000000GZTS-16FZ;
-	Wed, 27 Aug 2025 19:15:16 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1urLc3-0000000GZRR-1RA4;
+	Wed, 27 Aug 2025 19:15:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urJII-0000000GDGT-2QDc
+	id 1urJ5D-0000000GBrM-0hri
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 27 Aug 2025 16:33:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=7CClwCv0zfIyfXt+CnyLrMXFDS8Rdm/1O46USkOffuA=; b=Y0AqCVJM6ircUHnaw3tf7hNXHC
+	IdupBlfEmFD/IJB6lA2yrL7gAB2Zn4WI9xpEZn4rs2iq9nyupA9JsGsGnLaQw0CByPEEjdPQot7Rg
+	jrOpSMQJeADoEEne+ZNFrUxzTcdlA/btxJunadhpt6cYNlEmLvqanisSs59CNaw/v/rqwAQTZJVFZ
+	5CYsa6+RadfHMfFnUtINI7kN4OLGjWsgUy1wmnUkJ4o3OU7249J76QtADdNrd4x1Ekc+SL7rK6xPi
+	t4RHwvppNx37v4mF+SPSwUrK7Yswp4DnNyhG+/UcBGDyuf6ifbrKOmcAAcM0WQ1MbAvA4Zby0aRT3
+	htFlevGA==;
+Received: from mgamail.intel.com ([192.198.163.10])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urJ59-00000002TM1-1iui
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 16:46:43 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-55f4345cfd3so58337e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 09:46:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756313200; x=1756918000; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/Oe8mL8TjjkGnR2jG5Rxs9VLauseuU6oqwYerqQXRro=;
-        b=TUP0t8Y3oQ0YpICiFeXB7Ac8CnKUCt3KjonqFtL7zq1EY8XIhJVJ2v0awG3lJvA/rt
-         R1xDLCJYM516fObvCJsV5ojrP9R9JkY1z/PqePuopqYHuSjuL9GlESH+xRHb1V+CERUz
-         Py/IpgexMAzGA0h4dXNUYde5ffO7Ww/U3gi0rK1rjZ4/QRPbi+t/zC2PdCE7E2tVcrk6
-         e3MkeZzNncfDK1zNpMZvyURKrVRIYPiVZVSpaAlqN/T80hXFFOy8rQZ2V1iIXnBI3BKr
-         DJh2OWCNPzk83TCb7GmAshcGJ0cKWuXkz224Xkmpij7FbMQYpRghgSVzAyfXqxCsVkWl
-         hcSw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756313200; x=1756918000;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/Oe8mL8TjjkGnR2jG5Rxs9VLauseuU6oqwYerqQXRro=;
-        b=lxJyRyd8AKpyTFuwfMYMbJpLMEZEbUdxdRsKg16h+YYrDXqT+yf9JHWnq03ZUxxCvH
-         8zgkfqrv8XU8Z8QnCK8LFsrg5+O8+hdq2yFXGBzpDTiK2y1GpEKmIk0HOxQ+gArggDxh
-         K/24yU3s0ltX08h0L1zFygO5+NSuFZx3RWopFWa+TN25fI7T5KJDcGLyiz3/l9JWfa0I
-         fuBT8nMNBoqPuESFbUnA79SsrThMV1KNEgep+By0gqCpPpPhdp8T2d81zydRCPrtx9GC
-         ua8v/fEz43nTJrad+oh+jCOruyj6klP+ZIhJwmSBPyYWhLZSzW1VDu2gzgkwk0Hf1hZG
-         rwbg==
-X-Forwarded-Encrypted: i=1; AJvYcCWZ9F/mRl4C3QvQSut2QmE1Br7NzFMAjPhT/hqf7+ABlNP7TOVNL4ySr9Px8q9avL8cHBcJCmYwOtiQ2ABpV3bV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyq2AMd9SOcI70apLQnEqY4QGknkWrv3/P67LYPjETRPlu0xeVN
-	SHVWXynSTftbgjBbb7wQg84onAZOe5Q6OCpXTO/Qg+BVcb8QmAoNlgiCZmTkCcgFXUPGu3hbCQV
-	9vvol7wgd8+2cJTNeq7Zdw1KSY8OEyYs2LREgDiP6zA==
-X-Gm-Gg: ASbGncuQa8+QQqHAWKmMYo++7SM9b9x690xii0u3OGhEJlD95jNVfKpBGdpm1vScwJu
-	LAyjeYvjK5LpmKy1D97HNeJMkES+ugiISnd9DQ2+JmTt/oYaAeCRQgluUM8HXssE7lTPGRg+PI7
-	SywfbFKptJiq39cRWaqH6g4oIo6G7pc7hzsP1l6PFW72Gwnl3Zyl92yvQ07iJ6kFIM49OUL4ihZ
-	USlDoZWGog+5S1qhnuMbkqhSjgpsIem9ZVNnrQWVIsMJcJL3w==
-X-Google-Smtp-Source: AGHT+IH2vScJrK3ld667OkWoypLYcKly6TqnbjFjPvpTB4KCLVEthUMwQrvNGz6iiIbdkdd5rCAEnq3AM7MI6KeEyo4=
-X-Received: by 2002:a05:6512:138c:b0:553:2969:1d6d with SMTP id
- 2adb3069b0e04-55f4f4c6a98mr2026962e87.13.1756313200214; Wed, 27 Aug 2025
- 09:46:40 -0700 (PDT)
+	Wed, 27 Aug 2025 16:33:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1756312387; x=1787848387;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=tnTA/PNxi7uOQgEmoAZ2b1rNPAWX95IlTIWABbktj2E=;
+  b=DfucyX8ghgjIL9uamdQEpYiTmBYm774qwx8f1hlNd2KqwqXNCjmV7OXx
+   gMTkn860Ys8pDbqLnf3X5pi49wtoMowZlfwBgwzTppuk+LsayyizBy5Gt
+   YyPAOy8RO3PWoiG6SR64lT4wtTra08/KgCoU8K5hEaekSEGaJQcE+Er6M
+   ZbObDQqKUffhzB5db26LAEcHz3s2lLIGRlcu0F9DgAkffYrMqqIC5QSR4
+   agdEq0AWKPwN3zV89RqZlWYHhGqT3x4YFDjiy6ruStaoxizF+6vlKOIeL
+   yK8U9Xo1xCWMnFa7/lifWHr5SkJS/2jXupebaoaPFjK064gaCRtQ6qBMk
+   w==;
+X-CSE-ConnectionGUID: 9OCfD0erT3OfVOPcEWUyPA==
+X-CSE-MsgGUID: bFPIGJq+SL+tTCMBdnjoLg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11535"; a="69939972"
+X-IronPort-AV: E=Sophos;i="6.18,217,1751266800"; 
+   d="scan'208";a="69939972"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Aug 2025 09:33:01 -0700
+X-CSE-ConnectionGUID: rsYzn5mVRVy6Xw1pxl621w==
+X-CSE-MsgGUID: LXp69DIGTUqK7FFQVmGRRw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,217,1751266800"; 
+   d="scan'208";a="170708925"
+Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
+  by fmviesa010.fm.intel.com with ESMTP; 27 Aug 2025 09:32:51 -0700
+Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1urJ4T-000T4N-1n;
+	Wed, 27 Aug 2025 16:32:49 +0000
+Date: Thu, 28 Aug 2025 00:29:09 +0800
+From: kernel test robot <lkp@intel.com>
+To: Guoniu Zhou <guoniu.zhou@nxp.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>
+Subject: Re: [PATCH 2/5] media: nxp: imx8-isi: Simplify code by using helper
+ macro
+Message-ID: <202508280040.QKK6nZ3x-lkp@intel.com>
+References: <20250827-isi_imx93-v1-2-83e6b4b50c4d@nxp.com>
 MIME-Version: 1.0
-References: <20250815-pinctrl-gpio-pinfuncs-v5-0-955de9fd91db@linaro.org>
- <CACRpkdaDGmdhaik+1saRv7Ts4myQ+tg1aQqGU3xQyT7ma8dJFw@mail.gmail.com>
- <CAHp75VephepLq61HrVy=PX2oKUQd5NK2qS-vOC5h_NR65td3Uw@mail.gmail.com>
- <CACRpkda4soRCLF5=W=6R4wnwT3pjk743j022XfJxjTTQzuarAA@mail.gmail.com>
- <534ad082-08fa-42c0-9c24-f0c11af7d5b2@sirena.org.uk> <CAMRc=Mdn0_yPXyYq4sbvH4P9-h71vEc4arLPBfSk1PiEFaB7jQ@mail.gmail.com>
- <1804d9dc-8814-47d4-af88-c819c3f17bc0@sirena.org.uk>
-In-Reply-To: <1804d9dc-8814-47d4-af88-c819c3f17bc0@sirena.org.uk>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Wed, 27 Aug 2025 18:46:28 +0200
-X-Gm-Features: Ac12FXzUBjVjZcm1OFCa8B8Pt22rGMmSNEEFj8GwunzU7aycJyqw28vaNlWwNSA
-Message-ID: <CAMRc=MdKgqa+vjhHvD2+Tjw5NwBtFv-0aUivi5UuEQd+n4KxmA@mail.gmail.com>
-Subject: Re: [PATCH v5 00/15] pinctrl: introduce the concept of a GPIO pin
- function category
-To: Mark Brown <broonie@kernel.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Andy Shevchenko <andy.shevchenko@gmail.com>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Alexey Klimov <alexey.klimov@linaro.org>, Lorenzo Bianconi <lorenzo@kernel.org>, 
-	Sean Wang <sean.wang@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Paul Cercueil <paul@crapouillou.net>, Kees Cook <kees@kernel.org>, 
-	Andy Shevchenko <andy@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	David Hildenbrand <david@redhat.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, 
-	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
-	Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, NXP S32 Linux Team <s32@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Tony Lindgren <tony@atomide.com>, 
-	Haojian Zhuang <haojian.zhuang@linaro.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
-	linux-hardening@vger.kernel.org, linux-mm@kvack.org, imx@lists.linux.dev, 
-	linux-omap@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Chen-Yu Tsai <wenst@chromium.org>, 
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250827-isi_imx93-v1-2-83e6b4b50c4d@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_094642_615161_E218CBE6 
-X-CRM114-Status: GOOD (  18.61  )
+X-CRM114-CacheID: sfid-20250827_173307_932337_32381B5B 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,28 +113,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 27, 2025 at 12:22=E2=80=AFPM Mark Brown <broonie@kernel.org> wr=
-ote:
->
-> On Tue, Aug 26, 2025 at 08:19:37PM +0200, Bartosz Golaszewski wrote:
-> > On Wed, Aug 20, 2025 at 8:41=E2=80=AFPM Mark Brown <broonie@kernel.org>=
- wrote:
-> > > On Wed, Aug 20, 2025 at 09:12:49AM +0200, Linus Walleij wrote:
->
-> > > > The qualcomm 32bit platforms fail in next anyway so I dropped the p=
-atches
-> > > > for now.
->
-> > > FWIW the i.MX8MP also seems to have been broken by this:
->
-> > I can't test it unfortunately - would you mind sharing some info on
-> > what's failing exactly?
->
-> I've just got the log I linked above.
+Hi Guoniu,
 
-So, I've been looking at this bisect email and clicking the links to
-LAVA jobs and I can't find anything. Does it fail to build? Fail at
-run-time? I'm not sure how to read this.
+kernel test robot noticed the following build errors:
 
-Bart
+[auto build test ERROR on a75b8d198c55e9eb5feb6f6e155496305caba2dc]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Guoniu-Zhou/media-dt-bindings-nxp-imx8-isi-Add-i-MX91-ISI-compatible-string/20250827-175809
+base:   a75b8d198c55e9eb5feb6f6e155496305caba2dc
+patch link:    https://lore.kernel.org/r/20250827-isi_imx93-v1-2-83e6b4b50c4d%40nxp.com
+patch subject: [PATCH 2/5] media: nxp: imx8-isi: Simplify code by using helper macro
+config: riscv-randconfig-002-20250827 (https://download.01.org/0day-ci/archive/20250828/202508280040.QKK6nZ3x-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project d26ea02060b1c9db751d188b2edb0059a9eb273d)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250828/202508280040.QKK6nZ3x-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202508280040.QKK6nZ3x-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/media/platform/nxp/imx8-isi/imx8-isi-gasket.c:36:8: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+      36 |         val = GASKET_CTRL_DATA_TYPE(fd->entry[0].bus.csi2.dt);
+         |               ^
+   drivers/media/platform/nxp/imx8-isi/imx8-isi-gasket.c:19:36: note: expanded from macro 'GASKET_CTRL_DATA_TYPE'
+      19 | #define GASKET_CTRL_DATA_TYPE(dt)               FIELD_PREP(GENMASK(13, 8), (dt))
+         |                                                 ^
+   drivers/media/platform/nxp/imx8-isi/imx8-isi-gasket.c:70:8: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+      70 |         val = DISP_MIX_CAMERA_MUX_DATA_TYPE(fd->entry[0].bus.csi2.dt);
+         |               ^
+   drivers/media/platform/nxp/imx8-isi/imx8-isi-gasket.c:60:49: note: expanded from macro 'DISP_MIX_CAMERA_MUX_DATA_TYPE'
+      60 | #define DISP_MIX_CAMERA_MUX_DATA_TYPE(x)        FIELD_PREP(GENMASK(8, 3), (x))
+         |                                                 ^
+   2 errors generated.
+
+
+vim +/FIELD_PREP +36 drivers/media/platform/nxp/imx8-isi/imx8-isi-gasket.c
+
+f48498ad0a4106e Guoniu.zhou 2023-06-29  25  
+f48498ad0a4106e Guoniu.zhou 2023-06-29  26  static void mxc_imx8_gasket_enable(struct mxc_isi_dev *isi,
+f48498ad0a4106e Guoniu.zhou 2023-06-29  27  				   const struct v4l2_mbus_frame_desc *fd,
+f48498ad0a4106e Guoniu.zhou 2023-06-29  28  				   const struct v4l2_mbus_framefmt *fmt,
+f48498ad0a4106e Guoniu.zhou 2023-06-29  29  				   const unsigned int port)
+f48498ad0a4106e Guoniu.zhou 2023-06-29  30  {
+f48498ad0a4106e Guoniu.zhou 2023-06-29  31  	u32 val;
+f48498ad0a4106e Guoniu.zhou 2023-06-29  32  
+f48498ad0a4106e Guoniu.zhou 2023-06-29  33  	regmap_write(isi->gasket, GASKET_BASE(port) + GASKET_HSIZE, fmt->width);
+f48498ad0a4106e Guoniu.zhou 2023-06-29  34  	regmap_write(isi->gasket, GASKET_BASE(port) + GASKET_VSIZE, fmt->height);
+f48498ad0a4106e Guoniu.zhou 2023-06-29  35  
+f48498ad0a4106e Guoniu.zhou 2023-06-29 @36  	val = GASKET_CTRL_DATA_TYPE(fd->entry[0].bus.csi2.dt);
+f48498ad0a4106e Guoniu.zhou 2023-06-29  37  	if (fd->entry[0].bus.csi2.dt == MIPI_CSI2_DT_YUV422_8B)
+f48498ad0a4106e Guoniu.zhou 2023-06-29  38  		val |= GASKET_CTRL_DUAL_COMP_ENABLE;
+f48498ad0a4106e Guoniu.zhou 2023-06-29  39  
+f48498ad0a4106e Guoniu.zhou 2023-06-29  40  	val |= GASKET_CTRL_ENABLE;
+f48498ad0a4106e Guoniu.zhou 2023-06-29  41  	regmap_write(isi->gasket, GASKET_BASE(port) + GASKET_CTRL, val);
+f48498ad0a4106e Guoniu.zhou 2023-06-29  42  }
+f48498ad0a4106e Guoniu.zhou 2023-06-29  43  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
