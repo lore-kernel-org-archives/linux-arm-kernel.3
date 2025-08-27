@@ -4,77 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2797DCA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 08:36:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73A49C8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 08:36:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KGZ9fOwje4MlqtMCuczbLxb/Olo2qc1yHQaGkujfbWg=; b=eNf+JFJWxTQwF0o9scRzGGQZlf
-	rTTdQlKEx10e/pB+ObJMvn8n9r99gEKqMiE+AMm+NBlYp4/X/q8Ma3Xmss3zfoW9FtHmZ3IxElbNZ
-	8slv2giMgHttS2Mv+OdbVNH3gNkMOCueXgOnxYkcKe9vyxWjVsWbuWO0A+NAtpCAvA08T2eufkDc4
-	LXGyt1v2ZqWpJ0XCF2jdiIPohN36lPxWpe6/F7rjs8olZ6WG0OrRjKnU+0t1QEqfAC9rPUQK1D2Iy
-	+o8OJaKgcKDySzrdHhZnCNYzbRD0aobS67KsFWZpFX66VTZyAaFHWvF/V7Zi3LkKbHO7scOXHyCla
-	vc6B4/cw==;
+	bh=itUnoaFqfbQDsJKy5iAP7CimhLmDmHDeVSdAY05Jcqk=; b=prct5nl6ENFaKuiQ7kvmcsGqE+
+	tG9xYzwm+TCnIAmRgiO2uWzdWoLXSEcCXbkEDiZxXP7NyPWW8E3RpC+BJVL94V9dd7yzdCPi8D0W6
+	CAEM+g5dyVOXqx7aOYvVdwozAHKaL6EaxEjxe2gY6y4rm/Oapwq8gFswEWkIgJ3Vgsl5oqQ/ruD7A
+	08I5sYV0eohLex82cnJABNXN7rHge7sXm5FvysCxg1HnIOFbU0SmWvIraaqXGYcQhs3/7H1l/Sti6
+	WSuKCjkDZ5zrgy5RECwx+dkpxdWv7L36OH5AK/odsgWXHkAJ8Xw7Emxh5SW5OjmUPwImTWMwdlNGH
+	VSc1VbSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urBdU-0000000Egu6-2AQk;
-	Wed, 27 Aug 2025 08:36:04 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1urBdT-0000000Egsy-1abE;
+	Wed, 27 Aug 2025 08:36:03 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urBT3-0000000EehK-2C4V
+	id 1urBOu-0000000Edep-1C4f
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 08:25:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=KGZ9fOwje4MlqtMCuczbLxb/Olo2qc1yHQaGkujfbWg=; b=0PEvmLKdfidIG6CQlBbJ38O/N6
-	35bcf3xx776W1e4TOIvZSQ1ph3SkNL4KmOvzUsxl3WOTm3FPJhEC21oe/elTgB+K1ar2o40rqS3pb
-	l4uc1hMPr+dT7TlvbY9TexsZXSRxN61QOcriD1wl2ckYcv6ae92U0oerZimP3HdoHPNEAV9B2lYVe
-	eQtW9kz80lNScz26Qdhn8ssO3pmqStU/7nq3IRR07KV1+b16otoYYKktKYPjPzl0upNPIFAqO3uq5
-	Je5W8yMySwD1lERtOW6Kq+GI/Ajrl7ievIhVgEZSBDj2CJ5DeWVic3Dv/YtsXkNJFupr4IGppXXYa
-	StGQS9dA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:33890)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1urBSi-000000000Cj-3ECE;
-	Wed, 27 Aug 2025 09:24:56 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1urBSd-0000000022P-2QG2;
-	Wed, 27 Aug 2025 09:24:51 +0100
-Date: Wed, 27 Aug 2025 09:24:51 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: weishangjuan@eswincomputing.com
-Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, yong.liang.choong@linux.intel.com,
-	vladimir.oltean@nxp.com, faizal.abdul.rahim@linux.intel.com,
-	prabhakar.mahadev-lad.rj@bp.renesas.com, inochiama@gmail.com,
-	jan.petrous@oss.nxp.com, jszhang@kernel.org, p.zabel@pengutronix.de,
-	boon.khai.ng@altera.com, 0x1207@gmail.com, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com, ningyu@eswincomputing.com,
-	linmin@eswincomputing.com, lizhi2@eswincomputing.com
-Subject: Re: [PATCH v4 2/2] ethernet: eswin: Add eic7700 ethernet driver
-Message-ID: <aK7A0-nYxBQM03zq@shell.armlinux.org.uk>
-References: <20250827081135.2243-1-weishangjuan@eswincomputing.com>
- <20250827081418.2347-1-weishangjuan@eswincomputing.com>
+	Wed, 27 Aug 2025 08:21:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756282857;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=itUnoaFqfbQDsJKy5iAP7CimhLmDmHDeVSdAY05Jcqk=;
+	b=Y7hCds+EMd1x0Eey2CiYRZhhWDhaN5fpRYLn0Awp+VinadrYfdQCcJ55XUBFkSR4HO/jZt
+	36qMpzW3YO/uFh0Au8IoZ8J51TG4A5L6f2jMlwXW3Wt/8Cp0ebsXAuT6zGS1LlyiSFT01p
+	R+mnQ4m6YYTZgS1DnDiuOeBJZB64o14=
+Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com
+ [209.85.210.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-582-m6RXjyYWMYmfYplwsCwFCw-1; Wed, 27 Aug 2025 04:20:56 -0400
+X-MC-Unique: m6RXjyYWMYmfYplwsCwFCw-1
+X-Mimecast-MFC-AGG-ID: m6RXjyYWMYmfYplwsCwFCw_1756282855
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-771d7aa1470so2706760b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 01:20:56 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756282855; x=1756887655;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=itUnoaFqfbQDsJKy5iAP7CimhLmDmHDeVSdAY05Jcqk=;
+        b=tzvaUgMaT9im/fTi5fM6KfF2079LBjl2GgENfYjDGAfbjrW+ZhzD1Zwn7OzeesLuxI
+         vE6BCCIRP6VHoHaY3/Qloywnw1a+PsB7sAmUM202mMnYHJfGQ6I2rBF02K5koCM6eLUh
+         Hcngv1PMpjODDLThnrrF6R+Pqf5tgK+8t1b1o9fBR0UGegRg8JlS6CdA4AUV5dNmzCBf
+         cLh4brSMuWaKUwKFbB2u1NVb8uGitM2j7QAXDlyqkhAFA71aNb1waJUAiI1ybr6iJg2U
+         x00aKyMnXTGKAtNJzb3vTc2q5sEu3vSIvLU62eMmmgw2aB19DdypGdJVRVR2QmV5VsQy
+         Vx2Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVM7jJx+eHtGcfEMhtfQgtVLveri49k9oGO8It8txjms3577mrCMnQCngxZA8pbIfbdWrjBCVhK/51YYWXeEwL/@lists.infradead.org
+X-Gm-Message-State: AOJu0YwQaow8pXtTCZyDC8sDlhWnoiAUB6W95wNbcBMKG88VaXGvGQGc
+	e8MHIKjGvVOc7ZrmaBI7YxgX12IOY0PN4vkC1479zz5ai+9B1lCp0gHOhzGl7/6nreb9cogDjv+
+	XD2AW3aMaMcVZY0KofGd0z+Pef3H0nmEFb7yG4Qwy4CSGOKkQiDVAdx3d5OM+lGo/l6C1y8/H8t
+	jO
+X-Gm-Gg: ASbGncu566hCykA13bzWTkZ10G4Knjd9YEiZeATDfd8SKvpc/UpUxvjkDeOMSSLVtBB
+	QhwqQu+0kcGknCFyGXq4BZlfbiCJvaJfKh6pPBe6Ifj1XAnDgjRH0OwsWHKZPK5CwqO3pj16Bmn
+	RRiVCwTKYrl+gymeXFmk7poXsENY7gAN6vpTQ9uBPFZD1E3JBVbgpQwzqsWXu7JRolLqUqHJPt1
+	+QTen6Pzw7Y4oMkUpVKOt+JeZYVGZ+geXmysVIZD9dtytzgnXt4snNI2SH+u1+Bqws7ytwDdZft
+	rkWtYKnDBVTu4ufLeiBGvuyEnQlkHts=
+X-Received: by 2002:a05:6a20:3949:b0:240:10d2:add2 with SMTP id adf61e73a8af0-24340d0244amr27008077637.31.1756282855133;
+        Wed, 27 Aug 2025 01:20:55 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH2FJN8dt6Gdj10YjTZnHD4mWZmsq42NC+Hy4iGGo/P8vtVLMd8cGd0cyzQQ5JOahSfz6NXfg==
+X-Received: by 2002:a05:6a20:3949:b0:240:10d2:add2 with SMTP id adf61e73a8af0-24340d0244amr27008051637.31.1756282854686;
+        Wed, 27 Aug 2025 01:20:54 -0700 (PDT)
+Received: from localhost ([209.132.188.88])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7720c63d660sm644421b3a.71.2025.08.27.01.20.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 Aug 2025 01:20:54 -0700 (PDT)
+Date: Wed, 27 Aug 2025 16:17:28 +0800
+From: Coiby Xu <coxu@redhat.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>, 
+	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, kexec@lists.infradead.org, 
+	jbastian@redhat.com, cmirabil@redhat.com
+Subject: Re: [Regression] kdump fails to get DHCP address unless booting with
+ pci=nomsi or without nr_cpus=1
+Message-ID: <r3k7yvv3ezpmudnmqphlpx56lvd43gabqcaewucwfzsgcwopml@s7zm2cmeifug>
+References: <878qjq80yu.ffs@tglx>
+ <86v7mt9ai3.wl-maz@kernel.org>
+ <i2l2ujhqjd6akzosvzj4njv2vemsfuvywz4gsnj2nwo3fwyjyz@cfhekxpartf2>
+ <86ms84974v.wl-maz@kernel.org>
+ <gec2yl5wx6vvt67smx5emhcoifvtp4orw6sub24b2nrqwryhp2@i4h7qbtwjo3r>
+ <86ldno8yxa.wl-maz@kernel.org>
+ <yweverlt7onyse3rbm7phxzwrwfk4pq2dipzdjenrx4onrak6r@dsm4ra3x3gv6>
+ <j4atkwhumotioe2nhu6esrb3yrvwsoz2eyqeopwmr7o6iw65ga@wdkvgahnyhln>
+ <87qzx6jrql.wl-maz@kernel.org>
+ <p7aa2fcm3g32ydulq3nqrvsg57tyvt5ro5cs3oqrdahxesoroj@tqpulky4drlo>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+In-Reply-To: <p7aa2fcm3g32ydulq3nqrvsg57tyvt5ro5cs3oqrdahxesoroj@tqpulky4drlo>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: OZAei5ioPvJeay-5rQk1c70LjbJ6n61NNNUzHLhf7vM_1756282855
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii; format=flowed
 Content-Disposition: inline
-In-Reply-To: <20250827081418.2347-1-weishangjuan@eswincomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_012517_718885_432F01EA 
-X-CRM114-Status: GOOD (  22.76  )
+X-CRM114-CacheID: sfid-20250827_012100_392908_08AF974F 
+X-CRM114-Status: GOOD (  26.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,265 +118,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 27, 2025 at 04:14:17PM +0800, weishangjuan@eswincomputing.com wrote:
-> +struct eic7700_qos_priv {
-> +	struct device *dev;
-> +	struct regmap *hsp_regmap;
-> +	struct clk *clk_tx;
+On Sat, Aug 23, 2025 at 11:00:11AM +0800, Coiby Xu wrote:
+>Hi Marc,
+>
+>If I understand correctly, you want to reproduce the issue by yourself.
+>Then finally I manage to reproduce this issue by playing with the setup
+>shared by my collogue. Here are the five prerequisites to reproduce the
+>bug,
 
-Consider putting a pointer to the plat_dat here instead of clk_tx.
+Hi Marc,
 
-> +	struct clk *clk_axi;
-> +	struct clk *clk_cfg;
+It turns out host kernel and host machine are not absolute prerequisites to
+reproduce the problem. But they matter because they can make it much
+more difficult to reproduce this problem. I also did a bisection against
+QEMU to find out which commit make the issue gone. For details, please
+check following inline comments.
 
-Consider moving these into plat_dat->clks.
+>
+>1. Guest kernel    Newer than commit b5712bf89b4b 
+>("irqchip/gic-v3-its: Provide MSI parent for PCI/MSI[-X]")
+>
+>2. Host kernel
+>   Relatively older ones like v6.10.0. Newer ones like v6.12.0 and
+>   v6.17.0 don't have this issue.
 
-> +	u32 tx_delay_ps;
-> +	u32 rx_delay_ps;
-> +};
-> +
-> +/**
-> + * eic7700_apply_delay - Update TX or RX delay bits in delay parameter value.
-> + * @delay_ps: Delay in picoseconds (capped at 12.7ns).
-> + * @reg:      Pointer to register value to modify.
-> + * @is_rx:    True for RX delay (bits 30:24), false for TX delay (bits 14:8).
-> + *
-> + * Converts delay to 0.1ns units, caps at 0x7F, and sets appropriate bits.
-> + * Only RX or TX bits are updated; other bits remain unchanged.
-> + */
-> +static inline void eic7700_apply_delay(u32 delay_ps, u32 *reg, bool is_rx)
-> +{
-> +	if (!reg)
-> +		return;
-> +
-> +	u32 val = min(delay_ps / 100, EIC7700_MAX_DELAY_UNIT);
-> +
-> +	if (is_rx) {
-> +		*reg &= ~EIC7700_ETH_RX_ADJ_DELAY;
-> +		*reg |= (val << 24) & EIC7700_ETH_RX_ADJ_DELAY;
-> +	} else {
-> +		*reg &= ~EIC7700_ETH_TX_ADJ_DELAY;
-> +		*reg |= (val << 8) & EIC7700_ETH_TX_ADJ_DELAY;
-> +	}
-> +}
-> +
-> +static int eic7700_clks_config(void *priv, bool enabled)
-> +{
-> +	struct eic7700_qos_priv *dwc = (struct eic7700_qos_priv *)priv;
-> +	int ret = 0;
-> +
-> +	if (enabled) {
-> +		ret = clk_prepare_enable(dwc->clk_tx);
-> +		if (ret < 0) {
-> +			dev_err(dwc->dev, "Failed to enable tx clock: %d\n",
-> +				ret);
-> +			goto err;
-> +		}
-> +
-> +		ret = clk_prepare_enable(dwc->clk_axi);
-> +		if (ret < 0) {
-> +			dev_err(dwc->dev, "Failed to enable axi clock: %d\n",
-> +				ret);
-> +			goto err_tx;
-> +		}
-> +
-> +		ret = clk_prepare_enable(dwc->clk_cfg);
-> +		if (ret < 0) {
-> +			dev_err(dwc->dev, "Failed to enable cfg clock: %d\n",
-> +				ret);
-> +			goto err_axi;
-> +		}
+It turns out with other conditions met, the latest host kernel
+(6.17.0-0.rc3) can still reproduce the issue but it's much more
+difficult to reproduce it. For example, with RHEL8 kernel
+4.18.0-372.9.1.el8.aarch64, I need to trigger kernel crash for 3
+times at maximum to reproduce it. But for Fedora rawhide kernel
+6.17.0-0.rc3.31.fc43.aarch64, 3/10 times I can't reproduce this issue
+after triggering kernel crash for 60 consecutive times. For a
+comparison, I've listed the times of triggering kernel crash to reproduce
+the issue in 10 trials,
 
-You can then use clk_bulk_prepare_enable() here without the complex
-unwinding if one enable fails.
+RHEL8:           2  1  1  1  1  1  2  1  3  2
+Fedora rawhide: 43 60 47 60 12 56 60 45 49 18
 
-> +	} else {
-> +		clk_disable_unprepare(dwc->clk_tx);
-> +		clk_disable_unprepare(dwc->clk_axi);
-> +		clk_disable_unprepare(dwc->clk_cfg);
+>
+>3. QEMU <= v6.2
 
-and clk_bulk_disable_unprepare() here.
+I did a bisection and it shows the issue is gone with QEMU commit
+f39b7d2b96e3e73c01bb678cd096f7baf0b9ab39 ("kvm: Atomic memslot updates")
+which is last/3rd patch of patch set "KVM: allow listener to stop all
+vcpus before"
+https://lists.nongnu.org/archive/html/qemu-devel/2022-11/msg02172.html
+Note this commit shows in QEMU > 7.2 so QEMU <= v7.2.0 can also
+reproduce this issue.
 
-> +	}
-> +	return ret;
-> +
-> +err_axi:
-> +	clk_disable_unprepare(dwc->clk_axi);
-> +err_tx:
-> +	clk_disable_unprepare(dwc->clk_tx);
-> +err:
-> +	return ret;
-> +}
-> +
-> +static int eic7700_dwmac_probe(struct platform_device *pdev)
-> +{
-> +	struct plat_stmmacenet_data *plat_dat;
-> +	struct stmmac_resources stmmac_res;
-> +	struct eic7700_qos_priv *dwc_priv;
-> +	u32 eth_axi_lp_ctrl_offset;
-> +	u32 eth_phy_ctrl_offset;
-> +	u32 eth_phy_ctrl_regset;
-> +	u32 eth_rxd_dly_offset;
-> +	u32 eth_dly_param = 0;
-> +	int ret;
-> +
-> +	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev, ret,
-> +				"failed to get resources\n");
-> +
-> +	plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
-> +	if (IS_ERR(plat_dat))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(plat_dat),
-> +				"dt configuration failed\n");
-> +
-> +	dwc_priv = devm_kzalloc(&pdev->dev, sizeof(*dwc_priv), GFP_KERNEL);
-> +	if (!dwc_priv)
-> +		return -ENOMEM;
-> +
-> +	dwc_priv->dev = &pdev->dev;
-> +
-> +	/* Read rx-internal-delay-ps and update rx_clk delay */
-> +	if (!of_property_read_u32(pdev->dev.of_node,
-> +				  "rx-internal-delay-ps",
-> +				  &dwc_priv->rx_delay_ps)) {
-> +		eic7700_apply_delay(dwc_priv->rx_delay_ps,
-> +				    &eth_dly_param, true);
-> +	} else {
-> +		dev_warn(&pdev->dev, "can't get rx-internal-delay-ps\n");
-> +	}
-> +
-> +	/* Read tx-internal-delay-ps and update tx_clk delay */
-> +	if (!of_property_read_u32(pdev->dev.of_node,
-> +				  "tx-internal-delay-ps",
-> +				  &dwc_priv->tx_delay_ps)) {
-> +		eic7700_apply_delay(dwc_priv->tx_delay_ps,
-> +				    &eth_dly_param, false);
-> +	} else {
-> +		dev_warn(&pdev->dev, "can't get tx-internal-delay-ps\n");
-> +	}
-> +
-> +	dwc_priv->hsp_regmap =
-> +		syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
-> +						"eswin,hsp-sp-csr");
-> +	if (IS_ERR(dwc_priv->hsp_regmap))
-> +		return dev_err_probe(&pdev->dev,
-> +				PTR_ERR(dwc_priv->hsp_regmap),
-> +				"Failed to get hsp-sp-csr regmap\n");
-> +
-> +	ret = of_property_read_u32_index(pdev->dev.of_node,
-> +					 "eswin,hsp-sp-csr",
-> +					 1, &eth_phy_ctrl_offset);
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev,
-> +				ret,
-> +				"can't get eth_phy_ctrl_offset\n");
-> +
-> +	regmap_read(dwc_priv->hsp_regmap, eth_phy_ctrl_offset,
-> +		    &eth_phy_ctrl_regset);
-> +	eth_phy_ctrl_regset |=
-> +		(EIC7700_ETH_TX_CLK_SEL | EIC7700_ETH_PHY_INTF_SELI);
-> +	regmap_write(dwc_priv->hsp_regmap, eth_phy_ctrl_offset,
-> +		     eth_phy_ctrl_regset);
-> +
-> +	ret = of_property_read_u32_index(pdev->dev.of_node,
-> +					 "eswin,hsp-sp-csr",
-> +					 2, &eth_axi_lp_ctrl_offset);
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev,
-> +				ret,
-> +				"can't get eth_axi_lp_ctrl_offset\n");
-> +
-> +	regmap_write(dwc_priv->hsp_regmap, eth_axi_lp_ctrl_offset,
-> +		     EIC7700_ETH_CSYSREQ_VAL);
-> +
-> +	ret = of_property_read_u32_index(pdev->dev.of_node,
-> +					 "eswin,hsp-sp-csr",
-> +					 3, &eth_rxd_dly_offset);
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev,
-> +				ret,
-> +				"can't get eth_rxd_dly_offset\n");
-> +
-> +	regmap_write(dwc_priv->hsp_regmap, eth_rxd_dly_offset,
-> +		     eth_dly_param);
-> +
-> +	dwc_priv->clk_tx = devm_clk_get(&pdev->dev, "tx");
-> +	if (IS_ERR(dwc_priv->clk_tx))
-> +		return dev_err_probe(&pdev->dev,
-> +				PTR_ERR(dwc_priv->clk_tx),
-> +				"error getting tx clock\n");
-> +
-> +	dwc_priv->clk_axi = devm_clk_get(&pdev->dev, "axi");
-> +	if (IS_ERR(dwc_priv->clk_axi))
-> +		return dev_err_probe(&pdev->dev,
-> +				PTR_ERR(dwc_priv->clk_axi),
-> +				"error getting axi clock\n");
-> +
-> +	dwc_priv->clk_cfg = devm_clk_get(&pdev->dev, "cfg");
-> +	if (IS_ERR(dwc_priv->clk_cfg))
-> +		return dev_err_probe(&pdev->dev,
-> +				PTR_ERR(dwc_priv->clk_cfg),
-> +				"error getting cfg clock\n");
+>
+>4. Specific host machines    I'm not familiar with the hardware so 
+>currently I haven't figured out
+>   what hardware factor makes the issue reproducible. I've attached
+>   dmidecode outputs of four machines (files inside indmidecode_host folder).
+>   Two systems (dmidecode_not_work*) can reproduce this issue and the
+>   other two systems (dmidecode_work*) can't despite all have the same
+>   product name R152-P31-00, CPU model ARMv8 (M128-30) and SKU
+>   01234567890123456789AB. One difference that doesn't seem to found in
+>   the dmidecode output is the two machines that can't reproduce the issue
+>   have the model name "PnP device PNP0c02" where the problematic
+>   machines have "R152-P31-00 (01234567890123456789AB)" according to our
+>   internal web pages that show the hardware info.
 
-These then become devm_clk_bulk_get_all().
+It turns out all four machines can reproduce the issue. I tried to
+reproduce this issue for 10 times and counted the times to trigger
+kernel crash and here's a comparison
 
-> +
-> +	ret = eic7700_clks_config(dwc_priv, true);
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev,
-> +				ret,
-> +				"error enable clock\n");
+R152-P31-00:        2  1 1  1  1  1 2 1  3 2 
+PnP device PNP0c02: 8  3 5 15 11 18 2 5 12 4 
 
-Maybe even devm_clk_bulk_get_all_enabled() which will omit this
-step...
+>
+>5. The Guest needs to be bridged to a physical host interface.    
+>Bridging the guest to tun interface can't reproduce the issue (for
+>   example, the default bridge (virbr0) created by libvirtd uses tun
+>   interface)
 
-> +
-> +	plat_dat->clk_tx_i = dwc_priv->clk_tx;
-> +	plat_dat->set_clk_tx_rate = stmmac_set_clk_tx_rate;
-> +	plat_dat->bsp_priv = dwc_priv;
-> +	plat_dat->clks_config = eic7700_clks_config;
-> +
-> +	ret = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
-> +	if (ret) {
-> +		eic7700_clks_config(dwc_priv, false);
+I tried triggering kernel crash for 100 consecutive times for virbr0 in
+one trial but can't reproduce it. So I think bridging the guest to a
+physical network interface is still a must.
 
-... and means you don't need this call...
 
-> +		return dev_err_probe(&pdev->dev,
-> +				ret,
-> +				"Failed to driver probe\n");
-> +	}
-> +
-> +	return ret;
-> +}
-> +
-> +static void eic7700_dwmac_remove(struct platform_device *pdev)
-> +{
-> +	struct eic7700_qos_priv *dwc_priv = get_stmmac_bsp_priv(&pdev->dev);
-> +
-> +	stmmac_pltfr_remove(pdev);
-> +	eic7700_clks_config(dwc_priv, false);
-> +}
+[...]
 
-... and you can remove this function entirely ...
-
-> +
-> +static const struct of_device_id eic7700_dwmac_match[] = {
-> +	{ .compatible = "eswin,eic7700-qos-eth" },
-> +	{ }
-> +};
-> +MODULE_DEVICE_TABLE(of, eic7700_dwmac_match);
-> +
-> +static struct platform_driver eic7700_dwmac_driver = {
-> +	.probe  = eic7700_dwmac_probe,
-> +	.remove = eic7700_dwmac_remove,
-
-... replacing this with stmmac_pltfr_remove().
-
-Thanks.
 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Best regards,
+Coiby
+
 
