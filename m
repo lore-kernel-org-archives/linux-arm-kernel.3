@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 504F7CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 15:50:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86417CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 15:50:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N3NED3r7AOd8pC/x+T9Ayesh8tOjKHDXFgPSk0s2l3Y=; b=IitZNsCkzwr7KWrEP+VwoSLTaX
-	th6xLrLkNhwHot8LbDbnMp16QQAbw/bID9lPjwo+4X2xp5oSOvH7QQYrJjpIQDauuold7PSmyETbA
-	yxzGvplDfGhOp/wJxWGUq6VdQzLraRtzP1dwm/w96CysAhw5AOhm0AjT86cUKH9YYjUEMqUREF3pf
-	Sa/20dYUzKaBI92BVAl3kjY5Qg/I2kamBDlcIiDr9OZWFhGYEHvI15PNYs4+gE4IZvoJ5kYRYjAQ4
-	s758iN2oeYe+cc5Bqtzc3QCCAyPJ2cco8h2BZvLDcZsZDcMnYw89gLd2/vOEKnnXCf/ST9X+OYlE8
-	1gA7/H4g==;
+	bh=BxjyXGHfxzSuJMr1ONRYsHpN3Af1PMpxB+Q48ufPkBQ=; b=jCYQ7x64ZDyrpprbiW8NbV5CEe
+	o74lqxZLycUzKRPqawe+kJDbgUstclyUKxJ6XQ8oEMASj77DevQPn4wEedG4FCdcxMU11Xlrjr2lV
+	O6P2FyK3QDIF1iveZPZzAflbPvlEYEngzuisQA09GAnvBaRx6XMFZ1JOSGYr66ikgTUQkPFovpgrz
+	N5xJqc/L1kAc4w/Km369DQ97vHJe14+9fMs45NJzkiCfiSy+cH8Cvn8mSfBm80EOLeOlNf4hx+e/S
+	SW46H5F0rMEdhR1XKy1+8iDXtvqVegpMnzzR8AgjnmGk863bTRf6Vf+sJbESox35knEg7Bb/dHuWr
+	j4hfU58Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urIPL-0000000FzSo-04Qz;
-	Wed, 27 Aug 2025 15:49:55 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1urIPQ-0000000FzZF-1gwx;
+	Wed, 27 Aug 2025 15:50:00 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urEVn-0000000FInd-3PUF;
+	id 1urEVn-0000000FIoA-3tMH;
 	Wed, 27 Aug 2025 11:40:22 +0000
-X-UUID: 98c69b00833a11f09f706fa2197c6ceb-20250827
+X-UUID: 99608dd2833a11f09eb0dd999d3936bf-20250827
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=N3NED3r7AOd8pC/x+T9Ayesh8tOjKHDXFgPSk0s2l3Y=;
-	b=rYYqFwH4MUNEUisq/QC0mFMDlF6HW5CXJsT21fzYD0vS7/BIeTOjGA1VviipEa6tSu9uTScwlw4tq5DIJE/EM51yqoAmSvU3dm0EY08rKYFYCTpq9h75IJ8zX0CXS95gqHtrr+RMlep78WK3mZA9UTgUEv8ZSu7jI/l9zUt+RqE=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=BxjyXGHfxzSuJMr1ONRYsHpN3Af1PMpxB+Q48ufPkBQ=;
+	b=sbyOMa16CX3YLEE8sVtXEzdYNUoCt2FAySXv3XO0cHvHTcTSyc5jfCF5vTi8kMmNLyoLj4Q83ZL5ajXL0jtMbeA6RTaWCyj0XjpQ1qjoeoin6Y2ojWt+M+qVg/uH2U/zJYlwyN0/d054dAls2oaVLxXm2eBp3AgyGzd86cswBPk=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.3,REQID:8a0c763d-de3d-4542-af42-425d623437e4,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:f1326cf,CLOUDID:2a2fab6d-c2f4-47a6-876f-59a53e9ecc6e,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:-5,Content:0|15|50,EDM:
-	-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
-	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-O-INFO: VERSION:1.3.3,REQID:c178ba4b-58a4-4c87-9652-fbaae48063dc,IP:0,UR
+	L:0,TC:0,Content:100,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:100
+X-CID-META: VersionHash:f1326cf,CLOUDID:fda59020-786d-4870-a017-e7b4f3839b3f,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|801,TC:-5,Content:3|15|50,
+	EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
+	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 98c69b00833a11f09f706fa2197c6ceb-20250827
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
+X-UUID: 99608dd2833a11f09eb0dd999d3936bf-20250827
+Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
 	(envelope-from <jason-jh.lin@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1777341625; Wed, 27 Aug 2025 04:40:14 -0700
+	with ESMTP id 1275251844; Wed, 27 Aug 2025 04:40:15 -0700
 Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
  15.2.1258.39; Wed, 27 Aug 2025 19:40:10 +0800
 Received: from mtksitap99.mediatek.inc (10.233.130.16) by
@@ -70,9 +70,9 @@ CC: Matthias Brugger <matthias.bgg@gmail.com>, Nicolas Dufresne
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-media@vger.kernel.org>
-Subject: [PATCH v7 17/20] media: platform: mtk-mdp3: Use cmdq_pkt_jump_rel() without shift_pa
-Date: Wed, 27 Aug 2025 19:37:49 +0800
-Message-ID: <20250827114006.3310175-18-jason-jh.lin@mediatek.com>
+Subject: [PATCH v7 20/20] mailbox: mtk-cmdq: Remove unsued cmdq_get_shift_pa()
+Date: Wed, 27 Aug 2025 19:37:52 +0800
+Message-ID: <20250827114006.3310175-21-jason-jh.lin@mediatek.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20250827114006.3310175-1-jason-jh.lin@mediatek.com>
 References: <20250827114006.3310175-1-jason-jh.lin@mediatek.com>
@@ -81,8 +81,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_044019_866308_964420B1 
-X-CRM114-Status: GOOD (  15.48  )
+X-CRM114-CacheID: sfid-20250827_044020_001634_D683DBC5 
+X-CRM114-Status: GOOD (  13.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,58 +97,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With the removal of the shift_pa parameter, cmdq_pkt_jump_rel_temp()
-can be replaced by the new cmdq_pkt_jump_rel() without shift_pa.
+Since the mailbox driver data can be obtained using cmdq_get_mbox_priv()
+and all CMDQ users have transitioned to cmdq_get_mbox_priv(),
+cmdq_get_shift_pa() can be removed.
 
-Then, remove the cmdq_shift_pa variable in the mdp_dev structure for
-each mbox client.
-
-Fixes: ade176534112 ("soc: mediatek: cmdq: Add parameter shift_pa to cmdq_pkt_jump()")
+Fixes: 0858fde496f8 ("mailbox: cmdq: variablize address shift in platform")
 Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
 ---
- drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c | 2 +-
- drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c | 2 --
- drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.h | 1 -
- 3 files changed, 1 insertion(+), 4 deletions(-)
+ drivers/mailbox/mtk-cmdq-mailbox.c       |  8 --------
+ include/linux/mailbox/mtk-cmdq-mailbox.h | 12 ------------
+ 2 files changed, 20 deletions(-)
 
-diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c
-index 7575ec376367..c35fe0e3a4d5 100644
---- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c
-+++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c
-@@ -638,7 +638,7 @@ static struct mdp_cmdq_cmd *mdp_cmdq_prepare(struct mdp_dev *mdp,
- 		goto err_free_path;
- 	}
- 	cmdq_pkt_eoc(&cmd->pkt);
--	cmdq_pkt_jump_rel_temp(&cmd->pkt, CMDQ_INST_SIZE, mdp->cmdq_shift_pa[pp_idx]);
-+	cmdq_pkt_jump_rel(&cmd->pkt, CMDQ_INST_SIZE);
+diff --git a/drivers/mailbox/mtk-cmdq-mailbox.c b/drivers/mailbox/mtk-cmdq-mailbox.c
+index 316082938977..2d0ad54c519b 100644
+--- a/drivers/mailbox/mtk-cmdq-mailbox.c
++++ b/drivers/mailbox/mtk-cmdq-mailbox.c
+@@ -121,14 +121,6 @@ void cmdq_get_mbox_priv(struct mbox_chan *chan, struct cmdq_mbox_priv *priv)
+ }
+ EXPORT_SYMBOL(cmdq_get_mbox_priv);
  
- 	for (i = 0; i < num_comp; i++) {
- 		s32 inner_id = MDP_COMP_NONE;
-diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c
-index 8de2c8e4d333..2f8147481bd6 100644
---- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c
-+++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c
-@@ -293,8 +293,6 @@ static int mdp_probe(struct platform_device *pdev)
- 			ret = PTR_ERR(mdp->cmdq_clt[i]);
- 			goto err_mbox_destroy;
- 		}
+-u8 cmdq_get_shift_pa(struct mbox_chan *chan)
+-{
+-	struct cmdq *cmdq = container_of(chan->mbox, struct cmdq, mbox);
 -
--		mdp->cmdq_shift_pa[i] = cmdq_get_shift_pa(mdp->cmdq_clt[i]->chan);
- 	}
+-	return cmdq->pdata->shift;
+-}
+-EXPORT_SYMBOL(cmdq_get_shift_pa);
+-
+ static void cmdq_vm_init(struct cmdq *cmdq)
+ {
+ 	int i;
+diff --git a/include/linux/mailbox/mtk-cmdq-mailbox.h b/include/linux/mailbox/mtk-cmdq-mailbox.h
+index 07c1bfbdb8c4..a42b44d5fd49 100644
+--- a/include/linux/mailbox/mtk-cmdq-mailbox.h
++++ b/include/linux/mailbox/mtk-cmdq-mailbox.h
+@@ -96,16 +96,4 @@ struct cmdq_pkt {
+  */
+ void cmdq_get_mbox_priv(struct mbox_chan *chan, struct cmdq_mbox_priv *priv);
  
- 	init_waitqueue_head(&mdp->callback_wq);
-diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.h b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.h
-index 05cade1d098e..430251f63754 100644
---- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.h
-+++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.h
-@@ -126,7 +126,6 @@ struct mdp_dev {
- 	u32					id_count;
- 	struct ida				mdp_ida;
- 	struct cmdq_client			*cmdq_clt[MDP_PP_MAX];
--	u8					cmdq_shift_pa[MDP_PP_MAX];
- 	wait_queue_head_t			callback_wq;
- 
- 	struct v4l2_device			v4l2_dev;
+-/**
+- * cmdq_get_shift_pa() - get the shift bits of physical address
+- * @chan: mailbox channel
+- *
+- * GCE can only fetch the command buffer address from a 32-bit register.
+- * Some SOCs support more than 32-bit command buffer address for GCE, which
+- * requires some shift bits to make the address fit into the 32-bit register.
+- *
+- * Return: the shift bits of physical address
+- */
+-u8 cmdq_get_shift_pa(struct mbox_chan *chan);
+-
+ #endif /* __MTK_CMDQ_MAILBOX_H__ */
 -- 
 2.43.0
 
