@@ -4,101 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3446CCA0FF6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 19:15:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48016CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 19:15:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7CClwCv0zfIyfXt+CnyLrMXFDS8Rdm/1O46USkOffuA=; b=dRnL9YBdUN8C+IaaGkd+75Ur5B
-	DoW6s5Z7mRuitKDWMiR8cGanVsUeQkDqiMSjOsN9XIN0JfN1VxCFEyyhKryR6Z4hY1PyZQmQbP9lX
-	62VqI8nNzkHTz2yVQWFG76r6LQL/dTOJzWxwBuWlks1H4Tl39UfX8un83EbSqI/ZM40V/KeTKvPZO
-	tICfY4Ns/UUbakJC3wWgWNA1tIIIaQW0c/vCWodUlizqzTEF8x2LOwd6SHAUOi1LJtKRqDsCHbVJs
-	RtOvSYd373iFchs5vi9Vby1dmcCbgJYSCdBqEiSWEaPFvcBvnHPRw4cR5xQAfG5mvGSHx/UL4HFnm
-	ZVCG0XzA==;
+	bh=9YYBppzdjdhYPHF83U6ojTVry/Enrt+LZVkI0+bo40M=; b=Z+KPOeeM35MSdZ+/NHWh2ffulk
+	Fnx71gbovEwWtLsBRbyFt8D3Jr2SfPcSCzW0jzG7oj+mvKTxYTN8qlbCONptrFAOUEen2xwdsd0uA
+	pgihrF07oBjuw5kcY7yhK8nVJxAQ+2iEINNP5nrnodDCsLuDNh939QRYYFjj35Gbni0hgdlcEUK5n
+	lQItf/BHUNpavFrHtzlGlCcpA7U0hy4V0WIvj6hYkY9isDam4VHh2PZ/rbaKyqcmvDvQMR20xLI92
+	ErSoE2OwPirVhioirahkMKaGsUMY2xcgxUsFFzJ6lg7h0DaoORdMiiAkoVcAZHHX7oepC4MSagN2F
+	ZPqt6iqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urLc3-0000000GZRR-1RA4;
-	Wed, 27 Aug 2025 19:15:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1urLc5-0000000GZWe-3Zt8;
+	Wed, 27 Aug 2025 19:15:17 +0000
+Received: from mail-dm6nam10on20631.outbound.protection.outlook.com ([2a01:111:f403:2413::631] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urJ5D-0000000GBrM-0hri
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 27 Aug 2025 16:33:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=7CClwCv0zfIyfXt+CnyLrMXFDS8Rdm/1O46USkOffuA=; b=Y0AqCVJM6ircUHnaw3tf7hNXHC
-	IdupBlfEmFD/IJB6lA2yrL7gAB2Zn4WI9xpEZn4rs2iq9nyupA9JsGsGnLaQw0CByPEEjdPQot7Rg
-	jrOpSMQJeADoEEne+ZNFrUxzTcdlA/btxJunadhpt6cYNlEmLvqanisSs59CNaw/v/rqwAQTZJVFZ
-	5CYsa6+RadfHMfFnUtINI7kN4OLGjWsgUy1wmnUkJ4o3OU7249J76QtADdNrd4x1Ekc+SL7rK6xPi
-	t4RHwvppNx37v4mF+SPSwUrK7Yswp4DnNyhG+/UcBGDyuf6ifbrKOmcAAcM0WQ1MbAvA4Zby0aRT3
-	htFlevGA==;
-Received: from mgamail.intel.com ([192.198.163.10])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urJ59-00000002TM1-1iui
+	id 1urJJs-0000000GDSM-0zSu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 16:33:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1756312387; x=1787848387;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=tnTA/PNxi7uOQgEmoAZ2b1rNPAWX95IlTIWABbktj2E=;
-  b=DfucyX8ghgjIL9uamdQEpYiTmBYm774qwx8f1hlNd2KqwqXNCjmV7OXx
-   gMTkn860Ys8pDbqLnf3X5pi49wtoMowZlfwBgwzTppuk+LsayyizBy5Gt
-   YyPAOy8RO3PWoiG6SR64lT4wtTra08/KgCoU8K5hEaekSEGaJQcE+Er6M
-   ZbObDQqKUffhzB5db26LAEcHz3s2lLIGRlcu0F9DgAkffYrMqqIC5QSR4
-   agdEq0AWKPwN3zV89RqZlWYHhGqT3x4YFDjiy6ruStaoxizF+6vlKOIeL
-   yK8U9Xo1xCWMnFa7/lifWHr5SkJS/2jXupebaoaPFjK064gaCRtQ6qBMk
-   w==;
-X-CSE-ConnectionGUID: 9OCfD0erT3OfVOPcEWUyPA==
-X-CSE-MsgGUID: bFPIGJq+SL+tTCMBdnjoLg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11535"; a="69939972"
-X-IronPort-AV: E=Sophos;i="6.18,217,1751266800"; 
-   d="scan'208";a="69939972"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Aug 2025 09:33:01 -0700
-X-CSE-ConnectionGUID: rsYzn5mVRVy6Xw1pxl621w==
-X-CSE-MsgGUID: LXp69DIGTUqK7FFQVmGRRw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,217,1751266800"; 
-   d="scan'208";a="170708925"
-Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
-  by fmviesa010.fm.intel.com with ESMTP; 27 Aug 2025 09:32:51 -0700
-Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1urJ4T-000T4N-1n;
-	Wed, 27 Aug 2025 16:32:49 +0000
-Date: Thu, 28 Aug 2025 00:29:09 +0800
-From: kernel test robot <lkp@intel.com>
-To: Guoniu Zhou <guoniu.zhou@nxp.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>
-Subject: Re: [PATCH 2/5] media: nxp: imx8-isi: Simplify code by using helper
- macro
-Message-ID: <202508280040.QKK6nZ3x-lkp@intel.com>
-References: <20250827-isi_imx93-v1-2-83e6b4b50c4d@nxp.com>
-MIME-Version: 1.0
+	Wed, 27 Aug 2025 16:48:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uLHPZWy1aDqCZ9ttkSfuFAre8y/Y7AeFqp76CB7q6lQ676rtJa4BEnRTjoBD/CA1uQ0tftzHX9ksOhD00C4AzmFeXLHmYFZ/dDsu5z2llUctVxUPY6GaQ/td+YiNLWrVbK4tEafQG1gHsvkHigHYLf7dg3v/+XIuaNTKqem+RjZbtxCBMLd+JXBrUUAMdNbxhwx6RBkmanarIishBbH9utvPdfpqiImvDUrilwquLu/8YkwKvZIUAB6H/2Dk+5bfp7bVlonlDfrQZ5piKNO020jXPhX4esoPjQGhYJ14glq1rsF2AJyTUKuUVP7AOc/BFJ0EnT5fgDBTlVd5Qp3qoQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9YYBppzdjdhYPHF83U6ojTVry/Enrt+LZVkI0+bo40M=;
+ b=DipRQ4ExANFP/v43d60va8uDuDMRljGHuNvlbVJ6emQQUlgoF781ksCchTcQ/AXRFAXpWMEYg9iwFHoBYoscZc1dq0szCUcez4W1bVvN5ZqhwQ9TaH+M4aUnLYyMm1PiIM/gAdNnHp7d6KHrIaLh475oBuq7ELy/nmQS6PhMYBqMbMAJGJNJQB9ZN6scug83GGAABXchRRlABv+zc67JvHlwvwreKtQ6+QG/MXlAF+xDZbnsY1NBXPOslzd61KNm2+l0w95/b0YdcaeQ6+9lIg46aeepVJFypL8IkiGbYA2AYEv8PAShMZh4iRT910mI5voa2Ft2LVoyJ7LS9aEdrw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9YYBppzdjdhYPHF83U6ojTVry/Enrt+LZVkI0+bo40M=;
+ b=r7XoM9mca5CivFC+tbM+28p64nuLGzww++kMANfondGwW7K1lUyb+NfjxvZSwcZ2Phc54EeHtXjx9avQKXwwz8GI8KfwmDzEv7GM8DL6BHVuwDW6wCH+iV9hgs2LGm9I9kIpkgHc9mNZYm9wGG+IAXgcuozNXVIQhLx66l6ACqDyf1j02gCv3gxP4g9y5i6fcXH3ROK+lClVYL+94iTiID3Af7xnFJC95l5BOeYS8a7N9aSaw0ahWPPq5uNue9HxVQ+XPNVdGWXMiZTomZRSX4TaqJcdoTSnQPL5Ky9tXVrMyH/VpwCsaRnq00o3KOiHbjWK0FWvx+aFrqOHtH5c/Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by SA1PR12MB9515.namprd12.prod.outlook.com (2603:10b6:806:45a::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.20; Wed, 27 Aug
+ 2025 16:48:06 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.9052.019; Wed, 27 Aug 2025
+ 16:48:06 +0000
+Date: Wed, 27 Aug 2025 13:48:04 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
+	jean-philippe@linaro.org, miko.lenczewski@arm.com,
+	balbirs@nvidia.com, peterz@infradead.org, smostafa@google.com,
+	kevin.tian@intel.com, praan@google.com, zhangzekun11@huawei.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, patches@lists.linux.dev
+Subject: Re: [PATCH rfcv1 4/8] iommu/arm-smmu-v3: Introduce a per-domain
+ arm_smmu_invs array
+Message-ID: <20250827164804.GA2206304@nvidia.com>
+References: <cover.1755131672.git.nicolinc@nvidia.com>
+ <fbec39124b18c231d19a9b2b05551b131ac14237.1755131672.git.nicolinc@nvidia.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250827-isi_imx93-v1-2-83e6b4b50c4d@nxp.com>
+In-Reply-To: <fbec39124b18c231d19a9b2b05551b131ac14237.1755131672.git.nicolinc@nvidia.com>
+X-ClientProxiedBy: SA9PR13CA0088.namprd13.prod.outlook.com
+ (2603:10b6:806:23::33) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|SA1PR12MB9515:EE_
+X-MS-Office365-Filtering-Correlation-Id: 58b8fd8f-069d-4421-4f07-08dde5897f4f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?mhdWvRDXynOg+w1/jClXisBtPKAfpJKOxkBXAlrij70+YdypqbF9UQhiHX0T?=
+ =?us-ascii?Q?ehMS1oxJHihXDCfdtF74iqNqOpP9DFC1oN2PQjLRg6tcfOtSOaLRzZgnEXDt?=
+ =?us-ascii?Q?/ORzCDk2Vsn+tgkW59BHxSeqcxfmX1HLWiUk3mi8O+2jI86hWzs830jzBS83?=
+ =?us-ascii?Q?Ojc+CsvjnIFGjPYH5VbBAVVNp/XDOHiuUOHo+b+TJnXdsUiSvyV7Guhf+D1D?=
+ =?us-ascii?Q?xQmDG9e0cq+44MyZ8t9CQZqc4itD5U4LsVuP9Om7Efsoy8uY4xsetidGy4RK?=
+ =?us-ascii?Q?B5jubIR73cliGwIB63czdqmYIK3l8j37FNCEgXGu9sY/KQrWxH5VyGkfQ32v?=
+ =?us-ascii?Q?k3JUGTW0A8eKfcF703JUiJL+ONlIhgRaFEc5kVkF93F8Ehz+76PDlOIQLiLF?=
+ =?us-ascii?Q?VOIq3/FgxkDc+n3KPkz4k5RAqoMzX2ThhVDS5qz1LdbMosLgKyvHNUkzy/xO?=
+ =?us-ascii?Q?ETAA1rMm7wQHyU3LnaOcGdCoYDYt+NYPZtJ9AdrJxQTVi7SUhoS25Ear7PtY?=
+ =?us-ascii?Q?1fB0Ss8QQEpe1hgYn0SufMAClaiO90W3Cnmry+wAEUEGpQelgNj86ugHjTkF?=
+ =?us-ascii?Q?dkZunIQtPPLzykmMnPchG2aQyP1p/IaFeulHBOou20ThX0nHRQ2NH4YB8xor?=
+ =?us-ascii?Q?sEekvfTnRhtTd4w38N/ZnX6OnlvEP+3KKo8tTXXTcJ0M+KNovampSIWSThpX?=
+ =?us-ascii?Q?HDZpjHRdUCIz30aQEEozGWh+tpYjAkbXBC7Mn+EhCGj88wgMLypgFFY0GVqg?=
+ =?us-ascii?Q?RgDiV2nkuiwmLCSTqSU9Z/0Xe501Yw+zynhCwJ3tQve627oFvG7AIu80rElY?=
+ =?us-ascii?Q?hv4g1ODNCEv5TjselHVfj6Uk4TnWI7vc3qp9LRnZBTQFhnzuX1C3J5NqkYl1?=
+ =?us-ascii?Q?WyVlBWULef2ug+0VC52ovf75fIfCaR6NbP5X+B+QiFJA5ojnRJ11droT35Ny?=
+ =?us-ascii?Q?gZ3YrCNZVI8wfCJLlLWx1pQYqcBe+AAK47QK22ZnoGPz6tAcK0NWBcndueuM?=
+ =?us-ascii?Q?yBlJpb5YKXRnadTj0U5ItNMWxprl6RlWVNca41SorLi/LBcJBoLqIjSy6iLX?=
+ =?us-ascii?Q?lbWOfdsm/BndQ71ObcnhT6r+GyxVGN2jPH0MeMCaTYZH+jyOJYMiGPRlV2iI?=
+ =?us-ascii?Q?9hR2ZBBplh4OSLEjNLP1s5hWzgFOWFoEo3/1p09yfKGh8h7fQaNwGULSSfHq?=
+ =?us-ascii?Q?Gu0PqY/xmZDd2Bh8aE7XqqpVXBQQiQCuQIsVyAWGFuvsamsiVv7Mqb9Ksa7t?=
+ =?us-ascii?Q?EEF4ccEZx0OkwJX0A/TDwj9vv3jvJC2cP7YHxTViSXbFRfB/pudMY4U+icEy?=
+ =?us-ascii?Q?x+VGloKmG+nTt5BSBzm3FKdNFurDbofNJM21FSY3se86qg0yDv2sZcbCX1nh?=
+ =?us-ascii?Q?w9ID5ES7PPOj8dDBakvweLPv6yINagt6b5Wbi3PypGalDSLBtGsT6mNGvGIX?=
+ =?us-ascii?Q?C4/mV2pi6EQ=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kGX2+VutwKsnskWIwxV33MVDsJs5uyefj1lrE7d9Dt4PQ5tf44IA3M7yefVY?=
+ =?us-ascii?Q?C8edvMpf08RaXNdHkNW6q/jM1Jf3tg+pGYAkI7SNF6k2zTPALjPnsYmhlSOf?=
+ =?us-ascii?Q?bbr4Yt9PCUsjGoBIntA6INaC65BdzjWSinxGezdaz88FS8+YHZxziXfrTSs3?=
+ =?us-ascii?Q?9vNZalJBS158b+DPiHaNndWrJF0DubmTA7DZLW/Cu3Uyz2/6NlfAFkT5NRkE?=
+ =?us-ascii?Q?Jry2vtTmk9w+vGSyZBs1JxTBYl2LCqRWQx4pBMC0sbAe3lgbfrZEnDbnwgMB?=
+ =?us-ascii?Q?ulTqPF5ZbntXV/GCD9oWQi4EMRtwv0Cyf93cuyWJdxfPsLqn/az31KxTKJxd?=
+ =?us-ascii?Q?4A6K88wcK05rtmxtl22X6kEtBNYdEKimZ4XouYwisjgRy2h6JbmEiU6JpUyw?=
+ =?us-ascii?Q?OmSW596TAJhEIr8cGkL8ksrUj7S06lxSakcPNfk6PMCtgO06bMr4c3LA1Hp9?=
+ =?us-ascii?Q?96STnHtDoRukXDQuGZEevsd61BQEzrmLEIqN3BcCf5UA3LN8H/AF2XBWkqCS?=
+ =?us-ascii?Q?wVutAFaunyk9h0NabxzjUmQaM1F6BpXG44H5oAYl9VZOljWsSyqkOwBaoxLw?=
+ =?us-ascii?Q?yZ3q4MsoQF1w6idCuzBld1Q+3djxvAWdkXofN6qLSqdVc15//E4Q42Vs0GRP?=
+ =?us-ascii?Q?WqtpkYHGprdnMps0OIlGswAinXlzibtMpKclACAQOoMRvezSZYSnyzxNCIgP?=
+ =?us-ascii?Q?08K30Ss5tnTchxC5M2mNMSlgkFRas7WOnMAQ6TzbDb52b71XVNjBrQhXMQVB?=
+ =?us-ascii?Q?Jb9JCIZZZbONtGiXXfDpSvCb1q/inJKmkVEjO2jvStTr6pm7HzZPPGdaSBJj?=
+ =?us-ascii?Q?tzbtKROxzGvS6EAx3R7bVkAUqZe0ytxW/k//k62W6koAv88Sju5aUsRBnTiH?=
+ =?us-ascii?Q?njOEYK00MAictJ2KStnAKefrkBIp2FQT0zCR5OSNaDmwQPRcRCju+KuZJzQj?=
+ =?us-ascii?Q?UUWgvZylPpcwmjOuF6Jo3eNJ2R/oCmmNrMxcoO8qmh1TN/kQ/x1t/9fZLFjF?=
+ =?us-ascii?Q?nuTBPWXKCpsxpshSBx8ffU/mwCS+SSsTVTyGhRqqwQGxyXySWZn/VrzAtGeT?=
+ =?us-ascii?Q?PnE31ZgOd+GTynmcZVXmEo99SpylEHnFFSbnQ97GDKBNed15hp562g4rzSLh?=
+ =?us-ascii?Q?IWutb72bE4bignQRRjzWj09V5uQP6QYl8pq1FUjeBVDf5+zjocI1TOul4cSD?=
+ =?us-ascii?Q?tKYpxSNae+gSbggYkUv/ExWiqMkRW4elaaR/16/KxoQaxr+LyoUYjEAtWoim?=
+ =?us-ascii?Q?HwGECwwfcYQormyznTtJYigWl2aq0gPuwAp4YMRjnSgSSmQkb1VehnYkde8D?=
+ =?us-ascii?Q?Aa9FjOXvr3AltjGrM5fc4QxSi8haAkvv/RSXNvwyzoEJ3EGLBafrS2hVJZ1B?=
+ =?us-ascii?Q?zW5/pUSEpFhn8QTo3jixcM1xE3CbQSCEbhD0dSwOVfydZuBI7IBJ0xyyEqvv?=
+ =?us-ascii?Q?e1fItcV8LgLfzaqoJAiH2SysrJ/5VOGZ33phLIfLA9OvjSQRWnIM9XFG+5/O?=
+ =?us-ascii?Q?s6qw/bD77aEj9QM/3lCXNxotj7m33vJ/3pqowQTxXB2zqsfPlqXpLlrYeJno?=
+ =?us-ascii?Q?YyUXuuBnjKw79iqWyYOcpWoy8GKCbKgHB3vE1H+i?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 58b8fd8f-069d-4421-4f07-08dde5897f4f
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Aug 2025 16:48:06.7298
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: gFofm1sKbtXSgm2KoIje5TLa6CnVOz1CHiDW13PnSxW/TULZhJDUZ92DYsMF6OfL
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB9515
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_173307_932337_32381B5B 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20250827_094820_282022_B340D9EC 
+X-CRM114-Status: GOOD (  15.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,65 +162,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Guoniu,
+On Wed, Aug 13, 2025 at 06:25:35PM -0700, Nicolin Chen wrote:
+> +/**
+> + * arm_smmu_invs_del() - Remove @del_invs from @old_invs
+> + * @old_invs: the old invalidation array
+> + * @del_invs: an array of invlidations to delete
+> + *
+> + * Return: a newly allocated and sorted invalidation array on success, or an
+> + * ERR_PTR.
+> + *
+> + * This function must be locked and serialized with arm_smmu_invs_add/dec(),
+> + * but do not lockdep on any lock for KUNIT test.
+> + *
+> + * Caller is resposible for freeing the @old_invs and the returned one.
+> + *
+> + * Entries marked as trash will be completely removed in the returned array.
+> + */
+> +VISIBLE_IF_KUNIT
+> +struct arm_smmu_invs *arm_smmu_invs_del(struct arm_smmu_invs *old_invs,
+> +					struct arm_smmu_invs *del_invs)
+> +{
 
-kernel test robot noticed the following build errors:
+Having looked at this more completely, I think we should drop this
+function.
 
-[auto build test ERROR on a75b8d198c55e9eb5feb6f6e155496305caba2dc]
+Just always do decr, then have a simple function to compact the list
+after the decr:
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Guoniu-Zhou/media-dt-bindings-nxp-imx8-isi-Add-i-MX91-ISI-compatible-string/20250827-175809
-base:   a75b8d198c55e9eb5feb6f6e155496305caba2dc
-patch link:    https://lore.kernel.org/r/20250827-isi_imx93-v1-2-83e6b4b50c4d%40nxp.com
-patch subject: [PATCH 2/5] media: nxp: imx8-isi: Simplify code by using helper macro
-config: riscv-randconfig-002-20250827 (https://download.01.org/0day-ci/archive/20250828/202508280040.QKK6nZ3x-lkp@intel.com/config)
-compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project d26ea02060b1c9db751d188b2edb0059a9eb273d)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250828/202508280040.QKK6nZ3x-lkp@intel.com/reproduce)
+struct arm_smmu_invs *arm_smmu_invs_cleanup(struct arm_smmu_invs *invs,
+					    size_t to_del)
+{
+	struct arm_smmu_invs *new_invs;
+	size_t i, j;
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202508280040.QKK6nZ3x-lkp@intel.com/
+	if (WARN_ON(invs->num_invs < to_del))
+		return NULL;
 
-All errors (new ones prefixed by >>):
+	new_invs = arm_smmu_invs_alloc(invs->num_invs - to_del);
+	if (IS_ERR(new_invs))
+		return NULL;
 
->> drivers/media/platform/nxp/imx8-isi/imx8-isi-gasket.c:36:8: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-      36 |         val = GASKET_CTRL_DATA_TYPE(fd->entry[0].bus.csi2.dt);
-         |               ^
-   drivers/media/platform/nxp/imx8-isi/imx8-isi-gasket.c:19:36: note: expanded from macro 'GASKET_CTRL_DATA_TYPE'
-      19 | #define GASKET_CTRL_DATA_TYPE(dt)               FIELD_PREP(GENMASK(13, 8), (dt))
-         |                                                 ^
-   drivers/media/platform/nxp/imx8-isi/imx8-isi-gasket.c:70:8: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-      70 |         val = DISP_MIX_CAMERA_MUX_DATA_TYPE(fd->entry[0].bus.csi2.dt);
-         |               ^
-   drivers/media/platform/nxp/imx8-isi/imx8-isi-gasket.c:60:49: note: expanded from macro 'DISP_MIX_CAMERA_MUX_DATA_TYPE'
-      60 | #define DISP_MIX_CAMERA_MUX_DATA_TYPE(x)        FIELD_PREP(GENMASK(8, 3), (x))
-         |                                                 ^
-   2 errors generated.
+	for (i = 0, j = 0; i != invs->num_invs; i++) {
+		if (!refcount_read(&invs->inv[i].users))
+			continue;
+		new_invs->inv[j] = invs->inv[i];
+		j++;
+	}
+	return new_invs;
+}
 
+If this returns NULL then just leave the list alone, it is OK to sit
+there with the 0 users left behind.
 
-vim +/FIELD_PREP +36 drivers/media/platform/nxp/imx8-isi/imx8-isi-gasket.c
+No need for the complex _del function and the _decr function..
 
-f48498ad0a4106e Guoniu.zhou 2023-06-29  25  
-f48498ad0a4106e Guoniu.zhou 2023-06-29  26  static void mxc_imx8_gasket_enable(struct mxc_isi_dev *isi,
-f48498ad0a4106e Guoniu.zhou 2023-06-29  27  				   const struct v4l2_mbus_frame_desc *fd,
-f48498ad0a4106e Guoniu.zhou 2023-06-29  28  				   const struct v4l2_mbus_framefmt *fmt,
-f48498ad0a4106e Guoniu.zhou 2023-06-29  29  				   const unsigned int port)
-f48498ad0a4106e Guoniu.zhou 2023-06-29  30  {
-f48498ad0a4106e Guoniu.zhou 2023-06-29  31  	u32 val;
-f48498ad0a4106e Guoniu.zhou 2023-06-29  32  
-f48498ad0a4106e Guoniu.zhou 2023-06-29  33  	regmap_write(isi->gasket, GASKET_BASE(port) + GASKET_HSIZE, fmt->width);
-f48498ad0a4106e Guoniu.zhou 2023-06-29  34  	regmap_write(isi->gasket, GASKET_BASE(port) + GASKET_VSIZE, fmt->height);
-f48498ad0a4106e Guoniu.zhou 2023-06-29  35  
-f48498ad0a4106e Guoniu.zhou 2023-06-29 @36  	val = GASKET_CTRL_DATA_TYPE(fd->entry[0].bus.csi2.dt);
-f48498ad0a4106e Guoniu.zhou 2023-06-29  37  	if (fd->entry[0].bus.csi2.dt == MIPI_CSI2_DT_YUV422_8B)
-f48498ad0a4106e Guoniu.zhou 2023-06-29  38  		val |= GASKET_CTRL_DUAL_COMP_ENABLE;
-f48498ad0a4106e Guoniu.zhou 2023-06-29  39  
-f48498ad0a4106e Guoniu.zhou 2023-06-29  40  	val |= GASKET_CTRL_ENABLE;
-f48498ad0a4106e Guoniu.zhou 2023-06-29  41  	regmap_write(isi->gasket, GASKET_BASE(port) + GASKET_CTRL, val);
-f48498ad0a4106e Guoniu.zhou 2023-06-29  42  }
-f48498ad0a4106e Guoniu.zhou 2023-06-29  43  
+This also means the memory doesn't need to be preallocated and it
+significantly simplifies alot of the logic.
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Jason
 
