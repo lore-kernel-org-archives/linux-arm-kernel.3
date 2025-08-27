@@ -4,119 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DCEBCA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 04:31:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6003EC8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 04:50:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LFgzrZAixnTqFsEdbAYjDQONQ2mnmA9c8+kXB2USXhQ=; b=qlJhUvMNI2yc6l4UlbRyiq+DAz
-	FjQNVzK92YNVSnh604dFyc+XzkjxKWpY5FPzhZOgxaxRVPkRx7QUj/Evak+ynskX5FooiBelz/llr
-	K7wZ7YHuYeHws+d5SBayJaHU0jIFuH2FHfVJzPv57IaAS/Pu3LkKRNzBdOj0egUY/rgTUOZZ9wy+9
-	ggPC/7KMjo0kGZpo/o8z5syZ53hl698lpkP58lLioJsml50wlo3Flpa3X4fQX7I7o8VNne09rA/Xz
-	QguGkI+knoF0+EdjCGNPicwoyH1KFFbQAsL5UQExctZG9jOs0806lc1k8hXgJ1eYozALJVPttsQJu
-	IUzH9ToA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=t0Ryzl+bhnvnUoIRkn4L1iphGVUHu2m+u71p5zhRsXY=; b=oUlKB4MBhZx6r8rT6gjta/cKw4
+	jkaZXibh0wTU1xoJT3fEsWosSRGWICdB/EySoflsWdbBxIYNGur4CgU+mJy9RxaXi+m/2cHhUKmn4
+	W3NEabQ9FFxl28WJXCAkE/74ZCoqK52CHOER/YGw0HQnIxkoX2ZTik7Q+lJqlrtEjnetRXVp3AAP9
+	of2gFxK/aSUhKFaitCUiX7fw7D8Qv1mu1ajESJZUtsha/FBLh/3+IT0HRf+iWXcNzqUmrjs5NRj6d
+	JPjZpwBVzzQ0TonUJIuBH+alg0EszDwhP5UfrfISgcbcVgJHHlNN/Rzv0WzYZpsEH9FANqbvDIhNw
+	vz0n2YsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ur7p5-0000000DynO-0fux;
-	Wed, 27 Aug 2025 04:31:47 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1ur87Y-0000000E1MI-2tJa;
+	Wed, 27 Aug 2025 04:50:52 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ur7ed-0000000DxGY-0lFp
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 04:21:00 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57R2spg9018862
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 04:20:59 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=LFgzrZAixnT
-	qFsEdbAYjDQONQ2mnmA9c8+kXB2USXhQ=; b=iNhbMWaJDlRl7uFXPhJdTn/l/sK
-	oVXznRwiU+6nBM+5O1M8eEXZJDPjaY8C3tr1MgdcUTFUL4FXZhyjk1fg8a0BFisD
-	/04GkXfCopoJ1xjouI4i2/2TwdzY0PquJaJARlyivNCPc2R8Miezam0CnTG6WKor
-	ruRJy2p38cQ1aF8+HmMEQa1Y4l6N2HAmrJDn94r7W/Lt41qx5wZvMsMnUJLx3wI4
-	E7HN24cgv2/E4a7koHRewY1SzgJFaXh90IbfR4H2yOqWDA3gYIrnBjDAawTk6Rk3
-	SFTcAe20c1eh87dxOvntLL9FfjgZGuolCrREc4gfMyIquCHjmYRyr31l+IA==
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48q5xpujne-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 04:20:58 +0000 (GMT)
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-771e331f0fcso2341630b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 21:20:58 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756268458; x=1756873258;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=LFgzrZAixnTqFsEdbAYjDQONQ2mnmA9c8+kXB2USXhQ=;
-        b=YppxPcajudqasmL4cdPO2ail+CWNBrZWJAfvX+I1Ji3JZc13YQhacwLS7qRi9svAs5
-         L4dK52s3epxJPPhTnR+F2oPZ8aiwJ31LWFGGu8esF+NuodW1SKKZoqZ644wc9OD+lfyY
-         OCgZ0aOCX832Nsg+PsD4st0NQVCe6H6ASrtztBqNF/i8sqeuzv95tDBod239mcbQTA6f
-         tl1h/BsmB2sHPyqGkshYZS5i75nuEO9ExXBBgFTbPuRibrNivzOSkktZYB2Mo2EfflI3
-         Z5qOG3SM4iww8YUl8HP1hoggPxYgiQ0w4KbVJwgqbJR/32EMSyyFzCneG/ypce8ai+ey
-         K4Gw==
-X-Forwarded-Encrypted: i=1; AJvYcCWekR5aV/emYXM3lBqkupqcRzQgTW23wloHPAd4O13KTZqECrBXfUxLu2URQtBLq3noeUTHYHHlXx56ZXZqgRmg@lists.infradead.org
-X-Gm-Message-State: AOJu0YyAqgcCjFSsxaQBiPUoTvuomY65ZAVtPysnnqnqQjoNv7BmxTkw
-	9rSlK8MKnCMSFGINS9Nfg8RRP6dq+npHsjIpcU7klmgUCZgchEppWhTB/h/rTXh95ifDh78xt9h
-	bwjx9AyZswGu4ftrg08BMjYV2nKuDnHj2VniK+i5jpOY8fnTLWgTq4kTjxno3fdWxoyX5mhmX6n
-	5vPA==
-X-Gm-Gg: ASbGncvW0OfcebYsGYRSBAMHByV66gc2FIxICUbYNGEzF1QJEk0b46DuTTk8H+pz5vg
-	OyMl024CSJp199TWObm34W+TBZBbJFnwvY5fasumPES+SRG5IBhyBmsI26Jm2qYLcNN1MnP3Ta7
-	QQGhh0CMQNgwd6eg6u/AwR4LfV44DSR9A6z7pzOeBXeEZdtK+SP7qSfg3g2mO6U7VZb088DzeB2
-	VevuYhsxexlSWoDLeILlmpv2rDNfpC2lH0ASx9MWNY+cJ5YT3+aZts6UYHKko/rM2jIj8FKUlZA
-	lfIgf8weUv/AvKQ4ER947zoXiQ9/QczOU/H9ipLPcDORztZdsbcM2VNSiSkro3yhCxznnqo175s
-	lcPN2WRfxN+XNXfwQVvsM
-X-Received: by 2002:a05:6a20:244f:b0:230:3710:9aa9 with SMTP id adf61e73a8af0-24340bce30emr25026149637.4.1756268457893;
-        Tue, 26 Aug 2025 21:20:57 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHdCRcL4yrE9XGANFjJJjHieROHuyk+4KHF1iEmPx2C2KpvsxbNZ36c7SUdVsYPPF6S/m2zyw==
-X-Received: by 2002:a05:6a20:244f:b0:230:3710:9aa9 with SMTP id adf61e73a8af0-24340bce30emr25026121637.4.1756268457424;
-        Tue, 26 Aug 2025 21:20:57 -0700 (PDT)
-Received: from jiegan.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-771f4072ac4sm4323076b3a.34.2025.08.26.21.20.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 Aug 2025 21:20:57 -0700 (PDT)
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
-Subject: [PATCH v2 3/3] coresight: tpda: add sysfs node to flush specific port
-Date: Wed, 27 Aug 2025 12:20:42 +0800
-Message-Id: <20250827042042.6786-4-jie.gan@oss.qualcomm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250827042042.6786-1-jie.gan@oss.qualcomm.com>
-References: <20250827042042.6786-1-jie.gan@oss.qualcomm.com>
+	id 1ur84s-0000000E0mI-19SN;
+	Wed, 27 Aug 2025 04:48:07 +0000
+X-UUID: 01b4bb54830111f09f706fa2197c6ceb-20250826
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=t0Ryzl+bhnvnUoIRkn4L1iphGVUHu2m+u71p5zhRsXY=;
+	b=D6Sqfv4eUCtPkOCaUFV+JqT0HnJJSWmXadix2JeSAk0T0Joih+J9DIcgib8bQMngOmsAYxlxtJMDH8QeJyeNL/aWU5lt0b3CEydpTiq9MQqr/f9RnoC5zUiGoGc9O8JY3rU5IEzmwvewTLsXBeOmyBXwX4a5l6/u+PFFHgmQ0Cs=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.3,REQID:edc035a6-8c41-43c0-8c46-df6da3951beb,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:f1326cf,CLOUDID:7b38917a-966c-41bd-96b5-7d0b3c22e782,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:-5,Content:0|15|50,EDM:-3,IP:
+	nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,L
+	ES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 01b4bb54830111f09f706fa2197c6ceb-20250826
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
+	(envelope-from <skylake.huang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 2065072341; Tue, 26 Aug 2025 21:47:59 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Wed, 27 Aug 2025 12:47:56 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Wed, 27 Aug 2025 12:47:56 +0800
+From: Sky Huang <SkyLake.Huang@mediatek.com>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Daniel Golle
+	<daniel@makrotopia.org>, Qingfang Deng <dqfext@gmail.com>, SkyLake Huang
+	<SkyLake.Huang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	<linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+CC: Sky Huang <skylake.huang@mediatek.com>
+Subject: [PATCH net-next 1/1] net: phy: mtk-2p5ge: Add LED support for MT7988
+Date: Wed, 27 Aug 2025 12:47:55 +0800
+Message-ID: <20250827044755.3256991-1-SkyLake.Huang@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=KOlaDEFo c=1 sm=1 tr=0 ts=68ae87aa cx=c_pps
- a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=2OwXVqhp2XgA:10 a=EUspDBNiAAAA:8 a=l6kBNUb3cY0M__Xq7_0A:9
- a=zc0IvFSfCIW2DFIPzwfm:22
-X-Proofpoint-GUID: yIuuOkcomZOerQ96b7658RhvPNdB_HDe
-X-Proofpoint-ORIG-GUID: yIuuOkcomZOerQ96b7658RhvPNdB_HDe
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDAzMyBTYWx0ZWRfX/p0Q+UsG7dao
- GON4YKkuQlsHEh5c88hAa9C/Edy1xld985P0oMdmwzM6csiU0Zo7jhUzS84EnErWU378fkwWf7r
- cIuF3DnCPwTwcUxvedIQ5CXHpunaWa2KGXm4CgEQkJhROtlPocHVYXq1S46U5Ijt32+ATcg5Ccw
- hezT5U9FmAWo83+1OZ7UahMBEynby7fpJK6fsVy6VbTExmwkrVnMPo5QWwoL1IrrqWUitlM8VGl
- c1bGaQmn6iKucDkMy70W6lBnZQxzz0/4rKKXf9dVQh+uN3kU/KGfRdlGmCIKpKvorjq8Y6yY3ab
- 4KaTfzsoSMB7Dz3ivYCdS1wBUslnh8m26HS+gsmayTvLI4OgrtO4kPperJE2L5UTvTOsTykSpPj
- E8CfVpgF
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-26_02,2025-08-26_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 clxscore=1015 bulkscore=0 adultscore=0 phishscore=0
- impostorscore=0 spamscore=0 suspectscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508230033
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_212059_226649_B9E437BD 
-X-CRM114-Status: GOOD (  17.26  )
+X-CRM114-CacheID: sfid-20250826_214806_327076_828F0999 
+X-CRM114-Status: GOOD (  16.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,117 +90,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Tao Zhang <tao.zhang@oss.qualcomm.com>
+From: Sky Huang <skylake.huang@mediatek.com>
 
-Setting bit i in the TPDA_FLUSH_CR register initiates a flush request
-for port i, forcing the data to synchronize and be transmitted to the
-sink device.
+Add LED support for MT7988's built-in 2.5Gphy. LED hardware has almost
+the same design with MT7981's/MT7988's built-in GbE. So hook the same
+helper function here.
 
-Signed-off-by: Tao Zhang <tao.zhang@oss.qualcomm.com>
-Co-developed-by: Jie Gan <jie.gan@oss.qualcomm.com>
-Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+Before mtk_phy_leds_state_init(), set correct default values of LED0
+and LED1.
+
+Signed-off-by: Sky Huang <skylake.huang@mediatek.com>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 ---
- .../testing/sysfs-bus-coresight-devices-tpda  |  7 ++++
- drivers/hwtracing/coresight/coresight-tpda.c  | 42 +++++++++++++++++++
- drivers/hwtracing/coresight/coresight-tpda.h  |  2 +
- 3 files changed, 51 insertions(+)
+ drivers/net/phy/mediatek/mtk-2p5ge.c | 104 +++++++++++++++++++++++++--
+ 1 file changed, 98 insertions(+), 6 deletions(-)
 
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
-index fb651aebeb31..2cf2dcfc13c8 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
-@@ -41,3 +41,10 @@ Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qu
- Description:
- 		(RW) Configure the CMB/MCMB channel mode for all enabled ports.
- 		Value 0 means raw channel mapping mode. Value 1 means channel pair marking mode.
-+
-+What:		/sys/bus/coresight/devices/<tpda-name>/port_flush_req
-+Date:		August 2025
-+KernelVersion:	6.17
-+Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
-+Description:
-+		(RW) Configure the bit i to requests a flush operation of port i on the TPDA.
-diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
-index 430f76c559f2..8b1fe128881d 100644
---- a/drivers/hwtracing/coresight/coresight-tpda.c
-+++ b/drivers/hwtracing/coresight/coresight-tpda.c
-@@ -487,6 +487,47 @@ static ssize_t cmbchan_mode_store(struct device *dev,
+diff --git a/drivers/net/phy/mediatek/mtk-2p5ge.c b/drivers/net/phy/mediatek/mtk-2p5ge.c
+index e147eab523ef..de8a41a1841d 100644
+--- a/drivers/net/phy/mediatek/mtk-2p5ge.c
++++ b/drivers/net/phy/mediatek/mtk-2p5ge.c
+@@ -249,8 +249,80 @@ static int mt798x_2p5ge_phy_get_rate_matching(struct phy_device *phydev,
+ 	return RATE_MATCH_PAUSE;
  }
- static DEVICE_ATTR_RW(cmbchan_mode);
  
-+static ssize_t port_flush_req_show(struct device *dev,
-+				   struct device_attribute *attr,
-+				   char *buf)
++static const unsigned long supported_triggers =
++	BIT(TRIGGER_NETDEV_FULL_DUPLEX) |
++	BIT(TRIGGER_NETDEV_LINK)        |
++	BIT(TRIGGER_NETDEV_LINK_10)     |
++	BIT(TRIGGER_NETDEV_LINK_100)    |
++	BIT(TRIGGER_NETDEV_LINK_1000)   |
++	BIT(TRIGGER_NETDEV_LINK_2500)   |
++	BIT(TRIGGER_NETDEV_RX)          |
++	BIT(TRIGGER_NETDEV_TX);
++
++static int mt798x_2p5ge_phy_led_blink_set(struct phy_device *phydev, u8 index,
++					  unsigned long *delay_on,
++					  unsigned long *delay_off)
 +{
-+	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	unsigned long val;
++	bool blinking = false;
++	int err = 0;
 +
-+	if (!drvdata->csdev->refcnt)
-+		return -EINVAL;
++	err = mtk_phy_led_num_dly_cfg(index, delay_on, delay_off, &blinking);
++	if (err < 0)
++		return err;
 +
-+	guard(spinlock)(&drvdata->spinlock);
-+	CS_UNLOCK(drvdata->base);
-+	val = readl_relaxed(drvdata->base + TPDA_FLUSH_CR);
-+	CS_LOCK(drvdata->base);
-+	return sysfs_emit(buf, "%lx\n", val);
++	err = mtk_phy_hw_led_blink_set(phydev, index, blinking);
++	if (err)
++		return err;
++
++	if (blinking)
++		mtk_phy_hw_led_on_set(phydev, index, MTK_2P5GPHY_LED_ON_MASK,
++				      false);
++
++	return 0;
 +}
 +
-+static ssize_t port_flush_req_store(struct device *dev,
-+				    struct device_attribute *attr,
-+				    const char *buf,
-+				    size_t size)
++static int mt798x_2p5ge_phy_led_brightness_set(struct phy_device *phydev,
++					       u8 index,
++					       enum led_brightness value)
 +{
-+	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	unsigned long val;
++	int err;
 +
-+	if (kstrtoul(buf, 0, &val))
-+		return -EINVAL;
++	err = mtk_phy_hw_led_blink_set(phydev, index, false);
++	if (err)
++		return err;
 +
-+	if (!drvdata->csdev->refcnt || !val)
-+		return -EINVAL;
-+
-+	val |= FIELD_PREP(TPDA_MAX_INPORTS_MASK, val);
-+	guard(spinlock)(&drvdata->spinlock);
-+	CS_UNLOCK(drvdata->base);
-+	writel_relaxed(val, drvdata->base + TPDA_FLUSH_CR);
-+	CS_LOCK(drvdata->base);
-+
-+	return size;
++	return mtk_phy_hw_led_on_set(phydev, index, MTK_2P5GPHY_LED_ON_MASK,
++				     (value != LED_OFF));
 +}
-+static DEVICE_ATTR_RW(port_flush_req);
 +
- static struct attribute *tpda_attrs[] = {
- 	&dev_attr_trig_async_enable.attr,
- 	&dev_attr_trig_flag_ts_enable.attr,
-@@ -494,6 +535,7 @@ static struct attribute *tpda_attrs[] = {
- 	&dev_attr_freq_ts_enable.attr,
- 	&dev_attr_global_flush_req.attr,
- 	&dev_attr_cmbchan_mode.attr,
-+	&dev_attr_port_flush_req.attr,
- 	NULL,
++static int mt798x_2p5ge_phy_led_hw_is_supported(struct phy_device *phydev,
++						u8 index, unsigned long rules)
++{
++	return mtk_phy_led_hw_is_supported(phydev, index, rules,
++					   supported_triggers);
++}
++
++static int mt798x_2p5ge_phy_led_hw_control_get(struct phy_device *phydev,
++					       u8 index, unsigned long *rules)
++{
++	return mtk_phy_led_hw_ctrl_get(phydev, index, rules,
++				       MTK_2P5GPHY_LED_ON_SET,
++				       MTK_2P5GPHY_LED_RX_BLINK_SET,
++				       MTK_2P5GPHY_LED_TX_BLINK_SET);
++};
++
++static int mt798x_2p5ge_phy_led_hw_control_set(struct phy_device *phydev,
++					       u8 index, unsigned long rules)
++{
++	return mtk_phy_led_hw_ctrl_set(phydev, index, rules,
++				       MTK_2P5GPHY_LED_ON_SET,
++				       MTK_2P5GPHY_LED_RX_BLINK_SET,
++				       MTK_2P5GPHY_LED_TX_BLINK_SET);
++};
++
+ static int mt798x_2p5ge_phy_probe(struct phy_device *phydev)
+ {
++	struct mtk_socphy_priv *priv;
+ 	struct pinctrl *pinctrl;
+ 	int ret;
+ 
+@@ -273,19 +345,34 @@ static int mt798x_2p5ge_phy_probe(struct phy_device *phydev)
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	/* Setup LED */
++	/* Setup LED. On default, LED0 is on/off when link is up/down. As for
++	 * LED1, it blinks as tx/rx transmission takes place.
++	 */
+ 	phy_set_bits_mmd(phydev, MDIO_MMD_VEND2, MTK_PHY_LED0_ON_CTRL,
+-			 MTK_PHY_LED_ON_POLARITY | MTK_PHY_LED_ON_LINK10 |
+-			 MTK_PHY_LED_ON_LINK100 | MTK_PHY_LED_ON_LINK1000 |
+-			 MTK_PHY_LED_ON_LINK2500);
+-	phy_set_bits_mmd(phydev, MDIO_MMD_VEND2, MTK_PHY_LED1_ON_CTRL,
+-			 MTK_PHY_LED_ON_FDX | MTK_PHY_LED_ON_HDX);
++			 MTK_PHY_LED_ON_POLARITY | MTK_2P5GPHY_LED_ON_SET);
++	phy_clear_bits_mmd(phydev, MDIO_MMD_VEND2, MTK_PHY_LED0_BLINK_CTRL,
++			   MTK_2P5GPHY_LED_TX_BLINK_SET |
++			   MTK_2P5GPHY_LED_RX_BLINK_SET);
++	phy_clear_bits_mmd(phydev, MDIO_MMD_VEND2, MTK_PHY_LED1_ON_CTRL,
++			   MTK_PHY_LED_ON_FDX | MTK_PHY_LED_ON_HDX |
++			   MTK_2P5GPHY_LED_ON_SET);
++	phy_set_bits_mmd(phydev, MDIO_MMD_VEND2, MTK_PHY_LED1_BLINK_CTRL,
++			 MTK_2P5GPHY_LED_TX_BLINK_SET |
++			 MTK_2P5GPHY_LED_RX_BLINK_SET);
+ 
+ 	/* Switch pinctrl after setting polarity to avoid bogus blinking */
+ 	pinctrl = devm_pinctrl_get_select(&phydev->mdio.dev, "i2p5gbe-led");
+ 	if (IS_ERR(pinctrl))
+ 		dev_err(&phydev->mdio.dev, "Fail to set LED pins!\n");
+ 
++	priv = devm_kzalloc(&phydev->mdio.dev, sizeof(struct mtk_socphy_priv),
++			    GFP_KERNEL);
++	if (!priv)
++		return -ENOMEM;
++	phydev->priv = priv;
++
++	mtk_phy_leds_state_init(phydev);
++
+ 	return 0;
+ }
+ 
+@@ -303,6 +390,11 @@ static struct phy_driver mtk_2p5gephy_driver[] = {
+ 		.resume = genphy_resume,
+ 		.read_page = mtk_phy_read_page,
+ 		.write_page = mtk_phy_write_page,
++		.led_blink_set = mt798x_2p5ge_phy_led_blink_set,
++		.led_brightness_set = mt798x_2p5ge_phy_led_brightness_set,
++		.led_hw_is_supported = mt798x_2p5ge_phy_led_hw_is_supported,
++		.led_hw_control_get = mt798x_2p5ge_phy_led_hw_control_get,
++		.led_hw_control_set = mt798x_2p5ge_phy_led_hw_control_set,
+ 	},
  };
  
-diff --git a/drivers/hwtracing/coresight/coresight-tpda.h b/drivers/hwtracing/coresight/coresight-tpda.h
-index 8e1b66115ad1..56d3ad293e46 100644
---- a/drivers/hwtracing/coresight/coresight-tpda.h
-+++ b/drivers/hwtracing/coresight/coresight-tpda.h
-@@ -10,6 +10,7 @@
- #define TPDA_Pn_CR(n)		(0x004 + (n * 4))
- #define TPDA_FPID_CR		(0x084)
- #define TPDA_SYNCR		(0x08C)
-+#define TPDA_FLUSH_CR		(0x090)
- 
- /* Cross trigger FREQ packets timestamp bit */
- #define TPDA_CR_FREQTS		BIT(2)
-@@ -35,6 +36,7 @@
- #define TPDA_SYNCR_MAX_COUNTER_VAL	(0xFFF)
- 
- #define TPDA_MAX_INPORTS	32
-+#define TPDA_MAX_INPORTS_MASK	GENMASK(31, 0)
- 
- /* Bits 6 ~ 12 is for atid value */
- #define TPDA_CR_ATID		GENMASK(12, 6)
 -- 
-2.34.1
+2.45.2
 
 
