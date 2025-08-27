@@ -4,80 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A862C8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 06:38:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4336AC8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 06:41:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YAULGZLWc6SAqK0Dioq5lqgfD/qTstWfbGKNHnJErvI=; b=wJIkb/YD2Hjez/Y7mo+/a0NX38
-	+ueAg4Fd/5/3RWp/BN1yaANBhqYj7jeJJGxqiMtePfS+EfBUnaQ316Gpl9leFT3b3nH1ik5HNmG95
-	IYPCiwod5NTYcf5Tw9eBhILrl9rVq8PtUTrFtufXWbhtnnPnKjvM0DoNwp5qW3rMG5GdR2iC8iBF5
-	pzggPIyDqm8wFf+U8DiMfcgVhsextkNtjvZcMUIOkcV5RcVTGzDRtmLGTL5NC7i/+Z2w/R12XZiR8
-	Iaq3wzcKue5HsaH1HC+5XvWhzenoQ4XpZYu3MIOIDjItB82TbbbROgfCUOaz3AAqxVeheaJFizLRY
-	7zDn1ZoA==;
+	bh=YFldATauqouNiIk5AkIlDcKjnNXZNLuWdK5vH+G869Q=; b=dBefvLQmkmxkv8iBxueXOGu+aG
+	Yo5wYcd+Tn4mqqayZeJcIcGYEu7+4lh6skC1ZTcBBDfGhhGZG4au743/GJ8ptj9TQ0SVyGOpTnzTq
+	Wx5pE1Vm/AxWxkE/M3SbxljU6NqRfs6GJSOjkncAsb1KzwQVV86x1LP5LYaSeHlNaKycRWBXNRA/s
+	hbNb5WE0zs3ClU/JgBi8DvYiM/Xm8L+DC4g++6lu1x7EKvUU9j1hds55QlOgm3OBQHhiyASl2XSPP
+	AQiSIwK+oQh/9aar/LVVI0chiV9a9VOHtMe152FZP7XJfOalsot7JgiOP+zdPXDHxS3lwIn+lWC9R
+	IZdFqozQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ur9o4-0000000EHlv-2xTc;
-	Wed, 27 Aug 2025 06:38:52 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1ur9qv-0000000EI8h-24y7;
+	Wed, 27 Aug 2025 06:41:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ur9bY-0000000EFyp-27t1;
-	Wed, 27 Aug 2025 06:25:57 +0000
-Received: from mail.ideasonboard.com (unknown [223.190.80.94])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C978F300E;
-	Wed, 27 Aug 2025 08:24:51 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1756275892;
-	bh=cbo7llanDE5LHGG6DHoyS/LY5b862RclitNiMZVMu2Q=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=jhBOgG2Qa8MPoMf3SqT6KR8ZmFV8+zJVEQ0mQFimqZ7W+4apR5QPabPyxt7MOqX4T
-	 KRCBu8N8qTBh+Cc5pHzdamGH/W8TJZxtaGvSK0GOcG/GLCBidUf27slZri84dVoYk9
-	 O3vyKgLSL8LYiW3M/Y3e+WEKM9yTTecUjUkeqj48=
-From: Jai Luthra <jai.luthra@ideasonboard.com>
-Date: Wed, 27 Aug 2025 11:54:12 +0530
-Subject: [PATCH 5/5] platform/broadcom: Destage VCHIQ MMAL driver
+	id 1ur9fx-0000000EGS8-1amt
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 27 Aug 2025 06:30:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 66F2660254;
+	Wed, 27 Aug 2025 06:30:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 825B3C4CEEB;
+	Wed, 27 Aug 2025 06:30:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756276228;
+	bh=tI4PhkEItaDUc859uaBnkI5RDHS5dlXqXvDOceNK4uA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ixT6YZGgBoUAwcSpCnCCoa5a8V29I+qn6pPvtO9H3nB+l9njf7UccQLiZf73fF8VJ
+	 sdC9+0fc59fzLfYrHvU0k7WQ95hsRymxcxiGVhKmFFY2lL1cEi0wkpgmisp1116Tzw
+	 5PXNWXpP2YRz1e5byAkjSXcyE9nrvA6VZ6dzfHZWSHYZnNdxK2kWn5XhOVG5PBepKO
+	 pFo6S7I0nuc7ORfa9xl/2YFk14vGI+CaRV6wtEmcNsSNYpVPO8e2ztGuVkt8vl+Ybp
+	 EN9pqer8st4mqH4+PIgJmhcSGYITv4sA2gz5LiQ6qjWkqdfco+HzsJTb3bgL0/ZJiz
+	 4fH2C+RxH+VQw==
+Message-ID: <3b72ba2c-707a-4f38-8d8d-548efb358e9b@kernel.org>
+Date: Wed, 27 Aug 2025 08:30:22 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] dt-bindings: soc: samsung: scaler: exynos: Add
+ ExynosAutov920 compatible
+To: Kisung Lee <kiisung.lee@samsung.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Inki Dae <inki.dae@samsung.com>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-media@vger.kernel.org
+References: <20250827044720.3751272-1-kiisung.lee@samsung.com>
+ <CGME20250827045905epcas2p4b2cbd4b881af1c1be4b345861d1a635b@epcas2p4.samsung.com>
+ <20250827044720.3751272-2-kiisung.lee@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250827044720.3751272-2-kiisung.lee@samsung.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250827-vchiq-destage-v1-5-5052a0d81c42@ideasonboard.com>
-References: <20250827-vchiq-destage-v1-0-5052a0d81c42@ideasonboard.com>
-In-Reply-To: <20250827-vchiq-destage-v1-0-5052a0d81c42@ideasonboard.com>
-To: Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>
-Cc: linux-rpi-kernel@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev, 
- linux-kernel@vger.kernel.org, kernel-list@raspberrypi.com, 
- Stefan Wahren <wahrenst@gmx.net>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Jai Luthra <jai.luthra@ideasonboard.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6730;
- i=jai.luthra@ideasonboard.com; h=from:subject:message-id;
- bh=cbo7llanDE5LHGG6DHoyS/LY5b862RclitNiMZVMu2Q=;
- b=owEBbQKS/ZANAwAKAUPekfkkmnFFAcsmYgBorqSd/7nD8vgl1r3/5VYyYJFkndddKs9fbEgwy
- k8w+IQz1MGJAjMEAAEKAB0WIQRN4NgY5dV16NRar8VD3pH5JJpxRQUCaK6knQAKCRBD3pH5JJpx
- RWqMEACnM9Ho6g9QM4F5OYBVA2dV3VhyS1IL3RckZCw2K7xa9IEs9YDn8baG64HhI+Vdjv48bex
- fBtfivW82AeskhKNZLeGSAo2Q4V6CVNQ6IcaJRG+zjHl/9EkXgMgm+2t7S2R/PsvxMqx5D2RZbn
- WzuZY3j8HVfDr94eHH8eWNZYkipDtqgh1fj4i6zVpuPKjtyfm8xHY+x9bfRCpwmI/t/LnZ55Cj1
- oBfuvRY+n00LAUQSRp/qgLttaS+qgKk1EMlfILSo+ydDSyxXHUOvQOpOI+gTHIeMw/8Yg2BYXsQ
- r2EFg3vsMX2AbliCBLW83cD1S9YqEdMgObSdeRUXhGQpsrtKlWXi22pwDcFBdLDjK9hobC+QM6U
- /vN/kKMrA2k9cDUS0WF3spemTpYzgehS7NL/d7yES8qu45u1b0zxGaH6+8m3e330PiYAH1G4py4
- +Q1j6fZlIeEpLZYK8RWlf3ldaaKvCAoLHEtYE6ur8uDx9nXcKGrv/3OHYl/vTEbvpvSMKk/NT9F
- LqfaHcz7rqBTju9WQo3xEhzVmZ59HJHptiTtY5ljpH+fqk2w405NqW8mDsx8rhFPpb7sDhGbo0/
- kEVVe+60XP3wodftE0XU8x7Mw2Hd2LCKfO+DkFgfHZg78HzKs1zX5kaoF2uJZvrSlvB8kOQnzFX
- iyj1ys/Z7kOwxTw==
-X-Developer-Key: i=jai.luthra@ideasonboard.com; a=openpgp;
- fpr=4DE0D818E5D575E8D45AAFC543DE91F9249A7145
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_232556_690959_F7A3656A 
-X-CRM114-Status: UNSURE (   9.35  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,129 +123,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Destage the VCHIQ MMAL driver to drivers/platform/broadcom.
+On 27/08/2025 06:47, Kisung Lee wrote:
+> Add samsung,exynos5-scaler compatible for ExynosAutov920 SoC.
+> 
+> Signed-off-by: Kisung Lee <kiisung.lee@samsung.com>
+> ---
+>  Documentation/devicetree/bindings/gpu/samsung-scaler.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/gpu/samsung-scaler.yaml b/Documentation/devicetree/bindings/gpu/samsung-scaler.yaml
+> index 9fb530e65d0e..5a472e29dc8a 100644
+> --- a/Documentation/devicetree/bindings/gpu/samsung-scaler.yaml
+> +++ b/Documentation/devicetree/bindings/gpu/samsung-scaler.yaml
+> @@ -14,6 +14,7 @@ properties:
+>      enum:
+>        - samsung,exynos5420-scaler
+>        - samsung,exynos5433-scaler
+> +      - samsung,exynos5-scaler
 
-Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
----
- MAINTAINERS                                                             | 2 +-
- drivers/platform/broadcom/Kconfig                                       | 2 ++
- drivers/platform/broadcom/Makefile                                      | 1 +
- drivers/{staging/vc04_services => platform/broadcom}/vchiq-mmal/Kconfig | 0
- .../{staging/vc04_services => platform/broadcom}/vchiq-mmal/Makefile    | 0
- .../vc04_services => platform/broadcom}/vchiq-mmal/mmal-common.h        | 0
- .../vc04_services => platform/broadcom}/vchiq-mmal/mmal-encodings.h     | 0
- .../vc04_services => platform/broadcom}/vchiq-mmal/mmal-msg-common.h    | 0
- .../vc04_services => platform/broadcom}/vchiq-mmal/mmal-msg-format.h    | 0
- .../vc04_services => platform/broadcom}/vchiq-mmal/mmal-msg-port.h      | 0
- .../{staging/vc04_services => platform/broadcom}/vchiq-mmal/mmal-msg.h  | 0
- .../vc04_services => platform/broadcom}/vchiq-mmal/mmal-parameters.h    | 0
- .../vc04_services => platform/broadcom}/vchiq-mmal/mmal-vchiq.c         | 0
- .../vc04_services => platform/broadcom}/vchiq-mmal/mmal-vchiq.h         | 0
- drivers/staging/vc04_services/Kconfig                                   | 2 --
- drivers/staging/vc04_services/Makefile                                  | 1 -
- 16 files changed, 4 insertions(+), 4 deletions(-)
+Uh, no, 5 != 920.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index f39f326a88d7332906ecdd1d9d90cc6848ba3205..5a554add28a65dd42c5d08e01ecbf14c771e9925 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -4753,7 +4753,7 @@ S:	Maintained
- T:	git https://github.com/broadcom/stblinux.git
- F:	Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
- F:	drivers/pci/controller/pcie-brcmstb.c
--F:	drivers/platform/broadcom/vchiq-interface
-+F:	drivers/platform/broadcom/vchiq-*
- F:	drivers/staging/vc04_services
- F:	include/linux/vchiq
- N:	bcm2711
-diff --git a/drivers/platform/broadcom/Kconfig b/drivers/platform/broadcom/Kconfig
-index 7dec1ca85d6c56bdb21a9cb170c1d0cdf7587e63..606f3f19774989cbb41d2a207a10a32edd420622 100644
---- a/drivers/platform/broadcom/Kconfig
-+++ b/drivers/platform/broadcom/Kconfig
-@@ -33,5 +33,7 @@ config VCHIQ_CDEV
- 
- 		If not sure, set this to 'Y'.
- 
-+source "drivers/platform/broadcom/vchiq-mmal/Kconfig"
-+
- endif
- 
-diff --git a/drivers/platform/broadcom/Makefile b/drivers/platform/broadcom/Makefile
-index a807571c59a47bb418cbb1dfcc389219d0d0ff22..2a7c9511e5d8bbe11c05680eea016ef40796b648 100644
---- a/drivers/platform/broadcom/Makefile
-+++ b/drivers/platform/broadcom/Makefile
-@@ -12,3 +12,4 @@ ifdef CONFIG_VCHIQ_CDEV
- vchiq-objs += vchiq-interface/vchiq_dev.o
- endif
- 
-+obj-$(CONFIG_BCM2835_VCHIQ_MMAL)	+= vchiq-mmal/
-diff --git a/drivers/staging/vc04_services/vchiq-mmal/Kconfig b/drivers/platform/broadcom/vchiq-mmal/Kconfig
-similarity index 100%
-rename from drivers/staging/vc04_services/vchiq-mmal/Kconfig
-rename to drivers/platform/broadcom/vchiq-mmal/Kconfig
-diff --git a/drivers/staging/vc04_services/vchiq-mmal/Makefile b/drivers/platform/broadcom/vchiq-mmal/Makefile
-similarity index 100%
-rename from drivers/staging/vc04_services/vchiq-mmal/Makefile
-rename to drivers/platform/broadcom/vchiq-mmal/Makefile
-diff --git a/drivers/staging/vc04_services/vchiq-mmal/mmal-common.h b/drivers/platform/broadcom/vchiq-mmal/mmal-common.h
-similarity index 100%
-rename from drivers/staging/vc04_services/vchiq-mmal/mmal-common.h
-rename to drivers/platform/broadcom/vchiq-mmal/mmal-common.h
-diff --git a/drivers/staging/vc04_services/vchiq-mmal/mmal-encodings.h b/drivers/platform/broadcom/vchiq-mmal/mmal-encodings.h
-similarity index 100%
-rename from drivers/staging/vc04_services/vchiq-mmal/mmal-encodings.h
-rename to drivers/platform/broadcom/vchiq-mmal/mmal-encodings.h
-diff --git a/drivers/staging/vc04_services/vchiq-mmal/mmal-msg-common.h b/drivers/platform/broadcom/vchiq-mmal/mmal-msg-common.h
-similarity index 100%
-rename from drivers/staging/vc04_services/vchiq-mmal/mmal-msg-common.h
-rename to drivers/platform/broadcom/vchiq-mmal/mmal-msg-common.h
-diff --git a/drivers/staging/vc04_services/vchiq-mmal/mmal-msg-format.h b/drivers/platform/broadcom/vchiq-mmal/mmal-msg-format.h
-similarity index 100%
-rename from drivers/staging/vc04_services/vchiq-mmal/mmal-msg-format.h
-rename to drivers/platform/broadcom/vchiq-mmal/mmal-msg-format.h
-diff --git a/drivers/staging/vc04_services/vchiq-mmal/mmal-msg-port.h b/drivers/platform/broadcom/vchiq-mmal/mmal-msg-port.h
-similarity index 100%
-rename from drivers/staging/vc04_services/vchiq-mmal/mmal-msg-port.h
-rename to drivers/platform/broadcom/vchiq-mmal/mmal-msg-port.h
-diff --git a/drivers/staging/vc04_services/vchiq-mmal/mmal-msg.h b/drivers/platform/broadcom/vchiq-mmal/mmal-msg.h
-similarity index 100%
-rename from drivers/staging/vc04_services/vchiq-mmal/mmal-msg.h
-rename to drivers/platform/broadcom/vchiq-mmal/mmal-msg.h
-diff --git a/drivers/staging/vc04_services/vchiq-mmal/mmal-parameters.h b/drivers/platform/broadcom/vchiq-mmal/mmal-parameters.h
-similarity index 100%
-rename from drivers/staging/vc04_services/vchiq-mmal/mmal-parameters.h
-rename to drivers/platform/broadcom/vchiq-mmal/mmal-parameters.h
-diff --git a/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c b/drivers/platform/broadcom/vchiq-mmal/mmal-vchiq.c
-similarity index 100%
-rename from drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c
-rename to drivers/platform/broadcom/vchiq-mmal/mmal-vchiq.c
-diff --git a/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.h b/drivers/platform/broadcom/vchiq-mmal/mmal-vchiq.h
-similarity index 100%
-rename from drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.h
-rename to drivers/platform/broadcom/vchiq-mmal/mmal-vchiq.h
-diff --git a/drivers/staging/vc04_services/Kconfig b/drivers/staging/vc04_services/Kconfig
-index 23b5e3dde11447064d084ea5a6d36b8041dceb08..65116b171e88bec7b7f453b17b33478c967b66cf 100644
---- a/drivers/staging/vc04_services/Kconfig
-+++ b/drivers/staging/vc04_services/Kconfig
-@@ -13,7 +13,5 @@ if BCM_VIDEOCORE
- 
- source "drivers/staging/vc04_services/bcm2835-audio/Kconfig"
- 
--source "drivers/staging/vc04_services/vchiq-mmal/Kconfig"
--
- endif
- 
-diff --git a/drivers/staging/vc04_services/Makefile b/drivers/staging/vc04_services/Makefile
-index 7a716a5c781530b673027b9f82ec94ebfd615f8a..ba15ec663af0fabaf0060456fc997deb5e5e0533 100644
---- a/drivers/staging/vc04_services/Makefile
-+++ b/drivers/staging/vc04_services/Makefile
-@@ -1,4 +1,3 @@
- # SPDX-License-Identifier: GPL-2.0
- obj-$(CONFIG_SND_BCM2835)		+= bcm2835-audio/
--obj-$(CONFIG_BCM2835_VCHIQ_MMAL)	+= vchiq-mmal/
- 
+Please follow writing bindings or check my talk from yesterday at OSSE25.
 
--- 
-2.50.1
-
+Best regards,
+Krzysztof
 
