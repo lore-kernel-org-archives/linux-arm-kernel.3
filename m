@@ -4,70 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A028FCA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 21:38:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB539CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 22:07:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=83EPZXKBOBM5AguXJ8RL1d11Fbsi2HEnYmkbY4my4vk=; b=dX+H+18vtpQ2/h6QaW3MztB6cs
-	Hjujeqbi3C8DsrHRpeTbvhcej/VnW2Cw5/4gYlz91kVYYVvu3nst9hN48ioHwp+rKyPys+oMMwa3G
-	01IEuR1JhYFNZP5bmB7oPGjJscINRuy+duYlT8zqV1YvNW7YifPYYxhb6Tp4x75eP0AhMwsNgMSZZ
-	Mwkc+1s99G1otuXuoMBJRQ39HCgn1vPxKaTIo6kKafGllEHH3S4VLGtvq5Awg63mwgPN7HrWbvpni
-	O1QpM7y/9o8Yo8u+kWlVqB6DYYaxYMyg6FnKV6Br2H6IjuIt1U1SD7s6BU8dz2G62u7LL+mGyAqWS
-	XiYfDOsQ==;
+	bh=eNV0RLrXImII8MTHVic+30uUi4HjChlJ3z+rf2azYps=; b=ttNq3JwaZQpVrg/4q88hhSvfyG
+	q9QnteNbxBnMYu4g2vGB4SDbggPPaHrl8frbWL7hXh46e6uRK7k/dIkzPMmzCUBHhzbdsCi3pF2TC
+	qXdNpsz/pO3mKvVdw6iCrm9w2nJW/Qgq4GDq+KcvrjhIifBkpEXCanyl3dCUjYdbF5eoq10HEZiHL
+	9ds1uaO/A833K4yPRjmlGa7dUYo6SSY8vQyRuK67ZDUBLuI5/BUNIDXvcf6RiJKBvPXLDDUgsj08a
+	DOXq8WuFwPDRbgnRo5u34X1CuVcFXY9ZfcRFnY5tI69USXzxcBwjoVxAqXorexm8fSSGKw+iSmzBO
+	HyETpnpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urNqk-0000000Gtaj-1Flg;
-	Wed, 27 Aug 2025 21:38:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1urOIK-0000000GzRq-3wN1;
+	Wed, 27 Aug 2025 22:07:04 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urKhZ-0000000GRjG-3weO
+	id 1urOFY-0000000Gy4m-3GaC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 18:16:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4F2C043AC3;
-	Wed, 27 Aug 2025 18:16:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E9B6C4CEEB;
-	Wed, 27 Aug 2025 18:16:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756318613;
-	bh=tZYQGAhNSp8+YB6v2kG/8xFnCfWMXDbO7lN7RYNrlm8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=j999Rflxi7w5R7tVzCQHs4bPSgFvUnumbiY6DTM/jWC/T17eF4KC1wdJNsrOTNr/H
-	 KZIyYiOFtw8xiQzAVBOhGAE5NOIBEolrpV3vlddbZT7jUSy7646Wd9bW9ei9ZXcOXE
-	 dAoxlC3yo3sb60t7DBbJcCLiInMv136DCt7RBLX9PWDavGNSzFNbZkUw+svZ/lrOMT
-	 bKqSDVcVMIa5zAldh9d8QkO2IXCrEhgrYLbbBmlEHV5Z8+XH04QKU4ryOVmkvfhGgF
-	 dHMO7P0Tzhtj+XT9cj6g7uE3YOSfqXy7Wj1W5Z5X6cTtmvPsFn4EBBf6kvo6/rtDaW
-	 aOBZkZ8RJdGlg==
-Date: Wed, 27 Aug 2025 11:16:51 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Lukasz Majewski <lukasz.majewski@mailbox.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Richard Cochran
- <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
- <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>
-Subject: Re: [net-next v19 4/7] net: mtip: Add net_device_ops functions to
- the L2 switch driver
-Message-ID: <20250827111651.022305f9@kernel.org>
-In-Reply-To: <20250824220736.1760482-5-lukasz.majewski@mailbox.org>
-References: <20250824220736.1760482-1-lukasz.majewski@mailbox.org>
-	<20250824220736.1760482-5-lukasz.majewski@mailbox.org>
+	Wed, 27 Aug 2025 22:04:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756332251;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=eNV0RLrXImII8MTHVic+30uUi4HjChlJ3z+rf2azYps=;
+	b=dPOAzf+gL0v/DVYKsfukv3X8XUfwsV6qveVjuknh8S77iO1hMDxce9ViW09LjfZZlASkk2
+	pr0G0718lSYwnuYvAy29nDdkfPI+O+7kjwOWBhpYH7CaC4EEErFkt3R5kIUKNhr97CL8BW
+	R27YOtRvhz3fcRlLEPKbAaHN5gTP0nM=
+Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-41-stGls3aeOcqifozns1n-DA-1; Wed,
+ 27 Aug 2025 18:04:08 -0400
+X-MC-Unique: stGls3aeOcqifozns1n-DA-1
+X-Mimecast-MFC-AGG-ID: stGls3aeOcqifozns1n-DA_1756332243
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 1021B19560B8;
+	Wed, 27 Aug 2025 22:04:03 +0000 (UTC)
+Received: from t14s.redhat.com (unknown [10.22.80.195])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 14DAD30001A1;
+	Wed, 27 Aug 2025 22:03:47 +0000 (UTC)
+From: David Hildenbrand <david@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: David Hildenbrand <david@redhat.com>,
+	Zi Yan <ziy@nvidia.com>,
+	SeongJae Park <sj@kernel.org>,
+	Alexander Potapenko <glider@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Brendan Jackman <jackmanb@google.com>,
+	Christoph Lameter <cl@gentwo.org>,
+	Dennis Zhou <dennis@kernel.org>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	dri-devel@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org,
+	iommu@lists.linux.dev,
+	io-uring@vger.kernel.org,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Jens Axboe <axboe@kernel.dk>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	John Hubbard <jhubbard@nvidia.com>,
+	kasan-dev@googlegroups.com,
+	kvm@vger.kernel.org,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-arm-kernel@axis.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org,
+	linux-ide@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-mmc@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Marco Elver <elver@google.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	netdev@vger.kernel.org,
+	Oscar Salvador <osalvador@suse.de>,
+	Peter Xu <peterx@redhat.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Tejun Heo <tj@kernel.org>,
+	virtualization@lists.linux.dev,
+	Vlastimil Babka <vbabka@suse.cz>,
+	wireguard@lists.zx2c4.com,
+	x86@kernel.org
+Subject: [PATCH v1 06/36] mm/page_alloc: reject unreasonable folio/compound page sizes in alloc_contig_range_noprof()
+Date: Thu, 28 Aug 2025 00:01:10 +0200
+Message-ID: <20250827220141.262669-7-david@redhat.com>
+In-Reply-To: <20250827220141.262669-1-david@redhat.com>
+References: <20250827220141.262669-1-david@redhat.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_111654_005882_8338DD83 
-X-CRM114-Status: UNSURE (   8.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250827_150412_888538_52E4BDED 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,12 +128,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 25 Aug 2025 00:07:33 +0200 Lukasz Majewski wrote:
-> +
-> +	/* On some FEC implementations data must be aligned on
-> +	 * 4-byte boundaries. Use bounce buffers to copy data
-> +	 * and get it aligned.spin
-> +	 */
+Let's reject them early, which in turn makes folio_alloc_gigantic() reject
+them properly.
 
-Almost forgot, the word "spin" appears here rather out of place.
+To avoid converting from order to nr_pages, let's just add MAX_FOLIO_ORDER
+and calculate MAX_FOLIO_NR_PAGES based on that.
+
+Reviewed-by: Zi Yan <ziy@nvidia.com>
+Acked-by: SeongJae Park <sj@kernel.org>
+Signed-off-by: David Hildenbrand <david@redhat.com>
+---
+ include/linux/mm.h | 6 ++++--
+ mm/page_alloc.c    | 5 ++++-
+ 2 files changed, 8 insertions(+), 3 deletions(-)
+
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index 00c8a54127d37..77737cbf2216a 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -2055,11 +2055,13 @@ static inline long folio_nr_pages(const struct folio *folio)
+ 
+ /* Only hugetlbfs can allocate folios larger than MAX_ORDER */
+ #ifdef CONFIG_ARCH_HAS_GIGANTIC_PAGE
+-#define MAX_FOLIO_NR_PAGES	(1UL << PUD_ORDER)
++#define MAX_FOLIO_ORDER		PUD_ORDER
+ #else
+-#define MAX_FOLIO_NR_PAGES	MAX_ORDER_NR_PAGES
++#define MAX_FOLIO_ORDER		MAX_PAGE_ORDER
+ #endif
+ 
++#define MAX_FOLIO_NR_PAGES	(1UL << MAX_FOLIO_ORDER)
++
+ /*
+  * compound_nr() returns the number of pages in this potentially compound
+  * page.  compound_nr() can be called on a tail page, and is defined to
+diff --git a/mm/page_alloc.c b/mm/page_alloc.c
+index baead29b3e67b..426bc404b80cc 100644
+--- a/mm/page_alloc.c
++++ b/mm/page_alloc.c
+@@ -6833,6 +6833,7 @@ static int __alloc_contig_verify_gfp_mask(gfp_t gfp_mask, gfp_t *gfp_cc_mask)
+ int alloc_contig_range_noprof(unsigned long start, unsigned long end,
+ 			      acr_flags_t alloc_flags, gfp_t gfp_mask)
+ {
++	const unsigned int order = ilog2(end - start);
+ 	unsigned long outer_start, outer_end;
+ 	int ret = 0;
+ 
+@@ -6850,6 +6851,9 @@ int alloc_contig_range_noprof(unsigned long start, unsigned long end,
+ 					    PB_ISOLATE_MODE_CMA_ALLOC :
+ 					    PB_ISOLATE_MODE_OTHER;
+ 
++	if (WARN_ON_ONCE((gfp_mask & __GFP_COMP) && order > MAX_FOLIO_ORDER))
++		return -EINVAL;
++
+ 	gfp_mask = current_gfp_context(gfp_mask);
+ 	if (__alloc_contig_verify_gfp_mask(gfp_mask, (gfp_t *)&cc.gfp_mask))
+ 		return -EINVAL;
+@@ -6947,7 +6951,6 @@ int alloc_contig_range_noprof(unsigned long start, unsigned long end,
+ 			free_contig_range(end, outer_end - end);
+ 	} else if (start == outer_start && end == outer_end && is_power_of_2(end - start)) {
+ 		struct page *head = pfn_to_page(start);
+-		int order = ilog2(end - start);
+ 
+ 		check_new_pages(head, order);
+ 		prep_new_page(head, order, gfp_mask, 0);
+-- 
+2.50.1
+
 
