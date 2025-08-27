@@ -4,100 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCD44CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 11:24:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8437ACA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 11:26:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6X/wDuwMGXHolRz+V9ennd5Bffj6ymv9Jrzy1lUthU8=; b=EMtRbMvhyqTE4VriKM2FW+DyxO
-	p+SE7UTw2tv8jYPfnMVXVn6FqmGIgEYCWjn/Fyt34WkuVeuau/Kh1i0O0nSM8GwxbwTG9VyyhhOuo
-	tqIPFkng/bF/it8ove6U+WhPrBd2+QkNPfwqVIxB4AKkGKIXbPu0W1keIg7GHPA9ERjhhCCO+ooZr
-	7Y8dAjAw0JBBDB/PaDRGe4FQ82MLVlTuVpCUzLdD+p2D6Q1jRLGdFmXTh5Jh0RkXt0v/YmcPW4kNH
-	qFsGGE94hHh2D6xTYKa+lFNA3ev/pCM2JrDMQwnA3AJsyJpK0huFPaB7FRGE/Zws2FiPttulFdaLv
-	YXLbQiyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uBJ6vcTtfE1YmoDuXYa1AOQlGCz+ieglKWUrFAIfy/E=; b=XtySrKUWh2BCbq4kcYR6gC1zbh
+	T3hzV9P+Iy7JfsYzp4RdIRWVi32+wlDVkPql58DQibbh5ep/co+wyeBaFGvkOTFfYJ2kwCBT8/ps5
+	sUS0yGtlMY1/GJTfqg8x4ueGZFZCa9LetJwgTfeXle3cM9FSpxl6vnwNyvxiOYa1gKzDtp1cVnOgs
+	1HStfsnE0An4W9v1C2pv39WtHy5IxHZdgDUhQK1ozi2RBGUdSfzTJoDM5PBE+kcyiPMQKlpzeiHqU
+	10oIxrAS+kOx2WSEslNvh56YSAkv8mm9ZOboeF2RoixZWQD/39vboR8HTgScTcE/IjTTjY2ErgbwZ
+	INKo7+qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urEFx-0000000FFeF-4Blo;
-	Wed, 27 Aug 2025 11:23:58 +0000
-Received: from mail-ej1-f49.google.com ([209.85.218.49])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urDbz-0000000F6OR-24QU;
-	Wed, 27 Aug 2025 10:42:40 +0000
-Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-afcb7a16441so1039589466b.2;
-        Wed, 27 Aug 2025 03:42:39 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756291358; x=1756896158;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6X/wDuwMGXHolRz+V9ennd5Bffj6ymv9Jrzy1lUthU8=;
-        b=CicPtQBZip8No8E3LsIWmJ6p1Esa9wP+7wI/zKDHugtdXQ5IQ4gANXHDMOvLyNbFwt
-         fOm5YrXgpUbOA/+S86Cpef4DhlHzFh9GWWoNIjqf8qh8lu0r8/mN6gfbjNCxpAFpzl/m
-         WSNPKAbzama06oTKL14zlX2fPye3+OAFxDpCimlS9rF/oZg3Hs8SGzxkTcLQ88NtvS5N
-         +3I0hYC4qqGEvPIT6Aa5b3UKsTZXmE87g4XLD8ntqErat00RprQZMBAGqJCwkO+Ehd0P
-         HRR45fIMUXpnHVNhswNgJKuPfklTr9tTfAKHyiJwEeBr5aQuz2hdtpgoczHSgjUAOGKu
-         vFVw==
-X-Forwarded-Encrypted: i=1; AJvYcCUe9AhPg4AWFinywwxw5TgIUaz6Jz91Ru5AiDWi+SW/bB7F8zAdYgabwmRm4JsMjpPPBucasId9B0vLiw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlDx0+1xlsDb6WflByhdRjuntYXXrJNZjCG6YXjaDL7EGjHe/6
-	GBmhy7kmJjjaRX1/Wv2gIgdvj4LPWSFAS0QwHsxXIw9EmjNOwZ7ovlJQ
-X-Gm-Gg: ASbGncurhLbPb4wkur4/nGhdoBbIcKk9+OnJ4BUPdQ8ChoRByL/ZTC0u6t/qQXB5dMx
-	C2vVvTvQnoRgMNG8VdT/OfayEBar6GDb1rXCMl+bmksEBv+kwpnTc5LUnHoA/FT/RHTAoC4mLwn
-	9pxipqyeYOqfkj3Dw8/Cf5QkBW9g1a52WqW6d05wTz+dTmtR/rTWcgZtbGw9V4RQ7qp4fpiddqq
-	tUyrSKMHSPs/AoQ9rB0MXIv0swd4RSRjZTQ9KtHvZHl05pbqJCmyOJn2zKwhi9TY5TveLYPauOs
-	Odzg7eGfIHuW4JSmVs7fU9cybhBApqJwaUVcam0lI1dKGmUJ/eXTgNJL+kyclwlh+pmXET7q9kc
-	CIq8E3usbhC0j6XBOhzG5Uuk=
-X-Google-Smtp-Source: AGHT+IEt7HUfyMYn7wwTTBfAgAlW9baMBm2buHWzgRksugd2fL7uEBallbmWq6FW+jaBEaqaNP9fhw==
-X-Received: by 2002:a17:907:934c:b0:add:fe17:e970 with SMTP id a640c23a62f3a-afe28fbaffcmr1737084966b.14.1756291357601;
-        Wed, 27 Aug 2025 03:42:37 -0700 (PDT)
-Received: from localhost ([2a03:2880:30ff:7::])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afea4b5eafcsm365786666b.9.2025.08.27.03.42.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Aug 2025 03:42:37 -0700 (PDT)
-From: Breno Leitao <leitao@debian.org>
-Date: Wed, 27 Aug 2025 03:42:23 -0700
-Subject: [PATCH 3/3] s390: kexec: Initialize kexec_buf struct
+	id 1urEIf-0000000FGM5-1o9R;
+	Wed, 27 Aug 2025 11:26:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urDfV-0000000F6yE-3pbp
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 27 Aug 2025 10:46:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 517931688;
+	Wed, 27 Aug 2025 03:46:07 -0700 (PDT)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CB74E3F738;
+	Wed, 27 Aug 2025 03:46:09 -0700 (PDT)
+Date: Wed, 27 Aug 2025 11:46:02 +0100
+From: Dave Martin <Dave.Martin@arm.com>
+To: James Morse <james.morse@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
+	shameerali.kolothum.thodi@huawei.com,
+	D Scott Phillips OS <scott@os.amperecomputing.com>,
+	carl@os.amperecomputing.com, lcherian@marvell.com,
+	bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+	baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+	Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+	dfustini@baylibre.com, amitsinght@marvell.com,
+	David Hildenbrand <david@redhat.com>,
+	Rex Nie <rex.nie@jaguarmicro.com>, Koba Ko <kobak@nvidia.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
+	baisheng.gao@unisoc.com,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+	Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>
+Subject: Re: [PATCH 01/33] cacheinfo: Expose the code to generate a cache-id
+ from a device_node
+Message-ID: <aK7h6seHNWs5rO9Q@e133380.arm.com>
+References: <20250822153048.2287-1-james.morse@arm.com>
+ <20250822153048.2287-2-james.morse@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250827-kbuf_all-v1-3-1df9882bb01a@debian.org>
-References: <20250827-kbuf_all-v1-0-1df9882bb01a@debian.org>
-In-Reply-To: <20250827-kbuf_all-v1-0-1df9882bb01a@debian.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
- Baoquan He <bhe@redhat.com>, Coiby Xu <coxu@redhat.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Heiko Carstens <hca@linux.ibm.com>, 
- Vasily Gorbik <gor@linux.ibm.com>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Christian Borntraeger <borntraeger@linux.ibm.com>, 
- Sven Schnelle <svens@linux.ibm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
- Breno Leitao <leitao@debian.org>, kernel-team@meta.com
-X-Mailer: b4 0.15-dev-dd21f
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2880; i=leitao@debian.org;
- h=from:subject:message-id; bh=GxK8Y/l6QMpHsSC5/lKRcWUThT3tPFQypyafdn6KEZQ=;
- b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBoruEXRx0x/sg5L8lF842+++ptuDPjC3oj8dadJ
- uKgX0JY7+mJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCaK7hFwAKCRA1o5Of/Hh3
- bf5WEACRmffaU59y0c07C3h33TU9GzbJO9HOZxapXThAtEqn33XPo4si1FFGv6sTYNargSr6Lzs
- MJosdJiWDHRZaXSxFawvJvBq5XBTfFYs+4tW2EiAU19diAu5I3J5dfl8lqww3GI6zzZIrB5wA4B
- r71V3ZUJK3cZ8l4gTpGp2zWNvG7Q+121ozv4yRD5kfazvucI93HIth7LZcXGKfNkpz+1aW8Y+Bo
- CECDcsH4Z4ZHW/73m7w0ThVouXFEkSIxWhyzVtYPFMWF/MmktJ0t7niZfKNMTRyu++v37nlGcmY
- uWpa1o6LmJUU93AJFkXojU93ztyTZZ2RC7FupVqYsQy5ZqvoIJ37Zd7oPpAULS1x5FX2xzbe7s4
- PYhfG2kBSlHriVV/gT/wRX6SMyVLWK0NQOszrjhZoQUHCkTPzfBdtRkf06wYGOoZHY8VV70IOSX
- fxXgT6OPXyi7xResv3bkLI4vLyEvNWjbQXsAOX3L/ZLQwvYKEpMDSd2eaoO2TSKIBnuQnArR846
- uDq8NSU+HoTOGc4chbxXxwQZH2qpGuNnndVelTsFCmtlb9I7yVtrk/qCAN/9fdHnGjVmU9f6grm
- TWCAnmqakjCXdNYLT+OhBxkDcorfJgKFH/44W4AXsfhUTjdTaRNM+uGkGeRohC2Vx/EUGQTChd+
- UYUwpwtf+a6rOTg==
-X-Developer-Key: i=leitao@debian.org; a=openpgp;
- fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250822153048.2287-2-james.morse@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_034239_563534_055DF10C 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20250827_034618_036270_391151CD 
+X-CRM114-Status: GOOD (  24.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,89 +87,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The kexec_buf structure was previously declared without initialization.
-commit bf454ec31add ("kexec_file: allow to place kexec_buf randomly")
-added a field that is always read but not consistently populated by all
-architectures. This un-initialized field will contain garbage.
+Hi James,
 
-This is also triggering a UBSAN warning when the uninitialized data was
-accessed:
+On Fri, Aug 22, 2025 at 03:29:42PM +0000, James Morse wrote:
+> The MPAM driver identifies caches by id for use with resctrl. It
+> needs to know the cache-id when probe-ing, but the value isn't set
+> in cacheinfo until device_initcall().
+> 
+> Expose the code that generates the cache-id. The parts of the MPAM
+> driver that run early can use this to set up the resctrl structures
+> before cacheinfo is ready in device_initcall().
 
-	------------[ cut here ]------------
-	UBSAN: invalid-load in ./include/linux/kexec.h:210:10
-	load of value 252 is not a valid value for type '_Bool'
+Why can't the MPAM driver just consume the precomputed cache-id
+information?
 
-Zero-initializing kexec_buf at declaration ensures all fields are
-cleanly set, preventing future instances of uninitialized memory being
-used.
+Possible reasons are that the MPAM driver probes too early, or that it
+must parse the PPTT directly (which is true) and needs to label caches
+consistently with the way the kernel does it.
 
-Fixes: bf454ec31add ("kexec_file: allow to place kexec_buf randomly")
-Signed-off-by: Breno Leitao <leitao@debian.org>
----
- arch/s390/kernel/kexec_elf.c          | 2 +-
- arch/s390/kernel/kexec_image.c        | 2 +-
- arch/s390/kernel/machine_kexec_file.c | 6 +++---
- 3 files changed, 5 insertions(+), 5 deletions(-)
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+> Changes since v1:
+>  * Renamed cache_of_get_id() cache_of_calculate_id().
+> ---
+>  drivers/base/cacheinfo.c  | 19 +++++++++++++------
+>  include/linux/cacheinfo.h |  1 +
+>  2 files changed, 14 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
+> index 613410705a47..f6289d142ba9 100644
+> --- a/drivers/base/cacheinfo.c
+> +++ b/drivers/base/cacheinfo.c
+> @@ -207,11 +207,10 @@ static bool match_cache_node(struct device_node *cpu,
+>  #define arch_compact_of_hwid(_x)	(_x)
+>  #endif
+>  
+> -static void cache_of_set_id(struct cacheinfo *this_leaf,
+> -			    struct device_node *cache_node)
+> +unsigned long cache_of_calculate_id(struct device_node *cache_node)
+>  {
+>  	struct device_node *cpu;
+> -	u32 min_id = ~0;
+> +	unsigned long min_id = ~0UL;
 
-diff --git a/arch/s390/kernel/kexec_elf.c b/arch/s390/kernel/kexec_elf.c
-index 4d364de437992..143e34a4eca57 100644
---- a/arch/s390/kernel/kexec_elf.c
-+++ b/arch/s390/kernel/kexec_elf.c
-@@ -16,7 +16,7 @@
- static int kexec_file_add_kernel_elf(struct kimage *image,
- 				     struct s390_load_data *data)
- {
--	struct kexec_buf buf;
-+	struct kexec_buf buf = {};
- 	const Elf_Ehdr *ehdr;
- 	const Elf_Phdr *phdr;
- 	Elf_Addr entry;
-diff --git a/arch/s390/kernel/kexec_image.c b/arch/s390/kernel/kexec_image.c
-index a32ce8bea745c..9a439175723ca 100644
---- a/arch/s390/kernel/kexec_image.c
-+++ b/arch/s390/kernel/kexec_image.c
-@@ -16,7 +16,7 @@
- static int kexec_file_add_kernel_image(struct kimage *image,
- 				       struct s390_load_data *data)
- {
--	struct kexec_buf buf;
-+	struct kexec_buf buf = {};
- 
- 	buf.image = image;
- 
-diff --git a/arch/s390/kernel/machine_kexec_file.c b/arch/s390/kernel/machine_kexec_file.c
-index c2bac14dd668a..a36d7311c6683 100644
---- a/arch/s390/kernel/machine_kexec_file.c
-+++ b/arch/s390/kernel/machine_kexec_file.c
-@@ -129,7 +129,7 @@ static int kexec_file_update_purgatory(struct kimage *image,
- static int kexec_file_add_purgatory(struct kimage *image,
- 				    struct s390_load_data *data)
- {
--	struct kexec_buf buf;
-+	struct kexec_buf buf = {};
- 	int ret;
- 
- 	buf.image = image;
-@@ -152,7 +152,7 @@ static int kexec_file_add_purgatory(struct kimage *image,
- static int kexec_file_add_initrd(struct kimage *image,
- 				 struct s390_load_data *data)
- {
--	struct kexec_buf buf;
-+	struct kexec_buf buf = {};
- 	int ret;
- 
- 	buf.image = image;
-@@ -184,7 +184,7 @@ static int kexec_file_add_ipl_report(struct kimage *image,
- {
- 	__u32 *lc_ipl_parmblock_ptr;
- 	unsigned int len, ncerts;
--	struct kexec_buf buf;
-+	struct kexec_buf buf = {};
- 	unsigned long addr;
- 	void *ptr, *end;
- 	int ret;
+Why the change of type here?
 
--- 
-2.47.3
+This does mean that 0xffffffff can now be generated as a valid cache-id,
+but if that is necessary then this patch is also fixing a bug in the
+code -- but the commit message doesn't say anything about that.
 
+For a patch that is just exposing an internal result, it may be
+better to keep the original type.  ~(u32)0 is already used as an
+exceptional value.
+
+[...]
+
+Otherwise, this looks reasonable to me.
+
+Cheers
+---Dave
 
