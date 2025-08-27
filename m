@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8437ACA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 11:26:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B5FFCA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 11:29:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uBJ6vcTtfE1YmoDuXYa1AOQlGCz+ieglKWUrFAIfy/E=; b=XtySrKUWh2BCbq4kcYR6gC1zbh
-	T3hzV9P+Iy7JfsYzp4RdIRWVi32+wlDVkPql58DQibbh5ep/co+wyeBaFGvkOTFfYJ2kwCBT8/ps5
-	sUS0yGtlMY1/GJTfqg8x4ueGZFZCa9LetJwgTfeXle3cM9FSpxl6vnwNyvxiOYa1gKzDtp1cVnOgs
-	1HStfsnE0An4W9v1C2pv39WtHy5IxHZdgDUhQK1ozi2RBGUdSfzTJoDM5PBE+kcyiPMQKlpzeiHqU
-	10oIxrAS+kOx2WSEslNvh56YSAkv8mm9ZOboeF2RoixZWQD/39vboR8HTgScTcE/IjTTjY2ErgbwZ
-	INKo7+qw==;
+	bh=jzT6lK+GCu9K2FLE5o7Ljy8OWdxNBrNhiRd9FVmZNLM=; b=ptfSZwe6stJC/BXs78kE6VIYz5
+	IQf3o3rrXRa+GgL9ziFm+3GS2VFos6/OhDZIaap1vZOGuG2k3z1ZR5kASpexw+ZnHUISQsDq1Euu8
+	fTle4I44cSiM3sfYAY3xBviWZ/vgzZkvNAJzHPzcIbfBl9q77FWBf89qvOq6MaXgNrkiwVdou//XU
+	ADPdMyblqyRJN6Fkywy1KojM0N154nXf64CIguN1jwhI7595HiIsO/b4N0CLB0TmT1IPrDwS+jvLn
+	kvIYBxoz8PYiLMnWh0DY8cTE+JF7b3gmQtD4Yqlm7KIqopdSbRJmavY4HOoLK2BgRGF30CpGz2w+0
+	GeCSikHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urEIf-0000000FGM5-1o9R;
-	Wed, 27 Aug 2025 11:26:45 +0000
+	id 1urELN-0000000FGkj-1BfT;
+	Wed, 27 Aug 2025 11:29:33 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urDfV-0000000F6yE-3pbp
+	id 1urDfy-0000000F721-1CG3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 10:46:19 +0000
+	Wed, 27 Aug 2025 10:46:47 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 517931688;
-	Wed, 27 Aug 2025 03:46:07 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7A1D71688;
+	Wed, 27 Aug 2025 03:46:37 -0700 (PDT)
 Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CB74E3F738;
-	Wed, 27 Aug 2025 03:46:09 -0700 (PDT)
-Date: Wed, 27 Aug 2025 11:46:02 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0753D3F738;
+	Wed, 27 Aug 2025 03:46:39 -0700 (PDT)
+Date: Wed, 27 Aug 2025 11:46:37 +0100
 From: Dave Martin <Dave.Martin@arm.com>
 To: James Morse <james.morse@arm.com>
 Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
@@ -61,18 +61,18 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	Will Deacon <will@kernel.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Danilo Krummrich <dakr@kernel.org>
-Subject: Re: [PATCH 01/33] cacheinfo: Expose the code to generate a cache-id
- from a device_node
-Message-ID: <aK7h6seHNWs5rO9Q@e133380.arm.com>
+Subject: Re: [PATCH 02/33] drivers: base: cacheinfo: Add helper to find the
+ cache size from cpu+level
+Message-ID: <aK7iDey7LATOXIUb@e133380.arm.com>
 References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-2-james.morse@arm.com>
+ <20250822153048.2287-3-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250822153048.2287-2-james.morse@arm.com>
+In-Reply-To: <20250822153048.2287-3-james.morse@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_034618_036270_391151CD 
-X-CRM114-Status: GOOD (  24.85  )
+X-CRM114-CacheID: sfid-20250827_034646_365644_972A2A10 
+X-CRM114-Status: GOOD (  22.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,63 +87,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+Hi,
 
-On Fri, Aug 22, 2025 at 03:29:42PM +0000, James Morse wrote:
-> The MPAM driver identifies caches by id for use with resctrl. It
-> needs to know the cache-id when probe-ing, but the value isn't set
-> in cacheinfo until device_initcall().
+On Fri, Aug 22, 2025 at 03:29:43PM +0000, James Morse wrote:
+> MPAM needs to know the size of a cache associated with a particular CPU.
+> The DT/ACPI agnostic way of doing this is to ask cacheinfo.
 > 
-> Expose the code that generates the cache-id. The parts of the MPAM
-> driver that run early can use this to set up the resctrl structures
-> before cacheinfo is ready in device_initcall().
-
-Why can't the MPAM driver just consume the precomputed cache-id
-information?
-
-Possible reasons are that the MPAM driver probes too early, or that it
-must parse the PPTT directly (which is true) and needs to label caches
-consistently with the way the kernel does it.
-
+> Add a helper to do this.
 > 
 > Signed-off-by: James Morse <james.morse@arm.com>
+> 
 > ---
 > Changes since v1:
->  * Renamed cache_of_get_id() cache_of_calculate_id().
+>  * Converted to kdoc.
+>  * Simplified helper to use get_cpu_cacheinfo_level().
 > ---
->  drivers/base/cacheinfo.c  | 19 +++++++++++++------
->  include/linux/cacheinfo.h |  1 +
->  2 files changed, 14 insertions(+), 6 deletions(-)
+>  include/linux/cacheinfo.h | 15 +++++++++++++++
+>  1 file changed, 15 insertions(+)
 > 
-> diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
-> index 613410705a47..f6289d142ba9 100644
-> --- a/drivers/base/cacheinfo.c
-> +++ b/drivers/base/cacheinfo.c
-> @@ -207,11 +207,10 @@ static bool match_cache_node(struct device_node *cpu,
->  #define arch_compact_of_hwid(_x)	(_x)
->  #endif
+> diff --git a/include/linux/cacheinfo.h b/include/linux/cacheinfo.h
+> index 2dcbb69139e9..e12d6f2c6a57 100644
+> --- a/include/linux/cacheinfo.h
+> +++ b/include/linux/cacheinfo.h
+> @@ -148,6 +148,21 @@ static inline int get_cpu_cacheinfo_id(int cpu, int level)
+>  	return ci ? ci->id : -1;
+>  }
 >  
-> -static void cache_of_set_id(struct cacheinfo *this_leaf,
-> -			    struct device_node *cache_node)
-> +unsigned long cache_of_calculate_id(struct device_node *cache_node)
->  {
->  	struct device_node *cpu;
-> -	u32 min_id = ~0;
-> +	unsigned long min_id = ~0UL;
+> +/**
+> + * get_cpu_cacheinfo_size() - Get the size of the cache.
+> + * @cpu:      The cpu that is associated with the cache.
+> + * @level:    The level of the cache as seen by @cpu.
+> + *
+> + * Callers must hold the cpuhp lock.
+> + * Returns the cache-size on success, or 0 for an error.
+> + */
 
-Why the change of type here?
+Nit: Maybe use the wording
 
-This does mean that 0xffffffff can now be generated as a valid cache-id,
-but if that is necessary then this patch is also fixing a bug in the
-code -- but the commit message doesn't say anything about that.
+	cpuhp lock must be held.
 
-For a patch that is just exposing an internal result, it may be
-better to keep the original type.  ~(u32)0 is already used as an
-exceptional value.
+in the kerneldoc here, to match the other helpers it sits alongside.
 
-[...]
+Otherwise, looks reasonable.
 
-Otherwise, this looks reasonable to me.
+> +static inline unsigned int get_cpu_cacheinfo_size(int cpu, int level)
+> +{
+> +	struct cacheinfo *ci = get_cpu_cacheinfo_level(cpu, level);
+> +
+> +	return ci ? ci->size : 0;
+> +}
+> +
+
+Orphaned function?
+
+Can fs/resctrl/rdtgroup.c:rdtgroup_cbm_to_size() be ported to use this?
+If so, this wouldn't just be dead code in this series.
 
 Cheers
 ---Dave
