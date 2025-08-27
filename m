@@ -4,101 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8BAFCA0FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 17:53:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBDB0CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 18:00:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aGPhYDWt388RttmicU0o24RVsxY/twdNMb4O/vzImCs=; b=ZQlvVYX7xDu9DL+LigwjJyp0IK
-	m1mURO+2ZlBntE9w1HyIAzwx1zDP7Bi5/To8Iothyqm0pXbsONYTVk/D9TBTw9U/PzmfXClrDw5Eb
-	hSmuQkZ93Tdhw2W1vyfnG7ddm5D3hYpdx65ElouPnY8+2QO7dn63lIamkrjHAS5hQ2qdoWTH8EufX
-	CnjICpTz5EjFMk3kCBWdZ2ws31RJB7xlc99mB9KA9yFL+oAffD3kt9D/gE6RHzQvhYUlnQh3fXghI
-	qf9wjSWqC2ga2g2ciIZY7gnRpvUOO0MdZ+t8cl2MJkwfsyJYNEr8AdeeGhlfdcEgEtiRB7AOWIXgL
-	pk+7aB0Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jALJDGR5muHNEHQHO515jfWtFn/DpI92ODDzJD/5Z5U=; b=mEqiU/wY3iejaU
+	VKV7F+399eXRIOphbWLt6RaRAxZjjPE2lMKM81SkNHldxcyxDQrvyt1WYjjX2uWBrKQzMMGguDIr+
+	rvGOHC11DvVl6+RBz8Cp+IlJeKrN5T5ZPbPjYIuNK3wnS8RfTb28f6v75HthtBzHKIk/7xXvf5L3d
+	RrQAL6mvr0/btJnv3UwEiOVztiDKfDY2eFV26PheRuUlVaQQwx+AM0uKVTaO6UO7Lm6f+R2hXnmE1
+	0ZdSDOEnzJ0JQq2VYyLFlQ32agIyE+kGp61IcVoyNnbO16lTr7bNBzyNotetA0nyMsP9qpCNCw4Ro
+	/BExpdzFTF6bfsppZE8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urKLG-0000000GNAj-1OgG;
-	Wed, 27 Aug 2025 17:53:50 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1urKRi-0000000GOyW-1Wif;
+	Wed, 27 Aug 2025 18:00:30 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urHsH-0000000Fsuv-2FTa
+	id 1urIhD-0000000G8Fc-1oeI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 15:15:48 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-248681b5892so229255ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 08:15:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1756307744; x=1756912544; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=aGPhYDWt388RttmicU0o24RVsxY/twdNMb4O/vzImCs=;
-        b=V9X9qsxjyxEgU+s095f8lLyBcJkNf+UksyYjpwVCIgEFsskUAtKamvLVfm/u7CtiAn
-         SogDGquoILFchTEqXO6vHTPmU95nDKxfdBhmMeeaR5HbOR+H6ZibwL88QmppKRLqLW3+
-         17UkZqvq3g3Grux3ulbuhamBsveIeLp6PMtOX9zwV0ZFg7sq0Nd0OmAW3Crku9DfFPt3
-         Bh4oUFDW9ZjTc4fanvMe84rR/XbmncbkIvrITtKxuQ112PY9BFaCaZLxnda5s+ws2Sx6
-         KxKa0sWDUNhm46Jk+f2IlnrY//iOg7og9h4qAlJ/UnQ6E6u/gp+OQ1oHAV/Ks04ZEGe2
-         ZIiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756307744; x=1756912544;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=aGPhYDWt388RttmicU0o24RVsxY/twdNMb4O/vzImCs=;
-        b=Yw53dW6HkIazebUPcmtNTqf2fo3xsoBK0ZkdrksPUjIs/hxGRbBZPxlEtGCeHOZy08
-         KZdDa8001X6Fpt6esC0hwi3y2fc7MfvnL8QzpyY3rxwKwQ4tPd9x82FA4uQiLxfpY+zZ
-         U15aJzdlbWUF8ZZwNhiR9KncIFLgCwyZmT1Nvj3nKNigxgKEQXVV/hvoQuOB25jpwOVI
-         +DjWE6wZ4jSVSqzmqlsxg/PMC1AJdpR9g3uV3JnEICS81vwlQucD5hP+1azC+pD+Aymj
-         rwHdw3OJqK936HNvJxOIgy8cqrgRx+5qUl+hmbDRSKj0lry60OjXLdho5ciXvVJAf+iB
-         3e7A==
-X-Forwarded-Encrypted: i=1; AJvYcCVZHDiCRrhfOs51HNsCl5QwJXKxvs4T5dRLSu8clZKdRpGOah2ERvX8wVT7+rP9mO9aZqIpIjeHfPIl/6H3XkF+@lists.infradead.org
-X-Gm-Message-State: AOJu0YyDnzRHTVKKCrH2bcOSQed32eEtc9NsHuDWa0TogRdRPQvia6UA
-	Ar6r15gpUMTzdV+FBZ5zV8e5LjrwaUstfPZjRQztC1KwDtkBLvGD7lnsLSglz9nsvs+BDSpQduz
-	PcORUkgbaIfBrGoBrhzJ+Snz+qUaMthIlxy48QXYY
-X-Gm-Gg: ASbGncsO30ygaSoAzVYpg2SywHZTU29VuunSeEou68fXJv5rAGJvlc0Uw7gaVOq+9zz
-	o2wTAZGJJKHOSdEk680GYEhG6LYCA0GZRpRfSy2/vIJXQSNORmR8NSiYSflRBlmU91krqxwP20t
-	dNI3ITET2pytgN0ndWtEs2IwrVPbVrs6HtICGxZOVCG2O5vpsDGjPX3W+JOU58Fi5f/O81nA5B6
-	vgioVVbkgCkcIkRAyCk1PdPeugAnpW1ov001mvvfhE=
-X-Google-Smtp-Source: AGHT+IExi0QgPJP/5AblrVahQdACSVklatzIIhzDoM8PROF9H/mRXxhxpv9GhjknP28Wz6ljzGsei6gbP7f3oTXJLVM=
-X-Received: by 2002:a17:902:ec87:b0:246:a8ac:1a36 with SMTP id
- d9443c01a7336-2485ba5311amr9397575ad.2.1756307741849; Wed, 27 Aug 2025
- 08:15:41 -0700 (PDT)
+	Wed, 27 Aug 2025 16:08:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0214243878;
+	Wed, 27 Aug 2025 16:08:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D4E8C4CEEB;
+	Wed, 27 Aug 2025 16:08:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756310902;
+	bh=SxfV7g3bJ3UTbiAX8JrQoOzoxVhuSn7Pvqg2XycEaKM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=lrkvv4e7eJQy4Zz5yfvpinu/QMxwq/F8HNUwdmLBYgqHcq+FrQRwdSjHI/2hfYUXh
+	 bqPW0Ugqtkbytgn+i8GsSDSGSLvyBmdQkZXfr2cEyjJrrcVRqcfyyaoGjuN2cIPssx
+	 J0TY/n+tPQusZrDU3Dxo3AYCDWo5Ami7+Rih3hT6ZYAL+n+50F3vVm0riyeIGJMicK
+	 KG9aS6zxE6emkOMe1JIxRy5YlI98UClzkWAFzf0KPxH4GeJ3r3gqXHZVj4rShTTFpK
+	 6gRK8WpLbR1w1AxwE6e4UtZKFJqO81EjSl2tb3z2tUhwfA5UfnkEjHmpBOV/12Vc+J
+	 iixZ9MZ9UQG7g==
+Date: Wed, 27 Aug 2025 09:08:20 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Parvathi Pudi <parvathi@couthit.com>
+Subject: Re: [PATCH net-next v14 4/5] net: ti: icssm-prueth: Adds link
+ detection, RX and TX support.
+Message-ID: <20250827090820.12a58d22@kernel.org>
+In-Reply-To: <20250822144023.2772544-5-parvathi@couthit.com>
+References: <20250822132758.2771308-1-parvathi@couthit.com>
+	<20250822144023.2772544-5-parvathi@couthit.com>
 MIME-Version: 1.0
-References: <cover.1755096883.git.robin.murphy@arm.com> <d6cda4e2999aba5794c8178f043c91068fa8080c.1755096883.git.robin.murphy@arm.com>
- <20250826130329.GX4067720@noisy.programming.kicks-ass.net>
- <6080e45d-032e-48c2-8efc-3d7e5734d705@arm.com> <CAP-5=fXF2x3hW4Sk+A362T-50cBbw6HVd7KY+QEUjFwT+JL37Q@mail.gmail.com>
- <aK6_XrA_OaLnoFkr@J2N7QTR9R3>
-In-Reply-To: <aK6_XrA_OaLnoFkr@J2N7QTR9R3>
-From: Ian Rogers <irogers@google.com>
-Date: Wed, 27 Aug 2025 08:15:29 -0700
-X-Gm-Features: Ac12FXwUZ4TrRSXyzgr8XTQRkesJ87wwMtoKHvx086ZRlV4GbvgOq2WSyedNfZ4
-Message-ID: <CAP-5=fU0-QDMP-VG3O1qBvJ8uzHHYCQ8j1Vrzy9a0YUk=UMvHw@mail.gmail.com>
-Subject: Re: [PATCH 12/19] perf: Ignore event state for group validation
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Robin Murphy <robin.murphy@arm.com>, Peter Zijlstra <peterz@infradead.org>, mingo@redhat.com, 
-	will@kernel.org, acme@kernel.org, namhyung@kernel.org, 
-	alexander.shishkin@linux.intel.com, jolsa@kernel.org, adrian.hunter@intel.com, 
-	kan.liang@linux.intel.com, linux-perf-users@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org, 
-	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	imx@lists.linux.dev, linux-csky@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
-	sparclinux@vger.kernel.org, linux-pm@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, dmaengine@vger.kernel.org, 
-	linux-fpga@vger.kernel.org, amd-gfx@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org, 
-	intel-xe@lists.freedesktop.org, coresight@lists.linaro.org, 
-	iommu@lists.linux.dev, linux-amlogic@lists.infradead.org, 
-	linux-cxl@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_081545_594150_76F5C6F5 
-X-CRM114-Status: GOOD (  33.61  )
+X-CRM114-CacheID: sfid-20250827_090823_495553_F31F34BA 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,123 +68,36 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: pratheesh@ti.com, vigneshr@ti.com, praneeth@ti.com, edumazet@google.com, glaroque@baylibre.com, pmohan@couthit.com, diogo.ivo@siemens.com, robh@kernel.org, javier.carrasco.cruz@gmail.com, saikrishnag@marvell.com, m-karicheri2@ti.com, bastien.curutchet@bootlin.com, mohan@couthit.com, jacob.e.keller@intel.com, pabeni@redhat.com, s.hauer@pengutronix.de, devicetree@vger.kernel.org, conor+dt@kernel.org, alok.a.tiwari@oracle.com, richardcochran@gmail.com, johan@kernel.org, prajith@ti.com, rogerq@kernel.org, basharath@couthit.com, ssantosh@kernel.org, vadim.fedorenko@linux.dev, linux-arm-kernel@lists.infradead.org, rogerq@ti.com, srk@ti.com, kory.maincent@bootlin.com, m-malladi@ti.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, danishanwar@ti.com, afd@ti.com, andrew+netdev@lunn.ch, horms@kernel.org, krishna@couthit.com, krzk+dt@kernel.org, davem@davemloft.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 27, 2025 at 1:18=E2=80=AFAM Mark Rutland <mark.rutland@arm.com>=
- wrote:
->
-> On Tue, Aug 26, 2025 at 11:48:48AM -0700, Ian Rogers wrote:
-> > On Tue, Aug 26, 2025 at 8:32=E2=80=AFAM Robin Murphy <robin.murphy@arm.=
-com> wrote:
-> > >
-> > > On 2025-08-26 2:03 pm, Peter Zijlstra wrote:
-> > > > On Wed, Aug 13, 2025 at 06:01:04PM +0100, Robin Murphy wrote:
-> > > >> It may have been different long ago, but today it seems wrong for =
-these
-> > > >> drivers to skip counting disabled sibling events in group validati=
-on,
-> > > >> given that perf_event_enable() could make them schedulable again, =
-and
-> > > >> thus increase the effective size of the group later. Conversely, i=
-f a
-> > > >> sibling event is truly dead then it stands to reason that the whol=
-e
-> > > >> group is dead, so it's not worth going to any special effort to tr=
-y to
-> > > >> squeeze in a new event that's never going to run anyway. Thus, we =
-can
-> > > >> simply remove all these checks.
-> > > >
-> > > > So currently you can do sort of a manual event rotation inside an
-> > > > over-sized group and have it work.
-> > > >
-> > > > I'm not sure if anybody actually does this, but its possible.
-> > > >
-> > > > Eg. on a PMU that supports only 4 counters, create a group of 5 and
-> > > > periodically cycle which of the 5 events is off.
-> >
-> > I'm not sure this is true, I thought this would fail in the
-> > perf_event_open when adding the 5th event and there being insufficient
-> > counters for the group.
->
-> We're talking specifically about cases where the logic in a pmu's
-> pmu::event_init() callback doesn't count events in specific states, and
-> hence the 5th even doesn't get rejected when it is initialised.
->
-> For example, in arch/x86/events/core.c, validate_group() uses
-> collect_events(), which has:
->
->         for_each_sibling_event(event, leader) {
->                 if (!is_x86_event(event) || event->state <=3D PERF_EVENT_=
-STATE_OFF)
->                         continue;
->
->                 if (collect_event(cpuc, event, max_count, n))
->                         return -EINVAL;
->
->                 n++;
->         }
->
-> ... and so where an event's state is <=3D PERF_EVENT_STATE_OFF at init
-> time, that event is not counted to see if it fits into HW counters.
+On Fri, 22 Aug 2025 20:09:16 +0530 Parvathi Pudi wrote:
+> +	struct net_device_stats *ndevstats;
 
-Hmm.. Thinking out loud. So it looked like perf with weak groups could
-be broken then:
-```
-$ sudo perf stat -vv -e '{instructions,cycles}:W' true
-...
-perf_event_attr:
- type                             0 (PERF_TYPE_HARDWARE)
- size                             136
- config                           0x400000001
-(cpu_core/PERF_COUNT_HW_INSTRUCTIONS/)
- sample_type                      IDENTIFIER
- read_format                      TOTAL_TIME_ENABLED|TOTAL_TIME_RUNNING|ID|=
-GROUP
- disabled                         1
- inherit                          1
- enable_on_exec                   1
-------------------------------------------------------------
-sys_perf_event_open: pid 3337764  cpu -1  group_fd -1  flags 0x8 =3D 5
-------------------------------------------------------------
-perf_event_attr:
- type                             0 (PERF_TYPE_HARDWARE)
- size                             136
- config                           0x400000000
-(cpu_core/PERF_COUNT_HW_CPU_CYCLES/)
- sample_type                      IDENTIFIER
- read_format                      TOTAL_TIME_ENABLED|TOTAL_TIME_RUNNING|ID|=
-GROUP
- inherit                          1
-------------------------------------------------------------
-sys_perf_event_open: pid 3337764  cpu -1  group_fd 5  flags 0x8 =3D 7
-...
-```
-Note, the group leader (instructions) is disabled because of:
-https://web.git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.gi=
-t/tree/tools/perf/util/stat.c?h=3Dperf-tools-next#n761
-```
-/*
-* Disabling all counters initially, they will be enabled
-* either manually by us or by kernel via enable_on_exec
-* set later.
-*/
-if (evsel__is_group_leader(evsel)) {
-        attr->disabled =3D 1;
-```
-but the checking of being disabled (PERF_EVENT_STATE_OFF) is only done
-on siblings in the code you show above. So yes, you can disable the
-group events to allow the perf_event_open to succeed but not on the
-leader which is always checked (no PERF_EVENT_STATE_OFF check):
-https://web.git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.gi=
-t/tree/arch/x86/events/core.c?h=3Dperf-tools-next#n1204
-```
-if (is_x86_event(leader)) {
-        if (collect_event(cpuc, leader, max_count, n))
-                return -EINVAL;
-```
+> +	ndevstats = &emac->ndev->stats;
 
-Thanks,
-Ian
+Please don't use netdev stats, quoting the header:
+
+	struct net_device_stats	stats; /* not used by modern drivers */
+
+Store the counters you need in driver's private struct and implement
+.ndo_get_stats64
+
+> +	if (!pkt_info->sv_frame) {
+
+sv_frame seems to always be false at this stage?
+Maybe delete this diff if that's the case, otherwise it feels like
+the skb_free below should be accompanied by some stat increment.
+
+> +		skb_put(skb, actual_pkt_len);
+> +
+> +		/* send packet up the stack */
+> +		skb->protocol = eth_type_trans(skb, ndev);
+> +		netif_receive_skb(skb);
+> +	} else {
+> +		dev_kfree_skb_any(skb);
+> +	}
+
+The rest LGTM.
 
