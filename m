@@ -4,80 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2A2FCA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 08:04:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D252ECA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 08:08:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IUzS1FlJJem1zWHteh/brshjzgj4HQ9TMqISmQwh+sQ=; b=NENAXFvLAQYFVtDkYZsQeTdIM0
-	ZtkTuk93OI/9zqERmFDMDYf8o9Vx/uHMUROcKWFCxIFk9FCgCEE8qAucG2jO/J5NPRTCAgcbEFhvn
-	PRHe+hKwmS2Nr+fg9ruzyFU4UY7inCWDpHBFg8s/5HFiWtCem2D55hmQ9eiuT9f0TrxvflMLOkrGe
-	BHxEGuBHtcdGkfSUE1xl1v0Rgr5LEThLLM/kzf4OknEin88GNRzLta4KkPOwDJuAQSJzjmtceUn6i
-	KOGVUuuf4do8aVCpPaZiHARiG8vk1mXQOpblHwkPEH24H7XsKVQPXs/IKeYuL9d6geoNfjA3caExK
-	vNzYENZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6196K8b9+MG5o4AtOQJKUUdlGUlbg/6yMa2kEgseBX0=; b=hLXRMOJ8f7+xZz6uDZqqCsIVP2
+	OgcZTmp3v5/U2JC7yVDY7ey68Fx3ok3tEJnofuhyOMobimVRmdWyUdu7EJr0Vva58G7eeRF6jkN16
+	k5As56xvA0pcDP2hAjniMHFz5tjKVtraXCRc76SQjW3d5nymYKNF91T1KrIZwIDO/5Ae2npmvC0pF
+	PNHWs9mPTPbUhrI40QDrUmhZ5VrlkRqyx6wbSiaMSljI0/o7xKFeCjVzjsPIR/TDYcZzpJ7PHrHTq
+	+bJsdVJ/D3DTJFaO2f5FC7izhaC4//VTdrBGzZfxMGok6jFT31b6OjAlGS9oZZBWuSu1fXnG+CrfR
+	6SkL9PyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urB8j-0000000EZfC-1SbM;
-	Wed, 27 Aug 2025 08:04:17 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urB61-0000000EYwT-1BpG;
-	Wed, 27 Aug 2025 08:01:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
-	bh=IUzS1FlJJem1zWHteh/brshjzgj4HQ9TMqISmQwh+sQ=; b=MAdWts2B9DV2xN5PIpDeOEaIBW
-	TPUwEP7zuYn/983CgYAdneCV43vGmPIgeVNNFRrh38w4Qf2/5bSbVA8ORbVtfJ8GGiLbTqdnTL3YI
-	9aoJQMebMGuRdhnMvAs2lQ34uJOy8v1RzViTi+UA0eXtsASo8ykTs+KMqvjjnNRFLUHhlAwmx+lkc
-	I4lJvw/zqOgCw2w9nS5BGxYhjn1cccLIGoolftSXu68BGG5PEYSsW70rmp/qq44kL+DIATJblh6ns
-	kjyPwDVyyTbqxsDASKbH8+hzP0WZHgPKKiFhMzWWPIELzS4UwPrcDaZZELnzy21EwuLrHeFRPgwzA
-	LDG6xkkA==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urB5w-00000002NhI-2ILP;
-	Wed, 27 Aug 2025 08:01:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E1FBF419D4;
-	Wed, 27 Aug 2025 08:01:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39BD2C19423;
-	Wed, 27 Aug 2025 08:01:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756281680;
-	bh=Nw7JExH/BxnTMttSxUeig+mm8bvREsbFmHsG7msCRWU=;
-	h=From:Date:Subject:To:Cc:From;
-	b=fUWbZQf6BTh45TtW9SnQDPvRvz1ZrsIj0ybgAJZg/94MJJIyoH5VUd8EhWV9IrXrL
-	 8tfTk9AQAOfuW3D2ehGFWMmcYTB/HLHihB6ycrOpasAnuZ3sMPCu6ucS790oEy0Oma
-	 Gs8PWt/U37CqW0g8ih4br4TayvqbiziZOwAJUFkt47fnelHbwKShovqG2PnmKZ6mrA
-	 NxbRfElpaDvVaYMlPyk3VJyvD4xay7pbOVbcRS+QqykSHsuPUlANEjG+HLUJBBU0Ea
-	 D1jZ3eLlCdorc5hnr5WpkBPdPHwTTGPyvoafDmpNE+DGyefi9Syaa5QfGIrILi0mr5
-	 f9zHBnae9AjxA==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Wed, 27 Aug 2025 10:01:02 +0200
-Subject: [PATCH mt76] wifi: mt76: mt7996: Export MLO AP capabilities to
- mac80211
+	id 1urBCR-0000000Eb0v-2rsD;
+	Wed, 27 Aug 2025 08:08:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urB9i-0000000EaJ8-1x34;
+	Wed, 27 Aug 2025 08:05:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3E3641691;
+	Wed, 27 Aug 2025 01:05:09 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D650B3F694;
+	Wed, 27 Aug 2025 01:05:07 -0700 (PDT)
+Date: Wed, 27 Aug 2025 09:04:46 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: peterz@infradead.org, mingo@redhat.com, will@kernel.org,
+	acme@kernel.org, namhyung@kernel.org,
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+	irogers@google.com, adrian.hunter@intel.com,
+	kan.liang@linux.intel.com, linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, dmaengine@vger.kernel.org,
+	linux-fpga@vger.kernel.org, amd-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org, coresight@lists.linaro.org,
+	iommu@lists.linux.dev, linux-amlogic@lists.infradead.org,
+	linux-cxl@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 18/19] perf: Introduce positive capability for raw events
+Message-ID: <aK68Ht03vZ0G3Xpt@J2N7QTR9R3>
+References: <cover.1755096883.git.robin.murphy@arm.com>
+ <542787fd188ea15ef41c53d557989c962ed44771.1755096883.git.robin.murphy@arm.com>
+ <aK259PrpyxguQzdN@J2N7QTR9R3>
+ <015974a4-f129-4ae5-adf9-c94b29f0576a@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250827-mt7996-mlo-ap-capa-v1-1-b5cfbcafa25f@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAD27rmgC/x3MSwqAMAwA0atI1gZqUateRVykNWrAT2lFBPHuF
- pdvMfNA5CAcocseCHxJlGNPKPIM3EL7zChjMmilK9Vog9tp2rbGbT2QPDryhKRK66zhprQVpNA
- HnuT+p/3wvh+oqyF0ZAAAAA==
-X-Change-ID: 20250827-mt7996-mlo-ap-capa-a04bcb7e84b5
-To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
- Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <015974a4-f129-4ae5-adf9-c94b29f0576a@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_090125_295172_410C77CE 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250827_010518_583736_FA2FA692 
+X-CRM114-Status: GOOD (  38.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,66 +81,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shayne Chen <shayne.chen@mediatek.com>
+On Tue, Aug 26, 2025 at 11:46:02PM +0100, Robin Murphy wrote:
+> On 2025-08-26 2:43 pm, Mark Rutland wrote:
+> > On Wed, Aug 13, 2025 at 06:01:10PM +0100, Robin Murphy wrote:
+> > To bikeshed a little here, I'm not keen on the PERF_PMU_CAP_RAW_EVENTS
+> > name, because it's not clear what "RAW" really means, and people will
+> > definitely read that to mean something else.
+> > 
+> > Could we go with something like PERF_PMU_CAP_COMMON_CPU_EVENTS, to make
+> > it clear that this is about opting into CPU-PMU specific event types (of
+> > which PERF_TYPE_RAW is one of)?
+> 
+> Indeed I started with that very intention after our previous discussion, but
+> soon realised that in fact nowhere in the code is there any definition or
+> even established notion of what "common" means in this context, so it's
+> hardly immune to misinterpretation either.
 
-Report MT7996 MLO AP capabilities to mac80211 stack.
+We can document that; it's everything less than PERF_TYPE_MAX:
 
-Signed-off-by: Shayne Chen <shayne.chen@mediatek.com>
-Co-developed-by: Lorenzo Bianconi <lorenzo@kernel.org>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/wireless/mediatek/mt76/mt7996/init.c | 23 ++++++++++++++++++++++-
- 1 file changed, 22 insertions(+), 1 deletion(-)
+	enum perf_type_id {
+		PERF_TYPE_HARDWARE                      = 0, 
+		PERF_TYPE_SOFTWARE                      = 1, 
+		PERF_TYPE_TRACEPOINT                    = 2, 
+		PERF_TYPE_HW_CACHE                      = 3, 
+		PERF_TYPE_RAW                           = 4, 
+		PERF_TYPE_BREAKPOINT                    = 5, 
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/init.c b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-index a9599c286328eb2b1ff24504109d25a9d916e044..29e0cf966bcac5ab805b927fd73b7a23d15877ec 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-@@ -63,6 +63,24 @@ static const struct ieee80211_iface_combination if_comb = {
- 	.beacon_int_min_gcd = 100,
- };
- 
-+static const u8 if_types_ext_capa_ap[] = {
-+	[0] = WLAN_EXT_CAPA1_EXT_CHANNEL_SWITCHING,
-+	[2] = WLAN_EXT_CAPA3_MULTI_BSSID_SUPPORT,
-+	[7] = WLAN_EXT_CAPA8_OPMODE_NOTIF,
-+};
-+
-+static const struct wiphy_iftype_ext_capab iftypes_ext_capa[] = {
-+	{
-+		.iftype = NL80211_IFTYPE_AP,
-+		.extended_capabilities = if_types_ext_capa_ap,
-+		.extended_capabilities_mask = if_types_ext_capa_ap,
-+		.extended_capabilities_len = sizeof(if_types_ext_capa_ap),
-+		.mld_capa_and_ops =
-+			FIELD_PREP_CONST(IEEE80211_MLD_CAP_OP_MAX_SIMUL_LINKS,
-+					 MT7996_MAX_RADIOS - 1),
-+	},
-+};
-+
- static ssize_t mt7996_thermal_temp_show(struct device *dev,
- 					struct device_attribute *attr,
- 					char *buf)
-@@ -463,8 +481,11 @@ mt7996_init_wiphy(struct ieee80211_hw *hw, struct mtk_wed_device *wed)
- 	wiphy->radio = dev->radios;
- 
- 	wiphy->reg_notifier = mt7996_regd_notifier;
--	wiphy->flags |= WIPHY_FLAG_HAS_CHANNEL_SWITCH;
-+	wiphy->flags |= WIPHY_FLAG_HAS_CHANNEL_SWITCH |
-+			WIPHY_FLAG_SUPPORTS_MLO;
- 	wiphy->mbssid_max_interfaces = 16;
-+	wiphy->iftype_ext_capab = iftypes_ext_capa;
-+	wiphy->num_iftype_ext_capab = ARRAY_SIZE(iftypes_ext_capa);
- 
- 	wiphy_ext_feature_set(wiphy, NL80211_EXT_FEATURE_BSS_COLOR);
- 	wiphy_ext_feature_set(wiphy, NL80211_EXT_FEATURE_VHT_IBSS);
+		PERF_TYPE_MAX,                          /* non-ABI */
+	};
 
----
-base-commit: a7cc1aa151e3a9c0314b995f06102f7763d3bd71
-change-id: 20250827-mt7996-mlo-ap-capa-a04bcb7e84b5
+... and maybe you could use "PERF_PMU_CAP_ABI_TYPES" to align with that
+comment?
 
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+> Furthermore the semantics of the cap as it ended up are specifically
+> that the PMU wants the same behaviour as if it had registered as
+> PERF_TYPE_RAW, so having "raw" in the name started to look like the
+> more intuitive option after all (plus being nice and short helps.)
 
+I appreciate the shortness, but I think it's misleading to tie this to
+"RAW" specifically, when really this is a capabiltiy to say "please let
+me try to init any events for non-dynamic types, in addition to whatever
+specific type I am registered with".
+
+> If anything, it's "events" that carries the implication that's proving hard
+> to capture precisely and concisely here, so maybe the answer to avoid
+> ambiguity is to lean further away from a "what it represents" to a "what it
+> actually does" naming - PERF_PMU_CAP_TYPE_RAW, anyone?
+
+I'm happy with TYPE in the name; it's just RAW specifically that I'm
+objecting to.
+
+> > Likewise, s/is_raw_pmu()/pmu_supports_common_cpu_events()/.
+> 
+> Case in point: is it any more logical and expected that supporting common
+> CPU events implies a PMU should be offered software or breakpoint events as
+> well? Because that's what such a mere rename would currently mean :/
+
+Yes, I think it is.
+
+> > > ---
+> > > 
+> > > A further possibility is to automatically add the cap to PERF_TYPE_RAW
+> > > PMUs in perf_pmu_register() to have a single point-of-use condition; I'm
+> > > undecided...
+> > 
+> > I reckon we don't need to automagically do that, but I reckon that
+> > is_raw_pmu()/pmu_supports_common_cpu_events() should only check the cap,
+> > and we don't read anything special into any of
+> > PERF_TYPE_{RAW,HARDWARE,HW_CACHE}.
+> 
+> OK, but that would then necessitate having to explicitly add the cap to all
+> 15-odd other drivers which register as PERF_TYPE_RAW as well, at which point
+> it starts to look like a more general "I am a CPU PMU in terms of most
+> typical assumptions you might want to make about that" flag...
+> 
+> To clarify (and perhaps something for a v2 commit message), we currently
+> have 3 categories of PMU driver:
+> 
+> 1: (Older/simpler CPUs) Registers as PERF_TYPE_RAW, wants
+> PERF_TYPE_RAW/HARDWARE/HW_CACHE events
+> 2: (Heterogeneous CPUs) Registers as dynamic type, wants
+> PERF_TYPE_RAW/HARDWARE/HW_CACHE events plus events of its own type
+> 3: (Mostly uncore) Registers as dynamic type, only wants events of its own
+> type
+
+Sure, but I think that separating 1 and 2 is an artificial distinction,
+and what we really have is:
+
+(a) Wants to handle (some of) the non-dynamic/common/ABI types (in
+    addition to whatever specific type it was registered with). Needs to
+    have a switch statement somewhere in pmu::event_init().
+
+(b) Only wants to handle the specific type the PMU was registered with.
+
+> My vested interest is in making category 3 the default behaviour, given that
+> the growing majority of new drivers are uncore (and I keep having to write
+> them...) 
+
+Yes, we're aligned on that.
+
+> However unclear the type overlaps in category 1 might be, it's been
+> like that for 15 years, so I didn't feel compelled to churn fossils like
+> Alpha more than reasonably necessary. Category 2 is only these 5 drivers, so
+> a relatively small tweak to distinguish them from category 3 and let them
+> retain the effective category 1 behaviour (which remains the current one of
+> potentially still being offered software etc. events too) seemed like the
+> neatest way to make progress.
+
+I just think we should combine 1 and 2 (into categroy a as above), since
+that removes the need to treat RAW specially going forwards.
+
+> I'm not saying I'm necessarily against a general overhaul of CPU PMUs being
+> attempted too, just that it seems more like a whole other side-quest, and
+> I'd really like to slay the uncore-boilerplate dragon first.
+
+I think that adding the cap to those 15 PMUs would take less time than
+it has taken me to write this email, so I do not understand the
+objection.
+
+Mark.
 
