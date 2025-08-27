@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D53C7CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 15:49:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB4ADCA0FFE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 15:49:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V1KClXnYNESaxX6nw8jQRbh+BCfXEal+QzR0BXC9Jp4=; b=igj0fplGCZfBte0PWvKcexpyAT
-	I9D0ScTxHxLjWE3tLxhsaE9/dMHbsZqIf/l1QeDyFPqwaG34esChGIx0W1OUmpeuIrxCFFTPF1aob
-	ADRqTNhEr0kK5n1VLXFvp+ieuaLwpU8Z3Zoa6R2O5ZlMCZOu1j2LQHXTc0osUPIY7qaMCyjGrF3Sl
-	QemX6IaHcN6k4Nxd3Pa9t0D1Xr/sgvXW4L8N2jicZNojf8/mGGl2ACeyjxV6nI4HfMsGSKkfuMHSv
-	/EU0Pl6Z9hvKxZ7p1G4JEWWybeBnM2+d8lTbiZMjDAmFOnFGzTwPbFDl9s6TamPHvCjcXLVO37Nqo
-	mg+z3bKw==;
+	bh=nwFBAcqDyw+S573uPLSPlKVhyOT8QYSk9uAcEnyCHgg=; b=e+Zu/J6vyvWYe6iRp4/V+h76hO
+	QBycQmjdXFBgxZdPAX3uy3HXWu/KsmSjD0Y4Dzhh0anreuZIgrxK6migpy+u3zgE9Pvm592+63r8p
+	PuCjBqLHEbLC4ejDNFnfCOqInst5ZEVzZC9dt5kLdpR2oIjginBuTP4RLZXQ1zkHosZlW+bONlH/z
+	SbdL++NMNhWH1F543YCyqf95YnOkDpxqNE9hYsKDEc5ZcVkN0jdELuPq+2ZrTqJVRYQ1s8qSvqkoJ
+	YFjmEtRBl09fV3Yz+2mKXkxxmSNtHXLeaK6J+e5h4qhWtTHcBgC0hY/tIHbK52EQ4S9TCnXiFRliL
+	yuA2jGEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urIOT-0000000Fy1V-3OBd;
-	Wed, 27 Aug 2025 15:49:01 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1urIOW-0000000Fy3P-1QMw;
+	Wed, 27 Aug 2025 15:49:04 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urEFF-0000000FFSi-0X1J
+	id 1urEFg-0000000FFZ0-1xZb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 11:23:14 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-24626e06f04so43798505ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 04:23:12 -0700 (PDT)
+	Wed, 27 Aug 2025 11:23:41 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2445824dc27so64308515ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 04:23:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756293792; x=1756898592; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1756293819; x=1756898619; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=V1KClXnYNESaxX6nw8jQRbh+BCfXEal+QzR0BXC9Jp4=;
-        b=hjJG4cufP74fNy4SP86nkVOPaNmfVUNE8FMM6YWyFq+C5zCdjkWI+Xm25UfMPMk9i2
-         aUFIxhh8YonLHwU+dKyhYFg5h3M47W1qNw8F9pHt4TTQqFL5RsZepjYuKRv4fT5JHT7T
-         3eildav06cmQegTlvm+RYeg1gTYG1FOZcirkAp5Ntpq4V547CF5JvBIiiGBmuwK1Cx6o
-         yeTT51tDWeieZ9hIFqrqZnzVgNIsKKNNL3FvP7gOFBWwdRKuPwcvGn6z9Twx/Q6Pa1AU
-         qKuEjg/1dIkAmOXYPPwt2oE764TTy16s2dNgMDYYRiOA+kA17Sm/qnI3WdTeRACZuyJ+
-         BNfQ==
+        bh=nwFBAcqDyw+S573uPLSPlKVhyOT8QYSk9uAcEnyCHgg=;
+        b=hsxrtQwN5vAWRbNO0JMvvR7qAvZUlF8oxDBHufNM2ekNhqZajSYV8loTonTjknwOY5
+         kN8pLbQMm2jsZdflRFNCzkOb5gIGhCJUCwSWDBxqBSno3TNQtFSaqwJuQi7LREKCcuJl
+         Ikzadb4xRpwKO7acJTDd1+DXFq9Gu99CgTdDGtgMJiT5lJ4Riq1cIbli3SfHBr1QruM2
+         gSQ+H6VUqu9KzHxkNoHnnbpSVayRclKqTWCUqJeYzCPL5HjiER6Ik3XClHrFfLnkQj71
+         XL3ZNGBC+CgWsyPEoge94h0vVkYqi6hbuMa4Rrzl+FTIBV6TPBVOPqqO+C0oLweGJgUK
+         I2LQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756293792; x=1756898592;
+        d=1e100.net; s=20230601; t=1756293819; x=1756898619;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=V1KClXnYNESaxX6nw8jQRbh+BCfXEal+QzR0BXC9Jp4=;
-        b=ZugW/iQ4PyFQtqKgCeh2tFE55OpyixSfTIpp11A1Cu1WH9gMIKvvXgXEpN2j5xfSOR
-         +pUEduhNxPCHLnVexshYb21xIS8x6bAHkQ25cvg8ZVTqUUPEHQSjX+VvWI3kxGOe4QkG
-         8wg5SWLcTQtWKM2NgznB2gM4w+LNFIOHKqS68e9v/XFKg71d3XrORsldN3U8stLw/CNn
-         QX/riBDm8/1Y4x6pDjKEiZNb37142LmsdlT3vhgwMjbh3poHRwjyRYZlhmiOvFAcxxFO
-         thwW2PGJW1xclXGGDJs0IaNjOH/H5GFXgi1SnnbYxtywlbZUw/3U4o7ulREkemPjqJb2
-         gpkw==
-X-Forwarded-Encrypted: i=1; AJvYcCXD0X9n+kNgLpNNe8Ojt317nz1zgjcXsxzh/o4/CV8DcvgCiAZQaWn4fRrOwdwzVphf+0kd+w11sy9+34fNTV9D@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz05LUlsXQ69bGmMD3EYVrvLdK24VOl6yY84qE42WVS41ZpFYKW
-	+gRwupEWHse9fz6f514Shjv5f8z5zsWplTwLAuQPgcI/4HfEICnovhRo
-X-Gm-Gg: ASbGnctKlQPNE27Fe8AFptzjxYq39TRoMTL0ssDlk9C2lxiP4vMBXmecOBD408AqRCY
-	eN9r3h/XnrMszzzyrwrkWYulGfcOwMWrP3mz5Y1jgSOpR2Lb5ah+Es1TOql/S6y7CR4G9t2tBGm
-	AgmOo60MJvnJP6K9ZtB8W8pa/arWJIU1OkK2NpeyzQttmwEgCPjU1VbRekBzWDCvSt5QfV0GzMB
-	atQL/UYfBfrly/rdS0brmA8awvYR1GWDvbMsl9BcV2pKpCaMpZ/UncqIUb6o3th0Xgg4OOfPkk6
-	OuKw1I83MLjJz7qBc9/e3X8fSV1D5F+7DImuTuZ9MA+VKbESxSVqf9nirKvtY1d6PRhbcEPiA38
-	1W3sZRbIjSmRIbR/puGB7Nmfr4fSifzUMcS8Rt3CJ3gVUz5fZs8HMP/a+IYL2iFCMnWPVONqyRu
-	a2QyaAGHvBRKJ7kBfe
-X-Google-Smtp-Source: AGHT+IE6Tu6wufrIlj+Kudc31D3OvoV/icWKSCI7R614I9GYVkGOYOO+IfrlAxI3vaqnE2V0vypq7A==
-X-Received: by 2002:a17:903:22c5:b0:245:fb83:25da with SMTP id d9443c01a7336-2462ee8dcc8mr203216505ad.22.1756293792214;
-        Wed, 27 Aug 2025 04:23:12 -0700 (PDT)
+        bh=nwFBAcqDyw+S573uPLSPlKVhyOT8QYSk9uAcEnyCHgg=;
+        b=hxR1sSgHSP4z/ps91JT/TpUqFqNijKBgzqZ7vVIfO1s2AqE5zE182ckirLsaSGhp3p
+         sbjqw5JcOaNZcXrzyzI5cYjYovflucLKH6aw4p2kZHQLpgowvt3dhUT/eTSkqfT6ZE2y
+         QzcUdZatjY9py/Zv7t3WVXmj22dLXgmu4pWfJvIIg3jdyu5wYQHr2oWBtvm8o534fzj9
+         FwKseQPq2SY4jK6AUSVzdOodQUYNGoD4mCkWh2/wFXUSaqSX3OLSgEUCgq1qzutrLZIz
+         33zulko6AJ+z/7QejQGk9xtoFoWS2weI/XQPiyrLnuxB+4I/l00u0JV0BFP9OAfYo2Ab
+         aPrg==
+X-Forwarded-Encrypted: i=1; AJvYcCVRx1bw51uhf15rkUepmIzvM0HiRUFI7Y4jq2GV9zT9cMBqphAprwsP1U9r6HnyUd7q2pvxFjleqE2OhCkBl6lG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/q9k7WnGut+BIhBCK8zbVoQFAIpPUODCVmJkW3QBI90uszYoD
+	xI8KZrSB3zHG/yJAbYRsirATvdtHxsEkOlYIq1gGUjpbZtHRyiEYL0Xk
+X-Gm-Gg: ASbGncv2OEt5jZArIwIgbiBJaKtfjLvIt/ooeOLEML07MT3jFFOPV8qwbCPm+iBfm6x
+	7Lt8wLCdg7VLscZkToLpKLj3MTgh/9l+Z+6cT9g6Te7xOcClz/kh0WwUWVPybXb7CZFS6o76d3J
+	SirkJXCPiQCrV5APMYTghvAK3gKMiTCHKijKngPoSxeozEl8/1itEfDq4nJe6GNToKgDsphKmT5
+	mNyUtWHTZ3ivflQ/8S7ZXQgpCsgdXlRVehMaU1hPl2h/fJsXwUwPbBRC2EbCLviNZIifI0ZZwIL
+	gsj/VBBt1DU1KEucbE2Ja0nx3fzfp3JiHPHScRzTpSBDD42gjagnlCn5dbrwxWwa74BlQj/FMjg
+	wjCLwWilgLgod0RMlPvbKnoRVnw2jROlSY157A4sDBqcqfXaHLslcBBA1r+rP7fUOUFrUmJl4nP
+	6nzSyydcbu4HD8Bt9POlJaTzivch8=
+X-Google-Smtp-Source: AGHT+IFJaHVzCNRC2Yngvs+SjY+onmdAmALaD5W/5FLvmbcKLAz64u5tbi8pbz4jZXP8aGLhEK2vxg==
+X-Received: by 2002:a17:903:228f:b0:246:61e:b562 with SMTP id d9443c01a7336-2462f1d5493mr247040625ad.59.1756293819391;
+        Wed, 27 Aug 2025 04:23:39 -0700 (PDT)
 Received: from [192.168.2.3] (2403-580a-80ed-0-4835-5a07-49e7-f115.ip6.aussiebb.net. [2403:580a:80ed:0:4835:5a07:49e7:f115])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3276fcd6232sm1819708a91.16.2025.08.27.04.23.05
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3276fcd6232sm1819708a91.16.2025.08.27.04.23.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Aug 2025 04:23:11 -0700 (PDT)
+        Wed, 27 Aug 2025 04:23:39 -0700 (PDT)
 From: James Calligeros <jcalligeros99@gmail.com>
-Date: Wed, 27 Aug 2025 21:22:37 +1000
-Subject: [PATCH v2 03/11] rtc: Add new rtc-macsmc driver for Apple Silicon
- Macs
+Date: Wed, 27 Aug 2025 21:22:41 +1000
+Subject: [PATCH v2 07/11] input: macsmc-hid: New driver to handle the Apple
+ Mac SMC buttons/lid
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250827-macsmc-subdevs-v2-3-ce5e99d54c28@gmail.com>
+Message-Id: <20250827-macsmc-subdevs-v2-7-ce5e99d54c28@gmail.com>
 References: <20250827-macsmc-subdevs-v2-0-ce5e99d54c28@gmail.com>
 In-Reply-To: <20250827-macsmc-subdevs-v2-0-ce5e99d54c28@gmail.com>
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
@@ -94,18 +94,18 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-input@vger.kernel.org, James Calligeros <jcalligeros99@gmail.com>, 
  Hector Martin <marcan@marcan.st>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7121;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9195;
  i=jcalligeros99@gmail.com; h=from:subject:message-id;
- bh=fFYNx5MTaxomGmqTFhn5OXWgUInA1frn00iHExvU3h4=;
- b=owGbwMvMwCV2xczoYuD3ygTG02pJDBnrXjV9LEg3D811Ofwr5/LdmH1FWr66Mis4ZHNOC9XNV
- tsy8//vjlIWBjEuBlkxRZYNTUIes43YbvaLVO6FmcPKBDKEgYtTACYyxZThf7bzYwOFO0V5nHeX
- TGIT8e7SZNBdebLoTKf3xf8dTdsKXBkZPqVdjFbdPMOoz/rc47pJko+PrRJtiDktuDD/UdQuHV9
- ffgA=
+ bh=svsWxCO/igBOuKhszf8mGDGeWre4rxAc9E2zZQZ5XiQ=;
+ b=owGbwMvMwCV2xczoYuD3ygTG02pJDBnrXjW/2qQR8ZqPOafC+tE/P5PH0WetvN4qxElfeyHg5
+ vru7YOejlIWBjEuBlkxRZYNTUIes43YbvaLVO6FmcPKBDKEgYtTACbi/5WR4UrfG6MzTrVZj3o/
+ iF22sl7iX3r5u2r3hu13Z2/xsi2bdpyRoU30lZpSpnCG60354nnJLTIFigH1dvIGJuxGLz5s3NL
+ JCgA=
 X-Developer-Key: i=jcalligeros99@gmail.com; a=openpgp;
  fpr=B08212489B3206D98F1479BDD43632D151F77960
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_042313_181900_168B81E6 
-X-CRM114-Status: GOOD (  29.79  )
+X-CRM114-CacheID: sfid-20250827_042340_542940_B8628657 
+X-CRM114-Status: GOOD (  29.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,223 +122,284 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Hector Martin <marcan@marcan.st>
 
-Apple Silicon Macs (M1, etc.) have an RTC that is part of the PMU IC,
-but most of the PMU functionality is abstracted out by the SMC.
-On T600x machines, the RTC counter must be accessed via the SMC to
-get full functionality, and it seems likely that future machines
-will move towards making SMC handle all RTC functionality.
+This driver implements power button and lid switch support for Apple Mac
+devices using SMC controllers driven by the macsmc driver.
 
-The SMC RTC counter access is implemented on all current machines
-as of the time of this writing, on firmware 12.x. However, the RTC
-offset (needed to set the time) is still only accessible via direct
-PMU access. To handle this, we expose the RTC offset as an NVMEM
-cell from the SPMI PMU device node, and this driver consumes that
-cell and uses it to compute/set the current time.
+In addition to basic input support, this also responds to the final
+shutdown warning (when the power button is held down long enough) by
+doing an emergency kernel poweroff. This allows the NVMe controller to
+be cleanly shut down, which prevents data loss for in-cache data.
 
-Reviewed-by: Neal Gompa <neal@gompa.dev>
 Signed-off-by: Hector Martin <marcan@marcan.st>
+Co-developed-by: Sven Peter <sven@kernel.org>
 Signed-off-by: Sven Peter <sven@kernel.org>
 Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
 ---
- MAINTAINERS              |   1 +
- drivers/rtc/Kconfig      |  11 ++
- drivers/rtc/Makefile     |   1 +
- drivers/rtc/rtc-macsmc.c | 141 +++++++++++++++++++++++++
- 4 files changed, 154 insertions(+)
+ MAINTAINERS                     |   1 +
+ drivers/input/misc/Kconfig      |  11 ++
+ drivers/input/misc/Makefile     |   1 +
+ drivers/input/misc/macsmc-hid.c | 209 +++++++++++++++++++++++++
+ 4 files changed, 222 insertions(+)
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 56aabfbc2520749beb9dba235f8e86c15e17b7b6..5d53d243dc9abdf1db5865f8e6bcddbac3eafebe 100644
+index 2eb23522654dd050262eb06e077587030cc335aa..b3b5220fcd0d4bbef67613c8ee9afa880c0aa45d 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -2422,6 +2422,7 @@ F:	drivers/nvmem/apple-spmi-nvmem.c
- F:	drivers/pinctrl/pinctrl-apple-gpio.c
- F:	drivers/power/reset/macsmc-reboot.c
- F:	drivers/pwm/pwm-apple.c
-+F:	drivers/rtc/rtc-macsmc.c
- F:	drivers/soc/apple/*
- F:	drivers/spi/spi-apple.c
- F:	drivers/spmi/spmi-apple-controller.c
-diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
-index 64f6e9756aff4a1f6f6c50f9b4fc2140f66a8578..d28a46a89c85e6b30b402aec155e8972ed2aaa8e 100644
---- a/drivers/rtc/Kconfig
-+++ b/drivers/rtc/Kconfig
-@@ -2068,6 +2068,17 @@ config RTC_DRV_WILCO_EC
- 	  This can also be built as a module. If so, the module will
- 	  be named "rtc_wilco_ec".
+@@ -2412,6 +2412,7 @@ F:	drivers/hwmon/macsmc_hwmon.c
+ F:	drivers/pmdomain/apple/
+ F:	drivers/i2c/busses/i2c-pasemi-core.c
+ F:	drivers/i2c/busses/i2c-pasemi-platform.c
++F:	drivers/input/misc/macsmc-hid.c
+ F:	drivers/input/touchscreen/apple_z2.c
+ F:	drivers/iommu/apple-dart.c
+ F:	drivers/iommu/io-pgtable-dart.c
+diff --git a/drivers/input/misc/Kconfig b/drivers/input/misc/Kconfig
+index 0fb21c99a5e3d1230d7f40f99e0c2d360bbe80e8..a430c50e7f63f245bba56bd526026ec7901cf821 100644
+--- a/drivers/input/misc/Kconfig
++++ b/drivers/input/misc/Kconfig
+@@ -961,4 +961,15 @@ config INPUT_STPMIC1_ONKEY
+ 	  To compile this driver as a module, choose M here: the
+ 	  module will be called stpmic1_onkey.
  
-+config RTC_DRV_MACSMC
-+	tristate "Apple Mac System Management Controller RTC"
++config INPUT_MACSMC_HID
++	tristate "Apple Mac SMC lid/buttons"
 +	depends on MFD_MACSMC
 +	help
-+	  If you say yes here you get support for RTC functions
-+	  inside Apple SPMI PMUs accessed through the SoC's
-+	  System Management Controller
++	  Say Y here if you want to use the input events delivered via the
++	  SMC controller on Apple Mac machines using the macsmc driver.
++	  This includes lid open/close and the power button.
 +
 +	  To compile this driver as a module, choose M here: the
-+	  module will be called rtc-macsmc.
++	  module will be called macsmc-hid.
 +
- config RTC_DRV_MSC313
- 	tristate "MStar MSC313 RTC"
-         depends on ARCH_MSTARV7 || COMPILE_TEST
-diff --git a/drivers/rtc/Makefile b/drivers/rtc/Makefile
-index 789bddfea99d8fcd024566891c37ee73e527cf93..bcb43b5878a562454986cbb9ab8cc45cec248dda 100644
---- a/drivers/rtc/Makefile
-+++ b/drivers/rtc/Makefile
-@@ -93,6 +93,7 @@ obj-$(CONFIG_RTC_DRV_M48T35)	+= rtc-m48t35.o
- obj-$(CONFIG_RTC_DRV_M48T59)	+= rtc-m48t59.o
- obj-$(CONFIG_RTC_DRV_M48T86)	+= rtc-m48t86.o
- obj-$(CONFIG_RTC_DRV_MA35D1)	+= rtc-ma35d1.o
-+obj-$(CONFIG_RTC_DRV_MACSMC)	+= rtc-macsmc.o
- obj-$(CONFIG_RTC_DRV_MAX31335)	+= rtc-max31335.o
- obj-$(CONFIG_RTC_DRV_MAX6900)	+= rtc-max6900.o
- obj-$(CONFIG_RTC_DRV_MAX6902)	+= rtc-max6902.o
-diff --git a/drivers/rtc/rtc-macsmc.c b/drivers/rtc/rtc-macsmc.c
+ endif
+diff --git a/drivers/input/misc/Makefile b/drivers/input/misc/Makefile
+index d468c8140b93da5bb537e8a3baea2b90e7bb4229..95b8ebbb9ebbe6f3afc9db724d2ebeba1d75d1a6 100644
+--- a/drivers/input/misc/Makefile
++++ b/drivers/input/misc/Makefile
+@@ -51,6 +51,7 @@ obj-$(CONFIG_INPUT_IQS7222)		+= iqs7222.o
+ obj-$(CONFIG_INPUT_KEYSPAN_REMOTE)	+= keyspan_remote.o
+ obj-$(CONFIG_INPUT_KXTJ9)		+= kxtj9.o
+ obj-$(CONFIG_INPUT_M68K_BEEP)		+= m68kspkr.o
++obj-$(CONFIG_INPUT_MACSMC_HID)		+= macsmc-hid.o
+ obj-$(CONFIG_INPUT_MAX77650_ONKEY)	+= max77650-onkey.o
+ obj-$(CONFIG_INPUT_MAX77693_HAPTIC)	+= max77693-haptic.o
+ obj-$(CONFIG_INPUT_MAX8925_ONKEY)	+= max8925_onkey.o
+diff --git a/drivers/input/misc/macsmc-hid.c b/drivers/input/misc/macsmc-hid.c
 new file mode 100644
-index 0000000000000000000000000000000000000000..05e360277f630f3368b2856aadef1f2b96426c37
+index 0000000000000000000000000000000000000000..c7cd56e5c17f08936cc623f7d3690f27e05012a5
 --- /dev/null
-+++ b/drivers/rtc/rtc-macsmc.c
-@@ -0,0 +1,141 @@
++++ b/drivers/input/misc/macsmc-hid.c
+@@ -0,0 +1,209 @@
 +// SPDX-License-Identifier: GPL-2.0-only OR MIT
 +/*
-+ * Apple SMC RTC driver
++ * Apple SMC input event driver
 + * Copyright The Asahi Linux Contributors
++ *
++ * This driver exposes HID events from the SMC as an input device.
++ * This includes the lid open/close and power button notifications.
 + */
 +
-+#include <linux/bitops.h>
++#include <linux/device.h>
++#include <linux/input.h>
 +#include <linux/mfd/core.h>
 +#include <linux/mfd/macsmc.h>
 +#include <linux/module.h>
-+#include <linux/nvmem-consumer.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/rtc.h>
-+#include <linux/slab.h>
++#include <linux/reboot.h>
 +
-+/* 48-bit RTC */
-+#define RTC_BYTES 6
-+#define RTC_BITS (8 * RTC_BYTES)
-+
-+/* 32768 Hz clock */
-+#define RTC_SEC_SHIFT 15
-+
-+struct macsmc_rtc {
++/**
++ * struct macsmc_hid
++ * @dev: Underlying struct device for the HID sub-device
++ * @smc: Pointer to apple_smc struct of the mfd parent
++ * @input: Allocated input_dev; devres managed
++ * @nb: Notifier block used for incoming events from SMC (e.g. button pressed down)
++ * @wakeup_mode: Set to true when system is suspended and power button events should wake it
++ */
++struct macsmc_hid {
 +	struct device *dev;
 +	struct apple_smc *smc;
-+	struct rtc_device *rtc_dev;
-+	struct nvmem_cell *rtc_offset;
++	struct input_dev *input;
++	struct notifier_block nb;
++	bool wakeup_mode;
 +};
 +
-+static int macsmc_rtc_get_time(struct device *dev, struct rtc_time *tm)
++#define SMC_EV_BTN 0x7201
++#define SMC_EV_LID 0x7203
++
++#define BTN_POWER		0x01 /* power button on e.g. Mac Mini chasis pressed */
++#define BTN_TOUCHID		0x06 /* combined TouchID / power button on MacBooks pressed */
++#define BTN_POWER_HELD_SHORT	0xfe /* power button briefly held down */
++#define BTN_POWER_HELD_LONG	0x00 /* power button held down; sent just before forced poweroff */
++
++static void macsmc_hid_event_button(struct macsmc_hid *smchid, unsigned long event)
 +{
-+	struct macsmc_rtc *rtc = dev_get_drvdata(dev);
-+	u64 ctr = 0, off = 0;
-+	time64_t now;
-+	void *p_off;
-+	size_t len;
-+	int ret;
++	u8 button = (event >> 8) & 0xff;
++	u8 state = !!(event & 0xff);
 +
-+	ret = apple_smc_read(rtc->smc, SMC_KEY(CLKM), &ctr, RTC_BYTES);
-+	if (ret < 0)
-+		return ret;
-+	if (ret != RTC_BYTES)
-+		return -EIO;
-+
-+	p_off = nvmem_cell_read(rtc->rtc_offset, &len);
-+	if (IS_ERR(p_off))
-+		return PTR_ERR(p_off);
-+	if (len < RTC_BYTES) {
-+		kfree(p_off);
-+		return -EIO;
++	switch (button) {
++	case BTN_POWER:
++	case BTN_TOUCHID:
++		if (smchid->wakeup_mode) {
++			if (state)
++				pm_wakeup_hard_event(smchid->dev);
++		} else {
++			input_report_key(smchid->input, KEY_POWER, state);
++			input_sync(smchid->input);
++		}
++		break;
++	case BTN_POWER_HELD_SHORT: /* power button held down; ignore */
++		break;
++	case BTN_POWER_HELD_LONG:
++		/*
++		 * If we get here the power button has been held down for a while and
++		 * we have about 4 seconds before forced power-off is triggered by SMC.
++		 * Try to do an emergency shutdown to make sure the NVMe cache is
++		 * flushed. macOS actually does this by panicing (!)...
++		 */
++		if (state) {
++			dev_crit(smchid->dev, "Triggering forced shutdown!\n");
++			if (kernel_can_power_off())
++				kernel_power_off();
++			else /* Missing macsmc-reboot driver? */
++				kernel_restart("SMC power button triggered restart");
++		}
++		break;
++	default:
++		dev_warn(smchid->dev, "Unknown SMC button event: %04lx\n", event & 0xffff);
 +	}
-+
-+	memcpy(&off, p_off, RTC_BYTES);
-+	kfree(p_off);
-+
-+	/* Sign extend from 48 to 64 bits, then arithmetic shift right 15 bits to get seconds */
-+	now = sign_extend64(ctr + off, RTC_BITS - 1) >> RTC_SEC_SHIFT;
-+	rtc_time64_to_tm(now, tm);
-+
-+	return ret;
 +}
 +
-+static int macsmc_rtc_set_time(struct device *dev, struct rtc_time *tm)
++static void macsmc_hid_event_lid(struct macsmc_hid *smchid, unsigned long event)
 +{
-+	struct macsmc_rtc *rtc = dev_get_drvdata(dev);
-+	u64 ctr = 0, off = 0;
-+	int ret;
++	u8 lid_state = !!((event >> 8) & 0xff);
 +
-+	ret = apple_smc_read(rtc->smc, SMC_KEY(CLKM), &ctr, RTC_BYTES);
-+	if (ret < 0)
-+		return ret;
-+	if (ret != RTC_BYTES)
-+		return -EIO;
++	if (smchid->wakeup_mode && !lid_state)
++		pm_wakeup_hard_event(smchid->dev);
 +
-+	/* This sets the offset such that the set second begins now */
-+	off = (rtc_tm_to_time64(tm) << RTC_SEC_SHIFT) - ctr;
-+	return nvmem_cell_write(rtc->rtc_offset, &off, RTC_BYTES);
++	input_report_switch(smchid->input, SW_LID, lid_state);
++	input_sync(smchid->input);
 +}
 +
-+static const struct rtc_class_ops macsmc_rtc_ops = {
-+	.read_time = macsmc_rtc_get_time,
-+	.set_time = macsmc_rtc_set_time,
-+};
++static int macsmc_hid_event(struct notifier_block *nb, unsigned long event, void *data)
++{
++	struct macsmc_hid *smchid = container_of(nb, struct macsmc_hid, nb);
++	u16 type = event >> 16;
 +
-+static int macsmc_rtc_probe(struct platform_device *pdev)
++	switch (type) {
++	case SMC_EV_BTN:
++		macsmc_hid_event_button(smchid, event);
++		return NOTIFY_OK;
++	case SMC_EV_LID:
++		macsmc_hid_event_lid(smchid, event);
++		return NOTIFY_OK;
++	default:
++		/* SMC event meant for another driver */
++		return NOTIFY_DONE;
++	}
++}
++
++static int macsmc_hid_probe(struct platform_device *pdev)
 +{
 +	struct apple_smc *smc = dev_get_drvdata(pdev->dev.parent);
-+	struct macsmc_rtc *rtc;
++	struct macsmc_hid *smchid;
++	bool have_lid, have_power;
++	int ret;
 +
-+	/*
-+	 * MFD will probe this device even without a node in the device tree,
-+	 * thus bail out early if the SMC on the current machines does not
-+	 * support RTC and has no node in the device tree.
-+	 */
-+	if (!pdev->dev.of_node)
++	/* Bail early if this SMC neither supports power button nor lid events */
++	have_lid = apple_smc_key_exists(smc, SMC_KEY(MSLD));
++	have_power = apple_smc_key_exists(smc, SMC_KEY(bHLD));
++	if (!have_lid && !have_power)
 +		return -ENODEV;
 +
-+	rtc = devm_kzalloc(&pdev->dev, sizeof(*rtc), GFP_KERNEL);
-+	if (!rtc)
++	smchid = devm_kzalloc(&pdev->dev, sizeof(*smchid), GFP_KERNEL);
++	if (!smchid)
 +		return -ENOMEM;
 +
-+	rtc->dev = &pdev->dev;
-+	rtc->smc = smc;
++	smchid->dev = &pdev->dev;
++	smchid->smc = smc;
++	platform_set_drvdata(pdev, smchid);
 +
-+	rtc->rtc_offset = devm_nvmem_cell_get(&pdev->dev, "rtc_offset");
-+	if (IS_ERR(rtc->rtc_offset))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(rtc->rtc_offset),
-+				     "Failed to get rtc_offset NVMEM cell\n");
++	smchid->input = devm_input_allocate_device(&pdev->dev);
++	if (!smchid->input)
++		return -ENOMEM;
 +
-+	rtc->rtc_dev = devm_rtc_allocate_device(&pdev->dev);
-+	if (IS_ERR(rtc->rtc_dev))
-+		return PTR_ERR(rtc->rtc_dev);
++	smchid->input->phys = "macsmc-hid (0)";
++	smchid->input->name = "Apple SMC power/lid events";
 +
-+	rtc->rtc_dev->ops = &macsmc_rtc_ops;
-+	rtc->rtc_dev->range_min = S64_MIN >> (RTC_SEC_SHIFT + (64 - RTC_BITS));
-+	rtc->rtc_dev->range_max = S64_MAX >> (RTC_SEC_SHIFT + (64 - RTC_BITS));
++	if (have_lid)
++		input_set_capability(smchid->input, EV_SW, SW_LID);
++	if (have_power)
++		input_set_capability(smchid->input, EV_KEY, KEY_POWER);
 +
-+	platform_set_drvdata(pdev, rtc);
++	ret = input_register_device(smchid->input);
++	if (ret) {
++		dev_err(&pdev->dev, "Failed to register input device: %d\n", ret);
++		return ret;
++	}
 +
-+	return devm_rtc_register_device(rtc->rtc_dev);
++	if (have_lid) {
++		u8 val;
++
++		ret = apple_smc_read_u8(smc, SMC_KEY(MSLD), &val);
++		if (ret < 0)
++			dev_warn(&pdev->dev, "Failed to read initial lid state\n");
++		else
++			input_report_switch(smchid->input, SW_LID, val);
++	}
++
++	if (have_power) {
++		u32 val;
++
++		ret = apple_smc_read_u32(smc, SMC_KEY(bHLD), &val);
++		if (ret < 0)
++			dev_warn(&pdev->dev, "Failed to read initial power button state\n");
++		else
++			input_report_key(smchid->input, KEY_POWER, val & 1);
++	}
++
++	input_sync(smchid->input);
++
++	smchid->nb.notifier_call = macsmc_hid_event;
++	blocking_notifier_chain_register(&smc->event_handlers, &smchid->nb);
++
++	device_init_wakeup(&pdev->dev, 1);
++
++	return 0;
 +}
 +
-+static const struct of_device_id macsmc_rtc_of_table[] = {
-+	{ .compatible = "apple,smc-rtc", },
-+	{}
-+};
-+MODULE_DEVICE_TABLE(of, macsmc_rtc_of_table);
++static int macsmc_hid_pm_prepare(struct device *dev)
++{
++	struct macsmc_hid *smchid = dev_get_drvdata(dev);
 +
-+static struct platform_driver macsmc_rtc_driver = {
++	smchid->wakeup_mode = true;
++	return 0;
++}
++
++static void macsmc_hid_pm_complete(struct device *dev)
++{
++	struct macsmc_hid *smchid = dev_get_drvdata(dev);
++
++	smchid->wakeup_mode = false;
++}
++
++static const struct dev_pm_ops macsmc_hid_pm_ops = {
++	.prepare = macsmc_hid_pm_prepare,
++	.complete = macsmc_hid_pm_complete,
++};
++
++static struct platform_driver macsmc_hid_driver = {
 +	.driver = {
-+		.name = "macsmc-rtc",
-+		.of_match_table = macsmc_rtc_of_table,
++		.name = "macsmc-hid",
++		.pm = &macsmc_hid_pm_ops,
 +	},
-+	.probe = macsmc_rtc_probe,
++	.probe = macsmc_hid_probe,
 +};
-+module_platform_driver(macsmc_rtc_driver);
++module_platform_driver(macsmc_hid_driver);
 +
-+MODULE_LICENSE("Dual MIT/GPL");
-+MODULE_DESCRIPTION("Apple SMC RTC driver");
 +MODULE_AUTHOR("Hector Martin <marcan@marcan.st>");
++MODULE_LICENSE("Dual MIT/GPL");
++MODULE_DESCRIPTION("Apple SMC HID driver");
++MODULE_ALIAS("platform:macsmc-hid");
 
 -- 
 2.51.0
