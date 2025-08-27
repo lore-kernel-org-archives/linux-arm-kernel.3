@@ -4,84 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42CA8CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 05:10:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B99BC8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 05:13:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=WUXp9lG7X26uP7murNUm5kgTEUw+iAz/NoMGgwgkXEI=; b=Ek74/3Q1nD7puQowHbkjNFjhby
-	Lo/NCHYxIp3XssnzK/5r9h1WIEd1FbVig9ggyb5zZ17TC2WSHX5tVD0+RNS3oxgu5nMS1GPLx1X4W
-	DxkqH2tqlvUaMDsLvb5xAamkvWVB2Xov+t1Rd8naJVN+KezwXzOqk3OpsRj9d0wZeA1RnUqK3eJoT
-	GJ5JeQwtkE+X3n2RMJHLfxWFjkpF35gvau9ajdZeSbPrJDbhgcO2hQahTfVMSiYeK5Pd8f+gXXL5V
-	Bb6Y8ySwCdPbqs5AfqFVwxM5BiPB1rJii6vVxQQCGV3HdBLjc6TxMjyKSoy7vtQBuAI2FLiY7HrZ/
-	sDAOaezA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oIdsmer+S5Hu+dy6qELC55WpumZrXPmBQJbAKeDslZ0=; b=OcJr91+keGJSgJy3fksl5YdRZU
+	kfsE4hm8PBsNJo1ZlZLxEtDCQE5PY84Jlf3nbY+s2AUa1PsaWBnoXa+5ioX+fPhi3sEuv2X7vEe23
+	tJI4VxpdAE/zz2/ISFhSoRcZULcJ/DBL2earm0JJJ/ig4iE6VdYv2zIk5G88dPwf49LrmmSh8lQ7V
+	nkbLvXMYskxWH8/U68P8KOhp1ODet6rimtz8tUSatQ3kxPfpGdRfhjVMi8XUPIg1qIPYgYeIyCwmI
+	2uB1ZKABAnrc02zQoyKypYM5HQnsjubnhbncNZIRekQdlGSrTGlXb96d+8DzCVoMzkGbfDfCHpaJe
+	CA7o+sRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ur8QK-0000000E59y-3L9n;
-	Wed, 27 Aug 2025 05:10:17 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1ur8Sz-0000000E5Ug-3ZVr;
+	Wed, 27 Aug 2025 05:13:01 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ur8Fe-0000000E2yl-04fV
+	id 1ur8G8-0000000E36z-1tos
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 04:59:17 +0000
-Received: from epcas2p2.samsung.com (unknown [182.195.41.54])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250827045907epoutp0285c36a2fca5e722609a2c5796273310a~fhvCFu5rs3032030320epoutp02c
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 04:59:07 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250827045907epoutp0285c36a2fca5e722609a2c5796273310a~fhvCFu5rs3032030320epoutp02c
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1756270747;
-	bh=WUXp9lG7X26uP7murNUm5kgTEUw+iAz/NoMGgwgkXEI=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=PFozBq2PABiLrMMGdNDfnYS0qeUAZ4gQ/TyGCL4iVM/2raVzLyTDmHy9iKyTQvr2I
-	 VLjPrOhuXNlcB794I9/ucdisI+ZpeE4DZTYQw1THeWQzNtgsuv+x35C3mlrDw2hUU+
-	 hr46S6zlLBPy9iBVAAsHikc/8YunaH5vbuV0iPzA=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas2p4.samsung.com (KnoxPortal) with ESMTPS id
-	20250827045906epcas2p40026048003f6d8216bc9caba963b5182~fhvBe0NlJ3229232292epcas2p4z;
-	Wed, 27 Aug 2025 04:59:06 +0000 (GMT)
-Received: from epcas2p4.samsung.com (unknown [182.195.36.102]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4cBXPP70F0z6B9mK; Wed, 27 Aug
-	2025 04:59:05 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas2p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250827045905epcas2p2daa6599d04f38c002e396abf23d60fe7~fhvARTiXQ1734917349epcas2p2u;
-	Wed, 27 Aug 2025 04:59:05 +0000 (GMT)
-Received: from mclaren.dsn.sec.samsung.com (unknown [10.229.9.108]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250827045905epsmtip2fc5355cf5088afd226e12a4f77c10640~fhvAK8HCh1766017660epsmtip2D;
-	Wed, 27 Aug 2025 04:59:05 +0000 (GMT)
-From: Kisung Lee <kiisung.lee@samsung.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
-	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
-	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Mauro Carvalho
-	Chehab <mchehab@kernel.org>, Inki Dae <inki.dae@samsung.com>
-Cc: Kisung Lee <kiisung.lee@samsung.com>, dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
-	linux-media@vger.kernel.org
-Subject: [PATCH 0/4] Add DT bindings and driver code for Scaler
-Date: Wed, 27 Aug 2025 04:47:16 +0000
-Message-ID: <20250827044720.3751272-1-kiisung.lee@samsung.com>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250827045905epcas2p2daa6599d04f38c002e396abf23d60fe7
-X-Msg-Generator: CA
+	Wed, 27 Aug 2025 04:59:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nHMkpKSSOZ3+mtPRLJpUnRcop2gawoiSxj4pRoRz1clmbszlvSBk06iIkJS+1j3BWF1hr5V8mAC5nQ9KVWg7pnTIxu9NKQM6QTNHE3quMchaXT0yHMbX6dYQQdbUkHM4u3o0NPkLxxHnFW3aUv8V4aHdKG72DHnJj3w4OdSb7BbiBdIfKNWaxX5bjf2jz1b0oZKlIYIsw0o7yyE33J7DNQPN5xiOQXUxM9W7eE6p5xcY7vhqI8FTQ9mjITBfQVgMQdb9l7LLcaFVC+qXBrWglPWkRJc2bl4c2tRIViN7Va6CFZML+4OMtQ9+I1u39pOpJZBXj2ZKgaztiNvngTfWag==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=oIdsmer+S5Hu+dy6qELC55WpumZrXPmBQJbAKeDslZ0=;
+ b=AcW4Xqv0Sng11PCoPMxzZuy0XET5RKhQf3TRJmwgthWhn6+XwG8ig6qhcyBQ1imlMCpc7Vz+3xDfnWlZI6SF//JGOIPZsWHIqRjtDXFvonPZoYTMRFw/7f/pJs/D3d7kG+ud4V9FIro7/g39bCmENT0vej11PtCvs0GW/RDK3O7r3OCqr4i/YBgMjvec+gijtbckMc3vTjwNTpR8uqxUScfCDrDfNYW3Zy6f4VnU1ljhJ7E7YaZa/S2+drLMXjmwpNUBB92vDi6GG5QdMgvbZZnAEPzvicFOyCPXQwbTYRM2kTdk+7Rs9luqzCA6sYZnc04mmQpOO/1u7H2mSbkJTQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=oIdsmer+S5Hu+dy6qELC55WpumZrXPmBQJbAKeDslZ0=;
+ b=IbtubK/n2W3eucPUp1ZnJyv/qapQoXZbmvv4SSmLHB/sTfBGk11fNA/4qdmZyHEkeDkvYdTdv4Qbsl2Ac0HQjz1F6Q8tPSRZz05WkfBk+Gtnl7Wing5ykq/mTAzQF2q2Sr0HG3j4Mw4CliKnPO6B5BSDyn6hltYK6IuR4jajfKAHCBKItyHH4kZ70ad3n437r7sd9/QEI3QTYAUHIOVjBXL3p2gWtitoTkBgLRnDPrq5SbmfeXidLF6y3/lWfkRB9lHfhCRWqgk6sZO3+DkRTfdCBdt075rxUzUN8H5DeodxSTAhAD4LggJMm1k0qsrl6PQ7iFpJtcTc0FddtPe4kg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AM0PR04MB6899.eurprd04.prod.outlook.com (2603:10a6:208:183::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.13; Wed, 27 Aug
+ 2025 04:59:33 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.9073.010; Wed, 27 Aug 2025
+ 04:59:33 +0000
+From: Peng Fan <peng.fan@nxp.com>
+Subject: [PATCH v3 0/6] firmware: arm_scmi: imx: Dump syslog and
+ system_info
+Date: Wed, 27 Aug 2025 12:59:12 +0800
+Message-Id: <20250827-sm-misc-api-v1-v3-0-82c982c1815a@nxp.com>
 Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-cpgsPolicy: CPGSC10-234,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250827045905epcas2p2daa6599d04f38c002e396abf23d60fe7
-References: <CGME20250827045905epcas2p2daa6599d04f38c002e396abf23d60fe7@epcas2p2.samsung.com>
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAKCQrmgC/3WMuw7CMAxFf6XyTFDiNH0w8R+IgQaXeuhDCYqKq
+ v47bpcOCMkezpXOWSBSYIpwyRYIlDjyOAjYUwa+ewwvUvwUBtTodIGlir3qOXr1mFgloyrntdW
+ +KOVBpClQy/MevN2FO47vMXz2fjLb+jclpxU2dZ1XpqUK3XWYp7Mfe9hCCQ+5NPpHRpG9pdpZs
+ nlDxSGv6/oFQO2CvecAAAA=
+X-Change-ID: 20250627-sm-misc-api-v1-85c030c670c6
+To: Sudeep Holla <sudeep.holla@arm.com>, 
+ Cristian Marussi <cristian.marussi@arm.com>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: arm-scmi@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Peng Fan <peng.fan@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1756270768; l=1999;
+ i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
+ bh=37ex7TSAzMOXcON96mGBAM7S8ODTvQSe1OU0Kfvfp30=;
+ b=tMu4Jl7BwPTk9W5SUDzFU98/ozIe03ekZLFkuuzmWutceT5koQlbLDHNWsPyfXeaapz/7cyc+
+ Vb2krcUCvpVA9Z1c8TgrqDne/ne9XMUHBc26p78BMc4MNYrxjjvR2wl
+X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
+ pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
+X-ClientProxiedBy: SI2P153CA0006.APCP153.PROD.OUTLOOK.COM
+ (2603:1096:4:140::22) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM0PR04MB6899:EE_
+X-MS-Office365-Filtering-Correlation-Id: bd5ff2ac-2628-45be-a5ff-08dde5268341
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|7416014|376014|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?RkowU2RtQzk3SGprNit4Nnl2VUtna0doRkY3MmpQeGZPQTc3Uno5b21WdVBO?=
+ =?utf-8?B?Wnh2bmJWbWVFQ1NtRGJqUjZ5SGl6c3hrcUdkL20wNXBRZFQ2dThrcnNkV3BI?=
+ =?utf-8?B?VHVNRi9uWWRSV2I3S29zMkZMeFJjTzNLRnZsL0gwWmFrOVRFbmtmOEdPcGMw?=
+ =?utf-8?B?Rmw5aHBvTVhLNWdWSUNyRzNjSkUwWEs4ODkzOUd6QUwvaTIrREJEWi90R2NR?=
+ =?utf-8?B?d2NjQ3RFSDBhd3kwNHJEWmlScjhnR1phMCtTQWRibDNvc1FkK2FhTkZ1aE1B?=
+ =?utf-8?B?Um1rR1loRTJTR09ubUNPQjdEVDIzR2xFbkxpdlZUcnJILzBtSEUyUnI4cTdy?=
+ =?utf-8?B?WkNvYkh6S3hnVkFuMmxUNFI2dXhlT2Z6UWFyM1JBREh3Si9rNTlrZUdJTWZ5?=
+ =?utf-8?B?MEJseXFidXd2ZmxkRFp6cUplUGNQUTkxZnkzZC9mQWx4RThhL2IxYkk3c0pS?=
+ =?utf-8?B?SjhYeUx2dkNtNXFaK3pOeFgzaUJsR3RwekxsMU44MGpJOEZkdE9vK1cxRDVV?=
+ =?utf-8?B?SmdNSlBmTjFOeFZvMHBEbGVIaURrMFVGK3FrRTl2Z1NJRkFmK0JYM2JFNFBx?=
+ =?utf-8?B?YTVyQWNUeEEvcmhJRTlGUmd3OEhKOWxBODc1NDJBZmdNOUVCTWVETFEzTGl0?=
+ =?utf-8?B?N3UzeFlEL1dNbDJucklCSHJqTnRHa1JKM05aTUw3NURwbEtwZWZ6Z0xMU1Zp?=
+ =?utf-8?B?ekVtakI0djVWemRsb24xVjNwOGJ4Zk9RaDZLb3R5QUNDcjB2RElFREk2WUNo?=
+ =?utf-8?B?d3k3R2lycG00ZlVQWFZUdzFWOGt2dzI4bmFrcG1DNlZ6SlRVOEFtbG5NK2xT?=
+ =?utf-8?B?T2NCdU5weUdHRDN0Y0xORzMyR3BnMUtSQ2VrWWI5Nk1qUm1aVlZVK0pkUzdM?=
+ =?utf-8?B?OWVVU2J6YzU4c1U5dkZIU3I3dWgwVmV0dmJpSHFQOXdIazBzdW95SkV4OTNR?=
+ =?utf-8?B?WWtGclBLZEhlQXhFSUlKVDdSQXBGcXpmZGdFaFZNSmtMYnpHYUo4RGtIRzVB?=
+ =?utf-8?B?ZzNUb0R1eVRkSm0xVUhLNWM5bTE3bWVkN25VeDdDVXlsUWVLQU84aWtpQllw?=
+ =?utf-8?B?M0tRcHBRYisxMjlFQnJ3MkwvdHlVcFNSVU5MaVBTc2dYVHhZTDFRZ3A4OUND?=
+ =?utf-8?B?NWQzWXdMM0RXUXlJaWQ3ZXN1WWs1SEJNVTVRdWJyeHEzektQdi9UelVSWjln?=
+ =?utf-8?B?WWt5L0NabzU2bE1KT1ZwQlBmOVVKMFkvWExseFF6cHJKOGdBS09DclEzeFVO?=
+ =?utf-8?B?VEdwVUp1MWNabkhvUmtyL2VuOWNQa2svWmR5eGFoSkhQVzFVaDgwZHc5N2RN?=
+ =?utf-8?B?VnE2akt1U2V2RWRzbHYvTUI2QjBBdzFDd1BPdmR2YTMrNWdKNmpCYWMxeDN4?=
+ =?utf-8?B?SnJ4bTBVZjJabHhnaFJpdVF3bjUzeW8vc0U0THRITzNWcmJuUEtjbStVYjFP?=
+ =?utf-8?B?bTNOcm9CRHE0OFZKblJEVDNnbUFGTHFWalV6eGFocittK2pORElSRVRJSjJa?=
+ =?utf-8?B?cWp6VEJ2Y2VaTkJ0eUpIOUlXQUd3ZkllOC9TUlRpMFpSM2FaL3prQi9GODFv?=
+ =?utf-8?B?cEJWV1EzZ3JsTGdRcTM5VFRvSzYyNVRlNUppb0Z2a2xobWJKeWlyaWZqTjdL?=
+ =?utf-8?B?ME5rL2JoaFFXNTRDbjRtNU5tbWJmZi91ZVQvSmlOYk5BREt0UXRXZkhhbTlw?=
+ =?utf-8?B?UDRkck9DNmRWT1ZiMmt4RjBRZk1Pb2liWDJZYU9XYVRVOTVjU1Erak1LUk1B?=
+ =?utf-8?B?T2pPRkp2Zk1xT25BQXdtTm9BUmtYbEJTNS9SV21NWE5VZ3B4STZqRlNvTjhy?=
+ =?utf-8?B?N2g0TnAyN0tRT3VLdzd5WFMxUTVkVldaOXFBUERSZThFSFZwaWd1NEtwZEp1?=
+ =?utf-8?B?TTdoRDFXR2pwL1FwaXN2QzJMR1RDQXVpTkU5QXNybUdyT2k5K0djdWl2Zm1B?=
+ =?utf-8?B?Mmg0a2RvL1VxejA4NHpKV2pqZlRPQ1BEMWtaS2ozMmF2dVhJRndJbkdJeUJl?=
+ =?utf-8?Q?Nn5U1VCdqQcrNqCCtqDFVR5aI55XSA=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(7416014)(376014)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RjRFRDVkelZ5cVcrcG8zbGppUjlqOS9Xbm8vdC9sKzdZa1hjR25tWW1PMGRS?=
+ =?utf-8?B?MXpiS0I1U3dWTWo2aHlPZHBxT3FJbWNRWWZJTVZPYjRVZVFzdVlSb3FZVnVF?=
+ =?utf-8?B?Z2kxWHRKL2Y5aW4yN2NWMGJGVzRJME11THEwLzhBNTJ0UjZVcHpWNUZzSnhn?=
+ =?utf-8?B?R2t6MUQ4MFJZN2cwdUxFVkFUY3ZQYnhSRitlbmNVNklLaFhlTkVERDE5Wm5K?=
+ =?utf-8?B?NnMrbGcwRXJXZmxPOGZXUHg1azMzejErM2RjTkJQRGtwTThDdzl4ZVo0V20r?=
+ =?utf-8?B?T0t6UGNmNUxpTHRQRHlUUmZsZUNEK1ZqcENVTDVQMmh0REJ6Z0hIR1p4Ujkz?=
+ =?utf-8?B?Uk4wRHFvU1hyYVhuUElGSkU5bDB0Z0owa1lnUm1kSFFEWVNDUENabklaWUZK?=
+ =?utf-8?B?eVh6ZzJWKzB0QjN5eUFyb1BPb0dRTE4yZ2Myc3FHWlBrRFdZTHU1SGxTYTB6?=
+ =?utf-8?B?dDVJb29kYTMwaFpZVFBqbkFEYy9SOHlSQVZ1M1dWSnY5a1E0N2djUEhHN29s?=
+ =?utf-8?B?VWpiVFpHcDFtaGtZV2lVOXNWYXNsY2hjd2FUWXJzeE1tYm5JT1hnaHd4NFZN?=
+ =?utf-8?B?WE41ZkhPanIyZE85M0RUaEFUMmpMWHBYS3NWWFd4aDBtOWswbHh5bXNTMnNl?=
+ =?utf-8?B?MHZHNGY2cmZkUzJDMjZoUFlvdEJjR05sTW9taW16VGdybmVqOWg2eUw2aHRu?=
+ =?utf-8?B?aVQwNThkVFJ4VVQ1Z252YlNuUmFENDRTTXZrdHhYVkxSdGliS2MyN0ZNaU1T?=
+ =?utf-8?B?UjJMdXhaUnU5amxmcndOaXVZQzZKazI0N0ZTb1dYaUJNall3dEpqVG4reEdR?=
+ =?utf-8?B?RFROOER6dHMwbXFSemZWdW9Id1RIU0pZMG5JR1Q0aVVaL3Z5SUczdGlRMjQx?=
+ =?utf-8?B?a3ZDdUF2MkZBbjdabkZSeEZVYXRsdTh5Rnl0czhsbWExSTVOcGhtd3JWMFhP?=
+ =?utf-8?B?b1pUVVhZTkpJZ0JRUEJLaHVvVlBTSnljYlpPRm00emtQczgvbFBTSlFaUkdm?=
+ =?utf-8?B?Z0Z2WFowRUV2QnRjQjhaMlZ3UkRGdFFaeEJhL09hOVRZS2dSRVA2b0ltRjli?=
+ =?utf-8?B?R1QvWjBoMXJxSlVIUHVpYUljWktCSDlpMXREcjVsWU1TNDIxWHVnUUtTMSta?=
+ =?utf-8?B?UGdNWHJPUFJXbzdIbGFGUXFQK2VhR095U1VkN3RuQ3Y4ZE8wbTFXRjd4UzFs?=
+ =?utf-8?B?dVVHWUZ4YUo1aVNPbUtlZzFYenZzNlp3dGJyNWZBcVJiZWVISm1vUnBxcVA4?=
+ =?utf-8?B?OFBmejc0RUtmZnJqdXF2ZFpWSVlRZUpQektLNlkrMTkvS1RSNVl3bXhTVUpj?=
+ =?utf-8?B?KzVSTDFpbTlLWjlhQ3krTk05ZlJtVGM3eHR0RXlFOTJ1VVJYeS9qWHpSOC95?=
+ =?utf-8?B?cW9wR29VUTNRU1ZEMkRKVjZrU1BrZGxQZkRBbGd5WTJqWXpkRjVNZ0E1ZWVM?=
+ =?utf-8?B?OUJoSnRxNVFNbjdyTmJGcmR5dWQ2TTFIdURLL0FOTE4veWtuZCthOC9zMFZk?=
+ =?utf-8?B?T2tXencvMDhNeVFEb0FUTVhGTGo1YnR3T253NGR5NmJsK21DS0o2K29jVU5O?=
+ =?utf-8?B?MEVDZjZqMFlWSGY0R0tpdXo1dnRYMnVOdDNxTHBPRGJ2OEVxdFNsYXAzeEF0?=
+ =?utf-8?B?YkJTRUpvcGY1OUxzckFQZWkyTzkzKzVlR2RXQnJtSWdNU01BWnlOV1ZxeUFo?=
+ =?utf-8?B?bkszakpoMmxHdFA4eDRnVjhuMGp3S2ZNQ2lZNVl2S0krS1M2TG1wQUVZb1Jk?=
+ =?utf-8?B?UEdGNmFWVi9GN2RKa1VHam1nQlF6YXgwbFdHRjE4VG1lVG5OQStvY09OR0o1?=
+ =?utf-8?B?anFSSWNmS0dIWVZDUjZCd0o5dVdxUldZSHRLVUxkYk9OeStBaWhJK1A0R1FC?=
+ =?utf-8?B?My9WT1NqK2ZCSTdobjQxaGplLzMrZ3FwV0VCMXJ2MldaZWdDMGhKWFpkOGdW?=
+ =?utf-8?B?emJDMFIvTkd0bjY3cTZwTzBsZWFkNmdoWXAwendNUXhXWVhxbEkvTURuOTcy?=
+ =?utf-8?B?Y0JNOXhDSUFjK2hybUcvaG9oOThMVTFlVlBTQjIyNVZ4UHNVNlZWY1czSDh5?=
+ =?utf-8?B?SFVjN0Z4VldTa2xsYzNESGRTeUpqZjRCc2g5QVNmRGJlcDFSVmZ0dUp4VTYr?=
+ =?utf-8?Q?LaPZLyGZWD4znLqSXySalrPHP?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bd5ff2ac-2628-45be-a5ff-08dde5268341
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Aug 2025 04:59:33.1908
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +0t2NWKesRZw145ec8fotGk/xK9KpUcBrLzx2HtoIEwetlwc/DX8auet3tjBbIURbuQD8e9IMncvArZgs3QKYw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6899
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_215914_546828_5A9BD509 
-X-CRM114-Status: GOOD (  13.89  )
+X-CRM114-CacheID: sfid-20250826_215944_531068_620E97AD 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,40 +190,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series adds device tree bindings and driver support
-for the ExynosAuto scaler hardware. It adds YAML binding docs,
-updates Kconfig and Makefile, and provides initial driver
-code to register the Scaler device as a V4L2 video node for
-video processing.
+System Manager firmware provides API to dump board, silicon, firmware
+information. It also provides API to dump system sleep, wakeup
+information. So add the interface for Linux to retrieve the information:
 
-Kisung Lee (4):
-  dt-bindings: soc: samsung: scaler: exynos: Add ExynosAutov920
-    compatible
-  media: samsung: scaler: add scaler driver code
-  arm64: dts: exynosautov920: enable support for scaler device
-  media: samsung: scaler: Add Kconfig and Makefile
+patch 1 is to add doc for board information which was missed before.
 
- .../bindings/gpu/samsung-scaler.yaml          |    1 +
- .../arm64/boot/dts/exynos/exynosautov920.dtsi |   22 +
- drivers/media/platform/samsung/Kconfig        |    1 +
- drivers/media/platform/samsung/Makefile       |    1 +
- .../platform/samsung/v920-scaler/Kconfig      |   17 +
- .../platform/samsung/v920-scaler/Makefile     |    9 +
- .../samsung/v920-scaler/scaler-core.c         | 3640 +++++++++++++++++
- .../samsung/v920-scaler/scaler-regs.c         |  744 ++++
- .../samsung/v920-scaler/scaler-regs.h         |  406 ++
- .../platform/samsung/v920-scaler/scaler.h     |  621 +++
- .../v920-scaler/videodev2_exynos_media.h      |  162 +
- 11 files changed, 5624 insertions(+)
- create mode 100644 drivers/media/platform/samsung/v920-scaler/Kconfig
- create mode 100644 drivers/media/platform/samsung/v920-scaler/Makefile
- create mode 100644 drivers/media/platform/samsung/v920-scaler/scaler-core.c
- create mode 100644 drivers/media/platform/samsung/v920-scaler/scaler-regs.c
- create mode 100644 drivers/media/platform/samsung/v920-scaler/scaler-regs.h
- create mode 100644 drivers/media/platform/samsung/v920-scaler/scaler.h
- create mode 100644 drivers/media/platform/samsung/v920-scaler/videodev2_exynos_media.h
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+Changes in v3:
+- Add R-b from Cristian
+- Store size, per Cristian's comments in patch 5: "*(ipriv->size) =
+st->num_returned + st->num_remaining"
+- Minor change in patch 6 to add size check
+- Rebased to next-20250826
+- Link to v2: https://lore.kernel.org/r/20250710-sm-misc-api-v1-v2-0-c3e953e34be6@nxp.com
 
+Changes in v2:
+- Add more info in patch 1 for documentation(attribute is reserved for
+  future use, boardname may not align with the board name in device tree)
+- Drop dump silicon revision API
+- Update discover build info, cfg info, board info API to be only used in probe phase
+- Update to use single sysfs single value for syslog.
+- Link to v1: https://lore.kernel.org/r/20250627-sm-misc-api-v1-v1-0-2b99481fe825@nxp.com
+
+---
+Peng Fan (6):
+      firmware: arm_scmi: imx: Add documentation for MISC_BOARD_INFO
+      firmware: arm_scmi: imx: Support discovering buildinfo of MISC protocol
+      firmware: arm_scmi: imx: Support getting cfg info of MISC protocol
+      firmware: arm_scmi: imx: Support getting board info of MISC protocol
+      firmware: arm_scmi: imx: Support getting syslog of MISC protocol
+      firmware: imx: sm-misc: Dump syslog info
+
+ .../firmware/arm_scmi/vendors/imx/imx-sm-misc.c    | 193 +++++++++++++++++
+ drivers/firmware/arm_scmi/vendors/imx/imx95.rst    |  22 ++
+ drivers/firmware/imx/sm-misc.c                     | 232 +++++++++++++++++++++
+ include/linux/scmi_imx_protocol.h                  |  19 ++
+ 4 files changed, 466 insertions(+)
+---
+base-commit: 6180c21371050f261dd253947057bf46955548f7
+change-id: 20250627-sm-misc-api-v1-85c030c670c6
+
+Best regards,
 -- 
-2.25.1
+Peng Fan <peng.fan@nxp.com>
 
 
