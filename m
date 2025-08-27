@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECDDDCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 15:53:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA52ACA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 15:53:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=J2+GEmKa2OmE1NjrVANYz5XX9YGwV6aNe/Kh6e6q34E=; b=BYHYthdESQGecb
-	1iDdWRii5ohfiRM7BLEFWP7dEN3f2YRYVt/57KTVLdzo9NR7jj3bViH7hsoCMQpaBHb7lP9Y9fjEz
-	7201RSbvnXJZrC8BtajmTHcSfeLw0NSNvh91Uu9mAE+TjPPJQDKcpu3IUE29F+Qz8qUBucdw7iAJF
-	mhdGuOEul86nICTPysiiRFM2P7syQs37565LIhPUY2+Oap+9sA6JTBKN76LTT2bQcZTOL12jmN1r+
-	0iKwnY9QNmQgHk8i3JqbpxrRE/ESLIC3o/2MaH535QZ5PCuRDbSStPihYkXQFAv9LC/I+Nz1+P9tH
-	uzyQuoLZKrH08jpxGaFw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=St11QoIkuwt6LD0qyFy2W7TckyvP5Gq6gOAm3aWS/Ik=; b=dmShnqwQheT0Zcrla5VbpuLX2h
+	6w28lr3edoRmG1e1vPUMg3jYzsEdc3zurogMKKpuab3+JK+MOVB8n+VK0BBq50BfOcyuh1obBe+yD
+	iugZLKSbPXjLni3Yl5adtuOzAN1Z+zNgERwGsYlbt9b6gvJ0cWBY7UzootqtXWXfHOYhyEBHl18mR
+	LBcSTz3eiSZwuOEVJm3k9NCJR8YqK30EyyH4v48MEFPOao4oUzia1rw68VxZEBiu8oyXb8muH5Qak
+	3YFFaX9Zfsxp+pZbDONXFLEJ5oSoNMHM7cGJ38vS/hJ1YxxoOVw3fSMOZ4x/zfO6WeCAcsquh02Fe
+	IdxCKzMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urISL-0000000G2ld-3TBI;
-	Wed, 27 Aug 2025 15:53:01 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1urISP-0000000G2pF-0ZWn;
+	Wed, 27 Aug 2025 15:53:05 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urFkl-0000000FVDD-2KiA
+	id 1urFkl-0000000FVDR-3S9b
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 27 Aug 2025 12:59:52 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-45b4d892175so34511345e9.2
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-45a1b0bde14so36583005e9.2
         for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 05:59:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756299589; x=1756904389; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=J2+GEmKa2OmE1NjrVANYz5XX9YGwV6aNe/Kh6e6q34E=;
-        b=HdDqy1LguvIsJRFSX/yZXBw/cHPlo/x2+HDiqjheGoq8cxpUkBtFONWlexFvCY7Xhi
-         QuR8HcipCHtZZtLztdFcIyh1Q/pFWHCrzFQ8A38kThlUyTOmpY9U08mVxkl0NkzDpCTr
-         32/SGfB76mFiGLVP76hspMFwmxUoa2yG26byDrtio0pexatEglyhBawsYNUkVeI+ujVG
-         +8TP/j6o5gYiaZzXbH/yrNlo8YKaHdvXjQ1A9ZEvcxWCaglxRXR/jJsxRakR66S8sDlB
-         y5fv6H6p01evz+JkSpY2ABlYAmn+BM7ArHa5rjifvCGMYoRtKiLy0iVfbZ7zwjRv6c4i
-         tBIg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756299589; x=1756904389;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=linaro.org; s=google; t=1756299590; x=1756904390; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=J2+GEmKa2OmE1NjrVANYz5XX9YGwV6aNe/Kh6e6q34E=;
-        b=PBdr8v4Wzbg7L/hS2wAK2Fn+UEGphuTK8+te5DLTPqCdDmGGc4Cdus61/v2+gdEARh
-         jASSNxHMAKYdZwxXupNqnnU8KGOCax+JfoRGzz0g/QSWdETEugo6OjnPb2e37ABTE14Q
-         wjMJb38g8mfHmwJNbsd10yHqU97MoEEhL8cjT7hMRE2fS/5uLsxgSm/NafS64OuEhmQw
-         MWyrinKBPCS6MkJlMsiAkFU6x7aXrPtKxEiBt8lj61Po1RVuxmbFeh4MgRAw5lEJlJpY
-         lIKdUZ0sQxQvDerkaTAy9jM4TWjfNeXOW3N4lUsT6mmT1IPx+RjO8tweKPmg1LU4CaRS
-         xOtQ==
-X-Gm-Message-State: AOJu0YxrfEDh/kculMJBX0Hfv7El8kl57EyxiJQEd5CvnN0gIz+mgrTx
-	7mgLkSW62Iiy/QPgYiGv5E9HK1guyIPFCRuhyRbMubsQ9aUyTUBaDAA5OAMD5nIrRdM=
-X-Gm-Gg: ASbGncsymQqixJzYkJO5RjYjtzDpX0CbVfn8Wb2PXWG3afbvnbkMw77u+27wK5OddgX
-	7Fs6l3OxP3lxZkS179e2gU6/jpUvy3dvI2VMK0DMbzsm+Jhadw6cdl6/XR5Yrzt66dgriFX+LGA
-	ffx/jXXRDZ2Rr/5rY5LDy3c5S6xzuCxM1l8Knt5B6mS+BTGqzqcRQDVcuiNNfYmkl071puIC3RG
-	CkcJHN1QTOG6ob8PcGcg/5tqb/gNNV1x1aUgFHjyGow9WQJyiE1Sl9EantROJiltrrlf7lqzJsP
-	G2AWsXlXTYu1NG1/bz67Dciv2UjjfgOeXBgo4k5ukITYsazgnzQQzKXvIsZ+rfTIWIb11K2UjAg
-	aJjZWfZWUahhmdDTzVGhS/MKKKjNEM6KITYpGJDGNCCmXAyoXW7Lq43eBvUmIFe/hy7bk1tHtx4
-	zoJA==
-X-Google-Smtp-Source: AGHT+IFYbOQDkswd8yZg7ePHjCvgvWKEUD2miqxIlRTjqnawegRIfM+9sdtjHuSQ/AW/K7wL9nEJSQ==
-X-Received: by 2002:a05:6000:43cc:20b0:3c6:aa87:d959 with SMTP id ffacd0b85a97d-3c6aa87dab1mr11788600f8f.26.1756299589300;
-        Wed, 27 Aug 2025 05:59:49 -0700 (PDT)
+        bh=St11QoIkuwt6LD0qyFy2W7TckyvP5Gq6gOAm3aWS/Ik=;
+        b=Q/9LOqc8s2J3/rq43M/hn39TDPB1fy1ViN0374o1F/sQMgUxHgE2DRVQd/8OysNgUb
+         2mkgky1yAG8k6Y9OHR+fYuwvCPepR08g3P3TUXvQxZyQ4x2Gt8pz5XYcsqGDvyrqXp5a
+         hOa7k4m1Td7OapK3cfa6gU4rzM/a9pchcLLDPt3FqdGYU9e4TAga3xFsTIR34oiX5686
+         dW9kYq/sTxMKOEOo9Wg8rkQ4RRsNjbdH7/7ijWL/t0oHsKKLnNrLS5NsVMGQ2a5HAt26
+         40iv0JmwXCztiYiC/N0F5HHxSXTq53pgn5wp88yGfWaO3cLuzrwXxgvWf/WDO3m9JJ2E
+         26XQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756299590; x=1756904390;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=St11QoIkuwt6LD0qyFy2W7TckyvP5Gq6gOAm3aWS/Ik=;
+        b=Av51I4yQX18AcqR0bxvZdxg4/7hZRMUH/s96oA5SmO5P/ouH297ZX7HSDnw0/kEJJs
+         Q3P9G8DitHRIpZooCkXEvm3B8pKTGQrlFhnDAT1rG0EGN5Lg4zoJviTq5dGi3lGu8Fpm
+         fTNP6CfitLC44wNxJWUWnfezKao0Wf3XTIL2JGTdTwUHNgwApHyGrQVv1D3Bcmlmu4e3
+         TrARLkrLIqtVH6Eu8Huwc9yCkSskTfzyI5f52j5O37I7qPwGnZ274RKKr8ktqLm8SWzz
+         rvK7LRVHruA9e+Qa0UkeoFCYD6M6NIrMXS5JU3Aa0z9k58Rr5NUlqqXz9yDASRC/gwG3
+         R+Hw==
+X-Gm-Message-State: AOJu0YzCewgpY/XFWyA+DO4WF2COKGYEcUSDoDeeyTwkjAxAQNcNL60D
+	5l1PyFgaWZAb24vYyi/s9fhXEuMaw77LYfm0OESJr+K2+ehROO95cQVca/pBjJ/ZHTI=
+X-Gm-Gg: ASbGnctfiD/AsUA4e2mojiFkWhO3i02YnvznD38HGVZx4HHHyuGO9EtsrFqAF/jwMHG
+	cjX/8Nhr/SkTigbMNV73ZjFGPamgUY4Zz+zRPNPZCUuzohbSLyMX983P4TIsKK8OXMMXfOchLvb
+	OwwY7h9KGpWbNE4fX3Nn07P/dGwc6CoOnboGWX0QV3TLu2R3ncBzwbY/dJ5UetF23cYHxUMZahs
+	qzwKL3MujAb5xM1k8bAvcbtBOJHo6dUdeSJGtWWw1zuJd9d1BG/v4ZDltTHX0frKE+mIxn2f2/n
+	twV6H2iknp2ofp1g2oVfkdkPgI6DsN+nO0TFv2ztsFinoyfvmDXmERJkFqc3vskXJ2AzkxSuBav
+	ALd1RZ9YIliMjtPDpSp9EOcYQm39/J47kzmklal+L4vTBu6DXzZkdltYzWtGZwBrmQP+xwRONut
+	Os2A==
+X-Google-Smtp-Source: AGHT+IGrO5in4kxeXFs8Ggk7J9FQe0NLAJGrBqkvOKY0AV+1WCmJgGAiQ8Lyh7hq52k9MPnYiLZGlg==
+X-Received: by 2002:a05:600c:4f47:b0:43c:f0ae:da7 with SMTP id 5b1f17b1804b1-45b698efbc2mr40559705e9.7.1756299590136;
+        Wed, 27 Aug 2025 05:59:50 -0700 (PDT)
 Received: from ta2.c.googlers.com (219.43.233.35.bc.googleusercontent.com. [35.233.43.219])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3cc890b178bsm3272069f8f.52.2025.08.27.05.59.48
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3cc890b178bsm3272069f8f.52.2025.08.27.05.59.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Aug 2025 05:59:48 -0700 (PDT)
+        Wed, 27 Aug 2025 05:59:49 -0700 (PDT)
 From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Subject: [PATCH v2 0/3] arm64: dts: exynos: gs101: add cpufreq support
-Date: Wed, 27 Aug 2025 12:59:45 +0000
-Message-Id: <20250827-acpm-dvfs-dt-v2-0-e1d2890d12b4@linaro.org>
+Date: Wed, 27 Aug 2025 12:59:46 +0000
+Subject: [PATCH v2 1/3] arm64: dts: exynos: gs101: add #clock-cells to the
+ ACPM protocol node
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAEEBr2gC/3XMQQ6CMBCF4auQWTumxaItK+9hWEBbYBJtyZQ0G
- sLdrexd/i953wbJM/kEbbUB+0yJYihRnyqwcx8mj+RKQy3qRmhpsLfLC10eE7oVxXWwN6MGZ62
- DclnYj/Q+uEdXeqa0Rv4cepa/9Q+UJQpU/qIH0yihrbo/KfQcz5En6PZ9/wLSjGgKqQAAAA==
-X-Change-ID: 20250819-acpm-dvfs-dt-06bc794bdccd
+Message-Id: <20250827-acpm-dvfs-dt-v2-1-e1d2890d12b4@linaro.org>
+References: <20250827-acpm-dvfs-dt-v2-0-e1d2890d12b4@linaro.org>
+In-Reply-To: <20250827-acpm-dvfs-dt-v2-0-e1d2890d12b4@linaro.org>
 To: Peter Griffin <peter.griffin@linaro.org>, 
  =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -89,17 +89,16 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
  willmcvicker@google.com, kernel-team@android.com, 
  Tudor Ambarus <tudor.ambarus@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756299588; l=1160;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1756299588; l=858;
  i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=oYO2aZrhN1EN+TKF1UnZ/sK5wtemMH9P5gox8Ik8xhE=;
- b=vFZY7juelyD4nVnYQ7mi3pFO0bqjlNOteUib11Jccm9ahWUZSQbBny11zaRftz6LXZp8Erea+
- mOSitc7kKe9B+IHnTcctE0okkkdCgc7IFUPuhRPIxgN0UeqElkV7R2t
+ bh=lXqAHsVVGobAqxHDBDj2hfAW5L/ixpf0F+OYYJ4nT/w=;
+ b=1hf3mcPjyceW9nVsY3YJaxdSK+F2L7MXoZnBJFli89bCPqeG8RhhWI+dgSmVFITri3grRwv4z
+ cDeXEVit+3jDX/fnKLE9QVz2WyAluN7lZ9fP3bWF51Nsyhbi7g8lZJ0
 X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
  pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_055951_608966_A7A76AFE 
-X-CRM114-Status: UNSURE (   9.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250827_055951_868730_61634E89 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,40 +113,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Define the CPU clocks and OPPs.
-
-The patch set depends on the bindings sent at:
-https://lore.kernel.org/linux-samsung-soc/20250827-acpm-clk-v2-1-de5c86b49b64@linaro.org/T/#u
-
-The following error will be seen without the bindings patch:
-arch/arm64/boot/dts/exynos/google/gs101.dtsi:75.24-25 syntax error
-FATAL ERROR: Unable to parse input tree
-
-Thanks,
-ta
+Make the ACPM node a clock provider by adding the mandatory
+"#clock-cells" property, which allows devices to reference
+its clock outputs.
 
 Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 ---
-Changes in v2:
-- acpm node becomes a clock provider.
-- reword commit message, extend cover letter with info about dependency
-  on a bindings patch.
-- Link to v1: https://lore.kernel.org/r/20250819-acpm-dvfs-dt-v1-0-4e38b95408c4@linaro.org
+ arch/arm64/boot/dts/exynos/google/gs101.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
 
----
-Tudor Ambarus (3):
-      arm64: dts: exynos: gs101: add #clock-cells to the ACPM protocol node
-      arm64: dts: exynos: gs101: add CPU clocks
-      arm64: dts: exynos: gs101: add OPPs
+diff --git a/arch/arm64/boot/dts/exynos/google/gs101.dtsi b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
+index c0f8c25861a9ddb5bbd256b62c66a645922ca74e..f00754692bbac39fd828ebd4ef7c269f746f2522 100644
+--- a/arch/arm64/boot/dts/exynos/google/gs101.dtsi
++++ b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
+@@ -202,6 +202,7 @@ ext_200m: clock-2 {
+ 	firmware {
+ 		acpm_ipc: power-management {
+ 			compatible = "google,gs101-acpm-ipc";
++			#clock-cells = <1>;
+ 			mboxes = <&ap2apm_mailbox>;
+ 			shmem = <&apm_sram>;
+ 		};
 
- arch/arm64/boot/dts/exynos/google/gs101.dtsi | 284 +++++++++++++++++++++++++++
- 1 file changed, 284 insertions(+)
----
-base-commit: c17b750b3ad9f45f2b6f7e6f7f4679844244f0b9
-change-id: 20250819-acpm-dvfs-dt-06bc794bdccd
-
-Best regards,
 -- 
-Tudor Ambarus <tudor.ambarus@linaro.org>
+2.51.0.261.g7ce5a0a67e-goog
 
 
