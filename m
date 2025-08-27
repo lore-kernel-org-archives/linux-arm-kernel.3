@@ -4,73 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDCCDCA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 11:07:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F188CCA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 11:07:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VnLyQEUED5UCvzMxk3wlAW7yiedOOB3cXVH8tPOytjY=; b=XkAPAG+OJKrTnlbTxXRXmG4xg4
-	3HPPhSktoTGHnMh0xIfmzLmPAMaZo6bRcSqz156RXMssP3AerlAoAD1bUVIYT20e+dpiROitx1MA+
-	ORcZLW03Q3ACUfZGr1WSqpJgg7U9GOIsrNFohE7U8dzCWjq3XsWJRD4DMTLXfmqI9xP/1EbJghE93
-	a9nIRMFtAlquLYzoZtXzVcacVDaVFBcr6H7qcYz2UNBwckRqIvH2aGkEVjJj6m4KTYDWnL2d8bI1J
-	n6P3dhE59ihFLHqjRgJHCDavbpJU9wsooQpNrKCmOHZvjcMOsZxJfdNqMnW9I9hLwq4o7uN25hekP
-	nWBa9NJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2uu1wFpZeCjopmr+GSMhw53hpUYCOBNjI1GweFoT+yM=; b=TxLFz+KEMkmm0yN5s8rhYKmkco
+	feonju707X9WbV56KcWCyoYr0sMICNipNpRBxwcmP59RncbsVF1S/Ymdgc3OyrLHbXy+6tTcsQik1
+	ugpQChEAUPCig4UhZYQ4FvfHT2uoGHBorOfcN52bKIOI6Hi1KbrkoDX6YoWL6lyXAKkqH8afWJj3U
+	e7wsSc9+JToJiNz6AGOPCUv+8MJy5DBAtJzx6d3K/B9bRhL8S/Pj2nb+zq4+stisISNo18Y+ZYtfw
+	oJMuA86kGi3nsVmBMQ/VQ+opOM8kCbfqUz+n6c5iRgPD9Dz5j79+2ojTXMc504XEjD1Lruas65aGK
+	I9Gy/CUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urDzr-0000000FA51-2ewb;
-	Wed, 27 Aug 2025 11:07:19 +0000
+	id 1urDzz-0000000FAJK-0KXZ;
+	Wed, 27 Aug 2025 11:07:27 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urCPa-0000000EqCt-3pKt
+	id 1urCaC-0000000Es4V-36t1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 09:25:48 +0000
+	Wed, 27 Aug 2025 09:36:46 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B470015A1;
-	Wed, 27 Aug 2025 02:25:37 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DC66C3F738;
-	Wed, 27 Aug 2025 02:25:40 -0700 (PDT)
-Message-ID: <9ce36190-6d99-4a41-a803-a65be677db2d@arm.com>
-Date: Wed, 27 Aug 2025 10:25:39 +0100
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 77F3D15A1;
+	Wed, 27 Aug 2025 02:36:35 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 466153F738;
+	Wed, 27 Aug 2025 02:36:42 -0700 (PDT)
+Date: Wed, 27 Aug 2025 10:36:16 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Xichao Zhao <zhao.xichao@vivo.com>
+Cc: will@kernel.org, linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org, robin.murphy@arm.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] drivers: perf: use us_to_ktime() where appropriate
+Message-ID: <aK7RkB5p6L17Ffuw@J2N7QTR9R3>
+References: <20250813083257.504573-1-zhao.xichao@vivo.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 05/33] ACPI / PPTT: Find cache level by cache-id
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
- devicetree@vger.kernel.org
-Cc: shameerali.kolothum.thodi@huawei.com,
- D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
- Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
- baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
- Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>
-References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-6-james.morse@arm.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20250822153048.2287-6-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250813083257.504573-1-zhao.xichao@vivo.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_022547_035658_3F1930C9 
-X-CRM114-Status: GOOD (  32.21  )
+X-CRM114-CacheID: sfid-20250827_023644_834049_F636D57D 
+X-CRM114-Status: GOOD (  15.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,161 +63,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+[adding Robin and LAKML]
 
-On 8/22/25 16:29, James Morse wrote:
-> The MPAM table identifies caches by id. The MPAM driver also wants to know
-> the cache level to determine if the platform is of the shape that can be
-> managed via resctrl. Cacheinfo has this information, but only for CPUs that
-> are online.
+On Wed, Aug 13, 2025 at 04:32:57PM +0800, Xichao Zhao wrote:
+> The arm_ccn_pmu_poll_period_us are more suitable for using
+> the us_to_ktime(). This can make the code more concise and
+> enhance readability.
 > 
-> Waiting for all CPUs to come online is a problem for platforms where
-> CPUs are brought online late by user-space.
-> 
-> Add a helper that walks every possible cache, until it finds the one
-> identified by cache-id, then return the level.
-> Add a cleanup based free-ing mechanism for acpi_get_table().
-> 
-> CC: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Xichao Zhao <zhao.xichao@vivo.com>
+
+Superficially this looks fine to me, so:
+
+Acked-by: Mark Rutland <mark.rutland@arm.com>
+
+Will, I assume that (if no-one complains) you'll pick this up when
+queueing PMU patches.
+
+Mark.
+
 > ---
-> Changes since RFC:
->  * acpi_count_levels() now returns a value.
->  * Converted the table-get stuff to use Jonathan's cleanup helper.
->  * Dropped Sudeep's Review tag due to the cleanup change.
-> ---
->  drivers/acpi/pptt.c  | 64 ++++++++++++++++++++++++++++++++++++++++++++
->  include/linux/acpi.h | 17 ++++++++++++
->  2 files changed, 81 insertions(+)
+>  drivers/perf/arm-ccn.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
-> index 8f9b9508acba..660457644a5b 100644
-> --- a/drivers/acpi/pptt.c
-> +++ b/drivers/acpi/pptt.c
-> @@ -907,3 +907,67 @@ int find_acpi_cpu_topology_hetero_id(unsigned int cpu)
->  	return find_acpi_cpu_topology_tag(cpu, PPTT_ABORT_PACKAGE,
->  					  ACPI_PPTT_ACPI_IDENTICAL);
->  }
-> +
-> +/**
-> + * find_acpi_cache_level_from_id() - Get the level of the specified cache
-> + * @cache_id: The id field of the unified cache
-> + *
-> + * Determine the level relative to any CPU for the unified cache identified by
-> + * cache_id. This allows the property to be found even if the CPUs are offline.
-> + *
-> + * The returned level can be used to group unified caches that are peers.
-> + *
-> + * The PPTT table must be rev 3 or later,
-> + *
-> + * If one CPUs L2 is shared with another as L3, this function will return
-> + * an unpredictable value.
-> + *
-> + * Return: -ENOENT if the PPTT doesn't exist, or the cache cannot be found.
-> + * Otherwise returns a value which represents the level of the specified cache.
-> + */
-> +int find_acpi_cache_level_from_id(u32 cache_id)
-> +{
-> +	u32 acpi_cpu_id;
-> +	int level, cpu, num_levels;
-> +	struct acpi_pptt_cache *cache;
-> +	struct acpi_pptt_cache_v1 *cache_v1;
-> +	struct acpi_pptt_processor *cpu_node;
-> +	struct acpi_table_header *table __free(acpi_table) = acpi_get_table_ret(ACPI_SIG_PPTT, 0);
-> +
-> +	if (IS_ERR(table))
-> +		return PTR_ERR(table);
-> +
-> +	if (table->revision < 3)
-> +		return -ENOENT;
-> +
-> +	/*
-> +	 * If we found the cache first, we'd still need to walk from each CPU
-> +	 * to find the level...
-> +	 */
-> +	for_each_possible_cpu(cpu) {
-> +		acpi_cpu_id = get_acpi_id_for_cpu(cpu);
-> +		cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
-> +		if (!cpu_node)
-> +			return -ENOENT;
-> +		num_levels = acpi_count_levels(table, cpu_node, NULL);
-> +
-> +		/* Start at 1 for L1 */
-> +		for (level = 1; level <= num_levels; level++) {
-> +			cache = acpi_find_cache_node(table, acpi_cpu_id,
-> +						     ACPI_PPTT_CACHE_TYPE_UNIFIED,
-> +						     level, &cpu_node);
-> +			if (!cache)
-> +				continue;
-> +
-> +			cache_v1 = ACPI_ADD_PTR(struct acpi_pptt_cache_v1,
-> +						cache,
-> +						sizeof(struct acpi_pptt_cache));
-> +
-> +			if (cache->flags & ACPI_PPTT_CACHE_ID_VALID &&
-> +			    cache_v1->cache_id == cache_id)
-> +				return level;
-> +		}
-> +	}
-> +
-> +	return -ENOENT;
-> +}
-> diff --git a/include/linux/acpi.h b/include/linux/acpi.h
-> index f97a9ff678cc..30c10b1dcdb2 100644
-> --- a/include/linux/acpi.h
-> +++ b/include/linux/acpi.h
-> @@ -8,6 +8,7 @@
->  #ifndef _LINUX_ACPI_H
->  #define _LINUX_ACPI_H
+> diff --git a/drivers/perf/arm-ccn.c b/drivers/perf/arm-ccn.c
+> index 1a0d0e1a2263..8af3563fdf60 100644
+> --- a/drivers/perf/arm-ccn.c
+> +++ b/drivers/perf/arm-ccn.c
+> @@ -565,7 +565,7 @@ module_param_named(pmu_poll_period_us, arm_ccn_pmu_poll_period_us, uint,
 >  
-> +#include <linux/cleanup.h>
->  #include <linux/errno.h>
->  #include <linux/ioport.h>	/* for struct resource */
->  #include <linux/resource_ext.h>
-> @@ -221,6 +222,17 @@ void acpi_reserve_initial_tables (void);
->  void acpi_table_init_complete (void);
->  int acpi_table_init (void);
->  
-> +static inline struct acpi_table_header *acpi_get_table_ret(char *signature, u32 instance)
-> +{
-> +	struct acpi_table_header *table;
-> +	int status = acpi_get_table(signature, instance, &table);
-> +
-> +	if (ACPI_FAILURE(status))
-> +		return ERR_PTR(-ENOENT);
-> +	return table;
-> +}
-> +DEFINE_FREE(acpi_table, struct acpi_table_header *, if (!IS_ERR(_T)) acpi_put_table(_T))
-nit: Is it useful to change the condition from !IS_ERR(_T) to
-!IS_ERR_OR_NULL(_T)? This seems to be the common pattern. I do note that
-acpi_put_table() can take NULL, so there is no real danger.
-> +
->  int acpi_table_parse(char *id, acpi_tbl_table_handler handler);
->  int __init_or_acpilib acpi_table_parse_entries(char *id,
->  		unsigned long table_size, int entry_id,
-> @@ -1542,6 +1554,7 @@ int find_acpi_cpu_topology_cluster(unsigned int cpu);
->  int find_acpi_cpu_topology_package(unsigned int cpu);
->  int find_acpi_cpu_topology_hetero_id(unsigned int cpu);
->  void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus);
-> +int find_acpi_cache_level_from_id(u32 cache_id);
->  #else
->  static inline int acpi_pptt_cpu_is_thread(unsigned int cpu)
+>  static ktime_t arm_ccn_pmu_timer_period(void)
 >  {
-> @@ -1565,6 +1578,10 @@ static inline int find_acpi_cpu_topology_hetero_id(unsigned int cpu)
+> -	return ns_to_ktime((u64)arm_ccn_pmu_poll_period_us * 1000);
+> +	return us_to_ktime((u64)arm_ccn_pmu_poll_period_us);
 >  }
->  static inline void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id,
->  						     cpumask_t *cpus) { }
-> +static inline int find_acpi_cache_level_from_id(u32 cache_id)
-> +{
-> +	return -EINVAL;
-> +}
->  #endif
 >  
->  void acpi_arch_init(void);
-
-
-Thanks,
-
-Ben
-
+>  
+> -- 
+> 2.34.1
+> 
 
