@@ -4,95 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D29FDCA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 11:07:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02A25CA0FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 11:07:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mker59khNl9LO6XVA193w6BS5zlp+w383B89UYOvyb4=; b=ROu+89jgzapIN58Q9DrhS4kHnZ
-	d8E4rTyCRAVA/Y9tfvmeYaQcL/uKpxy/IMw/G4pziI1+vK9NZs4DSDoLnyQ3sYW2ZGp9xNZlcZU+p
-	r3frmlOV2TPElSwKbdzr+lkJRqZ3GfrN2lGh98STDZLroSNlSeop4pda3TiLL00hzIB6wJYzN1Gt1
-	Zws26AO+2eUgvSbqB1ImqHZHp/N82UYLzmnSn3+mK6smo4XNJH/BkxQ4OOQ2M8VXfbtGeS1Uke1sv
-	p0W1DhWRaAsZOLjKSC6Z7SXMMWGb6nUB03WCvzVhyCOjRh3A3fuCkryZCXYfk2k1ecTDHy5ZqDx5S
-	h0X3yUvw==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+CwShbdO/ZrngTTUv+kiWku9/dUEIDJ7RH8aQrUQ/Y8=; b=ri7630VrYadICPlvKSsfmEYjXO
+	900eipiT8d1dR3QsQgKLRpKn2eJkk40lgTnL7pZV4ji0aSk7Cb83XPPyDCGRa+33JhhWGRv3MeRLX
+	ezyY6B5ZDA7G5cRsaptO7xUaQQn1tYaTat+07PycDsqzDcz2LcUN/4DttbelJTi2EV69wW3bH9UCC
+	07BUe3LVAUzqIyQt+ykI0bk4ZJvhF4JB0DaOUvhDVphqz8FEpMleM6ysjAc1l6E8i+WrSwvItSB/Z
+	c8mjK/Qqn/UMeJ1I0unCJFNsUP9aKTGcNs0simKZCRBCMs6W4wnfeL8ueVN0b3+6gRH3zOzKrH+Sy
+	0y9+JijQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urDzn-0000000F9xc-2W0O;
-	Wed, 27 Aug 2025 11:07:15 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1urDzc-0000000F9kA-1EJT;
+	Wed, 27 Aug 2025 11:07:04 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urCLP-0000000EpUD-3tqv
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 09:21:29 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3cc3600e5d1so1244690f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 02:21:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756286486; x=1756891286; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Mker59khNl9LO6XVA193w6BS5zlp+w383B89UYOvyb4=;
-        b=ZxM+Xu+rXQXp2bvNkHnzvMFIelS6uFy686EPxeKBKFlzeb0Wht69ovmMCWlyrCf86O
-         b5Th80Ymq1s7gM9kFXioFrjbxISIwsxKs47uWrj/Pcahi1Dco8FJfUDiezw765miwNtU
-         qjNF2R5gGyBotTV3b4tJKRJkaTz0T9R3bHJRawmiaRaB2QprIHR4riWtQswDY+fcztI8
-         Zm5C5w2MJPIxFN24ZZu6A8DItzsL2b2k+hsolCUS4G6FE/Xv6Fft56R2JOCSQPU2macF
-         UXfmY4uQ38oTKuXAtFNzln9LcSK+uGeU0WmXUAO3X//gB26U6uBR3eMfXu7Yv9qS8bR3
-         IWgA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756286486; x=1756891286;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Mker59khNl9LO6XVA193w6BS5zlp+w383B89UYOvyb4=;
-        b=BJpnSXq1OqvDSz7sSjBa1Goxu66z+JR8GiBbfm8y0ptvQr51YFQvdgX7Tx2UflyItB
-         aIuBW9BNbbm7Qt3v/g4FX/sXbJ1hE5spDZzdj94XvK5RCgdBMrGFCnldDiLo+ADaRxYY
-         A6ZJksiMN9UwFw8YIJvv65wuvLPhejtCJ1es/5e0Yg3bXT0+oDFbjkXt9yld3ekYqp7Z
-         UCqMQehHFi8Q7keNOT5IqGqV2hzsnrcZUHUN7EodvxMye2veD6bsMntsLGJBaGaUTN28
-         m2apprENmi0va9vUdM3c4yrXDin9XrN7a/yOc3Ksthy+Ml6le8jvNPGL0GgIDOIuNOQo
-         nCCw==
-X-Forwarded-Encrypted: i=1; AJvYcCUzlfmcx/4ZSlgQTzSO7GeG4UXuK2KRWykv9F1+XxkmPY9sQ+ca8VkAS+iPfcMiePi0B3Z56mXE0lEB83VahJOH@lists.infradead.org
-X-Gm-Message-State: AOJu0YzoIQJPoKbCU/iPKkbvMUT2YqniWgEucQRjozLXYJ1kYC5f9Eul
-	nCgSZjLIyupHTKFoBrEfe0ckeVDoAEVFR+2udUEkyFV/9qCklInQmD4CGbi7x50BYCARE1Mg77b
-	GyRpB
-X-Gm-Gg: ASbGnctu0iIxHJnK1QQX2rxfjBFD1W3qJ1mnI8ZkochGU/3V5ObjnoMceXeQ92PeCHF
-	9TplCrW0p+To5Xpzulx1qZOszQrAUngNoakU4UqlyZ0Hk6Pw1ztiBTVT7okDCTNvdkYirGLAbG8
-	jGoUNWNmVXumhMsB6Xo8GNQvHQ9R/8zpRrPNxtE/1DzNeHGOAJZwYhXN/RfASopVzAC1Xf/7Bfc
-	BZFKpk/qC/+NDGa8A0zh3OW8OUcqKNvGQNnrIaBqOcBP8y+K7MQMSJo24McTQeSNGN756DkrhEi
-	9WF6BH+0JQZ/S6mtm48af9npvrO6eq12NO7W/JcesxXzqrUPdT0/H0xKCqy073STDNJq/BPQH/k
-	aDlSzcxTEWQkDcWNTNqqOdm9vxsQ=
-X-Google-Smtp-Source: AGHT+IFvRqEa1ogDaSXzE5145n6AsbEdzn4jkuxQuGsQWp+ChfJK8nOqGUjd3LT9Dxkf37baNqI9Dw==
-X-Received: by 2002:a05:6000:26c8:b0:3c7:6348:4089 with SMTP id ffacd0b85a97d-3c7634846admr10821566f8f.11.1756286486239;
-        Wed, 27 Aug 2025 02:21:26 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3cc7b699d5dsm2665466f8f.48.2025.08.27.02.21.25
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 27 Aug 2025 02:21:25 -0700 (PDT)
-Message-ID: <4ca657cf-1c8e-4d51-aba9-c894c32a23b3@linaro.org>
-Date: Wed, 27 Aug 2025 10:21:25 +0100
+	id 1urC8f-0000000EmtW-0PSG;
+	Wed, 27 Aug 2025 09:08:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1756285695;
+	bh=sHB7aQqQ5tvTIwvx7aEQX0xjPTW6+EELkX33HX6IEUE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=iP47MwToVkWq0XComZtgpx/oRQkGxlyLT8aWPxGGT1rFmV2r1c6Cd4IuZb2L5HlKB
+	 rBkEpTz9i34NyRZbBF5ayjW+oaDmEKQVdPWVViP54gG0iEnv5rLFneKYVZUgCol56p
+	 cGh++knuM/inLsB7A5px+e/oI3Zlcd2opO68POH0mw/Vi5gKiQ8nPK4QlS8337slm0
+	 LKnEYHNRw+PCv6q22GLOyoFhDVXYDCZ/JxySsIOuaIOjxlX6nw5cX3c9V1ii+4QW9O
+	 m8lKh2FYkz1Y4SrzjcXoYd6z/U/e7tttgn3Fr5tRS6tImHsZ9ovGCZlJQLiTE4Ipop
+	 03sD2bZAF5ciQ==
+Received: from benjamin-XPS-13-9310.. (unknown [IPv6:2a01:e0a:120:3210:4be:99b9:5069:3bef])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: benjamin.gaignard)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 99CC017E03B0;
+	Wed, 27 Aug 2025 11:08:14 +0200 (CEST)
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+To: joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heiko@sntech.de,
+	nicolas.dufresne@collabora.com,
+	jgg@ziepe.ca,
+	p.zabel@pengutronix.de,
+	mchehab@kernel.org
+Cc: iommu@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	kernel@collabora.com,
+	linux-media@vger.kernel.org,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Subject: [PATCH v8 0/7]  Add support for Verisilicon IOMMU used by media codec blocks
+Date: Wed, 27 Aug 2025 11:07:56 +0200
+Message-ID: <20250827090809.34555-1-benjamin.gaignard@collabora.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] coresight: tpda: add logic to configure TPDA_SYNCR
- register
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
-References: <20250827042042.6786-1-jie.gan@oss.qualcomm.com>
- <20250827042042.6786-3-jie.gan@oss.qualcomm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250827042042.6786-3-jie.gan@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=y
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_022127_991973_3122525E 
-X-CRM114-Status: GOOD (  19.44  )
+X-CRM114-CacheID: sfid-20250827_020817_282922_4E758CF4 
+X-CRM114-Status: GOOD (  22.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,74 +87,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi all,
 
+This patch series adds support for the Verisilicon IOMMU, which is found in front
+of hardware encoder and decoder blocks in several SoCs using Verisilicon IP. 
+A first implementation of this IOMMU is available on the Rockchip RK3588 SoC.
 
-On 27/08/2025 5:20 am, Jie Gan wrote:
-> From: Tao Zhang <tao.zhang@oss.qualcomm.com>
-> 
-> The TPDA_SYNCR register defines the frequency at which TPDA generates
-> ASYNC packets, enabling userspace tools to accurately parse each valid
-> packet.
-> 
-> Signed-off-by: Tao Zhang <tao.zhang@oss.qualcomm.com>
-> Co-developed-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> ---
->   drivers/hwtracing/coresight/coresight-tpda.c | 7 +++++++
->   drivers/hwtracing/coresight/coresight-tpda.h | 6 ++++++
->   2 files changed, 13 insertions(+)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
-> index 647ab49a98d7..430f76c559f2 100644
-> --- a/drivers/hwtracing/coresight/coresight-tpda.c
-> +++ b/drivers/hwtracing/coresight/coresight-tpda.c
-> @@ -187,6 +187,13 @@ static void tpda_enable_pre_port(struct tpda_drvdata *drvdata)
->   	 */
->   	if (drvdata->trig_flag_ts)
->   		writel_relaxed(0x0, drvdata->base + TPDA_FPID_CR);
-> +
-> +	/* Program the counter value for TPDA_SYNCR */
-> +	val = readl_relaxed(drvdata->base + TPDA_SYNCR);
-> +	/* Clear the mode */
-> +	val &= ~TPDA_SYNCR_MODE_CTRL;
-> +	val |= FIELD_PREP(TPDA_SYNCR_COUNTER_MASK, TPDA_SYNCR_MAX_COUNTER_VAL);
+Rockchip provides a driver for this hardware in their 6.1 kernel branch:
+https://github.com/rockchip-linux/kernel/blob/develop-6.1/drivers/iommu/rockchip-iommu-av1d.c
 
-Just use the mask directly if you want to set all the bits. This makes 
-it seem like the MAX_COUNTER_VAL is something different.
+This series includes:
+- a new binding for the Verisilicon IOMMU
+- a driver implementation
+- DT updates for RK3588
 
-val |= TPDA_SYNCR_COUNTER_MASK
+The driver was forward-ported from Rockchip’s 6.1 implementation, 
+the prefix was renamed to vsi for generality, and several fixes were applied.
 
-> +	writel_relaxed(val, drvdata->base + TPDA_SYNCR);
->   }
->   
->   static int tpda_enable_port(struct tpda_drvdata *drvdata, int port)
-> diff --git a/drivers/hwtracing/coresight/coresight-tpda.h b/drivers/hwtracing/coresight/coresight-tpda.h
-> index 0be625fb52fd..8e1b66115ad1 100644
-> --- a/drivers/hwtracing/coresight/coresight-tpda.h
-> +++ b/drivers/hwtracing/coresight/coresight-tpda.h
-> @@ -9,6 +9,7 @@
->   #define TPDA_CR			(0x000)
->   #define TPDA_Pn_CR(n)		(0x004 + (n * 4))
->   #define TPDA_FPID_CR		(0x084)
-> +#define TPDA_SYNCR		(0x08C)
->   
->   /* Cross trigger FREQ packets timestamp bit */
->   #define TPDA_CR_FREQTS		BIT(2)
-> @@ -27,6 +28,11 @@
->   #define TPDA_Pn_CR_CMBSIZE		GENMASK(7, 6)
->   /* Aggregator port DSB data set element size bit */
->   #define TPDA_Pn_CR_DSBSIZE		BIT(8)
-> +/* TPDA_SYNCR mode control bit */
-> +#define TPDA_SYNCR_MODE_CTRL		BIT(12)
-> +/* TPDA_SYNCR counter mask */
-> +#define TPDA_SYNCR_COUNTER_MASK		GENMASK(11, 0)
-> +#define TPDA_SYNCR_MAX_COUNTER_VAL	(0xFFF)
+AV1 decoding was tested using the stateless VPU driver and Fluster.
+The test results show a score of 205/239, which confirms that no regressions
+were introduced by this series.
 
-No need to define a numeric value that's the same as the mask. It also 
-opens the possibility of making a mistake.
+Feedback and testing welcome.
 
->   
->   #define TPDA_MAX_INPORTS	32
->   
+changes in version 8:
+- Add myself in MAINTAINERS file.
+- Add API to restore VSI iommu context from decoder driver
+- Fix reported checkpatch issues: add comment in pinlock_t declaration
+  and remove blank line.
+- Include board name in defconfig patch commit message
+
+changes in version 7:
+- fix locking issues.
+- add a patch in AV1 video decoder to manage per context iommu domain.
+- fix compilation issues when build as module.
+- remove useless "rockchip,rk3588-av1-iommu" compatible in driver code.
+
+changes in version 6:
+- rework lock schema in vsi_iommu_attach_device() so
+  it protected against concurrent invalidation.
+- flush the cache after changing of domain.
+
+changes in version 5:
+- change locking schema to use 2 spin_locks: one to protect vsi_domain
+  data and one to protect vsi_iommu structure.
+- make suspend/resume more robust by calling disable/enable function.
+- rebased on top of v6.16-rc5
+
+changes in version 4:
+- rename and reorder compatibles fields.
+- Kconfig dependencies
+- Fix the remarks done by Jason and Robin: locking, clocks, macros
+  probing, pm_runtime, atomic allocation.
+
+changes in version 3:
+- Change compatible to "rockchip,rk3588-iommu-1.2"
+- Fix compatible in .yaml
+- Update DT and driver to use "rockchip,rk3588-iommu-1.2" compatible
+- Set CONFIG_VSI_IOMMU as module in defconfig
+- Create an identity domain for the driver
+- Fix double flush issue
+- Rework attach/detach logic
+- Simplify xlate function
+- Discover iommu device like done in ARM driver
+- Remove ARM_DMA_USE_IOMMU from Kconfig
+
+changes in version 2:
+- Add a compatible "rockchip,rk3588-av1-iommu"
+- Fix clock-names in binding 
+- Remove "vsi_mmu" label in binding example.
+- Rework driver probe function
+- Remove double flush
+- Rework driver internal structures and avoid allocate
+  in xlate function.
+- Do not touch to VPU driver anymore (path removed)
+- Add a patch to enable the driver in arm64 defconfig
+
+Benjamin Gaignard (7):
+  dt-bindings: vendor-prefixes: Add Verisilicon
+  dt-bindings: iommu: verisilicon: Add binding for VSI IOMMU
+  iommu: Add verisilicon IOMMU driver
+  MAINTAINERS: Add entry for Verisilicon IOMMU driver
+  media: verisilicon: AV1: Restore IOMMU context before decoding a frame
+  arm64: dts: rockchip: Add verisilicon IOMMU node on RK3588
+  arm64: defconfig: enable Verisilicon IOMMU for Rockchip RK3588
+
+ .../bindings/iommu/verisilicon,iommu.yaml     |  71 ++
+ .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+ MAINTAINERS                                   |   8 +
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |  11 +
+ arch/arm64/configs/defconfig                  |   1 +
+ drivers/iommu/Kconfig                         |  11 +
+ drivers/iommu/Makefile                        |   1 +
+ drivers/iommu/vsi-iommu.c                     | 810 ++++++++++++++++++
+ .../verisilicon/rockchip_vpu981_hw_av1_dec.c  |  14 +
+ include/linux/vsi-iommu.h                     |  21 +
+ 10 files changed, 950 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
+ create mode 100644 drivers/iommu/vsi-iommu.c
+ create mode 100644 include/linux/vsi-iommu.h
+
+-- 
+2.43.0
 
 
