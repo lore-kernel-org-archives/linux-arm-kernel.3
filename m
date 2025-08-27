@@ -4,96 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D43BFCA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 14:08:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9888CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 14:08:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=gChpukKe/Co4j4eyT56FMO0lc9aier7sQ6umEpqMPig=; b=sDM/3u+ss11cgZ
-	29+aazx6B/iMGTS4XSkggsahTvZutC2pJElLeIxzLevGi06rJT/YCnJ+2xFdEzb17Qo2v6VI9s6zc
-	0Cx1jCIZOrCsbkZtIWOTxbfnCgGCX97lIVSGnlmJMwBGua7pjDxjUVztWUyQ8tJ/r75DF+o+R8sAX
-	PtSB1aKifu4I6/SEtMpbbq7dywX45h51P07d7TpwDIz+2QoDRHtoBCO554djaCc5CrTcgoQOYccX/
-	Hpc+LdyvXitSAdx6tHLFG3la+9wG15j3Htp9iZ8M5XacAG+bhNf/yCI2cWueaJ0vtKDZxrWkh3j5I
-	Xd0s+puzOpsRwXtSGfvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aY/HOY3esc7iLj6djBy7POlcraK1TTeiecvmcTtxq88=; b=dAeOT2fiqJ2FiMuriQuDBe2AIt
+	FE11dM+lknLOfducgwqbUe1DB2kZsZsR8tZZP/fHGOXqxinwL21XZwOXT5e+UAcq3sLEaikscG8BM
+	31tc2M9V8JxJ3+VaNiVLIf20yhpJPl8j504lv0kbEGj3YX23ZPWlZsmuKKeXJKTPhOwfWplUKs6Or
+	3BZPnTmQGNKElPHhlZ4IiCd1L1W0/18LMv9hUteZARDHC1VYLryb7K3gpETfocffrq18D8f6qV5Hm
+	R9atZiuyJ29Bmqnr7eHq9PkX1OlhqKjbYyLmKAL/0Ty92j357n27sn+zcQeOU+qTs00qdF+7XvYio
+	JXlithgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urGpF-0000000FgqI-3wN0;
-	Wed, 27 Aug 2025 14:08:33 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1urGpE-0000000FgpZ-2BMK;
+	Wed, 27 Aug 2025 14:08:32 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urDzz-0000000FACd-0bbo
+	id 1urDFx-0000000F2Xv-1ENa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 11:07:30 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57RA4cGb026189;
-	Wed, 27 Aug 2025 13:07:13 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=selector1; bh=gChpukKe/Co4j4eyT56FMO
-	0lc9aier7sQ6umEpqMPig=; b=7wv4BqlEGcf8Adj3Tl5KlzJClyjpur32grL9Cr
-	AufZtlaYRTrNopWfDqw9lduzT5fSc3+wkQ6aTTbcKdDCqGXP2IHAVZsvH0dOvWfz
-	N2dyRJ7Ese0M053XZd1OpbmPA1a0FCprP5SWvKrV+ivHCd1stclQjcZZ8Fkg8y96
-	ASGvBgVT98r0xXebyHJXXrlH/xzgz6yX88XJ9w+h9eRMzUJa1B1UjcmDw76Phw32
-	a++WzuI1j085Lw8pZbCjzq5FG3h7PEx13wKqVTrGLm7PhB59GkzVtMN71IzBdi3M
-	UAVNE+rm1gbXHiqLZaieOlUTBo+etozvD0ePR/HcILy57gDQ==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48qq745m9a-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 27 Aug 2025 13:07:13 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 4594240047;
-	Wed, 27 Aug 2025 13:05:58 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 8A10A546F2C;
-	Wed, 27 Aug 2025 13:05:02 +0200 (CEST)
-Received: from localhost (10.252.21.245) by SHFDAG1NODE1.st.com (10.75.129.69)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 27 Aug
- 2025 13:05:02 +0200
-From: Gatien Chevallier <gatien.chevallier@foss.st.com>
-Subject: [PATCH net-next v3 0/2] net: stmmac: allow generation of flexible
- PPS relative to MAC time
-Date: Wed, 27 Aug 2025 13:04:57 +0200
-Message-ID: <20250827-relative_flex_pps-v3-0-673e77978ba2@foss.st.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAFnmrmgC/23N0QrCIBgF4FcZXudwOmfrqveIGGa/TVg6VGQx9
- u6ZdFGwy8PhfGdFAbyBgE7VijwkE4yzObBDhdQo7QOwueeMKKGcCMqwh0lGk2DQEyzDPAespaT
- 6pqQ+Mo7ybvagzVLMC7IQsYUlomtuRhOi869ylprSf912x00NJpgJJTsuBGNdf9YuhDrEWrln8
- RL9Nfo9g34M4JowTrlq+b+xbdsb3n2FJQIBAAA=
-X-Change-ID: 20250723-relative_flex_pps-faa2fbcaf835
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller"
-	<davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Richard Cochran <richardcochran@gmail.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-CC: <netdev@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        Gatien Chevallier
-	<gatien.chevallier@foss.st.com>
-X-Mailer: b4 0.14.2
-X-Originating-IP: [10.252.21.245]
-X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-27_02,2025-08-26_01,2025-03-28_01
+	Wed, 27 Aug 2025 10:19:54 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-45a1b0cc989so47661415e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 03:19:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1756289991; x=1756894791; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=aY/HOY3esc7iLj6djBy7POlcraK1TTeiecvmcTtxq88=;
+        b=sxGFKDJoXzJXrCAey5Qybc2ue216O9khkDxFukvKzWflAZR+OOXnrdbjpR4t+Imd6K
+         GWq+OUFlR5F2rCU7qW+2sGWpBBX++rIfAFsmoYYWZeh/uiXZ37OB+jblIG8JjxiSOszJ
+         0+8wq2NKLwt3whwEdDgoGxXdX3RZB6REHK9y9Uw4pkqnVDrhj8eae4rxFcGtBZ5Zgl3r
+         Iap7LewpZ2AHORnZr28CXXRyrxttVB/hzFZGpRgtzvHeUSa63xE9BDFQFFGEHhdYVM0W
+         SHDVEpHD5LGqAB5I1xJdV/4fVU/BYKWLRE/kgatB2j0yOWm9sYxOsJZ94IA1bgri5SVA
+         ZFSA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756289991; x=1756894791;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=aY/HOY3esc7iLj6djBy7POlcraK1TTeiecvmcTtxq88=;
+        b=UxhVkgYYpWDyp02NXF8RwmLPyFTmvWRD6gLQCYb02JmYSHHJp0/cVsGIgVO0cif7sv
+         9LTrBZrpYZgEmAwnKBSFVnaeqlBnb4nwv8eyWWWTHE/RDiOHLHzPOeDhvj5cRb29W7r1
+         9FlRv3mnYyBhgAepogLhZwfyOAf/8VCfPPkmvt+Inrh24NxDU5tWrmJM2H5CR2sg17wJ
+         vegGQ1laYbxF+lXJZXQKGyNBBXQbFEpbCgdrQ9bO7Ssqp1YoUUftFauJ4POtk6IrSu/L
+         wDIZs72Uwd06hU9frtOL2Ot6U4CmkWCML9VRNcUjoV3QnkdcoxPZ7C2teJCTLq2H0gWD
+         KqHw==
+X-Forwarded-Encrypted: i=1; AJvYcCWfJPF2NRgSDdRbyeT2niMW0QEaS8dfa5EgeGi7wenTYWCPPkw67nDmUKZXoDEmQ74E683njXnSn4nVGpKw7pRK@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+tqwWXvoIOOApy5Pg5t/YEYyQ8nxxc1LSVRt5Tsk3Uc0rvtX0
+	UV9Nvo5BIJQeJuMINzdZXiAPTSJsU52MJDfp5Bd26eeXKj1MlJf2zTRvxB3XKAevr+r5uFFNKqG
+	QTQ==
+X-Google-Smtp-Source: AGHT+IGVx8dVPxAEwHkMwTbEjRKkAi25ytMaI23qr+UCUfvHQCf/8gvOt0+gLqsmTrkGgu27mc6kH+cznw==
+X-Received: from wmbay25.prod.google.com ([2002:a05:600c:1e19:b0:45b:66d9:7573])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4f41:b0:459:d3ce:2cbd
+ with SMTP id 5b1f17b1804b1-45b517ad602mr160115725e9.13.1756289990971; Wed, 27
+ Aug 2025 03:19:50 -0700 (PDT)
+Date: Wed, 27 Aug 2025 11:19:40 +0100
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.51.0.261.g7ce5a0a67e-goog
+Message-ID: <20250827101949.4089456-1-tabba@google.com>
+Subject: [PATCH v3 0/9] KVM: arm64: Reserve pKVM VM handle during initial VM setup
+From: Fuad Tabba <tabba@google.com>
+To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org, 
+	mark.rutland@arm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org, 
+	vdonnefort@google.com, qperret@google.com, sebastianene@google.com, 
+	keirf@google.com, smostafa@google.com, tabba@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_040727_927345_C343D88D 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20250827_031953_361087_2C4246D6 
+X-CRM114-Status: GOOD (  16.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,53 +90,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When doing some testing on stm32mp2x platforms(MACv5), I noticed that
-the command previously used with a MACv4 for genering a PPS signal:
-echo "0 0 0 1 1" > /sys/class/ptp/ptp0/period
-did not work.
+Changes since v2 [1]:
+- Added a patch that checks for duplicate DECLARE_REG use
+- Rebase on Linux 6.17-rc3
 
-This is because the arguments passed through this command must contain
-the start time at which the PPS should be generated, relative to the
-MAC system time. For some reason, a time set in the past seems to work
-with a MACv4.
+All VMs in pKVM identified by their handle, a unique per-VM ID. This
+handle is shared between the host kernel and the hypvervisor, and used
+to track the VM across both.
 
-Because passing such an argument is tedious, consider that any time
-set in the past is an offset regarding the MAC system time. This way,
-this does not impact existing scripts and the past time use case is
-handled. Edit: But maybe that's not important and we can just change
-the default behavior to this.
+In pKVM, this handle is allocated when the VM is initialized at the
+hypervisor, which is on the first vCPU run. However, the host starts
+initializing the VM and setting up its data structures earlier. MMU
+notifiers for the VMs are also registered before VM initialization at
+the hypervisor, and rely on the handle to identify the VM [2].
+Therefore, there is a potential gap between when the VM is (partially)
+setup at the host, but still without a valid pKVM handle to identify it
+when communicating with the hypervisor.
 
-Example to generate a flexible PPS signal that has a 1s period 3s
-relative to when the command was entered:
+Additionally, in the future, the host needs to communicate with
+TrustZone about the before the VM first run. Therefore, move handle
+creation to when the VM is first initialized at the host.
 
-echo "0 3 0 1 1" > /sys/class/ptp/ptp0/period
+This patch series also takes the oportunity to do some refactoring
+(mostly renaming and fixing documentation) of the code. We are in the
+process of upstreaming pKVM. Refactoring this code now would generate
+less churn than postponing it, as the upstreamed codebase grows.
+Moreover, the exsiting names and documentation are at best misleading
+(and in cases actually wrong), which could lead to more confusion and
+problems reviewing code in the future.
 
-Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
----
-Changes in v3:
-- Fix warning on braces for the switch case.
-- Link to v2: https://lore.kernel.org/r/20250729-relative_flex_pps-v2-0-3e5f03525c45@foss.st.com
+This patch series is divided into two parts:
 
-Changes in v2:
-- Drop STMMAC_RELATIVE_FLEX_PPS config switch
-- Add PTP reference clock in stm32mp13x SoCs
-- Link to v1: https://lore.kernel.org/r/20250724-relative_flex_pps-v1-0-37ca65773369@foss.st.com
+- Patches 1-5: Renaming, refactoring, and tidying up to lay the
+  groundwork for moving handle initialization and to fix existing
+  issues.
+- Patches 6-9: Decouple handle creation from VM initialization at the
+  hypervisor and move the handle creation to VM initialization at the
+  host.
 
----
-Gatien Chevallier (2):
-      drivers: net: stmmac: handle start time set in the past for flexible PPS
-      ARM: dts: stm32: add missing PTP reference clocks on stm32mp13x SoCs
+Cheers,
+/fuad
 
- arch/arm/boot/dts/st/stm32mp131.dtsi             |  2 ++
- arch/arm/boot/dts/st/stm32mp133.dtsi             |  2 ++
- drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c | 35 +++++++++++++++++++++++-
- 3 files changed, 38 insertions(+), 1 deletion(-)
----
-base-commit: 242041164339594ca019481d54b4f68a7aaff64e
-change-id: 20250723-relative_flex_pps-faa2fbcaf835
+[1] https://lore.kernel.org/all/20250811101947.3637632-1-tabba@google.com/
+[2] https://lore.kernel.org/all/20250303214947.GA30619@willie-the-truck/
 
-Best regards,
+Fuad Tabba (9):
+  KVM: arm64: Add build-time check for duplicate DECLARE_REG use
+  KVM: arm64: Rename pkvm.enabled to pkvm.is_protected
+  KVM: arm64: Rename 'host_kvm' to 'kvm' in pKVM host code
+  KVM: arm64: Clarify comments to distinguish pKVM mode from protected
+    VMs
+  KVM: arm64: Decouple hyp VM creation state from its handle
+  KVM: arm64: Separate allocation and insertion of pKVM VM table entries
+  KVM: arm64: Consolidate pKVM hypervisor VM initialization logic
+  KVM: arm64: Introduce separate hypercalls for pKVM VM reservation and
+    initialization
+  KVM: arm64: Reserve pKVM handle during pkvm_init_host_vm()
+
+ arch/arm64/include/asm/kvm_asm.h              |   2 +
+ arch/arm64/include/asm/kvm_host.h             |   5 +-
+ arch/arm64/include/asm/kvm_pkvm.h             |   1 +
+ arch/arm64/kvm/arm.c                          |  12 +-
+ arch/arm64/kvm/hyp/include/nvhe/pkvm.h        |   4 +-
+ .../arm64/kvm/hyp/include/nvhe/trap_handler.h |   3 +-
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c            |  14 ++
+ arch/arm64/kvm/hyp/nvhe/pkvm.c                | 177 +++++++++++++-----
+ arch/arm64/kvm/pkvm.c                         |  76 +++++---
+ 9 files changed, 219 insertions(+), 75 deletions(-)
+
+
+base-commit: 1b237f190eb3d36f52dffe07a40b5eb210280e00
 -- 
-Gatien Chevallier <gatien.chevallier@foss.st.com>
+2.51.0.261.g7ce5a0a67e-goog
 
 
