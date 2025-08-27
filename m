@@ -4,67 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BB8CCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 11:08:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7D38CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 11:08:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L15Arz81Z30MVx1lCU/2oYRdJtFL8pfA5TQ/Z4+kAdg=; b=rvpsOnp9Xa+H6H2pquFRlSveBz
-	Hxf2VqYYmtsYKkcyuXIfCocleAUHZw/QCSqb7OvEgJLj9dvvHsVL5ewJOC4s62rU5CBs0EpmouUgh
-	KLV4yA19ib6AWU00IGfnC1XhvnkuiP1aHzf/JZuGdhlZP9V/iNN5Zc1Jd0gd60ecXV3QTnH5ZtwUs
-	YqT8VnXAeTu2bYxvxaHccCD15cuk54MZ4nFP0hyVIZO+puOCZLyVEJ0nD2yTfobjI51Tnoy1H6S2W
-	SuDbLT7kQpt6ePwAuAUtL0vye+5Kg8MsAsPNJc0mtmAl+NDrzENjv68cGOLZ4apkniCk/w3iS+7vx
-	pvmHTCFQ==;
+	bh=pWlEEa9FdUN2zJcQtqepJKUAvgcsiNc6jwdCVzIXab0=; b=wLIiVbZFgYECpULR70/m4Qxkk9
+	+6/nWB5qyH3W7Sg7cnUgklW67wu8NTLEtiYz3zPsO4lbJp/JUjyaZSNVIL+a2qXhOZYrmY5ZDbHk+
+	gJRkOQz00ej06VGtTFdoby0ko8hHE7wsUU5QoW8Pb/F4obB3KHzynR2KxG4tFXt/4qm3ZLIVU8LSD
+	cKI+dUyM560rEb6t7cbcUl1+cNyAP6HgWgRnRO71nhHDJR9oTQe9U3KmI5jLpUqq3etXhRDTptxJq
+	T5ZFSzWsclCziVMkWEe3uUT3kGLR7uQnHcFWLx9S5iyOQH3GtmS34CVgSeblb0Wt94jRvAkMYXpnF
+	nwd7SThA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urE19-0000000FBx3-1K8C;
-	Wed, 27 Aug 2025 11:08:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urDFd-0000000F2Q9-06dM
+	id 1urE1H-0000000FC7H-2SBL;
+	Wed, 27 Aug 2025 11:08:47 +0000
+Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urDFy-0000000F2YH-1cuZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 10:19:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EE98214BF;
-	Wed, 27 Aug 2025 03:19:22 -0700 (PDT)
-Received: from bogus (unknown [10.57.57.52])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DCC4D3F738;
-	Wed, 27 Aug 2025 03:19:27 -0700 (PDT)
-Date: Wed, 27 Aug 2025 11:19:04 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Shijie Huang <shijie@amperemail.onmicrosoft.com>
-Cc: Jeremy Linton <jeremy.linton@arm.com>,
-	"Christoph Lameter (Ampere)" <cl@gentwo.org>,
-	Huang Shijie <shijie@os.amperecomputing.com>,
-	catalin.marinas@arm.com, will@kernel.org,
-	patches@amperecomputing.com, Shubhang@os.amperecomputing.com,
-	krzysztof.kozlowski@linaro.org, bjorn.andersson@oss.qualcomm.com,
-	geert+renesas@glider.be, arnd@arndb.de, nm@ti.com,
-	ebiggers@kernel.org, nfraprado@collabora.com,
-	prabhakar.mahadev-lad.rj@bp.renesas.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: defconfig: enable CONFIG_SCHED_CLUSTER
-Message-ID: <20250827-mushroom-of-heavenly-efficiency-f0ebbc@sudeepholla>
-References: <2d9259e4-1b58-435d-bf02-9c4badd52fd9@arm.com>
- <20250813-gifted-nimble-wildcat-6cdf65@sudeepholla>
- <d172f30d-28ad-dd46-1385-f010107bc789@gentwo.org>
- <c45b13b9-52ae-a52b-ce39-77f7ebe09507@gentwo.org>
- <aJ20imoeRL_tifky@bogus>
- <97278200-b877-47a6-84d4-34ea9dda4e6b@gentwo.org>
- <20250815-pheasant-of-eternal-tact-6f9bbc@sudeepholla>
- <1097a1d1-483d-44b3-b473-4350b5a4b04d@arm.com>
- <20250818-mysterious-aromatic-wasp-cdbaae@sudeepholla>
- <bdfdc220-63d8-45ff-a475-41a6a63e61ff@amperemail.onmicrosoft.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <bdfdc220-63d8-45ff-a475-41a6a63e61ff@amperemail.onmicrosoft.com>
+	Wed, 27 Aug 2025 10:19:55 +0000
+Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-afe73808e6cso427059066b.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 03:19:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1756289992; x=1756894792; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=pWlEEa9FdUN2zJcQtqepJKUAvgcsiNc6jwdCVzIXab0=;
+        b=ek27XcFuEN4irgxh6X4EoDyO1CcIWKEI0X1EuR2jpQ7e43kf8N8FGIj4Kedrmha3vH
+         G/nn2CYSWGqk739Ta3isLKExKJS4hH6vjwYM598/IJHXLznC582mNdvfqXHROCZoA5M9
+         k4ytmlUYMokMWHGrWNboRGx4YsOsgYTLPfAqYtwlTL1Kuio5LCoes+crHv5cuGveTfqD
+         97pJA4HwYJaiI86p+/Cqqd+5kPw8nKXPgViqpCpjcWY5+b4Qg3pJ3mGKXpodk/mrQLaH
+         S6dNluJQYWN+K/DZlXcmnRMFqoeL8c4Msf4+7Z1ZDh9Fkp7OD+8TFYjA2I6vNJpwVhlH
+         y58g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756289992; x=1756894792;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=pWlEEa9FdUN2zJcQtqepJKUAvgcsiNc6jwdCVzIXab0=;
+        b=NjZZWNKmgEuqeKgGROMZMyhRduqAqXVaD9rV8P9XwVTSJ3Q+scS0YCOJDxsbGB7FbC
+         QtB5jZqPN5fz3I8lmnOXUbI6lR4Z2ok5Ff/mdjVuW4O7A2e2M1pC7AwAt43aB66tlrjG
+         dtU7jeDESS5+eU4LEIXSfr3oNi2iSoDTbfPC3ryNTqe/ITPzoDWYWfPleW3hG9V7omeu
+         /RuSmEkiqbUD3q6rafJBCQ9FDXwoMFvIJ7duJAQuq9rfLQRwajmpXfe25mjnPZ1GF/21
+         Floi4MQ8OJzYyv1COehM9AmvCzBDBUYSeppTqU8WACYKFNM3dPUa7Scx5g5v7A1g7H7l
+         6a9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWDCTWi0qCh/hvao/SiVbAPf2GeQXT7cv4EaJy4AUxQ8tAxUPgwl4hMOK7GaVR2fmGpRJgXcKtxDelsSGrmecyQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxXBILOESyhuiISJGlUjCCdZXCpJ/qLhMbarflrVcLOIwRqVXcN
+	mmkU9feHR7QE2jThCrh3RnxYVg0504uxYMiQicqvWSVdjV6F7pagQVJ3l3fn9v4c/N0hfiofBqK
+	8KQ==
+X-Google-Smtp-Source: AGHT+IFxJhReaSFTqpPGeb6pKgScnDIt4APx3m4DP6X9fzvN0CY8gtebf6nCyPV1qcYxfxLc8vvJN/9tnA==
+X-Received: from ejcsp8.prod.google.com ([2002:a17:907:3948:b0:afc:aa8a:a50d])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a17:907:a4c:b0:afe:6fdf:c27a
+ with SMTP id a640c23a62f3a-afe6fdfc8d3mr1146661666b.33.1756289991787; Wed, 27
+ Aug 2025 03:19:51 -0700 (PDT)
+Date: Wed, 27 Aug 2025 11:19:41 +0100
+In-Reply-To: <20250827101949.4089456-1-tabba@google.com>
+Mime-Version: 1.0
+References: <20250827101949.4089456-1-tabba@google.com>
+X-Mailer: git-send-email 2.51.0.261.g7ce5a0a67e-goog
+Message-ID: <20250827101949.4089456-2-tabba@google.com>
+Subject: [PATCH v3 1/9] KVM: arm64: Add build-time check for duplicate
+ DECLARE_REG use
+From: Fuad Tabba <tabba@google.com>
+To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org, 
+	mark.rutland@arm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org, 
+	vdonnefort@google.com, qperret@google.com, sebastianene@google.com, 
+	keirf@google.com, smostafa@google.com, tabba@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_031933_112950_0282E311 
-X-CRM114-Status: GOOD (  16.00  )
+X-CRM114-CacheID: sfid-20250827_031954_425931_3300B96B 
+X-CRM114-Status: GOOD (  16.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,25 +93,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 27, 2025 at 10:33:17AM +0800, Shijie Huang wrote:
-> 
-> On 18/08/2025 17:33, Sudeep Holla wrote:
-> > >  From a distro perspective it makes more sense to me to change it from a
-> > > compile time option to a runtime kernel command line option with the default
-> > > on/off set by this SCHED_CLUSTER flag rather than try to maintain a
-> > > blocklist.
-> > > 
-> > Right, that makes complete sense to me.
-> 
-> Anyway, Peter is also try to make the SCHED_CLUSTER as default for arm64
-> platform, please see the email link:
-> 
-> https://patchew.org/linux/20250826041319.1284-1-kprateek.nayak@amd.com/20250826041319.1284-5-kprateek.nayak@amd.com/
-> 
+The DECLARE_REG() macro provides a convenient way to create a local
+variable initialized from a cpu context in the hyp trap handlers.
+However, a common error is to use the macro multiple times in the same
+scope with the same register index, but for different logical purposes.
 
-Yes, I was cc-ed and I am following the discussions.
+This results in valid C code that compiles without error, but introduces
+subtle bugs where a developer expects two different variables to hold
+values from two different registers, when in fact they are both sourced
+from the same one.
 
+To prevent this entire class of bugs, modify the DECLARE_REG() macro
+to declare a dummy variable whose name is derived from the register
+index. If the macro is used again with the same index in the same
+scope, the compiler will fail with a "redeclaration of variable"
+error, turning a subtle runtime bug into an obvious build-time failure.
+
+Signed-off-by: Fuad Tabba <tabba@google.com>
+---
+Note: I considered a more restrictive compile-time check to also enforce
+that the register indexes are sequential and without gaps. However,
+achieving this without requiring significant refactoring of all the call
+sites results in too much churn. This patch catches most (or all) of the
+related issues we have run into in practice.
+---
+ arch/arm64/kvm/hyp/include/nvhe/trap_handler.h | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/trap_handler.h b/arch/arm64/kvm/hyp/include/nvhe/trap_handler.h
+index 1e6d995968a1..ba5382c12787 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/trap_handler.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/trap_handler.h
+@@ -12,7 +12,8 @@
+ #include <asm/kvm_host.h>
+ 
+ #define cpu_reg(ctxt, r)	(ctxt)->regs.regs[r]
+-#define DECLARE_REG(type, name, ctxt, reg)	\
++#define DECLARE_REG(type, name, ctxt, reg)					\
++				__always_unused int ___check_reg_ ## reg;	\
+ 				type name = (type)cpu_reg(ctxt, (reg))
+ 
+ #endif /* __ARM64_KVM_NVHE_TRAP_HANDLER_H__ */
 -- 
-Regards,
-Sudeep
+2.51.0.261.g7ce5a0a67e-goog
+
 
