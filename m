@@ -4,88 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45A9FCA0FFB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B7A0CA0FF7
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 20:54:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p3EvGsYPSdUdmdUvkl5MeS24W2C/G0WFbApxFo5/qOc=; b=FJC/YdCMnVdCGmpafIY5kurCks
-	cjXcNgUC9BKeGVRsfLmfFq5RddZcbRu/qnOp7WL7kNxnUkbeI0psWUrR1soNJG3QbrscZtYhlKvON
-	kmciuAlphHpJxQ4rRhah8ArzhPObewQ25HVDDiV14N9uGCeUxcW4ej/Px3uYjdhIzNlKPFHPmATYN
-	WTiGd9NzEkRA/Cx+O5woaEYI5RIAAXJGHOnr9L+omMU8dfh2/TT/bYSyARuvxyM14aS1PG17Ml24C
-	2L8XGo/k+nrb44/yAhZMstBtHDBQtdn1sPRdg+dPcDnatjK9opkGGmFPbaie3PRVBT9/da5WdB5W9
-	pa3Q1EcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e5eQjtUmMIX+kq7rp+4kv9wu5wA/Yf/db2s4i+GvIrA=; b=zNU03CFR47KEwfrRXj23KI7WgH
+	GWc2qGEFHRe/gFE4HbcYmJQg9tkfUuM3w5kk0ePV2SRCoioJYHDvyjxCXvCsa18wcvbKdD4BoHt0E
+	YrDuPgXPPaViQJJ3P2AXfXKb+Jpcqp0owIz3m7HDiKclul7W3M8f/AGRmVZF/3hRTBLvPuSDjFtLb
+	5qjm1kUNRvW95Zi0+JcwHKvw13qBy18KQzhzKn5iuanY/gDO1ouwKHbraifHesXRiRtEFmZV46gIg
+	+I6d7AklwiwgjbB4JI1VYWiTIMcr4roEdgz2AqKozpBQz7k7ZxJKC3cRrcZx1gBx0zM9pXKJ830Ph
+	9kgZvYtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urN9a-0000000GoW2-0ufZ;
-	Wed, 27 Aug 2025 20:53:58 +0000
-Received: from mout.gmx.net ([212.227.15.15])
+	id 1urN9b-0000000GoXI-43I0;
+	Wed, 27 Aug 2025 20:53:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urLf7-0000000Gaul-3WrP;
-	Wed, 27 Aug 2025 19:18:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1756322303; x=1756927103; i=wahrenst@gmx.net;
-	bh=p3EvGsYPSdUdmdUvkl5MeS24W2C/G0WFbApxFo5/qOc=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=lmwOYKh+jaeslL9BQl/2uQyPz+sBPCNHDGk/hwpAzE/cmDc/hncT6+7CmeMIqwjH
-	 995lw0rcWetNpdvdhhXAqXqKZYjYlhKkTAND4MEXykVdN4npk2hZfLjsu5r3O/QN4
-	 XBe//YltRu4W9GOF+mYCs3LrrDoaNYjtNPIklr3Qv4c9ur2MhAuCJhztuRfBLJtcE
-	 X81Vf/nPXUfvNWDnXA2SR5Gnm+25RLbrb6e5lTXgqV5TrZmY9kSwfSRjOhd1xm0XY
-	 /MYMC4NQmFKM7DhNtLfFINnVP+fQecI6iSR1iRTQ9aDkpaazqB6jFqfAKLYCjDV1w
-	 UT3aqrLiuPUq4V8azA==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.105] ([79.235.128.112]) by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1M9Wuk-1uudRb0zwK-005RGB; Wed, 27
- Aug 2025 21:18:23 +0200
-Message-ID: <731ead88-8dc9-4032-86f5-7a2dd5044b22@gmx.net>
-Date: Wed, 27 Aug 2025 21:18:22 +0200
+	id 1urMHP-0000000GgRs-2oCY;
+	Wed, 27 Aug 2025 19:58:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 104DE40A9D;
+	Wed, 27 Aug 2025 19:57:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9B1EC4CEEB;
+	Wed, 27 Aug 2025 19:57:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756324678;
+	bh=vy4jaU+tF4nJ+2/n+HhT0G0kW3maniYcW78uwrPgAQc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ii6ET0wvArOsxX/ssBzb/+H7x9KbZftfTVjf/SXXq4vInYHTqx+iHWGk9SusLNXM8
+	 9M8JLRgUhM+h+7PWPxGKRNDg81FH5AjGacpl9nbf63lJHmieGEU/EV9dVFOHiztk9r
+	 yLffNs4q5n8uhwnSc+/so3sr3s/b3LlpZIKq5YPwx1tjjMKnzMKIUSkqRrpqR9g0oP
+	 E82PXUm9owcegxXN+Hjw40BjDxX21cZaTVKYwY2gJl7jAcWQ08NWeBl2ctSqA9p56T
+	 znFZ/U+3N5oO88nF2YnkSs1sk45Sx+XbR6QU1ECiSSJMalVUM5n/7+89hWJng7Jta4
+	 ydYMGwfNEvSrA==
+Date: Wed, 27 Aug 2025 12:57:53 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Kees Cook <kees@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Kees Cook <kees@outflux.net>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, x86@kernel.org,
+	linux-doc@vger.kernel.org, linux-kbuild@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH 3/5] x86/cfi: Add option for cfi=debug bootparam
+Message-ID: <20250827195753.GB3572128@ax162>
+References: <20250825141316.work.967-kees@kernel.org>
+ <20250825142603.1907143-3-kees@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/5] media: staging: Drop bcm2835-camera driver
-To: Jai Luthra <jai.luthra@ideasonboard.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Ray Jui
- <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>
-Cc: linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev,
- linux-kernel@vger.kernel.org, kernel-list@raspberrypi.com,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-References: <20250827-vchiq-destage-v1-0-5052a0d81c42@ideasonboard.com>
- <20250827-vchiq-destage-v1-4-5052a0d81c42@ideasonboard.com>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <20250827-vchiq-destage-v1-4-5052a0d81c42@ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:gTcoHCCObZRkqK/JpRFi0rryokVUd+KN8KXxriapbHC2RDIBV+j
- +ppKyOSjwlZEH1oVjzRPCVXSRWYrLoxD1G6fF1ToLYfTc8wMjtyLQKxrGTZ1zT80K8UAj5K
- t47YfjgwErJoRKA5lxHtelq+cR3asKtfvfG93h/83yBKCV7Xxu06OsHqNTbeLoJVfX0ZgJG
- L98L6qgTl2u9cPozPY08Q==
-UI-OutboundReport: notjunk:1;M01:P0:nh196u5nQ+4=;R+t4t7R8lar4fn+yFD2oshBNQjP 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 g+pSLnr8BEccb3nBF58nAN9m0gDf
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250825142603.1907143-3-kees@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_121826_179589_89B0E844 
-X-CRM114-Status: UNSURE (   8.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250827_125759_759510_EDE87A7F 
+X-CRM114-Status: GOOD (  31.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,22 +80,204 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jai,
+On Mon, Aug 25, 2025 at 07:25:50AM -0700, Kees Cook wrote:
+> From: Kees Cook <kees@outflux.net>
+> 
+> Add "debug" option for "cfi=" bootparam to get details on early CFI
+> initialization steps. Standardize CFI pr_info() lines to use "CFI:"
+> prefix. Standardize "CFI: Using ..." to always report which CFI mode is
+> being used, regardless of CONFIG_FINEIBT. Document all the "cfi=" options.
+> 
+> Signed-off-by: Kees Cook <kees@outflux.net>
 
-Am 27.08.25 um 08:24 schrieb Jai Luthra:
-> The bcm2835-camera driver is replaced by the V4L2 bcm2835-unicam driver
-> that is already upstream. So drop it from staging.
-AFAIK the old Raspberry Pi Camera V1 isn't supported by V4L2=20
-bcm2835-unicam. Personally i'm fine with this, but this must be clear in=
-=20
-the commit message.Did you already talked to distributions like Redhat &=
-=20
-OpenSuSE about this step?
-> This also simplifies destaging of VCHIQ MMAL, by reducing the users of
-> the MMAL API (this driver is one of them).
-AFAIU this drops the only one user of VCHIQ MMAL. So please explain, why=
-=20
-we still need this API and how this should be tested?
+I am not sure if the x86 maintainers are "patch count adverse" but it
+feels like this would be a little easier to review as four separate
+patches. Every sentence in the commit message is basically its own
+change.
 
-Best regards
+1. The initial documentation for cfi= and its current values.
+2. Standardization of pr_info() calls to use "CFI:"
+3. Adding "CFI: Using" to __apply_fineibt()
+4. Adding cfi=debug
+
+Patch four would become much simpler to understand, especially with
+Peter's suggested change.
+
+> ---
+>  .../admin-guide/kernel-parameters.txt         | 18 +++++++++
+>  arch/x86/kernel/alternative.c                 | 39 +++++++++++++++----
+>  2 files changed, 50 insertions(+), 7 deletions(-)
+> 
+> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+> index 747a55abf494..7b4bddb5a030 100644
+> --- a/Documentation/admin-guide/kernel-parameters.txt
+> +++ b/Documentation/admin-guide/kernel-parameters.txt
+> @@ -608,6 +608,24 @@
+>  	ccw_timeout_log	[S390]
+>  			See Documentation/arch/s390/common_io.rst for details.
+>  
+> +	cfi=		[X86-64] Set Control Flow Integrity checking features
+> +			when CONFIG_FINEIBT is enabled.
+> +			Format: feature[,feature...]
+> +			Default: auto
+> +
+> +			auto:	  Use FineIBT if IBT available, otherwise kCFI.
+> +				  Under FineIBT, enable "paranoid" mode when
+> +				  FRED is not available.
+> +			off:	  Turn off CFI checking.
+> +			kcfi:	  Use kCFI (disable FineIBT).
+> +			fineibt:  Use FineIBT (even if IBT not available).
+> +			norand:   Do not re-randomize CFI hashes.
+> +			paranoid: Add caller hash checking under FineIBT.
+> +			bhi:	  Enable register poisoning to stop speculation
+> +				  across FineIBT. (Disabled by default.)
+> +			warn:	  Do not enforce CFI checking: warn only.
+> +			debug:	  Report CFI initialization details.
+> +
+>  	cgroup_disable=	[KNL] Disable a particular controller or optional feature
+>  			Format: {name of the controller(s) or feature(s) to disable}
+>  			The effects of cgroup_disable=foo are:
+> diff --git a/arch/x86/kernel/alternative.c b/arch/x86/kernel/alternative.c
+> index 7bde68247b5f..5d80ae77c042 100644
+> --- a/arch/x86/kernel/alternative.c
+> +++ b/arch/x86/kernel/alternative.c
+> @@ -1225,6 +1225,7 @@ int cfi_get_func_arity(void *func)
+>  
+>  static bool cfi_rand __ro_after_init = true;
+>  static u32  cfi_seed __ro_after_init;
+> +static bool cfi_debug __ro_after_init;
+>  
+>  /*
+>   * Re-hash the CFI hash with a boot-time seed while making sure the result is
+> @@ -1259,6 +1260,8 @@ static __init int cfi_parse_cmdline(char *str)
+>  		} else if (!strcmp(str, "off")) {
+>  			cfi_mode = CFI_OFF;
+>  			cfi_rand = false;
+> +		} else if (!strcmp(str, "debug")) {
+> +			cfi_debug = true;
+>  		} else if (!strcmp(str, "kcfi")) {
+>  			cfi_mode = CFI_KCFI;
+>  		} else if (!strcmp(str, "fineibt")) {
+> @@ -1266,26 +1269,26 @@ static __init int cfi_parse_cmdline(char *str)
+>  		} else if (!strcmp(str, "norand")) {
+>  			cfi_rand = false;
+>  		} else if (!strcmp(str, "warn")) {
+> -			pr_alert("CFI mismatch non-fatal!\n");
+> +			pr_alert("CFI: mismatch non-fatal!\n");
+>  			cfi_warn = true;
+>  		} else if (!strcmp(str, "paranoid")) {
+>  			if (cfi_mode == CFI_FINEIBT) {
+>  				cfi_paranoid = true;
+>  			} else {
+> -				pr_err("Ignoring paranoid; depends on fineibt.\n");
+> +				pr_err("CFI: ignoring paranoid; depends on fineibt.\n");
+>  			}
+>  		} else if (!strcmp(str, "bhi")) {
+>  #ifdef CONFIG_FINEIBT_BHI
+>  			if (cfi_mode == CFI_FINEIBT) {
+>  				cfi_bhi = true;
+>  			} else {
+> -				pr_err("Ignoring bhi; depends on fineibt.\n");
+> +				pr_err("CFI: ignoring bhi; depends on fineibt.\n");
+>  			}
+>  #else
+> -			pr_err("Ignoring bhi; depends on FINEIBT_BHI=y.\n");
+> +			pr_err("CFI: ignoring bhi; depends on FINEIBT_BHI=y.\n");
+>  #endif
+>  		} else {
+> -			pr_err("Ignoring unknown cfi option (%s).", str);
+> +			pr_err("CFI: Ignoring unknown option (%s).", str);
+
+You lowercase "Ignoring" earlier but not here, intentional? There are a
+couple of other messages that have a capital first letter but not
+others.
+
+>  		}
+>  
+>  		str = next;
+> @@ -1734,6 +1737,8 @@ static void __apply_fineibt(s32 *start_retpoline, s32 *end_retpoline,
+>  	 * rewrite them. This disables all CFI. If this succeeds but any of the
+>  	 * later stages fails, we're without CFI.
+>  	 */
+> +	if (builtin && cfi_debug)
+> +		pr_info("CFI: disabling all indirect call checking\n");
+>  	ret = cfi_disable_callers(start_retpoline, end_retpoline);
+>  	if (ret)
+>  		goto err;
+> @@ -1744,43 +1749,61 @@ static void __apply_fineibt(s32 *start_retpoline, s32 *end_retpoline,
+>  			cfi_bpf_hash = cfi_rehash(cfi_bpf_hash);
+>  			cfi_bpf_subprog_hash = cfi_rehash(cfi_bpf_subprog_hash);
+>  		}
+> +		if (builtin && cfi_debug)
+> +			pr_info("CFI: cfi_seed: 0x%08x\n", cfi_seed);
+>  
+> +		if (builtin && cfi_debug)
+> +			pr_info("CFI: rehashing all preambles\n");
+>  		ret = cfi_rand_preamble(start_cfi, end_cfi);
+>  		if (ret)
+>  			goto err;
+>  
+> +		if (builtin && cfi_debug)
+> +			pr_info("CFI: rehashing all indirect calls\n");
+>  		ret = cfi_rand_callers(start_retpoline, end_retpoline);
+>  		if (ret)
+>  			goto err;
+> +	} else {
+> +		if (builtin && cfi_debug)
+> +			pr_info("CFI: rehashing disabled\n");
+>  	}
+>  
+>  	switch (cfi_mode) {
+>  	case CFI_OFF:
+>  		if (builtin)
+> -			pr_info("Disabling CFI\n");
+> +			pr_info("CFI: disabled\n");
+>  		return;
+>  
+>  	case CFI_KCFI:
+> +		if (builtin && cfi_debug)
+> +			pr_info("CFI: enabling all indirect call checking\n");
+>  		ret = cfi_enable_callers(start_retpoline, end_retpoline);
+>  		if (ret)
+>  			goto err;
+>  
+>  		if (builtin)
+> -			pr_info("Using kCFI\n");
+> +			pr_info("CFI: Using %s kCFI\n",
+> +				cfi_rand ? "rehashed" : "retpoline");
+>  		return;
+>  
+>  	case CFI_FINEIBT:
+> +		if (builtin && cfi_debug)
+> +			pr_info("CFI: adding FineIBT to all preambles\n");
+>  		/* place the FineIBT preamble at func()-16 */
+>  		ret = cfi_rewrite_preamble(start_cfi, end_cfi);
+>  		if (ret)
+>  			goto err;
+>  
+>  		/* rewrite the callers to target func()-16 */
+> +		if (builtin && cfi_debug)
+> +			pr_info("CFI: rewriting indirect call sites to use FineIBT\n");
+>  		ret = cfi_rewrite_callers(start_retpoline, end_retpoline);
+>  		if (ret)
+>  			goto err;
+>  
+>  		/* now that nobody targets func()+0, remove ENDBR there */
+> +		if (builtin && cfi_debug)
+> +			pr_info("CFI: removing old endbr insns\n");
+>  		cfi_rewrite_endbr(start_cfi, end_cfi);
+>  
+>  		if (builtin) {
+> @@ -2005,6 +2028,8 @@ bool decode_fineibt_insn(struct pt_regs *regs, unsigned long *target, u32 *type)
+>  static void __apply_fineibt(s32 *start_retpoline, s32 *end_retpoline,
+>  			    s32 *start_cfi, s32 *end_cfi, bool builtin)
+>  {
+> +	if (builtin)
+> +		pr_info("CFI: Using standard kCFI\n");
+>  }
+>  
+>  #ifdef CONFIG_X86_KERNEL_IBT
+> -- 
+> 2.34.1
+> 
 
