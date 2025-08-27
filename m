@@ -4,67 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D460CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 16:44:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0D24CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 16:47:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cVWA7/9t7WIHYsaNO++ify+VYZ+POD1AlyTl3AoqKHU=; b=zKGRrOBiYX4eEBOPWpDftg7Hrp
-	g9FGbgybhYAgyWPbQfpOzwEmIv1NBMNU0Rr7zGIckN5LYoYQzXdWq7/Hg+5W0KFEetUoAbTf3yws6
-	vtPe27djyatFug8w4TXDbLvS0T3C6qENRHFwaS7/QFOyGegaWySRJq4pmLehJDCQg7NUpT26EPqmB
-	Ptc0kAh0FZ1okkKinmB0YbbqZ+3e91PUUMJjACnIPptOI+fboDWdZJ1wCWoaldAASWwATdWddmIaC
-	JQq8ALNqXNx8U3pDJEsb2MO8xvUU3bbaC3HYRRsJbh9zP7O2PEeqwpbBEAmxnDjMYcFttcPzBAA6b
-	pluAtFCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=F1BUyJVLso5e3sw9oVrEXxJTuPzZqZWk1jkcADSRdMY=; b=0fhCpqRgm0UgbiIxBoB/T1RtmU
+	CMdHl32fPEFDcq7gOtsjcDx2u7KSNlzM66C7Hajc6GWo8O5UWV5jr9DQNCP6rmKxu58mSXZGQXEeR
+	PVStXf2FWihP8MTfT2d+8sWwc4PYf0atC9JsKbPD2IbJq4LggIYXokMooCYM8po2iBXkKFk8jJVOc
+	sh7e62yte3HI/7AEB9PXOj4/C0tOMyXupHMqHBu32rIejkhtEMpSj3ElqAvCucJoerQEFoMbYeOMh
+	AxJFSuB1dHYJf2VujnSEIJznssi1Oes5PzuPD9oG0dMWuBWh60kRDZv+Mp7k+8qd2iNv7N7L6gBWL
+	cU/6AqtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urJGX-0000000GCzy-127b;
-	Wed, 27 Aug 2025 16:44:53 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1urJJD-0000000GDMi-1Tsl;
+	Wed, 27 Aug 2025 16:47:39 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urHDl-0000000Fm2k-09Y3;
-	Wed, 27 Aug 2025 14:33:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=cVWA7/9t7WIHYsaNO++ify+VYZ+POD1AlyTl3AoqKHU=; b=qz0kQ/w4eddMPsO9/yHYoh4riA
-	qY/EY8W3bJ0NGT1YNjHJHJnUhA6arWSx5TFW8UjcNGDegV8pf33NY/i3cbPrplLcz/Ie/xZKktVaV
-	tu1K1n5NE5DuVC8JIKl6tQpBnHxD5QKPMKomp4ocvBDEW2oSyfZa6oO7OGbJDZH2hs42kpK68Mbjf
-	c03pAS2q992aEc8CaUjMN5Pc5lO5aXnrEdQAOlRIR/Mag8efpqKopY5nPlxVwX1XLaeyWfE6RWRl0
-	4Pgp/21XTksLRWlRx8th0qj15pXgjBkuyOSB1HO07J3bLcq2F3ji3pOZrWu18pDteStPf/veVUeS1
-	uBrTB68w==;
-Received: from [49.36.69.233] (helo=uajain)
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1urHDV-002TV8-55; Wed, 27 Aug 2025 16:33:37 +0200
-Date: Wed, 27 Aug 2025 20:03:43 +0530
-From: Umang Jain <uajain@igalia.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Jai Luthra <jai.luthra@ideasonboard.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
-	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org, kernel-list@raspberrypi.com, 
-	Stefan Wahren <wahrenst@gmx.net>, Dave Stevenson <dave.stevenson@raspberrypi.com>
-Subject: Re: [PATCH 1/5] include: linux: Destage VCHIQ interface headers
-Message-ID: <we7tl65ijs44ae2zxfejmvnml3ls2pkfhcp2fqsmvec2eqevwm@yb45fs7nnf5s>
-References: <20250827-vchiq-destage-v1-0-5052a0d81c42@ideasonboard.com>
- <20250827-vchiq-destage-v1-1-5052a0d81c42@ideasonboard.com>
- <20250827124016.GF5650@pendragon.ideasonboard.com>
+	id 1urHEv-0000000FmDl-1qP9;
+	Wed, 27 Aug 2025 14:35:06 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3cd59c5a953so272494f8f.0;
+        Wed, 27 Aug 2025 07:35:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756305304; x=1756910104; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=F1BUyJVLso5e3sw9oVrEXxJTuPzZqZWk1jkcADSRdMY=;
+        b=BEQ3GAlg1EkatbT146T+cuIPoFEB2Y3cyzg5OeyS+zQIAIqpPzQ5GYgG61T/h35yIl
+         ypt0peXyN0apte80et6DNBywQ+dHHcfMPetq97d4vjZwkIm3dFaP7ooemHPt3iCluNsF
+         zw9guvGoXIxdEcp8Ia87F+yvxId18xOYiVL7LN9sQUGACyrT4C6VpvxIsaUzhgECzrJf
+         gWZ8UoCRdLLZ7IiAtVvvRRd7vTVCnpu4ApqNx/RptRj7TmLWXxh/DkbiJgCk2Rcpr3zf
+         iO6+31wHiRA/0JPenN7Ngz6E8HWOWPvJYyZe83LMUgSckNiYEs6oq92rK3FPyCADrC5N
+         6ORA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756305304; x=1756910104;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=F1BUyJVLso5e3sw9oVrEXxJTuPzZqZWk1jkcADSRdMY=;
+        b=vF0Nj0Ulz3Y3Sd2Y1gmtNIY1ggOl0ukZfhvF2gC8G0fLiseyY+rOYbA3hhmdAKka38
+         IH2pvr2pyekcZxfbC65XcSUJj0FyyPY5gPHm2qu8Yyzie1mrA6O6yt/xgq8AGp9NlkFu
+         wBeSHyMUfvrjd9aLTWt/z69o4HP87gL3MxvWrNd/FIq4SWwdZoa02SWnp7ykfhSQpaiU
+         1j4geIc0Vmdx8mlAMM/iDpq/DlQyBssqlkiwm/9aun4RgeCpLTkom5Pz/ehxkXPkYSOu
+         /B+xGwpObrmJbBO4hKRfl1dutpPxo+ulFiZkxvKRNyvIa2be6qm806F1VLyB7+dwthHz
+         NG7w==
+X-Forwarded-Encrypted: i=1; AJvYcCU90K7rt5C1/GW+KsSLnaCyvQf1TD9ID6j2mJQNaiAhpyaT63AY5kbkBEmRNJXrrcVu+YTDKONt34BRHQEwBuw=@lists.infradead.org, AJvYcCWvhQZpx/F2LQryfDjnvMXOvirxeHkg1QKuSP7W3pO2e635ILRfDIZBO2TwboAxeTFnFWPXPGdZoMk4ZatHvLqZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHYbwzCByRnZbPAqRRuRd8OXaoMG6GNi/ssbQeWMFBRoJ01Tjv
+	oiWjgC5RAc91FOVGL4SWAtLLEUS+blUIUYf0hhUd0EkgqMNIJ6CKnWHw
+X-Gm-Gg: ASbGncsZSKm2DiW0qil62ClDmhm/68GjlJ8ZJX0ebbieAwueTpqZEt3XsOe+or4L5Lv
+	6Sa7E+fuJCvlHKPMOo06ODSwkDLKzPnrxOJUMSkLtJlYj/kO1VxZEiw3SwWfTnSCxm43XvTQEUr
+	usnYCPfJ4nTsKWR2eK5IwkbhpAZv2XPgQV/5PMrHj+j+w/SQnXgnLHs/czDl8LxjQbrjetuv9wF
+	XBePUK6LxxnmAJgf0uK5rE+3mpB+YlrxWV+kkCbFHP4/renj7W7dTQDs3qQkrp/LJ6A5zUn0dMe
+	63hGrqB9Ud+1t0hPRguttxAP5UWqppM21srPoA31BOB/wfwCiLlEV+rQF1S3AD9QLBq/AfNtKo8
+	OvBpjCXtsarVDWJ6P1Iz9KrEfxAY8wWW4XZ5TcthAR/rv+Klo5RdUhXegfZ0dSJryQeiBavIzn+
+	ppmGsk/RkcTpwDvZ5e0KYcmkEOjY6r1d3sKG1uJJeW68S+nJal1CnhObA+Xd1/L7E=
+X-Google-Smtp-Source: AGHT+IGkKJ1XhDqK4M+m0K4FkEys/uX4rfEbc6c/Gcwva4PyVBgFs99pGKTiljPLXjMWH46PmsM14Q==
+X-Received: by 2002:a5d:5d08:0:b0:3c5:20d3:6041 with SMTP id ffacd0b85a97d-3c5dc54071emr16944872f8f.41.1756305303612;
+        Wed, 27 Aug 2025 07:35:03 -0700 (PDT)
+Received: from cypher.home.roving-it.com (7.9.7.f.b.1.3.0.b.8.f.0.9.e.0.0.1.8.6.2.1.1.b.f.0.b.8.0.1.0.0.2.ip6.arpa. [2001:8b0:fb11:2681:e9:f8b:31b:f797])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3c70e4ba046sm22750178f8f.1.2025.08.27.07.35.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 Aug 2025 07:35:03 -0700 (PDT)
+From: Peter Robinson <pbrobinson@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Diederik de Haas <didi.debian@cknow.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Dragan Simic <dsimic@manjaro.org>,
+	Ondrej Jirman <megi@xff.cz>
+Cc: Peter Robinson <pbrobinson@gmail.com>
+Subject: [PATCH] arm64: dts: rockchip: Add vcc-supply to SPI flash on Pinephone Pro
+Date: Wed, 27 Aug 2025 15:34:58 +0100
+Message-ID: <20250827143501.1646163-1-pbrobinson@gmail.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250827124016.GF5650@pendragon.ideasonboard.com>
-User-Agent: NeoMutt/20250510-dirty
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_073355_319947_A5D9ED1A 
-X-CRM114-Status: GOOD (  29.16  )
+X-CRM114-CacheID: sfid-20250827_073505_476368_D36C882B 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,307 +104,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 27, 2025 at 02:40:16PM +0200, Laurent Pinchart wrote:
-> Hi Jai,
-> 
-> Thank you for the patch.
-> 
-> On Wed, Aug 27, 2025 at 11:54:08AM +0530, Jai Luthra wrote:
-> > From: Umang Jain <umang.jain@ideasonboard.com>
-> > 
-> > Move the VCHIQ headers from drivers/staging/vc04_services/include to
-> > include/linux/vchiq
-> > 
-> > This is done so that they can be shared between the VCHIQ interface
-> > (which is going to be de-staged in a subsequent commit from staging)
-> > and the VCHIQ drivers left in the staging/vc04_services (namely
-> > bcm2835-audio, bcm2835-camera).
-> > 
-> > The include/linux/vchiq/ provides a central location to serve both
-> > of these areas.
-> 
-> Lots of SoC-specific headers are stored in include/linux/soc/$vendor/.
-> This would be include/linux/soc/bcm/vchiq/ in this case. I'm also fine
-> with include/linux/vchiq/ but other people may have a preference.
+As documented in the PinephonePro-Schematic-V1.0-20211127.pdf,
+page 11, the SPI Flash's VCC pin is connected to VCC_1V8 power
+source. This fixes the following warning:
 
-I agree with this point and I might have missed to notice the
-include/linux/soc earlier. That's seems a better location to me since
-it's actually broadcom-specific.
+  spi-nor spi1.0: supply vcc not found, using dummy regulator
 
-> 
-> > Signed-off-by: Umang Jain <umang.jain@ideasonboard.com>
-> > Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
+Signed-off-by: Peter Robinson <pbrobinson@gmail.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts | 1 +
+ 1 file changed, 1 insertion(+)
 
-And thanks for taking this over!
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+index be90e049a302c..24e4365a2e588 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+@@ -772,6 +772,7 @@ flash@0 {
+ 		compatible = "jedec,spi-nor";
+ 		reg = <0>;
+ 		spi-max-frequency = <10000000>;
++		vcc-supply = <&vcc_1v8>;
+ 	};
+ };
+ 
+-- 
+2.51.0
 
-> > ---
-> >  MAINTAINERS                                                      | 1 +
-> >  drivers/staging/vc04_services/bcm2835-audio/bcm2835-vchiq.c      | 5 +++--
-> >  drivers/staging/vc04_services/bcm2835-audio/bcm2835.c            | 3 ++-
-> >  drivers/staging/vc04_services/bcm2835-audio/bcm2835.h            | 3 +--
-> >  drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c    | 3 ++-
-> >  drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c    | 9 +++++----
-> >  drivers/staging/vc04_services/interface/vchiq_arm/vchiq_bus.c    | 4 ++--
-> >  drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c   | 4 ++--
-> >  .../staging/vc04_services/interface/vchiq_arm/vchiq_debugfs.c    | 6 +++---
-> >  drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c    | 7 ++++---
-> >  drivers/staging/vc04_services/interface/vchiq_arm/vchiq_ioctl.h  | 3 +--
-> >  drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c            | 5 +++--
-> >  .../include/linux/raspberrypi => include/linux/vchiq}/vchiq.h    | 0
-> >  .../interface/vchiq_arm => include/linux/vchiq}/vchiq_arm.h      | 0
-> >  .../interface/vchiq_arm => include/linux/vchiq}/vchiq_bus.h      | 0
-> >  .../interface/vchiq_arm => include/linux/vchiq}/vchiq_cfg.h      | 0
-> >  .../interface/vchiq_arm => include/linux/vchiq}/vchiq_core.h     | 2 +-
-> >  .../interface/vchiq_arm => include/linux/vchiq}/vchiq_debugfs.h  | 0
-> >  18 files changed, 30 insertions(+), 25 deletions(-)
-> > 
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index fe168477caa45799dfe07de2f54de6d6a1ce0615..f17ebb1fa51bd7e4dcb2ae1b0fced6d41685dc84 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -4754,6 +4754,7 @@ T:	git https://github.com/broadcom/stblinux.git
-> >  F:	Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
-> >  F:	drivers/pci/controller/pcie-brcmstb.c
-> >  F:	drivers/staging/vc04_services
-> > +F:	include/linux/vchiq
-> >  N:	bcm2711
-> >  N:	bcm2712
-> >  N:	bcm283*
-> > diff --git a/drivers/staging/vc04_services/bcm2835-audio/bcm2835-vchiq.c b/drivers/staging/vc04_services/bcm2835-audio/bcm2835-vchiq.c
-> > index 0dbe76ee557032d7861acfc002cc203ff2e6971d..c49f2f7409b84ed6ebdd71787566efb1bc230f55 100644
-> > --- a/drivers/staging/vc04_services/bcm2835-audio/bcm2835-vchiq.c
-> > +++ b/drivers/staging/vc04_services/bcm2835-audio/bcm2835-vchiq.c
-> > @@ -4,11 +4,12 @@
-> >  #include <linux/slab.h>
-> >  #include <linux/module.h>
-> >  #include <linux/completion.h>
-> > +
-> > +#include <linux/vchiq/vchiq_arm.h>
-> 
-> You can group this with the other headers above (ideally in alphabetical
-> order when #include statements are already sorted). Same comment where
-> applicable below.
-> 
-> With that,
-> 
-> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> 
-> > +
-> >  #include "bcm2835.h"
-> >  #include "vc_vchi_audioserv_defs.h"
-> >  
-> > -#include "../interface/vchiq_arm/vchiq_arm.h"
-> > -
-> >  struct bcm2835_audio_instance {
-> >  	struct device *dev;
-> >  	unsigned int service_handle;
-> > diff --git a/drivers/staging/vc04_services/bcm2835-audio/bcm2835.c b/drivers/staging/vc04_services/bcm2835-audio/bcm2835.c
-> > index b74cb104e9de00e7688a320949111a419cca084a..5011720940715c12a2d2fe58b40ed84dcb2e6824 100644
-> > --- a/drivers/staging/vc04_services/bcm2835-audio/bcm2835.c
-> > +++ b/drivers/staging/vc04_services/bcm2835-audio/bcm2835.c
-> > @@ -6,7 +6,8 @@
-> >  #include <linux/slab.h>
-> >  #include <linux/module.h>
-> >  
-> > -#include "../interface/vchiq_arm/vchiq_bus.h"
-> > +#include <linux/vchiq/vchiq_bus.h>
-> > +
-> >  #include "bcm2835.h"
-> >  
-> >  static bool enable_hdmi;
-> > diff --git a/drivers/staging/vc04_services/bcm2835-audio/bcm2835.h b/drivers/staging/vc04_services/bcm2835-audio/bcm2835.h
-> > index 49ec5b496edb4ba8634171b1390c4e15181e4048..7e63ef251c37269032fc20ae1237855245e5e0a7 100644
-> > --- a/drivers/staging/vc04_services/bcm2835-audio/bcm2835.h
-> > +++ b/drivers/staging/vc04_services/bcm2835-audio/bcm2835.h
-> > @@ -5,13 +5,12 @@
-> >  #define __SOUND_ARM_BCM2835_H
-> >  
-> >  #include <linux/device.h>
-> > +#include <linux/vchiq/vchiq.h>
-> >  #include <linux/wait.h>
-> >  #include <sound/core.h>
-> >  #include <sound/pcm.h>
-> >  #include <sound/pcm-indirect.h>
-> >  
-> > -#include "../include/linux/raspberrypi/vchiq.h"
-> > -
-> >  #define MAX_SUBSTREAMS   (8)
-> >  #define AVAIL_SUBSTREAMS_MASK  (0xff)
-> >  
-> > diff --git a/drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c b/drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c
-> > index fa7ea4ca4c36f4ec7f76f6ffbea9f45205116bb8..fcbbe1aa60b768e5a7a08a131f595a0457f4473a 100644
-> > --- a/drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c
-> > +++ b/drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c
-> > @@ -26,7 +26,8 @@
-> >  #include <media/v4l2-common.h>
-> >  #include <linux/delay.h>
-> >  
-> > -#include "../interface/vchiq_arm/vchiq_bus.h"
-> > +#include <linux/vchiq/vchiq_bus.h>
-> > +
-> >  #include "../vchiq-mmal/mmal-common.h"
-> >  #include "../vchiq-mmal/mmal-encodings.h"
-> >  #include "../vchiq-mmal/mmal-vchiq.h"
-> > diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
-> > index 721b15b7e13b9f25cee7619575bbfa1a4734cce8..10138c1454dd7fdcbab6b95ea41f8e1ac2defc4b 100644
-> > --- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
-> > +++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
-> > @@ -30,11 +30,12 @@
-> >  #include <linux/uaccess.h>
-> >  #include <soc/bcm2835/raspberrypi-firmware.h>
-> >  
-> > -#include "vchiq_core.h"
-> > +#include <linux/vchiq/vchiq_core.h>
-> > +#include <linux/vchiq/vchiq_arm.h>
-> > +#include <linux/vchiq/vchiq_bus.h>
-> > +#include <linux/vchiq/vchiq_debugfs.h>
-> > +
-> >  #include "vchiq_ioctl.h"
-> > -#include "vchiq_arm.h"
-> > -#include "vchiq_bus.h"
-> > -#include "vchiq_debugfs.h"
-> >  
-> >  #define DEVICE_NAME "vchiq"
-> >  
-> > diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_bus.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_bus.c
-> > index 41ece91ab88aa647a348910a0b913d0b28a8c761..5d55dbff82150a84b15483e71718c48f5cb8caea 100644
-> > --- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_bus.c
-> > +++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_bus.c
-> > @@ -11,8 +11,8 @@
-> >  #include <linux/slab.h>
-> >  #include <linux/string.h>
-> >  
-> > -#include "vchiq_arm.h"
-> > -#include "vchiq_bus.h"
-> > +#include <linux/vchiq/vchiq_arm.h>
-> > +#include <linux/vchiq/vchiq_bus.h>
-> >  
-> >  static int vchiq_bus_type_match(struct device *dev, const struct device_driver *drv)
-> >  {
-> > diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
-> > index e2cac0898b8faa3c255de6b8562c7096a9683c49..ac0379f5f45dfa331dc2fec8d580d176f931cf2b 100644
-> > --- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
-> > +++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
-> > @@ -15,8 +15,8 @@
-> >  #include <linux/rcupdate.h>
-> >  #include <linux/sched/signal.h>
-> >  
-> > -#include "vchiq_arm.h"
-> > -#include "vchiq_core.h"
-> > +#include <linux/vchiq/vchiq_arm.h>
-> > +#include <linux/vchiq/vchiq_core.h>
-> >  
-> >  #define VCHIQ_SLOT_HANDLER_STACK 8192
-> >  
-> > diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_debugfs.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_debugfs.c
-> > index d5f7f61c5626934b819e8ff322e22ae3d6158b31..b1a8f1abafc2fa83132b1a02ba343d71315950de 100644
-> > --- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_debugfs.c
-> > +++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_debugfs.c
-> > @@ -5,9 +5,9 @@
-> >   */
-> >  
-> >  #include <linux/debugfs.h>
-> > -#include "vchiq_core.h"
-> > -#include "vchiq_arm.h"
-> > -#include "vchiq_debugfs.h"
-> > +#include <linux/vchiq/vchiq_core.h>
-> > +#include <linux/vchiq/vchiq_arm.h>
-> > +#include <linux/vchiq/vchiq_debugfs.h>
-> >  
-> >  #ifdef CONFIG_DEBUG_FS
-> >  
-> > diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c
-> > index 3b20ba5c736221ce1cacfc9ce86eca623382a30b..781d6dd64ee33816b52b62f1f25bcd33363d8e02 100644
-> > --- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c
-> > +++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c
-> > @@ -11,10 +11,11 @@
-> >  #include <linux/compat.h>
-> >  #include <linux/miscdevice.h>
-> >  
-> > -#include "vchiq_core.h"
-> > +#include <linux/vchiq/vchiq_core.h>
-> > +#include <linux/vchiq/vchiq_arm.h>
-> > +#include <linux/vchiq/vchiq_debugfs.h>
-> > +
-> >  #include "vchiq_ioctl.h"
-> > -#include "vchiq_arm.h"
-> > -#include "vchiq_debugfs.h"
-> >  
-> >  static const char *const ioctl_names[] = {
-> >  	"CONNECT",
-> > diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_ioctl.h b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_ioctl.h
-> > index afb71a83cfe7035e5dd61003fa99fd514ca18047..638469f18f859a0c7e738ef5bed7bf3c3ebebe59 100644
-> > --- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_ioctl.h
-> > +++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_ioctl.h
-> > @@ -5,8 +5,7 @@
-> >  #define VCHIQ_IOCTLS_H
-> >  
-> >  #include <linux/ioctl.h>
-> > -
-> > -#include "../../include/linux/raspberrypi/vchiq.h"
-> > +#include <linux/vchiq/vchiq.h>
-> >  
-> >  #define VCHIQ_IOC_MAGIC 0xc4
-> >  #define VCHIQ_INVALID_HANDLE (~0)
-> > diff --git a/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c b/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c
-> > index 3fe482bd279390a7586c49bde00f38c61558ca8e..f5e141908b0f91ca4172d48aee37f0329d239d7c 100644
-> > --- a/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c
-> > +++ b/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c
-> > @@ -22,11 +22,12 @@
-> >  #include <linux/mm.h>
-> >  #include <linux/slab.h>
-> >  #include <linux/completion.h>
-> > +#include <linux/vchiq/vchiq.h>
-> >  #include <linux/vmalloc.h>
-> >  #include <media/videobuf2-vmalloc.h>
-> >  
-> > -#include "../include/linux/raspberrypi/vchiq.h"
-> > -#include "../interface/vchiq_arm/vchiq_arm.h"
-> > +#include <linux/vchiq/vchiq_arm.h>
-> > +
-> >  #include "mmal-common.h"
-> >  #include "mmal-vchiq.h"
-> >  #include "mmal-msg.h"
-> > diff --git a/drivers/staging/vc04_services/include/linux/raspberrypi/vchiq.h b/include/linux/vchiq/vchiq.h
-> > similarity index 100%
-> > rename from drivers/staging/vc04_services/include/linux/raspberrypi/vchiq.h
-> > rename to include/linux/vchiq/vchiq.h
-> > diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.h b/include/linux/vchiq/vchiq_arm.h
-> > similarity index 100%
-> > rename from drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.h
-> > rename to include/linux/vchiq/vchiq_arm.h
-> > diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_bus.h b/include/linux/vchiq/vchiq_bus.h
-> > similarity index 100%
-> > rename from drivers/staging/vc04_services/interface/vchiq_arm/vchiq_bus.h
-> > rename to include/linux/vchiq/vchiq_bus.h
-> > diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_cfg.h b/include/linux/vchiq/vchiq_cfg.h
-> > similarity index 100%
-> > rename from drivers/staging/vc04_services/interface/vchiq_arm/vchiq_cfg.h
-> > rename to include/linux/vchiq/vchiq_cfg.h
-> > diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h b/include/linux/vchiq/vchiq_core.h
-> > similarity index 99%
-> > rename from drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
-> > rename to include/linux/vchiq/vchiq_core.h
-> > index 9b4e766990a493d6e9d4e0604f2c84f4e7b77804..dbcb19e7a6d39b94967261c4ab23d6325e999249 100644
-> > --- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
-> > +++ b/include/linux/vchiq/vchiq_core.h
-> > @@ -15,7 +15,7 @@
-> >  #include <linux/spinlock_types.h>
-> >  #include <linux/wait.h>
-> >  
-> > -#include "../../include/linux/raspberrypi/vchiq.h"
-> > +#include "vchiq.h"
-> >  #include "vchiq_cfg.h"
-> >  
-> >  /* Do this so that we can test-build the code on non-rpi systems */
-> > diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_debugfs.h b/include/linux/vchiq/vchiq_debugfs.h
-> > similarity index 100%
-> > rename from drivers/staging/vc04_services/interface/vchiq_arm/vchiq_debugfs.h
-> > rename to include/linux/vchiq/vchiq_debugfs.h
-> > 
-> 
-> -- 
-> Regards,
-> 
-> Laurent Pinchart
 
