@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9780CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 17:20:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E99E6CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 17:23:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Hwyra7C8FHuLot8oxIXu4t2ORLvQks5XybEyadgNba8=; b=EBe8EKopJtZ3elZ+axoCO5rxks
-	OTNyUKoBF/zZ/o2/k81/9QR+Un3lcGpUAEX8CJoSyEyGkSfQlvA897yIhhIpaQ208tftISr5a2kR8
-	hvi4FkFv9WtsLULIWY2+lIVXFJL23dGG2lWe8jy6niTZrDViFwIhP5e7SOLjvCPYQywpega+8FaGW
-	p5gHMY0ddM7gNrDR+RwyR/xH94n1E2aNQgGom4S4gJkv2+bajJOFYvjmpyTuC+HYwPmy39N/tySFd
-	n1AmlBXaIjwAAl6ckRR9KysGYqoe0OoiUHcDh7DdQSo4SkeSWfclXjPao4WdHcPVUqr1zgCPjH15S
-	MKR5ikeQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w5TyIdsov4oKuZJKkDikg3+KbiJl+doqq5k3nNGAqnw=; b=SsAGR8cpX9pwIRZj3guJdbeqyk
+	szpRlz6Fb19/beLZ5+EdKTgTIgFDStI4ggM9hvIdtirUGnJyH27NTJLWhrlcPvZHUh78pZJrzZ0L2
+	8kmrJKxeHnQKRx58J9kKeedAQ1YWiUFkB3Ym0NduQZpJugV/IfA2BmkeI8Wy7JTMFtQS6k039PlNX
+	mV2Y6z1+NoZBxk9zmvfj23d4yE8yOOUSNxms311hhad9poPkp3MluaTu6Wp2AYQpqOAzRnBI5v7jN
+	vRjX9dyr0CWeq3cSi+Ymi/FMNPpYRprH7wHi7uhyMp6Mc52m593CCjBrpYFUynbvbDzb0BMe0G83u
+	m8r62sjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urJpF-0000000GIUa-1kIo;
-	Wed, 27 Aug 2025 17:20:45 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1urJru-0000000GIhr-12JV;
+	Wed, 27 Aug 2025 17:23:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urHrU-0000000Fsf1-34Ql
+	id 1urHrW-0000000FsgY-1JCj
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 27 Aug 2025 15:14:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6A9BD44483;
-	Wed, 27 Aug 2025 15:14:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2828C4CEF6;
-	Wed, 27 Aug 2025 15:14:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BDB3160266;
+	Wed, 27 Aug 2025 15:14:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4ECD4C4CEF9;
+	Wed, 27 Aug 2025 15:14:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756307696;
-	bh=mmDQNPS9N5kMegbUh98Cgx00yLXbX56h4s2EcF4EV4Y=;
-	h=From:To:Cc:Subject:Date:From;
-	b=iKx/Fpg87a2VhaG0WubP4cHM/IYbhWbeYvhBXzhx9iNXTq5x2TF7WtKoXZ4B/FJ9Y
-	 yBJrxXQ8fNz7vSC4mZaHpQLDBbL3A+69b8N4ejyM8SljsYgEicVF4bJKfbuPTm0z+G
-	 gZOS9keQyYN/vet5X+P+Sr957ovqgH1OYpGAbtgJhabk9p8M2pIqi/hmk1FszGZwDk
-	 BfZh/fj/iDrFIjrAhYGeOopf6ByJrCXAPAKSyoj2bmZxRdCBeJKi2DviJirzgn28Fw
-	 BDBQTbcTcC1AAlnhLUNDcYBbikjVYIT70dRSqbRjNWj9znZENaFCJcOXFg+wEGBc5f
-	 6ZlCmaoXutUsQ==
+	s=k20201202; t=1756307697;
+	bh=5zPEaJIPs9FP9Z3db1Xao92WGzZwgzaULtvXVWtymkk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=mJq7KQg563aA9KxgOuA2cg9yHt+bGO4EmyKdT72BXkIjYCFlSMCErB4lMrPirrO8T
+	 Z37k8x81IpvbB0lTRaexYKLwFx2YtL9nFpHfnmlKBZPmmf0sUL3h2uHjDB/2kywt8u
+	 vVGg6C+HcbfyPsWWmC/qG2NHLt6FphiRSBvhkjioa/35UvumlGdUEhL97L2Wlh8Yeg
+	 6LB4ei6VmKsyJRTkj1Rm4mkT9O9GJQAP6zubtT5HL/nMyYTqlPMhhix5YseYjbxA1G
+	 Rwf3jSYP1vyaHN63Ns7Mq2UAEYHIof85IJhCQMWJpbrFzDxElOCAjdSqTtLCbk579f
+	 ntJhFpRRsGWwg==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -50,15 +50,14 @@ Cc: linux-kernel@vger.kernel.org,
 	x86@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 00/12] ChaCha and BLAKE2s cleanups
-Date: Wed, 27 Aug 2025 08:11:19 -0700
-Message-ID: <20250827151131.27733-1-ebiggers@kernel.org>
+Subject: [PATCH 03/12] lib/crypto: chacha: Remove unused function chacha_is_arch_optimized()
+Date: Wed, 27 Aug 2025 08:11:22 -0700
+Message-ID: <20250827151131.27733-4-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250827151131.27733-1-ebiggers@kernel.org>
+References: <20250827151131.27733-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_081456_816647_E277DCA0 
-X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,124 +72,183 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series is targeting libcrypto-next.  It can also be retrieved from:
+chacha_is_arch_optimized() is no longer used, so remove it.
 
-    git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git chacha-blake2s-v1
+Signed-off-by: Eric Biggers <ebiggers@kernel.org>
+---
+ include/crypto/chacha.h                | 9 ---------
+ lib/crypto/arm/chacha-glue.c           | 7 -------
+ lib/crypto/arm64/chacha-neon-glue.c    | 6 ------
+ lib/crypto/mips/chacha-glue.c          | 6 ------
+ lib/crypto/powerpc/chacha-p10-glue.c   | 6 ------
+ lib/crypto/riscv/chacha-riscv64-glue.c | 6 ------
+ lib/crypto/s390/chacha-glue.c          | 6 ------
+ lib/crypto/x86/chacha_glue.c           | 6 ------
+ 8 files changed, 52 deletions(-)
 
-This series consolidates how the ChaCha and BLAKE2s code is organized.
-This is essentially the same change that I made to the other algorithms,
-so this should be fairly boring by now.
-
-These algorithms were the last two users of
-lib/crypto/$(SRCARCH)/{Makefile,Kconfig}.  So this series removes all
-those files, finishing the transition to the centralized build process
-(at least for the algorithms supported by lib/crypto/ so far).
-
-This series also makes the arch-optimized BLAKE2s code start being
-enabled by default, again following the pattern of the other algorithms.
-
-Finally, it adds a KUnit test suite for BLAKE2s and deletes the older
-blake2s-selftest.
-
-Eric Biggers (12):
-  arm: configs: Remove obsolete assignments to CRYPTO_CHACHA20_NEON
-  crypto: chacha - register only "-lib" drivers
-  lib/crypto: chacha: Remove unused function chacha_is_arch_optimized()
-  lib/crypto: chacha: Rename chacha.c to chacha-block-generic.c
-  lib/crypto: chacha: Rename libchacha.c to chacha.c
-  lib/crypto: chacha: Consolidate into single module
-  lib/crypto: x86/blake2s: Reduce size of BLAKE2S_SIGMA2
-  lib/crypto: blake2s: Remove obsolete self-test
-  lib/crypto: blake2s: Always enable arch-optimized BLAKE2s code
-  lib/crypto: blake2s: Move generic code into blake2s.c
-  lib/crypto: blake2s: Consolidate into single C translation unit
-  lib/crypto: tests: Add KUnit tests for BLAKE2s
-
- arch/arm/configs/exynos_defconfig             |   1 -
- arch/arm/configs/milbeaut_m10v_defconfig      |   1 -
- arch/arm/configs/multi_v7_defconfig           |   1 -
- arch/arm/configs/omap2plus_defconfig          |   1 -
- crypto/Kconfig                                |   1 -
- crypto/chacha.c                               | 129 +---
- crypto/testmgr.c                              |   9 +-
- include/crypto/chacha.h                       |  37 +-
- include/crypto/internal/blake2s.h             |  21 -
- lib/crypto/Kconfig                            |  74 +-
- lib/crypto/Makefile                           |  57 +-
- lib/crypto/arm/Kconfig                        |  19 -
- lib/crypto/arm/Makefile                       |   8 -
- lib/crypto/arm/blake2s-core.S                 |   5 +-
- lib/crypto/arm/blake2s-glue.c                 |   7 -
- lib/crypto/arm/blake2s.h                      |   5 +
- lib/crypto/arm/{chacha-glue.c => chacha.h}    |  35 +-
- lib/crypto/arm64/Kconfig                      |   8 -
- lib/crypto/arm64/Makefile                     |   4 -
- .../arm64/{chacha-neon-glue.c => chacha.h}    |  32 +-
- lib/crypto/blake2s-generic.c                  | 111 ---
- lib/crypto/blake2s-selftest.c                 | 651 ------------------
- lib/crypto/blake2s.c                          | 105 ++-
- lib/crypto/chacha-block-generic.c             | 114 +++
- lib/crypto/chacha.c                           | 142 ++--
- lib/crypto/libchacha.c                        |  35 -
- lib/crypto/mips/Kconfig                       |   7 -
- lib/crypto/mips/Makefile                      |   5 -
- lib/crypto/mips/chacha-glue.c                 |  29 -
- lib/crypto/mips/chacha.h                      |  14 +
- lib/crypto/powerpc/Kconfig                    |   8 -
- lib/crypto/powerpc/Makefile                   |   4 -
- .../powerpc/{chacha-p10-glue.c => chacha.h}   |  36 +-
- lib/crypto/riscv/Kconfig                      |   8 -
- lib/crypto/riscv/Makefile                     |   4 -
- .../riscv/{chacha-riscv64-glue.c => chacha.h} |  36 +-
- lib/crypto/s390/Kconfig                       |   7 -
- lib/crypto/s390/Makefile                      |   4 -
- lib/crypto/s390/{chacha-glue.c => chacha.h}   |  29 +-
- lib/crypto/tests/Kconfig                      |  10 +
- lib/crypto/tests/Makefile                     |   1 +
- lib/crypto/tests/blake2s-testvecs.h           | 238 +++++++
- lib/crypto/tests/blake2s_kunit.c              | 134 ++++
- lib/crypto/x86/Kconfig                        |  20 -
- lib/crypto/x86/Makefile                       |   7 -
- lib/crypto/x86/blake2s-core.S                 |  28 +-
- lib/crypto/x86/{blake2s-glue.c => blake2s.h}  |  16 +-
- lib/crypto/x86/{chacha_glue.c => chacha.h}    |  36 +-
- scripts/crypto/gen-hash-testvecs.py           |  27 +-
- 49 files changed, 840 insertions(+), 1481 deletions(-)
- delete mode 100644 include/crypto/internal/blake2s.h
- delete mode 100644 lib/crypto/arm/Kconfig
- delete mode 100644 lib/crypto/arm/Makefile
- delete mode 100644 lib/crypto/arm/blake2s-glue.c
- create mode 100644 lib/crypto/arm/blake2s.h
- rename lib/crypto/arm/{chacha-glue.c => chacha.h} (76%)
- delete mode 100644 lib/crypto/arm64/Kconfig
- delete mode 100644 lib/crypto/arm64/Makefile
- rename lib/crypto/arm64/{chacha-neon-glue.c => chacha.h} (75%)
- delete mode 100644 lib/crypto/blake2s-generic.c
- delete mode 100644 lib/crypto/blake2s-selftest.c
- create mode 100644 lib/crypto/chacha-block-generic.c
- delete mode 100644 lib/crypto/libchacha.c
- delete mode 100644 lib/crypto/mips/Kconfig
- delete mode 100644 lib/crypto/mips/Makefile
- delete mode 100644 lib/crypto/mips/chacha-glue.c
- create mode 100644 lib/crypto/mips/chacha.h
- delete mode 100644 lib/crypto/powerpc/Kconfig
- delete mode 100644 lib/crypto/powerpc/Makefile
- rename lib/crypto/powerpc/{chacha-p10-glue.c => chacha.h} (62%)
- delete mode 100644 lib/crypto/riscv/Kconfig
- delete mode 100644 lib/crypto/riscv/Makefile
- rename lib/crypto/riscv/{chacha-riscv64-glue.c => chacha.h} (57%)
- delete mode 100644 lib/crypto/s390/Kconfig
- delete mode 100644 lib/crypto/s390/Makefile
- rename lib/crypto/s390/{chacha-glue.c => chacha.h} (51%)
- create mode 100644 lib/crypto/tests/blake2s-testvecs.h
- create mode 100644 lib/crypto/tests/blake2s_kunit.c
- delete mode 100644 lib/crypto/x86/Kconfig
- delete mode 100644 lib/crypto/x86/Makefile
- rename lib/crypto/x86/{blake2s-glue.c => blake2s.h} (83%)
- rename lib/crypto/x86/{chacha_glue.c => chacha.h} (85%)
-
-
-base-commit: 44781c45f26623c3b92b28e933bf349144c10fe6
+diff --git a/include/crypto/chacha.h b/include/crypto/chacha.h
+index 91f6b4cf561c7..be25a0b65a05f 100644
+--- a/include/crypto/chacha.h
++++ b/include/crypto/chacha.h
+@@ -117,15 +117,6 @@ static inline void chacha20_crypt(struct chacha_state *state,
+ static inline void chacha_zeroize_state(struct chacha_state *state)
+ {
+ 	memzero_explicit(state, sizeof(*state));
+ }
+ 
+-#if IS_ENABLED(CONFIG_CRYPTO_ARCH_HAVE_LIB_CHACHA)
+-bool chacha_is_arch_optimized(void);
+-#else
+-static inline bool chacha_is_arch_optimized(void)
+-{
+-	return false;
+-}
+-#endif
+-
+ #endif /* _CRYPTO_CHACHA_H */
+diff --git a/lib/crypto/arm/chacha-glue.c b/lib/crypto/arm/chacha-glue.c
+index 88ec964152831..67ba045cae359 100644
+--- a/lib/crypto/arm/chacha-glue.c
++++ b/lib/crypto/arm/chacha-glue.c
+@@ -99,17 +99,10 @@ void chacha_crypt_arch(struct chacha_state *state, u8 *dst, const u8 *src,
+ 		dst += todo;
+ 	} while (bytes);
+ }
+ EXPORT_SYMBOL(chacha_crypt_arch);
+ 
+-bool chacha_is_arch_optimized(void)
+-{
+-	/* We always can use at least the ARM scalar implementation. */
+-	return true;
+-}
+-EXPORT_SYMBOL(chacha_is_arch_optimized);
+-
+ static int __init chacha_arm_mod_init(void)
+ {
+ 	if (IS_ENABLED(CONFIG_KERNEL_MODE_NEON) && (elf_hwcap & HWCAP_NEON)) {
+ 		switch (read_cpuid_part()) {
+ 		case ARM_CPU_PART_CORTEX_A7:
+diff --git a/lib/crypto/arm64/chacha-neon-glue.c b/lib/crypto/arm64/chacha-neon-glue.c
+index d0188f974ca5c..48097aa34af7c 100644
+--- a/lib/crypto/arm64/chacha-neon-glue.c
++++ b/lib/crypto/arm64/chacha-neon-glue.c
+@@ -93,16 +93,10 @@ void chacha_crypt_arch(struct chacha_state *state, u8 *dst, const u8 *src,
+ 		dst += todo;
+ 	} while (bytes);
+ }
+ EXPORT_SYMBOL(chacha_crypt_arch);
+ 
+-bool chacha_is_arch_optimized(void)
+-{
+-	return static_key_enabled(&have_neon);
+-}
+-EXPORT_SYMBOL(chacha_is_arch_optimized);
+-
+ static int __init chacha_simd_mod_init(void)
+ {
+ 	if (cpu_have_named_feature(ASIMD))
+ 		static_branch_enable(&have_neon);
+ 	return 0;
+diff --git a/lib/crypto/mips/chacha-glue.c b/lib/crypto/mips/chacha-glue.c
+index 88c097594eb0f..f8390af21dc92 100644
+--- a/lib/crypto/mips/chacha-glue.c
++++ b/lib/crypto/mips/chacha-glue.c
+@@ -16,14 +16,8 @@ EXPORT_SYMBOL(chacha_crypt_arch);
+ 
+ asmlinkage void hchacha_block_arch(const struct chacha_state *state,
+ 				   u32 out[HCHACHA_OUT_WORDS], int nrounds);
+ EXPORT_SYMBOL(hchacha_block_arch);
+ 
+-bool chacha_is_arch_optimized(void)
+-{
+-	return true;
+-}
+-EXPORT_SYMBOL(chacha_is_arch_optimized);
+-
+ MODULE_DESCRIPTION("ChaCha and HChaCha functions (MIPS optimized)");
+ MODULE_AUTHOR("Ard Biesheuvel <ard.biesheuvel@linaro.org>");
+ MODULE_LICENSE("GPL v2");
+diff --git a/lib/crypto/powerpc/chacha-p10-glue.c b/lib/crypto/powerpc/chacha-p10-glue.c
+index fcd23c6f1590b..5d3d5506d7f94 100644
+--- a/lib/crypto/powerpc/chacha-p10-glue.c
++++ b/lib/crypto/powerpc/chacha-p10-glue.c
+@@ -74,16 +74,10 @@ void chacha_crypt_arch(struct chacha_state *state, u8 *dst, const u8 *src,
+ 		dst += todo;
+ 	} while (bytes);
+ }
+ EXPORT_SYMBOL(chacha_crypt_arch);
+ 
+-bool chacha_is_arch_optimized(void)
+-{
+-	return static_key_enabled(&have_p10);
+-}
+-EXPORT_SYMBOL(chacha_is_arch_optimized);
+-
+ static int __init chacha_p10_init(void)
+ {
+ 	if (cpu_has_feature(CPU_FTR_ARCH_31))
+ 		static_branch_enable(&have_p10);
+ 	return 0;
+diff --git a/lib/crypto/riscv/chacha-riscv64-glue.c b/lib/crypto/riscv/chacha-riscv64-glue.c
+index 8c3f11d79be31..a15f0aca3fc43 100644
+--- a/lib/crypto/riscv/chacha-riscv64-glue.c
++++ b/lib/crypto/riscv/chacha-riscv64-glue.c
+@@ -48,16 +48,10 @@ void chacha_crypt_arch(struct chacha_state *state, u8 *dst, const u8 *src,
+ 	}
+ 	kernel_vector_end();
+ }
+ EXPORT_SYMBOL(chacha_crypt_arch);
+ 
+-bool chacha_is_arch_optimized(void)
+-{
+-	return static_key_enabled(&use_zvkb);
+-}
+-EXPORT_SYMBOL(chacha_is_arch_optimized);
+-
+ static int __init riscv64_chacha_mod_init(void)
+ {
+ 	if (riscv_isa_extension_available(NULL, ZVKB) &&
+ 	    riscv_vector_vlen() >= 128)
+ 		static_branch_enable(&use_zvkb);
+diff --git a/lib/crypto/s390/chacha-glue.c b/lib/crypto/s390/chacha-glue.c
+index c57dc851214fa..d8137387fe28f 100644
+--- a/lib/crypto/s390/chacha-glue.c
++++ b/lib/crypto/s390/chacha-glue.c
+@@ -45,13 +45,7 @@ void chacha_crypt_arch(struct chacha_state *state, u8 *dst, const u8 *src,
+ 				CHACHA_BLOCK_SIZE;
+ 	}
+ }
+ EXPORT_SYMBOL(chacha_crypt_arch);
+ 
+-bool chacha_is_arch_optimized(void)
+-{
+-	return cpu_has_vx();
+-}
+-EXPORT_SYMBOL(chacha_is_arch_optimized);
+-
+ MODULE_DESCRIPTION("ChaCha stream cipher (s390 optimized)");
+ MODULE_LICENSE("GPL v2");
+diff --git a/lib/crypto/x86/chacha_glue.c b/lib/crypto/x86/chacha_glue.c
+index 10b2c945f5412..de7da9d512af2 100644
+--- a/lib/crypto/x86/chacha_glue.c
++++ b/lib/crypto/x86/chacha_glue.c
+@@ -158,16 +158,10 @@ void chacha_crypt_arch(struct chacha_state *state, u8 *dst, const u8 *src,
+ 		dst += todo;
+ 	} while (bytes);
+ }
+ EXPORT_SYMBOL(chacha_crypt_arch);
+ 
+-bool chacha_is_arch_optimized(void)
+-{
+-	return static_key_enabled(&chacha_use_simd);
+-}
+-EXPORT_SYMBOL(chacha_is_arch_optimized);
+-
+ static int __init chacha_simd_mod_init(void)
+ {
+ 	if (!boot_cpu_has(X86_FEATURE_SSSE3))
+ 		return 0;
+ 
 -- 
 2.50.1
 
