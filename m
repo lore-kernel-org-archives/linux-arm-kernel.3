@@ -4,121 +4,214 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB9A5CA0FFE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1D77CA0EFF
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 00:23:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	In-Reply-To:From:References:CC:To:Subject:Date:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wMabvnMiY6aI3QTnrZr9pq+NRKVIz1RxP9V/JHunYhU=; b=svhQ3grdfjbBnlCwVdh05CGQCj
-	+5UuycUPVkgrP+uyhPcS6VfSk+4Sk2ES1PXizKRmO4cEgbFf/6cJzLXqspEshorFzyUwQEd/pSfVU
-	y5C3IuFe11giMqpJZGJOGfU15TflPAvA+COhYs6FIHEPmwDs5DL8kKppiaTtW4ZQ/7069j0h6nDTx
-	6+p8/cgHoF7CdCGl6YmvKK6ivJ6sCXEGhSUWAP3RWxkkzw/q37jL1SUOyo1wFZkZWLup8ua/mx4TO
-	GCzCKEgO4u3HJLWNH6URUuVi0+jTw8lKJXEbFN3ZehHckWyEHXk6HSmWnhPw61DEicUUC8ygTDhze
-	hxruVTlg==;
+	bh=Tghrl7gdajS/WeYCpbBZ0ItW09ZYo+zk6okszSRwIp4=; b=xlJ3QIg6WZrUd+6Vzsu1J8z3pt
+	yHSmbFkN3osgMv32ekJc78VA3uZXstj0JRatv2LWKYU554EmVvi0W6lCmcOJJxmkiV750IYC3Pcxy
+	qWalA+8ChkI8pX75dnh7wEhFj02CrHsJqs3GL2/uwjOAgz6+jQleA9Z2sufv8n7WsMn37UeeHH+RJ
+	rHfkxMUfBOnoFIf6jv7GZu4Og46MpnYY0bVIMDL4teJdb77AnngWxC0i1JXJhHFILopcYDcMAebDl
+	L8u13+5aM6/lfvmdUdO7zmdUGR8h0GSFU2BSwl1qVYAVcG1fRvKEQxTqZXvJVR+WxacqUlFNTW2sk
+	9b5LHNSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urQQV-0000000HLbY-2zDg;
-	Thu, 28 Aug 2025 00:23:39 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1urQQW-0000000HLcP-1XNZ;
+	Thu, 28 Aug 2025 00:23:40 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urOZg-0000000H5j6-1KKb
+	id 1urOc9-0000000H62X-1q4T
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 22:25:02 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57RGf6Ie031265
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 22:24:59 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=wMabvnMiY6aI3QTnrZr9pq+N
-	RKVIz1RxP9V/JHunYhU=; b=gS4ZBzmCgDeh85coVTvtc5oGJFI2VEr0B4boNmF1
-	O3qPXL7qBbiAVuTr52jGhMBV2zit0RdQ5BLv12Fl+ToaZkvNk+/1F0xHIdrwbb1J
-	wmQxWz6cVISIN9+voNHKu43ytyrWMVYcVBM+BS0zM8uBNyiBQvJhoLQgZ5chaMi0
-	kNfVSdHggJV6j0kxpQnGhrU+rHeMZL+IDFphUzlfQdbC2LQ8TKO68RRBFZkn+mPM
-	vvZN+NnKqUQIHRSN5Yg5A6scSFSLnHBxfQFuoaKEnc5sx9unDcsxRS0YWurBvaQK
-	AtnOt25Q1gVPh0lff1ALoiyTYRPbFDQNtm0WgE6pb8HW2A==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48q615p187-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 22:24:59 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4b109bc5ecaso8890551cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 15:24:59 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756333498; x=1756938298;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wMabvnMiY6aI3QTnrZr9pq+NRKVIz1RxP9V/JHunYhU=;
-        b=ZP08raxi70YFKzsWxk1VUQv90ofibDDNLxHJ190JfiaYncrvnXJZlXMC+HXAxlOKRn
-         yEGNygPex7Muaq4cZ3q0Hz9k/dSri2DQjnJ0XgSexleJlFbfAWAfKUCdDXRdRae6Rzbu
-         frFRkMjZhIPnu5RpcaJgzS1VYPuaQit0XHMjNWUvluInH02M90LK9z7dNQXEybl86+lQ
-         lZp0BIhM2TTXSFVTxep1e2ctvhkVpXhYDZLy9CQPSpNzP9BsQL6dMQnFDqFQsYFg4qLV
-         A9vkqbdWhBPAY/UPho967AuUWgyFiOCBgBufXpzkcHtlpzFmKI6ZdGfK1ljXg4l8cAUr
-         1ioA==
-X-Forwarded-Encrypted: i=1; AJvYcCU2DCRpoARnCx21dIdukTkd4g7iO0EU1YtlffroUPc+CUhB8gQF8/ahmD8uR19KmPiWwioJElZCju2EJR0Dq3Cl@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxe3uZz1s7t1twwSPLKjLsNhcrf9nE7M2x+Fielf/+Oe1NdG8Cj
-	U5EoBo0TXNb+lHIfJUjUupKQEZuBGjjakIHykERc2AHudSnn17+vV/YqJtTqIcIqTS0TqjgMnn0
-	rh7K7MeoiHi+/EGF8H1yO733CcTNoS9/7cPe/Ri2HkFdG1PLa5r18FBXUzegC4n3aWhPh0wpasQ
-	BbcA==
-X-Gm-Gg: ASbGncs413pMVnbdZ1uwkYedo3cJ7xso9BACMJWPxGlQJtf/03aTwtTCfNvr+DLoD2o
-	uxDJBlvCSulBcH+gg+hGPt2WffWfqYZBjA63n6Hov4XoPFwMW5JI9NGkoL5qoKos3FxaSHyRoV1
-	sRz1jGW1wvlw1Xls1Mj33DO+pQ4ILBoKkgbXLvDMzqqaIwwYnbR6PNP+Z+/Hp/kFdOlWL3T+Efa
-	2xq2YLqWjyyBASbdZ81ea9ABnLdEG3nt1mMXtPW2d9QclPj3+e4fAoFMjqKnfffvbMCpi8Taqce
-	/3Ne0npApwWeYz3PBeNFY3u07q7gO9OmILimKjVuvyHeefjVgoDaHnK9Jlf4HS01XWr6m/fu2dC
-	9A/OpRtd8pTeG1aorJdlge/NL4CDIIp7OQbkrO7VHk+pR4+iHt2EY
-X-Received: by 2002:a05:622a:5e1b:b0:4b2:b6dd:3f62 with SMTP id d75a77b69052e-4b2b6dd4850mr141574661cf.15.1756333498279;
-        Wed, 27 Aug 2025 15:24:58 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHWL5d3fRji5RjCf7oZDMHi6+hAavouE1mTTu18gEHtzIXVQqcCSxTkltVNvjDodB9v6M14nQ==
-X-Received: by 2002:a05:622a:5e1b:b0:4b2:b6dd:3f62 with SMTP id d75a77b69052e-4b2b6dd4850mr141574451cf.15.1756333497748;
-        Wed, 27 Aug 2025 15:24:57 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55f35ca6af5sm2954613e87.138.2025.08.27.15.24.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Aug 2025 15:24:56 -0700 (PDT)
-Date: Thu, 28 Aug 2025 01:24:53 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Andy Yan <andyshrk@163.com>
-Cc: heiko@sntech.de, hjc@rock-chips.com, mripard@kernel.org, naoki@radxa.com,
-        stephen@radxa.com, cristian.ciocaltea@collabora.com,
-        neil.armstrong@linaro.org, Laurent.pinchart@ideasonboard.com,
-        yubing.zhang@rock-chips.com, krzk+dt@kernel.org,
-        devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-rockchip@lists.infradead.org, robh@kernel.org,
-        sebastian.reichel@collabora.com, Andy Yan <andy.yan@rock-chips.com>
-Subject: Re: [PATCH v7 00/10] Add support for RK3588 DisplayPort Controller
-Message-ID: <bochli5u37mhc6eup7h2oz3yeignofbbj4k5nrvm2k7zf6f4ov@t2sje4gmveqa>
-References: <20250822063959.692098-1-andyshrk@163.com>
+	Wed, 27 Aug 2025 22:27:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1756333653; x=1787869653;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:mime-version;
+  bh=/TJgE0ZMjPVWMmPxLBw9GOde1sDI64Mvb9MEMm/GWrM=;
+  b=AP8CAPs6ZNdSATcrPsr7rwhXhm16lVpqqjntdx6FybxAfNLA2p78ODss
+   EBk8DCq48JHBAHzN0hE3MEsLEMe3BFyzIJSc3cdza5p55xyDxAY8meszl
+   EvyH57Bo0nuP4nkhZThStjxCAhlHbsMnzXs5EzrLO/h1ER+Gebv/RkP1a
+   RUL6OMoEM52Q+k9P8x9EWiKH0BqyrBsU0CoWl05BrnwDgxJz7RaMVYOz+
+   Tr/5zI7XgaWkVpNzk2/6Lz8Y7itvqWHduOyvSPe4AACJslXhvVS299TqO
+   s176OO3EYDDbwJUWf4454q8zWleSIyc/8N/Qj3K/k2V6Kd4rZJX1J3Nn5
+   A==;
+X-CSE-ConnectionGUID: Mz2yhQIvTSW9iwoegCG3vA==
+X-CSE-MsgGUID: sMwVCwGuSS6Bqpw0SxP95A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11535"; a="69307447"
+X-IronPort-AV: E=Sophos;i="6.18,217,1751266800"; 
+   d="asc'?scan'208";a="69307447"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Aug 2025 15:27:32 -0700
+X-CSE-ConnectionGUID: IvjljfZaTTSXSX0HP2BriQ==
+X-CSE-MsgGUID: r6dtxv2gRWWomIBYzizGGQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,217,1751266800"; 
+   d="asc'?scan'208";a="169857128"
+Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
+  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Aug 2025 15:27:33 -0700
+Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Wed, 27 Aug 2025 15:27:32 -0700
+Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17 via Frontend Transport; Wed, 27 Aug 2025 15:27:32 -0700
+Received: from NAM12-DM6-obe.outbound.protection.outlook.com (40.107.243.69)
+ by edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Wed, 27 Aug 2025 15:27:31 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XKa3mDoKN8CNjbV/P3FWATyuuFthk4EPyIcpNVEe2iKCcQEz7D9RIDZH/eKytGXqKPKyYJoSQOyhQDg7zj9P+YPAX/7gmP1aByQE8Ai3kyyk37LQrjI9dKR95xtxdq4j3tslFUFY5CyZFHaF+ijHko2f7E70nIkTeUA/10jA8neyUTLYPBK7zUmk0bUQYI8a8S7fhFSzWkHj/jOxNarNFKc7AQyLLMHEKR0MXU3pfgjb1X6xfDighdozBj/M4WuoTczmqtGVqjNB8j+SFXC/apaSJkbhNDwUlwZdC66wnRA55OD/Li7KL31UlN0Q03c9SaDDicbcM7s51Ny6EjAXWQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Tghrl7gdajS/WeYCpbBZ0ItW09ZYo+zk6okszSRwIp4=;
+ b=CmeE15bAsQwHmFQersjisfgBvnmMHTb0CvpdTClsLHXx4vZverI/iBMafk2ahJZqE+4/qxPXUGobaWvkevMQAQHX8c88QBMF09eY5R+XNkcN1omdgc/5yaXTweEFAwQOFd9aOIHYG/Jun+hB0jXMMc7NJXeN9zgwTsHihMlT/Rpxiz72b6vBKBLXyz+MVKaKniZo0ZVNTeGidWETYvih+nnCDg3fd5VH0ygSNhHxoasn4naRp5wA3II0zs/nMFZ7Fu63S6wHlSGgczfl+cZZ3vwTEfFuhkqwynKOFxcuqcHcVVOEnumJ34CATL3HGxLqNadoBuTvRJOFfKmowJZDSA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from CO1PR11MB5089.namprd11.prod.outlook.com (2603:10b6:303:9b::16)
+ by DS7PR11MB7782.namprd11.prod.outlook.com (2603:10b6:8:e0::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9052.21; Wed, 27 Aug 2025 22:27:29 +0000
+Received: from CO1PR11MB5089.namprd11.prod.outlook.com
+ ([fe80::81f7:c6c0:ca43:11c3]) by CO1PR11MB5089.namprd11.prod.outlook.com
+ ([fe80::81f7:c6c0:ca43:11c3%5]) with mapi id 15.20.9052.019; Wed, 27 Aug 2025
+ 22:27:29 +0000
+Message-ID: <0abc4efd-a44b-4277-ac00-af6893a8c8ed@intel.com>
+Date: Wed, 27 Aug 2025 15:27:28 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next] net: stmmac: minor cleanups to
+ stmmac_bus_clks_config()
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, Andrew Lunn
+	<andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+CC: Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn
+	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, <netdev@vger.kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>
+References: <E1urBvf-000000002ii-37Ce@rmk-PC.armlinux.org.uk>
+Content-Language: en-US
+From: Jacob Keller <jacob.e.keller@intel.com>
+Autocrypt: addr=jacob.e.keller@intel.com; keydata=
+ xjMEaFx9ShYJKwYBBAHaRw8BAQdAE+TQsi9s60VNWijGeBIKU6hsXLwMt/JY9ni1wnsVd7nN
+ J0phY29iIEtlbGxlciA8amFjb2IuZS5rZWxsZXJAaW50ZWwuY29tPsKTBBMWCgA7FiEEIEBU
+ qdczkFYq7EMeapZdPm8PKOgFAmhcfUoCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AA
+ CgkQapZdPm8PKOiZAAEA4UV0uM2PhFAw+tlK81gP+fgRqBVYlhmMyroXadv0lH4BAIf4jLxI
+ UPEL4+zzp4ekaw8IyFz+mRMUBaS2l+cpoBUBzjgEaFx9ShIKKwYBBAGXVQEFAQEHQF386lYe
+ MPZBiQHGXwjbBWS5OMBems5rgajcBMKc4W4aAwEIB8J4BBgWCgAgFiEEIEBUqdczkFYq7EMe
+ apZdPm8PKOgFAmhcfUoCGwwACgkQapZdPm8PKOjbUQD+MsPBANqBUiNt+7w0dC73R6UcQzbg
+ cFx4Yvms6cJjeD4BAKf193xbq7W3T7r9BdfTw6HRFYDiHXgkyoc/2Q4/T+8H
+In-Reply-To: <E1urBvf-000000002ii-37Ce@rmk-PC.armlinux.org.uk>
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature";
+	boundary="------------90hyeuUuxuV7xko0Ze0ElxEU"
+X-ClientProxiedBy: MW4PR03CA0287.namprd03.prod.outlook.com
+ (2603:10b6:303:b5::22) To CO1PR11MB5089.namprd11.prod.outlook.com
+ (2603:10b6:303:9b::16)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250822063959.692098-1-andyshrk@163.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDAzNCBTYWx0ZWRfX/RDWU7HjwdEh
- 5IlsuqXj+WuEpVwtwO/S/ofTSbqblXFDb7mZtLz/FfJu7m090bxPjqMvQzcPDwj+gzG316WPl8B
- EJQyJVsM4o72WhaKDhHPrFSotbpKI9087Bhg9e8zJC+O5BaKpGFuD3he9m93tn9c9ULWSQi90Uu
- swxcADjEKr2OuHJs7uHEr13H2+FPSSZxG7FeKrLvBm6Cl9uBRjkDUZSRX91RdaGq2hf0RkRWmFE
- SnkZQe6cw/+V0BchzgBOo59I7Uhql0B3TtZf4Vd2ii9CoEA1MORIXOka/1+gw0u7cfDNeEA1eHu
- ykvWzFKLSa1H0CjhdSc5DitcX9nsO907QjK7mU4l8Dr2ijWLg3KuucMZzRHIpK++Frat9cPPWfz
- I+NGfXqp
-X-Proofpoint-GUID: L_mWrxMVSHvtRfS2nECr3Vc5P6dHNvu3
-X-Authority-Analysis: v=2.4 cv=K+AiHzWI c=1 sm=1 tr=0 ts=68af85bb cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=2OwXVqhp2XgA:10 a=s8YR1HE3AAAA:8 a=IMEu-sUR2OXSz8FBHAsA:9 a=CjuIK1q_8ugA:10
- a=uxP6HrT_eTzRwkO_Te1X:22 a=jGH_LyMDp9YhSvY-UuyI:22
-X-Proofpoint-ORIG-GUID: L_mWrxMVSHvtRfS2nECr3Vc5P6dHNvu3
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-27_04,2025-08-26_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 suspectscore=0 bulkscore=0 clxscore=1015 adultscore=0
- impostorscore=0 priorityscore=1501 phishscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508230034
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PR11MB5089:EE_|DS7PR11MB7782:EE_
+X-MS-Office365-Filtering-Correlation-Id: a9b800e0-0c2f-4072-e3ec-08dde5b8e876
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?S1pLQjVPVXlPVEI3L3dHZmVuVmdZVm9oejlRZUxVK3NZeXJnVzRnU2VCL1Ny?=
+ =?utf-8?B?cHZEczluanVXd2hPclRuOGFvUGxVcm5XWHBUc1c5QWU4bmlUU2x5ODcwNFYy?=
+ =?utf-8?B?TzRwYmFCTXRqSncycFJkUzZnY09hYm01Y3A0cVRVSGQ5dWdvY0dZNmU2bGdk?=
+ =?utf-8?B?VWMwbXJJUytBeUJ0QjdoWDkxckF5NzltZk5YQUIxU1ZLYnFuT052am5lSVF2?=
+ =?utf-8?B?QlIwYWs4bTBsb2QwZEFzVlR2bkxJZURMVjhjZThjVTVXbkhHMXVjai9FQ01R?=
+ =?utf-8?B?dE5MQVphdEFYcVRqYXAxSU53MG5kbGRyNjYwczRZbzRtV1J2aDlIR0JJVTlO?=
+ =?utf-8?B?S2o4NUtSUkNVMGY2R1ZpeURBL1dyVDBDRUFoSWwrNGZtZ2h3d09kVlBPbERD?=
+ =?utf-8?B?L05WZHNLVDJGazlJUytjaG9mMlpXM0xxTWJxOVA2VllxUy9IcFJXTHBqOUhP?=
+ =?utf-8?B?UnR2TGR3SjJ0TlR3VVpCSFZDVUcycUo1aWNURTM0eVVkWm9IWFVmUWp3NzVu?=
+ =?utf-8?B?TDA5Tlp6a0RNSnJOREEvSit1NXhoekhPVFNLWVUzK2tsWE9tWEcraWVWUFdG?=
+ =?utf-8?B?ZTA4ZTRXMzlsLzZMSTluSUV6VGlua0ZYMnRBN096bEdmRXVscTJqS1M0NDBq?=
+ =?utf-8?B?QnRBY0JBUDQ1eHI5a2FTQ1dKdEYyT2xveklnVnZwUmdFMVJrTFhJY1F5Z2hp?=
+ =?utf-8?B?WnZBTXlBdk1WNEhhMmZkZGMwVmZLR25DakFTeUVFQld3WkhoVExpdTlwNXI0?=
+ =?utf-8?B?MnU1WmpTT2ZJZVhDbFdRVFA5dXlVcGJlQXdmeElnNUtzd2FWK1hlK2dUVU16?=
+ =?utf-8?B?S0hVR3NoYkMwazBLQkl0cmQrMkV5WGNTYkR6T2dVelNOL29wSjk2ellRMDF3?=
+ =?utf-8?B?YWJkb0JXTkFpWk9xN0tVVVQydk82K0ZKTStic0RpejhVcmZ2S1YyOEx5V2RJ?=
+ =?utf-8?B?OGJ3Kzk1S0Exb0pqNlRoTVphalVoUDRFUkE2c2I3aDROWGNQdDZvanM3R2lt?=
+ =?utf-8?B?S1dBV044KzNiS1hLVmZscGw2NkdlN1JKV2kwbERwK3U1eW9uajJ3b25wd0Y4?=
+ =?utf-8?B?TWtQamNxSTFRdDRuM1J6Yk9vZmhYZ1BOYjdvMjhPSnRSTG1aMkpRaHZSc21k?=
+ =?utf-8?B?SGJ3ZHMrNUZvcVd3WE9zM3F4WllIWmVHcXRjcFJVLzROblZBSFpmUG1EK0ZL?=
+ =?utf-8?B?RDJISUhORVpxUVIxeG5FSVdUWG9lUjE5NmdveHlPRlNpMVFSZXB4RVE3OGRC?=
+ =?utf-8?B?LzN5c2pJamVhMUNoMkdGZWlJTW5teWVkY1VDVjhHb0RlSDBYRFlhZ3VpZ01x?=
+ =?utf-8?B?VkYrbWliaFpNaTBuMEVpVWt3RG93L1cvMDJjWGluSXNjZ0paVnBDSjF5NFRY?=
+ =?utf-8?B?SFNvd3NvWDBnQ3U0N2tIemJOWnJoWUhNNUU1WS94YjBFdEVRcDFtVFVmTHJM?=
+ =?utf-8?B?N0RTZ2YzYmgxYXNZNDZCc0FHYU9xUm82dFZUK1psZEpPMjdXMjdDK291SHcv?=
+ =?utf-8?B?MUcwcjVsODhpMzd2VVVTNTJvSWs1RDVFWWdiMUt2c0tlMUJxNGNzYXVrRW5F?=
+ =?utf-8?B?RDRqZjUreVFqSzNnQS9UbS9VMEVVbzAzS1JJaFlONm55cHA5RlVKRWZ2VjVI?=
+ =?utf-8?B?VmhTcUN6dURoNXZGUjJlN3plVXdlLzNmUjQ0YWwwK3JDenBqck43RXNxdS9z?=
+ =?utf-8?B?T1UrVzd6RjJ5MGR0LzQyeUxGdE1JUVQ1bTEzQ3B3eHk1aHFzTnA0eHNxS1dy?=
+ =?utf-8?B?NklGM2VveVJuWHltc2V2UHRkaU9tdituS1EyU1pDeUpKanlJZ1pOV2NJLzFz?=
+ =?utf-8?B?WlpmdU9ZVEtPOVcxTGNHK0dGbEl0MFRiOUdxZXVwajlVVmVoZkJzbUJxVkZR?=
+ =?utf-8?B?RFQrb0VDeFlnSm9oRDRrWGQzT05mcnRVUmVHaytPdzNTeVM1VXBVRGNzNCty?=
+ =?utf-8?Q?XFrU2vcJLNQ=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5089.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d0pBVDJvWDVFNzJOSURYaGNkUzlhVGpIaXQyVkkyRVRINElrSFFUQ2Vxb25M?=
+ =?utf-8?B?Q2kyS3dWR0FmY0RKcEtqQnkwU3ZkWWk3UGd4WDZZa3JXMStFVTE5c1ROYVBv?=
+ =?utf-8?B?Q0tyK2xnUU1IemFlYzhTWVVMekNHQTBNWGdzR0Nrb1RLZmVWWXFaT3Y3YnRX?=
+ =?utf-8?B?Z1ZucGtQVGwxaXFZREg5SDlDSzgwTlArWUpDd0g1Yytxamt6RER0dTZ5bXZG?=
+ =?utf-8?B?MitDSDU5QUpHSlpvUnJGTVViN29tRnlxT3dRZ1AzNk5tQ1BEVzM5WlNVakx1?=
+ =?utf-8?B?dEFKMmYrV2V0WC8vV0NhenJ3WmFOOTZVVXRLeFUwYkpUV2RhR2t0cEF2RFY1?=
+ =?utf-8?B?MHA3amJDZERrNUc4ejM2MlZJTTdaL3ZxNklNRGsyK24rRjRlZ3hEclh4bWxV?=
+ =?utf-8?B?NW1aSmJoQUptTTEzK3FQZFQ0TTFKRXBmZHdmMGY3QWt4VGRKQjNTRlR0WEND?=
+ =?utf-8?B?VTlZUjA3a293TUZRU1cwWHVuRVlab09TeDFQNFRqNnd6czdkN0VYa0UvTEUy?=
+ =?utf-8?B?OUNEbStLVjcxOEFFQ3pnaVZ1RTFFaVpIbUI1TVFhQ3JFWTM3NzdqM21QSy9z?=
+ =?utf-8?B?REdzNDdsN3duMmpiS0pIWk5pUy9TN3BlM1ZxTDFZNkV2Si9tbnpJZ0VmZHZX?=
+ =?utf-8?B?eFBjaXZCcGlBbGl2dXZRRXpXZytZanpOUU5ESlViRFhBaml6SG83aG9KR0pE?=
+ =?utf-8?B?OG5BTlBEYVBFdys5R2lzcGZyM2E5cTFXR0VzTW1WbDFXNkVJUjREUmcvM3hQ?=
+ =?utf-8?B?LzRncHZjOWxTa0ljaDh4QU5iNDhZUnpuaVUwODZpR0U1N3I0RkhrWVVjb284?=
+ =?utf-8?B?WHJnM1NkeDhPRzgrcWdHZ1VsRDlQNTREaW5lbzBHQUpSeWNLUWhyTnVZKzhG?=
+ =?utf-8?B?b2xCZi9CcVV5Szl3THM5TkZ0eW5MMWZlMkk1dGNXRmkreEVFVGV1bWlrR0kx?=
+ =?utf-8?B?Y1VBYTB4QjRscFdXWGFLcVhzTXhlM1Z6aDBRaVZPd3NOTlF5U2ZkMWd2L25K?=
+ =?utf-8?B?YkRCa1ZKak5kOU5FWThKTzZrMENQVWNYaUhPTjBSTGxRVFVHY1pLRXprYmdm?=
+ =?utf-8?B?WHJjUHNTTkJlZ21PMFA1Z3RIOW95azA3ZVpVWlQwSmMvN29qU2V1NFBibFQ2?=
+ =?utf-8?B?VlBjbWdDQUJDdGJQZmNvTmtlOGUveUdDQlEwdkJ6WHFqcnNvalJab3RlZWlU?=
+ =?utf-8?B?UStZeHJjRVk0ZFA1Zi84ekgwR2habkxyMG9iOE4rRWJQK3lkQ1gzU0FDSkI3?=
+ =?utf-8?B?L3lZNHBNeWtLZEVDZFkzRHVkbFIwL3RTY3lZeGlhREdvT0h4dE0wakY0MTd3?=
+ =?utf-8?B?aGNPd2xTTlhJMC9xNDhhZUFTOXR2TEF1cWtDaWpvWVkwbkhWZUtBMlJzcVJQ?=
+ =?utf-8?B?MElHUVp2YmNweTR1VlVzMUJFRDRSSjh4elEyc1NZTGduK21ML052UjdIYVAy?=
+ =?utf-8?B?NlZaNVpwWVpFM0pWWDFoWDF1R2hZTGV3TnpnMlhkcTdUYi9VNnEwODh4WkR5?=
+ =?utf-8?B?TkpPQVpmVzVFQUdOS0dVa3ZoVTRLczBLeS9mdHNGbENoOExvVHVGdjgrSFdn?=
+ =?utf-8?B?ZjBBOEJBYUhRbzdVQUJHZ214QmxBaVdvRi9VVGZzNU1vanUwekJaeVBycTFT?=
+ =?utf-8?B?d3o5Yjl4TWhuL1pWNFEwNzhMMGtZbXUvOXJhMTlycWQyU1FPSzhRQ3JrREl5?=
+ =?utf-8?B?OXNJWUhrUy82REM0M24rbDNjS3RNdzhFUEJ3N1l3RzdMU3NLSFUxZi9DZys1?=
+ =?utf-8?B?TTRjS0puVjIvMFd5aHZWU3FhcENBaWFjTXJFZkdMbG5wVE1wNWxjVTZRSk9s?=
+ =?utf-8?B?Y2Y2UjFtOVRQU2NvMlMvY1ZVM1BoZm9pbkE5UDAyamR4WGxWVGhIbXc0YVNU?=
+ =?utf-8?B?UzBTYkZybERVVnZiTFMvU1FsdWtGQ0c2b09IeHpFU3oxQ0NNcU83WkMvU0xk?=
+ =?utf-8?B?VFdENWJNVzdBTGcvK0ZVYUJBWWtDYllSRGFpOXNGYy90KzJYTC9COGs5ZGZM?=
+ =?utf-8?B?TXpvdk1hcDdUVi90TmhXczlDYW16eDZUWUppUHN2RU5QOURHS1RRdnFmWnNL?=
+ =?utf-8?B?U1F1ckRxWXkwMGlQbmFSRE5rN2UwM25GZFIyVjBUL1c0YVFKVjl5SnhQUUFm?=
+ =?utf-8?B?R3I5WThkbVpxNVNmUXVnZkNBQitYMnJxVFk4UkhxL3FBVUgwNjhPenIvV3Rh?=
+ =?utf-8?B?eWc9PQ==?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: a9b800e0-0c2f-4072-e3ec-08dde5b8e876
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5089.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Aug 2025 22:27:29.7599
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zQpzpkE5+b7ffIBOj45DrPeB9rWAUQb85VUZBdz9evaZZ52epFAIjdCwI5NuclKig0AtH83WNzTprPoSPUQ9OOeoMDghsWLDwvtD0IntEfs=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR11MB7782
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_152500_530997_1E34FE97 
-X-CRM114-Status: GOOD (  26.70  )
+X-CRM114-CacheID: sfid-20250827_152733_509044_88E81D7E 
+X-CRM114-Status: GOOD (  20.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,91 +226,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 22, 2025 at 02:39:44PM +0800, Andy Yan wrote:
-> From: Andy Yan <andy.yan@rock-chips.com>
-> 
-> 
-> There are two DW DPTX based DisplayPort Controller on rk3588 which
-> are compliant with the DisplayPort Specification Version 1.4 with
-> the following features:
-> 
-> * DisplayPort 1.4a
-> * Main Link: 1/2/4 lanes
-> * Main Link Support 1.62Gbps, 2.7Gbps, 5.4Gbps and 8.1Gbps
-> * AUX channel 1Mbps
-> * Single Stream Transport(SST)
-> * Multistream Transport (MST)
-> * Type-C support (alternate mode)
-> * HDCP 2.2, HDCP 1.3
-> * Supports up to 8/10 bits per color component
-> * Supports RBG, YCbCr4:4:4, YCbCr4:2:2, YCbCr4:2:0
-> * Pixel clock up to 594MHz
-> * I2S, SPDIF audio interface
-> 
-> The current version of this patch series only supports basic display outputs.
-> I conducted tests with DP0 in 1080p and 4K@60 YCbCr4:2:0 modes; the ALT/Type-C
-> mode was tested on Rock 5B, DP1 was tested on Rock 5 ITX by Stephen and Piotr.
-> HDCP and audio features remain unimplemented.
-> For RK3588, it's only support SST, while in the upcoming RK3576, it can support
-> MST output.
-> 
+--------------90hyeuUuxuV7xko0Ze0ElxEU
+Content-Type: multipart/mixed; boundary="------------nid3GnRBuDWxwfJBpWGws9si";
+ protected-headers="v1"
+From: Jacob Keller <jacob.e.keller@intel.com>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+ Paolo Abeni <pabeni@redhat.com>
+Message-ID: <0abc4efd-a44b-4277-ac00-af6893a8c8ed@intel.com>
+Subject: Re: [PATCH net-next] net: stmmac: minor cleanups to
+ stmmac_bus_clks_config()
+References: <E1urBvf-000000002ii-37Ce@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1urBvf-000000002ii-37Ce@rmk-PC.armlinux.org.uk>
 
-[skipped changelog]
+--------------nid3GnRBuDWxwfJBpWGws9si
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 
-> 
-> Andy Yan (10):
->   dt-bindings: display: rockchip: Add schema for RK3588 DPTX Controller
->   drm/bridge: synopsys: Add DW DPTX Controller support library
->   drm/rockchip: Add RK3588 DPTX output support
->   MAINTAINERS: Add entry for DW DPTX Controller bridge
 
-I tried pushing patches 1-4, but got the following error:
 
-dim: ERROR: 5a68dcf5837a ("MAINTAINERS: Add entry for DW DPTX Controller bridge"): Mandatory Maintainer Acked-by missing., aborting
+On 8/27/2025 1:54 AM, Russell King (Oracle) wrote:
+> stmmac_bus_clks_config() doesn't need to repeatedly on dereference
+> priv->plat as this remains the same throughout this function. Not only
+> does this detract from the function's readability, but it could cause
+> the value to be reloaded each time. Use a local variable.
+>=20
 
-I'm not sure how to handle MAINTAINERS changes (or whether it's fine for
-me or not), so I will probably push patches 1-3 in a few days, if nobody
-beats me (or unless somebody points out a correct process for
-MAINTAINERS changes).
+Even if the compiler figures out its safe to store the access and reuse
+it, its much more readable to use the local variable.
 
->   dt-bindings: display: simple-bridge: Add ra620 compatible
->   drm/bridge: simple-bridge: Add support for radxa ra620
->   arm64: dts: rockchip: Add DP0 for rk3588
->   arm64: dts: rockchip: Add DP1 for rk3588
->   arm64: dts: rockchip: Enable DisplayPort for rk3588s Cool Pi 4B
->   arm64: dts: rockchip: Enable DP2HDMI for ROCK 5 ITX
-> 
->  .../display/bridge/simple-bridge.yaml         |    1 +
->  .../display/rockchip/rockchip,dw-dp.yaml      |  150 ++
->  MAINTAINERS                                   |    8 +
->  arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |   30 +
->  .../arm64/boot/dts/rockchip/rk3588-extra.dtsi |   30 +
->  .../boot/dts/rockchip/rk3588-rock-5-itx.dts   |   59 +
->  .../boot/dts/rockchip/rk3588s-coolpi-4b.dts   |   37 +
->  drivers/gpu/drm/bridge/simple-bridge.c        |    5 +
->  drivers/gpu/drm/bridge/synopsys/Kconfig       |    7 +
->  drivers/gpu/drm/bridge/synopsys/Makefile      |    1 +
->  drivers/gpu/drm/bridge/synopsys/dw-dp.c       | 2095 +++++++++++++++++
->  drivers/gpu/drm/rockchip/Kconfig              |    9 +
->  drivers/gpu/drm/rockchip/Makefile             |    1 +
->  drivers/gpu/drm/rockchip/dw_dp-rockchip.c     |  150 ++
->  drivers/gpu/drm/rockchip/rockchip_drm_drv.c   |    1 +
->  drivers/gpu/drm/rockchip/rockchip_drm_drv.h   |    1 +
->  include/drm/bridge/dw_dp.h                    |   20 +
->  17 files changed, 2605 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
->  create mode 100644 drivers/gpu/drm/bridge/synopsys/dw-dp.c
->  create mode 100644 drivers/gpu/drm/rockchip/dw_dp-rockchip.c
->  create mode 100644 include/drm/bridge/dw_dp.h
-> 
-> -- 
-> 2.43.0
-> 
-> base-commit: 18b8261b84ad5462d7261617fbfa49d85d396fd9
-> branch: rk3588-dp-upstream-v7
-> 
+> Also, the final return can simply return zero, and we can dispense
+> with the initialiser for 'ret'.
 
--- 
-With best wishes
-Dmitry
+Also good cleanup.
+
+>=20
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> ---
+
+Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
+
+>  .../net/ethernet/stmicro/stmmac/stmmac_main.c | 27 ++++++++++---------=
+
+>  1 file changed, 14 insertions(+), 13 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/driver=
+s/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 429a871d7378..88f5d637f033 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -149,33 +149,34 @@ static void stmmac_exit_fs(struct net_device *dev=
+);
+> =20
+>  int stmmac_bus_clks_config(struct stmmac_priv *priv, bool enabled)
+>  {
+> -	int ret =3D 0;
+> +	struct plat_stmmacenet_data *plat_dat =3D priv->plat;
+
+I did notice the driver was inconsistent in whether it refers to this as
+*plat or *plat_dat... Its slightly shorter to use *plat, but I do think
+*plat_dat is a bit nicer to read.
+
+Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
+
+> +	int ret;
+> =20
+>  	if (enabled) {
+> -		ret =3D clk_prepare_enable(priv->plat->stmmac_clk);
+> +		ret =3D clk_prepare_enable(plat_dat->stmmac_clk);
+>  		if (ret)
+>  			return ret;
+> -		ret =3D clk_prepare_enable(priv->plat->pclk);
+> +		ret =3D clk_prepare_enable(plat_dat->pclk);
+>  		if (ret) {
+> -			clk_disable_unprepare(priv->plat->stmmac_clk);
+> +			clk_disable_unprepare(plat_dat->stmmac_clk);
+>  			return ret;
+>  		}
+> -		if (priv->plat->clks_config) {
+> -			ret =3D priv->plat->clks_config(priv->plat->bsp_priv, enabled);
+> +		if (plat_dat->clks_config) {
+> +			ret =3D plat_dat->clks_config(plat_dat->bsp_priv, enabled);
+>  			if (ret) {
+> -				clk_disable_unprepare(priv->plat->stmmac_clk);
+> -				clk_disable_unprepare(priv->plat->pclk);
+> +				clk_disable_unprepare(plat_dat->stmmac_clk);
+> +				clk_disable_unprepare(plat_dat->pclk);
+>  				return ret;
+>  			}
+>  		}
+>  	} else {
+> -		clk_disable_unprepare(priv->plat->stmmac_clk);
+> -		clk_disable_unprepare(priv->plat->pclk);
+> -		if (priv->plat->clks_config)
+> -			priv->plat->clks_config(priv->plat->bsp_priv, enabled);
+> +		clk_disable_unprepare(plat_dat->stmmac_clk);
+> +		clk_disable_unprepare(plat_dat->pclk);
+> +		if (plat_dat->clks_config)
+> +			plat_dat->clks_config(plat_dat->bsp_priv, enabled);
+>  	}
+> =20
+> -	return ret;
+> +	return 0;
+>  }
+>  EXPORT_SYMBOL_GPL(stmmac_bus_clks_config);
+> =20
+
+
+--------------nid3GnRBuDWxwfJBpWGws9si--
+
+--------------90hyeuUuxuV7xko0Ze0ElxEU
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+wnsEABYIACMWIQQgQFSp1zOQVirsQx5qll0+bw8o6AUCaK+GUAUDAAAAAAAKCRBqll0+bw8o6C+x
+AQDRa8ivo/ThH7LC8549b9APrUJ0EKz8C5V4rhQAVBtD7QEAlLM3ngnR7DtIyNlyLOWCekR+WBc/
+b0VXL/usiEK6kAo=
+=0zc+
+-----END PGP SIGNATURE-----
+
+--------------90hyeuUuxuV7xko0Ze0ElxEU--
 
