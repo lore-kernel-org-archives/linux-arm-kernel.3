@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B574CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 23:16:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4537CCA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 23:23:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oaPdsETQ5qU/BcrWAtBVOePuWmWOKOsgMpANROeM44s=; b=OkzBPUEv3prdaXVJuQU7C1F54e
-	/Pw8IryNpQ1HyXHTTTEGElu9Hu6vMmN+EPCwrpSAIZJY66l3kDBh9Oy7jS9lG1nJamZgbrqAyiUWJ
-	ohHaIpEDaFDHFxK614PA/nLqAYzOg+Qdu1FKOECL0ZsLS/x/0AO0G88aLmzDp8COpPWCJr1YPonWN
-	G4HYAmL/yQxX2PuTczNpcSerAjgIBRROtaglpzzfvQjMyUO4sS8SU9/Gqw4Emt5VgUEsmWDjB4BMW
-	JhUFPIUBlnXCB6X8ryUKBOmfE2Zwd58tyugJq1EEqYIGMZlDah02DfDgIE7xfijiZ1gHmnhQ3RpZg
-	91LbnUgQ==;
+	bh=sdduxfP9sOW11CIIetzrq/g2aOdRCb5eN+kQk0XudUI=; b=Z7FYVcfp5buyLCbHVASgZKo0HK
+	l7K81uMqmVV6mzWnRFcS09pioX3ACN2rZCOkwzsEnk09h8f2mSynhZeZcgn9lk2jSLVPbkDJGmS2+
+	gkt8oYROwmEAxJyP0dKPtNXtNCukDYZqH+cVslXwYH7jdwk8yb7o3RFo942b38H102s7tN2CgyHbb
+	irs1DhusVAWlvxN1NwFeI0Me34rCJoafbFO9qFy2v4+voj8HK+VTNx8WrBkDuRFgY8yuxLk6LfmXu
+	WVv4oweEOKYyzTst6ARNxYiNxa3h51GQWFbuiXA7+OtEcOBJSSbCy3Z9e7tyoRDh7LHG1m/5vD8f4
+	JBHQx2tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urPNJ-0000000HCf8-14a8;
-	Wed, 27 Aug 2025 23:16:17 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1urPUM-0000000HEsG-3sau;
+	Wed, 27 Aug 2025 23:23:34 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urON4-0000000H1iv-1jwt
+	id 1urOGO-0000000Gyba-09QW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 22:11:59 +0000
+	Wed, 27 Aug 2025 22:05:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756332717;
+	s=mimecast20190719; t=1756332303;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=oaPdsETQ5qU/BcrWAtBVOePuWmWOKOsgMpANROeM44s=;
-	b=BpxLO7zPkj9eG2gNFelEljHU17rwkhMbp9eWECDAQ+XfSvd/Y+lwoxu5Z+cVgyWoSf7MlQ
-	+eUR3CHp1LIGFI0On1qva9/QL7KYPEc1e8KlhCXjhy4+6us/Pe0Gzx45rKVtbBD0dj4Mp1
-	x3dgjVArZ6oMAj3xG9dmk7FE0jmL+1U=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+	bh=sdduxfP9sOW11CIIetzrq/g2aOdRCb5eN+kQk0XudUI=;
+	b=f6FiZJT+A0cUl5Gc3BjhR3T0nLMbUVK/qG4krWjK2r0iMTmMCD0J384MiyX/3Ur40wNxSm
+	VNcErtiKnAcfP2NvkT574/6h0rgZMaZhdvcg9Afw3xo22ji3ZhQ7aWbWQRa9WpWbqZT2qM
+	hB4I1+CbtN34KQvSjhtS2GHAqqxyL/Q=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-658-Snfm6E4cPnqT__aizlDo0A-1; Wed,
- 27 Aug 2025 18:11:53 -0400
-X-MC-Unique: Snfm6E4cPnqT__aizlDo0A-1
-X-Mimecast-MFC-AGG-ID: Snfm6E4cPnqT__aizlDo0A_1756332708
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-417-EpEDj_iqOtyJ7pKJWv6ETA-1; Wed,
+ 27 Aug 2025 18:04:58 -0400
+X-MC-Unique: EpEDj_iqOtyJ7pKJWv6ETA-1
+X-Mimecast-MFC-AGG-ID: EpEDj_iqOtyJ7pKJWv6ETA_1756332292
 Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id EAFA8180034A;
-	Wed, 27 Aug 2025 22:11:47 +0000 (UTC)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 995B919541AC;
+	Wed, 27 Aug 2025 22:04:52 +0000 (UTC)
 Received: from t14s.redhat.com (unknown [10.22.80.195])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 8D43430001A1;
-	Wed, 27 Aug 2025 22:11:32 +0000 (UTC)
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id CAF5B30001A1;
+	Wed, 27 Aug 2025 22:04:36 +0000 (UTC)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: David Hildenbrand <david@redhat.com>,
+	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
 	Alexander Potapenko <glider@google.com>,
-	Marco Elver <elver@google.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Brendan Jackman <jackmanb@google.com>,
 	Christoph Lameter <cl@gentwo.org>,
 	Dennis Zhou <dennis@kernel.org>,
+	Dmitry Vyukov <dvyukov@google.com>,
 	dri-devel@lists.freedesktop.org,
 	intel-gfx@lists.freedesktop.org,
 	iommu@lists.linux.dev,
@@ -87,9 +87,9 @@ Cc: David Hildenbrand <david@redhat.com>,
 	linux-s390@vger.kernel.org,
 	linux-scsi@vger.kernel.org,
 	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Marco Elver <elver@google.com>,
 	Marek Szyprowski <m.szyprowski@samsung.com>,
 	Michal Hocko <mhocko@suse.com>,
-	Mike Rapoport <rppt@kernel.org>,
 	Muchun Song <muchun.song@linux.dev>,
 	netdev@vger.kernel.org,
 	Oscar Salvador <osalvador@suse.de>,
@@ -102,17 +102,17 @@ Cc: David Hildenbrand <david@redhat.com>,
 	wireguard@lists.zx2c4.com,
 	x86@kernel.org,
 	Zi Yan <ziy@nvidia.com>
-Subject: [PATCH v1 34/36] kfence: drop nth_page() usage
-Date: Thu, 28 Aug 2025 00:01:38 +0200
-Message-ID: <20250827220141.262669-35-david@redhat.com>
+Subject: [PATCH v1 09/36] mm/mm_init: make memmap_init_compound() look more like prep_compound_page()
+Date: Thu, 28 Aug 2025 00:01:13 +0200
+Message-ID: <20250827220141.262669-10-david@redhat.com>
 In-Reply-To: <20250827220141.262669-1-david@redhat.com>
 References: <20250827220141.262669-1-david@redhat.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_151158_522257_1867812E 
-X-CRM114-Status: GOOD (  15.74  )
+X-CRM114-CacheID: sfid-20250827_150504_150958_449DBB33 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,77 +127,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We want to get rid of nth_page(), and kfence init code is the last user.
+Grepping for "prep_compound_page" leaves on clueless how devdax gets its
+compound pages initialized.
 
-Unfortunately, we might actually walk a PFN range where the pages are
-not contiguous, because we might be allocating an area from memblock
-that could span memory sections in problematic kernel configs (SPARSEMEM
-without SPARSEMEM_VMEMMAP).
+Let's add a comment that might help finding this open-coded
+prep_compound_page() initialization more easily.
 
-We could check whether the page range is contiguous
-using page_range_contiguous() and failing kfence init, or making kfence
-incompatible these problemtic kernel configs.
+Further, let's be less smart about the ordering of initialization and just
+perform the prep_compound_head() call after all tail pages were
+initialized: just like prep_compound_page() does.
 
-Let's keep it simple and simply use pfn_to_page() by iterating PFNs.
+No need for a comment to describe the initialization order: again,
+just like prep_compound_page().
 
-Cc: Alexander Potapenko <glider@google.com>
-Cc: Marco Elver <elver@google.com>
-Cc: Dmitry Vyukov <dvyukov@google.com>
+Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- mm/kfence/core.c | 12 +++++++-----
- 1 file changed, 7 insertions(+), 5 deletions(-)
+ mm/mm_init.c | 15 +++++++--------
+ 1 file changed, 7 insertions(+), 8 deletions(-)
 
-diff --git a/mm/kfence/core.c b/mm/kfence/core.c
-index 0ed3be100963a..727c20c94ac59 100644
---- a/mm/kfence/core.c
-+++ b/mm/kfence/core.c
-@@ -594,15 +594,14 @@ static void rcu_guarded_free(struct rcu_head *h)
-  */
- static unsigned long kfence_init_pool(void)
- {
--	unsigned long addr;
--	struct page *pages;
-+	unsigned long addr, start_pfn;
- 	int i;
+diff --git a/mm/mm_init.c b/mm/mm_init.c
+index 5c21b3af216b2..df614556741a4 100644
+--- a/mm/mm_init.c
++++ b/mm/mm_init.c
+@@ -1091,6 +1091,12 @@ static void __ref memmap_init_compound(struct page *head,
+ 	unsigned long pfn, end_pfn = head_pfn + nr_pages;
+ 	unsigned int order = pgmap->vmemmap_shift;
  
- 	if (!arch_kfence_init_pool())
- 		return (unsigned long)__kfence_pool;
++	/*
++	 * We have to initialize the pages, including setting up page links.
++	 * prep_compound_page() does not take care of that, so instead we
++	 * open-code prep_compound_page() so we can take care of initializing
++	 * the pages in the same go.
++	 */
+ 	__SetPageHead(head);
+ 	for (pfn = head_pfn + 1; pfn < end_pfn; pfn++) {
+ 		struct page *page = pfn_to_page(pfn);
+@@ -1098,15 +1104,8 @@ static void __ref memmap_init_compound(struct page *head,
+ 		__init_zone_device_page(page, pfn, zone_idx, nid, pgmap);
+ 		prep_compound_tail(head, pfn - head_pfn);
+ 		set_page_count(page, 0);
+-
+-		/*
+-		 * The first tail page stores important compound page info.
+-		 * Call prep_compound_head() after the first tail page has
+-		 * been initialized, to not have the data overwritten.
+-		 */
+-		if (pfn == head_pfn + 1)
+-			prep_compound_head(head, order);
+ 	}
++	prep_compound_head(head, order);
+ }
  
- 	addr = (unsigned long)__kfence_pool;
--	pages = virt_to_page(__kfence_pool);
-+	start_pfn = PHYS_PFN(virt_to_phys(__kfence_pool));
- 
- 	/*
- 	 * Set up object pages: they must have PGTY_slab set to avoid freeing
-@@ -613,11 +612,12 @@ static unsigned long kfence_init_pool(void)
- 	 * enters __slab_free() slow-path.
- 	 */
- 	for (i = 0; i < KFENCE_POOL_SIZE / PAGE_SIZE; i++) {
--		struct slab *slab = page_slab(nth_page(pages, i));
-+		struct slab *slab;
- 
- 		if (!i || (i % 2))
- 			continue;
- 
-+		slab = page_slab(pfn_to_page(start_pfn + i));
- 		__folio_set_slab(slab_folio(slab));
- #ifdef CONFIG_MEMCG
- 		slab->obj_exts = (unsigned long)&kfence_metadata_init[i / 2 - 1].obj_exts |
-@@ -665,10 +665,12 @@ static unsigned long kfence_init_pool(void)
- 
- reset_slab:
- 	for (i = 0; i < KFENCE_POOL_SIZE / PAGE_SIZE; i++) {
--		struct slab *slab = page_slab(nth_page(pages, i));
-+		struct slab *slab;
- 
- 		if (!i || (i % 2))
- 			continue;
-+
-+		slab = page_slab(pfn_to_page(start_pfn + i));
- #ifdef CONFIG_MEMCG
- 		slab->obj_exts = 0;
- #endif
+ void __ref memmap_init_zone_device(struct zone *zone,
 -- 
 2.50.1
 
