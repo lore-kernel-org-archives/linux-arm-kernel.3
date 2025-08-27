@@ -4,153 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B301CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 17:53:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8BAFCA0FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 17:53:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JVYmFx4GQu8y3Mo2gN1C1HL2La180G/5HnTbDHTQ6ko=; b=OAl2Ka3AZC+UHuYaQkF8KaTZCH
-	v4psXtLthFiNXgzkufdlxbKs9glb+w6VsT2iYk2/G3o8AGevNDP9LI8sk6LtXdtat8rkZBGJiFau4
-	m/EHsa0LmJ+b3N1qfdbkj5+cDH2If39Jnkfot4Hvtj/ZuI+VHkS9m9E9x8obxq4asl03C8Ahos/yA
-	YmqoJ7adh4cZl0e4QupzzzC6AZm+cHj0X95bKG+kEm8sTgArVimFS84vDhsrDPaXGs0O9yz+HlBTt
-	7XjQZ45ChMt/6F1Yn63UaebM39ZHlHOycXvZW00BBeYfLI5Y7kpV6dzXZm0Z1dv2cv3wlSG3l0JgI
-	gv0OnW0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aGPhYDWt388RttmicU0o24RVsxY/twdNMb4O/vzImCs=; b=ZQlvVYX7xDu9DL+LigwjJyp0IK
+	m1mURO+2ZlBntE9w1HyIAzwx1zDP7Bi5/To8Iothyqm0pXbsONYTVk/D9TBTw9U/PzmfXClrDw5Eb
+	hSmuQkZ93Tdhw2W1vyfnG7ddm5D3hYpdx65ElouPnY8+2QO7dn63lIamkrjHAS5hQ2qdoWTH8EufX
+	CnjICpTz5EjFMk3kCBWdZ2ws31RJB7xlc99mB9KA9yFL+oAffD3kt9D/gE6RHzQvhYUlnQh3fXghI
+	qf9wjSWqC2ga2g2ciIZY7gnRpvUOO0MdZ+t8cl2MJkwfsyJYNEr8AdeeGhlfdcEgEtiRB7AOWIXgL
+	pk+7aB0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urKKy-0000000GN6D-373T;
-	Wed, 27 Aug 2025 17:53:32 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1urKLG-0000000GNAj-1OgG;
+	Wed, 27 Aug 2025 17:53:50 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urHAx-0000000FleE-2xcE
+	id 1urHsH-0000000Fsuv-2FTa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 14:31:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gFzEy5Ys3Y3g8KteoJNWUPEUAIfk7Nxu37VFKLY+eTpeUoHTSAF8iyTvekXeSaMoO4m015TlFwVEqb4WSmROwaYgIeosi/cu1GdmbW1Zg36mnTtc849ztPT3/nS87jQVepbyjYpAEOjrQH0BsT2o5oqUpWlbuI9zbOTJzd4u2jRp2gEbFTExuul1uwQa7Zdim5t0C+kFhnZHoCCey2tSh1sZPOyc/QczT7VmrFFhiuoU7c1djz4YYZ7bakSFQTyGdIZinmX0ntNCCCKHymb0G1+ft8DkiTccT2CE9wcUpmpofb1l6dCWcqe1wRxcMFSaO+qwi7dtha50BS7n4US9Iw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JVYmFx4GQu8y3Mo2gN1C1HL2La180G/5HnTbDHTQ6ko=;
- b=qow0XFXAdDBo/Ug4xD3rjLnNku3sEuQS83jhkIRQRFePgLSudRLNAf3vuBLAKqRYOfMYJXKV0xKRz9fiW5fRQ3Sm9XvVu3A05b8gDW9innSXygYvfgtTWIGlJ/63zO1W4etiOOe9M5etSULVhaELtcBjPOYFguVewg8xMc+psw891Ge1snbVLaFBF8r7pDirB1Dh2nyFqrMErUckDBbjzBwZXxN1nBV3SBx26/tPpG3KfHgMZW2Ak9SQGEV5FJ/nXUm8vih9KuRuKn3AmcOA0vmEvyZK48c9bve+Q8U2reZhekW5gFqGlsfqX+ykXhpyNGs33SCAqGYg5dn7KWV7sQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JVYmFx4GQu8y3Mo2gN1C1HL2La180G/5HnTbDHTQ6ko=;
- b=CEl84/KoOT6jkCTjHz99bx20wHfw0HIpjaAqaGTc3cpn6eluja+NJK3m5PY+PQaa+5kz8LCrEYvWjSBUfv0FwXKWhi+nZpTrc93Tz6G0eM99eyTvn8+o/DtxtrMraCt2/jUQo2rgXBsvHqIxLxc3odWLmTgCvcLBgpEW08MbmxwfEfAfBYPeHjPnm8Nb4gCr+R/H0x0eAauozSW5DS/GcHtoS33tH5U0umY7A/NqYT9ObR+rlwXBXDXsyE4Ds4GIUioutDJxGubD9quqz+jg+8jsVNHnOFOZFYinsorcEVwceMpAg2M/YlD/TYE9JX661BjrH/ZSM2LB6QjDWLWX7g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by GV1PR04MB10966.eurprd04.prod.outlook.com (2603:10a6:150:204::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.24; Wed, 27 Aug
- 2025 14:30:54 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d%5]) with mapi id 15.20.9073.009; Wed, 27 Aug 2025
- 14:30:54 +0000
-Date: Wed, 27 Aug 2025 10:30:44 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Guoniu Zhou <guoniu.zhou@nxp.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/5] media: nxp: imx8-isi: Reorder the platform data
-Message-ID: <aK8WlNKmMZo+F+vW@lizhi-Precision-Tower-5810>
-References: <20250827-isi_imx93-v1-0-83e6b4b50c4d@nxp.com>
- <20250827-isi_imx93-v1-4-83e6b4b50c4d@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250827-isi_imx93-v1-4-83e6b4b50c4d@nxp.com>
-X-ClientProxiedBy: BYAPR02CA0062.namprd02.prod.outlook.com
- (2603:10b6:a03:54::39) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+	Wed, 27 Aug 2025 15:15:48 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-248681b5892so229255ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 08:15:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1756307744; x=1756912544; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=aGPhYDWt388RttmicU0o24RVsxY/twdNMb4O/vzImCs=;
+        b=V9X9qsxjyxEgU+s095f8lLyBcJkNf+UksyYjpwVCIgEFsskUAtKamvLVfm/u7CtiAn
+         SogDGquoILFchTEqXO6vHTPmU95nDKxfdBhmMeeaR5HbOR+H6ZibwL88QmppKRLqLW3+
+         17UkZqvq3g3Grux3ulbuhamBsveIeLp6PMtOX9zwV0ZFg7sq0Nd0OmAW3Crku9DfFPt3
+         Bh4oUFDW9ZjTc4fanvMe84rR/XbmncbkIvrITtKxuQ112PY9BFaCaZLxnda5s+ws2Sx6
+         KxKa0sWDUNhm46Jk+f2IlnrY//iOg7og9h4qAlJ/UnQ6E6u/gp+OQ1oHAV/Ks04ZEGe2
+         ZIiQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756307744; x=1756912544;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=aGPhYDWt388RttmicU0o24RVsxY/twdNMb4O/vzImCs=;
+        b=Yw53dW6HkIazebUPcmtNTqf2fo3xsoBK0ZkdrksPUjIs/hxGRbBZPxlEtGCeHOZy08
+         KZdDa8001X6Fpt6esC0hwi3y2fc7MfvnL8QzpyY3rxwKwQ4tPd9x82FA4uQiLxfpY+zZ
+         U15aJzdlbWUF8ZZwNhiR9KncIFLgCwyZmT1Nvj3nKNigxgKEQXVV/hvoQuOB25jpwOVI
+         +DjWE6wZ4jSVSqzmqlsxg/PMC1AJdpR9g3uV3JnEICS81vwlQucD5hP+1azC+pD+Aymj
+         rwHdw3OJqK936HNvJxOIgy8cqrgRx+5qUl+hmbDRSKj0lry60OjXLdho5ciXvVJAf+iB
+         3e7A==
+X-Forwarded-Encrypted: i=1; AJvYcCVZHDiCRrhfOs51HNsCl5QwJXKxvs4T5dRLSu8clZKdRpGOah2ERvX8wVT7+rP9mO9aZqIpIjeHfPIl/6H3XkF+@lists.infradead.org
+X-Gm-Message-State: AOJu0YyDnzRHTVKKCrH2bcOSQed32eEtc9NsHuDWa0TogRdRPQvia6UA
+	Ar6r15gpUMTzdV+FBZ5zV8e5LjrwaUstfPZjRQztC1KwDtkBLvGD7lnsLSglz9nsvs+BDSpQduz
+	PcORUkgbaIfBrGoBrhzJ+Snz+qUaMthIlxy48QXYY
+X-Gm-Gg: ASbGncsO30ygaSoAzVYpg2SywHZTU29VuunSeEou68fXJv5rAGJvlc0Uw7gaVOq+9zz
+	o2wTAZGJJKHOSdEk680GYEhG6LYCA0GZRpRfSy2/vIJXQSNORmR8NSiYSflRBlmU91krqxwP20t
+	dNI3ITET2pytgN0ndWtEs2IwrVPbVrs6HtICGxZOVCG2O5vpsDGjPX3W+JOU58Fi5f/O81nA5B6
+	vgioVVbkgCkcIkRAyCk1PdPeugAnpW1ov001mvvfhE=
+X-Google-Smtp-Source: AGHT+IExi0QgPJP/5AblrVahQdACSVklatzIIhzDoM8PROF9H/mRXxhxpv9GhjknP28Wz6ljzGsei6gbP7f3oTXJLVM=
+X-Received: by 2002:a17:902:ec87:b0:246:a8ac:1a36 with SMTP id
+ d9443c01a7336-2485ba5311amr9397575ad.2.1756307741849; Wed, 27 Aug 2025
+ 08:15:41 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|GV1PR04MB10966:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6d96cfcd-28af-4495-93a4-08dde576548c
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|376014|366016|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?DUukO9Wi88rtoLxvO1+FQTtR7auPym44S7mRgo1xhbS3jTEk2zjTTshqqaSy?=
- =?us-ascii?Q?nw1lPvDmB1KqgNG4fXU9cF/tnwslpFmyDjFKX7UGQBkMrnzngdT/85Dakgft?=
- =?us-ascii?Q?KmJF4ey5sktyYUGEidRMiJGBSgsPRAFFsMlLZEL/xPFjGIGxy7AsWlBT3lz/?=
- =?us-ascii?Q?wEck4sdVhw6mEJk+ODRlxj4NLat3if/8e9NrE5tddfiTp5029O9PIcERCALr?=
- =?us-ascii?Q?vpFTY4DPgjAZHK0LdL/O6d1wJ65SIltNi7DngyOP0I3Mjuz6496Se7xQI/Iq?=
- =?us-ascii?Q?SV81K3thNjgepGqpcwkIGuj0/NPy90GIqD2bFPApICQf0ajlRKkU2c58Lzop?=
- =?us-ascii?Q?FeDQMkG3bMHrXzIZ0J5/tjbm9BIY5ke7FVDnfKbPfnY9CEGRfsjF47E/Yqtp?=
- =?us-ascii?Q?eW04sOSmnV8iZ/BvcH7sHQn6e2atLJSJi2uWhdXRkLFCRKdDTWHbZsxWcLjD?=
- =?us-ascii?Q?fyjo+TYh12HNhn2VwgcKKn4QGUCH72Mwsyt7dozCfBLfGCMXjqzeo0QRyIZB?=
- =?us-ascii?Q?clvfgm773r3jgy3CZkN1E/DjumDgurRu3kvPMgr26BZQZCgdnZ5bABkQrIdL?=
- =?us-ascii?Q?wqN2/eDEbkAtrxAMF0A1P9ScpTt0U5pwxWbinvz8DDX4EYZfgyJOqzkuzGCp?=
- =?us-ascii?Q?gGW1rkF83T3Fg2AjqcHlx460oHp7yZLfbtpp/Z4UFbbA+eQ1uaiSTtjeW+6S?=
- =?us-ascii?Q?u15n1cdsE2Ei/x23CZwLtKQEnw4ng0BQIeMgh9V5jVugfJ2KCrFGcqQIpo4N?=
- =?us-ascii?Q?HsxIpolb85DIxgNgxuXJuth18PsOhxwU5xbwE67JawYuGuturji2S51FkuKC?=
- =?us-ascii?Q?xyS6k80wci075q/r76itt9zFYNOrHaZ8LDlHT+oJ6P6yQYUkNSF5m3MgYmhS?=
- =?us-ascii?Q?HV583w09p1TsdFRGNy86ShS6vWW/tHdrWYQTMqOb/jUc6oFF0o3sqyXJySda?=
- =?us-ascii?Q?rRwAZlsQ0yomeSN3iNUvM3iVVHh+jtdkgoSb+W8EP8fbM9+HjQbIwLhFsyRE?=
- =?us-ascii?Q?nsrA6lH1sZbhwu/Ud7/SLh8XLbBDnXybdvy+BopU42aaaej7kmfGlOD+Dfl0?=
- =?us-ascii?Q?MD6c+X/Ho2qxZxiPftHxQDz+J43te8AUzjsWcS/IPknY/D5WCbUlk13H0WQh?=
- =?us-ascii?Q?N1OqH6jakHtDvo0RJBQngH4XJbeUuFXscfXSlCK+1OamCUN49t/RxQZCS4ll?=
- =?us-ascii?Q?wr5OWj86Ceo1+6cKLzXrgJG37ViitX53rf92eFwjqIsWkgJ1fTR/3LMGiF21?=
- =?us-ascii?Q?1ATeulhAFjTdn+TGKw0SUN0V3oRg8inOhD3tb5ab6ohsMz7iUJ5h0N5u1zRk?=
- =?us-ascii?Q?wV+/epud/PQrEA2Gx64pzu1mZwTDK6kyJ8yfuBc5sMSGgRXwsVn6e/kuOCsR?=
- =?us-ascii?Q?g5rqkJ1v8JBM1PZg9wFd0yr/5PxGXHI1cTt6otKIrkv2ggCH69iFllEYDwiD?=
- =?us-ascii?Q?W391BZiOEHmXe89/YafGWY2+smTOAuvLsz/T5xatInRC5AoaZMAO+w=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(376014)(366016)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?xHDyNqI/tm5OYI6nInj0ama+hJcbrlZKQbk0QjSZ4aCuNi+qe2C+vxt2MYeB?=
- =?us-ascii?Q?lSDCZalwLSPL9tJYnB1+WoyHZ2hlpo2HOwENAiFJAf7lSnUiGru55IrPg2St?=
- =?us-ascii?Q?Av2j1eMtDC3H8qiQqgNBxThH04J7u7He/x8YIFDjl7er63SL5b/hpl25V8Ks?=
- =?us-ascii?Q?m8VKpFzeBG4w15O014hLloBD1ohxEBlZXs2088f84zoM/Xo8zKQhSyruzfgQ?=
- =?us-ascii?Q?/D0Lc9QInScueI649YuQYMBXR1SjFX9IrLzOLf39gpSQ/naDjU9KYqqiwrC1?=
- =?us-ascii?Q?gZOeiDByi1p868PP4BM4EeLob1XnCXwxCeXN1NjXKyMav5+WId7t0z8vCC88?=
- =?us-ascii?Q?M0OU7hCYunjPElSZvhvwnujUO8kj73J5oZaKGYq34f1WuwlAyvxgi/eiKxON?=
- =?us-ascii?Q?OBupjP0N821SlkgonUjiyPT0yetkxL6OWt6nmx1ILVqZDPg6xKbL1Y/qdFBP?=
- =?us-ascii?Q?csFPTEWmd6Y0motnSOTCCcHRQKhuk0EDDScW1xfr+6mpoHDX03yOl0Rpq+rx?=
- =?us-ascii?Q?U933QokYtHtUpCL7E/RKMywI1yh8VPqb30RrY+KTZiy/AAzDK5ZlZdQ+ELbi?=
- =?us-ascii?Q?XFiC9w/yu5I+8NN/lnbqYQGKym16nF3rSfp0jP/sBnietiMzrWJbmSsZ9BJd?=
- =?us-ascii?Q?uNy8P4JKQegVD9mwcL2CR12glqKhMojGit6Rkqu7zRyA1/X2sQYsKeIsLte3?=
- =?us-ascii?Q?Tkgf07W3Shc4HfYsJ864mc5R/b+25qMBHuej83UoAoC486g/ghr9aWHTIaCy?=
- =?us-ascii?Q?xxffz41ot6HjMi7Jb4IFuNrb3Y+s+UEXbHnuOQJ3IJtUlFJ1emsCuRSHCEWE?=
- =?us-ascii?Q?AKm1mjzF4Mj8nWMy/K47iigZGmdYj6/XKKxKLjEwFy8S226imqoNO5wKO1qI?=
- =?us-ascii?Q?8t5H5LEFad55hhQIBkjcHn2DrAaQENxprFKF9zUD7W6g9iAMKMTb4z+pFREj?=
- =?us-ascii?Q?SQQ5/Tcw4bxvRJd4Xae5D4nLg3ko0YS/05D5WqPbfwiIm6o7BL6gudNND4M7?=
- =?us-ascii?Q?mTDsABK96PHY1EM+wBMOZbAOPzIizzhBnTBq45YnlIILeJeEdz1qSI3kp3Pu?=
- =?us-ascii?Q?nMxwo8+lC3GaQ4yZjUj5uO8MuvTyt1DuxMlfA9loy0KRY/p8HR/FLc3c/doa?=
- =?us-ascii?Q?5t8Q5x57GBwIQ2iDe1rsvWKIsVrKtlUc9eSlOa8MXEFzUttHjWBc0ycibEAL?=
- =?us-ascii?Q?4dbt0G06LpdRf6V3BUEwFa8Y79Lu/PKNaWZQ1+huhW8MocoRQ3CwcJMce3kQ?=
- =?us-ascii?Q?v5ZSShgPGnbaSoHMlYTYvacXmJp++uZYezxUWU8MYRYXeGg16wbmFJPDwrgO?=
- =?us-ascii?Q?fIJfgWgrOtbiSh0WukfoSAMmMghCj0bhqWBzRt6gUWOQZ4xzAg1T9TaL7uFW?=
- =?us-ascii?Q?HbgardRIp6JsovRKrfuOc3lkNWtjkEyjMwFdI3OV84+cSGekVcN8J08UJZKo?=
- =?us-ascii?Q?4+deo+Sj3Ws/l0fK5/CIJw3ESKJtzRRqHEtouw/q/60ZkYrXZexqpdfQhANX?=
- =?us-ascii?Q?YqLTcuUbYmgv0+7bRMya+qaIuVFkUNcqq/sWtauAcQ5eD1wmoTq1k1rBO7sY?=
- =?us-ascii?Q?TYcW3XOS3cAM7C8hUhO3544lIMHZl3YpyMZVowZE?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6d96cfcd-28af-4495-93a4-08dde576548c
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Aug 2025 14:30:54.5284
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /HCmzjXD4fFLI9r8nkLSfGwfmt6Fzrs/SJAyuAxu2PrpzQm01AmlE+pT5psiX0LxtD3q3390UPAIngwm8lnE0w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10966
+References: <cover.1755096883.git.robin.murphy@arm.com> <d6cda4e2999aba5794c8178f043c91068fa8080c.1755096883.git.robin.murphy@arm.com>
+ <20250826130329.GX4067720@noisy.programming.kicks-ass.net>
+ <6080e45d-032e-48c2-8efc-3d7e5734d705@arm.com> <CAP-5=fXF2x3hW4Sk+A362T-50cBbw6HVd7KY+QEUjFwT+JL37Q@mail.gmail.com>
+ <aK6_XrA_OaLnoFkr@J2N7QTR9R3>
+In-Reply-To: <aK6_XrA_OaLnoFkr@J2N7QTR9R3>
+From: Ian Rogers <irogers@google.com>
+Date: Wed, 27 Aug 2025 08:15:29 -0700
+X-Gm-Features: Ac12FXwUZ4TrRSXyzgr8XTQRkesJ87wwMtoKHvx086ZRlV4GbvgOq2WSyedNfZ4
+Message-ID: <CAP-5=fU0-QDMP-VG3O1qBvJ8uzHHYCQ8j1Vrzy9a0YUk=UMvHw@mail.gmail.com>
+Subject: Re: [PATCH 12/19] perf: Ignore event state for group validation
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Robin Murphy <robin.murphy@arm.com>, Peter Zijlstra <peterz@infradead.org>, mingo@redhat.com, 
+	will@kernel.org, acme@kernel.org, namhyung@kernel.org, 
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org, adrian.hunter@intel.com, 
+	kan.liang@linux.intel.com, linux-perf-users@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org, 
+	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	imx@lists.linux.dev, linux-csky@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
+	sparclinux@vger.kernel.org, linux-pm@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, dmaengine@vger.kernel.org, 
+	linux-fpga@vger.kernel.org, amd-gfx@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org, 
+	intel-xe@lists.freedesktop.org, coresight@lists.linaro.org, 
+	iommu@lists.linux.dev, linux-amlogic@lists.infradead.org, 
+	linux-cxl@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_073059_742438_D9767B90 
-X-CRM114-Status: GOOD (  18.31  )
+X-CRM114-CacheID: sfid-20250827_081545_594150_76F5C6F5 
+X-CRM114-Status: GOOD (  33.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,84 +113,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 27, 2025 at 05:53:51PM +0800, Guoniu Zhou wrote:
-> Sort platform data in the order of compatible strings in of_match table
-> to make it more convenient to read.
+On Wed, Aug 27, 2025 at 1:18=E2=80=AFAM Mark Rutland <mark.rutland@arm.com>=
+ wrote:
 >
-> No functions changed.
+> On Tue, Aug 26, 2025 at 11:48:48AM -0700, Ian Rogers wrote:
+> > On Tue, Aug 26, 2025 at 8:32=E2=80=AFAM Robin Murphy <robin.murphy@arm.=
+com> wrote:
+> > >
+> > > On 2025-08-26 2:03 pm, Peter Zijlstra wrote:
+> > > > On Wed, Aug 13, 2025 at 06:01:04PM +0100, Robin Murphy wrote:
+> > > >> It may have been different long ago, but today it seems wrong for =
+these
+> > > >> drivers to skip counting disabled sibling events in group validati=
+on,
+> > > >> given that perf_event_enable() could make them schedulable again, =
+and
+> > > >> thus increase the effective size of the group later. Conversely, i=
+f a
+> > > >> sibling event is truly dead then it stands to reason that the whol=
+e
+> > > >> group is dead, so it's not worth going to any special effort to tr=
+y to
+> > > >> squeeze in a new event that's never going to run anyway. Thus, we =
+can
+> > > >> simply remove all these checks.
+> > > >
+> > > > So currently you can do sort of a manual event rotation inside an
+> > > > over-sized group and have it work.
+> > > >
+> > > > I'm not sure if anybody actually does this, but its possible.
+> > > >
+> > > > Eg. on a PMU that supports only 4 counters, create a group of 5 and
+> > > > periodically cycle which of the 5 events is off.
+> >
+> > I'm not sure this is true, I thought this would fail in the
+> > perf_event_open when adding the 5th event and there being insufficient
+> > counters for the group.
 >
-> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+> We're talking specifically about cases where the logic in a pmu's
+> pmu::event_init() callback doesn't count events in specific states, and
+> hence the 5th even doesn't get rejected when it is initialised.
+>
+> For example, in arch/x86/events/core.c, validate_group() uses
+> collect_events(), which has:
+>
+>         for_each_sibling_event(event, leader) {
+>                 if (!is_x86_event(event) || event->state <=3D PERF_EVENT_=
+STATE_OFF)
+>                         continue;
+>
+>                 if (collect_event(cpuc, event, max_count, n))
+>                         return -EINVAL;
+>
+>                 n++;
+>         }
+>
+> ... and so where an event's state is <=3D PERF_EVENT_STATE_OFF at init
+> time, that event is not counted to see if it fits into HW counters.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Hmm.. Thinking out loud. So it looked like perf with weak groups could
+be broken then:
+```
+$ sudo perf stat -vv -e '{instructions,cycles}:W' true
+...
+perf_event_attr:
+ type                             0 (PERF_TYPE_HARDWARE)
+ size                             136
+ config                           0x400000001
+(cpu_core/PERF_COUNT_HW_INSTRUCTIONS/)
+ sample_type                      IDENTIFIER
+ read_format                      TOTAL_TIME_ENABLED|TOTAL_TIME_RUNNING|ID|=
+GROUP
+ disabled                         1
+ inherit                          1
+ enable_on_exec                   1
+------------------------------------------------------------
+sys_perf_event_open: pid 3337764  cpu -1  group_fd -1  flags 0x8 =3D 5
+------------------------------------------------------------
+perf_event_attr:
+ type                             0 (PERF_TYPE_HARDWARE)
+ size                             136
+ config                           0x400000000
+(cpu_core/PERF_COUNT_HW_CPU_CYCLES/)
+ sample_type                      IDENTIFIER
+ read_format                      TOTAL_TIME_ENABLED|TOTAL_TIME_RUNNING|ID|=
+GROUP
+ inherit                          1
+------------------------------------------------------------
+sys_perf_event_open: pid 3337764  cpu -1  group_fd 5  flags 0x8 =3D 7
+...
+```
+Note, the group leader (instructions) is disabled because of:
+https://web.git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.gi=
+t/tree/tools/perf/util/stat.c?h=3Dperf-tools-next#n761
+```
+/*
+* Disabling all counters initially, they will be enabled
+* either manually by us or by kernel via enable_on_exec
+* set later.
+*/
+if (evsel__is_group_leader(evsel)) {
+        attr->disabled =3D 1;
+```
+but the checking of being disabled (PERF_EVENT_STATE_OFF) is only done
+on siblings in the code you show above. So yes, you can disable the
+group events to allow the perf_event_open to succeed but not on the
+leader which is always checked (no PERF_EVENT_STATE_OFF check):
+https://web.git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.gi=
+t/tree/arch/x86/events/core.c?h=3Dperf-tools-next#n1204
+```
+if (is_x86_event(leader)) {
+        if (collect_event(cpuc, leader, max_count, n))
+                return -EINVAL;
+```
 
-> ---
->  .../media/platform/nxp/imx8-isi/imx8-isi-core.c    | 44 +++++++++++-----------
->  1 file changed, 22 insertions(+), 22 deletions(-)
->
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> index 981648a0311374597a033a7ecbf39f7b0b252cb0..cae918792ddbe3e6f458606fbbb7d0ad5738504c 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> @@ -314,6 +314,28 @@ static const struct mxc_isi_plat_data mxc_imx8mp_data = {
->  	.has_36bit_dma		= true,
->  };
->
-> +static const struct mxc_isi_plat_data mxc_imx8qm_data = {
-> +	.model			= MXC_ISI_IMX8QM,
-> +	.num_ports		= 5,
-> +	.num_channels		= 8,
-> +	.reg_offset		= 0x10000,
-> +	.ier_reg		= &mxc_imx8_isi_ier_qm,
-> +	.set_thd		= &mxc_imx8_isi_thd_v1,
-> +	.buf_active_reverse	= true,
-> +	.has_36bit_dma		= false,
-> +};
-> +
-> +static const struct mxc_isi_plat_data mxc_imx8qxp_data = {
-> +	.model			= MXC_ISI_IMX8QXP,
-> +	.num_ports		= 5,
-> +	.num_channels		= 6,
-> +	.reg_offset		= 0x10000,
-> +	.ier_reg		= &mxc_imx8_isi_ier_v2,
-> +	.set_thd		= &mxc_imx8_isi_thd_v1,
-> +	.buf_active_reverse	= true,
-> +	.has_36bit_dma		= false,
-> +};
-> +
->  static const struct mxc_isi_plat_data mxc_imx8ulp_data = {
->  	.model			= MXC_ISI_IMX8ULP,
->  	.num_ports		= 1,
-> @@ -337,28 +359,6 @@ static const struct mxc_isi_plat_data mxc_imx93_data = {
->  	.has_36bit_dma		= false,
->  };
->
-> -static const struct mxc_isi_plat_data mxc_imx8qm_data = {
-> -	.model			= MXC_ISI_IMX8QM,
-> -	.num_ports		= 5,
-> -	.num_channels		= 8,
-> -	.reg_offset		= 0x10000,
-> -	.ier_reg		= &mxc_imx8_isi_ier_qm,
-> -	.set_thd		= &mxc_imx8_isi_thd_v1,
-> -	.buf_active_reverse	= true,
-> -	.has_36bit_dma		= false,
-> -};
-> -
-> -static const struct mxc_isi_plat_data mxc_imx8qxp_data = {
-> -	.model			= MXC_ISI_IMX8QXP,
-> -	.num_ports		= 5,
-> -	.num_channels		= 6,
-> -	.reg_offset		= 0x10000,
-> -	.ier_reg		= &mxc_imx8_isi_ier_v2,
-> -	.set_thd		= &mxc_imx8_isi_thd_v1,
-> -	.buf_active_reverse	= true,
-> -	.has_36bit_dma		= false,
-> -};
-> -
->  /* -----------------------------------------------------------------------------
->   * Power management
->   */
->
-> --
-> 2.34.1
->
+Thanks,
+Ian
 
