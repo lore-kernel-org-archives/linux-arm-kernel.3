@@ -4,61 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E07BCA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 15:52:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F93DCA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 15:53:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eNWgR/zSU+rFZXWz00VVEXAaUrDdWMpBA7o9VyVW+HE=; b=NnBfM6H8jEC9l/auSLvsHb57Gj
-	GVDAg2jtwtWlRSwa6d9KG4Pi0QqMiiP6fjbsZeHSu85aci2kj62PZeRHkbj4I6M/bKFvZZ5czn4su
-	di6VHTdvO8C16H6dNbglciFQRmK1oECGBW30t4x5i7Bsf3/S66I6+zudq21TzfV7eII4J0XlCaTpZ
-	iU6qnbDn1CF4/+AwKws+GMskUlS19by0JLUBUP2Oq3AX5+12XzI3Ej8mpGoIWAZVohbjH0E6y0SwU
-	8TqBH0G58g1k42gQooxvnp5YSX/Y75QTQWZsSkMbcfwYaZi+WgFhWWYUSlN04roJh6GBUatstml8A
-	aF14AtTw==;
+	bh=RAI62g1SD1qTOSmc4DlEd7xrM62RJVSxUdsDhAibVPo=; b=TpRjiPs2XUX+UDQuaWSp8n6766
+	UKzHgj0Ve17Dq4epWSogHLDoBnR1/CQYjM21zLDI8BMksxdVO4us5dwknhi2uopkCxymiyFH60Y0I
+	9eLhxYDPdBcihEAyIRRt6RO82FgKIQsl9h+PocLLZNNQbHqJLiGuqq+rAClLiyg/pLS8jOi+b9K6n
+	WfmT6SBNP90Dz1lAU/geWyBwaNDQszqtdE5yVftMpKyDNDSmcLJqs8BO1+wFpQW61eAyHbLqsjqpe
+	Gbtp2DzMz2ssPGet+SRdvpvZAqRl44IyPjjuNU0hle6VHDcpTQgvG38JDFk02KAvVCP5KHPiQR81+
+	FU4J9vkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urIS9-0000000G2Yd-2rff;
-	Wed, 27 Aug 2025 15:52:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1urISE-0000000G2f0-3Qgt;
+	Wed, 27 Aug 2025 15:52:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urFhL-0000000FU6A-3J24
+	id 1urFjb-0000000FUZt-1XAb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 12:56:19 +0000
+	Wed, 27 Aug 2025 12:58:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D616B60010;
-	Wed, 27 Aug 2025 12:56:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AC5DC4CEEB;
-	Wed, 27 Aug 2025 12:56:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 07A2943847;
+	Wed, 27 Aug 2025 12:58:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CDB8C4CEEB;
+	Wed, 27 Aug 2025 12:58:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756299378;
-	bh=ryvYXSfgswN/akmPZnVzpZlQ2P7ko9UlMbj5zihIaXQ=;
+	s=k20201202; t=1756299518;
+	bh=5aNA4WNVqmvubIU0HkdqgATcqIRcv19aYOgpzwLUezM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=dsoaKvDsFFNACks9tBRnEVjBTGS62OzT6ce0R1ZUHsI9+TZN0iC8oM+uFw/YCnlMR
-	 fk5KxBWjeAAhviTEs9Gx6z1IdLMO/5I3HD+Jg5td0Be+I63cGs2vtb1y2s//CSlIyP
-	 2LFhdFY+PuhwXBNUjHA9yENraWv1+trVOR1ne5RmhNUKKQV22moF34DSbfxj0zU4sG
-	 /02bc7PkuvTtkTRuUTj0w3fvjpU3UKDOvEf1zaauEnnNHVcq6yJySwC1Y1qt8kawaX
-	 Cr1iiJu+c69Ltkam6MW4Wqz6IhbXTgZniKuPX2tzQNWJwKoin3yzoXxv5P9DD1GSYD
-	 YmOGIQYrLUxdA==
-Message-ID: <45426336-103c-471c-91d1-a5911025730b@kernel.org>
-Date: Wed, 27 Aug 2025 14:56:12 +0200
+	b=iYzgc7TzSMHIIAfWTOZ3hkvCC9eRsFQyXxtv+YtjoorVv+q1XZf/ILrCo/J94WvcW
+	 vlWJ2EKdo1G8TmbX+VAFXBa6L/KpfCnPKYJPGdhjXf6Xt0wsqe+AuL8bIxxbyq+PZ+
+	 kjwKUHnowGBSA3ArdI01L9IhD/g1UVmQf9yc7QooVyYKwjpjc82sGWHnvGTH3mr5U4
+	 rG7Ejj0g4b0nzbr/n+egPZM8LTQd/p44ozaPDv+e1YgqgXaMhAy+3BhU8AgztRLYin
+	 cE9f5zlKq3D+yS4/7abQIGJIjTPbknmqit3AnC8vfzUxCxuHbldQU0gCEys9D2+O6K
+	 zS/1fnsOyUFMA==
+Message-ID: <e01271e4-392b-4ab2-9608-a8e6ebecee91@kernel.org>
+Date: Wed, 27 Aug 2025 14:58:33 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/7] dt-bindings: mfd: sl28cpld: add sa67mcu compatible
-To: Michael Walle <mwalle@kernel.org>, Nishanth Menon <nm@ti.com>,
- Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Jean Delvare <jdelvare@suse.com>,
- Guenter Roeck <linux@roeck-us.net>, Lee Jones <lee@kernel.org>,
- Srinivas Kandagatla <srini@kernel.org>,
- Wim Van Sebroeck <wim@linux-watchdog.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org,
- linux-watchdog@vger.kernel.org
-References: <20250822131531.1366437-1-mwalle@kernel.org>
- <20250822131531.1366437-3-mwalle@kernel.org>
+Subject: Re: [PATCH 1/5] media: dt-bindings: nxp,imx8-isi: Add i.MX91 ISI
+ compatible string
+To: Guoniu Zhou <guoniu.zhou@nxp.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Alice Yuan <alice.yuan@nxp.com>
+References: <20250827-isi_imx93-v1-0-83e6b4b50c4d@nxp.com>
+ <20250827-isi_imx93-v1-1-83e6b4b50c4d@nxp.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,9 +106,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250822131531.1366437-3-mwalle@kernel.org>
+In-Reply-To: <20250827-isi_imx93-v1-1-83e6b4b50c4d@nxp.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250827_055839_450900_572CB7BA 
+X-CRM114-Status: UNSURE (   7.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,20 +127,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/08/2025 15:15, Michael Walle wrote:
-> The Kontron SMARC-sAM67 module features an on-board house keeping uC.
-> It's designed to be compatible with the older on-board CPLD used on the
-> SMARC-sAL28 board. To be prepared for any board specific quirks, add a
-> specific compatible.
+On 27/08/2025 11:53, Guoniu Zhou wrote:
+> From: Alice Yuan <alice.yuan@nxp.com>
 > 
-> Signed-off-by: Michael Walle <mwalle@kernel.org>
-> ---
+> The ISI module on i.MX91 is reused from i.MX93 and implements one channel
+> and one camera input which only can be connected to parallel camera input.
+> So needn't to select camera source like i.MX93 in gasket ops.
+> 
+> Signed-off-by: Alice Yuan <alice.yuan@nxp.com>
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
 
-
-
-A note: this will conflict with my patches moving it to embedded-controller.
-
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
