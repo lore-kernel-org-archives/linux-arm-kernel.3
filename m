@@ -4,75 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06DECCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 11:40:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32FA3CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 11:43:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aSIgPjfjUfYJt9wp9cWdxLl2ZcWADmizYaXrkw1qFe4=; b=ddGpOG95yqj6OEOeL/dVyauDvC
-	OCXJ9DieolS6ReCG0h9RpvMmizV/6RLtJRVwDw8XZOVAoeCmgC9h35rgJh7tRwKQlbUdLN2fWjvdx
-	JJdSLeO12E3IbvI5rUE/QXe+qEsQH6hU8/+6nC5i1SsAApLPGKxlnsTtTS9YhOcwF0t1QV/dumXF9
-	3EyMThnvL4QtmXe0EIG3TMsBmPnM4SLditCkNXjtYViSw09HFLsVu6bALZb8JLze01+yFaBC3PuqO
-	NPpYfiqUItyWaH8K3ZMGuiij3jCyJbIL4arRDo7OK/P74m9ygvElldqqlMh1zh2sg3hFjU6YPak2/
-	r5gsoYGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9wdkqfpaZOOvxTwoHvHvU8nhHI49YCbpuNrKJU42fBg=; b=yPxb3PRhRVPJh5DksE9sIiZimB
+	VuuMioXNIOBWB2NAP8zbUg0+Ve83VsMMdGjX4Q3N3olBoYN5GcU/cj0iUGLN37J2fNrJwLNehewat
+	dkCBa1gQuKHm8THnDKKsf2EpMG6mK8pwWej9/cCva5kNhwrTFXfC3kuuEkA+fC3/YuV00ZDFsIX5+
+	zMG3wfkt1QqTargZirN4Uum6Gp01NQ4fso49mU9WBLUZnvJC/bT2D80giG/dJ81ZkJMrb0S2xnF+G
+	z7iM9/Yq91vptwqCwD5yER1A+5TI5Y29v9CYct3jOB+kC4TtNsq/4BGoArQbIOU0zAb7jL/HY00cF
+	cvijNn3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urEW8-0000000FJ86-2v3k;
-	Wed, 27 Aug 2025 11:40:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urDmu-0000000F7nb-2y1c
+	id 1urEYp-0000000FJtr-2DOZ;
+	Wed, 27 Aug 2025 11:43:27 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urDon-0000000F80A-2SDK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 10:53:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BFEFE1688;
-	Wed, 27 Aug 2025 03:53:47 -0700 (PDT)
-Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 491FF3F694;
-	Wed, 27 Aug 2025 03:53:50 -0700 (PDT)
-Date: Wed, 27 Aug 2025 11:53:47 +0100
-From: Dave Martin <Dave.Martin@arm.com>
-To: James Morse <james.morse@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
-	shameerali.kolothum.thodi@huawei.com,
-	D Scott Phillips OS <scott@os.amperecomputing.com>,
-	carl@os.amperecomputing.com, lcherian@marvell.com,
-	bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
-	baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
-	Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
-	dfustini@baylibre.com, amitsinght@marvell.com,
-	David Hildenbrand <david@redhat.com>,
-	Rex Nie <rex.nie@jaguarmicro.com>, Koba Ko <kobak@nvidia.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
-	baisheng.gao@unisoc.com,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
-	Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>
-Subject: Re: [PATCH 06/33] ACPI / PPTT: Add a helper to fill a cpumask from a
- cache_id
-Message-ID: <aK7ju2caTjqf1+VN@e133380.arm.com>
-References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-7-james.morse@arm.com>
+	Wed, 27 Aug 2025 10:55:54 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57R6kNEO023132
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 10:55:52 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=9wdkqfpaZOOvxTwoHvHvU8nhHI49YCbpuNr
+	KJU42fBg=; b=QQGO7KczCjbgvYYk+9uhic9rtK0iddHdETY+RpOHmkKn4up2YXn
+	L1Q2n0ZfFDweFi7bZrN5hnOvJEwWCPUNlVxsJY3qdyCNIUo+2qk//dWhwyulZQc3
+	ibNg1Pik+KCZdEk/Fg+yM0Q6I1YtAxf73Jd1ZgK22qkuQqoccFQpsRNRvd/ZziT2
+	1aDoGUzWMxGY6t/jP86V2fQ5rRdeU9ibCoKmD+wCMFuQCQHLFaAlmSKM8+7NFMlh
+	skmjYHRYKlOLd+3mCESuErznGZIvHxRiH9EWUDJoYEzTlOnlpHVitm2mqlMjQ+z1
+	B1vBSEyaCnmNk7j7nQaU7Dm3842OdDTm8MQ==
+Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48q5y5m7cj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 10:55:52 +0000 (GMT)
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-771e331f0fcso2611958b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 03:55:51 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756292150; x=1756896950;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9wdkqfpaZOOvxTwoHvHvU8nhHI49YCbpuNrKJU42fBg=;
+        b=fIRlXEKJkDtvIFW0phy3UGIdybth0YRB1xQMP+zjoRG1rxvuMZPPBUgS1NyJNqeW1n
+         XVrW2V5rEwS7woXiHpFFtBIh8+d7lkYkPUM9P+9nhW7ORYE8tpzRFvvD9kZc/YU8OPFM
+         yPqSLZimbj56g4E2tDsTr43NoX57bcbslgxTR8nM81qrwp9+eJmfMbJNhpQBD/3IosrB
+         nJtxZD6LRuftO6KHHpJJ1qpitl5FROgtSYLNXDqKTL+gMd+ir4S38oiRBSGEPGE4m4Jv
+         oMkAJInCSk0hyI2kKJkyOmU9MrVICYfFojE9XrK0rKMQVVpmm4RiJRQ7F40UtiR2VW7P
+         itug==
+X-Forwarded-Encrypted: i=1; AJvYcCWxLxXGSgrY/Mj8Ba0/3lWWO+dR326ERhsE3pMlJU9SrcQ+DIuKpq1vL3WdC34sImsHI4Cdxmza6URXVJLzulZF@lists.infradead.org
+X-Gm-Message-State: AOJu0YwyaflE8S0blht1EOlAIberrufc0NWs7nu4snDY2wRLQiNaXTqd
+	wlORMOiVzTMf2In9WFBDIk4TBV4rrdSVTsOvRyVbDlK68nsx7QqqRmkDHzpr9/LV2RQnpme04zX
+	BixZv5vhXt3Ua9dcai1TQd48IBhey3A1lydFIBc9GR4dcdu+oOK3rmIvX+R+ZnoQzLLyHu2me3+
+	3kpkNVotqzFIhT
+X-Gm-Gg: ASbGncv9FxmgDzZPK/6nbEKFqbLaJUq3810/lYQFTA2iqb4ptTC0VJZHZOCHQKpr4Qd
+	JiWSAtxcCDq05FRASynTsMT0iKQKwtzEgvC0VX2EmiRDZeTQ5XThX3lbCZ/JZwqmnkRd1R/fVvF
+	465BzjX77GL3q/KQ3RDjNcKAU7I9fjTHDmaUS5LQAyrSbv2dFwPTvIiGn3HduUs7cALN7LptaE0
+	JFJ807UTyW+fHZ0AE0dkU/xpUbvj8rOnzZFCbyQoE4ESx3xBSvwXYWRX6QOdxI9twsJ0sA/hQuY
+	x3qHdEKGU1DFqCnQzm4CZO4KzXra+5jstudmMZmTjuuLw4uDWQ2xC5nYYQPoGTIVGMhL9r1nVUc
+	9ZGNLZJWwCv3iqoc8AS8e
+X-Received: by 2002:a05:6a00:b44:b0:771:ef50:346 with SMTP id d2e1a72fcca58-771ef50091cmr10777469b3a.15.1756292150577;
+        Wed, 27 Aug 2025 03:55:50 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGqpJCRpa3pgQwwL2DXQzr+CaxFnBbfnfaaX9zy/10KGXLksC4chuBLZap7O/yZiDteErLiCQ==
+X-Received: by 2002:a05:6a00:b44:b0:771:ef50:346 with SMTP id d2e1a72fcca58-771ef50091cmr10777433b3a.15.1756292150108;
+        Wed, 27 Aug 2025 03:55:50 -0700 (PDT)
+Received: from jiegan.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-771f2f2ac7dsm5573035b3a.43.2025.08.27.03.55.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 Aug 2025 03:55:49 -0700 (PDT)
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
+Subject: [PATCH v3 0/3] add sysfs nodes to configure TPDA's registers
+Date: Wed, 27 Aug 2025 18:55:42 +0800
+Message-Id: <20250827105545.7140-1-jie.gan@oss.qualcomm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250822153048.2287-7-james.morse@arm.com>
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDAzMyBTYWx0ZWRfXxl1YQvvEmSac
+ OMoXkzOiysSQBRYznRFZ4TLgVIjITJ+W6/Xu0jUBWxilASQJ5qGULU/GrYerkybMxpAKhkeN6fJ
+ 21NjGUYASOgKQZWnseYDQK3JoBMeiVo+gxb2/XooZV+1yVE8lEjhgVCrNgUNBUuKrbwf8/m2Km7
+ y4zKNXKv6ljMucJMzfMzOpAs2At0vMkmVqlO7wCQM4536G3e8vgA4h2TSNYV2FQJcMSV8ynOz4V
+ VudT2jVlFafmco4g4E127QQM1ps1nnnG27kV5yy8V/7+oRTw9hmKJX8gxavyan7OSY7EO1pkbCe
+ 5QvwLah9kbXoXozs3138By/n2jJ+Y4FdRwLfIRo68aw9BZc0FYQ3k88KUZntMQbZveIs8MibOOS
+ SgOBZ26U
+X-Authority-Analysis: v=2.4 cv=Lco86ifi c=1 sm=1 tr=0 ts=68aee438 cx=c_pps
+ a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=2OwXVqhp2XgA:10 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=kL9tw6tk32Vw8pM4mOkA:9
+ a=OpyuDcXvxspvyRM73sMx:22
+X-Proofpoint-GUID: VhWZHsr1J2K7OwdM_xoW5BtG7tTujET8
+X-Proofpoint-ORIG-GUID: VhWZHsr1J2K7OwdM_xoW5BtG7tTujET8
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-27_02,2025-08-26_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 adultscore=0 clxscore=1015 malwarescore=0 spamscore=0
+ suspectscore=0 phishscore=0 priorityscore=1501 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508230033
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_035356_826953_36EFC6ED 
-X-CRM114-Status: GOOD (  33.17  )
+X-CRM114-CacheID: sfid-20250827_035553_746504_BDA92D89 
+X-CRM114-Status: GOOD (  13.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,119 +129,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+Patchset 1 introduces configuration of the cross-trigger registers with
+appropriate values to enable proper generation of cross-trigger packets.
 
-On Fri, Aug 22, 2025 at 03:29:47PM +0000, James Morse wrote:
-> MPAM identifies CPUs by the cache_id in the PPTT cache structure.
-> 
-> The driver needs to know which CPUs are associated with the cache,
-> the CPUs may not all be online, so cacheinfo does not have the
-> information.
+Patchset 2 introduces a logic to configure the TPDA_SYNCR register,
+which determines the frequency of ASYNC packet generation. These packets
+assist userspace tools in accurately identifying each valid packet.
 
-Nit: cacheinfo lacking the information is not a consequence of the
-driver needing it.
+Patchset 3 introduces a sysfs node to initiate a flush request for the
+specific port, forcing the data to synchronize and be transmitted to the
+sink device.
 
-Maybe split the sentence:
+Changes in V3:
+1. Optimizing codes according to James's comment.
+Link to V2 - https://lore.kernel.org/all/20250827042042.6786-1-jie.gan@oss.qualcomm.com/
 
--> "[...] associated with the cache. The CPUs may not [...]"
+Changes in V2:
+1. Refactoring the code based on James's comment for optimization.
+Link to V1 - https://lore.kernel.org/all/20250826070150.5603-1-jie.gan@oss.qualcomm.com/
 
-> 
-> Add a helper to pull this information out of the PPTT.
-> 
-> CC: Rohit Mathew <Rohit.Mathew@arm.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-> ---
-> Changes since RFC:
->  * acpi_count_levels() now returns a value.
->  * Converted the table-get stuff to use Jonathan's cleanup helper.
->  * Dropped Sudeep's Review tag due to the cleanup change.
-> ---
->  drivers/acpi/pptt.c  | 62 ++++++++++++++++++++++++++++++++++++++++++++
->  include/linux/acpi.h |  6 +++++
->  2 files changed, 68 insertions(+)
-> 
-> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
-> index 660457644a5b..cb93a9a7f9b6 100644
-> --- a/drivers/acpi/pptt.c
-> +++ b/drivers/acpi/pptt.c
-> @@ -971,3 +971,65 @@ int find_acpi_cache_level_from_id(u32 cache_id)
->  
->  	return -ENOENT;
->  }
-> +
-> +/**
-> + * acpi_pptt_get_cpumask_from_cache_id() - Get the cpus associated with the
-> + *					   specified cache
-> + * @cache_id: The id field of the unified cache
-> + * @cpus: Where to build the cpumask
-> + *
-> + * Determine which CPUs are below this cache in the PPTT. This allows the property
-> + * to be found even if the CPUs are offline.
-> + *
-> + * The PPTT table must be rev 3 or later,
-> + *
-> + * Return: -ENOENT if the PPTT doesn't exist, or the cache cannot be found.
-> + * Otherwise returns 0 and sets the cpus in the provided cpumask.
-> + */
-> +int acpi_pptt_get_cpumask_from_cache_id(u32 cache_id, cpumask_t *cpus)
-> +{
-> +	u32 acpi_cpu_id;
-> +	int level, cpu, num_levels;
-> +	struct acpi_pptt_cache *cache;
-> +	struct acpi_pptt_cache_v1 *cache_v1;
-> +	struct acpi_pptt_processor *cpu_node;
-> +	struct acpi_table_header *table __free(acpi_table) = acpi_get_table_ret(ACPI_SIG_PPTT, 0);
-> +
-> +	cpumask_clear(cpus);
-> +
-> +	if (IS_ERR(table))
-> +		return -ENOENT;
-> +
-> +	if (table->revision < 3)
-> +		return -ENOENT;
-> +
-> +	/*
-> +	 * If we found the cache first, we'd still need to walk from each cpu.
-> +	 */
-> +	for_each_possible_cpu(cpu) {
-> +		acpi_cpu_id = get_acpi_id_for_cpu(cpu);
-> +		cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
-> +		if (!cpu_node)
-> +			return 0;
-> +		num_levels = acpi_count_levels(table, cpu_node, NULL);
-> +
-> +		/* Start at 1 for L1 */
-> +		for (level = 1; level <= num_levels; level++) {
-> +			cache = acpi_find_cache_node(table, acpi_cpu_id,
-> +						     ACPI_PPTT_CACHE_TYPE_UNIFIED,
-> +						     level, &cpu_node);
-> +			if (!cache)
-> +				continue;
-> +
-> +			cache_v1 = ACPI_ADD_PTR(struct acpi_pptt_cache_v1,
-> +						cache,
-> +						sizeof(struct acpi_pptt_cache));
-> +
-> +			if (cache->flags & ACPI_PPTT_CACHE_ID_VALID &&
-> +			    cache_v1->cache_id == cache_id)
-> +				cpumask_set_cpu(cpu, cpus);
+Tao Zhang (3):
+  coresight: tpda: add sysfs nodes for tpda cross-trigger configuration
+  coresight: tpda: add logic to configure TPDA_SYNCR register
+  coresight: tpda: add sysfs node to flush specific port
 
-Again, it feels like we are repeating the same walk multiple times to
-determine how deep the table is (on which point the table is self-
-describing anyway), and then again to derive some static property, and
-then we are then doing all of that work multiple times to derive
-different static properties, etc.
+ .../testing/sysfs-bus-coresight-devices-tpda  |  50 ++++
+ drivers/hwtracing/coresight/coresight-tpda.c  | 278 ++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-tpda.h  |  33 ++-
+ 3 files changed, 360 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
 
-Can we not just walk over the tables once and stash the derived
-properties somewhere?
+-- 
+2.34.1
 
-I'm still getting my head around this parsing code, so I'm not saying
-that the approach is incorrect here -- just wondering whether there is
-a way to make it simpler.
-
-[...]
-
-Cheers
----Dave
 
