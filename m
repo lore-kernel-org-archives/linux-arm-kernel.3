@@ -4,174 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AED6CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 05:29:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F370DCA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 05:32:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eBBeiKTrAoJrc6ov3CW0ga8L4TPQoHo3OhY6qTTHfNY=; b=Ag7ztAi+ZjogHyz5QTBfDl+sQD
-	VP2VFQ0GwP+f/9YKAyzjxG/6sAsHHIePyEkl6qmNo7RabM4wmUK3Ip+WDrOrv7O4x99MaBZVR6DAb
-	YJLw4L0BvQUeeIWBhdUdrDp6VstSf3n5V/85KbBWzs7ilEDCHxAyqd/5DonGStNPqTmfEWOoeGJk8
-	n53en4XZ4V+MMg3HLMyAzxQtPzguxXVcxcYAuY/hm6CkMQeIMKUG8Jx7cQbvWcsGVTkuGSkb/vzL1
-	PR7aY0kf5qyvLbkCkYcN2ZdEimEcE0asXBRo1OWgLhy4/nmenpoCatTH3+9ceNjXA2tB6/QqFDtI7
-	a+eboYWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jxijsstmEiNGZJKG6yltOja4dBZKrqMyUi/HgZLz1Sk=; b=MAT++bj07FZGNDcBilQfjFFg56
+	b2ArUGyyZJsWN9Rds5OauCNRoVEHswWE3kyQqRaxHiXXQOCx5kJcY52U3+3FEtOyB2ouCphcUjg+I
+	AAAdB661qWOUCX7GVtYti/ZsRvaGKo6inXB/YGEiWUS55v8Q7UxMpq8mzotkvb1qbsfpk0fpBkuiJ
+	MJfgAu1X2ZjMLcYYBrHCsQognY9vutXAqQIo7lPDI+vJq9+FofImeCjL16KNjxgQOkWUkakyrrFO/
+	GPwpgxrpKNmfHm1ZiubS2+9ArgqcNuaev4j0XELCAZT8rqxDXS7VagmgRGXBUmKJ07xFcfCYDKI32
+	JJA26mPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ur8iz-0000000E7vr-0gIw;
-	Wed, 27 Aug 2025 05:29:33 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1ur8lf-0000000E8QU-3siw;
+	Wed, 27 Aug 2025 05:32:19 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ur8GL-0000000E3BT-3CEc
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 04:59:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DST8h9u93Y5RbzJ6DzXeCcR1nsGnJNI8K7nsPAwcitln0w4ZbBLYl9yXc7MK5BMa/xgenO3/LUIqdn1vqRFffa/VKfGVi0xov+5hlqxkGq3J40NgpVlq/e5Msg2cO0JWjDrgXTHSiChc+hd30laC/6VOU98yiJbmshvlbLGcpzucTISuEPvHdaSI15FF/s5454H3OzlVrlzX2IyGbeYwne+8GE5WFWoALhAi/941C2QWXE4xaJgy6iACtozQDpRundbgyiKjO90GUKskxyko5Ml1u5VQSqSv4aqXETg5/ihd9+aA5gwIoKIdKszOEU119VmlSVI8SaGDbDb9hXW/1Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eBBeiKTrAoJrc6ov3CW0ga8L4TPQoHo3OhY6qTTHfNY=;
- b=ak8T7HE7uYQLgtl8CM/1dzA9HPcJt63dwAnqRatdQnX0dxHSOfebQMcihA6f7QSVFIhr9elLR89Y1I5E1TJVpJhW4S1RxgRFA4PbQucjxlQH7uC6Eub8U4pYPumT+ax8vFQhZVF2E5cjXJVfQkh1NWWP/AIglXoJTlGX6yIaciXDLa89wBuDEh5XUkyxzidOkleI1E+xdK/3cKUNseo+KvPJ0+C0JmFpoAzruDuqPY45NW75ysx5EJtmt58LA6zV67Po9FndPqiFcUYTdDJ03HsrVu0+R3jmMzj23zb0PIZO+9tPR3wV+zrB+xxu82/In7k9LpCCNlD5Of63PCRyBw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eBBeiKTrAoJrc6ov3CW0ga8L4TPQoHo3OhY6qTTHfNY=;
- b=NKDb9U90LK0lG0GxcDVVXIM+Aeu3BZSH8K8mqdH5rtbN1WyfqVdNhjJOggsXfIOu30UzLz/EnhSabCZcrIRuW1FF9A310/hHB9Orb3yAoJhUn+RRYk5W3qe/YieVdrz8fbVi/UAYF7m8KOVj3s9/m8dPfdyBbUi9r6EWoxD4L4noWpyp2gdEKnnVWDjFyzsv5RUV7f87hDLauIaIDZxPkbEAcqxE9/rHbWn2EcjP/WBlnJHznhJ2638K7Xsxmfl6jSH0P9EzIjGSC/EuzasJq9DizM2wELkyGF3j8nMLyAhlRWoD/p/D/yF0arSRI9/vr6l2orzYzN7QY/o8FlWAiA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by DB9PR04MB9355.eurprd04.prod.outlook.com (2603:10a6:10:36b::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.11; Wed, 27 Aug
- 2025 04:59:53 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.9073.010; Wed, 27 Aug 2025
- 04:59:53 +0000
-From: Peng Fan <peng.fan@nxp.com>
-Date: Wed, 27 Aug 2025 12:59:18 +0800
-Subject: [PATCH v3 6/6] firmware: imx: sm-misc: Dump syslog info
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250827-sm-misc-api-v1-v3-6-82c982c1815a@nxp.com>
-References: <20250827-sm-misc-api-v1-v3-0-82c982c1815a@nxp.com>
-In-Reply-To: <20250827-sm-misc-api-v1-v3-0-82c982c1815a@nxp.com>
-To: Sudeep Holla <sudeep.holla@arm.com>, 
- Cristian Marussi <cristian.marussi@arm.com>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: arm-scmi@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756270768; l=7930;
- i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
- bh=smAOw2LLys6Ccvgu3BgWXtBA5tydyCv6WOl3MxNr6AM=;
- b=q1ZH81UDMLxqzKFVWODbFCwpVs3RbMM57gpFgrqvVt4vu6nGzeHgNgaaORAMWtiUky+oby4f2
- 4F+r8310M69DnH/9kdjo+2aGf5O9ElKjcnKVzGrpf4tmcqJ2ZAPYe+q
-X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
- pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
-X-ClientProxiedBy: SI2P153CA0006.APCP153.PROD.OUTLOOK.COM
- (2603:1096:4:140::22) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	id 1ur8gr-0000000E7ZS-252b;
+	Wed, 27 Aug 2025 05:27:22 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57QJuQZo029875;
+	Wed, 27 Aug 2025 05:27:07 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=jxijss
+	tmEiNGZJKG6yltOja4dBZKrqMyUi/HgZLz1Sk=; b=fFfa87uMu8acvDC8OVnLiF
+	3Gw7T94UM/oONEZ9FfO6ESJm9dykU5EYEWzJ6thKl8AEybeSnU7jVczC+OsbSmIg
+	U1DTm1ikvBxQhtMsBkqiirIjOSbWdtCJnpSDht3JKVzPoBOjH3KPPIjRZwjgIoz4
+	PIz+4T0pathmf8bjMQQcBo9Nngpp8r0YuSt99tds0+EviRwkVU+5p0dMPKzJ5SJZ
+	NqSby3CqAv1CiFuqsjN+UtUj0P6MofPcWemNISQn5nz/ZN8twBsE28xbYF1o/y5D
+	T+rxMTdyXFQiS1FQNk9wuoFsc0iqqXm08NakEBDb3JoIMWYZ+sB++DfGZXvYi8bQ
+	==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 48q42j2cs9-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 27 Aug 2025 05:27:07 +0000 (GMT)
+Received: from m0353725.ppops.net (m0353725.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 57R5K8Rl017639;
+	Wed, 27 Aug 2025 05:27:06 GMT
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 48q42j2cs6-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 27 Aug 2025 05:27:06 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 57R3lXEH029924;
+	Wed, 27 Aug 2025 05:27:05 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 48qsfmpe9d-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 27 Aug 2025 05:27:05 +0000
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 57R5R1oh53739874
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 27 Aug 2025 05:27:01 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 6821520049;
+	Wed, 27 Aug 2025 05:27:01 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A772520040;
+	Wed, 27 Aug 2025 05:27:00 +0000 (GMT)
+Received: from [9.152.212.92] (unknown [9.152.212.92])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 27 Aug 2025 05:27:00 +0000 (GMT)
+Message-ID: <ac6dfaec-38ea-486d-89a0-ab02768cee42@linux.ibm.com>
+Date: Wed, 27 Aug 2025 07:27:00 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DB9PR04MB9355:EE_
-X-MS-Office365-Filtering-Correlation-Id: 91820f7e-7aee-46f7-fc39-08dde5268f71
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|376014|7416014|366016|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?L0Q2bGJFakpkWFRyQ05DeXVaTkdPMlBydWx0RUM5U3FvNlZCcFJuOUVtbSt5?=
- =?utf-8?B?UzErVDlHT1FJZmw4VDFnZXBBZnFSMndYbExrNjYvbjJyK0VBc0x3TVhmZ1l5?=
- =?utf-8?B?bzBodGh5S1BYb0xpbEJubnAvUUl1Y2Fqci9WcXo5ZGJoZ1lzYzBYYTBCR3pT?=
- =?utf-8?B?NTVMTjYxME0wV3pvSUZVeGI2RVhwQnV0WWNEems1Zm9HM21OT2hSci9RdFNi?=
- =?utf-8?B?VENyN2xqbWdHUjJrTjdHZTlUVTRieVozQmpSZzBHa2daeVVzWXN1S2ViZGFG?=
- =?utf-8?B?ejN4aWg4VGlna05DK1pOUFcrcDdLOEVHUUs1Y2VlQnl0N292eGlTU29LOVln?=
- =?utf-8?B?Q1R3SVY4dVpYTno0UDJtd2F5N2I3NlVKMzFMK1lISm9YNkhYaHBBRW9mK2RV?=
- =?utf-8?B?WWp3N1krZFhLbWw1MHV1a1pkVEkxL05ZdjZVU1pISlVqcWt1VGFyR1MyYWl3?=
- =?utf-8?B?SlpTUk5rRkd2QnF0ZTQ5V1FieDhET09jUy82OHFDdEMzNThYNUs2MDZuWHRT?=
- =?utf-8?B?RDQ1YTkrdEowaEVkNURueTZOUy9uTWR0SjFlRVIxaDR3ekMyVTcrMjVrdEhu?=
- =?utf-8?B?UVoxdVBWZTNIejFHcWZxRmFFQWtnMXp0VkYvT0JaUVQ2MkJOVUFSMlZyN09M?=
- =?utf-8?B?NmpvQncrQkkrdU40YUwvODR5a2pheXFuTVRFUjFtY2Nhb1FBU2lucUJRb2I2?=
- =?utf-8?B?ajdRL0tYYk0wTWw4ZzNiblJ3aDF5RUNqL0ltRDBBQk1pN01MMVhib2RWbEt5?=
- =?utf-8?B?UTRKKzlZc3NwUGd1TUxpZmo1RE9zZFhkYVRJU0gxRnJQb2JtSEtvQmcrSTJI?=
- =?utf-8?B?RHk5SnYwQzdJMUxNQXpZTWQ0dXJTa2lJWHFEVHBxbE1hOVd6WG1xbGE4bnQ2?=
- =?utf-8?B?bkZhSTYxSDJPNkpFT0ljL1NIYk9HNUlDTzYvbTV0aTQrZzZQcHVIVlVucnAx?=
- =?utf-8?B?cTlwVlNTa3lkYmtjUERBTzQxK0xPNlVhRUR3Z20rZTljUHdTMFBIblVMK3kx?=
- =?utf-8?B?a2ZOSElJaDFwWExLQkh5OHJuN3gvV3BtYXI2cnpFTFo1aFZJK09nM1JEc2pF?=
- =?utf-8?B?MWFSTlZuRWhMSHJSYVJ5b1lGVnJMcTNZbFU5NFM2R1RqNGl1WkJPcDM4b3dQ?=
- =?utf-8?B?VUdMMEMyOWNaT0F5SzA4dmI3VUFKUlB6clNQcWU3TW05Z3N0QnZwNVVjdENu?=
- =?utf-8?B?WGNzKzJPRkEwdmlaTGlEVGd6Zk5PV3JIVENkbFlQbE9qMWZYbVMvMWs5eHU2?=
- =?utf-8?B?VjVBV3cvQVBKZnhPYkxBekFXWW9TVkh1enhlNnBBeWtmWjRMMXBFT205cWpK?=
- =?utf-8?B?N2lXQ3F2Z21oWHphNGJRR1NNUDFTWHNiaS9nN29rNFczL0xwNTJRYThWNWFn?=
- =?utf-8?B?OHJ3dDBVbWZWYXF6MW1pdElmNUhPUFBnNXgrVFh1L0ovWWJWMmxpQ2tOTkZ4?=
- =?utf-8?B?Ynh3R3Q5QmFCWTE0UFBKZitzUWh0MGYyblBaaUlsZFNqc1NXRzZVQWVjT0FR?=
- =?utf-8?B?Q2xQL2N0RzdWc3FlWlRqdEV3bE1jdVA3WHJxbFhIZTlVcG5EeldkZWRkTU9D?=
- =?utf-8?B?RC9XaWNTVWpGK0R2WkYyeDJNYm9sb0FqL2I3L25ldnRWdDhmRXNUdUZEY01F?=
- =?utf-8?B?eVVnRGRWSHBPNjFkeitPUjIwQmh0TG92eUZFeXdGV1NYdTJFU3gvMUFnSTEx?=
- =?utf-8?B?NkkyN1ZZSWd1K2dVbjJrdDJHRWJSallCT0FNZWtyckRYR1hBYVBMRVZ4MVBF?=
- =?utf-8?B?MHFySitDQUZSY0tFQ1gvVk1WMWVjUTNDTjlWcXVMSkV3bjdvQXdpRGhqdDNT?=
- =?utf-8?B?MkxrQXgvdkc5NXFtQTNMQVcrdzIyNzhibmdZUnp3Z3FTd3RMK0IxUXZuOGtq?=
- =?utf-8?B?aE9VQ0t0UFFOT2hhMmd5V1Vxb2poYWxocXk3Q1pNU2VESWN3dHhLQ1NSUXlh?=
- =?utf-8?B?aERFTDU0RXRqWXBjWlREbHoxd01LR2k3KzNBODFWc1o2ZGh6WEltaHNRWGhv?=
- =?utf-8?B?K1V6OTNrTE5BPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(376014)(7416014)(366016)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Zzh5Q2VIRnU1WURUTzBSVSt3d2t6NHByWUwrQ0pUeEtPWE8ydSswMHBudEti?=
- =?utf-8?B?cDJjeDU2bXlkMVJJbUtNSGEyWHFUaWZ3Z2dEQlkrRzdpZ2RUdFJZa1RSdGFQ?=
- =?utf-8?B?dTlZL1FWQW50NkJLMCtia09seFJWUURrOW9mb0krWlU0OGNBcjZ6V3FpWW9m?=
- =?utf-8?B?RXp2dmp4OHRmeVJKR1FpbUJNMW9ZZFVqdVFyVFNBTWNWNCtZeFQvandPaTFC?=
- =?utf-8?B?MG5ZSmgza1E2MkFDVi9sSGRBQzNLZGRzeUtrSUtXaUdNbjhTdC9sRHErY3BT?=
- =?utf-8?B?dlZtQ292L2JUREFmUW9ZQWs5dmkwNkhMR1ZxK2x2UFVHcUl4QWtQbFhBSlNM?=
- =?utf-8?B?RHh0djZ3TERzblpKRXErbmxmM2Rpb05mSXd1UWRqbTRra21abmFScTZack5z?=
- =?utf-8?B?NGEwUzhVVmUyRFlSRzJaOTJuMXZMQ1JOYU9NMFhaTUR5ZHUzNEVQTzdLaHE0?=
- =?utf-8?B?RG92dTlwSVBybGJKUkx1UHNvTFVQU1dpZG5GeEVldDFtZ3dEZnpNK0xvOUZl?=
- =?utf-8?B?NkN3SW8xV0ZyRnJnS1YyTmQwYTVUWUdlMll1aDdPbERLbWhpeWNadTNRd2I2?=
- =?utf-8?B?dG53TGNXSWtqVWdGT055UU1OdnMyaTgxK2J6TWd5eE1YRm5pbE9NRjVENitv?=
- =?utf-8?B?dkRYZkx3UnBzYkNLNDZ0OTBxU1hESitnbXhOa3hWT1ZQb05nU0llM0xVQVVT?=
- =?utf-8?B?Nm42UnhvcEU3YlFtS1VoZXlBM0owdFhVZEdzZkI2TyszbWpqNmlsM2dDSmhQ?=
- =?utf-8?B?NFBHREtFS25ONk1zRkJCRTBvSGE3Ly8vY3pJdWIxK3JheVNVdjBLQXlHQjQz?=
- =?utf-8?B?OWxiaEg1MVlLNzNiZjRmTHhlUXJZcUtNblNRNGNHdGJmT1pHMnFLcjQ1cjRW?=
- =?utf-8?B?RlIwcUJKRStFZFFTdmpPb01MZEM0d1JzNVRTcU5nVUlSNVhSbUlVaWQ5RVNL?=
- =?utf-8?B?ZHFwUTFWMEY3V1J5UHB1b2syTnRja2JjQkRIWCt1UnlSSWFXTHdnMDdDck1x?=
- =?utf-8?B?aCthSEkwQk80Mk1CNm9qUGx3K2FKK3NSdHRSZHJscTFCVWM5Wi9PR3lOV05x?=
- =?utf-8?B?MzFkdXRjeDVJYXNPSWtPWjFLNjlTNGdENG90clBCYVVDMVJ6dGFOcUIvem5D?=
- =?utf-8?B?R1FCNkFOVnRPcXFUdyt6anRqdXRkcFI2dk56OVlpc0ZRMWE4RkF6cWd3TTRE?=
- =?utf-8?B?dnNKczJJbnlLRDUzUjRXUWhsamtRRkcyOEppQzl3Q1UzVGFjbzdOcFA4R3NR?=
- =?utf-8?B?ajhvTVNNUzhSeW9Damd0dGlHSmkvV2NWQ0xDeGs4K2tDUkVuWnlnMlpmL28v?=
- =?utf-8?B?d0krb1BSSk05VnR5cE90RDhMRHBtQWtqYVE5cVhwb3NlVTJsa3NOWlZQdVd3?=
- =?utf-8?B?L0VVRUlwQVdyNVprOTBIMEprOUNvWWIxNUhhU1R2cnNncThwbVhpLzZFbTlL?=
- =?utf-8?B?QmNJdXNaY2pJYzdwVkJZL1QxVWRuYUlNRHp4c2NPTFVqcmd4RTk1aFJ1WTBj?=
- =?utf-8?B?SGk4eTZRRXB6L3VIWVlzNUoydWhNbkVaeXVlYUZOMSt5UEptUkNSaGh4R01R?=
- =?utf-8?B?OVBvc0xrdG5UdUxpYkN6eGtZTjFlano4aU9lM05zbzZHa1hDQ0FDU0ZBdUlp?=
- =?utf-8?B?SStISm5FM0pyL1hnTmtxNTNCTzVjNFpSdEpSWWtYYlNUejFlNHVrR2hoT3NJ?=
- =?utf-8?B?Y2E2a1duanRRYkcwazB1TG91bFpKazVURXBTeitZZHd2bmgwVndKQm1xdUNL?=
- =?utf-8?B?YjRJSm1ZT3paN09pYi9najFVR05OZ2VTUnQ5RVlwNWRUUGdrTG9Lem0rZzhH?=
- =?utf-8?B?d0haa2g2eTFKVmEyTTI3RnB0N2lEdkwxWHI3SFNzeUpJb3hxZFEzRGlQTkhi?=
- =?utf-8?B?YTh0WVM2aXNDNXJQOHRFdU1NamFQQ0pzNzRQVm9YclZkOUxjUFhqZ0VOVTJD?=
- =?utf-8?B?QlpSbVJ1RkR1WWhGU1kwdnB5WUcyd0RVWDNvSXlPYWl1TXZOK014ekFpdWpn?=
- =?utf-8?B?eHVtOHpyMzEyVmZDT2tRZURacHZEZnJzdUZLdjJkVXVPZmp5aEZPaXpEMGw3?=
- =?utf-8?B?OEU1TlM1OTYvNjNFczgyUWFCbTE1QVoxcmx5eVl6SVZNWGplbEIyQ0ZpMldw?=
- =?utf-8?Q?4y00J6eErR3/2egfrTcu5USd8?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 91820f7e-7aee-46f7-fc39-08dde5268f71
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Aug 2025 04:59:53.5671
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: u925if8JcZ/0EBSojHLZK573HyKC8Tne6FRvn9Dp9NbGbXQs4Z+vGMnBPY9ucYC448PbBel6B7YF8mihpKJokg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9355
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 18/19] perf: Introduce positive capability for raw events
+To: Mark Rutland <mark.rutland@arm.com>, Robin Murphy <robin.murphy@arm.com>,
+        Sumanth Korikkar <sumanthk@linux.ibm.com>,
+        Jan Polensky <japo@linux.ibm.com>
+Cc: peterz@infradead.org, mingo@redhat.com, will@kernel.org, acme@kernel.org,
+        namhyung@kernel.org, alexander.shishkin@linux.intel.com,
+        jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com,
+        kan.liang@linux.intel.com, linux-perf-users@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
+        linux-snps-arc@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+        linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
+        linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+        linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+        sparclinux@vger.kernel.org, linux-pm@vger.kernel.org,
+        linux-rockchip@lists.infradead.org, dmaengine@vger.kernel.org,
+        linux-fpga@vger.kernel.org, amd-gfx@lists.freedesktop.org,
+        dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+        intel-xe@lists.freedesktop.org, coresight@lists.linaro.org,
+        iommu@lists.linux.dev, linux-amlogic@lists.infradead.org,
+        linux-cxl@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-riscv@lists.infradead.org
+References: <cover.1755096883.git.robin.murphy@arm.com>
+ <542787fd188ea15ef41c53d557989c962ed44771.1755096883.git.robin.murphy@arm.com>
+ <aK259PrpyxguQzdN@J2N7QTR9R3>
+Content-Language: en-US
+From: Thomas Richter <tmricht@linux.ibm.com>
+Organization: IBM
+In-Reply-To: <aK259PrpyxguQzdN@J2N7QTR9R3>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDAxMCBTYWx0ZWRfXx7bT3ieVYWZ1
+ FvRIJn/6odyl76gPtjq2fdUI3+ddgoyBguazv17xAc0h1PWPsciO7Io1+yf38004HJX48EZKQe4
+ jjqa2jsZ613Il7PEWWZLmHVXl0DVElauSgaXsW2jrn5unNTZZAgCkgP5ixkSnbssGkUA98RWoHK
+ 6CllyViFj8nmb4/kmZamtgDzlo/xirMdIPTqK1ytIy748E4TyQcONzfTAVM6cDoHbAMLdYuTHtD
+ UT6EmBwE8Tz6Ajw1M3OeNTbMk21jMwITf/ouwlMB6Q/Hm12FuudC6E2iwfSIPWm8nU5cvD4JBmw
+ ghpRUxLnbbdBrU5mCsCpBm2H2yjaVRWCqCxRNsBxe1xCwhV1Oev6PUoPQ5TLoGumXLZUFEfuXwo
+ /BJHYr+T
+X-Proofpoint-ORIG-GUID: Z1OBCqtS81HxjTSNcENNGRKeOQ0QzPO9
+X-Proofpoint-GUID: 4pnWswYamnTcgbcPVqCp3LQWR1ph9h16
+X-Authority-Analysis: v=2.4 cv=evffzppX c=1 sm=1 tr=0 ts=68ae972b cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=7CQSdrXTAAAA:8 a=KByoUL483hSIROooWq4A:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-26_02,2025-08-26_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 adultscore=0 malwarescore=0 spamscore=0 bulkscore=0
+ impostorscore=0 clxscore=1015 priorityscore=1501 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508230010
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_215957_810638_41E2B3F2 
-X-CRM114-Status: GOOD (  10.99  )
+X-CRM114-CacheID: sfid-20250826_222721_654115_E5DF9CDD 
+X-CRM114-Status: GOOD (  28.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,284 +144,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add sysfs interface to read System Manager syslog info
+On 8/26/25 15:43, Mark Rutland wrote:
+> On Wed, Aug 13, 2025 at 06:01:10PM +0100, Robin Murphy wrote:
+>> Only a handful of CPU PMUs accept PERF_TYPE_{RAW,HARDWARE,HW_CACHE}
+>> events without registering themselves as PERF_TYPE_RAW in the first
+>> place. Add an explicit opt-in for these special cases, so that we can
+>> make life easier for every other driver (and probably also speed up the
+>> slow-path search) by having perf_try_init_event() do the basic type
+>> checking to cover the majority of cases.
+>>
+>> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+> 
+> 
+> To bikeshed a little here, I'm not keen on the PERF_PMU_CAP_RAW_EVENTS
+> name, because it's not clear what "RAW" really means, and people will
+> definitely read that to mean something else.
+> 
+> Could we go with something like PERF_PMU_CAP_COMMON_CPU_EVENTS, to make
+> it clear that this is about opting into CPU-PMU specific event types (of
+> which PERF_TYPE_RAW is one of)?
+> 
+> Likewise, s/is_raw_pmu()/pmu_supports_common_cpu_events()/.
+> 
+>> ---
+>>
+>> A further possibility is to automatically add the cap to PERF_TYPE_RAW
+>> PMUs in perf_pmu_register() to have a single point-of-use condition; I'm
+>> undecided...
+> 
+> I reckon we don't need to automagically do that, but I reckon that
+> is_raw_pmu()/pmu_supports_common_cpu_events() should only check the cap,
+> and we don't read anything special into any of
+> PERF_TYPE_{RAW,HARDWARE,HW_CACHE}.
+> 
+>> ---
+>>  arch/s390/kernel/perf_cpum_cf.c    |  1 +
+>>  arch/s390/kernel/perf_pai_crypto.c |  2 +-
+>>  arch/s390/kernel/perf_pai_ext.c    |  2 +-
+>>  arch/x86/events/core.c             |  2 +-
+>>  drivers/perf/arm_pmu.c             |  1 +
+>>  include/linux/perf_event.h         |  1 +
+>>  kernel/events/core.c               | 15 +++++++++++++++
+>>  7 files changed, 21 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/arch/s390/kernel/perf_cpum_cf.c b/arch/s390/kernel/perf_cpum_cf.c
+>> index 1a94e0944bc5..782ab755ddd4 100644
+>> --- a/arch/s390/kernel/perf_cpum_cf.c
+>> +++ b/arch/s390/kernel/perf_cpum_cf.c
+>> @@ -1054,6 +1054,7 @@ static void cpumf_pmu_del(struct perf_event *event, int flags)
+>>  /* Performance monitoring unit for s390x */
+>>  static struct pmu cpumf_pmu = {
+>>  	.task_ctx_nr  = perf_sw_context,
+>> +	.capabilities = PERF_PMU_CAP_RAW_EVENTS,
+>>  	.pmu_enable   = cpumf_pmu_enable,
+>>  	.pmu_disable  = cpumf_pmu_disable,
+>>  	.event_init   = cpumf_pmu_event_init,
+> 
+> Tangential, but use of perf_sw_context here looks bogus.
+> 
 
-Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- drivers/firmware/imx/sm-misc.c | 232 +++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 232 insertions(+)
+It might look strange, but it was done on purpose. For details see
+commit 9254e70c4ef1 ("s390/cpum_cf: use perf software context for hardware counters")
 
-diff --git a/drivers/firmware/imx/sm-misc.c b/drivers/firmware/imx/sm-misc.c
-index fc3ee12c2be878e0285183e3381c9514a63d5142..e742a2fff06b44ab7f07e9f97f723ef7ca1ff259 100644
---- a/drivers/firmware/imx/sm-misc.c
-+++ b/drivers/firmware/imx/sm-misc.c
-@@ -3,6 +3,7 @@
-  * Copyright 2024 NXP
-  */
- 
-+#include <linux/device/devres.h>
- #include <linux/firmware/imx/sm.h>
- #include <linux/module.h>
- #include <linux/of.h>
-@@ -44,10 +45,232 @@ static int scmi_imx_misc_ctrl_notifier(struct notifier_block *nb,
- 	return 0;
- }
- 
-+static ssize_t
-+wakevector_show(struct device *device, struct device_attribute *attr, char *buf)
-+{
-+	struct scmi_imx_misc_syslog *syslog = dev_get_drvdata(device);
-+	u16 size = sizeof(*syslog) / 4;
-+	int ret;
-+
-+	if (!ph)
-+		return 0;
-+
-+	ret = imx_misc_ctrl_ops->misc_syslog(ph, &size, syslog);
-+	if (ret)
-+		return ret;
-+
-+	if (size * 4 < offsetofend(struct scmi_imx_misc_sys_sleep_rec, wakesource)) {
-+		dev_err(device, "%s: returned truncated data\n", __func__);
-+		return -EINVAL;
-+	}
-+
-+	return sysfs_emit(buf, "%u\n", syslog->syssleeprecord.wakesource);
-+}
-+static DEVICE_ATTR_RO(wakevector);
-+
-+static ssize_t
-+syssleepmode_show(struct device *device, struct device_attribute *attr, char *buf)
-+{
-+	struct scmi_imx_misc_syslog *syslog = dev_get_drvdata(device);
-+	u16 size = sizeof(*syslog) / 4;
-+	int ret;
-+
-+	if (!ph)
-+		return 0;
-+
-+	ret = imx_misc_ctrl_ops->misc_syslog(ph, &size, syslog);
-+	if (ret)
-+		return ret;
-+
-+	if (size * 4 < offsetofend(struct scmi_imx_misc_sys_sleep_rec, syssleepmode)) {
-+		dev_err(device, "%s: returned truncated data\n", __func__);
-+		return -EINVAL;
-+	}
-+
-+	return sysfs_emit(buf, "%u\n", syslog->syssleeprecord.syssleepmode);
-+}
-+static DEVICE_ATTR_RO(syssleepmode);
-+
-+static ssize_t
-+syssleepflags_show(struct device *device, struct device_attribute *attr, char *buf)
-+{
-+	struct scmi_imx_misc_syslog *syslog = dev_get_drvdata(device);
-+	u16 size = sizeof(*syslog) / 4;
-+	int ret;
-+
-+	if (!ph)
-+		return 0;
-+
-+	ret = imx_misc_ctrl_ops->misc_syslog(ph, &size, syslog);
-+	if (ret)
-+		return ret;
-+
-+	if (size * 4 < offsetofend(struct scmi_imx_misc_sys_sleep_rec, syssleepflags)) {
-+		dev_err(device, "%s: returned truncated data\n", __func__);
-+		return -EINVAL;
-+	}
-+
-+	return sysfs_emit(buf, "0x%08x\n", syslog->syssleeprecord.syssleepflags);
-+}
-+static DEVICE_ATTR_RO(syssleepflags);
-+
-+static ssize_t
-+mixpwrstat_show(struct device *device, struct device_attribute *attr, char *buf)
-+{
-+	struct scmi_imx_misc_syslog *syslog = dev_get_drvdata(device);
-+	u16 size = sizeof(*syslog) / 4;
-+	int ret;
-+
-+	if (!ph)
-+		return 0;
-+
-+	ret = imx_misc_ctrl_ops->misc_syslog(ph, &size, syslog);
-+	if (ret)
-+		return ret;
-+
-+	if (size * 4 < offsetofend(struct scmi_imx_misc_sys_sleep_rec, mixpwrstat)) {
-+		dev_err(device, "%s: returned truncated data\n", __func__);
-+		return -EINVAL;
-+	}
-+
-+	return sysfs_emit(buf, "0x%08x\n", syslog->syssleeprecord.mixpwrstat);
-+}
-+static DEVICE_ATTR_RO(mixpwrstat);
-+
-+static ssize_t
-+mempwrstat_show(struct device *device, struct device_attribute *attr, char *buf)
-+{
-+	struct scmi_imx_misc_syslog *syslog = dev_get_drvdata(device);
-+	u16 size = sizeof(*syslog) / 4;
-+	int ret;
-+
-+	if (!ph)
-+		return 0;
-+
-+	ret = imx_misc_ctrl_ops->misc_syslog(ph, &size, syslog);
-+	if (ret)
-+		return ret;
-+
-+	if (size * 4 < offsetofend(struct scmi_imx_misc_sys_sleep_rec, mempwrstat)) {
-+		dev_err(device, "%s: returned truncated data\n", __func__);
-+		return -EINVAL;
-+	}
-+
-+	return sysfs_emit(buf, "0x%08x\n", syslog->syssleeprecord.mempwrstat);
-+}
-+static DEVICE_ATTR_RO(mempwrstat);
-+
-+static ssize_t
-+pllpwrstat_show(struct device *device, struct device_attribute *attr, char *buf)
-+{
-+	struct scmi_imx_misc_syslog *syslog = dev_get_drvdata(device);
-+	u16 size = sizeof(*syslog) / 4;
-+	int ret;
-+
-+	if (!ph)
-+		return 0;
-+
-+	ret = imx_misc_ctrl_ops->misc_syslog(ph, &size, syslog);
-+	if (ret)
-+		return ret;
-+
-+	if (size * 4 < offsetofend(struct scmi_imx_misc_sys_sleep_rec, pllpwrstat)) {
-+		dev_err(device, "%s: returned truncated data\n", __func__);
-+		return -EINVAL;
-+	}
-+
-+	return sysfs_emit(buf, "0x%08x\n", syslog->syssleeprecord.pllpwrstat);
-+}
-+static DEVICE_ATTR_RO(pllpwrstat);
-+
-+static ssize_t
-+sleepentryusec_show(struct device *device, struct device_attribute *attr, char *buf)
-+{
-+	struct scmi_imx_misc_syslog *syslog = dev_get_drvdata(device);
-+	u16 size = sizeof(*syslog) / 4;
-+	int ret;
-+
-+	if (!ph)
-+		return 0;
-+
-+	ret = imx_misc_ctrl_ops->misc_syslog(ph, &size, syslog);
-+	if (ret)
-+		return ret;
-+
-+	if (size * 4 < offsetofend(struct scmi_imx_misc_sys_sleep_rec, sleepentryusec)) {
-+		dev_err(device, "%s: returned truncated data\n", __func__);
-+		return -EINVAL;
-+	}
-+
-+	return sysfs_emit(buf, "%u\n", syslog->syssleeprecord.sleepentryusec);
-+}
-+static DEVICE_ATTR_RO(sleepentryusec);
-+
-+static ssize_t
-+sleepexitusec_show(struct device *device, struct device_attribute *attr, char *buf)
-+{
-+	struct scmi_imx_misc_syslog *syslog = dev_get_drvdata(device);
-+	u16 size = sizeof(*syslog) / 4;
-+	int ret;
-+
-+	if (!ph)
-+		return 0;
-+
-+	ret = imx_misc_ctrl_ops->misc_syslog(ph, &size, syslog);
-+	if (ret)
-+		return ret;
-+
-+	if (size * 4 < offsetofend(struct scmi_imx_misc_sys_sleep_rec, sleepexitusec)) {
-+		dev_err(device, "%s: returned truncated data\n", __func__);
-+		return -EINVAL;
-+	}
-+
-+	return sysfs_emit(buf, "%u\n", syslog->syssleeprecord.sleepexitusec);
-+}
-+static DEVICE_ATTR_RO(sleepexitusec);
-+
-+static ssize_t
-+sleepcnt_show(struct device *device, struct device_attribute *attr, char *buf)
-+{
-+	struct scmi_imx_misc_syslog *syslog = dev_get_drvdata(device);
-+	u16 size = sizeof(*syslog) / 4;
-+	int ret;
-+
-+	if (!ph)
-+		return 0;
-+
-+	ret = imx_misc_ctrl_ops->misc_syslog(ph, &size, syslog);
-+	if (ret)
-+		return ret;
-+
-+	if (size * 4 < offsetofend(struct scmi_imx_misc_sys_sleep_rec, sleepcnt)) {
-+		dev_err(device, "%s: returned truncated data\n", __func__);
-+		return -EINVAL;
-+	}
-+
-+	return sysfs_emit(buf, "%u\n", syslog->syssleeprecord.sleepcnt);
-+}
-+static DEVICE_ATTR_RO(sleepcnt);
-+
-+static struct attribute *sm_misc_attrs[] = {
-+	&dev_attr_wakevector.attr,
-+	&dev_attr_syssleepmode.attr,
-+	&dev_attr_syssleepflags.attr,
-+	&dev_attr_mixpwrstat.attr,
-+	&dev_attr_mempwrstat.attr,
-+	&dev_attr_pllpwrstat.attr,
-+	&dev_attr_sleepentryusec.attr,
-+	&dev_attr_sleepexitusec.attr,
-+	&dev_attr_sleepcnt.attr,
-+	NULL,
-+};
-+ATTRIBUTE_GROUPS(sm_misc);
-+
- static int scmi_imx_misc_ctrl_probe(struct scmi_device *sdev)
- {
- 	const struct scmi_handle *handle = sdev->handle;
- 	struct device_node *np = sdev->dev.of_node;
-+	struct scmi_imx_misc_syslog *syslog;
- 	u32 src_id, flags;
- 	int ret, i, num;
- 
-@@ -63,6 +286,12 @@ static int scmi_imx_misc_ctrl_probe(struct scmi_device *sdev)
- 	if (IS_ERR(imx_misc_ctrl_ops))
- 		return PTR_ERR(imx_misc_ctrl_ops);
- 
-+	syslog = devm_kzalloc(&sdev->dev, sizeof(*syslog), GFP_KERNEL);
-+	if (!syslog)
-+		return -ENOMEM;
-+
-+	dev_set_drvdata(&sdev->dev, syslog);
-+
- 	num = of_property_count_u32_elems(np, "nxp,ctrl-ids");
- 	if (num % 2) {
- 		dev_err(&sdev->dev, "Invalid wakeup-sources\n");
-@@ -108,6 +337,9 @@ static const struct scmi_device_id scmi_id_table[] = {
- MODULE_DEVICE_TABLE(scmi, scmi_id_table);
- 
- static struct scmi_driver scmi_imx_misc_ctrl_driver = {
-+	.driver = {
-+		.dev_groups = sm_misc_groups,
-+	},
- 	.name = "scmi-imx-misc-ctrl",
- 	.probe = scmi_imx_misc_ctrl_probe,
- 	.id_table = scmi_id_table,
+Background was a WARN_ON() statement which fired, because several PMU device drivers
+existed in parallel on s390x platform.
+Not sure if this condition is still true after all these years...
 
 -- 
-2.37.1
+Thomas Richter, Dept 3303, IBM s390 Linux Development, Boeblingen, Germany
+--
+IBM Deutschland Research & Development GmbH
 
+Vorsitzender des Aufsichtsrats: Wolfgang Wendt
+
+Geschäftsführung: David Faller
+
+Sitz der Gesellschaft: Böblingen / Registergericht: Amtsgericht Stuttgart, HRB 243294
 
