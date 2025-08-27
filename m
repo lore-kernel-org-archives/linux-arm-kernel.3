@@ -4,115 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 177EDCA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 15:54:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A507CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 15:54:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p3KdZJ7WhbdCvMp8gvh+oF+Jj+x3S6/TU82IkDuF+N0=; b=sJhRzZl5GLaJZEIEPqfVbBDVyJ
-	4ra6F2ujSTtOSD8kP5m++mfgeCG2rtTObRl9RJ+mLhP31XKcJyTIq+zGtDM04huBzhri5Z9cOOUqw
-	UKLuYs//ZPDTJxToa7sR01W3p0bqdj6x/BcVoKaHz8kfg3X91cv+RgwyP6L5oYsjXkhV3WuTPk/oi
-	G1618WYxyHZ4w9CP7RXss9qLEjsziqvQiyE6wOm+c829Vjkb/a9tchBWj84VfseimfOkUH786tch/
-	sMH/fJcRLJzFAiv9BvtOxJtVk7BsqGutdEp1NmlcHE2lUxmDecuIILr3NLKQP9ycIXEOi0s9N0CI8
-	lwJdnu5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bVD8KDKEsQ4zdVl4LrGJ70ulwhHWfhhuvgyYMvpeM10=; b=Qz4NmNG6Sqoun11pgpA8KhifOn
+	ehHQGzyHLPcRKldLYrb1TsB28ShYV7L/778DCKJ/BXCFl7DVcnZOMNeijStXQ6GbldPH+zG/qYHz0
+	RPUB4uI5OgGatdXGg/W71c+7VXWHR36ysDDLo3qZ1L2FJQWdFWbDAsZwBtkWVy2q7QPQyZvgdjGVi
+	f46VLyzWHus5i0TZIXzyyPDOv4jmnhBPHyJYR79avJoJkOjXlgDH0ZsXlBc0TeTjlIQkZOVlcUIeh
+	pG0QylWvDX4g/Ba1WAv5UUuz16600IGnh7fG8kftuMhi4GaZn3mLDWfYgxwk8mJWOrHfeYOo/ASey
+	33YlODzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urITo-0000000G49o-3lSQ;
-	Wed, 27 Aug 2025 15:54:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1urITy-0000000G4Ju-2Cp7;
+	Wed, 27 Aug 2025 15:54:42 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urG5I-0000000FZ3T-1aTA;
-	Wed, 27 Aug 2025 13:21:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B2ADB40BCF;
-	Wed, 27 Aug 2025 13:21:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60C0AC4CEEB;
-	Wed, 27 Aug 2025 13:20:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756300863;
-	bh=Wzw9A2fGU7gurXwIUpH8Synua2BxNhx7miIcMSPtbFI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=OVqM2ydKwGTnVMxTjiWXhqEIXrZbPzpeWmKQcq4EgGBy3WcS8p8Gc20DX+eaQODM6
-	 uTvsOrSjYJ0BYlSkrL7/eDizLL0UMC5TqacWRGbFDhdGWCf83TzaJ1psWyBQHVKJh1
-	 e06+mfR65iM++vRY9s2dk4BJlEF7L4IY+OV11yLZJrno/UEOBpzG7ysmplGPaAgIMb
-	 082/pg4A4MgxQ4BR8QKtDS3hKsDuB8LOOCCfI1YGCxNOv2Iptmd6jNcnEsJMiiVRdX
-	 2Qr2ymwqpxzhF+Kxmn5YklgLxsJFGssaX9G5LVFV0VJlDcJ/fgtKfGZ1DxbThyCNAP
-	 wn9u98AL1NhRQ==
-Message-ID: <3147ebf4-054c-4777-811f-86d0ad14caf6@kernel.org>
-Date: Wed, 27 Aug 2025 15:20:57 +0200
+	id 1urGBv-0000000FaQZ-1kTy
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 27 Aug 2025 13:27:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
+	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
+	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=bVD8KDKEsQ4zdVl4LrGJ70ulwhHWfhhuvgyYMvpeM10=; b=GSh6z4TW7Nt+CEY/rDh0GgW8B9
+	cuauYVIjct/VP6WLiQXy/LQz7rDa1rvTtSPQd3/PRJYMAkajyZtNs7zUGpy4VsWDeHsa1K75pWQ3l
+	iPU41l3yVDMqMOMaXduRI8l8g5lha+rttrhGoVfTe+NwmsY0aZzYVFkjcNLpR4saAUQHSlTBvG/Ii
+	TlYTIXzwDXLiAdkKi/CXx5D/LApZGu6DXylip/0gaBzJ8or5bItcjnQB6/LrExoQkVEEKGcVxHS1a
+	oaN//f3aH1NEGUDCne7iKaXAhrluuznMazMa9c9ZBW0jQZ0ydDmg9HEFfPw+QhselGQTv1EEmzgl6
+	DMed0ASA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:54398 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1urGBo-000000000UR-2jbe;
+	Wed, 27 Aug 2025 14:27:48 +0100
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1urGBn-00000000DCH-3swS;
+	Wed, 27 Aug 2025 14:27:47 +0100
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next] net: stmmac: mdio: clean up c22/c45 accessor split
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/9] dt-bindings: iommu: apple,sart: Add Apple A11
-To: Rob Herring <robh@kernel.org>, Nick Chan <towinchenmi@gmail.com>
-Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>,
- Jassi Brar <jassisinghbrar@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Hector Martin <marcan@marcan.st>,
- Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Robin Murphy <robin.murphy@arm.com>, Keith Busch <kbusch@kernel.org>,
- Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
- Sagi Grimberg <sagi@grimberg.me>, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, iommu@lists.linux.dev,
- linux-nvme@lists.infradead.org
-References: <20250818-t8015-nvme-v2-0-65648cd189e0@gmail.com>
- <20250818-t8015-nvme-v2-3-65648cd189e0@gmail.com>
- <20250820222044.GA1513864-robh@kernel.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250820222044.GA1513864-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1urGBn-00000000DCH-3swS@rmk-PC.armlinux.org.uk>
+Date: Wed, 27 Aug 2025 14:27:47 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_062104_464688_3CFB84F8 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20250827_062755_734455_57C7B670 
+X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,35 +87,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/08/2025 00:20, Rob Herring wrote:
-> On Mon, Aug 18, 2025 at 04:42:56PM +0800, Nick Chan wrote:
->> Add bindings for SARTv0 as found on Apple A11 SoC.
->>
->> Reviewed-by: Sven Peter <sven@kernel.org>
->> Signed-off-by: Nick Chan <towinchenmi@gmail.com>
->> ---
->>  Documentation/devicetree/bindings/iommu/apple,sart.yaml | 1 +
->>  1 file changed, 1 insertion(+)
->>
->> diff --git a/Documentation/devicetree/bindings/iommu/apple,sart.yaml b/Documentation/devicetree/bindings/iommu/apple,sart.yaml
->> index e87c1520fea60a2de549aa8a469fcded52e3b6e3..95d55ec688779bd52b8aef316a4c1ba7b7449574 100644
->> --- a/Documentation/devicetree/bindings/iommu/apple,sart.yaml
->> +++ b/Documentation/devicetree/bindings/iommu/apple,sart.yaml
->> @@ -29,6 +29,7 @@ description:
->>  properties:
->>    compatible:
->>      oneOf:
->> +      - const: apple,t8015-sart
-> 
-> Actually I take back my ack, move this to the existing 'enum' down 
-> below. With that change, you can keep the ack.
+The C45 accessors were setting the GR (register number) field twice,
+once with the 16-bit register address truncated to five bits, and
+then overwritten with the C45 devad. This is harmless since the field
+was being cleared prior to being updated with the C45 devad, except
+for the extra work.
 
-What commit fails to explain (folks, please fix that) is that device is
-incompatible with existing ones. Right?
+Remove the redundant code.
 
-Commit should describe the hardware or any unusual things here. Not
-making devices compatible, while usually they were compatible, is the
-unusual thing.
-Best regards,
-Krzysztof
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+Untested, as I don't have my Jetson Xavier NX platform with me (and
+probably won't do for a few weeks.)
+
+While this patch has been prepared on top of "net: stmmac: mdio: use
+netdev_priv() directly" it shouldn't conflict if that patch is not
+applied before this one.
+
+ drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+index 86021e6b67b2..da4542be756a 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+@@ -311,12 +311,10 @@ static int stmmac_mdio_read_c45(struct mii_bus *bus, int phyaddr, int devad,
+ 
+ 	value |= (phyaddr << priv->hw->mii.addr_shift)
+ 		& priv->hw->mii.addr_mask;
+-	value |= (phyreg << priv->hw->mii.reg_shift) & priv->hw->mii.reg_mask;
+ 	value |= (priv->clk_csr << priv->hw->mii.clk_csr_shift)
+ 		& priv->hw->mii.clk_csr_mask;
+ 	value |= MII_GMAC4_READ;
+ 	value |= MII_GMAC4_C45E;
+-	value &= ~priv->hw->mii.reg_mask;
+ 	value |= (devad << priv->hw->mii.reg_shift) & priv->hw->mii.reg_mask;
+ 
+ 	data |= phyreg << MII_GMAC4_REG_ADDR_SHIFT;
+@@ -409,14 +407,12 @@ static int stmmac_mdio_write_c45(struct mii_bus *bus, int phyaddr,
+ 
+ 	value |= (phyaddr << priv->hw->mii.addr_shift)
+ 		& priv->hw->mii.addr_mask;
+-	value |= (phyreg << priv->hw->mii.reg_shift) & priv->hw->mii.reg_mask;
+ 
+ 	value |= (priv->clk_csr << priv->hw->mii.clk_csr_shift)
+ 		& priv->hw->mii.clk_csr_mask;
+ 
+ 	value |= MII_GMAC4_WRITE;
+ 	value |= MII_GMAC4_C45E;
+-	value &= ~priv->hw->mii.reg_mask;
+ 	value |= (devad << priv->hw->mii.reg_shift) & priv->hw->mii.reg_mask;
+ 
+ 	data |= phyreg << MII_GMAC4_REG_ADDR_SHIFT;
+-- 
+2.47.2
+
 
