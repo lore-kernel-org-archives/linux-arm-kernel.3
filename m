@@ -4,109 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9CCCCA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 15:53:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C70C0CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 15:53:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QTtlMw9BoNmHoEghbtHgP/q9DjzqW5ABCpRIUOqhsis=; b=L3KmEQg8WAI1R3bxGDwE6CjCsv
-	1lO2GiAgjlMUptt0xQr8daHgHi5v3d6mNHeZ83tRLgKZrtm7E4yt8sG+cTXHJGaYrR6ZKBTETO8Xh
-	ZU97IZ/m3C13P6740Fii/5igRAxrWU1vBDrz+aJpo3xBnwJ2uMSD5d9yqdcfuNpQUgZbo4x9WM4ot
-	f+Ywjo97Ufj1O6DiwIucB7m9RriaYRjy/nGYp4VI5bIPywTJo9sS852hA3Jf6EaWRW2Y5GKqOoJj9
-	A9MaP+Xg3q53vmT60AjIglmz+0+qgq9yofpIlv/1PYWnP2nb1a4t8EJ3EDBsx1DfdD89vj8UqLEbh
-	nFK2A5hw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cDCyI7Q3E3Sarhfs/c6Ldvt091GGY5zBVGpYFi9yaP4=; b=qWu75ylPhNbT3phGRraJBFbYR2
+	TUakQMTLUnTQc3ztivuQsNMkhszOUNTTzDCu3HHPbz8CwCNUlmP55kweN5PyWykUDfznlbY5r0EFz
+	1bhYNi5RRMaC9tdxB0RCJEWCYroui46GzptspssCaNImdSdp2ZMOzjMrOzgymiNDXa1Ehj5vK/dfK
+	qKWzRX7+HTsBTwRujHgWPrxAfA8QXUt3ZASLiUzVqBE8WZPlkvJtT3fnQTmZfz1nNOYMECBslV2jj
+	s2vEw902t3NOJjJKrMk+O1xXyNwjlHKAggEwhwlHL6FpRPq+fnwq5JwJH5JlwMODx/RmVK+t06MGI
+	N6dYxSww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urIT1-0000000G3GI-0rM7;
-	Wed, 27 Aug 2025 15:53:43 +0000
+	id 1urITA-0000000G3OE-0OW6;
+	Wed, 27 Aug 2025 15:53:52 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urFoH-0000000FVs6-3WZ2
+	id 1urFsr-0000000FWd6-0fwP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 13:03:29 +0000
+	Wed, 27 Aug 2025 13:08:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 44685602BB;
-	Wed, 27 Aug 2025 13:03:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDDCCC116C6;
-	Wed, 27 Aug 2025 13:03:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6325760010;
+	Wed, 27 Aug 2025 13:08:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 187D9C4CEEB;
+	Wed, 27 Aug 2025 13:08:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756299809;
-	bh=2ihRYpUxY2hCj1tGox/3wW6PBxlen2OIFRUTjH+bkrI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=OE59KcznRRfoRrxrqkHYHUeX0duxTREBZZGSsqRKcA+DdiDz/tS4hpKPL2ugAR5kz
-	 FJHw+tp7WkFryTO9ZSiwR6zV2lU5H0wWC5X1lJ6MSraTe94hEgP93hQS4fw0MF8EvJ
-	 gltZP2r3YQAF3jZAgDuDcOm8x5XTPrTtczZgmbFV+PHYz1jlZ3dQA+XvXqi0DJbf4y
-	 u3IKHJ6HPS0gwBzECmatxYPmV1pwEt3bH5k0cddX6hxGbP9N672mQmzpgVHOOfRpDt
-	 1DMODrWSaihUi8UOUP0SXpjdFR2EZviqiB1p3I7YiNKSzv2b02w4ykU139T+z1HH72
-	 o2RkuHJIHKJ1Q==
-Message-ID: <26435405-2726-4ad2-90fc-de01ef359186@kernel.org>
-Date: Wed, 27 Aug 2025 15:03:24 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 4/7] dt-bindings: watchdog: add SMARC-sAM67 support
-To: Michael Walle <mwalle@kernel.org>, Nishanth Menon <nm@ti.com>,
- Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Jean Delvare <jdelvare@suse.com>,
- Guenter Roeck <linux@roeck-us.net>, Lee Jones <lee@kernel.org>,
- Srinivas Kandagatla <srini@kernel.org>,
- Wim Van Sebroeck <wim@linux-watchdog.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org,
- linux-watchdog@vger.kernel.org
-References: <20250822131531.1366437-1-mwalle@kernel.org>
- <20250822131531.1366437-5-mwalle@kernel.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250822131531.1366437-5-mwalle@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	s=k20201202; t=1756300092;
+	bh=IpEGFEEfU545ej3QeF5+hs5SmtlfBlWhDI8ZhRwmlgs=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=snBJ2WlHLIctRupH0IhLfUosaWzE7Cju4kyy0lsniZeIChbOLef9dHdVmypF8wmtx
+	 GTxBQaL2ur3CWyPzoUipmCJMQb5gql+q8rE140bjVEJaa1tHLJt0AhkE6g7BE+i+Fp
+	 IFBTiLevWOnfXr4ryw1r6Fq0G9Tmg2MIXHrq4TzdAxIRx+bUNbOvPbVMDgoGTxRfQC
+	 Ujl7kQdI4Tq1m801f4hO7W3HBcGpBaSf8vs7/3xfY9aTEeZGHpkztdLOIPIjuvkyZT
+	 08+FQmvxN7zOdv2ybOlfSzRuL19cKPM9ZicK2Mw71lZyPcfpZqaSqcHTbe5XGoY422
+	 FSmkjaloeEqqw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1urFsn-00000000vBX-20Bc;
+	Wed, 27 Aug 2025 13:08:09 +0000
+Date: Wed, 27 Aug 2025 14:08:09 +0100
+Message-ID: <86frdcewue.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Sean Christopherson <seanjc@google.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Ira Weiny <ira.weiny@intel.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shivank Garg <shivankg@amd.com>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Xiaoyao Li <xiaoyao.li@intel.com>,
+	David Hildenbrand <david@redhat.com>,
+	Fuad Tabba <tabba@google.com>,
+	Ackerley Tng <ackerleytng@google.com>,
+	Tao Chan <chentao@kylinos.cn>,
+	James Houghton <jthoughton@google.com>
+Subject: Re: [PATCH v17 00/24] KVM: Enable mmap() for guest_memfd
+In-Reply-To: <87b10d94-dca2-4ecb-a86f-b38c5c90e0cf@redhat.com>
+References: <20250729225455.670324-1-seanjc@google.com>
+	<87b10d94-dca2-4ecb-a86f-b38c5c90e0cf@redhat.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: pbonzini@redhat.com, seanjc@google.com, oliver.upton@linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, ira.weiny@intel.com, gshan@redhat.com, shivankg@amd.com, vbabka@suse.cz, xiaoyao.li@intel.com, david@redhat.com, tabba@google.com, ackerleytng@google.com, chentao@kylinos.cn, jthoughton@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,14 +95,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/08/2025 15:15, Michael Walle wrote:
-> The SMARC-sAM67 board has an on-board uC which has the same register
-> interface as the older CPLD implementation on the SMARC-sAL28 board.
-> Although the MCU emulates the same behavior, be prepared for any quirks
-> and add a board specific compatible.
+On Wed, 27 Aug 2025 09:43:54 +0100,
+Paolo Bonzini <pbonzini@redhat.com> wrote:
 > 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> On 7/30/25 00:54, Sean Christopherson wrote:
+> > Paolo,
+> > 
+> > The arm64 patches have been Reviewed-by Marc, and AFAICT the x86 side of
+> > things is a go.  Barring a screwup on my end, this just needs your approval.
+> > 
+> > Assuming everything looks good, it'd be helpful to get this into kvm/next
+> > shortly after rc1.  The x86 Kconfig changes in particular create semantic
+> > conflicts with in-flight series.
+> > 
+> > 
+> > Add support for host userspace mapping of guest_memfd-backed memory for VM
+> > types that do NOT use support KVM_MEMORY_ATTRIBUTE_PRIVATE (which isn't
+> > precisely the same thing as CoCo VMs, since x86's SEV-MEM and SEV-ES have
+> > no way to detect private vs. shared).
+> > 
+> > mmap() support paves the way for several evolving KVM use cases:
+> > 
+> >   * Allows VMMs like Firecracker to run guests entirely backed by
+> >     guest_memfd [1]. This provides a unified memory management model for
+> >     both confidential and non-confidential guests, simplifying VMM design.
+> > 
+> >   * Enhanced Security via direct map removal: When combined with Patrick's
+> >     series for direct map removal [2], this provides additional hardening
+> >     against Spectre-like transient execution attacks by eliminating the
+> >     need for host kernel direct maps of guest memory.
+> > 
+> >   * Lays the groundwork for *restricted* mmap() support for guest_memfd-backed
+> >     memory on CoCo platforms [3] that permit in-place
+> >     sharing of guest memory with the host.
+> > 
+> > Based on kvm/queue.
+> 
+> Applied to kvm/next, thanks!
 
-Best regards,
-Krzysztof
+Can you please create a stable branch for these patches? It is quite
+likely that whatever I queue for 6.18 will conflict with that, and I'd
+like to be able to resolve the conflicts myself.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
