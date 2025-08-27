@@ -4,83 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99970CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 03:58:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0C40CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 04:23:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rhJyrh3aV+3odzPmpWAqooXptKw5M2zQUOI+wqM08wQ=; b=2bgpx6u/axN2km8hOwIeq0e+f8
-	zBqofDHiqs4WMV6zjBP3WsCY/BnV6502+eQMU1aCsK2/ixA1JixpsJGxOa97k7tymjUQKKaJG+5Ij
-	lHNf5Qy1te5DXe0AvQbLvKKXk/3mNPKOR9MeCJSbwbK/RFPHtN2L7mxnNiqCbNZDLRD6fUWMuCozs
-	voKEScFlxMx/6UE94iLfqnD582hhGcwduFj9lSSvDO+mjl4JT26n66qQ/C9hQIsmF5AnEAvXWK9T9
-	MCSwbvNMLRncWpCGKnbTuqdQ0Gx+ebpPJx8fMgF63fEPIbDwOkiUa+tsEZT/UfWxrdGGwLPD0J4gA
-	lPgjG5KQ==;
+	bh=T04OEWuWzVBwomdwOoyEw5q5260zvNB09JpMDzKCKSM=; b=LV8OSa91+YCSrLbX2OlsH1s8I9
+	cKVpZEF9FEjU0VbfnHEm3Eqnhpyi4ahnsVPIqcgC73zXgJb4d001hDSoER17ZdjI3F4ED+zrSJSQH
+	ysky/ijNeK6bb2HggQODhLYH6hUwtSdGWE9CCZL0SHsMINMVoDNrz6I6NqztAeA5fBysXjdAOjF+M
+	nwtNAbD3t+UXc7uJKyMF3hrf2H0SjTL5apB92dIeBcIoeLVwK1kqbsXz+2G82A/Vdb4ZuVarW0ygv
+	atuX0jso3+mA14YYrx0S1u/fVHjaDLYwuKwPxxe+oVaNEmQLxIMzfRkwe26Nh0qzR07tPHgNZQ1xf
+	11pR6bRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ur7Iu-0000000DuGw-29tU;
-	Wed, 27 Aug 2025 03:58:32 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1ur7hB-0000000Dxa8-3AE2;
+	Wed, 27 Aug 2025 04:23:37 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ur7GE-0000000Dtxo-06Rv
+	id 1ur7eU-0000000DxEm-1JaX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 03:55:47 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-b49dcdf018bso2213934a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 20:55:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756266945; x=1756871745; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=rhJyrh3aV+3odzPmpWAqooXptKw5M2zQUOI+wqM08wQ=;
-        b=XUIkVY+4F41mHuQ0cXavI04gvUvs6O8OyOO0CjXuEX7dqUat8SZ5njNPWSDnQyiMeW
-         LlexByqMVQL50Bzhmnmyr+xdeGy7E0TVmrVeLPNTTNRiQ9GlbVbc2QVsThHpHDkPMKdH
-         eQUDdz54pX6AJWomRMWX9zBSBsxOhUloTwTU4qBO/iixo3vi0L6OTaTzJpx2sRZArmRn
-         mxNccQSOazHstHpy9zmSc+uNpObb9cHeUtXrZ6E18dZfqUjhZSPOSJSZ7qrdVoReJ7Wn
-         qOmVp58jBblhQwlIW9Xc3HxLJzBsK4SKbPkQ2hJTn10UgjpKEC25fTeYl1wHwAfUtA9O
-         fhcA==
+	Wed, 27 Aug 2025 04:20:51 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57QKDMix016949
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 04:20:49 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=T04OEWuWzVBwomdwOoyEw5q5260zvNB09Jp
+	MDzKCKSM=; b=XfcQomCk0c62Pro2ehA+rjbmXTTnnLX22TytPVn4LIDxDi4uOWR
+	ep/3xdPCNNPFLz6DrYHBDPuP7tjpSIobUwddpVSmZpYD+zZnO2EptNXnoVCYgThj
+	xo3sKAUoq8fqBCxOHCtlPmSbWkkUVjOg45wi/z8QmEZ9XaZEXGeFMFAXdkW9OQQB
+	aQg5BIi/c+b8hMC9lTMErncFB9muD00+5UcgtOM64PdiB9Fb8qvMnP7LYCA90ymj
+	TtkIzWsLT3qj2zq+VyCHqckMAf2NLgPCEEUBJxWzjQxC8xU1bRdu7N4N8RhyiFGb
+	BhpPD62QwBgobdADzBr5EiLSj+/QGKC6NjQ==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48q5xpujmy-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 04:20:49 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-24636484391so54329695ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 21:20:49 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756266945; x=1756871745;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rhJyrh3aV+3odzPmpWAqooXptKw5M2zQUOI+wqM08wQ=;
-        b=XRsU69c2/eYjxnYyOnAKrzb0hejG+bt4RCnQ6XqE/6iJb3Qmp8AZR53euSoJ9HiSul
-         nvBwoWKRxJokqcsTzsgdGi9UoBCdf7Whe7tlPoERQUAeYyjxM+2Xznj16W5r5ZwSVGtb
-         m2JzN/SrHB0tq7FrzPBMfX9LTEQkQ3mdZyyOhe0Xk8umaM3X1gUTtd976I+7yqaIbYOi
-         Wzn0zVsJqqTxG1IytLpR8p+pizYhC1bRg02Kg11IkeH44RmoNcf9NmD6VPbCS00hRw/3
-         KASJ3dVCcBK0J0/FtaEBGgxQmNi7Og+dfnTdvWIwgB6vv9qpZQ2OthCKpZb7l75shFal
-         e/Og==
-X-Forwarded-Encrypted: i=1; AJvYcCUfu6USfAd70OZe11/BQ0hRE4z6O0wXaMbGVxEtb6V7RRy5rqfrIKM0hQ4ghIRI0oMHwbj1kKNpGiDE08/aLn1A@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXgsjxY+TclrIGad+bjBdKuhsCkZWGbd43LhDXtej0SfOC7wI3
-	+BxH0DN7ojjzb921py6Mh/vZLvs45N0GFnipi4Ce2u6KHsZYzFpmEjQDDzHBYV5n
-X-Gm-Gg: ASbGncvsTntvFPDem7en/g/7V0UC0upc3sinnGHbhjCVomE2roR5pTK08o7wIJd1fek
-	wKlpz1RHCQWO2Q2KRZG2TyleZ0AxCnBYhSRWo8KelLj2JuTavC4pCwSg4U1AZcAVBIKb81bQMBh
-	2Bystc+Hv9yGvwTmZJn7NTGpZj2UZwfryqda/YVHeCJUGFRgvlGUdJ30Kvr0/2bE7etzbdA2mQ9
-	6w9/JoySwAWI6l5MMXDuyjApOEkNwJszCBIiOFtyJSVdKX7XkJ3dMBidZe8fJO793Np53UL+IVK
-	cVl7n2Ap+tAr1MtCYgmBnsNhS0jxWefHterSJy/2EoDJrVMFZIL/eoWK6BCjbBXe/kUOF6VvAPr
-	xhLPv8JaGNN3RBu9v2eKPtvWE1YybI6LSAJYmPNXRAz0=
-X-Google-Smtp-Source: AGHT+IHCKulS5BdqLp8mRSWpksw+q+splIe3zzH4/ipKfWgAt9xTzPA2rbkbMvF0CbSu69Kz/T0M0g==
-X-Received: by 2002:a17:903:1207:b0:240:5549:708e with SMTP id d9443c01a7336-2462ef942bdmr209447475ad.46.1756266944779;
-        Tue, 26 Aug 2025 20:55:44 -0700 (PDT)
-Received: from dragon (23.106.129.234.16clouds.com. [23.106.129.234])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2489b6a7633sm4970755ad.85.2025.08.26.20.55.42
+        d=1e100.net; s=20230601; t=1756268448; x=1756873248;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=T04OEWuWzVBwomdwOoyEw5q5260zvNB09JpMDzKCKSM=;
+        b=Tnyw+cF3ZYNLSpXLzROZ1cpwDtcOFy7YCRroeUmHp2wM0LK7Uyh0qzewRi7ozX1xwY
+         WNzVjYvStT1fMlrSn1woIV7ePs2EFjqmRZu9W/BFET9bGlGcyWkW+lU+oPUq/TenBMa4
+         wcEuXGp91qg4mo7jKawQIiOI0v/uiP4NJoRDfk+OO/4u7wuvS6Z7k+Lj+vd9vRxmgJiD
+         16cCLRt/UMhh9ldyJhYc60WCFXtbZklqbf90Bdhyll6MG8fbpoQSgsD8fzQ9hy1EE7ZO
+         h/3iLV2TuQKfl+rQZSqiEBvFhtSToXa2JnDNVajJJ5/gTB08GD2RTfVR6YuPAElXm43r
+         IJqA==
+X-Forwarded-Encrypted: i=1; AJvYcCXCxvVvUlyYGuLWW8+q1Tg/SDV8rUPDKwyIqSXMq+spACh0p/IMEqQ5Ig3HIPUOg6X/e+pjChPKjPJ9srnk1KIp@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYbCRqc3uEwnQJ/VrN5Yii6zoZbXLr3CGZgFJ37MNSr6++9/m1
+	5W0XOP+3eiBXkQ28AmvP3zy7WB8Sbk92wC4aBIbwcAIHkgbURmnj4cccsGOIaYb5Hu2fWwAiR+8
+	UuzhgY6qYyOgcWZMkN0bN4VVcZbxJbaMl4J6uzjM0raDirx7PltRtjcxzE3b63wmmCw2CjArWIQ
+	XocvYSY6+cbA==
+X-Gm-Gg: ASbGncsy+lYIAHnp586rAEixQVD+9Pj13mSLKb4COEi6bflVT5+KNvFsQVClolUp397
+	9OlimJiKB0J/LRmB+69uUZnFFmO6JKbqwbfIveteKmWU1qOsbJtiWEnXVJMjTJ2Le+HEF1veAIx
+	qOIiJC0eNw5mBNiOeTJCcl+rATLR/ndjRkZhkrSjQ+TsY5BUxtQLSiILcA8qUVVjHZUoBBbI4yu
+	NQi1XVDZK+WjmbrNctaPMRdnnmp6cWJEWyejrn4S8e0I1WzVOANn3IMsMW1M7bDaoRQTdHnDtRG
+	//vRun3tGJo2neqRi7yxWYig2+RHFr0m9sDO2WgJi3svEHoL2ptns8dyaKMzLQPiyOHYMsc3o/Q
+	SFtlHAD+1EMhV+FKsLmcv
+X-Received: by 2002:a17:902:ec88:b0:242:9bbc:3644 with SMTP id d9443c01a7336-2462efacca1mr280998325ad.54.1756268447944;
+        Tue, 26 Aug 2025 21:20:47 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHA8yeApLKgwQ0EGKa3A8XN1Dc/sQ57Z9I8ff+HMTjh+PnlsLYqkDSMbe5YRBoxsIlMbA/qSA==
+X-Received: by 2002:a17:902:ec88:b0:242:9bbc:3644 with SMTP id d9443c01a7336-2462efacca1mr280998035ad.54.1756268447437;
+        Tue, 26 Aug 2025 21:20:47 -0700 (PDT)
+Received: from jiegan.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-771f4072ac4sm4323076b3a.34.2025.08.26.21.20.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 Aug 2025 20:55:44 -0700 (PDT)
-Date: Wed, 27 Aug 2025 11:55:39 +0800
-From: Shawn Guo <shawn.gsc@gmail.com>
-To: soc@kernel.org, arm@kernel.org
-Cc: Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
-	kernel@pengutronix.de, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] i.MX fixes for 6.17
-Message-ID: <aK6BuzIYwUBRU1GW@dragon>
+        Tue, 26 Aug 2025 21:20:47 -0700 (PDT)
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
+Subject: [PATCH v2 0/3] add sysfs nodes to configure TPDA's registers
+Date: Wed, 27 Aug 2025 12:20:39 +0800
+Message-Id: <20250827042042.6786-1-jie.gan@oss.qualcomm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=KOlaDEFo c=1 sm=1 tr=0 ts=68ae87a1 cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=2OwXVqhp2XgA:10 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=obe5h0f5hI_ELFHOeysA:9
+ a=uG9DUKGECoFWVXl0Dc02:22
+X-Proofpoint-GUID: hkaH8Jd3fBoTkOPFZ-ggrR87NMX2BrBu
+X-Proofpoint-ORIG-GUID: hkaH8Jd3fBoTkOPFZ-ggrR87NMX2BrBu
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDAzMyBTYWx0ZWRfX+V1ZneCP4tmR
+ RibcRaGZsyROEnsQDZexWbqx3YA5HnwneV7UHdQZQ/g+rQBnw1VP2P25bI43w6C5wucXqOQZhbV
+ z8TwomfidSlesRlmEB6M2W/AaiDBI8+ulGg1yvAP7hpghbNJLArihnRQvc5Oe/4eSWkAuuVuKjv
+ 0L9s/Fr/NZrMTDDDRLOmRM+YCe6x6rxfUGvOtHWLCZjEEcVvt4dinvm9B7HJtm6ZPbhTKZTjFvK
+ qwip5tsDjdszZJhdfYhbOZsrKlB0N6OAN/T6GwbrV+JGYf8k0Z3MRl0iGAsxYQ6zSWn14vtCKrI
+ WFiKuRrFiInM2uXUpL+MxCr9YTKELoEt5IW0fLSuika6J9oZrZCXE3queJr9P4cf20LVDRyUW4I
+ j7XnRykO
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-26_02,2025-08-26_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 clxscore=1015 bulkscore=0 adultscore=0 phishscore=0
+ impostorscore=0 spamscore=0 suspectscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508230033
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_205546_069152_F9EDDF8C 
-X-CRM114-Status: GOOD (  10.38  )
+X-CRM114-CacheID: sfid-20250826_212050_359336_1EE93E0E 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,47 +129,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585:
+Patchset 1 introduces configuration of the cross-trigger registers with
+appropriate values to enable proper generation of cross-trigger packets.
 
-  Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
+Patchset 2 introduces a logic to configure the TPDA_SYNCR register,
+which determines the frequency of ASYNC packet generation. These packets
+assist userspace tools in accurately identifying each valid packet.
 
-are available in the Git repository at:
+Patchset 3 introduces a sysfs node to initiate a flush request for the
+specific port, forcing the data to synchronize and be transmitted to the
+sink device.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux.git tags/imx-fixes-6.17
+Changes in V2:
+1. Refactoring the code based on James's comment for optimization.
+Link to V1 - https://lore.kernel.org/all/20250826070150.5603-1-jie.gan@oss.qualcomm.com/
 
-for you to fetch changes up to 37e5caa5571b5a60b0c835a0bc09ab1e53f57bfe:
+Tao Zhang (3):
+  coresight: tpda: add sysfs nodes for tpda cross-trigger configuration
+  coresight: tpda: add logic to configure TPDA_SYNCR register
+  coresight: tpda: add sysfs node to flush specific port
 
-  arm64: dts: imx95: Fix JPEG encoder node assigned clock (2025-08-22 17:45:30 +0800)
+ .../testing/sysfs-bus-coresight-devices-tpda  |  50 ++++
+ drivers/hwtracing/coresight/coresight-tpda.c  | 276 ++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-tpda.h  |  35 ++-
+ 3 files changed, 360 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
 
-----------------------------------------------------------------
-i.MX fixes for 6.17:
+-- 
+2.34.1
 
-- Correct FlexCAN PHY settings on imx95-19x19-evk board (Haibo Chen)
-- Add missing microSD slot supplies for DH electronics i.MX8M Plus
-  boards (Marek Vasut)
-- Fix assigned clocks for JPEG encoder node on i.MX95 (Marek Vasut)
-- A couple of regulator setting fixes for imx8mp-tqma8mpql
-  board (Markus Niebel)
-
-----------------------------------------------------------------
-Haibo Chen (1):
-      arm64: dts: imx95-19x19-evk: correct the phy setting for flexcan1/2
-
-Marek Vasut (3):
-      arm64: dts: imx8mp: Fix missing microSD slot vqmmc on DH electronics i.MX8M Plus DHCOM
-      arm64: dts: imx8mp: Fix missing microSD slot vqmmc on Data Modul i.MX8M Plus eDM SBC
-      arm64: dts: imx95: Fix JPEG encoder node assigned clock
-
-Markus Niebel (2):
-      arm64: dts: imx8mp-tqma8mpql: fix LDO5 power off
-      arm64: dts: imx8mp-tqma8mpql: remove virtual 3.3V regulator
-
- .../dts/freescale/imx8mp-data-modul-edm-sbc.dts    |  1 +
- .../arm64/boot/dts/freescale/imx8mp-dhcom-som.dtsi |  1 +
- .../freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts   | 13 ++++-----
- .../dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts    | 13 ++++-----
- .../arm64/boot/dts/freescale/imx8mp-tqma8mpql.dtsi | 31 +++++++++++++++-------
- arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts  | 10 +++----
- arch/arm64/boot/dts/freescale/imx95.dtsi           |  2 +-
- 7 files changed, 44 insertions(+), 27 deletions(-)
 
