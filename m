@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB449CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 19:15:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE4C5CA0FFB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 19:15:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KjH8UdBHf0HrwXBnky887kTj3Jl4zPVz38mQ8KQXbzg=; b=m9+RvwFYOug7AXL3FtGPvniCHU
-	DSDi3OI8XadJiPfKHXUM+u25SrL9B9A9orTxxZ5TQ3gm6hiBOpwHCHVoYZfrE5XnctCgfQWlDeH/E
-	LbhFStmLyH1WUWMzDhNqDDEBQY7shT+WT/b4AAwgDqQq/jB841IUriRczJs6j9oBd//gXpbrsZF8J
-	9RNBPMpPclIIBSdzMhwYNak1MxTx/xk8CloPgUJQMmNtRNIiauMDRQuB7L7e7jaojOjufZFx1CvqG
-	aNiJXXoXJUjmu0b6CwkLigDP8bBTAtFttfb/hk0K8dWf1XOBgrF2SUzhlJU9b4fHIjlGpsuCmfT4G
-	Q4YAtyzw==;
+	bh=juVlkaqc60SCZZV4qb/RKOdcFDaO35Z2ogMnii6jLCo=; b=iHHupEa5NcaQO+/NlsF3VnqQaY
+	tfv5kRw/2uhguUR+Lbmjh24HLRoVBzHS91o3RH+IWB8npfPqjjqmt35eA6oJ8/aXDiK3qKkHQh17j
+	YdU3RJgz7eDhKDd60hwBlwZi1nzByE7w4N3Hn0iUVul7gFd1lTUPbgKsrkvCM/ePz+dmSwGrZxoWl
+	AAp4CSooVyC5iIkuyIy8WMGcaZzIh4/xORd52352dB2RKLvlbgxEZoDQGo52XceNE4l78dEhGwy3E
+	8ztoUQk6/6kPFT4av+DU7+cT6fLFFg5DJgStF75kEQX2waE3nsMG0wKpQ5w64E9+3KhnbHyAGqqbJ
+	Phdv7EwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urLbw-0000000GZGV-212G;
-	Wed, 27 Aug 2025 19:15:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1urLbu-0000000GZEd-1K3B;
+	Wed, 27 Aug 2025 19:15:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urIp8-0000000G9yH-3BAL
+	id 1urIji-0000000G8rV-0iUA
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 27 Aug 2025 16:10:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=juVlkaqc60SCZZV4qb/RKOdcFDaO35Z2ogMnii6jLCo=; b=EIa1xuHt0oAnpSpP3JHUjnHxpo
+	bmYU0+x1TAScD8EVBurp/sx/BstG76y87OaTk5rnu0PU+R3nxSfrz6HxkIYY4k1vV8Rjie+3C7E2Q
+	d7pW/LUaflXpEx7PcsjkdQ/9vNNrG73c64Dw4Ai0j31ev6wpRpu0dU2NXdRUlYOtUkNhPdxsobRC2
+	gvexavPLHqezIR6FYE5YH4hCi0Xu67LP4s3t+a/gzenrX2/oM9Q3cOmZlN1iPVNuNJ4Mhaw5bZi2e
+	uHjYwJIK9J07S9DkXJtLxlGSLWG+iGPJPqH3VRBECbdQ+AD4V/rkyw6J+nZJB2XXVo1DJxhI6ADBn
+	r9JabHGw==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urIje-00000002TAr-3AEU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 16:16:35 +0000
+	Wed, 27 Aug 2025 16:10:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 45B51432B3
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 16:16:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 221C7C4AF0E
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 16:16:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5722644B91;
+	Wed, 27 Aug 2025 16:10:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36E73C4CEEB;
+	Wed, 27 Aug 2025 16:10:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756311394;
-	bh=zLiz6AkzyNnkBrQOVwv/VSA4M3l/zNcKpbwLcjJ+448=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=jTHWpxXATY3CaEyQH+uS+P/ItI4kZnjwMDeObQFlhuk73fHfZTwT5HARLnzBL+vtI
-	 14H2ZGWhQSzPX8gniBqdW7PB4a2cGecZ+Ch6rMI3pRrc7JFC0/jGo7fXOHrM7pX30H
-	 FMRy/4NAQpvIXDVRRiED6LBV0F02Y0GYFctpZyDTC50whJ2Fyn3EJkzrYwSg8Rh5de
-	 evn/2WyDsBmSszSpOpSN7OrQ0AsnbF4Yo0ZSB7jp9CzUU3QOXPD5GyO0BsRM/+Ni0D
-	 Z/QFAZhmheC9D1Vu01RV1jNK8pbNjM/V3eD8A30Kud9jT2R3iyNybFIG2/FJ3p0LEn
-	 SFS4Klj8qA6hw==
-Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-afcb7a7bad8so945448566b.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 09:16:34 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUd6/hqfGUp+x5nkh2dE8WGJ36LLpYN7EuZQCWZydEXU5UgQpVCKlrJ01Ni9x4LvnNMqBPMJIZoUbzCssZy8QYr@lists.infradead.org
-X-Gm-Message-State: AOJu0YzgHZ1mJKHZlhumpMqIoKsuUjLtKpHZOiKs4hBxUjiq1Ug8TvEH
-	9OejMGKkcFMXQRtjczJDY13mOVcmNftuhm8I0dvSFF50/HRJhl+qOiLQ/9oNgTGW5CT2pAEc/vK
-	rCRtF9pResrUJvEpA+D23z0Ze00l28A==
-X-Google-Smtp-Source: AGHT+IEXg6+7BprsV5EoZDhEEr6bgsBWXcf6QxNl0BWK2TTd4f7AIeyL6z6NHk7g97eiKGWG44PeeKjxlyiXe/1zEDQ=
-X-Received: by 2002:a17:907:934d:b0:afe:ceee:87ef with SMTP id
- a640c23a62f3a-afeceee8bd7mr157915066b.46.1756311392573; Wed, 27 Aug 2025
- 09:16:32 -0700 (PDT)
+	s=k20201202; t=1756311051;
+	bh=z2QNt9RWN4zT8Ci51cyrFFeAAtDEFGBEVB1qDDNY7qw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=VuTmxL6w/vaN7bCsdjsNiSafrHPqIO7Y1cxq7I1OTmwTYPOSyY77n/9UsP8T9IAwI
+	 A2QLBFKn+1ZlchfSobF5WS2whfV5h2jJ+xt1+a7+AYcmSs6CuYCxfAbOBQaT4xiUP+
+	 3eK9FGIMcetdAFbn86woZFNGjN9C/ZNw3Y6j5X9ylgiWfO1zU43iFMalXCD0qglvGy
+	 T7/h0hT62usau7HIcwizJzqHQWjcC5RtbDnxK5r3RxIyY7yar2GYKHqYl9powgw+CQ
+	 bbNK1Wc8BFKBnjwfNjHsg57FxkmYeXTQMQebxsjYnfzud0wL1//0cCwMmTCf0o+1IZ
+	 XCdK6970s03Fw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1urIjZ-00000000yGc-20oF;
+	Wed, 27 Aug 2025 16:10:49 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH 15/16] KVM: arm64: Populate level on S1PTW SEA injection
+Date: Wed, 27 Aug 2025 17:10:37 +0100
+Message-Id: <20250827161039.938958-16-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250827161039.938958-1-maz@kernel.org>
+References: <20250827161039.938958-1-maz@kernel.org>
 MIME-Version: 1.0
-References: <20250822153048.2287-1-james.morse@arm.com> <20250822153048.2287-11-james.morse@arm.com>
- <CAL_JsqKUSJjmyj-E6eduZt3S=x6v7VUR5JEJV_Ow6O-O49TgEg@mail.gmail.com>
-In-Reply-To: <CAL_JsqKUSJjmyj-E6eduZt3S=x6v7VUR5JEJV_Ow6O-O49TgEg@mail.gmail.com>
-From: Rob Herring <robh@kernel.org>
-Date: Wed, 27 Aug 2025 11:16:20 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqJDpEHBcWeCqxSiUjpyBs0gEJKVyyR70xJO56x-pYQHMw@mail.gmail.com>
-X-Gm-Features: Ac12FXzE3A9FSJi0MT3IqGBLAftR8IWne7jiyyfQlU3jf16oWdruRH4E1uAnKzM
-Message-ID: <CAL_JsqJDpEHBcWeCqxSiUjpyBs0gEJKVyyR70xJO56x-pYQHMw@mail.gmail.com>
-Subject: Re: [PATCH 10/33] arm_mpam: Add probe/remove for mpam msc driver and
- kbuild boiler plate
-To: James Morse <james.morse@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-acpi@vger.kernel.org, devicetree@vger.kernel.org, 
-	shameerali.kolothum.thodi@huawei.com, 
-	D Scott Phillips OS <scott@os.amperecomputing.com>, carl@os.amperecomputing.com, 
-	lcherian@marvell.com, bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com, 
-	baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>, 
-	Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com, dfustini@baylibre.com, 
-	amitsinght@marvell.com, David Hildenbrand <david@redhat.com>, 
-	Rex Nie <rex.nie@jaguarmicro.com>, Dave Martin <dave.martin@arm.com>, 
-	Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com, 
-	baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>, 
-	Rohit Mathew <rohit.mathew@arm.com>, Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, 
-	Sudeep Holla <sudeep.holla@arm.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Danilo Krummrich <dakr@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_091634_836341_13BE41C6 
-X-CRM114-Status: GOOD (  16.43  )
+X-CRM114-CacheID: sfid-20250827_171055_240069_7B4357AE 
+X-CRM114-Status: GOOD (  16.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,40 +100,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 27, 2025 at 10:39=E2=80=AFAM Rob Herring <robh@kernel.org> wrot=
-e:
->
-> On Fri, Aug 22, 2025 at 10:32=E2=80=AFAM James Morse <james.morse@arm.com=
-> wrote:
-> >
-> > Probing MPAM is convoluted. MSCs that are integrated with a CPU may
-> > only be accessible from those CPUs, and they may not be online.
-> > Touching the hardware early is pointless as MPAM can't be used until
-> > the system-wide common values for num_partid and num_pmg have been
-> > discovered.
+Our fault injection mechanism is mildly primitive, and doesn't
+really implement the architecture when it comes to reporting
+the level of a failing S1 PTW (we blindly report a SEA outside
+of a PTW).
 
-[...]
+Now that we can walk the S1 page tables and look for a particular
+IPA in the descriptors, it is pretty easy to improve the SEA
+injection code.
 
-> > +static int mpam_dt_parse_resources(struct mpam_msc *msc, void *ignored=
-)
-> > +{
-> > +       int err, num_ris =3D 0;
-> > +       const u32 *ris_idx_p;
-> > +       struct device_node *iter, *np;
-> > +
-> > +       np =3D msc->pdev->dev.of_node;
-> > +       for_each_child_of_node(np, iter) {
->
-> Use for_each_available_child_of_node_scoped()
->
-> > +               ris_idx_p =3D of_get_property(iter, "reg", NULL);
->
-> This is broken on big endian and new users of of_get_property() are
-> discouraged. Use of_property_read_reg().
+Note that we only do it for AArch64 guests, and that 32bit guests
+are left to their own device (oddly enough, I don't fancy writing
+a 32bit PTW...).
 
-Err, this is broken on little endian as the DT is big endian.
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/kvm/inject_fault.c | 27 +++++++++++++++++++++++++--
+ 1 file changed, 25 insertions(+), 2 deletions(-)
 
-So this was obviously not tested as I'm confident you didn't test on BE.
+diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
+index 6745f38b64f9c..dfcd66c655179 100644
+--- a/arch/arm64/kvm/inject_fault.c
++++ b/arch/arm64/kvm/inject_fault.c
+@@ -106,7 +106,30 @@ static void inject_abt64(struct kvm_vcpu *vcpu, bool is_iabt, unsigned long addr
+ {
+ 	unsigned long cpsr = *vcpu_cpsr(vcpu);
+ 	bool is_aarch32 = vcpu_mode_is_32bit(vcpu);
+-	u64 esr = 0;
++	u64 esr = 0, fsc;
++	int level;
++
++	/*
++	 * If injecting an abort from a failed S1PTW, rewalk the S1 PTs to
++	 * find the failing level. If we can't find it, assume the error was
++	 * transient and restart without changing the state.
++	 */
++	if (kvm_vcpu_abt_iss1tw(vcpu)) {
++		u64 hpfar = kvm_vcpu_get_fault_ipa(vcpu);
++		int ret;
++
++		if (hpfar == INVALID_GPA)
++			return;
++
++		ret = __kvm_find_s1_desc_level(vcpu, addr, hpfar, &level);
++		if (ret)
++			return;
++
++		WARN_ON_ONCE(level < -1 || level > 3);
++		fsc = ESR_ELx_FSC_SEA_TTW(level);
++	} else {
++		fsc = ESR_ELx_FSC_EXTABT;
++	}
+ 
+ 	/* This delight is brought to you by FEAT_DoubleFault2. */
+ 	if (effective_sctlr2_ease(vcpu))
+@@ -133,7 +156,7 @@ static void inject_abt64(struct kvm_vcpu *vcpu, bool is_iabt, unsigned long addr
+ 	if (!is_iabt)
+ 		esr |= ESR_ELx_EC_DABT_LOW << ESR_ELx_EC_SHIFT;
+ 
+-	esr |= ESR_ELx_FSC_EXTABT;
++	esr |= fsc;
+ 
+ 	vcpu_write_sys_reg(vcpu, addr, exception_far_elx(vcpu));
+ 	vcpu_write_sys_reg(vcpu, esr, exception_esr_elx(vcpu));
+-- 
+2.39.2
 
-Rob
 
