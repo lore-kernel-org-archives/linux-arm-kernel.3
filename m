@@ -4,105 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCF0DCA0FFC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 15:49:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48F25CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 15:49:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XXWW7WAxER/aFBi0e1G0TlXxoqZgrlenJ6xILJsnmTg=; b=wi3XYGZSY1LNQ4qwdZNpdbtGbj
-	t0j/SCl35IwiNeTztQf4difskLUcFQpEvNBm+0gtN4o+uy61xlnOBvWlOusQPwzvsxHIxkIu7SH6/
-	QI1FEDhH1wFvqx/RvemrSJOl0kiAV3uvERW+FNJ08+t4NyeV/zkVaNOIiAu4jHn/yG8xfvYsznj7D
-	yY9q5iSlmn6Iq8QqUZ5LxgCmP6jCw/dWTIqJcGnbc0sUSeKTNFvHeGyKyDCWcA4pCiRxjp1pxfDKv
-	vf5Xw/qUs1EErX1BrDce1038cN14V8RyqJWoKrhqVo5xfF9dyq+hKAHhSSf+fY72MGSud4GB9SLgt
-	OPo9GPHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z3y4v46ZF7X8g5ThZrHBlGjNn21i+MtQxtbp82F3kG8=; b=xI09HOzF9sRBOy2ix1RY0GubRw
+	BcOQnyTU9B/1d+Q9+OzAkxQkV+26qT6KU5iYNLOWBA5GxdikYY/7pQGGcsjO3Wn353aw1y44oCAsJ
+	zyxCyyEyKEQLyhy3D0w5XhxO+KegUiRsGab9aZoQZob8Z9z1lDkQ7BY8TIjqo9hVR2+nTw9jYXdnD
+	pPYF1X8OiX4aNO3rjM5hGhVnshyScR8hm7xxvHCUK5GLokYA1nXUJUQdUgAXK/ETM64RYxNfArxR0
+	bLjpob/O1OCUNVDE+H7AY/tmeoUVjg6XuNoFjY9I6ZdmbUD6R+635mH8sWINelbJLod2Uefe8OFOx
+	j1+Z6fYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urIOZ-0000000Fy6U-2rHR;
-	Wed, 27 Aug 2025 15:49:07 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1urIOc-0000000FyC7-3COV;
+	Wed, 27 Aug 2025 15:49:10 +0000
+Received: from mail-qk1-x734.google.com ([2607:f8b0:4864:20::734])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urEGW-0000000FFqx-38Ee
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 27 Aug 2025 11:24:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=XXWW7WAxER/aFBi0e1G0TlXxoqZgrlenJ6xILJsnmTg=; b=Qsb50CQGyw7my7Mm1GgOquC85g
-	0oxYzKizR6cRvfN+bOcdg33VFm5SbEYARDxRnoRkf4e9t/3StZAYCYNj3uVmeto3M/tqMIsLRpHKm
-	vanp3mEuOOPklzdYeUt8yFFuqHMoeJw7DOGUPQpFPS9LWFZXRSZFfdxbSQRsJF1OAG3j7t3I0GNoH
-	45fEQrH26BIrHoJ5D4sMeDatZMvGyjMRAxiyLUJjdxBTPfShOMsmxPPkgYDqQOCkp50cg2Sv+VHF5
-	TQc6csL6pQUjW7QvoNRazVLXpZxuet6wPOGVSxOEcUTAQ+gASnGACfbjDxiq6IlXJqZYhVT3JzEvy
-	sQIpcwOQ==;
-Received: from mx0b-0016f401.pphosted.com ([67.231.156.173])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urEGT-00000002QKi-2O5l
+	id 1urEOj-0000000FHLP-2hWt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 11:24:31 +0000
-Received: from pps.filterd (m0045851.ppops.net [127.0.0.1])
-	by mx0b-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57R0X1D4018088;
-	Wed, 27 Aug 2025 04:24:04 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pfpt0220; bh=XXWW7WAxER/aFBi0e1G0TlXxo
-	qZgrlenJ6xILJsnmTg=; b=QjI4Xl9f5KxQXZn4CXSAoH9GCyEnVWSP8+IncNvk5
-	TkgPEFst5HqdsIoIijWW8ESvCxgjLl6g7F7Zz7tCdBImUracFmdqa42vNzTycVNq
-	wlHkUhBMaxN95YKTsqLngzBkKIM5r/UZ5wI14SZ44spIUc9bXiJKOWiVXorPCr/N
-	eCEhEjBzI1pnFFoDYcP+V6tXIzVEmARLTx7FtHMNiki0+4YufAmm/uAlVcY4J6zk
-	T1OLrpajotRudat1j2D3kUL1yYLOjfhuc+1QVOb3ZqQhIj+z1CI9gCSyyPH552jZ
-	0v/VuAXcsq1N7Ejzd5AecKd5qnWjViSDMlwxlC27X/eDQ==
-Received: from dc6wp-exch02.marvell.com ([4.21.29.225])
-	by mx0b-0016f401.pphosted.com (PPS) with ESMTPS id 48spmm9b01-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 27 Aug 2025 04:24:03 -0700 (PDT)
-Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
- DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25; Wed, 27 Aug 2025 04:24:02 -0700
-Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
- (10.76.176.209) with Microsoft SMTP Server id 15.2.1544.25 via Frontend
- Transport; Wed, 27 Aug 2025 04:24:02 -0700
-Received: from opensource (unknown [10.29.8.22])
-	by maili.marvell.com (Postfix) with SMTP id CE4453F706B;
-	Wed, 27 Aug 2025 04:23:58 -0700 (PDT)
-Date: Wed, 27 Aug 2025 11:23:57 +0000
-From: Subbaraya Sundeep <sbhatta@marvell.com>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-CC: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Andrew Lunn
-	<andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric
- Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, <netdev@vger.kernel.org>,
-        Paolo Abeni
-	<pabeni@redhat.com>
-Subject: Re: [PATCH net-next] net: stmmac: mdio: use netdev_priv() directly
-Message-ID: <aK7qzc_uVt2A53NH@opensource>
-References: <E1urBj2-000000002as-0pod@rmk-PC.armlinux.org.uk>
+	Wed, 27 Aug 2025 11:33:03 +0000
+Received: by mail-qk1-x734.google.com with SMTP id af79cd13be357-7e872c3a0d5so652268885a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 04:33:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=fooishbar.org; s=google; t=1756294380; x=1756899180; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Z3y4v46ZF7X8g5ThZrHBlGjNn21i+MtQxtbp82F3kG8=;
+        b=GkE7Dpsl4vr1hDlHn/niIKUvJaFnqcP/G6axC1q3Ww/enhpiZ+h12Zg8Wx3jBBRp3m
+         LcvRo6dJyXyL5wro25msKbddDPBfwHt9/wRY3NN1PMWDVYO6Q920lrvFI2hvTxwDfFyQ
+         +TBhY4qffTiDQsmjB64TLm0RVUwqkD8POG7dPe42B7YkG3plYqiEZqO6Bsg4Y9gmnRY2
+         wXunvoTKXbY9Y0Te4cOPADuNi4Zj2kepQmp8oLOvxanDxV9Ll0kSaTahZiR57g5BmiBR
+         VduRV7aw3K8erB8SVkzONyJLqSDKw2Rh2aM/OX2U9sa+vUWGibpjv04Gj+nDLqr226IB
+         MCxw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756294380; x=1756899180;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Z3y4v46ZF7X8g5ThZrHBlGjNn21i+MtQxtbp82F3kG8=;
+        b=ZNwRxe0HSZiAa+qS0Jwa4y0Yab88+APa5D2BfUGdbeomxgooqP4NpTUwrllOJZftfk
+         XTXId8KB3HeaLbQ3I/q4k9gbp51QjFg9alv9TBZWGKweFCqU8nyVJcIDB+77pKZuFwQv
+         c0yKxLXYTb9dMnmSqK98b1IQI23rL2bYEpE4Z6v6Jftze+X34MteIPRckf1JfVK3vfiO
+         bv3Jc3fskQ5r4dB6WZB832Ppq+lMkKfu+Pl/TtLUZrxh2EKE1+hBW3ECyHgk4GXqNCEl
+         5/TyfMK/oByF3QBeUvgJDr9PrhsbW9GNqZ1l+tBIZStUZ/A3TUeyjNSpXwe/GLj1+LrL
+         F8LQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWJsMfCd2WGrS1FZ3bpD/v6SC+6NRvTYgyTt6NsMK+Bn2cKXZtDnteu7TlPFinRP8X2tcX6I7LWOW90jIfWJ1xS@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZ/g2vr7P4nRKyTJtHnrugBWdSo31K5sI6bR8sbYon80R7WhPR
+	WDEzAO6Sa0a2cNwdPfV27QQ0h+tfnRBoqGb6aI7VNkhSEaLzrgnbrN7ltrGQDqXLUyv+YGggfUc
+	pVByArOk7sm2oOOndLPYZK5OxrZXzUKEtZMyrC5KEDw==
+X-Gm-Gg: ASbGnctgEZyDlUJyS788KDxcDWe+Cf1XjvTSB/X6/wmRgXoTyDlUNWDuUO+C+s+DTht
+	SMwFaP8UD/m2R2oR1TwQ5juPhgyz/3LAKWifwgqWLuMZfauPebQdw8lBF1m9I+ZaURmtuwuXYII
+	4ZauzvPD8retfHDgos8zS5htG5BEEpPCa46nt+Bleq4vGZIsH3NZ7kBZwQoXjVhn92RpxMi+OF0
+	eztqYIdagkU5Q9w
+X-Google-Smtp-Source: AGHT+IGmmuxWMn1RQng0MqU7LfWDmGXD9wRFwAweLJvIB7bsSHwPntqlQ+JKaDysNEyaOvC876Q504deR3IuVc5pgao=
+X-Received: by 2002:a05:620a:2804:b0:7e8:1718:daf4 with SMTP id
+ af79cd13be357-7ea10fc7a07mr2104471485a.16.1756294379779; Wed, 27 Aug 2025
+ 04:32:59 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <E1urBj2-000000002as-0pod@rmk-PC.armlinux.org.uk>
-X-Proofpoint-ORIG-GUID: fMcyWFOQZuVFKBAbYKMRqgneaqPJlFCJ
-X-Proofpoint-GUID: fMcyWFOQZuVFKBAbYKMRqgneaqPJlFCJ
-X-Authority-Analysis: v=2.4 cv=RMyzH5i+ c=1 sm=1 tr=0 ts=68aeead3 cx=c_pps a=gIfcoYsirJbf48DBMSPrZA==:117 a=gIfcoYsirJbf48DBMSPrZA==:17 a=kj9zAlcOel0A:10 a=2OwXVqhp2XgA:10 a=PHq6YzTAAAAA:8 a=M5GUcnROAAAA:8 a=QyAlcnm2dVGNXgeYg58A:9 a=CjuIK1q_8ugA:10
- a=ZKzU8r6zoKMcqsNulkmm:22 a=OBjm3rFKGHvpk9ecZwUJ:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODI2MDIwNSBTYWx0ZWRfX8k+P0IlW1oW5 PSSPsuASQ4fmrK9jLrJ/BUqs+FaiIeAhtve2OFysMLuoQY8SVfhGGv1CCCNicguI/i3V0m4NDYT SZKzeU1DmlsNtcSUo6FBGmzIYiqK9O/YrHgyLZNtYzanDsHLQ4qCFBL/89fNq0TypENOpkNJpTD
- /f3Q9tjFifz0VWrUtjwmZYlMIhAo2qlWjncqZDsse8YG05LrHlWdO/M9/kECDEknqiKUhVBVKT7 XtlHsXK4S8el7duZ1DHmJpRtBQx+uMD4kO5ddKeEZ70aK8ZZleP+FZGMGN1FPmyV7Bg5u/XHU4F 5fMX3FyC6SBdsUh35yNealXIF00zmxwKf9p5GF1OJc0mHl04XABUxhhIjtugBopZspLiLqPWa0F XYJtX/jq
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-27_02,2025-08-26_01,2025-03-28_01
+References: <20250822-mtk-post-blend-color-pipeline-v1-0-a9446d4aca82@collabora.com>
+ <20250822-mtk-post-blend-color-pipeline-v1-1-a9446d4aca82@collabora.com> <DCD62EFHFCEB.XEOPUPKZQ5XW@redhat.com>
+In-Reply-To: <DCD62EFHFCEB.XEOPUPKZQ5XW@redhat.com>
+From: Daniel Stone <daniel@fooishbar.org>
+Date: Wed, 27 Aug 2025 12:32:48 +0100
+X-Gm-Features: Ac12FXz3D5zUTg3Df1XjwtCpaINdk3SCVFUs0YESiGpt04Vrw7Xa6CeoI-p4LK4
+Message-ID: <CAPj87rMDvaj28+h9fHkH+bZYH43N-dS_XHu9eomDphjXmPqArA@mail.gmail.com>
+Subject: Re: [PATCH RFC 1/5] drm: Support post-blend color pipeline API
+To: Sebastian Wick <sebastian.wick@redhat.com>
+Cc: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Alex Hung <alex.hung@amd.com>, 
+	wayland-devel@lists.freedesktop.org, harry.wentland@amd.com, leo.liu@amd.com, 
+	ville.syrjala@linux.intel.com, pekka.paalanen@collabora.com, 
+	contact@emersion.fr, mwen@igalia.com, jadahl@redhat.com, 
+	shashank.sharma@amd.com, agoins@nvidia.com, joshua@froggi.es, 
+	mdaenzer@redhat.com, aleixpol@kde.org, xaver.hugl@gmail.com, 
+	victoria@system76.com, uma.shankar@intel.com, quic_naseer@quicinc.com, 
+	quic_cbraga@quicinc.com, quic_abhinavk@quicinc.com, marcan@marcan.st, 
+	Liviu.Dudau@arm.com, sashamcintosh@google.com, 
+	chaitanya.kumar.borah@intel.com, louis.chauvet@bootlin.com, mcanal@igalia.com, 
+	kernel@collabora.com, daniels@collabora.com, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, Simona Vetter <simona.vetter@ffwll.ch>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_122430_023314_5B9997D8 
-X-CRM114-Status: GOOD (  21.78  )
+X-CRM114-CacheID: sfid-20250827_043301_698217_D29534CF 
+X-CRM114-Status: GOOD (  21.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,160 +112,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-08-27 at 08:41:48, Russell King (Oracle) (rmk+kernel@armlinux.org.uk) wrote:
-> netdev_priv() is an inline function, taking a struct net_device
-> pointer. When passing in the MII bus->priv, which is a void pointer,
-> there is no need to go via a local ndev variable to type it first.
-> 
-> Thus, instead of:
-> 
-> 	struct net_device *ndev = bus->priv;
-> 	struct stmmac_priv *priv;
-> ...
-> 	priv = netdev_priv(ndev);
-> 
-> we can simply do:
-> 
-> 	struct stmmac_priv *priv = netdev_priv(bus->priv);
-> 
-> which simplifies the code.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Hey,
 
-Reviewed-by: Subbaraya Sundeep <sbhatta@marvell.com>
+On Wed, 27 Aug 2025 at 12:17, Sebastian Wick <sebastian.wick@redhat.com> wr=
+ote:
+> On Fri Aug 22, 2025 at 8:36 PM CEST, N=C3=ADcolas F. R. A. Prado wrote:
+> > Introduce support for a post-blend color pipeline API analogous to the
+> > pre-blend color pipeline API. While the pre-blend color pipeline was
+> > configured through a COLOR_PIPELINE property attached to a drm_plane,
+> > the post-blend color pipeline is configured through a COLOR_PIPELINE
+> > property on the drm_crtc.
+> >
+> > Since colorops can now be attached to either a drm_plane or a drm_crtc,
+> > rework the helpers to account for both cases.
+> >
+> > Also introduce a new cap, DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE, to
+> > enable support for post-blend color pipelines, and prevent the now
+> > legacy GAMMA_LUT, DEGAMMA_LUT, GAMMA_LUT_SIZE and CTM properties from
+> > being exposed.
+>
+> Please note that you'll also have to deprecate the semi-standard
+> Broadcast RGB property. It serves two purposes at once: it changes the
+> values between the color range (similar to COLOR_RANGE but at the other
+> end) and informats the sink of the range as well.
+>
+> So the post blending color pipeline will need something like an inverse
+> COLOR_RANGE op.
+>
+> We will also need a new connector property where user space can select
+> the color range, which does not change the pixel values, and only
+> exposes options that can be achieved (default sink behavior, full range
+> infoframe, limited range infoframe).
 
-Thanks,
-Sundeep
+As a note to others, the follow-up is on the 'pixel_encoding' property
+thread here:
+https://lore.kernel.org/all/DCD5VIFRKFB9.1KHIZI3ASID2I@redhat.com/
 
-> ---
->  .../net/ethernet/stmicro/stmmac/stmmac_mdio.c | 38 +++++--------------
->  1 file changed, 10 insertions(+), 28 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-> index 836f2848dfeb..86021e6b67b2 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-> @@ -131,12 +131,9 @@ static int stmmac_xgmac2_mdio_read(struct stmmac_priv *priv, u32 addr,
->  static int stmmac_xgmac2_mdio_read_c22(struct mii_bus *bus, int phyaddr,
->  				       int phyreg)
->  {
-> -	struct net_device *ndev = bus->priv;
-> -	struct stmmac_priv *priv;
-> +	struct stmmac_priv *priv = netdev_priv(bus->priv);
->  	u32 addr;
->  
-> -	priv = netdev_priv(ndev);
-> -
->  	/* Until ver 2.20 XGMAC does not support C22 addr >= 4 */
->  	if (priv->synopsys_id < DWXGMAC_CORE_2_20 &&
->  	    phyaddr > MII_XGMAC_MAX_C22ADDR)
-> @@ -150,12 +147,9 @@ static int stmmac_xgmac2_mdio_read_c22(struct mii_bus *bus, int phyaddr,
->  static int stmmac_xgmac2_mdio_read_c45(struct mii_bus *bus, int phyaddr,
->  				       int devad, int phyreg)
->  {
-> -	struct net_device *ndev = bus->priv;
-> -	struct stmmac_priv *priv;
-> +	struct stmmac_priv *priv = netdev_priv(bus->priv);
->  	u32 addr;
->  
-> -	priv = netdev_priv(ndev);
-> -
->  	stmmac_xgmac2_c45_format(priv, phyaddr, devad, phyreg, &addr);
->  
->  	return stmmac_xgmac2_mdio_read(priv, addr, MII_XGMAC_BUSY);
-> @@ -209,12 +203,9 @@ static int stmmac_xgmac2_mdio_write(struct stmmac_priv *priv, u32 addr,
->  static int stmmac_xgmac2_mdio_write_c22(struct mii_bus *bus, int phyaddr,
->  					int phyreg, u16 phydata)
->  {
-> -	struct net_device *ndev = bus->priv;
-> -	struct stmmac_priv *priv;
-> +	struct stmmac_priv *priv = netdev_priv(bus->priv);
->  	u32 addr;
->  
-> -	priv = netdev_priv(ndev);
-> -
->  	/* Until ver 2.20 XGMAC does not support C22 addr >= 4 */
->  	if (priv->synopsys_id < DWXGMAC_CORE_2_20 &&
->  	    phyaddr > MII_XGMAC_MAX_C22ADDR)
-> @@ -229,12 +220,9 @@ static int stmmac_xgmac2_mdio_write_c22(struct mii_bus *bus, int phyaddr,
->  static int stmmac_xgmac2_mdio_write_c45(struct mii_bus *bus, int phyaddr,
->  					int devad, int phyreg, u16 phydata)
->  {
-> -	struct net_device *ndev = bus->priv;
-> -	struct stmmac_priv *priv;
-> +	struct stmmac_priv *priv = netdev_priv(bus->priv);
->  	u32 addr;
->  
-> -	priv = netdev_priv(ndev);
-> -
->  	stmmac_xgmac2_c45_format(priv, phyaddr, devad, phyreg, &addr);
->  
->  	return stmmac_xgmac2_mdio_write(priv, addr, MII_XGMAC_BUSY,
-> @@ -274,8 +262,7 @@ static int stmmac_mdio_read(struct stmmac_priv *priv, int data, u32 value)
->   */
->  static int stmmac_mdio_read_c22(struct mii_bus *bus, int phyaddr, int phyreg)
->  {
-> -	struct net_device *ndev = bus->priv;
-> -	struct stmmac_priv *priv = netdev_priv(ndev);
-> +	struct stmmac_priv *priv = netdev_priv(bus->priv);
->  	u32 value = MII_BUSY;
->  	int data = 0;
->  
-> @@ -312,8 +299,7 @@ static int stmmac_mdio_read_c22(struct mii_bus *bus, int phyaddr, int phyreg)
->  static int stmmac_mdio_read_c45(struct mii_bus *bus, int phyaddr, int devad,
->  				int phyreg)
->  {
-> -	struct net_device *ndev = bus->priv;
-> -	struct stmmac_priv *priv = netdev_priv(ndev);
-> +	struct stmmac_priv *priv = netdev_priv(bus->priv);
->  	u32 value = MII_BUSY;
->  	int data = 0;
->  
-> @@ -373,8 +359,7 @@ static int stmmac_mdio_write(struct stmmac_priv *priv, int data, u32 value)
->  static int stmmac_mdio_write_c22(struct mii_bus *bus, int phyaddr, int phyreg,
->  				 u16 phydata)
->  {
-> -	struct net_device *ndev = bus->priv;
-> -	struct stmmac_priv *priv = netdev_priv(ndev);
-> +	struct stmmac_priv *priv = netdev_priv(bus->priv);
->  	int ret, data = phydata;
->  	u32 value = MII_BUSY;
->  
-> @@ -412,8 +397,7 @@ static int stmmac_mdio_write_c22(struct mii_bus *bus, int phyaddr, int phyreg,
->  static int stmmac_mdio_write_c45(struct mii_bus *bus, int phyaddr,
->  				 int devad, int phyreg, u16 phydata)
->  {
-> -	struct net_device *ndev = bus->priv;
-> -	struct stmmac_priv *priv = netdev_priv(ndev);
-> +	struct stmmac_priv *priv = netdev_priv(bus->priv);
->  	int ret, data = phydata;
->  	u32 value = MII_BUSY;
->  
-> @@ -452,8 +436,7 @@ static int stmmac_mdio_write_c45(struct mii_bus *bus, int phyaddr,
->  int stmmac_mdio_reset(struct mii_bus *bus)
->  {
->  #if IS_ENABLED(CONFIG_STMMAC_PLATFORM)
-> -	struct net_device *ndev = bus->priv;
-> -	struct stmmac_priv *priv = netdev_priv(ndev);
-> +	struct stmmac_priv *priv = netdev_priv(bus->priv);
->  	unsigned int mii_address = priv->hw->mii.addr;
->  
->  #ifdef CONFIG_OF
-> @@ -497,12 +480,11 @@ int stmmac_mdio_reset(struct mii_bus *bus)
->  
->  int stmmac_pcs_setup(struct net_device *ndev)
->  {
-> +	struct stmmac_priv *priv = netdev_priv(ndev);
->  	struct fwnode_handle *devnode, *pcsnode;
->  	struct dw_xpcs *xpcs = NULL;
-> -	struct stmmac_priv *priv;
->  	int addr, ret;
->  
-> -	priv = netdev_priv(ndev);
->  	devnode = priv->plat->port_node;
->  
->  	if (priv->plat->pcs_init) {
-> -- 
-> 2.47.2
-> 
+I think we should keep discussion of those properties there. :)
+
+Also strongly related is the proposal to add range/encoding properties
+to writeback connectors; analagous to the inbound properties:
+https://lore.kernel.org/all/20250813170542.331206-1-robert.mader@collabora.=
+com/
+
+I've talked myself around into thinking that the writeback-connector
+property is better than trying to use colorops to do the transform. On
+the hardware I've seen, whilst the CRTC output pipeline does have
+colour-transform properties, the final yard of the encoding (YUV/RGB,
+full/limited range, primaries, etc) is in fact a per-connector
+property, so I think it makes more sense there, as that allows
+usecases like RGB display output whilst streaming to YUV writeback so
+you can push it directly into an encoder without an intermediate
+RGB->YUV conversion step. But again, I think conversation about that
+would be better on that thread rather than here.
+
+Thanks!
+
+Cheers,
+Daniel
 
