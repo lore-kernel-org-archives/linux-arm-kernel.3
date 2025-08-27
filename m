@@ -4,73 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E21AC8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 08:56:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96DE5CA0FF6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 08:59:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jiB+O1U8YI8qqG7Xj04DgMn9eJKr6DWeFFQSwaKRTgg=; b=jJfSkcLuEnDFMYF58xBBm5iTX/
-	cNHp92C39AGXObE7StKQTatNKMTwpUjiAKiKFgb9dfoOyM9IW1eVcLm451IblPHnctvePRtpzCkO9
-	Dl6FrniVFzBOhRfKJGcdsb5hVMsSIRPinVOUTY3b56EpWaxe/TPiU7UGI2IJnQk65S/4mE/iQ3MqI
-	Nvugs1paKWH/ZFw1nmBHgMzR7OI6d8PU5lbz6rRmquqBBlu0gOn2bLKSFHAZK0X7jFqZjwNMJ5K9i
-	0/0AwBvLlBudGCp6UcrCAfqZLeISc/HGgXPN3Qj2vHrNtDs1Nnalt7O/p2qeLjq6twfO1VsIrdPsS
-	FwI4WgPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=K7HaJk396OO093SxPHpUQb4seLkO7bxlhi3QdP8wBr4=; b=qfEAVsNrYWw1sJu6ob50FN0Ggy
+	1d9PW4hT5gRi6QFzPvlCzl3GV0OyQBOqaJ3fkE9Rphra8nIsvaOOfqoYok/rQ67N3SlpZfzbcePNL
+	WkixULGXH313vd3JisFN1H7iP14qT+Wz9+mFArRNQWFuNSG5ockA5kpRMe7JT000Q4xZR1lWD7mn7
+	na2XyYvRrW+RYWL+GVxiKK65i20zD1OP0oZe82G8ZPFLbcS5L2vMStKMCVtpw7a8joYg3zgf0gPOR
+	11yt3gTHL0GTdGVdQ6pdoJuR4Wc9v45oV6siG4SstfSe9cQb4LY0uR/9DmbcudowJkVK1IY9xzYB9
+	o/tuN2Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urBxV-0000000Ekql-1yIS;
-	Wed, 27 Aug 2025 08:56:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urBuk-0000000EkR7-35XC
+	id 1urC0C-0000000ElId-0ySA;
+	Wed, 27 Aug 2025 08:59:32 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urBvm-0000000EkZY-0phW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 08:53:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 159921655;
-	Wed, 27 Aug 2025 01:53:44 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3EE013F738;
-	Wed, 27 Aug 2025 01:53:47 -0700 (PDT)
-Message-ID: <0c8a6a7c-3d0d-4093-8bc5-3a04f70b00fa@arm.com>
-Date: Wed, 27 Aug 2025 09:53:45 +0100
+	Wed, 27 Aug 2025 08:54:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
+	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
+	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=K7HaJk396OO093SxPHpUQb4seLkO7bxlhi3QdP8wBr4=; b=NSQxECPtX7C8dbMwGLyP+ulZGG
+	nmPrcJ3zBoC0HPaOQA+Q8HyRz/Vvegz770b9uvYukTd7GO4uphNs/Qd8HOiNJCNOY5JdcrUD64XgQ
+	G0PWImYty0TG6jzGQC+a8z7YUJhvZ2eBOaapcQ24ZrONV2gavsycOmR4rWaZNdRld0cHg10FUGkdI
+	eUZpYaCVNsg8l6gvEulFCQ5oLvMGeyThNNn2TJZk/1rLrmNEWjVZv10gKCE72cU7QFjKA8/UGHVje
+	TZt2zHacB08u68Ma3nx7FPW9m3WbamOSFIQqPY8WL4p/v2IwFeYW//mKB4o/k/t+UPE7wlNyNHxt+
+	TfxY4yKw==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:51196 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1urBvg-000000000G1-23Bx;
+	Wed, 27 Aug 2025 09:54:52 +0100
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1urBvf-000000002ii-37Ce;
+	Wed, 27 Aug 2025 09:54:51 +0100
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next] net: stmmac: minor cleanups to
+ stmmac_bus_clks_config()
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 07/33] arm64: kconfig: Add Kconfig entry for MPAM
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
- devicetree@vger.kernel.org
-Cc: shameerali.kolothum.thodi@huawei.com,
- D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
- Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
- baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
- Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>
-References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-8-james.morse@arm.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20250822153048.2287-8-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1urBvf-000000002ii-37Ce@rmk-PC.armlinux.org.uk>
+Date: Wed, 27 Aug 2025 09:54:51 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_015354_870790_BAEEBDA0 
-X-CRM114-Status: GOOD (  24.40  )
+X-CRM114-CacheID: sfid-20250827_015458_238588_6CEA716D 
+X-CRM114-Status: GOOD (  13.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,61 +87,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+stmmac_bus_clks_config() doesn't need to repeatedly on dereference
+priv->plat as this remains the same throughout this function. Not only
+does this detract from the function's readability, but it could cause
+the value to be reloaded each time. Use a local variable.
 
-On 8/22/25 16:29, James Morse wrote:
-> The bulk of the MPAM driver lives outside the arch code because it
-> largely manages MMIO devices that generate interrupts. The driver
-> needs a Kconfig symbol to enable it, as MPAM is only found on arm64
-> platforms, that is where the Kconfig option makes the most sense.
-> 
-> This Kconfig option will later be used by the arch code to enable
-> or disable the MPAM context-switch code, and registering the CPUs
-> properties with the MPAM driver.
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> ---
->  arch/arm64/Kconfig | 17 +++++++++++++++++
->  1 file changed, 17 insertions(+)
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index e9bbfacc35a6..658e47fc0c5a 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -2060,6 +2060,23 @@ config ARM64_TLB_RANGE
->  	  ARMv8.4-TLBI provides TLBI invalidation instruction that apply to a
->  	  range of input addresses.
->  
-> +config ARM64_MPAM
-> +	bool "Enable support for MPAM"
-> +	help
-> +	  Memory Partitioning and Monitoring is an optional extension
-> +	  that allows the CPUs to mark load and store transactions with
-> +	  labels for partition-id and performance-monitoring-group.
-> +	  System components, such as the caches, can use the partition-id
-> +	  to apply a performance policy. MPAM monitors can use the
-> +	  partition-id and performance-monitoring-group to measure the
-> +	  cache occupancy or data throughput.
-> +
-> +	  Use of this extension requires CPU support, support in the
-> +	  memory system components (MSC), and a description from firmware
-> +	  of where the MSC are in the address space.
-> +
-> +	  MPAM is exposed to user-space via the resctrl pseudo filesystem.
-> +
->  endmenu # "ARMv8.4 architectural features"
+Also, the final return can simply return zero, and we can dispense
+with the initialiser for 'ret'.
 
-Should this be moved to "ARMv8.2 architectural features" rather than the
-8.4 menu? In the arm reference manual, version L.b, I see FEAT_MPAM
-listed in the section A2.2.3.1 Features added to the Armv8.2 extension
-in later releases.
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 27 ++++++++++---------
+ 1 file changed, 14 insertions(+), 13 deletions(-)
 
->  
->  menu "ARMv8.5 architectural features"
-
-Thanks,
-
-Ben
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 429a871d7378..88f5d637f033 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -149,33 +149,34 @@ static void stmmac_exit_fs(struct net_device *dev);
+ 
+ int stmmac_bus_clks_config(struct stmmac_priv *priv, bool enabled)
+ {
+-	int ret = 0;
++	struct plat_stmmacenet_data *plat_dat = priv->plat;
++	int ret;
+ 
+ 	if (enabled) {
+-		ret = clk_prepare_enable(priv->plat->stmmac_clk);
++		ret = clk_prepare_enable(plat_dat->stmmac_clk);
+ 		if (ret)
+ 			return ret;
+-		ret = clk_prepare_enable(priv->plat->pclk);
++		ret = clk_prepare_enable(plat_dat->pclk);
+ 		if (ret) {
+-			clk_disable_unprepare(priv->plat->stmmac_clk);
++			clk_disable_unprepare(plat_dat->stmmac_clk);
+ 			return ret;
+ 		}
+-		if (priv->plat->clks_config) {
+-			ret = priv->plat->clks_config(priv->plat->bsp_priv, enabled);
++		if (plat_dat->clks_config) {
++			ret = plat_dat->clks_config(plat_dat->bsp_priv, enabled);
+ 			if (ret) {
+-				clk_disable_unprepare(priv->plat->stmmac_clk);
+-				clk_disable_unprepare(priv->plat->pclk);
++				clk_disable_unprepare(plat_dat->stmmac_clk);
++				clk_disable_unprepare(plat_dat->pclk);
+ 				return ret;
+ 			}
+ 		}
+ 	} else {
+-		clk_disable_unprepare(priv->plat->stmmac_clk);
+-		clk_disable_unprepare(priv->plat->pclk);
+-		if (priv->plat->clks_config)
+-			priv->plat->clks_config(priv->plat->bsp_priv, enabled);
++		clk_disable_unprepare(plat_dat->stmmac_clk);
++		clk_disable_unprepare(plat_dat->pclk);
++		if (plat_dat->clks_config)
++			plat_dat->clks_config(plat_dat->bsp_priv, enabled);
+ 	}
+ 
+-	return ret;
++	return 0;
+ }
+ EXPORT_SYMBOL_GPL(stmmac_bus_clks_config);
+ 
+-- 
+2.47.2
 
 
