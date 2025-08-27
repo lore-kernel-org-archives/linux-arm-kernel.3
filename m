@@ -4,74 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E065CA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 01:37:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D98A0CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 01:45:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KIAvKKfn0bFHmRTwszZHJIuJC++Msep57pJrpM6S8I4=; b=WoFBXYeKFWK5L4s8i0SGJY+ENu
-	XVp4DSM96e/43Ca8Fgyjp52mXhZqccDgFznPBD8m2qvmFxHoNhsB/aL3o9v1FpSDsVAx6WPZYY7hV
-	bsu1wMCw5bwwgXsQSWnquZRd1n4AxNgEOLZLrmMjsKJQh+Gkr4tORM86v8T0GNe5yyHLE4or8oqri
-	2JjZs418lIjb6XlVtFTVe9ECyzHFOES/eDkXibjtOT5j7/UwOuvNu4/GTdi9uJNNVpBFPg6I59id7
-	0Hcjy2FRP9oyuuDkmSkeUlRs2dTXnPMJr4vLD3H1EAN2uiWA3DD1nBxEVl3USlSBHv/5Xln7I9NTm
-	SyJG20ew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8xvPBgU12KeWpWVOPU/mMiLBOtLOHqDZbiSNvTViDBM=; b=z6D292xe9yADHgK2fwStUSlRph
+	vMZcyJsehN/gqlhNGdVXSouu64tC0qd+d62Mt+tM8zKEf48vYxidJZzuGjSVhV3iSmrC6XAhMxpQH
+	GqIqfW+nHU9snDVq7gMxNE2upOR/Vmg0F04c9ayQffUPxsNvlZ0QB48k7n9ALO609K7vEqB5MzxVC
+	eAAqdKoh9dkAWTOmbunAkpBHF3643j8P7GbConVfC8ym7HTYJ+hyc9MHTTlC7HMQjk+R0Y9FxEbxU
+	2tNRsXLDG1kZDaJuZZ5yaUyltHeOjix5UplrD3EoOxrXRlJSrlFUokRfazNorhw3ghZkN40RLnWCs
+	CaHZZkgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ur56Z-0000000DYBD-0sxa;
-	Wed, 27 Aug 2025 01:37:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ur5Do-0000000Da3t-04yC;
+	Wed, 27 Aug 2025 01:45:08 +0000
+Received: from smtps.ntu.edu.tw ([140.112.2.142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ur53q-0000000DXe9-3z91;
-	Wed, 27 Aug 2025 01:34:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0A06843F7E;
-	Wed, 27 Aug 2025 01:34:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B78EAC4CEF1;
-	Wed, 27 Aug 2025 01:34:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756258489;
-	bh=4eiZvo+hL550WY6CZyKaK4fRP2VeqMte3/ZsoSFK2Bs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iNIp4MzCAz/2Su6Q9ie6SJSrrgadQvUrBTeD8Iqgom97Azq/yiTX5YT/3bytvQl+R
-	 c77dFs4j5ymA0p96r2A9q2eclhACDC0BeMXTZP3LnGFleYKgQ9mzTP+GLP+5gY/9Ld
-	 t7KLAwBt93khS7Q2I4taw+eQH0o+6z/5mLHT/GtxiSd8i5gwIHOrQUTdUKOkadkKml
-	 BoJhCES05WcIZSHiAvdbLB6rQmXqn6pV9HA0YzCMKsq74yPYyioPU2x3Lxud9h9HZh
-	 77zbyyS0CGOO7salab+iMazbkewswWMxdSjGCMEwRVQAwc5Bm5GbuGBYLRhm1vqbze
-	 /uP+OMYTMYmNg==
-Date: Tue, 26 Aug 2025 18:34:44 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Kees Cook <kees@outflux.net>
-Cc: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
-	Kees Cook <kees@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Jonathan Corbet <corbet@lwn.net>, x86@kernel.org,
-	linux-doc@vger.kernel.org, linux-kbuild@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH 5/5] kcfi: Rename CONFIG_CFI_CLANG to CONFIG_CFI
-Message-ID: <20250827013444.GA2859318@ax162>
-References: <20250825141316.work.967-kees@kernel.org>
- <20250825142603.1907143-5-kees@kernel.org>
- <CANiq72kc7Ky6+7Ny7jR04s8vU-g23qBQC0rQrOZDxDzXT+m1TQ@mail.gmail.com>
- <202508250834.E2456B9@keescook>
- <CANiq72mQsLqhpX29NP3Zm8HZ5m429tSXjgFcRYJM3e=Zac1G1w@mail.gmail.com>
- <9CCDBE93-7DBD-41D0-B9B6-05900F2AB1EE@outflux.net>
+	id 1ur5B5-0000000DZTO-1fn0
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 27 Aug 2025 01:42:20 +0000
+Received: from x415ea.. (unknown [101.12.130.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtps.ntu.edu.tw (Postfix) with ESMTPSA id 6BF5D31F50;
+	Wed, 27 Aug 2025 09:42:14 +0800 (CST)
+From: Bill Tsui <b10902118@ntu.edu.tw>
+To: oleg@redhat.com,
+	linux@armlinux.org.uk,
+	catalin.marinas@arm.com,
+	will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Bill Tsui <b10902118@ntu.edu.tw>
+Subject: [PATCH v2 2/3] arm64: ptrace: minimize default bp_len for hw breakpoints to pass check
+Date: Wed, 27 Aug 2025 09:41:12 +0800
+Message-Id: <20250827014113.5852-3-b10902118@ntu.edu.tw>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250827014113.5852-1-b10902118@ntu.edu.tw>
+References: <20250824124317.390795-1-b10902118@ntu.edu.tw>
+ <20250827014113.5852-1-b10902118@ntu.edu.tw>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <9CCDBE93-7DBD-41D0-B9B6-05900F2AB1EE@outflux.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_183451_028665_21D5DBF9 
-X-CRM114-Status: GOOD (  28.50  )
+X-CRM114-CacheID: sfid-20250826_184219_581844_E9AFA705 
+X-CRM114-Status: GOOD (  15.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,107 +67,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 25, 2025 at 03:31:34PM -0400, Kees Cook wrote:
-> On August 25, 2025 1:00:22 PM EDT, Miguel Ojeda <miguel.ojeda.sandonis@gmail.com> wrote:
-> >On Mon, Aug 25, 2025 at 5:35 PM Kees Cook <kees@kernel.org> wrote:
-> >>
-> >> Yeah, that's a good idea. What the right way to do that?
-> >>
-> >> config CFI_CLANG
-> >>         bool "Use Clang's Control Flow Integrity (CFI)"
-> >>         depends on ARCH_SUPPORTS_CFI
-> >>         select CFI
-> >>
-> >> ?
-> >
-> >I don't recall what is the idiomatic solution for renames, but I
-> >remember Linus talking about this topic and about avoiding losing old
-> >values if possible (perhaps getting a new question in `oldconfig` is
-> >OK as long as the `olddefconfig` respects the old value).
-> >
-> >I think your suggestion above will still make it appear twice in
-> >`menuconfig` -- there may be a way to play with visibility to make it
-> >better.
-> >
-> >A simple possibility I can think of (assuming it works) is having the
-> >CFI symbol for the time being introduced just as a `def_bool
-> >CFI_CLANG` for a few releases so that people get the new one in their
-> >configs.
-> 
-> Ah, I think this works:
-> 
-> config CFI_CLANG
->     bool
-> 
-> config CFI
->     bool "...."
->     default CFI_CLANG
-> 
-> I will add that for v2.
+PTRACE_SETHBPREGS fails when setting a hardware breakpoint on a
+non-4-byte aligned address with a valid length to a 32-bit tracee. The
+length should be valid as long as the range started from the address
+is within one aligned 4 bytes.
 
-That does not appear to work for me. I applied
+The cause is that compat_ptrace_hbp_set() can only modify either
+addr or ctrl of a breakpoint per call, but always checks alignment in
+hw_breakpoint_arch_parse(). If a breakpoint has ctrl.len=4 (the
+default), then users cannot set the addr to a non-4-byte aligned
+address. Likewise, if the addr was previously set unaligned, users
+cannot set ctrl.len to 4.
 
-diff --git a/arch/Kconfig b/arch/Kconfig
-index c25a45d9aa96..0d3ed03c76c2 100644
---- a/arch/Kconfig
-+++ b/arch/Kconfig
-@@ -876,8 +876,12 @@ config ARCH_SUPPORTS_CFI
- config ARCH_USES_CFI_TRAPS
-        bool
+This patch mitigates the issue by minimizing the default bp_len, so
+that any possibly valid address can pass the check with it. However, it
+does not solve misaligned addr/len in modifying existing breakpoints;
+further work may be needed to remove or relax the alignment check.
 
-+config CFI_CLANG
-+       bool
-+
- config CFI
-        bool "Use Kernel Control Flow Integrity (kCFI)"
-+       default CFI_CLANG
-        depends on ARCH_SUPPORTS_CFI
-        depends on $(cc-option,-fsanitize=kcfi)
-        help
+Signed-off-by: Bill Tsui <b10902118@ntu.edu.tw>
+---
+ arch/arm64/kernel/ptrace.c | 15 +++++++++++++--
+ 1 file changed, 13 insertions(+), 2 deletions(-)
 
-on top of this series and
+diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
+index 73c67f743..70c9acd94 100644
+--- a/arch/arm64/kernel/ptrace.c
++++ b/arch/arm64/kernel/ptrace.c
+@@ -288,14 +288,25 @@ static struct perf_event *ptrace_hbp_create(unsigned int note_type,
+ {
+ 	struct perf_event *bp;
+ 	struct perf_event_attr attr;
+-	int err, type;
++	int err, type, min_len;
+ 
++	/*
++	 * min_len ensures any possibly valid address can pass alignment
++	 * validation with it.
++	 * This is for compat mode, in which addr and ctrl can only be set
++	 * one after one with SETHBPREGS. If addr is set first, ctrl will
++	 * remain as initial value.
++	 */
+ 	switch (note_type) {
+ 	case NT_ARM_HW_BREAK:
+ 		type = HW_BREAKPOINT_X;
++		min_len = (tsk && is_compat_thread(task_thread_info(tsk))) ?
++				  HW_BREAKPOINT_LEN_2 :
++				  HW_BREAKPOINT_LEN_4;
+ 		break;
+ 	case NT_ARM_HW_WATCH:
+ 		type = HW_BREAKPOINT_RW;
++		min_len = HW_BREAKPOINT_LEN_1;
+ 		break;
+ 	default:
+ 		return ERR_PTR(-EINVAL);
+@@ -308,7 +319,7 @@ static struct perf_event *ptrace_hbp_create(unsigned int note_type,
+ 	 * (i.e. values that will pass validation).
+ 	 */
+ 	attr.bp_addr	= 0;
+-	attr.bp_len	= HW_BREAKPOINT_LEN_4;
++	attr.bp_len	= min_len;
+ 	attr.bp_type	= type;
+ 	attr.disabled	= 1;
+ 
+-- 
+2.50.1
 
-  CONFIG_CFI_CLANG=y
-  # CONFIG_CFI_ICALL_NORMALIZE_INTEGERS is not set
-  # CONFIG_CFI_PERMISSIVE is not set
-
-gets turned into
-
-  # CONFIG_CFI is not set
-
-after olddefconfig. CONFIG_CFI_CLANG has to be user selectable with a
-prompt but the only solution I can think of at the moment results in a
-duplicate prompt for Clang.
-
-diff --git a/arch/Kconfig b/arch/Kconfig
-index c25a45d9aa96..93bf9b41a9de 100644
---- a/arch/Kconfig
-+++ b/arch/Kconfig
-@@ -876,8 +876,17 @@ config ARCH_SUPPORTS_CFI
- config ARCH_USES_CFI_TRAPS
-        bool
-
-+config CFI_CLANG
-+       bool "Use Kernel Control Flow Integrity (kCFI) - Transitional" if CC_IS_CLANG
-+       select CFI
-+       depends on ARCH_SUPPORTS_CFI
-+       depends on $(cc-option,-fsanitize=kcfi)
-+       help
-+         This is a transitional symbol to CONFIG_CFI, see its help text
-+         for more information.
-+
- config CFI
--       bool "Use Kernel Control Flow Integrity (kCFI)"
-+       bool "Use Kernel Control Flow Integrity (kCFI)" if CC_IS_GCC
-        depends on ARCH_SUPPORTS_CFI
-        depends on $(cc-option,-fsanitize=kcfi)
-        help
-
-Maybe that does not matter for the sake of keeping things working?
-Otherwise, we could just keep things as they are with the patch set and
-expect people to actually use oldconfig or diff the results of
-olddefconfig (which I think is good practice anyways).
-
-Cheers,
-Nathan
 
