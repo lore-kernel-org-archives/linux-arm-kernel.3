@@ -4,112 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74D6ACA0FF6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 11:07:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D54DCA0FF7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 11:07:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s4gNirUawo/2N73RGh/VZFmiZovBEw6Zvsz5pkyBSog=; b=lerEjv3VJGRPU6f62GVD1wEWyB
-	KAVi9OzqUNcRyxja95FXF0GqlSbXAf876RpfomVf6zpwBnXU4qHs1VnYfKGSRWyvfa0e1LG4ZgKfa
-	J1r3pZj8YUg+aCcqHH8jkLqDHegcIwOR8eFNGWPNR80JEiOQOympwcZ4F28yBImjZHzNnq0HoGUOf
-	c7dL2uZAB/9upsm9v+dPVzwLeMlSj7o65xlMDJeU0oWK2Swbbf9hcXrPF2yqnggn9NUkyv5yqWM4e
-	KT61cl8LWcIXz2NYjyZZhFdYQak5ruiwk0hwEzWMY/3697cOA38h5SbDZmr6nAoQkOGNr4ChZyEKM
-	/ovRB9Ww==;
+	bh=+HdTnP5QHwQGCOtYD2hb1Prc2QDYDtKqL2msgNtal+s=; b=mFwyiQXGUr63LKjUiYazsI4W9W
+	e+zOwaHedj66LJ+VXQXV2rS2iWZUfsXdPcf45auJFlKc5kMXqUJXpbtogv3Vt0n90bowZ/Tq6sqVM
+	XlKZgujfoJoBrw717utdQaYqS1O7FG2koGlKUAvxuQf8ZQrDM8oyRbMTZOcK45PbVzAgkte1a9Muk
+	j9JiD4TCXoZN9Bup7AsTv2MpDEWC83kv9KDdfyD4skqZqSopKXGZgn+NYbZgN3eAENnmgmzONI8hg
+	6pMRiNfGxi8/PvijHd0TY4nFB0jqe+I7Fru7zJ3oco/gtpJCM5sBYyl8czYYNQNX7M9+qof6oKCOh
+	8eqBz7rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urE02-0000000FAOK-3QBW;
-	Wed, 27 Aug 2025 11:07:30 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1urE04-0000000FARf-3mbq;
+	Wed, 27 Aug 2025 11:07:32 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urCfx-0000000EtMj-1o9t;
-	Wed, 27 Aug 2025 09:42:42 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3b9edf4cf6cso5311470f8f.3;
-        Wed, 27 Aug 2025 02:42:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756287759; x=1756892559; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=s4gNirUawo/2N73RGh/VZFmiZovBEw6Zvsz5pkyBSog=;
-        b=ijyo+SI5cQMYv7UOPPf2DCWddvqx/3TkLzd0HV1ernhDIHUiRENkh2vk/Wh2+k7jB3
-         FFipvcsRk9vaWZinJhttwE2z+HLER1AihAV8Uj2pCLyIDf/gTWlnLOvs5cpS4vaLOxiK
-         yGxoVHf1OikLWAGqE6HqzNH8r2Tz2DBji0jrupulh+ClVxxLw8xq8a3dROEDf4phmnM6
-         iEmsHE/zptw6DC3Watd4Ymsc1hwknAxtYl2nREgRIXJD16CAKe5WlVT77orJKdq/UGvj
-         knNMLxkxZebQjIbA9lR7f/stRkTbJactE2IcHZu0Zj4KJZf4iZ/UmrSHnK2XIG3AS8qb
-         5eDA==
+	id 1urClp-0000000EulM-1s73
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 27 Aug 2025 09:48:46 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57R6kJ3A029188
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 09:48:44 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	+HdTnP5QHwQGCOtYD2hb1Prc2QDYDtKqL2msgNtal+s=; b=gp6Gog+sVWMDkmwu
+	bXT9zIDGoaehq+DQOlI6ElG1Ny6cu5HwsHSolaqpsS29nqRo/KTJDIdd20f3AfFH
+	nT3lesr629vYxdVUl2kvMBhqIvXJBlDUvy4arpk0P+kxij19s4kb4QuA0uuC2JnW
+	hzvVHI1XvsKjQyIs5djn/hB1QNEOg5SSwVoEan7O6o6wRgjEZtFHnVftHdJgNY5x
+	B6c5UgJXbvFrmjCynLjkgFQYUUvhJTuZAsmny5uJ8utS514Ndp50R4/tiDKkSrAS
+	Hcigk0BW05A/caTbSnQgJjiCVdJOzdS7ThydWgpb3VQxN6V35w5ZLd0B/5FDVsdu
+	DG3iSA==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48q5umcbbk-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 09:48:43 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2464dc09769so112672895ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 02:48:43 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756287759; x=1756892559;
+        d=1e100.net; s=20230601; t=1756288123; x=1756892923;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=s4gNirUawo/2N73RGh/VZFmiZovBEw6Zvsz5pkyBSog=;
-        b=QfgBcPBXDXpmukJDbLY0XiviTOYR4/9k3rNYHooc3OVe7w6r0Wn+oN/+l7fMnUTLo6
-         tyPRdwqjYtXn81ENnTUXhAEqmbDlsFYikMBXv+fLjDhoEiD2sctmlWdQC1CWDv8XWkjS
-         567AHeI1Fq3nJVDqOUTty1zJHSHjX84GKW5hElR4ngQpNZ2zeAtaP2NSARTR7yP23M2z
-         3GUVJnIVTixyugRpKXlY3etgUMUv6Nbpx0F7TfRN6DQTg0RcgbtMPu6uCVzj1XOYYjlt
-         rR1OvW9IPDYBn4jqbOFw3mmrM/Mhxgju+qV4eGdZPWp0JRrZ3hbZ+xZ++6vPSzI7kFcN
-         46CQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUuKXApxAqsFRvlm0vWbpSQ/verkpIvU6HrdxsnDOPKgHXMcBvnTAVDyN5T4xjxYq6HXzMwLcZYoB0DKns=@lists.infradead.org, AJvYcCUuhddNOMgBA7PGLPt2sG1Z++Y5iSULAyRGTnb4xlRgIgXfATLQ1Q4CpZht7YuCh7T457Z0ZWx0KUynBisuEt48@lists.infradead.org
-X-Gm-Message-State: AOJu0YzD/HdOPiNYWYeeS+u1A0GwTikcOPGpAk+3vXK//2NYiN9VR/GT
-	U3Izguk/Q8rfNZKPPY6DecLWjabbSnial0CQ2Mb32kJeEDzzMNfl3bJQ
-X-Gm-Gg: ASbGncuJ18QkzBByK4P/PKSzSMH45rC9eJB1lsxvLArxzd+L8ECVZssrnTPDTXL92iH
-	RIDXWy9NEjM6m8n5OyE0/0qfl7OlTawUb7JjrvlMw4HkFmDUZYO9eRWyFJMVcGHRn92EA+6cCQZ
-	rWKATNdPKuahl6fSlEOZaHPq7AWHhoaD7WQ4YmeoeYmlniS76c2fEtt4grxUFb0ptg9HEYhpdys
-	s/eRj0/sIGvNeC+mBsWLQIpPPW67dXKEVdg3JTM1Pd4ka6Vm6le5vnTG/xGUe3c1KnWtlut/j+N
-	xW8fC4+2sRI+TbzbWRgjnRiPBHN75E3Bo/CgDV5TAMZhSRXPTzd46ezP+AabDvH2oRRwSCm9jOV
-	MYFjx/DrunMzJZ5ksdX+/+IpnS6hpuGNbyPtVwImUy3gz0dWFh1/6NWRu3g+gmvgPBw==
-X-Google-Smtp-Source: AGHT+IFkjO5GHbU1+2MUuKQvNL0fwH2etmLb7S57NgBpdq01aCYpWSgROxwdQQpXxfO8aoPZevSNpQ==
-X-Received: by 2002:a05:6000:3105:b0:3b8:d672:3cf8 with SMTP id ffacd0b85a97d-3c5dcb10b6amr14770182f8f.43.1756287759105;
-        Wed, 27 Aug 2025 02:42:39 -0700 (PDT)
-Received: from ?IPV6:2620:10d:c096:325:77fd:1068:74c8:af87? ([2620:10d:c092:600::1:4a1a])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3cc4b102889sm3363615f8f.51.2025.08.27.02.42.37
+        bh=+HdTnP5QHwQGCOtYD2hb1Prc2QDYDtKqL2msgNtal+s=;
+        b=EAiH1xaWgMRPRfqVfaWYtUcPlnd2wRnyJyCeVH/x0TCRIDaemP15w/4LbdpD/qAn8E
+         K/oyW/u68706M2SuewMCZWuaXT8n84fDJT0TDXa7q/iwqcY3+d0efGNv2snROR8Y5vfa
+         6yAzMM9F929vetGNQ7GUmvPOuki6eaVuMJAV8hERDMajCenm3Kbm5u+ptMH10TCL4srA
+         j2DiPFB9xvnbxXxfsXeHEqanQN00ClZwq4wYSD8sx5s8DfkL7owkEYYx129q/2jCXj1h
+         nsPdEmbFa/WjU+XTLJmVzdDqm5qgQpvMDI/R9OvJbUdGEv7nF+cP5uNHNZm0K33qT209
+         LJXg==
+X-Forwarded-Encrypted: i=1; AJvYcCXj6SOmnc89OPaVYy4FBNtXWA9gS7in2Pnc3K0zUxY6FIMGFDh0icm8vvjo07dXF7PbqyLpLXYMXUeZ/pY6dLlN@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZ1TLmDXL+YNRVhQ2XJ/7rdazugWRSvG7NakB22KPu8HOnIQxs
+	DIk0L11ROGsq9NlY2Q/8iuHMGVnfV+CVGwPJzSRHX/gQXZIz2iYb0ynQhI24Q/37leIsTDq162d
+	MrVrNvGK1GQaRmLO9QKTReSYlCc0SgqM+/QkWP7YiGB4A1vcDNY+cL+engFGxcL3nUDoGFc9BIt
+	dcgw==
+X-Gm-Gg: ASbGncvc4vTUTwbDNjk8LgIVfssfVSstl1P+9QVytUbGmamaQ4ql1zcBnTYdRcl7jrz
+	HGA9U0JsN1HGrIw1G+wW1a/0sbTs0jRVYsYHZHR0tCDp/58CqSMBHR27k9nOYlpl/cP5mWffoC8
+	fNTS+2ss430eSPpwJv7lIsQ8pXwkL6M1C9JRpXTsCvTfZogN7vlm/14bPGODSavIE8FKbR/Wl1y
+	fyaTDH0D0skKDn7ftLfBZYQDaNRFfesZ1GdLMKYpVw6rSu3z33eRble5TTHcGC7LgwoybepAh5v
+	Vi4tIVfYIb7mbK48s7dO3059S8vrjnDjfrAIWO6Mh+dRJ70LEl/HBUzc+4bAB8wTwkzUh156PcZ
+	bfbAfj1vV3+TRLWXSFHLaR3csysMBvA==
+X-Received: by 2002:a17:903:1b43:b0:242:cf0b:66cd with SMTP id d9443c01a7336-2462ef409a0mr239136595ad.34.1756288122742;
+        Wed, 27 Aug 2025 02:48:42 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEdYfLujcpHIuYuPpdbaf+LeMGQ3BjzTtQgLFI4UMOmo6EcN71ZQccOEPzQ+NRJaIY2fr/phw==
+X-Received: by 2002:a17:903:1b43:b0:242:cf0b:66cd with SMTP id d9443c01a7336-2462ef409a0mr239136295ad.34.1756288122123;
+        Wed, 27 Aug 2025 02:48:42 -0700 (PDT)
+Received: from [10.133.33.155] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2488bc5b32esm22486785ad.82.2025.08.27.02.48.37
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 27 Aug 2025 02:42:38 -0700 (PDT)
-Message-ID: <46d09557-1873-4d97-b073-ce0c7296b954@gmail.com>
-Date: Wed, 27 Aug 2025 10:43:59 +0100
+        Wed, 27 Aug 2025 02:48:41 -0700 (PDT)
+Message-ID: <78d2ab99-f304-4fab-bc7b-859c8aa781d6@oss.qualcomm.com>
+Date: Wed, 27 Aug 2025 17:48:33 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 18/35] io_uring/zcrx: remove "struct io_copy_cache"
- and one nth_page() usage
-To: David Hildenbrand <david@redhat.com>, linux-kernel@vger.kernel.org
-Cc: Jens Axboe <axboe@kernel.dk>, Alexander Potapenko <glider@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
- Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
- dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
- iommu@lists.linux.dev, io-uring@vger.kernel.org,
- Jason Gunthorpe <jgg@nvidia.com>, Johannes Weiner <hannes@cmpxchg.org>,
- John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com,
- kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
- linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
- linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-scsi@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Marco Elver <elver@google.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
- Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
- Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
- Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
- Robin Murphy <robin.murphy@arm.com>, Suren Baghdasaryan <surenb@google.com>,
- Tejun Heo <tj@kernel.org>, virtualization@lists.linux.dev,
- Vlastimil Babka <vbabka@suse.cz>, wireguard@lists.zx2c4.com, x86@kernel.org,
- Zi Yan <ziy@nvidia.com>
-References: <20250821200701.1329277-1-david@redhat.com>
- <20250821200701.1329277-19-david@redhat.com>
- <b5b08ad3-d8cd-45ff-9767-7cf1b22b5e03@gmail.com>
- <473f3576-ddf3-4388-aeec-d486f639950a@redhat.com>
+Subject: Re: [PATCH v2 3/3] coresight: tpda: add sysfs node to flush specific
+ port
+To: James Clark <james.clark@linaro.org>, Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+ <mike.leach@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
+References: <20250827042042.6786-1-jie.gan@oss.qualcomm.com>
+ <20250827042042.6786-4-jie.gan@oss.qualcomm.com>
+ <b1f79a26-97e1-40f4-b076-51d5c2abe736@linaro.org>
 Content-Language: en-US
-From: Pavel Begunkov <asml.silence@gmail.com>
-In-Reply-To: <473f3576-ddf3-4388-aeec-d486f639950a@redhat.com>
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <b1f79a26-97e1-40f4-b076-51d5c2abe736@linaro.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=VtIjA/2n c=1 sm=1 tr=0 ts=68aed47b cx=c_pps
+ a=JL+w9abYAAE89/QcEU+0QA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=EUspDBNiAAAA:8 a=DHl-jJOTjm6sWMnFDpYA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDAzMiBTYWx0ZWRfX3/+1zIhR4xPv
+ PRmXghnviL+RuFHz4UCrF5f6etn87alZ83bYULGlztjf4OzkWyr37+h7DH2gjekjGHdxU8A5ofj
+ IULw12wT2Mboix2bRicnuYDaoMVn+W4RYrpR8k+JQ3fec/vbqVSHUnEpBvijOKGv+A19/c55uBH
+ ziq7o5QUWywLwJmCtfDyAN0jPCZtZOKJvuhN+OqmF0z9Of8hHyXi/jFzPNfAqEwLnv6YNxr78DF
+ F0+7yzPirW0bFkogFWR3Tqf8nYQP2suYO6cSfi2Hc/MkZDH0x00tSQIDFZ4OEkrZViF6UwkViEm
+ daUBHFoCB5jOZeNNWciuBUwrREWSspy87ZD9ziGFbkcWTvjq1OQ31lT3qbzIX5nMygvA8XAPWBn
+ /SE8VmpE
+X-Proofpoint-GUID: wdo07jEeSss6sLixkST6TP4QqawuIsuq
+X-Proofpoint-ORIG-GUID: wdo07jEeSss6sLixkST6TP4QqawuIsuq
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-27_01,2025-08-26_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 phishscore=0 priorityscore=1501 impostorscore=0 bulkscore=0
+ suspectscore=0 malwarescore=0 adultscore=0 spamscore=0 classifier=typeunknown
+ authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2507300000 definitions=main-2508230032
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_024241_472126_52B37757 
-X-CRM114-Status: GOOD (  15.40  )
+X-CRM114-CacheID: sfid-20250827_024845_489812_9623CB1A 
+X-CRM114-Status: GOOD (  27.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,46 +138,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/22/25 14:59, David Hildenbrand wrote:
-> On 22.08.25 13:32, Pavel Begunkov wrote:
->> On 8/21/25 21:06, David Hildenbrand wrote:
->>> We always provide a single dst page, it's unclear why the io_copy_cache
->>> complexity is required.
+
+
+On 8/27/2025 5:17 PM, James Clark wrote:
+> 
+> 
+> On 27/08/2025 5:20 am, Jie Gan wrote:
+>> From: Tao Zhang <tao.zhang@oss.qualcomm.com>
 >>
->> Because it'll need to be pulled outside the loop to reuse the page for
->> multiple copies, i.e. packing multiple fragments of the same skb into
->> it. Not finished, and currently it's wasting memory.
+>> Setting bit i in the TPDA_FLUSH_CR register initiates a flush request
+>> for port i, forcing the data to synchronize and be transmitted to the
+>> sink device.
+>>
+>> Signed-off-by: Tao Zhang <tao.zhang@oss.qualcomm.com>
+>> Co-developed-by: Jie Gan <jie.gan@oss.qualcomm.com>
+>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+>> ---
+>>   .../testing/sysfs-bus-coresight-devices-tpda  |  7 ++++
+>>   drivers/hwtracing/coresight/coresight-tpda.c  | 42 +++++++++++++++++++
+>>   drivers/hwtracing/coresight/coresight-tpda.h  |  2 +
+>>   3 files changed, 51 insertions(+)
+>>
+>> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices- 
+>> tpda b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
+>> index fb651aebeb31..2cf2dcfc13c8 100644
+>> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
+>> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
+>> @@ -41,3 +41,10 @@ Contact:    Jinlong Mao 
+>> <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qu
+>>   Description:
+>>           (RW) Configure the CMB/MCMB channel mode for all enabled ports.
+>>           Value 0 means raw channel mapping mode. Value 1 means 
+>> channel pair marking mode.
+>> +
+>> +What:        /sys/bus/coresight/devices/<tpda-name>/port_flush_req
+>> +Date:        August 2025
+>> +KernelVersion:    6.17
+>> +Contact:    Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang 
+>> <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+>> +Description:
+>> +        (RW) Configure the bit i to requests a flush operation of 
+>> port i on the TPDA.
+>> diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/ 
+>> hwtracing/coresight/coresight-tpda.c
+>> index 430f76c559f2..8b1fe128881d 100644
+>> --- a/drivers/hwtracing/coresight/coresight-tpda.c
+>> +++ b/drivers/hwtracing/coresight/coresight-tpda.c
+>> @@ -487,6 +487,47 @@ static ssize_t cmbchan_mode_store(struct device 
+>> *dev,
+>>   }
+>>   static DEVICE_ATTR_RW(cmbchan_mode);
+>> +static ssize_t port_flush_req_show(struct device *dev,
+>> +                   struct device_attribute *attr,
+>> +                   char *buf)
+>> +{
+>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>> +    unsigned long val;
+>> +
+>> +    if (!drvdata->csdev->refcnt)
+>> +        return -EINVAL;
+>> +
+>> +    guard(spinlock)(&drvdata->spinlock);
+>> +    CS_UNLOCK(drvdata->base);
+>> +    val = readl_relaxed(drvdata->base + TPDA_FLUSH_CR);
+>> +    CS_LOCK(drvdata->base);
+>> +    return sysfs_emit(buf, "%lx\n", val);
 > 
-> Okay, so what you're saying is that there will be follow-up work that will actually make this structure useful.
+> Still missing the 0x prefix
 
-Exactly
+Will re-check rest of the codes and add prefix. Sorry I missed it during 
+the review process.
 
->> Why not do as below? Pages there never cross boundaries of their folios. > Do you want it to be taken into the io_uring tree?
 > 
-> This should better all go through the MM tree where we actually guarantee contiguous pages within a folio. (see the cover letter)
-
-Makes sense. No objection, hopefully it won't cause too many conflicts.
-
->> diff --git a/io_uring/zcrx.c b/io_uring/zcrx.c
->> index e5ff49f3425e..18c12f4b56b6 100644
->> --- a/io_uring/zcrx.c
->> +++ b/io_uring/zcrx.c
->> @@ -975,9 +975,9 @@ static ssize_t io_copy_page(struct io_copy_cache *cc, struct page *src_page,
->>            if (folio_test_partial_kmap(page_folio(dst_page)) ||
->>                folio_test_partial_kmap(page_folio(src_page))) {
->> -            dst_page = nth_page(dst_page, dst_offset / PAGE_SIZE);
->> +            dst_page += dst_offset / PAGE_SIZE;
->>                dst_offset = offset_in_page(dst_offset);
->> -            src_page = nth_page(src_page, src_offset / PAGE_SIZE);
->> +            src_page += src_offset / PAGE_SIZE;
+>> +}
+>> +
+>> +static ssize_t port_flush_req_store(struct device *dev,
+>> +                    struct device_attribute *attr,
+>> +                    const char *buf,
+>> +                    size_t size)
+>> +{
+>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>> +    unsigned long val;
+>> +
+>> +    if (kstrtoul(buf, 0, &val))
+>> +        return -EINVAL;
+>> +
+>> +    if (!drvdata->csdev->refcnt || !val)
+>> +        return -EINVAL;
+>> +
+>> +    val |= FIELD_PREP(TPDA_MAX_INPORTS_MASK, val);
 > 
-> Yeah, I can do that in the next version given that you have plans on extending that code soon.
+> Using FIELD_PREP() now that it's the full width of the register makes 
+> less sense. Especially when there is no corresponding FIELD_FIT() check, 
+>   which is fine because everything always fits. But if you didn't know 
+> the mask was the full width you'd wonder if the check is missing.
+> 
+> I would just write val directly to TPDA_FLUSH_CR so it's simpler.
+> 
+> It should also have been val = FIELD_PREP(...)
 
-If we go with this version:
+Yeah, it should have been val = FIELD_PREP(...) here... sorry for the 
+mistake here..
 
-Reviewed-by: Pavel Begunkov <asml.silence@gmail.com>
+I was thinking the unsigned long here could be 64 or 32 bits and we only 
+need the value of the lower 32 bits. So that's why I am using val = 
+FIELD_PREP(...) here. We shouldn't write a value greater than UINT32_MAX 
+to the register.
 
--- 
-Pavel Begunkov
+Thanks,
+Jie
+
+> 
+>> +    guard(spinlock)(&drvdata->spinlock);
+>> +    CS_UNLOCK(drvdata->base);
+>> +    writel_relaxed(val, drvdata->base + TPDA_FLUSH_CR);
+>> +    CS_LOCK(drvdata->base);
+>> +
+>> +    return size;
+>> +}
+>> +static DEVICE_ATTR_RW(port_flush_req);
+>> +
+>>   static struct attribute *tpda_attrs[] = {
+>>       &dev_attr_trig_async_enable.attr,
+>>       &dev_attr_trig_flag_ts_enable.attr,
+>> @@ -494,6 +535,7 @@ static struct attribute *tpda_attrs[] = {
+>>       &dev_attr_freq_ts_enable.attr,
+>>       &dev_attr_global_flush_req.attr,
+>>       &dev_attr_cmbchan_mode.attr,
+>> +    &dev_attr_port_flush_req.attr,
+>>       NULL,
+>>   };
+>> diff --git a/drivers/hwtracing/coresight/coresight-tpda.h b/drivers/ 
+>> hwtracing/coresight/coresight-tpda.h
+>> index 8e1b66115ad1..56d3ad293e46 100644
+>> --- a/drivers/hwtracing/coresight/coresight-tpda.h
+>> +++ b/drivers/hwtracing/coresight/coresight-tpda.h
+>> @@ -10,6 +10,7 @@
+>>   #define TPDA_Pn_CR(n)        (0x004 + (n * 4))
+>>   #define TPDA_FPID_CR        (0x084)
+>>   #define TPDA_SYNCR        (0x08C)
+>> +#define TPDA_FLUSH_CR        (0x090)
+>>   /* Cross trigger FREQ packets timestamp bit */
+>>   #define TPDA_CR_FREQTS        BIT(2)
+>> @@ -35,6 +36,7 @@
+>>   #define TPDA_SYNCR_MAX_COUNTER_VAL    (0xFFF)
+>>   #define TPDA_MAX_INPORTS    32
+>> +#define TPDA_MAX_INPORTS_MASK    GENMASK(31, 0)
+>>   /* Bits 6 ~ 12 is for atid value */
+>>   #define TPDA_CR_ATID        GENMASK(12, 6)
+> 
+> 
 
 
