@@ -4,53 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BDA4CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 16:17:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36883CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 16:22:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Odejtf3qV7d3eSRM0OugXjxzXpcceUxQVCBw56WAwCI=; b=Y3hxUIKOpcCXL3j3woB1EQwltT
-	h2sctRA5tdqLMCgt2e0DceRA10dF4tRHz6rcM5XMYH0IMUI4NXHLTyyxiGWw6EPtcNw56nGV2QFiz
-	ZmLND9KQ6Sx18vM75PfCbDf/3mVU/G3x2VeTa+G9zQl3Cq4zEN5XXeAw2ZvMvnLOpiiPgp28CXzG3
-	lPVjAxLnJWUkqQUKLHNRGpkanZVOZ8M4aDIl+miBZeyPvTTcAng7qr/vUE8cOW7DDcOybnjBxHlgR
-	W57ymAVDdZINq8X0IBTctv4iY+U+B1/VM/h1jflhaSX5fSTRP4ONXgZWc4n0WQNEPlwUdElfeia7U
-	4JxXqDww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fobgLX3NRdIxRw7hQBBOhJlJ04lt8DaM/uWv8FFpskk=; b=xbJspFPT/0Lg/ugcM+32o0w67Z
+	95fRCWY0jmka2+brVUsd1Gfh04ViRlm8TF6ckmgTrhwvy3IH+Od05nxrwpyea1EDshQEYWZnhjQic
+	lCKYeatQVcZwA+fAWLwBD7De543Rv44SSb4KhXiackz3VY6PA9lzoRTqFAD8zY+oF0hRmEYLBpuk6
+	1A4zDmTyc/uRieItIKDEtgFJyHIjBVWgyEVNVrs7gdWQVurjH9IQyKYAivnve9Kvd994RajVCho2o
+	oQDKm4T64eEJjR6zV8FqWPCepRtBCyZV1+9Skf+VgMRceXPQA8FqdZSygBF0Ju3rkcNEROHSlEzU/
+	Ev7ufKjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urIpq-0000000GA5M-2mKe;
-	Wed, 27 Aug 2025 16:17:18 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urGmw-0000000Fgbl-2Eku
+	id 1urIvC-0000000GAgx-0km0;
+	Wed, 27 Aug 2025 16:22:50 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urGqw-0000000FhPY-1U2J
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 14:06:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 69F6C2720;
-	Wed, 27 Aug 2025 07:06:01 -0700 (PDT)
-Received: from [10.1.196.50] (e121345-lin.cambridge.arm.com [10.1.196.50])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EF29D3F738;
-	Wed, 27 Aug 2025 07:06:08 -0700 (PDT)
-Message-ID: <2c6d68da-fd1a-4b59-8bfc-5e1c66ceaebe@arm.com>
-Date: Wed, 27 Aug 2025 15:05:58 +0100
+	Wed, 27 Aug 2025 14:10:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C4C4560267;
+	Wed, 27 Aug 2025 14:10:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07EC2C4CEEB;
+	Wed, 27 Aug 2025 14:10:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756303817;
+	bh=2mnJ7BqJjiKjx1k4qNtB2x+XuREt1qIWZU2G+JEvDYA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Bs1AvK3MHePNswMm6fIRkInIPsAjmB9ZTarTGIqrbDf6TDRPklhaKpz6KMOzZc0rj
+	 TOWKFa5uGXQKmyx++paphCGl7qMRqyj+3jiYTuzqaAfGqt1NmHeyrceTnmP89GCyAp
+	 2yfKNrvJRCjIZToLvvqvQWVe5fqZufxRk5O7zTlsCS8jYsXtNpi9YQh8aCqd2Vm8ra
+	 SRR7FX7syFNR66wbDiiTPOJL/I1QDr3HDg1ScdMEMvJpeMwgLr0kA0BXIfKRVuSWnT
+	 YnaXRgrVxR23F2Pt9TShg9P1JzIvomO08f6IqC+MKYgDReEcPbkvWkf13JtKb+8Vik
+	 MR4pvvreMt1jg==
+Date: Wed, 27 Aug 2025 15:10:09 +0100
+From: Simon Horman <horms@kernel.org>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: davem@davemloft.net, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?utf-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>,
+	Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	=?utf-8?Q?Nicol=C3=B2?= Veronese <nicveronese@gmail.com>,
+	mwojtas@chromium.org, Antoine Tenart <atenart@kernel.org>,
+	devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
+Subject: Re: [PATCH net-next v11 08/16] net: phy: Introduce generic SFP
+ handling for PHY drivers
+Message-ID: <20250827141009.GB5652@horms.kernel.org>
+References: <20250814135832.174911-1-maxime.chevallier@bootlin.com>
+ <20250814135832.174911-9-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drivers: perf: use us_to_ktime() where appropriate
-To: Mark Rutland <mark.rutland@arm.com>, Xichao Zhao <zhao.xichao@vivo.com>
-Cc: will@kernel.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20250813083257.504573-1-zhao.xichao@vivo.com>
- <aK7RkB5p6L17Ffuw@J2N7QTR9R3>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <aK7RkB5p6L17Ffuw@J2N7QTR9R3>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_070610_628249_2DE133E0 
-X-CRM114-Status: GOOD (  14.62  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250814135832.174911-9-maxime.chevallier@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,53 +91,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/08/2025 10:36 am, Mark Rutland wrote:
-> [adding Robin and LAKML]
-> 
-> On Wed, Aug 13, 2025 at 04:32:57PM +0800, Xichao Zhao wrote:
->> The arm_ccn_pmu_poll_period_us are more suitable for using
->> the us_to_ktime(). This can make the code more concise and
->> enhance readability.
->>
->> Signed-off-by: Xichao Zhao <zhao.xichao@vivo.com>
-> 
-> Superficially this looks fine to me, so:
-> 
-> Acked-by: Mark Rutland <mark.rutland@arm.com>
-> 
-> Will, I assume that (if no-one complains) you'll pick this up when
-> queueing PMU patches.
+On Thu, Aug 14, 2025 at 03:58:23PM +0200, Maxime Chevallier wrote:
 
-Yup, the new helper looks entirely appropriate here. We could perhaps 
-take this opportunity to drop the unnecessary cast as well though, since 
-automatic promotion from unsigned int to u64 is perfectly well-defined 
-and unsurprising.
+...
 
-Thanks,
-Robin.
+> diff --git a/include/linux/phy_port.h b/include/linux/phy_port.h
+> index f47ac5f5ef9e..697721a6239f 100644
+> --- a/include/linux/phy_port.h
+> +++ b/include/linux/phy_port.h
+> @@ -67,6 +67,7 @@ struct phy_port {
+>  	unsigned int not_described:1;
+>  	unsigned int active:1;
+>  	unsigned int is_mii:1;
+> +	unsigned int is_sfp:1;
 
+nit: Please also add is_spf to the Kernel doc for this structure.
+
+
+>  };
+>  
+>  struct phy_port *phy_port_alloc(void);
+> -- 
+> 2.49.0
 > 
-> Mark.
-> 
->> ---
->>   drivers/perf/arm-ccn.c | 2 +-
->>   1 file changed, 1 insertion(+), 1 deletion(-)
->>
->> diff --git a/drivers/perf/arm-ccn.c b/drivers/perf/arm-ccn.c
->> index 1a0d0e1a2263..8af3563fdf60 100644
->> --- a/drivers/perf/arm-ccn.c
->> +++ b/drivers/perf/arm-ccn.c
->> @@ -565,7 +565,7 @@ module_param_named(pmu_poll_period_us, arm_ccn_pmu_poll_period_us, uint,
->>   
->>   static ktime_t arm_ccn_pmu_timer_period(void)
->>   {
->> -	return ns_to_ktime((u64)arm_ccn_pmu_poll_period_us * 1000);
->> +	return us_to_ktime((u64)arm_ccn_pmu_poll_period_us);
->>   }
->>   
->>   
->> -- 
->> 2.34.1
->>
-
 
