@@ -4,96 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 113FACA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 14:08:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4591CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 15:49:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d1Dw90QlXeLsOzAEqypsdzJHvGAD420d9Q1/z4Sh4TQ=; b=mFwtRgpX23Ct8PGdoNjDhk0xck
-	ojcfdZ0KhxguXYJCStSM9yqIjpI72KakK8/xae8nzXQtMjLzNURReSIhFyEz1jLg3Ee1DBtnkUKPM
-	d9KhKHj6uAdftzY/QRb258GSxr7NAZ6PvdEaSDF22pZEwiSLIWZZDoeqR7f4DODVwH9Cm/Zl8o0Rw
-	FHuyYWAeec4h+9TlrzM/cscV7kPtiRrAMbGDl9shTDHhB3ip6P8u0/h032H9KDKM0P8pExKH46TdB
-	YLDzuzGI0RikFnhfqCyXjdgUTABBXiuAmDErGPOI7R0Mef8HED4RuhgcBJcLyxTWCv2usfv+GbhYv
-	ObJD3wrQ==;
+	bh=lMx7ge5RX0V+OLlOISVXfqktk6COWSxJMAbdSdyPV+w=; b=bXl8dG95V1cf7zskGhfMTKHtNS
+	iQnOhF0/cfY0A+UooqIb43dwvGr2pLS7lAQ76dIqGOktN4ZCrHukAbhuLsnMQThspilYoUROwuR+X
+	ivvGxbZPwgggAsmetsLu74FOqB3nbTX0dkv95iKxuSIDMCXuWEMk6Q2UWL7CWi/FIhv8VuXyQYDPp
+	7MIC81G3ZZbYhvLsCgF8NZf3jNjanefYX7ySMyHDdJfSXVdP/gTVaktf8M5Exs3WqSZ3YnTT8M1Sf
+	Dc6p5yxKAquZfor2bvK9IGNCQDWCZoRYGtFqbam5Jd+/FE2EoTVFiJGKPi32U4hSHVCBy4WuusCLr
+	adE9DvGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urGpD-0000000Fgov-18VZ;
-	Wed, 27 Aug 2025 14:08:31 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1urIOT-0000000Fy0t-0k4d;
+	Wed, 27 Aug 2025 15:49:01 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urDCG-0000000F1PW-1PEO
+	id 1urEFC-0000000FFS1-3KB4
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 27 Aug 2025 11:23:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=lMx7ge5RX0V+OLlOISVXfqktk6COWSxJMAbdSdyPV+w=; b=FKYLMonIYytujuLy1Etm8LLDs/
+	RJOfiHvv55CG6XcR+QLvFgv/UcnxMVY3zr1eIsIdofdd9kPJ9UJ1Q8bzOx62E1ERBzgADR6iuahBp
+	WdTm4367qoneEL3XAmmcGbEr1fO/4zV78XHrbkLvt4a6FAfTY4rJSSiXRASVJqFv6ByQ9ZtetqlXy
+	dWasx6BOrboISQsP8flBAOOdnEZscZNzHl1Na9wptTpOkhsPr+v2kQXhfCZYPNI/yFNjSCKGD3XX4
+	PF9oFV5zKGNfItWJRRhcQWO8aNhtIn60sWWVsLQAnrRdjt1463R2o7uXUfVVqz2LWv2Dz/PzUmyXn
+	Ulq7i5oQ==;
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urEF9-00000002QIs-2eSK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 10:16:05 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-45b629c8035so17808595e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 03:16:03 -0700 (PDT)
+	Wed, 27 Aug 2025 11:23:09 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-24884d9e54bso11946515ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 04:23:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756289762; x=1756894562; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=d1Dw90QlXeLsOzAEqypsdzJHvGAD420d9Q1/z4Sh4TQ=;
-        b=SZV4sQ9YZ4pIEeuhut66GZCqS2aTK4Gub1tlmykYkQtPwbbN999HKq4hQg1tj1Qsgq
-         yDTsNYGcOvKwglyg/R/XHBtW/knLDYztJ6HWck4BYi/uzKObRy3YZF4oE1qOKoTtvJY1
-         iYJ3QsO8IuVXVf3OQu6Cq8Vu+pKdBqcbZzRQNvAtKlrmW7HZIjv6jhOkgOKY7CGDuRUv
-         KcCKxftvroJYJIkZ1YWidO5eJHcBcnJiHSki4DOM2pAMOzmxIoABhdU0K7p04FZ3XYgh
-         xzRknykmaWpYDkIVwSvzE5q0Qdhejvt3j1UeNiaLdeUSa3uUK8bMq05ZhzTZh4pR9HcZ
-         YwEg==
+        d=gmail.com; s=20230601; t=1756293785; x=1756898585; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=lMx7ge5RX0V+OLlOISVXfqktk6COWSxJMAbdSdyPV+w=;
+        b=gHfOaaLXos0wIEGvbhdGggUBA7q6MszC0sB74lh+XW7FPLWcL9KYuP2i4QsU29Q7cs
+         xBz+SJoJ3gcYiXAnU5Swmvwri70N4DLQscroM/KbxkeWzhc/Ws8QVuvW5Xke7ObiP2je
+         Uc0MVupmG3mFsTajO01LgJ6My79N5/3Pf11JKqA+5THfc94Qq5wkwl2gLK2k3y3PID28
+         J/Ar29zC7WYGYQi2GkXF7UbXfBdF9iMRLTuqhGlaxgKhwM2tiJsElZJA4jm5CbLfgFmz
+         8DFySnwKwmK3rpTOXpty2RNW4Lx/rTvOTCWnV8ATAf/RaBh0/wqmh3/HUYOeUc5DwDMH
+         mHIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756289762; x=1756894562;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=d1Dw90QlXeLsOzAEqypsdzJHvGAD420d9Q1/z4Sh4TQ=;
-        b=dPjPWwUbE+C0MaoV1u3vCkLyNRFdW1zMx4wEBZF4qCj9KCqDuqqZZeiS6VZ8aflmRm
-         yVLpBfKCjSyjiyYjWKU7X2l2/bATIu9jkR7W+kMpymS/D+ThVi8vXuWBfn8g3kG22tTK
-         5TEilljGBn5f/4kv4Lg83UF4apZmKabrMKd3vxfDJh8vLQ7Ly/w0LFPiyS8ZJQ+vWh9v
-         RUZU5/cdwEgE4xL6uvOhDlRtZbKyqwu3h+gPR+kwS4I4EC8LzXKsyp/Kb4fXmR/e+LG1
-         4QR7ASicSeJTaojVVJmdPi/pMYMrMJ/uI+UTQ5wiIPDjp58/6hM/ICtA1gK/GhF9nhf8
-         F2Ow==
-X-Forwarded-Encrypted: i=1; AJvYcCVAo2iFa2HzFkTo6zKukvk1JAzna9C3ZMBlOLQjRtirzfEnKZrz5oKpjqiNZpRfuZ7tETh5r98nGUbM/G8p20kY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw0KNEwhj8XDK3BOlvfQulztKc0gl0dFgm9g956Un5ZV48OVuo1
-	8cK5G4qff5CVOIWEkYBX7TxKfhLP7khXzfLZcH1AmcDKgxN1wCFfo7poIPjb10V/qOs=
-X-Gm-Gg: ASbGncvYuMVYXB/rLlWE3MrbG7N/uBZc9MqH9yZ5UwuRnfV5V4bcqZn/tGFb13rHM+0
-	rycAKOfgbMTe4ElQL/VA3JIVqAuX0XjmDaZAWHITF0KKp2qzZt4UbUr+gUKlTvTFmWEmfOAyFqv
-	eJZ00ek1oE7nlJDxFfuHMBjnJbW0S6O41qKX9+jVrePma+5sjh+UslUu2VLCe+LzBWVehIx749Y
-	7e1Z7M+Scd2Mu96ijQhu9GikLd6fdMUoyG+EiNDA7/Nv07cbHoGm/XqTUMFlFDPayA5xCcE0+U9
-	oyZoNX7oIpcVOrsLlHiZSI9eVfaw61m6rwTUVZnQx1B/2IdTyeH+L3ZDQkWFe88byV3vZNKMiSh
-	8Sg6dZTO1d0mdHvgkT3WFCeqkaiEj7PUaHis3Xg==
-X-Google-Smtp-Source: AGHT+IGsDBxLcBzPHHU2PS5TGpLgmGzal6Fc/PpQk1ENqWTdXvkIRY9ehvzlf+vR27NlOBpNheomEw==
-X-Received: by 2002:a05:600c:3149:b0:456:28f4:a576 with SMTP id 5b1f17b1804b1-45b517dd9a3mr143701635e9.27.1756289762374;
-        Wed, 27 Aug 2025 03:16:02 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b6f4aa8a0sm24318175e9.12.2025.08.27.03.16.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 27 Aug 2025 03:16:01 -0700 (PDT)
-Message-ID: <bc337e7c-42e7-4e2d-8b2d-c39174d1ddd5@linaro.org>
-Date: Wed, 27 Aug 2025 11:16:01 +0100
+        d=1e100.net; s=20230601; t=1756293785; x=1756898585;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=lMx7ge5RX0V+OLlOISVXfqktk6COWSxJMAbdSdyPV+w=;
+        b=l/Y7h2AyIhuS++RkyOAvViAWGkhLCAolNWqX/22NYKR2IVu/TUuHtYU6557vkQ9LEn
+         33P/U2PO4pm1uV7ymTN6BHGFllJwGt6k2wVAj0PZ5IBEMB92q8FKY2BTlSuQpjsFa+zq
+         tU1AH2duwsDdGPBqPfFKlb8JHspiyCFQBJEdyrNtnv+eYLUPO1cMv5yXF9xujh5a2hRX
+         c2ke+1weG923QtnYeMrV5FC5F9YyiOlfE5zqt6k9YZU2QcNdyxfzlk5mhZQsUZVtW2Jv
+         6AwjGuqR0eGcm8c3KyLW6U4arpeyxcdKC5+5KjnACZMBbH1aIJVVZmuEBjWGR2PyLqjF
+         1QQw==
+X-Forwarded-Encrypted: i=1; AJvYcCX6PTyUIh/6zUl0Z1rEofoAF0VKMn/9GBQkrSpa62JUh4cDjycFRSCYTdKzGKQx6p1q6Vzd24TE2havkAZIAl8z@lists.infradead.org
+X-Gm-Message-State: AOJu0YxrloXy4ZOPqTCCTlM7aU/WeFcaHnUtu7IetXbN/Y/pBbBW7ZQt
+	5reJzum3CgxvYUVGsMtx+WXzteadrcCCCEtg8jEfI3vS2XwssYZ+LWmi
+X-Gm-Gg: ASbGncvRdaa0CRxZEuJaarAaF5eSf8N385egHeNHYDNhZLU/xJZzoNDR3nsI3Au08ZQ
+	6MKmPmhFLwEvm2GQeDTrOqpUpaWu/8FnuT6YpDtE5kpXEL5SuibVTeMamVHCWwNR/41ToGKolPg
+	q6WqlsRdh84/oyeJqD7tXW65kfSByarf2bH0P4thZu5KTuxT6jYLmYKh9YJJ1PfL+hX/5TgdoUx
+	LKyQhFeuG0hn9zTsl7pXGG9GLwqKb9EfiVBiFTL/WxPrN7VtGK9WGNpCQTk96MMdKfEn07kyack
+	yozVubDRcFyY7+8TyOsSPklVy2mKtDkGjO06R3eeKGQqt4roNhGPte6iuIN4G7Ew+zlXCTLcZ3o
+	gZoXfDk93hXoNA6RXLSRU15UVZ5QPgx3ETmcOpHymXnkcyk/77g+79lHPWO1SV212OITl7sXf+t
+	JvQjkOeecUa/Xa6gv9
+X-Google-Smtp-Source: AGHT+IF96nOBV89XAjJ4kjuERk9/bHO1FA/Ey9YMo6wYm4uiasLB6ej7p9n24uxKX3zXTXWR9yC0Sg==
+X-Received: by 2002:a17:903:943:b0:242:fbc6:6a83 with SMTP id d9443c01a7336-2462eb56b82mr242150185ad.0.1756293785286;
+        Wed, 27 Aug 2025 04:23:05 -0700 (PDT)
+Received: from [192.168.2.3] (2403-580a-80ed-0-4835-5a07-49e7-f115.ip6.aussiebb.net. [2403:580a:80ed:0:4835:5a07:49e7:f115])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3276fcd6232sm1819708a91.16.2025.08.27.04.22.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 Aug 2025 04:23:04 -0700 (PDT)
+From: James Calligeros <jcalligeros99@gmail.com>
+Date: Wed, 27 Aug 2025 21:22:36 +1000
+Subject: [PATCH v2 02/11] dt-bindings: hwmon: Add Apple System Management
+ Controller hwmon schema
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] coresight: tpda: add sysfs node to flush specific
- port
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
-References: <20250827042042.6786-1-jie.gan@oss.qualcomm.com>
- <20250827042042.6786-4-jie.gan@oss.qualcomm.com>
- <b1f79a26-97e1-40f4-b076-51d5c2abe736@linaro.org>
- <78d2ab99-f304-4fab-bc7b-859c8aa781d6@oss.qualcomm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <78d2ab99-f304-4fab-bc7b-859c8aa781d6@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250827-macsmc-subdevs-v2-2-ce5e99d54c28@gmail.com>
+References: <20250827-macsmc-subdevs-v2-0-ce5e99d54c28@gmail.com>
+In-Reply-To: <20250827-macsmc-subdevs-v2-0-ce5e99d54c28@gmail.com>
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
+ Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Jean Delvare <jdelvare@suse.com>, Guenter Roeck <linux@roeck-us.net>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-rtc@vger.kernel.org, linux-hwmon@vger.kernel.org, 
+ linux-input@vger.kernel.org, James Calligeros <jcalligeros99@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7585;
+ i=jcalligeros99@gmail.com; h=from:subject:message-id;
+ bh=pxcU2aOREOtRRxzuCcs3ZxRurRuImy+zjNoj2CEiGZs=;
+ b=owGbwMvMwCV2xczoYuD3ygTG02pJDBnrXjUZue70sF8b25USLiK50JO1tt/Q0n7atllVx7s/v
+ T3Yrh3QUcrCIMbFICumyLKhSchjthHbzX6Ryr0wc1iZQIYwcHEKwEQ8ghn+V3EcFdQ3q5f7I/Zd
+ /jeTzeK3CfIHP5y9/bXQ/601n92GCwz/bEKOW5/oyp48Iehb/S+Hbx/eOO1unsWgb2i71S9ie+9
+ mLgA=
+X-Developer-Key: i=jcalligeros99@gmail.com; a=openpgp;
+ fpr=B08212489B3206D98F1479BDD43632D151F77960
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_031604_385486_077EB7DD 
-X-CRM114-Status: GOOD (  25.83  )
+X-CRM114-CacheID: sfid-20250827_122307_827304_BF145BF2 
+X-CRM114-Status: GOOD (  19.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,170 +134,239 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Apple Silicon devices integrate a vast array of sensors, monitoring
+current, power, temperature, and voltage across almost every part of
+the system. The sensors themselves are all connected to the System
+Management Controller (SMC). The SMC firmware exposes the data
+reported by these sensors via its standard FourCC-based key-value
+API. The SMC is also responsible for monitoring and controlling any
+fans connected to the system, exposing them in the same way.
 
+For reasons known only to Apple, each device exposes its sensors with
+an almost totally unique set of keys. This is true even for devices
+which share an SoC. An M1 Mac mini, for example, will report its core
+temperatures on different keys to an M1 MacBook Pro. Worse still, the
+SMC does not provide a way to enumerate the available keys at runtime,
+nor do the keys follow any sort of reasonable or consistent naming
+rules that could be used to deduce their purpose. We must therefore
+know which keys are present on any given device, and which function
+they serve, ahead of time.
 
-On 27/08/2025 10:48 am, Jie Gan wrote:
-> 
-> 
-> On 8/27/2025 5:17 PM, James Clark wrote:
->>
->>
->> On 27/08/2025 5:20 am, Jie Gan wrote:
->>> From: Tao Zhang <tao.zhang@oss.qualcomm.com>
->>>
->>> Setting bit i in the TPDA_FLUSH_CR register initiates a flush request
->>> for port i, forcing the data to synchronize and be transmitted to the
->>> sink device.
->>>
->>> Signed-off-by: Tao Zhang <tao.zhang@oss.qualcomm.com>
->>> Co-developed-by: Jie Gan <jie.gan@oss.qualcomm.com>
->>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
->>> ---
->>>   .../testing/sysfs-bus-coresight-devices-tpda  |  7 ++++
->>>   drivers/hwtracing/coresight/coresight-tpda.c  | 42 +++++++++++++++++++
->>>   drivers/hwtracing/coresight/coresight-tpda.h  |  2 +
->>>   3 files changed, 51 insertions(+)
->>>
->>> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices- 
->>> tpda b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
->>> index fb651aebeb31..2cf2dcfc13c8 100644
->>> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
->>> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
->>> @@ -41,3 +41,10 @@ Contact:    Jinlong Mao 
->>> <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qu
->>>   Description:
->>>           (RW) Configure the CMB/MCMB channel mode for all enabled 
->>> ports.
->>>           Value 0 means raw channel mapping mode. Value 1 means 
->>> channel pair marking mode.
->>> +
->>> +What:        /sys/bus/coresight/devices/<tpda-name>/port_flush_req
->>> +Date:        August 2025
->>> +KernelVersion:    6.17
->>> +Contact:    Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang 
->>> <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
->>> +Description:
->>> +        (RW) Configure the bit i to requests a flush operation of 
->>> port i on the TPDA.
->>> diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/ 
->>> hwtracing/coresight/coresight-tpda.c
->>> index 430f76c559f2..8b1fe128881d 100644
->>> --- a/drivers/hwtracing/coresight/coresight-tpda.c
->>> +++ b/drivers/hwtracing/coresight/coresight-tpda.c
->>> @@ -487,6 +487,47 @@ static ssize_t cmbchan_mode_store(struct device 
->>> *dev,
->>>   }
->>>   static DEVICE_ATTR_RW(cmbchan_mode);
->>> +static ssize_t port_flush_req_show(struct device *dev,
->>> +                   struct device_attribute *attr,
->>> +                   char *buf)
->>> +{
->>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
->>> +    unsigned long val;
->>> +
->>> +    if (!drvdata->csdev->refcnt)
->>> +        return -EINVAL;
->>> +
->>> +    guard(spinlock)(&drvdata->spinlock);
->>> +    CS_UNLOCK(drvdata->base);
->>> +    val = readl_relaxed(drvdata->base + TPDA_FLUSH_CR);
->>> +    CS_LOCK(drvdata->base);
->>> +    return sysfs_emit(buf, "%lx\n", val);
->>
->> Still missing the 0x prefix
-> 
-> Will re-check rest of the codes and add prefix. Sorry I missed it during 
-> the review process.
-> 
->>
->>> +}
->>> +
->>> +static ssize_t port_flush_req_store(struct device *dev,
->>> +                    struct device_attribute *attr,
->>> +                    const char *buf,
->>> +                    size_t size)
->>> +{
->>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
->>> +    unsigned long val;
->>> +
->>> +    if (kstrtoul(buf, 0, &val))
->>> +        return -EINVAL;
->>> +
->>> +    if (!drvdata->csdev->refcnt || !val)
->>> +        return -EINVAL;
->>> +
->>> +    val |= FIELD_PREP(TPDA_MAX_INPORTS_MASK, val);
->>
->> Using FIELD_PREP() now that it's the full width of the register makes 
->> less sense. Especially when there is no corresponding FIELD_FIT() 
->> check,   which is fine because everything always fits. But if you 
->> didn't know the mask was the full width you'd wonder if the check is 
->> missing.
->>
->> I would just write val directly to TPDA_FLUSH_CR so it's simpler.
->>
->> It should also have been val = FIELD_PREP(...)
-> 
-> Yeah, it should have been val = FIELD_PREP(...) here... sorry for the 
-> mistake here..
-> 
-> I was thinking the unsigned long here could be 64 or 32 bits and we only 
-> need the value of the lower 32 bits. So that's why I am using val = 
-> FIELD_PREP(...) here. We shouldn't write a value greater than UINT32_MAX 
-> to the register.
-> 
-> Thanks,
-> Jie
-> 
+Add a schema so that we can describe the available sensors for a given
+Apple Silicon device in the Devicetree.
 
-writel_relaxed() is always 32 bits though so it is a bit confusing if 
-you truncate the user value without an error. Also a reason to use u32 
-instead of unsigned long types.
+Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
+---
+ .../bindings/hwmon/apple,smc-hwmon.yaml  | 132 +++++++++++++++++++++++++
+ .../bindings/mfd/apple,smc.yaml          |  36 +++++++
+ MAINTAINERS                              |   1 +
+ 3 files changed, 169 insertions(+)
 
-Are you trying to support arm and arm64 with tpda? Or just arm64? For it 
-to be consistent you can use kstrtou32(), or use kstrtoull() and then 
-FIELD_FIT() to error on truncation. kstrtou32() is probably the cleanest.
+diff --git a/Documentation/devicetree/bindings/hwmon/apple,smc-hwmon.yaml b/Documentation/devicetree/bindings/hwmon/apple,smc-hwmon.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..08cc4f55f3a41ca8b3b428088f96240266fa42e8
+--- /dev/null
++++ b/Documentation/devicetree/bindings/hwmon/apple,smc-hwmon.yaml
+@@ -0,0 +1,132 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/hwmon/apple,smc-hwmon.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Apple SMC Hardware Monitoring
++
++description:
++  Apple's System Management Controller (SMC) exposes a vast array of
++  hardware monitoring sensors, including temperature probes, current and
++  voltage sense, power meters, and fan speeds. It also provides endpoints
++  to manually control the speed of each fan individually. Each Apple
++  Silicon device exposes a different set of endpoints via SMC keys. This
++  is true even when two machines share an SoC. The CPU core temperature
++  sensor keys on an M1 Mac mini are different to those on an M1 MacBook
++  Pro, for example.
++
++maintainers:
++  - James Calligeros <jcalligeros99@gmail.com>
++
++definitions:
++  apple,key-id:
++    $ref: /schemas/types.yaml#/definitions/string
++    pattern: "^[A-Za-z0-9]{4}$"
++    description: The SMC FourCC key of the desired sensor.
++      Must match the node's suffix.
++
++  label:
++    description: Human-readable name for the sensor
++
++properties:
++  compatible:
++    const: apple,smc-hwmon
++
++patternProperties:
++  "^current-[A-Za-z0-9]{4}$":
++    type: object
++    additionalProperties: false
++
++    properties:
++      apple,key-id:
++        $ref: "#/definitions/apple,key-id"
++
++      label:
++        $ref: "#/definitions/label"
++
++    required:
++      - apple,key-id
++      - label
++
++  "^fan-[A-Za-z0-9]{4}$":
++    type: object
++    additionalProperties: false
++
++    properties:
++      apple,key-id:
++        $ref: "#/definitions/apple,key-id"
++
++      apple,fan-minimum:
++        $ref: /schemas/types.yaml#/definitions/string
++        pattern: "^[A-Za-z0-9]{4}$"
++        description: SMC key containing the fan's minimum speed
++
++      apple,fan-maximum:
++        $ref: /schemas/types.yaml#/definitions/string
++        pattern: "^[A-Za-z0-9]{4}$"
++        description: SMC key containing the fan's maximum speed
++
++      apple,fan-target:
++        $ref: /schemas/types.yaml#/definitions/string
++        pattern: "^[A-Za-z0-9]{4}$"
++        description: Writeable endpoint for setting desired fan speed
++
++      apple,fan-mode:
++        $ref: /schemas/types.yaml#/definitions/string
++        pattern: "^[A-Za-z0-9]{4}$"
++        description: Writeable key to enable/disable manual fan control
++
++      label:
++        $ref: "#/definitions/label"
++
++    required:
++      - apple,key-id
++      - label
++
++  "^power-[A-Za-z0-9]{4}$":
++    type: object
++    additionalProperties: false
++
++    properties:
++      apple,key-id:
++        $ref: "#/definitions/apple,key-id"
++
++      label:
++        $ref: "#/definitions/label"
++
++    required:
++      - apple,key-id
++      - label
++
++  "^temperature-[A-Za-z0-9]{4}$":
++    type: object
++    additionalProperties: false
++
++    properties:
++      apple,key-id:
++        $ref: "#/definitions/apple,key-id"
++
++      label:
++        $ref: "#/definitions/label"
++
++    required:
++      - apple,key-id
++      - label
++
++  "^voltage-[A-Za-z0-9]{4}$":
++    type: object
++    additionalProperties: false
++
++    properties:
++      apple,key-id:
++        $ref: "#/definitions/apple,key-id"
++
++      label:
++        $ref: "#/definitions/label"
++
++    required:
++      - apple,key-id
++      - label
++
++additionalProperties: false
+diff --git a/Documentation/devicetree/bindings/mfd/apple,smc.yaml b/Documentation/devicetree/bindings/mfd/apple,smc.yaml
+index 38f077867bdeedba8a486a63e366e9c943a75681..3fc4aa39292395f27b5694550858c6b34d18308d 100644
+--- a/Documentation/devicetree/bindings/mfd/apple,smc.yaml
++++ b/Documentation/devicetree/bindings/mfd/apple,smc.yaml
+@@ -44,6 +44,9 @@ properties:
+   rtc:
+     $ref: /schemas/rtc/apple,smc-rtc.yaml
+ 
++  hwmon:
++    $ref: /schemas/hwmon/apple,smc-hwmon.yaml
++
+ additionalProperties: false
+ 
+ required:
+@@ -84,5 +87,38 @@ examples:
+           nvmem-cells = <&rtc_offset>;
+           nvmem-cell-names = "rtc_offset";
+        };
++
++        hwmon {
++          compatible = "apple,smc-hwmon";
++
++          current-ID0R {
++            apple,key-id = "ID0R";
++            label = "AC Input Current";
++          };
++
++          fan-F0Ac {
++            apple,key-id = "F0Ac";
++            apple,fan-minimum = "F0Mn";
++            apple,fan-maximum = "F0Mx";
++            apple,fan-target = "F0Tg";
++            apple,fan-mode = "F0Md";
++            label = "Fan 1";
++          };
++
++          power-PSTR {
++            apple,key-id = "PSTR";
++            label = "Total System Power";
++          };
++
++          temperature-TW0P {
++            apple,key-id = "TW0P";
++            label = "WiFi/BT Module Temperature";
++          };
++
++          voltage-VD0R {
++            apple,key-id = "VD0R";
++            label = "AC Input Voltage";
++          };
++        };
+       };
+     };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index aaef8634985b35f54de1123ebb4176602066d177..56aabfbc2520749beb9dba235f8e86c15e17b7b6 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2380,6 +2380,7 @@ F:	Documentation/devicetree/bindings/cpufreq/apple,cluster-cpufreq.yaml
+ F:	Documentation/devicetree/bindings/dma/apple,admac.yaml
+ F:	Documentation/devicetree/bindings/gpio/apple,smc-gpio.yaml
+ F:	Documentation/devicetree/bindings/gpu/apple,agx.yaml
++F:	Documentation/devicetree/bindings/hwmon/apple,smc-hwmon.yaml
+ F:	Documentation/devicetree/bindings/i2c/apple,i2c.yaml
+ F:	Documentation/devicetree/bindings/input/touchscreen/apple,z2-multitouch.yaml
+ F:	Documentation/devicetree/bindings/interrupt-controller/apple,*
 
->>
->>> +    guard(spinlock)(&drvdata->spinlock);
->>> +    CS_UNLOCK(drvdata->base);
->>> +    writel_relaxed(val, drvdata->base + TPDA_FLUSH_CR);
->>> +    CS_LOCK(drvdata->base);
->>> +
->>> +    return size;
->>> +}
->>> +static DEVICE_ATTR_RW(port_flush_req);
->>> +
->>>   static struct attribute *tpda_attrs[] = {
->>>       &dev_attr_trig_async_enable.attr,
->>>       &dev_attr_trig_flag_ts_enable.attr,
->>> @@ -494,6 +535,7 @@ static struct attribute *tpda_attrs[] = {
->>>       &dev_attr_freq_ts_enable.attr,
->>>       &dev_attr_global_flush_req.attr,
->>>       &dev_attr_cmbchan_mode.attr,
->>> +    &dev_attr_port_flush_req.attr,
->>>       NULL,
->>>   };
->>> diff --git a/drivers/hwtracing/coresight/coresight-tpda.h b/drivers/ 
->>> hwtracing/coresight/coresight-tpda.h
->>> index 8e1b66115ad1..56d3ad293e46 100644
->>> --- a/drivers/hwtracing/coresight/coresight-tpda.h
->>> +++ b/drivers/hwtracing/coresight/coresight-tpda.h
->>> @@ -10,6 +10,7 @@
->>>   #define TPDA_Pn_CR(n)        (0x004 + (n * 4))
->>>   #define TPDA_FPID_CR        (0x084)
->>>   #define TPDA_SYNCR        (0x08C)
->>> +#define TPDA_FLUSH_CR        (0x090)
->>>   /* Cross trigger FREQ packets timestamp bit */
->>>   #define TPDA_CR_FREQTS        BIT(2)
->>> @@ -35,6 +36,7 @@
->>>   #define TPDA_SYNCR_MAX_COUNTER_VAL    (0xFFF)
->>>   #define TPDA_MAX_INPORTS    32
->>> +#define TPDA_MAX_INPORTS_MASK    GENMASK(31, 0)
->>>   /* Bits 6 ~ 12 is for atid value */
->>>   #define TPDA_CR_ATID        GENMASK(12, 6)
->>
->>
-> 
+-- 
+2.51.0
 
 
