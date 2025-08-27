@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B854CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 06:47:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80552C8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 06:50:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JirjmPhDJa3buVtthXf1RSS5ygaGSVutJ6rzEHXVkyA=; b=oP0lQ/UL2A+P3MmzitGCh4L4w+
-	mOCtm6zCh+75XEemnHrzDrx4VE3fQ234GWg2tpiFmrxhj9dC2bHi+QLjBC3uGezzeVpH+zjPgxZmc
-	5bPCt4oTFXi5ZSNmjpLQzNms6rh07wd9kpZiola6Ms9wL8azX1+jnCDY3EmFqpu6+SKEBcjxWsq3u
-	9c1UMkkvR+0edLMzfaGyaT3wmPr7NGa99Vcw6vGgxzlMOsBl7BWPafNvxS8woVMrV7XhTKVZ8Yu4Y
-	djrpclLCE4W2/aDqoRVHUOdImd5BwQb0IadllZsGptlK2o+Gor7qo+y6iFWO0//kU432piZaHETne
-	EPLCJhYw==;
+	bh=o7O7Yp7haSO955tE/XWzRV4qhPoTZXkYfSeMsqr25yQ=; b=gmZY0t815cpkqxIDQG9rtW9Loc
+	tb1vc1DP+xixG12RFds9KoiVy2u4q1UfTGg/hbeIoMr/HGVtqVQwEv9k7QYGlm1zPjGOTdCIHufOp
+	WPFIvi6EgWlX1FrHP8SFYI+d9tfqQjOf7lzkP97wbB8aGyA2idHE6nCbFBPovVbBGVKBH29jrcLqz
+	J+f5U+r+1FWTU+BDu/74bUcZ4Rn+rAjVH81SFhqg4WxW3I4H///DxPOgBI1n3MrxxuuSXdFqw5lmM
+	SJiVgrCtTJByCvmW+7mlHFjyKe6UgNxQvNpjdrEHU+tW6aQakwt2pSaGFrvElPjbVdo0h2Tkr8UTS
+	LHA2tucg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ur9wG-0000000EIzQ-3Hf3;
-	Wed, 27 Aug 2025 06:47:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ur9yu-0000000EJIz-3JF1;
+	Wed, 27 Aug 2025 06:50:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ur9nt-0000000EHjc-3EaN
+	id 1ur9oo-0000000EHsj-0epw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 06:38:41 +0000
+	Wed, 27 Aug 2025 06:39:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C4A5E60254;
-	Wed, 27 Aug 2025 06:38:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E19FFC4CEEB;
-	Wed, 27 Aug 2025 06:38:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 93BC560254;
+	Wed, 27 Aug 2025 06:39:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F9DFC4CEEB;
+	Wed, 27 Aug 2025 06:39:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756276720;
-	bh=E6lJlAUInS0Zz4cByYmPmreGqmD6Nz0mvn/LjsoUqm4=;
+	s=k20201202; t=1756276777;
+	bh=wF7DxXmMiUpG3l2HrR1TiFxT3e6vt98mMJE58cq9hWg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=FyAKrl81M7Fd22mRLrZyZeCId5tlSN4YF1shlriuwJExHSEbsc/yzqbNYLG/2WFpK
-	 RHsVKjkR6tJlIS1I2T+Byfbq6RL5LTkie0nHiFzsyzovTUfGwfAyn7U3zQQqAFliEx
-	 4PrmTxnvcN/UNskeaQJEovba3g+t4+4pyV9hXgWB0AVwCphsDB85LznxVeg0P+FEPv
-	 rCC9La87ucm55g3xvLi2KnSqTwobC9Xdc4WAVV1m7Jcjj9RKkCfwEsV5+9xhDaMY9F
-	 qF/mW4Vh2i5yivtrT2cfugw+y+K3CxZ90tsJK3yfckTup3hq19tkq9Z4wy1ZheYo7G
-	 wGvyFfSR2PVNw==
-Message-ID: <99889a72-e556-4ac5-b7cf-212215ccea3b@kernel.org>
-Date: Wed, 27 Aug 2025 08:38:35 +0200
+	b=t/Zgdu+h7uj26hFkUpeLwS/FvoEpULB4DwWD+g3yd6xkrqVf3ghEIOmglP82nGQpZ
+	 QfHKCk8QNBdMn8ehcbvjyagmxvlHKb02KXnPBsjxCl85YYHu4oB26HQWMic63RaNL7
+	 XJk4GIMCBwOMN3S+RNVo5Gzndl2sWArWdpvhs0tKOgfCy1TqKqyJQy8IWMFC2BHWPU
+	 Dj2tyGw2xHqafjE7Kkd5dhWoD048KQD0KeFtucgc1uFWfDQCHeFNoFsZsfXqJ5vNcL
+	 E+1uHsZJJ9P0XykHMrEbCBCM0Tv4wwbWkOXnhJg5cv+KiZmLZj9cv+frQ4wb56tD9u
+	 qdYE/Dj/remwQ==
+Message-ID: <87a9e85d-b345-4ea7-895c-ec2328d00954@kernel.org>
+Date: Wed, 27 Aug 2025 08:39:31 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] arm64: dts: exynosautov920: enable support for scaler
- device
+Subject: Re: [PATCH 4/4] media: samsung: scaler: Add Kconfig and Makefile
 To: Kisung Lee <kiisung.lee@samsung.com>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
@@ -59,8 +58,8 @@ Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-samsung-soc@vger.kernel.org, linux-media@vger.kernel.org
 References: <20250827044720.3751272-1-kiisung.lee@samsung.com>
- <CGME20250827045905epcas2p3a52debf186f41eef08e6d0a351d80476@epcas2p3.samsung.com>
- <20250827044720.3751272-4-kiisung.lee@samsung.com>
+ <CGME20250827045906epcas2p2198037517886df0714e24d8d908a6c57@epcas2p2.samsung.com>
+ <20250827044720.3751272-5-kiisung.lee@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,7 +105,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250827044720.3751272-4-kiisung.lee@samsung.com>
+In-Reply-To: <20250827044720.3751272-5-kiisung.lee@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -124,41 +123,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 27/08/2025 06:47, Kisung Lee wrote:
-> Add the Scaler Devicetree for the Scaler present on the
-> ExynosAutoV920 SoC. The scaler provides hardware acceleration
-> for 2D scaling up/down and color space conversion processing.
+> Add Kconfig and Makefile for Scaler driver directory.
+> This will serve as the entry point for enabling and building
+> Exynosautov920 specific device drivers.
+
+
+That's not a separate commit.
+
 > 
 > Signed-off-by: Kisung Lee <kiisung.lee@samsung.com>
 > ---
->  .../arm64/boot/dts/exynos/exynosautov920.dtsi | 22 +++++++++++++++++++
->  1 file changed, 22 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
-> index 0fdf2062930a..e3dad683fa36 100644
-> --- a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
-> +++ b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
-> @@ -26,6 +26,7 @@ aliases {
->  		pinctrl5 = &pinctrl_hsi2ufs;
->  		pinctrl6 = &pinctrl_peric0;
->  		pinctrl7 = &pinctrl_peric1;
-> +		scaler0 = &scaler_0;
->  	};
->  
->  	arm-pmu {
-> @@ -1504,6 +1505,27 @@ timer {
->  			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
->  			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
->  	};
-> +
-> +	scaler_0: scaler@1A830000 {
-> +		compatible = "samsung,exynos5-scaler";
-> +		reg = <0x0 0x1A830000 0x0 0x3000>;
-> +		interrupts = <GIC_SPI 639 IRQ_TYPE_LEVEL_HIGH>;
-> +
-> +		mscl_qos_table = < 0 800000 800000
+>  drivers/media/platform/samsung/Kconfig  | 1 +
+>  drivers/media/platform/samsung/Makefile | 1 +
+>  2 files changed, 2 insertions(+)
 
-Nice try. NAK. Don't ever send such properties.
 
+BTW, your patchset does not pass checks required by Samsung SoC
+maintainer profile. Use the tools instead of reviewers...
 
 Best regards,
 Krzysztof
