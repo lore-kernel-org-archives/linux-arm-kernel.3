@@ -4,214 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1D77CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 00:23:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB47ECA0FF7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 00:23:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	In-Reply-To:From:References:CC:To:Subject:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tghrl7gdajS/WeYCpbBZ0ItW09ZYo+zk6okszSRwIp4=; b=xlJ3QIg6WZrUd+6Vzsu1J8z3pt
-	yHSmbFkN3osgMv32ekJc78VA3uZXstj0JRatv2LWKYU554EmVvi0W6lCmcOJJxmkiV750IYC3Pcxy
-	qWalA+8ChkI8pX75dnh7wEhFj02CrHsJqs3GL2/uwjOAgz6+jQleA9Z2sufv8n7WsMn37UeeHH+RJ
-	rHfkxMUfBOnoFIf6jv7GZu4Og46MpnYY0bVIMDL4teJdb77AnngWxC0i1JXJhHFILopcYDcMAebDl
-	L8u13+5aM6/lfvmdUdO7zmdUGR8h0GSFU2BSwl1qVYAVcG1fRvKEQxTqZXvJVR+WxacqUlFNTW2sk
-	9b5LHNSg==;
+	bh=Srn4f5wKHajETfLs095JEyQwrHU4jhL+bb9+4uAhjnU=; b=hU2goFWhCDDZCm0Zy1Z03R3kpa
+	2bDgNiRid228w8rgHmvyEesCzfhVvFSZ2HrBd3ijsRB771EZTg9DvbOjtkHw/dSNoq5y6RBewq42W
+	us0ehhuHdQTg/2QGwA8tmxhFfxzLmzkmjl4ush3s04V1r4y2MdCUiFWToiJ523jz4yapiL2IqQ34w
+	vuXKPE0hm93Bg/Qko9lU+CS96A5j6ls0F/+5tfWbmDPwtJ+C/JtDLDGxxc8am7Wro2DHb09CE/XZv
+	Y5fOrRhDDh0mUjA2TE89LJJaCOwWXqGM4iG1PDZOPTKUBrvQgncQjzWH/5JKYegQp9WGdfnYbvzRF
+	BPsWmF2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urQQW-0000000HLcP-1XNZ;
-	Thu, 28 Aug 2025 00:23:40 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1urQQe-0000000HLom-36Dj;
+	Thu, 28 Aug 2025 00:23:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urOc9-0000000H62X-1q4T
+	id 1urPPq-0000000HEQ3-1DSD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 22:27:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1756333653; x=1787869653;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:mime-version;
-  bh=/TJgE0ZMjPVWMmPxLBw9GOde1sDI64Mvb9MEMm/GWrM=;
-  b=AP8CAPs6ZNdSATcrPsr7rwhXhm16lVpqqjntdx6FybxAfNLA2p78ODss
-   EBk8DCq48JHBAHzN0hE3MEsLEMe3BFyzIJSc3cdza5p55xyDxAY8meszl
-   EvyH57Bo0nuP4nkhZThStjxCAhlHbsMnzXs5EzrLO/h1ER+Gebv/RkP1a
-   RUL6OMoEM52Q+k9P8x9EWiKH0BqyrBsU0CoWl05BrnwDgxJz7RaMVYOz+
-   Tr/5zI7XgaWkVpNzk2/6Lz8Y7itvqWHduOyvSPe4AACJslXhvVS299TqO
-   s176OO3EYDDbwJUWf4454q8zWleSIyc/8N/Qj3K/k2V6Kd4rZJX1J3Nn5
-   A==;
-X-CSE-ConnectionGUID: Mz2yhQIvTSW9iwoegCG3vA==
-X-CSE-MsgGUID: sMwVCwGuSS6Bqpw0SxP95A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11535"; a="69307447"
-X-IronPort-AV: E=Sophos;i="6.18,217,1751266800"; 
-   d="asc'?scan'208";a="69307447"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Aug 2025 15:27:32 -0700
-X-CSE-ConnectionGUID: IvjljfZaTTSXSX0HP2BriQ==
-X-CSE-MsgGUID: r6dtxv2gRWWomIBYzizGGQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,217,1751266800"; 
-   d="asc'?scan'208";a="169857128"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Aug 2025 15:27:33 -0700
-Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Wed, 27 Aug 2025 15:27:32 -0700
-Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17 via Frontend Transport; Wed, 27 Aug 2025 15:27:32 -0700
-Received: from NAM12-DM6-obe.outbound.protection.outlook.com (40.107.243.69)
- by edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Wed, 27 Aug 2025 15:27:31 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XKa3mDoKN8CNjbV/P3FWATyuuFthk4EPyIcpNVEe2iKCcQEz7D9RIDZH/eKytGXqKPKyYJoSQOyhQDg7zj9P+YPAX/7gmP1aByQE8Ai3kyyk37LQrjI9dKR95xtxdq4j3tslFUFY5CyZFHaF+ijHko2f7E70nIkTeUA/10jA8neyUTLYPBK7zUmk0bUQYI8a8S7fhFSzWkHj/jOxNarNFKc7AQyLLMHEKR0MXU3pfgjb1X6xfDighdozBj/M4WuoTczmqtGVqjNB8j+SFXC/apaSJkbhNDwUlwZdC66wnRA55OD/Li7KL31UlN0Q03c9SaDDicbcM7s51Ny6EjAXWQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Tghrl7gdajS/WeYCpbBZ0ItW09ZYo+zk6okszSRwIp4=;
- b=CmeE15bAsQwHmFQersjisfgBvnmMHTb0CvpdTClsLHXx4vZverI/iBMafk2ahJZqE+4/qxPXUGobaWvkevMQAQHX8c88QBMF09eY5R+XNkcN1omdgc/5yaXTweEFAwQOFd9aOIHYG/Jun+hB0jXMMc7NJXeN9zgwTsHihMlT/Rpxiz72b6vBKBLXyz+MVKaKniZo0ZVNTeGidWETYvih+nnCDg3fd5VH0ygSNhHxoasn4naRp5wA3II0zs/nMFZ7Fu63S6wHlSGgczfl+cZZ3vwTEfFuhkqwynKOFxcuqcHcVVOEnumJ34CATL3HGxLqNadoBuTvRJOFfKmowJZDSA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from CO1PR11MB5089.namprd11.prod.outlook.com (2603:10b6:303:9b::16)
- by DS7PR11MB7782.namprd11.prod.outlook.com (2603:10b6:8:e0::8) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9052.21; Wed, 27 Aug 2025 22:27:29 +0000
-Received: from CO1PR11MB5089.namprd11.prod.outlook.com
- ([fe80::81f7:c6c0:ca43:11c3]) by CO1PR11MB5089.namprd11.prod.outlook.com
- ([fe80::81f7:c6c0:ca43:11c3%5]) with mapi id 15.20.9052.019; Wed, 27 Aug 2025
- 22:27:29 +0000
-Message-ID: <0abc4efd-a44b-4277-ac00-af6893a8c8ed@intel.com>
-Date: Wed, 27 Aug 2025 15:27:28 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: stmmac: minor cleanups to
- stmmac_bus_clks_config()
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, Andrew Lunn
-	<andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-CC: Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
- Dumazet" <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, <netdev@vger.kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>
-References: <E1urBvf-000000002ii-37Ce@rmk-PC.armlinux.org.uk>
-Content-Language: en-US
-From: Jacob Keller <jacob.e.keller@intel.com>
-Autocrypt: addr=jacob.e.keller@intel.com; keydata=
- xjMEaFx9ShYJKwYBBAHaRw8BAQdAE+TQsi9s60VNWijGeBIKU6hsXLwMt/JY9ni1wnsVd7nN
- J0phY29iIEtlbGxlciA8amFjb2IuZS5rZWxsZXJAaW50ZWwuY29tPsKTBBMWCgA7FiEEIEBU
- qdczkFYq7EMeapZdPm8PKOgFAmhcfUoCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AA
- CgkQapZdPm8PKOiZAAEA4UV0uM2PhFAw+tlK81gP+fgRqBVYlhmMyroXadv0lH4BAIf4jLxI
- UPEL4+zzp4ekaw8IyFz+mRMUBaS2l+cpoBUBzjgEaFx9ShIKKwYBBAGXVQEFAQEHQF386lYe
- MPZBiQHGXwjbBWS5OMBems5rgajcBMKc4W4aAwEIB8J4BBgWCgAgFiEEIEBUqdczkFYq7EMe
- apZdPm8PKOgFAmhcfUoCGwwACgkQapZdPm8PKOjbUQD+MsPBANqBUiNt+7w0dC73R6UcQzbg
- cFx4Yvms6cJjeD4BAKf193xbq7W3T7r9BdfTw6HRFYDiHXgkyoc/2Q4/T+8H
-In-Reply-To: <E1urBvf-000000002ii-37Ce@rmk-PC.armlinux.org.uk>
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature";
-	boundary="------------90hyeuUuxuV7xko0Ze0ElxEU"
-X-ClientProxiedBy: MW4PR03CA0287.namprd03.prod.outlook.com
- (2603:10b6:303:b5::22) To CO1PR11MB5089.namprd11.prod.outlook.com
- (2603:10b6:303:9b::16)
+	Wed, 27 Aug 2025 23:18:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8FAC143BE7;
+	Wed, 27 Aug 2025 23:18:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09407C4CEEB;
+	Wed, 27 Aug 2025 23:18:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756336733;
+	bh=P3Gwl+lAuDqgDiDkyAWigr2MsRQaffh+XaK4v35OqV8=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=QtsKBq+nK77vpdMFc6YGd0q5ra4VwIImjBUpJ0wanHju86ppAa4o2o8ZskSAHDAn5
+	 K/L4DUPu4hpuDj4Ej9tr8/J2HI2KwOuDSWO0mozMmhfJ86HxZjRKjtx7IxheFYDdCh
+	 VFbflN5sVkBAgdK/7Lz9xlBdpPvGdY6ztcOwLOp5kS+oqLt1wbXlISuwIqHKYulNnE
+	 ZLQSYDE/QA1MDIjmyFznQjlK8nPXGHkAgwi3hJ0ECfu+wORP9tezj3h3O27+M0SDZN
+	 e87vU25vIIWGsM18VZf8pDHLZxFVuJsa+asDFI9xpRYzYH+owC77b+Oc2mQgtkDhDW
+	 WbZuFrCywF33A==
+Date: Wed, 27 Aug 2025 18:18:52 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PR11MB5089:EE_|DS7PR11MB7782:EE_
-X-MS-Office365-Filtering-Correlation-Id: a9b800e0-0c2f-4072-e3ec-08dde5b8e876
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?S1pLQjVPVXlPVEI3L3dHZmVuVmdZVm9oejlRZUxVK3NZeXJnVzRnU2VCL1Ny?=
- =?utf-8?B?cHZEczluanVXd2hPclRuOGFvUGxVcm5XWHBUc1c5QWU4bmlUU2x5ODcwNFYy?=
- =?utf-8?B?TzRwYmFCTXRqSncycFJkUzZnY09hYm01Y3A0cVRVSGQ5dWdvY0dZNmU2bGdk?=
- =?utf-8?B?VWMwbXJJUytBeUJ0QjdoWDkxckF5NzltZk5YQUIxU1ZLYnFuT052am5lSVF2?=
- =?utf-8?B?QlIwYWs4bTBsb2QwZEFzVlR2bkxJZURMVjhjZThjVTVXbkhHMXVjai9FQ01R?=
- =?utf-8?B?dE5MQVphdEFYcVRqYXAxSU53MG5kbGRyNjYwczRZbzRtV1J2aDlIR0JJVTlO?=
- =?utf-8?B?S2o4NUtSUkNVMGY2R1ZpeURBL1dyVDBDRUFoSWwrNGZtZ2h3d09kVlBPbERD?=
- =?utf-8?B?L05WZHNLVDJGazlJUytjaG9mMlpXM0xxTWJxOVA2VllxUy9IcFJXTHBqOUhP?=
- =?utf-8?B?UnR2TGR3SjJ0TlR3VVpCSFZDVUcycUo1aWNURTM0eVVkWm9IWFVmUWp3NzVu?=
- =?utf-8?B?TDA5Tlp6a0RNSnJOREEvSit1NXhoekhPVFNLWVUzK2tsWE9tWEcraWVWUFdG?=
- =?utf-8?B?ZTA4ZTRXMzlsLzZMSTluSUV6VGlua0ZYMnRBN096bEdmRXVscTJqS1M0NDBq?=
- =?utf-8?B?QnRBY0JBUDQ1eHI5a2FTQ1dKdEYyT2xveklnVnZwUmdFMVJrTFhJY1F5Z2hp?=
- =?utf-8?B?WnZBTXlBdk1WNEhhMmZkZGMwVmZLR25DakFTeUVFQld3WkhoVExpdTlwNXI0?=
- =?utf-8?B?MnU1WmpTT2ZJZVhDbFdRVFA5dXlVcGJlQXdmeElnNUtzd2FWK1hlK2dUVU16?=
- =?utf-8?B?S0hVR3NoYkMwazBLQkl0cmQrMkV5WGNTYkR6T2dVelNOL29wSjk2ellRMDF3?=
- =?utf-8?B?YWJkb0JXTkFpWk9xN0tVVVQydk82K0ZKTStic0RpejhVcmZ2S1YyOEx5V2RJ?=
- =?utf-8?B?OGJ3Kzk1S0Exb0pqNlRoTVphalVoUDRFUkE2c2I3aDROWGNQdDZvanM3R2lt?=
- =?utf-8?B?S1dBV044KzNiS1hLVmZscGw2NkdlN1JKV2kwbERwK3U1eW9uajJ3b25wd0Y4?=
- =?utf-8?B?TWtQamNxSTFRdDRuM1J6Yk9vZmhYZ1BOYjdvMjhPSnRSTG1aMkpRaHZSc21k?=
- =?utf-8?B?SGJ3ZHMrNUZvcVd3WE9zM3F4WllIWmVHcXRjcFJVLzROblZBSFpmUG1EK0ZL?=
- =?utf-8?B?RDJISUhORVpxUVIxeG5FSVdUWG9lUjE5NmdveHlPRlNpMVFSZXB4RVE3OGRC?=
- =?utf-8?B?LzN5c2pJamVhMUNoMkdGZWlJTW5teWVkY1VDVjhHb0RlSDBYRFlhZ3VpZ01x?=
- =?utf-8?B?VkYrbWliaFpNaTBuMEVpVWt3RG93L1cvMDJjWGluSXNjZ0paVnBDSjF5NFRY?=
- =?utf-8?B?SFNvd3NvWDBnQ3U0N2tIemJOWnJoWUhNNUU1WS94YjBFdEVRcDFtVFVmTHJM?=
- =?utf-8?B?N0RTZ2YzYmgxYXNZNDZCc0FHYU9xUm82dFZUK1psZEpPMjdXMjdDK291SHcv?=
- =?utf-8?B?MUcwcjVsODhpMzd2VVVTNTJvSWs1RDVFWWdiMUt2c0tlMUJxNGNzYXVrRW5F?=
- =?utf-8?B?RDRqZjUreVFqSzNnQS9UbS9VMEVVbzAzS1JJaFlONm55cHA5RlVKRWZ2VjVI?=
- =?utf-8?B?VmhTcUN6dURoNXZGUjJlN3plVXdlLzNmUjQ0YWwwK3JDenBqck43RXNxdS9z?=
- =?utf-8?B?T1UrVzd6RjJ5MGR0LzQyeUxGdE1JUVQ1bTEzQ3B3eHk1aHFzTnA0eHNxS1dy?=
- =?utf-8?B?NklGM2VveVJuWHltc2V2UHRkaU9tdituS1EyU1pDeUpKanlJZ1pOV2NJLzFz?=
- =?utf-8?B?WlpmdU9ZVEtPOVcxTGNHK0dGbEl0MFRiOUdxZXVwajlVVmVoZkJzbUJxVkZR?=
- =?utf-8?B?RFQrb0VDeFlnSm9oRDRrWGQzT05mcnRVUmVHaytPdzNTeVM1VXBVRGNzNCty?=
- =?utf-8?Q?XFrU2vcJLNQ=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5089.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d0pBVDJvWDVFNzJOSURYaGNkUzlhVGpIaXQyVkkyRVRINElrSFFUQ2Vxb25M?=
- =?utf-8?B?Q2kyS3dWR0FmY0RKcEtqQnkwU3ZkWWk3UGd4WDZZa3JXMStFVTE5c1ROYVBv?=
- =?utf-8?B?Q0tyK2xnUU1IemFlYzhTWVVMekNHQTBNWGdzR0Nrb1RLZmVWWXFaT3Y3YnRX?=
- =?utf-8?B?Z1ZucGtQVGwxaXFZREg5SDlDSzgwTlArWUpDd0g1Yytxamt6RER0dTZ5bXZG?=
- =?utf-8?B?MitDSDU5QUpHSlpvUnJGTVViN29tRnlxT3dRZ1AzNk5tQ1BEVzM5WlNVakx1?=
- =?utf-8?B?dEFKMmYrV2V0WC8vV0NhenJ3WmFOOTZVVXRLeFUwYkpUV2RhR2t0cEF2RFY1?=
- =?utf-8?B?MHA3amJDZERrNUc4ejM2MlZJTTdaL3ZxNklNRGsyK24rRjRlZ3hEclh4bWxV?=
- =?utf-8?B?NW1aSmJoQUptTTEzK3FQZFQ0TTFKRXBmZHdmMGY3QWt4VGRKQjNTRlR0WEND?=
- =?utf-8?B?VTlZUjA3a293TUZRU1cwWHVuRVlab09TeDFQNFRqNnd6czdkN0VYa0UvTEUy?=
- =?utf-8?B?OUNEbStLVjcxOEFFQ3pnaVZ1RTFFaVpIbUI1TVFhQ3JFWTM3NzdqM21QSy9z?=
- =?utf-8?B?REdzNDdsN3duMmpiS0pIWk5pUy9TN3BlM1ZxTDFZNkV2Si9tbnpJZ0VmZHZX?=
- =?utf-8?B?eFBjaXZCcGlBbGl2dXZRRXpXZytZanpOUU5ESlViRFhBaml6SG83aG9KR0pE?=
- =?utf-8?B?OG5BTlBEYVBFdys5R2lzcGZyM2E5cTFXR0VzTW1WbDFXNkVJUjREUmcvM3hQ?=
- =?utf-8?B?LzRncHZjOWxTa0ljaDh4QU5iNDhZUnpuaVUwODZpR0U1N3I0RkhrWVVjb284?=
- =?utf-8?B?WHJnM1NkeDhPRzgrcWdHZ1VsRDlQNTREaW5lbzBHQUpSeWNLUWhyTnVZKzhG?=
- =?utf-8?B?b2xCZi9CcVV5Szl3THM5TkZ0eW5MMWZlMkk1dGNXRmkreEVFVGV1bWlrR0kx?=
- =?utf-8?B?Y1VBYTB4QjRscFdXWGFLcVhzTXhlM1Z6aDBRaVZPd3NOTlF5U2ZkMWd2L25K?=
- =?utf-8?B?YkRCa1ZKak5kOU5FWThKTzZrMENQVWNYaUhPTjBSTGxRVFVHY1pLRXprYmdm?=
- =?utf-8?B?WHJjUHNTTkJlZ21PMFA1Z3RIOW95azA3ZVpVWlQwSmMvN29qU2V1NFBibFQ2?=
- =?utf-8?B?VlBjbWdDQUJDdGJQZmNvTmtlOGUveUdDQlEwdkJ6WHFqcnNvalJab3RlZWlU?=
- =?utf-8?B?UStZeHJjRVk0ZFA1Zi84ekgwR2habkxyMG9iOE4rRWJQK3lkQ1gzU0FDSkI3?=
- =?utf-8?B?L3lZNHBNeWtLZEVDZFkzRHVkbFIwL3RTY3lZeGlhREdvT0h4dE0wakY0MTd3?=
- =?utf-8?B?aGNPd2xTTlhJMC9xNDhhZUFTOXR2TEF1cWtDaWpvWVkwbkhWZUtBMlJzcVJQ?=
- =?utf-8?B?MElHUVp2YmNweTR1VlVzMUJFRDRSSjh4elEyc1NZTGduK21ML052UjdIYVAy?=
- =?utf-8?B?NlZaNVpwWVpFM0pWWDFoWDF1R2hZTGV3TnpnMlhkcTdUYi9VNnEwODh4WkR5?=
- =?utf-8?B?TkpPQVpmVzVFQUdOS0dVa3ZoVTRLczBLeS9mdHNGbENoOExvVHVGdjgrSFdn?=
- =?utf-8?B?ZjBBOEJBYUhRbzdVQUJHZ214QmxBaVdvRi9VVGZzNU1vanUwekJaeVBycTFT?=
- =?utf-8?B?d3o5Yjl4TWhuL1pWNFEwNzhMMGtZbXUvOXJhMTlycWQyU1FPSzhRQ3JrREl5?=
- =?utf-8?B?OXNJWUhrUy82REM0M24rbDNjS3RNdzhFUEJ3N1l3RzdMU3NLSFUxZi9DZys1?=
- =?utf-8?B?TTRjS0puVjIvMFd5aHZWU3FhcENBaWFjTXJFZkdMbG5wVE1wNWxjVTZRSk9s?=
- =?utf-8?B?Y2Y2UjFtOVRQU2NvMlMvY1ZVM1BoZm9pbkE5UDAyamR4WGxWVGhIbXc0YVNU?=
- =?utf-8?B?UzBTYkZybERVVnZiTFMvU1FsdWtGQ0c2b09IeHpFU3oxQ0NNcU83WkMvU0xk?=
- =?utf-8?B?VFdENWJNVzdBTGcvK0ZVYUJBWWtDYllSRGFpOXNGYy90KzJYTC9COGs5ZGZM?=
- =?utf-8?B?TXpvdk1hcDdUVi90TmhXczlDYW16eDZUWUppUHN2RU5QOURHS1RRdnFmWnNL?=
- =?utf-8?B?U1F1ckRxWXkwMGlQbmFSRE5rN2UwM25GZFIyVjBUL1c0YVFKVjl5SnhQUUFm?=
- =?utf-8?B?R3I5WThkbVpxNVNmUXVnZkNBQitYMnJxVFk4UkhxL3FBVUgwNjhPenIvV3Rh?=
- =?utf-8?B?eWc9PQ==?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: a9b800e0-0c2f-4072-e3ec-08dde5b8e876
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5089.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Aug 2025 22:27:29.7599
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: zQpzpkE5+b7ffIBOj45DrPeB9rWAUQb85VUZBdz9evaZZ52epFAIjdCwI5NuclKig0AtH83WNzTprPoSPUQ9OOeoMDghsWLDwvtD0IntEfs=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR11MB7782
-X-OriginatorOrg: intel.com
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: dri-devel@lists.freedesktop.org, 
+ Thomas Zimmermann <tzimmermann@suse.de>, Inki Dae <inki.dae@samsung.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+ linux-samsung-soc@vger.kernel.org, Simona Vetter <simona@ffwll.ch>, 
+ devicetree@vger.kernel.org, linux-media@vger.kernel.org, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, David Airlie <airlied@gmail.com>, 
+ linux-arm-kernel@lists.infradead.org, Maxime Ripard <mripard@kernel.org>
+To: Kisung Lee <kiisung.lee@samsung.com>
+In-Reply-To: <20250827044720.3751272-1-kiisung.lee@samsung.com>
+References: <CGME20250827045905epcas2p2daa6599d04f38c002e396abf23d60fe7@epcas2p2.samsung.com>
+ <20250827044720.3751272-1-kiisung.lee@samsung.com>
+Message-Id: <175633664976.3746763.8435177839932085825.robh@kernel.org>
+Subject: Re: [PATCH 0/4] Add DT bindings and driver code for Scaler
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_152733_509044_88E81D7E 
-X-CRM114-Status: GOOD (  20.98  )
+X-CRM114-CacheID: sfid-20250827_161854_369995_76CF600C 
+X-CRM114-Status: GOOD (  17.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -226,133 +80,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---------------90hyeuUuxuV7xko0Ze0ElxEU
-Content-Type: multipart/mixed; boundary="------------nid3GnRBuDWxwfJBpWGws9si";
- protected-headers="v1"
-From: Jacob Keller <jacob.e.keller@intel.com>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
- Paolo Abeni <pabeni@redhat.com>
-Message-ID: <0abc4efd-a44b-4277-ac00-af6893a8c8ed@intel.com>
-Subject: Re: [PATCH net-next] net: stmmac: minor cleanups to
- stmmac_bus_clks_config()
-References: <E1urBvf-000000002ii-37Ce@rmk-PC.armlinux.org.uk>
-In-Reply-To: <E1urBvf-000000002ii-37Ce@rmk-PC.armlinux.org.uk>
 
---------------nid3GnRBuDWxwfJBpWGws9si
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-
-
-
-On 8/27/2025 1:54 AM, Russell King (Oracle) wrote:
-> stmmac_bus_clks_config() doesn't need to repeatedly on dereference
-> priv->plat as this remains the same throughout this function. Not only
-> does this detract from the function's readability, but it could cause
-> the value to be reloaded each time. Use a local variable.
->=20
-
-Even if the compiler figures out its safe to store the access and reuse
-it, its much more readable to use the local variable.
-
-> Also, the final return can simply return zero, and we can dispense
-> with the initialiser for 'ret'.
-
-Also good cleanup.
-
->=20
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
-
-Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
-
->  .../net/ethernet/stmicro/stmmac/stmmac_main.c | 27 ++++++++++---------=
-
->  1 file changed, 14 insertions(+), 13 deletions(-)
->=20
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/driver=
-s/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 429a871d7378..88f5d637f033 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -149,33 +149,34 @@ static void stmmac_exit_fs(struct net_device *dev=
-);
-> =20
->  int stmmac_bus_clks_config(struct stmmac_priv *priv, bool enabled)
->  {
-> -	int ret =3D 0;
-> +	struct plat_stmmacenet_data *plat_dat =3D priv->plat;
-
-I did notice the driver was inconsistent in whether it refers to this as
-*plat or *plat_dat... Its slightly shorter to use *plat, but I do think
-*plat_dat is a bit nicer to read.
-
-Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
-
-> +	int ret;
-> =20
->  	if (enabled) {
-> -		ret =3D clk_prepare_enable(priv->plat->stmmac_clk);
-> +		ret =3D clk_prepare_enable(plat_dat->stmmac_clk);
->  		if (ret)
->  			return ret;
-> -		ret =3D clk_prepare_enable(priv->plat->pclk);
-> +		ret =3D clk_prepare_enable(plat_dat->pclk);
->  		if (ret) {
-> -			clk_disable_unprepare(priv->plat->stmmac_clk);
-> +			clk_disable_unprepare(plat_dat->stmmac_clk);
->  			return ret;
->  		}
-> -		if (priv->plat->clks_config) {
-> -			ret =3D priv->plat->clks_config(priv->plat->bsp_priv, enabled);
-> +		if (plat_dat->clks_config) {
-> +			ret =3D plat_dat->clks_config(plat_dat->bsp_priv, enabled);
->  			if (ret) {
-> -				clk_disable_unprepare(priv->plat->stmmac_clk);
-> -				clk_disable_unprepare(priv->plat->pclk);
-> +				clk_disable_unprepare(plat_dat->stmmac_clk);
-> +				clk_disable_unprepare(plat_dat->pclk);
->  				return ret;
->  			}
->  		}
->  	} else {
-> -		clk_disable_unprepare(priv->plat->stmmac_clk);
-> -		clk_disable_unprepare(priv->plat->pclk);
-> -		if (priv->plat->clks_config)
-> -			priv->plat->clks_config(priv->plat->bsp_priv, enabled);
-> +		clk_disable_unprepare(plat_dat->stmmac_clk);
-> +		clk_disable_unprepare(plat_dat->pclk);
-> +		if (plat_dat->clks_config)
-> +			plat_dat->clks_config(plat_dat->bsp_priv, enabled);
->  	}
-> =20
-> -	return ret;
-> +	return 0;
->  }
->  EXPORT_SYMBOL_GPL(stmmac_bus_clks_config);
-> =20
+On Wed, 27 Aug 2025 04:47:16 +0000, Kisung Lee wrote:
+> This patch series adds device tree bindings and driver support
+> for the ExynosAuto scaler hardware. It adds YAML binding docs,
+> updates Kconfig and Makefile, and provides initial driver
+> code to register the Scaler device as a V4L2 video node for
+> video processing.
+> 
+> Kisung Lee (4):
+>   dt-bindings: soc: samsung: scaler: exynos: Add ExynosAutov920
+>     compatible
+>   media: samsung: scaler: add scaler driver code
+>   arm64: dts: exynosautov920: enable support for scaler device
+>   media: samsung: scaler: Add Kconfig and Makefile
+> 
+>  .../bindings/gpu/samsung-scaler.yaml          |    1 +
+>  .../arm64/boot/dts/exynos/exynosautov920.dtsi |   22 +
+>  drivers/media/platform/samsung/Kconfig        |    1 +
+>  drivers/media/platform/samsung/Makefile       |    1 +
+>  .../platform/samsung/v920-scaler/Kconfig      |   17 +
+>  .../platform/samsung/v920-scaler/Makefile     |    9 +
+>  .../samsung/v920-scaler/scaler-core.c         | 3640 +++++++++++++++++
+>  .../samsung/v920-scaler/scaler-regs.c         |  744 ++++
+>  .../samsung/v920-scaler/scaler-regs.h         |  406 ++
+>  .../platform/samsung/v920-scaler/scaler.h     |  621 +++
+>  .../v920-scaler/videodev2_exynos_media.h      |  162 +
+>  11 files changed, 5624 insertions(+)
+>  create mode 100644 drivers/media/platform/samsung/v920-scaler/Kconfig
+>  create mode 100644 drivers/media/platform/samsung/v920-scaler/Makefile
+>  create mode 100644 drivers/media/platform/samsung/v920-scaler/scaler-core.c
+>  create mode 100644 drivers/media/platform/samsung/v920-scaler/scaler-regs.c
+>  create mode 100644 drivers/media/platform/samsung/v920-scaler/scaler-regs.h
+>  create mode 100644 drivers/media/platform/samsung/v920-scaler/scaler.h
+>  create mode 100644 drivers/media/platform/samsung/v920-scaler/videodev2_exynos_media.h
+> 
+> --
+> 2.25.1
+> 
+> 
+> 
 
 
---------------nid3GnRBuDWxwfJBpWGws9si--
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
---------------90hyeuUuxuV7xko0Ze0ElxEU
-Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="OpenPGP_signature.asc"
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
------BEGIN PGP SIGNATURE-----
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
 
-wnsEABYIACMWIQQgQFSp1zOQVirsQx5qll0+bw8o6AUCaK+GUAUDAAAAAAAKCRBqll0+bw8o6C+x
-AQDRa8ivo/ThH7LC8549b9APrUJ0EKz8C5V4rhQAVBtD7QEAlLM3ngnR7DtIyNlyLOWCekR+WBc/
-b0VXL/usiEK6kAo=
-=0zc+
------END PGP SIGNATURE-----
+  pip3 install dtschema --upgrade
 
---------------90hyeuUuxuV7xko0Ze0ElxEU--
+
+This patch series was applied (using b4) to base:
+ Base: attempting to guess base-commit...
+ Base: tags/next-20250825 (exact match)
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/exynos/' for 20250827044720.3751272-1-kiisung.lee@samsung.com:
+
+arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: scaler@1A830000 (samsung,exynos5-scaler): 'mscl_ppc_table', 'mscl_qos_table' do not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/gpu/samsung-scaler.yaml#
+
+
+
+
+
 
