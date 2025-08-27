@@ -4,72 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C430DCA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 11:10:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4F98CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 11:12:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=kIMYOv6s//qZZkoCLbDvARcCpDfB5MBd/nSeBfKH2VM=; b=ZwKDLdO2OfzM5AI4u1RpbNXdTb
-	ySFkzpHMK76MmulN/fEHRvKYSCXgIlIRL5AYXomNJhFtCKTIQEtgij8KVtc9hTkS6MLI8faVuBMzG
-	NjmjyywUxUl4LbbYGzxzyoFzSu2pHLBro4jv0p+SlGjCeSDfLPp3niHBWTXnOlN4QNon01moobEpn
-	g1KjiY5hOYA/IVZtxQjEK5cg9xoEc27U3Q3/beCGaBrdZ0Gwm+x4MODEsVjOLAHgZlqLDdpUY8/6W
-	UrhrU8botqgHheja1feTPqqR4+cSeWFD/lZ1rPgBTmN5H3uBeh09UMzYjo70H/zyKovDa8wzjRyOm
-	U9ByAv7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/smPvszByZaAF/Ideu82BSZu3Ndn1PjZSF6bQpSGf54=; b=zXY43Go8R3JLR+c+2pZSobOupQ
+	u8t2ET4qeTz7TnIvI3QZAn6CcCzzeg0Ic+NTwV5Ncr3So7naF/BOKFS2AAcmfRE0mGkNGdeAFygvA
+	XpOxBxThag1+oF9m5Fy3VKGVEQyqBcVXiZCclGJlrId+H3KAm5wAw8QQSoXuSg9zV6ngxJvFDNeW9
+	1i+QGiTvgNyNsIHAXCf2wj2FZferEVo89SwAoD2/pJmEVyfHS1wKafQXlfY3H/11kAiotAwSyCoUq
+	kkq8U9ORUpgbSIJpZhj8I3NLYTacBT7nkKldz32kya/Ie2/sTVCvwmfwS6dmZSmr7E6wnYyCYS5gG
+	eVEq6RKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urE2X-0000000FDOQ-2SEJ;
-	Wed, 27 Aug 2025 11:10:05 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1urE5D-0000000FDu2-3OX5;
+	Wed, 27 Aug 2025 11:12:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urDMn-0000000F3wq-2S4Q
+	id 1urDSF-0000000F57N-1rvG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 10:27:00 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250827102651euoutp0130426eda1eb392371fdd73be1a1c6472~fmNL2p5Kz1630516305euoutp01e
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 10:26:51 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250827102651euoutp0130426eda1eb392371fdd73be1a1c6472~fmNL2p5Kz1630516305euoutp01e
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1756290411;
-	bh=kIMYOv6s//qZZkoCLbDvARcCpDfB5MBd/nSeBfKH2VM=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=PytEsFU3at0qV0EB6I+GAJATmXCia9OKKOuVBHHI932PmIYEdrYMSeLWIwNglHdWG
-	 Tovx/Qqz0AnJphhIDHI0pOLbzmlie4Ea56J9Uq6geW1VlxPibJluZF1MZVuePp5CCA
-	 Cs6O3X0SvG4YRPrxaXaVssh76+F65NybQhILI8Ig=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250827102650eucas1p1fe270adbf29c649b9ce529e1d45aabc3~fmNK0PAmT2376023760eucas1p1Z;
-	Wed, 27 Aug 2025 10:26:50 +0000 (GMT)
-Received: from AMDC4653.digital.local (unknown [106.120.51.32]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250827102649eusmtip14a7c3f2eb31bf6b008892068161c8f1c~fmNJnvdY52203622036eusmtip1W;
-	Wed, 27 Aug 2025 10:26:49 +0000 (GMT)
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-To: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Daniel Lezcano
-	<daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, Krzysztof
-	Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Ingo
-	Molnar <mingo@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
-	Youngmin Nam <youngmin.nam@samsung.com>
-Subject: [PATCH] clocksource/drivers/exynos_mct: Use percpu interrupts only
- on ARM64
-Date: Wed, 27 Aug 2025 12:26:45 +0200
-Message-Id: <20250827102645.1964659-1-m.szyprowski@samsung.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 27 Aug 2025 10:32:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CEE6743F32;
+	Wed, 27 Aug 2025 10:32:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9EF5C4CEEB;
+	Wed, 27 Aug 2025 10:32:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756290754;
+	bh=/smPvszByZaAF/Ideu82BSZu3Ndn1PjZSF6bQpSGf54=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FXVfo9edvnfYDZY9oYOI1IjWhXElJtoKE/QXD0PNTUVuQ7jWQHsM6vpl8OWZxo97Y
+	 5zK137hjg10dzubzqUD+AKjAgN1X3+M3o5ODhhLWrTy+b22LjYDTN+tvwGUuhaghBW
+	 jBlFAeNQioSRejLwSAIgmX49dIlfTtx7vsp2uQzqffQHwK1KwIzJxeIezv1yqvfdH6
+	 Y07U7w4H+LyMwfBI0hahRiuJmRwRMm52R6cZ4dLrZttolx64vbzoaou3/CRXC4dgvz
+	 TIb6t8pPDFsfrBRQ9w7rbSRzeVGaTTaLytd3FaluUkdM73a4JKDNlmBLsNvHs1pg8y
+	 rpESJfOoFihjw==
+Date: Wed, 27 Aug 2025 11:32:29 +0100
+From: Mark Brown <broonie@kernel.org>
+To: "Nikola Z. Ivanov" <zlatistiv@gmail.com>
+Cc: bagasdotme@gmail.com, Markus.Elfring@web.de, shuah@kernel.org,
+	will@kernel.org, mark.rutland@arm.com, ebiggers@google.com,
+	catalin.marinas@arm.com, martin.petersen@oracle.com,
+	ardb@kernel.org, thiago.bauermann@linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-kernel-mentees@lists.linux.dev
+Subject: Re: [PATCH v2] selftests/arm64: Fix grammatical error in string
+ literals
+Message-ID: <d8bb28b7-7832-4c24-82bc-4663affcf57a@sirena.org.uk>
+References: <20250826214913.866695-1-zlatistiv@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250827102650eucas1p1fe270adbf29c649b9ce529e1d45aabc3
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20250827102650eucas1p1fe270adbf29c649b9ce529e1d45aabc3
-X-EPHeader: CA
-X-CMS-RootMailID: 20250827102650eucas1p1fe270adbf29c649b9ce529e1d45aabc3
-References: <CGME20250827102650eucas1p1fe270adbf29c649b9ce529e1d45aabc3@eucas1p1.samsung.com>
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="OQXy7X9uIo8z3XU8"
+Content-Disposition: inline
+In-Reply-To: <20250826214913.866695-1-zlatistiv@gmail.com>
+X-Cookie: Most people prefer certainty to truth.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_032658_057053_CDE5F388 
-X-CRM114-Status: GOOD (  12.55  )
+X-CRM114-CacheID: sfid-20250827_033235_504438_13439EC2 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,32 +79,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For some unknown reasons forcing percpu interrupts for local timers
-breaks CPU hotplug for 'little' cores on legacy ARM 32bit Exynos based
-machines (for example Exynos5422-based Odroid-XU3/XU4 boards). Use percpu
-flag only when driver is compiled for newer ARM64 architecture.
 
-Fixes: f3cec54ee3bf ("clocksource/drivers/exynos_mct: Set local timer interrupts as percpu")
-Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
----
- drivers/clocksource/exynos_mct.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+--OQXy7X9uIo8z3XU8
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/drivers/clocksource/exynos_mct.c b/drivers/clocksource/exynos_mct.c
-index 62febeb4e1de..fece6bbc190e 100644
---- a/drivers/clocksource/exynos_mct.c
-+++ b/drivers/clocksource/exynos_mct.c
-@@ -603,7 +603,8 @@ static int __init exynos4_timer_interrupts(struct device_node *np,
- 			if (request_irq(mct_irq,
- 					exynos4_mct_tick_isr,
- 					IRQF_TIMER | IRQF_NOBALANCING |
--					IRQF_PERCPU,
-+					(IS_ENABLED(CONFIG_ARM64) ?
-+					 IRQF_PERCPU : 0),
- 					pcpu_mevt->name, pcpu_mevt)) {
- 				pr_err("exynos-mct: cannot register IRQ (cpu%d)\n",
- 									cpu);
--- 
-2.34.1
+On Wed, Aug 27, 2025 at 12:49:13AM +0300, Nikola Z. Ivanov wrote:
+> Fix grammatical error in <past tense verb> + <infinitive>
+> construct related to memory allocation checks.
+> In essence change "Failed to allocated" to "Failed to allocate".
+>=20
+> Signed-off-by: Nikola Z. Ivanov <zlatistiv@gmail.com>
+> ---
+> Changes in v2:
+> - More descriptive commit message
 
+Repeating my previous tag:
+
+Reviewed-by: Mark Brown <broonie@kernel.org>
+
+Please don't drop tags, it causes people to have to spend time repeating
+review.
+
+--OQXy7X9uIo8z3XU8
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmiu3rwACgkQJNaLcl1U
+h9CGvwf/WeftVyVodR4qHALiv4Av0QxqR+iExFnfNIAqKJLensYxmI59/oGQNKSR
+2FxNc52TMWU8J2MaXnuTpZGnJSbSb+YMVDHO/FSZAtmp3JthRxtNwVdV67Pm02RS
+xGGvYzGLDQDMivz2dgiGirxZHfxevZrFLDeGA3h4a7mkM/aKJxLLjbL+cPOGlcri
+Zc0p0kHdhtzgK81Z1TaKe7DW8ygkXobECaeL1dwUbFIRBk2oB9Q0R/oHXCTue5Yr
+mILQcxhhO4Y4RZarEARwv00rfz0qWMUf6QaCkiTeMuspAvIR5SnjxoQcX8fFcsSn
+lBmAYNNzBpxc1gUqnsaj9M3bf4nWUQ==
+=AcWK
+-----END PGP SIGNATURE-----
+
+--OQXy7X9uIo8z3XU8--
 
