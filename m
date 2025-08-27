@@ -4,87 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 235E3CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 11:54:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7966CA0FF6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 11:57:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=af/p3RaP/vSahE1FXHlsLYbW2oFoctkUwNzanHkCnaQ=; b=gzvVOXnFzrLdb4sXkDJEPWBXJ8
-	EumS5mWzTC/eAaZe6CHV0vG/oCCZNZbaSeDUGsvV70hcc5balImA+l90vs7iWj2GufB8bu4I1qGzN
-	aTpl+qK7ZrZcNgNSMz8J+tP4dvplMM9j6f5bacsycXT0eyPBcW9BIYv8w+qaVhzOC2+ybUUiwpfA0
-	phsBVaOwzqpnO2Llspf/JDNYilNBBXWOFkLh0UQGx1vfNJ1d6GWN+Uj3HQvAPIK8LRGGfCuKf5wvN
-	VgDg9H13KMaeEjvDy0WfBjZx2MWdF19sQAabqUlZ1aLPN6MO7K2VrzOl22cX6pmNbcc3H5d/nVFms
-	h5rz9eyw==;
+	bh=x+vft1O4j7bzhrigQaNq75cEj1lanLo5Kb6/StfmDGg=; b=1Qzwgs7YscXpLgecnfzQWwp/8l
+	45+xaFZ9THjgKc6WzaW/6JQhOaSRE0r595UyZz5RrD8hqM2ehB41jtk8rTYpLpNLt+FGlToxMWwVI
+	u9lG3UtjVEkh+w8LE3/P7vDOBxwkXcS7cX9by6vMK5ZgpUSROUnLq5kEAH6U/kd+ZSUZiyD9Um4Bn
+	CV6x5T+8Iun71juZ3RvDMzWKWaOXiKua3CdPuRUOA4kI2TAHUWSu2LZ9P/7/4iHfnvAgmmEEB07UZ
+	v+iPUYR154Jx+Tr4ZU154BYCf/gd+cqLPN8TCbs6sNzQfKE2ZeJ9VO5DMY5mCO3EYC1n+ShnW/jhH
+	XHYAopMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urEjZ-0000000FLfd-0Wm3;
-	Wed, 27 Aug 2025 11:54:33 +0000
-Received: from mx0a-0016f401.pphosted.com ([67.231.148.174] helo=mx0b-0016f401.pphosted.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urDqv-0000000F8LO-36Se
+	id 1urEmE-0000000FM18-4A22;
+	Wed, 27 Aug 2025 11:57:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urDuZ-0000000F9Ac-46da
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 10:58:07 +0000
-Received: from pps.filterd (m0045849.ppops.net [127.0.0.1])
-	by mx0a-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57QNKQXI014951;
-	Wed, 27 Aug 2025 03:57:54 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pfpt0220; bh=af/p3RaP/vSahE1FXHlsLYbW2
-	oFoctkUwNzanHkCnaQ=; b=cBQYT/CT/4rzegZX9P3W0dfI+1/GqxMNjoGEymUbx
-	HufBeIzlllwV8um4eLQwyePm8TtYlk8SxzjJoggJ3vW+2hn/yMPZcrDqZ+xN4bLG
-	ZRNjkpdJMpaY+MQnDxNxUwsgn2CcWbEPNpFZFM+/aa5g3x4TErmZpNTQI6IpxhwD
-	BvzaekgBa3NuacPNYv4ELwBg30VzBh1gMlx+jatdM6HqaLISMq8JPJd0/SxYIpsU
-	7Q0dr3OQbm22cjJ+P2GhYotrNJI7TGKGL5LeYgoIVKyYjmy5WjdeICw72xQuLty+
-	r0RsAB7Aa85zQ+0cPpZLNdx53Px6cItQ1lwFfzAKvE64g==
-Received: from dc5-exch05.marvell.com ([199.233.59.128])
-	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 48spgv98x0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 27 Aug 2025 03:57:54 -0700 (PDT)
-Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
- DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25; Wed, 27 Aug 2025 03:57:58 -0700
-Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
- (10.69.176.209) with Microsoft SMTP Server id 15.2.1544.25 via Frontend
- Transport; Wed, 27 Aug 2025 03:57:58 -0700
-Received: from opensource (unknown [10.29.8.22])
-	by maili.marvell.com (Postfix) with SMTP id AF2B33F706B;
-	Wed, 27 Aug 2025 03:57:50 -0700 (PDT)
-Date: Wed, 27 Aug 2025 10:57:49 +0000
-From: Subbaraya Sundeep <sbhatta@marvell.com>
-To: Liao Yuanhong <liaoyuanhong@vivo.com>
-CC: Sunil Goutham <sgoutham@marvell.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        "moderated
- list:ARM/CAVIUM THUNDER NETWORK DRIVER"
-	<linux-arm-kernel@lists.infradead.org>,
-        "open list:NETWORKING DRIVERS"
-	<netdev@vger.kernel.org>,
-        open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] net: thunderx: Remove redundant ternary operators
-Message-ID: <aK7krVpLMXzt_xWU@opensource>
-References: <20250827101607.444580-1-liaoyuanhong@vivo.com>
+	Wed, 27 Aug 2025 11:01:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9D2EB1688;
+	Wed, 27 Aug 2025 04:01:42 -0700 (PDT)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 24B543F694;
+	Wed, 27 Aug 2025 04:01:45 -0700 (PDT)
+Date: Wed, 27 Aug 2025 12:01:42 +0100
+From: Dave Martin <Dave.Martin@arm.com>
+To: James Morse <james.morse@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
+	shameerali.kolothum.thodi@huawei.com,
+	D Scott Phillips OS <scott@os.amperecomputing.com>,
+	carl@os.amperecomputing.com, lcherian@marvell.com,
+	bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+	baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+	Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+	dfustini@baylibre.com, amitsinght@marvell.com,
+	David Hildenbrand <david@redhat.com>,
+	Rex Nie <rex.nie@jaguarmicro.com>, Koba Ko <kobak@nvidia.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
+	baisheng.gao@unisoc.com,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+	Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>
+Subject: Re: [PATCH 07/33] arm64: kconfig: Add Kconfig entry for MPAM
+Message-ID: <aK7llvNbXZKWhtoo@e133380.arm.com>
+References: <20250822153048.2287-1-james.morse@arm.com>
+ <20250822153048.2287-8-james.morse@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250827101607.444580-1-liaoyuanhong@vivo.com>
-X-Authority-Analysis: v=2.4 cv=E5bNpbdl c=1 sm=1 tr=0 ts=68aee4b2 cx=c_pps a=rEv8fa4AjpPjGxpoe8rlIQ==:117 a=rEv8fa4AjpPjGxpoe8rlIQ==:17 a=kj9zAlcOel0A:10 a=2OwXVqhp2XgA:10 a=1WtWmnkvAAAA:8 a=30FXI7qiAAAA:8 a=ExQkp8-qdG5FzR3rXfMA:9 a=CjuIK1q_8ugA:10
- a=Z3-ukm4F-8FzIVecr7dh:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODI2MDIwNSBTYWx0ZWRfX515N0BPggWRr hZO3IPq5ipoQoZvK1sYw8Tpf1nMeViWlaO8kgK6M4M4WtfHkiXn276c9P5vSgjQyCtuMSXgbLdt q5R+1vSL6sGg5kYp7K5NVfx8EL+FxJw3ucCGCkZqYqnTPGkK+pkJh4VDZC3i92lhnRI/kGUgBhN
- 6ZVzmgcVVobEGgBH4Mf1FZb/D7PolD1F/YAgzNE9vNVvcKycQpLXTlR4iwwty1L5OAKDDSsqLA6 Hnr8OJAczgSHXeFl7K85yOpU4x6LsTsgiXg/48vFSabWahLNwgiVC70EiOOI+tq3GMvwFbCt085 129URzg3v32OOJl+31KLAluSkCpZ7KoVx4CjdnyGx33RxwGXFQoWPngKo1h5hiYbpUf6/uD252e D4PjRqxb
-X-Proofpoint-GUID: -rKVUCWCR-3T-Za0PehwUcB6Xq9hxD5w
-X-Proofpoint-ORIG-GUID: -rKVUCWCR-3T-Za0PehwUcB6Xq9hxD5w
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-27_02,2025-08-26_01,2025-03-28_01
+In-Reply-To: <20250822153048.2287-8-james.morse@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_035805_963128_C0BC9C10 
-X-CRM114-Status: GOOD (  18.32  )
+X-CRM114-CacheID: sfid-20250827_040152_058335_CA950197 
+X-CRM114-Status: GOOD (  35.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,50 +86,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-08-27 at 10:16:07, Liao Yuanhong (liaoyuanhong@vivo.com) wrote:
-> For ternary operators in the form of "a ? true : false", if 'a' itself
-> returns a boolean result, the ternary operator can be omitted. Remove
-> redundant ternary operators to clean up the code.
-> 
-> Signed-off-by: Liao Yuanhong <liaoyuanhong@vivo.com>
-Reviewed-by: Subbaraya Sundeep <sbhatta@marell.com>
+Hi,
 
-Looks good to me but a minor comment - include net-next in the subject
-Thanks,
-Sundeep
+<super-pedantic mode enabled>
 
+(Since this likely be people's go-to patch for understanding what MPAM
+is, it is probably worth going the extra mile.)
+
+On Fri, Aug 22, 2025 at 03:29:48PM +0000, James Morse wrote:
+> The bulk of the MPAM driver lives outside the arch code because it
+> largely manages MMIO devices that generate interrupts. The driver
+> needs a Kconfig symbol to enable it, as MPAM is only found on arm64
+
+Prefer -> "[...] to enable it. As MPAM is only [...]"
+
+> platforms, that is where the Kconfig option makes the most sense.
+
+It could be clearer what "where" refers to, here.
+
+Maybe reword from ", that is [...]" -> ", the arm64 tree is the most
+natural home for the Kconfig option."
+
+(Or something like that.)
+
+> This Kconfig option will later be used by the arch code to enable
+> or disable the MPAM context-switch code, and registering the CPUs
+
+Nit: "registering" -> "to register"
+
+> properties with the MPAM driver.
+
+Nit: "CPUs properties" -> "properties of CPUs" ?
+
+(Maybe there was just a missed apostrophe, but it may be more readable
+here if written out longhand.)
+
+
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 > ---
->  drivers/net/ethernet/cavium/thunder/nic_main.c    | 2 +-
->  drivers/net/ethernet/cavium/thunder/thunder_bgx.c | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
+>  arch/arm64/Kconfig | 17 +++++++++++++++++
+>  1 file changed, 17 insertions(+)
 > 
-> diff --git a/drivers/net/ethernet/cavium/thunder/nic_main.c b/drivers/net/ethernet/cavium/thunder/nic_main.c
-> index 0ec65ec634df..b7cf4ba89b7c 100644
-> --- a/drivers/net/ethernet/cavium/thunder/nic_main.c
-> +++ b/drivers/net/ethernet/cavium/thunder/nic_main.c
-> @@ -174,7 +174,7 @@ static void nic_mbx_send_ready(struct nicpf *nic, int vf)
->  		if (mac)
->  			ether_addr_copy((u8 *)&mbx.nic_cfg.mac_addr, mac);
->  	}
-> -	mbx.nic_cfg.sqs_mode = (vf >= nic->num_vf_en) ? true : false;
-> +	mbx.nic_cfg.sqs_mode = vf >= nic->num_vf_en;
->  	mbx.nic_cfg.node_id = nic->node;
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index e9bbfacc35a6..658e47fc0c5a 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -2060,6 +2060,23 @@ config ARM64_TLB_RANGE
+>  	  ARMv8.4-TLBI provides TLBI invalidation instruction that apply to a
+>  	  range of input addresses.
 >  
->  	mbx.nic_cfg.loopback_supported = vf < nic->num_vf_en;
-> diff --git a/drivers/net/ethernet/cavium/thunder/thunder_bgx.c b/drivers/net/ethernet/cavium/thunder/thunder_bgx.c
-> index 21495b5dce25..10d501ee7b32 100644
-> --- a/drivers/net/ethernet/cavium/thunder/thunder_bgx.c
-> +++ b/drivers/net/ethernet/cavium/thunder/thunder_bgx.c
-> @@ -959,7 +959,7 @@ static void bgx_poll_for_sgmii_link(struct lmac *lmac)
->  		goto next_poll;
->  	}
+> +config ARM64_MPAM
+> +	bool "Enable support for MPAM"
+> +	help
+
+<pedantic mode on>
+
+> +	  Memory Partitioning and Monitoring is an optional extension
+> +	  that allows the CPUs to mark load and store transactions with
+
+Nit: "memory transactions" ?
+
+(I'm wondering whether there are some transactions such as atomic
+exchanges that are not neatly characterised as "load" or "store".
+Possibly MPAM labels some transactions that really are neither.)
+
+> +	  labels for partition-id and performance-monitoring-group.
+
+Nit: the hyphenation suggests that these are known terms (in this
+specific, hyphenated, form) with specific definitions somewhere.
+I don't think that this is the case?  At least, I have not seen the
+terms presented in this way anywhere else.
+
+Also, the partition ID is itself a label, so "label for partition-id"
+is a tautology.
+
+How about:
+
+--8<--
+
+	  Memory System Resource Partitioning and Monitoring (MPAM) is an
+	  optional extension to the Arm architecture that allows each
+	  transaction issued to the memory system to be labelled with a
+	  Partition identifier (PARTID) and Performance Monitoring Group
+	  identifier (PMG).
+
+-->8--
+
+(Yes, that really seems to be what MPAM stands for in the published
+specs.  That's quite a mounthful, and news to me...  I can't say I paid
+much attention to the document titles beyond "MPAM"!)
+
+> +	  System components, such as the caches, can use the partition-id
+> +	  to apply a performance policy. MPAM monitors can use the
+
+What is a "performance policy"?
+
+The MPAM specs talk about resource controls; it's probably best to
+stick to the same terminology.
+
+> +	  partition-id and performance-monitoring-group to measure the
+> +	  cache occupancy or data throughput.
+
+So, how about something like:
+
+--8<--
+
+	  Memory system components, such as the caches, can be configured with
+	  policies to control how much of various physical resources (such as
+	  memory bandwidth or cache memory) the transactions labelled with each
+	  PARTID can consume.  Depending on the capabilities of the hardware,
+	  the PARTID and PMG can also be used as filtering criteria to measure
+	  the memory system resource consumption of different parts of a
+	  workload.
+
+-->8--
+
+(Where "Memory system components" is used in a generic sense and so not
+capitalised.)
+
+> +
+> +	  Use of this extension requires CPU support, support in the
+> +	  memory system components (MSC), and a description from firmware
+
+But here, we are explicitly using an architectural term now, so
+
+	"Memory System Components" (MSC)
+
+makes sense.
+
+> +	  of where the MSC are in the address space.
+
+Prefer "MSCs" ?  (Not everyone agrees about whether TLAs are
+pluralisable but it is easier on the reader if "are" has an obviously
+plural noun to bind to.)
+
+> +
+> +	  MPAM is exposed to user-space via the resctrl pseudo filesystem.
+> +
+>  endmenu # "ARMv8.4 architectural features"
 >  
-> -	lmac->link_up = ((pcs_link & PCS_MRX_STATUS_LINK) != 0) ? true : false;
-> +	lmac->link_up = (pcs_link & PCS_MRX_STATUS_LINK) != 0;
->  	an_result = bgx_reg_read(lmac->bgx, lmac->lmacid,
->  				 BGX_GMP_PCS_ANX_AN_RESULTS);
->  
-> -- 
-> 2.34.1
-> 
+>  menu "ARMv8.5 architectural features"
+
+Cheers
+---Dave
 
