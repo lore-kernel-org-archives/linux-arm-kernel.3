@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4336AC8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 06:41:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 312C9C8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 06:44:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YFldATauqouNiIk5AkIlDcKjnNXZNLuWdK5vH+G869Q=; b=dBefvLQmkmxkv8iBxueXOGu+aG
-	Yo5wYcd+Tn4mqqayZeJcIcGYEu7+4lh6skC1ZTcBBDfGhhGZG4au743/GJ8ptj9TQ0SVyGOpTnzTq
-	Wx5pE1Vm/AxWxkE/M3SbxljU6NqRfs6GJSOjkncAsb1KzwQVV86x1LP5LYaSeHlNaKycRWBXNRA/s
-	hbNb5WE0zs3ClU/JgBi8DvYiM/Xm8L+DC4g++6lu1x7EKvUU9j1hds55QlOgm3OBQHhiyASl2XSPP
-	AQiSIwK+oQh/9aar/LVVI0chiV9a9VOHtMe152FZP7XJfOalsot7JgiOP+zdPXDHxS3lwIn+lWC9R
-	IZdFqozQ==;
+	bh=Oiv/VY6oQv5JSS61etX5PvNjvB/GMzFhiztKxuZaWIk=; b=vubRF6DXbdz9EKy2SMbK/KqPaT
+	rlNMakK3WYxijGNxLGrxQYkqE+geQtj5fuJpzV0Hg7NstccG82b0SqEpvj1Er2yXQgzXwVEqrrRWr
+	blZDIVIW6p+q3ZbHT0yiCfK+yLH/pzpqXM9chGcE0S6nA4fhDdszuFiNm2/i3ujMO2BR90wfgMjk9
+	DMhEYSaXPhAOF4dVOGjxp7sec7N+rR+Yo6MSZWuh2qgqPx1Ua9ktOWNj/kcei7YPN2RIH7aGvKkDa
+	MkjNzJUQ8Pwv5/SiGHVNPdkVopNkpqE/Zue0P8SGGDfstcTN3DomEp2V8Bz5tlI02imM+/AOoNM4W
+	gkp5FJeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ur9qv-0000000EI8h-24y7;
-	Wed, 27 Aug 2025 06:41:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ur9tZ-0000000EIPu-3xY2;
+	Wed, 27 Aug 2025 06:44:33 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ur9fx-0000000EGS8-1amt
+	id 1ur9nU-0000000EHfM-0y6S
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 06:30:29 +0000
+	Wed, 27 Aug 2025 06:38:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 66F2660254;
-	Wed, 27 Aug 2025 06:30:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 825B3C4CEEB;
-	Wed, 27 Aug 2025 06:30:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8536A418A2;
+	Wed, 27 Aug 2025 06:38:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64274C4CEEB;
+	Wed, 27 Aug 2025 06:38:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756276228;
-	bh=tI4PhkEItaDUc859uaBnkI5RDHS5dlXqXvDOceNK4uA=;
+	s=k20201202; t=1756276695;
+	bh=ypbSldKKIg0u2TzSiWKfGcOi9083+yJHil2HF5x1BAI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ixT6YZGgBoUAwcSpCnCCoa5a8V29I+qn6pPvtO9H3nB+l9njf7UccQLiZf73fF8VJ
-	 sdC9+0fc59fzLfYrHvU0k7WQ95hsRymxcxiGVhKmFFY2lL1cEi0wkpgmisp1116Tzw
-	 5PXNWXpP2YRz1e5byAkjSXcyE9nrvA6VZ6dzfHZWSHYZnNdxK2kWn5XhOVG5PBepKO
-	 pFo6S7I0nuc7ORfa9xl/2YFk14vGI+CaRV6wtEmcNsSNYpVPO8e2ztGuVkt8vl+Ybp
-	 EN9pqer8st4mqH4+PIgJmhcSGYITv4sA2gz5LiQ6qjWkqdfco+HzsJTb3bgL0/ZJiz
-	 4fH2C+RxH+VQw==
-Message-ID: <3b72ba2c-707a-4f38-8d8d-548efb358e9b@kernel.org>
-Date: Wed, 27 Aug 2025 08:30:22 +0200
+	b=gZ5W3wfbNPKjXAR7FX8pd1xkVXDvLqgLQyWM2ndzAlBMZMaS6M3NB8bZpvIaAZlnI
+	 OH76UwiWwQbjkw+zv8qvKTSDCk56WBv4w/LSIM1Es5dqyxYEk1x5EUm+aXlpYU20Hk
+	 EI8T5G/SPxyGblUdzkQq4S1yafge4kPH8/RmIE4EExkL4mI15AT579pHGgXtRJXxAf
+	 MHLRQGmYoNzR0bQLcZ0cLRa5HzIRVQaBt9Be0WCFgFJiYKEL+Efp4XBCNvjf9r9VIC
+	 wYn6VJMG3+D7SZrMI17Y2QBq1ifG+V678WHQM/1HGnspuQakb1naBrV1YsPuQGzGs4
+	 mMj1KwAeAaiHA==
+Message-ID: <ef3822a5-d3f8-41dc-984c-8c63d60eaec5@kernel.org>
+Date: Wed, 27 Aug 2025 08:38:09 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] dt-bindings: soc: samsung: scaler: exynos: Add
- ExynosAutov920 compatible
+Subject: Re: [PATCH 2/4] media: samsung: scaler: add scaler driver code
 To: Kisung Lee <kiisung.lee@samsung.com>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
@@ -59,8 +58,8 @@ Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-samsung-soc@vger.kernel.org, linux-media@vger.kernel.org
 References: <20250827044720.3751272-1-kiisung.lee@samsung.com>
- <CGME20250827045905epcas2p4b2cbd4b881af1c1be4b345861d1a635b@epcas2p4.samsung.com>
- <20250827044720.3751272-2-kiisung.lee@samsung.com>
+ <CGME20250827045905epcas2p46c8bc31d9c32168f77d1e10808e92b77@epcas2p4.samsung.com>
+ <20250827044720.3751272-3-kiisung.lee@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,9 +105,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250827044720.3751272-2-kiisung.lee@samsung.com>
+In-Reply-To: <20250827044720.3751272-3-kiisung.lee@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250826_233816_322364_4EB312E9 
+X-CRM114-Status: GOOD (  20.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,26 +126,349 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 27/08/2025 06:47, Kisung Lee wrote:
-> Add samsung,exynos5-scaler compatible for ExynosAutov920 SoC.
-> 
-> Signed-off-by: Kisung Lee <kiisung.lee@samsung.com>
-> ---
->  Documentation/devicetree/bindings/gpu/samsung-scaler.yaml | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/gpu/samsung-scaler.yaml b/Documentation/devicetree/bindings/gpu/samsung-scaler.yaml
-> index 9fb530e65d0e..5a472e29dc8a 100644
-> --- a/Documentation/devicetree/bindings/gpu/samsung-scaler.yaml
-> +++ b/Documentation/devicetree/bindings/gpu/samsung-scaler.yaml
-> @@ -14,6 +14,7 @@ properties:
->      enum:
->        - samsung,exynos5420-scaler
->        - samsung,exynos5433-scaler
-> +      - samsung,exynos5-scaler
+> +
+> +static int sc_probe(struct platform_device *pdev)
+> +{
+> +	struct sc_dev *sc;
+> +	struct resource *res;
+> +	int ret = 0;
+> +	size_t ivar;
+> +	u32 hwver = 0;
+> +	int irq_num;
+> +
+> +	sc = devm_kzalloc(&pdev->dev, sizeof(struct sc_dev), GFP_KERNEL);
 
-Uh, no, 5 != 920.
 
-Please follow writing bindings or check my talk from yesterday at OSSE25.
+Oh yeah, 10 year old coding style. Very dissapointing :(
+
+> +	if (!sc)
+> +		goto err_dev;
+> +
+> +	sc->dev = &pdev->dev;
+> +	spin_lock_init(&sc->ctxlist_lock);
+> +	INIT_LIST_HEAD(&sc->ctx_list_high_prio);
+> +	INIT_LIST_HEAD(&sc->ctx_list_low_prio);
+> +	spin_lock_init(&sc->slock);
+> +	mutex_init(&sc->lock);
+> +	init_waitqueue_head(&sc->wait);
+> +
+> +	sc->fence_context = dma_fence_context_alloc(1);
+> +	spin_lock_init(&sc->fence_lock);
+> +
+> +	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+> +	pr_err("Resource start: 0x%pa, end: 0x%pa, size: 0x%lx, flags: 0x%lx\n",
+
+No, drop.
+
+> +	       &res->start, &res->end,
+> +	       (unsigned long)resource_size(res),
+> +	       (unsigned long)res->flags);
+> +	sc->regs = devm_ioremap_resource(&pdev->dev, res);
+> +	if (IS_ERR(sc->regs)) {
+> +		pr_err("devm_ioremap_resource failed: %pe\n", sc->regs);
+> +		goto err_io_resource;
+> +	}
+> +	dma_set_mask(&pdev->dev, DMA_BIT_MASK(32));
+> +
+> +	atomic_set(&sc->wdt.cnt, 0);
+> +	timer_setup(&sc->wdt.timer, sc_watchdog, 0);
+> +
+> +	if (pdev->dev.of_node) {
+> +		sc->dev_id = of_alias_get_id(pdev->dev.of_node, "scaler");
+
+NAK, check my DT talk.
+
+> +		if (sc->dev_id < 0) {
+> +			dev_err(&pdev->dev,
+> +				"Failed to read scaler node id(%d)!\n", sc->dev_id);
+> +			ret = -EINVAL;
+> +			goto err_node_id;
+> +		}
+> +	} else {
+> +		sc->dev_id = pdev->id;
+> +	}
+> +
+> +	platform_set_drvdata(pdev, sc);
+> +
+> +	pm_runtime_enable(&pdev->dev);
+> +
+> +	ret = sc_populate_dt(sc);
+> +	if (ret)
+> +		goto err_dt;
+> +
+> +	ret = sc_register_m2m_device(sc, sc->dev_id);
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "failed to register m2m device\n");
+> +		goto err_m2m;
+> +	}
+> +
+> +#if defined(CONFIG_PM_DEVFREQ) && defined(NEVER_DEFINED)
+
+You must be joking?
+
+> +	if (!of_property_read_u32(pdev->dev.of_node, "mscl,int_qos_minlock",
+
+NAK
+
+> +				  (u32 *)&sc->qosreq_int_level)) {
+> +		if (sc->qosreq_int_level > 0) {
+> +			exynos_pm_qos_add_request(&sc->qosreq_int,
+> +						  PM_QOS_DEVICE_THROUGHPUT, 0);
+> +			dev_info(&pdev->dev, "INT Min.Lock Freq. = %u\n",
+> +				 sc->qosreq_int_level);
+> +		}
+> +	}
+> +#endif
+> +	if (of_property_read_u32(pdev->dev.of_node, "mscl,cfw",
+
+Cannot express more: NAK. You cannot add such undocumented ABI.
+
+> +				 (u32 *)&sc->cfw))
+> +		sc->cfw = 0;
+> +
+> +	ret = sc_get_hwversion(sc);
+> +	if (ret < 0) {
+> +		dev_err(&pdev->dev, "%s: failed to get hw version (err %d)\n",
+> +			__func__, ret);
+> +		goto err_m2m;
+> +	} else {
+> +		hwver = ret;
+> +	}
+> +
+> +	for (ivar = 0; ivar < ARRAY_SIZE(sc_variant); ivar++) {
+> +		if (sc->version >= sc_variant[ivar].version) {
+> +			sc->variant = &sc_variant[ivar];
+> +			break;
+> +		}
+> +	}
+> +
+> +	if (sc->version >= SCALER_VERSION(7, 0, 1)) {
+> +		sc->sysreg_offset = SCALER_SYSREG_OFFSET(res->start);
+> +		res = platform_get_resource(pdev, IORESOURCE_MEM, 1);
+> +		if (res) {
+> +			sc->sysreg = devm_ioremap_resource(&pdev->dev, res);
+> +			if (IS_ERR(sc->sysreg)) {
+> +				dev_info(&pdev->dev, "SCALER LLC SYSREG is not setted.\n");
+> +			} else {
+> +				writel(SCALER_LLC_NO_HINT, sc->sysreg + sc->sysreg_offset);
+> +				dev_info(&pdev->dev, "SCALER LLC SYSREG is setted with NO_HINT.\n");
+> +			}
+> +		}
+> +	}
+> +
+> +	sc_hwset_soft_reset(sc);
+> +
+> +	if (!IS_ERR(sc->aclk))
+> +		clk_disable_unprepare(sc->aclk);
+> +	if (!IS_ERR(sc->pclk))
+> +		clk_disable_unprepare(sc->pclk);
+> +	pm_runtime_put(&pdev->dev);
+> +
+> +	irq_num = platform_get_irq(pdev, 0);
+> +	if (irq_num < 0) {
+> +		dev_err(&pdev->dev, "failed to get IRQ resource\n");
+
+you just upstream 10 year old code, right?
+
+Please carefully check the slides of my Monday's talk from OSSE25 about
+static analyzers. Look at slides about upstreaming 10 year old vendor
+code (that's a very bad idea).
+
+
+> +		ret = -ENOENT;
+
+Wrong error code.
+
+> +		goto err_get_irq_res;
+> +	}
+> +
+> +	ret = devm_request_irq(&pdev->dev, irq_num, sc_irq_handler, 0,
+> +			       pdev->name, sc);
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "failed to install irq\n");
+> +		goto err_request_irq;
+> +	}
+> +
+> +	dev_info(&pdev->dev,
+> +		 "Driver probed successfully(version: %08x(%x))\n",
+> +		 hwver, sc->version);
+
+NAK, don't add such code. Ever.
+
+> +
+> +	return 0;
+> +
+> +err_request_irq:
+> +err_get_irq_res:
+> +err_m2m:
+> +err_dt:
+> +err_node_id:
+> +err_io_resource:
+> +	if (sc)
+> +		devm_kfree(&pdev->dev, sc);
+> +err_dev:
+> +	dev_err(&pdev->dev,
+> +		"Driver probed failed!\n");
+
+
+No, drop. Useless.
+
+> +
+> +	return ret;
+> +}
+> +
+
+
+
+
+...
+
+> +static struct sc_csc_tab sc_y2r = {
+> +	/* REC.601 Narrow */
+> +	{ 0x0254, 0x0000, 0x0331, 0x0254, 0xFF37, 0xFE60, 0x0254, 0x0409, 0x0000 },
+> +	/* REC.601 Wide */
+> +	{ 0x0200, 0x0000, 0x02BE, 0x0200, 0xFF54, 0xFE9B, 0x0200, 0x0377, 0x0000 },
+> +	/* REC.709 Narrow */
+> +	{ 0x0254, 0x0000, 0x0396, 0x0254, 0xFF93, 0xFEEF, 0x0254, 0x043A, 0x0000 },
+> +	/* REC.709 Wide */
+> +	{ 0x0200, 0x0000, 0x0314, 0x0200, 0xFFA2, 0xFF16, 0x0200, 0x03A1, 0x0000 },
+> +	/* BT.2020 Narrow */
+> +	{ 0x0254, 0x0000, 0x035B, 0x0254, 0xFFA0, 0xFEB3, 0x0254, 0x0449, 0x0000 },
+> +	/* BT.2020 Wide */
+> +	{ 0x0200, 0x0000, 0x02E2, 0x0200, 0xFFAE, 0xFEE2, 0x0200, 0x03AE, 0x0000 },
+> +};
+> +
+> +static struct sc_csc_tab sc_r2y = {
+> +	/* REC.601 Narrow */
+> +	{ 0x0083, 0x0102, 0x0032, 0xFFB4, 0xFF6B, 0x00E1, 0x00E1, 0xFF44, 0xFFDB },
+> +	/* REC.601 Wide  */
+> +	{ 0x0099, 0x012D, 0x003A, 0xFFA8, 0xFF53, 0x0106, 0x0106, 0xFF25, 0xFFD5 },
+> +	/* REC.709 Narrow */
+> +	{ 0x005D, 0x013A, 0x0020, 0xFFCC, 0xFF53, 0x00E1, 0x00E1, 0xFF34, 0xFFEB },
+> +	/* REC.709 Wide */
+> +	{ 0x006D, 0x016E, 0x0025, 0xFFC4, 0xFF36, 0x0106, 0x0106, 0xFF12, 0xFFE8 },
+> +	/* BT.2020 Narrow */
+> +	{ 0x0074, 0x012A, 0x001A, 0xFFC1, 0xFF5E, 0x00E1, 0x00E1, 0xFF31, 0xFFEE },
+> +	/* BT.2020 Wide */
+> +	{ 0x0087, 0x015B, 0x001E, 0xFFB7, 0xFF43, 0x0106, 0x0106, 0xFF0F, 0xFFEB },
+> +};
+> +
+> +static struct sc_csc_tab *sc_csc_list[] = {
+> +	[0] = &sc_no_csc,
+> +	[1] = &sc_y2r,
+> +	[2] = &sc_r2y,
+> +};
+> +
+> +static struct sc_bl_op_val sc_bl_op_tbl[] = {
+
+
+Why absolutely nothing here is const?
+
+> +	/* Sc,	 Sa,	Dc,	Da */
+> +	{ZERO,	 ZERO,	ZERO,	ZERO},		/* CLEAR */
+> +	{ ONE,	 ONE,	ZERO,	ZERO},		/* SRC */
+> +	{ZERO,	 ZERO,	ONE,	ONE},		/* DST */
+> +	{ ONE,	 ONE,	INV_SA,	INV_SA},	/* SRC_OVER */
+> +	{INV_DA, ONE,	ONE,	INV_SA},	/* DST_OVER */
+> +	{DST_A,	 DST_A,	ZERO,	ZERO},		/* SRC_IN */
+> +	{ZERO,	 ZERO,	SRC_A,	SRC_A},		/* DST_IN */
+> +	{INV_DA, INV_DA, ZERO,	ZERO},		/* SRC_OUT */
+> +	{ZERO,	 ZERO,	INV_SA,	INV_SA},	/* DST_OUT */
+> +	{DST_A,	 ZERO,	INV_SA,	ONE},		/* SRC_ATOP */
+> +	{INV_DA, ONE,	SRC_A,	ZERO},		/* DST_ATOP */
+> +	{INV_DA, ONE,	INV_SA,	ONE},		/* XOR: need to WA */
+> +	{INV_DA, ONE,	INV_SA,	INV_SA},	/* DARKEN */
+> +	{INV_DA, ONE,	INV_SA,	INV_SA},	/* LIGHTEN */
+> +	{INV_DA, ONE,	INV_SA,	INV_SA},	/* MULTIPLY */
+> +	{ONE,	 ONE,	INV_SC,	INV_SA},	/* SCREEN */
+> +	{ONE,	 ONE,	ONE,	ONE},		/* ADD */
+> +};
+> +
+
+...
+
+> +	yfilter = sc_get_scale_filter(yratio);
+> +	cfilter = sc_get_scale_filter(cratio);
+> +	bit_adj = !sc->variant->pixfmt_10bit;
+> +
+> +	/* reset value of the coefficient registers are the 8:8 table */
+> +	for (phase = 0; phase < 9; phase++) {
+> +		__raw_writel(sc_coef_adj(bit_adj, sc_coef_4t[yfilter][phase][1]),
+> +			     sc->regs + SCALER_YVCOEF + phase * 8);
+> +		__raw_writel(sc_coef_adj(bit_adj, sc_coef_4t[yfilter][phase][0]),
+> +			     sc->regs + SCALER_YVCOEF + phase * 8 + 4);
+> +	}
+> +
+> +	for (phase = 0; phase < 9; phase++) {
+> +		__raw_writel(sc_coef_adj(bit_adj, sc_coef_4t[cfilter][phase][1]),
+> +			     sc->regs + SCALER_CVCOEF + phase * 8);
+> +		__raw_writel(sc_coef_adj(bit_adj, sc_coef_4t[cfilter][phase][0]),
+> +			     sc->regs + SCALER_CVCOEF + phase * 8 + 4);
+> +	}
+> +}
+> +
+> +void sc_get_span(struct sc_frame *frame, u32 *yspan, u32 *cspan)
+> +{
+> +	if (IS_ERR_OR_NULL(frame) || IS_ERR_OR_NULL(yspan) || IS_ERR_OR_NULL(cspan)) {
+
+Sorrry, but what? How each of these can be ERR or NULL? How is it possible?
+
+Please provide exact cases leading to this.
+
+> +		pr_err("[%s] frame(%p) or yspan(%p) or cspan(%p) is wrong\n",
+> +		       __func__, frame, yspan, cspan);
+> +		return;
+> +	}
+> +
+> +	*yspan = frame->width;
+> +
+> +	if (frame->sc_fmt->num_comp == 2) {
+> +		*cspan = frame->width << frame->sc_fmt->cspan;
+> +	} else if (frame->sc_fmt->num_comp == 3) {
+> +		if (sc_fmt_is_ayv12(frame->sc_fmt->pixelformat)) {
+> +			*cspan = ALIGN(frame->width >> 1, 16);
+> +		} else if (sc_fmt_is_yuv420(frame->sc_fmt->pixelformat)) { /* YUV420 */
+> +			if (frame->cspanalign) {
+> +				*cspan = ALIGN(frame->width >> 1,
+> +					       8 << (frame->cspanalign - 1));
+> +			} else {
+> +				*cspan = frame->width >> 1;
+> +			}
+> +		} else if (frame->sc_fmt->cspan) { /* YUV444 */
+> +			*cspan = frame->width;
+> +		} else {
+> +			*cspan = frame->width >> 1;
+> +		}
+> +	} else if (frame->sc_fmt->num_comp == 1) {
+> +		if (sc_fmt_is_rgb888(frame->sc_fmt->pixelformat))
+> +			if (frame->yspanalign)
+> +				*yspan = ALIGN(frame->width,
+> +					       8 << (frame->yspanalign - 1));
+> +		*cspan = 0;
+> +	} else {
+> +		*cspan = 0;
+> +	}
+> +}
+> +
+> +void sc_hwset_src_imgsize(struct sc_dev *sc, struct sc_frame *frame)
+> +{
+> +	u32 yspan = 0, cspan = 0;
+> +
+> +	if (IS_ERR_OR_NULL(sc) || IS_ERR_OR_NULL(frame)) {
+
+How can be ERR or NULL? This looks buggy, like you don't know flow of
+own code.
+
+> +		pr_err("[%s] sc(%p) or frame(%p) is wrong\n", __func__, sc, frame);
+
+dev_err
+
+
+This is terrible driver, poorly coded, using 10 year old coding style,
+repeating many known antipatterns and mistakes. It is very dissapointing
+to see Samsung sending such poor code.
+
+Really poor code.
 
 Best regards,
 Krzysztof
