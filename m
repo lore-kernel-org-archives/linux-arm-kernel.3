@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A410CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 23:15:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61FACCA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 23:15:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D/EwzdzyNFR+ewVEEFqEze2ovwyb82bK+Rce3/V3U0s=; b=ctPr0vvp764rqdLByVG/zgxpUo
-	g7nr85cqxI4bQe5fXt5UBtk5LgasEc0HcOKqFWy5Z+zxfHoFxu/GOc9zb9Z8bbNlrpQsZyzbMrAkV
-	Cdyqqukc6zAKm7MSH46ZiTq1/WqSyWONf9qrYQeGKj78b1ifKyX+qq3XNHPgxTzC1Ff1OTK1WdFdd
-	WHuCZMe/cDeeLXqCFopRq0S3+Br5ftL0OBliQ3k62QOATVPeY6f2AUpzoHMi/IXuWKA4fNr8Igrcn
-	dofAUgfge7eY9lTTA4FPEWFjz0BKNy9AWrrfYbktQxUczYfpXOtMqTBQtAWzH3qjZB+PYkDKDwHWJ
-	JY2cZNWA==;
+	bh=tOg+y93CWdttiSRHo5MMFmvDG+rRd/OMag8GX96YAWo=; b=t/7/4s572qnYwG+HueTDF8aOky
+	pGLSfAS6HMgyKJWYQV8lkRuIstN69jnJJVSJID16AOjQBYxmJyuV/K63EfoMJSUcPyzpDMtvKNID8
+	NKmdA/zA5nCHuILCbCs2zAMnuh54GDx6fWGEWh6mZe/DMKDhwV2gccSpCoEJ05K/m32CZOGzgb8PO
+	rLZix8gNEqrpU/BOtn/MHYIn6FoKHm3wUhz9QiAwKLkIj9fw/CBH+hG+rQWRvZPUWXffk3dIGaGXr
+	Es5a98elFBZXSnz265uqgxZ2ia6e8RukXqQd/yZ7FVw0u5YaRhU7EXhdnXcTjIoKJdHF784jjlRhL
+	WDP0QWyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urPMa-0000000HBKy-2MGc;
-	Wed, 27 Aug 2025 23:15:32 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1urPMd-0000000HBM5-0LK4;
+	Wed, 27 Aug 2025 23:15:35 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urOGf-0000000Gyju-0g5X
+	id 1urOHA-0000000Gywa-0vZ8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 22:05:22 +0000
+	Wed, 27 Aug 2025 22:05:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756332320;
+	s=mimecast20190719; t=1756332351;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=D/EwzdzyNFR+ewVEEFqEze2ovwyb82bK+Rce3/V3U0s=;
-	b=HsahPLvalGu9KZ022Dhn5jN0pEIIDEmSubcNKg0b/hfgql16Qu8xC9LJCCIE/sAXKoKsu5
-	OA07LMejc7tHopO78jV/Q0635f8zPYuVkc+lWSNPZLbTye27a8yyIMtFV5nLAZoplc3aOd
-	khJQUOqyDeUdItAr0Y/sbjasoeGBVUI=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+	bh=tOg+y93CWdttiSRHo5MMFmvDG+rRd/OMag8GX96YAWo=;
+	b=TefR4SCwLU95eyGTl4qEexmmI7iO9PjzPm0VYw9Pg8ZbW1gr7mtOtVmvUXuA4/psmmpNJz
+	UcnTqnbOa6MLiIkEfIb3Ec+g3la+rGkIjOMOKBWLJWTq3QwtnghX/6dGLcWmvL3CtnaKXA
+	z3+xpAyV6KoCG9u1QYqBIFk1i192Tjc=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-319-rAeDOcrbOYu2jFZVlj4BxA-1; Wed,
- 27 Aug 2025 18:05:15 -0400
-X-MC-Unique: rAeDOcrbOYu2jFZVlj4BxA-1
-X-Mimecast-MFC-AGG-ID: rAeDOcrbOYu2jFZVlj4BxA_1756332310
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-468-z4mlROjvMIiLD1GebYFmSQ-1; Wed,
+ 27 Aug 2025 18:05:47 -0400
+X-MC-Unique: z4mlROjvMIiLD1GebYFmSQ-1
+X-Mimecast-MFC-AGG-ID: z4mlROjvMIiLD1GebYFmSQ_1756332341
 Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id E3F20180028D;
-	Wed, 27 Aug 2025 22:05:09 +0000 (UTC)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id BEADE195419A;
+	Wed, 27 Aug 2025 22:05:41 +0000 (UTC)
 Received: from t14s.redhat.com (unknown [10.22.80.195])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id CB62530001A1;
-	Wed, 27 Aug 2025 22:04:53 +0000 (UTC)
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id DDB1430001A5;
+	Wed, 27 Aug 2025 22:05:26 +0000 (UTC)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: David Hildenbrand <david@redhat.com>,
@@ -102,17 +102,17 @@ Cc: David Hildenbrand <david@redhat.com>,
 	Vlastimil Babka <vbabka@suse.cz>,
 	wireguard@lists.zx2c4.com,
 	x86@kernel.org
-Subject: [PATCH v1 10/36] mm: sanity-check maximum folio size in folio_set_order()
-Date: Thu, 28 Aug 2025 00:01:14 +0200
-Message-ID: <20250827220141.262669-11-david@redhat.com>
+Subject: [PATCH v1 12/36] mm: simplify folio_page() and folio_page_idx()
+Date: Thu, 28 Aug 2025 00:01:16 +0200
+Message-ID: <20250827220141.262669-13-david@redhat.com>
 In-Reply-To: <20250827220141.262669-1-david@redhat.com>
 References: <20250827220141.262669-1-david@redhat.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_150521_273362_E9AA185D 
-X-CRM114-Status: GOOD (  11.96  )
+X-CRM114-CacheID: sfid-20250827_150552_331378_B398BEFA 
+X-CRM114-Status: GOOD (  17.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,30 +127,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Let's sanity-check in folio_set_order() whether we would be trying to
-create a folio with an order that would make it exceed MAX_FOLIO_ORDER.
+Now that a single folio/compound page can no longer span memory sections
+in problematic kernel configurations, we can stop using nth_page().
 
-This will enable the check whenever a folio/compound page is initialized
-through prepare_compound_head() / prepare_compound_page().
+While at it, turn both macros into static inline functions and add
+kernel doc for folio_page_idx().
 
 Reviewed-by: Zi Yan <ziy@nvidia.com>
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- mm/internal.h | 1 +
- 1 file changed, 1 insertion(+)
+ include/linux/mm.h         | 16 ++++++++++++++--
+ include/linux/page-flags.h |  5 ++++-
+ 2 files changed, 18 insertions(+), 3 deletions(-)
 
-diff --git a/mm/internal.h b/mm/internal.h
-index 45da9ff5694f6..9b0129531d004 100644
---- a/mm/internal.h
-+++ b/mm/internal.h
-@@ -755,6 +755,7 @@ static inline void folio_set_order(struct folio *folio, unsigned int order)
- {
- 	if (WARN_ON_ONCE(!order || !folio_test_large(folio)))
- 		return;
-+	VM_WARN_ON_ONCE(order > MAX_FOLIO_ORDER);
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index 2dee79fa2efcf..f6880e3225c5c 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -210,10 +210,8 @@ extern unsigned long sysctl_admin_reserve_kbytes;
  
- 	folio->_flags_1 = (folio->_flags_1 & ~0xffUL) | order;
- #ifdef NR_PAGES_IN_LARGE_FOLIO
+ #if defined(CONFIG_SPARSEMEM) && !defined(CONFIG_SPARSEMEM_VMEMMAP)
+ #define nth_page(page,n) pfn_to_page(page_to_pfn((page)) + (n))
+-#define folio_page_idx(folio, p)	(page_to_pfn(p) - folio_pfn(folio))
+ #else
+ #define nth_page(page,n) ((page) + (n))
+-#define folio_page_idx(folio, p)	((p) - &(folio)->page)
+ #endif
+ 
+ /* to align the pointer to the (next) page boundary */
+@@ -225,6 +223,20 @@ extern unsigned long sysctl_admin_reserve_kbytes;
+ /* test whether an address (unsigned long or pointer) is aligned to PAGE_SIZE */
+ #define PAGE_ALIGNED(addr)	IS_ALIGNED((unsigned long)(addr), PAGE_SIZE)
+ 
++/**
++ * folio_page_idx - Return the number of a page in a folio.
++ * @folio: The folio.
++ * @page: The folio page.
++ *
++ * This function expects that the page is actually part of the folio.
++ * The returned number is relative to the start of the folio.
++ */
++static inline unsigned long folio_page_idx(const struct folio *folio,
++		const struct page *page)
++{
++	return page - &folio->page;
++}
++
+ static inline struct folio *lru_to_folio(struct list_head *head)
+ {
+ 	return list_entry((head)->prev, struct folio, lru);
+diff --git a/include/linux/page-flags.h b/include/linux/page-flags.h
+index 5ee6ffbdbf831..faf17ca211b4f 100644
+--- a/include/linux/page-flags.h
++++ b/include/linux/page-flags.h
+@@ -316,7 +316,10 @@ static __always_inline unsigned long _compound_head(const struct page *page)
+  * check that the page number lies within @folio; the caller is presumed
+  * to have a reference to the page.
+  */
+-#define folio_page(folio, n)	nth_page(&(folio)->page, n)
++static inline struct page *folio_page(struct folio *folio, unsigned long n)
++{
++	return &folio->page + n;
++}
+ 
+ static __always_inline int PageTail(const struct page *page)
+ {
 -- 
 2.50.1
 
