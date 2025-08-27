@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2619CA0FF7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 11:09:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3FDFCA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 11:09:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Mnbd4Q5k7JD2kPdF6Eij8SGcex3kyAoVM00VR9ktf4=; b=1JAIls8xwRvdmvSGlUSwj8rAhf
-	o4ZhKY5fzdsuGHCKSG308L5ABJkYe32TJzeFBV6aTn9xQxmiQ8yaA0cX6qcfbflAwg1OpXgEs3Y8K
-	Fg7bSPVVUphZsc6VVFT/GoO9dAvrnobY9e9pDO242ckXn1y7koyw4+6DQsIQhU8jrCgv6o3WA83qW
-	6WDmz/+P4IJnNy1AircWHq1fkhIEGt65PEfXv2nyvK5JcBLqAR6cZIz/EO9mDdNh+g29Zf2KO+jrN
-	/UBEMG0asePc7JRxDqrWO/zWj2E9mlvcPyhZBDFKkcc0FF/46adY3Esm4UZfVkh2HEk4rNDr+ox+C
-	lNaOWpoQ==;
+	bh=15IbCh6FREymugCSrCisKigz25x9k3php32v0CEPWCQ=; b=pER4HMYHsWI2fwT22k8/PJgkxa
+	LMakrIa4QDemkUauuxamL5KnbI/+sb1hVq4cqONKNMljN+Tv43ZUdIQwAW9WtS5gtvfBNlMD/H2Nc
+	J1e+/KKwjTccofAHpAMBJ1MzBuXY2PPNDmGZ/JanxKTJMDzh3iDgWP09QvMhp6Eoa4loP9H9DEjWY
+	tFFSURlgfJsqD44zqyaZYtwaMh4lQ4K+SmZFgzVfBhI+De04QfIL7lVW4BwRWazjhjAMz7DNIeVSa
+	IxPDHAN3fvdTctp4c6fsULJpXZkUk21AbRqtyhpRyH3BTcn3KcqtWBmrJSxVSkKE4G4yWJCHA7AN4
+	rkitsrgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urE1T-0000000FCMg-21dE;
-	Wed, 27 Aug 2025 11:08:59 +0000
+	id 1urE1V-0000000FCPi-15rc;
+	Wed, 27 Aug 2025 11:09:01 +0000
 Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urDG1-0000000F2Zy-3GPD
+	id 1urDG3-0000000F2bE-2zJV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 10:19:58 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-45a1b0b46bbso29957925e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 03:19:57 -0700 (PDT)
+	Wed, 27 Aug 2025 10:20:00 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-45a1b05b15eso49200875e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 03:19:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1756289996; x=1756894796; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1756289998; x=1756894798; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=8Mnbd4Q5k7JD2kPdF6Eij8SGcex3kyAoVM00VR9ktf4=;
-        b=t8BAcfYGnb/qTfZoRBxb2/4wUHI+Mg8oRxl57LRblQ4TViqupWDtvTNdguUa7yfp91
-         OHgKLys3S5CdQOeV/AaMknTsnSEdCWYkKb8QyaPa4N6IQGFL4reBB3gdEIHPWXEqbZoV
-         y9BYSlyVC3OpYI07/0cYuC0SsSTlbQ68cSoEyOSq0EUp1luOkwHg6OXG4qEsJmE6I4a2
-         rg2qW3dIATCOpVtU+wzRyKS9K3xv/ZEo3j0FqOInDpNJq8IUN9jhsw2rxhz9WYcEJiuq
-         V98OLF+Q5lH4eXteLgsYayW8ZdBvyPz87Lf+pPRljH2qAklqK+gMSuB8ZZaiSkfzq94G
-         sTKw==
+        bh=15IbCh6FREymugCSrCisKigz25x9k3php32v0CEPWCQ=;
+        b=DrAMrdeary5Eo/FVNji++8lsxWelEeafed6OlU8kUHTdu9PnM1NmbIPSNItCRk1D+X
+         5GDF7QhDRkxGHadSd1GpUYgkgyRvA48ZKxOLwQYr+agkHE+JqNQd4tl3ByQ1O3AfFs8s
+         ZwAsV/pUOVeiobyD/3GKIBzVNYsFtx/ImNQtIEaTh/2o9x9zwnBTaqbVMLFr+WyzFc1W
+         qa14touTXSMCqX88h8xT/T46HWLEnWJa0C1l+SKKOLz4VU9gCzT+l3sq8idwzERRLMvc
+         DIsmxzr5qMvUx1Eel8LKPZ3Z+lMJqn9AUTZ1OV9Ez/csj7Vw3YjqOW+hcpL1k7qt5ooD
+         HR/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756289996; x=1756894796;
+        d=1e100.net; s=20230601; t=1756289998; x=1756894798;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8Mnbd4Q5k7JD2kPdF6Eij8SGcex3kyAoVM00VR9ktf4=;
-        b=q7Pe3ebX2D+ciUGhD1oJTEkqFD8c4/CoHwYFk8hAR1DWuRjKn2k7cK2BjsPAe6l32s
-         ZWp+eUNEYmAIG2UZ3YpIU9FhUdmqSN2sO9Mh8EQSRE6ptUweUB4fAuZ+NHIQcD2wCZN3
-         ljgcyU9/iU7HSRxflcK/Cl1LwOb8x+EiLHIJD72+KqJYnEjcVIVH8L/rr/np9oHAO5VM
-         goPoyKeKMH5veD3st14ayFI/toE3yTpYIYjWkAq0m6EvM1EpeL08wBDvsEk+fpvrpUo0
-         a+K3Vc69XUPY5DemlCS1Y4cJsQimHIe/xMoE4e3uhtLjZJyQvpXQdSAg6al1Yq4Ia7Mn
-         y2pw==
-X-Forwarded-Encrypted: i=1; AJvYcCXl19XEjZTnRAm93Xs893zJN7mec2fmtGWsMtAO8+8md3yelLO7x1RWiVZl5MazlAHWCrh9Xou9m5ITOo1UlhU4@lists.infradead.org
-X-Gm-Message-State: AOJu0YzysFWU3czFpx7vNNoWjosWTby+VuVMTQDZx95BFCFFz2gxvoSy
-	L/jQ91iAjFqMz6HjdfBmgGxLeZ6eCHzqSWiSEGSghW92fEcntsKhf+sZZw1EVR83O85xiC3K/Nd
-	K1g==
-X-Google-Smtp-Source: AGHT+IGa2OXp31RIOkeWltDfubFfhgbApuPcgBbAFrQZ9t2QvmsER073iwlg1cHEBx+MH0iIIjmq5lmmXg==
-X-Received: from wmsz17.prod.google.com ([2002:a05:600c:c171:b0:459:10dd:2e55])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4f86:b0:459:db80:c29f
- with SMTP id 5b1f17b1804b1-45b5178e84amr152274095e9.1.1756289995668; Wed, 27
- Aug 2025 03:19:55 -0700 (PDT)
-Date: Wed, 27 Aug 2025 11:19:44 +0100
+        bh=15IbCh6FREymugCSrCisKigz25x9k3php32v0CEPWCQ=;
+        b=RRgy+k52CDJQnU2LV1+0KaowvwFpmP2oO+smfhFkrHjzQU57UGfej09FS1+8sPenKF
+         GNiBqAEUCnvUYwvFJRBcGlY+wEncNm5e0usiq6myjXNjR863KV8FQe0/NZEZe2cP/1VH
+         nKqRwrycQk8EJYdcfMU2R7dxQbewBiwhOcKVOECiLv68PMQNCzgVuHIJ1LqcQXhjp7Dt
+         TDQ/crZnzCunel2oxNgWOmsi898ciDyo2eb+lqcRk21b59NuWHjBDb486b01Y598q9DA
+         dhcXaXXEfjXIASUPxql1RZsvt+nxWyKMg2LmlayTgciAlOcBvc8qHSKA8VClt9OsE1kS
+         3XZg==
+X-Forwarded-Encrypted: i=1; AJvYcCU+0RpWU+KjJkY9A8VzeLmxcvOWrNxRVF8neaXyU7nXUBjOsYI36v1TeommSJgXcBQw34hj8b0K7Ci0o9TqATuj@lists.infradead.org
+X-Gm-Message-State: AOJu0YxIfANMdQlu8pXaMYVZWc8kjhWc9NP49sOTD1NyRP3Nks/EoeLU
+	Af5P0k81g3YWSDvDYI4k7eqtSDliiFofNLYbHo1so05I8FiUHH/fMmnDH7rKWTnn6qL00/k4evE
+	ndA==
+X-Google-Smtp-Source: AGHT+IEGZata72ejku0XcOfHTx/eRZ6xhDAnGZ/fNxAG576+6GwC+qli/4vpwJCFJBj4nB3I6znBURvILA==
+X-Received: from wmbgz9-n2.prod.google.com ([2002:a05:600c:8889:20b0:45b:6fb3:665a])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:c48e:b0:45b:5f3d:aa3d
+ with SMTP id 5b1f17b1804b1-45b5f6bde93mr79943025e9.21.1756289998235; Wed, 27
+ Aug 2025 03:19:58 -0700 (PDT)
+Date: Wed, 27 Aug 2025 11:19:46 +0100
 In-Reply-To: <20250827101949.4089456-1-tabba@google.com>
 Mime-Version: 1.0
 References: <20250827101949.4089456-1-tabba@google.com>
 X-Mailer: git-send-email 2.51.0.261.g7ce5a0a67e-goog
-Message-ID: <20250827101949.4089456-5-tabba@google.com>
-Subject: [PATCH v3 4/9] KVM: arm64: Clarify comments to distinguish pKVM mode
- from protected VMs
+Message-ID: <20250827101949.4089456-7-tabba@google.com>
+Subject: [PATCH v3 6/9] KVM: arm64: Separate allocation and insertion of pKVM
+ VM table entries
 From: Fuad Tabba <tabba@google.com>
 To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org, 
@@ -77,8 +77,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org,
 	keirf@google.com, smostafa@google.com, tabba@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_031957_817625_55B9B94E 
-X-CRM114-Status: GOOD (  21.24  )
+X-CRM114-CacheID: sfid-20250827_031959_759500_E2E1B1B5 
+X-CRM114-Status: GOOD (  20.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,121 +93,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The hypervisor code for protected KVM contains comments that are
-imprecise and at times flat-out wrong. They often refer to a "protected
-VM" in contexts where the code or data structure applies to _any_ VM
-managed by the hypervisor when pKVM is enabled.
+The current insert_vm_table_entry() function performs two actions at
+once: it finds a free slot in the pKVM VM table and populates it with
+the pkvm_hyp_vm pointer.
 
-For instance, the 'vm_table' holds handles for all VMs known to the
-hypervisor, not exclusively for those that are configured as protected.
-This inaccurate terminology can make the code scope harder to understand
-for future (and current) developers.
+Refactor this function as a preparatory step for future work that will
+require reserving a VM slot and its corresponding handle earlier in the
+VM lifecycle, before the pkvm_hyp_vm structure is initialized and ready
+to be inserted.
 
-Clarify the comments throughout the pKVM hypervisor code to make a clear
-distinction between the pKVM feature itself (i.e., "protected mode") and
-the VMs that are specifically configured to be protected. This involves
-replacing ambiguous uses of "protected VM" with more accurate phrasing.
+Split the function into a two-phase process:
 
-No functional change intended.
+- A new allocate_vm_table_entry() function finds an empty slot, marks it
+  as reserved with a RESERVED_ENTRY placeholder, and returns a handle
+  derived from the slot's index.
+
+- The insert_vm_table_entry() function is repurposed to take the handle,
+  validate that the corresponding slot is in the reserved state, and
+  then populate it with the pkvm_hyp_vm pointer.
 
 Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
- arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  2 +-
- arch/arm64/kvm/hyp/nvhe/pkvm.c         | 25 +++++++++++--------------
- 2 files changed, 12 insertions(+), 15 deletions(-)
+ arch/arm64/kvm/hyp/nvhe/pkvm.c | 52 ++++++++++++++++++++++++++++------
+ 1 file changed, 43 insertions(+), 9 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-index ce31d3b73603..4540324b5657 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-@@ -29,7 +29,7 @@ struct pkvm_hyp_vcpu {
- };
- 
- /*
-- * Holds the relevant data for running a protected vm.
-+ * Holds the relevant data for running a vm in protected mode.
-  */
- struct pkvm_hyp_vm {
- 	struct kvm kvm;
 diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 6198c1d27b5b..abe173406c88 100644
+index 969f6b293234..64b760d30d05 100644
 --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
 +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -23,8 +23,8 @@ unsigned int kvm_arm_vmid_bits;
- unsigned int kvm_host_sve_max_vl;
- 
- /*
-- * The currently loaded hyp vCPU for each physical CPU. Used only when
-- * protected KVM is enabled, but for both protected and non-protected VMs.
-+ * The currently loaded hyp vCPU for each physical CPU. Used in protected mode
-+ * for both protected and non-protected VMs.
+@@ -192,6 +192,11 @@ static int pkvm_vcpu_init_traps(struct pkvm_hyp_vcpu *hyp_vcpu)
   */
- static DEFINE_PER_CPU(struct pkvm_hyp_vcpu *, loaded_hyp_vcpu);
+ #define HANDLE_OFFSET 0x1000
  
-@@ -135,7 +135,7 @@ static int pkvm_check_pvm_cpu_features(struct kvm_vcpu *vcpu)
++/*
++ * Marks a reserved but not yet used entry in the VM table.
++ */
++#define RESERVED_ENTRY ((void *)0xa110ca7ed)
++
+ static unsigned int vm_handle_to_idx(pkvm_handle_t handle)
  {
- 	struct kvm *kvm = vcpu->kvm;
+ 	return handle - HANDLE_OFFSET;
+@@ -231,6 +236,10 @@ static struct pkvm_hyp_vm *get_vm_by_handle(pkvm_handle_t handle)
+ 	if (unlikely(idx >= KVM_MAX_PVMS))
+ 		return NULL;
  
--	/* Protected KVM does not support AArch32 guests. */
-+	/* No AArch32 support for protected guests. */
- 	if (kvm_has_feat(kvm, ID_AA64PFR0_EL1, EL0, AARCH32) ||
- 	    kvm_has_feat(kvm, ID_AA64PFR0_EL1, EL1, AARCH32))
++	/* A reserved entry doesn't represent an initialized VM. */
++	if (unlikely(vm_table[idx] == RESERVED_ENTRY))
++		return NULL;
++
+ 	return vm_table[idx];
+ }
+ 
+@@ -481,7 +490,7 @@ static int init_pkvm_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu,
+ 	return ret;
+ }
+ 
+-static int find_free_vm_table_entry(struct kvm *host_kvm)
++static int find_free_vm_table_entry(void)
+ {
+ 	int i;
+ 
+@@ -494,15 +503,13 @@ static int find_free_vm_table_entry(struct kvm *host_kvm)
+ }
+ 
+ /*
+- * Allocate a VM table entry and insert a pointer to the new vm.
++ * Reserve a VM table entry.
+  *
+  * Return a unique handle to the VM on success,
+  * negative error code on failure.
+  */
+-static pkvm_handle_t insert_vm_table_entry(struct kvm *host_kvm,
+-					   struct pkvm_hyp_vm *hyp_vm)
++static int allocate_vm_table_entry(void)
+ {
+-	struct kvm_s2_mmu *mmu = &hyp_vm->kvm.arch.mmu;
+ 	int idx;
+ 
+ 	hyp_assert_lock_held(&vm_table_lock);
+@@ -515,10 +522,30 @@ static pkvm_handle_t insert_vm_table_entry(struct kvm *host_kvm,
+ 	if (unlikely(!vm_table))
  		return -EINVAL;
-@@ -210,8 +210,8 @@ static pkvm_handle_t idx_to_vm_handle(unsigned int idx)
- DEFINE_HYP_SPINLOCK(vm_table_lock);
  
- /*
-- * The table of VM entries for protected VMs in hyp.
-- * Allocated at hyp initialization and setup.
-+ * A table that tracks all VMs in protected mode.
-+ * Allocated during hyp initialization and setup.
-  */
- static struct pkvm_hyp_vm **vm_table;
+-	idx = find_free_vm_table_entry(host_kvm);
+-	if (idx < 0)
++	idx = find_free_vm_table_entry();
++	if (unlikely(idx < 0))
+ 		return idx;
  
-@@ -495,7 +495,7 @@ static int find_free_vm_table_entry(struct kvm *host_kvm)
- /*
-  * Allocate a VM table entry and insert a pointer to the new vm.
-  *
-- * Return a unique handle to the protected VM on success,
-+ * Return a unique handle to the VM on success,
-  * negative error code on failure.
-  */
- static pkvm_handle_t insert_vm_table_entry(struct kvm *host_kvm,
-@@ -594,10 +594,8 @@ static void unmap_donated_memory_noclear(void *va, size_t size)
++	vm_table[idx] = RESERVED_ENTRY;
++
++	return idx;
++}
++
++/*
++ * Insert a pointer to the new VM into the VM table.
++ *
++ * Return 0 on success, or negative error code on failure.
++ */
++static int insert_vm_table_entry(struct kvm *host_kvm,
++				 struct pkvm_hyp_vm *hyp_vm,
++				 pkvm_handle_t handle)
++{
++	struct kvm_s2_mmu *mmu = &hyp_vm->kvm.arch.mmu;
++	unsigned int idx;
++
++	hyp_assert_lock_held(&vm_table_lock);
++
++	idx = vm_handle_to_idx(handle);
+ 	hyp_vm->kvm.arch.pkvm.handle = idx_to_vm_handle(idx);
+ 
+ 	/* VMID 0 is reserved for the host */
+@@ -528,7 +555,7 @@ static pkvm_handle_t insert_vm_table_entry(struct kvm *host_kvm,
+ 	mmu->pgt = &hyp_vm->pgt;
+ 
+ 	vm_table[idx] = hyp_vm;
+-	return hyp_vm->kvm.arch.pkvm.handle;
++	return 0;
  }
  
  /*
-- * Initialize the hypervisor copy of the protected VM state using the
-- * memory donated by the host.
-- *
-- * Unmaps the donated memory from the host at stage 2.
-+ * Initialize the hypervisor copy of the VM state using host-donated memory.
-+ * Unmap the donated memory from the host at stage 2.
-  *
-  * host_kvm: A pointer to the host's struct kvm.
-  * vm_hva: The host va of the area being donated for the VM state.
-@@ -606,7 +604,7 @@ static void unmap_donated_memory_noclear(void *va, size_t size)
-  *	    the VM. Must be page aligned. Its size is implied by the VM's
-  *	    VTCR.
-  *
-- * Return a unique handle to the protected VM on success,
-+ * Return a unique handle to the VM on success,
-  * negative error code on failure.
-  */
- int __pkvm_init_vm(struct kvm *host_kvm, unsigned long vm_hva,
-@@ -668,10 +666,9 @@ int __pkvm_init_vm(struct kvm *host_kvm, unsigned long vm_hva,
- }
+@@ -614,6 +641,7 @@ int __pkvm_init_vm(struct kvm *host_kvm, unsigned long vm_hva,
+ 	struct pkvm_hyp_vm *hyp_vm = NULL;
+ 	size_t vm_size, pgd_size;
+ 	unsigned int nr_vcpus;
++	pkvm_handle_t handle;
+ 	void *pgd = NULL;
+ 	int ret;
  
- /*
-- * Initialize the hypervisor copy of the protected vCPU state using the
-- * memory donated by the host.
-+ * Initialize the hypervisor copy of the vCPU state using host-donated memory.
-  *
-- * handle: The handle for the protected vm.
-+ * handle: The hypervisor handle for the vm.
-  * host_vcpu: A pointer to the corresponding host vcpu.
-  * vcpu_hva: The host va of the area being donated for the vcpu state.
-  *	     Must be page aligned. The size of the area must be equal to
+@@ -643,10 +671,16 @@ int __pkvm_init_vm(struct kvm *host_kvm, unsigned long vm_hva,
+ 	init_pkvm_hyp_vm(host_kvm, hyp_vm, nr_vcpus);
+ 
+ 	hyp_spin_lock(&vm_table_lock);
+-	ret = insert_vm_table_entry(host_kvm, hyp_vm);
++	ret = allocate_vm_table_entry();
+ 	if (ret < 0)
+ 		goto err_unlock;
+ 
++	handle = idx_to_vm_handle(ret);
++
++	ret = insert_vm_table_entry(host_kvm, hyp_vm, handle);
++	if (ret)
++		goto err_unlock;
++
+ 	ret = kvm_guest_prepare_stage2(hyp_vm, pgd);
+ 	if (ret)
+ 		goto err_remove_vm_table_entry;
 -- 
 2.51.0.261.g7ce5a0a67e-goog
 
