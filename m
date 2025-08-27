@@ -4,177 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7180BCA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 11:07:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB2C9CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 11:07:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QQGJVonPGaRq2/IkUamcysnQsgtHAUutzwzH0dTDwcc=; b=mXWkWSucAIXlcFrikY07Z5oKG5
-	+FfiwVRNQwFpwktI30+z/tVCVlkTR/7B7BNpGlOVAjlTY+QzN12W88+Qr8yFNgywVyNCkauoy0Az3
-	TwNQV9Bv/Yrz/1g7HVcOWb3kvm+K0I+46TtseST98rhItFmwocmsRBLAnTKxVaqr6j4J5Q7W8UVDM
-	IWga1EeRlsiFBOJnw5bmgEozHtUdZFXyXF4Jwu5H77VLjKWgg2l5F74kojFpOUch+w93HVrs3CUoX
-	3UNpigaKuuUN2jrawlBJWqNy2PPtZ/Z3ZkBc13yuKaPv7yjOD/OzPLqo19cSdrc/6zBS2K3FGkW2Y
-	ho/iQ3YA==;
+	bh=sjkSzRyl1g9cs5mTFMFSZLWz4lR/ELoXhIHKRJbEmxI=; b=sDGUzuHWu/3i0P05P4jZ2yEQM+
+	FfMVUBmmyoyCkrsbJwZKDlwvGcFCAPclYC9ZrXPSKI7oDPBpqF6OLl8Z2lnpBxycMazVXLVIDlfea
+	QnJEHfLtU1tY5SbRJTMNrVWg9gPwna9aFIss/NZFyt7GROodzCuT1hXSzQSbKWEC9FC1F401cl0kH
+	SkftOxMSiclJW5S0VFRTWo2iN2QYYP4rxSjZGvDhP/aabM/M+3D64vzGdqDCJT2yTvhEaFqbijV17
+	juC3d8fBUVR+MIy8tMbb/kg+uZEAuyNDJlx8JEHHyRyKj21tawxO4JkU2iP5kvsC+ojrL+fObxO+h
+	YUImiO0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urE0H-0000000FApA-24pt;
-	Wed, 27 Aug 2025 11:07:45 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1urE0K-0000000FAti-05Lg;
+	Wed, 27 Aug 2025 11:07:48 +0000
+Received: from mail-ej1-x643.google.com ([2a00:1450:4864:20::643])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urCrb-0000000EwHj-1kxm
+	id 1urCsz-0000000Ewfl-1IqV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 09:54:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=D2ookxYCVaJna6xI0BQSm/ElE1YOq/JitWWZUgBc1pbB9TAVMyFiXjBIJ6PP+p847S0Ik+PHPr6Gl1XDDdoPC2P+yCr/6ev1OHlw4Y55CGBha6CPgABRbYl/KWFPC7MAyQ2zaQkhKQTR61UVkBaMCIai/iK7MkMzXXByJQ1+hB4+Q/JB/Ru2IVzqVISBkz7eFEOBLcYdfNrRB5D+KI6znoFn7eVPLuCTUU6LOnhufOm6wkEnwzvaMJTw5s+XgKrDjhC0buYi9qh8QfFKGLVAAI7xtJrwJstCPkloIDiI80lXpx3jh9j7M3l9BW7CPAzTklQJ3mBKOlR7k280NIWhVQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QQGJVonPGaRq2/IkUamcysnQsgtHAUutzwzH0dTDwcc=;
- b=XpgPIgmzn1nflSLC/SLp/4K4I2FyCKz1PzzhSzFpwjXPAScOFGWgysyXKCVC87Gqr2bidDWsi1agYDyg1CtWU/GT2tctnoHSzmltdWAepY5gX4fRAIBWUoT4D1/ZwpIoVHsxvuSJYt7AeaophsGCDsuT+GD3Tkd25q3vn9wBFXA6uJKh2p/O/c8WsUxq2e9DOJJ0hcWyCBjOVwaztuojdcHuSGTf6QVYzIg0EdXArPedMZfyiC7EirzYtATGM8iaQfU987vPbYQsvy3HNT4q2s8U1tuF88WxwbyxDkj0KSvrCt1eaRCqPNR3IJ/Q27LW112fs1shp0tzR0qEkpvdCw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QQGJVonPGaRq2/IkUamcysnQsgtHAUutzwzH0dTDwcc=;
- b=l1YzmUTmXFhePc/QZVgaNNjXljC6ZhnApuouT8+RIv+0Yj76c4aeKwk8erV1AAMtCZPNvj8Lg0OySckgZ8jB4hPp480SifX7ZOVLf50wDDLgGwy2gXAladsqxATU28GdpM4MX7PfW9V9AkGnybul+A/sqeRjhG3jVirtrM43HJYIjWwS1ipcQdCdEPz1cMzfFkqTBlLJVyesdNAUC44QxhcQWU5oY8XZk6NTjZtCpfRVVltVhpbPym3ES9Z7+nsoMk/OCcZ1B8JkTFA0IbdRZGjZ6VfmGIA57mTjHjfaVO5ewo3Prphk0FAc9qDeCs2aM29V8x/9qjnnJuwh8y/nNA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
- by DU2PR04MB8839.eurprd04.prod.outlook.com (2603:10a6:10:2e2::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.10; Wed, 27 Aug
- 2025 09:54:38 +0000
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::93bd:316b:682f:5e59]) by AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::93bd:316b:682f:5e59%6]) with mapi id 15.20.9073.009; Wed, 27 Aug 2025
- 09:54:38 +0000
-From: Guoniu Zhou <guoniu.zhou@nxp.com>
-Date: Wed, 27 Aug 2025 17:53:51 +0800
-Subject: [PATCH 4/5] media: nxp: imx8-isi: Reorder the platform data
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250827-isi_imx93-v1-4-83e6b4b50c4d@nxp.com>
-References: <20250827-isi_imx93-v1-0-83e6b4b50c4d@nxp.com>
-In-Reply-To: <20250827-isi_imx93-v1-0-83e6b4b50c4d@nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756288458; l=2338;
- i=guoniu.zhou@nxp.com; s=20250815; h=from:subject:message-id;
- bh=e+UQzyKziiwQfewK19IXyFiDEghdjK9jDERbsFOeiO8=;
- b=6mf2qyxUcDjBR8qUc8lIFiz0hLFdkhu+bNkwppBqCsuAqst8lQacV1hovSiARpGgRYv4tUg5I
- HpdqnIjARAKB4gxUv2f8Aeo8/HZXpayRsS16kCy3j1Es3ZynfoQNEEx
-X-Developer-Key: i=guoniu.zhou@nxp.com; a=ed25519;
- pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
-X-ClientProxiedBy: SI1PR02CA0053.apcprd02.prod.outlook.com
- (2603:1096:4:1f5::8) To AS8PR04MB9080.eurprd04.prod.outlook.com
- (2603:10a6:20b:447::16)
+	Wed, 27 Aug 2025 09:56:10 +0000
+Received: by mail-ej1-x643.google.com with SMTP id a640c23a62f3a-afe6fe7c89bso122100366b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 02:56:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1756288567; x=1756893367; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=sjkSzRyl1g9cs5mTFMFSZLWz4lR/ELoXhIHKRJbEmxI=;
+        b=GQJJWLTIPGNdeArNi724bCLS/DJ2/c3Wee11a46X3yBtx20mfP+iwXDH9d391PfSeA
+         gh/3aKQ5wth5wZdIg59NIc3LO3YPN6oXgf2kmsKxFZuh8EcCqarlZoH4dj2FHZNpz9nJ
+         tpl0vWzhpVnQHjTyQQZiBJInCulIhx/v5g/NoPr8VyTY75pEEf3pYrQjNtDtNhZEHDxD
+         5IlszRLQf/jpJAWdgMfpBYgk0b5NPn1tDhO4X9bXy+1Q1oYgpVVz3yiM2ZTomWFQm+Gs
+         qNiog3NrxItL+xbxhLLJoaWaAYMsXfv3x99UU7kPFYqnRaO34eZGoFB1zkP61hIS5soe
+         zkMw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756288567; x=1756893367;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sjkSzRyl1g9cs5mTFMFSZLWz4lR/ELoXhIHKRJbEmxI=;
+        b=k65/EhskWZvpJ+uO6+wZlXpYSBlLwqk4JWIKvHpkLFIVKUg/tgEAtaoaO4KJdTexRS
+         fpR4wAVA3SxQrfVRxeuk/cl+ErQlkpGpzVHKFHwLz6KNSX7Xwpxw3g3rwQYlrozD14nu
+         Oj8AIiIkZEoUbRwUfKcrEXOMMOP3TJ0hNan5PffutU6ciSjJ3GcFFNlig3eTjc0rKHZK
+         qacHp7j2yrjd3CLXxT1GPxCWKgL2k05MyjD30NrVmGVCh+v0vtzdLccF5RVsIyCLx2nO
+         TklIyzB/uMjF8uCOvrnKLzvyhSy13ky3I85CXDOV7IZqUVjrs9rIzix2iXwbiNFYCuRj
+         M6LA==
+X-Forwarded-Encrypted: i=1; AJvYcCVXTXTNhfUfjLiI8eXaIPKUSLyP6ln/8GXfkXGU0L9jBdUrM/wom+Sti0ubMEb9an+TAwwremBgIWkuR7saGoRS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyciib52TLqhhmdOJYnFzdo4wHnrhNV5xJLt5mj7lD3ZSzfvFfn
+	dFjEIdLpWZOhG/j2IdBsTVZSgDSy+jPDVft4nK8+HBRKfJOlNJRgcil0U+GBQaPPwvE=
+X-Gm-Gg: ASbGncubTn9vMSZMhgM2S13sKtyhbisiZAJvM7v/TZZhy2mIfBAGnD5HqO0UMLEsHKz
+	hMm3+mMiYIXnckERUI6MICl8P53MfT+O6VU+vXLLq8tcMSqm9SITi2uQxBA9PrjjNc9CncswnP3
+	8sSlitY6jd2L/VddlUHvLomCyYLM+wHo56iPpI5p1GOdX3bHIyoxMgbbXnjCS4j5ORhuImpAgyb
+	Rh5yAgsrL6g06pTNYIGmjsMAxgmt63MLnwJ87E+xuXyJCf0/YgWlBQGu9QNq7mgXNnZZlLUayX5
+	Zm96AIHAeTs7vJzAjKQBqdACAlYshBQCEqoHsRO7gazeC9ZwsHCFm6hxt1+xdsVgxlOKgCFwpKD
+	8+Qe93Ik8brwW1gK2lBBwba0Z+Mfko+rUaQvCmhz1618H9OFwjCCcY07HzKq56taKfgSWj0Phfp
+	z6pxU/cGXjUEPOmHxH
+X-Google-Smtp-Source: AGHT+IH2BAIHZjtkFkG74TGOjFzT/IYNS5G2LQt+C3kivswZI0B2A0fV9PMQ7gyzkhXRRDI2psHzvg==
+X-Received: by 2002:a17:907:3d12:b0:afe:94cd:111a with SMTP id a640c23a62f3a-afeafec9ccemr423517966b.7.1756288566993;
+        Wed, 27 Aug 2025 02:56:06 -0700 (PDT)
+Received: from localhost (host-79-36-0-44.retail.telecomitalia.it. [79.36.0.44])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afe89bd7acesm555423866b.73.2025.08.27.02.56.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 Aug 2025 02:56:06 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Wed, 27 Aug 2025 11:58:00 +0200
+To: Rob Herring <robh@kernel.org>
+Cc: Andrea della Porta <andrea.porta@suse.com>, linus.walleij@linaro.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org,
+	florian.fainelli@broadcom.com, wahrenst@gmx.net,
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, iivanov@suse.de, svarbanov@suse.de,
+	mbrugger@suse.com, Jonathan Bell <jonathan@raspberrypi.com>,
+	Phil Elwell <phil@raspberrypi.com>
+Subject: Re: [PATCH v3 1/3] dt-bindings: pinctrl: Add support for Broadcom
+ STB pin controller
+Message-ID: <aK7WqA7OP1h-rpJ6@apocalypse>
+References: <cover.1754922935.git.andrea.porta@suse.com>
+ <6fdbaf2bd0b72badbb5384e43b97bebcda4cc2f0.1754922935.git.andrea.porta@suse.com>
+ <20250818172040.GA1483013-robh@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB9080:EE_|DU2PR04MB8839:EE_
-X-MS-Office365-Filtering-Correlation-Id: a7d64646-1f2b-408d-60d7-08dde54fbc33
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|366016|52116014|376014|1800799024|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?UjRkM0xCSkJEaHR6cXNRTURWRUlPQ2I0L2RZUUluVXRzVkh2OGVScEFqRVJo?=
- =?utf-8?B?Yk5YcG1ZY0hmK0ZkVFhtU0N3S242Ni94NHM1TFA3T1hHdkpxZTRMUmhFb2hw?=
- =?utf-8?B?Z2xaM2pTS0JCM0xBZllLSVZ2QW1hTXppMHdGejdlVmRVdGNRWnFXWFFQOE9K?=
- =?utf-8?B?WlFxY1M5WGl5aHVRMlgwRmY3a04wdXZtaE9ZOVFBNytoSjh5SzdTM1lKVnp2?=
- =?utf-8?B?T25sZHBJam0rMDhmd0E3QXJzaEZvSjN4RVQ3Q2o0QTBQZXVOMHBGSy9mQ1g5?=
- =?utf-8?B?Z2MvNHpjUnRGN2N6aG45QVUxM1hlYXV5dXpKaWV0N0MzWXhKUEZHRGxqTDZl?=
- =?utf-8?B?ZEM4eTRRWStwRDFBdnZVck9GTXJzTk1BN21seFM3TzZpRk1wbXZJUHZqNjhT?=
- =?utf-8?B?WGxTTWRlRDZKaWUxQjlmQ0tlbW1UQmV0MmcrcnFLSWY0T0lkVjQyLzV0Um1S?=
- =?utf-8?B?UGpYLzRKS1NQTlAydnNrNTFBdTdnSUw5TEFBdDI0VVY3bW43KzFya0NBS09x?=
- =?utf-8?B?U2hZa1g1cjJyVUlVUDFERVR3eVQrd2Y5TEFKaG1QcVpyWW1DOWp0Z2RycmJz?=
- =?utf-8?B?bXdTcWhxVkJxYnk0OGhyaTZwckM5RWxnMXRvRDJvZ0FyVzVnVTJBZnZKNTVv?=
- =?utf-8?B?TmZMaE9QVTd1RTdBMC85b25JUGQrMXlrVlFEVHVpQ3lnbWtrUXN0UW5mMkJs?=
- =?utf-8?B?SDRJYTBzanlsZHF0TEN0cXNMem9NZ1h4bnZzV1lCd3QyRUdWcVJXYXNLczND?=
- =?utf-8?B?OGl3RzhJWG03bFQ4VkNqMWNadFpzS3ZnZmxONHdwZmpMZXBtc0dqcjVMNitm?=
- =?utf-8?B?ZnZNNmcwZXVEWHcyNTNoVHBEbTZEL3Z0NDAzRkF0akY3bkVPckkrRG1MSW9v?=
- =?utf-8?B?U0l2NjFWd0I1TlNmR3VQMVZaOFNkWVdINVcvakpkVGNKMkpCdVZNbHFyV3c2?=
- =?utf-8?B?bGlaSVdRakkvQXF1OWV6ZFU1MHlHSTR4TUpRRDh1YzVRM1Z2Q014bmw1Rlo4?=
- =?utf-8?B?c2tqTHRnTlNCL200UDRxWkk5N21MQkxDOGpnYzFWSWY2RjR0QWxpV3NmZ2c0?=
- =?utf-8?B?T1F0S3J2TTltQTd3bHJVU2lGM3ZCdTlFM0kweEQ0ZU52K0dpY2NzK0E3cFlV?=
- =?utf-8?B?WFdaOEU5RTBGcDJPL3p2eHZrVDBPRDgyNTZuMEUyd201VE9yVjFzRXo2ZE0r?=
- =?utf-8?B?YTk2YlhLZ0hQVnJsRnoxdS85TkJEbEk3SGprcnF3cU1yRjR5QzlTOGpadWMr?=
- =?utf-8?B?bjRJRW1ySVUrT1oxSUd0UlQxM0Y2eGtNc0FIL0RpcmJhcWR3RXpFbC9SZk12?=
- =?utf-8?B?RWJuN3ZtSXprcXFGZ2tLR0ZJR00vMDRUbGNZbFpnL1BlaHVkeXVBa0xON3c1?=
- =?utf-8?B?RGlaOWpDeXNuaEY2QVVwWi9WeWlrSUdQUG82VldFeUNIVjZ5Y3Y1WGkrajZv?=
- =?utf-8?B?RWJmbDZnaE96ekduNXJlZlF6S1ViT0ZIdjdiK2h0Ky9KVysrc1ZZUDFUN1Ax?=
- =?utf-8?B?c0FISWNyMklYMFpXTXg5ZUdVRGZURGs2REZHZXZpYktJemZSK3JneDlrQXJs?=
- =?utf-8?B?eU02cWl2MWVBUnlvdURScFNkWkN1Qm9QT1BXUWtYZXlhcldaT3BGZkdmbENG?=
- =?utf-8?B?RFpqU0hsWEpSTVhjMFpENGxoL0pUTGVmWUNvRnh0N3VkSHlkZ2NiOW1qMk0r?=
- =?utf-8?B?WGRTTTdySXp5RHFUdnFUTkFEVTV4RVpRa29rcWVtajlWN014dUtZWDZaZ0R0?=
- =?utf-8?B?dW1WL0tNdWZOdWVHcFl6RHhqYXN5a2tWTTlBcStvc2VDSExoMjZTV3Y3M3Nx?=
- =?utf-8?B?WU15Vk5WWXh3cDk2NWZpcHZSTjM5d3B6NllJamVLUXZ6TVQ5V2EvZnRpRVBi?=
- =?utf-8?B?b1ZOL3VwUVQ0NS9DK2FRbU8yYTZiN2pPNTc0dUtULytad3A1ejJURnk1SG1M?=
- =?utf-8?B?S1F2WktQeHpGSDJpT1BYd3lKN3lmQ0xrbTFHUjExVUd3U2k3NGt0cUVCQllj?=
- =?utf-8?Q?/Em8/ZYJTPZYvsxOM9mHbSMIS2+44g=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(366016)(52116014)(376014)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TDB4UlBWSUpQMWIwWVQwbGhvUkhqaHkxK0pZV3hYZ2krQkFDM3Qzb2hzaWRt?=
- =?utf-8?B?bHY4NVBhZDlEVGg0M0xhTHFNSlRZbElyMEdqTW9FTHJtNUprZldHaUhobFh0?=
- =?utf-8?B?cXZkZEI5ZTRWUldzaXlHSUE1WlNjSXZmSHZhMWgrSGRXVTR6Q25wd3pFTk1I?=
- =?utf-8?B?dkdqVjdaaStQU3NWa3NXSG8zYkgrckdFdUIwZi9ScDN6S2JYYW1rbWxLZ25m?=
- =?utf-8?B?YXc2Y0ZBUzhFTjRJd28yVkZ6WXUwMkc3SmpvVlZFSG5rMDluN1k2ekNlNzJB?=
- =?utf-8?B?ZTdSQ1F3OUhGd2ZjKzc2WFpyVkMrSzV0UEsrb04wLzMxR3JWSmM5VFBkQWlC?=
- =?utf-8?B?blA3ZlhYSnNIU0hBTUU3OFV5a0p6c0cvc21qckJWRXZadTgzbGRyQnJ3MGJz?=
- =?utf-8?B?WTFvRkhqNm44TEgzNUtUUGttZjA0SnpROE5WZnVML2xQdDd1L01iRVNRQlZq?=
- =?utf-8?B?cXp5NlR1OFc3dVZBZHB5cmhkZ2tUdTUrTmE2cEpzZFI5c1ovVllnU1lwZGR0?=
- =?utf-8?B?eUxKR3VTQ1ZsckJHQUJ2Wm4zT2JtdTlEMjlOektHVTVCZFkzS3d0UVdYbUNt?=
- =?utf-8?B?MENteVVvNVZsalNQQk5BT0o4ZXgvUTk2NnlicnZQUEpHWmxXa2wvaU1wc2sv?=
- =?utf-8?B?UDQyNEJQUXM3MEsyUXlyZFlCOUFJUGJURkFvc2FHTk1WNXJENTUzWDRwZWdU?=
- =?utf-8?B?SndPa1ExUnR5bDliTEJaZ3NhT05NSk5KQ2hFc0puU1UrZHlDd3hxT2pOZDYx?=
- =?utf-8?B?eDFDM2Q1bGpVWWxmZ1A1RVFoSkNaaVE3SlZPY1Z4Uyttd2hRSkM1TTlyd1hB?=
- =?utf-8?B?Wkp3NEhObTNNL1BaYi9lQU5YVko5K1lLV1RrRmlyR1NCSjExWVJpbFFjL0dv?=
- =?utf-8?B?M0RNY0txR0NJVGZ6dkt2K2wzYnpNMU5jS3JHMHRaZnBQQXJuck9LeUV3LzhB?=
- =?utf-8?B?aElpTmdFVTBUR1dTYitqMXBDMnp6Vit4eWx0elUzYWRPcWJCcmJzeWNnZjhS?=
- =?utf-8?B?S0FRWTZ0Mkh3Q2ZQazdIY00zb0lTdjhnVlQyUXl5VWhDSFhCMFNmN2twQnNn?=
- =?utf-8?B?OVIxM2RtbVlEZkEwUEJhcFFHVGhRQjdKU1MySjZXbnFmd0lFT2VCQVRBUGVB?=
- =?utf-8?B?eGJQR2hYZll6dlZVV09ZRk5kU05hVVhUOCt1T3g3dE1Vb0hYRkR0V0IwSXBz?=
- =?utf-8?B?SXdhRmU3LzRBMU5ySlhPaHZuV0lHRnd5bTBldVFIQkhNcjhTNU0xbDJWRm5K?=
- =?utf-8?B?ZE5FcDI0V1pIU1ZDa0FWczVkeFFnSzVaaDNBbWJYK3QzekVrcEg4ZWF0WmVX?=
- =?utf-8?B?SkFmbkZjclJvOUlDK09qT2loNWw5ZWc5MGdSNGdKV2FzQlFJTmNoSWpLVWVm?=
- =?utf-8?B?NTJVN3V0NCtBWXlJKytLUy9LZk5nU204RWlIb3o5NWludGI1dGM3RFVSOWZ3?=
- =?utf-8?B?WnhNVDNMRWRUOHFCVzZzTFdxOXFDY0tDTlZNR0NJT0swRndqaHFFcmFvNUFH?=
- =?utf-8?B?b1VEbzRLNjdWTW5rUi94eXB2VUVXaHFZQUdNaklTVjFTY3d5ZHNlanMvY0R6?=
- =?utf-8?B?Y09FVHA4RFpoTW8vampGeGdydWVnaFdmeU0zWERNUzlnNlZ0eEFqZ2ZWL3Zv?=
- =?utf-8?B?WGE3MXpRV2xkem45R3NmbTZ3SE9FdmFQbVBjM2Z5cTNmaVZFcWx1aklhOC9l?=
- =?utf-8?B?OE9UazdTbmJrMDA2cTBHTDhXdHRvQVFGRWNla1lSRTJkUEdSeGF4L1hialpv?=
- =?utf-8?B?RFdsWVZVRWV1b3E4UDJOSmVUUE5KdnZlK1VaajZ0TTlWc0tUUm92SUtFemJ2?=
- =?utf-8?B?VmY5QjI1T3cvRjUwdHV5VWRmd0xsZnRpb2ptZTJhSzRJcld2V1FkVVZXc2tY?=
- =?utf-8?B?RzJlSm5RVGJKU0YvY3JLbm1CYU10TFprRW1vMnV5ZlBzWXliSy9mV3RJelEv?=
- =?utf-8?B?WVgxN2FWcllqb1FhWWQ3YnZud1V0dVpkSDUwMElFN2tVeGRSdUl5bWwwaitE?=
- =?utf-8?B?ZDZnNTB0QjRXQmoyTzRycVZDUC9HYVlCVi84bFhoMThwM29pcTF3NFJSYUNB?=
- =?utf-8?B?Zjhod0VONXYxdkZKUUxmV2VoL0tsZlZPUXhnZHhPbWZ3eUM0RDBQV28yRFZK?=
- =?utf-8?Q?t9G8mIpuMrj3m5933XBwfLWqU?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a7d64646-1f2b-408d-60d7-08dde54fbc33
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Aug 2025 09:54:38.1682
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 5XzvamUqMxLmMGdFL+tbYqTh6eLlM2WVmHszg6QdE7x3AfID1eQhUDOPLRZklf/n5IJtNQBtWhjhLkCNEDX2qA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8839
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250818172040.GA1483013-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_025443_471695_72D07BB3 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20250827_025609_354727_83827C13 
+X-CRM114-Status: GOOD (  32.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,80 +109,213 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sort platform data in the order of compatible strings in of_match table
-to make it more convenient to read.
+Hi Rob,
 
-No functions changed.
+On 12:20 Mon 18 Aug     , Rob Herring wrote:
+> On Mon, Aug 11, 2025 at 04:46:51PM +0200, Andrea della Porta wrote:
+> > From: "Ivan T. Ivanov" <iivanov@suse.de>
+> > 
+> > The STB pin controller represents a family whose silicon instances
+> > are found e.g. on BCM2712 SoC.
+> > 
+> > In particular, on RaspberryPi 5, there are two separate instantiations
+> > of the same IP block which differ in the number of pins that are
+> > associated and the pinmux functions for each of those pins. The
+> > -aon- variant stands for 'Always On'.
+> > 
+> > Depending on the revision of the BCM2712 (CO or D0), the pin
+> > controller instance has slight differences in the register layout.
+> > 
+> > Signed-off-by: Ivan T. Ivanov <iivanov@suse.de>
+> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> > ---
+> >  .../pinctrl/brcm,bcm2712c0-pinctrl.yaml       | 135 ++++++++++++++++++
+> >  1 file changed, 135 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/pinctrl/brcm,bcm2712c0-pinctrl.yaml
+> > 
+> > diff --git a/Documentation/devicetree/bindings/pinctrl/brcm,bcm2712c0-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/brcm,bcm2712c0-pinctrl.yaml
+> > new file mode 100644
+> > index 000000000000..28d66336aa2e
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/pinctrl/brcm,bcm2712c0-pinctrl.yaml
+> > @@ -0,0 +1,135 @@
+> > +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/pinctrl/brcm,bcm2712c0-pinctrl.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Broadcom STB family pin controller
+> > +
+> > +maintainers:
+> > +  - Ivan T. Ivanov <iivanov@suse.de>
+> > +  - A. della Porta <andrea.porta@suse.com>
+> 
+> Why is your first name abbrievated here?
 
-Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
----
- .../media/platform/nxp/imx8-isi/imx8-isi-core.c    | 44 +++++++++++-----------
- 1 file changed, 22 insertions(+), 22 deletions(-)
+The heuristic inside get_maintainer.pl does not correctly recognize names like
+"Andrea della Porta", reporting something like:
 
-diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-index 981648a0311374597a033a7ecbf39f7b0b252cb0..cae918792ddbe3e6f458606fbbb7d0ad5738504c 100644
---- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-+++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-@@ -314,6 +314,28 @@ static const struct mxc_isi_plat_data mxc_imx8mp_data = {
- 	.has_36bit_dma		= true,
- };
- 
-+static const struct mxc_isi_plat_data mxc_imx8qm_data = {
-+	.model			= MXC_ISI_IMX8QM,
-+	.num_ports		= 5,
-+	.num_channels		= 8,
-+	.reg_offset		= 0x10000,
-+	.ier_reg		= &mxc_imx8_isi_ier_qm,
-+	.set_thd		= &mxc_imx8_isi_thd_v1,
-+	.buf_active_reverse	= true,
-+	.has_36bit_dma		= false,
-+};
-+
-+static const struct mxc_isi_plat_data mxc_imx8qxp_data = {
-+	.model			= MXC_ISI_IMX8QXP,
-+	.num_ports		= 5,
-+	.num_channels		= 6,
-+	.reg_offset		= 0x10000,
-+	.ier_reg		= &mxc_imx8_isi_ier_v2,
-+	.set_thd		= &mxc_imx8_isi_thd_v1,
-+	.buf_active_reverse	= true,
-+	.has_36bit_dma		= false,
-+};
-+
- static const struct mxc_isi_plat_data mxc_imx8ulp_data = {
- 	.model			= MXC_ISI_IMX8ULP,
- 	.num_ports		= 1,
-@@ -337,28 +359,6 @@ static const struct mxc_isi_plat_data mxc_imx93_data = {
- 	.has_36bit_dma		= false,
- };
- 
--static const struct mxc_isi_plat_data mxc_imx8qm_data = {
--	.model			= MXC_ISI_IMX8QM,
--	.num_ports		= 5,
--	.num_channels		= 8,
--	.reg_offset		= 0x10000,
--	.ier_reg		= &mxc_imx8_isi_ier_qm,
--	.set_thd		= &mxc_imx8_isi_thd_v1,
--	.buf_active_reverse	= true,
--	.has_36bit_dma		= false,
--};
--
--static const struct mxc_isi_plat_data mxc_imx8qxp_data = {
--	.model			= MXC_ISI_IMX8QXP,
--	.num_ports		= 5,
--	.num_channels		= 6,
--	.reg_offset		= 0x10000,
--	.ier_reg		= &mxc_imx8_isi_ier_v2,
--	.set_thd		= &mxc_imx8_isi_thd_v1,
--	.buf_active_reverse	= true,
--	.has_36bit_dma		= false,
--};
--
- /* -----------------------------------------------------------------------------
-  * Power management
-  */
+della Porta <andrea.porta@suse.com>
 
--- 
-2.34.1
+and missing both the first name and the double quotes surrounding the
+name/surname pair.
+Something like "Andrea d. Porta" would be reported correctly but it's not an
+option in my case since 'della' is not a middle name that can abbreviated,
+it's just integral part of the surname.
+The easy workaround I've found (the hard one being fixing get_maintainer.pl
+script, of course, but I'm not a Perl guru) is to just let the name be
+abbreviated.
 
+> 
+> > +
+> > +description:
+> > +  Broadcom's STB family of memory-mapped pin controllers.
+> > +  This includes the pin controllers inside the BCM2712 SoC which
+> > +  are instances of the STB family and has two silicon variants,
+> > +  C0 and D0, which differs slightly in terms of registers layout.
+> > +  The -aon- (Always On) variant is the same IP block but differs
+> > +  in the number of pins that are associated and the pinmux functions
+> > +  for each of those pins.
+> 
+> Wrap lines at 80. If there are paragraphs, then blank line in between 
+> and use the '>' modifier.
+
+I'm not seeing any lines exceeding 80 chars here. Ack for the
+blank lines between paragraphs plus >.
+
+> 
+> > +
+> > +allOf:
+> > +  - $ref: pinctrl.yaml#
+> > +
+> > +properties:
+> > +  compatible:
+> > +    enum:
+> > +      - brcm,bcm2712c0-pinctrl
+> > +      - brcm,bcm2712c0-aon-pinctrl
+> > +      - brcm,bcm2712d0-pinctrl
+> > +      - brcm,bcm2712d0-aon-pinctrl
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +patternProperties:
+> > +  '-state$':
+> > +    oneOf:
+> > +      - $ref: '#/$defs/brcmstb-pinctrl-state'
+> > +      - patternProperties:
+> > +          '-pins$':
+> > +            $ref: '#/$defs/brcmstb-pinctrl-state'
+> > +        additionalProperties: false
+> > +
+> > +$defs:
+> > +  brcmstb-pinctrl-state:
+> > +    allOf:
+> > +      - $ref: pincfg-node.yaml#
+> > +      - $ref: pinmux-node.yaml#
+> > +
+> > +    description:
+> > +      Pin controller client devices use pin configuration subnodes (children
+> > +      and grandchildren) for desired pin configuration.
+> > +      Client device subnodes use below standard properties.
+> 
+> Paragraphs here?
+
+Ack.
+
+> 
+> > +
+> > +    properties:
+> > +      pins:
+> > +        description:
+> > +          List of gpio pins affected by the properties specified in this
+> > +          subnode (either this or "groups" must be specified).
+> > +        items:
+> > +          pattern: '^((aon_)?s?gpio[0-6]?[0-9])|(emmc_(clk|cmd|dat[0-7]|ds))$'
+> > +
+> > +      function:
+> > +        enum: [ gpio, alt1, alt2, alt3, alt4, alt5, alt6, alt7, alt8,
+> > +                aon_cpu_standbyb, aon_fp_4sec_resetb, aon_gpclk, aon_pwm,
+> > +                arm_jtag, aud_fs_clk0, avs_pmu_bsc, bsc_m0, bsc_m1, bsc_m2,
+> > +                bsc_m3, clk_observe, ctl_hdmi_5v, enet0, enet0_mii, enet0_rgmii,
+> > +                ext_sc_clk, fl0, fl1, gpclk0, gpclk1, gpclk2, hdmi_tx0_auto_i2c,
+> > +                hdmi_tx0_bsc, hdmi_tx1_auto_i2c, hdmi_tx1_bsc, i2s_in, i2s_out,
+> > +                ir_in, mtsif, mtsif_alt, mtsif_alt1, pdm, pkt, pm_led_out, sc0,
+> > +                sd0, sd2, sd_card_a, sd_card_b, sd_card_c, sd_card_d, sd_card_e,
+> > +                sd_card_f, sd_card_g, spdif_out, spi_m, spi_s, sr_edm_sense, te0,
+> > +                te1, tsio, uart0, uart1, uart2, usb_pwr, usb_vbus, uui, vc_i2c0,
+> > +                vc_i2c3, vc_i2c4, vc_i2c5, vc_i2csl, vc_pcm, vc_pwm0, vc_pwm1,
+> > +                vc_spi0, vc_spi3, vc_spi4, vc_spi5, vc_uart0, vc_uart2, vc_uart3,
+> > +                vc_uart4 ]
+> > +
+> > +        description:
+> > +          Specify the alternative function to be configured for the specified
+> > +          pins.
+> 
+> Be consistent with putting 'description' first or last.
+
+Ack.
+
+Many thanks,
+Andrea
+
+> 
+> > +
+> > +      bias-disable: true
+> > +      bias-pull-down: true
+> > +      bias-pull-up: true
+> > +
+> > +    required:
+> > +      - pins
+> > +
+> > +    if:
+> > +      properties:
+> > +        pins:
+> > +          not:
+> > +            contains:
+> > +              pattern: "^emmc_(clk|cmd|dat[0-7]|ds)$"
+> > +    then:
+> > +      required:
+> > +        - function
+> > +    else:
+> > +      properties:
+> > +        function: false
+> > +
+> > +    additionalProperties: false
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +
+> > +unevaluatedProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    brcm_pinctrl: pinctrl@7d504100 {
+> > +        compatible = "brcm,bcm2712c0-pinctrl";
+> > +        reg = <0x7d504100 0x30>;
+> > +
+> > +        bt-shutdown-default-state {
+> > +           function = "gpio";
+> > +           pins = "gpio29";
+> > +        };
+> > +
+> > +        uarta-default-state {
+> > +            rts-tx-pins {
+> > +                function = "uart0";
+> > +                pins = "gpio24", "gpio26";
+> > +                bias-disable;
+> > +            };
+> > +
+> > +            cts-rx-pins {
+> > +                function = "uart0";
+> > +                pins = "gpio25", "gpio27";
+> > +                bias-pull-up;
+> > +            };
+> > +        };
+> > +    };
+> > -- 
+> > 2.35.3
+> > 
 
