@@ -4,93 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DA7BCA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 06:55:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 731C6C8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 07:10:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N4AF+Z8QELxaFzdK5UESWjmAKEccgiFEItCe+oHlNao=; b=fQUGzOzj7ms0jEInilY4fC9xT8
-	Cd7IVpLI1DUZV/wWVfclfYA2MYDo+3zJF5YIWgakHRpL/sgxEBk/xaEwX14lQBqzvdRVvb0UsfiOU
-	InyJbrnADxQOrmcpQRLz2KqrB2joDGoTkQXLwnT+EKxXR4L2+DEmQUPEv5snuJrZ4yi86BKz0Of8a
-	m+hh1tdSsPNRi7AGTF3WEt3UxgZ5xUz93+HM7Vc6BzoKZZbPouuiO9mOKUtc0Ac9vYt2xFFulvBD9
-	KIT3qiL92EtHbcwG8UCBqSO3tyglrye1lguSX1r6bTXicYhDD8iYS6Sfe/KOEftyp6Y37QOmvT9Qq
-	K2VQbcDg==;
+	bh=tD4kgbHtGzN85RCyMEKr+q/UoG64pId1DAHinjTVHfQ=; b=yVzkMpJphU6LLHup1Fzq6HGaFT
+	03zt0DQ8LQfZcD/3HNg5UsKEnd5mUQCJdG2iAHtLgfDYgB/vDTiIb60T5ByDCETEAwWLaerzCsXu5
+	h1fasSLBifu73WyWL8s57H/Gu2a3qkmH4ky+mYelHC7NQdjRoFLjjrcK8AZKVjXOovYQ01Kmg0hPe
+	Vu5PpntuB2lELCeFtchsCO/6HWwcCOlIsjBgWm2ZK8Ibn8YC3I1ZX4eP46XqwR+px/+oLJ8rcCAus
+	wEVBURgYkIARQgdBlGEETNdR458qoRPx2jqLXjY0s5/2vP0gp+mCLG3HOVoPIxn2AzqNrtqyD7aem
+	KVIJ5IJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urA4G-0000000EKRT-3Brh;
-	Wed, 27 Aug 2025 06:55:36 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1urAIc-0000000ENNR-1QtD;
+	Wed, 27 Aug 2025 07:10:26 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ur9rZ-0000000EIDN-3mUv
+	id 1urAFu-0000000EN1p-0qQ8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 06:42:31 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-afea7e61575so180876866b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 Aug 2025 23:42:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756276948; x=1756881748; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=N4AF+Z8QELxaFzdK5UESWjmAKEccgiFEItCe+oHlNao=;
-        b=jULdq0XJC+2jEejrv2w5nPK/7pUGrCXYsALWUlEuRmyOyOBhcj2wbr1xDjQu2jnAhZ
-         JjHwiP+vKTyKWRxL8GuhHYQjbeZH83YB4fULvU3LxdeLxqheDgCZSgsKVwiVAH6Jn9SK
-         SrsBVSnyxmxNEEFfAe5+gP0X2ha8aLfBKnJ4mE6SEtr9MMz+mW+XRaSsdgH5buj+3BeG
-         zH+rUhxgVx1yRg6sys0xI8evSkGGwPACUqOf+qVaIUdurwhQpVMZ2t7miReX1AKDln6N
-         z2Cwui9FAO/k2kXIWlAF29qbdF4XGKsBF4vEDWpEX18AEr/gmrgnvKvclDw7QQrHm9b9
-         GxcQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756276948; x=1756881748;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=N4AF+Z8QELxaFzdK5UESWjmAKEccgiFEItCe+oHlNao=;
-        b=r/E4HhG3FyZb2YO9lTbriyltZs8KStJ8VPaM/D9XAJFbhsirUkzbVmTea/plZ72JnX
-         9Tq1Pny0CNBV7N+ernM+7S8rPOPV9BsYCsDnHjUC2SGMrteK+q6c+8NqlvZkiwKNEbT/
-         ihXAKR4Mgjq8ORDI56nKXR0Afotm/c+5vH8lOEvG5MmW3tBk2jioDAslfdtGq3W9XuJd
-         lQVqBNrv1TYS8ClkhRLAoMp/oSs1qZ9cP+QdiByqnQG2GG6hYWAOiM18IcMRuFemttaM
-         ++AaroCN+42N9Y7fShBzBmMGcSgx5rwlddlGkIauF3ABBqfOxyvSqM9lxBu//lX+h+Xe
-         d1dw==
-X-Forwarded-Encrypted: i=1; AJvYcCWoAi7ZINOWqimv5ufE+piT4fBrDkYZgyaEHTDkY4dMYcTc4SGXB4i/wK5SMeY41IHf/6AD7TsoVxz0uipWD7d4@lists.infradead.org
-X-Gm-Message-State: AOJu0YxtjtvNlf27g3cMrrfoE8jxGuaYKkWSeEzneWDO4zrBs27giZNA
-	laUaqSV/Edx9Tc/pSXs3fsdZYw+R7O77RzXX/fY3mydSCEYYcao9FZ5lkbxDS6PeeA0=
-X-Gm-Gg: ASbGnct08MEDzEDGkjudOokEC/Z+DUMHXvtXZhYsjnQX1ADEr3Q76ZW+8DTEpHszdjk
-	VCYwNgGtJfto+OUzoDi695coCmjEyhi9kBlk4DqQA9H/1+rpGWEPRbsGwBpTnja377w8S2DTuMc
-	8w0lwxwOstazE29BwSO88UCMHcdnhzUr3yjM56oXo0ZYyZW7gLJhVieeNqUQg5gBse6NYcbUIUt
-	86yGj67MB0pJRmEf6vbXGgpH9iaPIk68rRWy1SF/CYjlh+rdviJea0SqEYa8DUidYP5hNXiYdeq
-	Mefb7eIFJI0hLFe2k4/7xVYhI1v8Ff+87rLDHQcb5IztVYpgx8MRJCdK62x/mrvhV7D6jpL9ne8
-	tquhkluAMr9qyhAtB+RrI3TE6rLORhQ==
-X-Google-Smtp-Source: AGHT+IHPbx6kF83A+w0Q0/C0fjKETavqKUnu7JIyVYNCZOoMZP02b1AqvPznvJa3PXMc/mDqyr/CTg==
-X-Received: by 2002:a17:906:478a:b0:afe:c027:cfd4 with SMTP id a640c23a62f3a-afec027dffcmr146211766b.41.1756276947856;
-        Tue, 26 Aug 2025 23:42:27 -0700 (PDT)
-Received: from [192.168.0.24] ([82.76.24.202])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afe73cf6d99sm697061266b.0.2025.08.26.23.42.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 26 Aug 2025 23:42:27 -0700 (PDT)
-Message-ID: <495394bb-6f0a-4300-ac77-e3193eb14ca4@linaro.org>
-Date: Wed, 27 Aug 2025 09:42:26 +0300
+	Wed, 27 Aug 2025 07:07:40 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.163])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4cBbBB2d6dz2VRPB;
+	Wed, 27 Aug 2025 15:04:34 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 42666180043;
+	Wed, 27 Aug 2025 15:07:32 +0800 (CST)
+Received: from kwepemn100008.china.huawei.com (7.202.194.111) by
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 27 Aug 2025 15:07:32 +0800
+Received: from [10.67.120.139] (10.67.120.139) by
+ kwepemn100008.china.huawei.com (7.202.194.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 27 Aug 2025 15:07:31 +0800
+Message-ID: <1a791de7-98ab-4b1f-9605-b06074b5905f@huawei.com>
+Date: Wed, 27 Aug 2025 15:07:30 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC][PATCH v2 00/29] introduce kmemdump
-To: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-mm@kvack.org, tglx@linutronix.de,
- andersson@kernel.org, pmladek@suse.com,
- linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
- corbet@lwn.net, mojha@qti.qualcomm.com, rostedt@goodmis.org,
- jonechou@google.com, tudor.ambarus@linaro.org
-References: <20250724135512.518487-1-eugen.hristev@linaro.org>
- <20250826171447.6w77day5wddppy3s@hu-mojha-hyd.qualcomm.com>
-From: Eugen Hristev <eugen.hristev@linaro.org>
+Subject: Re: [PATCH v2 7/9] drivers/perf: hisi: Add support for L3C PMU v3
+To: Yicong Yang <yangyicong@huawei.com>
+CC: <robin.murphy@arm.com>, <Jonathan.Cameron@huawei.com>,
+	<liuyonglong@huawei.com>, <wanghuiqiang@huawei.com>,
+	<linux-kernel@vger.kernel.org>, <prime.zeng@hisilicon.com>,
+	<hejunhao3@h-partners.com>, Linuxarm <linuxarm@huawei.com>,
+	<will@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<mark.rutland@arm.com>
+References: <20250821135049.2010220-1-wangyushan12@huawei.com>
+ <20250821135049.2010220-8-wangyushan12@huawei.com>
+ <96237b52-ab01-36f1-0b3c-16e878e71073@huawei.com>
 Content-Language: en-US
-In-Reply-To: <20250826171447.6w77day5wddppy3s@hu-mojha-hyd.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
+From: wangyushan <wangyushan12@huawei.com>
+In-Reply-To: <96237b52-ab01-36f1-0b3c-16e878e71073@huawei.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.120.139]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemn100008.china.huawei.com (7.202.194.111)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250826_234229_973945_C363B76A 
-X-CRM114-Status: GOOD (  38.11  )
+X-CRM114-CacheID: sfid-20250827_000738_617248_8DA27868 
+X-CRM114-Status: GOOD (  33.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,291 +83,654 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 8/26/25 20:14, Mukesh Ojha wrote:
-> On Thu, Jul 24, 2025 at 04:54:43PM +0300, Eugen Hristev wrote:
->> kmemdump is a mechanism which allows the kernel to mark specific memory
->> areas for dumping or specific backend usage.
->> Once regions are marked, kmemdump keeps an internal list with the regions
->> and registers them in the backend.
->> Further, depending on the backend driver, these regions can be dumped using
->> firmware or different hardware block.
->> Regions being marked beforehand, when the system is up and running, there
->> is no need nor dependency on a panic handler, or a working kernel that can
->> dump the debug information.
->> The kmemdump approach works when pstore, kdump, or another mechanism do not.
->> Pstore relies on persistent storage, a dedicated RAM area or flash, which
->> has the disadvantage of having the memory reserved all the time, or another
->> specific non volatile memory. Some devices cannot keep the RAM contents on
->> reboot so ramoops does not work. Some devices do not allow kexec to run
->> another kernel to debug the crashed one.
->> For such devices, that have another mechanism to help debugging, like
->> firmware, kmemdump is a viable solution.
+On 8/27/2025 11:43 AM, Yicong Yang wrote:
+> On 2025/8/21 21:50, Yushan Wang wrote:
+>> From: Yicong Yang <yangyicong@hisilicon.com>
 >>
->> kmemdump can create a core image, similar with /proc/vmcore, with only
->> the registered regions included. This can be loaded into crash tool/gdb and
->> analyzed.
->> To have this working, specific information from the kernel is registered,
->> and this is done at kmemdump init time, no need for the kmemdump user to
->> do anything.
+>> This patch adds support for L3C PMU v3. The v3 L3C PMU supports
+>> an extended events space which can be controlled in up to 2 extra
+>> address spaces with separate overflow interrupts. The layout
+>> of the control/event registers are kept the same. The extended events
+>> with original ones together cover the monitoring job of all transactions
+>> on L3C.
 >>
->> This version of the kmemdump patch series includes two backend drivers:
->> one is the Qualcomm Minidump backend, and the other one is the Debug Kinfo
->> backend for Android devices, reworked from this source here:
->> https://android.googlesource.com/kernel/common/+/refs/heads/android-mainline/drivers/android/debug_kinfo.c
->> written originally by Jone Chou <jonechou@google.com>
+>> The extended events is specified with `ext=[1|2]` option for the
+>> driver to distinguish, like below:
 >>
->> Initial version of kmemdump and discussion is available here:
->> https://lore.kernel.org/lkml/20250422113156.575971-1-eugen.hristev@linaro.org/
+>> perf stat -e hisi_sccl0_l3c0_0/event=<event_id>,ext=1/
 >>
->> Kmemdump has been presented and discussed at Linaro Connect 2025,
->> including motivation, scope, usability and feasability.
->> Video of the recording is available here for anyone interested:
->> https://www.youtube.com/watch?v=r4gII7MX9zQ&list=PLKZSArYQptsODycGiE0XZdVovzAwYNwtK&index=14
+>> Currently only event option using config bit [7, 0]. There's
+>> still plenty unused space. Make ext using config [16, 17] and
+>> reserve bit [15, 8] for event option for future extension.
 >>
->> The implementation is based on the initial Pstore/directly mapped zones
->> published as an RFC here:
->> https://lore.kernel.org/all/20250217101706.2104498-1-eugen.hristev@linaro.org/
+>> With the capability of extra counters, number of counters for HiSilicon
+>> uncore PMU could reach up to 24, the usedmap is extended accordingly.
 >>
->> The back-end implementation for qcom_minidump is based on the minidump
->> patch series and driver written by Mukesh Ojha, thanks:
->> https://lore.kernel.org/lkml/20240131110837.14218-1-quic_mojha@quicinc.com/
+>> The hw_perf_event::event_base is initialized to the base MMIO
+>> address of the event and will be used for later control,
+>> overflow handling and counts readout.
 >>
->> *** How to use kmemdump with minidump backend on Qualcomm platform guide ***
+>> We still make use of the Uncore PMU framework for handling the
+>> events and interrupt migration on CPU hotplug. The framework's
+>> cpuhp callback will handle the event migration and interrupt
+>> migration of orginial event, if PMU supports extended events
+>> then the interrupt of extended events is migrated to the same
+>> CPU choosed by the framework.
 >>
->> Prerequisites:
->> Crash tool with target=ARM64 and minor changes required for usual crash mode
->> (minimal mode works without the patch)
->> A patch can be applied from here https://p.calebs.dev/49a048
->> This patch will be eventually sent in a reworked way to crash tool.
+>> A new HID of HISI0215 is used for this version of L3C PMU.
 >>
->> Target kernel must be built with :
->> CONFIG_DEBUG_INFO_REDUCED=n ; this will have vmlinux include all the debugging
->> information needed for crash tool.
+>> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+>> Co-developed-by: Yushan Wang <wangyushan12@huawei.com>
+>> Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
+> some minor comments inline. sorry again for not raising them in previous version.
+>
+>> ---
+>>   drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c | 352 +++++++++++++++++--
+>>   drivers/perf/hisilicon/hisi_uncore_pmu.h     |   2 +-
+>>   2 files changed, 321 insertions(+), 33 deletions(-)
 >>
->> Otherwise, the kernel requires these as well:
->> CONFIG_KMEMDUMP, CONFIG_KMEMDUMP_COREIMAGE, and the backend
->> CONFIG_KMEMDUMP_QCOM_MINIDUMP_BACKEND
->>
->> Kernel arguments:
->> Kernel firmware must be set to mode 'mini' by kernel module parameter
->> like this : qcom_scm.download_mode=mini
->>
->> After the kernel boots, and qcom_minidump module is loaded, everything is ready for
->> a possible crash.
->>
->> Once the crash happens, the firmware will kick in and you will see on
->> the console the message saying Sahara init, etc, that the firmware is
->> waiting in download mode. (this is subject to firmware supporting this
->> mode, I am using sa8775p-ride board)
->>
->> Example of log on the console:
->> "
->> [...]
->> B -   1096414 - usb: init start
->> B -   1100287 - usb: qusb_dci_platform , 0x19
->> B -   1105686 - usb: usb3phy: PRIM success: lane_A , 0x60
->> B -   1107455 - usb: usb2phy: PRIM success , 0x4
->> B -   1112670 - usb: dci, chgr_type_det_err
->> B -   1117154 - usb: ID:0x260, value: 0x4
->> B -   1121942 - usb: ID:0x108, value: 0x1d90
->> B -   1124992 - usb: timer_start , 0x4c4b40
->> B -   1129140 - usb: vbus_det_pm_unavail
->> B -   1133136 - usb: ID:0x252, value: 0x4
->> B -   1148874 - usb: SUPER , 0x900e
->> B -   1275510 - usb: SUPER , 0x900e
->> B -   1388970 - usb: ID:0x20d, value: 0x0
->> B -   1411113 - usb: ENUM success
->> B -   1411113 - Sahara Init
->> B -   1414285 - Sahara Open
->> "
->>
->> Once the board is in download mode, you can use the qdl tool (I
->> personally use edl , have not tried qdl yet), to get all the regions as
->> separate files.
->> The tool from the host computer will list the regions in the order they
->> were downloaded.
->>
->> Once you have all the files simply use `cat` to put them all together,
->> in the order of the indexes.
->> For my kernel config and setup, here is my cat command : (you can use a script
->> or something, I haven't done that so far):
->>
->> `cat memory/md_KELF1.BIN memory/md_Kvmcorein2.BIN memory/md_Kconfig3.BIN \
->> memory/md_Kmemsect4.BIN memory/md_Ktotalram5.BIN memory/md_Kcpu_poss6.BIN \
->> memory/md_Kcpu_pres7.BIN memory/md_Kcpu_onli8.BIN memory/md_Kcpu_acti9.BIN \
->> memory/md_Kjiffies10.BIN memory/md_Klinux_ba11.BIN memory/md_Knr_threa12.BIN \
->>  memory/md_Knr_irqs13.BIN memory/md_Ktainted_14.BIN memory/md_Ktaint_fl15.BIN \
->> memory/md_Kmem_sect16.BIN memory/md_Knode_dat17.BIN memory/md_Knode_sta18.BIN \
->> memory/md_K__per_cp19.BIN memory/md_Knr_swapf20.BIN memory/md_Kinit_uts21.BIN \
->> memory/md_Kprintk_r22.BIN memory/md_Kprintk_r23.BIN memory/md_Kprb24.BIN \
->> memory/md_Kprb_desc25.BIN memory/md_Kprb_info26.BIN memory/md_Kprb_data27.BIN \
->> memory/md_Krunqueue28.BIN memory/md_Khigh_mem29.BIN memory/md_Kinit_mm30.BIN \
->> memory/md_Kinit_mm_31.BIN memory/md_Kunknown32.BIN memory/md_Kunknown33.BIN \
->> memory/md_Kunknown34.BIN  memory/md_Kunknown35.BIN memory/md_Kunknown36.BIN \
->> memory/md_Kunknown37.BIN memory/md_Kunknown38.BIN memory/md_Kunknown39.BIN \
->> memory/md_Kunknown40.BIN memory/md_Kunknown41.BIN memory/md_Kunknown42.BIN \
->> memory/md_Kunknown43.BIN memory/md_Kunknown44.BIN memory/md_Kunknown45.BIN \
->> memory/md_Kunknown46.BIN memory/md_Kunknown47.BIN  memory/md_Kunknown50.BIN \
->> memory/md_Kunknown51.BIN memory/md_Kunknown52.BIN \
->> memory/md_Kunknown53.BIN > ~/minidump_image`
->>
->> Once you have the resulted file, use `crash` tool to load it, like this:
->> `./crash --no_modules --no_panic --no_kmem_cache --zero_excluded vmlinux minidump_image`
->>
->> There is also a --minimal mode for ./crash that would work without any patch applied
->> to crash tool, but you can't inspect symbols, etc.
-> 
-> Unfortunately for me, only with --minimal option, I could see the 'log'.
-> 
-> ./crash --no_modules --no_panic --no_kmem_cache --zero_excluded vmlinux minidump_image
-> 
-> WARNING: kernel version inconsistency between vmlinux and dumpfile
-> 
-> crash: read error: kernel virtual address: ffffff8ed7f380d8  type: "IRQ stack pointer"
-> crash: read error: kernel virtual address: ffffff8ed7f510d8  type: "IRQ stack pointer"
-> crash: read error: kernel virtual address: ffffff8ed7f6a0d8  type: "IRQ stack pointer"
-> crash: read error: kernel virtual address: ffffff8ed7f830d8  type: "IRQ stack pointer"
-> crash: read error: kernel virtual address: ffffff8ed7f9c0d8  type: "IRQ stack pointer"
-> crash: read error: kernel virtual address: ffffff8ed7fb50d8  type: "IRQ stack pointer"
-> crash: read error: kernel virtual address: ffffff8ed7fce0d8  type: "IRQ stack pointer"
-> crash: read error: kernel virtual address: ffffff8ed7fe70d8  type: "IRQ stack pointer"
-> crash: read error: kernel virtual address: ffffffc0817c5d80  type: "maple_init read mt_slots"
-> crash: read error: kernel virtual address: ffffffc0817c5d78  type: "maple_init read mt_pivots"
-> crash: read error: kernel virtual address: ffffff8efb89e2c0  type: "memory section root table"
-> 
-> Looks like something more you are using in your setup to make it work.
+>> diff --git a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
+>> index 7928b9bb3e7e..95136c01f17b 100644
+>> --- a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
+>> +++ b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
+>> @@ -55,24 +55,85 @@
+>>   #define L3C_V1_NR_EVENTS	0x59
+>>   #define L3C_V2_NR_EVENTS	0xFF
+>>   
+>> +#define L3C_MAX_EXT		2
+>> +
+>> +HISI_PMU_EVENT_ATTR_EXTRACTOR(ext, config, 17, 16);
+>>   HISI_PMU_EVENT_ATTR_EXTRACTOR(tt_req, config1, 10, 8);
+>>   HISI_PMU_EVENT_ATTR_EXTRACTOR(datasrc_cfg, config1, 15, 11);
+>>   HISI_PMU_EVENT_ATTR_EXTRACTOR(datasrc_skt, config1, 16, 16);
+>>   HISI_PMU_EVENT_ATTR_EXTRACTOR(tt_core, config2, 15, 0);
+>>   
+>> +struct hisi_l3c_pmu {
+>> +	struct hisi_pmu l3c_pmu;
+>> +
+>> +	/* MMIO and IRQ resources for extension events */
+>> +	void __iomem *ext_base[L3C_MAX_EXT];
+>> +	int ext_irq[L3C_MAX_EXT];
+>> +	int ext_num;
+>> +};
+>> +
+>> +#define to_hisi_l3c_pmu(_l3c_pmu) \
+>> +	container_of(_l3c_pmu, struct hisi_l3c_pmu, l3c_pmu)
+>> +
+>> +/*
+>> + * The hardware counter idx used in counter enable/disable,
+>> + * interrupt enable/disable and status check, etc.
+>> + */
+>> +#define L3C_HW_IDX(_idx)		((_idx) % L3C_NR_COUNTERS)
+>> +
+>> +/* The ext resource number to which a hardware counter belongs. */
+>> +#define L3C_CNTR_EXT(_idx)		((_idx) / L3C_NR_COUNTERS)
+>> +
+>> +struct hisi_l3c_pmu_ext {
+>> +	bool support_ext;
+>> +};
+>> +
+>> +static bool support_ext(struct hisi_l3c_pmu *pmu)
+>> +{
+>> +	struct hisi_l3c_pmu_ext *l3c_pmu_ext = pmu->l3c_pmu.dev_info->private;
+>> +
+>> +	return l3c_pmu_ext->support_ext;
+>> +}
+>> +
+>>   static int hisi_l3c_pmu_get_event_idx(struct perf_event *event)
+>>   {
+>>   	struct hisi_pmu *l3c_pmu = to_hisi_pmu(event->pmu);
+>> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
+>>   	unsigned long *used_mask = l3c_pmu->pmu_events.used_mask;
+>> -	u32 num_counters = l3c_pmu->num_counters;
+>> +	int ext = hisi_get_ext(event);
+>>   	int idx;
+>>   
+>> -	idx = find_first_zero_bit(used_mask, num_counters);
+>> -	if (idx == num_counters)
+>> +	/*
+>> +	 * For an L3C PMU that supports extension events, we can monitor
+>> +	 * maximum 2 * num_counters to 3 * num_counters events, depending on
+>> +	 * the number of ext regions supported by hardware. Thus use bit
+>> +	 * [0, num_counters - 1] for normal events and bit
+>> +	 * [ext * num_counters, (ext + 1) * num_counters - 1] for extension
+>> +	 * events. The idx allocation will keep unchanged for normal events and
+>> +	 * we can also use the idx to distinguish whether it's an extension
+>> +	 * event or not.
+>> +	 *
+>> +	 * Since normal events and extension events locates on the different
+>> +	 * address space, save the base address to the event->hw.event_base.
+>> +	 */
+>> +	if (ext) {
+>> +		if (!support_ext(hisi_l3c_pmu))
+>> +			return -EOPNOTSUPP;
+>> +
+>> +		event->hw.event_base = (unsigned long)hisi_l3c_pmu->ext_base[ext - 1];
+>> +		idx = find_next_zero_bit(used_mask, L3C_NR_COUNTERS * (ext + 1),
+>> +					 L3C_NR_COUNTERS * ext);
+>> +	} else {
+>> +		event->hw.event_base = (unsigned long)l3c_pmu->base;
+>> +		idx = find_next_zero_bit(used_mask, L3C_NR_COUNTERS, 0);
+>> +	}
+>> +
+>> +	if (idx >= L3C_NR_COUNTERS * (ext + 1))
+>>   		return -EAGAIN;
+>>   
+>>   	set_bit(idx, used_mask);
+>> -	event->hw.event_base = (unsigned long)l3c_pmu->base;
+>> +
+>> +	WARN_ON(idx < L3C_NR_COUNTERS * ext || idx >= L3C_NR_COUNTERS * (ext + 1));
+>>   
+>>   	return idx;
+>>   }
+>> @@ -143,7 +204,7 @@ static void hisi_l3c_pmu_write_ds(struct perf_event *event, u32 ds_cfg)
+>>   {
+>>   	struct hw_perf_event *hwc = &event->hw;
+>>   	u32 reg, reg_idx, shift, val;
+>> -	int idx = hwc->idx;
+>> +	int idx = L3C_HW_IDX(hwc->idx);
+>>   
+>>   	/*
+>>   	 * Select the appropriate datasource register(L3C_DATSRC_TYPE0/1).
+>> @@ -264,12 +325,23 @@ static void hisi_l3c_pmu_disable_filter(struct perf_event *event)
+>>   	}
+>>   }
+>>   
+>> +static int hisi_l3c_pmu_check_filter(struct perf_event *event)
+>> +{
+>> +	struct hisi_pmu *l3c_pmu = to_hisi_pmu(event->pmu);
+>> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
+>> +	int ext = hisi_get_ext(event);
+>> +
+>> +	if (ext < 0 || ext > hisi_l3c_pmu->ext_num)
+>> +		return -EINVAL;
+> newline here. similar to other places.
+>
+>> +	return 0;
+>> +}
+>> +
+>>   /*
+>>    * Select the counter register offset using the counter index
+>>    */
+>>   static u32 hisi_l3c_pmu_get_counter_offset(int cntr_idx)
+>>   {
+>> -	return (L3C_CNTR0_LOWER + (cntr_idx * 8));
+>> +	return (L3C_CNTR0_LOWER + (L3C_HW_IDX(cntr_idx) * 8));
+>>   }
+>>   
+>>   static u64 hisi_l3c_pmu_read_counter(struct hisi_pmu *l3c_pmu,
+>> @@ -290,6 +362,8 @@ static void hisi_l3c_pmu_write_evtype(struct hisi_pmu *l3c_pmu, int idx,
+>>   	struct hw_perf_event *hwc = &l3c_pmu->pmu_events.hw_events[idx]->hw;
+>>   	u32 reg, reg_idx, shift, val;
+>>   
+>> +	idx = L3C_HW_IDX(idx);
+>> +
+>>   	/*
+>>   	 * Select the appropriate event select register(L3C_EVENT_TYPE0/1).
+>>   	 * There are 2 event select registers for the 8 hardware counters.
+>> @@ -310,28 +384,63 @@ static void hisi_l3c_pmu_write_evtype(struct hisi_pmu *l3c_pmu, int idx,
+>>   
+>>   static void hisi_l3c_pmu_start_counters(struct hisi_pmu *l3c_pmu)
+>>   {
+>> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
+>> +	unsigned long *used_mask = l3c_pmu->pmu_events.used_mask;
+>> +	unsigned long bit = find_first_bit(used_mask, l3c_pmu->num_counters);
+>>   	u32 val;
+>> +	int i;
+>>   
+>>   	/*
+>> -	 * Set perf_enable bit in L3C_PERF_CTRL register to start counting
+>> -	 * for all enabled counters.
+>> +	 * Check if any counter belongs to the normal range (instead of ext
+>> +	 * range). If so, enable it.
+>>   	 */
+>> -	val = readl(l3c_pmu->base + L3C_PERF_CTRL);
+>> -	val |= L3C_PERF_CTRL_EN;
+>> -	writel(val, l3c_pmu->base + L3C_PERF_CTRL);
+>> +	if (bit < L3C_NR_COUNTERS) {
+>> +		val = readl(l3c_pmu->base + L3C_PERF_CTRL);
+>> +		val |= L3C_PERF_CTRL_EN;
+>> +		writel(val, l3c_pmu->base + L3C_PERF_CTRL);
+>> +	}
+>> +
+>> +	/* If not, do enable it on ext ranges. */
+>> +	for (i = 0; i < hisi_l3c_pmu->ext_num; i++) {
+>> +		bit = find_next_bit(used_mask, L3C_NR_COUNTERS * (i + 2),
+>> +				    L3C_NR_COUNTERS * (i + 1));
+>> +		if (L3C_CNTR_EXT(bit) == i + 1) {
+>> +			val = readl(hisi_l3c_pmu->ext_base[i] + L3C_PERF_CTRL);
+>> +			val |= L3C_PERF_CTRL_EN;
+>> +			writel(val, hisi_l3c_pmu->ext_base[i] + L3C_PERF_CTRL);
+>> +		}
+>> +	}
+>>   }
+>>   
+>>   static void hisi_l3c_pmu_stop_counters(struct hisi_pmu *l3c_pmu)
+>>   {
+>> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
+>> +	unsigned long *used_mask = l3c_pmu->pmu_events.used_mask;
+>> +	unsigned long bit = find_first_bit(used_mask, l3c_pmu->num_counters);
+>>   	u32 val;
+>> +	int i;
+>>   
+>>   	/*
+>> -	 * Clear perf_enable bit in L3C_PERF_CTRL register to stop counting
+>> -	 * for all enabled counters.
+>> +	 * Check if any counter belongs to the normal range (instead of ext
+>> +	 * range). If so, stop it.
+>>   	 */
+>> -	val = readl(l3c_pmu->base + L3C_PERF_CTRL);
+>> -	val &= ~(L3C_PERF_CTRL_EN);
+>> -	writel(val, l3c_pmu->base + L3C_PERF_CTRL);
+>> +	if (bit < L3C_NR_COUNTERS) {
+>> +		val = readl(l3c_pmu->base + L3C_PERF_CTRL);
+>> +		val &= ~(L3C_PERF_CTRL_EN);
+>> +		writel(val, l3c_pmu->base + L3C_PERF_CTRL);
+>> +	}
+>> +
+>> +	/* If not, do stop it on ext ranges. */
+>> +	for (i = 0; i < hisi_l3c_pmu->ext_num; i++) {
+>> +		bit = find_next_bit(used_mask, L3C_NR_COUNTERS * (i + 2),
+>> +				    L3C_NR_COUNTERS * (i + 1));
+>> +		if (L3C_CNTR_EXT(bit) != i + 1)
+>> +			continue;
+>> +
+>> +		val = readl(hisi_l3c_pmu->ext_base[i] + L3C_PERF_CTRL);
+>> +		val &= ~L3C_PERF_CTRL_EN;
+>> +		writel(val, hisi_l3c_pmu->ext_base[i] + L3C_PERF_CTRL);
+>> +	}
+>>   }
+>>   
+>>   static void hisi_l3c_pmu_enable_counter(struct hisi_pmu *l3c_pmu,
+>> @@ -341,7 +450,7 @@ static void hisi_l3c_pmu_enable_counter(struct hisi_pmu *l3c_pmu,
+>>   
+>>   	/* Enable counter index in L3C_EVENT_CTRL register */
+>>   	val = hisi_l3c_pmu_event_readl(hwc, L3C_EVENT_CTRL);
+>> -	val |= (1 << hwc->idx);
+>> +	val |= (1 << L3C_HW_IDX(hwc->idx));
+>>   	hisi_l3c_pmu_event_writel(hwc, L3C_EVENT_CTRL, val);
+>>   }
+>>   
+>> @@ -352,7 +461,7 @@ static void hisi_l3c_pmu_disable_counter(struct hisi_pmu *l3c_pmu,
+>>   
+>>   	/* Clear counter index in L3C_EVENT_CTRL register */
+>>   	val = hisi_l3c_pmu_event_readl(hwc, L3C_EVENT_CTRL);
+>> -	val &= ~(1 << hwc->idx);
+>> +	val &= ~(1 << L3C_HW_IDX(hwc->idx));
+>>   	hisi_l3c_pmu_event_writel(hwc, L3C_EVENT_CTRL, val);
+>>   }
+>>   
+>> @@ -363,7 +472,7 @@ static void hisi_l3c_pmu_enable_counter_int(struct hisi_pmu *l3c_pmu,
+>>   
+>>   	val = hisi_l3c_pmu_event_readl(hwc, L3C_INT_MASK);
+>>   	/* Write 0 to enable interrupt */
+>> -	val &= ~(1 << hwc->idx);
+>> +	val &= ~(1 << L3C_HW_IDX(hwc->idx));
+>>   	hisi_l3c_pmu_event_writel(hwc, L3C_INT_MASK, val);
+>>   }
+>>   
+>> @@ -374,20 +483,34 @@ static void hisi_l3c_pmu_disable_counter_int(struct hisi_pmu *l3c_pmu,
+>>   
+>>   	val = hisi_l3c_pmu_event_readl(hwc, L3C_INT_MASK);
+>>   	/* Write 1 to mask interrupt */
+>> -	val |= (1 << hwc->idx);
+>> +	val |= (1 << L3C_HW_IDX(hwc->idx));
+>>   	hisi_l3c_pmu_event_writel(hwc, L3C_INT_MASK, val);
+>>   }
+>>   
+>>   static u32 hisi_l3c_pmu_get_int_status(struct hisi_pmu *l3c_pmu)
+>>   {
+>> -	return readl(l3c_pmu->base + L3C_INT_STATUS);
+>> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
+>> +	u32 ext_int, status, status_ext = 0;
+>> +	int i;
+>> +
+>> +	status = readl(l3c_pmu->base + L3C_INT_STATUS);
+>> +
+>> +	if (!support_ext(hisi_l3c_pmu))
+>> +		return status;
+>> +
+>> +	for (i = 0; i < hisi_l3c_pmu->ext_num; i++) {
+>> +		ext_int = readl(hisi_l3c_pmu->ext_base[i] + L3C_INT_STATUS);
+>> +		status_ext |= ext_int << (L3C_NR_COUNTERS * i);
+>> +	}
+>> +
+>> +	return status | (status_ext << L3C_NR_COUNTERS);
+>>   }
+>>   
+>>   static void hisi_l3c_pmu_clear_int_status(struct hisi_pmu *l3c_pmu, int idx)
+>>   {
+>>   	struct hw_perf_event *hwc = &l3c_pmu->pmu_events.hw_events[idx]->hw;
+>>   
+>> -	hisi_l3c_pmu_event_writel(hwc, L3C_INT_CLEAR, 1 << idx);
+>> +	hisi_l3c_pmu_event_writel(hwc, L3C_INT_CLEAR, 1 << L3C_HW_IDX(idx));
+>>   }
+>>   
+>>   static int hisi_l3c_pmu_init_data(struct platform_device *pdev,
+>> @@ -409,10 +532,6 @@ static int hisi_l3c_pmu_init_data(struct platform_device *pdev,
+>>   		return -EINVAL;
+>>   	}
+>>   
+>> -	l3c_pmu->dev_info = device_get_match_data(&pdev->dev);
+>> -	if (!l3c_pmu->dev_info)
+>> -		return -ENODEV;
+>> -
+>>   	l3c_pmu->base = devm_platform_ioremap_resource(pdev, 0);
+>>   	if (IS_ERR(l3c_pmu->base)) {
+>>   		dev_err(&pdev->dev, "ioremap failed for l3c_pmu resource\n");
+>> @@ -424,6 +543,46 @@ static int hisi_l3c_pmu_init_data(struct platform_device *pdev,
+>>   	return 0;
+>>   }
+>>   
+>> +static int hisi_l3c_pmu_init_ext(struct hisi_pmu *l3c_pmu, struct platform_device *pdev)
+>> +{
+>> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
+>> +	int ret, irq, ext_num, i;
+>> +	char *irqname;
+>> +
+>> +	/* HiSilicon L3C PMU ext should have more than 1 irq resources. */
+>> +	ext_num = platform_irq_count(pdev);
+>> +	if (ext_num < 2)
+> will be more readable using L3C_MAX_EXT:
+>
+> if (ext_num < L3C_MAX_EXT)
+> 	return -ENODEV;
+>
+>> +		return -ENODEV;
+>> +
+>> +	hisi_l3c_pmu->ext_num = ext_num - 1;
+>> +
+>> +	for (i = 0; i < hisi_l3c_pmu->ext_num; i++) {
+>> +		hisi_l3c_pmu->ext_base[i] = devm_platform_ioremap_resource(pdev, i + 1);
+>> +		if (IS_ERR(hisi_l3c_pmu->ext_base[i]))
+>> +			return PTR_ERR(hisi_l3c_pmu->ext_base[i]);
+>> +
+>> +		irq = platform_get_irq(pdev, i + 1);
+>> +		if (irq < 0)
+>> +			return irq;
+>> +
+>> +		irqname = devm_kasprintf(&pdev->dev, GFP_KERNEL, "%s ext%d",
+>> +					 dev_name(&pdev->dev), i + 1);
+>> +		if (!irqname)
+>> +			return -ENOMEM;
+>> +
+>> +		ret = devm_request_irq(&pdev->dev, irq, hisi_uncore_pmu_isr,
+>> +				       IRQF_NOBALANCING | IRQF_NO_THREAD,
+>> +				       irqname, l3c_pmu);
+>> +		if (ret < 0)
+>> +			return dev_err_probe(&pdev->dev, ret,
+>> +				"Fail to request EXT IRQ: %d.\n", irq);
+>> +
+>> +		hisi_l3c_pmu->ext_irq[i] = irq;
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> +
+>>   static struct attribute *hisi_l3c_pmu_v1_format_attr[] = {
+>>   	HISI_PMU_FORMAT_ATTR(event, "config:0-7"),
+>>   	NULL,
+>> @@ -448,6 +607,19 @@ static const struct attribute_group hisi_l3c_pmu_v2_format_group = {
+>>   	.attrs = hisi_l3c_pmu_v2_format_attr,
+>>   };
+>>   
+>> +static struct attribute *hisi_l3c_pmu_v3_format_attr[] = {
+>> +	HISI_PMU_FORMAT_ATTR(event, "config:0-7"),
+>> +	HISI_PMU_FORMAT_ATTR(ext, "config:16-17"),
+>> +	HISI_PMU_FORMAT_ATTR(tt_req, "config1:8-10"),
+>> +	HISI_PMU_FORMAT_ATTR(tt_core, "config2:0-15"),
+>> +	NULL
+>> +};
+>> +
+>> +static const struct attribute_group hisi_l3c_pmu_v3_format_group = {
+>> +	.name = "format",
+>> +	.attrs = hisi_l3c_pmu_v3_format_attr,
+>> +};
+>> +
+>>   static struct attribute *hisi_l3c_pmu_v1_events_attr[] = {
+>>   	HISI_PMU_EVENT_ATTR(rd_cpipe,		0x00),
+>>   	HISI_PMU_EVENT_ATTR(wr_cpipe,		0x01),
+>> @@ -483,6 +655,26 @@ static const struct attribute_group hisi_l3c_pmu_v2_events_group = {
+>>   	.attrs = hisi_l3c_pmu_v2_events_attr,
+>>   };
+>>   
+>> +static struct attribute *hisi_l3c_pmu_v3_events_attr[] = {
+>> +	HISI_PMU_EVENT_ATTR(rd_spipe,		0x18),
+>> +	HISI_PMU_EVENT_ATTR(rd_hit_spipe,	0x19),
+>> +	HISI_PMU_EVENT_ATTR(wr_spipe,		0x1a),
+>> +	HISI_PMU_EVENT_ATTR(wr_hit_spipe,	0x1b),
+>> +	HISI_PMU_EVENT_ATTR(io_rd_spipe,	0x1c),
+>> +	HISI_PMU_EVENT_ATTR(io_rd_hit_spipe,	0x1d),
+>> +	HISI_PMU_EVENT_ATTR(io_wr_spipe,	0x1e),
+>> +	HISI_PMU_EVENT_ATTR(io_wr_hit_spipe,	0x1f),
+>> +	HISI_PMU_EVENT_ATTR(cycles,		0x7f),
+>> +	HISI_PMU_EVENT_ATTR(l3c_ref,		0xbc),
+>> +	HISI_PMU_EVENT_ATTR(l3c2ring,		0xbd),
+>> +	NULL
+>> +};
+>> +
+>> +static const struct attribute_group hisi_l3c_pmu_v3_events_group = {
+>> +	.name = "events",
+>> +	.attrs = hisi_l3c_pmu_v3_events_attr,
+>> +};
+>> +
+>>   static const struct attribute_group *hisi_l3c_pmu_v1_attr_groups[] = {
+>>   	&hisi_l3c_pmu_v1_format_group,
+>>   	&hisi_l3c_pmu_v1_events_group,
+>> @@ -499,16 +691,41 @@ static const struct attribute_group *hisi_l3c_pmu_v2_attr_groups[] = {
+>>   	NULL
+>>   };
+>>   
+>> +static const struct attribute_group *hisi_l3c_pmu_v3_attr_groups[] = {
+>> +	&hisi_l3c_pmu_v3_format_group,
+>> +	&hisi_l3c_pmu_v3_events_group,
+>> +	&hisi_pmu_cpumask_attr_group,
+>> +	&hisi_pmu_identifier_group,
+>> +	NULL
+>> +};
+>> +
+>> +static struct hisi_l3c_pmu_ext hisi_l3c_pmu_support_ext = {
+>> +	.support_ext = true,
+>> +};
+>> +
+>> +static struct hisi_l3c_pmu_ext hisi_l3c_pmu_not_support_ext = {
+>> +	.support_ext = false,
+>> +};
+>> +
+>>   static const struct hisi_pmu_dev_info hisi_l3c_pmu_v1 = {
+>>   	.attr_groups = hisi_l3c_pmu_v1_attr_groups,
+>>   	.counter_bits = 48,
+>>   	.check_event = L3C_V1_NR_EVENTS,
+>> +	.private = &hisi_l3c_pmu_not_support_ext,
+>>   };
+>>   
+>>   static const struct hisi_pmu_dev_info hisi_l3c_pmu_v2 = {
+>>   	.attr_groups = hisi_l3c_pmu_v2_attr_groups,
+>>   	.counter_bits = 64,
+>>   	.check_event = L3C_V2_NR_EVENTS,
+>> +	.private = &hisi_l3c_pmu_not_support_ext,
+>> +};
+>> +
+>> +static const struct hisi_pmu_dev_info hisi_l3c_pmu_v3 = {
+>> +	.attr_groups = hisi_l3c_pmu_v3_attr_groups,
+>> +	.counter_bits = 64,
+>> +	.check_event = L3C_V2_NR_EVENTS,
+>> +	.private = &hisi_l3c_pmu_support_ext,
+>>   };
+>>   
+>>   static const struct hisi_uncore_ops hisi_uncore_l3c_ops = {
+>> @@ -526,11 +743,14 @@ static const struct hisi_uncore_ops hisi_uncore_l3c_ops = {
+>>   	.clear_int_status	= hisi_l3c_pmu_clear_int_status,
+>>   	.enable_filter		= hisi_l3c_pmu_enable_filter,
+>>   	.disable_filter		= hisi_l3c_pmu_disable_filter,
+>> +	.check_filter		= hisi_l3c_pmu_check_filter,
+>>   };
+>>   
+>>   static int hisi_l3c_pmu_dev_probe(struct platform_device *pdev,
+>>   				  struct hisi_pmu *l3c_pmu)
+>>   {
+>> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
+>> +	struct hisi_l3c_pmu_ext *l3c_pmu_dev_ext = l3c_pmu->dev_info->private;
+>>   	int ret;
+>>   
+>>   	ret = hisi_l3c_pmu_init_data(pdev, l3c_pmu);
+>> @@ -549,27 +769,50 @@ static int hisi_l3c_pmu_dev_probe(struct platform_device *pdev,
+>>   	l3c_pmu->dev = &pdev->dev;
+>>   	l3c_pmu->on_cpu = -1;
+>>   
+>> +	if (l3c_pmu_dev_ext->support_ext) {
+>> +		ret = hisi_l3c_pmu_init_ext(l3c_pmu, pdev);
+>> +		if (ret)
+>> +			return ret;
+>> +		/*
+>> +		 * The extension events have their own counters with the
+>> +		 * same number of the normal events counters. So we can
+>> +		 * have at maximum num_counters * ext events monitored.
+>> +		 */
+>> +		l3c_pmu->num_counters += hisi_l3c_pmu->ext_num * L3C_NR_COUNTERS;
+>> +	}
+>> +
+>>   	return 0;
+>>   }
+>>   
+>>   static int hisi_l3c_pmu_probe(struct platform_device *pdev)
+>>   {
+>> +	struct hisi_l3c_pmu *hisi_l3c_pmu;
+>>   	struct hisi_pmu *l3c_pmu;
+>>   	char *name;
+>>   	int ret;
+>>   
+>> -	l3c_pmu = devm_kzalloc(&pdev->dev, sizeof(*l3c_pmu), GFP_KERNEL);
+>> -	if (!l3c_pmu)
+>> +	hisi_l3c_pmu = devm_kzalloc(&pdev->dev, sizeof(*hisi_l3c_pmu), GFP_KERNEL);
+>> +	if (!hisi_l3c_pmu)
+>>   		return -ENOMEM;
+>>   
+>> +	l3c_pmu = &hisi_l3c_pmu->l3c_pmu;
+>>   	platform_set_drvdata(pdev, l3c_pmu);
+>>   
+>> +	l3c_pmu->dev_info = device_get_match_data(&pdev->dev);
+>> +	if (!l3c_pmu->dev_info)
+>> +		return -ENODEV;
+>> +
+> any reason to move this out of hisi_l3c_pmu_init_data()? it looks unnecessary.
 
-Hello Mukesh,
+The private data stored in l3c_pmu->dev_info was used in hisi_l3c_pmu_dev_probe(),
+so I moved this before the call right below.
 
-Thanks for trying this out. Have you applied the indicated patch to the
-crash tool before compiling it ?
-If yes and still facing issues, can you run it with "-d 31" to enable
-debug mode, then send me the output log please.
+But since the actual usage of l3c_pmu->dev_info is after the hisi_l3c_pmu_init_data()
+call anyway, so leave it unmoved should be neater.
 
-Eugen
-> 
-> -Mukesh
-> 
+Will fix that in the next version.
+
+>
+>>   	ret = hisi_l3c_pmu_dev_probe(pdev, l3c_pmu);
+>>   	if (ret)
+>>   		return ret;
+>>   
+>> -	name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "hisi_sccl%d_l3c%d",
+>> -			      l3c_pmu->topo.sccl_id, l3c_pmu->topo.ccl_id);
+>> +	if (l3c_pmu->topo.sub_id >= 0)
+>> +		name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "hisi_sccl%d_l3c%d_%d",
+>> +				      l3c_pmu->topo.sccl_id, l3c_pmu->topo.ccl_id,
+>> +				      l3c_pmu->topo.sub_id);
+>> +	else
+>> +		name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "hisi_sccl%d_l3c%d",
+>> +				      l3c_pmu->topo.sccl_id, l3c_pmu->topo.ccl_id);
+>>   	if (!name)
+>>   		return -ENOMEM;
+>>   
+>> @@ -604,6 +847,7 @@ static void hisi_l3c_pmu_remove(struct platform_device *pdev)
+>>   static const struct acpi_device_id hisi_l3c_pmu_acpi_match[] = {
+>>   	{ "HISI0213", (kernel_ulong_t)&hisi_l3c_pmu_v1 },
+>>   	{ "HISI0214", (kernel_ulong_t)&hisi_l3c_pmu_v2 },
+>> +	{ "HISI0215", (kernel_ulong_t)&hisi_l3c_pmu_v3 },
+>>   	{}
+>>   };
+>>   MODULE_DEVICE_TABLE(acpi, hisi_l3c_pmu_acpi_match);
+>> @@ -618,14 +862,58 @@ static struct platform_driver hisi_l3c_pmu_driver = {
+>>   	.remove = hisi_l3c_pmu_remove,
+>>   };
+>>   
+>> +static int hisi_l3c_pmu_online_cpu(unsigned int cpu, struct hlist_node *node)
+>> +{
+>> +	struct hisi_pmu *l3c_pmu = hlist_entry_safe(node, struct hisi_pmu, node);
+>> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
+>> +	int ret;
+>> +
+>> +	ret = hisi_uncore_pmu_online_cpu(cpu, node);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	/* Avoid L3C pmu not supporting ext from ext irq migrating. */
+>> +	if (!support_ext(hisi_l3c_pmu))
+>> +		return 0;
+>> +
+>> +	for (int i = 0; i < hisi_l3c_pmu->ext_num; i++)
+>> +		WARN_ON(irq_set_affinity(hisi_l3c_pmu->ext_irq[i],
+>> +					 cpumask_of(l3c_pmu->on_cpu)));
+>> +	return 0;
+>> +}
+>> +
+>> +static int hisi_l3c_pmu_offline_cpu(unsigned int cpu, struct hlist_node *node)
+>> +{
+>> +	struct hisi_pmu *l3c_pmu = hlist_entry_safe(node, struct hisi_pmu, node);
+>> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
+>> +	int ret;
+>> +
+>> +	ret = hisi_uncore_pmu_offline_cpu(cpu, node);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	/* If failed to find any available CPU, skip irq migration. */
+>> +	if (l3c_pmu->on_cpu <= 0)
+> 0 should be a valid cpu for migration, do I miss something here?
+>
+> thanks.
+
+This could be problematic, I will fix this and other above issues.
+
+Thanks!
+
+>
+>> +		return 0;
+>> +
+>> +	/* Avoid L3C pmu not supporting ext from ext irq migrating. */
+>> +	if (!support_ext(hisi_l3c_pmu))
+>> +		return 0;
+>> +
+>> +	for (int i = 0; i < hisi_l3c_pmu->ext_num; i++)
+>> +		WARN_ON(irq_set_affinity(hisi_l3c_pmu->ext_irq[i],
+>> +					 cpumask_of(l3c_pmu->on_cpu)));
+>> +	return 0;
+>> +}
+>> +
+>>   static int __init hisi_l3c_pmu_module_init(void)
+>>   {
+>>   	int ret;
+>>   
+>>   	ret = cpuhp_setup_state_multi(CPUHP_AP_PERF_ARM_HISI_L3_ONLINE,
+>>   				      "AP_PERF_ARM_HISI_L3_ONLINE",
+>> -				      hisi_uncore_pmu_online_cpu,
+>> -				      hisi_uncore_pmu_offline_cpu);
+>> +				      hisi_l3c_pmu_online_cpu,
+>> +				      hisi_l3c_pmu_offline_cpu);
+>>   	if (ret) {
+>>   		pr_err("L3C PMU: Error setup hotplug, ret = %d\n", ret);
+>>   		return ret;
+>> diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.h b/drivers/perf/hisilicon/hisi_uncore_pmu.h
+>> index 02fa022925d4..0334a797e499 100644
+>> --- a/drivers/perf/hisilicon/hisi_uncore_pmu.h
+>> +++ b/drivers/perf/hisilicon/hisi_uncore_pmu.h
+>> @@ -24,7 +24,7 @@
+>>   #define pr_fmt(fmt)     "hisi_pmu: " fmt
+>>   
+>>   #define HISI_PMU_V2		0x30
+>> -#define HISI_MAX_COUNTERS 0x10
+>> +#define HISI_MAX_COUNTERS 0x18
+>>   #define to_hisi_pmu(p)	(container_of(p, struct hisi_pmu, pmu))
+>>   
+>>   #define HISI_PMU_ATTR(_name, _func, _config)				\
 >>
->> Once you load crash you will see something like this :
->>
->>    KERNEL: /home/eugen/linux-minidump/vmlinux  [TAINTED]
->>     DUMPFILE: /home/eugen/new
->>         CPUS: 8 [OFFLINE: 7]
->>         DATE: Thu Jan  1 02:00:00 EET 1970
->>       UPTIME: 00:00:29
->>        TASKS: 0
->>     NODENAME: qemuarm64
->>      RELEASE: 6.16.0-rc7-next-20250721-00029-gf8cffdbf0479-dirty
->>      VERSION: #5 SMP PREEMPT Tue Jul 22 18:44:57 EEST 2025
->>      MACHINE: aarch64  (unknown Mhz)
->>       MEMORY: 34.2 GB
->>        PANIC: ""
->> crash> log
->> [    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd4b2]
->> [    0.000000] Linux version 6.16.0-rc7-next-20250721-00029-gf8cffdbf0479-dirty (eugen@eugen-station) (aarch64-none-linux-gnu-gcc (Arm GNU Toolchain 13.3.Rel1 (Build arm-13.24)) 13.3.1 20240614, GNU ld (Arm GNU Toolchain 13.3.Rel1 (Build arm-13.24)) 2.42.0.20240614) #5 SMP PREEMPT Tue Jul 22 18:44:57 EEST 2025
->>
->>
->> *** Debug Kinfo backend driver ***
->> I don't have any device to actually test this. So I have not.
->> I hacked the driver to just use a kmalloc'ed area to save things instead
->> of the shared memory, and dumped everything there and checked whether it looks
->> sane. If someone is willing to try it out, thanks ! and let me know.
->> I know there is no binding documentation for the compatible either.
->>
->> Thanks for everyone reviewing and bringing ideas into the discussion.
->>
->> Eugen
->>
->> Changelog since the v1 of the RFC:
->> - Reworked the whole minidump implementation based on suggestions from Thomas Gleixner.
->> This means new API, macros, new way to store the regions inside kmemdump
->> (ditched the IDR, moved to static allocation, have a static default backend, etc)
->> - Reworked qcom_minidump driver based on review from Bjorn Andersson
->> - Reworked printk log buffer registration based on review from Petr Mladek
->>
->> I appologize if I missed any review comments. I know there is still lots of work
->> on this series and hope I will improve it more and more.
->> Patches are sent on top of next-20250721
->>
->> Eugen Hristev (29):
->>   kmemdump: introduce kmemdump
->>   Documentation: add kmemdump
->>   kmemdump: add coreimage ELF layer
->>   Documentation: kmemdump: add section for coreimage ELF
->>   kmemdump: introduce qcom-minidump backend driver
->>   soc: qcom: smem: add minidump device
->>   init/version: Annotate static information into Kmemdump
->>   cpu: Annotate static information into Kmemdump
->>   genirq/irqdesc: Annotate static information into Kmemdump
->>   panic: Annotate static information into Kmemdump
->>   sched/core: Annotate static information into Kmemdump
->>   timers: Annotate static information into Kmemdump
->>   kernel/fork: Annotate static information into Kmemdump
->>   mm/page_alloc: Annotate static information into Kmemdump
->>   mm/init-mm: Annotate static information into Kmemdump
->>   mm/show_mem: Annotate static information into Kmemdump
->>   mm/swapfile: Annotate static information into Kmemdump
->>   mm/percpu: Annotate static information into Kmemdump
->>   mm/mm_init: Annotate static information into Kmemdump
->>   printk: Register information into Kmemdump
->>   kernel/configs: Register dynamic information into Kmemdump
->>   mm/numa: Register information into Kmemdump
->>   mm/sparse: Register information into Kmemdump
->>   kernel/vmcore_info: Register dynamic information into Kmemdump
->>   kmemdump: Add additional symbols to the coreimage
->>   init/version: Annotate init uts name separately into Kmemdump
->>   kallsyms: Annotate static information into Kmemdump
->>   mm/init-mm: Annotate additional information into Kmemdump
->>   kmemdump: Add Kinfo backend driver
->>
->>  Documentation/debug/index.rst      |  17 ++
->>  Documentation/debug/kmemdump.rst   | 104 +++++++++
->>  MAINTAINERS                        |  18 ++
->>  drivers/Kconfig                    |   4 +
->>  drivers/Makefile                   |   2 +
->>  drivers/debug/Kconfig              |  55 +++++
->>  drivers/debug/Makefile             |   6 +
->>  drivers/debug/kinfo.c              | 304 +++++++++++++++++++++++++
->>  drivers/debug/kmemdump.c           | 239 +++++++++++++++++++
->>  drivers/debug/kmemdump_coreimage.c | 223 ++++++++++++++++++
->>  drivers/debug/qcom_minidump.c      | 353 +++++++++++++++++++++++++++++
->>  drivers/soc/qcom/smem.c            |  10 +
->>  include/asm-generic/vmlinux.lds.h  |  13 ++
->>  include/linux/kmemdump.h           | 219 ++++++++++++++++++
->>  init/version.c                     |   6 +
->>  kernel/configs.c                   |   6 +
->>  kernel/cpu.c                       |   5 +
->>  kernel/fork.c                      |   2 +
->>  kernel/irq/irqdesc.c               |   2 +
->>  kernel/kallsyms.c                  |  10 +
->>  kernel/panic.c                     |   4 +
->>  kernel/printk/printk.c             |  28 ++-
->>  kernel/sched/core.c                |   2 +
->>  kernel/time/timer.c                |   3 +-
->>  kernel/vmcore_info.c               |   3 +
->>  mm/init-mm.c                       |  12 +
->>  mm/mm_init.c                       |   2 +
->>  mm/numa.c                          |   5 +-
->>  mm/page_alloc.c                    |   2 +
->>  mm/percpu.c                        |   3 +
->>  mm/show_mem.c                      |   2 +
->>  mm/sparse.c                        |  16 +-
->>  mm/swapfile.c                      |   2 +
->>  33 files changed, 1670 insertions(+), 12 deletions(-)
->>  create mode 100644 Documentation/debug/index.rst
->>  create mode 100644 Documentation/debug/kmemdump.rst
->>  create mode 100644 drivers/debug/Kconfig
->>  create mode 100644 drivers/debug/Makefile
->>  create mode 100644 drivers/debug/kinfo.c
->>  create mode 100644 drivers/debug/kmemdump.c
->>  create mode 100644 drivers/debug/kmemdump_coreimage.c
->>  create mode 100644 drivers/debug/qcom_minidump.c
->>  create mode 100644 include/linux/kmemdump.h
->>
->> -- 
->> 2.43.0
->>
-> 
 
 
