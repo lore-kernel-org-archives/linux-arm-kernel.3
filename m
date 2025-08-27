@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C570CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 17:45:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 895D7CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 17:48:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A497HGKDloVYG5gC7jS2vq7iHIvtKfWK7mIL1C6gMkY=; b=cOxcP0FfztONxe3d6IoE2/iYBW
-	2JbcT+dRJDqB4P0+u0KcMgCXIT1ovkdikvWuKJ+Oi1WCyKj/tVOj3Dk1bD1gmgtaw000pmYCrhqv9
-	Ndn+Iz6wQYV0f5+lXz4gxdwQKybKO9bV94uBgxVYi1gli6rXEmbJTIwefWlDJ+pNnSVJAmZTgLqCL
-	wakQZS/i5S9UCaPn5ihG79Xe7X9Mtw0Gd+d1jGBMdBxQwKJ6yeMTFQJg37tmT+AWWwIZgeSIOR8fI
-	f9Ozl7xUhUrzt6KrcVv71lsg2Dezu7ckPA3wNA1W/1/XpJ0z27EjHeLe98Esh3Co7cpj73vgTXhCo
-	UufyigdQ==;
+	bh=BtLRNBOtZ6FayQY3LsYB6ccS/gHBIvaIMC8oCAbLt/w=; b=V4Mp6InbKJWaeolsRh3BGkR6z2
+	ENQRyXG0bIbBm7uBneaLzDqCx/KCJ9cP4lVbyjlgRP9degbDGrSM/cS3V4P6+riF3/3/ZQC8KbAY9
+	yUNbEtA/iV0+VNgabKMzbY16rVw7EATpQTyZequHgjfAzNI2SgTb5RPFR+c+rnDA45lpmwkcyBIU3
+	5sqrlj8iPat/OLr080UjZ6WwV/XPdfnx+hKEJs9uiqdZ8HNlDFYepXa3e8qT0f2BAb4+979B4zxN9
+	+ieI+eIpYsec8bm7ZD69XdueZp2ZKqJ+TeSD2etfn8AhjH5L/RirBTVouTwKgC4yktyEGXJnaLxxj
+	SXH0WiYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urKDF-0000000GLhR-110T;
-	Wed, 27 Aug 2025 17:45:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1urKFu-0000000GMJt-4Afa;
+	Wed, 27 Aug 2025 17:48:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urHrZ-0000000FsiG-1ddT
+	id 1urHrb-0000000FslU-1DrA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 15:15:02 +0000
+	Wed, 27 Aug 2025 15:15:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 528DF43722;
+	by tor.source.kernel.org (Postfix) with ESMTP id A2820602C3;
+	Wed, 27 Aug 2025 15:15:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB062C4CEF0;
 	Wed, 27 Aug 2025 15:15:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D55D6C4CEF0;
-	Wed, 27 Aug 2025 15:15:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756307701;
-	bh=x/NuAW84/cQ0t0p3ZfjB/C473ct6iM59qATu6l/hJrA=;
+	s=k20201202; t=1756307702;
+	bh=1qgaGsrCssucR1umbiIEhm9E7Chqg0rg24h/vOyJeL0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dg+da+KHJqXKeYUE+nRoDEcrPOzL+VJhQ0dFzQJ2Ry8ITujl+oK7WFeRLyqc57b/G
-	 YIbwQjCptgz57cVQrciuVhv19wrndQBmUAS/pNgT5Vz4skqNMo3STV7T3QJxR/GjaK
-	 X54SecwHkyqiP3507WtRIPDs8OXukZhl/ztOHDIVSZpMsLyXCrcCWW7kKBrJ5kAOX3
-	 0U/htlHBHgNnoe2MLCZ4DLptCsRbl1Ttzs3sNT4F90QWwjuIdtBentGz31PIuMZ4wt
-	 qgspCCosrv6DKtr27Vigg7ppRZCODR53Gb1WuKnIWAGUjr9ul0ECPgTUtRAxnxv4OL
-	 hT+GLbBczKjfw==
+	b=WnQf9eW6/q0WqMUAq3qefEoD22TolFa6J4vbJCvrOsqe5vfeBN4rgBTogvzaUu9Xc
+	 K5pT08f0fM3QtdCxYh2prk75RcbPjcm+7/NnaY60tSl4nKAWDtyXGpJDbORZRY2O9L
+	 CbpISfeYabjhtHkP0VRl5KsQi/y9YE3BdkOKMKmNMZVlN04AkpZC2UrNjlUCalIsgK
+	 uywXCeDZ1B+ePxD1x3f1yebCHUenKQyfGpbw/Zr7UePDGhCg2ZdlyozJmm4VoZ1BkF
+	 52eqCaFQqajyEg8DtyJD3Bz1mkBtb2anViaa2pXPxG4WXzh5aH0sTXeQfl11/FvVkI
+	 Bs/air38RLOTw==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -50,17 +50,14 @@ Cc: linux-kernel@vger.kernel.org,
 	x86@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 10/12] lib/crypto: blake2s: Move generic code into blake2s.c
-Date: Wed, 27 Aug 2025 08:11:29 -0700
-Message-ID: <20250827151131.27733-11-ebiggers@kernel.org>
+Subject: [PATCH 12/12] lib/crypto: tests: Add KUnit tests for BLAKE2s
+Date: Wed, 27 Aug 2025 08:11:31 -0700
+Message-ID: <20250827151131.27733-13-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250827151131.27733-1-ebiggers@kernel.org>
 References: <20250827151131.27733-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_081501_500552_3D3F9DAA 
-X-CRM114-Status: GOOD (  17.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,262 +72,523 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move blake2s_compress_generic() from blake2s-generic.c to blake2s.c.
+Add a KUnit test suite for BLAKE2s.  Most of the core test logic is in
+the previously-added hash-test-template.h.  This commit just adds the
+actual KUnit suite, commits the generated test vectors to the tree so
+that gen-hash-testvecs.py won't have to be run at build time, and adds a
+few BLAKE2s-specific test cases.
 
-For now it's still guarded by CONFIG_CRYPTO_LIB_BLAKE2S_GENERIC, but
-this prepares for changing it to a 'static __maybe_unused' function and
-just using the compiler to automatically decide its inclusion.
+This is the replacement for blake2s-selftest, which an earlier commit
+removed.  Improvements over blake2s-selftest include integration with
+KUnit, more comprehensive test cases, and support for benchmarking.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- lib/crypto/Makefile          |   1 -
- lib/crypto/blake2s-generic.c | 111 -----------------------------------
- lib/crypto/blake2s.c         |  94 +++++++++++++++++++++++++++++
- 3 files changed, 94 insertions(+), 112 deletions(-)
- delete mode 100644 lib/crypto/blake2s-generic.c
+ lib/crypto/tests/Kconfig            |  10 ++
+ lib/crypto/tests/Makefile           |   1 +
+ lib/crypto/tests/blake2s-testvecs.h | 238 ++++++++++++++++++++++++++++
+ lib/crypto/tests/blake2s_kunit.c    | 134 ++++++++++++++++
+ scripts/crypto/gen-hash-testvecs.py |  27 +++-
+ 5 files changed, 407 insertions(+), 3 deletions(-)
+ create mode 100644 lib/crypto/tests/blake2s-testvecs.h
+ create mode 100644 lib/crypto/tests/blake2s_kunit.c
 
-diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
-index eeddb993da033..be45dcfb8969b 100644
---- a/lib/crypto/Makefile
-+++ b/lib/crypto/Makefile
-@@ -30,11 +30,10 @@ libarc4-y					:= arc4.o
- obj-$(CONFIG_CRYPTO_LIB_GF128MUL)		+= gf128mul.o
+diff --git a/lib/crypto/tests/Kconfig b/lib/crypto/tests/Kconfig
+index c21d53fd4b0ce..fd341aa12f157 100644
+--- a/lib/crypto/tests/Kconfig
++++ b/lib/crypto/tests/Kconfig
+@@ -1,7 +1,17 @@
+ # SPDX-License-Identifier: GPL-2.0-or-later
  
- # blake2s is used by the /dev/random driver which is always builtin
- obj-y						+= libblake2s.o
- libblake2s-y					:= blake2s.o
--libblake2s-$(CONFIG_CRYPTO_LIB_BLAKE2S_GENERIC)	+= blake2s-generic.o
++config CRYPTO_LIB_BLAKE2S_KUNIT_TEST
++	tristate "KUnit tests for BLAKE2s" if !KUNIT_ALL_TESTS
++	depends on KUNIT
++	default KUNIT_ALL_TESTS || CRYPTO_SELFTESTS
++	select CRYPTO_LIB_BENCHMARK_VISIBLE
++	# No need to select CRYPTO_LIB_BLAKE2S here, as that option doesn't
++	# exist; the BLAKE2s code is always built-in for the /dev/random driver.
++	help
++	  KUnit tests for the BLAKE2s cryptographic hash function.
++
+ config CRYPTO_LIB_MD5_KUNIT_TEST
+ 	tristate "KUnit tests for MD5" if !KUNIT_ALL_TESTS
+ 	depends on KUNIT
+ 	default KUNIT_ALL_TESTS || CRYPTO_SELFTESTS
+ 	select CRYPTO_LIB_BENCHMARK_VISIBLE
+diff --git a/lib/crypto/tests/Makefile b/lib/crypto/tests/Makefile
+index f6f82c6f9cb5d..be7de929af2cc 100644
+--- a/lib/crypto/tests/Makefile
++++ b/lib/crypto/tests/Makefile
+@@ -1,7 +1,8 @@
+ # SPDX-License-Identifier: GPL-2.0-or-later
  
- ################################################################################
- 
- # chacha20_block() is used by the /dev/random driver which is always builtin
- obj-y += chacha-block-generic.o
-diff --git a/lib/crypto/blake2s-generic.c b/lib/crypto/blake2s-generic.c
-deleted file mode 100644
-index 9828176a2efec..0000000000000
---- a/lib/crypto/blake2s-generic.c
-+++ /dev/null
-@@ -1,111 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0 OR MIT
--/*
-- * Copyright (C) 2015-2019 Jason A. Donenfeld <Jason@zx2c4.com>. All Rights Reserved.
-- *
-- * This is an implementation of the BLAKE2s hash and PRF functions.
-- *
-- * Information: https://blake2.net/
-- *
-- */
--
--#include <crypto/internal/blake2s.h>
--#include <linux/bug.h>
--#include <linux/export.h>
--#include <linux/init.h>
--#include <linux/kernel.h>
--#include <linux/string.h>
--#include <linux/types.h>
--#include <linux/unaligned.h>
--
--static const u8 blake2s_sigma[10][16] = {
--	{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 },
--	{ 14, 10, 4, 8, 9, 15, 13, 6, 1, 12, 0, 2, 11, 7, 5, 3 },
--	{ 11, 8, 12, 0, 5, 2, 15, 13, 10, 14, 3, 6, 7, 1, 9, 4 },
--	{ 7, 9, 3, 1, 13, 12, 11, 14, 2, 6, 5, 10, 4, 0, 15, 8 },
--	{ 9, 0, 5, 7, 2, 4, 10, 15, 14, 1, 11, 12, 6, 8, 3, 13 },
--	{ 2, 12, 6, 10, 0, 11, 8, 3, 4, 13, 7, 5, 15, 14, 1, 9 },
--	{ 12, 5, 1, 15, 14, 13, 4, 10, 0, 7, 6, 3, 9, 2, 8, 11 },
--	{ 13, 11, 7, 14, 12, 1, 3, 9, 5, 0, 15, 4, 8, 6, 2, 10 },
--	{ 6, 15, 14, 9, 11, 3, 0, 8, 12, 2, 13, 7, 1, 4, 10, 5 },
--	{ 10, 2, 8, 4, 7, 6, 1, 5, 15, 11, 9, 14, 3, 12, 13, 0 },
--};
--
--static inline void blake2s_increment_counter(struct blake2s_state *state,
--					     const u32 inc)
--{
--	state->t[0] += inc;
--	state->t[1] += (state->t[0] < inc);
--}
--
--void blake2s_compress(struct blake2s_state *state, const u8 *block,
--		      size_t nblocks, const u32 inc)
--		      __weak __alias(blake2s_compress_generic);
--
--void blake2s_compress_generic(struct blake2s_state *state, const u8 *block,
--			      size_t nblocks, const u32 inc)
--{
--	u32 m[16];
--	u32 v[16];
--	int i;
--
--	WARN_ON(IS_ENABLED(DEBUG) &&
--		(nblocks > 1 && inc != BLAKE2S_BLOCK_SIZE));
--
--	while (nblocks > 0) {
--		blake2s_increment_counter(state, inc);
--		memcpy(m, block, BLAKE2S_BLOCK_SIZE);
--		le32_to_cpu_array(m, ARRAY_SIZE(m));
--		memcpy(v, state->h, 32);
--		v[ 8] = BLAKE2S_IV0;
--		v[ 9] = BLAKE2S_IV1;
--		v[10] = BLAKE2S_IV2;
--		v[11] = BLAKE2S_IV3;
--		v[12] = BLAKE2S_IV4 ^ state->t[0];
--		v[13] = BLAKE2S_IV5 ^ state->t[1];
--		v[14] = BLAKE2S_IV6 ^ state->f[0];
--		v[15] = BLAKE2S_IV7 ^ state->f[1];
--
--#define G(r, i, a, b, c, d) do { \
--	a += b + m[blake2s_sigma[r][2 * i + 0]]; \
--	d = ror32(d ^ a, 16); \
--	c += d; \
--	b = ror32(b ^ c, 12); \
--	a += b + m[blake2s_sigma[r][2 * i + 1]]; \
--	d = ror32(d ^ a, 8); \
--	c += d; \
--	b = ror32(b ^ c, 7); \
--} while (0)
--
--#define ROUND(r) do { \
--	G(r, 0, v[0], v[ 4], v[ 8], v[12]); \
--	G(r, 1, v[1], v[ 5], v[ 9], v[13]); \
--	G(r, 2, v[2], v[ 6], v[10], v[14]); \
--	G(r, 3, v[3], v[ 7], v[11], v[15]); \
--	G(r, 4, v[0], v[ 5], v[10], v[15]); \
--	G(r, 5, v[1], v[ 6], v[11], v[12]); \
--	G(r, 6, v[2], v[ 7], v[ 8], v[13]); \
--	G(r, 7, v[3], v[ 4], v[ 9], v[14]); \
--} while (0)
--		ROUND(0);
--		ROUND(1);
--		ROUND(2);
--		ROUND(3);
--		ROUND(4);
--		ROUND(5);
--		ROUND(6);
--		ROUND(7);
--		ROUND(8);
--		ROUND(9);
--
--#undef G
--#undef ROUND
--
--		for (i = 0; i < 8; ++i)
--			state->h[i] ^= v[i] ^ v[i + 8];
--
--		block += BLAKE2S_BLOCK_SIZE;
--		--nblocks;
--	}
--}
--
--EXPORT_SYMBOL(blake2s_compress_generic);
-diff --git a/lib/crypto/blake2s.c b/lib/crypto/blake2s.c
-index 51f2dd7a38a4e..b5b75ade46588 100644
---- a/lib/crypto/blake2s.c
-+++ b/lib/crypto/blake2s.c
-@@ -14,10 +14,104 @@
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/string.h>
- #include <linux/types.h>
- 
-+#ifdef CONFIG_CRYPTO_LIB_BLAKE2S_GENERIC
-+static const u8 blake2s_sigma[10][16] = {
-+	{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 },
-+	{ 14, 10, 4, 8, 9, 15, 13, 6, 1, 12, 0, 2, 11, 7, 5, 3 },
-+	{ 11, 8, 12, 0, 5, 2, 15, 13, 10, 14, 3, 6, 7, 1, 9, 4 },
-+	{ 7, 9, 3, 1, 13, 12, 11, 14, 2, 6, 5, 10, 4, 0, 15, 8 },
-+	{ 9, 0, 5, 7, 2, 4, 10, 15, 14, 1, 11, 12, 6, 8, 3, 13 },
-+	{ 2, 12, 6, 10, 0, 11, 8, 3, 4, 13, 7, 5, 15, 14, 1, 9 },
-+	{ 12, 5, 1, 15, 14, 13, 4, 10, 0, 7, 6, 3, 9, 2, 8, 11 },
-+	{ 13, 11, 7, 14, 12, 1, 3, 9, 5, 0, 15, 4, 8, 6, 2, 10 },
-+	{ 6, 15, 14, 9, 11, 3, 0, 8, 12, 2, 13, 7, 1, 4, 10, 5 },
-+	{ 10, 2, 8, 4, 7, 6, 1, 5, 15, 11, 9, 14, 3, 12, 13, 0 },
++obj-$(CONFIG_CRYPTO_LIB_BLAKE2S_KUNIT_TEST) += blake2s_kunit.o
+ obj-$(CONFIG_CRYPTO_LIB_MD5_KUNIT_TEST) += md5_kunit.o
+ obj-$(CONFIG_CRYPTO_LIB_POLY1305_KUNIT_TEST) += poly1305_kunit.o
+ obj-$(CONFIG_CRYPTO_LIB_SHA1_KUNIT_TEST) += sha1_kunit.o
+ obj-$(CONFIG_CRYPTO_LIB_SHA256_KUNIT_TEST) += sha224_kunit.o sha256_kunit.o
+ obj-$(CONFIG_CRYPTO_LIB_SHA512_KUNIT_TEST) += sha384_kunit.o sha512_kunit.o
+diff --git a/lib/crypto/tests/blake2s-testvecs.h b/lib/crypto/tests/blake2s-testvecs.h
+new file mode 100644
+index 0000000000000..6f978b79a59b0
+--- /dev/null
++++ b/lib/crypto/tests/blake2s-testvecs.h
+@@ -0,0 +1,238 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/* This file was generated by: ./scripts/crypto/gen-hash-testvecs.py blake2s */
++
++static const struct {
++	size_t data_len;
++	u8 digest[BLAKE2S_HASH_SIZE];
++} hash_testvecs[] = {
++	{
++		.data_len = 0,
++		.digest = {
++			0x69, 0x21, 0x7a, 0x30, 0x79, 0x90, 0x80, 0x94,
++			0xe1, 0x11, 0x21, 0xd0, 0x42, 0x35, 0x4a, 0x7c,
++			0x1f, 0x55, 0xb6, 0x48, 0x2c, 0xa1, 0xa5, 0x1e,
++			0x1b, 0x25, 0x0d, 0xfd, 0x1e, 0xd0, 0xee, 0xf9,
++		},
++	},
++	{
++		.data_len = 1,
++		.digest = {
++			0x7c, 0xab, 0x53, 0xe2, 0x48, 0x87, 0xdf, 0x64,
++			0x98, 0x6a, 0xc1, 0x7e, 0xf0, 0x01, 0x4d, 0xc9,
++			0x07, 0x4f, 0xb8, 0x2f, 0x46, 0xd7, 0xee, 0xa9,
++			0xad, 0xe5, 0xf8, 0x21, 0xac, 0xfe, 0x17, 0x58,
++		},
++	},
++	{
++		.data_len = 2,
++		.digest = {
++			0x5e, 0x63, 0x2c, 0xd0, 0xf8, 0x7b, 0xf5, 0xae,
++			0x61, 0x97, 0x94, 0x57, 0xc8, 0x76, 0x22, 0xd9,
++			0x8b, 0x04, 0x5e, 0xf1, 0x5d, 0xd0, 0xfc, 0xd9,
++			0x0c, 0x19, 0x2e, 0xe2, 0xc5, 0xd9, 0x73, 0x51,
++		},
++	},
++	{
++		.data_len = 3,
++		.digest = {
++			0x33, 0x65, 0xa6, 0x37, 0xbf, 0xf8, 0x4f, 0x15,
++			0x4c, 0xac, 0x9e, 0xa4, 0x3b, 0x02, 0x07, 0x0c,
++			0x80, 0x86, 0x0d, 0x6c, 0xe4, 0xaf, 0x1c, 0xbc,
++			0x0b, 0x9c, 0x0a, 0x98, 0xc2, 0x99, 0x71, 0xcd,
++		},
++	},
++	{
++		.data_len = 16,
++		.digest = {
++			0x59, 0xd2, 0x10, 0xd3, 0x75, 0xac, 0x48, 0x32,
++			0xb1, 0xea, 0xee, 0xcf, 0x0a, 0xd2, 0x8b, 0x15,
++			0x5d, 0x72, 0x71, 0x4c, 0xa7, 0x29, 0xb0, 0x7a,
++			0x44, 0x48, 0x8a, 0x54, 0x54, 0x54, 0x41, 0xf5,
++		},
++	},
++	{
++		.data_len = 32,
++		.digest = {
++			0xdc, 0xfc, 0x46, 0x81, 0xc6, 0x1b, 0x2b, 0x47,
++			0x8b, 0xed, 0xe0, 0x73, 0x34, 0x38, 0x53, 0x92,
++			0x97, 0x2f, 0xfb, 0x51, 0xab, 0x4f, 0x2d, 0x9d,
++			0x69, 0x04, 0xa9, 0x5d, 0x33, 0xef, 0xcb, 0x1c,
++		},
++	},
++	{
++		.data_len = 48,
++		.digest = {
++			0xd6, 0x2a, 0x7f, 0x96, 0x04, 0x4d, 0x16, 0xc8,
++			0x49, 0xe0, 0x37, 0x33, 0xe3, 0x7b, 0x34, 0x56,
++			0x99, 0xc5, 0x78, 0x57, 0x06, 0x02, 0xb4, 0xea,
++			0x80, 0xc4, 0xf8, 0x8f, 0x8d, 0x2b, 0xe4, 0x05,
++		},
++	},
++	{
++		.data_len = 49,
++		.digest = {
++			0x8b, 0x58, 0x62, 0xb5, 0x85, 0xf6, 0x83, 0x36,
++			0xf5, 0x34, 0xb8, 0xd4, 0xbc, 0x5c, 0x8b, 0x38,
++			0xfd, 0x15, 0xcd, 0x44, 0x83, 0x25, 0x71, 0xe1,
++			0xd5, 0xe8, 0xa1, 0xa4, 0x36, 0x98, 0x7e, 0x68,
++		},
++	},
++	{
++		.data_len = 63,
++		.digest = {
++			0x7e, 0xeb, 0x06, 0x87, 0xdf, 0x1a, 0xdc, 0xe5,
++			0xfb, 0x64, 0xd4, 0xd1, 0x5d, 0x9e, 0x75, 0xc0,
++			0xb9, 0xad, 0x55, 0x6c, 0xe6, 0xba, 0x4d, 0x98,
++			0x2f, 0xbf, 0x72, 0xad, 0x61, 0x37, 0xf6, 0x11,
++		},
++	},
++	{
++		.data_len = 64,
++		.digest = {
++			0x72, 0xdb, 0x43, 0x16, 0x57, 0x8e, 0x3a, 0x96,
++			0xf3, 0x98, 0x19, 0x24, 0x17, 0x3b, 0xe8, 0xad,
++			0xa1, 0x9b, 0xa4, 0x1b, 0x74, 0x85, 0x2e, 0x24,
++			0x70, 0xea, 0x31, 0x5a, 0x1c, 0xbe, 0x43, 0xb5,
++		},
++	},
++	{
++		.data_len = 65,
++		.digest = {
++			0x32, 0x48, 0xb0, 0xf0, 0x3f, 0xbb, 0xd2, 0xa3,
++			0xfd, 0xf6, 0x28, 0x4a, 0x2a, 0xc5, 0xbe, 0x4b,
++			0x73, 0x50, 0x63, 0xd6, 0x16, 0x00, 0xef, 0xed,
++			0xfe, 0x97, 0x41, 0x29, 0xb2, 0x84, 0xc4, 0xa3,
++		},
++	},
++	{
++		.data_len = 127,
++		.digest = {
++			0x17, 0xda, 0x6b, 0x96, 0x6a, 0xa6, 0xa4, 0xa6,
++			0xa6, 0xf3, 0x9d, 0x18, 0x19, 0x8d, 0x98, 0x7c,
++			0x66, 0x38, 0xe8, 0x99, 0xe7, 0x0a, 0x50, 0x92,
++			0xaf, 0x11, 0x80, 0x05, 0x66, 0xed, 0xab, 0x74,
++		},
++	},
++	{
++		.data_len = 128,
++		.digest = {
++			0x13, 0xd5, 0x8b, 0x22, 0xae, 0x90, 0x7b, 0x67,
++			0x87, 0x4e, 0x3c, 0x35, 0x4e, 0x01, 0xf0, 0xb1,
++			0xd3, 0xd1, 0x67, 0xbb, 0x43, 0xdb, 0x7c, 0x75,
++			0xa4, 0xc7, 0x64, 0x83, 0x1e, 0x9b, 0x98, 0xad,
++		},
++	},
++	{
++		.data_len = 129,
++		.digest = {
++			0x6f, 0xe0, 0x5d, 0x9d, 0xd5, 0x78, 0x29, 0xfb,
++			0xd0, 0x77, 0xd1, 0x8a, 0xf0, 0x80, 0xcb, 0x81,
++			0x71, 0x9e, 0x4d, 0x49, 0xde, 0x74, 0x2a, 0x37,
++			0xc0, 0xd5, 0xf0, 0xfa, 0x50, 0xe6, 0x23, 0xfe,
++		},
++	},
++	{
++		.data_len = 256,
++		.digest = {
++			0x89, 0xac, 0xf6, 0xe7, 0x5e, 0xba, 0x53, 0xf4,
++			0x92, 0x32, 0xd5, 0x64, 0xfb, 0xc4, 0x08, 0xac,
++			0x2c, 0x19, 0x6e, 0x63, 0x13, 0x75, 0xd0, 0x60,
++			0x54, 0x35, 0x82, 0xc4, 0x6d, 0x03, 0x1a, 0x05,
++		},
++	},
++	{
++		.data_len = 511,
++		.digest = {
++			0x1c, 0xaf, 0x94, 0x7d, 0x9c, 0xce, 0x57, 0x64,
++			0xf8, 0xa8, 0x25, 0x45, 0x32, 0x86, 0x2b, 0x04,
++			0xb3, 0x2e, 0x67, 0xca, 0x73, 0x04, 0x2f, 0xab,
++			0xcc, 0xda, 0x9e, 0x42, 0xa1, 0xaf, 0x83, 0x5a,
++		},
++	},
++	{
++		.data_len = 513,
++		.digest = {
++			0x21, 0xdf, 0xdc, 0x29, 0xd9, 0xfc, 0x7b, 0xe7,
++			0x3a, 0xc4, 0xe1, 0x61, 0xc5, 0xb5, 0xe1, 0xee,
++			0x7a, 0x9d, 0x0c, 0x66, 0x36, 0x63, 0xe4, 0x12,
++			0x62, 0xe2, 0xf5, 0x68, 0x72, 0xfc, 0x1e, 0x18,
++		},
++	},
++	{
++		.data_len = 1000,
++		.digest = {
++			0x6e, 0xc7, 0x2e, 0xac, 0xd0, 0xbb, 0x22, 0xe0,
++			0xc2, 0x40, 0xb2, 0xfe, 0x8c, 0xaf, 0x9e, 0xcf,
++			0x32, 0x06, 0xc6, 0x45, 0x29, 0xbd, 0xe0, 0x7f,
++			0x53, 0x32, 0xc3, 0x2b, 0x2f, 0x68, 0x12, 0xcd,
++		},
++	},
++	{
++		.data_len = 3333,
++		.digest = {
++			0x76, 0xba, 0x52, 0xb5, 0x09, 0xf5, 0x19, 0x09,
++			0x70, 0x1c, 0x09, 0x28, 0xb4, 0xaa, 0x98, 0x6a,
++			0x79, 0xe7, 0x5e, 0xcd, 0xe8, 0xa4, 0x73, 0x69,
++			0x1f, 0xf8, 0x05, 0x0a, 0xb4, 0xfe, 0xf9, 0x63,
++		},
++	},
++	{
++		.data_len = 4096,
++		.digest = {
++			0xf7, 0xad, 0xf9, 0xc8, 0x0e, 0x04, 0x2f, 0xdf,
++			0xbe, 0x39, 0x79, 0x07, 0x0d, 0xd8, 0x1b, 0x06,
++			0x42, 0x3a, 0x43, 0x93, 0xf6, 0x7c, 0xc4, 0xe5,
++			0xc2, 0xd5, 0xd0, 0xa6, 0x35, 0x6c, 0xbd, 0x17,
++		},
++	},
++	{
++		.data_len = 4128,
++		.digest = {
++			0x38, 0xd7, 0xab, 0x7e, 0x08, 0xdc, 0x1e, 0xab,
++			0x55, 0xbb, 0x3b, 0x7b, 0x6a, 0x17, 0xcc, 0x79,
++			0xa7, 0x02, 0x62, 0x66, 0x9b, 0xca, 0xee, 0xc0,
++			0x3d, 0x75, 0x34, 0x2e, 0x55, 0x82, 0x26, 0x3c,
++		},
++	},
++	{
++		.data_len = 4160,
++		.digest = {
++			0xf7, 0xeb, 0x2f, 0x24, 0x98, 0x54, 0x04, 0x5a,
++			0x19, 0xe4, 0x12, 0x9d, 0x97, 0xbc, 0x87, 0xa5,
++			0x0b, 0x85, 0x29, 0xa1, 0x36, 0x89, 0xc9, 0xba,
++			0xa0, 0xe0, 0xac, 0x99, 0x7d, 0xa4, 0x51, 0x9f,
++		},
++	},
++	{
++		.data_len = 4224,
++		.digest = {
++			0x8f, 0xe8, 0xa7, 0x79, 0x02, 0xbb, 0x4a, 0x56,
++			0x66, 0x91, 0xef, 0x22, 0xd1, 0x09, 0x26, 0x6c,
++			0xa9, 0x13, 0xd7, 0x44, 0xc7, 0x19, 0x9c, 0x0b,
++			0xfb, 0x4f, 0xca, 0x72, 0x8f, 0x34, 0xf7, 0x82,
++		},
++	},
++	{
++		.data_len = 16384,
++		.digest = {
++			0xaa, 0x21, 0xbb, 0x25, 0x4b, 0x66, 0x6e, 0x29,
++			0x71, 0xc1, 0x44, 0x67, 0x19, 0xed, 0xe6, 0xe6,
++			0x61, 0x13, 0xf4, 0xb7, 0x02, 0x94, 0x81, 0x0f,
++			0xa7, 0x4d, 0xbb, 0x2c, 0xb8, 0xeb, 0x41, 0x0e,
++		},
++	},
 +};
 +
-+static inline void blake2s_increment_counter(struct blake2s_state *state,
-+					     const u32 inc)
++static const u8 hash_testvec_consolidated[BLAKE2S_HASH_SIZE] = {
++	0x84, 0x21, 0xbb, 0x73, 0x64, 0x47, 0x45, 0xe0,
++	0xc1, 0x83, 0x78, 0xf1, 0xea, 0xe5, 0xfd, 0xdb,
++	0x01, 0xda, 0xb7, 0x86, 0x70, 0x3b, 0x83, 0xb3,
++	0xbc, 0xd9, 0xfd, 0x96, 0xbd, 0x50, 0x06, 0x67,
++};
++
++static const u8 blake2s_keyed_testvec_consolidated[BLAKE2S_HASH_SIZE] = {
++	0xa6, 0xad, 0xcd, 0xb8, 0xd9, 0xdd, 0xc7, 0x70,
++	0x07, 0x09, 0x7f, 0x9f, 0x41, 0xa9, 0x70, 0xa4,
++	0x1c, 0xca, 0x61, 0xbb, 0x58, 0xb5, 0xb2, 0x1d,
++	0xd1, 0x71, 0x16, 0xb0, 0x49, 0x4f, 0x9e, 0x1b,
++};
+diff --git a/lib/crypto/tests/blake2s_kunit.c b/lib/crypto/tests/blake2s_kunit.c
+new file mode 100644
+index 0000000000000..057c40132246f
+--- /dev/null
++++ b/lib/crypto/tests/blake2s_kunit.c
+@@ -0,0 +1,134 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Copyright 2025 Google LLC
++ */
++#include <crypto/blake2s.h>
++#include "blake2s-testvecs.h"
++
++/*
++ * The following are compatibility functions that present BLAKE2s as an unkeyed
++ * hash function that produces hashes of fixed length BLAKE2S_HASH_SIZE, so that
++ * hash-test-template.h can be reused to test it.
++ */
++
++static void blake2s_default(const u8 *data, size_t len,
++			    u8 out[BLAKE2S_HASH_SIZE])
 +{
-+	state->t[0] += inc;
-+	state->t[1] += (state->t[0] < inc);
++	blake2s(out, data, NULL, BLAKE2S_HASH_SIZE, len, 0);
 +}
 +
-+void blake2s_compress(struct blake2s_state *state, const u8 *block,
-+		      size_t nblocks, const u32 inc)
-+		      __weak __alias(blake2s_compress_generic);
-+
-+void blake2s_compress_generic(struct blake2s_state *state, const u8 *block,
-+			      size_t nblocks, const u32 inc)
++static void blake2s_init_default(struct blake2s_state *state)
 +{
-+	u32 m[16];
-+	u32 v[16];
-+	int i;
++	blake2s_init(state, BLAKE2S_HASH_SIZE);
++}
 +
-+	WARN_ON(IS_ENABLED(DEBUG) &&
-+		(nblocks > 1 && inc != BLAKE2S_BLOCK_SIZE));
++/*
++ * Generate the HASH_KUNIT_CASES using hash-test-template.h.  These test BLAKE2s
++ * with a key length of 0 and a hash length of BLAKE2S_HASH_SIZE.
++ */
++#define HASH blake2s_default
++#define HASH_CTX blake2s_state
++#define HASH_SIZE BLAKE2S_HASH_SIZE
++#define HASH_INIT blake2s_init_default
++#define HASH_UPDATE blake2s_update
++#define HASH_FINAL blake2s_final
++#include "hash-test-template.h"
 +
-+	while (nblocks > 0) {
-+		blake2s_increment_counter(state, inc);
-+		memcpy(m, block, BLAKE2S_BLOCK_SIZE);
-+		le32_to_cpu_array(m, ARRAY_SIZE(m));
-+		memcpy(v, state->h, 32);
-+		v[ 8] = BLAKE2S_IV0;
-+		v[ 9] = BLAKE2S_IV1;
-+		v[10] = BLAKE2S_IV2;
-+		v[11] = BLAKE2S_IV3;
-+		v[12] = BLAKE2S_IV4 ^ state->t[0];
-+		v[13] = BLAKE2S_IV5 ^ state->t[1];
-+		v[14] = BLAKE2S_IV6 ^ state->f[0];
-+		v[15] = BLAKE2S_IV7 ^ state->f[1];
++/*
++ * BLAKE2s specific test case which tests all possible combinations of key
++ * length and hash length.
++ */
++static void test_blake2s_all_key_and_hash_lens(struct kunit *test)
++{
++	const size_t data_len = 100;
++	u8 *data = &test_buf[0];
++	u8 *key = data + data_len;
++	u8 *hash = key + BLAKE2S_KEY_SIZE;
++	struct blake2s_state main_state;
++	u8 main_hash[BLAKE2S_HASH_SIZE];
 +
-+#define G(r, i, a, b, c, d) do { \
-+	a += b + m[blake2s_sigma[r][2 * i + 0]]; \
-+	d = ror32(d ^ a, 16); \
-+	c += d; \
-+	b = ror32(b ^ c, 12); \
-+	a += b + m[blake2s_sigma[r][2 * i + 1]]; \
-+	d = ror32(d ^ a, 8); \
-+	c += d; \
-+	b = ror32(b ^ c, 7); \
-+} while (0)
++	rand_bytes_seeded_from_len(data, data_len);
++	blake2s_init(&main_state, BLAKE2S_HASH_SIZE);
++	for (int key_len = 0; key_len <= BLAKE2S_KEY_SIZE; key_len++) {
++		rand_bytes_seeded_from_len(key, key_len);
++		for (int out_len = 1; out_len <= BLAKE2S_HASH_SIZE; out_len++) {
++			blake2s(hash, data, key, out_len, data_len, key_len);
++			blake2s_update(&main_state, hash, out_len);
++		}
++	}
++	blake2s_final(&main_state, main_hash);
++	KUNIT_ASSERT_MEMEQ(test, main_hash, blake2s_keyed_testvec_consolidated,
++			   BLAKE2S_HASH_SIZE);
++}
 +
-+#define ROUND(r) do { \
-+	G(r, 0, v[0], v[ 4], v[ 8], v[12]); \
-+	G(r, 1, v[1], v[ 5], v[ 9], v[13]); \
-+	G(r, 2, v[2], v[ 6], v[10], v[14]); \
-+	G(r, 3, v[3], v[ 7], v[11], v[15]); \
-+	G(r, 4, v[0], v[ 5], v[10], v[15]); \
-+	G(r, 5, v[1], v[ 6], v[11], v[12]); \
-+	G(r, 6, v[2], v[ 7], v[ 8], v[13]); \
-+	G(r, 7, v[3], v[ 4], v[ 9], v[14]); \
-+} while (0)
-+		ROUND(0);
-+		ROUND(1);
-+		ROUND(2);
-+		ROUND(3);
-+		ROUND(4);
-+		ROUND(5);
-+		ROUND(6);
-+		ROUND(7);
-+		ROUND(8);
-+		ROUND(9);
++/*
++ * BLAKE2s specific test case which tests using a guarded buffer for all allowed
++ * key lengths.  Also tests both blake2s() and blake2s_init_key().
++ */
++static void test_blake2s_with_guarded_key_buf(struct kunit *test)
++{
++	const size_t data_len = 100;
 +
-+#undef G
-+#undef ROUND
++	rand_bytes(test_buf, data_len);
++	for (int key_len = 0; key_len <= BLAKE2S_KEY_SIZE; key_len++) {
++		u8 key[BLAKE2S_KEY_SIZE];
++		u8 *guarded_key = &test_buf[TEST_BUF_LEN - key_len];
++		u8 hash1[BLAKE2S_HASH_SIZE];
++		u8 hash2[BLAKE2S_HASH_SIZE];
++		struct blake2s_state state;
 +
-+		for (i = 0; i < 8; ++i)
-+			state->h[i] ^= v[i] ^ v[i + 8];
++		rand_bytes(key, key_len);
++		memcpy(guarded_key, key, key_len);
 +
-+		block += BLAKE2S_BLOCK_SIZE;
-+		--nblocks;
++		blake2s(hash1, test_buf, key,
++			BLAKE2S_HASH_SIZE, data_len, key_len);
++		blake2s(hash2, test_buf, guarded_key,
++			BLAKE2S_HASH_SIZE, data_len, key_len);
++		KUNIT_ASSERT_MEMEQ(test, hash1, hash2, BLAKE2S_HASH_SIZE);
++
++		blake2s_init_key(&state, BLAKE2S_HASH_SIZE,
++				 guarded_key, key_len);
++		blake2s_update(&state, test_buf, data_len);
++		blake2s_final(&state, hash2);
++		KUNIT_ASSERT_MEMEQ(test, hash1, hash2, BLAKE2S_HASH_SIZE);
 +	}
 +}
-+EXPORT_SYMBOL(blake2s_compress_generic);
-+#endif /* CONFIG_CRYPTO_LIB_BLAKE2S_GENERIC */
 +
- static inline void blake2s_set_lastblock(struct blake2s_state *state)
- {
- 	state->f[0] = -1;
- }
++/*
++ * BLAKE2s specific test case which tests using a guarded output buffer for all
++ * allowed output lengths.
++ */
++static void test_blake2s_with_guarded_out_buf(struct kunit *test)
++{
++	const size_t data_len = 100;
++
++	rand_bytes(test_buf, data_len);
++	for (int out_len = 1; out_len <= BLAKE2S_HASH_SIZE; out_len++) {
++		u8 hash[BLAKE2S_HASH_SIZE];
++		u8 *guarded_hash = &test_buf[TEST_BUF_LEN - out_len];
++
++		blake2s(hash, test_buf, NULL, out_len, data_len, 0);
++		blake2s(guarded_hash, test_buf, NULL, out_len, data_len, 0);
++		KUNIT_ASSERT_MEMEQ(test, hash, guarded_hash, out_len);
++	}
++}
++
++static struct kunit_case blake2s_test_cases[] = {
++	HASH_KUNIT_CASES,
++	KUNIT_CASE(test_blake2s_all_key_and_hash_lens),
++	KUNIT_CASE(test_blake2s_with_guarded_key_buf),
++	KUNIT_CASE(test_blake2s_with_guarded_out_buf),
++	KUNIT_CASE(benchmark_hash),
++	{},
++};
++
++static struct kunit_suite blake2s_test_suite = {
++	.name = "blake2s",
++	.test_cases = blake2s_test_cases,
++	.suite_init = hash_suite_init,
++	.suite_exit = hash_suite_exit,
++};
++kunit_test_suite(blake2s_test_suite);
++
++MODULE_DESCRIPTION("KUnit tests and benchmark for BLAKE2s");
++MODULE_LICENSE("GPL");
+diff --git a/scripts/crypto/gen-hash-testvecs.py b/scripts/crypto/gen-hash-testvecs.py
+index 4ac927d40cf5c..fc063f2ee95f1 100755
+--- a/scripts/crypto/gen-hash-testvecs.py
++++ b/scripts/crypto/gen-hash-testvecs.py
+@@ -82,15 +82,20 @@ def print_static_u8_array_definition(name, value):
+ def print_c_struct_u8_array_field(name, value):
+     print(f'\t\t.{name} = {{')
+     print_bytes('\t\t\t', value, 8)
+     print('\t\t},')
  
++def alg_digest_size_const(alg):
++    if alg == 'blake2s':
++        return 'BLAKE2S_HASH_SIZE'
++    return f'{alg.upper()}_DIGEST_SIZE'
++
+ def gen_unkeyed_testvecs(alg):
+     print('')
+     print('static const struct {')
+     print('\tsize_t data_len;')
+-    print(f'\tu8 digest[{alg.upper()}_DIGEST_SIZE];')
++    print(f'\tu8 digest[{alg_digest_size_const(alg)}];')
+     print('} hash_testvecs[] = {')
+     for data_len in DATA_LENS:
+         data = rand_bytes(data_len)
+         print('\t{')
+         print(f'\t\t.data_len = {data_len},')
+@@ -101,11 +106,11 @@ def gen_unkeyed_testvecs(alg):
+     data = rand_bytes(4096)
+     ctx = hash_init(alg)
+     for data_len in range(len(data) + 1):
+         hash_update(ctx, compute_hash(alg, data[:data_len]))
+     print_static_u8_array_definition(
+-            f'hash_testvec_consolidated[{alg.upper()}_DIGEST_SIZE]',
++            f'hash_testvec_consolidated[{alg_digest_size_const(alg)}]',
+             hash_final(ctx))
+ 
+ def gen_hmac_testvecs(alg):
+     ctx = hmac.new(rand_bytes(32), digestmod=alg)
+     data = rand_bytes(4096)
+@@ -117,10 +122,24 @@ def gen_hmac_testvecs(alg):
+         ctx.update(mac)
+     print_static_u8_array_definition(
+             f'hmac_testvec_consolidated[{alg.upper()}_DIGEST_SIZE]',
+             ctx.digest())
+ 
++BLAKE2S_KEY_SIZE = 32
++BLAKE2S_HASH_SIZE = 32
++
++def gen_additional_blake2s_testvecs():
++    hashes = b''
++    for key_len in range(BLAKE2S_KEY_SIZE + 1):
++        for out_len in range(1, BLAKE2S_HASH_SIZE + 1):
++            h = hashlib.blake2s(digest_size=out_len, key=rand_bytes(key_len))
++            h.update(rand_bytes(100))
++            hashes += h.digest()
++    print_static_u8_array_definition(
++            'blake2s_keyed_testvec_consolidated[BLAKE2S_HASH_SIZE]',
++            compute_hash('blake2s', hashes))
++
+ def gen_additional_poly1305_testvecs():
+     key = b'\xff' * POLY1305_KEY_SIZE
+     data = b''
+     ctx = Poly1305(key)
+     for _ in range(32):
+@@ -139,9 +158,11 @@ if len(sys.argv) != 2:
+ 
+ alg = sys.argv[1]
+ print('/* SPDX-License-Identifier: GPL-2.0-or-later */')
+ print(f'/* This file was generated by: {sys.argv[0]} {" ".join(sys.argv[1:])} */')
+ gen_unkeyed_testvecs(alg)
+-if alg == 'poly1305':
++if alg == 'blake2s':
++    gen_additional_blake2s_testvecs()
++elif alg == 'poly1305':
+     gen_additional_poly1305_testvecs()
+ else:
+     gen_hmac_testvecs(alg)
 -- 
 2.50.1
 
