@@ -4,149 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2914CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 20:54:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B1CDCA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 20:56:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TzNwIa7gpj5ICksPmOkJwZop0idGEfBpg8YtS1SRRkY=; b=pIQ9Lw25R0J4x7wVvyu+U3MSKN
-	SzlxegP44864Jtjwh32ZqXzL/nKGmYQHVOeEFxAkX82ZStWezKwi2jDXznup2y/YsLyxTeTwDmzVb
-	iMZz7osxT1ynSE3sk1YWVqFWR8SByVrd/ryVDQRQg/jV6RXaS+CbDfoGT8qlmA3ykdg9iLfEKz4nA
-	HILX8x7f5VRmBbHEwIiPoWFu22eWsJRuXE5retBssY+3bcbz/+Kp71pOPELw7BmcjIJCFXqVLXOGD
-	+cIlXVjfWw6yVTNXbigfWlOII2g5ueLJmvtJ2hjt1iRcjjQTjLePTJXkVm5srhh8TuVJpz7dZQhc0
-	PZ/t7h9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Hgy5JuPjVy1Ktg+h6y7pjxgeVZYeInv5W4e6HXGjOvk=; b=cckSRpXr5k3aki0x7zkHtOpjR2
+	DgqvEo4UJLq5E803jmv0ylTj+T4sUXxoicqaGuYozXEIIfslQM7NNaOSqsHjtZXd3Nwij1PSiUf/0
+	eCXmuArcV/v/Jj0HzgEUajm1NuwYRYGyBW20ZoxJG4S9mUXs2/+hs0f+ijoEQoFqn6L9f9sa3Oud8
+	cG1kuOvEqKqDQu6Def03PbnBvqw4lEFtxBLg7tCSoTQ9+ISbJWgkCh8hM+A8wDlG7d04jqhD0O2U1
+	ptFCnCivIXsdss6GcQKrKwackNXhHpY8Rj/T9/PNGBOEJyvs3wSvAgrW7qudbg2fomejKky10egw2
+	LtkhR9yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urN9c-0000000GoXg-2Lxg;
-	Wed, 27 Aug 2025 20:54:00 +0000
-Received: from mail-bn7nam10on20621.outbound.protection.outlook.com ([2a01:111:f403:2009::621] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1urNCJ-0000000Gp5S-03qv;
+	Wed, 27 Aug 2025 20:56:47 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urMKD-0000000GhIU-3i2G
+	id 1urMpD-0000000GmSW-1R04
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 20:00:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yUMSTVsb0IOmInjNvFVmqsM13QS9fZDs+/MrQEiEEXdTc025R1sSoUZ4FNiQ/G2HF+Z+tx1Vi3lXZbFGLV0CWziany7EzjYaqPveSRPQz1R16G8tkBft1gzkV2jmojqUNzyj4kRbtJ1zlW6UMszNTaZLLcoLlvxM8hPYzeJIPuF3ux1DF5VgAttZf+GWBxwuVr8Ffu+1rUJTec6ZNJiaI0J/kaOhmCfjOk/cufs5eHXyvQ1+Ge0/R3JtFU7Ryd6REK0EHTUC2igCKDc4z5sHxlFdQkAlOBZj1lurCpVapjOEiDOORREGWHbsnMHUn+WAeg+HLpkbid5XHGM+Ef13zg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TzNwIa7gpj5ICksPmOkJwZop0idGEfBpg8YtS1SRRkY=;
- b=snBfWCrEYMc6HMqPPyRKJ+c0BmumqdB2Ni2EM8832GitWLVWtgCAcTwZIW5Vbocz5cbcMQyHYb+r/qKJ2U6UfSxHchDhkV0Pmn7TTmS21bXScRvXO05jJwamggTbSna9Nhdtipjcz5HQnDBVRbiWM2k+rIl2NW1lTH4rGU2pEoRlTDTcRxNKEu5fygpxj2IEljVu6IgSy1lvnQ62sCzuGbCza/Ki5p+ljumY9vOoIawB/sLPp8coEnVZvkJCc7ouUOtZAePCrR3rwFrQV6glsI/kmE/aQXtpTT4bLk/YnYhip7J/VfS3E/8cU2BcsjFRooda6z3iv6ROLI9PfLZUkQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TzNwIa7gpj5ICksPmOkJwZop0idGEfBpg8YtS1SRRkY=;
- b=WVpNwguXuRGhRCA6z+37ZdubE1jWaf11lGFcjNbQ3PtnUOn9MVc0WDZE296cbfPRdsgLXpV6JrHqXTYC5WgTrFBAxGti3ecH9Wi0gyKY1JJoxawgoRZSjy5dDlGq+rrkpONB6mybzx0Mw6jx7po/L4525l8nrpwoClLueRV0r62M/GcOUGyQpIWaCLIwzZnXAuYVqTMw9Qgh+4g2ZUfq+OIYes8ix/hVDgDPA0Nz66mr8LCqEMcj6I4DUJSAUIRNZXK31cIKXHVxuiWv9DB/NMHMcwrYADXn0NzEj5rpBy5L2WKAYg8LO3cXS0atF2TeXX+WLw9ma9xM5nwiQdV30A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by DS0PR12MB8503.namprd12.prod.outlook.com (2603:10b6:8:15a::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.20; Wed, 27 Aug
- 2025 20:00:05 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.9052.019; Wed, 27 Aug 2025
- 20:00:05 +0000
-Date: Wed, 27 Aug 2025 17:00:02 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
-	jean-philippe@linaro.org, miko.lenczewski@arm.com,
-	balbirs@nvidia.com, peterz@infradead.org, smostafa@google.com,
-	kevin.tian@intel.com, praan@google.com, zhangzekun11@huawei.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, patches@lists.linux.dev
-Subject: Re: [PATCH rfcv1 4/8] iommu/arm-smmu-v3: Introduce a per-domain
- arm_smmu_invs array
-Message-ID: <20250827200002.GD2206304@nvidia.com>
-References: <cover.1755131672.git.nicolinc@nvidia.com>
- <fbec39124b18c231d19a9b2b05551b131ac14237.1755131672.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <fbec39124b18c231d19a9b2b05551b131ac14237.1755131672.git.nicolinc@nvidia.com>
-X-ClientProxiedBy: BY5PR13CA0004.namprd13.prod.outlook.com
- (2603:10b6:a03:180::17) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	Wed, 27 Aug 2025 20:32:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1756326775; x=1787862775;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=y9997n1KrMbMeAMj+IWy2kERVmk6DJGRSqufvzXc1uY=;
+  b=GgPhCbla2GccWEXy7WUaPpRNB0i8jmMVZIbAWomf92a8xmjy7rJHkpCa
+   O3jLh4L9bwyzX4NOSlzylctQbpY8NOylJLUxmJV8vssqnO9+B5UwFZWkO
+   4CPtypYd/t0/uFXidtafs2lu2CnlGkAmNFc5FTq2uuqsoqYNm+RfVwXIE
+   Jy341Qpqd79ixzUTCyvekeyIcApWV3bug4NW/C/EYTyZt78d4VH99pMKk
+   y+GeuFsI2L7Z/bUigpl77yXHSXUv0AFXxRCb9aKwxRO0Z/9jYaApYTDby
+   UzPlrJZ3/qjd0tjeM51Q+V3hgAWw18GVSGVYLDkT2kfdy0RBs/B6LL2iu
+   Q==;
+X-CSE-ConnectionGUID: DtXPaCWgQLGobwENlPj6ng==
+X-CSE-MsgGUID: a2obzWYWSJm3Ob0XwFZKDQ==
+X-IronPort-AV: E=Sophos;i="6.18,217,1751266800"; 
+   d="scan'208";a="51382651"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 Aug 2025 13:32:54 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Wed, 27 Aug 2025 13:31:41 -0700
+Received: from [10.10.179.162] (10.10.85.11) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.44 via Frontend
+ Transport; Wed, 27 Aug 2025 13:31:41 -0700
+Message-ID: <af762c93-c9d0-485e-a0d1-7792e6e37c09@microchip.com>
+Date: Wed, 27 Aug 2025 13:31:38 -0700
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|DS0PR12MB8503:EE_
-X-MS-Office365-Filtering-Correlation-Id: f13331af-14c4-4756-d3c1-08dde5a450ef
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?znxOawn0KroKXJstA9k6r2ebH1V0TVOiBxDLxv3Vznkn4zGmlbGihbO04ic4?=
- =?us-ascii?Q?B2Wqz25YpSRgPFiObuxWA9tJRLMfXlFUvZA9Cbd5VZCKJegaymkOkQbX37Y6?=
- =?us-ascii?Q?piMtm10Ac8VZXxfbCXn3e1MZfFQcwrcXlenkK51JTbt1HpdtNh+n4Cc/LIN/?=
- =?us-ascii?Q?nQgYFFFMakypCPk7Bx2yjdsS981SKmuWE83TlerBY688Gp0bX1SwwrFEnLxX?=
- =?us-ascii?Q?I+ca7g2Z3ljXH9nbvfSSdwBt+72m+TQOjbOdxr7GaXWvAQLZzer5N8L8DIQB?=
- =?us-ascii?Q?SVv+6iYgJG3KrHJMjB5eAd2Yaa2VL5/FAPm0peiLWy43ODRhNjTIiQRx28pZ?=
- =?us-ascii?Q?MsIbUB7huuDNg/aIv8QyrnOiv8Q50TYu413UT7b6KCp4DkZvFvmVEdLSmWZt?=
- =?us-ascii?Q?1gYdTwEQkKHa1pcRBp+bAtG8TNvM22BcK1IfH3D/Uq/MWK60gcZODJansaHJ?=
- =?us-ascii?Q?lUP8rEh4WVzDQ0vIU9iNY4+MrGmxjGf5f99THwbcHyMGvK16ya5poz2yHAqQ?=
- =?us-ascii?Q?Zqa14QH3Aor0bQzSE7dUPMz/dh/7fjolPNHChJHub0J/Xu4EOA5BkTAFco7B?=
- =?us-ascii?Q?aPEhZiEEjNWQSvYnTA6o/079zLew5fbYUEXEHxQgdAnbJUAxWGuCLLkfaBnF?=
- =?us-ascii?Q?kxJykak8aiK3lWm0MvDk2YgzM5HkChjzSYIVt5AhsGn1pg+TfDdlDky1YePW?=
- =?us-ascii?Q?iKNrpCkI4+2DFViOadVypwLqEb2rVq5DUnt6qYGNTCJGuwHUPEn3G52QOCAv?=
- =?us-ascii?Q?mFWIVgTkMJW5wSBPKXIXLTgTTTAIYCJ4Rp9soevfL+dwqwCFPHsQh2eb8HQ3?=
- =?us-ascii?Q?s6OzhUxFwCB2nj73Tn8UCbDfLC/Qy+Va87pHM9rI5NjCzRIPMe54ep0dD3I8?=
- =?us-ascii?Q?FOtI03xqBtgD8LdnAc3rJXdb8Abh7wiTSkepPfdw+DSXzSwSQ+0sbP5h8LbC?=
- =?us-ascii?Q?XGM19eL07/2wyrdLqQY+YHzO27CjfbZEgwn2EaO7QqXlA10PlQcPXoB5elsP?=
- =?us-ascii?Q?sEwuI94zih4A+lrK5GI1EE3fjqgvdE/blGx51kxT1vE9zITd8i5u2WmsZj8L?=
- =?us-ascii?Q?/KhInT4tbukfykN0WY1JD5xV4zAsCYY/b2D+4fqt8DumIbTO+QmnIXnKt9pl?=
- =?us-ascii?Q?spW+JniTiK+Mb/SHW2jWhQ/e/EvQ4jpW4R9ielm+VTk+ZKam6IhSiKCmVa1U?=
- =?us-ascii?Q?ODGgEaS4JjlbpJJmdOeY3VvBCvOFLnu6HlnFuGhMNE6hvein3qA05IUNQIIS?=
- =?us-ascii?Q?7g3tqekOsPtZOTfGTiPWzKjauvNsdDp+RerwY92Zv9OlGmBToshhO3D/OtTD?=
- =?us-ascii?Q?W08N5Uc4gid7zRHNyoOV8zHr4FBYSGHK+IMz5F8PNtgeAlkrCga6qW6zZYqv?=
- =?us-ascii?Q?GVZoa52lY36FC+0TyCPM3J84Vo/KzRViLW0HMAokC9scFscruQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1WWObZOiBWZsIvRpGn4aA3wc8SFXZveRem8KFCd0a/HljLtCXTWmyK5Q8A2g?=
- =?us-ascii?Q?TAyZJmlhAukikFF2QNmJjvOWzaSstJzVkSdu/wWdN3C8M0sNCG12gDQHYexc?=
- =?us-ascii?Q?le8Hpfn1cF0bP8QE61+4pJpFSotXSCIK12agsEYQWR1xc2qksU/OjBOLZzG2?=
- =?us-ascii?Q?8hL3/lC5tADCobNahBmxlLqVPaBcaGERgeh/ZsFRj6c9328X/MpyE7lQodXQ?=
- =?us-ascii?Q?kodowM/zCgocK3TllF4c/cA3SR4CH4NL78df3OWv5MR2WKzlvLL22ETMM7GC?=
- =?us-ascii?Q?6hLRTsUZYM/1mIElqcy5DwJ4FWDmo9j7quiTf9doYwogp0aty6uOcUGwS8ni?=
- =?us-ascii?Q?KzM8ULoJmKsAa5w66he8v6iRgaWRwJ67zgOykcactNzmJVro9XVjjhfZAy+0?=
- =?us-ascii?Q?jh8q7hzQXs4Ha0IzKdT6ZFNPEwftiXHyoCKrpY06pRwOUEM0rxha2qnnt289?=
- =?us-ascii?Q?CBODFLc+1P3gCtcTSxqS7T9XgLcritQzIJnWYEFjjaTIV6nYen/XOvLJXVPt?=
- =?us-ascii?Q?y2xVrYLFsZBpk6ZmPCyTf+1PWXxCb/H5HeAo8PUR3rUmkP9V7pq+NIvB268O?=
- =?us-ascii?Q?e5U6ZRf1IkIhyZwy/2HVQktzlxcCuEdfKmAbtM4EOVWz0cOyXe2gIQixvXp9?=
- =?us-ascii?Q?TJUqOIHcrGGPKxwxGd/T/nptckhbeCO/BmsZnomA1zmKrW6mgl4CZB2oFt6W?=
- =?us-ascii?Q?Rhpa4eqfp+RYjHJsqnn4HLtezp7sKqIq8wg2zxaIVbMAXL23q0fWYljb/Tam?=
- =?us-ascii?Q?Tcb+9zVuDab+G8zOrF063h6431/kGD6v+mh1Ru64xsqH5EGRTFl5dIjxXKr/?=
- =?us-ascii?Q?oJ6GZ3TTqb/yk1cBvB6sOi3JbKAMoUcUhVIZIrngLqVYxpeVMiENlLPY0dO0?=
- =?us-ascii?Q?mKTBzFjeZdYiJ8knLUT6r4zfIy0oxI5KyRdt3BsI8qn1XAicTPJzniabfqpZ?=
- =?us-ascii?Q?IQmjQemO2b0cAzzZ7JLol5Pxd1wfu4N0qPS151Vl5fCgGSOxSJnlYlO3idjs?=
- =?us-ascii?Q?+KPYxjj+lXhBLmS73icEvpiK1nyyz490ybB1GVNRqc8ZuPBxgfeq5a0zcNj/?=
- =?us-ascii?Q?UCI7CqWBrgwxR3T8Hkoev3UHvYPRdacDm4YqPptGk1ybI7sYx6xeHQMcqEqE?=
- =?us-ascii?Q?EM3Pxye6OzQZgS7tZQfi/nl6mcGeQ3955uZiVyM+fs0zZgQJabncEIKAFD9J?=
- =?us-ascii?Q?SkUHKjRIf1QGsh+dGQEPlfGXXYa5u9vAPCS/U0RNQVwDeWFnfb4VY9nEkl23?=
- =?us-ascii?Q?6SO421WlOIX5lIaLEUgePCSn4+6NIB/ahkElFP9qvRepS8SNcgt9rRNsBbiK?=
- =?us-ascii?Q?nljWg1Dm/mCXUgTLugw6MpK+jxcjYPOVEUQv3Um4smor6/S73RDeORXq98c8?=
- =?us-ascii?Q?ERt/n2WeusuVP4KxBOykcW8JLkLYTvZJs29IlDq/82kaWkgrVvXZMzZIBcOZ?=
- =?us-ascii?Q?IneNQrOdy75+eqthAXfxLmdsGJ8ArL63KMYcQVE0LMr1HeYtyg4cpSQRJqhk?=
- =?us-ascii?Q?a9VuZ/dPiWmzrtp+/7gdnD1A1oEQN2sZBnbqGSrdAaZjLTJhmtRMLDdsPthC?=
- =?us-ascii?Q?/jwLdeo/woWhQJq1EBLXlB0yOVa/o6M67BKvnsoE?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f13331af-14c4-4756-d3c1-08dde5a450ef
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Aug 2025 20:00:05.4040
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ap3El40LAI7bYvFM4l+n4dZbFWNZ3pambipp07iGoIM01lu4SYpJNP5zma+iCbCj
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8503
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 00/32] clk: at91: add support for parent_data and
+To: <mturquette@baylibre.com>, <sboyd@kernel.org>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>
+CC: <varshini.rajendran@microchip.com>, <linux-clk@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<robh@kernel.org>
+References: <cover.1752176711.git.Ryan.Wanner@microchip.com>
+From: Ryan Wanner <ryan.wanner@microchip.com>
+Content-Language: en-US
+In-Reply-To: <cover.1752176711.git.Ryan.Wanner@microchip.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_130053_920569_F7B136B8 
-X-CRM114-Status: GOOD (  15.89  )
+X-CRM114-CacheID: sfid-20250827_133255_611422_836408FF 
+X-CRM114-Status: GOOD (  20.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,165 +88,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 13, 2025 at 06:25:35PM -0700, Nicolin Chen wrote:
-> +struct arm_smmu_invs *arm_smmu_invs_add(struct arm_smmu_invs *old_invs,
-> +					struct arm_smmu_invs *add_invs)
-> +{
+On 7/10/25 13:06, Ryan.Wanner@microchip.com wrote:
+> From: Ryan Wanner <Ryan.Wanner@microchip.com>
+> 
+> This series adds support for parent data and parent _hw on the at91
+> clock drivers. This also updates all the SoC specific clock drivers to
+> use this format as well.
+> 
+> This is a continuation of the V1 of this series here [1].
+> 
+> This has been tested on the SAMA5* SoCs, the sam9x* SoCs, and the SAMA7*
+> SoCs.
+> 
+> Changes v1 -> V2:
+> - Remove all the small sama7g54 SoC driver changes and put them in their
+>   own patch.
+> - Add the SAMA7D65 and the SAM9X75 to this update.
+> - Add a patch to move all common used macros into the pmc.h file.
+> - Update changes from v6.6 to v6.16.
+> - Remove patches that where style fixes and include those in the update.
+> 
+> Changes v2 -> v3:
+> - Adjust each patch so they are fully atomic.
+> - Add a patch to have the SAMA7D65 systemclocks use parent_data and
+>   parent_hw.
+> - Add a formatting cleanup patch for the SAM9X75.
+> - Adjust commit messages that no longer show invalid information.
+> 
+> 
+> 1) https://lore.kernel.org/all/20230727053156.13587-1-claudiu.beznea@tuxon.dev/
+Hello,
 
-It turns out it is fairly easy and cheap to sort add_invs by sorting
-the ids during probe:
+Just Bumping this thread.
 
-@@ -3983,6 +3989,14 @@ static int arm_smmu_init_sid_strtab(struct arm_smmu_device *smmu, u32 sid)
-        return 0;
- }
- 
-+static int arm_smmu_ids_cmp(const void *_l, const void *_r)
-+{
-+       const typeof_member(struct iommu_fwspec, ids[0]) *l = _l;
-+       const typeof_member(struct iommu_fwspec, ids[0]) *r = _r;
-+
-+       return cmp_int(*l, *r);
-+}
-+
- static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
-                                  struct arm_smmu_master *master)
- {
-@@ -4011,6 +4025,13 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
-                return PTR_ERR(master->invs);
-        }
- 
-+       /*
-+        * Put the ids into order so that arm_smmu_build_invs() can trivially
-+        * generate sorted lists.
-+        */
-+       sort_nonatomic(fwspec->ids, fwspec->num_ids, sizeof(fwspec->ids[0]),
-+                      arm_smmu_ids_cmp, NULL);
-+
-        mutex_lock(&smmu->streams_mutex);
-        for (i = 0; i < fwspec->num_ids; i++) {
-                struct arm_smmu_stream *new_stream = &master->streams[i];
+Ryan
+> 
+> 
+> Claudiu Beznea (28):
+>   clk: at91: pmc: add macros for clk_parent_data
+>   clk: at91: clk-sam9x60-pll: use clk_parent_data
+>   clk: at91: clk-peripheral: switch to clk_parent_data
+>   clk: at91: clk-main: switch to clk parent data
+>   clk: at91: clk-utmi: use clk_parent_data
+>   clk: at91: clk-master: use clk_parent_data
+>   clk: at91: clk-programmable: use clk_parent_data
+>   clk: at91: clk-generated: use clk_parent_data
+>   clk: at91: clk-usb: add support for clk_parent_data
+>   clk: at91: clk-system: use clk_parent_data
+>   clk: at91: clk-pll: add support for parent_hw
+>   clk: at91: clk-audio-pll: add support for parent_hw
+>   clk: at91: clk-plldiv: add support for parent_hw
+>   clk: at91: clk-h32mx: add support for parent_hw
+>   clk: at91: clk-i2s-mux: add support for parent_hw
+>   clk: at91: clk-smd: add support for clk_parent_data
+>   clk: at91: clk-slow: add support for parent_hw
+>   clk: at91: dt-compat: switch to parent_hw and parent_data
+>   clk: at91: sam9x60: switch to parent_hw and parent_data
+>   clk: at91: sama5d2: switch to parent_hw and parent_data
+>   clk: at91: sama5d3: switch to parent_hw and parent_data
+>   clk: at91: sama5d4: switch to parent_hw and parent_data
+>   clk: at91: at91sam9x5: switch to parent_hw and parent_data
+>   clk: at91: at91rm9200: switch to parent_hw and parent_data
+>   clk: at91: at91sam9260: switch to parent_hw and parent_data
+>   clk: at91: at91sam9g45: switch to parent_hw and parent_data
+>   clk: at91: at91sam9n12: switch to parent_hw and parent_data
+>   clk: at91: at91sam9rl: switch to clk_parent_data
+> 
+> Ryan Wanner (4):
+>   clk: at91: pmc: Move macro to header file
+>   clk: at91: sam9x75: switch to parent_hw and parent_data
+>   clk: at91: sama7d65: switch to parent_hw and parent_data
+>   clk: at91: sam9x7: Clean up formatting
+> 
+>  drivers/clk/at91/at91rm9200.c       |  95 ++++----
+>  drivers/clk/at91/at91sam9260.c      | 136 ++++++------
+>  drivers/clk/at91/at91sam9g45.c      |  89 ++++----
+>  drivers/clk/at91/at91sam9n12.c      | 106 ++++-----
+>  drivers/clk/at91/at91sam9rl.c       |  63 +++---
+>  drivers/clk/at91/at91sam9x5.c       | 125 ++++++-----
+>  drivers/clk/at91/clk-audio-pll.c    |  28 ++-
+>  drivers/clk/at91/clk-generated.c    |   8 +-
+>  drivers/clk/at91/clk-h32mx.c        |  11 +-
+>  drivers/clk/at91/clk-i2s-mux.c      |   6 +-
+>  drivers/clk/at91/clk-main.c         |  16 +-
+>  drivers/clk/at91/clk-master.c       |  24 +-
+>  drivers/clk/at91/clk-peripheral.c   |  16 +-
+>  drivers/clk/at91/clk-pll.c          |   9 +-
+>  drivers/clk/at91/clk-plldiv.c       |  11 +-
+>  drivers/clk/at91/clk-programmable.c |   8 +-
+>  drivers/clk/at91/clk-sam9x60-pll.c  |  14 +-
+>  drivers/clk/at91/clk-slow.c         |   8 +-
+>  drivers/clk/at91/clk-smd.c          |  10 +-
+>  drivers/clk/at91/clk-system.c       |   8 +-
+>  drivers/clk/at91/clk-usb.c          |  41 ++--
+>  drivers/clk/at91/clk-utmi.c         |  16 +-
+>  drivers/clk/at91/dt-compat.c        |  80 +++++--
+>  drivers/clk/at91/pmc.h              |  66 +++---
+>  drivers/clk/at91/sam9x60.c          | 117 +++++-----
+>  drivers/clk/at91/sam9x7.c           | 328 ++++++++++++++++------------
+>  drivers/clk/at91/sama5d2.c          | 168 +++++++-------
+>  drivers/clk/at91/sama5d3.c          | 122 ++++++-----
+>  drivers/clk/at91/sama5d4.c          | 129 +++++------
+>  drivers/clk/at91/sama7d65.c         | 156 ++++++-------
+>  drivers/clk/at91/sama7g5.c          | 111 +++++-----
+>  31 files changed, 1134 insertions(+), 991 deletions(-)
+> 
 
-Then arm_smmu_build_invs() trivially makes sorted lists.
-
-So if old_invs and add_invs are both sorted list we can use variations
-on a merge algorithm for sorted lists which is both simpler to
-understand and runs faster:
-
-/*
- * Compare used for merging two sorted lists. Merge compare of two sorted list
- * items. If one side is past the end of the list then return the other side to
- * let it run out the iteration.
- */
-static inline int arm_smmu_invs_merge_cmp(const struct arm_smmu_invs *lhs,
-					  size_t lhs_idx,
-					  const struct arm_smmu_invs *rhs,
-					  size_t rhs_idx)
-{
-	if (lhs_idx != lhs->num_invs && rhs_idx != rhs->num_invs)
-		return arm_smmu_invs_cmp(&lhs->inv[lhs_idx],
-					 &rhs->inv[rhs_idx]);
-	if (lhs_idx != lhs->num_invs)
-		return -1;
-	return 1;
-}
-
-struct arm_smmu_invs *arm_smmu_invs_add(struct arm_smmu_invs *invs,
-					struct arm_smmu_invs *add_invs)
-{
-	struct arm_smmu_invs *new_invs;
-	struct arm_smmu_inv *new;
-	size_t to_add = 0;
-	size_t to_del = 0;
-	size_t i, j;
-
-	for (i = 0, j = 0; i != invs->num_invs || j != add_invs->num_invs;) {
-		int cmp = arm_smmu_invs_merge_cmp(invs, i, add_invs, j);
-
-		if (cmp < 0) {
-			/* not found in add_invs, leave alone */
-			if (refcount_read(&invs->inv[i].users))
-				i++;
-			else
-				to_del++;
-		} else if (cmp == 0) {
-			/* same item */
-			i++;
-			j++;
-		} else {
-			/* unique to add_invs */
-			to_add++;
-			j++;
-		}
-	}
-
-	new_invs = arm_smmu_invs_alloc(invs->num_invs + to_add - to_del);
-	if (IS_ERR(new_invs))
-		return new_invs;
-
-	new = new_invs->inv;
-	for (i = 0, j = 0; i != invs->num_invs || j != add_invs->num_invs;) {
-		int cmp = arm_smmu_invs_merge_cmp(invs, i, add_invs, j);
-
-		if (cmp <= 0 && !refcount_read(&invs->inv[i].users)) {
-			i++;
-			continue;
-		}
-
-		if (cmp < 0) {
-			*new = invs->inv[i];
-			i++;
-		} else if (cmp == 0) {
-			*new = invs->inv[i];
-			refcount_inc(&new->users);
-			i++;
-			j++;
-		} else {
-			*new = add_invs->inv[j];
-			refcount_set(&new->users, 1);
-			j++;
-		}
-		if (arm_smmu_inv_is_ats(new))
-			new_invs->has_ats = true;
-		new++;
-	}
-
-	WARN_ON(new != new_invs->inv + new_invs->num_invs);
-
-	/*
-	 * A sorted array allows batching invalidations together for fewer SYNCs.
-	 * Also, ATS must follow the ASID/VMID invalidation SYNC.
-	 */
-	sort_nonatomic(new_invs->inv, new_invs->num_invs,
-		       sizeof(add_invs->inv[0]), arm_smmu_invs_cmp, NULL);
-	return new_invs;
-}
-
-size_t arm_smmu_invs_dec(struct arm_smmu_invs *invs,
-			 struct arm_smmu_invs *dec_invs)
-{
-	size_t to_del = 0;
-	size_t i, j;
-
-	for (i = 0, j = 0; i != invs->num_invs || j != dec_invs->num_invs;) {
-		int cmp = arm_smmu_invs_merge_cmp(invs, i, dec_invs, j);
-
-		if (cmp < 0) {
-			/* not found in dec_invs, leave alone */
-			i++;
-		} else if (cmp == 0) {
-			/* same item */
-			if (refcount_dec_and_test(&invs->inv[i].users)) {
-				dec_invs->inv[j].todel = true;
-				to_del++;
-			}
-			i++;
-			j++;
-		} else {
-			/* item in dec_invs is not in invs? */
-			WARN_ON(true);
-			j++;
-		}
-	}
-	return to_del;
-}
 
