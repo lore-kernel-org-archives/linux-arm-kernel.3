@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32FA3CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 11:43:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2AF6CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 27 Aug 2025 11:46:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9wdkqfpaZOOvxTwoHvHvU8nhHI49YCbpuNrKJU42fBg=; b=yPxb3PRhRVPJh5DksE9sIiZimB
-	VuuMioXNIOBWB2NAP8zbUg0+Ve83VsMMdGjX4Q3N3olBoYN5GcU/cj0iUGLN37J2fNrJwLNehewat
-	dkCBa1gQuKHm8THnDKKsf2EpMG6mK8pwWej9/cCva5kNhwrTFXfC3kuuEkA+fC3/YuV00ZDFsIX5+
-	zMG3wfkt1QqTargZirN4Uum6Gp01NQ4fso49mU9WBLUZnvJC/bT2D80giG/dJ81ZkJMrb0S2xnF+G
-	z7iM9/Yq91vptwqCwD5yER1A+5TI5Y29v9CYct3jOB+kC4TtNsq/4BGoArQbIOU0zAb7jL/HY00cF
-	cvijNn3g==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bGRCpbWuoAeXmlM4HsvMzttpVGFxmROnmfvnhtF/ofc=; b=w7uwprdR1mxmgYbbiHCY0wo64g
+	/75g7AwITayBkX/e8dWQHpt4EuAgxA+hoPVsacp5DLkLwfs8eLzMdILrMkutQleerC9cgQgJqVqRL
+	O0qkKwDkepZcADQOxhYCgzRANdzU3ghpbpCg3L0XqY2aTfXjz6AmFw+Fvu+ZKBFB3OtCqAZ+awtoX
+	LWvqtP1Mh1jz0dHtFJPnrWCDXOcfKBQOok8GEpWoKnxTCNl3kOMWEvPlL3ibbAuizVzeTH2Na6P9m
+	09Eo44D9+4EsMcdkK+85J/VeBUI307dq5d28J2gij8923bq5qs72Hv2zcYFxfP8XOOV7jUY7swHxK
+	kL19aClg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urEYp-0000000FJtr-2DOZ;
-	Wed, 27 Aug 2025 11:43:27 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1urEbX-0000000FKXV-2e8D;
+	Wed, 27 Aug 2025 11:46:15 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urDon-0000000F80A-2SDK
+	id 1urDoq-0000000F80X-0giQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 27 Aug 2025 10:55:54 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57R6kNEO023132
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 10:55:52 GMT
+	Wed, 27 Aug 2025 10:55:57 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57R6kBTG003102
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 10:55:55 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=9wdkqfpaZOOvxTwoHvHvU8nhHI49YCbpuNr
-	KJU42fBg=; b=QQGO7KczCjbgvYYk+9uhic9rtK0iddHdETY+RpOHmkKn4up2YXn
-	L1Q2n0ZfFDweFi7bZrN5hnOvJEwWCPUNlVxsJY3qdyCNIUo+2qk//dWhwyulZQc3
-	ibNg1Pik+KCZdEk/Fg+yM0Q6I1YtAxf73Jd1ZgK22qkuQqoccFQpsRNRvd/ZziT2
-	1aDoGUzWMxGY6t/jP86V2fQ5rRdeU9ibCoKmD+wCMFuQCQHLFaAlmSKM8+7NFMlh
-	skmjYHRYKlOLd+3mCESuErznGZIvHxRiH9EWUDJoYEzTlOnlpHVitm2mqlMjQ+z1
-	B1vBSEyaCnmNk7j7nQaU7Dm3842OdDTm8MQ==
-Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48q5y5m7cj-1
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=bGRCpbWuoAe
+	XmlM4HsvMzttpVGFxmROnmfvnhtF/ofc=; b=Pdc9mhhc+g4ivIAx4v6EF8zsslv
+	JNn/tXx/+Sk9x1sSVrDxlf+lyCJVlOTRVLb92CEmZAzlOWS2SVgdwSKlVX4aDtf2
+	Xvqx2nVW4CqN+e2Wj6/CWICsEpLSvIKcs+QCidMofcBq/P8LA9u5oRYR+2Njs2Fz
+	DfCLZQgJe4T6dUVdAaPHP3WRiqY0DU4VlYcL0DjJCYmz7pTdXs16TMgfYU6sC/Hv
+	rCswUowmKqdih/9GofNk5aJZrf3VSN62bIopzY36FX4DnctjlK0BrKjgK4QJ9/z/
+	XUptk6V9YWhMTeEqx0o88aY0JPx1gTjvJzZcbWnNH2K2dAh63dPcacrsB/w==
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48q6x8cf28-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 10:55:52 +0000 (GMT)
-Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-771e331f0fcso2611958b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 03:55:51 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 10:55:55 +0000 (GMT)
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-325b2959306so5346804a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 03:55:55 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756292150; x=1756896950;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9wdkqfpaZOOvxTwoHvHvU8nhHI49YCbpuNrKJU42fBg=;
-        b=fIRlXEKJkDtvIFW0phy3UGIdybth0YRB1xQMP+zjoRG1rxvuMZPPBUgS1NyJNqeW1n
-         XVrW2V5rEwS7woXiHpFFtBIh8+d7lkYkPUM9P+9nhW7ORYE8tpzRFvvD9kZc/YU8OPFM
-         yPqSLZimbj56g4E2tDsTr43NoX57bcbslgxTR8nM81qrwp9+eJmfMbJNhpQBD/3IosrB
-         nJtxZD6LRuftO6KHHpJJ1qpitl5FROgtSYLNXDqKTL+gMd+ir4S38oiRBSGEPGE4m4Jv
-         oMkAJInCSk0hyI2kKJkyOmU9MrVICYfFojE9XrK0rKMQVVpmm4RiJRQ7F40UtiR2VW7P
-         itug==
-X-Forwarded-Encrypted: i=1; AJvYcCWxLxXGSgrY/Mj8Ba0/3lWWO+dR326ERhsE3pMlJU9SrcQ+DIuKpq1vL3WdC34sImsHI4Cdxmza6URXVJLzulZF@lists.infradead.org
-X-Gm-Message-State: AOJu0YwyaflE8S0blht1EOlAIberrufc0NWs7nu4snDY2wRLQiNaXTqd
-	wlORMOiVzTMf2In9WFBDIk4TBV4rrdSVTsOvRyVbDlK68nsx7QqqRmkDHzpr9/LV2RQnpme04zX
-	BixZv5vhXt3Ua9dcai1TQd48IBhey3A1lydFIBc9GR4dcdu+oOK3rmIvX+R+ZnoQzLLyHu2me3+
-	3kpkNVotqzFIhT
-X-Gm-Gg: ASbGncv9FxmgDzZPK/6nbEKFqbLaJUq3810/lYQFTA2iqb4ptTC0VJZHZOCHQKpr4Qd
-	JiWSAtxcCDq05FRASynTsMT0iKQKwtzEgvC0VX2EmiRDZeTQ5XThX3lbCZ/JZwqmnkRd1R/fVvF
-	465BzjX77GL3q/KQ3RDjNcKAU7I9fjTHDmaUS5LQAyrSbv2dFwPTvIiGn3HduUs7cALN7LptaE0
-	JFJ807UTyW+fHZ0AE0dkU/xpUbvj8rOnzZFCbyQoE4ESx3xBSvwXYWRX6QOdxI9twsJ0sA/hQuY
-	x3qHdEKGU1DFqCnQzm4CZO4KzXra+5jstudmMZmTjuuLw4uDWQ2xC5nYYQPoGTIVGMhL9r1nVUc
-	9ZGNLZJWwCv3iqoc8AS8e
-X-Received: by 2002:a05:6a00:b44:b0:771:ef50:346 with SMTP id d2e1a72fcca58-771ef50091cmr10777469b3a.15.1756292150577;
-        Wed, 27 Aug 2025 03:55:50 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGqpJCRpa3pgQwwL2DXQzr+CaxFnBbfnfaaX9zy/10KGXLksC4chuBLZap7O/yZiDteErLiCQ==
-X-Received: by 2002:a05:6a00:b44:b0:771:ef50:346 with SMTP id d2e1a72fcca58-771ef50091cmr10777433b3a.15.1756292150108;
-        Wed, 27 Aug 2025 03:55:50 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1756292154; x=1756896954;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=bGRCpbWuoAeXmlM4HsvMzttpVGFxmROnmfvnhtF/ofc=;
+        b=cDtJq+pjA1KwUMLtf05O0i9Rc39/gcj0y4BKW+bABvU4oB02t8SMZEm0Qk/08yfM4D
+         55YuC4IaXDQQYUBqcxXJeWja8f4SRX48uh2k+BQxqTuC6299NOFpqiow3cAZoEBfWpuc
+         JZ9a2cMbp72QDQf4IfY134ApLbhnuVF89kWOUYdfKP4cIBP8e2gibXxdHZ1RaVaY6b/l
+         5qcxu0y7tVRonGIK0TIiNzEOhysrSBVMOZmO/cUdf+uOImXYu+roeh4q6i4NbqlS7boD
+         TU0AQbtgFOsSHQGDI+qjsW47iDVdSghAiESkVFqzacOBcQqbramI9IeuGsTD2JXB+tMs
+         8yRQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU/DaP3orCPaNYh1Ib7xP7tOvdTsiiwoWg7XjSKON+GRiLDq1uvl4kaCjM3rNfRldppR3qBEASmFs64HKtUtfdV@lists.infradead.org
+X-Gm-Message-State: AOJu0YzV23MvCSqdMOVlGod9xLNlHBOgQ6GdYG5+RitjFr9EURl4l+Vg
+	+VIe6O0PXf8+eAjPdHCsED8xOH7L0VPLTN3BvmWhSKRnYPK8TTFtBRgSu7X+pEGONSijtRAbMH9
+	s0sfWQceQAFIUWIXJJ6jtRC9Vh2Y92B6ZzILE/sVq9OgDKwuulH7SZPLk8mHxhMYtHfpwfYjfYF
+	9IDw==
+X-Gm-Gg: ASbGncvXvMNAve5024+5cGC+9g5uHp1oxlf2cjQpdguu0sMK/veJ8GXXExvFVjXnETy
+	5wQNCA6We+8+xjk7xzAkqazwV4cTvkhFApGM22v4ubnrlmmfhCkL8ylx2HVYZ2AjlGxMOm1Ru0E
+	vFq8BuOCvtYnNBrGRm6aqIPjrPE86Tzl3aqQQ9vKQgndtnRhtfTUeLWimg1dt5EAWpAoxhzxiX+
+	WLnzIhfZ/SdLaBuUOC/jdGBF5F7P7vbBS2Y4lfbFSYqgjiK52VL7wiaMAnXXAS+p4DYTg12RbQ3
+	ZjEysKirKJbOMroBAt3rcvwKtCzMpEI69eXJiHuLCfSOLIErFHmoFdCZn9Hrex+EbNlaSm3W9vv
+	irXmXCumfaw/j1YhyJ8WC
+X-Received: by 2002:a17:90b:38c3:b0:321:2b8a:4304 with SMTP id 98e67ed59e1d1-32515ef77admr24278200a91.10.1756292154211;
+        Wed, 27 Aug 2025 03:55:54 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFwNMyZcrQVPEWGkwnWvs7YNOYO9VEeBd6cV+tfHxFoasx2pAFKCLu2F1SMsovpNElVALzM/w==
+X-Received: by 2002:a17:90b:38c3:b0:321:2b8a:4304 with SMTP id 98e67ed59e1d1-32515ef77admr24278165a91.10.1756292153622;
+        Wed, 27 Aug 2025 03:55:53 -0700 (PDT)
 Received: from jiegan.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-771f2f2ac7dsm5573035b3a.43.2025.08.27.03.55.46
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-771f2f2ac7dsm5573035b3a.43.2025.08.27.03.55.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Aug 2025 03:55:49 -0700 (PDT)
+        Wed, 27 Aug 2025 03:55:53 -0700 (PDT)
 From: Jie Gan <jie.gan@oss.qualcomm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
         Mike Leach <mike.leach@linaro.org>,
@@ -85,36 +85,38 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
         Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
         linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
-Subject: [PATCH v3 0/3] add sysfs nodes to configure TPDA's registers
-Date: Wed, 27 Aug 2025 18:55:42 +0800
-Message-Id: <20250827105545.7140-1-jie.gan@oss.qualcomm.com>
+Subject: [PATCH v3 1/3] coresight: tpda: add sysfs nodes for tpda cross-trigger configuration
+Date: Wed, 27 Aug 2025 18:55:43 +0800
+Message-Id: <20250827105545.7140-2-jie.gan@oss.qualcomm.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250827105545.7140-1-jie.gan@oss.qualcomm.com>
+References: <20250827105545.7140-1-jie.gan@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDAzMyBTYWx0ZWRfXxl1YQvvEmSac
- OMoXkzOiysSQBRYznRFZ4TLgVIjITJ+W6/Xu0jUBWxilASQJ5qGULU/GrYerkybMxpAKhkeN6fJ
- 21NjGUYASOgKQZWnseYDQK3JoBMeiVo+gxb2/XooZV+1yVE8lEjhgVCrNgUNBUuKrbwf8/m2Km7
- y4zKNXKv6ljMucJMzfMzOpAs2At0vMkmVqlO7wCQM4536G3e8vgA4h2TSNYV2FQJcMSV8ynOz4V
- VudT2jVlFafmco4g4E127QQM1ps1nnnG27kV5yy8V/7+oRTw9hmKJX8gxavyan7OSY7EO1pkbCe
- 5QvwLah9kbXoXozs3138By/n2jJ+Y4FdRwLfIRo68aw9BZc0FYQ3k88KUZntMQbZveIs8MibOOS
- SgOBZ26U
-X-Authority-Analysis: v=2.4 cv=Lco86ifi c=1 sm=1 tr=0 ts=68aee438 cx=c_pps
- a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=2OwXVqhp2XgA:10 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=kL9tw6tk32Vw8pM4mOkA:9
- a=OpyuDcXvxspvyRM73sMx:22
-X-Proofpoint-GUID: VhWZHsr1J2K7OwdM_xoW5BtG7tTujET8
-X-Proofpoint-ORIG-GUID: VhWZHsr1J2K7OwdM_xoW5BtG7tTujET8
+X-Proofpoint-ORIG-GUID: EUmAuDan6IlzJR4lk-F4ctBebKIYUfWS
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDA0NCBTYWx0ZWRfXxgUD5uqjD/2E
+ QTqogt/bBMfyGRYoZLG1oJZ1M5tF+mFR3V8+QdRtEnQWNtX8ME7Y5VRxOg9zZoIyjf9GoKD1WD9
+ oxBybeEEGFdJ89RlPNili7q5WL712jFgB+z/6IIBW150ffmSxafk/NTbijzxeReBRr+Juwx7uj7
+ O2RnwX+aRX9yUr8a4dwng3YmwU36cF40MgSzn6Wbk69gCso0b1CeiZjNMT68gcvsyQDmwEJbv7e
+ pMhD7e6NiVhaglPiKNM4DiOn5EmjQjyG1EaI/BdIczSubwdN895nyaHpOnFkGBI20z0halTSkyk
+ dmf4R2JmGQ8YOq3ez6+z6KfMtZtykRkLASVyZ84Z+ZEcA3lkqIg6vPHDJEd4yG38JF5Erhj35BF
+ acYjC239
+X-Proofpoint-GUID: EUmAuDan6IlzJR4lk-F4ctBebKIYUfWS
+X-Authority-Analysis: v=2.4 cv=Ep/SrTcA c=1 sm=1 tr=0 ts=68aee43b cx=c_pps
+ a=vVfyC5vLCtgYJKYeQD43oA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=2OwXVqhp2XgA:10 a=EUspDBNiAAAA:8 a=Hl4cRc3ft4hpfJdQRooA:9
+ a=rl5im9kqc5Lf4LNbBjHf:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-08-27_02,2025-08-26_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 adultscore=0 clxscore=1015 malwarescore=0 spamscore=0
- suspectscore=0 phishscore=0 priorityscore=1501 bulkscore=0
+ clxscore=1015 spamscore=0 adultscore=0 bulkscore=0 suspectscore=0
+ phishscore=0 priorityscore=1501 malwarescore=0 impostorscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508230033
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508230044
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_035553_746504_BDA92D89 
-X-CRM114-Status: GOOD (  13.88  )
+X-CRM114-CacheID: sfid-20250827_035556_215495_4E25D3A1 
+X-CRM114-Status: GOOD (  22.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,36 +131,401 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Patchset 1 introduces configuration of the cross-trigger registers with
-appropriate values to enable proper generation of cross-trigger packets.
+From: Tao Zhang <tao.zhang@oss.qualcomm.com>
 
-Patchset 2 introduces a logic to configure the TPDA_SYNCR register,
-which determines the frequency of ASYNC packet generation. These packets
-assist userspace tools in accurately identifying each valid packet.
+Introduce sysfs nodes to configure cross-trigger parameters for TPDA.
+These registers define the characteristics of cross-trigger packets,
+including generation frequency and flag values.
 
-Patchset 3 introduces a sysfs node to initiate a flush request for the
-specific port, forcing the data to synchronize and be transmitted to the
-sink device.
-
-Changes in V3:
-1. Optimizing codes according to James's comment.
-Link to V2 - https://lore.kernel.org/all/20250827042042.6786-1-jie.gan@oss.qualcomm.com/
-
-Changes in V2:
-1. Refactoring the code based on James's comment for optimization.
-Link to V1 - https://lore.kernel.org/all/20250826070150.5603-1-jie.gan@oss.qualcomm.com/
-
-Tao Zhang (3):
-  coresight: tpda: add sysfs nodes for tpda cross-trigger configuration
-  coresight: tpda: add logic to configure TPDA_SYNCR register
-  coresight: tpda: add sysfs node to flush specific port
-
- .../testing/sysfs-bus-coresight-devices-tpda  |  50 ++++
- drivers/hwtracing/coresight/coresight-tpda.c  | 278 ++++++++++++++++++
- drivers/hwtracing/coresight/coresight-tpda.h  |  33 ++-
- 3 files changed, 360 insertions(+), 1 deletion(-)
+Signed-off-by: Tao Zhang <tao.zhang@oss.qualcomm.com>
+Co-developed-by: Jie Gan <jie.gan@oss.qualcomm.com>
+Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+---
+ .../testing/sysfs-bus-coresight-devices-tpda  |  43 ++++
+ drivers/hwtracing/coresight/coresight-tpda.c  | 230 ++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-tpda.h  |  27 +-
+ 3 files changed, 299 insertions(+), 1 deletion(-)
  create mode 100644 Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
 
+diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
+new file mode 100644
+index 000000000000..fb651aebeb31
+--- /dev/null
++++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
+@@ -0,0 +1,43 @@
++What:		/sys/bus/coresight/devices/<tpda-name>/trig_async_enable
++Date:		August 2025
++KernelVersion:	6.17
++Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
++Description:
++		(RW) Enable/disable cross trigger synchronization sequence interface.
++
++What:		/sys/bus/coresight/devices/<tpda-name>/trig_flag_ts_enable
++Date:		August 2025
++KernelVersion:	6.17
++Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
++Description:
++		(RW) Enable/disable cross trigger FLAG packet request interface.
++
++What:		/sys/bus/coresight/devices/<tpda-name>/trig_freq_enable
++Date:		August 2025
++KernelVersion:	6.17
++Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
++Description:
++		(RW) Enable/disable cross trigger FREQ packet request interface.
++
++What:		/sys/bus/coresight/devices/<tpda-name>/freq_ts_enable
++Date:		August 2025
++KernelVersion:	6.17
++Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
++Description:
++		(RW) Enable/disable the timestamp for all FREQ packets.
++
++What:		/sys/bus/coresight/devices/<tpda-name>/global_flush_req
++Date:		August 2025
++KernelVersion:	6.17
++Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
++Description:
++		(RW) Set global (all ports) flush request bit. The bit remains set until a
++		global flush request sequence completes.
++
++What:		/sys/bus/coresight/devices/<tpda-name>/cmbchan_mode
++Date:		August 2025
++KernelVersion:	6.17
++Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
++Description:
++		(RW) Configure the CMB/MCMB channel mode for all enabled ports.
++		Value 0 means raw channel mapping mode. Value 1 means channel pair marking mode.
+diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
+index 4e93fa5bace4..d4d1def5ec15 100644
+--- a/drivers/hwtracing/coresight/coresight-tpda.c
++++ b/drivers/hwtracing/coresight/coresight-tpda.c
+@@ -156,9 +156,37 @@ static void tpda_enable_pre_port(struct tpda_drvdata *drvdata)
+ 	u32 val;
+ 
+ 	val = readl_relaxed(drvdata->base + TPDA_CR);
++	val &= ~TPDA_CR_MID;
+ 	val &= ~TPDA_CR_ATID;
+ 	val |= FIELD_PREP(TPDA_CR_ATID, drvdata->atid);
++	if (drvdata->trig_async)
++		val |= TPDA_CR_SRIE;
++	else
++		val &= ~TPDA_CR_SRIE;
++	if (drvdata->trig_flag_ts)
++		val |= TPDA_CR_FLRIE;
++	else
++		val &= ~TPDA_CR_FLRIE;
++	if (drvdata->trig_freq)
++		val |= TPDA_CR_FRIE;
++	else
++		val &= ~TPDA_CR_FRIE;
++	if (drvdata->freq_ts)
++		val |= TPDA_CR_FREQTS;
++	else
++		val &= ~TPDA_CR_FREQTS;
++	if (drvdata->cmbchan_mode)
++		val |= TPDA_CR_CMBCHANMODE;
++	else
++		val &= ~TPDA_CR_CMBCHANMODE;
+ 	writel_relaxed(val, drvdata->base + TPDA_CR);
++
++	/*
++	 * If FLRIE bit is set, set the master and channel
++	 * id as zero
++	 */
++	if (drvdata->trig_flag_ts)
++		writel_relaxed(0x0, drvdata->base + TPDA_FPID_CR);
+ }
+ 
+ static int tpda_enable_port(struct tpda_drvdata *drvdata, int port)
+@@ -274,6 +302,206 @@ static const struct coresight_ops tpda_cs_ops = {
+ 	.link_ops	= &tpda_link_ops,
+ };
+ 
++static ssize_t trig_async_enable_show(struct device *dev,
++				      struct device_attribute *attr,
++				      char *buf)
++{
++	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
++
++	return sysfs_emit(buf, "%u\n", (unsigned int)drvdata->trig_async);
++}
++
++static ssize_t trig_async_enable_store(struct device *dev,
++				       struct device_attribute *attr,
++				       const char *buf,
++				       size_t size)
++{
++	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
++	unsigned long val;
++
++	if (kstrtoul(buf, 0, &val))
++		return -EINVAL;
++
++	guard(spinlock)(&drvdata->spinlock);
++	drvdata->trig_async = !!val;
++
++	return size;
++}
++static DEVICE_ATTR_RW(trig_async_enable);
++
++static ssize_t trig_flag_ts_enable_show(struct device *dev,
++					struct device_attribute *attr,
++					char *buf)
++{
++	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
++
++	return sysfs_emit(buf, "%u\n", (unsigned int)drvdata->trig_flag_ts);
++}
++
++static ssize_t trig_flag_ts_enable_store(struct device *dev,
++					 struct device_attribute *attr,
++					 const char *buf,
++					 size_t size)
++{
++	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
++	unsigned long val;
++
++	if (kstrtoul(buf, 0, &val))
++		return -EINVAL;
++
++	guard(spinlock)(&drvdata->spinlock);
++	drvdata->trig_flag_ts = !!val;
++
++	return size;
++}
++static DEVICE_ATTR_RW(trig_flag_ts_enable);
++
++static ssize_t trig_freq_enable_show(struct device *dev,
++				     struct device_attribute *attr,
++				     char *buf)
++{
++	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
++
++	return sysfs_emit(buf, "%u\n", (unsigned int)drvdata->trig_freq);
++}
++
++static ssize_t trig_freq_enable_store(struct device *dev,
++				      struct device_attribute *attr,
++				      const char *buf,
++				      size_t size)
++{
++	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
++	unsigned long val;
++
++	if (kstrtoul(buf, 0, &val))
++		return -EINVAL;
++
++	guard(spinlock)(&drvdata->spinlock);
++	drvdata->trig_freq = !!val;
++
++	return size;
++}
++static DEVICE_ATTR_RW(trig_freq_enable);
++
++static ssize_t freq_ts_enable_show(struct device *dev,
++				   struct device_attribute *attr,
++				   char *buf)
++{
++	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
++
++	return sysfs_emit(buf, "%u\n", (unsigned int)drvdata->freq_ts);
++}
++
++static ssize_t freq_ts_enable_store(struct device *dev,
++				    struct device_attribute *attr,
++				    const char *buf,
++				    size_t size)
++{
++	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
++	unsigned long val;
++
++	if (kstrtoul(buf, 0, &val))
++		return -EINVAL;
++
++	guard(spinlock)(&drvdata->spinlock);
++	drvdata->freq_ts = !!val;
++
++	return size;
++}
++static DEVICE_ATTR_RW(freq_ts_enable);
++
++static ssize_t global_flush_req_show(struct device *dev,
++				     struct device_attribute *attr,
++				     char *buf)
++{
++	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
++	unsigned long val;
++
++	if (!drvdata->csdev->refcnt)
++		return -EINVAL;
++
++	guard(spinlock)(&drvdata->spinlock);
++	CS_UNLOCK(drvdata->base);
++	val = readl_relaxed(drvdata->base + TPDA_CR);
++	CS_LOCK(drvdata->base);
++	/* Only read value for bit 0 */
++	val &= BIT(0);
++
++	return sysfs_emit(buf, "%lu\n", val);
++}
++
++static ssize_t global_flush_req_store(struct device *dev,
++				      struct device_attribute *attr,
++				      const char *buf,
++				      size_t size)
++{
++	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
++	unsigned long val;
++
++	if (kstrtoul(buf, 0, &val))
++		return -EINVAL;
++
++	if (!drvdata->csdev->refcnt || !val)
++		return -EINVAL;
++
++	guard(spinlock)(&drvdata->spinlock);
++	CS_UNLOCK(drvdata->base);
++	val = readl_relaxed(drvdata->base + TPDA_CR);
++	/* Only set bit 0 */
++	val |= BIT(0);
++	writel_relaxed(val, drvdata->base + TPDA_CR);
++	CS_LOCK(drvdata->base);
++
++	return size;
++}
++static DEVICE_ATTR_RW(global_flush_req);
++
++static ssize_t cmbchan_mode_show(struct device *dev,
++				 struct device_attribute *attr,
++				 char *buf)
++{
++	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
++
++	return sysfs_emit(buf, "%u\n", (unsigned int)drvdata->cmbchan_mode);
++}
++
++static ssize_t cmbchan_mode_store(struct device *dev,
++				  struct device_attribute *attr,
++				  const char *buf,
++				  size_t size)
++{
++	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
++	unsigned long val;
++
++	if (kstrtoul(buf, 0, &val))
++		return -EINVAL;
++
++	guard(spinlock)(&drvdata->spinlock);
++	drvdata->cmbchan_mode = !!val;
++
++	return size;
++}
++static DEVICE_ATTR_RW(cmbchan_mode);
++
++static struct attribute *tpda_attrs[] = {
++	&dev_attr_trig_async_enable.attr,
++	&dev_attr_trig_flag_ts_enable.attr,
++	&dev_attr_trig_freq_enable.attr,
++	&dev_attr_freq_ts_enable.attr,
++	&dev_attr_global_flush_req.attr,
++	&dev_attr_cmbchan_mode.attr,
++	NULL,
++};
++
++static struct attribute_group tpda_attr_grp = {
++	.attrs = tpda_attrs,
++};
++
++static const struct attribute_group *tpda_attr_grps[] = {
++	&tpda_attr_grp,
++	NULL,
++};
++
+ static int tpda_init_default_data(struct tpda_drvdata *drvdata)
+ {
+ 	int atid;
+@@ -289,6 +517,7 @@ static int tpda_init_default_data(struct tpda_drvdata *drvdata)
+ 		return atid;
+ 
+ 	drvdata->atid = atid;
++	drvdata->freq_ts = true;
+ 	return 0;
+ }
+ 
+@@ -332,6 +561,7 @@ static int tpda_probe(struct amba_device *adev, const struct amba_id *id)
+ 	desc.ops = &tpda_cs_ops;
+ 	desc.pdata = adev->dev.platform_data;
+ 	desc.dev = &adev->dev;
++	desc.groups = tpda_attr_grps;
+ 	desc.access = CSDEV_ACCESS_IOMEM(base);
+ 	drvdata->csdev = coresight_register(&desc);
+ 	if (IS_ERR(drvdata->csdev))
+diff --git a/drivers/hwtracing/coresight/coresight-tpda.h b/drivers/hwtracing/coresight/coresight-tpda.h
+index c6af3d2da3ef..0be625fb52fd 100644
+--- a/drivers/hwtracing/coresight/coresight-tpda.h
++++ b/drivers/hwtracing/coresight/coresight-tpda.h
+@@ -1,6 +1,6 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ /*
+- * Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
++ * Copyright (c) 2023,2025 Qualcomm Innovation Center, Inc. All rights reserved.
+  */
+ 
+ #ifndef _CORESIGHT_CORESIGHT_TPDA_H
+@@ -8,6 +8,19 @@
+ 
+ #define TPDA_CR			(0x000)
+ #define TPDA_Pn_CR(n)		(0x004 + (n * 4))
++#define TPDA_FPID_CR		(0x084)
++
++/* Cross trigger FREQ packets timestamp bit */
++#define TPDA_CR_FREQTS		BIT(2)
++/* Cross trigger FREQ packet request bit */
++#define TPDA_CR_FRIE		BIT(3)
++/* Cross trigger FLAG packet request interface bit */
++#define TPDA_CR_FLRIE		BIT(4)
++/* Cross trigger synchronization bit */
++#define TPDA_CR_SRIE		BIT(5)
++/* Packetize CMB/MCMB traffic bit */
++#define TPDA_CR_CMBCHANMODE	BIT(20)
++
+ /* Aggregator port enable bit */
+ #define TPDA_Pn_CR_ENA		BIT(0)
+ /* Aggregator port CMB data set element size bit */
+@@ -19,6 +32,8 @@
+ 
+ /* Bits 6 ~ 12 is for atid value */
+ #define TPDA_CR_ATID		GENMASK(12, 6)
++/* Bits 13 ~ 19 is for mid value */
++#define TPDA_CR_MID		GENMASK(19, 13)
+ 
+ /**
+  * struct tpda_drvdata - specifics associated to an TPDA component
+@@ -29,6 +44,11 @@
+  * @enable:     enable status of the component.
+  * @dsb_esize   Record the DSB element size.
+  * @cmb_esize   Record the CMB element size.
++ * @trig_async:	Enable/disable cross trigger synchronization sequence interface.
++ * @trig_flag_ts: Enable/disable cross trigger FLAG packet request interface.
++ * @trig_freq:	Enable/disable cross trigger FREQ packet request interface.
++ * @freq_ts:	Enable/disable the timestamp for all FREQ packets.
++ * @cmbchan_mode: Configure the CMB/MCMB channel mode.
+  */
+ struct tpda_drvdata {
+ 	void __iomem		*base;
+@@ -38,6 +58,11 @@ struct tpda_drvdata {
+ 	u8			atid;
+ 	u32			dsb_esize;
+ 	u32			cmb_esize;
++	bool			trig_async;
++	bool			trig_flag_ts;
++	bool			trig_freq;
++	bool			freq_ts;
++	bool			cmbchan_mode;
+ };
+ 
+ #endif  /* _CORESIGHT_CORESIGHT_TPDA_H */
 -- 
 2.34.1
 
