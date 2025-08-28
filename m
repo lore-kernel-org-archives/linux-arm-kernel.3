@@ -4,80 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38D12CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 09:07:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF199CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 09:08:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ReZvEftY9OCzW7Dm6xWBCAsBP3wLpjVjsHSQsCNwqs8=; b=ihzQS16HAoN2Rheo+95SOzazYl
-	4gjotxRQg50Hcyb+LTjZazZgF+UM2BAw+A1qZ75OXjvpGliZSsVJyd1glLvuCNbP5w0kRnD9W2fXv
-	+WtkDdM1hgrl2nHMtJPbg5qW1FBH/8dPEjNxNdfarbsx2ntPLgEnVgcNjUm3QaKKOnKUahHZT+AmN
-	NF3q5+RmRVeagn7HZ5iTC3SpeoUAgK+QLhysM5+GC0D7kQ3Y0Pfxa/7gAy1pHejckKG8SFHYfjqHg
-	bZ7gRImCflw4kwFMCnEzPAX8pOUSEVTugUvdNFswMnD6b9/q4qK1nYf5c3QSEeu32+C+TK1S00leI
-	vodUC1HA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QIPVhNdDqwyEUU2mMSzlYSdtbuVp92JbzlpYQuyYJ0w=; b=GosX5NkAOG1hOAFprOdYPijjEN
+	kc5wB6/IaRFuPdIBRE0DZWrfjVVbVt7uhhVG/32FxelhV03JItcTEG6R9naFXthzF7z+wdt5N1HmP
+	AI7KxuKh2UiwKdT668qlU/HBbzIz/3Yq4vjPPGviGzBf3iE6vvSBbHpjSKbO/zdj2+RF6xgg+InET
+	pQEG9OaKr7E3S4KXZTS4zmfn9FV3g5cJs4IjHV+kByZzZP0hLbtGXpR99BOTrfa6D77q//jk7ocaY
+	aw7tv37sM9VuEXmjT2d2q55qmD89xfZJTwZ72nXkp9jr9JZTe5ksOZhAO3xn2ofEd0zYjNldEhaFk
+	n/KvKVnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urYbB-00000000udx-0ls9;
-	Thu, 28 Aug 2025 09:07:13 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1urYcZ-00000000uqm-3OXs;
+	Thu, 28 Aug 2025 09:08:39 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urXh7-00000000jTN-2tso;
-	Thu, 28 Aug 2025 08:09:19 +0000
-X-UUID: 450b1da483e611f09f706fa2197c6ceb-20250828
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=ReZvEftY9OCzW7Dm6xWBCAsBP3wLpjVjsHSQsCNwqs8=;
-	b=Dx7Qk6uN6A9+5AmiRtot0855v6rdTDJp1ZS9gr2KT6pQNAytn84VV9AFtHPLaoWweiaQnfgzvbGcDxWcbh+me6sgWiRAPgdcpWctdeQXU0CHJM5+G+ZpSECIhzQZ92FcjqbhrbzGgYX6qqhqu5lcVfEMIS6wxB/JN0mJcSAJEo8=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.3,REQID:5a2729d7-2b28-43ea-96d0-2e78be10e3ba,IP:0,UR
-	L:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:-5
-X-CID-META: VersionHash:f1326cf,CLOUDID:35719d7a-966c-41bd-96b5-7d0b3c22e782,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:-5,Content:0|15|50,EDM:
-	-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
-	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 450b1da483e611f09f706fa2197c6ceb-20250828
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw01.mediatek.com
-	(envelope-from <paul-pl.chen@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1208347384; Thu, 28 Aug 2025 01:09:07 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Thu, 28 Aug 2025 16:09:03 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Thu, 28 Aug 2025 16:09:03 +0800
-From: Paul Chen <paul-pl.chen@mediatek.com>
-To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<chunkuang.hu@kernel.org>, <angelogioacchino.delregno@collabora.com>
-CC: <matthias.bgg@gmail.com>, <p.zabel@pengutronix.de>,
-	<jason-jh.lin@mediatek.com>, <nancy.lin@mediatek.com>,
-	<singo.chang@mediatek.com>, <xiandong.wang@mediatek.com>,
-	<sirius.wang@mediatek.com>, <paul-pl.chen@mediatek.com>,
-	<sunny.shen@mediatek.com>, <fshao@chromium.org>, <treapking@chromium.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>
-Subject: [PATCH v4 06/19] soc: mediatek: Add runtime PM and top clocks and async controls for MMSYS
-Date: Thu, 28 Aug 2025 16:07:01 +0800
-Message-ID: <20250828080855.3502514-7-paul-pl.chen@mediatek.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250828080855.3502514-1-paul-pl.chen@mediatek.com>
-References: <20250828080855.3502514-1-paul-pl.chen@mediatek.com>
+	id 1urXL7-00000000fBi-498A
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 28 Aug 2025 07:46:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756367193;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=QIPVhNdDqwyEUU2mMSzlYSdtbuVp92JbzlpYQuyYJ0w=;
+	b=F+MAnAjcqT0jtDMTUcnRqeUVB3IiC571RotWTYohs9dQDuyn4/rmLhajr9YueNwXa7V8Gs
+	RR61hH9zIrvrpszqaXzqaqqPWWmwjkEq13MjmOvmyYe/ShqAatXFDgMCo5kKMz6lUNf7YO
+	K3rDvoVQKijXbTZaABchS/8fHfm5qs4=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-20-QhPJAu_0PtWh45_TqNgZww-1; Thu, 28 Aug 2025 03:46:30 -0400
+X-MC-Unique: QhPJAu_0PtWh45_TqNgZww-1
+X-Mimecast-MFC-AGG-ID: QhPJAu_0PtWh45_TqNgZww_1756367190
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-3c6ae25997cso394590f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 00:46:30 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756367189; x=1756971989;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=QIPVhNdDqwyEUU2mMSzlYSdtbuVp92JbzlpYQuyYJ0w=;
+        b=wc0opBxtrIk5wyurEoSwRPt3VlargwzR3wdV8RIgWRDXrq3d0T/pWazH1V3/DeQW/L
+         WYDBOgVbQEkGd5yl0GXehM1R8XSdCyMPhWUq62ULOQwlpVAwvMId1e3ZpEIRSm8VY8ty
+         VlzH5sF6pRcPeYSDhhwWacqzKRxmakb35j/0pDbfM15CD6PwYXxbmQlLUECF7N7GItE7
+         22rALMdyzHO7KrHYWot0TCFrMRCA8roynbl+Nb/0dClzoBZ/G+dUrkMDqZmRraxAviKO
+         DnQ3EsQUQtpy1plQ8bBee7e/1Uq+krZMGHCsyGdTxr5mRx5MMOY7VM8cYRoh6xfJYFkQ
+         BRXw==
+X-Forwarded-Encrypted: i=1; AJvYcCWP2RITt14vK6ceTJAEuGtyiwyv728j5vEs5HXWsLhniULnpfErXFhu6hSi1hgr7BGeO+GNFBkZSJYt7ESGgExI@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFgg5bxKZKFkoliFKX7wYN4hqmnxMADVOl+8qXi/mN53J/f1IT
+	+CwlVioW3r63bdoDyOan/GdGaaFiMP9sf73WEs+L4SOl/QAlttgdBqqxZYlfaJ2/zsTS2fWbLrg
+	GUQCn5bWIuu7Tr+9srLH4M2z++7qNSMCcnP2F+xL/Mw7L7RNn3MXuYhsJFTKPuvFpEmqJlUPwwf
+	uY
+X-Gm-Gg: ASbGnctSAepi2BBxfe3kyZZfr1kjTYI2iAVKIUsL2dmVaF4ZJX36qfjSFT/Ko1z2qpm
+	rQjVJ/A6ndxd0OLter7MBZdqT2WLoR7nw4o5gBH9aZAVku9slZPZPK+RY+8WyIT/1NJj8+2UPMU
+	W9SPVcl6nd2uz1FI0RlOzeUmKuiL1ge5W9a7sRt334UDQTk2mOcVYVdrx28T1vP/fgf6nvD8JrK
+	LsVDT4R694nP9DEtSUX/q3HJAJR2qoahC+KNImUTlSnnhTVXkrjTALex2Dp3D3+N5qXJhWP3R0P
+	6Qr7AOrPP1fn8dIXKH9y9+LZQxnfeUdM5sTePBs1HZoLz8QdyC7YC9lbgGp7DViGrfi/CQEfxB1
+	nKFknnxhLatBKn3g1qStCJQ2811ZB2bVUvYrxrKcfZUNL/YPSEy1ghK06z8DRJvi5its=
+X-Received: by 2002:a05:6000:18ad:b0:3b7:948a:1361 with SMTP id ffacd0b85a97d-3c5da741330mr15989055f8f.6.1756367189583;
+        Thu, 28 Aug 2025 00:46:29 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHbZS9TwQor8utX8Cftd7hubod4ESO9oJ14F94do36paGGmjXBbrC+y7X5MmcQWQ6JKGQD26w==
+X-Received: by 2002:a05:6000:18ad:b0:3b7:948a:1361 with SMTP id ffacd0b85a97d-3c5da741330mr15989008f8f.6.1756367189132;
+        Thu, 28 Aug 2025 00:46:29 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f28:c100:2225:10aa:f247:7b85? (p200300d82f28c100222510aaf2477b85.dip0.t-ipconnect.de. [2003:d8:2f28:c100:2225:10aa:f247:7b85])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b6b1cdf05sm35411485e9.1.2025.08.28.00.46.26
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 28 Aug 2025 00:46:28 -0700 (PDT)
+Message-ID: <0e1c0fe1-4dd1-46dc-8ce8-a6bf6e4c3e80@redhat.com>
+Date: Thu, 28 Aug 2025 09:46:25 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 12/36] mm: simplify folio_page() and folio_page_idx()
+To: Wei Yang <richard.weiyang@gmail.com>
+Cc: linux-kernel@vger.kernel.org, Zi Yan <ziy@nvidia.com>,
+ Alexander Potapenko <glider@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
+ Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
+ dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+ iommu@lists.linux.dev, io-uring@vger.kernel.org,
+ Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
+ Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
+ kasan-dev@googlegroups.com, kvm@vger.kernel.org,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
+ linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+ linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-scsi@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Marco Elver <elver@google.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
+ Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
+ Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
+ Robin Murphy <robin.murphy@arm.com>, Suren Baghdasaryan <surenb@google.com>,
+ Tejun Heo <tj@kernel.org>, virtualization@lists.linux.dev,
+ Vlastimil Babka <vbabka@suse.cz>, wireguard@lists.zx2c4.com, x86@kernel.org
+References: <20250827220141.262669-1-david@redhat.com>
+ <20250827220141.262669-13-david@redhat.com>
+ <20250828074356.3xiuqugokg36yuxw@master>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20250828074356.3xiuqugokg36yuxw@master>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: AcrI3xMzzipQQKXUqnM3G4Tk9UNZIJVWKwX-nD425Uc_1756367190
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_010917_766979_267423F0 
-X-CRM114-Status: GOOD (  20.45  )
+X-CRM114-CacheID: sfid-20250828_004634_101730_0360AAFC 
+X-CRM114-Status: UNSURE (   8.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,288 +181,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nancy Lin <nancy.lin@mediatek.com>
+> 
+> Curious about why it is in page-flags.h. It seems not related to page-flags.
 
-- Add initialization of top clocks and async clocks for each MMSYS.
-- Add PM runtime control and new functions to manage these clocks.
-- Add functions to set these clocks according to the default
-  configuration of the corresponding MMSYS.
+Likely because we have the page_folio() in there as well.
 
-Signed-off-by: Nancy Lin <nancy.lin@mediatek.com>
-Signed-off-by: Paul-pl Chen <paul-pl.chen@mediatek.com>
----
- drivers/soc/mediatek/mtk-mmsys.c       | 152 ++++++++++++++++++++++++-
- drivers/soc/mediatek/mtk-mmsys.h       |  18 +++
- include/linux/soc/mediatek/mtk-mmsys.h |   8 ++
- 3 files changed, 177 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/soc/mediatek/mtk-mmsys.c b/drivers/soc/mediatek/mtk-mmsys.c
-index bb4639ca0b8c..f448cc09ce19 100644
---- a/drivers/soc/mediatek/mtk-mmsys.c
-+++ b/drivers/soc/mediatek/mtk-mmsys.c
-@@ -4,12 +4,15 @@
-  * Author: James Liao <jamesjj.liao@mediatek.com>
-  */
- 
-+#include <linux/bitfield.h>
-+#include <linux/clk.h>
- #include <linux/delay.h>
- #include <linux/device.h>
- #include <linux/io.h>
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
- #include <linux/reset-controller.h>
- #include <linux/soc/mediatek/mtk-mmsys.h>
- 
-@@ -158,6 +161,9 @@ struct mtk_mmsys {
- 	spinlock_t lock; /* protects mmsys_sw_rst_b reg */
- 	struct reset_controller_dev rcdev;
- 	struct cmdq_client_reg cmdq_base;
-+	struct clk **async_clk;
-+	int num_async_clk;
-+	struct clk **top_clk;
- };
- 
- static void mtk_mmsys_update_bits(struct mtk_mmsys *mmsys, u32 offset, u32 mask, u32 val,
-@@ -180,6 +186,101 @@ static void mtk_mmsys_update_bits(struct mtk_mmsys *mmsys, u32 offset, u32 mask,
- 	writel_relaxed(tmp, mmsys->regs + offset);
- }
- 
-+int mtk_mmsys_top_clk_enable(struct device *dev)
-+{
-+	struct mtk_mmsys *mmsys = dev_get_drvdata(dev);
-+	int ret, i;
-+
-+	if (!mmsys->data->num_top_clk)
-+		return 0;
-+
-+	for (i = 0; i < mmsys->data->num_top_clk; i++)
-+		ret = clk_prepare_enable(mmsys->top_clk[i]);
-+	return ret;
-+}
-+EXPORT_SYMBOL_GPL(mtk_mmsys_top_clk_enable);
-+
-+void mtk_mmsys_top_clk_disable(struct device *dev)
-+{
-+	struct mtk_mmsys *mmsys = dev_get_drvdata(dev);
-+	int i;
-+
-+	for (i = 0; i < mmsys->data->num_top_clk; i++)
-+		clk_disable_unprepare(mmsys->top_clk[i]);
-+}
-+EXPORT_SYMBOL_GPL(mtk_mmsys_top_clk_disable);
-+
-+int mtk_mmsys_ddp_clk_enable(struct device *dev, enum mtk_ddp_comp_id comp_id)
-+{
-+	struct mtk_mmsys *mmsys = dev_get_drvdata(dev);
-+	const struct mtk_mmsys_async_info *async = mmsys->data->async_info;
-+
-+	int i;
-+
-+	if (!mmsys->data->num_async_info)
-+		return 0;
-+
-+	for (i = 0; i < mmsys->data->num_async_info; i++)
-+		if (comp_id == async[i].comp_id)
-+			return clk_prepare_enable(mmsys->async_clk[async[i].index]);
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(mtk_mmsys_ddp_clk_enable);
-+
-+void mtk_mmsys_ddp_clk_disable(struct device *dev, enum mtk_ddp_comp_id comp_id)
-+{
-+	struct mtk_mmsys *mmsys = dev_get_drvdata(dev);
-+	const struct mtk_mmsys_async_info *async = mmsys->data->async_info;
-+	int i;
-+
-+	if (!mmsys->data->num_async_info)
-+		return;
-+
-+	for (i = 0; i < mmsys->data->num_async_info; i++)
-+		if (comp_id == async[i].comp_id)
-+			clk_disable_unprepare(mmsys->async_clk[async[i].index]);
-+}
-+EXPORT_SYMBOL_GPL(mtk_mmsys_ddp_clk_disable);
-+
-+void mtk_mmsys_ddp_config(struct device *dev, enum mtk_ddp_comp_id comp_id,
-+			  int width, int height, struct cmdq_pkt *cmdq_pkt)
-+{
-+	struct mtk_mmsys *mmsys = dev_get_drvdata(dev);
-+	const struct mtk_mmsys_async_info *async = mmsys->data->async_info;
-+	int i;
-+	u32 val;
-+
-+	if (!mmsys->data->num_async_info)
-+		return;
-+
-+	for (i = 0; i < mmsys->data->num_async_info; i++)
-+		if (comp_id == async[i].comp_id)
-+			break;
-+
-+	if (i == mmsys->data->num_async_info)
-+		return;
-+
-+	val = FIELD_PREP(GENMASK(31, 16), height);
-+	val |= FIELD_PREP(GENMASK(15, 0), width);
-+	mtk_mmsys_update_bits(mmsys, async[i].offset, async[i].mask, val, cmdq_pkt);
-+}
-+EXPORT_SYMBOL_GPL(mtk_mmsys_ddp_config);
-+
-+void mtk_mmsys_default_config(struct device *dev)
-+{
-+	struct mtk_mmsys *mmsys = dev_get_drvdata(dev);
-+	const struct mtk_mmsys_default *def_config = mmsys->data->def_config;
-+	int i;
-+
-+	if (!mmsys->data->num_def_config)
-+		return;
-+
-+	for (i = 0; i < mmsys->data->num_def_config; i++)
-+		mtk_mmsys_update_bits(mmsys, def_config[i].offset, def_config[i].mask,
-+				      def_config[i].val, NULL);
-+}
-+EXPORT_SYMBOL_GPL(mtk_mmsys_default_config);
-+
- void mtk_mmsys_ddp_connect(struct device *dev,
- 			   enum mtk_ddp_comp_id cur,
- 			   enum mtk_ddp_comp_id next)
-@@ -390,7 +491,7 @@ static int mtk_mmsys_probe(struct platform_device *pdev)
- 	struct platform_device *clks;
- 	struct platform_device *drm;
- 	struct mtk_mmsys *mmsys;
--	int ret;
-+	int ret, i;
- 
- 	mmsys = devm_kzalloc(dev, sizeof(*mmsys), GFP_KERNEL);
- 	if (!mmsys)
-@@ -432,6 +533,49 @@ static int mtk_mmsys_probe(struct platform_device *pdev)
- 		return PTR_ERR(clks);
- 	mmsys->clks_pdev = clks;
- 
-+	if (mmsys->data->num_top_clk) {
-+		struct device_node *node;
-+
-+		node = of_get_child_by_name(dev->of_node, "top");
-+		if (!node) {
-+			dev_err(&pdev->dev, "Couldn't find top node\n");
-+			return -EINVAL;
-+		}
-+
-+		mmsys->top_clk = devm_kmalloc_array(dev, mmsys->data->num_top_clk,
-+						    sizeof(*mmsys->top_clk), GFP_KERNEL);
-+		if (!mmsys->top_clk)
-+			return -ENOMEM;
-+
-+		for (i = 0; i < mmsys->data->num_top_clk; i++) {
-+			mmsys->top_clk[i] = of_clk_get(node, i);
-+			if (IS_ERR(mmsys->top_clk[i]))
-+				return PTR_ERR(mmsys->top_clk[i]);
-+		}
-+	}
-+
-+	if (mmsys->data->num_async_info) {
-+		struct device_node *node;
-+
-+		node = of_get_child_by_name(dev->of_node, "async");
-+		if (!node) {
-+			dev_err(&pdev->dev, "Couldn't find async node\n");
-+			return -EINVAL;
-+		}
-+
-+		mmsys->async_clk = devm_kmalloc_array(dev, mmsys->data->num_async_info,
-+						      sizeof(*mmsys->async_clk), GFP_KERNEL);
-+		if (!mmsys->async_clk)
-+			return -ENOMEM;
-+		mmsys->num_async_clk = mmsys->data->num_async_info;
-+
-+		for (i = 0; i < mmsys->num_async_clk; i++) {
-+			mmsys->async_clk[i] = of_clk_get(node, i);
-+			if (IS_ERR(mmsys->async_clk[i]))
-+				return PTR_ERR(mmsys->async_clk[i]);
-+		}
-+	}
-+
- 	if (mmsys->data->is_vppsys)
- 		goto out_probe_done;
- 
-@@ -443,6 +587,9 @@ static int mtk_mmsys_probe(struct platform_device *pdev)
- 	}
- 	mmsys->drm_pdev = drm;
- 
-+	if (of_property_present(dev->of_node, "power-domains"))
-+		pm_runtime_enable(dev);
-+
- out_probe_done:
- 	return 0;
- }
-@@ -453,6 +600,9 @@ static void mtk_mmsys_remove(struct platform_device *pdev)
- 
- 	platform_device_unregister(mmsys->drm_pdev);
- 	platform_device_unregister(mmsys->clks_pdev);
-+
-+	if (of_property_present(pdev->dev.of_node, "power-domains"))
-+		pm_runtime_disable(&pdev->dev);
- }
- 
- static const struct of_device_id of_match_mtk_mmsys[] = {
-diff --git a/drivers/soc/mediatek/mtk-mmsys.h b/drivers/soc/mediatek/mtk-mmsys.h
-index fe628d5f5198..bbc03ef5b025 100644
---- a/drivers/soc/mediatek/mtk-mmsys.h
-+++ b/drivers/soc/mediatek/mtk-mmsys.h
-@@ -102,6 +102,19 @@ struct mtk_mmsys_routes {
- 	u32 val;
- };
- 
-+struct mtk_mmsys_async_info {
-+	u32 comp_id;
-+	u32 index;
-+	u32 offset;
-+	u32 mask;
-+};
-+
-+struct mtk_mmsys_default {
-+	u32 offset;
-+	u32 val;
-+	u32 mask;
-+};
-+
- /**
-  * struct mtk_mmsys_driver_data - Settings of the mmsys
-  * @clk_driver: Clock driver name that the mmsys is using
-@@ -139,6 +152,11 @@ struct mtk_mmsys_driver_data {
- 	const u32 num_resets;
- 	const bool is_vppsys;
- 	const u8 vsync_len;
-+	const struct mtk_mmsys_async_info *async_info;
-+	const unsigned int num_async_info;
-+	const struct mtk_mmsys_default *def_config;
-+	const unsigned int num_def_config;
-+	const unsigned int num_top_clk;
- };
- 
- /*
-diff --git a/include/linux/soc/mediatek/mtk-mmsys.h b/include/linux/soc/mediatek/mtk-mmsys.h
-index 4885b065b849..f50f626e1840 100644
---- a/include/linux/soc/mediatek/mtk-mmsys.h
-+++ b/include/linux/soc/mediatek/mtk-mmsys.h
-@@ -84,6 +84,14 @@ enum mtk_ddp_comp_id {
- 	DDP_COMPONENT_ID_MAX,
- };
- 
-+int mtk_mmsys_top_clk_enable(struct device *dev);
-+void mtk_mmsys_top_clk_disable(struct device *dev);
-+int mtk_mmsys_ddp_clk_enable(struct device *dev, enum mtk_ddp_comp_id comp_id);
-+void mtk_mmsys_ddp_clk_disable(struct device *dev, enum mtk_ddp_comp_id comp_id);
-+void mtk_mmsys_ddp_config(struct device *dev, enum mtk_ddp_comp_id comp_id,
-+			  int width, int height, struct cmdq_pkt *cmdq_pkt);
-+void mtk_mmsys_default_config(struct device *dev);
-+
- void mtk_mmsys_ddp_connect(struct device *dev,
- 			   enum mtk_ddp_comp_id cur,
- 			   enum mtk_ddp_comp_id next);
 -- 
-2.45.2
+Cheers
+
+David / dhildenb
 
 
