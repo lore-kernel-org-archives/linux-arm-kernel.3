@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55A7AC8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 11:26:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD87BC8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 11:29:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=vBORKHFMFQPe5YE8uowsFj516zPwEeopCjZ9uksuwxc=; b=DAdl/sMWAyvimq
-	m4zJjsqD1YZXKhZ7D2/LL0qTLAYhtxA2XOTf4ThAs/iiIsgzXbCcS66tsusSVk6K7taKflhhXxXM5
-	IUnn0EfTH6UyYwvv9RybE1dd7NrjDEYBabMr1hiO7GI4iekNtjT0osHkPYW7T03cur7nnLvKD9yf0
-	8raS3DimGNsoTHzPeyycYXKBCUqTwd0ajY/+REQ+LOSYlgqvX1HARiQnSCittkPvtRBoaVCGOh8P5
-	OzjdEP/xAkpY8q9XCqbbE9WMSK2BlSZ+LyeqnK1D/0419OB+nq3rzVsEBN8VXbySNQnAhpARNhc5s
-	NcPUg+dwReiSTBCV+1cw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KQonpQfjTg6uM1eNKdmdkwH9DntxeJhvTVyaaJJp7DI=; b=yKnjP8vTYrPNZlZ4rp7q/c+E5s
+	TFnSrT7y5AZmlMl+YuuCjBiRSWU2RNtWcKMjqDPW7nXsgqzkegbclbpJQ9Rpo/3QO/7k1I3mHf7Jv
+	ljhskT5wjanobuVXYoa45xs+ZvnVXfRSX5mxBd5PghA2eV5AgpJj3xvcFlaU51FEQa4d8zqcGmHiV
+	GIX7QYLhgATC4No4dX5mEaZdAd6+ro74eDy35jhPx18YL+9xG+mojDRf6jO5qpM8NLaFTLXtplKng
+	YahjctoNpO7D+fZT15QLnAL4gqMZz/oIrhwOqRcFdTCzC38O/q8QoZ/V7PgAvcrPRSgie7WO3Axwc
+	MfVX3pRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uralu-00000001LWL-0pDH;
-	Thu, 28 Aug 2025 11:26:26 +0000
+	id 1uraob-00000001Lyu-44A9;
+	Thu, 28 Aug 2025 11:29:13 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urZwr-00000001Alh-1Fhs
+	id 1urZwx-00000001Anm-0DFX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 10:33:43 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57S61Y0K030523;
-	Thu, 28 Aug 2025 10:33:33 GMT
+	Thu, 28 Aug 2025 10:33:48 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57SA6jQM004791;
+	Thu, 28 Aug 2025 10:33:39 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=vBORKHFMFQPe5YE8uowsFj
-	516zPwEeopCjZ9uksuwxc=; b=MeHwN8uSsa1coqBwg5u13ObdJnoxBjNZW7QM2L
-	OGKlHt5qCO8gTrm5A3xXDvshKHdhUtabB6VC8+Qz4rpU7J5Abu7e/rDpEamZddTy
-	wzG83ffMcCG4AVCr6py00EhhoxeudD7g9XA4FmHIrEw0HvGvyBxeTExdFXpJ0oy/
-	d0naEWed9UWWcESzC3+fj4u6mhZyWSg46+I0wXmwRRTLqeB7hgVgYRz7zRjh0AkB
-	qGayVacXgkB0M9sD8O1SqluTPRfwegMDDKfDqtpXzuqBQcgd2reDFpRgEvmxs/Cc
-	tevERN9XLBBdSAWSEidPpIqaFjVWpULEPBaGjec/XUIcOALg==
-Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48q5unyqua-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	KQonpQfjTg6uM1eNKdmdkwH9DntxeJhvTVyaaJJp7DI=; b=V/9EGZfVCkd9ZH++
+	hDrpkJnSOX+4HDNKwKc3OoaeukbqUPKZMQP6Avxm7YOdoKvLJEpq7nZ5b8lm5ghS
+	+4ONPJq8IEdi86NFh10ZG2j7KQuqrKfP4zxG2EyUCV42+jIc21q3+tk3qYQeb1vq
+	E6V2dgAcU1lrKII+4LgWiRolx5THcLB0qHTEDeWOUesmQwHljAU5rFaHOpqaLIrE
+	7BaYHvA1FB+G6tXGIYQb7PrXuFYFDPHCkRA5ythbPGwKZ+Np9Jr3mA2aECJ0kRF7
+	9Lcut6+hsvjWrXaH7Auoqsjubt9R6+prJ10o+H/s3rfRVCGDCdUwlwpn1WKsVE57
+	1L6eag==
+Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48q615qteb-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 28 Aug 2025 10:33:33 +0000 (GMT)
+	Thu, 28 Aug 2025 10:33:39 +0000 (GMT)
 Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 57SAXWKL028490
+	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 57SAXc3a017269
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 28 Aug 2025 10:33:32 GMT
+	Thu, 28 Aug 2025 10:33:38 GMT
 Received: from nsssdc-sh01-lnx.ap.qualcomm.com (10.80.80.8) by
  nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.24; Thu, 28 Aug 2025 03:33:25 -0700
+ 15.2.1748.24; Thu, 28 Aug 2025 03:33:32 -0700
 From: Luo Jie <quic_luoj@quicinc.com>
-Subject: [PATCH v4 00/10] Add Network Subsystem (NSS) clock controller
- support for IPQ5424 SoC
-Date: Thu, 28 Aug 2025 18:32:13 +0800
-Message-ID: <20250828-qcom_ipq5424_nsscc-v4-0-cb913b205bcb@quicinc.com>
+Date: Thu, 28 Aug 2025 18:32:14 +0800
+Subject: [PATCH v4 01/10] clk: qcom: gcc-ipq5424: Correct the
+ icc_first_node_id
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAC0wsGgC/22NwQ6CMBBEf4Xs2Zp2aQU8+R+GELK0sgcLtNpoC
- P9uxavHN5l5s0K0gW2Ec7FCsIkjTz6DPhRAY+9vVvCQGVCikTXWYqHp3vG8GI268zESiaFx2vY
- OVdUYyMM5WMevXXptM48cH1N47x+p/KY/XaXkP10qhRRO6WYgfVKo8LI8mdjTMXeh3bbtA06pj
- pK2AAAA
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250828-qcom_ipq5424_nsscc-v4-1-cb913b205bcb@quicinc.com>
+References: <20250828-qcom_ipq5424_nsscc-v4-0-cb913b205bcb@quicinc.com>
+In-Reply-To: <20250828-qcom_ipq5424_nsscc-v4-0-cb913b205bcb@quicinc.com>
 To: Bjorn Andersson <andersson@kernel.org>,
         Michael Turquette
 	<mturquette@baylibre.com>,
@@ -93,14 +92,13 @@ CC: <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
         <quic_kkumarcs@quicinc.com>, <quic_linchen@quicinc.com>,
         <quic_leiwei@quicinc.com>, <quic_pavir@quicinc.com>,
         <quic_suruchia@quicinc.com>, Luo Jie
-	<quic_luoj@quicinc.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+	<quic_luoj@quicinc.com>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756377204; l=4160;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1756377204; l=1222;
  i=quic_luoj@quicinc.com; s=20250209; h=from:subject:message-id;
- bh=MhPp0E8GAK6XgStwG5PDlGz3Zw2vqeVeyufst9jkIU4=;
- b=+5yN60bgQIacxzrdiBqo5/d4l33dt7i6MqI8Xc04becaPKPCPqjDumKEQLZaBo3KkTGDBAWdT
- 5xIhOkyZO8NCHzHqRkjwDdKC2pC3wQh/o11P/v1ragWW82SgTe9JyBp
+ bh=zw34bEJ/TzKi0pxmrPueLS7J170qhieZcjCAbPH0znU=;
+ b=Hibm27U6Pef3q50VH+b1Fivgpq9g9ClUYddYrnoMwa++PWuar/bMmcoDA13UCclAtgs+XR4FX
+ yIrUTHSIdAkBVVz+bMkkbpZDdA+n94YaovmFMKWmK4fKa49DeEuj1XL
 X-Developer-Key: i=quic_luoj@quicinc.com; a=ed25519;
  pk=pzwy8bU5tJZ5UKGTv28n+QOuktaWuriznGmriA9Qkfc=
 X-Originating-IP: [10.80.80.8]
@@ -108,31 +106,30 @@ X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
  nasanex01b.na.qualcomm.com (10.46.141.250)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: kRrxKGSfxNk2O4nvjIx_z8W9OT4zqNwt
-X-Proofpoint-ORIG-GUID: kRrxKGSfxNk2O4nvjIx_z8W9OT4zqNwt
-X-Authority-Analysis: v=2.4 cv=JJo7s9Kb c=1 sm=1 tr=0 ts=68b0307d cx=c_pps
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDAzNCBTYWx0ZWRfXwz28aGh7pEBZ
+ 2ZjQPBe3u66YQ5+puSeIXwQJwrYG5idr2mrUTfJJB9xsyX5hs2epwNYcuctaiFVln/L1ukXnH13
+ VmreGA8ev+FL2mdEVh/16Xk3tVFF4tQrzV/ytL528NKjCXEl9IQYqfQ7DlJG4rXMWfVNyPtM70N
+ psWgPdNf8EctX6fr9PsUSsqOVFTDWsYdyBBz9VxnA2JaWEIg2zV+kdACFdp+UEKrgL7Co5fT3dG
+ +fJ4AseqZDvoTB8cyjxdusuguSf3XShWQlnFAZyhxJRAvuq5MuydlA32DRJCpx7LjmpP1vlIC/6
+ aYCGf3Cu1BTqdnZCoq5gGNV8Z6ZbatmDJQmQ1+lA3b2hix/orjFtMINbIijOe8NiUw1YHE+lN3u
+ iMuPmAI2
+X-Proofpoint-GUID: 9K3Cl2RwO6s9wLzghCZ-NPm-4RQaunEC
+X-Authority-Analysis: v=2.4 cv=K+AiHzWI c=1 sm=1 tr=0 ts=68b03083 cx=c_pps
  a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=VwQbUJbxAAAA:8
- a=COk6AnOGAAAA:8 a=7tda8KZc5G6-a3B2-a8A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDAzMSBTYWx0ZWRfX2ZhB+ufFPxbG
- 7YzO3s7NkfAmQxbE/w48UpwJQc5wXP8zKRb0rxs9dlrdX8yht6Rni3wR8rF/+qnEZbgIo2Iu0my
- 5pMByBHLgrKjlX5vSjS0iaxitLFQKUp1wZ4zp8RkM8+Jw4pGn87VpX6e3+8VG0mk0HqKLy0uUmn
- r/lZTd9xrI8b1IRMEvWuASDCBMlWOFQ7dFLm3LFLsBve+IQtNeZF4pln5RXNrANnzxSLt4LuhU5
- aBRXMK2Lfgb5UzCb3mNpz5I+y8TB86Hu39Q8HuAWWnIASiHW8chIAqpK4TSo4DhlyAP934gc/IL
- rlAImAX2FssglXRs6sMPdB1D4+J9o1PfU9h8stSZDn0W3K8ul+JoecB1yfHmZXPI/sux7XsvpdL
- ipwSIKr6
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=COk6AnOGAAAA:8
+ a=yUHhXAd9wW1YfvQ6HRQA:9 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-ORIG-GUID: 9K3Cl2RwO6s9wLzghCZ-NPm-4RQaunEC
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-08-28_03,2025-08-28_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 adultscore=0 bulkscore=0 spamscore=0 impostorscore=0
- malwarescore=0 clxscore=1015 priorityscore=1501 suspectscore=0
+ malwarescore=0 suspectscore=0 bulkscore=0 clxscore=1015 adultscore=0
+ impostorscore=0 priorityscore=1501 phishscore=0 spamscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508230031
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508230034
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_033341_461410_CEEAD7A3 
-X-CRM114-Status: GOOD (  16.71  )
+X-CRM114-CacheID: sfid-20250828_033347_218062_99D5D46E 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,88 +144,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The NSS clock controller on the IPQ5424 SoC provides clocks and resets
-to the networking related hardware blocks such as the Packet Processing
-Engine (PPE) and UNIPHY (PCS). Its parent clocks are sourced from the
-GCC, CMN PLL, and UNIPHY blocks.
+Update to use the expected icc_first_node_id for registering the icc
+clocks, ensuring correct association of clocks with interconnect nodes.
 
-Additionally, register the gpll0_out_aux GCC clock, which serves as one
-of the parent clocks for some of the NSS clocks.
-
-The NSS NoC clocks are also enabled to use the icc-clk framework, enabling
-the creation of interconnect paths for the network subsystem’s connections
-with these NoCs.
-
-The NSS clock controller receives its input clocks from the CMN PLL outputs.
-The related patch series which adds support for IPQ5424 SoC in the CMN PLL
-driver is listed below.
-https://lore.kernel.org/all/20250610-qcom_ipq5424_cmnpll-v3-0-ceada8165645@quicinc.com/
-
+Fixes: 170f3d2c065e ("clk: qcom: ipq5424: Use icc-clk for enabling NoC related clocks")
 Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
 ---
-Changes in v4:
-- Add new, generic clock names "nss" and "ppe" in DT bindings to support
-  the newer SoC such as IPQ5424 SoC, while retaining existing clock names
-  for IPQ9574.
-- Register all necessary NoC clocks as interconnect paths.
-- Separate the fix for correcting icc_first_node_id into its own patch.
-- Separate the fix requiring the "#interconnect-cells" property for NSS
-  clock controller node.
-- Update commit titles from "clock:" to "clk:" for consistency.
-- Update copyright to remove year as per guidelines in all driver files.
-- Remove the Acked-by tag from the "Add Qualcomm IPQ5424 NSSNOC IDs" patch"
-  as the new NOC IDs are added.
-- Link to v3: https://lore.kernel.org/r/20250710-qcom_ipq5424_nsscc-v3-0-f149dc461212@quicinc.com
+ drivers/clk/qcom/gcc-ipq5424.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-Changes in v3:
-- Remove frequency suffix from clock names for PPE and NSS clocks in
-  IPQ9574 DT binding and DTS.
-- Update IPQ5424 DT bindings and DTS to as per new PPE and NSS clock names.
-- Expand the register region of IPQ5424 NSSCC to utilize the entire 0x100_000
-  address range, ensuring inclusion of the wrapper region.
-- Collect the reviewed-by tags.
-- Link to v2: https://lore.kernel.org/r/20250627-qcom_ipq5424_nsscc-v2-0-8d392f65102a@quicinc.com
+diff --git a/drivers/clk/qcom/gcc-ipq5424.c b/drivers/clk/qcom/gcc-ipq5424.c
+index 3d42f3d85c7a..71afa1b86b72 100644
+--- a/drivers/clk/qcom/gcc-ipq5424.c
++++ b/drivers/clk/qcom/gcc-ipq5424.c
+@@ -1,7 +1,7 @@
+ // SPDX-License-Identifier: GPL-2.0
+ /*
+  * Copyright (c) 2018,2020 The Linux Foundation. All rights reserved.
+- * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
++ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+  */
+ 
+ #include <linux/clk-provider.h>
+@@ -3284,6 +3284,7 @@ static const struct qcom_cc_desc gcc_ipq5424_desc = {
+ 	.num_clk_hws = ARRAY_SIZE(gcc_ipq5424_hws),
+ 	.icc_hws = icc_ipq5424_hws,
+ 	.num_icc_hws = ARRAY_SIZE(icc_ipq5424_hws),
++	.icc_first_node_id = IPQ_APPS_ID,
+ };
+ 
+ static int gcc_ipq5424_probe(struct platform_device *pdev)
 
-Changes in v2:
-- Add new, separate clock names "nss" and "ppe" in dtbindings to support
-  the IPQ5424 SoC.
-- Wrap the commit message body at 75 columns.
-- Fix the indentation issue in the `IPQ_NSSCC_5424` Kconfig entry.
-- Enhance the commit message for the defconfig patch to clarify the requirement
-  for enabling `IPQ_NSSCC_5424`.
-- Link to v1: https://lore.kernel.org/r/20250617-qcom_ipq5424_nsscc-v1-0-4dc2d6b3cdfc@quicinc.com
-
----
-Luo Jie (10):
-      clk: qcom: gcc-ipq5424: Correct the icc_first_node_id
-      dt-bindings: interconnect: Add Qualcomm IPQ5424 NSSNOC IDs
-      clk: qcom: gcc-ipq5424: Enable NSS NoC clocks to use icc-clk
-      dt-bindings: clock: gcc-ipq5424: Add definition for GPLL0_OUT_AUX
-      clk: qcom: gcc-ipq5424: Add gpll0_out_aux clock
-      dt-bindings: clock: Add required "interconnect-cells" property
-      dt-bindings: clock: qcom: Add NSS clock controller for IPQ5424 SoC
-      clk: qcom: Add NSS clock controller driver for IPQ5424
-      arm64: dts: qcom: ipq5424: Add NSS clock controller node
-      arm64: defconfig: Build NSS clock controller driver for IPQ5424
-
- .../bindings/clock/qcom,ipq9574-nsscc.yaml         |   64 +-
- arch/arm64/boot/dts/qcom/ipq5424.dtsi              |   32 +-
- arch/arm64/configs/defconfig                       |    1 +
- drivers/clk/qcom/Kconfig                           |   11 +
- drivers/clk/qcom/Makefile                          |    1 +
- drivers/clk/qcom/gcc-ipq5424.c                     |   28 +-
- drivers/clk/qcom/nsscc-ipq5424.c                   | 1340 ++++++++++++++++++++
- include/dt-bindings/clock/qcom,ipq5424-gcc.h       |    3 +-
- include/dt-bindings/clock/qcom,ipq5424-nsscc.h     |   65 +
- include/dt-bindings/interconnect/qcom,ipq5424.h    |   33 +
- include/dt-bindings/reset/qcom,ipq5424-nsscc.h     |   46 +
- 11 files changed, 1613 insertions(+), 11 deletions(-)
----
-base-commit: 8cd53fb40a304576fa86ba985f3045d5c55b0ae3
-change-id: 20250828-qcom_ipq5424_nsscc-d9f4eaf21795
-
-Best regards,
 -- 
-Luo Jie <quic_luoj@quicinc.com>
+2.34.1
 
 
