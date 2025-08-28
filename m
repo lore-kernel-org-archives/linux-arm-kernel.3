@@ -4,87 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC018CA0FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 23:27:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2496ECA0FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 23:27:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7m+Z48htqbSeqaszf53BBB8XMcsMLgtn18U/+YXKB3U=; b=a14iDtasjvOdeRqsoX9m8+ZUMl
-	8V8MNjJpTHHZXIxATvds8+lncOqT8+UpOAT3ySmgbU5X1/nogXvzW2qOtFVj8ItVdZ0QpfJKgv6s0
-	Db5VN32+m8TqP4FFgXJqtbSOhQoCoXiRuBsFtZPPED1YRm446l4+yAUJadeFu0GF+eiwDuKHST3vO
-	w2I/Jgdzpa66EtVOGfSMlyCf8GvQDMd22xWR2mY1JGg8+4bqnNyvzQyMT9ZT8KYFfpHHSMtMopXWU
-	TKfkzAFgOhkH8yFjB+NLFHZFiDdphaDVbbD7xVoOg/Bb0Bu6Zob16fmyMZZ/TBePOdkcw7PFsIE0q
-	C/2nKT+g==;
+	bh=mkSDgbg7xWQW+ISMkJybRnH1oyxatG6U4F5HRgnHqwM=; b=g5DhimR39sQ2UiAbZTQ53Q5tKl
+	/K6vxR4nKkiHXd/xXJxcA6dzxlCvLzrXPrkgElMu7UGmVENbYf/RSKVa7T3JALfXBB+1tR+S7T7H+
+	zjA63xo/Tdj7M6iPHk7vLi9+LEaRLbBnVxB9Ui7PVBJio+x9NZ9nyZNzXXSqvT+keZUIqPFwX/0IF
+	0cZZTUUh/Pei1K9OVz/AvKmtdkKQT7eb84FqlU35jqkO3WD0CQIpFXNoEdKBOoZifuavpOc9HQPvg
+	oUIBe7ZCrrw5/9ud86r060rnWiz1oBk/v0cnVzjjqnkENW1x4R3zr4AZZ1EK8JhClIYFLxMDP8TqX
+	uWCbi4zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urm1F-00000003fnX-0Mk4;
-	Thu, 28 Aug 2025 23:27:01 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1urm1D-00000003fkN-2QJe;
+	Thu, 28 Aug 2025 23:26:59 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urjpP-00000003ISV-05xS
+	id 1urjj5-00000003Gxj-2P32
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 21:06:41 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-55f4cf36c00so1516193e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 14:06:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756415197; x=1757019997; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7m+Z48htqbSeqaszf53BBB8XMcsMLgtn18U/+YXKB3U=;
-        b=B7FVS1gsnP2lvG1PplJC/Su5CeEN++J4CieOA0zbAm/H02djt3h8jUv5NZ0ANbmqAY
-         bdg8SNp1Z02p4tu4YAGvCd/mHxArtW0437GHPEphFqFE9VDUO5thFtyjhDydWrwP9CIv
-         FoUX3+5mPIAU2ALhSL3ufKmz1imT+XAJf6B0hp6zHIIDZGopqs4UhGs36ogEUlIjImRe
-         ilb0EhH52FPprVms9XVT++rl3EnsH5TCgTO9mwmmU5/2/0H6hux1xQwv+3NaUgiEge1c
-         f24E8bzMvrbA51LtRhcx/SZoc/IiigSmf1c+d80ProBawtMPjy+wL9sQ/cbNmQbPYiHn
-         XNmg==
+	Thu, 28 Aug 2025 21:00:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756414806;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=mkSDgbg7xWQW+ISMkJybRnH1oyxatG6U4F5HRgnHqwM=;
+	b=ec6T5n9SeYPE9qNLZCvPuDh5cVUTMF4xOtuMNi+GIjRfUb8KxZWbUitj0GstcMuDMGZYFt
+	WvU1zzOm8MQPEECKw1I/YW8mcB68gLkiI3WpryLU66t1EmHg3U5jYqrk3xUuxnsMJs/Mok
+	4RIoFir0vQy1m2J5ZuCtIV43l8KQyfQ=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-326-aZzPBRJQNQKE0LDfWTgGBg-1; Thu, 28 Aug 2025 17:00:04 -0400
+X-MC-Unique: aZzPBRJQNQKE0LDfWTgGBg-1
+X-Mimecast-MFC-AGG-ID: aZzPBRJQNQKE0LDfWTgGBg_1756414803
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-3c6abcfd303so170349f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 14:00:04 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756415197; x=1757019997;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7m+Z48htqbSeqaszf53BBB8XMcsMLgtn18U/+YXKB3U=;
-        b=PTLnh02YNpbiloKASbYlnt4HvVLeODRgXRMUCoBzRqiUCJIZQyEb0tJ7YE8J0W4cgB
-         cUinHTeeNqKVpsNz56Xt0RO4gGSkgOP81hLpXVD5zqTzDGf26tbVhuroHe8D3WZ36dAV
-         m7NdkMdtyVOfgV9pIcG4UR0pZw5jL/PYg4kgPj9ryYsEeLTDVLRFxDDmeo0BNBw2Bwvq
-         8gF2YSKY0oGPCTeA5S1CaYQyY7arRgF/PdV1o8ipkx7/IdFuMwfdcFQ1AoSfbisN1a4k
-         8stmi1SQrIyXQ6Vk52m9Sx4rgTkScf9FeGVLb2g9OTva/JnwcN2RZKzS6Q3UlBcY9uce
-         u/gA==
-X-Forwarded-Encrypted: i=1; AJvYcCWKcytMlGfMX7h9dMk0uJaRIGXIWxk8LrZxRcDXsfeni7gAJFoyJMlW/MHme15f4hc3r2zDvw3naqprPs13AhY6@lists.infradead.org
-X-Gm-Message-State: AOJu0YwjCQsNBoY1K/jRimMoU7Q3LfepXZOZzkgmEw8Du66/Z1HUPG2y
-	NKv+nwycjWQqSz9Db73SEIL5l7FogB3ySM9+v+xNmmVzqcrvwfrVOg2RDIRJEqM61uTDMU58OFr
-	7KxG0pwo1Iv2KE9d55YD9HG4yY+t5i2O2y7Ppl8yXqg==
-X-Gm-Gg: ASbGncuVbsU5E5jDHGb7JavnHJOcNJFK6N7HO4VikVXQNI1owWsLeMHCUOhqdpdYkZx
-	RwmdvWGmwcpv+ziA2zs5LxnZRl8Z6+LRXW14Vw1vMGwkWku1DuYTKra7dWndJ96GfEjcukfjw5N
-	4Fl6+487bgdCTdK/Zqs+HG08TT+81TLTRt4xrnLHP4fu5t3INzOJazqmlx2KwH+p3djjsziOvI9
-	vSaXWilmwAb3sTDTQ==
-X-Google-Smtp-Source: AGHT+IE8AFltVgez4j91MqcXLZUWY1SjsHiyvDbOchLsj0qPF+cSQKWQwUdlDcjOa51JtKhpYUq7h1LMip4AqNUm6Pk=
-X-Received: by 2002:a05:6512:1356:b0:55f:3b94:2119 with SMTP id
- 2adb3069b0e04-55f5f08b2aemr1135534e87.45.1756415197186; Thu, 28 Aug 2025
- 14:06:37 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1756414803; x=1757019603;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=mkSDgbg7xWQW+ISMkJybRnH1oyxatG6U4F5HRgnHqwM=;
+        b=fDi0I7TrkgF5QvNpc+Iyjv3EI3iXiDU2oyGBxA17y/RYN6ozismPpocSJCxDHu9/Kv
+         48fAt4ad5cqe3ACDNaDg5xksBGfsZXfzSGczFgAcWh+qIXGhi0t8/RaykxS9CQt6kWqM
+         ZU+SwDsoI+YhSo9AotdeigPk9mFRq8i1goAmZWLCbTK2HavGUsUFLROmPURELxraSI+z
+         M1OW3UPOCxw6XI984cRIe7Qzi0jrnJZMj/EkIv/0d4aXnIwGk1D1eih9WYqvAfTDaHXR
+         MG8azAtP8IG3W4vWSWfrtfzQQ2IldoWr0dCmP3qlgVsjCGFFYTLznxVUEi7355xhBfns
+         nRoA==
+X-Forwarded-Encrypted: i=1; AJvYcCUmpo5FmGVmbF1J8zXNeSrJIu080bFysWF2RTlMd7hWwlwp+zYZX1AfPwk8+IUGqKsOXmhCud1JP+rSHSD5+Vlq@lists.infradead.org
+X-Gm-Message-State: AOJu0YxO2ox+JzCCMpZpZSNYRi3SCjcUaoT0nzr7JWJZXO1nkvsO5F/O
+	bySZxI1RLwRLa05bRVtXTUwDXOWSo1pha53T7ij4xTyTJj1xM5hIkhQEZhV5G4HWj/vLD1pEIE8
+	bZmQ395kRJIlPnuWNh/xVRLV7LKdynSjUgc9KlTvqM+/P5wfAoax4lxoc6LkqkzSuWHWJas3IWR
+	es
+X-Gm-Gg: ASbGncuJRj5Zg78ZK283JTjizL6ZARYTo9FoFAsbpzDK3gk4AG1KLWD3uEzA9n2VChc
+	e4DXrqOxeqgKQyKDX3ZcmHEpy6/KVIdYRTzPBqWi5YfWohQaZoqg2RY1Uow9A1aALCYkOvLAL1H
+	toXgrJSyqT0+oc/mK9F2nq6lO5oPSVl/T36Z0bTIf3lj0fxnp3zV8EiRn8tEEG8HJ4ccdq5lIYN
+	wlzRaeBQ5zDi/oDBf8w1Mz9MmnFo/Q7acsLlD2Wfyx8wqelGmJuUv3EmI7TUImMo7roaxtwidBy
+	ms9DhTLvHFxms7gY/BQ9iHRoTjHOyKUMKwb63kQo1UvAVLSymY6TJk/HElP1rvgzeRfHPDzXTzs
+	4FGCw56VZYXFMqDiPSg0PI2prhKza1E5zh4cD6o1PwMPatZNM5aQMB2vsxlMyrIi3FDw=
+X-Received: by 2002:a05:6000:2512:b0:3c9:3f46:70eb with SMTP id ffacd0b85a97d-3c93f467c6amr12443219f8f.52.1756414803114;
+        Thu, 28 Aug 2025 14:00:03 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IE6weiB8uQZLlY/pBc/wBfkqXIMndGWCy+/j+66w0gqGxnhnpdmegVfF1S2/N2OWbRnBL2yuQ==
+X-Received: by 2002:a05:6000:2512:b0:3c9:3f46:70eb with SMTP id ffacd0b85a97d-3c93f467c6amr12443198f8f.52.1756414802646;
+        Thu, 28 Aug 2025 14:00:02 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f28:c100:2225:10aa:f247:7b85? (p200300d82f28c100222510aaf2477b85.dip0.t-ipconnect.de. [2003:d8:2f28:c100:2225:10aa:f247:7b85])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3cf33fba9c4sm613412f8f.48.2025.08.28.14.00.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 28 Aug 2025 14:00:02 -0700 (PDT)
+Message-ID: <7ef927d8-190d-4b22-8ec7-dcb9f5f75dba@redhat.com>
+Date: Thu, 28 Aug 2025 23:00:00 +0200
 MIME-Version: 1.0
-References: <20250821233335.1707559-1-da@libre.computer>
-In-Reply-To: <20250821233335.1707559-1-da@libre.computer>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Thu, 28 Aug 2025 23:06:25 +0200
-X-Gm-Features: Ac12FXxq8e0j1LLbbJOtWrnp5TZSIUBHLi0lcAdK8TiCnwMxmLVQkeLVBf3QIC8
-Message-ID: <CACRpkdYMdF43s_hcAvzHJ+wmRGyLoHtiTaG03ULoL24WwdQCMg@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: meson-gxl: add missing i2c_d pinmux
-To: Da Xue <da@libre.computer>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Rob Herring <robh@kernel.org>, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 03/12] mm: introduce AS_NO_DIRECT_MAP
+To: "Roy, Patrick" <roypat@amazon.co.uk>,
+ "seanjc@google.com" <seanjc@google.com>
+Cc: "tabba@google.com" <tabba@google.com>,
+ "ackerleytng@google.com" <ackerleytng@google.com>,
+ "pbonzini@redhat.com" <pbonzini@redhat.com>,
+ "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-mm@kvack.org" <linux-mm@kvack.org>, "rppt@kernel.org"
+ <rppt@kernel.org>, "will@kernel.org" <will@kernel.org>,
+ "vbabka@suse.cz" <vbabka@suse.cz>, "Cali, Marco" <xmarcalx@amazon.co.uk>,
+ "Kalyazin, Nikita" <kalyazin@amazon.co.uk>,
+ "Thomson, Jack" <jackabt@amazon.co.uk>, "Manwaring, Derek"
+ <derekmn@amazon.com>
+References: <20250828093902.2719-1-roypat@amazon.co.uk>
+ <20250828093902.2719-4-roypat@amazon.co.uk>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20250828093902.2719-4-roypat@amazon.co.uk>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: SR2HkwJTCyVGG86SlqiHgmcnaEy8R2SVQX-Pu7tJjv8_1756414803
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_140639_066615_0E69D18B 
-X-CRM114-Status: UNSURE (   8.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250828_140007_689895_6F779BCD 
+X-CRM114-Status: GOOD (  16.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,17 +170,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 22, 2025 at 1:33=E2=80=AFAM Da Xue <da@libre.computer> wrote:
+On 28.08.25 11:39, Roy, Patrick wrote:
+> Add AS_NO_DIRECT_MAP for mappings where direct map entries of folios are
+> set to not present . Currently, mappings that match this description are
+> secretmem mappings (memfd_secret()). Later, some guest_memfd
+> configurations will also fall into this category.
+> 
+> Reject this new type of mappings in all locations that currently reject
+> secretmem mappings, on the assumption that if secretmem mappings are
+> rejected somewhere, it is precisely because of an inability to deal with
+> folios without direct map entries, and then make memfd_secret() use
+> AS_NO_DIRECT_MAP on its address_space to drop its special
+> vma_is_secretmem()/secretmem_mapping() checks.
+> 
+> This drops a optimization in gup_fast_folio_allowed() where
+> secretmem_mapping() was only called if CONFIG_SECRETMEM=y. secretmem is
+> enabled by default since commit b758fe6df50d ("mm/secretmem: make it on
+> by default"), so the secretmem check did not actually end up elided in
+> most cases anymore anyway.
+> 
+> Use a new flag instead of overloading AS_INACCESSIBLE (which is already
+> set by guest_memfd) because not all guest_memfd mappings will end up
+> being direct map removed (e.g. in pKVM setups, parts of guest_memfd that
+> can be mapped to userspace should also be GUP-able, and generally not
+> have restrictions on who can access it).
+> 
+> Signed-off-by: Patrick Roy <roypat@amazon.co.uk>
+> ---
+[...]
 
-> Amlogic GXL has 4 I2C attached to gpio-periphs. I2C_D is on GPIOX_10/11.
->
-> Add the relevant func 3 pinmux per the datasheet for S805X/S905X/S905D.
->
-> Fixes: 0f15f500ff2c ("pinctrl: meson: Add GXL pinctrl definitions")
-> Signed-off-by: Da Xue <da@libre.computer>
+> +static inline bool vma_is_no_direct_map(const struct vm_area_struct *vma)
+> +{
+> +	return vma->vm_file && mapping_no_direct_map(vma->vm_file->f_mapping);
+> +}
+> +
 
-Patch applied.
+"vma_is_no_direct_map" reads a bit weird.
 
-Yours,
-Linus Walleij
+"vma_has_no_direct_map" or "vma_no_direct_mapping" might be better.
+
+With the comment Mike and Fuad raised, this LGTM.
+
+
+-- 
+Cheers
+
+David / dhildenb
+
 
