@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70C49C8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 17:27:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8732C8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 17:27:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f04tksORT2Z5GubC2DtLa7iShjF1q6m0nSzFPWX6pWw=; b=mS5xN2x9E4bxGjRTqZ7KBKsHd0
-	DVaKXOmQ6TE5jynqBNtyrwNGYaFDSmap0cd8xd8lt7PmaxpMSUIq3JTkRTKJ0E8aj/peYLXL99lDY
-	XtfXRx9yiBYH3T7fQmZ4/Z1qNAWdKarZFuLYvBIm6RE8B+/LkYfaEd88OTE0Oh8LPdLuSDZTYwPoQ
-	JYB5Pcd0BWtahwwwUH0rSZT8AU/SJczDDmQgK/s0nOP3iJOqzzTBB6TmZOqWgz/HyTlMrrwhmQQGo
-	wJSTIRLJBiAoJRiPQ9Od3wknzavWyeIpIW54w4yZcQEWghO71vvzIJu43H01MEU+CRHEY5DFKbJY9
-	Bn57Nwsw==;
+	bh=85legAFamZkGWcJVGBEbj3Ci4erJikI5OAxiXQSDocE=; b=qh2K4JHudWIhbt3ZTO3/qqtaEY
+	0E6yBk4357/LKXKU7MGyxx8do4IVpMKcT0rDQVpfuXXkXqKrqQW6Ucw0Tptf5FQMmpEop+IkflUR8
+	5jvUMxA7SEuy5A20WgUqk/6QB4DnLZ+IYRhYUs8ewClaT+Vl2XJHUJaiigmOqkH8abCAm0Gq+bdm3
+	38Vgi3EQyh8CIX3N8R5RXcbuNhnCTfOJcKIcw3ukasQCFSGrcyvuU6x3jsZ2vHYwTWlHyuAIKFx+S
+	/78sfyyJfV/enQumTP9SHtiSzhxAmTWf+j7gYI3EpRK8sZ9iGtEZGgowBWo1ZKzsTfPGwxMgXNW6O
+	aPNQNz9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urgOw-00000002U4I-0l8P;
-	Thu, 28 Aug 2025 17:27:06 +0000
+	id 1urgOy-00000002U91-3el0;
+	Thu, 28 Aug 2025 17:27:08 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urci0-00000001kOZ-27Xm;
-	Thu, 28 Aug 2025 13:30:33 +0000
+	id 1urci3-00000001kQ9-3mXZ;
+	Thu, 28 Aug 2025 13:30:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=f04tksORT2Z5GubC2DtLa7iShjF1q6m0nSzFPWX6pWw=; b=ykOBrZ7UblBvuc1IYSCp7ZX/pu
-	Go5kXq27uB8uWBBImBuwlvFrYHOctgt6ormziStYxlPotkw0qv1xSqRfvbHFqGukv2vS6V2XaKVm6
-	FkquplLdIwndXV/Sn4/CHU4u1KN1eEOhONMkuuct+Pa84npAh/ZQaM2nSmeYcNNLbCYUUqkJLHOb7
-	vKYV8uplh6gR9H7EhWhnfQijVLyIJAxFWk/riHV8VpyHqzJCORacsHI94gjQSVkfGNkvQyleOpzgn
-	11Ww/qT9PWJZosEApRU5ylnRCGiC68dzODsVe1hsJ8mciVZJP6TN06o6n4FPi7KUdWk9YgVlPlpmN
-	YK7/IJoQ==;
+	bh=85legAFamZkGWcJVGBEbj3Ci4erJikI5OAxiXQSDocE=; b=MjSRELgmrGIxeWFYBilE6LIvRe
+	hTXdchlJ7Z/o9a60hwZkjCo9zAh6N9eY941lpFPkKZzFQxR4+BuWB09cSNPquacZcF1CMAwb0KDwV
+	iPinv1lS4X0WJPSfG1QmqK40JzFvgV9NpQBgjoGi0kCaSgapeeVEpdWNhcuUZBghNJoZBElVtMPdm
+	MXUwOOXPzI6B6X7gRSCuxAgKB26prGIzTgZZElMhKVdX4ibptubxoBFOw5uIEfYSif1jztQ22o0lT
+	84vJS0hfRiNtg0H63s3HNqRERcezXVbnx94754KUP/k6desPKt41QEPMaC2yaIYyo7aGB+fQ4XMoq
+	o+sIwJYg==;
 Received: from [185.205.242.134] (helo=phil..)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1urchz-0004qj-06; Thu, 28 Aug 2025 15:30:31 +0200
+	id 1urchz-0004qj-7U; Thu, 28 Aug 2025 15:30:31 +0200
 From: Heiko Stuebner <heiko@sntech.de>
-To: anton.kirilov@arm.com
-Cc: Heiko Stuebner <heiko@sntech.de>,
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Diederik de Haas <didi.debian@cknow.org>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
-	nd@arm.com
-Subject: Re: [PATCH] arm64: dts: rockchip: Enable the NPU on NanoPi R6C/R6S
-Date: Thu, 28 Aug 2025 15:30:26 +0200
-Message-ID: <175638782391.3533599.15783338946891091467.b4-ty@sntech.de>
+	linux-kernel@vger.kernel.org,
+	Dragan Simic <dsimic@manjaro.org>,
+	Ondrej Jirman <megi@xff.cz>,
+	Peter Robinson <pbrobinson@gmail.com>
+Cc: Heiko Stuebner <heiko@sntech.de>
+Subject: Re: [PATCH] arm64: dts: rockchip: Add vcc-supply to SPI flash on Pinephone Pro
+Date: Thu, 28 Aug 2025 15:30:27 +0200
+Message-ID: <175638782389.3533599.13962706538099315140.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250827142210.2221606-1-anton.kirilov@arm.com>
-References: <20250827142210.2221606-1-anton.kirilov@arm.com>
+In-Reply-To: <20250827143501.1646163-1-pbrobinson@gmail.com>
+References: <20250827143501.1646163-1-pbrobinson@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_063032_541879_3A476E6C 
-X-CRM114-Status: UNSURE (   9.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250828_063035_937093_D8175B33 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,15 +80,20 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 27 Aug 2025 15:22:10 +0100, anton.kirilov@arm.com wrote:
-> Enable the NPU on FriendlyElec NanoPi R6C/R6S boards.
+On Wed, 27 Aug 2025 15:34:58 +0100, Peter Robinson wrote:
+> As documented in the PinephonePro-Schematic-V1.0-20211127.pdf,
+> page 11, the SPI Flash's VCC pin is connected to VCC_1V8 power
+> source. This fixes the following warning:
+> 
+>   spi-nor spi1.0: supply vcc not found, using dummy regulator
 > 
 > 
+> [...]
 
 Applied, thanks!
 
-[1/1] arm64: dts: rockchip: Enable the NPU on NanoPi R6C/R6S
-      commit: dfdda0881b353453afc376f7f2bf6a8306fcada3
+[1/1] arm64: dts: rockchip: Add vcc-supply to SPI flash on Pinephone Pro
+      commit: 497aa80ec7ee145b3606e7434d57091974d78598
 
 Best regards,
 -- 
