@@ -4,110 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FEA7CA0FED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 00:24:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E35B4CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 00:27:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
-	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7ZBmpPS6PywnvKIddGOxOnP1jmQ+MNdB8M5wZqe5Cyo=; b=uw7pxMs4Oa27/0Ufe8dUTZQ9Kb
-	UsKBfquZD4SlxZKW3YLCNZ+tJ0Sufh4SM2qmm+dtA6Ygr2SaIR4TYZAFVmQ+K2uk3QQghvXu2x1Gs
-	xswHFjaYsCO1+OsBCa6xx4s7tPTwz03/LLbQGX2uLlunb7GBgVe5S2UCvgvzFFIvyvyPpDgq+lN1X
-	upCMfFXDC+Vu/7H5OAZ1I2Tx9k89ddn8OGY8VcGBT89MYOI39aTjGJcbB9a3TofSB1iG6t13rxvtj
-	uHlLwfkgbmNY0A9Nx++A6HJmLE7I1KgtW4urBmNe3Hp1BxdEr7GJT0nM7TGu7AQLRpv+Y4SBY9rhX
-	6iTBp9wQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PHSJ+Uf/KZbNxBYYx40KbK83TUFWghYNLecEdAEzL24=; b=zetwh+OMlutIAk3dPr+LKLiTkm
+	nheZ0dm7p+LNVU7T/cVHEM+nAYW4qn7zxCkkj0GgVT2ouUG32/rsxEI4GBGVKFIXo0Oq9LXfkbzt4
+	5hMXotpsM7c3fYOfRp6IcnrrJTkNTLmiC4xJCnpRCfTOLOYx760yUcL3JSokMwOvnvxCV6yIvPzHw
+	ZYph7svniw5DjxPuhOvQogvNsPcE47C+ZiUG3ZE+sLS5+mUb//aVHNh9clS7RKWPcvQo2uLpE8sR4
+	JDFXssDMn3T0cpBfTnFomH1n+RydoNUObgB//1kim6joN9MkC3n5zV06f7azokartgL10VZcQmtx8
+	/NbPrgDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urQRd-0000000HMMw-2QSK;
-	Thu, 28 Aug 2025 00:24:49 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1urQUK-0000000HMgc-2Eak;
+	Thu, 28 Aug 2025 00:27:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urQ5q-0000000HIC7-23uG
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 28 Aug 2025 00:02:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=7ZBmpPS6PywnvKIddGOxOnP1jmQ+MNdB8M5wZqe5Cyo=; b=h7HeEIkl9eIkQtLU8vxx59y89v
-	ZjYjGLOtBBcQLJXnu9bF7A47ybBl73hwuMHPJIUFvq0XcNM8Zoj953jak/Of2NK4olS7jk5Vi9vLj
-	YnT405z1Rn9jAOcs60Dfav271vM7Q/VTB5a9LbpT85fMh4ykCjOr6BzTTF0ZIGlk+IAspQltoCg9Z
-	ltuyfK7ecbnQHLKD0dr7eMSwaXax3ahkRQfYTJjm2SX+U4dfEQ33oIUdgN03qCKXd1EqydwhGGEmS
-	74ijepBUJm/9EOgbwmVXxayVSPjacDLQlMs+HP91q1rXUj8fAojYE4ATOxXosjvzumXmIKdxnxkk6
-	vjmP3HSQ==;
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urQ5l-00000002YFA-3SHt
+	id 1urQN5-0000000HLDk-3fqQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 00:02:16 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-32769224506so343680a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 17:02:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1756339331; x=1756944131; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=7ZBmpPS6PywnvKIddGOxOnP1jmQ+MNdB8M5wZqe5Cyo=;
-        b=cOdd5GAALc1AtIeN+2vvmKxDp5u26a+SEiCaqhqJo0al+pdFmWjHWkUMYLfFLdyt2u
-         +vtlMlvPmBOHmBmbFepQPPQevwRh0X/ZcH1iXmx/xQumvWijmWKP0sNln2CiqiSTmnyO
-         Un9eaofbsZQQRvYfJ5GZIDyGLnsmY0RIs1dC6LKInIesWSU9vEa5oYr6LTzyxHgl+KYL
-         z8Fo0tWyBvBbzUxS6vsS3Yee8IEIO+bjc9NArlqfNoSPfq0QfMmhrJeBqnmqR5hpCGae
-         q00mM5ZdVGKEOkIwsG9SBoIwscv73JzsLKAtcq/UUQYIIn0oIfC/yOZu7ZXnYq2p/js9
-         Qh9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756339331; x=1756944131;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7ZBmpPS6PywnvKIddGOxOnP1jmQ+MNdB8M5wZqe5Cyo=;
-        b=RfZpvxg9ex5X4LJLWj2XxppF4yWViTO/jlqOGrGdONu9kJc9MbM3Lb6FvgnG8zuDwl
-         6QnXivgSdx25J0zissJIEsuzQL4VcYkcNnu7iLXa9adc+5Q/jKuIb4+USm7QmEc7RZWf
-         4QkwFXn2h2zF0dzfEfX/R0s81KQnXYVZ2NR2PGz9l8hrlRp3CMuhfQ6x7LCWxEwKb5mu
-         FmBc9zda2H0gJjzRjHrZUmHJwn4Iqf+LeRFUYi/BkCmKS7w+X6twm112o6F9iLtSG5Ug
-         mGs1PYvixma3xaGwUNRB8YuY8RdbNiAKxA9rq9vxAepZm4G6sWaqIn0Fffcv6Z0rmgvl
-         Is9A==
-X-Forwarded-Encrypted: i=1; AJvYcCXkGYwqp9h899G9e96LBjKb8NmXfDvf5wclgPZDOWkkb/Uiev2yhexi2Cw4gjYB1bKzj3BkXw4/6KoFyN2ct7qG@lists.infradead.org
-X-Gm-Message-State: AOJu0YxIEgVQtSomxK3GFrSOSRK+ztko9OXfvGGeJEJ+rRwTzQ520aqZ
-	t9bH2u1Oyx3j3aVf/CQszQJSG7IqTXEr/ScdGsyB6eiDjqkV/fdISpzlsG/pqZY0unkWDFv8T6C
-	7EfTAzw==
-X-Google-Smtp-Source: AGHT+IEObhMRiog6LB3x56k1ysUr452rBBv/DRbv5B4tUYWRR2fTs8YO333KIDdDJ77/kyKV99u2TWP8gGM=
-X-Received: from pjbpm6.prod.google.com ([2002:a17:90b:3c46:b0:325:238b:5dc6])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2ccd:b0:321:4760:c65a
- with SMTP id 98e67ed59e1d1-32517d1e054mr26335387a91.27.1756339331031; Wed, 27
- Aug 2025 17:02:11 -0700 (PDT)
-Date: Wed, 27 Aug 2025 17:01:54 -0700
-In-Reply-To: <20250828000156.23389-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20250828000156.23389-1-seanjc@google.com>
-X-Mailer: git-send-email 2.51.0.268.g9569e192d0-goog
-Message-ID: <20250828000156.23389-6-seanjc@google.com>
-Subject: [PATCH v2 5/7] entry: Rename "kvm" entry code assets to "virt" to
- genericize APIs
-From: Sean Christopherson <seanjc@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Sean Christopherson <seanjc@google.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
-	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"K. Y. Srinivasan" <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, 
-	Dexuan Cui <decui@microsoft.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Andy Lutomirski <luto@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, 
-	Frederic Weisbecker <frederic@kernel.org>, Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, 
-	Joel Fernandes <joelagnelf@nvidia.com>, Josh Triplett <josh@joshtriplett.org>, 
-	Boqun Feng <boqun.feng@gmail.com>, Uladzislau Rezki <urezki@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-hyperv@vger.kernel.org, rcu@vger.kernel.org, 
-	Nuno Das Neves <nunodasneves@linux.microsoft.com>, Mukesh R <mrathor@linux.microsoft.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_010214_132010_6F85EF74 
-X-CRM114-Status: GOOD (  17.94  )
+	Thu, 28 Aug 2025 00:20:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C488560236;
+	Thu, 28 Aug 2025 00:20:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75385C4CEEB;
+	Thu, 28 Aug 2025 00:20:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756340406;
+	bh=aHeD1aY+qybOF2MyfLbGundw1HAEI2tqJvxtmi3Qw/U=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=LKmwfu7EHjfehihErSqcf5xhSZpGelriAcJqReGjZEWRHMG0ukUwzBfpAiGFjK5X/
+	 woBVjMzQfva3EJQlyJAhKs+I3r4lDVdFeI0LP8ET2UXapzFdn8C0Y9yMS/5cUxQEsE
+	 Zq/bqUdNiZyDXczcSxbSOlOCYXP+NfeZTX9pcLqkQOrPaX91xvo49vfSLNa6kSQfi3
+	 5tREyjUtNSWv5mNH36Kbh7CcSSQ+8qzpAQXF2LSR2Xew55M07wlwiFqk8FrhNQPITM
+	 DnLjDkPF5H/mbRi/WRq0nMgJGbtCzxnwMbC6oNItJpnuYKduwI84k/naMrj8n4dfDk
+	 6D+oPjXxtuOfQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAFC9383BF76;
+	Thu, 28 Aug 2025 00:20:14 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next] net: stmmac: rk: remove incorrect _DLY_DISABLE
+ bit
+ definition
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <175634041376.884225.299755705945387138.git-patchwork-notify@kernel.org>
+Date: Thu, 28 Aug 2025 00:20:13 +0000
+References: <20250826102219.49656-1-alok.a.tiwari@oracle.com>
+In-Reply-To: <20250826102219.49656-1-alok.a.tiwari@oracle.com>
+To: Alok Tiwari <alok.a.tiwari@oracle.com>
+Cc: david.wu@rock-chips.com, jonas@kwiboo.se, rmk+kernel@armlinux.org.uk,
+ mcoquelin.stm32@gmail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,247 +73,33 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename the "kvm" entry code files and Kconfigs to use generic "virt"
-nomenclature so that the code can be reused by other hypervisors (or
-rather, their root/dom0 partition drivers), without incorrectly suggesting
-the code somehow relies on and/or involves KVM.
+Hello:
 
-No functional change intended.
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- MAINTAINERS                                 | 2 +-
- arch/arm64/kvm/Kconfig                      | 2 +-
- arch/loongarch/kvm/Kconfig                  | 2 +-
- arch/riscv/kvm/Kconfig                      | 2 +-
- arch/x86/kvm/Kconfig                        | 2 +-
- include/linux/{entry-kvm.h => entry-virt.h} | 8 ++++----
- include/linux/kvm_host.h                    | 6 +++---
- include/linux/rcupdate.h                    | 2 +-
- kernel/entry/Makefile                       | 2 +-
- kernel/entry/{kvm.c => virt.c}              | 2 +-
- kernel/rcu/tree.c                           | 6 +++---
- virt/kvm/Kconfig                            | 2 +-
- 12 files changed, 19 insertions(+), 19 deletions(-)
- rename include/linux/{entry-kvm.h => entry-virt.h} (94%)
- rename kernel/entry/{kvm.c => virt.c} (97%)
+On Tue, 26 Aug 2025 03:22:15 -0700 you wrote:
+> The RK3328 GMAC clock delay macros define enable/disable controls for
+> TX and RX clock delay. While the TX definitions are correct, the
+> RXCLK_DLY_DISABLE macro incorrectly clears bit 0.
+> 
+> The macros RK3328_GMAC_TXCLK_DLY_DISABLE and
+> RK3328_GMAC_RXCLK_DLY_DISABLE are not referenced anywhere
+> in the driver code. Remove them to clean up unused definitions.
+> 
+> [...]
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index fe168477caa4..c255048333f0 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -10200,7 +10200,7 @@ L:	linux-kernel@vger.kernel.org
- S:	Maintained
- T:	git git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git core/entry
- F:	include/linux/entry-common.h
--F:	include/linux/entry-kvm.h
-+F:	include/linux/entry-virt.h
- F:	include/linux/irq-entry-common.h
- F:	kernel/entry/
- 
-diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
-index 713248f240e0..6f4fc3caa31a 100644
---- a/arch/arm64/kvm/Kconfig
-+++ b/arch/arm64/kvm/Kconfig
-@@ -25,7 +25,7 @@ menuconfig KVM
- 	select HAVE_KVM_CPU_RELAX_INTERCEPT
- 	select KVM_MMIO
- 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
--	select KVM_XFER_TO_GUEST_WORK
-+	select VIRT_XFER_TO_GUEST_WORK
- 	select KVM_VFIO
- 	select HAVE_KVM_DIRTY_RING_ACQ_REL
- 	select NEED_KVM_DIRTY_RING_WITH_BITMAP
-diff --git a/arch/loongarch/kvm/Kconfig b/arch/loongarch/kvm/Kconfig
-index 40eea6da7c25..ae64bbdf83a7 100644
---- a/arch/loongarch/kvm/Kconfig
-+++ b/arch/loongarch/kvm/Kconfig
-@@ -31,7 +31,7 @@ config KVM
- 	select KVM_GENERIC_HARDWARE_ENABLING
- 	select KVM_GENERIC_MMU_NOTIFIER
- 	select KVM_MMIO
--	select KVM_XFER_TO_GUEST_WORK
-+	select VIRT_XFER_TO_GUEST_WORK
- 	select SCHED_INFO
- 	select GUEST_PERF_EVENTS if PERF_EVENTS
- 	help
-diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
-index 5a62091b0809..c50328212917 100644
---- a/arch/riscv/kvm/Kconfig
-+++ b/arch/riscv/kvm/Kconfig
-@@ -30,7 +30,7 @@ config KVM
- 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
- 	select KVM_GENERIC_HARDWARE_ENABLING
- 	select KVM_MMIO
--	select KVM_XFER_TO_GUEST_WORK
-+	select VIRT_XFER_TO_GUEST_WORK
- 	select KVM_GENERIC_MMU_NOTIFIER
- 	select SCHED_INFO
- 	select GUEST_PERF_EVENTS if PERF_EVENTS
-diff --git a/arch/x86/kvm/Kconfig b/arch/x86/kvm/Kconfig
-index 2c86673155c9..f81074b0c0a8 100644
---- a/arch/x86/kvm/Kconfig
-+++ b/arch/x86/kvm/Kconfig
-@@ -40,7 +40,7 @@ config KVM_X86
- 	select HAVE_KVM_MSI
- 	select HAVE_KVM_CPU_RELAX_INTERCEPT
- 	select HAVE_KVM_NO_POLL
--	select KVM_XFER_TO_GUEST_WORK
-+	select VIRT_XFER_TO_GUEST_WORK
- 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
- 	select KVM_VFIO
- 	select HAVE_KVM_PM_NOTIFIER if PM
-diff --git a/include/linux/entry-kvm.h b/include/linux/entry-virt.h
-similarity index 94%
-rename from include/linux/entry-kvm.h
-rename to include/linux/entry-virt.h
-index 3644de7e6019..42c89e3e5ca7 100644
---- a/include/linux/entry-kvm.h
-+++ b/include/linux/entry-virt.h
-@@ -1,6 +1,6 @@
- /* SPDX-License-Identifier: GPL-2.0 */
--#ifndef __LINUX_ENTRYKVM_H
--#define __LINUX_ENTRYKVM_H
-+#ifndef __LINUX_ENTRYVIRT_H
-+#define __LINUX_ENTRYVIRT_H
- 
- #include <linux/static_call_types.h>
- #include <linux/resume_user_mode.h>
-@@ -10,7 +10,7 @@
- #include <linux/tick.h>
- 
- /* Transfer to guest mode work */
--#ifdef CONFIG_KVM_XFER_TO_GUEST_WORK
-+#ifdef CONFIG_VIRT_XFER_TO_GUEST_WORK
- 
- #ifndef ARCH_XFER_TO_GUEST_MODE_WORK
- # define ARCH_XFER_TO_GUEST_MODE_WORK	(0)
-@@ -90,6 +90,6 @@ static inline bool xfer_to_guest_mode_work_pending(void)
- 	lockdep_assert_irqs_disabled();
- 	return __xfer_to_guest_mode_work_pending();
- }
--#endif /* CONFIG_KVM_XFER_TO_GUEST_WORK */
-+#endif /* CONFIG_VIRT_XFER_TO_GUEST_WORK */
- 
- #endif
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index 598b9473e46d..70ac2267d5d0 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -2,7 +2,7 @@
- #ifndef __KVM_HOST_H
- #define __KVM_HOST_H
- 
--#include <linux/entry-kvm.h>
-+#include <linux/entry-virt.h>
- #include <linux/types.h>
- #include <linux/hardirq.h>
- #include <linux/list.h>
-@@ -2444,7 +2444,7 @@ static inline int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
- }
- #endif /* CONFIG_HAVE_KVM_VCPU_RUN_PID_CHANGE */
- 
--#ifdef CONFIG_KVM_XFER_TO_GUEST_WORK
-+#ifdef CONFIG_VIRT_XFER_TO_GUEST_WORK
- static inline void kvm_handle_signal_exit(struct kvm_vcpu *vcpu)
- {
- 	vcpu->run->exit_reason = KVM_EXIT_INTR;
-@@ -2461,7 +2461,7 @@ static inline int kvm_xfer_to_guest_mode_handle_work(struct kvm_vcpu *vcpu)
- 	}
- 	return r;
- }
--#endif /* CONFIG_KVM_XFER_TO_GUEST_WORK */
-+#endif /* CONFIG_VIRT_XFER_TO_GUEST_WORK */
- 
- /*
-  * If more than one page is being (un)accounted, @virt must be the address of
-diff --git a/include/linux/rcupdate.h b/include/linux/rcupdate.h
-index 120536f4c6eb..1e1f3aa375d9 100644
---- a/include/linux/rcupdate.h
-+++ b/include/linux/rcupdate.h
-@@ -129,7 +129,7 @@ static inline void rcu_sysrq_start(void) { }
- static inline void rcu_sysrq_end(void) { }
- #endif /* #else #ifdef CONFIG_RCU_STALL_COMMON */
- 
--#if defined(CONFIG_NO_HZ_FULL) && (!defined(CONFIG_GENERIC_ENTRY) || !defined(CONFIG_KVM_XFER_TO_GUEST_WORK))
-+#if defined(CONFIG_NO_HZ_FULL) && (!defined(CONFIG_GENERIC_ENTRY) || !defined(CONFIG_VIRT_XFER_TO_GUEST_WORK))
- void rcu_irq_work_resched(void);
- #else
- static __always_inline void rcu_irq_work_resched(void) { }
-diff --git a/kernel/entry/Makefile b/kernel/entry/Makefile
-index 77fcd83dd663..2333d70802e4 100644
---- a/kernel/entry/Makefile
-+++ b/kernel/entry/Makefile
-@@ -14,4 +14,4 @@ CFLAGS_common.o		+= -fno-stack-protector
- 
- obj-$(CONFIG_GENERIC_IRQ_ENTRY) 	+= common.o
- obj-$(CONFIG_GENERIC_SYSCALL) 		+= syscall-common.o syscall_user_dispatch.o
--obj-$(CONFIG_KVM_XFER_TO_GUEST_WORK)	+= kvm.o
-+obj-$(CONFIG_VIRT_XFER_TO_GUEST_WORK)	+= virt.o
-diff --git a/kernel/entry/kvm.c b/kernel/entry/virt.c
-similarity index 97%
-rename from kernel/entry/kvm.c
-rename to kernel/entry/virt.c
-index 6fc762eaacca..c52f99249763 100644
---- a/kernel/entry/kvm.c
-+++ b/kernel/entry/virt.c
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0
- 
--#include <linux/entry-kvm.h>
-+#include <linux/entry-virt.h>
- 
- static int xfer_to_guest_mode_work(unsigned long ti_work)
- {
-diff --git a/kernel/rcu/tree.c b/kernel/rcu/tree.c
-index 174ee243b349..995489b72535 100644
---- a/kernel/rcu/tree.c
-+++ b/kernel/rcu/tree.c
-@@ -573,7 +573,7 @@ void rcutorture_format_gp_seqs(unsigned long long seqs, char *cp, size_t len)
- }
- EXPORT_SYMBOL_GPL(rcutorture_format_gp_seqs);
- 
--#if defined(CONFIG_NO_HZ_FULL) && (!defined(CONFIG_GENERIC_ENTRY) || !defined(CONFIG_KVM_XFER_TO_GUEST_WORK))
-+#if defined(CONFIG_NO_HZ_FULL) && (!defined(CONFIG_GENERIC_ENTRY) || !defined(CONFIG_VIRT_XFER_TO_GUEST_WORK))
- /*
-  * An empty function that will trigger a reschedule on
-  * IRQ tail once IRQs get re-enabled on userspace/guest resume.
-@@ -602,7 +602,7 @@ noinstr void rcu_irq_work_resched(void)
- 	if (IS_ENABLED(CONFIG_GENERIC_ENTRY) && !(current->flags & PF_VCPU))
- 		return;
- 
--	if (IS_ENABLED(CONFIG_KVM_XFER_TO_GUEST_WORK) && (current->flags & PF_VCPU))
-+	if (IS_ENABLED(CONFIG_VIRT_XFER_TO_GUEST_WORK) && (current->flags & PF_VCPU))
- 		return;
- 
- 	instrumentation_begin();
-@@ -611,7 +611,7 @@ noinstr void rcu_irq_work_resched(void)
- 	}
- 	instrumentation_end();
- }
--#endif /* #if defined(CONFIG_NO_HZ_FULL) && (!defined(CONFIG_GENERIC_ENTRY) || !defined(CONFIG_KVM_XFER_TO_GUEST_WORK)) */
-+#endif /* #if defined(CONFIG_NO_HZ_FULL) && (!defined(CONFIG_GENERIC_ENTRY) || !defined(CONFIG_VIRT_XFER_TO_GUEST_WORK)) */
- 
- #ifdef CONFIG_PROVE_RCU
- /**
-diff --git a/virt/kvm/Kconfig b/virt/kvm/Kconfig
-index 727b542074e7..ce843db53831 100644
---- a/virt/kvm/Kconfig
-+++ b/virt/kvm/Kconfig
-@@ -87,7 +87,7 @@ config HAVE_KVM_VCPU_RUN_PID_CHANGE
- config HAVE_KVM_NO_POLL
-        bool
- 
--config KVM_XFER_TO_GUEST_WORK
-+config VIRT_XFER_TO_GUEST_WORK
-        bool
- 
- config HAVE_KVM_PM_NOTIFIER
+Here is the summary with links:
+  - [net-next] net: stmmac: rk: remove incorrect _DLY_DISABLE bit definition
+    https://git.kernel.org/netdev/net-next/c/705609dedea1
+
+You are awesome, thank you!
 -- 
-2.51.0.268.g9569e192d0-goog
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
