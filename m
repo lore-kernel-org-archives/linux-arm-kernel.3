@@ -4,214 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F21AC8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 18:18:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9425C8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 18:21:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mp5vJj3kSZ5b6CV9WcFfnJvbkDtqUnazQgYHEAagk5A=; b=RfqIKMaPChe+y5WpHChIKscRSc
-	E6UWQBTCtXilbkKQCGKRbXg6Q/Quv47uoSUAwGVRYi7t7plsNiu61oOMfRpHGQZ9oaT55Wr7BqIjd
-	4WNC8gYt5Uo+r2ofjjEm/T9UKiBkRLBxTBVu0FeCQd0Jfu6TwfcMR+vXHetZfblS5Oliu+Pxu8Sl7
-	vaVv4xsQwMHvGWhoeFPVYcdT/cCdYOj3irf74Mr9J/hICze4G5MX9iQNSkOxGm97Z9dlclV+pt5lQ
-	w312HuT8sFhjcaxySa5/vViMoXyoZgnOLUFQdMS1sc+2CmSKjQP6JS3qa7IheLSoRyX5h35IIi8f4
-	EhstEUtw==;
+	bh=S+knyS2+c+jGuo6fC46mPYtwsTJxg5ztsNayK7xPVlA=; b=u3hjl9qMkvFKUsUw9mXXtv/5Ul
+	87Kyw4yYBq/C9t8tqzBBkwUV6v+56WNrG4PBcRcAgb6FTBYCLWiiznDGQr06lfIxUa6Z5P9zEB0z4
+	ubqqpIbaZiLzF0ldEAvnDfojzf1lnz4G2bfxmVBbPYdZxrpfvCh/77gogjUP/D3KM04hKqjyLopZD
+	2+5mg9aL69Co2EdB/oLz4CA10VdUDYQHRgCZPwbZoq7uMtef9KXigZujfNYkJug+OiS13YLWQYFVk
+	WgvLD+I9emyyLNWesAFH/8jF0n/cWP3BgOOOzLzIGr/c3FgJEHcbYD6ru5PCn7vTg3jJKKY6PYKIk
+	+nCJPq8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urhCQ-00000002kKd-0DAf;
-	Thu, 28 Aug 2025 18:18:14 +0000
-Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
+	id 1urhF8-00000002krY-48sD;
+	Thu, 28 Aug 2025 18:21:02 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urepR-000000028sI-0i59;
-	Thu, 28 Aug 2025 15:46:22 +0000
-Received: from pps.filterd (m0246629.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57SENHww001544;
-	Thu, 28 Aug 2025 15:45:59 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=corp-2025-04-25; bh=mp5vJj3kSZ5b6CV9Wc
-	FfnJvbkDtqUnazQgYHEAagk5A=; b=CrjAqlr9rTyxpPWm3REVs0gXQijXPZNOVa
-	4k9CJtcSiYHYfETs/vn7+3DnkBlmLmx2mOh9g7jum57suN2P2VRC7YyfjYAr56sl
-	9GmF3/MlMcVLzQwvO+CStIf/7egvZFeBK0QT/iIaPCqavQPnzKUb29lz8XWY5+pL
-	3x9JzI8i7FZcP1Qy0QNs5fHzWv4O4sYg62dYTba3nD+FH8A0syqJsiqQgc3fEJTY
-	hmC7Ey8kFpnK49S5fOO0Kx2+s7/kDBpepf4wSaOlG1Iz7o8QLxfBoavefcGJYBTQ
-	hXE9c/AdF3xuAIcdtH2a4as/xaiTJB3/giQ3Uee8vYzsfuQdxhQw==
-Received: from iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta01.appoci.oracle.com [130.35.100.223])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 48r8twfh68-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 28 Aug 2025 15:45:59 +0000 (GMT)
-Received: from pps.filterd (iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 57SF17dW005115;
-	Thu, 28 Aug 2025 15:45:58 GMT
-Received: from nam11-co1-obe.outbound.protection.outlook.com (mail-co1nam11on2061.outbound.protection.outlook.com [40.107.220.61])
-	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 48qj8c9ug3-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 28 Aug 2025 15:45:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=J1LQ+ekynYYFNAeHN53zplcIn575JL4QlfeTrxv399WZbloDENCpHdKk9NKAibSRs68qvemnugzwGFjjdn0SL7UU/V3NrblDC+LgWf4Ldd5dJ/kPBWwfyAyKImF1pByrvz2zG3cDSs3ex8388a7jf1APMTOAjt0XCwNpZPar41L0P5ME6xCDszpsastFY3kAtr+p2x7t2ew6zpeVCdYkW1+a/hq/KiyI3I779QIxfytbWBtBneg7KwdWwOE3UdagR4gi26AyUt9j0OBny4gb6FmrGUY5RXyvPdbJgg792IaRJ600r3GzwBETRikWCs44IU7wPTVHSpcLx2L/zc0cUw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mp5vJj3kSZ5b6CV9WcFfnJvbkDtqUnazQgYHEAagk5A=;
- b=RKq3pTCQXVjlQndvg3WH5CgCgAmveXdHjr/My5bygrQQsFAdLcqCibnLFIOrLQ29YbH2cEQyY55VA6ku9A9xG0YD/tNv/l68Kukvsjs9oio/9QhONgTnw3GbFrBrUnM6u/pwh7WzS0fOtgaxlO447tWp3KYJNiuUUaUwhFAZJJOjApGC95p6wJt/vkcSRlPc4ef+E2RdwUcd1pQpkKVkzT3PWx2E9epFDOccqXUKtOz6UAzOdGX4nobDCo2sxMdKnrqQBNiLkiCQzBoPfdbsxf4nS9mu6dvFQ097RSX4fxUBFFBMX4oRuUXPmzOf2zENm56b6Ibxo2ywnsJ4hc/6Uw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mp5vJj3kSZ5b6CV9WcFfnJvbkDtqUnazQgYHEAagk5A=;
- b=hJ5AliGo829pBPAb8Vs2bapvUIEwI3hE+FhkmJIdoXSwUigxPzwytiPt2/ViGN48VUGyRu+xE30QqRtw2TqAPOWFAMS8xr8SJgNGpaLRsUnAvy5TcUsDoQyLeHX5buKiJSJpa7TYhVAznZD5PHfDjFi97l4uOsTD69LLFaovomw=
-Received: from DM4PR10MB8218.namprd10.prod.outlook.com (2603:10b6:8:1cc::16)
- by PH7PR10MB6674.namprd10.prod.outlook.com (2603:10b6:510:20c::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.21; Thu, 28 Aug
- 2025 15:45:44 +0000
-Received: from DM4PR10MB8218.namprd10.prod.outlook.com
- ([fe80::2650:55cf:2816:5f2]) by DM4PR10MB8218.namprd10.prod.outlook.com
- ([fe80::2650:55cf:2816:5f2%5]) with mapi id 15.20.9052.019; Thu, 28 Aug 2025
- 15:45:44 +0000
-Date: Thu, 28 Aug 2025 16:45:36 +0100
-From: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-To: David Hildenbrand <david@redhat.com>
-Cc: linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Brendan Jackman <jackmanb@google.com>,
-        Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>,
-        Dmitry Vyukov <dvyukov@google.com>, dri-devel@lists.freedesktop.org,
-        intel-gfx@lists.freedesktop.org, iommu@lists.linux.dev,
-        io-uring@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
-        Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
-        John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com,
-        kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
-        Linus Torvalds <torvalds@linux-foundation.org>,
-        linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
-        linux-crypto@vger.kernel.org, linux-ide@vger.kernel.org,
-        linux-kselftest@vger.kernel.org, linux-mips@vger.kernel.org,
-        linux-mmc@vger.kernel.org, linux-mm@kvack.org,
-        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-        linux-scsi@vger.kernel.org, Marco Elver <elver@google.com>,
-        Marek Szyprowski <m.szyprowski@samsung.com>,
-        Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
-        Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
-        Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
-        Robin Murphy <robin.murphy@arm.com>,
-        Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
-        virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
-        wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
-Subject: Re: [PATCH v1 15/36] fs: hugetlbfs: remove nth_page() usage within
- folio in adjust_range_hwpoison()
-Message-ID: <1d74a0e2-51ff-462f-8f3c-75639fd21221@lucifer.local>
-References: <20250827220141.262669-1-david@redhat.com>
- <20250827220141.262669-16-david@redhat.com>
+	id 1ureuj-000000029R3-0UKx
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 28 Aug 2025 15:51:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756396306;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=S+knyS2+c+jGuo6fC46mPYtwsTJxg5ztsNayK7xPVlA=;
+	b=WPvfkh/ZMlk1YFDik4FVBRXAcjd2omz3iawr1sZekgqKQKgfXEXpiZ2Y9y3ZVYzMJFoMo0
+	/Wz4CXj969ivxbuymnQvzrT4k91cLlr1adJgzm/FXXzlyu4IRZ2St/YE8kL4Jjx4+5dIbv
+	yOtUM86JG74PAC+ZkLAVkXxpn/CByhI=
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com
+ [209.85.222.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-184-pNu4oUgQMCyfJ5ukLw-K4A-1; Thu, 28 Aug 2025 11:51:41 -0400
+X-MC-Unique: pNu4oUgQMCyfJ5ukLw-K4A-1
+X-Mimecast-MFC-AGG-ID: pNu4oUgQMCyfJ5ukLw-K4A_1756396301
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-7f88956825aso260580485a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 08:51:41 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756396301; x=1757001101;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=S+knyS2+c+jGuo6fC46mPYtwsTJxg5ztsNayK7xPVlA=;
+        b=htZNBED6JomeufR2srPVwlfJI9x7vrkSzoo7Adcitm2Bmij2xrvOO0qjj1m1s44Plm
+         t7Ldh/UmC6VA1xhUG+NCc3XX3900q/p7SoCkEjumeL4GW253sDpc6f9ULakZENqTjSmI
+         yqgLcVT1KJe06mph3OUfF5kITYKjrgBTcvXecAJg/0ioPuUWAraFTRI64VB54rDARqRu
+         G6w7uoXUTQXpd4hrRViRdrnXGTAxDlOPwRWOcJimzCdvAN+RtuykBDFWXBMyOzUqs8Ne
+         9Vx6/pWsZ074HUFMgVi/M9bOSO7PrEVLrDa/+HTTPqBDCHNmF9rQ49je3hgL+eatY3I+
+         yiFw==
+X-Forwarded-Encrypted: i=1; AJvYcCVZu3qlBn1vUM4lEJTm5d87AfpE3UGxh5EUaTJegdilQInu2HCZjZEr/4shwz3DQyE18kt3lDBmxmR+HzSxt9F2@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxc33SosTred1fTLjCRDErsky9a6kdcsNQGbDtrlgOtqtQWm2bM
+	fk1tWUfNO7Y1LjmeRZBX/+yzrCbr6nSbVl8wlFsDgqHxkwpmtv5oI/u1zdgt9bPArxZZQaAIjKj
+	246b9KV1oMwgczriRxDQSaNUILvGOt7Yl2YE/CKkj/sTMrDUkrANjxxhS3DK9Y/fRA4vL7oZy8t
+	7z
+X-Gm-Gg: ASbGncuu9+MVFVb7IpDU0jk+VWrA3WlhnicHvf5mS7c9FDFfdNlY/ZiOODoQwSEN96B
+	EgmVrFwreie7/9uO8mmdze2I49Czs7F9qMXNJA/LlLNfqaJMVH/fgieArsI7twU8l4tB/q1/Gy8
+	CmNEiAaTAFAvMs1/bXqvMR6uw19u/IvLPFOMKWtMdGcBail+shqFF7LPOLCnqyJJNqkvsFjDwny
+	2aE88OmcLBrQtVIFMTMp4wXCaeTPbkn4x4gecp9K/tH0u3mF/7npbRtAi3CxayY0+6FLPx048nE
+	XTEICrOwDReix0s1uQdEA4tgJqJw/uIpTaXi6itekJ4/S3COLihcbfUVFbU1aVvYKp5hVhbEyP3
+	RUDCj9lLv2hj4BzyUxAQ=
+X-Received: by 2002:a05:620a:372b:b0:7ee:84f4:8134 with SMTP id af79cd13be357-7ee84f49bfbmr2632532585a.73.1756396301040;
+        Thu, 28 Aug 2025 08:51:41 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFJeyZ8hC7qSu0hkLbJpyPcPTqfRgt1CgSMTN9TL/BiqkQO+pTUormRnaRlWD6V++9KCREhlQ==
+X-Received: by 2002:a05:620a:372b:b0:7ee:84f4:8134 with SMTP id af79cd13be357-7ee84f49bfbmr2632527385a.73.1756396300477;
+        Thu, 28 Aug 2025 08:51:40 -0700 (PDT)
+Received: from x1 (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7fc14478510sm2413085a.35.2025.08.28.08.51.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 28 Aug 2025 08:51:39 -0700 (PDT)
+Date: Thu, 28 Aug 2025 11:51:36 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Ryan.Wanner@microchip.com
+Cc: mturquette@baylibre.com, sboyd@kernel.org, nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev,
+	varshini.rajendran@microchip.com, linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	robh@kernel.org
+Subject: Re: [PATCH v3 00/32] clk: at91: add support for parent_data and
+Message-ID: <aLB7CJY9nMLoS1or@x1>
+References: <cover.1752176711.git.Ryan.Wanner@microchip.com>
+MIME-Version: 1.0
+In-Reply-To: <cover.1752176711.git.Ryan.Wanner@microchip.com>
+User-Agent: Mutt/2.2.14 (2025-02-20)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: K-bEISuLK8T11s3LI1IC_GUD_sgIUgMc60FTlp9WAbQ_1756396301
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250827220141.262669-16-david@redhat.com>
-X-ClientProxiedBy: LO4P265CA0117.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:2c3::20) To DM4PR10MB8218.namprd10.prod.outlook.com
- (2603:10b6:8:1cc::16)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR10MB8218:EE_|PH7PR10MB6674:EE_
-X-MS-Office365-Filtering-Correlation-Id: f40dac56-85cb-4a0a-c252-08dde649f35e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5gaUm1am1Kx1+kENUuViyH4ALBSg6ccW/F4Gm52JfY/DRn/DJZwdnbxdff34?=
- =?us-ascii?Q?Fv6seR5eb3WoWuoYo2CT3R8hgd1ElRAhjyF4K+9/TpfxVGFBvJKPZVzK3x9Q?=
- =?us-ascii?Q?DeYYgI77uLGUW/fLlX3O6/qM1rOwYIMlH+pzV6RgxLRxEzUY6OdV/8HM+d6E?=
- =?us-ascii?Q?bKPapwLHkFMdpPL6MvZ6WAsfCnkamvUStFybwvilri67hjcPuRUsanEZkOkU?=
- =?us-ascii?Q?D8QlDEa+7xBgsBYW091SFXpmJCSjXWNWgu++00h3AfgGybwabWLK4ayoZi1V?=
- =?us-ascii?Q?HleGLnsvkFi/y7z2raZju1S7+lQNaWnrQ6ZRpo3Yew0zl6nGX13y5Ib5ZVqW?=
- =?us-ascii?Q?pti4R2pg1Bqzsa/jBv/CcsQLblHSnh/iBQIEGVinItgup3SRFECfs3a+lMXO?=
- =?us-ascii?Q?Tzk1bB28X6yk1UtWD9GEJbsf6dDG78+ZMSkINR4biGISIwZxEYa22eQ3JdPo?=
- =?us-ascii?Q?p+AFAFtjxyzJjaGYr45DF6dn2q9gx7WfwiouPHIVeyatUQqExkvcrp7qgj8d?=
- =?us-ascii?Q?nW1jTVm5svFZU4qOmzOt+A7DiRpg5qhl72XFGvksEJBdMK1rNxWM1orxYxBO?=
- =?us-ascii?Q?1hNh9Ne8hX3/Bu4fbwgNhgmo+CeAcQP4g7K+OJtuTLfogH+Afb89jbqquacR?=
- =?us-ascii?Q?Mnkc81daQJs9hxTztj70E9WGIH5jeb/0yHpqpm3vW/W7bY8Fy+y93fysMuF+?=
- =?us-ascii?Q?Vt32ZFbcpq4O4z4JuQxCVjuLqQUlDYDeWHrqVTJPI3DT9M17fov8WaUo3gdE?=
- =?us-ascii?Q?vtQX6oObdYYrpdoxqMiT22eM6PzerbtXQHcrSyCYWlyhCJkOiQz4J9WAp8sH?=
- =?us-ascii?Q?3+jSuL7q09c+9Mwa1X3xepO0+HLeigg5s4oozHgneP41zbGlS6sf2tGA3jtg?=
- =?us-ascii?Q?WiMljRDOkaK2SJ+jTBj6UCfRNzNd5DDIyVhzItxoIZIXm5K62oQGaMoOTFfx?=
- =?us-ascii?Q?06fpQA2PFsYARX0lxJRHZKNOz6M2cpiPKcOWYhM0A/8Nr7xXfaixXHHxYb27?=
- =?us-ascii?Q?/NVsxHIFk5nJG/z3CobKvkB3k5y5aAD/oYNiYJ/rHujITGwdMg02vQi/9w6/?=
- =?us-ascii?Q?D1oMzlKu3gebByXaQ3d8+SMERfAjtelU4HJ/j0cbu/lmzdWe1GhqKzgLSAlV?=
- =?us-ascii?Q?EBj+nGOpax/R0pLuy4/CsuDFNMNBWMxf+AiVznIHqfAugjfXpzNXEmLgWHHn?=
- =?us-ascii?Q?NdtSO2nZK/dTXD66yJWDGUPPydVYBIAWtIxr7Y7dV0nqu71tSmHEN7e/mhJI?=
- =?us-ascii?Q?cQDm146lclSS6JSpoKHcjqJAfKurRemDBCma14ScAUxb2PdjDBjcqhbi3Ad7?=
- =?us-ascii?Q?4jHK1oxVXYHLbzLxUQk4ZJGqLGcKRVQrDlen5FFZMJNom/Ut/4uperbBUZ+R?=
- =?us-ascii?Q?JF/iZY5bRQi9svprjiksBv87Lkil/dYnpLvXzaGV1gr/wL4PwA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR10MB8218.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9At8MnUw9itGRNqhIh00whh5jglQtopI5WMGEFh6H5cLpM6/4GV4GxJ1KvmY?=
- =?us-ascii?Q?FaIGUoJV9m3lqxOzDHLRH1MzfLLWi0VAUhC2PKEpsiAmM9T32eJh20pjOb3i?=
- =?us-ascii?Q?ud+Tm2zB7ZRO/sIYTR7oS70H0vxx81JailtAj/k5l9/qedKuuf829ZZ9Tl3r?=
- =?us-ascii?Q?5JRrf1QxpSkk/QhNxef0X01k47QGyw1/JgqvkkCjn95mOm1A/TsFN9zXMBDh?=
- =?us-ascii?Q?i8mwmlGzp+ttmhtfeskmBHxSNUR/vYE/ZTr36/41MjzbguyVoQu+CCCszp3w?=
- =?us-ascii?Q?G3SlAx9OXOdWgKCigR8L9+ptPKMuVR12yty8ue7KmEXMvkuMBD6LsQdoQmGf?=
- =?us-ascii?Q?6d05NTCUBA1kZ/q8UE4/7jCDgKDKg25fd1jVococUJNJgldZkV1dUnpsS5w6?=
- =?us-ascii?Q?BUXBjdL9AGa6zRvAvJ7QDZ4aOPkMZd1lp92qy1btM9Ol1ncBn5XdId9DC+UA?=
- =?us-ascii?Q?/GCJOB3mqW8DeMoNDH3ElAwHnd7l2rjxM2bO6XM7yrNR1ko7mBnaYnEEXKlv?=
- =?us-ascii?Q?D4oEudlAQmRBhtN5sFLDyffy29dmyVDsR5q6gIQ/HjMXzQhJLPTfwt/MXwFM?=
- =?us-ascii?Q?aU+o1hu8TlQ3QXBqRaHT0ljjMXiokcrSR89palWgrBQAEFzt/StxhDilhWrw?=
- =?us-ascii?Q?+COgG/9CgK8/YRjlemhrs6ELHZ67pvqDSuhJ/EMX+VMMW3gmKQteU5biWdIJ?=
- =?us-ascii?Q?Gk1JH29V8NyfLNmL4vzpKByH0z33YIan6whQO580REGibtJqwmVy7aNxWxaM?=
- =?us-ascii?Q?EDdB2+MoWMza4OWN5sDZVEF4amMucY3YNRNe4sGtRMuOxZcvpuhe431H5JRW?=
- =?us-ascii?Q?rGPt/W+3rKlV8Efbx2HKqh79eBsAj2k2GEvqO4LCzaOGkN+ZFQ6n0eMPd0iZ?=
- =?us-ascii?Q?ocCWw74Yb68lRt2Sj1vSr5rITKoygqx018or5xYeqmilGm4NmRXuhIUzblt1?=
- =?us-ascii?Q?f38FTBsoU1wG8MJYsN9bLfqiH2wHkV2FFCHijR34wIx+wet46Nwqa22ShUZU?=
- =?us-ascii?Q?EJe7x49VyOjZVHMcJCaBUF0p/kd7TEhadyjJagQQ7uWyN0qhmJSioO0DrHu6?=
- =?us-ascii?Q?9NgoGzR0EPKzweqHOU0JC70qf918YAO9+7EPORvqTS6AFM6B+GFN5dvqwgpI?=
- =?us-ascii?Q?Pq6mD3kRMtzjw+ctelKpf+8OtPp43ULvJ0s25FoykVOX6LRQkHOzUPDNP1oV?=
- =?us-ascii?Q?zafEPnyyjBjOxuuJ64d42W/N9g/UkdCIJbvoARLRGjRX6qJUegK8oF95NQ0z?=
- =?us-ascii?Q?kvBHTpCFZ38dHKtjT2Q54IV46xZ5J1JiyE3RqW8AtVLnX4H25A8HoWue0nW0?=
- =?us-ascii?Q?zOAI/gM1slJDoj5mL8G8XEP1XBKUCb6GhBq7S4m3Lln0vmX9MsD27hZUYDJM?=
- =?us-ascii?Q?8ohQEwdBNBsRJUbDW1C8EW9Y5PhY9oVgVVuqRwdHAuvHff2Fp9bnoJA/6mMo?=
- =?us-ascii?Q?dELY77arMFLWs+aOZOg/5N42im478NGEuu8q0baX2Z0ljn5De7OXTUrZiFEP?=
- =?us-ascii?Q?PAs+Kihbss2U0hdR2aHbmUkC0RzgCK04MbpuPU5dPfWJsmWUtB8vcpCsu79J?=
- =?us-ascii?Q?LzTGz2/dkKq6eaB/MCdDPkyrGpuveP9Rpq5l5cSwv20nzzxe7t0VuDHzGyXj?=
- =?us-ascii?Q?Gw=3D=3D?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: oPJ6T2/ittV4vgsQnQPw+p0xB4j2w2vHoln4P4VasSDkvyD3vWFEcckU4DPpEpvVJ2jHewmaDeqeYkhD/ZDfa8rz/jJl1RX5rFtpMOgnKRXvTWKCy0VYPwS14Ce4ciB8yBw2yJUwnNIxj8nca0lzTmJZwa4kYh/ikQhGs/Wx8b4LfSavG4yz2zcuG3yQd62F677geGZGDYm6/nD4GRXtfESVvM9c9txY0PqxbRGs4xPiVjZcIaQEbtGj32BM/MDEeDYbSFG9KHy1aY8awmaWiDe0dTd9PJunx7O2KEB8886EmhZM6Q5HpdKmbzVrZBXRErFbZ9RpNWgeZ4q/SDFb6B+xuVIC4h2naZS/Aixu5AsDskg17DPhJDssKEMYKnpB2a55Qvonwn5LrTgJ25KQ4tI7PGWb6taRHd12eO9nhslzup1wUq5Bk9cgEwFGx6mtG71A/bi5s9lVWtSsWtbsxSuvQaghUlcIzghwHPMWzkvTMCiwdmr+tWx89Oiu9ueFUYvBYryG7svLaaeIh3+tU94hArXVSqc5yVQBeuDilzSD9biEjGFxbe0Rhr4I7pg2/dEv5WJlv4HTEXeD7quUtlR4yFcyyD+KbB9g+4CPP3c=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f40dac56-85cb-4a0a-c252-08dde649f35e
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR10MB8218.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Aug 2025 15:45:44.7326
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ZXLGCb4noF6YrSZGyB+mdvW2mwYpg/j5be5wGoxE7I2GtrMMuGsj8+h7daX5jVscCImo8kQ80qLxW1kMkalSfNehk6RVicsPUm7ICDYXVzc=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR10MB6674
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-28_04,2025-08-28_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0 suspectscore=0 spamscore=0
- phishscore=0 bulkscore=0 mlxscore=0 mlxlogscore=999 malwarescore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2508110000
- definitions=main-2508280131
-X-Proofpoint-ORIG-GUID: 4h_jOq_f-gSghy12tmQGtR9CNs_-JYxU
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODI0MDE4NCBTYWx0ZWRfX2iy2UPGDP1Kz
- QKSHjk6jimAoZV46xDAey/kd57RvtvWVcfzuFAB/BkGQENL0DGRgJbB9aNij5bl8VreG+RCLHfF
- aRy+F584GaTk4cWcaM/Vwgsu0wiYJ+ipu4WX9DC2IV3O7vAYmmZB2h1WoEeATmUnwilreled9e5
- sR6Nv3fYLuv+uLGNkj55Y+o8MW6FOCkitRO81ntCED3INRTi76TpEq5VLwAy1cziZrDJOw4RZpQ
- By4xu2+aaAnyv9DdGycy0LSyTt9yaALKYin5Ayew11VpqaDrhvHsd63tIygCOW9vK22XQIMkuyE
- QjNwL31IOQHGFe5FEsBhOPRtUW67jpkPAfo8GdQkUaRfN1SD0vh45fAD4MR4bU4vnN/RQZPfnhi
- vpO5/8i+h/GLmbPt8lRM1kbmOC+sXA==
-X-Proofpoint-GUID: 4h_jOq_f-gSghy12tmQGtR9CNs_-JYxU
-X-Authority-Analysis: v=2.4 cv=IciHWXqa c=1 sm=1 tr=0 ts=68b079b7 b=1 cx=c_pps
- a=zPCbziy225d3KhSqZt3L1A==:117 a=zPCbziy225d3KhSqZt3L1A==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
- a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=2OwXVqhp2XgA:10 a=GoEa3M9JfhUA:10 a=20KFwNOVAAAA:8 a=yPCof4ZbAAAA:8
- a=Bl31fZ5Oqo-2sH_beBMA:9 a=CjuIK1q_8ugA:10 cc=ntf awl=host:12068
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_084621_219489_60736AAF 
-X-CRM114-Status: GOOD (  20.73  )
+X-CRM114-CacheID: sfid-20250828_085149_221402_7290A081 
+X-CRM114-Status: GOOD (  22.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -226,40 +112,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 28, 2025 at 12:01:19AM +0200, David Hildenbrand wrote:
-> The nth_page() is not really required anymore, so let's remove it.
-> While at it, cleanup and simplify the code a bit.
+Hi Ryan and Claudiu,
 
-Hm Not sure which bit is the cleanup? Was there meant to be more here or?
+On Thu, Jul 10, 2025 at 01:06:53PM -0700, Ryan.Wanner@microchip.com wrote:
+> From: Ryan Wanner <Ryan.Wanner@microchip.com>
+> 
+> This series adds support for parent data and parent _hw on the at91
+> clock drivers. This also updates all the SoC specific clock drivers to
+> use this format as well.
+> 
+> This is a continuation of the V1 of this series here [1].
+> 
+> This has been tested on the SAMA5* SoCs, the sam9x* SoCs, and the SAMA7*
+> SoCs.
+> 
+> Changes v1 -> V2:
+> - Remove all the small sama7g54 SoC driver changes and put them in their
+>   own patch.
+> - Add the SAMA7D65 and the SAM9X75 to this update.
+> - Add a patch to move all common used macros into the pmc.h file.
+> - Update changes from v6.6 to v6.16.
+> - Remove patches that where style fixes and include those in the update.
+> 
+> Changes v2 -> v3:
+> - Adjust each patch so they are fully atomic.
+> - Add a patch to have the SAMA7D65 systemclocks use parent_data and
+>   parent_hw.
+> - Add a formatting cleanup patch for the SAM9X75.
+> - Adjust commit messages that no longer show invalid information.
+> 
+> 
+> 1) https://lore.kernel.org/all/20230727053156.13587-1-claudiu.beznea@tuxon.dev/
+> 
+> 
+> Claudiu Beznea (28):
+>   clk: at91: pmc: add macros for clk_parent_data
+>   clk: at91: clk-sam9x60-pll: use clk_parent_data
+>   clk: at91: clk-peripheral: switch to clk_parent_data
+>   clk: at91: clk-main: switch to clk parent data
+>   clk: at91: clk-utmi: use clk_parent_data
+>   clk: at91: clk-master: use clk_parent_data
+>   clk: at91: clk-programmable: use clk_parent_data
+>   clk: at91: clk-generated: use clk_parent_data
+>   clk: at91: clk-usb: add support for clk_parent_data
+>   clk: at91: clk-system: use clk_parent_data
+>   clk: at91: clk-pll: add support for parent_hw
+>   clk: at91: clk-audio-pll: add support for parent_hw
+>   clk: at91: clk-plldiv: add support for parent_hw
+>   clk: at91: clk-h32mx: add support for parent_hw
+>   clk: at91: clk-i2s-mux: add support for parent_hw
+>   clk: at91: clk-smd: add support for clk_parent_data
+>   clk: at91: clk-slow: add support for parent_hw
+>   clk: at91: dt-compat: switch to parent_hw and parent_data
+>   clk: at91: sam9x60: switch to parent_hw and parent_data
+>   clk: at91: sama5d2: switch to parent_hw and parent_data
+>   clk: at91: sama5d3: switch to parent_hw and parent_data
+>   clk: at91: sama5d4: switch to parent_hw and parent_data
+>   clk: at91: at91sam9x5: switch to parent_hw and parent_data
+>   clk: at91: at91rm9200: switch to parent_hw and parent_data
+>   clk: at91: at91sam9260: switch to parent_hw and parent_data
+>   clk: at91: at91sam9g45: switch to parent_hw and parent_data
+>   clk: at91: at91sam9n12: switch to parent_hw and parent_data
+>   clk: at91: at91sam9rl: switch to clk_parent_data
+> 
+> Ryan Wanner (4):
+>   clk: at91: pmc: Move macro to header file
+>   clk: at91: sam9x75: switch to parent_hw and parent_data
+>   clk: at91: sama7d65: switch to parent_hw and parent_data
+>   clk: at91: sam9x7: Clean up formatting
 
->
-> Signed-off-by: David Hildenbrand <david@redhat.com>
+What tree did you develop this against? When I try to apply this series
+to Linus's tree (6.17-rc3) and linux-next, only 12 of these patches
+actually apply with 'git am'.
 
-LGTM, so:
+Brian
 
-Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-
-> ---
->  fs/hugetlbfs/inode.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/fs/hugetlbfs/inode.c b/fs/hugetlbfs/inode.c
-> index 34d496a2b7de6..c5a46d10afaa0 100644
-> --- a/fs/hugetlbfs/inode.c
-> +++ b/fs/hugetlbfs/inode.c
-> @@ -217,7 +217,7 @@ static size_t adjust_range_hwpoison(struct folio *folio, size_t offset,
->  			break;
->  		offset += n;
->  		if (offset == PAGE_SIZE) {
-> -			page = nth_page(page, 1);
-> +			page++;
-
-LOL at that diff. Great!
-
->  			offset = 0;
->  		}
->  	}
-> --
-> 2.50.1
->
 
