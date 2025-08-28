@@ -4,73 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0961CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 18:37:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 758FBC8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 18:38:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AVL/RSonWP2g13e+N7PWd4mt1QF5/+IyKi5L9X75woc=; b=tfh/0W7k7c+vOWuug6uwNBvu/m
-	3HgiWEg5KC1EXs4HEUnzdTivl7vizQ+NTIW+aVteAly7FPtA8rUWu301HAZAfPeVhudn7oeVEa61s
-	S6qqzjsRxz7oQCaDQ9q44JyYNEDbdlGDuPZIssfZjRUfTFC53vN/wWzyZmXuZJel9OdzAIdHWnfZL
-	WVTLhjGdzXIbNYDGlB4TGr02kVo+anfxYrIlJ0p8ZYBQXTJCQD9j6SntQcf04tuEO2JWBDVYsOQTS
-	/gsesIW0iGYx+PVymk/r8m/Y4hqSygqRCVYEDfQdXKstcN2qOARg5ixndFPv9hngXBbNQcfa3gEMp
-	CE1ikCww==;
+	bh=H2VjxPIys7d1tJoSW05HXWGO8B1PQC1RoUMeQHH1la8=; b=oJREA5UmYtKaJY1vlRQfBftGgM
+	L4hjKjsFjcxgyYM2rHAeTwjCLT4R2FXLOqZ6bHi8d1xV4Ru/2PxDa97qQ9XRi6KcOjneLFhcaAsWQ
+	+GsvoB60T5iV3gnOEVzm6lQSFJusSDsto57uUA5sl/EKGVM+jMU9G8yM4FRbv1voCYfsZaHDLWEOJ
+	MLTut6xXBp4VaHwW4yTaH7xdQ1uNfsHVmm6xhzqBWhYQCuOMCwKf+P6Pd74A/C57ibgemSRX7OCK3
+	LWlzwfWwvd0DQ+qZdNGcjSodEzA0TpvuY5dkTYbBCsIqBAc3XCZ4LzWeQYE80zKynA4M8gtg5aBRH
+	sduPK8Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urhVQ-00000002nzT-1ZPK;
-	Thu, 28 Aug 2025 18:37:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urf0l-00000002AFf-3JMD
+	id 1urhWG-00000002o86-45UE;
+	Thu, 28 Aug 2025 18:38:45 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urbYN-00000001VAe-43va
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 15:58:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8E7AA1A32;
-	Thu, 28 Aug 2025 08:57:54 -0700 (PDT)
-Received: from [10.1.196.42] (eglon.cambridge.arm.com [10.1.196.42])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 23C883F694;
-	Thu, 28 Aug 2025 08:57:55 -0700 (PDT)
-Message-ID: <c87745ab-988e-4d3f-963c-9543e9c73d27@arm.com>
-Date: Thu, 28 Aug 2025 16:57:55 +0100
+	Thu, 28 Aug 2025 12:16:33 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57SAJbT7003220;
+	Thu, 28 Aug 2025 14:15:55 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	H2VjxPIys7d1tJoSW05HXWGO8B1PQC1RoUMeQHH1la8=; b=gyABa5URoIdL0qys
+	8nCirTWeTflyOsuJyYXpsDDVA3hHboNWQpco+hkmcJZ4hpecA3kRy3o+RGR41538
+	YlgI7saSguc+YAAM6UsqKjzRb6l582ilE/u6LaPff8muKBs9qp2hDkdvdObtHIb6
+	Em6ELCC29h/Noubjyln1OLyPnAdp+HSOnO0de509FCkMiDJOkxL07lFkQ7nznvMy
+	ydQWuw7sEn3myU8qdzK2+gQ/Lyq41sz8ocCROVnTgiZv4TyRCADCeSh2/9bMTu6B
+	Wfv6BdSRNqc2ek/eZ9iJrCR1z9VRjVYabdE3vl9g3DLzWIDMGQV13qQd1y00iFFL
+	sZ5Jbw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48q5tt5139-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 28 Aug 2025 14:15:55 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id EA37D40048;
+	Thu, 28 Aug 2025 14:14:08 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 2A75372766C;
+	Thu, 28 Aug 2025 14:13:02 +0200 (CEST)
+Received: from [10.130.77.120] (10.130.77.120) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 28 Aug
+ 2025 14:13:00 +0200
+Message-ID: <9133348a-f6a4-4425-98e2-a784a7620b3a@foss.st.com>
+Date: Thu, 28 Aug 2025 14:12:57 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 05/33] ACPI / PPTT: Find cache level by cache-id
-To: Ben Horgan <ben.horgan@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
- devicetree@vger.kernel.org
-Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
- Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
- baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
- Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>
-References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-6-james.morse@arm.com>
- <9ce36190-6d99-4a41-a803-a65be677db2d@arm.com>
-Content-Language: en-GB
-From: James Morse <james.morse@arm.com>
-In-Reply-To: <9ce36190-6d99-4a41-a803-a65be677db2d@arm.com>
-Content-Type: text/plain; charset=UTF-8
+From: Christian Bruel <christian.bruel@foss.st.com>
+Subject: Re: [PATCH v13 06/11] PCI: stm32: Add PCIe Endpoint support for
+ STM32MP25
+To: Bjorn Helgaas <helgaas@kernel.org>
+CC: <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <mani@kernel.org>,
+        <robh@kernel.org>, <bhelgaas@google.com>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <mcoquelin.stm32@gmail.com>,
+        <alexandre.torgue@foss.st.com>, <linus.walleij@linaro.org>,
+        <corbet@lwn.net>, <p.zabel@pengutronix.de>, <shradha.t@samsung.com>,
+        <mayank.rana@oss.qualcomm.com>, <namcao@linutronix.de>,
+        <qiang.yu@oss.qualcomm.com>, <thippeswamy.havalige@amd.com>,
+        <inochiama@gmail.com>, <quic_schintav@quicinc.com>,
+        <johan+linaro@kernel.org>, <linux-pci@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-gpio@vger.kernel.org>, <linux-doc@vger.kernel.org>
+References: <20250827185825.GA894342@bhelgaas>
+Content-Language: en-US
+In-Reply-To: <20250827185825.GA894342@bhelgaas>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.130.77.120]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-28_03,2025-08-28_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_085803_912290_13BE640E 
-X-CRM114-Status: GOOD (  15.02  )
+X-CRM114-CacheID: sfid-20250828_051632_621735_B378B8B4 
+X-CRM114-Status: GOOD (  21.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,60 +103,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
 
-On 27/08/2025 10:25, Ben Horgan wrote:
-> On 8/22/25 16:29, James Morse wrote:
->> The MPAM table identifies caches by id. The MPAM driver also wants to know
->> the cache level to determine if the platform is of the shape that can be
->> managed via resctrl. Cacheinfo has this information, but only for CPUs that
->> are online.
->>
->> Waiting for all CPUs to come online is a problem for platforms where
->> CPUs are brought online late by user-space.
->>
->> Add a helper that walks every possible cache, until it finds the one
->> identified by cache-id, then return the level.
->> Add a cleanup based free-ing mechanism for acpi_get_table().
 
->> diff --git a/include/linux/acpi.h b/include/linux/acpi.h
->> index f97a9ff678cc..30c10b1dcdb2 100644
->> --- a/include/linux/acpi.h
->> +++ b/include/linux/acpi.h
->> @@ -221,6 +222,17 @@ void acpi_reserve_initial_tables (void);
->>  void acpi_table_init_complete (void);
->>  int acpi_table_init (void);
->>  
->> +static inline struct acpi_table_header *acpi_get_table_ret(char *signature, u32 instance)
+On 8/27/25 20:58, Bjorn Helgaas wrote:
+> On Wed, Aug 20, 2025 at 09:54:06AM +0200, Christian Bruel wrote:
+>> Add driver to configure the STM32MP25 SoC PCIe Gen1 2.5GT/s or Gen2 5GT/s
+>> controller based on the DesignWare PCIe core in endpoint mode.
+> 
+>> +static void stm32_pcie_perst_deassert(struct dw_pcie *pci)
 >> +{
->> +	struct acpi_table_header *table;
->> +	int status = acpi_get_table(signature, instance, &table);
+>> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
+>> +	struct device *dev = pci->dev;
+>> +	struct dw_pcie_ep *ep = &pci->ep;
+>> +	int ret;
 >> +
->> +	if (ACPI_FAILURE(status))
->> +		return ERR_PTR(-ENOENT);
->> +	return table;
->> +}
->> +DEFINE_FREE(acpi_table, struct acpi_table_header *, if (!IS_ERR(_T)) acpi_put_table(_T))
-
-> nit: Is it useful to change the condition from !IS_ERR(_T) to
-> !IS_ERR_OR_NULL(_T)? This seems to be the common pattern. I do note that
-> acpi_put_table() can take NULL, so there is no real danger.
-
-If it's the common pattern, sure.
-
-But this code got dropped as Dave pointed out the PPTT doesn't care about the reference
-counting anyway, its acpi_get_pptt() helper just uses the same reference for everything.
-
-This might come back for the MPAM driver..
-
-
+>> +	dev_dbg(dev, "PERST de-asserted by host\n");
 >> +
->>  int acpi_table_parse(char *id, acpi_tbl_table_handler handler);
->>  int __init_or_acpilib acpi_table_parse_entries(char *id,
->>  		unsigned long table_size, int entry_id,
+>> +	ret = pm_runtime_resume_and_get(dev);
+>> +	if (ret < 0) {
+>> +		dev_err(dev, "Failed to resume runtime PM: %d\n", ret);
+>> +		return;
+>> +	}
+>> +
+>> +	ret = stm32_pcie_enable_resources(stm32_pcie);
+>> +	if (ret) {
+>> +		dev_err(dev, "Failed to enable resources: %d\n", ret);
+>> +		goto err_pm_put_sync;
+>> +	}
+>> +
+>> +	/*
+>> +	 * Need to reprogram the configuration space registers here because the
+>> +	 * DBI registers were incorrectly reset by the PHY RCC during phy_init().
+> 
+> Is this incorrect reset of DBI registers a software issue or some kind
+> of hardware erratum that might be fixed someday?  Or maybe it's just a
+> characteristic of the hardware and thus not really "incorrect"?
+> 
+> I do see that qcom_pcie_perst_deassert() in pcie-qcom-ep.c also calls
+> dw_pcie_ep_init_registers() in the qcom_pcie_ep_perst_irq_thread()
+> path.
+> 
+> So does pex_ep_event_pex_rst_deassert() (pcie-tegra194.c) in the
+> tegra_pcie_ep_pex_rst_irq() path.
+> 
+> But as far as I can tell, none of the other dwc drivers need this, so
+> maybe it's something to do with the glue around the DWC core?
+
+The RCC PHY reset is connected to the Synopsys cold reset logic, which 
+explains why the registers need to be restored. This point has been 
+addressed in the reference manual.
+
+I am not sure if the tegra194 and qcom drivers restore the registers for 
+the same reason. But refactoring this into the DWC core would require a 
+runtime condition to test for persistent registers or support for warm 
+reset.
+
+Best Regards
+
+Christian
 
 
-Thanks,
+> 
+>> +	 */
+>> +	ret = dw_pcie_ep_init_registers(ep);
+>> +	if (ret) {
+>> +		dev_err(dev, "Failed to complete initialization: %d\n", ret);
+>> +		goto err_disable_resources;
+>> +	}
 
-James
 
