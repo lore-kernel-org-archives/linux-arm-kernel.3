@@ -4,62 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F367BC8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 11:04:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8E7CCA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 11:06:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DuoGqdHAfp3g+tYJ8z5He0L7yOQ9x5H2FSG7RNhl9pY=; b=CDZ2zfkaXn+JuUxiw9VIiI4Icq
-	AJjBi5IlzIhtI22gYjkIHNus7+A+tS9a9yaKUnhgHE4jYmT38CDfXJ5nN3JvowFuL5X47dnbSZKWh
-	yZCvh0XWZNRCzY166Ag1evNsXIcKnHd/xEgCaAzCjc2S0QEWDh3DFv5CitaXynv60RcQzPMZbsAlN
-	1YqA+TK3kVBowxYMEot1bzlO5zmnnCHUQ2nCdLVgAwD2MXLiMBPQd1B4XseBgF+R5r1QWTM04dYtG
-	vIGfzzaRN3eGCiEzFwXhDFq2TPxnKmNRDOiB7xoZJvbKHmh3yvCC4CI/mdBnNa8rv7V9JCzLgizQh
-	W6uz5c5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WyGqgdCxHHZ0WqHQyWJK/IV7Suf/Xw7KrmTuRZik4js=; b=IaYjBqgSEJ73DmWZpky2+Km3ZI
+	uQxVi0wMkH5xkfZzkMnDOW+dzIcLfey58RJh2Xko6A/PFfy5HW/39Ml0kPbc03pVvprB14+lICrYr
+	dWl9YW/pP18Y77c/8Zno8fWHXxJcOQ4JJbyvEd4Hb/bvINvtg57R4ymqkNNGlIQVOi/Q+G2uEYYI0
+	zT74b8pGkw1TEn3B5rdoKJ81OqLG+Z2ChcYxJhfXszbFrI7eoiINnoY+iEzIlRe0+1+M1ogBiNgsG
+	olpcpQs1rX4IhoSQJ2y7d02dgUOhpsO/4WUDFqykn9X+V4/0xls93kc6w2mhsZcK0+rNIX5sVv+NN
+	z9tA04lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uraQF-00000001H3p-1oRG;
-	Thu, 28 Aug 2025 11:04:03 +0000
-Received: from vps.xff.cz ([195.181.215.36])
+	id 1uraSx-00000001HfR-3Rq6;
+	Thu, 28 Aug 2025 11:06:51 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urZQ5-000000013jH-0tE2;
-	Thu, 28 Aug 2025 09:59:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=xff.cz; s=mail;
-	t=1756375184; bh=9xSK5wQebA1aqy7LgKNxVsJm9NVimwKAsxwFdofUyZo=;
-	h=Date:From:To:Cc:Subject:X-My-GPG-KeyId:References:From;
-	b=Jpl9V0EnXS0hooV4AW2thMQ/BJNtdjxOk3uvnXwwmT4pP1pGH6nas3SOnUVQhucE1
-	 tjLA7D1ah1ADClJAPAK5fJfTPdDSf69icB7ShRkI1tJ5/VSREk24HjyIW961hLQhCD
-	 6n3CXMohR8IjNRfBFw0bii9/JAIwOvm9CVIDMsYs=
-Date: Thu, 28 Aug 2025 11:59:44 +0200
-From: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>
-To: Peter Robinson <pbrobinson@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Diederik de Haas <didi.debian@cknow.org>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, Dragan Simic <dsimic@manjaro.org>
-Subject: Re: [PATCH] arm64: dts: rockchip: Add vcc-supply to SPI flash on
- Pinephone Pro
-Message-ID: <s4pqhvg542k4d3m4sosnugy5sdnqpw3dabv7cw4o33imvfyxje@yao7oufrhxn6>
-Mail-Followup-To: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>, 
-	Peter Robinson <pbrobinson@gmail.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Diederik de Haas <didi.debian@cknow.org>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, Dragan Simic <dsimic@manjaro.org>
-X-My-GPG-KeyId: EBFBDDE11FB918D44D1F56C1F9F0A873BE9777ED
- <https://xff.cz/key.txt>
-References: <20250827143501.1646163-1-pbrobinson@gmail.com>
+	id 1urZTV-000000014lI-2RpL;
+	Thu, 28 Aug 2025 10:03:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1756375398;
+	bh=nCTV06WWtfHMZWRisXpyJ/SJmpEYn6VwPhh/jXVXBYA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=kQ9CGV025NnRJyfl1LkkWM3qppd1P22I26rdgTExBn/PQVUCTlXO7rX26sQqkzBW/
+	 9sr+xlQ6jlMWoeA6KQXYQgaG4rD6O4xvn6MsCo+ldZaYkgn4aOnuTtO+BhvMxyJBuM
+	 LgncDxpBlM9b772Xlwz9ccNKhZNBGZBKiQPQjELMpIUa0+bdRPVp4mTHaHkwkWbuWg
+	 2h07J8rBLEz5V3Fr0Gdkf+gtVQhcPQf7eSdWSy+/R13VY9ItDRPXkhmw2EhdMRvIGp
+	 s5VXACfuHDGzXheeCiyg/986fu0Xh/Jb6gr3GzZNYXi1o495JeGcmpplMUtUNXXXuQ
+	 ohfHCmT947CAA==
+Received: from [172.18.81.15] (ip-185-104-138-156.ptr.icomera.net [185.104.138.156])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: mriesch)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id DFCF617E0A49;
+	Thu, 28 Aug 2025 12:03:14 +0200 (CEST)
+Message-ID: <23ccc744-745d-4a31-a79c-2d64bf1ed43d@collabora.com>
+Date: Thu, 28 Aug 2025 12:03:13 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 06/13] media: rockchip: add a driver for the rockchip
+ camera interface
+To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+ Mehdi Djait <mehdi.djait@linux.intel.com>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Gerald Loacker <gerald.loacker@wolfvision.net>,
+ Markus Elfring <Markus.Elfring@web.de>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
+ <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Kever Yang <kever.yang@rock-chips.com>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Collabora Kernel Team <kernel@collabora.com>,
+ Paul Kocialkowski <paulk@sys-base.io>,
+ Alexander Shiyan <eagle.alexander923@gmail.com>,
+ Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, Mehdi Djait <mehdi.djait@bootlin.com>
+References: <20240220-rk3568-vicap-v10-0-62d8a7b209b4@collabora.com>
+ <20240220-rk3568-vicap-v10-6-62d8a7b209b4@collabora.com>
+ <3b4173cb-655d-48ea-b86a-a036f666cf40@linaro.org>
+Content-Language: en-US
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <3b4173cb-655d-48ea-b86a-a036f666cf40@linaro.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250827143501.1646163-1-pbrobinson@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_025949_694490_E938E3CA 
-X-CRM114-Status: GOOD (  16.48  )
+X-CRM114-CacheID: sfid-20250828_030321_813372_0B262626 
+X-CRM114-Status: GOOD (  38.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,37 +97,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 27, 2025 at 03:34:58PM +0100, Peter Robinson wrote:
-> As documented in the PinephonePro-Schematic-V1.0-20211127.pdf,
-> page 11, the SPI Flash's VCC pin is connected to VCC_1V8 power
-> source. This fixes the following warning:
+Hi Bryan,
+
+Thanks for your comments :-)
+
+On 8/26/25 08:21, Bryan O'Donoghue wrote:
+> On 19/08/2025 00:25, Michael Riesch via B4 Relay wrote:
+
+[...]
+
+>> +
+>> +static void rkcif_dvp_stop_streaming(struct rkcif_stream *stream)
+>> +{
+>> +    struct rkcif_device *rkcif = stream->rkcif;
+>> +    u32 val;
+>> +
+>> +    val = rkcif_dvp_read(rkcif, RKCIF_DVP_CTRL);
 > 
->   spi-nor spi1.0: supply vcc not found, using dummy regulator
+> This dvp_read stuff looks a bit funny to me, you have a lookup which can
+> return 0 for unknown registers.
 > 
-> Signed-off-by: Peter Robinson <pbrobinson@gmail.com>
+> Probably not the case with a control register like this one but, for
+> argument sake if RKCIF_DVP_CTRL was not a valid register i.e.
+> rkcif_dvp_read() would return 0 and you'd still act on that data to
+> write back to an unkown register.
 
-Reviewed-by: Ondřej Jirman <megi@xff.cz>
+...which would then hit the same check in rkcif_dvp_write and simply
+return without writing anything. Also, the WARN_ON_ONCE in the lookup
+would complain and indicate that the driver developer made some mistake.
+I hope that the driver developer is thus nudged towards fixing the code
+they wrote.
 
-Thank you,
-	o.
+> Would you not be better off having say callbacks to contain cases where
+> registers are potentially not present
+> 
+> ops->update_maybe_not_present_reg();
+> 
+> followed by writes to registers that would alawys be there ?
 
+I'll think about that in more detail, but right now my thoughts are that
+if any of the registers below are not valid, this piece of hardware is
+pretty useless and there is something rotten in the driver. Thus, we
+complain loudly to the developer.
+
+>> +    rkcif_dvp_write(rkcif, RKCIF_DVP_CTRL,
+>> +            val & (~RKCIF_CTRL_ENABLE_CAPTURE));
+>> +    rkcif_dvp_write(rkcif, RKCIF_DVP_INTEN, 0x0);
+>> +    rkcif_dvp_write(rkcif, RKCIF_DVP_INTSTAT, 0x3ff);
+>> +    rkcif_dvp_write(rkcif, RKCIF_DVP_FRAME_STATUS, 0x0);
+>> +
+>> +    stream->stopping = false;
+>> +}
+>> +
+>> +static void rkcif_dvp_reset_stream(struct rkcif_device *rkcif)
+>> +{
+>> +    u32 ctl = rkcif_dvp_read(rkcif, RKCIF_DVP_CTRL);
+>> +
+>> +    rkcif_dvp_write(rkcif, RKCIF_DVP_CTRL,
+>> +            ctl & (~RKCIF_CTRL_ENABLE_CAPTURE));
+>> +    rkcif_dvp_write(rkcif, RKCIF_DVP_CTRL, ctl |
+>> RKCIF_CTRL_ENABLE_CAPTURE);
+>> +}
+>> +
+>> +static void rkcif_dvp_set_crop(struct rkcif_stream *stream, u16 left,
+>> u16 top)
+>> +{
+>> +    struct rkcif_device *rkcif = stream->rkcif;
+>> +    u32 val;
+>> +
+>> +    val = RKCIF_XY_COORD(left, top);
+>> +    rkcif_dvp_write(rkcif, RKCIF_DVP_CROP, val);
+>> +}
+>> +
+>> +irqreturn_t rkcif_dvp_isr(int irq, void *ctx)
+>> +{
+>> +    struct device *dev = ctx;
+>> +    struct rkcif_device *rkcif = dev_get_drvdata(dev);
+>> +    struct rkcif_stream *stream;
+>> +    u32 intstat, lastline, lastpix, cif_frmst;
+>> +    irqreturn_t ret = IRQ_NONE;
+>> +
+>> +    if (!rkcif->match_data->dvp)
+>> +        return ret;
+> 
+> Wouldn't you be better off conditionally registering your ISR if
+> match_data->dvp is true instead ?
+
+As you have surely seen, the ISR is shared between all interfaces, i.e.,
+DVP and MIPI. Now the currently supported models all have a DVP and your
+suggestion would work. However, I think the RK3562 VICAP can be easily
+supported by this driver but does not feature a DVP (several MIPI
+interfaces, though). In this case match_data->dvp evaluates to false but
+still there is the need to register the ISR.
+
+> 
+>> +
+>> +    intstat = rkcif_dvp_read(rkcif, RKCIF_DVP_INTSTAT);
+>> +    cif_frmst = rkcif_dvp_read(rkcif, RKCIF_DVP_FRAME_STATUS);
+>> +    lastline = RKCIF_FETCH_Y(rkcif_dvp_read(rkcif,
+>> RKCIF_DVP_LAST_LINE));
+>> +    lastpix = RKCIF_FETCH_Y(rkcif_dvp_read(rkcif, RKCIF_DVP_LAST_PIX));
+>> +
+>> +    if (intstat & RKCIF_INTSTAT_FRAME_END) {
+>> +        rkcif_dvp_write(rkcif, RKCIF_DVP_INTSTAT,
+>> +                RKCIF_INTSTAT_FRAME_END_CLR |
+>> +                RKCIF_INTSTAT_LINE_END_CLR);
+>> +
+>> +        stream = &rkcif->interfaces[RKCIF_DVP].streams[RKCIF_ID0];
+>> +
+>> +        if (stream->stopping) {
+>> +            rkcif_dvp_stop_streaming(stream);
+>> +            wake_up(&stream->wq_stopped);
+>> +            ret = IRQ_HANDLED;
+>> +            goto out;
+>> +        }
+>> +
+>> +        if (lastline != stream->pix.height) {
+>> +            v4l2_err(&rkcif->v4l2_dev,
+>> +                 "bad frame, irq:%#x frmst:%#x size:%dx%d\n",
+>> +                 intstat, cif_frmst, lastpix, lastline);
+>> +
+>> +            rkcif_dvp_reset_stream(rkcif);
+>> +        }
+>> +
+>> +        rkcif_stream_pingpong(stream);
+>> +
+>> +        ret = IRQ_HANDLED;
+>> +    }
+>> +out:
+>> +    return ret;
+>> +}
+>> +
+>> +int rkcif_dvp_register(struct rkcif_device *rkcif)
+>> +{
+>> +    struct rkcif_interface *interface;
+>> +    unsigned int streams_num;
+>> +    int ret;
+>> +
+>> +    if (!rkcif->match_data->dvp)
+>> +        return 0;
+> 
+> If you don't register the device when match_data->dvp is false, then I
+> think you can relax the carry-on checks elsewhere on match_data->dvp,
+> not including dvp_unregister
+
++1 I'll review all instances of this check.
+
+> The rest of the file as I breifly skim it looks OK to me, its a bit big
+> though.
+> 
+> Would it be possible to break this patch up a little bit ? Might make it
+> easier for other reviewers to give an SoB for smaller chunks.
+
+I suppose what I could do is split this up into five patches, as the
+commit message already outlines:
+
+1) add a basic driver (no-op skeleton only)
+2) abstraction for the ping-pong scheme to allow for future extensions
+3) abstraction for the INTERFACE and CROP parts to allow for future
+   extensions
+4) support for the PX30 VIP
+5) support for the RK3568 VICAP DVP
+
+Please note that in this case I would rework the patch for a final
+(this-time-really-final) time and drop this elaborate co-developed-by
+list, as the patch in question will then have nothing to do it all with
+anything what was before v2 of this series.
+
+Unless I hear any objections to that from anyone, I'll try to implement
+that next week.
+
+Best regards,
+Michael
+
+> 
 > ---
->  arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-> index be90e049a302c..24e4365a2e588 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-> @@ -772,6 +772,7 @@ flash@0 {
->  		compatible = "jedec,spi-nor";
->  		reg = <0>;
->  		spi-max-frequency = <10000000>;
-> +		vcc-supply = <&vcc_1v8>;
->  	};
->  };
->  
-> -- 
-> 2.51.0
-> 
+> bod
+
 
