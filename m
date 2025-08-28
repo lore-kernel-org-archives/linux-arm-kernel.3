@@ -4,91 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 758FBC8303F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0C2DCA0EED
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 18:38:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H2VjxPIys7d1tJoSW05HXWGO8B1PQC1RoUMeQHH1la8=; b=oJREA5UmYtKaJY1vlRQfBftGgM
-	L4hjKjsFjcxgyYM2rHAeTwjCLT4R2FXLOqZ6bHi8d1xV4Ru/2PxDa97qQ9XRi6KcOjneLFhcaAsWQ
-	+GsvoB60T5iV3gnOEVzm6lQSFJusSDsto57uUA5sl/EKGVM+jMU9G8yM4FRbv1voCYfsZaHDLWEOJ
-	MLTut6xXBp4VaHwW4yTaH7xdQ1uNfsHVmm6xhzqBWhYQCuOMCwKf+P6Pd74A/C57ibgemSRX7OCK3
-	LWlzwfWwvd0DQ+qZdNGcjSodEzA0TpvuY5dkTYbBCsIqBAc3XCZ4LzWeQYE80zKynA4M8gtg5aBRH
-	sduPK8Og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gRhjEBrevYYfktmYdx+YKcry9xJxHMto6KG5iP6elAE=; b=0fbiqxU0UOnxpUSfBkIV8Gyfku
+	gaQbIIEUUt4cgRGhfm6cOV/lUI0HOwAYZBZfE7JLPO4gbD+FGXrx7sKIIof563WI88I2FfAFZC5sB
+	4U5NShakjNhCSnW89X89NQQoSQowPsu9PovTqEu+dYIfyCW95x+/cqrDahY/RM34D11yFaKb76nIi
+	tQQODn+PkCXQ0sWjWhSSoS8HQW5ohGe6yXQvpf641jCx746nO4aMYOc9+QDCSSYRZMH96rqEjRj1Q
+	Sg8FtQm5FfGZjHPSaGUf3mK42xcGCBoh0W5Y2qvkrxtd6ezHqqZYsAhLLCaWw4sbiOT50saVZbSOl
+	8EB/QxSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urhWG-00000002o86-45UE;
+	id 1urhWH-00000002o8N-1tF5;
 	Thu, 28 Aug 2025 18:38:45 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urbYN-00000001VAe-43va
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 12:16:33 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57SAJbT7003220;
-	Thu, 28 Aug 2025 14:15:55 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	H2VjxPIys7d1tJoSW05HXWGO8B1PQC1RoUMeQHH1la8=; b=gyABa5URoIdL0qys
-	8nCirTWeTflyOsuJyYXpsDDVA3hHboNWQpco+hkmcJZ4hpecA3kRy3o+RGR41538
-	YlgI7saSguc+YAAM6UsqKjzRb6l582ilE/u6LaPff8muKBs9qp2hDkdvdObtHIb6
-	Em6ELCC29h/Noubjyln1OLyPnAdp+HSOnO0de509FCkMiDJOkxL07lFkQ7nznvMy
-	ydQWuw7sEn3myU8qdzK2+gQ/Lyq41sz8ocCROVnTgiZv4TyRCADCeSh2/9bMTu6B
-	Wfv6BdSRNqc2ek/eZ9iJrCR1z9VRjVYabdE3vl9g3DLzWIDMGQV13qQd1y00iFFL
-	sZ5Jbw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48q5tt5139-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 28 Aug 2025 14:15:55 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id EA37D40048;
-	Thu, 28 Aug 2025 14:14:08 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 2A75372766C;
-	Thu, 28 Aug 2025 14:13:02 +0200 (CEST)
-Received: from [10.130.77.120] (10.130.77.120) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 28 Aug
- 2025 14:13:00 +0200
-Message-ID: <9133348a-f6a4-4425-98e2-a784a7620b3a@foss.st.com>
-Date: Thu, 28 Aug 2025 14:12:57 +0200
+	id 1urbax-00000001Vw1-0IRf;
+	Thu, 28 Aug 2025 12:19:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=gRhjEBrevYYfktmYdx+YKcry9xJxHMto6KG5iP6elAE=; b=uCgKNvwHN4Qm9UCbBdv+J4UNw8
+	ncy3IW3c63C2jS60Brsl3Ew8ECK6sFq1KxS0SBwam+tzQu+R11/NrUFUAbi+V6e/GSgIGWCevOFtc
+	KiO4xdtiWcayAN+5IGdiO2cO9/Z5bs8JDuqn9Jycf2aWrzQlbeXyRQQvIR9MxIzlr6uqQTt+j6NH2
+	EmNuI39YK4f1yfzA54Puy52LikT4a7gAaUEWyjsHIQChJCSN01GUsqAQNeclaxLJj0jMIpDFMxzAZ
+	W5ea7x2H+niHckX61ns3OCw7/4sN2wxVfM3Y+oZj6M2/10UD5H9hEsIL6ykk6JnZJhmYD/ikuFDxu
+	Jf4DvZoA==;
+Received: from [185.205.242.134] (helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1urbai-0007hz-0a; Thu, 28 Aug 2025 14:18:56 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: Thomas Zimmermann <tzimmermann@suse.de>,
+ Maxime Ripard <mripard@kernel.org>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Andy Yan <andyshrk@163.com>, hjc@rock-chips.com, naoki@radxa.com,
+ stephen@radxa.com, cristian.ciocaltea@collabora.com,
+ neil.armstrong@linaro.org, Laurent.pinchart@ideasonboard.com,
+ yubing.zhang@rock-chips.com, krzk+dt@kernel.org, devicetree@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ robh@kernel.org, sebastian.reichel@collabora.com,
+ Andy Yan <andy.yan@rock-chips.com>
+Subject: Re: [PATCH v7 00/10] Add support for RK3588 DisplayPort Controller
+Date: Thu, 28 Aug 2025 14:18:55 +0200
+Message-ID: <6614832.V25eIC5XRa@phil>
+In-Reply-To: <20250828-tangible-wakeful-coati-ec27d1@houat>
+References: <20250822063959.692098-1-andyshrk@163.com>
+ <d040da3e-501f-45d8-bcbb-95fa77e94a59@suse.de>
+ <20250828-tangible-wakeful-coati-ec27d1@houat>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Christian Bruel <christian.bruel@foss.st.com>
-Subject: Re: [PATCH v13 06/11] PCI: stm32: Add PCIe Endpoint support for
- STM32MP25
-To: Bjorn Helgaas <helgaas@kernel.org>
-CC: <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <mani@kernel.org>,
-        <robh@kernel.org>, <bhelgaas@google.com>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <mcoquelin.stm32@gmail.com>,
-        <alexandre.torgue@foss.st.com>, <linus.walleij@linaro.org>,
-        <corbet@lwn.net>, <p.zabel@pengutronix.de>, <shradha.t@samsung.com>,
-        <mayank.rana@oss.qualcomm.com>, <namcao@linutronix.de>,
-        <qiang.yu@oss.qualcomm.com>, <thippeswamy.havalige@amd.com>,
-        <inochiama@gmail.com>, <quic_schintav@quicinc.com>,
-        <johan+linaro@kernel.org>, <linux-pci@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-gpio@vger.kernel.org>, <linux-doc@vger.kernel.org>
-References: <20250827185825.GA894342@bhelgaas>
-Content-Language: en-US
-In-Reply-To: <20250827185825.GA894342@bhelgaas>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.130.77.120]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-28_03,2025-08-28_01,2025-03-28_01
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_051632_621735_B378B8B4 
-X-CRM114-Status: GOOD (  21.37  )
+X-CRM114-CacheID: sfid-20250828_051911_109403_3F3547CB 
+X-CRM114-Status: GOOD (  31.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,72 +79,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Am Donnerstag, 28. August 2025, 10:05:28 Mitteleurop=C3=A4ische Sommerzeit =
+schrieb Maxime Ripard:
+> On Thu, Aug 28, 2025 at 09:50:34AM +0200, Thomas Zimmermann wrote:
+> > Hi
+> >=20
+> > Am 28.08.25 um 00:24 schrieb Dmitry Baryshkov:
+> > > On Fri, Aug 22, 2025 at 02:39:44PM +0800, Andy Yan wrote:
+> > > > From: Andy Yan <andy.yan@rock-chips.com>
+> > > >=20
+> > > >=20
+> > > > There are two DW DPTX based DisplayPort Controller on rk3588 which
+> > > > are compliant with the DisplayPort Specification Version 1.4 with
+> > > > the following features:
+> > > >=20
+> > > > * DisplayPort 1.4a
+> > > > * Main Link: 1/2/4 lanes
+> > > > * Main Link Support 1.62Gbps, 2.7Gbps, 5.4Gbps and 8.1Gbps
+> > > > * AUX channel 1Mbps
+> > > > * Single Stream Transport(SST)
+> > > > * Multistream Transport (MST)
+> > > > * Type-C support (alternate mode)
+> > > > * HDCP 2.2, HDCP 1.3
+> > > > * Supports up to 8/10 bits per color component
+> > > > * Supports RBG, YCbCr4:4:4, YCbCr4:2:2, YCbCr4:2:0
+> > > > * Pixel clock up to 594MHz
+> > > > * I2S, SPDIF audio interface
+> > > >=20
+> > > > The current version of this patch series only supports basic displa=
+y outputs.
+> > > > I conducted tests with DP0 in 1080p and 4K@60 YCbCr4:2:0 modes; the=
+ ALT/Type-C
+> > > > mode was tested on Rock 5B, DP1 was tested on Rock 5 ITX by Stephen=
+ and Piotr.
+> > > > HDCP and audio features remain unimplemented.
+> > > > For RK3588, it's only support SST, while in the upcoming RK3576, it=
+ can support
+> > > > MST output.
+> > > >=20
+> > > [skipped changelog]
+> > >=20
+> > > > Andy Yan (10):
+> > > >    dt-bindings: display: rockchip: Add schema for RK3588 DPTX Contr=
+oller
+> > > >    drm/bridge: synopsys: Add DW DPTX Controller support library
+> > > >    drm/rockchip: Add RK3588 DPTX output support
+> > > >    MAINTAINERS: Add entry for DW DPTX Controller bridge
+> > > I tried pushing patches 1-4, but got the following error:
+> > >=20
+> > > dim: ERROR: 5a68dcf5837a ("MAINTAINERS: Add entry for DW DPTX Control=
+ler bridge"): Mandatory Maintainer Acked-by missing., aborting
+> > >=20
+> > > I'm not sure how to handle MAINTAINERS changes (or whether it's fine =
+for
+> > > me or not), so I will probably push patches 1-3 in a few days, if nob=
+ody
+> > > beats me (or unless somebody points out a correct process for
+> > > MAINTAINERS changes).
+> >=20
+> > That warning has been added recently to make sure that patches do not g=
+et in
+> > without sufficient review. It's overly pedantic, though.
+>=20
+> It's not "overly pedantic", it follows the contribution rules. I'd argue
+> that, if anything, we've been overly tolerant with that kind of
+> practices.
+>=20
+> We do have a bug with handling MAINTAINERS changes at the moment. But
+> everything else shouldn't be ignored: either patch MAINTAINERS to
+> reflect the actual contribution path, or get the maintainers Ack.
 
+$ scripts/get_maintainer.pl MAINTAINERS
+linux-kernel@vger.kernel.org (open list)
 
-On 8/27/25 20:58, Bjorn Helgaas wrote:
-> On Wed, Aug 20, 2025 at 09:54:06AM +0200, Christian Bruel wrote:
->> Add driver to configure the STM32MP25 SoC PCIe Gen1 2.5GT/s or Gen2 5GT/s
->> controller based on the DesignWare PCIe core in endpoint mode.
-> 
->> +static void stm32_pcie_perst_deassert(struct dw_pcie *pci)
->> +{
->> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
->> +	struct device *dev = pci->dev;
->> +	struct dw_pcie_ep *ep = &pci->ep;
->> +	int ret;
->> +
->> +	dev_dbg(dev, "PERST de-asserted by host\n");
->> +
->> +	ret = pm_runtime_resume_and_get(dev);
->> +	if (ret < 0) {
->> +		dev_err(dev, "Failed to resume runtime PM: %d\n", ret);
->> +		return;
->> +	}
->> +
->> +	ret = stm32_pcie_enable_resources(stm32_pcie);
->> +	if (ret) {
->> +		dev_err(dev, "Failed to enable resources: %d\n", ret);
->> +		goto err_pm_put_sync;
->> +	}
->> +
->> +	/*
->> +	 * Need to reprogram the configuration space registers here because the
->> +	 * DBI registers were incorrectly reset by the PHY RCC during phy_init().
-> 
-> Is this incorrect reset of DBI registers a software issue or some kind
-> of hardware erratum that might be fixed someday?  Or maybe it's just a
-> characteristic of the hardware and thus not really "incorrect"?
-> 
-> I do see that qcom_pcie_perst_deassert() in pcie-qcom-ep.c also calls
-> dw_pcie_ep_init_registers() in the qcom_pcie_ep_perst_irq_thread()
-> path.
-> 
-> So does pex_ep_event_pex_rst_deassert() (pcie-tegra194.c) in the
-> tegra_pcie_ep_pex_rst_irq() path.
-> 
-> But as far as I can tell, none of the other dwc drivers need this, so
-> maybe it's something to do with the glue around the DWC core?
+MAINTAINERS does not have a maintainer though, to Ack a patch changing it
 
-The RCC PHY reset is connected to the Synopsys cold reset logic, which 
-explains why the registers need to be restored. This point has been 
-addressed in the reference manual.
-
-I am not sure if the tegra194 and qcom drivers restore the registers for 
-the same reason. But refactoring this into the DWC core would require a 
-runtime condition to test for persistent registers or support for warm 
-reset.
-
-Best Regards
-
-Christian
-
-
-> 
->> +	 */
->> +	ret = dw_pcie_ep_init_registers(ep);
->> +	if (ret) {
->> +		dev_err(dev, "Failed to complete initialization: %d\n", ret);
->> +		goto err_disable_resources;
->> +	}
 
 
