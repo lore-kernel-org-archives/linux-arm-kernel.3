@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67266CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 17:23:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 957AECA0FF7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 17:23:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
 	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sdWOYL/FyKxTdFBRCQdkZNhYX2tEzCuy9z6eoSmxPXU=; b=cWboAMgD0QGsAJggyPHTqbQeUU
-	b86lJQHPWt0LacGekz494VdbtTLXzbLav4MI8LU5c9OPAFdTScpOi0GGIOWLFTAfs9ygvTDXU4byO
-	p3TkzsL2JmigVgD2KuG0qWOHprx240HnhGPRSqJ1o1uE5h5NBgJOEzSz5JajUE9Gw3nDI55tCPkKc
-	tkfwDg5DmBgJ0/kQlSl3Du2wswRGRBk5MsmM7sw5xloOfyvvZyS7UcGKyQ/PhxoCPhx+raeJVzcFQ
-	c2gIfkOARURi/p7wy0OEZfhYSeahycPJZlM42XQarfpmNtma0lLlopbAOR7qp0wwgQfRSajfQZUbG
-	Ux3KSjJQ==;
+	bh=h5Kkfl1tLIVtDqEsyre3ziNzDaf4sM8W7yUS0uIjwZY=; b=LZPlkfG9gau4OKKYAxDmSESVUM
+	tfVAfTbBiqpUVQzrTawCNMhjDdwFANSX1O5UlGnBe9aImLqLBjZsw9cRdcPHUCgj1cEVNHZFPDehI
+	17qA3ocOiSJ5njrAcfGzjEUusyjaQxPTm0Vj1y73zy8mDXXz5sYpbjAUZwqmoqAalicrLj4RuSx0X
+	YWlvWufTRrDEicXTfA8+UJkt3nn62y/gAmrzKq/SsurhvPpniJWwYkQ4N+QCd3Gm+L2mbp0pMZh/l
+	zgX/vF/PAnyb3wkAsr3dKh1LzdradaXz89T3ngOLYHQJnHeWWmrz5m6/Plgc0w313+pSry1KETFZB
+	nHqktyUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urgLg-00000002PyZ-0Nwd;
-	Thu, 28 Aug 2025 17:23:44 +0000
-Received: from mail-vi1eur05on20706.outbound.protection.outlook.com ([2a01:111:f403:2613::706] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1urgLh-00000002Q07-0wHc;
+	Thu, 28 Aug 2025 17:23:45 +0000
+Received: from mail-db8eur05on20720.outbound.protection.outlook.com ([2a01:111:f403:2614::720] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urbAE-00000001P1U-1jBv
+	id 1urbBC-00000001PEc-2995
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 11:51:36 +0000
+	Thu, 28 Aug 2025 11:52:36 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WGJi781cjGpIocCfMRivLUd3W8gGOuqwh09lmk8M9cFp4OAqaj6Yj5WSDNSCEE0daiheLENvIBOn0oxYiU0uBH10473IFXgcLBuRlGW0qeFalc2WcfKpHxlyLYB6ahDliY90LY7OhzlHmK+FZzds0MVdkkPg908GswAKzM6RNwjpvD7Qr8KcfIAtraHqtq10M9SyujBoZLed1lQDOC7uXNRgp7eo5equ7YwAismouC9rMyVdB2AUb5mbFWhL9ZzhZ2ar9Xi2Zge2SHLyhtidJ53QIYz/0eiTtbbzt8pXRd0N1lvyu6CkqxnnDKPh4T7A+c4OytaUTouMDkg5FtO3+g==
+ b=TJeocdkLHKVGRtovpXnF2XO+ceOW20yF4gflFrHGQmBZB3DoSAJ5nI5StawCTVk6KSAJz8qH7Qz1kTiEpYvVSO8lt8TTRRyGqV8CpSFCteElw3MD/pBPn5ihty+dEi198elll5UqZKIYrMe4vtkZ/e39Bx1mxKk9iQFFn2De4+bd0p8nfHya6zsw++HW9UtYXi+F6S7WSENInyLZf7VjPrhE1ZwPntiBliuLIoL5zIWoDpbgIH/Z2lYn5FtV9dupXsijl1ByVuHTtTg/A4uvLSEDlWlOzYxM915V36eA4PrMPe0VQimV8Chs4enCT2ZU/BNoj9OLrSfUWHcGUZtwaA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sdWOYL/FyKxTdFBRCQdkZNhYX2tEzCuy9z6eoSmxPXU=;
- b=Ns7paH2Bz26vyIHwIoNObMsIqFtsTIEfV01xCJauFgz1xtsaU3dgYsMo/qD+dIIXv+gNkoSjE0KssO/qFV0OclEenPoAPuTs/IDCWtd3V61x2DgbaF7lRzPq7BZEOAqb3wPx9DNHON4Qs2Aq+FnLdxiSX+KLio97P4drMGOM72AA7rpaz/7984o1y9clVziV1Z8q/5JdIkFI/WUrCiC5INh3R/3psML40ji5tongIg1LSglBoaDk3Ymw+3LEUlwIyj/DZNMi2C84U5QagT5gFBv8EmslNwWwvc7/oaAFUiZ9GBB3YkKcPGoNa7loyBKBq76LBKhteUFEjKPsix+xfg==
+ bh=h5Kkfl1tLIVtDqEsyre3ziNzDaf4sM8W7yUS0uIjwZY=;
+ b=xjKPZSoxNpONipREUn2DhAZCuADlF0EbuS8+IxtbqWRnEIq0qzzY64whowlHEtk08yklMOYgpXrt3jNS4ejxj+F88F8Wa/YLBzI0Mb+7xJ3s4XsKSoutaQdnJcveE5Q3pMqT2qa5AIsweIXKvPRfXM2jnTSLxCLAhlg+WtocWVLlkWEBab6GmCc3K3GXqAVfkt44zzMg0lGqMOABcHHou+xIK3AZx3iO4fYApd20F6NT36Fvw6e1uOna34ZL9nWkGykn1swQreb+lk/xjfnysfAJgkNYo83/tW3iLLVeSaX2oOCvk/el7llNNtwu7iPACZLpbXICX9IwJMynTrjNSg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
  dkim=pass header.d=phytec.de; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sdWOYL/FyKxTdFBRCQdkZNhYX2tEzCuy9z6eoSmxPXU=;
- b=eN8ahzb8ErL7+mpP9wMPcvXVk/bnuaQmshpq6tQ/5wWahTBC3mNSIoKkzt9Ao2gGR1MN7NEcsZdkvKYFOgTr3TReOdEdOgN2Yqx/ic2IQVsz3Zy/9LWTB836TYL9uUVJ2p+McuLV92bVrYMg4+9wOFdSQ25ihN9IB4bd/2FCzEYGNLLiaQnGZQNCHIaiEK5eRAfgEwz2batGSy3Zw7uj6Zr9sf3SKv8rZvSbnv7xkr1u3SRFNAcu8jbePzUYb8d75PdFy65GitjbL7Q9Htvdb+BSgoJbpjWpnsCVSRzBKlYGESbUIL8T7dq0H7hc9j3nXFXJDNwGMkupbPus7tdxtA==
+ bh=h5Kkfl1tLIVtDqEsyre3ziNzDaf4sM8W7yUS0uIjwZY=;
+ b=SvNNPx4fWp6x+72QTv96uqr0zIzXGtHEZfNnG8LYQgjzmW2Ef6zhvrKj6Ym8lcW325z+taRpZ9za3jqbr9yrzXxOmmyrhjfb6DGOjAPu881RMRdK8xg6DGksOS/VfcFKjqJWXpz/MDm0T8xVWOfb0ccsvuVc9YbD9gfPO9J3ZpalwhhFqfSPIeXi93572mqZcdz1E5a33jMvglpX73BW9Tpazo16MHLqZbfX0v1VBEU12vi/YbtKU3/fYT1buuCVec67Xddfn6zNRvDKR02JMQBn1X0pKSaJexRrMXBsAfw6knNtor79G62Fq8axH4+MlGyXmB+ILwgwY3vyDiS/bw==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=phytec.de;
 Received: from AS4P195MB1456.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:4b3::21)
  by DB9P195MB1682.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:392::9) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.16; Thu, 28 Aug
- 2025 11:51:30 +0000
+ 2025 11:52:29 +0000
 Received: from AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
  ([fe80::369c:a760:5bf9:8d4a]) by AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
  ([fe80::369c:a760:5bf9:8d4a%7]) with mapi id 15.20.9073.016; Thu, 28 Aug 2025
- 11:51:30 +0000
-Message-ID: <d838653c-618b-4778-bf2c-9517a80b7631@phytec.de>
-Date: Thu, 28 Aug 2025 14:51:27 +0300
+ 11:52:29 +0000
+Message-ID: <5a47c816-c39d-4dff-9028-2937ed7f9c9a@phytec.de>
+Date: Thu, 28 Aug 2025 14:52:26 +0300
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 30/33] arm64: dts: ti: k3-am62-ti-ipc-firmware:
+Subject: Re: [PATCH v2 32/33] arm64: dts: ti: k3-am64-ti-ipc-firmware:
  Refactor IPC cfg into new dtsi
 To: Beleswar Padhi <b-padhi@ti.com>, nm@ti.com, vigneshr@ti.com,
  kristo@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
@@ -64,107 +64,107 @@ Cc: afd@ti.com, u-kumar1@ti.com, hnagalla@ti.com, jm@ti.com,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
 References: <20250823160901.2177841-1-b-padhi@ti.com>
- <20250823160901.2177841-31-b-padhi@ti.com>
+ <20250823160901.2177841-33-b-padhi@ti.com>
 From: Wadim Egorov <w.egorov@phytec.de>
 Content-Language: en-US
-In-Reply-To: <20250823160901.2177841-31-b-padhi@ti.com>
+In-Reply-To: <20250823160901.2177841-33-b-padhi@ti.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: VI1PR07CA0238.eurprd07.prod.outlook.com
- (2603:10a6:802:58::41) To AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
+X-ClientProxiedBy: VI1PR07CA0234.eurprd07.prod.outlook.com
+ (2603:10a6:802:58::37) To AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
  (2603:10a6:20b:4b3::21)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: AS4P195MB1456:EE_|DB9P195MB1682:EE_
-X-MS-Office365-Filtering-Correlation-Id: 735bd34b-488d-4e38-0481-08dde6293a75
+X-MS-Office365-Filtering-Correlation-Id: 9fbb626e-2ccc-4be0-058c-08dde6295d90
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bHQ4cVpTV1JzeWoyKzNRY0tBY3FZMlRYY0ZKcnlaeVBIM3JFNFJkcGRTcXdm?=
- =?utf-8?B?Z1pHcFNXVEhXTHRXUEdrYVRtYnA3cDRsMU92eXFtS2xlSVE1RmlmcDVWSmo3?=
- =?utf-8?B?QURIaytGRDZ0dGVsaWFjL0RrRnpKY0R5Z0lBNUVYZkdKTHVuOHRwSXhWLzBM?=
- =?utf-8?B?NlIzdENESVJXempqMVdNNmNUUjFhb3dJUUZTc1ZhZzdNVEVEU1JKVjRkNHZ4?=
- =?utf-8?B?Nkxrc0tkVDFMRDkwTXZnT01DS1lXak1OOXJCOWRNdUhuS201cWVLakp4MzBn?=
- =?utf-8?B?aUxXY2I1dzA2UXpSUDZhME9HVUtYMEwzWVQ4eWFyZTdqQ0ZLZFNNT2NyUERi?=
- =?utf-8?B?ZWVwUGdWYUNSNyt0Vkw2dWVVazJsMXNTZ0NLSzNNUDA4ODlEa2VIblRkMEdp?=
- =?utf-8?B?OXAvd0hJbTRkVjNjQ2pVQXFiaDgwUUtCY3hMYm5rcHNEeGxWcUZiTTA2WUIr?=
- =?utf-8?B?MGZpaXVKZW5YRXRnV2hyTjFjQjRvMEdFYktCTlh3TGg3UEtNMGh0UWNyMTl2?=
- =?utf-8?B?dkhVQ0l5NWVKaWFHY2pwZDFuVTNtU1FUNE9vOEpTZUJNWlcxOUM2UER5TEhw?=
- =?utf-8?B?aTArL2g2T2l1d3ZWay9RelgwMHBoa0RvMFBxRUVQeVpUV3dNYU9GRU4wZHRj?=
- =?utf-8?B?bHNyM2I3UkRHSS9xNVZEK1V3dXVsUnlaRjVvZTduQWxCSElCbTY4UFprSTFR?=
- =?utf-8?B?NlV2R2Q3YW0xN0lydDJDN0N1ZHlNbzNidlhqOUZKVm1jNndyNkJvSVJYd2ow?=
- =?utf-8?B?WlduSW5YYW9sTzR6R1hvc1JRRGttTkV6L2JUM2d6ZmNhaU1uNEN3Q2tQRld2?=
- =?utf-8?B?bDk2MDNMMHJ1Y1l2TU9JT0FsV2tGOCtkb0VvQWlkaWtPVzJDRW85N3V3YlhJ?=
- =?utf-8?B?ek1VeFBMdGlPLy9zSWRhRTJvQ1Y0R3V3MGVzeXpoc0dvMFN1ZlFVNGZyKzhQ?=
- =?utf-8?B?WXNYa1YrZlExNlpkeXNxZTh6cGQwbDkrbkFVTFIxNE9qaEp4YWJWQ0FkOTZj?=
- =?utf-8?B?QXdsbGlpZVBlN3RrcDFEN1FxZ3Y2U2ptUW00ckNGSG95WHQvMUN6eXczVDh1?=
- =?utf-8?B?TlY2bnRIcnRIZldsb0poWUlodWJzL09jenRyVGZnSCsrK0dENTVwNXlRNnc3?=
- =?utf-8?B?T1M0SUxSQUg5M1p3Z0E1ck9HdmV6bU8wdFN5UmlKOWhkUDE3N2daSlBRTWIr?=
- =?utf-8?B?Rnkxek5PSURiclB5YlJBcjNkZGwrRE9BRkZEcWJyeDRRMTA1cXNzbkpGNk02?=
- =?utf-8?B?WGhWb3J2aWV2ZDIwaElQU2ljZzlkY0ozbnMwTm5GcXhvOW03QmNKSzFxcXE4?=
- =?utf-8?B?VjJ1a2dLOW04TW50VTNwR0F5d2RrRjBDRzdyK0F0R2NEZWNRcVNraFJURzRv?=
- =?utf-8?B?dWEwWXN1TUQzcjdteDNRQ01iV3NSR0craDljTHNxeENGZEdJeExENGNPaC92?=
- =?utf-8?B?YjdXbEsrV3U2eCtnVE9qbU5vN2IvRjlpWlVyNEtqWG9DVCtFTUV6WUI0c3R3?=
- =?utf-8?B?cHczRnI1cXhZUVMxQXpMT0h5MitqUXBXY2E2WC9QTGUvZDU4K2kvT2tlazV6?=
- =?utf-8?B?Y0prNjZkaXEvaXM5WWdJajdFVmxydWVNM0hSY3M0Z2o1Q2FhQi9wbEdWNEhG?=
- =?utf-8?B?RnBaS0h6RDVxb0ErRENSN2ViWm5Fby83Ykppd3cyVmJTQVFZWWJwNmJ3U1dy?=
- =?utf-8?B?UUFRZWpueXhRR3lPazhpR0gxTjdUeFFqZDV2M0x0elNVVmpyS2d0dlBvbEty?=
- =?utf-8?B?VE9jYllsRGF2RG1OeEZkZkhaU3ltYmF6N0RmQjhBRG5vV3FXQ1dZNnRVNDdp?=
- =?utf-8?B?U0tBVFZoeDJIamwxMzQrcmRxck5HMk55eldtT0V6S2RhZ0NkQUVSL1dZbi9x?=
- =?utf-8?B?dlZndW91Um9pWnJXSDhsczl6NjRRYXNLSitQOHRwZ2J0b0hNTWo0TlhUTld4?=
- =?utf-8?Q?oyHV6SU4UuY=3D?=
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VWUyNGxwaHRGUDBMVU1SdTErbTJ4Z1IxVGVSVnlZd2J0VVVDK045eDVKa1NC?=
+ =?utf-8?B?N2RKazhWYStNU293WTZ5cCtOS1pnWkxhSWY5elY0SDAzZVpScGtnUTVNandF?=
+ =?utf-8?B?d3UybWJtcDNtMHV4WUJ1ZDFJK0pVUXR5enVGNDhpTEFWSW16QTVaaHhja0RG?=
+ =?utf-8?B?L0wzMGpHcThBb1Q4a2o0VS9YeXpKRkFrOC9RZVdlSGxBdThlR1RUSEJPS3B3?=
+ =?utf-8?B?aFNld3ZWbGNBMVFmcWk4a2lxTWpGcnNyNWErbnZCbTRjMU9CSHFaRzBFRklt?=
+ =?utf-8?B?enZRSytDN3N0Vys5aTdHTEV5TjZ6Q2xvVGtwN2FPakpmT0ZNaExIVkxKNnM0?=
+ =?utf-8?B?VTVVTDMvY0ZuWnFRVEh2QkJ4dDlUS1dPZWYxSG5CZjVoUWE5ZENmTFI3NUs4?=
+ =?utf-8?B?dTJvZ2VCMFVWSE04MWpIZ2EwRHlNWVlwcUhya1BKMDYrTjg2elEyRE5qOGxu?=
+ =?utf-8?B?OHVOS25xRVB0WWtaMTRWNldJS2FOZjlhYVNWNVdDMlIxMGZvTVRpOVlVam5I?=
+ =?utf-8?B?dUJud2pIaHd5cjBvTzZINDJpeDZmaWI1RE9VRHJsOVNTSlNENkhWYTgxTy9C?=
+ =?utf-8?B?dy8ycFVadHlHZGl3WUx4OWVYNk9OZlNIYnZJTERPRUhwK2QrcHdSRzYvSENU?=
+ =?utf-8?B?M2NWL05VMFZ0bjBTZ01OVG04WHlkWTAxcVRyNjNtZGRPdHQ2Snd5bm9qcllS?=
+ =?utf-8?B?VHlLSVBuSFZ4Mnl2TzdYc3NQd0h6QzJidTVqOWg1QTVKdUR4dTQ0QTR3bkla?=
+ =?utf-8?B?M25NdEgwSFJkS1BwVks1OE4rdW1qNU52cy9KZzQ4czBCTUc3akU1c0pBTE5v?=
+ =?utf-8?B?M3VBTFVza1BlNkxNcW95bnU5TytOZjErcVluS1lPVnlEU2wzQUFvVG5DTTdl?=
+ =?utf-8?B?VDY4b0l0S2hkRG0wVUxENGRYVjFFNDhoVVRGYTF6bmJVU25QQW90Skg3WXJ4?=
+ =?utf-8?B?bXJIOFBreUJvVWxzdEpPSHFvMisyMkp4L1YrbVRBQXpkclNtdmdOWEw3LzFH?=
+ =?utf-8?B?R2s2VDlrWUphbzZvSUgzWG9uVjVuT21qV0FDODYrdFVxTEx5Q1NMVXYreklC?=
+ =?utf-8?B?eXlTaU85emUwMk9Ib0pVVGlJVXhwT1VnSENsdDVrSW5ram9zVmc4T2U2cXNZ?=
+ =?utf-8?B?MXdPdlhZOWdIcktwbW1kdE9ER3Q5MTJ6V3hMZmJoQ213aTRkYldFNXdQOU1t?=
+ =?utf-8?B?c3hpVTVOaDZ0ZFBMY3JaWFZ3TXBFcGNWdUJMRjlPMjR0cm9QZ3ZGWHB3ZzUx?=
+ =?utf-8?B?UXk5aG9Ddk4zQ3F2QjRzOGFCVzhsYUtqeExBMWt5U2xEWUtacy9VNXR5Qkpy?=
+ =?utf-8?B?SzhDSU50dGF4Z1lHOFF3NFloOHRlNGsxTFIwTUVLbWVVOXZROFZ3aDNRd0kz?=
+ =?utf-8?B?cmNoNW1oNExwVEhFaUtoemJjeDFTZGNWY3l4MVcydmtVbmVBV2lteTdQaTdK?=
+ =?utf-8?B?VEhKZzdqYUYrR0VJVEsydVRWNW1CMmVkN0xiTFIyMDlMWWpvNHlnanpFbFor?=
+ =?utf-8?B?cDdZbHRCcHkrSk1wY281bFYxQWV0Qksyc3dqTXNhdTU4WU9uRGFrc0ZqUGkr?=
+ =?utf-8?B?WG4zUXZHdTk0YXNyNlU3OXY2WGZnZldRbCtrVVFzanlWNjh1bGJHM1FvVDB4?=
+ =?utf-8?B?N3R6U2ZuMndtYnJWakEvUnJBVXFKbFNlc2UwNUxudEtheHRBSitnZzZYbXFB?=
+ =?utf-8?B?OUF0bmFjdS8yNXBDWFZXVzFJUzFkVFdUakMxVjNpWmhQaHE1MnRrdFk5TGpQ?=
+ =?utf-8?B?eENqRkN3Q0xwVVVxdjJzUmMrL0lzVWxydmttR01peUcxSHM2dEhxNHVpc0hn?=
+ =?utf-8?B?Sk80V2VqSEJqTFJPOVl5cWZBdHBINkkzMU1DZFlhbkdFQnRNczVkcldGdFpz?=
+ =?utf-8?B?MEYrVTB6RkRKa0prRks1ME8wd1REVnlrOU0vM0t5ZWdncnlmYVozRFdDWURM?=
+ =?utf-8?Q?fIkp7DmuqC0=3D?=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4P195MB1456.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(7053199007);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cXdHTDkxRzVSQmNNSzZjTlN3QzVrOVYzcTMydW1wVnVyVytmWG5JNGw5SEhL?=
- =?utf-8?B?cHJCU2hFWDBDQ0FjSFNCS25paWJvOHY2elBoTUhCeFRZVVpjYVVrTGdqZ1BD?=
- =?utf-8?B?OE8rOGJRM3NjbUQzanlxa09ROGFFdk1MbS9rdXBwMWlxbFhEVUhVY1IzcS9N?=
- =?utf-8?B?K3dDVGJXd0QyUDNwZnVkUTBxQVRQd2IydjRIL0JVdW1UdURaQmN2U1hNbEJQ?=
- =?utf-8?B?N2JuWWdzMHEzMjg5MU9mYlJKc0J0U0ZyK0lSUlN2ZXFhR2FiN0lTemdYZ1FW?=
- =?utf-8?B?cmVxWmpnaUovUmNXTi9Dd1NWYjR3V1QvMGdFRnU1cW5xd2c4enNBZllHOXZL?=
- =?utf-8?B?cmhqMkN4S3drSnVVTjNmc2lUWVZKbWVpZGR0c215ZTlrSlIyZWduR1ZuYXBh?=
- =?utf-8?B?NFZYaW1GQzU2VlIyLzE0TXF6QzI0cEcvQ1NXZDE2dElYVjBzaTQ5U1Y0WTVi?=
- =?utf-8?B?Zk1sQ2Z6eGR1OFF5V3dMdjV5c2kyaS9iUWl3YmtkeGdlbitUZGt3ckYxaEND?=
- =?utf-8?B?aHlNaytoWGhpN3llcUd0RlNPSmZicnQ1VUF2Wnl3bEk5Zk9pUEpqUUkvcHVM?=
- =?utf-8?B?VXYxRC8yd2R3eERXdXJ1dytnYWUwdmRHUkRIeVFVcDBacXZqc2Y2dk93RERs?=
- =?utf-8?B?RkNlT21LcmFTU0JNeDhMUWVISDM5Tjd0ZEoyWnlVdjZsU3dpL1luRm1IY3hT?=
- =?utf-8?B?NUIvOGdOU1Z5MEJnYWZVcllEQkhzcmFGUWZCUFozdEJLQ1JXb2lJdGpwRDEz?=
- =?utf-8?B?VExCM05sTmNMZ0Y3RTltbXN1UitEeCs1SjFlbS9UR2gvMVFwREsrRW1ENXdq?=
- =?utf-8?B?WjR3dEMvN3VtNUhDc3dTOGUvTlk5Tll1WnRDS3hFL0FWMnFRdnJNMTUyT0k4?=
- =?utf-8?B?TU1WSE11czE4cVlwMXJmTHZzSGFoT3c1MU9zV3d0bjlCNUc1aS83MXdLaFQr?=
- =?utf-8?B?czFkTjhsYi9MR0R4R1czMy9udk5XV0QvMnJHam5JRHVYdkdCc2lFQ1FuUm0w?=
- =?utf-8?B?bFg1TG41S1NoWGR6VjRqN3V0VlhIWjdXaG5jcEpQQWIvYXlCa3ZqNFk2Nmxv?=
- =?utf-8?B?dENYc2NDUE1tcDVTN3k5R0pJNXFESmpBU1o3a24yZm5YQ0hwU1VsekRxcEFP?=
- =?utf-8?B?aWorZG5mM2RCM3diZzZQOUNBbUhGR0xvMlFhMHpHRm9sdXloZlVqVy90S2Y4?=
- =?utf-8?B?RS9WY0MzYU04WGNob2xXUE9LMEUxeUs5d21sWWlNQUE2T1orUzF0THZlOHk5?=
- =?utf-8?B?SmR6c2FseC9lLzZyZXVEMjgrZXlNaUNpd25kWmYyWlRtR1N3MFRkUWQrSWpB?=
- =?utf-8?B?MHExaHR3YWp4ZkRkRnJlTDgrS0xUcWlnN0NBbnRCWjFSSWRrSWNSUm9VQjVL?=
- =?utf-8?B?NW41K2U5a1NKNDRhYzZvSnVSdnBlWmJpbUs0eTQzRjc1Z3pVMk5LTlVyS1Nv?=
- =?utf-8?B?dThIcHM1UFFuS01uM1RlWmkrbk1FT3pzNjlrMW43RUEySTFDT0ZQMWVvd3M3?=
- =?utf-8?B?enpNOFpaZGc0N0I5VTZ6QUF2WmFTRTlCMWZicjRnWGptaWZZanNqV1J4MFp0?=
- =?utf-8?B?QzB2RFVpbkROTlVuRmxvZGs0TDZWcXRPS3Q3WlZaeHg4OEgvcmpxcXNITm5l?=
- =?utf-8?B?NWFYOG8waXBxTHpzMXZHNDRROWFqSFVuZHJvYXNjYWlud1BPd3VoZXloUGRQ?=
- =?utf-8?B?NC8yWGloRkcvRit6cWV4Q3gxMS94ZGwwa0NCMERCc0tuQWVQQ3l1b3Zjczg2?=
- =?utf-8?B?eUhJQUlwNkpTWkczTHVlTjAwZDlBeTFCZlgweWtDTEs2aDNDQUFPa0p2eEh2?=
- =?utf-8?B?SElFQThHbXhZMWd3K29rVXNjL3hWVmJxekJmOW1zNHFjVTZ5S0kvVnNMY1ly?=
- =?utf-8?B?bHoxUGp2ZkdVaDIzODVxQ2FXYXQ5YmdZNEFFUzBBc3lKT2ZKa0lUc0E5UmRW?=
- =?utf-8?B?b1EyWXJSaGdBL3FYNnhtMVErUXlSTkRBR3hVRVBFSUFQaFdpd2ZIRHZxVE9z?=
- =?utf-8?B?WEpObDhvemYrK2FyWkZYV0ttNGJiZ01XN2RxaVNDTWRIdHZjVUUwSXZEVjdy?=
- =?utf-8?B?c2VTTUwwRUQyVzVIK1FmbnpoYkxLNHJJVUVuQUV0S05iMUJ3Z085RmhEN1Rp?=
- =?utf-8?Q?t+eHE3kjeT+yo1QhSyl44W1jJ?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OGR4dVVnWDNYZVBiSmxRUFhab21NdC90UUdTbUVaaXROUjBNZ0QyY1lnZDZh?=
+ =?utf-8?B?cktuQzZuTXdyMmdqSVV4TjBNcXRBV3NTQ2llR1RsMVdUZGwzM09qTWU5Y2hH?=
+ =?utf-8?B?eUJPczFlYVUzamRic2xPd25Lb205TzlUUmdZbXEyY2RFSHYyY3krQXpSOE9W?=
+ =?utf-8?B?eEFvUTY3T2RYb2hESmlQU21QbTJyZDd2dXoweTljK1JsVldjS1ZPd2F3RmZi?=
+ =?utf-8?B?SUZPdVdmRTY2S0VQcjdnRUNsc0RnNkJHSDBzdjBrYnFvQklQQnZXRkdEZS8w?=
+ =?utf-8?B?NE85YTBTOVUvYStpQU5VUWVETy9TY0VWOUhSOStNK3FmcVlYNkRVblBQOGxs?=
+ =?utf-8?B?RVEwSzF2ME4vamZ0amxSWXdrTk9pSy9ZY1Jzb2lLbGVudStaaHlzWTBybkRm?=
+ =?utf-8?B?UitTVEhEYkZTQ3lkTkFGb2RnU2tIT2srQjBwMFJ6N1V2ancremZiZkh1U1BO?=
+ =?utf-8?B?NFNJQmR5RTd3QzhOeSszSHdIc09yK21pdzRmUkUyY0FKQzF2SHNua1NhYy9s?=
+ =?utf-8?B?andmNnFzU3F5akhOUUlhcEMvTkZucjg5MEZHNHQ2L1JWS0x2K3B1TzlGTTJQ?=
+ =?utf-8?B?UjNDUXdjRmNBVXN1b2IyN2xESXdKbTNDNTVqeHFjanZHbmh5Yk1sczVjU0xR?=
+ =?utf-8?B?djNYeUdwWWg2NzhYTFlDVXJUTTBSN3NBdXpwQjFNS3BCWHd1V09FYkthais5?=
+ =?utf-8?B?VWNXdzdUR2UvTldCYnYvaXc0czcrMUFxY2JSekVTc3l3Wkx0YkJadFJkK1lN?=
+ =?utf-8?B?OExQdnVyOHQ5VU1UU1M1SkI4WVRndDJWNHc3VEJjNzErdXNPZGZpaVZKOTNH?=
+ =?utf-8?B?dHJWdWRFNVRFY25za0p0dnBRMDV6aFlDMFdvS2lJVWFSTm5sc2d5SmFsNlF6?=
+ =?utf-8?B?NWUyamVhaUZsSnM4QytBdUY2TWszTkdpSENKaCt0NHJ1Y1FVKzFPYVZ5cEJp?=
+ =?utf-8?B?dS9FWm5Kb0FxQk1GY1lRK1Y2eDFSVE9nUUlSd2R6WndpNHFpeFdDYzAzaE15?=
+ =?utf-8?B?bTd2cmxOOG91Uy9jU2V2NTlHa0xKeVROUVk0NnphTXI3ZWtleFlZWFc4VlVJ?=
+ =?utf-8?B?VVk0QkNFY2dBWXZQUFg4dENZSllWZldQcDlBanpON1o5RUpYTWpKZkFSY25l?=
+ =?utf-8?B?ZVdHekpEbnVydERGaTAxWnNMWWJNRGJhdUxQNVg1eHVHTEwxeGk2S004clk3?=
+ =?utf-8?B?d1pHblpHMUROWk1XcFFZVm9aSVdqUjhiVjdnRGFFLzBQcndOYURIWjczMEtl?=
+ =?utf-8?B?UEE3NzdLaG5XQytEQVhqa3FpelJYWFpZMzFad0hXTld5cVU4RkQ1WWJKOVdS?=
+ =?utf-8?B?aEt4SFVSTTdFUXZNdVFWQW5wREFNdXR3T21ZNUpsd3NJeTh4UFhLR3VyTWVR?=
+ =?utf-8?B?UzJOWGo0SW1IZlB0emxPUjdiYTdJLyttZWpUaUxwYkJCZnV3clNxVU5MeTY4?=
+ =?utf-8?B?WHg4enVQWFRVWmRnWWJNLzliUk9mNnlRTUpvU2U2RldsYllBaWNiWHljM0c1?=
+ =?utf-8?B?bEhnMVBPZ0FQaGhUdFVFNmQ3WHV5YmovV0lUWlB5ajc3UmlQNWFJR0xaTzVy?=
+ =?utf-8?B?UUxBeGRqcTUzQnRXV244Sm5TNUhEQk5aSE9PNVo0ZzRudmtFRC9Oc1h2Z3pK?=
+ =?utf-8?B?UVVvQzdjaUIvYkIwS04yNlozMHdacXlvMGFaOWdzT0xyU3g1ZEc4YjYrS0VI?=
+ =?utf-8?B?cy9Ha243YXd4U3F2RWIwZUlONi9lVTlnTXFucnc1RnV4VlV3TmkrVnVWUE5s?=
+ =?utf-8?B?dVFqaVhraHE2ZFFDdEp3MGFHWUQ1dkk5WnozbWlTb3loTGZtemJvVVI4eUQv?=
+ =?utf-8?B?NDQ5aXZNanVIQUt2cHpNMytST3JpRmNYczV3ZHAyem1kQS9hZFQ1N2VaZWVn?=
+ =?utf-8?B?Y2dQdHo3NHVvczV1dTZ6Z0ZKMVJBeERRMmVMVENUWWpYdlN5UHBUaS9Xblkv?=
+ =?utf-8?B?SHJsRGFud1RaSnNMNTBCay9xdzFVQmN0VlliRUh5T3FCMkpxNGltTDlMSFB5?=
+ =?utf-8?B?TFA1SWJRUHBrdzJaRGNHMy9RTmR1UEJkVFlHWG1rV3BjYnlkSUtVaUdjdkhy?=
+ =?utf-8?B?ZnFhdElWQmlHVlBhTUJiNkxmRUJRbmlyRWhyWG5kRjhGZWlwV0wxUXRvN1dZ?=
+ =?utf-8?Q?9BHhAItKJgiBslx9mouUOoKeJ?=
 X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 735bd34b-488d-4e38-0481-08dde6293a75
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9fbb626e-2ccc-4be0-058c-08dde6295d90
 X-MS-Exchange-CrossTenant-AuthSource: AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Aug 2025 11:51:30.6880
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Aug 2025 11:52:29.7123
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4YnUfz2WchVletpmxD8jTuC3qbLKVjs3jMnvHwedRdYwVnkIPoELN8kZFb5ENMQ/eax1+txMVeX01GpSGzm06w==
+X-MS-Exchange-CrossTenant-UserPrincipalName: lRVO7xJQJ+ePskSw/t+qms+lHiBP4vmv3BiSWOPkFCZAulHQV+6YMdgLMUBjGL9zzvA7gCD6PxWFmHkiFRq6IQ==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9P195MB1682
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_045134_631252_95F7B2D1 
-X-CRM114-Status: GOOD (  18.13  )
+X-CRM114-CacheID: sfid-20250828_045234_729003_DE454B5A 
+X-CRM114-Status: GOOD (  18.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,9 +181,9 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 8/23/25 7:08 PM, Beleswar Padhi wrote:
-> The TI K3 AM62 SoCs have multiple programmable remote processors like
-> R5F, M4F etc. The TI SDKs for AM62 SoCs offer sample firmwares which
+On 8/23/25 7:09 PM, Beleswar Padhi wrote:
+> The TI K3 AM64 SoCs have multiple programmable remote processors like
+> R5F, M4F etc. The TI SDKs for AM64 SoCs offer sample firmwares which
 > could be run on these cores to demonstrate an "echo" IPC test. Those
 > firmware require certain memory carveouts to be reserved from system
 > memory, timers to be reserved, and certain mailbox configurations for
@@ -198,76 +198,202 @@ On 8/23/25 7:08 PM, Beleswar Padhi wrote:
 > utilize system resources better; easily by swapping out this dtsi. To
 > maintain backward compatibility, the dtsi is included in all boards.
 > 
-
-Reviewed-by: Wadim Egorov <w.egorov@phytec.de> # phycore-am62x
-Tested-by: Wadim Egorov <w.egorov@phytec.de> # phycore-am62x
-
 > Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
+
+Reviewed-by: Wadim Egorov <w.egorov@phytec.de> # phycore-am64x
+Tested-by: Wadim Egorov <w.egorov@phytec.de> # phycore-am64x
+
 > ---
 > v2: Changelog:
-> 1. Re-ordered patch from [PATCH 22/33] to [PATCH v2 30/33].
+> 1. Re-ordered patch from [PATCH 30/33] to [PATCH v2 32/33].
 > 
 > Link to v1:
-> https://lore.kernel.org/all/20250814223839.3256046-23-b-padhi@ti.com/
+> https://lore.kernel.org/all/20250814223839.3256046-31-b-padhi@ti.com/
 > 
->   .../boot/dts/ti/k3-am62-phycore-som.dtsi      | 44 +---------------
->   .../boot/dts/ti/k3-am62-pocketbeagle2.dts     | 46 +---------------
->   .../boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi  | 52 +++++++++++++++++++
->   arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi    | 34 +-----------
->   .../arm64/boot/dts/ti/k3-am62x-sk-common.dtsi | 46 +---------------
->   5 files changed, 59 insertions(+), 163 deletions(-)
->   create mode 100644 arch/arm64/boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi
+>   .../boot/dts/ti/k3-am64-phycore-som.dtsi      | 160 +----------------
+>   .../boot/dts/ti/k3-am64-ti-ipc-firmware.dtsi  | 162 ++++++++++++++++++
+>   arch/arm64/boot/dts/ti/k3-am642-evm.dts       | 156 +----------------
+>   arch/arm64/boot/dts/ti/k3-am642-sk.dts        | 156 +----------------
+>   arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi   | 156 +----------------
+>   .../arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi | 156 +----------------
+>   6 files changed, 172 insertions(+), 774 deletions(-)
+>   create mode 100644 arch/arm64/boot/dts/ti/k3-am64-ti-ipc-firmware.dtsi
 > 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
-> index dcd22ff487ec..34b2e8d6bf80 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
-> @@ -52,18 +52,6 @@ rtos_ipc_memory_region: ipc-memories@9c800000 {
+> diff --git a/arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi
+> index 1efd547b2ba6..af0fed6124e2 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi
+> @@ -52,60 +52,6 @@ main_r5fss0_core0_memory_region: r5f-memory@a0100000 {
+>   			reg = <0x00 0xa0100000 0x00 0xf00000>;
 >   			no-map;
 >   		};
->   
-> -		mcu_m4fss_dma_memory_region: m4f-dma-memory@9cb00000 {
+> -
+> -		main_r5fss0_core1_dma_memory_region: r5f-dma-memory@a1000000 {
 > -			compatible = "shared-dma-pool";
-> -			reg = <0x00 0x9cb00000 0x00 0x100000>;
+> -			reg = <0x00 0xa1000000 0x00 0x100000>;
 > -			no-map;
 > -		};
 > -
-> -		mcu_m4fss_memory_region: m4f-memory@9cc00000 {
+> -		main_r5fss0_core1_memory_region: r5f-memory@a1100000 {
 > -			compatible = "shared-dma-pool";
-> -			reg = <0x00 0x9cc00000 0x00 0xe00000>;
+> -			reg = <0x00 0xa1100000 0x00 0xf00000>;
 > -			no-map;
 > -		};
 > -
->   		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9da00000 {
->   			compatible = "shared-dma-pool";
->   			reg = <0x00 0x9da00000 0x00 0x100000>;
-> @@ -245,20 +233,6 @@ cpsw3g_phy1: ethernet-phy@1 {
+> -		main_r5fss1_core0_dma_memory_region: r5f-dma-memory@a2000000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa2000000 0x00 0x100000>;
+> -			no-map;
+> -		};
+> -
+> -		main_r5fss1_core0_memory_region: r5f-memory@a2100000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa2100000 0x00 0xf00000>;
+> -			no-map;
+> -		};
+> -
+> -		main_r5fss1_core1_dma_memory_region: r5f-dma-memory@a3000000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa3000000 0x00 0x100000>;
+> -			no-map;
+> -		};
+> -
+> -		main_r5fss1_core1_memory_region: r5f-memory@a3100000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa3100000 0x00 0xf00000>;
+> -			no-map;
+> -		};
+> -
+> -		mcu_m4fss_dma_memory_region: m4f-dma-memory@a4000000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa4000000 0x00 0x100000>;
+> -			no-map;
+> -		};
+> -
+> -		mcu_m4fss_memory_region: m4f-memory@a4100000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa4100000 0x00 0xf00000>;
+> -			no-map;
+> -		};
+> -
+> -		rtos_ipc_memory_region: ipc-memories@a5000000 {
+> -			reg = <0x00 0xa5000000 0x00 0x00800000>;
+> -			alignment = <0x1000>;
+> -			no-map;
+> -		};
 >   	};
+>   
+>   	leds {
+> @@ -238,67 +184,6 @@ &cpsw_port1 {
+>   	status = "okay";
 >   };
 >   
-> -&mailbox0_cluster0 {
+> -&mailbox0_cluster2 {
 > -	status = "okay";
 > -
-> -	mbox_m4_0: mbox-m4-0 {
-> -		ti,mbox-rx = <0 0 0>;
-> -		ti,mbox-tx = <1 0 0>;
+> -	mbox_main_r5fss0_core0: mbox-main-r5fss0-core0 {
+> -		ti,mbox-rx = <0 0 2>;
+> -		ti,mbox-tx = <1 0 2>;
 > -	};
 > -
-> -	mbox_r5_0: mbox-r5-0 {
-> -		ti,mbox-rx = <2 0 0>;
-> -		ti,mbox-tx = <3 0 0>;
+> -	mbox_main_r5fss0_core1: mbox-main-r5fss0-core1 {
+> -		ti,mbox-rx = <2 0 2>;
+> -		ti,mbox-tx = <3 0 2>;
 > -	};
 > -};
 > -
->   &main_pktdma {
+> -&mailbox0_cluster4 {
+> -	status = "okay";
+> -
+> -	mbox_main_r5fss1_core0: mbox-main-r5fss1-core0 {
+> -		ti,mbox-rx = <0 0 2>;
+> -		ti,mbox-tx = <1 0 2>;
+> -	};
+> -
+> -	mbox_main_r5fss1_core1: mbox-main-r5fss1-core1 {
+> -		ti,mbox-rx = <2 0 2>;
+> -		ti,mbox-tx = <3 0 2>;
+> -	};
+> -};
+> -
+> -&mailbox0_cluster6 {
+> -	status = "okay";
+> -
+> -	mbox_m4_0: mbox-m4-0 {
+> -		ti,mbox-rx = <0 0 2>;
+> -		ti,mbox-tx = <1 0 2>;
+> -	};
+> -};
+> -
+> -/* main_timer8 is used by r5f0-0 */
+> -&main_timer8 {
+> -	status = "reserved";
+> -};
+> -
+> -/* main_timer9 is used by r5f0-1 */
+> -&main_timer9 {
+> -	status = "reserved";
+> -};
+> -
+> -/* main_timer10 is used by r5f1-0 */
+> -&main_timer10 {
+> -	status = "reserved";
+> -};
+> -
+> -/* main_timer11 is used by r5f1-1 */
+> -&main_timer11 {
+> -	status = "reserved";
+> -};
+> -
+> -&main_r5fss0 {
+> -	status = "okay";
+> -};
+> -
+>   &main_i2c0 {
+>   	pinctrl-names = "default";
+>   	pinctrl-0 = <&main_i2c0_pins_default>;
+> @@ -373,49 +258,6 @@ &main_pktdma {
 >   	bootph-all;
 >   };
-> @@ -364,13 +338,6 @@ i2c_som_rtc: rtc@52 {
->   	};
->   };
 >   
+> -&main_r5fss0 {
+> -	status = "okay";
+> -};
+> -
+> -&main_r5fss0_core0 {
+> -	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core0>;
+> -	memory-region = <&main_r5fss0_core0_dma_memory_region>,
+> -			<&main_r5fss0_core0_memory_region>;
+> -	status = "okay";
+> -};
+> -
+> -&main_r5fss0_core1 {
+> -	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core1>;
+> -	memory-region = <&main_r5fss0_core1_dma_memory_region>,
+> -			<&main_r5fss0_core1_memory_region>;
+> -	status = "okay";
+> -};
+> -
+> -&main_r5fss1 {
+> -	status = "okay";
+> -};
+> -
+> -&main_r5fss1_core0 {
+> -	mboxes = <&mailbox0_cluster4 &mbox_main_r5fss1_core0>;
+> -	memory-region = <&main_r5fss1_core0_dma_memory_region>,
+> -			<&main_r5fss1_core0_memory_region>;
+> -	status = "okay";
+> -};
+> -
+> -&main_r5fss1_core1 {
+> -	mboxes = <&mailbox0_cluster4 &mbox_main_r5fss1_core1>;
+> -	memory-region = <&main_r5fss1_core1_dma_memory_region>,
+> -			<&main_r5fss1_core1_memory_region>;
+> -	status = "okay";
+> -};
+> -
 > -&mcu_m4fss {
-> -	mboxes = <&mailbox0_cluster0 &mbox_m4_0>;
+> -	mboxes = <&mailbox0_cluster6 &mbox_m4_0>;
 > -	memory-region = <&mcu_m4fss_dma_memory_region>,
 > -			<&mcu_m4fss_memory_region>;
 > -	status = "okay";
@@ -276,270 +402,898 @@ Tested-by: Wadim Egorov <w.egorov@phytec.de> # phycore-am62x
 >   &ospi0 {
 >   	pinctrl-names = "default";
 >   	pinctrl-0 = <&ospi0_pins_default>;
-> @@ -399,13 +366,4 @@ &sdhci0 {
->   	status = "okay";
->   };
->   
-> -&wkup_r5fss0 {
-> -	status = "okay";
-> -};
-> -
-> -&wkup_r5fss0_core0 {
-> -	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
-> -	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
-> -			<&wkup_r5fss0_core0_memory_region>;
-> -	status = "okay";
-> -};
-> +#include "k3-am62-ti-ipc-firmware.dtsi"
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts b/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts
-> index 729901b2ca10..e634abe9e8e6 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts
-> @@ -54,18 +54,6 @@ linux,cma {
->   			linux,cma-default;
->   		};
->   
-> -		mcu_m4fss_dma_memory_region: m4f-dma-memory@9cb00000 {
-> -			compatible = "shared-dma-pool";
-> -			reg = <0x00 0x9cb00000 0x00 0x100000>;
-> -			no-map;
-> -		};
-> -
-> -		mcu_m4fss_memory_region: m4f-memory@9cc00000 {
-> -			compatible = "shared-dma-pool";
-> -			reg = <0x00 0x9cc00000 0x00 0xe00000>;
-> -			no-map;
-> -		};
-> -
->   		secure_tfa_ddr: tfa@9e780000 {
->   			reg = <0x00 0x9e780000 0x00 0x80000>;
->   			alignment = <0x1000>;
-> @@ -298,20 +286,6 @@ &epwm2 {
->   	pinctrl-0 = <&epwm2_pins_default>;
->   };
->   
-> -&mailbox0_cluster0 {
-> -	status = "okay";
-> -
-> -	mbox_m4_0: mbox-m4-0 {
-> -		ti,mbox-rx = <0 0 0>;
-> -		ti,mbox-tx = <1 0 0>;
-> -	};
-> -
-> -	mbox_r5_0: mbox-r5-0 {
-> -		ti,mbox-rx = <2 0 0>;
-> -		ti,mbox-tx = <3 0 0>;
-> -	};
-> -};
-> -
->   &main_uart0 {
->   	pinctrl-names = "default";
->   	pinctrl-0 = <&main_uart0_pins_default>;
-> @@ -362,24 +336,6 @@ &main_i2c2 {
->   	status = "okay";
->   };
->   
-> -&mcu_m4fss {
-> -	mboxes = <&mailbox0_cluster0 &mbox_m4_0>;
-> -	memory-region = <&mcu_m4fss_dma_memory_region>,
-> -			<&mcu_m4fss_memory_region>;
-> -	status = "okay";
-> -};
-> -
-> -&wkup_r5fss0 {
-> -	status = "okay";
-> -};
-> -
-> -&wkup_r5fss0_core0 {
-> -	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
-> -	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
-> -			<&wkup_r5fss0_core0_memory_region>;
-> -	status = "okay";
-> -};
-> -
->   &mcu_pmx0 {
->   	wkup_uart0_pins_default: wkup-uart0-default-pins {
->   		pinctrl-single,pins = <
-> @@ -543,3 +499,5 @@ ldo4_reg: ldo4 {
->   		};
+> @@ -451,3 +293,5 @@ adc {
+>   		ti,adc-channels = <0 1 2 3 4 5 6 7>;
 >   	};
 >   };
 > +
-> +#include "k3-am62-ti-ipc-firmware.dtsi"
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi
+> +#include "k3-am64-ti-ipc-firmware.dtsi"
+> diff --git a/arch/arm64/boot/dts/ti/k3-am64-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-am64-ti-ipc-firmware.dtsi
 > new file mode 100644
-> index 000000000000..9376ae91a17f
+> index 000000000000..847495f76831
 > --- /dev/null
-> +++ b/arch/arm64/boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi
-> @@ -0,0 +1,52 @@
+> +++ b/arch/arm64/boot/dts/ti/k3-am64-ti-ipc-firmware.dtsi
+> @@ -0,0 +1,162 @@
 > +// SPDX-License-Identifier: GPL-2.0-only OR MIT
 > +/**
-> + * Device Tree Source for enabling IPC using TI SDK firmware on AM62 SoCs
+> + * Device Tree Source for enabling IPC using TI SDK firmware on AM64 SoCs
 > + *
-> + * Copyright (C) 2021-2025 Texas Instruments Incorporated - https://www.ti.com/
+> + * Copyright (C) 2024-2025 Texas Instruments Incorporated - https://www.ti.com/
 > + */
 > +
 > +&reserved_memory {
-> +	mcu_m4fss_dma_memory_region: m4f-dma-memory@9cb00000 {
+> +	main_r5fss0_core1_dma_memory_region: r5f-dma-memory@a1000000 {
 > +		compatible = "shared-dma-pool";
-> +		reg = <0x00 0x9cb00000 0x00 0x100000>;
+> +		reg = <0x00 0xa1000000 0x00 0x100000>;
 > +		no-map;
 > +	};
 > +
-> +	mcu_m4fss_memory_region: m4f-memory@9cc00000 {
+> +	main_r5fss0_core1_memory_region: r5f-memory@a1100000 {
 > +		compatible = "shared-dma-pool";
-> +		reg = <0x00 0x9cc00000 0x00 0xe00000>;
+> +		reg = <0x00 0xa1100000 0x00 0xf00000>;
+> +		no-map;
+> +	};
+> +
+> +	main_r5fss1_core0_dma_memory_region: r5f-dma-memory@a2000000 {
+> +		compatible = "shared-dma-pool";
+> +		reg = <0x00 0xa2000000 0x00 0x100000>;
+> +		no-map;
+> +	};
+> +
+> +	main_r5fss1_core0_memory_region: r5f-memory@a2100000 {
+> +		compatible = "shared-dma-pool";
+> +		reg = <0x00 0xa2100000 0x00 0xf00000>;
+> +		no-map;
+> +	};
+> +
+> +	main_r5fss1_core1_dma_memory_region: r5f-dma-memory@a3000000 {
+> +		compatible = "shared-dma-pool";
+> +		reg = <0x00 0xa3000000 0x00 0x100000>;
+> +		no-map;
+> +	};
+> +
+> +	main_r5fss1_core1_memory_region: r5f-memory@a3100000 {
+> +		compatible = "shared-dma-pool";
+> +		reg = <0x00 0xa3100000 0x00 0xf00000>;
+> +		no-map;
+> +	};
+> +
+> +	mcu_m4fss_dma_memory_region: m4f-dma-memory@a4000000 {
+> +		compatible = "shared-dma-pool";
+> +		reg = <0x00 0xa4000000 0x00 0x100000>;
+> +		no-map;
+> +	};
+> +
+> +	mcu_m4fss_memory_region: m4f-memory@a4100000 {
+> +		compatible = "shared-dma-pool";
+> +		reg = <0x00 0xa4100000 0x00 0xf00000>;
+> +		no-map;
+> +	};
+> +
+> +	rtos_ipc_memory_region: ipc-memories@a5000000 {
+> +		reg = <0x00 0xa5000000 0x00 0x00800000>;
+> +		alignment = <0x1000>;
 > +		no-map;
 > +	};
 > +};
 > +
-> +&mailbox0_cluster0 {
+> +&mailbox0_cluster2 {
+> +	status = "okay";
+> +
+> +	mbox_main_r5fss0_core0: mbox-main-r5fss0-core0 {
+> +		ti,mbox-rx = <0 0 2>;
+> +		ti,mbox-tx = <1 0 2>;
+> +	};
+> +
+> +	mbox_main_r5fss0_core1: mbox-main-r5fss0-core1 {
+> +		ti,mbox-rx = <2 0 2>;
+> +		ti,mbox-tx = <3 0 2>;
+> +	};
+> +};
+> +
+> +&mailbox0_cluster4 {
+> +	status = "okay";
+> +
+> +	mbox_main_r5fss1_core0: mbox-main-r5fss1-core0 {
+> +		ti,mbox-rx = <0 0 2>;
+> +		ti,mbox-tx = <1 0 2>;
+> +	};
+> +
+> +	mbox_main_r5fss1_core1: mbox-main-r5fss1-core1 {
+> +		ti,mbox-rx = <2 0 2>;
+> +		ti,mbox-tx = <3 0 2>;
+> +	};
+> +};
+> +
+> +&mailbox0_cluster6 {
 > +	status = "okay";
 > +
 > +	mbox_m4_0: mbox-m4-0 {
-> +		ti,mbox-rx = <0 0 0>;
-> +		ti,mbox-tx = <1 0 0>;
-> +	};
-> +
-> +	mbox_r5_0: mbox-r5-0 {
-> +		ti,mbox-rx = <2 0 0>;
-> +		ti,mbox-tx = <3 0 0>;
+> +		ti,mbox-rx = <0 0 2>;
+> +		ti,mbox-tx = <1 0 2>;
 > +	};
 > +};
 > +
+> +/* main_timer8 is used by r5f0-0 */
+> +&main_timer8 {
+> +	status = "reserved";
+> +};
+> +
+> +/* main_timer9 is used by r5f0-1 */
+> +&main_timer9 {
+> +	status = "reserved";
+> +};
+> +
+> +/* main_timer10 is used by r5f1-0 */
+> +&main_timer10 {
+> +	status = "reserved";
+> +};
+> +
+> +/* main_timer11 is used by r5f1-1 */
+> +&main_timer11 {
+> +	status = "reserved";
+> +};
+> +
+> +&main_r5fss0 {
+> +	status = "okay";
+> +};
+> +
+> +&main_r5fss0_core0 {
+> +	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core0>;
+> +	memory-region = <&main_r5fss0_core0_dma_memory_region>,
+> +			<&main_r5fss0_core0_memory_region>;
+> +	status = "okay";
+> +};
+> +
+> +&main_r5fss0_core1 {
+> +	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core1>;
+> +	memory-region = <&main_r5fss0_core1_dma_memory_region>,
+> +			<&main_r5fss0_core1_memory_region>;
+> +	status = "okay";
+> +};
+> +
+> +&main_r5fss1 {
+> +	status = "okay";
+> +};
+> +
+> +&main_r5fss1_core0 {
+> +	mboxes = <&mailbox0_cluster4 &mbox_main_r5fss1_core0>;
+> +	memory-region = <&main_r5fss1_core0_dma_memory_region>,
+> +			<&main_r5fss1_core0_memory_region>;
+> +	status = "okay";
+> +};
+> +
+> +&main_r5fss1_core1 {
+> +	mboxes = <&mailbox0_cluster4 &mbox_main_r5fss1_core1>;
+> +	memory-region = <&main_r5fss1_core1_dma_memory_region>,
+> +			<&main_r5fss1_core1_memory_region>;
+> +	status = "okay";
+> +};
+> +
 > +&mcu_m4fss {
-> +	mboxes = <&mailbox0_cluster0 &mbox_m4_0>;
+> +	mboxes = <&mailbox0_cluster6 &mbox_m4_0>;
 > +	memory-region = <&mcu_m4fss_dma_memory_region>,
 > +			<&mcu_m4fss_memory_region>;
 > +	status = "okay";
 > +};
-> +
-> +&wkup_r5fss0 {
-> +	status = "okay";
-> +};
-> +
-> +&wkup_r5fss0_core0 {
-> +	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
-> +	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
-> +			<&wkup_r5fss0_core0_memory_region>;
-> +	status = "okay";
-> +};
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
-> index fa2c1dc738d6..fd83dbc9f37b 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
-> @@ -1334,38 +1334,6 @@ &main_i2c3 {
->   	status = "disabled";
->   };
->   
-> -&mailbox0_cluster0 {
-> -	status = "okay";
-> -
-> -	mbox_m4_0: mbox-m4-0 {
-> -		ti,mbox-rx = <0 0 0>;
-> -		ti,mbox-tx = <1 0 0>;
-> -	};
-> -
-> -	mbox_r5_0: mbox-r5-0 {
-> -		ti,mbox-rx = <2 0 0>;
-> -		ti,mbox-tx = <3 0 0>;
-> -	};
-> -};
-> -
-> -&mcu_m4fss {
-> -	mboxes = <&mailbox0_cluster0 &mbox_m4_0>;
-> -	memory-region = <&mcu_m4fss_dma_memory_region>,
-> -			<&mcu_m4fss_memory_region>;
-> -	status = "okay";
-> -};
-> -
-> -&wkup_r5fss0 {
-> -	status = "okay";
-> -};
-> -
-> -&wkup_r5fss0_core0 {
-> -	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
-> -	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
-> -			<&wkup_r5fss0_core0_memory_region>;
-> -	status = "okay";
-> -};
-> -
->   /* Verdin CAN_1 */
->   &main_mcan0 {
->   	pinctrl-names = "default";
-> @@ -1549,3 +1517,5 @@ &wkup_uart0 {
->   	pinctrl-0 = <&pinctrl_wkup_uart0>;
->   	status = "disabled";
->   };
-> +
-> +#include "k3-am62-ti-ipc-firmware.dtsi"
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-> index 03b8e246d8c2..ec2685144558 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-> @@ -58,18 +58,6 @@ linux,cma {
->   			linux,cma-default;
+> diff --git a/arch/arm64/boot/dts/ti/k3-am642-evm.dts b/arch/arm64/boot/dts/ti/k3-am642-evm.dts
+> index 7640c5efe9b8..05b7cdd25a8c 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am642-evm.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am642-evm.dts
+> @@ -64,60 +64,6 @@ main_r5fss0_core0_memory_region: r5f-memory@a0100000 {
+>   			reg = <0x00 0xa0100000 0x00 0xf00000>;
+>   			no-map;
 >   		};
+> -
+> -		main_r5fss0_core1_dma_memory_region: r5f-dma-memory@a1000000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa1000000 0x00 0x100000>;
+> -			no-map;
+> -		};
+> -
+> -		main_r5fss0_core1_memory_region: r5f-memory@a1100000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa1100000 0x00 0xf00000>;
+> -			no-map;
+> -		};
+> -
+> -		main_r5fss1_core0_dma_memory_region: r5f-dma-memory@a2000000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa2000000 0x00 0x100000>;
+> -			no-map;
+> -		};
+> -
+> -		main_r5fss1_core0_memory_region: r5f-memory@a2100000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa2100000 0x00 0xf00000>;
+> -			no-map;
+> -		};
+> -
+> -		main_r5fss1_core1_dma_memory_region: r5f-dma-memory@a3000000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa3000000 0x00 0x100000>;
+> -			no-map;
+> -		};
+> -
+> -		main_r5fss1_core1_memory_region: r5f-memory@a3100000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa3100000 0x00 0xf00000>;
+> -			no-map;
+> -		};
+> -
+> -		mcu_m4fss_dma_memory_region: m4f-dma-memory@a4000000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa4000000 0x00 0x100000>;
+> -			no-map;
+> -		};
+> -
+> -		mcu_m4fss_memory_region: m4f-memory@a4100000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa4100000 0x00 0xf00000>;
+> -			no-map;
+> -		};
+> -
+> -		rtos_ipc_memory_region: ipc-memories@a5000000 {
+> -			reg = <0x00 0xa5000000 0x00 0x00800000>;
+> -			alignment = <0x1000>;
+> -			no-map;
+> -		};
+>   	};
 >   
-> -		mcu_m4fss_dma_memory_region: m4f-dma-memory@9cb00000 {
-> -			compatible = "shared-dma-pool";
-> -			reg = <0x00 0x9cb00000 0x00 0x100000>;
-> -			no-map;
-> -		};
-> -
-> -		mcu_m4fss_memory_region: m4f-memory@9cc00000 {
-> -			compatible = "shared-dma-pool";
-> -			reg = <0x00 0x9cc00000 0x00 0xe00000>;
-> -			no-map;
-> -		};
-> -
->   		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9da00000 {
->   			compatible = "shared-dma-pool";
->   			reg = <0x00 0x9da00000 0x00 0x100000>;
-> @@ -477,38 +465,6 @@ cpsw3g_phy0: ethernet-phy@0 {
+>   	evm_12v0: regulator-0 {
+> @@ -727,106 +673,6 @@ partition@3fc0000 {
 >   	};
 >   };
 >   
-> -&mailbox0_cluster0 {
+> -&mailbox0_cluster2 {
 > -	status = "okay";
 > -
-> -	mbox_m4_0: mbox-m4-0 {
-> -		ti,mbox-rx = <0 0 0>;
-> -		ti,mbox-tx = <1 0 0>;
+> -	mbox_main_r5fss0_core0: mbox-main-r5fss0-core0 {
+> -		ti,mbox-rx = <0 0 2>;
+> -		ti,mbox-tx = <1 0 2>;
 > -	};
 > -
-> -	mbox_r5_0: mbox-r5-0 {
-> -		ti,mbox-rx = <2 0 0>;
-> -		ti,mbox-tx = <3 0 0>;
+> -	mbox_main_r5fss0_core1: mbox-main-r5fss0-core1 {
+> -		ti,mbox-rx = <2 0 2>;
+> -		ti,mbox-tx = <3 0 2>;
 > -	};
 > -};
 > -
+> -&mailbox0_cluster4 {
+> -	status = "okay";
+> -
+> -	mbox_main_r5fss1_core0: mbox-main-r5fss1-core0 {
+> -		ti,mbox-rx = <0 0 2>;
+> -		ti,mbox-tx = <1 0 2>;
+> -	};
+> -
+> -	mbox_main_r5fss1_core1: mbox-main-r5fss1-core1 {
+> -		ti,mbox-rx = <2 0 2>;
+> -		ti,mbox-tx = <3 0 2>;
+> -	};
+> -};
+> -
+> -&mailbox0_cluster6 {
+> -	status = "okay";
+> -
+> -	mbox_m4_0: mbox-m4-0 {
+> -		ti,mbox-rx = <0 0 2>;
+> -		ti,mbox-tx = <1 0 2>;
+> -	};
+> -};
+> -
+> -&main_r5fss0 {
+> -	status = "okay";
+> -};
+> -
+> -&main_r5fss0_core0 {
+> -	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core0>;
+> -	memory-region = <&main_r5fss0_core0_dma_memory_region>,
+> -			<&main_r5fss0_core0_memory_region>;
+> -	status = "okay";
+> -};
+> -
+> -&main_r5fss0_core1 {
+> -	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core1>;
+> -	memory-region = <&main_r5fss0_core1_dma_memory_region>,
+> -			<&main_r5fss0_core1_memory_region>;
+> -	status = "okay";
+> -};
+> -
+> -&main_r5fss1 {
+> -	status = "okay";
+> -};
+> -
+> -&main_r5fss1_core0 {
+> -	mboxes = <&mailbox0_cluster4 &mbox_main_r5fss1_core0>;
+> -	memory-region = <&main_r5fss1_core0_dma_memory_region>,
+> -			<&main_r5fss1_core0_memory_region>;
+> -	status = "okay";
+> -};
+> -
+> -&main_r5fss1_core1 {
+> -	mboxes = <&mailbox0_cluster4 &mbox_main_r5fss1_core1>;
+> -	memory-region = <&main_r5fss1_core1_dma_memory_region>,
+> -			<&main_r5fss1_core1_memory_region>;
+> -	status = "okay";
+> -};
+> -
 > -&mcu_m4fss {
-> -	mboxes = <&mailbox0_cluster0 &mbox_m4_0>;
+> -	mboxes = <&mailbox0_cluster6 &mbox_m4_0>;
 > -	memory-region = <&mcu_m4fss_dma_memory_region>,
 > -			<&mcu_m4fss_memory_region>;
 > -	status = "okay";
 > -};
 > -
-> -&wkup_r5fss0 {
-> -	status = "okay";
+> -/* main_timer8 is used by r5f0-0 */
+> -&main_timer8 {
+> -	status = "reserved";
 > -};
 > -
-> -&wkup_r5fss0_core0 {
-> -	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
-> -	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
-> -			<&wkup_r5fss0_core0_memory_region>;
-> -	status = "okay";
+> -/* main_timer9 is used by r5f0-1 */
+> -&main_timer9 {
+> -	status = "reserved";
 > -};
 > -
->   &usbss0 {
->   	bootph-all;
->   	status = "okay";
-> @@ -601,3 +557,5 @@ &epwm1 {
->   	pinctrl-0 = <&main_epwm1_pins_default>;
->   	status = "okay";
+> -/* main_timer10 is used by r5f1-0 */
+> -&main_timer10 {
+> -	status = "reserved";
+> -};
+> -
+> -/* main_timer11 is used by r5f1-1 */
+> -&main_timer11 {
+> -	status = "reserved";
+> -};
+> -
+>   &serdes_ln_ctrl {
+>   	idle-states = <AM64_SERDES0_LANE0_PCIE0>;
+>   };
+> @@ -890,3 +736,5 @@ &icssg1_iep0 {
+>   	pinctrl-names = "default";
+>   	pinctrl-0 = <&icssg1_iep0_pins_default>;
 >   };
 > +
-> +#include "k3-am62-ti-ipc-firmware.dtsi"
+> +#include "k3-am64-ti-ipc-firmware.dtsi"
+> diff --git a/arch/arm64/boot/dts/ti/k3-am642-sk.dts b/arch/arm64/boot/dts/ti/k3-am642-sk.dts
+> index fb8bd66f2f94..cc1569a6519b 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am642-sk.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am642-sk.dts
+> @@ -62,60 +62,6 @@ main_r5fss0_core0_memory_region: r5f-memory@a0100000 {
+>   			reg = <0x00 0xa0100000 0x00 0xf00000>;
+>   			no-map;
+>   		};
+> -
+> -		main_r5fss0_core1_dma_memory_region: r5f-dma-memory@a1000000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa1000000 0x00 0x100000>;
+> -			no-map;
+> -		};
+> -
+> -		main_r5fss0_core1_memory_region: r5f-memory@a1100000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa1100000 0x00 0xf00000>;
+> -			no-map;
+> -		};
+> -
+> -		main_r5fss1_core0_dma_memory_region: r5f-dma-memory@a2000000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa2000000 0x00 0x100000>;
+> -			no-map;
+> -		};
+> -
+> -		main_r5fss1_core0_memory_region: r5f-memory@a2100000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa2100000 0x00 0xf00000>;
+> -			no-map;
+> -		};
+> -
+> -		main_r5fss1_core1_dma_memory_region: r5f-dma-memory@a3000000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa3000000 0x00 0x100000>;
+> -			no-map;
+> -		};
+> -
+> -		main_r5fss1_core1_memory_region: r5f-memory@a3100000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa3100000 0x00 0xf00000>;
+> -			no-map;
+> -		};
+> -
+> -		mcu_m4fss_dma_memory_region: m4f-dma-memory@a4000000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa4000000 0x00 0x100000>;
+> -			no-map;
+> -		};
+> -
+> -		mcu_m4fss_memory_region: m4f-memory@a4100000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa4100000 0x00 0xf00000>;
+> -			no-map;
+> -		};
+> -
+> -		rtos_ipc_memory_region: ipc-memories@a5000000 {
+> -			reg = <0x00 0xa5000000 0x00 0x00800000>;
+> -			alignment = <0x1000>;
+> -			no-map;
+> -		};
+>   	};
+>   
+>   	vusb_main: regulator-0 {
+> @@ -642,106 +588,6 @@ partition@3fc0000 {
+>   	};
+>   };
+>   
+> -&mailbox0_cluster2 {
+> -	status = "okay";
+> -
+> -	mbox_main_r5fss0_core0: mbox-main-r5fss0-core0 {
+> -		ti,mbox-rx = <0 0 2>;
+> -		ti,mbox-tx = <1 0 2>;
+> -	};
+> -
+> -	mbox_main_r5fss0_core1: mbox-main-r5fss0-core1 {
+> -		ti,mbox-rx = <2 0 2>;
+> -		ti,mbox-tx = <3 0 2>;
+> -	};
+> -};
+> -
+> -&mailbox0_cluster4 {
+> -	status = "okay";
+> -
+> -	mbox_main_r5fss1_core0: mbox-main-r5fss1-core0 {
+> -		ti,mbox-rx = <0 0 2>;
+> -		ti,mbox-tx = <1 0 2>;
+> -	};
+> -
+> -	mbox_main_r5fss1_core1: mbox-main-r5fss1-core1 {
+> -		ti,mbox-rx = <2 0 2>;
+> -		ti,mbox-tx = <3 0 2>;
+> -	};
+> -};
+> -
+> -&mailbox0_cluster6 {
+> -	status = "okay";
+> -
+> -	mbox_m4_0: mbox-m4-0 {
+> -		ti,mbox-rx = <0 0 2>;
+> -		ti,mbox-tx = <1 0 2>;
+> -	};
+> -};
+> -
+> -&main_r5fss0 {
+> -	status = "okay";
+> -};
+> -
+> -&main_r5fss0_core0 {
+> -	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core0>;
+> -	memory-region = <&main_r5fss0_core0_dma_memory_region>,
+> -			<&main_r5fss0_core0_memory_region>;
+> -	status = "okay";
+> -};
+> -
+> -&main_r5fss0_core1 {
+> -	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core1>;
+> -	memory-region = <&main_r5fss0_core1_dma_memory_region>,
+> -			<&main_r5fss0_core1_memory_region>;
+> -	status = "okay";
+> -};
+> -
+> -&main_r5fss1 {
+> -	status = "okay";
+> -};
+> -
+> -&main_r5fss1_core0 {
+> -	mboxes = <&mailbox0_cluster4 &mbox_main_r5fss1_core0>;
+> -	memory-region = <&main_r5fss1_core0_dma_memory_region>,
+> -			<&main_r5fss1_core0_memory_region>;
+> -	status = "okay";
+> -};
+> -
+> -&main_r5fss1_core1 {
+> -	mboxes = <&mailbox0_cluster4 &mbox_main_r5fss1_core1>;
+> -	memory-region = <&main_r5fss1_core1_dma_memory_region>,
+> -			<&main_r5fss1_core1_memory_region>;
+> -	status = "okay";
+> -};
+> -
+> -&mcu_m4fss {
+> -	mboxes = <&mailbox0_cluster6 &mbox_m4_0>;
+> -	memory-region = <&mcu_m4fss_dma_memory_region>,
+> -			<&mcu_m4fss_memory_region>;
+> -	status = "okay";
+> -};
+> -
+> -/* main_timer8 is used by r5f0-0 */
+> -&main_timer8 {
+> -	status = "reserved";
+> -};
+> -
+> -/* main_timer9 is used by r5f0-1 */
+> -&main_timer9 {
+> -	status = "reserved";
+> -};
+> -
+> -/* main_timer10 is used by r5f1-0 */
+> -&main_timer10 {
+> -	status = "reserved";
+> -};
+> -
+> -/* main_timer11 is used by r5f1-1 */
+> -&main_timer11 {
+> -	status = "reserved";
+> -};
+> -
+>   &ecap0 {
+>   	status = "okay";
+>   	/* PWM is available on Pin 1 of header J3 */
+> @@ -755,3 +601,5 @@ &eqep0 {
+>   	pinctrl-names = "default";
+>   	pinctrl-0 = <&main_eqep0_pins_default>;
+>   };
+> +
+> +#include "k3-am64-ti-ipc-firmware.dtsi"
+> diff --git a/arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi b/arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi
+> index 8cb61f831734..ce23362b88c3 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am642-sr-som.dtsi
+> @@ -126,60 +126,6 @@ main_r5fss0_core0_memory_region: r5f-memory@a0100000 {
+>   			reg = <0x00 0xa0100000 0x00 0xf00000>;
+>   			no-map;
+>   		};
+> -
+> -		main_r5fss0_core1_dma_memory_region: r5f-dma-memory@a1000000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa1000000 0x00 0x100000>;
+> -			no-map;
+> -		};
+> -
+> -		main_r5fss0_core1_memory_region: r5f-memory@a1100000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa1100000 0x00 0xf00000>;
+> -			no-map;
+> -		};
+> -
+> -		main_r5fss1_core0_dma_memory_region: r5f-dma-memory@a2000000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa2000000 0x00 0x100000>;
+> -			no-map;
+> -		};
+> -
+> -		main_r5fss1_core0_memory_region: r5f-memory@a2100000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa2100000 0x00 0xf00000>;
+> -			no-map;
+> -		};
+> -
+> -		main_r5fss1_core1_dma_memory_region: r5f-dma-memory@a3000000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa3000000 0x00 0x100000>;
+> -			no-map;
+> -		};
+> -
+> -		main_r5fss1_core1_memory_region: r5f-memory@a3100000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa3100000 0x00 0xf00000>;
+> -			no-map;
+> -		};
+> -
+> -		mcu_m4fss_dma_memory_region: m4f-dma-memory@a4000000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa4000000 0x00 0x100000>;
+> -			no-map;
+> -		};
+> -
+> -		mcu_m4fss_memory_region: m4f-memory@a4100000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa4100000 0x00 0xf00000>;
+> -			no-map;
+> -		};
+> -
+> -		rtos_ipc_memory_region: ipc-memories@a5000000 {
+> -			reg = <0x00 0xa5000000 0x00 0x00800000>;
+> -			alignment = <0x1000>;
+> -			no-map;
+> -		};
+>   	};
+>   
+>   	vdd_mmc0: regulator-vdd-mmc0 {
+> @@ -281,63 +227,6 @@ ethernet_phy2: ethernet-phy@f {
+>   	};
+>   };
+>   
+> -&mailbox0_cluster2 {
+> -	status = "okay";
+> -
+> -	mbox_main_r5fss0_core0: mbox-main-r5fss0-core0 {
+> -		ti,mbox-rx = <0 0 2>;
+> -		ti,mbox-tx = <1 0 2>;
+> -	};
+> -
+> -	mbox_main_r5fss0_core1: mbox-main-r5fss0-core1 {
+> -		ti,mbox-rx = <2 0 2>;
+> -		ti,mbox-tx = <3 0 2>;
+> -	};
+> -};
+> -
+> -&mailbox0_cluster4 {
+> -	status = "okay";
+> -
+> -	mbox_main_r5fss1_core0: mbox-main-r5fss1-core0 {
+> -		ti,mbox-rx = <0 0 2>;
+> -		ti,mbox-tx = <1 0 2>;
+> -	};
+> -
+> -	mbox_main_r5fss1_core1: mbox-main-r5fss1-core1 {
+> -		ti,mbox-rx = <2 0 2>;
+> -		ti,mbox-tx = <3 0 2>;
+> -	};
+> -};
+> -
+> -&mailbox0_cluster6 {
+> -	status = "okay";
+> -
+> -	mbox_m4_0: mbox-m4-0 {
+> -		ti,mbox-rx = <0 0 2>;
+> -		ti,mbox-tx = <1 0 2>;
+> -	};
+> -};
+> -
+> -/* main_timer8 is used by r5f0-0 */
+> -&main_timer8 {
+> -	status = "reserved";
+> -};
+> -
+> -/* main_timer9 is used by r5f0-1 */
+> -&main_timer9 {
+> -	status = "reserved";
+> -};
+> -
+> -/* main_timer10 is used by r5f1-0 */
+> -&main_timer10 {
+> -	status = "reserved";
+> -};
+> -
+> -/* main_timer11 is used by r5f1-1 */
+> -&main_timer11 {
+> -	status = "reserved";
+> -};
+> -
+>   &main_i2c0 {
+>   	pinctrl-names = "default";
+>   	pinctrl-0 = <&main_i2c0_default_pins>;
+> @@ -535,49 +424,6 @@ AM64X_IOPAD(0x02a8, PIN_OUTPUT, 0) /* USB0_DRVVBUS.USB0_DRVVBUS */
+>   	};
+>   };
+>   
+> -&main_r5fss0 {
+> -	status = "okay";
+> -};
+> -
+> -&main_r5fss0_core0 {
+> -	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core0>;
+> -	memory-region = <&main_r5fss0_core0_dma_memory_region>,
+> -			<&main_r5fss0_core0_memory_region>;
+> -	status = "okay";
+> -};
+> -
+> -&main_r5fss0_core1 {
+> -	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core1>;
+> -	memory-region = <&main_r5fss0_core1_dma_memory_region>,
+> -			<&main_r5fss0_core1_memory_region>;
+> -	status = "okay";
+> -};
+> -
+> -&main_r5fss1 {
+> -	status = "okay";
+> -};
+> -
+> -&main_r5fss1_core0 {
+> -	mboxes = <&mailbox0_cluster4 &mbox_main_r5fss1_core0>;
+> -	memory-region = <&main_r5fss1_core0_dma_memory_region>,
+> -			<&main_r5fss1_core0_memory_region>;
+> -	status = "okay";
+> -};
+> -
+> -&main_r5fss1_core1 {
+> -	mboxes = <&mailbox0_cluster4 &mbox_main_r5fss1_core1>;
+> -	memory-region = <&main_r5fss1_core1_dma_memory_region>,
+> -			<&main_r5fss1_core1_memory_region>;
+> -	status = "okay";
+> -};
+> -
+> -&mcu_m4fss {
+> -	mboxes = <&mailbox0_cluster6 &mbox_m4_0>;
+> -	memory-region = <&mcu_m4fss_dma_memory_region>,
+> -			<&mcu_m4fss_memory_region>;
+> -	status = "okay";
+> -};
+> -
+>   /* SoC default UART console */
+>   &main_uart0 {
+>   	pinctrl-names = "default";
+> @@ -656,3 +502,5 @@ &usbss0 {
+>   	ti,vbus-divider;
+>   	ti,usb2-only;
+>   };
+> +
+> +#include "k3-am64-ti-ipc-firmware.dtsi"
+> diff --git a/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi b/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi
+> index 860b79aa5ef5..e752fc8b0a88 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi
+> @@ -42,60 +42,6 @@ main_r5fss0_core0_memory_region: r5f-memory@a0100000 {
+>   			reg = <0x00 0xa0100000 0x00 0xf00000>;
+>   			no-map;
+>   		};
+> -
+> -		main_r5fss0_core1_dma_memory_region: r5f-dma-memory@a1000000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa1000000 0x00 0x100000>;
+> -			no-map;
+> -		};
+> -
+> -		main_r5fss0_core1_memory_region: r5f-memory@a1100000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa1100000 0x00 0xf00000>;
+> -			no-map;
+> -		};
+> -
+> -		main_r5fss1_core0_dma_memory_region: r5f-dma-memory@a2000000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa2000000 0x00 0x100000>;
+> -			no-map;
+> -		};
+> -
+> -		main_r5fss1_core0_memory_region: r5f-memory@a2100000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa2100000 0x00 0xf00000>;
+> -			no-map;
+> -		};
+> -
+> -		main_r5fss1_core1_dma_memory_region: r5f-dma-memory@a3000000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa3000000 0x00 0x100000>;
+> -			no-map;
+> -		};
+> -
+> -		main_r5fss1_core1_memory_region: r5f-memory@a3100000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa3100000 0x00 0xf00000>;
+> -			no-map;
+> -		};
+> -
+> -		mcu_m4fss_dma_memory_region: m4f-dma-memory@a4000000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa4000000 0x00 0x100000>;
+> -			no-map;
+> -		};
+> -
+> -		mcu_m4fss_memory_region: m4f-memory@a4100000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0xa4100000 0x00 0xf00000>;
+> -			no-map;
+> -		};
+> -
+> -		rtos_ipc_memory_region: ipc-memories@a5000000 {
+> -			reg = <0x00 0xa5000000 0x00 0x00800000>;
+> -			alignment = <0x1000>;
+> -			no-map;
+> -		};
+>   	};
+>   
+>   	reg_1v8: regulator-1v8 {
+> @@ -142,106 +88,6 @@ eeprom1: eeprom@54 {
+>   	};
+>   };
+>   
+> -&mailbox0_cluster2 {
+> -	status = "okay";
+> -
+> -	mbox_main_r5fss0_core0: mbox-main-r5fss0-core0 {
+> -		ti,mbox-rx = <0 0 2>;
+> -		ti,mbox-tx = <1 0 2>;
+> -	};
+> -
+> -	mbox_main_r5fss0_core1: mbox-main-r5fss0-core1 {
+> -		ti,mbox-rx = <2 0 2>;
+> -		ti,mbox-tx = <3 0 2>;
+> -	};
+> -};
+> -
+> -&mailbox0_cluster4 {
+> -	status = "okay";
+> -
+> -	mbox_main_r5fss1_core0: mbox-main-r5fss1-core0 {
+> -		ti,mbox-rx = <0 0 2>;
+> -		ti,mbox-tx = <1 0 2>;
+> -	};
+> -
+> -	mbox_main_r5fss1_core1: mbox-main-r5fss1-core1 {
+> -		ti,mbox-rx = <2 0 2>;
+> -		ti,mbox-tx = <3 0 2>;
+> -	};
+> -};
+> -
+> -&mailbox0_cluster6 {
+> -	status = "okay";
+> -
+> -	mbox_m4_0: mbox-m4-0 {
+> -		ti,mbox-rx = <0 0 2>;
+> -		ti,mbox-tx = <1 0 2>;
+> -	};
+> -};
+> -
+> -/* main_timer8 is used by r5f0-0 */
+> -&main_timer8 {
+> -	status = "reserved";
+> -};
+> -
+> -/* main_timer9 is used by r5f0-1 */
+> -&main_timer9 {
+> -	status = "reserved";
+> -};
+> -
+> -/* main_timer10 is used by r5f1-0 */
+> -&main_timer10 {
+> -	status = "reserved";
+> -};
+> -
+> -/* main_timer11 is used by r5f1-1 */
+> -&main_timer11 {
+> -	status = "reserved";
+> -};
+> -
+> -&main_r5fss0 {
+> -	status = "okay";
+> -};
+> -
+> -&main_r5fss0_core0 {
+> -	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core0>;
+> -	memory-region = <&main_r5fss0_core0_dma_memory_region>,
+> -			<&main_r5fss0_core0_memory_region>;
+> -	status = "okay";
+> -};
+> -
+> -&main_r5fss0_core1 {
+> -	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core1>;
+> -	memory-region = <&main_r5fss0_core1_dma_memory_region>,
+> -			<&main_r5fss0_core1_memory_region>;
+> -	status = "okay";
+> -};
+> -
+> -&main_r5fss1 {
+> -	status = "okay";
+> -};
+> -
+> -&main_r5fss1_core0 {
+> -	mboxes = <&mailbox0_cluster4 &mbox_main_r5fss1_core0>;
+> -	memory-region = <&main_r5fss1_core0_dma_memory_region>,
+> -			<&main_r5fss1_core0_memory_region>;
+> -	status = "okay";
+> -};
+> -
+> -&main_r5fss1_core1 {
+> -	mboxes = <&mailbox0_cluster4 &mbox_main_r5fss1_core1>;
+> -	memory-region = <&main_r5fss1_core1_dma_memory_region>,
+> -			<&main_r5fss1_core1_memory_region>;
+> -	status = "okay";
+> -};
+> -
+> -&mcu_m4fss {
+> -	mboxes = <&mailbox0_cluster6 &mbox_m4_0>;
+> -	memory-region = <&mcu_m4fss_dma_memory_region>,
+> -			<&mcu_m4fss_memory_region>;
+> -	status = "okay";
+> -};
+> -
+>   &ospi0 {
+>   	status = "okay";
+>   	pinctrl-names = "default";
+> @@ -315,3 +161,5 @@ AM64X_IOPAD(0x0008, PIN_INPUT, 0)
+>   		>;
+>   	};
+>   };
+> +
+> +#include "k3-am64-ti-ipc-firmware.dtsi"
 
 
