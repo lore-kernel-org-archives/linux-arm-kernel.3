@@ -4,60 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A67B8C8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 17:23:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CA42CA0FFE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 17:23:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vPdymbaCqau+yaCWSCW4KLmPAF+HpjkM+g2fCUR5lNY=; b=gAEsk75jFmym2ECJ7PPTHJTKt4
-	VT9gI37u/+qALbvYpSXMprmBLWfJj7OOu7ic0zFoBusX06GH3hYLByJs9SoOgDg2BwTt5/wLaXAAV
-	MYBEWjVQy9YLjn/UTcwMQtYRU74OHo3RcIKu1s7ojZruFaosgRqGGbmuVkUELXGVqg3aYEzQNz/M7
-	b5/4uKdsNoL/XCPw/cW0wx7SWwMhfHOevH24eN6m7ea7car/KeItem1C4OFEuj2gq7u40AkGitvT7
-	8YqVZRY3B8PlXFqvFrL11m8YUebi48Zhn4yJ+I8xkN0w9WRLCNVVJBSKPFzBDDYM+8XxGD2GmmI+e
-	IlI3vZxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4lf9KRuU3XqjH9s/P98ePLTJLe34Mktbt6oDMXgNk/4=; b=PkGHrEMXcgiGrPtelfJX6/pvrz
+	1Z1Op1aSXjySYFyjMFwyJxSYThPgO2x3qw1PSfL9iu7K5FlloLqssVGS1h47apR31obvxctDKGAbX
+	jMC/SycKw6LB3FkXSEk2yhcrdhWkyEbYui6JGKdcMt1XS4z73nBquaZ99PxbkviPFU4t2A+bWu2jZ
+	D2blAXBgqLqGJ3Rl/d1fF4jYIrq1X8IkvyFeJSNHTybDK8PlZH2cjwrACOWxxkcsX6znVq97PuUoz
+	Z7fHm3Zn6MW5Tk7g6V8jCtnuKrz+kwV4ANJBOYBp9cJfb/d/fMqP2nW0bbfRJd52EJwnD5hh9532R
+	7wkQgm4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urgLk-00000002Q4q-14sA;
-	Thu, 28 Aug 2025 17:23:48 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1urgLl-00000002Q7A-2eA6;
+	Thu, 28 Aug 2025 17:23:49 +0000
+Received: from out-186.mta1.migadu.com ([95.215.58.186])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urbN2-00000001RD1-2OMI;
-	Thu, 28 Aug 2025 12:04:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=vPdymbaCqau+yaCWSCW4KLmPAF+HpjkM+g2fCUR5lNY=; b=dXfse24ojcLjDHCLcShxSynjgY
-	N3lUpTszTBimpfq/1btLaJ5GmD2APYQLHOXc4DgzbEXb/MrcIWlyZKL4lIS5mG2MbF9glnlRmfRhT
-	me0SSegWwB5BxdHbpsmlFCgvJy4VgoZkLTtUjvjksXVm1Y5lpTDUhCqGkrtdFHe3gcKFAoCpOFIJB
-	764/UBax1SXtRp8cspT1503G4cSGfPKToIyaS7joNn/ldwsScvHDynbipeCcaulw9057Sxg6kDz1q
-	h+pciZ0fW0BLrTeIMjqZoALd147RFdPQjJFZhWNZCYLVAIUIAbdZM+Dcpq+pna1EeX7feXmYmg3ih
-	kyFo7bBQ==;
-Received: from [185.205.242.134] (helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1urbMy-0005X1-Ex; Thu, 28 Aug 2025 14:04:44 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Hide Hako <opi5plus@bcc.bai.ne.jp>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-sound@vger.kernel.org, Hide Hako <opi5plus@bcc.bai.ne.jp>
-Subject: Re: [PATCH v2] arm64: dts: rockchip: Enables sound output from the audio jack
- on OrangePI5 Plus
-Date: Thu, 28 Aug 2025 14:04:43 +0200
-Message-ID: <9820114.4vTCxPXJkl@phil>
-In-Reply-To: <20250826134456.9636-2-opi5plus@bcc.bai.ne.jp>
-References: <20250826134456.9636-2-opi5plus@bcc.bai.ne.jp>
+	id 1urbOK-00000001RXy-2rW4;
+	Thu, 28 Aug 2025 12:06:10 +0000
+Message-ID: <11d46e56-b8d9-4776-9969-d3767d8cda41@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1756382764;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=4lf9KRuU3XqjH9s/P98ePLTJLe34Mktbt6oDMXgNk/4=;
+	b=xClLXYSf4+Y47SMAxpPCJbn6XmGzs3dIcquE8NJLfEPLm3/qz+X/1yTkBgXhVxika8ThH3
+	lsRaGUbO+SUI5mHC1mu87EeBMwd5zKFveKVZbK3cxJCrFE1pNVIWRmTlRO9W1F9fgfjpk9
+	qoOf/I6JzQnTzROTIOnNmnMuWXhMosw=
+Date: Thu, 28 Aug 2025 13:05:55 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Subject: Re: [PATCH] net: ethernet: ti: Prevent divide-by-zero in
+ cpts_calc_mult_shift()
+To: Miaoqian Lin <linmq006@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Grygorii Strashko <grygorii.strashko@ti.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20250828092224.46761-1-linmq006@gmail.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+In-Reply-To: <20250828092224.46761-1-linmq006@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_050448_636583_885EC371 
-X-CRM114-Status: GOOD (  17.84  )
+X-CRM114-CacheID: sfid-20250828_050609_007434_B4BD913A 
+X-CRM114-Status: UNSURE (   7.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,60 +76,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Hide Hako,
+On 28/08/2025 10:22, Miaoqian Lin wrote:
+> cpts_calc_mult_shift() has a potential divide-by-zero in this line:
+> 
+>          do_div(maxsec, freq);
+> 
+> due to the fact that clk_get_rate() can return zero in certain error
+> conditions.
 
-Am Dienstag, 26. August 2025, 15:44:57 Mitteleurop=C3=A4ische Sommerzeit sc=
-hrieb Hide Hako:
-> Currently, analog sound is not output from the audio jack.
-> This patch allows you to select analog headphones in alsamixer.
-> Works with kernel 6.16.1, but not 6.17-rc1.
->=20
-> Points of concern:
-> 6.16.1 kernel with ubuntu 25.04 Setting -> Sound -> Output Device
->  I select Speakers Built-in Audio, the sound will be output from the audi=
-o jack.
->=20
-> Changes since v1:
-> - As pointed out by Jimmy, the file to be modified has been changed
->   from rk3588-orangepi-5.dtsi to rk3588-orangepi-5-plus.dts.
-
-All of what Maud said, but also I think this deserves some
-
-=46ixes: 236d225e1ee7 ("arm64: dts: rockchip: Add board device tree for rk3=
-588-orangepi-5-plus")
-
-tag + could do the subject as=20
-  "arm64: dts: rockchip: Fix sound output from the audio jack on OrangePI5 =
-Plus"
-
-because this really sounds like it fixes functionality to is supposed
-to be working :-)
-
-
-Thanks a lot
-Heiko
-
-> Signed-off-by: Hide Hako <opi5plus@bcc.bai.ne.jp>
-> ---
->  arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts | 1 +
->  1 file changed, 1 insertion(+)
->=20
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts b/ar=
-ch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
-> index 121e4d1c3..44bb15951 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
-> @@ -78,6 +78,7 @@ &analog_sound {
->  	pinctrl-0 =3D <&hp_detect>;
->  	simple-audio-card,aux-devs =3D <&speaker_amp>, <&headphone_amp>;
->  	simple-audio-card,hp-det-gpios =3D <&gpio1 RK_PD3 GPIO_ACTIVE_LOW>;
-> +	simple-audio-card,pin-switches =3D "Speaker", "Headphones";
->  	simple-audio-card,widgets =3D
->  		"Microphone", "Onboard Microphone",
->  		"Microphone", "Microphone Jack",
->=20
-
-
-
-
+Have you seen this happening in the real environment, or is it just
+analysis of the code? I don't see a reason for these "certain error
+conditions" to happen...
 
