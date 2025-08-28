@@ -4,47 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02B50CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 07:35:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 510A4CA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 07:38:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=py4avZkKZs9gMtxyD4o7g7fY03HHmjmGgT6Iq9b3bsc=; b=gSlTAMM5Gy2FdWzoYVPAYE+UyK
-	TndwTkDUjSN5NJO7ypCeHEGhVCv+WgM7QQnXf5CH+8mETHu10sW+y9n86Gqwu7SrBb0EqMVkgeYqS
-	AFsBGUWaAxZb904VToWpRWSgCN2PPdqxOa3r4AxUMmxiwpNlxwa0H0dRNghLVn9klpU6cWQaLybPP
-	oy9YoC92x0guEflfGOhFXuewHJaa6sUW2pOASyQPJNCjd+fnvlQo4uqjpLDsi9YQI8BtANvzqcIIr
-	ZVevLKImKRbZm6ReCy34Kd2zDyDSyayuZu0jlXA2cmURWZEgVJlgycRWmk0QbTdaRhmFrzWsdQstR
-	u8KNSysg==;
+	bh=EuV0vIwmYzbGp0NvCAEdvEWsqc4i4ounAUIZgXtsn78=; b=WHB5K3aGPVBf/B3QX1JeJa0kKY
+	SSiNz7RKcI7fqRZVuvTCM9K6HYvTgMFJm6foT677HGoe/TLsnMUrpJoW9vxi7AeEwHWCzFIJVNeDk
+	7ZfmlmLXbKY4VsNSMB+X3GaXSdumloBGADKg+U4sGoWpx349SPOVRGAxfnCHD3ZAmMPeGVZBrwagU
+	VAA6Y5ur3XEnGGdmKrhcZMJu963iX3ONa4I414Lr5tuPMufeJ2j7pUcNZyQo1WOofb7JDw+pj9mUQ
+	J2tT/Rb+Nj4Hf5G6d+5TfCH1jZquiRTjWly2/lHuATZmhYCtHQswzLNZq/lkhoFdze/PoEWWvVVJ6
+	E7YHVnzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urXAK-00000000brG-09KR;
-	Thu, 28 Aug 2025 07:35:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1urXD1-00000000chs-2gQF;
+	Thu, 28 Aug 2025 07:38:11 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urWwh-00000000ZUj-3gPd;
-	Thu, 28 Aug 2025 07:21:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4394B601D3;
-	Thu, 28 Aug 2025 07:21:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6A4FC4CEF5;
-	Thu, 28 Aug 2025 07:21:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756365679;
-	bh=C7/duUHB1jzTe2zoRwJGPq9tnOYsk04M/lnKM6Lw4jw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=P3P6rik2V+dAnat9eWuSvAQFs7ROQol0qfl7mXX/2cUYI+C7QRP3XNCAjTFTXOboX
-	 PnGh4LwLXGdtC/lBzkP3HHTgLg4rsEUWyyc9GJT6llTjHe+2h8KOlurSZnUiJw3NW7
-	 qKwPWdsXnTrtZmXRScitgLnU7lvFVln3pfXq+R+VNtWe5rSbPPMi2iORZuC/qKAp5S
-	 3fe04bSwMQR8OaSYcElHlHSfQVwB6Zb3HSUqkl5IfcwdDCl1ZwfSrzEWyOB1KGcrlw
-	 JUhlVcCM4Av5WDpYuP6k5h/vdvl0/1bLz8dvd0y2eUBSbWa12OIyuKGJ2VR5zTU1an
-	 L77vfQGsfA4Og==
-Date: Thu, 28 Aug 2025 10:21:00 +0300
-From: Mike Rapoport <rppt@kernel.org>
+	id 1urX6v-00000000b7A-0Ghm;
+	Thu, 28 Aug 2025 07:31:54 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3c79f0a604aso343871f8f.2;
+        Thu, 28 Aug 2025 00:31:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756366311; x=1756971111; darn=lists.infradead.org;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=EuV0vIwmYzbGp0NvCAEdvEWsqc4i4ounAUIZgXtsn78=;
+        b=IVpI6ShOiuKWOvkKqLfrsAllTp4g9rcciOhEERz//jMTjMQuN28DAqJXFpuyxE/70c
+         RZhyQQeYqgZ3DOrHOrUO+m9ewGn+rLoEjx8ucKtNJz0F09VFw2/dfT1FMYeqpvuO9GBL
+         vDe8VpbP7fm/gi33a9Km0TO5E7xql1ODKrcghSX5muy5d7dI7ETuiaftGNPGzRbQbqhu
+         v0W7xUHO+kG6JGr2pxzvUHh9n6RPSVWX8A8E718YXzQFOVFPHRWujpC10e9qNmnMmysk
+         MAay7zWpgddGRT65DZLW7cX1//DdWe7cyNpYETVn8vodzZCNvWRYeLajc/pdq6Ydlxpo
+         o7RA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756366311; x=1756971111;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :reply-to:message-id:subject:cc:to:from:date:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=EuV0vIwmYzbGp0NvCAEdvEWsqc4i4ounAUIZgXtsn78=;
+        b=Ttjidmo+abCEo+ctcS+cFm4oe1YAeuR4EnKmSTWfEcTde0lOLpHpOqqDe5GuwRWNtG
+         /pYFw7M+0UwxwSHfmLhDpIjo4NrM04XfojiV0/FluLS1b08ShJalVERwNzopRgnvoP8o
+         73avefFT5dRifQT1twh0cHrb0bduF7iuVHcn78u9Ikjt8HeON4usiaHqUaRImQ9f0dzI
+         37FT9MExrTnvnXyt0HJZ3Cl0LIsqBlsOFHxPMyb8//Mu7WLQ1BKg348TDnoBoznIs6SN
+         A3wcDH1QnK4+h1ZTVRBXxcDe9FSyHLn53FRLSpPT3Nu84VxIgL3OuRBDO7G8FQ43dK6D
+         PADg==
+X-Forwarded-Encrypted: i=1; AJvYcCU4IOoD24YIUlSuyUHtAYgU8oaFwhfSXXN7thA2TRbS2grMpgkSRkRTAGpfetsPBILJ8Dg/Vr/MLAflBqo=@lists.infradead.org, AJvYcCWx19ZGFxuhMYAUCrKQ4iFqLzRrYYysDaY4y0CvjZBszSUN1QQKqYwes90YiVW544KKKn6XWgfDAB+Va+eJBg3x@lists.infradead.org
+X-Gm-Message-State: AOJu0YxBBgIIADZm29HDnM+qJHc5wc6K9Zvt/O3sp9IbQ0u/P37N7Vnv
+	CjoRw7JsgLGGUCeg5iqgeKDoxE1dzaDKehMRNxoWwIIpFQGIgEBriPGz
+X-Gm-Gg: ASbGnct/Dv+iPQJ3TlP+uiwwjc+QDkBjk+4DydlwGT90065yw5SnuihblWf+N++U7aK
+	BSoAyw/XBbjgOy3IDwzSewRxDAhFYMirSzNxzN1LsEOpb16uCSkcdS1Uyyd44ddImXDa4m5Wjn5
+	7415rIFTlWZpqAUTowieMIbMBfzGrS7pu/5+lvr4KsZWVkGyPfkNJvxz4LCn4unJ27fsAy7PQkD
+	2zB+s4jQEdr7u6f4AiCggK2NmagPFA9Gm/5HPLQ5BsDc1AqnMDmSvQAbWzO4GqOhqbGB1vr0eix
+	Ot9LUqZ+7t+ligy0Dyjn+djkoU/nbfNVfXmhFSH1kr1pgPwjGdZ9ck/hSdsI1cH1L40XG0TfBQw
+	riw/beGLZoLnE3AoJDGmlAbSwyyNjFDUqR0wh
+X-Google-Smtp-Source: AGHT+IGYsCTFAB2u+mO+a+/7YQm7WCRYBnf/bqNrDbgJHuGpC+AeSLNYygCiHCIag3yJJPklKDadWQ==
+X-Received: by 2002:a05:6000:2891:b0:3cd:96bb:b948 with SMTP id ffacd0b85a97d-3cd96bbc28fmr1837267f8f.47.1756366311260;
+        Thu, 28 Aug 2025 00:31:51 -0700 (PDT)
+Received: from localhost ([185.92.221.13])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3c9c9324dc9sm14883755f8f.3.2025.08.28.00.31.50
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Thu, 28 Aug 2025 00:31:50 -0700 (PDT)
+Date: Thu, 28 Aug 2025 07:31:50 +0000
+From: Wei Yang <richard.weiyang@gmail.com>
 To: David Hildenbrand <david@redhat.com>
-Cc: linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
+Cc: linux-kernel@vger.kernel.org, Zi Yan <ziy@nvidia.com>,
+	SeongJae Park <sj@kernel.org>,
+	Alexander Potapenko <glider@google.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Brendan Jackman <jackmanb@google.com>,
 	Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>,
@@ -64,21 +93,27 @@ Cc: linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
 	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
 	Marco Elver <elver@google.com>,
 	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
-	netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
-	Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
+	Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
+	Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
+	Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
+	Robin Murphy <robin.murphy@arm.com>,
 	Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
 	virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
-	wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
-Subject: Re: [PATCH v1 13/36] mm/hugetlb: cleanup
- hugetlb_folio_init_tail_vmemmap()
-Message-ID: <aLADXP89cp6hAq0q@kernel.org>
+	wireguard@lists.zx2c4.com, x86@kernel.org
+Subject: Re: [PATCH v1 06/36] mm/page_alloc: reject unreasonable
+ folio/compound page sizes in alloc_contig_range_noprof()
+Message-ID: <20250828073150.jyafkufvkjfqwp3f@master>
 References: <20250827220141.262669-1-david@redhat.com>
- <20250827220141.262669-14-david@redhat.com>
+ <20250827220141.262669-7-david@redhat.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250827220141.262669-14-david@redhat.com>
+In-Reply-To: <20250827220141.262669-7-david@redhat.com>
+User-Agent: NeoMutt/20170113 (1.7.2)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250828_003153_104284_18E95F5B 
+X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,88 +125,24 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Wei Yang <richard.weiyang@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 28, 2025 at 12:01:17AM +0200, David Hildenbrand wrote:
-> We can now safely iterate over all pages in a folio, so no need for the
-> pfn_to_page().
-> 
-> Also, as we already force the refcount in __init_single_page() to 1,
-> we can just set the refcount to 0 and avoid page_ref_freeze() +
-> VM_BUG_ON. Likely, in the future, we would just want to tell
-> __init_single_page() to which value to initialize the refcount.
-> 
-> Further, adjust the comments to highlight that we are dealing with an
-> open-coded prep_compound_page() variant, and add another comment explaining
-> why we really need the __init_single_page() only on the tail pages.
-> 
-> Note that the current code was likely problematic, but we never ran into
-> it: prep_compound_tail() would have been called with an offset that might
-> exceed a memory section, and prep_compound_tail() would have simply
-> added that offset to the page pointer -- which would not have done the
-> right thing on sparsemem without vmemmap.
-> 
-> Signed-off-by: David Hildenbrand <david@redhat.com>
-> ---
->  mm/hugetlb.c | 20 ++++++++++++--------
->  1 file changed, 12 insertions(+), 8 deletions(-)
-> 
-> diff --git a/mm/hugetlb.c b/mm/hugetlb.c
-> index 4a97e4f14c0dc..1f42186a85ea4 100644
-> --- a/mm/hugetlb.c
-> +++ b/mm/hugetlb.c
-> @@ -3237,17 +3237,18 @@ static void __init hugetlb_folio_init_tail_vmemmap(struct folio *folio,
->  {
->  	enum zone_type zone = zone_idx(folio_zone(folio));
->  	int nid = folio_nid(folio);
-> +	struct page *page = folio_page(folio, start_page_number);
->  	unsigned long head_pfn = folio_pfn(folio);
->  	unsigned long pfn, end_pfn = head_pfn + end_page_number;
-> -	int ret;
-> -
-> -	for (pfn = head_pfn + start_page_number; pfn < end_pfn; pfn++) {
-> -		struct page *page = pfn_to_page(pfn);
->  
-> +	/*
-> +	 * We mark all tail pages with memblock_reserved_mark_noinit(),
-> +	 * so these pages are completely uninitialized.
+On Thu, Aug 28, 2025 at 12:01:10AM +0200, David Hildenbrand wrote:
+>Let's reject them early, which in turn makes folio_alloc_gigantic() reject
+>them properly.
+>
+>To avoid converting from order to nr_pages, let's just add MAX_FOLIO_ORDER
+>and calculate MAX_FOLIO_NR_PAGES based on that.
+>
+>Reviewed-by: Zi Yan <ziy@nvidia.com>
+>Acked-by: SeongJae Park <sj@kernel.org>
+>Signed-off-by: David Hildenbrand <david@redhat.com>
 
-                             ^ not? ;-)
-
-> +	 */
-> +	for (pfn = head_pfn + start_page_number; pfn < end_pfn; page++, pfn++) {
->  		__init_single_page(page, pfn, zone, nid);
->  		prep_compound_tail((struct page *)folio, pfn - head_pfn);
-> -		ret = page_ref_freeze(page, 1);
-> -		VM_BUG_ON(!ret);
-> +		set_page_count(page, 0);
->  	}
->  }
->  
-> @@ -3257,12 +3258,15 @@ static void __init hugetlb_folio_init_vmemmap(struct folio *folio,
->  {
->  	int ret;
->  
-> -	/* Prepare folio head */
-> +	/*
-> +	 * This is an open-coded prep_compound_page() whereby we avoid
-> +	 * walking pages twice by initializing/preparing+freezing them in the
-> +	 * same go.
-> +	 */
->  	__folio_clear_reserved(folio);
->  	__folio_set_head(folio);
->  	ret = folio_ref_freeze(folio, 1);
->  	VM_BUG_ON(!ret);
-> -	/* Initialize the necessary tail struct pages */
->  	hugetlb_folio_init_tail_vmemmap(folio, 1, nr_pages);
->  	prep_compound_head((struct page *)folio, huge_page_order(h));
->  }
-> -- 
-> 2.50.1
-> 
+Reviewed-by: Wei Yang <richard.weiyang@gmail.com>
 
 -- 
-Sincerely yours,
-Mike.
+Wei Yang
+Help you, Help me
 
