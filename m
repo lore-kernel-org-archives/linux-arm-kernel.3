@@ -4,124 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1CDAC8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 17:26:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37467CA0FF7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 17:26:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tfd9haVIEplY3fZh8UFTDF44fFE4kBR445IEmKqTe9U=; b=SYkzdqiqa6JaTJl9WUVW3zHHPQ
-	iSAhFOa56ahnHtWBhUqFsTN62ikpC7gVmAqnZretRfJNk1/AgbSXjm6EJnFpyEsRjZ9QOydS0qyIk
-	vF1nm/j77hdFXih1Rqu465UUec1IONV4rh2Z6ZrF9/CSiIuXFMbjMYAG21CZUh8yveBSxNWAF9+NA
-	PwHFCw0Z+laF+pIRtD7+vovenRgCZhn5tbZS+xW7L0VoETxLJugY/UZHF48icHjrv1UZ/Pu22aNRK
-	NAK2oJoveVveFqs0n5ErkOPoWH+U8/MvUpi+uxBvc7swTixbz1xXs3miLQr/5Kw8sBQVurkRXh4Ss
-	5YwWZw1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DMJ4Kl0ooCBxizCYvK8E5v//mnvFUeza0TU6bVPmF2k=; b=a1GbdGfYgn89kjQejPcVzxYApo
+	u2yOxKqBa2zkTYa0nSoM1ovYnb04ZG76NFhfkWXlHgb1Asv+qyZ9EjSkNp6QxQQ8k05gcyUIAf1o4
+	29nZQcP9HNs7KKXHMTuS4BVB9Isd411a8jMDArDkeYf8ZE0D7kiXgyBaIuOF74AImjMWAApR9WmDe
+	jPM8QLA4M+FsWReYd60cd/Tj3sdUi49pJ8pCNcTJqFaz4DFIMmE6ySdW8LMALxclXy1j60S7HBixA
+	wGzIGCST9zm2yq7K2uJ2lFbrkQyom4ibxPNouhwFn0WQ15Om7GMmTQHiq9jnqVcnTFOPImu/As4Fq
+	ehi08JNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urgNp-00000002Sco-3Fg9;
-	Thu, 28 Aug 2025 17:25:57 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1urgNu-00000002Sjb-2j0U;
+	Thu, 28 Aug 2025 17:26:02 +0000
+Received: from mail-bn8nam12on2061a.outbound.protection.outlook.com ([2a01:111:f403:2418::61a] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urc6d-00000001cgx-1rX3
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 12:51:56 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57S5XCPI029277
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 12:51:55 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Tfd9haVIEplY3fZh8UFTDF44fFE4kBR445IEmKqTe9U=; b=ZrFl0OVkLaHoo7aQ
-	7+aD+VZtRnu8N817LDxDuYkmmvpgecjqD3xjzeXK8zxdrHtVhKhBBV3HtAq2C7m6
-	BvaDagOQfMowtCAlbn9Vq5j8o24PzP+nAKknsqYmOcAi1jfAqaDqNJTiWctNk4yE
-	0DTDyTdCZzYLKHWR3MfS9+k+73aj+WcGWE7t62qPPi5mNr01q6XEBGXiPK5tncW0
-	k5mRIP0JtYijbDoUVh5Svjk/Oqw3pyysNmtFnnqwLXRuV6VlrRe3BLKiZ/j1THsc
-	CZk58IodJhZ0KzW0rdnc6GQ0VhDI6UJCR0fxoa9kJ8MqRMCaM7Ly23MhAnzDPT+M
-	RH0/hA==
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48q5umgcxa-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 12:51:55 +0000 (GMT)
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-70dfd87a763so1905606d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 05:51:54 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756385514; x=1756990314;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Tfd9haVIEplY3fZh8UFTDF44fFE4kBR445IEmKqTe9U=;
-        b=CbhAojW+PFsKURHak+MbDWLcFvajyUkRFBByilDM+zrVYePv0hD8UQ4m2d1jnOalRe
-         2u0rrQr7uwDLTZdoRtc1omaywaxkIGBEGGz9ipzfBOiDJzqiACjivfTbEkhT3DeOnql/
-         PEeSNFvR21afohefsXYcRBXctiVl7Oqm8zAGLboaWEgb7GG562k+N+XJxYQXXfLBjwUw
-         ZSOmsY83QaQVi7DQKdVI3AQADwpZkBvBs3qz5JY3O5zNq4a84bAoElSnVS6OYNLRfQxw
-         UisRZ70B7Js80s2s0NubnXZwXoUKxJxR3hGxJn4c8zWXwJN8JYj/DbccuwH4fe7OYhf7
-         L8/w==
-X-Forwarded-Encrypted: i=1; AJvYcCX69Adq0qusfmocgJb30TFCI7jwoSW2RFR9d5yKWH0/A9ZIAQbhvzW9JtQDOpf3e1zk+n0p3maN7PA0G9YCz/2T@lists.infradead.org
-X-Gm-Message-State: AOJu0YzzF7hqN9VmrJSxPQmpxwAUMTpa9XCEBdbT5tEQ9FNPTZurskN7
-	Hmdha6GO2+WI4kmpy6ryo6jQgujosLEF/vXqJnkgxAqKB4Fzl2hdAbdiwSHAkm4reJhDoZ32F98
-	XDlP2l/cA7s3JRCxHpQBN4jvTX/4sA94awfUC/5WOinffFQxrV8oLiwoNFOvYZNI+0s/tnyrPhK
-	cC6A==
-X-Gm-Gg: ASbGncsDDwmaGvK1mfCIFuP8j55O9nX6ErHWCA7iGMfKk9YVp9+Lv8IpIN+V0lxkq/z
-	r5bC/3vZDnRi0lIRzwfg0FvjTLBPm69rYSCL38XdlDV13p3XtPuBccsRcUwkl+vd0WN42dGhVvu
-	8pshDjWqRinBveUsU2+IzWSB5P7go9EiTXGhTqCKm+kDSUtnv93gJnrPteqPBXjIt1KiP1ZPdP5
-	71xK5cfAgo1EzBykHLl9MuLIgH00uePStlN5cLsLmP9EF6xyuTePmhb5Pukqqj4TlNGap/EgoyB
-	Oq9QTD2iqHqhOXcE5KrANMIu2eu/CQuwt0kAJrNMs6iV/Zn6VSLdZgDCuioyw1AbT/3Qm0x2SXz
-	L31xyoyw2LO7fzlDMLQbjABs0YbmBzs+L1+QIQBKL2hmgI8T1zbJG
-X-Received: by 2002:a05:6214:4e84:b0:70d:cb0a:51a4 with SMTP id 6a1803df08f44-70dcb0a5584mr139047626d6.67.1756385513579;
-        Thu, 28 Aug 2025 05:51:53 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFmlfk41J1Q4Xm0qZ0A0YrWOLqz/9Wocie0W7tu8ccOHfhHHejewxQGjgn8RGDCYKRuo/fz6Q==
-X-Received: by 2002:a05:6214:4e84:b0:70d:cb0a:51a4 with SMTP id 6a1803df08f44-70dcb0a5584mr139047336d6.67.1756385512930;
-        Thu, 28 Aug 2025 05:51:52 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55f35bffafcsm3316070e87.17.2025.08.28.05.51.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Aug 2025 05:51:52 -0700 (PDT)
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: heiko@sntech.de, Andy Yan <andyshrk@163.com>
-Cc: hjc@rock-chips.com, mripard@kernel.org, naoki@radxa.com, stephen@radxa.com,
-        cristian.ciocaltea@collabora.com, neil.armstrong@linaro.org,
-        Laurent.pinchart@ideasonboard.com, yubing.zhang@rock-chips.com,
-        krzk+dt@kernel.org, devicetree@vger.kernel.org,
-        dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
-        robh@kernel.org, sebastian.reichel@collabora.com,
-        Andy Yan <andy.yan@rock-chips.com>
-In-Reply-To: <20250822063959.692098-1-andyshrk@163.com>
-References: <20250822063959.692098-1-andyshrk@163.com>
-Subject: Re: (subset) [PATCH v7 00/10] Add support for RK3588 DisplayPort
- Controller
-Message-Id: <175638551173.1202.7687103827759188815.b4-ty@oss.qualcomm.com>
-Date: Thu, 28 Aug 2025 15:51:51 +0300
+	id 1urc6i-00000001cjF-1MAU;
+	Thu, 28 Aug 2025 12:52:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uP8gSuEFGmfnIU6Xyl+s/3OLKwee/hgM70EC/4042SsHNmy1BV8cr0x9Gav4ucaqMU87jY3imlbW+n/BZ02SBhDOFiNTgYN5IYDl3vYFRLZRffiyxqBn6wNlW9LSGwoXsGxpHN4pshtMwsfdifDTmUz+KbiiscKlvkIN6HWaf4DuCPD6X3MasIUX3OlgwBU85eZTWtpHxcF6MFQOlKbcDzhJXToqVLrKOJANKYa1tvV7Nli+BiVy1EdYQwvW+Jxu1VZQktR4TdN2J9mSYENWs2IuATdFE0TylVfOEyjGu2+ZQ7mwsPXwZ1C3ptBAOK/GjKQZI02QypzK/Yf/U267uA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DMJ4Kl0ooCBxizCYvK8E5v//mnvFUeza0TU6bVPmF2k=;
+ b=Z3+OAGrLmhF+sfse105Ukv8nyOkQPIRBRuittOGEHSGAZhisFWCL/6MXYiES+Ve28vaEBrDgvCYqgu7rohRLjKbfnhcYYKwNuXSphZYnckeBuJX2NcyvQ9jPBnkzlZlrSgsT1VPv2SQfzIUb8kIgX371Eq793ehoXdKRCCILZcMOVrI+xU0h/dnNgHu9FK1gJ0gD2maYOpIWX9vd+xEzrb19m6SZXcBlZTbWN/ZCQr9xciPAT7EnrN2pISfmSrZMXQxeqWPLfHDNwznSRXoVjOfa+9jASMs5g7/SWOdjbIzo7ImN9kqjgV75Qdbtgi2ohalwyvsZmeEqLM3mVKH4fw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DMJ4Kl0ooCBxizCYvK8E5v//mnvFUeza0TU6bVPmF2k=;
+ b=trUqhWdTwygKlk8B0QHizFS71/2INpBu3HFcoijn9AERpCaImNn0Q+O3m9nVj1Y2F53oEwLGGMrcbw/9Ee/2rbtQOt8ZMskImlB1yvI8WIiuaVjp+r02Tx6X9aIYcMGZPJDmwNn2IrElwn4EEZgp1UF0SXtvXw66Awdm5Pgr4XiNDkWQCSeuZd20TnS1tvnI8o1vClWbIdLa9ucvfjwieidHXgHRE2fJeMYO+8wryk+V+DtoSbQpNKhP/cKGA7P2k/6Xn7U/oiUP5Lf7PN/+Em5JTY4fEOvAezS2DHgu3MtY3eFJ6hxNDhDe+dCeYZRidlfW4L8u0Ruu//TA6PRWzg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by DM6PR12MB4369.namprd12.prod.outlook.com (2603:10b6:5:2a1::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.19; Thu, 28 Aug
+ 2025 12:51:51 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.9073.010; Thu, 28 Aug 2025
+ 12:51:51 +0000
+Date: Thu, 28 Aug 2025 09:51:49 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Ethan Zhao <etzhao1900@gmail.com>, robin.murphy@arm.com,
+	joro@8bytes.org, bhelgaas@google.com, will@kernel.org,
+	robin.clark@oss.qualcomm.com, yong.wu@mediatek.com,
+	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
+	rafael@kernel.org, lenb@kernel.org, kevin.tian@intel.com,
+	yi.l.liu@intel.com, baolu.lu@linux.intel.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-mediatek@lists.infradead.org, linux-tegra@vger.kernel.org,
+	linux-acpi@vger.kernel.org, linux-pci@vger.kernel.org,
+	patches@lists.linux.dev, pjaroszynski@nvidia.com, vsethi@nvidia.com,
+	helgaas@kernel.org
+Subject: Re: [PATCH v3 5/5] pci: Suspend iommu function prior to resetting a
+ device
+Message-ID: <20250828125149.GD7333@nvidia.com>
+References: <cover.1754952762.git.nicolinc@nvidia.com>
+ <3749cd6a1430ac36d1af1fadaa4d90ceffef9c62.1754952762.git.nicolinc@nvidia.com>
+ <550635db-00ce-410e-add0-77c1a75adb11@gmail.com>
+ <aKTzq6SLGB22Xq5b@Asurada-Nvidia>
+ <20250821130741.GL802098@nvidia.com>
+ <aKgPr3mUcIsd1iuT@Asurada-Nvidia>
+ <20250822140821.GE1311579@nvidia.com>
+ <aKi8EqEp1DKG+h38@Asurada-Nvidia>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aKi8EqEp1DKG+h38@Asurada-Nvidia>
+X-ClientProxiedBy: YT4PR01CA0330.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:10a::17) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
-X-Authority-Analysis: v=2.4 cv=VtIjA/2n c=1 sm=1 tr=0 ts=68b050eb cx=c_pps
- a=oc9J++0uMp73DTRD5QyR2A==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=2OwXVqhp2XgA:10 a=s8YR1HE3AAAA:8 a=td1j7nzBk3E7ehaXNNAA:9 a=QEXdDO2ut3YA:10
- a=0lgtpPvCYYIA:10 a=iYH6xdkBrDN1Jqds4HTS:22 a=jGH_LyMDp9YhSvY-UuyI:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDAzMiBTYWx0ZWRfX30V1c0m15Gba
- EWITkHq5417heovvmbCfC9AFjReSIVN3FIM72yggaX6rENRxTlWwVlGTb6Ki0ArN8SWyOn3AB6i
- S/VON/z1G1p5L7kkDNKw79erjoX7LV0GcjhrG8VqwCivDbiO46TfjdlSuZRFFTxjE+oFCVfgmU9
- H2rUgQIbmTpuH4ChIlQXsD/lE6LiqwZEsi7U54GQUZKccS6kgdIEQXZNmKqag/r/EEGT/yXCQI5
- iGrcueN1RZVMc4SFVPJMS+/F3tKYx036ZtVU1EbzNZg/fy6hzNp8OYse5WzNiLniyL/ctzYAOtR
- Pdej/RqIM1zmC2GJT6eYtxvaMAWAY/gU2b+Q3PERt6AIZFtoeE0lPeTq8wikWbA3aF88BMlGu8k
- 7UYPAX1N
-X-Proofpoint-GUID: zTyEcbRA4Y85JPdn2S3Xhu13VaXCkcHj
-X-Proofpoint-ORIG-GUID: zTyEcbRA4Y85JPdn2S3Xhu13VaXCkcHj
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-28_04,2025-08-28_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 phishscore=0 priorityscore=1501 impostorscore=0 bulkscore=0
- suspectscore=0 malwarescore=0 adultscore=0 spamscore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2508230032
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|DM6PR12MB4369:EE_
+X-MS-Office365-Filtering-Correlation-Id: 09b36ca2-ceba-4050-302f-08dde631a862
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?v2xtB7lc3M2wHestbaJbTkgpH+GnOlGN2Drbiryyhf83Xi3cBzcQqgKh6yiD?=
+ =?us-ascii?Q?up2blkNKgWLq2G+vOFIAPVonk3BEjST0WbLcksVHKNbob8ez6LWuMKDMEDp4?=
+ =?us-ascii?Q?ZhJkIgG3c8bZ4nZIdJ7H5GJIDCUwKG8jGzjOX7DdmMvjKNUrbFHfOQMfBMBu?=
+ =?us-ascii?Q?Cr1HLZ7C+VOIJZg53f11dpjZAZU9Gz0UtkkQAm6cP1W7LvvT1hESY+dGt/0m?=
+ =?us-ascii?Q?XKLjSliDtHjSqAzrsailerIM9C220y2NtNGFQ74fxtjpRyfkwz7hH7W9ceEw?=
+ =?us-ascii?Q?I6SZP2/ap1/Cc8hYZk7zJv079ksH96hFQewHRyd4WRpJw2aI0rIRvb9BITl0?=
+ =?us-ascii?Q?02hJZf+1W6qYT/8+f0xIXnMyuqDh1Ixm2dUTk/0O/aHTBc0EtlMvJl9aQyt6?=
+ =?us-ascii?Q?Zc3HnMncc9HLuWHq04WeTrZnU+nenxvjmf9YvlyiySVqPmD5v9PvCxXCYkuU?=
+ =?us-ascii?Q?Vamthi7m1YvK55t47ypFq6WsAtLWY6Q1spo3yxB5SwG8xaf+Zjcimt6RjZQk?=
+ =?us-ascii?Q?bt1V6674C9PfjWIp6ZF3KsMhhHODKJc2fxYuLLKN2hMh6BX+J8YX59Zt4RNN?=
+ =?us-ascii?Q?jf37wE6BD3NfAOpnKrGRe567jMvb+V1nb++rTowXjnpynQbuft7PsX1noILu?=
+ =?us-ascii?Q?0CZ/hBbthoTWH31311RaAB5xPGTsRiDnL2OCo1mmsyTlWLr4WNbiKPd4xyam?=
+ =?us-ascii?Q?UpA7hl86U9Mhn3Wg7JuofExqksR2UDrDoHPXFVLO2R74VO8QGAbLiR0GABPh?=
+ =?us-ascii?Q?goBVlCHszBJKmNEv4eijiubQKf6FZF4RK1rz8IWuh8ojDfvkFlYcu0VGKWPU?=
+ =?us-ascii?Q?UoPRp0bbubPMeGdUFzuIuMim9uO2pQTFAU2lSbGATJI74CgaLGW7kbKvN2eM?=
+ =?us-ascii?Q?96bdavoc9EWSN5KA5hBHGWzPedTtrl3UXsRgH5E34PwHjY2gkS9si3fTz8Qy?=
+ =?us-ascii?Q?RwPWB8OzCi5VKxQwk3Z9tlv1CVPPZPSQbxdr868DqU3pARGIXYn9bAItEbKP?=
+ =?us-ascii?Q?03JGj3b4mSYpv4H9+NVGOfZBWMv9iWcTSjdWJK4uyP2YZQqWH+novYg7nZyp?=
+ =?us-ascii?Q?Sm+rAUDfYH8OmI2ykcIC1/7OFv3H46vahAQGJgespZvt7Ya2jj4UNt8WgFNU?=
+ =?us-ascii?Q?0rfoGXcuVCUM1wDfWseSMk9c9mAQzq4ZDMxYMn3vzNJeGWoO+74v6fx7KflB?=
+ =?us-ascii?Q?E71N/H6S929ZVFaifARnJTh0XL2N+UtYEzkCz6InU08frCqGzDWPaoI76+r9?=
+ =?us-ascii?Q?x0c0JB6FpL66mrg/pjyYFae4J9ayFT4Hw3nnlkQs6cwn6h/cXJ8XohtClS8w?=
+ =?us-ascii?Q?VloGnf87EHkUtcrstHywVwvoy2t5lDkUjpgNNtt8MMszVnPMGudwI1TWCBdR?=
+ =?us-ascii?Q?LXNZpM55dA+xLv7AbxIEjMzvGNY8iVmGpzWmFyBg6lJ1Ygbicf2Qrh3ALBbm?=
+ =?us-ascii?Q?6DnBnxpS1y4=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?t82/JyT9hpuFJxoIG9sVTwFZiLbXMY2yC0vvHWdN42eQKfHiMyLf4TY+cr3d?=
+ =?us-ascii?Q?hLBdTBptFeRgfqpRc/deYlbDZ9jNTAKF2kp33hgqGYRcvT0jfDpAtovyLQyK?=
+ =?us-ascii?Q?NpYw8zK/QqSx7/+J04e+T9FCS8CH0thdbeg0xaU/9BspCEh/fV8IhTKoYSfu?=
+ =?us-ascii?Q?dxdDSOjG8aEP3VVyY8QUKzCuxwhEuLISUExT8AZT3uDuWfyGDGTvghj/iMqF?=
+ =?us-ascii?Q?bV540vooaTaaoPYQvgDQ/LYyGp7dSyb4csh3AJulTA6OYIf5/fEIcwxSacNj?=
+ =?us-ascii?Q?OyooPO8XrQrMbW15iz29x0DFHHlB1PjuPksixOIY7vNVzcQPssgq2LAW4ydk?=
+ =?us-ascii?Q?ihYLIzFN1A0oBYk3jBUWUShFPHWcvhwGVIcXYA8W/xekotuheKaxxpZfR02q?=
+ =?us-ascii?Q?1Hga4W5tU5Ye4wLrGNG9061HqIXZ40sRztTYir23BL1CaKeIH3iyxYcUTzn2?=
+ =?us-ascii?Q?tkjDRMiiqaVESSeftYSJ3Hu82FbqYxoNw18ShfYXwjIofz6TJGZ/aK1uU3Tf?=
+ =?us-ascii?Q?8z322jJz1VPW4P1ltiZNFBJaACGMgi7+e+RQEfLf7vP2dMFZORq4+HRg1TbB?=
+ =?us-ascii?Q?z54uk/D3zhcXDpTXXx/XMcotFZjjXFj8IfhgJ5IlvyfMuQ/Ta3ozQznbDOMk?=
+ =?us-ascii?Q?7xXfroUN9IT5E754OyafxpdXUn+4LB8dCvrKJgdxgEB2VXxcpvVMFVnKIKIy?=
+ =?us-ascii?Q?6aPhDYVosciPJU4DdokyTp0Gj3DcZzli9cWA+U/rVyhzg1r+lpJ+ISfgRDwz?=
+ =?us-ascii?Q?DcQzpSUAjCoo/JFHopxf84NwYfHrxuQ/j5rBD7CGMcGOrASx+Q3FIVvLnF4i?=
+ =?us-ascii?Q?SqYx5Zmc/3YrEizQCpNXe7gMNixdwSbRwpHU8niZW3Jwz6KeY1N5rRnA832B?=
+ =?us-ascii?Q?dfqECyimMYcs+EBKqrLToqFztCV2inXqaN0tOSHlN0iXnz1qTQWpeGBw2otn?=
+ =?us-ascii?Q?HZaQ5QuoNNqWKlooMcNWjkpS6t+q7vOLc+k4QFQaU8CbmysNfJISq2qTFzBg?=
+ =?us-ascii?Q?tnlnH1xoDpcMq7uRt+P7Z2Gdo4gFp6Z2p36OxxxEKQi29j+EiO1Rju6nCBuZ?=
+ =?us-ascii?Q?TmDXx3v50AceiZ9yu003E9k6QlwlL6YonjPF9NXJj9bG0Dl3xBYrb5vzU9Wv?=
+ =?us-ascii?Q?iIZVGJohjERtcdcD8fNSZA8TYzaiqkZpAwNqSunWm27DRGnS0pkH0EsZ4jqh?=
+ =?us-ascii?Q?727kQ1W2SUqjYVWjg33buiIOU1FOOkWgrhPlbzAUGa/vnOXRbB8EKRb7bWXH?=
+ =?us-ascii?Q?BiVyvcQO6pAdTUXEMCUV1nt4H8uyZwqrEgXjsIMfubW4Jcvurmr4g1KsTdDN?=
+ =?us-ascii?Q?TvCXiuxCsLRvkdzD466BngNXSoBi4X9qprACkq5fqpQXhS1PFEIYLtVjumy8?=
+ =?us-ascii?Q?z7Z7mE0kXHTsmnHhHxutyVYN/+dbAJ7zH98nN5Nb/85iuAA+hrHu83jpFrYn?=
+ =?us-ascii?Q?PoOFFUjJF7xi8Z9tfkWF5PYJXI4yAAyCO5ZVKu+gAOKI/G+BVr8pN42YlQyu?=
+ =?us-ascii?Q?G9uTDXeEJQlByfatLg+bnibEpHXrg4Zur40kJLuwYyizqDZZUuQtuwu7eDgs?=
+ =?us-ascii?Q?+VvMiQ6f3K8Tf9iOSZU=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 09b36ca2-ceba-4050-302f-08dde631a862
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Aug 2025 12:51:51.3122
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: WSy3j956Gw+6LmJ3rqhkiqdb7nqlD10qDzf41KoloQg4jUxOIqdLNAiag1jrYZ3R
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4369
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_055155_494905_AE2A2EF0 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20250828_055200_362318_423EDC6D 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,31 +175,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 22 Aug 2025 14:39:44 +0800, Andy Yan wrote:
-> From: Andy Yan <andy.yan@rock-chips.com>
-> 
-> 
-> There are two DW DPTX based DisplayPort Controller on rk3588 which
-> are compliant with the DisplayPort Specification Version 1.4 with
-> the following features:
-> 
-> [...]
+On Fri, Aug 22, 2025 at 11:50:58AM -0700, Nicolin Chen wrote:
 
-Applied to drm-misc-next, thanks!
+> It feels like we need a no-fail re-attach operation, or at least an
+> unlikely-to-fail one. I recall years ago we tried a can_attach op
+> to test the compatibility but it didn't get merged. Maybe we'd need
+> it so that a concurrent attach can test compatibility, allowing the
+> re-attach in iommu_dev_reset_done() to more likely succeed.
 
-[01/10] dt-bindings: display: rockchip: Add schema for RK3588 DPTX Controller
-        commit: 2b036b13c8c2cadf7a27036f911ec99742504fce
-[02/10] drm/bridge: synopsys: Add DW DPTX Controller support library
-        commit: 86eecc3a9c2e06462f6a273fcd24150b6da787de
-[03/10] drm/rockchip: Add RK3588 DPTX output support
-        commit: d68ba7bac9555d05e2f5b310c898b2a5c7eff174
-[04/10] MAINTAINERS: Add entry for DW DPTX Controller bridge
-        commit: 0b6da6d3a8d5391ff9da2358ac5afd8b7badd943
+This is probably the cleanest option to split these things
 
-Best regards,
--- 
-With best wishes
-Dmitry
-
-
+Jason
 
