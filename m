@@ -4,54 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D206CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 01:10:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E38CCA0FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 01:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	Subject:Cc:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zh4gg928dw0RcQqkQ+B/Q+DIbmhDWNYxBITUkGAsJBQ=; b=CfpwwycwhuxCF2pJTPAyZZ8Czt
-	lAZQ9JEakowbrYrsp3crIZ1peIDzxr8meUUJglxl67XuGob8hFFOJlKBKMzfu+tQIrE0m2w5npHGP
-	Y6+KcX5ioj7D9YFz/jC+Nzy0hPI00JgiNh6p9bmn/JOiVeM4Wz0n9JcryK344OGB9Gn+1FWNNIL0b
-	hDL1p8r5ruSZms7Bqn0Bkw9ui3zs31IP1yhpPKuiQnD61wYPgJ5p0yphQLTGeu98tTEP7a89GIeqL
-	x9qSlOjs6bZGKqvoEUbPpxSvMoyo7a5rxAJAaiMU7DYPkAbsK2HNVzQkpbZm6HFWO92QNjRw3Dxwv
-	dVLzNzEg==;
+	bh=1gnvrp+Bx3ZYJFKBzNh94mqis3ow5fvVnk0m91vI1jw=; b=gdjdTcALZ9lgL6uL33o8nlrDax
+	sn8MG41brSE3G6aLOfg2aarKsPkDH7egGOSClvvnVlGnXiwXryWbBLqLTlCOMhA9delAOuHhlCRGp
+	r/kItXKTEQphhp0khWnDXGMLYXDb1rBnaV+YCnBvHGtXydWUrXxmk+G5dXOiuCZ7X0PFlVrZhWL75
+	I1+ShpGgMKoZgxhIdzCkzrTGXxorglUPHYGn+1Xf4vvtPso8sCR/D/bX/GFHXC6neFUshMmdLlNyM
+	6346ZtSthD0JogrLuW9W1V7xoXSPMxZPZe4qUyDgbkfGENE1Lc/xQ6tY+J7z8CTUbjaep4vvbgF4K
+	oKAXldpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urndU-00000003xWI-21Xb;
-	Fri, 29 Aug 2025 01:10:36 +0000
-Received: from sendmail.purelymail.com ([34.202.193.197])
+	id 1urndV-00000003xYO-3vwU;
+	Fri, 29 Aug 2025 01:10:37 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uritJ-0000000387J-0jZ8
+	id 1urj19-000000038uV-2WOX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 20:06:38 +0000
-DKIM-Signature: a=rsa-sha256; b=owmaGhNgfaOD+znx/GojLIb2t38ZD4Jrl1iYxrYo6B4VOkxVOFhOEi2oNv/m5+yW0lF+EFo0TPpX4Dd6FXITgreGaiI4YED3URfoCsWXgJIj8A44OSMG+RM+DKNhOlaTsNlycsYNxF2Z7SiV0zs3Anhw+610gir2iyFKo2zASmCC1s8pRHV9E8tQUvFqfNLGej99GLBac1nJJ3GHeLuanuAx75JhlT31ounVZQ+kJNPlxJwx/tZGMTqdlrhfZG3L/P312jy6vpYonIx2v8CEs57KmC4X/jpCeNcuJ0TFRbaTeuLi3XLWWp+W3lMcNSEOhEt0GR3iRXYGZSXGRk1Gsg==; s=purelymail1; d=purelymail.com; v=1; bh=u9TsNJz5Cli+hy1QKsrKbomaP8wVYfx+FZl2Clzk1tg=; h=Feedback-ID:Received:Date:To:Subject:From;
-Feedback-ID: 68247:10037:null:purelymail
-X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 1961342606;
-          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Thu, 28 Aug 2025 20:06:27 +0000 (UTC)
-Mime-Version: 1.0
+	Thu, 28 Aug 2025 20:14:44 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-45b55ed86b9so7906435e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 13:14:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756412081; x=1757016881; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1gnvrp+Bx3ZYJFKBzNh94mqis3ow5fvVnk0m91vI1jw=;
+        b=hhu4sTRRBiZfnWaP/xptCeHG/Qt4+47+0fTiGrt72wgceCGdv0r3E0ngExyYNgV/ZK
+         rmr/VOf1/CfWF9KPjVWLEMoh3nmbdy1nKyX9iwZBQ7FtCsvol8aKS5s3Ec6jBr4WTIo+
+         8HGD45/FcWJhjbK5A48gATGxYM9KwGqlhlsxkLBV6uP7EAByV4b/n1HlsOX/ZibkZAOK
+         8VTYusCsKEvmL/5PByYbFCAFveSrhrPDmEJf2kpDq7lRyOLN3YI1AwH9/zAIZLA8kaoB
+         65e+5e7ZEDGdDre3yrUhFYLdsaFXeDBU8t9vENiMhSdl/jEjla867R0zPgPSAUT++hFo
+         dLeg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756412081; x=1757016881;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=1gnvrp+Bx3ZYJFKBzNh94mqis3ow5fvVnk0m91vI1jw=;
+        b=nuv7e7UKBE1hWcuDRE3Uvkp2yAq/LEcjgCAG/HH2VG9aSx25/EfJLhijJoDqy49B4R
+         d68lV1FLP3ZGaIfFfPb/KoSLmVbOWQ+e7lDQgzV5qwQcENUzfbkyQOi6dwt6eFnSNetY
+         rWxmYrtCUjoHKJVtRGyzAE2I59xFYtVormTZGmWa+zMI5aY5C2rnEiWtlA4+xbLKs49b
+         twl79SCaE3VQAjhuZ4TLdAPyYl34LlN13Tf/EDMmVrwOPLOzVmepEpS88DthF7p2X1TR
+         aDwr1q02WM3lPIsK1+jtSZyJBqnPxutS5sUHiwfIfje7BinQnWCdMTZPKejbg2q9gtRL
+         qFGg==
+X-Forwarded-Encrypted: i=1; AJvYcCWA01vA3uQ0ytloyNgs4TZvhud6xQhr4cm/kXPJffhPiSzcK1n0+aUlI8wg3PIN8slYBin/wapDwZ2TBmwtk8wE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyf04C0RZTt5omzf4xCxzk0dKpB31KnF90oIJy1tyxO4Ts/ocab
+	QChKSUSKr7rzTfBIoILStL0fb6HxCLvxnWT4uhJO1fRUclrGA/PodnpmfpL/MiL6Z4FtpA8c2d1
+	iPvBc9nFBWZY43pzkAModd9ldbHtkPWs=
+X-Gm-Gg: ASbGncv6SRhLLdNwTJsq0PvlS9NpNuuSotPO0WBo1r8DDuC4l3aj7EeNPm+WroThv5N
+	T4zNGIfnLOQSpx6bc9Iiza/5jzT7YuY25geS/s+CCggyNAexRtXzwgyWNU7M1dt9sezAZa7iKF2
+	HD0BMSReSEUhnWgjPJrD9jIj1vQzJIepiYEn4+jGOM7vX+p8F74Ssjhx2uulySRQaOIeVHlSrrP
+	RVG1NJrhoReP+eYzHrK78/9ImMl4T4=
+X-Google-Smtp-Source: AGHT+IGkMoq8h0tkXujVtGDFS8K8ZzpaXHvOixuVaujtWP0Wkn9zIKEQpxZ+6u9akm/7cu9i2UZVR/zTm0+xUXb1N/o=
+X-Received: by 2002:a05:600c:4683:b0:458:bfb1:1fc7 with SMTP id
+ 5b1f17b1804b1-45b5179cc59mr217845785e9.6.1756412081217; Thu, 28 Aug 2025
+ 13:14:41 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250820071243.1567338-1-yeoreum.yun@arm.com> <20250820071243.1567338-2-yeoreum.yun@arm.com>
+In-Reply-To: <20250820071243.1567338-2-yeoreum.yun@arm.com>
+From: Andrey Konovalov <andreyknvl@gmail.com>
+Date: Thu, 28 Aug 2025 22:14:29 +0200
+X-Gm-Features: Ac12FXyhL3jNKGMqxsJ0nOjlFtUtP70OOH_yRbqkrkgUfzCeogdUcj5xo329MPY
+Message-ID: <CA+fCnZfv6G19P=bWqEUpbA36E9zaHBqDBZyDYV5YnMuAX1zGug@mail.gmail.com>
+Subject: Re: [PATCH v5 1/2] kasan/hw-tags: introduce kasan.write_only option
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: ryabinin.a.a@gmail.com, glider@google.com, dvyukov@google.com, 
+	vincenzo.frascino@arm.com, corbet@lwn.net, catalin.marinas@arm.com, 
+	will@kernel.org, akpm@linux-foundation.org, scott@os.amperecomputing.com, 
+	jhubbard@nvidia.com, pankaj.gupta@amd.com, leitao@debian.org, 
+	kaleshsingh@google.com, maz@kernel.org, broonie@kernel.org, 
+	oliver.upton@linux.dev, james.morse@arm.com, ardb@kernel.org, 
+	hardevsinh.palaniya@siliconsignals.io, david@redhat.com, 
+	yang@os.amperecomputing.com, kasan-dev@googlegroups.com, 
+	workflows@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mm@kvack.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 28 Aug 2025 22:06:25 +0200
-Message-Id: <DCEBXZ0J8PYY.1D1SFSURUN457@mentallysanemainliners.org>
-To: "Arseniy Velikanov" <me@adomerle.pw>
-Cc: <linux-arm-kernel@lists.infradead.org>,
- <linux-mediatek@lists.infradead.org>, <linux-phy@lists.infradead.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <~postmarketos/upstreaming@lists.sr.ht>
-Subject: Re: [PATCH v1 2/2] phy: mediatek: tphy: Add software role switching
-From: "Igor Belwon" <igor.belwon@mentallysanemainliners.org>
-X-Mailer: aerc 0.20.1-0-g2ecb8770224a-dirty
-References: <20250814234825.810-1-me@adomerle.pw>
- <20250814234825.810-2-me@adomerle.pw>
-In-Reply-To: <20250814234825.810-2-me@adomerle.pw>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_130637_309774_2D089FCA 
-X-CRM114-Status: GOOD (  24.85  )
+X-CRM114-CacheID: sfid-20250828_131443_650949_2C6BC1FC 
+X-CRM114-Status: GOOD (  39.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,289 +104,321 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arseniy,
-
-On Fri Aug 15, 2025 at 1:48 AM CEST, Arseniy Velikanov wrote:
-> MediaTek USB T-PHY has broken role switching on (likely) all mobile SoCs.
-> Known affected socs are: MT6735, MT6757, MT6761, MT6765, MT6768, MT6771,
-> MT6785, MT6789.
+On Wed, Aug 20, 2025 at 9:12=E2=80=AFAM Yeoreum Yun <yeoreum.yun@arm.com> w=
+rote:
 >
-> The downstream kernel manually controls the PHY mode by writing
-> "test mode" FORCE regs. Setting all these regs fixes device/host modes, b=
-ut
-> breaks dual-role functionality. As a workaround we use workqueue that
-> periodically checks the USB role and changes the PHY mode accordingly.
+> Since Armv8.9, FEATURE_MTE_STORE_ONLY feature is introduced to restrict
+> raise of tag check fault on store operation only.
+> Introcude KASAN write only mode based on this feature.
 >
-> To address this issue only on affected SoCs, we introduce a new
-> device-tree property `mediatek,software-role-switch`. This ensures
-> the workaround is applied only to broken hardware while leaving unaffecte=
-d
-> devices (like Chromebooks) untouched.
+> KASAN write only mode restricts KASAN checks operation for write only and
+> omits the checks for fetch/read operations when accessing memory.
+> So it might be used not only debugging enviroment but also normal
+> enviroment to check memory safty.
 >
-> Signed-off-by: Arseniy Velikanov <me@adomerle.pw>
+> This features can be controlled with "kasan.write_only" arguments.
+> When "kasan.write_only=3Don", KASAN checks write operation only otherwise
+> KASAN checks all operations.
+>
+> This changes the MTE_STORE_ONLY feature as BOOT_CPU_FEATURE like
+> ARM64_MTE_ASYMM so that makes it initialise in kasan_init_hw_tags()
+> with other function together.
+>
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 > ---
->  drivers/phy/mediatek/phy-mtk-tphy.c | 148 ++++++++++++++++++++++++++++
->  1 file changed, 148 insertions(+)
+>  Documentation/dev-tools/kasan.rst  |  3 ++
+>  arch/arm64/include/asm/memory.h    |  1 +
+>  arch/arm64/include/asm/mte-kasan.h |  6 +++
+>  arch/arm64/kernel/cpufeature.c     |  2 +-
+>  arch/arm64/kernel/mte.c            | 18 ++++++++
+>  mm/kasan/hw_tags.c                 | 70 +++++++++++++++++++++++++++++-
+>  mm/kasan/kasan.h                   |  7 +++
+>  7 files changed, 104 insertions(+), 3 deletions(-)
 >
-> diff --git a/drivers/phy/mediatek/phy-mtk-tphy.c b/drivers/phy/mediatek/p=
-hy-mtk-tphy.c
-> index f6504e0ecd1a..472859ec929c 100644
-> --- a/drivers/phy/mediatek/phy-mtk-tphy.c
-> +++ b/drivers/phy/mediatek/phy-mtk-tphy.c
-> @@ -18,6 +18,9 @@
->  #include <linux/phy/phy.h>
->  #include <linux/platform_device.h>
->  #include <linux/regmap.h>
-> +#include <linux/usb/role.h>
-> +#include <linux/usb/otg.h>
-> +#include <linux/workqueue.h>
-> =20
->  #include "phy-mtk-io.h"
-> =20
-> @@ -111,11 +114,18 @@
-> =20
->  #define U3P_U2PHYDTM1		0x06C
->  #define P2C_RG_UART_EN			BIT(16)
-> +#define P2C_FORCE_IDPULLUP	BIT(8)
->  #define P2C_FORCE_IDDIG		BIT(9)
-> +#define P2C_FORCE_AVALID	BIT(10)
-> +#define P2C_FORCE_SESSEND	BIT(12)
-> +#define P2C_FORCE_VBUSVALID	BIT(13)
+> diff --git a/Documentation/dev-tools/kasan.rst b/Documentation/dev-tools/=
+kasan.rst
+> index 0a1418ab72fd..fe1a1e152275 100644
+> --- a/Documentation/dev-tools/kasan.rst
+> +++ b/Documentation/dev-tools/kasan.rst
+> @@ -143,6 +143,9 @@ disabling KASAN altogether or controlling its feature=
+s:
+>    Asymmetric mode: a bad access is detected synchronously on reads and
+>    asynchronously on writes.
+>
+> +- ``kasan.write_only=3Doff`` or ``kasan.write_only=3Don`` controls wheth=
+er KASAN
+> +  checks the write (store) accesses only or all accesses (default: ``off=
+``)
+
+Nit: a dot missing at the end of the sentence.
+
 > +
->  #define P2C_RG_VBUSVALID		BIT(5)
->  #define P2C_RG_SESSEND			BIT(4)
-> +#define P2C_RG_BVALID			BIT(3)
->  #define P2C_RG_AVALID			BIT(2)
->  #define P2C_RG_IDDIG			BIT(1)
-> +#define P2C_RG_IDPULLUP			BIT(0)
-> =20
->  #define U3P_U2PHYBC12C		0x080
->  #define P2C_RG_CHGDT_EN		BIT(0)
-> @@ -317,6 +327,8 @@ struct mtk_phy_instance {
->  		struct u3phy_banks u3_banks;
->  	};
->  	struct clk_bulk_data clks[TPHY_CLKS_CNT];
-> +	struct delayed_work dr_work;
-> +	struct usb_role_switch *role_switch;
->  	u32 index;
->  	u32 type;
->  	struct regmap *type_sw;
-> @@ -326,14 +338,17 @@ struct mtk_phy_instance {
->  	u32 efuse_intr;
->  	u32 efuse_tx_imp;
->  	u32 efuse_rx_imp;
-> +	int current_role;
->  	int eye_src;
->  	int eye_vrt;
->  	int eye_term;
->  	int intr;
->  	int discth;
->  	int pre_emphasis;
-> +	int sw_get_retries;
->  	bool bc12_en;
->  	bool type_force_mode;
-> +	bool software_role_switch;
->  };
-> =20
->  struct mtk_tphy {
-> @@ -818,12 +833,118 @@ static void u2_phy_pll_26m_set(struct mtk_tphy *tp=
-hy,
->  			 P2R_RG_U2PLL_FRA_EN | P2R_RG_U2PLL_REFCLK_SEL);
->  }
-> =20
-> +static void u2_phy_instance_role_set(struct mtk_phy_instance *instance,
-> +				     int role)
-> +{
-> +	struct u2phy_banks *u2_banks =3D &instance->u2_banks;
-> +	void __iomem *com =3D u2_banks->com;
-> +
-> +	instance->current_role =3D role;
-> +
-> +	/* end session before role switch */
-> +	mtk_phy_set_bits(com + U3P_U2PHYDTM1, P2C_RG_SESSEND);
-> +	mdelay(5);
-> +	mtk_phy_clear_bits(com + U3P_U2PHYDTM1, P2C_RG_SESSEND);
-> +
-> +	switch (role) {
-> +	case USB_ROLE_DEVICE:
-> +		dev_dbg(&instance->phy->dev, "set device role\n");
-> +		mtk_phy_set_bits(com + U3P_U2PHYDTM1, P2C_RG_IDDIG);
-> +		break;
-> +	case USB_ROLE_HOST:
-> +		dev_dbg(&instance->phy->dev, "set host role\n");
-> +		mtk_phy_clear_bits(com + U3P_U2PHYDTM1, P2C_RG_IDDIG);
-> +		break;
-> +	default:
-> +		break;
-> +	}
-> +}
-> +
-> +static void u2_phy_role_switch_work(struct work_struct *work)
-> +{
-> +	struct mtk_phy_instance *instance =3D
-> +		container_of(work, struct mtk_phy_instance, dr_work.work);
-> +	int role;
-> +
-> +	if (IS_ERR_OR_NULL(instance->role_switch))
-> +		instance->role_switch =3D usb_role_switch_get(&instance->phy->dev);
-> +
-> +	if (IS_ERR_OR_NULL(instance->role_switch)) {
-> +		if (instance->sw_get_retries >=3D 10) {
-> +			dev_warn(&instance->phy->dev, "failed to get role switch\n");
-> +			return;
-> +		}
-> +
-> +		instance->sw_get_retries +=3D 1;
-> +		schedule_delayed_work(&instance->dr_work, msecs_to_jiffies(500));
-> +	}
-> +
-> +	role =3D usb_role_switch_get_role(instance->role_switch);
-> +
-> +	if (instance->current_role =3D=3D role)
-> +		goto reschedule_work;
-> +
-> +	u2_phy_instance_role_set(instance, role);
-> +
-> +reschedule_work:
-> +	schedule_delayed_work(&instance->dr_work, msecs_to_jiffies(100));
-> +}
-> +
-> +static int u2_phy_software_role_switch_init(struct mtk_phy_instance *ins=
-tance)
-> +{
-> +	struct fwnode_handle *ep, *remote_ep, *usb_fwnode;
-> +	struct device *usb_dev;
-> +	int mode;
-> +
-> +	instance->sw_get_retries =3D 0;
-> +
-> +	ep =3D fwnode_graph_get_endpoint_by_id(dev_fwnode(&instance->phy->dev),
-> +					     0,
-> +					     0,
-> +					     FWNODE_GRAPH_ENDPOINT_NEXT);
-> +	if (!ep)
-> +		return -ENODEV;
-> +
-> +	remote_ep =3D fwnode_graph_get_remote_endpoint(ep);
-> +	fwnode_handle_put(ep);
-> +	if (!remote_ep)
-> +		return -ENODEV;
-> +
-> +	usb_fwnode =3D fwnode_graph_get_port_parent(remote_ep);
-> +	fwnode_handle_put(remote_ep);
-> +
-> +	if (!usb_fwnode)
-> +		return -ENODEV;
-> +
-> +	usb_dev =3D bus_find_device_by_fwnode(&platform_bus_type, usb_fwnode);
-> +	fwnode_handle_put(usb_fwnode);
-> +	if (!usb_dev)
-> +		return -ENODEV;
-> +
-> +	mode =3D usb_get_role_switch_default_mode(usb_dev);
-> +	if (mode =3D=3D USB_DR_MODE_HOST)
-> +		u2_phy_instance_role_set(instance, USB_ROLE_HOST);
-> +	else
-> +		u2_phy_instance_role_set(instance, USB_ROLE_DEVICE);
-> +
-> +	INIT_DELAYED_WORK(&instance->dr_work, u2_phy_role_switch_work);
-> +
-> +	return 0;
-> +}
-> +
->  static void u2_phy_instance_init(struct mtk_tphy *tphy,
->  	struct mtk_phy_instance *instance)
+>  - ``kasan.vmalloc=3Doff`` or ``=3Don`` disables or enables tagging of vm=
+alloc
+>    allocations (default: ``on``).
+>
+> diff --git a/arch/arm64/include/asm/memory.h b/arch/arm64/include/asm/mem=
+ory.h
+> index 5213248e081b..f1505c4acb38 100644
+> --- a/arch/arm64/include/asm/memory.h
+> +++ b/arch/arm64/include/asm/memory.h
+> @@ -308,6 +308,7 @@ static inline const void *__tag_set(const void *addr,=
+ u8 tag)
+>  #define arch_enable_tag_checks_sync()          mte_enable_kernel_sync()
+>  #define arch_enable_tag_checks_async()         mte_enable_kernel_async()
+>  #define arch_enable_tag_checks_asymm()         mte_enable_kernel_asymm()
+> +#define arch_enable_tag_checks_write_only()    mte_enable_kernel_store_o=
+nly()
+>  #define arch_suppress_tag_checks_start()       mte_enable_tco()
+>  #define arch_suppress_tag_checks_stop()                mte_disable_tco()
+>  #define arch_force_async_tag_fault()           mte_check_tfsr_exit()
+> diff --git a/arch/arm64/include/asm/mte-kasan.h b/arch/arm64/include/asm/=
+mte-kasan.h
+> index 2e98028c1965..0f9b08e8fb8d 100644
+> --- a/arch/arm64/include/asm/mte-kasan.h
+> +++ b/arch/arm64/include/asm/mte-kasan.h
+> @@ -200,6 +200,7 @@ static inline void mte_set_mem_tag_range(void *addr, =
+size_t size, u8 tag,
+>  void mte_enable_kernel_sync(void);
+>  void mte_enable_kernel_async(void);
+>  void mte_enable_kernel_asymm(void);
+> +int mte_enable_kernel_store_only(void);
+>
+>  #else /* CONFIG_ARM64_MTE */
+>
+> @@ -251,6 +252,11 @@ static inline void mte_enable_kernel_asymm(void)
 >  {
->  	struct u2phy_banks *u2_banks =3D &instance->u2_banks;
->  	void __iomem *com =3D u2_banks->com;
->  	u32 index =3D instance->index;
-> +	int ret;
-> +
-> +	if (instance->software_role_switch) {
-> +		ret =3D u2_phy_software_role_switch_init(instance);
-> +		if (ret)
-> +			dev_warn(&instance->phy->dev, "failed to initialize role switching\n"=
-);
-> +	}
-> =20
->  	/* switch to USB function, and enable usb pll */
->  	mtk_phy_clear_bits(com + U3P_U2PHYDTM0, P2C_FORCE_UART_EN | P2C_FORCE_S=
-USPENDM);
-> @@ -883,6 +1004,18 @@ static void u2_phy_instance_power_on(struct mtk_tph=
-y *tphy,
-> =20
->  		mtk_phy_set_bits(com + U3P_U2PHYDTM0, P2C_RG_SUSPENDM | P2C_FORCE_SUSP=
-ENDM);
->  	}
-> +
-> +	if (instance->software_role_switch) {
-> +		/* Set FORCE modes for manual role switching */
-> +		mtk_phy_set_bits(com + U3P_U2PHYDTM1, P2C_FORCE_IDPULLUP
-> +			| P2C_FORCE_IDDIG | P2C_FORCE_AVALID | P2C_FORCE_VBUSVALID
-> +			| P2C_FORCE_SESSEND);
-> +		mtk_phy_set_bits(com + U3P_U2PHYDTM1, P2C_RG_IDPULLUP | P2C_RG_BVALID)=
-;
-> +
-> +		if (!instance->role_switch)
-> +			schedule_delayed_work(&instance->dr_work, msecs_to_jiffies(100));
-> +	}
-> +
->  	dev_dbg(tphy->dev, "%s(%d)\n", __func__, index);
 >  }
-> =20
-> @@ -906,6 +1039,9 @@ static void u2_phy_instance_power_off(struct mtk_tph=
-y *tphy,
->  		mtk_phy_clear_bits(com + U3D_U2PHYDCR0, P2C_RG_SIF_U2PLL_FORCE_ON);
->  	}
-> =20
-> +	if (instance->role_switch)
-> +		cancel_delayed_work_sync(&instance->dr_work);
+>
+> +static inline int mte_enable_kernel_store_only(void)
+> +{
+> +       return -EINVAL;
+> +}
 > +
->  	dev_dbg(tphy->dev, "%s(%d)\n", __func__, index);
+>  #endif /* CONFIG_ARM64_MTE */
+>
+>  #endif /* __ASSEMBLY__ */
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeatur=
+e.c
+> index 9ad065f15f1d..505bd56e21a2 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -2920,7 +2920,7 @@ static const struct arm64_cpu_capabilities arm64_fe=
+atures[] =3D {
+>         {
+>                 .desc =3D "Store Only MTE Tag Check",
+>                 .capability =3D ARM64_MTE_STORE_ONLY,
+> -               .type =3D ARM64_CPUCAP_SYSTEM_FEATURE,
+> +               .type =3D ARM64_CPUCAP_BOOT_CPU_FEATURE,
+>                 .matches =3D has_cpuid_feature,
+>                 ARM64_CPUID_FIELDS(ID_AA64PFR2_EL1, MTESTOREONLY, IMP)
+>         },
+> diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
+> index e5e773844889..54a52dc5c1ae 100644
+> --- a/arch/arm64/kernel/mte.c
+> +++ b/arch/arm64/kernel/mte.c
+> @@ -157,6 +157,24 @@ void mte_enable_kernel_asymm(void)
+>                 mte_enable_kernel_sync();
+>         }
 >  }
-> =20
-> @@ -940,6 +1076,9 @@ static void u2_phy_instance_set_mode(struct mtk_tphy=
- *tphy,
->  		tmp &=3D ~P2C_RG_IDDIG;
->  		break;
->  	case PHY_MODE_USB_OTG:
-> +		/* We are managing role in workqueue */
-> +		if (instance->software_role_switch)
-> +			return;
->  		tmp &=3D ~(P2C_FORCE_IDDIG | P2C_RG_IDDIG);
->  		break;
->  	default:
-> @@ -1129,6 +1268,11 @@ static void phy_parse_property(struct mtk_tphy *tp=
-hy,
->  	if (instance->type =3D=3D PHY_TYPE_USB3)
->  		instance->type_force_mode =3D device_property_read_bool(dev, "mediatek=
-,force-mode");
-> =20
-> +	instance->software_role_switch =3D
-> +		device_property_read_bool(dev, "mediatek,software-role-switch");
-> +	if (instance->software_role_switch)
-> +		dev_info(dev, "software role switch enabled\n");
 > +
->  	if (instance->type !=3D PHY_TYPE_USB2)
->  		return;
-> =20
-> @@ -1618,6 +1762,10 @@ static int mtk_tphy_probe(struct platform_device *=
-pdev)
->  		struct phy *phy;
->  		int retval;
-> =20
-> +		/* filter non-phy nodes (e.g. graphs) */
-> +		if (!of_find_property(child_np, "reg", NULL))
-> +			continue;
+> +int mte_enable_kernel_store_only(void)
+> +{
+> +       /*
+> +        * If the CPU does not support MTE store only,
+> +        * the kernel checks all operations.
+> +        */
+> +       if (!cpus_have_cap(ARM64_MTE_STORE_ONLY))
+> +               return -EINVAL;
 > +
->  		instance =3D devm_kzalloc(dev, sizeof(*instance), GFP_KERNEL);
->  		if (!instance)
->  			return -ENOMEM;
+> +       sysreg_clear_set(sctlr_el1, SCTLR_EL1_TCSO_MASK,
+> +                        SYS_FIELD_PREP(SCTLR_EL1, TCSO, 1));
+> +       isb();
+> +
+> +       pr_info_once("MTE: enabled store only mode at EL1\n");
+> +
+> +       return 0;
+> +}
+>  #endif
+>
+>  #ifdef CONFIG_KASAN_HW_TAGS
+> diff --git a/mm/kasan/hw_tags.c b/mm/kasan/hw_tags.c
+> index 9a6927394b54..334e9e84983e 100644
+> --- a/mm/kasan/hw_tags.c
+> +++ b/mm/kasan/hw_tags.c
+> @@ -41,9 +41,16 @@ enum kasan_arg_vmalloc {
+>         KASAN_ARG_VMALLOC_ON,
+>  };
+>
+> +enum kasan_arg_write_only {
+> +       KASAN_ARG_WRITE_ONLY_DEFAULT,
+> +       KASAN_ARG_WRITE_ONLY_OFF,
+> +       KASAN_ARG_WRITE_ONLY_ON,
+> +};
+> +
+>  static enum kasan_arg kasan_arg __ro_after_init;
+>  static enum kasan_arg_mode kasan_arg_mode __ro_after_init;
+>  static enum kasan_arg_vmalloc kasan_arg_vmalloc __initdata;
+> +static enum kasan_arg_write_only kasan_arg_write_only __ro_after_init;
+>
+>  /*
+>   * Whether KASAN is enabled at all.
+> @@ -67,6 +74,9 @@ DEFINE_STATIC_KEY_FALSE(kasan_flag_vmalloc);
+>  #endif
+>  EXPORT_SYMBOL_GPL(kasan_flag_vmalloc);
+>
+> +/* Whether to check write access only. */
 
-This patch made USB role-switching work on the MT6878 SoC. As such:
+Nit: access =3D> accesses
 
-Tested-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+> +static bool kasan_flag_write_only =3D false;
+> +
+>  #define PAGE_ALLOC_SAMPLE_DEFAULT      1
+>  #define PAGE_ALLOC_SAMPLE_ORDER_DEFAULT        3
+>
+> @@ -141,6 +151,23 @@ static int __init early_kasan_flag_vmalloc(char *arg=
+)
+>  }
+>  early_param("kasan.vmalloc", early_kasan_flag_vmalloc);
+>
+> +/* kasan.write_only=3Doff/on */
+> +static int __init early_kasan_flag_write_only(char *arg)
+> +{
+> +       if (!arg)
+> +               return -EINVAL;
+> +
+> +       if (!strcmp(arg, "off"))
+> +               kasan_arg_write_only =3D KASAN_ARG_WRITE_ONLY_OFF;
+> +       else if (!strcmp(arg, "on"))
+> +               kasan_arg_write_only =3D KASAN_ARG_WRITE_ONLY_ON;
+> +       else
+> +               return -EINVAL;
+> +
+> +       return 0;
+> +}
+> +early_param("kasan.write_only", early_kasan_flag_write_only);
+> +
+>  static inline const char *kasan_mode_info(void)
+>  {
+>         if (kasan_mode =3D=3D KASAN_MODE_ASYNC)
+> @@ -257,15 +284,28 @@ void __init kasan_init_hw_tags(void)
+>                 break;
+>         }
+>
+> +       switch (kasan_arg_write_only) {
+> +       case KASAN_ARG_WRITE_ONLY_DEFAULT:
+> +               /* Default is specified by kasan_flag_write_only definiti=
+on. */
+> +               break;
+> +       case KASAN_ARG_WRITE_ONLY_OFF:
+> +               kasan_flag_write_only =3D false;
+> +               break;
+> +       case KASAN_ARG_WRITE_ONLY_ON:
+> +               kasan_flag_write_only =3D true;
+> +               break;
+> +       }
+> +
+>         kasan_init_tags();
+>
+>         /* KASAN is now initialized, enable it. */
+>         static_branch_enable(&kasan_flag_enabled);
+>
+> -       pr_info("KernelAddressSanitizer initialized (hw-tags, mode=3D%s, =
+vmalloc=3D%s, stacktrace=3D%s)\n",
+> +       pr_info("KernelAddressSanitizer initialized (hw-tags, mode=3D%s, =
+vmalloc=3D%s, stacktrace=3D%s, write_only=3D%s\n",
+>                 kasan_mode_info(),
+>                 str_on_off(kasan_vmalloc_enabled()),
+> -               str_on_off(kasan_stack_collection_enabled()));
+> +               str_on_off(kasan_stack_collection_enabled()),
+> +               str_on_off(kasan_arg_write_only));
+>  }
+>
+>  #ifdef CONFIG_KASAN_VMALLOC
+> @@ -392,6 +432,26 @@ void kasan_enable_hw_tags(void)
+>                 hw_enable_tag_checks_asymm();
+>         else
+>                 hw_enable_tag_checks_sync();
+> +
+> +       /*
+> +        * CPUs can only be in one of two states:
+> +        *   - All CPUs support the write_only feature
+> +        *   - No CPUs support the write_only feature
+> +        *
+> +        * If the first CPU attempts hw_enable_tag_checks_write_only() an=
+d
+> +        * finds the feature unsupported, kasan_arg_write_only is set to =
+OFF
+> +        * to avoid further unnecessary calls on other CPUs.
+> +        *
+> +        * Although this could be tracked with a single variable, both
+> +        * kasan_arg_write_only (boot argument) and kasan_flag_write_only
+> +        * (hardware state) are kept separate, consistent with other opti=
+ons.
+> +        */
+> +       if (kasan_arg_write_only =3D=3D KASAN_ARG_WRITE_ONLY_ON &&
+> +           hw_enable_tag_checks_write_only()) {
+> +               kasan_arg_write_only =3D KASAN_ARG_WRITE_ONLY_OFF;
+> +               kasan_flag_write_only =3D false;
+> +               pr_err_once("write-only mode is not supported and thus no=
+t enabled\n");
+> +       }
+>  }
+>
+>  #if IS_ENABLED(CONFIG_KASAN_KUNIT_TEST)
+> @@ -404,4 +464,10 @@ VISIBLE_IF_KUNIT void kasan_force_async_fault(void)
+>  }
+>  EXPORT_SYMBOL_IF_KUNIT(kasan_force_async_fault);
+>
+> +VISIBLE_IF_KUNIT bool kasan_write_only_enabled(void)
+> +{
+> +       return kasan_flag_write_only;
+> +}
+> +EXPORT_SYMBOL_IF_KUNIT(kasan_write_only_enabled);
+> +
+>  #endif
+> diff --git a/mm/kasan/kasan.h b/mm/kasan/kasan.h
+> index 129178be5e64..844eedf2ef9c 100644
+> --- a/mm/kasan/kasan.h
+> +++ b/mm/kasan/kasan.h
+> @@ -431,6 +431,7 @@ static inline const void *arch_kasan_set_tag(const vo=
+id *addr, u8 tag)
+>  #define hw_suppress_tag_checks_start()         arch_suppress_tag_checks_=
+start()
+>  #define hw_suppress_tag_checks_stop()          arch_suppress_tag_checks_=
+stop()
+>  #define hw_force_async_tag_fault()             arch_force_async_tag_faul=
+t()
+> +#define hw_enable_tag_checks_write_only()      arch_enable_tag_checks_wr=
+ite_only()
+>  #define hw_get_random_tag()                    arch_get_random_tag()
+>  #define hw_get_mem_tag(addr)                   arch_get_mem_tag(addr)
+>  #define hw_set_mem_tag_range(addr, size, tag, init) \
+> @@ -451,11 +452,17 @@ void __init kasan_init_tags(void);
+>  #if defined(CONFIG_KASAN_HW_TAGS) && IS_ENABLED(CONFIG_KASAN_KUNIT_TEST)
+>
+>  void kasan_force_async_fault(void);
+> +bool kasan_write_only_enabled(void);
+>
+>  #else /* CONFIG_KASAN_HW_TAGS && CONFIG_KASAN_KUNIT_TEST */
+>
+>  static inline void kasan_force_async_fault(void) { }
+>
+> +static inline bool kasan_write_only_enabled(void)
+> +{
+> +       return false;
+> +}
+> +
+>  #endif /* CONFIG_KASAN_HW_TAGS && CONFIG_KASAN_KUNIT_TEST */
+>
+>  #ifdef CONFIG_KASAN_SW_TAGS
+> --
+> LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+>
 
-Kind regards,
-Igor
+For the KASAN parts:
+
+Reviewed-by: Andrey Konovalov <andreyknvl@gmail.com>
+
+Thank you!
 
