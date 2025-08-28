@@ -4,88 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C96AFCA0FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 17:25:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7D6ACA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 17:25:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LJClskWj/Yo+5yigeUe4lqV+RJq4jkVMM8DmVAlE+mY=; b=P8lCJ/kiXY2XpolKlfRrz+ZyS6
-	PJIUEV3E2APjuyII0/PKtkMCFwynijMoDMFEz7QDlX7HpuMXE1CqODZmZx992HDhxzrW1nb8GjGba
-	Wtayz6yUEFkqF0sI7nhXrsRVX3RIKMR0Z2hwTVh1WxcfAoIkvIW4upF5ivzD5x+NRz0FyiQXyKiEN
-	AclSWHpvGNwSS019TLqL3kBdc1QVIkdVD/V/6KO7kgg8mzoL1Cbn1T11fVddYOJ4IHYVPtk9yzK5C
-	jaHsxjQuLwjDmHFTbP2zzGyVfIXsPGAqWlyeuyBFKNGLYf4/Cl4D7AXRR0SNSNezqQUKICgJkNOea
-	D0kr0CIQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zxMgUQNGs+/LED5NKHdUH6VeR0hnjbGDh/r6ylHR0gU=; b=fXPY4Ifw6qjZFhgGyzMhL4X9Ql
+	Tq5YVQDqg0SrjMeGT1xB8gvJHNKuuuJKpb2FB+CsafLghbTEZxmvpgUnN3gZMtfMeOkg/QTxGnyfG
+	S+WkNYTg8GuOm2RiRaseUiVYTlTaKw5TRTW7B5iPwyOiFjD+rMtdnZM/PEabND7m6h5J6I8D5EIYH
+	lHSxbY6hN+GRgqKm4FXHJtCtUM4USF0783nbHCbvlCKaAVgReJn2tFmloSc9ADue0uZGd4rVqAGfg
+	N97FYK5vksPnjx/qoIo+HKUYN9+z6oLFGDXmC7CX4IzCSF2OjceqpDGay1oxfRZK97mgy0ad7BPfE
+	Vo4eT7SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urgNX-00000002SF6-1uor;
-	Thu, 28 Aug 2025 17:25:39 +0000
-Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
+	id 1urgNb-00000002SJu-1nAD;
+	Thu, 28 Aug 2025 17:25:43 +0000
+Received: from mail-ej1-x641.google.com ([2a00:1450:4864:20::641])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urbtg-00000001aKB-3IAd;
-	Thu, 28 Aug 2025 12:38:33 +0000
-Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-74526ca7a46so279469a34.2;
-        Thu, 28 Aug 2025 05:38:32 -0700 (PDT)
+	id 1urc0l-00000001bjz-38QZ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 28 Aug 2025 12:45:53 +0000
+Received: by mail-ej1-x641.google.com with SMTP id a640c23a62f3a-afcb7a16441so123421966b.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 05:45:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756384712; x=1756989512; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LJClskWj/Yo+5yigeUe4lqV+RJq4jkVMM8DmVAlE+mY=;
-        b=CK5F2zqrI9ujXJP1UPrWDMIIseOYBOiZXtdR9GdzdJYBWP30MJwPNNhW3pmOoGWRNn
-         AVKaYjTSzXGAhQfKXiy3VO8nHr3VV0lkevQnfXDIqTXg6vJnXu78WhxtfQahNjNhDEUg
-         YZGqMB3KZfjWC/H575gIdE1PjxnrFJrrWZmonF7oBNvmpJzbLLf646K9ENLP7xgH8EZc
-         /Oqpiq6/CU3F5JVa8uQMitPAkJ9MgPLiSh0UfQBonHtywTm2YqlXx4jhqNRqtiUpeCn+
-         cp91l8Jip91nHIEtieoeUk4esM5sYaGVJR8DDbiUfJfE+Wcs+qNs9XDQetVAqawLMXJt
-         1cGw==
+        d=suse.com; s=google; t=1756385150; x=1756989950; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=zxMgUQNGs+/LED5NKHdUH6VeR0hnjbGDh/r6ylHR0gU=;
+        b=ZWiRMxcGf7umglFsF/7X6nedvKZSCOWFtpfObWKG/QIbZfJ1RkfLvDGyjLK2YRn7Bp
+         XOb65dYdgAjV853bBJsklZ7Gh9amxoDAMQdZKj3fxJCtJ2t4m3jJZYV8fij75viBQX/o
+         SDpMNjH0arovBFllB0podUvQS8J5dhpew6NTo0IOkFRLcqBZBIxgThlYRVEwMz7p+ek5
+         jkgRiiiFZpGSFi3psqVnVoQl9anxgTvdtj8KjdAfzE4vXM1pcspIDQI1KtSA8RMCAixa
+         oawGoDx5cRYalzQpJIPeEYQPZmd+rjfBuEpy52nYNO6MF9/QEJZFnwY/mvZbR1eYWCWC
+         CZ5w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756384712; x=1756989512;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=LJClskWj/Yo+5yigeUe4lqV+RJq4jkVMM8DmVAlE+mY=;
-        b=hJO6BGplnBNQgyeDgBDiCoUlBP6NajGslvDYD8kv/B1XTuE7ylBt+Rim3vmRVDDXoW
-         EzmXf+LUSxvuN8Kxuk5got69A0iCkhs9yRBppnAPAfr/d+Tm+VxiIk8Pizl7yt0E5Xnn
-         Q8RXPdoTbtf9D192xHEgOpQc7LRyM3FEO/rQMMaakaLxl+BuqePdskvgWbiN6itTQcmg
-         O6q70Ye2m9xXYCQQaLNAKUuqM258tDZYdKfdrosKqPBAGAOY0zK+NkHYZwf60SZtkXOT
-         iPzp5x4e+xGjRrTNHZy+QwVW1x/EYKBQeXKN2xYWlAAaNOw1Ge6mIcWn0c3cCUeZoWBO
-         kthQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVMoAoz8s4OoZMVPGeSERgL5pn2T80mmPfxmzYyfeFv/t9qfCbojF145eXkmuXDprQtTqVTHNlesc423ehub9KQ@lists.infradead.org, AJvYcCXkkWUxZFbvvLB0cMmAtwMdgG5gqDlIgAZ4aUasRFEvP2+DVwg750NUizWmHRwEWARpkQkrSvIeWMQGp2Yj5ug=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxAZWUNJ4Z8OKOle7a+3Opyfd/KikOhTiOrLBxoTo2t1D7loebt
-	baNuwKr8/5Won3RYJ983CuwHXcLVM9806urmpkBL3+TTTNHIoywa4uT/o95bwkZc/08qQSZnXla
-	aWxPtkxSSw20FgEPkz+Pf8TtPponJ5Lg=
-X-Gm-Gg: ASbGncsddfLxdm8c9aE6R8IX9fwD/dzuoFe4hC+qZFtiVzElWk4pVxPc2C+uyCwnhc9
-	4RDshkCgQ6euqKJKYkXJAgkuVgKD1sQcIENetq/FR63c4qQogJoheWbiQqzVHYzivU+MUBKZBHs
-	ViCRy34WhBPMnpN6NCEqa09uiEBRS/OwqiUVzvSPRegi2rXjV/XXcDLUz0Rc6pHfcPkSrJs5q9m
-	4OLMu1Uih/PRrjcSg6aW1MYgb0eSvju9X28O/XzwMjx38PNZNXbmJfhHiPPpuCAKFEwtJh/0/y4
-	YScP5g==
-X-Google-Smtp-Source: AGHT+IF/GS0+mZiRHKPdFjRYR4nPczi7RTJNOvB33F+iBv1N/jZpN3PGk5i7rC3Y8dBBwD1JyXEFIJfGQ/0/V0o5aQ0=
-X-Received: by 2002:a05:6808:21a0:b0:437:e44a:29b7 with SMTP id
- 5614622812f47-437e44a2bafmr206189b6e.42.1756384711890; Thu, 28 Aug 2025
- 05:38:31 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1756385150; x=1756989950;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=zxMgUQNGs+/LED5NKHdUH6VeR0hnjbGDh/r6ylHR0gU=;
+        b=CsDZ3up18ANzK2M10pWJICna1KngqoR3llpYbeDGyGV0MCRhCye3fAoRICmqgY9+Bu
+         UyE76BfyJzzRwcc5ZJ7IeHoPTFI61T2kGVm4BIvb0E5ltFS2xkxontfuhIxBpVPj9/al
+         13R1jD5pNo2ewz1ze97ZrTAUNJ5gXJruCtTQiVpNK+3qCGCKLGXCkcAppLgKUuPPUvfq
+         p1JqqolIhT3q2932ubDDY8NzZ7hrnPUzO/FzQvkrSTMu3wvJ1Sj6yz4mBJYhSNhaQ7H2
+         wVGv3e9EbLOjLFB0lu9+5gNda1SwUYtuA8a1/ZnKO/xlDcA9dD3E3obOtFihCdo8pIkZ
+         Z2ow==
+X-Forwarded-Encrypted: i=1; AJvYcCWRVqo9GIUpaEog0QgUSpIdugPO96jAmRKnU0HbRW67VnIh7DvNJs+lHb+Sbki8J0vxthU7bC1LFvta+FVrXMv6@lists.infradead.org
+X-Gm-Message-State: AOJu0YzcQBDqECEPqeYU9zLAU2HnnsBQzuOsE3zv9P/XM7bP0vQkanpZ
+	FAam1GOxkvfxRaTp94SNsMMsbF3LIvjohbmlLVWaJz2Ao4ROklLYYwzlOjfn71M4Bac=
+X-Gm-Gg: ASbGnctivdXjoksLgiz8860tNY+U+iWW1Wn2yMkeaA8vBxgK91h4CUtujQ6hqUbd1of
+	cLTfeIcoq3Xbk6RS2aGs1/6O/uyx2Vy/JkqKElAXjxBp6aYvMeA5IrvzDSUx2xVjUkcwIwya7Nl
+	sD9Szqis7QVKBdJbEB6e0f6/nwMKgiwhyic582kmO0Jb00CZ/TosMfT17eUlmdzQkdueZojYFou
+	eIyquET24m3NYMzr7dT3KdZXCQPgGeCM8dE+/snsmO6b7QHeFfm1qQeMOmYCLfNfP5uzWkY7T3M
+	1Mo/pJ6TSBDXnk76rq9+akbXIhvujZ/892Dmp+80AGR4Gch0qtmZPvxLIW+doDDAmzxhOy9KwcK
+	KsUTDFl438MUEw25NIJfkSWNXFgSzxnLyYN4VOjzUTotuokPhqMHCkb54cwpOpi7dC9wy9Pf/sZ
+	Aa6FuyIND8+/kh4/bsIW7rWAcoE00=
+X-Google-Smtp-Source: AGHT+IFNXCBJMNU1/4HwvWWNwfSpQcVmgREcwXGBCSgjS6mOZ411UNk3uqdbyTb5lvmvsiIGiXV3HA==
+X-Received: by 2002:a17:907:94c1:b0:af9:38ed:5b49 with SMTP id a640c23a62f3a-afe28f75e24mr2013120566b.5.1756385148815;
+        Thu, 28 Aug 2025 05:45:48 -0700 (PDT)
+Received: from localhost (host-79-36-0-44.retail.telecomitalia.it. [79.36.0.44])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afe8f8129f0sm731229266b.41.2025.08.28.05.45.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 28 Aug 2025 05:45:48 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+To: linus.walleij@linaro.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	florian.fainelli@broadcom.com,
+	wahrenst@gmx.net,
+	linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	iivanov@suse.de,
+	svarbanov@suse.de,
+	mbrugger@suse.com,
+	Jonathan Bell <jonathan@raspberrypi.com>,
+	Phil Elwell <phil@raspberrypi.com>
+Cc: Andrea della Porta <andrea.porta@suse.com>
+Subject: [PATCH v4 0/3] Add pin control driver for BCM2712 SoC
+Date: Thu, 28 Aug 2025 14:47:37 +0200
+Message-ID: <cover.1756372805.git.andrea.porta@suse.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-References: <20250828092224.46761-1-linmq006@gmail.com> <11d46e56-b8d9-4776-9969-d3767d8cda41@linux.dev>
-In-Reply-To: <11d46e56-b8d9-4776-9969-d3767d8cda41@linux.dev>
-From: =?UTF-8?B?5p6X5aaZ5YCp?= <linmq006@gmail.com>
-Date: Thu, 28 Aug 2025 20:38:20 +0800
-X-Gm-Features: Ac12FXzMEl9C0sc3SP4SKTkgGYa89sXNbErY56BFYrau2jcKn0zmozLXTXzcXTg
-Message-ID: <CAH-r-ZH+0rsji1f9eEaVDtG3XcMCD_EnAHAMwr8DuqO4D4Ps=w@mail.gmail.com>
-Subject: Re: [PATCH] net: ethernet: ti: Prevent divide-by-zero in cpts_calc_mult_shift()
-To: Vadim Fedorenko <vadim.fedorenko@linux.dev>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Grygorii Strashko <grygorii.strashko@ti.com>, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_053832_821542_761C52AD 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20250828_054551_790928_068906B3 
+X-CRM114-Status: GOOD (  25.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,25 +110,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Vadim
+Hi,
 
-Vadim Fedorenko <vadim.fedorenko@linux.dev> =E4=BA=8E2025=E5=B9=B48=E6=9C=
-=8828=E6=97=A5=E5=91=A8=E5=9B=9B 20:06=E5=86=99=E9=81=93=EF=BC=9A
->
-> On 28/08/2025 10:22, Miaoqian Lin wrote:
-> > cpts_calc_mult_shift() has a potential divide-by-zero in this line:
-> >
-> >          do_div(maxsec, freq);
-> >
-> > due to the fact that clk_get_rate() can return zero in certain error
-> > conditions.
->
-> Have you seen this happening in the real environment, or is it just
-> analysis of the code? I don't see a reason for these "certain error
-> conditions" to happen...
+The following patches add a pin control driver for the BCM2712 SoC.
 
-This is from code analysis, not from real environment.
-The !CONFIG_HAVE_CLK version of clk_get_rate() returns zero.
-With CONFIG_COMPILE_TEST && !CONFIG_HAVE_CLK could have the problem.
-This may be theoretical.
+Device driver is follow up version on what Andrea posted in April [1].
+
+It is based on sources from here [2]. Since its first inception, this
+patchset has undergone heavy rework in order to split the driver in a
+generic core API useful for several STB pin controller and a specific
+implementation for BCM2712 SoC found on RaspberryPi 5.
+
+A separate patchset will add peripheral nodes that rely on the SoC pin
+controller to setup and config the pins.
+
+All this have been tested as kernel was directly booted RPi5 via
+kernel= config.txt option and cmdline.txt file with following content
+(Note I am using Tumbleweed RPi raw images)
+
+$ cat /boot/efi/cmdline.txt
+root=/dev/mmcblk0p3 rootwait rw systemd.show_status=1 console=tty ignore_loglevel earlycon console=ttyAMA10,115200
+
+With all these patches Bluetooth and Wifi are working fine (tm) with
+firmware files provided by openSUSE Tumbleweed.
+
+All comments and suggestions are welcome!
+
+Happy hacking!
+Ivan and Andrea
+
+[1] https://lore.kernel.org/lkml/f6601f73-cb22-4ba3-88c5-241be8421fc3@broadcom.com/
+[2] https://github.com/raspberrypi/linux/blob/rpi-6.6.y/drivers/pinctrl/bcm/pinctrl-bcm2712.c
+[3] https://lore.kernel.org/lkml/20240605120712.3523290-1-florian.fainelli@broadcom.com/#t
+[4] https://lore.kernel.org/all/bfc60a7e-54d2-48a6-a288-4fe76d66507a@gmx.net/
+
+
+CHANGES in V4:
+
+--- DT BINDINGS ---
+
+- brcm,bcm2712c0-pinctrl.yaml: added blank lines between paragraphs in
+  descriptions.
+
+- brcm,bcm2712c0-pinctrl.yaml: descriptions are now layout in the same
+  order everywhere.
+
+
+--- DRIVER ---
+
+- pinctrl-brcmstb.c: this is now the core driver that will manage the
+  generic functions of any STB pin controller. The new pinctrl-brcmstb.h
+  header contains the APIs that can be leveraged by specific implementations.
+  I've applied quite a conservative approach in determining what is generic
+  and what is not. It's easier to specialize some generic code when we
+  need it that the other way around.
+
+- pinctrl-brcmstb.h: new file! Header contains the APIs that can be leveraged
+  by specific implementations.
+
+- pinctrl-brcmstb-bcm2712.c: new file! The custom implementation for BCM2712
+  SoC. It specifies the pinsi/functions for this chipset and calls the probe
+  function from the core driver. Some values are now set from this file
+  since they are considered chip-specific, e.g. func_mask, func_gpio and
+  func_names.
+
+- PIN macro renamed to BRCMSTB_PIN.
+
+- enum brcmstb_funcs renamed to bcm2712_funcs.
+
+- avoid wrapping some lines above 80 char containing GPIO declarations for
+  the sake of readability.
+
+- renamed the chipset specific structs from brcmst_* to bcm2712_*.
+
+- AGPIO_* renamed to AON_GPIO_* and SGPIO_* to AON_SGPIO_*.
+
+- FUNC macro renamed to BRCMSTB_FUNC.
+
+- brcmstb_reg_rd() and brcmstb_reg_wr() have been inlined, substituted by
+  their inner implementation based on readl/writel.
+
+- spin_lock_* replaced by guards. Asa a result, the flags var definition
+  is dropped.
+
+- implemented .function_is_gpio() in pinmux_ops. As a result, this driver
+  is marked as strict.
+
+- used of_device_get_match_data() directly in place of retrieving it through
+  of_match_node()->data;
+
+- added a comment to better specify the differences between AGPIO and SGPIO.
+
+
+--- KBUILD ---
+
+- Kconfig.stb: new file! to be included by top level Kconfig to enable
+  the Broadcom STB specific drivers (e.g. BCM2712 pin controller). Enabled
+  only if PINCTRL_BRCMSTB is enabled from top level.
+
+- Kconfig: amended to enable the generic support for Broadcom STB pin
+  controller family. Includes Kconfig.stb.
+
+- Makefile: added pinctrl-brcmstb-bcm2712.o
+
+
+
+Andrea della Porta (1):
+  arm64: defconfig: Enable BCM2712 on-chip pin controller driver
+
+Ivan T. Ivanov (2):
+  dt-bindings: pinctrl: Add support for Broadcom STB pin controller
+  pinctrl: bcm: Add STB family pin controller driver
+
+ .../pinctrl/brcm,bcm2712c0-pinctrl.yaml       | 137 ++++
+ arch/arm64/configs/defconfig                  |   2 +
+ drivers/pinctrl/bcm/Kconfig                   |  12 +
+ drivers/pinctrl/bcm/Kconfig.stb               |  10 +
+ drivers/pinctrl/bcm/Makefile                  |   2 +
+ drivers/pinctrl/bcm/pinctrl-brcmstb-bcm2712.c | 747 ++++++++++++++++++
+ drivers/pinctrl/bcm/pinctrl-brcmstb.c         | 442 +++++++++++
+ drivers/pinctrl/bcm/pinctrl-brcmstb.h         |  93 +++
+ 8 files changed, 1445 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/brcm,bcm2712c0-pinctrl.yaml
+ create mode 100644 drivers/pinctrl/bcm/Kconfig.stb
+ create mode 100644 drivers/pinctrl/bcm/pinctrl-brcmstb-bcm2712.c
+ create mode 100644 drivers/pinctrl/bcm/pinctrl-brcmstb.c
+ create mode 100644 drivers/pinctrl/bcm/pinctrl-brcmstb.h
+
+-- 
+2.35.3
+
 
