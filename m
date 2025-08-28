@@ -4,70 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B75FCA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 17:32:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD377C8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 17:35:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8ofMDnt8aegB1RhhNAN0+9aJ+qAFEpSg+iG9bqL1LWI=; b=FylEaoeD3bF+y/3mL0HVhlgAY8
-	Fgc+ZFVY++68YeGf4LNDVNSvbxZZgQX78IFUzHPLo2a9ftMBbDWuwQZoYhdA52WEEoOtVUiejXBgi
-	TCrPFLdrh+JGjJlaNdy6yFifX47Da5+a865U2wAu+G2SZqg2yK0Uv9e/xGywHBL7orLP0rQ8gTvh9
-	6fiD3pogON1SidV+XroHuAoyjtUOgwqBSSZ5XdmCLU6BFvFtfFQ5tx4flwxAXh5G+HPi7Bt+dDEPG
-	ZSwc1mxWHxK+Y5xJsrq3wHA8KGkP7kwwtT8gF5NgtYK0mUiqdkjSF50nAbKl8bCivhk/CUi5RJ4SN
-	72XazEHg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QSWkjItMEsVNotyoDAMPLMvhhraXQe3wDj+bg0giOKA=; b=SPhgk52i7IQPK0ckwvqgRRkquf
+	hwAoAXafQpSn6EvFi7y3NnCph3kyKoa1KLjqXcJ/C8gIuxYGh1UG+9I6mohSW8N1ixRfqBfy8fX8J
+	efBZCz4FBB5/JWs1NOiCXVlLC5kt8Yxkpm82ZYNAErvwD1EHZRrQ78cWwdHguU51aAGGh8ortDT4c
+	EWPXUKS5OqL15l1eJsfAEmCBLL+l8XchFFutAn7HN5FsJ30xLRwK26qSRxJfTsD6HmX15hurU3ROW
+	h4AYfuXy/v6vkv9TsJ2S1NoI50Qe+kak6vRq+Ih803C1BIIEzZUKV0o/0fAYkVVzU2d3b0jOpKpl2
+	WWnrXBxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urgUI-00000002YAa-0Bh0;
-	Thu, 28 Aug 2025 17:32:38 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1urgWz-00000002YUr-3W47;
+	Thu, 28 Aug 2025 17:35:25 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urcz7-00000001myf-0TES
+	id 1urcz8-00000001mz7-0hjl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 13:48:14 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-61c325a4d18so1624970a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 06:48:12 -0700 (PDT)
+	Thu, 28 Aug 2025 13:48:15 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-afe9358fe77so70057566b.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 06:48:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1756388891; x=1756993691; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=8ofMDnt8aegB1RhhNAN0+9aJ+qAFEpSg+iG9bqL1LWI=;
-        b=crXr1HxgD9r+TICKXjpeb1o6cV1TwVMUP3G9yBmk9DamI5ght2/QVDEmODflVY8lkZ
-         qqae62nPF4DsIJxBiydAnaR4AXnup8V3ocdvQj0CQqK/wNNNOtQCSYQC3wLX2iETtP4c
-         6VE5VLmhKtOrHxcfE1nP9cjPjM6hQXSM76s+uvurhd3nz6QViMEjUARjD6oQlepnVZAv
-         WkdUR6giNt/xv2MRPBiNvfELCbS9Ve8be8SLbqrMNn6hClCeQOf81ood4taSA2cQ4njT
-         CHkY0ZWkhzhOoO54rpplcXbdJsuCmw0Pw31fKIMImNDybV9aoS4ZACV6NFuq+LFzu3Yy
-         Hvvg==
+        d=suse.com; s=google; t=1756388893; x=1756993693; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=QSWkjItMEsVNotyoDAMPLMvhhraXQe3wDj+bg0giOKA=;
+        b=KrRnbB7sT9jqYqOnhJz/ku+Vj9NambPMRrLWOeJ3SkMmw8zx7rYDWQ5PEVhSfcXu0D
+         2ndRqDnnbi9K8DKChaStBduBWbEeGaN4Pl1Ck+Jo3S3+AExws/xwC7IPJavAkw0idFVR
+         6Yps7XXKX8vIgv+vu13AIVsZOzieoediw6I+83AMCB88y3qBVJOY0MGA6sq3wSc5+Xit
+         ZS1keCGEELKtIHACqtRpqHtrAcekdoJ7pvW/2IqEkb47zO143mCxiBqyst/FnS/wJGR4
+         p8OCj+8UyynhCL+vM0stALPossn+1UDoAmVOUw6DsFV37F5FFguSS9SCuPF6g7Wsu2Ij
+         6OhA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756388891; x=1756993691;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8ofMDnt8aegB1RhhNAN0+9aJ+qAFEpSg+iG9bqL1LWI=;
-        b=dhDdq+dWpa3LHS7smwKxW9cYb3R956iY7M8acVK97WcdJcEsms+ApaQgeVf3RvCQ0V
-         0gLy1sS2OZngZnl5MOggqc/Blew+Ax6ZVlWOPWs+HZcKMXkshOW266nTJrEXhvnTlFYH
-         IkMBT2Xo/x4lT7e34TlTJ7kjODEUsRPiclubMrgFRLa9jVl6ImH+9pHp1sRDmXjOuPB5
-         guMB1GhSkZPq7OGFeG+zVtnPAN++mus9VTZwRihwD2rwdZwHUXLHLX9w7b4CD1r+i/RI
-         DrCAjNfUZMKPNEoEHYlGFrxf6HsZFZedgSRpQUtJBjnH+mVL1l6wOWwJ9sjV2ZBG0rKf
-         iQDA==
-X-Forwarded-Encrypted: i=1; AJvYcCWqxsdH+N/yGnqzxLmkoewAJOfnAppJ2LWtSewh+zgmj36781fbG/OqR6VTThx9ww/LDZEahmf+Eldi/9mYXeWl@lists.infradead.org
-X-Gm-Message-State: AOJu0YzfMCo3gPD1xmdlbkw7jJtEJ7ukKgbBnXMh8yAJFoNUir6DFWhK
-	jXcVR0lrn3TYDTJ3inTgH3R9G8mw6mOSfBX+QBDaSXtodiVBHQP872Wb0K8dB/erq50=
-X-Gm-Gg: ASbGncuLFa/8ybyd5QWF1KNALvJOdUsTwfCzO7RouJjjOMiwOdvnJvAKBQnUA4eA2Jv
-	vrSTLaZi9pkDUVFZIVBlGHh/zq/PEH6j+IFigxw6joLsmbDQmZl/+DlDk8vOuTYS/yyG1CiwjGt
-	o7VIR6bjFX95zSPH4erQzNHVtNuQOXaVsceWqGOBI/9K/XJ+0pDtjo5FnQDlAXUyJYi3ww8aQ6a
-	anvF4Kf5QiGwy3WM5BeKgLw0RWLfMAC7RzI4uNTbZoNmDAVj50t4hSX0c8f2uZCXtoHdbbHikZt
-	vdiTvOOF+FyNxchbopK9KerxKW9Sf6XvAMdQ4IUH0ArJxum2cjePUbWFbOmoawZBH7KmZQFGM59
-	3OO9OFor9xxMWFXbfCGn5rubV5nHmG4lKe5hp1gU/w5G0ywh5em9+xhfHEfkqkLOJkMrkkzYmX3
-	GnB59K1qfUQtXDo8ayxoMUwmDpX2M=
-X-Google-Smtp-Source: AGHT+IFkrszRCxrFihFU24ZaJl7ZC3CwfnZHIryHv8hl7fJKUiWiXfcIaoNunoVL5GDO8tLcbR0fRQ==
-X-Received: by 2002:a05:6402:430d:b0:61c:9585:9eae with SMTP id 4fb4d7f45d1cf-61c9585a269mr8045358a12.6.1756388891487;
-        Thu, 28 Aug 2025 06:48:11 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1756388893; x=1756993693;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=QSWkjItMEsVNotyoDAMPLMvhhraXQe3wDj+bg0giOKA=;
+        b=rDnNqhVdByoX7z3Q0Nvl2Q3luELv3C6v1nOhPzJQMVQTC+M9YMKoFk+bOBLyJMjVV+
+         8mBMz1aaijTAWr5vynj4anAJBCPW5DdDCOgfydAl22LT7vaJYKcNcdLCtn86Vz1cH02p
+         K7I3JTvnN8akIyDO6Xf+VAwoBYTTHA4GUTO9xq9c/DIgZtkMMElthtP6/jTP0Hnu0U6F
+         MkjuBMlziqOAO/5EFrmWzTyOT8ELn/Mu2/16FvZW6eJ5tV3E+fAVlIUbKRtiDgzqyNhL
+         bryIZswpqPoexhMQXejqb3Z0eCEvyjFE/6NaSaPqumxXm2Tm5D011k0BxRJT/yaUG3BJ
+         m1OA==
+X-Forwarded-Encrypted: i=1; AJvYcCWOB90iH3v0JvfM88ekeoIygqcRnKUr/tgButqixMsOURKG53xVO9VCqN4s78uybGKN2Zs0aTyWTS8xEqbXhxFV@lists.infradead.org
+X-Gm-Message-State: AOJu0YykNm5Xm8+xyKnBasJwijVq4gpVfJsOIMMivtHaNQBeYdnUtWw3
+	G18MrpxxyAYvebGk4Az9IVBJ+Du3xGtP19g3qJ2X2UWbl2EGKQ4FUM0R+Rd6Ty433ew=
+X-Gm-Gg: ASbGncsTNuYiSvo8ASeMrNFkL1qeR+wM9f63mvQU/heyl8hTbN3eRh+n+qzddSqtIG5
+	l8zowuWFLBeAWblyB7x3/fhHyCk5WWG7uZ3AovfT0QEQcriOwh272Bi0gdgk7lYCUF5jlPFw79M
+	oWu36SJOG9k/e5rzfCo6/B5mg11b3H9UlUl3wCoJ8H5ROfVH5s//dWRI9Vx+BQ61l+5+4BwXN5j
+	ezuK9lxRcaq1s785vdQW+uWb0cI954mUmpbE/6jOSNXOo+7ImyYZymRWptpwXaVjICCxwibeUGr
+	upYGNgJWQFRrIsBOJlDhJP6/MHgnlzzcBqEnc9ei7ZcT1ERtDbdGKxxwk2jOLNexqtpxP53ekIm
+	12LQJy7oUlTODT5H74LYcQ/E7P92m6fgWWi5IqDGW6G2Uxe4hvaxfBbocVnEd9/MQiAzi6yfzHr
+	2gavpnT+h/MuBcpxK7qSWOPoe6FlI=
+X-Google-Smtp-Source: AGHT+IE0mnnz/V1bhpFxlBdsAbBHx4QqqEGn96nhy+Mvodra/CXXwAofr1j9KUPTZWvQ5QP+0+sP0A==
+X-Received: by 2002:a17:907:86aa:b0:af9:8438:de48 with SMTP id a640c23a62f3a-afe29605c0dmr2169147366b.48.1756388892528;
+        Thu, 28 Aug 2025 06:48:12 -0700 (PDT)
 Received: from localhost (host-79-36-0-44.retail.telecomitalia.it. [79.36.0.44])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-61cc8d32821sm2092757a12.9.2025.08.28.06.48.11
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afe7c93b86dsm515729266b.21.2025.08.28.06.48.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Aug 2025 06:48:11 -0700 (PDT)
+        Thu, 28 Aug 2025 06:48:12 -0700 (PDT)
 From: Andrea della Porta <andrea.porta@suse.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -84,15 +86,17 @@ To: Rob Herring <robh@kernel.org>,
 	mbrugger@suse.com,
 	Jonathan Bell <jonathan@raspberrypi.com>,
 	Phil Elwell <phil@raspberrypi.com>
-Subject: [PATCH 1/2] arm64: dts: broadcom: rp1: Add USB nodes
-Date: Thu, 28 Aug 2025 15:50:03 +0200
-Message-ID: <4e026a66001da7b4924d75bd7bee158cbb978eed.1756387905.git.andrea.porta@suse.com>
+Subject: [PATCH 2/2] arm64: dts: broadcom: Enable USB devicetree entries for Rpi5
+Date: Thu, 28 Aug 2025 15:50:04 +0200
+Message-ID: <9926b25f2932668abdf99d30182ddca4f7d18d9a.1756387905.git.andrea.porta@suse.com>
 X-Mailer: git-send-email 2.51.0
+In-Reply-To: <4e026a66001da7b4924d75bd7bee158cbb978eed.1756387905.git.andrea.porta@suse.com>
+References: <4e026a66001da7b4924d75bd7bee158cbb978eed.1756387905.git.andrea.porta@suse.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_064813_154705_C4E0D814 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20250828_064814_218245_90D7152B 
+X-CRM114-Status: GOOD (  10.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,53 +111,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RaspberryPi 5 has RP1 chipset containing two USB host controller,
-while presenting two USB 2.0 and two USB 3.0 ports to the outside.
+RaspberryPi 5 presents two USB 2.0 and two USB 3.0 ports.
 
-Add the relevant USB nodes to the devicetree.
+Configure and enable the USB nodes in the devicetree.
 
 Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
 ---
- arch/arm64/boot/dts/broadcom/rp1-common.dtsi | 28 ++++++++++++++++++++
- 1 file changed, 28 insertions(+)
+ .../arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/broadcom/rp1-common.dtsi b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
-index 5002a375eb0b..116617fcb1eb 100644
---- a/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
-+++ b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
-@@ -39,4 +39,32 @@ rp1_gpio: pinctrl@400d0000 {
- 			     <1 IRQ_TYPE_LEVEL_HIGH>,
- 			     <2 IRQ_TYPE_LEVEL_HIGH>;
- 	};
-+
-+	rp1_usb0: usb@40200000 {
-+		reg = <0x00 0x40200000  0x0 0x100000>;
-+		compatible = "snps,dwc3";
-+		dr_mode = "host";
-+		interrupts = <31 IRQ_TYPE_EDGE_RISING>;
-+		usb3-lpm-capable;
-+		snps,dis_rxdet_inp3_quirk;
-+		snps,parkmode-disable-ss-quirk;
-+		snps,parkmode-disable-hs-quirk;
-+		snps,tx-max-burst = /bits/ 8 <8>;
-+		snps,tx-thr-num-pkt = /bits/ 8 <2>;
-+		status = "disabled";
-+	};
-+
-+	rp1_usb1: usb@40300000 {
-+		reg = <0x00 0x40300000  0x0 0x100000>;
-+		compatible = "snps,dwc3";
-+		dr_mode = "host";
-+		interrupts = <36 IRQ_TYPE_EDGE_RISING>;
-+		usb3-lpm-capable;
-+		snps,dis_rxdet_inp3_quirk;
-+		snps,parkmode-disable-ss-quirk;
-+		snps,parkmode-disable-hs-quirk;
-+		snps,tx-max-burst = /bits/ 8 <8>;
-+		snps,tx-thr-num-pkt = /bits/ 8 <2>;
-+		status = "disabled";
-+	};
+diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+index 865f092608a6..95ab67c7aa47 100644
+--- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
++++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+@@ -21,3 +21,20 @@
+ &pcie2 {
+ 	#include "rp1-nexus.dtsi"
  };
++
++&rp1_gpio {
++	usb_vbus_default_state: usb-vbus-default-state {
++		function = "vbus1";
++		groups = "vbus1";
++	};
++};
++
++&rp1_usb0 {
++	pinctrl-0 = <&usb_vbus_default_state>;
++	pinctrl-names = "default";
++	status = "okay";
++};
++
++&rp1_usb1 {
++	status = "okay";
++};
 -- 
 2.35.3
 
