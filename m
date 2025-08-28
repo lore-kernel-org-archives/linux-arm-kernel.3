@@ -4,157 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C962ACA0FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 23:25:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB0F7CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 23:25:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0XgMkENTR3L73wyAV+uXRRvm5qmOP1DhbV717XUFyRQ=; b=Qdyhxocf1D2+CZCmhDsARSChe6
-	TI8bGQKtaLHH9gCzGeENc4MQ031OSSc5L/PaO5G3SfAH1jSgN4OP10e3IT0CsQdZRgZ0hcTsWn8aQ
-	GDluC9XDBn5KVQ7Y08+0BOIhr1e8y4jCi0CuBLlX6Vv6s8zyrU2L0lplqjvpEn7xAWgL/6UiBP76r
-	Ngtd3DEnZSrEYZF/S00HvGXcgD27Sec0jwmt3oMjeQ5zkcm6GUkj9JEdNjQqoZBmsp+PZ5cZJJKe9
-	xvlR0wLNFydKAG3rf1vg+lj6AB+45WABVD3yhkRQzIQlhvdlWBOXnJa6ksWgTiZG9gMsa+AGTuX4G
-	33euwjfQ==;
+	bh=K6p2tt16Ex86fLCzx2c9aJ/wVLkuf0FjhhNKWXNuhhU=; b=3/sqdSt99i/QpBfOlHntc845QN
+	jJL/STyyQiUH1VUXfxKv4KCBRyyT/v8oDq6WWbWkHE6n/8XlZiE88R0oniiTq1kwsehz+CMZjOq3t
+	ksfNnwVkUF1p05JIg+uW5Dg91iI+rW7GIKb7/HRnfgseIRVzotPp76DR3Ais7ZmmZ6meZAT4ycm1j
+	WoiX81zEyrhotMlSpRLPhiC9EyGnIUrbQwqYcPOz3ZqyppSpHpo2+/t6FgFJc/ALo0WBMo/ZIwwT6
+	h/2iKT2KhToyjstgAjVtwjyDxAZ+41kSj2KWZAXjO0TX08KZLmoXlkaWzGBPizKVzPPYyt2oJZLL3
+	Vgh1XJFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urlzF-00000003dCa-2Ohi;
-	Thu, 28 Aug 2025 23:24:57 +0000
-Received: from mail-mw2nam12on20607.outbound.protection.outlook.com ([2a01:111:f403:200a::607] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1urlzT-00000003dPs-2EX1;
+	Thu, 28 Aug 2025 23:25:11 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uriPA-000000032u1-3nNs;
-	Thu, 28 Aug 2025 19:35:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=t9OWX3nWOEybonKoVbiT86kw+E7+SYHk10VRm9cbA5DzZu3IGid49YUzcF+fSso+DfFDVLIi/ClFQK18VB6HVeOGLHnIRcgJqvH0LlZu7gyw1vvJabukeGFzlcbOIDDqElnQlSvL2pyQXsTLPx9poON4z3Rlb0djh9vXRYy4zh2JdvPOHYhAcY4Wc0YxkNmVxq3ADmG555P8qusa8SoPKQJTAeWsKFMbxec1pih3xWoQBXhpBD6VxkX4KamomBGJrDuflmWxieNkoyenZQcG+Gxk3ogNi9PR5U1SlnYHy90SrGnq3cws8dGw+VRzjnTlod4bZLdghyOGkbhx6QA3oA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0XgMkENTR3L73wyAV+uXRRvm5qmOP1DhbV717XUFyRQ=;
- b=ZuztEisGnpe3nleZbKooQQIjc69pUHihdpNog7SMFwO16cGC8lTOR/gCQBJn7HEYF/H6ClMFNf8sknlFQoQKcenEmIWPQVJWIa2zeQCpI2bIY4vjU86ZY3c1JldMXMLD5U2ssl2lEMgNjvMaMH/4lGaCED8zlOLasbKPbXTwPcZQUNvnTwHoByFzNn6UKSo4heH0ODgANGrETKkMvayxN1KdUEwdsYsPyXdi1cQdCtGVryHlLVJjqMArWpco4Dq/7SYgkPid8FT58z23YnPkob5v5wTC1jLJdrOrQ041uf0zB5b39iQmQhvIi5vN+HMrwq7LDRTadYOrxIrG6+DaNQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0XgMkENTR3L73wyAV+uXRRvm5qmOP1DhbV717XUFyRQ=;
- b=Drtc/X9M0x3sl85D1j3q3L3pfca8Xm/td8slz8tY/SfIZi7BfnimXTLHW/EGrQvwoT8WgoHDfj3CDnRps8klxbO2hYzAJFWUBGO2c6N14ypJ8lq8gV/GVLUtYYELZpDr/qGdJUL4LipNufNniI7rbrABPCthXmc6KruXuOhU0q7rE7A2nvqBMfSDX8sdk3vnsNwa7hQjQbvi5eL7VKNUqpDKsu7klk60S++33/ic3tc23IFP66+DbxUGhP3pHGRkrrmtGBPfxJTgm38KUGn5aHM+fs1hoYLUpCfxQ06Gbd0DjMOz/xFlT5Sp7QUNM2GX7zj62xF4sTniWhqMxY23yA==
-Received: from CH2PR17CA0030.namprd17.prod.outlook.com (2603:10b6:610:53::40)
- by SA3PR12MB7950.namprd12.prod.outlook.com (2603:10b6:806:31c::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.13; Thu, 28 Aug
- 2025 19:35:17 +0000
-Received: from CH2PEPF0000013D.namprd02.prod.outlook.com
- (2603:10b6:610:53:cafe::5a) by CH2PR17CA0030.outlook.office365.com
- (2603:10b6:610:53::40) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9052.21 via Frontend Transport; Thu,
- 28 Aug 2025 19:35:16 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- CH2PEPF0000013D.mail.protection.outlook.com (10.167.244.69) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9052.8 via Frontend Transport; Thu, 28 Aug 2025 19:35:16 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Thu, 28 Aug
- 2025 12:35:03 -0700
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Thu, 28 Aug
- 2025 12:35:03 -0700
-Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com (10.129.68.10)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Thu, 28 Aug 2025 12:35:01 -0700
-Date: Thu, 28 Aug 2025 12:35:00 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Ethan Zhao <etzhao1900@gmail.com>, <robin.murphy@arm.com>,
-	<joro@8bytes.org>, <bhelgaas@google.com>, <will@kernel.org>,
-	<robin.clark@oss.qualcomm.com>, <yong.wu@mediatek.com>,
-	<matthias.bgg@gmail.com>, <angelogioacchino.delregno@collabora.com>,
-	<thierry.reding@gmail.com>, <vdumpa@nvidia.com>, <jonathanh@nvidia.com>,
-	<rafael@kernel.org>, <lenb@kernel.org>, <kevin.tian@intel.com>,
-	<yi.l.liu@intel.com>, <baolu.lu@linux.intel.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-	<linux-mediatek@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
-	<linux-acpi@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-	<patches@lists.linux.dev>, <pjaroszynski@nvidia.com>, <vsethi@nvidia.com>,
-	<helgaas@kernel.org>
-Subject: Re: [PATCH v3 5/5] pci: Suspend iommu function prior to resetting a
- device
-Message-ID: <aLCvZOm11EAvrpx9@Asurada-Nvidia>
-References: <3749cd6a1430ac36d1af1fadaa4d90ceffef9c62.1754952762.git.nicolinc@nvidia.com>
- <550635db-00ce-410e-add0-77c1a75adb11@gmail.com>
- <aKTzq6SLGB22Xq5b@Asurada-Nvidia>
- <20250821130741.GL802098@nvidia.com>
- <aKgPr3mUcIsd1iuT@Asurada-Nvidia>
- <20250822140821.GE1311579@nvidia.com>
- <aKi8EqEp1DKG+h38@Asurada-Nvidia>
- <20250828125149.GD7333@nvidia.com>
- <aLBw3UTAX6F0IOCf@Asurada-Nvidia>
- <20250828184608.GF7333@nvidia.com>
+	id 1urgbU-00000002Z1E-41au
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 28 Aug 2025 17:40:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756402803;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=K6p2tt16Ex86fLCzx2c9aJ/wVLkuf0FjhhNKWXNuhhU=;
+	b=SV2BLNWir/H6zHs21qrTYL0vdbZoDkzaoCU1AnaHFebiVW0MvuYvMG2eCNdW5Xe8No88yC
+	T9luUNhEscgd32ZXHECS/5XP9osNDEpp3EY33YZU2boEzDzyrxxbOp74fEYNEumid7x2xA
+	VxV9fND3qZEnCM1ndoef4SjLCa4HzIs=
+Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com
+ [209.85.219.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-55-xI7wgbtZNsmbXOE_QB2JHQ-1; Thu, 28 Aug 2025 13:38:15 -0400
+X-MC-Unique: xI7wgbtZNsmbXOE_QB2JHQ-1
+X-Mimecast-MFC-AGG-ID: xI7wgbtZNsmbXOE_QB2JHQ_1756402695
+Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-70a9f55eb56so23497246d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 10:38:15 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756402695; x=1757007495;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=K6p2tt16Ex86fLCzx2c9aJ/wVLkuf0FjhhNKWXNuhhU=;
+        b=wMfFjlw+eCSzPPHUvMxQy/VCaiWNzUBo8KgmNG2UHrhwenfXWXoi6RNHp7Wk7IRYts
+         FdoV/0ryudVbpQBPaHeNxiiEN2Kxeivp0QnLdi/2h/cFwTit7QO5caUO2ij22smRJP/R
+         /8g8yEYa5a8txhQWwV6tdvRXjmyp1fyXXYgqwL1Kcdvu/zOTWpYOc5xJ7ke9sp8+oO3r
+         Z4uTkYvWUmxHMnskrp/E4W2EWbGBaD+rxeGEY0B8HW5e+kfUWsBt30n51jmaXSKjGyWU
+         PjOPxi4I90uMZBLm1H3m6FMKrlx3a/ucTssp4++LjejkYRhQEQxKUu/yN14jidWPomln
+         k3LA==
+X-Forwarded-Encrypted: i=1; AJvYcCUhVVZA7bXONfMpsq27GhrsBtJ7iZQhW2wFnk5qH9eGrP3FV/imMrcR/2mJigXXuI0hem5DKhvaNJ0tgxy+AYiV@lists.infradead.org
+X-Gm-Message-State: AOJu0YzwI7LCrFfwzi+YjA/C3FJPdLGGRvVLa8bXeotAKD3w215JjO2H
+	w7MR3YlYRSyPEPyWjR+r7XqvpVOqhb5vaRjH1CG1Z0JTYpJoG95jywzlYlt+A/XVB95+IR1GzDI
+	KaPTaS++V6S6w4u2ICZ31o0b3nbRK4MpA2YyK58wSpbpUow27M81ayGwp0JU3Bcg8WVMNST0tgI
+	n6
+X-Gm-Gg: ASbGncuyfCifKaTY8WbiW6IE+QdgwRzsSWUsV0ER9UeBKPNvqLDfFtsz/1xSkgKSSAK
+	SAS5yQqQLRI74/mvHp9eDoI1MqCjYeQbAKW9WFl6dzpmjJETME1atbC97HRlZb/6TqAdIy+HtW4
+	pzVpWtMb35CXDfkzutWMDZKAm6r+OTsMexBs1jOyanTn+JiwhlFJAQ07Frbyi74qrCHnFykx5Co
+	wWNS3Xl+Fb4nD5QDlS9N9Ctz2MojEjk41s8omMkoIMOYWxUHMrMfWjH1VRjy1y3qbfZrpJghvhL
+	g/nysoX0drqDKt10asryYnAkw3fMoyopzMtU05qlw5QvE8EkacSg0jKwX6Kuge7m0rgY5+xzItN
+	W6LImhrHn5sqpaBMvxaw=
+X-Received: by 2002:a05:6214:c65:b0:707:4539:5183 with SMTP id 6a1803df08f44-70d970980e6mr246817926d6.5.1756402695118;
+        Thu, 28 Aug 2025 10:38:15 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFolBQi5Yqb+JsBG1B+iQ0UbKTmrqVThPcyhvOhG9tT6SqvRRRfRTx8LsjupRZvAV5rgEeAWg==
+X-Received: by 2002:a05:6214:c65:b0:707:4539:5183 with SMTP id 6a1803df08f44-70d970980e6mr246817666d6.5.1756402694644;
+        Thu, 28 Aug 2025 10:38:14 -0700 (PDT)
+Received: from x1 (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-70da72cbff7sm108739796d6.62.2025.08.28.10.38.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 28 Aug 2025 10:38:14 -0700 (PDT)
+Date: Thu, 28 Aug 2025 13:38:12 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Ryan.Wanner@microchip.com
+Cc: mturquette@baylibre.com, sboyd@kernel.org, nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev,
+	varshini.rajendran@microchip.com, linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	robh@kernel.org
+Subject: Re: [PATCH v3 03/32] clk: at91: sam9x75: switch to parent_hw and
+ parent_data
+Message-ID: <aLCUBDXzZm8LukL9@x1>
+References: <cover.1752176711.git.Ryan.Wanner@microchip.com>
+ <b39fdf4c800103e4fd3fe2ace2c295f635a59d0f.1752176711.git.Ryan.Wanner@microchip.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+In-Reply-To: <b39fdf4c800103e4fd3fe2ace2c295f635a59d0f.1752176711.git.Ryan.Wanner@microchip.com>
+User-Agent: Mutt/2.2.14 (2025-02-20)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: Sve2-PXDCQ0Tni-S4_8VIBP3lyAY3yJIniAOLEuU-4g_1756402695
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250828184608.GF7333@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF0000013D:EE_|SA3PR12MB7950:EE_
-X-MS-Office365-Filtering-Correlation-Id: d826f1b6-8c1a-47a5-9cde-08dde66a044b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|7416014|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OQiiDQjtGvO3tPwOgl97upHNXlwinnf6ipSL91H2MjjTgqjKc6e09UMw7YFD?=
- =?us-ascii?Q?mzhPUcGo0tEq7qp73+5QGPBXcmt14mz6Z5vNHO6n83UO7RzKyf7mFAaAZ18F?=
- =?us-ascii?Q?Uib8+0TuuadJx6FJ/2V8Qw90sUz1A1/1XqPwlTq2L0tacWyAATOR2EiRxA12?=
- =?us-ascii?Q?MTUT/Vext2rutI3hLdoGSCyHUe7Q4AiTuHb4jRWfrWU3b51JVLkDQNsRZxME?=
- =?us-ascii?Q?/YkJzYJQBDJnJ9sXQmEhIv0tdPbEqp/qmQTtG1HzqIiKUySxYBoGLrgEVza1?=
- =?us-ascii?Q?yb9HwXVqa2wmoscDmbhlmjQRVXhBK8aiwLFGAB2/uIXQr5dRBq1ZFf/LKO2+?=
- =?us-ascii?Q?XTZeRURfbHffCbB3Y7fjDcoKchDCKVubcWf/5HNI+blLQk5bka0ggNcUa2uD?=
- =?us-ascii?Q?tC74fXaBzj5UWxuzwx4VI2vlADJiOmgPE0fewu288TLExvx+8eBdWhqtU282?=
- =?us-ascii?Q?T0V0XIVDLDFmuIChbYi/idGMkYkVs4lKTHNr2mBcUhmXpfXlJGdUKCEvm/II?=
- =?us-ascii?Q?bW2RKQCwP220ZFFbJucljmuTGRXGcpNs48HmMpBDcPTgQgZHNKKOEf4Bte+7?=
- =?us-ascii?Q?0z3eFD1hxijadvhZfhwJzlEvito6EthT5WmfaMB5DZwuhORYd1issvu3HjFB?=
- =?us-ascii?Q?IanDdHz1ETXx5KVK3HaYNwVE313ZtwuF+LRWTlM8uDbl+7ilacFBc8+xsIZK?=
- =?us-ascii?Q?wFaWp2/ZmGxNxSS2iNQQSUnocIlstN9ddxHlEuiV/8fIpfOlZErrL3SDYpus?=
- =?us-ascii?Q?xY0SsflxI1QWQURDmueWRySDrV+crCGIXoI5RZjX+mJjxO2a/WiuqGqyA+IF?=
- =?us-ascii?Q?NW7PAfwEQTMYAmEXM5nYoWVqaqSK+Qz+dz/Cq05sjGFwSA0hhOMUYwuzG2kO?=
- =?us-ascii?Q?MccpcH06LGeoZLzUN+QbetImWEJq0x/soAPi1viKIr2JQX8FAGJ3y5ErbzeU?=
- =?us-ascii?Q?55L9QdH0D1MA5SV+sDJRlUB4SfytDElTFxKv/LgIHVnFUYcncIb3u6ZL58bu?=
- =?us-ascii?Q?igl4O81gpYaSX2D9n7Yw0UprQjCSD3a9u4H7vwFdJW8gW45VWkqOgbp7KUgD?=
- =?us-ascii?Q?mmrJ01Y6XqQ7km4L916GbTW2CWGyKDTbxdR6EC/tPaCQeRYFPtGVdre4UMc2?=
- =?us-ascii?Q?g5rPdmh4zlaKpzDLADn+XyJpi9x1f4K3z3o8RaMB3VNeo00mKhLSUkS8ySrt?=
- =?us-ascii?Q?qnBnED/OquG8U1vPrG1/X87hTubH8/zOrcnQWljonWyfa/QwsDAEk2vfXCaf?=
- =?us-ascii?Q?gu/2S6IapV+MdUqhkW21WjXVbvMxW2P0+X62sk5bwAmttNi1YpD3XQzPpPAH?=
- =?us-ascii?Q?KKs5I3APqx5iFvYHIlZgWDkrdjquJUS0dWUehNuXht7bnGLBO4dOSIqidtxE?=
- =?us-ascii?Q?JA7+4VfCfJV1wsW0FwCzkLdnVICzbbIGzr8vptPXTioMTx/pZzC+Da3guwGg?=
- =?us-ascii?Q?MntshWPsi/CWOcAOUw6EFAm8TM3d/fNfTnIYHnBX/GQz0GWVQwLeUs2Tweiw?=
- =?us-ascii?Q?plupT82O3BVNWGZvzh19twOrNWrIbVTGiD/z?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(376014)(7416014)(82310400026)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Aug 2025 19:35:16.7969
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d826f1b6-8c1a-47a5-9cde-08dde66a044b
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000013D.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB7950
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_123528_955417_AA9FE810 
-X-CRM114-Status: GOOD (  21.28  )
+X-CRM114-CacheID: sfid-20250828_104005_251616_9632B0C2 
+X-CRM114-Status: GOOD (  26.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,36 +114,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 28, 2025 at 03:46:08PM -0300, Jason Gunthorpe wrote:
-> On Thu, Aug 28, 2025 at 08:08:13AM -0700, Nicolin Chen wrote:
-> > On Thu, Aug 28, 2025 at 09:51:49AM -0300, Jason Gunthorpe wrote:
-> > > On Fri, Aug 22, 2025 at 11:50:58AM -0700, Nicolin Chen wrote:
-> > > 
-> > > > It feels like we need a no-fail re-attach operation, or at least an
-> > > > unlikely-to-fail one. I recall years ago we tried a can_attach op
-> > > > to test the compatibility but it didn't get merged. Maybe we'd need
-> > > > it so that a concurrent attach can test compatibility, allowing the
-> > > > re-attach in iommu_dev_reset_done() to more likely succeed.
-> > > 
-> > > This is probably the cleanest option to split these things
-> > 
-> > Yea, that could avoid failing a concurrent attach_dev during FLR
-> > unless the dryrun fails, helping non-SRIOV cases too.
-> > 
-> > So, next version could have some new preparatory patches:
-> >  - Pass in old domain to attach_dev
-> >  - Add a can_attach_dev op
+On Thu, Jul 10, 2025 at 01:06:56PM -0700, Ryan.Wanner@microchip.com wrote:
+> From: Ryan Wanner <Ryan.Wanner@microchip.com>
 > 
-> I wouldn't make this more complicated, just focus on the signal device
-> case here then we move on from there
+> Switch SAM9X75 clocks to use parent_hw and parent_data. Having
+> parent_hw instead of parent names improves to clock registration
+> speed and re-parenting.
 > 
-> Just adding can_attach_dev is big series on its own
+> The USBCLK will be updated in subsequent patches that update the clock
+> registration functions to use parent_hw and parent_data.
+> 
+> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+> ---
+>  drivers/clk/at91/sam9x7.c | 308 +++++++++++++++++++++-----------------
+>  1 file changed, 173 insertions(+), 135 deletions(-)
+> 
+> diff --git a/drivers/clk/at91/sam9x7.c b/drivers/clk/at91/sam9x7.c
+> index cbb8b220f16b..31184e11165a 100644
+> --- a/drivers/clk/at91/sam9x7.c
+> +++ b/drivers/clk/at91/sam9x7.c
+> +		[PLL_COMPID_DIV1] = {
+> +			.n = "plla_div2pmcck",
+> +			.p = SAM9X7_PLL_PARENT_FRACCK,
+> +			.l = &plladiv2_divpmc_layout,
+> +			/*
+> +			 * This may feed critical parts of the system like timers.
+> +			 * It should not be disabled.
+> +			 */
+> +			.f = CLK_IS_CRITICAL | CLK_SET_RATE_GATE,
+> +			.c = &plladiv2_characteristics,
+> +			.eid = PMC_PLLADIV2,
+> +			.t = PLL_TYPE_DIV,
+> +		},
 
-OK. I suppose a concurrent attach on a single device will be rare,
-so failing it won't impact that much and thus can be a Part-1.
+[snip]
 
-Then, for part-2, we will do can_attach_dev and support SRIOV.
+> -	[PLL_ID_PLLA_DIV2] = {
+> -		{
+> -			.n = "plla_div2pmcck",
+> -			.p = "plla_fracck",
+> -			.l = &plladiv2_divpmc_layout,
+> -			/*
+> -			 * This may feed critical parts of the system like timers.
+> -			 * It should not be disabled.
+> -			 */
+> -			.f = CLK_IS_CRITICAL | CLK_SET_RATE_GATE,
+> -			.c = &plladiv2_characteristics,
+> -			.eid = PMC_PLLADIV2,
+> -			.t = PLL_TYPE_DIV,
+> -		},
+> -	},
 
-Thanks
-Nicolin
+Should the div2 to div1 rename be mentioned in the commit log?
+
+> @@ -710,32 +738,24 @@ static const struct {
+>  static void __init sam9x7_pmc_setup(struct device_node *np)
+>  {
+>  	struct clk_range range = CLK_RANGE(0, 0);
+> -	const char *td_slck_name, *md_slck_name, *mainxtal_name;
+> +	const char *main_xtal_name = "main_xtal";
+>  	struct pmc_data *sam9x7_pmc;
+>  	const char *parent_names[9];
+>  	void **clk_mux_buffer = NULL;
+>  	int clk_mux_buffer_size = 0;
+> -	struct clk_hw *main_osc_hw;
+>  	struct regmap *regmap;
+> -	struct clk_hw *hw;
+> +	struct clk_hw *hw, *main_rc_hw, *main_osc_hw, *main_xtal_hw;
+> +	struct clk_hw *td_slck_hw, *md_slck_hw, *usbck_hw;
+> +	static struct clk_parent_data parent_data;
+> +	struct clk_hw *parent_hws[9];
+>  	int i, j;
+>  
+> -	i = of_property_match_string(np, "clock-names", "td_slck");
+> -	if (i < 0)
+> -		return;
+> -
+> -	td_slck_name = of_clk_get_parent_name(np, i);
+> -
+> -	i = of_property_match_string(np, "clock-names", "md_slck");
+> -	if (i < 0)
+> -		return;
+> -
+> -	md_slck_name = of_clk_get_parent_name(np, i);
+> +	td_slck_hw = __clk_get_hw(of_clk_get_by_name(np, "td_slck"));
+> +	md_slck_hw = __clk_get_hw(of_clk_get_by_name(np, "md_slck"));
+> +	main_xtal_hw = __clk_get_hw(of_clk_get_by_name(np, main_xtal_name));
+
+Based on Stephen's comment on your earlier series, I think it would be
+worthwhile to call out that these __clk_get_hw() calls will be removed
+in later patches in this series. I know you do in the next patch.
+
+Everything else in this patch looks good to me.
+
+Brian
+
 
