@@ -4,58 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08BCFCA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 06:17:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9051ECA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 06:22:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mLP5bwfx5JUrcHsz6CyZc7tgsZnbyjt3ON1W+9DUhmE=; b=Vb1VvvqpBuc896/ttofXs/fZ2e
-	tBr/AK9zmbDMnnUfHLp0VCX371iifHZzTQ1ee5eRGW06Nm49Os/JvNYwepoYLiC+g5iPHX4eHsV+2
-	U1bJG4SdchNLKXM5MAft9Hb39eLxWKp/vbydiIAcfa/4m8IEjDn/aT617NggWeSMLQhDpaeswLSQY
-	8UB4BMFlKtIXbnf8+ziaGUI89f+7gqriymjPxmvRQd99NqUY9xIf5lCa0nZ7/7oqYVAXCZikVao/F
-	LgxY6zLZAE1ARbq9JcjWC+rRu08fJQeiRQSDC7elxvsBoLLq8m8oESq7dMhRs7087q4GcNnXdkA4g
-	QVtpTcrg==;
+	bh=hK6XqJkQNDAhlvyTtlVGL4OJEynPtpkf9TGBGdV6LPE=; b=sJTDmOPsFyGgpwzEyBC2tce6cW
+	v3MsRGl9AwJASMStTvR+BeH5w6VhxBUjhZgDQ6rKkS5l2qmQkoz8JUNhs+3eT696eJlKiYu01Z/5y
+	lre1nnCZOKhzy2wYNlmY1g5xS2y6k/yxcljWgpGjxQmLFFwun5tmOKxeIHCsSWXi8X14bxjyhPLYf
+	FZ+TumBHJ9Z8cxd5qtm9pgfvj5fQ57/mfuuedBcVmqsKOSEcaQ3q5TUVY5nOFzWW2qVHnkvvt8+Dk
+	wr41OxeMdmlLjiV4dr4IOIr6Z1BDnzBds6x/SgTH95TWCY0eZy9llwJ8Rmd5QPWxlDpdNyjXYiwCc
+	YpC34kYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urVws-00000000PsP-0GJi;
-	Thu, 28 Aug 2025 06:17:26 +0000
-Received: from [50.53.25.54] (helo=[192.168.254.17])
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urVuA-00000000Phx-1KCr;
-	Thu, 28 Aug 2025 06:14:38 +0000
-Message-ID: <61cd6dac-14e1-474e-9aa3-4fe782e81ba9@infradead.org>
-Date: Wed, 27 Aug 2025 23:14:36 -0700
+	id 1urW27-00000000QLn-2f0w;
+	Thu, 28 Aug 2025 06:22:51 +0000
+Received: from mout.gmx.net ([212.227.15.19])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urVzP-00000000QAU-1fxx;
+	Thu, 28 Aug 2025 06:20:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1756361992; x=1756966792; i=wahrenst@gmx.net;
+	bh=hK6XqJkQNDAhlvyTtlVGL4OJEynPtpkf9TGBGdV6LPE=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=pKPtG23O2MNC1qzrthmSWjVows5y2HfCmXVBpURiX4rMuuYiQihfYLGliZnkHL+n
+	 ux3EC4wvqD762zzIIDxssrn2Y+bXCjgTqaNZQsSeYpGs3h9i/2EYHns5vZ8puJLEI
+	 9tkY3m0ya1H3k4Qwl8aM7I2UPKGxYzsitT6pyw+1FwrHUulIWv6jb47wQrangsBDY
+	 nPVcUGwq4vA0VD9kOx6qxCxSpHh6IEHMGpHALDYiaipg1AeB7G/xSDn1OYNXDlw8I
+	 N/x915hJZmm3L64LmKDUqNPvR5mlBX0jvswSdaJcaX08/3m98J0zPqvSBNzWWVZKc
+	 sH7PsDB29ItbzKEJHw==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.105] ([79.235.128.112]) by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MvsIv-1uXmZz1nOx-00qp2o; Thu, 28
+ Aug 2025 08:19:52 +0200
+Message-ID: <c35ab51a-e9df-48f5-bc18-889980098d08@gmx.net>
+Date: Thu, 28 Aug 2025 08:19:47 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/5] kcfi: Rename CONFIG_CFI_CLANG to CONFIG_CFI
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Kees Cook <kees@outflux.net>,
- Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, Kees Cook <kees@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Sami Tolvanen <samitolvanen@google.com>,
- Linus Walleij <linus.walleij@linaro.org>, Mark Rutland
- <mark.rutland@arm.com>, Puranjay Mohan <puranjay@kernel.org>,
- David Woodhouse <dwmw2@infradead.org>, Jonathan Corbet <corbet@lwn.net>,
- x86@kernel.org, linux-doc@vger.kernel.org, linux-kbuild@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- llvm@lists.linux.dev, linux-hardening@vger.kernel.org
-References: <20250825141316.work.967-kees@kernel.org>
- <20250825142603.1907143-5-kees@kernel.org>
- <CANiq72kc7Ky6+7Ny7jR04s8vU-g23qBQC0rQrOZDxDzXT+m1TQ@mail.gmail.com>
- <202508250834.E2456B9@keescook>
- <CANiq72mQsLqhpX29NP3Zm8HZ5m429tSXjgFcRYJM3e=Zac1G1w@mail.gmail.com>
- <9CCDBE93-7DBD-41D0-B9B6-05900F2AB1EE@outflux.net>
- <20250827013444.GA2859318@ax162>
- <56c2b1ce-00a4-403c-9927-79bfd9a23574@infradead.org>
- <20250827193815.GA2293657@ax162>
+Subject: Re: [PATCH 1/5] include: linux: Destage VCHIQ interface headers
+To: Florian Fainelli <florian.fainelli@broadcom.com>,
+ Umang Jain <uajain@igalia.com>, Jai Luthra <jai.luthra@ideasonboard.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Ray Jui
+ <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org,
+ kernel-list@raspberrypi.com, Dave Stevenson <dave.stevenson@raspberrypi.com>
+References: <20250827-vchiq-destage-v1-0-5052a0d81c42@ideasonboard.com>
+ <20250827-vchiq-destage-v1-1-5052a0d81c42@ideasonboard.com>
+ <20250827124016.GF5650@pendragon.ideasonboard.com>
+ <we7tl65ijs44ae2zxfejmvnml3ls2pkfhcp2fqsmvec2eqevwm@yb45fs7nnf5s>
+ <8ed6519a-6e45-4793-b11b-7b63c1703d6e@gmx.net>
+ <910dae68-0545-46fa-b41f-8e4fb32ed649@broadcom.com>
 Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20250827193815.GA2293657@ax162>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <910dae68-0545-46fa-b41f-8e4fb32ed649@broadcom.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:Y6dZyjpRpNIoL/rKyV9W1dCh4kK3Fr5DRQ9Unqmfd8VJ6I9iVCM
+ 7Anr/zIXHXZA+Ywytu51yk/oVYd5/a6PdjZxf8D4lE00tTfvamA3Kzi6jI0nH+dn3QGuPYo
+ xvPFCy53DW1K/hi9ZN1njRCdjx4qCvjL9uH9vDrUrp9y7i8EJnrpphasUR5QKOp5g0gN8Dy
+ 9LlYxoL4KW+X6ydkWF5JA==
+UI-OutboundReport: notjunk:1;M01:P0:rAdP4rXadtQ=;3zfS0URxGLiDDvnWLiBr0ioEON9 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
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250827_232003_729403_3ACE1061 
+X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,117 +102,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Florian,
 
-
-On 8/27/25 12:38 PM, Nathan Chancellor wrote:
-> On Wed, Aug 27, 2025 at 12:35:12AM -0700, Randy Dunlap wrote:
->> On 8/26/25 6:34 PM, Nathan Chancellor wrote:
->>> On Mon, Aug 25, 2025 at 03:31:34PM -0400, Kees Cook wrote:
->>>> On August 25, 2025 1:00:22 PM EDT, Miguel Ojeda <miguel.ojeda.sandonis@gmail.com> wrote:
->>>>> On Mon, Aug 25, 2025 at 5:35 PM Kees Cook <kees@kernel.org> wrote:
->>>>>>
->>>>>> Yeah, that's a good idea. What the right way to do that?
->>>>>>
->>>>>> config CFI_CLANG
->>>>>>         bool "Use Clang's Control Flow Integrity (CFI)"
->>>>>>         depends on ARCH_SUPPORTS_CFI
->>>>>>         select CFI
->>>>>>
->>>>>> ?
->>>>>
->>>>> I don't recall what is the idiomatic solution for renames, but I
->>>>> remember Linus talking about this topic and about avoiding losing old
->>>>> values if possible (perhaps getting a new question in `oldconfig` is
->>>>> OK as long as the `olddefconfig` respects the old value).
->>>>>
->>>>> I think your suggestion above will still make it appear twice in
->>>>> `menuconfig` -- there may be a way to play with visibility to make it
->>>>> better.
->>>>>
->>>>> A simple possibility I can think of (assuming it works) is having the
->>>>> CFI symbol for the time being introduced just as a `def_bool
->>>>> CFI_CLANG` for a few releases so that people get the new one in their
->>>>> configs.
->>>>
->>>> Ah, I think this works:
->>>>
->>>> config CFI_CLANG
->>>>     bool
->>>>
->>>> config CFI
->>>>     bool "...."
->>>>     default CFI_CLANG
->>>>
->>>> I will add that for v2.
->>>
->>> That does not appear to work for me. I applied
->>>
->>> diff --git a/arch/Kconfig b/arch/Kconfig
->>> index c25a45d9aa96..0d3ed03c76c2 100644
->>> --- a/arch/Kconfig
->>> +++ b/arch/Kconfig
->>> @@ -876,8 +876,12 @@ config ARCH_SUPPORTS_CFI
->>>  config ARCH_USES_CFI_TRAPS
->>>         bool
->>>
->>> +config CFI_CLANG
->>> +       bool
->>> +
->>>  config CFI
->>>         bool "Use Kernel Control Flow Integrity (kCFI)"
->>> +       default CFI_CLANG
->>>         depends on ARCH_SUPPORTS_CFI
->>>         depends on $(cc-option,-fsanitize=kcfi)
->>>         help
->>>
->>> on top of this series and
->>>
->>>   CONFIG_CFI_CLANG=y
->>>   # CONFIG_CFI_ICALL_NORMALIZE_INTEGERS is not set
->>>   # CONFIG_CFI_PERMISSIVE is not set
->>>
->>> gets turned into
->>>
->>>   # CONFIG_CFI is not set
->>>
->>> after olddefconfig. CONFIG_CFI_CLANG has to be user selectable with a
+Am 28.08.25 um 04:17 schrieb Florian Fainelli:
+>
+>
+> On 8/27/2025 12:05 PM, Stefan Wahren wrote:
+>> Hi,
 >>
->> Could/did you test with 'oldconfig' instead?
+>> Am 27.08.25 um 16:33 schrieb Umang Jain:
+>>> On Wed, Aug 27, 2025 at 02:40:16PM +0200, Laurent Pinchart wrote:
+>>>> Hi Jai,
+>>>>
+>>>> Thank you for the patch.
+>>>>
+>>>> On Wed, Aug 27, 2025 at 11:54:08AM +0530, Jai Luthra wrote:
+>>>>> From: Umang Jain <umang.jain@ideasonboard.com>
+>>>>>
+>>>>> Move the VCHIQ headers from drivers/staging/vc04_services/include to
+>>>>> include/linux/vchiq
+>>>>>
+>>>>> This is done so that they can be shared between the VCHIQ interface
+>>>>> (which is going to be de-staged in a subsequent commit from staging)
+>>>>> and the VCHIQ drivers left in the staging/vc04_services (namely
+>>>>> bcm2835-audio, bcm2835-camera).
+>>>>>
+>>>>> The include/linux/vchiq/ provides a central location to serve both
+>>>>> of these areas.
+>>>> Lots of SoC-specific headers are stored in include/linux/soc/$vendor/=
+.
+>>>> This would be include/linux/soc/bcm/vchiq/ in this case. I'm also fin=
+e
+>>>> with include/linux/vchiq/ but other people may have a preference.
+>>> I agree with this point and I might have missed to notice the
+>>> include/linux/soc earlier. That's seems a better location to me since
+>>> it's actually broadcom-specific.
+>> I would expect that headers and source would be more related.
 >>
->> olddefconfig is going to use the default value from the Kconfig file,
->> which if CFI_CLANG which is undefined/No/Not set.
+>> For example:
 >>
->> oldconfig will use the old value from the .config file.
-> 
-> I am not sure I understand what you mean here. With the series as it is
-> or Kees's suggested fix, oldconfig still prompts the user to enable
+>> include/linux/soc/bcm
+>>
+>> drivers/soc/bcm/
+>
+> This is not Broadcom code, it is Raspberry Pi AFAICT, therefore, just=20
+> like drivers/firmware/raspberrypi.c, we would need some namespacing=20
+> here that reflects that, ideally.
+The VCHIQ code originally comes from Broadcom, but the current=20
+implementation has been adapted and tested for Raspberry Pi. I'm not=20
+against a Raspberry Pi specific namespace.
 
-OK, I don't know the state of the CFI_CLANG / CLANG patch(es).
+Should this also apply to the DT bindings?
 
-I just mean the difference in 'make oldconfig' and 'make olddefconfig'
-(at least AIUI).
+Documentation/devicetree/bindings/soc/bcm/brcm,bcm2835-vchiq.yaml
 
-
-> CONFIG_CFI with CONFIG_CFI_CLANG=y in the old configuration. Both Miguel
-> and I allude to that being fine but it would be really nice if users
-> with CONFIG_CFI_CLANG=y were automatically transitioned to CONFIG_CFI=y
-> without any action on their part. That seems to be in line with how
-
-Yes, I agree.
-
-> Linus feels even as recently as this past merge window:
-> 
-> https://lore.kernel.org/CAHk-=wgO0Rx2LcYT4f75Xs46orbJ4JxO2jbAFQnVKDYAjV5HeQ@mail.gmail.com/
-> 
-> Another idea I had to avoid this is introducing CONFIG_CFI_GCC as a user
-> selectable symbol and making CONFIG_CFI the hidden symbol that both
-> compiler symbols select. After a couple of releases (or maybe the next
-> LTS), both CONFIG_CFI_CLANG and CONFIG_CFI_GCC could be eliminated with
-> CONFIG_CFI becoming user selectable, which would keep things working
-> since CONFIG_CFI=y will be present in the previous configuration.
-
-
--- 
-~Randy
+Best regards
 
 
