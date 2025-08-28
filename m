@@ -4,101 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3508BCA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 18:06:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8433CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 18:09:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q+ZOslRtpNRUZ4+XX/3wjkjYQUhaaQzOaxkNs+zbYV4=; b=UR0zRgaus2bhAVEOdtKxwlGLbS
-	ltTscc65pwx8yEwOixau7x0XAFgpmoUjMypiYfnwMfbRlfxI2jy9TN49Qxi0HNjJLSeNJzpwHr9v6
-	Mqs4Q5u+NUpBeS6Ee6XF9KTTul9A0Pi1rwyiv8r/hm+ejnrXgf63GLV17hgfSXKyeVriymaNbN5HB
-	yiyQpg+cucPDoHvsYIr/fcw+4A3s8R0RbRCYFdLK28JfRw64EmmAPzOJRq6NKdtQ6NNNPv8sXuj38
-	pibYOiaRHzHWYiqX1Qr3WiySWeywCWJVvq9VVSUMl8UHXailhPHq351izekxdlwOKL8Lq/IIcH5zc
-	adk6ZwSQ==;
+	bh=zcXQWGxBgys/9bCjZkggZ71XZareYPTP7nhInFsdrhI=; b=32fwpEd1j8KqVPl48ASA/gFscG
+	6kqzFrtmqJhbCa3BE7t/yDXHI/4FHRADPZtMEPnUrnb534CAZ/WIW+MfifCRI+HO4x8NOjZRigknk
+	sWTN+oXcPARFXUEbunEXMiiqZPehB9K7yxYLxDT0F/k+mZ0oj38s0HHgOHw3Z1isYP7ujgsZi8bkk
+	BbOZwSUOXkaZz5vQ8jPp/HrUMAu3cJFSxIj4EUsVBJ/M9pz99UXvjpoKGbRxz5zKbzH9Nhftcf+0X
+	NKATte6/Ni4SSSFOWptFnPZsVBbE4x7dAKVyDkH4o94f5zwJAunbZgQ86kXmNgfZKfxyrFto/s2sP
+	c3lzjajA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urh0v-00000002dWh-1jis;
-	Thu, 28 Aug 2025 18:06:21 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1urh3d-00000002dvm-1BbS;
+	Thu, 28 Aug 2025 18:09:09 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ureZg-000000026op-0loH
+	id 1ureaJ-000000026vC-3Cih
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 15:30:05 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57SCptZ5028910;
-	Thu, 28 Aug 2025 17:29:50 +0200
+	Thu, 28 Aug 2025 15:30:45 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57SExhLc008165;
+	Thu, 28 Aug 2025 17:30:32 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	Q+ZOslRtpNRUZ4+XX/3wjkjYQUhaaQzOaxkNs+zbYV4=; b=T7XblH1IKrV6Pegh
-	1MrbFDJraMubPXe0LnwuE7uuXeipDfgsOlZ/a0odT+os3JDoRAhJMnwza9k1yI05
-	JB+2Eni0xsS8F96DDqlA8950xsGWNZa6gm6VwL9u5AiCUIMfICWm57qEob878CWN
-	MRe4If7gUM9i7L7BbAdSORTbljsHLE4FoHgfB6tfgO65fM6S3uo+IUPel1BmXScS
-	wn96aGYh3M67qzDgtAJk0TV5KpWF978wFPkAYcfhTrcnnv4yoIrUzdR9CwOtxhRD
-	SI6j5qqH/Q1hVQC7JiQrf0WgqrcLRP39Uls9Ete6YjesuJ6SCHxwPoHJOyqfm8Ms
-	kHRhig==
+	zcXQWGxBgys/9bCjZkggZ71XZareYPTP7nhInFsdrhI=; b=5PBWCHvR6BAKt5q+
+	lSmK889rAu3TIDu9s/WZRuzmFV+Gg4W9dRRNh+dFL48D7OL1yQ9uItfsuYCCJXry
+	vrCcbsqiVzolyGi9uQi7s67eFaWbOOdKpJqkM7vgmUybN1UI7yDHhkhF8hBSqVw1
+	ZgmYXjB5wAQvrOjAnMXARAz3Pk1TFOm5IrFB2zSdjWwaHG/15BXsiJwUtw4hLUbD
+	67O0xdpCSrc5deU6c+j0cJRrSUYpmQH2/Z/EHQNN/ZYcDmVo9q3kUGx2ZMLZ+usy
+	MFhMEbct9nuPWN4qe5QQ/dYEEtaJqj/LbB0qNKG+pNcbnPblkvAzwJq9lYwzk1er
+	ZBozVw==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48q5tt5rvv-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48qrkmtyc8-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 28 Aug 2025 17:29:49 +0200 (MEST)
+	Thu, 28 Aug 2025 17:30:31 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 2C40540045;
-	Thu, 28 Aug 2025 17:28:14 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 4321376B303;
-	Thu, 28 Aug 2025 17:27:13 +0200 (CEST)
-Received: from [10.48.86.145] (10.48.86.145) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Thu, 28 Aug
- 2025 17:27:12 +0200
-Message-ID: <4f0d417a-3a57-5ed7-9bbb-758679a9625d@foss.st.com>
-Date: Thu, 28 Aug 2025 17:27:11 +0200
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id D4EB940048;
+	Thu, 28 Aug 2025 17:29:17 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 0DB7976B31E;
+	Thu, 28 Aug 2025 17:28:05 +0200 (CEST)
+Received: from [10.252.2.182] (10.252.2.182) by SHFDAG1NODE2.st.com
+ (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 28 Aug
+ 2025 17:28:03 +0200
+Message-ID: <ee447d45-a7af-4af4-ba6c-5341b8428db3@foss.st.com>
+Date: Thu, 28 Aug 2025 17:28:02 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH v5 00/13] Enable display support for STM32MP25
-Content-Language: en-US
-To: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>,
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 06/13] dt-bindings: arm: stm32: add required
+ #clock-cells property
+To: Christophe ROULLIER <christophe.roullier@foss.st.com>,
         Yannick Fertre
 	<yannick.fertre@foss.st.com>,
-        Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
+        Philippe Cornu <philippe.cornu@foss.st.com>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard
+	<mripard@kernel.org>,
         Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Christophe Roullier
-	<christophe.roullier@foss.st.com>
+        David Airlie
+	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        "Alexandre Torgue" <alexandre.torgue@foss.st.com>,
+        Catalin Marinas
+	<catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>
 CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
         <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
 References: <20250822-drm-misc-next-v5-0-9c825e28f733@foss.st.com>
-From: Philippe CORNU <philippe.cornu@foss.st.com>
-In-Reply-To: <20250822-drm-misc-next-v5-0-9c825e28f733@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+ <20250822-drm-misc-next-v5-6-9c825e28f733@foss.st.com>
+ <4201bb6b-3ad8-4b35-b152-0d725310245b@foss.st.com>
+Content-Language: en-US
+From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+In-Reply-To: <4201bb6b-3ad8-4b35-b152-0d725310245b@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.145]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
+X-Originating-IP: [10.252.2.182]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-08-28_04,2025-08-28_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_083004_519756_0EAA6167 
-X-CRM114-Status: GOOD (  30.30  )
+X-CRM114-CacheID: sfid-20250828_083044_063794_BFE32D62 
+X-CRM114-Status: GOOD (  11.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,138 +116,79 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 8/22/25 16:34, Raphael Gallais-Pou wrote:
-> This series aims to add and enable sufficient LVDS display support for
-> STM32MP257F-EV1 board.
-> 
-> LVDS is the default use case to drive a display panel on STM32MP257F-EV,
-> even though DSI panels will be supported in the near future.
-> 
-> The LTDC needs a pixel rate in sync with the bridge currently in use.
-> For that both DSI and LVDS bridges need to declare an internal clock and
-> become clock provider to the mux. The mux then selects the reference
-> clock for the LTDC pixel rate generation.
-> 
-> For now this mux is handled internally in the LTDC, while waiting for
-> the STM32 clock framework to merge a 'clk-mux' based on the SYSCFG.
-> This explains the link done in the patch [7/8] between the LVDS,
-> providing the reference clock for the LTDC internals.
-> 
->    +----------+              |\
->    |  DSI PHY |------------->| \           +------------+
->    |          |ck_dsi_phy    |  |          |            |
->    +----------+              |  |--------->|    LTDC    |
->    +----------+              |  |pixel_clk |            |
->    | LVDS PHY |------------->|  |          +------------+
->    |          |clk_pix_lvds  |  |
->    +----------+              |  |
->                              |  |
->     ck_ker_ltdc ------------>| /
->                              |/|
->                                └- SYSCFG
-> 
-> Clock selection applies as follow:
-> - 0b00: Selects ck_dsi_phy
-> - 0b01: Selects clk_pix_lvds
-> - 0b10: Selects ck_ker_ltdc (for parallel or DSI display).
-> - 0b11: Reserved
-> 
-> The reset value of the register controlling the mux is 0b01, meaning
-> that the default clock assigned is the clk_pix_lvds.  This causes two
-> things:
-> 
-> - In order to get basic display on the LVDS encoder, like intended,
-> nothing has to be done on this mux within the LTDC driver (which for now
-> explains the unused syscfg phandle on the LTDC node in the device-tree).
-> 
-> - 'pixel_clk' is dependent from 'clk_pix_lvds' because of the LTDC clock
-> domains.  They also need to be sync to get a coherent pixel rate though
-> the display clock tree (which explains the LVDS phandle on the LTDC node
-> in the device-tree).
-> 
-> Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-> ---
-> Changes in v5:
-> - Documentation:
->    - LTDC: Clamp correctly min/maxItems value (again)
-> - Add Yannick's trailers where relevant except in patch [01/13] which
->    has been modified
-> - Link to v4: https://lore.kernel.org/r/20250821-drm-misc-next-v4-0-7060500f8fd3@foss.st.com
-> 
-> Changes in v4:
-> - Documentation:
->    - LTDC: Add "st,stm32mp255-ltdc" compatible.  After internal
->      discussion, we came to the solution that the LTDC on STM32MP255 SoC
->      needs its own compatible, since it does have the same amount of
->      clocks than on STM32MP251 SoC.
-> - Devicetree:
->    - Add "st,stm32mp255" compatible on corresponding dtsi
-> - Drivers:
->    - LTDC: Handle "st,stm32mp255" compatible
-> - Remove Rob's r-b from patch [01/13] since it was modified.
-> - Link to v3: https://lore.kernel.org/r/20250819-drm-misc-next-v3-0-04153978ebdb@foss.st.com
-> 
-> Changes in v3:
-> - Rebased on latest drm-misc-next
-> - Documentation:
->    - LTDC: Clamp correctly min/maxItems value
->    - LVDS: Remove second 'items' keyword
-> - Add Krzysztof's trailer where relevant
-> - Link to v2: https://lore.kernel.org/r/20250812-drm-misc-next-v2-0-132fd84463d7@foss.st.com
-> 
-> Changes in v2:
-> - Documentation:
->    - Add support for new compatible "st,stm32mp255-lvds"
->    - Change LTDC compatible for SoC compliant one
->    - Make clearer LTDC clock-names property
-> - Devicetree:
->    - Change compatible according to the documentation
->    - Change clock and clock-names order to match documentation (and avoid
->      warnings)
-> - Drivers:
->    - Change LTDC compatible
-> - Add Rob's trailer where relevant
-> - Link to v1: https://lore.kernel.org/r/20250725-drm-misc-next-v1-0-a59848e62cf9@foss.st.com
-> 
-> ---
-> Raphael Gallais-Pou (11):
->        dt-bindings: display: st: add two new compatibles to LTDC device
->        dt-bindings: display: st,stm32-ltdc: add access-controllers property
->        dt-bindings: display: st: add new compatible to LVDS device
->        dt-bindings: display: st,stm32mp25-lvds: add access-controllers property
->        dt-bindings: display: st,stm32mp25-lvds: add power-domains property
->        dt-bindings: arm: stm32: add required #clock-cells property
->        arm64: dts: st: add ltdc support on stm32mp251
->        arm64: dts: st: add ltdc support on stm32mp255
->        arm64: dts: st: add lvds support on stm32mp255
->        arm64: dts: st: add clock-cells to syscfg node on stm32mp251
->        arm64: dts: st: enable display support on stm32mp257f-ev1 board
-> 
-> Yannick Fertre (2):
->        drm/stm: ltdc: support new hardware version for STM32MP25 SoC
->        drm/stm: ltdc: handle lvds pixel clock
-> 
->   .../bindings/arm/stm32/st,stm32-syscon.yaml        | 31 ++++++---
->   .../devicetree/bindings/display/st,stm32-ltdc.yaml | 55 ++++++++++++++-
->   .../bindings/display/st,stm32mp25-lvds.yaml        | 13 +++-
->   arch/arm64/boot/dts/st/stm32mp251.dtsi             | 19 ++++++
->   arch/arm64/boot/dts/st/stm32mp255.dtsi             | 20 +++++-
->   arch/arm64/boot/dts/st/stm32mp257f-ev1.dts         | 79 ++++++++++++++++++++++
->   drivers/gpu/drm/stm/drv.c                          | 12 +++-
->   drivers/gpu/drm/stm/ltdc.c                         | 58 +++++++++++++++-
->   drivers/gpu/drm/stm/ltdc.h                         |  6 ++
->   9 files changed, 275 insertions(+), 18 deletions(-)
-> ---
-> base-commit: c8cea4371e5eca30cda8660aabb337747dabc51d
-> change-id: 20250617-drm-misc-next-4af406c1c45f
-> 
-> Best regards,
+On 8/28/25 17:18, Christophe ROULLIER wrote:
+> On 8/22/25 16:34, Raphael Gallais-Pou wrote:
+>> On STM32MP25 SoC, the syscfg peripheral provides a clock to the display
+>> subsystem through a multiplexer.  Since it only provides a single clock,
+>> the cell value is 0.
+>>
+>> Doing so allows the clock consumers to reach the peripheral and gate the
+>> clock accordingly.
+>>
+>> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+>> Reviewed-by: Yannick Fertre <yannick.fertre@foss.st.com>
+>> Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+>> ---
+>>   .../bindings/arm/stm32/st,stm32-syscon.yaml        | 31 +++++++++++++++-------
+>>   1 file changed, 21 insertions(+), 10 deletions(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
+>> b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
+>> index
+>> ed97652c84922813e94b1818c07fe8714891c089..95d2319afe235fa86974d80f89c9deeae2275232
+>> 100644
+>> --- a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
+>> +++ b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
+>> @@ -36,20 +36,31 @@ properties:
+>>     clocks:
+>>       maxItems: 1
+>>   +  "#clock-cells":
+>> +    const: 0
+>> +
+>>   required:
+>>     - compatible
+>>     - reg
+>>   -if:
+>> -  properties:
+>> -    compatible:
+>> -      contains:
+>> -        enum:
+>> -          - st,stm32mp157-syscfg
+>> -          - st,stm32f4-gcan
+>> -then:
+>> -  required:
+>> -    - clocks
+>> +allOf:
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            enum:
+>> +              - st,stm32mp157-syscfg
+>> +              - st,stm32f4-gcan
+>> +    then:
+>> +      required:
+>> +        - clocks
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          const: st,stm32mp25-syscfg
+>> +    then:
+>> +      required:
+>> +        - "#clock-cells"
+>>     additionalProperties: false
+>>  
+> Acked-by: Christophe Roullier <christophe.roullier@foss.st.com>
+>
+> You can merge it on DRM MISC.
 
-Hi Raphael,
-Thank you for these great patches.
+Thanks Christophe ! :)
 
-If you agree, I think you can merge 01-08 in misc.
+Best regards,
+Raphaël
+>
+> Best Regards,
+>   Christophe
+>
 
-Best regards
-Philippe :-)
 
