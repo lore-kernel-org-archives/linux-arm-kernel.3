@@ -4,52 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99ACFCA0FF6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 01:10:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC91ACA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 01:10:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xEU/CZtksWyoccTc/TZhk1SKF41MfmEVOIqTgF1iZjM=; b=mLy9ykHDiyHOlDaLCU/eDWq6KZ
-	LrM8M06RTqxy6bW7Kw+myCpDhEJPED57kh+sxJu92fpkiH7p6fIXaKkOJfeRxwaImyeVxa0OnSnGp
-	K/CZgoA1RLK2uv43Fz1hMi3TcjYl3GkLwx2GjJ2RIq37rl0GsfnaaN3lpyDFEfBuGpUqG93+FiV63
-	K243NEhoec9R7zevujPVERpyioG/HIfG72yZXdGSTdiF8S0w2ExFYgFaO3GBTz9dbIWSDBA5NYVyI
-	k9VGXKEOD32pupXUE545n1RVxdPfnkHKZQ7Aygzn1DATF/MpKWmirBIr8m+mDfwwXvQFThW2go4pG
-	kRD4gILw==;
+	bh=YFxAui69d52phC8Uj1EGIJKpSGV+z7RZTrGiYAZuo7M=; b=YRBzyvEXO5dQbbpYykwAllipVD
+	oyvcoxX3Bwvlhg0zvgbS9vsFWI/jR/VLVaZZ/4ENfr2nSGKIvYeMO5iAScN+5BWcJYsX3YknB6U4K
+	cBE2wCvMEqG6GRfeg6SCB6R18txdERLc1sZjLFDcPQN04WiZZ2ZpKK5Xd1WCA+dwMpHAdJAT8P62A
+	heZkGLDehZj3av4dCl6qA01SuM4hr4v2p8CjMEVQuxM9sWSeWQ6GKX5ZWq2Sg3jc5A9TCRuwe4t0p
+	qupXNm7CgyLbofzTaCmE29XWMiMasVliCVbwoa8X4XfIxlMSYdtQk9mtiBFWrcCMNtAeiaRh6O5vL
+	/QYUg1AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urndL-00000003xMv-0jWn;
-	Fri, 29 Aug 2025 01:10:27 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1urndK-00000003xMp-2lsI;
+	Fri, 29 Aug 2025 01:10:26 +0000
+Received: from mail-bn7nam10on20623.outbound.protection.outlook.com ([2a01:111:f403:2009::623] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urhfg-00000002rGp-3lP8
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 18:48:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2474E60139;
-	Thu, 28 Aug 2025 18:48:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CB2EC4CEEB;
-	Thu, 28 Aug 2025 18:48:25 +0000 (UTC)
-Date: Thu, 28 Aug 2025 19:48:23 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Yang Shi <yang@os.amperecomputing.com>, will@kernel.org,
-	akpm@linux-foundation.org, Miko.Lenczewski@arm.com,
-	dev.jain@arm.com, scott@os.amperecomputing.com, cl@gentwo.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v6 3/4] arm64: mm: support large block mapping when
- rodata=full
-Message-ID: <aLCkd-E1wgszoZKd@arm.com>
-References: <20250805081350.3854670-1-ryan.roberts@arm.com>
- <20250805081350.3854670-4-ryan.roberts@arm.com>
- <aLCNTsM-nn6SpfOO@arm.com>
- <5795892e-503e-496b-a5dd-be4776f15513@arm.com>
-MIME-Version: 1.0
+	id 1urhdd-00000002qoG-0aYH;
+	Thu, 28 Aug 2025 18:46:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Wud5iMPLdT1CFtBRJBnYT8/gfL0cV4HlP+2rp/iHDXebXN5bkav3uEuq2lf7nafDXqPgETPyY5o8UtXyOimSOF2PT868kc3c0mj7WFpHBEUDnVkxksgOEZfqJZ3+YltnAZVu66qma0sNh+VmTgc0HzOBmTOtRDAPoMR1gS/0sS9liq1T5gn9hoRDsr+FwTcgv9WbaFV/aRcVVFNNZdlQCKkW3g9fd8NwRZLDl9BSsZ9zZw9O0+KXyUnCPo4WkDDi6PZdFfN4JntB7S+EPCs3HQkIwI+cKXtRincgODoKjLXykg8Ljxhu5Ly0nf9xpSvPEx+TJOvtb2desnLrlGrEgA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YFxAui69d52phC8Uj1EGIJKpSGV+z7RZTrGiYAZuo7M=;
+ b=ioMEPedLuSGEGS2I78/F7OQhtksUH0SnH2F0VOF3iyId03eSEWWjs5l0cTXbozqGiUog7UcIMdYTI0b+ywO5K8ypbj0uPcudhKOMFLVQSLTh9krLFtH+AkCwNF0PosP+27YTPPwQITi7C3UQQHA130Re3fNrYy5W0MvUbi54HKjAiJJ1kZIgoHFPPZ1uV0XbSHuNvW74eAu+rjEb2uFcMnq/CWFOghR2m+HlZN3jW9dkR7RDSVNVmx8dk84lOnFz+5GuuA82G3rRbKZiGJWwwrPGkTOcDxqS26ww0cgpjejmzHxYOUw7SJe2eAmbCkXxZlSYBrKC9lSBebFNdQEtIg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YFxAui69d52phC8Uj1EGIJKpSGV+z7RZTrGiYAZuo7M=;
+ b=Vva89m1mRz78HO27zd2PeXfhZN0dBB0tt457FtvRZeWReko3CyUXFvCUWflZDe7ksIgxmPBvMvTidPCv03dGRZct5XMVU56yo8n0BKpc9s9oWOcgfZpI3q72bQKVA0gIEoOnpTw00vJ0J5oKCBlZWM7wHcEBCrSDXH688C8VIi9cSHkC92SrQTh9SyShVN+DuAC6JmOJx0I68kdf+simA2D3EkyqMtlonCmLv/RABxk/I2Twk8DLqlRPZcxVLw7e1VI3gu/QJw3mvdgKwJS2FYBt0CAwvITwlNVMHNGLRn3e5HFQHEo6GRPvHQSwV3I2LTQbgrVxJQ5HZUHxKirMrg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by SJ2PR12MB7846.namprd12.prod.outlook.com (2603:10b6:a03:4c9::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.20; Thu, 28 Aug
+ 2025 18:46:10 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.9073.010; Thu, 28 Aug 2025
+ 18:46:10 +0000
+Date: Thu, 28 Aug 2025 15:46:08 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Ethan Zhao <etzhao1900@gmail.com>, robin.murphy@arm.com,
+	joro@8bytes.org, bhelgaas@google.com, will@kernel.org,
+	robin.clark@oss.qualcomm.com, yong.wu@mediatek.com,
+	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
+	rafael@kernel.org, lenb@kernel.org, kevin.tian@intel.com,
+	yi.l.liu@intel.com, baolu.lu@linux.intel.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-mediatek@lists.infradead.org, linux-tegra@vger.kernel.org,
+	linux-acpi@vger.kernel.org, linux-pci@vger.kernel.org,
+	patches@lists.linux.dev, pjaroszynski@nvidia.com, vsethi@nvidia.com,
+	helgaas@kernel.org
+Subject: Re: [PATCH v3 5/5] pci: Suspend iommu function prior to resetting a
+ device
+Message-ID: <20250828184608.GF7333@nvidia.com>
+References: <cover.1754952762.git.nicolinc@nvidia.com>
+ <3749cd6a1430ac36d1af1fadaa4d90ceffef9c62.1754952762.git.nicolinc@nvidia.com>
+ <550635db-00ce-410e-add0-77c1a75adb11@gmail.com>
+ <aKTzq6SLGB22Xq5b@Asurada-Nvidia>
+ <20250821130741.GL802098@nvidia.com>
+ <aKgPr3mUcIsd1iuT@Asurada-Nvidia>
+ <20250822140821.GE1311579@nvidia.com>
+ <aKi8EqEp1DKG+h38@Asurada-Nvidia>
+ <20250828125149.GD7333@nvidia.com>
+ <aLBw3UTAX6F0IOCf@Asurada-Nvidia>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <5795892e-503e-496b-a5dd-be4776f15513@arm.com>
+In-Reply-To: <aLBw3UTAX6F0IOCf@Asurada-Nvidia>
+X-ClientProxiedBy: YT4PR01CA0067.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:111::22) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|SJ2PR12MB7846:EE_
+X-MS-Office365-Filtering-Correlation-Id: 844bee32-3829-4ce7-0df8-08dde66327c0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?31oANS4M8B71LrhvSuJ7JsBdok+8eL+p1eM7dghiXV0jnIFTxg3jEBQcDwkb?=
+ =?us-ascii?Q?0A17G6B/ypZWIsft1gRcOEblgAEQm4HHH/uIh+/SeQ5798xIJHXJR3c6WP3H?=
+ =?us-ascii?Q?H9eKb1AS6/Cn1f4OMGXwpyKMCHhrSLgTFpa8rFJysgx7vvk9AZkOnun1Dd4V?=
+ =?us-ascii?Q?48VdTwqye1V2CSr+38o3x4P14e25WtNYQdKP5FFHVon80X1J9XhBBVHgHQXN?=
+ =?us-ascii?Q?dUn49sIceze9Qg4nlH9yyzxgS5XgluadhAQ2w1ZYEp4hX7Eb+d9hKNlelnFf?=
+ =?us-ascii?Q?0y+zx5rYJnbAPlR6Q8gVOZ9kOKCmF3c0sk8mKGMU6+U1SId+CbKvTCuOnHwg?=
+ =?us-ascii?Q?m+yWNY8Qq5ZPp7bU4jxgSwwlmfVhKsbjhIj+JSSY39mw9sds6xknMfg1J1TW?=
+ =?us-ascii?Q?T3WjHMtpwyBE9i9x0biW/dlMlyOYXwabe8J7F6yiIzVU7TkW2zv6Tfb7zOKG?=
+ =?us-ascii?Q?/OBTpvzlJfTTX4XkmgxHk9BAnXALJmJBXlWXhJEmqUw21fcKXgou4YKs6cPu?=
+ =?us-ascii?Q?TsqXHABeGbSHJxpO6BidoTn3OR/lFjWvV88I7Xpu9YPKFZwTYlX1r7JIIqGM?=
+ =?us-ascii?Q?s6X+/BAO3H0G1fvuPDK2R07cpwkUZcihLg106dovAeq6yYN42boOF+LtbWib?=
+ =?us-ascii?Q?KpsuSVSzvkKdw7sBSQKbmVPxLB+TB+21sNL/Zoq69o1gHCunQWzUgdkcL/Gm?=
+ =?us-ascii?Q?rTZYPTwIw507fGVrr+3c0+2LFqgeyGHrKaw7zuCh89JWEdb5NmF4MLf9Rk6/?=
+ =?us-ascii?Q?5h/KB3u6H693lXdE60bGPXtIxrm5++hHNKU7z4G7tXHV3R21+g1C16Usb1Nt?=
+ =?us-ascii?Q?sz5JrAFz0bFAXM/AINj/A3+OvrNNX8HPh74ek9wzMh/UHdWyy4aWh2J9aFxa?=
+ =?us-ascii?Q?LNTy/yfx9iFfyM24rfxo79z8vVOe6nBhmgtZ7143vhX2/UHwluXSJ8+1/Cn9?=
+ =?us-ascii?Q?d2dS+/x6+/YSXZpKXQBju12zb6TLHt5BGj+tcP2SliaaP76XkwItVmoHVajk?=
+ =?us-ascii?Q?cGbyIFT1A0Vx1t9a0n1G0emgBt5o3ApQlJ3Tlfk20KSS3nGNAel7UDl0gcIM?=
+ =?us-ascii?Q?yzbvIy+g7UAXS+PIIz6iZjZA3nEgac7kurHEyWcqP8XotwqCem9vNA++ACCr?=
+ =?us-ascii?Q?VvCHTa/NBqy09RJHUw7S/6ZsdGxQvEk4ClL8A2UBiCd311Ted0olvHrsfuZN?=
+ =?us-ascii?Q?t0IHnH98ZJvQ61nA/lMAVrnpsakCYZKSdrAxxZd0dT3IawPFZG94Zv0Xjfjr?=
+ =?us-ascii?Q?9VqMgHZodb3Ufo5lDrJANTdFNvXeA+4CDZMxGAx6glGCa38kpSVdQUp/3QlI?=
+ =?us-ascii?Q?k2uf3GGEtaNCm+YmOat1iaSz12tINrTkKmamVPGem2mLo5OuYkxow819leG8?=
+ =?us-ascii?Q?C8NiCMdwfPuOxTHZ1A7OWLFyhqT2xlprUrzYhBmoL957DS8I0ET0XK5WEE7l?=
+ =?us-ascii?Q?Yb1f0PWZvmg=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4X9LW8DFkhJXKvVQ2ht4SyF1Mv8wGNcpaQDoKT9vZw+cnliy3Qhz0OgRRlqs?=
+ =?us-ascii?Q?GPzr4YbEt/bNWlIWuH0/SeVVUmTWa2zuZMoRK2Y3sMiUdoNBvzuU2wp7+l1I?=
+ =?us-ascii?Q?Uiv83xjbys99FaptkogfASlVXqM7HRqdTeSVMQjpcyCO151RRVlJc1EYg2ZR?=
+ =?us-ascii?Q?mSFQBaWNWfEmRkWcEMdjnnud/iFpDs75Zy6ERrfC90JcE0OUr3IVF0V2dJBc?=
+ =?us-ascii?Q?xbm+g/wIw1Nzrq1ygnfwlLf85J8ruE8UwM7M08tqiYmQVTjUi7W9HOck9M09?=
+ =?us-ascii?Q?sPeXHfdOYJ92BxYCOSbKamJUYDSzFRCiJu4FpjWcFLEbqUaVwqu7hFD0GYFR?=
+ =?us-ascii?Q?0bElNkYzYYeG0ukSN+K+gtw5mhckxuaz6/VIRqOIe84lZj9BIIQeYktTcwQ1?=
+ =?us-ascii?Q?kXdRrmTCBrxCXAd2nB9h9qYaJ8C6be39+/WNeoc9IuWgIlwdB+WbiMnGiBiU?=
+ =?us-ascii?Q?hJVVYjelpdZumsx7oA8KsJnclOyp0RFHT71Wpf5I2npUN5WKm43FhtwVTRbN?=
+ =?us-ascii?Q?shPTyOGVLPYEkE+mbILgawQZ9GKCPA9YmAUapPlFSS1X0COwvQqYOXOOVrrO?=
+ =?us-ascii?Q?l49DEhB0e0p8VA6luNSsOBMybCKNKqqf9rCHgOQTYKMmn/eE+C5D+M044waS?=
+ =?us-ascii?Q?M4MJx4YXY0XOmhUfD4PiaFuP/jf9YFq0L5sF06y5M5k1odLZdAjKNp5i0d0l?=
+ =?us-ascii?Q?67F1A0hLgegc/9/n45ef+2ncnxL9pO1a3jcl/NEHPQKpjywG9jq9Dv5WVEs3?=
+ =?us-ascii?Q?RdWd2xSPzy6pDyyHQa8BZWuQ6c0XSYkc6L+o0zwoA4Lgj/pFD7Uq2sf+PU0r?=
+ =?us-ascii?Q?TGnDqFO6Y9MiWOlIQN3WmwPqWGF3y1zBOx/nWjRcoHqFHTtukJ2ZZVEQbQCX?=
+ =?us-ascii?Q?VEmpBpnPyAs18kPYtn+ecOK+JyVZ/TeZma5wcZT6YwvefAlPkSpTdlAtjQpX?=
+ =?us-ascii?Q?2UOlpo8Hjb8NkEFb9sVDDtlYQ8ryxIragnaNHi5ay4gAWI37kbI7b1Ry5WTc?=
+ =?us-ascii?Q?brEAwJE0MMWw5jUfefirMOb4u8M+nE2kv1+urpzxYv1fuI+UuVRgOFnmd4Bo?=
+ =?us-ascii?Q?2yQBRCulARQmlyWof/57KZY2nGXv70vjylscXcD2qP2raQUivVDJ1d9sw3H0?=
+ =?us-ascii?Q?XDss6wjSu15yJyP1CdcMoBL/oAOqlsCNDheYr2g6rzKGc3lrfl/ryN4PspB6?=
+ =?us-ascii?Q?4VKm04Bu5PoQtshCLdLqhYeUDa1wn5/EjRNQIlYZSYfxkCEkpVoZnWjvEVwI?=
+ =?us-ascii?Q?saXB7t8JxOANpf7ONVmM759aexIznez28XbrzfosYamY7ipHK+Jwj2yTl3s9?=
+ =?us-ascii?Q?MnEnQD5B77MMCmhbnZ5SA6jiLbkURsocKhLmJ/RJXVLnZjWhdzgBXqlf+6DI?=
+ =?us-ascii?Q?Py45l/d16ZRvQ7wGhpNSGkMSGeLlfkFnX2G3z8w1A5/Lx/DhPJQZDoCb/LCi?=
+ =?us-ascii?Q?CrPiv1c3SXn9L7THAoTcZC2aTZrAzzwGb619jhmGV5UQ15bQRuOyXGBsvElq?=
+ =?us-ascii?Q?CBRFwF+mJIm5/UtVs4HJ7XzkPCUzFnTMdGjvg7qciIPrptcF5X7E3VdncqlA?=
+ =?us-ascii?Q?aLFTFlLIx9wBgMls+Lg=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 844bee32-3829-4ce7-0df8-08dde66327c0
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Aug 2025 18:46:10.1739
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: xF7d69NSc+bha40z7R1FUAMmZ534aeRpO+Q0748YkbY+KMAfWnivf5VQzKzmSSyW
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB7846
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250828_114621_184264_E8A01D6C 
+X-CRM114-Status: GOOD (  17.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,88 +176,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 28, 2025 at 06:45:32PM +0100, Ryan Roberts wrote:
-> On 28/08/2025 18:09, Catalin Marinas wrote:
-> > On Tue, Aug 05, 2025 at 09:13:48AM +0100, Ryan Roberts wrote:
-> >> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> >> index abd9725796e9..f6cd79287024 100644
-> >> --- a/arch/arm64/mm/mmu.c
-> >> +++ b/arch/arm64/mm/mmu.c
-> > [...]
-> >> @@ -640,6 +857,16 @@ static inline void arm64_kfence_map_pool(phys_addr_t kfence_pool, pgd_t *pgdp) {
-> >>  
-> >>  #endif /* CONFIG_KFENCE */
-> >>  
-> >> +static inline bool force_pte_mapping(void)
-> >> +{
-> >> +	bool bbml2 = system_capabilities_finalized() ?
-> >> +		system_supports_bbml2_noabort() : bbml2_noabort_available();
-> >> +
-> >> +	return (!bbml2 && (rodata_full || arm64_kfence_can_set_direct_map() ||
-> >> +			   is_realm_world())) ||
-> >> +		debug_pagealloc_enabled();
-> >> +}
-> >> +
-> >>  static void __init map_mem(pgd_t *pgdp)
-> >>  {
-> >>  	static const u64 direct_map_end = _PAGE_END(VA_BITS_MIN);
-> >> @@ -665,7 +892,7 @@ static void __init map_mem(pgd_t *pgdp)
-> >>  
-> >>  	early_kfence_pool = arm64_kfence_alloc_pool();
-> >>  
-> >> -	if (can_set_direct_map())
-> >> +	if (force_pte_mapping())
-> >>  		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
-> >>  
-> >>  	/*
-> >> @@ -1367,7 +1594,7 @@ int arch_add_memory(int nid, u64 start, u64 size,
-> >>  
-> >>  	VM_BUG_ON(!mhp_range_allowed(start, size, true));
-> >>  
-> >> -	if (can_set_direct_map())
-> >> +	if (force_pte_mapping())
-> >>  		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
-> >>  
-> >>  	__create_pgd_mapping(swapper_pg_dir, start, __phys_to_virt(start),
+On Thu, Aug 28, 2025 at 08:08:13AM -0700, Nicolin Chen wrote:
+> On Thu, Aug 28, 2025 at 09:51:49AM -0300, Jason Gunthorpe wrote:
+> > On Fri, Aug 22, 2025 at 11:50:58AM -0700, Nicolin Chen wrote:
 > > 
-> > Not sure this works in a heterogeneous configuration.
-> > bbml2_noabort_available() only checks the current/boot CPU which may
-> > return true but if secondary CPUs don't have the feature, it results in
-> > system_supports_bbml2_noabort() being false with force_pte_mapping()
-> > also false in the early map_mem() calls.
+> > > It feels like we need a no-fail re-attach operation, or at least an
+> > > unlikely-to-fail one. I recall years ago we tried a can_attach op
+> > > to test the compatibility but it didn't get merged. Maybe we'd need
+> > > it so that a concurrent attach can test compatibility, allowing the
+> > > re-attach in iommu_dev_reset_done() to more likely succeed.
+> > 
+> > This is probably the cleanest option to split these things
 > 
-> The intent is that we eagerly create a block-mapped linear map at boot if the
-> boot CPU supports BBML2. If, once we have determined that a secondary CPU
-> doesn't support BBML2 (and therefore the system doesn't support it) then we
-> repaint the linear map using page mappings.
+> Yea, that could avoid failing a concurrent attach_dev during FLR
+> unless the dryrun fails, helping non-SRIOV cases too.
 > 
-> The repainting mechanism is added in the next patch.
+> So, next version could have some new preparatory patches:
+>  - Pass in old domain to attach_dev
+>  - Add a can_attach_dev op
 
-Ah, I haven't reached that patch yet ;).
+I wouldn't make this more complicated, just focus on the signal device
+case here then we move on from there
 
-> I've tested this with heterogeneous configs and I'm confident it does work.
+Just adding can_attach_dev is big series on its own
 
-Great. The downside is that such configuration is rare, the logic is
-fairly complex and won't get tested much. Hardware with such
-configuration will take a slight hit on the boot time.
-
-I don't remember the discussions around Miko's patches adding the BBML2
-feature - do we have such heterogeneous configurations or are they just
-theoretical at this stage?
-
-> FYI, I actually have a new version of this ready to go - I was hoping to post
-> tomorrow, subject to performance results. I thought you were implying in a
-> previous mail that you weren't interested in reviewing until it was based on top
-> of an -rc. Perhaps I misunderstood. Let me know if you want me to hold off on
-> posting that given you are now reviewing this version.
-
-In general I prefer patches on top of a fixed -rc, especially if I need
-to apply them locally. But I was wondering if you are waiting for review
-feedback before rebasing, so I had a quick look ;).
-
-Please post a new version. I'll have a look at that since you were
-planning to update a few bits anyway.
-
--- 
-Catalin
+Jason
 
