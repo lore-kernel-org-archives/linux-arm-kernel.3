@@ -4,73 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 047E2CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 01:11:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C8DDCA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 01:11:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=umk9iWJI80083siMMEl+CA2tkGjcz41y3WD2Fn8H0Ic=; b=4ORTUrz8YosJ/4s4UguyFkJ6dv
-	2hs3xpf6KZXjYmXCPQiM9jnogf69OxIHC3JbUcycR0yTfgPemD4wUoQxZn08otT7I7YZIAooXg8Mp
-	oy4txE34aGVBy1w/xj8zkS5/7yIvn3FyDbum4ajOaKeTFp9DJxj34dyP259E/xXWtcxkSVcm2wn+R
-	3DrHWJbgJdCMfsS1tjxqFeOTqT6Amm4hsr7gdnC9hVCGcWv3W1NWi5wNbW7C6hw97MZ4bsoy1de7e
-	kSuXIHKclADqc4U6seOTG3ns3J2uLw5IdRNQrKSr3XpVO3fgLtK5vlm4xAOvqtM+d25brhvwYXp+N
-	iAVisMLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aWTfsYajgxspjw0BEVIGAJj43TSZuMXWhqAKPxCzuMo=; b=d5CFozcphhpP8pmnvSNJwOIN53
+	wOZI6IgO2j8OBN1kxSmkA6/eAxobEqAqXh/nr7UJ1JnM8FQ4Aw1KQzhgbYrhduizEYGrnS6Wsjm1P
+	OI88lgwB8hFs0bBYz/8mHXrGcIKB7qmHfUi/Rw9XP6+rCT/O/NwW1GpMGXVDF3F0FKH9xQwHCqjEQ
+	5ITjWogkzKsz9MDy4NEI4J5J6f7IVKp7y4TmH8qcIVma4BPvlmmqowsGrVJweUoW0KSHSrlBXXSzV
+	Epp3VsF2/NyO20zqTCfcfEtzc1/YesCMAAaSY72dEGdmFxUi930j2pP+SU8z0bjfLAQeiPgwKInK4
+	QvHdbhJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urneQ-00000003yIv-2BsP;
-	Fri, 29 Aug 2025 01:11:34 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1urneT-00000003yNU-3P1j;
+	Fri, 29 Aug 2025 01:11:37 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urkrI-00000003TPt-1nP2
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 22:12:43 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 930041A095A;
-	Thu, 28 Aug 2025 22:12:36 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 5248C60303;
-	Thu, 28 Aug 2025 22:12:36 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AF0B91C2282D4;
-	Fri, 29 Aug 2025 00:12:14 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1756419154; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=umk9iWJI80083siMMEl+CA2tkGjcz41y3WD2Fn8H0Ic=;
-	b=TfM05Iot5cnVPUd+7CT5hHAFGGdx3Wi+hnTehL7TC1loZXNHtBwRJB1bDydItFHFCUjds4
-	6XdfgO5G5hisGu3ehZz/a0X/jv6btLjl4hQiaoLkfRPtbv0cBka3LnqI4LFCE8J1qGG6P1
-	0v+rZPq6GDA//du7YZ9+PRivJXiUBE99st4zy5u9pClr4rAqfSSZhYZcMknbpXlnLCD38N
-	jf4uNvQVAxaVGp1HHHXmC2oijgL8+ivkSlEzAviwt3odii7Je/6SGLCtBVtCJQcI1vLEoB
-	I9SAK4aG+XE+lvktkk8TNNXTcLEP2LYZXkIcQek3zI+1VYG7tAi7Wo3D6KThxA==
-Date: Fri, 29 Aug 2025 00:12:13 +0200
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: James Calligeros <jcalligeros99@gmail.com>
-Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Neal Gompa <neal@gompa.dev>, Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jean Delvare <jdelvare@suse.com>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org,
-	linux-hwmon@vger.kernel.org, linux-input@vger.kernel.org,
-	Mark Kettenis <kettenis@openbsd.org>,
-	Hector Martin <marcan@marcan.st>
-Subject: Re: [PATCH v2 00/11] mfd: macsmc: add rtc, hwmon and hid subdevices
-Message-ID: <202508282212139a74f113@mail.local>
-References: <20250827-macsmc-subdevs-v2-0-ce5e99d54c28@gmail.com>
+	id 1urlO1-00000003WbX-0Vb6;
+	Thu, 28 Aug 2025 22:46:30 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2489d5251f0so1878565ad.0;
+        Thu, 28 Aug 2025 15:46:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756421188; x=1757025988; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=aWTfsYajgxspjw0BEVIGAJj43TSZuMXWhqAKPxCzuMo=;
+        b=imY6oXIiD8TBWJHGI1OkB1Fl+NnlfUogrturdwePpuO836pIRDAsN2YCFta/KK0EyY
+         35Ow0B7xiAJp2tnijocKAKEdYwlXmSZrQf54GWYQIBdMI9enhAn577+6fxG803xVtZB3
+         x3j9zcpjB44Hsu27374u/O1PxORq2z6AiUefzzAmUuhHUyZM+ESdj+ad3XbQoFfJYQAU
+         JK2axvk5fhZf7Ufdxz7D/sMxwIKbGMuczuLgyHrQthK9ssL3iQdXh7vkDJZctc7Q/jDj
+         Xd/uRuWfnJtVpiBxzv42CBXxM01FSZaJKMmigzDzjeTKkegVld6Bh4VbGQi5Fmz5qskS
+         4O1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756421188; x=1757025988;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=aWTfsYajgxspjw0BEVIGAJj43TSZuMXWhqAKPxCzuMo=;
+        b=jPWvCOcyY17vVUaQnSkX9Cqh9cFcg1HtCAx62GiqI14q8suZUy6CPcq+rFNTJKO3T3
+         K+5BPWuoqz3FRhLjXVizt6aMellOedgJsMmgOA+W5GQn4ZOoUaRIDJWriRNvCMoLLViG
+         VG6OlhCT6GOkjPeg0G6/t35RD/lQ44/bRjTsxPK7UrVAErICe8+UJT6Stz5Fga4dWMhf
+         UBTtxR1Qy8AAfdQ0Z/XWr0o33mLuzinXy8ybzDm7luSk34bEreqJsw4UjA94Q+KLzBQR
+         9OgG1fFZUcY1PEep0UtW7bsIBmzbT6aF1VzdRUaS8qRwsgieRNySdSt7QCHyK3076LCA
+         Xfcw==
+X-Forwarded-Encrypted: i=1; AJvYcCUGNhm1qckiSPUMYoPL6EYaCf8QC3ykl4eZDpPrcQ1cV29hBjlp+87gel79OD22MZQWFg5sSd83SNraL0Y=@lists.infradead.org, AJvYcCXNdjZ6wvAZ/TVGueAFF9NgWxi6TeGiJuqG2TLpWYZmlYP5jHGJeAI7D1VCVrzMLMWddN6yPDpoep+x/R6R9tCj@lists.infradead.org
+X-Gm-Message-State: AOJu0YxoOnpInsumCroDvJo2LYWmb0Om3sFNtcPuiXEPLh+Qj76jIjK/
+	36i69451EIqmDVisg2qGQh8DOjzkvZ1LAM/lTWp6+xjqQrBX+0BvZSYgFqbLmatYx6UTLgNDk8O
+	7UivjpVTURm1Zei6lI1oZc4AzbGucfe8=
+X-Gm-Gg: ASbGncvdYHhFkN5rsrriW0Clm9UYoSUyu/wK1ShCHJB9xivaTT4ZwMqVKH6PoZCo+CO
+	lnREv38b+yDsvdjKdcgb0HQHTOS2djdbRRbtTEsWZrAxx80nMYshGOdyKVdCePpT2wTHfKz/X5v
+	RA7qjOrHiMutC3veY4qYYjZbQo2k96enqCJn7Td06jV5cosluaudXOJ92nZPI9v9zqxu6TEZlYB
+	w5u2akTnfAUlCil7dw3lNAR0Gc3QZokZ4upGeabtd6bknvWBkNSwe/IyCK8pO9xCO1vekIqfV6Z
+	LTdLBRcbug7tpeQ8RLFz/HaGuA==
+X-Google-Smtp-Source: AGHT+IEki7N5+ZTphBMAlPvPh8Ed2D0soQ3ee4I0yeC35pDHbq+VM6I/+v50+BWUjpOg7vsfojcxdwe+ytoieurevJg=
+X-Received: by 2002:a17:903:2f0c:b0:248:b43a:3ff with SMTP id
+ d9443c01a7336-248b43a098cmr46736235ad.8.1756421188295; Thu, 28 Aug 2025
+ 15:46:28 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250827-macsmc-subdevs-v2-0-ce5e99d54c28@gmail.com>
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20250825141316.work.967-kees@kernel.org> <20250825142603.1907143-5-kees@kernel.org>
+ <CANiq72kc7Ky6+7Ny7jR04s8vU-g23qBQC0rQrOZDxDzXT+m1TQ@mail.gmail.com>
+ <202508250834.E2456B9@keescook> <CANiq72mQsLqhpX29NP3Zm8HZ5m429tSXjgFcRYJM3e=Zac1G1w@mail.gmail.com>
+ <9CCDBE93-7DBD-41D0-B9B6-05900F2AB1EE@outflux.net> <20250827013444.GA2859318@ax162>
+ <56c2b1ce-00a4-403c-9927-79bfd9a23574@infradead.org> <20250827193815.GA2293657@ax162>
+ <CANiq72nX7d3XQtQKDdeUh2RFy5HqSg360m4pzesJyBP+y9K7FA@mail.gmail.com> <20250828201915.GA219815@ax162>
+In-Reply-To: <20250828201915.GA219815@ax162>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Fri, 29 Aug 2025 00:46:16 +0200
+X-Gm-Features: Ac12FXy71Ta7noj8hoAJaRqNi-cWiWGGHMHvo9xSNtrTkaZTnVcq8IZX729diUc
+Message-ID: <CANiq72mRKHunT2Zkdj4dS5yHrx==MsmY33BvBqOy52_pNqrZFw@mail.gmail.com>
+Subject: Re: [PATCH 5/5] kcfi: Rename CONFIG_CFI_CLANG to CONFIG_CFI
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Randy Dunlap <rdunlap@infradead.org>, Kees Cook <kees@outflux.net>, Kees Cook <kees@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Sami Tolvanen <samitolvanen@google.com>, 
+	Linus Walleij <linus.walleij@linaro.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Puranjay Mohan <puranjay@kernel.org>, David Woodhouse <dwmw2@infradead.org>, 
+	Jonathan Corbet <corbet@lwn.net>, x86@kernel.org, linux-doc@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
+	linux-hardening@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_151241_090295_AEFF450D 
-X-CRM114-Status: GOOD (  32.07  )
+X-CRM114-CacheID: sfid-20250828_154629_163260_58080AFE 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,131 +106,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On Thu, Aug 28, 2025 at 10:19=E2=80=AFPM Nathan Chancellor <nathan@kernel.o=
+rg> wrote:
+>
+> Ah yes, I reread your suggestion and that would probably be the best
+> course of action, as it does avoid the extra symbol (although I am not
+> sure what you mean by one less rename?). As I understand it:
+>
+>   config CFI_CLANG
+>       bool "Use Kernel Control Flow Integrity (kCFI)"
+>       depends on ARCH_SUPPORTS_CFI
+>       depends on $(cc-option,-fsanitize=3Dkcfi)
+>       help
+>         <generic help text>
+>
+>   config CFI
+>       def_bool CFI_CLANG
+>
+> then keep the rest of the change the same with the rename? I guess the
 
-On 27/08/2025 21:22:34+1000, James Calligeros wrote:
-> Hi all,
-> 
-> This series adds support for the remaining SMC subdevices. These are the
-> RTC, hwmon, and HID devices. They are being submitted together as the RTC
-> and hwmon drivers both require changes to the SMC DT schema.
-> 
+Yeah, exactly. The name isn't great, though, as you mention, if users
+with GCC see it early on.
 
-How do you expect this to be merged? From what I get, I could just take
-1 and 3 as there doesn't seem to be any actual dependencies on any of
-the other patches and the MFD change doesn't depend on the RTC changes.
+By one less rename I just meant that we wouldn't have both CFI_GCC and
+CFI_CLANG "moved"/"merged" into CFI later on (just 1).
 
-> The RTC driver is responsible for getting and setting the system clock,
-> and requires an NVMEM cell. This series replaces Sven's original RTC driver
-> submission [1].
-> 
-> The hwmon function is an interesting one. While each Apple Silicon device
-> exposes pretty similar sets of sensors, these all seem to be paired to
-> different SMC keys in the firmware interface. This is true even when the
-> sensors are on the SoC. For example, an M1 MacBook Pro will use different
-> keys to access the LITTLE core temperature sensors to an M1 Mac mini. This
-> necessitates describing which keys correspond to which sensors for each
-> device individually, and populating the hwmon structs at runtime. We do
-> this with a node in the device tree. This series includes only the keys
-> for sensors which we know to be common to all devices. The SMC is also
-> responsible for monitoring and controlling fan speeds on systems with fans,
-> which we expose via the hwmon driver.
-> 
-> The SMC also handles the hardware power button and lid switch. Power
-> button presses and lid opening/closing are emitted as HID events, so we
-> add a HID subdevice to handle them.
-> 
-> Note that this series is based on a branch with three additional commits
-> applied to add the parent SMC nodes to the relevant Devicetrees. This
-> was done to silence build errors. The series applies cleanly to 6.17-rc1.
-> 
-> Regards,
-> 
-> James
-> 
-> [1] https://lore.kernel.org/asahi/CAEg-Je84XxLWH7vznQmPRfjf6GxWOu75ZetwN7AdseAwfMLLrQ@mail.gmail.com/T/#t
-> 
-> Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
-> ---
-> Changes in v2:
-> - Added Rob's R-b tag to RTC DT binding
-> - Removed redundant nesting from hwmon DT binding
-> - Dedpulicated property definitions in hwmon DT schema
-> - Made label a required property for hwmon DT nodes
-> - Clarified semantics in hwmon DT schema definitions
-> - Split mfd tree changes into separate commits
-> - Fixed numerous style errors in hwmon driver
-> - Addressed Guenter's initial feedback on the hwmon driver
-> - Modified hwmon driver to reflect DT schema changes
-> - Added compatible property to hwmon node
-> - Link to v1: https://lore.kernel.org/r/20250819-macsmc-subdevs-v1-0-57df6c3e5f19@gmail.com
-> 
-> ---
-> Hector Martin (2):
->       rtc: Add new rtc-macsmc driver for Apple Silicon Macs
->       input: macsmc-hid: New driver to handle the Apple Mac SMC buttons/lid
-> 
-> James Calligeros (7):
->       dt-bindings: hwmon: Add Apple System Management Controller hwmon schema
->       mfd: macsmc: Wire up Apple SMC RTC subdevice
->       hwmon: Add Apple Silicon SMC hwmon driver
->       mfd: macsmc: Wire up Apple SMC hwmon subdevice
->       mfd: macsmc: Wire up Apple SMC HID subdevice
->       arm64: dts: apple: Add common hwmon sensors and fans
->       arm64: dts: apple: t8103, t600x, t8112: Add common hwmon nodes to devices
-> 
-> Sven Peter (2):
->       dt-bindings: rtc: Add Apple SMC RTC
->       arm64: dts: apple: t8103,t600x,t8112: Add SMC RTC node
-> 
->  .../bindings/hwmon/apple,smc-hwmon.yaml  | 132 ++++
->  .../bindings/mfd/apple,smc.yaml          |  45 ++
->  .../bindings/rtc/apple,smc-rtc.yaml      |  35 +
->  MAINTAINERS                              |   5 +
->  .../boot/dts/apple/hwmon-common.dtsi     |  37 ++
->  .../boot/dts/apple/hwmon-fan-dual.dtsi   |  24 +
->  arch/arm64/boot/dts/apple/hwmon-fan.dtsi |  19 +
->  .../boot/dts/apple/hwmon-laptop.dtsi     |  35 +
->  .../boot/dts/apple/hwmon-mac-mini.dtsi   |  17 +
->  .../arm64/boot/dts/apple/t6001-j375c.dts |   2 +
->  .../arm64/boot/dts/apple/t6002-j375d.dts |   2 +
->  .../arm64/boot/dts/apple/t600x-die0.dtsi |   6 +
->  .../boot/dts/apple/t600x-j314-j316.dtsi  |   4 +
->  .../arm64/boot/dts/apple/t600x-j375.dtsi |   2 +
->  arch/arm64/boot/dts/apple/t8103-j274.dts |   2 +
->  arch/arm64/boot/dts/apple/t8103-j293.dts |   3 +
->  arch/arm64/boot/dts/apple/t8103-j313.dts |   2 +
->  arch/arm64/boot/dts/apple/t8103-j456.dts |   2 +
->  arch/arm64/boot/dts/apple/t8103-j457.dts |   2 +
->  .../arm64/boot/dts/apple/t8103-jxxx.dtsi |   2 +
->  arch/arm64/boot/dts/apple/t8103.dtsi     |   6 +
->  arch/arm64/boot/dts/apple/t8112-j413.dts |   2 +
->  arch/arm64/boot/dts/apple/t8112-j473.dts |   2 +
->  arch/arm64/boot/dts/apple/t8112-j493.dts |   3 +
->  .../arm64/boot/dts/apple/t8112-jxxx.dtsi |   2 +
->  arch/arm64/boot/dts/apple/t8112.dtsi     |   6 +
->  drivers/hwmon/Kconfig                    |  12 +
->  drivers/hwmon/Makefile                   |   1 +
->  drivers/hwmon/macsmc_hwmon.c             | 848 +++++++++++++++++++++++++
->  drivers/input/misc/Kconfig               |  11 +
->  drivers/input/misc/Makefile              |   1 +
->  drivers/input/misc/macsmc-hid.c          | 209 ++++++
->  drivers/mfd/macsmc.c                     |   3 +
->  drivers/rtc/Kconfig                      |  11 +
->  drivers/rtc/Makefile                     |   1 +
->  drivers/rtc/rtc-macsmc.c                 | 141 ++++
->  36 files changed, 1637 insertions(+)
-> ---
-> base-commit: 876d6a70b24869f96ebc8672caf86cb4bae72927
-> change-id: 20250816-macsmc-subdevs-87032c017d0c
-> 
-> Best regards,
-> -- 
-> James Calligeros <jcalligeros99@gmail.com>
-> 
-
--- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Cheers,
+Miguel
 
