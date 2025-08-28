@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0334CCA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 08:03:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77FF4CA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 08:06:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OY4GJHvVYK+N5LUJGUaOnp3q0oNX2or2mbmIQLdKleU=; b=TRbHnuegdjGnCL1akTRhiRvdIv
-	1vEztt5znWwDdk0RT3pVnq9gFnWZsy88evoldxoVjh/KBc1ai9ynFSah+biq+YCXAAl6PDyU1wdnr
-	T7JFXDeYsHuDWv6b6N5noM420Z99Jo/FBSf1zX14mQaR5CLSx3eq3dtW+iGuQSKDmJZVZajkAaJnt
-	7047JdJJQg4JLAVu0cthHTfV2V/LEuQ4ZkyhMnie/frHUtkKadwWyq6YA/8eugPgA2yCdw64j94M5
-	nEntchP1o3dUpS/BgtmXkXhRy1N3ueu3vctZdNJmW1jQ0iFFfKbcQHMGIwuZyYlz6n9lqnoA3LQ58
-	apCqAEYQ==;
+	bh=Vni583dy1qPpKoeI/BvuSUANKkix8/DHWprmu6YA31k=; b=Gtab4BEihuVNEZ0zbAVtBRFyJg
+	qpDISdfaYA0QfhAEUJtTDzE4Q96k7uzlYr9o9tJBfd82btLQklsrhHHtGy+3cK1g1wwnC/XWgviic
+	1AwVkIygMrc4KA5SaFuZ7yXx1hmQN0QQ3BQIItQ+DHDeGr5orY7OXSMW/N++3mw4tYWlamTMqyh/Y
+	Rr0rYn+AygXMv3MLhjAcc6WEAw4Lb3kuktn5DChgPw65A24od/AoRFd+99NBzfH8KeL3Zx34Hv2uC
+	DDUhflf7WA7UWyIhRyIqBrzYyZE0puKoMWCVh8o+KVEM5S46W9ndMkVV9U7syRR+ABXHqDL8gIQMR
+	KG9HRlfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urXbA-00000000iX2-0uV7;
-	Thu, 28 Aug 2025 08:03:08 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	id 1urXdq-00000000iqC-4AEt;
+	Thu, 28 Aug 2025 08:05:54 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urXOa-00000000fx7-47BI
+	id 1urXOe-00000000fyN-20AI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 07:50:10 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-b47174c3b3fso442516a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 00:50:08 -0700 (PDT)
+	Thu, 28 Aug 2025 07:50:13 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-7720c9e2900so848814b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 00:50:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756367407; x=1756972207; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1756367410; x=1756972210; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=OY4GJHvVYK+N5LUJGUaOnp3q0oNX2or2mbmIQLdKleU=;
-        b=S+g1snxj6HLnq2mIqfJ6scTme3C+drr2Vk0RpaCSYFoJt+lOoFJ1VZuQZMtMoDrVa4
-         QJET4dUThxkuB5l0IDaNG1C3MpgjFwFu5DJNghCOZniE2Q4VZ21Z0Crj7IMEdCKI5+eW
-         G+f/QXiWJ+1RamXuK+f+BcCj8A4kv02CiEGheBQcHafs9Moz4PZL6GhzaF+LPI/PemwM
-         6GcJHz0+YYFGppV32LeAUPRpl0hOeT6sVtFmTs8mVKe0uQWgLUpPx2vgOX6fHzq4SPEu
-         vqRF6Fg1K58JoGI5OlTyAgVC2u2fEEA3Pp+3W32bRSkgegHUZCwSEJNPgfvJKaS6O/ZT
-         Fycg==
+        bh=Vni583dy1qPpKoeI/BvuSUANKkix8/DHWprmu6YA31k=;
+        b=FPzl4dGsCh6UgUAFnxgTUIoA77PjxOCjHW0pRaF8OrABhtNjgljjmuH6aAEfxJu0xJ
+         UjTZPl9slnpQwD+RpqJ/XxVkxK102hbDUDmVL3cKelGfiv2+b1mJFNES3aMJjhhTOWtv
+         nDAyBSK7qDGEb6ENeSsc4Clki8mb4Kl0lhovocBpM0pYOq8DziHsGz8INva9h1Lt66hY
+         wI3Z+s5H3xDeBUlWOHxAofmz6jZW++NdSGA1prGvSti61B6tt/0OTpV5P9ttXzgg/3Ez
+         orE75cmuS6OgtiU+gwEfFD8EnNAmxBzM23PIRI835NLyoNijkL0gI6R41jSIHFlsU1cP
+         2/fg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756367407; x=1756972207;
+        d=1e100.net; s=20230601; t=1756367410; x=1756972210;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=OY4GJHvVYK+N5LUJGUaOnp3q0oNX2or2mbmIQLdKleU=;
-        b=EUzd65F34uJiz0BjZjCTIVM/sJQUatu6s9HXRyEFBwAnPyQJSI64gscW1uwrdr2WQb
-         AjqixBtMZHj7fpboYohr812dbBepNJJTze/U/zWMHV0omS2XtfKXv4cOphyroKqQexqC
-         jj51lMt8WRTH5oOo3JB69xUYPA7VxOCNwRH5lXzSX4uQUAeVkRzpN37JCEqnYOp8pri6
-         cqJobo5Rfb88N0dpqTjSzcmXyWN7xKuy5Wjv4aN00fQ291n4gWRt7Oo2AIPP/up0XiGK
-         qcO7rImEL8kLFpHsrGW4yZrm4c+HVGuIFc+HlxN0FkXseLBa+w/JOmkyXyy7wUYny5/j
-         9Fug==
-X-Forwarded-Encrypted: i=1; AJvYcCVdr8lHWGpdm0n70auwHsul820XXnwP1qk8EiuAXyCLVhWzwO/7BzBzX9Gz/ZVPRl9lhNjtst/vZOcS/4KOCRny@lists.infradead.org
-X-Gm-Message-State: AOJu0YxwAdcjLm1lDeff6f852+HSPHP0jxU7WR/P+fYpdiIXNAi2obax
-	0i0lq1CLokYX+icSHLU3PuUkjb7/9Mg0x0HL7iXIwJrGz5UGkrP878ojX130/w==
-X-Gm-Gg: ASbGncsnS+UhNWGzwL9cDSPNw6GwlRHNfanEEI1C9Ld5oWrpymjZYUJM6p/pDy5fqb8
-	qYpa3wHwj3+DOOc8twMBE/VrvjgmBFdYbV1TwRMdzyo+k05wFZ6kpn8xr/1fEcJuVn6Y94vjPHI
-	wrwR3icBA/ZMvFMQZu73TvGGz1fumwxnL8XBRmbZiWqXhg/BX/uHugSpeP0N9GgWLdsCLtMdcMb
-	woJ0kKoRge8YT6lmT7IVkx1M4W9/xLrIfJ5x8EDQzWunRoaaPkzPxs8xSQOSexzQAvBwy/e5QmF
-	VXdC9FGYy5X1Z/FwVSmb3xvGIYb+5Fj7PmEw8AjZLo9ntna/Qnof3zeBmMRtJ9IM7K7xpesfE5r
-	KD+FnXPHebLAfm/y3PB9OIb3cCxoCf4Q4sdk5MQx6H7HcnnO2+0+lvOp43Bv3LX9E75yAZN9gNx
-	xRCd3JADQaoeXQ1DLxQB1vj13IXD/zhDWObv8rI+M=
-X-Google-Smtp-Source: AGHT+IFoFeIhs1JjbGLogAOPAL7+VePjRCrOyPg7wVzL3i/MGX6/KrwNh57ZD1SdoMCZnSYAqEG18w==
-X-Received: by 2002:a17:90b:1d92:b0:31f:a4:8bfe with SMTP id 98e67ed59e1d1-32515e2b3d9mr28696892a91.7.1756367406727;
-        Thu, 28 Aug 2025 00:50:06 -0700 (PDT)
+        bh=Vni583dy1qPpKoeI/BvuSUANKkix8/DHWprmu6YA31k=;
+        b=mfSS2CJ3rtAgxvmndEMSM1xbe2Zg8jendC9/RBX45Q0ISa3rWURGtIo4GFLg2yGSXt
+         xBpkEk/P9w43WX+sCR72lHMez/NtAuNXQ/zvejVjAWdtNsvP+B/z2IA8YsDLk26yewoq
+         clpzkvpm0vt51Z4kNh8r8EBNn1xR0sGvdyTlWEritjX2CCkeYuQtoU+TjrHrjMN+5Bfn
+         6GqxjCV2lik/dLAAoX4eYd9AR2p4tUrl93mta3H6dsI8qud9BxTD5MdoA4IZ9LAIcsC5
+         KDBVhWtK/QWeKMvxg0ZUVnWFYAJi0Y2xkeNlTsdJwYDW83OK6pr1eXIdqva7+g1WdEhm
+         Gepw==
+X-Forwarded-Encrypted: i=1; AJvYcCWFuEZLF7cfcL94rXVl/CpdMZeD0q5JdDJLhnh5CNtslNOavOruDGsJaBSMJ5OP4196b2Hlcd4RC+3jOo/v5BK8@lists.infradead.org
+X-Gm-Message-State: AOJu0YwU8/7r0hTYalwbWXZ61ETjl2CwhkNqU96GDK1F7CdLp4Y6Fwoy
+	euL635Iqmkiwiw8I98vButMLt1uZPXHFY8eGa/R72iRsyojAZV2pQSLv
+X-Gm-Gg: ASbGncs5HjujAeohOEChLC8qfE/v0WU05w8/ai7G+FuuQTBOW9D8nupxGKF1O7nHDoO
+	58tABoz0XF+AWaeB2UPVhBq7kMywUm1np2Sa/uH7mMkZWetbtdEocOgnsFgkf2borr5v07m0Ssm
+	mtvJNzXXvKty920urQUsq5Col++ae5GXzVmwha4h30Jh8U3oFQffKILLbqRqCg89LG2qItNSzUY
+	VapDB8eMzethMuTfm+fDGdi8zpdYd+3kl2IiU9bqKAKZGynhLJvJVDH28dPCxxOzyQHs/7XdxGm
+	VwBYzeUVM7tVJbIeYGwZT8gndopFkborOnuqhrPmKL+ha+N2nFrTxcOQw2VoB7yDazDrKk+oPeT
+	xv8KKnyf8j/fif21c7zvfb/f35NFpVGNiLlASzey0+fthBsXksJy9rqGVRSbyjO8WwzdIdqA6PN
+	onO1L4ZE5m8i2qjsyt+szFGyYGKATn
+X-Google-Smtp-Source: AGHT+IF4HC4PbFCqww/SIqTzmzziaZEWvmMs4ySjP/B1BpUGSc/ehDGuZDBlPqwuqZKik/CkkD4VWg==
+X-Received: by 2002:a05:6a20:a125:b0:243:aca2:e500 with SMTP id adf61e73a8af0-243aca2ec8fmr2970429637.29.1756367410222;
+        Thu, 28 Aug 2025 00:50:10 -0700 (PDT)
 Received: from peter-bmc.. (2001-b400-e35e-4238-7ad6-5c9d-99c8-92d0.emome-ip6.hinet.net. [2001:b400:e35e:4238:7ad6:5c9d:99c8:92d0])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b49cbb9d226sm13272038a12.41.2025.08.28.00.50.04
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b49cbb9d226sm13272038a12.41.2025.08.28.00.50.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Aug 2025 00:50:06 -0700 (PDT)
+        Thu, 28 Aug 2025 00:50:09 -0700 (PDT)
 From: Peter Yin <peteryin.openbmc@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -80,17 +80,17 @@ To: Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-aspeed@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 2/3] ARM: dts: aspeed: harma: revise gpio name
-Date: Thu, 28 Aug 2025 15:49:52 +0800
-Message-ID: <20250828074955.542711-3-peteryin.openbmc@gmail.com>
+Subject: [PATCH v3 3/3] ARM: dts: aspeed: harma: add mp5990
+Date: Thu, 28 Aug 2025 15:49:53 +0800
+Message-ID: <20250828074955.542711-4-peteryin.openbmc@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250828074955.542711-1-peteryin.openbmc@gmail.com>
 References: <20250828074955.542711-1-peteryin.openbmc@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_005009_022535_2742B258 
-X-CRM114-Status: GOOD (  11.36  )
+X-CRM114-CacheID: sfid-20250828_005012_594047_D85A7CAE 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,98 +105,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update GPIO label definitions in the device tree to reflect the correct
-power and control signal names. This includes:
+Add support for the HSC MP5990 device on the Harma platform.
 
-- Rename "fcb0-activate" to "fcb1-activate" and "fcb2-activate"
-- Add labels for:
-  - power-p3v3-standby
-  - power-p1v8-good
-  - power-pvdd33-s5
-  - power-pvdd18-s5
-  - power-asic-good
-  - power-12v-memory-good
-
-- Replace unnamed GPIOs with appropriate labels such as:
-  - irq-pvddcore0-ocp-alert
-  - irq-pvddcore1-ocp-alert
+This change updates the device tree to include the MP5990 HSC
+(Hot Swap Controller), allowing proper configuration and integration
+with the platform.
 
 Signed-off-by: Peter Yin <peteryin.openbmc@gmail.com>
 ---
- .../dts/aspeed/aspeed-bmc-facebook-harma.dts  | 21 +++++++++++--------
- 1 file changed, 12 insertions(+), 9 deletions(-)
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts
-index 741d2d9b6d03..81278a7702de 100644
+index 81278a7702de..23eaf47a38e8 100644
 --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts
 +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts
-@@ -234,7 +234,7 @@ gpio@12 {
- 		"","",
- 		"","",
- 		"","",
--		"","fcb1-activate",
-+		"","fcb2-activate",
- 		"","";
- 	};
- };
-@@ -308,7 +308,7 @@ gpio@12 {
- 		"","",
- 		"","",
- 		"","",
--		"","fcb0-activate",
-+		"","fcb1-activate",
- 		"","";
- 	};
- };
-@@ -698,14 +698,14 @@ &sgpiom0 {
- 	"","",
- 	/*A4-A7 line 8-15*/
- 	"","power-config-asic-module-enable",
--	"","power-config-asic-power-good",
--	"","power-config-pdb-power-good",
-+	"power-p3v3-standby","power-config-asic-power-good",
-+	"power-p1v8-good","power-config-pdb-power-good",
- 	"presence-cpu","smi-control-n",
- 	/*B0-B3 line 16-23*/
- 	"","nmi-control-n",
--	"","nmi-control-sync-flood-n",
--	"","",
-+	"power-pvdd33-s5","nmi-control-sync-flood-n",
- 	"","",
-+	"power-pvdd18-s5","",
- 	/*B4-B7 line 24-31*/
- 	"","FM_CPU_SP5R1",
- 	"reset-cause-rsmrst","FM_CPU_SP5R2",
-@@ -749,7 +749,7 @@ &sgpiom0 {
- 	/*F4-F7 line 88-95*/
- 	"presence-asic-modules-0","rt-cpu0-p1-force-enable",
- 	"presence-asic-modules-1","bios-debug-msg-disable",
--	"","uart-control-buffer-select",
-+	"power-asic-good","uart-control-buffer-select",
- 	"presence-cmm","ac-control-n",
- 	/*G0-G3 line 96-103*/
- 	"FM_CPU_CORETYPE2","",
-@@ -801,7 +801,7 @@ &sgpiom0 {
- 	"asic0-card-type-detection2-n","",
- 	"uart-switch-lsb","",
- 	"uart-switch-msb","",
--	"","",
-+	"power-12v-memory-good","",
- 	/*M4-M7 line 200-207*/
- 	"","","","","","","","",
- 	/*N0-N3 line 208-215*/
-@@ -809,7 +809,10 @@ &sgpiom0 {
- 	/*N4-N7 line 216-223*/
- 	"","","","","","","","",
- 	/*O0-O3 line 224-231*/
--	"","","","","","","","",
-+	"","",
-+	"irq-pvddcore0-ocp-alert","",
-+	"irq-pvddcore1-ocp-alert","",
-+	"","",
- 	/*O4-O7 line 232-239*/
- 	"","","","","","","","",
- 	/*P0-P3 line 240-247*/
+@@ -520,6 +520,10 @@ imux28: i2c@0 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			reg = <0>;
++			power-sensor@20 {
++				compatible = "mps,mp5990";
++				reg = <0x20>;
++			};
+ 			power-monitor@61 {
+ 				compatible = "isil,isl69260";
+ 				reg = <0x61>;
 -- 
 2.43.0
 
