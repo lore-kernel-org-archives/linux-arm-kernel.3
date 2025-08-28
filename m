@@ -4,99 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAEF6CA1001
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 22:07:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B836CA0FFE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 22:07:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k/gIAWzLi/dYVjmDUDiAyhdJpQJDLZnDh9I4LCgtu6Y=; b=ekBpOquqBeeBs+/+xuWZjln2I2
-	rfxrn/cccd85FZnylWPFR21XTbIUClc7rBrPoIjF1pi8tqAaI7Ns+uRpLgUzApyw94EYTh5+zbUBq
-	rtkz3RhAgUzBFuaBY49xMTjxrDTzZplNedi3DdohoomApnnit2RrZGABM+m36KyIl2kHw3VYhTxCh
-	en98RnF2DHlXrNorSnBRnvKTpy8q5maI+HVQaenX0v6XPvY6Ig1pJOKKdCKyvJO7ua5446RAw9KTK
-	Fo/gE0oxzP3kf9cwMe+YobQtePqHJG4j9PLB+oeJClS/cmqhKEWoxd3+IDpc6k/t3mMaw/bsnzDWA
-	7mBYu+4g==;
+	bh=jR/UQSU1rnoJqXet1GHMjYE6RZmBJb0DIB3rVaGeplw=; b=ZYOVWlcmb97zGNa0pPyXAZXeTu
+	ojOunPgOqcqTjjK5R5xE5UrL6W3NY2Pzu1SMEiHJDkobH5kbZXBtI0foKMHzoPv+vnZ3iZbufwrIZ
+	ACndQgSvgSj+ez5MNNKFzPkvOqOVvBMjIXrrz+0sMLWN6K4M53mrRqeg09QQk/2CX9TXyvGvmidvo
+	A3mzhYBp5mbzKnj3Nk6Y8+poYlrOjZXXODUPDOnmHzEkhtDgXKkHg4RnwwR9D+TXV/OT70LOVhuNx
+	UginRIX5FhOlV+O/9O/iWvFD0qLeJRn5zfQyl678VR1SMVh1RN+gSqszy1pV0GTTocYNVLidx1zV4
+	GQW7eWsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urkm4-00000003S87-46DJ;
-	Thu, 28 Aug 2025 22:07:16 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1urkly-00000003S3n-15c0;
+	Thu, 28 Aug 2025 22:07:10 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uri2T-00000002wvH-0J40
+	id 1urf38-00000002BJx-1pEn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 19:12:02 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3c6df24f128so851928f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 12:12:00 -0700 (PDT)
+	Thu, 28 Aug 2025 16:00:31 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3ceb9c3d98cso257322f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 09:00:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1756408319; x=1757013119; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=k/gIAWzLi/dYVjmDUDiAyhdJpQJDLZnDh9I4LCgtu6Y=;
-        b=NUsgvZVL+BUE3TOxKKHrcww7llPIB/wpDCe8So0ncFvtTwwkVXL9ak1hgrWktq8gYC
-         Ui38+jiEbbnR0d9o5bhIkx6uqiHb3WcOZGlnVVJuCBCLp7PITvoPKhGPcRklvLHHOS86
-         M5VTJyllwn8ti6HuNVKqmFTqf5uL5xhF+/Idg2qV4kGYZG0X7mJxETphVB54YKZdYA5s
-         s8bVdaSxUOG7VSjyng5iu8xEhXM23S43SFxwnXp99y/7H9NW30e2ADFd1RWZIBeJ+Yvp
-         0JLw4RYqru/+orGfYm98CWHfR68ZbjZxIzrn/fqDL/cScOx6YXk0ATCSP3vLckqjtWwu
-         3CUg==
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756396829; x=1757001629; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jR/UQSU1rnoJqXet1GHMjYE6RZmBJb0DIB3rVaGeplw=;
+        b=O8E2lrUFQhP341u3SRorLNQAasH5vByqDo0x+u9GLg72Tq7tqy9gmWN/5DKknEZBhN
+         E6hI0Q9xVcw7bNIK0okb4w3GkRGxwceN49bz7/Pb7FzMHnwUYy/l/iWZt+PwnumVw3RZ
+         T8dxShjaJLVGrydHDeEP4o/FQMd70Jr0Q5vQnyEYKxSmzlLb9gZxDDYZA9xbSCIKHkA2
+         rNpP9PGtlblu30oan+neE4dNyAi47p9LWfF/rA5AQ1OzMsz0aRh0Xt0qwJxd94eQ+A5W
+         bas36s2Yx/AVpc7bKBp3YajEf6op5qsbuSpG9BrzYi5DAtA1iwVpnjYVCLQ0Qk8ZDKV3
+         ebkQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756408319; x=1757013119;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=k/gIAWzLi/dYVjmDUDiAyhdJpQJDLZnDh9I4LCgtu6Y=;
-        b=ntze1YG+fnsRpnzSCzogdIj5QtGbZgj37iLnHMqjazXA5TdCQ2ShAyWPJaMZ/Wygor
-         ZipMAwhnveoX84ScHBnDesOQffOqsrgwioMnxsNtlZU4YPVqz+gQAdNRJn/Iribs0aaL
-         D59rnM0qA2O0a41+X0J/LCk9Xg+bdDumjA3k2/2XOwCq28r7FoO8mSYldnqaB8TQAHCC
-         TVl6y0L0c4NNoYT6IysIpWFPfprrkTxLNQnibuk7MJDmblItqq7cYadQfX1735jPldnZ
-         Hr4R3/VwsUEn6XSE72j40BHhuQ+kTZ9O8923ReF0y8RMc+BWiniJIFntHpxEq2jZVlRn
-         eqwQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUEZOYRd35yLqynFOTfMDf6GdzKekoNU3dbBl0oMukkdF8bcBHYL1uMFF5EJe+z3gReEMUDUdQyyhPdPpj3br9g@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyoj4l8whRBZ4HtOE5tBwRqG1F1J1qryqqk9GoWOdmZYO4Ng29q
-	Pi+5XtRPAXyFyUZqd8FbjHzs19ud5p/ejj5Gd9s9MY9gbWGFyadQ3FXBVrffnrWYew0=
-X-Gm-Gg: ASbGncvV0qEQcuqliqA0Zb6a23JR/GS+Gw84wryVeZWSn4wPAxWAWcC1iSIVlIsQQwz
-	VZXSxZ0Zd9JS0ki0Y2YcytjjP5mlG5Jqbn/2vKXj4txCJ9Wtr90uacg/fYcliQCaGSZfTeJxzgT
-	elQM4skfwJ4VBZyibH40F3E4pkwfujxsJDB5bdSaopxQFnCVNFzpztmC/BxJZHuncCB95LGCgof
-	F2jBg2zqUSOnXYJ8xCdJA41IiY1F81SikmnxFwofhyZfBzcCSZ/Fl4d15z8qfpV7Hd1aVq3xRke
-	ZwbZAwSGf2hvltUE1n0I+X0h14dxAvCfSdIK0QcDB6tFqnCf6bBSkWSQcotqmkd/p9JazhbHo90
-	BkQOeO/nk/eva/ZaPvBG+QOsRTaxF95mZzRIAKvqgZoa1dMhahQ4oqy+tPTnPwZKPjLc+fPCZkh
-	fXThip+p9n87MQ
-X-Google-Smtp-Source: AGHT+IGVuJymha8VKQyO64M6kJMfy+4YYQgBArp3qJU6xZoYfGieRMXhDd0nPPTezX5Ph1gUf3sViw==
-X-Received: by 2002:a05:6000:430c:b0:3c7:a2d5:b299 with SMTP id ffacd0b85a97d-3c7a2e4fee4mr14496227f8f.17.1756408319369;
-        Thu, 28 Aug 2025 12:11:59 -0700 (PDT)
-Received: from ?IPV6:2a02:2f04:6103:4200:a4c6:4e84:e72c:19fd? ([2a02:2f04:6103:4200:a4c6:4e84:e72c:19fd])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3cf270fc09bsm398093f8f.11.2025.08.28.12.11.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 28 Aug 2025 12:11:58 -0700 (PDT)
-Message-ID: <fe7afeb5-e009-4f68-a3a8-58ff967d3780@tuxon.dev>
-Date: Thu, 28 Aug 2025 22:11:55 +0300
+        d=1e100.net; s=20230601; t=1756396829; x=1757001629;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=jR/UQSU1rnoJqXet1GHMjYE6RZmBJb0DIB3rVaGeplw=;
+        b=YiJfSXEzFZC7DPzSwi9vqoqcHhKpMhpyO7yTjubtgSrihBvRTm5Z8U1e/9vtZvjXbA
+         J6IiAbgjsMfZFCqCAc4pnsmivSsFycaL0ntWqtgsdgx/NdVkh5V71ZberbhCVXAcivbR
+         Ml9N1PVwcLiGCR02keDGGWEvUhmu+HJiqW/3A066ggA9kpk8/g5Sgm6qZrIBVybVV5BI
+         MQi0ncBpqcqq7f0E8TbPlk2lkl5Sqv8Vxp+p/TY96ni2oQ3Lh6bXZTTfbHv3A9HPWAZ4
+         s8iVRVr5BlxJddBCtREqPPnx7A9Jpu5TNDQUyauWcDy6P4R3RA+NwVOepS1szamXwNxO
+         HOBg==
+X-Forwarded-Encrypted: i=1; AJvYcCUPASFNPeGQOdzmfp1/1sLv/g352V7NcYcyJJKC3klL1nFgVQA/i0LqLcZAIlKHbseG/1y6xfCB7dektWk4NHbN@lists.infradead.org
+X-Gm-Message-State: AOJu0YwfV5JnogGpJ3sjKiGklFbHYZCza77HCgvOxgpZ8Mq5cFMFAk5Y
+	zpp3XfcbeMJsQfnqwv00PUq9NN1E5XTq/gJsCjJD4l6RbRx3SGkTH1rfTy0dY18IQmc=
+X-Gm-Gg: ASbGnctPV700QPsp2wDJAVRInT17WVlrhnVgoh5vnN5FZroBdD7kyGRE1R2F6wYWHAy
+	pffRdDWNaXfVCVCtU1IK2TFlpKtAIq1fHFxGKU96/y/uSDLuc8H66/++AVCwmIqpZs07lPZLm+E
+	LfgwlTGDfXVywJy/0FTOHXsEOQsQTrKRWIxpWBnHF2ZehqIuD0zOx2clotRmMXSj+fjlRE66x6f
+	jKsPAB3HBg9VrWJIh5r0yI/0OfZkgq7MqFn1Sbkk5dZv0IHy1HAk3khjB2YY1o5XhD+MAGDmbnx
+	duwlmkf5bgCv5W+l99MykQUBEglEW79yFPnb6RjQFsiKtykBDPkQ1W0aan0zpGL7NC5tI1cO/md
+	PcYT1rL9nvJ39OINAvQ==
+X-Google-Smtp-Source: AGHT+IHpa7seq9vvwG4pSrNyoWglcHVRKIa3k9MGizj9olBncMjomjsG4dZCZ0gf35TjhrILqQH5rw==
+X-Received: by 2002:a05:6000:4029:b0:3c3:806c:b82f with SMTP id ffacd0b85a97d-3c5dd0ecf8amr20776060f8f.58.1756396828557;
+        Thu, 28 Aug 2025 09:00:28 -0700 (PDT)
+Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:4933:4d7c:cf69:9502])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b6f0c6fe5sm80211675e9.5.2025.08.28.09.00.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 28 Aug 2025 09:00:28 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Thu, 28 Aug 2025 18:00:14 +0200
+Subject: [PATCH v6 06/15] pinctrl: imx: don't access the pin function radix
+ tree directly
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/9] dt-bindings: PCI: renesas,r9a08g045s33-pcie: Add
- documentation for the PCIe IP on Renesas RZ/G3S
-From: claudiu beznea <claudiu.beznea@tuxon.dev>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
- mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- geert+renesas@glider.be, magnus.damm@gmail.com, catalin.marinas@arm.com,
- will@kernel.org, mturquette@baylibre.com, sboyd@kernel.org,
- p.zabel@pengutronix.de, lizhi.hou@amd.com, linux-pci@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, Claudiu Beznea
- <claudiu.beznea.uj@bp.renesas.com>,
- Wolfram Sang <wsa+renesas@sang-engineering.com>
-References: <20250708163407.GA2149616@bhelgaas>
- <71d109a1-211a-45ee-8525-03f1859b789a@tuxon.dev>
-Content-Language: en-US
-In-Reply-To: <71d109a1-211a-45ee-8525-03f1859b789a@tuxon.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250828-pinctrl-gpio-pinfuncs-v6-6-c9abb6bdb689@linaro.org>
+References: <20250828-pinctrl-gpio-pinfuncs-v6-0-c9abb6bdb689@linaro.org>
+In-Reply-To: <20250828-pinctrl-gpio-pinfuncs-v6-0-c9abb6bdb689@linaro.org>
+To: Linus Walleij <linus.walleij@linaro.org>, 
+ Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, 
+ Alexey Klimov <alexey.klimov@linaro.org>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Paul Cercueil <paul@crapouillou.net>, Kees Cook <kees@kernel.org>, 
+ Andy Shevchenko <andy@kernel.org>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ David Hildenbrand <david@redhat.com>, 
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+ Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>, 
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+ Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
+ Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ NXP S32 Linux Team <s32@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Tony Lindgren <tony@atomide.com>, 
+ Haojian Zhuang <haojian.zhuang@linaro.org>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Mark Brown <broonie@kernel.org>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
+ linux-hardening@vger.kernel.org, linux-mm@kvack.org, imx@lists.linux.dev, 
+ linux-omap@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3140;
+ i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
+ bh=64CEOM/GWFRZVaWr+uKwrz1KsAW3NNZpIdWvwWCf200=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBosH0NaAPsNFFrpH1CGMcLygHSJdcPneCN6Unyj
+ uWMtG9dPUOJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaLB9DQAKCRARpy6gFHHX
+ csz2D/9MgJP+ectOeSj5tPh3IRoQSIVu4AU0U2BIk9qLJsstYn5YRISv7Lr58AGRakRZh0m8/iL
+ nNYJSQ98/gglKMupuS/yKusX9iGKVWnw8cqQtR2qBPGmRcImx2/9e7HLfz7CCVT/iDAjPPeMjUg
+ YyeBqbeDoAKR72CednspSFx12VxQ7Ja4n65O2y2fjtejtwiGFuNvud6b8+pa/eKxHeIkigHEh5/
+ T71+1u33HaK5IxJVGK5qUbh7pJm+lSgmHzuPOJN9R8CcQO6lPBSWP9VXM63VfHNUfkyoPokJSyz
+ Sxf/B6Qkyzd49YG3csk8gtZiCCKGeJeBgbEt5oY7bbuS4sOICYGYc42MEa1akallSWRvGv6LRxt
+ VSBbX2tu/t5fI8EdOgROdf0H+VFhKPpz5Nytk6raLEJDU0dwyqO+Gnj8gGhHxOb8i3xBVJAN3+e
+ oE6PlAYq1yoX/GSVH5H4ADkWHVGM922imRvR15JI7TpVxnLWaGZ0chIV87cWv3rtvcLtI5mW2Fr
+ B+7CeIdbYV9gHFjqLi6dmVbK4CJXBZS8z/5DqhmeKNRvDwYkxvZBUfHoz6MdXw3oLpMfA7kO2Ar
+ g9WkATffjdMY9P7gz7AyeDLdWVlb4LSx5uyzu3rOuNrmxYeEg//XgZ5loqLh0eTb8Oth0yRUqaa
+ tb3/62Fap1QUnSg==
+X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_121201_121880_57C9E766 
-X-CRM114-Status: GOOD (  25.28  )
+X-CRM114-CacheID: sfid-20250828_090030_486685_CE3FC4E8 
+X-CRM114-Status: GOOD (  20.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,215 +145,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Bjorn,
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-On 8/8/25 14:25, Claudiu Beznea wrote:
-> Hi, Bjorn,
-> 
-> On 08.07.2025 19:34, Bjorn Helgaas wrote:
->> On Fri, Jul 04, 2025 at 07:14:04PM +0300, Claudiu wrote:
->>> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
->>>
->>> The PCIe IP available on the Renesas RZ/G3S complies with the PCI Express
->>> Base Specification 4.0. It is designed for root complex applications and
->>> features a single-lane (x1) implementation. Add documentation for it.
->>
->>> +++ b/Documentation/devicetree/bindings/pci/renesas,r9a08g045s33-pcie.yaml
->>
->> The "r9a08g045s33" in the filename seems oddly specific.  Does it
->> leave room for descendants of the current chip that will inevitably be
->> added in the future?  Most bindings are named with a fairly generic
->> family name, e.g., "fsl,layerscape", "hisilicon,kirin", "intel,
->> keembay", "samsung,exynos", etc.
->>
->>> +examples:
->>> +  - |
->>> +    #include <dt-bindings/clock/r9a08g045-cpg.h>
->>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
->>> +
->>> +    bus {
->>> +        #address-cells = <2>;
->>> +        #size-cells = <2>;
->>> +
->>> +        pcie@11e40000 {
->>> +            compatible = "renesas,r9a08g045s33-pcie";
->>> +            reg = <0 0x11e40000 0 0x10000>;
->>> +            ranges = <0x02000000 0 0x30000000 0 0x30000000 0 0x8000000>;
->>> +            dma-ranges = <0x42000000 0 0x48000000 0 0x48000000 0 0x38000000>;
->>> +            bus-range = <0x0 0xff>;
->>> +            clocks = <&cpg CPG_MOD R9A08G045_PCI_ACLK>,
->>> +                     <&cpg CPG_MOD R9A08G045_PCI_CLKL1PM>;
->>> +            clock-names = "aclk", "pm";
->>> +            resets = <&cpg R9A08G045_PCI_ARESETN>,
->>> +                     <&cpg R9A08G045_PCI_RST_B>,
->>> +                     <&cpg R9A08G045_PCI_RST_GP_B>,
->>> +                     <&cpg R9A08G045_PCI_RST_PS_B>,
->>> +                     <&cpg R9A08G045_PCI_RST_RSM_B>,
->>> +                     <&cpg R9A08G045_PCI_RST_CFG_B>,
->>> +                     <&cpg R9A08G045_PCI_RST_LOAD_B>;
->>> +            reset-names = "aresetn", "rst_b", "rst_gp_b", "rst_ps_b",
->>> +                          "rst_rsm_b", "rst_cfg_b", "rst_load_b";
->>> +            interrupts = <GIC_SPI 395 IRQ_TYPE_LEVEL_HIGH>,
->>> +                         <GIC_SPI 396 IRQ_TYPE_LEVEL_HIGH>,
->>> +                         <GIC_SPI 397 IRQ_TYPE_LEVEL_HIGH>,
->>> +                         <GIC_SPI 398 IRQ_TYPE_LEVEL_HIGH>,
->>> +                         <GIC_SPI 399 IRQ_TYPE_LEVEL_HIGH>,
->>> +                         <GIC_SPI 400 IRQ_TYPE_LEVEL_HIGH>,
->>> +                         <GIC_SPI 401 IRQ_TYPE_LEVEL_HIGH>,
->>> +                         <GIC_SPI 402 IRQ_TYPE_LEVEL_HIGH>,
->>> +                         <GIC_SPI 403 IRQ_TYPE_LEVEL_HIGH>,
->>> +                         <GIC_SPI 404 IRQ_TYPE_LEVEL_HIGH>,
->>> +                         <GIC_SPI 405 IRQ_TYPE_LEVEL_HIGH>,
->>> +                         <GIC_SPI 406 IRQ_TYPE_LEVEL_HIGH>,
->>> +                         <GIC_SPI 407 IRQ_TYPE_LEVEL_HIGH>,
->>> +                         <GIC_SPI 408 IRQ_TYPE_LEVEL_HIGH>,
->>> +                         <GIC_SPI 409 IRQ_TYPE_LEVEL_HIGH>,
->>> +                         <GIC_SPI 410 IRQ_TYPE_LEVEL_HIGH>;
->>> +            interrupt-names = "serr", "serr_cor", "serr_nonfatal",
->>> +                              "serr_fatal", "axi_err", "inta",
->>> +                              "intb", "intc", "intd", "msi",
->>> +                              "link_bandwidth", "pm_pme", "dma",
->>> +                              "pcie_evt", "msg", "all";
->>> +            #interrupt-cells = <1>;
->>> +            interrupt-controller;
->>> +            interrupt-map-mask = <0 0 0 7>;
->>> +            interrupt-map = <0 0 0 1 &pcie 0 0 0 0>, /* INT A */
->>> +                            <0 0 0 2 &pcie 0 0 0 1>, /* INT B */
->>> +                            <0 0 0 3 &pcie 0 0 0 2>, /* INT C */
->>> +                            <0 0 0 4 &pcie 0 0 0 3>; /* INT D */
->>
->> The spec styles these closed up: "INTA", "INTB", etc.
-> 
-> I'll update it.
-> 
->>
->>> +            device_type = "pci";
->>> +            num-lanes = <1>;
->>> +            #address-cells = <3>;
->>> +            #size-cells = <2>;
->>> +            power-domains = <&cpg>;
->>> +            vendor-id = <0x1912>;
->>> +            device-id = <0x0033>;
->>
->> Some of this is specific to a Root Port, not to the Root Complex as a
->> whole.  E.g., device-type = "pci", num-lanes, vendor-id, device-id,
->> are Root Port properties.  Some of the resets, clocks, and interrupts
->> might be as well.
->>
->> I really want to separate those out because even though this
->> particular version of this PCIe controller only supports a single Root
->> Port, there are other controllers (and possibly future iterations of
->> this controller) that support multiple Root Ports, and it makes
->> maintenance easier if the DT bindings and the driver structures are
->> similar.
-> 
-> I'll ask the Renesas HW team about the resets and clocks as the HW manual
-> don't offer any information about this.
+The radix tree containing pin function descriptors should not be
+accessed directly by drivers. There are dedicated functions for it. I
+suppose this driver does it so that the memory containing the function
+description is not duplicated but we're going to address that shortly so
+convert it to using generic pinctrl APIs.
 
-Renesas HW team replied to me that there are no clock, reset, or interrupt 
-signals dedicated specifically to the Root Port. All these signals are shared 
-across the PCIe system.
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+---
+ drivers/pinctrl/freescale/pinctrl-imx.c | 39 +++++++++++++++------------------
+ 1 file changed, 18 insertions(+), 21 deletions(-)
 
-Taking this and your suggestions into account, I have prepared the following 
-device tree:
+diff --git a/drivers/pinctrl/freescale/pinctrl-imx.c b/drivers/pinctrl/freescale/pinctrl-imx.c
+index 18de31328540458b7f7e8e2e539a39d61829deb9..3d626d8c9ae9ebd5f7eb76216924c46b34233749 100644
+--- a/drivers/pinctrl/freescale/pinctrl-imx.c
++++ b/drivers/pinctrl/freescale/pinctrl-imx.c
+@@ -580,33 +580,38 @@ static int imx_pinctrl_parse_functions(struct device_node *np,
+ 				       u32 index)
+ {
+ 	struct pinctrl_dev *pctl = ipctl->pctl;
+-	struct function_desc *func;
++	struct pinfunction *func;
+ 	struct group_desc *grp;
+ 	const char **group_names;
++	int ret;
+ 	u32 i;
+ 
+ 	dev_dbg(pctl->dev, "parse function(%d): %pOFn\n", index, np);
+ 
+-	func = pinmux_generic_get_function(pctl, index);
++	func = devm_kzalloc(ipctl->dev, sizeof(*func), GFP_KERNEL);
+ 	if (!func)
+-		return -EINVAL;
++		return -ENOMEM;
+ 
+ 	/* Initialise function */
+-	func->func.name = np->name;
+-	func->func.ngroups = of_get_child_count(np);
+-	if (func->func.ngroups == 0) {
++	func->name = np->name;
++	func->ngroups = of_get_child_count(np);
++	if (func->ngroups == 0) {
+ 		dev_info(ipctl->dev, "no groups defined in %pOF\n", np);
+ 		return -EINVAL;
+ 	}
+ 
+-	group_names = devm_kcalloc(ipctl->dev, func->func.ngroups,
+-				   sizeof(*func->func.groups), GFP_KERNEL);
++	group_names = devm_kcalloc(ipctl->dev, func->ngroups,
++				   sizeof(*func->groups), GFP_KERNEL);
+ 	if (!group_names)
+ 		return -ENOMEM;
+ 	i = 0;
+ 	for_each_child_of_node_scoped(np, child)
+ 		group_names[i++] = child->name;
+-	func->func.groups = group_names;
++	func->groups = group_names;
++
++	ret = pinmux_generic_add_pinfunction(pctl, func, NULL);
++	if (ret < 0)
++		return ret;
+ 
+ 	i = 0;
+ 	for_each_child_of_node_scoped(np, child) {
+@@ -615,6 +620,10 @@ static int imx_pinctrl_parse_functions(struct device_node *np,
+ 			return -ENOMEM;
+ 
+ 		mutex_lock(&ipctl->mutex);
++		/*
++		 * FIXME: This should use pinctrl_generic_add_group() and not
++		 * access the private radix tree directly.
++		 */
+ 		radix_tree_insert(&pctl->pin_group_tree,
+ 				  ipctl->group_index++, grp);
+ 		mutex_unlock(&ipctl->mutex);
+@@ -669,18 +678,6 @@ static int imx_pinctrl_probe_dt(struct platform_device *pdev,
+ 		}
+ 	}
+ 
+-	for (i = 0; i < nfuncs; i++) {
+-		struct function_desc *function;
+-
+-		function = devm_kzalloc(&pdev->dev, sizeof(*function),
+-					GFP_KERNEL);
+-		if (!function)
+-			return -ENOMEM;
+-
+-		mutex_lock(&ipctl->mutex);
+-		radix_tree_insert(&pctl->pin_function_tree, i, function);
+-		mutex_unlock(&ipctl->mutex);
+-	}
+ 	pctl->num_functions = nfuncs;
+ 
+ 	ipctl->group_index = 0;
 
-pcie: pcie@11e40000 {
-	compatible = "renesas,r9a08g045-pcie";
-	reg = <0 0x11e40000 0 0x10000>;
-	ranges = <0x02000000 0 0x30000000 0 0x30000000 0 0x8000000>;
-	/* Map all possible DRAM ranges (4 GB). */
-	dma-ranges = <0x42000000 0 0x40000000 0 0x40000000 0x1 0x0>;
-	bus-range = <0x0 0xff>;
-	interrupts = <GIC_SPI 395 IRQ_TYPE_LEVEL_HIGH>,
-		     <GIC_SPI 396 IRQ_TYPE_LEVEL_HIGH>,
-		     <GIC_SPI 397 IRQ_TYPE_LEVEL_HIGH>,
-		     <GIC_SPI 398 IRQ_TYPE_LEVEL_HIGH>,
-		     <GIC_SPI 399 IRQ_TYPE_LEVEL_HIGH>,
-		     <GIC_SPI 400 IRQ_TYPE_LEVEL_HIGH>,
-		     <GIC_SPI 401 IRQ_TYPE_LEVEL_HIGH>,
-		     <GIC_SPI 402 IRQ_TYPE_LEVEL_HIGH>,
-		     <GIC_SPI 403 IRQ_TYPE_LEVEL_HIGH>,
-		     <GIC_SPI 404 IRQ_TYPE_LEVEL_HIGH>,
-		     <GIC_SPI 405 IRQ_TYPE_LEVEL_HIGH>,
-		     <GIC_SPI 406 IRQ_TYPE_LEVEL_HIGH>,
-		     <GIC_SPI 407 IRQ_TYPE_LEVEL_HIGH>,
-		     <GIC_SPI 408 IRQ_TYPE_LEVEL_HIGH>,
-		     <GIC_SPI 409 IRQ_TYPE_LEVEL_HIGH>,
-		     <GIC_SPI 410 IRQ_TYPE_LEVEL_HIGH>;
-	interrupt-names = "serr", "serr_cor", "serr_nonfatal",
-			  "serr_fatal", "axi_err", "inta",
-			  "intb", "intc", "intd", "msi",
-			  "link_bandwidth", "pm_pme", "dma",
-			  "pcie_evt", "msg", "all";
-	#interrupt-cells = <1>;
-	interrupt-controller;
-	interrupt-map-mask = <0 0 0 7>;
-	interrupt-map = <0 0 0 1 &pcie 0 0 0 0>, /* INTA */
-			<0 0 0 2 &pcie 0 0 0 1>, /* INTB */
-			<0 0 0 3 &pcie 0 0 0 2>, /* INTC */
-			<0 0 0 4 &pcie 0 0 0 3>; /* INTD */
-	clocks = <&cpg CPG_MOD R9A08G045_PCI_ACLK>,
-		 <&cpg CPG_MOD R9A08G045_PCI_CLKL1PM>;
-	clock-names = "aclk", "pm";
-	resets = <&cpg R9A08G045_PCI_ARESETN>,
-		 <&cpg R9A08G045_PCI_RST_B>,
-		 <&cpg R9A08G045_PCI_RST_GP_B>,
-		 <&cpg R9A08G045_PCI_RST_PS_B>,
-		 <&cpg R9A08G045_PCI_RST_RSM_B>,
-		 <&cpg R9A08G045_PCI_RST_CFG_B>,
-		 <&cpg R9A08G045_PCI_RST_LOAD_B>;
-	reset-names = "aresetn", "rst_b", "rst_gp_b", "rst_ps_b",
-		      "rst_rsm_b", "rst_cfg_b", "rst_load_b";
-	power-domains = <&cpg>;
-	device_type = "pci";
-	#address-cells = <3>;
-	#size-cells = <2>;
-	renesas,sysc = <&sysc>;
-	status = "disabled";
-
-	pcie_port0: pcie@0,0 {
-		reg = <0x0 0x0 0x0 0x0 0x0>;
-		ranges;
-		clocks = <&versa3 5>;
-		clock-names = "ref";
-		device_type = "pci";
-		vendor-id = <0x1912>;
-		device-id = <0x0033>;
-		bus-range = <0x1 0xff>;
-		#address-cells = <3>;
-		#size-cells = <2>;
-	};
-};
-
-and added clocks in the port section, populated with the reference clock that is 
-provided by a board specific clock generator (that I failed to noticed 
-previously on schematics; this clock is always on).
-
-Please let me know if you find something wrong with this format.
-
-Thank you,
-Claudiu
-
-
-> 
-> If they will confirm some of the clocks and/or resets could be controlled
-> as part of a port then patch 3/9 "PCI: of_property: Restore the arguments
-> of the next level parent" in this series will not be needed anymore. Would
-> you prefer me to abandon it or post it as individual patch, if any?
-> 
->>
->> This email includes pointers to sample DT bindings and driver code
->> that is structured to allow multiple Root Ports:
->>
->>    https://lore.kernel.org/linux-pci/20250625221653.GA1590146@bhelgaas/
-> 
-> Thank you for this!
-> 
-> And, thank you for your review,
-> Claudiu
-> 
->>
->> Bjorn
-> 
+-- 
+2.48.1
 
 
