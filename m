@@ -4,105 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72660CA0EED
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7269BCA0FF7
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 17:26:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UuiNHpICi9Fji/fQ9rrN9zvOKJszsHimGcUCBamZ0/A=; b=csBv/tumbhox+QwjGPwDg2DsIJ
-	RWW9cQcMKUySKtcPQ8tQhp6Ny/XYAeiDswFw+g9L0CWBGczU1ORklZPZfdNmfK7onxCz2VWC5tsb8
-	6JJJr5rMAOX9MRP/O1d7Zt87S7OCC+KjrunfAR/voVa2AfHsNGyuMiMsCTufQiaXuFftOZ6I7evcr
-	hKwVhQD+gszLLvS0V20CDaxx9qDHlBTt/ki1ws6+b8xENuzLzJv9NuqVsxKQNcMn6/qxCrE7YDISB
-	2c0QGQmf4GleQaFYoHOnvwwra43pA29AhcCWybaIonVQ9mHErzqeQE4JX3XtZ5QFGyadV/+lHNv3r
-	jh1lwMHA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9XmcOKm6+cTuDDjpy4ik50LmFyEUqWHCKnzLFK5622g=; b=dCiYZ8Q4OagpZHPEdSWauAlKX6
+	B8UP9dMTAmH/5Ymy3xwDzoJ+keo+9skeyT8luwSXQhdtPE33WdWoWhDKKF9sL4B50nqt44tREXfVM
+	ByLUxpx+IQJRkm0ZwrwomA6QB/iRJCeP/75KkOBLcaLqtZNtQ3JC7urDU7xQNtAN9BGn4YtUdUvK2
+	Uul6S7rG/HPvAB/hpb4nJVotEkLVuxy1DgzSfOT/GoH+nEwoh9TBnZwEt/DSf+LQh3exOKOz6Xm19
+	XVTdWRpOe2fQPDLh8OD3mIsashOXnH/OEKaFbUAHXjcPBciJ5Nmi3xRmI2b9PBGcYz3WIF4bMrE1k
+	tgUWF9Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urgOB-00000002T9Z-248b;
-	Thu, 28 Aug 2025 17:26:19 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urcTM-00000001hJ3-26UO
+	id 1urgO8-00000002T4M-1qCk;
+	Thu, 28 Aug 2025 17:26:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urcQh-00000001gbA-2JlH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 13:15:26 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-afcb7ace3baso158345666b.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 06:15:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1756386923; x=1756991723; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=UuiNHpICi9Fji/fQ9rrN9zvOKJszsHimGcUCBamZ0/A=;
-        b=cOzX6ZjlxxzybMziSYcICTJHuufFTTEX8Q4ns5BbOhpoYrDexpQ9dCy0ly0dphfifQ
-         uepBXgR9U99v2BvLAFbkXZylpdap+eyw63xRnm+xj9LSw4gxpOWA7daDVewcCuweegkA
-         nRPrz0cJkheAmVWsIDbVKe9UMDeYKQXQznhDqWpWboGdX2gupcUZaEczKWZiIcCLn0qx
-         jCkbj6Q5nmtIUwKrr00Cp8dikSRJYQcq5CHdHBuuNCd5uyxRKGZl5jB9Zp6uqqyzASNn
-         9kM7KJwZcm/eeW6sgZrPpSTy6/UCup/gV8MHNcvvuxrsvxZY4HVOYdBNnHlAs239qoQK
-         xiCQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756386923; x=1756991723;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=UuiNHpICi9Fji/fQ9rrN9zvOKJszsHimGcUCBamZ0/A=;
-        b=KEmr7BKRDjXoKRGWh+FwoqNSRc66if792WHi26JoWvDC7LsBEP713Wn6nluyyMMTXj
-         WVqCVy2AIaJoYrheLgBw1c8DfAp8T1qbCgT4ymHFlrQqtrY29h7+4cHRW4TbJRLkrlAJ
-         hzMKG39yZNimm6n5vGF1xglxqcEYW/pExAcMmElBizP5yT7PyV94eqFzkeNwz49/2GUu
-         sh2RMf7W56AxnifJ9H7vJ60DIU5RD6jRs9eRt2H8X45PP+W+VSyrOJsVJ+M12r0C9ibj
-         2nRzBHcdYgx04ReDRNHtUQUhvs/r/c3edPVW9YiNgD2oLxTWi51RxXAl7pvn82lZdIps
-         qJCQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU0vjqJirA0UB+/FRaZffGH0DTD1jFYQOkYaNCi/LE9jHsXT4MgLTUEvh3RUf78fYyiIVsJkbsoHSb6Wu3zCKA6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2mPrMND90xo5J4tKZSLuiNDPSXDPrW3H/Z0vWu2DaClfWzM9V
-	aUX1X+akvTWHrEU2iSGLac4KPCCQvumZiIUie8Lm1KZ/pi9SUOmuBnoM25BvbaUVsY0fdjDcYTj
-	UUlevTx0=
-X-Gm-Gg: ASbGnctcH95Bs6P+dH6ZhMn9qLhWHXlKBkTNKq4fG9dJXY6p+1QdeBLX09dejOtcEsj
-	Kft6JnIJjMgLyFv1gCz7OAu55NcQCsbYnBpxNzGW/CCv65FtgcUqkvYTyLdIAnX8NNQFit/d6ji
-	zB86p5e5cIKqYNpejKGnMehrOrgZmgpsLEgNI8ogHhJJ+EPsK9aUFW8UE1e8k6OrlUTdlvUSC6M
-	KCGA89VoS3wyKwvM7XkPl5jUpCZgexIUqjFwGco3AB4jPdkciuv1n6P2XHAqi3gZho7+MQFe7Mw
-	ZISRljFVm4YxqXGs11r/BqCiI25z/LEvJSTL8G1ERCHOvvmAgwLgiaHcSYrxmF5shg5vkTNYo+j
-	kH5RiVwmkXlwtrC/tPUIbGX1S1j/b63pVoHiFRgqrz9h5a3ALQSxpy6VQRdfaPCyvHKlSEbNgjS
-	xIdtq0Zn7HA1ZnuV1lRSJM9OSJngE=
-X-Google-Smtp-Source: AGHT+IFlRXZ8/HbEmILGPaaFC7SuIScItZJp+ONwofS1lsM9bJRSD1VLJx+ZjAEGaQZGAUqEEvUm5A==
-X-Received: by 2002:a17:907:2d0d:b0:afe:a615:39ef with SMTP id a640c23a62f3a-afea6154a04mr947914466b.9.1756386922803;
-        Thu, 28 Aug 2025 06:15:22 -0700 (PDT)
-Received: from localhost (host-79-36-0-44.retail.telecomitalia.it. [79.36.0.44])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afe7fd59b00sm872678766b.106.2025.08.28.06.15.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Aug 2025 06:15:22 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-To: linus.walleij@linaro.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	florian.fainelli@broadcom.com,
-	wahrenst@gmx.net,
-	linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	iivanov@suse.de,
-	svarbanov@suse.de,
-	mbrugger@suse.com,
-	Jonathan Bell <jonathan@raspberrypi.com>,
-	Phil Elwell <phil@raspberrypi.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Al Cooper <alcooperx@gmail.com>,
-	linux-mmc@vger.kernel.org,
-	Jiri Slaby <jirislaby@kernel.org>,
-	linux-serial@vger.kernel.org
-Cc: Andrea della Porta <andrea.porta@suse.com>
-Subject: [PATCH v2 0/5] Add peripheral nodes to RaspberryPi 5 DT
-Date: Thu, 28 Aug 2025 15:17:09 +0200
-Message-ID: <cover.1756386531.git.andrea.porta@suse.com>
-X-Mailer: git-send-email 2.51.0
+	Thu, 28 Aug 2025 13:12:41 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CD51A1688;
+	Thu, 28 Aug 2025 06:12:29 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5D2163F738;
+	Thu, 28 Aug 2025 06:12:32 -0700 (PDT)
+Message-ID: <507919cd-a6d0-42b7-8721-d35f232edfa5@arm.com>
+Date: Thu, 28 Aug 2025 14:12:30 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 15/33] arm_mpam: Probe MSCs to find the supported
+ partid/pmg values
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
+ devicetree@vger.kernel.org
+Cc: shameerali.kolothum.thodi@huawei.com,
+ D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
+ Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
+ baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>
+References: <20250822153048.2287-1-james.morse@arm.com>
+ <20250822153048.2287-16-james.morse@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20250822153048.2287-16-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_061524_542671_466926F9 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20250828_061239_676130_459D1DEE 
+X-CRM114-Status: GOOD (  37.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,56 +86,309 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi James,
 
-The following patches add a few peripheral DT nodes and related pin/gpio
-nodes for Raspberry Pi 5.
+On 8/22/25 16:29, James Morse wrote:
+> CPUs can generate traffic with a range of PARTID and PMG values,
+> but each MSC may have its own maximum size for these fields.
+> Before MPAM can be used, the driver needs to probe each RIS on
+> each MSC, to find the system-wide smallest value that can be used.
+> 
+> While doing this, RIS entries that firmware didn't describe are create
+> under MPAM_CLASS_UNKNOWN.
+> 
+> While we're here, implement the mpam_register_requestor() call
+> for the arch code to register the CPU limits. Future callers of this
+> will tell us about the SMMU and ITS.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+>  drivers/resctrl/mpam_devices.c  | 158 ++++++++++++++++++++++++++++++--
+>  drivers/resctrl/mpam_internal.h |   6 ++
+>  include/linux/arm_mpam.h        |  14 +++
+>  3 files changed, 171 insertions(+), 7 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index 9d6516f98acf..012e09e80300 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -6,6 +6,7 @@
+>  #include <linux/acpi.h>
+>  #include <linux/atomic.h>
+>  #include <linux/arm_mpam.h>
+> +#include <linux/bitfield.h>
+>  #include <linux/cacheinfo.h>
+>  #include <linux/cpu.h>
+>  #include <linux/cpumask.h>
+> @@ -44,6 +45,15 @@ static u32 mpam_num_msc;
+>  static int mpam_cpuhp_state;
+>  static DEFINE_MUTEX(mpam_cpuhp_state_lock);
+>  
+> +/*
+> + * The smallest common values for any CPU or MSC in the system.
+> + * Generating traffic outside this range will result in screaming interrupts.
+> + */
+> +u16 mpam_partid_max;
+> +u8 mpam_pmg_max;
+> +static bool partid_max_init, partid_max_published;
+> +static DEFINE_SPINLOCK(partid_max_lock);
+> +
+>  /*
+>   * mpam is enabled once all devices have been probed from CPU online callbacks,
+>   * scheduled via this work_struct. If access to an MSC depends on a CPU that
+> @@ -106,6 +116,74 @@ static inline u32 _mpam_read_partsel_reg(struct mpam_msc *msc, u16 reg)
+>  
+>  #define mpam_read_partsel_reg(msc, reg)        _mpam_read_partsel_reg(msc, MPAMF_##reg)
+>  
+> +static void __mpam_write_reg(struct mpam_msc *msc, u16 reg, u32 val)
+> +{
+> +	WARN_ON_ONCE(reg + sizeof(u32) > msc->mapped_hwpage_sz);
+> +	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
+> +
+> +	writel_relaxed(val, msc->mapped_hwpage + reg);
+> +}
+> +
+> +static inline void _mpam_write_partsel_reg(struct mpam_msc *msc, u16 reg, u32 val)
+> +{
+> +	lockdep_assert_held_once(&msc->part_sel_lock);
+> +	__mpam_write_reg(msc, reg, val);
+> +}
+> +#define mpam_write_partsel_reg(msc, reg, val)  _mpam_write_partsel_reg(msc, MPAMCFG_##reg, val)
+> +
+> +static u64 mpam_msc_read_idr(struct mpam_msc *msc)
+> +{
+> +	u64 idr_high = 0, idr_low;
+> +
+> +	lockdep_assert_held(&msc->part_sel_lock);
+> +
+> +	idr_low = mpam_read_partsel_reg(msc, IDR);
+> +	if (FIELD_GET(MPAMF_IDR_EXT, idr_low))
+> +		idr_high = mpam_read_partsel_reg(msc, IDR + 4);
+> +
+> +	return (idr_high << 32) | idr_low;
+> +}
+> +
+> +static void __mpam_part_sel_raw(u32 partsel, struct mpam_msc *msc)
+> +{
+> +	lockdep_assert_held(&msc->part_sel_lock);
+> +
+> +	mpam_write_partsel_reg(msc, PART_SEL, partsel);
+> +}
+> +
+> +static void __mpam_part_sel(u8 ris_idx, u16 partid, struct mpam_msc *msc)
+> +{
+> +	u32 partsel = FIELD_PREP(MPAMCFG_PART_SEL_RIS, ris_idx) |
+> +		      FIELD_PREP(MPAMCFG_PART_SEL_PARTID_SEL, partid);
+> +
+> +	__mpam_part_sel_raw(partsel, msc);
+> +}
+> +
+> +int mpam_register_requestor(u16 partid_max, u8 pmg_max)
+> +{
+> +	int err = 0;
+> +
+> +	lockdep_assert_irqs_enabled();
+> +
+> +	spin_lock(&partid_max_lock);
+> +	if (!partid_max_init) {
+> +		mpam_partid_max = partid_max;
+> +		mpam_pmg_max = pmg_max;
+> +		partid_max_init = true;
+> +	} else if (!partid_max_published) {
+> +		mpam_partid_max = min(mpam_partid_max, partid_max);
+> +		mpam_pmg_max = min(mpam_pmg_max, pmg_max);
 
-- Patch 1: Amend the bindings to avoid DT compiler warnings.
+Do we really need to reduce these maximum here? If, say, we add an SMMU
+requester which supports fewer partids than the cpus don't we want to be
+able to carry on using those partids from the cpus. In this case the
+SMMU requestor can, without risk of error interrupts, just use all the
+partids it supports.
 
-- Patch 2: Adds core pinctrl nodes and defines SD pins as a first appliance
-  for the pinctrl.  
+> +	} else {
+> +		/* New requestors can't lower the values */
+> +		if (partid_max < mpam_partid_max || pmg_max < mpam_pmg_max)
+> +			err = -EBUSY;
+> +	}
+> +	spin_unlock(&partid_max_lock);
+> +
+> +	return err;
+> +}
+> +EXPORT_SYMBOL(mpam_register_requestor);
+> +
+>  #define init_garbage(x)	init_llist_node(&(x)->garbage.llist)
+>  
+>  static struct mpam_vmsc *
+> @@ -520,6 +598,7 @@ static int mpam_ris_create_locked(struct mpam_msc *msc, u8 ris_idx,
+>  	cpumask_or(&comp->affinity, &comp->affinity, &ris->affinity);
+>  	cpumask_or(&class->affinity, &class->affinity, &ris->affinity);
+>  	list_add_rcu(&ris->vmsc_list, &vmsc->ris);
+> +	list_add_rcu(&ris->msc_list, &msc->ris);
+>  
+>  	return 0;
+>  }
+> @@ -539,10 +618,37 @@ int mpam_ris_create(struct mpam_msc *msc, u8 ris_idx,
+>  	return err;
+>  }
+>  
+> +static struct mpam_msc_ris *mpam_get_or_create_ris(struct mpam_msc *msc,
+> +						   u8 ris_idx)
+> +{
+> +	int err;
+> +	struct mpam_msc_ris *ris, *found = ERR_PTR(-ENOENT);
+> +
+> +	lockdep_assert_held(&mpam_list_lock);
+> +
+> +	if (!test_bit(ris_idx, msc->ris_idxs)) {
+> +		err = mpam_ris_create_locked(msc, ris_idx, MPAM_CLASS_UNKNOWN,
+> +					     0, 0, GFP_ATOMIC);
+> +		if (err)
+> +			return ERR_PTR(err);
+> +	}
+> +
+> +	list_for_each_entry(ris, &msc->ris, msc_list) {
+> +		if (ris->ris_idx == ris_idx) {
+> +			found = ris;
+> +			break;
+> +		}
+> +	}
+> +
+> +	return found;
+> +}
+> +
+>  static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>  {
+>  	u64 idr;
+> -	int err;
+> +	u16 partid_max;
+> +	u8 ris_idx, pmg_max;
+> +	struct mpam_msc_ris *ris;
+>  
+>  	lockdep_assert_held(&msc->probe_lock);
+>  
+> @@ -551,14 +657,42 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>  	if ((idr & MPAMF_AIDR_ARCH_MAJOR_REV) != MPAM_ARCHITECTURE_V1) {
+>  		pr_err_once("%s does not match MPAM architecture v1.x\n",
+>  			    dev_name(&msc->pdev->dev));
+> -		err = -EIO;
+> -	} else {
+> -		msc->probed = true;
+> -		err = 0;
+> +		mutex_unlock(&msc->part_sel_lock);
+> +		return -EIO;
+>  	}
+> +
+> +	idr = mpam_msc_read_idr(msc);
+>  	mutex_unlock(&msc->part_sel_lock);
+> +	msc->ris_max = FIELD_GET(MPAMF_IDR_RIS_MAX, idr);
+> +
+> +	/* Use these values so partid/pmg always starts with a valid value */
+> +	msc->partid_max = FIELD_GET(MPAMF_IDR_PARTID_MAX, idr);
+> +	msc->pmg_max = FIELD_GET(MPAMF_IDR_PMG_MAX, idr);
+> +
+> +	for (ris_idx = 0; ris_idx <= msc->ris_max; ris_idx++) {
+> +		mutex_lock(&msc->part_sel_lock);
+> +		__mpam_part_sel(ris_idx, 0, msc);
+> +		idr = mpam_msc_read_idr(msc);
+> +		mutex_unlock(&msc->part_sel_lock);
+> +
+> +		partid_max = FIELD_GET(MPAMF_IDR_PARTID_MAX, idr);
+> +		pmg_max = FIELD_GET(MPAMF_IDR_PMG_MAX, idr);
+> +		msc->partid_max = min(msc->partid_max, partid_max);
+> +		msc->pmg_max = min(msc->pmg_max, pmg_max);
+> +
+> +		ris = mpam_get_or_create_ris(msc, ris_idx);
+> +		if (IS_ERR(ris))
+> +			return PTR_ERR(ris);
+> +	}
+>  
+> -	return err;
+> +	spin_lock(&partid_max_lock);
+> +	mpam_partid_max = min(mpam_partid_max, msc->partid_max);
+> +	mpam_pmg_max = min(mpam_pmg_max, msc->pmg_max);
+> +	spin_unlock(&partid_max_lock);
+> +
+> +	msc->probed = true;
+> +
+> +	return 0;
+>  }
+>  
+>  static int mpam_cpu_online(unsigned int cpu)
+> @@ -900,9 +1034,18 @@ static struct platform_driver mpam_msc_driver = {
+>  
+>  static void mpam_enable_once(void)
+>  {
+> +	/*
+> +	 * Once the cpuhp callbacks have been changed, mpam_partid_max can no
+> +	 * longer change.
+> +	 */
+> +	spin_lock(&partid_max_lock);
+> +	partid_max_published = true;
+> +	spin_unlock(&partid_max_lock);
+> +
+>  	mpam_register_cpuhp_callbacks(mpam_cpu_online, mpam_cpu_offline);
+>  
+> -	pr_info("MPAM enabled\n");
+> +	printk(KERN_INFO "MPAM enabled with %u partid and %u pmg\n",
+> +	       mpam_partid_max + 1, mpam_pmg_max + 1);
+>  }
+>  
+>  /*
+> @@ -972,4 +1115,5 @@ static int __init mpam_msc_driver_init(void)
+>  
+>  	return platform_driver_register(&mpam_msc_driver);
+>  }
+> +/* Must occur after arm64_mpam_register_cpus() from arch_initcall() */
+>  subsys_initcall(mpam_msc_driver_init);
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index a98cca08a2ef..a623f405ddd8 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -50,6 +50,8 @@ struct mpam_msc {
+>  	 */
+>  	struct mutex		probe_lock;
+>  	bool			probed;
+> +	u16			partid_max;
+> +	u8			pmg_max;
+>  	unsigned long		ris_idxs[128 / BITS_PER_LONG];
+>  	u32			ris_max;
+>  
+> @@ -148,6 +150,10 @@ struct mpam_msc_ris {
+>  extern struct srcu_struct mpam_srcu;
+>  extern struct list_head mpam_classes;
+>  
+> +/* System wide partid/pmg values */
+> +extern u16 mpam_partid_max;
+> +extern u8 mpam_pmg_max;
+> +
+>  /* Scheduled work callback to enable mpam once all MSC have been probed */
+>  void mpam_enable(struct work_struct *work);
+>  
+> diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
+> index 406a77be68cb..8af93794c7a2 100644
+> --- a/include/linux/arm_mpam.h
+> +++ b/include/linux/arm_mpam.h
+> @@ -39,4 +39,18 @@ static inline int acpi_mpam_count_msc(void) { return -EINVAL; }
+>  int mpam_ris_create(struct mpam_msc *msc, u8 ris_idx,
+>  		    enum mpam_class_types type, u8 class_id, int component_id);
+>  
+> +/**
+> + * mpam_register_requestor() - Register a requestor with the MPAM driver
+> + * @partid_max:		The maximum PARTID value the requestor can generate.
+> + * @pmg_max:		The maximum PMG value the requestor can generate.
+> + *
+> + * Registers a requestor with the MPAM driver to ensure the chosen system-wide
+> + * minimum PARTID and PMG values will allow the requestors features to be used.
+> + *
+> + * Returns an error if the registration is too late, and a larger PARTID/PMG
+> + * value has been advertised to user-space. In this case the requestor should
+> + * not use its MPAM features. Returns 0 on success.
+> + */
+> +int mpam_register_requestor(u16 partid_max, u8 pmg_max);
+> +
+>  #endif /* __LINUX_ARM_MPAM_H */
 
-- Patch 3: Wires the gpio-key for power button and related gpio controller.
+Thanks,
 
-- Patch 4: Adds DT node for WiFi.
-
-- Patch 5: Adds Bluetooth DT node.
-
-All comments and suggestions are welcome!
-
-Happy hacking!
-Ivan and Andrea
-
-
-CHANGES in V2:
-
---- DTS ---
-
-- bcm2712.dtsi: added a proper clocks node to the uarta serial
-  in order to replace the legacy clock-frequency property. As
-  a result, the following patch from the previous patchset
-  has been dropped since it's now useless:
-
-  "dt-bindings: serial: Add clock-frequency property as an alternative to clocks"
-
-
-Andrea della Porta (1):
-  dt-bindings: mmc: Add support for capabilities to Broadcom SDHCI
-    controller
-
-Ivan T. Ivanov (4):
-  arm64: dts: broadcom: bcm2712: Add pin controller nodes
-  arm64: dts: broadcom: bcm2712: Add one more GPIO node
-  arm64: dts: broadcom: bcm2712: Add second SDHCI controller node
-  arm64: dts: broadcom: bcm2712: Add UARTA controller node
-
- .../bindings/mmc/brcm,sdhci-brcmstb.yaml      |   2 +-
- .../dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts  | 133 ++++++++++++++++++
- arch/arm64/boot/dts/broadcom/bcm2712.dtsi     |  55 ++++++++
- 3 files changed, 189 insertions(+), 1 deletion(-)
-
--- 
-2.35.3
+Ben
 
 
