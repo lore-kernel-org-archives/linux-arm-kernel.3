@@ -4,74 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41E88CA0FF7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 18:39:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3022DC8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 18:39:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q7JaIyagrf5JVviam1SOhX4lrDrgcjZOjGrswLCcS44=; b=1bbMUxtS9Yrl5/gEMCzAsKfv/a
-	aOY9uWoPERLeaxc2K8g/0NCWeoScfm8hPrkd+WzPWGzwL5xXYxMKf8AXtMhRL6flnyf2IgKnLOzMi
-	qxIKE3zrGan6dUaWnyDvcHMt/dpoQbzSzwok+sy8FSfv/ROeCwZPQ1kgLF4CI1+Fib0UsrMDfCLlR
-	Ll1fVg3I2zjNqH1jyttVva0aJtf9t/b8WAEY+RbR3uruAGVGBq9ZulVmPqJ0SdkLNb1RHAfi1j3Qk
-	MO7nz0/P94hw7YZRlnQxNb+K25KQT7j3OnEws8qrinW/50aAwiUUmaXvzC80G5uDukC9M7DsilreJ
-	Sfp4TOlw==;
+	bh=Xp2dO5mheTuwtHp182VzDDZTc40Yx+Yp8/mY5wegE0Q=; b=nyzCEemHpcAxDAHorkqKqLwk3c
+	gAAyxNVzaTQLbjuEfQmP/WLriYXflOHThXQSPGyG1sZiV6s3KgBxl67PMWnMO1pDf4vOQ6u15SOPY
+	+2POnsSrLTyvN9Fp+YQfMUa37LCR7kC8XW7d1ugc8F7fHO7tzCqhjRk7+KhRJ3wOyr6t4XEdUkQnE
+	EWpVbZJuYEewhLOgPaxG4Ya/p9cBE5qTRJs/ldKs8hEMyOJBKAFIIs8MKlaI5n8JNmpbpy/yB7ZGV
+	QOsk+GUYN8h+sduc18dLsYEQMmnQVG0YfEmqYMXQNQdGCaBlKvQ3jsDHYd6riO+gywM0RWO9g9nJ7
+	OpMLcE4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urhWU-00000002oPR-1WeK;
-	Thu, 28 Aug 2025 18:38:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1urhWZ-00000002oWb-2FCS;
+	Thu, 28 Aug 2025 18:39:03 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urdaT-00000001uii-0iyJ
+	id 1urdpX-00000001xRf-2unq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 14:26:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DB28A4085E;
-	Thu, 28 Aug 2025 14:26:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60BB8C4CEF5;
-	Thu, 28 Aug 2025 14:26:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756391208;
-	bh=p5P8kAChBoN4WOlr76oijnY83blpFKG+JTaA6cgwwtY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=c7kEKCt2emu8+T6n7qTfSORifJVoKQh2kg28pFXSWr0eYZyb/w6+Pb4ykjBXYLmm9
-	 97jHgUVhwZWTzkgi/woAxVcFRSqNt76KPpYDjEo/EUHeq+X7Or7nKTgZZb078U0ARQ
-	 no/xsYpiTG0WZghM96EE7TUKcqUIvqG8ZqxE6LONBXzI1oEaB9ZSsCRi7YWonu52OK
-	 mYiGeIi4SmfWeptkTfY28Z5aL5e89Ptp3Wk4NECmiBSY/evwNnIG9qPCfRMJj6YBEZ
-	 6xmANqqFEBrWPu+TgH7qlb/qozJe2OIv7rCaHx2IOvLG89vU7gWDeCHQGwDqPHiGPU
-	 Ijmj0CkpirSdg==
-Date: Thu, 28 Aug 2025 17:26:39 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: "Roy, Patrick" <roypat@amazon.co.uk>
-Cc: "david@redhat.com" <david@redhat.com>,
-	"seanjc@google.com" <seanjc@google.com>,
-	"tabba@google.com" <tabba@google.com>,
-	"ackerleytng@google.com" <ackerleytng@google.com>,
-	"pbonzini@redhat.com" <pbonzini@redhat.com>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"will@kernel.org" <will@kernel.org>,
-	"vbabka@suse.cz" <vbabka@suse.cz>,
-	"Cali, Marco" <xmarcalx@amazon.co.uk>,
-	"Kalyazin, Nikita" <kalyazin@amazon.co.uk>,
-	"Thomson, Jack" <jackabt@amazon.co.uk>,
-	"Manwaring, Derek" <derekmn@amazon.com>
-Subject: Re: [PATCH v5 03/12] mm: introduce AS_NO_DIRECT_MAP
-Message-ID: <aLBnHwUN74ErKVjX@kernel.org>
-References: <20250828093902.2719-1-roypat@amazon.co.uk>
- <20250828093902.2719-4-roypat@amazon.co.uk>
+	Thu, 28 Aug 2025 14:42:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1756392143; x=1787928143;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=SMW3xNgf1e4fN0in0pQWb5Ft82SGZRFlvkKOyugEm/k=;
+  b=f++3ScZdWbGaP9xgj0R3xAiw9SL9sa4j2SzneEm0sxsP+Cf6m2J9vupM
+   XbgEDYM0Jdh5zh+W+dAthzZyBT0YfDOr9O3YaI6wixmI/kL8ZqU1IIXLp
+   Xjfu8QlViYxNROq3zdkXXbj1qhAFxIMXUDnlpZRohsAqtyaQtjdW388ct
+   ZJZ+lyiMU56W6lCQYDRVD3emHrZBgh1sTBNqwvHpMfea3sGrEHIcKkfm+
+   PST675G56xkIxmD0yej6zfJuADOhbNUOToBs+oMKmhMsWCpcpE1ovJI7c
+   hRwTO4QM6IT1+BIpcLaI0oMLnTvIXBVe1ALETFST6aXA2/uP9Mc7BVz7N
+   A==;
+X-CSE-ConnectionGUID: AHOCQjoYRWm7K6sVs8vadw==
+X-CSE-MsgGUID: dHtNMeTaR9qRIwfaFkyfdA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11536"; a="69256239"
+X-IronPort-AV: E=Sophos;i="6.18,217,1751266800"; 
+   d="scan'208";a="69256239"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Aug 2025 07:42:21 -0700
+X-CSE-ConnectionGUID: n5t3Q6rNRFaBlTLBg9DLDA==
+X-CSE-MsgGUID: RwZH5Jm1Rhi4vAmq71xDzQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,217,1751266800"; 
+   d="scan'208";a="170028872"
+Received: from fpallare-mobl4.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.245.135])
+  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Aug 2025 07:42:16 -0700
+Received: from kekkonen.localdomain (localhost [IPv6:::1])
+	by kekkonen.fi.intel.com (Postfix) with SMTP id 66BF811F9D4;
+	Thu, 28 Aug 2025 17:42:13 +0300 (EEST)
+Date: Thu, 28 Aug 2025 17:42:13 +0300
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Cosmin Tanislav <demonsingur@gmail.com>
+Cc: Cosmin Tanislav <cosmin.tanislav@analog.com>,
+	Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Niklas =?iso-8859-1?Q?S=F6derlund?= <niklas.soderlund@ragnatech.se>,
+	Julien Massot <julien.massot@collabora.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-staging@lists.linux.dev, linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v7 00/24] media: i2c: add Maxim GMSL2/3 serializer and
+ deserializer drivers
+Message-ID: <aLBqxQQsnY3ZK4eT@kekkonen.localdomain>
+References: <20250718152500.2656391-1-demonsingur@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250828093902.2719-4-roypat@amazon.co.uk>
+In-Reply-To: <20250718152500.2656391-1-demonsingur@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_072649_254279_C65FF8AE 
-X-CRM114-Status: GOOD (  26.40  )
+X-CRM114-CacheID: sfid-20250828_074223_776747_3A2115A0 
+X-CRM114-Status: GOOD (  16.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,102 +98,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 28, 2025 at 09:39:19AM +0000, Roy, Patrick wrote:
-> Add AS_NO_DIRECT_MAP for mappings where direct map entries of folios are
-> set to not present . Currently, mappings that match this description are
-> secretmem mappings (memfd_secret()). Later, some guest_memfd
-> configurations will also fall into this category.
-> 
-> Reject this new type of mappings in all locations that currently reject
-> secretmem mappings, on the assumption that if secretmem mappings are
-> rejected somewhere, it is precisely because of an inability to deal with
-> folios without direct map entries, and then make memfd_secret() use
-> AS_NO_DIRECT_MAP on its address_space to drop its special
-> vma_is_secretmem()/secretmem_mapping() checks.
-> 
-> This drops a optimization in gup_fast_folio_allowed() where
-> secretmem_mapping() was only called if CONFIG_SECRETMEM=y. secretmem is
-> enabled by default since commit b758fe6df50d ("mm/secretmem: make it on
-> by default"), so the secretmem check did not actually end up elided in
-> most cases anymore anyway.
-> 
-> Use a new flag instead of overloading AS_INACCESSIBLE (which is already
-> set by guest_memfd) because not all guest_memfd mappings will end up
-> being direct map removed (e.g. in pKVM setups, parts of guest_memfd that
-> can be mapped to userspace should also be GUP-able, and generally not
-> have restrictions on who can access it).
-> 
-> Signed-off-by: Patrick Roy <roypat@amazon.co.uk>
-> ---
->  include/linux/pagemap.h   | 16 ++++++++++++++++
->  include/linux/secretmem.h | 18 ------------------
->  lib/buildid.c             |  4 ++--
->  mm/gup.c                  | 14 +++-----------
->  mm/mlock.c                |  2 +-
->  mm/secretmem.c            |  6 +-----
->  6 files changed, 23 insertions(+), 37 deletions(-)
-> 
-> diff --git a/include/linux/secretmem.h b/include/linux/secretmem.h
-> index e918f96881f5..0ae1fb057b3d 100644
-> --- a/include/linux/secretmem.h
-> +++ b/include/linux/secretmem.h
-> @@ -4,28 +4,10 @@
->  
->  #ifdef CONFIG_SECRETMEM
->  
-> -extern const struct address_space_operations secretmem_aops;
+Hi Cosmin,
 
-Please also make secretmem_aops static in mm/secretmem.c
+On Fri, Jul 18, 2025 at 06:24:36PM +0300, Cosmin Tanislav wrote:
+> This series adds new drivers for multiple Maxim GMSL2 and GMSL3 devices,
+> replacing the few GMSL2 drivers already in upstream, and introducing a
+> common framework that can be used to implement such GMSL chips, which
+> avoids code duplication while also adding support for previously
+> unsupported features.
+> 
+> While the normally acceptable and polite way would be to extend the
+> current mainline drivers, the choice was made here to add a totally new
+> set of drivers. The current drivers support only a small subset of the
+> possible features, and only a few devices, so the end result after
+> extending them would in any case be essentially fully rewritten, new
+> drivers.
+> 
+> This series depends on support for internal pads, for which a patch has
+> been added.
 
-> -static inline bool secretmem_mapping(struct address_space *mapping)
-> -{
-> -	return mapping->a_ops == &secretmem_aops;
-> -}
-> -
-
-...
-
-> diff --git a/mm/gup.c b/mm/gup.c
-> index adffe663594d..8c988e076e5d 100644
-> --- a/mm/gup.c
-> +++ b/mm/gup.c
-> @@ -1234,7 +1234,7 @@ static int check_vma_flags(struct vm_area_struct *vma, unsigned long gup_flags)
->  	if ((gup_flags & FOLL_SPLIT_PMD) && is_vm_hugetlb_page(vma))
->  		return -EOPNOTSUPP;
->  
-> -	if (vma_is_secretmem(vma))
-> +	if (vma_is_no_direct_map(vma))
->  		return -EFAULT;
->  
->  	if (write) {
-> @@ -2751,7 +2751,6 @@ static bool gup_fast_folio_allowed(struct folio *folio, unsigned int flags)
->  {
->  	bool reject_file_backed = false;
->  	struct address_space *mapping;
-> -	bool check_secretmem = false;
->  	unsigned long mapping_flags;
->  
->  	/*
-> @@ -2763,14 +2762,6 @@ static bool gup_fast_folio_allowed(struct folio *folio, unsigned int flags)
->  		reject_file_backed = true;
->  
->  	/* We hold a folio reference, so we can safely access folio fields. */
-> -
-> -	/* secretmem folios are always order-0 folios. */
-> -	if (IS_ENABLED(CONFIG_SECRETMEM) && !folio_test_large(folio))
-> -		check_secretmem = true;
-> -
-> -	if (!reject_file_backed && !check_secretmem)
-> -		return true;
-> -
->  	if (WARN_ON_ONCE(folio_test_slab(folio)))
->  		return false;
-
-There's a check for hugetlb after this and a comment there mentions
-secretmem, please update that to "mapping with no direct map" or something
-like that.
+Could you provide v4l2-compliance -m, media-ctl -p as well as media-ctl
+--print-dot output on this device, please?
 
 -- 
-Sincerely yours,
-Mike.
+Kind regards,
+
+Sakari Ailus
 
