@@ -4,79 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F938CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 10:32:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B3B6CA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 10:35:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PgOiY/8TM3TVUl6GJF7nL449nJQfKgvLd+3cCT8JD6o=; b=xmQ9ANNssZKMbzNs2HZJ9l+STB
-	KvvKLBqeMRvpo7eKSR7S2D1iP/XJoxWoPhYU5V1AT9gUWPlEi5oV29FWelAlv8Km9zrJAIYJ8FGu9
-	svk0/xFxdNnD1C6pLHnvvTEgqS708fIVkbXQwfYzwebnS2BeXce2ECmVOX26vvNl3jP7vDBRDvIlF
-	Cle61+QGOtMsXRCY+I3hhou1mKFyX5VM08Dz8O3lG6GTK1fa1S2n/LUTjshaWWMkZeubTfSMQjyIV
-	PulZ2lZUz4lt6IsJexiq9I2vtWgrirjWkB4mI0abyEVlszbv3QT8dC9szEONNOl4jC2DJnagIOUZG
-	zMM1Qa3g==;
+	bh=wyXPxIc5vrvC+cHsH1MFxEItdsFpPZ5QBC/k0LeC0BU=; b=fSRwo1f7xW+vQm/yfQvuLRnDYF
+	88k/qAI58/rALpaabgna7eySyseFOpak9Fr57sp1vDEqaTtC0ZxUw+srRGPnDYCxm4B9MliREHXb2
+	5eYpWbasLrrhfjXnTH6J14Nbv2hiwtve0q8XW16S8+g/Xd0Vdp8X4cb4q1HTfqqXVX5GxsJslwuNa
+	NamEWvGI2X9nRuVfMdtq0wObVsVDUgzYXNy3WQXpBN9WfX3zN7FAfLADrui7KH7QH7F6mq3b2jT9N
+	4FXg7GT6sCdeC4+UB5rsTe2S+A5fFgeG2WYegpSsHGfBbs9q9alRC9+mdIYYWoMoB04GQJMj6kUQn
+	jtoQaGuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urZvN-00000001AQJ-2M7E;
-	Thu, 28 Aug 2025 10:32:09 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1urZy4-00000001B3d-1l18;
+	Thu, 28 Aug 2025 10:34:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urYv5-00000000xnR-01iK
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 09:27:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=PgOiY/8TM3TVUl6GJF7nL449nJQfKgvLd+3cCT8JD6o=; b=rECEJydgc7m8D9fDVfaSoNnCtY
-	Cvzwrz1a+X+uHqcgSXiGPBIr/ddNcuBSy8iW0m3ERG6Nwim6qN2to5wuTZcM7KH9W2fvjxl5dZK5q
-	pfNr70KoQQmHgAGweJd3ElGoczV94jzic3rfWFZkcUQHrZO8o3mlGqblzzBxx+6De/AbzRG+k/LM4
-	fxgM38u5ynrl2HQTDNifVxJECo1H1CBgMhfj6FoxcvQ24klFM63xabIQagT17IUb4938lM3ZIhEEX
-	EXmixQ/gPXiCsWXjlOwSi9bNPN5HrCdlU0vYdejEJln892uQKeEJCtbzlOq2HCh8K3saB0Pon/Y4/
-	kmSAU+HQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:42286)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1urYub-000000001Pu-1HpH;
-	Thu, 28 Aug 2025 10:27:17 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1urYuW-0000000031q-1yMo;
-	Thu, 28 Aug 2025 10:27:12 +0100
-Date: Thu, 28 Aug 2025 10:27:12 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Joy Zou <joy.zou@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, richardcochran@gmail.com, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, frieder.schrempf@kontron.de,
-	primoz.fiser@norik.com, othacehe@gnu.org,
-	Markus.Niebel@ew.tq-group.com, alexander.stein@ew.tq-group.com,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux@ew.tq-group.com, netdev@vger.kernel.org,
-	linux-pm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	Frank.Li@nxp.com
-Subject: Re: [PATCH v9 6/6] net: stmmac: imx: add i.MX91 support
-Message-ID: <aLAg8Lds-O_36aaN@shell.armlinux.org.uk>
-References: <20250825091223.1378137-1-joy.zou@nxp.com>
- <20250825091223.1378137-7-joy.zou@nxp.com>
+	id 1urYw7-00000000y1u-3v01;
+	Thu, 28 Aug 2025 09:28:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C754C443AE;
+	Thu, 28 Aug 2025 09:28:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2ECBFC4CEEB;
+	Thu, 28 Aug 2025 09:28:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1756373329;
+	bh=y8YnwcnSxBOTmOyoA65L96B1RKvSEtcKZ0A6OCYbckQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=itR4/JIfDU7uqrAWwxeNh0s9mmdmkznvYT3uyvfBV2KPNdM5qTCqjObIv4dnUZHac
+	 ZskNQxAdVWivgltri9cqI6IEyqXIpIkELFktXg78wPFx8NGA3kZvImaLzRvKzqvIKY
+	 zSOkrreyzUtIt5zvnHkmae0jVUd8BvQbwn1JJaV4=
+Date: Thu, 28 Aug 2025 11:28:46 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Miaoqian Lin <linmq006@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Grygorii Strashko <grygorii.strashko@ti.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] net: ethernet: ti: Prevent divide-by-zero in
+ cpts_calc_mult_shift()
+Message-ID: <2025082830-bobbing-confusing-14fc@gregkh>
+References: <20250828092224.46761-1-linmq006@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250825091223.1378137-7-joy.zou@nxp.com>
+In-Reply-To: <20250828092224.46761-1-linmq006@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_022747_042039_D5A18744 
-X-CRM114-Status: UNSURE (   8.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250828_022852_113043_EB66D35E 
+X-CRM114-Status: GOOD (  25.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,19 +77,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 25, 2025 at 05:12:23PM +0800, Joy Zou wrote:
-> @@ -310,6 +311,7 @@ imx_dwmac_parse_dt(struct imx_priv_data *dwmac, struct device *dev)
->  	}
+On Thu, Aug 28, 2025 at 05:22:23PM +0800, Miaoqian Lin wrote:
+> cpts_calc_mult_shift() has a potential divide-by-zero in this line:
+> 
+>         do_div(maxsec, freq);
+> 
+> due to the fact that clk_get_rate() can return zero in certain error
+> conditions.
+> Add an explicit check to fix this.
+> 
+> Fixes: 88f0f0b0bebf ("net: ethernet: ti: cpts: calc mult and shift from refclk freq")
+> Signed-off-by: Miaoqian Lin <linmq006@gmail.com>
+> ---
+> This follows the same pattern as the fix in commit 7ca59947b5fc
+> ("pwm: mediatek: Prevent divide-by-zero in pwm_mediatek_config()").
+> ---
+>  drivers/net/ethernet/ti/cpts.c | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/drivers/net/ethernet/ti/cpts.c b/drivers/net/ethernet/ti/cpts.c
+> index 2ba4c8795d60..e4e3409e7648 100644
+> --- a/drivers/net/ethernet/ti/cpts.c
+> +++ b/drivers/net/ethernet/ti/cpts.c
+> @@ -607,6 +607,8 @@ static void cpts_calc_mult_shift(struct cpts *cpts)
+>  	u32 freq;
 >  
->  	if (of_machine_is_compatible("fsl,imx8mp") ||
-> +	    of_machine_is_compatible("fsl,imx91") ||
->  	    of_machine_is_compatible("fsl,imx93")) {
->  		/* Binding doc describes the propety:
->  		 * is required by i.MX8MP, i.MX93.
+>  	freq = clk_get_rate(cpts->refclk);
+> +	if (!freq)
+> +		return;
+>  
+>  	/* Calc the maximum number of seconds which we can run before
+>  	 * wrapping around.
+> -- 
+> 2.39.5 (Apple Git-154)
+> 
 
-Doesn't this comment need updating?
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Hi,
+
+This is the friendly patch-bot of Greg Kroah-Hartman.  You have sent him
+a patch that has triggered this response.  He used to manually respond
+to these common problems, but in order to save his sanity (he kept
+writing the same thing over and over, yet to different people), I was
+created.  Hopefully you will not take offence and will fix the problem
+in your patch and resubmit it so that it can be accepted into the Linux
+kernel tree.
+
+You are receiving this message because of the following common error(s)
+as indicated below:
+
+- You have marked a patch with a "Fixes:" tag for a commit that is in an
+  older released kernel, yet you do not have a cc: stable line in the
+  signed-off-by area at all, which means that the patch will not be
+  applied to any older kernel releases.  To properly fix this, please
+  follow the documented rules in the
+  Documentation/process/stable-kernel-rules.rst file for how to resolve
+  this.
+
+If you wish to discuss this problem further, or you have questions about
+how to resolve this issue, please feel free to respond to this email and
+Greg will reply once he has dug out from the pending patches received
+from other developers.
+
+thanks,
+
+greg k-h's patch email bot
 
