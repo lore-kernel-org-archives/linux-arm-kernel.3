@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEF2ECA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 17:24:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4A0ACA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 17:24:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ed6L8eMIvW0AbHtn3XR+t7FYjsouaycVZOPUWpXRCik=; b=uPFO3NtwQIDhQbwaRGt24HXMh2
-	D37XnIcj35sZFFYJl9vizcGv9CpFAt66mlgk3scIYg6ljGLsRCdYlUxCwl/IgOXM+LYeX6bqHKlQm
-	ZiL3LKP5hV++0ppk+3ERUyJ4IKXx1Vg6caaypSB1SfAAlpuDbL598S+My0Q3js5xG2kHMwhxc+o6a
-	WYTN9GtQn+23zqGKxe1cnFhl1hZww+URrRPxPl+sSvAH6iT92dE5+putV5WUiuL9z3l9293/VSTjp
-	pVkoDX8OQ08kufQtW8jkG+2bopJ1uLeKNshWGOj9VMSMufCg7bHlCfX6smBcOWFRiIdyGF6Eg/XgR
-	RVrAeJWg==;
+	bh=JH0s9yKloivepHo0VkuQk79EV0GNYwLeAdz+CShJbJE=; b=F5DZN6wsA34Hi90ObS8PQuP69c
+	hr594asRNn20HeYKhwLuV11N5mQ/+UhDhBvukdGOLUss72dPZ7wPr3H/dCq790ow3jfdFoDMXQ2gL
+	uneA4Kueq92czaK1qMGvjReosIGQwYxLyNH2pAU+AdHv6wQmVOwxyW/tkQkMiEaEyAUcm5J+6xfq0
+	jHQeZIS275m+scwl8yzhKDO2porndpfWKw65hvRgASLqInYH0mg1IZA6/eaDCVvWk711OFOQ7MyHh
+	kxc7NS1SLZt0zE8GM5IUb5mCwU2FXqhNeBbsgwBF273CnY7J/P0suGQiRy1JSh3o0K/2x6dzk1A4w
+	lR5bPJIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urgM4-00000002QZS-1oVu;
-	Thu, 28 Aug 2025 17:24:08 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1urgM6-00000002QdE-35M9;
+	Thu, 28 Aug 2025 17:24:10 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urbSZ-00000001T2c-3Tou
+	id 1urbSo-00000001T80-3vAE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 12:10:32 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57SAE6Wx007255
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 12:10:31 GMT
+	Thu, 28 Aug 2025 12:10:48 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57S6Be94030242
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 12:10:46 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	ed6L8eMIvW0AbHtn3XR+t7FYjsouaycVZOPUWpXRCik=; b=X6SlWyIht6MY+2gP
-	qkxTu5ixJm3zsW11mJocaFzzjYBQdC+f/n27GVbArjDiLhkqOKQdYSO4a/Jmjdfw
-	OODYV/YUs2rVylt1xpCErJEtfCa0pjBtsGlxh0QQ+Q448Une9VaKo2zaUW2r8ZM/
-	cR4aOZyuv6NJXhGSBQ7ZOW3tPpcnTfrTP2VZDjv9HSFnCsZtQ38ZUp9FSGGUyqXv
-	EYQvKLvK+MZTET2y6J+cC7ImGdCHCHCOMlvpawYyol/FJvcrmMY7tRS+ZjrpszBe
-	eVptmnBLGpTj9i7XlQJIj5YcxOaCf5uILR2aZCwXz4lqKWTYXM78ikmMqy+0OwS+
-	olqXTQ==
-Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48tn67ga3u-1
+	JH0s9yKloivepHo0VkuQk79EV0GNYwLeAdz+CShJbJE=; b=YFL6eLAnQBNb+9ji
+	gr8NtTF3af7ZhnHWqNHsuqr6nH0oARxi4/mF0MLythSKjNyUY0JY3FUlU0iiRZ5Y
+	UHo8IbeddO+J0HbiQ2wxQXbWXFvX11dYQ4n2cSGXZ8b37k1M68mrGoL7KHKr7O0o
+	LMMWhUHzh9wINrtNTnbw/7xDK7ENia3z+DWC9oxCKY4BJodnYKsvqdpDjDMX6Zqb
+	E5u+0qtkfggWm+j+/NBQ9m3Rrci0MFVu6Vg4C4Rrp3/92SxWahU9xTF7XiGx18xm
+	TUihd40F15zf7/aX7a9UOR9BW33l0k5qEdannLyTfTQy1qCrdYqFNLPLsUJp1eIz
+	Hg0tiA==
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48q5unyyk8-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 12:10:31 +0000 (GMT)
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-b49de40e845so720214a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 05:10:31 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 12:10:45 +0000 (GMT)
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-3235e45b815so1088601a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 05:10:45 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756383030; x=1756987830;
+        d=1e100.net; s=20230601; t=1756383045; x=1756987845;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ed6L8eMIvW0AbHtn3XR+t7FYjsouaycVZOPUWpXRCik=;
-        b=MP1RxSG6OZDNzIjdp7P1AIkC6yyur3qXRgxRWVxJqOX45temq0xogJ3D80p/o+UCT3
-         dCLwQwp8uhNj3uVIroLYqS/mWdF+BPQdE7nXMxD+jviIududKhzQgrh3tI8QfJ0QYvhW
-         SBqxvagiT3bClA4E+OSnoZqChgZICpyPIRJkUL/rbk+gerhyXJEGHhAEtyigtckM9mb3
-         7/ofqrvM8r9H2WxWbH/u5F5jrso2mB5CmRMuCetjwbHScL9/6DAs/9cp81hDZU9jb5Fy
-         61oEw3ItlAgwbc0YPfUJjlfiq/1+ZgwZtruljWai8qGjcDCN9KNTvywUjkLjwJ1FJz9T
-         RozQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXw9Ku0pvoifmKznL9XPO0KJ+IrbZjrqQ/mN0eAQWfTK1SmrshQSa3vYT/8rBdpdBpSUfeUhxs8iQ7aLxy/PoAl@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLp85kg526iVrCM8guf913r28HQfnx42fF+Y9g44tkjE0b/PMB
-	kaA6DpCrSHo46Hex6BI4sAII15hmTL9wQBJOsUoUfV+kic7hhot7/zUu14gLPsLqDF4RyKmXv0L
-	7Oa8EwC2072Ag0ijhxbm8YTezSxuiHhKF1GALx0VotBjm+n1p9RcqJbZp/dbooEk4xX6SZ7OOTU
-	fXKg==
-X-Gm-Gg: ASbGncuA6tnkxc+aihfWBktdjB2sJEKD6ewFKeZdkQ7QkfccGqbgCmHEYM8L/pa+5of
-	rldDFkHFfRquOEwg4Yqlv2UX9DG2tMNY0QGY1WKRGNGd0NeuZI50NDvrIw+QDiUaXDD5/ll/2kQ
-	k6avMm7D+jIJgg07SR8JNzcJmQy3wtAkzpbaI8ts5qaBieHXJlj/x/l/IBLjkhz7H9MmvAPiJse
-	HE0z7WFGOwlHICscPM2MwJfGh2iiFO5pg006DSJsWPNhlNyyNS8poIM5gshw0nLPOR3zUX8Gt2Q
-	78E7EjZlIbs+pAs0fj72VnCtEh13EJ/ZTjm8XvOpqyYCJECI2cUor7BY4pWR250rNzYlPWRQvQ0
+        bh=JH0s9yKloivepHo0VkuQk79EV0GNYwLeAdz+CShJbJE=;
+        b=lpMOWMrmy6AXapVEtC4MuX9mK5yKvnkNP5p+ZXMnheCycpETVq9QU0XL2ZlWpEAie3
+         W/cCXWKmrkgL/e4MIqZM07kWgNBXLH/MDBDsl/MTBmC/E2YSki9HqFx1kct/LhZ8Kt0k
+         q8UsQ9pkPRCqClF5xi9Ap2NzQTy/ye9qkaFabNHYWWGY2VAqAWq4dDhvjfKaQIDff5dO
+         sb2/9rbNxRLk8mnxOnPteGVIzO8wZRDzVRqEwvjoO1JHZDGiK1sq2egJpAZVWYdSUkc/
+         S06e8FNziMdZ5YvoSRncyVxDtYhBIW45It6b3yGdicJ/vzKAYmyPAHh6d39mnY5SMUJh
+         m5sw==
+X-Forwarded-Encrypted: i=1; AJvYcCVHjWb7F02G/mRsYfGAk9SZHsv2xQZBgztlAx4BOa65qgsOolbDJdKLwHp98SMzE7xe3/CGsg8aQLKTFctKoCzY@lists.infradead.org
+X-Gm-Message-State: AOJu0YzB1+VsYLNPMOraFcY4mjXbu8z9Vx3HoH0W2UK7vfKaf+o3YMS6
+	p9QKVDlh5H4cwhOi/FETvJrjIXD9QH05DJMgm8GuOO6eVGddPzE1VOF+uTS7SNjW90G5ENeRHWl
+	tFtUmkXgQC9ZTp3uBvgfrtfgOQhX25cdtRyMSQf6xxwnq5ukk5T71EGcfQO9t+DgAwSRd55GVCj
+	jMeQ==
+X-Gm-Gg: ASbGnctu6nZ/o+h4ajAE8Z5T5Lu7hORfo6jIroRE9qSoU8DCLczVZQEBkh5AoZHOBzJ
+	zCl8rDxzfcLuBML9z9NbnhqQcRG7SNVEDyvf1RUnX33QXH0xO3+AvAopnPvohDo/GT6q1/5ctY0
+	95nkSoZv0lGDqGRkQc9ssSH/sCFB5yrIv8dTv/Lw65usgD/J472kAskS12ww/K42doUBUyLiGTC
+	uFVVrAtbGh2hssAwu/0On1L8mFrxMvj1QMzXXqltgHYs2FjxAnGUHTBZtubxJb8FxbD7jcGC4tw
+	R6aAUiOCAuDMuW2c54uCqDPHNLhxHg0GbXMWvNrqrTRRuPUf66anNn0ChVZKkEsuytbynu2USRM
 	=
-X-Received: by 2002:a17:90b:1f85:b0:327:c0c6:8829 with SMTP id 98e67ed59e1d1-327c0c68a2emr1602898a91.24.1756383030483;
-        Thu, 28 Aug 2025 05:10:30 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHLqn7GbKDipnvW7wO7xyl/z3nxMSZZtjcarpD2Fv56UXUJZ4TTQws5DQWp7lRiXQXSlA/Unw==
-X-Received: by 2002:a17:90b:1f85:b0:327:c0c6:8829 with SMTP id 98e67ed59e1d1-327c0c68a2emr1602844a91.24.1756383029911;
-        Thu, 28 Aug 2025 05:10:29 -0700 (PDT)
+X-Received: by 2002:a17:90b:3f87:b0:325:55cd:9fd2 with SMTP id 98e67ed59e1d1-32555cda0a5mr25083451a91.20.1756383044326;
+        Thu, 28 Aug 2025 05:10:44 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHh+FZuvrtHdatmZz9NFDOZX4EQHu2edGUNAKaj+LzwOmKyiYcPAJDdxI13V2Rm1b4wPERPWw==
+X-Received: by 2002:a17:90b:3f87:b0:325:55cd:9fd2 with SMTP id 98e67ed59e1d1-32555cda0a5mr25083377a91.20.1756383043588;
+        Thu, 28 Aug 2025 05:10:43 -0700 (PDT)
 Received: from hu-krichai-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32741503367sm4019070a91.0.2025.08.28.05.10.23
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32741503367sm4019070a91.0.2025.08.28.05.10.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Aug 2025 05:10:29 -0700 (PDT)
+        Thu, 28 Aug 2025 05:10:43 -0700 (PDT)
 From: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Date: Thu, 28 Aug 2025 17:39:01 +0530
-Subject: [PATCH v6 4/9] PCI: dwc: Add host_start_link() & host_start_link()
- hooks for dwc glue drivers
+Date: Thu, 28 Aug 2025 17:39:03 +0530
+Subject: [PATCH v6 6/9] PCI: qcom: Add support for host_stop_link() &
+ host_start_link()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250828-qps615_v4_1-v6-4-985f90a7dd03@oss.qualcomm.com>
+Message-Id: <20250828-qps615_v4_1-v6-6-985f90a7dd03@oss.qualcomm.com>
 References: <20250828-qps615_v4_1-v6-0-985f90a7dd03@oss.qualcomm.com>
 In-Reply-To: <20250828-qps615_v4_1-v6-0-985f90a7dd03@oss.qualcomm.com>
 To: Bjorn Helgaas <bhelgaas@google.com>,
@@ -111,37 +111,37 @@ Cc: quic_vbadigan@quicnic.com, amitk@kernel.org, linux-pci@vger.kernel.org,
         Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
         Dmitry Baryshkov <lumag@kernel.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756382994; l=1587;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1756382994; l=2834;
  i=krishna.chundru@oss.qualcomm.com; s=20230907; h=from:subject:message-id;
- bh=gJyZo4+y70cAtQtM0l94BcRRIWPsTYGyCPIEqvg0Um4=;
- b=m3Z83ZVY0UwHl+oGtMxjjvp8Cwj8Qi1oKlZ+0jAtkA1r8ZOAULJQJy/HJIbx09SyD/w0CwAm2
- oQLd0oEZ6nmACuGRfvCySXEqKHoqu3pc4HcgTAkcz87/6u3scmYEyk8
+ bh=JLQioafU2Ha99tn/qTONrjpmtaS25D1YyPb7oDSQVMk=;
+ b=3DLBa9Wbs2xtxAeBnSSZORHDlNgEkMWEmLEKsGR45JfGAYrdxo+fhjGG2bBtb8588SB4Y5YZO
+ 4i8Je/MeHLkDoxHV9YbpJJiY9H4K1KT7rOrj+Eb0UGwJkdPegzEFR43
 X-Developer-Key: i=krishna.chundru@oss.qualcomm.com; a=ed25519;
  pk=10CL2pdAKFyzyOHbfSWHCD0X0my7CXxj8gJScmn1FAg=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODI4MDA4NSBTYWx0ZWRfX+pcEIGcKJOe8
- 74kSMXUQfwEFGNz7uvEmxH+4yoA+uH7qd/y+eFqDZ2EXmOdJPjPYsqgxx1ytnOs0J6lT0+9/lLB
- ajIT2iWmdUjBvVxi2IfQpgKpgY3MX/rnETC7NbJjZjRZKeMumNq8hxkwn6UYfAAGbCE8CHQuzwU
- FWdAbv/d6SRD/d+Q7Iq3txUpaFWMTc2lBY0rYdOK6P54rlNjGpN+rF16FgxtEpSpJaDenqE/OJ7
- crEXP5rgUvPi4uWFQ3/WMET1t4ppRICIAFU/0TbsslTQszwkfCGCEHU27Wtk/Iu0M2czeIqrNTH
- Auceg4TxHgYVx+k9lAWT853q0602hkPuiT498ywcYkUtt4+ZW4TTRsPWzG6dRNQFG8Hqyh+7hg5
- AQLxtsbq
-X-Proofpoint-GUID: iH1lf-GD9Jj0kbLpRk4D4IhwKSiTTYq7
-X-Proofpoint-ORIG-GUID: iH1lf-GD9Jj0kbLpRk4D4IhwKSiTTYq7
-X-Authority-Analysis: v=2.4 cv=P7c6hjAu c=1 sm=1 tr=0 ts=68b04737 cx=c_pps
- a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=EUspDBNiAAAA:8 a=Py5lcOcq67Lbq8UMOfUA:9
- a=QEXdDO2ut3YA:10 a=_Vgx9l1VpLgwpw_dHYaR:22
+X-Proofpoint-GUID: Z6Iksi7yeKNT6xi6hS6AnYwfyW9UqYdK
+X-Proofpoint-ORIG-GUID: Z6Iksi7yeKNT6xi6hS6AnYwfyW9UqYdK
+X-Authority-Analysis: v=2.4 cv=JJo7s9Kb c=1 sm=1 tr=0 ts=68b04746 cx=c_pps
+ a=vVfyC5vLCtgYJKYeQD43oA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=EUspDBNiAAAA:8 a=dstPO7x8LWyc_yWpthkA:9
+ a=QEXdDO2ut3YA:10 a=rl5im9kqc5Lf4LNbBjHf:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDAzMSBTYWx0ZWRfXxHVBEcuGtZVY
+ NInPcGqacs+KExA0eTFYKYoRwIFoVI+TpbrTdrYT4Ma3tDoA2yC69fPtwivGOEB3XL2aH/F24GE
+ 9XPIuqJJxtHLsab9YpgruNPM5QmlyE82zzPakOZcTkEB3IF89GzxV7h93BzfKlYv2T0lSWCHQfZ
+ AU2d+V1m3Es43z05m5vstAUm0cl8NpOEoyg/LPZjGeJ/ve9+3wrYr8VBsxeIXohK8M44y+Fs6zr
+ 1ZvkHbXQHQNHLu4elas9IO4YTWLfkS0yLaZdbU0Q4YKHHYoeSK42IjV6itsuWKz+bVl/Rrsw6+g
+ sNdv7bOQpe4ZyAyeY/8NL1Zq6CGNHV669h33QxAjYOUBlfekcy68wBCdq2UVkz4+1rD72PpeprO
+ 9uIrCwW5
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-08-28_03,2025-08-28_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 bulkscore=0 clxscore=1011 impostorscore=0 priorityscore=1501
- adultscore=0 phishscore=0 malwarescore=0 spamscore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2508280085
+ phishscore=0 adultscore=0 bulkscore=0 spamscore=0 impostorscore=0
+ malwarescore=0 clxscore=1015 priorityscore=1501 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508230031
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_051031_881366_506BC9EA 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20250828_051047_102203_2D9F4070 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,49 +156,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add host_start_link() and host_stop_link() functions to dwc glue drivers to
-register with start_link() and stop_link() of pci ops, allowing for better
-control over the link initialization and shutdown process.
+Add support for host_stop_link() and host_start_link() for switches like
+TC956x, which require configuration before the PCIe link is established.
+
+Assert PERST# and disable LTSSM bit to prevent the PCIe controller from
+participating in link training during host_stop_link(). De-assert PERST#
+and enable LTSSM bit during host_start_link().
+
+Introduce ltssm_disable function op to stop link training.
+For the switches like TC956x, which needs to configure it before
+the PCIe link is established.
 
 Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
 ---
- drivers/pci/controller/dwc/pcie-designware.h | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ drivers/pci/controller/dwc/pcie-qcom.c | 35 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 35 insertions(+)
 
-diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
-index 00f52d472dcdd794013a865ad6c4c7cc251edb48..1ed7a75501bd516ef704035a63e5edd35bd7e0bd 100644
---- a/drivers/pci/controller/dwc/pcie-designware.h
-+++ b/drivers/pci/controller/dwc/pcie-designware.h
-@@ -479,6 +479,8 @@ struct dw_pcie_ops {
- 	enum dw_pcie_ltssm (*get_ltssm)(struct dw_pcie *pcie);
- 	int	(*start_link)(struct dw_pcie *pcie);
- 	void	(*stop_link)(struct dw_pcie *pcie);
-+	int	(*host_start_link)(struct dw_pcie *pcie);
-+	void	(*host_stop_link)(struct dw_pcie *pcie);
+diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
+index 294babe1816e4d0c2b2343fe22d89af72afcd6cd..8ec76fbc0787ae305e9c63eb82fbc999d197a123 100644
+--- a/drivers/pci/controller/dwc/pcie-qcom.c
++++ b/drivers/pci/controller/dwc/pcie-qcom.c
+@@ -250,6 +250,7 @@ struct qcom_pcie_ops {
+ 	void (*host_post_init)(struct qcom_pcie *pcie);
+ 	void (*deinit)(struct qcom_pcie *pcie);
+ 	void (*ltssm_enable)(struct qcom_pcie *pcie);
++	void (*ltssm_disable)(struct qcom_pcie *pcie);
+ 	int (*config_sid)(struct qcom_pcie *pcie);
  };
  
- struct debugfs_info {
-@@ -738,6 +740,20 @@ static inline void dw_pcie_stop_link(struct dw_pcie *pci)
- 		pci->ops->stop_link(pci);
+@@ -642,6 +643,37 @@ static int qcom_pcie_post_init_1_0_0(struct qcom_pcie *pcie)
+ 	return 0;
  }
  
-+static inline int dw_pcie_host_start_link(struct dw_pcie *pci)
++static int qcom_pcie_host_start_link(struct dw_pcie *pci)
 +{
-+	if (pci->ops && pci->ops->host_start_link)
-+		return pci->ops->host_start_link(pci);
++	struct qcom_pcie *pcie = to_qcom_pcie(pci);
++
++	qcom_ep_reset_deassert(pcie);
++
++	if (pcie->cfg->ops->ltssm_enable)
++		pcie->cfg->ops->ltssm_enable(pcie);
 +
 +	return 0;
 +}
 +
-+static inline void dw_pcie_host_stop_link(struct dw_pcie *pci)
++static void qcom_pcie_host_stop_link(struct dw_pcie *pci)
 +{
-+	if (pci->ops && pci->ops->host_stop_link)
-+		pci->ops->host_stop_link(pci);
++	struct qcom_pcie *pcie = to_qcom_pcie(pci);
++
++	qcom_ep_reset_assert(pcie);
++
++	if (pcie->cfg->ops->ltssm_disable)
++		pcie->cfg->ops->ltssm_disable(pcie);
 +}
 +
- static inline enum dw_pcie_ltssm dw_pcie_get_ltssm(struct dw_pcie *pci)
++static void qcom_pcie_2_3_2_ltssm_disable(struct qcom_pcie *pcie)
++{
++	u32 val;
++
++	val = readl(pcie->parf + PARF_LTSSM);
++	val &= ~LTSSM_EN;
++	writel(val, pcie->parf + PARF_LTSSM);
++}
++
+ static void qcom_pcie_2_3_2_ltssm_enable(struct qcom_pcie *pcie)
  {
  	u32 val;
+@@ -1435,6 +1467,7 @@ static const struct qcom_pcie_ops ops_1_9_0 = {
+ 	.host_post_init = qcom_pcie_host_post_init_2_7_0,
+ 	.deinit = qcom_pcie_deinit_2_7_0,
+ 	.ltssm_enable = qcom_pcie_2_3_2_ltssm_enable,
++	.ltssm_disable = qcom_pcie_2_3_2_ltssm_disable,
+ 	.config_sid = qcom_pcie_config_sid_1_9_0,
+ };
+ 
+@@ -1506,6 +1539,8 @@ static const struct qcom_pcie_cfg cfg_fw_managed = {
+ static const struct dw_pcie_ops dw_pcie_ops = {
+ 	.link_up = qcom_pcie_link_up,
+ 	.start_link = qcom_pcie_start_link,
++	.host_start_link = qcom_pcie_host_start_link,
++	.host_stop_link = qcom_pcie_host_stop_link,
+ };
+ 
+ static int qcom_pcie_icc_init(struct qcom_pcie *pcie)
 
 -- 
 2.34.1
