@@ -4,144 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87EC0C8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 08:22:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DDF3CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 08:25:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vY1V0UwZ8s0vX29+NR8gyAX4j41CCT/In5zMDAylqeI=; b=ncHVOOEohDN4waYCyqORfTK+KL
-	mDJY9bhOLiav0mklHwAnSMH9wSVZK6KvgSoQ3rKr5iT32N1XfrDjxHwZjzoG8YYbLfgIKhebt9kYf
-	h34ktSuMkxvxn9O4PbBl3lkx6RP7acqm0+iEjdSXVciSfir5pUYYBDy4F4Q+TLCF9DnK7G/8CwnSB
-	WCIkUgC/X/JIh4M9aqwPMGKa5gp5i5PdHLjBoNp6+m1vSx06kKodPlx3ysOGxc3AiXA8IW8oMP2RB
-	24lakTKluzX2AZWZw64KQGYbSWCv+ydx1/PLEWTXZq1MGRJF4B4XvVBehncP79sQA7Hg3xQE4mjPn
-	z0Q6srMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DDvtHRzQtU3kCixyIjuOCQ09hTrFj2+oewMln+u6hX4=; b=KXbcjmxTGBG8P7lG/enkWExlYY
+	xuwgcWHzMsHV9AsYlL2PeaORGGmQpz1Rltcu8Mx0j0X00/iP2KlplOx/6NitZL41MzBzOhJUPueF3
+	/mY5hHv+bt7uoAbcFnueqPOWetCD4g03aUNM99/xHH5xdO4nbdL5YByJXBeZJGk4JaSeX1fXukByQ
+	Ppeas51NA/Pj62/CatTE3454DYkMsQiInIfisR+pOE37sEgvDNyx3JU/0HTwelfvjxFrXeVc1uWVN
+	lYa0n+zNV/c9Cl1Gq286Dp1e3DvN5fmzHHcOmhH4aAApt8Ia45sT0tHaSk/RiO7GvJc2ClRUfGOBi
+	f5/qKeAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urXu1-00000000mSi-23Ki;
-	Thu, 28 Aug 2025 08:22:37 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1urXwi-00000000moC-1UNN;
+	Thu, 28 Aug 2025 08:25:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urXdm-00000000ipp-2z3X
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 08:05:52 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57S6g4Ll030476
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 08:05:48 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	vY1V0UwZ8s0vX29+NR8gyAX4j41CCT/In5zMDAylqeI=; b=bqBtRgNbYkRka2Fq
-	k0XVKjGHYQc6rqp3e06EaJvNitZZhwSCeMMVubZ8hX2LttTGNC4njobZ08q57XgD
-	fU8PozMPtE2b4qsd8xrju+oJSHPFr6zS+fIkzAR8feiTdvbVDXedEmvwEnhEbDPm
-	WCHWAAqxW9v0/UZOgN9umCLP9nyZ5mKP4sxfInch8BHQOLATGE24bLkk8zTOHzn2
-	CSObKgF2FCzRLUhSvk+OI5ZYlWnDdqI9upCRMs3Lj0ZIsD4gAQ7qzq7IevdRFl7U
-	LxN0bacd5fG176iVasZ1o3wLkUMwAo4OgXC8tHKV7e4ESHfO1MLBsfjpjvw1kPsp
-	lCOUaQ==
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48q5uny95m-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 08:05:48 +0000 (GMT)
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-771b23c0a6bso1244917b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 01:05:48 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756368347; x=1756973147;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=vY1V0UwZ8s0vX29+NR8gyAX4j41CCT/In5zMDAylqeI=;
-        b=J4hqyPxbGyq1IJI/1EO+qzJHwklzzYWa484VSO7Mh4VUz7QVz3l8h05N0GWuEvnr18
-         4wCMHJ4JKsMsZiW5OublhkUMuiQn8tYnAvzwp+Hcj7s0OSvgfNv7ha9ecb7fWhu3BWFf
-         DxETX1KQHaMG7dWB7gL5fopLtCaEktCyupPjiDQ+XBiJGfdMsVl/6peBxBq5PVrQr0zw
-         M+oluzMNrC00vd0RdAg7MvaFMCNvPco+/LsohwE3BOatNuoIqEiuXStteMi7LQmHzpi/
-         ezEq+PfGnW0Qy19DrNF8bngqWeNlL6IreZRrMnWZ+ygOFWvAyxs0ZS18S7UcjkNVyvqZ
-         9TvQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXa+N0l1ycV5bFNxZk1V6F08aHt3Sw2DCy61yPcUrF4wzzBbHnGHxrWW7jhN5GF3JIgD1+SuN8JvvXOWdk3DfT8@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy7hWHJs+3RNvpF10gFbEbTpkzByfQPn/xHmXR5Uek1NKbGtBDf
-	DUcLuw8mXB2QPnleBk7UspZYqy9ZPg4Rzsr7/YXhzlGAi/JgcjfVfmJOLGPWFgfElWn7Y759LTZ
-	kLW8itBfDz2IdgvMs6ggMLNtDDnrOARQw7iqwzUUm7R+z+geIX1fxgna6X7kwmnI3GEG5tTQlNa
-	vFtQ==
-X-Gm-Gg: ASbGncs9BUJApq4nRUn6ZTwbBAyM+eUZESZYAV1r+FHEFkmoAwODY6wQoEp+yiYTsfC
-	IDFTmPk6bqw1jsjYU2nGpy81aXyyi/LTdKEfjy4ZJs7CLdh6uYtJKRE8/SMLoaHU7tFBa3Zc2yW
-	LV/TVmRhdcKFPpyefoje7PMobRUq7Nkz8XFkgLdOjFafwZRAE9OOBT17JQhCjgQOP7vVKkT8dRP
-	kP31A4is14YRpYmH3vicFN235753KawWJFVGZahbj/XKJEyMWBoHXyxXFdcSjHU8cui9u4R3unu
-	dZIEp3gndU0BtMKS8WeI6jg7cyRtAZ+gNvA/5IrSxipuW2Q0XwYMpgxBH8eVPESOVrI9LPp3Ett
-	TeM2s5x/+
-X-Received: by 2002:a05:6a20:6a28:b0:23f:fec8:9ab0 with SMTP id adf61e73a8af0-24340b59c44mr32754327637.25.1756368347066;
-        Thu, 28 Aug 2025 01:05:47 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHyRlqZnSkO2dMdTgeoV1jxASU3ZmYnT0g0dq+toleinjjWrSpO9LT86flFSlKz/iy9C2rMrw==
-X-Received: by 2002:a05:6a20:6a28:b0:23f:fec8:9ab0 with SMTP id adf61e73a8af0-24340b59c44mr32754293637.25.1756368346509;
-        Thu, 28 Aug 2025 01:05:46 -0700 (PDT)
-Received: from [10.151.37.217] ([202.46.23.19])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-327ab0f20c7sm1600294a91.26.2025.08.28.01.05.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 28 Aug 2025 01:05:45 -0700 (PDT)
-Message-ID: <b08aa8f4-7283-40d5-9f5e-ed8697f882a9@oss.qualcomm.com>
-Date: Thu, 28 Aug 2025 13:35:35 +0530
+	id 1urXeI-00000000iwO-2tvI;
+	Thu, 28 Aug 2025 08:06:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 62110417C0;
+	Thu, 28 Aug 2025 08:06:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04174C4CEEB;
+	Thu, 28 Aug 2025 08:06:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756368382;
+	bh=8h3kXegWoTZB71c0/EOwOGHCDp9sWcsK0sA1Fhv8ieM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=vBGjtF+Gn0Ojo1KVedpXcUo5UNPKTP/e/wulKW1x/vz4AZ2m1wZ6thc/Lps+xlQF6
+	 DwTPlbi9e+FvV8tPla4md0hJavNfKkFh5xzuaITPDW7oEVPRJuMnRQWVL0KaIZNEg4
+	 4T8RWZ0Rh3tP7DQ1cUFf+tX54SzZArEKNTK8B97r3LwqCLB/OYDUdoSALNtM9+F5Dv
+	 KS7BJVC9pXBz7unzWbhSWZxMJ+vW4HayoOqIpbx1GOFj1iYowGmGtL7JMjJ/av8GLW
+	 NBVH9qH0fuKVNbHUV4tP2RMgGBJTXgbSoYrIDxxmnUwirlVFE2Z9r3rXRQTzilPCUm
+	 zB6/THzmytDdA==
+Date: Thu, 28 Aug 2025 11:06:07 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: David Hildenbrand <david@redhat.com>
+Cc: linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Brendan Jackman <jackmanb@google.com>,
+	Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>,
+	Dmitry Vyukov <dvyukov@google.com>, dri-devel@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org, iommu@lists.linux.dev,
+	io-uring@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com,
+	kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org, linux-ide@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Marco Elver <elver@google.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+	netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
+	Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
+	Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
+	virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
+	wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
+Subject: Re: [PATCH v1 13/36] mm/hugetlb: cleanup
+ hugetlb_folio_init_tail_vmemmap()
+Message-ID: <aLAN7xS4WQsN6Hpm@kernel.org>
+References: <20250827220141.262669-1-david@redhat.com>
+ <20250827220141.262669-14-david@redhat.com>
+ <aLADXP89cp6hAq0q@kernel.org>
+ <377449bd-3c06-4a09-8647-e41354e64b30@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 00/10] Implement vendor resets for PSCI SYSTEM_RESET2
-To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
-        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Sudeep Holla <sudeep.holla@arm.com>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Arnd Bergmann <arnd@arndb.de>, Konrad Dybcio <konradybcio@kernel.org>,
-        cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Stephen Boyd <swboyd@chromium.org>,
-        Andre Draszik
- <andre.draszik@linaro.org>, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        Elliot Berman <quic_eberman@quicinc.com>,
-        Srinivas Kandagatla <srini@kernel.org>,
-        Elliot Berman <elliot.berman@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-References: <20250815-arm-psci-system_reset2-vendor-reboots-v14-0-37d29f59ac9a@oss.qualcomm.com>
-Content-Language: en-US
-From: Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>
-In-Reply-To: <20250815-arm-psci-system_reset2-vendor-reboots-v14-0-37d29f59ac9a@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: Wsgb0urSVBkFlm8Ay-Ej8yY3l5x65e1t
-X-Proofpoint-ORIG-GUID: Wsgb0urSVBkFlm8Ay-Ej8yY3l5x65e1t
-X-Authority-Analysis: v=2.4 cv=JJo7s9Kb c=1 sm=1 tr=0 ts=68b00ddc cx=c_pps
- a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
- a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8
- a=EUspDBNiAAAA:8 a=YvEvsVr50XASBo1Q0dIA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=zc0IvFSfCIW2DFIPzwfm:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDAzMSBTYWx0ZWRfXz25+k9JvMLST
- pxDLnafX2p7Nr+WsoERsLavIdN+Qe30tSCuk6894oMLmug2ywujrBRHnHgNol7s1YeZI9S4Csum
- LvagckSehbQ2jrxusnbdjRx8O8nh39k2vx71ffx6HRLgIsqQDSHzrpL2pP8RXY+6kITdu/bg2uD
- uQbHltCMjy7bBPfahhjWlYyXmCIRXgzTev7O/Mqed1yE3bHYpto71tpiSZaCZcy19xC6boDH/q4
- ezmrv4if/5VWpnYK36YEx0kGrTeA9wc9tZc6eOrf73oTSs0EubOXqV5YreE3UudC23Rr2SZAlf2
- +dhAaHqEvq3TrQCdpixH3f9aCOY4/Y1/EoeFI03GZNfBOnxb1+yMSlwg/aLScaoWdqSg/T6V67o
- dMKi82Jn
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-28_02,2025-08-28_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 adultscore=0 bulkscore=0 spamscore=0 impostorscore=0
- malwarescore=0 clxscore=1011 priorityscore=1501 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508230031
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <377449bd-3c06-4a09-8647-e41354e64b30@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_010550_874480_39DCFE2B 
-X-CRM114-Status: GOOD (  33.57  )
+X-CRM114-CacheID: sfid-20250828_010622_775032_C588C00E 
+X-CRM114-Status: GOOD (  30.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,149 +98,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Aug 28, 2025 at 09:44:27AM +0200, David Hildenbrand wrote:
+> On 28.08.25 09:21, Mike Rapoport wrote:
+> > On Thu, Aug 28, 2025 at 12:01:17AM +0200, David Hildenbrand wrote:
+> > > We can now safely iterate over all pages in a folio, so no need for the
+> > > pfn_to_page().
+> > > 
+> > > Also, as we already force the refcount in __init_single_page() to 1,
+> > > we can just set the refcount to 0 and avoid page_ref_freeze() +
+> > > VM_BUG_ON. Likely, in the future, we would just want to tell
+> > > __init_single_page() to which value to initialize the refcount.
+> > > 
+> > > Further, adjust the comments to highlight that we are dealing with an
+> > > open-coded prep_compound_page() variant, and add another comment explaining
+> > > why we really need the __init_single_page() only on the tail pages.
+> > > 
+> > > Note that the current code was likely problematic, but we never ran into
+> > > it: prep_compound_tail() would have been called with an offset that might
+> > > exceed a memory section, and prep_compound_tail() would have simply
+> > > added that offset to the page pointer -- which would not have done the
+> > > right thing on sparsemem without vmemmap.
+> > > 
+> > > Signed-off-by: David Hildenbrand <david@redhat.com>
+> > > ---
+> > >   mm/hugetlb.c | 20 ++++++++++++--------
+> > >   1 file changed, 12 insertions(+), 8 deletions(-)
+> > > 
+> > > diff --git a/mm/hugetlb.c b/mm/hugetlb.c
+> > > index 4a97e4f14c0dc..1f42186a85ea4 100644
+> > > --- a/mm/hugetlb.c
+> > > +++ b/mm/hugetlb.c
+> > > @@ -3237,17 +3237,18 @@ static void __init hugetlb_folio_init_tail_vmemmap(struct folio *folio,
+> > >   {
+> > >   	enum zone_type zone = zone_idx(folio_zone(folio));
+> > >   	int nid = folio_nid(folio);
+> > > +	struct page *page = folio_page(folio, start_page_number);
+> > >   	unsigned long head_pfn = folio_pfn(folio);
+> > >   	unsigned long pfn, end_pfn = head_pfn + end_page_number;
+> > > -	int ret;
+> > > -
+> > > -	for (pfn = head_pfn + start_page_number; pfn < end_pfn; pfn++) {
+> > > -		struct page *page = pfn_to_page(pfn);
+> > > +	/*
+> > > +	 * We mark all tail pages with memblock_reserved_mark_noinit(),
+> > > +	 * so these pages are completely uninitialized.
+> > 
+> >                               ^ not? ;-)
+> 
+> Can you elaborate?
 
-On 8/15/2025 8:05 PM, Shivendra Pratap wrote:
-> The PSCI SYSTEM_RESET2 call allows vendor firmware to define
-> additional reset types which could be mapped to the reboot
-> argument.
->
-> User-space should be able to reboot a device into different
-> operational boot-states supported by underlying bootloader and
-> firmware. Generally, some HW registers need to be written, based
-> on which the bootloader and firmware decide the next boot state
-> of device, after the reset. For example, a requirement on
-> Qualcomm platforms may state that reboot with "bootloader"
-> command, should reboot the device into bootloader flashing mode
-> and reboot with “edl” command, should reboot the device into an
-> Emergency flashing mode.  Setting up such reboots on Qualcomm
-> devices can be inconsistent across SoC platforms and may require
-> setting different HW registers, where some of these registers may
-> not be accessible to HLOS. These knobs evolve over product
-> generations and require more drivers.  PSCI defines a
-> vendor-specific reset in SYSTEM_RESET2 spec, which enables the
-> firmware to take care of underlying setting for any such
-> supported vendor-specific reboot. Qualcomm firmwares are
-> beginning to support and expose PSCI SYSTEM_RESET2
-> vendor-specific reset types to simplify driver requirements from
-> Linux. With such support added in the firmware, we now need a
-> Linux interface which can make use of the firmware calls for PSCI
-> vendor-specific resets. This will align such reboot requirement
-> across platforms and vendors.
->
-> The current psci driver supports two types of resets –
-> SYSTEM_RESET2 Arch warm-reset and SYSTEM_RESET cold-reset. The
-> patchset introduces the PSCI SYSTEM_RESET2 vendor-specific reset
-> into the reset path of the psci driver and aligns it to work with
-> reboot system call - LINUX_REBOOT_CMD_RESTART2, when used along
-> with a supported string-based command in “*arg”.
->
-> The patchset uses reboot-mode based commands, to define the
-> supported vendor reset-types commands in psci device tree node
-> and registers these commands with the reboot-mode framework.
->
-> The PSCI vendor-specific reset takes two arguments, being,
-> reset_type and cookie as defined by the spec. To accommodate this
-> requirement, enhance the reboot-mode framework to support two
-> 32-bit arguments by switching to 64-bit magic values.
->
-> Along this line, the patchset also extends the reboot-mode
-> framework to add a non-device-based registration function, which
-> will allow drivers to register using device tree node, while
-> keeping backward compatibility for existing users of reboot-mode.
-> This will enable psci driver to register for reboot-mode and
-> implement a write function, which will save the magic and then
-> use it in psci reset path to make a vendor-specific reset call
-> into the firmware. In addition, the patchset will expose a sysfs
-> entry interface within reboot-mode which can be used by userspace
-> to view the supported reboot-mode commands.
->
-> The list of vendor-specific reset commands remains open due to
-> divergent requirements across vendors, but this can be
-> streamlined and standardized through dedicated device tree
-> bindings.
->
-> Currently three drivers register with reboot-mode framework -
-> syscon-reboot-mode, nvmem-reboot-mode and qcom-pon. Consolidated
-> list of commands currently added across various vendor DTs:
->   mode-loader
->   mode-normal
->   mode-bootloader
->   mode-charge
->   mode-fastboot
->   mode-reboot-ab-update
->   mode-recovery
->   mode-rescue
->   mode-shutdown-thermal
->   mode-shutdown-thermal-battery
->
-> On gs101 we also pass kernel-generated modes from kernel_restart()
-> or panic(), specifically DM verity's 'dm-verity device corrupted':
-> 	mode-dm-verity-device-corrupted = <0x50>;
->
-> - thanks Andre' for providing this.
->
-> Detailed list of commands being used by syscon-reboot-mode:
->      arm64/boot/dts/exynos/exynosautov9.dtsi:
-> 	mode-bootloader = <EXYNOSAUTOV9_BOOT_BOOTLOADER>;
-> 	mode-fastboot = <EXYNOSAUTOV9_BOOT_FASTBOOT>;
-> 	mode-recovery = <EXYNOSAUTOV9_BOOT_RECOVERY>;
->
->      arm64/boot/dts/exynos/google/gs101.dtsi:
->      	mode-bootloader = <0xfc>;
->      	mode-charge = <0x0a>;
->      	mode-fastboot = <0xfa>;
->      	mode-reboot-ab-update = <0x52>;
->      	mode-recovery = <0xff>;
->      	mode-rescue = <0xf9>;
->      	mode-shutdown-thermal = <0x51>;
->      	mode-shutdown-thermal-battery = <0x51>;
->
->      arm64/boot/dts/hisilicon/hi3660-hikey960.dts:
->      	mode-normal = <0x77665501>;
->      	mode-bootloader = <0x77665500>;
->      	mode-recovery = <0x77665502>;
->
->      arm64/boot/dts/hisilicon/hi6220-hikey.dts:
->      	mode-normal = <0x77665501>;
->      	mode-bootloader = <0x77665500>;
->      	mode-recovery = <0x77665502>;
->
->      arm64/boot/dts/rockchip/px30.dtsi:
->      	mode-bootloader = <BOOT_BL_DOWNLOAD>;
->      	mode-fastboot = <BOOT_FASTBOOT>;
->      	mode-loader = <BOOT_BL_DOWNLOAD>;
->      	mode-normal = <BOOT_NORMAL>;
->      	mode-recovery = <BOOT_RECOVERY>;
->
->      arm64/boot/dts/rockchip/rk3308.dtsi:
->      	mode-bootloader = <BOOT_BL_DOWNLOAD>;
->      	mode-loader = <BOOT_BL_DOWNLOAD>;
->      	mode-normal = <BOOT_NORMAL>;
->      	mode-recovery = <BOOT_RECOVERY>;
->      	mode-fastboot = <BOOT_FASTBOOT>;
->
->      arm64/boot/dts/rockchip/rk3566-lckfb-tspi.dts:
->      	mode-normal = <BOOT_NORMAL>;
->      	mode-loader = <BOOT_BL_DOWNLOAD>;
-> 			mode-recovery = <BOOT_RECOVERY>;
-> 			mode-bootloader = <BOOT_FASTBOOT>;
->
-> Detailed list of commands being used by nvmem-reboot-mode:
->      arm64/boot/dts/qcom/pmXXXX.dtsi:(multiple qcom DTs)
-> 			mode-recovery = <0x01>;
-> 			mode-bootloader = <0x02>;
->
-> Previous discussions around SYSTEM_RESET2:
-> -https://lore.kernel.org/lkml/20230724223057.1208122-2-quic_eberman@quicinc.com/T/
-> -https://lore.kernel.org/all/4a679542-b48d-7e11-f33a-63535a5c68cb@quicinc.com/
->
-> Signed-off-by: Elliot Berman<quic_eberman@quicinc.com>
-> Signed-off-by: Shivendra Pratap<shivendra.pratap@oss.qualcomm.com>
+Oh, sorry, I misread "uninitialized".
+Still, I'd phrase it as 
 
+	/*
+	 * We marked all tail pages with memblock_reserved_mark_noinit(),
+	 * so we must initialize them here.
+	 */
 
-With this series, 'edl' mode is working fine in QCOM's IPQ5424 SoC. So
+> -- 
+> Cheers
+> 
+> David / dhildenb
+> 
 
-Tested-by: Kathiravan Thirumoorthy 
-<kathiravan.thirumoorthy@oss.qualcomm.com> # IPQ5424-RDP466
-
+-- 
+Sincerely yours,
+Mike.
 
