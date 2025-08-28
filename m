@@ -4,167 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AD8DCA0FF7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 17:23:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67266CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 17:23:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
 	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AeXWX5I7yX5TZi5lwwm7rQa4l5Y7m+x+zhJ9GQ0TtrQ=; b=K1BFaQxN8IYv9DZ1L4+tPlt4E3
-	LTJ9EziVnfP+EO7BHzkaQJeVT2QW7dEN92iz/motJqSg1VT2yLnoAlJjuEggsJkBXsfYGHGVk8MCB
-	RAGLLb8pBtB++TSvZng0VHvwcQ8Q4j5Y5yFeLMaHB1LGoEjf5oXNK5unlNwvuHtasVnoHvhxE61sX
-	meUWostSOolds4SX0eYDk1AKWq1L0wlFnfuaLld3A7igLvgYUza4Yj95R2NiriAeMPsBLHY6kCokO
-	TuNQv7N0tG7Dn/lsxz1vNwsKcGbI4aFXi54CawbrbDLhLyQ8P1BMhgL3Ad6sCVG7msqAfHAf6R4tW
-	Uvdad1rQ==;
+	bh=sdWOYL/FyKxTdFBRCQdkZNhYX2tEzCuy9z6eoSmxPXU=; b=cWboAMgD0QGsAJggyPHTqbQeUU
+	b86lJQHPWt0LacGekz494VdbtTLXzbLav4MI8LU5c9OPAFdTScpOi0GGIOWLFTAfs9ygvTDXU4byO
+	p3TkzsL2JmigVgD2KuG0qWOHprx240HnhGPRSqJ1o1uE5h5NBgJOEzSz5JajUE9Gw3nDI55tCPkKc
+	tkfwDg5DmBgJ0/kQlSl3Du2wswRGRBk5MsmM7sw5xloOfyvvZyS7UcGKyQ/PhxoCPhx+raeJVzcFQ
+	c2gIfkOARURi/p7wy0OEZfhYSeahycPJZlM42XQarfpmNtma0lLlopbAOR7qp0wwgQfRSajfQZUbG
+	Ux3KSjJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urgLd-00000002PvK-2ySi;
-	Thu, 28 Aug 2025 17:23:41 +0000
-Received: from mail-vi1eur05on20701.outbound.protection.outlook.com ([2a01:111:f403:2613::701] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1urgLg-00000002PyZ-0Nwd;
+	Thu, 28 Aug 2025 17:23:44 +0000
+Received: from mail-vi1eur05on20706.outbound.protection.outlook.com ([2a01:111:f403:2613::706] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urb2Y-00000001Nxn-0k58
+	id 1urbAE-00000001P1U-1jBv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 11:43:39 +0000
+	Thu, 28 Aug 2025 11:51:36 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TfFtcOdMxWPnSFxBgKUQuIvHU0nEu9a8sXPx3yHJKA9ymwYnIKaNIpsLrkzi69Ct56vSWDl7XrdDrjtrhlh2JrjJ3cxaU/B4hl9IRLl3teC+2FsmrQET0x0eonhyVW8prNul2CLsDMbthoPp5E7wAq+C/FABItqVM5r1lS4XiI4QHIwm/HoLVRXuWJr5D80mTmCYulS1vb2n8taexOlvyj8ihla4fow/Pmtms+OkScVgZn5MkPzQsSeQJpPqzuByN6xDxmG4KcFQzpw9Mjd99Ij1bE7LV5WO29zvK02MDPg/PgaQ6cg8zff9oZ/07N4Xmu2giemO9fCgLYPBPzIVjQ==
+ b=WGJi781cjGpIocCfMRivLUd3W8gGOuqwh09lmk8M9cFp4OAqaj6Yj5WSDNSCEE0daiheLENvIBOn0oxYiU0uBH10473IFXgcLBuRlGW0qeFalc2WcfKpHxlyLYB6ahDliY90LY7OhzlHmK+FZzds0MVdkkPg908GswAKzM6RNwjpvD7Qr8KcfIAtraHqtq10M9SyujBoZLed1lQDOC7uXNRgp7eo5equ7YwAismouC9rMyVdB2AUb5mbFWhL9ZzhZ2ar9Xi2Zge2SHLyhtidJ53QIYz/0eiTtbbzt8pXRd0N1lvyu6CkqxnnDKPh4T7A+c4OytaUTouMDkg5FtO3+g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AeXWX5I7yX5TZi5lwwm7rQa4l5Y7m+x+zhJ9GQ0TtrQ=;
- b=O0l3XOcds0X7wT3Ria9fUqUjCXGKem7vsxa99BGSesGl7KJd5kR6qbKeLsKvDok13KfiEUBZMT49Hx7mIWz2H6+UW+PCFoLa2dDHa933LQBABD1DUZGxpHemrgx9P6ErTEqUT2NVJCEqKqrkpgaBfHd+nW8937pFxO6zipPhbgF+3YajMoEQQp1mvNgRMqLjqhJ2MHJbNN1RFzlvvktAgYJZQzSOLDysxL037ciuP7RRE9ucsK6S7yed4fp/qHSGn41YqSgbRfZ69Ss5wgt+7mWIwCOxP5IiC8Hi3UpnDyAZijUfTuVe7Fj0jeJFJ2a15dECQdbP8JC9Zu0zEIoNkA==
+ bh=sdWOYL/FyKxTdFBRCQdkZNhYX2tEzCuy9z6eoSmxPXU=;
+ b=Ns7paH2Bz26vyIHwIoNObMsIqFtsTIEfV01xCJauFgz1xtsaU3dgYsMo/qD+dIIXv+gNkoSjE0KssO/qFV0OclEenPoAPuTs/IDCWtd3V61x2DgbaF7lRzPq7BZEOAqb3wPx9DNHON4Qs2Aq+FnLdxiSX+KLio97P4drMGOM72AA7rpaz/7984o1y9clVziV1Z8q/5JdIkFI/WUrCiC5INh3R/3psML40ji5tongIg1LSglBoaDk3Ymw+3LEUlwIyj/DZNMi2C84U5QagT5gFBv8EmslNwWwvc7/oaAFUiZ9GBB3YkKcPGoNa7loyBKBq76LBKhteUFEjKPsix+xfg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
  dkim=pass header.d=phytec.de; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AeXWX5I7yX5TZi5lwwm7rQa4l5Y7m+x+zhJ9GQ0TtrQ=;
- b=E55KFruPyxKsWPvZg2qPHI0MdkplEw8qH7pcPyohMqyf8yXKdzpz0j671oQIvH6btN6wdFUAzr3X6y43PxiV4Mnx2Y71vBnUByOgW6shtNbiKhDuxgHcZhYKrN+i/OfFTn5ZxdJapozo8/DuuKJsa3KgoA+uJC0Bl+WOv8fbm8DNvrw8w/eo7GcbOnNpiXD84qXDc0r0LUk44mayN11aoCgYipwF4ITFkrnOKKQlYtwsa9xifp3Lj8iBVhAREF6dh/8NHCncobQRjfDt2m8bvUffXLFTriN9Doy31TQ1nRJh23OeYTJ64EoYrHP0qTTfuFwtmQV2q0BfduZo/myw2A==
+ bh=sdWOYL/FyKxTdFBRCQdkZNhYX2tEzCuy9z6eoSmxPXU=;
+ b=eN8ahzb8ErL7+mpP9wMPcvXVk/bnuaQmshpq6tQ/5wWahTBC3mNSIoKkzt9Ao2gGR1MN7NEcsZdkvKYFOgTr3TReOdEdOgN2Yqx/ic2IQVsz3Zy/9LWTB836TYL9uUVJ2p+McuLV92bVrYMg4+9wOFdSQ25ihN9IB4bd/2FCzEYGNLLiaQnGZQNCHIaiEK5eRAfgEwz2batGSy3Zw7uj6Zr9sf3SKv8rZvSbnv7xkr1u3SRFNAcu8jbePzUYb8d75PdFy65GitjbL7Q9Htvdb+BSgoJbpjWpnsCVSRzBKlYGESbUIL8T7dq0H7hc9j3nXFXJDNwGMkupbPus7tdxtA==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=phytec.de;
 Received: from AS4P195MB1456.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:4b3::21)
- by GVXP195MB2483.EURP195.PROD.OUTLOOK.COM (2603:10a6:150:1b5::14) with
+ by DB9P195MB1682.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:392::9) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.14; Thu, 28 Aug
- 2025 11:43:28 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.16; Thu, 28 Aug
+ 2025 11:51:30 +0000
 Received: from AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
  ([fe80::369c:a760:5bf9:8d4a]) by AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
  ([fe80::369c:a760:5bf9:8d4a%7]) with mapi id 15.20.9073.016; Thu, 28 Aug 2025
- 11:43:27 +0000
-Message-ID: <10fd09c8-3dca-4e26-8e0d-330cf1301d05@phytec.de>
-Date: Thu, 28 Aug 2025 14:43:24 +0300
+ 11:51:30 +0000
+Message-ID: <d838653c-618b-4778-bf2c-9517a80b7631@phytec.de>
+Date: Thu, 28 Aug 2025 14:51:27 +0300
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 06/33] arm64: dts: ti: k3-am62: Enable remote
- processors at board level
+Subject: Re: [PATCH v2 30/33] arm64: dts: ti: k3-am62-ti-ipc-firmware:
+ Refactor IPC cfg into new dtsi
 To: Beleswar Padhi <b-padhi@ti.com>, nm@ti.com, vigneshr@ti.com,
  kristo@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
 Cc: afd@ti.com, u-kumar1@ti.com, hnagalla@ti.com, jm@ti.com,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
 References: <20250823160901.2177841-1-b-padhi@ti.com>
- <20250823160901.2177841-7-b-padhi@ti.com>
+ <20250823160901.2177841-31-b-padhi@ti.com>
 From: Wadim Egorov <w.egorov@phytec.de>
 Content-Language: en-US
-In-Reply-To: <20250823160901.2177841-7-b-padhi@ti.com>
+In-Reply-To: <20250823160901.2177841-31-b-padhi@ti.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: VI1PR10CA0111.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:803:28::40) To AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
+X-ClientProxiedBy: VI1PR07CA0238.eurprd07.prod.outlook.com
+ (2603:10a6:802:58::41) To AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
  (2603:10a6:20b:4b3::21)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4P195MB1456:EE_|GVXP195MB2483:EE_
-X-MS-Office365-Filtering-Correlation-Id: 689db382-f235-40c4-574c-08dde6281a57
+X-MS-TrafficTypeDiagnostic: AS4P195MB1456:EE_|DB9P195MB1682:EE_
+X-MS-Office365-Filtering-Correlation-Id: 735bd34b-488d-4e38-0481-08dde6293a75
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?aWRQU0crWVhFa3VQckFscDY4dGxYaHlvenJUb1ZkUXZITTY0eFg0T2hjcHY4?=
- =?utf-8?B?dG1IYUZhOUpVSWRxTUNZRXZRQko4djJIMTJwRU5Zcjl6ZWZ1RVFsS1Bva2Fu?=
- =?utf-8?B?dU1JVVNORTdHanUwT01ES2VXM2JBUnU0cGVtdGppa2R5eHhZR1dRQkNPRWZ6?=
- =?utf-8?B?TU1pSElyQ0hPcXpUYkx6SDcyOVdpL2ZmSDFZVHM0TytReWVZcHlJZG5LdmRC?=
- =?utf-8?B?WFkxd3Y0UGM5RFNPb2JaVjVtSnA2T2p5QkJMbEV1aEhjY25ZQzB4aVJxVHlk?=
- =?utf-8?B?Q3RuK3JQOXlucUZhQk5XV0kyeU92R0dKcnk1V3RyR28zWUtyRjVIbG5kVlgr?=
- =?utf-8?B?Y1FxV0lUUnlBT0M0aUpnUXVRL0xRMno2Rk9sWEE3Tkc5a1NyZHJtV1A3dS9T?=
- =?utf-8?B?WnJuVjVZUkI2MDM3em43UXhLcnRicG8vaVhxUHhFSTE0SEpQUlhNMzYrWXN6?=
- =?utf-8?B?Z2JuMEt5Y2hDS1RaUWExYUdtS0lYOEZnZnhNY2l0dmFDTnBSUDB6WDBUb0p1?=
- =?utf-8?B?RnBBaEVpd0lRc3RWc1dySUQ5Zjg3S1VVeFdzdVdBWFI2bExHeC9qSDlmc2tu?=
- =?utf-8?B?Ukd5bFd4dDRjTVFUakVQekNXTUpTSm9XdGloSnFuTlhyYzRJcko1eXNCRC9l?=
- =?utf-8?B?TzR0TXdubjZLQVlGSjF5MnNWZlJXUTIxcXhCRnZ1MFlxb05SSk5aWFVqbThS?=
- =?utf-8?B?dE56SHg1Y2RzdDVxUkI1ZFdNdlFqaXlLa0hwSlUyMHJJRGI4ZEhhRUw4REU0?=
- =?utf-8?B?cktRUEFsa0FiaUpkd1Vpbm9Ed1l2V3NVY1ZBTnhCcUw2SENrNG9uNEhBVFdI?=
- =?utf-8?B?eG4vNFVzSTQxZnFHL1pjeTJPNkZwZ2s4N3pBbGk3VytPVHNMREU4RjVjTnZI?=
- =?utf-8?B?MmJueFMzd2NJQlFOM0J4K2ZqNnJQS0pqWitBbEdMc1NYUDhrcnB3MmgyaTFi?=
- =?utf-8?B?ck12d3hPcjYwZlpkdTl0WVBDSjgxWlczWUpVNlQwZ3djcFJnNzM2dXA4T3FE?=
- =?utf-8?B?NUxPVzJ1QWNTTGRXdmJieEJPdkJyKzc3M0lSWWU4bGg4Nyt1M0U2SXhHNjJJ?=
- =?utf-8?B?M0RwNUhFaklqU2N6UGFNenR3WEtXSDJCMmtnVEFKVWpOcjgzN0FydkxBVEtB?=
- =?utf-8?B?Uys0b3JPQ3pCcVBVbzRlMVJHNHFQK2E2a1F0cHJ4M1dzUXU0ckdDVXl1YTZT?=
- =?utf-8?B?S3E2VXRkREtLclpRejMwOVNCVVJVNnVoa0VxTnZsaXg3QXRKcGVrRjNWd2pn?=
- =?utf-8?B?Zmt3RFU2ZFRVWGhnRjhERXR1aC9tR1J5VC83M3hpS05jYXRaV09iZFFqL2xP?=
- =?utf-8?B?VVBXWGdNSmQ4VXFkbTJ0NWUwRXMwSVRxZHQ0bFpqL0YrRHdYWlVreWt2UVZB?=
- =?utf-8?B?WG1mWnZ1YzdPWGlFdHRSdEtRQmd6c29DL2dTSnB1NWZpUDhMNHM3cy9Yc3k2?=
- =?utf-8?B?TVN5RUtIbm1xdUhoQ1FnSCtnbkV0TFRCZmp1anB2cWlGQ2swZjRqNjYxcE1y?=
- =?utf-8?B?Vi9oaWhNT1F1YVo2MmI0YnV6SDlYTGNpRjEwL0taOStPUDlaWEYzWTliZVFR?=
- =?utf-8?B?SFRtUWtDeFpwUTFyRkk2SWhkVEtja1VMcmdXT0p2bUZjWXlGbURLbi9xNSsv?=
- =?utf-8?B?bENTV1FoYk1aTnJFek1XWnhpMWhBUkh5QzRZVDZyU3JvNlBIK3ZzSmh4RExQ?=
- =?utf-8?B?aEtha0Y4ckZ4VFdHSGl1Ump5MU5PRWhRWUh0dG8rbFVDVERyTE83VFRRTFJK?=
- =?utf-8?B?QUgvbXQ1UFpXTStrL28zWHZmUHBmcGhjWStqMnE5aFlKN1pWVTFDWmk5ZzQr?=
- =?utf-8?B?UTAxLzE5Q1BqdmowNjNUNVBlTllWZW1GYXZicmZJS1BRbnBZTldldS9nZDF4?=
- =?utf-8?B?elBtdkI4ZUNNVnJkeVhPa01sbUdLb0N4QUpOSEJkdUVPc1VWYjVXTVNxdFJQ?=
- =?utf-8?Q?3xgsZE4kqrc=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4P195MB1456.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(7053199007);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bHQ4cVpTV1JzeWoyKzNRY0tBY3FZMlRYY0ZKcnlaeVBIM3JFNFJkcGRTcXdm?=
+ =?utf-8?B?Z1pHcFNXVEhXTHRXUEdrYVRtYnA3cDRsMU92eXFtS2xlSVE1RmlmcDVWSmo3?=
+ =?utf-8?B?QURIaytGRDZ0dGVsaWFjL0RrRnpKY0R5Z0lBNUVYZkdKTHVuOHRwSXhWLzBM?=
+ =?utf-8?B?NlIzdENESVJXempqMVdNNmNUUjFhb3dJUUZTc1ZhZzdNVEVEU1JKVjRkNHZ4?=
+ =?utf-8?B?Nkxrc0tkVDFMRDkwTXZnT01DS1lXak1OOXJCOWRNdUhuS201cWVLakp4MzBn?=
+ =?utf-8?B?aUxXY2I1dzA2UXpSUDZhME9HVUtYMEwzWVQ4eWFyZTdqQ0ZLZFNNT2NyUERi?=
+ =?utf-8?B?ZWVwUGdWYUNSNyt0Vkw2dWVVazJsMXNTZ0NLSzNNUDA4ODlEa2VIblRkMEdp?=
+ =?utf-8?B?OXAvd0hJbTRkVjNjQ2pVQXFiaDgwUUtCY3hMYm5rcHNEeGxWcUZiTTA2WUIr?=
+ =?utf-8?B?MGZpaXVKZW5YRXRnV2hyTjFjQjRvMEdFYktCTlh3TGg3UEtNMGh0UWNyMTl2?=
+ =?utf-8?B?dkhVQ0l5NWVKaWFHY2pwZDFuVTNtU1FUNE9vOEpTZUJNWlcxOUM2UER5TEhw?=
+ =?utf-8?B?aTArL2g2T2l1d3ZWay9RelgwMHBoa0RvMFBxRUVQeVpUV3dNYU9GRU4wZHRj?=
+ =?utf-8?B?bHNyM2I3UkRHSS9xNVZEK1V3dXVsUnlaRjVvZTduQWxCSElCbTY4UFprSTFR?=
+ =?utf-8?B?NlV2R2Q3YW0xN0lydDJDN0N1ZHlNbzNidlhqOUZKVm1jNndyNkJvSVJYd2ow?=
+ =?utf-8?B?WlduSW5YYW9sTzR6R1hvc1JRRGttTkV6L2JUM2d6ZmNhaU1uNEN3Q2tQRld2?=
+ =?utf-8?B?bDk2MDNMMHJ1Y1l2TU9JT0FsV2tGOCtkb0VvQWlkaWtPVzJDRW85N3V3YlhJ?=
+ =?utf-8?B?ek1VeFBMdGlPLy9zSWRhRTJvQ1Y0R3V3MGVzeXpoc0dvMFN1ZlFVNGZyKzhQ?=
+ =?utf-8?B?WXNYa1YrZlExNlpkeXNxZTh6cGQwbDkrbkFVTFIxNE9qaEp4YWJWQ0FkOTZj?=
+ =?utf-8?B?QXdsbGlpZVBlN3RrcDFEN1FxZ3Y2U2ptUW00ckNGSG95WHQvMUN6eXczVDh1?=
+ =?utf-8?B?TlY2bnRIcnRIZldsb0poWUlodWJzL09jenRyVGZnSCsrK0dENTVwNXlRNnc3?=
+ =?utf-8?B?T1M0SUxSQUg5M1p3Z0E1ck9HdmV6bU8wdFN5UmlKOWhkUDE3N2daSlBRTWIr?=
+ =?utf-8?B?Rnkxek5PSURiclB5YlJBcjNkZGwrRE9BRkZEcWJyeDRRMTA1cXNzbkpGNk02?=
+ =?utf-8?B?WGhWb3J2aWV2ZDIwaElQU2ljZzlkY0ozbnMwTm5GcXhvOW03QmNKSzFxcXE4?=
+ =?utf-8?B?VjJ1a2dLOW04TW50VTNwR0F5d2RrRjBDRzdyK0F0R2NEZWNRcVNraFJURzRv?=
+ =?utf-8?B?dWEwWXN1TUQzcjdteDNRQ01iV3NSR0craDljTHNxeENGZEdJeExENGNPaC92?=
+ =?utf-8?B?YjdXbEsrV3U2eCtnVE9qbU5vN2IvRjlpWlVyNEtqWG9DVCtFTUV6WUI0c3R3?=
+ =?utf-8?B?cHczRnI1cXhZUVMxQXpMT0h5MitqUXBXY2E2WC9QTGUvZDU4K2kvT2tlazV6?=
+ =?utf-8?B?Y0prNjZkaXEvaXM5WWdJajdFVmxydWVNM0hSY3M0Z2o1Q2FhQi9wbEdWNEhG?=
+ =?utf-8?B?RnBaS0h6RDVxb0ErRENSN2ViWm5Fby83Ykppd3cyVmJTQVFZWWJwNmJ3U1dy?=
+ =?utf-8?B?UUFRZWpueXhRR3lPazhpR0gxTjdUeFFqZDV2M0x0elNVVmpyS2d0dlBvbEty?=
+ =?utf-8?B?VE9jYllsRGF2RG1OeEZkZkhaU3ltYmF6N0RmQjhBRG5vV3FXQ1dZNnRVNDdp?=
+ =?utf-8?B?U0tBVFZoeDJIamwxMzQrcmRxck5HMk55eldtT0V6S2RhZ0NkQUVSL1dZbi9x?=
+ =?utf-8?B?dlZndW91Um9pWnJXSDhsczl6NjRRYXNLSitQOHRwZ2J0b0hNTWo0TlhUTld4?=
+ =?utf-8?Q?oyHV6SU4UuY=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4P195MB1456.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(7053199007);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dUZMbi9SSm13OXBsYjRza0E2OXJIbDNjMUNLUjNtSWNJREk3Q211TFdadHp2?=
- =?utf-8?B?RmJmMlJyaiswc2RmUFkxeUtCNExEQUlxTFVVTnZ2bXF5aXNIY0FvcjFmTE14?=
- =?utf-8?B?SlZBbXI4YlhTQzZGOXhFVEcvMmV1RGVWVjZYKzVNb3doZjQ3bVVCVmVFVytL?=
- =?utf-8?B?eU5kaEVORnV0bXE3UTYrU0dZMnRIWlR4SEZwcXZTZXpPVDRPRVNZaW05VlZC?=
- =?utf-8?B?TkN5U2gxVUdCSXV5STRBSUp0TmIzQzVlV3Z6aklXciszVXNraFh4Zmk2eGtU?=
- =?utf-8?B?eEdmazNJNFRnZGRhRjJDYUg1eHNtQ01pVkNpam1iY0JSOURsR01KempTa1V5?=
- =?utf-8?B?L3BZZUEyUW1NNTdRc3ZIZ3pYcjhUeGQ5MVJWelQxM0RDMkRMNVJlMWpvUmpH?=
- =?utf-8?B?VXp4Y3E3NDNOOXErWWp3VnBRWmpPcHFGVVNFdUYycUpnZUpLbHdEVzNQTDZV?=
- =?utf-8?B?Y0FZWXJyVHdHYlFPOHlWZE4vejBuSm1FZ0NTN05ZWlVjUlhhaXIzdksxdU9N?=
- =?utf-8?B?SzZsenFURFY2V2RSQ0wwMk9PNkM3cGUyQTlhdmZVdlBxNFJqQnNHcDBxaWRG?=
- =?utf-8?B?OExNZVFVeE5zdU9SSFMvQmpZYW9QeWlrak9iWUpKaUxGcnZWRkFBWDB1My82?=
- =?utf-8?B?cWpJYmRzZkhnS2tmTnBsT3hsRjlQdnFQMEwvTmlubndWd3EzTVlBZzdoVWNh?=
- =?utf-8?B?M1htbDZGMjN1aUVkeGdlT01YdE83ZFFMR2FWTklwdnYrZTdRL3RyaU5vYUZu?=
- =?utf-8?B?SUlDZGJ4YVJ6QUJPdHRIVnNNeUpRVFJLMVJna1ZNcUxpRExHRWo3QUZtYUVv?=
- =?utf-8?B?SDRsM0VPeHZJai96L1VTZ1MrNWVPMnVtajVldGs2RDJSc2xUVTZ4UlJMWWlG?=
- =?utf-8?B?NGJJR2d4RXQySi94bHZOU242S29rWkhJeUhsTzhkMGpIVlo1TVlPc1N4c21m?=
- =?utf-8?B?Ull6bGVLZ29mTjZtak1wTVFmSkpDYWVCSnNYbmlMbHpTQ2ZQQ3JCTVd2bXEy?=
- =?utf-8?B?RUxkSGdjbEpYVUZ0YVNpOUNpbU9xUDFJNWtPaVY5WFVZY3poUWt1cEtrTGQy?=
- =?utf-8?B?MlF4WEhyYWxrMlc3REVnNWgveGxLWE5JUk1INGplaitVUXhDSy9FSFg0Nitn?=
- =?utf-8?B?Yzl5anRNU3lpMklFaVJacTV0VGRZNVJUek9JMFZ0eFNtMk5CNDFHLytUQ2pv?=
- =?utf-8?B?RnlSV05ybzdvaDZheTZqcEMvaUdOVXBkY2FBRDJnZzlCRXpqdlUxUWNNUmFi?=
- =?utf-8?B?TkJsWnNKaTl3T3B4NGxob05qbGpSVi84WTBBT2F6MXlwVVFQbWdNQWNtWXF2?=
- =?utf-8?B?RTkrekpLOGZXSURNSlV1b0tlMDVaZ21YK2NMSGh5ZFNTUWI0YVhwVkVkL05q?=
- =?utf-8?B?K3IrSUlxZWlsZCtVVGpPWW5yRlhNWHNDY3hRam5NTWRHOXV6eTJ4OGJSZ3R3?=
- =?utf-8?B?U2lKK0s4VTg4ckQ2cDh6REN4UHlNZDhlQ0g3OFZTaE1leFZoMnhTcHc1VFZy?=
- =?utf-8?B?V3FIdTBOdnVuL0FxOG16emI0bzJyUnlicTl6RHZXR3ArM0gwcS9sNDlUSzUy?=
- =?utf-8?B?Um9PMzU2cDB5RWNmZnpzUng1Z3N2RndpZ0dDZVBXdi9ObkFma1dlVHlxS29G?=
- =?utf-8?B?Q21vMk11RzV5OXpqSXVQWUkvaFJCRmV2RVMzbGRjbFpVMWZEMU5KL1VHTFFt?=
- =?utf-8?B?QTFOcyszU0E5UzBTMGFSZ0xIVHZyNGhNTjd5K05hUlN0SmkyL3NBdDloNHZH?=
- =?utf-8?B?Z1V6ekF0RUtrN2M0Y3dqNGZ3ZUE5a2dNSWh2MnMvNVAxNWJpUzgrSkxGdHFv?=
- =?utf-8?B?SmlNUy9KRXB4dk54U3dSWkJGMlFHTXUzM0R5YkJ4c0p2K1E2T0NScUx4cjhu?=
- =?utf-8?B?bkp2amtJSEQ2dXJYcW4zUUF3VDdid2c3R2pHcCtDc3dRcmRRenlndEJ6VzlC?=
- =?utf-8?B?ODB5cXZNS1Ard1B6NlBzbkwxcFZBT2VLT0hGNUMwQ0REMFB3Sm14YWZ6NlJn?=
- =?utf-8?B?UGRMU3I2WWlEalBCUldWRzRSRW1HdkVUMXdWQUp6Sk5zRThEMEZNSkN0WHlm?=
- =?utf-8?B?eFJyMmxaMkJLZHRaaU9oMjBzc1pTVlpPZHpWRjZBaEZBM3NGaUN1bUcyVGVI?=
- =?utf-8?Q?Qar83WJeapflP2XEhokw3aFwB?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cXdHTDkxRzVSQmNNSzZjTlN3QzVrOVYzcTMydW1wVnVyVytmWG5JNGw5SEhL?=
+ =?utf-8?B?cHJCU2hFWDBDQ0FjSFNCS25paWJvOHY2elBoTUhCeFRZVVpjYVVrTGdqZ1BD?=
+ =?utf-8?B?OE8rOGJRM3NjbUQzanlxa09ROGFFdk1MbS9rdXBwMWlxbFhEVUhVY1IzcS9N?=
+ =?utf-8?B?K3dDVGJXd0QyUDNwZnVkUTBxQVRQd2IydjRIL0JVdW1UdURaQmN2U1hNbEJQ?=
+ =?utf-8?B?N2JuWWdzMHEzMjg5MU9mYlJKc0J0U0ZyK0lSUlN2ZXFhR2FiN0lTemdYZ1FW?=
+ =?utf-8?B?cmVxWmpnaUovUmNXTi9Dd1NWYjR3V1QvMGdFRnU1cW5xd2c4enNBZllHOXZL?=
+ =?utf-8?B?cmhqMkN4S3drSnVVTjNmc2lUWVZKbWVpZGR0c215ZTlrSlIyZWduR1ZuYXBh?=
+ =?utf-8?B?NFZYaW1GQzU2VlIyLzE0TXF6QzI0cEcvQ1NXZDE2dElYVjBzaTQ5U1Y0WTVi?=
+ =?utf-8?B?Zk1sQ2Z6eGR1OFF5V3dMdjV5c2kyaS9iUWl3YmtkeGdlbitUZGt3ckYxaEND?=
+ =?utf-8?B?aHlNaytoWGhpN3llcUd0RlNPSmZicnQ1VUF2Wnl3bEk5Zk9pUEpqUUkvcHVM?=
+ =?utf-8?B?VXYxRC8yd2R3eERXdXJ1dytnYWUwdmRHUkRIeVFVcDBacXZqc2Y2dk93RERs?=
+ =?utf-8?B?RkNlT21LcmFTU0JNeDhMUWVISDM5Tjd0ZEoyWnlVdjZsU3dpL1luRm1IY3hT?=
+ =?utf-8?B?NUIvOGdOU1Z5MEJnYWZVcllEQkhzcmFGUWZCUFozdEJLQ1JXb2lJdGpwRDEz?=
+ =?utf-8?B?VExCM05sTmNMZ0Y3RTltbXN1UitEeCs1SjFlbS9UR2gvMVFwREsrRW1ENXdq?=
+ =?utf-8?B?WjR3dEMvN3VtNUhDc3dTOGUvTlk5Tll1WnRDS3hFL0FWMnFRdnJNMTUyT0k4?=
+ =?utf-8?B?TU1WSE11czE4cVlwMXJmTHZzSGFoT3c1MU9zV3d0bjlCNUc1aS83MXdLaFQr?=
+ =?utf-8?B?czFkTjhsYi9MR0R4R1czMy9udk5XV0QvMnJHam5JRHVYdkdCc2lFQ1FuUm0w?=
+ =?utf-8?B?bFg1TG41S1NoWGR6VjRqN3V0VlhIWjdXaG5jcEpQQWIvYXlCa3ZqNFk2Nmxv?=
+ =?utf-8?B?dENYc2NDUE1tcDVTN3k5R0pJNXFESmpBU1o3a24yZm5YQ0hwU1VsekRxcEFP?=
+ =?utf-8?B?aWorZG5mM2RCM3diZzZQOUNBbUhGR0xvMlFhMHpHRm9sdXloZlVqVy90S2Y4?=
+ =?utf-8?B?RS9WY0MzYU04WGNob2xXUE9LMEUxeUs5d21sWWlNQUE2T1orUzF0THZlOHk5?=
+ =?utf-8?B?SmR6c2FseC9lLzZyZXVEMjgrZXlNaUNpd25kWmYyWlRtR1N3MFRkUWQrSWpB?=
+ =?utf-8?B?MHExaHR3YWp4ZkRkRnJlTDgrS0xUcWlnN0NBbnRCWjFSSWRrSWNSUm9VQjVL?=
+ =?utf-8?B?NW41K2U5a1NKNDRhYzZvSnVSdnBlWmJpbUs0eTQzRjc1Z3pVMk5LTlVyS1Nv?=
+ =?utf-8?B?dThIcHM1UFFuS01uM1RlWmkrbk1FT3pzNjlrMW43RUEySTFDT0ZQMWVvd3M3?=
+ =?utf-8?B?enpNOFpaZGc0N0I5VTZ6QUF2WmFTRTlCMWZicjRnWGptaWZZanNqV1J4MFp0?=
+ =?utf-8?B?QzB2RFVpbkROTlVuRmxvZGs0TDZWcXRPS3Q3WlZaeHg4OEgvcmpxcXNITm5l?=
+ =?utf-8?B?NWFYOG8waXBxTHpzMXZHNDRROWFqSFVuZHJvYXNjYWlud1BPd3VoZXloUGRQ?=
+ =?utf-8?B?NC8yWGloRkcvRit6cWV4Q3gxMS94ZGwwa0NCMERCc0tuQWVQQ3l1b3Zjczg2?=
+ =?utf-8?B?eUhJQUlwNkpTWkczTHVlTjAwZDlBeTFCZlgweWtDTEs2aDNDQUFPa0p2eEh2?=
+ =?utf-8?B?SElFQThHbXhZMWd3K29rVXNjL3hWVmJxekJmOW1zNHFjVTZ5S0kvVnNMY1ly?=
+ =?utf-8?B?bHoxUGp2ZkdVaDIzODVxQ2FXYXQ5YmdZNEFFUzBBc3lKT2ZKa0lUc0E5UmRW?=
+ =?utf-8?B?b1EyWXJSaGdBL3FYNnhtMVErUXlSTkRBR3hVRVBFSUFQaFdpd2ZIRHZxVE9z?=
+ =?utf-8?B?WEpObDhvemYrK2FyWkZYV0ttNGJiZ01XN2RxaVNDTWRIdHZjVUUwSXZEVjdy?=
+ =?utf-8?B?c2VTTUwwRUQyVzVIK1FmbnpoYkxLNHJJVUVuQUV0S05iMUJ3Z085RmhEN1Rp?=
+ =?utf-8?Q?t+eHE3kjeT+yo1QhSyl44W1jJ?=
 X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 689db382-f235-40c4-574c-08dde6281a57
+X-MS-Exchange-CrossTenant-Network-Message-Id: 735bd34b-488d-4e38-0481-08dde6293a75
 X-MS-Exchange-CrossTenant-AuthSource: AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Aug 2025 11:43:27.3432
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Aug 2025 11:51:30.6880
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: lgIUWBOiZoz9gmJ5xf9dk91f3pc64hnaKfoED6qZHuUS4XkNyt13NTRWmlyvBavpXXtBEpVcDau2uSTDQ/Znlg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXP195MB2483
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4YnUfz2WchVletpmxD8jTuC3qbLKVjs3jMnvHwedRdYwVnkIPoELN8kZFb5ENMQ/eax1+txMVeX01GpSGzm06w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9P195MB1682
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_044338_227100_5E8DC067 
-X-CRM114-Status: GOOD (  14.07  )
+X-CRM114-CacheID: sfid-20250828_045134_631252_95F7B2D1 
+X-CRM114-Status: GOOD (  18.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,64 +182,364 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 8/23/25 7:08 PM, Beleswar Padhi wrote:
-> Remote Processors defined in top-level AM62x SoC dtsi files are
-> incomplete without the memory carveouts and mailbox assignments which
-> are only known at board integration level.
+> The TI K3 AM62 SoCs have multiple programmable remote processors like
+> R5F, M4F etc. The TI SDKs for AM62 SoCs offer sample firmwares which
+> could be run on these cores to demonstrate an "echo" IPC test. Those
+> firmware require certain memory carveouts to be reserved from system
+> memory, timers to be reserved, and certain mailbox configurations for
+> interrupt based messaging. These configurations could be different for a
+> different firmware.
 > 
-> Therefore, disable the remote processors at SoC level and enable them at
-> board level where above information is available.
+> While DT is not meant for system configurations, at least refactor these
+> configurations from board level DTS into a dtsi for now. This dtsi for
+> TI IPC firmware is board-independent and can be applied to all boards
+> from the same SoC Family. This gets rid of code duplication and allows
+> more freedom for users developing custom firmware (or no firmware) to
+> utilize system resources better; easily by swapping out this dtsi. To
+> maintain backward compatibility, the dtsi is included in all boards.
 > 
+
+Reviewed-by: Wadim Egorov <w.egorov@phytec.de> # phycore-am62x
+Tested-by: Wadim Egorov <w.egorov@phytec.de> # phycore-am62x
+
 > Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
-
-Reviewed-by: Wadim Egorov <w.egorov@phytec.de>
-Tested-by: Wadim Egorov <w.egorov@phytec.de>
-
-
 > ---
 > v2: Changelog:
-> 1. Re-ordered patch from [PATCH 21/33] to [PATCH v2 06/33].
+> 1. Re-ordered patch from [PATCH 22/33] to [PATCH v2 30/33].
 > 
 > Link to v1:
-> https://lore.kernel.org/all/20250814223839.3256046-22-b-padhi@ti.com/
+> https://lore.kernel.org/all/20250814223839.3256046-23-b-padhi@ti.com/
 > 
->   arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi | 1 +
->   arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi      | 1 +
->   arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi  | 1 +
->   3 files changed, 3 insertions(+)
+>   .../boot/dts/ti/k3-am62-phycore-som.dtsi      | 44 +---------------
+>   .../boot/dts/ti/k3-am62-pocketbeagle2.dts     | 46 +---------------
+>   .../boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi  | 52 +++++++++++++++++++
+>   arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi    | 34 +-----------
+>   .../arm64/boot/dts/ti/k3-am62x-sk-common.dtsi | 46 +---------------
+>   5 files changed, 59 insertions(+), 163 deletions(-)
+>   create mode 100644 arch/arm64/boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi
 > 
 > diff --git a/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
-> index 10e6b5c08619..dcd22ff487ec 100644
+> index dcd22ff487ec..34b2e8d6bf80 100644
 > --- a/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
 > +++ b/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
-> @@ -407,4 +407,5 @@ &wkup_r5fss0_core0 {
->   	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
->   	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
->   			<&wkup_r5fss0_core0_memory_region>;
-> +	status = "okay";
+> @@ -52,18 +52,6 @@ rtos_ipc_memory_region: ipc-memories@9c800000 {
+>   			no-map;
+>   		};
+>   
+> -		mcu_m4fss_dma_memory_region: m4f-dma-memory@9cb00000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0x9cb00000 0x00 0x100000>;
+> -			no-map;
+> -		};
+> -
+> -		mcu_m4fss_memory_region: m4f-memory@9cc00000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0x9cc00000 0x00 0xe00000>;
+> -			no-map;
+> -		};
+> -
+>   		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9da00000 {
+>   			compatible = "shared-dma-pool";
+>   			reg = <0x00 0x9da00000 0x00 0x100000>;
+> @@ -245,20 +233,6 @@ cpsw3g_phy1: ethernet-phy@1 {
+>   	};
 >   };
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
-> index 6549b7efa656..75aed3a88284 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
-> @@ -128,6 +128,7 @@ wkup_r5fss0_core0: r5f@78000000 {
->   			ti,sci = <&dmsc>;
->   			ti,sci-dev-id = <121>;
->   			ti,sci-proc-ids = <0x01 0xff>;
-> +			status = "disabled";
+>   
+> -&mailbox0_cluster0 {
+> -	status = "okay";
+> -
+> -	mbox_m4_0: mbox-m4-0 {
+> -		ti,mbox-rx = <0 0 0>;
+> -		ti,mbox-tx = <1 0 0>;
+> -	};
+> -
+> -	mbox_r5_0: mbox-r5-0 {
+> -		ti,mbox-rx = <2 0 0>;
+> -		ti,mbox-tx = <3 0 0>;
+> -	};
+> -};
+> -
+>   &main_pktdma {
+>   	bootph-all;
+>   };
+> @@ -364,13 +338,6 @@ i2c_som_rtc: rtc@52 {
+>   	};
+>   };
+>   
+> -&mcu_m4fss {
+> -	mboxes = <&mailbox0_cluster0 &mbox_m4_0>;
+> -	memory-region = <&mcu_m4fss_dma_memory_region>,
+> -			<&mcu_m4fss_memory_region>;
+> -	status = "okay";
+> -};
+> -
+>   &ospi0 {
+>   	pinctrl-names = "default";
+>   	pinctrl-0 = <&ospi0_pins_default>;
+> @@ -399,13 +366,4 @@ &sdhci0 {
+>   	status = "okay";
+>   };
+>   
+> -&wkup_r5fss0 {
+> -	status = "okay";
+> -};
+> -
+> -&wkup_r5fss0_core0 {
+> -	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
+> -	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
+> -			<&wkup_r5fss0_core0_memory_region>;
+> -	status = "okay";
+> -};
+> +#include "k3-am62-ti-ipc-firmware.dtsi"
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts b/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts
+> index 729901b2ca10..e634abe9e8e6 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts
+> @@ -54,18 +54,6 @@ linux,cma {
+>   			linux,cma-default;
+>   		};
+>   
+> -		mcu_m4fss_dma_memory_region: m4f-dma-memory@9cb00000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0x9cb00000 0x00 0x100000>;
+> -			no-map;
+> -		};
+> -
+> -		mcu_m4fss_memory_region: m4f-memory@9cc00000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0x9cc00000 0x00 0xe00000>;
+> -			no-map;
+> -		};
+> -
+>   		secure_tfa_ddr: tfa@9e780000 {
+>   			reg = <0x00 0x9e780000 0x00 0x80000>;
+>   			alignment = <0x1000>;
+> @@ -298,20 +286,6 @@ &epwm2 {
+>   	pinctrl-0 = <&epwm2_pins_default>;
+>   };
+>   
+> -&mailbox0_cluster0 {
+> -	status = "okay";
+> -
+> -	mbox_m4_0: mbox-m4-0 {
+> -		ti,mbox-rx = <0 0 0>;
+> -		ti,mbox-tx = <1 0 0>;
+> -	};
+> -
+> -	mbox_r5_0: mbox-r5-0 {
+> -		ti,mbox-rx = <2 0 0>;
+> -		ti,mbox-tx = <3 0 0>;
+> -	};
+> -};
+> -
+>   &main_uart0 {
+>   	pinctrl-names = "default";
+>   	pinctrl-0 = <&main_uart0_pins_default>;
+> @@ -362,24 +336,6 @@ &main_i2c2 {
+>   	status = "okay";
+>   };
+>   
+> -&mcu_m4fss {
+> -	mboxes = <&mailbox0_cluster0 &mbox_m4_0>;
+> -	memory-region = <&mcu_m4fss_dma_memory_region>,
+> -			<&mcu_m4fss_memory_region>;
+> -	status = "okay";
+> -};
+> -
+> -&wkup_r5fss0 {
+> -	status = "okay";
+> -};
+> -
+> -&wkup_r5fss0_core0 {
+> -	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
+> -	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
+> -			<&wkup_r5fss0_core0_memory_region>;
+> -	status = "okay";
+> -};
+> -
+>   &mcu_pmx0 {
+>   	wkup_uart0_pins_default: wkup-uart0-default-pins {
+>   		pinctrl-single,pins = <
+> @@ -543,3 +499,5 @@ ldo4_reg: ldo4 {
 >   		};
 >   	};
->   
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-> index 13e1d36123d5..840772060cb1 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-> @@ -506,6 +506,7 @@ &wkup_r5fss0_core0 {
->   	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
->   	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
->   			<&wkup_r5fss0_core0_memory_region>;
+>   };
+> +
+> +#include "k3-am62-ti-ipc-firmware.dtsi"
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi
+> new file mode 100644
+> index 000000000000..9376ae91a17f
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi
+> @@ -0,0 +1,52 @@
+> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
+> +/**
+> + * Device Tree Source for enabling IPC using TI SDK firmware on AM62 SoCs
+> + *
+> + * Copyright (C) 2021-2025 Texas Instruments Incorporated - https://www.ti.com/
+> + */
+> +
+> +&reserved_memory {
+> +	mcu_m4fss_dma_memory_region: m4f-dma-memory@9cb00000 {
+> +		compatible = "shared-dma-pool";
+> +		reg = <0x00 0x9cb00000 0x00 0x100000>;
+> +		no-map;
+> +	};
+> +
+> +	mcu_m4fss_memory_region: m4f-memory@9cc00000 {
+> +		compatible = "shared-dma-pool";
+> +		reg = <0x00 0x9cc00000 0x00 0xe00000>;
+> +		no-map;
+> +	};
+> +};
+> +
+> +&mailbox0_cluster0 {
 > +	status = "okay";
+> +
+> +	mbox_m4_0: mbox-m4-0 {
+> +		ti,mbox-rx = <0 0 0>;
+> +		ti,mbox-tx = <1 0 0>;
+> +	};
+> +
+> +	mbox_r5_0: mbox-r5-0 {
+> +		ti,mbox-rx = <2 0 0>;
+> +		ti,mbox-tx = <3 0 0>;
+> +	};
+> +};
+> +
+> +&mcu_m4fss {
+> +	mboxes = <&mailbox0_cluster0 &mbox_m4_0>;
+> +	memory-region = <&mcu_m4fss_dma_memory_region>,
+> +			<&mcu_m4fss_memory_region>;
+> +	status = "okay";
+> +};
+> +
+> +&wkup_r5fss0 {
+> +	status = "okay";
+> +};
+> +
+> +&wkup_r5fss0_core0 {
+> +	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
+> +	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
+> +			<&wkup_r5fss0_core0_memory_region>;
+> +	status = "okay";
+> +};
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
+> index fa2c1dc738d6..fd83dbc9f37b 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
+> @@ -1334,38 +1334,6 @@ &main_i2c3 {
+>   	status = "disabled";
 >   };
 >   
+> -&mailbox0_cluster0 {
+> -	status = "okay";
+> -
+> -	mbox_m4_0: mbox-m4-0 {
+> -		ti,mbox-rx = <0 0 0>;
+> -		ti,mbox-tx = <1 0 0>;
+> -	};
+> -
+> -	mbox_r5_0: mbox-r5-0 {
+> -		ti,mbox-rx = <2 0 0>;
+> -		ti,mbox-tx = <3 0 0>;
+> -	};
+> -};
+> -
+> -&mcu_m4fss {
+> -	mboxes = <&mailbox0_cluster0 &mbox_m4_0>;
+> -	memory-region = <&mcu_m4fss_dma_memory_region>,
+> -			<&mcu_m4fss_memory_region>;
+> -	status = "okay";
+> -};
+> -
+> -&wkup_r5fss0 {
+> -	status = "okay";
+> -};
+> -
+> -&wkup_r5fss0_core0 {
+> -	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
+> -	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
+> -			<&wkup_r5fss0_core0_memory_region>;
+> -	status = "okay";
+> -};
+> -
+>   /* Verdin CAN_1 */
+>   &main_mcan0 {
+>   	pinctrl-names = "default";
+> @@ -1549,3 +1517,5 @@ &wkup_uart0 {
+>   	pinctrl-0 = <&pinctrl_wkup_uart0>;
+>   	status = "disabled";
+>   };
+> +
+> +#include "k3-am62-ti-ipc-firmware.dtsi"
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
+> index 03b8e246d8c2..ec2685144558 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
+> @@ -58,18 +58,6 @@ linux,cma {
+>   			linux,cma-default;
+>   		};
+>   
+> -		mcu_m4fss_dma_memory_region: m4f-dma-memory@9cb00000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0x9cb00000 0x00 0x100000>;
+> -			no-map;
+> -		};
+> -
+> -		mcu_m4fss_memory_region: m4f-memory@9cc00000 {
+> -			compatible = "shared-dma-pool";
+> -			reg = <0x00 0x9cc00000 0x00 0xe00000>;
+> -			no-map;
+> -		};
+> -
+>   		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9da00000 {
+>   			compatible = "shared-dma-pool";
+>   			reg = <0x00 0x9da00000 0x00 0x100000>;
+> @@ -477,38 +465,6 @@ cpsw3g_phy0: ethernet-phy@0 {
+>   	};
+>   };
+>   
+> -&mailbox0_cluster0 {
+> -	status = "okay";
+> -
+> -	mbox_m4_0: mbox-m4-0 {
+> -		ti,mbox-rx = <0 0 0>;
+> -		ti,mbox-tx = <1 0 0>;
+> -	};
+> -
+> -	mbox_r5_0: mbox-r5-0 {
+> -		ti,mbox-rx = <2 0 0>;
+> -		ti,mbox-tx = <3 0 0>;
+> -	};
+> -};
+> -
+> -&mcu_m4fss {
+> -	mboxes = <&mailbox0_cluster0 &mbox_m4_0>;
+> -	memory-region = <&mcu_m4fss_dma_memory_region>,
+> -			<&mcu_m4fss_memory_region>;
+> -	status = "okay";
+> -};
+> -
+> -&wkup_r5fss0 {
+> -	status = "okay";
+> -};
+> -
+> -&wkup_r5fss0_core0 {
+> -	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
+> -	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
+> -			<&wkup_r5fss0_core0_memory_region>;
+> -	status = "okay";
+> -};
+> -
 >   &usbss0 {
+>   	bootph-all;
+>   	status = "okay";
+> @@ -601,3 +557,5 @@ &epwm1 {
+>   	pinctrl-0 = <&main_epwm1_pins_default>;
+>   	status = "okay";
+>   };
+> +
+> +#include "k3-am62-ti-ipc-firmware.dtsi"
 
 
