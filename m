@@ -4,64 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFB7EC8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 12:11:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C9ABC8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 12:13:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5CMmV0KmKElMRDG9hxC3TUSIMhPG5BSmmsupIpN8YTw=; b=po6eB+qODyTuMgqQDD3N6QMlW2
-	Qs3DEz0jbL5zZrUUSiR6/tKbhoG2e47n8XEvPOZuv72Sxw7+VH2vJxn48Qk+3pOXs3cavYWAD7fQk
-	/1bRDCF7xd67thmDmUYo0akioLzQsURPchlsU6HivMuqMqQFehjRPvgWQCz1RYopVJ7TTLpnQw1EX
-	BHxWpzgxkCuyR1N/0VTRNeznbeVhSgIJM1CDrO5OBq4sm21bdA9EqXT1nuJrO1BWs8CWZ8P7QCbCE
-	ewLV5Ib4GmY4waABWsTYbVFQR0HqTW0oImCIpzPr1625+znAAM5LBLeTcWfGRoptlxg2517i2XFZc
-	5uhfRqSQ==;
+	bh=gxE79aiFZd+XEa7cG65iGpYs74gkdT9t8zqUxTnTi7U=; b=BPEpE9+PYVXBQYr8TzFOmzCzdT
+	NJekQxf0MHuM4WUdXepBIJ1cUCZYphs9C33dl7maaD8KLVdIXDveBT4KCESXmVL4JUzXgKAppdmiC
+	3WTptce3+JENSVpbj1M9app4OZQfGpMWTeDq0dCXenzMnWg28K2c6bhIfeJ4vxTPwCoJt2k4M1KCg
+	FUUqEU4XNxnr/C5JC1TmRTtQpP7979H1Zza6tRCpB8Hdl6l59cFofV3svQecZl2soflB68s+8pNwI
+	5ehS581EHk3uOwvowv0pnC2GCSmjPyTxWFwsjSDtj/p77XipNqxqSwnk24drJVjuw0AZimAUB9YHJ
+	gQv6XtRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urbT4-00000001TBZ-2Gka;
-	Thu, 28 Aug 2025 12:11:03 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1urbVm-00000001ULz-2qyU;
+	Thu, 28 Aug 2025 12:13:50 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urYCD-00000000pjW-23kr
+	id 1urZ1b-00000000yxO-4Abe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 08:41:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:content-transfer-encoding
-	:in-reply-to; s=k1; bh=5CMmV0KmKElMRDG9hxC3TUSIMhPG5BSmmsupIpN8Y
-	Tw=; b=DNgrO/pMnhJEEjmzaX8baCZ5m7hOvV0tBYL2JXqRYUxXre96uWr9St/gb
-	Bff6r1oQqg9kFk7qYcpIBDvWHh5T7D7u8jM1jOEWdgYNaBtkUKGhrRtTPu7s+fT2
-	PzTWkIKFMxJIxig0bI4kY0Nj9pwY3Ppqj9+KwKiclRV467yHuiZ4E2EqdEEXMlur
-	w6rnV1JQ75MwXqyopk7AtCo41ueSG2xChezbKMJuBS3WaNxBbeO7NwUzb0kPgaTg
-	tSGI+tx9pV6s/7OjdYB9NL+zFZWBeUzdOB4qlEp59aG0ndV5DRUatRntartVND1Y
-	UFbsrhNve73yPkCelkaKOpOLOMxnw==
-Received: (qmail 930434 invoked from network); 28 Aug 2025 10:41:18 +0200
-Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 28 Aug 2025 10:41:18 +0200
-X-UD-Smtp-Session: l3s3148p1@2eVw3mg92r8gAwDPXw2iAG43AYdOknD3
-Date: Thu, 28 Aug 2025 10:41:17 +0200
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Claudiu <claudiu.beznea@tuxon.dev>
-Cc: rafael@kernel.org, daniel.lezcano@linaro.org, rui.zhang@intel.com,
-	lukasz.luba@arm.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, geert+renesas@glider.be, magnus.damm@gmail.com,
-	p.zabel@pengutronix.de, linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, niklas.soderlund@ragnatech.se,
-	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-Subject: Re: [PATCH v4 0/4] thermal: renesas: Add support for RZ/G3S
-Message-ID: <aLAWLZBenSWWqqkK@shikoro>
-References: <20250810122125.792966-1-claudiu.beznea.uj@bp.renesas.com>
+	Thu, 28 Aug 2025 09:34:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1756373673; x=1787909673;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=yuynSKYGfxPDARXbNkOVcirGGnm9MJdjYgpoYNnyvqk=;
+  b=ehV/9kUqyLJJ1ta5HZu8VDDlLM+PqkQDiS3ZUk1Vswf8vwwNAHfXtpn0
+   /C4PgZdJHt8hx3nJY1Q+wCdL6Gu+2sQQjH1Wz4/BFxE7AJjY55tgu/HKa
+   v+zqAQq0wOJ0Z7oImEYt8kzeieh+jREk9jnTHjVnCc2fThmyz80RUa7Ib
+   m2inOrbkLovkLaIzFIlAQie4lTkmgou2qAEIvzoXv9otKRxHYWr7gjYop
+   e+xNAfF34XI4J76qUoIpKUCQo64sn8+imQNVjlKbasg8rrvUkdeLo1VwQ
+   mR5hl9gdhDfkOq1Z5yfDh73HlSS9UZA/4jC9EEvHdxvLGD/CpZx/7G3at
+   g==;
+X-CSE-ConnectionGUID: OJvpfoVnSZ6t0cA2N2+2/w==
+X-CSE-MsgGUID: 67NZ6ClgQ42hD2RvGag9VA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11535"; a="58787356"
+X-IronPort-AV: E=Sophos;i="6.18,217,1751266800"; 
+   d="scan'208";a="58787356"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Aug 2025 02:34:31 -0700
+X-CSE-ConnectionGUID: 3oW4vjZ0SqCDl3Ptz+McUg==
+X-CSE-MsgGUID: M5KpuRq8SLWF14awLIFgLw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,217,1751266800"; 
+   d="scan'208";a="170462631"
+Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
+  by fmviesa009.fm.intel.com with ESMTP; 28 Aug 2025 02:34:26 -0700
+Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1urZ0v-000Tbr-1n;
+	Thu, 28 Aug 2025 09:33:57 +0000
+Date: Thu, 28 Aug 2025 17:32:34 +0800
+From: kernel test robot <lkp@intel.com>
+To: Gatien Chevallier <gatien.chevallier@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	Gatien Chevallier <gatien.chevallier@foss.st.com>
+Subject: Re: [PATCH net-next v3 1/2] drivers: net: stmmac: handle start time
+ set in the past for flexible PPS
+Message-ID: <202508281615.ExryCwiA-lkp@intel.com>
+References: <20250827-relative_flex_pps-v3-1-673e77978ba2@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250810122125.792966-1-claudiu.beznea.uj@bp.renesas.com>
+In-Reply-To: <20250827-relative_flex_pps-v3-1-673e77978ba2@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_014126_383002_81F1FB31 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20250828_023432_225992_A57C8AE4 
+X-CRM114-Status: UNSURE (   9.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,24 +102,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 10, 2025 at 03:21:21PM +0300, Claudiu wrote:
-> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-> 
-> Hi,
-> 
-> This series adds thermal support for the Renesas RZ/G3S SoC.
-> 
-> Series is organized as follows:
-> - patches 1-2/4:	add thermal support for RZ/G3S
-> - patches 3-4/5:	add device tree support
-> 
-> Merge strategy, if any:
-> - patches 1-2/4 can go through the thermal tree
-> - patches 3-4/4 can go through the Renesas tree
+Hi Gatien,
 
-Series applies fine; I can read the temp (36°) which increases
-reasonably over time (40°).
+kernel test robot noticed the following build errors:
 
-Tested-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+[auto build test ERROR on 242041164339594ca019481d54b4f68a7aaff64e]
 
+url:    https://github.com/intel-lab-lkp/linux/commits/Gatien-Chevallier/drivers-net-stmmac-handle-start-time-set-in-the-past-for-flexible-PPS/20250827-190905
+base:   242041164339594ca019481d54b4f68a7aaff64e
+patch link:    https://lore.kernel.org/r/20250827-relative_flex_pps-v3-1-673e77978ba2%40foss.st.com
+patch subject: [PATCH net-next v3 1/2] drivers: net: stmmac: handle start time set in the past for flexible PPS
+config: x86_64-rhel-9.4-rust (https://download.01.org/0day-ci/archive/20250828/202508281615.ExryCwiA-lkp@intel.com/config)
+compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+rustc: rustc 1.88.0 (6b00bc388 2025-06-23)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250828/202508281615.ExryCwiA-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202508281615.ExryCwiA-lkp@intel.com/
+
+All errors (new ones prefixed by >>, old ones prefixed by <<):
+
+>> ERROR: modpost: "timespec64_add_safe" [drivers/net/ethernet/stmicro/stmmac/stmmac.ko] undefined!
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
