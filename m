@@ -4,70 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0CF5C8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 19:47:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9B4DC8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 19:53:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=cJYDe5P2CzeUJGxhbSB2YeYWIWxzbfD0Nnw9v8/ymJ0=; b=OIAWkUXtsQHGY/
-	wc58UzCAOGxyh1EM6tIkDq3l39/jFuoOhmiZnr6JK1OMOLs1qfvL/xkwchDKSbhc7UPA8CiwTCu7g
-	7guY1GUJmYKRr2OD855Ivwh77C5zoXwsASfabHLgP68SEuWM30okEHEf9A7B9rphK0BGI5SFvTh25
-	D40GErVhQ/Vx0zpPV5Frp37qJwjGC2hTAw8v22IV2AH61oqnW0Fj4j9iaJGR2427YE21v7VhSUX79
-	MZwm/2mm8N7CBauV/hcl7ImRcWtoaUJvwY52o9oQP9eC7UQLhyuRXo3yO2kF4RXA2/XM+ACG9wKqN
-	Rs3xIcJhiJJPHd9qy5sQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JThKrLTPuFVwzCwJhKd4fJmIEtCxHnGrNzSYzGU4KrU=; b=GMiOfxazBNco+ceGV5jMYpUjyl
+	RA9kR7L21yQpDpsPEx6QcEXonvKdtXvV18ulqFKhBmtQuy9JkAAt8kROUnjYCAIrQgvp5iVPwiLIE
+	V1b53K2OQcBh8p81b9ANydNUJ81tbSPXUvhDHhWZiJEvj4q7V4/ZmI5R3AbGlgEv6hEs8VuyXhbjP
+	Jsl+MvFvxA8bZilGmPxuH2sU5rNelGtgsH7GyAZlgbKr7hxrfouWQYoPIU0OeiUNNiXn8wCsQTiUn
+	DCfoPIkNLikAJj7Keu62AM/roWGoz0EgjmvPu80yE971uzC9vgcLsxgCetkWM3+qhQZkKYp+2ra3t
+	KfHV0V3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uriac-000000034cK-2Inn;
-	Thu, 28 Aug 2025 19:47:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1urigA-000000035K8-3xmv;
+	Thu, 28 Aug 2025 19:53:03 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urgKt-00000002PXu-2gH3
+	id 1urf3K-00000002BSO-3aC9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 17:22:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 49BAC45017;
-	Thu, 28 Aug 2025 17:22:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7B7EC4CEF5;
-	Thu, 28 Aug 2025 17:22:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756401775;
-	bh=D64Dcw+3Q7Bhw7cRL3Mx51sKXxd32kG6A6P2l/nGXPI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=NniPVCL70CJLdBOdxQoW1jaUw3KHNNjTpnByZBXqpMVCAZP6eWtTCp1uK0XEEB00u
-	 kuHZ0awF3fnjhHf6IH6lJMdKgqVDcRh42ivtIHDLmJRs8ttBqcFf87Jy2jplZeLM3o
-	 zV9PXCeb/dnaMbPIH0VPYOJ5JKvIpMI2uV6RRVexO3ZmIZaS4mStzp7Wgt12uDwPOi
-	 Z6/VxNFYcJG2ZtfnAevv1gZT+T0kUpAtm+74fTBX9TXUh7C6HM99sp/lHozeiLbFng
-	 gEsXq5bQHE6s2jopMhGWOQsPuHfUhZtsa+Fmx1U8CkEtQcw9dUK3tYt6YoW7TAwc35
-	 /2mMgE9BOicQg==
-Date: Thu, 28 Aug 2025 12:22:53 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Christian Bruel <christian.bruel@foss.st.com>
-Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
-	robh@kernel.org, bhelgaas@google.com, krzk+dt@kernel.org,
-	conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, linus.walleij@linaro.org,
-	corbet@lwn.net, p.zabel@pengutronix.de, shradha.t@samsung.com,
-	mayank.rana@oss.qualcomm.com, namcao@linutronix.de,
-	qiang.yu@oss.qualcomm.com, thippeswamy.havalige@amd.com,
-	inochiama@gmail.com, quic_schintav@quicinc.com,
-	johan+linaro@kernel.org, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v13 06/11] PCI: stm32: Add PCIe Endpoint support for
- STM32MP25
-Message-ID: <20250828172253.GA949714@bhelgaas>
+	Thu, 28 Aug 2025 16:00:43 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-45b55ed86b9so6333015e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 09:00:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756396841; x=1757001641; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=JThKrLTPuFVwzCwJhKd4fJmIEtCxHnGrNzSYzGU4KrU=;
+        b=2wV7IXT7FAx1HUv02HX1kCw8/zo/0t3YfYrTT63F0ngMojdudtRmzjmCUitzk4vxEX
+         cCRaFpsp+3p79+qDOVl3pe9xCrBomoU1V5Z4UbzbnwYLo2gSFidIfpxaiu0wnZMUtzp1
+         CmN7Oyb6N7BExA0D+2z5OHDKicudQwSKGa3qoQ9YOV2Kad2jI0iczfZBfNwGElW3TEg9
+         NYkRq1nWkFpTmoJYxjpUvXV8MP+ohCQ55WcEqXE/X+eFSGzYr9tS8vBbDx0c5Yh3FaqZ
+         f35UgSEwJbNkubN2Of8axp/HZeFfurDmIyjzCEMZ+wA0QgxHEqX9i2Ekq34HCfKSzQLI
+         +5mg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756396841; x=1757001641;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=JThKrLTPuFVwzCwJhKd4fJmIEtCxHnGrNzSYzGU4KrU=;
+        b=tvimNJqmAzioFkh6ZF/QvhM5mV9rMbQW07B85AhurFQoDwUawheJA/PIjNgiif6fWb
+         gCd7rYptuU1WJT6A9Ji5pO+1Gxa4GylLIP8c1EHds5LE5S9G8UaAkQQ+iiUBwNrrSEXC
+         JHI9WV5yUZywbMpO6eG7zHMZNoDSGMOVeR5QeV9ahGhFJnwZSWuvRleRLdSEnTGGRZcw
+         Blhp/6hmZeMI4F13aMuvRxxVSXT8saM126dpCKaQgWkUiIpDJ6sbNaeYoxrOxLb/WGFT
+         +h9m+GDCKbe3373ZYw+m5cj5k1Ag13Cb4MWTRrWSo8P++cswuyvUy09MRKtDDni8vO7W
+         k0vA==
+X-Forwarded-Encrypted: i=1; AJvYcCWEPCZGRcrfDD53tOTf4uPbUhQPgx6O4ildQkQ3jxcsRp95fSm2B9HjtuUEMR+FhWcVpv60g7bIjYP2I8GjFQiS@lists.infradead.org
+X-Gm-Message-State: AOJu0YzCVzWg5regDQiC3EyBruBmjDN7EYBB/985x4HLkX8lB+17jbVw
+	BOM1E1u6pyq3YpdHGzHm6ulCYyg8b3iWgBHTfrzYJsiPt8pzrApV8Qkx1b/fdA5ASlY=
+X-Gm-Gg: ASbGncv6lxrbo3ma4EBw1Xb+ODiaOzDGGfEP1732JyGSIqarOwO0qpr1i5k42tdDHl1
+	tp7yutNLbKzIprRXzCAE36oPrV+q8I5TKKLvlULFtuSYEddDZGeAFiH4DMtOSC/eXQP/cV2FGT+
+	jQxlLOAghOIkHpqYUm908+3qdrrp6UpueujlXgPnw3qHn7nxknJs2uWo8AOicIXNOZskpJKfPIC
+	QGUQ+Q+DCr8dW1r1XOVrpswY0ZfNkk4DGMEYazeHXLuIkdk1rdPoFNZ/SJgYUb1O8LK3urDFwB6
+	mjlBacLsZmTR/OFWZK6A9vpHyUmqh8IbP1JPBinoXABwdFXZ0lE5jI493PBURd4g0iDll6/t/Ky
+	xx7dfDW/ZuXWfbo8qDQ==
+X-Google-Smtp-Source: AGHT+IGBclbNO8WGRtJ0uIJ0ka2pGvDxULNrTlJVFv33q7V9H1vL8p1aMqaTfJLA+km5WeyuNutw9Q==
+X-Received: by 2002:a05:600c:548d:b0:45b:6f48:9deb with SMTP id 5b1f17b1804b1-45b75858134mr40479305e9.28.1756396841346;
+        Thu, 28 Aug 2025 09:00:41 -0700 (PDT)
+Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:4933:4d7c:cf69:9502])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b6f0c6fe5sm80211675e9.5.2025.08.28.09.00.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 28 Aug 2025 09:00:40 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Thu, 28 Aug 2025 18:00:21 +0200
+Subject: [PATCH v6 13/15] pinctrl: qcom: add infrastructure for marking pin
+ functions as GPIOs
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250820075411.1178729-7-christian.bruel@foss.st.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250828-pinctrl-gpio-pinfuncs-v6-13-c9abb6bdb689@linaro.org>
+References: <20250828-pinctrl-gpio-pinfuncs-v6-0-c9abb6bdb689@linaro.org>
+In-Reply-To: <20250828-pinctrl-gpio-pinfuncs-v6-0-c9abb6bdb689@linaro.org>
+To: Linus Walleij <linus.walleij@linaro.org>, 
+ Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, 
+ Alexey Klimov <alexey.klimov@linaro.org>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Paul Cercueil <paul@crapouillou.net>, Kees Cook <kees@kernel.org>, 
+ Andy Shevchenko <andy@kernel.org>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ David Hildenbrand <david@redhat.com>, 
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+ Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>, 
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+ Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
+ Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ NXP S32 Linux Team <s32@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Tony Lindgren <tony@atomide.com>, 
+ Haojian Zhuang <haojian.zhuang@linaro.org>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Mark Brown <broonie@kernel.org>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
+ linux-hardening@vger.kernel.org, linux-mm@kvack.org, imx@lists.linux.dev, 
+ linux-omap@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1755;
+ i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
+ bh=1TtCXH0c1SnNyHC+v6gZsytFHMfkLN/q6H3Fm9nBNlI=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBosH0PIg19tb8c/EzOw0dn2/vV0Q2+khf5QKTgm
+ oMVFo9hzQuJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaLB9DwAKCRARpy6gFHHX
+ cmqpEACqff+3ib93FI87PuYM4exeofWP28ytmolqFv/JNDSfQlXfjFmYnRfKPTFyBA76ttfOjLm
+ ASMPBrH6jm+gDbBK71pqHYmPLR2F3+VbGeBrBP4P+U4KIOoMivjWw3M4zYZw2pqshTxIuzIk8hp
+ p7MU2ac3Y9n23iveKbzSAK+EoAmSxL2lQ15yc/7o8ph4+/jCy3aXmdAepBlD2zhWYVn/xEtcAcp
+ XMTxIoIzyILFd7r5Z0RbiaGuyI1mT29BWNgpFIRDw954gCvFOYWUrbn2o/Lkg+Qctpz2A4FUeXI
+ Diiu3zoutBbFXtO89+FSOyzdmqfSLbrt7rVfKtvvSp1/OoGcglsdJ9T5oWoGjckBb4Zc0Sbj1+U
+ /4oXbRes08VCGwU5d0qXt2c2lxgrVlVnKODYUiEPU9qJkPSIX7Q9PAUOzdF6wmMNQBs3xWUDxDv
+ PydivI+3iUC103HTAmcWHpervRU6SelZmt3njPpmXzohKb9EzGDwrif+F+FXALOTHaZUARsDhtf
+ HPf1uVDdCvVnnIPhwwMrx5l+4F1B21FUAmCe4o6k2r6BZp5mZGL2FBpb+ZIiABfcTzIwxLGjOvn
+ 04jBAAR9bb5jV1pFoCEljbH/f0c2ullfdb+vvcTGt2JrOg45VcIDDclxo+6Iw2aCGRgUNKNCbPg
+ KlIxSfNF/oUQW7Q==
+X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_102255_696188_842D5B1F 
-X-CRM114-Status: GOOD (  14.26  )
+X-CRM114-CacheID: sfid-20250828_090042_915833_75B9D495 
+X-CRM114-Status: GOOD (  13.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,59 +146,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 20, 2025 at 09:54:06AM +0200, Christian Bruel wrote:
-> Add driver to configure the STM32MP25 SoC PCIe Gen1 2.5GT/s or Gen2 5GT/s
-> controller based on the DesignWare PCIe core in endpoint mode.
-> ...
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-> +static int stm32_pcie_start_link(struct dw_pcie *pci)
-> +{
-> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
-> +	int ret;
-> +
-> +	if (stm32_pcie->link_status == STM32_PCIE_EP_LINK_ENABLED) {
-> +		dev_dbg(pci->dev, "Link is already enabled\n");
-> +		return 0;
-> +	}
+Add a helper macro that wraps PINCTRL_GPIO_PINFUNCTION() for pinctrl-msm
+pin functions and assign the .function_is_gpio() callback in pinmux_ops.
 
-While looking at the "incorrectly reset" comment, I noticed
-stm32_pcie->link_status and wondered why it exists.  It looks like
-it's only used in stm32_pcie_start_link() and stm32_pcie_stop_link(),
-and I don't see similar tracking in other drivers.
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+---
+ drivers/pinctrl/qcom/pinctrl-msm.c | 1 +
+ drivers/pinctrl/qcom/pinctrl-msm.h | 5 +++++
+ 2 files changed, 6 insertions(+)
 
-It feels a little racy because the link might go down for reasons
-other than calling stm32_pcie_stop_link().
+diff --git a/drivers/pinctrl/qcom/pinctrl-msm.c b/drivers/pinctrl/qcom/pinctrl-msm.c
+index 96e40c2342bdedb8857629e503897f171a80e579..a5f69464827119dfe2a7781b558094b283fca215 100644
+--- a/drivers/pinctrl/qcom/pinctrl-msm.c
++++ b/drivers/pinctrl/qcom/pinctrl-msm.c
+@@ -265,6 +265,7 @@ static const struct pinmux_ops msm_pinmux_ops = {
+ 	.get_functions_count	= pinmux_generic_get_function_count,
+ 	.get_function_name	= pinmux_generic_get_function_name,
+ 	.get_function_groups	= pinmux_generic_get_function_groups,
++	.function_is_gpio	= pinmux_generic_function_is_gpio,
+ 	.gpio_request_enable	= msm_pinmux_request_gpio,
+ 	.set_mux		= msm_pinmux_set_mux,
+ };
+diff --git a/drivers/pinctrl/qcom/pinctrl-msm.h b/drivers/pinctrl/qcom/pinctrl-msm.h
+index d7dc0947bb161868c8f433dc2536719b8afc8bd8..4625fa5320a95a4d24e3a0c98a249e4f163dd4c7 100644
+--- a/drivers/pinctrl/qcom/pinctrl-msm.h
++++ b/drivers/pinctrl/qcom/pinctrl-msm.h
+@@ -29,6 +29,11 @@ struct pinctrl_pin_desc;
+ 					fname##_groups,		\
+ 					ARRAY_SIZE(fname##_groups))
+ 
++#define MSM_GPIO_PIN_FUNCTION(fname)				\
++	[msm_mux_##fname] = PINCTRL_GPIO_PINFUNCTION(#fname,	\
++					fname##_groups,		\
++					ARRAY_SIZE(fname##_groups))
++
+ #define QCA_PIN_FUNCTION(fname)					\
+ 	[qca_mux_##fname] = PINCTRL_PINFUNCTION(#fname,		\
+ 					fname##_groups,		\
 
-> +	dev_dbg(pci->dev, "Enable link\n");
-> +
-> +	ret = stm32_pcie_enable_link(pci);
-> +	if (ret) {
-> +		dev_err(pci->dev, "PCIe cannot establish link: %d\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	enable_irq(stm32_pcie->perst_irq);
-> +
-> +	stm32_pcie->link_status = STM32_PCIE_EP_LINK_ENABLED;
-> +
-> +	return 0;
-> +}
-> +
-> +static void stm32_pcie_stop_link(struct dw_pcie *pci)
-> +{
-> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
-> +
-> +	if (stm32_pcie->link_status == STM32_PCIE_EP_LINK_DISABLED) {
-> +		dev_dbg(pci->dev, "Link is already disabled\n");
-> +		return;
-> +	}
-> +
-> +	dev_dbg(pci->dev, "Disable link\n");
-> +
-> +	disable_irq(stm32_pcie->perst_irq);
-> +
-> +	stm32_pcie_disable_link(pci);
-> +
-> +	stm32_pcie->link_status = STM32_PCIE_EP_LINK_DISABLED;
-> +}
+-- 
+2.48.1
+
 
