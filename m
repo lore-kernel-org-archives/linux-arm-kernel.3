@@ -4,169 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF199CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 09:08:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48B97C8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 09:10:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QIPVhNdDqwyEUU2mMSzlYSdtbuVp92JbzlpYQuyYJ0w=; b=GosX5NkAOG1hOAFprOdYPijjEN
-	kc5wB6/IaRFuPdIBRE0DZWrfjVVbVt7uhhVG/32FxelhV03JItcTEG6R9naFXthzF7z+wdt5N1HmP
-	AI7KxuKh2UiwKdT668qlU/HBbzIz/3Yq4vjPPGviGzBf3iE6vvSBbHpjSKbO/zdj2+RF6xgg+InET
-	pQEG9OaKr7E3S4KXZTS4zmfn9FV3g5cJs4IjHV+kByZzZP0hLbtGXpR99BOTrfa6D77q//jk7ocaY
-	aw7tv37sM9VuEXmjT2d2q55qmD89xfZJTwZ72nXkp9jr9JZTe5ksOZhAO3xn2ofEd0zYjNldEhaFk
-	n/KvKVnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sJtZdzMUi0J8KSQhlaX0XqgnDJIEayUG+GPNWLg4MYI=; b=mLQ4hc+fYcO3gpz0OwBu7T5i6d
+	Y5bzF+Qxoc72ujCJFflRnRUf08RQKSt8wpwnE7AGwpLBGX47KVpd2b8o5aFz72cjYgHsUvPPQUXrA
+	jhHNK0Qpb2cecPCthjw9+eQ55fVWcGmli0o/oidStcmoNdvArTLAWqNafGVL7g01NbIb/LDbQ9VJi
+	u+H1TcIgmD1UW4Xv2wklaaBvHfhiw7CCMZ3+iR0+NQ+lhyG4ASa3A2f8gF3xHJW9BB8MAgnVLRxBZ
+	rrbFD/lRMvwoZ7GNYyBuT9F6d/DqniLOW5nQkectkjEYp/yuXPmBDBtC7LTGuPkQr8MBDDYXuJdPR
+	VnVsYN0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urYcZ-00000000uqm-3OXs;
-	Thu, 28 Aug 2025 09:08:39 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1urYdr-00000000v0Z-2cje;
+	Thu, 28 Aug 2025 09:09:59 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urXL7-00000000fBi-498A
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 07:46:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756367193;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=QIPVhNdDqwyEUU2mMSzlYSdtbuVp92JbzlpYQuyYJ0w=;
-	b=F+MAnAjcqT0jtDMTUcnRqeUVB3IiC571RotWTYohs9dQDuyn4/rmLhajr9YueNwXa7V8Gs
-	RR61hH9zIrvrpszqaXzqaqqPWWmwjkEq13MjmOvmyYe/ShqAatXFDgMCo5kKMz6lUNf7YO
-	K3rDvoVQKijXbTZaABchS/8fHfm5qs4=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-20-QhPJAu_0PtWh45_TqNgZww-1; Thu, 28 Aug 2025 03:46:30 -0400
-X-MC-Unique: QhPJAu_0PtWh45_TqNgZww-1
-X-Mimecast-MFC-AGG-ID: QhPJAu_0PtWh45_TqNgZww_1756367190
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-3c6ae25997cso394590f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 00:46:30 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756367189; x=1756971989;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=QIPVhNdDqwyEUU2mMSzlYSdtbuVp92JbzlpYQuyYJ0w=;
-        b=wc0opBxtrIk5wyurEoSwRPt3VlargwzR3wdV8RIgWRDXrq3d0T/pWazH1V3/DeQW/L
-         WYDBOgVbQEkGd5yl0GXehM1R8XSdCyMPhWUq62ULOQwlpVAwvMId1e3ZpEIRSm8VY8ty
-         VlzH5sF6pRcPeYSDhhwWacqzKRxmakb35j/0pDbfM15CD6PwYXxbmQlLUECF7N7GItE7
-         22rALMdyzHO7KrHYWot0TCFrMRCA8roynbl+Nb/0dClzoBZ/G+dUrkMDqZmRraxAviKO
-         DnQ3EsQUQtpy1plQ8bBee7e/1Uq+krZMGHCsyGdTxr5mRx5MMOY7VM8cYRoh6xfJYFkQ
-         BRXw==
-X-Forwarded-Encrypted: i=1; AJvYcCWP2RITt14vK6ceTJAEuGtyiwyv728j5vEs5HXWsLhniULnpfErXFhu6hSi1hgr7BGeO+GNFBkZSJYt7ESGgExI@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFgg5bxKZKFkoliFKX7wYN4hqmnxMADVOl+8qXi/mN53J/f1IT
-	+CwlVioW3r63bdoDyOan/GdGaaFiMP9sf73WEs+L4SOl/QAlttgdBqqxZYlfaJ2/zsTS2fWbLrg
-	GUQCn5bWIuu7Tr+9srLH4M2z++7qNSMCcnP2F+xL/Mw7L7RNn3MXuYhsJFTKPuvFpEmqJlUPwwf
-	uY
-X-Gm-Gg: ASbGnctSAepi2BBxfe3kyZZfr1kjTYI2iAVKIUsL2dmVaF4ZJX36qfjSFT/Ko1z2qpm
-	rQjVJ/A6ndxd0OLter7MBZdqT2WLoR7nw4o5gBH9aZAVku9slZPZPK+RY+8WyIT/1NJj8+2UPMU
-	W9SPVcl6nd2uz1FI0RlOzeUmKuiL1ge5W9a7sRt334UDQTk2mOcVYVdrx28T1vP/fgf6nvD8JrK
-	LsVDT4R694nP9DEtSUX/q3HJAJR2qoahC+KNImUTlSnnhTVXkrjTALex2Dp3D3+N5qXJhWP3R0P
-	6Qr7AOrPP1fn8dIXKH9y9+LZQxnfeUdM5sTePBs1HZoLz8QdyC7YC9lbgGp7DViGrfi/CQEfxB1
-	nKFknnxhLatBKn3g1qStCJQ2811ZB2bVUvYrxrKcfZUNL/YPSEy1ghK06z8DRJvi5its=
-X-Received: by 2002:a05:6000:18ad:b0:3b7:948a:1361 with SMTP id ffacd0b85a97d-3c5da741330mr15989055f8f.6.1756367189583;
-        Thu, 28 Aug 2025 00:46:29 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHbZS9TwQor8utX8Cftd7hubod4ESO9oJ14F94do36paGGmjXBbrC+y7X5MmcQWQ6JKGQD26w==
-X-Received: by 2002:a05:6000:18ad:b0:3b7:948a:1361 with SMTP id ffacd0b85a97d-3c5da741330mr15989008f8f.6.1756367189132;
-        Thu, 28 Aug 2025 00:46:29 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f28:c100:2225:10aa:f247:7b85? (p200300d82f28c100222510aaf2477b85.dip0.t-ipconnect.de. [2003:d8:2f28:c100:2225:10aa:f247:7b85])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b6b1cdf05sm35411485e9.1.2025.08.28.00.46.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 28 Aug 2025 00:46:28 -0700 (PDT)
-Message-ID: <0e1c0fe1-4dd1-46dc-8ce8-a6bf6e4c3e80@redhat.com>
-Date: Thu, 28 Aug 2025 09:46:25 +0200
+	id 1urXh8-00000000jQ1-006W;
+	Thu, 28 Aug 2025 08:09:19 +0000
+X-UUID: 45eb25ca83e611f09f706fa2197c6ceb-20250828
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=sJtZdzMUi0J8KSQhlaX0XqgnDJIEayUG+GPNWLg4MYI=;
+	b=WFsoErXUBKrEjn8EtjP0uUH1QnlsXC8Be6qTDiUPoae9XUU6peGqxD8jUYSaXNQ2P1OQSRZjuBm1F6X+vrzli/XNTb6Q/tW6SUGS027RmEBpkZVJa8M8Jwi1B6FhPcWS5/oiBBvBQLiU7qnXuRhrkwQitMLUpQ5eQOB3ABJvs1w=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.3,REQID:3d399cc8-2482-4eb9-8bd3-10735191a737,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:f1326cf,CLOUDID:7e9bb36d-c2f4-47a6-876f-59a53e9ecc6e,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:-5,Content:0|15|50,EDM:
+	-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
+	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 45eb25ca83e611f09f706fa2197c6ceb-20250828
+Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
+	(envelope-from <paul-pl.chen@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1534021898; Thu, 28 Aug 2025 01:09:08 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Thu, 28 Aug 2025 16:09:04 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Thu, 28 Aug 2025 16:09:04 +0800
+From: Paul Chen <paul-pl.chen@mediatek.com>
+To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<chunkuang.hu@kernel.org>, <angelogioacchino.delregno@collabora.com>
+CC: <matthias.bgg@gmail.com>, <p.zabel@pengutronix.de>,
+	<jason-jh.lin@mediatek.com>, <nancy.lin@mediatek.com>,
+	<singo.chang@mediatek.com>, <xiandong.wang@mediatek.com>,
+	<sirius.wang@mediatek.com>, <paul-pl.chen@mediatek.com>,
+	<sunny.shen@mediatek.com>, <fshao@chromium.org>, <treapking@chromium.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>
+Subject: [PATCH v4 12/19] drm/mediatek: Export OVL formats definitions and format conversion API
+Date: Thu, 28 Aug 2025 16:07:07 +0800
+Message-ID: <20250828080855.3502514-13-paul-pl.chen@mediatek.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250828080855.3502514-1-paul-pl.chen@mediatek.com>
+References: <20250828080855.3502514-1-paul-pl.chen@mediatek.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 12/36] mm: simplify folio_page() and folio_page_idx()
-To: Wei Yang <richard.weiyang@gmail.com>
-Cc: linux-kernel@vger.kernel.org, Zi Yan <ziy@nvidia.com>,
- Alexander Potapenko <glider@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
- Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
- dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
- iommu@lists.linux.dev, io-uring@vger.kernel.org,
- Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
- Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
- kasan-dev@googlegroups.com, kvm@vger.kernel.org,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
- linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
- linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-scsi@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Marco Elver <elver@google.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
- Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
- Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
- Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
- Robin Murphy <robin.murphy@arm.com>, Suren Baghdasaryan <surenb@google.com>,
- Tejun Heo <tj@kernel.org>, virtualization@lists.linux.dev,
- Vlastimil Babka <vbabka@suse.cz>, wireguard@lists.zx2c4.com, x86@kernel.org
-References: <20250827220141.262669-1-david@redhat.com>
- <20250827220141.262669-13-david@redhat.com>
- <20250828074356.3xiuqugokg36yuxw@master>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20250828074356.3xiuqugokg36yuxw@master>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: AcrI3xMzzipQQKXUqnM3G4Tk9UNZIJVWKwX-nD425Uc_1756367190
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_004634_101730_0360AAFC 
-X-CRM114-Status: UNSURE (   8.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250828_010918_113180_20B9FEDC 
+X-CRM114-Status: GOOD (  27.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,14 +92,376 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> 
-> Curious about why it is in page-flags.h. It seems not related to page-flags.
+From: Nancy Lin <nancy.lin@mediatek.com>
 
-Likely because we have the page_folio() in there as well.
+In upcoming SoCs, the OVL component will be divided into multiple
+smaller hardware units to enhance flexibility. To facilitate this
+transition, the OVL format definitions and format conversion API
+should be exported for reuse across these units.
 
+Signed-off-by: Nancy Lin <nancy.lin@mediatek.com>
+Signed-off-by: Paul-pl Chen <paul-pl.chen@mediatek.com>
+---
+ drivers/gpu/drm/mediatek/mtk_disp_ovl.c | 177 +++++++++++++++---------
+ drivers/gpu/drm/mediatek/mtk_disp_ovl.h |  21 +++
+ 2 files changed, 133 insertions(+), 65 deletions(-)
+ create mode 100644 drivers/gpu/drm/mediatek/mtk_disp_ovl.h
+
+diff --git a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
+index d4f096d37abc..e3ee3f60f4ba 100644
+--- a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
++++ b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
+@@ -4,7 +4,6 @@
+  */
+ 
+ #include <drm/drm_blend.h>
+-#include <drm/drm_fourcc.h>
+ #include <drm/drm_framebuffer.h>
+ 
+ #include <linux/clk.h>
+@@ -18,6 +17,7 @@
+ #include "mtk_crtc.h"
+ #include "mtk_ddp_comp.h"
+ #include "mtk_disp_drv.h"
++#include "mtk_disp_ovl.h"
+ #include "mtk_drm_drv.h"
+ 
+ #define DISP_REG_OVL_INTEN			0x0004
+@@ -62,22 +62,15 @@
+ /* OVL_CON_RGB_SWAP works only if OVL_CON_CLRFMT_MAN is enabled */
+ #define OVL_CON_RGB_SWAP	BIT(25)
+ 
+-#define OVL_CON_CLRFMT_RGB	(1 << 12)
+-#define OVL_CON_CLRFMT_ARGB8888	(2 << 12)
+-#define OVL_CON_CLRFMT_RGBA8888	(3 << 12)
+-#define OVL_CON_CLRFMT_ABGR8888	(OVL_CON_CLRFMT_ARGB8888 | OVL_CON_BYTE_SWAP)
+-#define OVL_CON_CLRFMT_BGRA8888	(OVL_CON_CLRFMT_RGBA8888 | OVL_CON_BYTE_SWAP)
+-#define OVL_CON_CLRFMT_UYVY	(4 << 12)
+-#define OVL_CON_CLRFMT_YUYV	(5 << 12)
+-#define OVL_CON_MTX_YUV_TO_RGB	(6 << 16)
+-#define OVL_CON_CLRFMT_PARGB8888 ((3 << 12) | OVL_CON_CLRFMT_MAN)
+-#define OVL_CON_CLRFMT_PABGR8888 (OVL_CON_CLRFMT_PARGB8888 | OVL_CON_RGB_SWAP)
+-#define OVL_CON_CLRFMT_PBGRA8888 (OVL_CON_CLRFMT_PARGB8888 | OVL_CON_BYTE_SWAP)
+-#define OVL_CON_CLRFMT_PRGBA8888 (OVL_CON_CLRFMT_PABGR8888 | OVL_CON_BYTE_SWAP)
+-#define OVL_CON_CLRFMT_RGB565(ovl)	((ovl)->data->fmt_rgb565_is_0 ? \
+-					0 : OVL_CON_CLRFMT_RGB)
+-#define OVL_CON_CLRFMT_RGB888(ovl)	((ovl)->data->fmt_rgb565_is_0 ? \
+-					OVL_CON_CLRFMT_RGB : 0)
++#define OVL_CON_CLRFMT_RGB565(shift)	(0 << (shift))
++#define OVL_CON_CLRFMT_RGB888(shift)	(1 << (shift))
++#define OVL_CON_CLRFMT_ARGB8888(shift)	(2 << (shift))
++#define OVL_CON_CLRFMT_RGBA8888(shift)	(3 << (shift))
++#define OVL_CON_CLRFMT_UYVY(shift)	(4 << (shift))
++#define OVL_CON_CLRFMT_YUYV(shift)	(5 << (shift))
++#define OVL_CON_MTX_YUV_TO_RGB		(6 << 16)
++#define OVL_CON_CLRFMT_PARGB8888(shift, man) ((3 << (shift)) | (man))
++
+ #define	OVL_CON_AEN		BIT(8)
+ #define	OVL_CON_ALPHA		0xff
+ #define	OVL_CON_VIRT_FLIP	BIT(9)
+@@ -101,7 +94,7 @@ static inline bool is_10bit_rgb(u32 fmt)
+ 	return false;
+ }
+ 
+-static const u32 mt8173_ovl_formats[] = {
++const u32 mt8173_ovl_formats[] = {
+ 	DRM_FORMAT_XRGB8888,
+ 	DRM_FORMAT_ARGB8888,
+ 	DRM_FORMAT_BGRX8888,
+@@ -115,7 +108,9 @@ static const u32 mt8173_ovl_formats[] = {
+ 	DRM_FORMAT_YUYV,
+ };
+ 
+-static const u32 mt8195_ovl_formats[] = {
++const size_t mt8173_ovl_formats_len = ARRAY_SIZE(mt8173_ovl_formats);
++
++const u32 mt8195_ovl_formats[] = {
+ 	DRM_FORMAT_XRGB8888,
+ 	DRM_FORMAT_ARGB8888,
+ 	DRM_FORMAT_XRGB2101010,
+@@ -139,6 +134,8 @@ static const u32 mt8195_ovl_formats[] = {
+ 	DRM_FORMAT_YUYV,
+ };
+ 
++const size_t mt8195_ovl_formats_len = ARRAY_SIZE(mt8195_ovl_formats);
++
+ struct mtk_disp_ovl_data {
+ 	unsigned int addr;
+ 	unsigned int gmc_bits;
+@@ -167,6 +164,22 @@ struct mtk_disp_ovl {
+ 	void				*vblank_cb_data;
+ };
+ 
++bool mtk_ovl_is_10bit_rgb(unsigned int fmt)
++{
++	switch (fmt) {
++	case DRM_FORMAT_XRGB2101010:
++	case DRM_FORMAT_ARGB2101010:
++	case DRM_FORMAT_RGBX1010102:
++	case DRM_FORMAT_RGBA1010102:
++	case DRM_FORMAT_XBGR2101010:
++	case DRM_FORMAT_ABGR2101010:
++	case DRM_FORMAT_BGRX1010102:
++	case DRM_FORMAT_BGRA1010102:
++		return true;
++	}
++	return false;
++}
++
+ static irqreturn_t mtk_disp_ovl_irq_handler(int irq, void *dev_id)
+ {
+ 	struct mtk_disp_ovl *priv = dev_id;
+@@ -302,7 +315,7 @@ static void mtk_ovl_set_bit_depth(struct device *dev, int idx, u32 format,
+ 	if (!ovl->data->supports_clrfmt_ext)
+ 		return;
+ 
+-	if (is_10bit_rgb(format))
++	if (mtk_ovl_is_10bit_rgb(format))
+ 		bit_depth = OVL_CON_CLRFMT_10_BIT;
+ 
+ 	mtk_ddp_write_mask(cmdq_pkt, OVL_CON_CLRFMT_BIT_DEPTH(bit_depth, idx),
+@@ -401,70 +414,96 @@ void mtk_ovl_layer_off(struct device *dev, unsigned int idx,
+ 		      DISP_REG_OVL_RDMA_CTRL(idx));
+ }
+ 
+-static unsigned int mtk_ovl_fmt_convert(struct mtk_disp_ovl *ovl,
+-					struct mtk_plane_state *state)
++unsigned int mtk_ovl_fmt_convert(unsigned int fmt, unsigned int blend_mode,
++				 bool fmt_rgb565_is_0, bool color_convert,
++				 u8 clrfmt_shift, u32 clrfmt_man, u32 byte_swap, u32 rgb_swap)
+ {
+-	unsigned int fmt = state->pending.format;
+-	unsigned int blend_mode = DRM_MODE_BLEND_COVERAGE;
+-
+-	/*
+-	 * For the platforms where OVL_CON_CLRFMT_MAN is defined in the hardware data sheet
+-	 * and supports premultiplied color formats, such as OVL_CON_CLRFMT_PARGB8888.
+-	 *
+-	 * Check blend_modes in the driver data to see if premultiplied mode is supported.
+-	 * If not, use coverage mode instead to set it to the supported color formats.
+-	 *
+-	 * Current DRM assumption is that alpha is default premultiplied, so the bitmask of
+-	 * blend_modes must include BIT(DRM_MODE_BLEND_PREMULTI). Otherwise, mtk_plane_init()
+-	 * will get an error return from drm_plane_create_blend_mode_property() and
+-	 * state->base.pixel_blend_mode should not be used.
+-	 */
+-	if (ovl->data->blend_modes & BIT(DRM_MODE_BLEND_PREMULTI))
+-		blend_mode = state->base.pixel_blend_mode;
++	unsigned int con = 0;
++	bool need_byte_swap = false, need_rgb_swap = false;
+ 
+ 	switch (fmt) {
+ 	default:
+ 	case DRM_FORMAT_RGB565:
+-		return OVL_CON_CLRFMT_RGB565(ovl);
++		con = fmt_rgb565_is_0 ?
++			OVL_CON_CLRFMT_RGB565(clrfmt_shift) : OVL_CON_CLRFMT_RGB888(clrfmt_shift);
++	break;
+ 	case DRM_FORMAT_BGR565:
+-		return OVL_CON_CLRFMT_RGB565(ovl) | OVL_CON_BYTE_SWAP;
++		con = fmt_rgb565_is_0 ?
++			OVL_CON_CLRFMT_RGB565(clrfmt_shift) : OVL_CON_CLRFMT_RGB888(clrfmt_shift);
++		need_byte_swap = true;	/* RGB565 -> BGR565 */
++	break;
+ 	case DRM_FORMAT_RGB888:
+-		return OVL_CON_CLRFMT_RGB888(ovl);
++		con = fmt_rgb565_is_0 ?
++			OVL_CON_CLRFMT_RGB888(clrfmt_shift) : OVL_CON_CLRFMT_RGB565(clrfmt_shift);
++	break;
+ 	case DRM_FORMAT_BGR888:
+-		return OVL_CON_CLRFMT_RGB888(ovl) | OVL_CON_BYTE_SWAP;
++		con = fmt_rgb565_is_0 ?
++			OVL_CON_CLRFMT_RGB888(clrfmt_shift) : OVL_CON_CLRFMT_RGB565(clrfmt_shift);
++		need_byte_swap = true;	/* RGB888 -> BGR888 */
++	break;
+ 	case DRM_FORMAT_RGBX8888:
+ 	case DRM_FORMAT_RGBA8888:
+ 	case DRM_FORMAT_RGBX1010102:
+ 	case DRM_FORMAT_RGBA1010102:
+-		return blend_mode == DRM_MODE_BLEND_COVERAGE ?
+-		       OVL_CON_CLRFMT_RGBA8888 :
+-		       OVL_CON_CLRFMT_PRGBA8888;
++		if (blend_mode == DRM_MODE_BLEND_COVERAGE) {
++			con = OVL_CON_CLRFMT_RGBA8888(clrfmt_shift);
++		} else {
++			con = OVL_CON_CLRFMT_PARGB8888(clrfmt_shift, clrfmt_man);
++			need_byte_swap = true;	/* PARGB8888 -> PBGRA8888 */
++			need_rgb_swap = true;	/* PBGRA8888 -> PRGBA8888 */
++		}
++	break;
+ 	case DRM_FORMAT_BGRX8888:
+ 	case DRM_FORMAT_BGRA8888:
+ 	case DRM_FORMAT_BGRX1010102:
+ 	case DRM_FORMAT_BGRA1010102:
+-		return blend_mode == DRM_MODE_BLEND_COVERAGE ?
+-		       OVL_CON_CLRFMT_BGRA8888 :
+-		       OVL_CON_CLRFMT_PBGRA8888;
++		if (blend_mode == DRM_MODE_BLEND_COVERAGE) {
++			con = OVL_CON_CLRFMT_RGBA8888(clrfmt_shift);
++			need_byte_swap = true;	/* RGB8888 -> BGR8888 */
++		} else {
++			con = OVL_CON_CLRFMT_PARGB8888(clrfmt_shift, clrfmt_man);
++			need_byte_swap = true;	/* PARGB8888 -> PBGRA8888 */
++		}
++	break;
+ 	case DRM_FORMAT_XRGB8888:
+ 	case DRM_FORMAT_ARGB8888:
+ 	case DRM_FORMAT_XRGB2101010:
+ 	case DRM_FORMAT_ARGB2101010:
+-		return blend_mode == DRM_MODE_BLEND_COVERAGE ?
+-		       OVL_CON_CLRFMT_ARGB8888 :
+-		       OVL_CON_CLRFMT_PARGB8888;
++		if (blend_mode == DRM_MODE_BLEND_COVERAGE)
++			con = OVL_CON_CLRFMT_ARGB8888(clrfmt_shift);
++		else
++			con = OVL_CON_CLRFMT_PARGB8888(clrfmt_shift, clrfmt_man);
++	break;
+ 	case DRM_FORMAT_XBGR8888:
+ 	case DRM_FORMAT_ABGR8888:
+ 	case DRM_FORMAT_XBGR2101010:
+ 	case DRM_FORMAT_ABGR2101010:
+-		return blend_mode == DRM_MODE_BLEND_COVERAGE ?
+-		       OVL_CON_CLRFMT_ABGR8888 :
+-		       OVL_CON_CLRFMT_PABGR8888;
++		if (blend_mode == DRM_MODE_BLEND_COVERAGE) {
++			con = OVL_CON_CLRFMT_ARGB8888(clrfmt_shift);
++			need_rgb_swap = true;	/* ARGB8888 -> ABGR8888 */
++		} else {
++			con = OVL_CON_CLRFMT_PARGB8888(clrfmt_shift, clrfmt_man);
++			need_rgb_swap = true;	/* PARGB8888 -> PABGR8888 */
++		}
++	break;
+ 	case DRM_FORMAT_UYVY:
+-		return OVL_CON_CLRFMT_UYVY | OVL_CON_MTX_YUV_TO_RGB;
++		con = OVL_CON_CLRFMT_UYVY(clrfmt_shift);
++	break;
+ 	case DRM_FORMAT_YUYV:
+-		return OVL_CON_CLRFMT_YUYV | OVL_CON_MTX_YUV_TO_RGB;
++		con = OVL_CON_CLRFMT_YUYV(clrfmt_shift);
++	break;
+ 	}
++
++	if (color_convert)
++		con |= OVL_CON_MTX_YUV_TO_RGB;
++
++	if (need_byte_swap)
++		con |= byte_swap;
++
++	if (need_rgb_swap)
++		con |= rgb_swap;
++
++	return con;
+ }
+ 
+ static void mtk_ovl_afbc_layer_config(struct mtk_disp_ovl *ovl,
+@@ -511,7 +550,15 @@ void mtk_ovl_layer_config(struct device *dev, unsigned int idx,
+ 		return;
+ 	}
+ 
+-	con = mtk_ovl_fmt_convert(ovl, state);
++	if (ovl->data->blend_modes & BIT(DRM_MODE_BLEND_PREMULTI))
++		con = mtk_ovl_fmt_convert(fmt, blend_mode,
++					  ovl->data->fmt_rgb565_is_0, true, 12,
++					  OVL_CON_CLRFMT_MAN, OVL_CON_BYTE_SWAP, OVL_CON_RGB_SWAP);
++	else
++		con = mtk_ovl_fmt_convert(fmt, DRM_MODE_BLEND_COVERAGE,
++					  ovl->data->fmt_rgb565_is_0, true, 12,
++					  OVL_CON_CLRFMT_MAN, OVL_CON_BYTE_SWAP, OVL_CON_RGB_SWAP);
++
+ 	if (state->base.fb) {
+ 		con |= state->base.alpha & OVL_CON_ALPHA;
+ 
+@@ -668,7 +715,7 @@ static const struct mtk_disp_ovl_data mt2701_ovl_driver_data = {
+ 	.layer_nr = 4,
+ 	.fmt_rgb565_is_0 = false,
+ 	.formats = mt8173_ovl_formats,
+-	.num_formats = ARRAY_SIZE(mt8173_ovl_formats),
++	.num_formats = mt8173_ovl_formats_len,
+ };
+ 
+ static const struct mtk_disp_ovl_data mt8173_ovl_driver_data = {
+@@ -677,7 +724,7 @@ static const struct mtk_disp_ovl_data mt8173_ovl_driver_data = {
+ 	.layer_nr = 4,
+ 	.fmt_rgb565_is_0 = true,
+ 	.formats = mt8173_ovl_formats,
+-	.num_formats = ARRAY_SIZE(mt8173_ovl_formats),
++	.num_formats = mt8173_ovl_formats_len,
+ };
+ 
+ static const struct mtk_disp_ovl_data mt8183_ovl_driver_data = {
+@@ -686,7 +733,7 @@ static const struct mtk_disp_ovl_data mt8183_ovl_driver_data = {
+ 	.layer_nr = 4,
+ 	.fmt_rgb565_is_0 = true,
+ 	.formats = mt8173_ovl_formats,
+-	.num_formats = ARRAY_SIZE(mt8173_ovl_formats),
++	.num_formats = mt8173_ovl_formats_len,
+ };
+ 
+ static const struct mtk_disp_ovl_data mt8183_ovl_2l_driver_data = {
+@@ -695,7 +742,7 @@ static const struct mtk_disp_ovl_data mt8183_ovl_2l_driver_data = {
+ 	.layer_nr = 2,
+ 	.fmt_rgb565_is_0 = true,
+ 	.formats = mt8173_ovl_formats,
+-	.num_formats = ARRAY_SIZE(mt8173_ovl_formats),
++	.num_formats = mt8173_ovl_formats_len,
+ };
+ 
+ static const struct mtk_disp_ovl_data mt8192_ovl_driver_data = {
+@@ -708,7 +755,7 @@ static const struct mtk_disp_ovl_data mt8192_ovl_driver_data = {
+ 		       BIT(DRM_MODE_BLEND_COVERAGE) |
+ 		       BIT(DRM_MODE_BLEND_PIXEL_NONE),
+ 	.formats = mt8173_ovl_formats,
+-	.num_formats = ARRAY_SIZE(mt8173_ovl_formats),
++	.num_formats = mt8173_ovl_formats_len,
+ };
+ 
+ static const struct mtk_disp_ovl_data mt8192_ovl_2l_driver_data = {
+@@ -721,7 +768,7 @@ static const struct mtk_disp_ovl_data mt8192_ovl_2l_driver_data = {
+ 		       BIT(DRM_MODE_BLEND_COVERAGE) |
+ 		       BIT(DRM_MODE_BLEND_PIXEL_NONE),
+ 	.formats = mt8173_ovl_formats,
+-	.num_formats = ARRAY_SIZE(mt8173_ovl_formats),
++	.num_formats = mt8173_ovl_formats_len,
+ };
+ 
+ static const struct mtk_disp_ovl_data mt8195_ovl_driver_data = {
+@@ -735,7 +782,7 @@ static const struct mtk_disp_ovl_data mt8195_ovl_driver_data = {
+ 		       BIT(DRM_MODE_BLEND_COVERAGE) |
+ 		       BIT(DRM_MODE_BLEND_PIXEL_NONE),
+ 	.formats = mt8195_ovl_formats,
+-	.num_formats = ARRAY_SIZE(mt8195_ovl_formats),
++	.num_formats = mt8195_ovl_formats_len,
+ 	.supports_clrfmt_ext = true,
+ };
+ 
+diff --git a/drivers/gpu/drm/mediatek/mtk_disp_ovl.h b/drivers/gpu/drm/mediatek/mtk_disp_ovl.h
+new file mode 100644
+index 000000000000..4f446d2e0712
+--- /dev/null
++++ b/drivers/gpu/drm/mediatek/mtk_disp_ovl.h
+@@ -0,0 +1,21 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (c) 2025 MediaTek Inc.
++ */
++
++#ifndef __MTK_DISP_OVL_H__
++#define __MTK_DISP_OVL_H__
++
++#include <drm/drm_fourcc.h>
++
++extern const u32 mt8173_ovl_formats[];
++extern const size_t mt8173_ovl_formats_len;
++extern const u32 mt8195_ovl_formats[];
++extern const size_t mt8195_ovl_formats_len;
++
++bool mtk_ovl_is_10bit_rgb(unsigned int fmt);
++unsigned int mtk_ovl_fmt_convert(unsigned int fmt, unsigned int blend_mode,
++				 bool fmt_rgb565_is_0, bool color_convert,
++				 u8 clrfmt_shift, u32 clrfmt_man, u32 byte_swap, u32 rgb_swap);
++
++#endif
 -- 
-Cheers
-
-David / dhildenb
+2.45.2
 
 
