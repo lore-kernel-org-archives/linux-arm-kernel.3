@@ -4,166 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8160CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 03:08:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 305D8CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 03:12:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p74A+sOl7DAz/FC+dByIeNJupwTvLp+3Bi5eknuxa5E=; b=RChuuXX8anLhZ1tOjnX4tT/CjO
-	Mf0sKDXA81EFkaYX9nTNpcXl92vdgEo4+V1FRMFLQNdXWFwB5hzP+lEPhtf1nke1Yt7v7ppwa/zCR
-	4NWUWmaJLcfFbUebf4C5L8FLSRnECKhc1ehj2ykLbfVlN1Evl0NkAxjkKFZCBs5xqCKdQhcA4cKkb
-	L22qWrfnJ7V68Mw3A4sFKRCutEDn+2SiabCdDZjXTiGK1mIxRiO8Vi5UwDrwnXfbg6oNGuJBiXjrh
-	/Ku44ygPqwY1+5q4mpffW345dwJhGM9JBvWabF1mTs4/9LSsZuESYQv1IKPFuwAO/G24waKsjD7Fx
-	EwPxB66Q==;
+	bh=hJhw0qxM/LAU71EEZ5AbPC52nLOGrUVertbown/9J5I=; b=Loq2R/rGlJFBZFQn3BfAouBT2D
+	v+aDw6c5HAbOYYeF+OFIGkkQYIU/HY4o5vRt40c8oGiNoz2FBd0wE9s9YInugIOBhFTXL9KvWG+ts
+	ak9USNuyiSOi2jSuyB7pIdsxOdga8g/+vPKxVwENSvRT6G0zshORYt08C6jW20EoJ4A0cBVA6pjh6
+	xLnoWnoGYxfqntiEmvIpAPUiPI42uOjO9w/I1LeZfU582XnLhWFQWNe4BW80IDYq6Sj4TN6UsRsHk
+	8agNJNVhwd2LZf2TN0qcNKSsUJIJibGgj1JTIbNURP5qMhRYJN2zgHHH7ugPywxgsX3QedKsCbF1A
+	a0SUUXrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urT0A-000000006X0-0ZPH;
-	Thu, 28 Aug 2025 03:08:38 +0000
-Received: from mail-dm6nam11on20621.outbound.protection.outlook.com ([2a01:111:f403:2415::621] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1urT3j-0000000070p-1ovr;
+	Thu, 28 Aug 2025 03:12:19 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urR4b-0000000HRnF-0zcJ;
-	Thu, 28 Aug 2025 01:05:06 +0000
+	id 1urT10-000000006iV-2jnH
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 28 Aug 2025 03:09:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=hJhw0qxM/LAU71EEZ5AbPC52nLOGrUVertbown/9J5I=; b=fwM1iODOKOnZUgEb+1WS679DvS
+	cPHzNaBhnUsdqGkSOoDhPv3WPGaNz9iPE0ZLKDtfVJBNnf57tVWU6nsMLhouPRBJ3pYaCdY8OiYc4
+	Us6UPST9iq9GhHiUf6TPoP8gHz1RnEfa6vhEdsx5gppOf9f06t2na56sx9xRkrCgU5GOLX5j9IQZK
+	2jXW4FveFPb8l0iUUMLGvsu/rKgBRSwMpa1XPJwg8wEgW8kuiJQWqBjKbYGDdyYPfIivsh+ENQZxh
+	YdbejTKIbus7CKfRyaud34IHloGVJQ6hLUDKJGobSnfwuUrsU0mduLyGExYbz+AgqKTjpySyr+o20
+	uD5aZpcA==;
+Received: from mail-japanwestazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c407::1] helo=OS0P286CU010.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urT0q-00000002ckl-2Uki
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 28 Aug 2025 03:09:26 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SOWUFNiYrbtZFhq292gOefp6rE6KRwfxECB3wrHu6zJ/uI6bADu7V60oIR1R+Ce3fYvFTqjnK/XtlycfQvlE26dTTSuWszIb9XgnubNea17hTsy4uTTymxlHlm6ceHPDFRg85P3uU81YlZV5XV//dH8gpFwkTYMkrikLsAkJqKesL9VR0aqrfArLS3G7rMQicvkoIayxAzhcyoXjackflIKAL1olLOJ/kUWqO9BwAnG4l6YLTBABROPqZBsLHU0JhkT7g/I0ksn+tU4apjpTCNjHUKacAyDqS8pI0cSoSqYkcmsTPSxgh4s1Pm+HoxnYtGEbtWzWKMRhEUYJ1XjNJg==
+ b=sxdLbAkPZwddjuAAJwahlHl80X8Jvks9wNdKbI9KtaB9Pa85HJ4obFd7tes4udiSAzm31YsNwTH8FMeZkIjzo6jun93SFgARC8MrV3+DvdFMYK2VJVIvuS6ln4e04aGQQ7x2hXxOY1cMjQ1rduggloURViRLm6Ybl/qrqd3stYYXILirMkfEkMTt3jczOQkWpd1cfp0oWR/Bk0XbY/TKzWuwMb+MXlyXhUZaRuMbY4Su51TNhWgsf+SK7XXfcv24OWGDz4w43XrcWKnH1c1a7bJtz95D88Szr/qKX4wD99lBS0TXpCjVzVR8EfrKqqkoVCmm3EhFX2oF1EcTa0LIGg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=p74A+sOl7DAz/FC+dByIeNJupwTvLp+3Bi5eknuxa5E=;
- b=Nf99o3beE+liTmtbx5PrkubQE0y+hxFRAtpPCbA2SvRLqETWJ+QNrGUPMghh10OBxQBH+SvH4Qt5XzQoQz2nd0k9y4OCwLGOCLfVKFpif2AeqCPiM+Gq8pQFsMT4N1JJ2JODg4l3Ozi3FkMfGLmLMslYRtuHOBDNcLWnTmbsVqMTBgjGQ+51C4m/z4pixvp81lGs2g1i8iHyFPi2719ZiZA8CJp/kU2q7jrY+SUUXIITpKFfM+mTSvvjcm/SJNVQcsu09WOUyQbN9B3DYSVr4EhSlJGeF5ALl3WQN+EHz5T3wzO4BcjIOG9hKFZzyytkrJ7XHOHlxozihnO3rMLzzw==
+ bh=hJhw0qxM/LAU71EEZ5AbPC52nLOGrUVertbown/9J5I=;
+ b=rNhMlb+aqG5+95vX4jyE8IkvtJTnFc4JLx1g2i2YPg1aJHutaPaIOmRMb1PHzVfp/1H9PK6FABeg73GU0K8EDqWf6U50VqKsomUERZLyocZD32GWHiyiHtNYg+67qLOU9quIhvWD3VarZcmDqIwMQ3JiqS/vlQI8ZSzcy7pOZFpeOwwP5ne+cPtToDdS+jBfp8obvOsr4OKKGDE8318EqlYh7mHM5aZ+wrAHrknqPo7P7zMh6AjaXp5lFZ6hCmiE77ob1JvMvYncQ7y7PGRno23+P8qBkASQB92AoCDD39X22HJtDS6qQK7A5h/2Z0AD6lioP8A3E3ku0/DgNpREFw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+ smtp.mailfrom=valinux.co.jp; dmarc=pass action=none
+ header.from=valinux.co.jp; dkim=pass header.d=valinux.co.jp; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=valinux.co.jp;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=p74A+sOl7DAz/FC+dByIeNJupwTvLp+3Bi5eknuxa5E=;
- b=K1BPQ9gsNaRdCledITiDDfpnQb8+HAxATyaYHwPMnNe0Vo5SFw4pYbIEyqRZJbLvxNFqH+JqJzwZ1k0Mh/lH8C1Fk8pVfs83Mdv+YzXYdx8vGhkICSGNsyi7PVHzyFtIBlar+owQuFywwMbqozMJXTf9d7OAGi3r1UCU0MpWr5VX/OoEv96xcqVkmnk+zaeGcOQPib5oFzqgz2+pcMr10UJm1IBOh9syuPQx7VWdVR9MtDfDzmhvz+ZnKko/7i4fiLUkF4PHuL8NnCl6h2sAFdx5NlNQPwLLoZe3ELHjPi/mha3HCyTt5dK7TuQd0n8IxiThaDdtzK7C4OVCxkQceA==
+ bh=hJhw0qxM/LAU71EEZ5AbPC52nLOGrUVertbown/9J5I=;
+ b=kuwESRfF7OKrmZxYRNKzpALhBS/ZzwXtsMpqqhgmIYuQSQgIWCybnXGKjImpVGMXT6vOJi5qb0CMLCcI+Q6Io3oL4ucVXVx+7awWqDbTLZRPFi/KHMHNXlLthdlU1tUkPlu0xILb2JOErqYFBDytz7EOuJFpBFOPsgypFXr9JCI=
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DS7PR12MB9473.namprd12.prod.outlook.com (2603:10b6:8:252::5) by
- LV8PR12MB9084.namprd12.prod.outlook.com (2603:10b6:408:18e::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.20; Thu, 28 Aug
- 2025 01:04:37 +0000
-Received: from DS7PR12MB9473.namprd12.prod.outlook.com
- ([fe80::5189:ecec:d84a:133a]) by DS7PR12MB9473.namprd12.prod.outlook.com
- ([fe80::5189:ecec:d84a:133a%6]) with mapi id 15.20.9052.019; Thu, 28 Aug 2025
- 01:04:37 +0000
-From: Zi Yan <ziy@nvidia.com>
-To: David Hildenbrand <david@redhat.com>
-Cc: linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
- Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
- dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
- iommu@lists.linux.dev, io-uring@vger.kernel.org,
- Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
- Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
- kasan-dev@googlegroups.com, kvm@vger.kernel.org,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
- linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
- linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-scsi@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Marco Elver <elver@google.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
- Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
- Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
- Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
- Robin Murphy <robin.murphy@arm.com>, Suren Baghdasaryan <surenb@google.com>,
- Tejun Heo <tj@kernel.org>, virtualization@lists.linux.dev,
- Vlastimil Babka <vbabka@suse.cz>, wireguard@lists.zx2c4.com, x86@kernel.org
-Subject: Re: [PATCH v1 08/36] mm/hugetlb: check for unreasonable folio sizes
- when registering hstate
-Date: Wed, 27 Aug 2025 21:04:29 -0400
-X-Mailer: MailMate (2.0r6272)
-Message-ID: <A030470C-B89D-4250-ACBE-0FBC8D0BD0AB@nvidia.com>
-In-Reply-To: <20250827220141.262669-9-david@redhat.com>
-References: <20250827220141.262669-1-david@redhat.com>
- <20250827220141.262669-9-david@redhat.com>
-Content-Type: text/plain
-X-ClientProxiedBy: BN9PR03CA0339.namprd03.prod.outlook.com
- (2603:10b6:408:f6::14) To DS7PR12MB9473.namprd12.prod.outlook.com
- (2603:10b6:8:252::5)
+ header.d=none;dmarc=none action=none header.from=valinux.co.jp;
+Received: from OSZP286MB0982.JPNP286.PROD.OUTLOOK.COM (2603:1096:604:fe::6) by
+ OS3P286MB3212.JPNP286.PROD.OUTLOOK.COM (2603:1096:604:20c::9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9052.21; Thu, 28 Aug 2025 03:09:05 +0000
+Received: from OSZP286MB0982.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::fb9b:13f3:8329:52e3]) by OSZP286MB0982.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::fb9b:13f3:8329:52e3%5]) with mapi id 15.20.9052.019; Thu, 28 Aug 2025
+ 03:09:02 +0000
+Date: Thu, 28 Aug 2025 12:09:00 +0900
+From: Koichiro Den <den@valinux.co.jp>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, tglx@linutronix.de, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] irqchip/gic-v3-its: Fix invalid wait context lockdep
+ report
+Message-ID: <pkfekcmetqyoj7rwvr77kisu7ok7bc6srq5maoydisnsk4bnyy@wimnw744lp5t>
+References: <20250827073848.1410315-1-den@valinux.co.jp>
+ <86h5xtdj6m.wl-maz@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86h5xtdj6m.wl-maz@kernel.org>
+X-ClientProxiedBy: TYCP286CA0072.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:31a::20) To OSZP286MB0982.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:604:fe::6)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS7PR12MB9473:EE_|LV8PR12MB9084:EE_
-X-MS-Office365-Filtering-Correlation-Id: 269f8bf3-675c-4fd2-0ec3-08dde5cedb94
+X-MS-TrafficTypeDiagnostic: OSZP286MB0982:EE_|OS3P286MB3212:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3b5faffa-096c-4b06-080f-08dde5e03d67
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?d6nO1qiF4FKRrVs/wnxL11pnYyxVbsmIHSoyEeGgJ7Mj+PuH0xLGTo3nQw75?=
- =?us-ascii?Q?SbcwS8dAblH/jCJXcH6aOVjEYDtgD+npkxnhnUAgioV0cXevCObR7vs55wTY?=
- =?us-ascii?Q?06bb52HxKX59Qpgci2AVKByIlMOqBp4g4CTmX9H7HDaVwU7ysfDU0Ou3mpW+?=
- =?us-ascii?Q?aCEEiDrG8JN5QG8WOe3drWcqfVANtwnQrmwWCgdiCYo92LPaCmilCr7SYnQ1?=
- =?us-ascii?Q?DG9D/XdprTfy9mjxbZK21sF8+o0Hn/RiD0nNbhgpfoU2t28P91x5248u3tmw?=
- =?us-ascii?Q?ILvTIeSZrdiqbALezM+nVQdUwNpj918zmlLsfBGsXOfaKKLZMzjipfSXw8V+?=
- =?us-ascii?Q?EiWtIeOtwzC9i0Yx41yYFim3YG8oP2n7vOPtJERZJDZpQwhJY0gwDfxLYzYo?=
- =?us-ascii?Q?BGoIwjxd9/QjqrFaCHvB4ohvwOkFaQBps1SQ5wnUa93OCzPo/M5WD5o42s5G?=
- =?us-ascii?Q?40I9bmH3mYMH6wtkl6DWauio1x2hAHZuJDko4kaL5Ch/D0R4K2joAJVLSwp3?=
- =?us-ascii?Q?/mjz83M7BVPVfzrUGGwYwLlVGiF6MpfENcDjgx0usF/0S04qwp2QIVwfEDEq?=
- =?us-ascii?Q?AyY+g5jmZKtSEMxQJdBnO0YC74dBTD9J8BPylmfLLh1BeletnXep/qSdNbHx?=
- =?us-ascii?Q?TfGjxCYjMcnPR/WPmcvgGsJfhBdgp3VF4j+PjMpp3Fr5O5hUuWrGjSL+Izve?=
- =?us-ascii?Q?kyMjXbX0PGKfiD2fjXqAuF+moPL0USCDhKuYbNyBrdKoVkZtxPk8WxVSltn7?=
- =?us-ascii?Q?cpoVBMuQgglATC7nt4X5YjtFf/nWFjKtutEDNGE2h7Bll1D6rrBvZSIKgnzW?=
- =?us-ascii?Q?qYdJhMsLRkoCK9YZ0Y40iAGiS8EfM6/NknqyJtk6AX2mw7LcIYnfNhXjn5MT?=
- =?us-ascii?Q?KqsFINY2gey1t3F56YQVS1z0hmqtpOgPNykBJfDM1Zcq2D5ZWZH7aqgkTFSu?=
- =?us-ascii?Q?9KsyXjuOoFIejLihaGHcqmV9ilimbUUTTvdDOd/ygbHyOucawnVwD7oTYxVJ?=
- =?us-ascii?Q?0GOp3M9aErkAtNaig2jbVeSwiLsSf/NPuCddlc5/zsl+zv4ZnX1WOws/nrQe?=
- =?us-ascii?Q?D4E0QE5vJ/4uMelpSJCtdSYUCBE1iJ71mWdKNddXkfTqvDXJ2Vzy5pXslvsU?=
- =?us-ascii?Q?0vpyh1e1gfVfMZnXKyIPyjkV4N9krj2jRbY/gcxLzG6AFTIQCz3fiEMFuKPf?=
- =?us-ascii?Q?XI8oamhXN3SHv5Z3hcF3lpaBaFwkrAUAyw2d1oyzDBYtin0iinYQiTP7RbnZ?=
- =?us-ascii?Q?1tnnPKJz5AKN8uVmZf5OqWyakHEz+UZNyrJsT1+t8EI4Vqrly/vjqXynBbSQ?=
- =?us-ascii?Q?86Gha6MxBDmPFXmE4gbLVm/9amKGuFfsJjLtbx69PXRhE1OQ+QXf/pIALZIh?=
- =?us-ascii?Q?qy4+GvIdw/gchVcB3IE1ccnKFkfKgpHcQiDYh+eh8ispy1bwzH9qaGxxtcvb?=
- =?us-ascii?Q?WUJ2YiuGgIk=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB9473.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Rb1lfzZunrRLlmseeSYB2HC4tukgLJMyHuibOgwU4e4Gq8IWldQdd9qcYwx8?=
+ =?us-ascii?Q?VCmvG7WwgiMUG4MECDVlY0q8U8TiVF/2tFwpz+hUpQYiInMbnYt5hn3UgcI2?=
+ =?us-ascii?Q?qhOFJOOgSQ/qXue1EWBdGox6UbsjMLAC8pVh8I5TBsuDaAb9L74iMbtgIR9z?=
+ =?us-ascii?Q?Uu9n2PuwGZJQheI8kziBlUWCK4H5kYWJgsvwxl80tXEJC+xHJHtt+db0LNhv?=
+ =?us-ascii?Q?u/bAG0qrwvc2J8SDqPz5Mqts96TbRlFRPgAWUHl5ov0u+loXWuYP8zfbU0AU?=
+ =?us-ascii?Q?BgfAxte8MtZb93aaxgnsxtB7Comedy7Bdg+Dr/wX0ic3cc2Kh+H/7YwIzsWR?=
+ =?us-ascii?Q?9V2r9vKYjIfqeuplyr8Nd13eWBc6RvxJ/ipFVu8Z5PnpuvQGfyIO4t0rWgz5?=
+ =?us-ascii?Q?MgHzhrYzUDjvFrbEeJYErAwazmUIgTNmMEgnmwYAIuji0ViH+JODbLIOP30M?=
+ =?us-ascii?Q?7IZHxVlGA+tdw/074BJVH8G4YBum1x1VNT0nQ/Vj6JIrOlwvY21782a4xO3o?=
+ =?us-ascii?Q?XrintdEyQBg1bRTcKxRURUzNr7y1Ey0M64/3GaXDjlUIzNPkSi8h837CpVWF?=
+ =?us-ascii?Q?NqKVlzuVL9H64abTOT4Z0iuVpJrKG8mgzzZEcZYqSKVkYfjyAV+gJGWxwcoq?=
+ =?us-ascii?Q?fzihj4k0Y5b6kHzOwVYhSji5m0mJJT18My/NcIpIARzQ/orvbqPAGBQOfaiB?=
+ =?us-ascii?Q?rd5X8r1/nh9wy+okcaLIsbELD/xbLDTeJhXk6zDzoIfpCUTuH/8HygFdNZPg?=
+ =?us-ascii?Q?UJ53Lie55lVDmweIXxQOFp1ZedP66CaIvIFEMYhZC+35a8xN6XghhVMCiOW2?=
+ =?us-ascii?Q?44STkELjVqRp/86SutrsobJEbjx0cHiuUfS6K0ng8rcZL5baAZGAYlGpri6b?=
+ =?us-ascii?Q?rBRzfRMrYr2l/bev/F+bvcgT9ZFpHEDz/NOEQvPkuCOY5xSa0stjXqJ4+R7K?=
+ =?us-ascii?Q?hByE4HQtfVmCV6URr7e2sL1DS9qCDN0dVPsn+oxxkboGjdJuqnoFBKroahp9?=
+ =?us-ascii?Q?nJCMjpTAuoxutGdBEv1cqBNhJoDcaub524Hgpy3oRdbrfLKlB1df4QCve6yb?=
+ =?us-ascii?Q?AcQBUsNX82U+LWWw0fvHWO6vwWLN4PP/hOoKbHGXWjU2uZe3b2/7HMbMcDOQ?=
+ =?us-ascii?Q?uE9cI9Dl2YLUcyvf/RQm/QoiDMsYlzAeAd9NbAu2m/1gWqoprYzZ3g1zMkq2?=
+ =?us-ascii?Q?hQdl3Renp7iJSoXeyb8jY5ieacYdM0TpmniYKFvIPR9CYlQF1A9GpybAU43O?=
+ =?us-ascii?Q?mmDZYszbSuQPtSBM+FLEsqwpPvRZXIK9fJF+CGBwbTSXFWBTIOHjn0W9B70c?=
+ =?us-ascii?Q?Y2fE6g29L+dD2pSnLdKP/AoK28Lhh+4CQJTImBFerR8POeb+tlFvbnImbLW5?=
+ =?us-ascii?Q?eKPysJIBoZptotfreNXV8hXi8WTE7I1Mpo9zkFn80r04xZTSxL1BUROl4sWa?=
+ =?us-ascii?Q?H8rV1/k6ocQ=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSZP286MB0982.JPNP286.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?10Xb7/jBdX+X+16JsVz81L+tfOIsN0BN5XnMkLRgDZbnTanK9OVnsY6VvKZr?=
- =?us-ascii?Q?VBZP9TxOtqMFMtDyUwoq+Lf2ikJcDdbDW97DRu6wSy7WnIz1erlNbR/OIojZ?=
- =?us-ascii?Q?jjNHkX70PHGtIJlPf4I27URQuubgZLxehEp79SWfLnx/Dfyc0TkWrm8SuTus?=
- =?us-ascii?Q?xhKx+udao0gBL6CzKIxU5ieZihJWEWBrUS4HKe+0WAFbWCRIi5OTw8+OIJQD?=
- =?us-ascii?Q?XFgGDI7/mjx6qtUsSTkn9ZYbXiG5fC+ooL2o5tzAAhgA+DX64CjoDZ0egix0?=
- =?us-ascii?Q?v7f5cDu+zpmKbKSrk3+ej8s0E6bjaH9eoVXnxcbC/EXYZ93V2dhSwbJBtr/K?=
- =?us-ascii?Q?bzTN414OWEA/1IrUw2RgUEm8LeEOosnD4gnLHryBMjlpjnOaeaIGH2SGcyLQ?=
- =?us-ascii?Q?n87B9X58WG02+fEpqUe6vf9gaij81tw69RQEgXA4vqBfC2NgF4lC08gYMQ8J?=
- =?us-ascii?Q?nRADf9S7T0qWiUqBfnTb2x1BqFNWm2uKdMPkmbgpVpyfXIYqdBoD2QFKL6PB?=
- =?us-ascii?Q?lFFHqJBrCtyYBlX/qxCj/g+QsoimnEH1/rjjtzyplKnlf0BRqbD+6OcfUixP?=
- =?us-ascii?Q?42HwU7fLUHhvYt8pBjzHjDJ6fqgh8CCPzms00qZAD3cBuroPpcXdfINiHEQ4?=
- =?us-ascii?Q?kf86CtB9k4BDzttnV77dB9Mcs5syRFNcjfKjTXqq14eND/jbq6silMK82a6E?=
- =?us-ascii?Q?s14NKlokNklBxKwlXehMfTbfT8SztsYRXMD5IRBkG+Sqasq2x2IrwLtVITQE?=
- =?us-ascii?Q?oP1cn2MfvJ41zUXJJ/MUzqL++WFaelfSFV6fss6TKZtwkpriW5SMV3VNFQZQ?=
- =?us-ascii?Q?wBjmxbwdylcOZk0KYkXfnuQcdYPDvJ3iePuDhEgQqpaSLjfiEoobY38RVZ8p?=
- =?us-ascii?Q?V+X8j876ALcr0Q02JKSs/8os8npZ+Qu1J9sMvMJqw9Y/+fI8z30Gx4YiGEuR?=
- =?us-ascii?Q?pS0yaolp7rui18ecYDAxS04UUiXJNwvCe3Mzb4u5DpDu8ZRdNi6AFcwM1jHz?=
- =?us-ascii?Q?FuV4+rY3yKOZ5kclKySAd8qr1FjpwMpQ792hmkd2dJiLvaXM97JPOwamUTsH?=
- =?us-ascii?Q?rXK6WG6BVJY9AReAjnO8MGYtSLTO4KU14EcT/YYPR4I5DHBwxUHEMdvky8n1?=
- =?us-ascii?Q?n9YCui7DO1UQwBprWNUN8h50RlYsKG5VsP52dvg1ZU0BFAqnBgxpEDH6KdYg?=
- =?us-ascii?Q?NGkjRumj7LT6FYhTJ0qN4aoTIM6cQDR6F1igLQjc0RVctvrnxEx8d2RdroSO?=
- =?us-ascii?Q?naOhTF3gc0OchFFEZV+SYaa7eXZaxFOTx3KmOfspwLso7I16tkW/OvJXg867?=
- =?us-ascii?Q?lZDzZZavhsF1Oiw3f+JhJ+YEugAKfVo5+r2ZQP4FHCu3LlPEHPPZlco2G7Tx?=
- =?us-ascii?Q?+1c0rd1kiiXVOSwB4MnGK1Fmk3rlQEcI+LHyDSXaMjKSa2bgHyD47E1sW1pP?=
- =?us-ascii?Q?dGHnblCKm7ql8fw2Ke62M6knxpHEtsHQLNLTP0z2Rd5RoBp/u6/ewSYytoTW?=
- =?us-ascii?Q?ymu27gXDazm0h5WnoUaqY7XzIqxi5656NkNgHxKZKMcSTeX5w2Fp9zcwgbqX?=
- =?us-ascii?Q?uIfhMIcwX+wZjt2hQYmypQYXSwLn6A0t1PZsQR1m?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 269f8bf3-675c-4fd2-0ec3-08dde5cedb94
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB9473.namprd12.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bPeYSZUv7f/sl9BBArtC9yra85Zz+ay3EqPJKWXE4VfmXTywMnoTGYmIS7Tp?=
+ =?us-ascii?Q?aSqC+rCtW/blrp4vq4RJ1aGROEkfcoyBXzgLgesDnXsNEG1ywUMEdr9Ckq33?=
+ =?us-ascii?Q?mb14XSKmbAo0fY/Z7Wyf+gtZ69FSBuQuj43BiDRxc5Bk9mI1eihDucmh8xDU?=
+ =?us-ascii?Q?bAPdsRaSbkzjBB4Ge86JqXQFF9Kt08ronoDTUF6gpDNeP+T6++hyzGz2cUTJ?=
+ =?us-ascii?Q?Vr8UtqnwSyNrV63eLrocialf264I7y+aEna07Bp4QX9XVSqWz/+4srHbZCFq?=
+ =?us-ascii?Q?exNAaD+h1/yqoCDILsSM8UMvdiJoNfM2gydS2+JdxmVZD8IWilInHnZj2t3H?=
+ =?us-ascii?Q?Wf+15QvcYzf40TJGjjqMuE57fcTnDxyU9LIqoyYk8SMht6zvVw57JMfH9SHP?=
+ =?us-ascii?Q?iQYfyklEYxrkxsfI0wjjWZAQa+sED5bk/7HruZwOrHPrXwNfYZLS3faveDGF?=
+ =?us-ascii?Q?xV4AD6ADrID4iXwYgRiVKDZJnJpZUqrSM833/XgAH2QKB24bekV/fOKfwxXj?=
+ =?us-ascii?Q?Xc87Ev8JTUT8l7viK85I96J4Fl1TxckRCgBqZSjUiAipj+EmGDOi026lCY8N?=
+ =?us-ascii?Q?hSIgNWScuVHehNXdJdKWasucUy3PDTruJzDRKrg/y9LiQZcbr2WelXwaD3dl?=
+ =?us-ascii?Q?UAKjmCu4NXD/DB6K+pQsvhN1ZxBPW0FiNjoQhgg2fLwdDECI//v1xbQwOc8K?=
+ =?us-ascii?Q?MmXV9dyavjJPRS2Sg+1j4EmD5hC4lzD9YJHOShG28a7pmWIBGmw0rAfThC4A?=
+ =?us-ascii?Q?e1EDPx7rwhMh9f54sE98Bfkir0YSOgprnCfRHxhmhbxgbfdbgip3XbmXQTLp?=
+ =?us-ascii?Q?fSbZ8UT7kklylrLVkPXOjeQOAfeMt3nFQGKKBuhkW0ZBVz18N4UozepLHWgR?=
+ =?us-ascii?Q?GKPni9H3AicugfTKktSpsIKpQtcYwT5gw1zH0AGDD/ZBsaEXnkqwiUkt0RGR?=
+ =?us-ascii?Q?0BbzvEDVIXcOAQ9RDyCNAKtKrTMSdIavJXWWstj/IFIa/r3Ab9ssm9YbWF1R?=
+ =?us-ascii?Q?BEOGitj8ypyfpl/RhH0mPfCCfcK4y7ag6HYgHClQ5wWUaaAvBsyaw9RqJVT4?=
+ =?us-ascii?Q?X2mfyUmlKWnutK0vnEl5YN/KieO3d3jSn8JDgliK2NcitRXHAqn7e4CWeFQ0?=
+ =?us-ascii?Q?HT8Qhph1ITstB+cAIIRq7zG94G5WwjSWKG1vZ5bKa7HYCU0oqgCKsI6zlkeC?=
+ =?us-ascii?Q?CrjafZNlx9YTZukuIJDx94YtZfUoODEJwPmnYyBPicH0LSvmlDEz0rZq5kuh?=
+ =?us-ascii?Q?NC68FhNzfn5Hp4IXLdkBRooijfvwjTSZSedTxVijuR9BN+cfD86xxVnjktoK?=
+ =?us-ascii?Q?qTFdX0+6AV55gG9jFEr2Uc8/EQdGU64FBDYaTIGfKRdWF7TK+Ex43Zxwd6iY?=
+ =?us-ascii?Q?daMtg3/+xuoyCN6z1h1Nb7q6Z5W4Yca4Apf/pkXOGNUJrFgmV9t++6ScKeKs?=
+ =?us-ascii?Q?OL4bohs3gBZY1oTJSw6LI4M1xIwGBm+5i+2iTZMN3IvFqYm0BHQ8lwffdUYG?=
+ =?us-ascii?Q?BQQyes2N9kh6oH7ygUGxfrl6H7PQe3PD4Y4IEycOFzw6ve5LU4FKIb6lIrcK?=
+ =?us-ascii?Q?Yg3pSHhKKNogWdEObAeu2buKLH/losya2pjVqqnMSqTerk3aCJjUkv8lukkf?=
+ =?us-ascii?Q?ZjXHjLyO7XfMkiU7fc+PKyA=3D?=
+X-OriginatorOrg: valinux.co.jp
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3b5faffa-096c-4b06-080f-08dde5e03d67
+X-MS-Exchange-CrossTenant-AuthSource: OSZP286MB0982.JPNP286.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Aug 2025 01:04:36.7939
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Aug 2025 03:09:02.6725
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-Id: 7a57bee8-f73d-4c5f-a4f7-d72c91c8c111
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JeLUKWyXuZ9l/CVncUADOtX4g/h1zPNqduM41PIbCyxxagmVfuulCnmu4a+VCzYd
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR12MB9084
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1RDNklZ51zztAfHLfFnxTWsuH8ql9PVZR21Opfpke2wpKKwXvK/WKX+xs8Yd6X5zzMer3GZsHmqanJnimSYdqg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS3P286MB3212
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_180505_272145_A95E8FED 
-X-CRM114-Status: GOOD (  13.26  )
+X-CRM114-CacheID: sfid-20250828_040922_894354_B559C656 
+X-CRM114-Status: GOOD (  42.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,28 +173,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27 Aug 2025, at 18:01, David Hildenbrand wrote:
+On Wed, Aug 27, 2025 at 01:48:33PM +0100, Marc Zyngier wrote:
+> On Wed, 27 Aug 2025 08:38:48 +0100,
+> Koichiro Den <den@valinux.co.jp> wrote:
+> > 
+> > its_irq_set_vcpu_affinity() always runs under a raw_spin_lock wait
+> > context, so calling kcalloc there is not permitted and RT-unsafe since
+> > ___slab_alloc() may acquire a local lock. The below is the actual
+> > lockdep report observed:
+> > 
+> >   =============================
+> >   [ BUG: Invalid wait context ]
+> >   6.16.0-rc3-irqchip-next-7e28bba92c5c+ #1 Tainted: G S
+> >   -----------------------------
+> >   qemu-system-aar/2129 is trying to lock:
+> >   ffff0085b74f2178 (batched_entropy_u32.lock){..-.}-{3:3}, at: get_random_u32+0x9c/0x708
+> >   other info that might help us debug this:
+> >   context-{5:5}
+> >   6 locks held by qemu-system-aar/2129:
+> >    #0: ffff0000b84a0738 (&vdev->igate){+.+.}-{4:4}, at: vfio_pci_core_ioctl+0x40c/0x748 [vfio_pci_core]
+> >    #1: ffff8000883cef68 (lock#6){+.+.}-{4:4}, at: irq_bypass_register_producer+0x64/0x2f0
+> >    #2: ffff0000ac0df960 (&its->its_lock){+.+.}-{4:4}, at: kvm_vgic_v4_set_forwarding+0x224/0x6f0
+> >    #3: ffff000086dc4718 (&irq->irq_lock#3){....}-{2:2}, at: kvm_vgic_v4_set_forwarding+0x288/0x6f0
+> >    #4: ffff0001356200c8 (&irq_desc_lock_class){-.-.}-{2:2}, at: __irq_get_desc_lock+0xc8/0x158
+> >    #5: ffff00009eae4850 (&dev->event_map.vlpi_lock){....}-{2:2}, at: its_irq_set_vcpu_affinity+0x8c/0x528
+> >   ...
+> >   Call trace:
+> >    show_stack+0x30/0x98 (C)
+> >    dump_stack_lvl+0x9c/0xd0
+> >    dump_stack+0x1c/0x34
+> >    __lock_acquire+0x814/0xb40
+> >    lock_acquire.part.0+0x16c/0x2a8
+> >    lock_acquire+0x8c/0x178
+> >    get_random_u32+0xd4/0x708
+> >    __get_random_u32_below+0x20/0x80
+> >    shuffle_freelist+0x5c/0x1b0
+> >    allocate_slab+0x15c/0x348
+> >    new_slab+0x48/0x80
+> >    ___slab_alloc+0x590/0x8b8
+> >    __slab_alloc.isra.0+0x3c/0x80
+> >    __kmalloc_noprof+0x174/0x520
+> >    its_vlpi_map+0x834/0xce0
+> >    its_irq_set_vcpu_affinity+0x21c/0x528
+> >    irq_set_vcpu_affinity+0x160/0x1b0
+> >    its_map_vlpi+0x90/0x100
+> >    kvm_vgic_v4_set_forwarding+0x3c4/0x6f0
+> >    kvm_arch_irq_bypass_add_producer+0xac/0x108
+> >    __connect+0x138/0x1b0
+> >    irq_bypass_register_producer+0x16c/0x2f0
+> >    vfio_msi_set_vector_signal+0x2c0/0x5a8 [vfio_pci_core]
+> >    vfio_msi_set_block+0x8c/0x120 [vfio_pci_core]
+> >    vfio_pci_set_msi_trigger+0x120/0x3d8 [vfio_pci_core]
+> 
+> Huh. I guess this is due to RT not being completely compatible with
+> GFP_ATOMIC...  Why you'd want RT and KVM at the same time is beyond
+> me, but hey.
 
-> Let's check that no hstate that corresponds to an unreasonable folio size
-> is registered by an architecture. If we were to succeed registering, we
-> could later try allocating an unsupported gigantic folio size.
->
-> Further, let's add a BUILD_BUG_ON() for checking that HUGETLB_PAGE_ORDER
-> is sane at build time. As HUGETLB_PAGE_ORDER is dynamic on powerpc, we have
-> to use a BUILD_BUG_ON_INVALID() to make it compile.
->
-> No existing kernel configuration should be able to trigger this check:
-> either SPARSEMEM without SPARSEMEM_VMEMMAP cannot be configured or
-> gigantic folios will not exceed a memory section (the case on sparse).
->
-> Signed-off-by: David Hildenbrand <david@redhat.com>
-> ---
->  mm/hugetlb.c | 2 ++
->  1 file changed, 2 insertions(+)
->
-LGTM. Reviewed-by: Zi Yan <ziy@nvidia.com>
+For the record, I didn't run KVM on RT, though I still believe it's better
+to conform to the wait context rule and avoid triggering the lockdep splat.
 
---
-Best Regards,
-Yan, Zi
+I don't know if there are any plans which make kmalloc with GFP_ATOMIC
+workable under a stricter wait context (getting rid of the local lock
+in some way?), but I think it would be nicer.
+
+> 
+> >   ...
+> > 
+> > To avoid this, simply pre-allocate vlpi_maps when creating an ITS v4
+> > device with LPIs allcation. The trade-off is some wasted memory
+> > depending on nr_lpis, if none of those LPIs are never upgraded to VLPIs.
+> >
+> > An alternative would be to move the vlpi_maps allocation out of
+> > its_map_vlpi() and introduce a two-stage prepare/commit flow, allowing a
+> > caller (KVM in the lockdep splat shown above) to do the allocation
+> > outside irq_set_vcpu_affinity(). However, this would unnecessarily add
+> > complexity.
+> 
+> That's debatable. It is probably fine for now, but if this was to
+> grow, we'd need to revisit this.
+
+Just curious but do you have any plans to replace the current
+irq_set_vcpu_affinity() approach with something else?
+
+> 
+> > Fixes: d011e4e654d7 ("irqchip/gic-v3-its: Add VLPI map/unmap operations")
+> 
+> No. This code predates RT being merged, and this problem cannot occur
+> before RT.
+
+I'll drop this in v2.
+
+> 
+> > Signed-off-by: Koichiro Den <den@valinux.co.jp>
+> > ---
+> >  drivers/irqchip/irq-gic-v3-its.c | 36 ++++++++++++++++++--------------
+> >  1 file changed, 20 insertions(+), 16 deletions(-)
+> > 
+> > diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+> > index 467cb78435a9..b933be8ddc51 100644
+> > --- a/drivers/irqchip/irq-gic-v3-its.c
+> > +++ b/drivers/irqchip/irq-gic-v3-its.c
+> > @@ -1923,19 +1923,10 @@ static int its_vlpi_map(struct irq_data *d, struct its_cmd_info *info)
+> >  	if (!info->map)
+> >  		return -EINVAL;
+> >  
+> > -	if (!its_dev->event_map.vm) {
+> > -		struct its_vlpi_map *maps;
+> > -
+> > -		maps = kcalloc(its_dev->event_map.nr_lpis, sizeof(*maps),
+> > -			       GFP_ATOMIC);
+> > -		if (!maps)
+> > -			return -ENOMEM;
+> > -
+> > +	if (!its_dev->event_map.vm)
+> >  		its_dev->event_map.vm = info->map->vm;
+> > -		its_dev->event_map.vlpi_maps = maps;
+> > -	} else if (its_dev->event_map.vm != info->map->vm) {
+> > +	else if (its_dev->event_map.vm != info->map->vm)
+> >  		return -EINVAL;
+> > -	}
+> >  
+> >  	/* Get our private copy of the mapping information */
+> >  	its_dev->event_map.vlpi_maps[event] = *info->map;
+> > @@ -2010,10 +2001,8 @@ static int its_vlpi_unmap(struct irq_data *d)
+> >  	 * Drop the refcount and make the device available again if
+> >  	 * this was the last VLPI.
+> >  	 */
+> > -	if (!--its_dev->event_map.nr_vlpis) {
+> > +	if (!--its_dev->event_map.nr_vlpis)
+> >  		its_dev->event_map.vm = NULL;
+> > -		kfree(its_dev->event_map.vlpi_maps);
+> > -	}
+> >  
+> >  	return 0;
+> >  }
+> > @@ -3469,6 +3458,7 @@ static struct its_device *its_create_device(struct its_node *its, u32 dev_id,
+> >  {
+> >  	struct its_device *dev;
+> >  	unsigned long *lpi_map = NULL;
+> > +	struct its_vlpi_map *vlpi_maps;
+> >  	unsigned long flags;
+> >  	u16 *col_map = NULL;
+> >  	void *itt;
+> > @@ -3497,16 +3487,28 @@ static struct its_device *its_create_device(struct its_node *its, u32 dev_id,
+> >  
+> >  	if (alloc_lpis) {
+> >  		lpi_map = its_lpi_alloc(nvecs, &lpi_base, &nr_lpis);
+> > -		if (lpi_map)
+> > +		if (lpi_map) {
+> >  			col_map = kcalloc(nr_lpis, sizeof(*col_map),
+> >  					  GFP_KERNEL);
+> > +
+> > +			/*
+> > +			 * Pre-allocate vlpi_maps to avoid slab allocation
+> > +			 * under the strict raw spinlock wait context of
+> > +			 * irq_set_vcpu_affinity. This could waste memory
+> > +			 * if no vlpi map is ever created.
+> > +			 */
+> > +			if (is_v4(its) && nr_lpis > 0)
+> > +				vlpi_maps = kcalloc(nr_lpis, sizeof(*vlpi_maps),
+> > +						    GFP_KERNEL);
+> > +		}
+> >  	} else {
+> >  		col_map = kcalloc(nr_ites, sizeof(*col_map), GFP_KERNEL);
+> >  		nr_lpis = 0;
+> >  		lpi_base = 0;
+> >  	}
+> >  
+> > -	if (!dev || !itt || !col_map || (!lpi_map && alloc_lpis)) {
+> > +	if (!dev || !itt || !col_map ||
+> > +	    (alloc_lpis && (!lpi_map || (is_v4(its) && !vlpi_maps)))) {
+> 
+> This needs to be collapsed into a single boolean evaluated with the
+> pointer being NULL.
+
+Right, I'll add and use something like:
+
+  bool prealloc_vlpis_maps = alloc_lpis && is_v4(its);
+
+If that's not the intended direction, please let me know.
+BTW, I noticed I forgot to initialize vlpi_maps. I'll fix that as well.
+
+> 
+> >  		kfree(dev);
+> >  		itt_free_pool(itt, sz);
+> >  		bitmap_free(lpi_map);
+> 
+> Where are you freeing vlpi_maps if on the failure path??
+
+Thanks for catching this, I'll fix this in v2.
+
+Thanks for the review!
+
+-Koichiro
+
+> 
+> Thanks,
+> 
+> 	M.
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
