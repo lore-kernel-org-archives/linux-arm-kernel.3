@@ -4,90 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68E51C8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 08:17:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC3EAC8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 08:19:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nz66e75Mw/joctaT7IK/sW+8Q9QeMNVlbhhEkyRonII=; b=0FgKgCbd7r5dFDk3jbueYhnF9s
-	CmTkTACxu4irfbcI1f23V3wqD0vEP44AjxgqPPnP9/QeyigIFEc1zzP1ibDqIszdcVXpMrZ7KSlcN
-	y/1SRYcJjtcHbTxhUg8tLi425cXIf1gC1Qm2wIEdm0H10AKDZnwZ/Oygk1gqu8N3Aq7owfJ0HhiQE
-	f7YnT28h64P8UDMfRybR9wlG9Uf51n4fMZJ1/xTdfz7933sn6Cv7/D26zm2QRNXVjTCnn80eSu//a
-	b3bncxQLkfXGAH6JKhQvmYOO8RNov6dJWLEWbiTPKybb9CNLGPAiG44jCC4usegC7oVvt8msRox4F
-	yjPnM9aQ==;
+	bh=hepHrFJcxPhVYRiPOJOyKOkDEQoWQDlVDHhDmnPdRfY=; b=PdUP4iMf6Ok1WOS7S/B5FCESdS
+	9L4u7k9XjOgPD/ldntSbttW3IW8bHAxPJtfJZf2aOjAnb4KbTBrNXW3RW1OVPtHeecxwrJsC+zyc4
+	fx3lkiN6ElrbOGBP3Z3nd9GFbzVlgkp+WF6/ne6EKGrZeoTWgZIHI+fcXHHfrP9IhM+W3fucYlQ4M
+	vsn47hLOmfc9ai1DiNFpxf8EUvdjKcLBH/9ZjJhfAtUlwVvsA/XkHyTX7zhw+rorQLJjlFN1OPCy+
+	6CcKgJ8RDoe3gzmhi6+ec3Sm2jjDKZBHh6uB/tR8BYwzQfHbA4HsYR1f7a7/vIqxgkB2qo0Pcee7Z
+	wArTHCVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urXoe-00000000lKx-0NhU;
-	Thu, 28 Aug 2025 08:17:04 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1urXrL-00000000m41-1bJQ;
+	Thu, 28 Aug 2025 08:19:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urXWw-00000000hWS-2JQT
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 07:58:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1756367926; x=1787903926;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=nz66e75Mw/joctaT7IK/sW+8Q9QeMNVlbhhEkyRonII=;
-  b=dOj30T067k2lv2efBej0rNo5jxmfqI18Z1LBRHIjawGlW4dhbR18sJmL
-   NXFRGpp4PZuxGMnt0+J6l8DliK3Clq0TSPmKaMl0WEnqQK3Lr+DYjDb8F
-   C8ImUXQmw+y7if2vK0TiknQ2zLeKHposQrzv0Jzvd5xNFVicutonQxbkN
-   9VXFls/a0G26nKdK+PMbzeU6nNn3ukysjZW+hM7GYud24Pi6khPAWPWDO
-   oXcLW+F7rEcOPEyEffelHLsiTS6LZ+vBTWVuTQKGVApxK8rhLjfXAF7sI
-   QJzB5Yk7TsbEvTq6vOXHBjg2u8i0/cGvvI9mdZhSbHuR1h4Ev6raq7viy
-   Q==;
-X-CSE-ConnectionGUID: m84Vz8+GRPe/MrLV5ldJOA==
-X-CSE-MsgGUID: JvIyF86oT1OFgkVW/kgS2w==
-X-IronPort-AV: E=Sophos;i="6.18,217,1751234400"; 
-   d="scan'208";a="45949539"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 28 Aug 2025 09:58:44 +0200
-X-CheckPoint: {68B00C34-24-299FBAB0-EF52EDE7}
-X-MAIL-CPID: 284D0053C170DCD727D862DA4D118536_5
-X-Control-Analysis: str=0001.0A002121.68B00BC8.007F,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E67321612FF;
-	Thu, 28 Aug 2025 09:58:37 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1756367920;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=nz66e75Mw/joctaT7IK/sW+8Q9QeMNVlbhhEkyRonII=;
-	b=CAnb7nIEGTqAegv5WMD3yN1b6wd/oPzGGLaKxLhMcLOxzsBQayUmACfoRTfXzbIPh794MQ
-	7xQGApYa0RHNPGoTQ+rSREEbMOse3K2oC37eRg/ESDaLDxCYxXhrY44sFjJwKHVp1Ubj+Q
-	FRY40wvGre4dJxxF/4p3G2WD1P1vkfRkFIr+fCtMPKG+7yWiTBp+6bDUFDuyt8vqU7YTfF
-	Z6BAfZ8qRTGLcKfYRhUbkJSk6+zCpBI6/iGmQKTKohhdIaUyH9VT7xjWoP6CjTk1FsP+xL
-	8zFG/dPwuIteSmVAIjKUv1ovaxg++aibXUv1nUzGAlqGKBUrqECGVtSMOUmiJA==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, richardcochran@gmail.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- frieder.schrempf@kontron.de, primoz.fiser@norik.com, othacehe@gnu.org,
- Markus.Niebel@ew.tq-group.com, linux-arm-kernel@lists.infradead.org
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux@ew.tq-group.com, netdev@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com, Frank.Li@nxp.com,
- Joy Zou <joy.zou@nxp.com>
-Subject: Re: [PATCH v9 6/6] net: stmmac: imx: add i.MX91 support
-Date: Thu, 28 Aug 2025 09:58:36 +0200
-Message-ID: <3304317.5fSG56mABF@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <20250825091223.1378137-7-joy.zou@nxp.com>
-References: <20250825091223.1378137-1-joy.zou@nxp.com>
- <20250825091223.1378137-7-joy.zou@nxp.com>
+	id 1urXdW-00000000imG-0Ksy;
+	Thu, 28 Aug 2025 08:05:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CD1C54027B;
+	Thu, 28 Aug 2025 08:05:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37569C4CEEB;
+	Thu, 28 Aug 2025 08:05:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756368331;
+	bh=Szqu3ISPHcSpDClnU/NQVEOhbXjcDa2CwfQfHM2oTVQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gMnagQH3MSE3OCmKYpRsd8lUsxpc8Ung8Xj9N13IShaXG1JpVQ17BGz/vZbJ8ayia
+	 JATXdShQIFwJtWM16pujBqztN/HTAHa1eI1ruO392vGQ5bcnBpM/XVuQPAhLb+epfg
+	 l+vq7JbmIEiI0o7x/Jv6L4M7n+VVeNbukGTI3/GpD9kQYUwecJAhxnypY82JF2OpgN
+	 OpDKH2Xbm6L24Rh++PCS5s0FIDKVW188ch6qzc0yfxjVB+EvXvlGjVysaI9/dnMl9w
+	 EBrj1g+TwpS5VfAtcAXeVX4ofcMrlcOTM6deJOEiGJCGib96kXayOKOspPBjlGlk7s
+	 hAB3OigOpxutA==
+Date: Thu, 28 Aug 2025 10:05:28 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Andy Yan <andyshrk@163.com>, heiko@sntech.de, hjc@rock-chips.com, naoki@radxa.com, 
+	stephen@radxa.com, cristian.ciocaltea@collabora.com, neil.armstrong@linaro.org, 
+	Laurent.pinchart@ideasonboard.com, yubing.zhang@rock-chips.com, krzk+dt@kernel.org, 
+	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	robh@kernel.org, sebastian.reichel@collabora.com, 
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: Re: [PATCH v7 00/10] Add support for RK3588 DisplayPort Controller
+Message-ID: <20250828-tangible-wakeful-coati-ec27d1@houat>
+References: <20250822063959.692098-1-andyshrk@163.com>
+ <bochli5u37mhc6eup7h2oz3yeignofbbj4k5nrvm2k7zf6f4ov@t2sje4gmveqa>
+ <d040da3e-501f-45d8-bcbb-95fa77e94a59@suse.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="ymx6junihpockhkm"
+Content-Disposition: inline
+In-Reply-To: <d040da3e-501f-45d8-bcbb-95fa77e94a59@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_005846_902846_E75F296D 
-X-CRM114-Status: GOOD (  11.43  )
+X-CRM114-CacheID: sfid-20250828_010534_708298_F123635D 
+X-CRM114-Status: GOOD (  30.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,54 +79,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-Am Montag, 25. August 2025, 11:12:23 CEST schrieb Joy Zou:
-> Add i.MX91 specific settings for EQoS.
+--ymx6junihpockhkm
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v7 00/10] Add support for RK3588 DisplayPort Controller
+MIME-Version: 1.0
+
+On Thu, Aug 28, 2025 at 09:50:34AM +0200, Thomas Zimmermann wrote:
+> Hi
 >=20
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Signed-off-by: Joy Zou <joy.zou@nxp.com>
-
-Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-
-> ---
-> Changes for v5:
-> 1. add imx91 support.
-> ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c | 2 ++
->  1 file changed, 2 insertions(+)
+> Am 28.08.25 um 00:24 schrieb Dmitry Baryshkov:
+> > On Fri, Aug 22, 2025 at 02:39:44PM +0800, Andy Yan wrote:
+> > > From: Andy Yan <andy.yan@rock-chips.com>
+> > >=20
+> > >=20
+> > > There are two DW DPTX based DisplayPort Controller on rk3588 which
+> > > are compliant with the DisplayPort Specification Version 1.4 with
+> > > the following features:
+> > >=20
+> > > * DisplayPort 1.4a
+> > > * Main Link: 1/2/4 lanes
+> > > * Main Link Support 1.62Gbps, 2.7Gbps, 5.4Gbps and 8.1Gbps
+> > > * AUX channel 1Mbps
+> > > * Single Stream Transport(SST)
+> > > * Multistream Transport (MST)
+> > > * Type-C support (alternate mode)
+> > > * HDCP 2.2, HDCP 1.3
+> > > * Supports up to 8/10 bits per color component
+> > > * Supports RBG, YCbCr4:4:4, YCbCr4:2:2, YCbCr4:2:0
+> > > * Pixel clock up to 594MHz
+> > > * I2S, SPDIF audio interface
+> > >=20
+> > > The current version of this patch series only supports basic display =
+outputs.
+> > > I conducted tests with DP0 in 1080p and 4K@60 YCbCr4:2:0 modes; the A=
+LT/Type-C
+> > > mode was tested on Rock 5B, DP1 was tested on Rock 5 ITX by Stephen a=
+nd Piotr.
+> > > HDCP and audio features remain unimplemented.
+> > > For RK3588, it's only support SST, while in the upcoming RK3576, it c=
+an support
+> > > MST output.
+> > >=20
+> > [skipped changelog]
+> >=20
+> > > Andy Yan (10):
+> > >    dt-bindings: display: rockchip: Add schema for RK3588 DPTX Control=
+ler
+> > >    drm/bridge: synopsys: Add DW DPTX Controller support library
+> > >    drm/rockchip: Add RK3588 DPTX output support
+> > >    MAINTAINERS: Add entry for DW DPTX Controller bridge
+> > I tried pushing patches 1-4, but got the following error:
+> >=20
+> > dim: ERROR: 5a68dcf5837a ("MAINTAINERS: Add entry for DW DPTX Controlle=
+r bridge"): Mandatory Maintainer Acked-by missing., aborting
+> >=20
+> > I'm not sure how to handle MAINTAINERS changes (or whether it's fine for
+> > me or not), so I will probably push patches 1-3 in a few days, if nobody
+> > beats me (or unless somebody points out a correct process for
+> > MAINTAINERS changes).
 >=20
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c b/drivers/ne=
-t/ethernet/stmicro/stmmac/dwmac-imx.c
-> index c2d9e89f0063..2c82f7bce32f 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
-> @@ -301,6 +301,7 @@ imx_dwmac_parse_dt(struct imx_priv_data *dwmac, struc=
-t device *dev)
->  	dwmac->clk_mem =3D NULL;
-> =20
->  	if (of_machine_is_compatible("fsl,imx8dxl") ||
-> +	    of_machine_is_compatible("fsl,imx91") ||
->  	    of_machine_is_compatible("fsl,imx93")) {
->  		dwmac->clk_mem =3D devm_clk_get(dev, "mem");
->  		if (IS_ERR(dwmac->clk_mem)) {
-> @@ -310,6 +311,7 @@ imx_dwmac_parse_dt(struct imx_priv_data *dwmac, struc=
-t device *dev)
->  	}
-> =20
->  	if (of_machine_is_compatible("fsl,imx8mp") ||
-> +	    of_machine_is_compatible("fsl,imx91") ||
->  	    of_machine_is_compatible("fsl,imx93")) {
->  		/* Binding doc describes the propety:
->  		 * is required by i.MX8MP, i.MX93.
->=20
+> That warning has been added recently to make sure that patches do not get=
+ in
+> without sufficient review. It's overly pedantic, though.
 
+It's not "overly pedantic", it follows the contribution rules. I'd argue
+that, if anything, we've been overly tolerant with that kind of
+practices.
 
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+We do have a bug with handling MAINTAINERS changes at the moment. But
+everything else shouldn't be ignored: either patch MAINTAINERS to
+reflect the actual contribution path, or get the maintainers Ack.
 
+> If you're confident that you have R-bs from enough relevant people,
+> push the patches with 'dim -f' to ignore the warning.
 
+And let's not just advise that either.
+
+Maxime
+
+--ymx6junihpockhkm
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaLANyAAKCRAnX84Zoj2+
+dvcTAX9rZO7QwXxbtcVqDnn23mh2i9KEU6GCe3pKfMrxhyxr/xeu+2p/6ozBtwvy
+dnuUOUwBgO9N54kfuFqmTdfZIBhi2RTQ4iuHn4jAnfkBH1wkyB6OhyEze6gnXwEZ
+eUsIzifPzw==
+=bTVf
+-----END PGP SIGNATURE-----
+
+--ymx6junihpockhkm--
 
