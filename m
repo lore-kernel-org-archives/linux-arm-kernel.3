@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C442EC8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 11:20:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5EA6CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 11:23:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KriyZgiAZRJDnfHsymUHd3lqzo8k4QI+bEtwKwBmcAI=; b=PFygYP3WcgNyVKPvDLQDv36sac
-	Yu38HR1GanV2FaN8Wx23dpaD6JAqXCxrM3W61PKf8sITGYWiiajWxsxCaX8qscCTzg3N9djkIcw0S
-	ldPLHw+GYOWJ0mribXI1Sv4DG9WNYo5pqPZERcU6s7A2TrHhkSe5nR9LXMNxlLTeY+W83WYDrcSh+
-	ze/w7QKWBRzVLyWYBcyHnyqbjWpcoh/UANSXYr58i850PzxQSXGpLJfM5WR4+6WnsWuzg0tRjpByx
-	EPb4rpnAG59tIE8g/1lTEmgWT156vfalrwhcKDXTmpkvqbSNzQO+C6qaBdH6SEulsS1GQSaZ4qqez
-	RnBniwLA==;
+	bh=+boQAII1rVe8mjF/ARYqXtwP6OIEQU1CeV61LbixoDI=; b=NOfdM0CCKdvUPVnUgszY/+Np5u
+	4ejYwmOmZIKfr0A+6KWEw3c45h4pBXwnqTwHNE0NLlZ0ZRSoEvewbyox3/7Aha2qDm3L6wTeqbMFl
+	AuXIDM+64l8iY0+GQnro7QrI5dxz3cqaiQCjPU2l14gRVlGfPl4T1PY9k1qCgUw+G7ozioT2SZ5O/
+	Xutg8kwILyphUNk1U6vplxbjGqw+XzEMdn8zGqO6H5zVHpDWxRY0c/2UfK23lMPbZ8ImjXZJ4fJgl
+	KyPz2VehxfPx1OlBMfAJx0TmWqFbIyXYKW82AJTIfiHw3yph8fev/W/oDXZaGUo7JvCBQQHCdlhKe
+	WT9nx7gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uragV-00000001Kge-17HM;
-	Thu, 28 Aug 2025 11:20:51 +0000
+	id 1urajC-00000001LAb-2Sjp;
+	Thu, 28 Aug 2025 11:23:38 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urZpy-0000000195k-1KmE
+	id 1urZqX-000000019Hl-40nD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 10:26:35 +0000
+	Thu, 28 Aug 2025 10:27:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756376793;
+	s=mimecast20190719; t=1756376829;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=KriyZgiAZRJDnfHsymUHd3lqzo8k4QI+bEtwKwBmcAI=;
-	b=I9+wJUjCWMWKsXEC8F0EIYeIfWv3MLvtWOehQANpiV3rfgilBWYciEDh/NcXFnRoor32Gw
-	nGDUcHZhjMs1Jcg5yi+kEPeKhhI7duPWQRGTINrf6CLrWzwUWPeBB4mDAHrN+mMcPa2Xty
-	XkJMZff2Kf5DgofQ0HUTmYwZwqiantI=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=+boQAII1rVe8mjF/ARYqXtwP6OIEQU1CeV61LbixoDI=;
+	b=UPnguX3hB+fk9knLQ7iwTvDuE6fyxQQILTzvlMLnmgOo3WmCa6yhZC7PYxhg/fxozhiXOQ
+	JgWl6EdWrEu5Yy6E7EnK5G4oQOu4Jcdem/TivJsFPH3J7oRq1Xo4IXNdm3umGre3h2KZFO
+	eG8GrAlp7Sx6niF714/JA78qzTbQRVw=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-623-xP3E2LPPOu-VsUJJvKMdTg-1; Thu, 28 Aug 2025 06:26:31 -0400
-X-MC-Unique: xP3E2LPPOu-VsUJJvKMdTg-1
-X-Mimecast-MFC-AGG-ID: xP3E2LPPOu-VsUJJvKMdTg_1756376791
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-45a1b0c5366so4956295e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 03:26:31 -0700 (PDT)
+ us-mta-85--ajD7lB7MgyaFJAbR6X46Q-1; Thu, 28 Aug 2025 06:27:07 -0400
+X-MC-Unique: -ajD7lB7MgyaFJAbR6X46Q-1
+X-Mimecast-MFC-AGG-ID: -ajD7lB7MgyaFJAbR6X46Q_1756376826
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-45a1b0b2b5cso5542865e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 03:27:07 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756376791; x=1756981591;
+        d=1e100.net; s=20230601; t=1756376826; x=1756981626;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=KriyZgiAZRJDnfHsymUHd3lqzo8k4QI+bEtwKwBmcAI=;
-        b=hOPxEoQ1MikYvAobfAHvEFTyrQhSG2dKqxVVvr8RoEuBSdXtz0da73LpBiMw+wQsF+
-         wwVPiJ+zyO3MrGtUb+erbHH79IQCnW1IFtc3mVPhdeZLrF7ZC2rIly+fBuSSXEnxwCt4
-         lydRN1bBT6gLYWUI/J2jk4lJg69VNRmyaF1EdPC4qIDokkY3Enb5I4dqSkfrMqwvZKev
-         WBaLwFduFpNwxE39om7sK2QZFEDHX6S9ENKcXoLKcr8tMgwiPdlusALQi0huWxccXW2S
-         QgtzZUGABH9sHxK/R6hpZQ9cFL9rhkUc8PUiaPNGHUY7JjE7uY4M4zNCtgQKkAyX+GP1
-         RC0A==
-X-Forwarded-Encrypted: i=1; AJvYcCVXMt16nC+pSgLqWcnM+kWW4/tJBjpXbBW4tdLSl438SiHtVt7/YTazc/OSkTpGzdimifFDGC+o+sLH43rymGbD@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3N3bWJWFHYnODr/jSclbXe3c6y7sf8JQr4cPHF95nTGGg+kp3
-	AkA+RRIZwdxlpdGiqDds53griB7LLjAYEyJCSqvWzyMKp/r3M2F7DQ6dMLbFZQpyq/8I1i72TD6
-	y8im3mEvJySC5v8s1Oc0KaYS4Wv1kMGJYRYDhf07E9crZHvz7kpP/xaK2n9cV6i9aXzBIzY5XJc
-	6d
-X-Gm-Gg: ASbGncsL2l6el0II6XjEDP3upVF2XfQnCwv8M2/RFHHFOTIMt51yU9d7rA9pnZExETP
-	dFS+jXAiy5er0n+rUZLqoMnicXphCKFI3cOhy2lwDvJfzQztvdfRh0h4KURd2uOMuPr+Ydtag4l
-	Bmd9jbierNcx2fAWKO7mHD7ai+YIAAIeMW2GclZsZt82ZCtcRGFiKErsMjdMs0iiqC1JXttLsS+
-	g52XiiMtLdRYb9M8c0jj79NsnX4nc2BQC0C+hqENsY45eqtyFbcdHO+zXof/IY9Z4aSUuQHEKwx
-	c+AP34EfTqyxMyCvW8kEs6fEuGj9fWbF9Dpx1/FU2bSCzwwS2YURGMcCnJ5HK1hdPNChNjgo3DK
-	yby6PMFFWMoMy/6i6cIaAKEPSyjOWt03DozQV57dMklZseW/KDRcNWD7wIZIvpAzScdI=
-X-Received: by 2002:a05:600c:4f4d:b0:456:1b6f:c888 with SMTP id 5b1f17b1804b1-45b62586a5dmr114585805e9.23.1756376790562;
-        Thu, 28 Aug 2025 03:26:30 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFtFlmG2bk+e9nYytQDuLDUJ8uuAXsdALOuDZVwchnxhUM2yFRl9mv4ZYrhg+X+WjfZRuMlZg==
-X-Received: by 2002:a05:600c:4f4d:b0:456:1b6f:c888 with SMTP id 5b1f17b1804b1-45b62586a5dmr114585345e9.23.1756376790087;
-        Thu, 28 Aug 2025 03:26:30 -0700 (PDT)
+        bh=+boQAII1rVe8mjF/ARYqXtwP6OIEQU1CeV61LbixoDI=;
+        b=JxCYmZ2vVlrZw0X3nSlZj31kzqpjC4wF4caPbwmuT44iXD8EWL2rrQ0dUauBx7vPLe
+         FW0u3oA2K7VuABrPOUHJChQX6bvXmtKknVVZo/1G5r7iJATCwxTPHvtjJ1b6hZiJ+Vw2
+         GdgOFkQGYpOTb/ASFPcMVPQF60mEZjdV2qYUelJ54ZYXXSGE8cV+26092UiktZofmpRU
+         G+AJ6B1Mnmv9B7D+nKCddqFl+puyYsZweNJX1juftaC5Vmp2kmbzDgXmA4TnFeBQNcj3
+         QJho1p7tdV75267lXsA58uRjErYeK4+dleDoWqgghwug7i3m8HGQSDE95n8EvVeNptns
+         vIrg==
+X-Forwarded-Encrypted: i=1; AJvYcCWG3I2uXcB5lpLW9WB6QMwWAQpUC2G1b2rTLoUy+B6OK7phgClmF86xqqNafcyQhM3toARE28VZAphA7QjiXvQa@lists.infradead.org
+X-Gm-Message-State: AOJu0YxdQZiYVdfOHlYuqRgFhP5qKbpZQs9cIbKwZk54Y6P9qGR8T6iM
+	vn1bIqB3MYeALTWx6QJWky1U0bxjU9l9v92PtZqZZzqVXz8OSlpkVmHMYuUhwlH0S+8hk6/h6K0
+	/jpjeYzBbAZW3gOszIrJ3RVMmYXko3tOAHL/6zhcOymsxmoHaaIgzvsyGR4UhJ9p8m4l4T1nU4Y
+	EZ
+X-Gm-Gg: ASbGncsu2SE3zWKRBOw2eeaWqNk4J8JHinxWUoP5oo7gHyzILio3zaCQ2kIE7XlrlkP
+	J8XronNa4Oodc+WDGOK3N2D1r3iZw2TOORgSd0XK7x4UsjFBif2i9B6HPhWQoCLXHdFT0T2mC2e
+	FJmxZ1sRg41V4ZbyDmJ6XCK2pVYsj2qc9ByQ+Lreq1WdMl/3Lmqqxm6mw9U+NjItDlAtZSAk24y
+	9fuIViO4w5GKBhL5No1DQI2P+l/hRSRiw96RcAU9DDkJSztx6hjVJoMFaFGeH9Uz0Oh5VWsd1u4
+	EpOzx/10REfQweXddBFAgcU9shAE4hJiFSa3GiXLO13KdLwt52qTnzZnsDrtZwS4PnNk2nn0h4+
+	FFCIOgSPdzlYZEKFrieAIp0ROnCgR32jEs3CTENHILLUCitbRhXQIAhLMn7k86Um+8nI=
+X-Received: by 2002:a05:600c:154f:b0:458:6733:fb43 with SMTP id 5b1f17b1804b1-45b517c552dmr175226105e9.19.1756376826321;
+        Thu, 28 Aug 2025 03:27:06 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGPPKlRhmhqihhHf2b6I8uk2qPvwY6WU+Zs5Jt8nlR70umt1Km4fvCsG1mTvTrW6wkpR7QnGQ==
+X-Received: by 2002:a05:600c:154f:b0:458:6733:fb43 with SMTP id 5b1f17b1804b1-45b517c552dmr175225815e9.19.1756376825801;
+        Thu, 28 Aug 2025 03:27:05 -0700 (PDT)
 Received: from ?IPV6:2003:d8:2f28:c100:2225:10aa:f247:7b85? (p200300d82f28c100222510aaf2477b85.dip0.t-ipconnect.de. [2003:d8:2f28:c100:2225:10aa:f247:7b85])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b6f31d083sm67062965e9.24.2025.08.28.03.26.28
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b79799c4fsm25881455e9.3.2025.08.28.03.27.04
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 28 Aug 2025 03:26:29 -0700 (PDT)
-Message-ID: <093db25e-12d7-4372-873b-72f189117936@redhat.com>
-Date: Thu, 28 Aug 2025 12:26:27 +0200
+        Thu, 28 Aug 2025 03:27:05 -0700 (PDT)
+Message-ID: <786503d6-e58d-412a-a17b-f5e4e481c3fe@redhat.com>
+Date: Thu, 28 Aug 2025 12:27:04 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 11/12] KVM: selftests: cover
- GUEST_MEMFD_FLAG_NO_DIRECT_MAP in guest_memfd_test.c
+Subject: Re: [PATCH v5 05/12] KVM: Documentation: describe
+ GUEST_MEMFD_FLAG_NO_DIRECT_MAP
 To: "Roy, Patrick" <roypat@amazon.co.uk>,
  "seanjc@google.com" <seanjc@google.com>
 Cc: "tabba@google.com" <tabba@google.com>,
@@ -101,7 +101,7 @@ Cc: "tabba@google.com" <tabba@google.com>,
  "Thomson, Jack" <jackabt@amazon.co.uk>, "Manwaring, Derek"
  <derekmn@amazon.com>
 References: <20250828093902.2719-1-roypat@amazon.co.uk>
- <20250828093902.2719-12-roypat@amazon.co.uk>
+ <20250828093902.2719-6-roypat@amazon.co.uk>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -147,17 +147,16 @@ Autocrypt: addr=david@redhat.com; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20250828093902.2719-12-roypat@amazon.co.uk>
+In-Reply-To: <20250828093902.2719-6-roypat@amazon.co.uk>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Z-zDFllG_jNUazx8WGus8TbOZiy3fUlDlLwVjvb-MKg_1756376791
+X-Mimecast-MFC-PROC-ID: k-Qpay1z1RRnLBnzXCwrhBAOKM4QZhoOUgdFcQP32S4_1756376826
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_032634_496030_80C314C4 
-X-CRM114-Status: UNSURE (   5.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250828_032710_072489_B5741884 
+X-CRM114-Status: GOOD (  14.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,6 +174,25 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 28.08.25 11:39, Roy, Patrick wrote:
 > Signed-off-by: Patrick Roy <roypat@amazon.co.uk>
 > ---
+>   Documentation/virt/kvm/api.rst | 5 +++++
+>   1 file changed, 5 insertions(+)
+> 
+> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+> index c17a87a0a5ac..b52c14d58798 100644
+> --- a/Documentation/virt/kvm/api.rst
+> +++ b/Documentation/virt/kvm/api.rst
+> @@ -6418,6 +6418,11 @@ When the capability KVM_CAP_GUEST_MEMFD_MMAP is supported, the 'flags' field
+>   supports GUEST_MEMFD_FLAG_MMAP.  Setting this flag on guest_memfd creation
+>   enables mmap() and faulting of guest_memfd memory to host userspace.
+>   
+> +When the capability KVM_CAP_GMEM_NO_DIRECT_MAP is supported, the 'flags' field
+> +supports GUEST_MEMFG_FLAG_NO_DIRECT_MAP. Setting this flag makes the guest_memfd
+> +instance behave similarly to memfd_secret, and unmaps the memory backing it from
+> +the kernel's address space after allocation.
+> +
+>   When the KVM MMU performs a PFN lookup to service a guest fault and the backing
+>   guest_memfd has the GUEST_MEMFD_FLAG_MMAP set, then the fault will always be
+>   consumed from guest_memfd, regardless of whether it is a shared or a private
 
 WARNING: Missing commit description - Add an appropriate one
 WARNING: From:/Signed-off-by: email name mismatch: 'From: "Roy, Patrick" 
