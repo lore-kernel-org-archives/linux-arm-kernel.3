@@ -4,86 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28C4CCA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 17:27:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7F17CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 17:27:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RPEoUHPTW/F7tpUmhvwZ6N58l0wO0IjTO5I/arnXvk4=; b=khCsQurcNiRvYOYjZrAqtJHkBb
-	T82vYX/4zBs2hZhkFFdiNONVyTif/F/TkVCvPbbOgAVGfgHRszeXtf6ODEafD8WXKw4BLDJikftgb
-	hoiupxttwK+iYoSMU2ALoJHYK3hW4Mt9/uoC6rZ4RSNOUm9pXI7ld3oJzQo+1NbSmBWNsZCqYfE+e
-	J1dsix1XsHsBd3tcC/CB8Ba7DjEtYWfKbmZqFUdxtpYX573mGT25ybZ11sONS1fUo4QV6Xcez3Wo3
-	AkR9KquUUTLvGPcWfLf0jsG3jyv9q65mSfcLYAvbLGyE2JbYLmwjXjcAjefAU7oGjKFcqyxkjAACT
-	/R52rOyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=647jSt1sIjORsNn0IAcm0ax43/3c/xN4CtJ2RRz9SZQ=; b=wHfjedqGawnWStpn8rFzLfGzDY
+	pTVo+X4uWJ+vWvbhuJyaD2RkjhgHDFL8QbQabpKkHldp63HbJ+0zKlncL5GlD6rB8XcpSIj8Pl26M
+	QiUtacv8Y0RWqTSEadjmHn9+5Pc1Y6hoOspmxJWIbN5FTDSLiWCwDqxyfOd4i5gU3fgzE3HXbaVoh
+	5niUKhixJCJDcxtVRknWf8JZiubttFGN15bo1mgdqgKOVL1AU3Mf8SsOPZNwJ0gQ/VaXp5u80dPnZ
+	Sfn0gSGe1GWuCmdIAcrQOo2P8CKVPyd/XFRR1bkruVWZn7bX6ya4YFLsvuSQaDmPIczKVSRXZEk6c
+	O45ptIBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urgPf-00000002V6A-1srn;
-	Thu, 28 Aug 2025 17:27:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1urgPg-00000002V7R-2FVO;
+	Thu, 28 Aug 2025 17:27:52 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urdFj-00000001qbq-2Bi1
+	id 1urdGn-00000001qj3-1mI3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 14:05:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DD3E760097;
-	Thu, 28 Aug 2025 14:05:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85578C4CEEB;
-	Thu, 28 Aug 2025 14:05:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756389922;
-	bh=DyNh/B5mAGR7TnY7MatHO1yPHUOMMK2nagZ3lUWn2fA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=H+zo2fE6t4kb7opwDirCTmZXQYUMxdvDUzaEKmgm8oXo5Y/8fdTsykOW8ssM5iF+D
-	 SmedYJyt043ervcAhMuYbe8ar+hbn7oFmJsq22z8U6+H2RIfzztrWWqTszG4rGAhwd
-	 yzBFfas+iTFaYelbOfN0IK7GUHRM8SskLDVX6yP8Job6MSKqD5TiFWdb6F2XxO3efU
-	 cBZ73/1djxNknr85AEIcZHyRIBxY1ujZEKIWxq8qWu4rl4nsKhy0ixUBGdKbbAefws
-	 T1nGT5HPB82ySUXmGtOvqLzYWC/DG4BL/X1u7pWZyB9bqMLmWOoBvJA9LmUNcviwzi
-	 2fII+8TyG8u0A==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1urdFf-00000001H7W-31tP;
-	Thu, 28 Aug 2025 14:05:19 +0000
-Date: Thu, 28 Aug 2025 15:05:19 +0100
-Message-ID: <86a53jee3k.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	nd <nd@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly
-	<Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"will@kernel.org"
-	<will@kernel.org>,
-	"tglx@linutronix.de" <tglx@linutronix.de>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes
-	<Timothy.Hayes@arm.com>
-Subject: Re: [PATCH 1/5] KVM: arm64: Allow ICC_SRE_EL2 accesses on a GICv5 host
-In-Reply-To: <20250828105925.3865158-2-sascha.bischoff@arm.com>
-References: <20250828105925.3865158-1-sascha.bischoff@arm.com>
-	<20250828105925.3865158-2-sascha.bischoff@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, will@kernel.org, tglx@linutronix.de, lpieralisi@kernel.org, Timothy.Hayes@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Thu, 28 Aug 2025 14:06:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1756389990; x=1787925990;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=B/siCNsmCwDQeXpu3CoMuywLNybWqg95GF25BmBeqh8=;
+  b=Dsrvk70qTX8WqBRElE2oCmKrTdKUYawfMTg1CUGDtQRvrs52rq+WuYW4
+   NJ9i/Zy+FTy/qSZYrgVotlMCkmoq5ZH6z9iCoU1XpOp3jtRba9OCmnn5q
+   R0mz50Aggrujj4840swu3rhUg1r9sfEUrnHM7g4qpUiZ+JwKn10y5Jib/
+   u7ztVl4P9Lln1kYe0OvM957FVqwzXYxLnY+ywCIFFMVVONUwfRI1IbISk
+   qFCVJPilHR7MFDJdLueLFg3BADClfeU6/9fjlRvjZnUalLM9D2n9Lb7vP
+   vfy6TxVNmU/TOY8pHkNhimfhio64SyuK8N05G5eXHM9W5SVy3Noj6VE7c
+   g==;
+X-CSE-ConnectionGUID: B/+HoFZGSWmrZirgPqyuUA==
+X-CSE-MsgGUID: jR53C1aMR8KX3LwkBO1YSQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11536"; a="58761031"
+X-IronPort-AV: E=Sophos;i="6.18,217,1751266800"; 
+   d="scan'208";a="58761031"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Aug 2025 07:06:22 -0700
+X-CSE-ConnectionGUID: t6gOAOP+TACRhUM6B+ICGA==
+X-CSE-MsgGUID: 8xq7RtMETomLkqQZxpW0+A==
+X-ExtLoop1: 1
+Received: from fpallare-mobl4.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.245.135])
+  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Aug 2025 07:06:19 -0700
+Received: from punajuuri.localdomain (unknown [192.168.240.130])
+	by kekkonen.fi.intel.com (Postfix) with ESMTP id E44B411F9D4;
+	Thu, 28 Aug 2025 17:06:16 +0300 (EEST)
+Received: from sailus by punajuuri.localdomain with local (Exim 4.98.2)
+	(envelope-from <sakari.ailus@linux.intel.com>)
+	id 1urdGb-0000000DOiq-3Rlx;
+	Thu, 28 Aug 2025 17:06:17 +0300
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: David Lechner <dlechner@baylibre.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-iio@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Subject: [PATCH v5 1/1] iio: dac: Remove redundant pm_runtime_mark_last_busy() calls
+Date: Thu, 28 Aug 2025 17:06:17 +0300
+Message-ID: <20250828140617.3193288-1-sakari.ailus@linux.intel.com>
+X-Mailer: git-send-email 2.47.2
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250828_070629_513396_8297C0E5 
+X-CRM114-Status: GOOD (  11.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,85 +95,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 28 Aug 2025 11:59:42 +0100,
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
-> 
-> The bet0 release of the GICv5 specification didn't include the
-> ICC_SRE_EL2 register as part of FEAT_GCIE_LEGACY. This was an
-> oversight, and support for this register has been added as of the bet1
-> release of the specification.
-> 
-> Remove the guarding in the vGICv3 code that skipped the ICC_SRE_EL2
-> accesses for a GICv5 host. As a result of this change, it now becomes
-> possible to use nested virtualisation on a GICv5 host when running
-> legacy GICv3-based VMs.
-> 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> ---
->  arch/arm64/kvm/hyp/vgic-v3-sr.c | 27 +++++++--------------------
->  1 file changed, 7 insertions(+), 20 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/hyp/vgic-v3-sr.c b/arch/arm64/kvm/hyp/vgic-v3-sr.c
-> index d81275790e69..7dbfd35a63a8 100644
-> --- a/arch/arm64/kvm/hyp/vgic-v3-sr.c
-> +++ b/arch/arm64/kvm/hyp/vgic-v3-sr.c
-> @@ -296,19 +296,12 @@ void __vgic_v3_activate_traps(struct vgic_v3_cpu_if *cpu_if)
->  	}
->  
->  	/*
-> -	 * GICv5 BET0 FEAT_GCIE_LEGACY doesn't include ICC_SRE_EL2. This is due
-> -	 * to be relaxed in a future spec release, at which point this in
-> -	 * condition can be dropped.
-> +	 * Prevent the guest from touching the ICC_SRE_EL1 system
-> +	 * register. Note that this may not have any effect, as
-> +	 * ICC_SRE_EL2.Enable being RAO/WI is a valid implementation.
->  	 */
-> -	if (!cpus_have_final_cap(ARM64_HAS_GICV5_CPUIF)) {
-> -		/*
-> -		 * Prevent the guest from touching the ICC_SRE_EL1 system
-> -		 * register. Note that this may not have any effect, as
-> -		 * ICC_SRE_EL2.Enable being RAO/WI is a valid implementation.
-> -		 */
-> -		write_gicreg(read_gicreg(ICC_SRE_EL2) & ~ICC_SRE_EL2_ENABLE,
-> -			     ICC_SRE_EL2);
-> -	}
-> +	write_gicreg(read_gicreg(ICC_SRE_EL2) & ~ICC_SRE_EL2_ENABLE,
-> +		     ICC_SRE_EL2);
+pm_runtime_put_autosuspend(), pm_runtime_put_sync_autosuspend(),
+pm_runtime_autosuspend() and pm_request_autosuspend() now include a call
+to pm_runtime_mark_last_busy(). Remove the now-reduntant explicit call to
+pm_runtime_mark_last_busy().
 
-At some point, it would be great to elide this on systems where
-GICv2-on-v3 doesn't exist, as there is no way for the guest to disable
-the system register view. This would avoid a couple of pointless traps
-on each entry-exit for a nested guest.
+Also clean up error handling in stm32_dac_set_enable_state().
 
->  
->  	/*
->  	 * If we need to trap system registers, we must write
-> @@ -329,14 +322,8 @@ void __vgic_v3_deactivate_traps(struct vgic_v3_cpu_if *cpu_if)
->  		cpu_if->vgic_vmcr = read_gicreg(ICH_VMCR_EL2);
->  	}
->  
-> -	/*
-> -	 * Can be dropped in the future when GICv5 spec is relaxed. See comment
-> -	 * above.
-> -	 */
-> -	if (!cpus_have_final_cap(ARM64_HAS_GICV5_CPUIF)) {
-> -		val = read_gicreg(ICC_SRE_EL2);
-> -		write_gicreg(val | ICC_SRE_EL2_ENABLE, ICC_SRE_EL2);
-> -	}
-> +	val = read_gicreg(ICC_SRE_EL2);
-> +	write_gicreg(val | ICC_SRE_EL2_ENABLE, ICC_SRE_EL2);
+Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
+---
+since v4:
 
-Same here. That's two back-to-back traps for values that cannot
-realistically change on non-v2-compat systems (i.e. relatively modern
-machines).
+- Rework error handling.
 
-No need to respin for that, but I may end-up posting a follow-up to
-clean this up.
+ drivers/iio/dac/stm32-dac.c | 19 +++++--------------
+ 1 file changed, 5 insertions(+), 14 deletions(-)
 
-Thanks,
-
-	M.
-
+diff --git a/drivers/iio/dac/stm32-dac.c b/drivers/iio/dac/stm32-dac.c
+index 344388338d9b..b860e18d52a1 100644
+--- a/drivers/iio/dac/stm32-dac.c
++++ b/drivers/iio/dac/stm32-dac.c
+@@ -82,9 +82,11 @@ static int stm32_dac_set_enable_state(struct iio_dev *indio_dev, int ch,
+ 
+ 	ret = regmap_update_bits(dac->common->regmap, STM32_DAC_CR, msk, en);
+ 	mutex_unlock(&dac->lock);
+-	if (ret < 0) {
++	if (ret) {
+ 		dev_err(&indio_dev->dev, "%s failed\n", str_enable_disable(en));
+-		goto err_put_pm;
++		if (enable)
++			pm_runtime_put_autosuspend(dev);
++		return ret;
+ 	}
+ 
+ 	/*
+@@ -95,20 +97,10 @@ static int stm32_dac_set_enable_state(struct iio_dev *indio_dev, int ch,
+ 	if (en && dac->common->hfsel)
+ 		udelay(1);
+ 
+-	if (!enable) {
+-		pm_runtime_mark_last_busy(dev);
++	if (!enable)
+ 		pm_runtime_put_autosuspend(dev);
+-	}
+ 
+ 	return 0;
+-
+-err_put_pm:
+-	if (enable) {
+-		pm_runtime_mark_last_busy(dev);
+-		pm_runtime_put_autosuspend(dev);
+-	}
+-
+-	return ret;
+ }
+ 
+ static int stm32_dac_get_value(struct stm32_dac *dac, int channel, int *val)
+@@ -349,7 +341,6 @@ static int stm32_dac_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto err_pm_put;
+ 
+-	pm_runtime_mark_last_busy(dev);
+ 	pm_runtime_put_autosuspend(dev);
+ 
+ 	return 0;
 -- 
-Without deviation from the norm, progress is not possible.
+2.47.2
+
 
