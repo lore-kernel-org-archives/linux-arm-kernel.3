@@ -4,143 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B70FC8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 17:24:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DC5DC8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 17:24:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PhePwHpEAaOWHj8GxjUD4EtV9ZXNnl5MLU1KHln2exc=; b=cUtzmcnYq5tM81jfBzMbPwGp47
-	JfeCmPNO/W/5IAmq9cBjx8AdYi32Obyu0X+s3EbblxQonX1Wx23LHGYXdlmTFdpW5LVMpi7wbbIAN
-	KRLO6/pZENjdinkooYE4CjU7IbAkypXdcWPbuFKjKCA4AkhKDcQ4X/ZoTNELhtCiOn4hGtWq9eEsA
-	q9IgmGTMG27zi1mCDoboNM7uAAo0vWQ6T59rzAY68ja8rcjAvPVl793GmLIZrWaEhyvYuYIkGQxws
-	uWOtYLxTXzVms2QZxvqRbo86fmjctjXDQK9J75Y4jcMFsHCM9HfJ+KZDlqnRZuiThe1dEeaws1MzG
-	9nHEC16A==;
+	bh=gBzvIT3GFkBSLfKgD0eHJCY11TPcf6eJ4FO6sX8esZI=; b=28/qn/N+YhLgJhXoz3Tas4qCl/
+	OO+AC+7ExmuVjYvcoZr6Y6lupOVbtAY+iV2MyT/rutE9w1HkGTlxNUzG0TrkO5ASyYk80sobwJ6vB
+	QxQoCeI7yg2SRW3U5VPV2kvpotV9+OIp8pnl4w+oQjqeNGkA8Z2dZBdg4TofNTOj9Avjqkay87BIa
+	beVZcoVdo0dtKwfJoyfbGu2p2cr2guhbNTiu5rRZ+NSCLbzoLaf5o5lwJgMJ+L0QUlM6y9lsvBt86
+	fjfJAaNMGrM3oAe+h151vcxvyovsYrOoq+W24yC8n5XIAN9rs0WxXtDSVLUgZerRkklcpK5TUfDtq
+	hYxmSNwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urgMN-00000002QwJ-1aNc;
-	Thu, 28 Aug 2025 17:24:27 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1urgMT-00000002R2y-1v8k;
+	Thu, 28 Aug 2025 17:24:33 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urbT9-00000001TEY-3cn1
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 12:11:09 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57S5oJda030584
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 12:11:07 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	PhePwHpEAaOWHj8GxjUD4EtV9ZXNnl5MLU1KHln2exc=; b=ErOIrdgrwTfY3tXl
-	y32VFyZbmwxIbH4eBcHEKhNvVwFOlvexYYFNjCmIVygluAkXDzMaYceLP/rHqREb
-	JaWv6kBmuIPvNogTo/f4h7yK3G1LxtA3D1wet2NBmZ6ttB42OFkzLhEBE2mAHFah
-	drXmeEGI8RZ1FRGXMdrYTu1JHaHQb94GJX6ARX+mKL1n4JCayKnXyFWl+XT718sL
-	JzcMzkysTw/etmKG23Sq1i9OJwSkAQw6+RxyB3O7os0Iujokrdk3GGWdEl1z11Jy
-	PtmWNqcZTV6feLg+KPUFUjEYFeCYljRKteXouith/glPoRUa8JI0sL3yXMqZ1iJ9
-	o1pyzw==
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48q5unyymp-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 12:11:07 +0000 (GMT)
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-327709e00c1so971211a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 05:11:06 -0700 (PDT)
+	id 1urbU6-00000001TnA-1tfr;
+	Thu, 28 Aug 2025 12:12:08 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-324e2c12f43so158500a91.3;
+        Thu, 28 Aug 2025 05:12:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756383125; x=1756987925; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gBzvIT3GFkBSLfKgD0eHJCY11TPcf6eJ4FO6sX8esZI=;
+        b=LvQ8ZJrjoRWI63H2lsPTzNIqsQlrevxPu8ladX829sYWI2Qc/lBHXUJMBYLoQeJGwb
+         TZl9PsS8cxqB+MP7ilqLmtNyVFFFXP0SHtLTOZwWW0PIZvf7Y1DLuGZqEOBP0QQ8KbUl
+         8b5/MHZourJ8f87v1PPQ8C9cFMMehvTmdKzrYb1AJf5f99xQo5NQD/5YZZ8poHMEW0hv
+         O54oo/BJoH0JVaHh/4lEbg5aiUh1djCMwXk5uOU/V0sKXJ6Zm8fGuH3epQCF3wuY935+
+         qAKZrKr3nMbgYSYeR64yMVROQ8AzKc07afJF6GEhOeJeNdYLSzbJDc12mJe2iKKtpx1d
+         NYYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756383066; x=1756987866;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1756383125; x=1756987925;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=PhePwHpEAaOWHj8GxjUD4EtV9ZXNnl5MLU1KHln2exc=;
-        b=Ldnb/6zn4elppk0Um9LdLGWVcnryNBfQkC0Hr3bgFSFqvehHTYN69LHUuMJMiTqCWg
-         9dl3w4YO6EYVEG9qR62uzs/1/CLKEow7LsWrTDRFNhR3h4By7QK3MCdsaGZJO1VGZ9yO
-         5CPUOz+DQqpgQX/LLoWrkLB8oIAjvLTrRerGQTHtkI4zaWhoPSdK9X7e9284jqRsP77M
-         OlsKmeOm4eLiSJMFd0nFdnIvf4JqehklFbhtpEg51KiW12k1sebkTwTHftqkzt9MVEe4
-         bk64hMOO/VXYyUvGP10d7/SkoDg0VeUUtxUCT0RN1DSxKCfk6LBHdD6rBNKxQcN8+raR
-         iXmg==
-X-Forwarded-Encrypted: i=1; AJvYcCWS1x04hMH5lNaNmle50NRhem9ly9gS0d8RbBgvChwnJKhGJ510EGuV9RfNP72cnLv3FzqL2FKAsh89e93LOM5p@lists.infradead.org
-X-Gm-Message-State: AOJu0YyasQPXy8CvBpdUW31hKu7PgkPK+NbxrFoWGEgel8And92DOD0/
-	cNuMCuohcRNukvxfArKKI91DCFHTI7HPo520GCiiqqAB18aKWpXS56M7gnU2jHrQWxx+AfcdS0H
-	ol/t4IEigKJWzEav/GiEtLEkWBvYIVJv15MsYnafl6ldsvv+NhtfGDxHEVcI6J7k9MpuJzxFQwB
-	1IYA==
-X-Gm-Gg: ASbGnctaLoD6gcsNQsHJO75yrFItqCyykSA0uhYuIlckhTP/ggdsczezuvxAU88fuVY
-	QHGgj+xakmbm3wUrIOFHfumZv5QznMI23VsysWQJxJSkoE5KnZFfLYYUFSmLDC+HTBHnhKOWcfO
-	qJ34+C0IsIc84TaiTzQczo0mI5VRTNXzYdQlYakufDR+EXpfDWKwwuIUBVnb+PUAGV36KwuqJEq
-	5JEtTapi+mvmE2esfiz8tbHznKUH5WUuTOOL3un2ctEiRagdxzAS1X9EnazlsQTSypl6+37uGjM
-	U3C38SwGOC5E1bWdbqVlt8LGrAL5em4rE8x00HBI9frQMLnV5e9Yo3Za07+2cdMnMjccpQikF0A
-	=
-X-Received: by 2002:a17:90b:3d86:b0:327:c934:e5c5 with SMTP id 98e67ed59e1d1-327c934e9c6mr1060072a91.0.1756383065286;
-        Thu, 28 Aug 2025 05:11:05 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFzP2wU+CuvXGok9xOucMGBvgqE6LOekvba8Nillw6XuZ8T4Bb1geXsLXy7ey8/aUya6rM7Yg==
-X-Received: by 2002:a17:90b:3d86:b0:327:c934:e5c5 with SMTP id 98e67ed59e1d1-327c934e9c6mr1059974a91.0.1756383064683;
-        Thu, 28 Aug 2025 05:11:04 -0700 (PDT)
-Received: from hu-krichai-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32741503367sm4019070a91.0.2025.08.28.05.10.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Aug 2025 05:11:04 -0700 (PDT)
-From: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Date: Thu, 28 Aug 2025 17:39:06 +0530
-Subject: [PATCH v6 9/9] arm64: defconfig: Enable TC9563 PWRCTL driver
+        bh=gBzvIT3GFkBSLfKgD0eHJCY11TPcf6eJ4FO6sX8esZI=;
+        b=nehtUEiB5xRv7hktgVyOz0c/fus+1dbvLT0vHmyyVM7ei1kXqS9KrA03pvAcKWLB08
+         j0y5gE5dFUuqtWGbZFY587xrcbNTGjV/MZ0HBhaZFfmJOeHB/grkOYcBdZwFs3EHYMLO
+         rsnm7l0ppQwCrJcNykOxf4u6DihEAUPeJ3DWE/EYlrV6XP8h9TvS80B+RtQsxsxMg2G7
+         9ai+ssYwFQNd5HU1pCUm2QooyvQ975dbydYw3ddhTruaHowvqHjqqOpxd83SjCnCOo4v
+         K8ePajy67qnwo6mnWWZVk9iwfDeY1c6HEWiGHNuhvIb+cMQW3IarJsKmObpuQiMKNSl2
+         mXHQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVSAWQP3YdR2GvjQUZrWHiPq61GjsciPVLN3i2BhaXYn/sT6YWWkiPtdKNPwikBZSwvPtLhMzDoJ5xp2m0=@lists.infradead.org, AJvYcCXd8ooBP1FkKRr0daoPMUWsXM8wtvo9/0AT8ElKAG+K+W9YAMJDDoHc0QuiL1/WFx7ElA4nEIOCKoAGo8vufgOg@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbZJxgKkseUkmgMTkrPIeCxhFfUfG3JrVj5LlxCIg+DDbuJS0I
+	A7MiVkcDO3kAK49rCYFlk+fniqAO175Hw+kOXr3fttyy5p7zprHC2aPAlp5Z1jHb24L9hKV7f+b
+	mSvVCV4nx/yg9YnEmm5r0G0N7JqhEjhI=
+X-Gm-Gg: ASbGncvRmazznZzYXIYAW0Drg/bEK/fiAg+//DqEB+vCNbmgMrlXzK8d9YEcdpVqMjB
+	B/hOiX3PwiNXAPP6YBFhjXQ9OvgFwbGWy2rrRRg/upRk+l5Ideh1JxXc5LaF5Lt6hErWCNpZ6uR
+	mdokwvvZB3IgqKQKBHyaRuchyZvr+C+3cLSlWugAZYfONAo5r5dj0o14fQ4lWoDCCIUUMobjwZx
+	v0b9kqxIFq6w+4qhxJY2Pxte/jVXtt+OxEneENe4JGkVDZ8VXkeGGu2EuW0D4CltJAcnrrGr0Ai
+	t7vlYzlLaqlbMm17pEyoYwVu/EiPdL69vgCCUMVOEAz8iXY=
+X-Google-Smtp-Source: AGHT+IEHY3yqO9UJS3OJVe1SDsi7P25l1Vl9fz/i5xssn5nzwTw3KmrO7fDBd0I6tpqkx5s1cY/itDMI0psIb4lzmPQ=
+X-Received: by 2002:a17:90b:1d03:b0:327:c9bb:be51 with SMTP id
+ 98e67ed59e1d1-327c9bbbf98mr469357a91.1.1756383125171; Thu, 28 Aug 2025
+ 05:12:05 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250828-qps615_v4_1-v6-9-985f90a7dd03@oss.qualcomm.com>
-References: <20250828-qps615_v4_1-v6-0-985f90a7dd03@oss.qualcomm.com>
-In-Reply-To: <20250828-qps615_v4_1-v6-0-985f90a7dd03@oss.qualcomm.com>
-To: Bjorn Helgaas <bhelgaas@google.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        chaitanya chundru <quic_krichai@quicinc.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        cros-qcom-dts-watchers@chromium.org, Jingoo Han <jingoohan1@gmail.com>,
-        Bartosz Golaszewski <brgl@bgdev.pl>,
-        =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-        Manivannan Sadhasivam <mani@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-        Manivannan Sadhasivam <mani@kernel.org>
-Cc: quic_vbadigan@quicnic.com, amitk@kernel.org, linux-pci@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, jorge.ramirez@oss.qualcomm.com,
-        linux-arm-kernel@lists.infradead.org,
-        Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756382994; l=898;
- i=krishna.chundru@oss.qualcomm.com; s=20230907; h=from:subject:message-id;
- bh=tq3IuL7wCC29pby6qPkuO/RCGMkeEsQAVfNt3fPCWAQ=;
- b=bavBQG/YKidnGf9CN7mjFGyftQOzvdExbFhBzxCH8ftSQSOg9DBCr7nJhMBt8rLSZldn4ZdKy
- nnFvOpxZRgTDmfvPkhinzKckUm/4tsly1FDV1zqyHupee0Wu6jTglxx
-X-Developer-Key: i=krishna.chundru@oss.qualcomm.com; a=ed25519;
- pk=10CL2pdAKFyzyOHbfSWHCD0X0my7CXxj8gJScmn1FAg=
-X-Proofpoint-GUID: Np_8W73DPy7BDf5St6IKTdf4Ry-5WvHc
-X-Proofpoint-ORIG-GUID: Np_8W73DPy7BDf5St6IKTdf4Ry-5WvHc
-X-Authority-Analysis: v=2.4 cv=JJo7s9Kb c=1 sm=1 tr=0 ts=68b0475b cx=c_pps
- a=vVfyC5vLCtgYJKYeQD43oA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=EUspDBNiAAAA:8 a=5PcvmwL3LSb495PBagkA:9
- a=QEXdDO2ut3YA:10 a=rl5im9kqc5Lf4LNbBjHf:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDAzMSBTYWx0ZWRfX9HR4gzwURvhA
- ryTIrEMeg3ZVcqcbsaKjDqtkFamAC9OghAmji7nRqRXBVCrvtuurNMPh7yhgZAqsnQel47UwJjR
- sKC2zRRlvEQT2l3BSVG/AzAxa8J2ty0TKXHyhxg+lsGzKmkMiasCSmT/WUXxxgNnqk3/OU5APk8
- /7g1iH5Je4ui9BHwWp/NcbxNUaRnwImMr0B99CGz+0vC2I2a+rfXCdWea9KeSpvkJWRuCTNzmUB
- f/BGdGaI+Y7XhFwqj9qR9KUBvw4G1m9QAb4ApeNrfSFBxJ11qddgFTh1JTOcjNtNmsDIHWqxfyl
- 2OP1Y3KkFl7wrZgSwXh5H1Yt/sJ2tjXLXZrna/L3Ps6tyXviQ3+QP8iE+EYodefTeDAw4xuSbZp
- CSO6jTWN
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-28_03,2025-08-28_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 adultscore=0 bulkscore=0 spamscore=0 impostorscore=0
- malwarescore=0 clxscore=1015 priorityscore=1501 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508230031
+References: <20250825141316.work.967-kees@kernel.org> <20250825142603.1907143-5-kees@kernel.org>
+ <CANiq72kc7Ky6+7Ny7jR04s8vU-g23qBQC0rQrOZDxDzXT+m1TQ@mail.gmail.com>
+ <202508250834.E2456B9@keescook> <CANiq72mQsLqhpX29NP3Zm8HZ5m429tSXjgFcRYJM3e=Zac1G1w@mail.gmail.com>
+ <9CCDBE93-7DBD-41D0-B9B6-05900F2AB1EE@outflux.net> <20250827013444.GA2859318@ax162>
+ <56c2b1ce-00a4-403c-9927-79bfd9a23574@infradead.org> <20250827193815.GA2293657@ax162>
+In-Reply-To: <20250827193815.GA2293657@ax162>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Thu, 28 Aug 2025 14:11:51 +0200
+X-Gm-Features: Ac12FXyJC97cqOYkicibM9SLfUWzcvxlb3Xn6gpRe98j59S9iV5Oq9n8aEdlnuk
+Message-ID: <CANiq72nX7d3XQtQKDdeUh2RFy5HqSg360m4pzesJyBP+y9K7FA@mail.gmail.com>
+Subject: Re: [PATCH 5/5] kcfi: Rename CONFIG_CFI_CLANG to CONFIG_CFI
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Randy Dunlap <rdunlap@infradead.org>, Kees Cook <kees@outflux.net>, Kees Cook <kees@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Sami Tolvanen <samitolvanen@google.com>, 
+	Linus Walleij <linus.walleij@linaro.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Puranjay Mohan <puranjay@kernel.org>, David Woodhouse <dwmw2@infradead.org>, 
+	Jonathan Corbet <corbet@lwn.net>, x86@kernel.org, linux-doc@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
+	linux-hardening@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_051108_027544_86569C64 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20250828_051206_491104_23B1E866 
+X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,30 +105,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable TC9563 PCIe switch pwrctl driver by default. This is needed
-to power the PCIe switch which is present in Qualcomm RB3gen2 platform.
-Without this the switch will not powered up and we can't use the
-endpoints connected to the switch.
+On Wed, Aug 27, 2025 at 9:38=E2=80=AFPM Nathan Chancellor <nathan@kernel.or=
+g> wrote:
+>
+> I am not sure I understand what you mean here. With the series as it is
+> or Kees's suggested fix, oldconfig still prompts the user to enable
+> CONFIG_CFI with CONFIG_CFI_CLANG=3Dy in the old configuration. Both Migue=
+l
+> and I allude to that being fine but it would be really nice if users
+> with CONFIG_CFI_CLANG=3Dy were automatically transitioned to CONFIG_CFI=
+=3Dy
+> without any action on their part. That seems to be in line with how
+> Linus feels even as recently as this past merge window:
+>
+> https://lore.kernel.org/CAHk-=3DwgO0Rx2LcYT4f75Xs46orbJ4JxO2jbAFQnVKDYAjV=
+5HeQ@mail.gmail.com/
 
-Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
----
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+Yeah, I think for pure renames one we should try to avoid churn if possible=
+.
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 58f87d09366cd12ae212a1d107660afe8be6c5ef..c4cc2903c13c526168b592143a81b5e6333b6c07 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -248,6 +248,7 @@ CONFIG_PCIE_LAYERSCAPE_GEN4=y
- CONFIG_PCI_ENDPOINT=y
- CONFIG_PCI_ENDPOINT_CONFIGFS=y
- CONFIG_PCI_EPF_TEST=m
-+CONFIG_PCI_PWRCTRL_TC9563=m
- CONFIG_DEVTMPFS=y
- CONFIG_DEVTMPFS_MOUNT=y
- CONFIG_FW_LOADER_USER_HELPER=y
+> Another idea I had to avoid this is introducing CONFIG_CFI_GCC as a user
+> selectable symbol and making CONFIG_CFI the hidden symbol that both
+> compiler symbols select. After a couple of releases (or maybe the next
+> LTS), both CONFIG_CFI_CLANG and CONFIG_CFI_GCC could be eliminated with
+> CONFIG_CFI becoming user selectable, which would keep things working
+> since CONFIG_CFI=3Dy will be present in the previous configuration.
 
--- 
-2.34.1
+If we are OK with something like this (i.e. waiting a few releases),
+then isn't it simpler the `def_bool` approach I mentioned? i.e. it
+means one less symbol and one less rename later, right?
 
+Cheers,
+Miguel
 
