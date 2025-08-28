@@ -4,93 +4,165 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77FF4CA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 08:06:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5CC7CA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 08:08:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vni583dy1qPpKoeI/BvuSUANKkix8/DHWprmu6YA31k=; b=Gtab4BEihuVNEZ0zbAVtBRFyJg
-	qpDISdfaYA0QfhAEUJtTDzE4Q96k7uzlYr9o9tJBfd82btLQklsrhHHtGy+3cK1g1wwnC/XWgviic
-	1AwVkIygMrc4KA5SaFuZ7yXx1hmQN0QQ3BQIItQ+DHDeGr5orY7OXSMW/N++3mw4tYWlamTMqyh/Y
-	Rr0rYn+AygXMv3MLhjAcc6WEAw4Lb3kuktn5DChgPw65A24od/AoRFd+99NBzfH8KeL3Zx34Hv2uC
-	DDUhflf7WA7UWyIhRyIqBrzYyZE0puKoMWCVh8o+KVEM5S46W9ndMkVV9U7syRR+ABXHqDL8gIQMR
-	KG9HRlfA==;
+	bh=Z5D6GoBD7lVN0aaWBxn658yNiz3/WqBdlchz7jbuifk=; b=D2V+wNAMz0GirzaEFytbSut960
+	MSnj1VUjL2R0kZ50cCv79T6fDzB1/Otl80UQQHanTpQU7Vqnq9X7GZT/aKkmYtbDE3xITi6I3Cdc+
+	vqnv+XymJMK3FPUtPZfF5m+7pdtDixWckYLu59ZrW3gsCWtzUcqR+tMS6FXYd285sGoMM6nESkNME
+	WgdcUAbuwx+/w6rKryUbH+Kt0kBKMkbmTj4Q3NRA0v4+R1Wkd5Z3XbnBzaNJjt2EuK3O1/9tZ7EKI
+	qoR9elWbc7x0qmNvECW8Kma4l9ftWGcVEh4oqH7wpAT6fRLhpxSpO2QL4cqu3ub9WJ2DMayWibmiH
+	nWkDOh6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urXdq-00000000iqC-4AEt;
-	Thu, 28 Aug 2025 08:05:54 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1urXgY-00000000jL6-0wCd;
+	Thu, 28 Aug 2025 08:08:42 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urXOe-00000000fyN-20AI
+	id 1urXP4-00000000g6P-3x5G
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 07:50:13 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-7720c9e2900so848814b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 00:50:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756367410; x=1756972210; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Vni583dy1qPpKoeI/BvuSUANKkix8/DHWprmu6YA31k=;
-        b=FPzl4dGsCh6UgUAFnxgTUIoA77PjxOCjHW0pRaF8OrABhtNjgljjmuH6aAEfxJu0xJ
-         UjTZPl9slnpQwD+RpqJ/XxVkxK102hbDUDmVL3cKelGfiv2+b1mJFNES3aMJjhhTOWtv
-         nDAyBSK7qDGEb6ENeSsc4Clki8mb4Kl0lhovocBpM0pYOq8DziHsGz8INva9h1Lt66hY
-         wI3Z+s5H3xDeBUlWOHxAofmz6jZW++NdSGA1prGvSti61B6tt/0OTpV5P9ttXzgg/3Ez
-         orE75cmuS6OgtiU+gwEfFD8EnNAmxBzM23PIRI835NLyoNijkL0gI6R41jSIHFlsU1cP
-         2/fg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756367410; x=1756972210;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Vni583dy1qPpKoeI/BvuSUANKkix8/DHWprmu6YA31k=;
-        b=mfSS2CJ3rtAgxvmndEMSM1xbe2Zg8jendC9/RBX45Q0ISa3rWURGtIo4GFLg2yGSXt
-         xBpkEk/P9w43WX+sCR72lHMez/NtAuNXQ/zvejVjAWdtNsvP+B/z2IA8YsDLk26yewoq
-         clpzkvpm0vt51Z4kNh8r8EBNn1xR0sGvdyTlWEritjX2CCkeYuQtoU+TjrHrjMN+5Bfn
-         6GqxjCV2lik/dLAAoX4eYd9AR2p4tUrl93mta3H6dsI8qud9BxTD5MdoA4IZ9LAIcsC5
-         KDBVhWtK/QWeKMvxg0ZUVnWFYAJi0Y2xkeNlTsdJwYDW83OK6pr1eXIdqva7+g1WdEhm
-         Gepw==
-X-Forwarded-Encrypted: i=1; AJvYcCWFuEZLF7cfcL94rXVl/CpdMZeD0q5JdDJLhnh5CNtslNOavOruDGsJaBSMJ5OP4196b2Hlcd4RC+3jOo/v5BK8@lists.infradead.org
-X-Gm-Message-State: AOJu0YwU8/7r0hTYalwbWXZ61ETjl2CwhkNqU96GDK1F7CdLp4Y6Fwoy
-	euL635Iqmkiwiw8I98vButMLt1uZPXHFY8eGa/R72iRsyojAZV2pQSLv
-X-Gm-Gg: ASbGncs5HjujAeohOEChLC8qfE/v0WU05w8/ai7G+FuuQTBOW9D8nupxGKF1O7nHDoO
-	58tABoz0XF+AWaeB2UPVhBq7kMywUm1np2Sa/uH7mMkZWetbtdEocOgnsFgkf2borr5v07m0Ssm
-	mtvJNzXXvKty920urQUsq5Col++ae5GXzVmwha4h30Jh8U3oFQffKILLbqRqCg89LG2qItNSzUY
-	VapDB8eMzethMuTfm+fDGdi8zpdYd+3kl2IiU9bqKAKZGynhLJvJVDH28dPCxxOzyQHs/7XdxGm
-	VwBYzeUVM7tVJbIeYGwZT8gndopFkborOnuqhrPmKL+ha+N2nFrTxcOQw2VoB7yDazDrKk+oPeT
-	xv8KKnyf8j/fif21c7zvfb/f35NFpVGNiLlASzey0+fthBsXksJy9rqGVRSbyjO8WwzdIdqA6PN
-	onO1L4ZE5m8i2qjsyt+szFGyYGKATn
-X-Google-Smtp-Source: AGHT+IF4HC4PbFCqww/SIqTzmzziaZEWvmMs4ySjP/B1BpUGSc/ehDGuZDBlPqwuqZKik/CkkD4VWg==
-X-Received: by 2002:a05:6a20:a125:b0:243:aca2:e500 with SMTP id adf61e73a8af0-243aca2ec8fmr2970429637.29.1756367410222;
-        Thu, 28 Aug 2025 00:50:10 -0700 (PDT)
-Received: from peter-bmc.. (2001-b400-e35e-4238-7ad6-5c9d-99c8-92d0.emome-ip6.hinet.net. [2001:b400:e35e:4238:7ad6:5c9d:99c8:92d0])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b49cbb9d226sm13272038a12.41.2025.08.28.00.50.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Aug 2025 00:50:09 -0700 (PDT)
-From: Peter Yin <peteryin.openbmc@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 3/3] ARM: dts: aspeed: harma: add mp5990
-Date: Thu, 28 Aug 2025 15:49:53 +0800
-Message-ID: <20250828074955.542711-4-peteryin.openbmc@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250828074955.542711-1-peteryin.openbmc@gmail.com>
-References: <20250828074955.542711-1-peteryin.openbmc@gmail.com>
+	Thu, 28 Aug 2025 07:50:40 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id B6B1733781;
+	Thu, 28 Aug 2025 07:50:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1756367435; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=Z5D6GoBD7lVN0aaWBxn658yNiz3/WqBdlchz7jbuifk=;
+	b=HWCY5Cs0jOs/jJuIKVhNACU9w5Gs5TWqMHHdo+HjejzC2ugZsWwEZSEUp6NRXANs/oTFPH
+	pmoLlRJDfXWuH86fsrfZJAh+rXItkRO65uJYobxAnlfvK8Mt6SxAQwQ9w+825r19uFgMwg
+	kPA/0BcKiQaVYjPT6hBWOrF0blq8XYM=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1756367435;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=Z5D6GoBD7lVN0aaWBxn658yNiz3/WqBdlchz7jbuifk=;
+	b=tvHLRvH9Aqr60a2Nj5GpOV/Z51Ow2nJeOgFZNpCz88hDsPT9/q6iIs0jJ9OQfU8T1o+k7Y
+	Io4yL+T8M/N/pJBA==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=HWCY5Cs0;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=tvHLRvH9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1756367435; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=Z5D6GoBD7lVN0aaWBxn658yNiz3/WqBdlchz7jbuifk=;
+	b=HWCY5Cs0jOs/jJuIKVhNACU9w5Gs5TWqMHHdo+HjejzC2ugZsWwEZSEUp6NRXANs/oTFPH
+	pmoLlRJDfXWuH86fsrfZJAh+rXItkRO65uJYobxAnlfvK8Mt6SxAQwQ9w+825r19uFgMwg
+	kPA/0BcKiQaVYjPT6hBWOrF0blq8XYM=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1756367435;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=Z5D6GoBD7lVN0aaWBxn658yNiz3/WqBdlchz7jbuifk=;
+	b=tvHLRvH9Aqr60a2Nj5GpOV/Z51Ow2nJeOgFZNpCz88hDsPT9/q6iIs0jJ9OQfU8T1o+k7Y
+	Io4yL+T8M/N/pJBA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 3545C13326;
+	Thu, 28 Aug 2025 07:50:35 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id CxcRC0sKsGiJHgAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Thu, 28 Aug 2025 07:50:35 +0000
+Message-ID: <d040da3e-501f-45d8-bcbb-95fa77e94a59@suse.de>
+Date: Thu, 28 Aug 2025 09:50:34 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 00/10] Add support for RK3588 DisplayPort Controller
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Andy Yan <andyshrk@163.com>
+Cc: heiko@sntech.de, hjc@rock-chips.com, mripard@kernel.org, naoki@radxa.com,
+ stephen@radxa.com, cristian.ciocaltea@collabora.com,
+ neil.armstrong@linaro.org, Laurent.pinchart@ideasonboard.com,
+ yubing.zhang@rock-chips.com, krzk+dt@kernel.org, devicetree@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ robh@kernel.org, sebastian.reichel@collabora.com,
+ Andy Yan <andy.yan@rock-chips.com>
+References: <20250822063959.692098-1-andyshrk@163.com>
+ <bochli5u37mhc6eup7h2oz3yeignofbbj4k5nrvm2k7zf6f4ov@t2sje4gmveqa>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <bochli5u37mhc6eup7h2oz3yeignofbbj4k5nrvm2k7zf6f4ov@t2sje4gmveqa>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Spamd-Result: default: False [-3.01 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FREEMAIL_TO(0.00)[oss.qualcomm.com,163.com];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	ARC_NA(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[20];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	MIME_TRACE(0.00)[0:+];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[163.com];
+	RCVD_TLS_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	TAGGED_RCPT(0.00)[dt];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	DKIM_TRACE(0.00)[suse.de:+];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,suse.de:mid,suse.de:dkim]
+X-Rspamd-Queue-Id: B6B1733781
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Action: no action
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_005012_594047_D85A7CAE 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20250828_005039_279449_5E46C66B 
+X-CRM114-Status: GOOD (  19.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,33 +177,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the HSC MP5990 device on the Harma platform.
+Hi
 
-This change updates the device tree to include the MP5990 HSC
-(Hot Swap Controller), allowing proper configuration and integration
-with the platform.
+Am 28.08.25 um 00:24 schrieb Dmitry Baryshkov:
+> On Fri, Aug 22, 2025 at 02:39:44PM +0800, Andy Yan wrote:
+>> From: Andy Yan <andy.yan@rock-chips.com>
+>>
+>>
+>> There are two DW DPTX based DisplayPort Controller on rk3588 which
+>> are compliant with the DisplayPort Specification Version 1.4 with
+>> the following features:
+>>
+>> * DisplayPort 1.4a
+>> * Main Link: 1/2/4 lanes
+>> * Main Link Support 1.62Gbps, 2.7Gbps, 5.4Gbps and 8.1Gbps
+>> * AUX channel 1Mbps
+>> * Single Stream Transport(SST)
+>> * Multistream Transport (MST)
+>> * Type-C support (alternate mode)
+>> * HDCP 2.2, HDCP 1.3
+>> * Supports up to 8/10 bits per color component
+>> * Supports RBG, YCbCr4:4:4, YCbCr4:2:2, YCbCr4:2:0
+>> * Pixel clock up to 594MHz
+>> * I2S, SPDIF audio interface
+>>
+>> The current version of this patch series only supports basic display outputs.
+>> I conducted tests with DP0 in 1080p and 4K@60 YCbCr4:2:0 modes; the ALT/Type-C
+>> mode was tested on Rock 5B, DP1 was tested on Rock 5 ITX by Stephen and Piotr.
+>> HDCP and audio features remain unimplemented.
+>> For RK3588, it's only support SST, while in the upcoming RK3576, it can support
+>> MST output.
+>>
+> [skipped changelog]
+>
+>> Andy Yan (10):
+>>    dt-bindings: display: rockchip: Add schema for RK3588 DPTX Controller
+>>    drm/bridge: synopsys: Add DW DPTX Controller support library
+>>    drm/rockchip: Add RK3588 DPTX output support
+>>    MAINTAINERS: Add entry for DW DPTX Controller bridge
+> I tried pushing patches 1-4, but got the following error:
+>
+> dim: ERROR: 5a68dcf5837a ("MAINTAINERS: Add entry for DW DPTX Controller bridge"): Mandatory Maintainer Acked-by missing., aborting
+>
+> I'm not sure how to handle MAINTAINERS changes (or whether it's fine for
+> me or not), so I will probably push patches 1-3 in a few days, if nobody
+> beats me (or unless somebody points out a correct process for
+> MAINTAINERS changes).
 
-Signed-off-by: Peter Yin <peteryin.openbmc@gmail.com>
----
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts | 4 ++++
- 1 file changed, 4 insertions(+)
+That warning has been added recently to make sure that patches do not 
+get in without sufficient review. It's overly pedantic, though. If 
+you're confident that you have R-bs from enough relevant people, push 
+the patches with 'dim -f' to ignore the warning.
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts
-index 81278a7702de..23eaf47a38e8 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts
-@@ -520,6 +520,10 @@ imux28: i2c@0 {
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 			reg = <0>;
-+			power-sensor@20 {
-+				compatible = "mps,mp5990";
-+				reg = <0x20>;
-+			};
- 			power-monitor@61 {
- 				compatible = "isil,isl69260";
- 				reg = <0x61>;
+Best regards
+Thomas
+
+>
+>>    dt-bindings: display: simple-bridge: Add ra620 compatible
+>>    drm/bridge: simple-bridge: Add support for radxa ra620
+>>    arm64: dts: rockchip: Add DP0 for rk3588
+>>    arm64: dts: rockchip: Add DP1 for rk3588
+>>    arm64: dts: rockchip: Enable DisplayPort for rk3588s Cool Pi 4B
+>>    arm64: dts: rockchip: Enable DP2HDMI for ROCK 5 ITX
+>>
+>>   .../display/bridge/simple-bridge.yaml         |    1 +
+>>   .../display/rockchip/rockchip,dw-dp.yaml      |  150 ++
+>>   MAINTAINERS                                   |    8 +
+>>   arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |   30 +
+>>   .../arm64/boot/dts/rockchip/rk3588-extra.dtsi |   30 +
+>>   .../boot/dts/rockchip/rk3588-rock-5-itx.dts   |   59 +
+>>   .../boot/dts/rockchip/rk3588s-coolpi-4b.dts   |   37 +
+>>   drivers/gpu/drm/bridge/simple-bridge.c        |    5 +
+>>   drivers/gpu/drm/bridge/synopsys/Kconfig       |    7 +
+>>   drivers/gpu/drm/bridge/synopsys/Makefile      |    1 +
+>>   drivers/gpu/drm/bridge/synopsys/dw-dp.c       | 2095 +++++++++++++++++
+>>   drivers/gpu/drm/rockchip/Kconfig              |    9 +
+>>   drivers/gpu/drm/rockchip/Makefile             |    1 +
+>>   drivers/gpu/drm/rockchip/dw_dp-rockchip.c     |  150 ++
+>>   drivers/gpu/drm/rockchip/rockchip_drm_drv.c   |    1 +
+>>   drivers/gpu/drm/rockchip/rockchip_drm_drv.h   |    1 +
+>>   include/drm/bridge/dw_dp.h                    |   20 +
+>>   17 files changed, 2605 insertions(+)
+>>   create mode 100644 Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
+>>   create mode 100644 drivers/gpu/drm/bridge/synopsys/dw-dp.c
+>>   create mode 100644 drivers/gpu/drm/rockchip/dw_dp-rockchip.c
+>>   create mode 100644 include/drm/bridge/dw_dp.h
+>>
+>> -- 
+>> 2.43.0
+>>
+>> base-commit: 18b8261b84ad5462d7261617fbfa49d85d396fd9
+>> branch: rk3588-dp-upstream-v7
+>>
+
 -- 
-2.43.0
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstrasse 146, 90461 Nuernberg, Germany
+GF: Ivo Totev, Andrew Myers, Andrew McDonald, Boudien Moerman
+HRB 36809 (AG Nuernberg)
+
 
 
