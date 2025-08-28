@@ -4,96 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EA5CCA0FF6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 01:10:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D206CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 01:10:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=phR9doI5X4q1LR98gybIzZyU1kdJD+t4ijHV2CMLbUI=; b=n3nOuuPDxi6QnqCCLAsagHa5t3
-	BiRPnSXNLwvpxY0fQevjq8xHbiIpxZSZZMjLZu1/wPe4+nmTnKPI2p1gcqvy9vcoDxgI/nRf+Vj5C
-	vuYPhEuHpvuZXdhzh9xhexeVOrSRVHosv3+LP9uD74bPComnymBxWzQql6+Derba4/CCf8R74n6uK
-	3ZJDzeWK7Qfo/JsNv0/h0v/MEL7pJ5HYpyGKtKWTFKT6JcGsLqnDoiB6Q6+3Biiii2JfQMuZ0GnOd
-	gcIlTATeSaur5r2JLErwcDdhcH/a9boBJ5QXB9Gqq5sRT8K1sN6d5WsiwYXtiitPn/zU1qr3rmY4e
-	oMhtHDCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	Subject:Cc:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zh4gg928dw0RcQqkQ+B/Q+DIbmhDWNYxBITUkGAsJBQ=; b=CfpwwycwhuxCF2pJTPAyZZ8Czt
+	lAZQ9JEakowbrYrsp3crIZ1peIDzxr8meUUJglxl67XuGob8hFFOJlKBKMzfu+tQIrE0m2w5npHGP
+	Y6+KcX5ioj7D9YFz/jC+Nzy0hPI00JgiNh6p9bmn/JOiVeM4Wz0n9JcryK344OGB9Gn+1FWNNIL0b
+	hDL1p8r5ruSZms7Bqn0Bkw9ui3zs31IP1yhpPKuiQnD61wYPgJ5p0yphQLTGeu98tTEP7a89GIeqL
+	x9qSlOjs6bZGKqvoEUbPpxSvMoyo7a5rxAJAaiMU7DYPkAbsK2HNVzQkpbZm6HFWO92QNjRw3Dxwv
+	dVLzNzEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urndT-00000003xVg-3Oql;
-	Fri, 29 Aug 2025 01:10:35 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	id 1urndU-00000003xWI-21Xb;
+	Fri, 29 Aug 2025 01:10:36 +0000
+Received: from sendmail.purelymail.com ([34.202.193.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uriom-000000037An-0CSk
+	id 1uritJ-0000000387J-0jZ8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 20:01:57 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-b4c645aaa58so879624a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 13:01:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1756411315; x=1757016115; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=phR9doI5X4q1LR98gybIzZyU1kdJD+t4ijHV2CMLbUI=;
-        b=g8pO4gB/UFqK2jagFdPABKdtVN1dAxsPrtdug+4xKQpdaWENt5BynhnXId3yF/Srhm
-         tM1NhRO0MJXdBhfGcaHF2rpBuC3WQlHPMHDWgihXIAyiU4FJo5tnff7OT1Ig/c4OCgKG
-         ZeiClDFvkwmT7xc+5ZqwtTldsUL8Cv43O3JPM=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756411315; x=1757016115;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=phR9doI5X4q1LR98gybIzZyU1kdJD+t4ijHV2CMLbUI=;
-        b=TbD4oHWyPiBoG9C2GBKbFEpIO9tFKU9Ppb307q+8VM/WXfmRmFF/EnN+4m1ariYpGm
-         IRpryQdZed+PO7Nf9ZYtIJaZnWDBzo8tfuA+cgzb8U9MYUABo0q3NhrTt/FdCWz+9lYz
-         fKEu7BtRhACWIGQ839KKAyB/qO4OTv24tgSr5nsJCw7YdfS/xlSCM7hdQ3GWrun0EWqx
-         4OeN1B3CC0Hek05M6XzdmKsnx/N+X1focrxqk1EzqfHvsz8SFXPqeVKj4tcWGZEKzFKm
-         nDBbS2WtNHz2pMeFFBlmTEkG37o/qwrgBmXWwQcntk9uxQDVVgckancE+8+P422oH3n/
-         SmIQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVI2lwH5rTxtb5CO9cijdpxJk+4wFJkEvc3ZGnooQO+lzMyZ1YBQPh2vn0FcHlIfR9ai7l2qNsJ0NtiMoZLg2g/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5sGk7B6ZIyo29zWcYqql6rdrzCj71SSqadSFgPtyuhk0U8nA5
-	5axNxopwKmimeSS3sJq1AONvCzGoUhUOjhdtKHNDq26RX6RWIdfus7Vv9gKotBtpug==
-X-Gm-Gg: ASbGncuPBv0tT9dhSt56UTctLUavJ9/0URLp05fo8aprmc0p//bcCQAON1I4F3PW+wm
-	/o1LxVP6nn0ZC2ErjFZG15Ib2N/HjElI2zas932HDax7UPpRfCUJYznm+GUe6JWTSDxyEHU8Kfn
-	ial6GfkqIPSs+b2Oe7TZHbmDw2rkC8RGmbKifE2LmPZANQJgMU8kV8cwNWfFjf8shuX2wimL8Dv
-	yccp17zM98yNjSWZgGcnFEX/4W4KkCdFPNYgAfrcM/ZEPZv1MXEKoIIyF66oJx1z0aOfJDXA2Uy
-	7Xve+pTRpmoD/wTBBqZDPaWFejQ/B7d7bAOAA5oLtrAr1iI2pPlPEpSE1W6lbDFNmbzYI6RXDkf
-	21XGv6Nie89hKyor/YN4uDVY/swoxSrkZC9haFa/xn1xp0W2ntK7o2igaKQiTRJi4vVpURdg=
-X-Google-Smtp-Source: AGHT+IGRMI2y6ukLzuxA0A2Y52962J0xzxUUU/p9/lxC5pAaBaeFe2iw+3odm0xYYkw4AIuMGBT6Hw==
-X-Received: by 2002:a17:903:13c8:b0:248:6d1a:430f with SMTP id d9443c01a7336-2486d1a46b2mr149396845ad.25.1756411314801;
-        Thu, 28 Aug 2025 13:01:54 -0700 (PDT)
-Received: from localhost ([2a00:79e0:2e14:7:2893:df0f:26ec:df00])
-        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-24905da3be1sm3479885ad.69.2025.08.28.13.01.53
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 28 Aug 2025 13:01:53 -0700 (PDT)
-Date: Thu, 28 Aug 2025 13:01:51 -0700
-From: Brian Norris <briannorris@chromium.org>
-To: manivannan.sadhasivam@oss.qualcomm.com
-Cc: Bjorn Helgaas <bhelgaas@google.com>,
-	Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
-	Oliver O'Halloran <oohall@gmail.com>, Will Deacon <will@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Niklas Cassel <cassel@kernel.org>,
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>,
-	Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
-	Lukas Wunner <lukas@wunner.de>
-Subject: Re: [PATCH v6 0/4] PCI: Add support for resetting the Root Ports in
- a platform specific way
-Message-ID: <aLC1rzdTVoN56Phc@google.com>
-References: <20250715-pci-port-reset-v6-0-6f9cce94e7bb@oss.qualcomm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250715-pci-port-reset-v6-0-6f9cce94e7bb@oss.qualcomm.com>
+	Thu, 28 Aug 2025 20:06:38 +0000
+DKIM-Signature: a=rsa-sha256; b=owmaGhNgfaOD+znx/GojLIb2t38ZD4Jrl1iYxrYo6B4VOkxVOFhOEi2oNv/m5+yW0lF+EFo0TPpX4Dd6FXITgreGaiI4YED3URfoCsWXgJIj8A44OSMG+RM+DKNhOlaTsNlycsYNxF2Z7SiV0zs3Anhw+610gir2iyFKo2zASmCC1s8pRHV9E8tQUvFqfNLGej99GLBac1nJJ3GHeLuanuAx75JhlT31ounVZQ+kJNPlxJwx/tZGMTqdlrhfZG3L/P312jy6vpYonIx2v8CEs57KmC4X/jpCeNcuJ0TFRbaTeuLi3XLWWp+W3lMcNSEOhEt0GR3iRXYGZSXGRk1Gsg==; s=purelymail1; d=purelymail.com; v=1; bh=u9TsNJz5Cli+hy1QKsrKbomaP8wVYfx+FZl2Clzk1tg=; h=Feedback-ID:Received:Date:To:Subject:From;
+Feedback-ID: 68247:10037:null:purelymail
+X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 1961342606;
+          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+          Thu, 28 Aug 2025 20:06:27 +0000 (UTC)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 28 Aug 2025 22:06:25 +0200
+Message-Id: <DCEBXZ0J8PYY.1D1SFSURUN457@mentallysanemainliners.org>
+To: "Arseniy Velikanov" <me@adomerle.pw>
+Cc: <linux-arm-kernel@lists.infradead.org>,
+ <linux-mediatek@lists.infradead.org>, <linux-phy@lists.infradead.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <~postmarketos/upstreaming@lists.sr.ht>
+Subject: Re: [PATCH v1 2/2] phy: mediatek: tphy: Add software role switching
+From: "Igor Belwon" <igor.belwon@mentallysanemainliners.org>
+X-Mailer: aerc 0.20.1-0-g2ecb8770224a-dirty
+References: <20250814234825.810-1-me@adomerle.pw>
+ <20250814234825.810-2-me@adomerle.pw>
+In-Reply-To: <20250814234825.810-2-me@adomerle.pw>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_130156_122901_77CFD9C9 
-X-CRM114-Status: GOOD (  28.01  )
+X-CRM114-CacheID: sfid-20250828_130637_309774_2D089FCA 
+X-CRM114-Status: GOOD (  24.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,57 +66,289 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 15, 2025 at 07:51:03PM +0530, Manivannan Sadhasivam via B4 Relay wrote:
-> Hi,
-> 
-> Currently, in the event of AER/DPC, PCI core will try to reset the slot (Root
-> Port) and its subordinate devices by invoking bridge control reset and FLR. But
-> in some cases like AER Fatal error, it might be necessary to reset the Root
-> Ports using the PCI host bridge drivers in a platform specific way (as indicated
-> by the TODO in the pcie_do_recovery() function in drivers/pci/pcie/err.c).
-> Otherwise, the PCI link won't be recovered successfully.
-> 
-> So this series adds a new callback 'pci_host_bridge::reset_root_port' for the
-> host bridge drivers to reset the Root Port when a fatal error happens.
-> 
-> Also, this series allows the host bridge drivers to handle PCI link down event
-> by resetting the Root Ports and recovering the bus. This is accomplished by the
-> help of the new 'pci_host_handle_link_down()' API. Host bridge drivers are
-> expected to call this API (preferrably from a threaded IRQ handler) with
-> relevant Root Port 'pci_dev' when a link down event is detected for the port.
-> The API will reuse the pcie_do_recovery() function to recover the link if AER
-> support is enabled, otherwise it will directly call the reset_root_port()
-> callback of the host bridge driver (if exists).
-> 
-> For reference, I've modified the pcie-qcom driver to call
-> pci_host_handle_link_down() API with Root Port 'pci_dev' after receiving the
-> LINK_DOWN global_irq event and populated 'pci_host_bridge::reset_root_port()'
-> callback to reset the Root Port. Since the Qcom PCIe controllers support only
-> a single Root Port (slot) per controller instance, the API is going to be
-> invoked only once. For multi Root Port controllers, the controller driver is
-> expected to detect the Root Port that received the link down event and call
-> the pci_host_handle_link_down() API with 'pci_dev' of that Root Port.
-> 
-> Testing
-> -------
-> 
-> I've lost access to my test setup now. So Krishna (Cced) will help with testing
-> on the Qcom platform and Wilfred or Niklas should be able to test it on Rockchip
-> platform. For the moment, this series is compile tested only.
+Hi Arseniy,
 
-For the series:
+On Fri Aug 15, 2025 at 1:48 AM CEST, Arseniy Velikanov wrote:
+> MediaTek USB T-PHY has broken role switching on (likely) all mobile SoCs.
+> Known affected socs are: MT6735, MT6757, MT6761, MT6765, MT6768, MT6771,
+> MT6785, MT6789.
+>
+> The downstream kernel manually controls the PHY mode by writing
+> "test mode" FORCE regs. Setting all these regs fixes device/host modes, b=
+ut
+> breaks dual-role functionality. As a workaround we use workqueue that
+> periodically checks the USB role and changes the PHY mode accordingly.
+>
+> To address this issue only on affected SoCs, we introduce a new
+> device-tree property `mediatek,software-role-switch`. This ensures
+> the workaround is applied only to broken hardware while leaving unaffecte=
+d
+> devices (like Chromebooks) untouched.
+>
+> Signed-off-by: Arseniy Velikanov <me@adomerle.pw>
+> ---
+>  drivers/phy/mediatek/phy-mtk-tphy.c | 148 ++++++++++++++++++++++++++++
+>  1 file changed, 148 insertions(+)
+>
+> diff --git a/drivers/phy/mediatek/phy-mtk-tphy.c b/drivers/phy/mediatek/p=
+hy-mtk-tphy.c
+> index f6504e0ecd1a..472859ec929c 100644
+> --- a/drivers/phy/mediatek/phy-mtk-tphy.c
+> +++ b/drivers/phy/mediatek/phy-mtk-tphy.c
+> @@ -18,6 +18,9 @@
+>  #include <linux/phy/phy.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/regmap.h>
+> +#include <linux/usb/role.h>
+> +#include <linux/usb/otg.h>
+> +#include <linux/workqueue.h>
+> =20
+>  #include "phy-mtk-io.h"
+> =20
+> @@ -111,11 +114,18 @@
+> =20
+>  #define U3P_U2PHYDTM1		0x06C
+>  #define P2C_RG_UART_EN			BIT(16)
+> +#define P2C_FORCE_IDPULLUP	BIT(8)
+>  #define P2C_FORCE_IDDIG		BIT(9)
+> +#define P2C_FORCE_AVALID	BIT(10)
+> +#define P2C_FORCE_SESSEND	BIT(12)
+> +#define P2C_FORCE_VBUSVALID	BIT(13)
+> +
+>  #define P2C_RG_VBUSVALID		BIT(5)
+>  #define P2C_RG_SESSEND			BIT(4)
+> +#define P2C_RG_BVALID			BIT(3)
+>  #define P2C_RG_AVALID			BIT(2)
+>  #define P2C_RG_IDDIG			BIT(1)
+> +#define P2C_RG_IDPULLUP			BIT(0)
+> =20
+>  #define U3P_U2PHYBC12C		0x080
+>  #define P2C_RG_CHGDT_EN		BIT(0)
+> @@ -317,6 +327,8 @@ struct mtk_phy_instance {
+>  		struct u3phy_banks u3_banks;
+>  	};
+>  	struct clk_bulk_data clks[TPHY_CLKS_CNT];
+> +	struct delayed_work dr_work;
+> +	struct usb_role_switch *role_switch;
+>  	u32 index;
+>  	u32 type;
+>  	struct regmap *type_sw;
+> @@ -326,14 +338,17 @@ struct mtk_phy_instance {
+>  	u32 efuse_intr;
+>  	u32 efuse_tx_imp;
+>  	u32 efuse_rx_imp;
+> +	int current_role;
+>  	int eye_src;
+>  	int eye_vrt;
+>  	int eye_term;
+>  	int intr;
+>  	int discth;
+>  	int pre_emphasis;
+> +	int sw_get_retries;
+>  	bool bc12_en;
+>  	bool type_force_mode;
+> +	bool software_role_switch;
+>  };
+> =20
+>  struct mtk_tphy {
+> @@ -818,12 +833,118 @@ static void u2_phy_pll_26m_set(struct mtk_tphy *tp=
+hy,
+>  			 P2R_RG_U2PLL_FRA_EN | P2R_RG_U2PLL_REFCLK_SEL);
+>  }
+> =20
+> +static void u2_phy_instance_role_set(struct mtk_phy_instance *instance,
+> +				     int role)
+> +{
+> +	struct u2phy_banks *u2_banks =3D &instance->u2_banks;
+> +	void __iomem *com =3D u2_banks->com;
+> +
+> +	instance->current_role =3D role;
+> +
+> +	/* end session before role switch */
+> +	mtk_phy_set_bits(com + U3P_U2PHYDTM1, P2C_RG_SESSEND);
+> +	mdelay(5);
+> +	mtk_phy_clear_bits(com + U3P_U2PHYDTM1, P2C_RG_SESSEND);
+> +
+> +	switch (role) {
+> +	case USB_ROLE_DEVICE:
+> +		dev_dbg(&instance->phy->dev, "set device role\n");
+> +		mtk_phy_set_bits(com + U3P_U2PHYDTM1, P2C_RG_IDDIG);
+> +		break;
+> +	case USB_ROLE_HOST:
+> +		dev_dbg(&instance->phy->dev, "set host role\n");
+> +		mtk_phy_clear_bits(com + U3P_U2PHYDTM1, P2C_RG_IDDIG);
+> +		break;
+> +	default:
+> +		break;
+> +	}
+> +}
+> +
+> +static void u2_phy_role_switch_work(struct work_struct *work)
+> +{
+> +	struct mtk_phy_instance *instance =3D
+> +		container_of(work, struct mtk_phy_instance, dr_work.work);
+> +	int role;
+> +
+> +	if (IS_ERR_OR_NULL(instance->role_switch))
+> +		instance->role_switch =3D usb_role_switch_get(&instance->phy->dev);
+> +
+> +	if (IS_ERR_OR_NULL(instance->role_switch)) {
+> +		if (instance->sw_get_retries >=3D 10) {
+> +			dev_warn(&instance->phy->dev, "failed to get role switch\n");
+> +			return;
+> +		}
+> +
+> +		instance->sw_get_retries +=3D 1;
+> +		schedule_delayed_work(&instance->dr_work, msecs_to_jiffies(500));
+> +	}
+> +
+> +	role =3D usb_role_switch_get_role(instance->role_switch);
+> +
+> +	if (instance->current_role =3D=3D role)
+> +		goto reschedule_work;
+> +
+> +	u2_phy_instance_role_set(instance, role);
+> +
+> +reschedule_work:
+> +	schedule_delayed_work(&instance->dr_work, msecs_to_jiffies(100));
+> +}
+> +
+> +static int u2_phy_software_role_switch_init(struct mtk_phy_instance *ins=
+tance)
+> +{
+> +	struct fwnode_handle *ep, *remote_ep, *usb_fwnode;
+> +	struct device *usb_dev;
+> +	int mode;
+> +
+> +	instance->sw_get_retries =3D 0;
+> +
+> +	ep =3D fwnode_graph_get_endpoint_by_id(dev_fwnode(&instance->phy->dev),
+> +					     0,
+> +					     0,
+> +					     FWNODE_GRAPH_ENDPOINT_NEXT);
+> +	if (!ep)
+> +		return -ENODEV;
+> +
+> +	remote_ep =3D fwnode_graph_get_remote_endpoint(ep);
+> +	fwnode_handle_put(ep);
+> +	if (!remote_ep)
+> +		return -ENODEV;
+> +
+> +	usb_fwnode =3D fwnode_graph_get_port_parent(remote_ep);
+> +	fwnode_handle_put(remote_ep);
+> +
+> +	if (!usb_fwnode)
+> +		return -ENODEV;
+> +
+> +	usb_dev =3D bus_find_device_by_fwnode(&platform_bus_type, usb_fwnode);
+> +	fwnode_handle_put(usb_fwnode);
+> +	if (!usb_dev)
+> +		return -ENODEV;
+> +
+> +	mode =3D usb_get_role_switch_default_mode(usb_dev);
+> +	if (mode =3D=3D USB_DR_MODE_HOST)
+> +		u2_phy_instance_role_set(instance, USB_ROLE_HOST);
+> +	else
+> +		u2_phy_instance_role_set(instance, USB_ROLE_DEVICE);
+> +
+> +	INIT_DELAYED_WORK(&instance->dr_work, u2_phy_role_switch_work);
+> +
+> +	return 0;
+> +}
+> +
+>  static void u2_phy_instance_init(struct mtk_tphy *tphy,
+>  	struct mtk_phy_instance *instance)
+>  {
+>  	struct u2phy_banks *u2_banks =3D &instance->u2_banks;
+>  	void __iomem *com =3D u2_banks->com;
+>  	u32 index =3D instance->index;
+> +	int ret;
+> +
+> +	if (instance->software_role_switch) {
+> +		ret =3D u2_phy_software_role_switch_init(instance);
+> +		if (ret)
+> +			dev_warn(&instance->phy->dev, "failed to initialize role switching\n"=
+);
+> +	}
+> =20
+>  	/* switch to USB function, and enable usb pll */
+>  	mtk_phy_clear_bits(com + U3P_U2PHYDTM0, P2C_FORCE_UART_EN | P2C_FORCE_S=
+USPENDM);
+> @@ -883,6 +1004,18 @@ static void u2_phy_instance_power_on(struct mtk_tph=
+y *tphy,
+> =20
+>  		mtk_phy_set_bits(com + U3P_U2PHYDTM0, P2C_RG_SUSPENDM | P2C_FORCE_SUSP=
+ENDM);
+>  	}
+> +
+> +	if (instance->software_role_switch) {
+> +		/* Set FORCE modes for manual role switching */
+> +		mtk_phy_set_bits(com + U3P_U2PHYDTM1, P2C_FORCE_IDPULLUP
+> +			| P2C_FORCE_IDDIG | P2C_FORCE_AVALID | P2C_FORCE_VBUSVALID
+> +			| P2C_FORCE_SESSEND);
+> +		mtk_phy_set_bits(com + U3P_U2PHYDTM1, P2C_RG_IDPULLUP | P2C_RG_BVALID)=
+;
+> +
+> +		if (!instance->role_switch)
+> +			schedule_delayed_work(&instance->dr_work, msecs_to_jiffies(100));
+> +	}
+> +
+>  	dev_dbg(tphy->dev, "%s(%d)\n", __func__, index);
+>  }
+> =20
+> @@ -906,6 +1039,9 @@ static void u2_phy_instance_power_off(struct mtk_tph=
+y *tphy,
+>  		mtk_phy_clear_bits(com + U3D_U2PHYDCR0, P2C_RG_SIF_U2PLL_FORCE_ON);
+>  	}
+> =20
+> +	if (instance->role_switch)
+> +		cancel_delayed_work_sync(&instance->dr_work);
+> +
+>  	dev_dbg(tphy->dev, "%s(%d)\n", __func__, index);
+>  }
+> =20
+> @@ -940,6 +1076,9 @@ static void u2_phy_instance_set_mode(struct mtk_tphy=
+ *tphy,
+>  		tmp &=3D ~P2C_RG_IDDIG;
+>  		break;
+>  	case PHY_MODE_USB_OTG:
+> +		/* We are managing role in workqueue */
+> +		if (instance->software_role_switch)
+> +			return;
+>  		tmp &=3D ~(P2C_FORCE_IDDIG | P2C_RG_IDDIG);
+>  		break;
+>  	default:
+> @@ -1129,6 +1268,11 @@ static void phy_parse_property(struct mtk_tphy *tp=
+hy,
+>  	if (instance->type =3D=3D PHY_TYPE_USB3)
+>  		instance->type_force_mode =3D device_property_read_bool(dev, "mediatek=
+,force-mode");
+> =20
+> +	instance->software_role_switch =3D
+> +		device_property_read_bool(dev, "mediatek,software-role-switch");
+> +	if (instance->software_role_switch)
+> +		dev_info(dev, "software role switch enabled\n");
+> +
+>  	if (instance->type !=3D PHY_TYPE_USB2)
+>  		return;
+> =20
+> @@ -1618,6 +1762,10 @@ static int mtk_tphy_probe(struct platform_device *=
+pdev)
+>  		struct phy *phy;
+>  		int retval;
+> =20
+> +		/* filter non-phy nodes (e.g. graphs) */
+> +		if (!of_find_property(child_np, "reg", NULL))
+> +			continue;
+> +
+>  		instance =3D devm_kzalloc(dev, sizeof(*instance), GFP_KERNEL);
+>  		if (!instance)
+>  			return -ENOMEM;
 
-Tested-by: Brian Norris <briannorris@chromium.org>
+This patch made USB role-switching work on the MT6878 SoC. As such:
 
-I've tested the whole thing on Qualcomm SC7280 Herobrine systems with
-NVMe. After adding a debugfs node to control toggling PERST, I can force
-the link to reset, and see it recover and resume NVMe traffic.
+Tested-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
 
-I've tested the first two on Pixel phones, using a non-upstream
-DWC-based driver that I'm working on getting in better shape. (We've
-previously supported a custom link-error API setup instead.) I'd love to
-see this available upstream.
-
-Regards,
-Brian
+Kind regards,
+Igor
 
