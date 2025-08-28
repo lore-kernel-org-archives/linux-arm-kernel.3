@@ -4,70 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D6B9CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 19:38:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 096E7CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 19:41:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=QkKuQmdsIfBFWSlaZCVIjUrsV0+5DYAn3FLonAIfiAs=; b=VykOymxgPjV9N/
-	kkBfZW78iJoF53Gk3pK05w7zK2sUQ7OYBZIteq4xGhbv8pVcUVqYyYfE6yDLtT6uCVr4I76dXC1wc
-	Rsv+fyxSSi52R7n3Z0gfPs6fJDFJch1g2O0BunSJ4oLcFRDfcpGkvh0fthtgjlzeeR3uOicKUX/ps
-	2nzgr5PDAQFf/3mBqbgcvPZWDsiVAkvx5CSEoxmjUqlyKAjDIJBmeD7B4ojiez9CPX2JeC2EeikJf
-	A8nfCjN8ub+mDQsLKapuq4p8ej/xfSFOWBqK0A1hNVByyfQI0XZNz/FbwpWl3xebgT+nXNbvzsVce
-	pC49bL0/WXEmvLfcGzeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fFLbqb99XY/4p3kGQ/FKtOO9I8ts9rQ7PGKFEyAjmE0=; b=QNTvjQ/CmdVVuG0doEDQ6fYDiV
+	N3eyFpbdMVNEtJV5Ca+dVACaD2CEMBKh1LItKu4t3p2wr0BsLLFeM5VZ2RChDYEZpaUu2HLMxdIqx
+	VATdDh0XAqExJNMU2vJjg1Yd0ce8ady6OMOTq3EW1EF8MSLNyJuz/xcmrtnVYSmPVdxhG1NYnAUuB
+	OU96ZMlAvAqTbLDU7BnOMXKiKOJPTktF0DUxI9XdEYabpgIrfqHCtSfQ0sLDN460Lyj2uqYG62lJ0
+	ubjGRRdgNGACqnp9cs8zEkR9joMC4YxPmUIM9T0jxexes1OH3umJg8v+Pqe/hNaVvVfNwOjesk3xl
+	O/8ejhTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uriSV-000000033QJ-2qAe;
-	Thu, 28 Aug 2025 19:38:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uriVD-000000033q6-37Og;
+	Thu, 28 Aug 2025 19:41:43 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urgEa-00000002OCx-2gej
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 17:16:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EF31F443CD;
-	Thu, 28 Aug 2025 17:16:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DE76C4CEF4;
-	Thu, 28 Aug 2025 17:16:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756401383;
-	bh=Kmt4M/Z2w+PlibUTUari/qi5WTPoz/7V3tEAWMttjcs=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=lXMjNa1OLazCVKdubqEGCO/lXhyt1mqLJQfntrNgnF2MeIfopD2JSL24bzM3r9g9r
-	 2FQ23qtLYZLlOH1o3RU26+tDTfmBIwux0hZ2dKZe/xQpgbAQud8uJWbM0fsG+dMUdm
-	 vuO8pvW/zTg9XPl2CMq9Z8VxXu5j9D0/OjmzDW/WoUCZae0+h9u1t6E1C5SEkwh5S6
-	 NiPEA3+OmmoeyhCYFFjVSDB0YGXiGktNmSWf4gX+mqBVSG5R/MRlGpN6c5OR5n+hbw
-	 y4YzH8G2J8JZrbEx1Ub9PxBMWtap5lkFUZqod4nTSCoJBR5XHfFeXcOEwGeXkdFT2B
-	 CJQt+pQ4f0P9g==
-Date: Thu, 28 Aug 2025 12:16:22 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Christian Bruel <christian.bruel@foss.st.com>
-Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
-	robh@kernel.org, bhelgaas@google.com, krzk+dt@kernel.org,
-	conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, linus.walleij@linaro.org,
-	corbet@lwn.net, p.zabel@pengutronix.de, shradha.t@samsung.com,
-	mayank.rana@oss.qualcomm.com, namcao@linutronix.de,
-	qiang.yu@oss.qualcomm.com, thippeswamy.havalige@amd.com,
-	inochiama@gmail.com, quic_schintav@quicinc.com,
-	johan+linaro@kernel.org, linux-pci@vger.kernel.org,
+	id 1urgF1-00000002OLA-0S4e;
+	Thu, 28 Aug 2025 17:16:52 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-45b4d892175so8102805e9.2;
+        Thu, 28 Aug 2025 10:16:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756401409; x=1757006209; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=fFLbqb99XY/4p3kGQ/FKtOO9I8ts9rQ7PGKFEyAjmE0=;
+        b=nYDrsAXu9iFrz+sT/d9WLxdLn+GdzOKSYyncPbaQ9uqOklWAdyGpFFSrUsWyrdmkMe
+         JRef7zRCgG8xzv/V8MIi+oCZa6bzVdcxwZBoqQ3Z5r/EbgJHD1ilwRGzvdFg/61zMbcP
+         e4uVJG2NQaLJh8DLQAWpPFHvMbvOeD58FeCBiyPeIZHVu0l7vfTiNDBVx6uyEYj/IrXQ
+         GxB2Th0YSzgLRy6LlWDVKFBIkNWeL1AnEmGt2YopJp7RJO4Y+7hzTXQRx/JqN2jucfGA
+         l5iyA8EFurs94U83rt1uuZpx5akgYA5OHxEqyUyjc4nrITpC8yastcZeTHBfdITwClQX
+         hg0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756401409; x=1757006209;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fFLbqb99XY/4p3kGQ/FKtOO9I8ts9rQ7PGKFEyAjmE0=;
+        b=frw83rnH+NgfttJ8eYh6rDk7NAonmZuYCPIYgxnCJif+t0GlVm1oOq5OfUMa/edJo9
+         E7G4TpaGyye53PcqRFQZbxujvpdAjCYWQTdTsg9TdNsTP9A0NpnNwwmDInqH5C8nX+7z
+         38rth0EwNa2OGslDrmhNVsB4ARC5rhdUA6vq1Jg1TgEeCpEaMxVkXog3Ycrz+WoLC6ol
+         +UJS2LAMAGLRjCaL8y4deRp/OAOnf1trhZyyBR4nqmQpC9YAj8l3XDoh5++7Mvh9gNxF
+         //vx2YvQQbYhjPzXxPrReauQ2l+tyDYrPISJk3K2XijB/OmPHZiW/4LR82TpwfrMWzYm
+         XQjw==
+X-Forwarded-Encrypted: i=1; AJvYcCU3owe6I876OxKS6rUsLQOD/ZOsLHNHN+BR0TH1MjZgxlEeLjqhhC5ahFdPzxxRMr17/rBUQbIY4KB/51lO7nyQ@lists.infradead.org, AJvYcCVK0loMzrBXIfN2+Sp4L0DPImqUUSaNYbTJUfZiRbXMIGYggTLUG0jZVqoMnq80Tw/GxEgtdmA4wSjedoh6Rv4=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5DttnX5wdZX18hniaEH88P4TXsrV6tP4oaLF3Z+B+56R7k8C/
+	82h11rmJc9GcBgyETH9jY6yvnGymU4TD81ISRnjiK7Na2IKpbZj1zAMz
+X-Gm-Gg: ASbGnctWIFExrp+yQapVJoURp50Al3HMUbBLSYZxYWc8F3Gs5ze7yDYeXkrTRGFjfXa
+	ybZjB8+BUVDR2/c91iUkNyfP7z60zQQn7UFV6DzFS6zvmMh2ezcbcerndmWQx2/DPR6vAmw/bYd
+	mxxE3ORZvF//EIPu73MzyiKJysLKdcfFUgJasln71VzfF1B/4Z76MdTTCAD+xts7ONwyHBjIipw
+	yPL+Zf1O0m8SAIwdg3i7SFDJDY8UvYeuWNa0zWVDUSYMN6FbWkGnDTcDU25ftOVQDs4FRWjsfjD
+	kD1Xm/AuXFdrrgM5c+qrMHmYywO+xumu/CzK8dFloQU2mcC9GlH0RqZ4hz5u7gqSm7p2sr/n5aR
+	slIqybMh1a9QK8z4yLog9BZbg/KNAGj/UNdk9FnDhZINgh00t
+X-Google-Smtp-Source: AGHT+IHf2zrhqkImFnC2Ql49KDCTShn9uK3ZVmRNtWFi3YICQvp5eHq+etZ8QeXQZIfouCJFRYZXPg==
+X-Received: by 2002:a05:600c:4f12:b0:459:dde3:1a37 with SMTP id 5b1f17b1804b1-45b66343ea2mr95635395e9.25.1756401409276;
+        Thu, 28 Aug 2025 10:16:49 -0700 (PDT)
+Received: from toolbox.. ([87.200.95.144])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b6f30fe02sm80653665e9.18.2025.08.28.10.16.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 28 Aug 2025 10:16:48 -0700 (PDT)
+From: Christian Hewitt <christianshewitt@gmail.com>
+To: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
 	devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v13 06/11] PCI: stm32: Add PCIe Endpoint support for
- STM32MP25
-Message-ID: <20250828171622.GA945192@bhelgaas>
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Alex Bee <knaerzche@gmail.com>
+Subject: [PATCH] arm64: dts: rockchip: add USB3 on Beelink A1
+Date: Thu, 28 Aug 2025 17:16:45 +0000
+Message-Id: <20250828171645.3830437-1-christianshewitt@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <9133348a-f6a4-4425-98e2-a784a7620b3a@foss.st.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_101624_718934_EE95A9CA 
-X-CRM114-Status: GOOD (  25.07  )
+X-CRM114-CacheID: sfid-20250828_101651_147555_C2028C38 
+X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,65 +101,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 28, 2025 at 02:12:57PM +0200, Christian Bruel wrote:
-> On 8/27/25 20:58, Bjorn Helgaas wrote:
-> > On Wed, Aug 20, 2025 at 09:54:06AM +0200, Christian Bruel wrote:
-> > > Add driver to configure the STM32MP25 SoC PCIe Gen1 2.5GT/s or Gen2 5GT/s
-> > > controller based on the DesignWare PCIe core in endpoint mode.
-> > 
-> > > +static void stm32_pcie_perst_deassert(struct dw_pcie *pci)
-> > > +{
-> > > +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
-> > > +	struct device *dev = pci->dev;
-> > > +	struct dw_pcie_ep *ep = &pci->ep;
-> > > +	int ret;
-> > > +
-> > > +	dev_dbg(dev, "PERST de-asserted by host\n");
-> > > +
-> > > +	ret = pm_runtime_resume_and_get(dev);
-> > > +	if (ret < 0) {
-> > > +		dev_err(dev, "Failed to resume runtime PM: %d\n", ret);
-> > > +		return;
-> > > +	}
-> > > +
-> > > +	ret = stm32_pcie_enable_resources(stm32_pcie);
-> > > +	if (ret) {
-> > > +		dev_err(dev, "Failed to enable resources: %d\n", ret);
-> > > +		goto err_pm_put_sync;
-> > > +	}
-> > > +
-> > > +	/*
-> > > +	 * Need to reprogram the configuration space registers here because the
-> > > +	 * DBI registers were incorrectly reset by the PHY RCC during phy_init().
-> > 
-> > Is this incorrect reset of DBI registers a software issue or some kind
-> > of hardware erratum that might be fixed someday?  Or maybe it's just a
-> > characteristic of the hardware and thus not really "incorrect"?
-> > 
-> > I do see that qcom_pcie_perst_deassert() in pcie-qcom-ep.c also calls
-> > dw_pcie_ep_init_registers() in the qcom_pcie_ep_perst_irq_thread()
-> > path.
-> > 
-> > So does pex_ep_event_pex_rst_deassert() (pcie-tegra194.c) in the
-> > tegra_pcie_ep_pex_rst_irq() path.
-> > 
-> > But as far as I can tell, none of the other dwc drivers need this, so
-> > maybe it's something to do with the glue around the DWC core?
-> 
-> The RCC PHY reset is connected to the Synopsys cold reset logic, which
-> explains why the registers need to be restored. This point has been
-> addressed in the reference manual.
+From: Alex Bee <knaerzche@gmail.com>
 
-OK.  I dropped "incorrectly" from the comment because I think future
-readers will wonder about whether or how this could be fixed, and it
-sounds like it's just a feature of the hardware that we need to deal
-with.
+Enable USB3 for the Beelink A1 set-top box.
 
-> > > +	 */
-> > > +	ret = dw_pcie_ep_init_registers(ep);
-> > > +	if (ret) {
-> > > +		dev_err(dev, "Failed to complete initialization: %d\n", ret);
-> > > +		goto err_disable_resources;
-> > > +	}
-> 
+Signed-off-by: Alex Bee <knaerzche@gmail.com>
+Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3328-a1.dts | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3328-a1.dts b/arch/arm64/boot/dts/rockchip/rk3328-a1.dts
+index b276a29bdd85..632b0b22c52f 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3328-a1.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3328-a1.dts
+@@ -381,6 +381,11 @@ &usb_host0_ehci {
+ 	status = "okay";
+ };
+ 
++&usbdrd3 {
++	dr_mode = "host";
++	status = "okay";
++};
++
+ &vop {
+ 	status = "okay";
+ };
+-- 
+2.34.1
+
 
