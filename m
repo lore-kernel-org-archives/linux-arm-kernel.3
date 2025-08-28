@@ -4,132 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DEE6CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 10:29:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F938CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 10:32:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nH0EHtfD2ZZRvR66YNRJIcjAqr2g05k6ZjcI9rf+mU0=; b=WZ8A0bs2eB9qedI1/+Y4jzeHnu
-	X4hK0J8rz5fYvee1IpKbEUrgLnNBrBS2QkD/G3tW7y+zfBBkCYG84oIRJ6ZeUAQw8TPKiWAlFTKlG
-	AyeqsHWwewmsS7letaXd3BBdo4gmkJ9M7Cq+w5jUouBmar3e/PsNrPWYEBbU7yUfNZkPWAcDe/Eg9
-	JcESoFTwZMuto6ze9Sr5LXr0YhyHAVwGald8f0vg/SZTBKqbC+NZy7lzKVlYVGc3aN22gk/NuKN8r
-	5nXS1sNxJ008y+wBTWP6mHFV/1dSA56cIWnt1pO1kgjfntnK0+anvmQNR1yk3i/HaGz/fbdoKgbaG
-	mUHt/Cmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PgOiY/8TM3TVUl6GJF7nL449nJQfKgvLd+3cCT8JD6o=; b=xmQ9ANNssZKMbzNs2HZJ9l+STB
+	KvvKLBqeMRvpo7eKSR7S2D1iP/XJoxWoPhYU5V1AT9gUWPlEi5oV29FWelAlv8Km9zrJAIYJ8FGu9
+	svk0/xFxdNnD1C6pLHnvvTEgqS708fIVkbXQwfYzwebnS2BeXce2ECmVOX26vvNl3jP7vDBRDvIlF
+	Cle61+QGOtMsXRCY+I3hhou1mKFyX5VM08Dz8O3lG6GTK1fa1S2n/LUTjshaWWMkZeubTfSMQjyIV
+	PulZ2lZUz4lt6IsJexiq9I2vtWgrirjWkB4mI0abyEVlszbv3QT8dC9szEONNOl4jC2DJnagIOUZG
+	zMM1Qa3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urZsf-000000019rR-3LTG;
-	Thu, 28 Aug 2025 10:29:21 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1urZvN-00000001AQJ-2M7E;
+	Thu, 28 Aug 2025 10:32:09 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urYuq-00000000xks-2SVv
+	id 1urYv5-00000000xnR-01iK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 09:27:33 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57S5oJKh030584
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 09:27:31 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	nH0EHtfD2ZZRvR66YNRJIcjAqr2g05k6ZjcI9rf+mU0=; b=YQFP8bLYJBGUVngI
-	78UxXhY31q1WO2r7e3T0XvbzBxIs3KkSOM7u099IAoY2SG59NJmX0GYSyHp9yEHl
-	gAyaTPAPjk7BxTtQ0+dpK7JDlnbsv+Efom+keJcj3UMoKjL4SWeBbbtc8hgefd/Z
-	aDAGkU4CY4EwpCBOfWA7U9xg1Pa8Xdxvz1dFawYUYnIi5MKwx921TtX3XFfJquww
-	/cCJUQPPqad5zKHpsPFGqNpDA4DFJBqgfqAaDYavnDIHKFWDuuJTtwhZqTP0D0Fz
-	jQ+CBC7qRz1yIHSWyTYqhozdOjzZxihHUyJIl1S/8UVPiiHaSF/c5XkSrQVCu/WL
-	tWjcKA==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48q5unyh4j-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 09:27:31 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-24696a89d6dso15021435ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 02:27:31 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756373250; x=1756978050;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=nH0EHtfD2ZZRvR66YNRJIcjAqr2g05k6ZjcI9rf+mU0=;
-        b=P9F44npS23UvbDMyJZHE8janKZq5j4bZpahGIEEEWooP7foOsvr/gjpo6rej3YBUpX
-         gUualu3rBVCbOztoNey5T8i/kzCgCxua/tfpr9a5DCU3cqyzDnobJuTXwzjSag62kF5G
-         znbDyy4tTPefjEIeyEgdshh4CkTPsQOD3kG+SveRxxUgCekITKWn54z4YI8SMgVkt3tB
-         AolExg0kCku/QKGgqtiOb9aoC7mwdpLxuxVed4X6zf9yqG1qJ3TvtHLC6aYnuMaNS/+J
-         W+qIf3QCA/SbJMhrTZ7eRhWhbYxdhFNQ5HucKPmJsDuysFdR3c/tXvg9VcKik5L+PXny
-         h5+A==
-X-Forwarded-Encrypted: i=1; AJvYcCXmUT+cKIj+JsksIV/yG8jWObNs7ey/cwvOih9I/GIWUg3IuLMCD9XiHhde1utYe+SUF1OH11pneCXX2kfrCgxh@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXb8Z7axMz/ULxxCiSf+kfQn6rROqfO9VlqntBEEoYe8TUNCKV
-	f3G8OQteCbFTD7JBnraCpRjenCL/w5+vb8b/2D1gF0cnPqsX4MsHQiCV/Lrs4l95Wz4j3Djcog1
-	9Cn/nLw4L+s96YHMfwEuLAD8h1O2Adz/nac8j8tkoVdWgTTDWPVugWAXWFO+r/+Ck3miL5Dc3Py
-	psUA==
-X-Gm-Gg: ASbGncu73xLF9nBwLx6jCC29O30MqsEOATIybWP0X4DIyeb1pn98+smuLRw3JksoX4F
-	6yLMLjCluo1PiEtsTNz47hgOMg2mssgHc+QBIhxwblYva3R5QD/9ynEh3e7UJGALtufyHV8uS6X
-	4/HFBe1Iqyayd+6hFq7vO4iYtjl2pqEexr4po3uXPevX78cV1lWeCAlg2Jb6I7N80wC64/mNCdy
-	3N+fc3vK0iqcdOBbG0tQ06LDDFCWHMWYX2Dx5qt/8ipU7d9v6XGv2mYzwwRPLVFQCGm0EG96wuU
-	aAQu75XmRlmYP9ZG7ag3vKXVhb4amRbOmF0Lf1RbEevng4SAEtyEbMcMMTWB7FU6vIdj/N7Owyj
-	csTAf9gaSuriZh8TZ2PpGrA==
-X-Received: by 2002:a17:903:1a45:b0:246:ddd6:f8b9 with SMTP id d9443c01a7336-246ddd6fd04mr189901255ad.43.1756373250459;
-        Thu, 28 Aug 2025 02:27:30 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHRirl59ZqqwBenKh4YDCdNyXYQIOlCFbUMVk8c1xq8SkxEO/1u301M1/+O5byXT8KqSPmPOQ==
-X-Received: by 2002:a17:903:1a45:b0:246:ddd6:f8b9 with SMTP id d9443c01a7336-246ddd6fd04mr189900935ad.43.1756373250023;
-        Thu, 28 Aug 2025 02:27:30 -0700 (PDT)
-Received: from hu-yuanfang-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-246ed91ee20sm92497015ad.136.2025.08.28.02.27.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Aug 2025 02:27:29 -0700 (PDT)
-From: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
-Date: Thu, 28 Aug 2025 02:27:24 -0700
-Subject: [PATCH v3 3/3] coresight-tnoc: Add runtime PM support for
- Interconnect TNOC
+	Thu, 28 Aug 2025 09:27:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=PgOiY/8TM3TVUl6GJF7nL449nJQfKgvLd+3cCT8JD6o=; b=rECEJydgc7m8D9fDVfaSoNnCtY
+	Cvzwrz1a+X+uHqcgSXiGPBIr/ddNcuBSy8iW0m3ERG6Nwim6qN2to5wuTZcM7KH9W2fvjxl5dZK5q
+	pfNr70KoQQmHgAGweJd3ElGoczV94jzic3rfWFZkcUQHrZO8o3mlGqblzzBxx+6De/AbzRG+k/LM4
+	fxgM38u5ynrl2HQTDNifVxJECo1H1CBgMhfj6FoxcvQ24klFM63xabIQagT17IUb4938lM3ZIhEEX
+	EXmixQ/gPXiCsWXjlOwSi9bNPN5HrCdlU0vYdejEJln892uQKeEJCtbzlOq2HCh8K3saB0Pon/Y4/
+	kmSAU+HQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:42286)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1urYub-000000001Pu-1HpH;
+	Thu, 28 Aug 2025 10:27:17 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1urYuW-0000000031q-1yMo;
+	Thu, 28 Aug 2025 10:27:12 +0100
+Date: Thu, 28 Aug 2025 10:27:12 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Joy Zou <joy.zou@nxp.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, richardcochran@gmail.com, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, frieder.schrempf@kontron.de,
+	primoz.fiser@norik.com, othacehe@gnu.org,
+	Markus.Niebel@ew.tq-group.com, alexander.stein@ew.tq-group.com,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux@ew.tq-group.com, netdev@vger.kernel.org,
+	linux-pm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	Frank.Li@nxp.com
+Subject: Re: [PATCH v9 6/6] net: stmmac: imx: add i.MX91 support
+Message-ID: <aLAg8Lds-O_36aaN@shell.armlinux.org.uk>
+References: <20250825091223.1378137-1-joy.zou@nxp.com>
+ <20250825091223.1378137-7-joy.zou@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250828-itnoc-v3-3-f1b55dea7a27@oss.qualcomm.com>
-References: <20250828-itnoc-v3-0-f1b55dea7a27@oss.qualcomm.com>
-In-Reply-To: <20250828-itnoc-v3-0-f1b55dea7a27@oss.qualcomm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: kernel@oss.qualcomm.com, coresight@lists.linaro.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756373245; l=1698;
- i=yuanfang.zhang@oss.qualcomm.com; s=20250814; h=from:subject:message-id;
- bh=o+5/ACwsPDXaRMmwhSug61zH+Sv2mKJhHu/g8cXlGAs=;
- b=ilhqjytLS638zwMPR8kFJ/BYFsh+0ivhmo7Xklxsa8n4A7l49eb/ttMdW9+Ms3EmE4w7v4fuG
- ep3zeVkPCiaAko6vEjW7vzVFmKwBjdMqQjwMaWGaHyNIzMJygusBs0P
-X-Developer-Key: i=yuanfang.zhang@oss.qualcomm.com; a=ed25519;
- pk=9oS/FoPW5k0CsqSDDrPlnV+kVIOUaAe0O5pr4M1wHgY=
-X-Proofpoint-GUID: nDP0iG8Cl-rHUYYFVnDlnwJxHKIyWxW4
-X-Proofpoint-ORIG-GUID: nDP0iG8Cl-rHUYYFVnDlnwJxHKIyWxW4
-X-Authority-Analysis: v=2.4 cv=JJo7s9Kb c=1 sm=1 tr=0 ts=68b02103 cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=EUspDBNiAAAA:8 a=qearADheJa7ujHrKWl4A:9
- a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDAzMSBTYWx0ZWRfX6PXl/Gy6qp7H
- dYn3U4DQmORuh8LIqzdZBpxqPQh/9nYHpoQDrl1J8BpaFA5C4AYmJ4dHzk/jqe66e2xMpHmAqUs
- NAxFJW0r/9rOMnSiKuBrViNapKeKnez3oUtZdPEyT3DVPcgR1AUXYnu+VuUJHI7jw426a+cSIqR
- 3CRexYDvRnucFdyJfUABT7B0/WrYfB9ismEAuSrSpKK9i5d+tkLlAGykHt3LAY6Y36Iblpp5Com
- WYyqAcHpevSRSdMIOsxyq5+nc3c96uuL+Vni+WyDHc0LwpLPQsy2Np4aoYj2uf1QgSxmmJbiASn
- uERtszOg57VxMf6lxYuLcHSMOVh38HEU6MuK1wciKia6ixQDm/Y9pAtHLrYcENvoA1C4mjcEgkA
- joBmKsSk
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-28_02,2025-08-28_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 adultscore=0 bulkscore=0 spamscore=0 impostorscore=0
- malwarescore=0 clxscore=1015 priorityscore=1501 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508230031
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250825091223.1378137-7-joy.zou@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_022732_755161_9BF81A78 
-X-CRM114-Status: GOOD (  16.81  )
+X-CRM114-CacheID: sfid-20250828_022747_042039_D5A18744 
+X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,59 +91,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch adds runtime power management support for platform-based
-CoreSight Interconnect TNOC (ITNOC) devices. It introduces suspend and
-resume callbacks to manage the APB clock (`pclk`) during device runtime
-transitions.
+On Mon, Aug 25, 2025 at 05:12:23PM +0800, Joy Zou wrote:
+> @@ -310,6 +311,7 @@ imx_dwmac_parse_dt(struct imx_priv_data *dwmac, struct device *dev)
+>  	}
+>  
+>  	if (of_machine_is_compatible("fsl,imx8mp") ||
+> +	    of_machine_is_compatible("fsl,imx91") ||
+>  	    of_machine_is_compatible("fsl,imx93")) {
+>  		/* Binding doc describes the propety:
+>  		 * is required by i.MX8MP, i.MX93.
 
-Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
----
- drivers/hwtracing/coresight/coresight-tnoc.c | 23 +++++++++++++++++++++++
- 1 file changed, 23 insertions(+)
-
-diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
-index ca96c3e66d683d6c1d1215b1b48d2f7b7f58d5b0..b744354b47c861370a247e1a6ce88563aa01c4aa 100644
---- a/drivers/hwtracing/coresight/coresight-tnoc.c
-+++ b/drivers/hwtracing/coresight/coresight-tnoc.c
-@@ -300,6 +300,28 @@ static void itnoc_remove(struct platform_device *pdev)
- 	pm_runtime_disable(&pdev->dev);
- }
- 
-+#ifdef CONFIG_PM
-+static int itnoc_runtime_suspend(struct device *dev)
-+{
-+	struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev);
-+
-+	clk_disable_unprepare(drvdata->pclk);
-+
-+	return 0;
-+}
-+
-+static int itnoc_runtime_resume(struct device *dev)
-+{
-+	struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev);
-+
-+	return clk_prepare_enable(drvdata->pclk);
-+}
-+#endif
-+
-+static const struct dev_pm_ops itnoc_dev_pm_ops = {
-+	SET_RUNTIME_PM_OPS(itnoc_runtime_suspend, itnoc_runtime_resume, NULL)
-+};
-+
- static const struct of_device_id itnoc_of_match[] = {
- 	{ .compatible = "qcom,coresight-itnoc" },
- 	{}
-@@ -313,6 +335,7 @@ static struct platform_driver itnoc_driver = {
- 		.name = "coresight-itnoc",
- 		.of_match_table = itnoc_of_match,
- 		.suppress_bind_attrs = true,
-+		.pm = &itnoc_dev_pm_ops,
- 	},
- };
- 
+Doesn't this comment need updating?
 
 -- 
-2.34.1
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
