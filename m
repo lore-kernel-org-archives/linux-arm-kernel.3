@@ -4,158 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2496ECA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 23:27:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79575CA0FF6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 23:27:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mkSDgbg7xWQW+ISMkJybRnH1oyxatG6U4F5HRgnHqwM=; b=g5DhimR39sQ2UiAbZTQ53Q5tKl
-	/K6vxR4nKkiHXd/xXJxcA6dzxlCvLzrXPrkgElMu7UGmVENbYf/RSKVa7T3JALfXBB+1tR+S7T7H+
-	zjA63xo/Tdj7M6iPHk7vLi9+LEaRLbBnVxB9Ui7PVBJio+x9NZ9nyZNzXXSqvT+keZUIqPFwX/0IF
-	0cZZTUUh/Pei1K9OVz/AvKmtdkKQT7eb84FqlU35jqkO3WD0CQIpFXNoEdKBOoZifuavpOc9HQPvg
-	oUIBe7ZCrrw5/9ud86r060rnWiz1oBk/v0cnVzjjqnkENW1x4R3zr4AZZ1EK8JhClIYFLxMDP8TqX
-	uWCbi4zA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VcWOaR0Ql036OGlkmD0Z7j4nNYEDP3lMRBmO+Y04dbc=; b=Ciw4tQJ+CxiluYoq5aNeCSj+yA
+	BJRnT6l8i1/9pMRcVu1eln0dgXAkfJdZhFM7VcZ683FRUXb9hZoFU8m/CAQRIFA3G4jIozKpz/5n9
+	lujld6JEvL4clGVZlvZk2bJgpPCCLVFCqpH9p8Msumhaw8PA/nJxdDR8F72NXBZVeMKcpdTZ1+KCC
+	7aubXBIHK6guPAioiF5IrYT/t2y+6awJn8O4Na207ttexxHMX7ZnzuHh/kVpGS8k5mtTfpL6eirYi
+	NZd0BCdKRYhAszIFHkEoaSzyNU17ZDsl5BG9ef21D30NRU4xU1JDf58Bk+ATjHXVshERa+ql4bA6i
+	Sm+d+HSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urm1D-00000003fkN-2QJe;
-	Thu, 28 Aug 2025 23:26:59 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1urm1M-00000003g00-1y9H;
+	Thu, 28 Aug 2025 23:27:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urjj5-00000003Gxj-2P32
+	id 1urkCf-00000003NWK-1jWe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 21:00:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756414806;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=mkSDgbg7xWQW+ISMkJybRnH1oyxatG6U4F5HRgnHqwM=;
-	b=ec6T5n9SeYPE9qNLZCvPuDh5cVUTMF4xOtuMNi+GIjRfUb8KxZWbUitj0GstcMuDMGZYFt
-	WvU1zzOm8MQPEECKw1I/YW8mcB68gLkiI3WpryLU66t1EmHg3U5jYqrk3xUuxnsMJs/Mok
-	4RIoFir0vQy1m2J5ZuCtIV43l8KQyfQ=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-326-aZzPBRJQNQKE0LDfWTgGBg-1; Thu, 28 Aug 2025 17:00:04 -0400
-X-MC-Unique: aZzPBRJQNQKE0LDfWTgGBg-1
-X-Mimecast-MFC-AGG-ID: aZzPBRJQNQKE0LDfWTgGBg_1756414803
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-3c6abcfd303so170349f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 14:00:04 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756414803; x=1757019603;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=mkSDgbg7xWQW+ISMkJybRnH1oyxatG6U4F5HRgnHqwM=;
-        b=fDi0I7TrkgF5QvNpc+Iyjv3EI3iXiDU2oyGBxA17y/RYN6ozismPpocSJCxDHu9/Kv
-         48fAt4ad5cqe3ACDNaDg5xksBGfsZXfzSGczFgAcWh+qIXGhi0t8/RaykxS9CQt6kWqM
-         ZU+SwDsoI+YhSo9AotdeigPk9mFRq8i1goAmZWLCbTK2HavGUsUFLROmPURELxraSI+z
-         M1OW3UPOCxw6XI984cRIe7Qzi0jrnJZMj/EkIv/0d4aXnIwGk1D1eih9WYqvAfTDaHXR
-         MG8azAtP8IG3W4vWSWfrtfzQQ2IldoWr0dCmP3qlgVsjCGFFYTLznxVUEi7355xhBfns
-         nRoA==
-X-Forwarded-Encrypted: i=1; AJvYcCUmpo5FmGVmbF1J8zXNeSrJIu080bFysWF2RTlMd7hWwlwp+zYZX1AfPwk8+IUGqKsOXmhCud1JP+rSHSD5+Vlq@lists.infradead.org
-X-Gm-Message-State: AOJu0YxO2ox+JzCCMpZpZSNYRi3SCjcUaoT0nzr7JWJZXO1nkvsO5F/O
-	bySZxI1RLwRLa05bRVtXTUwDXOWSo1pha53T7ij4xTyTJj1xM5hIkhQEZhV5G4HWj/vLD1pEIE8
-	bZmQ395kRJIlPnuWNh/xVRLV7LKdynSjUgc9KlTvqM+/P5wfAoax4lxoc6LkqkzSuWHWJas3IWR
-	es
-X-Gm-Gg: ASbGncuJRj5Zg78ZK283JTjizL6ZARYTo9FoFAsbpzDK3gk4AG1KLWD3uEzA9n2VChc
-	e4DXrqOxeqgKQyKDX3ZcmHEpy6/KVIdYRTzPBqWi5YfWohQaZoqg2RY1Uow9A1aALCYkOvLAL1H
-	toXgrJSyqT0+oc/mK9F2nq6lO5oPSVl/T36Z0bTIf3lj0fxnp3zV8EiRn8tEEG8HJ4ccdq5lIYN
-	wlzRaeBQ5zDi/oDBf8w1Mz9MmnFo/Q7acsLlD2Wfyx8wqelGmJuUv3EmI7TUImMo7roaxtwidBy
-	ms9DhTLvHFxms7gY/BQ9iHRoTjHOyKUMKwb63kQo1UvAVLSymY6TJk/HElP1rvgzeRfHPDzXTzs
-	4FGCw56VZYXFMqDiPSg0PI2prhKza1E5zh4cD6o1PwMPatZNM5aQMB2vsxlMyrIi3FDw=
-X-Received: by 2002:a05:6000:2512:b0:3c9:3f46:70eb with SMTP id ffacd0b85a97d-3c93f467c6amr12443219f8f.52.1756414803114;
-        Thu, 28 Aug 2025 14:00:03 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE6weiB8uQZLlY/pBc/wBfkqXIMndGWCy+/j+66w0gqGxnhnpdmegVfF1S2/N2OWbRnBL2yuQ==
-X-Received: by 2002:a05:6000:2512:b0:3c9:3f46:70eb with SMTP id ffacd0b85a97d-3c93f467c6amr12443198f8f.52.1756414802646;
-        Thu, 28 Aug 2025 14:00:02 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f28:c100:2225:10aa:f247:7b85? (p200300d82f28c100222510aaf2477b85.dip0.t-ipconnect.de. [2003:d8:2f28:c100:2225:10aa:f247:7b85])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3cf33fba9c4sm613412f8f.48.2025.08.28.14.00.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 28 Aug 2025 14:00:02 -0700 (PDT)
-Message-ID: <7ef927d8-190d-4b22-8ec7-dcb9f5f75dba@redhat.com>
-Date: Thu, 28 Aug 2025 23:00:00 +0200
+	Thu, 28 Aug 2025 21:30:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D2E1F60139;
+	Thu, 28 Aug 2025 21:30:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A2C9C4CEEB;
+	Thu, 28 Aug 2025 21:30:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756416640;
+	bh=Rd0xr0MhBmCf+FWFWjFdTrfsK8O7aobr0QTSWX9i//w=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Q0nDTyTzp4ovb908QABKBN+Cl6h+PdlrrI4t2TYunvmoH8hXmeU2HbxjQfHXsT0qs
+	 Yk+KMAwAF04QXlrF3i+fMVSRK3/UNj/qrtCrOTD3y4DTGst/Gon6ATnt5+I0tgT/Wi
+	 Uc90I3mPhP+4lmHsFyqQe5jJcvqGSbsa3vAEvCRoO6PI2FS/UvEezMHCTsfq2H35YW
+	 dY0eFExRfdZwRhPKfpvb65Md6iy/wXqO6vBsiItGQIUyoahsstTgbS72AkGyd0OfOy
+	 z4kP2b0MMeWBxtdkCrsNhY6Fm0ZQYO2Q44xOdwQ4pHmnt6hasyPd5hisjofPftcrbV
+	 kDdiitq0guDaw==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michal Simek <michal.simek@amd.com>
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: xilinx: Drop undocumented "always-on" properties
+Date: Thu, 28 Aug 2025 16:30:26 -0500
+Message-ID: <20250828213028.2266805-1-robh@kernel.org>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 03/12] mm: introduce AS_NO_DIRECT_MAP
-To: "Roy, Patrick" <roypat@amazon.co.uk>,
- "seanjc@google.com" <seanjc@google.com>
-Cc: "tabba@google.com" <tabba@google.com>,
- "ackerleytng@google.com" <ackerleytng@google.com>,
- "pbonzini@redhat.com" <pbonzini@redhat.com>,
- "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-mm@kvack.org" <linux-mm@kvack.org>, "rppt@kernel.org"
- <rppt@kernel.org>, "will@kernel.org" <will@kernel.org>,
- "vbabka@suse.cz" <vbabka@suse.cz>, "Cali, Marco" <xmarcalx@amazon.co.uk>,
- "Kalyazin, Nikita" <kalyazin@amazon.co.uk>,
- "Thomson, Jack" <jackabt@amazon.co.uk>, "Manwaring, Derek"
- <derekmn@amazon.com>
-References: <20250828093902.2719-1-roypat@amazon.co.uk>
- <20250828093902.2719-4-roypat@amazon.co.uk>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20250828093902.2719-4-roypat@amazon.co.uk>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: SR2HkwJTCyVGG86SlqiHgmcnaEy8R2SVQX-Pu7tJjv8_1756414803
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_140007_689895_6F779BCD 
-X-CRM114-Status: GOOD (  16.43  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,51 +69,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28.08.25 11:39, Roy, Patrick wrote:
-> Add AS_NO_DIRECT_MAP for mappings where direct map entries of folios are
-> set to not present . Currently, mappings that match this description are
-> secretmem mappings (memfd_secret()). Later, some guest_memfd
-> configurations will also fall into this category.
-> 
-> Reject this new type of mappings in all locations that currently reject
-> secretmem mappings, on the assumption that if secretmem mappings are
-> rejected somewhere, it is precisely because of an inability to deal with
-> folios without direct map entries, and then make memfd_secret() use
-> AS_NO_DIRECT_MAP on its address_space to drop its special
-> vma_is_secretmem()/secretmem_mapping() checks.
-> 
-> This drops a optimization in gup_fast_folio_allowed() where
-> secretmem_mapping() was only called if CONFIG_SECRETMEM=y. secretmem is
-> enabled by default since commit b758fe6df50d ("mm/secretmem: make it on
-> by default"), so the secretmem check did not actually end up elided in
-> most cases anymore anyway.
-> 
-> Use a new flag instead of overloading AS_INACCESSIBLE (which is already
-> set by guest_memfd) because not all guest_memfd mappings will end up
-> being direct map removed (e.g. in pKVM setups, parts of guest_memfd that
-> can be mapped to userspace should also be GUP-able, and generally not
-> have restrictions on who can access it).
-> 
-> Signed-off-by: Patrick Roy <roypat@amazon.co.uk>
-> ---
-[...]
+The "always-on" properties are not documented for "silabs,si5341"
+binding nor used by the Linux driver, so drop them.
 
-> +static inline bool vma_is_no_direct_map(const struct vm_area_struct *vma)
-> +{
-> +	return vma->vm_file && mapping_no_direct_map(vma->vm_file->f_mapping);
-> +}
-> +
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ arch/arm64/boot/dts/xilinx/zynqmp-zcu102-revA.dts | 8 --------
+ arch/arm64/boot/dts/xilinx/zynqmp-zcu106-revA.dts | 6 ------
+ arch/arm64/boot/dts/xilinx/zynqmp-zcu111-revA.dts | 6 ------
+ 3 files changed, 20 deletions(-)
 
-"vma_is_no_direct_map" reads a bit weird.
-
-"vma_has_no_direct_map" or "vma_no_direct_mapping" might be better.
-
-With the comment Mike and Fuad raised, this LGTM.
-
-
+diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-zcu102-revA.dts b/arch/arm64/boot/dts/xilinx/zynqmp-zcu102-revA.dts
+index e172a30e7b21..6bee21d4fa4d 100644
+--- a/arch/arm64/boot/dts/xilinx/zynqmp-zcu102-revA.dts
++++ b/arch/arm64/boot/dts/xilinx/zynqmp-zcu102-revA.dts
+@@ -552,42 +552,34 @@ si5341: clock-generator@36 { /* SI5341 - u69 */
+ 				si5341_0: out@0 {
+ 					/* refclk0 for PS-GT, used for DP */
+ 					reg = <0>;
+-					always-on;
+ 				};
+ 				si5341_2: out@2 {
+ 					/* refclk2 for PS-GT, used for USB3 */
+ 					reg = <2>;
+-					always-on;
+ 				};
+ 				si5341_3: out@3 {
+ 					/* refclk3 for PS-GT, used for SATA */
+ 					reg = <3>;
+-					always-on;
+ 				};
+ 				si5341_4: out@4 {
+ 					/* refclk4 for PS-GT, used for PCIE slot */
+ 					reg = <4>;
+-					always-on;
+ 				};
+ 				si5341_5: out@5 {
+ 					/* refclk5 for PS-GT, used for PCIE */
+ 					reg = <5>;
+-					always-on;
+ 				};
+ 				si5341_6: out@6 {
+ 					/* refclk6 PL CLK125 */
+ 					reg = <6>;
+-					always-on;
+ 				};
+ 				si5341_7: out@7 {
+ 					/* refclk7 PL CLK74 */
+ 					reg = <7>;
+-					always-on;
+ 				};
+ 				si5341_9: out@9 {
+ 					/* refclk9 used for PS_REF_CLK 33.3 MHz */
+ 					reg = <9>;
+-					always-on;
+ 				};
+ 			};
+ 		};
+diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-zcu106-revA.dts b/arch/arm64/boot/dts/xilinx/zynqmp-zcu106-revA.dts
+index cd132abf6e00..f450fad0edf8 100644
+--- a/arch/arm64/boot/dts/xilinx/zynqmp-zcu106-revA.dts
++++ b/arch/arm64/boot/dts/xilinx/zynqmp-zcu106-revA.dts
+@@ -551,32 +551,26 @@ si5341: clock-generator@36 { /* SI5341 - u69 */
+ 				si5341_0: out@0 {
+ 					/* refclk0 for PS-GT, used for DP */
+ 					reg = <0>;
+-					always-on;
+ 				};
+ 				si5341_2: out@2 {
+ 					/* refclk2 for PS-GT, used for USB3 */
+ 					reg = <2>;
+-					always-on;
+ 				};
+ 				si5341_3: out@3 {
+ 					/* refclk3 for PS-GT, used for SATA */
+ 					reg = <3>;
+-					always-on;
+ 				};
+ 				si5341_6: out@6 {
+ 					/* refclk6 PL CLK125 */
+ 					reg = <6>;
+-					always-on;
+ 				};
+ 				si5341_7: out@7 {
+ 					/* refclk7 PL CLK74 */
+ 					reg = <7>;
+-					always-on;
+ 				};
+ 				si5341_9: out@9 {
+ 					/* refclk9 used for PS_REF_CLK 33.3 MHz */
+ 					reg = <9>;
+-					always-on;
+ 				};
+ 			};
+ 
+diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-zcu111-revA.dts b/arch/arm64/boot/dts/xilinx/zynqmp-zcu111-revA.dts
+index 428b5558fbba..b4768f615182 100644
+--- a/arch/arm64/boot/dts/xilinx/zynqmp-zcu111-revA.dts
++++ b/arch/arm64/boot/dts/xilinx/zynqmp-zcu111-revA.dts
+@@ -439,32 +439,26 @@ si5341: clock-generator@36 { /* SI5341 - u46 */
+ 				si5341_0: out@0 {
+ 					/* refclk0 for PS-GT, used for DP */
+ 					reg = <0>;
+-					always-on;
+ 				};
+ 				si5341_2: out@2 {
+ 					/* refclk2 for PS-GT, used for USB3 */
+ 					reg = <2>;
+-					always-on;
+ 				};
+ 				si5341_3: out@3 {
+ 					/* refclk3 for PS-GT, used for SATA */
+ 					reg = <3>;
+-					always-on;
+ 				};
+ 				si5341_5: out@5 {
+ 					/* refclk5 PL CLK100 */
+ 					reg = <5>;
+-					always-on;
+ 				};
+ 				si5341_6: out@6 {
+ 					/* refclk6 PL CLK125 */
+ 					reg = <6>;
+-					always-on;
+ 				};
+ 				si5341_9: out@9 {
+ 					/* refclk9 used for PS_REF_CLK 33.3 MHz */
+ 					reg = <9>;
+-					always-on;
+ 				};
+ 			};
+ 		};
 -- 
-Cheers
-
-David / dhildenb
+2.50.1
 
 
