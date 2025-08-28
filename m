@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CC98CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 07:41:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AFB8CA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 07:43:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7wdLKdu3gRydbgkaOExgCyxr/LuNr8ANanTK9VurXYA=; b=qSB/5wEgyVkYa1EjtSHMvvcLFT
-	f5vtpQbx04T/Ot+auJT1zvLp6CkyEzDAkkFXcATlm/L264TOvj2ZMjGRh587/i1Ziq9l+r6W1PpfU
-	x8u/I25ROrvTvCCKhOfEyo6TAzlXUG/l85rawbZRMkPAiLoQAP6CRoT0UkTTts1NBELXr/lfLCgQT
-	INDbVt+Whb6mWUo7NoamnxsSI4wKYPmrjoMe2v5BAUfkLLUPkU4bbGEvvIdy4gr40zqAOj5wQAuE6
-	ESqXs4cTG2GaNFv6uQPxXW3zi6slT+X76LS946+FwOsSmEbUTRpo82MwTWx+BuYJmq8GLS2+nL/VZ
-	Q1Pp2xyQ==;
+	bh=Q0BfjvXaX7EhpBrJcO9diF40ujDlSeO28TY40tQufFs=; b=Ir4+lCLdUSai6+KX5/y8R5m7Vw
+	ebSTE0GXyEm9meR89nEz4Ywtt2WxQC4iVi8d9PBznlDMR9tQSJqngbLC3pIMCihCvfoiReE5hy960
+	AGc3oPSd8sMoVokmJoTQsWN6hYw22rVPR35Ud0b5nJ26Skz2p8E0X/aDpxppX7SOIWdXGb6YXyAja
+	bYJ4VeWugw7o8X7sUOYleVdEwntbmGktNahuXe3Kk5cjIWvypEv86Dp8KJFJp4X/5tlpKWJAwkvf8
+	2zWlD5BSt5kWmsqyu8GZ+z0I20DoTrCBJnHbfIuQDR+blMGiOoNmf9sjOQ72mupSKIS9Xvch2LDiX
+	STNsoWsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urXFj-00000000dZT-26bG;
-	Thu, 28 Aug 2025 07:40:59 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1urXIR-00000000eKK-06En;
+	Thu, 28 Aug 2025 07:43:47 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urXAQ-00000000bv3-44Ft;
-	Thu, 28 Aug 2025 07:35:32 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-61cc281171cso1076635a12.0;
-        Thu, 28 Aug 2025 00:35:30 -0700 (PDT)
+	id 1urXAr-00000000c4O-0QeG;
+	Thu, 28 Aug 2025 07:35:58 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-61cd1046d42so778225a12.3;
+        Thu, 28 Aug 2025 00:35:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756366529; x=1756971329; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1756366555; x=1756971355; darn=lists.infradead.org;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=7wdLKdu3gRydbgkaOExgCyxr/LuNr8ANanTK9VurXYA=;
-        b=Xp9lOaB3SvM7m0dJqyvP+yP357DW5bsMH6P1yxF1ObYO5ez3G/zZVGV1Yv8zQrWPkZ
-         lVIpHAruJk/r8/Dupxt8cKtmTMDSUwnSM9V9zZ4g0F6L48Fgdxa06gtwGsdLh9oBTUQZ
-         gGqNuN41oblD84EWJCGjzvgWrqs3X1VvL+7iRTysKDp9It5XDSgPIY/ofHcFatNiGboa
-         bnj22WXLTNVap7wXc4cOeGtD6rmJ8hH+c6akgW171PlzAjn8MniEr3tqrcn0d8C41ia5
-         hY9BUEytWP5xKFU5KjNEJT2ZX6hhJVj7GQoxkawV9deVxOzePCBWEUqiHdJP/tAXlnLk
-         Bz/A==
+        bh=Q0BfjvXaX7EhpBrJcO9diF40ujDlSeO28TY40tQufFs=;
+        b=jnivqwC41byNBcXSFuMHi+axyKQo9qL0sVM5K1ctO8wCTZPCTdZuA9MR9jyZPXrFm/
+         sd/JCmEkIvg3Fs/aWHtiNtkq1ILwuq1s7Q3kZK/FeoKRsdTTzsh3a+gV9pQtAExWDK9W
+         ojUit9pEEaM48xY9rIUf/RUKqey8HaArCIcsdSOVxT3CH6lTBPNPfFipimBXuSP4tKPC
+         KAcJ+J21Wg87fs0q6teAZg7yE69hdw/jiJnhUi4JAgaIhS2IGIUgnWhZDO4kuOBQqj+t
+         WS95/+c9dzeV9RsXZIR0svcqxw5qMcLm/3N9fUwDTGrW/Gwt8tuKW1O5srPX4vr8J/wo
+         Saqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756366529; x=1756971329;
+        d=1e100.net; s=20230601; t=1756366555; x=1756971355;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :reply-to:message-id:subject:cc:to:from:date:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=7wdLKdu3gRydbgkaOExgCyxr/LuNr8ANanTK9VurXYA=;
-        b=p5OIiHfD7CeSdV7SE8xmC6yPmOcrh8JO/Dg1HxJOQeMAVG4oplgbIgmiewNhQwknzN
-         /X8hW08bXDrr1Ylyw1KTkDIrU3CMi79hP9gGEOf99kQV0MjJoEWd3cNhbShKQ65qPqyg
-         i+aJEdTAlIfww8/xBQgc/DdvtSzXhEqfKXWOJCIb48+8tPapAMKClEIug3jkLlOOlkuf
-         o8MyW0aC3ovLkiQgq5yyozqOD4cotO7fzUU89NHuzlKLH2HDTRr6eA6yj4BYPtOhJSdM
-         2x4a19q4bbVAWbBrx3dSMbu49SwmaX/8c7EfWY7lCqOZXQBccuul5753QpWeFWvstzLf
-         ZSkw==
-X-Forwarded-Encrypted: i=1; AJvYcCUxlTRE3HrDNoj0r0JR/W2kyiOzeccrzPvyNmBFLmVZGpJS7dn9I+gkY1ZPnxi3Epqeu362KCoEejCt3n0=@lists.infradead.org, AJvYcCVB9vPCJ57MTHvYQC/yk6mihZ1KR7zlghUK4nPdti6eMriRgsd0bO00EiV24Y8UqKmZ9Eln4xPQvPSXeogMbIKy@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVP5dd48Ti1bg/mUUweUoUInkfR8ktIWKZDf+0XLMgail0VJaw
-	j3BNAaIxYxSgPQ/mStLcwlAdfWb7Ih9K/bQ6LkrrpZf2aj72l/y953TX
-X-Gm-Gg: ASbGncv7w2vZwMoR1tsc4yL5qTPk9WCcKnWNK5xyB/sTd8E0g33BcQwp12ol1Qb0TtY
-	mKPvOKYGkH6bnXJ6CilRJ+aO1igpMvz5utB4uSv3uits+WN45Y2imY3lPV4A0Xx3sFSuBgaUSOD
-	c5k2EwmUJ5V/2EJ2mFs5HvN969mJWdnnqH9cgPexTT1S6umWCAARfjdi7LpnSGc11yikFRw8Bgl
-	PZfENX4DotOv0p4SjbhHHfmhQZVpRbmNEG8ATf4dAaA3LKchjbCowclvY2SjEjeNcyOW5REymLi
-	iiaDs+hTZ9qauNBiEvVJkEj1dYM01k+F/MgZX6akHZoSPM30lZpPp3SUYYw6NEHUtZ8BSEZfQNA
-	e31Om3qnjNW13vlKa0aRq9eXvQA==
-X-Google-Smtp-Source: AGHT+IH+/HdQFSXw/W0bPc1NEIz4PAWk+piUx/7dt/vdSor64JcoeKILsFtoJ4Brv3+pRvjO+XdeaA==
-X-Received: by 2002:a17:907:3f0a:b0:afe:d590:b6af with SMTP id a640c23a62f3a-afed590c109mr310258266b.20.1756366529084;
-        Thu, 28 Aug 2025 00:35:29 -0700 (PDT)
+        bh=Q0BfjvXaX7EhpBrJcO9diF40ujDlSeO28TY40tQufFs=;
+        b=bIaTdN2thYdW4O98RR4RGDUrZkD43VtS0Ito/GzdWr/nnJ9Q51DKcvQz0/U33Pv2fi
+         qoCPnaNEaRagT78l2As6Hcj4TbhuM9I6/Jj3ruAt/09XMXmB43yNqaqLD9atOqwH396W
+         pUHEnpTpTZVIG9Boy2m09SGADyiJi4abeotJNYoCx32m7TReIkqAOw7p3WmVj5/nqcR8
+         j+FO2cCtqoIyKsQz93n41uacAI5/foDugIDuHAfxjBMH9+RNAHDUj1WAj4FvJAfFCCMB
+         wvESRbZB4iKGiDiwCljByySTlRNsdAo2AThTnz7fXUAK6rz9hA/WiTzGNHqRxP67D1ad
+         UqjA==
+X-Forwarded-Encrypted: i=1; AJvYcCUoMssK6yb5WOWZDCLRORjED974OYWCLIhkj2ipVnwIgYxDPUd7B152qSsaKlcNiXK467+M+wEmx2NM6TkFC5Gz@lists.infradead.org, AJvYcCWLp3redamK/Bgp3DSAz+g1HrmiewmmGvv9pAj7+pnCDr6HS/Fcop0fg5QDVkIeUZnqc8KEK1gB2tXjAdg=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9MUzxk85d7Vh7biuYOLO/Dmlgnh69NyJwbxJHpECp51caQClI
+	99sR9fXzqGLiesPUYd493JIwx7+ydmKFeGBl+uw3bgchxtuVQCpe0eQl
+X-Gm-Gg: ASbGncuOKoda2P+G5Rw8f5gDHhg9yx1KD46Qq928/HTj3PoS8FNFIe9HZNaj3bFI6qA
+	RkhmQKwdputHJOl86CgZ88gtmuguQe6eKPqwn+HToZdHBlSPeVvQ4HdzVzJ92utiJlSwNS/10U3
+	WKVyCPIj9SbZ3nldiuYmQrBRAv1uc0ttX8lRrPUodeWU8raTsfDY0s7hMacCta+d4EYoyRkBfcS
+	QaPU0TX6KEfVtDnNNWt09CZWJi7H0cQSv1cOzEtNp4yT3cLesy0UoIl15baWNjZK5rTFwJQgTf+
+	fy2QY2dtLWB+TwiwR6oY7svMtk015jYea5Yvwc/I6a7w3tJD9+I8af9SBCgxieiC+8W/k52D7Kf
+	l4b9iI/n93sM95XS2tiUDDmGMbw==
+X-Google-Smtp-Source: AGHT+IETTLjGc3PPKg04ncd1zRzcObVAV207MWaWJmOCZt1EmbrBQuEK0aAe9NGL4LI6P2OcE9HkdQ==
+X-Received: by 2002:a17:907:fdc1:b0:afc:aa44:bda1 with SMTP id a640c23a62f3a-afe296bcae4mr2097332866b.54.1756366555363;
+        Thu, 28 Aug 2025 00:35:55 -0700 (PDT)
 Received: from localhost ([185.92.221.13])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afe77c2b758sm886311466b.84.2025.08.28.00.35.27
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afe68891cefsm988052566b.66.2025.08.28.00.35.54
         (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Thu, 28 Aug 2025 00:35:28 -0700 (PDT)
-Date: Thu, 28 Aug 2025 07:35:27 +0000
+        Thu, 28 Aug 2025 00:35:54 -0700 (PDT)
+Date: Thu, 28 Aug 2025 07:35:54 +0000
 From: Wei Yang <richard.weiyang@gmail.com>
 To: David Hildenbrand <david@redhat.com>
-Cc: linux-kernel@vger.kernel.org,
-	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+Cc: linux-kernel@vger.kernel.org, Zi Yan <ziy@nvidia.com>,
 	Alexander Potapenko <glider@google.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Brendan Jackman <jackmanb@google.com>,
@@ -93,25 +92,26 @@ Cc: linux-kernel@vger.kernel.org,
 	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
 	Marco Elver <elver@google.com>,
 	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
-	netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
-	Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
+	Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
+	Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
+	Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
+	Robin Murphy <robin.murphy@arm.com>,
 	Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
 	virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
-	wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
-Subject: Re: [PATCH v1 09/36] mm/mm_init: make memmap_init_compound() look
- more like prep_compound_page()
-Message-ID: <20250828073527.u4k47fohaquzf3pg@master>
+	wireguard@lists.zx2c4.com, x86@kernel.org
+Subject: Re: [PATCH v1 10/36] mm: sanity-check maximum folio size in
+ folio_set_order()
+Message-ID: <20250828073554.evipmbkxrint3tbs@master>
 References: <20250827220141.262669-1-david@redhat.com>
- <20250827220141.262669-10-david@redhat.com>
+ <20250827220141.262669-11-david@redhat.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250827220141.262669-10-david@redhat.com>
+In-Reply-To: <20250827220141.262669-11-david@redhat.com>
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_003531_008502_183475BA 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20250828_003557_139102_74E58D16 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,21 +127,14 @@ Reply-To: Wei Yang <richard.weiyang@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 28, 2025 at 12:01:13AM +0200, David Hildenbrand wrote:
->Grepping for "prep_compound_page" leaves on clueless how devdax gets its
->compound pages initialized.
+On Thu, Aug 28, 2025 at 12:01:14AM +0200, David Hildenbrand wrote:
+>Let's sanity-check in folio_set_order() whether we would be trying to
+>create a folio with an order that would make it exceed MAX_FOLIO_ORDER.
 >
->Let's add a comment that might help finding this open-coded
->prep_compound_page() initialization more easily.
+>This will enable the check whenever a folio/compound page is initialized
+>through prepare_compound_head() / prepare_compound_page().
 >
->Further, let's be less smart about the ordering of initialization and just
->perform the prep_compound_head() call after all tail pages were
->initialized: just like prep_compound_page() does.
->
->No need for a comment to describe the initialization order: again,
->just like prep_compound_page().
->
->Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+>Reviewed-by: Zi Yan <ziy@nvidia.com>
 >Signed-off-by: David Hildenbrand <david@redhat.com>
 
 Reviewed-by: Wei Yang <richard.weiyang@gmail.com>
