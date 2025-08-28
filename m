@@ -4,40 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32416CA0FF7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 17:28:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EF41CA0FF7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 17:28:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MVod8/zo9mT8QT2vVdZTrOdt07Ijq3UUFtJYLqi4Twg=; b=bzyxVlv+cdzH0oq3ye1oz83aUm
-	4iJ+UGj2pXdDJSjN0wxtswiQq0VBPVbORj9T6O8xlKxxTjo8HOLUC32jzexdVmWq5mmi2zOY2O/e/
-	soUk3pQt5SQuXRv+QzdpAKDl3vQc7ynbAHvcPRiY1FJW/A2uZJ+X3q6QKHkUYwRnShoeLmgkwMVY3
-	wXWOJQcieaMUa2HeN+O2qL8ToifxD1yld5YbTpMJKRWhShuGZMm9ubpemOoMRg3/NAZSUtwuKyXWg
-	XHfHsvWjKaGkJRPD7+Rok5LzaCvoGpg2TsB09kTxkOA11mdrqQjq0CYI/bQgZj23LD5wIyh6oY0Wq
-	NcXXVFLA==;
+	bh=ejsSpIZwN3zZAh7urw29iiA/GFhtn6CB06LXQPnvnIU=; b=Q76m7L8+8iXwXpPJs1pAHzwSME
+	q/WR9V+VCXOwRSn5zSAFYc0dgMcpnSS7FWCGPNRlcJt9GGelj4VFtF7CYgh0HRgK5sT9f+odXDFeH
+	tkR2d1IW1NDRAMIyHaafKKMz7tyaAiCz3KPliZc5A1uIY3VsfzmckkY0C2HiwjAfO5s+l1GoNJE6H
+	Azl89UEOQqxDkdQkIY7oSCQQNyIVsS8LGSQdfF2C2PxllCZnf9QMAC6hrFWsgQEcuTzes5ZKBSuAp
+	Ub8Uuyd6RDQR/CEnrdh7ml9w3xt6SyKW7shAJbi9mgk0FPj9bXXmKICUr39XO+lB9SEC9nujjV3+m
+	Czk9FRxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urgPj-00000002VB2-16Te;
-	Thu, 28 Aug 2025 17:27:55 +0000
+	id 1urgPk-00000002VDB-44R4;
+	Thu, 28 Aug 2025 17:27:56 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urdJO-00000001rEk-1ouj
+	id 1urdKj-00000001rQC-0uE7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 14:09:11 +0000
+	Thu, 28 Aug 2025 14:10:34 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EDFA11688;
-	Thu, 28 Aug 2025 07:08:58 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E6FF31688;
+	Thu, 28 Aug 2025 07:10:23 -0700 (PDT)
 Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BE0943F694;
-	Thu, 28 Aug 2025 07:09:01 -0700 (PDT)
-Date: Thu, 28 Aug 2025 15:08:45 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 95A893F694;
+	Thu, 28 Aug 2025 07:10:26 -0700 (PDT)
+Date: Thu, 28 Aug 2025 15:10:23 +0100
 From: Dave Martin <Dave.Martin@arm.com>
 To: James Morse <james.morse@arm.com>
 Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
+	shameerali.kolothum.thodi@huawei.com,
 	D Scott Phillips OS <scott@os.amperecomputing.com>,
 	carl@os.amperecomputing.com, lcherian@marvell.com,
 	bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
@@ -60,20 +61,20 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	Will Deacon <will@kernel.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Danilo Krummrich <dakr@kernel.org>
-Subject: Re: [PATCH 01/33] cacheinfo: Expose the code to generate a cache-id
- from a device_node
-Message-ID: <aLBi7dmFd7+Bqu/j@e133380.arm.com>
+Subject: Re: [PATCH 02/33] drivers: base: cacheinfo: Add helper to find the
+ cache size from cpu+level
+Message-ID: <aLBjTyTKk6Pod40v@e133380.arm.com>
 References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-2-james.morse@arm.com>
- <aK7h6seHNWs5rO9Q@e133380.arm.com>
- <17675117-79ef-42e3-9c21-4bc46e73d6b1@arm.com>
+ <20250822153048.2287-3-james.morse@arm.com>
+ <aK7iDey7LATOXIUb@e133380.arm.com>
+ <2ac66605-ee6a-495b-a0fb-910926abd8b0@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <17675117-79ef-42e3-9c21-4bc46e73d6b1@arm.com>
+In-Reply-To: <2ac66605-ee6a-495b-a0fb-910926abd8b0@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_070910_565476_B3903E75 
-X-CRM114-Status: GOOD (  42.79  )
+X-CRM114-CacheID: sfid-20250828_071033_330245_7260D925 
+X-CRM114-Status: GOOD (  28.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,97 +91,69 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi James,
 
-On Wed, Aug 27, 2025 at 06:11:25PM +0100, James Morse wrote:
+On Wed, Aug 27, 2025 at 06:11:43PM +0100, James Morse wrote:
 > Hi Dave,
 > 
 > On 27/08/2025 11:46, Dave Martin wrote:
-> > On Fri, Aug 22, 2025 at 03:29:42PM +0000, James Morse wrote:
-> >> The MPAM driver identifies caches by id for use with resctrl. It
-> >> needs to know the cache-id when probe-ing, but the value isn't set
-> >> in cacheinfo until device_initcall().
-> >>
-> >> Expose the code that generates the cache-id. The parts of the MPAM
-> >> driver that run early can use this to set up the resctrl structures
-> >> before cacheinfo is ready in device_initcall().
-> 
-> > Why can't the MPAM driver just consume the precomputed cache-id
-> > information?
-> 
-> Because it would need to wait until cacheinfo was ready, and it would still
-> need a way of getting the cache-id for caches where all the CPUs are offline.
-> 
-> The resctrl glue code has a waitqueue to wait for device_initcall_sync(), but that is
-> asynchronous to driver probing, its triggered by the schedule_work() from the cpuhp
-> callbacks. This bit is about the driver's use, which just gets probed whenever the core
-> code feels like it.
-> 
-> I toyed with always using cacheinfo for everything, and just waiting - but the MPAM driver
-> already has to parse the PPTT to find the information it needs on ACPI platforms, so the
-> wait would only happen on DT.
-> 
-> It seemed simpler to grab what the value would be, instead of waiting (or probe defer) -
-> especially as this is also needed for caches where all the CPUs are offline.
-> 
-> (I'll add the offline-cpus angle to the commit message)
-
-Ack
-
-> > Possible reasons are that the MPAM driver probes too early,
-> 
-> yup,
-> 
-> > or that it
-> > must parse the PPTT directly (which is true) and needs to label caches
-> > consistently with the way the kernel does it.
-> 
-> It needs to match what will be exposed to user-space from cacheinfo.
-> This isn't about the PPTT, its the value that is generated for DT systems.
-
-Right -- confused myself there.  From the point of view of this series,
-the usage scenario isn't clear at this point.
-
-> The driver has to know if its ACPI or DT to call the appropriate thing to get cache-ids
-> before cacheinfo is ready.
-
-I see.  This might be worth stating in the commit message.
-
-> >> diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
-> >> index 613410705a47..f6289d142ba9 100644
-> >> --- a/drivers/base/cacheinfo.c
-> >> +++ b/drivers/base/cacheinfo.c
-> >> @@ -207,11 +207,10 @@ static bool match_cache_node(struct device_node *cpu,
-> >>  #define arch_compact_of_hwid(_x)	(_x)
-> >>  #endif
-> >>  
-> >> -static void cache_of_set_id(struct cacheinfo *this_leaf,
-> >> -			    struct device_node *cache_node)
-> >> +unsigned long cache_of_calculate_id(struct device_node *cache_node)
-> >>  {
-> >>  	struct device_node *cpu;
-> >> -	u32 min_id = ~0;
-> >> +	unsigned long min_id = ~0UL;
-> 
-> > Why the change of type here?
-> 
-> This is a hang over from Rob's approach of making the cache-id 64 bit.
-
-Ah, right.
-
-(I have assumed that 0xffffffff is never going to clash with a valid
-value.)
-
-> > This does mean that 0xffffffff can now be generated as a valid cache-id,
-> > but if that is necessary then this patch is also fixing a bug in the
-> > code -- but the commit message doesn't say anything about that.
+> > Hi,
 > > 
-> > For a patch that is just exposing an internal result, it may be
-> > better to keep the original type.  ~(u32)0 is already used as an
-> > exceptional value.
+> > On Fri, Aug 22, 2025 at 03:29:43PM +0000, James Morse wrote:
+> >> MPAM needs to know the size of a cache associated with a particular CPU.
+> >> The DT/ACPI agnostic way of doing this is to ask cacheinfo.
+> >>
+> >> Add a helper to do this.
 > 
-> Yup, I'll fix that.
+> >> diff --git a/include/linux/cacheinfo.h b/include/linux/cacheinfo.h
+> >> index 2dcbb69139e9..e12d6f2c6a57 100644
+> >> --- a/include/linux/cacheinfo.h
+> >> +++ b/include/linux/cacheinfo.h
+> >> @@ -148,6 +148,21 @@ static inline int get_cpu_cacheinfo_id(int cpu, int level)
+> >>  	return ci ? ci->id : -1;
+> >>  }
+> >>  
+> >> +/**
+> >> + * get_cpu_cacheinfo_size() - Get the size of the cache.
+> >> + * @cpu:      The cpu that is associated with the cache.
+> >> + * @level:    The level of the cache as seen by @cpu.
+> >> + *
+> >> + * Callers must hold the cpuhp lock.
+> >> + * Returns the cache-size on success, or 0 for an error.
+> >> + */
+> > 
+> > Nit: Maybe use the wording
+> > 
+> > 	cpuhp lock must be held.
+> > 
+> > in the kerneldoc here, to match the other helpers it sits alongside.
+> > 
+> > Otherwise, looks reasonable.
+> 
+> Sure,
+> 
+> 
+> >> +static inline unsigned int get_cpu_cacheinfo_size(int cpu, int level)
+> >> +{
+> >> +	struct cacheinfo *ci = get_cpu_cacheinfo_level(cpu, level);
+> >> +
+> >> +	return ci ? ci->size : 0;
+> >> +}
+> >> +
+> > 
+> > Orphaned function?
+> > 
+> > Can fs/resctrl/rdtgroup.c:rdtgroup_cbm_to_size() be ported to use this?
+> > If so, this wouldn't just be dead code in this series.
+> 
+> Ah - I thought the MPAM driver was pulling this value in, but its the resctrl glue code.
+> I was trying to reduce the number of trees this touches - its probably best to kick this
+> into the next series that adds the resctrl code as its pretty trivial.
+> 
+> 
+> Thanks,
+> 
+> James
 
-OK -- it works either way, of course, but this should make the patch a
-little less noisy.
+Sure, that also works.
 
 Cheers
 ---Dave
