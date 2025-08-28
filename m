@@ -4,134 +4,217 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83BF6CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 19:03:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1F55CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 19:10:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lc0/t4Iv6hjqG5kcGiM2/0kFYGiYqDN1ZHyY/21Fkb0=; b=GnRjsPPr320xVCC30fxHBxxsiV
-	hzECWAP4pTSYAY6+++pF/XCPvlDWuU35gbdsNqGUOnhVrsmphSqURsqlo+oPPlSNp3kG6DMwVo+AB
-	K3WlVaiKNZFakKX/nuFFAEEPbiLBBOrUMF6PBjd77KI3RDwCHHk5xKt5gv6sRSAy/9qNZNNCNF2lU
-	s3QNOKOEXT0o0HHqXnr8G5dCaOyunKxPh9yZbCcqI5cHtZo6Wn88HGAXCo1j6hEKaV2g2X7Zl2IXA
-	CDmJrlybJzsliJJH3CSKQ18hUAlO3sYUh5ORIdN7EqLki2ELRjibMxOHtUaRZOfCIql1rsKApdT8I
-	Wb2Ro8KQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z/kKdVny9czxoV5y1KKriERorz1lE4RPzGm246axNEo=; b=NB9Kx6A5QPwZBwBVkXe6T6mird
+	SaxYazLp0PjzkTUkGQhoetCoug+NQpHPNSPDsapAC7VjC53hAconn6NUuRhoXU9DbvUlfVB+X3Y4f
+	h4Qf4K7C6vkEiHkwqOSKYbHK44o3JIL6nq3ZHl/qWtMJD2Rwxoo51Ht47cFcDebzMHXOAR7agzYO7
+	wfptAMPj2rgl9RwxDvwhArvnYTuhpXAA4mqC9yvhYjKH7+8hGFVCwDjIRdGFzExuA4XZBlSLUZVZx
+	uo5ppIdAHBJJ6KftvgJ/HGvhkz8hvDIdWzf/O7OCtF75zWsW13Eql3oQzunuMdFwbx8qWRVl2/9H7
+	iHUXBj6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urhu0-00000002ugK-0q7z;
-	Thu, 28 Aug 2025 19:03:16 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1uri14-00000002wbn-3BIe;
+	Thu, 28 Aug 2025 19:10:34 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urf36-00000002BIT-2NqM
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 16:00:29 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3c68ac7e238so569968f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 09:00:28 -0700 (PDT)
+	id 1urfob-00000002JSX-3oGr;
+	Thu, 28 Aug 2025 16:49:35 +0000
+Received: from pps.filterd (m0333520.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57SGfxdO021545;
+	Thu, 28 Aug 2025 16:49:14 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=corp-2025-04-25; bh=z/kKdVny9czxoV5y1K
+	KriERorz1lE4RPzGm246axNEo=; b=KdWBpK2rZ7FbU9gAd1hK6b1UCuFbAV43oF
+	V/xAe1XPFWeYvmsdeM3yLqL5JWv0o2v2VwL+Pi5RYuArDu2vkhRRT3f+R2XZ5cwW
+	7rZAN0VOSiD3WGO9aLRGfy11BFJnbnCVcF8LGQqaF0OMQOyQSrYnqAHwHd42/L3D
+	rBj7vOHJmO64hhovNK0SBmW+pXYkATbmeNuFuGR5siPsPtP7KwRzvEJRlxklhGpj
+	1uYq49qm2u6bQ9uIyz9m79TXP5LI1Mwma6WuCIHnSmQKV4fNlZRzfgLkSSmIsK3q
+	qB/dTL+DBXcGq6rIn+arOzpnPys34CPuaHQqxOXjIPeJ5fHPPPAA==
+Received: from iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta01.appoci.oracle.com [130.35.100.223])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 48q5pt944e-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 28 Aug 2025 16:49:13 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 57SFYUXI005292;
+	Thu, 28 Aug 2025 16:49:13 GMT
+Received: from nam10-dm6-obe.outbound.protection.outlook.com (mail-dm6nam10on2051.outbound.protection.outlook.com [40.107.93.51])
+	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 48qj8cc72e-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 28 Aug 2025 16:49:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MpusY2vSnm138MvesJY3o06jb0EAaB2W41EFreJD4PIGgAvA2rpSd0wB/E9IEiBx7QO1siOGtI5f8ErY8/uxi3NUkKzKdm4ofBRaeMxVo0Unm4dFgcdxu7Y8o3X9zASrfbYrNddA41yCkK+CVW++tXh9s/t8jUiQZ+Zds4NH7KcwL+nYQzHvgohTiXpm59PC/uW0JDASLuZ/N9XYl7EweLwkw4M3mrK6GXG+kUTFOSu4I0XyPiE5gVAmbVclwcHrWhdidPgwOrkohU37p4uw/qHvO31oaC32G23YP1HucwlX+6oI8Vv0I125ZerhsG2YVg+3hizqgqKVYV3g8wE7Qg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=z/kKdVny9czxoV5y1KKriERorz1lE4RPzGm246axNEo=;
+ b=iDm0hOi7YFP2ZpeIxYXIQPtx9BvFHRqKx9b3ykn0452RU5cMfdQn6IBq7SqHeOZaBFPu5joF46YT3qvSs710nvD7KyHnBfo8WPJhmrhY0Pz67J8nzJw1CivUCM2GPHMB5azB3D2QWyufaqt8+8/8+zNjYGDJgKXffoTsNNJxhsbFlmEPbpYH3gFlmuVQCEL5aL9xibClHfOebLVVvR+mN18a0DAukiyiMa7orCELKsuuGgVJ6RnBdj6JashmnjkzVoqB4py4C0iWyO+F01ed0sE6YmL3cfhSSy5Ovr7DiaYOslKMmz2MrRzFVlcgUAUpPwifpfPZPK1qhY2KmmfyGQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756396827; x=1757001627; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=lc0/t4Iv6hjqG5kcGiM2/0kFYGiYqDN1ZHyY/21Fkb0=;
-        b=EFYXW3f44ew3Nu1zewaGRfvj/QIGtcPNLnJ7AZ+26wrt2S3Ssvun88JMtngdGbscYH
-         SwMxuzGRhM79G13JhRs1jGkKWAiZqVAxx8xyJCsbzRK0EjxnC4EQwAFS03mZN0iAF0G7
-         pa1zPFR/AgoCLVW31mF3GNqmRUIhbgcD1nCMs5mq3LFLKwmVY7DOH6IYIRgyQM7YgZCf
-         2TlNVCIc7o5z262ZMYYJcqrBmAI07FPU/Tms+wa5qOKKt3F08Arus887Dv9r8fQD3OPo
-         unNRjPYo8hYCQ2Nh/wuwbPfxJzqgUQ0897sanwL39SAKnATxA9/j8FMZg1APatwDcElK
-         0svw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756396827; x=1757001627;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=lc0/t4Iv6hjqG5kcGiM2/0kFYGiYqDN1ZHyY/21Fkb0=;
-        b=PZxRoI+vY6dvXZ5hutdnflWeUc3GSrRGoShDQsZLqNetME4PG0Qh9z9e/73rXHNIR0
-         WzG9/t2e0cG93ETwue3phyhITWY9TLO/qv47m8P/xNNuDZJDdgsc9MXfp/6J21wbmZJi
-         jPBmFvZReqWHosybp20sNMPK8d3vhY5iH+C88OF/c04kpS+s0IubQ4sBjazKvb7oO4FW
-         j4pVzcH41bTV7A/5vkCJXV0RBLunLQ5sXFDGLAbXfOuAtCwhhrfAYXcQFjllyPuJJsJ1
-         Rli6eEStY9t9mBd0r4ees43zm8jvwI1Bfjra/jwILtE1skZaFq/4KYYbr0H4FFY9LQDk
-         GRjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW5klBs7okhl2xi14dGvYRvqUQEEGLHbIIJDCP6R74jmN3jC820BY+7bBIUCAb9bkWs9on1Z1xPvWPP/npV4aIZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxbY/RzUxIe84O6XgOso1l/2s1E2xFs8R8Uf7mSaocfmakcuP9N
-	9F/opdApSfaIeqHY1IJmakk+gkNvCZvoj/N9Ac/TLNtMAFQXMoZvwrxuYIaOjxbn2Y0=
-X-Gm-Gg: ASbGncsxdPCxNCMfxRbrIvtjEYsGNpi1o4HwMFr8JHCVj81vYz5dQd1srxXb/cDRS25
-	xswnZBLETz5IN6/phbHr3HdVxnx1hMB9h76EVNEdBeg2lCun8ZgmBctun9B+Nq1KmcWDoZRdrBv
-	UcgrmJmO1GQDm/Fq7m30EoFrasthRthoZkr4WXRlbhZ6EK0BF8R4TuPCHmDf4HCIxua834m0J0o
-	NDe3g3ZjY8xrNkq+dXTr4N6M3457VqMJfVq2C2cLrDntJBFlt98sWFFQjtemG8kaTaUaQuKyFWT
-	a7ptu/fuqhKMDZcWtj3M5E16RG5eJjw2vwXE67EIiXn//8B2oSxSijbKLesEvclydiM2uKuLg7i
-	NFlSS3QfvBs3Wc5RpGfjjr8vDKbcT
-X-Google-Smtp-Source: AGHT+IFw6qjlDrmse6RIf8UYoO4kDt63oBcAlQpSlQsPEor2cX/h2xD8mZ55YTiA8r3CiuSEB2FkQQ==
-X-Received: by 2002:a05:6000:18a8:b0:3c8:e9d3:c392 with SMTP id ffacd0b85a97d-3c8e9d3cfefmr13313662f8f.19.1756396826703;
-        Thu, 28 Aug 2025 09:00:26 -0700 (PDT)
-Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:4933:4d7c:cf69:9502])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b6f0c6fe5sm80211675e9.5.2025.08.28.09.00.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Aug 2025 09:00:26 -0700 (PDT)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Thu, 28 Aug 2025 18:00:13 +0200
-Subject: [PATCH v6 05/15] pinctrl: mediatek: moore: replace struct
- function_desc with struct pinfunction
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=z/kKdVny9czxoV5y1KKriERorz1lE4RPzGm246axNEo=;
+ b=rTkofyyRey4n6fyCJDJvylrtM38/MpUYCNiZp/jrO9jfZg4XUZpapyvmAoEC5v74/6w7Z52DpOCYhMXCESsUuAw/DCWkgLOhPrBkYW5J8Gkw0ZkIFXZhzDhC23B2bt4d4CyN3GTmCWXlefPZuj7cAq8G5576CRa7B1/hGZf+ZC4=
+Received: from DM4PR10MB8218.namprd10.prod.outlook.com (2603:10b6:8:1cc::16)
+ by PH7PR10MB6676.namprd10.prod.outlook.com (2603:10b6:510:20e::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.21; Thu, 28 Aug
+ 2025 16:49:04 +0000
+Received: from DM4PR10MB8218.namprd10.prod.outlook.com
+ ([fe80::2650:55cf:2816:5f2]) by DM4PR10MB8218.namprd10.prod.outlook.com
+ ([fe80::2650:55cf:2816:5f2%5]) with mapi id 15.20.9052.019; Thu, 28 Aug 2025
+ 16:49:04 +0000
+Date: Thu, 28 Aug 2025 17:48:56 +0100
+From: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+To: David Hildenbrand <david@redhat.com>
+Cc: linux-kernel@vger.kernel.org, Pavel Begunkov <asml.silence@gmail.com>,
+        Jens Axboe <axboe@kernel.dk>, Alexander Potapenko <glider@google.com>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Brendan Jackman <jackmanb@google.com>,
+        Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>,
+        Dmitry Vyukov <dvyukov@google.com>, dri-devel@lists.freedesktop.org,
+        intel-gfx@lists.freedesktop.org, iommu@lists.linux.dev,
+        io-uring@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
+        Johannes Weiner <hannes@cmpxchg.org>,
+        John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com,
+        kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+        Linus Torvalds <torvalds@linux-foundation.org>,
+        linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
+        linux-crypto@vger.kernel.org, linux-ide@vger.kernel.org,
+        linux-kselftest@vger.kernel.org, linux-mips@vger.kernel.org,
+        linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+        linux-scsi@vger.kernel.org, Marco Elver <elver@google.com>,
+        Marek Szyprowski <m.szyprowski@samsung.com>,
+        Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
+        Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
+        Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
+        Robin Murphy <robin.murphy@arm.com>,
+        Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
+        virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
+        wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
+Subject: Re: [PATCH v1 19/36] io_uring/zcrx: remove nth_page() usage within
+ folio
+Message-ID: <4f366255-5dd9-44ac-878c-e44e557b8484@lucifer.local>
+References: <20250827220141.262669-1-david@redhat.com>
+ <20250827220141.262669-20-david@redhat.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250827220141.262669-20-david@redhat.com>
+X-ClientProxiedBy: LO4P265CA0327.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:390::10) To DM4PR10MB8218.namprd10.prod.outlook.com
+ (2603:10b6:8:1cc::16)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250828-pinctrl-gpio-pinfuncs-v6-5-c9abb6bdb689@linaro.org>
-References: <20250828-pinctrl-gpio-pinfuncs-v6-0-c9abb6bdb689@linaro.org>
-In-Reply-To: <20250828-pinctrl-gpio-pinfuncs-v6-0-c9abb6bdb689@linaro.org>
-To: Linus Walleij <linus.walleij@linaro.org>, 
- Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, 
- Alexey Klimov <alexey.klimov@linaro.org>, 
- Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Paul Cercueil <paul@crapouillou.net>, Kees Cook <kees@kernel.org>, 
- Andy Shevchenko <andy@kernel.org>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- David Hildenbrand <david@redhat.com>, 
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
- "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
- Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>, 
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
- Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
- Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- NXP S32 Linux Team <s32@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Tony Lindgren <tony@atomide.com>, 
- Haojian Zhuang <haojian.zhuang@linaro.org>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Mark Brown <broonie@kernel.org>
-Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
- linux-hardening@vger.kernel.org, linux-mm@kvack.org, imx@lists.linux.dev, 
- linux-omap@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
- Chen-Yu Tsai <wenst@chromium.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7850;
- i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=9BKGEvZq/gbYunbAXK1ZCTf6DpFoadfRkbzoE0vKzXo=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBosH0NGnR/oaN0Wnl61ZnHBstpsOmWiljwo2l0c
- m+BpaVFx3GJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaLB9DQAKCRARpy6gFHHX
- ctZDD/9arpiDD6mR+QK7mS35XxuNAxcWS+ucQzkDk60d4EWb3psp4VvaVeZ1/IUU630zQgfjTV+
- t8aXJb1zZTpyRic7GCOOuf1+bIBvDH8W7iOX/fgOfp6ekoa4e2r9SG1TAKkLlNtWiRSD7kTvPll
- hqZ/DVYo6WsZSaEJWD7S1YQX8spONqMCw27NzpYs0/GCrRRu3wKcemsEEtsZTfGnqOs5PyLOhOr
- mJzF7oEgPL8Z+Tjz0VbSghib7drK1N2+Nv6vXAxMf2B/Y6yfQHldQrgh+Ck7L/ILDzHNwh0qR4n
- LmfSVoUXKYOkpqH37fE2kXKTqGkaD8XksLO6dLEyMLpwhAEc4dmcAJ5XqVN8eUjuruuAmn4a98Q
- 1w+kacPImscDwDmEDXZmZIOLzC3JctbrU6im1b83JR4sW2+is22ir/s/gD4Z91esiFPnvy7kKdH
- SaDnpou2t0/PngZP5d9dZntxi/1FvyJj0OlX2yDxfS5QzrkewdS8kGOkStkdNt27UVqWnNb2yCM
- ZlBarFULOF621HTFSzpty70XsCw7I9ez21QupBpDOUmv2KDTcbcm8iijkGyxtFqeHpy+HJv9XD4
- do4x5A6LTUDY+JBK10h9X3tLsDc69G6w4vnGcuSQ2XD8mNJHPeK+YpFObvarI8Rht67YImonRX3
- sKIK4iijqJ/NJaw==
-X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM4PR10MB8218:EE_|PH7PR10MB6676:EE_
+X-MS-Office365-Filtering-Correlation-Id: cc8a8a61-9506-49db-e569-08dde652cc29
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024|7416014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5Gn5DcHCqjDgQbGOFBghS3c/dqswOSarGYMJdkg4G/nFOz4HvDv3MDA8oaqU?=
+ =?us-ascii?Q?j/Fr7tzpkpR1ASqSDHSjH0WkON5wPoi0DYBln5bgAebpUBvEQ+FQJG6xZRpn?=
+ =?us-ascii?Q?Ic8PxeyZlxbNsbbotBme9klNqnuHDcd4qlCuDxjtua6LlJKqN3RWp/gxjbF5?=
+ =?us-ascii?Q?k4Jn4PrRSwOigi/WWYzIDjlulF8KPcaAnaXX+UEblozRDQ3jKNxzu/kz6HMn?=
+ =?us-ascii?Q?bXVlJ009iLJ52AzgQg5r4pOIJyxLNDc7AGBRunE4+CvPsh3NN8468I5WkZ8t?=
+ =?us-ascii?Q?HYO/+SBCUvIt6FDg+EEtODf1s7WQIJiXkPY8xt3sLN/cAPeRW2fg8zE7hvKd?=
+ =?us-ascii?Q?Cr32zTXk4LrSfut5k24yuN3Qq72ns8epupd0op7izI8I6a3VJYcI8/s2mepI?=
+ =?us-ascii?Q?um652DORW3jO+ZTKHtuvQRMB6BpXc7vFC0kPaiNBO8cfpV3ccaXmS7OIwFso?=
+ =?us-ascii?Q?wQlmGFlIT48DVVie0kpR3KeJvFLCjEv+hfmmzospXXX/C8fWpUl4TrAxQX3Q?=
+ =?us-ascii?Q?Vc3uaD+S08GhZI3p6nhFK33pKEfGm8jBhwwg6y8o5f300blTVj3XTG4QHfgX?=
+ =?us-ascii?Q?LGmuord2mKr1OxrDAjSP33TT82iCdWbaY8IZc58cTlzrlDAbvDEOuZcM0XMD?=
+ =?us-ascii?Q?WeKEC9wJI/jnn1vX7EW67Y1i2d+A3F80wCHR8YCfHCQoDOVR0HToD7+Ksjve?=
+ =?us-ascii?Q?gzDhGI5V7kEOuGwTsdxZXTlL6uzHmSziLxxBDoxGaXXM2cZ5HJEHuOHYivUf?=
+ =?us-ascii?Q?gcWYuqKRiyJajx3sdP5jzwwxz8dressc7YFN8nAzM88vmVnOY6aD8luwgcxb?=
+ =?us-ascii?Q?nTOng3nBs4xE86Jw3UriFrdYgGatwu0HiIyIB7soq819c2RHF4/cHJLF88TK?=
+ =?us-ascii?Q?4Vtchw/eRZq+zG3iZa9XFQJe3yaEshJY2SCdrCQhAUrLUeNrzfx0K8RUaf4L?=
+ =?us-ascii?Q?0Zpc+vousRTjA8sjPBItaW+3nrokmW4+vQW01W1HPOz2OxjBv+4n6+UR46gd?=
+ =?us-ascii?Q?WzNAxPRqgq4b64JYlP8WHWUb/DfxzP5cwInEuyzxTYcbPtqqTupGtzsZST2r?=
+ =?us-ascii?Q?Hv3sXITqQ7/8KWm17VPvxO1L7FRlrtsACz92A0iIYUMSkFTP9hp9YisrZJ4v?=
+ =?us-ascii?Q?4VTPv0tDVOzFcjsFCVRACL60LwTjdGwxuxvzajxiJdjoEDrTr7tJSFbJUEty?=
+ =?us-ascii?Q?BSQUZg2pcz3qrvEJ2FS7BThm6IjkcEagIlnRaopF4V1mUvEn077yJ8+8B/dV?=
+ =?us-ascii?Q?5NMwCjMrBJ0QVJCLEM4I0ajPxG+3A79xJbLdjRhKP26Oz0/8Mg0VcC4brAAX?=
+ =?us-ascii?Q?V1w05cKMWCGGprNElOrXt9X460UotbawYR83akXmEo7P46X73356WV/QsVoh?=
+ =?us-ascii?Q?3yDcVjEdh638s+mIE7W+Z6/5Fr24cbsw6B2PaoUi6AqCZ/CseOlKtQDONK/y?=
+ =?us-ascii?Q?SfK02v2OD8Q=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR10MB8218.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(7416014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CZmBO6Z/UMwoafcs3vxpKx/mZJu0CyZl4cyl3+XeCg5sEsEZ0SPxro6Q9aHl?=
+ =?us-ascii?Q?1mDK/l/jloVOArmWVin5R88EFYfNuN0/TTTRWfASSKNCXOWhmkkWMSkRTAWv?=
+ =?us-ascii?Q?T34L/MhSrNvfgD2zv7y/boYh1PL6F0Vv10aua/lXxqXOfcKm2rWqjcRNJ4Px?=
+ =?us-ascii?Q?kmZrou86zJWMUVlMCBcuL1FzeT2wbqLxhidqS0OCmR86jgdrEDYvYf361UxA?=
+ =?us-ascii?Q?GoH7F/0PonX9Q93hmQfuLfUBIr0NAmx3JSfD7UanzU00HnaLhTUvTsFbBIGi?=
+ =?us-ascii?Q?gagJsXk2+3Ka1pljna4w+kgWDTXu+lmk9abrXAYBOp9uMttHyBWhw+DLCmOP?=
+ =?us-ascii?Q?2dTl8nxV3579pMVlvySsVChcrcOt3ttEm7+c8nyClOCqHV3LEDIKvc48jinB?=
+ =?us-ascii?Q?ZDqNsosDFN71udB3zDm5Qfyues98E3DezhlL/ekL2+SxXw1yFl76aGrr+Hay?=
+ =?us-ascii?Q?zbqcgUjreBkdwjWdQsSoT3+eTfp4CEnXXgS6GVdTGqyUM2YT+kbHsBol0Wm4?=
+ =?us-ascii?Q?aq2sJ4gMnN76ZaDcHqFG8wzPq+Z4Xk60rIguc+DwUdu2fg2mdRXNr+pbV6Zb?=
+ =?us-ascii?Q?6uZyEuqaWrnB/SjHnihpadde7oN/5QpAcb/e56Rm1yhW4cADSUkUNDBcgSkc?=
+ =?us-ascii?Q?L+qTkg1UDWY3jUMy3ZVPJt7LyIW+WG1iQ3o3nnROeRMz9kXJFimCUBvaH+dS?=
+ =?us-ascii?Q?67kUtii63fBdQrDTuaXvdjep31ETqTcu2D2PJGh8Jtq5mEv8+6qKOopvy37m?=
+ =?us-ascii?Q?edqD/ojVgACQXjbYwqHYJr5hB8jM88upqTWTSIr1E+mP2weSANRbEs6LKI6y?=
+ =?us-ascii?Q?CoQbbH00TzhXeUqkFVQKGWHmWWdu5Vy/oYO0ZYzeJ5+uAZybCSBuGRYAM6N5?=
+ =?us-ascii?Q?xeW1+tCKtygBKlhtKl1fKSKlbnt6MQg7oT8x1JZIbwKTqZrM5WHdVu59urK5?=
+ =?us-ascii?Q?IpiRu8AMP3/sfXAPrLwTCwemnZOfoRiVINRsalyhuGVq3XZz4rD12XeyMiCN?=
+ =?us-ascii?Q?K/gXHZ12KwMhqurlnWMzg27OSADfBqcAyfFJ52XcsabXNEVzmR+/7WxIYL5t?=
+ =?us-ascii?Q?jeSU8nRiHzEw3B2qM6dm+icuXmx2qXu1qbaQO0cLjUb4sP2I3KLfQWM0s4IP?=
+ =?us-ascii?Q?CSXn/hILNnq39aKjjUIywbNc8jAZHkcoLGmVw/Xcy+YiaVLIjtDzNLeS0vLJ?=
+ =?us-ascii?Q?/KwHNPMKXpqncvyFSVoKnK6P2lFMrHWspxBHSqvB1UeS/QeWjFvht6RZmFf1?=
+ =?us-ascii?Q?gUeVikJKgJSA3g8Str86qQUe6Nm3k4SDNcfga8xGjpmzBd7owedY8zzLMjyN?=
+ =?us-ascii?Q?FAG5QpyGHwiwQziSv5sCEopqH56Hr0mJhLD/WaFAVhj0ue3uKBFzqpZQqAxe?=
+ =?us-ascii?Q?xgc0UT58T18oEJ1+8cIQHHJB7cFJdVN5vbfuSkGCtd9DXvcS0ctL2TRofC0l?=
+ =?us-ascii?Q?afekDiKmavul0XM82i6qskg+nnKDC8DEsjkEwluMrt2swAzs+2h0DQAP0G7O?=
+ =?us-ascii?Q?rfy97dEXaOvtRchP1URu0r33izhQ625hkvBPp0hZw0Ms7A/h4i0DxjL4hsxZ?=
+ =?us-ascii?Q?gRoag3OnLgrO2jmX462jdO3Pct6jhGsz+aT9Ui3s8kDzaZKWCFzDbFBO37Cm?=
+ =?us-ascii?Q?+w=3D=3D?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: BhmjQvwxIAnLC0RcujaWHOU95rG3YtwA7Ob/4EhgJ77kvCqPMmFSDYnZEwT4Xe1f8/Q803wSCOd9hKnMhFqtSGnCQn+q41wB2m8daSQt7t8Neav1BTkxFj8Ka7lJTM7/uOGrMMUV9YwGE5jAl6C72o5FoKOc6ZI4vPDoAC6+5L+Wtmxvb7u1Fcvrv76NytsNQGY78BrADOb9cPfeWJsCvnnjgeINZGqE0pzN8Gcy5Yw714f9egxI8tuPub6vuAbIGKP4SVVN5QoYPyIGoFYZCj6X2Bv0M8W3YbQBEx2PuaOuqGieVOuNXLrt233Qd6x3jSQrbetQ2GQh7innMlqFacFU2+hzIdFK1Orj2WHOnC2rSeZ957fJ/xsw9R4kA/y5JO8akT4AU+pQG1NnLBRXE0YEO88TqX7TlbpRCfMydkquxUlxoU03de0Hwo3WzYlYSmtwohmOmi3Kn+GeXjDyH7IRppq+JbDUb/gvteUhinPW0PRW+yD7uesBRNyzdGZyVFR+qJV515LpOi6LOp0tzCqIxFUZ9q3nLljESIC8VsQsZuC0UzRSjFx1kzO0hthE0jxKJkBiB0XGbFfSuRzrdlTT40sntWBKpHJoiLG2gKo=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cc8a8a61-9506-49db-e569-08dde652cc29
+X-MS-Exchange-CrossTenant-AuthSource: DM4PR10MB8218.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Aug 2025 16:49:04.4163
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7qoofzsFgYgh3L8BJCY6IRM74EAJL9VmM6QYqjZI2iqV9WEjrtQsqSES3l7rB8MQxCqY6qOTttAA1GDyKoGZ0Ulnu6D8CZIfTdPGZwgrPHY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR10MB6676
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-28_04,2025-08-28_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0 suspectscore=0 spamscore=0
+ phishscore=0 bulkscore=0 mlxscore=0 mlxlogscore=999 malwarescore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2508110000
+ definitions=main-2508280140
+X-Proofpoint-ORIG-GUID: 9O-sf2ReLjg2rIKrRw8D5-NG2RDW-m8M
+X-Proofpoint-GUID: 9O-sf2ReLjg2rIKrRw8D5-NG2RDW-m8M
+X-Authority-Analysis: v=2.4 cv=EcXIQOmC c=1 sm=1 tr=0 ts=68b0888a b=1 cx=c_pps
+ a=zPCbziy225d3KhSqZt3L1A==:117 a=zPCbziy225d3KhSqZt3L1A==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
+ a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=2OwXVqhp2XgA:10 a=GoEa3M9JfhUA:10 a=pGLkceISAAAA:8 a=20KFwNOVAAAA:8
+ a=yPCof4ZbAAAA:8 a=EXw04sjPN8ny6hS6K18A:9 a=CjuIK1q_8ugA:10 cc=ntf
+ awl=host:12068
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDAzMCBTYWx0ZWRfXxE0Gcrvu9ydx
+ 4LfTcDcy444N6G6bPLNPmOrCEsoCdorR11V6R2vSg5Emumn8uXKBdwbJfT2ySJtl+MG4Bqrepd1
+ F0Nu66IhQD9b6OP7IKr6IA1NrTs2jVRADQSIDEsL4NCbnLlknh5ISsd5xoq6kw3NqvVTgH5JMSh
+ Fwm2P+y9m0X/mYVjVHApBmFy4pv/h7BLz6YL9CpQ8sStpFoNJE7HlDl3RFeqHiY4nXPoOdraT1K
+ NiVEGWVR7i0BaiEFvacb9fSnDVj6fogu1fMZMAHNLMTO+F2E9hD7N3emMJyMhccqJLfh33vHxHG
+ PHE8nDIsLs0WaiGDckk8bj17cqdbpzVNzBJA8ziw0kMvtEh/qQ5F8n0wFjkQVIp58hz1pIHP870
+ ZoflFjZYSf0AEGhl8wBRYLwA0zuuYg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_090028_628759_2F3CF5B6 
-X-CRM114-Status: GOOD (  18.73  )
+X-CRM114-CacheID: sfid-20250828_094934_061466_B7CD2261 
+X-CRM114-Status: GOOD (  20.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,159 +229,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+On Thu, Aug 28, 2025 at 12:01:23AM +0200, David Hildenbrand wrote:
+> Within a folio/compound page, nth_page() is no longer required.
+> Given that we call folio_test_partial_kmap()+kmap_local_page(), the code
+> would already be problematic if the pages would span multiple folios.
+>
+> So let's just assume that all src pages belong to a single
+> folio/compound page and can be iterated ordinarily. The dst page is
+> currently always a single page, so we're not actually iterating
+> anything.
+>
+> Reviewed-by: Pavel Begunkov <asml.silence@gmail.com>
+> Cc: Jens Axboe <axboe@kernel.dk>
+> Cc: Pavel Begunkov <asml.silence@gmail.com>
+> Signed-off-by: David Hildenbrand <david@redhat.com>
 
-struct function_desc is a wrapper around struct pinfunction with an
-additional void *data pointer. This driver doesn't use the data pointer.
-We're also working towards reducing the usage of struct function_desc in
-pinctrl drivers - they should only be created by pinmux core and
-accessed by drivers using pinmux_generic_get_function(). Replace the
-struct function_desc objects in this driver with smaller struct
-pinfunction instances.
+On basis of src pages being within the same folio, LGTM, so:
 
-Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
----
- drivers/pinctrl/mediatek/pinctrl-moore.c         | 6 ++----
- drivers/pinctrl/mediatek/pinctrl-moore.h         | 7 ++-----
- drivers/pinctrl/mediatek/pinctrl-mt7622.c        | 2 +-
- drivers/pinctrl/mediatek/pinctrl-mt7623.c        | 2 +-
- drivers/pinctrl/mediatek/pinctrl-mt7629.c        | 2 +-
- drivers/pinctrl/mediatek/pinctrl-mt7981.c        | 2 +-
- drivers/pinctrl/mediatek/pinctrl-mt7986.c        | 2 +-
- drivers/pinctrl/mediatek/pinctrl-mt7988.c        | 2 +-
- drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.h | 2 +-
- 9 files changed, 11 insertions(+), 16 deletions(-)
+Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
 
-diff --git a/drivers/pinctrl/mediatek/pinctrl-moore.c b/drivers/pinctrl/mediatek/pinctrl-moore.c
-index 6e4f6c07a509326a8a7e88b2dc32635b22e7b965..982b9887521d036538f67e9919de444693c458c0 100644
---- a/drivers/pinctrl/mediatek/pinctrl-moore.c
-+++ b/drivers/pinctrl/mediatek/pinctrl-moore.c
-@@ -622,11 +622,9 @@ static int mtk_build_functions(struct mtk_pinctrl *hw)
- 	int i, err;
- 
- 	for (i = 0; i < hw->soc->nfuncs ; i++) {
--		const struct function_desc *function = hw->soc->funcs + i;
--		const struct pinfunction *func = &function->func;
-+		const struct pinfunction *func = hw->soc->funcs + i;
- 
--		err = pinmux_generic_add_pinfunction(hw->pctrl, func,
--						     function->data);
-+		err = pinmux_generic_add_pinfunction(hw->pctrl, func, NULL);
- 		if (err < 0) {
- 			dev_err(hw->dev, "Failed to register function %s\n",
- 				func->name);
-diff --git a/drivers/pinctrl/mediatek/pinctrl-moore.h b/drivers/pinctrl/mediatek/pinctrl-moore.h
-index 229d19561e229c77714e5fccb3d4fb68eacc77fd..fe1f087cacd0446e40628cb4fa35a135496ca848 100644
---- a/drivers/pinctrl/mediatek/pinctrl-moore.h
-+++ b/drivers/pinctrl/mediatek/pinctrl-moore.h
-@@ -43,11 +43,8 @@
- 		.data = id##_funcs,							\
- 	}
- 
--#define PINCTRL_PIN_FUNCTION(_name_, id)							\
--	{											\
--		.func = PINCTRL_PINFUNCTION(_name_, id##_groups, ARRAY_SIZE(id##_groups)),	\
--		.data = NULL,									\
--	}
-+#define PINCTRL_PIN_FUNCTION(_name_, id)						\
-+	PINCTRL_PINFUNCTION(_name_, id##_groups, ARRAY_SIZE(id##_groups))
- 
- int mtk_moore_pinctrl_probe(struct platform_device *pdev,
- 			    const struct mtk_pin_soc *soc);
-diff --git a/drivers/pinctrl/mediatek/pinctrl-mt7622.c b/drivers/pinctrl/mediatek/pinctrl-mt7622.c
-index 2dc1019910662a2a52e81f277a10a32bd83b33d4..d5777889448aab86e82fa6821fdea0d30a5a7246 100644
---- a/drivers/pinctrl/mediatek/pinctrl-mt7622.c
-+++ b/drivers/pinctrl/mediatek/pinctrl-mt7622.c
-@@ -822,7 +822,7 @@ static const char *mt7622_uart_groups[] = { "uart0_0_tx_rx",
- 					    "uart4_2_rts_cts",};
- static const char *mt7622_wdt_groups[] = { "watchdog", };
- 
--static const struct function_desc mt7622_functions[] = {
-+static const struct pinfunction mt7622_functions[] = {
- 	PINCTRL_PIN_FUNCTION("antsel", mt7622_antsel),
- 	PINCTRL_PIN_FUNCTION("emmc", mt7622_emmc),
- 	PINCTRL_PIN_FUNCTION("eth", mt7622_ethernet),
-diff --git a/drivers/pinctrl/mediatek/pinctrl-mt7623.c b/drivers/pinctrl/mediatek/pinctrl-mt7623.c
-index 3e59eada2825277b3d7500cb1f2cf740242a4a8b..69c06c2c0e21e4ce785f65539254eb070bff9a0d 100644
---- a/drivers/pinctrl/mediatek/pinctrl-mt7623.c
-+++ b/drivers/pinctrl/mediatek/pinctrl-mt7623.c
-@@ -1340,7 +1340,7 @@ static const char *mt7623_uart_groups[] = { "uart0_0_txd_rxd",
- 					    "uart3_rts_cts", };
- static const char *mt7623_wdt_groups[] = { "watchdog_0", "watchdog_1", };
- 
--static const struct function_desc mt7623_functions[] = {
-+static const struct pinfunction mt7623_functions[] = {
- 	PINCTRL_PIN_FUNCTION("audck", mt7623_aud_clk),
- 	PINCTRL_PIN_FUNCTION("disp", mt7623_disp_pwm),
- 	PINCTRL_PIN_FUNCTION("eth", mt7623_ethernet),
-diff --git a/drivers/pinctrl/mediatek/pinctrl-mt7629.c b/drivers/pinctrl/mediatek/pinctrl-mt7629.c
-index 98142e8c98011d17339da74f61d6f917372dfcd5..cc0694881ac9dc536db0e46eefe5eb7359735a60 100644
---- a/drivers/pinctrl/mediatek/pinctrl-mt7629.c
-+++ b/drivers/pinctrl/mediatek/pinctrl-mt7629.c
-@@ -384,7 +384,7 @@ static const char *mt7629_wdt_groups[] = { "watchdog", };
- static const char *mt7629_wifi_groups[] = { "wf0_5g", "wf0_2g", };
- static const char *mt7629_flash_groups[] = { "snfi", "spi_nor" };
- 
--static const struct function_desc mt7629_functions[] = {
-+static const struct pinfunction mt7629_functions[] = {
- 	PINCTRL_PIN_FUNCTION("eth", mt7629_ethernet),
- 	PINCTRL_PIN_FUNCTION("i2c", mt7629_i2c),
- 	PINCTRL_PIN_FUNCTION("led", mt7629_led),
-diff --git a/drivers/pinctrl/mediatek/pinctrl-mt7981.c b/drivers/pinctrl/mediatek/pinctrl-mt7981.c
-index 83092be5b614cc164590fe5ec2b756fe6579b263..6216c2e057f6499b32741b6bd3a4854878c061c9 100644
---- a/drivers/pinctrl/mediatek/pinctrl-mt7981.c
-+++ b/drivers/pinctrl/mediatek/pinctrl-mt7981.c
-@@ -977,7 +977,7 @@ static const char *mt7981_ethernet_groups[] = { "smi_mdc_mdio", "gbe_ext_mdc_mdi
- 	"wf0_mode1", "wf0_mode3", "mt7531_int", };
- static const char *mt7981_ant_groups[] = { "ant_sel", };
- 
--static const struct function_desc mt7981_functions[] = {
-+static const struct pinfunction mt7981_functions[] = {
- 	PINCTRL_PIN_FUNCTION("wa_aice", mt7981_wa_aice),
- 	PINCTRL_PIN_FUNCTION("dfd", mt7981_dfd),
- 	PINCTRL_PIN_FUNCTION("jtag", mt7981_jtag),
-diff --git a/drivers/pinctrl/mediatek/pinctrl-mt7986.c b/drivers/pinctrl/mediatek/pinctrl-mt7986.c
-index 5816b5fdb7ca918486f57a890f73543b3198c728..2a762ade9c35505505c932b6fea75fa0cf77d961 100644
---- a/drivers/pinctrl/mediatek/pinctrl-mt7986.c
-+++ b/drivers/pinctrl/mediatek/pinctrl-mt7986.c
-@@ -878,7 +878,7 @@ static const char *mt7986_uart_groups[] = {
- static const char *mt7986_wdt_groups[] = { "watchdog", };
- static const char *mt7986_wf_groups[] = { "wf_2g", "wf_5g", "wf_dbdc", };
- 
--static const struct function_desc mt7986_functions[] = {
-+static const struct pinfunction mt7986_functions[] = {
- 	PINCTRL_PIN_FUNCTION("audio", mt7986_audio),
- 	PINCTRL_PIN_FUNCTION("emmc", mt7986_emmc),
- 	PINCTRL_PIN_FUNCTION("eth", mt7986_ethernet),
-diff --git a/drivers/pinctrl/mediatek/pinctrl-mt7988.c b/drivers/pinctrl/mediatek/pinctrl-mt7988.c
-index 55c8674d8d66f12d2f2246c215056d4e51296a9b..9569e8c0cec15fb6a4a8e359d6483fa163487b0c 100644
---- a/drivers/pinctrl/mediatek/pinctrl-mt7988.c
-+++ b/drivers/pinctrl/mediatek/pinctrl-mt7988.c
-@@ -1464,7 +1464,7 @@ static const char * const mt7988_usb_groups[] = {
- 	"drv_vbus_p1",
- };
- 
--static const struct function_desc mt7988_functions[] = {
-+static const struct pinfunction mt7988_functions[] = {
- 	PINCTRL_PIN_FUNCTION("audio", mt7988_audio),
- 	PINCTRL_PIN_FUNCTION("jtag", mt7988_jtag),
- 	PINCTRL_PIN_FUNCTION("int_usxgmii", mt7988_int_usxgmii),
-diff --git a/drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.h b/drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.h
-index 36d2898037dd041ebc7e06526ebc085eb42f2828..fa7c0ed49346486ba32ec615aa2b3483217f5077 100644
---- a/drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.h
-+++ b/drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.h
-@@ -238,7 +238,7 @@ struct mtk_pin_soc {
- 	unsigned int			npins;
- 	const struct group_desc		*grps;
- 	unsigned int			ngrps;
--	const struct function_desc	*funcs;
-+	const struct pinfunction	*funcs;
- 	unsigned int			nfuncs;
- 	const struct mtk_eint_regs	*eint_regs;
- 	const struct mtk_eint_hw	*eint_hw;
-
--- 
-2.48.1
-
+> ---
+>  io_uring/zcrx.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/io_uring/zcrx.c b/io_uring/zcrx.c
+> index e5ff49f3425e0..18c12f4b56b6c 100644
+> --- a/io_uring/zcrx.c
+> +++ b/io_uring/zcrx.c
+> @@ -975,9 +975,9 @@ static ssize_t io_copy_page(struct io_copy_cache *cc, struct page *src_page,
+>
+>  		if (folio_test_partial_kmap(page_folio(dst_page)) ||
+>  		    folio_test_partial_kmap(page_folio(src_page))) {
+> -			dst_page = nth_page(dst_page, dst_offset / PAGE_SIZE);
+> +			dst_page += dst_offset / PAGE_SIZE;
+>  			dst_offset = offset_in_page(dst_offset);
+> -			src_page = nth_page(src_page, src_offset / PAGE_SIZE);
+> +			src_page += src_offset / PAGE_SIZE;
+>  			src_offset = offset_in_page(src_offset);
+>  			n = min(PAGE_SIZE - src_offset, PAGE_SIZE - dst_offset);
+>  			n = min(n, len);
+> --
+> 2.50.1
+>
 
