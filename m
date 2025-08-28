@@ -4,180 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26140CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 07:32:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02B50CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 07:35:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CrV43YVpug2qoLlBpnd5P8XCLKayNbe6sk52nDkNtF4=; b=UqZdRNM+ykZ76/mn/VtVBSYU7O
-	mW4tsn5T63rOGeG2hMQmQQSduSaNPrdYJ3ejiJ3Qri8aq1x0Nfr9FvXdqkPzgDdN5WUu7XGRKdDvm
-	pwZ/U4RXnhY75zZ0nbnfirKr1BXnMkQ5s67lnwARqL9VKC0MfVhCv2lmVkk58ylL3ok+2tfRISY8m
-	SCgPpolZ9r7AcCfVhNY+3yj605iMwyKegEoWOKxugK5yhXWDKaupZtwbn1wzXh6nbKWCEggTzLG8w
-	FHY3bHw71dXjoXZiNVzvRw0mhalmEsA5oLQA3p1gyL8X42Ibxhz7FeemSddr259PWbbmzuFLOzs/T
-	nTLFRwXA==;
+	bh=py4avZkKZs9gMtxyD4o7g7fY03HHmjmGgT6Iq9b3bsc=; b=gSlTAMM5Gy2FdWzoYVPAYE+UyK
+	TndwTkDUjSN5NJO7ypCeHEGhVCv+WgM7QQnXf5CH+8mETHu10sW+y9n86Gqwu7SrBb0EqMVkgeYqS
+	AFsBGUWaAxZb904VToWpRWSgCN2PPdqxOa3r4AxUMmxiwpNlxwa0H0dRNghLVn9klpU6cWQaLybPP
+	oy9YoC92x0guEflfGOhFXuewHJaa6sUW2pOASyQPJNCjd+fnvlQo4uqjpLDsi9YQI8BtANvzqcIIr
+	ZVevLKImKRbZm6ReCy34Kd2zDyDSyayuZu0jlXA2cmURWZEgVJlgycRWmk0QbTdaRhmFrzWsdQstR
+	u8KNSysg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urX7c-00000000bIl-0xVC;
-	Thu, 28 Aug 2025 07:32:36 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1urXAK-00000000brG-09KR;
+	Thu, 28 Aug 2025 07:35:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urWuU-00000000Yxw-118R
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 07:19:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vAGhLJtlELWVAgXhp3AkX9TeKf0BsSla37TFyq2TmfigtbpFmEmqIxHsuJULHxIxoZXHeuxfiufnZW01OaL0G5vr9ziON/k3xNdWbfpG3EYkBsGnaR/kJpG7ZiLQLFWTa89DZhpfhFbc0/FPluktu979qCOJ6QcWnZJME28TZY+yDFBcKHWcuYrL9EybF7NuETiQ6U+1YaC0lYwHARypPJLHaDI6nT9Cq2LNrZWtm/Yntced4Pakpvrd9uhtF8t1NaeiOZ8slNTSoAGPq6Ej8egBFJidsUbn/RfWFCfMlY61ETmRi4hCESA2EOwfEqaQCTw/OG2zZF973eTtMLy6DQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CrV43YVpug2qoLlBpnd5P8XCLKayNbe6sk52nDkNtF4=;
- b=PojA6QOmgJI8D+ITT4bsYV0Ewboj3vjGSbK23q4Moyqs6kvC2vPW1tgnyGkz4hsPANmhN7ww75uCv6gzN8Fel92iobpADNp2nZgSjtNBv5WjR6QGoKXZzvcP7SPIjs+0iws8FMM8igI9Mikp0BzHqaR0pivj+fSTOWp/LiqISb1DqDJ9bgFuxwZCYbGR2k4QO53wd1nA1uE3uXFM/i0KhkBKlQMrvitHMzPn/W4haeDa6AAAM9vcLlgJo0bSalK59ZqgnJg898Yt52b/7wPgVUYeWo/TSJx+w+EVsnoRKMgpiXedUWNtRSyBiCavBOdwSJUneT50uJJZItQAEVs8FA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CrV43YVpug2qoLlBpnd5P8XCLKayNbe6sk52nDkNtF4=;
- b=XsGqjUIwzp0i71Gcqglvn5y2gIuMYWb2v5k56iK1ItVvteseJc7xCBoF6vVN5hL/Uc6bBITBCLu3TZdcOZ8ecVX+VlR5eYpj5PELqsiPvHlAh2tXaxfrjFd+t85bv3pJBvqa1qPOWUc0gYtliag8Zabz2L7eqvEwz44ldolg/pATvnif5kE5C3TP344bFAKDEJsXGLeAsJC/dHjd2isJOPzRjBqzWhfTUWUgmNuY+j6EsWgc5JRk3LgmlTibv4rLqLjBw2RkMl9voZCTGXeP8wluqRGjLQASrVTCftHna6nCui4jf9ZNlGcNK8bpWX/AxZHf9u36IGD62d95pXY7EA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
- by AS5PR04MB10058.eurprd04.prod.outlook.com (2603:10a6:20b:683::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.10; Thu, 28 Aug
- 2025 07:18:57 +0000
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::93bd:316b:682f:5e59]) by AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::93bd:316b:682f:5e59%6]) with mapi id 15.20.9073.009; Thu, 28 Aug 2025
- 07:18:57 +0000
-From: Guoniu Zhou <guoniu.zhou@nxp.com>
-Date: Thu, 28 Aug 2025 15:17:36 +0800
-Subject: [PATCH v4 4/4] arm64: dts: imx8ulp: Add CSI and ISI Nodes
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250828-csi2_imx8ulp-v4-4-a2f97b15bb98@nxp.com>
-References: <20250828-csi2_imx8ulp-v4-0-a2f97b15bb98@nxp.com>
-In-Reply-To: <20250828-csi2_imx8ulp-v4-0-a2f97b15bb98@nxp.com>
-To: Rui Miguel Silva <rmfrfs@gmail.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Martin Kepplinger <martink@posteo.de>, Purism Kernel Team <kernel@puri.sm>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Frank Li <Frank.Li@nxp.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756365509; l=3033;
- i=guoniu.zhou@nxp.com; s=20250815; h=from:subject:message-id;
- bh=Ag1sPLelcYnWzBZdsKbQ0WjA3PlOnGbW7Zj32b1hAMA=;
- b=q/2EOllRI4VsTeT8H7J1oakqG2bRP6Vp883OtI7h+liSvkjoNlck/DUERUjXmEEYkIx2lY7Ou
- 0zM8l+Z3rN/Aq069Wa6B9a6FF81eXpV90Nu5GGPXYClVWXT86J7wNov
-X-Developer-Key: i=guoniu.zhou@nxp.com; a=ed25519;
- pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
-X-ClientProxiedBy: SI1PR02CA0026.apcprd02.prod.outlook.com
- (2603:1096:4:1f4::11) To AS8PR04MB9080.eurprd04.prod.outlook.com
- (2603:10a6:20b:447::16)
+	id 1urWwh-00000000ZUj-3gPd;
+	Thu, 28 Aug 2025 07:21:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4394B601D3;
+	Thu, 28 Aug 2025 07:21:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6A4FC4CEF5;
+	Thu, 28 Aug 2025 07:21:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756365679;
+	bh=C7/duUHB1jzTe2zoRwJGPq9tnOYsk04M/lnKM6Lw4jw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=P3P6rik2V+dAnat9eWuSvAQFs7ROQol0qfl7mXX/2cUYI+C7QRP3XNCAjTFTXOboX
+	 PnGh4LwLXGdtC/lBzkP3HHTgLg4rsEUWyyc9GJT6llTjHe+2h8KOlurSZnUiJw3NW7
+	 qKwPWdsXnTrtZmXRScitgLnU7lvFVln3pfXq+R+VNtWe5rSbPPMi2iORZuC/qKAp5S
+	 3fe04bSwMQR8OaSYcElHlHSfQVwB6Zb3HSUqkl5IfcwdDCl1ZwfSrzEWyOB1KGcrlw
+	 JUhlVcCM4Av5WDpYuP6k5h/vdvl0/1bLz8dvd0y2eUBSbWa12OIyuKGJ2VR5zTU1an
+	 L77vfQGsfA4Og==
+Date: Thu, 28 Aug 2025 10:21:00 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: David Hildenbrand <david@redhat.com>
+Cc: linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Brendan Jackman <jackmanb@google.com>,
+	Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>,
+	Dmitry Vyukov <dvyukov@google.com>, dri-devel@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org, iommu@lists.linux.dev,
+	io-uring@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com,
+	kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org, linux-ide@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Marco Elver <elver@google.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+	netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
+	Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
+	Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
+	virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
+	wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
+Subject: Re: [PATCH v1 13/36] mm/hugetlb: cleanup
+ hugetlb_folio_init_tail_vmemmap()
+Message-ID: <aLADXP89cp6hAq0q@kernel.org>
+References: <20250827220141.262669-1-david@redhat.com>
+ <20250827220141.262669-14-david@redhat.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB9080:EE_|AS5PR04MB10058:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9e77e54e-0d63-4f3c-89d1-08dde60326f9
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|52116014|7416014|19092799006|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bWIzc0JlYi9qMWRKbnkxdVZoU1ZYOUQrY00zb01sMXdpR3N5clljNFZ6b0Ux?=
- =?utf-8?B?dUplMjNqLzJyN2NlZU9nVnd2RUd3L21GMHB2NHZSaWFoM1J4enZrRXdORHBo?=
- =?utf-8?B?YzVudTJHTVYxUTZLN3hsMG93K2Q2TjcwdVc0MkNKOE5tUlNsVXZGcnpqZjlB?=
- =?utf-8?B?Zk5BWjgyYmIrbXVzL0I0ZWFuQjJSQTdrVDlKODlCbkhUdGRyaEc3QUVLZkJh?=
- =?utf-8?B?bktieUhIMHNTS1V2UTBIdlNsZTA0RWN2WE1qYnd2eW5wZXZlVWVIUU9RaXgr?=
- =?utf-8?B?QVpnM0VNNm1Wb3RFM3RQclhSOHJEK1dBcDhjZDFUR2o1MktaR2pReE5tTlRu?=
- =?utf-8?B?ZHR3SjhUQ2FuQ2IrMGUxS1RRQThwTVRVajJtQ2U2WUZMVmtYNGxndDJLVmV4?=
- =?utf-8?B?R2ljREx1aEFybnhlQXBSa0poWkxxOEdFRWdjYnhQQjlJL3VlZjJOM0F5NDJ5?=
- =?utf-8?B?YjNMVGxNVEE3MURWMUxYWHZJM09FbFkxUEZKM2hxdEJhaHZRMUZZNVlBdENI?=
- =?utf-8?B?Qi95ZUdOQi9zTTYybTN2TTNJWkdSSzVjc3VWNmJ1SUJZdEZOams1SkM5QXdC?=
- =?utf-8?B?ZUJLWC9CR1phUzFGMy9XS3Z2VGdBYWxFcVM3ZDBhZXJzT292K09CcCtOM01t?=
- =?utf-8?B?Y2ZKMVFrQ0ZiekdpaUhBR2Rmb0RHdEZYT1lKOXFMRk1nZXVOdytaaXNmRGJv?=
- =?utf-8?B?Y05jdGRGem50Q3JPYmJGcG83TjRtM2xabFdJbUNEKy9oYzNZcEJoVWVHeGxr?=
- =?utf-8?B?bkVLQzFkbDlOemwrNmdJNnhiSDFHWDZUZ2Z4akVya2k4MitYWWw4ZFJXbjVt?=
- =?utf-8?B?RjRoOWhoamlaT3lCWnR1Si9vK0RNQXZTWlZsTDBTQnJTMjdMdEhGbDBUdkpS?=
- =?utf-8?B?YnhVbEJ4NC9EV3BqcGRjWGJDbVpjOUlzZ3BCRUhtSGJ6ekpyOXlYa0ZMU2Vl?=
- =?utf-8?B?c2FvR3J1TWpPdytyL2JaU2NWTFY3Rm9ZakJ1WEJTRVdiRmViUjVtZ2UyNjJM?=
- =?utf-8?B?bTB6RjFGRVNFZXFlbXUvQzV3NHhRRHp0b1RuZGtiY1VWenRoMGJnNG4ybTdS?=
- =?utf-8?B?Rno0aTBkQUt0eFlMaDBSazlXNVcvWWZBVXRDWkZJVUoyRkZaZXM2OUJoN01j?=
- =?utf-8?B?ZWgvSE9Sak0zUTlIbDJXeWIzd21BUmZOUnhzQm5GRlJQcUFUN0JoS3dkbjBN?=
- =?utf-8?B?eUlnT1NpRThRbnQ0Y0syRlpiM1E2a1hSUG9xU2hKVXdUNVVlWlB0TU94djhK?=
- =?utf-8?B?UStXWU5GeC90MkYvOVBJNEFNb1Rpa2h5VC9HNG5nMU8zZ3NtYVJ4ejNLZDU4?=
- =?utf-8?B?TFRoZzNhdTBmQmI4bDZvWWJqc0x3QVNabS8vYjhiR1BUU0NGb2RXSWdxSjBl?=
- =?utf-8?B?OG1TSTZBQkp0YmxiNUc1UU8xaXN3VzU1dDl5clROMXpiSFhXNGJ5ZEVXbEts?=
- =?utf-8?B?UEF6azA5Q3N6NVJXaVdPTU1adW9YcGU3dDJWRmkwRjNTOTlrY09KQWtid1lt?=
- =?utf-8?B?Zk13Y0lMMWFzVktiK1B2WE9yQm1YRHg5azZLdExLa3hxTGR6SjREallPRU1W?=
- =?utf-8?B?SjZORkdUdmxqREwvbUhiUEdHdEdOODBGbzM4SldOc0pYVFJsNXQ3WWxScEph?=
- =?utf-8?B?NzJ4SGw3eTFkdnI5TG04ZWZSYWZWb2xQU09OeDQ0WWx6aXp6RDBOOWhERXY3?=
- =?utf-8?B?Mk5pYTRjMFgxN3I5NlZqekl2dno2aEVGVlhNMzNJT3VwRlB6SGdXQ0tCcnR3?=
- =?utf-8?B?NlU0RjZzZTliVHFDY2tVVWIxQU1mN1NzL0VMMGxuV2MxVlNhUFZPRUxyVGYw?=
- =?utf-8?B?UkRZKzllVFIwdldaTFFveUFyVmRVamQwYlprdmNVZWM5MWtrVk53d21jQ3BE?=
- =?utf-8?B?NUQyTVk0eUI5MlVabGVYTnJWcGNtTXF6d0c2MUQ4N1M4UUo3RHc5TnpaUXdC?=
- =?utf-8?B?Q0lzcmRqaCtOZVhUbnNOVXJPM3B2dVlUanRpeE9VZEljSVliczVJaThKTHJv?=
- =?utf-8?Q?zoTyGOXzDC8j7ljsIEYBJrDBXBy1Zs=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(52116014)(7416014)(19092799006)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QVA1Q1NuamtoYnZrT05scVhSZDVGTEVkRFdwcEJrLzlsKzBZV3RVdkZpUE9s?=
- =?utf-8?B?aHBNNVRsMmFrOEl1cG56RG9JdkdBaGtvUnZZVnJ2ZGZaSUQrYWJBR1lTeXRW?=
- =?utf-8?B?bis2S3ArU3NFeGF2MWdHTmxmSmxMNGM2L1hmcmNVNDd5aHpJb3RaVTFIcFVz?=
- =?utf-8?B?R3I0YXFnc3c0SW96ZDY5M1Fad0o2ZzFQZE5RODQya1pJZjB2UEl2T3Z0R1VI?=
- =?utf-8?B?MmhWdytxbmhpaHVRVDQwZi9tOUFFUnJ5STluWC9XL3VlOFA4WXRRTlZ1NThh?=
- =?utf-8?B?TGpldGYxZTVaaGJsbnNWSkc0RkU3MW5xMVRHMjNOckxHcEdLM2F0cTR2bUpR?=
- =?utf-8?B?LytGN2xpYmh5eE55cm9xT0hMbVBNbUg1QVRDVktiMTZEOE9sWTZIVFNWb2Ev?=
- =?utf-8?B?b0pQdm4vdmY0L1hEa1BQZjl4OWZiQmVuR3lKTWdDMGVLRnNpSU5Ba0hEOGti?=
- =?utf-8?B?ZDlabGlhaFFlWVZoNmtJUVhpT0NvRWdPcXYxVDltTFh1Q1lDOURjaHhpWkpm?=
- =?utf-8?B?OFRObzZqQTNHTnQ1cS9DMWEyN2h4bjJFaVIrWG5sU0NENDd3NG90STU2VHQ5?=
- =?utf-8?B?WWNLTDhWV2xSUjBGQmFheGs2R0J2NkpCZ3hUMFJZWjBNb1FqeHNSRkhBU0g2?=
- =?utf-8?B?Rlpzby9DWVpPUVVUL3lUT3V2QVg1Mm5EUU84c3F2K2RZTlhhQVdPMXY1TEtk?=
- =?utf-8?B?L0JnZTVWQ0dYVUFqWmYzZ2RSUHhXbjdaaFF3Ump0VVVHSVBEYkZWL2ZZOHJU?=
- =?utf-8?B?WndPZWZhazVLQVN0cU5NVFhxbVRFakRFU1U4QWN6cTZkbktWWTZFQW1FZ1hJ?=
- =?utf-8?B?M1VXSFYrdjB4UzN0LzhnV0pHN2dRQUgzSlJVZldNMFA1d1VOYzBCdjNqcm0r?=
- =?utf-8?B?Nnk2TytobzhtRGpaTmtmOXBWR3FHNHVXRWdGczFsMXJaa0JLUDdJU3BtQURo?=
- =?utf-8?B?Y1pxOGFvVW4xWUpPVUNtZlN1TTVraVp6K3FqZEhJRHpZVUVBaUhLR1R5Mk9O?=
- =?utf-8?B?VVhTUlNFNTJ5eUM4aHZsZUNDc3g1VFhmSVZLRjZsVHg4bHovMkxZMys4eTRx?=
- =?utf-8?B?SU9tbWtzK2pZbUVrbytrcFc5OHdyWE9KYW8rc29EbkY0NFp1Q1ZVODZxTjJP?=
- =?utf-8?B?UXo3L3hqLzJhQytFQ1lKdDl6anI3d0lUK01IMXZXQnlXNSt3T0VqUldNL3BF?=
- =?utf-8?B?Z0xOSmxsaWttSldkRDRaaWlWb3ZOMVoveFZKMzl6UjdNL3FuUEk3VlloYVhl?=
- =?utf-8?B?YjZSTUtibjh1aVdoZWlyeTVYazl5MVBHcXRmMG5SSldBVUdXY2paeTlMd0Jp?=
- =?utf-8?B?WmhSb241eThoY1VZcWtEOXhsNlAxMHpZRHJiQ0gzaXhnZE1Zb0V5TkRGbEd0?=
- =?utf-8?B?NVdyVkVsT3d1SFlHOW8zdmt0M1MwdURXaENDMUJZMG5SWkZmMU04bW1yOXVF?=
- =?utf-8?B?WVVlRkE1aVlxZXlwWS8rQnNZWTZOdmtWWGJ1QVJyK25OMFQ2T2dzNFlPSk12?=
- =?utf-8?B?Njc4MVdWd2Z0ZlFuVWhTNFdmOXcyNHhPdm4yM2ljeGM4QTY0ejZnemlkUnZD?=
- =?utf-8?B?MkYyUmV4NTltZERTRmFvZVFqQnlXdWtrNkg3bVpzSmlmdDRzRS9MTG9mNmpL?=
- =?utf-8?B?cGF6T2Ftc1FDU1cwK1k5TXI0cVZGNDRsamJEejBnTkNQc1FQNDk5QzFIRis5?=
- =?utf-8?B?NCsrREE1NUsyYlNDTmRwR3FlQTVNWGp3UGRkTmY2YnBxU2ZQa2JkdzJHaGQw?=
- =?utf-8?B?S1ZFMk1zdHBURHQ1bTZBTDZiem95MEFMZWFWSklwWXY5VEx4RHU4WEVxQXZQ?=
- =?utf-8?B?eFdBTHVOaVZPdnBibkthQzVjb3gzVVQ3SzRXUm9URklXY3JaZXFYYWphMldo?=
- =?utf-8?B?SGdodkZhNExETTZVZkw1cDh2cEIybWwybzg2VWtLL0ZHRnlMVDRZZE0vTVQx?=
- =?utf-8?B?QTFLT0VxQU9QSS9LSTEzbVZmdW9qRjlPWWRVa3EvYTVFaEVqcW5BZ1NCd01C?=
- =?utf-8?B?RGtzaTVVdW05b1pOaXBHbG5sc1hBS2Y3OWthdWwvVVd3VFVSaGM4eGZZZml5?=
- =?utf-8?B?WlBjU0tlV0pwUXU1dko1V0FyTEw4L2w4TzN4eEdhUTZ1d1BrUWUveHFOcFBR?=
- =?utf-8?Q?bt5rWl8sZpO3tt+9NQyHjnYP7?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9e77e54e-0d63-4f3c-89d1-08dde60326f9
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Aug 2025 07:18:57.2253
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FT5Bb9HjeYXC4IN0kS8DDmEFlHz3+wouqmtBHuv9KITQfP0wb2gGSq1ZmVLMJGVpPV2EejRJgnx+Wc6ZCbIFhg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB10058
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_001902_291986_E065FCA4 
-X-CRM114-Status: GOOD (  11.51  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250827220141.262669-14-david@redhat.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,104 +93,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The CSI-2 in the i.MX8ULP is almost identical to the version present
-in the i.MX8QXP/QM and is routed to the ISI. Add both the ISI and CSI
-nodes and mark them as disabled by default since capture is dependent
-on an attached camera.
+On Thu, Aug 28, 2025 at 12:01:17AM +0200, David Hildenbrand wrote:
+> We can now safely iterate over all pages in a folio, so no need for the
+> pfn_to_page().
+> 
+> Also, as we already force the refcount in __init_single_page() to 1,
+> we can just set the refcount to 0 and avoid page_ref_freeze() +
+> VM_BUG_ON. Likely, in the future, we would just want to tell
+> __init_single_page() to which value to initialize the refcount.
+> 
+> Further, adjust the comments to highlight that we are dealing with an
+> open-coded prep_compound_page() variant, and add another comment explaining
+> why we really need the __init_single_page() only on the tail pages.
+> 
+> Note that the current code was likely problematic, but we never ran into
+> it: prep_compound_tail() would have been called with an offset that might
+> exceed a memory section, and prep_compound_tail() would have simply
+> added that offset to the page pointer -- which would not have done the
+> right thing on sparsemem without vmemmap.
+> 
+> Signed-off-by: David Hildenbrand <david@redhat.com>
+> ---
+>  mm/hugetlb.c | 20 ++++++++++++--------
+>  1 file changed, 12 insertions(+), 8 deletions(-)
+> 
+> diff --git a/mm/hugetlb.c b/mm/hugetlb.c
+> index 4a97e4f14c0dc..1f42186a85ea4 100644
+> --- a/mm/hugetlb.c
+> +++ b/mm/hugetlb.c
+> @@ -3237,17 +3237,18 @@ static void __init hugetlb_folio_init_tail_vmemmap(struct folio *folio,
+>  {
+>  	enum zone_type zone = zone_idx(folio_zone(folio));
+>  	int nid = folio_nid(folio);
+> +	struct page *page = folio_page(folio, start_page_number);
+>  	unsigned long head_pfn = folio_pfn(folio);
+>  	unsigned long pfn, end_pfn = head_pfn + end_page_number;
+> -	int ret;
+> -
+> -	for (pfn = head_pfn + start_page_number; pfn < end_pfn; pfn++) {
+> -		struct page *page = pfn_to_page(pfn);
+>  
+> +	/*
+> +	 * We mark all tail pages with memblock_reserved_mark_noinit(),
+> +	 * so these pages are completely uninitialized.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx8ulp.dtsi | 67 ++++++++++++++++++++++++++++++
- 1 file changed, 67 insertions(+)
+                             ^ not? ;-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
-index 13b01f3aa2a4950c37e72e04f6bfb5995dc19178..7981f7dc62f5dfb2dff051e2d91bde6a2498ac13 100644
---- a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
-@@ -7,6 +7,7 @@
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/interrupt-controller/arm-gic.h>
- #include <dt-bindings/power/imx8ulp-power.h>
-+#include <dt-bindings/reset/imx8ulp-pcc-reset.h>
- #include <dt-bindings/thermal/thermal.h>
- 
- #include "imx8ulp-pinfunc.h"
-@@ -842,6 +843,72 @@ spdif: spdif@2dab0000 {
- 				dma-names = "rx", "tx";
- 				status = "disabled";
- 			};
-+
-+			isi: isi@2dac0000 {
-+				compatible = "fsl,imx8ulp-isi";
-+				reg = <0x2dac0000 0x10000>;
-+				interrupts = <GIC_SPI 119 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&pcc5 IMX8ULP_CLK_ISI>,
-+					 <&cgc2 IMX8ULP_CLK_LPAV_AXI_DIV>;
-+				clock-names = "axi", "apb";
-+				power-domains = <&scmi_devpd IMX8ULP_PD_ISI>;
-+				status = "disabled";
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+						isi_in: endpoint {
-+							remote-endpoint = <&mipi_csi_out>;
-+						};
-+					};
-+				};
-+			};
-+
-+			mipi_csi: csi@2daf0000 {
-+				compatible = "fsl,imx8ulp-mipi-csi2", "fsl,imx8qxp-mipi-csi2";
-+				reg = <0x2daf0000 0x10000>,
-+				      <0x2dad0000 0x10000>;
-+				clocks = <&pcc5 IMX8ULP_CLK_CSI>,
-+					 <&pcc5 IMX8ULP_CLK_CSI_CLK_ESC>,
-+					 <&pcc5 IMX8ULP_CLK_CSI_CLK_UI>,
-+					 <&pcc5 IMX8ULP_CLK_CSI_REGS>;
-+				clock-names = "core", "esc", "ui", "pclk";
-+				assigned-clocks = <&pcc5 IMX8ULP_CLK_CSI>,
-+						  <&pcc5 IMX8ULP_CLK_CSI_CLK_ESC>,
-+						  <&pcc5 IMX8ULP_CLK_CSI_CLK_UI>,
-+						  <&pcc5 IMX8ULP_CLK_CSI_REGS>;
-+				assigned-clock-parents = <&cgc2 IMX8ULP_CLK_PLL4_PFD1_DIV1>,
-+							 <&cgc2 IMX8ULP_CLK_PLL4_PFD1_DIV2>,
-+							 <&cgc2 IMX8ULP_CLK_PLL4_PFD0_DIV1>;
-+				assigned-clock-rates = <200000000>,
-+						       <80000000>,
-+						       <100000000>,
-+						       <79200000>;
-+				power-domains = <&scmi_devpd IMX8ULP_PD_MIPI_CSI>;
-+				resets = <&pcc5 PCC5_CSI_SWRST>,
-+					 <&pcc5 PCC5_CSI_REGS_SWRST>;
-+				status = "disabled";
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+					};
-+
-+					port@1 {
-+						reg = <1>;
-+
-+						mipi_csi_out: endpoint {
-+							remote-endpoint = <&isi_in>;
-+						};
-+					};
-+				};
-+			};
- 		};
- 
- 		gpiod: gpio@2e200000 {
+> +	 */
+> +	for (pfn = head_pfn + start_page_number; pfn < end_pfn; page++, pfn++) {
+>  		__init_single_page(page, pfn, zone, nid);
+>  		prep_compound_tail((struct page *)folio, pfn - head_pfn);
+> -		ret = page_ref_freeze(page, 1);
+> -		VM_BUG_ON(!ret);
+> +		set_page_count(page, 0);
+>  	}
+>  }
+>  
+> @@ -3257,12 +3258,15 @@ static void __init hugetlb_folio_init_vmemmap(struct folio *folio,
+>  {
+>  	int ret;
+>  
+> -	/* Prepare folio head */
+> +	/*
+> +	 * This is an open-coded prep_compound_page() whereby we avoid
+> +	 * walking pages twice by initializing/preparing+freezing them in the
+> +	 * same go.
+> +	 */
+>  	__folio_clear_reserved(folio);
+>  	__folio_set_head(folio);
+>  	ret = folio_ref_freeze(folio, 1);
+>  	VM_BUG_ON(!ret);
+> -	/* Initialize the necessary tail struct pages */
+>  	hugetlb_folio_init_tail_vmemmap(folio, 1, nr_pages);
+>  	prep_compound_head((struct page *)folio, huge_page_order(h));
+>  }
+> -- 
+> 2.50.1
+> 
 
 -- 
-2.34.1
-
+Sincerely yours,
+Mike.
 
