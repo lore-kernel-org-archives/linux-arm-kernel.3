@@ -4,109 +4,200 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF312CA0FF6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 02:38:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21597CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 02:38:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
-	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hDymskQNp6wG2uiiMHxVPzsL1nAJPxy4zRxFOrP95kA=; b=wdJv1pr7CmYrYGDIZhNcyaYiiH
-	AF0h/Xh7cFpC47DKI/qdHgInHTbdnwhNirW+2acsoo6FYyhtvg8hJmC6kSioEQoYLONVE69o0x+wS
-	HzBIbtot8U4H2D5CjqFumZP91HWuYuJ/pwT5uKe+eQVDFmbL/2HzCVyQeXx6Kcg4IWUhQSc7O32YT
-	N2CYJYZUZULqjAJFE68u8L+kjM3iEP/3DFGhBPEzcD4Tj62XhGrnUOtXhhF8bSvi7gNIOO1VlYSpL
-	x8e4kEtU2sQWIWGkdZAqLnd5IjJndYHlN/ZeqKdnU8jzuRO7fGArWqijgBskvDA8dKaM4dbJyEJwg
-	nyLIuBIQ==;
+	bh=bTQ7THQjyQhdT1x2atSwGn0BJsnl/9eO4Lu/2aulbEc=; b=1mNXezA8T0UhxerB1ngSGm4Rm9
+	gfKpYAAN5URwOWLaJhxpu7PuPmZVZvF/eJCofO38fll2Ivnq5uezIGxpRuJH7UcY5HdBgJjcJh4Yp
+	AJMo+EinuX37bfI6y0iT3k48PKME8jq49otYBOu+YSWxcWHYApl3OdazCaHh0lP0U2MiQB45Icr6j
+	xCwPw/lFo0+thIlgorl838RzJrArsj1SBaeDYtzqvNiiOOO53GRa9rY9Vl5I9L80J1QcAI0tyGTrz
+	W029gmeBYkKCTsu3y4zmsTxWsRFBWzwWvoNrcZIgDx5lyIPofpFSyeRSLssgnjUUvUrsFkHldFh9t
+	iX6UpNKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urSX7-000000002Cs-1Rt5;
-	Thu, 28 Aug 2025 02:38:37 +0000
+	id 1urSXC-000000002HF-2Qnq;
+	Thu, 28 Aug 2025 02:38:42 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urQ5j-0000000HI9F-13N0
+	id 1urRSc-0000000HV7p-0pEJ
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 28 Aug 2025 00:02:11 +0000
+	Thu, 28 Aug 2025 01:29:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=hDymskQNp6wG2uiiMHxVPzsL1nAJPxy4zRxFOrP95kA=; b=pAm0H7XF7u4HKP1z566m1V0QRL
-	dfDpreDj6N87VDQrRNAI6cRnobxSudpiKKiampSamT7FTdnpiqgGtnY1uJCjD+eTQYqv84wn6gmbs
-	1LUTGErcc6Y6vFH4vuPpPEYh7947lDBOaIILYaOcuAD3xpwRRlMEwuMUkMhpbbUm/hYC3xTrTFtOL
-	MiiOTdeWDZIguQb+mb6sLlSi2RawxTlyIDcdm0/Gnc8OYHlnCECvSVYjE8E3F2LUZiEi4rFmUv6nP
-	ojgBR7a7AoImFvVFDKIB6v6KQdkwRSRgQr1nOhMdxowXe6Kny4mHuAkvqDvfCiI0F01+IvBf5kzCA
-	47ZXhy6w==;
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=bTQ7THQjyQhdT1x2atSwGn0BJsnl/9eO4Lu/2aulbEc=; b=YvWlSfrZZrx5CcIyNbahh7ZYba
+	wk4gBpg6mAQsVcuvphE6tfu9osGrOnknA11fqxNzsrq0HzPQjJZyRhDctQ358VakErP3aT18kBxcy
+	1XharJLtWIkgg+uC6FFu0TXqVRHxdhmKI1JqqFW1rJHh29LtmxreAP726jc3JKbkJL7yy5POSjQlL
+	gYFRPLOSIg13sMPtgAUus4J+kmnCpoPf0zEJn16kvDiJzP+UbBeZf/AybItttHB5l2FoLlmD37ZSF
+	5fx6kD8PaDZIXGnRjrLHxa0vk2QjBFXJJcXuyS7HrqBeIaVzajGm7afyM7X+pzYrrgn1J4xBfQLdZ
+	QJxG1dtQ==;
+Received: from mail-dm6nam11on20612.outbound.protection.outlook.com ([2a01:111:f403:2415::612] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urQ5f-00000002YCX-35eJ
+	id 1urRSY-00000002asA-1Yxn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 00:02:09 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-324e4c3af5fso368147a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 17:02:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1756339325; x=1756944125; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=hDymskQNp6wG2uiiMHxVPzsL1nAJPxy4zRxFOrP95kA=;
-        b=o7hTOiHnluikvfGx99oJUwa0flvaWnlcRgjtNC4abmgbkXLNDbhY7O2I8/ZPh5a3vI
-         3ZYlOLietdBf3ZLzNfy+W4hKvPZppyngs/He2W8z6SEXOqt//wH+UqmnXenONXvZLJGB
-         vdGBUjidibuLyb5P4W2b+dmmvV5EubG1pMqasagR0SMc6cEpFodHrZfdDENTrA//zDzv
-         Em3S5UXlEsd6FKljIzD96no+nLVh+Amt4rqKLV9MJQjUPOkObt8SKwpB7Nxov4xGbSIc
-         N/oVpaa6WGKTfDjrNGN5ZedST7YTN5BnVqFHGEX/gA+QKAudPfGOgFq4Mu41zeOuM/4k
-         A6eg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756339325; x=1756944125;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hDymskQNp6wG2uiiMHxVPzsL1nAJPxy4zRxFOrP95kA=;
-        b=cjH86vnT+7Vp30N6Ma6gCNsezoUk4/jYvVynh9rL309ZrCzRRdR+sIW6GDvXWx94sA
-         n8jMU4tqsHGwnMxPmvbGmUrXXTHn4swe44nlu+6/1FpKU2xDffHxmTL+8qJDLz3R8HvP
-         uCr8XUq/Od5y/EEET9JGHz2urhO7J785ZfwxqWuI0t/hz+9QJXAfu08ciUDANHs7mpFK
-         8C0Pn9BhK60STz8FvHpnAh3hON+qzm9xkBIq036GI/baE31dPjNo6gDRVDHEfbi3KY8T
-         hQ8VGMVFGrlz9Ti7A2JBdOcIwejINppXFS8HIt33lyfqrxVzchEd5OyTcFI2w5xG7p9L
-         RuIQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW01/Ol3aOmpnKTKAEASHt+Srs35T1IVaVx38LKNtZDjpru5xjgFQMGoy2csYhGkyLnVBmGIbP0QNHY/IagzBvP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4dptjhTZIFqst7TpOwCVlhSV8HALwRrfnOUkRVkpSJ1tXhty8
-	VY2eMmO0pmd1WY47FHTBKRNSjmVfeWiP3jFyMtJdnbMBnx83O6hXG+1XN2GW0JtLdLkwikgky2c
-	7MARq6g==
-X-Google-Smtp-Source: AGHT+IEpldWCysonYjdHETjodWyZtDlIBYcwDxX/6JZFBAIAnGNdK+zSnqMrfXxPLk2m5pFyKQhTG4/yaKw=
-X-Received: from pjj15.prod.google.com ([2002:a17:90b:554f:b0:325:833b:6f27])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:55c4:b0:327:aaeb:e814
- with SMTP id 98e67ed59e1d1-327aaebf1b1mr940666a91.23.1756339325323; Wed, 27
- Aug 2025 17:02:05 -0700 (PDT)
-Date: Wed, 27 Aug 2025 17:01:51 -0700
-In-Reply-To: <20250828000156.23389-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20250828000156.23389-1-seanjc@google.com>
-X-Mailer: git-send-email 2.51.0.268.g9569e192d0-goog
-Message-ID: <20250828000156.23389-3-seanjc@google.com>
-Subject: [PATCH v2 2/7] Drivers: hv: Disentangle VTL return cancellation from SIGPENDING
-From: Sean Christopherson <seanjc@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Sean Christopherson <seanjc@google.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
-	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"K. Y. Srinivasan" <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, 
-	Dexuan Cui <decui@microsoft.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Andy Lutomirski <luto@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, 
-	Frederic Weisbecker <frederic@kernel.org>, Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, 
-	Joel Fernandes <joelagnelf@nvidia.com>, Josh Triplett <josh@joshtriplett.org>, 
-	Boqun Feng <boqun.feng@gmail.com>, Uladzislau Rezki <urezki@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-hyperv@vger.kernel.org, rcu@vger.kernel.org, 
-	Nuno Das Neves <nunodasneves@linux.microsoft.com>, Mukesh R <mrathor@linux.microsoft.com>
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 28 Aug 2025 01:29:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AIO8ApGuHgFMGCEsZV1MSXn5ltw2zH/nDD0DtbJAfJ3giDKKaIUqfmIMFZkmuwM67kFmrbznaMCybmfj53LRCn894e1LdBZ/GWX7XfUDqy8TtKPGF20NB+Xt7RP5SEx98FtpC9VdYA6SIsAc0CAZKLN4kDVxq8/lhMbFY0uxnzLqGH23FlqD+ysv2FVnfKp3Ct5Wv3wKCFf5kTL82/6Npv3Wh45jR92n2q86KnI4Rz74nF5g9NH6AT2pAk51YTKIpsOiu7qx+uTInHlPIRwj+/Y1eVHPu1M24LX7WVIbmfObwEHYifB5bW/+HFAIWuSRTg+I7dhnnxs7VyuJeEbHsw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bTQ7THQjyQhdT1x2atSwGn0BJsnl/9eO4Lu/2aulbEc=;
+ b=uvfBpCHbrCfhw40NSXHjdHqPBZ16tw1tdI3/RLKtrA2PR0C4KoDGZf32x6VeN7Clisdp6fOT44vheBBWUmIAOpKK3OZwL/4HLWaWpHLMNkf6VCGbGT0HfJ5AvJ5Cx3xlZcHItadhKVl7d4NdOxbGSpVlm9k8smc1oySE454CbAYwEPFtP24RV8WeH2EI2LxkfZvEgQS/V4XL1h7ycJNaKmDAnJtYSkGlEN17ieR+NKEQdHp2lwJRe/Ptx3cjHC9jtyZpZtHB1aXHcrp6fk6u/ONLVXSazYRDgSIjZVfo+qTcsJ4YJiICDTRKPvaCdi/cogaFaDmbkqgvBgon5+iOjg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bTQ7THQjyQhdT1x2atSwGn0BJsnl/9eO4Lu/2aulbEc=;
+ b=EDPYho6pfroBSX6Qj0gUP8YVaoKZ75m4gd4NA+CxlFeC0cdT7sKduQDTgSKcsFWIR2jgzW70kJMgJRj3ft8RsfHFrqFesnH/QMg7A+gB1aEGZo+mRY4BlmbZSWIxy4zPSbvmdTeq3p6ac5phdqno7pZorB6VrGP6STOPfUYX2QuI6vOmhMP3iQU3ZJCl1nwmuUGLSEkeGWdxkFtHO8D/NCmvqJrNuumwB2Lp8OTG98YheBc4wr0NkGIXNL6euyKeY6QvnD99D9r4wXPvb400srd6aPplGtjxDSnX7/ZF2rfEbGurxcpLJnKkmfl+LAne5iLsKJx1/foKo1Brx+oM0A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB2667.namprd12.prod.outlook.com (2603:10b6:5:42::28) by
+ PH7PR12MB7018.namprd12.prod.outlook.com (2603:10b6:510:1b8::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.20; Thu, 28 Aug
+ 2025 01:29:26 +0000
+Received: from DM6PR12MB2667.namprd12.prod.outlook.com
+ ([fe80::bd88:b883:813d:54a2]) by DM6PR12MB2667.namprd12.prod.outlook.com
+ ([fe80::bd88:b883:813d:54a2%3]) with mapi id 15.20.8989.017; Thu, 28 Aug 2025
+ 01:29:26 +0000
+Message-ID: <5f2c1bf5-6486-464b-aade-4f55b4c3af9f@nvidia.com>
+Date: Wed, 27 Aug 2025 18:29:22 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 12/33] arm_mpam: Add the class and component structures
+ for ris firmware described
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
+ devicetree@vger.kernel.org
+Cc: shameerali.kolothum.thodi@huawei.com,
+ D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
+ Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, baisheng.gao@unisoc.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
+ <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>, Ben Horgan <ben.horgan@arm.com>
+References: <20250822153048.2287-1-james.morse@arm.com>
+ <20250822153048.2287-13-james.morse@arm.com>
+Content-Language: en-US
+From: Fenghua Yu <fenghuay@nvidia.com>
+In-Reply-To: <20250822153048.2287-13-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PH7P220CA0168.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:33b::19) To DM6PR12MB2667.namprd12.prod.outlook.com
+ (2603:10b6:5:42::28)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB2667:EE_|PH7PR12MB7018:EE_
+X-MS-Office365-Filtering-Correlation-Id: 25bed6b8-4e99-434b-3ba9-08dde5d2538d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?RGxTQnQ4elIrVThLOERQaVpFN1BETG9qbThnT01mOTBTRkxqK1lFbWx3eExW?=
+ =?utf-8?B?L3BLZHJWc0JTN05BbG9UM1NML2Y1dktXZTVxdDNsWVJhZDlUSGdQZ1dpNVZh?=
+ =?utf-8?B?UDJYNUFCS3NxYXB6Q21ScUU0TmxGSnJJeHBVM0lzaitXU1dFQjRVRGc4S1h0?=
+ =?utf-8?B?QXEzVE1HY2FkbFNkRERQeWJWazBSTC9odXhPOTVTb3IzeXlLRUpCU3J6TGhP?=
+ =?utf-8?B?UmsyWWViU2JPTVpPYWd4KzRkZlZWcXprQ3hTbnBESkhmeE14Y2NlMmdZeEpL?=
+ =?utf-8?B?VEV3T1hlL3l2UDA1THM4SDdWYTZLMjZCbCtxUlV2NlM3S3I0M0djNjFXL0Nx?=
+ =?utf-8?B?L1YwUzBQazBBNGlGdjc2cFlxWGtrWS9EdHBUZDJ2Z0hucjMzb2JtM2xmOGlr?=
+ =?utf-8?B?dkNMZG11VW5GQ2g2UDlIQ3hTT1VFcXRYVjhwNHZ4OXljSUsvVEZQeGJ5KzV4?=
+ =?utf-8?B?YndFa2Nnd3J4TVZISkZIVVp4TURmR1d0V3hQWlNRM1UwdTNsOWJTR0tmTWhS?=
+ =?utf-8?B?Q0wwMmh3czY4ejdlRXhCVzVaWFMwenhpUDI0RzlyaVYvN0NzcXhYeXkrZDRk?=
+ =?utf-8?B?dWNUN0ZTL3FBd0xSbGJTbzZiT0pCV1N6bFduOXBpMTBTQWdpMXVaeE1SVk9m?=
+ =?utf-8?B?UmxJUDljeHgvQUhJZi95Zk1WRTJrbmtuNzRMR0xIaitsMDVNeWlMNXVXazc0?=
+ =?utf-8?B?YjFSakZaRXBndGFCMW01ODFmUHVUdEhma055dHpFczBlT0hrZWV2TUNLRHdw?=
+ =?utf-8?B?WVJmS2Q4Y0wyMk44MEdQUHFPUVRKeGFwSUVYQVQ3bmU4QzhNVmdhOGlmS2Vr?=
+ =?utf-8?B?dEx0VVFFaE1FWjV1bmZlUUNRS0UyRGJLU1dTV1dWTTM2TlF3eGoyS2hhU2J3?=
+ =?utf-8?B?VE02T3hxb1ZIbCtNOVVpTkRoY0p1bnprdjEwaDRIZmNGQ09QSFVJVFNGT2sv?=
+ =?utf-8?B?dGtkRjJyb2FpMCsvY1pqK1JxaVJzeG9sUS9HcHRmT2RjdnR5UmtpTE9wK2JT?=
+ =?utf-8?B?WmVNNHpSR0xpRmZtRnBGWnE2amU1azhYVGJZcExBTmZaSy8zSHgzSTc5Tjdn?=
+ =?utf-8?B?NUtFZVh5c25zSmxzbGFFSG55cm00RjA5NkR2QUZtZDBFWW1WMEltbWpYanA1?=
+ =?utf-8?B?MkxKbzZ2RjJFcWFHUWZKSW1WUW9YQzVqdjdwbXl2V24rb3FnSUR4VkhETlpP?=
+ =?utf-8?B?M0xyT3AwY0ljRzJIU1NjUTlTTGQrUU1FT09kNW9rZHhXd2xwcGNmcmdibUsv?=
+ =?utf-8?B?NlRjNlB1dHJMRVBDK1lIeGY3M01tNkZkcXlacDk2NldBc1NBYk42U2ZGbE5w?=
+ =?utf-8?B?WURjTDBINHlVaEYzeVhqSXZYcWJLKytSSTYyWFJXQ2o1aktSTnp3bmtGYTBZ?=
+ =?utf-8?B?T21Bb2FrTC9WangySUhORmZ2ZW42dHRMN2REK3VjcmxhUDFqbVMwUndPclhx?=
+ =?utf-8?B?Z2FjUitrVHBIamo3SWNjRnRjaldqMXFaVk9SYmVBSjVHY241Wk90UFdJQm4y?=
+ =?utf-8?B?UXU4ZVh4NjN1Y1dRVmtiTHBQTktZRWJqdkpKTEc5eXcvZGkvUUQyUzF5bE1X?=
+ =?utf-8?B?NmxieG1SR0x4Q1hWa3c5Z1ZlQS9oWk01UC9reTJocnF0RG5UVHphblF0YWxL?=
+ =?utf-8?B?ZDNpTTZPbjF4ZWJFL1FNK2RnaCtZQTJrMDlKR044bGIydmVzOTdhZGRKdld2?=
+ =?utf-8?B?WnFNOU9TbWM0ZmhQZGJwSlprZ3UzU0RuQ1dxMjFiU0piYm9IdmQyUFF6Q2Ny?=
+ =?utf-8?B?dDV6Njd6QUw4NEVva3FVK3FxT0xOcG93NG04c3ZtMDFNWmVXRTB4MVpDUTB1?=
+ =?utf-8?B?ZVZ3RmZLb2o1Q0JHTGkwOGIyRWtTczdKQVN4YjU5UUFCZTl3TWxqQ3NLNERU?=
+ =?utf-8?B?YmFrek4wRkJlRSsvV1dDNUNUK0haeXltZ0FMOGp2WU55RXhkV2NJZTlMdkRp?=
+ =?utf-8?Q?zrLfRu+X/g4=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB2667.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OFZabzEvTElMcU5xZmswQ3R4WFMwNHhMUmM4Y1ZwemY4Ujlaa3duTTFoMWdO?=
+ =?utf-8?B?UTlBUUpuL2srWmFYZE9RbjBsd2UvM3V6VU8vM1d6bjAzSTQxOERNTDVpNTB3?=
+ =?utf-8?B?bDh1cXFNTHdCZitGbGk4QXZ3ZmxaUmNxZ3cxMlVIeUlPYkUvajRianBvY0Vx?=
+ =?utf-8?B?bVZwZHE4c1Z4MWZUQ3JWSGlaNEpHa1VQWUp6SDNkZlUzSW16U1NqcHcvVll6?=
+ =?utf-8?B?V2RMRTdqa0dDbDIrTVMrM29jQTlieDJ5WGE5M1ErZTh4ZmRvZzZodU5pcmNO?=
+ =?utf-8?B?SS9xaW9KcVdnSXhtdGJBRzBva2I2bVNrS2ZIVVFJVm1DU3EzM3A1R2xicWpF?=
+ =?utf-8?B?Q25RVXlkU0taZUdISlNEUFM2NEF0NXZ6NmxmMkUreHIyelVldFlUNS9ORjFa?=
+ =?utf-8?B?QlRlNDZvVmdENVE1VkZ3VG4rNGVvUFdkS3NESHdBaEw2ZEY1WXNYRlJVcU5Q?=
+ =?utf-8?B?WGpyTTNJYmxPNEtHYnJmWGtEcll1ZTBVV1pHdXpEWDh1dU1NUVBiVjJuUWky?=
+ =?utf-8?B?TDlyOVhhQ3FrcDNRT2NTSE9qQjRBTUYydjlRYjFqWk9JTXJER1lDUGwvL3Br?=
+ =?utf-8?B?SkZocEdEdTY0c2QrdHZKVERwQXhpV2lFUXpkTjYraDVHR1JjZ3VtczkyNkts?=
+ =?utf-8?B?MElDK2hqYmxnT2g3b0R6R2FGajdlM1IxakEyUWxWbm9RS2JHMnlCNUV2Wlc1?=
+ =?utf-8?B?UnNCanJ3Q1FUZzZyWHVnWVEwb3ZZalBWaFJmK2lKV3VOdUxhOVc4SWdMUm9F?=
+ =?utf-8?B?NnZOTFlQRll2U1ZlL2RaU3d1ODdMeFJqaHpPYytBcGxRKzNIUHdDem1GaTFM?=
+ =?utf-8?B?OGNsb1pKT1lIYjdRamEwaThNUWdIeDZ3YXZycWg1akd0WW03UDVSczJhNm9I?=
+ =?utf-8?B?R1Fsa1FFdjNSRTR4Rk9FTm0rRTV5dW95bFBvWkx1T0MyME43VVpyMi9oRURu?=
+ =?utf-8?B?eVNySG45KzJOcUR6M2tmUjV5OWRqUWM5OFNrV2FSR2FFeTNUb0xZdG9RVGpu?=
+ =?utf-8?B?eXBzSHI5NHFOMUNXVmdsMUNUMlMvb0VncDlZamR4SHB5NzVjWlNGbXk2TWQy?=
+ =?utf-8?B?VTE1emU2RFUxMXlvcEV3NGdJZ29aclZZUnFMWHVLa2xPdytYQzROVzd3MzVK?=
+ =?utf-8?B?SzNPR1FOSkVwMWpwQlpxOU52UldyYkJ0ZXhDbDRIaWhhUFIvVzViM1B4b2h0?=
+ =?utf-8?B?TFh5d0ZGYnVoRjZHeUNYb0lNQURmMUNNVGpuUGw0THAzQ3Z0Nm5IeXpHOXhO?=
+ =?utf-8?B?YklzVUIxSmlOTXlhM3RIdXRIM245QWJYbVdUTVJSRUJSclN0clBEQXVYMG5W?=
+ =?utf-8?B?bC92bm1tQUZ6RXVNY0J2RWhGcjQyOGJUN0dzOE9sN0V4L1owOXl2ZEpoQU00?=
+ =?utf-8?B?d01CT29xNVZWZnkvNjJRL1pFRjkzZmRUZGdBaXRTSW1QZDJvcnpWZnhqeHI2?=
+ =?utf-8?B?dW8zNU16Y2Q2Y21CN3BTRnJVNTBrZWhTVHEyb3ltMTlXYUUrb0VjVG1NNjIw?=
+ =?utf-8?B?c094UXM5ODE4MStGR2gyaWpVaFJrSmoxWDNrek0rVWIxaVFDWWZTS2JidGda?=
+ =?utf-8?B?bXVHdkVTaElpSnZoT3hlbFB0Q3NKRk5MRmdsSTV2c0dhM3l1QXh4NFR0Rzd2?=
+ =?utf-8?B?eG5WWVNadFFnWEdvSWt5MXl5Q25UdW03VldQbnBtRzExOGRlbDhhZW9oV29F?=
+ =?utf-8?B?NGNSdHRwYkxrTmN5M2w0UEo5MTBoRUM1djJrMUtTbmJxVnJZSUlJWnpvSndF?=
+ =?utf-8?B?Y3lBWDkxOUoxZ0l0c3RHeFFjOHhmR2ZoTGJHR1ZOM3kzNlhrSzI2U20rcG8y?=
+ =?utf-8?B?UU9BNGxLbCt6MS9XM3F4UzYrdzkwZS8yQSsweTFyWGJQUGl1ajFjUGh1UWV1?=
+ =?utf-8?B?WVRtWTJ2TEM0K0JSOG55NUtISVFlbndFMHB0MkxyVTNyUkdxUDhCNldoQzJL?=
+ =?utf-8?B?Y3NlOG1oYjFCbmdkeFZCK3pyS0djZEpvRkhxK3hzQTZWSGdyb3hXY0lWODBz?=
+ =?utf-8?B?QWhvUWlOZUVqRnpUTFNVTS82clpNc1k2N1g0SlBNZC9vdndVOGFWOGNaRzVV?=
+ =?utf-8?B?RzMwRlQ2SExmYnZDSXptbklNc1hOcmExL25vSmc4cUdvWWN4em1nZTNiOFcx?=
+ =?utf-8?Q?2K+VGsMXDP2KcFTRPDkUcfWe1?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 25bed6b8-4e99-434b-3ba9-08dde5d2538d
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB2667.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Aug 2025 01:29:26.6097
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: OlJd2dOdH7Ogl3+ou9ggjcTZGC62x4lDWm70lt2kJTsQrh6gcrVgXAPYQ+Uip0Ap3FRhhr5vYKZKsQfFGmh4pg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7018
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_010207_914393_46E7A1FD 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20250828_022950_561882_F393794C 
+X-CRM114-Status: GOOD (  24.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,55 +209,81 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Check for return to a lower VTL being cancelled separately from handling
-pending TIF-based work, as there is no need to immediately process pending
-work; the kernel will immediately exit to userspace (ignoring preemption)
-and handle the pending work at that time.
+Hi, James,
 
-Disentangling cancellation from the TIF-based work will allow switching to
-common virtualization APIs for detecting and processing pending work.
+On 8/22/25 08:29, James Morse wrote:
+> An MSC is a container of resources, each identified by their RIS index.
+> Some RIS are described by firmware to provide their position in the system.
+> Others are discovered when the driver probes the hardware.
+>
+> To configure a resource it needs to be found by its class, e.g. 'L2'.
+> There are two kinds of grouping, a class is a set of components, which
+> are visible to user-space as there are likely to be multiple instances
+> of the L2 cache. (e.g. one per cluster or package)
+>
+> struct mpam_components are a set of struct mpam_vmsc. A vMSC groups the
+> RIS in an MSC that control the same logical piece of hardware. (e.g. L2).
+> This is to allow hardware implementations where two controls are presented
+> as different RIS. Re-combining these RIS allows their feature bits to
+> be or-ed. This structure is not visible outside mpam_devices.c
+>
+> struct mpam_vmsc are then a set of struct mpam_msc_ris, which are not
+> visible as each L2 cache may be composed of individual slices which need
+> to be configured the same as the hardware is not able to distribute the
+> configuration.
+>
+> Add support for creating and destroying these structures.
+>
+> A gfp is passed as the structures may need creating when a new RIS entry
+> is discovered when probing the MSC.
+>
+> CC: Ben Horgan <ben.horgan@arm.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+> Changes since RFC:
+>   * removed a pr_err() debug message that crept in.
+> ---
+>   drivers/resctrl/mpam_devices.c  | 488 +++++++++++++++++++++++++++++++-
+>   drivers/resctrl/mpam_internal.h |  91 ++++++
+>   include/linux/arm_mpam.h        |   8 +-
+>   3 files changed, 574 insertions(+), 13 deletions(-)
+>
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index 71a1fb1a9c75..5baf2a8786fb 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+[SNIP]
+> +static struct mpam_vmsc *
+> +mpam_vmsc_alloc(struct mpam_component *comp, struct mpam_msc *msc, gfp_t gfp)
+> +{
+> +	struct mpam_vmsc *vmsc;
+> +
+> +	lockdep_assert_held(&mpam_list_lock);
+> +
+> +	vmsc = kzalloc(sizeof(*vmsc), gfp);
+> +	if (!comp)
 
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- drivers/hv/mshv_vtl_main.c | 12 +++++++-----
- 1 file changed, 7 insertions(+), 5 deletions(-)
+s/if (!cmp)/if (!vmsc)/
 
-diff --git a/drivers/hv/mshv_vtl_main.c b/drivers/hv/mshv_vtl_main.c
-index 12f5e77b7095..aa09a76f0eff 100644
---- a/drivers/hv/mshv_vtl_main.c
-+++ b/drivers/hv/mshv_vtl_main.c
-@@ -731,19 +731,21 @@ static int mshv_vtl_ioctl_return_to_lower_vtl(void)
- 						_TIF_NOTIFY_RESUME | _TIF_NOTIFY_SIGNAL |
- 						_TIF_NEED_RESCHED_LAZY;
- 		unsigned long ti_work;
--		u32 cancel;
- 		unsigned long irq_flags;
- 		struct hv_vp_assist_page *hvp;
- 		int ret;
- 
- 		local_irq_save(irq_flags);
-+		if (READ_ONCE(mshv_vtl_this_run()->cancel)) {
-+			local_irq_restore(irq_flags);
-+			preempt_enable();
-+			return -EINTR;
-+		}
-+
- 		ti_work = READ_ONCE(current_thread_info()->flags);
--		cancel = READ_ONCE(mshv_vtl_this_run()->cancel);
--		if (unlikely((ti_work & VTL0_WORK) || cancel)) {
-+		if (unlikely(ti_work & VTL0_WORK)) {
- 			local_irq_restore(irq_flags);
- 			preempt_enable();
--			if (cancel)
--				ti_work |= _TIF_SIGPENDING;
- 			ret = mshv_do_pre_guest_mode_work(ti_work);
- 			if (ret)
- 				return ret;
--- 
-2.51.0.268.g9569e192d0-goog
+
+> +		return ERR_PTR(-ENOMEM);
+> +	init_garbage(vmsc);
+> +
+> +	INIT_LIST_HEAD_RCU(&vmsc->ris);
+> +	INIT_LIST_HEAD_RCU(&vmsc->comp_list);
+> +	vmsc->comp = comp;
+> +	vmsc->msc = msc;
+> +
+> +	list_add_rcu(&vmsc->comp_list, &comp->vmsc);
+> +
+> +	return vmsc;
+> +}
+
+Thanks.
+
+-Fenghua
 
 
