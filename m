@@ -4,77 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49604CA0FFD
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3801ACA0FF6
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 20:47:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vddGLbWM42D50r30tpsujE0VLG/iAeMtwLoJ5znOa/s=; b=tCq8jUs82uWKh4w+zNftIo5Wch
-	BwFU1JCZsZJoMcWbny3qwKHXWWSw71G06+/MJqLReuLn8u6pP8YIqwpzcFiP3WLra/fcNXWHf6tuv
-	YNaCPvCguoI2nF9n9CuBLej1/94ECuZPLkkoNHnEwT8jQpPrZOI8OZ2ca5QDSRXSlZwXtrxYKmA0V
-	ZZFGeo1OZjCOSORcK6q/gIqF8QfoJs5V332v8uE/df30hp6clNTnBAhjqatZQxexDzFtRS6oHGrKm
-	/JjvOrhsN++P9a57jmVskBS3egkbYcPLIvOZwEMLaEJdhp5jNxznr/76IOV6JsH+hWwiCOdOorSJU
-	RU0W4ENA==;
+	bh=YkpuaVzcCdhNuxhLGkbFk83IgLW0zlPVOnflza7rLgo=; b=LR1wX+rq0eXfc8hs/93T0tx2eP
+	CKsYSZh1S/CepwmwHuvQr5VTM24QcZkXpZnXv7xCp3OQwxZQBd/4v7eNvFUPBYeQnjKFRs4tXwMUY
+	D2fexrJRadi6JN1SjdP4u+DH4KiFnlcxitGkHrxUOe0C/KppIIs6WchQQJs66EWZfO9bxZ9iakukY
+	Owy+RPSboVrI5DUEbaUkakrbUR/fQVNuIMOYyoe8m53KQmb84TKCq1wwtKEKbZG+W+IApjVm8d4Hy
+	AJafxQINHQ9IxtxeWVkLRONLRMnoY3FRb1i9Fmc7UERzxPyf/QXBPJRGuVu32WCFnmvl84zTYKIPe
+	rg0zlQqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urjX9-00000003DYB-1Z8G;
-	Thu, 28 Aug 2025 20:47:47 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urfIj-00000002E5u-27Gc
+	id 1urjX7-00000003DWu-44fb;
+	Thu, 28 Aug 2025 20:47:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urfG2-00000002De7-1FTv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 16:16:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1756397797; x=1787933797;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=dbxb4w4OJlV5sDEo57zFUE5nYfUGYzxZZDwgoF4J/Dw=;
-  b=qE0811NslvXMOCMpISj6dNWX4S1QmFOk7N+cOUUfax2KnHFJMk05WPDx
-   oLddhwDL3CdE0ddhOv7zA0u71M1A6EUcKkxi5pGRJaIn0m+CLReMslVtK
-   KHXV9p/POkkXrVGeQcbXs8nvETfaYWW1ZoTdCy/d5ulhyNBQiQuVU/n2/
-   83UPOpu8kl/j/2ls/Zal94RLaFqV8EOhpt07Gec8OJxy9HpDNSQhHe08Q
-   NMkW5qHPza1EFWVPqJYhAZGRRNWiwwLF1L1wxzrYeFMUJJO/Zh7KxRKb2
-   U/mnopzK+TyoIZyJS9UK/KBqyXzeozui5KI3fWG6Km+WgHB08+1jxjDDp
-   A==;
-X-CSE-ConnectionGUID: X9YiAgovSEikt4Ra+TjvOg==
-X-CSE-MsgGUID: 9dg/711GTSemJKiM6lKqeA==
-X-IronPort-AV: E=Sophos;i="6.18,220,1751266800"; 
-   d="scan'208";a="46343766"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 28 Aug 2025 09:16:33 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Thu, 28 Aug 2025 09:16:18 -0700
-Received: from [10.10.179.162] (10.10.85.11) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.44 via Frontend
- Transport; Thu, 28 Aug 2025 09:16:18 -0700
-Message-ID: <08dd4d82-8ac4-43a3-8d01-f293db6302e2@microchip.com>
-Date: Thu, 28 Aug 2025 09:16:16 -0700
+	Thu, 28 Aug 2025 16:13:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 755482944;
+	Thu, 28 Aug 2025 09:13:41 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 68E543F694;
+	Thu, 28 Aug 2025 09:13:44 -0700 (PDT)
+Message-ID: <1996dbf6-df9f-4785-9111-5ba52e789285@arm.com>
+Date: Thu, 28 Aug 2025 17:13:43 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 00/32] clk: at91: add support for parent_data and
-To: Brian Masney <bmasney@redhat.com>
-CC: <mturquette@baylibre.com>, <sboyd@kernel.org>,
-	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
-	<claudiu.beznea@tuxon.dev>, <varshini.rajendran@microchip.com>,
-	<linux-clk@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <robh@kernel.org>
-References: <cover.1752176711.git.Ryan.Wanner@microchip.com>
- <aLB7CJY9nMLoS1or@x1>
-From: Ryan Wanner <ryan.wanner@microchip.com>
+Subject: Re: [PATCH 24/33] arm_mpam: Allow configuration to be applied and
+ restored during cpu online
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
+ devicetree@vger.kernel.org
+Cc: shameerali.kolothum.thodi@huawei.com,
+ D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
+ Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
+ baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>
+References: <20250822153048.2287-1-james.morse@arm.com>
+ <20250822153048.2287-25-james.morse@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
 Content-Language: en-US
-In-Reply-To: <aLB7CJY9nMLoS1or@x1>
-Content-Type: text/plain; charset="UTF-8"
+In-Reply-To: <20250822153048.2287-25-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_091637_739402_0A412958 
-X-CRM114-Status: GOOD (  18.69  )
+X-CRM114-CacheID: sfid-20250828_091350_428442_0F11B5AC 
+X-CRM114-Status: GOOD (  37.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,89 +86,473 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/28/25 08:51, Brian Masney wrote:
-> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> 
-> Hi Ryan and Claudiu,
-> 
-> On Thu, Jul 10, 2025 at 01:06:53PM -0700, Ryan.Wanner@microchip.com wrote:
->> From: Ryan Wanner <Ryan.Wanner@microchip.com>
->>
->> This series adds support for parent data and parent _hw on the at91
->> clock drivers. This also updates all the SoC specific clock drivers to
->> use this format as well.
->>
->> This is a continuation of the V1 of this series here [1].
->>
->> This has been tested on the SAMA5* SoCs, the sam9x* SoCs, and the SAMA7*
->> SoCs.
->>
->> Changes v1 -> V2:
->> - Remove all the small sama7g54 SoC driver changes and put them in their
->>   own patch.
->> - Add the SAMA7D65 and the SAM9X75 to this update.
->> - Add a patch to move all common used macros into the pmc.h file.
->> - Update changes from v6.6 to v6.16.
->> - Remove patches that where style fixes and include those in the update.
->>
->> Changes v2 -> v3:
->> - Adjust each patch so they are fully atomic.
->> - Add a patch to have the SAMA7D65 systemclocks use parent_data and
->>   parent_hw.
->> - Add a formatting cleanup patch for the SAM9X75.
->> - Adjust commit messages that no longer show invalid information.
->>
->>
->> 1) https://lore.kernel.org/all/20230727053156.13587-1-claudiu.beznea@tuxon.dev/
->>
->>
->> Claudiu Beznea (28):
->>   clk: at91: pmc: add macros for clk_parent_data
->>   clk: at91: clk-sam9x60-pll: use clk_parent_data
->>   clk: at91: clk-peripheral: switch to clk_parent_data
->>   clk: at91: clk-main: switch to clk parent data
->>   clk: at91: clk-utmi: use clk_parent_data
->>   clk: at91: clk-master: use clk_parent_data
->>   clk: at91: clk-programmable: use clk_parent_data
->>   clk: at91: clk-generated: use clk_parent_data
->>   clk: at91: clk-usb: add support for clk_parent_data
->>   clk: at91: clk-system: use clk_parent_data
->>   clk: at91: clk-pll: add support for parent_hw
->>   clk: at91: clk-audio-pll: add support for parent_hw
->>   clk: at91: clk-plldiv: add support for parent_hw
->>   clk: at91: clk-h32mx: add support for parent_hw
->>   clk: at91: clk-i2s-mux: add support for parent_hw
->>   clk: at91: clk-smd: add support for clk_parent_data
->>   clk: at91: clk-slow: add support for parent_hw
->>   clk: at91: dt-compat: switch to parent_hw and parent_data
->>   clk: at91: sam9x60: switch to parent_hw and parent_data
->>   clk: at91: sama5d2: switch to parent_hw and parent_data
->>   clk: at91: sama5d3: switch to parent_hw and parent_data
->>   clk: at91: sama5d4: switch to parent_hw and parent_data
->>   clk: at91: at91sam9x5: switch to parent_hw and parent_data
->>   clk: at91: at91rm9200: switch to parent_hw and parent_data
->>   clk: at91: at91sam9260: switch to parent_hw and parent_data
->>   clk: at91: at91sam9g45: switch to parent_hw and parent_data
->>   clk: at91: at91sam9n12: switch to parent_hw and parent_data
->>   clk: at91: at91sam9rl: switch to clk_parent_data
->>
->> Ryan Wanner (4):
->>   clk: at91: pmc: Move macro to header file
->>   clk: at91: sam9x75: switch to parent_hw and parent_data
->>   clk: at91: sama7d65: switch to parent_hw and parent_data
->>   clk: at91: sam9x7: Clean up formatting
-> 
-> What tree did you develop this against? When I try to apply this series
-> to Linus's tree (6.17-rc3) and linux-next, only 12 of these patches
-> actually apply with 'git am'.
+Hi James,
 
-This was developed on 6.16 but when I bumped this thread I checked and
-they all apply cleanly on the v6.17-rc3 tag. I also just tested on
-next-20250828 tag and this set applies cleanly as well.
+On 8/22/25 16:30, James Morse wrote:
+> When CPUs come online the original configuration should be restored.
+> Once the maximum partid is known, allocate an configuration array for
+> each component, and reprogram each RIS configuration from this.
+> 
+> The MPAM spec describes how multiple controls can interact. To prevent
+> this happening by accident, always reset controls that don't have a
+> valid configuration. This allows the same helper to be used for
+> configuration and reset.
 
-Ryan
+What in particular are you worried about here? It does seem a bit
+wasteful that to update a single control in a ris all the controls in
+that ris are updated. This is needed for reset and restore but do we
+really want if we are just changing one control, e.g. the cache portion
+bitmap.
+
 > 
-> Brian
+> CC: Dave Martin <Dave.Martin@arm.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+> Changes since RFC:
+>  * Added a comment about the ordering around max_partid.
+>  * Allocate configurations after interrupts are registered to reduce churn.
+>  * Added mpam_assert_partid_sizes_fixed();
+> ---
+>  drivers/resctrl/mpam_devices.c  | 253 +++++++++++++++++++++++++++++---
+>  drivers/resctrl/mpam_internal.h |  26 +++-
+>  2 files changed, 251 insertions(+), 28 deletions(-)
 > 
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index b424af666b1e..8f6df2406c22 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -112,6 +112,16 @@ LIST_HEAD(mpam_classes);
+>  /* List of all objects that can be free()d after synchronise_srcu() */
+>  static LLIST_HEAD(mpam_garbage);
+>  
+> +/*
+> + * Once mpam is enabled, new requestors cannot further reduce the available
+> + * partid. Assert that the size is fixed, and new requestors will be turned
+> + * away.
+> + */
+> +static void mpam_assert_partid_sizes_fixed(void)
+> +{
+> +	WARN_ON_ONCE(!partid_max_published);
+> +}
+> +
+>  static u32 __mpam_read_reg(struct mpam_msc *msc, u16 reg)
+>  {
+>  	WARN_ON_ONCE(reg + sizeof(u32) > msc->mapped_hwpage_sz);
+> @@ -374,12 +384,16 @@ static void mpam_class_destroy(struct mpam_class *class)
+>  	add_to_garbage(class);
+>  }
+>  
+> +static void __destroy_component_cfg(struct mpam_component *comp);
+> +
+>  static void mpam_comp_destroy(struct mpam_component *comp)
+>  {
+>  	struct mpam_class *class = comp->class;
+>  
+>  	lockdep_assert_held(&mpam_list_lock);
+>  
+> +	__destroy_component_cfg(comp);
+> +
+>  	list_del_rcu(&comp->class_list);
+>  	add_to_garbage(comp);
+>  
+> @@ -911,51 +925,90 @@ static void mpam_reset_msc_bitmap(struct mpam_msc *msc, u16 reg, u16 wd)
+>  	__mpam_write_reg(msc, reg, bm);
+>  }
+>  
+> -static void mpam_reset_ris_partid(struct mpam_msc_ris *ris, u16 partid)
+> +/* Called via IPI. Call while holding an SRCU reference */
+> +static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
+> +				      struct mpam_config *cfg)
+>  {
+>  	u16 bwa_fract = MPAMCFG_MBW_MAX_MAX;
+>  	struct mpam_msc *msc = ris->vmsc->msc;
+>  	struct mpam_props *rprops = &ris->props;
+>  
+> -	mpam_assert_srcu_read_lock_held();
+> -
+>  	mutex_lock(&msc->part_sel_lock);
+>  	__mpam_part_sel(ris->ris_idx, partid, msc);
+>  
+> -	if (mpam_has_feature(mpam_feat_cpor_part, rprops))
+> -		mpam_reset_msc_bitmap(msc, MPAMCFG_CPBM, rprops->cpbm_wd);
+> +	if (mpam_has_feature(mpam_feat_cpor_part, rprops)) {
+> +		if (mpam_has_feature(mpam_feat_cpor_part, cfg))
+> +			mpam_write_partsel_reg(msc, CPBM, cfg->cpbm);
+> +		else
+> +			mpam_reset_msc_bitmap(msc, MPAMCFG_CPBM,
+> +					      rprops->cpbm_wd);
+> +	}
+>  
+> -	if (mpam_has_feature(mpam_feat_mbw_part, rprops))
+> -		mpam_reset_msc_bitmap(msc, MPAMCFG_MBW_PBM, rprops->mbw_pbm_bits);
+> +	if (mpam_has_feature(mpam_feat_mbw_part, rprops)) {
+> +		if (mpam_has_feature(mpam_feat_mbw_part, cfg))
+> +			mpam_write_partsel_reg(msc, MBW_PBM, cfg->mbw_pbm);
+> +		else
+> +			mpam_reset_msc_bitmap(msc, MPAMCFG_MBW_PBM,
+> +					      rprops->mbw_pbm_bits);
+> +	}
+>  
+>  	if (mpam_has_feature(mpam_feat_mbw_min, rprops))
+>  		mpam_write_partsel_reg(msc, MBW_MIN, 0);
+>  
+> -	if (mpam_has_feature(mpam_feat_mbw_max, rprops))
+> -		mpam_write_partsel_reg(msc, MBW_MAX, bwa_fract);
+> +	if (mpam_has_feature(mpam_feat_mbw_max, rprops)) {
+> +		if (mpam_has_feature(mpam_feat_mbw_max, cfg))
+> +			mpam_write_partsel_reg(msc, MBW_MAX, cfg->mbw_max);
+> +		else
+> +			mpam_write_partsel_reg(msc, MBW_MAX, bwa_fract);
+> +	}
+>  
+>  	if (mpam_has_feature(mpam_feat_mbw_prop, rprops))
+>  		mpam_write_partsel_reg(msc, MBW_PROP, bwa_fract);
+>  	mutex_unlock(&msc->part_sel_lock);
+>  }
+>  
+> +struct reprogram_ris {
+> +	struct mpam_msc_ris *ris;
+> +	struct mpam_config *cfg;
+> +};
+> +
+> +/* Call with MSC lock held */
+> +static int mpam_reprogram_ris(void *_arg)
+> +{
+> +	u16 partid, partid_max;
+> +	struct reprogram_ris *arg = _arg;
+> +	struct mpam_msc_ris *ris = arg->ris;
+> +	struct mpam_config *cfg = arg->cfg;
+> +
+> +	if (ris->in_reset_state)
+> +		return 0;
+> +
+> +	spin_lock(&partid_max_lock);
+> +	partid_max = mpam_partid_max;
+> +	spin_unlock(&partid_max_lock);
+> +	for (partid = 0; partid <= partid_max; partid++)
+> +		mpam_reprogram_ris_partid(ris, partid, cfg);
+> +
+> +	return 0;
+> +}
+> +
+>  /*
+>   * Called via smp_call_on_cpu() to prevent migration, while still being
+>   * pre-emptible.
+>   */
+>  static int mpam_reset_ris(void *arg)
+>  {
+> -	u16 partid, partid_max;
+>  	struct mpam_msc_ris *ris = arg;
+> +	struct reprogram_ris reprogram_arg;
+> +	struct mpam_config empty_cfg = { 0 };
+>  
+>  	if (ris->in_reset_state)
+>  		return 0;
+>  
+> -	spin_lock(&partid_max_lock);
+> -	partid_max = mpam_partid_max;
+> -	spin_unlock(&partid_max_lock);
+> -	for (partid = 0; partid < partid_max; partid++)
+> -		mpam_reset_ris_partid(ris, partid);
+> +	reprogram_arg.ris = ris;
+> +	reprogram_arg.cfg = &empty_cfg;
+> +
+> +	mpam_reprogram_ris(&reprogram_arg);
+>  
+>  	return 0;
+>  }
+> @@ -986,13 +1039,11 @@ static int mpam_touch_msc(struct mpam_msc *msc, int (*fn)(void *a), void *arg)
+>  
+>  static void mpam_reset_msc(struct mpam_msc *msc, bool online)
+>  {
+> -	int idx;
+>  	struct mpam_msc_ris *ris;
+>  
+>  	mpam_assert_srcu_read_lock_held();
+>  
+>  	mpam_mon_sel_outer_lock(msc);
+> -	idx = srcu_read_lock(&mpam_srcu);
+>  	list_for_each_entry_srcu(ris, &msc->ris, msc_list, srcu_read_lock_held(&mpam_srcu)) {
+>  		mpam_touch_msc(msc, &mpam_reset_ris, ris);
+>  
+> @@ -1002,10 +1053,42 @@ static void mpam_reset_msc(struct mpam_msc *msc, bool online)
+>  		 */
+>  		ris->in_reset_state = online;
+>  	}
+> -	srcu_read_unlock(&mpam_srcu, idx);
+>  	mpam_mon_sel_outer_unlock(msc);
+>  }
+>  
+> +static void mpam_reprogram_msc(struct mpam_msc *msc)
+> +{
+> +	u16 partid;
+> +	bool reset;
+> +	struct mpam_config *cfg;
+> +	struct mpam_msc_ris *ris;
+> +
+> +	/*
+> +	 * No lock for mpam_partid_max as partid_max_published has been
+> +	 * set by mpam_enabled(), so the values can no longer change.
+> +	 */
+> +	mpam_assert_partid_sizes_fixed();
+> +
+> +	guard(srcu)(&mpam_srcu);
+> +	list_for_each_entry_rcu(ris, &msc->ris, msc_list) {
+> +		if (!mpam_is_enabled() && !ris->in_reset_state) {
+> +			mpam_touch_msc(msc, &mpam_reset_ris, ris);
+> +			ris->in_reset_state = true;
+> +			continue;
+> +		}
+> +
+> +		reset = true;
+> +		for (partid = 0; partid <= mpam_partid_max; partid++) {
+> +			cfg = &ris->vmsc->comp->cfg[partid];
+> +			if (cfg->features)
+> +				reset = false;
+> +
+> +			mpam_reprogram_ris_partid(ris, partid, cfg);
+> +		}
+> +		ris->in_reset_state = reset;
+> +	}
+> +}
+> +
+>  static void _enable_percpu_irq(void *_irq)
+>  {
+>  	int *irq = _irq;
+> @@ -1027,7 +1110,7 @@ static int mpam_cpu_online(unsigned int cpu)
+>  			_enable_percpu_irq(&msc->reenable_error_ppi);
+>  
+>  		if (atomic_fetch_inc(&msc->online_refs) == 0)
+> -			mpam_reset_msc(msc, true);
+> +			mpam_reprogram_msc(msc);
+>  	}
+>  	srcu_read_unlock(&mpam_srcu, idx);
+>  
+> @@ -1807,6 +1890,45 @@ static void mpam_unregister_irqs(void)
+>  	cpus_read_unlock();
+>  }
+>  
+> +static void __destroy_component_cfg(struct mpam_component *comp)
+> +{
+> +	add_to_garbage(comp->cfg);
+> +}
+> +
+> +static int __allocate_component_cfg(struct mpam_component *comp)
+> +{
+> +	mpam_assert_partid_sizes_fixed();
+> +
+> +	if (comp->cfg)
+> +		return 0;
+> +
+> +	comp->cfg = kcalloc(mpam_partid_max + 1, sizeof(*comp->cfg), GFP_KERNEL);
+> +	if (!comp->cfg)
+> +		return -ENOMEM;
+> +	init_garbage(comp->cfg);
+> +
+> +	return 0;
+> +}
+> +
+> +static int mpam_allocate_config(void)
+> +{
+> +	int err = 0;
+> +	struct mpam_class *class;
+> +	struct mpam_component *comp;
+> +
+> +	lockdep_assert_held(&mpam_list_lock);
+> +
+> +	list_for_each_entry(class, &mpam_classes, classes_list) {
+> +		list_for_each_entry(comp, &class->components, class_list) {
+> +			err = __allocate_component_cfg(comp);
+> +			if (err)
+> +				return err;
+> +		}
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  static void mpam_enable_once(void)
+>  {
+>  	int err;
+> @@ -1826,12 +1948,21 @@ static void mpam_enable_once(void)
+>  	 */
+>  	cpus_read_lock();
+>  	mutex_lock(&mpam_list_lock);
+> -	mpam_enable_merge_features(&mpam_classes);
+> +	do {
+> +		mpam_enable_merge_features(&mpam_classes);
+>  
+> -	err = mpam_register_irqs();
+> -	if (err)
+> -		pr_warn("Failed to register irqs: %d\n", err);
+> +		err = mpam_register_irqs();
+> +		if (err) {
+> +			pr_warn("Failed to register irqs: %d\n", err);
+> +			break;
+> +		}
+>  
+> +		err = mpam_allocate_config();
+> +		if (err) {
+> +			pr_err("Failed to allocate configuration arrays.\n");
+> +			break;
+> +		}
+> +	} while (0);
+>  	mutex_unlock(&mpam_list_lock);
+>  	cpus_read_unlock();
+>  
+> @@ -1856,6 +1987,9 @@ static void mpam_reset_component_locked(struct mpam_component *comp)
+>  
+>  	might_sleep();
+>  	lockdep_assert_cpus_held();
+> +	mpam_assert_partid_sizes_fixed();
+> +
+> +	memset(comp->cfg, 0, (mpam_partid_max * sizeof(*comp->cfg)));
+>  
+>  	idx = srcu_read_lock(&mpam_srcu);
+>  	list_for_each_entry_rcu(vmsc, &comp->vmsc, comp_list) {
+> @@ -1960,6 +2094,79 @@ void mpam_enable(struct work_struct *work)
+>  		mpam_enable_once();
+>  }
+>  
+> +struct mpam_write_config_arg {
+> +	struct mpam_msc_ris *ris;
+> +	struct mpam_component *comp;
+> +	u16 partid;
+> +};
+> +
+> +static int __write_config(void *arg)
+> +{
+> +	struct mpam_write_config_arg *c = arg;
+> +
+> +	mpam_reprogram_ris_partid(c->ris, c->partid, &c->comp->cfg[c->partid]);
+> +
+> +	return 0;
+> +}
+> +
+> +#define maybe_update_config(cfg, feature, newcfg, member, changes) do { \
+> +	if (mpam_has_feature(feature, newcfg) &&			\
+> +	    (newcfg)->member != (cfg)->member) {			\
+> +		(cfg)->member = (newcfg)->member;			\
+> +		cfg->features |= (1 << feature);			\
+> +									\
+> +		(changes) |= (1 << feature);				\
+> +	}								\
+> +} while (0)
+> +
+> +static mpam_features_t mpam_update_config(struct mpam_config *cfg,
+> +					  const struct mpam_config *newcfg)
+> +{
+> +	mpam_features_t changes = 0;
+> +
+> +	maybe_update_config(cfg, mpam_feat_cpor_part, newcfg, cpbm, changes);
+> +	maybe_update_config(cfg, mpam_feat_mbw_part, newcfg, mbw_pbm, changes);
+> +	maybe_update_config(cfg, mpam_feat_mbw_max, newcfg, mbw_max, changes);
+> +
+> +	return changes;
+> +}
+> +
+> +/* TODO: split into write_config/sync_config */
+> +/* TODO: add config_dirty bitmap to drive sync_config */
+Any changes to come for these TODO comments?
+
+> +int mpam_apply_config(struct mpam_component *comp, u16 partid,
+> +		      struct mpam_config *cfg)
+> +{
+> +	struct mpam_write_config_arg arg;
+> +	struct mpam_msc_ris *ris;
+> +	struct mpam_vmsc *vmsc;
+> +	struct mpam_msc *msc;
+> +	int idx;
+> +
+> +	lockdep_assert_cpus_held();
+> +
+> +	/* Don't pass in the current config! */
+> +	WARN_ON_ONCE(&comp->cfg[partid] == cfg);
+> +
+> +	if (!mpam_update_config(&comp->cfg[partid], cfg))
+> +		return 0;
+> +
+> +	arg.comp = comp;
+> +	arg.partid = partid;
+> +
+> +	idx = srcu_read_lock(&mpam_srcu);
+> +	list_for_each_entry_rcu(vmsc, &comp->vmsc, comp_list) {
+> +		msc = vmsc->msc;
+> +
+> +		list_for_each_entry_rcu(ris, &vmsc->ris, vmsc_list) {
+> +			arg.ris = ris;
+> +			mpam_touch_msc(msc, __write_config, &arg);
+> +		}
+> +	}
+> +	srcu_read_unlock(&mpam_srcu, idx);
+> +
+> +	return 0;
+> +}
+> +
+>  /*
+>   * MSC that are hidden under caches are not created as platform devices
+>   * as there is no cache driver. Caches are also special-cased in
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index 3476ee97f8ac..70cba9f22746 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -191,11 +191,7 @@ struct mpam_props {
+>  	u16			num_mbwu_mon;
+>  };
+>  
+> -static inline bool mpam_has_feature(enum mpam_device_features feat,
+> -				    struct mpam_props *props)
+> -{
+> -	return (1 << feat) & props->features;
+> -}
+> +#define mpam_has_feature(_feat, x)	((1 << (_feat)) & (x)->features)
+>  
+>  static inline void mpam_set_feature(enum mpam_device_features feat,
+>  				    struct mpam_props *props)
+> @@ -226,6 +222,17 @@ struct mpam_class {
+>  	struct mpam_garbage	garbage;
+>  };
+>  
+> +struct mpam_config {
+> +	/* Which configuration values are valid. 0 is used for reset */
+> +	mpam_features_t		features;
+> +
+> +	u32	cpbm;
+> +	u32	mbw_pbm;
+> +	u16	mbw_max;
+> +
+> +	struct mpam_garbage	garbage;
+> +};
+> +
+>  struct mpam_component {
+>  	u32			comp_id;
+>  
+> @@ -234,6 +241,12 @@ struct mpam_component {
+>  
+>  	cpumask_t		affinity;
+>  
+> +	/*
+> +	 * Array of configuration values, indexed by partid.
+> +	 * Read from cpuhp callbacks, hold the cpuhp lock when writing.
+> +	 */
+> +	struct mpam_config	*cfg;
+> +
+>  	/* member of mpam_class:components */
+>  	struct list_head	class_list;
+>  
+> @@ -298,6 +311,9 @@ extern u8 mpam_pmg_max;
+>  void mpam_enable(struct work_struct *work);
+>  void mpam_disable(struct work_struct *work);
+>  
+> +int mpam_apply_config(struct mpam_component *comp, u16 partid,
+> +		      struct mpam_config *cfg);
+> +
+>  int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
+>  				   cpumask_t *affinity);
+>  
+
+Thanks,
+
+Ben
 
 
