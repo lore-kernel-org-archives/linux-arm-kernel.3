@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72B81CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 00:16:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 696E7CA0FED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 00:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t0b6nfV8ACtHngFYCFD4a6X0clQjFgCPW+omDXt4bTs=; b=WdW/fv9jzHTMj8XRSNfk8u8qme
-	IJGX/C9aTmh4u1B0f90i3trGkfl7OZLmx2IPUf5YMXGBFnnp/gbJR5J6bE5Ve/Cq0PoP9sRehtjjr
-	vB2QrLX7YxE8qxGwROaoNoA609VLKS+24kjGOp+JNeLe17x6DB7rMHTYYeeAMJk/F+3+8AGUm+m8u
-	dR/2QOt/xrSXEwzSPKr5ufZwov0dF8wGR5vEN7Ublz6QCrrRl/ek+v/jBDdl84nDQbbdU6qJy64BT
-	EhMFg2V6eKApTzXFv0BexXlV3v/de9gZSO68WwhbgKS3WGeAK1usQtmC1o+nNSDIC87uhamGPFTz7
-	MuLSCLaQ==;
+	bh=EmsaxLywmqXJrqAtwLwAP27sFBwlzqDgNEuWnDn/370=; b=0OKKobrSxY81ihYNe3tOKlNSbZ
+	euuVpQkmwgjVe9MTLwBUT4NUgr8pXm957A1/YzNIGYH5m3QGojW1n87eRUx8LYHf/V8tKLfIzeh4u
+	npBeeBHG17F8XHDu7K8+9YZBY/psubhnhO/IsiQi5PtUDJFBBmREKCZNqFiCpLM/xmTAh0ANLSfcF
+	+MkD26mRmC+4zHv6vZ3GyVElREg2Ko5reSQmH/4m2P1y0a3BXWTqdXTUm9ienzKPvnOWBbffEvYUu
+	q9+d+pZXzTju8lUM1t4YND5VQqrIyeZ0YK1KTA3S8nFe3tNTxx0lmELQwK8yv3o64EHTCfPi4qQ1t
+	d02YMFGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urQJZ-0000000HKbe-2CTo;
-	Thu, 28 Aug 2025 00:16:29 +0000
+	id 1urQMF-0000000HL42-0wSv;
+	Thu, 28 Aug 2025 00:19:15 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urQ5q-0000000HICK-46D9
+	id 1urQ5s-0000000HICs-0DzD
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 28 Aug 2025 00:02:19 +0000
+	Thu, 28 Aug 2025 00:02:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=t0b6nfV8ACtHngFYCFD4a6X0clQjFgCPW+omDXt4bTs=; b=ENoXSg7hEgkPnjvb9u7rNLBjGO
-	YDOWCY1Phy8LuQT2YIPaSHPlV8cWy33KLXbfkWlmPCTO1Ja6NIPutyCoSW0dj4MICoDyCCW27OvXh
-	l9Y1L/scvEPon1u8nOvUEwfIEY1MY8ByeY3scfdzs5Mez8ANDDdDgixCndoPSA4rJiQVHwCg5KJzN
-	5nh25g8R9XGV+Kimgu9j4tKon3uaLgji9TPATHpEc7U+qqV0+QAeVRQlXS1YDbZZMQ7Nejv9hzMT6
-	28REmVfULAqM0jTCNs66QbnK9Sb5Itagm5Y0q5DRdudmf8LQiuTEwztVKTFXxHlEtnMKS61hgCFz0
-	fXwe/qzg==;
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	bh=EmsaxLywmqXJrqAtwLwAP27sFBwlzqDgNEuWnDn/370=; b=Mg81vVFr1ruzxefGlsSdI9trd4
+	8AgV2zQw+ATuQ5byx98wxG50lJ+D3lOezWQoTLIArL/skwFRoT/Z4HxQYO5jhUZ6zCqhqp5mtZW+I
+	k5301nETXU1a1ecgaCYTyMZrx1qnYhyawLF3/PmxvsFei3a2csaI6dCnIkrVmNWe/vH1FPf/wb3KZ
+	rSEKaD4LKcUUS9s7hqUnl3Ms1koXK4cTAVRZkNpxrgIDcrYmWwZDaovR7CdBVj4NdS4QkLw0MRXa1
+	8ATGfYWmGtU1YTwCkBREsy8nM6FiFs/qDkMTzDNbqCmmbiMrS4UE/wdd29ZGUDW472mHpJT7eZUGW
+	cFZrTIEg==;
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urQ5l-00000002YEw-0OUt
+	id 1urQ5n-00000002YG5-0YuM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 00:02:17 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-244581ce13aso5913275ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 17:02:10 -0700 (PDT)
+	Thu, 28 Aug 2025 00:02:18 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-327b00af618so64713a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 17:02:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1756339329; x=1756944129; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1756339333; x=1756944133; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=t0b6nfV8ACtHngFYCFD4a6X0clQjFgCPW+omDXt4bTs=;
-        b=UuUyboDHhsWqRcAp+EXdFEJpQzxXCfuBSDIsUbBCQ4IGdPXjOFgR/ODu8JAiHV8fA+
-         VkpD7OaQhaVqkdZfwTP8JKejHWekXKB0VvOrJnNdSLtrK1UlNI7H44nIO/5FqDIXRUuX
-         CbKsFanVMljtttci4qZ9iV3cz6vM2IdNzOD3GAX+eaVDCZmmtGlxdMxeft9PxZz26p7L
-         CrCajVKjKUKFw1d4acnpygEMxD5m6IIBiRgl/og1GojrsvoAGAmDXaQ0HVejP312BMz/
-         SJiN8D71J6JHorVsZ4ZD+uh1gVrXNV4Nyth2ti+YAf4PHn1gmrJOKzEJnvY8dzYYkHJt
-         KY1w==
+        bh=EmsaxLywmqXJrqAtwLwAP27sFBwlzqDgNEuWnDn/370=;
+        b=kFLL3GA9avgCZFMH52fVxJ1BO1miRSQydAsGRmCRgpFB4xCuhEfvdB0Bz9JJXUMK7O
+         Ir3j74eDguKP1AekgEThdBeeWkGJDbw0xoLYttwYbmoXufS/HWCvXCFc7GpphMFyEpTh
+         bmNAzDHPqA0zevTcjWYEUtlbmTe3vr+j74RkRA6J6Fqnv6dF7LKbX6yc0uPtXghMB3JB
+         oU6NWsgHtK1gR4Nxh6tQbawFweh2e2BABPg3l9Tw2EyVEt3vF91PcJFvbfRWdWHG/b3U
+         bw715WHCPgkdR+tZr86p1BJSnsrfayVrNJaQfoQ4gWe0DbN3TOIqezjWp3WbS8EAHlDs
+         p4Cg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756339329; x=1756944129;
+        d=1e100.net; s=20230601; t=1756339333; x=1756944133;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=t0b6nfV8ACtHngFYCFD4a6X0clQjFgCPW+omDXt4bTs=;
-        b=ajzx0T2Tc51Gw2jotkslGT984rhCB4tQbR5HRtFuVUGFa30WEzBZ6xS+utPoaT84N4
-         3Z5JiSnnJZ+XHdu41gpM+cOySismAtBR5ED6sA9koiD1SYwadTOZJ3pH7HVhDshWIVS1
-         XDK8CdkVRw6nFu0K0kpG9Ih4E+IT4WRcNvyM1ZCHxVBlTC7RlHuVlTSntf9Md3lZJ+G/
-         GM0DS0fhLdFjKGMiB7znesc0AtCy1HyeLt530ddkEl+WWeyoQdkbqYjP0BpuMrv+mC20
-         kfA4pDdX8PsvSoGJO3Cjpnc2Ev0LyrZ2kW9KNFt1BXBFQVV4+V++0JDJW7uHD6vt29Lf
-         n9zw==
-X-Forwarded-Encrypted: i=1; AJvYcCV2j6hwK0GPPhpfmVyLsS6YZza3cZNrMp6CBIYXXH/mySDbHxiMkuEbLwAmLKX1NZbDg3ov+YyIwTrVRD5w3K4t@lists.infradead.org
-X-Gm-Message-State: AOJu0YxbbVeD5dJmNVLjYBrzKB20Wb16gUsaMhJ0Vrkap+x0eATGunAy
-	mll0qBoiY2wEf2/U1rmq1B8wm3hcxnY/QqxLnJuJ7q3SGtTytvupl+8N3Wo3VL5eN7fKWsJP6os
-	HBlEiyg==
-X-Google-Smtp-Source: AGHT+IH/zSg0NOaA8AO8xJkIMVcmzaCiAN5K9jibnSscidupr23ZKkHWPw6r1BmEsVqQvRiXUejojziqfr0=
-X-Received: from pjbpm10.prod.google.com ([2002:a17:90b:3c4a:b0:31e:fac4:4723])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:238e:b0:240:50ef:2f00
- with SMTP id d9443c01a7336-2462eea80fbmr326811935ad.26.1756339329158; Wed, 27
- Aug 2025 17:02:09 -0700 (PDT)
-Date: Wed, 27 Aug 2025 17:01:53 -0700
+        bh=EmsaxLywmqXJrqAtwLwAP27sFBwlzqDgNEuWnDn/370=;
+        b=DCYvucVfwYo0AKePLCEC4ppk5iMKIaELf/7iqi+evX1ZG3qBiUvWHo8hpQyl0pnCbd
+         MsB6yvZsxgi2JHwH2djzewqdOxEFtrR3PE3WYFeBHPfgqGytyAAnYRTQ40A8x3gApORY
+         QLwfaSfv9Dyp4LD6fsOI8/CdW48JXG6XJF9oHmZvW3G6OVQl85n1LTmZso5fbX7Z8WPy
+         0f9nDMFXFUKTIDKvhLPZ4SZtY+OWcKKGji0q/yiz6qaQbNFndzb9DHhrHrc5yMYOUVkk
+         h9TGTP3dvndNtxivVgwuiu1/9kCzWwK1r3T/axI+QVsdyXsHZ0Fk5snr8iZM9zyHth57
+         hjZg==
+X-Forwarded-Encrypted: i=1; AJvYcCWDbqOxS+PmRD7EVeUcr9a0wkBb5ZBu4u9hLcCo3IDC/c0mjLTTjWwsUkEzpSY4oaf72kCFafe5uvw8Sc5WBhnV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz6YLeC1leOxbW0vKKuonpHa5g4dA3HoOg3EX5m7Z7EugnmKmGB
+	a31xRK1OPQpl4Kc0FU7eyJK2aMH/SufLPZxwD3Z2lAy7BcTSsSL0iEHpFTRp7q0e1LPaWwtER5k
+	lfOhsNQ==
+X-Google-Smtp-Source: AGHT+IHWkrv7kVZHVzSto7MjJE9ImCnU6mvGeqto5tWqGBVv3p+HjVdYjEAK6cb7aWSN7qrvwO4+vOKCqys=
+X-Received: from pjur11.prod.google.com ([2002:a17:90a:d40b:b0:325:9404:7ff3])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2785:b0:31f:9114:ead8
+ with SMTP id 98e67ed59e1d1-32515e2d5a0mr28901913a91.6.1756339332928; Wed, 27
+ Aug 2025 17:02:12 -0700 (PDT)
+Date: Wed, 27 Aug 2025 17:01:55 -0700
 In-Reply-To: <20250828000156.23389-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250828000156.23389-1-seanjc@google.com>
 X-Mailer: git-send-email 2.51.0.268.g9569e192d0-goog
-Message-ID: <20250828000156.23389-5-seanjc@google.com>
-Subject: [PATCH v2 4/7] entry/kvm: KVM: Move KVM details related to
- signal/-EINTR into KVM proper
+Message-ID: <20250828000156.23389-7-seanjc@google.com>
+Subject: [PATCH v2 6/7] Drivers: hv: Use common "entry virt" APIs to do work
+ in root before running guest
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
@@ -106,8 +106,8 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	Nuno Das Neves <nunodasneves@linux.microsoft.com>, Mukesh R <mrathor@linux.microsoft.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_010213_516486_7AFB0758 
-X-CRM114-Status: GOOD (  21.92  )
+X-CRM114-CacheID: sfid-20250828_010215_746216_2012E9FD 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,253 +123,87 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move KVM's morphing of pending signals into userspace exits into KVM
-proper, and drop the @vcpu param from xfer_to_guest_mode_handle_work().
-How KVM responds to -EINTR is a detail that really belongs in KVM itself,
-and invoking kvm_handle_signal_exit() from kernel code creates an inverted
-module dependency.  E.g. attempting to move kvm_handle_signal_exit() into
-kvm_main.c would generate an linker error when building kvm.ko as a module.
+Use the kernel's common "entry virt" APIs to handle pending work prior to
+(re)entering guest mode, now that the virt APIs don't have a superfluous
+dependency on KVM.
 
-Dropping KVM details will also converting the KVM "entry" code into a more
-generic virtualization framework so that it can be used when running as a
-Hyper-V root partition.
-
-Lastly, eliminating usage of "struct kvm_vcpu" outside of KVM is also nice
-to have for KVM x86 developers, as keeping the details of kvm_vcpu purely
-within KVM allows changing the layout of the structure without having to
-boot into a new kernel, e.g. allows rebuilding and reloading kvm.ko with a
-modified kvm_vcpu structure as part of debug/development.
+No functional change intended.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/arm64/kvm/arm.c      |  3 +--
- arch/loongarch/kvm/vcpu.c |  3 +--
- arch/riscv/kvm/vcpu.c     |  3 +--
- arch/x86/kvm/vmx/vmx.c    |  1 -
- arch/x86/kvm/x86.c        |  3 +--
- include/linux/entry-kvm.h | 11 +++--------
- include/linux/kvm_host.h  | 13 ++++++++++++-
- kernel/entry/kvm.c        | 13 +++++--------
- 8 files changed, 24 insertions(+), 26 deletions(-)
+ drivers/hv/Kconfig          |  1 +
+ drivers/hv/mshv_root_main.c | 32 ++++++--------------------------
+ 2 files changed, 7 insertions(+), 26 deletions(-)
 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 888f7c7abf54..418fd3043467 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -6,7 +6,6 @@
- 
- #include <linux/bug.h>
- #include <linux/cpu_pm.h>
--#include <linux/entry-kvm.h>
- #include <linux/errno.h>
- #include <linux/err.h>
- #include <linux/kvm_host.h>
-@@ -1177,7 +1176,7 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- 		/*
- 		 * Check conditions before entering the guest
- 		 */
--		ret = xfer_to_guest_mode_handle_work(vcpu);
-+		ret = kvm_xfer_to_guest_mode_handle_work(vcpu);
- 		if (!ret)
- 			ret = 1;
- 
-diff --git a/arch/loongarch/kvm/vcpu.c b/arch/loongarch/kvm/vcpu.c
-index d1b8c50941ca..514256b25ba1 100644
---- a/arch/loongarch/kvm/vcpu.c
-+++ b/arch/loongarch/kvm/vcpu.c
-@@ -4,7 +4,6 @@
+diff --git a/drivers/hv/Kconfig b/drivers/hv/Kconfig
+index 2e8df09db599..894037afcbf9 100644
+--- a/drivers/hv/Kconfig
++++ b/drivers/hv/Kconfig
+@@ -66,6 +66,7 @@ config MSHV_ROOT
+ 	# no particular order, making it impossible to reassemble larger pages
+ 	depends on PAGE_SIZE_4KB
+ 	select EVENTFD
++	select VIRT_XFER_TO_GUEST_WORK
+ 	default n
+ 	help
+ 	  Select this option to enable support for booting and running as root
+diff --git a/drivers/hv/mshv_root_main.c b/drivers/hv/mshv_root_main.c
+index 0d849f09160a..7c83f656e071 100644
+--- a/drivers/hv/mshv_root_main.c
++++ b/drivers/hv/mshv_root_main.c
+@@ -8,6 +8,7 @@
+  * Authors: Microsoft Linux virtualization team
   */
  
- #include <linux/kvm_host.h>
--#include <linux/entry-kvm.h>
- #include <asm/fpu.h>
- #include <asm/lbt.h>
- #include <asm/loongarch.h>
-@@ -251,7 +250,7 @@ static int kvm_enter_guest_check(struct kvm_vcpu *vcpu)
- 	/*
- 	 * Check conditions before entering the guest
- 	 */
--	ret = xfer_to_guest_mode_handle_work(vcpu);
-+	ret = kvm_xfer_to_guest_mode_handle_work(vcpu);
- 	if (ret < 0)
- 		return ret;
- 
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index f001e56403f9..251e787f2ebc 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -7,7 +7,6 @@
-  */
- 
- #include <linux/bitops.h>
--#include <linux/entry-kvm.h>
- #include <linux/errno.h>
- #include <linux/err.h>
- #include <linux/kdebug.h>
-@@ -910,7 +909,7 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- 	run->exit_reason = KVM_EXIT_UNKNOWN;
- 	while (ret > 0) {
- 		/* Check conditions before entering the guest */
--		ret = xfer_to_guest_mode_handle_work(vcpu);
-+		ret = kvm_xfer_to_guest_mode_handle_work(vcpu);
- 		if (ret)
- 			continue;
- 		ret = 1;
-diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-index aa157fe5b7b3..d7c86613e50a 100644
---- a/arch/x86/kvm/vmx/vmx.c
-+++ b/arch/x86/kvm/vmx/vmx.c
-@@ -28,7 +28,6 @@
- #include <linux/slab.h>
- #include <linux/tboot.h>
- #include <linux/trace_events.h>
--#include <linux/entry-kvm.h>
- 
- #include <asm/apic.h>
- #include <asm/asm.h>
-diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-index a1c49bc681c4..0b13b8bf69e5 100644
---- a/arch/x86/kvm/x86.c
-+++ b/arch/x86/kvm/x86.c
-@@ -59,7 +59,6 @@
- #include <linux/sched/stat.h>
- #include <linux/sched/isolation.h>
- #include <linux/mem_encrypt.h>
--#include <linux/entry-kvm.h>
- #include <linux/suspend.h>
- #include <linux/smp.h>
- 
-@@ -11241,7 +11240,7 @@ static int vcpu_run(struct kvm_vcpu *vcpu)
- 
- 		if (__xfer_to_guest_mode_work_pending()) {
- 			kvm_vcpu_srcu_read_unlock(vcpu);
--			r = xfer_to_guest_mode_handle_work(vcpu);
-+			r = kvm_xfer_to_guest_mode_handle_work(vcpu);
- 			kvm_vcpu_srcu_read_lock(vcpu);
- 			if (r)
- 				return r;
-diff --git a/include/linux/entry-kvm.h b/include/linux/entry-kvm.h
-index 16149f6625e4..3644de7e6019 100644
---- a/include/linux/entry-kvm.h
-+++ b/include/linux/entry-kvm.h
-@@ -21,8 +21,6 @@
- 	 _TIF_NOTIFY_SIGNAL | _TIF_NOTIFY_RESUME |			\
- 	 ARCH_XFER_TO_GUEST_MODE_WORK)
- 
--struct kvm_vcpu;
--
- /**
-  * arch_xfer_to_guest_mode_handle_work - Architecture specific xfer to guest
-  *					 mode work handling function.
-@@ -32,12 +30,10 @@ struct kvm_vcpu;
-  * Invoked from xfer_to_guest_mode_handle_work(). Defaults to NOOP. Can be
-  * replaced by architecture specific code.
-  */
--static inline int arch_xfer_to_guest_mode_handle_work(struct kvm_vcpu *vcpu,
--						      unsigned long ti_work);
-+static inline int arch_xfer_to_guest_mode_handle_work(unsigned long ti_work);
- 
- #ifndef arch_xfer_to_guest_mode_work
--static inline int arch_xfer_to_guest_mode_handle_work(struct kvm_vcpu *vcpu,
--						      unsigned long ti_work)
-+static inline int arch_xfer_to_guest_mode_handle_work(unsigned long ti_work)
- {
- 	return 0;
- }
-@@ -46,11 +42,10 @@ static inline int arch_xfer_to_guest_mode_handle_work(struct kvm_vcpu *vcpu,
- /**
-  * xfer_to_guest_mode_handle_work - Check and handle pending work which needs
-  *				    to be handled before going to guest mode
-- * @vcpu:	Pointer to current's VCPU data
-  *
-  * Returns: 0 or an error code
-  */
--int xfer_to_guest_mode_handle_work(struct kvm_vcpu *vcpu);
-+int xfer_to_guest_mode_handle_work(void);
- 
- /**
-  * xfer_to_guest_mode_prepare - Perform last minute preparation work that
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index 15656b7fba6c..598b9473e46d 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -2,7 +2,7 @@
- #ifndef __KVM_HOST_H
- #define __KVM_HOST_H
- 
--
-+#include <linux/entry-kvm.h>
- #include <linux/types.h>
- #include <linux/hardirq.h>
- #include <linux/list.h>
-@@ -2450,6 +2450,17 @@ static inline void kvm_handle_signal_exit(struct kvm_vcpu *vcpu)
- 	vcpu->run->exit_reason = KVM_EXIT_INTR;
- 	vcpu->stat.signal_exits++;
- }
-+
-+static inline int kvm_xfer_to_guest_mode_handle_work(struct kvm_vcpu *vcpu)
-+{
-+	int r = xfer_to_guest_mode_handle_work();
-+
-+	if (r) {
-+		WARN_ON_ONCE(r != -EINTR);
-+		kvm_handle_signal_exit(vcpu);
-+	}
-+	return r;
-+}
- #endif /* CONFIG_KVM_XFER_TO_GUEST_WORK */
- 
- /*
-diff --git a/kernel/entry/kvm.c b/kernel/entry/kvm.c
-index 8485f63863af..6fc762eaacca 100644
---- a/kernel/entry/kvm.c
-+++ b/kernel/entry/kvm.c
-@@ -1,17 +1,14 @@
- // SPDX-License-Identifier: GPL-2.0
- 
- #include <linux/entry-kvm.h>
--#include <linux/kvm_host.h>
- 
--static int xfer_to_guest_mode_work(struct kvm_vcpu *vcpu, unsigned long ti_work)
-+static int xfer_to_guest_mode_work(unsigned long ti_work)
- {
- 	do {
- 		int ret;
- 
--		if (ti_work & (_TIF_SIGPENDING | _TIF_NOTIFY_SIGNAL)) {
--			kvm_handle_signal_exit(vcpu);
-+		if (ti_work & (_TIF_SIGPENDING | _TIF_NOTIFY_SIGNAL))
- 			return -EINTR;
--		}
- 
- 		if (ti_work & (_TIF_NEED_RESCHED | _TIF_NEED_RESCHED_LAZY))
- 			schedule();
-@@ -19,7 +16,7 @@ static int xfer_to_guest_mode_work(struct kvm_vcpu *vcpu, unsigned long ti_work)
- 		if (ti_work & _TIF_NOTIFY_RESUME)
- 			resume_user_mode_work(NULL);
- 
--		ret = arch_xfer_to_guest_mode_handle_work(vcpu, ti_work);
-+		ret = arch_xfer_to_guest_mode_handle_work(ti_work);
- 		if (ret)
- 			return ret;
- 
-@@ -28,7 +25,7 @@ static int xfer_to_guest_mode_work(struct kvm_vcpu *vcpu, unsigned long ti_work)
++#include <linux/entry-virt.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/fs.h>
+@@ -481,29 +482,6 @@ mshv_vp_wait_for_hv_kick(struct mshv_vp *vp)
  	return 0;
  }
  
--int xfer_to_guest_mode_handle_work(struct kvm_vcpu *vcpu)
-+int xfer_to_guest_mode_handle_work(void)
+-static int mshv_pre_guest_mode_work(struct mshv_vp *vp)
+-{
+-	const ulong work_flags = _TIF_NOTIFY_SIGNAL | _TIF_SIGPENDING |
+-				 _TIF_NEED_RESCHED  | _TIF_NEED_RESCHED_LAZY |
+-				 _TIF_NOTIFY_RESUME;
+-	ulong th_flags;
+-
+-	th_flags = read_thread_flags();
+-	while (th_flags & work_flags) {
+-		int ret;
+-
+-		/* nb: following will call schedule */
+-		ret = mshv_do_pre_guest_mode_work(th_flags);
+-
+-		if (ret)
+-			return ret;
+-
+-		th_flags = read_thread_flags();
+-	}
+-
+-	return 0;
+-}
+-
+ /* Must be called with interrupts enabled */
+ static long mshv_run_vp_with_root_scheduler(struct mshv_vp *vp)
  {
- 	unsigned long ti_work;
+@@ -524,9 +502,11 @@ static long mshv_run_vp_with_root_scheduler(struct mshv_vp *vp)
+ 		u32 flags = 0;
+ 		struct hv_output_dispatch_vp output;
  
-@@ -44,6 +41,6 @@ int xfer_to_guest_mode_handle_work(struct kvm_vcpu *vcpu)
- 	if (!(ti_work & XFER_TO_GUEST_MODE_WORK))
- 		return 0;
+-		ret = mshv_pre_guest_mode_work(vp);
+-		if (ret)
+-			break;
++		if (__xfer_to_guest_mode_work_pending()) {
++			ret = xfer_to_guest_mode_handle_work();
++			if (ret)
++				break;
++		}
  
--	return xfer_to_guest_mode_work(vcpu, ti_work);
-+	return xfer_to_guest_mode_work(ti_work);
- }
- EXPORT_SYMBOL_GPL(xfer_to_guest_mode_handle_work);
+ 		if (vp->run.flags.intercept_suspend)
+ 			flags |= HV_DISPATCH_VP_FLAG_CLEAR_INTERCEPT_SUSPEND;
 -- 
 2.51.0.268.g9569e192d0-goog
 
