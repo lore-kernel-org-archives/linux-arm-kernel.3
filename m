@@ -4,50 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFF5FCA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 19:33:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEE3CC8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 19:36:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hUNMuC5N5IY5Q+K6dDeWLNqBcEpUoABgqaCx/l7JFbs=; b=hD0aiUZ/h8ptOdOCbANp3ZJFSP
-	rh9ArT16Sf4SZqgY+GJ8uN0qsIC9zWnUAibm51DnSLm1jchhhSA2GHr/yeoEvwPmFN5C2l6CdEuok
-	FaK8Bwikzz+4MzjjRoKiuVWrM87dni29eUXCQo6JZzRMuGuw2Gs3KSTddjYSOLXtLNZ4Zhz1o4AyY
-	wbPi6cPEvaGdxQzZiZIi6vO5Fna9Kp/ksYp5Zxft/c/trSaPiNrm5cmDUec1o71v7uK8Nb5Em1r/D
-	UMPzJAsZTGKTPdMO9AsA2Z5myV8IeNKcXAt+7TnxQSEgrPPhHLIXOY9mY83X3iiaLOyKhODCQ9hQV
-	AJk7CJ+A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:References:
+	In-Reply-To:Message-ID:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=3w+R1zOuJPY71/KjLfkxWemnLW1oSrZqC7s9lCEBRtY=; b=Ff8SFbAfYBYddP
+	B0XVaPQsl1qiJRB2Y0rYWfDebLGjuguBb73Gyw9BGPTaTK311ArUvFU3+JJHM/9MuHNh1iOSRmEDi
+	bzWHY9LLygrra7szH3iukNaLnGKn/8nV/G2NlDTKukQ1cWfOXIjCcQWpKjGB/9wSbpJyf6rZy6yTq
+	Exjw1Q4HgnwtRy9w5nbtjOGYEc9RvLNDlUp5xHqPisViVBG4cES6iY7Dn8FBBdX51+pwAs8n3cMuo
+	Lu/AmP91xidpovVSO5XaRHk5NTSkY4E9Sn9f5w6A8sFqdRpurIwBG4hGTcXjFm1S0tnA/eA6oPeoa
+	ZZTBC56zRiSBag9GbbpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uriN5-000000032bq-3Dtt;
-	Thu, 28 Aug 2025 19:33:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uriPn-0000000330J-2J1I;
+	Thu, 28 Aug 2025 19:36:07 +0000
+Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urg83-00000002Mwt-2c5j
+	id 1urgBS-00000002N8R-1Aeb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 17:09:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C7EDA60139;
-	Thu, 28 Aug 2025 17:09:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B923AC4CEEB;
-	Thu, 28 Aug 2025 17:09:36 +0000 (UTC)
-Date: Thu, 28 Aug 2025 18:09:34 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Yang Shi <yang@os.amperecomputing.com>, will@kernel.org,
-	akpm@linux-foundation.org, Miko.Lenczewski@arm.com,
-	dev.jain@arm.com, scott@os.amperecomputing.com, cl@gentwo.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v6 3/4] arm64: mm: support large block mapping when
- rodata=full
-Message-ID: <aLCNTsM-nn6SpfOO@arm.com>
-References: <20250805081350.3854670-1-ryan.roberts@arm.com>
- <20250805081350.3854670-4-ryan.roberts@arm.com>
+	Thu, 28 Aug 2025 17:13:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
+	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=3w+R1zOuJPY71/KjLfkxWemnLW1oSrZqC7s9lCEBRtY=; b=mQpbwAPYB1wWBpiNJnJ3ZURQRE
+	g9G72BFuIZwI3WmiDEtPaj4u0YDZGLQ31Eo2Kv7TzHKJoJLg7xygkX+Tr2FerBdNV5G73iaGTx1Ar
+	iZWNExlCxfCOSs8Fj2HiTADJ5OL8mL/969t6raSzp94ImYL9Bwm6YfX5wWgoRtS5Eu2MGi8yWL8uO
+	IeCZGM58IQO8A2Tz/XKnMRIM77rwwDpxOnDgzGaBU1I8kxnf8cITNdyDYX/p+Lw96tNepoBx6bV7Q
+	LCT3CQXb3/3OmY0VmPerkJ5tw4FvAbuYP3a+TG24osxDVFfkGgyDYtI6l7kJwjpndFmMHFlDRhl5f
+	V9gxXWOw==;
+Received: from [122.175.9.182] (port=8338 helo=zimbra.couthit.local)
+	by server.couthit.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1urgAi-00000006HIe-3TIO;
+	Thu, 28 Aug 2025 13:12:25 -0400
+Received: from zimbra.couthit.local (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTPS id 1C3841781C63;
+	Thu, 28 Aug 2025 22:42:18 +0530 (IST)
+Received: from localhost (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTP id D57421781F94;
+	Thu, 28 Aug 2025 22:42:17 +0530 (IST)
+Received: from zimbra.couthit.local ([127.0.0.1])
+	by localhost (zimbra.couthit.local [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id 33U0h1areI3V; Thu, 28 Aug 2025 22:42:17 +0530 (IST)
+Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
+	by zimbra.couthit.local (Postfix) with ESMTP id 796361781C63;
+	Thu, 28 Aug 2025 22:42:17 +0530 (IST)
+Date: Thu, 28 Aug 2025 22:42:17 +0530 (IST)
+From: Parvathi Pudi <parvathi@couthit.com>
+To: kuba <kuba@kernel.org>
+Message-ID: <1892122434.246137.1756401137255.JavaMail.zimbra@couthit.local>
+In-Reply-To: <20250827090820.12a58d22@kernel.org>
+References: <20250822132758.2771308-1-parvathi@couthit.com> <20250822144023.2772544-5-parvathi@couthit.com> <20250827090820.12a58d22@kernel.org>
+Subject: Re: [PATCH net-next v14 4/5] net: ti: icssm-prueth: Adds link
+ detection, RX and TX support.
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250805081350.3854670-4-ryan.roberts@arm.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.10.10.103]
+X-Mailer: Zimbra 8.8.15_GA_3968 (ZimbraWebClient - GC138 (Linux)/8.8.15_GA_3968)
+Thread-Topic: icssm-prueth: Adds link detection, RX and TX support.
+Thread-Index: 04+NkdyMJsTY7VdcDfyHFa/DcZsalw==
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: smtp@couthit.com
+X-Authenticated-Sender: server.couthit.com: smtp@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250828_101310_340354_0051986B 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,60 +96,48 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: pratheesh <pratheesh@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, praneeth <praneeth@ti.com>, edumazet <edumazet@google.com>, glaroque <glaroque@baylibre.com>, pmohan <pmohan@couthit.com>, diogo ivo <diogo.ivo@siemens.com>, robh <robh@kernel.org>, javier carrasco cruz <javier.carrasco.cruz@gmail.com>, saikrishnag <saikrishnag@marvell.com>, m-karicheri2 <m-karicheri2@ti.com>, Bastien Curutchet <bastien.curutchet@bootlin.com>, mohan <mohan@couthit.com>, jacob e keller <jacob.e.keller@intel.com>, pabeni <pabeni@redhat.com>, s hauer <s.hauer@pengutronix.de>, devicetree <devicetree@vger.kernel.org>, conor+dt <conor+dt@kernel.org>, ALOK TIWARI <alok.a.tiwari@oracle.com>, richardcochran <richardcochran@gmail.com>, johan <johan@kernel.org>, Prajith Jayarajan <prajith@ti.com>, rogerq <rogerq@kernel.org>, basharath <basharath@couthit.com>, ssantosh <ssantosh@kernel.org>, Vadim Fedorenko <vadim.fedorenko@linux.dev>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, rogerq <rogerq@ti.com>, srk <srk@ti.com>, kory maincent <kory.maincent@bootlin.com>, m-malladi <m-malladi@ti.com>, netdev <netdev@vger.kernel.org>, linux-kernel <linux-kernel@vger.kernel.org>, danishanwar <danishanwar@ti.com>, afd <afd@ti.com>, andrew+netdev <andrew+netdev@lunn.ch>, horms <horms@kernel.org>, krishna <krishna@couthit.com>, krzk+dt <krzk+dt@kernel.org>, davem <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 05, 2025 at 09:13:48AM +0100, Ryan Roberts wrote:
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index abd9725796e9..f6cd79287024 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-[...]
-> @@ -640,6 +857,16 @@ static inline void arm64_kfence_map_pool(phys_addr_t kfence_pool, pgd_t *pgdp) {
->  
->  #endif /* CONFIG_KFENCE */
->  
-> +static inline bool force_pte_mapping(void)
-> +{
-> +	bool bbml2 = system_capabilities_finalized() ?
-> +		system_supports_bbml2_noabort() : bbml2_noabort_available();
-> +
-> +	return (!bbml2 && (rodata_full || arm64_kfence_can_set_direct_map() ||
-> +			   is_realm_world())) ||
-> +		debug_pagealloc_enabled();
-> +}
-> +
->  static void __init map_mem(pgd_t *pgdp)
->  {
->  	static const u64 direct_map_end = _PAGE_END(VA_BITS_MIN);
-> @@ -665,7 +892,7 @@ static void __init map_mem(pgd_t *pgdp)
->  
->  	early_kfence_pool = arm64_kfence_alloc_pool();
->  
-> -	if (can_set_direct_map())
-> +	if (force_pte_mapping())
->  		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
->  
->  	/*
-> @@ -1367,7 +1594,7 @@ int arch_add_memory(int nid, u64 start, u64 size,
->  
->  	VM_BUG_ON(!mhp_range_allowed(start, size, true));
->  
-> -	if (can_set_direct_map())
-> +	if (force_pte_mapping())
->  		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
->  
->  	__create_pgd_mapping(swapper_pg_dir, start, __phys_to_virt(start),
+Hi,
 
-Not sure this works in a heterogeneous configuration.
-bbml2_noabort_available() only checks the current/boot CPU which may
-return true but if secondary CPUs don't have the feature, it results in
-system_supports_bbml2_noabort() being false with force_pte_mapping()
-also false in the early map_mem() calls.
+> On Fri, 22 Aug 2025 20:09:16 +0530 Parvathi Pudi wrote:
+>> +	struct net_device_stats *ndevstats;
+> 
+>> +	ndevstats = &emac->ndev->stats;
+> 
+> Please don't use netdev stats, quoting the header:
+> 
+>	struct net_device_stats	stats; /* not used by modern drivers */
+> 
+> Store the counters you need in driver's private struct and implement
+> .ndo_get_stats64
+> 
 
-I don't see a nice solution other than making BBML2 no-abort a boot CPU
-feature.
+sure, we will verify and use the suggested approach.
 
--- 
-Catalin
+>> +	if (!pkt_info->sv_frame) {
+> 
+> sv_frame seems to always be false at this stage?
+> Maybe delete this diff if that's the case, otherwise it feels like
+> the skb_free below should be accompanied by some stat increment.
+> 
+
+Yes, We will remove this for now.
+
+>> +		skb_put(skb, actual_pkt_len);
+>> +
+>> +		/* send packet up the stack */
+>> +		skb->protocol = eth_type_trans(skb, ndev);
+>> +		netif_receive_skb(skb);
+>> +	} else {
+>> +		dev_kfree_skb_any(skb);
+>> +	}
+> 
+> The rest LGTM.
+
+
+Thanks and Regards
+Parvathi.
 
