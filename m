@@ -4,74 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55841CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 17:27:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28C4CCA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 17:27:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Pvtqg8syKHvhF4L1ehNg5dWiQ7Y5/PrSBvpwPCs2Oo=; b=ELBhalAV+M32StcFuOaImwIoNn
-	CRJmOfEXdbjvpekV8pGZ9pHQqi/29nDjRXM09/YKZcbamOpXZbctO1f0Nbq6q2pYLwf4RleXTgnKX
-	DzaJLmuOhy6r8iEUAxWM7OAfrAbOV40oZIBGDLt+qvhLXteqwXt1Woix85DX4dw+BC7Pc8CVt4DWF
-	0nq4YDxR663WIhjZOHBUija/lBLLid5DBOeFaAEjh6sen7opR0J1iiK3AEgOckglwhSqgz5OK/jy1
-	fEmTWoFuTix8akYh1NTxhr1+26wMpj5zLli4Erz8nqq+hyqumncrK4DUQHI9F1O/Q1qtuT2goPO6f
-	1al7B0Jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RPEoUHPTW/F7tpUmhvwZ6N58l0wO0IjTO5I/arnXvk4=; b=khCsQurcNiRvYOYjZrAqtJHkBb
+	T82vYX/4zBs2hZhkFFdiNONVyTif/F/TkVCvPbbOgAVGfgHRszeXtf6ODEafD8WXKw4BLDJikftgb
+	hoiupxttwK+iYoSMU2ALoJHYK3hW4Mt9/uoC6rZ4RSNOUm9pXI7ld3oJzQo+1NbSmBWNsZCqYfE+e
+	J1dsix1XsHsBd3tcC/CB8Ba7DjEtYWfKbmZqFUdxtpYX573mGT25ybZ11sONS1fUo4QV6Xcez3Wo3
+	AkR9KquUUTLvGPcWfLf0jsG3jyv9q65mSfcLYAvbLGyE2JbYLmwjXjcAjefAU7oGjKFcqyxkjAACT
+	/R52rOyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urgPD-00000002UT1-19ps;
-	Thu, 28 Aug 2025 17:27:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urcvp-00000001meS-3uOf
+	id 1urgPf-00000002V6A-1srn;
+	Thu, 28 Aug 2025 17:27:51 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urdFj-00000001qbq-2Bi1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 13:44:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 147011688;
-	Thu, 28 Aug 2025 06:44:40 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9B9523F738;
-	Thu, 28 Aug 2025 06:44:42 -0700 (PDT)
-Message-ID: <17f4507c-c244-42ee-bea0-57ed22e0a05f@arm.com>
-Date: Thu, 28 Aug 2025 14:44:40 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 17/33] arm_mpam: Probe the hardware features resctrl
- supports
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
- devicetree@vger.kernel.org
-Cc: shameerali.kolothum.thodi@huawei.com,
- D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
- Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
- baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
- Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>
-References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-18-james.morse@arm.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20250822153048.2287-18-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_064450_068563_50CABD22 
-X-CRM114-Status: GOOD (  33.52  )
+	Thu, 28 Aug 2025 14:05:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DD3E760097;
+	Thu, 28 Aug 2025 14:05:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85578C4CEEB;
+	Thu, 28 Aug 2025 14:05:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756389922;
+	bh=DyNh/B5mAGR7TnY7MatHO1yPHUOMMK2nagZ3lUWn2fA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=H+zo2fE6t4kb7opwDirCTmZXQYUMxdvDUzaEKmgm8oXo5Y/8fdTsykOW8ssM5iF+D
+	 SmedYJyt043ervcAhMuYbe8ar+hbn7oFmJsq22z8U6+H2RIfzztrWWqTszG4rGAhwd
+	 yzBFfas+iTFaYelbOfN0IK7GUHRM8SskLDVX6yP8Job6MSKqD5TiFWdb6F2XxO3efU
+	 cBZ73/1djxNknr85AEIcZHyRIBxY1ujZEKIWxq8qWu4rl4nsKhy0ixUBGdKbbAefws
+	 T1nGT5HPB82ySUXmGtOvqLzYWC/DG4BL/X1u7pWZyB9bqMLmWOoBvJA9LmUNcviwzi
+	 2fII+8TyG8u0A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1urdFf-00000001H7W-31tP;
+	Thu, 28 Aug 2025 14:05:19 +0000
+Date: Thu, 28 Aug 2025 15:05:19 +0100
+Message-ID: <86a53jee3k.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	nd <nd@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly
+	<Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"will@kernel.org"
+	<will@kernel.org>,
+	"tglx@linutronix.de" <tglx@linutronix.de>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes
+	<Timothy.Hayes@arm.com>
+Subject: Re: [PATCH 1/5] KVM: arm64: Allow ICC_SRE_EL2 accesses on a GICv5 host
+In-Reply-To: <20250828105925.3865158-2-sascha.bischoff@arm.com>
+References: <20250828105925.3865158-1-sascha.bischoff@arm.com>
+	<20250828105925.3865158-2-sascha.bischoff@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, will@kernel.org, tglx@linutronix.de, lpieralisi@kernel.org, Timothy.Hayes@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,308 +98,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
-
-On 8/22/25 16:29, James Morse wrote:
-> Expand the probing support with the control and monitor types
-> we can use with resctrl.
+On Thu, 28 Aug 2025 11:59:42 +0100,
+Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
 > 
-> CC: Dave Martin <Dave.Martin@arm.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> ---
-> Changes since RFC:
->  * Made mpam_ris_hw_probe_hw_nrdy() more in C.
->  * Added static assert on features bitmap size.
-> ---
->  drivers/resctrl/mpam_devices.c  | 156 +++++++++++++++++++++++++++++++-
->  drivers/resctrl/mpam_internal.h |  54 +++++++++++
->  2 files changed, 209 insertions(+), 1 deletion(-)
+> The bet0 release of the GICv5 specification didn't include the
+> ICC_SRE_EL2 register as part of FEAT_GCIE_LEGACY. This was an
+> oversight, and support for this register has been added as of the bet1
+> release of the specification.
 > 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index 012e09e80300..290a04f8654f 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -102,7 +102,7 @@ static LLIST_HEAD(mpam_garbage);
->  
->  static u32 __mpam_read_reg(struct mpam_msc *msc, u16 reg)
->  {
-> -	WARN_ON_ONCE(reg > msc->mapped_hwpage_sz);
-> +	WARN_ON_ONCE(reg + sizeof(u32) > msc->mapped_hwpage_sz);
-Update in the patch that introduced this line.
-
->  	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
->  
->  	return readl_relaxed(msc->mapped_hwpage + reg);
-> @@ -131,6 +131,20 @@ static inline void _mpam_write_partsel_reg(struct mpam_msc *msc, u16 reg, u32 va
->  }
->  #define mpam_write_partsel_reg(msc, reg, val)  _mpam_write_partsel_reg(msc, MPAMCFG_##reg, val)
->  
-> +static inline u32 _mpam_read_monsel_reg(struct mpam_msc *msc, u16 reg)
-> +{
-> +	mpam_mon_sel_lock_held(msc);
-> +	return __mpam_read_reg(msc, reg);
-> +}
-> +#define mpam_read_monsel_reg(msc, reg) _mpam_read_monsel_reg(msc, MSMON_##reg)
-> +
-> +static inline void _mpam_write_monsel_reg(struct mpam_msc *msc, u16 reg, u32 val)
-> +{
-> +	mpam_mon_sel_lock_held(msc);
-> +	__mpam_write_reg(msc, reg, val);
-> +}
-> +#define mpam_write_monsel_reg(msc, reg, val)   _mpam_write_monsel_reg(msc, MSMON_##reg, val)
-> +
->  static u64 mpam_msc_read_idr(struct mpam_msc *msc)
->  {
->  	u64 idr_high = 0, idr_low;
-> @@ -643,6 +657,139 @@ static struct mpam_msc_ris *mpam_get_or_create_ris(struct mpam_msc *msc,
->  	return found;
->  }
->  
-> +/*
-> + * IHI009A.a has this nugget: "If a monitor does not support automatic behaviour
-> + * of NRDY, software can use this bit for any purpose" - so hardware might not
-> + * implement this - but it isn't RES0.
-> + *
-> + * Try and see what values stick in this bit. If we can write either value,
-> + * its probably not implemented by hardware.
-> + */
-> +static bool _mpam_ris_hw_probe_hw_nrdy(struct mpam_msc_ris * ris, u32 mon_reg)
-> +{
-> +	u32 now;
-> +	u64 mon_sel;
-> +	bool can_set, can_clear;
-> +	struct mpam_msc *msc = ris->vmsc->msc;
-> +
-> +	if (WARN_ON_ONCE(!mpam_mon_sel_inner_lock(msc)))
-> +		return false;
-> +
-> +	mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, 0) |
-> +		  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
-> +	_mpam_write_monsel_reg(msc, mon_reg, mon_sel);
-> +
-> +	_mpam_write_monsel_reg(msc, mon_reg, MSMON___NRDY);
-> +	now = _mpam_read_monsel_reg(msc, mon_reg);
-> +	can_set = now & MSMON___NRDY;
-> +
-> +	_mpam_write_monsel_reg(msc, mon_reg, 0);
-> +	now = _mpam_read_monsel_reg(msc, mon_reg);
-> +	can_clear = !(now & MSMON___NRDY);
-> +	mpam_mon_sel_inner_unlock(msc);
-> +
-> +	return (!can_set || !can_clear);
-> +}
-> +
-> +#define mpam_ris_hw_probe_hw_nrdy(_ris, _mon_reg)			\
-> +        _mpam_ris_hw_probe_hw_nrdy(_ris, MSMON_##_mon_reg)
-> +
-> +static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
-> +{
-> +	int err;
-> +	struct mpam_msc *msc = ris->vmsc->msc;
-> +	struct mpam_props *props = &ris->props;
-> +
-> +	lockdep_assert_held(&msc->probe_lock);
-> +	lockdep_assert_held(&msc->part_sel_lock);
-> +
-> +	/* Cache Portion partitioning */
-> +	if (FIELD_GET(MPAMF_IDR_HAS_CPOR_PART, ris->idr)) {
-> +		u32 cpor_features = mpam_read_partsel_reg(msc, CPOR_IDR);
-> +
-> +		props->cpbm_wd = FIELD_GET(MPAMF_CPOR_IDR_CPBM_WD, cpor_features);
-> +		if (props->cpbm_wd)
-> +			mpam_set_feature(mpam_feat_cpor_part, props);
-> +	}
-> +
-> +	/* Memory bandwidth partitioning */
-> +	if (FIELD_GET(MPAMF_IDR_HAS_MBW_PART, ris->idr)) {
-> +		u32 mbw_features = mpam_read_partsel_reg(msc, MBW_IDR);
-> +
-> +		/* portion bitmap resolution */
-> +		props->mbw_pbm_bits = FIELD_GET(MPAMF_MBW_IDR_BWPBM_WD, mbw_features);
-> +		if (props->mbw_pbm_bits &&
-> +		    FIELD_GET(MPAMF_MBW_IDR_HAS_PBM, mbw_features))
-> +			mpam_set_feature(mpam_feat_mbw_part, props);
-> +
-> +		props->bwa_wd = FIELD_GET(MPAMF_MBW_IDR_BWA_WD, mbw_features);
-> +		if (props->bwa_wd && FIELD_GET(MPAMF_MBW_IDR_HAS_MAX, mbw_features))
-> +			mpam_set_feature(mpam_feat_mbw_max, props);
-> +	}
-> +
-> +	/* Performance Monitoring */
-> +	if (FIELD_GET(MPAMF_IDR_HAS_MSMON, ris->idr)) {
-> +		u32 msmon_features = mpam_read_partsel_reg(msc, MSMON_IDR);
-> +
-> +		/*
-> +		 * If the firmware max-nrdy-us property is missing, the
-> +		 * CSU counters can't be used. Should we wait forever?
-> +		 */
-> +		err = device_property_read_u32(&msc->pdev->dev,
-> +					       "arm,not-ready-us",
-> +					       &msc->nrdy_usec);
-> +
-> +		if (FIELD_GET(MPAMF_MSMON_IDR_MSMON_CSU, msmon_features)) {
-> +			u32 csumonidr;
-> +
-> +			csumonidr = mpam_read_partsel_reg(msc, CSUMON_IDR);
-> +			props->num_csu_mon = FIELD_GET(MPAMF_CSUMON_IDR_NUM_MON, csumonidr);
-> +			if (props->num_csu_mon) {
-> +				bool hw_managed;
-> +
-> +				mpam_set_feature(mpam_feat_msmon_csu, props);
-> +
-> +				/* Is NRDY hardware managed? */
-> +				mpam_mon_sel_outer_lock(msc);
-> +				hw_managed = mpam_ris_hw_probe_hw_nrdy(ris, CSU);
-> +				mpam_mon_sel_outer_unlock(msc);
-> +				if (hw_managed)
-> +					mpam_set_feature(mpam_feat_msmon_csu_hw_nrdy, props);
-> +			}
-> +
-> +			/*
-> +			 * Accept the missing firmware property if NRDY appears
-> +			 * un-implemented.
-> +			 */
-> +			if (err && mpam_has_feature(mpam_feat_msmon_csu_hw_nrdy, props))
-> +				pr_err_once("Counters are not usable because not-ready timeout was not provided by firmware.");
-> +		}
-> +		if (FIELD_GET(MPAMF_MSMON_IDR_MSMON_MBWU, msmon_features)) {
-> +			bool hw_managed;
-> +			u32 mbwumonidr = mpam_read_partsel_reg(msc, MBWUMON_IDR);
-> +
-> +			props->num_mbwu_mon = FIELD_GET(MPAMF_MBWUMON_IDR_NUM_MON, mbwumonidr);
-> +			if (props->num_mbwu_mon)
-> +				mpam_set_feature(mpam_feat_msmon_mbwu, props);
-> +
-> +			if (FIELD_GET(MPAMF_MBWUMON_IDR_HAS_RWBW, mbwumonidr))
-> +				mpam_set_feature(mpam_feat_msmon_mbwu_rwbw, props);
-> +
-> +			/* Is NRDY hardware managed? */
-> +			mpam_mon_sel_outer_lock(msc);
-> +			hw_managed = mpam_ris_hw_probe_hw_nrdy(ris, MBWU);
-> +			mpam_mon_sel_outer_unlock(msc);
-> +			if (hw_managed)
-> +				mpam_set_feature(mpam_feat_msmon_mbwu_hw_nrdy, props);
-> +
-> +			/*
-> +			 * Don't warn about any missing firmware property for
-> +			 * MBWU NRDY - it doesn't make any sense!
-> +			 */
-> +		}
-> +	}
-> +}
-> +
->  static int mpam_msc_hw_probe(struct mpam_msc *msc)
->  {
->  	u64 idr;
-> @@ -663,6 +810,7 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
->  
->  	idr = mpam_msc_read_idr(msc);
->  	mutex_unlock(&msc->part_sel_lock);
-> +
->  	msc->ris_max = FIELD_GET(MPAMF_IDR_RIS_MAX, idr);
->  
->  	/* Use these values so partid/pmg always starts with a valid value */
-> @@ -683,6 +831,12 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
->  		ris = mpam_get_or_create_ris(msc, ris_idx);
->  		if (IS_ERR(ris))
->  			return PTR_ERR(ris);
-> +		ris->idr = idr;
-> +
-> +		mutex_lock(&msc->part_sel_lock);
-> +		__mpam_part_sel(ris_idx, 0, msc);
-> +		mpam_ris_hw_probe(ris);
-> +		mutex_unlock(&msc->part_sel_lock);
+> Remove the guarding in the vGICv3 code that skipped the ICC_SRE_EL2
+> accesses for a GICv5 host. As a result of this change, it now becomes
+> possible to use nested virtualisation on a GICv5 host when running
+> legacy GICv3-based VMs.
+> 
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> ---
+>  arch/arm64/kvm/hyp/vgic-v3-sr.c | 27 +++++++--------------------
+>  1 file changed, 7 insertions(+), 20 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/vgic-v3-sr.c b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+> index d81275790e69..7dbfd35a63a8 100644
+> --- a/arch/arm64/kvm/hyp/vgic-v3-sr.c
+> +++ b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+> @@ -296,19 +296,12 @@ void __vgic_v3_activate_traps(struct vgic_v3_cpu_if *cpu_if)
 >  	}
 >  
->  	spin_lock(&partid_max_lock);
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> index c6f087f9fa7d..9f6cd4a68cce 100644
-> --- a/drivers/resctrl/mpam_internal.h
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -136,6 +136,56 @@ static inline void mpam_mon_sel_lock_held(struct mpam_msc *msc)
->  		lockdep_assert_preemption_enabled();
->  }
->  
-> +/*
-> + * When we compact the supported features, we don't care what they are.
-> + * Storing them as a bitmap makes life easy.
-> + */
-> +typedef u16 mpam_features_t;
-> +
-> +/* Bits for mpam_features_t */
-> +enum mpam_device_features {
-> +	mpam_feat_ccap_part = 0,
-> +	mpam_feat_cpor_part,
-> +	mpam_feat_mbw_part,
-> +	mpam_feat_mbw_min,
-> +	mpam_feat_mbw_max,
-> +	mpam_feat_mbw_prop,
-> +	mpam_feat_msmon,
-> +	mpam_feat_msmon_csu,
-> +	mpam_feat_msmon_csu_capture,
-> +	mpam_feat_msmon_csu_hw_nrdy,
-> +	mpam_feat_msmon_mbwu,
-> +	mpam_feat_msmon_mbwu_capture,
-> +	mpam_feat_msmon_mbwu_rwbw,
-> +	mpam_feat_msmon_mbwu_hw_nrdy,
-> +	mpam_feat_msmon_capt,
-> +	MPAM_FEATURE_LAST,
+>  	/*
+> -	 * GICv5 BET0 FEAT_GCIE_LEGACY doesn't include ICC_SRE_EL2. This is due
+> -	 * to be relaxed in a future spec release, at which point this in
+> -	 * condition can be dropped.
+> +	 * Prevent the guest from touching the ICC_SRE_EL1 system
+> +	 * register. Note that this may not have any effect, as
+> +	 * ICC_SRE_EL2.Enable being RAO/WI is a valid implementation.
+>  	 */
+> -	if (!cpus_have_final_cap(ARM64_HAS_GICV5_CPUIF)) {
+> -		/*
+> -		 * Prevent the guest from touching the ICC_SRE_EL1 system
+> -		 * register. Note that this may not have any effect, as
+> -		 * ICC_SRE_EL2.Enable being RAO/WI is a valid implementation.
+> -		 */
+> -		write_gicreg(read_gicreg(ICC_SRE_EL2) & ~ICC_SRE_EL2_ENABLE,
+> -			     ICC_SRE_EL2);
+> -	}
+> +	write_gicreg(read_gicreg(ICC_SRE_EL2) & ~ICC_SRE_EL2_ENABLE,
+> +		     ICC_SRE_EL2);
 
-This isn't all the features or just the features supported by resctrl.
-Just add them all in this patch?
+At some point, it would be great to elide this on systems where
+GICv2-on-v3 doesn't exist, as there is no way for the guest to disable
+the system register view. This would avoid a couple of pointless traps
+on each entry-exit for a nested guest.
 
-> +};
-> +static_assert(BITS_PER_TYPE(mpam_features_t) >= MPAM_FEATURE_LAST);
-> +#define MPAM_ALL_FEATURES      ((1 << MPAM_FEATURE_LAST) - 1)
-Unused?
+>  
+>  	/*
+>  	 * If we need to trap system registers, we must write
+> @@ -329,14 +322,8 @@ void __vgic_v3_deactivate_traps(struct vgic_v3_cpu_if *cpu_if)
+>  		cpu_if->vgic_vmcr = read_gicreg(ICH_VMCR_EL2);
+>  	}
+>  
+> -	/*
+> -	 * Can be dropped in the future when GICv5 spec is relaxed. See comment
+> -	 * above.
+> -	 */
+> -	if (!cpus_have_final_cap(ARM64_HAS_GICV5_CPUIF)) {
+> -		val = read_gicreg(ICC_SRE_EL2);
+> -		write_gicreg(val | ICC_SRE_EL2_ENABLE, ICC_SRE_EL2);
+> -	}
+> +	val = read_gicreg(ICC_SRE_EL2);
+> +	write_gicreg(val | ICC_SRE_EL2_ENABLE, ICC_SRE_EL2);
 
-> +
-> +struct mpam_props {
-> +	mpam_features_t		features;
-> +
-> +	u16			cpbm_wd;
-> +	u16			mbw_pbm_bits;
-> +	u16			bwa_wd;
-> +	u16			num_csu_mon;
-> +	u16			num_mbwu_mon;
-> +};
-> +
-> +static inline bool mpam_has_feature(enum mpam_device_features feat,
-> +				    struct mpam_props *props)
-> +{
-> +	return (1 << feat) & props->features;
-> +}
-> +
-> +static inline void mpam_set_feature(enum mpam_device_features feat,
-> +				    struct mpam_props *props)
-> +{
-> +	props->features |= (1 << feat);
-> +}
-> +
->  struct mpam_class {
->  	/* mpam_components in this class */
->  	struct list_head	components;
-> @@ -175,6 +225,8 @@ struct mpam_vmsc {
->  	/* mpam_msc_ris in this vmsc */
->  	struct list_head	ris;
->  
-> +	struct mpam_props	props;
-> +
->  	/* All RIS in this vMSC are members of this MSC */
->  	struct mpam_msc		*msc;
->  
-> @@ -186,6 +238,8 @@ struct mpam_vmsc {
->  
->  struct mpam_msc_ris {
->  	u8			ris_idx;
-> +	u64			idr;
-> +	struct mpam_props	props;
->  
->  	cpumask_t		affinity;
->  
+Same here. That's two back-to-back traps for values that cannot
+realistically change on non-v2-compat systems (i.e. relatively modern
+machines).
+
+No need to respin for that, but I may end-up posting a follow-up to
+clean this up.
 
 Thanks,
 
-Ben
+	M.
 
+-- 
+Without deviation from the norm, progress is not possible.
 
