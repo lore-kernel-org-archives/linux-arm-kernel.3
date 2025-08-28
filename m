@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4A0ACA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 17:24:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D62B7CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 17:24:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JH0s9yKloivepHo0VkuQk79EV0GNYwLeAdz+CShJbJE=; b=F5DZN6wsA34Hi90ObS8PQuP69c
-	hr594asRNn20HeYKhwLuV11N5mQ/+UhDhBvukdGOLUss72dPZ7wPr3H/dCq790ow3jfdFoDMXQ2gL
-	uneA4Kueq92czaK1qMGvjReosIGQwYxLyNH2pAU+AdHv6wQmVOwxyW/tkQkMiEaEyAUcm5J+6xfq0
-	jHQeZIS275m+scwl8yzhKDO2porndpfWKw65hvRgASLqInYH0mg1IZA6/eaDCVvWk711OFOQ7MyHh
-	kxc7NS1SLZt0zE8GM5IUb5mCwU2FXqhNeBbsgwBF273CnY7J/P0suGQiRy1JSh3o0K/2x6dzk1A4w
-	lR5bPJIg==;
+	bh=tWFHeWBB2Z1DVoBR2DS7ksl09YtGQ2DsVW2EAUl813A=; b=jqf+RyagmMlXRpIG4bTOBM0/Bo
+	ZWgiEQYyO4snvJxDnJ0pF/4+rLrs2X6Qry6OSfo+z2sDUOLLem7+3+VgzYq2iZ27Hu18WmnbAmV7B
+	5syxTH3lt9yo9zw0aTzBb/OzJKg2MBk1yzbKnUJq7nJYN0OPYZHt/9BlqgqWpvg/IOiB+SVGUEFQE
+	RtTNYnQHZUEU0tAM/bV3Zibpl5IAjJ5yxSwhzYPce5PKyutKOl7TUI6GHq1CaP4kodoypIgiB7qWp
+	PAygAglNYxVwrxBvMBwWHqAfrTgRXo0wgRKZqpdg28t1Tf7Tz0+4008KahlwtQ5WJiMmDDVZ3Ti9B
+	IDE2p8jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urgM6-00000002QdE-35M9;
-	Thu, 28 Aug 2025 17:24:10 +0000
+	id 1urgM8-00000002Qg4-3l4X;
+	Thu, 28 Aug 2025 17:24:12 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urbSo-00000001T80-3vAE
+	id 1urbSv-00000001T9L-3VQ0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 12:10:48 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57S6Be94030242
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 12:10:46 GMT
+	Thu, 28 Aug 2025 12:10:55 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57S5VqxM015944
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 12:10:53 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	JH0s9yKloivepHo0VkuQk79EV0GNYwLeAdz+CShJbJE=; b=YFL6eLAnQBNb+9ji
-	gr8NtTF3af7ZhnHWqNHsuqr6nH0oARxi4/mF0MLythSKjNyUY0JY3FUlU0iiRZ5Y
-	UHo8IbeddO+J0HbiQ2wxQXbWXFvX11dYQ4n2cSGXZ8b37k1M68mrGoL7KHKr7O0o
-	LMMWhUHzh9wINrtNTnbw/7xDK7ENia3z+DWC9oxCKY4BJodnYKsvqdpDjDMX6Zqb
-	E5u+0qtkfggWm+j+/NBQ9m3Rrci0MFVu6Vg4C4Rrp3/92SxWahU9xTF7XiGx18xm
-	TUihd40F15zf7/aX7a9UOR9BW33l0k5qEdannLyTfTQy1qCrdYqFNLPLsUJp1eIz
-	Hg0tiA==
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48q5unyyk8-1
+	tWFHeWBB2Z1DVoBR2DS7ksl09YtGQ2DsVW2EAUl813A=; b=ceoSp/Fp9vgYXEnd
+	SdujOuKjRJYYH/R3AtzwKZc52D251SeEICqLQSv/FB8rm/YPTfi2ZuGG9KlkMW6R
+	Lk47LN6Z9spDvtEgshwf1jpqwsFb+79j73mvMp+nLBmCDo+6y2abC7USZPRGM+rR
+	n4Z32GTiiGdaM3zWk4bO2UQ6u6wXudreJdPMUkl2m83tPe5rK7CRc7MkP6WK/OOo
+	t29uyEGWzt0Y+uIXOd+s1dclzVtVeEVoPw7l3Co+XyglLpS5YbDglzgxfix0t9Ag
+	FgGSHvlLKX3RGt2nKDLNFyZRN3yN+5jlGDCEWQeHFO909/SpaBeeWnYfTVHZer1P
+	aqWghQ==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48rtpf2dtu-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 12:10:45 +0000 (GMT)
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-3235e45b815so1088601a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 05:10:45 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 12:10:52 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-24636484391so11384345ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 05:10:52 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756383045; x=1756987845;
+        d=1e100.net; s=20230601; t=1756383052; x=1756987852;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=JH0s9yKloivepHo0VkuQk79EV0GNYwLeAdz+CShJbJE=;
-        b=lpMOWMrmy6AXapVEtC4MuX9mK5yKvnkNP5p+ZXMnheCycpETVq9QU0XL2ZlWpEAie3
-         W/cCXWKmrkgL/e4MIqZM07kWgNBXLH/MDBDsl/MTBmC/E2YSki9HqFx1kct/LhZ8Kt0k
-         q8UsQ9pkPRCqClF5xi9Ap2NzQTy/ye9qkaFabNHYWWGY2VAqAWq4dDhvjfKaQIDff5dO
-         sb2/9rbNxRLk8mnxOnPteGVIzO8wZRDzVRqEwvjoO1JHZDGiK1sq2egJpAZVWYdSUkc/
-         S06e8FNziMdZ5YvoSRncyVxDtYhBIW45It6b3yGdicJ/vzKAYmyPAHh6d39mnY5SMUJh
-         m5sw==
-X-Forwarded-Encrypted: i=1; AJvYcCVHjWb7F02G/mRsYfGAk9SZHsv2xQZBgztlAx4BOa65qgsOolbDJdKLwHp98SMzE7xe3/CGsg8aQLKTFctKoCzY@lists.infradead.org
-X-Gm-Message-State: AOJu0YzB1+VsYLNPMOraFcY4mjXbu8z9Vx3HoH0W2UK7vfKaf+o3YMS6
-	p9QKVDlh5H4cwhOi/FETvJrjIXD9QH05DJMgm8GuOO6eVGddPzE1VOF+uTS7SNjW90G5ENeRHWl
-	tFtUmkXgQC9ZTp3uBvgfrtfgOQhX25cdtRyMSQf6xxwnq5ukk5T71EGcfQO9t+DgAwSRd55GVCj
-	jMeQ==
-X-Gm-Gg: ASbGnctu6nZ/o+h4ajAE8Z5T5Lu7hORfo6jIroRE9qSoU8DCLczVZQEBkh5AoZHOBzJ
-	zCl8rDxzfcLuBML9z9NbnhqQcRG7SNVEDyvf1RUnX33QXH0xO3+AvAopnPvohDo/GT6q1/5ctY0
-	95nkSoZv0lGDqGRkQc9ssSH/sCFB5yrIv8dTv/Lw65usgD/J472kAskS12ww/K42doUBUyLiGTC
-	uFVVrAtbGh2hssAwu/0On1L8mFrxMvj1QMzXXqltgHYs2FjxAnGUHTBZtubxJb8FxbD7jcGC4tw
-	R6aAUiOCAuDMuW2c54uCqDPHNLhxHg0GbXMWvNrqrTRRuPUf66anNn0ChVZKkEsuytbynu2USRM
+        bh=tWFHeWBB2Z1DVoBR2DS7ksl09YtGQ2DsVW2EAUl813A=;
+        b=JGDkry3cEcDZ9a07ahFOKzJoBwsXyNo8wIJXeegLN/2vuq0tJ1/vQ2x5pNXsAgfZ4o
+         p1Q4K1ArTbULKFiPTbTyc6ochhLDYZA/MZbAPIW4v26rR/ivI+KK3Sb4LImIuBAETTdC
+         83n+AMXVen2fuydxketHCSCTr3DfcK1mJzJJY5weenzYzwD7r9xgl9ogOvxnpOBD9Sm+
+         4vqI6ugHOFJh5p7v72RzU4259nZeCTJlbKM5JXNhDH5YyTwZB3pEA34q7VFW4KnSyQTV
+         AfM8Gwi3C+h8VIK9b31f+vcsQA2g4M75McJieV2qjgiSmhn1bDkxTw+809kGKR/ecFPp
+         jeBA==
+X-Forwarded-Encrypted: i=1; AJvYcCUvH8BshJoDwJrJqg7EhiI9HzWBGzLTg/Vh3a2MivQ8Pfisgb9vEkD60CBsRWxGiAtlHmXzo+hOQ7OPLzKyPIUr@lists.infradead.org
+X-Gm-Message-State: AOJu0YypSt8H0HxAjuXxDHPSOXxkdWedMEiPiMLz4iP7EHGeXBwYH1ml
+	/t1s4adFhVjnMXdESd+fOD/Q4gAzXP+/tvSLw7UkY6Gngl1u3Q8pCchh6ikLRMjLSeMPupXbfX8
+	Aa0utMf/9MyjGXgR1mdCOgHmZVtJZKuIKcPE10/ID6TkqAkibv4T0geVbeG1WMPS7IyqFnsleYt
+	0iqQ==
+X-Gm-Gg: ASbGncul/S5Bvq3BrBVyaD4IXjkvY/D1qbmR/y6v+hes+fSxEjUBHMokWxpRHpDpwef
+	riRornE8HnmH7BojB7F0yiSS3RZNajdM9WrJR1EbCKo9LQoa5lDUfiup8Q/8zzaRRt0fRV8yuEh
+	nRmG90AsUYD0GBYyA/GatuZc6QqlHB6iBzOb14fFMtq0j10KMt3lSoxMCHe/igg+Dw2actU/WMf
+	uz66oUIEoyqMf1ij7epkcFmEdM1I6S/b/jw0BUMGlV0Oldff/yMXHJuHVFyD8bpZZAJbgoAKqIZ
+	erTqmjcn/TfT+ETjb+n0eqkTKYTPmt0LyVvIFejqQrx527IvX5c+unDzgYW7/n3tvgsf8WnhSjI
 	=
-X-Received: by 2002:a17:90b:3f87:b0:325:55cd:9fd2 with SMTP id 98e67ed59e1d1-32555cda0a5mr25083451a91.20.1756383044326;
-        Thu, 28 Aug 2025 05:10:44 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHh+FZuvrtHdatmZz9NFDOZX4EQHu2edGUNAKaj+LzwOmKyiYcPAJDdxI13V2Rm1b4wPERPWw==
-X-Received: by 2002:a17:90b:3f87:b0:325:55cd:9fd2 with SMTP id 98e67ed59e1d1-32555cda0a5mr25083377a91.20.1756383043588;
-        Thu, 28 Aug 2025 05:10:43 -0700 (PDT)
+X-Received: by 2002:a17:903:388e:b0:23f:e51b:2189 with SMTP id d9443c01a7336-2462ee4579cmr306306395ad.17.1756383051566;
+        Thu, 28 Aug 2025 05:10:51 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGd0NBJm7wYUW87oKHBUWxZFqtYLB2Viy/kWKLH/ZpGsIecptUNfwMGjJrdNd7WqDcbo+qxjw==
+X-Received: by 2002:a17:903:388e:b0:23f:e51b:2189 with SMTP id d9443c01a7336-2462ee4579cmr306305605ad.17.1756383050865;
+        Thu, 28 Aug 2025 05:10:50 -0700 (PDT)
 Received: from hu-krichai-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32741503367sm4019070a91.0.2025.08.28.05.10.37
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32741503367sm4019070a91.0.2025.08.28.05.10.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Aug 2025 05:10:43 -0700 (PDT)
+        Thu, 28 Aug 2025 05:10:50 -0700 (PDT)
 From: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Date: Thu, 28 Aug 2025 17:39:03 +0530
-Subject: [PATCH v6 6/9] PCI: qcom: Add support for host_stop_link() &
- host_start_link()
+Date: Thu, 28 Aug 2025 17:39:04 +0530
+Subject: [PATCH v6 7/9] PCI: Add pcie_link_is_active() to determine if the
+ link is active
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250828-qps615_v4_1-v6-6-985f90a7dd03@oss.qualcomm.com>
+Message-Id: <20250828-qps615_v4_1-v6-7-985f90a7dd03@oss.qualcomm.com>
 References: <20250828-qps615_v4_1-v6-0-985f90a7dd03@oss.qualcomm.com>
 In-Reply-To: <20250828-qps615_v4_1-v6-0-985f90a7dd03@oss.qualcomm.com>
 To: Bjorn Helgaas <bhelgaas@google.com>,
@@ -109,39 +109,42 @@ Cc: quic_vbadigan@quicnic.com, amitk@kernel.org, linux-pci@vger.kernel.org,
         linux-arm-msm@vger.kernel.org, jorge.ramirez@oss.qualcomm.com,
         linux-arm-kernel@lists.infradead.org,
         Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Shawn Anastasio <sanastasio@raptorengineering.com>,
+        Timothy Pearson <tpearson@raptorengineering.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756382994; l=2834;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1756382994; l=6997;
  i=krishna.chundru@oss.qualcomm.com; s=20230907; h=from:subject:message-id;
- bh=JLQioafU2Ha99tn/qTONrjpmtaS25D1YyPb7oDSQVMk=;
- b=3DLBa9Wbs2xtxAeBnSSZORHDlNgEkMWEmLEKsGR45JfGAYrdxo+fhjGG2bBtb8588SB4Y5YZO
- 4i8Je/MeHLkDoxHV9YbpJJiY9H4K1KT7rOrj+Eb0UGwJkdPegzEFR43
+ bh=9GiN2/tUl02eHBu5x+pmqTOtPVE1/FNwqyLaaSoZu1w=;
+ b=7p67LiPjVWlf+ukePQQtECRvT7Hd+sOl/Q4ApcZA69A7MFauJiAm0LrZbq5yW50wMgpaXUdMB
+ 6spcJ8FbmB+BUEBtMyO+c5jGWzToR9VHc/hL1lDssvnPl9w6ZtEGfBm
 X-Developer-Key: i=krishna.chundru@oss.qualcomm.com; a=ed25519;
  pk=10CL2pdAKFyzyOHbfSWHCD0X0my7CXxj8gJScmn1FAg=
-X-Proofpoint-GUID: Z6Iksi7yeKNT6xi6hS6AnYwfyW9UqYdK
-X-Proofpoint-ORIG-GUID: Z6Iksi7yeKNT6xi6hS6AnYwfyW9UqYdK
-X-Authority-Analysis: v=2.4 cv=JJo7s9Kb c=1 sm=1 tr=0 ts=68b04746 cx=c_pps
- a=vVfyC5vLCtgYJKYeQD43oA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=EUspDBNiAAAA:8 a=dstPO7x8LWyc_yWpthkA:9
- a=QEXdDO2ut3YA:10 a=rl5im9kqc5Lf4LNbBjHf:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDAzMSBTYWx0ZWRfXxHVBEcuGtZVY
- NInPcGqacs+KExA0eTFYKYoRwIFoVI+TpbrTdrYT4Ma3tDoA2yC69fPtwivGOEB3XL2aH/F24GE
- 9XPIuqJJxtHLsab9YpgruNPM5QmlyE82zzPakOZcTkEB3IF89GzxV7h93BzfKlYv2T0lSWCHQfZ
- AU2d+V1m3Es43z05m5vstAUm0cl8NpOEoyg/LPZjGeJ/ve9+3wrYr8VBsxeIXohK8M44y+Fs6zr
- 1ZvkHbXQHQNHLu4elas9IO4YTWLfkS0yLaZdbU0Q4YKHHYoeSK42IjV6itsuWKz+bVl/Rrsw6+g
- sNdv7bOQpe4ZyAyeY/8NL1Zq6CGNHV669h33QxAjYOUBlfekcy68wBCdq2UVkz4+1rD72PpeprO
- 9uIrCwW5
+X-Proofpoint-GUID: vO5V__AP8AvMQfseQyoT5uYwnZgqdVVU
+X-Proofpoint-ORIG-GUID: vO5V__AP8AvMQfseQyoT5uYwnZgqdVVU
+X-Authority-Analysis: v=2.4 cv=Hd8UTjE8 c=1 sm=1 tr=0 ts=68b0474d cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=DLE-xEQoUa54y48t:21 a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=EUspDBNiAAAA:8
+ a=_AprYWD3AAAA:8 a=c8k0nbeVto6RhVnl1UYA:9 a=QEXdDO2ut3YA:10
+ a=uG9DUKGECoFWVXl0Dc02:22 a=fKH2wJO7VO9AkD4yHysb:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODI1MDE0MiBTYWx0ZWRfX/2khfH9RU8da
+ q0g6la6xb8ayIW7CEjStpgS1Bjqk1v/HqIQKCrFiQA/AGepxLUEw2kVTCL/goTdBoAAolM8MvHP
+ xL28HGVBi511sgsCN86gvN5i84hc95bPEvo8Gr3fIom6IrEy9Z1aq0HY92LuFm8jjQn5oQshh4t
+ ZjKKKnoB4tgVbby7FN3H7J098SaunoN8y5nvL2+1Zy6WZVrkC7RxM4N4hNs0h2lVTxRu5nsMViT
+ ES99OutAFvp68flwM90Xy6P7uOId6UhaIfBnSY+aQ2KgUxBtGCZhTVaVwBusZhmzk3/oUjj+Htl
+ 9sVTEg8C/as27O5Qk/U1NG2OZPhGB2XXItOKp9h6bpfTwO3IbYkVgXBYaZUQzlHpZDla/3kOa89
+ l0N98Bey
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-08-28_03,2025-08-28_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 adultscore=0 bulkscore=0 spamscore=0 impostorscore=0
- malwarescore=0 clxscore=1015 priorityscore=1501 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508230031
+ priorityscore=1501 malwarescore=0 suspectscore=0 phishscore=0 bulkscore=0
+ adultscore=0 clxscore=1011 impostorscore=0 spamscore=0 classifier=typeunknown
+ authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2507300000 definitions=main-2508250142
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_051047_102203_2D9F4070 
-X-CRM114-Status: GOOD (  16.45  )
+X-CRM114-CacheID: sfid-20250828_051054_005318_E3414879 
+X-CRM114-Status: GOOD (  27.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,89 +159,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for host_stop_link() and host_start_link() for switches like
-TC956x, which require configuration before the PCIe link is established.
-
-Assert PERST# and disable LTSSM bit to prevent the PCIe controller from
-participating in link training during host_stop_link(). De-assert PERST#
-and enable LTSSM bit during host_start_link().
-
-Introduce ltssm_disable function op to stop link training.
-For the switches like TC956x, which needs to configure it before
-the PCIe link is established.
+Add pcie_link_is_active() a common API to check if the PCIe link is active,
+replacing duplicate code in multiple locations.
 
 Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+Signed-off-by: Shawn Anastasio <sanastasio@raptorengineering.com>
+Signed-off-by: Timothy Pearson <tpearson@raptorengineering.com>
 ---
- drivers/pci/controller/dwc/pcie-qcom.c | 35 ++++++++++++++++++++++++++++++++++
- 1 file changed, 35 insertions(+)
+Posting this patch again as part of my series as I have dependency with
+this patch.
+---
+ drivers/pci/hotplug/pciehp.h      |  1 -
+ drivers/pci/hotplug/pciehp_ctrl.c |  2 +-
+ drivers/pci/hotplug/pciehp_hpc.c  | 35 ++++-------------------------------
+ drivers/pci/pci.c                 | 28 +++++++++++++++++++++++++---
+ drivers/pci/pci.h                 |  1 +
+ 5 files changed, 31 insertions(+), 36 deletions(-)
 
-diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
-index 294babe1816e4d0c2b2343fe22d89af72afcd6cd..8ec76fbc0787ae305e9c63eb82fbc999d197a123 100644
---- a/drivers/pci/controller/dwc/pcie-qcom.c
-+++ b/drivers/pci/controller/dwc/pcie-qcom.c
-@@ -250,6 +250,7 @@ struct qcom_pcie_ops {
- 	void (*host_post_init)(struct qcom_pcie *pcie);
- 	void (*deinit)(struct qcom_pcie *pcie);
- 	void (*ltssm_enable)(struct qcom_pcie *pcie);
-+	void (*ltssm_disable)(struct qcom_pcie *pcie);
- 	int (*config_sid)(struct qcom_pcie *pcie);
- };
+diff --git a/drivers/pci/hotplug/pciehp.h b/drivers/pci/hotplug/pciehp.h
+index debc79b0adfb2c8e06aabb765e1741572685100b..79df49cc99463829f563db1dc8014a51ccfac0af 100644
+--- a/drivers/pci/hotplug/pciehp.h
++++ b/drivers/pci/hotplug/pciehp.h
+@@ -186,7 +186,6 @@ int pciehp_query_power_fault(struct controller *ctrl);
+ int pciehp_card_present(struct controller *ctrl);
+ int pciehp_card_present_or_link_active(struct controller *ctrl);
+ int pciehp_check_link_status(struct controller *ctrl);
+-int pciehp_check_link_active(struct controller *ctrl);
+ bool pciehp_device_replaced(struct controller *ctrl);
+ void pciehp_release_ctrl(struct controller *ctrl);
  
-@@ -642,6 +643,37 @@ static int qcom_pcie_post_init_1_0_0(struct qcom_pcie *pcie)
- 	return 0;
+diff --git a/drivers/pci/hotplug/pciehp_ctrl.c b/drivers/pci/hotplug/pciehp_ctrl.c
+index bcc938d4420f3ddb301c1ec6b0bce0d7f9541658..6cc1b27b3b11a77678c24e464fbc61541a0bfa38 100644
+--- a/drivers/pci/hotplug/pciehp_ctrl.c
++++ b/drivers/pci/hotplug/pciehp_ctrl.c
+@@ -260,7 +260,7 @@ void pciehp_handle_presence_or_link_change(struct controller *ctrl, u32 events)
+ 	/* Turn the slot on if it's occupied or link is up */
+ 	mutex_lock(&ctrl->state_lock);
+ 	present = pciehp_card_present(ctrl);
+-	link_active = pciehp_check_link_active(ctrl);
++	link_active = pcie_link_is_active(ctrl->pcie->port);
+ 	if (present <= 0 && link_active <= 0) {
+ 		if (ctrl->state == BLINKINGON_STATE) {
+ 			ctrl->state = OFF_STATE;
+diff --git a/drivers/pci/hotplug/pciehp_hpc.c b/drivers/pci/hotplug/pciehp_hpc.c
+index bcc51b26d03d53ef7cb22b8e5868aa25b5ceedaa..2905ae7c9bbf7f9f656ec21ecd2e6bf9f7b5be47 100644
+--- a/drivers/pci/hotplug/pciehp_hpc.c
++++ b/drivers/pci/hotplug/pciehp_hpc.c
+@@ -221,33 +221,6 @@ static void pcie_write_cmd_nowait(struct controller *ctrl, u16 cmd, u16 mask)
+ 	pcie_do_write_cmd(ctrl, cmd, mask, false);
  }
  
-+static int qcom_pcie_host_start_link(struct dw_pcie *pci)
-+{
-+	struct qcom_pcie *pcie = to_qcom_pcie(pci);
-+
-+	qcom_ep_reset_deassert(pcie);
-+
-+	if (pcie->cfg->ops->ltssm_enable)
-+		pcie->cfg->ops->ltssm_enable(pcie);
-+
-+	return 0;
-+}
-+
-+static void qcom_pcie_host_stop_link(struct dw_pcie *pci)
-+{
-+	struct qcom_pcie *pcie = to_qcom_pcie(pci);
-+
-+	qcom_ep_reset_assert(pcie);
-+
-+	if (pcie->cfg->ops->ltssm_disable)
-+		pcie->cfg->ops->ltssm_disable(pcie);
-+}
-+
-+static void qcom_pcie_2_3_2_ltssm_disable(struct qcom_pcie *pcie)
-+{
-+	u32 val;
-+
-+	val = readl(pcie->parf + PARF_LTSSM);
-+	val &= ~LTSSM_EN;
-+	writel(val, pcie->parf + PARF_LTSSM);
-+}
-+
- static void qcom_pcie_2_3_2_ltssm_enable(struct qcom_pcie *pcie)
+-/**
+- * pciehp_check_link_active() - Is the link active
+- * @ctrl: PCIe hotplug controller
+- *
+- * Check whether the downstream link is currently active. Note it is
+- * possible that the card is removed immediately after this so the
+- * caller may need to take it into account.
+- *
+- * If the hotplug controller itself is not available anymore returns
+- * %-ENODEV.
+- */
+-int pciehp_check_link_active(struct controller *ctrl)
+-{
+-	struct pci_dev *pdev = ctrl_dev(ctrl);
+-	u16 lnk_status;
+-	int ret;
+-
+-	ret = pcie_capability_read_word(pdev, PCI_EXP_LNKSTA, &lnk_status);
+-	if (ret == PCIBIOS_DEVICE_NOT_FOUND || PCI_POSSIBLE_ERROR(lnk_status))
+-		return -ENODEV;
+-
+-	ret = !!(lnk_status & PCI_EXP_LNKSTA_DLLLA);
+-	ctrl_dbg(ctrl, "%s: lnk_status = %x\n", __func__, lnk_status);
+-
+-	return ret;
+-}
+-
+ static bool pci_bus_check_dev(struct pci_bus *bus, int devfn)
  {
- 	u32 val;
-@@ -1435,6 +1467,7 @@ static const struct qcom_pcie_ops ops_1_9_0 = {
- 	.host_post_init = qcom_pcie_host_post_init_2_7_0,
- 	.deinit = qcom_pcie_deinit_2_7_0,
- 	.ltssm_enable = qcom_pcie_2_3_2_ltssm_enable,
-+	.ltssm_disable = qcom_pcie_2_3_2_ltssm_disable,
- 	.config_sid = qcom_pcie_config_sid_1_9_0,
- };
+ 	u32 l;
+@@ -467,7 +440,7 @@ int pciehp_card_present_or_link_active(struct controller *ctrl)
+ 	if (ret)
+ 		return ret;
  
-@@ -1506,6 +1539,8 @@ static const struct qcom_pcie_cfg cfg_fw_managed = {
- static const struct dw_pcie_ops dw_pcie_ops = {
- 	.link_up = qcom_pcie_link_up,
- 	.start_link = qcom_pcie_start_link,
-+	.host_start_link = qcom_pcie_host_start_link,
-+	.host_stop_link = qcom_pcie_host_stop_link,
- };
+-	return pciehp_check_link_active(ctrl);
++	return pcie_link_is_active(ctrl_dev(ctrl));
+ }
  
- static int qcom_pcie_icc_init(struct qcom_pcie *pcie)
+ int pciehp_query_power_fault(struct controller *ctrl)
+@@ -614,8 +587,8 @@ static void pciehp_ignore_link_change(struct controller *ctrl,
+ 	 * Synthesize it to ensure that it is acted on.
+ 	 */
+ 	down_read_nested(&ctrl->reset_lock, ctrl->depth);
+-	if (!pciehp_check_link_active(ctrl) || pciehp_device_replaced(ctrl))
+-		pciehp_request(ctrl, ignored_events);
++	if (!pcie_link_is_active(ctrl_dev(ctrl)) || pciehp_device_replaced(ctrl))
++		pciehp_request(ctrl, PCI_EXP_SLTSTA_DLLSC);
+ 	up_read(&ctrl->reset_lock);
+ }
+ 
+@@ -921,7 +894,7 @@ int pciehp_slot_reset(struct pcie_device *dev)
+ 	pcie_capability_write_word(dev->port, PCI_EXP_SLTSTA,
+ 				   PCI_EXP_SLTSTA_DLLSC);
+ 
+-	if (!pciehp_check_link_active(ctrl))
++	if (!pcie_link_is_active(ctrl_dev(ctrl)))
+ 		pciehp_request(ctrl, PCI_EXP_SLTSTA_DLLSC);
+ 
+ 	return 0;
+diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
+index b0f4d98036cddddd88e2011da09aa6719b738651..50b53fc4092ccb6df2dc801b76f70f9df08447de 100644
+--- a/drivers/pci/pci.c
++++ b/drivers/pci/pci.c
+@@ -4919,7 +4919,6 @@ int pci_bridge_wait_for_secondary_bus(struct pci_dev *dev, char *reset_type)
+ 		return 0;
+ 
+ 	if (pcie_get_speed_cap(dev) <= PCIE_SPEED_5_0GT) {
+-		u16 status;
+ 
+ 		pci_dbg(dev, "waiting %d ms for downstream link\n", delay);
+ 		msleep(delay);
+@@ -4935,8 +4934,7 @@ int pci_bridge_wait_for_secondary_bus(struct pci_dev *dev, char *reset_type)
+ 		if (!dev->link_active_reporting)
+ 			return -ENOTTY;
+ 
+-		pcie_capability_read_word(dev, PCI_EXP_LNKSTA, &status);
+-		if (!(status & PCI_EXP_LNKSTA_DLLLA))
++		if (pcie_link_is_active(dev) <= 0)
+ 			return -ENOTTY;
+ 
+ 		return pci_dev_wait(child, reset_type,
+@@ -6241,6 +6239,30 @@ void pcie_print_link_status(struct pci_dev *dev)
+ }
+ EXPORT_SYMBOL(pcie_print_link_status);
+ 
++/**
++ * pcie_link_is_active() - Checks if the link is active or not
++ * @pdev: PCI device to query
++ *
++ * Check whether the downstream link is currently active. Note it is
++ * possible that the card is removed immediately after this so the
++ * caller may need to take it into account.
++ *
++ * Return: true if link is active, or -ENODEV if the config read fails.
++ */
++int pcie_link_is_active(struct pci_dev *pdev)
++{
++	u16 lnk_status;
++	int ret;
++
++	ret = pcie_capability_read_word(pdev, PCI_EXP_LNKSTA, &lnk_status);
++	if (ret == PCIBIOS_DEVICE_NOT_FOUND || PCI_POSSIBLE_ERROR(lnk_status))
++		return -ENODEV;
++
++	pci_dbg(pdev, "lnk_status = %#06x\n", lnk_status);
++	return !!(lnk_status & PCI_EXP_LNKSTA_DLLLA);
++}
++EXPORT_SYMBOL(pcie_link_is_active);
++
+ /**
+  * pci_select_bars - Make BAR mask from the type of resource
+  * @dev: the PCI device for which BAR mask is made
+diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
+index 34f65d69662e9f61f0c489ec58de2ce17d21c0c6..5368a27f3a208ce95d39752459f1029beea2fcca 100644
+--- a/drivers/pci/pci.h
++++ b/drivers/pci/pci.h
+@@ -228,6 +228,7 @@ static inline int pci_proc_detach_bus(struct pci_bus *bus) { return 0; }
+ /* Functions for PCI Hotplug drivers to use */
+ int pci_hp_add_bridge(struct pci_dev *dev);
+ bool pci_hp_spurious_link_change(struct pci_dev *pdev);
++int pcie_link_is_active(struct pci_dev *dev);
+ 
+ #if defined(CONFIG_SYSFS) && defined(HAVE_PCI_LEGACY)
+ void pci_create_legacy_files(struct pci_bus *bus);
 
 -- 
 2.34.1
