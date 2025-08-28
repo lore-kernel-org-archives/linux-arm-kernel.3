@@ -4,97 +4,263 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8236ECA0FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 01:11:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AA01CA0FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 01:11:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8HPaW6RU4iCmnankjCaedpur2XP8Ivp7Piq/1BRzh9U=; b=gk/BZG/ZY0oRElepKjk7ho/dtk
-	q8YIi/1HdNvEVt+ris6zuNwJ2Nz7nK42+gn6IyYq3FM+tJ/IzdaFSftWCZtMgKwOM6Lv4Q1zI/eQ4
-	ZdNolc3cpUQF4VoGxpadUpKShe7b3z0onqjOs9TjNusrfQ/eswBD2GxX2lOaY4r+V+60T8dVsuNWa
-	RZGD6uo81Il3Hyom4gatztb9aOs6X/pc+kJaRO94h70XtxsodFu//OhMZEOM7ybrh55dX57DV/+gB
-	WcolGqCReftjyBM6G74Pssqvl8zS0Z0KVIp1P9HfLfLFoytrJMTm5TZxjhv7ZmyU2LTQID+xSPyL4
-	Cx3c1vew==;
+	bh=l97dzugPHlT2IOiy/iCft48ZckOZRAivC6YLFHGqZog=; b=hBUSA7X6wKq0f0E0MvF9w7d90R
+	hfbGDVTihFUk1qbT+SYzrjje4J9waX8n8KCEEg+uHljIrFQHwl/mXcgbdkpWSOIwvrJ8idm6NO7db
+	JRQykGT+L6E3wQW8i/gTfE0ziH5sjdCOU9v1xILU/TByJkYHdgFwQJbQMM72C1D4xCg1386FCe4LA
+	4Uf2+x4Jj/dRdn8Y/plEaaochd8vnmUURmnOSyUeQOuGxyd4NumSEioFt74HGHdlu/gGVyelXTFFB
+	rxrBlgycltVMBbSHFgCT4qBnGDYjEj86ERZMAubA2HtZcHP9ELI2EUs9nMfLiPAIdP/xo1THsF9rN
+	0o1kkcWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urneR-00000003yKb-2hHL;
-	Fri, 29 Aug 2025 01:11:35 +0000
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	id 1urneU-00000003yOu-2WSi;
+	Fri, 29 Aug 2025 01:11:38 +0000
+Received: from mx0a-00230701.pphosted.com ([148.163.156.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urkyB-00000003U9G-1Umu
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 22:19:48 +0000
-Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-b482fd89b0eso1256455a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 15:19:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756419586; x=1757024386; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=8HPaW6RU4iCmnankjCaedpur2XP8Ivp7Piq/1BRzh9U=;
-        b=jOGGwiIgTDw/2PcLEL3arf7v2+V5PPaUs0jWLdzg0aS4GeF59V8mw50pdt9rN1mALi
-         0ZLU3jmi3Tb/wmBtfPSjxrovXTAk4dnwTMb9OvmjV9jkEp8B9W7dV7T1xCrJ1y/GdC2F
-         FDC8iW4mAzDSBwXW5CcDfxeZ0fzfDzxF9WEC4eus8/u+qCTDDbSu2C59F5G909TjTC/Z
-         YD3iwDakllIZSDyXVEBkIusZdftHDkp+fX/IU6hQF3mB9RG8nD2087aBJZVvKANKRwTu
-         GqC1aA/h+ymwZqXKgl6R0BwD8BhDWQvVcOzKe9L5Ohv2O2IWLj0SeQf07L16x2kX77nE
-         e9rg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756419586; x=1757024386;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8HPaW6RU4iCmnankjCaedpur2XP8Ivp7Piq/1BRzh9U=;
-        b=TttOcyfZjpXSm/r8bJ0iVTj+uYPW4Ekhiv+RRE7t/Ya+yj7JneeCqRCds4kj1kd3qa
-         ME+Hkp9AlTsbeeTE6Biud8tJRjuU1yzx+gxvIz+uwPjRoM0i2ChzFOcxfZiCbd+sxEM+
-         go5pUHE5fMCp+u3z5NHYLcVbFgjEKj7ojgjUG0+rgM/tQE5wmCzGrwscmmdDSMAt4iH/
-         9wknBopQU9x9AxDni18uvWt1c9UqzfKF8VjfSEKNgHHt4EHHVu4BY22XdULKbGSaP+i7
-         BOUISaXHLyI+IfzYocNGEY1g2ND8Og8Z26vv+qzs/teGMIsSoy6HdODzlyExge+n8ipk
-         JPjw==
-X-Forwarded-Encrypted: i=1; AJvYcCV3EHbkvCqNQqeWmNauO18p38rZ1Y+5Eu4yOYjxzFT7vyAaa23rI560cXaCv0+nM0qIX/uraVcSvAYhCqgZ3eGM@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZ+fCoZa9WKihCdkjMmgpCNNFICE7l9k/LrgJmZWpSiaWUcj/R
-	Yp4Te43biVL0TguSFywYCtsnyEzXwMMGELTiIQey6WGPwyuqp5H6BHfZ
-X-Gm-Gg: ASbGnctyB4KH1eLX7wAL+qlFFee/ZEoR0g6dj0fYpK56J+2qSSLTLaxawwcl38+yO4s
-	lB/kiLruBnz9/AkhLqvrWczawnT+3X9YnVI8Ojk/gjY2f0ejfvhV/y09gx7xi7fzzBtiIALzmNj
-	I1FbeCVg0dAno5kEOnSlaVG9cx4kfVU0bajSMquRdlgVE0dccUEK9PrrUbkZtWSDy3OVJ5x2NyF
-	YxXuz4EDxFANs9IP5u3h/Q504SOacjEhGwWA4xw9oMYjxkTr4BvnA+LsFbs3YlsMjmpBEO2Ia2Z
-	aQ4xu6j/1fwO6AOdSAdDUK+qkN+5jhiENNDqx8j2fAmj+JHSbJUARKZLUhx9F6ATFMoIZHNLzM3
-	rHqjiCdTwIWdcsFUeQy8t1JaDfL70J23c5aNp1Fxrj6htlA==
-X-Google-Smtp-Source: AGHT+IEGFZ4UDorN609Gb6R77LxzBJ8Win5+noW9UcU72XIbpnXa4dkrRACID13foY34tx2FJu6wMA==
-X-Received: by 2002:a17:902:e5c5:b0:248:ef1f:bbbe with SMTP id d9443c01a7336-248ef1fbf53mr39129085ad.0.1756419586061;
-        Thu, 28 Aug 2025 15:19:46 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-249066e042asm5390145ad.146.2025.08.28.15.19.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Aug 2025 15:19:45 -0700 (PDT)
-Date: Thu, 28 Aug 2025 15:19:44 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: James Calligeros <jcalligeros99@gmail.com>
-Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Neal Gompa <neal@gompa.dev>, Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Jean Delvare <jdelvare@suse.com>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org,
-	linux-hwmon@vger.kernel.org, linux-input@vger.kernel.org
-Subject: Re: [PATCH v2 05/11] hwmon: Add Apple Silicon SMC hwmon driver
-Message-ID: <e077b9af-62b4-45c7-b348-a9c64e47b7e7@roeck-us.net>
-References: <20250827-macsmc-subdevs-v2-0-ce5e99d54c28@gmail.com>
- <20250827-macsmc-subdevs-v2-5-ce5e99d54c28@gmail.com>
+	id 1urlhi-00000003Zdt-2dN9;
+	Thu, 28 Aug 2025 23:06:51 +0000
+Received: from pps.filterd (m0297266.ppops.net [127.0.0.1])
+	by mx0a-00230701.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57SJNZSo019959;
+	Thu, 28 Aug 2025 16:06:21 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=synopsys.com; h=
+	cc:content-id:content-transfer-encoding:content-type:date:from
+	:in-reply-to:message-id:mime-version:references:subject:to; s=
+	pfptdkimsnps; bh=l97dzugPHlT2IOiy/iCft48ZckOZRAivC6YLFHGqZog=; b=
+	qk8ON0hFXuLfkdfOUXA4f5e0DHRmPdwGWawQQu/osByElHkEIi4yLV181IEZfecP
+	gyRh0xWrbwvazQ77IpSsoKFEg9YRojwXZSDdUxnmFkGosUQv0WGvUSP3+Tacedy6
+	uNAWQS40RZudNlN12vBuk8M3fcvqY62cf8Oec4rmAR/j/3yi1/8xH19hDhLugOv0
+	rNIIyrPlXrhjQWuLQ+XS3TA0dEC7/rzmdre2raBBKvf3Y1rkZFTnbo+5LWjE1MOl
+	o2aAloHNZRleU39Q2Nw1dwgoDzAg1mgDN/2k3u8wGKJuA1o4c5avYa9D0Kd8+Nsm
+	997Pmgn9YdcatJfGQb5eZQ==
+Received: from smtprelay-out1.synopsys.com (smtprelay-out1.synopsys.com [149.117.87.133])
+	by mx0a-00230701.pphosted.com (PPS) with ESMTPS id 48rpxspfwh-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 28 Aug 2025 16:06:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=synopsys.com; s=mail;
+	t=1756422380; bh=l97dzugPHlT2IOiy/iCft48ZckOZRAivC6YLFHGqZog=;
+	h=From:To:CC:Subject:Date:References:In-Reply-To:From;
+	b=fMguAEwKgq0avys27/IekP/tCkYdKrWacTsxV1zL+W6b8QSU9h6QADtpN7NRqc+lC
+	 SyaAiDlgOFpaSfdrM8Fbg/+pII/CzNa8PrUtGpeMHwD2s8+oXcVtSCX8TeFwoiziQd
+	 vJlkivk+ECdDuHl0Vh9sd3I4KJ5OZjOa39CJ+J6wak3YQZS7gYNWNQ7bNmUaR5IAZw
+	 QpuETEbuMsCyJ15iqjXK4lSk1Vty/v/beJegTrXlkKqJMAY91dsWf4/85FYHXdl2ci
+	 IbOhDsuuMTquRyraofwwLu+mcpUmIp+AlD1ImwXGOTSvP+AnHDxwzxGP50LJf+++fx
+	 f3SXRy5q3j9YQ==
+Received: from mailhost.synopsys.com (us03-mailhost1.synopsys.com [10.4.17.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits)
+	 client-signature RSA-PSS (2048 bits))
+	(Client CN "mailhost.synopsys.com", Issuer "SNPSica2" (verified OK))
+	by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id D45FF40725;
+	Thu, 28 Aug 2025 23:06:13 +0000 (UTC)
+Received: from o365relay-in.synopsys.com (sv2-o365relay3.synopsys.com [10.202.1.139])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits)
+	 client-signature RSA-PSS (2048 bits))
+	(Client CN "o365relay-in.synopsys.com", Issuer "Entrust Certification Authority - L1K" (not verified))
+	by mailhost.synopsys.com (Postfix) with ESMTPS id D63FAA0070;
+	Thu, 28 Aug 2025 23:06:12 +0000 (UTC)
+Authentication-Results: o365relay-in.synopsys.com; dmarc=pass (p=reject dis=none) header.from=synopsys.com
+Authentication-Results: o365relay-in.synopsys.com; spf=pass smtp.mailfrom=synopsys.com
+Authentication-Results: o365relay-in.synopsys.com;
+	dkim=pass (1024-bit key; unprotected) header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=selector1 header.b=uiwrUMFW;
+	dkim-atps=neutral
+Received: from NAM12-MW2-obe.outbound.protection.outlook.com (mail-mw2nam12lp2040.outbound.protection.outlook.com [104.47.66.40])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-384) server-signature RSA-PSS (2048 bits) server-digest SHA256
+	 client-signature RSA-PSS (2048 bits) client-digest SHA256)
+	(Client CN "mail.protection.outlook.com", Issuer "DigiCert Cloud Services CA-1" (verified OK))
+	by o365relay-in.synopsys.com (Postfix) with ESMTPS id 0199540143;
+	Thu, 28 Aug 2025 23:06:10 +0000 (UTC)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=G4sBh+tlMVij8E+DccF/F+JwRCBBCWAXkyHK5le7wpopAYFTD2uT7bAKLFl9FWjybItLm3bh+U3YQwbUKYPMujVSfCZ8uMfg5vJKFBN6aLFrnb1pLutzgmIH1DAR6PM5CCGRxe58p96nKvbIkMibmHXGSeSw3IyNbBwS8UTTKnHgrlA02EbVst/RJSMC/FsLob5WIarK0bc/SmiR/P8+lN+odqV9ojEO6YPzp3+jN03EqjBO0y1B9KIjfetGxNInL3byBG+LiivPekbUalr1ymsnC/J8dBBSpqQFjBgO8p1DW5/dkxCSbqhLj61ekYDsiFiTMIMwkK9tyqdtZN1L7w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=l97dzugPHlT2IOiy/iCft48ZckOZRAivC6YLFHGqZog=;
+ b=kpaJ7rl6J3baEsXeltKVlptF0NZM0AoJdh8JWR8ansmp151BfzgihEi/iQH7ozSehfo8s/fGcmCM3sMN+HHX7e7dWa5nzLbLvk2jVRBerhocNQo/58YGgvyUxQjXs+BeSbYY6YZTUFHjr5LDS0kLvAIfZSZPWvSURjbg4uF86x1t677S5AEemlncgMh8DmcAU4qaWH4oFIA+6SG4G6bSQeQdRSQ+FVXT1LnyD3NFD07ky9iFEa5ATZ/eWhaAd95l8pRtO94/Fz4iug6CkRDYup8j341w9IezOblyeOYqR3svA6YMcHJEgD0oxy16OFGxyigXAfGdLw1Ujj0ArbuN0A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=synopsys.com; dmarc=pass action=none header.from=synopsys.com;
+ dkim=pass header.d=synopsys.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=synopsys.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=l97dzugPHlT2IOiy/iCft48ZckOZRAivC6YLFHGqZog=;
+ b=uiwrUMFWv0/rC9Dy/ELfAiXqDNUom21UMYhsbhlMK657FFt4sW3YTnvFsvU5tatX7b+/af3cmQAeUwc8Fz6WVCuy/a/4siArFQ5UiRn/sB9uwzi146vzzNjH4aVDrZe6xoC2eJMAqt94qkFCneDSrHf+bAF9ieZv+3X5efqDYAM=
+Received: from LV2PR12MB5990.namprd12.prod.outlook.com (2603:10b6:408:170::16)
+ by IA1PR12MB6257.namprd12.prod.outlook.com (2603:10b6:208:3e7::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.20; Thu, 28 Aug
+ 2025 23:06:03 +0000
+Received: from LV2PR12MB5990.namprd12.prod.outlook.com
+ ([fe80::3d09:f15f:d888:33a8]) by LV2PR12MB5990.namprd12.prod.outlook.com
+ ([fe80::3d09:f15f:d888:33a8%3]) with mapi id 15.20.9052.019; Thu, 28 Aug 2025
+ 23:06:03 +0000
+X-SNPS-Relay: synopsys.com
+From: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+To: Sven Peter <sven@kernel.org>
+CC: Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Felipe Balbi <balbi@kernel.org>,
+        Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+        Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>,
+        Kishon Vijay Abraham I <kishon@kernel.org>,
+        Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+        "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        "asahi@lists.linux.dev" <asahi@lists.linux.dev>,
+        "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+        "linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>
+Subject: Re: [PATCH RFC 05/22] usb: dwc3: apple: Do not use host-vbus-glitches
+ workaround
+Thread-Topic: [PATCH RFC 05/22] usb: dwc3: apple: Do not use
+ host-vbus-glitches workaround
+Thread-Index: AQHcErHluSS416vmfUq2Vd/rskyBMbRtsIEAgAJwBYCACJq3AA==
+Date: Thu, 28 Aug 2025 23:06:02 +0000
+Message-ID: <20250828230558.euvmnbgij46kqkeb@synopsys.com>
+References: <20250821-atcphy-6-17-v1-0-172beda182b8@kernel.org>
+ <20250821-atcphy-6-17-v1-5-172beda182b8@kernel.org>
+ <20250821222842.fqrxjp56czc7ubok@synopsys.com>
+ <c052860b-c239-43a6-b05d-c8495bc1c731@kernel.org>
+In-Reply-To: <c052860b-c239-43a6-b05d-c8495bc1c731@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: LV2PR12MB5990:EE_|IA1PR12MB6257:EE_
+x-ms-office365-filtering-correlation-id: b2a5a82d-a40b-4028-fbf0-08dde68775fd
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|7416014|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?MTVYakJWVlk0ckppU0NSQjhpTnVkWHRoK2c5Wi81NHRDVjQyOFAzYVIzUU9S?=
+ =?utf-8?B?T2dhdS80ZlEyUWtkZ3B5dWoxSDh1Wk5pSWJRZGFUZno3YlJyV1FvTFNrWWtz?=
+ =?utf-8?B?M2xwMXlPZ09udlowaVM2ZENWNHVWYnc5OTk3OGNPeVVkK0FEMDl4SVVQQ1RU?=
+ =?utf-8?B?ck80VklJaS8yNU12SVhnNDltVGI5SGZvWGx1ZFlPeFRqRU5XKzQ1OFZNc3A3?=
+ =?utf-8?B?Qmc3UHQvUUlaM1JIeUNET3Z1MEsvRXNQeG0yZDdWanhHYUFmRUVqbzgyT1Y4?=
+ =?utf-8?B?RWY0YXVQNyt4bXhMeUJLdnB5S1VvQUNYY2FLYzBKNXRVMmh5NkQwcE42cVp4?=
+ =?utf-8?B?KzNyK1lxWW1aajZsRzFHcGNSSWhFN3ZNTGZsMi82KzdZTjlabitBWklZTkc5?=
+ =?utf-8?B?Tm9Va1RWdjBYVG9Rc212amhuM1AwaHVrSWg2K1ExMTZsY3ZFbnNMZ082SWlF?=
+ =?utf-8?B?aDRFb1BjMmNJZDJ2TVBNSUlBQkU2TXlXRXlMc2x0QThQTEVsTEFaVjNHb1dG?=
+ =?utf-8?B?aFBjcXVMWlhhV290WWltY2p0RUJjN29MMHJGbm5vdkkvbTNyTGM5N0JhY3dN?=
+ =?utf-8?B?Nkx0dzMrZDdaWEg2SURSNGRBN2swNkZMZ0RHcnNndVZCUTRMY01QV24ySUJ4?=
+ =?utf-8?B?TUpJcjdLdkNJdmVyakRPeklES21zYzRhVHk5VEROanM3OE9MTmI1TzFPVmxZ?=
+ =?utf-8?B?RE5Bczc2NmNDeGJ6V200Vm5ScjVRK0c5RS9yM2hnQ1gwRnFEK201R0kvMmlP?=
+ =?utf-8?B?ZFpNMWptU1FMQ1krcDIwSEk4MXlVSDJjeDk5dXFZMEJDMGhLaGtwcDNiTHMy?=
+ =?utf-8?B?Q0kyYWc1R2pnQ0VtMmJsNkRZTEhlVFg4d3NMUDdZb3pobW1VUXlyNm9VQ01R?=
+ =?utf-8?B?V1hWQkUrQUJQc2U3c0VHbGRRNm9TOVRmZkZGNEdmSzlCOEtJcHhTWUlxVHJi?=
+ =?utf-8?B?bDkycng4V1QxQVNOQ3A3T2dNY3VQSnhZRVdmKzVRdVJldnVUZ2RKN0FVeUJF?=
+ =?utf-8?B?RFFWc2N6SjdIRnlmblp0SkNJd2U2RDFraEZFRTBFcTljcFBNbkVuYVZBUzZu?=
+ =?utf-8?B?TExzQ0NOOE1JN0U3UGYwY2M0RE5mSUVyeGJ5ZlJlOFVEWGRRODBuZis4T3JT?=
+ =?utf-8?B?K2tIR2VYTGkxd0ZCVW1mYTVTcXg2MTBUTG9INzJWOG14cGNlOW0zam5tM3Fq?=
+ =?utf-8?B?emZYKzJuMlVYckRmMG1ValB4MVdNc2gxUkhEeFcyWFpJSjQ1MVVqdDN4Zlh5?=
+ =?utf-8?B?endrbUFUMVNLRElTOGs2SWlPWWFpbVZWUEtJRnBUU2pSUE9saDRSUUV5aGRn?=
+ =?utf-8?B?bEdRZU5MVUMxK25SWUtyRVZOWUNhL3JvV2I2TnE2dVhLNjNqeTljcUhOZ2Nt?=
+ =?utf-8?B?bGtzaFBGdEhmT2JtQmp2U3JVblY0NFdublFIU25VZVZ4b2FqaFRINUFJL0p4?=
+ =?utf-8?B?SXRQR09lSW45Y3lmeUFSSzVrTzdvYXJmbHdSZW5YcmJnaUY5eVd1T0hxY1V3?=
+ =?utf-8?B?RmRveVVPVjRwdUxpTWU1RkFvdjdLdlV1OFVGc29ZdEN3SGlqd3NybkNJR3lp?=
+ =?utf-8?B?SlgwWmpTYTRUaXJjNEdFMXJua3puRVpsdldhZ2xyV2NXcWFJYytUVWozTmFG?=
+ =?utf-8?B?TDBlNEhDU3FCMmpIU3lXK3RIK1pWeUlyeDIwWk9aR3NpYStUeHF4MHRBMWR5?=
+ =?utf-8?B?Q2oxUUxwc0pHLzZ0TlMybTB6WFdoSTRzTndhL0FLeHMyNFlWNzgybDhlUFBX?=
+ =?utf-8?B?MHNCYWhzT1dsM01WQjNFOEVFTmhLeUZTaDdNdmZVOXNzZmZnandyaVF6VUU4?=
+ =?utf-8?B?RGF0L29EemtCbzhic0RydUJEMUc1cHgzUGRBWFord05qMEw0cXRtYUhKUWM5?=
+ =?utf-8?B?Y2tRYkhIUHdUZXQzT3lBSnZxWVo1V0hBQXFBOTk4SW11ZytkSWZXdisvZVlB?=
+ =?utf-8?B?R0pmZ3RrVEFwQnh1VnUrM2xSSlpvMmg1S0JXN3pBWHdrdm00a25SenExcmti?=
+ =?utf-8?B?TTkvaURFUWdnPT0=?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV2PR12MB5990.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7416014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?RTNmaUVGaCt6WWhQSlNUTjYzSUFZeFpaTERkSXpXOVQ4ejF1LzJ6djhSblZO?=
+ =?utf-8?B?RHBPazRXdUZyOTMwaDBlaDMrS1FFTW1ZTm5neWRWRVB6K2hrRU1OTUNtMzh1?=
+ =?utf-8?B?aTRROFViNkFEUW1pRzltQjZuTitsVjlGc3h3aWRYT1h5YlhPM2s5RU11V2to?=
+ =?utf-8?B?cjV1SEtaY0l0d28rejNxZHc4TVlucUVUU1FFcEVzQ1NKYjJFcjJjeHg0WlFi?=
+ =?utf-8?B?RDR3cm05QkNzSHFGWWVGaUV1Q1JXV2pFK1NYYTNwb0g5Qms1QXpnc0RGTEdC?=
+ =?utf-8?B?MUtIaUg1WXNjWFA2MzYxREdQMDcwTGpRL2NTR3FGVktMYnZvbTJNNGhIVGhJ?=
+ =?utf-8?B?VnZOUFpZNnNsRlN6Y0FOaDJVY1FmL1BLU2RlcWM4L3JMY1V2dExhaXdBbElV?=
+ =?utf-8?B?YURlNHdpVGxNRXJnbFJPazF3akZoaGNXZHlpeTRka25jQnFFdFRoMGZSU2x1?=
+ =?utf-8?B?UW9QMnk2bnRLSE1tbTV0Tzk1L2t3Z1FHbHQrem8rOEVBNFdsTGZ0QkpQWEZB?=
+ =?utf-8?B?TkpYS2xIQ3NsNURXZ1E5K0t5d3hyRUlpdnVWdVVRRzVjZUJib01kUGRGblFG?=
+ =?utf-8?B?eVFjUjRTSmQxSEFNeTV6UU9BdVptN3lVcWJkbmxsaFk2NXVTbHNqc2g4NTRX?=
+ =?utf-8?B?Smt3OXpnUlRaeURoMURVc3dzRndYSzZBSkcvRXdEWCtsRjE1Yy9nVHhQbkZt?=
+ =?utf-8?B?cFBQanVRV0wxYzEzMlgyTU1IVXRXNVBmOUN2dUpnSzVrbExLUWRySEd6eEI2?=
+ =?utf-8?B?d3FkcFN1N2RTckk4aXBoT1dGVDVjTy9nQ09WNDRzRksydVAwUFRrRUtWMTJG?=
+ =?utf-8?B?UU8wejZEczYvb0VVNUJCSXc2UHUwemhQNkFqUzZpaWpHVko4MWptUTBoQ2lI?=
+ =?utf-8?B?N0IwdEpDbVZwSHNCL2I4MUY2SzRtaUpHRzE4WVM4YzZqM1QwL3dYRFNoWnpS?=
+ =?utf-8?B?Wit5Z2FtbTZ6b0E0T0tWZjhUYzlDTTRLelNrQ29uRXRNeEExOFVwck10Yno0?=
+ =?utf-8?B?VmtPVy9jZG81Ky9zNElRL0ZiWUNJR1g5NnR6MXNNMHh5Y1kxa2o1THNUUHJz?=
+ =?utf-8?B?amcvOEsyMFMwZHNBQTd4alRaR3hPcEdoeDhBNjlCbmw1Vkk0SzV1UnVSVFV3?=
+ =?utf-8?B?bHk5UmxUdVZxK2VmaW13MEFHcFYvdDM5THhHWEpDZEdXaGZYeXd4bVc4bC9R?=
+ =?utf-8?B?aUJ3ZllqYU5uSnhHYjN6M1FJcXkwZ3NadWtVQmtuRjFCVEJiZStNM04rWlht?=
+ =?utf-8?B?US80ZTFtTUtNSUpoTzVhc1dkck80YUNBaGxpby9JTW9YeDlhQThNc05IRVkx?=
+ =?utf-8?B?ekhaZW5UcDBON1FBM2hOZTRSRDBBbVYxeU5ablMvcWlBeFFpemtVUGkwME9S?=
+ =?utf-8?B?VXU5MnN5OXVqZ2hrZ2tPaXhRZUV4bUV4VUZPdFBmNDcyc3RWeXdDNlRPZFJP?=
+ =?utf-8?B?ajJpYTNhTDVuUUw3eFJsN2FiQmVqVEhJbkZ0Mnc3K0tYSERXWXkxN1NqcjMr?=
+ =?utf-8?B?L05SK2hZbjdEaXJsR29PM1RNdTJaenJZbXF3ZitCdFVuVFFzSWRrRjRCakdy?=
+ =?utf-8?B?N2JzQnRkNThVK1VNR1l3NTdwOVNtYVNEc2FqeUsxelFTVzdOaTdoZC9UYWEw?=
+ =?utf-8?B?SEFPTjQ4emI4Z0dxUUE2SFEyTE1uc05OTDl3RVZ5Qk1tY29NZ1RNU1NSTS9q?=
+ =?utf-8?B?VXAycGJCUW5ZeXdxZnRQU2I0SmhLZHlFNE80dkIxcW1wZWQzVWNNdDUvSU5i?=
+ =?utf-8?B?RmRFanA3Y1VTdWg1OE1zUTNnQiszTDlETkF4ME5GMnhxNElVYlZldVpuc2Qr?=
+ =?utf-8?B?bzQwRis5cEduNlJJdGpGK3QwVEZTc29ZQ3JIcExsb0RUbkRhMTZqUG9QamxN?=
+ =?utf-8?B?QjlZbGNmMGxDYm5Hd3pUM1RBUHVJcXdDeEhzVktlNWVXZzBrZnZCMlRqWWdC?=
+ =?utf-8?B?bzBSb29nYzdGZng2cVF3M0NnZ3Z5UFZ3MEZEbmdYK3g3SUJnNk94ZGpaUC91?=
+ =?utf-8?B?NWJhM1lzbXpIYjE5dWdTYS9NblRyRWUvT0tPczFMeGFzbEp2UVJkZGNCNE5i?=
+ =?utf-8?B?aDNDcHpEc2haaWN2Q1NBRXlnKzVZc1haZTdwR1UyQUEwRUtmTkRMRjY4QTNW?=
+ =?utf-8?Q?FjAnNDY5VYhKvmII76vUx/3TB?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <F7C1151D7898824291DC610A6EA46529@namprd12.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250827-macsmc-subdevs-v2-5-ce5e99d54c28@gmail.com>
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: NLXFufReoOryHZAHGe6QZl/fBni2za2PcpP7MR+7CmkFcreu9iky6I5Bgk5+m1zfYJwYYtX1lWigcM3Kai13rUd5vW0ShNt4nJWzVRuD6E67opOIJbZQU9GYoz3bc49dpPQqsL0o1B8RhjomSodYQteGlhixEzi6isG7oV9ph1x9rt+V0LpnrSRPyAagwWm2rAaezxDFhwxNm287ez72AGRyX1I/2oD1//Ccbkr8zHNwWiHgVQ6VpSaJMqjDnQ/2993/Eq8x1csqgLpQHVK/QjbISoUdyS5q4c+qGZm1pDm9yJdNgbtpb7t8i83ILHWyATkHiRZFkpS6PNiME/8g/n77h5hXZCTM7lV1ixAYUYPYaV6nf+lAwO1H1DOR5zlUUcLtHPVPsSJAFuE6R+Aefy/3wLSchm1pkd+BPPiPSR6xoZtYrBPg8aQbPWtNviiyT8JTCEFNbETX1w7gCAhT4VKmc7Zg1jRN+KpGpO41dwr5/tCde4WJJ5s41rM8rUkD1Wehwa6cTNDfkyo80SRKGnd2YCan7xaQSGaXYtW/a9y0BM+TeginYuIdI5qICO4JMdMzCz3DNLJognsQ+nIXMUg0YR/LHY2OpI60tDaXo5pWtcqanoo0l5oo2oih1uaiVopKVFtr/QQ4KdAW2ihAHA==
+X-OriginatorOrg: synopsys.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: LV2PR12MB5990.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b2a5a82d-a40b-4028-fbf0-08dde68775fd
+X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Aug 2025 23:06:03.0719
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: c33c9f88-1eb7-4099-9700-16013fd9e8aa
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: WW5SkrE/JiL3l1xB8Gcq65Trsf4iegQJHOJtX0Zn5xNmvDH3s0FhX7ggk6cuMx5HO0EwCh1Z1+daxGsh3Ir9nA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6257
+X-Proofpoint-GUID: IP2db65sc0coPjfiH9PgqQWXlbe5tVsY
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODI1MDEwMiBTYWx0ZWRfX/3YRYIVY9hQ+
+ oiu764QAdsVJGya6YdzrcgRg4tl0DWCCS76zZK1kUXC7z5jA7H8osf4AOTn38KoWVxmglWyKfK6
+ p9Q3TjwD0UHQQ7+kpLUL0iUjKtKxfC6UbaeaPgtnF2AOpM9uQnfSs28jUUoHAdixGJ4GSw4Me4U
+ d31MzW09LzQW+PFogqRon9KAqf1x5dr/V4Glho4Lo9wZjRUKE/uqzOrrNrh5x8PIeHUCY/a0JxC
+ 9fvCcEl/uZSf4d57cmN2A4O7SE8LHxpsFqNgoZwMEUZg1RjLG+4zPW4O6fz+CvLwPzV++pTrp1s
+ 9zH+nRME2xDdlPAoGcuO65mpsKwXGj3/SsktRnNhcZ1D/h4TU26CTlDsGOoR/L6vDOzjesFfYey
+ /LrK+ySY
+X-Authority-Analysis: v=2.4 cv=aLTwqa9m c=1 sm=1 tr=0 ts=68b0e0ed cx=c_pps
+ a=t4gDRyhI9k+KZ5gXRQysFQ==:117 a=t4gDRyhI9k+KZ5gXRQysFQ==:17
+ a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19
+ a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19
+ a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=qPHU084jO2kA:10
+ a=dOLNmq4gAAAA:8 a=8dWM4PO68dpLbA8M5icA:9 a=QEXdDO2ut3YA:10
+ a=_m6CO-mWuQdSFutSHjXj:22
+X-Proofpoint-ORIG-GUID: IP2db65sc0coPjfiH9PgqQWXlbe5tVsY
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-28_04,2025-08-28_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_active_cloned_notspam
+ policy=outbound_active_cloned score=0 priorityscore=1501 malwarescore=0
+ spamscore=0 phishscore=0 adultscore=0 bulkscore=0 impostorscore=0
+ clxscore=1015 suspectscore=0 classifier=typeunknown authscore=0 authtc=
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2507300000 definitions=main-2508250102
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_151947_415824_654D07BB 
-X-CRM114-Status: GOOD (  49.02  )
+X-CRM114-CacheID: sfid-20250828_160650_697360_8EF73625 
+X-CRM114-Status: UNSURE (   9.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,980 +275,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 27, 2025 at 09:22:39PM +1000, James Calligeros wrote:
-> The System Management Controller on Apple Silicon devices is responsible
-> for integrating and exposing the data reported by the vast array of
-> hardware monitoring sensors present on these devices. It is also
-> responsible for fan control, and allows users to manually set fan
-> speeds if they so desire. Add a hwmon driver to expose current,
-> power, temperature, and voltage monitoring sensors, as well as
-> fan speed monitoring and control via the SMC on Apple Silicon devices.
-> 
-> The SMC firmware has no consistency between devices, even when they
-> share an SoC. The FourCC keys used to access sensors are almost
-> random. An M1 Mac mini will have different FourCCs for its CPU core
-> temperature sensors to an M1 MacBook Pro, for example. For this
-> reason, the valid sensors for a given device are specified in a
-> child of the SMC Devicetree node. The driver uses this information
-> to determine which sensors to make available at runtime.
-> 
-> Co-developed-by: Janne Grunau <j@jannau.net>
-> Signed-off-by: Janne Grunau <j@jannau.net>
-> Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
-> ---
->  MAINTAINERS                  |   1 +
->  drivers/hwmon/Kconfig        |  12 +
->  drivers/hwmon/Makefile       |   1 +
->  drivers/hwmon/macsmc_hwmon.c | 848 +++++++++++++++++++++++++
-
-Documentation/hwmon/macsmc_hwmon missing
-
->  4 files changed, 862 insertions(+)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 5d53d243dc9abdf1db5865f8e6bcddbac3eafebe..2eb23522654dd050262eb06e077587030cc335aa 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -2408,6 +2408,7 @@ F:	drivers/clk/clk-apple-nco.c
->  F:	drivers/cpufreq/apple-soc-cpufreq.c
->  F:	drivers/dma/apple-admac.c
->  F:	drivers/gpio/gpio-macsmc.c
-> +F:	drivers/hwmon/macsmc_hwmon.c
->  F:	drivers/pmdomain/apple/
->  F:	drivers/i2c/busses/i2c-pasemi-core.c
->  F:	drivers/i2c/busses/i2c-pasemi-platform.c
-> diff --git a/drivers/hwmon/Kconfig b/drivers/hwmon/Kconfig
-> index 9d28fcf7cd2a6f9e2f54694a717bd85ff4047b46..1ca6db71e4d9da32717fd14487c10944433ada41 100644
-> --- a/drivers/hwmon/Kconfig
-> +++ b/drivers/hwmon/Kconfig
-> @@ -1164,6 +1164,18 @@ config SENSORS_LTQ_CPUTEMP
->  	  If you say yes here you get support for the temperature
->  	  sensor inside your CPU.
->  
-> +config SENSORS_MACSMC_HWMON
-> +	tristate "Apple SMC (Apple Silicon)"
-> +	depends on MFD_MACSMC && OF
-> +	help
-> +	  This driver enables hwmon support for current, power, temperature,
-> +	  and voltage sensors, as well as fan speed reporting and control
-> +	  on Apple Silicon devices. Say Y here if you have an Apple Silicon
-> +	  device.
-> +
-> +	  This driver can also be built as a module. If so, the module will
-> +	  be called macsmc_hwmon.
-> +
->  config SENSORS_MAX1111
->  	tristate "Maxim MAX1111 Serial 8-bit ADC chip and compatibles"
->  	depends on SPI_MASTER
-> diff --git a/drivers/hwmon/Makefile b/drivers/hwmon/Makefile
-> index cd8bc4752b4dbf015c6eb46157626f4e8f87dfae..80fc8447aff15b3b8e8583dc755c8accb3b6a93e 100644
-> --- a/drivers/hwmon/Makefile
-> +++ b/drivers/hwmon/Makefile
-> @@ -147,6 +147,7 @@ obj-$(CONFIG_SENSORS_LTC4260)	+= ltc4260.o
->  obj-$(CONFIG_SENSORS_LTC4261)	+= ltc4261.o
->  obj-$(CONFIG_SENSORS_LTC4282)	+= ltc4282.o
->  obj-$(CONFIG_SENSORS_LTQ_CPUTEMP) += ltq-cputemp.o
-> +obj-$(CONFIG_SENSORS_MACSMC_HWMON)	+= macsmc_hwmon.o
->  obj-$(CONFIG_SENSORS_MAX1111)	+= max1111.o
->  obj-$(CONFIG_SENSORS_MAX127)	+= max127.o
->  obj-$(CONFIG_SENSORS_MAX16065)	+= max16065.o
-> diff --git a/drivers/hwmon/macsmc_hwmon.c b/drivers/hwmon/macsmc_hwmon.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..e44ea357870238aa0b38d7b674a6c456271fdf0c
-> --- /dev/null
-> +++ b/drivers/hwmon/macsmc_hwmon.c
-> @@ -0,0 +1,848 @@
-> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
-> +/*
-> + * Apple SMC hwmon driver for Apple Silicon platforms
-> + *
-> + * The System Management Controller on Apple Silicon devices is responsible for
-> + * measuring data from sensors across the SoC and machine. These include power,
-> + * temperature, voltage and current sensors. Some "sensors" actually expose
-> + * derived values. An example of this is the key PHPC, which is an estimate
-> + * of the heat energy being dissipated by the SoC.
-> + *
-> + * While each SoC only has one SMC variant, each platform exposes a different
-> + * set of sensors. For example, M1 MacBooks expose battery telemetry sensors
-> + * which are not present on the M1 Mac mini. For this reason, the available
-> + * sensors for a given platform are described in the device tree in a child
-> + * node of the SMC device. We must walk this list of available sensors and
-> + * populate the required hwmon data structures at runtime.
-> + *
-> + * Originally based on a concept by Jean-Francois Bortolotti <jeff@borto.fr>
-> + *
-> + * Copyright The Asahi Linux Contributors
-> + */
-> +
-> +#include <linux/hwmon.h>
-> +#include <linux/hwmon-sysfs.h>
-
-Unnecessary include file
-
-> +#include <linux/mfd/macsmc.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +
-> +#define MAX_LABEL_LENGTH	32
-> +#define NUM_SENSOR_TYPES	5 /* temp, volt, current, power, fan */
-> +
-> +#define FLT_EXP_BIAS	127
-> +#define FLT_EXP_MASK	GENMASK(30, 23)
-> +#define FLT_MANT_BIAS	23
-> +#define FLT_MANT_MASK	GENMASK(22, 0)
-> +#define FLT_SIGN_MASK	BIT(31)
-> +
-> +static bool fan_control;
-> +module_param_unsafe(fan_control, bool, 0644);
-> +MODULE_PARM_DESC(fan_control,
-> +		 "Override the SMC to set your own fan speeds on supported machines");
-> +
-> +struct macsmc_hwmon_sensor {
-> +	struct apple_smc_key_info info;
-> +	smc_key macsmc_key;
-> +	char label[MAX_LABEL_LENGTH];
-> +};
-> +
-> +struct macsmc_hwmon_fan {
-> +	struct macsmc_hwmon_sensor now;
-> +	struct macsmc_hwmon_sensor min;
-> +	struct macsmc_hwmon_sensor max;
-> +	struct macsmc_hwmon_sensor set;
-> +	struct macsmc_hwmon_sensor mode;
-> +	char label[MAX_LABEL_LENGTH];
-> +	u32 attrs;
-> +	bool manual;
-> +};
-> +
-> +struct macsmc_hwmon_sensors {
-> +	struct hwmon_channel_info channel_info;
-> +	struct macsmc_hwmon_sensor *sensors;
-> +	u32 count;
-> +};
-> +
-> +struct macsmc_hwmon_fans {
-> +	struct hwmon_channel_info channel_info;
-> +	struct macsmc_hwmon_fan *fans;
-> +	u32 count;
-> +};
-> +
-> +struct macsmc_hwmon {
-> +	struct device *dev;
-> +	struct apple_smc *smc;
-> +	struct device *hwmon_dev;
-> +	struct hwmon_chip_info chip_info;
-> +	/* Chip + sensor types + NULL */
-> +	const struct hwmon_channel_info *channel_infos[1 + NUM_SENSOR_TYPES + 1];
-> +	struct macsmc_hwmon_sensors temp;
-> +	struct macsmc_hwmon_sensors volt;
-> +	struct macsmc_hwmon_sensors curr;
-> +	struct macsmc_hwmon_sensors power;
-> +	struct macsmc_hwmon_fans fan;
-> +};
-> +
-> +static int macsmc_hwmon_read_label(struct device *dev,
-> +				   enum hwmon_sensor_types type, u32 attr,
-> +				   int channel, const char **str)
-> +{
-> +	struct macsmc_hwmon *hwmon = dev_get_drvdata(dev);
-> +
-> +	switch (type) {
-> +	case hwmon_temp:
-> +		if (channel >= hwmon->temp.count)
-> +			return -EINVAL;
-
-Wrong. Such channels should not be instantiated. It is completely
-unacceptable for the "sensors" command to report such errors.
-Also more below on the use of -EINVAL when readin values.
-
-> +		*str = hwmon->temp.sensors[channel].label;
-> +		break;
-> +	case hwmon_in:
-> +		if (channel >= hwmon->volt.count)
-> +			return -EINVAL;
-> +		*str = hwmon->volt.sensors[channel].label;
-> +		break;
-> +	case hwmon_curr:
-> +		if (channel >= hwmon->curr.count)
-> +			return -EINVAL;
-> +		*str = hwmon->curr.sensors[channel].label;
-> +		break;
-> +	case hwmon_power:
-> +		if (channel >= hwmon->power.count)
-> +			return -EINVAL;
-> +		*str = hwmon->power.sensors[channel].label;
-> +		break;
-> +	case hwmon_fan:
-> +		if (channel >= hwmon->fan.count)
-> +			return -EINVAL;
-> +		*str = hwmon->fan.fans[channel].label;
-> +		break;
-> +	default:
-> +		return -EOPNOTSUPP;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +/*
-> + * A number of sensors report data in a 48.16 fixed-point decimal format that is
-> + * not used by any other function of the SMC.
-> + */
-> +static int macsmc_hwmon_read_ioft_scaled(struct apple_smc *smc, smc_key key,
-> +					 u64 *p, int scale)
-> +{
-> +	u64 val;
-> +	int ret;
-> +
-> +	ret = apple_smc_read_u64(smc, key, &val);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	*p = mult_frac(val, scale, 65536);
-> +
-> +	return 0;
-> +}
-> +
-> +/*
-> + * Many sensors report their data as IEEE-754 floats. No other SMC function uses
-> + * them.
-> + */
-> +static int macsmc_hwmon_read_f32_scaled(struct apple_smc *smc, smc_key key,
-> +					int *p, int scale)
-> +{
-> +	u32 fval;
-> +	u64 val;
-> +	int ret, exp;
-> +
-> +	ret = apple_smc_read_u32(smc, key, &fval);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	val = ((u64)((fval & FLT_MANT_MASK) | BIT(23)));
-> +	exp = ((fval >> 23) & 0xff) - FLT_EXP_BIAS - FLT_MANT_BIAS;
-> +	if (scale < 0) {
-> +		val <<= 32;
-> +		exp -= 32;
-> +		val /= -scale;
-> +	} else {
-> +		val *= scale;
-> +	}
-> +
-> +	if (exp > 63)
-> +		val = U64_MAX;
-> +	else if (exp < -63)
-> +		val = 0;
-> +	else if (exp < 0)
-> +		val >>= -exp;
-> +	else if (exp != 0 && (val & ~((1UL << (64 - exp)) - 1))) /* overflow */
-> +		val = U64_MAX;
-> +	else
-> +		val <<= exp;
-> +
-> +	if (fval & FLT_SIGN_MASK) {
-> +		if (val > (-(s64)INT_MIN))
-> +			*p = INT_MIN;
-> +		else
-> +			*p = -val;
-> +	} else {
-> +		if (val > INT_MAX)
-> +			*p = INT_MAX;
-> +		else
-> +			*p = val;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +/*
-> + * The SMC has keys of multiple types, denoted by a FourCC of the same format
-> + * as the key ID. We don't know what data type a key encodes until we poke at it.
-> + */
-> +static int macsmc_hwmon_read_key(struct apple_smc *smc,
-> +				 struct macsmc_hwmon_sensor *sensor, int scale,
-> +				 long *val)
-> +{
-> +	int ret;
-> +
-> +	switch (sensor->info.type_code) {
-> +	/* 32-bit IEEE 754 float */
-> +	case _SMC_KEY("flt "): {
-> +		u32 flt_ = 0;
-> +
-> +		ret = macsmc_hwmon_read_f32_scaled(smc, sensor->macsmc_key,
-> +						   &flt_, scale);
-		if (ret)
-			return ret;
-
-> +		*val = flt_;
-> +		break;
-> +	}
-> +	/* 48.16 fixed point decimal */
-> +	case _SMC_KEY("ioft"): {
-> +		u64 ioft = 0;
-> +
-> +		ret = macsmc_hwmon_read_ioft_scaled(smc, sensor->macsmc_key,
-> +						    &ioft, scale);
-		if (ret)
-			return ret;
-
-> +		*val = (long)ioft;
-> +		break;
-> +	}
-> +	default:
-> +		return -EOPNOTSUPP;
-> +	}
-> +
-> +	if (ret)
-> +		return -EINVAL;
-
-Drop
-
-> +
-> +	return 0;
-> +}
-> +
-> +static int macsmc_hwmon_write_f32_scaled(struct apple_smc *smc, smc_key key,
-> +					 int value, int scale)
-> +{
-> +	u64 val;
-> +	u32 fval = 0;
-> +	int exp, neg;
-> +
-> +	val = abs(value);
-> +	neg = val != value;
-> +
-> +	if (scale > 1) {
-> +		val <<= 32;
-> +		exp = 32;
-> +		val /= scale;
-> +	} else if (scale < 1) {
-> +		val *= -scale;
-> +	}
-> +
-> +	if (val) {
-> +		int msb = __fls(val) - exp;
-> +
-> +		if (msb > 23) {
-> +			val >>= msb - 23;
-> +			exp -= msb - 23;
-> +		} else if (msb < 23) {
-> +			val <<= 23 - msb;
-> +			exp += msb;
-> +		}
-> +
-> +		fval = FIELD_PREP(FLT_SIGN_MASK, neg) |
-> +		       FIELD_PREP(FLT_EXP_MASK, exp + FLT_EXP_BIAS) |
-> +		       FIELD_PREP(FLT_MANT_MASK, val);
-> +	}
-> +
-> +	return apple_smc_write_u32(smc, key, fval);
-> +}
-> +
-> +static int macsmc_hwmon_write_key(struct apple_smc *smc,
-> +				  struct macsmc_hwmon_sensor *sensor, long val,
-> +				  int scale)
-> +{
-> +	switch (sensor->info.type_code) {
-> +	/* 32-bit IEEE 754 float */
-> +	case _SMC_KEY("flt "):
-> +		return macsmc_hwmon_write_f32_scaled(smc, sensor->macsmc_key,
-> +						     val, scale);
-> +	/* unsigned 8-bit integer */
-> +	case _SMC_KEY("ui8 "):
-> +		return apple_smc_write_u8(smc, sensor->macsmc_key, val);
-> +	default:
-> +		return -EOPNOTSUPP;
-> +	}
-> +}
-> +
-> +static int macsmc_hwmon_read_fan(struct macsmc_hwmon *hwmon, u32 attr, int chan,
-> +				 long *val)
-> +{
-> +	if (!(hwmon->fan.fans[chan].attrs & BIT(attr)))
-> +		return -EINVAL;
-
-This is wrong. If the fan does not exist, the is_visible function should
-have dropped the attribute. Also, EINVAL is "invalid argument" which is
-just impossible when _reading_ a value from the kernel.
-
-> +
-> +	switch (attr) {
-> +	case hwmon_fan_input:
-> +		return macsmc_hwmon_read_key(hwmon->smc,
-> +					     &hwmon->fan.fans[chan].now, 1, val);
-> +	case hwmon_fan_min:
-> +		return macsmc_hwmon_read_key(hwmon->smc,
-> +					     &hwmon->fan.fans[chan].min, 1, val);
-> +	case hwmon_fan_max:
-> +		return macsmc_hwmon_read_key(hwmon->smc,
-> +					     &hwmon->fan.fans[chan].max, 1, val);
-> +	case hwmon_fan_target:
-> +		return macsmc_hwmon_read_key(hwmon->smc,
-> +					     &hwmon->fan.fans[chan].set, 1, val);
-> +	default:
-> +		return -EINVAL;
-
-As above.
-
-> +	}
-> +}
-> +
-> +static int macsmc_hwmon_write_fan(struct device *dev, u32 attr, int channel,
-> +				  long val)
-> +{
-> +	struct macsmc_hwmon *hwmon = dev_get_drvdata(dev);
-> +	long min, max;
-> +	int ret;
-> +
-> +	if (!fan_control || hwmon->fan.fans[channel].mode.macsmc_key == 0)
-> +		return -EOPNOTSUPP;
-> +
-> +	if (channel >= hwmon->fan.count ||
-> +	    !(hwmon->fan.fans[channel].attrs & BIT(attr)) ||
-> +	    attr != hwmon_fan_target)
-> +		return -EINVAL;
-
-And again.
-
-> +
-> +	/*
-> +	 * The SMC does no sanity checks on requested fan speeds, so we need to.
-> +	 */
-> +	ret = macsmc_hwmon_read_key(hwmon->smc, &hwmon->fan.fans[channel].min,
-> +				    1, &min);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = macsmc_hwmon_read_key(hwmon->smc, &hwmon->fan.fans[channel].max,
-> +				    1, &max);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (val >= min && val <= max) {
-> +		if (!hwmon->fan.fans[channel].manual) {
-> +			/* Write 1 to mode key for manual control */
-> +			ret = macsmc_hwmon_write_key(hwmon->smc,
-> +						     &hwmon->fan.fans[channel].mode, 1,
-> +						     1);
-> +			if (ret < 0)
-> +				return ret;
-> +
-> +			hwmon->fan.fans[channel].manual = true;
-> +		}
-> +		return macsmc_hwmon_write_key(hwmon->smc,
-> +					      &hwmon->fan.fans[channel].set, val, 1);
-> +	} else if (!val) {
-> +		if (hwmon->fan.fans[channel].manual) {
-> +			ret = macsmc_hwmon_write_key(hwmon->smc,
-> +						     &hwmon->fan.fans[channel].mode, 0, 1);
-> +			if (ret < 0)
-> +				return ret;
-> +
-> +			hwmon->fan.fans[channel].manual = false;
-> +		}
-> +	} else {
-> +		return -EINVAL;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int macsmc_hwmon_read(struct device *dev, enum hwmon_sensor_types type,
-> +			     u32 attr, int channel, long *val)
-> +{
-> +	struct macsmc_hwmon *hwmon = dev_get_drvdata(dev);
-> +	int ret = 0;
-> +
-> +	switch (type) {
-> +	case hwmon_temp:
-> +		ret = macsmc_hwmon_read_key(hwmon->smc,
-> +					    &hwmon->temp.sensors[channel], 1000, val);
-> +		break;
-> +	case hwmon_in:
-> +		ret = macsmc_hwmon_read_key(hwmon->smc,
-> +					    &hwmon->volt.sensors[channel], 1000, val);
-> +		break;
-> +	case hwmon_curr:
-> +		ret = macsmc_hwmon_read_key(hwmon->smc,
-> +					    &hwmon->curr.sensors[channel], 1000, val);
-> +		break;
-> +	case hwmon_power:
-> +		/* SMC returns power in Watts with acceptable precision to scale to uW */
-> +		ret = macsmc_hwmon_read_key(hwmon->smc,
-> +					    &hwmon->power.sensors[channel],
-> +					    1000000, val);
-> +		break;
-> +	case hwmon_fan:
-> +		ret = macsmc_hwmon_read_fan(hwmon, attr, channel, val);
-> +		break;
-> +	default:
-> +		return -EOPNOTSUPP;
-> +	}
-> +
-> +	return ret;
-> +}
-> +
-> +static int macsmc_hwmon_write(struct device *dev, enum hwmon_sensor_types type,
-> +			      u32 attr, int channel, long val)
-> +{
-> +	switch (type) {
-> +	case hwmon_fan:
-> +		return macsmc_hwmon_write_fan(dev, attr, channel, val);
-> +	default:
-> +		return -EOPNOTSUPP;
-> +	}
-> +}
-> +
-> +static umode_t macsmc_hwmon_fan_is_visible(const void *data, u32 attr,
-> +					   int channel)
-> +{
-> +	const struct macsmc_hwmon *hwmon = data;
-> +
-> +	if (fan_control && attr == hwmon_fan_target &&
-> +	    hwmon->fan.fans[channel].mode.macsmc_key != 0)
-> +		return 0644;
-> +
-> +	return 0444;
-
-This should return 0 for non-existing fans.
-
-> +}
-> +
-> +static umode_t macsmc_hwmon_is_visible(const void *data,
-> +				       enum hwmon_sensor_types type, u32 attr,
-> +				       int channel)
-> +{
-> +	switch (type) {
-> +	case hwmon_fan:
-> +		return macsmc_hwmon_fan_is_visible(data, attr, channel);
-> +	default:
-> +		break;
-> +	}
-> +
-> +	return 0444;
-
-If those attributes exist they must be supported. Otherwise return 0.
-
-> +}
-> +
-> +static const struct hwmon_ops macsmc_hwmon_ops = {
-> +	.is_visible = macsmc_hwmon_is_visible,
-> +	.read = macsmc_hwmon_read,
-> +	.read_string = macsmc_hwmon_read_label,
-> +	.write = macsmc_hwmon_write,
-> +};
-> +
-> +/*
-> + * Get the key metadata, including key data type, from the SMC.
-> + */
-> +static int macsmc_hwmon_parse_key(struct device *dev, struct apple_smc *smc,
-> +				  struct macsmc_hwmon_sensor *sensor,
-> +				  const char *key)
-> +{
-> +	int ret;
-> +
-> +	ret = apple_smc_get_key_info(smc, _SMC_KEY(key), &sensor->info);
-> +	if (ret) {
-> +		dev_err(dev, "Failed to retrieve key info for %s\n", key);
-> +		return ret;
-> +	}
-> +
-> +	sensor->macsmc_key = _SMC_KEY(key);
-> +
-> +	return 0;
-> +}
-> +
-> +/*
-> + * A sensor is a single key-value pair as made available by the SMC.
-> + * The devicetree gives us the SMC key ID and a friendly name where the
-> + * purpose of the sensor is known.
-> + */
-> +static int macsmc_hwmon_create_sensor(struct device *dev, struct apple_smc *smc,
-> +				      struct device_node *sensor_node,
-> +				      struct macsmc_hwmon_sensor *sensor)
-> +{
-> +	const char *key, *label;
-> +	int ret;
-> +
-> +	ret = of_property_read_string(sensor_node, "apple,key-id", &key);
-> +	if (ret) {
-> +		dev_err(dev, "Could not find apple,key-id in sensor node\n");
-> +		return ret;
-> +	}
-> +
-> +	ret = macsmc_hwmon_parse_key(dev, smc, sensor, key);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = of_property_read_string(sensor_node, "label", &label);
-> +	if (ret) {
-> +		dev_err(dev, "No label found for sensor %s\n", key);
-> +		return ret;
-> +	}
-> +
-> +	strscpy_pad(sensor->label, label, sizeof(sensor->label));
-> +
-> +	return 0;
-> +}
-> +
-> +/*
-> + * Fan data is exposed by the SMC as multiple sensors.
-> + *
-> + * The devicetree schema reuses apple,key-id for the actual fan speed sensor.
-> + * Min, max and target keys do not need labels, so we can reuse label
-> + * for naming the entire fan.
-> + */
-> +static int macsmc_hwmon_create_fan(struct device *dev, struct apple_smc *smc,
-> +				   struct device_node *fan_node,
-> +				   struct macsmc_hwmon_fan *fan)
-> +{
-> +	const char *label, *now, *min, *max, *set, *mode;
-> +	int ret;
-> +
-> +	ret = of_property_read_string(fan_node, "apple,key-id", &now);
-> +	if (ret) {
-> +		dev_err(dev, "apple,key-id not found in fan node!\n");
-> +		return -EINVAL;
-
-		return ret;
-
-Never overwrite error numbers.
-
-> +	}
-> +
-> +	ret = macsmc_hwmon_parse_key(dev, smc, &fan->now, now);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = of_property_read_string(fan_node, "label", &label);
-> +	if (ret) {
-> +		dev_err(dev, "No label found for fan %s\n", now);
-> +		return ret;
-> +	}
-> +
-> +	strscpy_pad(fan->label, label, sizeof(fan->label));
-> +
-> +	fan->attrs = HWMON_F_LABEL | HWMON_F_INPUT;
-> +
-> +	/* The following keys are not required to simply monitor fan speed */
-> +	if (!of_property_read_string(fan_node, "apple,fan-minimum", &min)) {
-> +		ret = macsmc_hwmon_parse_key(dev, smc, &fan->min, min);
-> +		if (ret)
-> +			return ret;
-> +
-> +		fan->attrs |= HWMON_F_MIN;
-> +	}
-> +
-> +	if (!of_property_read_string(fan_node, "apple,fan-maximum", &max)) {
-> +		ret = macsmc_hwmon_parse_key(dev, smc, &fan->max, max);
-> +		if (ret)
-> +			return ret;
-> +
-> +		fan->attrs |= HWMON_F_MAX;
-> +	}
-> +
-> +	if (!of_property_read_string(fan_node, "apple,fan-target", &set)) {
-> +		ret = macsmc_hwmon_parse_key(dev, smc, &fan->set, set);
-> +		if (ret)
-> +			return ret;
-> +
-> +		fan->attrs |= HWMON_F_TARGET;
-> +	}
-> +
-> +	if (!of_property_read_string(fan_node, "apple,fan-mode", &mode)) {
-> +		ret = macsmc_hwmon_parse_key(dev, smc, &fan->mode, mode);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	/* Initialise fan control mode to automatic */
-> +	fan->manual = false;
-> +
-> +	return 0;
-> +}
-> +
-> +static int macsmc_hwmon_populate_sensors(struct macsmc_hwmon *hwmon,
-> +					 struct device_node *hwmon_node)
-> +{
-> +	struct device_node *key_node __maybe_unused;
-> +	u32 n_current = 0, n_fan = 0, n_power = 0, n_temperature = 0, n_voltage = 0;
-> +
-> +	for_each_child_of_node_with_prefix(hwmon_node, key_node, "current-") {
-> +		n_current++;
-> +	}
-> +
-> +	if (n_current) {
-> +		hwmon->curr.sensors = devm_kcalloc(hwmon->dev, n_current,
-> +						   sizeof(struct macsmc_hwmon_sensor), GFP_KERNEL);
-> +		if (!hwmon->curr.sensors)
-> +			return -ENOMEM;
-> +
-> +		for_each_child_of_node_with_prefix(hwmon_node, key_node, "current-") {
-> +			if (!macsmc_hwmon_create_sensor(hwmon->dev, hwmon->smc, key_node,
-> +							&hwmon->curr.sensors[hwmon->curr.count]))
-> +				hwmon->curr.count++;
-> +		}
-> +	}
-> +
-> +	for_each_child_of_node_with_prefix(hwmon_node, key_node, "fan-") {
-> +		n_fan++;
-> +	}
-> +
-> +	if (n_fan) {
-> +		hwmon->fan.fans = devm_kcalloc(hwmon->dev, n_fan,
-> +					       sizeof(struct macsmc_hwmon_fan), GFP_KERNEL);
-> +		if (!hwmon->fan.fans)
-> +			return -ENOMEM;
-> +
-> +		for_each_child_of_node_with_prefix(hwmon_node, key_node, "fan-") {
-> +			if (!macsmc_hwmon_create_fan(hwmon->dev, hwmon->smc, key_node,
-> +						     &hwmon->fan.fans[hwmon->fan.count]))
-> +				hwmon->fan.count++;
-> +		}
-> +	}
-> +
-> +	for_each_child_of_node_with_prefix(hwmon_node, key_node, "power-") {
-> +		n_power++;
-> +	}
-> +
-> +	if (n_power) {
-> +		hwmon->power.sensors = devm_kcalloc(hwmon->dev, n_power,
-> +						    sizeof(struct macsmc_hwmon_sensor), GFP_KERNEL);
-> +		if (!hwmon->power.sensors)
-> +			return -ENOMEM;
-> +
-> +		for_each_child_of_node_with_prefix(hwmon_node, key_node, "power-") {
-> +			if (!macsmc_hwmon_create_sensor(hwmon->dev, hwmon->smc, key_node,
-> +							&hwmon->power.sensors[hwmon->power.count]))
-> +				hwmon->power.count++;
-> +		}
-> +	}
-> +
-> +	for_each_child_of_node_with_prefix(hwmon_node, key_node, "temperature-") {
-> +		n_temperature++;
-> +	}
-> +
-> +	if (n_temperature) {
-> +		hwmon->temp.sensors = devm_kcalloc(hwmon->dev, n_temperature,
-> +						   sizeof(struct macsmc_hwmon_sensor), GFP_KERNEL);
-> +		if (!hwmon->temp.sensors)
-> +			return -ENOMEM;
-> +
-> +		for_each_child_of_node_with_prefix(hwmon_node, key_node, "temperature-") {
-> +			if (!macsmc_hwmon_create_sensor(hwmon->dev, hwmon->smc, key_node,
-> +							&hwmon->temp.sensors[hwmon->temp.count]))
-> +				hwmon->temp.count++;
-> +		}
-> +	}
-> +
-> +	for_each_child_of_node_with_prefix(hwmon_node, key_node, "voltage-") {
-> +		n_voltage++;
-> +	}
-> +
-> +	if (n_voltage) {
-> +		hwmon->volt.sensors = devm_kcalloc(hwmon->dev, n_voltage,
-> +						   sizeof(struct macsmc_hwmon_sensor), GFP_KERNEL);
-> +		if (!hwmon->volt.sensors)
-> +			return -ENOMEM;
-> +
-> +		for_each_child_of_node_with_prefix(hwmon_node, key_node, "volt-") {
-> +			if (!macsmc_hwmon_create_sensor(hwmon->dev, hwmon->smc, key_node,
-> +							&hwmon->volt.sensors[hwmon->volt.count]))
-> +				hwmon->volt.count++;
-> +		}
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +/* Create NULL-terminated config arrays */
-> +static void macsmc_hwmon_populate_configs(u32 *configs, u32 num_keys, u32 flags)
-> +{
-> +	int idx;
-> +
-> +	for (idx = 0; idx < num_keys; idx++)
-> +		configs[idx] = flags;
-> +}
-> +
-> +static void macsmc_hwmon_populate_fan_configs(u32 *configs, u32 num_keys,
-> +					      struct macsmc_hwmon_fans *fans)
-> +{
-> +	int idx;
-> +
-> +	for (idx = 0; idx < num_keys; idx++)
-> +		configs[idx] = fans->fans[idx].attrs;
-> +}
-> +
-> +static const struct hwmon_channel_info *const macsmc_chip_channel_info =
-> +	HWMON_CHANNEL_INFO(chip, HWMON_C_REGISTER_TZ);
-> +
-> +static int macsmc_hwmon_create_infos(struct macsmc_hwmon *hwmon)
-> +{
-> +	struct hwmon_channel_info *channel_info;
-> +	int i = 0;
-> +
-> +	/* chip */
-> +	hwmon->channel_infos[i++] = macsmc_chip_channel_info;
-> +
-> +	if (hwmon->curr.count) {
-> +		channel_info = &hwmon->curr.channel_info;
-> +		channel_info->type = hwmon_curr;
-> +		channel_info->config = devm_kcalloc(hwmon->dev, hwmon->curr.count + 1,
-> +						    sizeof(u32), GFP_KERNEL);
-> +		if (!channel_info->config)
-> +			return -ENOMEM;
-> +
-> +		macsmc_hwmon_populate_configs((u32 *)channel_info->config,
-> +					      hwmon->curr.count,
-> +					      (HWMON_C_INPUT | HWMON_C_LABEL));
-
-Unnecessary ()
-
-> +		hwmon->channel_infos[i++] = channel_info;
-> +	}
-> +
-> +	if (hwmon->fan.count) {
-> +		channel_info = &hwmon->fan.channel_info;
-> +		channel_info->type = hwmon_fan;
-> +		channel_info->config = devm_kcalloc(hwmon->dev, hwmon->fan.count + 1,
-> +						    sizeof(u32), GFP_KERNEL);
-> +		if (!channel_info->config)
-> +			return -ENOMEM;
-> +
-> +		macsmc_hwmon_populate_fan_configs((u32 *)channel_info->config,
-> +						  hwmon->fan.count,
-> +						  &hwmon->fan);
-> +		hwmon->channel_infos[i++] = channel_info;
-> +	}
-> +
-> +	if (hwmon->power.count) {
-> +		channel_info = &hwmon->power.channel_info;
-> +		channel_info->type = hwmon_power;
-> +		channel_info->config = devm_kcalloc(hwmon->dev, hwmon->power.count + 1,
-> +						    sizeof(u32), GFP_KERNEL);
-> +		if (!channel_info->config)
-> +			return -ENOMEM;
-> +
-> +		macsmc_hwmon_populate_configs((u32 *)channel_info->config,
-> +					      hwmon->power.count,
-> +					      (HWMON_P_INPUT | HWMON_P_LABEL));
-
-Unnecessary (). Drop everywhere.
-
-> +		hwmon->channel_infos[i++] = channel_info;
-> +	}
-> +
-> +	if (hwmon->temp.count) {
-> +		channel_info = &hwmon->temp.channel_info;
-> +		channel_info->type = hwmon_temp;
-> +		channel_info->config = devm_kcalloc(hwmon->dev, hwmon->temp.count + 1,
-> +						    sizeof(u32), GFP_KERNEL);
-> +		if (!channel_info->config)
-> +			return -ENOMEM;
-> +
-> +		macsmc_hwmon_populate_configs((u32 *)channel_info->config,
-> +					      hwmon->temp.count,
-> +					      (HWMON_T_INPUT | HWMON_T_LABEL));
-> +		hwmon->channel_infos[i++] = channel_info;
-> +	}
-> +
-> +	if (hwmon->volt.count) {
-> +		channel_info = &hwmon->volt.channel_info;
-> +		channel_info->type = hwmon_in;
-> +		channel_info->config = devm_kcalloc(hwmon->dev, hwmon->volt.count + 1,
-> +						    sizeof(u32), GFP_KERNEL);
-> +		if (!channel_info->config)
-> +			return -ENOMEM;
-> +
-> +		macsmc_hwmon_populate_configs((u32 *)channel_info->config,
-> +					      hwmon->volt.count,
-> +					      (HWMON_I_INPUT | HWMON_I_LABEL));
-> +		hwmon->channel_infos[i++] = channel_info;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int macsmc_hwmon_probe(struct platform_device *pdev)
-> +{
-> +	struct apple_smc *smc = dev_get_drvdata(pdev->dev.parent);
-> +	struct macsmc_hwmon *hwmon;
-> +	int ret;
-> +
-> +	/*
-> +	 * The MFD driver will try to probe us unconditionally. Some devices
-> +	 * with the SMC do not have hwmon capabilities. Only probe if we have
-> +	 * a hwmon node.
-> +	 */
-> +	if (!pdev->dev.of_node)
-> +		return -ENODEV;
-> +
-> +	hwmon = devm_kzalloc(&pdev->dev, sizeof(*hwmon),
-> +			     GFP_KERNEL);
-> +	if (!hwmon)
-> +		return -ENOMEM;
-> +
-> +	hwmon->dev = &pdev->dev;
-> +	hwmon->smc = smc;
-> +
-> +	ret = macsmc_hwmon_populate_sensors(hwmon, hwmon->dev->of_node);
-> +	if (ret) {
-> +		dev_err(hwmon->dev, "Could not populate keys!\n");
-> +		return ret;
-> +	}
-> +
-> +	if (!hwmon->curr.count && !hwmon->fan.count &&
-> +	    !hwmon->power.count && !hwmon->temp.count &&
-> +	    !hwmon->volt.count) {
-> +		dev_err(hwmon->dev,
-> +			"No valid keys found of any supported type");
-> +		return -ENODEV;
-> +	}
-> +
-> +	ret = macsmc_hwmon_create_infos(hwmon);
-> +	if (ret)
-> +		return ret;
-> +
-> +	hwmon->chip_info.ops = &macsmc_hwmon_ops;
-> +	hwmon->chip_info.info =
-> +		(const struct hwmon_channel_info *const *)&hwmon->channel_infos;
-> +
-> +	hwmon->hwmon_dev = devm_hwmon_device_register_with_info(&pdev->dev,
-> +								"macsmc_hwmon", hwmon,
-> +								&hwmon->chip_info, NULL);
-> +	if (IS_ERR(hwmon->hwmon_dev))
-> +		return dev_err_probe(hwmon->dev, PTR_ERR(hwmon->hwmon_dev),
-> +				     "Probing SMC hwmon device failed\n");
-> +
-> +	dev_info(hwmon->dev, "Registered SMC hwmon device. Sensors:");
-> +	dev_info(hwmon->dev,
-> +		 "Current: %d, Fans: %d, Power: %d, Temperature: %d, Voltage: %d",
-> +		 hwmon->curr.count, hwmon->fan.count,
-> +		 hwmon->power.count, hwmon->temp.count,
-> +		 hwmon->volt.count);
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct of_device_id macsmc_hwmon_of_table[] = {
-> +	{ .compatible = "apple,smc-hwmon" },
-> +	{}
-> +};
-> +MODULE_DEVICE_TABLE(of, macsmc_hwmon_of_table);
-> +
-> +static struct platform_driver macsmc_hwmon_driver = {
-> +	.probe = macsmc_hwmon_probe,
-> +	.driver = {
-> +		.name = "macsmc_hwmon",
-> +		.of_match_table = macsmc_hwmon_of_table,
-> +	},
-> +};
-> +module_platform_driver(macsmc_hwmon_driver);
-> +
-> +MODULE_DESCRIPTION("Apple Silicon SMC hwmon driver");
-> +MODULE_AUTHOR("James Calligeros <jcalligeros99@gmail.com>");
-> +MODULE_LICENSE("Dual MIT/GPL");
-> +MODULE_ALIAS("platform:macsmc_hwmon");
+T24gU2F0LCBBdWcgMjMsIDIwMjUsIFN2ZW4gUGV0ZXIgd3JvdGU6DQo+IE9uIDIyLjA4LjI1IDAw
+OjI4LCBUaGluaCBOZ3V5ZW4gd3JvdGU6DQo+ID4gT24gVGh1LCBBdWcgMjEsIDIwMjUsIFN2ZW4g
+UGV0ZXIgd3JvdGU6DQo+ID4gPiBGcm9tOiBKYW5uZSBHcnVuYXUgPGpAamFubmF1Lm5ldD4NCj4g
+DQo+IFsuLi5dDQo+IA0KPiA+ID4gICAJLyoNCj4gPiA+ICAgCSAqIFNvbWUgcGxhdGZvcm1zIG5l
+ZWQgdG8gcG93ZXIgb2ZmIGFsbCBSb290IGh1YiBwb3J0cyBpbW1lZGlhdGVseSBhZnRlciBEV0Mz
+IHNldCB0byBob3N0DQo+ID4gPiAgIAkgKiBtb2RlIHRvIGF2b2lkIFZCVVMgZ2xpdGNoIGhhcHBl
+biB3aGVuIHhoY2kgZ2V0IHJlc2V0IGxhdGVyLg0KPiA+ID4gKwkgKiBPbiBBcHBsZSBwbGF0Zm9y
+bXMgd2UgbXVzdCBub3QgdG91Y2ggYW55IE1NSU8geWV0IGJlY2F1c2UgZHdjMw0KPiA+ID4gKwkg
+KiB3aWxsIG5vdCB3b3JrIGNvcnJlY3RseSBiZWZvcmUgaXRzIFBIWSBoYXMgYmVlbiBpbml0aWFs
+aXplZC4NCj4gPiANCj4gPiBUaGlzIGRvZXNuJ3QgbWFrZSBzZW5zZSwgdGhlIHBoeSBzaG91bGQn
+dmUgYmVlbiBpbml0aWFsaXplZCBieSB0aGlzDQo+ID4gcG9pbnQuIFdlIGFscmVhZHkgYWNjZXNz
+IE1NSU8gYmVmb3JlIHRoaXMuIEV2ZW4geW91ciBbUEFUQ0ggUkZDIDcvMjJdDQo+ID4gYXR0ZW1w
+dHMgdG8gYWNjZXNzIE1NSU8gYmVmb3JlIHRoaXMsIHlldCBhY2Nlc3NpbmcgaGVyZSBjYXVzZXMg
+cHJvYmxlbS4NCj4gPiBEbyB3ZSBrbm93IHdoZW4gdGhlIHBoeSBnZXQgaW5pdGlhbGl6ZWQgdGhl
+bj8NCj4gDQo+IFlvdSdyZSBhYnNvbHV0ZWx5IHJpZ2h0LCB0aGlzIGRvZXNuJ3QgbWFrZSBhbnkg
+c2Vuc2UhDQo+IA0KPiBkd2MzX3Bvd2VyX29mZl9hbGxfcm9vdGh1Yl9wb3J0cyB1c2VzIGlvcmVt
+YXAgd2hpY2ggd2lsbCBtYXAgdGhlIFhIQ0kgcmVnaW9uDQo+IGFzIERldmljZS1uR25SRS4gVGhh
+dCBqdXN0IGRvZXNuJ3Qgd29yayBvbiB0aGVzZSBtYWNoaW5lcyBhbmQgYWN0dWFsbHkNCj4gZXhw
+bGFpbnMgdGhlIFNFcnJvcnMuDQo+IFJlc291cmNlcyBvbiB0aGVzZSBtYWNoaW5lcyBnZW5lcmFs
+bHkgaGF2ZSB0aGUgSU9SRVNPVVJDRV9NRU1fTk9OUE9TVEVEIGZsYWcNCj4gc2V0ICh2aWEgdGhl
+IG5vbnBvc3RlZC1tbWlvIGR0IHByb3BlcnR5KSBhbmQgdGhlbiB1c2UgaW9yZW1hcF9ucCB0byBt
+YXAgdGhlbQ0KPiB1c2luZyBEZXZpY2UtbkduUm5FLg0KPiANCg0KT2suIFNvIHRoZSBmYWlsdXJl
+IGRvZXMgbm90IHNlZW0gdG8gYmUgYmVjYXVzZSB0aGUgcGh5IGhhc24ndCBiZWVuDQppbml0aWFs
+aXplZCB5ZXQsIGJ1dCBpdCdzIGJlY2F1c2Ugb2YgaW8gbWFwcGluZy4NCg0KRGlkIHlvdSB0cnkg
+dG8gY2hlY2sgYWdhaW5zdCBJT1JFU09VUkNFX01FTV9OT05QT1NURUQgdG8gdXNlIGlvcmVtYXBf
+bnANCmluc3RlYWQ/IFRoYXQga2VlcHMgdGhlIGxvZ2ljIGNvbnNpc3RlbnQgYmV0d2VlbiBkaWZm
+ZXJlbnQgcGxhdGZvcm1zLg0KDQpCUiwNClRoaW5o
 
