@@ -4,87 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B3DFCA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 02:59:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55B85CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 03:02:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9/sG5Ec7Hlcd6BQNqJwLka5sDq9zcWIANhRNknbwVaY=; b=rSE/Ppgca9rWllEGVLvbNpvVkN
-	/a2Ea+sZNOazqkJ39JHEmV289jRueMtSAYluuqtllK1MBeJ646kNhIqXCC49Wtee9RH86UNqOB38G
-	ZswhOyZiMLWl0v9dqDQT46evG8oRme+o9oN1JTt+H0+5N9e8Qpoo6CGYbO0spOFLgVXqnFTRWuMAy
-	0z7FTcwrgSMFM6zCZ69l+AIaiPSDwjtG/SVGhTR3ofsCWAU0c74GAPGSpbrRdCsIOxbL7IIBVSKMP
-	Pj3FJHE4MB+HupgIpMv5UOSxk/EP79QolyAxpMGlGqbUkonuOz16XFsDNCgvu25AimlqmTtWSA/wc
-	+Tm1oInA==;
+	bh=GpKCLLWQN5UvJoV+eBAMVrPx3wPOuNvj43v4OMEG1XI=; b=qYJ124fFLbxJwZK8mXWywxOp8h
+	RIew3eKz7GiXNAEFc5tF7TwipVJO1L6hYC1g0YMNvdh+Gosvk31wnLFZgQ5cBg7teqxEvxhz6pPiM
+	QoVvnqU7+J6KyDWyh5eVxWLDXyT2jDwXZ8SYGRfEfnwPYlI95bB146M2p52H7bk3Ju/AiGSqixYOn
+	jc9CrC1JvEKsCNkZ6dDp4DW370C/AQsndiQ6cil3Bj2cegaSHLxBacor6voTPm6E3GErRtAm16Yfg
+	HKCVCJLj7RRKLttwB0PpimMQBwNltr0f5x2spyosJd1mvG3FqdKljtKLg6dVkzEjsph4Sr37AprvZ
+	ANL+lHDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urSqt-000000004xz-22xH;
-	Thu, 28 Aug 2025 02:59:03 +0000
-Received: from mail-ed1-f42.google.com ([209.85.208.42])
+	id 1urStu-000000005cm-194M;
+	Thu, 28 Aug 2025 03:02:10 +0000
+Received: from mail-ed1-f50.google.com ([209.85.208.50])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urSo9-000000004Cd-0c7f
+	id 1urSr9-0000000052w-1it0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 28 Aug 2025 02:56:14 +0000
-Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-6188b7550c0so664728a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 19:56:12 -0700 (PDT)
+	Thu, 28 Aug 2025 02:59:21 +0000
+Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-61cb9f6dbe7so804260a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 19:59:19 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756349771; x=1756954571;
+        d=1e100.net; s=20230601; t=1756349957; x=1756954757;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=9/sG5Ec7Hlcd6BQNqJwLka5sDq9zcWIANhRNknbwVaY=;
-        b=V8eUz88Kkuv+dSmdLF3J1NZWuqykCLKIo9M76JbMEXm2XHhABNPdVhrHzfvX5Q2pOl
-         VpabFEn03TSeBkfzNCKKYlEfCdAduhN1qQYDXNi8xFS/K+aue+Rt7sYwsTRUg/LG3gyo
-         RrWzMZuUVjUJrjcMSkPxAiZsM7e6KqZ18Ev3uKfTIQhDEUQYbStGQRRrtJGCJK/tcFMi
-         zqk14iTc7aQLT6/MjBk6QYwvt6yqDhGFhOZmRCE7HZfYJv8rkU/k5a3HbVSJV8rbbvqs
-         DwzT82rzMkjLdwoIQTHZnA7YRFW25/aOSDto0ZvajVKvZuQjjzsb3UkdSfPRYheyHCJY
-         2Fng==
-X-Forwarded-Encrypted: i=1; AJvYcCXunHYUR7+SccDtWp0uskvYi/RZZ1Dvc0Lnrvd8XwcYZL+sCIKRU1Plsoe4ffftm8qWL/iB+gDWrTSRUddqr26K@lists.infradead.org
-X-Gm-Message-State: AOJu0YylyMuV9hdjO09t/OVO+TWdAcJwhKyEgjdESNFjWB9Hj9NTE2im
-	m7i8srgnS6gNkmxR1zDa1DphJlkdel59x4pLklhXKLINnhBxyHAMzuiisy01q0b8oIs=
-X-Gm-Gg: ASbGncu0fNbIWE04W7nB5nrqlgMgYXEKeCeCK6bZhTMDs2lTt3tZP3vJLzR45xo9mMn
-	PlTnUW6oMbbzf57/wdJtKZXBFHCSZKAitujTwKWwtRzbwNpY8rO9CKiGbJMgA+t2uNPzrBGmj4h
-	Luqq40Zqx6sNMaHu3BwVjz4AqyC/eUFetDB14esQSI3uzsE1fZDx35hzt/gAc125fmNEJue9T5j
-	WqL2sEmASwn1Vv0rkUQNU0JizYMjiOr6KpbnDXuQoxtEtNvyiXVDIxRdThKDDv3TFYHlmP3au66
-	3siwRvJltEArxO3L2oEyti479TNT6oW3w+N1vSx4OYj0u9DwbhY+UMpXbR524SIF0eao1VNDm9I
-	5pZF+8rnpCNrWflytHqvyLrh2zYCZi3BBD5Mdn0TAmRGM7WDlaB7X+byUvqFGOXEiSpCu/p4JpN
-	QmuMSq/qL+Wjsytj5Qu5o=
-X-Google-Smtp-Source: AGHT+IEjsksUWJy7fxj/dQlVBL/FKkIlkfjUK4xUKO9QYJQfaT/NjcqUZWfau0zHh6wbgQTtQx0MEQ==
-X-Received: by 2002:a05:6402:35c3:b0:61c:61bb:e836 with SMTP id 4fb4d7f45d1cf-61c61bbec87mr10310103a12.11.1756349770932;
-        Wed, 27 Aug 2025 19:56:10 -0700 (PDT)
-Received: from mail-ej1-f47.google.com (mail-ej1-f47.google.com. [209.85.218.47])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-61c90ffd677sm4428923a12.46.2025.08.27.19.56.10
+        bh=GpKCLLWQN5UvJoV+eBAMVrPx3wPOuNvj43v4OMEG1XI=;
+        b=qalFEq1bFOW4LogMRdLj2F/AvKwS7BC0Q2nnB85keMUD2UvQ9rZuPEii27VByK99S0
+         +kTTBP4pZL+ggVWH1+p+ga+F8xYmS/wgCPMxZIp/pWOL3wv1jORtnIao7YqL0sQb2M5i
+         QgllVnPYwgN4aXoE6lxdQqzgQWN+6Zjp006tIrjQDgUnmeu98JwQDoOhKol+RJ/ECgho
+         0kJKQH/8+LfOfBlGcsWjQzElMv+o0bWpUuvJOnFhgmSIhvhj98OiKTGoPoLhMCBkE8TB
+         UlbWbxV87ZRGMNuTh1R4LmYg0pWgfhIH0pGSdxmAMrq94ir3a9AF0dN6SosAXBtX5Jml
+         OA6w==
+X-Forwarded-Encrypted: i=1; AJvYcCU0nm5ibeff/07KES1/s++CTb+9DuNXSz0okS3LwgiMIci+JSSHNcmJ58bme/aIYz1XesUMQJr7PzyhdCLqPf/R@lists.infradead.org
+X-Gm-Message-State: AOJu0YyWTSbMCe9wHpvHMwF3kqkXwJgOXrXtYohraMMJxDFaEZWjQp/f
+	vs/jg4tZJ6RBwdwXpkidKbJDcXHO2VS+S+wrQtylEBTflEA6NOexBkTGWdDWHQgQLXI=
+X-Gm-Gg: ASbGncuG/BT6uPZgeK+57I7z+YxomHZzSi9REk4xVpN4wtI3wT5cKa3scAIvGolwIW9
+	dS2H62cdr9DWpr/S82VzBETVOshogmQHbJ/SVZkxglCRChwQvl7ZkIj/YZ133q3QcmTqpsDj9Mv
+	uISTTaAbM0C4pPEToRORMi7xEskupS4Ymtf6/W4mPAkWU8L0JffExgjDBynriNwm53KtHcorn/U
+	cNPSGRP3rAXpyaCC1IGXoarfaFkYjIgRFH/x5eK0IkC+bG3KCnU+DA3SJT6dnkhLZ99U+WQfzVc
+	XeeZ5MDmJ5pzRrMZZY13fO2xtVUgZvfNm4twuuN1FyW4m14oHLviakmktUvo16gurheMc965RnB
+	uJcm8T88WNRf6xX6yV4zCazU4oBpvNHIh9VmWns+AlkHFqMCQlKwUs1pUfPsvGyuJa6xcculs0P
+	AL98Iclvwv
+X-Google-Smtp-Source: AGHT+IElF/T+Q0FRSbaf4vIW5bhX8C6ff55S6JhSk25qIcq1w7h43dVawEGNhIiUvV2A+8nhwkz6JQ==
+X-Received: by 2002:a05:6402:52c4:b0:607:28c9:c3c9 with SMTP id 4fb4d7f45d1cf-61c1b453182mr19602307a12.6.1756349957145;
+        Wed, 27 Aug 2025 19:59:17 -0700 (PDT)
+Received: from mail-ej1-f51.google.com (mail-ej1-f51.google.com. [209.85.218.51])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-61c312c4f88sm9979429a12.24.2025.08.27.19.59.16
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 27 Aug 2025 19:56:10 -0700 (PDT)
-Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-afcb7ace3baso74650966b.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 19:56:10 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXzVePlRtd3VVRwNljJJ7PcWhAmlywzvfw2UVAIu/zv/4hQfjqFxR4TXA8SSPueqh+T9wPgVt5qFnoCqDUJV+9B@lists.infradead.org
-X-Received: by 2002:a17:907:7f26:b0:afe:ea46:e808 with SMTP id
- a640c23a62f3a-afeea4747aemr33407866b.47.1756349770127; Wed, 27 Aug 2025
- 19:56:10 -0700 (PDT)
+        Wed, 27 Aug 2025 19:59:16 -0700 (PDT)
+Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-afec56519c4so52162666b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 27 Aug 2025 19:59:16 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXlcnveEW9eVyI0v3vfFHs0peTaCJqd2gGF8SeHUF53eK/vk2Q4XiwWIqdLPIT3gTqVF0RDHlUKs+Df/fR4zVwu@lists.infradead.org
+X-Received: by 2002:a17:907:2d0f:b0:ae0:d1f3:f7f4 with SMTP id
+ a640c23a62f3a-afe28fd46aamr1873427666b.13.1756349956549; Wed, 27 Aug 2025
+ 19:59:16 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250823-apple-dt-sync-6-17-v2-0-6dc0daeb4786@jannau.net>
-In-Reply-To: <20250823-apple-dt-sync-6-17-v2-0-6dc0daeb4786@jannau.net>
+References: <20250821-apple-dart-4levels-v2-0-e39af79daa37@jannau.net>
+In-Reply-To: <20250821-apple-dart-4levels-v2-0-e39af79daa37@jannau.net>
 From: Neal Gompa <neal@gompa.dev>
-Date: Wed, 27 Aug 2025 22:55:33 -0400
-X-Gmail-Original-Message-ID: <CAEg-Je9WSJ_eyuKfZejCNCdN5g-V-7_VSW=NY=Sxc4jCJfDcJA@mail.gmail.com>
-X-Gm-Features: Ac12FXybLNW3dXUB-nTs8fEB4lNe9ODNBHdvueiT250V7fxKSinYXBh99Kd-hDc
-Message-ID: <CAEg-Je9WSJ_eyuKfZejCNCdN5g-V-7_VSW=NY=Sxc4jCJfDcJA@mail.gmail.com>
-Subject: Re: [PATCH v2 0/5] Apple device tree sync from downstream kernel
+Date: Wed, 27 Aug 2025 22:58:39 -0400
+X-Gmail-Original-Message-ID: <CAEg-Je_mgErxSHk_OaBCwzNXwPcwNsAQuAutAUNdJK2AU88w8Q@mail.gmail.com>
+X-Gm-Features: Ac12FXyrolpUKa4Qy_Ohl39WRoR9hhvgyebGLIK4Y-M15o_j00lBGu62bGVkdGY
+Message-ID: <CAEg-Je_mgErxSHk_OaBCwzNXwPcwNsAQuAutAUNdJK2AU88w8Q@mail.gmail.com>
+Subject: Re: [PATCH v2 0/3] iommu/apple-dart: Four level page table support
 To: Janne Grunau <j@jannau.net>
-Cc: Sven Peter <sven@kernel.org>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Mark Kettenis <kettenis@openbsd.org>, Hector Martin <marcan@marcan.st>, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+Cc: Sven Peter <sven@kernel.org>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Hector Martin <marcan@marcan.st>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250827_195613_188453_822C1651 
-X-CRM114-Status: GOOD (  20.15  )
+X-CRM114-CacheID: sfid-20250827_195919_450414_40B4824A 
+X-CRM114-Status: GOOD (  13.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,69 +99,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 23, 2025 at 5:49=E2=80=AFAM Janne Grunau <j@jannau.net> wrote:
+On Thu, Aug 21, 2025 at 6:16=E2=80=AFAM Janne Grunau <j@jannau.net> wrote:
 >
-> This series pulls changes from the downstream device trees which are
-> supported in upstream kernel.
-> Most importantly it fixes the PCIe description for a specific iMac model
-> (iMac M1, 2 USB-C ports, 2021). This is worked around in the downstream
-> kernel by not disabling the port. In preparation for submitting M2
-> Pro/Max/Ultra devices trees I investigated the issue on the similarly
-> affected M2 Pro Mac mini and fixed it this way.
-> It completes the Wlan/BT device nodes for t600x based devices and adds
-> the missing 15-inch Macbook Air (M2, 2023).
->
-> Checkpatch emits following warnings:
->
-> WARNING: DT compatible string vendor "pci14e4" appears un-documented --
-> check ./Documentation/devicetree/bindings/vendor-prefixes.yaml
->
-> Which I chose to ignore. `vendor-prefixes.yaml` prefixes contains no
-> other mapping for PCI vendor code and the list of ignored prefixes
-> forbids extending it. Both options feel wrong though. "pci${vendor}" is
-> clearly a vendor prefix but duplicating the PCI vendor data base feels
-> wrong. `vendor-prefixes.yaml` currently does not contain and PCI vendor
-> aliases.
+> The DART instances found in T602x based SoCs (Apple's M2 Pro/Max/Ultra)
+> indicate an IAS of 42 bit. This results in alloc_io_pgtable_ops()
+> failing as io-pgtable-dart supports at most 36-bit IAS.
+> The t8110 DART design supports 4-level page tables. Implement support
+> for this in io-pgtable-dart and mark DART stream with more than 36-bit
+> IAS as 4-level page tables.
 >
 > Signed-off-by: Janne Grunau <j@jannau.net>
 > ---
 > Changes in v2:
-> - fixed commit subject of PATCH 2/5
-> - correct Macbook Pro (15-inch, M2) to Macbook Air
-> - added Neal's and Sven's Rb: tags
-> - Link to v1: https://lore.kernel.org/r/20250813-apple-dt-sync-6-17-v1-0-=
-209f15d10aa0@jannau.net
+> - simplified 4 page table level use in apple_dart_hw_enable_translation()
+> - use "iommu/{apple,io-pgtable}-dart:" as commit subject prefix
+> - added Sven's Rb:
+> - Link to v1: https://lore.kernel.org/r/20250814-apple-dart-4levels-v1-0-=
+db2214a78c08@jannau.net
 >
 > ---
-> Hector Martin (2):
->       arm64: dts: apple: t600x: Add missing WiFi properties
->       arm64: dts: apple: t600x: Add bluetooth device nodes
+> Hector Martin (3):
+>       iommu/apple-dart: Make the hw register fields u32s
+>       iommu/io-pgtable-dart: Add 4-level page table support
+>       iommu/apple-dart: Add 4-level page table support
 >
-> Janne Grunau (3):
->       arm64: dts: apple: t8103-j457: Fix PCIe ethernet iommu-map
->       dt-bindings: arm: apple: Add t8112 j415 compatible
->       arm64: dts: apple: Add devicetreee for t8112-j415
->
->  Documentation/devicetree/bindings/arm/apple.yaml |  2 +
->  arch/arm64/boot/dts/apple/Makefile               |  1 +
->  arch/arm64/boot/dts/apple/t6000-j314s.dts        |  8 +++
->  arch/arm64/boot/dts/apple/t6000-j316s.dts        |  8 +++
->  arch/arm64/boot/dts/apple/t6001-j314c.dts        |  8 +++
->  arch/arm64/boot/dts/apple/t6001-j316c.dts        |  8 +++
->  arch/arm64/boot/dts/apple/t6001-j375c.dts        |  8 +++
->  arch/arm64/boot/dts/apple/t6002-j375d.dts        |  8 +++
->  arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi   | 10 +++
->  arch/arm64/boot/dts/apple/t600x-j375.dtsi        | 10 +++
->  arch/arm64/boot/dts/apple/t8103-j457.dts         | 12 +++-
->  arch/arm64/boot/dts/apple/t8112-j415.dts         | 80 ++++++++++++++++++=
-++++++
->  12 files changed, 161 insertions(+), 2 deletions(-)
+>  drivers/iommu/apple-dart.c      |  50 +++++++++-----
+>  drivers/iommu/io-pgtable-dart.c | 143 ++++++++++++++++++++++++----------=
+------
+>  include/linux/io-pgtable.h      |   1 +
+>  3 files changed, 121 insertions(+), 73 deletions(-)
 > ---
 > base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
-> change-id: 20250813-apple-dt-sync-6-17-d1fc1c89f7ca
+> change-id: 20250811-apple-dart-4levels-8f9ae8ac1347
 >
 
-LGTM.
+Series LGTM.
 
 Reviewed-by: Neal Gompa <neal@gompa.dev>
 
