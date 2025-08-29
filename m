@@ -4,83 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28303CA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 11:35:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B53FCA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 11:38:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=336PQw3uXU0Znvz55zA6oLPN4hF7V2cSCNRDMtsX4HE=; b=sMEwgtAOK+CjDNzqiRu2EsHgYr
-	5FKoHtvtWCRju5iBtuYDU686xuJDyfmXN+fEvANARexBITa+0L66v5JBb+WBXuSvmjnI6isv9L5CU
-	F0Ru/EEnqymQtZjUaVo08/NzipWcIQfA1vS/XHQZBocatjtA5XbY1DmXany2vezKt7e9Nm11dacT0
-	KIccC+QkzMh1tnajElThyD9iASyPsjXWDVmqXrgZ8jYLtWD3R8xdAKMKJqVlEqD7Bya2o/BhHhzua
-	ZLg3yvsxbx2sr8gSO73HCooukTYCjsp82cP4beTxvg8L8HPeLDXrpBzsYphoEAPlbq8jg1vRIogq2
-	0XR7ER5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aSCaqzLDBUaE/EFokzMjmyY7n5mbvUzezGL1FxPKWJ0=; b=L6ruqe2Nbc8tsRuMjedcZ1An6R
+	vYAWDRjOhIHke7p8/eRTPIl5k4K1mIRkJ4CUqgV/T/sqo+EaInpt9mP4UikiFPIh/kxdNaiVTMqin
+	YgPGgB32Hg0HynFm3OKMgnbQujoBDWQ22pcuubWYJhD75get2L5bA+rbXGRKP+G5sNveUD9TSgOds
+	3mLEPU3TYlHBoO1OoX6P80OsImSW3/rDoQpC8zdbwOpA9WvCIbznunP5ibCDvipWxr1VdWVMzvc0k
+	2DnimwFlfcAjJis3M+BwxZiZU8PK7FYLyJWgDftwDmLKID11Z1Umj+VFnbJMNmIc85STLUVhH914B
+	gvf+AOwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urxNx-00000005V18-2FVX;
-	Fri, 29 Aug 2025 11:35:13 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1urxQe-00000005VJD-1IzL;
+	Fri, 29 Aug 2025 11:38:00 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urvEm-000000056rK-0tIk;
-	Fri, 29 Aug 2025 09:17:37 +0000
-X-UUID: fd91819284b811f09eb0dd999d3936bf-20250829
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=336PQw3uXU0Znvz55zA6oLPN4hF7V2cSCNRDMtsX4HE=;
-	b=sYlbdGooXVEnJzNKjh5LXZjQUkeWJNSTFxfHzje2cwgR8vwblCj8hlKReDqtM0CCIttIeqSNbzUsg7B9aUfaX7zyT7fluccozABLU8wCekZ/t9dKk9IeU+AD0AX1dgtcQdxdemzneyFxjeWchc++md6pLADtWT5aaAZoV0qwuZo=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.3,REQID:7566eb8c-918b-4c5d-bb00-8be57f06c7e2,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:f1326cf,CLOUDID:9d37fe6b-8443-424b-b119-dc42e68239b0,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:-5,Content:0|15|50,EDM:-3,IP:
-	nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:
-	0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_ULS,TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: fd91819284b811f09eb0dd999d3936bf-20250829
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw02.mediatek.com
-	(envelope-from <jason-jh.lin@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 429509075; Fri, 29 Aug 2025 02:17:31 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- MTKMBS14N2.mediatek.inc (172.21.101.76) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Fri, 29 Aug 2025 17:17:27 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Fri, 29 Aug 2025 17:17:27 +0800
-From: Jason-JH Lin <jason-jh.lin@mediatek.com>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Jassi Brar
-	<jassisinghbrar@gmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>
-CC: Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, Jason-JH Lin <jason-jh.lin@mediatek.com>,
-	Nancy Lin <nancy.lin@mediatek.com>, Singo Chang <singo.chang@mediatek.com>,
-	Paul-PL Chen <paul-pl.chen@mediatek.com>, Yongqiang Niu
-	<yongqiang.niu@mediatek.com>, Zhenxing Qin <zhenxing.qin@mediatek.com>,
-	Xiandong Wang <xiandong.wang@mediatek.com>, Sirius Wang
-	<sirius.wang@mediatek.com>, Xavier Chang <xavier.chang@mediatek.com>, Jarried
- Lin <jarried.lin@mediatek.com>, Fei Shao <fshao@chromium.org>, Chen-yu Tsai
-	<wenst@chromium.org>, <Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-media@vger.kernel.org>
-Subject: [PATCH v2 0/3] Fix sleeping function called from invalid context
-Date: Fri, 29 Aug 2025 17:15:57 +0800
-Message-ID: <20250829091727.3745415-1-jason-jh.lin@mediatek.com>
-X-Mailer: git-send-email 2.45.2
+	id 1urvIO-000000057si-3VlE;
+	Fri, 29 Aug 2025 09:21:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1756459279;
+	bh=qL1sDnvzWryycSvBHOq1k2+N7v5H15h3gm00MEdm1c0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=VsONWEdoKXigm3rrxt6433lweB1ZWqk9RhmWSGKkL9EPRCUdo4V8V0d5RiFwQP1xy
+	 EabaejfSqXDunTXOk+Z8sheVLvUtKhSdkbbZBSUJtESyVODmhEi1Nhypjebt/2x+/T
+	 62+6N00V2rEc1uab/uSlelqM011aPq042wfUYLkeUUwcKvP4WZqjQ+bH7Xp49MDjo4
+	 qUaT10vyHnWzHctGzvBdPxcMhshPvuFy4GWHKLMBBBVpEuh14sGyyOhQruaOgRVlG8
+	 an7H+6HNzqCop4LX/nrTuQtm3BceFiNAoa1k1gYrWr0RH6kwAMBeoXAsTW9rBOaISN
+	 YwWYrePVUzR+w==
+Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:f5b1:db54:a11a:c333])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laura.nao)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5074717E12B9;
+	Fri, 29 Aug 2025 11:21:18 +0200 (CEST)
+From: Laura Nao <laura.nao@collabora.com>
+To: mturquette@baylibre.com,
+	sboyd@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	p.zabel@pengutronix.de,
+	richardcochran@gmail.com
+Cc: guangjie.song@mediatek.com,
+	wenst@chromium.org,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	netdev@vger.kernel.org,
+	kernel@collabora.com,
+	Laura Nao <laura.nao@collabora.com>,
+	=?UTF-8?q?N=C3=ADcolas=20F=20=2E=20R=20=2E=20A=20=2E=20Prado?= <nfraprado@collabora.com>
+Subject: [PATCH v5 21/27] clk: mediatek: Add MT8196 disp0 clock support
+Date: Fri, 29 Aug 2025 11:19:07 +0200
+Message-Id: <20250829091913.131528-22-laura.nao@collabora.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250829091913.131528-1-laura.nao@collabora.com>
+References: <20250829091913.131528-1-laura.nao@collabora.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_021736_258382_ED9B3785 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20250829_022121_228906_B36D9BC5 
+X-CRM114-Status: GOOD (  16.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,36 +90,228 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We found that there is a spin_lock_irqsave protection in msg_submit()
-of mailbox.c and it is in the atomic context.
-So when the mailbox controller driver calls pm_runtime_get_sync() in
-mbox_chan_ops->send_data(), it will get this BUG report.
-"BUG: sleeping function called from invalid context at drivers/base/power/runtime.c:1164"
+Add support for the MT8196 disp0 clock controller, which provides clock
+gate control for the display system. It is integrated with the mtk-mmsys
+driver, which registers the disp0 clock driver via
+platform_device_register_data().
 
-Additionally, pm_runtime_put_autosuspend() should be invoked from the
-GCE IRQ handler to ensure the hardware has actually completed its work.
-
-To resolve these issues, remove the pm_runtime calls from
-cmdq_mbox_send_data() and delegate power management responsibilities
-to the client driver.
+Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Laura Nao <laura.nao@collabora.com>
 ---
-Changes in v2:
-- Move pm_runtmie APIs from cmdq driver to client drivers.
-- Move pm_runtime_put_autosuspend to GCE irq callback function.
-- Link to v1: https://lore.kernel.org/r/20240614040133.24967-1-jason-jh.lin@mediatek.com
----
-Jason-JH Lin (3):
-  mailbox: mtk-cmdq: Remove pm_runtime APIs from cmdq_mbox_send_data()
-  drm/mediatek: Add pm_runtime support for GCE power control
-  media: platform: mtk-mdp3: Add pm_runtime support for GCE power
-    control
+ drivers/clk/mediatek/Kconfig            |   7 +
+ drivers/clk/mediatek/Makefile           |   1 +
+ drivers/clk/mediatek/clk-mt8196-disp0.c | 170 ++++++++++++++++++++++++
+ 3 files changed, 178 insertions(+)
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-disp0.c
 
- drivers/gpu/drm/mediatek/mtk_crtc.c                  |  7 +++++++
- drivers/mailbox/mtk-cmdq-mailbox.c                   | 12 +-----------
- drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c | 11 +++++++++++
- 3 files changed, 19 insertions(+), 11 deletions(-)
-
+diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
+index 1990721ec418..77e18bceae91 100644
+--- a/drivers/clk/mediatek/Kconfig
++++ b/drivers/clk/mediatek/Kconfig
+@@ -1038,6 +1038,13 @@ config COMMON_CLK_MT8196_MFGCFG
+ 	help
+ 	  This driver supports MediaTek MT8196 mfgcfg clocks.
+ 
++config COMMON_CLK_MT8196_MMSYS
++	tristate "Clock driver for MediaTek MT8196 mmsys"
++	depends on COMMON_CLK_MT8196
++	default m
++	help
++	  This driver supports MediaTek MT8196 mmsys clocks.
++
+ config COMMON_CLK_MT8196_PEXTPSYS
+ 	tristate "Clock driver for MediaTek MT8196 pextpsys"
+ 	depends on COMMON_CLK_MT8196
+diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
+index 0040a3968858..a8c681f9fe64 100644
+--- a/drivers/clk/mediatek/Makefile
++++ b/drivers/clk/mediatek/Makefile
+@@ -157,6 +157,7 @@ obj-$(CONFIG_COMMON_CLK_MT8196_IMP_IIC_WRAP) += clk-mt8196-imp_iic_wrap.o
+ obj-$(CONFIG_COMMON_CLK_MT8196_MCUSYS) += clk-mt8196-mcu.o
+ obj-$(CONFIG_COMMON_CLK_MT8196_MDPSYS) += clk-mt8196-mdpsys.o
+ obj-$(CONFIG_COMMON_CLK_MT8196_MFGCFG) += clk-mt8196-mfg.o
++obj-$(CONFIG_COMMON_CLK_MT8196_MMSYS) += clk-mt8196-disp0.o
+ obj-$(CONFIG_COMMON_CLK_MT8196_PEXTPSYS) += clk-mt8196-pextp.o
+ obj-$(CONFIG_COMMON_CLK_MT8196_UFSSYS) += clk-mt8196-ufs_ao.o
+ obj-$(CONFIG_COMMON_CLK_MT8365) += clk-mt8365-apmixedsys.o clk-mt8365.o
+diff --git a/drivers/clk/mediatek/clk-mt8196-disp0.c b/drivers/clk/mediatek/clk-mt8196-disp0.c
+new file mode 100644
+index 000000000000..9474aad26e92
+--- /dev/null
++++ b/drivers/clk/mediatek/clk-mt8196-disp0.c
+@@ -0,0 +1,170 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (c) 2025 MediaTek Inc.
++ *                    Guangjie Song <guangjie.song@mediatek.com>
++ * Copyright (c) 2025 Collabora Ltd.
++ *                    Laura Nao <laura.nao@collabora.com>
++ */
++#include <dt-bindings/clock/mediatek,mt8196-clock.h>
++
++#include <linux/clk-provider.h>
++#include <linux/module.h>
++#include <linux/of_device.h>
++#include <linux/platform_device.h>
++
++#include "clk-gate.h"
++#include "clk-mtk.h"
++
++static const struct mtk_gate_regs mm0_cg_regs = {
++	.set_ofs = 0x104,
++	.clr_ofs = 0x108,
++	.sta_ofs = 0x100,
++};
++
++static const struct mtk_gate_regs mm0_hwv_regs = {
++	.set_ofs = 0x0020,
++	.clr_ofs = 0x0024,
++	.sta_ofs = 0x2c10,
++};
++
++static const struct mtk_gate_regs mm1_cg_regs = {
++	.set_ofs = 0x114,
++	.clr_ofs = 0x118,
++	.sta_ofs = 0x110,
++};
++
++static const struct mtk_gate_regs mm1_hwv_regs = {
++	.set_ofs = 0x0028,
++	.clr_ofs = 0x002c,
++	.sta_ofs = 0x2c14,
++};
++
++#define GATE_MM0(_id, _name, _parent, _shift) {	\
++		.id = _id,			\
++		.name = _name,			\
++		.parent_name = _parent,		\
++		.regs = &mm0_cg_regs,		\
++		.shift = _shift,		\
++		.flags = CLK_OPS_PARENT_ENABLE,	\
++		.ops = &mtk_clk_gate_ops_setclr,\
++	}
++
++#define GATE_HWV_MM0(_id, _name, _parent, _shift) {	\
++		.id = _id,				\
++		.name = _name,				\
++		.parent_name = _parent,			\
++		.regs = &mm0_cg_regs,			\
++		.hwv_regs = &mm0_hwv_regs,		\
++		.shift = _shift,			\
++		.ops = &mtk_clk_gate_hwv_ops_setclr,	\
++		.flags =  CLK_OPS_PARENT_ENABLE		\
++	}
++
++#define GATE_MM1(_id, _name, _parent, _shift) {	\
++		.id = _id,			\
++		.name = _name,			\
++		.parent_name = _parent,		\
++		.regs = &mm1_cg_regs,		\
++		.shift = _shift,		\
++		.flags = CLK_OPS_PARENT_ENABLE,	\
++		.ops = &mtk_clk_gate_ops_setclr,\
++	}
++
++#define GATE_HWV_MM1(_id, _name, _parent, _shift) {	\
++		.id = _id,				\
++		.name = _name,				\
++		.parent_name = _parent,			\
++		.regs = &mm1_cg_regs,			\
++		.hwv_regs = &mm1_hwv_regs,		\
++		.shift = _shift,			\
++		.ops = &mtk_clk_gate_hwv_ops_setclr,	\
++		.flags = CLK_OPS_PARENT_ENABLE,		\
++	}
++
++static const struct mtk_gate mm_clks[] = {
++	/* MM0 */
++	GATE_HWV_MM0(CLK_MM_CONFIG, "mm_config", "disp", 0),
++	GATE_HWV_MM0(CLK_MM_DISP_MUTEX0, "mm_disp_mutex0", "disp", 1),
++	GATE_HWV_MM0(CLK_MM_DISP_AAL0, "mm_disp_aal0", "disp", 2),
++	GATE_HWV_MM0(CLK_MM_DISP_AAL1, "mm_disp_aal1", "disp", 3),
++	GATE_MM0(CLK_MM_DISP_C3D0, "mm_disp_c3d0", "disp", 4),
++	GATE_MM0(CLK_MM_DISP_C3D1, "mm_disp_c3d1", "disp", 5),
++	GATE_MM0(CLK_MM_DISP_C3D2, "mm_disp_c3d2", "disp", 6),
++	GATE_MM0(CLK_MM_DISP_C3D3, "mm_disp_c3d3", "disp", 7),
++	GATE_MM0(CLK_MM_DISP_CCORR0, "mm_disp_ccorr0", "disp", 8),
++	GATE_MM0(CLK_MM_DISP_CCORR1, "mm_disp_ccorr1", "disp", 9),
++	GATE_MM0(CLK_MM_DISP_CCORR2, "mm_disp_ccorr2", "disp", 10),
++	GATE_MM0(CLK_MM_DISP_CCORR3, "mm_disp_ccorr3", "disp", 11),
++	GATE_MM0(CLK_MM_DISP_CHIST0, "mm_disp_chist0", "disp", 12),
++	GATE_MM0(CLK_MM_DISP_CHIST1, "mm_disp_chist1", "disp", 13),
++	GATE_MM0(CLK_MM_DISP_COLOR0, "mm_disp_color0", "disp", 14),
++	GATE_MM0(CLK_MM_DISP_COLOR1, "mm_disp_color1", "disp", 15),
++	GATE_MM0(CLK_MM_DISP_DITHER0, "mm_disp_dither0", "disp", 16),
++	GATE_MM0(CLK_MM_DISP_DITHER1, "mm_disp_dither1", "disp", 17),
++	GATE_HWV_MM0(CLK_MM_DISP_DLI_ASYNC0, "mm_disp_dli_async0", "disp", 18),
++	GATE_HWV_MM0(CLK_MM_DISP_DLI_ASYNC1, "mm_disp_dli_async1", "disp", 19),
++	GATE_HWV_MM0(CLK_MM_DISP_DLI_ASYNC2, "mm_disp_dli_async2", "disp", 20),
++	GATE_HWV_MM0(CLK_MM_DISP_DLI_ASYNC3, "mm_disp_dli_async3", "disp", 21),
++	GATE_HWV_MM0(CLK_MM_DISP_DLI_ASYNC4, "mm_disp_dli_async4", "disp", 22),
++	GATE_HWV_MM0(CLK_MM_DISP_DLI_ASYNC5, "mm_disp_dli_async5", "disp", 23),
++	GATE_HWV_MM0(CLK_MM_DISP_DLI_ASYNC6, "mm_disp_dli_async6", "disp", 24),
++	GATE_HWV_MM0(CLK_MM_DISP_DLI_ASYNC7, "mm_disp_dli_async7", "disp", 25),
++	GATE_HWV_MM0(CLK_MM_DISP_DLI_ASYNC8, "mm_disp_dli_async8", "disp", 26),
++	GATE_HWV_MM0(CLK_MM_DISP_DLI_ASYNC9, "mm_disp_dli_async9", "disp", 27),
++	GATE_HWV_MM0(CLK_MM_DISP_DLI_ASYNC10, "mm_disp_dli_async10", "disp", 28),
++	GATE_HWV_MM0(CLK_MM_DISP_DLI_ASYNC11, "mm_disp_dli_async11", "disp", 29),
++	GATE_HWV_MM0(CLK_MM_DISP_DLI_ASYNC12, "mm_disp_dli_async12", "disp", 30),
++	GATE_HWV_MM0(CLK_MM_DISP_DLI_ASYNC13, "mm_disp_dli_async13", "disp", 31),
++	/* MM1 */
++	GATE_HWV_MM1(CLK_MM_DISP_DLI_ASYNC14, "mm_disp_dli_async14", "disp", 0),
++	GATE_HWV_MM1(CLK_MM_DISP_DLI_ASYNC15, "mm_disp_dli_async15", "disp", 1),
++	GATE_HWV_MM1(CLK_MM_DISP_DLO_ASYNC0, "mm_disp_dlo_async0", "disp", 2),
++	GATE_HWV_MM1(CLK_MM_DISP_DLO_ASYNC1, "mm_disp_dlo_async1", "disp", 3),
++	GATE_HWV_MM1(CLK_MM_DISP_DLO_ASYNC2, "mm_disp_dlo_async2", "disp", 4),
++	GATE_HWV_MM1(CLK_MM_DISP_DLO_ASYNC3, "mm_disp_dlo_async3", "disp", 5),
++	GATE_HWV_MM1(CLK_MM_DISP_DLO_ASYNC4, "mm_disp_dlo_async4", "disp", 6),
++	GATE_HWV_MM1(CLK_MM_DISP_DLO_ASYNC5, "mm_disp_dlo_async5", "disp", 7),
++	GATE_HWV_MM1(CLK_MM_DISP_DLO_ASYNC6, "mm_disp_dlo_async6", "disp", 8),
++	GATE_HWV_MM1(CLK_MM_DISP_DLO_ASYNC7, "mm_disp_dlo_async7", "disp", 9),
++	GATE_HWV_MM1(CLK_MM_DISP_DLO_ASYNC8, "mm_disp_dlo_async8", "disp", 10),
++	GATE_MM1(CLK_MM_DISP_GAMMA0, "mm_disp_gamma0", "disp", 11),
++	GATE_MM1(CLK_MM_DISP_GAMMA1, "mm_disp_gamma1", "disp", 12),
++	GATE_MM1(CLK_MM_MDP_AAL0, "mm_mdp_aal0", "disp", 13),
++	GATE_MM1(CLK_MM_MDP_AAL1, "mm_mdp_aal1", "disp", 14),
++	GATE_HWV_MM1(CLK_MM_MDP_RDMA0, "mm_mdp_rdma0", "disp", 15),
++	GATE_HWV_MM1(CLK_MM_DISP_POSTMASK0, "mm_disp_postmask0", "disp", 16),
++	GATE_HWV_MM1(CLK_MM_DISP_POSTMASK1, "mm_disp_postmask1", "disp", 17),
++	GATE_HWV_MM1(CLK_MM_MDP_RSZ0, "mm_mdp_rsz0", "disp", 18),
++	GATE_HWV_MM1(CLK_MM_MDP_RSZ1, "mm_mdp_rsz1", "disp", 19),
++	GATE_HWV_MM1(CLK_MM_DISP_SPR0, "mm_disp_spr0", "disp", 20),
++	GATE_MM1(CLK_MM_DISP_TDSHP0, "mm_disp_tdshp0", "disp", 21),
++	GATE_MM1(CLK_MM_DISP_TDSHP1, "mm_disp_tdshp1", "disp", 22),
++	GATE_HWV_MM1(CLK_MM_DISP_WDMA0, "mm_disp_wdma0", "disp", 23),
++	GATE_HWV_MM1(CLK_MM_DISP_Y2R0, "mm_disp_y2r0", "disp", 24),
++	GATE_HWV_MM1(CLK_MM_SMI_SUB_COMM0, "mm_ssc", "disp", 25),
++	GATE_HWV_MM1(CLK_MM_DISP_FAKE_ENG0, "mm_disp_fake_eng0", "disp", 26),
++};
++
++static const struct mtk_clk_desc mm_mcd = {
++	.clks = mm_clks,
++	.num_clks = ARRAY_SIZE(mm_clks),
++};
++
++static const struct platform_device_id clk_mt8196_disp0_id_table[] = {
++	{ .name = "clk-mt8196-disp0", .driver_data = (kernel_ulong_t)&mm_mcd },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(platform, clk_mt8196_disp0_id_table);
++
++static struct platform_driver clk_mt8196_disp0_drv = {
++	.probe = mtk_clk_pdev_probe,
++	.remove = mtk_clk_pdev_remove,
++	.driver = {
++		.name = "clk-mt8196-disp0",
++	},
++	.id_table = clk_mt8196_disp0_id_table,
++};
++module_platform_driver(clk_mt8196_disp0_drv);
++
++MODULE_DESCRIPTION("MediaTek MT8196 disp0 clocks driver");
++MODULE_LICENSE("GPL");
 -- 
-2.43.0
+2.39.5
 
 
