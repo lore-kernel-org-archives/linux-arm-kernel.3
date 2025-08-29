@@ -4,79 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50ACCCA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 17:07:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B3C8CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 17:09:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=d7ikzstNHkthbtDA8b8VQUUX9xhB4JWtLC11kBw1nzg=; b=JMHTI2FQYqkGVxhjSh557MT1CD
-	BYlWpSsEbjuBfOMaG0QBa4iMyfJ3Y2B7KhOrnoz2cIE/BYRy9PYSKdu6SfhUJ1KFp5SZEnyHqyvYP
-	5Z48Oy/OBkXima0+SPYc+EouuWHltRlWBkPVhDIgb6Fq747OwGNNigN8V0sSovabVrg0hmF1pKYli
-	4ZIoSiveIkii7S7XV6luzGmM97NvKCnNrlt8WliCXi+pI/QceHQauO+73fkWyUDXDxQEudTZ54lzf
-	XabAjEbd0FMTIUJ+SZwRcH0cBA1ZtO5uV/X4SfdiWFvjTflCo1qCUGzO011C3Z/xMjz5WNuAs6q/I
-	hkahA75Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jRa1lteH7MbLh92y/xYMLgWgOsFt/1/eYwT6t3cWhPE=; b=u3Luv+vTFPomd8LEFiEAx383TF
+	lMYTuWAcx8+BDfYH6ea/JLtaJTCL00T64OKuasuJJJD/G7Z5zYCz6f8Muax/1U1oX6p8K4WR4tNna
+	yYTLrIHZH2WNiRMuNw7fDAfyU5lacmwbURHUJOhbpyzfz/KGmfA7/bzW2KKxPTPPpUbos+92lDU+H
+	s5jXd/zpsxeeSW3Ghi+rLs7JTsMMrJ79goFFBC9lEvwHEYvWmZi2wDmT5wIyKfRlVY5Lg03dCxTdw
+	r2MCO5m+40FTKsiRWpHAiui/No+97X5faegyUyOnQhxV3eD9WivyKgSCR5aHhJmgPL2yIHBb+7Ie/
+	FKq9roLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us2Z4-00000006ULD-1dUS;
-	Fri, 29 Aug 2025 17:07:03 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1us2bj-00000006Udz-2acb;
+	Fri, 29 Aug 2025 17:09:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urzeK-00000005www-39Rt
+	id 1urzgh-00000005xMa-2JTX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 14:00:18 +0000
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250829140012epoutp045124bb023ccdbdb18bf9a49915eb151e~gQaB3KtJm1285612856epoutp04U
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 14:00:12 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250829140012epoutp045124bb023ccdbdb18bf9a49915eb151e~gQaB3KtJm1285612856epoutp04U
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1756476012;
-	bh=d7ikzstNHkthbtDA8b8VQUUX9xhB4JWtLC11kBw1nzg=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=d4b+QEKSwvDRiv4Z5hwxWvBikCAS9znK/JvuHEB7t1BBzthYGXc5/MrPAU4qQuLum
-	 qMmrD/IDsL1sTg1V0nvukKjpJ7BULXFbjBXou09PEQPSx+0n5jSIfE40ZWtOdiriTs
-	 azsrWTs+9Nwk5W3j8FFFlgO9AxjWTEmBSlMaVyCk=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
-	20250829140011epcas5p471bd84c4daa40aa458116a7feec21e70~gQaBPpf1b0901909019epcas5p4B;
-	Fri, 29 Aug 2025 14:00:11 +0000 (GMT)
-Received: from epcas5p2.samsung.com (unknown [182.195.38.93]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4cD0Jp3xbhz3hhTH; Fri, 29 Aug
-	2025 14:00:10 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250829140010epcas5p1bc06faf0001ab2695f0199db65fe678d~gQZ-_j_ZR2472824728epcas5p1W;
-	Fri, 29 Aug 2025 14:00:10 +0000 (GMT)
-Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
-	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250829140008epsmtip1b0874f76e197270c46afb5cc6889618f~gQZ_nDMaH2172121721epsmtip1c;
-	Fri, 29 Aug 2025 14:00:08 +0000 (GMT)
-From: Varada Pavani <v.pavani@samsung.com>
-To: krzk@kernel.org, alim.akhtar@samsung.com, wim@linux-watchdog.org,
-	linux@roeck-us.net
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
-	linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org,
-	gost.dev@samsung.com, aswani.reddy@samsung.com, Varada Pavani
-	<v.pavani@samsung.com>
-Subject: [PATCH] watchdog: s3c2410: Add FSD support
-Date: Fri, 29 Aug 2025 19:30:02 +0530
-Message-ID: <20250829140003.109588-1-v.pavani@samsung.com>
-X-Mailer: git-send-email 2.49.0
+	Fri, 29 Aug 2025 14:02:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D1D6E600B0;
+	Fri, 29 Aug 2025 14:02:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB4E2C4CEF0;
+	Fri, 29 Aug 2025 14:02:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756476162;
+	bh=rYk7kh2K0XNkrKe1b/8Qa6EV2yfNmK1OMJY9R4tVrM0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=H4+yTiGfnX3YWu36m9+qObMcDf+3Xd84tneLcq5ddTQ01i9fF2TsDhnVpDmHrSNJr
+	 LErQu3xvfxKgeYjxNOJl0ZRf/cgn3G+VF/4S+Cyn1unxOQUtYdPKk8XAATSLF2WGuV
+	 qyEJ+kkaZyBDyb6eoAVjRMIaHtNxzvsdTx+JCEghMUGMcoOmS5/PlzDqqTG1y0qFZX
+	 +PRyJ14/DKqxUdLoGFor5pfxYDWx7jDvrvgf0x9WksZN0UCe0FGn2SPvGZAMrQvv7X
+	 rA6y9oxen5kjMyfYhtA5AIl+/CgmyAAev/+MOCWI//D1zAbZ/BXbOpKjDFCIBFRmhW
+	 /ikGTzPPf2Ctg==
+Message-ID: <19196605-50fb-440f-9666-7502de9ddfd5@kernel.org>
+Date: Fri, 29 Aug 2025 16:02:36 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250829140010epcas5p1bc06faf0001ab2695f0199db65fe678d
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-541,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250829140010epcas5p1bc06faf0001ab2695f0199db65fe678d
-References: <CGME20250829140010epcas5p1bc06faf0001ab2695f0199db65fe678d@epcas5p1.samsung.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_070017_115992_A0949745 
-X-CRM114-Status: GOOD (  14.90  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 5/9] media: chips-media: wave6: Add Wave6 core driver
+To: Nas Chung <nas.chung@chipsnmedia.com>, mchehab@kernel.org,
+ hverkuil@xs4all.nl, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-imx@nxp.com,
+ linux-arm-kernel@lists.infradead.org, jackson.lee@chipsnmedia.com,
+ lafley.kim@chipsnmedia.com, Ming Qian <ming.qian@oss.nxp.com>
+References: <20250829084649.359-1-nas.chung@chipsnmedia.com>
+ <20250829084649.359-6-nas.chung@chipsnmedia.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250829084649.359-6-nas.chung@chipsnmedia.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,95 +118,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FSD SoC has 3 CPU clusters, each has its own WDT instance.
-PMU register bits(.rst_stat_bit and .mask_bit) for each cluster is
-different. So driver data is now modified in probe, adding needed info
-depending on cluster index passed from device tree.
+On 29/08/2025 10:46, Nas Chung wrote:
+> This adds the core driver for the Chips&Media Wave6 video codec IP.
 
-Signed-off-by: Varada Pavani <v.pavani@samsung.com>
----
- drivers/watchdog/s3c2410_wdt.c | 39 +++++++++++++++++++++++++++++++++-
- 1 file changed, 38 insertions(+), 1 deletion(-)
+Please do not use "This commit/patch/change", but imperative mood. See
+longer explanation here:
+https://elixir.bootlin.com/linux/v6.16/source/Documentation/process/submitting-patches.rst#L94
 
-diff --git a/drivers/watchdog/s3c2410_wdt.c b/drivers/watchdog/s3c2410_wdt.c
-index 30450e99e5e9..a112d9747ab6 100644
---- a/drivers/watchdog/s3c2410_wdt.c
-+++ b/drivers/watchdog/s3c2410_wdt.c
-@@ -57,6 +57,7 @@
- #define EXYNOS5_RST_STAT_REG_OFFSET		0x0404
- #define EXYNOS5_WDT_DISABLE_REG_OFFSET		0x0408
- #define EXYNOS5_WDT_MASK_RESET_REG_OFFSET	0x040c
-+#define FSD_AUTOMATIC_DISABLE_WDT		0x040c
- #define EXYNOS850_CLUSTER0_NONCPU_OUT		0x1220
- #define EXYNOS850_CLUSTER0_NONCPU_INT_EN	0x1244
- #define EXYNOS850_CLUSTER1_NONCPU_OUT		0x1620
-@@ -333,6 +334,33 @@ static const struct s3c2410_wdt_variant drv_data_exynosautov920_cl1 = {
- 		  QUIRK_HAS_DBGACK_BIT,
- };
- 
-+static const struct s3c2410_wdt_variant drv_data_fsd_cl0 = {
-+	.disable_reg = FSD_AUTOMATIC_DISABLE_WDT,
-+	.mask_bit = 23,
-+	.rst_stat_reg = EXYNOS5_RST_STAT_REG_OFFSET,
-+	.rst_stat_bit = 23,
-+	.quirks = QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_RST_STAT |
-+		  QUIRK_HAS_PMU_AUTO_DISABLE,
-+};
-+
-+static const struct s3c2410_wdt_variant drv_data_fsd_cl1 = {
-+	.disable_reg = FSD_AUTOMATIC_DISABLE_WDT,
-+	.mask_bit = 24,
-+	.rst_stat_reg = EXYNOS5_RST_STAT_REG_OFFSET,
-+	.rst_stat_bit = 24,
-+	.quirks = QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_RST_STAT |
-+		  QUIRK_HAS_PMU_AUTO_DISABLE,
-+};
-+
-+static const struct s3c2410_wdt_variant drv_data_fsd_cl2 = {
-+	.disable_reg = FSD_AUTOMATIC_DISABLE_WDT,
-+	.mask_bit = 25,
-+	.rst_stat_reg = EXYNOS5_RST_STAT_REG_OFFSET,
-+	.rst_stat_bit = 25,
-+	.quirks = QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_RST_STAT |
-+		  QUIRK_HAS_PMU_AUTO_DISABLE,
-+};
-+
- static const struct of_device_id s3c2410_wdt_match[] = {
- 	{ .compatible = "google,gs101-wdt",
- 	  .data = &drv_data_gs101_cl0 },
-@@ -352,6 +380,8 @@ static const struct of_device_id s3c2410_wdt_match[] = {
- 	  .data = &drv_data_exynosautov9_cl0 },
- 	{ .compatible = "samsung,exynosautov920-wdt",
- 	  .data = &drv_data_exynosautov920_cl0 },
-+	{ .compatible = "tesla,fsd-wdt",
-+	  .data = &drv_data_fsd_cl0 },
- 	{},
- };
- MODULE_DEVICE_TABLE(of, s3c2410_wdt_match);
-@@ -676,7 +706,8 @@ s3c2410_get_wdt_drv_data(struct platform_device *pdev, struct s3c2410_wdt *wdt)
- 	if (variant == &drv_data_exynos850_cl0 ||
- 	    variant == &drv_data_exynosautov9_cl0 ||
- 	    variant == &drv_data_gs101_cl0 ||
--	    variant == &drv_data_exynosautov920_cl0) {
-+	    variant == &drv_data_exynosautov920_cl0 ||
-+	    variant == &drv_data_fsd_cl0) {
- 		u32 index;
- 		int err;
- 
-@@ -697,6 +728,12 @@ s3c2410_get_wdt_drv_data(struct platform_device *pdev, struct s3c2410_wdt *wdt)
- 				variant = &drv_data_gs101_cl1;
- 			else if (variant == &drv_data_exynosautov920_cl0)
- 				variant = &drv_data_exynosautov920_cl1;
-+			else if (variant == &drv_data_fsd_cl0)
-+				variant = &drv_data_fsd_cl1;
-+			break;
-+		case 2:
-+			if (variant == &drv_data_fsd_cl0)
-+				variant = &drv_data_fsd_cl2;
- 			break;
- 		default:
- 			return dev_err_probe(dev, -EINVAL, "wrong cluster index: %u\n", index);
--- 
-2.49.0
+> 
+> The core region provides the encoding and decoding capabilities of
+> the VPU and depends on the control region for firmware and shared
+> resource management.
+> 
 
+
+...
+
+> +
+> +static int wave6_vpu_core_probe(struct platform_device *pdev)
+> +{
+> +	struct vpu_core_device *core;
+> +	const struct wave6_vpu_core_resource *res;
+> +	int ret;
+> +	int irq;
+> +
+> +	res = device_get_match_data(&pdev->dev);
+> +	if (!res) {
+> +		dev_err(&pdev->dev, "missing resource\n");
+
+This is almost impossible condition. Not worth printing errors.
+
+> +		return -EINVAL;
+> +	}
+> +
+> +	ret = dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(32));
+> +	if (ret < 0) {
+> +		dev_err(&pdev->dev, "dma_set_mask_and_coherent failed: %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	core = devm_kzalloc(&pdev->dev, sizeof(*core), GFP_KERNEL);
+> +	if (!core)
+> +		return -ENOMEM;
+> +
+> +	ret = devm_mutex_init(&pdev->dev, &core->dev_lock);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = devm_mutex_init(&pdev->dev, &core->hw_lock);
+> +	if (ret)
+> +		return ret;
+> +
+> +	init_completion(&core->irq_done);
+> +	dev_set_drvdata(&pdev->dev, core);
+> +	core->dev = &pdev->dev;
+> +	core->res = res;
+> +
+> +	if (pdev->dev.parent->driver && pdev->dev.parent->driver->name &&
+> +	    !strcmp(pdev->dev.parent->driver->name, WAVE6_VPU_PLATFORM_DRIVER_NAME))
+> +		core->vpu = dev_get_drvdata(pdev->dev.parent);
+> +
+> +	core->reg_base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(core->reg_base))
+> +		return PTR_ERR(core->reg_base);
+> +
+> +	ret = devm_clk_bulk_get_all(&pdev->dev, &core->clks);
+> +	if (ret < 0) {
+> +		dev_warn(&pdev->dev, "unable to get clocks: %d\n", ret);
+
+You should handle deferred probe instead.
+
+> +		ret = 0;
+> +	}
+> +	core->num_clks = ret;
+> +
+> +	ret = v4l2_device_register(&pdev->dev, &core->v4l2_dev);
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "v4l2_device_register fail: %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	ret = wave6_vpu_init_m2m_dev(core);
+> +	if (ret)
+> +		goto err_v4l2_unregister;
+> +
+> +	irq = platform_get_irq(pdev, 0);
+> +	if (irq < 0) {
+> +		dev_err(&pdev->dev, "failed to get irq resource\n");
+
+Syntax is: dev_err_probe
+
+> +		ret = -ENXIO;
+
+Don't override error codes.
+
+> +		goto err_m2m_dev_release;
+> +	}
+> +
+> +	ret = kfifo_alloc(&core->irq_status, 16 * sizeof(int), GFP_KERNEL);
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "failed to allocate fifo\n");
+> +		goto err_m2m_dev_release;
+> +	}
+> +
+> +	ret = devm_request_threaded_irq(&pdev->dev, irq,
+> +					wave6_vpu_core_irq,
+> +					wave6_vpu_core_irq_thread,
+> +					0, "vpu_irq", core);
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "fail to register interrupt handler: %d\n", ret);
+> +		goto err_kfifo_free;
+> +	}
+> +
+> +	core->temp_vbuf.size = ALIGN(W6_TEMPBUF_SIZE, 4096);
+> +	ret = wave6_vdi_alloc_dma(core->dev, &core->temp_vbuf);
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "alloc temp of size %zu failed\n",
+> +			core->temp_vbuf.size);
+> +		goto err_kfifo_free;
+> +	}
+> +
+> +	core->debugfs = debugfs_lookup(WAVE6_VPU_DEBUGFS_DIR, NULL);
+> +	if (IS_ERR_OR_NULL(core->debugfs))
+> +		core->debugfs = debugfs_create_dir(WAVE6_VPU_DEBUGFS_DIR, NULL);
+> +
+> +	pm_runtime_enable(&pdev->dev);
+> +
+> +	if (core->res->codec_types & WAVE6_IS_DEC) {
+> +		ret = wave6_vpu_dec_register_device(core);
+> +		if (ret) {
+> +			dev_err(&pdev->dev, "wave6_vpu_dec_register_device fail: %d\n", ret);
+> +			goto err_temp_vbuf_free;
+> +		}
+> +	}
+> +	if (core->res->codec_types & WAVE6_IS_ENC) {
+> +		ret = wave6_vpu_enc_register_device(core);
+> +		if (ret) {
+> +			dev_err(&pdev->dev, "wave6_vpu_enc_register_device fail: %d\n", ret);
+> +			goto err_dec_unreg;
+> +		}
+> +	}
+Best regards,
+Krzysztof
 
