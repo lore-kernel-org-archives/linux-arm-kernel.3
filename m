@@ -4,72 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2F04CA0FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:47:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 283EACA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:47:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L3316HzmhHkmk9hKvXvEDln2bo796IPL6VBsugzS4/A=; b=ONYsiZF/GEBqTVCFJd0EcPYMHu
-	8n5HKX/onB6I3tZ/eSS2vZQaWBfzulrTnjzBIf77VDSuqJfbtDIZrjegH1nUDFAcJg+WuPs/97X5I
-	2mGNjC6OKUQv9N/iZeWm1PluiHB8g7b/ZedBJ9qzj1Qn0wWdTsP+KgJsLb3McjFGG/txhpvDe6V/1
-	SgIvpKK25Y9w3kGe2ydSCNcJNwbsmU0QTIokypgZDb46UL49mfrj2psbCopvemsAn7wBJFE49oEr8
-	deWdqrm113Zr/0y5UIU4CE5wG7thDffZKHkKsl5oblkUmC0YElUkjQAd0yg7UCK1nLc73r9yP5TSe
-	8GaaBdBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=yDgwwhibV5G6rD0wsVW6JGZiOr/aZ4s7RO0qSoDe2CQ=; b=FC9x+OJjCoBTiQ
+	dGc5iszywVWTvZa6TVri/WO0T2C6mewJPSKE1fFknIGVi5/A0iQihpu80kTQi1bTPluMLekDcn5eV
+	KVSW0djXePnJEySqGsioLxk4ZZcuyfiqEc1CJW/l6xOsi+15qXRzz+VNSWar2lJ6AX5ImdnmGrt/t
+	dByyEE9yG7gsWTV3bXjK6dTp+k6TatUlU7O+cZIYoiu8iwI8VYPjSu6cuBAz+B6ko5YMOpOu1pydQ
+	mP5nkDSG8Rpk7lYImpN84ixAWkBRr2lmY6T3vrKzaxkZmt004myTBz4lCbZcyYLc2x6iCuOCWJaWh
+	7Xe3CUIukXIPMUIkOMag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us9kK-0000000798X-2SXW;
-	Sat, 30 Aug 2025 00:47:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1us9kP-000000079E9-2ZMP;
+	Sat, 30 Aug 2025 00:47:15 +0000
+Received: from mx.olsak.net ([37.205.8.231])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us1k3-00000006MnG-2O1M;
-	Fri, 29 Aug 2025 16:14:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A0BF543B1D;
-	Fri, 29 Aug 2025 16:14:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E018EC4CEF0;
-	Fri, 29 Aug 2025 16:14:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756484058;
-	bh=9/2QQ3RiREaiSyUiO5ececD/jqVoWkLkjCUAA6bmPFM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZiD2cadK21kq8/1+HU/s47ctfSPLku5kGvKTU7+gDfo/gUItwd4dziv5/tFHyDjA3
-	 dACICfHN5ycuJ0zCVyJEGvOUCEHo//mnsfRwQ0n8QYvaRL+jNuTCE0uxiPycoOxfKJ
-	 Rc2x7zplfineGU0ObrNOZgLV2N4Sh3IaCMgloqtMAMIQrcMYD0+vOso4yZir1v0vsn
-	 aIPXp3BW/jRTHj7UtQZMK2uucxb/dAmf7R2VDOHrWTFipB+9j+an/6BSfP8W67y0y6
-	 DvOdYSsic046Ef3N9iAMNudz19ePRAzBC5VHmfwZrqilD+dK33LmRJ99TJKxjMskcQ
-	 dOzixjq9Ekf4w==
-Date: Fri, 29 Aug 2025 21:44:08 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Niklas Cassel <cassel@kernel.org>
-Cc: manivannan.sadhasivam@oss.qualcomm.com, 
-	Bjorn Helgaas <bhelgaas@google.com>, Mahesh J Salgaonkar <mahesh@linux.ibm.com>, 
-	Oliver O'Halloran <oohall@gmail.com>, Will Deacon <will@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>, Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
-	Lukas Wunner <lukas@wunner.de>
-Subject: Re: [PATCH v6 0/4] PCI: Add support for resetting the Root Ports in
- a platform specific way
-Message-ID: <lakgphb7ym3cybwmpdqyipzi4tlkwbfijzhd4r6hvhho3pc7iu@6ludgw6wqkjh>
-References: <20250715-pci-port-reset-v6-0-6f9cce94e7bb@oss.qualcomm.com>
- <aHoh1XfhR8EB_5yY@ryzen>
- <aHokdhpJUhSZ5FSp@ryzen>
- <tujurux64if24z7w7h6wjxhrnh4owkgiv33u2fftp7zr5ucv2m@2ijo5ok5jhfk>
- <aJ743hJw-T9y3waX@ryzen>
+	id 1us1s1-00000006NRD-3YAI
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 29 Aug 2025 16:22:37 +0000
+DKIM-Signature: a=rsa-sha256; bh=yDgwwhibV5G6rD0wsVW6JGZiOr/aZ4s7RO0qSoDe2CQ=;
+ c=relaxed/relaxed; d=dujemihanovic.xyz;
+ h=Subject:Subject:Sender:To:To:Cc:Cc:From:From:Date:Date:MIME-Version:MIME-Version:Content-Type:Content-Type:Content-Transfer-Encoding:Content-Transfer-Encoding:Reply-To:In-Reply-To:Message-Id:Message-Id:References:Autocrypt:Openpgp;
+ i=@dujemihanovic.xyz; s=default; t=1756484468; v=1; x=1756916468;
+ b=HXjX7YECBV/VZQYLZ4WUzLI5X7f7X41NlS0kc7Isujoh63tPJasWMBaGhlLFrsIokoqibE2q
+ NiqCOLeI7tpIyV/sCX4UWg02Jo5+JSY+zOQzBCqWG2L6uDUwjNtMSbXkz2R26efmt6GabFVUiVi
+ 1vizWN93Jb7m4yso8ZlWDZBPm46PmQru9/E0fPQNZMZqK7iTfMLXclVcy3A36Lpa8Zuk78x/Dq5
+ ygSOzPxtGpiqOINmQ05xJ3OM3ZG67ya9sobSZ9mcpBOzZ2tPqTaMnIQRB/Lxi5G/fek4c1b1HD8
+ hddumAsHcpjVSIZdMd1r/Ix4PZgCKAOKzI8vHwJBEpDYg==
+Received: by mx.olsak.net (envelope-sender <duje@dujemihanovic.xyz>) with
+ ESMTPS id 8670617b; Fri, 29 Aug 2025 18:21:08 +0200
+From: =?utf-8?q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
+Subject: [PATCH v3 0/4] Marvell PXA1908 power domains
+Date: Fri, 29 Aug 2025 18:21:03 +0200
+Message-Id: <20250829-pxa1908-genpd-v3-0-2aacaaaca271@dujemihanovic.xyz>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <aJ743hJw-T9y3waX@ryzen>
+X-B4-Tracking: v=1; b=H4sIAG/TsWgC/23O0QqCMBTG8VeRXbfY2dRcV71HdKHbUU+QylZDE
+ 9+9KQQhXf4PnB/fzDw6Qs/OycwcBvLUdzHUIWGmLbsGOdnYTAqZiUIoPowlaFHwBrvBcsg0FLb
+ KZC4Miz+Dw5rGzbveYrfkn72bNj7Aev1K+U4KwAWHPBVaCV2bk7zY1x0fFEf0gcxxnN5sFYP8U
+ STsFRkVrMoUFFobZ/1TlmX5APyqmaT4AAAA
+X-Change-ID: 20250803-pxa1908-genpd-15918db5260c
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>
+Cc: David Wronek <david@mainlining.org>, Karel Balej <balejk@matfyz.cz>, 
+ phone-devel@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht, 
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-pm@vger.kernel.org, 
+ =?utf-8?q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2164;
+ i=duje@dujemihanovic.xyz; s=20240706; h=from:subject:message-id;
+ bh=JKCcxAlK8TvFpSk8Bwd4W00kEBYetq9vMdyLZwN3ick=;
+ b=owGbwMvMwCW21nBykGv/WmbG02pJDBkbLxefDhNeZcY4aarJStZZsfvvx2VtyBNoC1p8ZIPpZ
+ Z5UrzmTO0pZGMS4GGTFFFly/zte4/0ssnV79jIDmDmsTCBDGLg4BWAi6QcZGZY68N9/xByordPt
+ cWq1ns/e8+EdvXkvY/wZn0QcnOumsYqR4WXc7YtL/K2eyCTsXPRusVLFB7/Ouv6Mif/Ybzw9+rf
+ 7NDMA
+X-Developer-Key: i=duje@dujemihanovic.xyz; a=openpgp;
+ fpr=6DFF41D60DF314B5B76BA630AD319352458FAD03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_091419_658222_194B6561 
-X-CRM114-Status: GOOD (  33.84  )
+X-CRM114-CacheID: sfid-20250829_092234_049311_014EFEF3 
+X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,149 +88,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 15, 2025 at 11:07:42AM GMT, Niklas Cassel wrote:
-> Hello Mani,
-> 
-> Sorry for the delayed reply.
-> I just came back from vacation.
-> 
-> On Thu, Jul 24, 2025 at 11:00:05AM +0530, Manivannan Sadhasivam wrote:
-> > On Fri, Jul 18, 2025 at 12:39:50PM GMT, Niklas Cassel wrote:
-> > > On Fri, Jul 18, 2025 at 12:28:44PM +0200, Niklas Cassel wrote:
-> > > > On Tue, Jul 15, 2025 at 07:51:03PM +0530, Manivannan Sadhasivam via B4 Relay wrote:
-> > > > 2) Testing link down reset:
-> > > > 
-> > > > selftests before link down reset:
-> > > > # FAILED: 14 / 16 tests passed.
-> > > > 
-> > > > ## On EP side:
-> > > > # echo 0 > /sys/kernel/config/pci_ep/controllers/a40000000.pcie-ep/start && \
-> > > >   sleep 0.1 && echo 1 > /sys/kernel/config/pci_ep/controllers/a40000000.pcie-ep/start
-> > > > 
-> > > > 
-> > > > [  111.137162] rockchip-dw-pcie a40000000.pcie: PCIE_CLIENT_INTR_STATUS_MISC: 0x4
-> > > > [  111.137881] rockchip-dw-pcie a40000000.pcie: LTSSM_STATUS: 0x0
-> > > > [  111.138432] rockchip-dw-pcie a40000000.pcie: hot reset or link-down reset
-> > > > [  111.139067] pcieport 0000:00:00.0: Recovering Root Port due to Link Down
-> > > > [  111.139686] pci-endpoint-test 0000:01:00.0: AER: can't recover (no error_detected callback)
-> > > > [  111.255407] rockchip-dw-pcie a40000000.pcie: PCIe Gen.3 x4 link up
-> > > > [  111.256019] rockchip-dw-pcie a40000000.pcie: Root Port reset completed
-> > > > [  111.383401] pcieport 0000:00:00.0: Root Port has been reset
-> > > > [  111.384060] pcieport 0000:00:00.0: AER: device recovery failed
-> > > > [  111.384582] rockchip-dw-pcie a40000000.pcie: PCIE_CLIENT_INTR_STATUS_MISC: 0x3
-> > > > [  111.385218] rockchip-dw-pcie a40000000.pcie: LTSSM_STATUS: 0x230011
-> > > > [  111.385771] rockchip-dw-pcie a40000000.pcie: Received Link up event. Starting enumeration!
-> > > > [  111.390866] pcieport 0000:00:00.0: bridge configuration invalid ([bus 00-00]), reconfiguring
-> > > > [  111.391650] pci_bus 0000:01: busn_res: [bus 01-ff] end is updated to 01
-> > > > 
-> > > > Basically all tests timeout
-> > > > # FAILED: 1 / 16 tests passed.
-> > > > 
-> > > > Which is the same as before this patch series.
-> > > 
-> > > The above was with CONFIG_PCIEAER=y
-> > > 
-> > 
-> > This is kind of expected since the pci_endpoint_test driver doesn't have the AER
-> > err_handlers defined.
-> 
-> I see.
-> Would be nice if we could add them then, so that we can verify that this
-> series is working as intended.
-> 
-> 
-> > 
-> > > Wilfred suggested that I tried without this config set.
-> > > 
-> > > However, doing so, I got the exact same result:
-> > > # FAILED: 1 / 16 tests passed.
-> > > 
-> > 
-> > Interesting. Could you please share the dmesg log like above.
-> 
-> It is looking exactly like the dmesg above
-> 
-> [   86.820059] rockchip-dw-pcie a40000000.pcie: PCIE_CLIENT_INTR_STATUS_MISC: 0x4
-> [   86.820791] rockchip-dw-pcie a40000000.pcie: LTSSM_STATUS: 0x0
-> [   86.821344] rockchip-dw-pcie a40000000.pcie: hot reset or link-down reset
-> [   86.821978] pcieport 0000:00:00.0: Recovering Root Port due to Link Down
-> [   87.040551] rockchip-dw-pcie a40000000.pcie: PCIe Gen.3 x4 link up
-> [   87.041138] rockchip-dw-pcie a40000000.pcie: Root Port reset completed
-> [   87.168378] pcieport 0000:00:00.0: Root Port has been reset
-> [   87.168882] rockchip-dw-pcie a40000000.pcie: PCIE_CLIENT_INTR_STATUS_MISC: 0x3
-> [   87.169519] rockchip-dw-pcie a40000000.pcie: LTSSM_STATUS: 0x230011
-> [   87.272463] rockchip-dw-pcie a40000000.pcie: Received Link up event. Starting enumeration!
-> [   87.277552] pcieport 0000:00:00.0: bridge configuration invalid ([bus 00-00]), reconfiguring
-> [   87.278314] pci_bus 0000:01: busn_res: [bus 01-ff] end is updated to 01
-> 
-> except that we don't get the:
-> > [  111.139686] pci-endpoint-test 0000:01:00.0: AER: can't recover (no error_detected callback)
-> > [  111.384060] pcieport 0000:00:00.0: AER: device recovery failed
-> 
+Hello,
 
-Ok, thanks for the logs. I guess what is happening here is that we are not
-saving/restoring the config space of the devices under the Root Port if linkdown
-is happens. TBH, we cannot do that from the PCI core since once linkdown
-happens, we cannot access any devices underneath the Root Port. But if
-err_handlers are available for drivers for all devices, they could do something
-smart like below:
+This series implements support for the power domains found in Marvell's
+PXA1908 SoC. The domains control power for the graphics, video and image
+processors along with the DSI PHY.
 
-diff --git a/drivers/misc/pci_endpoint_test.c b/drivers/misc/pci_endpoint_test.c
-index c4e5e2c977be..9aabf1fe902e 100644
---- a/drivers/misc/pci_endpoint_test.c
-+++ b/drivers/misc/pci_endpoint_test.c
-@@ -989,6 +989,8 @@ static int pci_endpoint_test_probe(struct pci_dev *pdev,
- 
-        pci_set_drvdata(pdev, test);
- 
-+       pci_save_state(pdev);
-+
-        id = ida_alloc(&pci_endpoint_test_ida, GFP_KERNEL);
-        if (id < 0) {
-                ret = id;
-@@ -1140,12 +1142,31 @@ static const struct pci_device_id pci_endpoint_test_tbl[] = {
- };
- MODULE_DEVICE_TABLE(pci, pci_endpoint_test_tbl);
- 
-+static pci_ers_result_t pci_endpoint_test_error_detected(struct pci_dev *pdev,
-+                                              pci_channel_state_t state)
-+{
-+       return PCI_ERS_RESULT_NEED_RESET;
-+}
-+
-+static pci_ers_result_t pci_endpoint_test_slot_reset(struct pci_dev *pdev)
-+{
-+       pci_restore_state(pdev);
-+
-+       return PCI_ERS_RESULT_RECOVERED;
-+}
-+
-+static const struct pci_error_handlers pci_endpoint_test_err_handler = {
-+       .error_detected = pci_endpoint_test_error_detected,
-+       .slot_reset = pci_endpoint_test_slot_reset,
-+};
-+
- static struct pci_driver pci_endpoint_test_driver = {
-        .name           = DRV_MODULE_NAME,
-        .id_table       = pci_endpoint_test_tbl,
-        .probe          = pci_endpoint_test_probe,
-        .remove         = pci_endpoint_test_remove,
-        .sriov_configure = pci_sriov_configure_simple,
-+       .err_handler    = &pci_endpoint_test_err_handler,
- };
- module_pci_driver(pci_endpoint_test_driver);
+Signed-off-by: Duje Mihanović <duje@dujemihanovic.xyz>
+---
+Changes in v3:
+- Move driver back to pmdomain subsystem
+- Instantiate using auxiliary bus
+- Small fixes and refactors
+- Rebase on v6.17-rc3
+- Link to v2: https://lore.kernel.org/r/20250821-pxa1908-genpd-v2-0-eba413edd526@dujemihanovic.xyz
 
-This essentially saves the good known config space during probe and restores it
-during the slot_reset callback. Ofc, the state would've been overwritten if
-suspend/resume happens in-between, but the point I'm making is that unless all
-device drivers restore their known config space, devices cannot be resumed
-properly post linkdown recovery.
+Changes in v2:
+- Move driver to clk subsystem (domains are instantiated by clock
+  driver)
+- Drop power controller schema
+- Drop RFC prefix
+- Rebase on v6.17-rc2
+- Link to v1: https://lore.kernel.org/r/20250806-pxa1908-genpd-v1-0-16409309fc72@dujemihanovic.xyz
 
-I can add a patch based on the above diff in next revision if that helps. Right
-now, I do not have access to my endpoint test setup. So can't test anything.
+---
+Duje Mihanović (4):
+      dt-bindings: clock: marvell,pxa1908: Add syscon compatible to apmu
+      pmdomain: marvell: Add PXA1908 power domains
+      clk: mmp: pxa1908: Instantiate power driver through auxiliary bus
+      arm64: dts: marvell: pxa1908: Add power domains
 
-- Mani
+ .../devicetree/bindings/clock/marvell,pxa1908.yaml |  30 ++-
+ MAINTAINERS                                        |   4 +
+ .../marvell/mmp/pxa1908-samsung-coreprimevelte.dts |   1 +
+ arch/arm64/boot/dts/marvell/mmp/pxa1908.dtsi       |   5 +-
+ drivers/clk/Kconfig                                |   1 +
+ drivers/clk/mmp/Kconfig                            |  10 +
+ drivers/clk/mmp/Makefile                           |   5 +-
+ drivers/clk/mmp/clk-pxa1908-apmu.c                 |  20 ++
+ drivers/pmdomain/Kconfig                           |   1 +
+ drivers/pmdomain/Makefile                          |   1 +
+ drivers/pmdomain/marvell/Kconfig                   |  18 ++
+ drivers/pmdomain/marvell/Makefile                  |   3 +
+ .../pmdomain/marvell/pxa1908-power-controller.c    | 268 +++++++++++++++++++++
+ include/dt-bindings/power/marvell,pxa1908-power.h  |  17 ++
+ 14 files changed, 376 insertions(+), 8 deletions(-)
+---
+base-commit: 1b237f190eb3d36f52dffe07a40b5eb210280e00
+change-id: 20250803-pxa1908-genpd-15918db5260c
 
+Best regards,
 -- 
-மணிவண்ணன் சதாசிவம்
+Duje Mihanović <duje@dujemihanovic.xyz>
+
 
