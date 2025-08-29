@@ -4,55 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D520ECA0FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 16:19:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E50C5CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 16:22:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SPrFHrB9aeoQA+GrBTs9A49LkGpQjNl4AhdZSIVS5E0=; b=Ml3EGvzOkReFEljlWnDQj/RJ0e
-	5hloLxB8FpVcZrVXoIe/LSAttV70uNtOSm/70JEUHqH+AbabHJBkhl5eUNqzxiCMVgUNZpNKJTfsc
-	v091uuxEW3o83E9LMGjFuEM2TrZ8L1UaDfAPGBGliiNO25oaKb0AD3x52gCYtwjODZP3vAE9/IWie
-	QgtSYm9MtlGJEE5eg5XcoPrZVVezKVQSLI728I67SWXvtM26R/F27ZBtWnDhokMyPc6GHuy7dcE53
-	PF42aZGwR1tHeT3JyCG+iWnwfwRxad4evG5I5RtyeNd0iqaArevyKw8i35JuLDymkeGL87Gv0vMw3
-	gS/uWpiA==;
+	bh=uOlGULRRBESS1B6FKAmb2SdwU8XK+0w4GrnM3lfwOWQ=; b=e5b/LT4PVl6kM4+jC7MU+xsaio
+	zOrolwuWhdzZV5zoOpk1Fr6Y8pumItxDLLddAJ1iAgsfvV2bPUD8QOnHzn7z01dZ9uL0H4Nl+xGuA
+	WuRDPsn4vE01LqgzjVAUUT87cPuB/oFg59V6fUv+Nz2nqVI315POmrtoCAfh89LML49VadgyljhHD
+	9hucsI3/GAhJamTRjWGxs1bkbWT5g/tN19C9ndY0qdgHfEghTKIlovX0ng4hmi2H+PsFTm9MN3NW+
+	1MSMZugcvlemfWt+aWioYLtNWS0ASNqkS0A98Lqg9UnN8r+U8OvnbDknEGUPRjtiMT/xf1OaaBgtD
+	0LglywoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us1pK-00000006NIs-0kyX;
-	Fri, 29 Aug 2025 16:19:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uryeU-00000005j3y-1bQ2
+	id 1us1s0-00000006NYA-3tbK;
+	Fri, 29 Aug 2025 16:22:32 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uryqs-00000005l3A-1NGc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 12:56:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 33C8D19F0;
-	Fri, 29 Aug 2025 05:56:11 -0700 (PDT)
-Received: from [10.57.2.173] (unknown [10.57.2.173])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D01FD3F738;
-	Fri, 29 Aug 2025 05:56:17 -0700 (PDT)
-Message-ID: <3b481ddf-7cc2-4c3d-9ef5-60907c8aaf8b@arm.com>
-Date: Fri, 29 Aug 2025 13:56:15 +0100
+	Fri, 29 Aug 2025 13:09:11 +0000
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-afcb72d5409so347893666b.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 06:09:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756472948; x=1757077748; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uOlGULRRBESS1B6FKAmb2SdwU8XK+0w4GrnM3lfwOWQ=;
+        b=HBnosfwlJFVA3noOjMdzOvEM9ATmm5ri463wVzMgugA0bpReZuMyhz/0jwyks7zEYO
+         E3qcSV+b0k/Hh0o96y9JdYosCKWhbUKu2w7+Aq/lRRwjecwwMDDumz25sfnNOf+RFXuy
+         sEuGYRh67gcGO4ugCIWqWAqDQyfHdtm7C0mz5KMRrxdxzDcsAEfBeUpI+VSuF8oD+TFX
+         lMQj6UHXX7sv9YEoiO/rHse+jIY6Iwg0NihYQmCArX6BKFeXFhCZFu75TN1Bzxg3dzvI
+         MS54x7FkjjXjlhfOwGAqkPT4rhEV2H4IV35k8SpSGDvLWwAzTTGxyj6w2d8FIq6aiTc7
+         ld2Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756472948; x=1757077748;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=uOlGULRRBESS1B6FKAmb2SdwU8XK+0w4GrnM3lfwOWQ=;
+        b=G0Tobm+8dUh3iTQykjHgIs1DpWA21fiIxDt+mIsqWhNnLROkWEuK/kFb4nejnlTaLX
+         iekh3WfG9hh7p1xjGAqAbLlhZZtvAdmA9/BJD0rtL3SlouYscD5osjZf1ZLqBRosoVo+
+         0VHYfytgTGTFnStJEOJXeBcbpcS9U4eCbAtKLg/cJ+YXl1Y5jF4H6wSYlMuCCQ4nOjhQ
+         iW/cV0VFtfqComM+35vu5P6IjtqGjxN+85bRlQAL4wDS+blOCbWxjJ5d1ahXYzUL3Vnc
+         4agl1M17E3YOmhytWTy+kp9/VR5fs8BFYxZs6WMKFYVb3PhdLdMjpR8MeaF1PkgMWcIA
+         oNSg==
+X-Forwarded-Encrypted: i=1; AJvYcCV14xuEYQ5oAP2x2y8nEZRwpjfZ5+mW0lVjK7O3ko2W9pF3G+NLAckWnrGrWC7s18aYjIUwzy5YSXrWcqxVwZCf@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTKvuBLr114mcumC/WKWcXRSKXZCaUKs1lilbUdKVkViJ/PDqj
+	hCVmUkmB93c2KCZxbVYlB6IB9OXVfviDR19zne0JXKMn8OPVS0Dc08C38g+LZxt0GnyVwYjdycF
+	WEx1T09UptuGjIS1FdfqlrrQKse17ApeA5ORC
+X-Gm-Gg: ASbGncuqLqEuMbNXhNwLhjEdKeA16ckZeecczXDR5RBB1grTET1qffPiiO/N2/XHjOM
+	QSaAvYVgW7vHnZL1J3lp52W2T5KvKnPo99magL/07IhPQUjs8awj7PfzjENVq+drEf30TF3JPS4
+	UudBwU0oXneoSO5aRUrkV9fYedJlWhpNJ4Fz2AxBysaq0tJ0crhcemQfjXXdbnKAwdi9b469Y5/
+	kaes1GJielxXmZu/9qCQzmHEFy+2g7e30oeQwNGkG4B9hA0mmH9ybUBKuwbbFNnXLqzslgRtX+U
+	OQRDfXTpUOtAZnLMT5EVs2mRuxbeF3I/CxpmUwpA3krgqYMbUQMZ5R9DpI9MuAjuF1E=
+X-Google-Smtp-Source: AGHT+IGID0Yr7NzhLbvdcJDd5PR7loGNbghiuTkZejFibNh1I3F9FhGziJlTcPTrI2a3z865+5IAXbKTbH+jTM98IOM=
+X-Received: by 2002:a17:906:4ec3:b0:afe:74a3:f76d with SMTP id
+ a640c23a62f3a-afe74a3fda1mr1537152666b.16.1756472947953; Fri, 29 Aug 2025
+ 06:09:07 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 10/14] dmaengine: dma350: Alloc command[] from dma pool
-To: Jisheng Zhang <jszhang@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250823154009.25992-1-jszhang@kernel.org>
- <20250823154009.25992-11-jszhang@kernel.org>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20250823154009.25992-11-jszhang@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20250827151131.27733-1-ebiggers@kernel.org> <20250827151131.27733-10-ebiggers@kernel.org>
+In-Reply-To: <20250827151131.27733-10-ebiggers@kernel.org>
+From: Honza Fikar <j.fikar@gmail.com>
+Date: Fri, 29 Aug 2025 15:08:56 +0200
+X-Gm-Features: Ac12FXzP7AMNvKr3rovHU6ozQ9uIXQuWW18zjeyPmWZydBzIv70_f24LOqsCh7k
+Message-ID: <CAEH5pPY98CaSm+EXiuOzo6EuWzGu7rEQjGa3eojk18HP29Rs7w@mail.gmail.com>
+Subject: Re: [PATCH 09/12] lib/crypto: blake2s: Always enable arch-optimized
+ BLAKE2s code
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Ard Biesheuvel <ardb@kernel.org>, "Jason A . Donenfeld" <Jason@zx2c4.com>, x86@kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_055622_518621_B2E2FBB8 
-X-CRM114-Status: GOOD (  32.33  )
+X-CRM114-CacheID: sfid-20250829_060910_362501_978A0073 
+X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,359 +99,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-08-23 4:40 pm, Jisheng Zhang wrote:
-> Currently, the command[] is allocated with kzalloc(), but dma350 may be
-> used on dma-non-coherent platforms, to prepare the support of peripheral
-> and scatter-gather chaining on both dma-coherent and dma-non-coherent
-> platforms, let's alloc them from dma pool.
+On Fri, Aug 29, 2025 at 2:54=E2=80=AFPM Eric Biggers <ebiggers@kernel.org> =
+wrote:
 
-FWIW my plan was to use dma_map_single() for command linking, since the 
-descriptors themselves are short-lived one-way data transfers which 
-really don't need any of the (potentially costly) properties of a 
-dma-coherent allocation.
+> Currently, BLAKE2s support is always enabled ('obj-y'), since random.c
+> uses it.  Therefore, the arch-optimized BLAKE2s code, which exists for
+> ARM and x86_64, should be always enabled too.
 
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->   drivers/dma/arm-dma350.c | 143 +++++++++++++++++++++++++++++++--------
->   1 file changed, 113 insertions(+), 30 deletions(-)
-> 
-> diff --git a/drivers/dma/arm-dma350.c b/drivers/dma/arm-dma350.c
-> index 72067518799e..3d26a1f020df 100644
-> --- a/drivers/dma/arm-dma350.c
-> +++ b/drivers/dma/arm-dma350.c
-> @@ -4,6 +4,7 @@
->   
->   #include <linux/bitfield.h>
->   #include <linux/dmaengine.h>
-> +#include <linux/dmapool.h>
->   #include <linux/dma-mapping.h>
->   #include <linux/io.h>
->   #include <linux/of.h>
-> @@ -143,6 +144,7 @@
->   #define LINK_LINKADDR		BIT(30)
->   #define LINK_LINKADDRHI		BIT(31)
->   
-> +#define D350_MAX_CMDS		16
+Maybe a stupid question: what about ARM64? The current NEON
+implementation in kernel arch/arm/crypto/blake2s-core.S seems to be just
+for ARM.
 
-What's that based on? We should be able to link arbitrarily-long chains 
-of commands, no?
+While the upstream BLAKE2s with NEON is both for ARM and Aarch64 (ARM64):
 
->   enum ch_ctrl_donetype {
->   	CH_CTRL_DONETYPE_NONE = 0,
-> @@ -169,18 +171,25 @@ enum ch_cfg_memattr {
->   	MEMATTR_WB = 0xff
->   };
->   
-> -struct d350_desc {
-> -	struct virt_dma_desc vd;
-> -	u32 command[16];
-> +struct d350_sg {
-> +	u32 *command;
-> +	dma_addr_t phys;
->   	u16 xsize;
->   	u16 xsizehi;
->   	u8 tsz;
->   };
->   
-> +struct d350_desc {
-> +	struct virt_dma_desc vd;
-> +	u32 sglen;
-> +	struct d350_sg sg[] __counted_by(sglen);
-> +};
-
-Perhaps it's mostly the naming, but this seems rather hard to make sense 
-of. To clarify, the current driver design was in anticipation of a split 
-more like so:
-
-struct d350_cmd {
-	u32 command[16];
-	u16 xsize;
-	u16 xsizehi;
-	u8 tsz;
-	struct d350_cmd *next;
-};
-
-struct d350_desc {
-	struct virt_dma_desc vd;
-	// any totals etc. to help with residue calculation
-	struct d350_cmd cmd;
-};
-
-Or perhaps what I'd more likely have ended up with (which is maybe sort 
-of what you've tried to do?):
-
-struct d350_cmd {
-	u32 command[16];
-	u16 xsize;
-	u16 xsizehi;
-	u8 tsz;
-};
-
-struct d350_desc {
-	struct virt_dma_desc vd;
-	// anything else as above
-	int num_cmds;
-	struct d350_cmd cmd[1]; //extensible
-};
-
-Conveniently taking advantage of the fact that either way the DMA 
-address will inherently be stored in the LINKADDR fields of the first 
-command (which doesn't need DMA mapping itself), so at worst we still 
-only need one or two allocations plus a single dma_map per prep 
-operation (since we can keep all the linked commands as a single block). 
-I don't see a DMA pool approach being beneficial here, since it seems 
-like it's always going to be considerably less efficient.
-
-(Not to mention that separate pools per channel is complete overkill 
-anyway.)
-
-Thanks,
-Robin.
-
-> +
->   struct d350_chan {
->   	struct virt_dma_chan vc;
->   	struct d350_desc *desc;
->   	void __iomem *base;
-> +	struct dma_pool *cmd_pool;
->   	int irq;
->   	enum dma_status status;
->   	dma_cookie_t cookie;
-> @@ -210,7 +219,14 @@ static inline struct d350_desc *to_d350_desc(struct virt_dma_desc *vd)
->   
->   static void d350_desc_free(struct virt_dma_desc *vd)
->   {
-> -	kfree(to_d350_desc(vd));
-> +	struct d350_chan *dch = to_d350_chan(vd->tx.chan);
-> +	struct d350_desc *desc = to_d350_desc(vd);
-> +	int i;
-> +
-> +	for (i = 0; i < desc->sglen; i++)
-> +		dma_pool_free(dch->cmd_pool, desc->sg[i].command, desc->sg[i].phys);
-> +
-> +	kfree(desc);
->   }
->   
->   static struct dma_async_tx_descriptor *d350_prep_memcpy(struct dma_chan *chan,
-> @@ -218,22 +234,32 @@ static struct dma_async_tx_descriptor *d350_prep_memcpy(struct dma_chan *chan,
->   {
->   	struct d350_chan *dch = to_d350_chan(chan);
->   	struct d350_desc *desc;
-> +	struct d350_sg *sg;
-> +	dma_addr_t phys;
->   	u32 *cmd;
->   
-> -	desc = kzalloc(sizeof(*desc), GFP_NOWAIT);
-> +	desc = kzalloc(struct_size(desc, sg, 1), GFP_NOWAIT);
->   	if (!desc)
->   		return NULL;
->   
-> -	desc->tsz = __ffs(len | dest | src | (1 << dch->tsz));
-> -	desc->xsize = lower_16_bits(len >> desc->tsz);
-> -	desc->xsizehi = upper_16_bits(len >> desc->tsz);
-> +	sg = &desc->sg[0];
-> +	sg->command = dma_pool_zalloc(dch->cmd_pool, GFP_NOWAIT, &phys);
-> +	if (unlikely(!sg->command)) {
-> +		kfree(desc);
-> +		return NULL;
-> +	}
-> +	sg->phys = phys;
-> +
-> +	sg->tsz = __ffs(len | dest | src | (1 << dch->tsz));
-> +	sg->xsize = lower_16_bits(len >> sg->tsz);
-> +	sg->xsizehi = upper_16_bits(len >> sg->tsz);
->   
-> -	cmd = desc->command;
-> +	cmd = sg->command;
->   	cmd[0] = LINK_CTRL | LINK_SRCADDR | LINK_SRCADDRHI | LINK_DESADDR |
->   		 LINK_DESADDRHI | LINK_XSIZE | LINK_XSIZEHI | LINK_SRCTRANSCFG |
->   		 LINK_DESTRANSCFG | LINK_XADDRINC | LINK_LINKADDR;
->   
-> -	cmd[1] = FIELD_PREP(CH_CTRL_TRANSIZE, desc->tsz) |
-> +	cmd[1] = FIELD_PREP(CH_CTRL_TRANSIZE, sg->tsz) |
->   		 FIELD_PREP(CH_CTRL_XTYPE, CH_CTRL_XTYPE_CONTINUE) |
->   		 FIELD_PREP(CH_CTRL_DONETYPE, CH_CTRL_DONETYPE_CMD);
->   
-> @@ -241,13 +267,15 @@ static struct dma_async_tx_descriptor *d350_prep_memcpy(struct dma_chan *chan,
->   	cmd[3] = upper_32_bits(src);
->   	cmd[4] = lower_32_bits(dest);
->   	cmd[5] = upper_32_bits(dest);
-> -	cmd[6] = FIELD_PREP(CH_XY_SRC, desc->xsize) | FIELD_PREP(CH_XY_DES, desc->xsize);
-> -	cmd[7] = FIELD_PREP(CH_XY_SRC, desc->xsizehi) | FIELD_PREP(CH_XY_DES, desc->xsizehi);
-> +	cmd[6] = FIELD_PREP(CH_XY_SRC, sg->xsize) | FIELD_PREP(CH_XY_DES, sg->xsize);
-> +	cmd[7] = FIELD_PREP(CH_XY_SRC, sg->xsizehi) | FIELD_PREP(CH_XY_DES, sg->xsizehi);
->   	cmd[8] = dch->coherent ? TRANSCFG_WB : TRANSCFG_NC;
->   	cmd[9] = dch->coherent ? TRANSCFG_WB : TRANSCFG_NC;
->   	cmd[10] = FIELD_PREP(CH_XY_SRC, 1) | FIELD_PREP(CH_XY_DES, 1);
->   	cmd[11] = 0;
->   
-> +	mb();
-> +
->   	return vchan_tx_prep(&dch->vc, &desc->vd, flags);
->   }
->   
-> @@ -256,34 +284,46 @@ static struct dma_async_tx_descriptor *d350_prep_memset(struct dma_chan *chan,
->   {
->   	struct d350_chan *dch = to_d350_chan(chan);
->   	struct d350_desc *desc;
-> +	struct d350_sg *sg;
-> +	dma_addr_t phys;
->   	u32 *cmd;
->   
-> -	desc = kzalloc(sizeof(*desc), GFP_NOWAIT);
-> +	desc = kzalloc(struct_size(desc, sg, 1), GFP_NOWAIT);
->   	if (!desc)
->   		return NULL;
->   
-> -	desc->tsz = __ffs(len | dest | (1 << dch->tsz));
-> -	desc->xsize = lower_16_bits(len >> desc->tsz);
-> -	desc->xsizehi = upper_16_bits(len >> desc->tsz);
-> +	sg = &desc->sg[0];
-> +	sg->command = dma_pool_zalloc(dch->cmd_pool, GFP_NOWAIT, &phys);
-> +	if (unlikely(!sg->command)) {
-> +		kfree(desc);
-> +		return NULL;
-> +	}
-> +	sg->phys = phys;
-> +
-> +	sg->tsz = __ffs(len | dest | (1 << dch->tsz));
-> +	sg->xsize = lower_16_bits(len >> sg->tsz);
-> +	sg->xsizehi = upper_16_bits(len >> sg->tsz);
->   
-> -	cmd = desc->command;
-> +	cmd = sg->command;
->   	cmd[0] = LINK_CTRL | LINK_DESADDR | LINK_DESADDRHI |
->   		 LINK_XSIZE | LINK_XSIZEHI | LINK_DESTRANSCFG |
->   		 LINK_XADDRINC | LINK_FILLVAL | LINK_LINKADDR;
->   
-> -	cmd[1] = FIELD_PREP(CH_CTRL_TRANSIZE, desc->tsz) |
-> +	cmd[1] = FIELD_PREP(CH_CTRL_TRANSIZE, sg->tsz) |
->   		 FIELD_PREP(CH_CTRL_XTYPE, CH_CTRL_XTYPE_FILL) |
->   		 FIELD_PREP(CH_CTRL_DONETYPE, CH_CTRL_DONETYPE_CMD);
->   
->   	cmd[2] = lower_32_bits(dest);
->   	cmd[3] = upper_32_bits(dest);
-> -	cmd[4] = FIELD_PREP(CH_XY_DES, desc->xsize);
-> -	cmd[5] = FIELD_PREP(CH_XY_DES, desc->xsizehi);
-> +	cmd[4] = FIELD_PREP(CH_XY_DES, sg->xsize);
-> +	cmd[5] = FIELD_PREP(CH_XY_DES, sg->xsizehi);
->   	cmd[6] = dch->coherent ? TRANSCFG_WB : TRANSCFG_NC;
->   	cmd[7] = FIELD_PREP(CH_XY_DES, 1);
->   	cmd[8] = (u8)value * 0x01010101;
->   	cmd[9] = 0;
->   
-> +	mb();
-> +
->   	return vchan_tx_prep(&dch->vc, &desc->vd, flags);
->   }
->   
-> @@ -319,8 +359,9 @@ static int d350_resume(struct dma_chan *chan)
->   
->   static u32 d350_get_residue(struct d350_chan *dch)
->   {
-> -	u32 res, xsize, xsizehi, hi_new;
-> -	int retries = 3; /* 1st time unlucky, 2nd improbable, 3rd just broken */
-> +	u32 res, xsize, xsizehi, linkaddr, linkaddrhi, hi_new;
-> +	int i, sgcur, retries = 3; /* 1st time unlucky, 2nd improbable, 3rd just broken */
-> +	struct d350_desc *desc = dch->desc;
->   
->   	hi_new = readl_relaxed(dch->base + CH_XSIZEHI);
->   	do {
-> @@ -329,10 +370,26 @@ static u32 d350_get_residue(struct d350_chan *dch)
->   		hi_new = readl_relaxed(dch->base + CH_XSIZEHI);
->   	} while (xsizehi != hi_new && --retries);
->   
-> +	hi_new = readl_relaxed(dch->base + CH_LINKADDRHI);
-> +	do {
-> +		linkaddrhi = hi_new;
-> +		linkaddr = readl_relaxed(dch->base + CH_LINKADDR);
-> +		hi_new = readl_relaxed(dch->base + CH_LINKADDRHI);
-> +	} while (linkaddrhi != hi_new && --retries);
-> +
-> +	for (i = 0; i < desc->sglen; i++) {
-> +		if (desc->sg[i].phys == (((u64)linkaddrhi << 32) | (linkaddr & ~CH_LINKADDR_EN)))
-> +			sgcur = i;
-> +	}
-> +
->   	res = FIELD_GET(CH_XY_DES, xsize);
->   	res |= FIELD_GET(CH_XY_DES, xsizehi) << 16;
-> +	res <<= desc->sg[sgcur].tsz;
-> +
-> +	for (i = sgcur + 1; i < desc->sglen; i++)
-> +		res += (((u32)desc->sg[i].xsizehi << 16 | desc->sg[i].xsize) << desc->sg[i].tsz);
->   
-> -	return res << dch->desc->tsz;
-> +	return res;
->   }
->   
->   static int d350_terminate_all(struct dma_chan *chan)
-> @@ -365,7 +422,13 @@ static void d350_synchronize(struct dma_chan *chan)
->   
->   static u32 d350_desc_bytes(struct d350_desc *desc)
->   {
-> -	return ((u32)desc->xsizehi << 16 | desc->xsize) << desc->tsz;
-> +	int i;
-> +	u32 bytes = 0;
-> +
-> +	for (i = 0; i < desc->sglen; i++)
-> +		bytes += (((u32)desc->sg[i].xsizehi << 16 | desc->sg[i].xsize) << desc->sg[i].tsz);
-> +
-> +	return bytes;
->   }
->   
->   static enum dma_status d350_tx_status(struct dma_chan *chan, dma_cookie_t cookie,
-> @@ -415,8 +478,8 @@ static void d350_start_next(struct d350_chan *dch)
->   	dch->cookie = dch->desc->vd.tx.cookie;
->   	dch->residue = d350_desc_bytes(dch->desc);
->   
-> -	hdr = dch->desc->command[0];
-> -	reg = &dch->desc->command[1];
-> +	hdr = dch->desc->sg[0].command[0];
-> +	reg = &dch->desc->sg[0].command[1];
->   
->   	if (hdr & LINK_INTREN)
->   		writel_relaxed(*reg++, dch->base + CH_INTREN);
-> @@ -512,11 +575,29 @@ static irqreturn_t d350_irq(int irq, void *data)
->   static int d350_alloc_chan_resources(struct dma_chan *chan)
->   {
->   	struct d350_chan *dch = to_d350_chan(chan);
-> -	int ret = request_irq(dch->irq, d350_irq, IRQF_SHARED,
-> -			      dev_name(&dch->vc.chan.dev->device), dch);
-> -	if (!ret)
-> -		writel_relaxed(CH_INTREN_DONE | CH_INTREN_ERR, dch->base + CH_INTREN);
-> +	int ret;
-> +
-> +	dch->cmd_pool = dma_pool_create(dma_chan_name(chan),
-> +					  chan->device->dev,
-> +					  D350_MAX_CMDS * sizeof(u32),
-> +					  sizeof(u32), 0);
-> +	if (!dch->cmd_pool) {
-> +		dev_err(chan->device->dev, "No memory for cmd pool\n");
-> +		return -ENOMEM;
-> +	}
-> +
-> +	ret = request_irq(dch->irq, d350_irq, 0,
-> +			  dev_name(&dch->vc.chan.dev->device), dch);
-> +	if (ret < 0)
-> +		goto err_irq;
-> +
-> +	writel_relaxed(CH_INTREN_DONE | CH_INTREN_ERR, dch->base + CH_INTREN);
-> +
-> +	return 0;
->   
-> +err_irq:
-> +	dma_pool_destroy(dch->cmd_pool);
-> +	dch->cmd_pool = NULL;
->   	return ret;
->   }
->   
-> @@ -527,6 +608,8 @@ static void d350_free_chan_resources(struct dma_chan *chan)
->   	writel_relaxed(0, dch->base + CH_INTREN);
->   	free_irq(dch->irq, dch);
->   	vchan_free_chan_resources(&dch->vc);
-> +	dma_pool_destroy(dch->cmd_pool);
-> +	dch->cmd_pool = NULL;
->   }
->   
->   static int d350_probe(struct platform_device *pdev)
+https://github.com/BLAKE2/BLAKE2/blob/master/neon
 
