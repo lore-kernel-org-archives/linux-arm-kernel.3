@@ -4,70 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9928BCA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:47:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63CC0CA0FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:47:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QLWa8PGZClK+upNkzwJh/kmb8G5ZxJ0XxhXRhPDOWT4=; b=a3lRDJjjhGaeyingTANLVI8nMh
-	dzXJ2N1ozuG2lxpioHwtFj9pgdv21J9zz1/458Sf8CKmuYu/PJD8LtRs/hDKGqneV2GVkBLLlrSUd
-	Hy63YqoSnYfFKplSV4Q3GaSW0roq7P3kvymnQhfk8q84gD4iZzVDki8Df0l1Swu0nuOLjUz1l5xR8
-	b3KV6GpE2Uam2kbeXIsMUXXA8UZnY8xPln9xzlIkrtqt6ct6EDQpmaPqBosW57+Z1n8IJGuMfq/o0
-	+kf+F1tDVIjUmo0Z7TlT6VvnO7M+g5Huduh+yEkhU0MbiaH2eD3tZBATplcBma9fUA9OVRMMV9bWn
-	/B4rGI1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+xgf52d1OXUFClLEnV8OzmEaqRH5DWMAh883+h/nB+0=; b=H2bcRZa/JWSNmW6cNkogoRihNZ
+	XvGismIBR85Vsm4S7q6k7UJ16xGim9Uu2wpv0ugOdLkcRbXGgDwHMO6G+j/SyQgWatsjNsnau5cZs
+	kodfYpEYDmV5K0y7auTU9vc5m7JaZbsqeRdfagXKfWIQ/V4kesMMfF/YS/Jxx6tH2qMJ1r25gqhrm
+	55f5kGYyoOoczmBKa80ekxwiFfmjVUNXiVSglpGDM8HRWiXOkdsbx0yalf7Bqwnilx2QbrdXk6WXA
+	2o2BcdPLmiNjepDXUqklSzY+hJOlUY4IZI/Fmp0Lc7NrToHSjLkqj53Aqq0ueert7w9JgN4bqeFD/
+	ziBOEnqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us9kn-000000079dZ-2g2N;
-	Sat, 30 Aug 2025 00:47:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us26J-00000006QCN-34xo
+	id 1us9kw-000000079nY-3DWL;
+	Sat, 30 Aug 2025 00:47:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1us28M-00000006QW4-1Uq2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 16:37:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4407D45653
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 16:37:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21ADFC4AF0B
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 16:37:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756485439;
-	bh=laVidNR8SlBiEWwgorpzwfMHHcaTnsLCWPojvEXAxJY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=g8C/kudvMHddibHLfm5Tvj/VmdEEUVKlXtNIHUNvtQv5oNa5go0ExIjmPVe8RKLHD
-	 n1pJLCqWe6p+F36uRw5ysGHx6gf4Qa3C4MPOPZ6E/spNmvfdsWkCCs9uZXG4hGxj7C
-	 hMQss6wQ4GnP753SRQQ4ULhsioVbkKXIUiTD762t9vbuzn8C1UCiAFZPMuHpMkVnjc
-	 bZZeG2W25beDAL//BiBu/Jg0Vc7Gy33fSW/o91udvucM/eK6Nm6JsvlnmEY9o9Y4pc
-	 gkwHmCnsVlaOuNMweikKouaupGvsg8EMTidg5NjPou/w4YOn+nS4IOZLisrcoqgtXz
-	 c4+Z+TEziVQyQ==
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-55f53efe803so2770195e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 09:37:19 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCV+1/jtAqEWLbm78VLNpKQmcayvdzw78yBq4dfklfspzw46VKWaygiDEmhBXY6K7xwov9qEU86/eAV6Ky6EFS3t@lists.infradead.org
-X-Gm-Message-State: AOJu0YyptyOw8BSfEkRB5UxRh8G3PLrwb6Z7PgxqvJ9ynfCjShytM4br
-	xOj9cPZpR5T9A9lFd64CwDSHng0IEhctUtsFs/djecffGOcezoVorAvpdIqFEvj4mu3xydwuRa+
-	JdzjWukn2UIN5k0ISVU4czAguCxdRJ88=
-X-Google-Smtp-Source: AGHT+IF28aBpTecVgGsMjqyVUkBEoOmUAwHkrCd3i405RClXUM/JVBvF8LbtpIXrA7hauzs5l7yCbFeiR2vWbJ+LfOc=
-X-Received: by 2002:a05:6512:2284:b0:55a:4fd2:2908 with SMTP id
- 2adb3069b0e04-55f0cd46a07mr6768176e87.25.1756485437374; Fri, 29 Aug 2025
- 09:37:17 -0700 (PDT)
+	Fri, 29 Aug 2025 16:39:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 158C519F0;
+	Fri, 29 Aug 2025 09:39:17 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4DBEB3F694;
+	Fri, 29 Aug 2025 09:39:20 -0700 (PDT)
+Message-ID: <a3d26a1d-6887-47a4-8679-4567e417f65e@arm.com>
+Date: Fri, 29 Aug 2025 17:39:18 +0100
 MIME-Version: 1.0
-References: <20250827151131.27733-1-ebiggers@kernel.org>
-In-Reply-To: <20250827151131.27733-1-ebiggers@kernel.org>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 29 Aug 2025 18:37:05 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXEwK0znXcR=rp=r0cw+JjBM1i7=mK=u6-=RSB=4dsnHzw@mail.gmail.com>
-X-Gm-Features: Ac12FXzxmMtdYZy3o3WZKlR4MJPzQQTe0eVtWk9Bz00LfYOQ1SwsUwZqQVEDOY0
-Message-ID: <CAMj1kXEwK0znXcR=rp=r0cw+JjBM1i7=mK=u6-=RSB=4dsnHzw@mail.gmail.com>
-Subject: Re: [PATCH 00/12] ChaCha and BLAKE2s cleanups
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	"Jason A . Donenfeld" <Jason@zx2c4.com>, x86@kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 30/33] arm_mpam: Use long MBWU counters if supported
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
+ devicetree@vger.kernel.org
+Cc: shameerali.kolothum.thodi@huawei.com,
+ D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
+ Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
+ baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>
+References: <20250822153048.2287-1-james.morse@arm.com>
+ <20250822153048.2287-31-james.morse@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20250822153048.2287-31-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_093719_814959_F19836D1 
-X-CRM114-Status: GOOD (  18.19  )
+X-CRM114-CacheID: sfid-20250829_093926_508093_258C1282 
+X-CRM114-Status: GOOD (  26.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,41 +85,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 27 Aug 2025 at 17:14, Eric Biggers <ebiggers@kernel.org> wrote:
->
-> This series is targeting libcrypto-next.  It can also be retrieved from:
->
->     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git chacha-blake2s-v1
->
-> This series consolidates how the ChaCha and BLAKE2s code is organized.
-> This is essentially the same change that I made to the other algorithms,
-> so this should be fairly boring by now.
->
-> These algorithms were the last two users of
-> lib/crypto/$(SRCARCH)/{Makefile,Kconfig}.  So this series removes all
-> those files, finishing the transition to the centralized build process
-> (at least for the algorithms supported by lib/crypto/ so far).
->
-> This series also makes the arch-optimized BLAKE2s code start being
-> enabled by default, again following the pattern of the other algorithms.
->
-> Finally, it adds a KUnit test suite for BLAKE2s and deletes the older
-> blake2s-selftest.
->
-> Eric Biggers (12):
->   arm: configs: Remove obsolete assignments to CRYPTO_CHACHA20_NEON
->   crypto: chacha - register only "-lib" drivers
->   lib/crypto: chacha: Remove unused function chacha_is_arch_optimized()
->   lib/crypto: chacha: Rename chacha.c to chacha-block-generic.c
->   lib/crypto: chacha: Rename libchacha.c to chacha.c
->   lib/crypto: chacha: Consolidate into single module
->   lib/crypto: x86/blake2s: Reduce size of BLAKE2S_SIGMA2
->   lib/crypto: blake2s: Remove obsolete self-test
->   lib/crypto: blake2s: Always enable arch-optimized BLAKE2s code
->   lib/crypto: blake2s: Move generic code into blake2s.c
->   lib/crypto: blake2s: Consolidate into single C translation unit
->   lib/crypto: tests: Add KUnit tests for BLAKE2s
->
+Hi James,
 
-Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+On 8/22/25 16:30, James Morse wrote:
+> From: Rohit Mathew <rohit.mathew@arm.com>
+> 
+> If the 44 bit (long) or 63 bit (LWD) counters are detected on probing
+> the RIS, use long/LWD counter instead of the regular 31 bit mbwu
+> counter.
+> 
+> Only 32bit accesses to the MSC are required to be supported by the
+> spec, but these registers are 64bits. The lower half may overflow
+> into the higher half between two 32bit reads. To avoid this, use
+> a helper that reads the top half multiple times to check for overflow.
+> 
+> Signed-off-by: Rohit Mathew <rohit.mathew@arm.com>
+> [morse: merged multiple patches from Rohit]
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+> Changes since RFC:
+>  * Commit message wrangling.
+>  * Refer to 31 bit counters as opposed to 32 bit (registers).
+> ---
+>  drivers/resctrl/mpam_devices.c | 89 ++++++++++++++++++++++++++++++----
+>  1 file changed, 80 insertions(+), 9 deletions(-)
+> 
+Looks good to me.
+
+Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index 2ab7f127baaa..8fbcf6eb946a 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -1002,6 +1002,48 @@ struct mon_read {
+>  	int				err;
+>  };
+>  
+> +static bool mpam_ris_has_mbwu_long_counter(struct mpam_msc_ris *ris)
+> +{
+> +	return (mpam_has_feature(mpam_feat_msmon_mbwu_63counter, &ris->props) ||
+> +		mpam_has_feature(mpam_feat_msmon_mbwu_44counter, &ris->props));
+> +}
+> +
+> +static u64 mpam_msc_read_mbwu_l(struct mpam_msc *msc)
+> +{
+> +	int retry = 3;
+> +	u32 mbwu_l_low;
+> +	u64 mbwu_l_high1, mbwu_l_high2;
+> +
+> +	mpam_mon_sel_lock_held(msc);
+> +
+> +	WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
+> +	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
+> +
+> +	mbwu_l_high2 = __mpam_read_reg(msc, MSMON_MBWU_L + 4);
+> +	do {
+> +		mbwu_l_high1 = mbwu_l_high2;
+> +		mbwu_l_low = __mpam_read_reg(msc, MSMON_MBWU_L);
+> +		mbwu_l_high2 = __mpam_read_reg(msc, MSMON_MBWU_L + 4);
+> +
+> +		retry--;
+> +	} while (mbwu_l_high1 != mbwu_l_high2 && retry > 0);
+> +
+> +	if (mbwu_l_high1 == mbwu_l_high2)
+> +		return (mbwu_l_high1 << 32) | mbwu_l_low;
+> +	return MSMON___NRDY_L;
+> +}
+> +
+> +static void mpam_msc_zero_mbwu_l(struct mpam_msc *msc)
+> +{
+> +	mpam_mon_sel_lock_held(msc);
+> +
+> +	WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
+> +	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
+> +
+> +	__mpam_write_reg(msc, MSMON_MBWU_L, 0);
+> +	__mpam_write_reg(msc, MSMON_MBWU_L + 4, 0);
+> +}
+> +
+>  static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
+>  				   u32 *flt_val)
+>  {
+> @@ -1058,6 +1100,7 @@ static void read_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
+>  static void clean_msmon_ctl_val(u32 *cur_ctl)
+>  {
+>  	*cur_ctl &= ~MSMON_CFG_x_CTL_OFLOW_STATUS;
+> +	*cur_ctl &= ~MSMON_CFG_MBWU_CTL_OFLOW_STATUS_L;
+I observe that this bit is res0, in the CSU case, and so the clearing is ok.
+>  }
+>  
+>  static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
+> @@ -1080,7 +1123,11 @@ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
+>  	case mpam_feat_msmon_mbwu:
+>  		mpam_write_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
+>  		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
+> -		mpam_write_monsel_reg(msc, MBWU, 0);
+> +		if (mpam_ris_has_mbwu_long_counter(m->ris))
+> +			mpam_msc_zero_mbwu_l(m->ris->vmsc->msc);
+> +		else
+> +			mpam_write_monsel_reg(msc, MBWU, 0);
+> +
+>  		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
+>  
+>  		mbwu_state = &m->ris->mbwu_state[m->ctx->mon];
+> @@ -1095,8 +1142,13 @@ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
+>  
+>  static u64 mpam_msmon_overflow_val(struct mpam_msc_ris *ris)
+>  {
+> -	/* TODO: scaling, and long counters */
+> -	return GENMASK_ULL(30, 0);
+> +	/* TODO: implement scaling counters */
+> +	if (mpam_has_feature(mpam_feat_msmon_mbwu_63counter, &ris->props))
+> +		return GENMASK_ULL(62, 0);
+> +	else if (mpam_has_feature(mpam_feat_msmon_mbwu_44counter, &ris->props))
+> +		return GENMASK_ULL(43, 0);
+> +	else
+> +		return GENMASK_ULL(30, 0);
+>  }
+>  
+>  /* Call with MSC lock held */
+> @@ -1138,10 +1190,24 @@ static void __ris_msmon_read(void *arg)
+>  		now = FIELD_GET(MSMON___VALUE, now);
+>  		break;
+>  	case mpam_feat_msmon_mbwu:
+> -		now = mpam_read_monsel_reg(msc, MBWU);
+> -		if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy, rprops))
+> -			nrdy = now & MSMON___NRDY;
+> -		now = FIELD_GET(MSMON___VALUE, now);
+> +		/*
+> +		 * If long or lwd counters are supported, use them, else revert
+> +		 * to the 31 bit counter.
+> +		 */
+> +		if (mpam_ris_has_mbwu_long_counter(ris)) {
+> +			now = mpam_msc_read_mbwu_l(msc);
+> +			if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy, rprops))
+> +				nrdy = now & MSMON___NRDY_L;
+> +			if (mpam_has_feature(mpam_feat_msmon_mbwu_63counter, rprops))
+> +				now = FIELD_GET(MSMON___LWD_VALUE, now);
+> +			else
+> +				now = FIELD_GET(MSMON___L_VALUE, now);
+> +		} else {
+> +			now = mpam_read_monsel_reg(msc, MBWU);
+> +			if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy, rprops))
+> +				nrdy = now & MSMON___NRDY;
+> +			now = FIELD_GET(MSMON___VALUE, now);
+> +		}
+>  
+>  		if (nrdy)
+>  			break;
+> @@ -1433,8 +1499,13 @@ static int mpam_save_mbwu_state(void *arg)
+>  		cur_ctl = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
+>  		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
+>  
+> -		val = mpam_read_monsel_reg(msc, MBWU);
+> -		mpam_write_monsel_reg(msc, MBWU, 0);
+> +		if (mpam_ris_has_mbwu_long_counter(ris)) {
+> +			val = mpam_msc_read_mbwu_l(msc);
+> +			mpam_msc_zero_mbwu_l(msc);
+> +		} else {
+> +			val = mpam_read_monsel_reg(msc, MBWU);
+> +			mpam_write_monsel_reg(msc, MBWU, 0);
+> +		}
+>  
+>  		cfg->mon = i;
+>  		cfg->pmg = FIELD_GET(MSMON_CFG_MBWU_FLT_PMG, cur_flt);
+
+-- 
+Thanks,
+
+Ben
+
 
