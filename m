@@ -4,110 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C7B9CA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 02:24:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7F95CA0FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 02:24:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:In-Reply-To:References:Message-Id:MIME-Version:Subject:
 	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=INBKiFvw1l32bSX5fXP9bt/+Xv/TGJnC5X0C7163OaA=; b=PVXe4eNQjwpGoOx5As8uErR/Dl
-	9HVyrGD59IsSHcVHTSzcyHhftA5X8lOPejtmz7G4wIezxQ+99MSmt0HX6exH5Y809hIyFf8MkiDNj
-	SVzQv7DIXMQJcKU1rwgd7zqNkcMvwGC3CbWElG9ajVnwlGUVfAhAx8iLujLKPYUUett0ndnWP7Svm
-	yUoxQrPk9IrnxcWEnw1N7Q+qfSsgtO0MMfvYxzHcUejqsbBocJPAjLBRXB38zWOBJp60UwpzSNg9r
-	VJ/JGEYeu20bgfOr6XGdcg6PowX6RpRR1HRLF4NDBgSTXRNHGmEzPA8sZ6zlvRk7yzEkCqMxPjgxR
-	BOdxPUGA==;
+	bh=dWO8Dz9nIHqrR+SVTleBzTnUpEyDVDhvHJs2y9irGnw=; b=oFe+YlKmXjaqkOp+1YppZI/I8y
+	hK5wIJxsMCOafMReUQudO9sPnb7mreW6qpazpbZ1Yj7zp3iu/hs+AokH1HQa3ezZrPcXX9G+8BnHU
+	9h7p5/2JUfozlAzvZZkhHSO/BH9Bqc2eOiQhGcENMUNh9PrqYNeaEfdAbwG3EYj3g2cq/wj0RQwcJ
+	uULSxVJg+PGSVQCbvSeCmoRA19XA0toxkOBl7tJFDeJrt3pQzl9AzASpWJhOGHgDI4cn8u0e10jJR
+	wjbS3VE/ZbhbGXq2/Fp75OxZffWSVu1L+YSpCaxyXaiNljL/7zWu49IunTmWf90NS3RYHly8oe8iC
+	6p4tZtog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uromZ-000000046uG-1Cl5;
-	Fri, 29 Aug 2025 02:24:03 +0000
+	id 1uromb-000000046xo-32TN;
+	Fri, 29 Aug 2025 02:24:05 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urn8j-00000003tbj-3w5e
+	id 1urn8q-00000003tds-0GSG
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 29 Aug 2025 00:38:50 +0000
+	Fri, 29 Aug 2025 00:38:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
 	:Cc:To:In-Reply-To:References:Message-Id:MIME-Version:Subject:Date:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=INBKiFvw1l32bSX5fXP9bt/+Xv/TGJnC5X0C7163OaA=; b=hAxVmmI2MGOpE3k7ApNqhOYiR/
-	e89suiL4e5GEx00/SNgnfbJoPx+MkOppHR5d+YPoCGZnDfJmyua+XrNN2YAH4Q8C+hbMg/83vRI3q
-	LnKu4pB/6DyIIQ8tF0hgCKzxzK39InunFVb2BLe71QHur8pgccoLGPOdVyRUi9KFVx1of4aMd7qk6
-	kgwg0JvUGEvVlp5MZgGKs3wxNer/kjk3TXk2zU5Sp3mWSigjcTqzipGASw6h00fvHSWrBaC+ipnJw
-	0Wm/HWkdlLgcJ36ml1wtd1pnVtxKvPammjc0WlQbQecSIRnZS9Bj4DYPuDN0vAsxa8JlTmLvOw5X6
-	ijVo+9ig==;
+	bh=dWO8Dz9nIHqrR+SVTleBzTnUpEyDVDhvHJs2y9irGnw=; b=OVw52Xub2/qemO/+zcrCZogtSn
+	dU3FRgBVvLcER6LwsauABeq5Hp3VEsIo/p/pOV2BjKJ1vWG0EgbI79+ukNYkSMA4FaNWFqvm0Ba5/
+	l0zaxdXQ0fCmxm7qYMKe4/78CF2KMyOdjh92yo5qGuvYN8Uai1pXv4EJMNecYRMPesg0VkyQh4SwK
+	8OUGfV2HbUtc/cA6fZmJflB1ENK/ZV3qlF5BCZXIV9ltaPUCKshr2tExSEMf4XXHrZ/qce41A0tp+
+	9MD6Jqa8HSzX37VTB8eqWR7SgXN1ZwYme4Ik3wwSa4NpcuJCat9DfsYOwJDclZbO+fghvAtWgzeDk
+	dkrA7Z9g==;
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urn8f-000000030Hf-340n
+	id 1urn8n-000000030K7-18di
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 00:38:48 +0000
+	Fri, 29 Aug 2025 00:38:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756427924;
+	s=mimecast20190719; t=1756427932;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=INBKiFvw1l32bSX5fXP9bt/+Xv/TGJnC5X0C7163OaA=;
-	b=G+WqgfxyxWNg57Tg1s3yFUg9jURMrx6OMYtGijGiFPaiCUW9GlNOmupMeB58oeMAxeVgIi
-	kWz/a0iuB65yPs75nxFGcqiGu3ae/drd7go2zwzoJOf78uNI/wlel+XkAO0wlBmtkt9mrA
-	5lfcRX+kS6r05HP2P2ev08NnvJLtyHQ=
+	bh=dWO8Dz9nIHqrR+SVTleBzTnUpEyDVDhvHJs2y9irGnw=;
+	b=J54z5Hej3esLVDyFTX7JBas0AtBPdqUFF35hSf1q7rGnb9cahKtn0V8XDUCz3S/RrUCfuK
+	Z368YCdVmfP/lvaElEb9YUp6A618zU4cnFwhteoq5fcGUZyKlfaxewTeqixlWVg3uxTQf7
+	SA/WcTgqwh5lY4K7FWfXZxQpvvv8BqM=
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756427924;
+	s=mimecast20190719; t=1756427932;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=INBKiFvw1l32bSX5fXP9bt/+Xv/TGJnC5X0C7163OaA=;
-	b=G+WqgfxyxWNg57Tg1s3yFUg9jURMrx6OMYtGijGiFPaiCUW9GlNOmupMeB58oeMAxeVgIi
-	kWz/a0iuB65yPs75nxFGcqiGu3ae/drd7go2zwzoJOf78uNI/wlel+XkAO0wlBmtkt9mrA
-	5lfcRX+kS6r05HP2P2ev08NnvJLtyHQ=
-Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com
- [209.85.219.71]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=dWO8Dz9nIHqrR+SVTleBzTnUpEyDVDhvHJs2y9irGnw=;
+	b=J54z5Hej3esLVDyFTX7JBas0AtBPdqUFF35hSf1q7rGnb9cahKtn0V8XDUCz3S/RrUCfuK
+	Z368YCdVmfP/lvaElEb9YUp6A618zU4cnFwhteoq5fcGUZyKlfaxewTeqixlWVg3uxTQf7
+	SA/WcTgqwh5lY4K7FWfXZxQpvvv8BqM=
+Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com
+ [209.85.219.70]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-296-ADY0ZvdoP3GV2cBEK-7Q3w-1; Thu, 28 Aug 2025 20:38:43 -0400
-X-MC-Unique: ADY0ZvdoP3GV2cBEK-7Q3w-1
-X-Mimecast-MFC-AGG-ID: ADY0ZvdoP3GV2cBEK-7Q3w_1756427922
-Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-70de52d2870so14714746d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 17:38:43 -0700 (PDT)
+ us-mta-138-RrlQTMOdOMqhf9g97fqHCA-1; Thu, 28 Aug 2025 20:38:50 -0400
+X-MC-Unique: RrlQTMOdOMqhf9g97fqHCA-1
+X-Mimecast-MFC-AGG-ID: RrlQTMOdOMqhf9g97fqHCA_1756427930
+Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-70ddd80d02fso18605656d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 28 Aug 2025 17:38:50 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756427922; x=1757032722;
+        d=1e100.net; s=20230601; t=1756427930; x=1757032730;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=INBKiFvw1l32bSX5fXP9bt/+Xv/TGJnC5X0C7163OaA=;
-        b=UGgDV4K2uNpJbgjdjRHvh2l1HMn41i7bjGoYNyQjolg7Jr83pw83sPVOvaenpFEdg+
-         GO+dh7gvQIaysZFrr8RFxLDabLj7ohm3YPP919e7m4WNhRiRITT+m3HCUdQKtrCV1tnX
-         mbNXiaTqzmrDmbXtlDKW8rJ9orYU4hhXvu2Rg7ZpGt1am27VIVOjj/mTJP+ZdemY5oND
-         qlGlxq1jYmuPTfByA9CNpaaKUEAOf+v6wIt3WfmXMFTXn0BKP7O0BPWYsUhjHrjUxKYz
-         7ttFDyPFOIWp/zktl3jRqmilk7wvYxqkNJyBcn6yHwyWsAc0mX+Ckf96E145/eXBmwj6
-         I6KQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU3talrCqL3qiO8uJybpA3vHBObnWXOhKaLTxqhHv71b4nhsQPD7ADo32BnQIjqf0fuGK2EJcNNNJ99tPrWbyhd@lists.infradead.org
-X-Gm-Message-State: AOJu0YzeBQRc48kO9vQstvnbGGU+cKCbcxGltJgZjYMvVBG48/+5sba4
-	RunAiqjgLzY9gm/RIoyPOPwBMS/KMWjm0LwWcqL2gCAB0Bgy66bdPM8440sQYGnnsAQnHfkHtnM
-	EnYnL7Dq25u56s5RMhUJtbRISypUKEcU+uHiobKa57ERfNyjJdwJbuZJ80Cfk8YQ+XAmaMCwPIm
-	iz
-X-Gm-Gg: ASbGncsFoLOhITAT9rsMP0ogeDGBA0uJvKHxPxLZ0sXS7rnxyUr+5nFtJJaPDf/wDZZ
-	qR3gfGfoMKNtyQXd3jxLgvsM53bIfJjG+QMiW6sM8GeI1fCkw9lyr39zBWOGZwHiXYh/OoSdoH+
-	LyQRoMA2lD3FnuswKQNQvqL4Y74iQyUmnTwbn8seoGRv0SJW6m8dv7fLHF6DTVDzSuykFOhqfEz
-	c5vZMGpPEPJnyykWu2FxLCXZsNrY4sStAgY/t7T14SyOBylD1SRiC5wYORRxsz3OaK24cTwBlFA
-	bnyKy9R6/U2Ry6uzKVM3QeumiAQVwcuyXxAvBWH4SjnJbu4uFZcI80oLjRzrwoPzLhLwATe+p/3
-	BYn7O/+HxWuJ5obst1Lw165l7amY2joom1Q==
-X-Received: by 2002:a05:6214:2308:b0:70e:d2e:4111 with SMTP id 6a1803df08f44-70e0d2e46bcmr17026536d6.64.1756427922355;
-        Thu, 28 Aug 2025 17:38:42 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHLPZMnvSXxQHGa0k0IMwMZFMp0jxAhWxs/gSafBJp9wXqI2erH7R4QN082+oWY3YxWFAjsLg==
-X-Received: by 2002:a05:6214:2308:b0:70e:d2e:4111 with SMTP id 6a1803df08f44-70e0d2e46bcmr17026236d6.64.1756427921866;
-        Thu, 28 Aug 2025 17:38:41 -0700 (PDT)
+        bh=dWO8Dz9nIHqrR+SVTleBzTnUpEyDVDhvHJs2y9irGnw=;
+        b=KhI6Zq3sXG6Z1o+2Zv8ZxnpoDza73Ngx4vFBwAifGyEhNWWDd5/im6VcKkN/NqxBrf
+         /iXYChfcMIgz3h/IkA7mJtrDAWcDQ24tdMeL1oMwqgIK2oprP1xjaIauVLODHDiHnuT2
+         iVjmjh0o2S9UrWjJwTabYOeamODDz09tLXYqGLqAt7hNvDNCMKdXz0hg6+T7gTufG5mJ
+         1gWUfWk/VFCHbLSS9qli020lns5+kO2U99bZSgTfvfi7nwM68E1fRnfuONP+0BhPIK0v
+         oi5/mMtKSANAswEh0JxDIK7BMTZRTlEHZZYAjwVuswy2pNU5Pb6raX7qYP5nXBrDUlsz
+         DlFw==
+X-Forwarded-Encrypted: i=1; AJvYcCWn0nc3hXQcXXVh4VjvaspHKBWAUm2nAQL4mSFycS3NvddgnmK+wh62FXxij/2PV3ufqoEqZzRSvnkRv9FJVKhm@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrzfOVMJpRpSKBX7sYer2asmDUlh6djlldlr/it/k83NdapsEp
+	tDtX+xjSUwkyKKKnOWUAHuwR4JoIfGE3WqdWhH2Sa4J78VI4ohlxRjfzG03lEc7ILjaZuqFmxKw
+	44AZfa72mNLFml1mFO+nZzV/gwG3rvj8a9AvNlL5W7pJJFMci4GqdQesrLDHEz94zhJqpvxixIP
+	jH
+X-Gm-Gg: ASbGncv7wtqpDy2BkF4Ag+THLsLaPyJdP3yufnFKkGJlzNRaVOCMR8Qz4A4XVPT62aP
+	U7QhG3sOoQb/lZUgjLGCg0wKNCmRKoX6hLr9GLV4ZKDVNC23c8mLG1NUT1FrVDyNI3svjGjLwTf
+	cfBtDnXqqwjsO5UGEBhQXlC3pr/J/l4WhbPURBjdXUo4riWbb1xV5Db+SS5OSoE9wY8ruWdAKCG
+	gqKM2egtMcV0cYOxQer3Yh+NIz9WmdwQ+zI8FwcSITnRcVn2u4x3AjWBftm2Tbdicpek6EBN1n8
+	QqvlV0Xk4ZKhuPp6Y5wwWQBpfAyb3zxx4G8ztIqVyChFnkemQw7dN9MKTxrGuDd00bsiiftf1Ir
+	RB0USwl4ViDpSpit6SIHDQvPjlqrh604mwA==
+X-Received: by 2002:a05:6214:252f:b0:70d:e4a7:1b38 with SMTP id 6a1803df08f44-70de4a7272amr93091316d6.59.1756427929808;
+        Thu, 28 Aug 2025 17:38:49 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH0zJ/btEpUgEaoIIvfrO+RJjlxl3Pv9v+fWpYa9u5ZWZV72zvhLGJUbbr2PZPa8Aw72GLx4g==
+X-Received: by 2002:a05:6214:252f:b0:70d:e4a7:1b38 with SMTP id 6a1803df08f44-70de4a7272amr93091076d6.59.1756427929458;
+        Thu, 28 Aug 2025 17:38:49 -0700 (PDT)
 Received: from [192.168.1.2] (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-70e6264141asm5588696d6.65.2025.08.28.17.38.39
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-70e6264141asm5588696d6.65.2025.08.28.17.38.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Aug 2025 17:38:40 -0700 (PDT)
+        Thu, 28 Aug 2025 17:38:48 -0700 (PDT)
 From: Brian Masney <bmasney@redhat.com>
-Date: Thu, 28 Aug 2025 20:38:21 -0400
-Subject: [PATCH 2/8] clk: qcom: alpha-pll: convert from round_rate() to
- determine_rate()
+Date: Thu, 28 Aug 2025 20:38:24 -0400
+Subject: [PATCH 5/8] clk: sophgo: sg2042-clkgen: convert from round_rate()
+ to determine_rate()
 MIME-Version: 1.0
-Message-Id: <20250828-clk-round-rate-v2-v1-2-b97ec8ba6cc4@redhat.com>
+Message-Id: <20250828-clk-round-rate-v2-v1-5-b97ec8ba6cc4@redhat.com>
 References: <20250828-clk-round-rate-v2-v1-0-b97ec8ba6cc4@redhat.com>
 In-Reply-To: <20250828-clk-round-rate-v2-v1-0-b97ec8ba6cc4@redhat.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -121,24 +121,23 @@ To: Michael Turquette <mturquette@baylibre.com>,
 Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, sophgo@lists.linux.dev, 
  linux-arm-msm@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- Brian Masney <bmasney@redhat.com>, 
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+ Brian Masney <bmasney@redhat.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756427914; l=16351;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1756427914; l=2463;
  i=bmasney@redhat.com; s=20250528; h=from:subject:message-id;
- bh=9nEbhYDzoBNmi/PobaJ6T7eWIrqDvbzH5yntpiRsu9M=;
- b=yHjmM+DGGOe8RhI6LsZ4fKGbYLCUkFCUKPgF3b+Os98dKIFFNeETSye5rdIeMch6evCEu7Qc+
- inxr7bfCHGfCY6zkCyUCEGmPGyXcjFklda6J92sJyLbN0yRRIamnynB
+ bh=sqQ9Idu7LND8TQvnc9CGktCQVk853FsqtiSZ1I4901o=;
+ b=OqClB2gKvwUjzcBuWISxeT+XMsrr1fq+AKWaKypJZsPPPqcYnCjdJ8UA89aYPddHv0+EsQ93z
+ FAS6xT63b+ACxX8kvKkjjNayIxis6/FhWL13CkGrP4I8GMEnTIJ9PfM
 X-Developer-Key: i=bmasney@redhat.com; a=ed25519;
  pk=x20f2BQYftANnik+wvlm4HqLqAlNs/npfVcbhHPOK2U=
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: UN5F7vAnpS2ok3qIMc4EpJ3yw0IlssbdIjfMDlO1t1w_1756427922
+X-Mimecast-MFC-PROC-ID: 3a__cdMisU6HCq8Zsg9oD4LnGdk9iTTIS3dvg3gfNI8_1756427930
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_013846_199624_920CABC2 
-X-CRM114-Status: GOOD (  15.01  )
+X-CRM114-CacheID: sfid-20250829_013853_447237_FD09E469 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,409 +156,65 @@ The round_rate() clk ops is deprecated, so migrate this driver from
 round_rate() to determine_rate() using the Coccinelle semantic patch
 on the cover letter of this series.
 
-Note that prior to running the Coccinelle,
-clk_alpha_pll_postdiv_round_ro_rate() was renamed to
-clk_alpha_pll_postdiv_ro_round_rate().
-
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
 Signed-off-by: Brian Masney <bmasney@redhat.com>
 ---
- drivers/clk/qcom/clk-alpha-pll.c | 136 ++++++++++++++++++++++-----------------
- 1 file changed, 77 insertions(+), 59 deletions(-)
+ drivers/clk/sophgo/clk-sg2042-clkgen.c | 17 +++++++++--------
+ 1 file changed, 9 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/clk/qcom/clk-alpha-pll.c b/drivers/clk/qcom/clk-alpha-pll.c
-index 81a1ce42285f7eb19dba92cb7415c7e694a829dd..6aeba40358c11e44c5f39d15f149d62149393cd3 100644
---- a/drivers/clk/qcom/clk-alpha-pll.c
-+++ b/drivers/clk/qcom/clk-alpha-pll.c
-@@ -849,22 +849,25 @@ static int clk_alpha_pll_hwfsm_set_rate(struct clk_hw *hw, unsigned long rate,
- 					clk_alpha_pll_hwfsm_is_enabled);
+diff --git a/drivers/clk/sophgo/clk-sg2042-clkgen.c b/drivers/clk/sophgo/clk-sg2042-clkgen.c
+index 9e61288d34f3757315702c355f2669577b29676f..683661b71787c9e5428b168502f6fbb30ea9f7da 100644
+--- a/drivers/clk/sophgo/clk-sg2042-clkgen.c
++++ b/drivers/clk/sophgo/clk-sg2042-clkgen.c
+@@ -176,9 +176,8 @@ static unsigned long sg2042_clk_divider_recalc_rate(struct clk_hw *hw,
+ 	return ret_rate;
  }
  
--static long clk_alpha_pll_round_rate(struct clk_hw *hw, unsigned long rate,
--				     unsigned long *prate)
-+static int clk_alpha_pll_determine_rate(struct clk_hw *hw,
-+					struct clk_rate_request *req)
- {
- 	struct clk_alpha_pll *pll = to_clk_alpha_pll(hw);
- 	u32 l, alpha_width = pll_alpha_width(pll);
- 	u64 a;
- 	unsigned long min_freq, max_freq;
- 
--	rate = alpha_pll_round_rate(rate, *prate, &l, &a, alpha_width);
--	if (!pll->vco_table || alpha_pll_find_vco(pll, rate))
--		return rate;
-+	req->rate = alpha_pll_round_rate(req->rate, req->best_parent_rate, &l,
-+					 &a, alpha_width);
-+	if (!pll->vco_table || alpha_pll_find_vco(pll, req->rate))
-+		return 0;
- 
- 	min_freq = pll->vco_table[0].min_freq;
- 	max_freq = pll->vco_table[pll->num_vco - 1].max_freq;
- 
--	return clamp(rate, min_freq, max_freq);
-+	req->rate = clamp(req->rate, min_freq, max_freq);
-+
-+	return 0;
- }
- 
- void clk_huayra_2290_pll_configure(struct clk_alpha_pll *pll, struct regmap *regmap,
-@@ -1048,12 +1051,15 @@ static int alpha_pll_huayra_set_rate(struct clk_hw *hw, unsigned long rate,
- 	return 0;
- }
- 
--static long alpha_pll_huayra_round_rate(struct clk_hw *hw, unsigned long rate,
--					unsigned long *prate)
-+static int alpha_pll_huayra_determine_rate(struct clk_hw *hw,
-+					   struct clk_rate_request *req)
- {
- 	u32 l, a;
- 
--	return alpha_huayra_pll_round_rate(rate, *prate, &l, &a);
-+	req->rate = alpha_huayra_pll_round_rate(req->rate,
-+						req->best_parent_rate, &l, &a);
-+
-+	return 0;
- }
- 
- static int trion_pll_is_enabled(struct clk_alpha_pll *pll,
-@@ -1175,7 +1181,7 @@ const struct clk_ops clk_alpha_pll_ops = {
- 	.disable = clk_alpha_pll_disable,
- 	.is_enabled = clk_alpha_pll_is_enabled,
- 	.recalc_rate = clk_alpha_pll_recalc_rate,
--	.round_rate = clk_alpha_pll_round_rate,
-+	.determine_rate = clk_alpha_pll_determine_rate,
- 	.set_rate = clk_alpha_pll_set_rate,
- };
- EXPORT_SYMBOL_GPL(clk_alpha_pll_ops);
-@@ -1185,7 +1191,7 @@ const struct clk_ops clk_alpha_pll_huayra_ops = {
- 	.disable = clk_alpha_pll_disable,
- 	.is_enabled = clk_alpha_pll_is_enabled,
- 	.recalc_rate = alpha_pll_huayra_recalc_rate,
--	.round_rate = alpha_pll_huayra_round_rate,
-+	.determine_rate = alpha_pll_huayra_determine_rate,
- 	.set_rate = alpha_pll_huayra_set_rate,
- };
- EXPORT_SYMBOL_GPL(clk_alpha_pll_huayra_ops);
-@@ -1195,7 +1201,7 @@ const struct clk_ops clk_alpha_pll_hwfsm_ops = {
- 	.disable = clk_alpha_pll_hwfsm_disable,
- 	.is_enabled = clk_alpha_pll_hwfsm_is_enabled,
- 	.recalc_rate = clk_alpha_pll_recalc_rate,
--	.round_rate = clk_alpha_pll_round_rate,
-+	.determine_rate = clk_alpha_pll_determine_rate,
- 	.set_rate = clk_alpha_pll_hwfsm_set_rate,
- };
- EXPORT_SYMBOL_GPL(clk_alpha_pll_hwfsm_ops);
-@@ -1205,7 +1211,7 @@ const struct clk_ops clk_alpha_pll_fixed_trion_ops = {
- 	.disable = clk_trion_pll_disable,
- 	.is_enabled = clk_trion_pll_is_enabled,
- 	.recalc_rate = clk_trion_pll_recalc_rate,
--	.round_rate = clk_alpha_pll_round_rate,
-+	.determine_rate = clk_alpha_pll_determine_rate,
- };
- EXPORT_SYMBOL_GPL(clk_alpha_pll_fixed_trion_ops);
- 
-@@ -1240,9 +1246,8 @@ static const struct clk_div_table clk_alpha_2bit_div_table[] = {
- 	{ }
- };
- 
--static long
--clk_alpha_pll_postdiv_round_rate(struct clk_hw *hw, unsigned long rate,
--				 unsigned long *prate)
-+static int clk_alpha_pll_postdiv_determine_rate(struct clk_hw *hw,
-+						struct clk_rate_request *req)
- {
- 	struct clk_alpha_pll_postdiv *pll = to_clk_alpha_pll_postdiv(hw);
- 	const struct clk_div_table *table;
-@@ -1252,13 +1257,15 @@ clk_alpha_pll_postdiv_round_rate(struct clk_hw *hw, unsigned long rate,
- 	else
- 		table = clk_alpha_div_table;
- 
--	return divider_round_rate(hw, rate, prate, table,
--				  pll->width, CLK_DIVIDER_POWER_OF_TWO);
-+	req->rate = divider_round_rate(hw, req->rate, &req->best_parent_rate,
-+				       table, pll->width,
-+				       CLK_DIVIDER_POWER_OF_TWO);
-+
-+	return 0;
- }
- 
--static long
--clk_alpha_pll_postdiv_round_ro_rate(struct clk_hw *hw, unsigned long rate,
--				    unsigned long *prate)
-+static int clk_alpha_pll_postdiv_ro_determine_rate(struct clk_hw *hw,
-+						   struct clk_rate_request *req)
- {
- 	struct clk_alpha_pll_postdiv *pll = to_clk_alpha_pll_postdiv(hw);
- 	u32 ctl, div;
-@@ -1270,9 +1277,12 @@ clk_alpha_pll_postdiv_round_ro_rate(struct clk_hw *hw, unsigned long rate,
- 	div = 1 << fls(ctl);
- 
- 	if (clk_hw_get_flags(hw) & CLK_SET_RATE_PARENT)
--		*prate = clk_hw_round_rate(clk_hw_get_parent(hw), div * rate);
-+		req->best_parent_rate = clk_hw_round_rate(clk_hw_get_parent(hw),
-+							  div * req->rate);
-+
-+	req->rate = DIV_ROUND_UP_ULL((u64)req->best_parent_rate, div);
- 
--	return DIV_ROUND_UP_ULL((u64)*prate, div);
-+	return 0;
- }
- 
- static int clk_alpha_pll_postdiv_set_rate(struct clk_hw *hw, unsigned long rate,
-@@ -1291,13 +1301,13 @@ static int clk_alpha_pll_postdiv_set_rate(struct clk_hw *hw, unsigned long rate,
- 
- const struct clk_ops clk_alpha_pll_postdiv_ops = {
- 	.recalc_rate = clk_alpha_pll_postdiv_recalc_rate,
--	.round_rate = clk_alpha_pll_postdiv_round_rate,
-+	.determine_rate = clk_alpha_pll_postdiv_determine_rate,
- 	.set_rate = clk_alpha_pll_postdiv_set_rate,
- };
- EXPORT_SYMBOL_GPL(clk_alpha_pll_postdiv_ops);
- 
- const struct clk_ops clk_alpha_pll_postdiv_ro_ops = {
--	.round_rate = clk_alpha_pll_postdiv_round_ro_rate,
-+	.determine_rate = clk_alpha_pll_postdiv_ro_determine_rate,
- 	.recalc_rate = clk_alpha_pll_postdiv_recalc_rate,
- };
- EXPORT_SYMBOL_GPL(clk_alpha_pll_postdiv_ro_ops);
-@@ -1542,7 +1552,7 @@ const struct clk_ops clk_alpha_pll_fabia_ops = {
- 	.is_enabled = clk_alpha_pll_is_enabled,
- 	.set_rate = alpha_pll_fabia_set_rate,
- 	.recalc_rate = alpha_pll_fabia_recalc_rate,
--	.round_rate = clk_alpha_pll_round_rate,
-+	.determine_rate = clk_alpha_pll_determine_rate,
- };
- EXPORT_SYMBOL_GPL(clk_alpha_pll_fabia_ops);
- 
-@@ -1551,7 +1561,7 @@ const struct clk_ops clk_alpha_pll_fixed_fabia_ops = {
- 	.disable = alpha_pll_fabia_disable,
- 	.is_enabled = clk_alpha_pll_is_enabled,
- 	.recalc_rate = alpha_pll_fabia_recalc_rate,
--	.round_rate = clk_alpha_pll_round_rate,
-+	.determine_rate = clk_alpha_pll_determine_rate,
- };
- EXPORT_SYMBOL_GPL(clk_alpha_pll_fixed_fabia_ops);
- 
-@@ -1602,14 +1612,16 @@ clk_trion_pll_postdiv_recalc_rate(struct clk_hw *hw, unsigned long parent_rate)
- 	return (parent_rate / div);
- }
- 
--static long
--clk_trion_pll_postdiv_round_rate(struct clk_hw *hw, unsigned long rate,
--				 unsigned long *prate)
-+static int clk_trion_pll_postdiv_determine_rate(struct clk_hw *hw,
-+						struct clk_rate_request *req)
- {
- 	struct clk_alpha_pll_postdiv *pll = to_clk_alpha_pll_postdiv(hw);
- 
--	return divider_round_rate(hw, rate, prate, pll->post_div_table,
--				  pll->width, CLK_DIVIDER_ROUND_CLOSEST);
-+	req->rate = divider_round_rate(hw, req->rate, &req->best_parent_rate,
-+				       pll->post_div_table,
-+				       pll->width, CLK_DIVIDER_ROUND_CLOSEST);
-+
-+	return 0;
- };
- 
- static int
-@@ -1635,18 +1647,21 @@ clk_trion_pll_postdiv_set_rate(struct clk_hw *hw, unsigned long rate,
- 
- const struct clk_ops clk_alpha_pll_postdiv_trion_ops = {
- 	.recalc_rate = clk_trion_pll_postdiv_recalc_rate,
--	.round_rate = clk_trion_pll_postdiv_round_rate,
-+	.determine_rate = clk_trion_pll_postdiv_determine_rate,
- 	.set_rate = clk_trion_pll_postdiv_set_rate,
- };
- EXPORT_SYMBOL_GPL(clk_alpha_pll_postdiv_trion_ops);
- 
--static long clk_alpha_pll_postdiv_fabia_round_rate(struct clk_hw *hw,
--				unsigned long rate, unsigned long *prate)
-+static int clk_alpha_pll_postdiv_fabia_determine_rate(struct clk_hw *hw,
-+						      struct clk_rate_request *req)
- {
- 	struct clk_alpha_pll_postdiv *pll = to_clk_alpha_pll_postdiv(hw);
- 
--	return divider_round_rate(hw, rate, prate, pll->post_div_table,
--				pll->width, CLK_DIVIDER_ROUND_CLOSEST);
-+	req->rate = divider_round_rate(hw, req->rate, &req->best_parent_rate,
-+				       pll->post_div_table,
-+				       pll->width, CLK_DIVIDER_ROUND_CLOSEST);
-+
-+	return 0;
- }
- 
- static int clk_alpha_pll_postdiv_fabia_set_rate(struct clk_hw *hw,
-@@ -1681,7 +1696,7 @@ static int clk_alpha_pll_postdiv_fabia_set_rate(struct clk_hw *hw,
- 
- const struct clk_ops clk_alpha_pll_postdiv_fabia_ops = {
- 	.recalc_rate = clk_alpha_pll_postdiv_fabia_recalc_rate,
--	.round_rate = clk_alpha_pll_postdiv_fabia_round_rate,
-+	.determine_rate = clk_alpha_pll_postdiv_fabia_determine_rate,
- 	.set_rate = clk_alpha_pll_postdiv_fabia_set_rate,
- };
- EXPORT_SYMBOL_GPL(clk_alpha_pll_postdiv_fabia_ops);
-@@ -1833,7 +1848,7 @@ const struct clk_ops clk_alpha_pll_trion_ops = {
- 	.disable = clk_trion_pll_disable,
- 	.is_enabled = clk_trion_pll_is_enabled,
- 	.recalc_rate = clk_trion_pll_recalc_rate,
--	.round_rate = clk_alpha_pll_round_rate,
-+	.determine_rate = clk_alpha_pll_determine_rate,
- 	.set_rate = alpha_pll_trion_set_rate,
- };
- EXPORT_SYMBOL_GPL(clk_alpha_pll_trion_ops);
-@@ -1844,14 +1859,14 @@ const struct clk_ops clk_alpha_pll_lucid_ops = {
- 	.disable = clk_trion_pll_disable,
- 	.is_enabled = clk_trion_pll_is_enabled,
- 	.recalc_rate = clk_trion_pll_recalc_rate,
--	.round_rate = clk_alpha_pll_round_rate,
-+	.determine_rate = clk_alpha_pll_determine_rate,
- 	.set_rate = alpha_pll_trion_set_rate,
- };
- EXPORT_SYMBOL_GPL(clk_alpha_pll_lucid_ops);
- 
- const struct clk_ops clk_alpha_pll_postdiv_lucid_ops = {
- 	.recalc_rate = clk_alpha_pll_postdiv_fabia_recalc_rate,
--	.round_rate = clk_alpha_pll_postdiv_fabia_round_rate,
-+	.determine_rate = clk_alpha_pll_postdiv_fabia_determine_rate,
- 	.set_rate = clk_alpha_pll_postdiv_fabia_set_rate,
- };
- EXPORT_SYMBOL_GPL(clk_alpha_pll_postdiv_lucid_ops);
-@@ -1903,7 +1918,7 @@ const struct clk_ops clk_alpha_pll_agera_ops = {
- 	.disable = clk_alpha_pll_disable,
- 	.is_enabled = clk_alpha_pll_is_enabled,
- 	.recalc_rate = alpha_pll_fabia_recalc_rate,
--	.round_rate = clk_alpha_pll_round_rate,
-+	.determine_rate = clk_alpha_pll_determine_rate,
- 	.set_rate = clk_alpha_pll_agera_set_rate,
- };
- EXPORT_SYMBOL_GPL(clk_alpha_pll_agera_ops);
-@@ -2119,7 +2134,7 @@ const struct clk_ops clk_alpha_pll_lucid_5lpe_ops = {
- 	.disable = alpha_pll_lucid_5lpe_disable,
- 	.is_enabled = clk_trion_pll_is_enabled,
- 	.recalc_rate = clk_trion_pll_recalc_rate,
--	.round_rate = clk_alpha_pll_round_rate,
-+	.determine_rate = clk_alpha_pll_determine_rate,
- 	.set_rate = alpha_pll_lucid_5lpe_set_rate,
- };
- EXPORT_SYMBOL_GPL(clk_alpha_pll_lucid_5lpe_ops);
-@@ -2129,13 +2144,13 @@ const struct clk_ops clk_alpha_pll_fixed_lucid_5lpe_ops = {
- 	.disable = alpha_pll_lucid_5lpe_disable,
- 	.is_enabled = clk_trion_pll_is_enabled,
- 	.recalc_rate = clk_trion_pll_recalc_rate,
--	.round_rate = clk_alpha_pll_round_rate,
-+	.determine_rate = clk_alpha_pll_determine_rate,
- };
- EXPORT_SYMBOL_GPL(clk_alpha_pll_fixed_lucid_5lpe_ops);
- 
- const struct clk_ops clk_alpha_pll_postdiv_lucid_5lpe_ops = {
- 	.recalc_rate = clk_alpha_pll_postdiv_fabia_recalc_rate,
--	.round_rate = clk_alpha_pll_postdiv_fabia_round_rate,
-+	.determine_rate = clk_alpha_pll_postdiv_fabia_determine_rate,
- 	.set_rate = clk_lucid_5lpe_pll_postdiv_set_rate,
- };
- EXPORT_SYMBOL_GPL(clk_alpha_pll_postdiv_lucid_5lpe_ops);
-@@ -2304,7 +2319,7 @@ const struct clk_ops clk_alpha_pll_zonda_ops = {
- 	.disable = clk_zonda_pll_disable,
- 	.is_enabled = clk_trion_pll_is_enabled,
- 	.recalc_rate = clk_trion_pll_recalc_rate,
--	.round_rate = clk_alpha_pll_round_rate,
-+	.determine_rate = clk_alpha_pll_determine_rate,
- 	.set_rate = clk_zonda_pll_set_rate,
- };
- EXPORT_SYMBOL_GPL(clk_alpha_pll_zonda_ops);
-@@ -2529,13 +2544,13 @@ const struct clk_ops clk_alpha_pll_fixed_lucid_evo_ops = {
- 	.disable = alpha_pll_lucid_evo_disable,
- 	.is_enabled = clk_trion_pll_is_enabled,
- 	.recalc_rate = alpha_pll_lucid_evo_recalc_rate,
--	.round_rate = clk_alpha_pll_round_rate,
-+	.determine_rate = clk_alpha_pll_determine_rate,
- };
- EXPORT_SYMBOL_GPL(clk_alpha_pll_fixed_lucid_evo_ops);
- 
- const struct clk_ops clk_alpha_pll_postdiv_lucid_evo_ops = {
- 	.recalc_rate = clk_alpha_pll_postdiv_fabia_recalc_rate,
--	.round_rate = clk_alpha_pll_postdiv_fabia_round_rate,
-+	.determine_rate = clk_alpha_pll_postdiv_fabia_determine_rate,
- 	.set_rate = clk_lucid_evo_pll_postdiv_set_rate,
- };
- EXPORT_SYMBOL_GPL(clk_alpha_pll_postdiv_lucid_evo_ops);
-@@ -2546,7 +2561,7 @@ const struct clk_ops clk_alpha_pll_lucid_evo_ops = {
- 	.disable = alpha_pll_lucid_evo_disable,
- 	.is_enabled = clk_trion_pll_is_enabled,
- 	.recalc_rate = alpha_pll_lucid_evo_recalc_rate,
--	.round_rate = clk_alpha_pll_round_rate,
-+	.determine_rate = clk_alpha_pll_determine_rate,
- 	.set_rate = alpha_pll_lucid_5lpe_set_rate,
- };
- EXPORT_SYMBOL_GPL(clk_alpha_pll_lucid_evo_ops);
-@@ -2557,7 +2572,7 @@ const struct clk_ops clk_alpha_pll_reset_lucid_evo_ops = {
- 	.disable = alpha_pll_reset_lucid_evo_disable,
- 	.is_enabled = clk_trion_pll_is_enabled,
- 	.recalc_rate = alpha_pll_lucid_evo_recalc_rate,
--	.round_rate = clk_alpha_pll_round_rate,
-+	.determine_rate = clk_alpha_pll_determine_rate,
- 	.set_rate = alpha_pll_lucid_5lpe_set_rate,
- };
- EXPORT_SYMBOL_GPL(clk_alpha_pll_reset_lucid_evo_ops);
-@@ -2732,22 +2747,25 @@ static unsigned long clk_rivian_evo_pll_recalc_rate(struct clk_hw *hw,
- 	return parent_rate * l;
- }
- 
--static long clk_rivian_evo_pll_round_rate(struct clk_hw *hw, unsigned long rate,
+-static long sg2042_clk_divider_round_rate(struct clk_hw *hw,
+-					  unsigned long rate,
 -					  unsigned long *prate)
-+static int clk_rivian_evo_pll_determine_rate(struct clk_hw *hw,
++static int sg2042_clk_divider_determine_rate(struct clk_hw *hw,
 +					     struct clk_rate_request *req)
  {
- 	struct clk_alpha_pll *pll = to_clk_alpha_pll(hw);
- 	unsigned long min_freq, max_freq;
- 	u32 l;
- 	u64 a;
+ 	struct sg2042_divider_clock *divider = to_sg2042_clk_divider(hw);
+ 	unsigned long ret_rate;
+@@ -192,15 +191,17 @@ static long sg2042_clk_divider_round_rate(struct clk_hw *hw,
+ 			bestdiv = readl(divider->reg) >> divider->shift;
+ 			bestdiv &= clk_div_mask(divider->width);
+ 		}
+-		ret_rate = DIV_ROUND_UP_ULL((u64)*prate, bestdiv);
++		ret_rate = DIV_ROUND_UP_ULL((u64)req->best_parent_rate, bestdiv);
+ 	} else {
+-		ret_rate = divider_round_rate(hw, rate, prate, NULL,
++		ret_rate = divider_round_rate(hw, req->rate, &req->best_parent_rate, NULL,
+ 					      divider->width, divider->div_flags);
+ 	}
  
--	rate = alpha_pll_round_rate(rate, *prate, &l, &a, 0);
--	if (!pll->vco_table || alpha_pll_find_vco(pll, rate))
--		return rate;
-+	req->rate = alpha_pll_round_rate(req->rate, req->best_parent_rate, &l,
-+					 &a, 0);
-+	if (!pll->vco_table || alpha_pll_find_vco(pll, req->rate))
-+		return 0;
- 
- 	min_freq = pll->vco_table[0].min_freq;
- 	max_freq = pll->vco_table[pll->num_vco - 1].max_freq;
- 
--	return clamp(rate, min_freq, max_freq);
-+	req->rate = clamp(req->rate, min_freq, max_freq);
+ 	pr_debug("--> %s: divider_round_rate: val = %ld\n",
+ 		 clk_hw_get_name(hw), ret_rate);
+-	return ret_rate;
++	req->rate = ret_rate;
 +
 +	return 0;
  }
  
- const struct clk_ops clk_alpha_pll_rivian_evo_ops = {
-@@ -2755,7 +2773,7 @@ const struct clk_ops clk_alpha_pll_rivian_evo_ops = {
- 	.disable = alpha_pll_lucid_5lpe_disable,
- 	.is_enabled = clk_trion_pll_is_enabled,
- 	.recalc_rate = clk_rivian_evo_pll_recalc_rate,
--	.round_rate = clk_rivian_evo_pll_round_rate,
-+	.determine_rate = clk_rivian_evo_pll_determine_rate,
- };
- EXPORT_SYMBOL_GPL(clk_alpha_pll_rivian_evo_ops);
+ static int sg2042_clk_divider_set_rate(struct clk_hw *hw,
+@@ -258,13 +259,13 @@ static int sg2042_clk_divider_set_rate(struct clk_hw *hw,
  
-@@ -2964,7 +2982,7 @@ const struct clk_ops clk_alpha_pll_regera_ops = {
- 	.disable = clk_zonda_pll_disable,
- 	.is_enabled = clk_alpha_pll_is_enabled,
- 	.recalc_rate = clk_trion_pll_recalc_rate,
--	.round_rate = clk_alpha_pll_round_rate,
-+	.determine_rate = clk_alpha_pll_determine_rate,
- 	.set_rate = clk_zonda_pll_set_rate,
+ static const struct clk_ops sg2042_clk_divider_ops = {
+ 	.recalc_rate = sg2042_clk_divider_recalc_rate,
+-	.round_rate = sg2042_clk_divider_round_rate,
++	.determine_rate = sg2042_clk_divider_determine_rate,
+ 	.set_rate = sg2042_clk_divider_set_rate,
  };
- EXPORT_SYMBOL_GPL(clk_alpha_pll_regera_ops);
-@@ -3169,7 +3187,7 @@ const struct clk_ops clk_alpha_pll_slew_ops = {
- 	.enable = clk_alpha_pll_slew_enable,
- 	.disable = clk_alpha_pll_disable,
- 	.recalc_rate = clk_alpha_pll_recalc_rate,
--	.round_rate = clk_alpha_pll_round_rate,
-+	.determine_rate = clk_alpha_pll_determine_rate,
- 	.set_rate = clk_alpha_pll_slew_set_rate,
+ 
+ static const struct clk_ops sg2042_clk_divider_ro_ops = {
+ 	.recalc_rate = sg2042_clk_divider_recalc_rate,
+-	.round_rate = sg2042_clk_divider_round_rate,
++	.determine_rate = sg2042_clk_divider_determine_rate,
  };
- EXPORT_SYMBOL(clk_alpha_pll_slew_ops);
+ 
+ /*
 
 -- 
 2.50.1
