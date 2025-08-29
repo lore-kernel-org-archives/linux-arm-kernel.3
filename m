@@ -4,68 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60A45CA0FF7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 08:21:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BC3ECA0FF7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 08:24:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k55FMI1+I3YofT/NFGFbUAEdT0oLWBjHI6fE4D4wyEQ=; b=JpYYFJ3XgOE4FoxDZQJ8S0Kub+
-	TJKXiJDsnBOpa/GtyMw48CZhr8Z9Ol4KMqhwG3NawigP12RFDGR+LqX1JXvN1JCCZOMFbzVEdhtcJ
-	QzBU5LviWls2U0XhjKOiS/9s0l8VrnYv72nPH8wOZpNQtDP3OfDde6ePZz5fu6bz1/k+zmKFiKkhQ
-	VXG/VoNyalurT/9V704/ZEkdOzKnFlvsT/aV/AR+K6VzmCB3y0u97ep5MHIo8N5mKc5xtPy1tHzJ/
-	k51EcKKeO/9F89iJUMC46umPNBGa3h/eOpzOctM01w0AKb41yJYgO9WW0h23x2ug1PEaBVJJnpILp
-	A2Nc1g2Q==;
+	bh=SdOWi2UEtM5sH76Xw90D+BD8MyqOdvac/zHgDsx1Nac=; b=eGnAqwTPRoxcWudql4l3g5cOZb
+	ZYCkefYw/QtXueFXuENezczn1Tu0g6kYbLTZecOa+x1pGcGuxljEWLcgYsF//QclSox584wjOfd2U
+	0w+k/7WdddNrzdbwjxG4tFmXvYV305H/ORqVGpYSeEI5U67t36kd9TsyxNszu5/bkRKQ+yXZVjraR
+	VwktTGeOu2QULRDQoQZAkLZesx0SfJVMti428KoshtjvQILcLyPcTc3rgnHv4iWEzgRPJrVAgH5HC
+	h7rPaQud8RYlTNkvNNU9+u7EgQ79Xw7BDQNzoj4UZTNRWWl58s4K/YtTZQI43gH6490xNDn65A1D3
+	oP/xIGHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uruMk-00000004wn2-3yV5;
-	Fri, 29 Aug 2025 08:21:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uruPT-00000004xrN-1yYd;
+	Fri, 29 Aug 2025 08:24:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urtvX-00000004prV-2XV4;
-	Fri, 29 Aug 2025 07:53:39 +0000
+	id 1urtxy-00000004qeO-0J37
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 29 Aug 2025 07:56:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0E72060051;
-	Fri, 29 Aug 2025 07:53:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7C5FC4CEF0;
-	Fri, 29 Aug 2025 07:53:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9FA4244719;
+	Fri, 29 Aug 2025 07:56:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA52BC4CEF0;
+	Fri, 29 Aug 2025 07:56:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756454018;
-	bh=lGnjYgv5elXMwfPyxfMjkMn1zViVKrlNZ159H/ar7Us=;
+	s=k20201202; t=1756454169;
+	bh=gEVY2TEOLXWuc/PylIHeYa0ayOzElTCYmrn2BP+q/ow=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KGOt9k6JGUZm/s/BiB2row7YwILB1Wv9QyejLhNWD2L1ohpPgQtX52KGXrGK1Trd1
-	 C+WV3xgYVoOVvrGKjrDxxZ9DXMIkAu9wg5pc/QWoZImosfpFINNXIfEHNb6MV4XxsL
-	 i3Jyh6T+vdnEi26V2a1CQlNksFjbyCgzEybK7NydCv2Rx+TIIf/7jmqAUV0IsG9aX4
-	 DvejgTIDG3gV8I+89DKvFjUK4wZpQkcdhWOiNKs1H+riOkIzIUr47oY6TFWjYPvn2P
-	 jBzvaMohNV0D3/pWSGgdSgNpBScQbXwcZWfPMpzV/xrKX9/RXAPIkp6KoeZe6p29oR
-	 h1Ka89zJ+O5PA==
-Received: from johan by xi.lan with local (Exim 4.98.2)
-	(envelope-from <johan@kernel.org>)
-	id 1urtvL-000000000g6-3mNQ;
-	Fri, 29 Aug 2025 09:53:27 +0200
-Date: Fri, 29 Aug 2025 09:53:27 +0200
-From: Johan Hovold <johan@kernel.org>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org, "Nancy.Lin" <nancy.lin@mediatek.com>
-Subject: Re: [PATCH] drm/mediatek: fix device leaks at bind
-Message-ID: <aLFcd1ZLr0HUm-CM@hovoldconsulting.com>
-References: <20250722092722.425-1-johan@kernel.org>
- <aK7VCJ9yOKntjgKX@hovoldconsulting.com>
- <CAAOTY_-CijzQqrRUf_=cQbTUSybN3GT46q0vx1139mmZub_OfQ@mail.gmail.com>
- <aLFbcznLUutbMo6r@hovoldconsulting.com>
+	b=ThUpyuCEt+rHjGchX/jdas1nJIAeIqJ6AnMYOF9cySZOYAnrJZYC/QcNcxw2bHsMR
+	 f1bS5mUqF9syMOLObU9aoV97mJjLf4lbHaYNHo2UrzxWImgkd3rV7YWUeRrqiu5ujd
+	 zdBpWZrXThODYKC6Yay5tyTon+RB67NHLqQYKCalVyKw98bTZgRb927gWS14SJwVS+
+	 v+iAlJSdNA69eV935f/yCfNPpnUtlbxGk7DaTpnRylJJJwdhvVh3EJOOo2IRZXw7Va
+	 UCO8AhPWZTjqDZXc2LWD7ROB8k2Gtf9BrFLnJNtLT9l+JJEt8BTHB1UXGdssEAkXzj
+	 mRAxskbk1f3YA==
+Date: Fri, 29 Aug 2025 09:56:06 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Ravi Patel <ravi.patel@samsung.com>
+Cc: jesper.nilsson@axis.com, mturquette@baylibre.com, sboyd@kernel.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, s.nawrocki@samsung.com, 
+	cw00.choi@samsung.com, alim.akhtar@samsung.com, linus.walleij@linaro.org, 
+	tomasz.figa@gmail.com, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, 
+	ksk4725@coasia.com, kenkim@coasia.com, pjsin865@coasia.com, gwk1013@coasia.com, 
+	hgkim05@coasia.com, mingyoungbo@coasia.com, smn1196@coasia.com, 
+	pankaj.dubey@samsung.com, shradha.t@samsung.com, inbaraj.e@samsung.com, 
+	swathi.ks@samsung.com, hrishikesh.d@samsung.com, dj76.yang@samsung.com, 
+	hypmean.kim@samsung.com, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-arm-kernel@axis.com, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	soc@lists.linux.dev
+Subject: Re: [PATCH v3 08/10] arm64: dts: exynos: axis: Add initial ARTPEC-8
+ SoC support
+Message-ID: <20250829-attentive-watchful-guan-b79ccc@kuoka>
+References: <20250825114436.46882-1-ravi.patel@samsung.com>
+ <CGME20250825120735epcas5p3c86b9db5f17c0938f1d53ef6014ab342@epcas5p3.samsung.com>
+ <20250825114436.46882-9-ravi.patel@samsung.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aLFbcznLUutbMo6r@hovoldconsulting.com>
+In-Reply-To: <20250825114436.46882-9-ravi.patel@samsung.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250829_005610_148517_CEFB2945 
+X-CRM114-Status: GOOD (  13.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,36 +84,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 29, 2025 at 09:49:07AM +0200, Johan Hovold wrote:
-> On Fri, Aug 29, 2025 at 07:51:23AM +0800, Chun-Kuang Hu wrote:
-> > Johan Hovold <johan@kernel.org> 於 2025年8月27日 週三 下午5:51寫道：
-> 
-> > > On Tue, Jul 22, 2025 at 11:27:22AM +0200, Johan Hovold wrote:
-> > > > Make sure to drop the references to the sibling platform devices and
-> > > > their child drm devices taken by of_find_device_by_node() and
-> > > > device_find_child() when initialising the driver data during bind().
-> > > >
-> > > > Fixes: 1ef7ed48356c ("drm/mediatek: Modify mediatek-drm for mt8195 multi mmsys support")
-> > > > Cc: stable@vger.kernel.org    # 6.4
-> > > > Cc: Nancy.Lin <nancy.lin@mediatek.com>
-> > > > Signed-off-by: Johan Hovold <johan@kernel.org>
-> > >
-> > > Can this one be picked up?
-> > 
-> > Ma Ke has sent a similar patch [1] before you. And that patch fix more things.
-> > I've already pick up the final version [2].
-> > 
-> > [1] https://patchwork.kernel.org/project/dri-devel/patch/20250718033226.3390054-1-make24@iscas.ac.cn/
-> > [2] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/commit/?h=mediatek-drm-fixes-20250825&id=1f403699c40f0806a707a9a6eed3b8904224021a
-> 
-> I'm afraid that patch is completely broken and introduces a potential
-> use-after-free by adding a bogus decrement of the OF node refcount.
-> 
-> I suggest you drop that one and pick up mine instead which is correct
-> and cleaner.
+On Mon, Aug 25, 2025 at 05:14:34PM +0530, Ravi Patel wrote:
+>  config ARCH_AXIADO
+>  	bool "Axiado SoC Family"
+>  	select GPIOLIB
+> diff --git a/arch/arm64/boot/dts/exynos/Makefile b/arch/arm64/boot/dts/exynos/Makefile
+> index bdb9e9813e50..bcca63136557 100644
+> --- a/arch/arm64/boot/dts/exynos/Makefile
+> +++ b/arch/arm64/boot/dts/exynos/Makefile
+> @@ -1,4 +1,5 @@
+>  # SPDX-License-Identifier: GPL-2.0
+> +subdir-y += axis
+>  subdir-y += google
+>  
+>  dtb-$(CONFIG_ARCH_EXYNOS) += \
+> diff --git a/arch/arm64/boot/dts/exynos/axis/artpec-pinctrl.h b/arch/arm64/boot/dts/exynos/axis/artpec-pinctrl.h
+> new file mode 100644
+> index 000000000000..70bd1dcac85e
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/exynos/axis/artpec-pinctrl.h
+> @@ -0,0 +1,36 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
 
-I see now that that patch was included in a drm pull request for rc4.
-I'll send an incremental fix instead.
+Does not match rest of licenses.
 
-Johan
+> +/*
+> + * Axis ARTPEC-8 SoC device tree pinctrl constants
+> + *
+> + * Copyright (c) 2025 Samsung Electronics Co., Ltd.
+> + *             https://www.samsung.com
+> + * Copyright (c) 2025  Axis Communications AB.
+> + *             https://www.axis.com
+> + */
+> +
+> +#ifndef __DTS_ARM64_SAMSUNG_EXYNOS_AXIS_ARTPEC_PINCTRL_H__
+> +#define __DTS_ARM64_SAMSUNG_EXYNOS_AXIS_ARTPEC_PINCTRL_H__
+> +
+> +#define ARTPEC_PIN_PULL_NONE		0
+> +#define ARTPEC_PIN_PULL_DOWN		1
+> +#define ARTPEC_PIN_PULL_UP		3
+> +
+> +#define ARTPEC_PIN_FUNC_INPUT		0
+> +#define ARTPEC_PIN_FUNC_OUTPUT		1
+> +#define ARTPEC_PIN_FUNC_2		2
+> +#define ARTPEC_PIN_FUNC_3		3
+> +#define ARTPEC_PIN_FUNC_4		4
+> +#define ARTPEC_PIN_FUNC_5		5
+> +#define ARTPEC_PIN_FUNC_6		6
+> +#define ARTPEC_PIN_FUNC_EINT		0xf
+> +#define ARTPEC_PIN_FUNC_F		ARTPEC_PIN_FUNC_EINT
+> +
+> +/* Drive strength for ARTPEC */
+> +#define ARTPEC_PIN_DRV_SR1		0x8
+> +#define ARTPEC_PIN_DRV_SR2		0x9
+> +#define ARTPEC_PIN_DRV_SR3		0xa
+> +#define ARTPEC_PIN_DRV_SR4		0xb
+> +#define ARTPEC_PIN_DRV_SR5		0xc
+> +#define ARTPEC_PIN_DRV_SR6		0xd
+> +
+> +#endif /* __DTS_ARM64_SAMSUNG_EXYNOS_AXIS_ARTPEC_PINCTRL_H__ */
+> diff --git a/arch/arm64/boot/dts/exynos/axis/artpec8-pinctrl.dtsi b/arch/arm64/boot/dts/exynos/axis/artpec8-pinctrl.dtsi
+> new file mode 100644
+> index 000000000000..8d239a70f1b4
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/exynos/axis/artpec8-pinctrl.dtsi
+> @@ -0,0 +1,120 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+
+This is Dual license, so why pincltr header is not?
+
+Best regards,
+Krzysztof
+
 
