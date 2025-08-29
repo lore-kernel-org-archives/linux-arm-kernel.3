@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4DF7CA0FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 10:11:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2A7FCA0FF7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 10:14:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PvrGb7QTqbbgE5jM+HH0zZnE557nyu74f/SKnHNKGm0=; b=UAjOB8NmspjmxwTRSHGDP99s35
-	6tkhXNzWQxuIXKhVmdLmglUbFhUNxozgtOypeC76cEaPoSEZYzYpcxKH2TSwRJiaNXwqW3mFzJqB4
-	aSfY6lm+GUelJy2bX+VDki9hMa5peKCEGJIGVFHD8OxzVxIJ7wKej59855WUgQaioRZR1oZnxVhX2
-	fkV3Dk4ns2ljWwzkTSS1uSEiStCqGnNuPBQoChR0aOm/1dj7qjE4Qbat6tRqo8W6KddtgWcf6pSeJ
-	WyzpCquJM61MGlOh1yRTVbo0TCJYCghQG50R/5jTnLlbGaeMIsAuuj5mBiOD0ZopPzjJB1uSo6TyO
-	4UucLk9A==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d8GnmUKWDJlRgWN2/IhQKyobnL8ui9xca7cB7B0oUi8=; b=lFI+lJkofXVC1sO0/9lscqcBE6
+	NnqMZWA6P/896ONB6YNbi9XUlH+HtE3/U6FNYBEEtt7jYSw6DX/aullyRJLgJvyzB0L6sKuJzy4+C
+	AbzV04LzVmImYr4E6fK8MCKy8nCospP5+an0wMB6vwlwepw4xBP0WTr2oM3PGUnV4fakZVdSzftpc
+	jnhdyZ9a6mUIfQOJFNXAusKaSZmBhwJan5tfK8Jn9bu7KJPqHV4gDjXCz7WtH3FIOWefb6Oehj5vj
+	KyGPxKZN6c3/bOyK+qjsrmVRgy/l7mA899+yZClguFEW4cOjtJgGU5fZ6vLEJe5hklQaHSckuj0N1
+	sqRz4I3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urw4t-00000005GwM-3VlJ;
-	Fri, 29 Aug 2025 10:11:27 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1urw7e-00000005HQK-06hI;
+	Fri, 29 Aug 2025 10:14:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urv38-000000054pa-2o7c;
-	Fri, 29 Aug 2025 09:05:34 +0000
+	id 1urv38-000000054pX-0Po8;
+	Fri, 29 Aug 2025 09:05:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B9DE36013D;
+	by sea.source.kernel.org (Postfix) with ESMTP id B96B54172F;
 	Fri, 29 Aug 2025 09:05:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E453C4CEF0;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 997B4C4CEF5;
 	Fri, 29 Aug 2025 09:05:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1756458333;
-	bh=b+WF2J+qrsGcj8cAU4xgyNrWdpj0Vz5yotbWDF7MJQg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=fBN6Le+Yb27NYeFRI19Y7gZGNyEtfoOuSZzaNR2cmjGTnaKutu/HJD8nCm6/GsVUa
-	 rR9O3eUga4N7eRJfjlBsLuCtqQ5MPN6bj/ITh73AWYxeK4yWWJR49rN6uERc2APZ9q
-	 3dfWYSY77GOtTqsw/+vR2DftiEpoNrAXzAZbtwtKOyCcFtbbbLag7k94imaopEsLkw
-	 wIcc/EBMeC2wL/F+XH9Ykp7KC0qknZ4Ax3Od18tnE026uz5++x46UJ2s00DmulsTCh
-	 5N3xLbdo6D76GPqs/MWUlH6FdoO8no2n4FeIA7A2apktDSKw/Sq91EKztrmZW6Xr9q
-	 BU7wZddFlmYSw==
+	bh=vYVabSltptJRE83ss4FzMAYlVF/0xeNcsPWfCCvyH88=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=G22pMn2mPsU48neBJG5HJBNrKPDONRCT4j7/5Q1t9M8uJZGA7cmxMmok1u7yUgUoe
+	 0t3AjiJpU0w4aHv8CHKUtCdp9BB5mwINnmG1kmuR5OmiNg/lOifbESKFe0ytn8VX1p
+	 IZoX64m1TA/7Bp+fipeSq1WsPRbp9r/TUbziLrJDuS+YUWRxit9k2F07//4mLcGby9
+	 Sd1fbIDU3ggDWf8/Yn6Z3JZ8Z50WKsmiSTXkSV9vhcp+6wi0JX93raVTzRqL8iYGX9
+	 SOK0actdeTa34s9N28zD0ZqhOju8Q1phurizAqXkgU1Iem2rjm5dTflJmZv56OIg4v
+	 hZi3+djVxatrw==
 Received: from johan by xi.lan with local (Exim 4.98.2)
 	(envelope-from <johan@kernel.org>)
-	id 1urv2x-000000005WD-04un;
+	id 1urv2x-000000005WH-0zjm;
 	Fri, 29 Aug 2025 11:05:23 +0200
 From: Johan Hovold <johan@kernel.org>
 To: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
@@ -58,12 +58,17 @@ Cc: David Airlie <airlied@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Johan Hovold <johan@kernel.org>
-Subject: [PATCH 0/2] drm/mediatek: fix potential OF node use-after-free
-Date: Fri, 29 Aug 2025 11:03:43 +0200
-Message-ID: <20250829090345.21075-1-johan@kernel.org>
+Subject: [PATCH 2/2] drm/mediatek: clean up driver data initialisation
+Date: Fri, 29 Aug 2025 11:03:45 +0200
+Message-ID: <20250829090345.21075-3-johan@kernel.org>
 X-Mailer: git-send-email 2.49.1
+In-Reply-To: <20250829090345.21075-1-johan@kernel.org>
+References: <20250829090345.21075-1-johan@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250829_020534_159758_15858B8B 
+X-CRM114-Status: GOOD (  11.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,29 +83,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A recent change (included in the drm pull request for 6.17-rc4) fixed a
-device reference leak but also introduced a potential OF node
-use-after-free.
+The platform and drm devices are only used to look up the drm device and
+its driver data respectively when initialising the driver data during
+bind().
 
-This series fixes the new OF node reference imbalance and drops the
-unnecessary gotos introduced by the broken fix, effectively reverting
-that change in favour of the minimal fix I had previously posted here:
+Drop the reference counts as soon as they have been used to make the
+code more readable.
 
-	https://lore.kernel.org/lkml/20250722092722.425-1-johan@kernel.org/
+Note that the crtc count is never incremented on lookup failures.
 
-These should go into 6.17 which (soon) has the broken fix, which was
-also marked for stable backport.
+Signed-off-by: Johan Hovold <johan@kernel.org>
+---
+ drivers/gpu/drm/mediatek/mtk_drm_drv.c | 12 ++++--------
+ 1 file changed, 4 insertions(+), 8 deletions(-)
 
-Johan
-
-
-Johan Hovold (2):
-  drm/mediatek: fix potential OF node use-after-free
-  drm/mediatek: clean up driver data initialisation
-
- drivers/gpu/drm/mediatek/mtk_drm_drv.c | 23 +++++++++--------------
- 1 file changed, 9 insertions(+), 14 deletions(-)
-
+diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+index 3b02ed0a16da..33b83576af7e 100644
+--- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
++++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+@@ -395,12 +395,14 @@ static bool mtk_drm_get_all_drm_priv(struct device *dev)
+ 			continue;
+ 
+ 		drm_dev = device_find_child(&pdev->dev, NULL, mtk_drm_match);
++		put_device(&pdev->dev);
+ 		if (!drm_dev)
+-			goto next_put_device_pdev_dev;
++			continue;
+ 
+ 		temp_drm_priv = dev_get_drvdata(drm_dev);
++		put_device(drm_dev);
+ 		if (!temp_drm_priv)
+-			goto next_put_device_drm_dev;
++			continue;
+ 
+ 		if (temp_drm_priv->data->main_len)
+ 			all_drm_priv[CRTC_MAIN] = temp_drm_priv;
+@@ -412,12 +414,6 @@ static bool mtk_drm_get_all_drm_priv(struct device *dev)
+ 		if (temp_drm_priv->mtk_drm_bound)
+ 			cnt++;
+ 
+-next_put_device_drm_dev:
+-		put_device(drm_dev);
+-
+-next_put_device_pdev_dev:
+-		put_device(&pdev->dev);
+-
+ 		if (cnt == MAX_CRTC) {
+ 			of_node_put(node);
+ 			break;
 -- 
 2.49.1
 
