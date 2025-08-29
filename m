@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62CDFCA0FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 18:09:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42F15CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 18:11:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iAIqu1GlhMpJ08RArt8Sz2LVxQpAO7Pc1abOctlv/7k=; b=ye35oJcpG0eN7Mzk1NHx+6pBc+
-	q8Om3dQ8zOher7vVgORqbt6VnpIGLNLqsayJyPTEhJYEveeRZwE27yDf16++0z5W+PaQn4N3qS3J9
-	tNMD+Y4NFe+BPeONl+E0EmvQ9MUSM7SGLI8DLT7GEvLwsD8J/nQVer3Td5WnVqdyqCgdg5nouylVU
-	IFfHwvtPo6GK2aAx77P2HMt8apd3RtaCmnwKoi9shpo2PpAZxi9wRZO3k663D88J9Scc70+DPUDGg
-	0vI/7RIqA7f0y7z9EaxqJx779kDxQLXYjaL1CI+Yl3ogsIHS+5glo90CftuKY2z2Yovu4/fXNkNV9
-	VhIlUKqQ==;
+	bh=YZ/BNaCozlCQ9ACOj1xfG0C/EhVYWpyT8pFu2OCMzi0=; b=q5GzfCVwWw5cdnLz2KX1iDUwRF
+	WgBQBDRq3RyGWhZAgxsCzdXOW/oDrIAO+e/FHd/h/ohjHeb9vDkqTc7AQMIEO+kKs0Dg507eNzYJE
+	mujzxlxAz48YxhFr1PB9JaRprsFxCsVfXVDTDu6f0cQM+wSqE+zwsXQ+GtMeL7E7C5uuQEbpraeDG
+	ZCwQ2FNRp9YZ326KGc4FhU8YDEjdc5XmRrFMYhR9EqjJFgwPmVb0phhZLsAZMxltHQCKs1PyABUH/
+	ugtPmTX5IPO2Lwhvc3611ka4ufIFQRnlPOPu16MR5OaLCBxCkyZ1aW96elqZmkhnJ67AHlHuQyVuz
+	kBV40AIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us3X5-00000006bgV-4AZP;
-	Fri, 29 Aug 2025 18:09:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1us3Zm-00000006c0f-3BkN;
+	Fri, 29 Aug 2025 18:11:50 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us04l-000000061CH-2Z66
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 14:27:36 +0000
+	id 1us04n-000000061D5-224p;
+	Fri, 29 Aug 2025 14:27:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 375D544E4B;
-	Fri, 29 Aug 2025 14:27:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F39B4C4CEF0;
-	Fri, 29 Aug 2025 14:27:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2724545517;
+	Fri, 29 Aug 2025 14:27:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8FB7C4CEF9;
+	Fri, 29 Aug 2025 14:27:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756477654;
-	bh=hju7Q0uxuSGvDaWgdSvbm9C1hLSofXR34ZTyBAn5zHc=;
+	s=k20201202; t=1756477657;
+	bh=wezfen2NyW1g63oJmTankGv6tGgS4A3qTbITYW8tay8=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=c+B/wrzqg00WSFdgQYwmioWH/awpZYdcKINrzUkM/vSlrIMkqlSffg8EnKt+oIOLa
-	 H6JiI5jirYb/y2E9/+iLGYC/8LdhEaV0SJw0drk/w79xnIJ1F52vHY6lnfUOliwBPM
-	 K1fCTWwkwIWkEECKJsGbbagXLefBDhlzAQT8hh34ZXyPmbjQO+OAr1++EB3KXNE/SV
-	 KYjx+MjcFnZKDqgUz/j0XHmGN8YKfv3bUNKsV1q+NSyrPI1lEvCKxxrZVfjipj7MYY
-	 qjeaLNx9XZCjUd5Jw2VKUuQk2zqhFTjX7YxTe8WUsSfXDECNuaoP/Eg9zok9MxrWdc
-	 5E07BZmYt91Wg==
-Date: Fri, 29 Aug 2025 09:27:33 -0500
+	b=fEh/s44CthjHB264VbrUi5WgkrsPckj8N6QbxdPs4Q8+RqzXOkjJUyF0YrM/Q/QtT
+	 ZQDjqBiReYDgPSa2y0IBNnbB09vlBZ1C38BXIA8SwUMBMhCPsmjpUAB7DrZCrLbLB/
+	 8jGKvcmKZS48I7vGCc0ioEqVs0H/DHvNpyY5yvnmQn14pJ8cesXIIS/mVDdBh3+QSu
+	 TUZ9wsSJYLIduG/Jl+ThdJI/QiZauUYzG9Cz+qFeIUWqdciXPuF7j7eTTNK3JywMl6
+	 1tojvB73Nxwdbio7ugvf04dpVfYI5Skp8t1TGmnfATNZz1caFYi7a+gErGV0ygaYmm
+	 C9JQqRXcaj5gQ==
+Date: Fri, 29 Aug 2025 09:27:36 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: lee@kernel.org, conor+dt@kernel.org, joel@jms.id.au, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- andrew@codeconstruct.com.au, linux-aspeed@lists.ozlabs.org, 
- krzk+dt@kernel.org, brgl@bgdev.pl, linux-gpio@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, openbmc@lists.ozlabs.org, 
- linus.walleij@linaro.org, BMC-SW@aspeedtech.com
-To: Billy Tsai <billy_tsai@aspeedtech.com>
-In-Reply-To: <20250829073030.2749482-1-billy_tsai@aspeedtech.com>
-References: <20250829073030.2749482-1-billy_tsai@aspeedtech.com>
-Message-Id: <175647746429.734506.7183662123343858780.robh@kernel.org>
-Subject: Re: [PATCH v1 0/4] Add pinctrl support for AST2700 SoC
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Samuel Holland <samuel@sholland.org>, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+ Albert Ou <aou@eecs.berkeley.edu>
+To: Lukas Schmid <lukas.schmid@netcube.li>
+In-Reply-To: <20250829123800.1232645-1-lukas.schmid@netcube.li>
+References: <20250829123800.1232645-1-lukas.schmid@netcube.li>
+Message-Id: <175647746592.734566.14945277763815880419.robh@kernel.org>
+Subject: Re: [PATCH v6 0/5] Add support for NetCube Systems Nagami SoM and
+ its carrier boards
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_072735_697536_A64A8331 
-X-CRM114-Status: GOOD (  15.10  )
+X-CRM114-CacheID: sfid-20250829_072737_562752_DE4E992F 
+X-CRM114-Status: GOOD (  23.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,35 +79,67 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 29 Aug 2025 15:30:26 +0800, Billy Tsai wrote:
-> Document and add the pinctrl driver for AST2700 SoC.
+On Fri, 29 Aug 2025 14:37:53 +0200, Lukas Schmid wrote:
+> This series adds support for the NetCube Systems Nagami SoM and its
+> associated carrier boards, the Nagami Basic Carrier and the Nagami Keypad
+> Carrier.
 > 
-> Billy Tsai (4):
->   dt-bindings: mfd: aspeed,ast2x00-scu: Support ast2700 pinctrl
->   dt-bindings: pinctrl: aspeed: Add support for AST27xx
->   pinctrl: aspeed: Add AST2700 pinmux support
->   arm64: dts: add AST27xx pinctrl configuration nodes
+> Changes in v6:
+>   - Add 'usb0-enable-hog' to the som to enable the USB-OTG port by default
+>   - Update the keypad carrier dts to match actual board revision
 > 
->  .../bindings/mfd/aspeed,ast2x00-scu.yaml      |    2 +
->  .../pinctrl/aspeed,ast2700-soc0-pinctrl.yaml  |  135 +
->  .../pinctrl/aspeed,ast2700-soc1-pinctrl.yaml  |  452 +++
->  .../boot/dts/aspeed/aspeed-g7-pinctrl.dtsi    | 1359 +++++++++
->  drivers/pinctrl/aspeed/Kconfig                |    8 +
->  drivers/pinctrl/aspeed/Makefile               |    1 +
->  .../pinctrl/aspeed/pinctrl-aspeed-g7-soc0.c   |  503 ++++
->  .../pinctrl/aspeed/pinctrl-aspeed-g7-soc1.c   | 2523 +++++++++++++++++
->  drivers/pinctrl/aspeed/pinctrl-aspeed.c       |   47 +
->  drivers/pinctrl/aspeed/pinctrl-aspeed.h       |   11 +-
->  drivers/pinctrl/aspeed/pinmux-aspeed.h        |   35 +-
->  11 files changed, 5071 insertions(+), 5 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml
->  create mode 100644 Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc1-pinctrl.yaml
->  create mode 100644 arch/arm64/boot/dts/aspeed/aspeed-g7-pinctrl.dtsi
->  create mode 100644 drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc0.c
->  create mode 100644 drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc1.c
+> Changes in v5:
+>   - Re-add the non-removable property to the ESP32 interface
+>   - Add the mmc-pwrseq node for the ESP32 to initialize the ESP32 correctly
+>   - Remove the unused ehci0 and ohci0 nodes from the Keypad Carrier since
+>     USB port is peripheral only
+> 
+> Changes in v4:
+>   - Disable the default interfaces on the card-edge but keep the pinctrl
+>     definitions for them
+>   - Split the pinctrl definitions for the SPI interface into the basic spi
+>     pins and the hold/wp pins
+>   - Move some mmc0 properties to the Basic Carrier dts
+>   - Remove non-removable property from the ESP32 interface
+>   - Fix typo in the keypad matrix definition
+> 
+> Changes in v3:
+>   - Add missing dcxo node to the SoM dtsi
+>   - Rename the multi-led node
+>   - Change dr_mode to "peripheral" for the Keypad Carrier
+> 
+> Changes in v2:
+>  - Squash the binding patches into one patch
+>  - Fix formatting of the phy node in the SoM dtsi
+>  - Add description on where the phy is located in the SoM dtsi
+>  - Fix the phy address in the SoM dtsi
+>  - Move the carrier bindings into the same description as enums
+> 
+> Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
+> ---
+> Lukas Schmid (5):
+>   dt-bindings: arm: sunxi: Add NetCube Systems Nagami SoM and carrier
+>     board bindings
+>   riscv: dts: allwinner: d1s-t113: Add pinctrl's required by NetCube
+>     Systems Nagami SoM
+>   ARM: dts: sunxi: add support for NetCube Systems Nagami SoM
+>   ARM: dts: sunxi: add support for NetCube Systems Nagami Basic Carrier
+>   ARM: dts: sunxi: add support for NetCube Systems Nagami Keypad Carrier
+> 
+>  .../devicetree/bindings/arm/sunxi.yaml        |   8 +
+>  arch/arm/boot/dts/allwinner/Makefile          |   3 +
+>  ...n8i-t113s-netcube-nagami-basic-carrier.dts |  67 +++++
+>  ...8i-t113s-netcube-nagami-keypad-carrier.dts | 156 +++++++++++
+>  .../allwinner/sun8i-t113s-netcube-nagami.dtsi | 249 ++++++++++++++++++
+>  .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |  48 ++++
+>  6 files changed, 531 insertions(+)
+>  create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-basic-carrier.dts
+>  create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-keypad-carrier.dts
+>  create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
 > 
 > --
-> 2.25.1
+> 2.39.5
+> 
 > 
 > 
 > 
@@ -126,26 +161,18 @@ make sure dt-schema is up to date:
 
 This patch series was applied (using b4) to base:
  Base: attempting to guess base-commit...
- Base: tags/next-20250828 (exact match)
+ Base: tags/next-20250828 (best guess, 2/3 blobs matched)
 
 If this is not the correct base, please add 'base-commit' tag
 (or use b4 which does this automatically)
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/aspeed/' for 20250829073030.2749482-1-billy_tsai@aspeedtech.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/allwinner/' for 20250829123800.1232645-1-lukas.schmid@netcube.li:
 
-Traceback (most recent call last):
-  File "/home/rob/.local/bin/dt-validate", line 8, in <module>
-    sys.exit(main())
-             ~~~~^^
-  File "/home/rob/proj/dt-schema/dtschema/dtb_validate.py", line 139, in main
-    sg = schema_group(args.preparse)
-  File "/home/rob/proj/dt-schema/dtschema/dtb_validate.py", line 24, in __init__
-    self.validator = dtschema.DTValidator([schema_file])
-                     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "/home/rob/proj/dt-schema/dtschema/validator.py", line 376, in __init__
-    if '$id' in schema_cache:
-       ^^^^^^^^^^^^^^^^^^^^^
-TypeError: argument of type 'NoneType' is not iterable
+arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-keypad-carrier.dtb: pinctrl@2000000 (allwinner,sun20i-d1-pinctrl): 'usb0-enable-hog' does not match any of the regexes: '^([rs]-)?(([a-z0-9]{3,}|[a-oq-z][a-z0-9]*?)?-)+?(p[a-ilm][0-9]*?-)??pins?$', '^pinctrl-[0-9]+$', '^vcc-p[a-ilm]-supply$'
+	from schema $id: http://devicetree.org/schemas/pinctrl/allwinner,sun4i-a10-pinctrl.yaml#
+arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-keypad-carrier.dtb: /soc/i2c@2502800/keypad@34: failed to match any schema with compatible: ['ti,tca8418']
+arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-basic-carrier.dtb: pinctrl@2000000 (allwinner,sun20i-d1-pinctrl): 'usb0-enable-hog' does not match any of the regexes: '^([rs]-)?(([a-z0-9]{3,}|[a-oq-z][a-z0-9]*?)?-)+?(p[a-ilm][0-9]*?-)??pins?$', '^pinctrl-[0-9]+$', '^vcc-p[a-ilm]-supply$'
+	from schema $id: http://devicetree.org/schemas/pinctrl/allwinner,sun4i-a10-pinctrl.yaml#
 
 
 
