@@ -4,121 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8664CA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 14:30:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8544FCA0FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 14:32:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IvCFu598bKNcgvznsziLMQo5/Gz0ibjbmklJbsELIKs=; b=r2F0X1nEctGD4bSKYTJoDSvcKM
-	Tb3iRms8FKsFNnNOSKEAYzKd1GWpCk1nhBbQ0cfL8uRojJuovpL1uvPOEZ9Ej5jOyLMyKuvFSR3M2
-	S5DcZd+TqtBtvtFLt8VQaKVys7YMOZgM2RBc5W+pzjepwRcFbDXENz2JRnfiroimuzrIEpJkdI7mB
-	ES9Ar4MAS+T54vK/6uCCuqnkokOu3h4vhpIRC77gl5ma7+GBxMrPJHy9TMhQzRyKREbw0JSADCaEr
-	5s+Mxb3agN5IJspR0VqYNYAZ8h91Zifd+hG8kzdok4h31nL1rOM+oJRp+UiNq7EGEX354Q+Xz5ovX
-	Ru612Hgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GMCKh6ebU0u4Z6oifWcZMdJi/zOPW0SlqzJnGxsRIpQ=; b=rkZUYFxJagH1R7jX9PLwX8HDfM
+	up2/jfOPzQkbrpSx7NiuoFB5snwI9YUPN+XpQIG4jveHiVkwGHG//hP+OmAhmHU/A8W6X7MVn7XzX
+	vFadyZ86vhJrddAt02YMzaCnwt5Gara1a/OMQZulHfVWj21IEdmsvnElzo2sCPvbuGxtkIoB6d7Uj
+	QSLB+usBKVY8YJPhNs+Lz58F6qL7Yrc4I4Mxh93u09+qmhBGrsJvIuJt0aKdBGOclqLPYO363nuih
+	qLTC83qYlESYWyF6q1ZegUkOAPbYDEKJPS+w1/0I8vkXccFSSw4rIhOv78n3DSyGAxZ9znkyTdPeB
+	v+T7VbRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us078-000000061qT-1erU;
-	Fri, 29 Aug 2025 14:30:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1us09q-000000062Vu-2nNw;
+	Fri, 29 Aug 2025 14:32:50 +0000
+Received: from mail-ej1-x641.google.com ([2a00:1450:4864:20::641])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urxEr-00000005Trp-3sKe;
-	Fri, 29 Aug 2025 11:25:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9B76E43C0F;
-	Fri, 29 Aug 2025 11:25:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9595EC4CEF0;
-	Fri, 29 Aug 2025 11:25:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756466749;
-	bh=ysquxCIIQNwKzhgZFwqELK6EpHlgMkWfidw1GJSAZZA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=aGB7dJcm+6ID0+LHHkaT1KcYKJMrt7Utm95JsSxHhHABLityLd/QlSAcvclcnl3We
-	 VkfwaVzorBJIGitM1At4G1N9ei4KbOBYVTOh04g8OHNysz0XdwguMhiSuitnCeI6wg
-	 Zvh9krgCyc3/lRraw9SYJ4ZQNWOvRPV+Mgafl5x+kK56UX6cfgeO8+yxsxO5RtXthF
-	 XBY75p8Lxn4l6qeOuThNQeqHQA53kDCkYHV3QVEnVLkdOHV/3BpTkBT4dn8qlRJ9DJ
-	 bFFERfD9rtp+4x1pz2Pcrx+NCGEai3orUB+z3Jn7xiOJd5gL3XIdepdKaT02Qyd/IK
-	 CsMwloNNn9/tw==
-Message-ID: <6b5f20ed-4e88-441e-8f61-20866e2b39c7@kernel.org>
-Date: Fri, 29 Aug 2025 13:25:41 +0200
+	id 1urvDK-000000056Zh-0Pft
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 29 Aug 2025 09:16:07 +0000
+Received: by mail-ej1-x641.google.com with SMTP id a640c23a62f3a-afebb6d4093so299846366b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 02:16:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1756458964; x=1757063764; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=GMCKh6ebU0u4Z6oifWcZMdJi/zOPW0SlqzJnGxsRIpQ=;
+        b=g4HXyC3yA8osmCpV1nM5uO5VZ1g4rLq0Qchu3jN4UfHZ/2F1jt9piwAVgOY7B+dKn0
+         hLgAozOxISy+Bg3RI2+je7URWABlnKeGZVvuzVnVUyRzRQqxH3LZrMXWEo14wwXMjS99
+         ie8Zf/huc/byat+mMSc0W0vtDN/wdlnFjHRc4klBwgk8YSTx9SuhMefq3cqDOe45x3ez
+         7NdugkOJ+qDe1Z1XhEAlDMKm1FmsCrfTTaq9H9+S9Pt7fQvZeZx0+Q7Tx4zXvolLtfWC
+         gAe4JfGD9qltmu01Jk4oQMOzU7ipyN7UIc7f4Jy/kbwTcNVBOSEz4nsBULcHMp9PaoN7
+         01Rg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756458964; x=1757063764;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GMCKh6ebU0u4Z6oifWcZMdJi/zOPW0SlqzJnGxsRIpQ=;
+        b=VbOnGmenhx4PMHnMlTFG6pVIehVUPllATO25+YoWDZsg6DW0iWqs9zsACC25NtW+rS
+         gLvzGj75EJY01AR7+WF/odIDDoZir39L1Vx7bIQqBWD92OpfTL6JU+ApdlP4xlfjxgO7
+         1vVIF41y9licpuKHdiiFMhhIFaqtdLqEQ/+DMnOCQ684PsjyHZXLYTGCSpN9jiE33ea2
+         qlFrRdcIzz5iQeOAPxZmRENiexkXBQ88NAVbr9ULgFRCX0hbKEgp/CNjBdb03WkRizvr
+         JUyJ0gGlDMIPUyTXpac+2mpCpjgfrnRh/eTgStu5Ih58aoOnlAkMcw2j5SyMD0mmtfxF
+         08vw==
+X-Forwarded-Encrypted: i=1; AJvYcCXWuHTy/swqIK1zsQlrnqBI5nJJPNPj0ZfTTrOFbA8xn/wMHfkof08IM7RQu3gvQH4XcjC0risDGSLD0FwxaePM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzrqpw0moIbSXY1PsLTGE+zhCV6Ggiesr5A0Fn7FcgOp0LBdBXK
+	ilmo5D1OzHaCukEY0b/M9VM5MaTNLx04NZnEZjsPoJ4TReEuC+Dn+zoRaQk2VXKj30E=
+X-Gm-Gg: ASbGncsAGcfA2KgYYObeoQOdhhL9FEWpvB6elZ7j0DzAtkIWoti/lpoOMYGMyH24hTx
+	VWkIDJ1ezPPG9j3M923j53OinbGmDtxh24j1hxeyFcXVLBiclPaNV24OZdzHZ1k5OOzvAlkDXpx
+	NVmiQIu2mV2QVOlJwK+Mka0vKQVGWjr3/uvvlQAnJ0spRB/e7XOd53ebRcbG1aiAM8+s6MQlC90
+	oHCIH8yzj44/Aiap2hJ8PrEHwm1+l+eZLbwJ3CDWf3GEI1ht9mlrHgSsiyjw76N73PcmTL9W+BE
+	/PIduzZG/yq8U0f0U8Dei9U6EpsV/EagOyQDGTmRWMf994RveIhG1jnG0sbYKzeeoRBTx2SkC57
+	C57gAtuwfQ/pUqw45YI04LLzFjHdV1ZrpDOPGN1JZ6IbOE1HIF8aGJSFe3EkhyYxj+a9yHC0AT+
+	KABtkzyfMltthqPygD
+X-Google-Smtp-Source: AGHT+IEHgFynTh/fqQXSlnQVx/CrD8Li2R2KkbetyhBA2XZxZI4OAUkno3CLyIily5/Z/tnr+qqhWw==
+X-Received: by 2002:a17:907:970c:b0:afe:ae6c:411e with SMTP id a640c23a62f3a-afeae6c4776mr1267829366b.30.1756458964378;
+        Fri, 29 Aug 2025 02:16:04 -0700 (PDT)
+Received: from localhost (host-79-36-0-44.retail.telecomitalia.it. [79.36.0.44])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afefcc1c397sm161585666b.81.2025.08.29.02.16.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 29 Aug 2025 02:16:04 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Fri, 29 Aug 2025 11:17:58 +0200
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Andrea della Porta <andrea.porta@suse.com>,
+	linux-arm-kernel@lists.infradead.org, florian.fainelli@broadcom.com,
+	Ulf Hansson <ulf.hansson@linaro.org>, linux-gpio@vger.kernel.org,
+	Jonathan Bell <jonathan@raspberrypi.com>, svarbanov@suse.de,
+	linus.walleij@linaro.org, devicetree@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>, conor+dt@kernel.org,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Jiri Slaby <jirislaby@kernel.org>, krzk+dt@kernel.org,
+	Al Cooper <alcooperx@gmail.com>, linux-mmc@vger.kernel.org,
+	wahrenst@gmx.net, iivanov@suse.de, mbrugger@suse.com,
+	Will Deacon <will@kernel.org>, Phil Elwell <phil@raspberrypi.com>
+Subject: Re: [PATCH v2 0/5] Add peripheral nodes to RaspberryPi 5 DT
+Message-ID: <aLFwRrfjmq1wU8-b@apocalypse>
+References: <cover.1756386531.git.andrea.porta@suse.com>
+ <175641306018.2175061.15558471823903740794.robh@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 5/6] dt-bindings: phy: samsung,usb3-drd-phy: add
- ExynosAutov920 combo ssphy
-To: Alim Akhtar <alim.akhtar@samsung.com>,
- 'Pritam Manohar Sutar' <pritam.sutar@samsung.com>
-Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, andre.draszik@linaro.org, peter.griffin@linaro.org,
- kauschluss@disroot.org, ivo.ivanov.ivanov1@gmail.com,
- igor.belwon@mentallysanemainliners.org, johan@kernel.org,
- m.szyprowski@samsung.com, s.nawrocki@samsung.com,
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
- dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
- selvarasu.g@samsung.com
-References: <20250822093845.1179395-1-pritam.sutar@samsung.com>
- <CGME20250822093022epcas5p42d8c16c851769dab0e1da9d45743ab1f@epcas5p4.samsung.com>
- <20250822093845.1179395-6-pritam.sutar@samsung.com>
- <20250824-rough-fresh-orangutan-eecb2f@kuoka>
- <007501dc1653$e36c3b50$aa44b1f0$@samsung.com>
- <83dc9435-5850-425d-b345-52e84ef9262c@kernel.org>
- <000401dc18cd$ec02a1b0$c407e510$@samsung.com>
- <e8e99c16-ad40-4d79-be92-1aa55c13f9ea@kernel.org>
- <263801dc18d3$d1e20950$75a61bf0$@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <263801dc18d3$d1e20950$75a61bf0$@samsung.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <175641306018.2175061.15558471823903740794.robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_042550_025881_DF7DF628 
-X-CRM114-Status: GOOD (  16.14  )
+X-CRM114-CacheID: sfid-20250829_021606_139033_918280CE 
+X-CRM114-Status: GOOD (  33.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,107 +110,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/08/2025 12:58, Alim Akhtar wrote:
-> Hi Krzysztof
+Hi Rob,
+
+On 15:31 Thu 28 Aug     , Rob Herring (Arm) wrote:
 > 
->> -----Original Message-----
->> From: Krzysztof Kozlowski <krzk@kernel.org>
->> Sent: Friday, August 29, 2025 4:07 PM
->> To: Pritam Manohar Sutar <pritam.sutar@samsung.com>
->> Cc: vkoul@kernel.org; kishon@kernel.org; robh@kernel.org;
->> krzk+dt@kernel.org; conor+dt@kernel.org; alim.akhtar@samsung.com;
->> andre.draszik@linaro.org; peter.griffin@linaro.org; kauschluss@disroot.org;
->> ivo.ivanov.ivanov1@gmail.com; igor.belwon@mentallysanemainliners.org;
->> johan@kernel.org; m.szyprowski@samsung.com;
->> s.nawrocki@samsung.com; linux-phy@lists.infradead.org;
->> devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-arm-
->> kernel@lists.infradead.org; linux-samsung-soc@vger.kernel.org;
->> rosa.pila@samsung.com; dev.tailor@samsung.com;
->> faraz.ata@samsung.com; muhammed.ali@samsung.com;
->> selvarasu.g@samsung.com
->> Subject: Re: [PATCH v7 5/6] dt-bindings: phy: samsung,usb3-drd-phy: add
->> ExynosAutov920 combo ssphy
->>
->> On 29/08/2025 12:15, Pritam Manohar Sutar wrote:
->>> Hi Krzysztof
->>>
->>>> -----Original Message-----
->>>> From: Krzysztof Kozlowski <krzk@kernel.org>
->>>> Sent: 26 August 2025 02:05 PM
->>>> To: Pritam Manohar Sutar <pritam.sutar@samsung.com>
->>>> Cc: vkoul@kernel.org; kishon@kernel.org; robh@kernel.org;
->>> .
->>> .
->>> [snip]
->>> .
->>> .
->>>>>> Subject: Re: [PATCH v7 5/6] dt-bindings: phy: samsung,usb3-drd-phy:
->>>>>> add
->>>>>> ExynosAutov920 combo ssphy
->>>>>>
->>>>>> On Fri, Aug 22, 2025 at 03:08:44PM +0530, Pritam Manohar Sutar wrote:
->>>>>>> This phy supports USB3.1 SSP+(10Gbps) protocol and is backwards
->>>>>>> compatible to the USB3.0 SS(5Gbps). It requires two clocks, named
->>>>>>> "phy" and "ref". The required supplies for USB3.1 are named as
->>>>>>> vdd075_usb30(0.75v), vdd18_usb30(1.8v).
->>>>>>
->>>>>> Please do not describe the schema, but hardware. This sentence does
->>>>>> not help me in my question further.
->>>>>
->>>>> This is a combo phy having Synopsys usb20 and usb30 phys (these 2
->>>>> phys are
->>>> totally different).
->>>>> One PHY only supports usb2.0 and data rates whereas another one does
->>>>> usb3.1 ssp+ and usb3.1 ssp
->>>>>
->>>>> This patch only explains about usb30 (since these are two different
->>>>> phys) phy
->>>> and omitted inclusion of usb20 reference (added separate patch for
->>>> this patch no 3).
->>>>>
->>>>> Hope this is clear.
->>>>
->>>> No. That sentence still explains what schema is doing.
->>>>
->>>
->>> Ok, let me simplify the commit message further something like below.
->>> Anyways, the coverletter contains more details about it.
->>>
->>> "dt-bindings: phy: samsung,usb3-drd-phy: add ExynosAutov920 combo
->>> ssphy
->>>
->>>   Add schema for combo ssphy found on this SoC.
->>> "
->>>
->>> Please confirm if this looks fine?
->>> If so, will reflect the similar commit messages in patch 1 and 3.
->>
->> Please read my first comment again. I do not see how does this satisfy
->> hardware explanation.
->>
-> Just went through the conversation above, 
-> until what extent hardware description need to be explain in the commit?
-> Do we have any guideline for the same?
-> Could you please help with an example from previous any commit or some other patches? 
-> I understand that mentioning, “two clocks, two supplies etc" are part of schema, 
-> one may or may not capture that in the commit. 
-> However mentioning, “this hardware (SoC) contain a combo PHY which supports usb3.1 and usb3.0" is not ok? 
+> On Thu, 28 Aug 2025 15:17:09 +0200, Andrea della Porta wrote:
+> > Hi,
+> > 
+> > The following patches add a few peripheral DT nodes and related pin/gpio
+> > nodes for Raspberry Pi 5.
+> > 
+> > - Patch 1: Amend the bindings to avoid DT compiler warnings.
+> > 
+> > - Patch 2: Adds core pinctrl nodes and defines SD pins as a first appliance
+> >   for the pinctrl.
+> > 
+> > - Patch 3: Wires the gpio-key for power button and related gpio controller.
+> > 
+> > - Patch 4: Adds DT node for WiFi.
+> > 
+> > - Patch 5: Adds Bluetooth DT node.
+> > 
+> > All comments and suggestions are welcome!
+> > 
+> > Happy hacking!
+> > Ivan and Andrea
+> > 
+> > 
+> > CHANGES in V2:
+> > 
+> > --- DTS ---
+> > 
+> > - bcm2712.dtsi: added a proper clocks node to the uarta serial
+> >   in order to replace the legacy clock-frequency property. As
+> >   a result, the following patch from the previous patchset
+> >   has been dropped since it's now useless:
+> > 
+> >   "dt-bindings: serial: Add clock-frequency property as an alternative to clocks"
+> > 
+> > 
+> > Andrea della Porta (1):
+> >   dt-bindings: mmc: Add support for capabilities to Broadcom SDHCI
+> >     controller
+> > 
+> > Ivan T. Ivanov (4):
+> >   arm64: dts: broadcom: bcm2712: Add pin controller nodes
+> >   arm64: dts: broadcom: bcm2712: Add one more GPIO node
+> >   arm64: dts: broadcom: bcm2712: Add second SDHCI controller node
+> >   arm64: dts: broadcom: bcm2712: Add UARTA controller node
+> > 
+> >  .../bindings/mmc/brcm,sdhci-brcmstb.yaml      |   2 +-
+> >  .../dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts  | 133 ++++++++++++++++++
+> >  arch/arm64/boot/dts/broadcom/bcm2712.dtsi     |  55 ++++++++
+> >  3 files changed, 189 insertions(+), 1 deletion(-)
+> > 
+> > --
+> > 2.35.3
+> > 
+> > 
+> > 
+> 
+> 
+> My bot found new DTB warnings on the .dts files added or changed in this
+> series.
+> 
+> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+> are fixed by another series. Ultimately, it is up to the platform
+> maintainer whether these warnings are acceptable or not. No need to reply
+> unless the platform maintainer has comments.
+> 
+> If you already ran DT checks and didn't see these error(s), then
+> make sure dt-schema is up to date:
+> 
+>   pip3 install dtschema --upgrade
+> 
+> 
+> This patch series was applied (using b4) to base:
+>  Base: attempting to guess base-commit...
+>  Base: tags/next-20250828 (exact match)
+> 
+> If this is not the correct base, please add 'base-commit' tag
+> (or use b4 which does this automatically)
+> 
+> New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/broadcom/' for cover.1756386531.git.andrea.porta@suse.com:
+> 
+> arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dtb: /soc@107c000000/pinctrl@7d504100: failed to match any schema with compatible: ['brcm,bcm2712c0-pinctrl']
+> arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dtb: /soc@107c000000/pinctrl@7d504100: failed to match any schema with compatible: ['brcm,bcm2712c0-pinctrl']
+> arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dtb: /soc@107c000000/pinctrl@7d510700: failed to match any schema with compatible: ['brcm,bcm2712c0-aon-pinctrl']
+> arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dtb: /soc@107c000000/pinctrl@7d510700: failed to match any schema with compatible: ['brcm,bcm2712c0-aon-pinctrl']
+> arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dtb: hvs@107c580000 (brcm,bcm2712-hvs): clocks: [[28, 4], [28, 16]] is too long
+> 	from schema $id: http://devicetree.org/schemas/display/brcm,bcm2835-hvs.yaml#
+> arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dtb: hvs@107c580000 (brcm,bcm2712-hvs): clocks: [[28, 4], [28, 16]] is too long
+> 	from schema $id: http://devicetree.org/schemas/display/brcm,bcm2835-hvs.yaml#
+> arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtb: /soc@107c000000/pinctrl@7d504100: failed to match any schema with compatible: ['brcm,bcm2712c0-pinctrl']
+> arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtb: /soc@107c000000/pinctrl@7d510700: failed to match any schema with compatible: ['brcm,bcm2712c0-aon-pinctrl']
+> arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtb: hvs@107c580000 (brcm,bcm2712-hvs): clocks: [[28, 4], [28, 16]] is too long
+> 	from schema $id: http://devicetree.org/schemas/display/brcm,bcm2835-hvs.yaml#
+> 
+>
 
+For some reason I've dropped, from the previous cover letter, the
+phrase mentioning that this patchset depends on this patchset:
 
-Maybe that's just language, but to me the commit msg did not describe
-hardware after first sentence, but said what schema requires (some
-clocks and supplies). Other examples:
-00399bbe02d2bb6fd8d6eb90573ec305616449f4
-e4c9a7b475e5d0d9b2440ee48f91d1364eabd6cb
+https://lore.kernel.org/all/7ed0f2779829f4e63b69d8cf5cedda9f849996bc.1756372805.git.andrea.porta@suse.com/
 
-and here another anti-pattern:
-23f793850e9ee7390584c0809f085d6c88de7d3f
+which contains the schema. If you apply it as prerequisite, warnings
+should disappear.
 
-(and before you ask why above carries my Rb tag, then note that
-Samsung's revenue is around 220 billion USD, so for sure it has a lot,
-really a lot of resources to review patches internally and improve their
-quality before posting).
-
-Best regards,
-Krzysztof
+Many thanks,
+Andrea
 
