@@ -4,105 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AD85CA0FFE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:51:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2265CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:51:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:CC:To:From:Subject:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Nn2QZqBEULdZ0VrKD8SCB1v1paB+n/b0AG9QGhllqo=; b=d+s0TChBLlqkFmR0kfKCcqsUb5
-	ICu+CL9b0RmvJCZYDA/8V5teZMbyVvYK912WzbbVKEEB0IePLxUKznzU6nzgKXB3O45Ic4rVx9gz/
-	TOH5wiAqezik0KcubATRQ26oPGpnbvTrtrmNGLGQ0Tn/V8KnRsTSOo1v0ULHdt+W2DYIRouG6MQxr
-	M0WlNoRIu+/1h9JfdWZ/Tw+C/rIUGbaGry2L6gIkECahNdoGIsa89Jd9LGY0PHCneq5cBenlCv2G6
-	pdO3xfC/l+ry4cxFxkWc63+Zom383zrUwEyTmtykSJhiKNOYT64TgWE/X2MN29kfQaqF0fSN+CCu2
-	v2pMoLVA==;
+	bh=onDw0zBJvA2aM4dl11X2cmXP4ov854rmqxhd1ow39+0=; b=mNYuN9Eb9lyWiFt/7iuBxDkjrG
+	FlBh8JdGWfihrUwev4CO3Yv8l/WKwoAm/gw9CPjj5YrbRCsn6jbiBkvAnVPi0hYKs8mXQoE4T1b2w
+	e4ZHpVsCs4tIClpevSMyumuAEnzSTdCmC9tvnc1BjlBOiJ1AdMdWwW/AWP0yIW6glTJR4w1UzHsds
+	Yzmvl/jvUr3dvpDYmuBoR0LHX4m0OOy1IZfIyZuCVW9s4mHYmMwtHnQH6LE5Gkq4MlD0JHeB5Wpwr
+	JKKbpVLa3BqvotptTC5aQpMT1z8mZ7jbeTUMPLjYqfBOEWlxXpAMgzlTe0XSsHvYmjFIKFz1V47sU
+	W2cWfL5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us9o1-00000007Bno-3ioY;
-	Sat, 30 Aug 2025 00:50:57 +0000
-Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
+	id 1us9o5-00000007Bro-0SDE;
+	Sat, 30 Aug 2025 00:51:01 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us4Aa-00000006fca-2WJC
+	id 1us4F4-00000006i6C-3xr5
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 29 Aug 2025 18:54:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:CC:To:From:
+	Subject:Sender:Reply-To:Content-Description;
+	bh=onDw0zBJvA2aM4dl11X2cmXP4ov854rmqxhd1ow39+0=; b=imUoX+UPGtokvsnZcdLUMvJRGK
+	jxHTJBsz1Juv01fXfAePMbn6fisHQsU2vU7CWd/hiX3x+cWvaslTAFvYhILJ6xwyfENJLBpspC0Kt
+	Lon+TFLicOvvtczw/pK50NRBJm4CWrLEZhviu5tPjqJoJXqPU7JGcYh6ID0LGF7EdP7+gkYQj6UBN
+	+8yybIA8UaY/Tno/kxcD9ReRGK4M18OlSMlcpu4czC/aPaKAupqI2+UfaZa1EHlqO2z2jkyXg7j4k
+	bmjnvg3RM6cDMNhScDajb4qMVs1XMvbZ6t5UPaYKoGUH9Quk9Wqh/ljk8RGeNEpMXAHloAsxINlgq
+	X1EQ8lCw==;
+Received: from pdx-out-009.esa.us-west-2.outbound.mail-perimeter.amazon.com ([35.155.198.111])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1us4Ez-00000003GWm-2OD9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 18:49:54 +0000
-Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-7f861f89313so227920785a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 11:49:51 -0700 (PDT)
+	Fri, 29 Aug 2025 18:54:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1756493391; x=1757098191; darn=lists.infradead.org;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:to
-         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=6Nn2QZqBEULdZ0VrKD8SCB1v1paB+n/b0AG9QGhllqo=;
-        b=yctdqYIplC9yact5Foh8aO5x+Z58r8sMekMgDj4fV4ruYsScaGEl5FVS0D1AMxz8cy
-         XAnX4J5S0Q316ZZn5bkTpumBhUSFQdMlaC1LSvT78C0MIvcZceYLXc4IOtPiTHk2SNlA
-         pX1Q86y/GXYod94LRWbgAE1w9AdDYPrItMWZmRNocXudqTcY1Gsz6eToCGKN5nb6tXJC
-         usHsuft4+ascLidolLI5qJNdMWfBpu0UftHIzaoOG6ru19XdRCqfigqprgqeYyvSCkRk
-         K3i0dWivmRbd9Zkxd0lKMKhhfKlhKy2j4Fvl5xcEUwix10iUnWCvzmI4Pol7LlN/Uq0R
-         1J9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756493391; x=1757098191;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:to
-         :from:subject:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6Nn2QZqBEULdZ0VrKD8SCB1v1paB+n/b0AG9QGhllqo=;
-        b=LYWOzdXl/jCqyPpCsngw1+zzJL4/jlAQSruerbhiYqGLPiTekYPtghJu2UIFgX4V7N
-         yHAoLZ6NaYRRXaOr8t9ff6nqPNOq0dBA7RSBbz1BSETa5o4fJ+xvgOMW4Qjvq6tVjM4b
-         s7xl6jRyzUNPCZTHnJ1Vs4NBJQ3cP8HsPu2pxjbe/wVfHHqREEy0UBD7BAfDWAY9KPCS
-         l63y8avr/NI20aKAiUlFjVzdghXHGVkplXmiC+OAKuU/H2+JySdqqtG2BxVG4P76z9uZ
-         tu7xDiASNPPi9PHpHU+3k+3J6fx2Os7auBU34ZgQ8LWvcy/j6t5OS4QG87sshjVb3RXW
-         /K4w==
-X-Forwarded-Encrypted: i=1; AJvYcCXukNStn0Y4elhZGNmI/K0OvoweQntuFc65etG3YL+pCzegRHPboYGkt5EETj7gh6f3lldYbrCaeuo2iCxfSnYn@lists.infradead.org
-X-Gm-Message-State: AOJu0YwM8ZCG6mJ+NyiJqsD2yLClkFDSXuInzokQWF+shveNoqJPN3OD
-	ueHlbcJygjTVC2ZPeE5JoJVFgEawrtTVwJrIkOcN8uM3OTwqvopJxLnoj7UGsCiAPyg=
-X-Gm-Gg: ASbGncvRftDI0h2my9VhCErWFgZi9VaaEBypzWDzvz7uo3ZmAtitywpnHp+avSdyT3N
-	BxoYw4CkM27VrV4+PbA7cA2nPcsyxGg4I4XM9mJjBYvJkV951/ldHmFUd4KeQb5wVHAmhnKCpDA
-	ssSAzXQPEtfkfkgzK0xYof8g48zu4weT6CPmzauNCSXp8Ft7mhs6jU+s6T1vl1GhdnOmtNGWP6Z
-	CGbyFbILMpZ1ooLuHPdHUISMKlk1piH9cwQcml7xkCWCA3MQZrKT2wUV5bn9fEKljvtkRXDZrtT
-	ng2T4eGUnsVQHkZa0CJpp0miTEJHiwHAUABwfZYrj3JphM8wvXhzSMXxMnLIn2tD383SSUICLWZ
-	CjdiZhmNNKVFHcVaJ9l30LpPQmExC04Pz3xIADQ==
-X-Google-Smtp-Source: AGHT+IFF4atVHdhmNaYBglzT5H5NmjrqYD114uUbppJKPp9HhceW11yaoBubIq39XRYoVHnaxgxYcA==
-X-Received: by 2002:a05:620a:aa1a:b0:7e6:5f1c:4d7f with SMTP id af79cd13be357-7ea1107fb69mr3513677685a.65.1756493390631;
-        Fri, 29 Aug 2025 11:49:50 -0700 (PDT)
-Received: from ?IPv6:2606:6d00:11:5a76::5ac? ([2606:6d00:11:5a76::5ac])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7fc151f2a12sm227700585a.49.2025.08.29.11.49.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 Aug 2025 11:49:49 -0700 (PDT)
-Message-ID: <d76038453bfd06ea9d0c90e7583078abc85ce280.camel@ndufresne.ca>
-Subject: Re: [PATCH] media: mediatek: vcodec: use = { } instead of memset()
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Qianfeng Rong <rongqianfeng@vivo.com>, Tiffany Lin	
- <tiffany.lin@mediatek.com>, Andrew-CT Chen <andrew-ct.chen@mediatek.com>, 
- Yunfei Dong <yunfei.dong@mediatek.com>, Mauro Carvalho Chehab
- <mchehab@kernel.org>, Matthias Brugger	 <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno	 <angelogioacchino.delregno@collabora.com>, Hans
- Verkuil <hverkuil@kernel.org>,  Andrzej Pietrasiewicz
- <andrzejtp2010@gmail.com>, Neil Armstrong <neil.armstrong@linaro.org>,
- linux-media@vger.kernel.org, 	linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, 	linux-mediatek@lists.infradead.org
-Date: Fri, 29 Aug 2025 14:49:47 -0400
-In-Reply-To: <20250803135514.118892-1-rongqianfeng@vivo.com>
-References: <20250803135514.118892-1-rongqianfeng@vivo.com>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-xig5edR/x3ap943HT9k2"
-User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1756493665; x=1788029665;
+  h=from:to:cc:date:message-id:references:in-reply-to:
+   content-id:content-transfer-encoding:mime-version:subject;
+  bh=onDw0zBJvA2aM4dl11X2cmXP4ov854rmqxhd1ow39+0=;
+  b=gE1+gUBfeCFBdKBEfpfYIR7pGrNFERF8CtKWe0UhpXq1WlBZVUZyb3kj
+   B83xd1z9XClvZB1PX7yUHSnEYtRSCwi87PLwn7SwK3DDRtuRkQcvJf7so
+   K5M1nHtT8vU1hPJb1rug4m/jJInl3lmz03NODOUY8v9Gf/5WII1wt34b9
+   4/V9upm3F60iGzQ5Gk1j0ZYgsqv5TGWqhoV/T18T8BYPgiCRA7hqEofGd
+   CQjUs8AmR4kjoCWBnKV9iAiJJLn+IUJKuSLXBe1m7fZuyfQ9qE0BTY6wx
+   K8pfFg9UN2i9yA2J63WxvQEu88TlfuKuu45hh7lezUeWtp1oNdyz6a82i
+   Q==;
+X-CSE-ConnectionGUID: vUS98EYqRNm3RBnTuS4Z6g==
+X-CSE-MsgGUID: 388zlf7oQNqGJeTjOXQpqQ==
+X-IronPort-AV: E=Sophos;i="6.18,221,1751241600"; 
+   d="scan'208";a="1944126"
+Subject: Re: [PATCH v4 0/5] barrier: Add smp_cond_load_*_timewait()
+Thread-Topic: [PATCH v4 0/5] barrier: Add smp_cond_load_*_timewait()
+Received: from ip-10-5-9-48.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.9.48])
+  by internal-pdx-out-009.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Aug 2025 18:54:20 +0000
+Received: from EX19MTAUWA001.ant.amazon.com [10.0.21.151:54966]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.10.144:2525] with esmtp (Farcaster)
+ id d09b57f8-b9c6-4bca-870a-9e36f79c3866; Fri, 29 Aug 2025 18:54:20 +0000 (UTC)
+X-Farcaster-Flow-ID: d09b57f8-b9c6-4bca-870a-9e36f79c3866
+Received: from EX19D032UWA003.ant.amazon.com (10.13.139.37) by
+ EX19MTAUWA001.ant.amazon.com (10.250.64.217) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.17;
+ Fri, 29 Aug 2025 18:54:20 +0000
+Received: from EX19D032UWA003.ant.amazon.com (10.13.139.37) by
+ EX19D032UWA003.ant.amazon.com (10.13.139.37) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.17;
+ Fri, 29 Aug 2025 18:54:20 +0000
+Received: from EX19D032UWA003.ant.amazon.com ([fe80::8e94:8f60:9531:c497]) by
+ EX19D032UWA003.ant.amazon.com ([fe80::8e94:8f60:9531:c497%5]) with mapi id
+ 15.02.2562.017; Fri, 29 Aug 2025 18:54:20 +0000
+From: "Okanovic, Haris" <harisokn@amazon.com>
+To: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arch@vger.kernel.org"
+	<linux-arch@vger.kernel.org>, "ankur.a.arora@oracle.com"
+	<ankur.a.arora@oracle.com>, "bpf@vger.kernel.org" <bpf@vger.kernel.org>
+CC: "Okanovic, Haris" <harisokn@amazon.com>, "cl@gentwo.org" <cl@gentwo.org>,
+	"joao.m.martins@oracle.com" <joao.m.martins@oracle.com>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"peterz@infradead.org" <peterz@infradead.org>, "mark.rutland@arm.com"
+	<mark.rutland@arm.com>, "memxor@gmail.com" <memxor@gmail.com>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>, "arnd@arndb.de"
+	<arnd@arndb.de>, "will@kernel.org" <will@kernel.org>,
+	"zhenglifeng1@huawei.com" <zhenglifeng1@huawei.com>, "ast@kernel.org"
+	<ast@kernel.org>, "xueshuai@linux.alibaba.com" <xueshuai@linux.alibaba.com>,
+	"konrad.wilk@oracle.com" <konrad.wilk@oracle.com>,
+	"boris.ostrovsky@oracle.com" <boris.ostrovsky@oracle.com>
+Thread-Index: AQHcGLwkeAOmnfRWAUuaDQGZvBHLrrR5+yuA
+Date: Fri, 29 Aug 2025 18:54:20 +0000
+Message-ID: <2cecbf7fb23ee83a4ce027e1be3f46f97efd585c.camel@amazon.com>
+References: <20250829080735.3598416-1-ankur.a.arora@oracle.com>
+In-Reply-To: <20250829080735.3598416-1-ankur.a.arora@oracle.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.95.193.142]
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <B00C4BB2ABE1CC418E9442EB1C4C3F26@amazon.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_114952_896181_4FE7C589 
-X-CRM114-Status: GOOD (  22.36  )
+X-CRM114-CacheID: sfid-20250829_195426_149926_32324BF7 
+X-CRM114-Status: GOOD (  22.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,297 +126,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---=-xig5edR/x3ap943HT9k2
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-Hi,
-
-
-Le dimanche 03 ao=C3=BBt 2025 =C3=A0 21:55 +0800, Qianfeng Rong a =C3=A9cri=
-t=C2=A0:
-> Based on testing and recommendations by David Lechner et al. [1][2],
-> using =3D { } to initialize a structure or array is the preferred way
-> to do this in the kernel.
->=20
-> This patch converts memset() to =3D { }, thereby:
-> - Eliminating the risk of sizeof() mismatches.
-> - Simplifying the code.
-
-Last month, Irui Wang sent an actual fix [0] for uninitialized data in this
-driver. Your patch seems to be related, yet the previous fix is not covered=
- and
-this is not marked as a V2. Since this refactoring collide with an actual f=
-ix
-that I'm waiting for a V2, I'd rather not take it and wait.
-
-Any chances you can respin this with a second patches covering Irui's fix ?
-
-cheers,
-Nicolas
-
-
-[0] https://patchwork.linuxtv.org/project/linux-media/patch/20250715081547.=
-18076-1-irui.wang@mediatek.com/
-
->=20
-> [1]: https://lore.kernel.org/linux-iio/202505090942.48EBF01B@keescook/
-> [2]: https://lore.kernel.org/lkml/20250614151844.50524610@jic23-huawei/
->=20
-> Signed-off-by: Qianfeng Rong <rongqianfeng@vivo.com>
-> ---
-> =C2=A0.../mediatek/vcodec/decoder/vdec/vdec_vp9_if.c=C2=A0=C2=A0=C2=A0 |=
-=C2=A0 3 +--
-> =C2=A0.../mediatek/vcodec/decoder/vdec_vpu_if.c=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0 | 12 ++++--------
-> =C2=A0.../mediatek/vcodec/encoder/mtk_vcodec_enc.c=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0 6 ++----
-> =C2=A0.../mediatek/vcodec/encoder/venc_vpu_if.c=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0 | 15 +++++----------
-> =C2=A04 files changed, 12 insertions(+), 24 deletions(-)
->=20
-> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9=
-_if.c
-> b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_if.c
-> index eb3354192853..80554b2c26c0 100644
-> --- a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_if.c
-> +++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_if.c
-> @@ -548,10 +548,9 @@ static bool vp9_wait_dec_end(struct vdec_vp9_inst *i=
-nst)
-> =C2=A0static struct vdec_vp9_inst *vp9_alloc_inst(struct mtk_vcodec_dec_c=
-tx *ctx)
-> =C2=A0{
-> =C2=A0	int result;
-> -	struct mtk_vcodec_mem mem;
-> +	struct mtk_vcodec_mem mem =3D { };
-> =C2=A0	struct vdec_vp9_inst *inst;
-> =C2=A0
-> -	memset(&mem, 0, sizeof(mem));
-> =C2=A0	mem.size =3D sizeof(struct vdec_vp9_inst);
-> =C2=A0	result =3D mtk_vcodec_mem_alloc(ctx, &mem);
-> =C2=A0	if (result)
-> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec_vpu_if.c
-> b/drivers/media/platform/mediatek/vcodec/decoder/vdec_vpu_if.c
-> index 145958206e38..d5e943f81c15 100644
-> --- a/drivers/media/platform/mediatek/vcodec/decoder/vdec_vpu_if.c
-> +++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec_vpu_if.c
-> @@ -181,12 +181,11 @@ static int vcodec_vpu_send_msg(struct vdec_vpu_inst
-> *vpu, void *msg, int len)
-> =C2=A0
-> =C2=A0static int vcodec_send_ap_ipi(struct vdec_vpu_inst *vpu, unsigned i=
-nt msg_id)
-> =C2=A0{
-> -	struct vdec_ap_ipi_cmd msg;
-> +	struct vdec_ap_ipi_cmd msg =3D { };
-> =C2=A0	int err =3D 0;
-> =C2=A0
-> =C2=A0	mtk_vdec_debug(vpu->ctx, "+ id=3D%X", msg_id);
-> =C2=A0
-> -	memset(&msg, 0, sizeof(msg));
-> =C2=A0	msg.msg_id =3D msg_id;
-> =C2=A0	if (vpu->fw_abi_version < 2)
-> =C2=A0		msg.vpu_inst_addr =3D vpu->inst_addr;
-> @@ -201,7 +200,7 @@ static int vcodec_send_ap_ipi(struct vdec_vpu_inst *v=
-pu,
-> unsigned int msg_id)
-> =C2=A0
-> =C2=A0int vpu_dec_init(struct vdec_vpu_inst *vpu)
-> =C2=A0{
-> -	struct vdec_ap_ipi_init msg;
-> +	struct vdec_ap_ipi_init msg =3D { };
-> =C2=A0	int err;
-> =C2=A0
-> =C2=A0	init_waitqueue_head(&vpu->wq);
-> @@ -225,7 +224,6 @@ int vpu_dec_init(struct vdec_vpu_inst *vpu)
-> =C2=A0		}
-> =C2=A0	}
-> =C2=A0
-> -	memset(&msg, 0, sizeof(msg));
-> =C2=A0	msg.msg_id =3D AP_IPIMSG_DEC_INIT;
-> =C2=A0	msg.ap_inst_addr =3D (unsigned long)vpu;
-> =C2=A0	msg.codec_type =3D vpu->codec_type;
-> @@ -245,7 +243,7 @@ int vpu_dec_init(struct vdec_vpu_inst *vpu)
-> =C2=A0
-> =C2=A0int vpu_dec_start(struct vdec_vpu_inst *vpu, uint32_t *data, unsign=
-ed int
-> len)
-> =C2=A0{
-> -	struct vdec_ap_ipi_dec_start msg;
-> +	struct vdec_ap_ipi_dec_start msg =3D { };
-> =C2=A0	int i;
-> =C2=A0	int err =3D 0;
-> =C2=A0
-> @@ -254,7 +252,6 @@ int vpu_dec_start(struct vdec_vpu_inst *vpu, uint32_t
-> *data, unsigned int len)
-> =C2=A0		return -EINVAL;
-> =C2=A0	}
-> =C2=A0
-> -	memset(&msg, 0, sizeof(msg));
-> =C2=A0	msg.msg_id =3D AP_IPIMSG_DEC_START;
-> =C2=A0	if (vpu->fw_abi_version < 2)
-> =C2=A0		msg.vpu_inst_addr =3D vpu->inst_addr;
-> @@ -273,7 +270,7 @@ int vpu_dec_start(struct vdec_vpu_inst *vpu, uint32_t
-> *data, unsigned int len)
-> =C2=A0int vpu_dec_get_param(struct vdec_vpu_inst *vpu, uint32_t *data,
-> =C2=A0		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 unsigned int len, unsigned int par=
-am_type)
-> =C2=A0{
-> -	struct vdec_ap_ipi_get_param msg;
-> +	struct vdec_ap_ipi_get_param msg =3D { };
-> =C2=A0	int err;
-> =C2=A0
-> =C2=A0	if (len > ARRAY_SIZE(msg.data)) {
-> @@ -281,7 +278,6 @@ int vpu_dec_get_param(struct vdec_vpu_inst *vpu, uint=
-32_t
-> *data,
-> =C2=A0		return -EINVAL;
-> =C2=A0	}
-> =C2=A0
-> -	memset(&msg, 0, sizeof(msg));
-> =C2=A0	msg.msg_id =3D AP_IPIMSG_DEC_GET_PARAM;
-> =C2=A0	msg.inst_id =3D vpu->inst_id;
-> =C2=A0	memcpy(msg.data, data, sizeof(unsigned int) * len);
-> diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_en=
-c.c
-> b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-> index a01dc25a7699..bc6435a7543f 100644
-> --- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-> +++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-> @@ -1064,7 +1064,7 @@ static int mtk_venc_encode_header(void *priv)
-> =C2=A0
-> =C2=A0static int mtk_venc_param_change(struct mtk_vcodec_enc_ctx *ctx)
-> =C2=A0{
-> -	struct venc_enc_param enc_prm;
-> +	struct venc_enc_param enc_prm =3D { };
-> =C2=A0	struct vb2_v4l2_buffer *vb2_v4l2 =3D v4l2_m2m_next_src_buf(ctx-
-> >m2m_ctx);
-> =C2=A0	struct mtk_video_enc_buf *mtk_buf;
-> =C2=A0	int ret =3D 0;
-> @@ -1075,7 +1075,6 @@ static int mtk_venc_param_change(struct
-> mtk_vcodec_enc_ctx *ctx)
-> =C2=A0
-> =C2=A0	mtk_buf =3D container_of(vb2_v4l2, struct mtk_video_enc_buf,
-> m2m_buf.vb);
-> =C2=A0
-> -	memset(&enc_prm, 0, sizeof(enc_prm));
-> =C2=A0	if (mtk_buf->param_change =3D=3D MTK_ENCODE_PARAM_NONE)
-> =C2=A0		return 0;
-> =C2=A0
-> @@ -1138,7 +1137,7 @@ static void mtk_venc_worker(struct work_struct *wor=
-k)
-> =C2=A0	struct mtk_vcodec_enc_ctx *ctx =3D container_of(work, struct
-> mtk_vcodec_enc_ctx,
-> =C2=A0				=C2=A0=C2=A0=C2=A0 encode_work);
-> =C2=A0	struct vb2_v4l2_buffer *src_buf, *dst_buf;
-> -	struct venc_frm_buf frm_buf;
-> +	struct venc_frm_buf frm_buf =3D { };
-> =C2=A0	struct mtk_vcodec_mem bs_buf;
-> =C2=A0	struct venc_done_result enc_result;
-> =C2=A0	int ret, i;
-> @@ -1168,7 +1167,6 @@ static void mtk_venc_worker(struct work_struct *wor=
-k)
-> =C2=A0		return;
-> =C2=A0	}
-> =C2=A0
-> -	memset(&frm_buf, 0, sizeof(frm_buf));
-> =C2=A0	for (i =3D 0; i < src_buf->vb2_buf.num_planes ; i++) {
-> =C2=A0		frm_buf.fb_addr[i].dma_addr =3D
-> =C2=A0				vb2_dma_contig_plane_dma_addr(&src_buf-
-> >vb2_buf, i);
-> diff --git a/drivers/media/platform/mediatek/vcodec/encoder/venc_vpu_if.c
-> b/drivers/media/platform/mediatek/vcodec/encoder/venc_vpu_if.c
-> index 51bb7ee141b9..55627b71348d 100644
-> --- a/drivers/media/platform/mediatek/vcodec/encoder/venc_vpu_if.c
-> +++ b/drivers/media/platform/mediatek/vcodec/encoder/venc_vpu_if.c
-> @@ -132,7 +132,7 @@ static int vpu_enc_send_msg(struct venc_vpu_inst *vpu=
-,
-> void *msg,
-> =C2=A0int vpu_enc_init(struct venc_vpu_inst *vpu)
-> =C2=A0{
-> =C2=A0	int status;
-> -	struct venc_ap_ipi_msg_init out;
-> +	struct venc_ap_ipi_msg_init out =3D { };
-> =C2=A0
-> =C2=A0	init_waitqueue_head(&vpu->wq_hd);
-> =C2=A0	vpu->signaled =3D 0;
-> @@ -148,7 +148,6 @@ int vpu_enc_init(struct venc_vpu_inst *vpu)
-> =C2=A0		return -EINVAL;
-> =C2=A0	}
-> =C2=A0
-> -	memset(&out, 0, sizeof(out));
-> =C2=A0	out.msg_id =3D AP_IPIMSG_ENC_INIT;
-> =C2=A0	out.venc_inst =3D (unsigned long)vpu;
-> =C2=A0	if (vpu_enc_send_msg(vpu, &out, sizeof(out))) {
-> @@ -191,11 +190,10 @@ int vpu_enc_set_param(struct venc_vpu_inst *vpu,
-> =C2=A0	size_t msg_size =3D is_ext ?
-> =C2=A0		sizeof(struct venc_ap_ipi_msg_set_param_ext) :
-> =C2=A0		sizeof(struct venc_ap_ipi_msg_set_param);
-> -	struct venc_ap_ipi_msg_set_param_ext out;
-> +	struct venc_ap_ipi_msg_set_param_ext out =3D { };
-> =C2=A0
-> =C2=A0	mtk_venc_debug(vpu->ctx, "id %d ->", id);
-> =C2=A0
-> -	memset(&out, 0, sizeof(out));
-> =C2=A0	out.base.msg_id =3D AP_IPIMSG_ENC_SET_PARAM;
-> =C2=A0	out.base.vpu_inst_addr =3D vpu->inst_addr;
-> =C2=A0	out.base.param_id =3D id;
-> @@ -258,11 +256,10 @@ static int vpu_enc_encode_32bits(struct venc_vpu_in=
-st
-> *vpu,
-> =C2=A0	size_t msg_size =3D is_ext ?
-> =C2=A0		sizeof(struct venc_ap_ipi_msg_enc_ext) :
-> =C2=A0		sizeof(struct venc_ap_ipi_msg_enc);
-> -	struct venc_ap_ipi_msg_enc_ext out;
-> +	struct venc_ap_ipi_msg_enc_ext out =3D { };
-> =C2=A0
-> =C2=A0	mtk_venc_debug(vpu->ctx, "bs_mode %d ->", bs_mode);
-> =C2=A0
-> -	memset(&out, 0, sizeof(out));
-> =C2=A0	out.base.msg_id =3D AP_IPIMSG_ENC_ENCODE;
-> =C2=A0	out.base.vpu_inst_addr =3D vpu->inst_addr;
-> =C2=A0	out.base.bs_mode =3D bs_mode;
-> @@ -302,12 +299,11 @@ static int vpu_enc_encode_34bits(struct venc_vpu_in=
-st
-> *vpu,
-> =C2=A0				 struct mtk_vcodec_mem *bs_buf,
-> =C2=A0				 struct venc_frame_info *frame_info)
-> =C2=A0{
-> -	struct venc_ap_ipi_msg_enc_ext_34 out;
-> +	struct venc_ap_ipi_msg_enc_ext_34 out =3D { };
-> =C2=A0	size_t msg_size =3D sizeof(struct venc_ap_ipi_msg_enc_ext_34);
-> =C2=A0
-> =C2=A0	mtk_venc_debug(vpu->ctx, "bs_mode %d ->", bs_mode);
-> =C2=A0
-> -	memset(&out, 0, sizeof(out));
-> =C2=A0	out.msg_id =3D AP_IPIMSG_ENC_ENCODE;
-> =C2=A0	out.vpu_inst_addr =3D vpu->inst_addr;
-> =C2=A0	out.bs_mode =3D bs_mode;
-> @@ -367,9 +363,8 @@ int vpu_enc_encode(struct venc_vpu_inst *vpu, unsigne=
-d int
-> bs_mode,
-> =C2=A0
-> =C2=A0int vpu_enc_deinit(struct venc_vpu_inst *vpu)
-> =C2=A0{
-> -	struct venc_ap_ipi_msg_deinit out;
-> +	struct venc_ap_ipi_msg_deinit out =3D { };
-> =C2=A0
-> -	memset(&out, 0, sizeof(out));
-> =C2=A0	out.msg_id =3D AP_IPIMSG_ENC_DEINIT;
-> =C2=A0	out.vpu_inst_addr =3D vpu->inst_addr;
-> =C2=A0	if (vpu_enc_send_msg(vpu, &out, sizeof(out))) {
-
---=-xig5edR/x3ap943HT9k2
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaLH2SwAKCRDZQZRRKWBy
-9PWCAP0f1LmgksUyx6vPfKgnmSguVVzWU8MFLBRY7MOiMUd/iwD7BSsl2QkA8Wmk
-z0Yo33ECEf32b/vaR8jSGT2efz6WqAI=
-=KG+R
------END PGP SIGNATURE-----
-
---=-xig5edR/x3ap943HT9k2--
+T24gRnJpLCAyMDI1LTA4LTI5IGF0IDAxOjA3IC0wNzAwLCBBbmt1ciBBcm9yYSB3cm90ZToNCj4g
+Q0FVVElPTjogVGhpcyBlbWFpbCBvcmlnaW5hdGVkIGZyb20gb3V0c2lkZSBvZiB0aGUgb3JnYW5p
+emF0aW9uLiBEbyBub3QgY2xpY2sgbGlua3Mgb3Igb3BlbiBhdHRhY2htZW50cyB1bmxlc3MgeW91
+IGNhbiBjb25maXJtIHRoZSBzZW5kZXIgYW5kIGtub3cgdGhlIGNvbnRlbnQgaXMgc2FmZS4NCj4g
+DQo+IA0KPiANCj4gSGksDQo+IA0KPiBUaGlzIHNlcmllcyBhZGRzIHdhaXRlZCB2YXJpYW50cyBv
+ZiB0aGUgc21wX2NvbmRfbG9hZCgpIHByaW1pdGl2ZXM6DQo+IHNtcF9jb25kX2xvYWRfcmVsYXhl
+ZF90aW1ld2FpdCgpLCBhbmQgc21wX2NvbmRfbG9hZF9hY3F1aXJlX3RpbWV3YWl0KCkuDQo+IA0K
+PiBXaHk/OiBhcyB0aGUgbmFtZSBzdWdnZXN0cywgdGhlIG5ldyBpbnRlcmZhY2VzIGFyZSBtZWFu
+dCBmb3IgY29udGV4dHMNCj4gd2hlcmUgeW91IHdhbnQgdG8gd2FpdCBvbiBhIGNvbmRpdGlvbiB2
+YXJpYWJsZSBmb3IgYSBmaW5pdGUgZHVyYXRpb24uDQo+IFRoaXMgaXMgZWFzeSBlbm91Z2ggdG8g
+ZG8gd2l0aCBhIGxvb3AgYXJvdW5kIGNwdV9yZWxheCgpLiBIb3dldmVyLA0KPiBzb21lIGFyY2hp
+dGVjdHVyZXMgKGV4LiBhcm02NCkgYWxzbyBhbGxvdyB3YWl0aW5nIG9uIGEgY2FjaGVsaW5lLiBT
+bywNCj4gdGhlc2UgaW50ZXJmYWNlcyBoYW5kbGUgYSBtaXh0dXJlIG9mIHNwaW4vd2FpdCB3aXRo
+IGEgc21wX2NvbmRfbG9hZCgpDQo+IHRocm93biBpbi4NCj4gDQo+IFRoZXJlIGFyZSB0d28ga25v
+d24gdXNlcnMgZm9yIHRoZXNlIGludGVyZmFjZXM6DQo+IA0KPiAgLSBwb2xsX2lkbGUoKSBbMV0N
+Cj4gIC0gcmVzaWxpZW50IHF1ZXVlZCBzcGlubG9ja3MgWzJdDQo+IA0KPiBUaGUgaW50ZXJmYWNl
+cyBhcmU6DQo+ICAgIHNtcF9jb25kX2xvYWRfcmVsYXhlZF90aW1ld2FpdChwdHIsIGNvbmRfZXhw
+ciwgdGltZV9jaGVja19leHByKQ0KPiAgICBzbXBfY29uZF9sb2FkX2FjcXVpcmVfc3BpbndhaXQo
+cHRyLCBjb25kX2V4cHIsIHRpbWVfY2hlY2tfZXhwcikNCj4gDQo+IFRoZSBhZGRlZCBwYXJhbWV0
+ZXIsIHRpbWVfY2hlY2tfZXhwciwgZGV0ZXJtaW5lcyB0aGUgYmFpbCBvdXQgY29uZGl0aW9uLg0K
+PiANCj4gQ2hhbmdlbG9nOg0KPiAgIHYzIFszXToNCj4gICAgIC0gZnVydGhlciBpbnRlcmZhY2Ug
+c2ltcGxpZmljYXRpb25zIChzdWdnZXN0ZWQgYnkgQ2F0YWxpbiBNYXJpbmFzKQ0KPiANCj4gICB2
+MiBbNF06DQo+ICAgICAtIHNpbXBsaWZpZWQgdGhlIGludGVyZmFjZSAoc3VnZ2VzdGVkIGJ5IENh
+dGFsaW4gTWFyaW5hcykNCj4gICAgICAgIC0gZ2V0IHJpZCBvZiB3YWl0X3BvbGljeSwgYW5kIGEg
+bXVsdGl0dWRlIG9mIGNvbnN0YW50cw0KPiAgICAgICAgLSBhZGRzIGEgc2xhY2sgcGFyYW1ldGVy
+DQo+ICAgICAgIFRoaXMgaGVscGVkIHJlbW92ZSBhIGZhaXIgYW1vdW50IG9mIGR1cGxpY2F0ZWQg
+Y29kZSBkdXBsaWNhdGlvbiBhbmQgaW4gaGluZHNpZ2h0DQo+ICAgICAgIHVubmVjZXNzYXJ5IGNv
+bnN0YW50cy4NCj4gDQo+ICAgdjEgWzVdOg0KPiAgICAgIC0gYWRkIHdhaXRfcG9saWN5IChjb2Fy
+c2UgYW5kIGZpbmUpDQo+ICAgICAgLSBkZXJpdmUgc3Bpbi1jb3VudCBldGMgYXQgcnVudGltZSBp
+bnN0ZWFkIG9mIHVzaW5nIGFyYml0cmFyeQ0KPiAgICAgICAgY29uc3RhbnRzLg0KPiANCj4gSGFy
+aXMgT2thbm92aWMgaGFkIHRlc3RlZCBhbiBlYXJsaWVyIHZlcnNpb24gb2YgdGhpcyBzZXJpZXMg
+d2l0aA0KPiBwb2xsX2lkbGUoKS9oYWx0cG9sbCBwYXRjaGVzLiBbNl0NCj4gDQo+IEFueSBjb21t
+ZW50cyBhcHByZWNpYXRlZCENCj4gDQo+IFRoYW5rcyENCj4gQW5rdXINCj4gDQo+IFsxXSBodHRw
+czovL2xvcmUua2VybmVsLm9yZy9sa21sLzIwMjQxMTA3MTkwODE4LjUyMjYzOS0zLWFua3VyLmEu
+YXJvcmFAb3JhY2xlLmNvbS8NCj4gWzJdIFVzZXMgdGhlIHNtcF9jb25kX2xvYWRfYWNxdWlyZV90
+aW1ld2FpdCgpIGZyb20gdjENCj4gICAgIGh0dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9s
+aW51eC9rZXJuZWwvZ2l0L3RvcnZhbGRzL2xpbnV4LmdpdC90cmVlL2FyY2gvYXJtNjQvaW5jbHVk
+ZS9hc20vcnFzcGlubG9jay5oDQo+IFszXSBodHRwczovL2xvcmUua2VybmVsLm9yZy9sa21sLzIw
+MjUwNjI3MDQ0ODA1Ljk0NTQ5MS0xLWFua3VyLmEuYXJvcmFAb3JhY2xlLmNvbS8NCj4gWzRdIGh0
+dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xrbWwvMjAyNTA1MDIwODUyMjMuMTMxNjkyNS0xLWFua3Vy
+LmEuYXJvcmFAb3JhY2xlLmNvbS8NCj4gWzVdIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xrbWwv
+MjAyNTAyMDMyMTQ5MTEuODk4Mjc2LTEtYW5rdXIuYS5hcm9yYUBvcmFjbGUuY29tLw0KPiBbNl0g
+aHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGttbC9mMmY1ZDA5ZTc5NTM5NzU0Y2VkMDg1ZWQ4OTg2
+NTc4N2ZhNjY4Njk1LmNhbWVsQGFtYXpvbi5jb20NCj4gDQo+IENjOiBBcm5kIEJlcmdtYW5uIDxh
+cm5kQGFybmRiLmRlPg0KPiBDYzogV2lsbCBEZWFjb24gPHdpbGxAa2VybmVsLm9yZz4NCj4gQ2M6
+IENhdGFsaW4gTWFyaW5hcyA8Y2F0YWxpbi5tYXJpbmFzQGFybS5jb20+DQo+IENjOiBQZXRlciBa
+aWpsc3RyYSA8cGV0ZXJ6QGluZnJhZGVhZC5vcmc+DQo+IENjOiBLdW1hciBLYXJ0aWtleWEgRHdp
+dmVkaSA8bWVteG9yQGdtYWlsLmNvbT4NCj4gQ2M6IEFsZXhlaSBTdGFyb3ZvaXRvdiA8YXN0QGtl
+cm5lbC5vcmc+DQo+IENjOiBsaW51eC1hcmNoQHZnZXIua2VybmVsLm9yZw0KPiANCj4gQW5rdXIg
+QXJvcmEgKDUpOg0KPiAgIGFzbS1nZW5lcmljOiBiYXJyaWVyOiBBZGQgc21wX2NvbmRfbG9hZF9y
+ZWxheGVkX3RpbWV3YWl0KCkNCj4gICBhcm02NDogYmFycmllcjogQWRkIHNtcF9jb25kX2xvYWRf
+cmVsYXhlZF90aW1ld2FpdCgpDQo+ICAgYXJtNjQ6IHJxc3BpbmxvY2s6IFJlbW92ZSBwcml2YXRl
+IGNvcHkgb2YNCj4gICAgIHNtcF9jb25kX2xvYWRfYWNxdWlyZV90aW1ld2FpdA0KPiAgIGFzbS1n
+ZW5lcmljOiBiYXJyaWVyOiBBZGQgc21wX2NvbmRfbG9hZF9hY3F1aXJlX3RpbWV3YWl0KCkNCj4g
+ICBycXNwaW5sb2NrOiB1c2Ugc21wX2NvbmRfbG9hZF9hY3F1aXJlX3RpbWV3YWl0KCkNCj4gDQo+
+ICBhcmNoL2FybTY0L2luY2x1ZGUvYXNtL2JhcnJpZXIuaCAgICB8IDIyICsrKysrKysrDQo+ICBh
+cmNoL2FybTY0L2luY2x1ZGUvYXNtL3Jxc3BpbmxvY2suaCB8IDg0ICstLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tDQo+ICBpbmNsdWRlL2FzbS1nZW5lcmljL2JhcnJpZXIuaCAgICAgICB8IDU3
+ICsrKysrKysrKysrKysrKysrKysrDQo+ICBpbmNsdWRlL2FzbS1nZW5lcmljL3Jxc3BpbmxvY2su
+aCAgICB8ICA0ICsrDQo+ICBrZXJuZWwvYnBmL3Jxc3BpbmxvY2suYyAgICAgICAgICAgICB8IDI1
+ICsrKystLS0tLQ0KPiAgNSBmaWxlcyBjaGFuZ2VkLCA5MyBpbnNlcnRpb25zKCspLCA5OSBkZWxl
+dGlvbnMoLSkNCj4gDQo+IC0tDQo+IDIuMzEuMQ0KPiANCg0KVGVzdGVkIG9uIEFXUyBHcmF2aXRv
+biAyLCAzLCBhbmQgNCAoQVJNNjQgTmVvdmVyc2UgTjEsIFYxLCBhbmQgVjIpIHdpdGgNCnlvdXIg
+VjEwIGhhbHRwb2xsIGNoYW5nZXMsIGF0b3AgNi4xNy4wLXJjMyAoY29tbWl0IDA3ZDlkZjgwMDgp
+Lg0KU3RpbGwgc2VlaW5nIGJldHdlZW4gMS4zeCBhbmQgMi41eCBzcGVlZHVwcyBpbiBgcGVyZiBi
+ZW5jaCBzY2hlZCBwaXBlYA0KYW5kIGBzZWNjb21wLW5vdGlmeWA7IG5vIGNoYW5nZSBpbiBgbWVz
+c2FnaW5nYC4NCg0KUmV2aWV3ZWQtYnk6IEhhcmlzIE9rYW5vdmljIDxoYXJpc29rbkBhbWF6b24u
+Y29tPg0KVGVzdGVkLWJ5OiBIYXJpcyBPa2Fub3ZpYyA8aGFyaXNva25AYW1hem9uLmNvbT4NCg0K
+UmVnYXJkcywNCkhhcmlzIE9rYW5vdmljDQpBV1MgR3Jhdml0b24gU29mdHdhcmUNCg0K
 
