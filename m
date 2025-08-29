@@ -4,153 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73683CA0FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 17:55:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B5B7CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 17:58:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lx+kBNu3qEkV7prHxTjcI9oa/dRZ+TFcfCNE4xjEqho=; b=Oz/5Hxl/+z3XpysNjgvzpuvadX
-	CpgxwD2JkK15TggYhcI4Xoq5Vk0DKzrRfGZJhsH0LpOJGO9wCC2YQDrv8+bkvOR1xrNtVA7wI90H+
-	KxwZXwpocYQ8V3/sqBEyAcjKe7dD0cfhuBrr8fEN2iMhYolUsnYbS/cOZef51ji4vM7nqvfNngEWP
-	wHmbCIoegqRizzTsyuZdxFU1JjAz+0O2R6I0kU2B3+xrvNUvZ07wNGOQNRYYViY3qZUClhbkGQ6RD
-	d+4PqKgZjxnHFkdlx9flv3QgHGDsKgf2t0vlHcAxUI24owEyuc+CBkvP2WamY1yO1ySyxXy3VBlUr
-	c+ROMwuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gZF9k1vN82TPnDjF7LSo1ETHjuA30U+GHEPHdG0wOSw=; b=DtLaNqfC/907Tf7VqHMXEe/cOf
+	1sRkokdEp/Dey6351xaQWfoCvQpiDo0z9VN6FLK9ce3zPYuN2eZs6NZCcmrI7z5sJo075IL1OPs/I
+	W4YxIHCvOQPFcHtP2fkiQHHslPAtxkPd/l7HrPAufQMUgQXchxFPULI5vGj3A+iWdCeFpVuqygbqx
+	Cc3L9eF/5YZVOoaxKp5kIPdhXnSmU2TekW/DBYjFL23O21H5eYgd2c4TyorsmnU3CpbYkZgEOQIiI
+	ordB0L3JReY1j5tRWWoVIaebPbBdmraefmswDBxJni5LovEl2Pnssp9R5iVEV/988kUAsyp48oZrm
+	E+hk0lsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us3Jd-00000006aJ5-3kme;
-	Fri, 29 Aug 2025 17:55:09 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1us3MK-00000006abH-38gV;
+	Fri, 29 Aug 2025 17:57:56 +0000
+Received: from smtprelay0013.hostedemail.com ([216.40.44.13] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ury7Q-00000005dK3-08u5
+	id 1uryAu-00000005dnN-0vnp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 12:22:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ovwGGl9dCcCfYKpdwkTRtrSyVsYOP4MDjjjMyhYmdqxzt6C+6EeL0JuC83oudr+GpLh6V6p6mehADAy5pyt3cGKa6iUcKmkD3P8xxM64itmXooU4DnH2bEy0wNacWTM/bBCQ4OPvVaPNGGm67lKZmLfM3niFYFUcuJKdof4wIp3BQbfQQyDSDyT3sM5aqBT5QXl52KIp9xdTmgCxoNSzQFHyxfKBVWh6aLvbypYPP0NakQ2GxFVY/u9Ifawm6WXzomGPZUrhCOmQlbv5shFaWTXb8uEQtQ347plNcGTmdTSlO+SmNw13uoJoyQSltFAshKZWLaNMjXyl6xTHxBk3kg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Lx+kBNu3qEkV7prHxTjcI9oa/dRZ+TFcfCNE4xjEqho=;
- b=YQ7/E2CaMYkKuumzcPLyv9L6cAOfeDVW5Sf+Rgz0dlXV8HFBnId1+pcD1Gnon8ggvBSQD1MWJ7nSmdY1H0OmiONOi3K7sF93VDJV+e8U/z6rXKoqIPYNmdU/JFfnKiun7rsZprxnOKFL+zu9rOZsoMr9VKYhi40oblJ6CyKA/pAeGprsVS7PSTBWFoKYRDM9oDXzCaqVVNiuof+27ybmdkZCeM460+uUyHNa10dbuFzjSYztNnYOSusTzfU6jaoX5oZxobOOJs8KuHnp+fTHhVH3uXEzMpAJgq4ErNs1mrLk7c0xFeVQRaHLuasBuqtr7C6JVp8f1usgRXvLP3QVRA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Lx+kBNu3qEkV7prHxTjcI9oa/dRZ+TFcfCNE4xjEqho=;
- b=TvHQVmRYfxUflFDYff8NyS/zas27aRQQG/EllMLRrjjhpMeQ+70irlxO3BUdhevT+wtQ4WxOv/7Kw3ukutr1zT69biSnd32dJOvf7jWhiWlHLGxnMzuF1zYBcPVPdQ+9PHOuzXqWKNg+Qr/2/+Visb7isqdSnM7vN/afgT3pbe595N+PcXPvT4lx9Nwst3qDvELIFDDqQbtJ+Zu0wXMbjnOIeJIM4odrLURXoowAdcwfnPPxaBSjmH6gDmCU3CHPkuK8OBFeZZXfDaMB1s03/rfs4drYSOtzDpQ8yIJfVQK+d8UmlzdQG3ZODaSh9FtcYuZIcMxb5yF60eiftrYe7Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by PA4PR04MB9637.eurprd04.prod.outlook.com (2603:10a6:102:272::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.10; Fri, 29 Aug
- 2025 12:22:04 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.9073.010; Fri, 29 Aug 2025
- 12:22:04 +0000
-Date: Fri, 29 Aug 2025 21:33:14 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: Brian Masney <bmasney@redhat.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] clk: scmi: migrate round_rate() to determine_rate()
-Message-ID: <20250829133314.GA30579@nxa18884-linux.ap.freescale.net>
-References: <20250827-clk-scmi-round-rate-v2-1-3782a50835ed@redhat.com>
- <20250829100903.GB16625@nxa18884-linux.ap.freescale.net>
- <20250829-fine-tacky-sturgeon-0ba3c4@sudeepholla>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250829-fine-tacky-sturgeon-0ba3c4@sudeepholla>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: MA0PR01CA0079.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:ae::7) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Fri, 29 Aug 2025 12:25:49 +0000
+Received: from omf20.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay03.hostedemail.com (Postfix) with ESMTP id 5EE46BADE0;
+	Fri, 29 Aug 2025 12:25:44 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf20.hostedemail.com (Postfix) with ESMTPA id 5CCF120027;
+	Fri, 29 Aug 2025 12:25:42 +0000 (UTC)
+Date: Fri, 29 Aug 2025 08:26:04 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Luo Gengkun <luogengkun@huaweicloud.com>
+Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Catalin
+ Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH] tracing: Fix tracing_marker may trigger page fault
+ during preempt_disable
+Message-ID: <20250829082604.1e3fd06e@gandalf.local.home>
+In-Reply-To: <436e4fa7-f8c7-4c23-a28a-4e5eebe2f854@huaweicloud.com>
+References: <20250819105152.2766363-1-luogengkun@huaweicloud.com>
+	<20250819135008.5f1ba00e@gandalf.local.home>
+	<436e4fa7-f8c7-4c23-a28a-4e5eebe2f854@huaweicloud.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PA4PR04MB9637:EE_
-X-MS-Office365-Filtering-Correlation-Id: cabcb72e-4947-4772-29b3-08dde6f6a983
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|19092799006|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Mpq3v/jXfpq6fOgQsD3GqztpMPBZbW42IUNyk3jtyycr/3dprZmFeY3BcBPa?=
- =?us-ascii?Q?k2szSYAMT3FP54aq1wUuLK01BWQeyvtqYWsYBhCtLh3foSP+fVlJxnptR1Au?=
- =?us-ascii?Q?uFMMZSuy2y4eBYIEoBe6R5aIBvKGcu9TLcQStIA5+Odao5zKeCYSepHB4W8P?=
- =?us-ascii?Q?h5rYyUf3ejf/DxqHcTnyfiizGiw3oyp/ibus4K+tDhoQSvGWz3MFesvXYbXY?=
- =?us-ascii?Q?TziQP1psQDodzkUsNDGTnhrpWKt/TVZIXB/A71INtyRJ8B9XshZUyrq6WmT3?=
- =?us-ascii?Q?o4Eye+Y+jlsC9Y8m7vBwBHQLoB9osaaNk2UycaXOvHMD5BXajhRSfuj0z9Us?=
- =?us-ascii?Q?3gysxjP4BNZg34XSKyVviaTjqXT5OeQost6DPSzqMrDuudMBqiO1J/ZYabQi?=
- =?us-ascii?Q?U75dcggYTmMkaoiqPrLhztKWHjemZDsm1EmSnQy+5A7nzOZ1WdWMDQVlNvgD?=
- =?us-ascii?Q?yDSbRi0jNkL0jmnWuQdI3n3c0vMFguDguXoyQ8E1pTNI6jJv0fZQRhvCqMmH?=
- =?us-ascii?Q?byRSNkkhTh9PerlEIXoBaJe7lgD1bOMf0suFcaJ7CgouZT+H6UVM10yJVbhL?=
- =?us-ascii?Q?PAdGeqB4lZlYXIWY2ZOOPuJe74z7B1Kd+4kSZeNIlda4qmAMc5O85me4B+DW?=
- =?us-ascii?Q?YzCZ80kRUzOQmQ39gyMXUjfBDm69294XJa8SBuNVBFr4b734W14mH4WVQZcl?=
- =?us-ascii?Q?EGApCf9sytvxsuLgGrStWyPywhgaPwU6miSYTA04NIDsIoAoOTlZryG1/NcX?=
- =?us-ascii?Q?91tmucwjwF4cI+RBLGL4vxF/uCaZjABwXT1qJUvH0M7ZocUROyRWd+lN7vTz?=
- =?us-ascii?Q?A6yHK6wEy+q9pf3jB0m0SgG8j1bIq3+tL3J//ukZAHV3Ltvg3Tssxntjh/BA?=
- =?us-ascii?Q?aGpYwobtB1ZT+hzRrGpdVPDvGJfkiy4EQ3HVWOQHI7rtVuS/Qm5Us4IPcTaf?=
- =?us-ascii?Q?3UuLlSyIP1duoSHAivProTivpGleWeDENmqklZVFqyiOBzB+B90EZBMVN6HP?=
- =?us-ascii?Q?FNYBjkzPDrlXCgb1HhFpX7QdIbE6S6YYxNBIbjCFDHiD9FjzMMILr+FWeqSw?=
- =?us-ascii?Q?TOf1i6Ojgp279BxXuLCHrrYm+374kenxJRRBm1zu30s9Wb6ZNt3cKV9dY69g?=
- =?us-ascii?Q?EWkWzlG6EZdN1f25zgWn1ARqiIAAtCc+QhuJEFQzJiPa6e4qdPskilZy6qWs?=
- =?us-ascii?Q?DUYE3POCaYKdRJEZ9ga3ucm8Mo74fDZKoxq++fVTdX/+wSnSElez2OP007Wf?=
- =?us-ascii?Q?QUm7qNKFHWJkr3NBgapxKZxJPlZf7ZweT/7kJKfMMYGRJhLpMr+nQUIa2d3G?=
- =?us-ascii?Q?unm7oZbvFpN76tAJg7vOuew/xrudeG+PRsqFy5SMBsIRA8ykLSznnnr2cBxX?=
- =?us-ascii?Q?K/uUjXDItGpnGyY7e0bWCm869SHQGDMJRpa5n3cbjK9FTZCs+oIUfgSNhzQk?=
- =?us-ascii?Q?V8NO2H3b2Xf3kgmMNn9BTOrZ3mwCwT1jPD4qJWp+c4+Uvxx6hjqNAQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(19092799006)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MciZzCXg6HmTrR1w8BMVpBwC0OaR4NQWXcFgXG4u+Mlh1Uxjr0IMgTpb++co?=
- =?us-ascii?Q?LerU1e/OK2j9CE8ucBEZwuX1g4PNB/CxCm+uv6ukS9V7HeRyGso0mzR8kIVY?=
- =?us-ascii?Q?0KUwgFUT0jG3Ga7HoCC8Hb829/TYldDxBvb4iuh56/2H+G4T96a8GWrHmmxi?=
- =?us-ascii?Q?hBmatoSiG8VWJXBdDAZbDRtnks44oA81Lj2l0ZmlpjxbWTfRe/gp+qFJlA8B?=
- =?us-ascii?Q?1omyQctEROSSZag7UJvMpjMlFK4otdoxTs/YUHaW1WwvsItRh3Uf64GIx/At?=
- =?us-ascii?Q?7utjxJ+f2ooRfVP4cAwu/Z+p1t7QxP5SizFCCRirxJ2/IsKxurthh3djVe2g?=
- =?us-ascii?Q?sYLVmWzFqFQOwcIWrxXISxnaNasaIFjdXGzyyEl4HEtz3k/mMYrl68btpK7V?=
- =?us-ascii?Q?ATKU6jKgi+gh3mxnckUxokM9jY3w4IjkIabxl9WTL1SiGMRkTIhWpoYqF/UO?=
- =?us-ascii?Q?xt1bhfPTx2tgxugElwCTTzx2dWbKLrr3msKSVACWWIAxzgEoSLSPO6ATGCTn?=
- =?us-ascii?Q?E7tjesw+6eYezdEARX84VRzX7YQeoH/1xMSXmClFDhbXXXL89kq4P8a61Zhv?=
- =?us-ascii?Q?HoQWQ5i/QaaHyVLMV0BeyIUz5io6cmwThUn1WhJi3KqoAUy+2ao2NkkQ1oTz?=
- =?us-ascii?Q?pBVkdEtgJ4iwciJsE6M767G6osM7J5GldIROIYYlu5E4GCdAoDZjhsc/mKCg?=
- =?us-ascii?Q?nNl0A9qxFPupVZOHaZqbv9kHGYXn1/Zgs/9jzeKdEDomAgcX6sUIbgTaDPyp?=
- =?us-ascii?Q?4BJxNFSwlAVTVMC34BLcmEerskI1YN4Nj6uABOCPs5hYDE5R0HzCAJZMBAzk?=
- =?us-ascii?Q?IKzstPHFj1k2E+09FUzfw3J7vph2mEfoFeMV+7NslUzoEwqdCJMG5xntb/0a?=
- =?us-ascii?Q?rlzpqEAvTFmpoV4s1S6rIbaTIlb9AUgYHCSeGqUPdIhX8uVkU2a6Vtez+xxL?=
- =?us-ascii?Q?nrYkMayssxZLez/IBFET9mSRMM2s3IZh8DiJi0AbrcDtX8O8wdli9h2H+Pe0?=
- =?us-ascii?Q?vrt+mywDn5AQ98aQ5pZQT93cffDV3UKQ4AyJbTViWuiETmMDOqTVEzVTXUUO?=
- =?us-ascii?Q?kFUA5BtZ/oim3xF7pBnVQ2Mg9eUmFciVzS/bcdoHT/nNVNGEMiqQJmDpSr7X?=
- =?us-ascii?Q?McmaaUhW5XNb7gi/FzPrlxtOef4CsOCAcjtBcQl1GZqGlZqEYWwkN1oAAvMr?=
- =?us-ascii?Q?cLoXy+0iNwZzu6Nvi6gHhcacH4VR9Rpn/v7YdMooWJlq+FFMImibIMbSPQtH?=
- =?us-ascii?Q?FUEfNIyXPaGNaXlMQaDoq6odkeFfrHTdd+XRyV/oMJ28KJ0rNOSob0FNPD0j?=
- =?us-ascii?Q?VFm+cILlX2X8kqNBInpOrPpnA7+mBd42EIsejC/L/MqsocyclzWUBAVtRQii?=
- =?us-ascii?Q?1Zi9Y2+LXTKAbnWPaKlcDbGL+kIox8rSf5V9pZYFY+/n8zbnr2gFtux5JvIv?=
- =?us-ascii?Q?HCg500RgPmvPX4J1QctlXf8WazEZ/IS7hidm86z9VvfJNfqQCrXitGyLNw29?=
- =?us-ascii?Q?peOI4GjH78Y1E1vFQMlMpaJf8xZrjsi6+URoIj7o/TNTaNfJ7hsP5guxJbou?=
- =?us-ascii?Q?9N2CDmnJx62/MUhM7ADV2kiAPSfvUUr8DZsiwoPA?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cabcb72e-4947-4772-29b3-08dde6f6a983
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Aug 2025 12:22:04.0648
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8cl00MX69RYtritC00xcSw59jI4rP/+9haVJb6uUESiqWJooaaHChlfs7JO82Bf4XkIF1E1OtobLMn4yIG8GZA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9637
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Queue-Id: 5CCF120027
+X-Stat-Signature: z4qee96ax9gocnkpiu6zi9es954bzpw8
+X-Rspamd-Server: rspamout02
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1//eG0SPh1gXzSvhvFw/mS6TyA0QJDKqYs=
+X-HE-Tag: 1756470342-908911
+X-HE-Meta: U2FsdGVkX195ZgDOTbivrDBTaufOHEnsk6PH2OHOVpi9ojybHHHjo+zy+PeSzr/EOxHT+tJW9yhUm44IbnMOZIbQ9I5ne1xKch07oeuKvb843vUBYWVLBhmzJmPTdMMwUrD3UZ5jKD0jWcwB+oouhMyHzFKenViz4q+lSCtfhzKxn5fCJBjZAfjiF/lS7i1B8eE2ND5nI+rBiA9a6ZWJ+2UiTAhUWYAmR4C5ooFf7VFPF/LXnrAnb36shVcxzstQwJp5t9eeyJhrs0mn5AH8v/zHwvU1YGJLeG9Xsavq3ongCZTqfdoVEMKzCcz1SMRbh1dgLJSiwgD1jxqrLBzE2r8JHLs5DsA8h53z7hGGNQ8SjLGpCFqkWqYEhEpLDX+r
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_052212_082881_F75D13FA 
-X-CRM114-Status: GOOD (  13.86  )
+X-CRM114-CacheID: sfid-20250829_052548_339984_D1DF7FCA 
+X-CRM114-Status: GOOD (  33.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,42 +74,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 29, 2025 at 10:59:15AM +0100, Sudeep Holla wrote:
->On Fri, Aug 29, 2025 at 06:09:03PM +0800, Peng Fan wrote:
->> On Wed, Aug 27, 2025 at 01:12:07PM -0400, Brian Masney wrote:
->> >This driver implements both the determine_rate() and round_rate() clk
->> >ops, and the round_rate() clk ops is deprecated. When both are defined,
->> >clk_core_determine_round_nolock() from the clk core will only use the
->> >determine_rate() clk ops.
->> >
->> >The existing scmi_clk_determine_rate() is a noop implementation that
->> >lets the firmware round the rate as appropriate. Drop the existing
->> >determine_rate implementation and convert the existing round_rate()
->> >implementation over to determine_rate().
->> >
->> >scmi_clk_determine_rate() was added recently when the clock parent
->> >support was added, so it's not expected that this change will regress
->> >anything.
->> >
->> >Signed-off-by: Brian Masney <bmasney@redhat.com>
->> 
->> Reviewed-by: Peng Fan <peng.fan@nxp.com>
->
->Peng,
->
->It would be great if you can test it with parent clock support on i.MX
->platforms just to be sure this doesn't regress anything.
 
-Just gave a test on i.MX95-EVK, it boots well and eth0 works, 
-the results in /sys/kernel/debug/clk/clk_summary also looks correct.
+[ Adding arm64 maintainers ]
 
-Tested-by: Peng Fan <peng.fan@nxp.com> #i.MX95-19x19-EVK
+On Fri, 29 Aug 2025 16:29:07 +0800
+Luo Gengkun <luogengkun@huaweicloud.com> wrote:
 
-Regards
-Peng
+> On 2025/8/20 1:50, Steven Rostedt wrote:
+> > On Tue, 19 Aug 2025 10:51:52 +0000
+> > Luo Gengkun <luogengkun@huaweicloud.com> wrote:
+> >  
+> >> Both tracing_mark_write and tracing_mark_raw_write call
+> >> __copy_from_user_inatomic during preempt_disable. But in some case,
+> >> __copy_from_user_inatomic may trigger page fault, and will call schedule()
+> >> subtly. And if a task is migrated to other cpu, the following warning will  
+> > Wait! What?
+> >
+> > __copy_from_user_inatomic() is allowed to be called from in atomic context.
+> > Hence the name it has. How the hell can it sleep? If it does, it's totally
+> > broken!
+> >
+> > Now, I'm not against using nofault() as it is better named, but I want to
+> > know why you are suggesting this change. Did you actually trigger a bug here?  
+> 
+> yes, I trigger this bug in arm64.
 
->
->-- 
->Regards,
->Sudeep
+And I still think this is an arm64 bug.
+
+> 
+> >  
+> >> be trigger:
+> >>          if (RB_WARN_ON(cpu_buffer,
+> >>                         !local_read(&cpu_buffer->committing)))
+> >>
+> >> An example can illustrate this issue:
+> >>
+> >> process flow						CPU
+> >> ---------------------------------------------------------------------
+> >>
+> >> tracing_mark_raw_write():				cpu:0
+> >>     ...
+> >>     ring_buffer_lock_reserve():				cpu:0
+> >>        ...
+> >>        cpu = raw_smp_processor_id()			cpu:0
+> >>        cpu_buffer = buffer->buffers[cpu]			cpu:0
+> >>        ...
+> >>     ...
+> >>     __copy_from_user_inatomic():				cpu:0
+> >>        ...
+> >>        # page fault
+> >>        do_mem_abort():					cpu:0  
+> > Sounds to me that arm64 __copy_from_user_inatomic() may be broken.
+> >  
+> >>           ...
+> >>           # Call schedule
+> >>           schedule()					cpu:0
+> >> 	 ...
+> >>     # the task schedule to cpu1
+> >>     __buffer_unlock_commit():				cpu:1
+> >>        ...
+> >>        ring_buffer_unlock_commit():			cpu:1
+> >> 	 ...
+> >> 	 cpu = raw_smp_processor_id()			cpu:1
+> >> 	 cpu_buffer = buffer->buffers[cpu]		cpu:1
+> >>
+> >> As shown above, the process will acquire cpuid twice and the return values
+> >> are not the same.
+> >>
+> >> To fix this problem using copy_from_user_nofault instead of
+> >> __copy_from_user_inatomic, as the former performs 'access_ok' before
+> >> copying.
+> >>
+> >> Fixes: 656c7f0d2d2b ("tracing: Replace kmap with copy_from_user() in trace_marker writing")  
+> > The above commit was intorduced in 2016. copy_from_user_nofault() was
+> > introduced in 2020. I don't think this would be the fix for that kernel.
+> >
+> > So no, I'm not taking this patch. If you see __copy_from_user_inatomic()
+> > sleeping, it's users are not the issue. That function is.
+> >
+> > -- Steve
+> >
+> >  
+> I noticed that in most places where __copy_from_user_inatomic() is used,
+
+"most" but not all?
+
+> it is within the pagefault_disable/enable() section. When pagefault_disable()
+> is called, user access methods will no sleep. So I'm going to send a v2patch which use pagefault_disable/enable()to fix this problem. -- Gengkun
+
+No, I don't want that either. __copy_from_user_inatomic() SHOULD NOT SLEEP!
+If it does, than it is a bug!
+
+If it can sleep, "inatomic" is a very bad name. The point of being
+"inatomic" is that you are in a location that IS NOT ALLOWED TO SLEEP!
+
+I don't want to fix a symptom and leave a bug around.
+
+BTW, the reason not to fault is because this might be called in code that is
+already doing a fault and could cause deadlocks. The no sleeping part is a
+side effect.
+
+-- Steve
 
