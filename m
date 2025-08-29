@@ -4,69 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B46C1CA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 13:14:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF5B4CA0FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 13:17:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EdIi9uRtCmJpvUbkMlSvB5nMPnGtSkeLyP6/eWlT1MU=; b=TAb3+z+f3+RX341I3eCJw6Em03
-	ZsEDKgDODvlaHsmdOXoSUWf3zWV5gUzuPG3HwHJjGJY/8SOQar89y6mnk+cK+7aehwfwLt6kOf9rr
-	6lRz/PWszuB1RzZDIhcOiG+nfJofb2PGuK21upijRsvmEKbq5WVmrXkvuFjlATuyocLzWTzP5bdfN
-	8ZTHa9GiiLl9HdfvuH016usLYndiwW2TmXdGDus/9Elkbkd4ZN+1xGuytTmRkfWnyzSdZyB5SCEq7
-	z7Otx+qg1wyrAlGhPOwN3fbGmgnpHwAEKB91QDVbxfnjOwx+GzWROW8EZ6Ckmi/PFCVYM5Hvlj3lN
-	kmQcmLiw==;
+	bh=nLpsbVY0bY+vW6yl97gUYIYjrdCfyiRxEPT+1N5Vbzk=; b=At1O91vYzfyhEYlikMXzQ/NccA
+	gcbdFvCHdrqrM5SwYyI5Ql5w85m4j5hkjAhbmLykS4qgG/0pYSi6kYizJel8wfmug7JiyDhvk6ckY
+	0noB3dyN/RUo5Z2ynX52jiMPFex5jwJxrsoaLL+hwXqXuBnKyFc3YYUXExz1pdsrdc6cLp16kEBse
+	ju9umGnU6Q3cnJfdDYJD8bncUeCGSpcPjQGDzzeKY1g1GjcOAoUjio0z/nekA3DW3gIsnWaLIA+1d
+	EJZF6Lcmo4b/FoZlBekVcZAikX/2je9pHhMj6jlLk0sJaSyEniY0kWR6e4gIUE1cAmysyu02cmR01
+	fj+4Nfaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uryvx-00000005mF3-1uuG;
-	Fri, 29 Aug 2025 13:14:25 +0000
+	id 1uryyg-00000005mx0-2uDF;
+	Fri, 29 Aug 2025 13:17:14 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urwTj-00000005Lpb-0mJi;
-	Fri, 29 Aug 2025 10:37:07 +0000
+	id 1urwUV-00000005Lwk-14SV
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 29 Aug 2025 10:37:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 46A586019B;
-	Fri, 29 Aug 2025 10:37:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 208D4C4CEF0;
-	Fri, 29 Aug 2025 10:36:59 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8F9E5601A4;
+	Fri, 29 Aug 2025 10:37:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4549C4CEF4;
+	Fri, 29 Aug 2025 10:37:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756463826;
-	bh=twpmMydgICDDkUVDIvDfY78Sj0i19Dq/UEGfEUuux1s=;
+	s=k20201202; t=1756463874;
+	bh=6+IneIRXnN1BtRMi9Cul7I1x7ymoX1yi29SUkCkGlZs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JrpuH4vt9h+7I5uDIi1z32DF4FivnQM8qzJuzSgvUdjD0ilUL0EYSlJiyQm0iMzpI
-	 4ZZONeMbba+BvmXZ4T+1b/Y1eqR/sXHv/A+vRZGIrx8L/762U5dLVc5UPABesqhSci
-	 vdC072mLRISyravqh5voJmkTWqmvXP1TYREVmvN5wheZsyHG6B4yZTas4gAbhq+ffJ
-	 uf4eEjvODHB2ahVjtrkTxIcQfSLMM8av3U9HL5WSK9ltQa4BPZOUY//05CjeuBLtiI
-	 c9G1uWViAlyQL4764sDSQF/R+x8uv9ENDj4IvGIJNXGMOo8V5fykEMw3kRCpb/2NTG
-	 I0jloOUhgM62A==
-Message-ID: <e8e99c16-ad40-4d79-be92-1aa55c13f9ea@kernel.org>
-Date: Fri, 29 Aug 2025 12:36:58 +0200
+	b=t9bIU6j4hHvqXcrCYkruZfMHBSejaoEkmGnT3v2LE09vwrOdO0jrhzsX5+qPxzN72
+	 2YcJgepC7FhjzNQhH1Ror3Kyk7H+I6NGZkW/EocJoD9s6kYSJYhBPCVppoL9QJhZxK
+	 78o13UpN6h9/IRzaOFpJedRKMLY1QEt0GZoH+F1kQwDTqvD2RXprcraOSOtX11z51m
+	 Vy8eV0GU17giqlm3VShZ+JCOgAdTXhNtdaIRPipIZvjCNlYOvHjVU5wQmMKzFKN/Ju
+	 wtvrn+W8R7+P1ox14bFI96fI37SbGRmnH8bGJFMsi3HhCYVO/lrpqQ2gWBgsmIr1lb
+	 MxByKS8W50jGA==
+Message-ID: <dcb0c746-62ed-48f6-9247-03bdf36c6e92@kernel.org>
+Date: Fri, 29 Aug 2025 12:37:50 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 5/6] dt-bindings: phy: samsung,usb3-drd-phy: add
- ExynosAutov920 combo ssphy
-To: Pritam Manohar Sutar <pritam.sutar@samsung.com>
-Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, alim.akhtar@samsung.com, andre.draszik@linaro.org,
- peter.griffin@linaro.org, kauschluss@disroot.org,
- ivo.ivanov.ivanov1@gmail.com, igor.belwon@mentallysanemainliners.org,
- johan@kernel.org, m.szyprowski@samsung.com, s.nawrocki@samsung.com,
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
- dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
- selvarasu.g@samsung.com
-References: <20250822093845.1179395-1-pritam.sutar@samsung.com>
- <CGME20250822093022epcas5p42d8c16c851769dab0e1da9d45743ab1f@epcas5p4.samsung.com>
- <20250822093845.1179395-6-pritam.sutar@samsung.com>
- <20250824-rough-fresh-orangutan-eecb2f@kuoka>
- <007501dc1653$e36c3b50$aa44b1f0$@samsung.com>
- <83dc9435-5850-425d-b345-52e84ef9262c@kernel.org>
- <000401dc18cd$ec02a1b0$c407e510$@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH 0/2] brcmstb-memc-ddr binding updates for MIPS boards
+To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: linux-mips@vger.kernel.org, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ "open list:MEMORY CONTROLLER DRIVERS" <linux-kernel@vger.kernel.org>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>,
+ "moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>
+References: <20250729205213.3392481-1-florian.fainelli@broadcom.com>
+ <aLF_DEu6YNSCSRxu@alpha.franken.de>
 Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -110,7 +105,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <000401dc18cd$ec02a1b0$c407e510$@samsung.com>
+In-Reply-To: <aLF_DEu6YNSCSRxu@alpha.franken.de>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -127,59 +122,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/08/2025 12:15, Pritam Manohar Sutar wrote:
-> Hi Krzysztof
-> 
->> -----Original Message-----
->> From: Krzysztof Kozlowski <krzk@kernel.org>
->> Sent: 26 August 2025 02:05 PM
->> To: Pritam Manohar Sutar <pritam.sutar@samsung.com>
->> Cc: vkoul@kernel.org; kishon@kernel.org; robh@kernel.org;
-> .
-> .
-> [snip]
-> .
-> .
->>>> Subject: Re: [PATCH v7 5/6] dt-bindings: phy: samsung,usb3-drd-phy:
->>>> add
->>>> ExynosAutov920 combo ssphy
->>>>
->>>> On Fri, Aug 22, 2025 at 03:08:44PM +0530, Pritam Manohar Sutar wrote:
->>>>> This phy supports USB3.1 SSP+(10Gbps) protocol and is backwards
->>>>> compatible to the USB3.0 SS(5Gbps). It requires two clocks, named
->>>>> "phy" and "ref". The required supplies for USB3.1 are named as
->>>>> vdd075_usb30(0.75v), vdd18_usb30(1.8v).
->>>>
->>>> Please do not describe the schema, but hardware. This sentence does
->>>> not help me in my question further.
->>>
->>> This is a combo phy having Synopsys usb20 and usb30 phys (these 2 phys are
->> totally different).
->>> One PHY only supports usb2.0 and data rates whereas another one does
->>> usb3.1 ssp+ and usb3.1 ssp
->>>
->>> This patch only explains about usb30 (since these are two different phys) phy
->> and omitted inclusion of usb20 reference (added separate patch for this patch
->> no 3).
->>>
->>> Hope this is clear.
+On 29/08/2025 12:21, Thomas Bogendoerfer wrote:
+> On Tue, Jul 29, 2025 at 01:52:11PM -0700, Florian Fainelli wrote:
+>> This patch series updates the MIPS-based Broadcom STB chips to use a
+>> proper compatible string for their memory controller node(s) after
+>> 501be7cecec9 ("dt-bindings: memory-controller: Define fallback
+>> compatible").
 >>
->> No. That sentence still explains what schema is doing.
+>> Florian Fainelli (2):
+>>   dt-bindings: memory: Update brcmstb-memc-ddr binding with older chips
+>>   MIPS: BMIPS: Properly define memory controller compatible
 >>
+>>  .../bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml  | 4 ++++
+>>  arch/mips/boot/dts/brcm/bcm7346.dtsi                        | 3 ++-
+>>  arch/mips/boot/dts/brcm/bcm7360.dtsi                        | 3 ++-
+>>  arch/mips/boot/dts/brcm/bcm7362.dtsi                        | 3 ++-
+>>  arch/mips/boot/dts/brcm/bcm7425.dtsi                        | 6 ++++--
+>>  arch/mips/boot/dts/brcm/bcm7435.dtsi                        | 6 ++++--
+>>  6 files changed, 18 insertions(+), 7 deletions(-)
 > 
-> Ok, let me simplify the commit message further something like below. 
-> Anyways, the coverletter contains more details about it.
-> 
-> "dt-bindings: phy: samsung,usb3-drd-phy: add ExynosAutov920 combo ssphy
-> 
->   Add schema for combo ssphy found on this SoC.
-> "
-> 
-> Please confirm if this looks fine?
-> If so, will reflect the similar commit messages in patch 1 and 3.
+> series applied to mips-next.
 
-Please read my first comment again. I do not see how does this satisfy
-hardware explanation.
+Why entire series? You were notified two weeks ago that I already took
+the driver subsystem patch.
 
 Best regards,
 Krzysztof
