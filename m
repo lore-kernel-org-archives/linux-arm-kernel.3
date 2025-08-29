@@ -4,84 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43714CA0FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 10:20:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38139CA0FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 10:23:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zHsFOCN9HBPfTp+3qJi0ndRfEXrSipRtZtKnzK1hfrY=; b=c4/XI/PMnB1CD2UcVrr0GJCi00
-	Qipbht6JEyViBaZ+stptTDz/DaqipvYHOEypVoFOh8LPK4Foir78FguFTPd8KjSsZR8qZHU+LTqb4
-	qGY9bOBBHttvCTw8Pln1a0EX7QQlLa5iqtPtpj0DJ2Jt3nK2lfJTl+wDZLzkjdUpaJCnx27ldGBLR
-	peKIwftUWbX3gNp5Wyt1xZF8IL0BydheM1aly2kvUHR70PwCRGMT97VU0g45lQg4ty3O+N6hUukss
-	yXp7geoTbaEMVFcqiNuNJa1Phg+Bc8zJN0UF7+buveZmgcOar0kAw5O8nkg6lvbyIGH4cnqt24vpY
-	NoX1qKoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gJ0fGW8LBFDyCYyGl0z+4IhGB806t2gObXrk4IGCHXQ=; b=IjYUykPjCKr46gXrqCVWtJOpvR
+	iUMSJPDKVoE2AEIItn4eTOjRQ0MgZ9FjVTjuuju/iCT8CkDbVZxOBqOutb1TfYqN9btibP2PC0QDG
+	9pSw4CIbw2NQLkHRZSmw1+KbaiJOQ8Tk66x06pFYn9TVvBI0pwFlhXws1wQVHBcfMPTKpaawkYF7J
+	B8SiWlsW58AX3/uGafxIxvt3nf2h8A/Y1+qjVDZEXSVLzn8ztYKoQivnP7kXLQ91kfIl7C7PfGzSP
+	AJ/8EDpaB5x50fH+6TW9DuDLTbSOLlq0qqOe/CxbbSFmfMcUhqTxoKrVHL6eb4fctsUO6SFRvS7tV
+	H2jJNi0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urwD9-00000005IfN-0V2N;
-	Fri, 29 Aug 2025 10:19:59 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1urwGn-00000005JO6-3Wrb;
+	Fri, 29 Aug 2025 10:23:45 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urv5D-000000055RJ-1jGg
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 09:07:44 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3cbe70a7923so1488595f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 02:07:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1756458461; x=1757063261; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=zHsFOCN9HBPfTp+3qJi0ndRfEXrSipRtZtKnzK1hfrY=;
-        b=KMV2TUf49yq44ajGEUZvrG/KdZNmZzt/nIbprUuH0be4ZAjAId70y3R//mrpDaFrda
-         u+FSUZa+Td7C1uxsbSfLNJJ/CJp2Za/jBzf8g5Fvg4k9z9+fnCb/O87Lms9t8G4jiWlZ
-         ZEonYROBSZTnIC9o/H2WIJlpTeUFAypo4OzH6iCdBqsydShGYRotXMa7n3pqrCuXY94k
-         lkpJNd18GwYOOkXvTuH8Fr3zuk/t5zyedlMigxZd58OSedAKmEd6ULg1YGJTGyUBxloN
-         IlMC3t8rR3ZvGln2dY1RAinILKr1uxbPt3qVEPQsXr99FeGRA+IqxwDHcoUOvuiZdfqw
-         X+Yw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756458461; x=1757063261;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=zHsFOCN9HBPfTp+3qJi0ndRfEXrSipRtZtKnzK1hfrY=;
-        b=CccitDUYhz0daAEfTnY/l7Oq1efEio22FRO3jxdhc8IPihz0QUTU5Hn5OdfyYYwsJX
-         RNAcWJzzdXXPttcA2upyOXpYYQVaKr/luulDJ1yeUB94NbZ0qoZy1juUcrtQDOYh2RdY
-         OgHDeyiS6KGKlEGWPvT7TT3rq1UWQI0o7JDpvI+2E/vpyRkajYbk541VyNUIpHzPzM3m
-         V9IoSw/z+w9iKVkp/5iSorvdv11sC7Lf/TgU+g62Nm3rxGWYBGFvqcySEoo/vItTz+F9
-         /03++hvpqbSQ683ksF84yZEeEb0NiBFmjAfHjivD9p1VvZNslNDyaE0J9nWPXqobK3xy
-         fEkA==
-X-Gm-Message-State: AOJu0YzWO9nwkV+A7BE0qKSnt5nany9oi+pg+pJXFE25uKGk2RJePzuN
-	KOEjG5oSl/kB0hNdyW78uRoP7urqhyLLZNrGd0nIyNUj5feAQ6z+fhNM90uxp7H9ALvLsqwXthw
-	RcGhp
-X-Gm-Gg: ASbGnct7SKjXttlfacvi/aH63po6YQtHd3Kk0NeUKRNYPL8idWZt5XB17eLl8gIlhw5
-	JqR29q7IB26rpToK0MRygo4jmBqdtxyJKo/fzyRNwMbhn9e0JmqJmjXlvKWoWnDD0xRhIULMEmW
-	REG9RH8AxIrd95l4NOQ9KnwuTXp7p8JTq/hKZYWMJp7ETUpS0G3tDK8TjpHXe/2bqitQX8Has0R
-	hJp/RwCU2rFG8Uf7IfWg8ONyK3a2SuEdaD48So6X0UovVjSMyJ+VwCcgffHO9EmurdMufsOxwMg
-	rDqWJHPljEMzslfaSpElBJgIHMXJC2lmq3Cl/cbTsmBOfMa4CX6H8z9LQESx9wxZYbw3Ym8zfoS
-	xHKd2QTX3tlSRs43bRziNy8NOx7bgd7DSslEv2JUnqI1/kqI/Yg==
-X-Google-Smtp-Source: AGHT+IEQlpOdkOq6rxIeeWmNaS5Lz3aiqP1fn1/KRHgTvSLr3fliJD6VsAF/Pvip5DahmMfXaaxe8Q==
-X-Received: by 2002:a05:6000:401e:b0:3ce:2116:bf8c with SMTP id ffacd0b85a97d-3ce2116c444mr3732921f8f.51.1756458461226;
-        Fri, 29 Aug 2025 02:07:41 -0700 (PDT)
-Received: from zovi.suse.cz (nat2.prg.suse.com. [195.250.132.146])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3cf276d8ebdsm2560942f8f.28.2025.08.29.02.07.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 Aug 2025 02:07:40 -0700 (PDT)
-From: Petr Pavlu <petr.pavlu@suse.com>
-To: Russell King <linux@armlinux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Petr Pavlu <petr.pavlu@suse.com>
-Subject: [PATCH] ARM: module: Ensure the override of module_arch_freeing_init()
-Date: Fri, 29 Aug 2025 11:06:44 +0200
-Message-ID: <20250829090726.834456-1-petr.pavlu@suse.com>
-X-Mailer: git-send-email 2.51.0
+	id 1urvEp-000000056sT-0hZI;
+	Fri, 29 Aug 2025 09:17:40 +0000
+X-UUID: fdc8a52884b811f09f706fa2197c6ceb-20250829
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=gJ0fGW8LBFDyCYyGl0z+4IhGB806t2gObXrk4IGCHXQ=;
+	b=fFa2JM+kuvyWdCo8RZn/Zalnc6hhneVr5jLDpVU16RFt3M44Og6hXWBU9s2VMsBBuF9chpgCWhf5FZMnkGAHlu1fHFn/3qVENoKEx86Zi5L2Y2NgRUWgk56oH3v+dtOqMfsZDjvBdcMb3Plh4YraYDGjEAx5J9evsh2iZjxPbfw=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.3,REQID:dcc327c9-7f01-40bb-a428-358ab0fb2e53,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:f1326cf,CLOUDID:a237fe6b-8443-424b-b119-dc42e68239b0,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:-5,Content:0|15|50,EDM:
+	-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
+	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: fdc8a52884b811f09f706fa2197c6ceb-20250829
+Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw01.mediatek.com
+	(envelope-from <jason-jh.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 946897322; Fri, 29 Aug 2025 02:17:31 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Fri, 29 Aug 2025 17:17:28 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Fri, 29 Aug 2025 17:17:28 +0800
+From: Jason-JH Lin <jason-jh.lin@mediatek.com>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Jassi Brar
+	<jassisinghbrar@gmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>
+CC: Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, Jason-JH Lin <jason-jh.lin@mediatek.com>,
+	Nancy Lin <nancy.lin@mediatek.com>, Singo Chang <singo.chang@mediatek.com>,
+	Paul-PL Chen <paul-pl.chen@mediatek.com>, Yongqiang Niu
+	<yongqiang.niu@mediatek.com>, Zhenxing Qin <zhenxing.qin@mediatek.com>,
+	Xiandong Wang <xiandong.wang@mediatek.com>, Sirius Wang
+	<sirius.wang@mediatek.com>, Xavier Chang <xavier.chang@mediatek.com>,
+	"Jarried Lin" <jarried.lin@mediatek.com>, Fei Shao <fshao@chromium.org>,
+	Chen-yu Tsai <wenst@chromium.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-media@vger.kernel.org>
+Subject: [PATCH v2 3/3] media: platform: mtk-mdp3: Add pm_runtime support for GCE power control
+Date: Fri, 29 Aug 2025 17:16:00 +0800
+Message-ID: <20250829091727.3745415-4-jason-jh.lin@mediatek.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250829091727.3745415-1-jason-jh.lin@mediatek.com>
+References: <20250829091727.3745415-1-jason-jh.lin@mediatek.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_020743_449850_9E8FFA98 
-X-CRM114-Status: GOOD (  14.02  )
+X-CRM114-CacheID: sfid-20250829_021739_211507_311621E6 
+X-CRM114-Status: GOOD (  12.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,36 +98,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The function module_arch_freeing_init() defined in arch/arm/kernel/module.c
-is supposed to override a weak function of the same name defined in
-kernel/module/main.c. However, the ARM override is also marked as weak,
-which means that selecting the correct function unnecessarily depends on
-the order in which object files with both functions are passed to the
-linker. Although it happens to be correct at the moment, the proper pattern
-is to make the ARM override a strong definition.
+Call pm_runtime_resume_and_get() before accessing GCE hardware in
+mbox_send_message(), and invoke pm_runtime_put_autosuspend() in the
+cmdq callback to release the PM reference and start autosuspend for
+GCE. This ensures correct power management for the GCE device.
 
-Fixes: cdcb07e45a91 ("ARM: 8975/1: module: fix handling of unwind init sections")
-Signed-off-by: Petr Pavlu <petr.pavlu@suse.com>
+Fixes: 8afe816b0c99 ("mailbox: mtk-cmdq-mailbox: Implement Runtime PM with autosuspend")
+Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
 ---
- arch/arm/kernel/module.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/arch/arm/kernel/module.c b/arch/arm/kernel/module.c
-index da488d92e7a0..55ca3fcd37e8 100644
---- a/arch/arm/kernel/module.c
-+++ b/arch/arm/kernel/module.c
-@@ -484,7 +484,7 @@ module_arch_cleanup(struct module *mod)
- #endif
- }
+diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c
+index e5ccf673e152..bb7a895318af 100644
+--- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c
++++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c
+@@ -6,6 +6,7 @@
  
--void __weak module_arch_freeing_init(struct module *mod)
-+void module_arch_freeing_init(struct module *mod)
- {
- #ifdef CONFIG_ARM_UNWIND
- 	struct unwind_table *init = mod->arch.init_table;
-
-base-commit: 07d9df80082b8d1f37e05658371b087cb6738770
+ #include <linux/mailbox_controller.h>
+ #include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
+ #include "mtk-mdp3-cfg.h"
+ #include "mtk-mdp3-cmdq.h"
+ #include "mtk-mdp3-comp.h"
+@@ -521,6 +522,9 @@ static void mdp_handle_cmdq_callback(struct mbox_client *cl, void *mssg)
+ 	mdp = cmd->mdp;
+ 	dev = &mdp->pdev->dev;
+ 
++	pm_runtime_mark_last_busy(mdp->cmdq_clt[cmd->pp_idx]->chan->mbox->dev);
++	pm_runtime_put_autosuspend(mdp->cmdq_clt[cmd->pp_idx]->chan->mbox->dev);
++
+ 	INIT_WORK(&cmd->auto_release_work, mdp_auto_release_work);
+ 	if (!queue_work(mdp->clock_wq, &cmd->auto_release_work)) {
+ 		struct mtk_mutex *mutex;
+@@ -702,6 +706,13 @@ int mdp_cmdq_send(struct mdp_dev *mdp, struct mdp_cmdq_param *param)
+ 					   cmd[i]->pkt.pa_base, cmd[i]->pkt.cmd_buf_size,
+ 					   DMA_TO_DEVICE);
+ 
++		ret = pm_runtime_resume_and_get(mdp->cmdq_clt[i]->chan->mbox->dev);
++		if (ret < 0) {
++			dev_err(dev, "pm_runtime_resume_and_get fail: %d!\n", ret);
++			i = pp_used;
++			goto err_clock_off;
++		}
++
+ 		ret = mbox_send_message(mdp->cmdq_clt[i]->chan, &cmd[i]->pkt);
+ 		if (ret < 0) {
+ 			dev_err(dev, "mbox send message fail %d!\n", ret);
 -- 
-2.51.0
+2.43.0
 
 
