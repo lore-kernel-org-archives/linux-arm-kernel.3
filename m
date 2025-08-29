@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D25ECA0FFE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:47:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B112CA0FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:47:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MLQLlNtnOCPhjt4e0xOfXJp9xP7cfZoVEkC3zGk+ocg=; b=zZ91firqA0yN7DDy2WrMV5Zt0T
-	/A0/q4HJyMG/njswjkM6tqr0LIVryUMI9I0BUVBXLzobAG3ypF7Mw0X1fxR0z/Yu49KHb9K3BbFQ7
-	G89nIWO+bX2PsQQFhm/YAc3cnuErlgfZkZs/FeDsKDKv+AoKVmdoFPnWsj8q9DqA9GaPOk8H4TE+N
-	zP2Sstpz6g4Wodoa7+Xvn53ef8jNDsUoET1ttiUVALT9/ltFvnXk94iZeHTLFn0FXyqVDV5CtD2zJ
-	gkPKgp2oU0kQ4ymxD4D/zD5iwz1MJ6xu6gRF8Gd9GTCUDi8qglE5V7mlc9/sHBrwwiUIS2zJWu/j6
-	xHQ85oAA==;
+	bh=HcWbbFlqnPXoUdQoecbfucY7K6eTmd3Ok5/71jH8nuw=; b=BVXns3RndHPVs6nNRaonKFOxuV
+	HnNmtTzK9z43zuwknY5cdS5URebtPfeDO1fLoDIwASodELBAc3yKjUH9wxcZxmDBE5hAZFGMaznBm
+	F2LiQKY4cfn/cRF8uCSSAca9aLIx1m1bQOXwDfRm/aR48JIEW9YXR6avpZHaS17mrFYLSYy45LEww
+	8DFqevvriI3a0FEqlT2JmBUuXW5ra7+oNnrCykLXPa+v7rD3bFqqMEWAf9erLv6B4qIhBiSFk+JKM
+	rv+g0NJPNBxVMT5ubB329sRH+hV/wYh14SrXdNJFEfIQ6mz/eWkwywHJahjlW4jJ0cWa0uN+ab41+
+	ZADa4Sjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us9kV-000000079KC-00YQ;
-	Sat, 30 Aug 2025 00:47:19 +0000
+	id 1us9kY-000000079NI-070H;
+	Sat, 30 Aug 2025 00:47:22 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us1s6-00000006NbH-3z5M
+	id 1us1s6-00000006NbI-42uP
 	for linux-arm-kernel@bombadil.infradead.org;
 	Fri, 29 Aug 2025 16:22:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=MLQLlNtnOCPhjt4e0xOfXJp9xP7cfZoVEkC3zGk+ocg=; b=i0TdC7yKyVlWsqfBih/hpFGf2Z
-	nvxoGPPvilnovmHmCyCL1IB4dX9tleV94z+8Rhu5xAvzJkNuHXIDHhnMYlw/7sp0gY6Kmc7Xr5p3R
-	WLVD6EtWPSKMNBAfam1zuOKoiKGFy9lBqdI9eTBeJqv+bihRxUUrrzYvko0zbgQD6HPBfVlSDfYzz
-	yVmiQP9/PDPZw0hMk2OFq9G7xa0mUZ9YNV676mbqGf+lGIO6IK1404n+7OqcgSH44ZhU3aaWirQqX
-	faIJiQQm1gUBNmHYSMYmnLn3zkA2uGZOcYSJKJOKTwhw1SCQgGfqypWaTQnFa5D9ytI+P6EhmahKI
-	qbgonlTA==;
+	bh=HcWbbFlqnPXoUdQoecbfucY7K6eTmd3Ok5/71jH8nuw=; b=FCe1fb0TfEAzuJ3lE/vX7XFDLb
+	Q3fsRhKUhs9NtLWQfmDF+8269u5aY8Ce/8Du8e14yYDYlxfJpNzfiH4Rg5+OmuiOP5G9IKoArjPn9
+	pTcFFxMRjC4hGmC/G+agD5BIuws8HCS5MWUcncDzZDimbY7Bb5gZfTPQrGtTbfSoXLi7+AskTT9EM
+	DBdxJclJeEfj9Kl+5aO4K1k7dPWo/BMq6NLkmXAH77acvrOVbfwxYamStomJfd0MW1eDNzpqgOcdi
+	h+/lH+wcXzFAXY4TSxUx3h8RLDlbTjW4G9FhAkeOvEuL69XLSPym8YRWEl84rtuhx7e9b4b9KWjSN
+	kzOO46FQ==;
 Received: from mx.olsak.net ([37.205.8.231])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us1s0-00000003DtC-3VqW
+	id 1us1s0-00000003DtA-3Y9I
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 29 Aug 2025 16:22:37 +0000
-DKIM-Signature: a=rsa-sha256; bh=MLQLlNtnOCPhjt4e0xOfXJp9xP7cfZoVEkC3zGk+ocg=;
+DKIM-Signature: a=rsa-sha256; bh=HcWbbFlqnPXoUdQoecbfucY7K6eTmd3Ok5/71jH8nuw=;
  c=relaxed/relaxed; d=dujemihanovic.xyz;
  h=Subject:Subject:Sender:To:To:Cc:Cc:From:From:Date:Date:MIME-Version:MIME-Version:Content-Type:Content-Type:Content-Transfer-Encoding:Content-Transfer-Encoding:Reply-To:In-Reply-To:In-Reply-To:Message-Id:Message-Id:References:References:Autocrypt:Openpgp;
- i=@dujemihanovic.xyz; s=default; t=1756484471; v=1; x=1756916471;
- b=MOSA6oI9LJFmMEejE0ziCE7DsKyPiauy9MpmVkwn2PfO0U2Zp1ttR9wV7MR+dJ13kzURd2pi
- 0nq3GVkfRKllmzxnQF3MshjajU56vBuiRc28Ia9BEojtgAcRmMHFFwX5myr2anTjwsL41mkB1xU
- VjrJrra4O7YzmyzYhpmRjFzdmii1VjYF0ngG5FcinpsYubfIcj+UJyuQNcPSv0Tos1lVyzPtPQW
- q01RFFeRs/CbdPGmIMreVMmf+uiViSFLyBDiXJWFMfnU3W2yNSY6cVO4K+GV1S2bNqkvSaz7rkw
- ekHOBLf9FEg/eUBuhg2HrVt2jgSO3Cfi3Xw+MzwvgtjQw==
+ i=@dujemihanovic.xyz; s=default; t=1756484470; v=1; x=1756916470;
+ b=ZemcYvlcZjbzoUrPHfQO13eVlj5U7pjrrP8LsnwDhPIqiB7CopBxplkJWAjBqMZxn5QFKwTM
+ fU9jZB0ARnLtX2A9ZOm77sHP/e2+QQsHiN1qt43klvY5g092u1/dY57hBTTh9N1hTnJurIOWQ9p
+ dzNXyUH83nbm10n6PI+ElFMh8gHk30WhMmCCvcIu5oq/Q2j1NdDhfx30Xy3BFUVk9GC8qZMx7Rr
+ 2uKuXojqsjQ2cye9rVA59GAl/D4QreQdUwdXtEF6GRxq20Ay22aHzTEZ/DZIDBCormCUidWC1/n
+ g70zRMXYTzXG4NoMUFzn2xxP0IhPZj6WymdtEzOUwjb0g==
 Received: by mx.olsak.net (envelope-sender <duje@dujemihanovic.xyz>) with
- ESMTPS id 9fa50dd1; Fri, 29 Aug 2025 18:21:11 +0200
+ ESMTPS id a40bcf2b; Fri, 29 Aug 2025 18:21:10 +0200
 From: =?utf-8?q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
-Date: Fri, 29 Aug 2025 18:21:06 +0200
-Subject: [PATCH v3 3/4] clk: mmp: pxa1908: Instantiate power driver through
- auxiliary bus
+Date: Fri, 29 Aug 2025 18:21:05 +0200
+Subject: [PATCH v3 2/4] pmdomain: marvell: Add PXA1908 power domains
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250829-pxa1908-genpd-v3-3-2aacaaaca271@dujemihanovic.xyz>
+Message-Id: <20250829-pxa1908-genpd-v3-2-2aacaaaca271@dujemihanovic.xyz>
 References: <20250829-pxa1908-genpd-v3-0-2aacaaaca271@dujemihanovic.xyz>
 In-Reply-To: <20250829-pxa1908-genpd-v3-0-2aacaaaca271@dujemihanovic.xyz>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -74,18 +73,18 @@ Cc: David Wronek <david@mainlining.org>, Karel Balej <balejk@matfyz.cz>,
  linux-pm@vger.kernel.org, 
  =?utf-8?q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4741;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=11546;
  i=duje@dujemihanovic.xyz; s=20240706; h=from:subject:message-id;
- bh=fPWhnGfubtatcWiWaKaUiAvygdrfiV2pPKAKsw2j7KQ=;
- b=owGbwMvMwCW21nBykGv/WmbG02pJDBkbLxdvXb7nS5z1mZKHJ1aditrhwrsyem+jm9rzC6bf2
- I+sKlh7sKOUhUGMi0FWTJEl97/jNd7PIlu3Zy8zgJnDygQyhIGLUwAmUj2L4X+F6hMd9trLAfNr
- p1w4umFW1YtdqwqOfvoRay2koVHjmfqO4X9K9YwKv4c3Fs6e3ZdYfkPtebZGK//+gn89V39xvpt
- 1cDEHAA==
+ bh=gaKwnEjy3q2LAzP0hxaYPN5rEw13O1EeGkCpOyoJKis=;
+ b=owGbwMvMwCW21nBykGv/WmbG02pJDBkbLxc7Jx00nSbQXxEjk3F9ueDPvbdCTt646zarWkIv7
+ eye95wWHaUsDGJcDLJiiiy5/x2v8X4W2bo9e5kBzBxWJpAhDFycAjCRY28Z/jtfdZ3xXjz+oPqh
+ vh+zjS/zPptxwOPGjLOLn6ur/LGyXq/O8JOROeHE2ozzl76FvmfzmRixwHcdh6xDdSyvxwFOX/m
+ jykwA
 X-Developer-Key: i=duje@dujemihanovic.xyz; a=openpgp;
  fpr=6DFF41D60DF314B5B76BA630AD319352458FAD03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_172236_257013_24F54C50 
-X-CRM114-Status: GOOD (  21.46  )
+X-CRM114-CacheID: sfid-20250829_172236_237204_A412A124 
+X-CRM114-Status: GOOD (  25.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,19 +99,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The power domain driver shares the APMU clock controller's registers.
-Instantiate the power domain driver through the APMU clock driver using
-the auxiliary bus.
-
-Also create a separate Kconfig entry for the PXA1908 clock driver to
-allow (de)selecting the driver at will and selecting
-CONFIG_AUXILIARY_BUS.
+Marvell's PXA1908 SoC has a few power domains for its VPU, GPU, image
+processor and DSI PHY. Add a driver to control these.
 
 Signed-off-by: Duje Mihanović <duje@dujemihanovic.xyz>
 ---
 v3:
 - Move driver back to pmdomain subsystem, use auxiliary bus to
   instantiate the driver
+- Drop redundant 'struct device' pointer in 'struct pxa1908_pd'
+- Fix pxa1908_pd_is_on() for DSI domain
+- Replace usleep_range() with fsleep()
+- Use dev_err_probe() where sensible
 
 v2:
 - Move to clk subsystem, instantiate the driver from the APMU clock
@@ -120,111 +118,357 @@ v2:
 - Drop clock handling
 - Squash MAINTAINERS patch
 ---
- MAINTAINERS                        |  2 ++
- drivers/clk/Kconfig                |  1 +
- drivers/clk/mmp/Kconfig            | 10 ++++++++++
- drivers/clk/mmp/Makefile           |  5 ++++-
- drivers/clk/mmp/clk-pxa1908-apmu.c | 20 ++++++++++++++++++++
- 5 files changed, 37 insertions(+), 1 deletion(-)
+ MAINTAINERS                                        |   1 +
+ drivers/pmdomain/Kconfig                           |   1 +
+ drivers/pmdomain/Makefile                          |   1 +
+ drivers/pmdomain/marvell/Kconfig                   |  18 ++
+ drivers/pmdomain/marvell/Makefile                  |   3 +
+ .../pmdomain/marvell/pxa1908-power-controller.c    | 268 +++++++++++++++++++++
+ 6 files changed, 292 insertions(+)
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 34e5e218e83e0ed9882b111f5251601dd6549d4e..88c0df09d7b354f95864f5a48daea3be14a90dc4 100644
+index 88f7bd50686eb1f6bcd4f34c6827f27ad44ea4e8..34e5e218e83e0ed9882b111f5251601dd6549d4e 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -2869,7 +2869,9 @@ ARM/Marvell PXA1908 SOC support
- M:	Duje Mihanović <duje@dujemihanovic.xyz>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+@@ -2871,6 +2871,7 @@ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
  S:	Maintained
-+F:	Documentation/devicetree/bindings/clock/marvell,pxa1908.yaml
  F:	arch/arm64/boot/dts/marvell/mmp/
-+F:	drivers/clk/mmp/Kconfig
  F:	drivers/clk/mmp/clk-pxa1908*.c
- F:	drivers/pmdomain/marvell/
++F:	drivers/pmdomain/marvell/
  F:	include/dt-bindings/clock/marvell,pxa1908.h
-diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
-index 4d56475f94fc1e28823fe6aee626a96847d4e6d5..68a9641fc649a23013b2d8a9e9f5ecb31d623abb 100644
---- a/drivers/clk/Kconfig
-+++ b/drivers/clk/Kconfig
-@@ -511,6 +511,7 @@ source "drivers/clk/imx/Kconfig"
- source "drivers/clk/ingenic/Kconfig"
- source "drivers/clk/keystone/Kconfig"
- source "drivers/clk/mediatek/Kconfig"
-+source "drivers/clk/mmp/Kconfig"
- source "drivers/clk/meson/Kconfig"
- source "drivers/clk/mstar/Kconfig"
- source "drivers/clk/microchip/Kconfig"
-diff --git a/drivers/clk/mmp/Kconfig b/drivers/clk/mmp/Kconfig
+ F:	include/dt-bindings/power/marvell,pxa1908-power.h
+ 
+diff --git a/drivers/pmdomain/Kconfig b/drivers/pmdomain/Kconfig
+index 91f04ace35d4b024fafdf6af4e26a179640eb82f..23076ae90e6641dea8e5dbc851d041cd7929cee6 100644
+--- a/drivers/pmdomain/Kconfig
++++ b/drivers/pmdomain/Kconfig
+@@ -7,6 +7,7 @@ source "drivers/pmdomain/apple/Kconfig"
+ source "drivers/pmdomain/arm/Kconfig"
+ source "drivers/pmdomain/bcm/Kconfig"
+ source "drivers/pmdomain/imx/Kconfig"
++source "drivers/pmdomain/marvell/Kconfig"
+ source "drivers/pmdomain/mediatek/Kconfig"
+ source "drivers/pmdomain/qcom/Kconfig"
+ source "drivers/pmdomain/renesas/Kconfig"
+diff --git a/drivers/pmdomain/Makefile b/drivers/pmdomain/Makefile
+index 7030f44a49df9e91b1c9d1b6d12690a6248671fb..ebc802f13eb953db750f5a9507caa64c637a957a 100644
+--- a/drivers/pmdomain/Makefile
++++ b/drivers/pmdomain/Makefile
+@@ -5,6 +5,7 @@ obj-y					+= apple/
+ obj-y					+= arm/
+ obj-y					+= bcm/
+ obj-y					+= imx/
++obj-y					+= marvell/
+ obj-y					+= mediatek/
+ obj-y					+= qcom/
+ obj-y					+= renesas/
+diff --git a/drivers/pmdomain/marvell/Kconfig b/drivers/pmdomain/marvell/Kconfig
 new file mode 100644
-index 0000000000000000000000000000000000000000..b0d2fea3cda5de1284916ab75d3af0412edcf57f
+index 0000000000000000000000000000000000000000..6c4084c826670266b7d948438f6e6d76acb416e2
 --- /dev/null
-+++ b/drivers/clk/mmp/Kconfig
-@@ -0,0 +1,10 @@
++++ b/drivers/pmdomain/marvell/Kconfig
+@@ -0,0 +1,18 @@
 +# SPDX-License-Identifier: GPL-2.0-only
 +
-+config COMMON_CLK_PXA1908
-+	bool "Clock driver for Marvell PXA1908"
++menu "Marvell PM Domains"
 +	depends on ARCH_MMP || COMPILE_TEST
++
++config PXA1908_PM_DOMAINS
++	tristate "Marvell PXA1908 power domains"
 +	depends on OF
++	depends on PM
 +	default y if ARCH_MMP && ARM64
 +	select AUXILIARY_BUS
++	select MFD_SYSCON
++	select PM_GENERIC_DOMAINS
++	select PM_GENERIC_DOMAINS_OF
 +	help
-+	  This driver supports the Marvell PXA1908 SoC clocks.
-diff --git a/drivers/clk/mmp/Makefile b/drivers/clk/mmp/Makefile
-index 062cd87fa8ddcc6808b6236f8c4dd524aaf02030..0a94f2f0856389c8e959981ccafbb02140a7733d 100644
---- a/drivers/clk/mmp/Makefile
-+++ b/drivers/clk/mmp/Makefile
-@@ -11,4 +11,7 @@ obj-$(CONFIG_MACH_MMP_DT) += clk-of-pxa168.o clk-of-pxa910.o
- obj-$(CONFIG_COMMON_CLK_MMP2) += clk-of-mmp2.o clk-pll.o pwr-island.o
- obj-$(CONFIG_COMMON_CLK_MMP2_AUDIO) += clk-audio.o
- 
--obj-$(CONFIG_ARCH_MMP) += clk-of-pxa1928.o clk-pxa1908-apbc.o clk-pxa1908-apbcp.o clk-pxa1908-apmu.o clk-pxa1908-mpmu.o
-+obj-$(CONFIG_COMMON_CLK_PXA1908) += clk-pxa1908-apbc.o clk-pxa1908-apbcp.o \
-+	clk-pxa1908-mpmu.o clk-pxa1908-apmu.o
++	  Say Y here to enable support for Marvell PXA1908's power domanis.
 +
-+obj-$(CONFIG_ARCH_MMP) += clk-of-pxa1928.o
-diff --git a/drivers/clk/mmp/clk-pxa1908-apmu.c b/drivers/clk/mmp/clk-pxa1908-apmu.c
-index d3a070687fc5b9fb5338f377f82e7664ca0aac29..eab02c89c9153619ac53f7486ed811f2cae12a43 100644
---- a/drivers/clk/mmp/clk-pxa1908-apmu.c
-+++ b/drivers/clk/mmp/clk-pxa1908-apmu.c
-@@ -1,4 +1,5 @@
- // SPDX-License-Identifier: GPL-2.0-only
++endmenu
+diff --git a/drivers/pmdomain/marvell/Makefile b/drivers/pmdomain/marvell/Makefile
+new file mode 100644
+index 0000000000000000000000000000000000000000..22c25013f6c856a2ca01a121e830279ee88eb0ed
+--- /dev/null
++++ b/drivers/pmdomain/marvell/Makefile
+@@ -0,0 +1,3 @@
++# SPDX-License-Identifier: GPL-2.0-only
++
++obj-$(CONFIG_PXA1908_PM_DOMAINS) += pxa1908-power-controller.o
+diff --git a/drivers/pmdomain/marvell/pxa1908-power-controller.c b/drivers/pmdomain/marvell/pxa1908-power-controller.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..29134629861abcf46959f9dcc98d3f05a4cc5b72
+--- /dev/null
++++ b/drivers/pmdomain/marvell/pxa1908-power-controller.c
+@@ -0,0 +1,268 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright 2025 Duje Mihanović <duje@dujemihanovic.xyz>
++ */
++
 +#include <linux/auxiliary_bus.h>
- #include <linux/clk-provider.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
-@@ -85,6 +86,8 @@ static void pxa1908_axi_periph_clk_init(struct pxa1908_clk_unit *pxa_unit)
- static int pxa1908_apmu_probe(struct platform_device *pdev)
- {
- 	struct pxa1908_clk_unit *pxa_unit;
-+	struct auxiliary_device *adev;
++#include <linux/container_of.h>
++#include <linux/delay.h>
++#include <linux/device.h>
++#include <linux/mfd/syscon.h>
++#include <linux/mod_devicetable.h>
++#include <linux/platform_device.h>
++#include <linux/pm_domain.h>
++#include <linux/regmap.h>
++#include <linux/units.h>
++
++#include <dt-bindings/power/marvell,pxa1908-power.h>
++
++/* VPU, GPU, ISP */
++#define APMU_PWR_CTRL_REG	0xd8
++#define APMU_PWR_BLK_TMR_REG	0xdc
++#define APMU_PWR_STATUS_REG	0xf0
++
++/* DSI */
++#define APMU_DEBUG		0x88
++#define DSI_PHY_DVM_MASK	BIT(31)
++
++#define POWER_ON_LATENCY_US	300
++#define POWER_OFF_LATENCY_US	20
++
++#define NR_DOMAINS	5
++
++struct pxa1908_pd_ctrl {
++	struct generic_pm_domain *domains[NR_DOMAINS];
++	struct genpd_onecell_data onecell_data;
++	struct regmap *base;
++};
++
++struct pxa1908_pd_data {
++	u32 reg_clk_res_ctrl;
++	u32 pwr_state;
++	u32 hw_mode;
++	bool keep_on;
++	int id;
++};
++
++struct pxa1908_pd {
++	const struct pxa1908_pd_data data;
++	struct generic_pm_domain genpd;
++	bool initialized;
++};
++
++static inline bool pxa1908_pd_is_on(struct pxa1908_pd *pd)
++{
++	struct pxa1908_pd_ctrl *ctrl = dev_get_drvdata(&pd->genpd.dev);
++
++	return pd->data.id != PXA1908_POWER_DOMAIN_DSI
++		? regmap_test_bits(ctrl->base, APMU_PWR_STATUS_REG, pd->data.pwr_state)
++		: regmap_test_bits(ctrl->base, APMU_DEBUG, DSI_PHY_DVM_MASK);
++}
++
++static int pxa1908_pd_power_on(struct generic_pm_domain *genpd)
++{
++	struct pxa1908_pd *pd = container_of(genpd, struct pxa1908_pd, genpd);
++	struct pxa1908_pd_ctrl *ctrl = dev_get_drvdata(&genpd->dev);
++	const struct pxa1908_pd_data *data = &pd->data;
++	unsigned int status;
++	int ret = 0;
++
++	regmap_set_bits(ctrl->base, data->reg_clk_res_ctrl, data->hw_mode);
++	if (data->id != PXA1908_POWER_DOMAIN_ISP)
++		regmap_write(ctrl->base, APMU_PWR_BLK_TMR_REG, 0x20001fff);
++	regmap_set_bits(ctrl->base, APMU_PWR_CTRL_REG, data->pwr_state);
++
++	fsleep(POWER_ON_LATENCY_US);
++
++	ret = regmap_read_poll_timeout(ctrl->base, APMU_PWR_STATUS_REG, status,
++				       status & data->pwr_state, 6, 25 * USEC_PER_MSEC);
++	if (ret == -ETIMEDOUT)
++		dev_err(&genpd->dev, "timed out powering on domain '%s'\n", pd->genpd.name);
++
++	return ret;
++}
++
++static int pxa1908_pd_power_off(struct generic_pm_domain *genpd)
++{
++	struct pxa1908_pd *pd = container_of(genpd, struct pxa1908_pd, genpd);
++	struct pxa1908_pd_ctrl *ctrl = dev_get_drvdata(&genpd->dev);
++	const struct pxa1908_pd_data *data = &pd->data;
++	unsigned int status;
 +	int ret;
- 
- 	pxa_unit = devm_kzalloc(&pdev->dev, sizeof(*pxa_unit), GFP_KERNEL);
- 	if (!pxa_unit)
-@@ -94,6 +97,23 @@ static int pxa1908_apmu_probe(struct platform_device *pdev)
- 	if (IS_ERR(pxa_unit->base))
- 		return PTR_ERR(pxa_unit->base);
- 
-+	adev = devm_kzalloc(&pdev->dev, sizeof(*adev), GFP_KERNEL);
-+	if (!adev)
-+		return -ENOMEM;
 +
-+	adev->name = "power";
-+	adev->dev.parent = &pdev->dev;
++	regmap_clear_bits(ctrl->base, APMU_PWR_CTRL_REG, data->pwr_state);
 +
-+	ret = auxiliary_device_init(adev);
-+	if (ret)
-+		return ret;
++	fsleep(POWER_OFF_LATENCY_US);
 +
-+	ret = auxiliary_device_add(adev);
-+	if (ret) {
-+		auxiliary_device_uninit(adev);
++	ret = regmap_read_poll_timeout(ctrl->base, APMU_PWR_STATUS_REG, status,
++				       !(status & data->pwr_state), 6, 25 * USEC_PER_MSEC);
++	if (ret == -ETIMEDOUT) {
++		dev_err(&genpd->dev, "timed out powering off domain '%s'\n", pd->genpd.name);
 +		return ret;
 +	}
 +
- 	mmp_clk_init(pdev->dev.of_node, &pxa_unit->unit, APMU_NR_CLKS);
- 
- 	pxa1908_axi_periph_clk_init(pxa_unit);
++	return regmap_clear_bits(ctrl->base, data->reg_clk_res_ctrl, data->hw_mode);
++}
++
++static inline int pxa1908_dsi_power_on(struct generic_pm_domain *genpd)
++{
++	struct pxa1908_pd_ctrl *ctrl = dev_get_drvdata(&genpd->dev);
++
++	return regmap_set_bits(ctrl->base, APMU_DEBUG, DSI_PHY_DVM_MASK);
++}
++
++static inline int pxa1908_dsi_power_off(struct generic_pm_domain *genpd)
++{
++	struct pxa1908_pd_ctrl *ctrl = dev_get_drvdata(&genpd->dev);
++
++	return regmap_clear_bits(ctrl->base, APMU_DEBUG, DSI_PHY_DVM_MASK);
++}
++
++#define DOMAIN(_id, _name, ctrl, mode, state) \
++	[_id] = { \
++		.data = { \
++			.reg_clk_res_ctrl = ctrl, \
++			.hw_mode = BIT(mode), \
++			.pwr_state = BIT(state), \
++			.id = _id, \
++		}, \
++		.genpd = { \
++			.name = _name, \
++			.power_on = pxa1908_pd_power_on, \
++			.power_off = pxa1908_pd_power_off, \
++		}, \
++	}
++
++static struct pxa1908_pd domains[NR_DOMAINS] = {
++	DOMAIN(PXA1908_POWER_DOMAIN_VPU, "vpu", 0xa4, 19, 2),
++	DOMAIN(PXA1908_POWER_DOMAIN_GPU, "gpu", 0xcc, 11, 0),
++	DOMAIN(PXA1908_POWER_DOMAIN_GPU2D, "gpu2d", 0xf4, 11, 6),
++	DOMAIN(PXA1908_POWER_DOMAIN_ISP, "isp", 0x38, 15, 4),
++	[PXA1908_POWER_DOMAIN_DSI] = {
++		.genpd = {
++			.name = "dsi",
++			.power_on = pxa1908_dsi_power_on,
++			.power_off = pxa1908_dsi_power_off,
++			/*
++			 * TODO: There is no DSI driver written yet and until then we probably
++			 * don't want to power off the DSI PHY ever.
++			 */
++			.flags = GENPD_FLAG_ALWAYS_ON,
++		},
++		.data = {
++			/* See above. */
++			.keep_on = true,
++		},
++	},
++};
++
++static void pxa1908_pd_remove(struct auxiliary_device *auxdev)
++{
++	struct pxa1908_pd *pd;
++	int ret;
++
++	for (int i = NR_DOMAINS - 1; i >= 0; i--) {
++		pd = &domains[i];
++
++		if (!pd->initialized)
++			continue;
++
++		if (pxa1908_pd_is_on(pd) && !pd->data.keep_on)
++			pxa1908_pd_power_off(&pd->genpd);
++
++		ret = pm_genpd_remove(&pd->genpd);
++		if (ret)
++			dev_err(&pd->genpd.dev, "failed to remove domain '%s': %d\n",
++				pd->genpd.name, ret);
++	}
++}
++
++static int
++pxa1908_pd_init(struct pxa1908_pd_ctrl *ctrl, int id, struct device *dev)
++{
++	struct pxa1908_pd *pd = &domains[id];
++	int ret;
++
++	ctrl->domains[id] = &pd->genpd;
++
++	ret = pm_genpd_init(&pd->genpd, NULL, !pd->data.keep_on);
++	if (ret)
++		return dev_err_probe(dev, ret, "domain '%s' failed to initialize\n",
++				     pd->genpd.name);
++
++	dev_set_drvdata(&pd->genpd.dev, ctrl);
++
++	/* Make sure the state of the hardware is synced with the domain table above. */
++	if (pd->data.keep_on) {
++		ret = pd->genpd.power_on(&pd->genpd);
++		if (ret)
++			return dev_err_probe(dev, ret, "failed to power on domain '%s'\n",
++					     pd->genpd.name);
++	} else {
++		if (pxa1908_pd_is_on(pd)) {
++			dev_warn(dev,
++				 "domain '%s' is on despite being default off; powering off\n",
++				 pd->genpd.name);
++
++			ret = pd->genpd.power_off(&pd->genpd);
++			if (ret)
++				return dev_err_probe(dev, ret,
++						     "failed to power off domain '%s'\n",
++						     pd->genpd.name);
++		}
++	}
++
++	pd->initialized = true;
++
++	return 0;
++}
++
++static int
++pxa1908_pd_probe(struct auxiliary_device *auxdev, const struct auxiliary_device_id *aux_id)
++{
++	struct pxa1908_pd_ctrl *ctrl;
++	struct device *dev = &auxdev->dev;
++	int ret;
++
++	ctrl = devm_kzalloc(dev, sizeof(*ctrl), GFP_KERNEL);
++	if (!ctrl)
++		return -ENOMEM;
++
++	auxiliary_set_drvdata(auxdev, ctrl);
++
++	ctrl->base = syscon_node_to_regmap(dev->parent->of_node);
++	if (IS_ERR(ctrl->base))
++		return dev_err_probe(dev, PTR_ERR(ctrl->base), "no regmap available\n");
++
++	ctrl->onecell_data.domains = ctrl->domains;
++	ctrl->onecell_data.num_domains = NR_DOMAINS;
++
++	for (int i = 0; i < NR_DOMAINS; i++) {
++		ret = pxa1908_pd_init(ctrl, i, dev);
++		if (ret)
++			goto err;
++	}
++
++	return of_genpd_add_provider_onecell(dev->parent->of_node, &ctrl->onecell_data);
++
++err:
++	pxa1908_pd_remove(auxdev);
++	return ret;
++}
++
++static const struct auxiliary_device_id pxa1908_pd_id[] = {
++	{ .name = "clk_pxa1908_apmu.power" },
++	{ }
++};
++MODULE_DEVICE_TABLE(auxiliary, pxa1908_pd_id);
++
++static struct auxiliary_driver pxa1908_pd_driver = {
++	.probe = pxa1908_pd_probe,
++	.remove = pxa1908_pd_remove,
++	.id_table = pxa1908_pd_id,
++};
++module_auxiliary_driver(pxa1908_pd_driver);
++
++MODULE_AUTHOR("Duje Mihanović <duje@dujemihanovic.xyz>");
++MODULE_DESCRIPTION("Marvell PXA1908 power domain driver");
++MODULE_LICENSE("GPL");
 
 -- 
 2.51.0
