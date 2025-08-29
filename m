@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CD41CA0FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 17:18:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F7ACCA0FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 17:20:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7ynGXV6mR8hK2Z9kYMI5y2depEes3HDTjAq785nEjho=; b=kcdXpuoZyUFzzd6LvJNe8eO2eg
-	cg8PqmLZaaO9P2b3it5WMg5DlSzRR5fQsqo42p+cySA9lTcGmEHeXSHyzBYqxiiqfP7f+93cCBHry
-	tbC39mfO/aRTbMYqdqP/X7mM2tU7gF3wXlp6q71nBqManBPm7v+4/E8e3Xa3QMBydTnn1Idj6aJTR
-	EDt+lyMmPmj3u8+uRtplG8t5Zh7zEnx161udH2N3/LFOJwMntA7roATh5hbwYcEEUz59nqJRZVVOC
-	xWUAbowg6NbORcsjSODoLjLWWGXZQkNPYhXP/VCucCnQgvl61RdN7Dn4HOLa2g6bxOjj6GRXGv1SL
-	KlF8bgkQ==;
+	bh=G/93ffltrCnOfzOiDvweRON6A8/cZQ641l/w6Ddaft4=; b=WnZ/uBVtiMbGd4VOqigRBYGdJi
+	Ly8IhccwFZPAfV/AAIcTZCDzFwZyBky5VWD/Kb3sNtAR3mS9zLrc+3Uc1u+zzLPBAUwd5nlDS3lUA
+	aNuBCDe7GaN0X6qSneyIWDutRVaGVpdatPjDjhD6pV+sAete89WP2L4U7J/YZ3qSUlwzrpZ9/MwpJ
+	5hRGTvvyTqZ0Mkd8E/fAGjhYjIuG4IfUN6lcJ2Y/nv+3QirFG/BQUd4EEV0pOHfsFMLUNSQ6unNXA
+	l/oomswtkmGh2c7bY8EatPDLWK5iGA8Q7CSBSIBnzaPPB4W/YSLOyacJIJHpMrQrSJF8azdibPsCg
+	pLzktKwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us2jn-00000006VYM-0AZR;
-	Fri, 29 Aug 2025 17:18:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1us2mT-00000006Vom-3TKD;
+	Fri, 29 Aug 2025 17:20:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urzmK-00000005yQk-3f5q
+	id 1urznE-00000005yWb-2doG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 14:08:34 +0000
+	Fri, 29 Aug 2025 14:09:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4994040748;
-	Fri, 29 Aug 2025 14:08:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90310C4CEF0;
-	Fri, 29 Aug 2025 14:08:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E4DB7600B0;
+	Fri, 29 Aug 2025 14:09:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C8C1C4CEF0;
+	Fri, 29 Aug 2025 14:09:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756476512;
-	bh=IGa1wXzUuxm/JAmmEyNFjDan3E+nHzgxQoSepLQnSvw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cSE0djRPJp7LahSKQwnuDTlRlYq9yRdoPMFOkm9qsBWfipWQ1Y+0iIixD022dCf+s
-	 d+rNzzYB4tCzvZduh1mT5cplV03O41tZE+lsANB6a9cwbzctH1D7iLIXKt/E5TewDd
-	 h+zr5PlF9lg5lvD6yWd1mqCgmstTK6nDh8eg/nLNjCmPIhaKbjV2KcEIV5/L0MVsjO
-	 7H99hwQSnKQkbLB2Xz+yyMC/AOjyFaXUsn/dnH6wW9CYIrDEu7Wmu7gaxt58Whdm22
-	 dmQZG4HwP/6/7pSdLgi5d613nbT9kBp142d2/CJrHZjJluiYnmCph9DYODHmWWi2t5
-	 L1AviF6yOKgCg==
-Message-ID: <ad42068f-8528-4974-80cc-2f99cd628809@kernel.org>
-Date: Fri, 29 Aug 2025 16:08:27 +0200
+	s=k20201202; t=1756476567;
+	bh=zUyyHtz3yNl9hgWSh+d6EmM+LNMHHRIqJg6Arj2Vbls=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=Jll9oeLF7L20DVNhJV9Ql2FmqOjXsaD/BAdEVTCz7v92XHdfz3JAjOavrPEVbJ4hM
+	 xduV4aDpKmUZFuT43nE+dRk51Z8mPKJGecSg/bQw9C7xpYvl54ganV8VlVrbw+GG6/
+	 eOHjf4Xd6GOsr/k80qQguU4+cQ+b4BHm8g4nH6wiwBZJbbzmTVu1VIWu0eSKjdVIUW
+	 WJlxuXt7OHlDWf0f+SaOEc1cSzzx70r2cnD0P7bDrBgJreUa5IvlTo116YfXeF0fWY
+	 MSUBXVhj3DMujWW+y8Aqg+a+TbUlz2JM0lrmi4UQr+FhVaEzziJEk+eOOfpKACKaJl
+	 FEkWI9OjVmcpQ==
+Message-ID: <df779830-ff74-4cb6-be8a-796149aa0fec@kernel.org>
+Date: Fri, 29 Aug 2025 16:09:23 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH] watchdog: s3c2410: Add FSD support
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Varada Pavani <v.pavani@samsung.com>, alim.akhtar@samsung.com,
  wim@linux-watchdog.org, linux@roeck-us.net
 Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
@@ -54,7 +55,7 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
  gost.dev@samsung.com, aswani.reddy@samsung.com
 References: <CGME20250829140010epcas5p1bc06faf0001ab2695f0199db65fe678d@epcas5p1.samsung.com>
  <20250829140003.109588-1-v.pavani@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <ad42068f-8528-4974-80cc-2f99cd628809@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -99,13 +100,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250829140003.109588-1-v.pavani@samsung.com>
+In-Reply-To: <ad42068f-8528-4974-80cc-2f99cd628809@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_070832_958083_4F2AF99B 
-X-CRM114-Status: UNSURE (   9.24  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,23 +117,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/08/2025 16:00, Varada Pavani wrote:
-> +
->  static const struct of_device_id s3c2410_wdt_match[] = {
->  	{ .compatible = "google,gs101-wdt",
->  	  .data = &drv_data_gs101_cl0 },
-> @@ -352,6 +380,8 @@ static const struct of_device_id s3c2410_wdt_match[] = {
->  	  .data = &drv_data_exynosautov9_cl0 },
->  	{ .compatible = "samsung,exynosautov920-wdt",
->  	  .data = &drv_data_exynosautov920_cl0 },
-> +	{ .compatible = "tesla,fsd-wdt",
+On 29/08/2025 16:08, Krzysztof Kozlowski wrote:
+> On 29/08/2025 16:00, Varada Pavani wrote:
+>> +
+>>  static const struct of_device_id s3c2410_wdt_match[] = {
+>>  	{ .compatible = "google,gs101-wdt",
+>>  	  .data = &drv_data_gs101_cl0 },
+>> @@ -352,6 +380,8 @@ static const struct of_device_id s3c2410_wdt_match[] = {
+>>  	  .data = &drv_data_exynosautov9_cl0 },
+>>  	{ .compatible = "samsung,exynosautov920-wdt",
+>>  	  .data = &drv_data_exynosautov920_cl0 },
+>> +	{ .compatible = "tesla,fsd-wdt",
+> 
+> Please run scripts/checkpatch.pl on the patches and fix reported
+> warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
+> patches and (probably) fix more warnings. Some warnings can be ignored,
+> especially from --strict run, but the code here looks like it needs a
+> fix. Feel free to get in touch if the warning is not clear.
 
-Please run scripts/checkpatch.pl on the patches and fix reported
-warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
-patches and (probably) fix more warnings. Some warnings can be ignored,
-especially from --strict run, but the code here looks like it needs a
-fix. Feel free to get in touch if the warning is not clear.
-
+Sorry, that's wrong, I missed it is already documented.
 
 Best regards,
 Krzysztof
