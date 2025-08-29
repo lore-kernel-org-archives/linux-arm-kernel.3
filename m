@@ -4,79 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14A2FCA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 28 Aug 2025 23:59:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 330ADCA0FF6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 00:03:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pCexqDkoW83y7LpImpFx62Xw3cNxneYeXhAEgKffuKE=; b=IaR2H+1u7ygI25sLaLRp+huxDq
-	M/uXNY7z+uBUZ7lXpaRABKNjfRAojta4eTZbfPegGG7KPBNuMEN9UE1PRN3qipyi8FO+sA3GXswsT
-	N0wt2JayjKJ48ggX8F50+4pGaLTJMZ0QfgiEHN96MCgXeorIODUhM7/0WpPoTYRXSJgSATTKzpWs1
-	WhTkl7jC3b8UHw73KmK7CVTSOjYBBa5F+XYjymoeqDcOyp3V0AvUnycLc/HwcEuwbNVwIvHGww70C
-	EB3Sh/72dcGEYtd/AmKr6LRgSaDgM500f3kZ2TLaBJ89D+TDAPTO2Hlzw0CgntmY4zLZcGjXVsMBw
-	i+ZqREBA==;
+	bh=X7XEngcm4WsYh+UIX9sDBfh096Gw3Q1egIdOb3GwOMc=; b=I5YGigOsjmLopYLMYml5wP7FIj
+	tQoqY3YDPSh/WelJhILK3KBwursCtYKcttjlIRRcRGShOnSEedJW2zdwh1fhl1TE90XffQNfi9Xc6
+	Vf1h0TekqMx9stNLI0VmNY8LRpN1MkF4mhA/1hn2uBPZ+r6neLIzZkrQMNaACUYNIvIb78vVyVXKD
+	bs4B8JTUhecCCYVjOURZ3Wk9vfn+5auPzQR2a7l4+mQqdvP26Tmn1vApHKsl034gto3DQ8IfMl1+H
+	tdJV54iqKVSgu2rUxXeLXAT38pUJYtZ2hBJRfpPZc0o/qbj4f0+ywctTCy2zyGX8T66JVzxpIf3tR
+	zI0az/mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urmWa-00000003kh0-214r;
-	Thu, 28 Aug 2025 23:59:24 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urmTq-00000003k3t-0XJC;
-	Thu, 28 Aug 2025 23:56:35 +0000
-Received: from [100.65.128.219] (unknown [20.236.11.69])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 6157F2110814;
-	Thu, 28 Aug 2025 16:56:31 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 6157F2110814
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1756425392;
-	bh=pCexqDkoW83y7LpImpFx62Xw3cNxneYeXhAEgKffuKE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=FCmBOZwwR8w+zLgYvdYsQndKdjVa/Zic9g+xriRNGxIyvlCW/6jpNTSZnJfm6AeYV
-	 w2ojPM1lFjNBJBy+LYvZF2V3PzDSbQwMQWAu7ekzKLIlFXUd3JJs7xNFRWV7yBhSjO
-	 k2ChjjpZ1AKeJCgw2XX5B7Ss1Fvkq4e5nLRu23ks=
-Message-ID: <0b4eb0cc-657f-4cdb-8255-e3b8f6b14077@linux.microsoft.com>
-Date: Thu, 28 Aug 2025 16:56:20 -0700
+	id 1urma7-00000003mBv-08VS;
+	Fri, 29 Aug 2025 00:03:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urmXP-00000003lBb-2kgc
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 29 Aug 2025 00:00:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C55966013D;
+	Fri, 29 Aug 2025 00:00:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B1BDC4CEEB;
+	Fri, 29 Aug 2025 00:00:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756425614;
+	bh=EZzCIKy2lXRxIz8FZaNB0OLBRJoxff+kx2U+S4qIdmA=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=aIW41zWEoKT/siuAPM8ufcYo6WlT/agjyfb8P83/trEt+RZwPidbMkL91TG0Veu3p
+	 MdtCxCoR+f+6iasNAqxbgllbK+Twhn+jrFri/f5g5jEVT1Kaw6sbRK5fcO9WkmAF9y
+	 txY4YAyo7ND8NFCxFhoLe6zzsn53taqmOJvFKwzNGbjGXpRdz0p/ghFJK5XaVWQasL
+	 ItH0U3zl6N1FKe9lrym3jPEsCJzQQI1NACSxzuqAanND0sANqBJnowNGliALwn3ZGw
+	 bGE9NRrm6nT0KyZ55hH271Ld7PIsM8gJBcMzqn3VHgQTMgjbaK7As7REXL7uKmsySL
+	 q7ZCCLvjLNmbQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADC4F383BF75;
+	Fri, 29 Aug 2025 00:00:22 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/7] Drivers: hv: Handle NEED_RESCHED_LAZY before
- transferring to guest
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
- Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Paolo Bonzini <pbonzini@redhat.com>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "K. Y. Srinivasan" <kys@microsoft.com>,
- Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
- Dexuan Cui <decui@microsoft.com>, Peter Zijlstra <peterz@infradead.org>,
- Andy Lutomirski <luto@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>,
- Frederic Weisbecker <frederic@kernel.org>,
- Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
- Joel Fernandes <joelagnelf@nvidia.com>, Josh Triplett
- <josh@joshtriplett.org>, Boqun Feng <boqun.feng@gmail.com>,
- Uladzislau Rezki <urezki@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-hyperv@vger.kernel.org, rcu@vger.kernel.org,
- Mukesh R <mrathor@linux.microsoft.com>
-References: <20250828000156.23389-1-seanjc@google.com>
- <20250828000156.23389-2-seanjc@google.com>
-Content-Language: en-US
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-In-Reply-To: <20250828000156.23389-2-seanjc@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_165634_226782_853EAD5E 
-X-CRM114-Status: GOOD (  17.09  )
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next] net: stmmac: mdio: use netdev_priv() directly
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <175642562124.1653564.9988378849956987814.git-patchwork-notify@kernel.org>
+Date: Fri, 29 Aug 2025 00:00:21 +0000
+References: <E1urBj2-000000002as-0pod@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1urBj2-000000002as-0pod@rmk-PC.armlinux.org.uk>
+To: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com,
+ netdev@vger.kernel.org, pabeni@redhat.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,75 +74,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/27/2025 5:01 PM, Sean Christopherson wrote:
-> Check for NEED_RESCHED_LAZY, not just NEED_RESCHED, prior to transferring
-> control to a guest.  Failure to check for lazy resched can unnecessarily
-> delay rescheduling until the next tick when using a lazy preemption model.
-> 
-> Note, ideally both the checking and processing of TIF bits would be handled
-> in common code, to avoid having to keep three separate paths synchronized,
-> but defer such cleanups to the future to keep the fix as standalone as
-> possible.
-> 
-> Cc: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-> Cc: Mukesh R <mrathor@linux.microsoft.com>
-> Fixes: 621191d709b1 ("Drivers: hv: Introduce mshv_root module to expose /dev/mshv to VMMs")
-> Fixes: 64503b4f4468 ("Drivers: hv: Introduce mshv_vtl driver")
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  drivers/hv/mshv_common.c    | 2 +-
->  drivers/hv/mshv_root_main.c | 3 ++-
->  drivers/hv/mshv_vtl_main.c  | 3 ++-
->  3 files changed, 5 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/hv/mshv_common.c b/drivers/hv/mshv_common.c
-> index 6f227a8a5af7..eb3df3e296bb 100644
-> --- a/drivers/hv/mshv_common.c
-> +++ b/drivers/hv/mshv_common.c
-> @@ -151,7 +151,7 @@ int mshv_do_pre_guest_mode_work(ulong th_flags)
->  	if (th_flags & (_TIF_SIGPENDING | _TIF_NOTIFY_SIGNAL))
->  		return -EINTR;
->  
-> -	if (th_flags & _TIF_NEED_RESCHED)
-> +	if (th_flags & (_TIF_NEED_RESCHED | _TIF_NEED_RESCHED_LAZY))
->  		schedule();
->  
->  	if (th_flags & _TIF_NOTIFY_RESUME)
-> diff --git a/drivers/hv/mshv_root_main.c b/drivers/hv/mshv_root_main.c
-> index 932932cb91ea..0d849f09160a 100644
-> --- a/drivers/hv/mshv_root_main.c
-> +++ b/drivers/hv/mshv_root_main.c
-> @@ -484,7 +484,8 @@ mshv_vp_wait_for_hv_kick(struct mshv_vp *vp)
->  static int mshv_pre_guest_mode_work(struct mshv_vp *vp)
->  {
->  	const ulong work_flags = _TIF_NOTIFY_SIGNAL | _TIF_SIGPENDING |
-> -				 _TIF_NEED_RESCHED  | _TIF_NOTIFY_RESUME;
-> +				 _TIF_NEED_RESCHED  | _TIF_NEED_RESCHED_LAZY |
-> +				 _TIF_NOTIFY_RESUME;
->  	ulong th_flags;
->  
->  	th_flags = read_thread_flags();
-> diff --git a/drivers/hv/mshv_vtl_main.c b/drivers/hv/mshv_vtl_main.c
-> index dc6594ae03ad..12f5e77b7095 100644
-> --- a/drivers/hv/mshv_vtl_main.c
-> +++ b/drivers/hv/mshv_vtl_main.c
-> @@ -728,7 +728,8 @@ static int mshv_vtl_ioctl_return_to_lower_vtl(void)
->  	preempt_disable();
->  	for (;;) {
->  		const unsigned long VTL0_WORK = _TIF_SIGPENDING | _TIF_NEED_RESCHED |
-> -						_TIF_NOTIFY_RESUME | _TIF_NOTIFY_SIGNAL;
-> +						_TIF_NOTIFY_RESUME | _TIF_NOTIFY_SIGNAL |
-> +						_TIF_NEED_RESCHED_LAZY;
->  		unsigned long ti_work;
->  		u32 cancel;
->  		unsigned long irq_flags;
+Hello:
 
-Tested by compiling with CONFIG_PREEMPT_LAZY=y and booting a guest. For
-the test I added a check to confirm _TIF_NEED_RESCHED_LAZY was set and
-honored.
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Looks good, thanks.
+On Wed, 27 Aug 2025 09:41:48 +0100 you wrote:
+> netdev_priv() is an inline function, taking a struct net_device
+> pointer. When passing in the MII bus->priv, which is a void pointer,
+> there is no need to go via a local ndev variable to type it first.
+> 
+> Thus, instead of:
+> 
+> 	struct net_device *ndev = bus->priv;
+> 	struct stmmac_priv *priv;
+> ...
+> 	priv = netdev_priv(ndev);
+> 
+> [...]
 
-Tested-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-Reviewed-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+Here is the summary with links:
+  - [net-next] net: stmmac: mdio: use netdev_priv() directly
+    https://git.kernel.org/netdev/net-next/c/bafdd920a060
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
