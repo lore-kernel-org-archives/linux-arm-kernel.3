@@ -4,74 +4,219 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E953CA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 17:24:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4821CA0FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 17:24:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SvAg02BLLMWPclrL9YQQjZaQ4ajjzVoNfrpA7jYlrc8=; b=VtZQb0oxtxh9GpWlQxXmKOFTOe
-	jQaz91NVApI1KVFqGBr5qRNye0Hw7SKmC+uu3lm+Y0TjxEAal57qcKrMfde76+6rWdgP9Q/Fu1afj
-	tY3kjVsHX0fUhr3ThWkIJ9GGSbDGjtvFyNH1K6uJXPyZ4WuKZDZzOvTlbzNJYpKzGPLuMRfdIe/ak
-	cJN8DjRWlhaw2oL9LTyAZLvhIEo6ol1tR/DjCfLUuDdL75C6Zs+QI06SFRXM5F4Rss5jKoB6ueTlQ
-	6g1NhFCae3hYn9wb/9b+ihA7Yd0wEZNo8SFO2vUELh4E04vG6YnBO1TMtd8wuF9suk5M/hcITxa28
-	oQ5txTCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pwh5I607Wmtm5xnJkouUwSqIJNZb1Z0CvioeJScwY1M=; b=BGFNrkWbb59RzZ5A+dQp9H7ILX
+	/HABJZy7Me/v0g4LwG8ALUJOajQM+E/j7yVsUElDbJggC8pgEVpX0UJ89yo8HgeOrVyk3EX1DU9b/
+	LazOGkVw4xjwnT7LEr1+65yx0IeF4qjkAjDvHAws3rwWgMxaQCgJ2x/uiMflk+ZBvXEBLn7aZYZxM
+	vJUi+7wm2be0NqDiWFnBugn0nvCLyvY8UOXi6Um7jxcomi/sBqVQOuQvgyHe0bNnbNpmVzJj4S2Oc
+	Lcwx6zCCleNnaG1Z/eGk8ZyuQaC5gBx/fPeDj0DS9c/3ZRc9SifNktTOf6Vs75m8vPllCcvxeonvt
+	ETvcQ53Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us2pZ-00000006W9v-10i9;
-	Fri, 29 Aug 2025 17:24:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uryPm-00000005gzH-2hv1
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 12:41:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 262F019F0;
-	Fri, 29 Aug 2025 05:41:01 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 435A73F694;
-	Fri, 29 Aug 2025 05:41:04 -0700 (PDT)
-Message-ID: <a23294ed-e5af-4ed3-89d5-aee9f5844bf2@arm.com>
-Date: Fri, 29 Aug 2025 13:41:02 +0100
+	id 1us2pc-00000006WBT-29wm;
+	Fri, 29 Aug 2025 17:24:08 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uryaT-00000005iLw-0Hjl;
+	Fri, 29 Aug 2025 12:52:14 +0000
+Received: from pps.filterd (m0246627.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57TAYiuD026792;
+	Fri, 29 Aug 2025 12:51:50 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=corp-2025-04-25; bh=pwh5I607Wmtm5xnJko
+	uUwSqIJNZb1Z0CvioeJScwY1M=; b=sf1ejbJ7DMh9G9ZhHtWa7J5Oeooj4LqnTc
+	9vcMSinJaL0jm0hm6YYZvto6jbD/jC+ciPndpH5Qw06NXzdHennwASvnt1GCxnHY
+	enPrOyJ3fU7MJdljs/25jLD4ald7TM0XfF4i/WqI8sYatLvq8iKbdBXMOhQOK7ia
+	HStlffp36zGaxq4vqLsZXUx5uwlTcv2dZKVh6Q2tPxqw6Je4A6lP/lHSTtnZn69h
+	wQ4T9SIqJXwFtRMdZyBtRmCx9hv7IwyQr8R4lQ9hL6kjeeN0Ul7r70EinuvTd4dZ
+	m97xrE4h6hxkkQqpKt33CQhlRdQVU3j0cK3zahnEBOccVmHD9s8Q==
+Received: from phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta03.appoci.oracle.com [138.1.37.129])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 48q48eth0f-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 29 Aug 2025 12:51:49 +0000 (GMT)
+Received: from pps.filterd (phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 57TB0KOn005562;
+	Fri, 29 Aug 2025 12:51:49 GMT
+Received: from nam12-bn8-obe.outbound.protection.outlook.com (mail-bn8nam12on2078.outbound.protection.outlook.com [40.107.237.78])
+	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 48q43d7ahq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 29 Aug 2025 12:51:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wD05ZmvqguZ+h2mBa6ko8S/1Dd5QDOVYpE+Qdj3dSgyHFObg4HL6VxRYBP3/zuhgW0ctF8cck7YpADmqNEcgMT6VfgKI3EGWYuu8Ih+3T8g9YLKn2oCP5EgKwl5/dLjmxiHXlDayWvK2jrHhjJar1fN+y4TNTSzN/OIQT+Xpld30r7CfYzqkrvrNrjgGFrPfsED56KxhVCSFtI00xFpmZaQN6wxSh4rx2N6QM0qANXLkriyptaKq022J4uoxmbj/gaUMik+rpu9+JzUVFCxM8khQMrHFy6vOTkKXubGf1m+bgsMlGQw74SbQdUXSogUwKpxyuqJp7/wk+7L0jN//Rw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pwh5I607Wmtm5xnJkouUwSqIJNZb1Z0CvioeJScwY1M=;
+ b=rEGxYXd2RnNgtswErVqufHBR7IMtzFpOLeUkTEFUIXPyIonrhqsZ/CoJTROyldVwYifS3UQ7QSn04xRzbv8CkbXjvCWqm2pXdog5h/9gZg18frWN4r9TiZXoGq4djgZHlK3itRdP7bRaGe985azXzlZ2SlV6hjCECZJxPrN1Fo2KyRNk9bFnGFv/Qs/LYen53kiK8x8lmJarsVj2PrZrBF5ta9Dwpt6/irBpxUFLnsZVgWifmT7d5siokJ38j+MCi7u1qq9UAZfr3pNIApajJ6JxbRpA0/7tRn48drLVQmNfXdjcVJXCRgfLqQx2e8hrKEVDA8FOXAo8hcjGH+K9GQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pwh5I607Wmtm5xnJkouUwSqIJNZb1Z0CvioeJScwY1M=;
+ b=ZJs0XvGCekcrTiYe/CMhTjM10P8arnK8M9Jwhyddel8Hd9RAWKR943K+Ns3hkx17uOmuzDDw6w5VzqiWuuCv8OGUROZI8OhPFZCCArgEzjDl/nklxS8OGtsyRRDvJWUPTug+aFEQ3uyLXy5iYO5nfcQmAbtzo2MgB1UVEscHGWY=
+Received: from DM4PR10MB8218.namprd10.prod.outlook.com (2603:10b6:8:1cc::16)
+ by CH3PR10MB7905.namprd10.prod.outlook.com (2603:10b6:610:1be::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.15; Fri, 29 Aug
+ 2025 12:51:44 +0000
+Received: from DM4PR10MB8218.namprd10.prod.outlook.com
+ ([fe80::2650:55cf:2816:5f2]) by DM4PR10MB8218.namprd10.prod.outlook.com
+ ([fe80::2650:55cf:2816:5f2%5]) with mapi id 15.20.9052.019; Fri, 29 Aug 2025
+ 12:51:43 +0000
+Date: Fri, 29 Aug 2025 13:51:41 +0100
+From: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+To: David Hildenbrand <david@redhat.com>
+Cc: linux-kernel@vger.kernel.org,
+        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+        Alexander Potapenko <glider@google.com>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Brendan Jackman <jackmanb@google.com>,
+        Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>,
+        Dmitry Vyukov <dvyukov@google.com>, dri-devel@lists.freedesktop.org,
+        intel-gfx@lists.freedesktop.org, iommu@lists.linux.dev,
+        io-uring@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
+        Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+        John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com,
+        kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+        Linus Torvalds <torvalds@linux-foundation.org>,
+        linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
+        linux-crypto@vger.kernel.org, linux-ide@vger.kernel.org,
+        linux-kselftest@vger.kernel.org, linux-mips@vger.kernel.org,
+        linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+        linux-scsi@vger.kernel.org, Marco Elver <elver@google.com>,
+        Marek Szyprowski <m.szyprowski@samsung.com>,
+        Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
+        Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
+        Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
+        Robin Murphy <robin.murphy@arm.com>,
+        Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
+        virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
+        wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
+Subject: Re: [PATCH v1 20/36] mips: mm: convert __flush_dcache_pages() to
+ __flush_dcache_folio_pages()
+Message-ID: <549a60a6-25e2-48d5-b442-49404a857014@lucifer.local>
+References: <20250827220141.262669-1-david@redhat.com>
+ <20250827220141.262669-21-david@redhat.com>
+ <ea74f0e3-bacf-449a-b7ad-213c74599df1@lucifer.local>
+ <2be7db96-2fa2-4348-837e-648124bd604f@redhat.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2be7db96-2fa2-4348-837e-648124bd604f@redhat.com>
+X-ClientProxiedBy: LO2P265CA0435.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:e::15) To DM4PR10MB8218.namprd10.prod.outlook.com
+ (2603:10b6:8:1cc::16)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 12/33] arm_mpam: Add the class and component structures
- for ris firmware described
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
- devicetree@vger.kernel.org
-Cc: shameerali.kolothum.thodi@huawei.com,
- D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
- Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
- baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
- Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>
-References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-47-james.morse@arm.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20250822153048.2287-47-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM4PR10MB8218:EE_|CH3PR10MB7905:EE_
+X-MS-Office365-Filtering-Correlation-Id: 58307290-420d-4b4e-1467-08dde6face80
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xeaI7LyZbZcoxcRAdnCynOv1Mit3iq0g8yJQqBpLAenCQ06JHAcEy0aXIGnH?=
+ =?us-ascii?Q?mxX4af0KFgrqFqzXCrc0FlHk+Jjbn0aIsQiougPgnRpxYdPdnDQCusFr2rOk?=
+ =?us-ascii?Q?9Nbns1Ldj3UZWblNT5OSvSXwIIdlnS0mEn/rhbhJR235Sixgx543NMTLA6qW?=
+ =?us-ascii?Q?2ODjly394EnXRpuqxaSQaklDsght/n0BrOVlYpkHjHGQ6pl7+xCiDZYbpG3V?=
+ =?us-ascii?Q?5yGmEWNX8yiZ7wDPKm/Jf9CR0afRl2awZgFaNLJeg0dlk2ec1dKILaTLNMom?=
+ =?us-ascii?Q?rBFh6edZshX0TjJjmEZ4vEPMbexJa2NjCc8qYrwCdfFTz9h6FWE4IJX2INLg?=
+ =?us-ascii?Q?U3qAyzzt+7U4OYebmk7onamGscqytXdgvtwaosffqIr+Ql0X1gPqmSlb6PN4?=
+ =?us-ascii?Q?RCA9fwi044PGrExlodEiWnHQFJ3EjPQGzMG80p2JdtA+Z2UZ4GTAYsQ35B3K?=
+ =?us-ascii?Q?haSbMGHFTYLOQF+VPYM3kXhexbgMYWZBwL6ZYh8IsS6hJWFJ0OleIE0IRNnC?=
+ =?us-ascii?Q?YWULf9EuCV765lePd1RnjHBVgf8zGGQpNSx/NidyLEKXS/WYoAknFlFPE22b?=
+ =?us-ascii?Q?vzyxJz2DPCoiEi23ScR7T21zUsKs6x850aT2b9p9GywdnVsUTuK+kvnlwnG7?=
+ =?us-ascii?Q?jskfVcUQNBOFy7PDCeq/FdcGuDo/WFvxJ4QzrlAtCS4EBwECW6ffKSvvrjvy?=
+ =?us-ascii?Q?Nq4/TI7N21oeJqegoPlajj/8S4zyoCIK+9eNXNEpYy3m3SIxJ1o88fWCV6cl?=
+ =?us-ascii?Q?L3yRdT53yGW5t7q8xPCFYV7RK+bpevrY9ZD3EtoRRJ7H599E/TKCJ4Y/VkXy?=
+ =?us-ascii?Q?vMoGoXdxYEgIDJCyqPmzzz6wZff8Y6ow2t/m8DVdM8oUQ5fHxeAPs0UD0YPS?=
+ =?us-ascii?Q?Oivb7KZEnukNM+2eseWT7gngis9a/X7xldPnxeGR10AQUQ1y3iRErE3Vbkme?=
+ =?us-ascii?Q?lTSvX1ggXgvoCgQU2VSY9HAaTg9Xkzh5ZY9QCL3zz4q1WZ0h4e/jQHakbypT?=
+ =?us-ascii?Q?2gazOlGQjbdDkgLjsxi4mwlrmfDk0lwq8szEG2PitY0x9Kwervzj5u6GfxxQ?=
+ =?us-ascii?Q?0f8/tN914OOb7ZDJmJIjhViUMDBtCYq9lwKaM3oZ274ya0Sa67Q5TRtzfyUc?=
+ =?us-ascii?Q?JD5WlYe0o420WBZhv782JKi0cIQr60N6Cw7BwSy6IOk7akiBHb9RPkres/Dz?=
+ =?us-ascii?Q?/N9TJfyXGFPRJh49IAT2Sg3p/dijUUG/x0++S0rAFnEppAGeIv9uLJ1fSyB9?=
+ =?us-ascii?Q?0RPlixa43aNQXgJkT04VLEQsbkbmNBvwQJuAS6b5RhqF2CSboV3jKvNRn5El?=
+ =?us-ascii?Q?qKpLh3aI/qnjy6KkMTX5waiDZNpEf6DE+7Fihq+neWnIOouynlnLFy3qmrVT?=
+ =?us-ascii?Q?vwKh4Y+ESr2pIRfAhorjDfxEguO418xm81DZrOgjJVYDJL8Pqq29q5stTCke?=
+ =?us-ascii?Q?lT49yQjgjaU=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR10MB8218.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?634ckdqopkQE+clIzzPwn1GUuN03xNX6tSMotBhEXMKR9OwT98f/Ru1jXE0Y?=
+ =?us-ascii?Q?sbNIWVkQuR0SpMN4s0u+ihh5tJBIaNC+mgIaLSeagt4G4j0Xe3hd1sP3tvgS?=
+ =?us-ascii?Q?fEziZW6xsYtq0Pu4rutCYexSlz/fg2jMDjgPtrCFGyqlAepxllJT6y4xC9SD?=
+ =?us-ascii?Q?ayOkwiGpqp1fTgesxIDLtTqvkSk9jEd7ie2hn8fUJoCMHg4ZastEecD9rWEF?=
+ =?us-ascii?Q?uF6Z+OAl6tI6MB3RceqXcCPFy1oSlZiXnSt2ahqFM6ftzyPiGyTR5A2i6Eg2?=
+ =?us-ascii?Q?8fo5mKIlYB79/UI1k6KFy8wxJucUpnV2t5WcB5+1gD79jLLgufcJdKjqdc0R?=
+ =?us-ascii?Q?SnAt95f7BOKdPBPl92PU0BEI2T/cpltF/xq02f49MlHHcmh3ThAOYCZUit/0?=
+ =?us-ascii?Q?BG2OeCCJUoBC026+KQ54NGybU36IlqdHfjoWlCtRbcf4VC9F/h7nrLDpuG1b?=
+ =?us-ascii?Q?t+DkiNhZ09cXw0FYU/DkWufMkT0/HYJNoe2JrzYA+ukUTAsWWsFVql3z9mc7?=
+ =?us-ascii?Q?TaPkk0mkEzN8CFgDmJCW/tGuAItX7/k6xuOO66SaE3tenSALRp2Q+etSEuUD?=
+ =?us-ascii?Q?Syh//5VYv0GmbiIXOnwJJ8dSMLU0euXXSL8ixHIHpLh/H6wPPFlf+4AH5IuS?=
+ =?us-ascii?Q?hPl3mHhIE7hUxfqfw9Iu+Wju+ZjYUXGMfa6fgvQwNIPM851FHoidW9707Mcu?=
+ =?us-ascii?Q?J89xGKWkVG5LCYixdudsTZbuTfvdJMgh5fxDzcKVFUbMA+SwjCWK1e7C9S50?=
+ =?us-ascii?Q?Ts718B6ivNu6SnP26VR2hmbx+dZYphiZsnQrtVP1NhtbO72488MHBmdk43X/?=
+ =?us-ascii?Q?bp67ffE/knEop9sGEtHntt5uPKxL8dTfvfw2UELK/NCMsuEnyXJuvrrBdKQU?=
+ =?us-ascii?Q?YfzDFv3zFJEnhjdUkKkuTEGTOoZh1225M3POJ2WbfTnTnAzwiygbUC5NtMAO?=
+ =?us-ascii?Q?2ie4kpaHOrdJMOD6klgG5A4aGOSfyDwW4nH7RwEyg4f5phJY/gMcWodHHdbe?=
+ =?us-ascii?Q?3JjMrlq3TtXe3zYm3Bl0adfBxWtsYLusl4Bm/pyACkRM0jYGYtr6VUawVG+y?=
+ =?us-ascii?Q?KmSgUg5ZZr6xhWEK+D6YasUZMLHvaPX9u8Nd7r7PBQUnwL1+Az3XCFbPTSBL?=
+ =?us-ascii?Q?vQPAfS6lOC/x+BmHH6Jk7ZO8s5Hb9Y2AgJ0CvrLj1hWyHS09AsWJb0HE4nmI?=
+ =?us-ascii?Q?mGVhL6i92GhNRQQ4oIFM1hUFoHkfv4zaknyeMoVd68zovK/aLJvVxhdae/A5?=
+ =?us-ascii?Q?5faxzHPvUjlCZVx68Ssmuu5VKhChUBHu9pHtTzHjCoXjKqlFfSVmX+B+7I3q?=
+ =?us-ascii?Q?mNGyFuDmXQb5Oy65KVyxFn4Msg+Ks/DhlnPt0kjmu1UIFNzQ4kAPpRW5RKeh?=
+ =?us-ascii?Q?pbDVeK0AhgZ8Ekq7mgS/GShiToJGXzDrPtr8y9fbxOv4TfTsiMK5zc5+0vg8?=
+ =?us-ascii?Q?yBy+eqIv0UGg2wgtsHn9iV8OoOoDMZ9pZ5t8F1mXNvoLdN2WdevB3cnQxGbi?=
+ =?us-ascii?Q?3Ej8dEA2wmG/SAGLYkT2LDWNifb4XoC5/21/7puW7TYoLDcPfWJUOhYNjuP+?=
+ =?us-ascii?Q?lCcdpRiljfLZb81LHoWxXhZE3GqCa02aO/YnW9AozWbp4bJ+scamrR9ykM2o?=
+ =?us-ascii?Q?Aw=3D=3D?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: c/ks1Qi4CX07e4+4yKPt2QvT/Gl0yVzmwaxlYsRimt1rz3DASGvafPvLQCcIjL4z5ifSaY78aDsolAYTYFV18MrXrI6nbwqrWS1uyAoLKDqr0lqLYlSYAbkxspA6aP2I17mNPj8ER38eYhpRoC17uyazWvEBAtKqkngDeh4w1VyiRnvgs7pcD4jeXveSj9oKe1PaU5XFrRGHS1ZBN+3K9lZkTwBWuDWfUmJuKZq+hhWc1TqoafbGs5E1oSJ+KYXVQHEofp8S+TyPAN/8rdhhs97veWro8E5HrV0JqZuCGVdQ2KC8WRj7TNt4POHKgi+7hryKprHNKQVR7ZCtQ4sm7gwW3sxDNrp7oRQxO01QqDyoCXtE/mSopPzS9iV3esRythN1t0icJXZjcIqhXq/zKXv2qXO5SZxV4F6D/6MQHLBg8kbtTrWNfJxMAsEs2bNsx9/ApoV+Nf4BhB/vweuHeClnruJH8zcreRU/YlQCjV9Ucg1yKNm6m3A74WH5UYlE4cweUI46OJ3AoduXUv8TjMf08p02PuVYikc/OjHKXR0JFVVHbW0WuxR1WHzlzITCtQsYYivI3JiidMmGG9quK5DkKyBfpcmSq40ITWnvYak=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 58307290-420d-4b4e-1467-08dde6face80
+X-MS-Exchange-CrossTenant-AuthSource: DM4PR10MB8218.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Aug 2025 12:51:43.7968
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kzy7lqwubj8TkOkVvgrah2jeZSs6ow3pPNNg+vaCCM/zlbeuHqtZgkGcH0FY1xSIwhwxPj7Ikh1HzhVw0VH8oX+fFSqtwihUr8ge0iAhY+k=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR10MB7905
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-29_04,2025-08-28_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 phishscore=0 bulkscore=0
+ mlxlogscore=834 spamscore=0 suspectscore=0 malwarescore=0 mlxscore=0
+ adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2508110000 definitions=main-2508290107
+X-Proofpoint-GUID: j4pmZCMJvq-QMnwmX-e6gHT0_v0c6hkb
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDAxNCBTYWx0ZWRfXxE+ah7S+2KnY
+ X4Spn2G/FN4irPLpEPwcVLP6tRTujdYusfbvfvrkAqzitcBEZKwWrGpB6dKwDWy+pS3bDzb1ABa
+ r5n+3h4DlinzlvP1uaJQXk9w07vZQZe+H/aOGrUIbqUVMANUCuJ85aLOHztl7AoRQclaHpA+AGy
+ QfApngsD5RX+1ptspNHwm1gnUMEtsDHLZ0nI4V30aiDqwh25KYI/LPzrVQ3A9RdTbVAyTjJKGEh
+ plxJxt8ymmTQAScQL+ZVU2Y3Xzng54Ly8Od7Iw7u3RuxvmuK3Cvb1x22bxhUXtOSy93EELMuzAH
+ rotyfZ8AE68sBmt8jtnZl3HzxfoHbD2Yw3k3E4DFr/ncdIoxpkztZ7rhmYvVj8p/itoHvSkkV7s
+ BIwDn3br
+X-Authority-Analysis: v=2.4 cv=FtgF/3rq c=1 sm=1 tr=0 ts=68b1a265 b=1 cx=c_pps
+ a=WeWmnZmh0fydH62SvGsd2A==:117 a=WeWmnZmh0fydH62SvGsd2A==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
+ a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=2OwXVqhp2XgA:10 a=GoEa3M9JfhUA:10 a=20KFwNOVAAAA:8 a=08gvc_oQcYO4o9qCUcwA:9
+ a=CjuIK1q_8ugA:10
+X-Proofpoint-ORIG-GUID: j4pmZCMJvq-QMnwmX-e6gHT0_v0c6hkb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_054110_792071_BD4A92A9 
-X-CRM114-Status: GOOD (  46.57  )
+X-CRM114-CacheID: sfid-20250829_055213_113538_C08ECBD0 
+X-CRM114-Status: GOOD (  23.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,720 +231,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+On Thu, Aug 28, 2025 at 10:51:46PM +0200, David Hildenbrand wrote:
+> On 28.08.25 18:57, Lorenzo Stoakes wrote:
+> > On Thu, Aug 28, 2025 at 12:01:24AM +0200, David Hildenbrand wrote:
+> > > Let's make it clearer that we are operating within a single folio by
+> > > providing both the folio and the page.
+> > >
+> > > This implies that for flush_dcache_folio() we'll now avoid one more
+> > > page->folio lookup, and that we can safely drop the "nth_page" usage.
+> > >
+> > > Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+> > > Signed-off-by: David Hildenbrand <david@redhat.com>
+> > > ---
+> > >   arch/mips/include/asm/cacheflush.h | 11 +++++++----
+> > >   arch/mips/mm/cache.c               |  8 ++++----
+> > >   2 files changed, 11 insertions(+), 8 deletions(-)
+> > >
+> > > diff --git a/arch/mips/include/asm/cacheflush.h b/arch/mips/include/asm/cacheflush.h
+> > > index 5d283ef89d90d..8d79bfc687d21 100644
+> > > --- a/arch/mips/include/asm/cacheflush.h
+> > > +++ b/arch/mips/include/asm/cacheflush.h
+> > > @@ -50,13 +50,14 @@ extern void (*flush_cache_mm)(struct mm_struct *mm);
+> > >   extern void (*flush_cache_range)(struct vm_area_struct *vma,
+> > >   	unsigned long start, unsigned long end);
+> > >   extern void (*flush_cache_page)(struct vm_area_struct *vma, unsigned long page, unsigned long pfn);
+> > > -extern void __flush_dcache_pages(struct page *page, unsigned int nr);
+> > > +extern void __flush_dcache_folio_pages(struct folio *folio, struct page *page, unsigned int nr);
+> >
+> > NIT: Be good to drop the extern.
+>
+> I think I'll leave the one in, though, someone should clean up all of them
+> in one go.
 
-On 8/22/25 16:30, James Morse wrote:
-> An MSC is a container of resources, each identified by their RIS index.
-> Some RIS are described by firmware to provide their position in the system.
-> Others are discovered when the driver probes the hardware.
-> 
-> To configure a resource it needs to be found by its class, e.g. 'L2'.
-> There are two kinds of grouping, a class is a set of components, which
-> are visible to user-space as there are likely to be multiple instances
-> of the L2 cache. (e.g. one per cluster or package)
-> 
-> struct mpam_components are a set of struct mpam_vmsc. A vMSC groups the
-> RIS in an MSC that control the same logical piece of hardware. (e.g. L2).
-> This is to allow hardware implementations where two controls are presented
-> as different RIS. Re-combining these RIS allows their feature bits to
-> be or-ed. This structure is not visible outside mpam_devices.c
-> 
-> struct mpam_vmsc are then a set of struct mpam_msc_ris, which are not
-> visible as each L2 cache may be composed of individual slices which need
-> to be configured the same as the hardware is not able to distribute the
-> configuration.
-> 
-> Add support for creating and destroying these structures.
-> 
-> A gfp is passed as the structures may need creating when a new RIS entry
-> is discovered when probing the MSC.
-> 
-> CC: Ben Horgan <ben.horgan@arm.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> ---
-> Changes since RFC:
->  * removed a pr_err() debug message that crept in.
-> ---
->  drivers/resctrl/mpam_devices.c  | 488 +++++++++++++++++++++++++++++++-
->  drivers/resctrl/mpam_internal.h |  91 ++++++
->  include/linux/arm_mpam.h        |   8 +-
->  3 files changed, 574 insertions(+), 13 deletions(-)
-> 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index 71a1fb1a9c75..5baf2a8786fb 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -20,7 +20,6 @@
->  #include <linux/printk.h>
->  #include <linux/slab.h>
->  #include <linux/spinlock.h>
-> -#include <linux/srcu.h>
->  #include <linux/types.h>
->  
->  #include <acpi/pcc.h>
-> @@ -35,11 +34,483 @@
->  static DEFINE_MUTEX(mpam_list_lock);
->  static LIST_HEAD(mpam_all_msc);
->  
-> -static struct srcu_struct mpam_srcu;
-> +struct srcu_struct mpam_srcu;
->  
->  /* MPAM isn't available until all the MSC have been probed. */
->  static u32 mpam_num_msc;
->  
-> +/*
-> + * An MSC is a physical container for controls and monitors, each identified by
-> + * their RIS index. These share a base-address, interrupts and some MMIO
-> + * registers. A vMSC is a virtual container for RIS in an MSC that control or
-> + * monitor the same thing. Members of a vMSC are all RIS in the same MSC, but
-> + * not all RIS in an MSC share a vMSC.
-> + * Components are a group of vMSC that control or monitor the same thing but
-> + * are from different MSC, so have different base-address, interrupts etc.
-> + * Classes are the set components of the same type.
-> + *
-> + * The features of a vMSC is the union of the RIS it contains.
-> + * The features of a Class and Component are the common subset of the vMSC
-> + * they contain.
-> + *
-> + * e.g. The system cache may have bandwidth controls on multiple interfaces,
-> + * for regulating traffic from devices independently of traffic from CPUs.
-> + * If these are two RIS in one MSC, they will be treated as controlling
-> + * different things, and will not share a vMSC/component/class.
-> + *
-> + * e.g. The L2 may have one MSC and two RIS, one for cache-controls another
-> + * for bandwidth. These two RIS are members of the same vMSC.
-> + *
-> + * e.g. The set of RIS that make up the L2 are grouped as a component. These
-> + * are sometimes termed slices. They should be configured the same, as if there
-> + * were only one.
-> + *
-> + * e.g. The SoC probably has more than one L2, each attached to a distinct set
-> + * of CPUs. All the L2 components are grouped as a class.
-> + *
-> + * When creating an MSC, struct mpam_msc is added to the all mpam_all_msc list,
-> + * then linked via struct mpam_ris to a vmsc, component and class.
-> + * The same MSC may exist under different class->component->vmsc paths, but the
-> + * RIS index will be unique.
-> + */
-> +LIST_HEAD(mpam_classes);
-> +
-> +/* List of all objects that can be free()d after synchronise_srcu() */
-> +static LLIST_HEAD(mpam_garbage);
-> +
-> +#define init_garbage(x)	init_llist_node(&(x)->garbage.llist)
-> +
-> +static struct mpam_vmsc *
-> +mpam_vmsc_alloc(struct mpam_component *comp, struct mpam_msc *msc, gfp_t gfp)
-> +{
-> +	struct mpam_vmsc *vmsc;
-> +
-> +	lockdep_assert_held(&mpam_list_lock);
-> +
-> +	vmsc = kzalloc(sizeof(*vmsc), gfp);
-> +	if (!comp)
-> +		return ERR_PTR(-ENOMEM);
-> +	init_garbage(vmsc);
-> +
-> +	INIT_LIST_HEAD_RCU(&vmsc->ris);
-> +	INIT_LIST_HEAD_RCU(&vmsc->comp_list);
-> +	vmsc->comp = comp;
-> +	vmsc->msc = msc;
-> +
-> +	list_add_rcu(&vmsc->comp_list, &comp->vmsc);
-> +
-> +	return vmsc;
-> +}
-> +
-> +static struct mpam_vmsc *mpam_vmsc_get(struct mpam_component *comp,
-> +				       struct mpam_msc *msc, bool alloc,
-> +				       gfp_t gfp)
-> +{
-> +	struct mpam_vmsc *vmsc;
-> +
-> +	lockdep_assert_held(&mpam_list_lock);
-> +
-> +	list_for_each_entry(vmsc, &comp->vmsc, comp_list) {
-> +		if (vmsc->msc->id == msc->id)
-> +			return vmsc;
-> +	}
-> +
-> +	if (!alloc)
-> +		return ERR_PTR(-ENOENT);
-> +
-> +	return mpam_vmsc_alloc(comp, msc, gfp);
-> +}
-> +
-> +static struct mpam_component *
-> +mpam_component_alloc(struct mpam_class *class, int id, gfp_t gfp)
-> +{
-> +	struct mpam_component *comp;
-> +
-> +	lockdep_assert_held(&mpam_list_lock);
-> +
-> +	comp = kzalloc(sizeof(*comp), gfp);
-> +	if (!comp)
-> +		return ERR_PTR(-ENOMEM);
-> +	init_garbage(comp);
-> +
-> +	comp->comp_id = id;
-> +	INIT_LIST_HEAD_RCU(&comp->vmsc);
-> +	/* affinity is updated when ris are added */
-> +	INIT_LIST_HEAD_RCU(&comp->class_list);
-> +	comp->class = class;
-> +
-> +	list_add_rcu(&comp->class_list, &class->components);
-> +
-> +	return comp;
-> +}
-> +
-> +static struct mpam_component *
-> +mpam_component_get(struct mpam_class *class, int id, bool alloc, gfp_t gfp)
-> +{
-> +	struct mpam_component *comp;
-> +
-> +	lockdep_assert_held(&mpam_list_lock);
-> +
-> +	list_for_each_entry(comp, &class->components, class_list) {
-> +		if (comp->comp_id == id)
-> +			return comp;
-> +	}
-> +
-> +	if (!alloc)
-> +		return ERR_PTR(-ENOENT);
-> +
-> +	return mpam_component_alloc(class, id, gfp);
-> +}
-> +
-> +static struct mpam_class *
-> +mpam_class_alloc(u8 level_idx, enum mpam_class_types type, gfp_t gfp)
-> +{
-> +	struct mpam_class *class;
-> +
-> +	lockdep_assert_held(&mpam_list_lock);
-> +
-> +	class = kzalloc(sizeof(*class), gfp);
-> +	if (!class)
-> +		return ERR_PTR(-ENOMEM);
-> +	init_garbage(class);
-> +
-> +	INIT_LIST_HEAD_RCU(&class->components);
-> +	/* affinity is updated when ris are added */
-> +	class->level = level_idx;
-> +	class->type = type;
-> +	INIT_LIST_HEAD_RCU(&class->classes_list);
-> +
-> +	list_add_rcu(&class->classes_list, &mpam_classes);
-> +
-> +	return class;
-> +}
-> +
-> +static struct mpam_class *
-> +mpam_class_get(u8 level_idx, enum mpam_class_types type, bool alloc, gfp_t gfp)
-> +{
-> +	bool found = false;
-> +	struct mpam_class *class;
-> +
-> +	lockdep_assert_held(&mpam_list_lock);
-> +
-> +	list_for_each_entry(class, &mpam_classes, classes_list) {
-> +		if (class->type == type && class->level == level_idx) {
-> +			found = true;
-> +			break;
-> +		}
-> +	}
-> +
-> +	if (found)
-> +		return class;
-> +
-> +	if (!alloc)
-> +		return ERR_PTR(-ENOENT);
-> +
-> +	return mpam_class_alloc(level_idx, type, gfp);
-> +}
-> +
-> +#define add_to_garbage(x)				\
-> +do {							\
-> +	__typeof__(x) _x = x;				\
-> +	(_x)->garbage.to_free = (_x);			\
-> +	llist_add(&(_x)->garbage.llist, &mpam_garbage);	\
-> +} while (0)
-> +
-> +static void mpam_class_destroy(struct mpam_class *class)
-> +{
-> +	lockdep_assert_held(&mpam_list_lock);
-> +
-> +	list_del_rcu(&class->classes_list);
-> +	add_to_garbage(class);
-> +}
-> +
-> +static void mpam_comp_destroy(struct mpam_component *comp)
-> +{
-> +	struct mpam_class *class = comp->class;
-> +
-> +	lockdep_assert_held(&mpam_list_lock);
-> +
-> +	list_del_rcu(&comp->class_list);
-> +	add_to_garbage(comp);
-> +
-> +	if (list_empty(&class->components))
-> +		mpam_class_destroy(class);
-> +}
-> +
-> +static void mpam_vmsc_destroy(struct mpam_vmsc *vmsc)
-> +{
-> +	struct mpam_component *comp = vmsc->comp;
-> +
-> +	lockdep_assert_held(&mpam_list_lock);
-> +
-> +	list_del_rcu(&vmsc->comp_list);
-> +	add_to_garbage(vmsc);
-> +
-> +	if (list_empty(&comp->vmsc))
-> +		mpam_comp_destroy(comp);
-> +}
-> +
-> +static void mpam_ris_destroy(struct mpam_msc_ris *ris)
-> +{
-> +	struct mpam_vmsc *vmsc = ris->vmsc;
-> +	struct mpam_msc *msc = vmsc->msc;
-> +	struct platform_device *pdev = msc->pdev;
-> +	struct mpam_component *comp = vmsc->comp;
-> +	struct mpam_class *class = comp->class;
-> +
-> +	lockdep_assert_held(&mpam_list_lock);
-> +
-> +	cpumask_andnot(&comp->affinity, &comp->affinity, &ris->affinity);
-> +	cpumask_andnot(&class->affinity, &class->affinity, &ris->affinity);
-> +	clear_bit(ris->ris_idx, msc->ris_idxs);
-> +	list_del_rcu(&ris->vmsc_list);
-> +	list_del_rcu(&ris->msc_list);
-> +	add_to_garbage(ris);
-> +	ris->garbage.pdev = pdev;
-> +
-> +	if (list_empty(&vmsc->ris))
-> +		mpam_vmsc_destroy(vmsc);
-> +}
-> +
-> +/*
-> + * There are two ways of reaching a struct mpam_msc_ris. Via the
-> + * class->component->vmsc->ris, or via the msc.
-> + * When destroying the msc, the other side needs unlinking and cleaning up too.
-> + */
-> +static void mpam_msc_destroy(struct mpam_msc *msc)
-> +{
-> +	struct platform_device *pdev = msc->pdev;
-> +	struct mpam_msc_ris *ris, *tmp;
-> +
-> +	lockdep_assert_held(&mpam_list_lock);
-> +
-> +	list_del_rcu(&msc->glbl_list);
-> +	platform_set_drvdata(pdev, NULL);
-> +
-> +	list_for_each_entry_safe(ris, tmp, &msc->ris, msc_list)
-> +		mpam_ris_destroy(ris);
-> +
-> +	add_to_garbage(msc);
-> +	msc->garbage.pdev = pdev;
-> +}
-> +
-> +static void mpam_free_garbage(void)
-> +{
-> +	struct mpam_garbage *iter, *tmp;
-> +	struct llist_node *to_free = llist_del_all(&mpam_garbage);
-> +
-> +	if (!to_free)
-> +		return;
-> +
-> +	synchronize_srcu(&mpam_srcu);
-> +
-> +	llist_for_each_entry_safe(iter, tmp, to_free, llist) {
-> +		if (iter->pdev)
-> +			devm_kfree(&iter->pdev->dev, iter->to_free);
-> +		else
-> +			kfree(iter->to_free);
-> +	}
-> +}
-> +
-> +/* Called recursively to walk the list of caches from a particular CPU */
-> +static void __mpam_get_cpumask_from_cache_id(int cpu, struct device_node *cache_node,
-> +					     unsigned long cache_id,
-> +					     u32 cache_level,
-> +					     cpumask_t *affinity)
-> +{
-> +	int err;
-> +	u32 iter_level;
-> +	unsigned long iter_cache_id;
-> +	struct device_node *iter_node __free(device_node) = of_find_next_cache_node(cache_node);
-> +
-> +	if (!iter_node)
-> +		return;
-> +
-> +	err = of_property_read_u32(iter_node, "cache-level", &iter_level);
-> +	if (err)
-> +		return;
-> +
-> +	/*
-> +	 * get_cpu_cacheinfo_id() isn't ready until sometime
-> +	 * during device_initcall(). Use cache_of_calculate_id().
-> +	 */
-> +	iter_cache_id = cache_of_calculate_id(iter_node);
-> +	if (cache_id == ~0UL)
-> +		return;
-> +
-> +	if (iter_level == cache_level && iter_cache_id == cache_id)
-> +		cpumask_set_cpu(cpu, affinity);
-> +
-> +	__mpam_get_cpumask_from_cache_id(cpu, iter_node, cache_id, cache_level,
-> +					 affinity);
-> +}
-> +
-> +/*
-> + * The cacheinfo structures are only populated when CPUs are online.
-> + * This helper walks the device tree to include offline CPUs too.
-> + */
-> +int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
-> +				   cpumask_t *affinity)
-> +{
-> +	int cpu;
-> +
-> +	if (!acpi_disabled)
-> +		return acpi_pptt_get_cpumask_from_cache_id(cache_id, affinity);
-> +
-> +	for_each_possible_cpu(cpu) {
-> +		struct device_node *cpu_node __free(device_node) = of_get_cpu_node(cpu, NULL);
-> +		if (!cpu_node) {
-> +			pr_err("Failed to find cpu%d device node\n", cpu);
-> +			return -ENOENT;
-> +		}
-> +
-> +		__mpam_get_cpumask_from_cache_id(cpu, cpu_node, cache_id,
-> +						 cache_level, affinity);
-> +			continue;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +/*
-> + * cpumask_of_node() only knows about online CPUs. This can't tell us whether
-> + * a class is represented on all possible CPUs.
-> + */
-> +static void get_cpumask_from_node_id(u32 node_id, cpumask_t *affinity)
-> +{
-> +	int cpu;
-> +
-> +	for_each_possible_cpu(cpu) {
-> +		if (node_id == cpu_to_node(cpu))
-> +			cpumask_set_cpu(cpu, affinity);
-> +	}
-> +}
-> +
-> +static int get_cpumask_from_cache(struct device_node *cache,
-> +				  cpumask_t *affinity)
-> +{
-> +	int err;
-> +	u32 cache_level;
-> +	unsigned long cache_id;
-> +
-> +	err = of_property_read_u32(cache, "cache-level", &cache_level);
-> +	if (err) {
-> +		pr_err("Failed to read cache-level from cache node\n");
-> +		return -ENOENT;
-> +	}
-> +
-> +	cache_id = cache_of_calculate_id(cache);
-> +	if (cache_id == ~0UL) {
-> +		pr_err("Failed to calculate cache-id from cache node\n");
-> +		return -ENOENT;
-> +	}
-> +
-> +	return mpam_get_cpumask_from_cache_id(cache_id, cache_level, affinity);
-> +}
-> +
-> +static int mpam_ris_get_affinity(struct mpam_msc *msc, cpumask_t *affinity,
-> +				 enum mpam_class_types type,
-> +				 struct mpam_class *class,
-> +				 struct mpam_component *comp)
-> +{
-> +	int err;
-> +
-> +	switch (type) {
-> +	case MPAM_CLASS_CACHE:
-> +		err = mpam_get_cpumask_from_cache_id(comp->comp_id, class->level,
-> +						     affinity);
-> +		if (err)
-> +			return err;
-> +
-> +		if (cpumask_empty(affinity))
-> +			pr_warn_once("%s no CPUs associated with cache node",
-> +				     dev_name(&msc->pdev->dev));
-> +
-> +		break;
-> +	case MPAM_CLASS_MEMORY:
-> +		get_cpumask_from_node_id(comp->comp_id, affinity);
-> +		/* affinity may be empty for CPU-less memory nodes */
-> +		break;
-> +	case MPAM_CLASS_UNKNOWN:
-> +		return 0;
-> +	}
-> +
-> +	cpumask_and(affinity, affinity, &msc->accessibility);
-> +
-> +	return 0;
-> +}
-> +
-> +static int mpam_ris_create_locked(struct mpam_msc *msc, u8 ris_idx,
-> +				  enum mpam_class_types type, u8 class_id,
-> +				  int component_id, gfp_t gfp)
-> +{
-> +	int err;
-> +	struct mpam_vmsc *vmsc;
-> +	struct mpam_msc_ris *ris;
-> +	struct mpam_class *class;
-> +	struct mpam_component *comp;
-> +
-> +	lockdep_assert_held(&mpam_list_lock);
-> +
-> +	if (test_and_set_bit(ris_idx, msc->ris_idxs))
-> +		return -EBUSY;
-> +
-> +	ris = devm_kzalloc(&msc->pdev->dev, sizeof(*ris), gfp);
-> +	if (!ris)
-> +		return -ENOMEM;
-> +	init_garbage(ris);
-> +
-> +	class = mpam_class_get(class_id, type, true, gfp);
-> +	if (IS_ERR(class))
-> +		return PTR_ERR(class);
-> +
-> +	comp = mpam_component_get(class, component_id, true, gfp);
-> +	if (IS_ERR(comp)) {
-> +		if (list_empty(&class->components))
-> +			mpam_class_destroy(class);
-> +		return PTR_ERR(comp);
-> +	}
-> +
-> +	vmsc = mpam_vmsc_get(comp, msc, true, gfp);
-> +	if (IS_ERR(vmsc)) {
-> +		if (list_empty(&comp->vmsc))
-> +			mpam_comp_destroy(comp);
-> +		return PTR_ERR(vmsc);
-> +	}
-> +
-> +	err = mpam_ris_get_affinity(msc, &ris->affinity, type, class, comp);
-> +	if (err) {
-> +		if (list_empty(&vmsc->ris))
-> +			mpam_vmsc_destroy(vmsc);
-> +		return err;
-> +	}
-> +
-> +	ris->ris_idx = ris_idx;
-> +	INIT_LIST_HEAD_RCU(&ris->vmsc_list);
-> +	ris->vmsc = vmsc;
-> +
-> +	cpumask_or(&comp->affinity, &comp->affinity, &ris->affinity);
-> +	cpumask_or(&class->affinity, &class->affinity, &ris->affinity);
-> +	list_add_rcu(&ris->vmsc_list, &vmsc->ris);
-> +
-> +	return 0;
-> +}
-> +
-> +int mpam_ris_create(struct mpam_msc *msc, u8 ris_idx,
-> +		    enum mpam_class_types type, u8 class_id, int component_id)
-> +{
-> +	int err;
-> +
-> +	mutex_lock(&mpam_list_lock);
-> +	err = mpam_ris_create_locked(msc, ris_idx, type, class_id,
-> +				     component_id, GFP_KERNEL);
-> +	mutex_unlock(&mpam_list_lock);
-> +	if (err)
-> +		mpam_free_garbage();
-> +
-> +	return err;
-> +}
-> +
->  static void mpam_discovery_complete(void)
->  {
->  	pr_err("Discovered all MSC\n");
-> @@ -179,7 +650,10 @@ static int update_msc_accessibility(struct mpam_msc *msc)
->  		cpumask_copy(&msc->accessibility, cpu_possible_mask);
->  		err = 0;
->  	} else {
-> -		if (of_device_is_compatible(parent, "memory")) {
-> +		if (of_device_is_compatible(parent, "cache")) {
-> +			err = get_cpumask_from_cache(parent,
-> +						     &msc->accessibility);
-> +		} else if (of_device_is_compatible(parent, "memory")) {
+This is how we always clean these up though, buuut to be fair that's in mm.
 
-The determination of the accessibility for the h/w msc doesn't fit with
-the subject of this patch. Could this hunk and the supporting functions
-be split into a precursor patch?
+>
+> Just imagine how the other functions would think about the new guy showing
+> off here. :)
 
->  			cpumask_copy(&msc->accessibility, cpu_possible_mask);
->  			err = 0;
->  		} else {
-> @@ -209,11 +683,10 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
->  
->  	mutex_lock(&mpam_list_lock);
->  	mpam_num_msc--;
-> -	platform_set_drvdata(pdev, NULL);
-> -	list_del_rcu(&msc->glbl_list);
-> -	synchronize_srcu(&mpam_srcu);
-> -	devm_kfree(&pdev->dev, msc);
-> +	mpam_msc_destroy(msc);
->  	mutex_unlock(&mpam_list_lock);
-> +
-> +	mpam_free_garbage();
->  }
->  
->  static int mpam_msc_drv_probe(struct platform_device *pdev)
-> @@ -230,6 +703,7 @@ static int mpam_msc_drv_probe(struct platform_device *pdev)
->  			err = -ENOMEM;
->  			break;
->  		}
-> +		init_garbage(msc);
->  
->  		mutex_init(&msc->probe_lock);
->  		mutex_init(&msc->part_sel_lock);
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> index 07e0f240eaca..d49bb884b433 100644
-> --- a/drivers/resctrl/mpam_internal.h
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -7,10 +7,27 @@
->  #include <linux/arm_mpam.h>
->  #include <linux/cpumask.h>
->  #include <linux/io.h>
-> +#include <linux/llist.h>
->  #include <linux/mailbox_client.h>
->  #include <linux/mutex.h>
->  #include <linux/resctrl.h>
->  #include <linux/sizes.h>
-> +#include <linux/srcu.h>
-> +
-> +/*
-> + * Structures protected by SRCU may not be freed for a surprising amount of
-> + * time (especially if perf is running). To ensure the MPAM error interrupt can
-> + * tear down all the structures, build a list of objects that can be gargbage
+;)
 
-nit: s/gargbage/garbage/
+>
+> >
+> > >
+> > >   #define ARCH_IMPLEMENTS_FLUSH_DCACHE_PAGE 1
+> > >   static inline void flush_dcache_folio(struct folio *folio)
+> > >   {
+> > >   	if (cpu_has_dc_aliases)
+> > > -		__flush_dcache_pages(&folio->page, folio_nr_pages(folio));
+> > > +		__flush_dcache_folio_pages(folio, folio_page(folio, 0),
+> > > +					   folio_nr_pages(folio));
+> > >   	else if (!cpu_has_ic_fills_f_dc)
+> > >   		folio_set_dcache_dirty(folio);
+> > >   }
+> > > @@ -64,10 +65,12 @@ static inline void flush_dcache_folio(struct folio *folio)
+> > >
+> > >   static inline void flush_dcache_page(struct page *page)
+> > >   {
+> > > +	struct folio *folio = page_folio(page);
+> > > +
+> > >   	if (cpu_has_dc_aliases)
+> > > -		__flush_dcache_pages(page, 1);
+> > > +		__flush_dcache_folio_pages(folio, page, folio_nr_pages(folio));
+> >
+> > Hmmm, shouldn't this be 1 not folio_nr_pages()? Seems that the original
+> > implementation only flushed a single page even if contained within a larger
+> > folio?
+>
+> Yes, reworked it 3 times and messed it up during the last rework. Thanks!
 
+Woot I found an actual bug :P
 
-> + * collected once synchronize_srcu() has returned.> + * If pdev is
-non-NULL, use devm_kfree().
-> + */
-> +struct mpam_garbage {
-> +	/* member of mpam_garbage */
-> +	struct llist_node	llist;
-> +
-> +	void			*to_free;
-> +	struct platform_device	*pdev;
-> +};
->  
->  struct mpam_msc {
->  	/* member of mpam_all_msc */
-> @@ -57,6 +74,80 @@ struct mpam_msc {
->  
->  	void __iomem		*mapped_hwpage;
->  	size_t			mapped_hwpage_sz;
-> +
-> +	struct mpam_garbage	garbage;
-> +};
-> +
-> +struct mpam_class {
-> +	/* mpam_components in this class */
-> +	struct list_head	components;
-> +
-> +	cpumask_t		affinity;
-> +
-> +	u8			level;
-> +	enum mpam_class_types	type;
-> +
-> +	/* member of mpam_classes */
-> +	struct list_head	classes_list;
-> +
-> +	struct mpam_garbage	garbage;
-> +};
-> +
-> +struct mpam_component {
-> +	u32			comp_id;
-> +
-> +	/* mpam_vmsc in this component */
-> +	struct list_head	vmsc;
-> +
-> +	cpumask_t		affinity;
-> +
-> +	/* member of mpam_class:components */
-> +	struct list_head	class_list;
-> +
-> +	/* parent: */
-> +	struct mpam_class	*class;
-> +
-> +	struct mpam_garbage	garbage;
->  };
->  
-> +struct mpam_vmsc {
-> +	/* member of mpam_component:vmsc_list */
-> +	struct list_head	comp_list;
-> +
-> +	/* mpam_msc_ris in this vmsc */
-> +	struct list_head	ris;
-> +
-> +	/* All RIS in this vMSC are members of this MSC */
-> +	struct mpam_msc		*msc;
-> +
-> +	/* parent: */
-> +	struct mpam_component	*comp;
-> +
-> +	struct mpam_garbage	garbage;
-> +};
-> +
-> +struct mpam_msc_ris {
-> +	u8			ris_idx;
-> +
-> +	cpumask_t		affinity;
-> +
-> +	/* member of mpam_vmsc:ris */
-> +	struct list_head	vmsc_list;
-> +
-> +	/* member of mpam_msc:ris */
-> +	struct list_head	msc_list;
-> +
-> +	/* parent: */
-> +	struct mpam_vmsc	*vmsc;
-> +
-> +	struct mpam_garbage	garbage;
-> +};
-> +
-> +/* List of all classes - protected by srcu*/
-> +extern struct srcu_struct mpam_srcu;
-> +extern struct list_head mpam_classes;
-> +
-> +int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
-> +				   cpumask_t *affinity);
-> +
->  #endif /* MPAM_INTERNAL_H */
-> diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
-> index 0edefa6ba019..406a77be68cb 100644
-> --- a/include/linux/arm_mpam.h
-> +++ b/include/linux/arm_mpam.h
-> @@ -36,11 +36,7 @@ static inline int acpi_mpam_parse_resources(struct mpam_msc *msc,
->  static inline int acpi_mpam_count_msc(void) { return -EINVAL; }
->  #endif
->  
-> -static inline int mpam_ris_create(struct mpam_msc *msc, u8 ris_idx,
-> -				  enum mpam_class_types type, u8 class_id,
-> -				  int component_id)
-> -{
-> -	return -EINVAL;
-> -}
-> +int mpam_ris_create(struct mpam_msc *msc, u8 ris_idx,
-> +		    enum mpam_class_types type, u8 class_id, int component_id);
->  
->  #endif /* __LINUX_ARM_MPAM_H */
+Yeah it's fiddly so understandable. :)
 
-Thanks,
+>
+> --
+> Cheers
+>
+> David / dhildenb
+>
 
-Ben
-
+Cheers, Lorenzo
 
