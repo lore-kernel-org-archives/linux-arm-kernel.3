@@ -4,96 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AADFCA0FF7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 09:52:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E307CA0FF7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 09:54:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CIjbWzkQfbiZQvRqxwaD0JjNVVTzZG1OAG6bEKJV6mo=; b=BaYl71qU5kZXNuUYrV10VHAH+C
-	H/UazS3oJmODytgKfO/p1/lmyrFJIvsZ1tqnjgNaqgGvl3D4uqUbsubIzxztSR8LmFB2SpGz0hEmP
-	4PEx/Kf7HIFDqRkLWS5CrlqAlTligKU9p0i4BzCjH0u5w4T3YOnxhdLRKOV0uj/SuDN2LAuKintPU
-	EoVZizC4h6juSTpleLiIZaQ0A7t0WZooSXBhHbcYR5+2sPoHQBavoQwwKcBQgNy2C7GcthcUIAybI
-	2XqJvMZj48hXNDboAdfDEEnqGWqT5FgIFIFN3MGAvA+awNLo5ivTkEeIzJGgMSrQ4Dn42tUkuEs5C
-	9rpcBKhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WTJBtdaLl1Gq6RO6988FksLOV2GYeNVZpZJLYFJGcos=; b=qtVL9TaJTRkxo9ZQvq9yRmLgkV
+	biwbahVh8g8lFZIVMYLF8gZeHDH4fApHugWkllENI6HmcEEAiWnuhDWo13yd7TaxAq6YLpdbDmoGb
+	UDAco6xPQunxGfNWNHKwrCc4NqojcrL8pnS6Nar/hyCRRr3N1dDe7N/XRByz1i2XrkYtt9DFQQ9F/
+	vfdtkMujH3i9wEwRryjg59Sd+9GBxsxDPzZqZT7yw1wvpfw6GFZDBNMDOwVr90qJPxvAU68Q6rfRd
+	sXOazefPBQjMlZZXXYqVvJ3mpaM6ZVoSJCP1p6A2Pgz52DQkCXPbBX7j0gKWVznPTeHbN0CwLmycO
+	geQp1r6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urvm3-00000005CxD-3ncF;
-	Fri, 29 Aug 2025 09:51:59 +0000
-Received: from mail-ej1-x644.google.com ([2a00:1450:4864:20::644])
+	id 1urvoj-00000005DIP-2pOM;
+	Fri, 29 Aug 2025 09:54:46 +0000
+Received: from mail-koreasouthazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c410::1] helo=PUWP216CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urulG-000000051Gw-1CgB
+	id 1urulm-000000051KW-2dyj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 08:47:07 +0000
-Received: by mail-ej1-x644.google.com with SMTP id a640c23a62f3a-afee6037847so266287866b.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 01:47:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1756457225; x=1757062025; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=CIjbWzkQfbiZQvRqxwaD0JjNVVTzZG1OAG6bEKJV6mo=;
-        b=ctdTjIqWWRh6eFEd76ppMMzXG0ztukbtSOBPtv064BwnI0wK7pFaHDMv5D9t3VphJ/
-         PuTW/AJYJpKKXUlr3XwmHPPFcyutgx+dtr6ZhWxr/ifomNd+DD8synWGPv8vmbAwKDnI
-         FsQscjFgMjaMURUSDaFGOxMnZBQ8dWtw6L3hMfWbxlvHTxI5Q9uIztMwln8QxV9sDmE/
-         9vnIEbW8yh1a7s7GnH5gUnQD1Ee4ppCZWErA4BG6Na04pxurCMnLl8W/7bNcaK8YlvkI
-         ldWG/CWD9cAUf4UZM2y2WxUdTk90XaWAqa7sGS0QYAMqEcsEPiyr77wZe8Q0wOjyw3zF
-         /PFQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756457225; x=1757062025;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CIjbWzkQfbiZQvRqxwaD0JjNVVTzZG1OAG6bEKJV6mo=;
-        b=CjGFD/bEZjQzIOjFQFhSD9Ik/4SWfrUyXZduUOIOPkrg5GLAXt86h6cCtNenOyl23C
-         GdqBB0ySIF3yO5UySIDJDvw3Ubwz5NgX8H+Cen6X5YRTOjXJDCU32Pv3d8pkBn2g//AR
-         2WdNidYKNLmgPMCEpStT3ryv/HBGNQv0vBTpIZG0hDztph4XfrwMZIKXLvxyxoL7zHz1
-         m8B3Kw4ZIi7I9WRFMxEmxIIK88ZCCgNZJchapd1y7g/3uUThtf9k4tbBmmnFkPgt5wGY
-         G+VakT8vE7NjoV0WvI52BHi5a0K2w89ZHtyd1wblpKE26iRjpCP85cfWcu2SMgi5hGn5
-         PNDA==
-X-Forwarded-Encrypted: i=1; AJvYcCV4zSz7451MKEyguFwdcX2Iun/h2/nv+eO0Lvse6H1HtvS/+nXHDQcsSCirt3o29QWa0QgcUcU0/WgYQ1KideVD@lists.infradead.org
-X-Gm-Message-State: AOJu0YyqsG9/QYqgvDBfn7YVl/+YUOJQpMVgqpLVD8k4xQL/BJEHVAas
-	1qBlqmUuRUO1vgE274hg42/s4zo7CkjtFJvkuawgu+4p1QQxAjktqvZWxGfVmY7byJg=
-X-Gm-Gg: ASbGnct4DV8TXZFeWIuWie+zjNOlgkwlj6qPZ9/Oi5BC9sMCqXXXvaLTP+DqENAsp9a
-	tmJa0L9YzA5xZsiQ90vnYJsCPgi/BAiZ0qqcpUdDeqb+PSCLUo5/cacILGmOa1XIKN6iNatMA8K
-	xaqIzp7JigOTgbrPCF7VO7jnviXkMdc9ZgZmVUHDaweHftZ5Zv0Vm7Jv0BLL8oCaIAHxBXIjJ/i
-	INSVAm0j3pO+Tqt+Uj/XewZGpJFtEmmZhnUzjIMqRPVTl1p80bJQFbeVz7pGLfRrfLmxyn1d3oM
-	WkY/YR+UlDGQ2rapfgOEtcH05N0ur/1WlP2aPph8/ltGSoEmpWdhdrY3RY7Qyz+uW+NHon9/cFH
-	/wTegxMR/6HOQ7huuprixSYhgiCwQfHs42ONqgsGzrKDK7un8jS/+FZEMEhtbUb5dk60iGWr/nn
-	WIZwSr1fqiYcSKHEY7
-X-Google-Smtp-Source: AGHT+IErTYPB0ZCtNXtBGMM05Ddun8cHbo2OACk+cXvTX6zjrrSwmnOgjIMwSDpKlFVkBbllKUdVtA==
-X-Received: by 2002:a17:907:2d10:b0:afe:c1e4:5554 with SMTP id a640c23a62f3a-afec1e457b6mr893166266b.38.1756457224579;
-        Fri, 29 Aug 2025 01:47:04 -0700 (PDT)
-Received: from localhost (host-79-36-0-44.retail.telecomitalia.it. [79.36.0.44])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afefcc695cesm149130766b.97.2025.08.29.01.47.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 Aug 2025 01:47:04 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Fri, 29 Aug 2025 10:48:58 +0200
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Andrea della Porta <andrea.porta@suse.com>, linus.walleij@linaro.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	wahrenst@gmx.net, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, iivanov@suse.de, svarbanov@suse.de,
-	mbrugger@suse.com, Jonathan Bell <jonathan@raspberrypi.com>,
-	Phil Elwell <phil@raspberrypi.com>
-Subject: Re: [PATCH v4 3/3] arm64: defconfig: Enable BCM2712 on-chip pin
- controller driver
-Message-ID: <aLFpeuwoh1g2IKYI@apocalypse>
-References: <cover.1756372805.git.andrea.porta@suse.com>
- <38704a5ab6913845bbf9178170e83004ab3e8fcf.1756372805.git.andrea.porta@suse.com>
- <fac53dd3-9774-4a14-9557-19c2a2532a0d@broadcom.com>
+	Fri, 29 Aug 2025 08:47:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lgD+6sRrcepW8TfTAM2AKtMofEPzEQ8gJSGu13uf6REkamVFXFoWJpl3VxgoAkz6ALPuFeuO7RxoS2O+W/q/3w0FA+U74yrdpU0Nved4i/N9/D4xirbA4SbTari0WWAyFNMYtJK7o1ojvZtxJbyaVvBK0XAgwEAoUjioD75brxKrwuV12U7i6Ym4fqQ9akvZRp5V2U1qsfrTODVfgJ8AtH7T6YYdP+8c0LcKjUbF5aYrMBruvag7ds4p1Y/bOtzssfpV34dYq2CKezVKoPaSzSl6bQVuuXwAbFiACbV48zwbMZsRA9/K2k5ZP68p06ky+5KYWQaZ9kDiHRtSuLYMCw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WTJBtdaLl1Gq6RO6988FksLOV2GYeNVZpZJLYFJGcos=;
+ b=YJmS5CDb/51VZdT/A6VUGvJkVeRtzyh6IT91jFoaiJF19omP4hpE15wpQbmKYnr5QuVYl+ErTsHAKm1nyxid8xtsSAlYrIOLTLrtYMNvq9175k0DYlDJ4chOtTGouTFbQHKUHkqmB7k5hJ3IJ+wmpBAfyq1Xyk2ucjIcPMlL0vut4ClwA8rCygQ0J5bKp/3+WTJ667AALqTe27VaPoQdJ/6tyzT1gozXuiN93fqBjEfOF8ZBM9QT56fNVyjudwqvzLBF0c25dj++VlQKBkcDP7HyIXnRBbbrZa9Dqsl6s6zZHI6TVmuq5ZfVfZ3FJ2BKRj4OJcv+pskUj1sGTzm2mA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=chipsnmedia.com; dmarc=pass action=none
+ header.from=chipsnmedia.com; dkim=pass header.d=chipsnmedia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chipsnmedia.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WTJBtdaLl1Gq6RO6988FksLOV2GYeNVZpZJLYFJGcos=;
+ b=R6haULnmVvcJAfopG3s5XQaYogv27MgUQgOWYWqspxj6IuhKxBeLtbx4PbhjH4aRTSyvd6NWTYfk7bm2fWU6V+qFjOTlHm6QzL5MNcFtXLvwicdYyfJ3Smefvq3DZfEkNfvsE1jMMSpd5jjEZPPjTy2lHtxyA87okWqzSL9MqVs=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=chipsnmedia.com;
+Received: from SL2P216MB1246.KORP216.PROD.OUTLOOK.COM (2603:1096:101:a::9) by
+ SL2P216MB1418.KORP216.PROD.OUTLOOK.COM (2603:1096:101:33::9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9073.13; Fri, 29 Aug 2025 08:47:22 +0000
+Received: from SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+ ([fe80::9e3d:ee20:8cc7:3c07]) by SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+ ([fe80::9e3d:ee20:8cc7:3c07%5]) with mapi id 15.20.9052.011; Fri, 29 Aug 2025
+ 08:47:22 +0000
+From: Nas Chung <nas.chung@chipsnmedia.com>
+To: mchehab@kernel.org,
+	hverkuil@xs4all.nl,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de
+Cc: linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-imx@nxp.com,
+	linux-arm-kernel@lists.infradead.org,
+	jackson.lee@chipsnmedia.com,
+	lafley.kim@chipsnmedia.com,
+	Nas Chung <nas.chung@chipsnmedia.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Subject: [PATCH v3 1/9] media: v4l2-common: Add YUV24 format info
+Date: Fri, 29 Aug 2025 17:46:41 +0900
+Message-Id: <20250829084649.359-2-nas.chung@chipsnmedia.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250829084649.359-1-nas.chung@chipsnmedia.com>
+References: <20250829084649.359-1-nas.chung@chipsnmedia.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SEWP216CA0122.KORP216.PROD.OUTLOOK.COM
+ (2603:1096:101:2b9::6) To SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+ (2603:1096:101:a::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <fac53dd3-9774-4a14-9557-19c2a2532a0d@broadcom.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SL2P216MB1246:EE_|SL2P216MB1418:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7370a504-e8a6-40f0-15c8-08dde6d8abb0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|7416014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ecaIFdd/Q+wVgMvcbGIYITCfx+dcy/Nz8KAC2USD1H8Nwg2/vgwGrdm36Z6k?=
+ =?us-ascii?Q?bWReCCUu3GwddDEj/hWYXW88NVErep3B6WJUhatPfWUfplJ6adwQ9t/scGzn?=
+ =?us-ascii?Q?3JxH22rMB5XqKG9VO7NDtMTQIb0KTdYuCLSLrKpgUeUg6XDg/md9GPFZYyet?=
+ =?us-ascii?Q?oeWGCMdiB/6g8MM0/cGsKn2OoiQJ5Tdxrtczxp3KtRLYsYlTKMc9nTPxeESG?=
+ =?us-ascii?Q?kLmSLKF/vuThUo1jrgf6uVOO5xJaKDdGJuUz8dq5pNH1fWSZ+J/yGbH5xwdE?=
+ =?us-ascii?Q?zLze40vA7Aox0yzejKmnO37Q7dJp8BBQyfMgIN3UVrxgkGIvOom/9uKO/fjL?=
+ =?us-ascii?Q?YtPvJ0AtUr8WOL3U7e6AFdMtU37mQyNsRDSnrRCcXg9Wnm94HHErU5q51bUl?=
+ =?us-ascii?Q?YDTVkzNafPBF0h+bgApygkv53vxOiO8rQGx9+GdstMMhEoOIsgLcZL1qlmFl?=
+ =?us-ascii?Q?eUNB1g0Iqv2EsFRW7cpqiw6XUQmx2zWM6lmK1weKUlf7WZba+bRNkzoTHCOO?=
+ =?us-ascii?Q?ymJg9Y6TBw6FQX0wcJQdcInD9Lfx46UCnpmb6dhHrEJ7ehJj4nyrIOPiawdr?=
+ =?us-ascii?Q?vP5bSLowETzrAOClGGg/LwPt2Iz3lEilc5vFpU2uSz5MGtjtjrBGU2stmbqI?=
+ =?us-ascii?Q?jWRK+gse0MFS46pWiWUnw3U91qQIdR88hzUfyYBQdba2OjPsRAXhV4HXsJc9?=
+ =?us-ascii?Q?TVyOP+PQaOkMo9GwrLQ7MEueDIU9KuDyn8fMJWjzlg3eqBXg7O1wBEqYjmhX?=
+ =?us-ascii?Q?q+PZBmP1YoDp+nwkLYejTAj1tdmcEinMI49Us4zzEn6RfbDIlVvRSuaOmI18?=
+ =?us-ascii?Q?51ivex0NwhQanUNEAaxE0HSH+UtBuj7qXITRjhwP9z/3kEZBLPCKHw0szqcX?=
+ =?us-ascii?Q?Z7lTT1yJrrNa5C9rdDBxbvWCHYX4WskoPMvAOyDlNtAhWiB7YdfMP4KPXdOl?=
+ =?us-ascii?Q?40X/LaeMt1oAaQQ1b5oWZLKtCff+P8YMpmekTzx8lVODqfT5Jq0+9acnTIXW?=
+ =?us-ascii?Q?/TjAnd2jF0stb3utztAgytOTO9Fdm/PtYLJrGPxeJlbWrAvLheynXLLt/cUY?=
+ =?us-ascii?Q?xMqq9WoQMdPP2CBx7yuEhsCOdMD72mLNSgKLjM2H8Ch91/P4Z1rpBWxXEogk?=
+ =?us-ascii?Q?IfHr0d8Mb/y/vEAk0oCUPCPHv1CUyIeEjn3f5zM/H0JnRQ1NU16YCO9vU/uT?=
+ =?us-ascii?Q?WAT6SDrQxFmP0AHxvsY2zvGkBCiuZ0Mi3r7L19qsxAcFb3h7mvWaLLSeOn3b?=
+ =?us-ascii?Q?Kmn0kWvCz74RhhqAHw3bPsUfx10kNl0+rVOaB0OkJHenl2GJ8zrGBhUKXqqn?=
+ =?us-ascii?Q?i4cFMyAl8D2xpI9VDdOPDYyxALgnnCmL6Fq/VNeKVVaA1/mGJVPaN+yuX1WJ?=
+ =?us-ascii?Q?a4/gYUjncRFPLacRdlQ39UvSQazZ7lJsBwXDT9uQzy+M/2FDu/vzwOkIqbC7?=
+ =?us-ascii?Q?ilqp+XqHeVmEQF9jMRyUKTvtDXIBb5PAGYgB+LdXNMNOrnpzxxnmMA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SL2P216MB1246.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?21ODpTc2gdLe0tEc3VEpDRY761U9TLiyjBffUh0e3/mjp230WjRg4aYUIGRm?=
+ =?us-ascii?Q?xXHUCv9+qQBTHdN5Fh+q+x035bhlXYpYoALGJZ7PtCRzZrbdrmRC15LZwsu8?=
+ =?us-ascii?Q?Q8K6WATisylNzXv/d2TJKxHWldwWOT1FfR+iIdk0WbPY/z0sIKZqtO7fJmhR?=
+ =?us-ascii?Q?FdeMoW1iae4IyU1a39arE+CXyEJa5Ow8R0bs3Cu+t+SqiC5tHURbAEnwvMcI?=
+ =?us-ascii?Q?4iH3nobmpfqodH9P1AH5H1nSomEiz/nsuYPtkBsN9few0DBoGssRq3exdY8L?=
+ =?us-ascii?Q?+unDmZeykwD3OWkHNlOGmO1f2HzGInOKVrDkXkCwTmVlcqjTcSHO/Y5KzV8B?=
+ =?us-ascii?Q?3PejQazO7WQe7Ak3a/4O5KA7uFoEjpJFlD3frj7UgfQH7UB6SRRKfNm6PZ7l?=
+ =?us-ascii?Q?+IK9Irsr+1l+1ek6fmEz+WV2rkgwQl4fFNkbcz6ptm10Dv8ap3Lx95dy6zW+?=
+ =?us-ascii?Q?6KHI2zvmKYIuQ1v3dSVGPekrnHB/KcTGG+dKbQ+y4nXnH8fPUe4bVZsvzlFy?=
+ =?us-ascii?Q?kH338YQIf7xmCBl00MrJPube2WWcZHGzR9UK734P6H0PNgBB1vRozc3yMbJp?=
+ =?us-ascii?Q?LzZ7Ut8OuUwUQjbBCyrYt4arEUEdyvtdKaBA5LdNjIzYdcoB6R04bAh7zJuy?=
+ =?us-ascii?Q?bcaGvlinjLo9bGFpPWeptKgXuDNs//tfaqFL/Uz8j3kVNMJThdJzlXJGgthX?=
+ =?us-ascii?Q?O+/WR/ODuyD2HZYPN+tF9kED8SjzGJKU7Z72RVkxkitQju2mFbqNk5Dh0ybA?=
+ =?us-ascii?Q?3nLXVtxM2wyFvsVCfFaOInN0arRl4XUebkSMgntU8jnbF8Ef6wXj97U9aqQU?=
+ =?us-ascii?Q?psdlA1dJCtNE7uySHaUZsGcGbhxOOI6Pd3HYF5jh5N4nQUc1Qfh61vA3Jx+Z?=
+ =?us-ascii?Q?xQWuGbIiG+EG1POICyQX10APSLSoLOeHLYywwSeen6iPANVow1iEOvHLDWLz?=
+ =?us-ascii?Q?RdJ6EIsSU9adVfAe6ncgWHTZDGwAyf5TQL8mo1y4VR9JsLsvTe2XxnVLwdSX?=
+ =?us-ascii?Q?tPe9Iw3sk/yzQvE4Fi1yvrM7kDQuEe3xDYAqwPWXz8D3163xvYlSNp9KwWaR?=
+ =?us-ascii?Q?mlbNTmx3hWbSiCAWLxow/KBZFq6ajakPCboPiyPg+piyDSY60BXGBVOG6A9t?=
+ =?us-ascii?Q?hIUMcgBnCXLPerTvKJhXeHmO9eKfMReIPg+lMacDcfcqdZLHfYZu/QlD2zqU?=
+ =?us-ascii?Q?VsN+200hFIwINgOGyWUQ0Wo+1V6RT5azNWOrg2j/geWWYO7KuaNSCaT8lPol?=
+ =?us-ascii?Q?phZjVh0pgsxix1JtP65OrXf7r6n9g2xgdBfmuAAI8cZuZmglm4YFm4qF0Vkg?=
+ =?us-ascii?Q?CQ8Ld3oDlyCKNJ7B/7VpGTmF5hFpCBaV/UW4Gn73HFdAT4a0I18NSqkJP8Oz?=
+ =?us-ascii?Q?FzYgTScb88VzbbupZVNJa+AJVCnBZgvQaYLk7OpUKap/dy0Uf/QwmvLfwvW2?=
+ =?us-ascii?Q?UDs26u6yQZMPlNPuYpued1OwNZuLxsoGGnFM6uamo5Tb0Wpwj8W8R7dftIiT?=
+ =?us-ascii?Q?Qr0AzeubibZWrfouyFn9t/5Cor2As3NHDS77lUk0fi+Tem4uQMpcWOF8M+FS?=
+ =?us-ascii?Q?Lcz88k9e3k597BGPc+wu4Dt+YDts3F74D7tnXRKRBDMR0OcKvEi43SdgJMOO?=
+ =?us-ascii?Q?KA=3D=3D?=
+X-OriginatorOrg: chipsnmedia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7370a504-e8a6-40f0-15c8-08dde6d8abb0
+X-MS-Exchange-CrossTenant-AuthSource: SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Aug 2025 08:47:22.6595
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4d70c8e9-142b-4389-b7f2-fa8a3c68c467
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: r70h0IH0Qnt32wsGsmvfsygvgAPw2oZMblijD+ELYsHE8rvtVTou3eMxTL+7XXiBKWsdVvStbSZXhMegy6RxRQg5N/PiE/fbbUoqKGfWwqs=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SL2P216MB1418
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_014706_324100_C2286F8F 
-X-CRM114-Status: GOOD (  20.82  )
+X-CRM114-CacheID: sfid-20250829_014738_662018_427EDDC7 
+X-CRM114-Status: UNSURE (   8.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,55 +171,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Florian,
+The YUV24 format is missing an entry in the v4l2_format_info().
+The YUV24 format is the packed YUV 4:4:4 formats with 8 bits
+per component.
 
-On 10:19 Thu 28 Aug     , Florian Fainelli wrote:
-> On 8/28/25 05:47, Andrea della Porta wrote:
-> > Select the on-chip pin controller driver for BCM2712 SoC.
-> > 
-> > On RapsberryPi 5 devices it is primarily needed to operate the
-> > bluetooth and WiFi devices, to configure the uSD interface
-> > and the power button.
-> > 
-> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> > ---
-> >   arch/arm64/configs/defconfig | 2 ++
-> >   1 file changed, 2 insertions(+)
-> > 
-> > diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> > index 58f87d09366c..d4c3853d885d 100644
-> > --- a/arch/arm64/configs/defconfig
-> > +++ b/arch/arm64/configs/defconfig
-> > @@ -592,6 +592,8 @@ CONFIG_SPI_TEGRA114=m
-> >   CONFIG_SPI_SPIDEV=m
-> >   CONFIG_SPMI=y
-> >   CONFIG_SPMI_MTK_PMIF=m
-> > +CONFIG_PINCTRL_BRCMSTB=y
-> > +CONFIG_PINCTRL_BCM2712=y
-> 
-> Do those need to be built-in or does it work good enough if you have them as
-> loadable modules?
+Fixes: 0376a51fbe5e ("media: v4l: Add packed YUV444 24bpp pixel format")
+Signed-off-by: Nas Chung <nas.chung@chipsnmedia.com>
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+---
+ drivers/media/v4l2-core/v4l2-common.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-They do work reasonably well as modules too, but you need to add
-them to initrd, the reason being that this patch [1] is referencing
-the pinctrl driver from the SD card node so you need them early or
-you won't be able to boot from SD.
+diff --git a/drivers/media/v4l2-core/v4l2-common.c b/drivers/media/v4l2-core/v4l2-common.c
+index 0574f5d685f8..8733a8ed5b2a 100644
+--- a/drivers/media/v4l2-core/v4l2-common.c
++++ b/drivers/media/v4l2-core/v4l2-common.c
+@@ -281,6 +281,7 @@ const struct v4l2_format_info *v4l2_format_info(u32 format)
+ 		{ .format = V4L2_PIX_FMT_Y212,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 1, .bpp = { 4, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 1 },
+ 		{ .format = V4L2_PIX_FMT_Y216,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 1, .bpp = { 4, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 1 },
+ 		{ .format = V4L2_PIX_FMT_YUV48_12, .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 1, .bpp = { 6, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
++		{ .format = V4L2_PIX_FMT_YUV24,   .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 1, .bpp = { 3, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
+ 		{ .format = V4L2_PIX_FMT_MT2110T, .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 2, .comp_planes = 2, .bpp = { 5, 10, 0, 0 }, .bpp_div = { 4, 4, 1, 1 }, .hdiv = 2, .vdiv = 2,
+ 		  .block_w = { 16, 8, 0, 0 }, .block_h = { 32, 16, 0, 0 }},
+ 		{ .format = V4L2_PIX_FMT_MT2110R, .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 2, .comp_planes = 2, .bpp = { 5, 10, 0, 0 }, .bpp_div = { 4, 4, 1, 1 }, .hdiv = 2, .vdiv = 2,
+-- 
+2.31.1
 
-Also, since many other nodes will reference the SoC pin controller,
-I would expect some minor latency due to deferred probe, so keeping
-them as built-in could bring some performance benefit.
-
-A minor note: skimming through defconfig it seems that most pinctrl
-drivers are built-ins, so I would stick to that too.
-
-Many thanks,
-Andrea
-
-
-Links
-
-1 - https://lore.kernel.org/all/5ceba8558e0007a9685f19b51d681d0ce79e7634.1756386531.git.andrea.porta@suse.com/
- 
-> -- 
-> Florian
 
