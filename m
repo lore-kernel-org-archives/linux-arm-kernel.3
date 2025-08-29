@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C9C7CA0FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 08:13:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D08B4C8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 08:16:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GSSU/7YUmLysPQh7KSt0KtsFavc1CTYp3otbrQJhgCE=; b=UdQbrKFLEV5PLoBJsLFbdkSXmf
-	aXvFA/Pq/cj/7WobJP2HWeiAp0FwrPBBES15VRQXBz4mVk7t/dZjttmccguN4oS5S57Xq+AJ2Y0qe
-	oss1NBR27TkkverJTgcR+5hClZkS9ZiI0MAKTk8ng43Od/Rm/x5+ioCn7sRnc7ooh7gmATBgDhlqh
-	ZZPXRYMUcmvG8n6eefemqRyFyJY5fXvBJgTqGksbTLz3xuJDT6xJQB6qNN80AqCFklzZDH1hqOlhp
-	tnDVCIcc9260WznJn1iXfKPAPLqSxUKYhxOsM8uzHkONHo/a8EfkrZnsSdfZV2NEXbkWoHmH/uhPs
-	UcjddPzQ==;
+	bh=TkvuiXmPep1e2SS2WffTJlm+rPS6pqIzbC1L3EbkZ6w=; b=oGLUBbttcsVfqyfBvdfaCzqS1W
+	26JG0GlRKfRqRGGTZky5foGRJqJhaDWfF3bnkx23pZyeN3WmWgYogpFc80lmBPOUw6i0eJL6sq21U
+	45IMfbP/sH3hLATlKOxFssaGgUQbhSLm7SO9s1uguSG2yfgi+p6Tet61//L5cC7hQmGh24ysKzo5W
+	qFKQLWdz3vKyf62UwDl8LAfr1n584+LWvaaU9QumLIpQ8bTq3bLzWbst6U9mihSN5l305cgsApJvD
+	dZEpV9TXd5o7JCXCBp3QMJsksdFVmcyL60oYWI2xCGEKDCm6xW92FTbpmIzg11y78wbjpl1pQn7wF
+	C+q47E/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uruEh-00000004v2P-2kS9;
-	Fri, 29 Aug 2025 08:13:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uruHN-00000004vlU-2FkB;
+	Fri, 29 Aug 2025 08:16:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urtpy-00000004og2-1CP7
+	id 1urtqk-00000004oty-3mAn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 07:47:55 +0000
+	Fri, 29 Aug 2025 07:48:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E350C401C4;
-	Fri, 29 Aug 2025 07:47:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94D2DC4CEF0;
-	Fri, 29 Aug 2025 07:47:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2EBF260051;
+	Fri, 29 Aug 2025 07:48:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAAC0C4CEF0;
+	Fri, 29 Aug 2025 07:48:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756453673;
-	bh=gCbRk9xzyu+2hoWKBy3FsZe0DLlpKUqrn8XkcEjrLfU=;
+	s=k20201202; t=1756453721;
+	bh=0A4rOapR7uxRXHkEuZV4upawq7r3HH5Hovvx4aG4VPg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=UoKFCMZlFXgKPPQihwSAddcP+lF6qPigHrYFhBWK22xq9W9PaY3RubjMJCb+++QU6
-	 YKu6PKhP7t2kxr2PuaUI3oWS3RnoPLUmJevRckZQWuEyW4LgNIFcjJ4RZINARPsX6R
-	 liqlZgIwO+SR33v7jYpPIKFjQFSwXVhvMKheq7l+mp91pPT/shcQcbLeIUfVuvgQB7
-	 RXJZdqKjcj3VGRInxQWprCSxe5vwShCXvpS/z+lWmOhpBu2LExrZo636qUVpTnUDpY
-	 dXwSj79YkjaKQMQgOV6Rdc8CL/iOR9DrmhxyDh23aQ/N4CSPlAR8L2ajcBSud3pRbP
-	 eoUbBM5pBQJEA==
-Message-ID: <0f716362-07f4-4c79-bb0a-e71d2630a797@kernel.org>
-Date: Fri, 29 Aug 2025 09:47:48 +0200
+	b=SQqO4OtE8f4SwGiAZn3jS8yZB90ojBHpKfK/SF/ZQejldqv91+Goeee04F854Ze3O
+	 e9akjtP+6gRKmRBhdD3NYYruWaMIW71XZD3ppS62yXLm0+ZTsAa/2J+ZTH7d2y9cM6
+	 AMt+XTjOPSEZ0NEgbk/gE7CB3Ny9MJQOg1LAhRzjwwiYPosU/S4KbMlGaOd1mwFYRS
+	 CIKq21gO1vrzkJfBHraSk2lxIs60Qt3hzPvbL719+8k9DdP4sMNwHZPuklmyauJtse
+	 o635uN88q6b/qoUzVfCeevMH+tIUZ/swjlDNcaXLUwsKikG99TMhOyxc/v7aVDUZkw
+	 yoYBTBH//YVJg==
+Message-ID: <45eec9b1-d4cd-470b-abcc-03a823f397b2@kernel.org>
+Date: Fri, 29 Aug 2025 09:48:37 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v3 5/6] dt-bindings: soc: fsl: qe: Add support of IRQ in
  QE GPIO
 To: Christophe Leroy <christophe.leroy@csgroup.eu>,
- Rob Herring <robh@kernel.org>
-Cc: Qiang Zhao <qiang.zhao@nxp.com>, Linus Walleij
- <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org
+ Qiang Zhao <qiang.zhao@nxp.com>, Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org
 References: <cover.1756104334.git.christophe.leroy@csgroup.eu>
  <17636607f2beac3b64c87b3bec035fa27ce8d195.1756104334.git.christophe.leroy@csgroup.eu>
- <CAL_JsqKFvVQTVXV8mWX0z1=hd3nLDzLXq-0G_0bshMCvQ5kVvA@mail.gmail.com>
- <f21e27da-de26-4835-9660-b39e99695281@csgroup.eu>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,12 +102,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <f21e27da-de26-4835-9660-b39e99695281@csgroup.eu>
+In-Reply-To: <17636607f2beac3b64c87b3bec035fa27ce8d195.1756104334.git.christophe.leroy@csgroup.eu>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_004754_369612_8AC9CE58 
-X-CRM114-Status: GOOD (  15.55  )
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,61 +119,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/08/2025 16:12, Christophe Leroy wrote:
+On 25/08/2025 08:53, Christophe Leroy wrote:
+> In the QE, a few GPIOs are IRQ capable. Similarly to
+> commit 726bd223105c ("powerpc/8xx: Adding support of IRQ in MPC8xx
+> GPIO"), add IRQ support to QE GPIO.
 > 
+> Add property 'fsl,qe-gpio-irq-mask' similar to
+> 'fsl,cpm1-gpio-irq-mask' that define which of the GPIOs have IRQs.
 > 
-> Le 28/08/2025 à 15:28, Rob Herring a écrit :
->> On Mon, Aug 25, 2025 at 2:20 AM Christophe Leroy
->> <christophe.leroy@csgroup.eu> wrote:
->>>
->>> In the QE, a few GPIOs are IRQ capable. Similarly to
->>> commit 726bd223105c ("powerpc/8xx: Adding support of IRQ in MPC8xx
->>> GPIO"), add IRQ support to QE GPIO.
->>>
->>> Add property 'fsl,qe-gpio-irq-mask' similar to
->>> 'fsl,cpm1-gpio-irq-mask' that define which of the GPIOs have IRQs.
->>
->> Why do you need to know this? The ones that have interrupts will be
->> referenced by an 'interrupts' property somewhere.
+> Here is an exemple for port B of mpc8323 which has IRQs for
+> GPIOs PB7, PB9, PB25 and PB27.
 > 
-> I don't follow you. The ones that have interrupts need to be reported by 
-> gc->qe_gpio_to_irq[] so that gpiod_to_irq() return the IRQ number, for 
-> instance to gpio_sysfs_request_irq() so that it can install an irq 
-> handler. I can't see where they would be referenced by an "interrupts" 
-> property.
+> 	qe_pio_b: gpio-controller@1418 {
+> 		compatible = "fsl,mpc8323-qe-pario-bank";
+> 		reg = <0x1418 0x18>;
+> 		interrupts = <4 5 6 7>;
+> 		interrupt-parent = <&qepic>;
+> 		gpio-controller;
+> 		#gpio-cells = <2>;
+> 		fsl,qe-gpio-irq-mask = <0x01400050>;
 
-They would be referenced by every consumer of these interrupts. IOW,
-this property is completely redundant, because DT holds this information
-already in other place.
+We see this from the patch. No need to repeat the patch contents in the
+commit msg.
 
-> 
->>
->>> Here is an exemple for port B of mpc8323 which has IRQs for
->>
->> typo
->>
->>> GPIOs PB7, PB9, PB25 and PB27.
->>>
->>>          qe_pio_b: gpio-controller@1418 {
->>>                  compatible = "fsl,mpc8323-qe-pario-bank";
->>>                  reg = <0x1418 0x18>;
->>>                  interrupts = <4 5 6 7>;
->>>                  interrupt-parent = <&qepic>;
->>>                  gpio-controller;
->>>                  #gpio-cells = <2>;
->>>                  fsl,qe-gpio-irq-mask = <0x01400050>;
->>>          };
->>
->> You are missing #interrupt-cells and interrupt-controller properties.
-> 
-> The gpio controller is not an interrupt controller. The GPIO controller 
-> is brought by patch 1/6 and documented in patch 6/6.
 
-Then the IRQ mask property is not right here. If you say "this GPIOs
-have IRQs" it means this is an interrupt controller.
+>  Example:
+>  	qe_pio_a: gpio-controller@1400 {
+> @@ -42,6 +51,16 @@ Example:
+>  		gpio-controller;
+>  	  };
+>  
+> +	qe_pio_b: gpio-controller@1418 {
+> +		#gpio-cells = <2>;
+> +		compatible = "fsl,mpc8323-qe-pario-bank";
 
-If you say this is not an interrupt controller, then you cannot have
-here interrupts per some GPIOs, obviously.
+Please follow DTS coding style.
+
 
 
 Best regards,
