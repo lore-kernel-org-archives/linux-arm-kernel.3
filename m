@@ -4,58 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCBDECA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 14:27:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8664CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 14:30:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ty71fS7JCInNJljzKRploW2jwHUy+H3+BnfyWa5A978=; b=zzNxoiCBUgmJL5BuIggrkdBeuQ
-	4+AWr656qTNNLuGfm8yOEGAfRL1zVuwYY60cRELi3q6eIHwk6kglWPB7IelfbcxmMkZVccFeZwO2+
-	9RNj+lT6Mzd4gnUTaKC40Qn39bdBKhmpvnbFp9BCzKKESNco3VpqYoaGUkxMjJxrX4y3sstBOIaij
-	ph/B1Us+HlcC9B3LGzqSKrcKJqslXhPevssKrgGQNEQtWaIV3iP/qI4yqc3Z/NhAEZKO90r9h+qt2
-	RUKu2sXVymKjTssMWGkPZE1fkxAbtANdDqApr43IT1Hw4JmpMCp+LXfq+HdzVQCNUsWqMlVYa6y4+
-	pus+Grag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IvCFu598bKNcgvznsziLMQo5/Gz0ibjbmklJbsELIKs=; b=r2F0X1nEctGD4bSKYTJoDSvcKM
+	Tb3iRms8FKsFNnNOSKEAYzKd1GWpCk1nhBbQ0cfL8uRojJuovpL1uvPOEZ9Ej5jOyLMyKuvFSR3M2
+	S5DcZd+TqtBtvtFLt8VQaKVys7YMOZgM2RBc5W+pzjepwRcFbDXENz2JRnfiroimuzrIEpJkdI7mB
+	ES9Ar4MAS+T54vK/6uCCuqnkokOu3h4vhpIRC77gl5ma7+GBxMrPJHy9TMhQzRyKREbw0JSADCaEr
+	5s+Mxb3agN5IJspR0VqYNYAZ8h91Zifd+hG8kzdok4h31nL1rOM+oJRp+UiNq7EGEX354Q+Xz5ovX
+	Ru612Hgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us04P-0000000615V-3BWs;
-	Fri, 29 Aug 2025 14:27:13 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urxBN-00000005TGR-1PLn
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 11:22:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0EC8E19F0;
-	Fri, 29 Aug 2025 04:22:04 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 741683F738;
-	Fri, 29 Aug 2025 04:22:10 -0700 (PDT)
-Date: Fri, 29 Aug 2025 12:22:07 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, <arm-scmi@vger.kernel.org>,
-	<imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v3 5/6] firmware: arm_scmi: imx: Support getting syslog
- of MISC protocol
-Message-ID: <20250829-ludicrous-giga-bison-aa8ace@sudeepholla>
-References: <20250827-sm-misc-api-v1-v3-0-82c982c1815a@nxp.com>
- <20250827-sm-misc-api-v1-v3-5-82c982c1815a@nxp.com>
+	id 1us078-000000061qT-1erU;
+	Fri, 29 Aug 2025 14:30:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urxEr-00000005Trp-3sKe;
+	Fri, 29 Aug 2025 11:25:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9B76E43C0F;
+	Fri, 29 Aug 2025 11:25:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9595EC4CEF0;
+	Fri, 29 Aug 2025 11:25:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756466749;
+	bh=ysquxCIIQNwKzhgZFwqELK6EpHlgMkWfidw1GJSAZZA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=aGB7dJcm+6ID0+LHHkaT1KcYKJMrt7Utm95JsSxHhHABLityLd/QlSAcvclcnl3We
+	 VkfwaVzorBJIGitM1At4G1N9ei4KbOBYVTOh04g8OHNysz0XdwguMhiSuitnCeI6wg
+	 Zvh9krgCyc3/lRraw9SYJ4ZQNWOvRPV+Mgafl5x+kK56UX6cfgeO8+yxsxO5RtXthF
+	 XBY75p8Lxn4l6qeOuThNQeqHQA53kDCkYHV3QVEnVLkdOHV/3BpTkBT4dn8qlRJ9DJ
+	 bFFERfD9rtp+4x1pz2Pcrx+NCGEai3orUB+z3Jn7xiOJd5gL3XIdepdKaT02Qyd/IK
+	 CsMwloNNn9/tw==
+Message-ID: <6b5f20ed-4e88-441e-8f61-20866e2b39c7@kernel.org>
+Date: Fri, 29 Aug 2025 13:25:41 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250827-sm-misc-api-v1-v3-5-82c982c1815a@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 5/6] dt-bindings: phy: samsung,usb3-drd-phy: add
+ ExynosAutov920 combo ssphy
+To: Alim Akhtar <alim.akhtar@samsung.com>,
+ 'Pritam Manohar Sutar' <pritam.sutar@samsung.com>
+Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, andre.draszik@linaro.org, peter.griffin@linaro.org,
+ kauschluss@disroot.org, ivo.ivanov.ivanov1@gmail.com,
+ igor.belwon@mentallysanemainliners.org, johan@kernel.org,
+ m.szyprowski@samsung.com, s.nawrocki@samsung.com,
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
+ dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
+ selvarasu.g@samsung.com
+References: <20250822093845.1179395-1-pritam.sutar@samsung.com>
+ <CGME20250822093022epcas5p42d8c16c851769dab0e1da9d45743ab1f@epcas5p4.samsung.com>
+ <20250822093845.1179395-6-pritam.sutar@samsung.com>
+ <20250824-rough-fresh-orangutan-eecb2f@kuoka>
+ <007501dc1653$e36c3b50$aa44b1f0$@samsung.com>
+ <83dc9435-5850-425d-b345-52e84ef9262c@kernel.org>
+ <000401dc18cd$ec02a1b0$c407e510$@samsung.com>
+ <e8e99c16-ad40-4d79-be92-1aa55c13f9ea@kernel.org>
+ <263801dc18d3$d1e20950$75a61bf0$@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <263801dc18d3$d1e20950$75a61bf0$@samsung.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_042213_425370_CE082154 
-X-CRM114-Status: GOOD (  12.73  )
+X-CRM114-CacheID: sfid-20250829_042550_025881_DF7DF628 
+X-CRM114-Status: GOOD (  16.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,40 +133,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 27, 2025 at 12:59:17PM +0800, Peng Fan wrote:
+On 29/08/2025 12:58, Alim Akhtar wrote:
+> Hi Krzysztof
+> 
+>> -----Original Message-----
+>> From: Krzysztof Kozlowski <krzk@kernel.org>
+>> Sent: Friday, August 29, 2025 4:07 PM
+>> To: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+>> Cc: vkoul@kernel.org; kishon@kernel.org; robh@kernel.org;
+>> krzk+dt@kernel.org; conor+dt@kernel.org; alim.akhtar@samsung.com;
+>> andre.draszik@linaro.org; peter.griffin@linaro.org; kauschluss@disroot.org;
+>> ivo.ivanov.ivanov1@gmail.com; igor.belwon@mentallysanemainliners.org;
+>> johan@kernel.org; m.szyprowski@samsung.com;
+>> s.nawrocki@samsung.com; linux-phy@lists.infradead.org;
+>> devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-arm-
+>> kernel@lists.infradead.org; linux-samsung-soc@vger.kernel.org;
+>> rosa.pila@samsung.com; dev.tailor@samsung.com;
+>> faraz.ata@samsung.com; muhammed.ali@samsung.com;
+>> selvarasu.g@samsung.com
+>> Subject: Re: [PATCH v7 5/6] dt-bindings: phy: samsung,usb3-drd-phy: add
+>> ExynosAutov920 combo ssphy
+>>
+>> On 29/08/2025 12:15, Pritam Manohar Sutar wrote:
+>>> Hi Krzysztof
+>>>
+>>>> -----Original Message-----
+>>>> From: Krzysztof Kozlowski <krzk@kernel.org>
+>>>> Sent: 26 August 2025 02:05 PM
+>>>> To: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+>>>> Cc: vkoul@kernel.org; kishon@kernel.org; robh@kernel.org;
+>>> .
+>>> .
+>>> [snip]
+>>> .
+>>> .
+>>>>>> Subject: Re: [PATCH v7 5/6] dt-bindings: phy: samsung,usb3-drd-phy:
+>>>>>> add
+>>>>>> ExynosAutov920 combo ssphy
+>>>>>>
+>>>>>> On Fri, Aug 22, 2025 at 03:08:44PM +0530, Pritam Manohar Sutar wrote:
+>>>>>>> This phy supports USB3.1 SSP+(10Gbps) protocol and is backwards
+>>>>>>> compatible to the USB3.0 SS(5Gbps). It requires two clocks, named
+>>>>>>> "phy" and "ref". The required supplies for USB3.1 are named as
+>>>>>>> vdd075_usb30(0.75v), vdd18_usb30(1.8v).
+>>>>>>
+>>>>>> Please do not describe the schema, but hardware. This sentence does
+>>>>>> not help me in my question further.
+>>>>>
+>>>>> This is a combo phy having Synopsys usb20 and usb30 phys (these 2
+>>>>> phys are
+>>>> totally different).
+>>>>> One PHY only supports usb2.0 and data rates whereas another one does
+>>>>> usb3.1 ssp+ and usb3.1 ssp
+>>>>>
+>>>>> This patch only explains about usb30 (since these are two different
+>>>>> phys) phy
+>>>> and omitted inclusion of usb20 reference (added separate patch for
+>>>> this patch no 3).
+>>>>>
+>>>>> Hope this is clear.
+>>>>
+>>>> No. That sentence still explains what schema is doing.
+>>>>
+>>>
+>>> Ok, let me simplify the commit message further something like below.
+>>> Anyways, the coverletter contains more details about it.
+>>>
+>>> "dt-bindings: phy: samsung,usb3-drd-phy: add ExynosAutov920 combo
+>>> ssphy
+>>>
+>>>   Add schema for combo ssphy found on this SoC.
+>>> "
+>>>
+>>> Please confirm if this looks fine?
+>>> If so, will reflect the similar commit messages in patch 1 and 3.
+>>
+>> Please read my first comment again. I do not see how does this satisfy
+>> hardware explanation.
+>>
+> Just went through the conversation above, 
+> until what extent hardware description need to be explain in the commit?
+> Do we have any guideline for the same?
+> Could you please help with an example from previous any commit or some other patches? 
+> I understand that mentioning, “two clocks, two supplies etc" are part of schema, 
+> one may or may not capture that in the commit. 
+> However mentioning, “this hardware (SoC) contain a combo PHY which supports usb3.1 and usb3.0" is not ok? 
 
-[...]
 
->  static int scmi_imx_misc_protocol_init(const struct scmi_protocol_handle *ph)
-> diff --git a/include/linux/scmi_imx_protocol.h b/include/linux/scmi_imx_protocol.h
-> index 27bd372cbfb142b6acb0b1cf4b82f061529d0d45..6e18920aac56de67d388e985e3305745d3798c3e 100644
-> --- a/include/linux/scmi_imx_protocol.h
-> +++ b/include/linux/scmi_imx_protocol.h
-> @@ -52,6 +52,23 @@ struct scmi_imx_misc_ctrl_notify_report {
->  	unsigned int		flags;
->  };
->  
-> +struct scmi_imx_misc_sys_sleep_rec {
-> +	u32 sleepentryusec;
-> +	u32 sleepexitusec;
-> +	u32 sleepcnt;
-> +	u32 wakesource;
-> +	u32 mixpwrstat;
-> +	u32 mempwrstat;
-> +	u32 pllpwrstat;
-> +	u32 syssleepmode;
-> +	u32 syssleepflags;
-> +};
+Maybe that's just language, but to me the commit msg did not describe
+hardware after first sentence, but said what schema requires (some
+clocks and supplies). Other examples:
+00399bbe02d2bb6fd8d6eb90573ec305616449f4
+e4c9a7b475e5d0d9b2440ee48f91d1364eabd6cb
 
-And since the document/spec doesn't cover details on above, better
-to add comment for this to explain each of it. How do you ensure
-the backward compatibility if you are assigning a structure to a log
-buffer that is not so structured the spec/document. Will be end up
-with one structure for each version if f/w screws up the structure ?
+and here another anti-pattern:
+23f793850e9ee7390584c0809f085d6c88de7d3f
 
-Can it be a raw dump of man 4KB instead ? Sorry just realised it now.
+(and before you ask why above carries my Rb tag, then note that
+Samsung's revenue is around 220 billion USD, so for sure it has a lot,
+really a lot of resources to review patches internally and improve their
+quality before posting).
 
--- 
-Regards,
-Sudeep
+Best regards,
+Krzysztof
 
