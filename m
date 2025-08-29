@@ -4,58 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40644CA0FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 17:15:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CD41CA0FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 17:18:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ViInizy8FUENayFx1GEEENnxxX3uG7KLrZCWBhiJ5IA=; b=IVjBztaDBvtxzALrET+2ZtbjG/
-	4Gr9vydHLVSQ4cGsKDjgeg6MIYFGK8lVRj57vTR4lyn9WdtFxPsu2kEcBcR1cFR7wZFRWfCtGreC1
-	cLj5kLJSEQoPNn8/7VErPHwRKPBucQxUc/ZyUBaZk/FaZBgVAXIi0GTD0PzjuP+DD4w/tYc9WNfVO
-	RfAsmkOjQGog2vxcEECQyUaSXKDA8djH+tujg8URe0bu9Tr/LU+C98Tq6QcnfzGqC7i20PGGs+EKe
-	gVoUiExVDT223ftYlvg46QJgvPLRGsohkE84BtfbwhggZfSLRvKITZw6ks1HxfyN1rIwVXX5Qc6KQ
-	6dDH9GcQ==;
+	bh=7ynGXV6mR8hK2Z9kYMI5y2depEes3HDTjAq785nEjho=; b=kcdXpuoZyUFzzd6LvJNe8eO2eg
+	cg8PqmLZaaO9P2b3it5WMg5DlSzRR5fQsqo42p+cySA9lTcGmEHeXSHyzBYqxiiqfP7f+93cCBHry
+	tbC39mfO/aRTbMYqdqP/X7mM2tU7gF3wXlp6q71nBqManBPm7v+4/E8e3Xa3QMBydTnn1Idj6aJTR
+	EDt+lyMmPmj3u8+uRtplG8t5Zh7zEnx161udH2N3/LFOJwMntA7roATh5hbwYcEEUz59nqJRZVVOC
+	xWUAbowg6NbORcsjSODoLjLWWGXZQkNPYhXP/VCucCnQgvl61RdN7Dn4HOLa2g6bxOjj6GRXGv1SL
+	KlF8bgkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us2h6-00000006VF8-0q93;
-	Fri, 29 Aug 2025 17:15:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1us2jn-00000006VYM-0AZR;
+	Fri, 29 Aug 2025 17:18:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urzlW-00000005yGc-35hZ
+	id 1urzmK-00000005yQk-3f5q
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 14:07:43 +0000
+	Fri, 29 Aug 2025 14:08:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 21ABD43B17;
-	Fri, 29 Aug 2025 14:07:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFC12C4CEF0;
-	Fri, 29 Aug 2025 14:07:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4994040748;
+	Fri, 29 Aug 2025 14:08:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90310C4CEF0;
+	Fri, 29 Aug 2025 14:08:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756476462;
-	bh=ntn50gtHJC0b6s+uwh0tz+PAXnlaGmO9Hp1kmeMcwog=;
+	s=k20201202; t=1756476512;
+	bh=IGa1wXzUuxm/JAmmEyNFjDan3E+nHzgxQoSepLQnSvw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=j3MRbU1leo4Pge1iS45yOWS4V+TrvXWbx82y0ib/1s0c50Y74MTlf+i/tBKHO0CYI
-	 0GGEcl3/Ru2+q+QkRx9ij7DfPWwtsX8W9SZ+tXeBv9uw7JSMeA5bdFpzEf8IA3pSwL
-	 FCaYjbi1BGNHrqnlrRGxpeE9nTO2obwddSfndlETN8IYxBTp13PBpU44VOk3zq+aWT
-	 tU4AhS3MEzRCM4zkbm5wFjNZBOjY9aKvM4uBvz54d6vVUgOhpV3kzHOhmeiacGPY+7
-	 GXkiReUSUxRcbblfJ1EFUSFU0hm74g0flTdYDgmzRKLEgVQ7F9XTsmgxhtHXVdsKzR
-	 Z8eZXBF+mTybQ==
-Message-ID: <6801197c-ccf7-47ea-bab6-5f567dfca418@kernel.org>
-Date: Fri, 29 Aug 2025 16:07:36 +0200
+	b=cSE0djRPJp7LahSKQwnuDTlRlYq9yRdoPMFOkm9qsBWfipWQ1Y+0iIixD022dCf+s
+	 d+rNzzYB4tCzvZduh1mT5cplV03O41tZE+lsANB6a9cwbzctH1D7iLIXKt/E5TewDd
+	 h+zr5PlF9lg5lvD6yWd1mqCgmstTK6nDh8eg/nLNjCmPIhaKbjV2KcEIV5/L0MVsjO
+	 7H99hwQSnKQkbLB2Xz+yyMC/AOjyFaXUsn/dnH6wW9CYIrDEu7Wmu7gaxt58Whdm22
+	 dmQZG4HwP/6/7pSdLgi5d613nbT9kBp142d2/CJrHZjJluiYnmCph9DYODHmWWi2t5
+	 L1AviF6yOKgCg==
+Message-ID: <ad42068f-8528-4974-80cc-2f99cd628809@kernel.org>
+Date: Fri, 29 Aug 2025 16:08:27 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 9/9] arm64: dts: freescale: imx95: Add video codec node
-To: Nas Chung <nas.chung@chipsnmedia.com>, mchehab@kernel.org,
- hverkuil@xs4all.nl, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-imx@nxp.com,
- linux-arm-kernel@lists.infradead.org, jackson.lee@chipsnmedia.com,
- lafley.kim@chipsnmedia.com
-References: <20250829084649.359-1-nas.chung@chipsnmedia.com>
- <20250829084649.359-10-nas.chung@chipsnmedia.com>
+Subject: Re: [PATCH] watchdog: s3c2410: Add FSD support
+To: Varada Pavani <v.pavani@samsung.com>, alim.akhtar@samsung.com,
+ wim@linux-watchdog.org, linux@roeck-us.net
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org,
+ gost.dev@samsung.com, aswani.reddy@samsung.com
+References: <CGME20250829140010epcas5p1bc06faf0001ab2695f0199db65fe678d@epcas5p1.samsung.com>
+ <20250829140003.109588-1-v.pavani@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,12 +99,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250829084649.359-10-nas.chung@chipsnmedia.com>
+In-Reply-To: <20250829140003.109588-1-v.pavani@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_070742_822998_25C5E555 
-X-CRM114-Status: UNSURE (   9.63  )
+X-CRM114-CacheID: sfid-20250829_070832_958083_4F2AF99B 
+X-CRM114-Status: UNSURE (   9.24  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -122,54 +120,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/08/2025 10:46, Nas Chung wrote:
-> diff --git a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-> index 2f949a0d48d2..c9d8b78d5768 100644
-> --- a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-> @@ -75,6 +75,11 @@ linux_cma: linux,cma {
->  			linux,cma-default;
->  			reusable;
->  		};
+On 29/08/2025 16:00, Varada Pavani wrote:
 > +
-> +		vpu_boot: vpu_boot@a0000000 {
+>  static const struct of_device_id s3c2410_wdt_match[] = {
+>  	{ .compatible = "google,gs101-wdt",
+>  	  .data = &drv_data_gs101_cl0 },
+> @@ -352,6 +380,8 @@ static const struct of_device_id s3c2410_wdt_match[] = {
+>  	  .data = &drv_data_exynosautov9_cl0 },
+>  	{ .compatible = "samsung,exynosautov920-wdt",
+>  	  .data = &drv_data_exynosautov920_cl0 },
+> +	{ .compatible = "tesla,fsd-wdt",
 
-Follow DTS coding style.
+Please run scripts/checkpatch.pl on the patches and fix reported
+warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
+patches and (probably) fix more warnings. Some warnings can be ignored,
+especially from --strict run, but the code here looks like it needs a
+fix. Feel free to get in touch if the warning is not clear.
 
-> +			reg = <0 0xa0000000 0 0x100000>;
-> +			no-map;
-> +		};
->  	};
->  
->  	flexcan1_phy: can-phy0 {
-> @@ -1044,3 +1049,8 @@ &tpm6 {
->  	pinctrl-0 = <&pinctrl_tpm6>;
->  	status = "okay";
->  };
-> +
-> +&vpu {
-> +	memory-region = <&vpu_boot>;
-> +	sram = <&sram1>;
-> +};
-> diff --git a/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi b/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi
-> index 7519d5bd06ba..73c84ab60dfd 100644
-> --- a/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi
-> @@ -59,6 +59,11 @@ linux,cma {
->  			size = <0 0x3c000000>;
->  			linux,cma-default;
->  		};
-> +
-> +		vpu_boot: vpu_boot@a0000000 {
 
-Same problem.
-
-> +			reg = <0 0xa0000000 0 0x100000>;
-> +			no-map;
-> +		};
->  	};
-
-> +
 Best regards,
 Krzysztof
 
