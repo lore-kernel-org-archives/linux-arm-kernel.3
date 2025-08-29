@@ -4,114 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67B32CA0FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 13:20:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 334A1CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 13:22:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qAZhT2fUz74UCKMpIfbVaKWJy0jdicfDQPNFGmzeEAI=; b=39qtNL2yfKWSec9AU0GNNcPIz6
-	LglFMu8WLuLXLPy9sK8bAm6ilGpKu+0t+hd+DeJK5Vv0Yv3E85luM1ZxmXUY2Bbw71pnfZ/lv3F2S
-	qETAaarG/JV0x4nxVZ2e1l6qhKEZA28L4d0iXb1NGIJKHRxtIaOg06jEjjN5AIzOXJCWKqcb0S75Y
-	o1spl+B8fQgxUfRSSaeeJtKmc6zMN9xw8G+sAFRqqGVnKZtHDCEZtQ8aR9Nd77k1ow2dCKarH1vjr
-	UhrD5bHiWdA/jhpAidZi8SB8Oh5gwoIzdX8IPh7wwUjxu/3Tvpvxkj0X/9fg9xbSil4Lufbly8m4/
-	X6x24ETQ==;
+	bh=Yl5p12U2uO9xfcN1YtAosyTJ9NoreSs1ECa/E0M81SM=; b=Ar00Z/Dpg18FLF9KU8o2Aa42E9
+	v4dKw+CwZLAynHwCUKU9vSHWZlzfTZ/XwPe+21BoPmWv2LuotFn3iH/jBmp7D+VeotUL0TquaJkH0
+	NsVn9rRxUPuxxNNcWXWnSiu5Aews/LY44wO3U3lCxM0Tgw859VMs4eV8jR1N8yTdpSHz404bM8hso
+	r819IJBzDcb4J13wQn6fxCEMVbgu7XC9S+ndEEziSC6sU3B3B9gqfeHQlHpf6vdmBDtwTB6q2+Cyw
+	XtPrWS1lJnk/HaQxRMSK/UDmZPE7rroCPUwJAswfnDvsK3EXwoCAjSE0bDjTfNYyYkLUN43lxQWLL
+	jXTsq6zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urz1N-00000005ngH-1xkg;
-	Fri, 29 Aug 2025 13:20:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1urz45-00000005oDF-1UdK;
+	Fri, 29 Aug 2025 13:22:49 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urwVd-00000005M7v-1rO6
+	id 1urwWg-00000005MHK-2Vsv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 10:39:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0B8AB4031F;
-	Fri, 29 Aug 2025 10:39:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 805DFC4CEF0;
-	Fri, 29 Aug 2025 10:39:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756463944;
-	bh=/peVqt9NTGN9k4jEtiweT1qPpb63RX6iogY8nuVswHw=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=j0YCRNWdJqmbCxKo2Kf0tjk4Ukk3m3OJpb3WC/naTjTYpKXaq2qjUQoJaqjNcbigv
-	 UhgxQncms9beaNXV65oZViN5oDY3C5viRKVwFTH1tFdTgol2a3+5QZ1zSLG2SuwK0n
-	 9F4niVyiq9EW/iD1ghby37FifdRsUNg9B1wiPgupqz0KN2d9iB/BhZ6ZTaE5Hjv+B8
-	 WaxHPmf8QtVnZMb0QVAkZ0NxTiU3aDtAB+l1hTJMmgT1em3pYGZ+4cb6AFJIuq0VPe
-	 ZwMCfKHs2VK5Dm1GBpD73kctMYo7zzMdLT7WzvelUovsAx9SoSbTz1lOyNSR+aKAQf
-	 ufIFv2uEgpxTQ==
-Message-ID: <60e55e14-7712-4f82-93af-6751009327fd@kernel.org>
-Date: Fri, 29 Aug 2025 12:39:00 +0200
+	Fri, 29 Aug 2025 10:40:13 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-afcb731ca8eso309547766b.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 03:40:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756464008; x=1757068808; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=Yl5p12U2uO9xfcN1YtAosyTJ9NoreSs1ECa/E0M81SM=;
+        b=FwukjtS+Lmk11lqZGneGJe3ayS67mUCu08fFK6xIjaTKI5N6lC1PpyhKBX1pyouQwI
+         R8wYGadXm1ABSUSKn/LyABmpV39yx+j3ajCXo2vK/FtnmpVFFbDxOePqdCrA2WXIoyjB
+         hMJEic5KBokwUOSKn/LMPTD1I3U90FfEqgXP2vwbHHN4EXwCAH9zoaaDZuFXkAi19YiI
+         xje3hM2/YgN7U4vBQ/2Y7+SAkDirb80lYfFzthQqgTc9cvUtHsDD0nNd360Zoab91pOB
+         OnICs/6A/thm0ETetUDPBVVt8jjRO+9FpluZTFLotPjEDo5hmGSNs4VdqusZ0DsKh1s8
+         f55w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756464008; x=1757068808;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Yl5p12U2uO9xfcN1YtAosyTJ9NoreSs1ECa/E0M81SM=;
+        b=VrbKmNYssG9pPsST+H+whZJv7Sf9xVjJLkmUDen7lQb7dk29enQ0fgDWoC2AXo/7Ro
+         4TNXhfMgpRzMswBKQ7447mtsh23xlEwI7GMLHPDZFLbjb0lb1H+FhH0+k+3AV3wRyz4C
+         pYqcso8ryQnsslnHjMucokNlZcrs+p76ie/pucrFIrSv9od6cClqg4UynY0UJ+4ICdQA
+         dc49mjntSAX2kFZv6nSL8+XMtrvHDqqiLL6CcZ9WmU7IVJ6Txj96plxQxr1sEAGLj+MA
+         NuPWL9EYE9jKZYwjsLpaiYFX2bKjRA2GVwgVBtOu40aW2+TMNJOqDvNSP8zi379Qwnbc
+         YDGw==
+X-Forwarded-Encrypted: i=1; AJvYcCWE9LqPGG7J4m3/ddwzh76gFt8z6VW1oyROea/6VENBIrP0+iVdk9puAz6PhOyofZ+QrnUzYWdiswEjlAEuJ5Dm@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLOtc+V6HzOR9PluPjKC2ScHvfGXl9rOvS2vEeZuHyU5qcf8cM
+	vQTq4sm7GHy7SfnhQwho2a/1L8YtPSAAQ9i50RNNflj2SAmOc7BZ91SocuCSnA==
+X-Gm-Gg: ASbGncseG6GKOWGvfKjipZLlpN+T7BV9rky3p8TCd7f21yX/ibhd+UHBYs8Iab9NROK
+	azISUH22jxtDCaDBstl8MboYELruf8pl388ImKR6x6zIiTxKUB3eDBUbZD+LCnDhk0qGJ39wlcb
+	Z+jYZa10rsNqvCVNy6KxdCUMNJWWIdVbvoGLZGOjhA1NiDz6Ds1i4beme3ukWpEk3K4OCHqmLiR
+	VkHXyPCwKF1xisVLspY/wlt0kc+gOg9lYCHslLUc1qO3uFD9WH6leYFB+tE3pu2ke5wi+bmkWMA
+	hNKGEWidxm1CpSmmycBi+DpsjEOuKzwUixdqZ+WLDoKdQX66wWgJ8/o2Upk0gSxGAa7A5Q7N4pl
+	JoMV0vX3CoM2ufBzpV1nzTu7QI2Htfz6UFlLNd+zjaF+ZFebWpNJkgtUmCgSU
+X-Google-Smtp-Source: AGHT+IGTd5VpriOznSSUF78PDJ+lBThAc5tfiaPYhgxFnl96GsT4FoZv2KEHpZmkv5khcyAgJC1N0Q==
+X-Received: by 2002:a17:907:3f9a:b0:afe:d21f:7af0 with SMTP id a640c23a62f3a-afed21f7e3cmr716079066b.14.1756464008284;
+        Fri, 29 Aug 2025 03:40:08 -0700 (PDT)
+Received: from [10.82.207.1] (212-39-89-51.ip.btc-net.bg. [212.39.89.51])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afefc7ee8d2sm172652866b.20.2025.08.29.03.40.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 29 Aug 2025 03:40:07 -0700 (PDT)
+Message-ID: <31435f98-5701-4ae0-b822-11a99d1b2eef@gmail.com>
+Date: Fri, 29 Aug 2025 13:40:06 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] brcmstb-memc-ddr binding updates for MIPS boards
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: linux-mips@vger.kernel.org, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- "open list:MEMORY CONTROLLER DRIVERS" <linux-kernel@vger.kernel.org>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>,
- "moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>
-References: <20250729205213.3392481-1-florian.fainelli@broadcom.com>
- <aLF_DEu6YNSCSRxu@alpha.franken.de>
- <dcb0c746-62ed-48f6-9247-03bdf36c6e92@kernel.org>
+Subject: Re: [PATCH v3 0/4] arm64: dts: exynos2200: introduce serial busses,
+ except spi
+From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250815070500.3275491-1-ivo.ivanov.ivanov1@gmail.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <dcb0c746-62ed-48f6-9247-03bdf36c6e92@kernel.org>
+In-Reply-To: <20250815070500.3275491-1-ivo.ivanov.ivanov1@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_033905_526598_115B8254 
-X-CRM114-Status: GOOD (  11.61  )
+X-CRM114-CacheID: sfid-20250829_034010_645126_F928A243 
+X-CRM114-Status: GOOD (  20.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,33 +102,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/08/2025 12:37, Krzysztof Kozlowski wrote:
-> On 29/08/2025 12:21, Thomas Bogendoerfer wrote:
->> On Tue, Jul 29, 2025 at 01:52:11PM -0700, Florian Fainelli wrote:
->>> This patch series updates the MIPS-based Broadcom STB chips to use a
->>> proper compatible string for their memory controller node(s) after
->>> 501be7cecec9 ("dt-bindings: memory-controller: Define fallback
->>> compatible").
->>>
->>> Florian Fainelli (2):
->>>   dt-bindings: memory: Update brcmstb-memc-ddr binding with older chips
->>>   MIPS: BMIPS: Properly define memory controller compatible
->>>
->>>  .../bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml  | 4 ++++
->>>  arch/mips/boot/dts/brcm/bcm7346.dtsi                        | 3 ++-
->>>  arch/mips/boot/dts/brcm/bcm7360.dtsi                        | 3 ++-
->>>  arch/mips/boot/dts/brcm/bcm7362.dtsi                        | 3 ++-
->>>  arch/mips/boot/dts/brcm/bcm7425.dtsi                        | 6 ++++--
->>>  arch/mips/boot/dts/brcm/bcm7435.dtsi                        | 6 ++++--
->>>  6 files changed, 18 insertions(+), 7 deletions(-)
->>
->> series applied to mips-next.
-> 
-> Why entire series? You were notified two weeks ago that I already took
-> the driver subsystem patch.
+On 8/15/25 10:04, Ivaylo Ivanov wrote:
+> Hey, folks!
+>
+> This patchset adds serial busses, implemented in usi, for exynos2200.
+> It's missing spi, due to me having troubles with reads when testing.
+> Serial_0/1 have not been included in the patchset, as it seems like
+> they're encapsulated in usi blocks, but are the only implemented
+> protocol and/or do not have a dedicated register for setting other
+> protocols in a sysreg. That'd at least require patches in the usi
+> driver and bindings to add support for.
+>
+> About the naming convention for usi nodes, I've chosen to keep the
+> downstream one instead of relabelling all to avoid confusion when
+> cross-referencing the vendor DT and to keep consistency with clock
+> names. They're labelled the same in the bootloader too.
 
-...and you do not have even ack from memory-controllers for that patch.
+BUMP - when is this going to get merged? I had a few other things
+I wanted to upstream before merge cycle.
 
 Best regards,
-Krzysztof
+Ivaylo
+
+>
+> Best regards,
+> Ivaylo
+>
+> Changes in v3:
+> - drop the serial_0/1 patch
+> - add r-b tags from Sam
+> - increase the size of all syscon to 0x10000 and not 0x3000
+> - change description of last patch to be more meaningful regarding the
+> usiN and usiN_i2c mess
+> - s/usi6_i2c_cmgp/usi_i2c_cmgp6, following the TRM naming convention
+>
+> Changes in v2:
+> - add a patch that switches address and size cells to 1 in /soc
+> - adjust all new nodes to define reg props with 2 cells in total instead of 4
+>
+> Ivaylo Ivanov (4):
+>   arm64: dts: exynos2200: fix typo in hsi2c23 bus pins label
+>   arm64: dts: exynos2200: use 32-bit address space for /soc
+>   arm64: dts: exynos2200: increase the size of all syscons
+>   arm64: dts: exynos2200: define all usi nodes
+>
+>  .../boot/dts/exynos/exynos2200-pinctrl.dtsi   |    2 +-
+>  arch/arm64/boot/dts/exynos/exynos2200.dtsi    | 1433 ++++++++++++++++-
+>  2 files changed, 1398 insertions(+), 37 deletions(-)
+>
+
 
