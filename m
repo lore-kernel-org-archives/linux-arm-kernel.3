@@ -4,79 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CF52CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 00:14:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97FFCCA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 00:28:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NHYELJgOgtoYXMJjyiZ6Y/1BY77k4JUs4dbKzcllNgc=; b=448T+qNiMs/7ZivmQNOxriocTT
-	KUJ3ReUysPWfTbsIsZnUIZKitDDjVaHkFmXIV+YzDvX8BBOrGyhhnMZk85xF36XH8k2JuP8hbWUOw
-	afy513xSEjpoiJIAdIqHPUuNHDYVuEqf9avWq+fJwTgjUXDr3WCAfd/2EnVeFIcMntLXxIlHIfznL
-	zrieQhlrX9GoimKskGOg8pH6HobnDtIYOrZdFIukUfChBo59EeB/glRD4GiBiHdkuxaXtV5tSz8ur
-	vOFM2JNfSCE2qXvke9/3K226ejQ0uoiCUrQ2VHJeZ3SfXkBvEGEAWsT2S3eNSJLF9dttln7DIykCk
-	wxwHoI2Q==;
+	bh=9qEiRJT6L0KlzrHaKsBXIek2jdzMCUk5kk8Lf8Edofk=; b=M0RADpiPMW2VTyGSinKYhkuJgU
+	ipSZgDiX9suzu1bmMsgqglBTTJXAqu0HpaLUqENQH1Dey1O60AHiZQSOD6WXjRzgDOoHKw26Rygk7
+	2bZPnSizgb06O+aNHkvcUEClJHHjl2peNhzAk7DohQUGEPUmoUojLTsuvzaVVyjRpf2omN1UaJ7ib
+	3/igEbcnA4zBSVlTo2z2h0CzF09lSJvcwldBAOK6QoInviHTqPfU1k29LcdYkbcWLSVNve1SpVmN0
+	icXm4qBxexQZTA6/ylTDi1cxwMd1BVo1B9/ti8zTx0qnqNgwxoDFUpDboaCgA6eMQgDRusj0ZDYyM
+	65PCyNUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urmks-00000003pe7-1cYA;
-	Fri, 29 Aug 2025 00:14:10 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urmaa-00000003mRo-0x8r;
-	Fri, 29 Aug 2025 00:03:33 +0000
-Received: from [100.65.128.219] (unknown [20.236.11.69])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 29236211080D;
-	Thu, 28 Aug 2025 17:03:30 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 29236211080D
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1756425810;
-	bh=NHYELJgOgtoYXMJjyiZ6Y/1BY77k4JUs4dbKzcllNgc=;
+	id 1urmyb-00000003rF0-3DEy;
+	Fri, 29 Aug 2025 00:28:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urmvs-00000003qoF-3PSb;
+	Fri, 29 Aug 2025 00:25:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BA50844450;
+	Fri, 29 Aug 2025 00:25:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12DD3C4CEEB;
+	Fri, 29 Aug 2025 00:25:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756427131;
+	bh=mcyLCjBm9bl4ZY6mSMuRJ2uZCphNIYGX7Xvto/pbXbA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=b/Cp3YVnPly7ZmtMQDa2AEMRoQa4CxzO0/V6ejotdr50lR5itAta36gVWEjEJkADW
-	 rU7s8pjJhzWn/fR2q78z1pzSDm8R5EbcWLUxToRvAEbLWCrmz4XX39aTX/yCwcbIg0
-	 s7ITLAqpkbVOXbI9g+AL0NaazVp0H0AaluYJk0kI=
-Message-ID: <c1a5ab1d-1601-46db-83da-b26422a2aabd@linux.microsoft.com>
-Date: Thu, 28 Aug 2025 17:03:28 -0700
+	b=u/oWKLrG9w8tVTD1fZ8iHMCTnvOpAvWDeHA6QKVbOxI5z3EsWkKOYpx+/EqygyXxT
+	 JfsI9TgIRVHKumF8STASk0xFgWojfw7Ae2CzWwD/2Q2uuHXJXzQ2WP0cdMy2yD417H
+	 CsBjZQp1WYO2XyxCtl17k56mMmCMHv9CfhW9EaopZS9VGhmJpwlMecnpjR6PhtJ/fj
+	 GrN7kYbeVhnoRdeSLtAXW1b3kHoiS9DAKmAaknHskX5SZxQCo9ZS9tNyBpYomI4Vyl
+	 stc7Srggmoj/YULxsLdMf7tTageVur4W6TC/Wx9ff7SP+zxWQrvIoTZdLNEPK/uv1q
+	 9GQe8IoL25fMw==
+Message-ID: <423566a0-5967-488d-a62a-4f825ae6f227@kernel.org>
+Date: Fri, 29 Aug 2025 09:22:30 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 6/7] Drivers: hv: Use common "entry virt" APIs to do
- work in root before running guest
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
- Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Paolo Bonzini <pbonzini@redhat.com>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "K. Y. Srinivasan" <kys@microsoft.com>,
- Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
- Dexuan Cui <decui@microsoft.com>, Peter Zijlstra <peterz@infradead.org>,
- Andy Lutomirski <luto@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>,
- Frederic Weisbecker <frederic@kernel.org>,
- Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
- Joel Fernandes <joelagnelf@nvidia.com>, Josh Triplett
- <josh@joshtriplett.org>, Boqun Feng <boqun.feng@gmail.com>,
- Uladzislau Rezki <urezki@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-hyperv@vger.kernel.org, rcu@vger.kernel.org,
- Mukesh R <mrathor@linux.microsoft.com>
-References: <20250828000156.23389-1-seanjc@google.com>
- <20250828000156.23389-7-seanjc@google.com>
+Subject: Re: [PATCH v1 24/36] ata: libata-eh: drop nth_page() usage within SG
+ entry
+To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ David Hildenbrand <david@redhat.com>
+Cc: linux-kernel@vger.kernel.org, Niklas Cassel <cassel@kernel.org>,
+ Alexander Potapenko <glider@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
+ Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
+ dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+ iommu@lists.linux.dev, io-uring@vger.kernel.org,
+ Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
+ Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
+ kasan-dev@googlegroups.com, kvm@vger.kernel.org,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
+ linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+ linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-scsi@vger.kernel.org, Marco Elver <elver@google.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Muchun Song <muchun.song@linux.dev>,
+ netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
+ Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
+ Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
+ virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
+ wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
+References: <20250827220141.262669-1-david@redhat.com>
+ <20250827220141.262669-25-david@redhat.com>
+ <7612fdc2-97ff-4b89-a532-90c5de56acdc@lucifer.local>
+From: Damien Le Moal <dlemoal@kernel.org>
 Content-Language: en-US
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-In-Reply-To: <20250828000156.23389-7-seanjc@google.com>
+Organization: Western Digital Research
+In-Reply-To: <7612fdc2-97ff-4b89-a532-90c5de56acdc@lucifer.local>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_170332_335454_DAC45E88 
-X-CRM114-Status: GOOD (  19.70  )
+X-CRM114-CacheID: sfid-20250828_172532_878043_0D71719E 
+X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,93 +100,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/27/2025 5:01 PM, Sean Christopherson wrote:
-> Use the kernel's common "entry virt" APIs to handle pending work prior to
-> (re)entering guest mode, now that the virt APIs don't have a superfluous
-> dependency on KVM.
+On 8/29/25 2:53 AM, Lorenzo Stoakes wrote:
+> On Thu, Aug 28, 2025 at 12:01:28AM +0200, David Hildenbrand wrote:
+>> It's no longer required to use nth_page() when iterating pages within a
+>> single SG entry, so let's drop the nth_page() usage.
+>>
+>> Cc: Damien Le Moal <dlemoal@kernel.org>
+>> Cc: Niklas Cassel <cassel@kernel.org>
+>> Signed-off-by: David Hildenbrand <david@redhat.com>
 > 
-> No functional change intended.
+> LGTM, so:
 > 
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  drivers/hv/Kconfig          |  1 +
->  drivers/hv/mshv_root_main.c | 32 ++++++--------------------------
->  2 files changed, 7 insertions(+), 26 deletions(-)
-> 
-> diff --git a/drivers/hv/Kconfig b/drivers/hv/Kconfig
-> index 2e8df09db599..894037afcbf9 100644
-> --- a/drivers/hv/Kconfig
-> +++ b/drivers/hv/Kconfig
-> @@ -66,6 +66,7 @@ config MSHV_ROOT
->  	# no particular order, making it impossible to reassemble larger pages
->  	depends on PAGE_SIZE_4KB
->  	select EVENTFD
-> +	select VIRT_XFER_TO_GUEST_WORK
->  	default n
->  	help
->  	  Select this option to enable support for booting and running as root
-> diff --git a/drivers/hv/mshv_root_main.c b/drivers/hv/mshv_root_main.c
-> index 0d849f09160a..7c83f656e071 100644
-> --- a/drivers/hv/mshv_root_main.c
-> +++ b/drivers/hv/mshv_root_main.c
-> @@ -8,6 +8,7 @@
->   * Authors: Microsoft Linux virtualization team
->   */
->  
-> +#include <linux/entry-virt.h>
->  #include <linux/kernel.h>
->  #include <linux/module.h>
->  #include <linux/fs.h>
-> @@ -481,29 +482,6 @@ mshv_vp_wait_for_hv_kick(struct mshv_vp *vp)
->  	return 0;
->  }
->  
-> -static int mshv_pre_guest_mode_work(struct mshv_vp *vp)
-> -{
-> -	const ulong work_flags = _TIF_NOTIFY_SIGNAL | _TIF_SIGPENDING |
-> -				 _TIF_NEED_RESCHED  | _TIF_NEED_RESCHED_LAZY |
-> -				 _TIF_NOTIFY_RESUME;
-> -	ulong th_flags;
-> -
-> -	th_flags = read_thread_flags();
-> -	while (th_flags & work_flags) {
-> -		int ret;
-> -
-> -		/* nb: following will call schedule */
-> -		ret = mshv_do_pre_guest_mode_work(th_flags);
-> -
-> -		if (ret)
-> -			return ret;
-> -
-> -		th_flags = read_thread_flags();
-> -	}
-> -
-> -	return 0;
-> -}
-> -
->  /* Must be called with interrupts enabled */
->  static long mshv_run_vp_with_root_scheduler(struct mshv_vp *vp)
->  {
-> @@ -524,9 +502,11 @@ static long mshv_run_vp_with_root_scheduler(struct mshv_vp *vp)
->  		u32 flags = 0;
->  		struct hv_output_dispatch_vp output;
->  
-> -		ret = mshv_pre_guest_mode_work(vp);
-> -		if (ret)
-> -			break;
-> +		if (__xfer_to_guest_mode_work_pending()) {
-> +			ret = xfer_to_guest_mode_handle_work();
-> +			if (ret)
-> +				break;
-> +		}
->  
->  		if (vp->run.flags.intercept_suspend)
->  			flags |= HV_DISPATCH_VP_FLAG_CLEAR_INTERCEPT_SUSPEND;
+> Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
 
-Also tested mshv_root with 1-6 applied, looks good to me. Possibly Naman,
-Saurabh, or Roman can test the mshv_vtl patches, I can't do it
-unfortunately.
+Just noticed this:
 
-Tested-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-Reviewed-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+s/libata-eh/libata-sff
+
+in the commit title please.
+
+-- 
+Damien Le Moal
+Western Digital Research
 
