@@ -4,78 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87F69CA0FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 11:24:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7456ECA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 11:29:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7yYVY6Nd5fRMeiJ9wV4QtgoDMF5DHG9rTCJfUQqd8K0=; b=lqHQPsWEP5fG98ZJzKCXAYXpM+
-	FcOHbFQQIt4+QgnL+zGx9uLtqSD7+Pw6mEWM2ivVY6FZg6It37ZGVYt7WOBdLJJ9/VsGJXOfq9iji
-	ToaWBXqqJBAgRALgvAIL3q+TE62bugUpOBNgoO9puIs7/QjH2/cvbGpKHJMukg07Xy2ziWeSD9RFf
-	lwX8gKCo/Nzebk148dtdU+hw2YJa4jmjSc0UDslH9MMB1k80XmSeQ1fd7aaGmyFhSUG/YVBmEmS/I
-	Ff/wK5n8K6Au2OJojRaBcVSatoGIZqR0SrukG/GBKFMo4X9AQbykQeoB8L5uBJZawvHy/wkAmzqDy
-	ui/85q3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fXHjaQ1LRWYb/mZZ8OqDoN/mAOTqlRVHSAzjLG2Zwcs=; b=zLQUtvYeD2w6hu0IR8rr3cVX5X
+	28XkHDVXYwu1p6sMaJj5AXmalHJC+8MdxZtcvjL7wf4Eh6MSaUzBidw9hnLS9Ts0Qux/XpPi54TRe
+	AHroWodtq0Sm4CxEzqLFVe9iFaGEwMo4jwvC6HZ9rskCoJkJH77vqEkGvkdSfXC/17sjTrGurrvVj
+	/l/8eOAEUvzGPIOylB2cmIPIeDIVzaVW95AchO1On8msYSc0YMBQ2bt9O53bUGL3dU63Y/sKuhLnI
+	bdO+P48IAZXQVpvDfR07gGJSORCjVGJz9avkEcY4W4BZo0IN+YVME+lNowPTesyrufHFjcR+6aRyn
+	iI5ouokA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urxDo-00000005TYa-404S;
-	Fri, 29 Aug 2025 11:24:44 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1urxIa-00000005UJX-396S;
+	Fri, 29 Aug 2025 11:29:40 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urvIN-000000057s7-1nVr;
-	Fri, 29 Aug 2025 09:21:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1756459278;
-	bh=ZHU/3tmdBD0CvUCFaWQ8xJdkHl6uD0n0E+V1jtNzUbo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MhRvaxDBX9KwzBn+cMRAhEh6R4B5uYNggcqT868/VP7mYs+SUZROzznKVLeRAo2hl
-	 Cb+E9z4/m1sJs3GQtvxTglAwnUxO0QyRZ/Y0AHzLXtdsA8ZTLPKGWZJteLmNztVFpq
-	 JQmF7MK4qtk6kMB0bsNhJssLD15OcrBJ2JG0gtfIadRC5Ow6b6SDaR0Yhm8LtgmOrh
-	 9Iyuljq3B5en0QaobblU9JiZup9UugMpXf3FL4EC2zE0jQuWI+RRzlN5H69vcjYtHr
-	 EpYGhoHNLAMXVDvRJUT94ijTGnhSPlDGZtz8NgAk1JtZFuUHtV+vfoJpeB/zFRXZCx
-	 XdZ6YViPMXO4A==
-Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:f5b1:db54:a11a:c333])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2548E17E12BC;
-	Fri, 29 Aug 2025 11:21:17 +0200 (CEST)
-From: Laura Nao <laura.nao@collabora.com>
-To: mturquette@baylibre.com,
-	sboyd@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	p.zabel@pengutronix.de,
-	richardcochran@gmail.com
-Cc: guangjie.song@mediatek.com,
-	wenst@chromium.org,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	netdev@vger.kernel.org,
-	kernel@collabora.com,
-	Laura Nao <laura.nao@collabora.com>,
-	=?UTF-8?q?N=C3=ADcolas=20F=20=2E=20R=20=2E=20A=20=2E=20Prado?= <nfraprado@collabora.com>
-Subject: [PATCH v5 20/27] clk: mediatek: Add MT8196 mfg clock support
-Date: Fri, 29 Aug 2025 11:19:06 +0200
-Message-Id: <20250829091913.131528-21-laura.nao@collabora.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250829091913.131528-1-laura.nao@collabora.com>
-References: <20250829091913.131528-1-laura.nao@collabora.com>
+	id 1urvEc-000000056qY-0qWQ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 29 Aug 2025 09:17:27 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57T9HD181722762;
+	Fri, 29 Aug 2025 04:17:13 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1756459033;
+	bh=fXHjaQ1LRWYb/mZZ8OqDoN/mAOTqlRVHSAzjLG2Zwcs=;
+	h=From:To:CC:Subject:Date;
+	b=etBXYBrQHZ0jA0GtEdzd5t2SCOuT8veCbPxyhbiIeCr9mdxqDax/m7lM9jmj9Kepy
+	 WxU2dQj4U1Nl48mkOJsfr2hU3LQOL/AUXUHU1jncq1YzF2I5pfTj9Sc76tXHdpkS1D
+	 cJHd4MyRJ1st4MCDexhBJqz38szpv7lY69qUeCw4=
+Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57T9HDcJ3550517
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Fri, 29 Aug 2025 04:17:13 -0500
+Received: from DLEE113.ent.ti.com (157.170.170.24) by DLEE105.ent.ti.com
+ (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 29
+ Aug 2025 04:17:13 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE113.ent.ti.com
+ (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Fri, 29 Aug 2025 04:17:13 -0500
+Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [172.24.231.84])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57T9H8Z81836158;
+	Fri, 29 Aug 2025 04:17:08 -0500
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <mani@kernel.org>,
+        <robh@kernel.org>, <bhelgaas@google.com>, <helgaas@kernel.org>,
+        <kishon@kernel.org>, <vigneshr@ti.com>
+CC: <stable@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+        <linux-omap@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        <s-vadapalli@ti.com>
+Subject: [PATCH v3] PCI: j721e: Fix programming sequence of "strap" settings
+Date: Fri, 29 Aug 2025 14:46:28 +0530
+Message-ID: <20250829091707.2990211-1-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_022119_617291_7BEBCF4A 
-X-CRM114-Status: GOOD (  18.11  )
+X-CRM114-CacheID: sfid-20250829_021726_445460_8D4FAD0E 
+X-CRM114-Status: GOOD (  22.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,206 +85,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the MT8196 mfg clock controller, which provides PLL
-control for the GPU.
+The Cadence PCIe Controller integrated in the TI K3 SoCs supports both
+Root-Complex and Endpoint modes of operation. The Glue Layer allows
+"strapping" the Mode of operation of the Controller, the Link Speed
+and the Link Width. This is enabled by programming the "PCIEn_CTRL"
+register (n corresponds to the PCIe instance) within the CTRL_MMR
+memory-mapped register space. The "reset-values" of the registers are
+also different depending on the mode of operation.
 
-Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Laura Nao <laura.nao@collabora.com>
+Since the PCIe Controller latches onto the "reset-values" immediately
+after being powered on, if the Glue Layer configuration is not done while
+the PCIe Controller is off, it will result in the PCIe Controller latching
+onto the wrong "reset-values". In practice, this will show up as a wrong
+representation of the PCIe Controller's capability structures in the PCIe
+Configuration Space. Some such capabilities which are supported by the PCIe
+Controller in the Root-Complex mode but are incorrectly latched onto as
+being unsupported are:
+- Link Bandwidth Notification
+- Alternate Routing ID (ARI) Forwarding Support
+- Next capability offset within Advanced Error Reporting (AER) capability
+
+Fix this by powering off the PCIe Controller before programming the "strap"
+settings and powering it on after that.
+
+Fixes: f3e25911a430 ("PCI: j721e: Add TI J721E PCIe driver")
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
 ---
- drivers/clk/mediatek/Kconfig          |   7 ++
- drivers/clk/mediatek/Makefile         |   1 +
- drivers/clk/mediatek/clk-mt8196-mfg.c | 150 ++++++++++++++++++++++++++
- 3 files changed, 158 insertions(+)
- create mode 100644 drivers/clk/mediatek/clk-mt8196-mfg.c
 
-diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
-index 68ac08cf8e82..1990721ec418 100644
---- a/drivers/clk/mediatek/Kconfig
-+++ b/drivers/clk/mediatek/Kconfig
-@@ -1031,6 +1031,13 @@ config COMMON_CLK_MT8196_MDPSYS
- 	help
- 	  This driver supports MediaTek MT8196 mdpsys clocks.
+Hello,
+
+This patch is based on commit
+07d9df80082b Merge tag 'perf-tools-fixes-for-v6.17-2025-08-27' of git://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools
+of Mainline Linux.
+
+v2 of this patch is at:
+https://lore.kernel.org/r/20250819101336.292013-1-s-vadapalli@ti.com/
+Changes since v2:
+- Based on Bjorn's feedback at:
+  https://lore.kernel.org/r/20250819221748.GA598958@bhelgaas/
+  1) Commit message has been rephrased to summarize the issue and the
+  fix without elaborating too much on the details.
+  2) Description of the issue's symptoms noticeable by a user has been
+  added to the commit message.
+  3) Comment has been wrapped to fit within 80 columns.
+  4) The implementation has been simplified by moving the Controller
+  Power OFF and Power ON sequence into j721e_pcie_ctrl_init() as a
+  result of which the code reordering as well as function parameter
+  changes are no longer required.
+- Based on offline feedback from Vignesh, Runtime PM APIs are used
+  instead of PM DOMAIN APIs to power off and power on the PCIe
+  Controller.
+- Rebased patch on latest Mainline Linux.
+
+Test Logs on J7200 EVM without the current patch applied show that the
+ARI Forwarding Capability incorrectly shows up as not being supported:
+https://gist.github.com/Siddharth-Vadapalli-at-TI/768bca36025ed630c4e69bcc3d94501a
+
+Test Logs on J7200 EVM with the current patch applied show that the
+ARI Forwarding Capability correctly shows up as being supported:
+https://gist.github.com/Siddharth-Vadapalli-at-TI/fc1752d17140646c8fa57209eccd86ce
+
+As explained in the commit message, this discrepancy is solely due to
+the PCIe Controller latching onto the incorrect reset-values which
+occurs when the strap settings are programmed after the PCIe Controller
+is powered on, at which point, the reset-values don't toggle anymore.
+
+Regards,
+Siddharth.
+
+ drivers/pci/controller/cadence/pci-j721e.c | 22 ++++++++++++++++++++++
+ 1 file changed, 22 insertions(+)
+
+diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
+index 6c93f39d0288..c178b117215a 100644
+--- a/drivers/pci/controller/cadence/pci-j721e.c
++++ b/drivers/pci/controller/cadence/pci-j721e.c
+@@ -284,6 +284,22 @@ static int j721e_pcie_ctrl_init(struct j721e_pcie *pcie)
+ 	if (!ret)
+ 		offset = args.args[0];
  
-+config COMMON_CLK_MT8196_MFGCFG
-+	tristate "Clock driver for MediaTek MT8196 mfgcfg"
-+	depends on COMMON_CLK_MT8196
-+	default m
-+	help
-+	  This driver supports MediaTek MT8196 mfgcfg clocks.
-+
- config COMMON_CLK_MT8196_PEXTPSYS
- 	tristate "Clock driver for MediaTek MT8196 pextpsys"
- 	depends on COMMON_CLK_MT8196
-diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
-index d2d8bc43e45b..0040a3968858 100644
---- a/drivers/clk/mediatek/Makefile
-+++ b/drivers/clk/mediatek/Makefile
-@@ -156,6 +156,7 @@ obj-$(CONFIG_COMMON_CLK_MT8196) += clk-mt8196-apmixedsys.o clk-mt8196-topckgen.o
- obj-$(CONFIG_COMMON_CLK_MT8196_IMP_IIC_WRAP) += clk-mt8196-imp_iic_wrap.o
- obj-$(CONFIG_COMMON_CLK_MT8196_MCUSYS) += clk-mt8196-mcu.o
- obj-$(CONFIG_COMMON_CLK_MT8196_MDPSYS) += clk-mt8196-mdpsys.o
-+obj-$(CONFIG_COMMON_CLK_MT8196_MFGCFG) += clk-mt8196-mfg.o
- obj-$(CONFIG_COMMON_CLK_MT8196_PEXTPSYS) += clk-mt8196-pextp.o
- obj-$(CONFIG_COMMON_CLK_MT8196_UFSSYS) += clk-mt8196-ufs_ao.o
- obj-$(CONFIG_COMMON_CLK_MT8365) += clk-mt8365-apmixedsys.o clk-mt8365.o
-diff --git a/drivers/clk/mediatek/clk-mt8196-mfg.c b/drivers/clk/mediatek/clk-mt8196-mfg.c
-new file mode 100644
-index 000000000000..ae1eb9de79ae
---- /dev/null
-+++ b/drivers/clk/mediatek/clk-mt8196-mfg.c
-@@ -0,0 +1,150 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) 2025 MediaTek Inc.
-+ *                    Guangjie Song <guangjie.song@mediatek.com>
-+ * Copyright (c) 2025 Collabora Ltd.
-+ *                    Laura Nao <laura.nao@collabora.com>
-+ */
-+#include <dt-bindings/clock/mediatek,mt8196-clock.h>
-+
-+#include <linux/clk.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_address.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
-+
-+#include "clk-mtk.h"
-+#include "clk-pll.h"
-+
-+#define MFGPLL_CON0	0x008
-+#define MFGPLL_CON1	0x00c
-+#define MFGPLL_CON2	0x010
-+#define MFGPLL_CON3	0x014
-+#define MFGPLL_SC0_CON0	0x008
-+#define MFGPLL_SC0_CON1	0x00c
-+#define MFGPLL_SC0_CON2	0x010
-+#define MFGPLL_SC0_CON3	0x014
-+#define MFGPLL_SC1_CON0	0x008
-+#define MFGPLL_SC1_CON1	0x00c
-+#define MFGPLL_SC1_CON2	0x010
-+#define MFGPLL_SC1_CON3	0x014
-+
-+#define MT8196_PLL_FMAX		(3800UL * MHZ)
-+#define MT8196_PLL_FMIN		(1500UL * MHZ)
-+#define MT8196_INTEGER_BITS	8
-+
-+#define PLL(_id, _name, _reg, _en_reg, _en_mask, _pll_en_bit,	\
-+	    _flags, _rst_bar_mask,				\
-+	    _pd_reg, _pd_shift, _tuner_reg,			\
-+	    _tuner_en_reg, _tuner_en_bit,			\
-+	    _pcw_reg, _pcw_shift, _pcwbits) {			\
-+		.id = _id,					\
-+		.name = _name,					\
-+		.reg = _reg,					\
-+		.en_reg = _en_reg,				\
-+		.en_mask = _en_mask,				\
-+		.pll_en_bit = _pll_en_bit,			\
-+		.flags = _flags,				\
-+		.rst_bar_mask = _rst_bar_mask,			\
-+		.fmax = MT8196_PLL_FMAX,			\
-+		.fmin = MT8196_PLL_FMIN,			\
-+		.pd_reg = _pd_reg,				\
-+		.pd_shift = _pd_shift,				\
-+		.tuner_reg = _tuner_reg,			\
-+		.tuner_en_reg = _tuner_en_reg,			\
-+		.tuner_en_bit = _tuner_en_bit,			\
-+		.pcw_reg = _pcw_reg,				\
-+		.pcw_shift = _pcw_shift,			\
-+		.pcwbits = _pcwbits,				\
-+		.pcwibits = MT8196_INTEGER_BITS,		\
++	/*
++	 * The PCIe Controller's registers have different "reset-values"
++	 * depending on the "strap" settings programmed into the PCIEn_CTRL
++	 * register within the CTRL_MMR memory-mapped register space.
++	 * The registers latch onto a "reset-value" based on the "strap"
++	 * settings sampled after the PCIe Controller is powered on.
++	 * To ensure that the "reset-values" are sampled accurately, power
++	 * off the PCIe Controller before programming the "strap" settings
++	 * and power it on after that.
++	 */
++	ret = pm_runtime_put_sync(dev);
++	if (ret < 0) {
++		dev_err(dev, "Failed to power off PCIe Controller\n");
++		return ret;
 +	}
 +
-+static const struct mtk_pll_data mfg_ao_plls[] = {
-+	PLL(CLK_MFG_AO_MFGPLL, "mfgpll", MFGPLL_CON0, MFGPLL_CON0, 0, 0, 0,
-+	    BIT(0), MFGPLL_CON1, 24, 0, 0, 0,
-+	    MFGPLL_CON1, 0, 22),
-+};
+ 	ret = j721e_pcie_set_mode(pcie, syscon, offset);
+ 	if (ret < 0) {
+ 		dev_err(dev, "Failed to set pci mode\n");
+@@ -302,6 +318,12 @@ static int j721e_pcie_ctrl_init(struct j721e_pcie *pcie)
+ 		return ret;
+ 	}
+ 
++	ret = pm_runtime_get_sync(dev);
++	if (ret < 0) {
++		dev_err(dev, "Failed to power on PCIe Controller\n");
++		return ret;
++	}
 +
-+static const struct mtk_pll_data mfgsc0_ao_plls[] = {
-+	PLL(CLK_MFGSC0_AO_MFGPLL_SC0, "mfgpll-sc0", MFGPLL_SC0_CON0,
-+	    MFGPLL_SC0_CON0, 0, 0, 0, BIT(0), MFGPLL_SC0_CON1, 24, 0, 0, 0,
-+	    MFGPLL_SC0_CON1, 0, 22),
-+};
-+
-+static const struct mtk_pll_data mfgsc1_ao_plls[] = {
-+	PLL(CLK_MFGSC1_AO_MFGPLL_SC1, "mfgpll-sc1", MFGPLL_SC1_CON0,
-+	    MFGPLL_SC1_CON0, 0, 0, 0, BIT(0), MFGPLL_SC1_CON1, 24, 0, 0, 0,
-+	    MFGPLL_SC1_CON1, 0, 22),
-+};
-+
-+static const struct of_device_id of_match_clk_mt8196_mfg[] = {
-+	{ .compatible = "mediatek,mt8196-mfgpll-pll-ctrl",
-+	  .data = &mfg_ao_plls },
-+	{ .compatible = "mediatek,mt8196-mfgpll-sc0-pll-ctrl",
-+	  .data = &mfgsc0_ao_plls },
-+	{ .compatible = "mediatek,mt8196-mfgpll-sc1-pll-ctrl",
-+	  .data = &mfgsc1_ao_plls },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, of_match_clk_mt8196_mfg);
-+
-+static int clk_mt8196_mfg_probe(struct platform_device *pdev)
-+{
-+	const struct mtk_pll_data *plls;
-+	struct clk_hw_onecell_data *clk_data;
-+	struct device_node *node = pdev->dev.of_node;
-+	const int num_plls = 1;
-+	int r;
-+
-+	plls = of_device_get_match_data(&pdev->dev);
-+	if (!plls)
-+		return -EINVAL;
-+
-+	clk_data = mtk_alloc_clk_data(num_plls);
-+	if (!clk_data)
-+		return -ENOMEM;
-+
-+	r = mtk_clk_register_plls(node, plls, num_plls, clk_data);
-+	if (r)
-+		goto free_clk_data;
-+
-+	r = of_clk_add_hw_provider(node, of_clk_hw_onecell_get, clk_data);
-+	if (r)
-+		goto unregister_plls;
-+
-+	platform_set_drvdata(pdev, clk_data);
-+
-+	return r;
-+
-+unregister_plls:
-+	mtk_clk_unregister_plls(plls, num_plls, clk_data);
-+free_clk_data:
-+	mtk_free_clk_data(clk_data);
-+
-+	return r;
-+}
-+
-+static void clk_mt8196_mfg_remove(struct platform_device *pdev)
-+{
-+	const struct mtk_pll_data *plls = of_device_get_match_data(&pdev->dev);
-+	struct clk_hw_onecell_data *clk_data = platform_get_drvdata(pdev);
-+	struct device_node *node = pdev->dev.of_node;
-+
-+	of_clk_del_provider(node);
-+	mtk_clk_unregister_plls(plls, 1, clk_data);
-+	mtk_free_clk_data(clk_data);
-+}
-+
-+static struct platform_driver clk_mt8196_mfg_drv = {
-+	.probe = clk_mt8196_mfg_probe,
-+	.remove = clk_mt8196_mfg_remove,
-+	.driver = {
-+		.name = "clk-mt8196-mfg",
-+		.of_match_table = of_match_clk_mt8196_mfg,
-+	},
-+};
-+module_platform_driver(clk_mt8196_mfg_drv);
-+
-+MODULE_DESCRIPTION("MediaTek MT8196 GPU mfg clocks driver");
-+MODULE_LICENSE("GPL");
+ 	/* Enable ACSPCIE refclk output if the optional property exists */
+ 	syscon = syscon_regmap_lookup_by_phandle_optional(node,
+ 						"ti,syscon-acspcie-proxy-ctrl");
 -- 
-2.39.5
+2.43.0
 
 
