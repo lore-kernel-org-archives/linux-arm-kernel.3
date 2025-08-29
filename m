@@ -4,73 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DEADCA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:48:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E524CA0FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:48:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IhwLnMwYxq5njmDG57X+9xEi0P2GDdcwir6iPvE/3fc=; b=35UrA5VPCUaQfRzVHiSozthL+D
-	qMr5nEibZybUvM/QqtAFIaXtOPF6a07EmmVcFmm7RWqM6KfOA4AlzkV0Mc01vVlhgefLojN5DBhRO
-	C4krNWryls5XfLKj8dEgMinva60DwWwowBYzGmk1+TKkgxHQ5bYgCcg/cqvYi0nXWhPDcHjMrSUGM
-	7hskZMgcoGf5bI/GMT39Bm2rCdb64vYnVePPpRVp+E3XFRRv0ZnW4PAUhFte11epmFNx+itFjJvBd
-	+RbC6JPJnGAUrGqBSx1M8Yap0eJacEGadB7iz/9XTXMkLnXt3JArGWe1LHRiGQoJu9xM+we5/PW5t
-	bvYJGs8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BtP+t7ayk8SByG4XwypIs2NNY/g/Y1Vld0h/xpyMDKI=; b=S3EadA44MdUAz++IUlNpSn6PuR
+	AyvFvrTt7TLEci9vR4eLaJFeKMrSxVCb7Cpa+fz92vP2ndnesSht89cgbDAUvwQCtfa7QX7v82/1u
+	/RIQlzXg7So1OXrLhhDoVCW2w+DxLMHFLWoimEINRfGsNXXTxfWVdKDALAPCg/j+jNBMNmUAat2ze
+	2TEsGhPTbUtwNRxKU7d9eXehvRQHVyjD6WnmZZbMjhDTqJlRmqmUwpcXaAr0slra1pgCR73kBP5YU
+	70WmA9OCJFkTXB/Wm9QLfaWa1q5LU5i9QswjLiarc2WXKSINdIu3EiGTz1nCytUi7CxsndyuNmgWr
+	xUr0GTww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us9lc-00000007AXV-3Ik6;
-	Sat, 30 Aug 2025 00:48:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us2dY-00000006Up0-1SfV
+	id 1us9lv-00000007Arn-0VZ1;
+	Sat, 30 Aug 2025 00:48:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1us3BQ-00000006ZOn-2I3t
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 17:11:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 36AE219F0;
-	Fri, 29 Aug 2025 10:11:31 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4B0823F738;
-	Fri, 29 Aug 2025 10:11:34 -0700 (PDT)
-Message-ID: <ceb64a9b-0ffe-4193-942e-5ddf71478e5d@arm.com>
-Date: Fri, 29 Aug 2025 18:11:32 +0100
+	Fri, 29 Aug 2025 17:46:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 00276601B7;
+	Fri, 29 Aug 2025 17:46:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D1EEC4CEF0;
+	Fri, 29 Aug 2025 17:46:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756489599;
+	bh=ni/lQ5yzIye/3iBX3VMg4p5EesBhwErRoN8M///2GNk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Fhs3NxM+vQiz2pFhk/hwwJPHnY/ziGeFEK6zrOQeE8/KVlLdkmrY4vRwVdD2oXeJO
+	 Pl2vU/rMM2fUKtHsiqPelilXXkufypzi0ghXGiaPsw7iEBIblRpwx4gLbwaRmzHTHl
+	 9v7h4FzueqvZRni1uGfOD60lEPNzLuxGsoPSFgV4sEEWZYuIJNMmdJegIq/HXE/3h/
+	 g8B3pET1KW5ndBD0EviQlQniCmutNefiQO4zq94AlQK1/aj6KCecQffcbIIFDcJBxc
+	 JiPuEe3OXb8K747sv6k5RpS3Db23wWPcwoDBmytgzhZtTZkcAnvaIzcv3Fqgiv+uCs
+	 pkmS2DV080Glg==
+Date: Fri, 29 Aug 2025 12:46:38 -0500
+From: Rob Herring <robh@kernel.org>
+To: Inbaraj E <inbaraj.e@samsung.com>
+Cc: rmfrfs@gmail.com, laurent.pinchart@ideasonboard.com, martink@posteo.de,
+	kernel@puri.sm, mchehab@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+	pankaj.dubey@samsung.com, ravi.patel@samsung.com,
+	shradha.t@samsung.com
+Subject: Re: [PATCH v3 1/7] dt-bindings: media: nxp: Add support for FSD SoC
+Message-ID: <20250829174638.GA1054721-robh@kernel.org>
+References: <20250828085911.81266-1-inbaraj.e@samsung.com>
+ <CGME20250828085926epcas5p1b82576210280fb44c6c7f02851da71c6@epcas5p1.samsung.com>
+ <20250828085911.81266-2-inbaraj.e@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 33/33] arm_mpam: Add kunit tests for props_mismatch()
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
- devicetree@vger.kernel.org
-Cc: shameerali.kolothum.thodi@huawei.com,
- D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
- Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
- baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
- Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>
-References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-34-james.morse@arm.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20250822153048.2287-34-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_101140_488970_2D329739 
-X-CRM114-Status: GOOD (  22.79  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250828085911.81266-2-inbaraj.e@samsung.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,397 +77,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
-
-The tests seem reasonable. Just some comments on the comments.
-
-On 8/22/25 16:30, James Morse wrote:
-> When features are mismatched between MSC the way features are combined
-> to the class determines whether resctrl can support this SoC.
+On Thu, Aug 28, 2025 at 02:29:05PM +0530, Inbaraj E wrote:
+> The Tesla FSD CSIS link controller is used to configure MIPI CSI-2
+> Rx link operations.
 > 
-> Add some tests to illustrate the sort of thing that is expected to
-> work, and those that must be removed.
+> The Tesla FSD SoC include a MIPI CSI-2 Rx IP core named CSIS, which is
+> compatible with the CSIS IP found in NXP i.MX7 and i.MX8 SoCs. Add the
+> compatible string "tesla,fsd-mipi-csi2" to support the MIPI CSI-2 Rx
+> link operation on the Tesla FSD SoC.
 > 
-> Signed-off-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Inbaraj E <inbaraj.e@samsung.com>
 > ---
->  drivers/resctrl/mpam_internal.h     |   8 +-
->  drivers/resctrl/test_mpam_devices.c | 322 ++++++++++++++++++++++++++++
->  2 files changed, 329 insertions(+), 1 deletion(-)
+>  .../bindings/media/nxp,imx-mipi-csi2.yaml     | 91 +++++++++++++++----
+>  1 file changed, 71 insertions(+), 20 deletions(-)
 > 
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> index bbf0306abc82..6e973be095f8 100644
-> --- a/drivers/resctrl/mpam_internal.h
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -18,6 +18,12 @@
+> diff --git a/Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml
+> index 41ad5b84eaeb..39b9447fd40c 100644
+> --- a/Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml
+> +++ b/Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml
+> @@ -14,7 +14,7 @@ description: |-
+>    The NXP i.MX7 and i.MX8 families contain SoCs that include a MIPI CSI-2
+>    receiver IP core named CSIS. The IP core originates from Samsung, and may be
+>    compatible with some of the Exynos4 and S5P SoCs. i.MX7 SoCs use CSIS version
+> -  3.3, and i.MX8 SoCs use CSIS version 3.6.3.
+> +  3.3, i.MX8 SoCs use CSIS version 3.6.3 and FSD SoC uses CSIS version 4.3.
 >  
->  DECLARE_STATIC_KEY_FALSE(mpam_enabled);
+>    While the CSI-2 receiver is separate from the MIPI D-PHY IP core, the PHY is
+>    completely wrapped by the CSIS and doesn't expose a control interface of its
+> @@ -26,6 +26,7 @@ properties:
+>        - enum:
+>            - fsl,imx7-mipi-csi2
+>            - fsl,imx8mm-mipi-csi2
+> +          - tesla,fsd-mipi-csi2
+>        - items:
+>            - enum:
+>                - fsl,imx8mp-mipi-csi2
+> @@ -38,24 +39,21 @@ properties:
+>      maxItems: 1
 >  
-> +#ifdef CONFIG_MPAM_KUNIT_TEST
-> +#define PACKED_FOR_KUNIT __packed
-> +#else
-> +#define PACKED_FOR_KUNIT
-> +#endif
-> +
->  static inline bool mpam_is_enabled(void)
->  {
->  	return static_branch_likely(&mpam_enabled);
-> @@ -209,7 +215,7 @@ struct mpam_props {
->  	u16			dspri_wd;
->  	u16			num_csu_mon;
->  	u16			num_mbwu_mon;
-> -};
-> +} PACKED_FOR_KUNIT;
+>    clocks:
+> -    minItems: 3
+> -    items:
+> -      - description: The peripheral clock (a.k.a. APB clock)
+> -      - description: The external clock (optionally used as the pixel clock)
+> -      - description: The MIPI D-PHY clock
+> -      - description: The AXI clock
+> +    minItems: 2
+> +    maxItems: 4
 >  
->  #define mpam_has_feature(_feat, x)	((1 << (_feat)) & (x)->features)
+>    clock-names:
+> -    minItems: 3
+> -    items:
+> -      - const: pclk
+> -      - const: wrap
+> -      - const: phy
+> -      - const: axi
+> +    minItems: 2
+> +    maxItems: 4
 >  
-> diff --git a/drivers/resctrl/test_mpam_devices.c b/drivers/resctrl/test_mpam_devices.c
-> index 8e9d6c88171c..ef39696e7ff8 100644
-> --- a/drivers/resctrl/test_mpam_devices.c
-> +++ b/drivers/resctrl/test_mpam_devices.c
-> @@ -4,6 +4,326 @@
+>    power-domains:
+>      maxItems: 1
 >  
->  #include <kunit/test.h>
->  
-> +/*
-> + * This test catches fields that aren't being sanitised - but can't tell you
-> + * which one...
-> + */
-> +static void test__props_mismatch(struct kunit *test)
-> +{
-> +	struct mpam_props parent = { 0 };
-> +	struct mpam_props child;
-> +
-> +	memset(&child, 0xff, sizeof(child));
-> +	__props_mismatch(&parent, &child, false);
-> +
-> +	memset(&child, 0, sizeof(child));
-> +	KUNIT_EXPECT_EQ(test, memcmp(&parent, &child, sizeof(child)), 0);
-> +
-> +	memset(&child, 0xff, sizeof(child));
-> +	__props_mismatch(&parent, &child, true);
-> +
-> +	KUNIT_EXPECT_EQ(test, memcmp(&parent, &child, sizeof(child)), 0);
-> +}
-> +
-> +static void test_mpam_enable_merge_features(struct kunit *test)
-> +{
-> +	/* o/` How deep is your stack? o/` */
-> +	struct list_head fake_classes_list;
-> +	struct mpam_class fake_class = { 0 };
-> +	struct mpam_component fake_comp1 = { 0 };
-> +	struct mpam_component fake_comp2 = { 0 };
-> +	struct mpam_vmsc fake_vmsc1 = { 0 };
-> +	struct mpam_vmsc fake_vmsc2 = { 0 };
-> +	struct mpam_msc fake_msc1 = { 0 };
-> +	struct mpam_msc fake_msc2 = { 0 };
-> +	struct mpam_msc_ris fake_ris1 = { 0 };
-> +	struct mpam_msc_ris fake_ris2 = { 0 };
-> +	struct platform_device fake_pdev = { 0 };
-> +
-> +#define RESET_FAKE_HIEARCHY()	do {				\
-> +	INIT_LIST_HEAD(&fake_classes_list);			\
-> +								\
-> +	memset(&fake_class, 0, sizeof(fake_class));		\
-> +	fake_class.level = 3;					\
-> +	fake_class.type = MPAM_CLASS_CACHE;			\
-> +	INIT_LIST_HEAD_RCU(&fake_class.components);		\
-> +	INIT_LIST_HEAD(&fake_class.classes_list);		\
-> +								\
-> +	memset(&fake_comp1, 0, sizeof(fake_comp1));		\
-> +	memset(&fake_comp2, 0, sizeof(fake_comp2));		\
-> +	fake_comp1.comp_id = 1;					\
-> +	fake_comp2.comp_id = 2;					\
-> +	INIT_LIST_HEAD(&fake_comp1.vmsc);			\
-> +	INIT_LIST_HEAD(&fake_comp1.class_list);			\
-> +	INIT_LIST_HEAD(&fake_comp2.vmsc);			\
-> +	INIT_LIST_HEAD(&fake_comp2.class_list);			\
-> +								\
-> +	memset(&fake_vmsc1, 0, sizeof(fake_vmsc1));		\
-> +	memset(&fake_vmsc2, 0, sizeof(fake_vmsc2));		\
-> +	INIT_LIST_HEAD(&fake_vmsc1.ris);			\
-> +	INIT_LIST_HEAD(&fake_vmsc1.comp_list);			\
-> +	fake_vmsc1.msc = &fake_msc1;				\
-> +	INIT_LIST_HEAD(&fake_vmsc2.ris);			\
-> +	INIT_LIST_HEAD(&fake_vmsc2.comp_list);			\
-> +	fake_vmsc2.msc = &fake_msc2;				\
-> +								\
-> +	memset(&fake_ris1, 0, sizeof(fake_ris1));		\
-> +	memset(&fake_ris2, 0, sizeof(fake_ris2));		\
-> +	fake_ris1.ris_idx = 1;					\
-> +	INIT_LIST_HEAD(&fake_ris1.msc_list);			\
-> +	fake_ris2.ris_idx = 2;					\
-> +	INIT_LIST_HEAD(&fake_ris2.msc_list);			\
-> +								\
-> +	fake_msc1.pdev = &fake_pdev;				\
-> +	fake_msc2.pdev = &fake_pdev;				\
-> +								\
-> +	list_add(&fake_class.classes_list, &fake_classes_list);	\
-> +} while (0)
-> +
-> +	RESET_FAKE_HIEARCHY();
-> +
-> +	mutex_lock(&mpam_list_lock);
-> +
-> +	/* One Class+Comp, two RIS in one vMSC with common features */
-> +	fake_comp1.class = &fake_class;
-> +	list_add(&fake_comp1.class_list, &fake_class.components);
-> +	fake_comp2.class = NULL;
-> +	fake_vmsc1.comp = &fake_comp1;
-> +	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
-> +	fake_vmsc2.comp = NULL;
-> +	fake_ris1.vmsc = &fake_vmsc1;
-> +	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
-> +	fake_ris2.vmsc = &fake_vmsc1;
-> +	list_add(&fake_ris2.vmsc_list, &fake_vmsc1.ris);
-> +
-> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
-> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris2.props);
-> +	fake_ris1.props.cpbm_wd = 4;
-> +	fake_ris2.props.cpbm_wd = 4;
-> +
-> +	mpam_enable_merge_features(&fake_classes_list);
-> +
-> +	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
-> +	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 4);
-> +
-> +	RESET_FAKE_HIEARCHY();
-> +
-> +	/* One Class+Comp, two RIS in one vMSC with non-overlapping features */
-> +	fake_comp1.class = &fake_class;
-> +	list_add(&fake_comp1.class_list, &fake_class.components);
-> +	fake_comp2.class = NULL;
-> +	fake_vmsc1.comp = &fake_comp1;
-> +	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
-> +	fake_vmsc2.comp = NULL;
-> +	fake_ris1.vmsc = &fake_vmsc1;
-> +	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
-> +	fake_ris2.vmsc = &fake_vmsc1;
-> +	list_add(&fake_ris2.vmsc_list, &fake_vmsc1.ris);
-> +
-> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
-> +	mpam_set_feature(mpam_feat_cmax_cmin, &fake_ris2.props);
-> +	fake_ris1.props.cpbm_wd = 4;
-> +	fake_ris2.props.cmax_wd = 4;
-> +
-> +	mpam_enable_merge_features(&fake_classes_list);
-> +
-> +	/* Multiple RIS within one MSC controlling the same resource can be mismatched */
-> +	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
-> +	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cmax_cmin, &fake_class.props));
-> +	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cmax_cmin, &fake_vmsc1.props));
-> +	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 4);
-> +	KUNIT_EXPECT_EQ(test, fake_vmsc1.props.cmax_wd, 4);
-> +	KUNIT_EXPECT_EQ(test, fake_class.props.cmax_wd, 4);
-> +
-> +	RESET_FAKE_HIEARCHY();
-> +
-> +	/* One Class+Comp, two MSC with overlapping features */
-> +	fake_comp1.class = &fake_class;
-> +	list_add(&fake_comp1.class_list, &fake_class.components);
-> +	fake_comp2.class = NULL;
-> +	fake_vmsc1.comp = &fake_comp1;
-> +	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
-> +	fake_vmsc2.comp = &fake_comp1;
-> +	list_add(&fake_vmsc2.comp_list, &fake_comp1.vmsc);
-> +	fake_ris1.vmsc = &fake_vmsc1;
-> +	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
-> +	fake_ris2.vmsc = &fake_vmsc2;
-> +	list_add(&fake_ris2.vmsc_list, &fake_vmsc2.ris);
-> +
-> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
-> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris2.props);
-> +	fake_ris1.props.cpbm_wd = 4;
-> +	fake_ris2.props.cpbm_wd = 4;
-> +
-> +	mpam_enable_merge_features(&fake_classes_list);
-> +
-> +	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
-> +	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 4);
-> +
-> +	RESET_FAKE_HIEARCHY();
-> +
-> +	/* One Class+Comp, two MSC with non-overlapping features */
-> +	fake_comp1.class = &fake_class;
-> +	list_add(&fake_comp1.class_list, &fake_class.components);
-> +	fake_comp2.class = NULL;
-> +	fake_vmsc1.comp = &fake_comp1;
-> +	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
-> +	fake_vmsc2.comp = &fake_comp1;
-> +	list_add(&fake_vmsc2.comp_list, &fake_comp1.vmsc);
-> +	fake_ris1.vmsc = &fake_vmsc1;
-> +	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
-> +	fake_ris2.vmsc = &fake_vmsc2;
-> +	list_add(&fake_ris2.vmsc_list, &fake_vmsc2.ris);
-> +
-> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
-> +	mpam_set_feature(mpam_feat_cmax_cmin, &fake_ris2.props);
-> +	fake_ris1.props.cpbm_wd = 4;
-> +	fake_ris2.props.cmax_wd = 4;
-> +
-> +	mpam_enable_merge_features(&fake_classes_list);
-> +
-> +	/*
-> +	 * Multiple RIS in different MSC can't the same resource, mismatched
-s/can't the same/can't control the same/
+> +  tesla,syscon-csis:
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    description:
+> +      Syscon used to hold and release the reset of MIPI D-PHY
 
-> +	 * features can not be supported.
-> +	 */
-> +	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
-> +	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_cmax_cmin, &fake_class.props));
-> +	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 0);
-> +	KUNIT_EXPECT_EQ(test, fake_class.props.cmax_wd, 0);
-> +
-> +	RESET_FAKE_HIEARCHY();
-> +
-> +	/* One Class+Comp, two MSC with incompatible overlapping features */
-> +	fake_comp1.class = &fake_class;
-> +	list_add(&fake_comp1.class_list, &fake_class.components);
-> +	fake_comp2.class = NULL;
-> +	fake_vmsc1.comp = &fake_comp1;
-> +	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
-> +	fake_vmsc2.comp = &fake_comp1;
-> +	list_add(&fake_vmsc2.comp_list, &fake_comp1.vmsc);
-> +	fake_ris1.vmsc = &fake_vmsc1;
-> +	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
-> +	fake_ris2.vmsc = &fake_vmsc2;
-> +	list_add(&fake_ris2.vmsc_list, &fake_vmsc2.ris);
-> +
-> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
-> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris2.props);
-> +	mpam_set_feature(mpam_feat_mbw_part, &fake_ris1.props);
-> +	mpam_set_feature(mpam_feat_mbw_part, &fake_ris2.props);
-> +	fake_ris1.props.cpbm_wd = 5;
-> +	fake_ris2.props.cpbm_wd = 3;
-> +	fake_ris1.props.mbw_pbm_bits = 5;
-> +	fake_ris2.props.mbw_pbm_bits = 3;
-> +
-> +	mpam_enable_merge_features(&fake_classes_list);
-> +
-> +	/*
-> +	 * Multiple RIS in different MSC can't the same resource, mismatched
-> +	 * features can not be supported.
-> +	 */
-Missing the word "control" again.
+Reset? Sounds like you should be using the reset binding.
 
-> +	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
-> +	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_mbw_part, &fake_class.props));
-> +	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 0);
-> +	KUNIT_EXPECT_EQ(test, fake_class.props.mbw_pbm_bits, 0);
 > +
-> +	RESET_FAKE_HIEARCHY();
-> +
-> +	/* One Class+Comp, two MSC with overlapping features that need tweaking */
-> +	fake_comp1.class = &fake_class;
-> +	list_add(&fake_comp1.class_list, &fake_class.components);
-> +	fake_comp2.class = NULL;
-> +	fake_vmsc1.comp = &fake_comp1;
-> +	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
-> +	fake_vmsc2.comp = &fake_comp1;
-> +	list_add(&fake_vmsc2.comp_list, &fake_comp1.vmsc);
-> +	fake_ris1.vmsc = &fake_vmsc1;
-> +	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
-> +	fake_ris2.vmsc = &fake_vmsc2;
-> +	list_add(&fake_ris2.vmsc_list, &fake_vmsc2.ris);
-> +
-> +	mpam_set_feature(mpam_feat_mbw_min, &fake_ris1.props);
-> +	mpam_set_feature(mpam_feat_mbw_min, &fake_ris2.props);
-> +	mpam_set_feature(mpam_feat_cmax_cmax, &fake_ris1.props);
-> +	mpam_set_feature(mpam_feat_cmax_cmax, &fake_ris2.props);
-> +	fake_ris1.props.bwa_wd = 5;
-> +	fake_ris2.props.bwa_wd = 3;
-> +	fake_ris1.props.cmax_wd = 5;
-> +	fake_ris2.props.cmax_wd = 3;
-> +
-> +	mpam_enable_merge_features(&fake_classes_list);
-> +
-> +	/*
-> +	 * Multiple RIS in different MSC can't the same resource, mismatched
-> +	 * features can not be supported.
-> +	 */
-Comment is for a different case.
-> +	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_mbw_min, &fake_class.props));
-> +	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cmax_cmax, &fake_class.props));
-> +	KUNIT_EXPECT_EQ(test, fake_class.props.bwa_wd, 3);
-> +	KUNIT_EXPECT_EQ(test, fake_class.props.cmax_wd, 3);
-> +
-> +	RESET_FAKE_HIEARCHY();
-> +
-> +	/* One Class Two Comp with overlapping features */
-> +	fake_comp1.class = &fake_class;
-> +	list_add(&fake_comp1.class_list, &fake_class.components);
-> +	fake_comp2.class = &fake_class;
-> +	list_add(&fake_comp2.class_list, &fake_class.components);
-> +	fake_vmsc1.comp = &fake_comp1;
-> +	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
-> +	fake_vmsc2.comp = &fake_comp2;
-> +	list_add(&fake_vmsc2.comp_list, &fake_comp2.vmsc);
-> +	fake_ris1.vmsc = &fake_vmsc1;
-> +	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
-> +	fake_ris2.vmsc = &fake_vmsc2;
-> +	list_add(&fake_ris2.vmsc_list, &fake_vmsc2.ris);
-> +
-> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
-> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris2.props);
-> +	fake_ris1.props.cpbm_wd = 4;
-> +	fake_ris2.props.cpbm_wd = 4;
-> +
-> +	mpam_enable_merge_features(&fake_classes_list);
-> +
-> +	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
-> +	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 4);
-> +
-> +	RESET_FAKE_HIEARCHY();
-> +
-> +	/* One Class Two Comp with non-overlapping features */
-> +	fake_comp1.class = &fake_class;
-> +	list_add(&fake_comp1.class_list, &fake_class.components);
-> +	fake_comp2.class = &fake_class;
-> +	list_add(&fake_comp2.class_list, &fake_class.components);
-> +	fake_vmsc1.comp = &fake_comp1;
-> +	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
-> +	fake_vmsc2.comp = &fake_comp2;
-> +	list_add(&fake_vmsc2.comp_list, &fake_comp2.vmsc);
-> +	fake_ris1.vmsc = &fake_vmsc1;
-> +	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
-> +	fake_ris2.vmsc = &fake_vmsc2;
-> +	list_add(&fake_ris2.vmsc_list, &fake_vmsc2.ris);
-> +
-> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
-> +	mpam_set_feature(mpam_feat_cmax_cmin, &fake_ris2.props);
-> +	fake_ris1.props.cpbm_wd = 4;
-> +	fake_ris2.props.cmax_wd = 4;
-> +
-> +	mpam_enable_merge_features(&fake_classes_list);
-> +
-> +	/*
-> +	 * Multiple components can't control the same resource, mismatched features can
-> +	 * not be supported.
-> +	 */
-> +	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
-> +	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_cmax_cmin, &fake_class.props));
-> +	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 0);
-> +	KUNIT_EXPECT_EQ(test, fake_class.props.cmax_wd, 0);
-> +
-> +	mutex_unlock(&mpam_list_lock);
-> +
-> +#undef RESET_FAKE_HIEARCHY
-> +}
-> +
->  static void test_mpam_reset_msc_bitmap(struct kunit *test)
->  {
->  	char *buf = kunit_kzalloc(test, SZ_16K, GFP_KERNEL);
-> @@ -57,6 +377,8 @@ static void test_mpam_reset_msc_bitmap(struct kunit *test)
+>    phy-supply:
+>      description: The MIPI D-PHY digital power supply
 >  
->  static struct kunit_case mpam_devices_test_cases[] = {
->  	KUNIT_CASE(test_mpam_reset_msc_bitmap),
-> +	KUNIT_CASE(test_mpam_enable_merge_features),
-> +	KUNIT_CASE(test__props_mismatch),
->  	{}
->  };
+> @@ -93,7 +91,8 @@ properties:
+>              properties:
+>                data-lanes:
+>                  description:
+> -                  Note that 'fsl,imx7-mipi-csi2' only supports up to 2 data lines.
+> +                  Note that 'fsl,imx7-mipi-csi2' only supports up to 2 data
+> +                  lines.
+
+Reformatting should be a separate patch.
+
+>                  minItems: 1
+>                  items:
+>                    - const: 1
+> @@ -115,7 +114,6 @@ required:
+>    - interrupts
+>    - clocks
+>    - clock-names
+> -  - power-domains
+>    - ports
 >  
+>  additionalProperties: false
+> @@ -124,20 +122,73 @@ allOf:
+>    - if:
+>        properties:
+>          compatible:
+> -          contains:
+> -            const: fsl,imx7-mipi-csi2
+> +          const: fsl,imx7-mipi-csi2
 
-Thanks,
+'contains' was correct. It is more future proof when there is another 
+SoC that is backwards compatible with imx7.
 
-Ben
+>      then:
+> +      properties:
+> +        clocks:
+> +          items:
+> +            - description: The peripheral clock (a.k.a. APB clock)
+> +            - description: The external clock (optionally used as the pixel
+> +                clock)
+> +            - description: The MIPI D-PHY clock
+> +        clock-names:
+> +          items:
+> +            - const: pclk
+> +            - const: wrap
+> +            - const: phy
+> +        tesla,syscon-csis: false
+> +        fsl,num-channels: false
 
+blank line
+
+>        required:
+> +        - power-domains
+>          - phy-supply
+>          - resets
+> -    else:
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          const: fsl,imx8mm-mipi-csi2
+> +    then:
+>        properties:
+>          clocks:
+> -          minItems: 4
+> +          items:
+> +            - description: The peripheral clock (a.k.a. APB clock)
+> +            - description: The external clock (optionally used as the pixel
+> +                clock)
+> +            - description: The MIPI D-PHY clock
+> +            - description: The AXI clock
+>          clock-names:
+> -          minItems: 4
+> +          items:
+> +            - const: pclk
+> +            - const: wrap
+> +            - const: phy
+> +            - const: axi
+> +        tesla,syscon-csis: false
+> +        fsl,num-channels: false
+>          phy-supply: false
+>          resets: false
+
+blank line
+
+> +      required:
+> +        - power-domains
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          const: tesla,fsd-mipi-csi2
+> +    then:
+> +      properties:
+> +        clocks:
+> +          items:
+> +            - description: The peripheral clock (a.k.a. APB clock)
+> +            - description: The DMA clock
+
+Wouldn't this be the same as the "AXI clock"?
+
+> +        clocks-names:
+> +          items:
+> +            - const: pclk
+> +            - const: aclk
+> +        phy-supply: false
+> +        resets: false
+> +        power-domains: false
+
+blank line
+
+> +      required:
+> +        - tesla,syscon-csis
+> +        - fsl,num-channels
+>  
+>  examples:
+>    - |
+> -- 
+> 2.49.0
+> 
 
