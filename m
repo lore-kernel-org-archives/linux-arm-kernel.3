@@ -4,83 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B741DCA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:47:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C3A9CA0FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:47:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MwTinAx2gv27VFL7trYYZazMk+NMyS0q0/yvDNsfVdU=; b=AlcAtd6pnt7neGNbMNcCbpt8M7
-	mYG5ol8bTLjOUJII4s50bPXCIM6VUuMZoMyRv8dHVA8GKvf89YaNLPRnyWRmk3lOOmWmsCRT0bIfJ
-	NkINUZRP2bFhmpg0RQXaXuTxzWtcZcXFK8XUd27oreBOiTkfOJLGi4d9XITyFeYZRXe0HfNEtDaIP
-	ZsR9ag/noLfLE8Cn4EJc5EfmwwNBUGxGkhsdhnUxy8xn6NazaBPJZLS6RnNkuRI4gLA65VJZkmPcm
-	uOwVHk/6wITwcGlQsjcNmv4aI4zy94J1H901n2Dzc/OdTWDMcD4YKduyxNH44bkRQEUkc0H/dg1Qm
-	sZXQTrsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Iz8qVuu33szEw/i1a8sBHYuo8zRtqS1Ee+a22axESkA=; b=TSSi3PFfBE5OPwP+oX5msh5F+1
+	aQBexhm8zJzmApO1x1ltcP4IkAKWd2oayk0JLMoTGLS1AcNXjVmN29QJGDk/ZCBAD/jY8zg1WL8sY
+	8+nK6Ee/2AVXVlx0eUl/Lk3qPXy74Qf7DzMFNJ7BkC5/hWcCCQu1l5pep7vcinQPAPs/ImsTecxdN
+	yKJLuUHoViItvTLakhS6r/zIxBosFBErHXK9Hy+qtjRKcZ00Tkp+1ZYuC0uAKOMbcptEAyho5g6Ny
+	zjbWCHML/B3gPB5hiuC4gGSQ0kY37AnQfVRLFsuop2alfjuUggYV1NHgEYYuuMfga0f4bCBY+NEcA
+	Gr186hKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us9k7-000000078uN-2Dkh;
-	Sat, 30 Aug 2025 00:46:55 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us1cX-00000006Lo2-0y5J
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 29 Aug 2025 16:06:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=MwTinAx2gv27VFL7trYYZazMk+NMyS0q0/yvDNsfVdU=; b=SLLamnEDkWPCQNbeJe/Mr0aTpi
-	vv6B50nyuJWrC52voGyFf7UQDteaselnt30DYMSNbk0jGSXR9T2kjc/vi2jx9jj6Rqt7IXShJg5VQ
-	mMS5oDR8zY3CNTa9CBb2E4dUaEAO3gIcOwaXJfwq+qy8e36TJwY4DSgbWuji9TPSzYRRTvuSws0CD
-	JgzOahkGpZWiHpT7A6q7MfxIIi3VxI29sfS9N9K1KFZivtLK/96OWjS2iJCW1cL5BbGgPPBdym8En
-	KC+McZdbPdR8QNGIwzkRsl5yzYvu1TSMT+mgTLcgNdfla7XeUMMkqPESPQkg3UQH636YE5UE/73t5
-	W6YPymdQ==;
+	id 1us9kB-000000078xS-0MZf;
+	Sat, 30 Aug 2025 00:46:59 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us1cT-00000003DEe-3zCJ
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1us1fj-00000006MPC-1SkV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 16:06:32 +0000
+	Fri, 29 Aug 2025 16:09:52 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C2AD41BD0;
-	Fri, 29 Aug 2025 09:06:19 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3DB823F778;
-	Fri, 29 Aug 2025 09:06:23 -0700 (PDT)
-Date: Fri, 29 Aug 2025 17:06:17 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Kees Cook <kees@kernel.org>, Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Yue Haibing <yuehaibing@huawei.com>, Marc Zyngier <maz@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
-	Joey Gouly <joey.gouly@arm.com>, Yeoreum Yun <yeoreum.yun@arm.com>,
-	James Morse <james.morse@arm.com>,
-	Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@redhat.com>,
-	Zhenhua Huang <quic_zhenhuah@quicinc.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Dev Jain <dev.jain@arm.com>, Yicong Yang <yangyicong@hisilicon.com>,
-	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH] arm64: mm: Fix CFI failure due to kpti_ng_pgd_alloc
- function signature
-Message-ID: <aLHP-TG3a1Im3kpa@J2N7QTR9R3>
-References: <20250829154913.work.943-kees@kernel.org>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 520E12F27;
+	Fri, 29 Aug 2025 09:09:42 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6A50F3F694;
+	Fri, 29 Aug 2025 09:09:45 -0700 (PDT)
+Message-ID: <f0b239a7-cf49-4c6d-bf1a-c2fc1d7c1e06@arm.com>
+Date: Fri, 29 Aug 2025 17:09:44 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250829154913.work.943-kees@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 28/33] arm_mpam: Track bandwidth counter state for
+ overflow and power management
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
+ devicetree@vger.kernel.org
+Cc: shameerali.kolothum.thodi@huawei.com,
+ D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
+ Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
+ baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>
+References: <20250822153048.2287-1-james.morse@arm.com>
+ <20250822153048.2287-29-james.morse@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20250822153048.2287-29-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_170630_439764_3966D9A7 
-X-CRM114-Status: GOOD (  23.70  )
+X-CRM114-CacheID: sfid-20250829_090951_484669_E7439528 
+X-CRM114-Status: GOOD (  33.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,152 +86,366 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 29, 2025 at 08:49:21AM -0700, Kees Cook wrote:
-> Seen during KPTI initialization:
-> 
->   CFI failure at create_kpti_ng_temp_pgd+0x124/0xce8 (target: kpti_ng_pgd_alloc+0x0/0x14; expected type: 0xd61b88b6)
-> 
-> The call site is alloc_init_pud() at arch/arm64/mm/mmu.c:
-> 
->   pud_phys = pgtable_alloc(TABLE_PUD);
-> 
-> alloc_init_pud() has the prototype:
-> 
->   static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
->                              phys_addr_t phys, pgprot_t prot,
->                              phys_addr_t (*pgtable_alloc)(enum pgtable_type),
->                              int flags)
-> 
-> where the pgtable_alloc() prototype is declared.
-> 
-> The target (kpti_ng_pgd_alloc) is used in arch/arm64/kernel/cpufeature.c:
-> 
->   create_kpti_ng_temp_pgd(kpti_ng_temp_pgd, __pa(alloc), KPTI_NG_TEMP_VA,
->                           PAGE_SIZE, PAGE_KERNEL, kpti_ng_pgd_alloc, 0);
-> 
-> which is an alias for __create_pgd_mapping_locked() with prototype:
-> 
->   extern __alias(__create_pgd_mapping_locked)
->   void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys,
->                                unsigned long virt,
->                                phys_addr_t size, pgprot_t prot,
->                                phys_addr_t (*pgtable_alloc)(enum pgtable_type),
->                                int flags);
-> 
-> __create_pgd_mapping_locked() passes the function pointer down:
-> 
->   __create_pgd_mapping_locked() -> alloc_init_p4d() -> alloc_init_pud()
-> 
-> But the target function (kpti_ng_pgd_alloc) has the wrong signature:
-> 
->   static phys_addr_t __init kpti_ng_pgd_alloc(int shift);
-> 
-> The "int" should be "enum pgtable_type".
-> 
-> To make "enum pgtable_type" available to cpufeature.c, move
-> enum pgtable_type definition from arch/arm64/mm/mmu.c to
-> arch/arm64/include/asm/mmu.h.
-> 
-> Adjust kpti_ng_pgd_alloc to use "enum pgtable_type" instead of "int".
-> The function behavior remains identical (parameter is unused).
-> 
-> Fixes: 47546a1912fc ("arm64: mm: install KPTI nG mappings with MMU enabled")
+Hi James,
 
-That doesn't look right; that commit is from June 2022, and we only
-introduced enum pgtable_type in May 2025 in commit:
-
-  c64f46ee13779616 ("arm64: mm: use enum to identify pgtable level instead of *_SHIFT")
-
-... which landed in v6.16.
-
-AFAICT, that's the commit which broke things.
-
-The actual fix looks fine, though I suspect we should move more of this
-logic into mmu.c.
-
-Mark.
-
-> Signed-off-by: Kees Cook <kees@kernel.org>
+On 8/22/25 16:30, James Morse wrote:
+> Bandwidth counters need to run continuously to correctly reflect the
+> bandwidth.
+> 
+> The value read may be lower than the previous value read in the case
+> of overflow and when the hardware is reset due to CPU hotplug.
+> 
+> Add struct mbwu_state to track the bandwidth counter to allow overflow
+> and power management to be handled.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
 > ---
-> Cc: Ard Biesheuvel <ardb@kernel.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Oliver Upton <oliver.upton@linux.dev>
-> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-> Cc: Yue Haibing <yuehaibing@huawei.com>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Mark Brown <broonie@kernel.org>
-> Cc: <linux-arm-kernel@lists.infradead.org>
-> ---
->  arch/arm64/include/asm/mmu.h   | 7 +++++++
->  arch/arm64/kernel/cpufeature.c | 5 +++--
->  arch/arm64/mm/mmu.c            | 7 -------
->  3 files changed, 10 insertions(+), 9 deletions(-)
+>  drivers/resctrl/mpam_devices.c  | 163 +++++++++++++++++++++++++++++++-
+>  drivers/resctrl/mpam_internal.h |  54 ++++++++---
+>  2 files changed, 200 insertions(+), 17 deletions(-)
 > 
-> diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
-> index 6e8aa8e72601..49f1a810df16 100644
-> --- a/arch/arm64/include/asm/mmu.h
-> +++ b/arch/arm64/include/asm/mmu.h
-> @@ -17,6 +17,13 @@
->  #include <linux/refcount.h>
->  #include <asm/cpufeature.h>
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index 9ce771aaf671..11be34b54643 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -1004,6 +1004,7 @@ static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
+>  	*ctl_val |= MSMON_CFG_x_CTL_MATCH_PARTID;
 >  
-> +enum pgtable_type {
-> +	TABLE_PTE,
-> +	TABLE_PMD,
-> +	TABLE_PUD,
-> +	TABLE_P4D,
+>  	*flt_val = FIELD_PREP(MSMON_CFG_MBWU_FLT_PARTID, ctx->partid);
+> +	*flt_val |= FIELD_PREP(MSMON_CFG_MBWU_FLT_RWBW, ctx->opts);
+>  	if (m->ctx->match_pmg) {
+>  		*ctl_val |= MSMON_CFG_x_CTL_MATCH_PMG;
+>  		*flt_val |= FIELD_PREP(MSMON_CFG_MBWU_FLT_PMG, ctx->pmg);
+> @@ -1041,6 +1042,7 @@ static void clean_msmon_ctl_val(u32 *cur_ctl)
+>  static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
+>  				     u32 flt_val)
+>  {
+> +	struct msmon_mbwu_state *mbwu_state;
+>  	struct mpam_msc *msc = m->ris->vmsc->msc;
+>  
+>  	/*
+> @@ -1059,20 +1061,32 @@ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
+>  		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
+>  		mpam_write_monsel_reg(msc, MBWU, 0);
+>  		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
+> +
+> +		mbwu_state = &m->ris->mbwu_state[m->ctx->mon];
+> +		if (mbwu_state)
+> +			mbwu_state->prev_val = 0;
+> +
+>  		break;
+>  	default:
+>  		return;
+>  	}
+>  }
+>  
+> +static u64 mpam_msmon_overflow_val(struct mpam_msc_ris *ris)
+> +{
+> +	/* TODO: scaling, and long counters */
+> +	return GENMASK_ULL(30, 0);
+> +}
+> +
+>  /* Call with MSC lock held */
+>  static void __ris_msmon_read(void *arg)
+>  {
+> -	u64 now;
+>  	bool nrdy = false;
+>  	struct mon_read *m = arg;
+> +	u64 now, overflow_val = 0;
+>  	struct mon_cfg *ctx = m->ctx;
+>  	struct mpam_msc_ris *ris = m->ris;
+> +	struct msmon_mbwu_state *mbwu_state;
+>  	struct mpam_props *rprops = &ris->props;
+>  	struct mpam_msc *msc = m->ris->vmsc->msc;
+>  	u32 mon_sel, ctl_val, flt_val, cur_ctl, cur_flt;
+> @@ -1100,11 +1114,30 @@ static void __ris_msmon_read(void *arg)
+>  		now = mpam_read_monsel_reg(msc, CSU);
+>  		if (mpam_has_feature(mpam_feat_msmon_csu_hw_nrdy, rprops))
+>  			nrdy = now & MSMON___NRDY;
+> +		now = FIELD_GET(MSMON___VALUE, now);
+>  		break;
+>  	case mpam_feat_msmon_mbwu:
+>  		now = mpam_read_monsel_reg(msc, MBWU);
+>  		if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy, rprops))
+>  			nrdy = now & MSMON___NRDY;
+> +		now = FIELD_GET(MSMON___VALUE, now);
+> +
+> +		if (nrdy)
+> +			break;
+> +
+> +		mbwu_state = &ris->mbwu_state[ctx->mon];
+> +		if (!mbwu_state)
+> +			break;
+> +
+> +		/* Add any pre-overflow value to the mbwu_state->val */
+> +		if (mbwu_state->prev_val > now)
+> +			overflow_val = mpam_msmon_overflow_val(ris) - mbwu_state->prev_val;
+> +
+> +		mbwu_state->prev_val = now;
+> +		mbwu_state->correction += overflow_val;
+> +
+> +		/* Include bandwidth consumed before the last hardware reset */
+> +		now += mbwu_state->correction;
+>  		break;
+>  	default:
+>  		m->err = -EINVAL;
+> @@ -1117,7 +1150,6 @@ static void __ris_msmon_read(void *arg)
+>  		return;
+>  	}
+>  
+> -	now = FIELD_GET(MSMON___VALUE, now);
+>  	*m->val += now;
+>  }
+>  
+> @@ -1329,6 +1361,72 @@ static int mpam_reprogram_ris(void *_arg)
+>  	return 0;
+>  }
+>  
+> +/* Call with MSC lock and outer mon_sel lock held */
+> +static int mpam_restore_mbwu_state(void *_ris)
+> +{
+> +	int i;
+> +	struct mon_read mwbu_arg;
+> +	struct mpam_msc_ris *ris = _ris;
+> +	struct mpam_msc *msc = ris->vmsc->msc;
+> +
+> +	mpam_mon_sel_outer_lock(msc);
+> +
+> +	for (i = 0; i < ris->props.num_mbwu_mon; i++) {
+> +		if (ris->mbwu_state[i].enabled) {
+> +			mwbu_arg.ris = ris;
+> +			mwbu_arg.ctx = &ris->mbwu_state[i].cfg;
+> +			mwbu_arg.type = mpam_feat_msmon_mbwu;
+> +
+> +			__ris_msmon_read(&mwbu_arg);
+> +		}
+> +	}
+> +
+> +	mpam_mon_sel_outer_unlock(msc);
+> +
+> +	return 0;
+> +}
+> +
+> +/* Call with MSC lock and outer mon_sel lock held */
+> +static int mpam_save_mbwu_state(void *arg)
+> +{
+> +	int i;
+> +	u64 val;
+> +	struct mon_cfg *cfg;
+> +	u32 cur_flt, cur_ctl, mon_sel;
+> +	struct mpam_msc_ris *ris = arg;
+> +	struct msmon_mbwu_state *mbwu_state;
+> +	struct mpam_msc *msc = ris->vmsc->msc;
+> +
+> +	for (i = 0; i < ris->props.num_mbwu_mon; i++) {
+> +		mbwu_state = &ris->mbwu_state[i];
+> +		cfg = &mbwu_state->cfg;
+> +
+> +		if (WARN_ON_ONCE(!mpam_mon_sel_inner_lock(msc)))
+> +			return -EIO;
+> +
+> +		mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, i) |
+> +			  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
+> +		mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
+> +
+> +		cur_flt = mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
+> +		cur_ctl = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
+> +		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
+> +
+> +		val = mpam_read_monsel_reg(msc, MBWU);
+> +		mpam_write_monsel_reg(msc, MBWU, 0);
+> +
+> +		cfg->mon = i;
+> +		cfg->pmg = FIELD_GET(MSMON_CFG_MBWU_FLT_PMG, cur_flt);
+> +		cfg->match_pmg = FIELD_GET(MSMON_CFG_x_CTL_MATCH_PMG, cur_ctl);
+> +		cfg->partid = FIELD_GET(MSMON_CFG_MBWU_FLT_PARTID, cur_flt);
+> +		mbwu_state->correction += val;
+> +		mbwu_state->enabled = FIELD_GET(MSMON_CFG_x_CTL_EN, cur_ctl);
+> +		mpam_mon_sel_inner_unlock(msc);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  /*
+>   * Called via smp_call_on_cpu() to prevent migration, while still being
+>   * pre-emptible.
+> @@ -1389,6 +1487,9 @@ static void mpam_reset_msc(struct mpam_msc *msc, bool online)
+>  		 * for non-zero partid may be lost while the CPUs are offline.
+>  		 */
+>  		ris->in_reset_state = online;
+> +
+> +		if (mpam_is_enabled() && !online)
+> +			mpam_touch_msc(msc, &mpam_save_mbwu_state, ris);
+>  	}
+>  	mpam_mon_sel_outer_unlock(msc);
+>  }
+> @@ -1423,6 +1524,9 @@ static void mpam_reprogram_msc(struct mpam_msc *msc)
+>  			mpam_reprogram_ris_partid(ris, partid, cfg);
+>  		}
+>  		ris->in_reset_state = reset;
+> +
+> +		if (mpam_has_feature(mpam_feat_msmon_mbwu, &ris->props))
+> +			mpam_touch_msc(msc, &mpam_restore_mbwu_state, ris);
+>  	}
+>  }
+>  
+> @@ -2291,11 +2395,35 @@ static void mpam_unregister_irqs(void)
+>  
+>  static void __destroy_component_cfg(struct mpam_component *comp)
+>  {
+> +	struct mpam_msc *msc;
+> +	struct mpam_vmsc *vmsc;
+> +	struct mpam_msc_ris *ris;
+> +
+> +	lockdep_assert_held(&mpam_list_lock);
+> +
+>  	add_to_garbage(comp->cfg);
+> +	list_for_each_entry(vmsc, &comp->vmsc, comp_list) {
+> +		msc = vmsc->msc;
+> +
+> +		mpam_mon_sel_outer_lock(msc);
+> +		if (mpam_mon_sel_inner_lock(msc)) {
+> +			list_for_each_entry(ris, &vmsc->ris, vmsc_list)
+> +				add_to_garbage(ris->mbwu_state);
+> +			mpam_mon_sel_inner_unlock(msc);
+> +		}
+> +		mpam_mon_sel_outer_lock(msc);
+> +	}
+>  }
+>  
+>  static int __allocate_component_cfg(struct mpam_component *comp)
+>  {
+> +	int err = 0;
+> +	struct mpam_msc *msc;
+> +	struct mpam_vmsc *vmsc;
+> +	struct mpam_msc_ris *ris;
+> +	struct msmon_mbwu_state *mbwu_state;
+> +
+> +	lockdep_assert_held(&mpam_list_lock);
+>  	mpam_assert_partid_sizes_fixed();
+>  
+>  	if (comp->cfg)
+> @@ -2306,6 +2434,37 @@ static int __allocate_component_cfg(struct mpam_component *comp)
+>  		return -ENOMEM;
+>  	init_garbage(comp->cfg);
+>  
+> +	list_for_each_entry(vmsc, &comp->vmsc, comp_list) {
+> +		if (!vmsc->props.num_mbwu_mon)
+> +			continue;
+> +
+> +		msc = vmsc->msc;
+> +		mpam_mon_sel_outer_lock(msc);
+> +		list_for_each_entry(ris, &vmsc->ris, vmsc_list) {
+> +			if (!ris->props.num_mbwu_mon)
+> +				continue;
+> +
+> +			mbwu_state = kcalloc(ris->props.num_mbwu_mon,
+> +					     sizeof(*ris->mbwu_state),
+> +					     GFP_KERNEL);
+> +			if (!mbwu_state) {
+> +				__destroy_component_cfg(comp);
+> +				err = -ENOMEM;
+> +				break;
+> +			}
+> +
+> +			if (mpam_mon_sel_inner_lock(msc)) {
+> +				init_garbage(mbwu_state);
+> +				ris->mbwu_state = mbwu_state;
+> +				mpam_mon_sel_inner_unlock(msc);
+> +			}
+> +		}
+> +		mpam_mon_sel_outer_unlock(msc);
+> +
+> +		if (err)
+> +			break;
+> +	}
+> +
+>  	return 0;
+>  }
+>  
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index 76e406a2b0d1..9a50a5432f4a 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -271,6 +271,42 @@ struct mpam_component {
+>  	struct mpam_garbage	garbage;
+>  };
+>  
+> +/* The values for MSMON_CFG_MBWU_FLT.RWBW */
+> +enum mon_filter_options {
+> +	COUNT_BOTH	= 0,
+> +	COUNT_WRITE	= 1,
+> +	COUNT_READ	= 2,
 > +};
 > +
->  typedef struct {
->  	atomic64_t	id;
->  #ifdef CONFIG_COMPAT
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index 9ad065f15f1d..e49d142a281f 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -84,6 +84,7 @@
->  #include <asm/hwcap.h>
->  #include <asm/insn.h>
->  #include <asm/kvm_host.h>
-> +#include <asm/mmu.h>
->  #include <asm/mmu_context.h>
->  #include <asm/mte.h>
->  #include <asm/hypervisor.h>
-> @@ -1945,11 +1946,11 @@ static bool has_pmuv3(const struct arm64_cpu_capabilities *entry, int scope)
->  extern
->  void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys, unsigned long virt,
->  			     phys_addr_t size, pgprot_t prot,
-> -			     phys_addr_t (*pgtable_alloc)(int), int flags);
-> +			     phys_addr_t (*pgtable_alloc)(enum pgtable_type), int flags);
+> +struct mon_cfg {
+> +	/* mon is wider than u16 to hold an out of range 'USE_RMID_IDX' */
+> +	u32                     mon;
+> +	u8                      pmg;
+> +	bool                    match_pmg;
+> +	u32                     partid;
+> +	enum mon_filter_options opts;
+> +};
+> +
+> +/*
+> + * Changes to enabled and cfg are protected by the msc->lock.
+> + * Changes to prev_val and correction are protected by the msc's mon_sel_lock.
+> + */
+> +struct msmon_mbwu_state {
+> +	bool		enabled;
+> +	struct mon_cfg	cfg;
+> +
+> +	/* The value last read from the hardware. Used to detect overflow. */
+> +	u64		prev_val;
+> +
+> +	/*
+> +	 * The value to add to the new reading to account for power management,
+> +	 * and shifts to trigger the overflow interrupt.
+> +	 */
+> +	u64		correction;
+> +
+> +	struct mpam_garbage	garbage;
+> +};
+> +
+
+These structures have ended up between struct mpam_component and struct
+mpam_vmc. Move to somewhere more natural.
+
+>  struct mpam_vmsc {
+>  	/* member of mpam_component:vmsc_list */
+>  	struct list_head	comp_list;
+> @@ -306,22 +342,10 @@ struct mpam_msc_ris {
+>  	/* parent: */
+>  	struct mpam_vmsc	*vmsc;
 >  
->  static phys_addr_t __initdata kpti_ng_temp_alloc;
+> -	struct mpam_garbage	garbage;
+> -};
+> +	/* msmon mbwu configuration is preserved over reset */
+> +	struct msmon_mbwu_state	*mbwu_state;
 >  
-> -static phys_addr_t __init kpti_ng_pgd_alloc(int shift)
-> +static phys_addr_t __init kpti_ng_pgd_alloc(enum pgtable_type type)
->  {
->  	kpti_ng_temp_alloc -= PAGE_SIZE;
->  	return kpti_ng_temp_alloc;
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 34e5d78af076..183801520740 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -47,13 +47,6 @@
->  #define NO_CONT_MAPPINGS	BIT(1)
->  #define NO_EXEC_MAPPINGS	BIT(2)	/* assumes FEAT_HPDS is not used */
->  
-> -enum pgtable_type {
-> -	TABLE_PTE,
-> -	TABLE_PMD,
-> -	TABLE_PUD,
-> -	TABLE_P4D,
+> -/* The values for MSMON_CFG_MBWU_FLT.RWBW */
+> -enum mon_filter_options {
+> -	COUNT_BOTH	= 0,
+> -	COUNT_WRITE	= 1,
+> -	COUNT_READ	= 2,
 > -};
 > -
->  u64 kimage_voffset __ro_after_init;
->  EXPORT_SYMBOL(kimage_voffset);
+> -struct mon_cfg {
+> -	u16                     mon;
+> -	u8                      pmg;
+> -	bool                    match_pmg;
+> -	u32                     partid;
+> -	enum mon_filter_options opts;
+
+Choose where this enum and structure go in the previous patch.
+> +	struct mpam_garbage	garbage;
+>  };
 >  
-> -- 
-> 2.34.1
-> 
+>  static inline int mpam_alloc_csu_mon(struct mpam_class *class)
+
+Thanks,
+
+Ben
+
 
