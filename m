@@ -4,143 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44515CA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 16:28:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FE31CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 16:31:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tF88/ZSkY+HN8vOkfjYyO9sNh2pKhrhpaWYLtpmjX7s=; b=TIEHtSd+M/fDpJJg7Iyx7snA2f
-	DkEz7P9CtovzETFdFmTsbeaBHBBTx9mru4CvctKEvqVAKZ9Te9xXR6k66hK0kyiuXJ3NH7RmSe576
-	U+hpN/hr3d101as6qM26TKbFqJriJqCwovttxBMI9mf48VIun6k1hHh5RvGGqp0dYMnELEqgu3W87
-	8DLarr+YVJvAllbnr8dyeUP7ZQwNM5bk5w8bOO3QRH1UvigarFVVqQc4PzPaPIafafpWh3XXxxQ0b
-	7STnBZ8XtlbSKkD/q2ZuEhiekT7jasGUvaGtaPGf3ks+ijrKLXBjL1ijoJvFVXWnfwBkoZhH43FA+
-	P3Io4N2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aggFKTWIoz3JmsTS53UGUQwfpKwPCT7EHzMCjR4W6Kc=; b=iaEeziva1cBM8tM+BudajmxxBq
+	kOmIzU74zh5CKHuNrPaxfeDDPMTsHDttMN3QXmYzu7s78W0CbeLBaJXhdwWPenz7uU1c0xWFtsb29
+	BaCrE3rbaOHR5SUApmZTnjN7IOsm+XPEvYMBO7x+ptGeubLLFEOkqXuUKGuzig7svhcT6rD7/W8ec
+	vh7r2Na4ZdHrdxpzoAhGyM9t7lHRadB8HTr/KlHapcktiC2vmPEpiJwK6HICOBs3I581KTgPsucr2
+	GaR4yhrytfe27wFLJwryYMtcHRc6xjeMta8tfAbhHdsbzV8pn4KljQpXtNjpMfTsJh8I3Lvfieopn
+	b/44DlkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us1xQ-00000006OhL-0hNm;
-	Fri, 29 Aug 2025 16:28:08 +0000
-Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1us206-00000006P9N-3Fm4;
+	Fri, 29 Aug 2025 16:30:54 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urz2A-00000005nrb-26Rs
+	id 1urz3R-00000005o2S-1ZoV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 13:20:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=usmhoDei5KEBN8WsuhLhuVaBcsBZwqPTKS+frMWsjOe0aS7yepCoOCSFYcJHfNJwKP2157k27e8d97TENU6zsiDPib9Lcc8ntC/HvveaWaDIoO8VNHpgh3PFyXcne6BTCPDw9hqH6/d9VOvdiePd2D/2bXXcsAN4gjxdfyMYrOjcNpBpUSSgCtioLpJUw4YzH0RLR47GgNR+aQ1lY8smEp4g1HGLCWGlIlXRhtTL4qRkagOOjv0y8m/+tslMyGK0tESgm3J8n2XhCkM/5LkA6vPsuN1ENi7lwYmz9JRIDuIBhLT0p/JnG8PcovDqgFCiszs4K1Su66YUR9MFLR4FVw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tF88/ZSkY+HN8vOkfjYyO9sNh2pKhrhpaWYLtpmjX7s=;
- b=PcQ7pj8B+VOPk2Ix3lTGkDZ8ee1S9vjPHHTH0FCJYnLkfGjPvkAxXlPji5u6awVUh4J6QMnI5anxqf/4O0FQeudT/LoO2hvha4tUxaP8EDWHj0v/KRnQta1wGdgRuXygN3zcpAdrRbKqbRsVNDF81fCmfVPmMMrI4xCvfQxyJKuW695jpB8cfAOxYcFj7Yyo/YiVXbXhCjMyc8JTOYJGDWBd/29bp+KeLBoaD2gmbqFtoHrUgC8Ax+t7bRwKqEYeHS2z81mzCvBmrYUI/saLMpARZKobkqLhJTZZaoNXxidfaSwryVz3uDwBvMuGL7EFpla3CD9xfH55WPR9uJm3eg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
- dkim=pass header.d=vivo.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tF88/ZSkY+HN8vOkfjYyO9sNh2pKhrhpaWYLtpmjX7s=;
- b=aOJlwpAAAFthElJ72+UbAarS3RuBGUUodQ6+/ifPXyVox2WXTq2xmxGyLOjRSCzY62jmDBeHv0BsscbuC32Fe//KMw9nuJgatMg2Sgnk6XfhqpGj5hw8Ew2gVUUBlD+k+ibHytD9+JF9rebSta5iyGwft8/eEsZRoU+7qBUkNpjcpF1M8sxknwp+aRHhHA/Bv6Lz3sV/Bz/UxqMKO1IGLUl+bRjkvdyosXqgZ6MXa+gVdqHfkuXUoNcSYibW3i907DuzzDIwCA4f/t0hHeqRTKncPKGjCoPtjnmAjnTGYUbedyrv5jOEUca7UC14HH9r/57uhGyvCUI8OncDy5AR3Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=vivo.com;
-Received: from SI2PR06MB5140.apcprd06.prod.outlook.com (2603:1096:4:1af::9) by
- KU2PPF3ABD1D432.apcprd06.prod.outlook.com (2603:1096:d18::48d) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9052.15; Fri, 29 Aug 2025 13:20:31 +0000
-Received: from SI2PR06MB5140.apcprd06.prod.outlook.com
- ([fe80::468a:88be:bec:666]) by SI2PR06MB5140.apcprd06.prod.outlook.com
- ([fe80::468a:88be:bec:666%5]) with mapi id 15.20.9073.010; Fri, 29 Aug 2025
- 13:20:31 +0000
-From: Qianfeng Rong <rongqianfeng@vivo.com>
-To: Marc Zyngier <maz@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Qianfeng Rong <rongqianfeng@vivo.com>
-Subject: [PATCH] irqchip: Use int type to store negative error codes
-Date: Fri, 29 Aug 2025 21:20:19 +0800
-Message-Id: <20250829132020.82077-1-rongqianfeng@vivo.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR04CA0215.apcprd04.prod.outlook.com
- (2603:1096:4:187::14) To SI2PR06MB5140.apcprd06.prod.outlook.com
- (2603:1096:4:1af::9)
+	Fri, 29 Aug 2025 13:22:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756473728;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=aggFKTWIoz3JmsTS53UGUQwfpKwPCT7EHzMCjR4W6Kc=;
+	b=UuLQ56t9K9ET2MmcIeYyIW1ZImATJoQ1k+kHzh2cIgfahSMGcQJjlkQ3xqVpnEUZ0FSx2b
+	nMhJA3udtBaLTI2Sl89GB/+7soNOGPCYd0PMY1h1kprbkvVlwP2+SUEjHdz65j9Rr9kMQp
+	xRwI+bEvrE7xl8Jqfcsf9SsX5eHNwKg=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-512-codXuPrFN8qFRva40euEjQ-1; Fri, 29 Aug 2025 09:22:06 -0400
+X-MC-Unique: codXuPrFN8qFRva40euEjQ-1
+X-Mimecast-MFC-AGG-ID: codXuPrFN8qFRva40euEjQ_1756473725
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-3c6ae25997cso1397808f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 06:22:06 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756473725; x=1757078525;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=aggFKTWIoz3JmsTS53UGUQwfpKwPCT7EHzMCjR4W6Kc=;
+        b=uuMA0r2NVh5iKMniQN1o/Yu6hqYFIaJ0cZ+d29ON/91ICbrwr/5t3HLXSJ8u9XSg7O
+         fGTcPwi534VYEpdQ7ekkQkWhy6G3dG0mn7BPjlGX4bu7Q3txSxRqLiwSUtDblMs8XJVp
+         ujt7ESCnLDf7J5JEkqL05bfSY+kc8n30FpaFhckzYS54pE20jUdS1U8LvPRTM1lgYCDU
+         P1NomMIO/olEngq+9QGoaTRtgHtp/xUJAGPzduCw9PCBUm++9eCDWNTAJEo7yiCwxbP/
+         75sN5Ot21fBB+ivvFzFiHPViZ9fkjSmfnvzp4YgxGJ7nJOTKRsmk/vKnhWy3QwtsjirZ
+         fc9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCV/v0Z5qZ2rHKorjDbldh4nZPAwt2Kyd8C/z26yOczBZpqyjr1U/Ko9dT8MB4Ygjdb/zychNKFR98qad+HSJ+5h@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywj9JyDP7j6DdcAI0HGVLRXc4qBpyOpajDyu/7HWyaZPDp75DIf
+	J13T+2AykZM1a6KF7TbU3IPDWYbwZlcgm94NOllBC+0sNksmX31GSuFWo8q2HLFixhRPh4Ee3+E
+	dKb2akyP8xJJUHe37Pwt8N/MIOgDzKDDhLVjTdfqmfrYxEkChcaYxVuVexjMXc6wubyXjj8PAFw
+	PH
+X-Gm-Gg: ASbGnctcAN4BAyCMMPC5T6HwSpigL1xn7m3FpD50e+MAhqY0pMSIb7NL+63tBL5Yfze
+	9G/e+6f92tUmO+tgJc5tohfiZPQkmetBX3vWrXokF60Pf4ewRlaBRr0n7INEMc/oU2FT0OmQbnD
+	sq+D8s+KYpHWgaJD3UOjK/wlPbO2tumhrMMc6hJRaBDEhRnMZOLjlqbZAszNc913BV0ufDZyBQa
+	jRaux7d8IknSKfc8l5DQumFFFCp4RbrSpWku0sjqSZRAyqncT6tVf9aRuV9qjN0kxxhk93lIJ5T
+	4C19foIeCs2WPn39hs9GDVYB8xtNMxYutc9Q1TMFt7opsbY2U7LGlD892qHfi9BLobEzBx2RnOw
+	0nsZ2gKnvCwdtfsA/tHjTdJk+R0SxmMXExWH2X56aVe4eGWozEoQikgC3gH7RMwap
+X-Received: by 2002:a05:6000:2c0f:b0:3ca:a190:c473 with SMTP id ffacd0b85a97d-3caa190c6ecmr9849806f8f.4.1756473725355;
+        Fri, 29 Aug 2025 06:22:05 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGFfrTd/+15/bT4PGZswHLcvGvODyGQLUC+I3pIFqxdvqjEg2cDf44HeYcneQKTQcaMEr0KOA==
+X-Received: by 2002:a05:6000:2c0f:b0:3ca:a190:c473 with SMTP id ffacd0b85a97d-3caa190c6ecmr9849784f8f.4.1756473724881;
+        Fri, 29 Aug 2025 06:22:04 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f1d:100:4f8e:bb13:c3c7:f854? (p200300d82f1d01004f8ebb13c3c7f854.dip0.t-ipconnect.de. [2003:d8:2f1d:100:4f8e:bb13:c3c7:f854])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3cf33add483sm3368560f8f.37.2025.08.29.06.22.02
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 29 Aug 2025 06:22:04 -0700 (PDT)
+Message-ID: <f7f9f535-0bbe-413a-84e4-fcb17a502a40@redhat.com>
+Date: Fri, 29 Aug 2025 15:22:01 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SI2PR06MB5140:EE_|KU2PPF3ABD1D432:EE_
-X-MS-Office365-Filtering-Correlation-Id: e301405d-d7c8-4623-f2ff-08dde6fed43d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?9jysFBS49FtIWe2h8qeD88lz0x0eLqDbKSxbkpG0IGU2oMCd3cHT5P8Qmbg2?=
- =?us-ascii?Q?FblOtATDr33TDZKoC4CsM+U9FMyZ6Bksosj0anILYUJh+/YbZDDumt9zP89H?=
- =?us-ascii?Q?ebxL0LC1iNCcGyTg54c82j4x8trUK0c3EYz9dhkHD74jYMw/6NE3SP1mTj5/?=
- =?us-ascii?Q?mG6tYXUDIpaEPNaUQGUqDBqVh7QVGUf+Rp0R8hlRTYJWbwAUNZEOAWibM2PY?=
- =?us-ascii?Q?OYrPHomLBhpNgl7Dt/8DzJ29IzPxzi79M/GaCWqkJlWN/bvf2h41+CBBtLjT?=
- =?us-ascii?Q?Z45MiLC7FnVdFlP4S8NnPTjYB/MMK4CkVV+ySDJFR5qB3IRYVVV0BPtaOm2M?=
- =?us-ascii?Q?/1K3zV8SnnGtvHh79O8qdAUopiOQyvzHQlmYDua8qvPcGaPT8QkVBZvaOoDl?=
- =?us-ascii?Q?HUf5P/7c0Q5TU5/QfDtaOqjkxKoNwKvwE2+h3MmsPwUsOdLFVxg9127oztRN?=
- =?us-ascii?Q?qyZxWNW6DniA16WEEySyjpzNqMdb2rq+sCmjL3bDTSKwapKWe9BW3M+/l3LF?=
- =?us-ascii?Q?zPOMK7X3sAPlzSAZcomlVKCCMOORDCvxl0ckzCyjCmaOzkOpLegySgKYRw/h?=
- =?us-ascii?Q?2iSr3tpDYRJiAR+qiqzOZi+zpfimsp+HUKV8xwln0Oeria/a7TE6dclCezD2?=
- =?us-ascii?Q?DUjm36/LRp4tEYv0kWS4oH9gfqWRw869U2QXUDU9DGsmyJuuhKjK/1Kusx23?=
- =?us-ascii?Q?TYhiKrDcMPriHNnsDHLASFu5NKFiGyeWaXS2shGc/vdOqKZYDMkuyHBFC6h+?=
- =?us-ascii?Q?KNYajHVJWHLFP9MvVC3r3KOv2xXWV+JwYIssvXw/IKk3oFbs7n8m+srCDCex?=
- =?us-ascii?Q?Ub6DPnTAzto4ijvbmmp3ohdft8Ov3j+FSY0CzYypVfiPPY+K9YBhtTUmhwti?=
- =?us-ascii?Q?5Lo5nK2+hjBQAFwtGYgI/nwq1HpKOhDnUlKF1lV7Dsw/Fhqz1diZmSP8oUdF?=
- =?us-ascii?Q?N+rTipvr38Dwn8OxytHfKG6NOTd4xOUb/xBwBBoJqZrsiEJvIIquptt2nnm4?=
- =?us-ascii?Q?TKsMw/jTwPM3vTQfNAsUL7j70EC09ZtpDXcRSBxgl4iRR8G/VyWe3DZsyEXS?=
- =?us-ascii?Q?arZPq73VDDDVHC07M/hjXfjnUA+7ef2RYri+VqdDAJ0I7KXXlynDWjJ6KSH2?=
- =?us-ascii?Q?V18jAK5Kx0Ju9zSUntRMOrk9cvXl7xAll5lu/VmLr4h7cX72Kfx8Kqh32qj7?=
- =?us-ascii?Q?dZn/BI6uWbhWeMinjuA+vFvWYuee1Xp7Kev+UNXbJ32kkmKMXuGkzmXn2jL+?=
- =?us-ascii?Q?QkOuOi7LmMWLvp8noZQ2pRRctj+0g6bGVg97WVIEYpeKUB/gy6mNIZmmIgxH?=
- =?us-ascii?Q?T510Eei2wcP52+STbkVkPytMyIWcAffOsVBDuD08s7Z0O2bS9BrRkVR5rZVu?=
- =?us-ascii?Q?PQSWH3CEARXggzYKhKJYH+ppbEkjMicZliGdrPetJeSkAuH8ZQ5hRKsSwmi5?=
- =?us-ascii?Q?DH8LnR+kTeZ0QAgwlLjJPzshGAiABLR7q2HANU9roEm8TmN/VrK7HA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SI2PR06MB5140.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LIonIxEp9FLIUKpVCGLRxhg1WpounhAuLdOInV1xYKdlaGiAY0eGeMEudbl+?=
- =?us-ascii?Q?WSvjNd5B5bqx3EPCBTdDtUT8uWeo9Gcy6Sw6F15AiZwZUN9lmIPYtFSnk07B?=
- =?us-ascii?Q?oaSwir015eM3L8G2nYgjHFPTuROwx8VbEEXgIE7tyfOIqqcS1QYo5oPfj7zW?=
- =?us-ascii?Q?ZRbjGs+5JM55W6wgPMDhzfIiH5C70ey4mlqWfRZDS+Q5OCK8TENXOX6BRZQB?=
- =?us-ascii?Q?AL5/lSXT0G/sGQAvmBV+0BvSTu8OdQzD7w8FTxBRLwhgeDx18A3BMLg8Vgqo?=
- =?us-ascii?Q?0+UaJMHtEAVC8SDEaGsGbTb/c7M6VfwX0JPWr0zAi+2ceuBpQ9WXqmo2jS8j?=
- =?us-ascii?Q?mcT+hRPmFpN6ss/MWPmzIlpcIyVjBNw03ER+o2Ci5wSXeK+D/H5SF1JrA2a4?=
- =?us-ascii?Q?/IBfYUTrHHdA7Bs16JDci3TdUfg5ZQ30m7PunHRFWmbmat/WzwcK7EPG2b6J?=
- =?us-ascii?Q?DJt7HRVJSWd3XRC2v8grZj5R17N2BLGfwZ8KKpAJzdyd3KDZPZTnRMrxBWkx?=
- =?us-ascii?Q?iTM2Bspr/9tbXkS51aKM4NqFennTnhJ7YLiDpgAaXnIJfPYo4RMLb9SDW+xo?=
- =?us-ascii?Q?rzHX3ij2RHZ66IL5+1lvpY0ciOwmKzNtVGYkK3g+Pmc+mZ9haq1CcKhQ4akI?=
- =?us-ascii?Q?nZ+Gso6c4SKzO1YGg0K5N2fS5xWbR3qCFMTjev1hb5QGIUfxWYBQJjyaUs0w?=
- =?us-ascii?Q?skggOHtJ5bwAdFUBtUeEBOgL10CaMcPuRVOvallRmMm2BFJkcA8XrtUCidBB?=
- =?us-ascii?Q?RNiBcp9hSLvApo88ibAi8JMxvTjCO77IOuEVgRxm43LbaOAFRRB+Bdyno403?=
- =?us-ascii?Q?YBXLJPEK0mWsTkWJtfVv1spKh1nh8I7E1WfD0cUmKcjx/rsr563DnZ/5Sz1/?=
- =?us-ascii?Q?FuaJxLwPag2ytkZco/1ngCr8IPrppdFXne29URza7LYU5AW6ENR/aGeKLF3C?=
- =?us-ascii?Q?G63B1jwwONb3dOLKMgVhpufeDv2ofyUF3TV64D/o8CRjTzh3T15p2qiQyh07?=
- =?us-ascii?Q?IhjJxHReClvmXWv9W0Io1GqDEztIUgtLPuZWlgW0Hg2PI4o661ZJkBzfzqia?=
- =?us-ascii?Q?3R6+T7UN9IhuROMUnW5+Qe5Zb4i04smsmNUazaXV1ePoH2JPzRw+eXNkuNct?=
- =?us-ascii?Q?2qMQl0Nbj0djOy/WHDuVIGEpbUz2+DjKedOXbgfP76pbyndS8HWyKSmyGJ9u?=
- =?us-ascii?Q?gSbFD/KD8Z/PgxDh2OP2O2vTCKIkikVsjQyt/+s/Am2xxNhyHD3fwAw8i0Mh?=
- =?us-ascii?Q?4xSseHLwMmUbMCzSv59NvC5CgRnUZLsxSB/ZD8f9Hgi7UHfjaGdG9F/foaWN?=
- =?us-ascii?Q?HpiHIAERwI49XAI19YkSBjStyMUaPwO7W+BXhEVYgKD1SlLxh3vciZd5rjqX?=
- =?us-ascii?Q?1fbGIS8a13Gzd1T1bnJESa3C7H4Tq76yp5b1JhhjtXL0EIFmL/J7nz1yp2IE?=
- =?us-ascii?Q?4aZwY+1fQK60KFtUWHpJSh3myIgss/cFspux/xkNRwxncVowz7mjxbLsEAVB?=
- =?us-ascii?Q?1vRoSCkLgq4qQJ0QgA5s07ieKDQQOugLF19r54EJ4T0Mg9yePKtctOvxTLDS?=
- =?us-ascii?Q?iZLBiEwHtstDuvK3ESMQuAS8GCgSi/Khwc/jGJQF?=
-X-OriginatorOrg: vivo.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e301405d-d7c8-4623-f2ff-08dde6fed43d
-X-MS-Exchange-CrossTenant-AuthSource: SI2PR06MB5140.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Aug 2025 13:20:31.5708
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: uR3H+n0rwbbqTKB11W9S19z47csE2sH09Up7dGiZNNywEMJyfvoH2daZuEdN/dkOYQn5FiwLz+nwSGoSgKVcUA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KU2PPF3ABD1D432
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 16/36] fs: hugetlbfs: cleanup folio in
+ adjust_range_hwpoison()
+To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
+ Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
+ dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+ iommu@lists.linux.dev, io-uring@vger.kernel.org,
+ Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
+ Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
+ kasan-dev@googlegroups.com, kvm@vger.kernel.org,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
+ linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+ linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-scsi@vger.kernel.org, Marco Elver <elver@google.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Muchun Song <muchun.song@linux.dev>,
+ netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
+ Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
+ Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
+ virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
+ wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
+References: <20250827220141.262669-1-david@redhat.com>
+ <20250827220141.262669-17-david@redhat.com>
+ <71cf3600-d9cf-4d16-951c-44582b46c0fa@lucifer.local>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <71cf3600-d9cf-4d16-951c-44582b46c0fa@lucifer.local>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: ucbfnYZvJuz8fKRsi5f1dUFmpzceV2SVz1IWD4wTVpE_1756473725
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_062050_664991_45152375 
-X-CRM114-Status: GOOD (  13.68  )
+X-CRM114-CacheID: sfid-20250829_062209_600181_28FF0885 
+X-CRM114-Status: GOOD (  24.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,70 +180,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Change the 'ret' variable from unsigned int to int to store negative error
-codes or zero returned by other functions.
 
-Storing the negative error codes in unsigned type, doesn't cause an issue
-at runtime but it's ugly. Additionally, assigning negative error codes to
-unsigned type may trigger a GCC warning when the -Wsign-conversion flag is
-enabled.
+> 
+> Lord above.
+> 
+> Also semantics of 'if bytes == 0, then check first page anyway' which you do
+> capture.
 
-Signed-off-by: Qianfeng Rong <rongqianfeng@vivo.com>
----
- drivers/irqchip/irq-gic-v3.c       | 3 ++-
- drivers/irqchip/irq-nvic.c         | 3 ++-
- drivers/irqchip/irq-renesas-rza1.c | 3 ++-
- 3 files changed, 6 insertions(+), 3 deletions(-)
+Yeah, I think bytes == 0 would not make any sense, though. Staring 
+briefly at the single caller, that seems to be the case (bytes != 0).
 
-diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
-index dbeb85677b08..3de351e66ee8 100644
---- a/drivers/irqchip/irq-gic-v3.c
-+++ b/drivers/irqchip/irq-gic-v3.c
-@@ -1766,8 +1766,9 @@ static int gic_irq_domain_select(struct irq_domain *d,
- 				 struct irq_fwspec *fwspec,
- 				 enum irq_domain_bus_token bus_token)
- {
--	unsigned int type, ret, ppi_idx;
-+	unsigned int type, ppi_idx;
- 	irq_hw_number_t hwirq;
-+	int ret;
- 
- 	/* Not for us */
- 	if (fwspec->fwnode != d->fwnode)
-diff --git a/drivers/irqchip/irq-nvic.c b/drivers/irqchip/irq-nvic.c
-index 76e11cac9631..2191a2b79578 100644
---- a/drivers/irqchip/irq-nvic.c
-+++ b/drivers/irqchip/irq-nvic.c
-@@ -73,8 +73,9 @@ static int __init nvic_of_init(struct device_node *node,
- 			       struct device_node *parent)
- {
- 	unsigned int clr = IRQ_NOREQUEST | IRQ_NOPROBE | IRQ_NOAUTOEN;
--	unsigned int irqs, i, ret, numbanks;
-+	unsigned int irqs, i, numbanks;
- 	void __iomem *nvic_base;
-+	int ret;
- 
- 	numbanks = (readl_relaxed(V7M_SCS_ICTR) &
- 		    V7M_SCS_ICTR_INTLINESNUM_MASK) + 1;
-diff --git a/drivers/irqchip/irq-renesas-rza1.c b/drivers/irqchip/irq-renesas-rza1.c
-index a697eb55ac90..6047a524ac77 100644
---- a/drivers/irqchip/irq-renesas-rza1.c
-+++ b/drivers/irqchip/irq-renesas-rza1.c
-@@ -142,11 +142,12 @@ static const struct irq_domain_ops rza1_irqc_domain_ops = {
- static int rza1_irqc_parse_map(struct rza1_irqc_priv *priv,
- 			       struct device_node *gic_node)
- {
--	unsigned int imaplen, i, j, ret;
- 	struct device *dev = priv->dev;
-+	unsigned int imaplen, i, j;
- 	struct device_node *ipar;
- 	const __be32 *imap;
- 	u32 intsize;
-+	int ret;
- 
- 	imap = of_get_property(dev->of_node, "interrupt-map", &imaplen);
- 	if (!imap)
+> 
+> OK think I have convinced myself this is right, so hopefully no deeply subtle
+> off-by-one issues here :P
+> 
+> Anyway, LGTM, so:
+> 
+> Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+> 
+>> ---
+>>   fs/hugetlbfs/inode.c | 33 +++++++++++----------------------
+>>   1 file changed, 11 insertions(+), 22 deletions(-)
+>>
+>> diff --git a/fs/hugetlbfs/inode.c b/fs/hugetlbfs/inode.c
+>> index c5a46d10afaa0..6ca1f6b45c1e5 100644
+>> --- a/fs/hugetlbfs/inode.c
+>> +++ b/fs/hugetlbfs/inode.c
+>> @@ -198,31 +198,20 @@ hugetlb_get_unmapped_area(struct file *file, unsigned long addr,
+>>   static size_t adjust_range_hwpoison(struct folio *folio, size_t offset,
+>>   		size_t bytes)
+>>   {
+>> -	struct page *page;
+>> -	size_t n = 0;
+>> -	size_t res = 0;
+>> -
+>> -	/* First page to start the loop. */
+>> -	page = folio_page(folio, offset / PAGE_SIZE);
+>> -	offset %= PAGE_SIZE;
+>> -	while (1) {
+>> -		if (is_raw_hwpoison_page_in_hugepage(page))
+>> -			break;
+>> +	struct page *page = folio_page(folio, offset / PAGE_SIZE);
+>> +	size_t safe_bytes;
+>> +
+>> +	if (is_raw_hwpoison_page_in_hugepage(page))
+>> +		return 0;
+>> +	/* Safe to read the remaining bytes in this page. */
+>> +	safe_bytes = PAGE_SIZE - (offset % PAGE_SIZE);
+>> +	page++;
+>>
+>> -		/* Safe to read n bytes without touching HWPOISON subpage. */
+>> -		n = min(bytes, (size_t)PAGE_SIZE - offset);
+>> -		res += n;
+>> -		bytes -= n;
+>> -		if (!bytes || !n)
+>> +	for (; safe_bytes < bytes; safe_bytes += PAGE_SIZE, page++)
+> 
+> OK this is quite subtle - so if safe_bytes == bytes, this means we've confirmed
+> that all requested bytes are safe.
+> 
+> So offset=0, bytes = 4096 would fail this (as safe_bytes == 4096).
+> 
+> Maybe worth putting something like:
+> 
+> 	/*
+> 	 * Now we check page-by-page in the folio to see if any bytes we don't
+> 	 * yet know to be safe are contained within posioned pages or not.
+> 	 */
+> 
+> Above the loop. Or something like this.
+
+"Check each remaining page as long as we are not done yet."
+
+> 
+>> +		if (is_raw_hwpoison_page_in_hugepage(page))
+>>   			break;
+>> -		offset += n;
+>> -		if (offset == PAGE_SIZE) {
+>> -			page++;
+>> -			offset = 0;
+>> -		}
+>> -	}
+>>
+>> -	return res;
+>> +	return min(safe_bytes, bytes);
+> 
+> Yeah given above analysis this seems correct.
+> 
+> You must have torn your hair out over this :)
+
+I could resist the urge to clean that up, yes.
+
+I'll also drop the "The implementation borrows the iteration logic from 
+copy_page_to_iter*." part, because I suspect this comment no longer 
+makes sense.
+
+Thanks!
+
 -- 
-2.34.1
+Cheers
+
+David / dhildenb
 
 
