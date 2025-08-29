@@ -4,198 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69366C8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 08:48:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2465C8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 08:51:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1YZzq0T70Q0JCakVZFpXKs5q1o7B10ojh7vzt/WaCik=; b=aJpGa7mm0TuYU3PEble/TIdYnO
-	SUJFhFodK7c1yFUziBspVzPMkB5HX0mJ29p1tq3+8MxijvulrwwcZcbGZBnmGuPxDhcstmvZ36+jj
-	i4cynSrRkXThaUbisaJvwYOoLOBdND3og2pQL4VWhtVGgrP73LUg4aHkL1dKWbdGM+VSZfKvLxen1
-	eSetU9hdbNvUeAsaMQmMa72VNjHfA2xjm0U9qdAsGL7MCIkqEMX5GbqhaJ4LTUdq2Gn6Wz1Xp1kuS
-	CDo1zOZpGMoCRgTvZlp4sdNbmtHT7ErOB0PeUi8z81ddGbN4Q0R2Cy7uwqs2JkBc8cGDZFzXxcHCi
-	FaMMP/Lw==;
+	bh=+4nnCSfaVZxfCjorptFVtjUW71ZPzART/mrWJy4dbto=; b=jAsb9GSRMUOb+tl54rMszewBWE
+	wr9vocuJpFmC9vlNCtYUag8YD29hMPuCdKPLK3rya6TDezJgN6g7iUM13c9qqy2rGYxNeL7IGtZr+
+	6SNtzKqh2bS/UsWPrx0jO41L6Vs3Br8r25utGm+u4q/yz7dCxvcQaz+mFTfJWmlAxfVRU9/mYov9r
+	lsTMIfPwKwvF1F1l9PZ0TeZgxD73WGwkO0q4VSynIxbJb+O/0l4F/h99AuTkaF9nhElybdVO40nSv
+	6IeASNTE8YUU/qJUpkhDIzZzvq3dp0np2Vfm0D9D8CrVFiHLZuW7McqP2c28Ijd9nTKjJuZnEVNLn
+	kk2GkV3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urumt-000000051cP-1JMb;
-	Fri, 29 Aug 2025 08:48:47 +0000
-Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
+	id 1urupb-000000052GO-0etU;
+	Fri, 29 Aug 2025 08:51:35 +0000
+Received: from mail-m49230.qiye.163.com ([45.254.49.230])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uru9f-00000004u40-0k2Z
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 08:08:16 +0000
-Received: from pps.filterd (m0246617.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57T84A6D020546;
-	Fri, 29 Aug 2025 08:07:55 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	corp-2025-04-25; bh=1YZzq0T70Q0JCakVZFpXKs5q1o7B10ojh7vzt/WaCik=; b=
-	CiRaqbRMj0cZ+sivSkPGHLrdiQy87EdGOTXb44r2BO0iapb9iD/UZLra8ujI9NPD
-	4MWNSX3gkCdDPpjoAyHr8qbsYtAyf9SLYHKZlSORXnuz9aJXds4faCnDIJjc47cu
-	R98LL+iE8R83d/dFwAmNRZKIVYo7CW/Qcg4a/yVsewTUQQA5TyIpmh+NsGaAquyj
-	pwYnw3pdkoQ/4kZ9RCDLczvyG+9eHL2L90SQ6eI24//USH8STQAucmc5Q7GVWC7h
-	ZryQO54fR6zk+VI0azeUtoOM05uXI0CouVtuItdh3Pc35cZDgt6ADkgQ0jbLdJbZ
-	0V51L7L/1CNHzejEIBNXBw==
-Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 48q6792169-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 29 Aug 2025 08:07:54 +0000 (GMT)
-Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 57T7j8LO014642;
-	Fri, 29 Aug 2025 08:07:53 GMT
-Received: from nam12-mw2-obe.outbound.protection.outlook.com (mail-mw2nam12on2088.outbound.protection.outlook.com [40.107.244.88])
-	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 48q43cv9d3-2
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 29 Aug 2025 08:07:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MnE4tznhhWaHkAfACdy/P3mieCrBhQBvY42uDA/HZ2CAgWDWySC416rZZ976+vn+6ZA5+RDkf8ZdGyuRvlC2J6Wy3VlTDuKmITmkJoNCYKV1ieuKtM2WcrY6jtto9eDYvM4FmE44IY/Pk9iC9JpDcIyKSrnIuHi3BWBfSGh1fQyM95VlTYBoOCCpemc6FFu4Hb+lZlua0Xxmf3HFfZQBakytjg16DqFcRM9dDAzIXNF4oW7sZN9rblRC12A334w2Z+QUqKFihm1PfFSBj5f+G9Q7x6luuwbcYZIcIJrJ+lDpR94QddbXKCTCfxpgfHWFTSYiyzCQ8uda5xLzj5FA0A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1YZzq0T70Q0JCakVZFpXKs5q1o7B10ojh7vzt/WaCik=;
- b=pG/5B8PVaKHGticuTYHkBS6b9MfIsdxCJ7Vfilxg5VyC7Cdno4EKIbZ5V9bjEAjW7zgbor7NBwYvjq+Txz131Byx0OBEidfiwEhPQSOrdXX7lTXPG9Wt1b1g8Mrt6WerKNgwZFQct4zx3KEdSRAokZqal5d6EQ7qYPyvUFTdjWFpdtE6fVtYdxVwZNKnbeqBMorKVEPqN0qRB6SAxqqFs2oFOjzmjC9sE2kYPuKfKKnxWUlVQZFXx7kyLgM+/iJOQ5NW6EHV1OBfPVVjE03j9tPtiYEwE2Ja+qLTsuP9cDWpdlc0QC6Aaao3JrfSavwQtepnjLJOl027WuYAQg8f6w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1YZzq0T70Q0JCakVZFpXKs5q1o7B10ojh7vzt/WaCik=;
- b=u4e99xt+TftFDTi4e7tFe+Cbdr/puOsriRelNvpRaKHlr1XgX/RiTKMjsvLYDvxaQl4Noab57ug1/gvNI7wrjhazHKnUvh9mV+F+WLRWOcCggsxrjza3+kf+MQKWMD5qPeHodEkLMkkNxXNEkvP4nvJ/9Sf9VGwgNZDXaos9LvQ=
-Received: from CO6PR10MB5409.namprd10.prod.outlook.com (2603:10b6:5:357::14)
- by MN0PR10MB6008.namprd10.prod.outlook.com (2603:10b6:208:3c8::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.21; Fri, 29 Aug
- 2025 08:07:48 +0000
-Received: from CO6PR10MB5409.namprd10.prod.outlook.com
- ([fe80::3c92:21f3:96a:b574]) by CO6PR10MB5409.namprd10.prod.outlook.com
- ([fe80::3c92:21f3:96a:b574%4]) with mapi id 15.20.9052.013; Fri, 29 Aug 2025
- 08:07:48 +0000
-From: Ankur Arora <ankur.a.arora@oracle.com>
-To: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Cc: arnd@arndb.de, catalin.marinas@arm.com, will@kernel.org,
-        peterz@infradead.org, akpm@linux-foundation.org, mark.rutland@arm.com,
-        harisokn@amazon.com, cl@gentwo.org, ast@kernel.org, memxor@gmail.com,
-        zhenglifeng1@huawei.com, xueshuai@linux.alibaba.com,
-        joao.m.martins@oracle.com, boris.ostrovsky@oracle.com,
-        konrad.wilk@oracle.com
-Subject: [PATCH v4 5/5] rqspinlock: use smp_cond_load_acquire_timewait()
-Date: Fri, 29 Aug 2025 01:07:35 -0700
-Message-Id: <20250829080735.3598416-6-ankur.a.arora@oracle.com>
-X-Mailer: git-send-email 2.31.1
-In-Reply-To: <20250829080735.3598416-1-ankur.a.arora@oracle.com>
-References: <20250829080735.3598416-1-ankur.a.arora@oracle.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MW4PR03CA0164.namprd03.prod.outlook.com
- (2603:10b6:303:8d::19) To CO6PR10MB5409.namprd10.prod.outlook.com
- (2603:10b6:5:357::14)
+	id 1uru9o-00000004u41-20XV;
+	Fri, 29 Aug 2025 08:08:26 +0000
+Received: from [172.16.12.26] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 21096c9d6;
+	Fri, 29 Aug 2025 16:08:11 +0800 (GMT+08:00)
+Message-ID: <a5e613ba-b404-40ae-b467-0f6f223f5d4c@rock-chips.com>
+Date: Fri, 29 Aug 2025 16:08:10 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO6PR10MB5409:EE_|MN0PR10MB6008:EE_
-X-MS-Office365-Filtering-Correlation-Id: 258883de-af4b-4199-0371-08dde6d324b0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?QcztW1ZOZNrX57R1v7eGnPv8lYtasrVXhOetMNpevCrxeipnsZ2O7av1yVP2?=
- =?us-ascii?Q?8Rr71kxLyuuC1nongQlEzz41AxZ4yOOyJYPyu84ugBjpm99AGdy3F2fJHU6U?=
- =?us-ascii?Q?ueA8Q2DpDQzJTZ5V8M26L3p69QYHOQuvTMzBxdSl/PMBzb5C8yOvzqt1bdN4?=
- =?us-ascii?Q?k4u2S357U7URfr0qNFohzlac7LWtvu+aRK3BdN5gukf+sq/Xlx/cWnknXz56?=
- =?us-ascii?Q?S3rPGm2v6KsdrXoR6PFkZO9vDk8gJW305r6I+gn7GE0H6UElYfKZyYrvNwit?=
- =?us-ascii?Q?tHIs+2ViWGaTpnEpwbInFupc0vEdQXyECMXPoCLdeVpjYrbKjgIH6FTKxmou?=
- =?us-ascii?Q?DQlOaSbledKyJQmaEkfnydkH4yLFMftzkip8Wueo2KvcPeR6OCfNku2QJVfq?=
- =?us-ascii?Q?0r+dKbKuZf3sK6ls9fNXUAJucmdMEIle73aHbbc3mttdCV+eMgpsnfzyMPpb?=
- =?us-ascii?Q?NLc/M99bfC3eGErMg/sRG5NXZSlI4n/d63jNqjQssMBYUODBkJgYIlDzNezS?=
- =?us-ascii?Q?4LH/D0oMPj23Rkj5VLs9/l4RzVLcrk8j6O9Af+Rtmjwqtt5GHMrD4TeuRMX4?=
- =?us-ascii?Q?IPA0LBFPAbFyyxxmpiFaj1rr1Ypqvo3fF9zx8SmjBX6lDBR1WrU/0rnWnoXB?=
- =?us-ascii?Q?6QqeXpwpd/OpVhEj38aAC9e+cVGQbXOlzFpy3slCfJTGtbntEf7U5Qa2hAc8?=
- =?us-ascii?Q?Sj8Rxh9z7QMn1kVkq7RLpXYD7vzMAWqpCGXAxC00OuulwynGnTVIMq83ttwY?=
- =?us-ascii?Q?sSqT60Mp+DDNKL5U8l4JlDDZ3/3kPAK+CnQ45cmbnpBPa1zew9BejSOOr3+O?=
- =?us-ascii?Q?YUVKK69Ft/ZxWt5IUhplq6MNTvNkvTz1rb7gIQPWegqt0FWNrTv0gxBLefFR?=
- =?us-ascii?Q?o0GIDKT2ibT7H1zsyAQP5nStHHip+w/1J49nYNunopYbu/UxyizOxAqdWmj4?=
- =?us-ascii?Q?0ThFYo5se4FzzsTBJTUUsDArj6QjvqHzM+/FLs4S3nG7K44i14RO0i4B+tEj?=
- =?us-ascii?Q?n4VH75kusbX774uYM7/NxkVSL+TCSKwBX3pXLdS0x6qTcGFYOx82A5WHlU8g?=
- =?us-ascii?Q?y2XQzdxMThbhfmxJOgh+W+Eh002xwVrm8l6VoR8kqVRADj90fTNsfEg8yyqV?=
- =?us-ascii?Q?UD7e4dTqVuZxw2AzVse2RIv2ZT04zaRglyD/gnTMDzepmPK0j/x9Xeyto6vY?=
- =?us-ascii?Q?2agWbBje1hJOxS4jSa0ZwijeACb1WFaFIvRT0VEOQQrm+DRQPcH93gyjD8Up?=
- =?us-ascii?Q?cy/GI+8u49v5eGHzTg0/vcZHMzOVaEaSicjwweesVHO6CPR7QVtSCfSxO5SL?=
- =?us-ascii?Q?qjuvlP6ni7RVYpaRyHuqUOnhAzC7CCpfQvTSJSGMliHsWqpxERt5icszRjIE?=
- =?us-ascii?Q?S3jojB+2hNoA2M+jyyOfgxxgE70INqIGwBIrfjl9ixRf4F8NCTBGpiM/15Hp?=
- =?us-ascii?Q?yK60/WRJAuo=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR10MB5409.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GwUrBvGNJUdbEkr/GEt5EZjmr0Njl9XcFTNst9/kWCrFe8nVo9U/1/xYVUay?=
- =?us-ascii?Q?BcUTER9RsZHxOUwpVTcybQWAYfCWOVBcTA99KjdMUNKckC4q9i9vrndOvmCB?=
- =?us-ascii?Q?WVkXtQ0tGHLNHIEfuTcgowIGLHUX0xs5ucrqsfahY7jfAA/gNT1pU/uR4rPm?=
- =?us-ascii?Q?FK61GLiMtpUTB946MeYM3MVG/QIjAagja/VfxN7XYsSBRxOJiRphxZ3ToxOh?=
- =?us-ascii?Q?11sZLDMRWRA+J/SkmOvzN+tk6P6i0pcCkdcLiM9jOlamJroIVAWy8kOiRE1k?=
- =?us-ascii?Q?mWxF3ugvKxlu4/R5+T+fUOl6b/MSKwI7l65n01/LQ7gDVOMXvE5WVuoL2x36?=
- =?us-ascii?Q?Z+AV+ZZfKOXPS00J2Tdo14Z3Db9ibTWIwsgsazGu3wriIyE/pLN7Us66jN/S?=
- =?us-ascii?Q?RIXef2RA5Qtn11qqeSohLzCy1/34UPox515nd/hWUMSiyzBQQNfVfot9oJME?=
- =?us-ascii?Q?zUJMUNnl5wsl5RuQRZ2bQRUmMOFgI6NCBnO7iBplYZ4rigT6RLZuUSRdwTeS?=
- =?us-ascii?Q?CTCsIOCWJCRVuY+HA5hCeqPz1Dof3oau6iaNhs+VCbPcD8y87lZmxZbcna8y?=
- =?us-ascii?Q?hsOPPsWHXYYnNim1QP7QmM/zyTuZcN3nSp7+xSO7WpETaFQ3pEV+B3Kx8N4E?=
- =?us-ascii?Q?Ae4nSMuQF7YoZsmkwxaEq2+GgHZP+vppUuHmKiq7b+fskxNltaFgQNOjwpAd?=
- =?us-ascii?Q?845ZXk2eGKKBc/dpvQxf5E+/PM14ma0+45lGfFZOXHTONO0CrQNCuqC3zIcU?=
- =?us-ascii?Q?wjpKRYrGR5SldETyAUBT3aGPiQBgoRCuqy/yepV8d9hSxuf8lI2aEooM4izo?=
- =?us-ascii?Q?92zSNruTmW3waZnpV7UybQVbq+T8nbvPr8LsQnmweYVZ6mVKso1vcDApXO7x?=
- =?us-ascii?Q?chLPst6eydO5r/74gVwyqdFIJZU0kmsq8DEm4kFUBLToUt3mTNxauQGMLyyv?=
- =?us-ascii?Q?aez06cvUDsuHZolV+aspq4wTfGwN/KvXPW3ewwE5+UCfdXAMaaHhi5ED22Bw?=
- =?us-ascii?Q?tjW0qCBxpCMvkaBYBIE/FjH6F0fJh7SH3ZmH/7UwBNllkTEDzx5mws+5O3Ns?=
- =?us-ascii?Q?U3Hfv8Ypn54dgbRNYkds/VmKW9XWFItQD/Z3XDAZX7R0y42cxUxiHqWFG7FT?=
- =?us-ascii?Q?whKa80qXZ4jz+0LjUCbhlv6TEL2i1HS8TFK5LtI4aOpSbHFvPXOrq1jml3sz?=
- =?us-ascii?Q?wLV7Gv+feMpp/n+O2RA6A/Zdvl2kjUq5GUniZIsiW5AY6onXI2q6Cec7CMeU?=
- =?us-ascii?Q?srYTmbOyOg1lGkisWFlKYUeL5kXveGz5cnXXfzk2eB+JFcvdkBY8FuBTHZfV?=
- =?us-ascii?Q?XyrN+GOTCVtMU7v1ayhJSYPO9QhTw64HjG7SGTy8O0WrZZMVp2fuWwI32y5Y?=
- =?us-ascii?Q?ipKpTjeplbOXNlLtentTY76IWgyeMk+pY6jLGgAeOqXoEP9/p8HcMtVndko5?=
- =?us-ascii?Q?yeN/GFu/oWRcWlYk4wY5Fnd/UaYcyjdZBSTX8o7xQxMmPd9DsBD/fBBwnYrg?=
- =?us-ascii?Q?sUZ5sCwKgFMKfxGhuPPAgDdF8rNnyJRNrQKf/WoZLVxNI/OqecsFgxlOgDLx?=
- =?us-ascii?Q?bgUff8QSbC6yn0qgDr04QFDG/X3+T1ANjo15QQKYgoKxeJ7NqxySgWMfdArt?=
- =?us-ascii?Q?4w=3D=3D?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: yXCmaWTzqNnYNAipmghF1ZxycOredDRLTy8AV6Y4KwZWnkwFxCsrpIOir+biihKrWw8r845wgMdAMwwuo9wWUA206l8rDdgCQLLcRox4uXYIYEBlTPKuLg/jTAV/3D07BCe3b7yyL8odew3aGuWZCibWRtyptzMwAXdgIaJLQoUbKj6jJ1PLaqQMaZEN0oL7A2oSziKYwi1whsC006gdBvCw5jklHzTXK+XMObnIPMnvIUc0LWeYp/7Felz6/CcyaZu5K/S7Z6NQoterh6X3ARNdJ70KgnE+Etf698lA6OpT3LLlUVCAArfmQb8VpzI1GxlgI7m7Uu0b0qCDcB/qXLlYlHIrYyE+DJ73YJFOXf4Ophnw0HjqTYIRnOOqsmEJlIzNc5Uy/nNSS/W/vLN91lXxnmulJ1ZIHF7Le8UfiS+taf+0R4JY7JpcOQxyRkUmxSAWybf54vDH89mPfuR8fSwNTJEfKDhylbYuaOa5Dviz1QOTKBDLBsjlaMb0Wjo2vz8+ZpQinmdTO6zPHxYKhM3QLqYyhHTp+MVio18fuA6osS+AUrPSXLd+6LOXu7AZ1Lnq9OHWO+mP2O1IX/O5DiWVgjoyKvZaaKr3pdNCODU=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 258883de-af4b-4199-0371-08dde6d324b0
-X-MS-Exchange-CrossTenant-AuthSource: CO6PR10MB5409.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Aug 2025 08:07:48.6561
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: yXB+zd5Z3O1EwxTwLMmcFYwZpjYTAMJ5GsNCANJJq/gk3mtwZCyyOG7ngxL5SfXyMZYGyaUbwWDXfEy54Sz10OLkDe2iK/SQ4u1QSmc36bM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR10MB6008
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-29_02,2025-08-28_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0 mlxlogscore=999
- mlxscore=0 bulkscore=0 phishscore=0 adultscore=0 spamscore=0
- malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2508110000 definitions=main-2508290066
-X-Proofpoint-GUID: Qtd_DNLNdjQS-2vVJa6AxcKVu8cFt8He
-X-Proofpoint-ORIG-GUID: Qtd_DNLNdjQS-2vVJa6AxcKVu8cFt8He
-X-Authority-Analysis: v=2.4 cv=NrLRc9dJ c=1 sm=1 tr=0 ts=68b15fda b=1 cx=c_pps
- a=e1sVV491RgrpLwSTMOnk8w==:117 a=e1sVV491RgrpLwSTMOnk8w==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
- a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=2OwXVqhp2XgA:10
- a=GoEa3M9JfhUA:10 a=pGLkceISAAAA:8 a=VwQbUJbxAAAA:8 a=yPCof4ZbAAAA:8
- a=QE5vJokERNvXUz0tDGsA:9 cc=ntf awl=host:13602
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDAzNSBTYWx0ZWRfXzxPFH+FWp9d3
- zH8B8nWwC2GzP+wqES2YCxH0ip4hLKqRPJpxfZPKyxlCe2abQNGaBmbFBnl6eKTp8ZYymPo0S44
- xTGJkgorbq8oyUjkCRsLlxLdhtJYVXVcdPyR70JlnrTGQ5zDzwJsbOQs0RowLM0MF/qRojjG9MW
- V7MWakKhifXxYDdn7ArEFki3h9LZuLATdXq873bHo1tZioSz9vS4wqWl72vtxcaV3NKsFsaf1pv
- t0rf40/5mINiJp+VzhyWDv3dpT5V3l1wf64Q2OAcLCk+li3E8e3u3Y5twINNOxVTBupMPUMu+fu
- 7tEYQyMjK99Vx2i3WzZesHMdT7DMSW0vc5/AtiR8Guz4JGuyJgCTxxcJrBrJvTcBO6oqzusSraj
- K1vBCfKlpARfuuj428V9VUoBpQdK7g==
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 00/13] Apply drm_bridge_connector and panel_bridge
+ helper for the Analogix DP driver
+To: Marek Szyprowski <m.szyprowski@samsung.com>, andrzej.hajda@intel.com,
+ neil.armstrong@linaro.org, rfoss@kernel.org
+Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+ jingoohan1@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
+ kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
+ hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
+ dmitry.baryshkov@oss.qualcomm.com, l.stach@pengutronix.de,
+ dianders@chromium.org, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
+References: <CGME20250814104818eucas1p2c5029f6d5997f4fafd6370f9e7fb2264@eucas1p2.samsung.com>
+ <20250814104753.195255-1-damon.ding@rock-chips.com>
+ <a3a2f8be-2c3c-49e7-b27a-72364ea48b06@samsung.com>
+ <7cb50c9c-ac41-43b6-8c69-5f184e7c94cf@samsung.com>
+ <1ccd3889-5f13-4609-9bd8-2c208e17fc96@rock-chips.com>
+ <f2ebfff1-08ab-4f26-98f3-6d6415d58a5e@samsung.com>
+Content-Language: en-US
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <f2ebfff1-08ab-4f26-98f3-6d6415d58a5e@samsung.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a98f4deb08703a3kunm8f332bf4240748
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGR0dH1ZPTUNKQh9JTE9JT0tWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=hwH9kkBckmzBii1hqAhhizPe98pbe5KInG7k0W+rOcKEJf+ceiFIE1iEoD9RC1XhJTwP3h4fxtrTo2oGzMg2ttdTDMdP8H+NFF3h1jDe1ygwNxtz4OKqcP7OkAWuViImR0xV74XE6P/Ntp/I5R8U//92FzxWhS31wem7u7J2n/s=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=+4nnCSfaVZxfCjorptFVtjUW71ZPzART/mrWJy4dbto=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_010815_232922_7FB0BD28 
-X-CRM114-Status: GOOD (  16.65  )
+X-CRM114-CacheID: sfid-20250829_010824_727217_6F798E34 
+X-CRM114-Status: GOOD (  20.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -210,125 +85,250 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use smp_cond_load_acquire_timewait() to define
-res_atomic_cond_read_acquire() and res_smp_cond_load_acquire_timewait().
+Hi Marek,
 
-The timeout check for both is done via RES_CHECK_TIMEOUT(). Define
-res_smp_cond_load_acquire_waiting() to allow it to amortize the
-check for spin-wait implementations.
+On 8/20/2025 5:20 AM, Marek Szyprowski wrote:
+> On 15.08.2025 04:59, Damon Ding wrote:
+>> On 2025/8/15 5:16, Marek Szyprowski wrote:
+>>> On 14.08.2025 16:33, Marek Szyprowski wrote:
+>>>> On 14.08.2025 12:47, Damon Ding wrote:
+>>>>> PATCH 1 is a small format optimization for struct analogid_dp_device.
+>>>>> PATCH 2 is to perform mode setting in &drm_bridge_funcs.atomic_enable.
+>>>>> PATCH 3-6 are preparations for apply drm_bridge_connector helper.
+>>>>> PATCH 7 is to apply the drm_bridge_connector helper.
+>>>>> PATCH 8-10 are to move the panel/bridge parsing to the Analogix side.
+>>>>> PATCH 11-12 are preparations for apply panel_bridge helper.
+>>>>> PATCH 13 is to apply the panel_bridge helper.
+>>>>
+>>>> This series lacks 'select DRM_BRIDGE_CONNECTOR' in ExynosDP's Kconfig,
+>>>> so it causes build break:
+>>>>
+>>>> drivers/gpu/drm/exynos/exynos_dp.c:177: undefined reference to
+>>>> `drm_bridge_connector_init'
+>>>> make[2]: *** [scripts/Makefile.vmlinux:91: vmlinux] Error 1
+>>>>
+>>>> After adding this dependency, the Exynos DP driver stops working. On
+>>>> Samsung Snow Chromebook I observed following issue:
+>>>>
+>>>> [    4.534220] exynos-dp 145b0000.dp-controller: failed to attach
+>>>> following panel or bridge (-16)
+>>>> [    4.543428] exynos-drm exynos-drm: failed to bind
+>>>> 145b0000.dp-controller (ops exynos_dp_ops): -16
+>>>> [    4.551775] exynos-drm exynos-drm: adev bind failed: -16
+>>>> [    4.556559] exynos-dp 145b0000.dp-controller: probe with driver
+>>>> exynos-dp failed with error -16
+>>>>
+>>>> I will investigate details later in the evening.
+>>>
+>>> The failure is caused by trying to add plat_data->next_bridge twice
+>>> (from exynos_dp's .attach callback, and from analogix' ->bind callback).
+>>>
+>>>
+>>> Best regards
+>>
+>> I see. The bridge attachment for the next bridge was not well thought
+>> out. It may be better to move panel_bridge addition a little forward
+>> and remove next_bridge attachment on the Analogix side. Then, the
+>> Rockchip side and Exynos side can do their own next_bridge attachment
+>> in &analogix_dp_plat_data.attach() as they want.
+>>
+>> Could you please help test the following modifications(they have been
+>> tested on my RK3588S EVB1 Board) on the Samsung Snow Chromebook? ;-)
+> 
+> Assuming that I properly applied the malformed diff, it doesn't solve
+> all the issues. There are no errors reported though, but the display
+> chain doesn't work and no valid mode is reported:
+> 
+> # dmesg | grep drm
+> [    3.384992] [drm] Initialized panfrost 1.4.0 for 11800000.gpu on minor 0
+> [    4.487739] [drm] Exynos DRM: using 14400000.fimd device for DMA
+> mapping operations
+> [    4.494202] exynos-drm exynos-drm: bound 14400000.fimd (ops
+> fimd_component_ops)
+> [    4.502374] exynos-drm exynos-drm: bound 14450000.mixer (ops
+> mixer_component_ops)
+> [    4.511930] exynos-drm exynos-drm: bound 145b0000.dp-controller (ops
+> exynos_dp_ops)
+> [    4.518411] exynos-drm exynos-drm: bound 14530000.hdmi (ops
+> hdmi_component_ops)
+> [    4.529628] [drm] Initialized exynos 1.1.0 for exynos-drm on minor 1
+> [    4.657434] exynos-drm exynos-drm: [drm] Cannot find any crtc or sizes
+> [    4.925023] exynos-drm exynos-drm: [drm] Cannot find any crtc or sizes
+> 
+> # ./modetest -c -Mexynos
+> Connectors:
+> id      encoder status          name            size (mm)       modes
+>     encoders
+> 69      0       disconnected    LVDS-1          0x0             0       68
+>    props:
+>          1 EDID:
+>                  flags: immutable blob
+>                  blobs:
+> 
+>                  value:
+>          2 DPMS:
+>                  flags: enum
+>                  enums: On=0 Standby=1 Suspend=2 Off=3
+>                  value: 0
+>          5 link-status:
+>                  flags: enum
+>                  enums: Good=0 Bad=1
+>                  value: 0
+>          6 non-desktop:
+>                  flags: immutable range
+>                  values: 0 1
+>                  value: 0
+>          4 TILE:
+>                  flags: immutable blob
+>                  blobs:
+> 
+>                  value:
+> 71      0       disconnected    HDMI-A-1        0x0             0       70
+>    props:
+>          1 EDID:
+>                  flags: immutable blob
+>                  blobs:
+> 
+>                  value:
+>          2 DPMS:
+>                  flags: enum
+>                  enums: On=0 Standby=1 Suspend=2 Off=3
+>                  value: 0
+>          5 link-status:
+>                  flags: enum
+>                  enums: Good=0 Bad=1
+>                  value: 0
+>          6 non-desktop:
+>                  flags: immutable range
+>                  values: 0 1
+>                  value: 0
+>          4 TILE:
+>                  flags: immutable blob
+>                  blobs:
+> 
+>                  value:
+> 
+> 
+> I will investigate details later this week.
+> 
 
-Cc: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Cc: Alexei Starovoitov <ast@kernel.org>
-Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
----
- arch/arm64/include/asm/rqspinlock.h |  3 +++
- include/asm-generic/rqspinlock.h    |  4 ++++
- kernel/bpf/rqspinlock.c             | 25 +++++++++----------------
- 3 files changed, 16 insertions(+), 16 deletions(-)
+Could you please provide the related DTS file for the test? I will also 
+try to find out the reason for this unexpected issue. ;-)
 
-diff --git a/arch/arm64/include/asm/rqspinlock.h b/arch/arm64/include/asm/rqspinlock.h
-index a385603436e9..ce8feadeb9a9 100644
---- a/arch/arm64/include/asm/rqspinlock.h
-+++ b/arch/arm64/include/asm/rqspinlock.h
-@@ -3,6 +3,9 @@
- #define _ASM_RQSPINLOCK_H
- 
- #include <asm/barrier.h>
-+
-+#define res_smp_cond_load_acquire_waiting() arch_timer_evtstrm_available()
-+
- #include <asm-generic/rqspinlock.h>
- 
- #endif /* _ASM_RQSPINLOCK_H */
-diff --git a/include/asm-generic/rqspinlock.h b/include/asm-generic/rqspinlock.h
-index 6d4244d643df..4b49c0ddf89a 100644
---- a/include/asm-generic/rqspinlock.h
-+++ b/include/asm-generic/rqspinlock.h
-@@ -247,4 +247,8 @@ static __always_inline void res_spin_unlock(rqspinlock_t *lock)
- 
- #define raw_res_spin_unlock_irqrestore(lock, flags) ({ raw_res_spin_unlock(lock); local_irq_restore(flags); })
- 
-+#ifndef res_smp_cond_load_acquire_waiting
-+#define res_smp_cond_load_acquire_waiting()	0
-+#endif
-+
- #endif /* __ASM_GENERIC_RQSPINLOCK_H */
-diff --git a/kernel/bpf/rqspinlock.c b/kernel/bpf/rqspinlock.c
-index 5ab354d55d82..8de1395422e8 100644
---- a/kernel/bpf/rqspinlock.c
-+++ b/kernel/bpf/rqspinlock.c
-@@ -82,6 +82,7 @@ struct rqspinlock_timeout {
- 	u64 duration;
- 	u64 cur;
- 	u16 spin;
-+	u8  wait;
- };
- 
- #define RES_TIMEOUT_VAL	2
-@@ -241,26 +242,20 @@ static noinline int check_timeout(rqspinlock_t *lock, u32 mask,
- }
- 
- /*
-- * Do not amortize with spins when res_smp_cond_load_acquire is defined,
-- * as the macro does internal amortization for us.
-+ * Only amortize with spins when we don't have a waiting implementation.
-  */
--#ifndef res_smp_cond_load_acquire
- #define RES_CHECK_TIMEOUT(ts, ret, mask)                              \
- 	({                                                            \
--		if (!(ts).spin++)                                     \
-+		if ((ts).wait || !(ts).spin++)		      \
- 			(ret) = check_timeout((lock), (mask), &(ts)); \
- 		(ret);                                                \
- 	})
--#else
--#define RES_CHECK_TIMEOUT(ts, ret, mask)			      \
--	({ (ret) = check_timeout((lock), (mask), &(ts)); })
--#endif
- 
- /*
-  * Initialize the 'spin' member.
-  * Set spin member to 0 to trigger AA/ABBA checks immediately.
-  */
--#define RES_INIT_TIMEOUT(ts) ({ (ts).spin = 0; })
-+#define RES_INIT_TIMEOUT(ts) ({ (ts).spin = 0; (ts).wait = res_smp_cond_load_acquire_waiting(); })
- 
- /*
-  * We only need to reset 'timeout_end', 'spin' will just wrap around as necessary.
-@@ -313,11 +308,8 @@ EXPORT_SYMBOL_GPL(resilient_tas_spin_lock);
-  */
- static DEFINE_PER_CPU_ALIGNED(struct qnode, rqnodes[_Q_MAX_NODES]);
- 
--#ifndef res_smp_cond_load_acquire
--#define res_smp_cond_load_acquire(v, c) smp_cond_load_acquire(v, c)
--#endif
--
--#define res_atomic_cond_read_acquire(v, c) res_smp_cond_load_acquire(&(v)->counter, (c))
-+#define res_atomic_cond_read_acquire(v, c, t)		smp_cond_load_acquire_timewait(&(v)->counter, (c), (t))
-+#define res_smp_cond_load_acquire_timewait(v, c, t)	smp_cond_load_acquire_timewait(v, (c), (t))
- 
- /**
-  * resilient_queued_spin_lock_slowpath - acquire the queued spinlock
-@@ -418,7 +410,8 @@ int __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val)
- 	 */
- 	if (val & _Q_LOCKED_MASK) {
- 		RES_RESET_TIMEOUT(ts, RES_DEF_TIMEOUT);
--		res_smp_cond_load_acquire(&lock->locked, !VAL || RES_CHECK_TIMEOUT(ts, ret, _Q_LOCKED_MASK));
-+		res_smp_cond_load_acquire_timewait(&lock->locked, !VAL,
-+						   RES_CHECK_TIMEOUT(ts, ret, _Q_LOCKED_MASK));
- 	}
- 
- 	if (ret) {
-@@ -572,7 +565,7 @@ int __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val)
- 	 * us.
- 	 */
- 	RES_RESET_TIMEOUT(ts, RES_DEF_TIMEOUT * 2);
--	val = res_atomic_cond_read_acquire(&lock->val, !(VAL & _Q_LOCKED_PENDING_MASK) ||
-+	val = res_atomic_cond_read_acquire(&lock->val, !(VAL & _Q_LOCKED_PENDING_MASK),
- 					   RES_CHECK_TIMEOUT(ts, ret, _Q_LOCKED_PENDING_MASK));
- 
- waitq_timeout:
--- 
-2.31.1
+> 
+>>
+>> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+>> b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+>> index 0529bfb02884..8a9ce1f31678 100644
+>> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+>> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+>> @@ -1573,6 +1573,15 @@ int analogix_dp_bind(struct analogix_dp_device
+>> *dp, struct drm_device *drm_dev)
+>>                  return ret;
+>>          }
+>>
+>> +       if (dp->plat_data->panel) {
+>> +               dp->plat_data->next_bridge =
+>> devm_drm_panel_bridge_add(dp->dev,
+>> + dp->plat_data->panel);
+>> +               if (IS_ERR(dp->plat_data->next_bridge)) {
+>> +                       ret = PTR_ERR(bridge);
+>> +                       goto err_unregister_aux;
+>> +               }
+>> +       }
+>> +
+>>          bridge->ops = DRM_BRIDGE_OP_DETECT |
+>>                        DRM_BRIDGE_OP_EDID |
+>>                        DRM_BRIDGE_OP_MODES;
+>> @@ -1588,22 +1597,6 @@ int analogix_dp_bind(struct analogix_dp_device
+>> *dp, struct drm_device *drm_dev)
+>>                  goto err_unregister_aux;
+>>          }
+>>
+>> -       if (dp->plat_data->panel) {
+>> -               dp->plat_data->next_bridge =
+>> devm_drm_panel_bridge_add(dp->dev,
+>> - dp->plat_data->panel);
+>> -               if (IS_ERR(dp->plat_data->next_bridge)) {
+>> -                       ret = PTR_ERR(bridge);
+>> -                       goto err_unregister_aux;
+>> -               }
+>> -       }
+>> -
+>> -       ret = drm_bridge_attach(dp->encoder,
+>> dp->plat_data->next_bridge, bridge,
+>> -                               DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+>> -       if (ret) {
+>> -               dev_err(dp->dev, "failed to attach following panel or
+>> bridge (%d)\n", ret);
+>> -               goto err_unregister_aux;
+>> -       }
+>> -
+>>          return 0;
+>>
+>>   err_unregister_aux:
+>> diff --git a/drivers/gpu/drm/exynos/exynos_dp.c
+>> b/drivers/gpu/drm/exynos/exynos_dp.c
+>> index 80ba700d2964..d0422f940249 100644
+>> --- a/drivers/gpu/drm/exynos/exynos_dp.c
+>> +++ b/drivers/gpu/drm/exynos/exynos_dp.c
+>> @@ -104,7 +104,7 @@ static int exynos_dp_bridge_attach(struct
+>> analogix_dp_plat_data *plat_data,
+>>          /* Pre-empt DP connector creation if there's a bridge */
+>>          if (plat_data->next_bridge) {
+>>                  ret = drm_bridge_attach(&dp->encoder,
+>> plat_data->next_bridge, bridge,
+>> -                                       0);
+>> + DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+>>                  if (ret)
+>>                          return ret;
+>>          }
+>> diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+>> b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+>> index 0862b09a8be2..dfd32a79b94f 100644
+>> --- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+>> +++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+>> @@ -164,6 +164,24 @@ static int rockchip_dp_powerdown(struct
+>> analogix_dp_plat_data *plat_data)
+>>          return 0;
+>>   }
+>>
+>> +static int rockchip_dp_attach(struct analogix_dp_plat_data *plat_data,
+>> +                                    struct drm_bridge *bridge)
+>> +{
+>> +       struct rockchip_dp_device *dp = pdata_encoder_to_dp(plat_data);
+>> +       int ret;
+>> +
+>> +       if (plat_data->next_bridge) {
+>> +               ret = drm_bridge_attach(&dp->encoder.encoder,
+>> plat_data->next_bridge, bridge,
+>> + DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+>> +               if (ret) {
+>> +                       dev_err(dp->dev, "failed to attach following
+>> panel or bridge (%d)\n", ret);
+>> +                       return ret;
+>> +               }
+>> +       }
+>> +
+>> +       return 0;
+>> +}
+>> +
+>>   static int rockchip_dp_get_modes(struct analogix_dp_plat_data
+>> *plat_data,
+>>                                   struct drm_connector *connector)
+>>   {
+>> @@ -478,6 +496,7 @@ static int rockchip_dp_probe(struct
+>> platform_device *pdev)
+>>          dp->plat_data.dev_type = dp->data->chip_type;
+>>          dp->plat_data.power_on = rockchip_dp_poweron;
+>>          dp->plat_data.power_off = rockchip_dp_powerdown;
+>> +       dp->plat_data.attach = rockchip_dp_attach;
+>>          dp->plat_data.get_modes = rockchip_dp_get_modes;
+>>          dp->plat_data.ops = &rockchip_dp_component_ops;
+>>
+>>
+
+Best regards,
+Damon
 
 
