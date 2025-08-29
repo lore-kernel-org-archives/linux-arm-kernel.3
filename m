@@ -4,84 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5219ACA0FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:47:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B741DCA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:47:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wR8U3MqPvapfaeIOsKqNFOyhDMkaCgaH9/17xA/CDnw=; b=iFg73XSznsWgzMGQ6RAqoegwID
-	D79Qoak1SgHimzioqtv621P+qqDn6BeeZmNV61AwOqf8rUoGXto/Ar5aLnXBmcDXytOPyuZccpVH2
-	RRD1nqbNRK30JQUKD7lGOK7W41jkaRGmCqjjyhm4xos3Ciyhg7eCiUWdUOJkByncmVIY2g3le3s4r
-	bW7aMZFKmmOLKnNZOKvarRk2S/WwjV1H8yOeKkouWpNG8efSbS7xcZtQ4kyurJWJSw7rDWJmbAB0E
-	WIG19GvqCopp69CVmhw+HpzJhHirhr1U/s4sitxYwZZVLQM92QJfouoadzbhHRcKsOuBf/WnEGngs
-	f+oXsdiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MwTinAx2gv27VFL7trYYZazMk+NMyS0q0/yvDNsfVdU=; b=AlcAtd6pnt7neGNbMNcCbpt8M7
+	mYG5ol8bTLjOUJII4s50bPXCIM6VUuMZoMyRv8dHVA8GKvf89YaNLPRnyWRmk3lOOmWmsCRT0bIfJ
+	NkINUZRP2bFhmpg0RQXaXuTxzWtcZcXFK8XUd27oreBOiTkfOJLGi4d9XITyFeYZRXe0HfNEtDaIP
+	ZsR9ag/noLfLE8Cn4EJc5EfmwwNBUGxGkhsdhnUxy8xn6NazaBPJZLS6RnNkuRI4gLA65VJZkmPcm
+	uOwVHk/6wITwcGlQsjcNmv4aI4zy94J1H901n2Dzc/OdTWDMcD4YKduyxNH44bkRQEUkc0H/dg1Qm
+	sZXQTrsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us9k4-000000078qj-0cfR;
-	Sat, 30 Aug 2025 00:46:52 +0000
+	id 1us9k7-000000078uN-2Dkh;
+	Sat, 30 Aug 2025 00:46:55 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us1cG-00000006Lkf-1Gsc
+	id 1us1cX-00000006Lo2-0y5J
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 29 Aug 2025 16:06:16 +0000
+	Fri, 29 Aug 2025 16:06:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=wR8U3MqPvapfaeIOsKqNFOyhDMkaCgaH9/17xA/CDnw=; b=iKw1lTPvWYtivscmSFq718bkLS
-	jMsjEM1TQ9QJ1SU+ttl52mP7yxJjpxle6WupWS7vNl5p3XKRtOF8lFbsnAZ4Fk186qA69Vewqw+PI
-	4TahiwqkPuN8vf0PkNTWIkVuZ1ARz/0Y6jdpkJrrigZBjeL/2w+c4gFojYeiwzsX9yCHfHnkXapEf
-	skGcvtoi5U+jyeoST/1rIatPX6tnf0pvTmLfou3n8fy+VByOMQUs9hUeVZGyJg0EfRo9oARQbC9+q
-	mAmw4vLs7xFAoVj5Tx2KshtgZLwWB+foMLaMgXIarqmghZmU+gBmnDUu3ItPocHAfcg7/DK6NkXDy
-	0us52GxA==;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=MwTinAx2gv27VFL7trYYZazMk+NMyS0q0/yvDNsfVdU=; b=SLLamnEDkWPCQNbeJe/Mr0aTpi
+	vv6B50nyuJWrC52voGyFf7UQDteaselnt30DYMSNbk0jGSXR9T2kjc/vi2jx9jj6Rqt7IXShJg5VQ
+	mMS5oDR8zY3CNTa9CBb2E4dUaEAO3gIcOwaXJfwq+qy8e36TJwY4DSgbWuji9TPSzYRRTvuSws0CD
+	JgzOahkGpZWiHpT7A6q7MfxIIi3VxI29sfS9N9K1KFZivtLK/96OWjS2iJCW1cL5BbGgPPBdym8En
+	KC+McZdbPdR8QNGIwzkRsl5yzYvu1TSMT+mgTLcgNdfla7XeUMMkqPESPQkg3UQH636YE5UE/73t5
+	W6YPymdQ==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us1cC-00000003DCh-2ctb
+	id 1us1cT-00000003DEe-3zCJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 16:06:14 +0000
+	Fri, 29 Aug 2025 16:06:32 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C4E2D19F0;
-	Fri, 29 Aug 2025 09:06:02 -0700 (PDT)
-Received: from [10.57.91.118] (unknown [10.57.91.118])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1FCB03F694;
-	Fri, 29 Aug 2025 09:06:06 -0700 (PDT)
-Message-ID: <6b692d6c-2da6-413b-90fa-c1425c075628@arm.com>
-Date: Fri, 29 Aug 2025 17:06:05 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C2AD41BD0;
+	Fri, 29 Aug 2025 09:06:19 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3DB823F778;
+	Fri, 29 Aug 2025 09:06:23 -0700 (PDT)
+Date: Fri, 29 Aug 2025 17:06:17 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Kees Cook <kees@kernel.org>, Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Yue Haibing <yuehaibing@huawei.com>, Marc Zyngier <maz@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
+	Joey Gouly <joey.gouly@arm.com>, Yeoreum Yun <yeoreum.yun@arm.com>,
+	James Morse <james.morse@arm.com>,
+	Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@redhat.com>,
+	Zhenhua Huang <quic_zhenhuah@quicinc.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Dev Jain <dev.jain@arm.com>, Yicong Yang <yangyicong@hisilicon.com>,
+	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
 Subject: Re: [PATCH] arm64: mm: Fix CFI failure due to kpti_ng_pgd_alloc
  function signature
-Content-Language: en-GB
-To: Ard Biesheuvel <ardb@kernel.org>, Kees Cook <kees@kernel.org>,
- Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Yue Haibing <yuehaibing@huawei.com>, Mark Rutland <mark.rutland@arm.com>,
- Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>,
- linux-arm-kernel@lists.infradead.org,
- Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
- Joey Gouly <joey.gouly@arm.com>, Yeoreum Yun <yeoreum.yun@arm.com>,
- James Morse <james.morse@arm.com>,
- Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io>,
- Andrew Morton <akpm@linux-foundation.org>,
- Kevin Brodsky <kevin.brodsky@arm.com>, David Hildenbrand <david@redhat.com>,
- Zhenhua Huang <quic_zhenhuah@quicinc.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Dev Jain <dev.jain@arm.com>,
- Yicong Yang <yangyicong@hisilicon.com>, linux-kernel@vger.kernel.org,
- linux-hardening@vger.kernel.org
+Message-ID: <aLHP-TG3a1Im3kpa@J2N7QTR9R3>
 References: <20250829154913.work.943-kees@kernel.org>
- <CAMj1kXEs5BiRo89FwnWfW1uR6d=F9yVw0dFb76Yt5Pyq8VtDWw@mail.gmail.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <CAMj1kXEs5BiRo89FwnWfW1uR6d=F9yVw0dFb76Yt5Pyq8VtDWw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250829154913.work.943-kees@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_170613_013034_1F53EFFB 
-X-CRM114-Status: GOOD (  17.81  )
+X-CRM114-CacheID: sfid-20250829_170630_439764_3966D9A7 
+X-CRM114-Status: GOOD (  23.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,160 +95,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+ Kevin Broadsky.
+On Fri, Aug 29, 2025 at 08:49:21AM -0700, Kees Cook wrote:
+> Seen during KPTI initialization:
+> 
+>   CFI failure at create_kpti_ng_temp_pgd+0x124/0xce8 (target: kpti_ng_pgd_alloc+0x0/0x14; expected type: 0xd61b88b6)
+> 
+> The call site is alloc_init_pud() at arch/arm64/mm/mmu.c:
+> 
+>   pud_phys = pgtable_alloc(TABLE_PUD);
+> 
+> alloc_init_pud() has the prototype:
+> 
+>   static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+>                              phys_addr_t phys, pgprot_t prot,
+>                              phys_addr_t (*pgtable_alloc)(enum pgtable_type),
+>                              int flags)
+> 
+> where the pgtable_alloc() prototype is declared.
+> 
+> The target (kpti_ng_pgd_alloc) is used in arch/arm64/kernel/cpufeature.c:
+> 
+>   create_kpti_ng_temp_pgd(kpti_ng_temp_pgd, __pa(alloc), KPTI_NG_TEMP_VA,
+>                           PAGE_SIZE, PAGE_KERNEL, kpti_ng_pgd_alloc, 0);
+> 
+> which is an alias for __create_pgd_mapping_locked() with prototype:
+> 
+>   extern __alias(__create_pgd_mapping_locked)
+>   void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys,
+>                                unsigned long virt,
+>                                phys_addr_t size, pgprot_t prot,
+>                                phys_addr_t (*pgtable_alloc)(enum pgtable_type),
+>                                int flags);
+> 
+> __create_pgd_mapping_locked() passes the function pointer down:
+> 
+>   __create_pgd_mapping_locked() -> alloc_init_p4d() -> alloc_init_pud()
+> 
+> But the target function (kpti_ng_pgd_alloc) has the wrong signature:
+> 
+>   static phys_addr_t __init kpti_ng_pgd_alloc(int shift);
+> 
+> The "int" should be "enum pgtable_type".
+> 
+> To make "enum pgtable_type" available to cpufeature.c, move
+> enum pgtable_type definition from arch/arm64/mm/mmu.c to
+> arch/arm64/include/asm/mmu.h.
+> 
+> Adjust kpti_ng_pgd_alloc to use "enum pgtable_type" instead of "int".
+> The function behavior remains identical (parameter is unused).
+> 
+> Fixes: 47546a1912fc ("arm64: mm: install KPTI nG mappings with MMU enabled")
 
-On 29/08/2025 16:59, Ard Biesheuvel wrote:
-> On Fri, 29 Aug 2025 at 17:49, Kees Cook <kees@kernel.org> wrote:
->>
->> Seen during KPTI initialization:
->>
->>   CFI failure at create_kpti_ng_temp_pgd+0x124/0xce8 (target: kpti_ng_pgd_alloc+0x0/0x14; expected type: 0xd61b88b6)
->>
->> The call site is alloc_init_pud() at arch/arm64/mm/mmu.c:
->>
->>   pud_phys = pgtable_alloc(TABLE_PUD);
->>
->> alloc_init_pud() has the prototype:
->>
->>   static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
->>                              phys_addr_t phys, pgprot_t prot,
->>                              phys_addr_t (*pgtable_alloc)(enum pgtable_type),
->>                              int flags)
->>
->> where the pgtable_alloc() prototype is declared.
->>
->> The target (kpti_ng_pgd_alloc) is used in arch/arm64/kernel/cpufeature.c:
->>
->>   create_kpti_ng_temp_pgd(kpti_ng_temp_pgd, __pa(alloc), KPTI_NG_TEMP_VA,
->>                           PAGE_SIZE, PAGE_KERNEL, kpti_ng_pgd_alloc, 0);
->>
->> which is an alias for __create_pgd_mapping_locked() with prototype:
->>
->>   extern __alias(__create_pgd_mapping_locked)
->>   void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys,
->>                                unsigned long virt,
->>                                phys_addr_t size, pgprot_t prot,
->>                                phys_addr_t (*pgtable_alloc)(enum pgtable_type),
->>                                int flags);
->>
->> __create_pgd_mapping_locked() passes the function pointer down:
->>
->>   __create_pgd_mapping_locked() -> alloc_init_p4d() -> alloc_init_pud()
->>
->> But the target function (kpti_ng_pgd_alloc) has the wrong signature:
->>
->>   static phys_addr_t __init kpti_ng_pgd_alloc(int shift);
->>
->> The "int" should be "enum pgtable_type".
->>
->> To make "enum pgtable_type" available to cpufeature.c, move
->> enum pgtable_type definition from arch/arm64/mm/mmu.c to
->> arch/arm64/include/asm/mmu.h.
->>
->> Adjust kpti_ng_pgd_alloc to use "enum pgtable_type" instead of "int".
->> The function behavior remains identical (parameter is unused).
->>
->> Fixes: 47546a1912fc ("arm64: mm: install KPTI nG mappings with MMU enabled")
-> 
-> Shouldn't this be
-> 
-> Fixes: c64f46ee1377 ("arm64: mm: use enum to identify pgtable level
-> instead of *_SHIFT")
+That doesn't look right; that commit is from June 2022, and we only
+introduced enum pgtable_type in May 2025 in commit:
 
-You beat me to it; agreed. I've added Kevin, who made that change incase there
-are any other subtlety.
+  c64f46ee13779616 ("arm64: mm: use enum to identify pgtable level instead of *_SHIFT")
 
-> 
-> 
->> Signed-off-by: Kees Cook <kees@kernel.org>
-> 
-> Acked-by: Ard Biesheuvel <ardb@kernel.org>
+... which landed in v6.16.
 
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+AFAICT, that's the commit which broke things.
 
-> 
-> 
->> ---
->> Cc: Ard Biesheuvel <ardb@kernel.org>
->> Cc: Catalin Marinas <catalin.marinas@arm.com>
->> Cc: Will Deacon <will@kernel.org>
->> Cc: Oliver Upton <oliver.upton@linux.dev>
->> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
->> Cc: Yue Haibing <yuehaibing@huawei.com>
->> Cc: Mark Rutland <mark.rutland@arm.com>
->> Cc: Marc Zyngier <maz@kernel.org>
->> Cc: Mark Brown <broonie@kernel.org>
->> Cc: <linux-arm-kernel@lists.infradead.org>
->> ---
->>  arch/arm64/include/asm/mmu.h   | 7 +++++++
->>  arch/arm64/kernel/cpufeature.c | 5 +++--
->>  arch/arm64/mm/mmu.c            | 7 -------
->>  3 files changed, 10 insertions(+), 9 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
->> index 6e8aa8e72601..49f1a810df16 100644
->> --- a/arch/arm64/include/asm/mmu.h
->> +++ b/arch/arm64/include/asm/mmu.h
->> @@ -17,6 +17,13 @@
->>  #include <linux/refcount.h>
->>  #include <asm/cpufeature.h>
->>
->> +enum pgtable_type {
->> +       TABLE_PTE,
->> +       TABLE_PMD,
->> +       TABLE_PUD,
->> +       TABLE_P4D,
->> +};
->> +
->>  typedef struct {
->>         atomic64_t      id;
->>  #ifdef CONFIG_COMPAT
->> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->> index 9ad065f15f1d..e49d142a281f 100644
->> --- a/arch/arm64/kernel/cpufeature.c
->> +++ b/arch/arm64/kernel/cpufeature.c
->> @@ -84,6 +84,7 @@
->>  #include <asm/hwcap.h>
->>  #include <asm/insn.h>
->>  #include <asm/kvm_host.h>
->> +#include <asm/mmu.h>
->>  #include <asm/mmu_context.h>
->>  #include <asm/mte.h>
->>  #include <asm/hypervisor.h>
->> @@ -1945,11 +1946,11 @@ static bool has_pmuv3(const struct arm64_cpu_capabilities *entry, int scope)
->>  extern
->>  void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys, unsigned long virt,
->>                              phys_addr_t size, pgprot_t prot,
->> -                            phys_addr_t (*pgtable_alloc)(int), int flags);
->> +                            phys_addr_t (*pgtable_alloc)(enum pgtable_type), int flags);
->>
->>  static phys_addr_t __initdata kpti_ng_temp_alloc;
->>
->> -static phys_addr_t __init kpti_ng_pgd_alloc(int shift)
->> +static phys_addr_t __init kpti_ng_pgd_alloc(enum pgtable_type type)
->>  {
->>         kpti_ng_temp_alloc -= PAGE_SIZE;
->>         return kpti_ng_temp_alloc;
->> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->> index 34e5d78af076..183801520740 100644
->> --- a/arch/arm64/mm/mmu.c
->> +++ b/arch/arm64/mm/mmu.c
->> @@ -47,13 +47,6 @@
->>  #define NO_CONT_MAPPINGS       BIT(1)
->>  #define NO_EXEC_MAPPINGS       BIT(2)  /* assumes FEAT_HPDS is not used */
->>
->> -enum pgtable_type {
->> -       TABLE_PTE,
->> -       TABLE_PMD,
->> -       TABLE_PUD,
->> -       TABLE_P4D,
->> -};
->> -
->>  u64 kimage_voffset __ro_after_init;
->>  EXPORT_SYMBOL(kimage_voffset);
->>
->> --
->> 2.34.1
->>
+The actual fix looks fine, though I suspect we should move more of this
+logic into mmu.c.
 
+Mark.
+
+> Signed-off-by: Kees Cook <kees@kernel.org>
+> ---
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Oliver Upton <oliver.upton@linux.dev>
+> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+> Cc: Yue Haibing <yuehaibing@huawei.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Mark Brown <broonie@kernel.org>
+> Cc: <linux-arm-kernel@lists.infradead.org>
+> ---
+>  arch/arm64/include/asm/mmu.h   | 7 +++++++
+>  arch/arm64/kernel/cpufeature.c | 5 +++--
+>  arch/arm64/mm/mmu.c            | 7 -------
+>  3 files changed, 10 insertions(+), 9 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
+> index 6e8aa8e72601..49f1a810df16 100644
+> --- a/arch/arm64/include/asm/mmu.h
+> +++ b/arch/arm64/include/asm/mmu.h
+> @@ -17,6 +17,13 @@
+>  #include <linux/refcount.h>
+>  #include <asm/cpufeature.h>
+>  
+> +enum pgtable_type {
+> +	TABLE_PTE,
+> +	TABLE_PMD,
+> +	TABLE_PUD,
+> +	TABLE_P4D,
+> +};
+> +
+>  typedef struct {
+>  	atomic64_t	id;
+>  #ifdef CONFIG_COMPAT
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index 9ad065f15f1d..e49d142a281f 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -84,6 +84,7 @@
+>  #include <asm/hwcap.h>
+>  #include <asm/insn.h>
+>  #include <asm/kvm_host.h>
+> +#include <asm/mmu.h>
+>  #include <asm/mmu_context.h>
+>  #include <asm/mte.h>
+>  #include <asm/hypervisor.h>
+> @@ -1945,11 +1946,11 @@ static bool has_pmuv3(const struct arm64_cpu_capabilities *entry, int scope)
+>  extern
+>  void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys, unsigned long virt,
+>  			     phys_addr_t size, pgprot_t prot,
+> -			     phys_addr_t (*pgtable_alloc)(int), int flags);
+> +			     phys_addr_t (*pgtable_alloc)(enum pgtable_type), int flags);
+>  
+>  static phys_addr_t __initdata kpti_ng_temp_alloc;
+>  
+> -static phys_addr_t __init kpti_ng_pgd_alloc(int shift)
+> +static phys_addr_t __init kpti_ng_pgd_alloc(enum pgtable_type type)
+>  {
+>  	kpti_ng_temp_alloc -= PAGE_SIZE;
+>  	return kpti_ng_temp_alloc;
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index 34e5d78af076..183801520740 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -47,13 +47,6 @@
+>  #define NO_CONT_MAPPINGS	BIT(1)
+>  #define NO_EXEC_MAPPINGS	BIT(2)	/* assumes FEAT_HPDS is not used */
+>  
+> -enum pgtable_type {
+> -	TABLE_PTE,
+> -	TABLE_PMD,
+> -	TABLE_PUD,
+> -	TABLE_P4D,
+> -};
+> -
+>  u64 kimage_voffset __ro_after_init;
+>  EXPORT_SYMBOL(kimage_voffset);
+>  
+> -- 
+> 2.34.1
+> 
 
