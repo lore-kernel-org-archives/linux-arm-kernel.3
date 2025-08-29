@@ -4,67 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7574CA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 17:24:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 485E6CA0FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 17:26:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sw/Y+heIE2Vkbrbo96JH8p+ZhrdF9Vqpg0lLY9c5cd8=; b=JV/EYho4/D+V39D0F11m5zLHmP
-	YM5OA5NVuOn3viRGE7QfoZTwAYtehYm1KsiiWgZzOQeEXSUIe4p+/xivQaEx1izZmQ2dAi+9j4Apa
-	xltg15TlmoIJ9XHVXEihUH2n+Ppb9ElLkmueIJ4p5zH/Y+l7orvon3p60tpe+Wmwjl7VfWNdke7KP
-	8RVpDYaayUV4l/IITyY7AnGa0PTcR+seESezzHGIeKI9WYTmSk6xWSjq74HhPyX/SJBalzBJQyLYz
-	YWJ+wBwVO4xusNGuFnj055L7SYrlThxQfhyKY+0iJJTiZR7656a42l6bafk9hxkjtj03nV3/sRkQn
-	pdu41Xmg==;
+	bh=VMVb37L+6eOc0LNuwVScLaeYIjjIpE5bZA9fKqzTBGo=; b=xFP1XxSLPVBeUyvfRIboYzX7UW
+	mMWCUjcVaIsNGLh0bOJQ52bvZTlSSHpNgLfpSSSqtS18zgKidfvs0uIN+FSKKfdyv4j68E1BJB0q0
+	uaPNPKFBZkWVqiMZYkOCwjP5qDDE6mGzE3YA5e20acm69KNpA/G0V4oykIOAEm9dcQwUWQyLAmOK3
+	nSYFPyMGewbEY4LUCyOLX+cdepp86ONwvAt34ZVhxHEjBPBrrP99FtKRoUNiXS458oXj7oJYDuhQM
+	MWxHnVmtJTtzewb544hynaw7D9afLEPA4QNKFgpuLQADbC1zWjhz6Nwxt/bHYdaBMXpM3LhZuxVyi
+	OsZGmplg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us2pd-00000006WCZ-2O86;
-	Fri, 29 Aug 2025 17:24:09 +0000
-Received: from smx-b.mailgw.jp ([210.171.6.216] helo=rmx-b.mailgw.jp)
+	id 1us2rr-00000006Wci-4AF5;
+	Fri, 29 Aug 2025 17:26:27 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urybs-00000005iij-1kco;
-	Fri, 29 Aug 2025 12:53:42 +0000
-Received: from bccml.bai.ne.jp (bccml-a.bai.ne.jp [210.171.3.161])
-	by rmx-b.mailgw.jp  with ESMTP id 57TCrNJG016915-57TCrNJH016915;
-	Fri, 29 Aug 2025 21:53:23 +0900
-Received: from [192.168.11.5] (bai859bcd79.bai.ne.jp [133.155.205.121])
-	by bccml.bai.ne.jp (Postfix) with ESMTPA id 79A4881773;
-	Fri, 29 Aug 2025 21:53:23 +0900 (JST)
-Message-ID: <023eb3ad-0826-42e4-8172-08a26db31676@bcc.bai.ne.jp>
-Date: Fri, 29 Aug 2025 21:53:23 +0900
+	id 1urzsG-00000005zFc-1oeE
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 29 Aug 2025 14:14:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 25CE2403B1;
+	Fri, 29 Aug 2025 14:14:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBB09C4CEF0;
+	Fri, 29 Aug 2025 14:14:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756476880;
+	bh=VMVb37L+6eOc0LNuwVScLaeYIjjIpE5bZA9fKqzTBGo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=LfGkQDKUOoTmhjCFBaANinZoo1Gvxbb40ViyMTqs1bOVP+1nI32MJjIDpPgcVuxVS
+	 NOuD0KoZH/7XYjATrGqbQgIVjH9yVp94fX4miCr/RRci5c7o7rRgvwW47Y5NoNX98T
+	 eoR+kykEfNGTQAsnj+dz4dGbydGXGviNWeZFeKAhWDBeqUTgw+Sc+EtH62BswjaRSX
+	 KcWGJW1osmXfUr2mtf062vkaTQ+RHQw0RqJnkA/Jxh/7KGBYNaSQHIsW1I7l/6WCzY
+	 0f6GLjAnrCA73lFKV5BA1BLTHiSqqmyuNO59iQReSDX8yvJBHSnjWjR3qA579fkwcJ
+	 MxNOtmb2thPew==
+Message-ID: <4770fec3-1b1c-4ade-aa3f-1ad097bbbb3f@kernel.org>
+Date: Fri, 29 Aug 2025 16:14:34 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: dts: rockchip: Enables sound output from the
- audio jack on OrangePI5 Plus
-To: Maud Spierings <maud_spierings@hotmail.com>
-Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, heiko@sntech.de,
- krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-sound@vger.kernel.org, robh@kernel.org
-References: <20250826134456.9636-2-opi5plus@bcc.bai.ne.jp>
- <AM7P189MB1009A67370CA029038DF2A69E33BA@AM7P189MB1009.EURP189.PROD.OUTLOOK.COM>
- <0b061e42-0a01-4839-871c-a5d760dbddeb@bcc.bai.ne.jp>
- <AM7P189MB1009CB3632FAAEEE43D9CED5E33AA@AM7P189MB1009.EURP189.PROD.OUTLOOK.COM>
+Subject: Re: [PATCH 2/2] arm64: dts: fsd: Fix Clock handle for WDT
+To: Varada Pavani <v.pavani@samsung.com>, s.nawrocki@samsung.com,
+ cw00.choi@samsung.com, alim.akhtar@samsung.com, mturquette@baylibre.com,
+ sboyd@kernel.org, linux-samsung-soc@vger.kernel.org,
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Cc: aswani.reddy@samsung.com, gost.dev@samsung.com
+References: <20250829135643.105406-1-v.pavani@samsung.com>
+ <CGME20250829135708epcas5p1b62d44f8a712b1c865fd82d26e89896f@epcas5p1.samsung.com>
+ <20250829135643.105406-3-v.pavani@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Hide Hako <opi5plus@bcc.bai.ne.jp>
-In-Reply-To: <AM7P189MB1009CB3632FAAEEE43D9CED5E33AA@AM7P189MB1009.EURP189.PROD.OUTLOOK.COM>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250829135643.105406-3-v.pavani@samsung.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-FE-Last-Public-Client-IP: 210.171.3.161
-X-FE-Policy-ID: 3:1:2:SYSTEM
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; d=bcc.bai.ne.jp; s=20240516; c=relaxed/relaxed;
- h=message-id:date:mime-version:subject:to:cc:references:from:content-type;
- bh=sw/Y+heIE2Vkbrbo96JH8p+ZhrdF9Vqpg0lLY9c5cd8=;
- b=yiDV/oPhM+N3eRfoDyIkF25NIdhLR9RhlFvqCT3kLrNvWAbL9xKedo7hm653n1r8+M8UjIJZvXja
-	vW1PIfBcYUWTfnfWPGY1/FPmmfARC3ZBmnbBgbnzKrDOQVlddS+PLdcf9JaPJr9LR/xqip8iRFeP
-	7L5cvn07bUTACgBxcvrjnMBiUmeKcP05mfkGnCiBYuPFsk2ub3HUMGdrz+W8fEFgpQzm6r8DPR5R
-	n1TJlyJLsgDjwwOCZ5nEcqT4UO3d4UffsUZ17edLfizS0DOAHwM4pBsr0mDfy3bal56tt2b7kKWW
-	/dp5m1736qCWzgEMXnYAPkspnj+UTc0vsdyXcg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_055341_231039_3719734F 
-X-CRM114-Status: UNSURE (   7.49  )
+X-CRM114-CacheID: sfid-20250829_071440_518751_95009424 
+X-CRM114-Status: UNSURE (   7.06  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,29 +122,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Maud
+On 29/08/2025 15:56, Varada Pavani wrote:
+> FSD SoC WDT has few changes when compared to exynos7 interms of Clocks,
+> PMU register bits for each cluster. So use "tesla,fsd-wdt"
 
-On 2025/08/29 21:09, Maud Spierings wrote:
-> On 8/29/25 13:59, Hide Hako wrote:
->> Hello Maud,
->>
->> On 2025/08/28 17:47, Maud Spierings wrote:
->>> I recommend rebasing on the latest next since my fix [1] was applied.
->>> I also recommend testing it with that patch, for me that fixed the 
->>> headphone detection and enabled audio playback. The microphone is 
->>> not working yet though.
->>>
->>> Link: https://lore.kernel.org/all/20250823-orangepi5-v1-1- 
->>> ae77dd0e06d7@hotmail.com/ [1]
->>>
->> Today, i build linux-next.
->> But sound not come out from headphone.
->
-> Is that with your patch applied ontop or unchanged linux-next? The 
-> audio was very quiet for me, even at 100%.
-With pin-switch patch.
+So what was added in 2022?
 
-Analog, hdmi0 and hdmi1 do not exist in /proc/asound/.
-Hide
+> compatibility for using correct driver data.
+> FSD supports 2 Clocks for WDT (PCLK and CLK).
+> - use fin_pll source Clock for all timer related calculations.
+> - use bus Clock (IMEM_WDT0_IPCLKPORT_PCLK) to gate/ungate the register
+> interface. Update both as per WDT UM.
 
+No, you break all the users. Probably users don't care, but I do care
+because I use that arguments for reviewing other patches, so I apply a
+bit stricter rules for existing Samsung trees.
+
+Otherwise provide rationale about impact and what was happening in 2022
+with this code...
+
+
+Best regards,
+Krzysztof
 
