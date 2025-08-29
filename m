@@ -4,41 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF5B6CA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 19:36:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93C99CA0FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 19:41:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ihlad/OD1SofMjXihokTQxLjaUvkikgqVcSBKeqkkmk=; b=bqwSh8qbDXsNp/okCbhAcPpHi4
-	HwpDA3H5H3gwLXEKUkermTRuBODq4L+0LcQVocL/5MQYJIOrgsJzvRW/7mGJemNEmHIV8VxPEUWXa
-	F0Y3svmA6JVYQtlsrAFDculn53zbA4kwlprA9pDwxo1UiMZsQ5sQPkKKWC/jJZ7tuyFFXhc72wtN5
-	N5HxMIlOQwjurSgHUyibOKH4EpCKDeRf/H16h70UNL/kbKrlLvRVFF8F/GsDy5HRqlAAuLDDqM3ub
-	ZvDaIyXwFY9TazXn4IWKUbDqND6HlULVzHMp2g9GwEJqWt/KqYRnrgMrIloIpPdWGzbax4bTeP2YQ
-	e0ET3dbA==;
+	bh=pm25Q/lKNzUKoxs3qT22KLl9gwPR3idydot1cXnOFr4=; b=JNTW7/penqxHZ3SWjueadXql8s
+	HfRmDz62vCcFQOqbxM42CVe59gsAu40P/54/TT4inbOgJ7c7d7aVDs4FiFK6TwK0nJ7j8qdNaiop6
+	J+0wxFRXzReXp2j+Np9a43SYS33SZA/PpVKe8Eyot++8OCDsLeNS0ugYMKtIjL67N7bbpYE+TrO5W
+	ArJNLkIoSdk86uDADWxFG5s+wAf0oBv07ZATMuGTUYs3jNioj9+ZXlAl5NgVNheKJNQFYEkjDbF0X
+	/dHCCFAK9fZqfUfjTVsVa7CPKmdNB+djDQHUHE5v+71crkyqhqB3e0ymaLSHJLTWwQP8CpZrVQqvw
+	AB6vkeZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us4tS-00000006lBE-2Pmj;
-	Fri, 29 Aug 2025 19:36:14 +0000
+	id 1us4yj-00000006nHd-0Ndt;
+	Fri, 29 Aug 2025 19:41:41 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us1SH-00000006JYh-1pnb
+	id 1us2PK-00000006TEh-1Eqo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 15:55:58 +0000
+	Fri, 29 Aug 2025 16:56:59 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3387119F0;
-	Fri, 29 Aug 2025 08:55:48 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2033B12FC;
+	Fri, 29 Aug 2025 09:56:49 -0700 (PDT)
 Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 62F663F694;
-	Fri, 29 Aug 2025 08:55:51 -0700 (PDT)
-Message-ID: <f71d944e-7f9d-489e-a278-2d09900f5d53@arm.com>
-Date: Fri, 29 Aug 2025 16:55:50 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8F50B3F738;
+	Fri, 29 Aug 2025 09:56:51 -0700 (PDT)
+Message-ID: <ee847bec-ad08-473e-96b5-407872c2a0f2@arm.com>
+Date: Fri, 29 Aug 2025 17:56:49 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 27/33] arm_mpam: Add mpam_msmon_read() to read monitor
- value
+Subject: Re: [PATCH 32/33] arm_mpam: Add kunit test for bitmap reset
 To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
  devicetree@vger.kernel.org
@@ -63,15 +62,15 @@ Cc: shameerali.kolothum.thodi@huawei.com,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Danilo Krummrich <dakr@kernel.org>
 References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-28-james.morse@arm.com>
+ <20250822153048.2287-33-james.morse@arm.com>
 From: Ben Horgan <ben.horgan@arm.com>
 Content-Language: en-US
-In-Reply-To: <20250822153048.2287-28-james.morse@arm.com>
+In-Reply-To: <20250822153048.2287-33-james.morse@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_085557_563219_250A9CFD 
-X-CRM114-Status: GOOD (  28.89  )
+X-CRM114-CacheID: sfid-20250829_095658_413966_BF635C52 
+X-CRM114-Status: GOOD (  24.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,294 +88,134 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Hi James,
 
 On 8/22/25 16:30, James Morse wrote:
-> Reading a monitor involves configuring what you want to monitor, and
-> reading the value. Components made up of multiple MSC may need values
-> from each MSC. MSCs may take time to configure, returning 'not ready'.
-> The maximum 'not ready' time should have been provided by firmware.
+> The bitmap reset code has been a source of bugs. Add a unit test.
 > 
-> Add mpam_msmon_read() to hide all this. If (one of) the MSC returns
-> not ready, then wait the full timeout value before trying again.
+> This currently has to be built in, as the rest of the driver is
+> builtin.
 > 
-> CC: Shanker Donthineni <sdonthineni@nvidia.com>
+> Suggested-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 > Signed-off-by: James Morse <james.morse@arm.com>
 > ---
->  drivers/resctrl/mpam_devices.c  | 222 ++++++++++++++++++++++++++++++++
->  drivers/resctrl/mpam_internal.h |  18 +++
->  2 files changed, 240 insertions(+)
+>  drivers/resctrl/Kconfig             | 13 ++++++
+>  drivers/resctrl/mpam_devices.c      |  4 ++
+>  drivers/resctrl/test_mpam_devices.c | 68 +++++++++++++++++++++++++++++
+>  3 files changed, 85 insertions(+)
+>  create mode 100644 drivers/resctrl/test_mpam_devices.c
 > 
+> diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
+> index dff7b87280ab..f5e0609975e4 100644
+> --- a/drivers/resctrl/Kconfig
+> +++ b/drivers/resctrl/Kconfig
+> @@ -4,8 +4,21 @@ config ARM64_MPAM_DRIVER
+>  	bool "MPAM driver for System IP, e,g. caches and memory controllers"
+>  	depends on ARM64_MPAM && EXPERT
+>  
+> +menu "ARM64 MPAM driver options"
+> +
+>  config ARM64_MPAM_DRIVER_DEBUG
+>  	bool "Enable debug messages from the MPAM driver."
+>  	depends on ARM64_MPAM_DRIVER
+>  	help
+>  	  Say yes here to enable debug messages from the MPAM driver.
+> +
+> +config MPAM_KUNIT_TEST
+> +	bool "KUnit tests for MPAM driver " if !KUNIT_ALL_TESTS
+> +	depends on KUNIT=y
+It depends on ARM64_MPAM_DRIVER as well.
+
+> +	default KUNIT_ALL_TESTS
+> +	help
+> +	  Enable this option to run tests in the MPAM driver.
+> +
+> +	  If unsure, say N.
+> +
+> +endmenu
 > diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index e7e00c632512..9ce771aaf671 100644
+> index 65c30ebfe001..4cf5aae88c53 100644
 > --- a/drivers/resctrl/mpam_devices.c
 > +++ b/drivers/resctrl/mpam_devices.c
-> @@ -973,6 +973,228 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
->  	return 0;
+> @@ -2903,3 +2903,7 @@ static int __init mpam_msc_driver_init(void)
 >  }
->  
-> +struct mon_read {
-> +	struct mpam_msc_ris		*ris;
-> +	struct mon_cfg			*ctx;
-> +	enum mpam_device_features	type;
-> +	u64				*val;
-> +	int				err;
+>  /* Must occur after arm64_mpam_register_cpus() from arch_initcall() */
+>  subsys_initcall(mpam_msc_driver_init);
+> +
+> +#ifdef CONFIG_MPAM_KUNIT_TEST
+> +#include "test_mpam_devices.c"
+> +#endif
+> diff --git a/drivers/resctrl/test_mpam_devices.c b/drivers/resctrl/test_mpam_devices.c
+> new file mode 100644
+> index 000000000000..8e9d6c88171c
+> --- /dev/null
+> +++ b/drivers/resctrl/test_mpam_devices.c
+> @@ -0,0 +1,68 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +// Copyright (C) 2024 Arm Ltd.
+> +/* This file is intended to be included into mpam_devices.c */
+> +
+> +#include <kunit/test.h>
+> +
+> +static void test_mpam_reset_msc_bitmap(struct kunit *test)
+> +{
+> +	char *buf = kunit_kzalloc(test, SZ_16K, GFP_KERNEL);
+> +	struct mpam_msc fake_msc;
+> +	u32 *test_result;
+> +
+> +	if (!buf)
+> +		return;
+> +
+> +	fake_msc.mapped_hwpage = buf;
+> +	fake_msc.mapped_hwpage_sz = SZ_16K;
+> +	cpumask_copy(&fake_msc.accessibility, cpu_possible_mask);
+> +
+> +	mutex_init(&fake_msc.part_sel_lock);
+> +	mutex_lock(&fake_msc.part_sel_lock);
+> +
+> +	test_result = (u32 *)(buf + MPAMCFG_CPBM);
+> +
+> +	mpam_reset_msc_bitmap(&fake_msc, MPAMCFG_CPBM, 0);
+> +	KUNIT_EXPECT_EQ(test, test_result[0], 0);
+> +	KUNIT_EXPECT_EQ(test, test_result[1], 0);
+> +	test_result[0] = 0;
+> +	test_result[1] = 0;
+> +
+> +	mpam_reset_msc_bitmap(&fake_msc, MPAMCFG_CPBM, 1);
+> +	KUNIT_EXPECT_EQ(test, test_result[0], 1);
+> +	KUNIT_EXPECT_EQ(test, test_result[1], 0);
+> +	test_result[0] = 0;
+> +	test_result[1] = 0;
+> +
+> +	mpam_reset_msc_bitmap(&fake_msc, MPAMCFG_CPBM, 16);
+> +	KUNIT_EXPECT_EQ(test, test_result[0], 0xffff);
+> +	KUNIT_EXPECT_EQ(test, test_result[1], 0);
+> +	test_result[0] = 0;
+> +	test_result[1] = 0;
+> +
+> +	mpam_reset_msc_bitmap(&fake_msc, MPAMCFG_CPBM, 32);
+> +	KUNIT_EXPECT_EQ(test, test_result[0], 0xffffffff);
+> +	KUNIT_EXPECT_EQ(test, test_result[1], 0);
+> +	test_result[0] = 0;
+> +	test_result[1] = 0;
+> +
+> +	mpam_reset_msc_bitmap(&fake_msc, MPAMCFG_CPBM, 33);
+> +	KUNIT_EXPECT_EQ(test, test_result[0], 0xffffffff);
+> +	KUNIT_EXPECT_EQ(test, test_result[1], 1);
+> +	test_result[0] = 0;
+> +	test_result[1] = 0;
+> +
+> +	mutex_unlock(&fake_msc.part_sel_lock);
+> +}
+> +
+> +static struct kunit_case mpam_devices_test_cases[] = {
+> +	KUNIT_CASE(test_mpam_reset_msc_bitmap),
+> +	{}
 > +};
 > +
-> +static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
-> +				   u32 *flt_val)
-> +{
-> +	struct mon_cfg *ctx = m->ctx;
-> +
-> +	switch (m->type) {
-> +	case mpam_feat_msmon_csu:
-> +		*ctl_val = MSMON_CFG_CSU_CTL_TYPE_CSU;
-> +		break;
-> +	case mpam_feat_msmon_mbwu:
-> +		*ctl_val = MSMON_CFG_MBWU_CTL_TYPE_MBWU;
-> +		break;
-> +	default:
-> +		return;
-> +	}
-> +
-> +	/*
-> +	 * For CSU counters its implementation-defined what happens when not
-> +	 * filtering by partid.
-> +	 */
-> +	*ctl_val |= MSMON_CFG_x_CTL_MATCH_PARTID;
-> +
-> +	*flt_val = FIELD_PREP(MSMON_CFG_MBWU_FLT_PARTID, ctx->partid);
-> +	if (m->ctx->match_pmg) {
-> +		*ctl_val |= MSMON_CFG_x_CTL_MATCH_PMG;
-> +		*flt_val |= FIELD_PREP(MSMON_CFG_MBWU_FLT_PMG, ctx->pmg);
-> +	}
-As we are using MSMON_CFG_MBWU_FLT_{PMG,PARTID} for both CSU and MBWU
-how about changing to MSMON_CFG_x_FLT_{PMG,PARTID}?
-> +
-> +	if (mpam_has_feature(mpam_feat_msmon_mbwu_rwbw, &m->ris->props))
-> +		*flt_val |= FIELD_PREP(MSMON_CFG_MBWU_FLT_RWBW, ctx->opts);
-This needs to be conditional on the type of the monitor being
-configured. There is an XCL bit here for CSU monitors.
-> +}
-> +
-> +static void read_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
-> +				    u32 *flt_val)
-> +{
-> +	struct mpam_msc *msc = m->ris->vmsc->msc;
-> +
-> +	switch (m->type) {
-> +	case mpam_feat_msmon_csu:
-> +		*ctl_val = mpam_read_monsel_reg(msc, CFG_CSU_CTL);
-> +		*flt_val = mpam_read_monsel_reg(msc, CFG_CSU_FLT);
-> +		break;
-> +	case mpam_feat_msmon_mbwu:
-> +		*ctl_val = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
-> +		*flt_val = mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
-> +		break;
-> +	default:
-> +		return;
-> +	}
-> +}
-> +
-> +/* Remove values set by the hardware to prevent apparant mismatches. */
-> +static void clean_msmon_ctl_val(u32 *cur_ctl)
-> +{
-> +	*cur_ctl &= ~MSMON_CFG_x_CTL_OFLOW_STATUS;
-> +}
-> +
-> +static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
-> +				     u32 flt_val)
-> +{
-> +	struct mpam_msc *msc = m->ris->vmsc->msc;
-> +
-> +	/*
-> +	 * Write the ctl_val with the enable bit cleared, reset the counter,
-> +	 * then enable counter.
-> +	 */
-> +	switch (m->type) {
-> +	case mpam_feat_msmon_csu:
-> +		mpam_write_monsel_reg(msc, CFG_CSU_FLT, flt_val);
-> +		mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
-> +		mpam_write_monsel_reg(msc, CSU, 0);
-> +		mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
-> +		break;
-> +	case mpam_feat_msmon_mbwu:
-> +		mpam_write_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
-> +		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
-> +		mpam_write_monsel_reg(msc, MBWU, 0);
-> +		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
-> +		break;
-> +	default:
-> +		return;
-> +	}
-> +}
-> +
-> +/* Call with MSC lock held */
-> +static void __ris_msmon_read(void *arg)
-> +{
-> +	u64 now;
-> +	bool nrdy = false;
-> +	struct mon_read *m = arg;
-> +	struct mon_cfg *ctx = m->ctx;
-> +	struct mpam_msc_ris *ris = m->ris;
-> +	struct mpam_props *rprops = &ris->props;
-> +	struct mpam_msc *msc = m->ris->vmsc->msc;
-> +	u32 mon_sel, ctl_val, flt_val, cur_ctl, cur_flt;
-> +
-> +	if (!mpam_mon_sel_inner_lock(msc)) {
-> +		m->err = -EIO;
-> +		return;
-> +	}
-> +	mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, ctx->mon) |
-> +		  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
-> +	mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
-> +
-> +	/*
-> +	 * Read the existing configuration to avoid re-writing the same values.
-> +	 * This saves waiting for 'nrdy' on subsequent reads.
-> +	 */
-> +	read_msmon_ctl_flt_vals(m, &cur_ctl, &cur_flt);
-> +	clean_msmon_ctl_val(&cur_ctl);
-> +	gen_msmon_ctl_flt_vals(m, &ctl_val, &flt_val);
-> +	if (cur_flt != flt_val || cur_ctl != (ctl_val | MSMON_CFG_x_CTL_EN))
-> +		write_msmon_ctl_flt_vals(m, ctl_val, flt_val);
-> +
-> +	switch (m->type) {
-> +	case mpam_feat_msmon_csu:
-> +		now = mpam_read_monsel_reg(msc, CSU);
-> +		if (mpam_has_feature(mpam_feat_msmon_csu_hw_nrdy, rprops))
-> +			nrdy = now & MSMON___NRDY;
-> +		break;
-> +	case mpam_feat_msmon_mbwu:
-> +		now = mpam_read_monsel_reg(msc, MBWU);
-> +		if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy, rprops))
-> +			nrdy = now & MSMON___NRDY;
-> +		break;
-> +	default:
-> +		m->err = -EINVAL;
-> +		break;
-> +	}
-> +	mpam_mon_sel_inner_unlock(msc);
-> +
-> +	if (nrdy) {
-> +		m->err = -EBUSY;
-> +		return;
-> +	}
-> +
-> +	now = FIELD_GET(MSMON___VALUE, now);
-> +	*m->val += now;
-> +}
-> +
-> +static int _msmon_read(struct mpam_component *comp, struct mon_read *arg)
-> +{
-> +	int err, idx;
-> +	struct mpam_msc *msc;
-> +	struct mpam_vmsc *vmsc;
-> +	struct mpam_msc_ris *ris;
-> +
-> +	idx = srcu_read_lock(&mpam_srcu);
-> +	list_for_each_entry_rcu(vmsc, &comp->vmsc, comp_list) {
-> +		msc = vmsc->msc;
-> +
-> +		mpam_mon_sel_outer_lock(msc);
-> +		list_for_each_entry_rcu(ris, &vmsc->ris, vmsc_list) {
-> +			arg->ris = ris;
-> +
-> +			err = smp_call_function_any(&msc->accessibility,
-> +						    __ris_msmon_read, arg,
-> +						    true);
-> +			if (!err && arg->err)
-> +				err = arg->err;
-> +			if (err)
-> +				break;
-> +		}
-> +		mpam_mon_sel_outer_unlock(msc);
-> +		if (err)
-> +			break;
-> +	}
-> +	srcu_read_unlock(&mpam_srcu, idx);
-> +
-> +	return err;
-> +}
-> +
-> +int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
-> +		    enum mpam_device_features type, u64 *val)
-> +{
-> +	int err;
-> +	struct mon_read arg;
-> +	u64 wait_jiffies = 0;
-> +	struct mpam_props *cprops = &comp->class->props;
-> +
-> +	might_sleep();
-> +
-> +	if (!mpam_is_enabled())
-> +		return -EIO;
-> +
-> +	if (!mpam_has_feature(type, cprops))
-> +		return -EOPNOTSUPP;
-> +
-> +	memset(&arg, 0, sizeof(arg));
-> +	arg.ctx = ctx;
-> +	arg.type = type;
-> +	arg.val = val;
-> +	*val = 0;
-> +
-> +	err = _msmon_read(comp, &arg);
-> +	if (err == -EBUSY && comp->class->nrdy_usec)
-> +		wait_jiffies = usecs_to_jiffies(comp->class->nrdy_usec);
-> +
-> +	while (wait_jiffies)
-> +		wait_jiffies = schedule_timeout_uninterruptible(wait_jiffies);
-> +
-> +	if (err == -EBUSY) {
-> +		memset(&arg, 0, sizeof(arg));
-> +		arg.ctx = ctx;
-> +		arg.type = type;
-> +		arg.val = val;
-> +		*val = 0;
-> +
-> +		err = _msmon_read(comp, &arg);
-> +	}
-> +
-> +	return err;
-> +}
-> +
->  static void mpam_reset_msc_bitmap(struct mpam_msc *msc, u16 reg, u16 wd)
->  {
->  	u32 num_words, msb;
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> index 4981de120869..76e406a2b0d1 100644
-> --- a/drivers/resctrl/mpam_internal.h
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -309,6 +309,21 @@ struct mpam_msc_ris {
->  	struct mpam_garbage	garbage;
->  };
->  
-> +/* The values for MSMON_CFG_MBWU_FLT.RWBW */
-> +enum mon_filter_options {
-> +	COUNT_BOTH	= 0,
-> +	COUNT_WRITE	= 1,
-> +	COUNT_READ	= 2,
+> +static struct kunit_suite mpam_devices_test_suite = {
+> +	.name = "mpam_devices_test_suite",
+> +	.test_cases = mpam_devices_test_cases,
 > +};
 > +
-> +struct mon_cfg {
-> +	u16                     mon;
-> +	u8                      pmg;
-> +	bool                    match_pmg;
-> +	u32                     partid;
-> +	enum mon_filter_options opts;
-> +};
-> +
->  static inline int mpam_alloc_csu_mon(struct mpam_class *class)
->  {
->  	struct mpam_props *cprops = &class->props;
-> @@ -361,6 +376,9 @@ void mpam_disable(struct work_struct *work);
->  int mpam_apply_config(struct mpam_component *comp, u16 partid,
->  		      struct mpam_config *cfg);
->  
-> +int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
-> +		    enum mpam_device_features, u64 *val);
-> +
->  int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
->  				   cpumask_t *affinity);
->  
+> +kunit_test_suites(&mpam_devices_test_suite);
 
 Thanks,
 
