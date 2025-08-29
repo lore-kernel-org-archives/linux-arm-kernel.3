@@ -4,101 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90ACECA0FFE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:47:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 239D8CA0FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:47:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yFN1EQEjRbUyL6L3NwzgEy/E1VDAcLoyMHEC0+8jWsU=; b=ItJLs3U0dy/CyU8GxVTAzpbcSx
-	a38VP0K4lqfc1ZECHI4AueEyEihgq7ZqPRIy44SN3B1BHG7Sw4AR/3cRfaRxHtZ4abQ16jArbl3A0
-	ye6/M7h+rWLIDuZKqkYIdG5eDkXe98MvLJT+BVvFYv2M11cdnY2rQ0SaU57nt9HCVHOWbuwweegns
-	799AJHechoUQ8uaG3aNnivYKuvU3C804eaVq/vuUXFhBj8FHxWg27hvymM9kdS+vcu1yiorU0Qm8O
-	LtzIKFCgNXOSEM41r+sURx9hUKMuAGNMAOr2t2pEeezzpyfNNIPunTCkcovVqEsOcj6FTp+p2nuRP
-	zrgiUfRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q7yfMSKVog9zrx0IzSOm5CThV+YrzQFJbwE5ZBoSV/E=; b=0KVSM0l717hgB4fluUxUwkj2sU
+	DV54h9+R+HFsATewbnRpCDL6AUeOKYrOfSzPIXKKxf6qMqQ8aD9rsMVH9CsjXjt0CROhd3TNBlrcc
+	uiWVqfXcBpcErSFthLRUE5Q6pixAeZaU+Y2NMPzSgVqzBolPjb23DDN0Eo9qx/G555Nn4O6+xcc5/
+	6G6yLmHTtM4WUqwxVvYQnfl98CunjrK3kYMxzmE3mzCtNfDWg9OBoTYlZ6HBJK7P0tC1gBuhKaE67
+	8WVddB53BL+q/0qFTbnou8zruHYE/ue4oOAJ9eVZi0FTMUMGmqktzffa4DxgxCdGNy1TmwYHQyZ5+
+	DXjvM6IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us9kg-000000079Wi-3zMZ;
-	Sat, 30 Aug 2025 00:47:30 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1us9kj-000000079Zo-3RYm;
+	Sat, 30 Aug 2025 00:47:33 +0000
+Received: from mail-pl1-x664.google.com ([2607:f8b0:4864:20::664])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us1t9-00000006NsY-10oq;
-	Fri, 29 Aug 2025 16:23:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=yFN1EQEjRbUyL6L3NwzgEy/E1VDAcLoyMHEC0+8jWsU=; b=JuDcK8SW5PeAbEkMVoIN7Z++aI
-	YdcHkknpVyODevOkmgSlbcSfJ8pv3E5NqDwsEwnA6AoDkSj/IcYbX9LauoG33eUzbKcIzaasBVJDF
-	+u6kNoDbGqPKRgsQMWRbj/FexYVCS50c8jeKwtV1ITmg4MOl6mNPIvI9xFA4JrKQMA+tyNizKJbfu
-	QuQS68TvPCmBsF3bu2uE46u7vjeQ/hvzGBjaHyxCWc/1gylwOut7niqY9HeDxelHh7j4DJAhuahYC
-	Zc21AobyYmD7bMak4T0nA1CZgveFePBm2hRXpHLJVZpsmNXrBOLzWfPAAtyIzEohtHuDCwnvbcfWM
-	vb+va86w==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us1t5-00000003E1q-1YaI;
-	Fri, 29 Aug 2025 16:23:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1756484613;
-	bh=yFN1EQEjRbUyL6L3NwzgEy/E1VDAcLoyMHEC0+8jWsU=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=ARTQEDl4e6cM5xGS8Pafvs6+Llf0SyXoean8jS5+AcWHRp/1iNxjV8I12YtWSthw5
-	 TK1vGObU9Pwkmmm/NPpkRsqrdi7azBqIaJu6NWCzGipFBP1vHjWZjCVKcfxYYpbwH/
-	 I5+G6h8wAr1oUd9A+r2km7ZzCJD9vh/QplWGB61je9eW2m/SmClL0XvdmoPEFJVQKq
-	 aiun6rkDnnonpm56lLBSyQv3J5CYXoXPYOCjy6Kghenih/8ZQxmLeU1dmXu3+uTA2u
-	 Nq4cJ+BH4ni5uwq9ZKB6gZjInQqTQ6PvyeqGGn1WFYerWADkIRo+hYClHgGnI0+rDP
-	 qfHDjppqdJMaA==
-Received: from [IPv6:2606:6d00:11:5a76::5ac] (unknown [IPv6:2606:6d00:11:5a76::5ac])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C405917E10F3;
-	Fri, 29 Aug 2025 18:23:31 +0200 (CEST)
-Message-ID: <a216e7e218d874cf64b53f6eba2fc74fc551d2fe.camel@collabora.com>
-Subject: Re: [PATCH v7 4/6] media: verisilicon: AV1: Restore IOMMU context
- before decoding a frame
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>, Benjamin Gaignard
-	 <benjamin.gaignard@collabora.com>
-Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, robh@kernel.org,
- 	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
- p.zabel@pengutronix.de, 	mchehab@kernel.org, iommu@lists.linux.dev,
- devicetree@vger.kernel.org, 	linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, 	linux-rockchip@lists.infradead.org,
- kernel@collabora.com, 	linux-media@vger.kernel.org
-Date: Fri, 29 Aug 2025 12:23:29 -0400
-In-Reply-To: <20250826124155.GD1899851@ziepe.ca>
-References: <20250825153450.150071-1-benjamin.gaignard@collabora.com>
-	 <20250825153450.150071-5-benjamin.gaignard@collabora.com>
-	 <20250825170531.GA1899851@ziepe.ca>
-	 <01c327e8353bb5b986ef6fb1e7311437659aea4a.camel@collabora.com>
-	 <20250825183122.GB1899851@ziepe.ca>
-	 <441df5ff-8ed4-45ed-8a52-b542c6e7d38c@collabora.com>
-	 <20250826124155.GD1899851@ziepe.ca>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-DNMiMpnxu0upmlGb0Ub2"
-User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
+	id 1us215-00000006PPP-0hH5
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 29 Aug 2025 16:31:56 +0000
+Received: by mail-pl1-x664.google.com with SMTP id d9443c01a7336-24456ce0b96so25849475ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 09:31:54 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756485114; x=1757089914;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:dkim-signature:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=q7yfMSKVog9zrx0IzSOm5CThV+YrzQFJbwE5ZBoSV/E=;
+        b=gvbe5PXmssWdowKahliYpSdRRkpWaqJX2MmsUuFTIed3kkAm8ojgv4UyckHrwp3xcv
+         NVnIOo5Fv7xC49JrhvrlINJf7/woryMfvPQWSNBI933K+6kADk+VdL6rw5Bb1Om3Giha
+         qAAXPw4GZCxszX9XKzzM/64tJ4fT13ur9OxYzA4ukSKJDe0h3msXuZiRYLJ1GrlaLmMl
+         awIGtyTBTp0nwVzSpcjWdDnSBbSBSJK037LrGqxKzKFKRYe+eCCDu+kg+zLn5K1QWyWe
+         /pmo0Id4wJ6+trAUdT3P8QjofxD7aL78Zhkfb/hNwqyniu8FbZ6dcGtSSadquI+0UyxV
+         KDrA==
+X-Forwarded-Encrypted: i=1; AJvYcCXTmqNUNU8btbXrj6hn0CSnrSQtwut2j3i5Ml2xHrgCuwkuJ5uHHgvdqGYTWW7O8u932suwHs6koMiHMmn8XKOo@lists.infradead.org
+X-Gm-Message-State: AOJu0YyU+XWbQA+elPB6Sii8eePP1x/iwCQrtzNz7rYt923YE5K0t15g
+	Qli0UU2RwkOB7UE422+Vl82oYvaAnDS6quYyMPAGUVuY/e6X1FyzuDynsFWtvgIfv0xfMKBO8s0
+	dxZWO5RURSn2qg4gMsJiFSd2Wo2/PnGWQnMSEz2KGgdr8q2sdCfGgHnHHf2fQjCZiqKUAnYDTQj
+	M70KZpckOX1euTvDsW5jSXU+1reqoCf9caNJK0RjES6yofNLJpP/pRXJJjJtYO6DNmQkQ5GgD+7
+	o7GGW49HuYASgJhRZJcoJvEAIR8cIoz3KQ=
+X-Gm-Gg: ASbGncsaGVAhfYlqsR8rAkKZMGW0fox/gxAxQhdSmg/Wi0d29srSd8dc0XgrZ8KEbtx
+	i0bdyCVI2W7jWTOGoIa69j175B0rk21PjUtpcuir+cnxmeV6l5F1K/ATSb7Rjq5cXGQhtP7IoET
+	kcOXvcbSwV3WzTjNFGDr4Xn7szCl784vRrJFUhtgXMjvZhR3xuDGIQeDg+4umTfx8JaHkfPPPiA
+	kyCcQoFmASekf28mYyk0fBlcub6HXcghdrMnyWk3+RMSnjhHdzjwsJPvnF5FjWq/rlBlpS1SYwu
+	dNGGD7KTtVcSxbNWcsHpbeR4oBzgTHj2uLrtUb2/oAaUq9LBiu+qhBEM5ofq6/vSrgVnWDoTXTX
+	OF/hVsse6Jo3Yn6OXa2IfW2pnSetYyQW7UQv7BdQYjboXRNjrSuM4Pm4UcYfvuSfTZAWIwj9O6y
+	13KlSh
+X-Google-Smtp-Source: AGHT+IGpV/JKTgEZw+SEv5BweBWYozcoDmMZE8LncoSdPw5h3T1p82SV2kH+fWd2UADrD99RkuDSsF4NnwlR
+X-Received: by 2002:a17:902:e883:b0:249:37b2:8630 with SMTP id d9443c01a7336-24937b28708mr5235435ad.5.1756485114326;
+        Fri, 29 Aug 2025 09:31:54 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-14.dlp.protect.broadcom.com. [144.49.247.14])
+        by smtp-relay.gmail.com with ESMTPS id d9443c01a7336-2490627c1fdsm2133515ad.62.2025.08.29.09.31.53
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 29 Aug 2025 09:31:54 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-7e86f8f27e1so518334185a.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 09:31:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1756485113; x=1757089913; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=q7yfMSKVog9zrx0IzSOm5CThV+YrzQFJbwE5ZBoSV/E=;
+        b=hX20N8eCS4rqhOl6494FiuHWaaqWTedJYxuJcL2PiQzQ/dmTAWklr7+XmFaz4m16gT
+         JfJq+vRFPKtuUtLiGgcekNpNZmvAdfzVvDszcdoz08xk1dDP67q0Z6LJ3CVOJ7UeLtkO
+         jb/Cp8dl2OjBLJUUoJS6Badn4SoxnGfKKaEZs=
+X-Forwarded-Encrypted: i=1; AJvYcCXGCufXPsndGTAJ3xAuC4buzAjIPLC0GREckwUovchvTnIvihJTM7fstlOLWjZrovVj/7DhgeMEsh29S1C0HEaB@lists.infradead.org
+X-Received: by 2002:a05:620a:46ab:b0:7f0:5524:477b with SMTP id af79cd13be357-7f58da36412mr1648510785a.3.1756485112950;
+        Fri, 29 Aug 2025 09:31:52 -0700 (PDT)
+X-Received: by 2002:a05:620a:46ab:b0:7f0:5524:477b with SMTP id af79cd13be357-7f58da36412mr1648503985a.3.1756485112272;
+        Fri, 29 Aug 2025 09:31:52 -0700 (PDT)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7fcbc17487bsm142438285a.27.2025.08.29.09.31.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 29 Aug 2025 09:31:51 -0700 (PDT)
+Message-ID: <c76ab4d7-37aa-4d99-888d-e0762deb2342@broadcom.com>
+Date: Fri, 29 Aug 2025 09:31:48 -0700
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] brcmstb-memc-ddr binding updates for MIPS boards
+To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-mips@vger.kernel.org, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ "open list:MEMORY CONTROLLER DRIVERS" <linux-kernel@vger.kernel.org>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>,
+ "moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>
+References: <20250729205213.3392481-1-florian.fainelli@broadcom.com>
+ <aLF_DEu6YNSCSRxu@alpha.franken.de>
+ <dcb0c746-62ed-48f6-9247-03bdf36c6e92@kernel.org>
+ <60e55e14-7712-4f82-93af-6751009327fd@kernel.org>
+ <aLHI7arPfcMDEhzM@alpha.franken.de>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <aLHI7arPfcMDEhzM@alpha.franken.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_172339_585426_39E41502 
-X-CRM114-Status: GOOD (  34.06  )
+X-CRM114-CacheID: sfid-20250829_093155_273897_46E819C3 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,130 +161,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 8/29/25 08:36, Thomas Bogendoerfer wrote:
+> On Fri, Aug 29, 2025 at 12:39:00PM +0200, Krzysztof Kozlowski wrote:
+>> On 29/08/2025 12:37, Krzysztof Kozlowski wrote:
+>>> On 29/08/2025 12:21, Thomas Bogendoerfer wrote:
+>>>> On Tue, Jul 29, 2025 at 01:52:11PM -0700, Florian Fainelli wrote:
+>>>>> This patch series updates the MIPS-based Broadcom STB chips to use a
+>>>>> proper compatible string for their memory controller node(s) after
+>>>>> 501be7cecec9 ("dt-bindings: memory-controller: Define fallback
+>>>>> compatible").
+>>>>>
+>>>>> Florian Fainelli (2):
+>>>>>    dt-bindings: memory: Update brcmstb-memc-ddr binding with older chips
+>>>>>    MIPS: BMIPS: Properly define memory controller compatible
+>>>>>
+>>>>>   .../bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml  | 4 ++++
+>>>>>   arch/mips/boot/dts/brcm/bcm7346.dtsi                        | 3 ++-
+>>>>>   arch/mips/boot/dts/brcm/bcm7360.dtsi                        | 3 ++-
+>>>>>   arch/mips/boot/dts/brcm/bcm7362.dtsi                        | 3 ++-
+>>>>>   arch/mips/boot/dts/brcm/bcm7425.dtsi                        | 6 ++++--
+>>>>>   arch/mips/boot/dts/brcm/bcm7435.dtsi                        | 6 ++++--
+>>>>>   6 files changed, 18 insertions(+), 7 deletions(-)
+>>>>
+>>>> series applied to mips-next.
+>>>
+>>> Why entire series? You were notified two weeks ago that I already took
+>>> the driver subsystem patch.
+> 
+> I haven't got a mail in this thread from you about taking the first patch.
 
---=-DNMiMpnxu0upmlGb0Ub2
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+That is curious, it was in response to patch #1 and you were copied:
 
-Le mardi 26 ao=C3=BBt 2025 =C3=A0 09:41 -0300, Jason Gunthorpe a =C3=A9crit=
-=C2=A0:
-> On Tue, Aug 26, 2025 at 11:52:37AM +0200, Benjamin Gaignard wrote:
-> >=20
-> > Le 25/08/2025 =C3=A0 20:31, Jason Gunthorpe a =C3=A9crit=C2=A0:
-> > > On Mon, Aug 25, 2025 at 01:50:16PM -0400, Nicolas Dufresne wrote:
-> > >=20
-> > > > Jason, the point is that the iommu and the VPU are not separate dev=
-ices, which
-> > > > comes with side effects. On RKVDec side, the iommu configuration ge=
-t resets
-> > > > whenever a decoding error leads to a VPU "self reset". I can't reme=
-mber who from
-> > > > the iommu subsystem suggested that, but the empty domain method was=
- agreed to be
-> > > IDK, that seems really goofy too me an defiantly needs to be
-> > > extensively documented this is restoring the default with some lore
-> > > link of the original suggestion.
-> > >=20
-> > > > the least invasive way to workaround that issue. I believe Detlev t=
-ried multiple
-> > > > time to add APIs for that before the discussion lead to this path.
-> > > You mean this:
-> > >=20
-> > > https://lore.kernel.org/linux-iommu/20250318152049.14781-1-detlev.cas=
-anova@collabora.com/
-> > >=20
-> > > Which came back with the same remark I would give:
-> > >=20
-> > > =C2=A0 Please have some kind of proper reset notifier mechanism - in =
-fact
-> > > =C2=A0 with runtime PM could you not already invoke a suspend/resume =
-cycle
-> > > =C2=A0 via the device links?
-> >=20
-> > when doing parallel decode suspend/resume are not invoked.
->=20
-> It was a proposal for an error recovery path.
->=20
-> > > Or another reasonable option:
-> > >=20
-> > > =C2=A0=C2=A0 Or at worst just export a public interface for the other=
- driver to
-> > > =C2=A0=C2=A0 invoke rk_iommu_resume() directly.
-> > >=20
-> > > Sigh.
-> >=20
-> > An other solution which is working is to call iommu_flush_iotlb_all()
-> > before decoding each frame.
->=20
-> That was already proposed and shot down, it makes no sense at all use
-> to use flushing to reset the registers because the HW weirdly lost
-> them, and flushing should never happen outside mapping contexts.
->=20
-> If the HW is really resetting the iommu registers after every frame
-> that is really just painfully broken, and makes me wonder if it really
-> should be an iommu subsystem driver at all if it is so tightly coupled
-> to the computing HW. :\
->=20
-> Like we wouldn't try to put a GPU MMU into the iommu subsystem though
-> they do fairly similar things.
+https://lore.kernel.org/all/175508140104.40429.8279921018476182386.b4-ty@linaro.org/
 
-I didn't mention, but this is obviously close to the same IOMMU wrapped ins=
-ide
-etnaviv (same company making it). Note that for media driver, drivers in th=
-e
-iommu subsystem are very convenient, they just work usually (except when th=
-ey
-don't like with codecs). I'm pretty sure rkmmu is also used by Panfrost, so=
- I
-suppose not all GPU IOMMU lives in GPU drivers (I could be wrong). Its one
-instance per block, but the same programming interface. Note that we do hav=
-e an
-in-driver iommu implementation in the RGA2 driver.
+> 
+>> ...and you do not have even ack from memory-controllers for that patch.
+> 
+> sorry, I'll drop the patch then.
 
-If we can agree on solutions for this problem, which seems slightly differe=
-nt on
-RK compared to VSI IOMMU, it will be quite beneficial to not have to overri=
-de
-all the media allocation ops, and re-implement rkmmu, vsimmu in every drive=
-r
-needing this block. The VSI mmu could be used similarly to how the rkmmu is
-used, meaning we'd have to copy its implementation in every driver. If we c=
-ould
-find out more accuratly how this is suppose to work it would be great, I fe=
-el we
-don't really understand what is going on yet. Once that done, we can port r=
-kvdec
-driver with the unified solution.
-
-The empty domain approach was used since there was no solution that came ou=
-t
-over a year, and users these days expect concurrent decoding to work. So ye=
-s,
-its not all pretty, but its the best we found until this type of hardware
-behaviour gets an API for that is commonly agreed.
-
-Main question is shall we block on merging the VSI IOMMU driver for that re=
-ason
-? Its there anything in the IOMMU driver that still needs more work ?
-
-cheers,
-Nicolas
-
-p.s. RK means Rockchip, VSI means Verisilicon, the company behind Vivante G=
-PU
-
---=-DNMiMpnxu0upmlGb0Ub2
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaLHUAQAKCRDZQZRRKWBy
-9JkWAQCjhKw0H+/fIxtEIGqR/i3mzCXIn2jiB22S5Z1/SsXLjgEAnopTxM8L88l+
-NUbl5VA35McqgA+aGhShXzST98zO8wY=
-=Uy0P
------END PGP SIGNATURE-----
-
---=-DNMiMpnxu0upmlGb0Ub2--
+Thanks!
+-- 
+Florian
 
