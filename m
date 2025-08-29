@@ -4,56 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B90BCA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 11:57:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 463B8CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 12:25:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5DbPHQ90+DKqtaniej3vC5v30Nb+07RTlxdaDaJtIwg=; b=glJvim4sfexKhBIfdrTopuX7AQ
-	1yFj1vrRQ78kXjzxZ5M4OUZWli+jOidJThkZKWg54JXGjuS+dK8uCJM6z30LK5nzb5jYuI7VhZ/m6
-	gXK4bkinwiZbKQ1VsPX6OLrZe4+/yn5Mpcm0Rk30YD9NvusFMZa1YJ1OUUM42d7iP7GdXR2YcMXZO
-	bAKpJQkLATaIBmkd45AZiwf1eW186swU5ttsxN1Aq+Pbc3dN+bfjjvl1Hjp1okOC7Ay10gt+pR/YT
-	QB/zmJfpLZzGmgPT+Y+ZLvXTcmGFppT0RMOL8NTYVcTDY0+EVEZ0kiogVoGjYoRbtuYinLVxwqUvX
-	E0HxEmeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=txk6Ntr1OB9E+08Z6A0ZYjiGrZLcfjKX3b0L/eGpWQ4=; b=qm19CwA13Sz5QKykBmZvjvYUZB
+	jLoJzvS7aKqi6V0MsUahZpPhOP7AuRzvNaCxW/y/FGKTPI5pBKV01CJeZy6oQMFLWb1SWUNXMMOf1
+	APIXPPREQTdRwyg1KOpyRvfa0AEBZo0IhBoHHXju85pWCSKxFjqzJXIdenAAOlWALK2JMB3pYUqH2
+	SdF4Afc0fuyhreNfMrh49Sm1wT1KDo+3E3sw1p7WyZoCHp+yISOW8jNqnVVd4Yn111j3Wh3gL7K0p
+	h3epKnGyd8Dc/b/mAsVXGEtxfIlyXfrMirAm+AkzV/o9+quXqMpqI2eCHkgNuVYQaFMiZewtJOkKP
+	x1M73RZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urxjP-00000005YWV-07KM;
-	Fri, 29 Aug 2025 11:57:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urvL0-000000058Zh-0KtH
+	id 1uryAp-00000005dkd-0wmd;
+	Fri, 29 Aug 2025 12:25:43 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urvlq-00000005Cv4-0OXZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 09:24:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B21251756;
-	Fri, 29 Aug 2025 02:23:52 -0700 (PDT)
-Received: from [10.57.91.118] (unknown [10.57.91.118])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6AE8A3F738;
-	Fri, 29 Aug 2025 02:23:59 -0700 (PDT)
-Message-ID: <9b7df510-b9a1-4fca-90d3-bcfb3df43bd4@arm.com>
-Date: Fri, 29 Aug 2025 10:23:57 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v6 1/4] arm64: Enable permission change on arm64
- kernel block mappings
-Content-Language: en-GB
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Yang Shi <yang@os.amperecomputing.com>, will@kernel.org,
- akpm@linux-foundation.org, Miko.Lenczewski@arm.com, dev.jain@arm.com,
- scott@os.amperecomputing.com, cl@gentwo.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250805081350.3854670-1-ryan.roberts@arm.com>
- <20250805081350.3854670-2-ryan.roberts@arm.com> <aLCDGlobH1wG8iqx@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <aLCDGlobH1wG8iqx@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Fri, 29 Aug 2025 09:51:47 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-45a1b0caae1so9392495e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 02:51:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1756461104; x=1757065904; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=txk6Ntr1OB9E+08Z6A0ZYjiGrZLcfjKX3b0L/eGpWQ4=;
+        b=2Q62An+Xc3e8u64T9+URlN+UQ18klcVtrbStd0zeOSi0zvYcab/BzqJVXD1tiPMgMe
+         gIkNdOqnovGHzn890sImGdS2Zj3eO2xKZ3Tglp55Qh4UetUELGUqM8/RUmzwD0USMkH3
+         uJpNG90CJB6pkXOoG2ZmPAxdAUinYsJhrYp3YrJ3SX8kyL013iESzVxiTfscQ8CSMR9p
+         tJ1FY4bLCAerstTgm2yHJ77UOtXbVOyG+sES/QiNmSz2TQuC2hS2vx2yQw9ZvyGlO9eX
+         p5w6sXKABYTqwkRxWAotyQOvxlASf/20NsCD7Cu6fqP4uz1nbdCiQd0gXZcPhloZGiB7
+         3h2Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756461104; x=1757065904;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=txk6Ntr1OB9E+08Z6A0ZYjiGrZLcfjKX3b0L/eGpWQ4=;
+        b=KJoAwd9KaHwwQPF5X4q6x46ZmuPrqLeYkgA8QCDPoIxFgDQ0huiYea+V+4FEmHNOxq
+         /cG+OCszn0g3oWL9rI/loPQiXt1LbjoeLZ7IOJCgA47BZjMLpKAe8VRc+8px6ZtENOkA
+         D1XdKrQo79WCPtFOGGWgVmAzom2cNu7qUUmieCeoOQKBrxOYi7Dx2kO+ndjLpDBRATbB
+         TwCSJbmrC1fXtx8q/z0lBdaJjXqRAhVwT95dDOhvP7UOurvkboN9l2pLgKtFe2EJQsUH
+         dR+M+mFBoHys8SDjfLJI6X5atzEAW4KUUuDlnPQE0kC0NwJbuZNlblkwV7luHBetUfkw
+         FrVA==
+X-Forwarded-Encrypted: i=1; AJvYcCVoOXQZO1O+lBaQ5GUoFw6WBBD2hcBBd5uZcv9lwSVFbbyCQamx3Vth0zTFfM3i+ZyFJJilFyz2irkwYMOLt4Uy@lists.infradead.org
+X-Gm-Message-State: AOJu0YwInOHoVICjtySfv/tusAid54eqeyJHVv8Ii2KrFB5bjiM1jPaP
+	fUjc6A5jRAvKJd/NGTd6iRpK//DZDIBtNPvJxAyG0/8RJ/AUKAwvl7xOCKILmyKP/dV3gWuVhYS
+	LnQ==
+X-Google-Smtp-Source: AGHT+IEf1nkRoty1oRvWii9Is2r7lcOEZRt6GRqg0M5bkn7wWr7F2w87YgWyLO2mtNb12anWTrGICsLuyg==
+X-Received: from wmqa7.prod.google.com ([2002:a05:600c:3487:b0:459:df20:248e])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4248:b0:45b:7e86:7378
+ with SMTP id 5b1f17b1804b1-45b7e8676f1mr12711315e9.34.1756461103846; Fri, 29
+ Aug 2025 02:51:43 -0700 (PDT)
+Date: Fri, 29 Aug 2025 10:51:40 +0100
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.51.0.338.gd7d06c2dae-goog
+Message-ID: <20250829095143.123476-1-tabba@google.com>
+Subject: [PATCH v3 0/3] arm64: sysreg: Fix sysreg field definitions and
+ generation script
+From: Fuad Tabba <tabba@google.com>
+To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, vdonnefort@google.com, qperret@google.com, 
+	sebastianene@google.com, keirf@google.com, smostafa@google.com, 
+	tabba@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_022402_203446_4D916759 
-X-CRM114-Status: GOOD (  28.32  )
+X-CRM114-CacheID: sfid-20250829_025146_150114_50C0E6DA 
+X-CRM114-Status: GOOD (  12.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,102 +91,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/08/2025 17:26, Catalin Marinas wrote:
-> On Tue, Aug 05, 2025 at 09:13:46AM +0100, Ryan Roberts wrote:
->> From: Dev Jain <dev.jain@arm.com>
->>
->> This patch paves the path to enable huge mappings in vmalloc space and
->> linear map space by default on arm64. For this we must ensure that we
->> can handle any permission games on the kernel (init_mm) pagetable.
->> Currently, __change_memory_common() uses apply_to_page_range() which
->> does not support changing permissions for block mappings. We attempt to
->> move away from this by using the pagewalk API, similar to what riscv
->> does right now; however, it is the responsibility of the caller to
->> ensure that we do not pass a range overlapping a partial block mapping
->> or cont mapping; in such a case, the system must be able to support
->> range splitting.
->>
->> This patch is tied with Yang Shi's attempt [1] at using huge mappings in
->> the linear mapping in case the system supports BBML2, in which case we
->> will be able to split the linear mapping if needed without
->> break-before-make. Thus, Yang's series, IIUC, will be one such user of
->> my patch; suppose we are changing permissions on a range of the linear
->> map backed by PMD-hugepages, then the sequence of operations should look
->> like the following:
->>
->> split_range(start)
->> split_range(end);
->> __change_memory_common(start, end);
->>
->> However, this patch can be used independently of Yang's; since currently
->> permission games are being played only on pte mappings (due to
->> apply_to_page_range not supporting otherwise), this patch provides the
->> mechanism for enabling huge mappings for various kernel mappings like
->> linear map and vmalloc.
-> [...]
-> 
-> I think some of this text needs to be trimmed down, avoid references to
-> other series if they are merged at the same time.
-> 
->> diff --git a/include/linux/pagewalk.h b/include/linux/pagewalk.h
->> index 682472c15495..8212e8f2d2d5 100644
->> --- a/include/linux/pagewalk.h
->> +++ b/include/linux/pagewalk.h
->> @@ -134,6 +134,9 @@ int walk_page_range(struct mm_struct *mm, unsigned long start,
->>  int walk_kernel_page_table_range(unsigned long start,
->>  		unsigned long end, const struct mm_walk_ops *ops,
->>  		pgd_t *pgd, void *private);
->> +int walk_kernel_page_table_range_lockless(unsigned long start,
->> +		unsigned long end, const struct mm_walk_ops *ops,
->> +		void *private);
->>  int walk_page_range_vma(struct vm_area_struct *vma, unsigned long start,
->>  			unsigned long end, const struct mm_walk_ops *ops,
->>  			void *private);
->> diff --git a/mm/pagewalk.c b/mm/pagewalk.c
->> index 648038247a8d..18a675ab87cf 100644
->> --- a/mm/pagewalk.c
->> +++ b/mm/pagewalk.c
->> @@ -633,6 +633,30 @@ int walk_kernel_page_table_range(unsigned long start, unsigned long end,
->>  	return walk_pgd_range(start, end, &walk);
->>  }
->>  
->> +/*
->> + * Use this function to walk the kernel page tables locklessly. It should be
->> + * guaranteed that the caller has exclusive access over the range they are
->> + * operating on - that there should be no concurrent access, for example,
->> + * changing permissions for vmalloc objects.
->> + */
->> +int walk_kernel_page_table_range_lockless(unsigned long start, unsigned long end,
->> +		const struct mm_walk_ops *ops, void *private)
->> +{
->> +	struct mm_walk walk = {
->> +		.ops		= ops,
->> +		.mm		= &init_mm,
->> +		.private	= private,
->> +		.no_vma		= true
->> +	};
->> +
->> +	if (start >= end)
->> +		return -EINVAL;
->> +	if (!check_ops_valid(ops))
->> +		return -EINVAL;
->> +
->> +	return walk_pgd_range(start, end, &walk);
->> +}
-> 
-> More of a nit: we could change walk_kernel_page_table_range() to call
-> this function after checking the mm lock as they look nearly identical.
-> The existing function has a pgd argument but it doesn't seem to be used
-> anywhere and could be removed (or add it here for consistency).
+The sysreg definitions file has a few errors. In Enum Security,
+NSACR_RFR is set to 0b0001 instead of the spec value of 0b0010.
+Additionaly, the sign of the Enums DoubleLock and EIESB are wrong
+(should be Signed and Unsigned, respectively).
 
-Good point. I've done this refactoring in my new version, adding pgd to the
-_lockless() variant, since it's used by x86. Let's see what Lorenzo and co think
-in the context of the next version (incomming shortly).
+Moreover, the file has some redundant definitions, e.g.,
+RCWSMASK_EL1. While these redundant definitions are not wrong per se,
+they add unnecessary code into the generated header file and could be a
+source of future bugs.
 
-> 
-> Either way, the patch looks fine.
-> 
-> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Fix the Enums and remove the redundant Sysreg definitions.
 
+To reduce the chance of this happening in the future, add validation to
+the sysreg header generation script. I didn't want to go overboard with
+validation, so I only added validation that would catch most of the
+errors that I've seen, which also are errors that wouldn't generate a
+build error later on.
+
+Changes since v2 [1]:
+- Added patch that fixes field sign definitions for DoubleLock and EIESB
+- Removed whitespace fixes from first patch, since there are more
+  inconsistent whitespace use in the file, and fixing it all would lead
+  to too much churn.
+- Collected Reviews/Acks
+- Rebased on 6.17-rc3
+
+Cheers,
+/fuad
+
+[1] https://lore.kernel.org/all/20250813164506.1203851-1-tabba@google.com/
+
+Fuad Tabba (3):
+  arm64: sysreg: Fix and tidy up sysreg field definitions
+  arm64: sysreg: Correct sign definitions for EIESB and DoubleLock
+  arm64: sysreg: Add validation checks to sysreg header generation
+    script
+
+ arch/arm64/tools/gen-sysreg.awk | 20 ++++++++++++++++++++
+ arch/arm64/tools/sysreg         | 18 +++++-------------
+ 2 files changed, 25 insertions(+), 13 deletions(-)
+
+
+base-commit: 1b237f190eb3d36f52dffe07a40b5eb210280e00
+-- 
+2.51.0.338.gd7d06c2dae-goog
 
 
