@@ -4,62 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B5B7CA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 17:58:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 492D0CA0FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 18:00:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gZF9k1vN82TPnDjF7LSo1ETHjuA30U+GHEPHdG0wOSw=; b=DtLaNqfC/907Tf7VqHMXEe/cOf
-	1sRkokdEp/Dey6351xaQWfoCvQpiDo0z9VN6FLK9ce3zPYuN2eZs6NZCcmrI7z5sJo075IL1OPs/I
-	W4YxIHCvOQPFcHtP2fkiQHHslPAtxkPd/l7HrPAufQMUgQXchxFPULI5vGj3A+iWdCeFpVuqygbqx
-	Cc3L9eF/5YZVOoaxKp5kIPdhXnSmU2TekW/DBYjFL23O21H5eYgd2c4TyorsmnU3CpbYkZgEOQIiI
-	ordB0L3JReY1j5tRWWoVIaebPbBdmraefmswDBxJni5LovEl2Pnssp9R5iVEV/988kUAsyp48oZrm
-	E+hk0lsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2PWHDO5VkUFYcFN4dC8kOLQKL08W+S+lK3eg1XecLc0=; b=qxGPGnnriL78jqmWs8zBda4NHS
+	3zoB6Ps5eEA8xKkulIoQgTz2Vm9rXuPmnQ6Pa2BQ2/BfX8GAqmiH+1jxZ9E3xUYrlTt23Pf6XrwVQ
+	tF9BM1j6roc5fAQmyjmsnnyVbRendpXGUrz+XX7EcXSUWnxTdRf9qtbjHGcEorKyEUl1f9sSef3UJ
+	m0B4hPlVz3/GeDbdUArSZjqu25hpNEfTTSzHjP1+tX+Ue4LcJsH+Cnj5ea2Qr6SqDnP7im/OgV8Xk
+	35MEMHbnrA4xSzm9/71DXiTde5V05GrblDP2KnFeQoNq/YbZgE2jOWW0hx25SKukndD3mqzSjoSHh
+	SHWrMKIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us3MK-00000006abH-38gV;
-	Fri, 29 Aug 2025 17:57:56 +0000
-Received: from smtprelay0013.hostedemail.com ([216.40.44.13] helo=relay.hostedemail.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uryAu-00000005dnN-0vnp
+	id 1us3P1-00000006b1C-2EMZ;
+	Fri, 29 Aug 2025 18:00:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uryCQ-00000005eot-1OQh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 12:25:49 +0000
-Received: from omf20.hostedemail.com (a10.router.float.18 [10.200.18.1])
-	by unirelay03.hostedemail.com (Postfix) with ESMTP id 5EE46BADE0;
-	Fri, 29 Aug 2025 12:25:44 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf20.hostedemail.com (Postfix) with ESMTPA id 5CCF120027;
-	Fri, 29 Aug 2025 12:25:42 +0000 (UTC)
-Date: Fri, 29 Aug 2025 08:26:04 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Luo Gengkun <luogengkun@huaweicloud.com>
-Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Catalin
- Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-arm-kernel@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH] tracing: Fix tracing_marker may trigger page fault
- during preempt_disable
-Message-ID: <20250829082604.1e3fd06e@gandalf.local.home>
-In-Reply-To: <436e4fa7-f8c7-4c23-a28a-4e5eebe2f854@huaweicloud.com>
-References: <20250819105152.2766363-1-luogengkun@huaweicloud.com>
-	<20250819135008.5f1ba00e@gandalf.local.home>
-	<436e4fa7-f8c7-4c23-a28a-4e5eebe2f854@huaweicloud.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Fri, 29 Aug 2025 12:27:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C9B9F19F0;
+	Fri, 29 Aug 2025 05:27:12 -0700 (PDT)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 44B753F694;
+	Fri, 29 Aug 2025 05:27:20 -0700 (PDT)
+Date: Fri, 29 Aug 2025 13:26:49 +0100
+From: Dave Martin <Dave.Martin@arm.com>
+To: James Morse <james.morse@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+Subject: Re: [PATCH] arm_mpam: Relax num_rmids parameter advertised to
+ userspace
+Message-ID: <aLGciannXznRgwsb@e133380.arm.com>
+References: <20250820131621.54983-1-Dave.Martin@arm.com>
+ <58eae4c3-51b3-48ad-b077-aefdff969119@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Rspamd-Queue-Id: 5CCF120027
-X-Stat-Signature: z4qee96ax9gocnkpiu6zi9es954bzpw8
-X-Rspamd-Server: rspamout02
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX1//eG0SPh1gXzSvhvFw/mS6TyA0QJDKqYs=
-X-HE-Tag: 1756470342-908911
-X-HE-Meta: U2FsdGVkX195ZgDOTbivrDBTaufOHEnsk6PH2OHOVpi9ojybHHHjo+zy+PeSzr/EOxHT+tJW9yhUm44IbnMOZIbQ9I5ne1xKch07oeuKvb843vUBYWVLBhmzJmPTdMMwUrD3UZ5jKD0jWcwB+oouhMyHzFKenViz4q+lSCtfhzKxn5fCJBjZAfjiF/lS7i1B8eE2ND5nI+rBiA9a6ZWJ+2UiTAhUWYAmR4C5ooFf7VFPF/LXnrAnb36shVcxzstQwJp5t9eeyJhrs0mn5AH8v/zHwvU1YGJLeG9Xsavq3ongCZTqfdoVEMKzCcz1SMRbh1dgLJSiwgD1jxqrLBzE2r8JHLs5DsA8h53z7hGGNQ8SjLGpCFqkWqYEhEpLDX+r
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <58eae4c3-51b3-48ad-b077-aefdff969119@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_052548_339984_D1DF7FCA 
-X-CRM114-Status: GOOD (  33.29  )
+X-CRM114-CacheID: sfid-20250829_052722_419152_58281170 
+X-CRM114-Status: GOOD (  19.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,105 +64,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi James,
 
-[ Adding arm64 maintainers ]
-
-On Fri, 29 Aug 2025 16:29:07 +0800
-Luo Gengkun <luogengkun@huaweicloud.com> wrote:
-
-> On 2025/8/20 1:50, Steven Rostedt wrote:
-> > On Tue, 19 Aug 2025 10:51:52 +0000
-> > Luo Gengkun <luogengkun@huaweicloud.com> wrote:
-> >  
-> >> Both tracing_mark_write and tracing_mark_raw_write call
-> >> __copy_from_user_inatomic during preempt_disable. But in some case,
-> >> __copy_from_user_inatomic may trigger page fault, and will call schedule()
-> >> subtly. And if a task is migrated to other cpu, the following warning will  
-> > Wait! What?
-> >
-> > __copy_from_user_inatomic() is allowed to be called from in atomic context.
-> > Hence the name it has. How the hell can it sleep? If it does, it's totally
-> > broken!
-> >
-> > Now, I'm not against using nofault() as it is better named, but I want to
-> > know why you are suggesting this change. Did you actually trigger a bug here?  
+On Wed, Aug 27, 2025 at 06:16:00PM +0100, James Morse wrote:
+> Hi Dave,
 > 
-> yes, I trigger this bug in arm64.
-
-And I still think this is an arm64 bug.
-
+> On 20/08/2025 14:15, Dave Martin wrote:
+> > On MPAM systems, monitoring groups are identified in the hardware by a
+> > (PARTID, PMG) pair.  Two monitoring group identifiers are the same only
+> > if the PARTIDs and PMGs both match.  This means that the number of
+> > monitoring groups that can be created in each control group is the same
+> > as the number of distinct PMG values supported by the hardware.  The
+> > number of monitoring groups that exist in other control groups at the
+> > same time makes no difference to this.
+> > 
+> > Currently, the MPAM driver takes the cautious approach and always
+> > num_rmids = 1.
+> > 
+> > Relax this limit, by advertising the number of distinct PMG values
+> > supported by the hardware.
+> > 
+> > Code/Data Prioritization (CDP) makes no difference, since although this
+> > doubles the number of (PARTID, PMG) pairs available to a control group,
+> > each monitoring group now consumes two pairs instead of one.
 > 
-> >  
-> >> be trigger:
-> >>          if (RB_WARN_ON(cpu_buffer,
-> >>                         !local_read(&cpu_buffer->committing)))
-> >>
-> >> An example can illustrate this issue:
-> >>
-> >> process flow						CPU
-> >> ---------------------------------------------------------------------
-> >>
-> >> tracing_mark_raw_write():				cpu:0
-> >>     ...
-> >>     ring_buffer_lock_reserve():				cpu:0
-> >>        ...
-> >>        cpu = raw_smp_processor_id()			cpu:0
-> >>        cpu_buffer = buffer->buffers[cpu]			cpu:0
-> >>        ...
-> >>     ...
-> >>     __copy_from_user_inatomic():				cpu:0
-> >>        ...
-> >>        # page fault
-> >>        do_mem_abort():					cpu:0  
-> > Sounds to me that arm64 __copy_from_user_inatomic() may be broken.
-> >  
-> >>           ...
-> >>           # Call schedule
-> >>           schedule()					cpu:0
-> >> 	 ...
-> >>     # the task schedule to cpu1
-> >>     __buffer_unlock_commit():				cpu:1
-> >>        ...
-> >>        ring_buffer_unlock_commit():			cpu:1
-> >> 	 ...
-> >> 	 cpu = raw_smp_processor_id()			cpu:1
-> >> 	 cpu_buffer = buffer->buffers[cpu]		cpu:1
-> >>
-> >> As shown above, the process will acquire cpuid twice and the return values
-> >> are not the same.
-> >>
-> >> To fix this problem using copy_from_user_nofault instead of
-> >> __copy_from_user_inatomic, as the former performs 'access_ok' before
-> >> copying.
-> >>
-> >> Fixes: 656c7f0d2d2b ("tracing: Replace kmap with copy_from_user() in trace_marker writing")  
-> > The above commit was intorduced in 2016. copy_from_user_nofault() was
-> > introduced in 2020. I don't think this would be the fix for that kernel.
-> >
-> > So no, I'm not taking this patch. If you see __copy_from_user_inatomic()
-> > sleeping, it's users are not the issue. That function is.
-> >
-> > -- Steve
-> >
-> >  
-> I noticed that in most places where __copy_from_user_inatomic() is used,
+> Thanks, I've picked this up. It may get squashed into the patch that adds these lines
+> before going upstream...
+> 
+> 
+> Thanks,
+> 
+> James
 
-"most" but not all?
+Thanks for picking this up.
 
-> it is within the pagefault_disable/enable() section. When pagefault_disable()
-> is called, user access methods will no sleep. So I'm going to send a v2patch which use pagefault_disable/enable()to fix this problem. -- Gengkun
+Will that be in the next snapshot?
 
-No, I don't want that either. __copy_from_user_inatomic() SHOULD NOT SLEEP!
-If it does, than it is a bug!
-
-If it can sleep, "inatomic" is a very bad name. The point of being
-"inatomic" is that you are in a location that IS NOT ALLOWED TO SLEEP!
-
-I don't want to fix a symptom and leave a bug around.
-
-BTW, the reason not to fault is because this might be called in code that is
-already doing a fault and could cause deadlocks. The no sleeping part is a
-side effect.
-
--- Steve
+Cheers
+---Dave
+> 
 
