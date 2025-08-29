@@ -4,74 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6275FCA0FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 08:10:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C9C7CA0FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 08:13:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mi/dYekw0qI/oEfFW9dSRKek6CwvSuHhplabeIMjMAw=; b=wM7W9R/Vmcw7U9RE4xltoAfJ3J
-	02hXBSJY7Ek0tlBlpQK/sLbm1QmIpOW3VwiwqbUfOKedvu/hH7oGM3/oo6PUCBVl0MVZZ9O40vnrf
-	pdyCR+XDiPH0AR1wGbNiGF+SMcYj/LWG+mh7eKiOoaOZwft47MY9vqyelfbvVOQOCmzSGC+KLsa6T
-	ZpVlJwSiTB3EaZRfFntRMqchxLJteZPOiv0v67FnSkm2PHlzyTYYNLLiVz1BnMX4Tid8FRF+jH27i
-	5Boz3JzrB+9M8jlXmFB7gitMMB9D6t/XT5qu1uxRtDRocwEHOzRkWWqgmD9U41gGs1p2KxxD/59ST
-	pASDenpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GSSU/7YUmLysPQh7KSt0KtsFavc1CTYp3otbrQJhgCE=; b=UdQbrKFLEV5PLoBJsLFbdkSXmf
+	aXvFA/Pq/cj/7WobJP2HWeiAp0FwrPBBES15VRQXBz4mVk7t/dZjttmccguN4oS5S57Xq+AJ2Y0qe
+	oss1NBR27TkkverJTgcR+5hClZkS9ZiI0MAKTk8ng43Od/Rm/x5+ioCn7sRnc7ooh7gmATBgDhlqh
+	ZZPXRYMUcmvG8n6eefemqRyFyJY5fXvBJgTqGksbTLz3xuJDT6xJQB6qNN80AqCFklzZDH1hqOlhp
+	tnDVCIcc9260WznJn1iXfKPAPLqSxUKYhxOsM8uzHkONHo/a8EfkrZnsSdfZV2NEXbkWoHmH/uhPs
+	UcjddPzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uruBz-00000004uUu-3BqI;
-	Fri, 29 Aug 2025 08:10:39 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uruEh-00000004v2P-2kS9;
+	Fri, 29 Aug 2025 08:13:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urtpP-00000004oVX-3z1I
+	id 1urtpy-00000004og2-1CP7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 07:47:21 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57T7lHeg1756182;
-	Fri, 29 Aug 2025 02:47:17 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1756453637;
-	bh=Mi/dYekw0qI/oEfFW9dSRKek6CwvSuHhplabeIMjMAw=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=Iv8ddgH6otJEQ4kITdro+09tkETjenuwbcTg5DoetCyDCqR49VT9pP1eyD7iaupRB
-	 23XuJ6lEyotYbEzI0dodisZrvv9BNopwMyolW7gyk6+5RR5Z5vdlOWXOT6LbFvM6Wb
-	 z1q4RJgtTqVItRM4K1n9x6UmYDxjOyn1qCjNQ2jM=
-Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57T7lHR94060589
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 29 Aug 2025 02:47:17 -0500
-Received: from DLEE115.ent.ti.com (157.170.170.26) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 29
- Aug 2025 02:47:16 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE115.ent.ti.com
- (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Fri, 29 Aug 2025 02:47:16 -0500
-Received: from hp-z2-tower.dhcp.ti.com (hp-z2-tower.dhcp.ti.com [172.24.231.157])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57T7l1fS1717407;
-	Fri, 29 Aug 2025 02:47:13 -0500
-From: Hrushikesh Salunke <h-salunke@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <s-vadapalli@ti.com>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <h-salunke@ti.com>, <danishanwar@ti.com>
-Subject: [PATCH 3/3] arm64: dts: ti: k3-am62a-wakeup: Add bootph-all tag to usb0-phy-ctrl node
-Date: Fri, 29 Aug 2025 13:17:00 +0530
-Message-ID: <20250829074700.1531562-4-h-salunke@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250829074700.1531562-1-h-salunke@ti.com>
-References: <20250829074700.1531562-1-h-salunke@ti.com>
+	Fri, 29 Aug 2025 07:47:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E350C401C4;
+	Fri, 29 Aug 2025 07:47:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94D2DC4CEF0;
+	Fri, 29 Aug 2025 07:47:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756453673;
+	bh=gCbRk9xzyu+2hoWKBy3FsZe0DLlpKUqrn8XkcEjrLfU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=UoKFCMZlFXgKPPQihwSAddcP+lF6qPigHrYFhBWK22xq9W9PaY3RubjMJCb+++QU6
+	 YKu6PKhP7t2kxr2PuaUI3oWS3RnoPLUmJevRckZQWuEyW4LgNIFcjJ4RZINARPsX6R
+	 liqlZgIwO+SR33v7jYpPIKFjQFSwXVhvMKheq7l+mp91pPT/shcQcbLeIUfVuvgQB7
+	 RXJZdqKjcj3VGRInxQWprCSxe5vwShCXvpS/z+lWmOhpBu2LExrZo636qUVpTnUDpY
+	 dXwSj79YkjaKQMQgOV6Rdc8CL/iOR9DrmhxyDh23aQ/N4CSPlAR8L2ajcBSud3pRbP
+	 eoUbBM5pBQJEA==
+Message-ID: <0f716362-07f4-4c79-bb0a-e71d2630a797@kernel.org>
+Date: Fri, 29 Aug 2025 09:47:48 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 5/6] dt-bindings: soc: fsl: qe: Add support of IRQ in
+ QE GPIO
+To: Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Rob Herring <robh@kernel.org>
+Cc: Qiang Zhao <qiang.zhao@nxp.com>, Linus Walleij
+ <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org
+References: <cover.1756104334.git.christophe.leroy@csgroup.eu>
+ <17636607f2beac3b64c87b3bec035fa27ce8d195.1756104334.git.christophe.leroy@csgroup.eu>
+ <CAL_JsqKFvVQTVXV8mWX0z1=hd3nLDzLXq-0G_0bshMCvQ5kVvA@mail.gmail.com>
+ <f21e27da-de26-4835-9660-b39e99695281@csgroup.eu>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <f21e27da-de26-4835-9660-b39e99695281@csgroup.eu>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_004720_030941_5D8D7753 
-X-CRM114-Status: UNSURE (   9.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250829_004754_369612_8AC9CE58 
+X-CRM114-Status: GOOD (  15.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,27 +125,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add bootph-all property to the USB0 PHY controller node to make it
-available during all boot phases. This is required for USB DFU boot.
+On 28/08/2025 16:12, Christophe Leroy wrote:
+> 
+> 
+> Le 28/08/2025 à 15:28, Rob Herring a écrit :
+>> On Mon, Aug 25, 2025 at 2:20 AM Christophe Leroy
+>> <christophe.leroy@csgroup.eu> wrote:
+>>>
+>>> In the QE, a few GPIOs are IRQ capable. Similarly to
+>>> commit 726bd223105c ("powerpc/8xx: Adding support of IRQ in MPC8xx
+>>> GPIO"), add IRQ support to QE GPIO.
+>>>
+>>> Add property 'fsl,qe-gpio-irq-mask' similar to
+>>> 'fsl,cpm1-gpio-irq-mask' that define which of the GPIOs have IRQs.
+>>
+>> Why do you need to know this? The ones that have interrupts will be
+>> referenced by an 'interrupts' property somewhere.
+> 
+> I don't follow you. The ones that have interrupts need to be reported by 
+> gc->qe_gpio_to_irq[] so that gpiod_to_irq() return the IRQ number, for 
+> instance to gpio_sysfs_request_irq() so that it can install an irq 
+> handler. I can't see where they would be referenced by an "interrupts" 
+> property.
 
-Signed-off-by: Hrushikesh Salunke <h-salunke@ti.com>
----
- arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+They would be referenced by every consumer of these interrupts. IOW,
+this property is completely redundant, because DT holds this information
+already in other place.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi
-index 9ef1c829a9df..8ed2b18c95f6 100644
---- a/arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi
-@@ -33,6 +33,7 @@ cpsw_mac_syscon: ethernet-mac-syscon@200 {
- 		usb0_phy_ctrl: syscon@4008 {
- 			compatible = "ti,am62-usb-phy-ctrl", "syscon";
- 			reg = <0x4008 0x4>;
-+			bootph-all;
- 		};
- 
- 		usb1_phy_ctrl: syscon@4018 {
--- 
-2.34.1
+> 
+>>
+>>> Here is an exemple for port B of mpc8323 which has IRQs for
+>>
+>> typo
+>>
+>>> GPIOs PB7, PB9, PB25 and PB27.
+>>>
+>>>          qe_pio_b: gpio-controller@1418 {
+>>>                  compatible = "fsl,mpc8323-qe-pario-bank";
+>>>                  reg = <0x1418 0x18>;
+>>>                  interrupts = <4 5 6 7>;
+>>>                  interrupt-parent = <&qepic>;
+>>>                  gpio-controller;
+>>>                  #gpio-cells = <2>;
+>>>                  fsl,qe-gpio-irq-mask = <0x01400050>;
+>>>          };
+>>
+>> You are missing #interrupt-cells and interrupt-controller properties.
+> 
+> The gpio controller is not an interrupt controller. The GPIO controller 
+> is brought by patch 1/6 and documented in patch 6/6.
 
+Then the IRQ mask property is not right here. If you say "this GPIOs
+have IRQs" it means this is an interrupt controller.
+
+If you say this is not an interrupt controller, then you cannot have
+here interrupts per some GPIOs, obviously.
+
+
+Best regards,
+Krzysztof
 
