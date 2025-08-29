@@ -4,72 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BC3ECA0FF7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 08:24:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34723CA0FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 08:29:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SdOWi2UEtM5sH76Xw90D+BD8MyqOdvac/zHgDsx1Nac=; b=eGnAqwTPRoxcWudql4l3g5cOZb
-	ZYCkefYw/QtXueFXuENezczn1Tu0g6kYbLTZecOa+x1pGcGuxljEWLcgYsF//QclSox584wjOfd2U
-	0w+k/7WdddNrzdbwjxG4tFmXvYV305H/ORqVGpYSeEI5U67t36kd9TsyxNszu5/bkRKQ+yXZVjraR
-	VwktTGeOu2QULRDQoQZAkLZesx0SfJVMti428KoshtjvQILcLyPcTc3rgnHv4iWEzgRPJrVAgH5HC
-	h7rPaQud8RYlTNkvNNU9+u7EgQ79Xw7BDQNzoj4UZTNRWWl58s4K/YtTZQI43gH6490xNDn65A1D3
-	oP/xIGHA==;
+	bh=k6/i7cd509tx0qwl417Go7taTJmYQodh9c8WY4R1ZCI=; b=On1ixLkentx6tDUD02IFkVJPM6
+	MHEDLBUZl1uxCYUgtIX2nJa9JsWlfweS9qTNH6YBLDqX31YRDY+nbHmMJlMAMjkSM86gy+TalIWx7
+	Q1HTnWNBywxAek8ndhA57TDpMwnHUuovuG5oTnb1rlZVT36Jm1C0qFpDRs4AfyBZ6pDziN5CISEC1
+	fCA0Gqo+DaHRv8CxWpC4kI4uA9xPpU74jkbn/xTutfE2pjsPV4Es6+i3JQT5zGnuL+FByKNykPjkr
+	TXR4ounEUnCTWumN+AAlDacyyfNKElMBEfZgb3dY+EGwA8Iyc+m8Z7slSRAVAXCpGhMTzi7GrE0rs
+	hK9ytLvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uruPT-00000004xrN-1yYd;
-	Fri, 29 Aug 2025 08:24:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uruU9-00000004yku-2t6h;
+	Fri, 29 Aug 2025 08:29:25 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urtxy-00000004qeO-0J37
+	id 1urtys-00000004qyL-1Ep3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 07:56:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9FA4244719;
-	Fri, 29 Aug 2025 07:56:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA52BC4CEF0;
-	Fri, 29 Aug 2025 07:56:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756454169;
-	bh=gEVY2TEOLXWuc/PylIHeYa0ayOzElTCYmrn2BP+q/ow=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ThUpyuCEt+rHjGchX/jdas1nJIAeIqJ6AnMYOF9cySZOYAnrJZYC/QcNcxw2bHsMR
-	 f1bS5mUqF9syMOLObU9aoV97mJjLf4lbHaYNHo2UrzxWImgkd3rV7YWUeRrqiu5ujd
-	 zdBpWZrXThODYKC6Yay5tyTon+RB67NHLqQYKCalVyKw98bTZgRb927gWS14SJwVS+
-	 v+iAlJSdNA69eV935f/yCfNPpnUtlbxGk7DaTpnRylJJJwdhvVh3EJOOo2IRZXw7Va
-	 UCO8AhPWZTjqDZXc2LWD7ROB8k2Gtf9BrFLnJNtLT9l+JJEt8BTHB1UXGdssEAkXzj
-	 mRAxskbk1f3YA==
-Date: Fri, 29 Aug 2025 09:56:06 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Ravi Patel <ravi.patel@samsung.com>
-Cc: jesper.nilsson@axis.com, mturquette@baylibre.com, sboyd@kernel.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, s.nawrocki@samsung.com, 
-	cw00.choi@samsung.com, alim.akhtar@samsung.com, linus.walleij@linaro.org, 
-	tomasz.figa@gmail.com, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, 
-	ksk4725@coasia.com, kenkim@coasia.com, pjsin865@coasia.com, gwk1013@coasia.com, 
-	hgkim05@coasia.com, mingyoungbo@coasia.com, smn1196@coasia.com, 
-	pankaj.dubey@samsung.com, shradha.t@samsung.com, inbaraj.e@samsung.com, 
-	swathi.ks@samsung.com, hrishikesh.d@samsung.com, dj76.yang@samsung.com, 
-	hypmean.kim@samsung.com, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-arm-kernel@axis.com, 
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	soc@lists.linux.dev
-Subject: Re: [PATCH v3 08/10] arm64: dts: exynos: axis: Add initial ARTPEC-8
- SoC support
-Message-ID: <20250829-attentive-watchful-guan-b79ccc@kuoka>
-References: <20250825114436.46882-1-ravi.patel@samsung.com>
- <CGME20250825120735epcas5p3c86b9db5f17c0938f1d53ef6014ab342@epcas5p3.samsung.com>
- <20250825114436.46882-9-ravi.patel@samsung.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Fri, 29 Aug 2025 07:57:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Vs9i8VEuKTF+keF7M+ccxjunckKh0v0VJYNVdKw04/YvNe09m9eX/LqFJYmaxDSO6fCY3cmqEYdQ1u8vxowGpUimELd6r8BF74y4TTYOrCiM+C3iFg8miGzGm9vywV00JRKnHR87IAkkNw7UyEMGvXGibunQP+eplCJo+RYjHwVnd828ORsyHd54fDUtHu6tkOmuHqJRQ+taRHT0zmLXTCnqm3xZjiNsP+LQ3o842YEF7bVEEyWwj+Wj92qBmvRtmyf5gkK26CUxgLzfyiL4MV8s0j6k8Q2/tWvBrgsLxoc8XfgEfinrNV0nTZIse4O9US29WT4kd08GtV6j503PUw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=k6/i7cd509tx0qwl417Go7taTJmYQodh9c8WY4R1ZCI=;
+ b=I5tEO1lp15LQy1wgdqL9cs+d1GmK3xzaWPxj7rV4MlbjovrRaYhg2Y6Bx4ZQIX1PeSWxfWpcozimzdinntoCd5mWMODnXY/HWbzQkAJSlk683Py78ISPyhnJE5es3l4ueNGiLaO79ByQqjLyhzgeNy7B4oSOu3oSZNs23Eg71rcDqpbDl3RwGbgadux3q3W8rToK8n/H1Pp4Wf8lLJ9th3GcbLZqoKS7w2XRyD8xvFOOtnsqkNyVjjPQXRDeLg7VYU4M+sbJFC+kp7hEVbVAFStniKiX0AH1D5ew9qpQebd+g0Y0YU6VoQiS5my21hvmCdgZBOpOTVWsjwwbf1zw7w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=k6/i7cd509tx0qwl417Go7taTJmYQodh9c8WY4R1ZCI=;
+ b=NQJJNmngbGq/2aaM72OFCWbIv5VldPyd87eeALaWp1k7o8sNCeviRO9ljEpxkeQaWnT/fqSvPuHB1G8OhtBktAYhZ7nIUh4q2PCBmlwvFVbmKELp3P/ArqDwrN+t7RDx5E9wvfNXnYtbcz59dJbykXbpz5DihMInInMfQbF8vv+B0eGXCk5xbIKiz1k+1Sz9qH34jW+b6DzH0NGpbkRPC4rtUV191jPfrZLzxt0UDbPhwjnnkPl9Mktw6qnNTAjzlogDZRhQ4IjWMsgET4CnKKQUh1Qb/QYEg4XDdz1+wqHigaAi43BTZovOQliBRSoJXTMkoozRORdAckmgGI2ApQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by PAXPR04MB9139.eurprd04.prod.outlook.com (2603:10a6:102:22e::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.15; Fri, 29 Aug
+ 2025 07:56:55 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.9073.010; Fri, 29 Aug 2025
+ 07:56:55 +0000
+Date: Fri, 29 Aug 2025 17:08:13 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Brian Masney <bmasney@redhat.com>
+Cc: Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/3] clk: Introduce clk_hw_set_spread_spectrum
+Message-ID: <20250829090812.GA16625@nxa18884-linux.ap.freescale.net>
+References: <20250812-clk-ssc-version1-v1-0-cef60f20d770@nxp.com>
+ <20250812-clk-ssc-version1-v1-1-cef60f20d770@nxp.com>
+ <aK8oD6HNw131avjI@x1>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250825114436.46882-9-ravi.patel@samsung.com>
+In-Reply-To: <aK8oD6HNw131avjI@x1>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SG2P153CA0038.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c6::7)
+ To PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PAXPR04MB9139:EE_
+X-MS-Office365-Filtering-Correlation-Id: a8b52847-5f0c-4a0b-b6c6-08dde6d19f16
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|7416014|376014|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HLu18QYpyWJ7LfSwUIsIZwaWzSy08oriHfrksPrJ5iJTpk+MJBNuRuR3S3QL?=
+ =?us-ascii?Q?pqBR2xMPfgo1TDzc8vWRAw4lfICs9GbsRLV79aeKeZ0WnE0kuhZUrRF2pAKM?=
+ =?us-ascii?Q?HMjXKG+Q9O+Tl9Lha85wGJSkwogxhbEIZsXeueUeUnUfLCSmURx95EhoEppK?=
+ =?us-ascii?Q?bn45yklXI1WOPyKV1PmEU2zdak5c+Wn1fGbbpBI4K/v6xQj4KLAbnW3ImOc5?=
+ =?us-ascii?Q?aKp5ZydkZ90wKEHuBhvK5lXR3Qx+0ZMB7CsRAYFSPj9lQuCRQG9z9JvyX8aN?=
+ =?us-ascii?Q?KJhG8+Kj7pLgWuZRFoQgrYm+3ourNF/aivlkd7422qPFZYkxpt8THzBqzrTI?=
+ =?us-ascii?Q?VziBTaDfw5KoSTF90cPbHlvyJQ45oeax9+38K9ishgBny5471Ph+3/U1wAKz?=
+ =?us-ascii?Q?eqq3RpxqrEX0Wx3IVfooqEjjGnrNWngAwgwFbLNce2uXDBJe8tBhYPLDagOl?=
+ =?us-ascii?Q?Ql+BNQe7O9kQddZqkByXJUXdOkHhMDUVq7PKM1/9wBPIq/yVTX1Rjlxh8Dxw?=
+ =?us-ascii?Q?kQwp9Jd+tPMcFF+NR/xsuF5/8vUwDZDfOtXT6MPKMFE7XPwwL29jqimwBl47?=
+ =?us-ascii?Q?URUauwj4DOeNkZkbdN8Yh/R2dW6y1Ft4oLi5Utlo8jE77N2dga2bx4A9oSmt?=
+ =?us-ascii?Q?oYTJM6BWaT1dTqwmUJm8zxCY4+9zaw3rk0JmihFeWxSi1IFp93VVekihrJhC?=
+ =?us-ascii?Q?xszjae5s58Irtn9fJAR2RQyjppztdo7rOnj1mui8aYi1qRxKE2Hepgsc2/rg?=
+ =?us-ascii?Q?PcqYgtTU/oA/EhoFn9hBhRTkH2rvRQ/2ycUTFV5lH21nqn5uRNQakQ34Q5L0?=
+ =?us-ascii?Q?BX3pAapmtNUz1zkmq80zk2Oa3U426et41ndify2I6lA+g/BYEsHqBN2XfIn6?=
+ =?us-ascii?Q?ZPy7BNfjC9O95DfXp1+VVK+Bm/bCFclmTjYtzrP0d4aPGJpEuRFVGVFqwTNv?=
+ =?us-ascii?Q?YQGklhUpp2YfDrL6Xbckh2A33ZrXfDLd3wjVZFKQ6tb5L5QwFwdJnHnvyW5l?=
+ =?us-ascii?Q?jAWQ5mKHJdpkDNqYdKcS6/PUViexdqzhYfeDqCfZ/n2Zf4l0HM2CQUDFP1MD?=
+ =?us-ascii?Q?IMqsOkllnmEZbqk31MQPvGYCKTmMZ9ubwQANl7KIJ+DBRtd4xwy9J9cD+bh8?=
+ =?us-ascii?Q?keAcqxu8QGALYSAqATwAF/xFoWhLTYOqEMzOyoSQsZ+BaDCaUHuWv7iK7oa9?=
+ =?us-ascii?Q?yAcC6XiNtpnR3cev0YeSVHGwvKiBI1Ks/OE522O/6oQiXKDhMLymtRKp4kk2?=
+ =?us-ascii?Q?i7+ccVUBGPE8MnxSdGjyi2p1ALqfOeEEgWDwfH2Meoc8Slvl3iH7AJ2idqG/?=
+ =?us-ascii?Q?DA4haccqGb+dbMwZDj8nkY9+ZH/j07SlOaHvhD+YjeIFm7A9oBfQiov1SGMv?=
+ =?us-ascii?Q?UN0dabEN3SvN2X3Q2Jlg/QPmvFIWh3I4pzxbJ9sbwXzMS7l0Vlk5DHmixUaH?=
+ =?us-ascii?Q?DHpqHtim0MfW4LrGDfRAawbbG3tHIswdSI0MgFUWr9zJxMWmmE279g=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(7416014)(376014)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Oef62ZFWO0iYQY8rmkK7c5YX9+sNiq1Oe7GhCMq7ZsCcBHU4rsu3VAkLQKDE?=
+ =?us-ascii?Q?20fhJNZIzJJSkiGw789RUjQelxnla3QmwArLmeUx92m9SPIjizjIN7uDk7J4?=
+ =?us-ascii?Q?9X3tTVbP44SPTg40i2LG/iZFrmAzqg46lc6GP4hQkqw4h27VMvMP9ArYi9OM?=
+ =?us-ascii?Q?UyQpiSMdRinXIWa/PUH7UCzUcJZFS6Vp9TsKRQKKtUkLZ7VZ9tZaRaSzUifD?=
+ =?us-ascii?Q?/s6hW9UjnXGMVKptun+1RZ1natnP0P2Tez9TB3NEg9vOiw72opNoryX1D0nt?=
+ =?us-ascii?Q?JlW6kCMiPUebJ3+woNad5llbFO8gLx81kDDc3j1QFuXXVO2UyMtyRObAYzaM?=
+ =?us-ascii?Q?npTlYGNCrQ9zkj1+9h4gi+Auqs1INvZULsWDlQAY0eMQnCdDwZBfm3fwaD7S?=
+ =?us-ascii?Q?FXNu8xp0kJsJlsZBuvu/JYjCiNgwqgeDetgKuAMh5UKhGmr0CYi4McFyHRrS?=
+ =?us-ascii?Q?ekHF+A3FhByxIvf7z+xwOHziP9htmIyXebC0ULhtXWFwitQthlWRBPc2lwJf?=
+ =?us-ascii?Q?bgGsa34OjouLjupT1Hx67M7P57jzoY8Q8hfdk9p2uyQHGwZm+PBUteEwzKKQ?=
+ =?us-ascii?Q?v6rhRh/11fR+gEe04FItL7fQr+NOxLlWYTnkK28DNYVrVfrGb8x7zIx2ErJ3?=
+ =?us-ascii?Q?dB5STHD6+zo02QcaFiAcwtnTmzcpGsjZKSEoqrFydRfenRT6cDMYWwTQxqFf?=
+ =?us-ascii?Q?u0oct2giNX7xwg0uedIdrQTbmkv9/9qeRL63Q3Uhux1LHVyk8HuU9bYAwwur?=
+ =?us-ascii?Q?iNRNifjMdS9gEQnTRD0a7x9KYv97sHi4hAUKAEaqdkPPc8bgNg4nGi8JwAds?=
+ =?us-ascii?Q?FRGccSF6tkGeWa6dU8iZrSNL8EGxRLy2MdK2tVTGgYZMm0L9B7PW64uyce05?=
+ =?us-ascii?Q?np/039Z3Cdy2XVhM4kZegOK7JchZ/SfTDNTW9JGt8A+eXwwzWhuruTWco/u4?=
+ =?us-ascii?Q?OJebq5UNO4JYDmKDt7ZeUoTHvlB8kJ5LnYBcKAALKGQ13U3pm1ESwFrcT2v0?=
+ =?us-ascii?Q?y9Vzams0bsTFpUwysWVaY3Ff4qbBjHUmpYtbLVPnNuNY06BgjyAhkEWWk/ZT?=
+ =?us-ascii?Q?K+WINVMkZLa40p5+4oduE+2Llpu30yPEWYGcFYxVMbIpV5g0hgDkM6ORvCcN?=
+ =?us-ascii?Q?5oAxNCJ5pvAbeJK4M8qDaKUUonA5GiUgRoOJ/llSZNhcciCFnhlD1v7I6afn?=
+ =?us-ascii?Q?g3thS2M0i6PizmUz85bwz01ZmVBQSDoXv/nfp0wrh2PDXAfrl8i/E9zATEJl?=
+ =?us-ascii?Q?/+LyNVfk2GcjqEyFy4rL8zEw5rZBZny5KRB2G1z5ClbL1uKaWYK0+zNpG3Jq?=
+ =?us-ascii?Q?eM+AwpDBqHNVVI+J5VB8UcDFXBmoxcs5WNmnRn6zUNMsw/HVhrTPalfQKekq?=
+ =?us-ascii?Q?pGsJACGeHFceAcmK41FeYiTZwIMJ+id1Cs1ioFizZ4xjhfsJbtmaWO10+PFK?=
+ =?us-ascii?Q?iIBHzrt9+pJU0G6Br954kU962dTxgqIEKlFtSXTSGDMRdnOqy5jibPP7jlo5?=
+ =?us-ascii?Q?Q7E+C0MdagqiDsCmhZ2axuPDKenjTf/nT8BtF+LWB5l6WYOfzAj0NoLClqt0?=
+ =?us-ascii?Q?xeD3wyUzaRUzHHuzrXQ9yYWbmiJ4iw/V+yM9utKe?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a8b52847-5f0c-4a0b-b6c6-08dde6d19f16
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Aug 2025 07:56:55.1172
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ljRVHAeNvPvmnvycKC7/PwkwxUrrn4ksce5xKQ2Ln8NPbDuhZuJNA/TGPaSxrBmVAGDqfVjAZJqCI3C+Pm73+w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9139
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_005610_148517_CEFB2945 
-X-CRM114-Status: GOOD (  13.49  )
+X-CRM114-CacheID: sfid-20250829_005706_339383_E5581955 
+X-CRM114-Status: GOOD (  13.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,76 +167,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 25, 2025 at 05:14:34PM +0530, Ravi Patel wrote:
->  config ARCH_AXIADO
->  	bool "Axiado SoC Family"
->  	select GPIOLIB
-> diff --git a/arch/arm64/boot/dts/exynos/Makefile b/arch/arm64/boot/dts/exynos/Makefile
-> index bdb9e9813e50..bcca63136557 100644
-> --- a/arch/arm64/boot/dts/exynos/Makefile
-> +++ b/arch/arm64/boot/dts/exynos/Makefile
-> @@ -1,4 +1,5 @@
->  # SPDX-License-Identifier: GPL-2.0
-> +subdir-y += axis
->  subdir-y += google
->  
->  dtb-$(CONFIG_ARCH_EXYNOS) += \
-> diff --git a/arch/arm64/boot/dts/exynos/axis/artpec-pinctrl.h b/arch/arm64/boot/dts/exynos/axis/artpec-pinctrl.h
-> new file mode 100644
-> index 000000000000..70bd1dcac85e
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/exynos/axis/artpec-pinctrl.h
-> @@ -0,0 +1,36 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
+On Wed, Aug 27, 2025 at 11:45:19AM -0400, Brian Masney wrote:
+>On Tue, Aug 12, 2025 at 08:17:05PM +0800, Peng Fan wrote:
+>> Add clk_hw_set_spread_spectrum to configure a clock to enable spread
+>> spectrum feature. set_spread_spectrum ops is added for clk drivers to
+>> have their own hardware specific implementation.
+>> 
+>> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+>> ---
+>>  drivers/clk/clk.c            | 32 ++++++++++++++++++++++++++++++++
+>>  include/linux/clk-provider.h | 29 +++++++++++++++++++++++++++++
+>>  2 files changed, 61 insertions(+)
+>> 
+>> diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
+>> index b821b2cdb155331c85fafbd2fac8ab3703a08e4d..48c7a301b72b30fd824dae7ada2c44ee84d40867 100644
+>> --- a/drivers/clk/clk.c
+>> +++ b/drivers/clk/clk.c
+>> @@ -2802,6 +2802,38 @@ int clk_set_max_rate(struct clk *clk, unsigned long rate)
+>>  }
+>>  EXPORT_SYMBOL_GPL(clk_set_max_rate);
+>>  
+>> +int clk_hw_set_spread_spectrum(struct clk_hw *hw, unsigned int modfreq_hz,
+>> +			       unsigned int spread_bp, unsigned int method)
+>                                                       ^^^^^^^^^^^^
+>Should this be 'enum clk_ssc_method'?
+>
+>Also can you add kernel docs for all of the parameters? I know it's
+>documented on 'struct clk_spread_spectrum' below.
+>
+>What do you think about having this function take that struct instead as
+>a parameter to match what's on the clk op?
 
-Does not match rest of licenses.
+Yeah. Dan has raised similar comment, I will change to use
+struct clk_spread_spectrum as the 2nd param.
 
-> +/*
-> + * Axis ARTPEC-8 SoC device tree pinctrl constants
-> + *
-> + * Copyright (c) 2025 Samsung Electronics Co., Ltd.
-> + *             https://www.samsung.com
-> + * Copyright (c) 2025  Axis Communications AB.
-> + *             https://www.axis.com
-> + */
-> +
-> +#ifndef __DTS_ARM64_SAMSUNG_EXYNOS_AXIS_ARTPEC_PINCTRL_H__
-> +#define __DTS_ARM64_SAMSUNG_EXYNOS_AXIS_ARTPEC_PINCTRL_H__
-> +
-> +#define ARTPEC_PIN_PULL_NONE		0
-> +#define ARTPEC_PIN_PULL_DOWN		1
-> +#define ARTPEC_PIN_PULL_UP		3
-> +
-> +#define ARTPEC_PIN_FUNC_INPUT		0
-> +#define ARTPEC_PIN_FUNC_OUTPUT		1
-> +#define ARTPEC_PIN_FUNC_2		2
-> +#define ARTPEC_PIN_FUNC_3		3
-> +#define ARTPEC_PIN_FUNC_4		4
-> +#define ARTPEC_PIN_FUNC_5		5
-> +#define ARTPEC_PIN_FUNC_6		6
-> +#define ARTPEC_PIN_FUNC_EINT		0xf
-> +#define ARTPEC_PIN_FUNC_F		ARTPEC_PIN_FUNC_EINT
-> +
-> +/* Drive strength for ARTPEC */
-> +#define ARTPEC_PIN_DRV_SR1		0x8
-> +#define ARTPEC_PIN_DRV_SR2		0x9
-> +#define ARTPEC_PIN_DRV_SR3		0xa
-> +#define ARTPEC_PIN_DRV_SR4		0xb
-> +#define ARTPEC_PIN_DRV_SR5		0xc
-> +#define ARTPEC_PIN_DRV_SR6		0xd
-> +
-> +#endif /* __DTS_ARM64_SAMSUNG_EXYNOS_AXIS_ARTPEC_PINCTRL_H__ */
-> diff --git a/arch/arm64/boot/dts/exynos/axis/artpec8-pinctrl.dtsi b/arch/arm64/boot/dts/exynos/axis/artpec8-pinctrl.dtsi
-> new file mode 100644
-> index 000000000000..8d239a70f1b4
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/exynos/axis/artpec8-pinctrl.dtsi
-> @@ -0,0 +1,120 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+Thanks,
+Peng
 
-This is Dual license, so why pincltr header is not?
-
-Best regards,
-Krzysztof
-
+>
+>Brian
+>
 
