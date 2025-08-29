@@ -4,89 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BE17CA1004
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1C96CA0FF9
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 19:36:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4SSy/4QqSxPf2Td+xOiBHnRIJU25HPzBFl3gyWpJBL4=; b=K07dmTk82P6ooXVm24cuSVoZ0Z
-	gdj6+moIaNs4XP292eP0KdrSTpUA4TzveCjlheiFqfY7Y0K8RdYy87Fuv62ZQfU1lp+2FGUBsCJLj
-	wbZTA2iMzJqTitxSwOJJRMvrGAX2UGi3CwSCj8SuQAB6vSl9OFkKgXkbMLlsTt2EOXyhokjdKLQyM
-	+cCUKQZmv/Dz51rwGeMfq4A1BssE8cc1q3iwYhQTcamdtGvk4Hg7wX9rMrv3Xau/l37UiPdkdrKWA
-	e353OseFSeD7SfHXt5IwF3A2+XrLEEmnHJdmtaA7w3rstXiqwJasJrMaBTnJW91MhghPSoI9FqDxB
-	ZZqQhJgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/Dj04vWIeuHCsy+8+zt4TdMtpI2sSyrmJEPdLR6nowk=; b=qGAvNbzDIUNg4j9XRmChjsk+/q
+	pIarsVYkcnCg3NKPnjh+4YxIQrNkyCKMKJy6DKF7bZsK99H/K7G3QGNlD8jngAmLtgzZSijX1Z2HP
+	TgZzaQmQeKVeESiwvAve4o5hwS5QBWMlsTVqjNy98F9qt2u4ZUZFwLYjaUVnRp3OtjPU9HbPbFeUn
+	FfDg392F8hsPJaKIdlQ0bTuUvGkks15UVcITKVteag72uQLqhJcWp5Q/9h/pIC/KmRcnNh/NHD8rY
+	2TMZl4ybqLLB/RaR8pYnaFFRDK5DcdscfIbkCAyPkHhz0v9N2BEWgGlRWs1mMtYh8YZmS5KAufSbI
+	2ZNk/1Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us4tI-00000006kyZ-04jt;
-	Fri, 29 Aug 2025 19:36:04 +0000
-Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us19A-00000006DTa-06wZ
+	id 1us4tF-00000006kx6-44e9;
+	Fri, 29 Aug 2025 19:36:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1us18P-00000006DG5-1ljE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 15:36:14 +0000
-Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-7f8ea864d68so208836485a.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 08:36:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=fooishbar.org; s=google; t=1756481771; x=1757086571; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=4SSy/4QqSxPf2Td+xOiBHnRIJU25HPzBFl3gyWpJBL4=;
-        b=jKSDmwELcR6q6abdp5PO41CKfLZo7zHOtD+pXDDk89bqgsVtb0C2wBl/LPWuYuULWu
-         WO7vYIwvbcxrS3aJvf5XdgxnVyuBJKjDDx40jgjMe7wvm6Hy4PnfmJBSFF2TwQsbmg+J
-         sI8BJamUIPnUD94fd36//24duwj1P48gk6e8BHPYLBc/afGci/XoYXbPw4U3Xh0z26qA
-         865iJzTmF/po59knv7oEB04vJrYgw6v21CAYitgaJ40S8hNxGmHlwTc157hXLmXePuNZ
-         COBm5lynnag8luZHYzUWzy00D9bpnuBgKcMJm+k657gDVpOK8mB7rH5dk2D9WL/wvvWX
-         pPfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756481771; x=1757086571;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=4SSy/4QqSxPf2Td+xOiBHnRIJU25HPzBFl3gyWpJBL4=;
-        b=AzdZ1KMNkwQYopqrOcQPknwalwe/mfXn0O1Sd4mZ5ExHXxx6i6qjCfdqiyLArrP2Gq
-         tYqOUWdjwEr3zPmi+q8aPZoYg7+hP70dpkcux11y3a7tHsvfaVVKKVBwuxa3H6gOL4vY
-         AiClu8+vYjVVoC1ETsIjoabV3fFhB0SIBrnYQcu1207AvYSIOCAsXAhNIni/evZ5t1w3
-         0ddS3Ffo5qrYNZFJnkG1+pZQRDayd1dmnUBPezauUQE/clfafiX0A/R6DVv9rPfYljY/
-         XlUh5M8/AmfAC62ztKBAbzlDrS+WVYmLLlVbT9s6NNFZB6U38tntMQclXpk4ZbRb111z
-         1xkg==
-X-Forwarded-Encrypted: i=1; AJvYcCXYosiLXCJRi2/BbSyBctbHxXGPu4ucd84XqmsQbiQOuHQO4CtETS/NXa6TTYvyRcJaRDIIhy1zpGcP1J3R313K@lists.infradead.org
-X-Gm-Message-State: AOJu0YyrlFE6ty2HYPofhVSWhqxy6LPyH3JWS6zUncrU/OgWXca5K7kh
-	9MhZLtJvXMhWS/NG005fo1gVc5CBSXaAoeXjeu7Ci9Otvc9NoraZ+Z7TaUVJgx+HG8I9wO5cBzQ
-	aOjVgJJjZHh+SBquUiJu8wy/n2snOJ5qNI8CgbZL4lg==
-X-Gm-Gg: ASbGncuQZDiiDTjcqa3zPIPDTktUHCQRSXQAGAukqb6zsGKIKgZGW46zLb55ve5MGHd
-	y/04AfEah07s1qS2grnwh1KFwBdV9nJzCk8cOc9wUkUGQpgyWaFyrJTUrtohtrpCLjT2BAc3CQ/
-	stXNMoEdKdaqlrmSHHenMWQuDOm8QwduWnlrOCXL370Q19Xtf6JKT1D1F7IRStCpfmTBbDEsSWG
-	a+cUxOlneVEmeB3
-X-Google-Smtp-Source: AGHT+IEWqZtwwwHsrf82ewOz9RLbEwp65hDGKMxJaKKPW/S3xt8Z0JtCwy0RHATkKGBiN8Hrm886i7G3V+7iyRzmihw=
-X-Received: by 2002:a05:620a:1aa9:b0:7fd:6709:f08d with SMTP id
- af79cd13be357-7fd6709f66emr191563385a.81.1756481770696; Fri, 29 Aug 2025
- 08:36:10 -0700 (PDT)
+	Fri, 29 Aug 2025 15:35:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C958719F0;
+	Fri, 29 Aug 2025 08:35:15 -0700 (PDT)
+Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0483D3F738;
+	Fri, 29 Aug 2025 08:35:22 -0700 (PDT)
+From: Ryan Roberts <ryan.roberts@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	James Morse <james.morse@arm.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [RFC PATCH v1 0/2] Don't broadcast TLBI if mm was only active on local CPU
+Date: Fri, 29 Aug 2025 16:35:06 +0100
+Message-ID: <20250829153510.2401161-1-ryan.roberts@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20250825-rk3588-10bpc-v2-0-955622d16985@collabora.com> <20250825-rk3588-10bpc-v2-1-955622d16985@collabora.com>
-In-Reply-To: <20250825-rk3588-10bpc-v2-1-955622d16985@collabora.com>
-From: Daniel Stone <daniel@fooishbar.org>
-Date: Fri, 29 Aug 2025 17:35:59 +0200
-X-Gm-Features: Ac12FXwrZsUUOJf6R_CcGG1_6Xwe2zsAflxp6I-kKbisXKVACpCbORbGe0q1z1k
-Message-ID: <CAPj87rNX0vdQquZB7HQDG1rvCCyk=+2wa=isLqgL3_Sx6Y1J=Q@mail.gmail.com>
-Subject: Re: [PATCH v2 1/5] drm/rockchip: vop2: Check bpc before switching
- DCLK source
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
-	Andy Yan <andy.yan@rock-chips.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, kernel@collabora.com, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_083612_081290_A67293DC 
-X-CRM114-Status: GOOD (  19.77  )
+X-CRM114-CacheID: sfid-20250829_083525_502119_11BB1B9E 
+X-CRM114-Status: GOOD (  14.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,98 +64,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cristian,
+Hi All,
 
-On Mon, 25 Aug 2025 at 12:08, Cristian Ciocaltea
-<cristian.ciocaltea@collabora.com> wrote:
-> When making use of the HDMI PHY PLL as a VOP2 DCLK source, it's output
-> rate does normally match the mode clock.  But this is only applicable
-> for default color depth of 8 bpc.  For higher depths, the output clock
-> is further divided by the hardware according to the formula:
->
->   output rate = PHY PLL rate * 8 / bpc
+This is an RFC for my implementation of an idea from James Morse to avoid
+broadcasting TBLIs to remote CPUs if it can be proven that no remote CPU could
+have ever observed the pgtable entry for the TLB entry that is being
+invalidated. It turns out that x86 does something similar in principle.
 
-Observing that this results in phy_pll_rate * 8 / 8 == phy_pll_rate
-for 8bpc, the formula does actually hold true everywhere.
+The primary feedback I'm looking for is; is this actually correct and safe?
+James and I both believe it to be, but it would be useful to get further
+validation.
 
-> @@ -1737,36 +1737,48 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
->          * Switch to HDMI PHY PLL as DCLK source for display modes up
->          * to 4K@60Hz, if available, otherwise keep using the system CRU.
->          */
-> -       if ((vop2->pll_hdmiphy0 || vop2->pll_hdmiphy1) && clock <= VOP2_MAX_DCLK_RATE) {
-> -               drm_for_each_encoder_mask(encoder, crtc->dev, crtc_state->encoder_mask) {
-> -                       struct rockchip_encoder *rkencoder = to_rockchip_encoder(encoder);
-> +       if (vop2->pll_hdmiphy0 || vop2->pll_hdmiphy1) {
-> +               unsigned long max_dclk;
->
-> -                       if (rkencoder->crtc_endpoint_id == ROCKCHIP_VOP2_EP_HDMI0) {
-> -                               if (!vop2->pll_hdmiphy0)
-> -                                       break;
-> +               if (vcstate->output_bpc > 8)
-> +                       max_dclk = DIV_ROUND_CLOSEST_ULL(VOP2_MAX_DCLK_RATE * 8,
-> +                                                        vcstate->output_bpc);
-> +               else
-> +                       max_dclk = VOP2_MAX_DCLK_RATE;
+Beyond that, the next question is; does it actually improve performance?
+stress-ng's --tlb-shootdown stressor suggests yes; as concurrency increases, we
+do a much better job of sustaining the overall number of "tlb shootdowns per
+second" after the change:
 
-... so this could just be do the mul+div unconditionally.
++------------+--------------------------+--------------------------+--------------------------+
+|            |     Baseline (v6.15)     |        tlbi local        |        Improvement       |
++------------+-------------+------------+-------------+------------+-------------+------------+
+| nr_threads |     ops/sec |    ops/sec |     ops/sec |    ops/sec |     ops/sec |    ops/sec |
+|            | (real time) | (cpu time) | (real time) | (cpu time) | (real time) | (cpu time) |
++------------+-------------+------------+-------------+------------+-------------+------------+
+|          1 |        9109 |       2573 |        8903 |       3653 |         -2% |        42% |
+|          4 |        8115 |       1299 |        9892 |       1059 |         22% |       -18% |
+|          8 |        5119 |        477 |       11854 |       1265 |        132% |       165% |
+|         16 |        4796 |        286 |       14176 |        821 |        196% |       187% |
+|         32 |        1593 |         38 |       15328 |        474 |        862% |      1147% |
+|         64 |        1486 |         19 |        8096 |        131 |        445% |       589% |
+|        128 |        1315 |         16 |        8257 |        145 |        528% |       806% |
++------------+-------------+------------+-------------+------------+-------------+------------+
 
-> +               if (clock <= max_dclk) {
-> +                       drm_for_each_encoder_mask(encoder, crtc->dev, crtc_state->encoder_mask) {
-> +                               struct rockchip_encoder *rkencoder = to_rockchip_encoder(encoder);
->
-> -                               ret = clk_set_parent(vp->dclk, vop2->pll_hdmiphy0);
-> -                               if (ret < 0)
-> -                                       drm_warn(vop2->drm,
-> -                                                "Could not switch to HDMI0 PHY PLL: %d\n", ret);
-> -                               break;
-> -                       }
-> +                               if (rkencoder->crtc_endpoint_id == ROCKCHIP_VOP2_EP_HDMI0) {
-> +                                       if (!vop2->pll_hdmiphy0)
-> +                                               break;
-> +
-> +                                       if (!vp->dclk_src)
-> +                                               vp->dclk_src = clk_get_parent(vp->dclk);
->
-> -                       if (rkencoder->crtc_endpoint_id == ROCKCHIP_VOP2_EP_HDMI1) {
-> -                               if (!vop2->pll_hdmiphy1)
-> +                                       ret = clk_set_parent(vp->dclk, vop2->pll_hdmiphy0);
-> +                                       if (ret < 0)
-> +                                               drm_warn(vop2->drm,
-> +                                                        "Could not switch to HDMI0 PHY PLL: %d\n",
-> +                                                        ret);
->                                         break;
-> +                               }
->
-> -                               if (!vp->dclk_src)
-> -                                       vp->dclk_src = clk_get_parent(vp->dclk);
-> +                               if (rkencoder->crtc_endpoint_id == ROCKCHIP_VOP2_EP_HDMI1) {
-> +                                       if (!vop2->pll_hdmiphy1)
-> +                                               break;
->
-> -                               ret = clk_set_parent(vp->dclk, vop2->pll_hdmiphy1);
-> -                               if (ret < 0)
-> -                                       drm_warn(vop2->drm,
-> -                                                "Could not switch to HDMI1 PHY PLL: %d\n", ret);
-> -                               break;
-> +                                       if (!vp->dclk_src)
-> +                                               vp->dclk_src = clk_get_parent(vp->dclk);
-> +
-> +                                       ret = clk_set_parent(vp->dclk, vop2->pll_hdmiphy1);
-> +                                       if (ret < 0)
-> +                                               drm_warn(vop2->drm,
-> +                                                        "Could not switch to HDMI1 PHY PLL: %d\n",
-> +                                                        ret);
-> +                                       break;
-> +                               }
+But looking at real-world benchmarks, I haven't yet found anything where it
+makes a huge difference; When compiling the kernel, it reduces kernel time by
+~2.2%, but overall wall time remains the same. I'd be interested in any
+suggestions for workloads where this might prove valuable.
 
-To be honest, this whole thing is a bit weird, and seems like it could
-also be struct clk *new_dclk_parent = (rkencoder->crtc_endpoint_id ==
-ROCKCHIP_VOP2_EP_HDMI0) ? vop2->pll_hdmiphy0 : vop2->pll_hdmiphy1? But
-it's not your code, I know, and the rest of the clock handling is
-pretty messy, so I think this is fine as is.
+All mm selftests have been run and no regressions are observed. Applies on
+v6.17-rc3.
 
-Reviewed-by: Daniel Stone <daniels@collabora.com>
+Thanks,
+Ryan
 
-Cheers,
-Daniel
+
+Ryan Roberts (2):
+  arm64: tlbflush: Move invocation of __flush_tlb_range_op() to a macro
+  arm64: tlbflush: Don't broadcast if mm was only active on local cpu
+
+ arch/arm64/include/asm/mmu.h         |  12 +++
+ arch/arm64/include/asm/mmu_context.h |   2 +
+ arch/arm64/include/asm/tlbflush.h    | 116 ++++++++++++++++++++++++---
+ arch/arm64/mm/context.c              |  30 ++++++-
+ 4 files changed, 145 insertions(+), 15 deletions(-)
+
+--
+2.43.0
+
 
