@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BA96CA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 13:34:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C45E8CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 13:36:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IkWXUwZl42hdlKQwTiQ/HC/bbvBsBBt5Y8KH/qQKEgQ=; b=eQTsqG1Vzom+3lqNTGJEi23xQF
-	70FbEikRkgZL+gHnVEx9Vm30MzfIVuWLVb1NFlodkqaWwXBNxvfrBGOu09nvQETbjw2RJtkITL5BU
-	hTaucofpfji5KrAp9iIMu5h1saCnU2Yee9Xn3d+Vbhpq9WIkyUHeZ2zTTs5IAen9CxzT8M2WlYd3O
-	LPYPdA5x36zjLglgboPhXBHCAjrfiULc18j83ToXGl1FWdKW7xKHSDbKwv4ypidmQWgSX02Arpj49
-	s6F+6KjCpE85/9hbIpij80Ts8isqWm5JYUnUyzF+JaAsH8iDcVGxisJyUfi/2W+/goK6ck9Fhofo6
-	CRqB7hdw==;
+	bh=PihGL1P4RBNbBsyVpq//LNp6agc4RiTkkaODgbjMY+g=; b=YCoYJxswab1ev30H1PUbjzd16j
+	r9aCLqdSPBNdcGFYGtgWN3cyZHWK3PBPQJt5Kc0GTZET/gG6qjjgufpaMHd/nbOw2YumuJ2fdfjYM
+	jQkze98xSbrdfWXhbj01oB+IZvuKvi6CWm4XwHFnii4VW0g9c19v26dYY/MDHU+/yjYbOOpcIs0uN
+	S4PjoVnGKIUDpp2/i6+JJxai0iCE4/Gjx07ocmcZ0Fr0kWT8+CQb/w5WyS7zUauqbhx/K+mhnx+ld
+	khQH38stkI9h/hmTf329aCsvgw4/eAH94pGU/vL09NZSgcpJ7uqN7GXbvv6nnLP4XReBFBGJcM8fC
+	SyPTyvBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urzEq-00000005pMf-2uHD;
-	Fri, 29 Aug 2025 13:33:56 +0000
+	id 1urzHZ-00000005pto-2lf3;
+	Fri, 29 Aug 2025 13:36:45 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urwfF-00000005NXg-3Tm8
+	id 1urwgc-00000005Nie-0Ocm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 10:49:02 +0000
+	Fri, 29 Aug 2025 10:50:27 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E44C419F0;
-	Fri, 29 Aug 2025 03:48:52 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 49FC91BCB;
+	Fri, 29 Aug 2025 03:50:17 -0700 (PDT)
 Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 588D73F694;
-	Fri, 29 Aug 2025 03:48:59 -0700 (PDT)
-Date: Fri, 29 Aug 2025 11:48:56 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B42AF3F694;
+	Fri, 29 Aug 2025 03:50:23 -0700 (PDT)
+Date: Fri, 29 Aug 2025 11:50:20 +0100
 From: Sudeep Holla <sudeep.holla@arm.com>
 To: Peng Fan <peng.fan@nxp.com>
 Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
 	Sudeep Holla <sudeep.holla@arm.com>,
+	Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>, <arm-scmi@vger.kernel.org>,
@@ -46,7 +46,7 @@ Cc: Cristian Marussi <cristian.marussi@arm.com>,
 	<linux-kernel@vger.kernel.org>
 Subject: Re: [PATCH v3 2/6] firmware: arm_scmi: imx: Support discovering
  buildinfo of MISC protocol
-Message-ID: <20250829-satisfied-carp-from-camelot-bddbfa@sudeepholla>
+Message-ID: <20250829-woodoo-acoustic-lynx-7ffaba@sudeepholla>
 References: <20250827-sm-misc-api-v1-v3-0-82c982c1815a@nxp.com>
  <20250827-sm-misc-api-v1-v3-2-82c982c1815a@nxp.com>
 MIME-Version: 1.0
@@ -54,8 +54,8 @@ Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <20250827-sm-misc-api-v1-v3-2-82c982c1815a@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_034901_950637_B0CA4C4E 
-X-CRM114-Status: GOOD (  20.00  )
+X-CRM114-CacheID: sfid-20250829_035026_167671_0BA7B85E 
+X-CRM114-Status: GOOD (  17.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,30 +133,8 @@ On Wed, Aug 27, 2025 at 12:59:14PM +0800, Peng Fan wrote:
 > +		dev_info(ph->dev, "SM Version\t= Build %u, Commit %08x %s %s\n",
 > +			le32_to_cpu(out->buildnum), le32_to_cpu(out->buildcommit),
 > +			date, time);
-> +	}
-> +
-> +	ph->xops->xfer_put(ph, t);
-> +
-> +	return ret;
-> +}
-> +
->  static const struct scmi_imx_misc_proto_ops scmi_imx_misc_proto_ops = {
->  	.misc_ctrl_set = scmi_imx_misc_ctrl_set,
->  	.misc_ctrl_get = scmi_imx_misc_ctrl_get,
-> @@ -299,6 +336,10 @@ static int scmi_imx_misc_protocol_init(const struct scmi_protocol_handle *ph)
->  	if (ret)
->  		return ret;
->  
-> +	ret = scmi_imx_misc_discover_build_info(ph);
 
-To align with other naming,
-
-s/scmi_imx_misc_discover_build_info/scmi_imx_misc_build_info_discover/
-
-> +		return ret;
-
-The document in 1/6 didn't state this as mandatory. IMO, it is not
-fair to return error if the return is NOT_SUPPORTED.
+And fix the alignment above, just noticed after hitting enter.
 
 -- 
 Regards,
