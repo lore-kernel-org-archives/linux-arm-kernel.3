@@ -4,74 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C3A9CA0FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:47:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BBE5CA0FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:47:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Iz8qVuu33szEw/i1a8sBHYuo8zRtqS1Ee+a22axESkA=; b=TSSi3PFfBE5OPwP+oX5msh5F+1
-	aQBexhm8zJzmApO1x1ltcP4IkAKWd2oayk0JLMoTGLS1AcNXjVmN29QJGDk/ZCBAD/jY8zg1WL8sY
-	8+nK6Ee/2AVXVlx0eUl/Lk3qPXy74Qf7DzMFNJ7BkC5/hWcCCQu1l5pep7vcinQPAPs/ImsTecxdN
-	yKJLuUHoViItvTLakhS6r/zIxBosFBErHXK9Hy+qtjRKcZ00Tkp+1ZYuC0uAKOMbcptEAyho5g6Ny
-	zjbWCHML/B3gPB5hiuC4gGSQ0kY37AnQfVRLFsuop2alfjuUggYV1NHgEYYuuMfga0f4bCBY+NEcA
-	Gr186hKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o0czkPnsNoT6itj5A/RJq/dzv5oWFxkSBPgW94t4tks=; b=QySU3uYc9ALDr5dn08xl8H6WMe
+	UbyeFK2Mr/YNGanNSCop3F1mH9UBMjxy21KViiNCOOSN8Ek39ovADtLIOJQsatk84db9RXiUbU51N
+	pMYzXj0uXnon+5imJAzoXECyn5qNmXSkQ8v7ibXSloq7kxqXu7WC7vnNNEoA5i6dLKBSeTfLudfNU
+	r4qql8crIRFXNQGnyc8MA3Ijqn/ipxxkzhAeT/v59JOrIGi7v7zclSYY7whieUr76ICxmUsbho0Pb
+	GNV1Y7kiIhR8/HykNqnNSCNbHDua5ChygOw64yDUdTnhS9qhY+qQgsfZECvQ/YlZ1dKvsmeBD+unu
+	wVn9gpHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us9kB-000000078xS-0MZf;
-	Sat, 30 Aug 2025 00:46:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us1fj-00000006MPC-1SkV
+	id 1us9kG-0000000794D-3XXw;
+	Sat, 30 Aug 2025 00:47:04 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1us1hE-00000006MYB-2ABr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 16:09:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 520E12F27;
-	Fri, 29 Aug 2025 09:09:42 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6A50F3F694;
-	Fri, 29 Aug 2025 09:09:45 -0700 (PDT)
-Message-ID: <f0b239a7-cf49-4c6d-bf1a-c2fc1d7c1e06@arm.com>
-Date: Fri, 29 Aug 2025 17:09:44 +0100
+	Fri, 29 Aug 2025 16:11:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D23D0601D4;
+	Fri, 29 Aug 2025 16:11:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 553CCC4CEF0;
+	Fri, 29 Aug 2025 16:11:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756483883;
+	bh=sqJTNjc9tqL3D56vJ9a8C8Qu0i2VXToHvsttDUp6REg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WyZYBY9dWSyaRvLdEkrWAcnQnR655At0UbTNlwKw15O8ake1aLvcMYcv7FK6w5mEQ
+	 +iWVzxpMWFB8LRAwtARMeCVF5OmtzzeS4VTdwrOH8fDeZ2xw/KofblztMT2C30lV+j
+	 /fNWEXPrMFH8igk6kL/8PpjQf9dC0UrYDGF60ePYgVxzDXe82Zjtry+ZuruG5UXWKR
+	 /Nkizg3iDv54WJWXH0vTpmCna0scULQmI4wXtgX3TSdjK+7NWfFpmKxcWI/Ldg6c5n
+	 lhMNIcIUtSSsAVzsvMk6Sl46KbX1DrlodZCuT9TurbWPzGOxppumEHu81l1WWeTeXJ
+	 IHu3U552FvEsg==
+Date: Fri, 29 Aug 2025 09:10:18 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Honza Fikar <j.fikar@gmail.com>, linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 09/12] lib/crypto: blake2s: Always enable arch-optimized
+ BLAKE2s code
+Message-ID: <20250829161018.GB91803@sol>
+References: <20250827151131.27733-1-ebiggers@kernel.org>
+ <20250827151131.27733-10-ebiggers@kernel.org>
+ <CAEH5pPY98CaSm+EXiuOzo6EuWzGu7rEQjGa3eojk18HP29Rs7w@mail.gmail.com>
+ <20250829152912.GA91803@sol>
+ <CAMj1kXGf+0b=6kPAzzxgesaOYSJtzoL1oQyNqT2VrUkWFzwJzA@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 28/33] arm_mpam: Track bandwidth counter state for
- overflow and power management
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
- devicetree@vger.kernel.org
-Cc: shameerali.kolothum.thodi@huawei.com,
- D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
- Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
- baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
- Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>
-References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-29-james.morse@arm.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20250822153048.2287-29-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_090951_484669_E7439528 
-X-CRM114-Status: GOOD (  33.72  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMj1kXGf+0b=6kPAzzxgesaOYSJtzoL1oQyNqT2VrUkWFzwJzA@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,366 +76,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
-
-On 8/22/25 16:30, James Morse wrote:
-> Bandwidth counters need to run continuously to correctly reflect the
-> bandwidth.
+On Fri, Aug 29, 2025 at 06:05:42PM +0200, Ard Biesheuvel wrote:
+> On Fri, 29 Aug 2025 at 17:30, Eric Biggers <ebiggers@kernel.org> wrote:
+> >
+> > On Fri, Aug 29, 2025 at 03:08:56PM +0200, Honza Fikar wrote:
+> > > On Fri, Aug 29, 2025 at 2:54 PM Eric Biggers <ebiggers@kernel.org> wrote:
+> > >
+> > > > Currently, BLAKE2s support is always enabled ('obj-y'), since random.c
+> > > > uses it.  Therefore, the arch-optimized BLAKE2s code, which exists for
+> > > > ARM and x86_64, should be always enabled too.
+> > >
+> > > Maybe a stupid question: what about ARM64? The current NEON
+> > > implementation in kernel arch/arm/crypto/blake2s-core.S seems to be just
+> > > for ARM.
+> > >
 > 
-> The value read may be lower than the previous value read in the case
-> of overflow and when the hardware is reset due to CPU hotplug.
+> That code is scalar not NEON, and is carefully tuned to make use of
+> the ARM barrel shifter, which does not exist on arm64.
 > 
-> Add struct mbwu_state to track the bandwidth counter to allow overflow
-> and power management to be handled.
+> > > While the upstream BLAKE2s with NEON is both for ARM and Aarch64 (ARM64):
+> > >
+> > > https://github.com/BLAKE2/BLAKE2/blob/master/neon
+> >
+> > There's no ARM64 optimized BLAKE2s code in the Linux kernel yet.  If
+> > it's useful, someone would need to contribute it.
+> >
 > 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> ---
->  drivers/resctrl/mpam_devices.c  | 163 +++++++++++++++++++++++++++++++-
->  drivers/resctrl/mpam_internal.h |  54 ++++++++---
->  2 files changed, 200 insertions(+), 17 deletions(-)
+> NEON is cumbersome in the kernel so this only makes sense if it is
+> substantially more performant, and I'm skeptical that this is the
+> case, as you pointed out yourself in
 > 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index 9ce771aaf671..11be34b54643 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -1004,6 +1004,7 @@ static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
->  	*ctl_val |= MSMON_CFG_x_CTL_MATCH_PARTID;
->  
->  	*flt_val = FIELD_PREP(MSMON_CFG_MBWU_FLT_PARTID, ctx->partid);
-> +	*flt_val |= FIELD_PREP(MSMON_CFG_MBWU_FLT_RWBW, ctx->opts);
->  	if (m->ctx->match_pmg) {
->  		*ctl_val |= MSMON_CFG_x_CTL_MATCH_PMG;
->  		*flt_val |= FIELD_PREP(MSMON_CFG_MBWU_FLT_PMG, ctx->pmg);
-> @@ -1041,6 +1042,7 @@ static void clean_msmon_ctl_val(u32 *cur_ctl)
->  static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
->  				     u32 flt_val)
->  {
-> +	struct msmon_mbwu_state *mbwu_state;
->  	struct mpam_msc *msc = m->ris->vmsc->msc;
->  
->  	/*
-> @@ -1059,20 +1061,32 @@ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
->  		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
->  		mpam_write_monsel_reg(msc, MBWU, 0);
->  		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
-> +
-> +		mbwu_state = &m->ris->mbwu_state[m->ctx->mon];
-> +		if (mbwu_state)
-> +			mbwu_state->prev_val = 0;
-> +
->  		break;
->  	default:
->  		return;
->  	}
->  }
->  
-> +static u64 mpam_msmon_overflow_val(struct mpam_msc_ris *ris)
-> +{
-> +	/* TODO: scaling, and long counters */
-> +	return GENMASK_ULL(30, 0);
-> +}
-> +
->  /* Call with MSC lock held */
->  static void __ris_msmon_read(void *arg)
->  {
-> -	u64 now;
->  	bool nrdy = false;
->  	struct mon_read *m = arg;
-> +	u64 now, overflow_val = 0;
->  	struct mon_cfg *ctx = m->ctx;
->  	struct mpam_msc_ris *ris = m->ris;
-> +	struct msmon_mbwu_state *mbwu_state;
->  	struct mpam_props *rprops = &ris->props;
->  	struct mpam_msc *msc = m->ris->vmsc->msc;
->  	u32 mon_sel, ctl_val, flt_val, cur_ctl, cur_flt;
-> @@ -1100,11 +1114,30 @@ static void __ris_msmon_read(void *arg)
->  		now = mpam_read_monsel_reg(msc, CSU);
->  		if (mpam_has_feature(mpam_feat_msmon_csu_hw_nrdy, rprops))
->  			nrdy = now & MSMON___NRDY;
-> +		now = FIELD_GET(MSMON___VALUE, now);
->  		break;
->  	case mpam_feat_msmon_mbwu:
->  		now = mpam_read_monsel_reg(msc, MBWU);
->  		if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy, rprops))
->  			nrdy = now & MSMON___NRDY;
-> +		now = FIELD_GET(MSMON___VALUE, now);
-> +
-> +		if (nrdy)
-> +			break;
-> +
-> +		mbwu_state = &ris->mbwu_state[ctx->mon];
-> +		if (!mbwu_state)
-> +			break;
-> +
-> +		/* Add any pre-overflow value to the mbwu_state->val */
-> +		if (mbwu_state->prev_val > now)
-> +			overflow_val = mpam_msmon_overflow_val(ris) - mbwu_state->prev_val;
-> +
-> +		mbwu_state->prev_val = now;
-> +		mbwu_state->correction += overflow_val;
-> +
-> +		/* Include bandwidth consumed before the last hardware reset */
-> +		now += mbwu_state->correction;
->  		break;
->  	default:
->  		m->err = -EINVAL;
-> @@ -1117,7 +1150,6 @@ static void __ris_msmon_read(void *arg)
->  		return;
->  	}
->  
-> -	now = FIELD_GET(MSMON___VALUE, now);
->  	*m->val += now;
->  }
->  
-> @@ -1329,6 +1361,72 @@ static int mpam_reprogram_ris(void *_arg)
->  	return 0;
->  }
->  
-> +/* Call with MSC lock and outer mon_sel lock held */
-> +static int mpam_restore_mbwu_state(void *_ris)
-> +{
-> +	int i;
-> +	struct mon_read mwbu_arg;
-> +	struct mpam_msc_ris *ris = _ris;
-> +	struct mpam_msc *msc = ris->vmsc->msc;
-> +
-> +	mpam_mon_sel_outer_lock(msc);
-> +
-> +	for (i = 0; i < ris->props.num_mbwu_mon; i++) {
-> +		if (ris->mbwu_state[i].enabled) {
-> +			mwbu_arg.ris = ris;
-> +			mwbu_arg.ctx = &ris->mbwu_state[i].cfg;
-> +			mwbu_arg.type = mpam_feat_msmon_mbwu;
-> +
-> +			__ris_msmon_read(&mwbu_arg);
-> +		}
-> +	}
-> +
-> +	mpam_mon_sel_outer_unlock(msc);
-> +
-> +	return 0;
-> +}
-> +
-> +/* Call with MSC lock and outer mon_sel lock held */
-> +static int mpam_save_mbwu_state(void *arg)
-> +{
-> +	int i;
-> +	u64 val;
-> +	struct mon_cfg *cfg;
-> +	u32 cur_flt, cur_ctl, mon_sel;
-> +	struct mpam_msc_ris *ris = arg;
-> +	struct msmon_mbwu_state *mbwu_state;
-> +	struct mpam_msc *msc = ris->vmsc->msc;
-> +
-> +	for (i = 0; i < ris->props.num_mbwu_mon; i++) {
-> +		mbwu_state = &ris->mbwu_state[i];
-> +		cfg = &mbwu_state->cfg;
-> +
-> +		if (WARN_ON_ONCE(!mpam_mon_sel_inner_lock(msc)))
-> +			return -EIO;
-> +
-> +		mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, i) |
-> +			  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
-> +		mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
-> +
-> +		cur_flt = mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
-> +		cur_ctl = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
-> +		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
-> +
-> +		val = mpam_read_monsel_reg(msc, MBWU);
-> +		mpam_write_monsel_reg(msc, MBWU, 0);
-> +
-> +		cfg->mon = i;
-> +		cfg->pmg = FIELD_GET(MSMON_CFG_MBWU_FLT_PMG, cur_flt);
-> +		cfg->match_pmg = FIELD_GET(MSMON_CFG_x_CTL_MATCH_PMG, cur_ctl);
-> +		cfg->partid = FIELD_GET(MSMON_CFG_MBWU_FLT_PARTID, cur_flt);
-> +		mbwu_state->correction += val;
-> +		mbwu_state->enabled = FIELD_GET(MSMON_CFG_x_CTL_EN, cur_ctl);
-> +		mpam_mon_sel_inner_unlock(msc);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->  /*
->   * Called via smp_call_on_cpu() to prevent migration, while still being
->   * pre-emptible.
-> @@ -1389,6 +1487,9 @@ static void mpam_reset_msc(struct mpam_msc *msc, bool online)
->  		 * for non-zero partid may be lost while the CPUs are offline.
->  		 */
->  		ris->in_reset_state = online;
-> +
-> +		if (mpam_is_enabled() && !online)
-> +			mpam_touch_msc(msc, &mpam_save_mbwu_state, ris);
->  	}
->  	mpam_mon_sel_outer_unlock(msc);
->  }
-> @@ -1423,6 +1524,9 @@ static void mpam_reprogram_msc(struct mpam_msc *msc)
->  			mpam_reprogram_ris_partid(ris, partid, cfg);
->  		}
->  		ris->in_reset_state = reset;
-> +
-> +		if (mpam_has_feature(mpam_feat_msmon_mbwu, &ris->props))
-> +			mpam_touch_msc(msc, &mpam_restore_mbwu_state, ris);
->  	}
->  }
->  
-> @@ -2291,11 +2395,35 @@ static void mpam_unregister_irqs(void)
->  
->  static void __destroy_component_cfg(struct mpam_component *comp)
->  {
-> +	struct mpam_msc *msc;
-> +	struct mpam_vmsc *vmsc;
-> +	struct mpam_msc_ris *ris;
-> +
-> +	lockdep_assert_held(&mpam_list_lock);
-> +
->  	add_to_garbage(comp->cfg);
-> +	list_for_each_entry(vmsc, &comp->vmsc, comp_list) {
-> +		msc = vmsc->msc;
-> +
-> +		mpam_mon_sel_outer_lock(msc);
-> +		if (mpam_mon_sel_inner_lock(msc)) {
-> +			list_for_each_entry(ris, &vmsc->ris, vmsc_list)
-> +				add_to_garbage(ris->mbwu_state);
-> +			mpam_mon_sel_inner_unlock(msc);
-> +		}
-> +		mpam_mon_sel_outer_lock(msc);
-> +	}
->  }
->  
->  static int __allocate_component_cfg(struct mpam_component *comp)
->  {
-> +	int err = 0;
-> +	struct mpam_msc *msc;
-> +	struct mpam_vmsc *vmsc;
-> +	struct mpam_msc_ris *ris;
-> +	struct msmon_mbwu_state *mbwu_state;
-> +
-> +	lockdep_assert_held(&mpam_list_lock);
->  	mpam_assert_partid_sizes_fixed();
->  
->  	if (comp->cfg)
-> @@ -2306,6 +2434,37 @@ static int __allocate_component_cfg(struct mpam_component *comp)
->  		return -ENOMEM;
->  	init_garbage(comp->cfg);
->  
-> +	list_for_each_entry(vmsc, &comp->vmsc, comp_list) {
-> +		if (!vmsc->props.num_mbwu_mon)
-> +			continue;
-> +
-> +		msc = vmsc->msc;
-> +		mpam_mon_sel_outer_lock(msc);
-> +		list_for_each_entry(ris, &vmsc->ris, vmsc_list) {
-> +			if (!ris->props.num_mbwu_mon)
-> +				continue;
-> +
-> +			mbwu_state = kcalloc(ris->props.num_mbwu_mon,
-> +					     sizeof(*ris->mbwu_state),
-> +					     GFP_KERNEL);
-> +			if (!mbwu_state) {
-> +				__destroy_component_cfg(comp);
-> +				err = -ENOMEM;
-> +				break;
-> +			}
-> +
-> +			if (mpam_mon_sel_inner_lock(msc)) {
-> +				init_garbage(mbwu_state);
-> +				ris->mbwu_state = mbwu_state;
-> +				mpam_mon_sel_inner_unlock(msc);
-> +			}
-> +		}
-> +		mpam_mon_sel_outer_unlock(msc);
-> +
-> +		if (err)
-> +			break;
-> +	}
-> +
->  	return 0;
->  }
->  
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> index 76e406a2b0d1..9a50a5432f4a 100644
-> --- a/drivers/resctrl/mpam_internal.h
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -271,6 +271,42 @@ struct mpam_component {
->  	struct mpam_garbage	garbage;
->  };
->  
-> +/* The values for MSMON_CFG_MBWU_FLT.RWBW */
-> +enum mon_filter_options {
-> +	COUNT_BOTH	= 0,
-> +	COUNT_WRITE	= 1,
-> +	COUNT_READ	= 2,
-> +};
-> +
-> +struct mon_cfg {
-> +	/* mon is wider than u16 to hold an out of range 'USE_RMID_IDX' */
-> +	u32                     mon;
-> +	u8                      pmg;
-> +	bool                    match_pmg;
-> +	u32                     partid;
-> +	enum mon_filter_options opts;
-> +};
-> +
-> +/*
-> + * Changes to enabled and cfg are protected by the msc->lock.
-> + * Changes to prev_val and correction are protected by the msc's mon_sel_lock.
-> + */
-> +struct msmon_mbwu_state {
-> +	bool		enabled;
-> +	struct mon_cfg	cfg;
-> +
-> +	/* The value last read from the hardware. Used to detect overflow. */
-> +	u64		prev_val;
-> +
-> +	/*
-> +	 * The value to add to the new reading to account for power management,
-> +	 * and shifts to trigger the overflow interrupt.
-> +	 */
-> +	u64		correction;
-> +
-> +	struct mpam_garbage	garbage;
-> +};
-> +
+> commit 5172d322d34c30fb926b29aeb5a064e1fd8a5e13
+> Author: Eric Biggers <ebiggers@google.com>
+> Date:   Wed Dec 23 00:09:59 2020 -0800
+> 
+>     crypto: arm/blake2s - add ARM scalar optimized BLAKE2s
+> 
+>     Add an ARM scalar optimized implementation of BLAKE2s.
+> 
+>     NEON isn't very useful for BLAKE2s because the BLAKE2s block size
+>     is too small for NEON to help.  Each NEON instruction would depend
+>     on the previous one, resulting in poor performance.
+> 
+> Even if NEON code might be slightly faster on some cores, the fact
+> that it is sensitive to micro-architectural details makes it less
+> attractive.
 
-These structures have ended up between struct mpam_component and struct
-mpam_vmc. Move to somewhere more natural.
+Yes, agreed: there isn't much opportunity for an ARM64 optimized BLAKE2s
+implementation to be faster than the generic C code.
 
->  struct mpam_vmsc {
->  	/* member of mpam_component:vmsc_list */
->  	struct list_head	comp_list;
-> @@ -306,22 +342,10 @@ struct mpam_msc_ris {
->  	/* parent: */
->  	struct mpam_vmsc	*vmsc;
->  
-> -	struct mpam_garbage	garbage;
-> -};
-> +	/* msmon mbwu configuration is preserved over reset */
-> +	struct msmon_mbwu_state	*mbwu_state;
->  
-> -/* The values for MSMON_CFG_MBWU_FLT.RWBW */
-> -enum mon_filter_options {
-> -	COUNT_BOTH	= 0,
-> -	COUNT_WRITE	= 1,
-> -	COUNT_READ	= 2,
-> -};
-> -
-> -struct mon_cfg {
-> -	u16                     mon;
-> -	u8                      pmg;
-> -	bool                    match_pmg;
-> -	u32                     partid;
-> -	enum mon_filter_options opts;
-
-Choose where this enum and structure go in the previous patch.
-> +	struct mpam_garbage	garbage;
->  };
->  
->  static inline int mpam_alloc_csu_mon(struct mpam_class *class)
-
-Thanks,
-
-Ben
-
+- Eric
 
