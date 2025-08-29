@@ -4,79 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AB22CA0FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:45:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B89CCA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:45:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pJrFx3WCqf6VFVoWT85m6XL4XoNDn8hAld/4UFHpYgs=; b=ZJoxZ6F8uii2LTKnBwoIk6H1OX
-	ItEAslKV21JpyJYU53GTUgVGQKWLdxZvor4Vu25Vc9VdfiyifFSgB6HPgiJJ50fYovMzOoAR0uqJS
-	+jv8hIzT9Hco7Uqe0PXGS30ZSNZYcOk+j+2i59t/i+J/ZIHxzSUokb3fpss4kn2u8rQP3en27k3Zj
-	ug7wIErxVbB56p63Z5gBrBOsnpF9mQMlvRmkOX5DSMOEVRtXPIUXqHRuCXg0Be5sPNqt580090+EL
-	pjm6bBxX/Ks854oKPrFVpjmHxWJoOLh9GSzzY/EEAedM9eptO9YhqK7vF/RQ509jN5A/qe8d6FPOe
-	1hJVD9Cw==;
+	bh=/MakGsp/S2cNx5PFmj2E2VVtHHLv1RzGj2Qogo6hOhw=; b=fxoahjg5xyKK7htul/YwIvAzqx
+	k4+QIWXZXZQK7Ro5khdZPsm+ADXeNgeuJNfVJjdWQzbS37eJwAIB1tbLeeHIYnWpwGuVQ5y9UXmjz
+	nJ9bpQIoK8FL50uFYnfMICBdCpceeYwJPBKq11G59cH580Hjx/+JcG88diDbz6w3ZxtEejWZG/cRs
+	mxjoZ1je9MqP6Hp3bkhR1HO/dDIzhU1s6y08NXXQUg4e7FJTG8rPKexUax7DvryxAtCA6tBYoLItw
+	d/l0rYfoqXzbzENOZKEHgRN1O3N8XYO4pXctNjNzZiejWqKbDF2ExS3KlH2I9AEi9XexHn6/6uBJ1
+	8RHKPVWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us9iO-000000076df-0l73;
-	Sat, 30 Aug 2025 00:45:08 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1us9iP-000000076ev-0fnb;
+	Sat, 30 Aug 2025 00:45:09 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us0Hz-0000000645U-0rAF
+	id 1us0I0-0000000646t-2CRB
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 29 Aug 2025 14:41:17 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-77033293ed8so1939309b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 07:41:15 -0700 (PDT)
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-7704f3c4708so2608232b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 07:41:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1756478475; x=1757083275; darn=lists.infradead.org;
+        d=rivosinc.com; s=google; t=1756478476; x=1757083276; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=pJrFx3WCqf6VFVoWT85m6XL4XoNDn8hAld/4UFHpYgs=;
-        b=OFePEh0V3xPkBy1hgGqrfYg+fPI+dVQpm0zAj7zJD450mFlrBtXL4Eiw4IMVU6A4Hc
-         lh1q0jr1vytc+8/fmVSb04r6OLuXJv4opNrsRj2Id87Cy2eOVOXlvL+8zhEQsBNyw4kk
-         afeL/xrwPL2gqz9DHfRkDILC03+IiTySSM3Y55C9uMRFZ4opjlqXzRknX1MhNKtvWd7G
-         u2pM7KdQYh5LmSCQJxJmlfAexXXqLlSLLOwrqfxTrOWQ/XuYyI/rkKMk6urZ5B5XhAap
-         hKhMJ1b+LyJ1LkE9oHjx6l/WMdNDe1wNE/rA8TmqIYnwkOq4Rn0yZpfut8fcOjh0gtrg
-         nLKQ==
+        bh=/MakGsp/S2cNx5PFmj2E2VVtHHLv1RzGj2Qogo6hOhw=;
+        b=F2gim3kZwCNQZfnYCYV9jCacTg71oFBovYOPkKoz1qPK7jcm7BcJVfpQ4qa1+VN5Mc
+         nU5qtmM26xCdplUPZlNWwcZFsXQ3uR0A5vF+N9wNzkDQfQP7Y7u3UrKRDm6v+VZES/A6
+         fbcMjRgDTpCX+nc1EulVhglTCR4okqHhhs7PGqSjogIWUdy64wDK9XmzKi0ysn0Dam2R
+         XMJW+xN+yupEzVwojKNbCDcRiCgFMibbRqU73uE3ky6BW6rovvPWECVCtSHXixMp3VAC
+         BehgAaNRaZVK+6Jy6opj+YJ5LQI91PFxTQ073/80PK8qvBiavNFUFm+yJfOyQRWMvB9d
+         fT9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756478475; x=1757083275;
+        d=1e100.net; s=20230601; t=1756478476; x=1757083276;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=pJrFx3WCqf6VFVoWT85m6XL4XoNDn8hAld/4UFHpYgs=;
-        b=oXMbZcZzUs9PDwtj6FVrufFroYWhrgouiwsM7ocleefzzklbOieU4+4KJcICDBaNU3
-         ufMqjv8I6Kc3JTudSAFeEkRmwJ+VQv7dsLz6ftTA1NQ0rxeO2uIhc4OmjkUvx0Yqzzs1
-         qoiOThCEdpieZpQ+vhImQGV8arPZAkm9KtVD/qf069qHYtCFew+AvFcKJIKSd4PGZw3R
-         hVNTCnOzoFpS/gqYyEkREfr/g1HhKcOesei3U90McDwGaevMwECqrLHjdmagVtOm+NEL
-         ayBSdiR6DFZoWgS/BeSbS2kUaLKMZtGjTiVW9rDZxB8ad6tKzrRaRRoxLNTDFJecoxQj
-         udQg==
-X-Forwarded-Encrypted: i=1; AJvYcCXWE08RbE4BfNp7mzss3JI6gm2bQyp0Pcc9Tvuu85xX5ackfzfMcqNPk50S2O9AFyqS4HcBLBSutIyu/b3JFEHW@lists.infradead.org
-X-Gm-Message-State: AOJu0YzBqI5fE/slVbE9vmxzF2ZFoZwc8D/YD9SNlZUaVkbCyL2S2bI2
-	9mEUt+YdM39g6JlgU4VXN0WGMCyAVDD07VrTwo0QBpI0F200NUMxAJGWbDePH6TJTXk=
-X-Gm-Gg: ASbGncvM3iRdNZpvKbBv6Yb8BQPiImtTWwnERoOyVJY/TnY1lsUHUWmIAohFEFbPbao
-	Z7ymiJxKdnHakEwZoPEP/eaYwYJKTunKaY1X/uXEtJlaGoyUuxmlDAE5YGH/Vp9+Fp2LMbHZlWr
-	bTGGhOxVGb+BOKGsmF69TLumHMwftXGzuO+Z3q+Hfv8OLeidYn7rE7bHs+olAcwzfuNCvwplcvA
-	9iB3NNS9Jm2cSfBtZGoDpMc60HJ5CvPE3JEXOQvQStk+2ZabpLx/quqzYeZvpBtNUXucXMzAI1u
-	APOC0svryKUMyunoHgtGDmdOchUaLvoA9rgT1TGJQjvO7awyS4YNc/pIFCqJtRDmXeC5IAwXlhx
-	HwdFUM9Rrox9s58zp6D9umEguoQH4IusqGzRSoWiC8cQJbw==
-X-Google-Smtp-Source: AGHT+IE+tippTw8I5Rjqj8J4MuD+XFXMLrYSoKCBTNLNIx4D19MX2vzDRgyVPUrBIKEMjW6IJPF1lQ==
-X-Received: by 2002:a05:6a20:c127:b0:243:b8c8:a247 with SMTP id adf61e73a8af0-243b8c8a5b5mr5669681637.2.1756478474637;
-        Fri, 29 Aug 2025 07:41:14 -0700 (PDT)
+        bh=/MakGsp/S2cNx5PFmj2E2VVtHHLv1RzGj2Qogo6hOhw=;
+        b=bySJP3GICkbJHsWDSP99slhZEbQKhdBcLWVGWdIUQoRgep1BqOzYRTz04eW1UCHlOb
+         mQ3G4xoEoSbqSJ7bx89RoAYXwifE48wsRdXBNlUJ/MbSW2/Mf4vg3kidFmVzM2prRQRH
+         eALDtZfQB0/fpD+lRkN9pxaCmDysnx+lAPSfqWtdXUQDlAlXXJor+SOsD4LrgmZUjJ/L
+         iPL6QzItTxrEe0fD+TZd+SL6XoBI0vsxkfBJfCLydpIDVD2vGQA4JCzfmQXVn+PbihsG
+         qsIycZgF0H5LP7T2DFxOvkHV1yBXZdFQo+gEQCn0skC3q8Mm8/rDsdgwWOefUV9fwohn
+         buqg==
+X-Forwarded-Encrypted: i=1; AJvYcCUDL48tkWpQfaf49uK0TqSk6dCnrXblDNE4hsCtKY8tt6TTu14l2aFIrR6RE18ruZo0ERBr4H3uo57kgajR9k1f@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyo744GF2SLLcBtsONSLMbSnF78VTOwKTNHIN+ibef4dhOYl4ab
+	RWYSYsNuhv+i2UVDsySyr1sVrEq9bBfZuEecCKW4scjo8JifFefydv4oQJ/L6Vw8mEAxq84UWJ1
+	uy60v
+X-Gm-Gg: ASbGncu0v6rA6/M4StzECZoukrVAhHNE6ATTDqAOXNyxo5DP6laN4VS8Wm23YzwmBPY
+	IywqnNU17NG/A5HvqpRxMOniDkm9FL6ADGqzYDNa7ZIduhXrvOua0sLewuDIonb6E9fwB3/6FUo
+	XMjX4CSfxO9K/ShwmVJ0LQfyD0GNeZrJZpRPQYpEJD8JpBXvWxV5LxkwzT6snk6eN9DfDTmMwcU
+	I8aO7sZZJ/zvjZqO/T4ZATO7sWWvfPFWQ2yLII1mhQeHivgGYtCKPeJV6EOgzGArdpqUOpAIAd5
+	DGOENXZNadK3KikubBJ/i0nVmVTY0vDPqQuaOztPCy6KWq6NHQXXlLD4dayU0PTrCBKsNdk5X1G
+	Dt+bQ3h3t1H2SchiQKX5oRLpBLcNEdQHY1KN0jQu74WvVzg==
+X-Google-Smtp-Source: AGHT+IFbDhya0VpL4dDdmpa2UiIlEb5E5l+kiCERG2V1mfvmn8kbsxwgyRACqpsdN0fY/j0vO5OnzQ==
+X-Received: by 2002:a05:6a20:7d8a:b0:243:78a:82b1 with SMTP id adf61e73a8af0-24340db3ac2mr40858661637.57.1756478475772;
+        Fri, 29 Aug 2025 07:41:15 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7722a4e1f86sm2560999b3a.72.2025.08.29.07.41.13
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7722a4e1f86sm2560999b3a.72.2025.08.29.07.41.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 Aug 2025 07:41:14 -0700 (PDT)
+        Fri, 29 Aug 2025 07:41:15 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
-Date: Fri, 29 Aug 2025 07:41:07 -0700
-Subject: [PATCH v5 6/9] KVM: Add a helper function to check if a gpa is in
- writable memselot
+Date: Fri, 29 Aug 2025 07:41:08 -0700
+Subject: [PATCH v5 7/9] RISC-V: KVM: Use the new gpa validate helper
+ function
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250829-pmu_event_info-v5-6-9dca26139a33@rivosinc.com>
+Message-Id: <20250829-pmu_event_info-v5-7-9dca26139a33@rivosinc.com>
 References: <20250829-pmu_event_info-v5-0-9dca26139a33@rivosinc.com>
 In-Reply-To: <20250829-pmu_event_info-v5-0-9dca26139a33@rivosinc.com>
 To: Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>, 
@@ -86,12 +87,11 @@ To: Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
  Mayuresh Chitale <mchitale@ventanamicro.com>
 Cc: linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
- kvm-riscv@lists.infradead.org, Atish Patra <atishp@rivosinc.com>, 
- Sean Christopherson <seanjc@google.com>
+ kvm-riscv@lists.infradead.org, Atish Patra <atishp@rivosinc.com>
 X-Mailer: b4 0.15-dev-50721
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_074115_255545_38DDCE37 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20250829_074116_598541_84E63D0A 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,37 +106,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The arch specific code may need to know if a particular gpa is valid and
-writable for the shared memory between the host and the guest. Currently,
-there are few places where it is used in RISC-V implementation. Given the
-nature of the function it may be used for other architectures.
-Hence, a common helper function is added.
+Remove the duplicate code and use the new helper function to validate
+the shared memory gpa address.
 
-Suggested-by: Sean Christopherson <seanjc@google.com>
+Reviewed-by: Anup Patel <anup@brainfault.org>
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- include/linux/kvm_host.h | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ arch/riscv/kvm/vcpu_pmu.c     | 5 +----
+ arch/riscv/kvm/vcpu_sbi_sta.c | 6 ++----
+ 2 files changed, 3 insertions(+), 8 deletions(-)
 
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index 15656b7fba6c..eec5cbbcb4b3 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -1892,6 +1892,14 @@ static inline bool kvm_is_gpa_in_memslot(struct kvm *kvm, gpa_t gpa)
- 	return !kvm_is_error_hva(hva);
- }
+diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
+index 15d71a7b75ba..851caa86cde2 100644
+--- a/arch/riscv/kvm/vcpu_pmu.c
++++ b/arch/riscv/kvm/vcpu_pmu.c
+@@ -409,8 +409,6 @@ int kvm_riscv_vcpu_pmu_snapshot_set_shmem(struct kvm_vcpu *vcpu, unsigned long s
+ 	int snapshot_area_size = sizeof(struct riscv_pmu_snapshot_data);
+ 	int sbiret = 0;
+ 	gpa_t saddr;
+-	unsigned long hva;
+-	bool writable;
  
-+static inline bool kvm_is_gpa_in_writable_memslot(struct kvm *kvm, gpa_t gpa)
-+{
-+	bool writable;
-+	unsigned long hva = gfn_to_hva_prot(kvm, gpa_to_gfn(gpa), &writable);
-+
-+	return !kvm_is_error_hva(hva) && writable;
-+}
-+
- static inline void kvm_gpc_mark_dirty_in_slot(struct gfn_to_pfn_cache *gpc)
- {
- 	lockdep_assert_held(&gpc->lock);
+ 	if (!kvpmu || flags) {
+ 		sbiret = SBI_ERR_INVALID_PARAM;
+@@ -432,8 +430,7 @@ int kvm_riscv_vcpu_pmu_snapshot_set_shmem(struct kvm_vcpu *vcpu, unsigned long s
+ 		goto out;
+ 	}
+ 
+-	hva = kvm_vcpu_gfn_to_hva_prot(vcpu, saddr >> PAGE_SHIFT, &writable);
+-	if (kvm_is_error_hva(hva) || !writable) {
++	if (!kvm_is_gpa_in_writable_memslot(vcpu->kvm, saddr)) {
+ 		sbiret = SBI_ERR_INVALID_ADDRESS;
+ 		goto out;
+ 	}
+diff --git a/arch/riscv/kvm/vcpu_sbi_sta.c b/arch/riscv/kvm/vcpu_sbi_sta.c
+index cc6cb7c8f0e4..80acbb75041a 100644
+--- a/arch/riscv/kvm/vcpu_sbi_sta.c
++++ b/arch/riscv/kvm/vcpu_sbi_sta.c
+@@ -85,8 +85,6 @@ static int kvm_sbi_sta_steal_time_set_shmem(struct kvm_vcpu *vcpu)
+ 	unsigned long shmem_phys_hi = cp->a1;
+ 	u32 flags = cp->a2;
+ 	struct sbi_sta_struct zero_sta = {0};
+-	unsigned long hva;
+-	bool writable;
+ 	gpa_t shmem;
+ 	int ret;
+ 
+@@ -111,8 +109,8 @@ static int kvm_sbi_sta_steal_time_set_shmem(struct kvm_vcpu *vcpu)
+ 			return SBI_ERR_INVALID_ADDRESS;
+ 	}
+ 
+-	hva = kvm_vcpu_gfn_to_hva_prot(vcpu, shmem >> PAGE_SHIFT, &writable);
+-	if (kvm_is_error_hva(hva) || !writable)
++	/* The spec requires the shmem to be 64-byte aligned. */
++	if (!kvm_is_gpa_in_writable_memslot(vcpu->kvm, shmem))
+ 		return SBI_ERR_INVALID_ADDRESS;
+ 
+ 	ret = kvm_vcpu_write_guest(vcpu, shmem, &zero_sta, sizeof(zero_sta));
 
 -- 
 2.43.0
