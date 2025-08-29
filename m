@@ -4,107 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D08B4C8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 08:16:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D143C8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 08:19:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TkvuiXmPep1e2SS2WffTJlm+rPS6pqIzbC1L3EbkZ6w=; b=oGLUBbttcsVfqyfBvdfaCzqS1W
-	26JG0GlRKfRqRGGTZky5foGRJqJhaDWfF3bnkx23pZyeN3WmWgYogpFc80lmBPOUw6i0eJL6sq21U
-	45IMfbP/sH3hLATlKOxFssaGgUQbhSLm7SO9s1uguSG2yfgi+p6Tet61//L5cC7hQmGh24ysKzo5W
-	qFKQLWdz3vKyf62UwDl8LAfr1n584+LWvaaU9QumLIpQ8bTq3bLzWbst6U9mihSN5l305cgsApJvD
-	dZEpV9TXd5o7JCXCBp3QMJsksdFVmcyL60oYWI2xCGEKDCm6xW92FTbpmIzg11y78wbjpl1pQn7wF
-	C+q47E/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wK4Er8KjkwMDiCqZCZ7Wf/p6TGj0YR9zxNdMYL6U4zs=; b=pzprsXEsURKH1jiaTRRrWpnUHj
+	jWnf1DIAw/nMG1Sz0nGvK64NY7MGZ+bUVnKl/cNIq9O5xoQeSAQ9cs9TRLP49y+nIKlllugLlvNdD
+	khohSrtKIvKwqKzSDGJXSNtOKoKM3elG4XyzjFEIeza6ZO8Yl8a/Aq+e4ztOZesrPh3+FK7FJuwky
+	ubmSbQOAqJIwdKnUJH+yPe9SJZkt5oCatb0fAKpswVXeElNV2hqIlnT5aQ4BZFaXWP4vbUJ/o+E6O
+	GKU7aJQJWUqrxJr8YGU3ISeLaTylwo0p1pBCTEx79KUgNhhTbQXpTWcv8HDsM+HSvWE6TwQDh9jtD
+	sSu6kDyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uruHN-00000004vlU-2FkB;
-	Fri, 29 Aug 2025 08:16:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uruK3-00000004wMJ-1cE3;
+	Fri, 29 Aug 2025 08:18:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urtqk-00000004oty-3mAn
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 07:48:43 +0000
+	id 1urtrK-00000004p4o-2quX;
+	Fri, 29 Aug 2025 07:49:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2EBF260051;
-	Fri, 29 Aug 2025 07:48:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAAC0C4CEF0;
-	Fri, 29 Aug 2025 07:48:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1B2B343F96;
+	Fri, 29 Aug 2025 07:49:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF26DC4CEF0;
+	Fri, 29 Aug 2025 07:49:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756453721;
-	bh=0A4rOapR7uxRXHkEuZV4upawq7r3HH5Hovvx4aG4VPg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SQqO4OtE8f4SwGiAZn3jS8yZB90ojBHpKfK/SF/ZQejldqv91+Goeee04F854Ze3O
-	 e9akjtP+6gRKmRBhdD3NYYruWaMIW71XZD3ppS62yXLm0+ZTsAa/2J+ZTH7d2y9cM6
-	 AMt+XTjOPSEZ0NEgbk/gE7CB3Ny9MJQOg1LAhRzjwwiYPosU/S4KbMlGaOd1mwFYRS
-	 CIKq21gO1vrzkJfBHraSk2lxIs60Qt3hzPvbL719+8k9DdP4sMNwHZPuklmyauJtse
-	 o635uN88q6b/qoUzVfCeevMH+tIUZ/swjlDNcaXLUwsKikG99TMhOyxc/v7aVDUZkw
-	 yoYBTBH//YVJg==
-Message-ID: <45eec9b1-d4cd-470b-abcc-03a823f397b2@kernel.org>
-Date: Fri, 29 Aug 2025 09:48:37 +0200
+	s=k20201202; t=1756453758;
+	bh=dF+v6pBPXAEvo6aOXOvywP1ufSrZor0h7MkaWLQK5dI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Jh7eyiPa+eTuVCyVjfAOPherneBnYDfNTkkbV3vRkFZt+w3aJYb3ZgmwsHTGBeCV8
+	 9opq4JF0YiaNpyxxy4hJGoP0ArtNLmEfS3K2BNjPgFUWeJpngtBvF1sfX9P19pIC24
+	 q0Ji295VEt2zSosrb/wFyYW8l/S8w56yvuEsyiXH5Nvy6DgTYWEwvreqjwDTDotVaI
+	 +AJgHkhAiEKMcXw8F2FG2loRDBSqa5z8+sPBTJsKFkuOwQFMHyAMubkbs8lfyIqbEY
+	 m7lIpT/gqMkddw2gO5F2hbZLpSwVLCaLew3c61ViQFr3EVP2zo4r//rxrpYVVLQGwE
+	 p7tqkgo4TLyfA==
+Received: from johan by xi.lan with local (Exim 4.98.2)
+	(envelope-from <johan@kernel.org>)
+	id 1urtr9-000000000Zj-07S0;
+	Fri, 29 Aug 2025 09:49:07 +0200
+Date: Fri, 29 Aug 2025 09:49:07 +0200
+From: Johan Hovold <johan@kernel.org>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org, "Nancy.Lin" <nancy.lin@mediatek.com>
+Subject: Re: [PATCH] drm/mediatek: fix device leaks at bind
+Message-ID: <aLFbcznLUutbMo6r@hovoldconsulting.com>
+References: <20250722092722.425-1-johan@kernel.org>
+ <aK7VCJ9yOKntjgKX@hovoldconsulting.com>
+ <CAAOTY_-CijzQqrRUf_=cQbTUSybN3GT46q0vx1139mmZub_OfQ@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/6] dt-bindings: soc: fsl: qe: Add support of IRQ in
- QE GPIO
-To: Christophe Leroy <christophe.leroy@csgroup.eu>,
- Qiang Zhao <qiang.zhao@nxp.com>, Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <cover.1756104334.git.christophe.leroy@csgroup.eu>
- <17636607f2beac3b64c87b3bec035fa27ce8d195.1756104334.git.christophe.leroy@csgroup.eu>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <17636607f2beac3b64c87b3bec035fa27ce8d195.1756104334.git.christophe.leroy@csgroup.eu>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAAOTY_-CijzQqrRUf_=cQbTUSybN3GT46q0vx1139mmZub_OfQ@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250829_004918_742854_3E7785CD 
+X-CRM114-Status: GOOD (  14.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,44 +82,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/08/2025 08:53, Christophe Leroy wrote:
-> In the QE, a few GPIOs are IRQ capable. Similarly to
-> commit 726bd223105c ("powerpc/8xx: Adding support of IRQ in MPC8xx
-> GPIO"), add IRQ support to QE GPIO.
+On Fri, Aug 29, 2025 at 07:51:23AM +0800, Chun-Kuang Hu wrote:
+> Johan Hovold <johan@kernel.org> 於 2025年8月27日 週三 下午5:51寫道：
+
+> > On Tue, Jul 22, 2025 at 11:27:22AM +0200, Johan Hovold wrote:
+> > > Make sure to drop the references to the sibling platform devices and
+> > > their child drm devices taken by of_find_device_by_node() and
+> > > device_find_child() when initialising the driver data during bind().
+> > >
+> > > Fixes: 1ef7ed48356c ("drm/mediatek: Modify mediatek-drm for mt8195 multi mmsys support")
+> > > Cc: stable@vger.kernel.org    # 6.4
+> > > Cc: Nancy.Lin <nancy.lin@mediatek.com>
+> > > Signed-off-by: Johan Hovold <johan@kernel.org>
+> >
+> > Can this one be picked up?
 > 
-> Add property 'fsl,qe-gpio-irq-mask' similar to
-> 'fsl,cpm1-gpio-irq-mask' that define which of the GPIOs have IRQs.
+> Ma Ke has sent a similar patch [1] before you. And that patch fix more things.
+> I've already pick up the final version [2].
 > 
-> Here is an exemple for port B of mpc8323 which has IRQs for
-> GPIOs PB7, PB9, PB25 and PB27.
-> 
-> 	qe_pio_b: gpio-controller@1418 {
-> 		compatible = "fsl,mpc8323-qe-pario-bank";
-> 		reg = <0x1418 0x18>;
-> 		interrupts = <4 5 6 7>;
-> 		interrupt-parent = <&qepic>;
-> 		gpio-controller;
-> 		#gpio-cells = <2>;
-> 		fsl,qe-gpio-irq-mask = <0x01400050>;
+> [1] https://patchwork.kernel.org/project/dri-devel/patch/20250718033226.3390054-1-make24@iscas.ac.cn/
+> [2] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/commit/?h=mediatek-drm-fixes-20250825&id=1f403699c40f0806a707a9a6eed3b8904224021a
 
-We see this from the patch. No need to repeat the patch contents in the
-commit msg.
+I'm afraid that patch is completely broken and introduces a potential
+use-after-free by adding a bogus decrement of the OF node refcount.
 
+I suggest you drop that one and pick up mine instead which is correct
+and cleaner.
 
->  Example:
->  	qe_pio_a: gpio-controller@1400 {
-> @@ -42,6 +51,16 @@ Example:
->  		gpio-controller;
->  	  };
->  
-> +	qe_pio_b: gpio-controller@1418 {
-> +		#gpio-cells = <2>;
-> +		compatible = "fsl,mpc8323-qe-pario-bank";
-
-Please follow DTS coding style.
-
-
-
-Best regards,
-Krzysztof
+Johan
 
