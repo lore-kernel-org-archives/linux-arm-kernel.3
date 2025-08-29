@@ -4,146 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 588C5CA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 12:46:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86D48CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 12:49:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Q3XmI+kHYb67lo6TKHuNiHJbnpImg0OeJoz/8UvWq48=; b=RnImGCKBPDsxgoi9N32Y9hCnNF
-	aB5uZCXiBjsUX4xNTu84hr7zXG/yGgJOpoxdmq8hjILogCsdlYZO2SWDqiOEnouhhm77cdGNMNsBh
-	zlgw3+70xJn2KOx7b6i8c+EILb8nkSvZ2LohmRhwPM80GkAXp4Jo6u3Iurp4/0w9suKmn3sg0aLDv
-	15LSJ1iF3OtZDHmPmBuUYQKAbb83DCQQg0hvKIS5Or+i1FUJECCPxZZvpW2/n0GfaSJRNKdMuThcn
-	z6CCsj8XJQePTIgDo3FDDmCNBx0bG6qL3V12RN+/ee59G3aqvvuTo5UM/7V+Lt1NS7X2RhW4McFHo
-	m4QCBFNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yb/VjMGDmmpuowzt+hSFA+l0RNY0LQ9loXoLSeR8xSg=; b=TaLXC7bNTZkJX5z8b+psFSQ+3n
+	7XQVFJFBUOICzD01+lTux7aCiCG6pkfzhNKAAhJxze9gHiKyF6VtlCVOnkqA2g2VILd6RF0fHbnWB
+	5tMf9tul7QtiVxo2GV4PsF6WcIvp1wWtp4xyrtOJk2yJGVC8zHuY3Eycz2We/bZMuIkqAMdHORLCi
+	lTWsdeaTRGzNRyvlVgJgaRqy2GUGssZHVB7eqwqG9DGSVcphx3aNV9xT0dnL/d1cIfwmMuaUW1z/z
+	hGZ3s5Ym5NgTiCRqnrVPNQzs6TqY0Yq3Kknpre+NBU1yhD+2cR+jBcPQspOGu7v3Z2JRp6I0gF2ka
+	GK3FdyoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uryUz-00000005hYE-2q0Y;
-	Fri, 29 Aug 2025 12:46:33 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1uryXg-00000005htY-2FVO;
+	Fri, 29 Aug 2025 12:49:20 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urw7x-00000005HUg-3zNc
+	id 1urw7x-00000005HRx-3faR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 10:14:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TMIkyG1w+KAbXZih2BApajMMohbK5aFCS1vUJfhva9dO2SuD4EsO9FzNClswIeFJJO2JGWY83FT8ua4dh9BPYMJtR2uBOFi0H5A9g6GpOmLlTyxohY91J4Be2yX6bKZPABF/OOZ6eH1uuxqOFd1f7JlH/e2bYx+XK1+HTAyUNoMBsZ0hC2bfHdaJEl5hc2UYeBN+hXavjHExnV5cSpI9LPDenRCjJyDudFtFZRm1relJ5Zwxoo86ufWpNa9w7YoKh0+zzSG4r7Cn9R7UtqmQLZcbQCiOh83pIU20vSy4uhrUCcrJEZQvlSqFHj/5cvW6HybYq3XztjJja2jPwudtEw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Q3XmI+kHYb67lo6TKHuNiHJbnpImg0OeJoz/8UvWq48=;
- b=MFzsh+Q1tCPLzkE2vLG5g0UQIjPurDp7lSPnwIkpKfczEHI6VNACz52oNbw0ri96peqC/Yv4/spbgJb3Hjo1K1IfvYpyyvJtQRXrpQaTQ9V2LRTsk7zmDycCY2LUTIGoZ519e9SvZ0oxTDNlHe9wOMbKg/a3IXgp5iMA9hu76v5crPtfokgdu/2lesoJOJLzlpiiUl/W12vuLAwUghn67FwdNCU/cLV/fZlY9cmnXbbkOgcr4JjbO9WBkFiErlODCbtlODQSnbl6VmDoGCg3rv6Aqfse8HqCoSUkiu+rZkzy/NOwbCtYC89rpLr4mzaVPrTjsk79Xu0RWbf3VOLFHQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
- dkim=pass header.d=vivo.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Q3XmI+kHYb67lo6TKHuNiHJbnpImg0OeJoz/8UvWq48=;
- b=ONJyCzaZIL6wuvzmymJReothz4vumdKPMB7aE9ZM7ZGKfMKIQRtybDWsbS/yb8PQczmVEr5sizN9Zr8evTsY05q0jFX09z6M6OjlOewxSFe0LGQ5bZrVLL8wRInaJoOUQtxCpPVM0Pclv+zINzRqAp0L3mUbOJ26GTtpboQQWQ27jtwE/RjhjkuWUk9SHKsnAAi32JmSH2TTKTwIy2mL+e1ZBsuEL6z7wHMkl6c/kgDS3rGLzxqWibxZmoXNnjMqYhlSxUUyHq78JgaxGxt3e3f7N5x1I+dIiJMZHzjHwX1sT4TkONjPj/ismymYrZAB7+i2cUhapTnXyqpACtKbAg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=vivo.com;
-Received: from SI2PR06MB5140.apcprd06.prod.outlook.com (2603:1096:4:1af::9) by
- TYZPR06MB6788.apcprd06.prod.outlook.com (2603:1096:400:44f::8) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9073.18; Fri, 29 Aug 2025 10:14:22 +0000
-Received: from SI2PR06MB5140.apcprd06.prod.outlook.com
- ([fe80::468a:88be:bec:666]) by SI2PR06MB5140.apcprd06.prod.outlook.com
- ([fe80::468a:88be:bec:666%5]) with mapi id 15.20.9073.010; Fri, 29 Aug 2025
- 10:14:22 +0000
-From: Qianfeng Rong <rongqianfeng@vivo.com>
-To: Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Qianfeng Rong <rongqianfeng@vivo.com>
-Subject: [PATCH] regulator: scmi: Use int type to store negative error codes
-Date: Fri, 29 Aug 2025 18:14:11 +0800
-Message-Id: <20250829101411.625214-1-rongqianfeng@vivo.com>
-X-Mailer: git-send-email 2.34.1
+	Fri, 29 Aug 2025 10:14:43 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.252])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4cCvJG5Fdsz14MCg;
+	Fri, 29 Aug 2025 18:14:22 +0800 (CST)
+Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id 7E111180B54;
+	Fri, 29 Aug 2025 18:14:30 +0800 (CST)
+Received: from kwepemn100008.china.huawei.com (7.202.194.111) by
+ dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 29 Aug 2025 18:14:30 +0800
+Received: from localhost.huawei.com (10.90.31.46) by
+ kwepemn100008.china.huawei.com (7.202.194.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 29 Aug 2025 18:14:29 +0800
+From: Yushan Wang <wangyushan12@huawei.com>
+To: <will@kernel.org>, <mark.rutland@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <robin.murphy@arm.com>, <yangyicong@huawei.com>,
+	<Jonathan.Cameron@huawei.com>, <liuyonglong@huawei.com>,
+	<wanghuiqiang@huawei.com>, <prime.zeng@hisilicon.com>,
+	<wangyushan12@huawei.com>, <hejunhao3@h-partners.com>, <linuxarm@huawei.com>,
+	<fanghao11@huawei.com>
+Subject: [PATCH v3 3/9] drivers/perf: hisi: Simplify the probe process of each L3C PMU version
+Date: Fri, 29 Aug 2025 18:14:21 +0800
+Message-ID: <20250829101427.2557899-4-wangyushan12@huawei.com>
+X-Mailer: git-send-email 2.33.0
+In-Reply-To: <20250829101427.2557899-1-wangyushan12@huawei.com>
+References: <20250829101427.2557899-1-wangyushan12@huawei.com>
+MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: TYCP286CA0120.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:29c::20) To SI2PR06MB5140.apcprd06.prod.outlook.com
- (2603:1096:4:1af::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SI2PR06MB5140:EE_|TYZPR06MB6788:EE_
-X-MS-Office365-Filtering-Correlation-Id: dd270724-e301-454b-0fac-08dde6e4d294
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|52116014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?3uZb+SJw6h0rSgQifkqoHrOlbMyglZ/iS3ezH2xvlu+LVa/vvd3vKPPiuO2w?=
- =?us-ascii?Q?ASyiYJ9kEfUGYkE4Y6J1dtP6bSYfHVH7wCG+jZxI+PyqyY4vPw0+JI+rq5I9?=
- =?us-ascii?Q?HaqrOsH95JfXxhQnlC4hqua/DAjdMwllc549cC4v5YAjqbpgHTKnNvW8hs2W?=
- =?us-ascii?Q?PUeSchJzx9bWOPcPjlXASBEJrQZMfoEWUd1epKDIjeNKkkw4wSKlvKh40BBq?=
- =?us-ascii?Q?g3i5zrzbkT7GG6J1bOMOumhpactPyEwxZ9zBZNk7PAuSrsZWKFPZoxKIMT/+?=
- =?us-ascii?Q?zl2NDjZNrbCSoNLCmmjuBfbmVXbP+PRNPsW6h+Zhou4jCUMCZksktVyNxiiM?=
- =?us-ascii?Q?htREmUBYXGyqX5sT1x7BFa4xsVQMqoNuHdUbVRiKdvhLfhwASOU/KjB2lXiY?=
- =?us-ascii?Q?XNSssBqZez9ahKIEjNF7na8Oqj+4mDGwQI0m+kLODZhITnyiBwS+s8AbFIgy?=
- =?us-ascii?Q?buHHrUk8V3EhhhnyPU79bW8+KX1aEuEmLv0+aFP44f+43+rZKUaBk/wBm1dY?=
- =?us-ascii?Q?/IkxcTMuEeyBhrV8ohgVUtDF+V+oI/rnl5G6MmMoXrcXwCYvNJmIBfGiTRv4?=
- =?us-ascii?Q?mPFvpPHtA2E2Jk28kd9cINzzaSPmnkbFCzASthK+hAdHsrlQ0zu4ysJ/Jzgw?=
- =?us-ascii?Q?j898lhnbfpyy29BlSK2b1dIMjpJgH1T9OPZOEIQyCwFVgBlMsmsDWwF1ixMo?=
- =?us-ascii?Q?ywBIDCsLEGTJgN0xS7HrIt7YF+NvgFkrfToAFhU/7ymxANnSy/97cdB5AV7k?=
- =?us-ascii?Q?F4tMRKA97wq47MmQ3vFibPvPs3Ta0ctqd9lKHjsVuEv3MSdnANihKeVsz46i?=
- =?us-ascii?Q?afkdg/iB+8ynaMj8CfZmO6p6F9RU5IHnsW/hufKymplPCJfJksh8SXF3nPX+?=
- =?us-ascii?Q?dDVLKAKpqTs4wTJIDy0yHibRjMzxOMR+aGvtWFdP44oLL8fcgyWQCTM6F8iL?=
- =?us-ascii?Q?qanOZA01hBLVktaAaMoRez1O6Suas+QggTlhpNCRslI8HBUWh5pZzgMwCcxK?=
- =?us-ascii?Q?QrQjz3zqWkP8qq9ioPmvt6YelI6CtPISdP+xiPdQXb9WUGyQwK1jlIVDFDsX?=
- =?us-ascii?Q?aqgG+4SVxhO3qjKKyd/aDMmBDs2zoexqAZUmb/4hp8QRB14de55Nwd+tDqWN?=
- =?us-ascii?Q?mW8Qy3+RqBohJ7nnGBv3Lxg45MrcbkiKqV+oz5/lhMV7F+nw9aG2IbQfQT6s?=
- =?us-ascii?Q?YDQ6wXyfSzATt+OjWMscUoLBK+AZFgXFi+OJ0c6Q0WDolP3swO06vaiCjzNV?=
- =?us-ascii?Q?dRYpQOvjhv1zjdSFSCmNK6GRqCGLmeRrTXSi0ZdPoO8FlcthSYmithr5/QB+?=
- =?us-ascii?Q?1wcYU899KKZV2gA3HWj1PAWIrs678DWDG5jSEKc+ehCmDsOJm/ZMWIRYFKen?=
- =?us-ascii?Q?xpLaFO8g6BhtjF3m/HtjoE7qT6fJ3ob3kSNgW7DmdvIUNgxPDA9shicFsFtv?=
- =?us-ascii?Q?3BB43GdEe0tuDXi+tj6AR8u73bRLJ9DH95Jqiu4pmCgxrnWkIDXkow=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SI2PR06MB5140.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(52116014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?g48z3sDTTAgQjXThZAFqKmZKPrneax1yJm579ZzSrtRg8PmEj4a/BCqJUrhL?=
- =?us-ascii?Q?2pyqwCRq5qxl5MYHiS35XEWIk7FsEc6Td/RKZpmaOizeC7LEc4/VeszhCI/E?=
- =?us-ascii?Q?sfPKSay9z0jiWHNW6Oakje6V0UuCTVdxUS/XQ5Y6ZQPJk4MC4qR7LfP2DuRB?=
- =?us-ascii?Q?a6Y0REvYInKH/IXXkfZicd6zFytCpvti9bwJt7Hdf9yfOTkQ+yaXwpKMQ408?=
- =?us-ascii?Q?QCTAIilWKwqML6QbitrsW+MJ/Y+mmKYnk2Xuy7e7Jje6Yr0rJzG/9A4OdsCA?=
- =?us-ascii?Q?+fKo3WdiLUwJXcKgYIhRUFDliSC7m81YahKNXXpp6rR8C5ZpRtCWXUMDUx+h?=
- =?us-ascii?Q?PzQdHa/IYM7fJzH+aIu6dD1oedqB024MBaMncHtfAeo0ijEhPKizJYh1A7BA?=
- =?us-ascii?Q?rMj4Jw84QZs9KnfWl3u9D8oKZJH6y3jt4DQybKlIGsCst46slfstTBvcYvwq?=
- =?us-ascii?Q?JpxQKBjApQw0u/JpqdxHzKBolbOFSKi7hKmKQn4BGx38G6L9yYw74ng8imFy?=
- =?us-ascii?Q?y8kyeHq1PDuVeB6YurIr3/bnY4RC6UDTccnKqFjcmGqr/BVP70tp5KD/I1CY?=
- =?us-ascii?Q?gF8/lhGE1pzS2jMn/5cYgIohoks5chcXRbj+qpT9mbu+W6QG8FdpqCQhQY2H?=
- =?us-ascii?Q?vmtfWVxoGD+HBIMb4XQpwIIb+BtlqQNMuy8i1vku4cd/h5xm+IxYinlGQxud?=
- =?us-ascii?Q?yiWArE4HCoZ+UCdMsWEcXZ5vLKXLV5aLb0iWbfE6dT66s1Lhrzv9cFso8T6j?=
- =?us-ascii?Q?qOv0g/cGYJOs49Cp959mzMqigcy8GW8Q6EKphsunzperXJzazYMkFBeXhbpX?=
- =?us-ascii?Q?6DB70vEh0+mME6HFuJhEIe7Wumm8eC7iaWgUlIZSMFqWpEQTGCUyqNDEAdrf?=
- =?us-ascii?Q?ylv5pV9/gIYYW87MDdYlbTM5F6IZp52VTtawsqiTkXxky8OjC4C30lN2VePd?=
- =?us-ascii?Q?76k5sI0rJU1mxTFOuWMiDuYy1DbyaG/tVaVFuusD/P+3ptyCxWDFG/a5n5L0?=
- =?us-ascii?Q?PMwvErWX/iTrSFkAHFi5zVD4C+d++Q83+/y1G9OZB4I3QTKZs3xuCmEuw8QR?=
- =?us-ascii?Q?+2JAsZCU6ebsxk23O3F7SY4JDzRdeoQvdr02RCCxLFbod5eu/kqEhtJr3Qep?=
- =?us-ascii?Q?XkBkNeLwqXdb2xeN3Ux3mKEdzgikWjmwK+QDg01gDVOHj2U/3OsYAmvPg5ev?=
- =?us-ascii?Q?74p6T8faHcrAweI3yauE03E5VOzY+UGDixVMROquk8macoNJPa5mZve3aTY1?=
- =?us-ascii?Q?SHl1whREdpylP2o2PUlq2Z914o2ZS/1mUjavdgZHyDuplJPES2fyyCieATgn?=
- =?us-ascii?Q?oR0zaqvw4LF0tBFx0eT1LMNh89cmwGOlRtbHKBF9tsUJi0lFVtQYAng9NJzd?=
- =?us-ascii?Q?7LDihhxkUS0SSLLgrnVPwrEPLZS/YfGMjvA/Zk8eJRLwKm8XqG7uiTtdh8JN?=
- =?us-ascii?Q?a9SSl/qs+f5H9OqSnl/TExnenVodVoljUorrr3esX9OVWx8K8MIo6v8NQqXg?=
- =?us-ascii?Q?MlGy+UlHMJRNQFlSnQN2LPifIMHsFesN2MxSptjeKQoeD4HNNyupog0T5+Nj?=
- =?us-ascii?Q?RVskX2xwHQa4Ccy8vMK3TnLZGb31CMfKJpJKNPDo?=
-X-OriginatorOrg: vivo.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dd270724-e301-454b-0fac-08dde6e4d294
-X-MS-Exchange-CrossTenant-AuthSource: SI2PR06MB5140.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Aug 2025 10:14:22.6711
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PQQTdJNiBT15DlyQgg5WOheWfKR4ClZZ3m11gacEoZ+iXSKUkIsmgjyjnEUH3mQwN+OBRrzf5ZsQ1Be7ZsSctA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB6788
+X-Originating-IP: [10.90.31.46]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemn100008.china.huawei.com (7.202.194.111)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_031438_110978_287CDA56 
-X-CRM114-Status: GOOD (  10.85  )
+X-CRM114-CacheID: sfid-20250829_031438_314140_175311AB 
+X-CRM114-Status: GOOD (  15.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,36 +78,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Change the 'ret' variable from u32 to int to store negative error codes or
-zero returned by of_property_read_u32().
+From: Yicong Yang <yangyicong@hisilicon.com>
 
-Storing the negative error codes in unsigned type, doesn't cause an issue
-at runtime but it's ugly as pants. Additionally, assigning negative error
-codes to unsigned type may trigger a GCC warning when the -Wsign-conversion
-flag is enabled.
+Version 1 and 2 of L3C PMU also use different HID. Make use of
+struct acpi_device_id::driver_data for version specific information
+rather than judge the version register. This will help to
+simplify the probe process and also a bit easier for extension.
 
-No effect on runtime.
-
-Signed-off-by: Qianfeng Rong <rongqianfeng@vivo.com>
+Acked-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
 ---
- drivers/regulator/scmi-regulator.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c | 43 ++++++++++++--------
+ 1 file changed, 26 insertions(+), 17 deletions(-)
 
-diff --git a/drivers/regulator/scmi-regulator.c b/drivers/regulator/scmi-regulator.c
-index 9df726f10ad1..6d609c42e479 100644
---- a/drivers/regulator/scmi-regulator.c
-+++ b/drivers/regulator/scmi-regulator.c
-@@ -257,7 +257,8 @@ static int process_scmi_regulator_of_node(struct scmi_device *sdev,
- 					  struct device_node *np,
- 					  struct scmi_regulator_info *rinfo)
- {
--	u32 dom, ret;
-+	u32 dom;
-+	int ret;
+diff --git a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
+index 412fc3a97963..db683dd7375c 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
++++ b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
+@@ -345,13 +345,6 @@ static void hisi_l3c_pmu_clear_int_status(struct hisi_pmu *l3c_pmu, int idx)
+ 	writel(1 << idx, l3c_pmu->base + L3C_INT_CLEAR);
+ }
  
- 	ret = of_property_read_u32(np, "reg", &dom);
+-static const struct acpi_device_id hisi_l3c_pmu_acpi_match[] = {
+-	{ "HISI0213", },
+-	{ "HISI0214", },
+-	{}
+-};
+-MODULE_DEVICE_TABLE(acpi, hisi_l3c_pmu_acpi_match);
+-
+ static int hisi_l3c_pmu_init_data(struct platform_device *pdev,
+ 				  struct hisi_pmu *l3c_pmu)
+ {
+@@ -371,6 +364,10 @@ static int hisi_l3c_pmu_init_data(struct platform_device *pdev,
+ 		return -EINVAL;
+ 	}
+ 
++	l3c_pmu->dev_info = device_get_match_data(&pdev->dev);
++	if (!l3c_pmu->dev_info)
++		return -ENODEV;
++
+ 	l3c_pmu->base = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(l3c_pmu->base)) {
+ 		dev_err(&pdev->dev, "ioremap failed for l3c_pmu resource\n");
+@@ -457,6 +454,18 @@ static const struct attribute_group *hisi_l3c_pmu_v2_attr_groups[] = {
+ 	NULL
+ };
+ 
++static const struct hisi_pmu_dev_info hisi_l3c_pmu_v1 = {
++	.attr_groups = hisi_l3c_pmu_v1_attr_groups,
++	.counter_bits = 48,
++	.check_event = L3C_V1_NR_EVENTS,
++};
++
++static const struct hisi_pmu_dev_info hisi_l3c_pmu_v2 = {
++	.attr_groups = hisi_l3c_pmu_v2_attr_groups,
++	.counter_bits = 64,
++	.check_event = L3C_V2_NR_EVENTS,
++};
++
+ static const struct hisi_uncore_ops hisi_uncore_l3c_ops = {
+ 	.write_evtype		= hisi_l3c_pmu_write_evtype,
+ 	.get_event_idx		= hisi_uncore_pmu_get_event_idx,
+@@ -487,16 +496,9 @@ static int hisi_l3c_pmu_dev_probe(struct platform_device *pdev,
  	if (ret)
+ 		return ret;
+ 
+-	if (l3c_pmu->identifier >= HISI_PMU_V2) {
+-		l3c_pmu->counter_bits = 64;
+-		l3c_pmu->check_event = L3C_V2_NR_EVENTS;
+-		l3c_pmu->pmu_events.attr_groups = hisi_l3c_pmu_v2_attr_groups;
+-	} else {
+-		l3c_pmu->counter_bits = 48;
+-		l3c_pmu->check_event = L3C_V1_NR_EVENTS;
+-		l3c_pmu->pmu_events.attr_groups = hisi_l3c_pmu_v1_attr_groups;
+-	}
+-
++	l3c_pmu->pmu_events.attr_groups = l3c_pmu->dev_info->attr_groups;
++	l3c_pmu->counter_bits = l3c_pmu->dev_info->counter_bits;
++	l3c_pmu->check_event = l3c_pmu->dev_info->check_event;
+ 	l3c_pmu->num_counters = L3C_NR_COUNTERS;
+ 	l3c_pmu->ops = &hisi_uncore_l3c_ops;
+ 	l3c_pmu->dev = &pdev->dev;
+@@ -554,6 +556,13 @@ static void hisi_l3c_pmu_remove(struct platform_device *pdev)
+ 					    &l3c_pmu->node);
+ }
+ 
++static const struct acpi_device_id hisi_l3c_pmu_acpi_match[] = {
++	{ "HISI0213", (kernel_ulong_t)&hisi_l3c_pmu_v1 },
++	{ "HISI0214", (kernel_ulong_t)&hisi_l3c_pmu_v2 },
++	{}
++};
++MODULE_DEVICE_TABLE(acpi, hisi_l3c_pmu_acpi_match);
++
+ static struct platform_driver hisi_l3c_pmu_driver = {
+ 	.driver = {
+ 		.name = "hisi_l3c_pmu",
 -- 
-2.34.1
+2.33.0
 
 
