@@ -4,97 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B32ECA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 14:54:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB49FCA1003
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 14:54:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4xaeXPbiHj1WXGO3LyY/YVYaZRplgC67AGgIQ0JaCzQ=; b=PJwZGNn90IKK3XZm1piDls2w7o
-	jr1ZI4MhWDw2uiT142Xl+iC2C0jruDz/+1sKgtdC17bu7mKemWc3LzN4PgGWb5UePGo4G3tJHF+xd
-	e50TyoN7/ELvHFr8Xsl+aslHjlyfcL1dYE/+oZRoD1IgGfZe8nOAte7Cy0HOfAQJ03AtI7kUmTE7i
-	GwhOIqiqTDez4k/jIxRa+LiecnUFweTpQLXmnHEGR5Qo3/vJJoaTggcdk0TkubZh9U3AGrKYW86Ma
-	Dq6yEixNLEP/JHV0Js5lBk3F6J6fA23aFO+Cz25kwgHDXHp8m50dmxX7SWkiZueB72HS24M4Xdu0m
-	BkC6DUdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TQHbnUpLAUPKXmu/nZ+OpZ4YzoJlM0E6iUd4ZERVbkM=; b=E/1dDO4w2KMdLGr6yWCjo07lRW
+	uPnovvXQev2tZRQxJeLb69OgJuRiryJRH99h8CYIk+/Iue+KwfLzBxGeCT6FsFzl68n/Z9eydBVKH
+	JPZfplHtAfYymhpTcX/AtH63iQyWZuv04ta+9YqyfEoVOI359DgB/rx6Ci7OPlxxCzqGGbbH3jsX4
+	P+pphpf0Fi/YcGid0vIF+UD/7P41G7F4dPLGy41dxWTRyA6ZZ0Kxsd6PMlHyqUkLdvn8Us3bZCnIK
+	qcnOzk9Lkhn8vEoFq6cc3Z3hD1ocoCj5f7tvuPbVRMBlUp4BwzfNO2wzf8zlW5WHAHsGGz0hGAvV1
+	b/tMINRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us0UP-000000066mQ-3C8r;
-	Fri, 29 Aug 2025 14:54:06 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urwk6-00000005OMp-3KFw
+	id 1us0UR-000000066np-1uAd;
+	Fri, 29 Aug 2025 14:54:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urwmK-00000005PCA-3PrR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 10:54:04 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57TAmX4E017538;
-	Fri, 29 Aug 2025 12:53:50 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	4xaeXPbiHj1WXGO3LyY/YVYaZRplgC67AGgIQ0JaCzQ=; b=I9PG/Tts+8+sWE0v
-	iB/btJghfuyYmvscjR0cyoH4rHTCxk3tjAXGOQmMIqZCIHS9vQkpuo0jjDoO/W6h
-	REgP/7WCuTQT3ACMTJzhKXt91r0VOP7Bt7dbQljGhUR0IVxGAU13DL4VGKx9mpnY
-	cwQI1tRdhGuOddgHKvR4/WluY3ueD6PExzDb2G50G/D3rK8VORpDh74IMAzVKT3Q
-	1dmuf2mEwKN7qHtn8M4GYwz9NO75zx0EvPpWBUaK99s6m1l+MS6PBS6bt5g4AEv0
-	NTfAyBYvbmTAAwmOjlKz3OiN8AtGn2OUoT+lxxdMJAiWuNHbsVq8r/rLBOahuP2T
-	wcQukw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48q5v0h561-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 29 Aug 2025 12:53:50 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 6D07E40045;
-	Fri, 29 Aug 2025 12:52:38 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id CFFBA78F630;
-	Fri, 29 Aug 2025 12:51:45 +0200 (CEST)
-Received: from [10.48.87.141] (10.48.87.141) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Fri, 29 Aug
- 2025 12:51:45 +0200
-Message-ID: <57196414-5ab5-41b7-b2e3-ff6831589811@foss.st.com>
-Date: Fri, 29 Aug 2025 12:51:40 +0200
+	Fri, 29 Aug 2025 10:56:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D5A5F19F0;
+	Fri, 29 Aug 2025 03:56:11 -0700 (PDT)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 48C0F3F738;
+	Fri, 29 Aug 2025 03:56:18 -0700 (PDT)
+Date: Fri, 29 Aug 2025 11:56:15 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, <arm-scmi@vger.kernel.org>,
+	<imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 3/6] firmware: arm_scmi: imx: Support getting cfg info
+ of MISC protocol
+Message-ID: <20250829-sophisticated-lemon-porcupine-8dffa4@sudeepholla>
+References: <20250827-sm-misc-api-v1-v3-0-82c982c1815a@nxp.com>
+ <20250827-sm-misc-api-v1-v3-3-82c982c1815a@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 1/2] drivers: net: stmmac: handle start time
- set in the past for flexible PPS
-To: Jakub Kicinski <kuba@kernel.org>
-CC: Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller"
-	<davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Paolo Abeni
-	<pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        "Alexandre
- Torgue" <alexandre.torgue@foss.st.com>,
-        Richard Cochran
-	<richardcochran@gmail.com>,
-        Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, <netdev@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>
-References: <20250827-relative_flex_pps-v3-0-673e77978ba2@foss.st.com>
- <20250827-relative_flex_pps-v3-1-673e77978ba2@foss.st.com>
- <20250827193105.47aaa17b@kernel.org>
-Content-Language: en-US
-From: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
-In-Reply-To: <20250827193105.47aaa17b@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.141]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-29_03,2025-08-28_01,2025-03-28_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250827-sm-misc-api-v1-v3-3-82c982c1815a@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_035403_338390_C8059907 
-X-CRM114-Status: GOOD (  12.21  )
+X-CRM114-CacheID: sfid-20250829_035620_942780_496F2EA4 
+X-CRM114-Status: GOOD (  18.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,28 +70,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 8/28/25 04:31, Jakub Kicinski wrote:
-> On Wed, 27 Aug 2025 13:04:58 +0200 Gatien Chevallier wrote:
->> +		curr_time = ns_to_timespec64(ns);
->> +		if (target_ns < ns + PTP_SAFE_TIME_OFFSET_NS) {
->> +			cfg->start = timespec64_add_safe(cfg->start, curr_time);
+On Wed, Aug 27, 2025 at 12:59:15PM +0800, Peng Fan wrote:
+> MISC protocol supports getting the System Manager(SM) mode selection
+> and configuration name. Retrieve the information from SM.
 > 
-> Is there a strong reason to use timespec64_add_safe()?
-> It's not exported to modules:
-> ERROR: modpost: "timespec64_add_safe" [drivers/net/ethernet/stmicro/stmmac/stmmac.ko] undefined!
+> Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  .../firmware/arm_scmi/vendors/imx/imx-sm-misc.c    | 35 ++++++++++++++++++++++
+>  1 file changed, 35 insertions(+)
+> 
+> diff --git a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
+> index 464afeae8267d8c1eca4c4d5e008eca6d741c6ff..220b9369fb537306f9e1a105930ad4d65e6b10aa 100644
+> --- a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
+> +++ b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
+> @@ -26,6 +26,7 @@ enum scmi_imx_misc_protocol_cmd {
+>  	SCMI_IMX_MISC_CTRL_SET	= 0x3,
+>  	SCMI_IMX_MISC_CTRL_GET	= 0x4,
+>  	SCMI_IMX_MISC_DISCOVER_BUILDINFO = 0x6,
+> +	SCMI_IMX_MISC_CFG_INFO = 0xC,
 
-Hello Jakub,
+1. Order it by command number
+2. Be consistent with the document, MISC_CFG_INFO_GET is used there.
 
-you're absolutely right. I don't know how I did not encounter the build
-error while performing some tests, that I'm getting now as well.
+>  	SCMI_IMX_MISC_CTRL_NOTIFY = 0x8,
+>  };
+>  
+> @@ -75,6 +76,12 @@ struct scmi_imx_misc_buildinfo_out {
+>  	u8 buildtime[MISC_MAX_BUILDTIME];
+>  };
+>  
+> +struct scmi_imx_misc_cfg_info_out {
+> +	__le32 msel;
+> +#define MISC_MAX_CFGNAME	16
+> +	u8 cfgname[MISC_MAX_CFGNAME];
+> +};
+> +
+>  static int scmi_imx_misc_attributes_get(const struct scmi_protocol_handle *ph,
+>  					struct scmi_imx_misc_info *mi)
+>  {
+> @@ -309,6 +316,30 @@ static int scmi_imx_misc_discover_build_info(const struct scmi_protocol_handle *
+>  	return ret;
+>  }
+>  
+> +static int scmi_imx_misc_cfg_info(const struct scmi_protocol_handle *ph)
+> +{
+> +	struct scmi_imx_misc_cfg_info_out *out;
+> +	char name[MISC_MAX_CFGNAME];
+> +	struct scmi_xfer *t;
+> +	int ret;
+> +
+> +	ret = ph->xops->xfer_get_init(ph, SCMI_IMX_MISC_CFG_INFO, 0, sizeof(*out), &t);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = ph->xops->do_xfer(ph, t);
+> +	if (!ret) {
+> +		out = t->rx.buf;
+> +		strscpy(name, out->cfgname, MISC_MAX_CFGNAME);
+> +		dev_info(ph->dev, "SM Config\t= %s, mSel = %u\n",
+> +			 name, le32_to_cpu(out->msel));
+> +	}
+> +
+> +	ph->xops->xfer_put(ph, t);
+> +
+> +	return ret;
+> +}
+> +
+>  static const struct scmi_imx_misc_proto_ops scmi_imx_misc_proto_ops = {
+>  	.misc_ctrl_set = scmi_imx_misc_ctrl_set,
+>  	.misc_ctrl_get = scmi_imx_misc_ctrl_get,
+> @@ -340,6 +371,10 @@ static int scmi_imx_misc_protocol_init(const struct scmi_protocol_handle *ph)
+>  	if (ret)
+>  		return ret;
+>  
+> +	ret = scmi_imx_misc_cfg_info(ph);
 
-The handling of overflows is already done in that function. Either
-I can make a patch to export the symbol or handle the computation in the
-driver. What do you think is best?
+s/scmi_imx_misc_cfg_info/scmi_imx_misc_cfg_info_get/
 
-Cheers,
-Gatien
+> +	if (ret)
 
+Again the document hasn't mark it as mandatory, so handle NOT_SUPPORTED
+gracefully.
+
+-- 
+Regards,
+Sudeep
 
