@@ -4,73 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7456ECA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 11:29:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8193CA0FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 11:32:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fXHjaQ1LRWYb/mZZ8OqDoN/mAOTqlRVHSAzjLG2Zwcs=; b=zLQUtvYeD2w6hu0IR8rr3cVX5X
-	28XkHDVXYwu1p6sMaJj5AXmalHJC+8MdxZtcvjL7wf4Eh6MSaUzBidw9hnLS9Ts0Qux/XpPi54TRe
-	AHroWodtq0Sm4CxEzqLFVe9iFaGEwMo4jwvC6HZ9rskCoJkJH77vqEkGvkdSfXC/17sjTrGurrvVj
-	/l/8eOAEUvzGPIOylB2cmIPIeDIVzaVW95AchO1On8msYSc0YMBQ2bt9O53bUGL3dU63Y/sKuhLnI
-	bdO+P48IAZXQVpvDfR07gGJSORCjVGJz9avkEcY4W4BZo0IN+YVME+lNowPTesyrufHFjcR+6aRyn
-	iI5ouokA==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OpvKQ5RZmE4EfaTAo3mt11IS3VqOx6Zab6zSWyDeGd8=; b=dyNFhl84meGJwr58itD9lOLGxr
+	G767ANC9nEpy4yZFm+w3nEV/KiShaqN8TI8CIDsxzDFaWLAkw+afSK/VB/+ETUkjq/OIAgltHDHIY
+	7frYXII14NynP9pFMc2h/hmdog429n7/ae69zB3uRT9xpxeHzjYPzlKv09NDGLX8BvoPURGzNuSoT
+	f0k7uJtfTCDz1jiL+SC/qXz8CujoEYfItH4Q324GinzadZtMPJFJcBY/R7tD2/4+9duNxF374e3Vj
+	wxyc4ZTpDQ9vR8KaZByQ+kaHw0JlPRm8s9nizRRJi8a6s6UkhaBaqxCdu7UN29nX0O50+lmVM7PBO
+	hnyxAymg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urxIa-00000005UJX-396S;
-	Fri, 29 Aug 2025 11:29:40 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1urxLG-00000005Ucd-2h55;
+	Fri, 29 Aug 2025 11:32:26 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urvEc-000000056qY-0qWQ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 09:17:27 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57T9HD181722762;
-	Fri, 29 Aug 2025 04:17:13 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1756459033;
-	bh=fXHjaQ1LRWYb/mZZ8OqDoN/mAOTqlRVHSAzjLG2Zwcs=;
-	h=From:To:CC:Subject:Date;
-	b=etBXYBrQHZ0jA0GtEdzd5t2SCOuT8veCbPxyhbiIeCr9mdxqDax/m7lM9jmj9Kepy
-	 WxU2dQj4U1Nl48mkOJsfr2hU3LQOL/AUXUHU1jncq1YzF2I5pfTj9Sc76tXHdpkS1D
-	 cJHd4MyRJ1st4MCDexhBJqz38szpv7lY69qUeCw4=
-Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57T9HDcJ3550517
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 29 Aug 2025 04:17:13 -0500
-Received: from DLEE113.ent.ti.com (157.170.170.24) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 29
- Aug 2025 04:17:13 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Fri, 29 Aug 2025 04:17:13 -0500
-Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [172.24.231.84])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57T9H8Z81836158;
-	Fri, 29 Aug 2025 04:17:08 -0500
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <mani@kernel.org>,
-        <robh@kernel.org>, <bhelgaas@google.com>, <helgaas@kernel.org>,
-        <kishon@kernel.org>, <vigneshr@ti.com>
-CC: <stable@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-        <linux-omap@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        <s-vadapalli@ti.com>
-Subject: [PATCH v3] PCI: j721e: Fix programming sequence of "strap" settings
-Date: Fri, 29 Aug 2025 14:46:28 +0530
-Message-ID: <20250829091707.2990211-1-s-vadapalli@ti.com>
-X-Mailer: git-send-email 2.43.0
+	id 1urvEm-000000056rL-0uDz;
+	Fri, 29 Aug 2025 09:17:37 +0000
+X-UUID: fe1cdf6c84b811f09eb0dd999d3936bf-20250829
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=OpvKQ5RZmE4EfaTAo3mt11IS3VqOx6Zab6zSWyDeGd8=;
+	b=Fte1++nL/Z4b5qTQNBqCSaIJV/hZ4+KJ5UQcDRJk8IBug5EATyUamXcBtHy1UaVdMtHSth7lQ0HIX0deMmRfB3TMHTV5ROTgnGanYt5Wr0kLoBUZZCwRX2X6f+H+52MlkHGJOUPCHvMyXdUNHh1nfLzV422WEh60PL4Vjt7AoYM=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.3,REQID:9e004efa-f2fa-4154-8754-3c12bd7c6569,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:f1326cf,CLOUDID:9e37fe6b-8443-424b-b119-dc42e68239b0,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:-5,Content:0|15|50,EDM:
+	-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
+	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: fe1cdf6c84b811f09eb0dd999d3936bf-20250829
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw02.mediatek.com
+	(envelope-from <jason-jh.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 296025594; Fri, 29 Aug 2025 02:17:32 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ MTKMBS14N2.mediatek.inc (172.21.101.76) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Fri, 29 Aug 2025 17:17:28 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Fri, 29 Aug 2025 17:17:28 +0800
+From: Jason-JH Lin <jason-jh.lin@mediatek.com>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Jassi Brar
+	<jassisinghbrar@gmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>
+CC: Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, Jason-JH Lin <jason-jh.lin@mediatek.com>,
+	Nancy Lin <nancy.lin@mediatek.com>, Singo Chang <singo.chang@mediatek.com>,
+	Paul-PL Chen <paul-pl.chen@mediatek.com>, Yongqiang Niu
+	<yongqiang.niu@mediatek.com>, Zhenxing Qin <zhenxing.qin@mediatek.com>,
+	Xiandong Wang <xiandong.wang@mediatek.com>, Sirius Wang
+	<sirius.wang@mediatek.com>, Xavier Chang <xavier.chang@mediatek.com>, Jarried
+ Lin <jarried.lin@mediatek.com>, Fei Shao <fshao@chromium.org>, Chen-yu Tsai
+	<wenst@chromium.org>, <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-media@vger.kernel.org>
+Subject: [PATCH v2 1/3] mailbox: mtk-cmdq: Remove pm_runtime APIs from cmdq_mbox_send_data()
+Date: Fri, 29 Aug 2025 17:15:58 +0800
+Message-ID: <20250829091727.3745415-2-jason-jh.lin@mediatek.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250829091727.3745415-1-jason-jh.lin@mediatek.com>
+References: <20250829091727.3745415-1-jason-jh.lin@mediatek.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_021726_445460_8D4FAD0E 
-X-CRM114-Status: GOOD (  22.45  )
+X-CRM114-CacheID: sfid-20250829_021736_259622_8B3EBFCB 
+X-CRM114-Status: GOOD (  13.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,118 +97,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Cadence PCIe Controller integrated in the TI K3 SoCs supports both
-Root-Complex and Endpoint modes of operation. The Glue Layer allows
-"strapping" the Mode of operation of the Controller, the Link Speed
-and the Link Width. This is enabled by programming the "PCIEn_CTRL"
-register (n corresponds to the PCIe instance) within the CTRL_MMR
-memory-mapped register space. The "reset-values" of the registers are
-also different depending on the mode of operation.
+pm_runtime_get_sync() and pm_runtime_put_autosuspend() were previously
+called in cmdq_mbox_send_data(), which is under a spinlock in msg_submit()
+(mailbox.c). This caused lockdep warnings such as "sleeping function
+called from invalid context" when running with lockdebug enabled.
 
-Since the PCIe Controller latches onto the "reset-values" immediately
-after being powered on, if the Glue Layer configuration is not done while
-the PCIe Controller is off, it will result in the PCIe Controller latching
-onto the wrong "reset-values". In practice, this will show up as a wrong
-representation of the PCIe Controller's capability structures in the PCIe
-Configuration Space. Some such capabilities which are supported by the PCIe
-Controller in the Root-Complex mode but are incorrectly latched onto as
-being unsupported are:
-- Link Bandwidth Notification
-- Alternate Routing ID (ARI) Forwarding Support
-- Next capability offset within Advanced Error Reporting (AER) capability
+The BUG report:
+  BUG: sleeping function called from invalid context at drivers/base/power/runtime.c:1164
+  in_atomic(): 1, irqs_disabled(): 128, non_block: 0, pid: 3616, name: kworker/u17:3
+    preempt_count: 1, expected: 0
+    RCU nest depth: 0, expected: 0
+    INFO: lockdep is turned off.
+    irq event stamp: 0
+    CPU: 1 PID: 3616 Comm: kworker/u17:3 Not tainted 6.1.87-lockdep-14133-g26e933aca785 #1
+    Hardware name: Google Ciri sku0/unprovisioned board (DT)
+    Workqueue: imgsys_runner imgsys_runner_func
+    Call trace:
+     dump_backtrace+0x100/0x120
+     show_stack+0x20/0x2c
+     dump_stack_lvl+0x84/0xb4
+     dump_stack+0x18/0x48
+     __might_resched+0x354/0x4c0
+     __might_sleep+0x98/0xe4
+     __pm_runtime_resume+0x70/0x124
+     cmdq_mbox_send_data+0xe4/0xb1c
+     msg_submit+0x194/0x2dc
+     mbox_send_message+0x190/0x330
+     imgsys_cmdq_sendtask+0x1618/0x2224
+     imgsys_runner_func+0xac/0x11c
+     process_one_work+0x638/0xf84
+     worker_thread+0x808/0xcd0
+     kthread+0x24c/0x324
+     ret_from_fork+0x10/0x20
 
-Fix this by powering off the PCIe Controller before programming the "strap"
-settings and powering it on after that.
+Additionally, pm_runtime_put_autosuspend() should be invoked from the
+GCE IRQ handler to ensure the hardware has actually completed its work.
 
-Fixes: f3e25911a430 ("PCI: j721e: Add TI J721E PCIe driver")
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+To resolve these issues, remove the pm_runtime calls from
+cmdq_mbox_send_data() and delegate power management responsibilities
+to the client driver.
+
+Fixes: 8afe816b0c99 ("mailbox: mtk-cmdq-mailbox: Implement Runtime PM with autosuspend")
+Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
 ---
+ drivers/mailbox/mtk-cmdq-mailbox.c | 12 +-----------
+ 1 file changed, 1 insertion(+), 11 deletions(-)
 
-Hello,
-
-This patch is based on commit
-07d9df80082b Merge tag 'perf-tools-fixes-for-v6.17-2025-08-27' of git://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools
-of Mainline Linux.
-
-v2 of this patch is at:
-https://lore.kernel.org/r/20250819101336.292013-1-s-vadapalli@ti.com/
-Changes since v2:
-- Based on Bjorn's feedback at:
-  https://lore.kernel.org/r/20250819221748.GA598958@bhelgaas/
-  1) Commit message has been rephrased to summarize the issue and the
-  fix without elaborating too much on the details.
-  2) Description of the issue's symptoms noticeable by a user has been
-  added to the commit message.
-  3) Comment has been wrapped to fit within 80 columns.
-  4) The implementation has been simplified by moving the Controller
-  Power OFF and Power ON sequence into j721e_pcie_ctrl_init() as a
-  result of which the code reordering as well as function parameter
-  changes are no longer required.
-- Based on offline feedback from Vignesh, Runtime PM APIs are used
-  instead of PM DOMAIN APIs to power off and power on the PCIe
-  Controller.
-- Rebased patch on latest Mainline Linux.
-
-Test Logs on J7200 EVM without the current patch applied show that the
-ARI Forwarding Capability incorrectly shows up as not being supported:
-https://gist.github.com/Siddharth-Vadapalli-at-TI/768bca36025ed630c4e69bcc3d94501a
-
-Test Logs on J7200 EVM with the current patch applied show that the
-ARI Forwarding Capability correctly shows up as being supported:
-https://gist.github.com/Siddharth-Vadapalli-at-TI/fc1752d17140646c8fa57209eccd86ce
-
-As explained in the commit message, this discrepancy is solely due to
-the PCIe Controller latching onto the incorrect reset-values which
-occurs when the strap settings are programmed after the PCIe Controller
-is powered on, at which point, the reset-values don't toggle anymore.
-
-Regards,
-Siddharth.
-
- drivers/pci/controller/cadence/pci-j721e.c | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
-
-diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
-index 6c93f39d0288..c178b117215a 100644
---- a/drivers/pci/controller/cadence/pci-j721e.c
-+++ b/drivers/pci/controller/cadence/pci-j721e.c
-@@ -284,6 +284,22 @@ static int j721e_pcie_ctrl_init(struct j721e_pcie *pcie)
- 	if (!ret)
- 		offset = args.args[0];
+diff --git a/drivers/mailbox/mtk-cmdq-mailbox.c b/drivers/mailbox/mtk-cmdq-mailbox.c
+index 532929916e99..654a60f63756 100644
+--- a/drivers/mailbox/mtk-cmdq-mailbox.c
++++ b/drivers/mailbox/mtk-cmdq-mailbox.c
+@@ -379,20 +379,13 @@ static int cmdq_mbox_send_data(struct mbox_chan *chan, void *data)
+ 	struct cmdq *cmdq = dev_get_drvdata(chan->mbox->dev);
+ 	struct cmdq_task *task;
+ 	unsigned long curr_pa, end_pa;
+-	int ret;
  
-+	/*
-+	 * The PCIe Controller's registers have different "reset-values"
-+	 * depending on the "strap" settings programmed into the PCIEn_CTRL
-+	 * register within the CTRL_MMR memory-mapped register space.
-+	 * The registers latch onto a "reset-value" based on the "strap"
-+	 * settings sampled after the PCIe Controller is powered on.
-+	 * To ensure that the "reset-values" are sampled accurately, power
-+	 * off the PCIe Controller before programming the "strap" settings
-+	 * and power it on after that.
-+	 */
-+	ret = pm_runtime_put_sync(dev);
-+	if (ret < 0) {
-+		dev_err(dev, "Failed to power off PCIe Controller\n");
-+		return ret;
-+	}
-+
- 	ret = j721e_pcie_set_mode(pcie, syscon, offset);
- 	if (ret < 0) {
- 		dev_err(dev, "Failed to set pci mode\n");
-@@ -302,6 +318,12 @@ static int j721e_pcie_ctrl_init(struct j721e_pcie *pcie)
- 		return ret;
+ 	/* Client should not flush new tasks if suspended. */
+ 	WARN_ON(cmdq->suspended);
+ 
+-	ret = pm_runtime_get_sync(cmdq->mbox.dev);
+-	if (ret < 0)
+-		return ret;
+-
+ 	task = kzalloc(sizeof(*task), GFP_ATOMIC);
+-	if (!task) {
+-		pm_runtime_put_autosuspend(cmdq->mbox.dev);
++	if (!task)
+ 		return -ENOMEM;
+-	}
+ 
+ 	task->cmdq = cmdq;
+ 	INIT_LIST_HEAD(&task->list_entry);
+@@ -439,9 +432,6 @@ static int cmdq_mbox_send_data(struct mbox_chan *chan, void *data)
  	}
+ 	list_move_tail(&task->list_entry, &thread->task_busy_list);
  
-+	ret = pm_runtime_get_sync(dev);
-+	if (ret < 0) {
-+		dev_err(dev, "Failed to power on PCIe Controller\n");
-+		return ret;
-+	}
-+
- 	/* Enable ACSPCIE refclk output if the optional property exists */
- 	syscon = syscon_regmap_lookup_by_phandle_optional(node,
- 						"ti,syscon-acspcie-proxy-ctrl");
+-	pm_runtime_mark_last_busy(cmdq->mbox.dev);
+-	pm_runtime_put_autosuspend(cmdq->mbox.dev);
+-
+ 	return 0;
+ }
+ 
 -- 
 2.43.0
 
