@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D8C7C8303F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 06:35:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67032C8303F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 06:38:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8ZzAvToNc5C7Qmk/HhJFYqcIJyoBPbpHC+15DNoKpHM=; b=B0tzCSqdvEzprnECpLtmwOjTrA
-	ig0Kgpr3pa6ruOKxj+SV4aOTe3TtxciAMsd9+7ldnlHc1ONj1Ekc+pbrw2n4Z1xlEhzuKdk2TFQKd
-	RIDYlQzf3AA7GRUwuFVSZ9IOcWXRv2oGs4onBL/f+kYRYPSpAbDVYIZa+UYK/29JPyMm49No7xnFd
-	Q+5MSn0osSsG48JwM93qJjeZAXZjEtGEorYhasHVmvic4W0KdGUqXI5qncYHaSl0Cb+Ju7h14f1e2
-	4V2rh9+3mCiZ2jYcufFuJFwwYnf4D4bwMshB6vbOuSJ1sux6ym7hAjXFqdQjimWY2p+uEZvVrJbRJ
-	BytZAm7A==;
+	bh=DcAxLDkxYXIgFnTk1GzehiK4pZHzK4UnKuvJ+0x3xgg=; b=NxVBayihibzRuOnbmiaX1ewHcS
+	Ibb1rU4WqZ8mKN7H+Tbjqo0MrnYM9re/Z3DGX7LhsIKT9svlsLbqmRHre42fyVERnaSYlHxU6ehHJ
+	QK4pHmXCzebijichqmHrWOJKg13pye/DVkvyOfKC6DGFHEepzpcS4V80WNk4hObVQyGn1BKqU37BK
+	7awgc/N5hVWwfcjubu0hDdG6En/W7hTl+TLKTmJPZtSFwyvCjVu/Xm9BWWkXQWlQ/DPKTxsraSTKI
+	bRht3ZnFdwPyHQzS2CGxhwsDFQAlgX9f1BOYHq6g+Vkwb4yKOT+8KChtIfQss0EaPZOREgGTgVvxM
+	zJHLq+4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urshc-00000004ekM-1bDe;
-	Fri, 29 Aug 2025 06:35:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1urske-00000004fFV-17le;
+	Fri, 29 Aug 2025 06:38:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urser-00000004eMG-3DkS;
-	Fri, 29 Aug 2025 06:32:22 +0000
+	id 1urshq-00000004erS-1zeB;
+	Fri, 29 Aug 2025 06:35:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2F6B64170E;
-	Fri, 29 Aug 2025 06:32:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68D48C4CEF0;
-	Fri, 29 Aug 2025 06:32:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 201204535C;
+	Fri, 29 Aug 2025 06:35:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AACDC4CEF5;
+	Fri, 29 Aug 2025 06:35:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756449141;
-	bh=lZ0QTag0VjlOQOxSce3jMyppu0ATtFUwrlYgNcJo/x0=;
+	s=k20201202; t=1756449326;
+	bh=0NgMjqXnvtRxxln19R3tS9pI1H20Mq7W/lHIuqdY+uk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ead6Kr+0+piLg9YfVifMhyiEpWCpjYQwKm5BrNkbVVEhEtUxHhdAY3TZdPVPMcPho
-	 X3MQDNIkatnzRTNeLcZGs0m8ip2ORZAsk+iB5f9gNgs9Q3Kr7pXUqAwlL/fhzdjlf0
-	 5JpoRNg74ZvzDfAj19KNjv+NyjqWhN2ttfNmJN6aGpaRinfwpW0CW1TFc2bOvqAeiZ
-	 x+X3MEjEruyfBzhwk9aOZJcYANhUWu4Atdkg3VSVbMKA73GlPZulTS1m8pd/XuZZFO
-	 L6mqlEbt2gJG/NF5ilq0yfdbTjGFrpREaByt43g///9jPr93TLluHDTMvEZDCtOu8k
-	 Fz+dHR4x+QKQQ==
-Date: Fri, 29 Aug 2025 08:32:18 +0200
+	b=mUS4NeEQDHp4RpXIEfmuZNrr7scAypuu9Ptx8sJ0yCP1XNllD61+L5wEEx9ld2LEB
+	 IKZ8NbSez9ZALLcZTsa2OTkyVVitVJs4listetsc4sgMlzbfcOo+NQ/i10dA4OGiJV
+	 3ypKzqdmOYZWb3FOdXhkzi+F/V959omeAx0IGhpWxCotcvditbNQSMaIyAWjBxbLGL
+	 ehOepos0hy2v1fN/9Xx35Nhm+9qoq/NFA2yoic7goQ9zq4YIlODN5rtI/pvCN7LSuF
+	 YQ3ja/kZA9aWCCGInZ+/PpGYpePQHhkMO5PozkkNwawFZY/k721wgzp/EBR5bhA4sF
+	 U3e5wycRVi74w==
+Date: Fri, 29 Aug 2025 08:35:23 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Paul Chen <paul-pl.chen@mediatek.com>
 Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
@@ -52,16 +52,18 @@ Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
 	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
 	Project_Global_Chrome_Upstream_Group@mediatek.com
-Subject: Re: [PATCH v4 00/19] Add MediaTek SoC DRM support for MT8196
-Message-ID: <20250829-curious-indigo-worm-b7e7ad@kuoka>
+Subject: Re: [PATCH v4 03/19] dt-bindings: display: mediatek: add EXDMA yaml
+ for MT8196
+Message-ID: <20250829-solemn-herring-of-conversion-ec5b1a@kuoka>
 References: <20250828080855.3502514-1-paul-pl.chen@mediatek.com>
+ <20250828080855.3502514-4-paul-pl.chen@mediatek.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250828080855.3502514-1-paul-pl.chen@mediatek.com>
+In-Reply-To: <20250828080855.3502514-4-paul-pl.chen@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250828_233221_827983_63497758 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20250828_233526_532191_81B36EDE 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,36 +78,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 28, 2025 at 04:06:55PM +0800, Paul Chen wrote:
+On Thu, Aug 28, 2025 at 04:06:58PM +0800, Paul Chen wrote:
 > From: Paul-pl Chen <paul-pl.chen@mediatek.com>
 > 
-> Changes in v4:
-> - [PATCH v4 11/19]
->   Add New commit to refactor the naming of OVL Fornat.
-> - [PATCH v4 12/19]
->   Refactor ovl_blend_mode fucntion
-> - [PATCH v4 13/19]
->   Move mtk_ovl_get_blend_mode to this commit to align with driver.
-> - [PATCH v4 14/19]
->   Remove the unused paramter cmdq
->   Remove the reapet of pitch setting
-> - [PATCH v4 15/19]
->   Remove the unused paramter cmdq
->   Remove the useless parametrt of func():mtk_disp_blender_config
-> - [PATCH v4 16/19] 
->   Simplified the driiver code to improve readability 
-> - [PATCH v4 17/19]
->   Refine mtk_ovlsys_adaptor_layer_config's layer config checking. 
->   Refine mtk_ovlsys_adaptor_config's logic
->   Fix func()'s mtk_ovlsys_adaptor_stop settting
->   Refine mtk_ovlsys_adaptor_clk_enbale to repaet NULL checking
-> - [PATCH v4 18/19]
->   Fix the system report's syntext error
+> Add mediatek,exdma.yaml to support EXDMA for MT8196.
+> The MediaTek display overlap extended DMA engine, namely
+> OVL_EXDMA or EXDMA, primarily functions as a DMA engine
+> for reading data from DRAM with various DRAM footprints
+> and data formats.
+> 
+> Signed-off-by: Paul-pl Chen <paul-pl.chen@mediatek.com>
+> ---
+>  .../bindings/dma/mediatek,exdma.yaml          | 68 +++++++++++++++++++
 
 
-Where are lore links to previous versions?
+Your changelog says NOTHING changed here and this fails tests, so does it
+mean you received that warnings before but you keep sending same broken
+code?
 
-Why aren't you using b4?
+Last two weeks of contributions from mediatek are absolutely terrible.
+Very poor code, basic in-house reviews not done, basic testing not done.
+
+I talked about this at OSSE 25 with some friends and got reasons why
+your setup is broken. Well, it's on you.
+
+I was already raising this with Mediatek, but we are now back to square
+one.
+
+NAK, because this patch WAS NEVER tested.
 
 Best regards,
 Krzysztof
