@@ -4,105 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33724CA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 14:54:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B32ECA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 14:54:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s40EUZeHPndaMZUbnASjLfNw/Dl76xoXs32H7sS4WAY=; b=SfCa29y3U2MU/lCgAXCgGOWtgi
-	dRZKn0GcZs868vufCKVZaxZhT8N9oAPfUL7jH6p+pFh3geyyYGpVANOLgyT1kggGsD4j/aM6zE//p
-	WzBbWGP4F9H7Q+3NqB2eil1nWkz2mji7NJFSstS9fiR7g20xOtVUJL9/eLp4acTm/THKNs32dvIxp
-	LjiCb6tjSwF9Nl7uSThSig8FVkomV+DlWH1JgBZsDp0P72IUOtXLfayBHKn4cQCc1s5NAgPJpgFTq
-	Gq5veD3hswG1w1TQcksAXrENj+ig33o3HgedWWpnNwK1gAxuH5yU4AIU7pgYaGz6UfeyOyyr4byaW
-	g5cWMQNg==;
+	bh=4xaeXPbiHj1WXGO3LyY/YVYaZRplgC67AGgIQ0JaCzQ=; b=PJwZGNn90IKK3XZm1piDls2w7o
+	jr1ZI4MhWDw2uiT142Xl+iC2C0jruDz/+1sKgtdC17bu7mKemWc3LzN4PgGWb5UePGo4G3tJHF+xd
+	e50TyoN7/ELvHFr8Xsl+aslHjlyfcL1dYE/+oZRoD1IgGfZe8nOAte7Cy0HOfAQJ03AtI7kUmTE7i
+	GwhOIqiqTDez4k/jIxRa+LiecnUFweTpQLXmnHEGR5Qo3/vJJoaTggcdk0TkubZh9U3AGrKYW86Ma
+	Dq6yEixNLEP/JHV0Js5lBk3F6J6fA23aFO+Cz25kwgHDXHp8m50dmxX7SWkiZueB72HS24M4Xdu0m
+	BkC6DUdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us0UQ-000000066mn-2qDM;
+	id 1us0UP-000000066mQ-3C8r;
 	Fri, 29 Aug 2025 14:54:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urwlh-00000005P0O-08sy
+	id 1urwk6-00000005OMp-3KFw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 10:55:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 774E460054;
-	Fri, 29 Aug 2025 10:55:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1F87C4CEF0;
-	Fri, 29 Aug 2025 10:55:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756464940;
-	bh=/WZWOpRzeXEH6fk09jEKeyE927MDqdEymoNh0MK6e0g=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hyHGMYG2P8C/7jomhaHPksY3VxRY+h0UqufTh+luBRoSogbz/S3GjhqJCz018NwIO
-	 R/N06fzW9xW5RKxU+okfWj7P+QF4Oh68PxLEpS4rJAma8lx3Rxh6AJuRO9sLcn/Dg8
-	 UcF4K0C+IbJIc5DewEWlJvLEH8Bt5hEhwVNQAXxoiU6ekrx4zccZ2qc+1+i21i81WY
-	 675+bm5bLum4t3soT/l6rnmiiMSbHuSlN0gTpnmYmaPDwh9PiLVODNQZEtSKwa2CCI
-	 nHXML+ol6YXeO7cOdM3gS7gg2g/PrYEHy0EUz/lZov/KhqotSi0JvMEg6trhzYFKVL
-	 /xywfFU446JPw==
-Message-ID: <51240b84-b063-4b99-b755-cc958192fef2@kernel.org>
-Date: Fri, 29 Aug 2025 12:55:35 +0200
+	Fri, 29 Aug 2025 10:54:04 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57TAmX4E017538;
+	Fri, 29 Aug 2025 12:53:50 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	4xaeXPbiHj1WXGO3LyY/YVYaZRplgC67AGgIQ0JaCzQ=; b=I9PG/Tts+8+sWE0v
+	iB/btJghfuyYmvscjR0cyoH4rHTCxk3tjAXGOQmMIqZCIHS9vQkpuo0jjDoO/W6h
+	REgP/7WCuTQT3ACMTJzhKXt91r0VOP7Bt7dbQljGhUR0IVxGAU13DL4VGKx9mpnY
+	cwQI1tRdhGuOddgHKvR4/WluY3ueD6PExzDb2G50G/D3rK8VORpDh74IMAzVKT3Q
+	1dmuf2mEwKN7qHtn8M4GYwz9NO75zx0EvPpWBUaK99s6m1l+MS6PBS6bt5g4AEv0
+	NTfAyBYvbmTAAwmOjlKz3OiN8AtGn2OUoT+lxxdMJAiWuNHbsVq8r/rLBOahuP2T
+	wcQukw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48q5v0h561-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 29 Aug 2025 12:53:50 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 6D07E40045;
+	Fri, 29 Aug 2025 12:52:38 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id CFFBA78F630;
+	Fri, 29 Aug 2025 12:51:45 +0200 (CEST)
+Received: from [10.48.87.141] (10.48.87.141) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Fri, 29 Aug
+ 2025 12:51:45 +0200
+Message-ID: <57196414-5ab5-41b7-b2e3-ff6831589811@foss.st.com>
+Date: Fri, 29 Aug 2025 12:51:40 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/4] arm64: dts: exynos2200: introduce serial busses,
- except spi
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250815070500.3275491-1-ivo.ivanov.ivanov1@gmail.com>
- <31435f98-5701-4ae0-b822-11a99d1b2eef@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH net-next v3 1/2] drivers: net: stmmac: handle start time
+ set in the past for flexible PPS
+To: Jakub Kicinski <kuba@kernel.org>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller"
+	<davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Paolo Abeni
+	<pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        "Alexandre
+ Torgue" <alexandre.torgue@foss.st.com>,
+        Richard Cochran
+	<richardcochran@gmail.com>,
+        Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, <netdev@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>
+References: <20250827-relative_flex_pps-v3-0-673e77978ba2@foss.st.com>
+ <20250827-relative_flex_pps-v3-1-673e77978ba2@foss.st.com>
+ <20250827193105.47aaa17b@kernel.org>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <31435f98-5701-4ae0-b822-11a99d1b2eef@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+From: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
+In-Reply-To: <20250827193105.47aaa17b@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.141]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-29_03,2025-08-28_01,2025-03-28_01
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250829_035403_338390_C8059907 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,40 +109,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/08/2025 12:40, Ivaylo Ivanov wrote:
-> On 8/15/25 10:04, Ivaylo Ivanov wrote:
->> Hey, folks!
->>
->> This patchset adds serial busses, implemented in usi, for exynos2200.
->> It's missing spi, due to me having troubles with reads when testing.
->> Serial_0/1 have not been included in the patchset, as it seems like
->> they're encapsulated in usi blocks, but are the only implemented
->> protocol and/or do not have a dedicated register for setting other
->> protocols in a sysreg. That'd at least require patches in the usi
->> driver and bindings to add support for.
->>
->> About the naming convention for usi nodes, I've chosen to keep the
->> downstream one instead of relabelling all to avoid confusion when
->> cross-referencing the vendor DT and to keep consistency with clock
->> names. They're labelled the same in the bootloader too.
+
+
+On 8/28/25 04:31, Jakub Kicinski wrote:
+> On Wed, 27 Aug 2025 13:04:58 +0200 Gatien Chevallier wrote:
+>> +		curr_time = ns_to_timespec64(ns);
+>> +		if (target_ns < ns + PTP_SAFE_TIME_OFFSET_NS) {
+>> +			cfg->start = timespec64_add_safe(cfg->start, curr_time);
 > 
-> BUMP - when is this going to get merged? I had a few other things
+> Is there a strong reason to use timespec64_add_safe()?
+> It's not exported to modules:
+> ERROR: modpost: "timespec64_add_safe" [drivers/net/ethernet/stmicro/stmmac/stmmac.ko] undefined!
 
-OSSE25...
+Hello Jakub,
 
-You can help out by reviewing other patches on the mailing lists in
-order to relieve the burden of maintainers and move your patches higher
-up the list.
+you're absolutely right. I don't know how I did not encounter the build
+error while performing some tests, that I'm getting now as well.
 
+The handling of overflows is already done in that function. Either
+I can make a patch to export the symbol or handle the computation in the
+driver. What do you think is best?
 
-> I wanted to upstream before merge cycle.
+Cheers,
+Gatien
 
-You should have posted them already. b4 handles dependencies, this
-maintainer can read cover letters.
-
-I plan to clear my todo queue this weekend and close my merge window
-within two weeks due to travel.
-
-Best regards,
-Krzysztof
 
