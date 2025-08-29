@@ -4,86 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4062CA0FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:48:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23849CA0FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:48:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hsFZBQJQAIvZJfF34HPCQsJUYySIMV0W2zYPfupSo7A=; b=G04RFGHfDp1UVxDcPlGhIn8pXH
-	LsyUqMlsm9nipG2u6rS3g7doOu49koON8OZ8TxpdpxJekylRGlV7IMhFERMXOdATgGxhRTQJu1SZX
-	InrauqFVTZUw3+sKlQcqQPB+shGt/tZZXxDvaLCZWp/Um7g0WZiGVeaKPAxxiyFTqTEKTS6GBKCtO
-	wdHGTX8m8EL5AD5Dk7vyXyYwqdhiiv3iOMPgWOe2I2+2DEA4koX1ncxDOcOdCREueCq5ODk34KLpz
-	R3gBS8hnk8AHFZBLroT/piDPfJ3//bEY0W6Bw1uLxQpNHrikEglG0npUMvZIwYZpKmnq84uw04u89
-	kiuUhDww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xj7B2PRphBCSW5txAx3fHoca1CHI12fyV9l3tUHc9zs=; b=LaVoqmYXP/lsafThwdKTUrHK6U
+	gQ/y9GvuppEelNghGRkywLPxLUn62ZovIrURgqiBMI2KWYx6SdXMJNHPjKHgLMcTckOtshmQAKowg
+	p4mlWUHv3RBaP0XudlC0Dpn8Cjwwxw0QXQio89Ad4JDE/A9TrIZtCKTEsYQW1nSvQSD08LHaHCwrM
+	xniF5Orui7nY/TmqEicV88wQwnIKphq0BUmxPpYObeUpnZx0/hFeHpzoWm9Qt6rySkNcKyuO0c7lq
+	h1NgyopT+t3iwa6Fi3vrxltYmtrJAeeb5AKpfQ4jtdp831/bpStMfBmRY4F/4JhVe671B6GKtQ2hU
+	vtKJn7sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us9lG-00000007A8K-0A9v;
-	Sat, 30 Aug 2025 00:48:06 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1us9lK-00000007ACg-0lTQ;
+	Sat, 30 Aug 2025 00:48:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us2JC-00000006S62-24V5
+	id 1us2KH-00000006SDF-1wfy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 16:50:39 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3ceb830dd58so933060f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 09:50:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756486237; x=1757091037; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=hsFZBQJQAIvZJfF34HPCQsJUYySIMV0W2zYPfupSo7A=;
-        b=TamaMs4cJfi16y4+sVCDOsDsmI139jDBizvoDJ8aZDJyENdwFrj0c0dF6i9vdmtRQl
-         lmqubL+I3NiZPlvD1xZPb1B8Zq8fBlyFuqG3WicxWIsFPjeaY3iZ574EBwNacDPZ8k8u
-         E5860VPGxhh2AJ0N/agep0OXdxVZntvv5fYdU0rrCidLCVdEbRHTdBTSk/sagAWVf5BS
-         bn4lELeAyXlN0MuApFfnspzn/VnlCz1tJVobnQGkVPMJ+DJUunK7os6WJUVGAg3268X1
-         3JdjDS1qstaM7hpxmHxTEpLR1GnczX0MxA7BzA8LC9jxk417UNtbgB+yZeEWM1p2S/Px
-         d3aA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756486237; x=1757091037;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hsFZBQJQAIvZJfF34HPCQsJUYySIMV0W2zYPfupSo7A=;
-        b=I9X6UIjKpN171llSCf0cLUWZuQ3OnhkXnaUKq799M1gfLTvvrREt2KmLjqqUCmFkm0
-         YyUEZBT4mbZuM64PY2U4vkr2mI70lyL1EXcpJPChfSsYgaxhIREMKFU4gzyVdJ0SpPmW
-         FrLOMlsguIGC2WqcJAJTkEi6OgjgTwooDpeIMcxZR64ngVoON9pG0LhXblVn+vuDPA4J
-         GGD1XyLDFc6DiJbDZrIIV3V/ml+AbL9j2vxYtXcuJ2aDoF04RSEKXcK8R+mM0jUVIIzS
-         u/9yfn0gucvnquMaarK845OdiPr8+dwy7pofd0EzzK6tCLzlriVVbMBFYMHnyoet3HZX
-         w1lA==
-X-Gm-Message-State: AOJu0YzKxbLEx7Ok0qAmEYuMBzQRqDxgKUbBOTkw7I96EMpXMVibdFn8
-	p/PRzvSz0ADcqoOwT+L0PRHSFQ2j+tPvvQQZUTQ07AEa5x9C+K5OldkI1LsxnA==
-X-Gm-Gg: ASbGncueynd8xLf5hqmfbm5iZ84MQOv0Jrlh01cNQ2oll6yXWi3BeQRPBVFd8y2fVFv
-	NMAbIxUCYo33fHYjJ9Yspb0SKRAmj6Ccy/FZDR6yRyjI1OJ7jzZPIT4peLUgtUgCxqb5GYwuOw4
-	8BubZiPgV7TbYDgobYtIkM341vIGRWmcCUUP+o3ZSYagU1b1XwWveAicmwVyd0KZ2XqPad5K5y6
-	6SMEOB1TcgDL5MrTFPSsCQ/CFFCv+QHlaVTK6F5uX4JCuo4wQ+j33u07FVTDHoKWeicTC5Xx5P/
-	ZE4Q2TO5U3g6UsXu4u0fYpWHvDH35h5Sqh0PhjKUPNFPt/0XXTpUK618rG/42P8vGrAO6zDPQ6G
-	kjeOPL5J3yblR91/M9M/DPWeFFH5TnR1gQIpxjEEjqaXO4YI=
-X-Google-Smtp-Source: AGHT+IE4g/jMyzZ/INHXqzhTRgjeEwar8NJUP8jHUvddyUYpJLpweqpKrfi05z3PLfGEWRwl1WRm0g==
-X-Received: by 2002:a05:6000:400b:b0:3c4:edc0:28ae with SMTP id ffacd0b85a97d-3cbb15c9db7mr10644186f8f.28.1756486236614;
-        Fri, 29 Aug 2025 09:50:36 -0700 (PDT)
-Received: from x230.suse.cz (gw1.ms-free.net. [185.243.124.10])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b7271cd01sm116188015e9.23.2025.08.29.09.50.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 Aug 2025 09:50:36 -0700 (PDT)
-From: Petr Vorel <petr.vorel@gmail.com>
-To: linux-arm-msm@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	Petr Vorel <petr.vorel@gmail.com>,
-	Alex Elder <elder@kernel.org>,
+	Fri, 29 Aug 2025 16:51:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 24B6A40B83;
+	Fri, 29 Aug 2025 16:51:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1FA5C4CEF0;
+	Fri, 29 Aug 2025 16:51:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756486305;
+	bh=03rk891EXzQgLlR+ox/B8qZcUcPShMCfgw1IOgKY9fY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rcfMFq2AC6QTawhxyDXciuX1Yxluc5AxBWNNeSo99EqnpfVKb32GzxpbzDqpvMcLr
+	 Jf93jPIOVlZEW/cwlqG+TAJ5+OaW8DlF/hL/KF8WF8BKA1UCZoqNoPB9BvtAM242oz
+	 Pzy8iEx4MUbMj97dgJ/WdNu9NfTX4mXIV4uzvYXj6a1yLqslGDBq6yhhWYET62Y8NK
+	 3c0lY04UQU0KUDEW1PIRxT/pTierHIiOafwW+nhLfidYeZ5gM29DAkkjYytpmbn1hv
+	 OCSgLghKAOHbT1tNaHgwP7pNbj9b2V6QEXkbXgfthvDKccBnRBYp5OEo7Oymp3QCfg
+	 4biL16bGUS6XA==
+Date: Fri, 29 Aug 2025 11:51:44 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: Conor Dooley <conor+dt@kernel.org>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	linux-kernel@vger.kernel.org, Will Deacon <will@kernel.org>,
+	linux-clk@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>, willmcvicker@google.com,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	linux-arm-kernel@lists.infradead.org, kernel-team@android.com,
 	Stephen Boyd <sboyd@kernel.org>,
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
-Subject: [PATCH 1/1] ARM: defconfig: Remove obsolete CONFIG_USB_EHCI_MSM
-Date: Fri, 29 Aug 2025 18:50:31 +0200
-Message-ID: <20250829165031.110850-1-petr.vorel@gmail.com>
-X-Mailer: git-send-email 2.50.1
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	linux-samsung-soc@vger.kernel.org,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	devicetree@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v2 1/5] dt-bindings: firmware: google,gs101-acpm-ipc: add
+ #clock-cells
+Message-ID: <175648630368.1002473.16179265827004487782.robh@kernel.org>
+References: <20250827-acpm-clk-v2-0-de5c86b49b64@linaro.org>
+ <20250827-acpm-clk-v2-1-de5c86b49b64@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250827-acpm-clk-v2-1-de5c86b49b64@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_095038_531904_6E8E18D3 
-X-CRM114-Status: UNSURE (   9.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250829_095145_524231_2B25754F 
+X-CRM114-Status: GOOD (  11.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,27 +86,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CONFIG_USB_EHCI_MSM was removed long time ago in v4.14-rc6
-8b3f863033f9f ("usb: host: remove ehci-msm.c").
 
-Signed-off-by: Petr Vorel <petr.vorel@gmail.com>
----
- arch/arm/configs/qcom_defconfig | 1 -
- 1 file changed, 1 deletion(-)
+On Wed, 27 Aug 2025 12:42:11 +0000, Tudor Ambarus wrote:
+> The firmware exposes clocks that can be controlled via the
+> Alive Clock and Power Manager (ACPM) interface.
+> 
+> Make the ACPM node a clock provider by adding the mandatory
+> "#clock-cells" property, which allows devices to reference its
+> clock outputs.
+> 
+> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+> ---
+>  .../bindings/firmware/google,gs101-acpm-ipc.yaml          | 11 +++++++++++
+>  include/dt-bindings/clock/google,gs101.h                  | 15 +++++++++++++++
+>  2 files changed, 26 insertions(+)
+> 
 
-diff --git a/arch/arm/configs/qcom_defconfig b/arch/arm/configs/qcom_defconfig
-index ec52ccece0ca7..3de9d6c242dcb 100644
---- a/arch/arm/configs/qcom_defconfig
-+++ b/arch/arm/configs/qcom_defconfig
-@@ -187,7 +187,6 @@ CONFIG_USB_ANNOUNCE_NEW_DEVICES=y
- CONFIG_USB_OTG=y
- CONFIG_USB_MON=y
- CONFIG_USB_EHCI_HCD=y
--CONFIG_USB_EHCI_MSM=y
- CONFIG_USB_ACM=y
- CONFIG_USB_DWC3=y
- CONFIG_USB_CHIPIDEA=y
--- 
-2.51.0
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
 
