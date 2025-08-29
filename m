@@ -4,74 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C1A1CA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 18:23:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B13BCA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 18:25:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5GQuwRNbbYERF3HcCU5HcRfIcv1oqJBN495ezrVPDYw=; b=v/bqggTugWMxbc5FU4W1Zs/Myk
-	1ptWK86R/XbfV0+QEafrbVeYdCk+wF5LMTNi+gpSWZ/E217zp0J7E74EYPJr1xDp3lO/OsxH3hYsR
-	imcfyBdBgDGYPCAx6Z6fhk/CiDLEVTyOo5pAJ6v2gbelRNxyCh9sF46yUYPqT3rgJdlEyRPBml36S
-	YEZhv6U/KNW/7UgaE0R0/CeYpZODRheDsE5eaMekFba9rLwZMdLSQBLc1CtrYJokNhZNz8B38ItEv
-	CePDvvbaBurJwhkDJ1yuSn63Lc8/SCLkzvJwoBHVDkSvunsk5H9YdVz3Wd7U0Taowzj0iGW5eALr3
-	Psq6xE0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Tdpblxmbj1zmVxjLDF2rtEQaJ8+MV3lqGcMnNFTN81Y=; b=Ba4GKxMJjaWMHqpmY2mevf/Bix
+	5PXmVvBULYiz5KFG/dIE8wo/1VWiogedgRU22TKXELG1KrQzVpJSAOmtgF+knh2Mm5lS8iKef1Eia
+	AWG6pZ4Z8NJSiVq3mDITeVHHyqWiBrAX4TCE9OGN0jSlDz1OBK60po3/fwx25NfzDBL9oVb/gp2CN
+	Ta2Td3V02uu96vEas88uGlgrB/3n8cdntDkwfXfxxyuK39OlTqI//ISw5r0ypOY2aa/RbUm7jtCw6
+	w25Oen2OeSW+V0k8KlR3R+ZSrJcA9bq3gxzTiE8yr9C2YAgsX2GVkBIG3MUZCzGjZMiuvTGnPVZeu
+	5cT68PeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us3ka-00000006cw2-2OWt;
-	Fri, 29 Aug 2025 18:23:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us07X-000000061y4-0ZmZ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 14:30:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CE48B19F0;
-	Fri, 29 Aug 2025 07:30:17 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0CD023F694;
-	Fri, 29 Aug 2025 07:30:20 -0700 (PDT)
-Message-ID: <c2a814d6-e235-4589-bdb0-63d08d4ca008@arm.com>
-Date: Fri, 29 Aug 2025 15:30:19 +0100
+	id 1us3nH-00000006d4u-2mdh;
+	Fri, 29 Aug 2025 18:25:47 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1us09Y-000000062R8-3h2D;
+	Fri, 29 Aug 2025 14:32:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=E1Z/FFv7rFJb2G7Tv42Z22Sj3VCYJnr/yP9m+yQ4zaEVrQaY1OZgFMbuDuI8rtHonU5k9zmLntPQ5knV5ZIR2I3h84Hn5s7Te+MVIyUzckJnvN1pQDqmjK0nnWT4+Dk0DVhEM5UHEE7vv/XKUx97UeywMNYmCjEw+9dQZ6hVAp2//6UwZnzdY0dnawH/sExhXTW3sWzPMsykTSmCiXY/wJuMVmvUlXdAit5VeajlAkRrMwNpNwa19d1FtLc9ME4i6fcV5xxUMe1jCMD25HGcTnPkPC8RlaciBOl7I1kEZ+BvpK6oWSbXSg5fAme7fOVjAQrUgQAhCWrfCxy/DSXp2A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Tdpblxmbj1zmVxjLDF2rtEQaJ8+MV3lqGcMnNFTN81Y=;
+ b=aMyPwKAb9JE6qSccfRARMYXj1pT78gKkcr7BEpQtFYE3rViXUhnV7iOeOyatw7rWTJnnz9F6/eWbZ6J8QEc/r6lqsPdBP+O7tM2dlQGn7P+W1JUlcIebEzEm69WVxOjFfUharonqXln+/3HV1SK93IFsMsP5hLzO3zYC/g/mpBH8Rjoit0w7FtxzMqIcko2sxfKBHLDo36kLp4ieds3k8TknkjaqiUBcqAaCAF5yvLQY/erSUzr3DUMtseOuQ/j+gO5Y6s2zdwOebdrDo5+SwvVxCbVAMwZpaIuBAdzZ7KrEtxz8ziV5GUysUGj79sX4AE9pA3WILJnmnK7YeEHibw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Tdpblxmbj1zmVxjLDF2rtEQaJ8+MV3lqGcMnNFTN81Y=;
+ b=RAt4myGiF1fyPVU2hT0VoRUmd65ovOrXPhbwtYCh89Egp/7wW8w7vK4Vw2bhmH3EGjiVcOSJkpgIQT4WW213sXsOxNpW+oIGFtcDG5v/Vxh0dmxspHFSd2d1umpMBBeeP0+0w4uISMazPtroHXGPCrux6ngBJEyN/BZztT0kjAiDCTwUyp6WUS1EaI0mKhJJ83Aw9V3up/TzgfoWkJ/vP9K29Xdpy+SyORYBE40sH55uZeXvCLIVv8/cNu7/RshHo7wxQOBnW8B4QD5I9RSJZqkflbAypXwAdkybIyePIo4mnalzxIatpo8tlBactJUwYMj9FYx43VoUPXZqw+55OQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS4PR04MB9621.eurprd04.prod.outlook.com (2603:10a6:20b:4ff::22)
+ by AS5PR04MB10041.eurprd04.prod.outlook.com (2603:10a6:20b:67c::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.10; Fri, 29 Aug
+ 2025 14:32:17 +0000
+Received: from AS4PR04MB9621.eurprd04.prod.outlook.com
+ ([fe80::a84d:82bf:a9ff:171e]) by AS4PR04MB9621.eurprd04.prod.outlook.com
+ ([fe80::a84d:82bf:a9ff:171e%5]) with mapi id 15.20.9052.014; Fri, 29 Aug 2025
+ 14:32:17 +0000
+Date: Fri, 29 Aug 2025 10:32:09 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Marc Kleine-Budde <mkl@pengutronix.de>,
+	Vincent Mailhol <mailhol.vincent@wanadoo.fr>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Aswath Govindraju <a-govindraju@ti.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Haibo Chen <haibo.chen@nxp.com>,
+	linux-can@vger.kernel.org, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 2/6] phy: phy-can-transceiver: Introduce
+ can_transceiver_priv
+Message-ID: <aLG56YUI0/GBfcje@lizhi-Precision-Tower-5810>
+References: <20250829-can-v3-0-3b2f34094f59@nxp.com>
+ <20250829-can-v3-2-3b2f34094f59@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250829-can-v3-2-3b2f34094f59@nxp.com>
+X-ClientProxiedBy: PH7P221CA0086.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:328::13) To AS4PR04MB9621.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4ff::22)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 21/33] arm_mpam: Extend reset logic to allow devices to be
- reset any time
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
- devicetree@vger.kernel.org
-Cc: shameerali.kolothum.thodi@huawei.com,
- D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
- Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
- baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
- Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>
-References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-22-james.morse@arm.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20250822153048.2287-22-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4PR04MB9621:EE_|AS5PR04MB10041:EE_
+X-MS-Office365-Filtering-Correlation-Id: 55831813-ac7a-42b9-58fd-08dde708dad2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|7416014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?7EBMpG1mCFHTay7aZItLF/XLrH51SZ/hY/3qIWiLHdaFOW2DfCcOUwjDZXd5?=
+ =?us-ascii?Q?thRnOUQW11o3bejWB+xlY/DrvevNQTuAyIfxwiTIQyP4vFrTr3y0x57s2W3j?=
+ =?us-ascii?Q?XvwZqo2FxqG9a35Zc3JYzvfbZ0lnbRAkAfY+Y44AZlNsr/MruEQdbg5UdUEk?=
+ =?us-ascii?Q?5R13+t9HQMX9ehK9ZNEhc/pWBlaxRCiBWmEbTnRjWeKMUxnuAjSCXFQgbXnn?=
+ =?us-ascii?Q?JmFSxAZO3SZAQuFGOVlaS3MqDbCytciERvfbxqtdgSQeUjv35u0Heuk/wcaH?=
+ =?us-ascii?Q?+VyIdeGet6ZnAJq/n1fbZMeMzygeAr0rwlH7bawbew7ISNrUESUukJjg05jL?=
+ =?us-ascii?Q?WT9Vc4vHNWAKUfBUMj8ITpVK1yCCuxoccK1k14EVQ8laI5AgBwWhOIQOklsk?=
+ =?us-ascii?Q?VDwJv80ES3EFMzWHpkO+1PrU0GnwuAbeu/vCaVqCV8rV1SUhuWV4xi8zKffg?=
+ =?us-ascii?Q?N/Hsyhyg3kP1GkOornifIb8GLSz/FM1eLXOf+9YzOR2Al8zkZAeH3JsCGHWF?=
+ =?us-ascii?Q?to4cxlZUL9r+DR/VtKOYLZMIO2W449gTJoRbxsMoEa5+Jx2VR1veSLA78Rwq?=
+ =?us-ascii?Q?9Q5PFaaq/ExLy+czHgh12Ln8QCStcH85BrRluviJlYfg2vf1A7Ibh26dLTyl?=
+ =?us-ascii?Q?y+5V4Luf3eKycaemglOE9OcdCgTrXvbERFRBXA7+FK6BUe5sCY1AnRRbs90J?=
+ =?us-ascii?Q?gzgSjWyeiXWVOGCGqp+np/k1hKYYGOHSS/7LOA7vYQJiX3sjKPve5BNGXWuX?=
+ =?us-ascii?Q?hYrUnrkmp3FWjqqsUNg0IlGd7AU01eKIFiCa5fcCaeLi4VPfkXI+Ksf3GlWK?=
+ =?us-ascii?Q?vEsEGAgcf4oiKS3WpQnnrE5SKyozJVKwkAF70b0MHNhVvXt3e79vU+lAnbKc?=
+ =?us-ascii?Q?8QV51hIwnOExLJqUYKSY8A39pBJZHZiCvZMheNmp9iiyrj6O1MqjStmOZwF5?=
+ =?us-ascii?Q?YEcYyMsTi36HzFRTAiZLAlD1gdFhqbVxVUsrUtdRIfsniRJByMy+0DrFpGdv?=
+ =?us-ascii?Q?K8TKJEFC7jop4t/8WcTAIumE21ZVK5Btdck0lB/sNSRS1qH6wf3a/hWGG4wF?=
+ =?us-ascii?Q?xODzfTDlPJRH70vnVuv3kiX87PLLy64sRfJEyoStaH36rGzEnY5/1r3JapW/?=
+ =?us-ascii?Q?nk3/yeufC+VVzklD/oFSfTvXzhgB0VVVAUv8K1I733VbEVtfaQuUF2uqqh6Q?=
+ =?us-ascii?Q?nSl7/OsJxfSpfnSkecuSQBJHzosGt1PebAk5sdvCEgjgcPdoR3ayTbJsMkB6?=
+ =?us-ascii?Q?kij/btm94LKRzQvB1cGiqCxPSPUl6JsceGcX8YnezkDz1oEFOLsHWVCPNOU9?=
+ =?us-ascii?Q?9f1P7z0XifwweU5yDSFQpBfYGEBuUidRxzq0OigeZUr/Z3JUqGJjZLNQsFQu?=
+ =?us-ascii?Q?MY3UWs92VShSXiUi0Lj49Rhl6eqXWUXgxUt03HLOcC/Q0IwUzsLOhV+58XpA?=
+ =?us-ascii?Q?J3AI2DmFYp/tXoD/q/5w+Y/EwKmlWtCDvlVYnMkYTYpM9xgdU0gleA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9621.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?T7zB3D+tFVANZSrgwVUqYWDFMc/0lW0SaXvrkzUjTM/quss3cbrB6JhjhWS+?=
+ =?us-ascii?Q?mwgSD786nlRBhBxGW7vTNWcqptNpk2fYIc13mK5NXYh7Y4px+rv0q3fQDb2F?=
+ =?us-ascii?Q?CLtr9qaIUN8FqB4fInZvey3qB/Cjhz26b1MH/dq2iLMhXCSr6k08pfmlpHgW?=
+ =?us-ascii?Q?my1MBf5lH6vVqPIQrFmmyheHAQOCIDmrxMUm6q3fVxX9n/WeDAL38ooDf3pw?=
+ =?us-ascii?Q?0ZyIEkDGcekooHik3cH8P6tRznID+EAzOpGWY3wXiL2P49I2qeIhFikiA6l+?=
+ =?us-ascii?Q?6jRq63hFA31LEltQYGUlBN+POwEIULSZUmbhKIaHxDoDPV4010IDVzE/znT2?=
+ =?us-ascii?Q?DjThh2HnConB0MWkYSCaBsI4dkWukxxH/CLSC9I8NJq3rtUyoByruiuRBnYD?=
+ =?us-ascii?Q?IefN6BdBqxU7oVuObckVksdB9wxxougwzPtLA64v1xRShqdS2OuupR92Fpj2?=
+ =?us-ascii?Q?E+anEuawKPZ7O1XBL7XZ3ckqhjQbpP85ygON8KRZSJSZDWV7SsV5Fi012AHr?=
+ =?us-ascii?Q?wJlunGJlje+v6ULRyKpMQ5ZtFnL88i+/ix4Cjvn6tzY2mWsWalgqcmyd+ZC1?=
+ =?us-ascii?Q?JeS6CXuw1aTV1tCQrabh4bbpPaF+fnt4wp4mfUZHiP0xj+p1y68Epg26JzjX?=
+ =?us-ascii?Q?uGQQ+F8abdrbLgW4T8eHFqEaY+0CuC5PQ0Kd6155QULgd87wQVnVePudS7du?=
+ =?us-ascii?Q?NyrKcdt1fnHR+tAQPWZfrIE73UeMZu/mHctxFixgmWyfEUkMuSYJ7CXY5Yd3?=
+ =?us-ascii?Q?0lIGJSBvdlgVqdt7om1RrkDERaDXpOGmqs84vsb3Hq8dToFG81Sz2lq5mnNp?=
+ =?us-ascii?Q?8m/zDaebWtx6DP7hnleWc9mCQKsB3qTtmnKV5bs46QMmRuxBCGcBImPkvXIY?=
+ =?us-ascii?Q?QwH9jjrW531Q9N2GDu+MdAr5Osak919yU5PaRzcDmx8onyaFH21mBedoq6Ue?=
+ =?us-ascii?Q?2ZIIjZnnhgpZda7LkXbqebVluPfGTIBF3Rd32Ja2b3OB8qLDJEOuvsREum/o?=
+ =?us-ascii?Q?2iputmpFLNWYj6tlkaFilWzpi5oswPxgbNC6ldWIzVXa4r4JJiw2wyZvdQYa?=
+ =?us-ascii?Q?/vs3zhIuLRswhy0jfjqqSDXntu0LF0OyfpeBaO9P1P5yvoGRW4qjNIMGIVn0?=
+ =?us-ascii?Q?cDOw9B6BH0QVfVmgQFbTv265QYzuNoOiVyAYTe4JphRWyV2+9wgZLXF/bQ6Q?=
+ =?us-ascii?Q?OUVsU99jMevqe2/TCJf0Gqd0MbUb2++0ZY/aAU1ZCtKctGq875Pkcs/3mYZJ?=
+ =?us-ascii?Q?05ICDR2WmpYQtU0+MX+KL3SqzcaFbzdvs+LY2M9nesrdsHvxbprec5k8Eyep?=
+ =?us-ascii?Q?CbMcw4Et3DIB5RmuNEfDWBEzjTYUqfIFsA5qndEJwJ7P1bd6fdDX3BtzQ/zP?=
+ =?us-ascii?Q?RaM/ok1AAn88ykDkgENluGq+q7rPvWAPG1RHqDptBcNPQijU1i/gbIyNB328?=
+ =?us-ascii?Q?j/8yM5l522HVPVwylbfrxX0hMoFojN1clsnkxh9LpI2mlnmFmlxtZuWhcv/H?=
+ =?us-ascii?Q?NFTcRU6ND7dEZLVlZpdr9aCO/G/YjwskAHFsVGlYbMe5E78SsOUWy2MD2qs1?=
+ =?us-ascii?Q?J/+INyAjTKu9O7qzhISeAfyFV7zul8fQcC5gz851?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 55831813-ac7a-42b9-58fd-08dde708dad2
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9621.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Aug 2025 14:32:17.6093
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /Zy2eTB4lCj3s+2r8dIF9t9RN1n6aHD7zBaImFkDyH8h39z1cwh7sh3EBmLk1UwOq3Rwn0hlToLanSYXTed3tA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB10041
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_073027_270124_B244B49A 
-X-CRM114-Status: GOOD (  23.32  )
+X-CRM114-CacheID: sfid-20250829_073232_926951_1508BA6F 
+X-CRM114-Status: GOOD (  20.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,123 +169,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+On Fri, Aug 29, 2025 at 03:08:57PM +0800, Peng Fan wrote:
+> To prepare for dual-channel phy support, introduce can_transceiver_priv as
+> a higher level encapsulation for phy and mux_state.
+>
 
-On 8/22/25 16:30, James Morse wrote:
-> cpuhp callbacks aren't the only time the MSC configuration may need to
-> be reset. Resctrl has an API call to reset a class.
-> If an MPAM error interrupt arrives it indicates the driver has
-> misprogrammed an MSC. The safest thing to do is reset all the MSCs
-> and disable MPAM.
-> 
-> Add a helper to reset RIS via their class. Call this from mpam_disable(),
-> which can be scheduled from the error interrupt handler.
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
+Nit: Add "No functional changes."
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 > ---
->  drivers/resctrl/mpam_devices.c  | 62 +++++++++++++++++++++++++++++++--
->  drivers/resctrl/mpam_internal.h |  1 +
->  2 files changed, 61 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index 759244966736..3516cbe8623e 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -915,8 +915,6 @@ static int mpam_reset_ris(void *arg)
->  	u16 partid, partid_max;
->  	struct mpam_msc_ris *ris = arg;
->  
-> -	mpam_assert_srcu_read_lock_held();
-> -
->  	if (ris->in_reset_state)
->  		return 0;
->  
-> @@ -1569,6 +1567,66 @@ static void mpam_enable_once(void)
->  	       mpam_partid_max + 1, mpam_pmg_max + 1);
+>  drivers/phy/phy-can-transceiver.c | 41 ++++++++++++++++++++++++++-------------
+>  1 file changed, 27 insertions(+), 14 deletions(-)
+>
+> diff --git a/drivers/phy/phy-can-transceiver.c b/drivers/phy/phy-can-transceiver.c
+> index f59caff4b3d4c267feca4220bf1547b6fad08f95..6415c6af0e8414a6cc8d15958a17ee749a3f28e9 100644
+> --- a/drivers/phy/phy-can-transceiver.c
+> +++ b/drivers/phy/phy-can-transceiver.c
+> @@ -23,6 +23,11 @@ struct can_transceiver_phy {
+>  	struct phy *generic_phy;
+>  	struct gpio_desc *standby_gpio;
+>  	struct gpio_desc *enable_gpio;
+> +	struct can_transceiver_priv *priv;
+> +};
+> +
+> +struct can_transceiver_priv {
+> +	struct can_transceiver_phy *can_transceiver_phy;
+>  	struct mux_state *mux_state;
+>  };
+>
+> @@ -32,8 +37,8 @@ static int can_transceiver_phy_power_on(struct phy *phy)
+>  	struct can_transceiver_phy *can_transceiver_phy = phy_get_drvdata(phy);
+>  	int ret;
+>
+> -	if (can_transceiver_phy->mux_state) {
+> -		ret = mux_state_select(can_transceiver_phy->mux_state);
+> +	if (can_transceiver_phy->priv->mux_state) {
+> +		ret = mux_state_select(can_transceiver_phy->priv->mux_state);
+>  		if (ret) {
+>  			dev_err(&phy->dev, "Failed to select CAN mux: %d\n", ret);
+>  			return ret;
+> @@ -56,8 +61,8 @@ static int can_transceiver_phy_power_off(struct phy *phy)
+>  		gpiod_set_value_cansleep(can_transceiver_phy->standby_gpio, 1);
+>  	if (can_transceiver_phy->enable_gpio)
+>  		gpiod_set_value_cansleep(can_transceiver_phy->enable_gpio, 0);
+> -	if (can_transceiver_phy->mux_state)
+> -		mux_state_deselect(can_transceiver_phy->mux_state);
+> +	if (can_transceiver_phy->priv->mux_state)
+> +		mux_state_deselect(can_transceiver_phy->priv->mux_state);
+>
+>  	return 0;
 >  }
->  
-> +static void mpam_reset_component_locked(struct mpam_component *comp)
-> +{
-> +	int idx;
-> +	struct mpam_msc *msc;
-> +	struct mpam_vmsc *vmsc;
-> +	struct mpam_msc_ris *ris;
+> @@ -107,7 +112,7 @@ static int can_transceiver_phy_probe(struct platform_device *pdev)
+>  {
+>  	struct phy_provider *phy_provider;
+>  	struct device *dev = &pdev->dev;
+> -	struct can_transceiver_phy *can_transceiver_phy;
+> +	struct can_transceiver_priv *priv;
+>  	const struct can_transceiver_data *drvdata;
+>  	const struct of_device_id *match;
+>  	struct phy *phy;
+> @@ -117,18 +122,25 @@ static int can_transceiver_phy_probe(struct platform_device *pdev)
+>  	u32 max_bitrate = 0;
+>  	int err;
+>
+> -	can_transceiver_phy = devm_kzalloc(dev, sizeof(struct can_transceiver_phy), GFP_KERNEL);
+> -	if (!can_transceiver_phy)
+> -		return -ENOMEM;
+> -
+>  	match = of_match_node(can_transceiver_phy_ids, pdev->dev.of_node);
+>  	drvdata = match->data;
+>
+> +	priv = devm_kzalloc(dev, sizeof(struct can_transceiver_priv), GFP_KERNEL);
+> +	if (!priv)
+> +		return -ENOMEM;
 > +
-> +	might_sleep();
-> +	lockdep_assert_cpus_held();
+> +	platform_set_drvdata(pdev, priv);
 > +
-> +	idx = srcu_read_lock(&mpam_srcu);
-> +	list_for_each_entry_rcu(vmsc, &comp->vmsc, comp_list) {
-> +		msc = vmsc->msc;
+> +	priv->can_transceiver_phy = devm_kzalloc(dev, sizeof(struct can_transceiver_phy),
+> +						 GFP_KERNEL);
+> +	if (!priv->can_transceiver_phy)
+> +		return -ENOMEM;
 > +
-> +		list_for_each_entry_rcu(ris, &vmsc->ris, vmsc_list) {
-> +			if (!ris->in_reset_state)
-> +				mpam_touch_msc(msc, mpam_reset_ris, ris);
-> +			ris->in_reset_state = true;
-> +		}
-> +	}
-> +	srcu_read_unlock(&mpam_srcu, idx);
-> +}
-> +
-> +static void mpam_reset_class_locked(struct mpam_class *class)
-> +{
-> +	int idx;
-> +	struct mpam_component *comp;
-> +
-> +	lockdep_assert_cpus_held();
-> +
-> +	idx = srcu_read_lock(&mpam_srcu);
-> +	list_for_each_entry_rcu(comp, &class->components, class_list)
-> +		mpam_reset_component_locked(comp);
-> +	srcu_read_unlock(&mpam_srcu, idx);
-> +}
-> +
-> +static void mpam_reset_class(struct mpam_class *class)
-> +{
-> +	cpus_read_lock();
-> +	mpam_reset_class_locked(class);
-> +	cpus_read_unlock();
-> +}
-> +
-> +/*
-> + * Called in response to an error IRQ.
-> + * All of MPAMs errors indicate a software bug, restore any modified
-> + * controls to their reset values.
-> + */
-> +void mpam_disable(void)
-> +{
-> +	int idx;
-> +	struct mpam_class *class;
-> +
-> +	idx = srcu_read_lock(&mpam_srcu);
-> +	list_for_each_entry_srcu(class, &mpam_classes, classes_list,
-> +				 srcu_read_lock_held(&mpam_srcu))
-
-Why do you use list_for_each_entry_srcu() here when in other places you
-use list_for_each_entry_rcu()?
-
-> +		mpam_reset_class(class);
-> +	srcu_read_unlock(&mpam_srcu, idx);
-> +}
-> +
->  /*
->   * Enable mpam once all devices have been probed.
->   * Scheduled by mpam_discovery_cpu_online() once all devices have been created.
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> index 466d670a01eb..b30fee2b7674 100644
-> --- a/drivers/resctrl/mpam_internal.h
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -281,6 +281,7 @@ extern u8 mpam_pmg_max;
->  
->  /* Scheduled work callback to enable mpam once all MSC have been probed */
->  void mpam_enable(struct work_struct *work);
-> +void mpam_disable(void);
->  
->  int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
->  				   cpumask_t *affinity);
-
-Thanks,
-
-Ben
-
+>  	mux_state = devm_mux_state_get_optional(dev, NULL);
+>  	if (IS_ERR(mux_state))
+>  		return PTR_ERR(mux_state);
+>
+> -	can_transceiver_phy->mux_state = mux_state;
+> +	priv->mux_state = mux_state;
+>
+>  	phy = devm_phy_create(dev, dev->of_node,
+>  			      &can_transceiver_phy_ops);
+> @@ -142,23 +154,24 @@ static int can_transceiver_phy_probe(struct platform_device *pdev)
+>  		dev_warn(dev, "Invalid value for transceiver max bitrate. Ignoring bitrate limit\n");
+>  	phy->attrs.max_link_rate = max_bitrate;
+>
+> -	can_transceiver_phy->generic_phy = phy;
+> +	priv->can_transceiver_phy->generic_phy = phy;
+> +	priv->can_transceiver_phy->priv = priv;
+>
+>  	if (drvdata->flags & CAN_TRANSCEIVER_STB_PRESENT) {
+>  		standby_gpio = devm_gpiod_get_optional(dev, "standby", GPIOD_OUT_HIGH);
+>  		if (IS_ERR(standby_gpio))
+>  			return PTR_ERR(standby_gpio);
+> -		can_transceiver_phy->standby_gpio = standby_gpio;
+> +		priv->can_transceiver_phy->standby_gpio = standby_gpio;
+>  	}
+>
+>  	if (drvdata->flags & CAN_TRANSCEIVER_EN_PRESENT) {
+>  		enable_gpio = devm_gpiod_get_optional(dev, "enable", GPIOD_OUT_LOW);
+>  		if (IS_ERR(enable_gpio))
+>  			return PTR_ERR(enable_gpio);
+> -		can_transceiver_phy->enable_gpio = enable_gpio;
+> +		priv->can_transceiver_phy->enable_gpio = enable_gpio;
+>  	}
+>
+> -	phy_set_drvdata(can_transceiver_phy->generic_phy, can_transceiver_phy);
+> +	phy_set_drvdata(priv->can_transceiver_phy->generic_phy, priv->can_transceiver_phy);
+>
+>  	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
+>
+>
+> --
+> 2.37.1
+>
 
