@@ -4,61 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B42A1CA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 15:43:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9642CCA1001
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 15:43:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gW8WtcwUbgPOa9BsO/JVrRKGUVAkYSD5caS0EtgAuG0=; b=sL/1FaYFKjQEUgoyvjZ2BadAjD
-	+4p4bqT63jT49FZuRa6fG/P6CsO+gBcUbaeHQt3khSejVGuPHsuqgLlRQfOSsoob6Be0Pu6y8AQXQ
-	aeKSJTiVrnNEzeTD4trhRiBnO9SvE062GgEJxhaU+6WxzXZNx8qsm5Bh4Y39zx1RrM1gDnlJ3sxPM
-	8fRmQ8BrXbzHw0mKKZd3L6WFYPxSqWwPDGbRk0whJrxZ+G+coEQfUaJQC64FiPWaupJHDcxhP3GhS
-	OjcjbLs5szP/XZjiN/fPw18//hDfyTu920QlusMTMBH+yR802kSWNzwLiC7VwOWy/22Mb5RhcjS84
-	804w6ZLw==;
+	bh=hoDokfG1MQmzSDgEaptCicCjaaQpWxY2iqh8txE4sWo=; b=xrbPFPVQP3tqT3lIM+Y7DPm3sp
+	Oi41nRxSYrFFCB8tlyZhkxwkfdXiiZMFJ3EE4RyZjaPBdyd8doOQZoUxZiNJCofle7FTUnWF/QdsM
+	mUH7ZS9YaSzIeFSHyXpXU/Jguqu8c9v713lFYGqi5RJ9CBbcwLNegNRh2VY+1tS20QjbNkw25K0w4
+	xeoL6vA0nrqnseXCl8j0Tfba/zbULHTXQIGnntBFI3InmaevgKOY3UeY4ri0aPmr8jSpf14mkreEl
+	Wlj9Xpe4Pn8b+Ng9n20M40kzzMBxHfU8rOBeQUJMxD4gcTEIwgV0qQ6/2NjHFGOtM8gWVF5okBKdQ
+	e1gpdQkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us1GC-00000006FJH-17Fg;
-	Fri, 29 Aug 2025 15:43:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urxfQ-00000005Xe8-2JN2
+	id 1us1GD-00000006FKy-2fCZ;
+	Fri, 29 Aug 2025 15:43:29 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urxjX-00000005YXn-0c7s
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 11:53:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E5D691BCB;
-	Fri, 29 Aug 2025 04:53:07 -0700 (PDT)
-Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3BC823F694;
-	Fri, 29 Aug 2025 04:53:14 -0700 (PDT)
-From: Ryan Roberts <ryan.roberts@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@redhat.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Dev Jain <dev.jain@arm.com>,
-	scott@os.amperecomputing.com,
-	cl@gentwo.org
-Cc: Ryan Roberts <ryan.roberts@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org
-Subject: [PATCH v7 5/6] arm64: mm: split linear mapping if BBML2 unsupported on secondary CPUs
-Date: Fri, 29 Aug 2025 12:52:46 +0100
-Message-ID: <20250829115250.2395585-6-ryan.roberts@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250829115250.2395585-1-ryan.roberts@arm.com>
-References: <20250829115250.2395585-1-ryan.roberts@arm.com>
+	Fri, 29 Aug 2025 11:57:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756468650;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=hoDokfG1MQmzSDgEaptCicCjaaQpWxY2iqh8txE4sWo=;
+	b=PoDbdZsuLw8LnZq1ZtrtYhXr+W5yqW3VAc/aI/SpZhOyPdqHWktPOL7kfku0ezcqID9cwX
+	eEvPXexzStorZYu4aSe3zzIUOehOYnitdUY0bZiJv8Y4hUxqv7B95jjQ2s15op1BHrOpCB
+	jnw6NCK0gq3h2KmTD7RBvKfdaW0/+pg=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-85-5W076EaRMj-qwuROH3OynA-1; Fri, 29 Aug 2025 07:57:27 -0400
+X-MC-Unique: 5W076EaRMj-qwuROH3OynA-1
+X-Mimecast-MFC-AGG-ID: 5W076EaRMj-qwuROH3OynA_1756468646
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-45b7f0d1449so4064935e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 04:57:26 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756468646; x=1757073446;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hoDokfG1MQmzSDgEaptCicCjaaQpWxY2iqh8txE4sWo=;
+        b=YugjorSVVO53Kkm7mV80hqTk7/1wGANE4QXLSXEOFP+GO4+87aK/V/1Gw/dRmOZvtK
+         wiZLJGtU1ZdQSm9bVV0Nx9F7J9yCQD2Hiip7ZZWLSAZBV656h72UVj9krj1PKgVB68Iy
+         RwBIaKsl7ZAP9/zqGm3VjvM8GWlFxB2E1erayGXxXgQs6wxgH49IctlHl1idJDaOTnVc
+         tQ3JFBmCjH+h3ZQbSWWWZA3ivTnTEHx8dOGQYRz2YpCOKUmrVueMzvYbJNC5L12nCDMN
+         lKVVffPoQlm+gKgT3cdygLJqPE08o203ozhKfQNjWN2aGpF2f1craus1/G3MWeL/UMKK
+         cCRw==
+X-Forwarded-Encrypted: i=1; AJvYcCVSXV77J+xtPNRBntzoYpttgKKulzlxMzsPnGRd2QezXXZIMisqgoaAdzlYJgtWeAQoZs9i2nqPkxxNO5df9PTI@lists.infradead.org
+X-Gm-Message-State: AOJu0YxS3q5YwX+GGBY81YGzJDRpiJlemWrf7OhN//NtjWidHkMc/W67
+	q9MbxbLL7OmSjxhXxyJNkxBaopLP/oQf9ETcQpZIQzLvtaec9eLH6rt4ez5r+RwIVheQ6dcCx2s
+	+AFiRdH3cZ1Xxm/QZOYpzXZXthKfzzNjgraVdhGAM7EKBGvmEsTS1tPpAnnxf6GnMhjz0LyDPbo
+	jE
+X-Gm-Gg: ASbGncsiWnM9rMmCBp31ggreN5zE3XLkUU6RM39gAXrPGrdQyq/ddCf3EvsntTei6J/
+	OUTck5cSgfe0XmT4AFCVgnuTI96sExxBb0IXZRqpkqFfuWjOJb5JqJ0CKD/rSOzmtPWjPX0ZaJX
+	R/IQCGOBIZ9PH6gb0izK5R6ACZz/Y3MMODTe38S7szSs4owvz4jKbyFpDhitUdevzJerxt+FCXt
+	gLPgKJJmdtAZjB2WAoBi4rRj9YLv+P/ZDZmIiFH7oyCJQ6axU7nn3fMXRACkPmbBDKjzbekEvC5
+	U6m/REbZh6J/CkXJYDGJknZ8WamuzCGGSsaLViy84/z1kGdNY330uztz5bysQdwKuTQqFq+Dr7M
+	XQyetmswMRkhx3fucqi74Jp1TJyTD0SLp5eRX1Thao+gAnFvMjyOzCsjsCCla0NQ=
+X-Received: by 2002:a05:600c:348d:b0:45b:80ab:3359 with SMTP id 5b1f17b1804b1-45b80ab35acmr15395005e9.0.1756468645780;
+        Fri, 29 Aug 2025 04:57:25 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG95+220rsAfy23meKWNy4rnKbzYvRZ5zPoY4wdVrGBgRqoKPVywzJTjIuqBTuNai4wkDfQaw==
+X-Received: by 2002:a05:600c:348d:b0:45b:80ab:3359 with SMTP id 5b1f17b1804b1-45b80ab35acmr15394435e9.0.1756468645290;
+        Fri, 29 Aug 2025 04:57:25 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f1d:100:4f8e:bb13:c3c7:f854? (p200300d82f1d01004f8ebb13c3c7f854.dip0.t-ipconnect.de. [2003:d8:2f1d:100:4f8e:bb13:c3c7:f854])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b6f0c6b99sm116739135e9.4.2025.08.29.04.57.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 29 Aug 2025 04:57:24 -0700 (PDT)
+Message-ID: <eff8badd-0ddd-4a5f-a2ef-0e3ded39687a@redhat.com>
+Date: Fri, 29 Aug 2025 13:57:22 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 11/36] mm: limit folio/compound page sizes in
+ problematic kernel configs
+To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: linux-kernel@vger.kernel.org, Zi Yan <ziy@nvidia.com>,
+ "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+ Alexander Potapenko <glider@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
+ Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
+ dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+ iommu@lists.linux.dev, io-uring@vger.kernel.org,
+ Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
+ Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
+ kasan-dev@googlegroups.com, kvm@vger.kernel.org,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
+ linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+ linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-scsi@vger.kernel.org, Marco Elver <elver@google.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, Michal Hocko <mhocko@suse.com>,
+ Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
+ Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
+ Robin Murphy <robin.murphy@arm.com>, Suren Baghdasaryan <surenb@google.com>,
+ Tejun Heo <tj@kernel.org>, virtualization@lists.linux.dev,
+ Vlastimil Babka <vbabka@suse.cz>, wireguard@lists.zx2c4.com, x86@kernel.org
+References: <20250827220141.262669-1-david@redhat.com>
+ <20250827220141.262669-12-david@redhat.com>
+ <baa1b6cf-2fde-4149-8cdf-4b54e2d7c60d@lucifer.local>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
+ dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
+ QZLQMzNE74ap+GDK0wnacPQFpcG1AE9RMq3aeErY5tujekBS32jfC/7AnH7I0v1v1TbbK3Gp
+ XNeiN4QroO+5qaSr0ID2sz5jtBLRb15RMre27E1ImpaIv2Jw8NJgW0k/D1RyKCwaTsgRdwuK
+ Kx/Y91XuSBdz0uOyU/S8kM1+ag0wvsGlpBVxRR/xw/E8M7TEwuCZQArqqTCmkG6HGcXFT0V9
+ PXFNNgV5jXMQRwU0O/ztJIQqsE5LsUomE//bLwzj9IVsaQpKDqW6TAPjcdBDPLHvriq7kGjt
+ WhVhdl0qEYB8lkBEU7V2Yb+SYhmhpDrti9Fq1EsmhiHSkxJcGREoMK/63r9WLZYI3+4W2rAc
+ UucZa4OT27U5ZISjNg3Ev0rxU5UH2/pT4wJCfxwocmqaRr6UYmrtZmND89X0KigoFD/XSeVv
+ jwBRNjPAubK9/k5NoRrYqztM9W6sJqrH8+UWZ1Idd/DdmogJh0gNC0+N42Za9yBRURfIdKSb
+ B3JfpUqcWwE7vUaYrHG1nw54pLUoPG6sAA7Mehl3nd4pZUALHwARAQABzSREYXZpZCBIaWxk
+ ZW5icmFuZCA8ZGF2aWRAcmVkaGF0LmNvbT7CwZoEEwEIAEQCGwMCF4ACGQEFCwkIBwICIgIG
+ FQoJCAsCBBYCAwECHgcWIQQb2cqtc1xMOkYN/MpN3hD3AP+DWgUCaJzangUJJlgIpAAKCRBN
+ 3hD3AP+DWhAxD/9wcL0A+2rtaAmutaKTfxhTP0b4AAp1r/eLxjrbfbCCmh4pqzBhmSX/4z11
+ opn2KqcOsueRF1t2ENLOWzQu3Roiny2HOU7DajqB4dm1BVMaXQya5ae2ghzlJN9SIoopTWlR
+ 0Af3hPj5E2PYvQhlcqeoehKlBo9rROJv/rjmr2x0yOM8qeTroH/ZzNlCtJ56AsE6Tvl+r7cW
+ 3x7/Jq5WvWeudKrhFh7/yQ7eRvHCjd9bBrZTlgAfiHmX9AnCCPRPpNGNedV9Yty2Jnxhfmbv
+ Pw37LA/jef8zlCDyUh2KCU1xVEOWqg15o1RtTyGV1nXV2O/mfuQJud5vIgzBvHhypc3p6VZJ
+ lEf8YmT+Ol5P7SfCs5/uGdWUYQEMqOlg6w9R4Pe8d+mk8KGvfE9/zTwGg0nRgKqlQXrWRERv
+ cuEwQbridlPAoQHrFWtwpgYMXx2TaZ3sihcIPo9uU5eBs0rf4mOERY75SK+Ekayv2ucTfjxr
+ Kf014py2aoRJHuvy85ee/zIyLmve5hngZTTe3Wg3TInT9UTFzTPhItam6dZ1xqdTGHZYGU0O
+ otRHcwLGt470grdiob6PfVTXoHlBvkWRadMhSuG4RORCDpq89vu5QralFNIf3EysNohoFy2A
+ LYg2/D53xbU/aa4DDzBb5b1Rkg/udO1gZocVQWrDh6I2K3+cCs7BTQRVy5+RARAA59fefSDR
+ 9nMGCb9LbMX+TFAoIQo/wgP5XPyzLYakO+94GrgfZjfhdaxPXMsl2+o8jhp/hlIzG56taNdt
+ VZtPp3ih1AgbR8rHgXw1xwOpuAd5lE1qNd54ndHuADO9a9A0vPimIes78Hi1/yy+ZEEvRkHk
+ /kDa6F3AtTc1m4rbbOk2fiKzzsE9YXweFjQvl9p+AMw6qd/iC4lUk9g0+FQXNdRs+o4o6Qvy
+ iOQJfGQ4UcBuOy1IrkJrd8qq5jet1fcM2j4QvsW8CLDWZS1L7kZ5gT5EycMKxUWb8LuRjxzZ
+ 3QY1aQH2kkzn6acigU3HLtgFyV1gBNV44ehjgvJpRY2cC8VhanTx0dZ9mj1YKIky5N+C0f21
+ zvntBqcxV0+3p8MrxRRcgEtDZNav+xAoT3G0W4SahAaUTWXpsZoOecwtxi74CyneQNPTDjNg
+ azHmvpdBVEfj7k3p4dmJp5i0U66Onmf6mMFpArvBRSMOKU9DlAzMi4IvhiNWjKVaIE2Se9BY
+ FdKVAJaZq85P2y20ZBd08ILnKcj7XKZkLU5FkoA0udEBvQ0f9QLNyyy3DZMCQWcwRuj1m73D
+ sq8DEFBdZ5eEkj1dCyx+t/ga6x2rHyc8Sl86oK1tvAkwBNsfKou3v+jP/l14a7DGBvrmlYjO
+ 59o3t6inu6H7pt7OL6u6BQj7DoMAEQEAAcLBfAQYAQgAJgIbDBYhBBvZyq1zXEw6Rg38yk3e
+ EPcA/4NaBQJonNqrBQkmWAihAAoJEE3eEPcA/4NaKtMQALAJ8PzprBEXbXcEXwDKQu+P/vts
+ IfUb1UNMfMV76BicGa5NCZnJNQASDP/+bFg6O3gx5NbhHHPeaWz/VxlOmYHokHodOvtL0WCC
+ 8A5PEP8tOk6029Z+J+xUcMrJClNVFpzVvOpb1lCbhjwAV465Hy+NUSbbUiRxdzNQtLtgZzOV
+ Zw7jxUCs4UUZLQTCuBpFgb15bBxYZ/BL9MbzxPxvfUQIPbnzQMcqtpUs21CMK2PdfCh5c4gS
+ sDci6D5/ZIBw94UQWmGpM/O1ilGXde2ZzzGYl64glmccD8e87OnEgKnH3FbnJnT4iJchtSvx
+ yJNi1+t0+qDti4m88+/9IuPqCKb6Stl+s2dnLtJNrjXBGJtsQG/sRpqsJz5x1/2nPJSRMsx9
+ 5YfqbdrJSOFXDzZ8/r82HgQEtUvlSXNaXCa95ez0UkOG7+bDm2b3s0XahBQeLVCH0mw3RAQg
+ r7xDAYKIrAwfHHmMTnBQDPJwVqxJjVNr7yBic4yfzVWGCGNE4DnOW0vcIeoyhy9vnIa3w1uZ
+ 3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
+ CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
+ qIws/H2t
+In-Reply-To: <baa1b6cf-2fde-4149-8cdf-4b54e2d7c60d@lucifer.local>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: HRBrdt4b1OEi5p2OkQB9IUiuikLhjo-1Ho4eW1D_zQ4_1756468646
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_045316_668681_4DC253EE 
-X-CRM114-Status: GOOD (  33.47  )
+X-CRM114-CacheID: sfid-20250829_045731_274171_EBA22E62 
+X-CRM114-Status: GOOD (  21.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,436 +181,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The kernel linear mapping is painted in very early stage of system boot.
-The cpufeature has not been finalized yet at this point. So the linear
-mapping is determined by the capability of boot CPU only. If the boot
-CPU supports BBML2, large block mappings will be used for linear
-mapping.
+On 28.08.25 17:10, Lorenzo Stoakes wrote:
+> On Thu, Aug 28, 2025 at 12:01:15AM +0200, David Hildenbrand wrote:
+>> Let's limit the maximum folio size in problematic kernel config where
+>> the memmap is allocated per memory section (SPARSEMEM without
+>> SPARSEMEM_VMEMMAP) to a single memory section.
+>>
+>> Currently, only a single architectures supports ARCH_HAS_GIGANTIC_PAGE
+>> but not SPARSEMEM_VMEMMAP: sh.
+>>
+>> Fortunately, the biggest hugetlb size sh supports is 64 MiB
+>> (HUGETLB_PAGE_SIZE_64MB) and the section size is at least 64 MiB
+>> (SECTION_SIZE_BITS == 26), so their use case is not degraded.
+>>
+>> As folios and memory sections are naturally aligned to their order-2 size
+>> in memory, consequently a single folio can no longer span multiple memory
+>> sections on these problematic kernel configs.
+>>
+>> nth_page() is no longer required when operating within a single compound
+>> page / folio.
+>>
+>> Reviewed-by: Zi Yan <ziy@nvidia.com>
+>> Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+>> Signed-off-by: David Hildenbrand <david@redhat.com>
+> 
+> Realy great comments, like this!
+> 
+> I wonder if we could have this be part of the first patch where you fiddle
+> with MAX_FOLIO_ORDER etc. but not a big deal.
 
-But the secondary CPUs may not support BBML2, so repaint the linear
-mapping if large block mapping is used and the secondary CPUs don't
-support BBML2 once cpufeature is finalized on all CPUs.
+I think it belongs into this patch where we actually impose the 
+restrictions.
 
-If the boot CPU doesn't support BBML2 or the secondary CPUs have the
-same BBML2 capability with the boot CPU, repainting the linear mapping
-is not needed.
+[...]
 
-Repainting is implemented by the boot CPU, which we know supports BBML2,
-so it is safe for the live mapping size to change for this CPU. The
-linear map region is walked using the pagewalk API and any discovered
-large leaf mappings are split to pte mappings using the existing helper
-functions. Since the repainting is performed inside of a stop_machine(),
-we must use GFP_ATOMIC to allocate the extra intermediate pgtables. But
-since we are still early in boot, it is expected that there is plenty of
-memory available so we will never need to sleep for reclaim, and so
-GFP_ATOMIC is acceptable here.
+>> +/*
+>> + * Only pages within a single memory section are guaranteed to be
+>> + * contiguous. By limiting folios to a single memory section, all folio
+>> + * pages are guaranteed to be contiguous.
+>> + */
+>> +#define MAX_FOLIO_ORDER		PFN_SECTION_SHIFT
+> 
+> Hmmm, was this implicit before somehow? I mean surely by the fact as you say
+> that physical contiguity would not otherwise be guaranteed :))
 
-The secondary CPUs are all put into a waiting area with the idmap in
-TTBR0 and reserved map in TTBR1 while this is performed since they
-cannot be allowed to observe any size changes on the live mappings. Some
-of this infrastructure is reused from the kpti case. Specifically we
-share the same flag (was __idmap_kpti_flag, now idmap_kpti_bbml2_flag)
-since it means we don't have to reserve any extra pgtable memory to
-idmap the extra flag.
+Well, my patches until this point made sure that any attempt to use a 
+larger folio would fail in a way that we could spot now if there is any 
+offender.
 
-Co-developed-by: Yang Shi <yang@os.amperecomputing.com>
-Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
-Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
----
- arch/arm64/include/asm/mmu.h   |   2 +
- arch/arm64/kernel/cpufeature.c |   3 +
- arch/arm64/mm/mmu.c            | 168 +++++++++++++++++++++++++++++----
- arch/arm64/mm/proc.S           |  27 ++++--
- 4 files changed, 175 insertions(+), 25 deletions(-)
+That is why before this change, nth_page() was required within a folio.
 
-diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
-index 56fca81f60ad..2acfa7801d02 100644
---- a/arch/arm64/include/asm/mmu.h
-+++ b/arch/arm64/include/asm/mmu.h
-@@ -72,6 +72,8 @@ extern void create_pgd_mapping(struct mm_struct *mm, phys_addr_t phys,
- extern void *fixmap_remap_fdt(phys_addr_t dt_phys, int *size, pgprot_t prot);
- extern void mark_linear_text_alias_ro(void);
- extern int split_kernel_leaf_mapping(unsigned long start, unsigned long end);
-+extern void init_idmap_kpti_bbml2_flag(void);
-+extern void linear_map_maybe_split_to_ptes(void);
- 
- /*
-  * This check is triggered during the early boot before the cpufeature
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index a8936c1023ea..461d286f40b1 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -85,6 +85,7 @@
- #include <asm/insn.h>
- #include <asm/kvm_host.h>
- #include <asm/mmu_context.h>
-+#include <asm/mmu.h>
- #include <asm/mte.h>
- #include <asm/hypervisor.h>
- #include <asm/processor.h>
-@@ -2027,6 +2028,7 @@ static void __init kpti_install_ng_mappings(void)
- 	if (arm64_use_ng_mappings)
- 		return;
- 
-+	init_idmap_kpti_bbml2_flag();
- 	stop_machine(__kpti_install_ng_mappings, NULL, cpu_online_mask);
- }
- 
-@@ -3930,6 +3932,7 @@ void __init setup_system_features(void)
- {
- 	setup_system_capabilities();
- 
-+	linear_map_maybe_split_to_ptes();
- 	kpti_install_ng_mappings();
- 
- 	sve_setup();
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 8b5b19e1154b..6bd0b065bd97 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -27,6 +27,8 @@
- #include <linux/kfence.h>
- #include <linux/pkeys.h>
- #include <linux/mm_inline.h>
-+#include <linux/pagewalk.h>
-+#include <linux/stop_machine.h>
- 
- #include <asm/barrier.h>
- #include <asm/cputype.h>
-@@ -483,11 +485,11 @@ void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys, unsigned long virt,
- 
- #define INVALID_PHYS_ADDR	-1
- 
--static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm,
-+static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm, gfp_t gfp,
- 				       enum pgtable_type pgtable_type)
- {
- 	/* Page is zeroed by init_clear_pgtable() so don't duplicate effort. */
--	struct ptdesc *ptdesc = pagetable_alloc(GFP_PGTABLE_KERNEL & ~__GFP_ZERO, 0);
-+	struct ptdesc *ptdesc = pagetable_alloc(gfp & ~__GFP_ZERO, 0);
- 	phys_addr_t pa;
- 
- 	if (!ptdesc)
-@@ -514,9 +516,9 @@ static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm,
- }
- 
- static phys_addr_t
--try_pgd_pgtable_alloc_init_mm(enum pgtable_type pgtable_type)
-+try_pgd_pgtable_alloc_init_mm(enum pgtable_type pgtable_type, gfp_t gfp)
- {
--	return __pgd_pgtable_alloc(&init_mm, pgtable_type);
-+	return __pgd_pgtable_alloc(&init_mm, gfp, pgtable_type);
- }
- 
- static phys_addr_t __maybe_unused
-@@ -524,7 +526,7 @@ pgd_pgtable_alloc_init_mm(enum pgtable_type pgtable_type)
- {
- 	phys_addr_t pa;
- 
--	pa = __pgd_pgtable_alloc(&init_mm, pgtable_type);
-+	pa = __pgd_pgtable_alloc(&init_mm, GFP_PGTABLE_KERNEL, pgtable_type);
- 	BUG_ON(pa == INVALID_PHYS_ADDR);
- 	return pa;
- }
-@@ -534,7 +536,7 @@ pgd_pgtable_alloc_special_mm(enum pgtable_type pgtable_type)
- {
- 	phys_addr_t pa;
- 
--	pa = __pgd_pgtable_alloc(NULL, pgtable_type);
-+	pa = __pgd_pgtable_alloc(NULL, GFP_PGTABLE_KERNEL, pgtable_type);
- 	BUG_ON(pa == INVALID_PHYS_ADDR);
- 	return pa;
- }
-@@ -548,7 +550,7 @@ static void split_contpte(pte_t *ptep)
- 		__set_pte(ptep, pte_mknoncont(__ptep_get(ptep)));
- }
- 
--static int split_pmd(pmd_t *pmdp, pmd_t pmd)
-+static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp)
- {
- 	pmdval_t tableprot = PMD_TYPE_TABLE | PMD_TABLE_UXN | PMD_TABLE_AF;
- 	unsigned long pfn = pmd_pfn(pmd);
-@@ -557,7 +559,7 @@ static int split_pmd(pmd_t *pmdp, pmd_t pmd)
- 	pte_t *ptep;
- 	int i;
- 
--	pte_phys = try_pgd_pgtable_alloc_init_mm(TABLE_PTE);
-+	pte_phys = try_pgd_pgtable_alloc_init_mm(TABLE_PTE, gfp);
- 	if (pte_phys == INVALID_PHYS_ADDR)
- 		return -ENOMEM;
- 	ptep = (pte_t *)phys_to_virt(pte_phys);
-@@ -590,7 +592,7 @@ static void split_contpmd(pmd_t *pmdp)
- 		set_pmd(pmdp, pmd_mknoncont(pmdp_get(pmdp)));
- }
- 
--static int split_pud(pud_t *pudp, pud_t pud)
-+static int split_pud(pud_t *pudp, pud_t pud, gfp_t gfp)
- {
- 	pudval_t tableprot = PUD_TYPE_TABLE | PUD_TABLE_UXN | PUD_TABLE_AF;
- 	unsigned int step = PMD_SIZE >> PAGE_SHIFT;
-@@ -600,7 +602,7 @@ static int split_pud(pud_t *pudp, pud_t pud)
- 	pmd_t *pmdp;
- 	int i;
- 
--	pmd_phys = try_pgd_pgtable_alloc_init_mm(TABLE_PMD);
-+	pmd_phys = try_pgd_pgtable_alloc_init_mm(TABLE_PMD, gfp);
- 	if (pmd_phys == INVALID_PHYS_ADDR)
- 		return -ENOMEM;
- 	pmdp = (pmd_t *)phys_to_virt(pmd_phys);
-@@ -667,7 +669,7 @@ static int split_kernel_leaf_mapping_locked(unsigned long addr)
- 	if (!pud_present(pud))
- 		goto out;
- 	if (pud_leaf(pud)) {
--		ret = split_pud(pudp, pud);
-+		ret = split_pud(pudp, pud, GFP_PGTABLE_KERNEL);
- 		if (ret)
- 			goto out;
- 	}
-@@ -692,7 +694,7 @@ static int split_kernel_leaf_mapping_locked(unsigned long addr)
- 		 */
- 		if (ALIGN_DOWN(addr, PMD_SIZE) == addr)
- 			goto out;
--		ret = split_pmd(pmdp, pmd);
-+		ret = split_pmd(pmdp, pmd, GFP_PGTABLE_KERNEL);
- 		if (ret)
- 			goto out;
- 	}
-@@ -761,6 +763,132 @@ int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
- 	return ret;
- }
- 
-+static int __init split_to_ptes_pud_entry(pud_t *pudp, unsigned long addr,
-+					  unsigned long next,
-+					  struct mm_walk *walk)
-+{
-+	pud_t pud = pudp_get(pudp);
-+	int ret = 0;
-+
-+	if (pud_leaf(pud))
-+		ret = split_pud(pudp, pud, GFP_ATOMIC);
-+
-+	return ret;
-+}
-+
-+static int __init split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
-+					  unsigned long next,
-+					  struct mm_walk *walk)
-+{
-+	pmd_t pmd = pmdp_get(pmdp);
-+	int ret = 0;
-+
-+	if (pmd_leaf(pmd)) {
-+		if (pmd_cont(pmd))
-+			split_contpmd(pmdp);
-+		ret = split_pmd(pmdp, pmd, GFP_ATOMIC);
-+	}
-+
-+	return ret;
-+}
-+
-+static int __init split_to_ptes_pte_entry(pte_t *ptep, unsigned long addr,
-+					  unsigned long next,
-+					  struct mm_walk *walk)
-+{
-+	pte_t pte = __ptep_get(ptep);
-+
-+	if (pte_cont(pte))
-+		split_contpte(ptep);
-+
-+	return 0;
-+}
-+
-+static const struct mm_walk_ops split_to_ptes_ops __initconst = {
-+	.pud_entry	= split_to_ptes_pud_entry,
-+	.pmd_entry	= split_to_ptes_pmd_entry,
-+	.pte_entry	= split_to_ptes_pte_entry,
-+};
-+
-+static bool linear_map_requires_bbml2 __initdata;
-+
-+u32 idmap_kpti_bbml2_flag;
-+
-+void __init init_idmap_kpti_bbml2_flag(void)
-+{
-+	WRITE_ONCE(idmap_kpti_bbml2_flag, 1);
-+	/* Must be visible to other CPUs before stop_machine() is called. */
-+	smp_mb();
-+}
-+
-+static int __init linear_map_split_to_ptes(void *__unused)
-+{
-+	/*
-+	 * Repainting the linear map must be done by CPU0 (the boot CPU) because
-+	 * that's the only CPU that we know supports BBML2. The other CPUs will
-+	 * be held in a waiting area with the idmap active.
-+	 */
-+	if (!smp_processor_id()) {
-+		unsigned long lstart = _PAGE_OFFSET(vabits_actual);
-+		unsigned long lend = PAGE_END;
-+		unsigned long kstart = (unsigned long)lm_alias(_stext);
-+		unsigned long kend = (unsigned long)lm_alias(__init_begin);
-+		int ret;
-+
-+		/*
-+		 * Wait for all secondary CPUs to be put into the waiting area.
-+		 */
-+		smp_cond_load_acquire(&idmap_kpti_bbml2_flag, VAL == num_online_cpus());
-+
-+		/*
-+		 * Walk all of the linear map [lstart, lend), except the kernel
-+		 * linear map alias [kstart, kend), and split all mappings to
-+		 * PTE. The kernel alias remains static throughout runtime so
-+		 * can continue to be safely mapped with large mappings.
-+		 */
-+		ret = walk_kernel_page_table_range_lockless(lstart, kstart,
-+						&split_to_ptes_ops, NULL, NULL);
-+		if (!ret)
-+			ret = walk_kernel_page_table_range_lockless(kend, lend,
-+						&split_to_ptes_ops, NULL, NULL);
-+		if (ret)
-+			panic("Failed to split linear map\n");
-+		flush_tlb_kernel_range(lstart, lend);
-+
-+		/*
-+		 * Relies on dsb in flush_tlb_kernel_range() to avoid reordering
-+		 * before any page table split operations.
-+		 */
-+		WRITE_ONCE(idmap_kpti_bbml2_flag, 0);
-+	} else {
-+		typedef void (wait_split_fn)(void);
-+		extern wait_split_fn wait_linear_map_split_to_ptes;
-+		wait_split_fn *wait_fn;
-+
-+		wait_fn = (void *)__pa_symbol(wait_linear_map_split_to_ptes);
-+
-+		/*
-+		 * At least one secondary CPU doesn't support BBML2 so cannot
-+		 * tolerate the size of the live mappings changing. So have the
-+		 * secondary CPUs wait for the boot CPU to make the changes
-+		 * with the idmap active and init_mm inactive.
-+		 */
-+		cpu_install_idmap();
-+		wait_fn();
-+		cpu_uninstall_idmap();
-+	}
-+
-+	return 0;
-+}
-+
-+void __init linear_map_maybe_split_to_ptes(void)
-+{
-+	if (linear_map_requires_bbml2 && !system_supports_bbml2_noabort()) {
-+		init_idmap_kpti_bbml2_flag();
-+		stop_machine(linear_map_split_to_ptes, NULL, cpu_online_mask);
-+	}
-+}
-+
- /*
-  * This function can only be used to modify existing table entries,
-  * without allocating new levels of table. Note that this permits the
-@@ -915,6 +1043,8 @@ static void __init map_mem(pgd_t *pgdp)
- 
- 	early_kfence_pool = arm64_kfence_alloc_pool();
- 
-+	linear_map_requires_bbml2 = !force_pte_mapping() && can_set_direct_map();
-+
- 	if (force_pte_mapping())
- 		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
- 
-@@ -1048,7 +1178,7 @@ void __pi_map_range(u64 *pgd, u64 start, u64 end, u64 pa, pgprot_t prot,
- 		    int level, pte_t *tbl, bool may_use_cont, u64 va_offset);
- 
- static u8 idmap_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE) __ro_after_init,
--	  kpti_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE) __ro_after_init;
-+	  kpti_bbml2_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE) __ro_after_init;
- 
- static void __init create_idmap(void)
- {
-@@ -1060,15 +1190,17 @@ static void __init create_idmap(void)
- 		       IDMAP_ROOT_LEVEL, (pte_t *)idmap_pg_dir, false,
- 		       __phys_to_virt(ptep) - ptep);
- 
--	if (IS_ENABLED(CONFIG_UNMAP_KERNEL_AT_EL0) && !arm64_use_ng_mappings) {
--		extern u32 __idmap_kpti_flag;
--		u64 pa = __pa_symbol(&__idmap_kpti_flag);
-+	if (linear_map_requires_bbml2 ||
-+	    (IS_ENABLED(CONFIG_UNMAP_KERNEL_AT_EL0) && !arm64_use_ng_mappings)) {
-+		u64 pa = __pa_symbol(&idmap_kpti_bbml2_flag);
- 
- 		/*
- 		 * The KPTI G-to-nG conversion code needs a read-write mapping
--		 * of its synchronization flag in the ID map.
-+		 * of its synchronization flag in the ID map. This is also used
-+		 * when splitting the linear map to ptes if a secondary CPU
-+		 * doesn't support bbml2.
- 		 */
--		ptep = __pa_symbol(kpti_ptes);
-+		ptep = __pa_symbol(kpti_bbml2_ptes);
- 		__pi_map_range(&ptep, pa, pa + sizeof(u32), pa, PAGE_KERNEL,
- 			       IDMAP_ROOT_LEVEL, (pte_t *)idmap_pg_dir, false,
- 			       __phys_to_virt(ptep) - ptep);
-diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
-index 8c75965afc9e..86818511962b 100644
---- a/arch/arm64/mm/proc.S
-+++ b/arch/arm64/mm/proc.S
-@@ -245,10 +245,6 @@ SYM_FUNC_ALIAS(__pi_idmap_cpu_replace_ttbr1, idmap_cpu_replace_ttbr1)
-  *
-  * Called exactly once from stop_machine context by each CPU found during boot.
-  */
--	.pushsection	".data", "aw", %progbits
--SYM_DATA(__idmap_kpti_flag, .long 1)
--	.popsection
--
- SYM_TYPED_FUNC_START(idmap_kpti_install_ng_mappings)
- 	cpu		.req	w0
- 	temp_pte	.req	x0
-@@ -273,7 +269,7 @@ SYM_TYPED_FUNC_START(idmap_kpti_install_ng_mappings)
- 
- 	mov	x5, x3				// preserve temp_pte arg
- 	mrs	swapper_ttb, ttbr1_el1
--	adr_l	flag_ptr, __idmap_kpti_flag
-+	adr_l	flag_ptr, idmap_kpti_bbml2_flag
- 
- 	cbnz	cpu, __idmap_kpti_secondary
- 
-@@ -416,7 +412,25 @@ alternative_else_nop_endif
- __idmap_kpti_secondary:
- 	/* Uninstall swapper before surgery begins */
- 	__idmap_cpu_set_reserved_ttbr1 x16, x17
-+	b scondary_cpu_wait
-+
-+	.unreq	swapper_ttb
-+	.unreq	flag_ptr
-+SYM_FUNC_END(idmap_kpti_install_ng_mappings)
-+	.popsection
-+#endif
-+
-+	.pushsection ".idmap.text", "a"
-+SYM_TYPED_FUNC_START(wait_linear_map_split_to_ptes)
-+	/* Must be same registers as in idmap_kpti_install_ng_mappings */
-+	swapper_ttb	.req	x3
-+	flag_ptr	.req	x4
-+
-+	mrs     swapper_ttb, ttbr1_el1
-+	adr_l   flag_ptr, idmap_kpti_bbml2_flag
-+	__idmap_cpu_set_reserved_ttbr1 x16, x17
- 
-+scondary_cpu_wait:
- 	/* Increment the flag to let the boot CPU we're ready */
- 1:	ldxr	w16, [flag_ptr]
- 	add	w16, w16, #1
-@@ -436,9 +450,8 @@ __idmap_kpti_secondary:
- 
- 	.unreq	swapper_ttb
- 	.unreq	flag_ptr
--SYM_FUNC_END(idmap_kpti_install_ng_mappings)
-+SYM_FUNC_END(wait_linear_map_split_to_ptes)
- 	.popsection
--#endif
- 
- /*
-  *	__cpu_setup
+Hope that clarifies it, thanks!
+
 -- 
-2.43.0
+Cheers
+
+David / dhildenb
 
 
