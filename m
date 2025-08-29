@@ -4,64 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91E5ACA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 16:08:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D520ECA0FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 16:19:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YkygVJC1hWG78l5B3+g8GeLgMwmQKlA5pcxoQSofhBU=; b=miLHOveGpSZRKa2472m/9HO0++
-	rAnv00ht69xdSw/IdWR/xD0tk0W+asiRllmrwKvrM6b4zkHLwzFzKa3HgWjs7rJZJF22T70E3JE6f
-	9U/+tQAXA+qgdV5ZlY2M8T746WBawbBC4uOYZLODs/c8u6mZiHtEWR0SxqEyPjt/0C3ttLUrlS1Zw
-	suNDuYtShavGPhkbxzEa6L8a8oulb/V47WymVWWRo6OgehsMnGJ+Y2H+5o+Wsz9C6vtWUc5SMX4JZ
-	5wFMQdVBrCJdxRqsPdUq2eHUwzkPF+zH3UqabcOMXikTEXYOjNU4ouyFcZsaoaaCs1xMtMxe/cty1
-	mNJTsBDA==;
+	bh=SPrFHrB9aeoQA+GrBTs9A49LkGpQjNl4AhdZSIVS5E0=; b=Ml3EGvzOkReFEljlWnDQj/RJ0e
+	5hloLxB8FpVcZrVXoIe/LSAttV70uNtOSm/70JEUHqH+AbabHJBkhl5eUNqzxiCMVgUNZpNKJTfsc
+	v091uuxEW3o83E9LMGjFuEM2TrZ8L1UaDfAPGBGliiNO25oaKb0AD3x52gCYtwjODZP3vAE9/IWie
+	QgtSYm9MtlGJEE5eg5XcoPrZVVezKVQSLI728I67SWXvtM26R/F27ZBtWnDhokMyPc6GHuy7dcE53
+	PF42aZGwR1tHeT3JyCG+iWnwfwRxad4evG5I5RtyeNd0iqaArevyKw8i35JuLDymkeGL87Gv0vMw3
+	gS/uWpiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us1eZ-00000006MAd-3ARt;
-	Fri, 29 Aug 2025 16:08:39 +0000
-Received: from mail.netcube.li ([173.249.15.149])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uryNf-00000005gdn-0dr1;
-	Fri, 29 Aug 2025 12:39:00 +0000
-dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
-	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding:In-Reply-To:References;
-	bh=YkygVJC1hWG78l5B3+g8GeLgMwmQKlA5pcxoQSofhBU=;
-	b=aar7IY4+lI/DBc+1LaGxJkTwDM6/lEehQFFvHCmlr94F1dLOz5jXQZJ3pcbSH1W3Vl9mx+izRikFRzs+kQtsUtywbh1FdC9jIv9EcJqcOM6oi1zX5Irjz70K1uSg6QkeknWVZ+lD8HNVLcdagshim9dAsmsapZRP5HIWv1oVbjM=
-Received: from lukas-hpz440workstation.lan.sk100508.local (cm70-231.liwest.at [212.241.70.231])
-	by mail.netcube.li with ESMTPA
-	; Fri, 29 Aug 2025 14:38:33 +0200
-From: Lukas Schmid <lukas.schmid@netcube.li>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Maxime Ripard <mripard@kernel.org>
-Cc: Lukas Schmid <lukas.schmid@netcube.li>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v6 3/5] ARM: dts: sunxi: add support for NetCube Systems Nagami SoM
-Date: Fri, 29 Aug 2025 14:37:56 +0200
-Message-Id: <20250829123800.1232645-4-lukas.schmid@netcube.li>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250829123800.1232645-1-lukas.schmid@netcube.li>
-References: <20250829123800.1232645-1-lukas.schmid@netcube.li>
+	id 1us1pK-00000006NIs-0kyX;
+	Fri, 29 Aug 2025 16:19:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uryeU-00000005j3y-1bQ2
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 29 Aug 2025 12:56:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 33C8D19F0;
+	Fri, 29 Aug 2025 05:56:11 -0700 (PDT)
+Received: from [10.57.2.173] (unknown [10.57.2.173])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D01FD3F738;
+	Fri, 29 Aug 2025 05:56:17 -0700 (PDT)
+Message-ID: <3b481ddf-7cc2-4c3d-9ef5-60907c8aaf8b@arm.com>
+Date: Fri, 29 Aug 2025 13:56:15 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 10/14] dmaengine: dma350: Alloc command[] from dma pool
+To: Jisheng Zhang <jszhang@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250823154009.25992-1-jszhang@kernel.org>
+ <20250823154009.25992-11-jszhang@kernel.org>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20250823154009.25992-11-jszhang@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_053859_531831_4EDFBAD2 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20250829_055622_518621_B2E2FBB8 
+X-CRM114-Status: GOOD (  32.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,285 +67,359 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-NetCube Systems Nagami SoM is a module based around the Allwinner T113s
-SoC. It includes the following features and interfaces:
+On 2025-08-23 4:40 pm, Jisheng Zhang wrote:
+> Currently, the command[] is allocated with kzalloc(), but dma350 may be
+> used on dma-non-coherent platforms, to prepare the support of peripheral
+> and scatter-gather chaining on both dma-coherent and dma-non-coherent
+> platforms, let's alloc them from dma pool.
 
-- 128MB DDR3 included in SoC
-- 10/100 Mbps Ethernet using LAN8720A phy
-- One USB-OTG interface
-- One USB-Host interface
-- One I2S interface with in and output support
-- Two CAN interfaces
-- ESP32 over SDIO
-- One SPI interface
-- I2C EEPROM for MAC address
-- One QWIIC I2C Interface with dedicated interrupt pin shared with EEPROM
-- One external I2C interface
-- SD interface for external SD-Card
+FWIW my plan was to use dma_map_single() for command linking, since the 
+descriptors themselves are short-lived one-way data transfers which 
+really don't need any of the (potentially costly) properties of a 
+dma-coherent allocation.
 
-Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
----
- .../allwinner/sun8i-t113s-netcube-nagami.dtsi | 249 ++++++++++++++++++
- 1 file changed, 249 insertions(+)
- create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>   drivers/dma/arm-dma350.c | 143 +++++++++++++++++++++++++++++++--------
+>   1 file changed, 113 insertions(+), 30 deletions(-)
+> 
+> diff --git a/drivers/dma/arm-dma350.c b/drivers/dma/arm-dma350.c
+> index 72067518799e..3d26a1f020df 100644
+> --- a/drivers/dma/arm-dma350.c
+> +++ b/drivers/dma/arm-dma350.c
+> @@ -4,6 +4,7 @@
+>   
+>   #include <linux/bitfield.h>
+>   #include <linux/dmaengine.h>
+> +#include <linux/dmapool.h>
+>   #include <linux/dma-mapping.h>
+>   #include <linux/io.h>
+>   #include <linux/of.h>
+> @@ -143,6 +144,7 @@
+>   #define LINK_LINKADDR		BIT(30)
+>   #define LINK_LINKADDRHI		BIT(31)
+>   
+> +#define D350_MAX_CMDS		16
 
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
-new file mode 100644
-index 000000000..9f35331ea
---- /dev/null
-+++ b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
-@@ -0,0 +1,249 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2025 Lukas Schmid <lukas.schmid@netcube.li>
-+ */
-+
-+/dts-v1/;
-+#include "sun8i-t113s.dtsi"
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+
-+/ {
-+	model = "NetCube Systems Nagami SoM";
-+	compatible = "netcube,nagami", "allwinner,sun8i-t113s";
-+
-+	aliases {
-+		serial1 = &uart1; // ESP32 Bootloader UART
-+		serial3 = &uart3; // Console UART on Card Edge
-+		ethernet0 = &emac;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial3:115200n8";
-+	};
-+
-+	/* module wide 3.3V supply directly from the card edge */
-+	reg_vcc3v3: regulator-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc-3v3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-always-on;
-+	};
-+
-+	/* SY8008 DC/DC regulator on the board, also supplying VDD-SYS */
-+	reg_vcc_core: regulator-core {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc-core";
-+		regulator-min-microvolt = <880000>;
-+		regulator-max-microvolt = <880000>;
-+		vin-supply = <&reg_vcc3v3>;
-+	};
-+
-+	/* Reset of ESP32 */
-+	wifi_pwrseq: wifi-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		reset-gpios = <&pio 6 9 GPIO_ACTIVE_LOW>; /* PG9 */
-+		post-power-on-delay-ms = <1500>;
-+		power-off-delay-us = <200>;
-+	};
-+};
-+
-+&cpu0 {
-+	cpu-supply = <&reg_vcc_core>;
-+};
-+
-+&cpu1 {
-+	cpu-supply = <&reg_vcc_core>;
-+};
-+
-+&dcxo {
-+	clock-frequency = <24000000>;
-+};
-+
-+&emac {
-+	nvmem-cells = <&eth0_macaddress>;
-+	nvmem-cell-names = "mac-address";
-+	phy-handle = <&lan8720a>;
-+	phy-mode = "rmii";
-+	pinctrl-0 = <&rmii_pe_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+/* Default I2C Interface on Card-Edge */
-+&i2c2 {
-+	pinctrl-0 = <&i2c2_pins>;
-+	pinctrl-names = "default";
-+	status = "disabled";
-+};
-+
-+/* Exposed as the QWIIC connector and used by the internal EEPROM */
-+&i2c3 {
-+	pinctrl-0 = <&i2c3_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	eeprom0: eeprom@50 {
-+		compatible = "atmel,24c02";		/* actually it's a 24AA02E48 */
-+		reg = <0x50>;
-+		pagesize = <16>;
-+		read-only;
-+		vcc-supply = <&reg_vcc3v3>;
-+
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+
-+		eth0_macaddress: macaddress@fa {
-+			reg = <0xfa 0x06>;
-+		};
-+	};
-+};
-+
-+/* Default I2S Interface on Card-Edge */
-+&i2s1 {
-+	pinctrl-0 = <&i2s1_pins>, <&i2s1_din_pins>, <&i2s1_dout_pins>;
-+	pinctrl-names = "default";
-+	status = "disabled";
-+};
-+
-+/* Phy is on SoM. MDI signals pre-magentics are on the card edge */
-+&mdio {
-+	lan8720a: ethernet-phy@0 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <0>;
-+	};
-+};
-+
-+/* Default SD Interface on Card-Edge */
-+&mmc0 {
-+	pinctrl-0 = <&mmc0_pins>;
-+	pinctrl-names = "default";
-+	status = "disabled";
-+};
-+
-+/* Connected to the on-board ESP32 */
-+&mmc1 {
-+	pinctrl-0 = <&mmc1_pins>;
-+	pinctrl-names = "default";
-+	vmmc-supply = <&reg_vcc3v3>;
-+	bus-width = <4>;
-+	non-removable;
-+	mmc-pwrseq = <&wifi_pwrseq>;
-+	status = "okay";
-+};
-+
-+/* Connected to the on-board eMMC */
-+&mmc2 {
-+	pinctrl-0 = <&mmc2_pins>;
-+	pinctrl-names = "default";
-+	vmmc-supply = <&reg_vcc3v3>;
-+	vqmmc-supply = <&reg_vcc3v3>;
-+	bus-width = <4>;
-+	non-removable;
-+	status = "okay";
-+};
-+
-+&pio {
-+	vcc-pb-supply = <&reg_vcc3v3>;
-+	vcc-pc-supply = <&reg_vcc3v3>;
-+	vcc-pd-supply = <&reg_vcc3v3>;
-+	vcc-pe-supply = <&reg_vcc3v3>;
-+	vcc-pf-supply = <&reg_vcc3v3>;
-+	vcc-pg-supply = <&reg_vcc3v3>;
-+
-+	gpio-line-names = "", "", "", "", // PA
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "CAN0_TX", "CAN0_RX", // PB
-+					  "CAN1_TX", "CAN1_RX", "UART3_TX", "UART3_RX",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "eMMC_CLK", "eMMC_CMD", // PC
-+					  "eMMC_D2", "eMMC_D1", "eMMC_D0", "eMMC_D3",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "", // PD
-+					  "", "", "", "",
-+					  "", "USB_SEC_EN", "SPI1_CS", "SPI1_CLK",
-+					  "SPI1_MOSI", "SPI1_MISO", "SPI1_HOLD", "SPI1_WP",
-+					  "PD16", "", "", "",
-+					  "I2C2_SCL", "I2C2_SDA", "PD22", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "ETH_CRSDV", "ETH_RXD0", "ETH_RXD1", "ETH_TXCK", // PE
-+					  "ETH_TXD0", "ETH_TXD1", "ETH_TXEN", "",
-+					  "ETH_MDC", "ETH_MDIO", "QWIIC_nINT", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "SD_D1", "SD_D0", "SD_CLK", "SD_CLK", // PF
-+					  "SD_D3", "SD_D2", "PF6", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "ESP_CLK", "ESP_CMD", "ESP_D0", "ESP_D1", // PG
-+					  "ESP_D2", "ESP_D3", "UART1_TXD", "UART1_RXD",
-+					  "ESP_nBOOT", "ESP_nRST", "I2C3_SCL", "I2C3_SDA",
-+					  "I2S1_WS", "I2S1_CLK", "I2S1_DIN0", "I2S1_DOUT0",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "",
-+					  "", "", "", "";
-+
-+	usb0-enable-hog {
-+		gpio-hog;
-+		gpios = <4 9 GPIO_ACTIVE_HIGH>;
-+		line-name = "USB_SEC_EN";
-+		output-high;
-+	};
-+};
-+
-+/* Remove the unused CK pin from the pinctl as it is unconnected */
-+&rmii_pe_pins {
-+	pins = "PE0", "PE1", "PE2", "PE3", "PE4",
-+		   "PE5", "PE6", "PE8", "PE9";
-+};
-+
-+/* Default SPI Interface on Card-Edge */
-+&spi1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	pinctrl-0 = <&spi1_pins>, <&spi1_hold_pin>, <&spi1_wp_pin>;
-+	pinctrl-names = "default";
-+	cs-gpios = <0>;
-+	status = "disabled";
-+};
-+
-+/* Connected to the Bootloader/Console of the ESP32 */
-+&uart1 {
-+	pinctrl-0 = <&uart1_pg6_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+/* Console/Debug UART on Card-Edge */
-+&uart3 {
-+	pinctrl-0 = <&uart3_pb_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
--- 
-2.39.5
+What's that based on? We should be able to link arbitrarily-long chains 
+of commands, no?
 
+>   enum ch_ctrl_donetype {
+>   	CH_CTRL_DONETYPE_NONE = 0,
+> @@ -169,18 +171,25 @@ enum ch_cfg_memattr {
+>   	MEMATTR_WB = 0xff
+>   };
+>   
+> -struct d350_desc {
+> -	struct virt_dma_desc vd;
+> -	u32 command[16];
+> +struct d350_sg {
+> +	u32 *command;
+> +	dma_addr_t phys;
+>   	u16 xsize;
+>   	u16 xsizehi;
+>   	u8 tsz;
+>   };
+>   
+> +struct d350_desc {
+> +	struct virt_dma_desc vd;
+> +	u32 sglen;
+> +	struct d350_sg sg[] __counted_by(sglen);
+> +};
 
+Perhaps it's mostly the naming, but this seems rather hard to make sense 
+of. To clarify, the current driver design was in anticipation of a split 
+more like so:
+
+struct d350_cmd {
+	u32 command[16];
+	u16 xsize;
+	u16 xsizehi;
+	u8 tsz;
+	struct d350_cmd *next;
+};
+
+struct d350_desc {
+	struct virt_dma_desc vd;
+	// any totals etc. to help with residue calculation
+	struct d350_cmd cmd;
+};
+
+Or perhaps what I'd more likely have ended up with (which is maybe sort 
+of what you've tried to do?):
+
+struct d350_cmd {
+	u32 command[16];
+	u16 xsize;
+	u16 xsizehi;
+	u8 tsz;
+};
+
+struct d350_desc {
+	struct virt_dma_desc vd;
+	// anything else as above
+	int num_cmds;
+	struct d350_cmd cmd[1]; //extensible
+};
+
+Conveniently taking advantage of the fact that either way the DMA 
+address will inherently be stored in the LINKADDR fields of the first 
+command (which doesn't need DMA mapping itself), so at worst we still 
+only need one or two allocations plus a single dma_map per prep 
+operation (since we can keep all the linked commands as a single block). 
+I don't see a DMA pool approach being beneficial here, since it seems 
+like it's always going to be considerably less efficient.
+
+(Not to mention that separate pools per channel is complete overkill 
+anyway.)
+
+Thanks,
+Robin.
+
+> +
+>   struct d350_chan {
+>   	struct virt_dma_chan vc;
+>   	struct d350_desc *desc;
+>   	void __iomem *base;
+> +	struct dma_pool *cmd_pool;
+>   	int irq;
+>   	enum dma_status status;
+>   	dma_cookie_t cookie;
+> @@ -210,7 +219,14 @@ static inline struct d350_desc *to_d350_desc(struct virt_dma_desc *vd)
+>   
+>   static void d350_desc_free(struct virt_dma_desc *vd)
+>   {
+> -	kfree(to_d350_desc(vd));
+> +	struct d350_chan *dch = to_d350_chan(vd->tx.chan);
+> +	struct d350_desc *desc = to_d350_desc(vd);
+> +	int i;
+> +
+> +	for (i = 0; i < desc->sglen; i++)
+> +		dma_pool_free(dch->cmd_pool, desc->sg[i].command, desc->sg[i].phys);
+> +
+> +	kfree(desc);
+>   }
+>   
+>   static struct dma_async_tx_descriptor *d350_prep_memcpy(struct dma_chan *chan,
+> @@ -218,22 +234,32 @@ static struct dma_async_tx_descriptor *d350_prep_memcpy(struct dma_chan *chan,
+>   {
+>   	struct d350_chan *dch = to_d350_chan(chan);
+>   	struct d350_desc *desc;
+> +	struct d350_sg *sg;
+> +	dma_addr_t phys;
+>   	u32 *cmd;
+>   
+> -	desc = kzalloc(sizeof(*desc), GFP_NOWAIT);
+> +	desc = kzalloc(struct_size(desc, sg, 1), GFP_NOWAIT);
+>   	if (!desc)
+>   		return NULL;
+>   
+> -	desc->tsz = __ffs(len | dest | src | (1 << dch->tsz));
+> -	desc->xsize = lower_16_bits(len >> desc->tsz);
+> -	desc->xsizehi = upper_16_bits(len >> desc->tsz);
+> +	sg = &desc->sg[0];
+> +	sg->command = dma_pool_zalloc(dch->cmd_pool, GFP_NOWAIT, &phys);
+> +	if (unlikely(!sg->command)) {
+> +		kfree(desc);
+> +		return NULL;
+> +	}
+> +	sg->phys = phys;
+> +
+> +	sg->tsz = __ffs(len | dest | src | (1 << dch->tsz));
+> +	sg->xsize = lower_16_bits(len >> sg->tsz);
+> +	sg->xsizehi = upper_16_bits(len >> sg->tsz);
+>   
+> -	cmd = desc->command;
+> +	cmd = sg->command;
+>   	cmd[0] = LINK_CTRL | LINK_SRCADDR | LINK_SRCADDRHI | LINK_DESADDR |
+>   		 LINK_DESADDRHI | LINK_XSIZE | LINK_XSIZEHI | LINK_SRCTRANSCFG |
+>   		 LINK_DESTRANSCFG | LINK_XADDRINC | LINK_LINKADDR;
+>   
+> -	cmd[1] = FIELD_PREP(CH_CTRL_TRANSIZE, desc->tsz) |
+> +	cmd[1] = FIELD_PREP(CH_CTRL_TRANSIZE, sg->tsz) |
+>   		 FIELD_PREP(CH_CTRL_XTYPE, CH_CTRL_XTYPE_CONTINUE) |
+>   		 FIELD_PREP(CH_CTRL_DONETYPE, CH_CTRL_DONETYPE_CMD);
+>   
+> @@ -241,13 +267,15 @@ static struct dma_async_tx_descriptor *d350_prep_memcpy(struct dma_chan *chan,
+>   	cmd[3] = upper_32_bits(src);
+>   	cmd[4] = lower_32_bits(dest);
+>   	cmd[5] = upper_32_bits(dest);
+> -	cmd[6] = FIELD_PREP(CH_XY_SRC, desc->xsize) | FIELD_PREP(CH_XY_DES, desc->xsize);
+> -	cmd[7] = FIELD_PREP(CH_XY_SRC, desc->xsizehi) | FIELD_PREP(CH_XY_DES, desc->xsizehi);
+> +	cmd[6] = FIELD_PREP(CH_XY_SRC, sg->xsize) | FIELD_PREP(CH_XY_DES, sg->xsize);
+> +	cmd[7] = FIELD_PREP(CH_XY_SRC, sg->xsizehi) | FIELD_PREP(CH_XY_DES, sg->xsizehi);
+>   	cmd[8] = dch->coherent ? TRANSCFG_WB : TRANSCFG_NC;
+>   	cmd[9] = dch->coherent ? TRANSCFG_WB : TRANSCFG_NC;
+>   	cmd[10] = FIELD_PREP(CH_XY_SRC, 1) | FIELD_PREP(CH_XY_DES, 1);
+>   	cmd[11] = 0;
+>   
+> +	mb();
+> +
+>   	return vchan_tx_prep(&dch->vc, &desc->vd, flags);
+>   }
+>   
+> @@ -256,34 +284,46 @@ static struct dma_async_tx_descriptor *d350_prep_memset(struct dma_chan *chan,
+>   {
+>   	struct d350_chan *dch = to_d350_chan(chan);
+>   	struct d350_desc *desc;
+> +	struct d350_sg *sg;
+> +	dma_addr_t phys;
+>   	u32 *cmd;
+>   
+> -	desc = kzalloc(sizeof(*desc), GFP_NOWAIT);
+> +	desc = kzalloc(struct_size(desc, sg, 1), GFP_NOWAIT);
+>   	if (!desc)
+>   		return NULL;
+>   
+> -	desc->tsz = __ffs(len | dest | (1 << dch->tsz));
+> -	desc->xsize = lower_16_bits(len >> desc->tsz);
+> -	desc->xsizehi = upper_16_bits(len >> desc->tsz);
+> +	sg = &desc->sg[0];
+> +	sg->command = dma_pool_zalloc(dch->cmd_pool, GFP_NOWAIT, &phys);
+> +	if (unlikely(!sg->command)) {
+> +		kfree(desc);
+> +		return NULL;
+> +	}
+> +	sg->phys = phys;
+> +
+> +	sg->tsz = __ffs(len | dest | (1 << dch->tsz));
+> +	sg->xsize = lower_16_bits(len >> sg->tsz);
+> +	sg->xsizehi = upper_16_bits(len >> sg->tsz);
+>   
+> -	cmd = desc->command;
+> +	cmd = sg->command;
+>   	cmd[0] = LINK_CTRL | LINK_DESADDR | LINK_DESADDRHI |
+>   		 LINK_XSIZE | LINK_XSIZEHI | LINK_DESTRANSCFG |
+>   		 LINK_XADDRINC | LINK_FILLVAL | LINK_LINKADDR;
+>   
+> -	cmd[1] = FIELD_PREP(CH_CTRL_TRANSIZE, desc->tsz) |
+> +	cmd[1] = FIELD_PREP(CH_CTRL_TRANSIZE, sg->tsz) |
+>   		 FIELD_PREP(CH_CTRL_XTYPE, CH_CTRL_XTYPE_FILL) |
+>   		 FIELD_PREP(CH_CTRL_DONETYPE, CH_CTRL_DONETYPE_CMD);
+>   
+>   	cmd[2] = lower_32_bits(dest);
+>   	cmd[3] = upper_32_bits(dest);
+> -	cmd[4] = FIELD_PREP(CH_XY_DES, desc->xsize);
+> -	cmd[5] = FIELD_PREP(CH_XY_DES, desc->xsizehi);
+> +	cmd[4] = FIELD_PREP(CH_XY_DES, sg->xsize);
+> +	cmd[5] = FIELD_PREP(CH_XY_DES, sg->xsizehi);
+>   	cmd[6] = dch->coherent ? TRANSCFG_WB : TRANSCFG_NC;
+>   	cmd[7] = FIELD_PREP(CH_XY_DES, 1);
+>   	cmd[8] = (u8)value * 0x01010101;
+>   	cmd[9] = 0;
+>   
+> +	mb();
+> +
+>   	return vchan_tx_prep(&dch->vc, &desc->vd, flags);
+>   }
+>   
+> @@ -319,8 +359,9 @@ static int d350_resume(struct dma_chan *chan)
+>   
+>   static u32 d350_get_residue(struct d350_chan *dch)
+>   {
+> -	u32 res, xsize, xsizehi, hi_new;
+> -	int retries = 3; /* 1st time unlucky, 2nd improbable, 3rd just broken */
+> +	u32 res, xsize, xsizehi, linkaddr, linkaddrhi, hi_new;
+> +	int i, sgcur, retries = 3; /* 1st time unlucky, 2nd improbable, 3rd just broken */
+> +	struct d350_desc *desc = dch->desc;
+>   
+>   	hi_new = readl_relaxed(dch->base + CH_XSIZEHI);
+>   	do {
+> @@ -329,10 +370,26 @@ static u32 d350_get_residue(struct d350_chan *dch)
+>   		hi_new = readl_relaxed(dch->base + CH_XSIZEHI);
+>   	} while (xsizehi != hi_new && --retries);
+>   
+> +	hi_new = readl_relaxed(dch->base + CH_LINKADDRHI);
+> +	do {
+> +		linkaddrhi = hi_new;
+> +		linkaddr = readl_relaxed(dch->base + CH_LINKADDR);
+> +		hi_new = readl_relaxed(dch->base + CH_LINKADDRHI);
+> +	} while (linkaddrhi != hi_new && --retries);
+> +
+> +	for (i = 0; i < desc->sglen; i++) {
+> +		if (desc->sg[i].phys == (((u64)linkaddrhi << 32) | (linkaddr & ~CH_LINKADDR_EN)))
+> +			sgcur = i;
+> +	}
+> +
+>   	res = FIELD_GET(CH_XY_DES, xsize);
+>   	res |= FIELD_GET(CH_XY_DES, xsizehi) << 16;
+> +	res <<= desc->sg[sgcur].tsz;
+> +
+> +	for (i = sgcur + 1; i < desc->sglen; i++)
+> +		res += (((u32)desc->sg[i].xsizehi << 16 | desc->sg[i].xsize) << desc->sg[i].tsz);
+>   
+> -	return res << dch->desc->tsz;
+> +	return res;
+>   }
+>   
+>   static int d350_terminate_all(struct dma_chan *chan)
+> @@ -365,7 +422,13 @@ static void d350_synchronize(struct dma_chan *chan)
+>   
+>   static u32 d350_desc_bytes(struct d350_desc *desc)
+>   {
+> -	return ((u32)desc->xsizehi << 16 | desc->xsize) << desc->tsz;
+> +	int i;
+> +	u32 bytes = 0;
+> +
+> +	for (i = 0; i < desc->sglen; i++)
+> +		bytes += (((u32)desc->sg[i].xsizehi << 16 | desc->sg[i].xsize) << desc->sg[i].tsz);
+> +
+> +	return bytes;
+>   }
+>   
+>   static enum dma_status d350_tx_status(struct dma_chan *chan, dma_cookie_t cookie,
+> @@ -415,8 +478,8 @@ static void d350_start_next(struct d350_chan *dch)
+>   	dch->cookie = dch->desc->vd.tx.cookie;
+>   	dch->residue = d350_desc_bytes(dch->desc);
+>   
+> -	hdr = dch->desc->command[0];
+> -	reg = &dch->desc->command[1];
+> +	hdr = dch->desc->sg[0].command[0];
+> +	reg = &dch->desc->sg[0].command[1];
+>   
+>   	if (hdr & LINK_INTREN)
+>   		writel_relaxed(*reg++, dch->base + CH_INTREN);
+> @@ -512,11 +575,29 @@ static irqreturn_t d350_irq(int irq, void *data)
+>   static int d350_alloc_chan_resources(struct dma_chan *chan)
+>   {
+>   	struct d350_chan *dch = to_d350_chan(chan);
+> -	int ret = request_irq(dch->irq, d350_irq, IRQF_SHARED,
+> -			      dev_name(&dch->vc.chan.dev->device), dch);
+> -	if (!ret)
+> -		writel_relaxed(CH_INTREN_DONE | CH_INTREN_ERR, dch->base + CH_INTREN);
+> +	int ret;
+> +
+> +	dch->cmd_pool = dma_pool_create(dma_chan_name(chan),
+> +					  chan->device->dev,
+> +					  D350_MAX_CMDS * sizeof(u32),
+> +					  sizeof(u32), 0);
+> +	if (!dch->cmd_pool) {
+> +		dev_err(chan->device->dev, "No memory for cmd pool\n");
+> +		return -ENOMEM;
+> +	}
+> +
+> +	ret = request_irq(dch->irq, d350_irq, 0,
+> +			  dev_name(&dch->vc.chan.dev->device), dch);
+> +	if (ret < 0)
+> +		goto err_irq;
+> +
+> +	writel_relaxed(CH_INTREN_DONE | CH_INTREN_ERR, dch->base + CH_INTREN);
+> +
+> +	return 0;
+>   
+> +err_irq:
+> +	dma_pool_destroy(dch->cmd_pool);
+> +	dch->cmd_pool = NULL;
+>   	return ret;
+>   }
+>   
+> @@ -527,6 +608,8 @@ static void d350_free_chan_resources(struct dma_chan *chan)
+>   	writel_relaxed(0, dch->base + CH_INTREN);
+>   	free_irq(dch->irq, dch);
+>   	vchan_free_chan_resources(&dch->vc);
+> +	dma_pool_destroy(dch->cmd_pool);
+> +	dch->cmd_pool = NULL;
+>   }
+>   
+>   static int d350_probe(struct platform_device *pdev)
 
