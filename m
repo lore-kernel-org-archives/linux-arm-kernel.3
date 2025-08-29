@@ -4,77 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED33ECA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 12:26:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B9C9CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 12:29:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DRQLEfUsuJHHjqNqgx2M044tZdVYVveuWFYHZnTOhuQ=; b=nl99Ma4c+wz9+oKQX9VPGnkn2x
-	8Zorai9yw+HLQFtoi3BueqwLSOtHEDJnM2LzfSuCnHS3or3B9rXfDpu3VfgpXNwnGrlW8kriiv2Ex
-	ocoZvZCNOl2pdgXG+vU3ntBgFsfXkjll8xWFMDJ0qjeAWqc2pGvtaCNCAWbT+SvnzVu3aBnLc+D+p
-	28sQt0AaATHo+AwXArOFkOQl2B20Xd2G5yP/0W3UPguONFb340VLHgeOF8W+atW0GhMxvEtVdAVgD
-	sZFgtdR5gnnNOernx6+m/3Ln6V7Wrjz2+h6AHGIsL7+sgyRc/Z3n89wBnj4y+HcCqyxfgz4dCn5ov
-	EZqrfcWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r388piKrtomouHw+BAUTaSknqF5o7p+TFsKIFQs5boU=; b=TtXzrbvUceXuwdsc5urn6NJsv6
+	3bePFD2z+zTwHo01QiD+/Aw8LQ1pUXZKlB6NurYxQFUQO02Ih5LR0LTnyE0Kw/JOy6qHLY6dkcdPC
+	Z/YgkgXIy5sk5ucRpnGTnTF9vqQbPdN8h4W0DBVtNfK0qxiZetFDW7zaTWtjIOzj7evMh1jESpc4b
+	0OHqu84PTvoj/piedoj5Pm2mrmVb/k96RVsPAtYg1lWx4DVT6nPX0YG6A0/HUFtM1oV3oOZQYJLCQ
+	IcoDsneAhCQML0tpiB8Xnm/WVzwggPuWp1c5yypLKT8WAsgRvI2Yv0p1a0VrFpIqtg6iYnONYzN6/
+	WEtGuWBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uryAo-00000005dkX-2vvG;
-	Fri, 29 Aug 2025 12:25:42 +0000
-Received: from pegase2.c-s.fr ([93.17.235.10])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urvkg-00000005Ckq-3Vt1
+	id 1uryEp-00000005f2w-3mjJ;
+	Fri, 29 Aug 2025 12:29:51 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urw7v-00000005HRu-2b50
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 09:50:36 +0000
-Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4cCtZG1F0Jz9sSq;
-	Fri, 29 Aug 2025 11:41:26 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id GrXZn4W0Vaq7; Fri, 29 Aug 2025 11:41:26 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4cCtZG028qz9sSm;
-	Fri, 29 Aug 2025 11:41:26 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id DDA448B778;
-	Fri, 29 Aug 2025 11:41:25 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id KZaq5q-SPjdO; Fri, 29 Aug 2025 11:41:25 +0200 (CEST)
-Received: from [192.168.235.99] (unknown [192.168.235.99])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 3DD938B776;
-	Fri, 29 Aug 2025 11:41:25 +0200 (CEST)
-Message-ID: <bf5444e4-8f3f-4a56-be67-29857726b119@csgroup.eu>
-Date: Fri, 29 Aug 2025 11:41:24 +0200
+	Fri, 29 Aug 2025 10:14:39 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.112])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4cCvDx2ngDz2VRTx;
+	Fri, 29 Aug 2025 18:11:29 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 1404F1402CC;
+	Fri, 29 Aug 2025 18:14:30 +0800 (CST)
+Received: from kwepemn100008.china.huawei.com (7.202.194.111) by
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 29 Aug 2025 18:14:29 +0800
+Received: from localhost.huawei.com (10.90.31.46) by
+ kwepemn100008.china.huawei.com (7.202.194.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 29 Aug 2025 18:14:29 +0800
+From: Yushan Wang <wangyushan12@huawei.com>
+To: <will@kernel.org>, <mark.rutland@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <robin.murphy@arm.com>, <yangyicong@huawei.com>,
+	<Jonathan.Cameron@huawei.com>, <liuyonglong@huawei.com>,
+	<wanghuiqiang@huawei.com>, <prime.zeng@hisilicon.com>,
+	<wangyushan12@huawei.com>, <hejunhao3@h-partners.com>, <linuxarm@huawei.com>,
+	<fanghao11@huawei.com>
+Subject: [PATCH v3 2/9] drivers/perf: hisi: Export hisi_uncore_pmu_isr()
+Date: Fri, 29 Aug 2025 18:14:20 +0800
+Message-ID: <20250829101427.2557899-3-wangyushan12@huawei.com>
+X-Mailer: git-send-email 2.33.0
+In-Reply-To: <20250829101427.2557899-1-wangyushan12@huawei.com>
+References: <20250829101427.2557899-1-wangyushan12@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/6] dt-bindings: soc: fsl: qe: Add support of IRQ in
- QE GPIO
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>
-Cc: Qiang Zhao <qiang.zhao@nxp.com>, Linus Walleij
- <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org
-References: <cover.1756104334.git.christophe.leroy@csgroup.eu>
- <17636607f2beac3b64c87b3bec035fa27ce8d195.1756104334.git.christophe.leroy@csgroup.eu>
- <CAL_JsqKFvVQTVXV8mWX0z1=hd3nLDzLXq-0G_0bshMCvQ5kVvA@mail.gmail.com>
- <f21e27da-de26-4835-9660-b39e99695281@csgroup.eu>
- <0f716362-07f4-4c79-bb0a-e71d2630a797@kernel.org>
- <1ba37df7-2d4a-4258-8220-58ee7d609264@csgroup.eu>
- <c314b7c6-f5b7-4f3e-8d67-e3c92ff8ff37@kernel.org>
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-Content-Language: fr-FR
-In-Reply-To: <c314b7c6-f5b7-4f3e-8d67-e3c92ff8ff37@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.31.46]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemn100008.china.huawei.com (7.202.194.111)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_025035_033170_4C93EA3A 
-X-CRM114-Status: GOOD (  31.61  )
+X-CRM114-CacheID: sfid-20250829_031436_108186_9EA9E263 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,238 +78,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Yicong Yang <yangyicong@hisilicon.com>
 
+Currently Uncore PMU framework assume one PMU device only have one
+interrupt and will help register the interrupt handler. It cannot
+support a PMU with multiple interrupt resources.  An uncore PMU may
+have multiple interrupts that can share the same handler.  Export
+hisi_uncore_pmu_isr() to allow drivers register the irq handler by
+their own routine.
 
-Le 29/08/2025 à 11:16, Krzysztof Kozlowski a écrit :
-> On 29/08/2025 10:35, Christophe Leroy wrote:
->>
->>
->> Le 29/08/2025 à 09:47, Krzysztof Kozlowski a écrit :
->>> On 28/08/2025 16:12, Christophe Leroy wrote:
->>>>
->>>>
->>>> Le 28/08/2025 à 15:28, Rob Herring a écrit :
->>>>> On Mon, Aug 25, 2025 at 2:20 AM Christophe Leroy
->>>>> <christophe.leroy@csgroup.eu> wrote:
->>>>>>
->>>>>> In the QE, a few GPIOs are IRQ capable. Similarly to
->>>>>> commit 726bd223105c ("powerpc/8xx: Adding support of IRQ in MPC8xx
->>>>>> GPIO"), add IRQ support to QE GPIO.
->>>>>>
->>>>>> Add property 'fsl,qe-gpio-irq-mask' similar to
->>>>>> 'fsl,cpm1-gpio-irq-mask' that define which of the GPIOs have IRQs.
->>>>>
->>>>> Why do you need to know this? The ones that have interrupts will be
->>>>> referenced by an 'interrupts' property somewhere.
->>>>
->>>> I don't follow you. The ones that have interrupts need to be reported by
->>>> gc->qe_gpio_to_irq[] so that gpiod_to_irq() return the IRQ number, for
->>>> instance to gpio_sysfs_request_irq() so that it can install an irq
->>>> handler. I can't see where they would be referenced by an "interrupts"
->>>> property.
->>>
->>> They would be referenced by every consumer of these interrupts. IOW,
->>> this property is completely redundant, because DT holds this information
->>> already in other place.
->>
->> But the gpio controller _is_ the consumer of these interrupts, it it
->> _not_ the provider.
->>
->> The interrupts are provided by a separate interrupt controller. Let's
->> take the exemple of powerpc 8xx. Here is the list of interrupts handled
->> by the CPM interrupt controller on the 8xx:
->>
->> 1 - GPIO Port C Line 4 interrupt
->> 2 - GPIO Port C Line 5 interrupt
->> 3 - SMC2 Serial controller interrupt
->> 4 - SMC1 Serial controller interrupt
->> 5 - SPI controller interrupt
->> 6 - GPIO Port C Line 6 interrupt
->> 7 - Timer 4 interrupt
->> 8 - SCCd Serial controller interrupt
->> 9 - GPIO Port C Line 7 interrupt
->> 10 - GPIO Port C Line 8 interrupt
->> 11 - GPIO Port C Line 9 interrupt
->> 12 - Timer 3 interrupt
->> 13 - SCCc Serial controller interrupt
->> 14 - GPIO Port C Line 10 interrupt
->> 15 - GPIO Port C Line 11 interrupt
->> 16 - I2C Controller interrupt
->> 17 - RISC timer table interrupt
->> 18 - Timer 2 interrupt
->> 19 - SCCb Serial controller interrupt
->> 20 - IDMA2 interrupt
->> 21 - IDMA1 interrupt
->> 22 - SDMA channel bus error interrupt
->> 23 - GPIO Port C Line 12 interrupt
->> 24 - GPIO Port C Line 13 interrupt
->> 25 - Timer 1 interrupt
->> 26 - GPIO Port C Line 14 interrupt
->> 27 - SCCd Serial controller interrupt
->> 28 - SCCc Serial controller interrupt
->> 29 - SCCb Serial controller interrupt
->> 30 - SCCa Serial controller interrupt
->> 31 - GPIO Port C Line 15 interrupt
-> 
-> That list is fixed per soc/device, so already implied by compatible.
-> 
->>
->> As you can see in the list, the GPIO line interrupts are nested with
->> other types of interrupts so GPIO controller and Interrupt controller
->> are to be keept independant.
->>
->> That's more or less the same here with my series, patch 1 implements an
->> interrupt controller (documented in patch 6) and then the GPIO
->> controllers consume the interrupts, for instance in gpiolib functions
->> gpio_sysfs_request_irq() [drivers/gpio/gpiolib-sysfs.c] or
->> edge_detector_setup() or debounce_setup() [drivers/gpio/gpiolib-cdev.c]
->>
->> External drivers also use interrupts indirectly. For example driver
->> sound/soc/soc-jack.c, it doesn't have any direct reference to an
->> interrupt. The driver is given an array of GPIOs and then installs an
->> IRQ in function snd_soc_jack_add_gpios() by doing
->>
->> 	request_any_context_irq(gpiod_to_irq(gpios[i].desc),
->> 					      gpio_handler,
->> 					      IRQF_SHARED |
->> 					      IRQF_TRIGGER_RISING |
->> 					      IRQF_TRIGGER_FALLING,
->> 					      gpios[i].name,
->> 					      &gpios[i]);
-> 
-> 
-> External drivers do not matter then. Your GPIO controller receives
-> specific interrupts (that's the interrupt property) and knows exactly
-> how each GPIO maps to it.
-> 
+Acked-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
+---
+ drivers/perf/hisilicon/hisi_uncore_pmu.c | 3 ++-
+ drivers/perf/hisilicon/hisi_uncore_pmu.h | 1 +
+ 2 files changed, 3 insertions(+), 1 deletion(-)
 
-Do you mean then that the GPIO driver should already know which line has 
-an interrupt and which one doesn't ?
+diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pmu.c
+index 6594d64b03a9..de71dcf11653 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_pmu.c
++++ b/drivers/perf/hisilicon/hisi_uncore_pmu.c
+@@ -149,7 +149,7 @@ static void hisi_uncore_pmu_clear_event_idx(struct hisi_pmu *hisi_pmu, int idx)
+ 	clear_bit(idx, hisi_pmu->pmu_events.used_mask);
+ }
+ 
+-static irqreturn_t hisi_uncore_pmu_isr(int irq, void *data)
++irqreturn_t hisi_uncore_pmu_isr(int irq, void *data)
+ {
+ 	struct hisi_pmu *hisi_pmu = data;
+ 	struct perf_event *event;
+@@ -178,6 +178,7 @@ static irqreturn_t hisi_uncore_pmu_isr(int irq, void *data)
+ 
+ 	return IRQ_HANDLED;
+ }
++EXPORT_SYMBOL_NS_GPL(hisi_uncore_pmu_isr, "HISI_PMU");
+ 
+ int hisi_uncore_pmu_init_irq(struct hisi_pmu *hisi_pmu,
+ 			     struct platform_device *pdev)
+diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.h b/drivers/perf/hisilicon/hisi_uncore_pmu.h
+index e69660f72be6..8649be6f716a 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_pmu.h
++++ b/drivers/perf/hisilicon/hisi_uncore_pmu.h
+@@ -165,6 +165,7 @@ int hisi_uncore_pmu_offline_cpu(unsigned int cpu, struct hlist_node *node);
+ ssize_t hisi_uncore_pmu_identifier_attr_show(struct device *dev,
+ 					     struct device_attribute *attr,
+ 					     char *page);
++irqreturn_t hisi_uncore_pmu_isr(int irq, void *data);
+ int hisi_uncore_pmu_init_irq(struct hisi_pmu *hisi_pmu,
+ 			     struct platform_device *pdev);
+ void hisi_uncore_pmu_init_topology(struct hisi_pmu *hisi_pmu, struct device *dev);
+-- 
+2.33.0
 
-The interrupts are fixed per soc, but today the GPIO driver is generic 
-and used on different SOCs that don't have interrupts on the same lines. 
-And even on the given SOCs, not all ports have interrupts on the same 
-lines. Should all possibilities be hard-coded inside the driver for each 
-possible compatible ? The property 'fsl,qe-gpio-irq-mask' is there to 
-avoid that and keep the GPIO driver as generic as possible with a single 
-compatible 'fsl,mpc8323-qe-pario-bank' that is found in the DTS of 8323 
-but also in DTS of 8360, in DTS of 8569, etc... :
-
-arch/powerpc/boot/dts/fsl/mpc8569mds.dts: 
-             "fsl,mpc8323-qe-pario-bank";
-arch/powerpc/boot/dts/fsl/mpc8569mds.dts: 
-             "fsl,mpc8323-qe-pario-bank";
-arch/powerpc/boot/dts/kmeter1.dts: 
-     "fsl,mpc8323-qe-pario-bank";
-arch/powerpc/boot/dts/mpc832x_rdb.dts: 
-compatible = "fsl,mpc8323-qe-pario-bank";
-arch/powerpc/boot/dts/mpc836x_rdk.dts: 
-"fsl,mpc8323-qe-pario-bank";
-arch/powerpc/boot/dts/mpc836x_rdk.dts: 
-"fsl,mpc8323-qe-pario-bank";
-
-Do you mean we should define one compatible for each of the ports of 
-each soc, and encode the mask of interrupts that define which line of 
-the port has interrupts in the data field ?
-
-Something like:
-
-static const struct of_device_id qe_gpio_match[] = {
-	{
-		.compatible = "fsl,mpc8323-qe-pario-bank-a",
-		.data = (void *)0x00a00028,
-	},
-	{
-		.compatible = "fsl,mpc8323-qe-pario-bank-b",
-		.data = (void *)0x01400050,
-	},
-	{
-		.compatible = "fsl,mpc8323-qe-pario-bank-c",
-		.data = (void *)0x00000084,
-	},
-	{
-		.compatible = "fsl,mpc8323-qe-pario-bank-d",
-		.data = (void *)0,
-	},
-	{
-		.compatible = "fsl,mpc8360-qe-pario-bank-a",
-		.data = (void *)0xXXXXXXXX,
-	},
-	{
-		.compatible = "fsl,mpc8360-qe-pario-bank-b",
-		.data = (void *)0xXXXXXXXX,
-	},
-....
-	{},
-};
-MODULE_DEVICE_TABLE(of, qe_gpio_match);
-
-That would be feasible but would mean updating the driver each time a 
-new SOC is added.
-
-Do you mean it should be done that way ?
-
-Isn't the purpose of the device tree to keep drivers as generic as 
-possible ?
-
-
-
-
->>
->>>
->>>>
->>>>>
->>>>>> Here is an exemple for port B of mpc8323 which has IRQs for
->>>>>
->>>>> typo
->>>>>
->>>>>> GPIOs PB7, PB9, PB25 and PB27.
->>>>>>
->>>>>>            qe_pio_b: gpio-controller@1418 {
->>>>>>                    compatible = "fsl,mpc8323-qe-pario-bank";
->>>>>>                    reg = <0x1418 0x18>;
->>>>>>                    interrupts = <4 5 6 7>;
->>>>>>                    interrupt-parent = <&qepic>;
->>>>>>                    gpio-controller;
->>>>>>                    #gpio-cells = <2>;
->>>>>>                    fsl,qe-gpio-irq-mask = <0x01400050>;
->>>>>>            };
->>>>>
->>>>> You are missing #interrupt-cells and interrupt-controller properties.
->>>>
->>>> The gpio controller is not an interrupt controller. The GPIO controller
->>>> is brought by patch 1/6 and documented in patch 6/6.
->>>
->>> Then the IRQ mask property is not right here. If you say "this GPIOs
->>> have IRQs" it means this is an interrupt controller.
->>
->> The mask tells to the GPIO controller which GPIO line has an interrupt
->> (so it can install the edge detector) and which doesn't have an
->> interrupt. The "interrupts" property gives a flat list of interrupts,
->> the mask in the above example tells: interrupt 4 is for line 7,
->> interrupt 5 is for line 9, interrupt 6 is for line 25, interrupt 7 is
->> for line 27. Other lines don't have interrupts.
->>
->>>
->>> If you say this is not an interrupt controller, then you cannot have
->>> here interrupts per some GPIOs, obviously.
->>
->> It has been working that way on powerpc 8xx for 8 years, since commit
->> 726bd223105c ("powerpc/8xx: Adding support of IRQ in MPC8xx GPIO")
->>
->> I don't understand why you say you cannot have
->> here interrupts per some GPIOs. What am I missing ?
-> 
-> I used conditional. English conditional. If you claim this GPIO
-> controller is not an interrupt controller, then obviously it is not an
-> interrupt controller and cannot be used as interrupt controller.
-> 
-> If you use "foo" as interrupt controller, then clearly foo is an
-> interrupt controller.
-> 
-
-Ah ! ok. I didn't read it like that, sorry.
-
-Thanks
-Christophe
 
