@@ -4,75 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCF94CA0FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:52:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69AE3CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:52:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kZBy6mGm/GWgsSmHcenYbJqYC61GyZljRKOGMCQEJWk=; b=oaVm/voifyDxGyywbVIUkFeU/E
-	Un7UmeUhVNIwPLuYq34peHHkEUHgVZEbl53I3FxRqkEMbFbfF9Fl6/KJ4S70a7/CfYXC9/6jlJ0ra
-	nYLcClcVq+9zT++ISwEARsEaFygleXnNTzWZZv8AgI2IQb1oJ8phfmqxgWHOto+NbPEBUb/P6h8Ww
-	Fa0e75pR5L7MydbaddVXiMDmR8KJG0TS1WPF1D/tq4H6/dbtqs82K6vTjFIvRoh2xcEbdvx2h8HgP
-	SRuN5GI2+hmTw3Qaui/EVPrskdjrNv0L4kxKPttwi2KYJGtUjtjXmJQBDyvgBsErcr0v2VWT9qj2X
-	TKxcnT2A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xkCZhodwr3RomP8vx5KfiL+DMYSIm6v8A61e1GuVIto=; b=n8JR+cFPmGWhD0SvjE2Ymou4Ou
+	bcHBegvovgrOtBUkgoOq5smjwtl6EU9y3u6FwITyXMxNYLErA3mNN99esROQA6DHhYJ7am4oH9G6Q
+	8R952ZWEi6JPwq9Xlo/R2WCN8rB9LgEu89I1p+r/GsizEhB9VsksxFlTRHvove3Kd1/iPIIB6lAvf
+	iP9HEXkiiAZTmk6ujEVgfpQRC78ZfEG/IkUrOjOEFAtfk+lGFPONiqzwjA75FsJ89O4gSJPCxuEF2
+	z7UuJXNCOoa76v/Lf8/CdM+C2PJDUh087SPv0FiSa4qeNGX5nkNWJNibCb5yZfdDDf9s1JjVOhNFM
+	tRmQzVIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us9pJ-00000007DWD-0N92;
-	Sat, 30 Aug 2025 00:52:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1us9pa-00000007Doz-0Ytr;
+	Sat, 30 Aug 2025 00:52:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us7fM-00000006x8o-2sCm;
-	Fri, 29 Aug 2025 22:33:54 +0000
+	id 1us89I-000000070Ec-2Nlh
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 29 Aug 2025 23:04:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B33664534D;
-	Fri, 29 Aug 2025 22:33:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5459DC4CEF0;
-	Fri, 29 Aug 2025 22:33:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7F1FE6014D;
+	Fri, 29 Aug 2025 23:04:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12622C4CEF0;
+	Fri, 29 Aug 2025 23:04:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756506831;
-	bh=gW3UREhITNbhZNhXVhy/1JzS54isi8alO3SClI/0N4U=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=CeI1UyywLphq6rbxihW3K12s6RgLJ57FMTz4eKtrVBaIOZQlRF5Mw5MGN9VZqsyUF
-	 ws1VVPK2A9Aphpeu08IZ+PBsvH/hZxYQZ/E8LlLJ2UoQZh6ZiWU7Ee+Bxfnwgu4wDN
-	 qm+ussMtaWLdi83SF8aT0+Btb7yjNB9Ygip41cIO0PmgxXzADx6IHAKLQjnLPLfqj2
-	 5eqSmq9NNuwF0+wjF3Nc60azb8fAUFVptz94yF9f9Xn6OeJKPvhEVPRSVPcQIiH9ig
-	 389Jr83bSdXVSFqVbGJ4RM5keAw6x2twpNgOifIA2xME7cb4HiY+r6PWu/R5+ICtHu
-	 LsNzjw1Q4Twaw==
-From: Nathan Chancellor <nathan@kernel.org>
-To: linux-kernel@vger.kernel.org, Nathan Chancellor <nathan@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Kees Cook <kees@kernel.org>, 
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
- llvm@lists.linux.dev, patches@lists.linux.dev, 
- Nicolas Schier <nsc@kernel.org>, linux-kbuild@vger.kernel.org, 
- linux-hardening@vger.kernel.org, Russell King <linux@armlinux.org.uk>, 
- Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org, 
- Will Deacon <will@kernel.org>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, linux-mips@vger.kernel.org, 
- Madhavan Srinivasan <maddy@linux.ibm.com>, 
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
- Christophe Leroy <christophe.leroy@csgroup.eu>, 
- linuxppc-dev@lists.ozlabs.org, Palmer Dabbelt <palmer@dabbelt.com>, 
- Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, 
- Marco Elver <elver@google.com>, 
- "Peter Zijlstra (Intel)" <peterz@infraded.org>, kasan-dev@googlegroups.com
-In-Reply-To: <20250821-bump-min-llvm-ver-15-v2-0-635f3294e5f0@kernel.org>
-References: <20250821-bump-min-llvm-ver-15-v2-0-635f3294e5f0@kernel.org>
-Subject: Re: [PATCH v2 00/12] Bump minimum supported version of LLVM for
- building the kernel to 15.0.0
-Message-Id: <175650682606.3003527.17329504429724755241.b4-ty@kernel.org>
-Date: Fri, 29 Aug 2025 15:33:46 -0700
+	s=k20201202; t=1756508687;
+	bh=lVy0nGCp4W9LsUGnCrLcZC8nGhc9aZD0sfWzO1ugqb0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=n40IqzHf8NlGH+zlDQkwIjiMqxccwyPOgUi2Gb97TUhyJ0HxLOqJBAgDX/+Ruqrn2
+	 VGsGBVNI6hYorMB0LNfKslKl/xi6j1aEkFz5hRGbFm1MrZiPpLVNItHg7mVbW0Uuom
+	 yLXEkP8LY3BW/7XulqzHf4v6FbZy0xC4EHYRm0roxM3lCLz2QweX9EQVMczT6uTnXg
+	 IXL0w2yvzWfotuDdrbCoAYa3kw44y185fDNL3IbiY6+EDuqEwNL3xyOuZ9D+IXFzVQ
+	 wjvPjr8hfrAFVbxIiPjqDb13MgyUy2G318dovaYNXLWqU/hs5XByEtw7hU89n2o3/w
+	 V0EV0ZL8fXwhg==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Joel Stanley <joel@jms.id.au>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Lee Jones <lee@kernel.org>
+Cc: linux-aspeed@lists.ozlabs.org,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] dt-bindings: gpu: Convert aspeed,ast2400-gfx to DT schema
+Date: Fri, 29 Aug 2025 18:04:40 -0500
+Message-ID: <20250829230442.1495926-1-robh@kernel.org>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_153352_768489_34069DFD 
-X-CRM114-Status: UNSURE (   8.31  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,47 +78,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Convert the ASpeed GFX Display Controller binding to DT schema format.
+There was a duplicate, incomplete binding in mfd which can be dropped.
 
-On Thu, 21 Aug 2025 14:15:37 -0700, Nathan Chancellor wrote:
-> s390 and x86 have required LLVM 15 since
-> 
->   30d17fac6aae ("scripts/min-tool-version.sh: raise minimum clang version to 15.0.0 for s390")
->   7861640aac52 ("x86/build: Raise the minimum LLVM version to 15.0.0")
-> 
-> respectively. This series bumps the rest of the kernel to 15.0.0 to
-> match, which allows for a decent number of clean ups.
-> 
-> [...]
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../bindings/gpu/aspeed,ast2400-gfx.yaml      | 58 +++++++++++++++++++
+ .../devicetree/bindings/gpu/aspeed-gfx.txt    | 41 -------------
+ .../devicetree/bindings/mfd/aspeed-gfx.txt    | 17 ------
+ MAINTAINERS                                   |  2 +-
+ 4 files changed, 59 insertions(+), 59 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/gpu/aspeed,ast2400-gfx.yaml
+ delete mode 100644 Documentation/devicetree/bindings/gpu/aspeed-gfx.txt
+ delete mode 100644 Documentation/devicetree/bindings/mfd/aspeed-gfx.txt
 
-Applied, thanks!
-
-[01/12] kbuild: Bump minimum version of LLVM for building the kernel to 15.0.0
-        https://git.kernel.org/kbuild/c/20c0989283564
-[02/12] arch/Kconfig: Drop always true condition from RANDOMIZE_KSTACK_OFFSET
-        https://git.kernel.org/kbuild/c/65aebf6f5880e
-[03/12] ARM: Clean up definition of ARM_HAS_GROUP_RELOCS
-        https://git.kernel.org/kbuild/c/02aba266e391f
-[04/12] arm64: Remove tautological LLVM Kconfig conditions
-        https://git.kernel.org/kbuild/c/23cb0514208da
-[05/12] mips: Unconditionally select ARCH_HAS_CURRENT_STACK_POINTER
-        https://git.kernel.org/kbuild/c/e633c2e78fd1c
-[06/12] powerpc: Drop unnecessary initializations in __copy_inst_from_kernel_nofault()
-        https://git.kernel.org/kbuild/c/488954ca195d0
-[07/12] riscv: Remove version check for LTO_CLANG selects
-        https://git.kernel.org/kbuild/c/6578a1ff6aa49
-[08/12] riscv: Unconditionally use linker relaxation
-        https://git.kernel.org/kbuild/c/7ccbe91796d7b
-[09/12] riscv: Remove ld.lld version checks from many TOOLCHAIN_HAS configs
-        https://git.kernel.org/kbuild/c/87b28d71396bf
-[10/12] lib/Kconfig.debug: Drop CLANG_VERSION check from DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT
-        https://git.kernel.org/kbuild/c/a817de20091c3
-[11/12] objtool: Drop noinstr hack for KCSAN_WEAK_MEMORY
-        https://git.kernel.org/kbuild/c/573ad421cc551
-[12/12] KMSAN: Remove tautological checks
-        https://git.kernel.org/kbuild/c/5ff8c11775c74
-
-Best regards,
+diff --git a/Documentation/devicetree/bindings/gpu/aspeed,ast2400-gfx.yaml b/Documentation/devicetree/bindings/gpu/aspeed,ast2400-gfx.yaml
+new file mode 100644
+index 000000000000..77ec5ad10ac6
+--- /dev/null
++++ b/Documentation/devicetree/bindings/gpu/aspeed,ast2400-gfx.yaml
+@@ -0,0 +1,58 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/gpu/aspeed,ast2400-gfx.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: ASPEED GFX Display Controller
++
++maintainers:
++  - Joel Stanley <joel@jms.id.au>
++
++properties:
++  compatible:
++    items:
++      - enum:
++          - aspeed,ast2500-gfx
++          - aspeed,ast2400-gfx
++      - const: syscon
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  resets:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  memory-region:
++    maxItems: 1
++    description:
++      a reserved-memory region to use for the framebuffer.
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - resets
++  - memory-region
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/aspeed-clock.h>
++
++    display@1e6e6000 {
++        compatible = "aspeed,ast2500-gfx", "syscon";
++        reg = <0x1e6e6000 0x1000>;
++        clocks = <&syscon ASPEED_CLK_GATE_D1CLK>;
++        resets = <&syscon ASPEED_RESET_CRT1>;
++        interrupts = <0x19>;
++        memory-region = <&gfx_memory>;
++    };
+diff --git a/Documentation/devicetree/bindings/gpu/aspeed-gfx.txt b/Documentation/devicetree/bindings/gpu/aspeed-gfx.txt
+deleted file mode 100644
+index 958bdf962339..000000000000
+--- a/Documentation/devicetree/bindings/gpu/aspeed-gfx.txt
++++ /dev/null
+@@ -1,41 +0,0 @@
+-Device tree configuration for the GFX display device on the ASPEED SoCs
+-
+-Required properties:
+-  - compatible
+-    * Must be one of the following:
+-      + aspeed,ast2500-gfx
+-      + aspeed,ast2400-gfx
+-    * In addition, the ASPEED pinctrl bindings require the 'syscon' property to
+-      be present
+-
+-  - reg: Physical base address and length of the GFX registers
+-
+-  - interrupts: interrupt number for the GFX device
+-
+-  - clocks: clock number used to generate the pixel clock
+-
+-  - resets: reset line that must be released to use the GFX device
+-
+-  - memory-region:
+-    Phandle to a memory region to allocate from, as defined in
+-    Documentation/devicetree/bindings/reserved-memory/reserved-memory.txt
+-
+-
+-Example:
+-
+-gfx: display@1e6e6000 {
+-	compatible = "aspeed,ast2500-gfx", "syscon";
+-	reg = <0x1e6e6000 0x1000>;
+-	reg-io-width = <4>;
+-	clocks = <&syscon ASPEED_CLK_GATE_D1CLK>;
+-	resets = <&syscon ASPEED_RESET_CRT1>;
+-	interrupts = <0x19>;
+-	memory-region = <&gfx_memory>;
+-};
+-
+-gfx_memory: framebuffer {
+-	size = <0x01000000>;
+-	alignment = <0x01000000>;
+-	compatible = "shared-dma-pool";
+-	reusable;
+-};
+diff --git a/Documentation/devicetree/bindings/mfd/aspeed-gfx.txt b/Documentation/devicetree/bindings/mfd/aspeed-gfx.txt
+deleted file mode 100644
+index aea5370efd97..000000000000
+--- a/Documentation/devicetree/bindings/mfd/aspeed-gfx.txt
++++ /dev/null
+@@ -1,17 +0,0 @@
+-* Device tree bindings for Aspeed SoC Display Controller (GFX)
+-
+-The Aspeed SoC Display Controller primarily does as its name suggests, but also
+-participates in pinmux requests on the g5 SoCs. It is therefore considered a
+-syscon device.
+-
+-Required properties:
+-- compatible:		"aspeed,ast2500-gfx", "syscon"
+-- reg:			contains offset/length value of the GFX memory
+-			region.
+-
+-Example:
+-
+-gfx: display@1e6e6000 {
+-	compatible = "aspeed,ast2500-gfx", "syscon";
+-	reg = <0x1e6e6000 0x1000>;
+-};
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 11a58d3279ec..536a0403edda 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -7592,7 +7592,7 @@ M:	Joel Stanley <joel@jms.id.au>
+ L:	linux-aspeed@lists.ozlabs.org (moderated for non-subscribers)
+ S:	Supported
+ T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
+-F:	Documentation/devicetree/bindings/gpu/aspeed-gfx.txt
++F:	Documentation/devicetree/bindings/gpu/aspeed,ast2400-gfx.yaml
+ F:	drivers/gpu/drm/aspeed/
+ 
+ DRM DRIVER FOR AST SERVER GRAPHICS CHIPS
 -- 
-Nathan Chancellor <nathan@kernel.org>
+2.50.1
 
 
