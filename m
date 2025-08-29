@@ -4,110 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A3C8CA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 17:04:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50ACCCA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 17:07:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VcRl8p7MyGKlepb9AezlX0uiPiX59u1V/CDU5acAZOk=; b=KDThXmQj6osSLrjxsuPBhzHpmQ
-	cA0a8fHgXsu4ocUNdzcXqN2u+MwssV2T6sJHaGFmA74t4ZaZTOMhQVzafRxRUdjoNq/PSjxdezixP
-	zRsZC0c7N743ADuRMnIsUUR+RAQsNavkIL7u1VL7DzsmsG34sAtNVrs+pXJnCMzQR7RQOURzYlBTv
-	Eg57AePI9xAukhXqqoPPgMoD0st05NCTveFOUK63TT1CvsmrpXAFSEFDPJAoHwZRJfDl6baQrG+fe
-	ih22ry9xxeNcC59CEMeVCoGDODYMkeyg9IajagUpn598bIpzzy48NxgwoJsssXlCgOYBU/sNWDSuG
-	ny1Qe78Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=d7ikzstNHkthbtDA8b8VQUUX9xhB4JWtLC11kBw1nzg=; b=JMHTI2FQYqkGVxhjSh557MT1CD
+	BYlWpSsEbjuBfOMaG0QBa4iMyfJ3Y2B7KhOrnoz2cIE/BYRy9PYSKdu6SfhUJ1KFp5SZEnyHqyvYP
+	5Z48Oy/OBkXima0+SPYc+EouuWHltRlWBkPVhDIgb6Fq747OwGNNigN8V0sSovabVrg0hmF1pKYli
+	4ZIoSiveIkii7S7XV6luzGmM97NvKCnNrlt8WliCXi+pI/QceHQauO+73fkWyUDXDxQEudTZ54lzf
+	XabAjEbd0FMTIUJ+SZwRcH0cBA1ZtO5uV/X4SfdiWFvjTflCo1qCUGzO011C3Z/xMjz5WNuAs6q/I
+	hkahA75Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us2WO-00000006U9y-2PHX;
-	Fri, 29 Aug 2025 17:04:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1us2Z4-00000006ULD-1dUS;
+	Fri, 29 Aug 2025 17:07:03 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urzbd-00000005wPf-1EW0
+	id 1urzeK-00000005www-39Rt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 13:57:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0220E44E6B;
-	Fri, 29 Aug 2025 13:57:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23706C4CEF0;
-	Fri, 29 Aug 2025 13:57:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756475848;
-	bh=GAx5ojnyAU2PokUcYuAkGcyrtKpN+pheoAbeyRpyqik=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mJikOCLnluEdgC6BTd9BDS2cIzAcrssCcJk17sE1FShAUshCqpd1rW5mTNudfnz9t
-	 Crj3vTdHSF6bk4WzuyhkvhKCTY7yTY/EvIL/n6lGwCwKSMpJJWJAcu+9zLGrNQsL63
-	 a63l7hQWA/qi2CH2hmfT8jBUvEf2x90l1uXgljs6JLx3X/cspRfMsaIfn+4KkBgWQp
-	 E0bM1ab7rezvcbxZpYdgQaOg3j9+VctKmEajPLpAmCVxD2s8pBv06Roqo00Bv2cZYQ
-	 aWjcxLKH6Rg8ZDJlJhwpe99+vwP8CgbK6AQZvSWZHnixrK5gNauIyKlMKsRwpVSigk
-	 FiAKdYoQZywBw==
-Message-ID: <22379203-94f8-468d-a9b6-de67f8fba495@kernel.org>
-Date: Fri, 29 Aug 2025 15:57:23 +0200
+	Fri, 29 Aug 2025 14:00:18 +0000
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250829140012epoutp045124bb023ccdbdb18bf9a49915eb151e~gQaB3KtJm1285612856epoutp04U
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 14:00:12 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250829140012epoutp045124bb023ccdbdb18bf9a49915eb151e~gQaB3KtJm1285612856epoutp04U
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1756476012;
+	bh=d7ikzstNHkthbtDA8b8VQUUX9xhB4JWtLC11kBw1nzg=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=d4b+QEKSwvDRiv4Z5hwxWvBikCAS9znK/JvuHEB7t1BBzthYGXc5/MrPAU4qQuLum
+	 qMmrD/IDsL1sTg1V0nvukKjpJ7BULXFbjBXou09PEQPSx+0n5jSIfE40ZWtOdiriTs
+	 azsrWTs+9Nwk5W3j8FFFlgO9AxjWTEmBSlMaVyCk=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
+	20250829140011epcas5p471bd84c4daa40aa458116a7feec21e70~gQaBPpf1b0901909019epcas5p4B;
+	Fri, 29 Aug 2025 14:00:11 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.93]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4cD0Jp3xbhz3hhTH; Fri, 29 Aug
+	2025 14:00:10 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250829140010epcas5p1bc06faf0001ab2695f0199db65fe678d~gQZ-_j_ZR2472824728epcas5p1W;
+	Fri, 29 Aug 2025 14:00:10 +0000 (GMT)
+Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
+	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250829140008epsmtip1b0874f76e197270c46afb5cc6889618f~gQZ_nDMaH2172121721epsmtip1c;
+	Fri, 29 Aug 2025 14:00:08 +0000 (GMT)
+From: Varada Pavani <v.pavani@samsung.com>
+To: krzk@kernel.org, alim.akhtar@samsung.com, wim@linux-watchdog.org,
+	linux@roeck-us.net
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+	linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org,
+	gost.dev@samsung.com, aswani.reddy@samsung.com, Varada Pavani
+	<v.pavani@samsung.com>
+Subject: [PATCH] watchdog: s3c2410: Add FSD support
+Date: Fri, 29 Aug 2025 19:30:02 +0530
+Message-ID: <20250829140003.109588-1-v.pavani@samsung.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/9] dt-bindings: media: nxp: Add Wave6 video codec
- device
-To: Nas Chung <nas.chung@chipsnmedia.com>, mchehab@kernel.org,
- hverkuil@xs4all.nl, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-imx@nxp.com,
- linux-arm-kernel@lists.infradead.org, jackson.lee@chipsnmedia.com,
- lafley.kim@chipsnmedia.com
-References: <20250829084649.359-1-nas.chung@chipsnmedia.com>
- <20250829084649.359-3-nas.chung@chipsnmedia.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250829084649.359-3-nas.chung@chipsnmedia.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20250829140010epcas5p1bc06faf0001ab2695f0199db65fe678d
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-541,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250829140010epcas5p1bc06faf0001ab2695f0199db65fe678d
+References: <CGME20250829140010epcas5p1bc06faf0001ab2695f0199db65fe678d@epcas5p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_065729_386687_F11B707B 
-X-CRM114-Status: GOOD (  10.48  )
+X-CRM114-CacheID: sfid-20250829_070017_115992_A0949745 
+X-CRM114-Status: GOOD (  14.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,150 +91,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/08/2025 10:46, Nas Chung wrote:
-> Add documents for the Wave6 video codec on NXP i.MX SoCs.
-Pretty incomplete commit msg. Nothing explaining hardware, nothing
-documenting resolution of previous discussions (where is all this
-chip&media?).
+FSD SoC has 3 CPU clusters, each has its own WDT instance.
+PMU register bits(.rst_stat_bit and .mask_bit) for each cluster is
+different. So driver data is now modified in probe, adding needed info
+depending on cluster index passed from device tree.
 
-...
+Signed-off-by: Varada Pavani <v.pavani@samsung.com>
+---
+ drivers/watchdog/s3c2410_wdt.c | 39 +++++++++++++++++++++++++++++++++-
+ 1 file changed, 38 insertions(+), 1 deletion(-)
 
+diff --git a/drivers/watchdog/s3c2410_wdt.c b/drivers/watchdog/s3c2410_wdt.c
+index 30450e99e5e9..a112d9747ab6 100644
+--- a/drivers/watchdog/s3c2410_wdt.c
++++ b/drivers/watchdog/s3c2410_wdt.c
+@@ -57,6 +57,7 @@
+ #define EXYNOS5_RST_STAT_REG_OFFSET		0x0404
+ #define EXYNOS5_WDT_DISABLE_REG_OFFSET		0x0408
+ #define EXYNOS5_WDT_MASK_RESET_REG_OFFSET	0x040c
++#define FSD_AUTOMATIC_DISABLE_WDT		0x040c
+ #define EXYNOS850_CLUSTER0_NONCPU_OUT		0x1220
+ #define EXYNOS850_CLUSTER0_NONCPU_INT_EN	0x1244
+ #define EXYNOS850_CLUSTER1_NONCPU_OUT		0x1620
+@@ -333,6 +334,33 @@ static const struct s3c2410_wdt_variant drv_data_exynosautov920_cl1 = {
+ 		  QUIRK_HAS_DBGACK_BIT,
+ };
+ 
++static const struct s3c2410_wdt_variant drv_data_fsd_cl0 = {
++	.disable_reg = FSD_AUTOMATIC_DISABLE_WDT,
++	.mask_bit = 23,
++	.rst_stat_reg = EXYNOS5_RST_STAT_REG_OFFSET,
++	.rst_stat_bit = 23,
++	.quirks = QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_RST_STAT |
++		  QUIRK_HAS_PMU_AUTO_DISABLE,
++};
++
++static const struct s3c2410_wdt_variant drv_data_fsd_cl1 = {
++	.disable_reg = FSD_AUTOMATIC_DISABLE_WDT,
++	.mask_bit = 24,
++	.rst_stat_reg = EXYNOS5_RST_STAT_REG_OFFSET,
++	.rst_stat_bit = 24,
++	.quirks = QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_RST_STAT |
++		  QUIRK_HAS_PMU_AUTO_DISABLE,
++};
++
++static const struct s3c2410_wdt_variant drv_data_fsd_cl2 = {
++	.disable_reg = FSD_AUTOMATIC_DISABLE_WDT,
++	.mask_bit = 25,
++	.rst_stat_reg = EXYNOS5_RST_STAT_REG_OFFSET,
++	.rst_stat_bit = 25,
++	.quirks = QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_RST_STAT |
++		  QUIRK_HAS_PMU_AUTO_DISABLE,
++};
++
+ static const struct of_device_id s3c2410_wdt_match[] = {
+ 	{ .compatible = "google,gs101-wdt",
+ 	  .data = &drv_data_gs101_cl0 },
+@@ -352,6 +380,8 @@ static const struct of_device_id s3c2410_wdt_match[] = {
+ 	  .data = &drv_data_exynosautov9_cl0 },
+ 	{ .compatible = "samsung,exynosautov920-wdt",
+ 	  .data = &drv_data_exynosautov920_cl0 },
++	{ .compatible = "tesla,fsd-wdt",
++	  .data = &drv_data_fsd_cl0 },
+ 	{},
+ };
+ MODULE_DEVICE_TABLE(of, s3c2410_wdt_match);
+@@ -676,7 +706,8 @@ s3c2410_get_wdt_drv_data(struct platform_device *pdev, struct s3c2410_wdt *wdt)
+ 	if (variant == &drv_data_exynos850_cl0 ||
+ 	    variant == &drv_data_exynosautov9_cl0 ||
+ 	    variant == &drv_data_gs101_cl0 ||
+-	    variant == &drv_data_exynosautov920_cl0) {
++	    variant == &drv_data_exynosautov920_cl0 ||
++	    variant == &drv_data_fsd_cl0) {
+ 		u32 index;
+ 		int err;
+ 
+@@ -697,6 +728,12 @@ s3c2410_get_wdt_drv_data(struct platform_device *pdev, struct s3c2410_wdt *wdt)
+ 				variant = &drv_data_gs101_cl1;
+ 			else if (variant == &drv_data_exynosautov920_cl0)
+ 				variant = &drv_data_exynosautov920_cl1;
++			else if (variant == &drv_data_fsd_cl0)
++				variant = &drv_data_fsd_cl1;
++			break;
++		case 2:
++			if (variant == &drv_data_fsd_cl0)
++				variant = &drv_data_fsd_cl2;
+ 			break;
+ 		default:
+ 			return dev_err_probe(dev, -EINVAL, "wrong cluster index: %u\n", index);
+-- 
+2.49.0
 
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - nxp,imx95-vpu
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +
-> +  memory-region:
-> +    maxItems: 1
-> +
-> +  sram:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: phandle of the SRAM memory region node.
-> +
-> +  "#cooling-cells":
-> +    const: 2
-> +
-> +  "#address-cells":
-> +    const: 2
-> +
-> +  "#size-cells":
-> +    const: 2
-> +
-> +  ranges: true
-> +
-> +patternProperties:
-> +  "^video-core@[0-9a-f]+$":
-> +    type: object
-
-Missing description.
-
-> +    additionalProperties: false
-> +
-> +    properties:
-> +      compatible:
-> +        enum:
-> +          - nxp,imx95-vpu-core
-
-Why do you need here compatible? Can this child be anything else? Can it
-be re-used? Is it actually a separate block?
-
-Your example suggests that the only distinctive resource are the
-interrupt and address space and that's on the edge of calling it a
-separate device.
-
-There is some tendency to call such "pseudo-cores" a separate devices in
-case of video codec bindings and experience shows these are usually
-fake. It's not the same as DP or HDMI sub-block of display pipeline.
-
-That's why you should come here with strong argument what separate piece
-of hardware this is.
-
-> +
-> +      reg:
-> +        maxItems: 1
-> +
-> +      clocks:
-> +        maxItems: 1
-> +
-> +      power-domains:
-> +        maxItems: 1
-> +
-> +      interrupts:
-> +        maxItems: 1
-> +
-> +    required:
-> +      - compatible
-> +      - reg
-> +      - clocks
-> +      - power-domains
-> +      - interrupts
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - power-domains
-> +  - memory-region
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/clock/nxp,imx95-clock.h>
-> +
-> +    soc {
-> +      #address-cells = <2>;
-> +      #size-cells = <2>;
-> +
-> +      vpu: video-codec@4c4c0000 {
-
-Unused label, drop
-
-> +        compatible = "nxp,imx95-vpu";
-> +        reg = <0x0 0x4c4c0000 0x0 0x10000>;
-> +        clocks = <&vpu_blk_ctrl IMX95_CLK_VPUBLK_WAVE>;
-> +        power-domains = <&scmi_perf 10>;
-> +        memory-region = <&vpu_boot>;
-> +        sram = <&sram1>;
-> +        #cooling-cells = <2>;
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +        ranges;
-> +
-> +        vpucore0: video-core@4c480000 {
-
-None of these labels are used, drop.
-
-> +          compatible = "nxp,imx95-vpu-core";
-> +          reg = <0x0 0x4c480000 0x0 0x10000>;
-> +          clocks = <&scmi_clk 115>;
-> +          power-domains = <&scmi_devpd 21>;
-> +          interrupts = <GIC_SPI 299 IRQ_TYPE_LEVEL_HIGH>;
-> +        };
-> +
-> +        vpucore1: video-core@4c490000 {
-> +          compatible = "nxp,imx95-vpu-core";
-> +          reg = <0x0 0x4c490000 0x0 0x10000>;
-> +          clocks = <&scmi_clk 115>;
-> +          power-domains = <&scmi_devpd 21>;
-> +          interrupts = <GIC_SPI 300 IRQ_TYPE_LEVEL_HIGH>;
-> +        };
-> +
-
-
-
-Best regards,
-Krzysztof
 
