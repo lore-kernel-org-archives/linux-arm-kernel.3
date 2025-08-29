@@ -4,81 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04C7CCA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 17:01:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A3C8CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 17:04:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zsNJV5XBOk2XFH4BrVvHECkoQB0m4MGPZolqolvJYUI=; b=LFAaSyIvM9T5eZLmtnDmvgNeF7
-	U190BNX7NeWJAC6FRsuJKFxqimm1HYtDBA07jwF4xHZ/QoioYjvx91x7RvF23nUvekn5/gEFE/7xo
-	6Ugd0/kjRD9HYxF2tTuA0dFqOEy8q/ffu4X0ScKW/Ktmi9G9uv5RS3HF0HxPjWSwv2hNOsaderWSk
-	HYcTUpFAJ7rnbDFtV8xHJ7XaIb3B+6WhEBAdnrbr/HGJ3uMfzfDag6QD32t1WNIjt/Q1nbvLXGm2e
-	5gDjmQw5CKwOg00fSLYq/oS9l0IoL3zNin6w6A6TLMVbjM5hNGi9jL+nSqf2WRI1G7R31LYTKx6kR
-	2i2GvFYA==;
+	bh=VcRl8p7MyGKlepb9AezlX0uiPiX59u1V/CDU5acAZOk=; b=KDThXmQj6osSLrjxsuPBhzHpmQ
+	cA0a8fHgXsu4ocUNdzcXqN2u+MwssV2T6sJHaGFmA74t4ZaZTOMhQVzafRxRUdjoNq/PSjxdezixP
+	zRsZC0c7N743ADuRMnIsUUR+RAQsNavkIL7u1VL7DzsmsG34sAtNVrs+pXJnCMzQR7RQOURzYlBTv
+	Eg57AePI9xAukhXqqoPPgMoD0st05NCTveFOUK63TT1CvsmrpXAFSEFDPJAoHwZRJfDl6baQrG+fe
+	ih22ry9xxeNcC59CEMeVCoGDODYMkeyg9IajagUpn598bIpzzy48NxgwoJsssXlCgOYBU/sNWDSuG
+	ny1Qe78Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us2Th-00000006TqA-2ARA;
-	Fri, 29 Aug 2025 17:01:29 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1us2WO-00000006U9y-2PHX;
+	Fri, 29 Aug 2025 17:04:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urzbO-00000005wIh-0H3X
+	id 1urzbd-00000005wPf-1EW0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 13:57:16 +0000
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250829135710epoutp031137f2021894c38460e2fd7ccad1f46e~gQXYWA30Q2671626716epoutp03w
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 13:57:10 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250829135710epoutp031137f2021894c38460e2fd7ccad1f46e~gQXYWA30Q2671626716epoutp03w
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1756475830;
-	bh=zsNJV5XBOk2XFH4BrVvHECkoQB0m4MGPZolqolvJYUI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QHymAVN5MXFJx36XUG0nkx5WaCqHP3o9HFl7EiZIbfgAVN9es+/q00yxYPY2HpzjA
-	 ECK1Hl51NW2+S6I80Wx7AisXwVB3jOd68XSIlyISflyjfFwmH5+Eln6N6NFEFc0UT+
-	 wruBwzN9SiNf8lxj87cWtNzNqV3JzrJualkreoaM=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250829135709epcas5p23ba392fdce0bc20be5002ea41052af04~gQXX6jm0w1958719587epcas5p2e;
-	Fri, 29 Aug 2025 13:57:09 +0000 (GMT)
-Received: from epcas5p3.samsung.com (unknown [182.195.38.92]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4cD0FJ70Gjz6B9m5; Fri, 29 Aug
-	2025 13:57:08 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250829135708epcas5p1b62d44f8a712b1c865fd82d26e89896f~gQXWnylAw0508305083epcas5p1J;
-	Fri, 29 Aug 2025 13:57:08 +0000 (GMT)
-Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250829135706epsmtip25ca5f73ca9f7b0fde2d6f80c634f7b01~gQXVB7a6l1416014160epsmtip23;
-	Fri, 29 Aug 2025 13:57:06 +0000 (GMT)
-From: Varada Pavani <v.pavani@samsung.com>
-To: krzk@kernel.org, s.nawrocki@samsung.com, cw00.choi@samsung.com,
-	alim.akhtar@samsung.com, mturquette@baylibre.com, sboyd@kernel.org,
-	linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: aswani.reddy@samsung.com, gost.dev@samsung.com, Varada Pavani
-	<v.pavani@samsung.com>
-Subject: [PATCH 2/2] arm64: dts: fsd: Fix Clock handle for WDT
-Date: Fri, 29 Aug 2025 19:26:43 +0530
-Message-ID: <20250829135643.105406-3-v.pavani@samsung.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250829135643.105406-1-v.pavani@samsung.com>
+	Fri, 29 Aug 2025 13:57:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0220E44E6B;
+	Fri, 29 Aug 2025 13:57:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23706C4CEF0;
+	Fri, 29 Aug 2025 13:57:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756475848;
+	bh=GAx5ojnyAU2PokUcYuAkGcyrtKpN+pheoAbeyRpyqik=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=mJikOCLnluEdgC6BTd9BDS2cIzAcrssCcJk17sE1FShAUshCqpd1rW5mTNudfnz9t
+	 Crj3vTdHSF6bk4WzuyhkvhKCTY7yTY/EvIL/n6lGwCwKSMpJJWJAcu+9zLGrNQsL63
+	 a63l7hQWA/qi2CH2hmfT8jBUvEf2x90l1uXgljs6JLx3X/cspRfMsaIfn+4KkBgWQp
+	 E0bM1ab7rezvcbxZpYdgQaOg3j9+VctKmEajPLpAmCVxD2s8pBv06Roqo00Bv2cZYQ
+	 aWjcxLKH6Rg8ZDJlJhwpe99+vwP8CgbK6AQZvSWZHnixrK5gNauIyKlMKsRwpVSigk
+	 FiAKdYoQZywBw==
+Message-ID: <22379203-94f8-468d-a9b6-de67f8fba495@kernel.org>
+Date: Fri, 29 Aug 2025 15:57:23 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250829135708epcas5p1b62d44f8a712b1c865fd82d26e89896f
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-541,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250829135708epcas5p1b62d44f8a712b1c865fd82d26e89896f
-References: <20250829135643.105406-1-v.pavani@samsung.com>
-	<CGME20250829135708epcas5p1b62d44f8a712b1c865fd82d26e89896f@epcas5p1.samsung.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/9] dt-bindings: media: nxp: Add Wave6 video codec
+ device
+To: Nas Chung <nas.chung@chipsnmedia.com>, mchehab@kernel.org,
+ hverkuil@xs4all.nl, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-imx@nxp.com,
+ linux-arm-kernel@lists.infradead.org, jackson.lee@chipsnmedia.com,
+ lafley.kim@chipsnmedia.com
+References: <20250829084649.359-1-nas.chung@chipsnmedia.com>
+ <20250829084649.359-3-nas.chung@chipsnmedia.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250829084649.359-3-nas.chung@chipsnmedia.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_065714_431009_EB46541A 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20250829_065729_386687_F11B707B 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,70 +122,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FSD SoC WDT has few changes when compared to exynos7 interms of Clocks,
-PMU register bits for each cluster. So use "tesla,fsd-wdt"
-compatibility for using correct driver data.
-FSD supports 2 Clocks for WDT (PCLK and CLK).
-- use fin_pll source Clock for all timer related calculations.
-- use bus Clock (IMEM_WDT0_IPCLKPORT_PCLK) to gate/ungate the register
-interface. Update both as per WDT UM.
+On 29/08/2025 10:46, Nas Chung wrote:
+> Add documents for the Wave6 video codec on NXP i.MX SoCs.
+Pretty incomplete commit msg. Nothing explaining hardware, nothing
+documenting resolution of previous discussions (where is all this
+chip&media?).
 
-Signed-off-by: Varada Pavani <v.pavani@samsung.com>
----
- arch/arm64/boot/dts/tesla/fsd.dtsi | 24 +++++++++++++++---------
- 1 file changed, 15 insertions(+), 9 deletions(-)
+...
 
-diff --git a/arch/arm64/boot/dts/tesla/fsd.dtsi b/arch/arm64/boot/dts/tesla/fsd.dtsi
-index 690b4ed9c29b..ff031a630f10 100644
---- a/arch/arm64/boot/dts/tesla/fsd.dtsi
-+++ b/arch/arm64/boot/dts/tesla/fsd.dtsi
-@@ -624,30 +624,36 @@ pmu_system_controller: system-controller@11400000 {
- 		};
- 
- 		watchdog_0: watchdog@100a0000 {
--			compatible = "tesla,fsd-wdt", "samsung,exynos7-wdt";
-+			compatible = "tesla,fsd-wdt";
- 			reg = <0x0 0x100a0000 0x0 0x100>;
- 			interrupts = <GIC_SPI 471 IRQ_TYPE_LEVEL_HIGH>;
- 			samsung,syscon-phandle = <&pmu_system_controller>;
--			clocks = <&fin_pll>;
--			clock-names = "watchdog";
-+			clocks = <&clock_imem IMEM_WDT0_IPCLKPORT_PCLK>,
-+				<&fin_pll>;
-+			clock-names = "watchdog", "watchdog_src";
-+			samsung,cluster-index = <0>;
- 		};
- 
- 		watchdog_1: watchdog@100b0000 {
--			compatible = "tesla,fsd-wdt", "samsung,exynos7-wdt";
-+			compatible = "tesla,fsd-wdt";
- 			reg = <0x0 0x100b0000 0x0 0x100>;
- 			interrupts = <GIC_SPI 472 IRQ_TYPE_LEVEL_HIGH>;
- 			samsung,syscon-phandle = <&pmu_system_controller>;
--			clocks = <&fin_pll>;
--			clock-names = "watchdog";
-+			clocks = <&clock_imem IMEM_WDT1_IPCLKPORT_PCLK>,
-+				<&fin_pll>;
-+			clock-names = "watchdog", "watchdog_src";
-+			samsung,cluster-index = <1>;
- 		};
- 
- 		watchdog_2: watchdog@100c0000 {
--			compatible = "tesla,fsd-wdt", "samsung,exynos7-wdt";
-+			compatible = "tesla,fsd-wdt";
- 			reg = <0x0 0x100c0000 0x0 0x100>;
- 			interrupts = <GIC_SPI 473 IRQ_TYPE_LEVEL_HIGH>;
- 			samsung,syscon-phandle = <&pmu_system_controller>;
--			clocks = <&fin_pll>;
--			clock-names = "watchdog";
-+			clocks = <&clock_imem IMEM_WDT2_IPCLKPORT_PCLK>,
-+				<&fin_pll>;
-+			clock-names = "watchdog", "watchdog_src";
-+			samsung,cluster-index = <2>;
- 		};
- 
- 		pwm_0: pwm@14100000 {
--- 
-2.49.0
 
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - nxp,imx95-vpu
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  memory-region:
+> +    maxItems: 1
+> +
+> +  sram:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description: phandle of the SRAM memory region node.
+> +
+> +  "#cooling-cells":
+> +    const: 2
+> +
+> +  "#address-cells":
+> +    const: 2
+> +
+> +  "#size-cells":
+> +    const: 2
+> +
+> +  ranges: true
+> +
+> +patternProperties:
+> +  "^video-core@[0-9a-f]+$":
+> +    type: object
+
+Missing description.
+
+> +    additionalProperties: false
+> +
+> +    properties:
+> +      compatible:
+> +        enum:
+> +          - nxp,imx95-vpu-core
+
+Why do you need here compatible? Can this child be anything else? Can it
+be re-used? Is it actually a separate block?
+
+Your example suggests that the only distinctive resource are the
+interrupt and address space and that's on the edge of calling it a
+separate device.
+
+There is some tendency to call such "pseudo-cores" a separate devices in
+case of video codec bindings and experience shows these are usually
+fake. It's not the same as DP or HDMI sub-block of display pipeline.
+
+That's why you should come here with strong argument what separate piece
+of hardware this is.
+
+> +
+> +      reg:
+> +        maxItems: 1
+> +
+> +      clocks:
+> +        maxItems: 1
+> +
+> +      power-domains:
+> +        maxItems: 1
+> +
+> +      interrupts:
+> +        maxItems: 1
+> +
+> +    required:
+> +      - compatible
+> +      - reg
+> +      - clocks
+> +      - power-domains
+> +      - interrupts
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - power-domains
+> +  - memory-region
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/clock/nxp,imx95-clock.h>
+> +
+> +    soc {
+> +      #address-cells = <2>;
+> +      #size-cells = <2>;
+> +
+> +      vpu: video-codec@4c4c0000 {
+
+Unused label, drop
+
+> +        compatible = "nxp,imx95-vpu";
+> +        reg = <0x0 0x4c4c0000 0x0 0x10000>;
+> +        clocks = <&vpu_blk_ctrl IMX95_CLK_VPUBLK_WAVE>;
+> +        power-domains = <&scmi_perf 10>;
+> +        memory-region = <&vpu_boot>;
+> +        sram = <&sram1>;
+> +        #cooling-cells = <2>;
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +        ranges;
+> +
+> +        vpucore0: video-core@4c480000 {
+
+None of these labels are used, drop.
+
+> +          compatible = "nxp,imx95-vpu-core";
+> +          reg = <0x0 0x4c480000 0x0 0x10000>;
+> +          clocks = <&scmi_clk 115>;
+> +          power-domains = <&scmi_devpd 21>;
+> +          interrupts = <GIC_SPI 299 IRQ_TYPE_LEVEL_HIGH>;
+> +        };
+> +
+> +        vpucore1: video-core@4c490000 {
+> +          compatible = "nxp,imx95-vpu-core";
+> +          reg = <0x0 0x4c490000 0x0 0x10000>;
+> +          clocks = <&scmi_clk 115>;
+> +          power-domains = <&scmi_devpd 21>;
+> +          interrupts = <GIC_SPI 300 IRQ_TYPE_LEVEL_HIGH>;
+> +        };
+> +
+
+
+
+Best regards,
+Krzysztof
 
