@@ -4,81 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 943CDCA0FF6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 00:11:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CF52CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 00:14:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7RThAvhW47ClaFk0Ppc2YL382QqxIANC1JHDPuD3DOk=; b=pwx/BkPVWdueDWnczgD+z5hBL+
-	Ufy+HiKLAzSXXp6T+0KqofYZC929rIOVVAZSAPJD3N7rFgNbyyi7wboiLF/djKNhRRwyQ7d2Crxks
-	lF+oXvSbBj4Tx+JGAoIL0OErr5NrEHOe0qUeyYKKBRaRbnDycRcoa2xOPkOtI9xjmzxcTOYepXILt
-	a9KB139ZL2HYBN8erBJdl9a5hMR4OTBOmfoumtNbwzLRurmyhuZC9qq2FjyMAHE2l8Bd3RApywO6v
-	WQnGxJarwwsUau/uMtx5YTfPncz8zKstykzfpP2TijpeqOXa9kNWo7b6CcikZNwfYrcee/zGwfjaJ
-	n9/69kXg==;
+	bh=NHYELJgOgtoYXMJjyiZ6Y/1BY77k4JUs4dbKzcllNgc=; b=448T+qNiMs/7ZivmQNOxriocTT
+	KUJ3ReUysPWfTbsIsZnUIZKitDDjVaHkFmXIV+YzDvX8BBOrGyhhnMZk85xF36XH8k2JuP8hbWUOw
+	afy513xSEjpoiJIAdIqHPUuNHDYVuEqf9avWq+fJwTgjUXDr3WCAfd/2EnVeFIcMntLXxIlHIfznL
+	zrieQhlrX9GoimKskGOg8pH6HobnDtIYOrZdFIukUfChBo59EeB/glRD4GiBiHdkuxaXtV5tSz8ur
+	vOFM2JNfSCE2qXvke9/3K226ejQ0uoiCUrQ2VHJeZ3SfXkBvEGEAWsT2S3eNSJLF9dttln7DIykCk
+	wxwHoI2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urmiB-00000003pDb-3trK;
-	Fri, 29 Aug 2025 00:11:23 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urmXW-00000003lD5-1UdS;
-	Fri, 29 Aug 2025 00:00:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:Content-Type:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=7RThAvhW47ClaFk0Ppc2YL382QqxIANC1JHDPuD3DOk=; b=NuNu5kyS5aoYYc8dj18PI3ZEOO
-	B//oSaVOH9V16ngRpM0RbZX4gXEwsA5VHqXu6FYK+EtBrXEapplBE3pKdT+0moIwEXCaj62DBxZ3N
-	9UUAX94uOSno+UY3yPnyhH30wtZesiVA4TyJjeaD7cwngbbi79/xWbTG6PHe3GxRUUC/KfJjLfVLR
-	xMQsjmLj/x27a5wShQic+gPGpKG78qxvKfXUn55SEMsvNETT/XggnLolb9XmBiIif+bH3qz7KGR/h
-	v9fCA2rvKx7NXQSZIcMhkgOs20Zs3BJAEkHvJjB6nTHGrFPO/GDkY27EonnmdhlQy+0e7wJGvT370
-	/Xkf3W9w==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urmXS-00000002ymC-40Lw;
-	Fri, 29 Aug 2025 00:00:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9E2B1451C7;
-	Fri, 29 Aug 2025 00:00:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D15AC4CEF4;
-	Fri, 29 Aug 2025 00:00:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756425617;
-	bh=wGToxozqbazFFH0LvF7E6rK1PxvN4J76FMletJpx26k=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=AzJF0nHA6QWTQ+fqIlN0wvNV1pY0RW5bxF9OiSU5btQOxErb0yHcb57uALHw9nEGe
-	 N/wRGgjaYG8E04rd9biTI8BqVXIe6GI5fu/rG+9IyhluAI0ZOn5JCgiMhu62lI+gXg
-	 d3H0cs6M99dniymI1+aHiwHOqdHL6Hn3RhOpNnUS06AJlwVBSRW2LX4d4QmrK2pnSa
-	 xfMRefwbUFatM9SASZ8kL2g75tiOjrGPlaKR7s6K8aevel7KQNw0ICeP1qTESS9pvb
-	 ZWbCinfGjR26uARQfE7I8TpY9rWOpHPWYohQMnnnG5o8rVsdKQRIcfmGWKFEDyYlTQ
-	 M/6qli/V58UCw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADD74383BF75;
-	Fri, 29 Aug 2025 00:00:25 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1urmks-00000003pe7-1cYA;
+	Fri, 29 Aug 2025 00:14:10 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1urmaa-00000003mRo-0x8r;
+	Fri, 29 Aug 2025 00:03:33 +0000
+Received: from [100.65.128.219] (unknown [20.236.11.69])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 29236211080D;
+	Thu, 28 Aug 2025 17:03:30 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 29236211080D
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1756425810;
+	bh=NHYELJgOgtoYXMJjyiZ6Y/1BY77k4JUs4dbKzcllNgc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=b/Cp3YVnPly7ZmtMQDa2AEMRoQa4CxzO0/V6ejotdr50lR5itAta36gVWEjEJkADW
+	 rU7s8pjJhzWn/fR2q78z1pzSDm8R5EbcWLUxToRvAEbLWCrmz4XX39aTX/yCwcbIg0
+	 s7ITLAqpkbVOXbI9g+AL0NaazVp0H0AaluYJk0kI=
+Message-ID: <c1a5ab1d-1601-46db-83da-b26422a2aabd@linux.microsoft.com>
+Date: Thu, 28 Aug 2025 17:03:28 -0700
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next 1/1] net: phy: mtk-2p5ge: Add LED support for
- MT7988
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <175642562424.1653564.8322178452241904171.git-patchwork-notify@kernel.org>
-Date: Fri, 29 Aug 2025 00:00:24 +0000
-References: <20250827044755.3256991-1-SkyLake.Huang@mediatek.com>
-In-Reply-To: <20250827044755.3256991-1-SkyLake.Huang@mediatek.com>
-To: Sky Huang <skylake.huang@mediatek.com>
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- daniel@makrotopia.org, dqfext@gmail.com, SkyLake.Huang@mediatek.com,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 6/7] Drivers: hv: Use common "entry virt" APIs to do
+ work in root before running guest
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+ Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Paolo Bonzini <pbonzini@redhat.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "K. Y. Srinivasan" <kys@microsoft.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, Peter Zijlstra <peterz@infradead.org>,
+ Andy Lutomirski <luto@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>,
+ Frederic Weisbecker <frederic@kernel.org>,
+ Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+ Joel Fernandes <joelagnelf@nvidia.com>, Josh Triplett
+ <josh@joshtriplett.org>, Boqun Feng <boqun.feng@gmail.com>,
+ Uladzislau Rezki <urezki@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-hyperv@vger.kernel.org, rcu@vger.kernel.org,
+ Mukesh R <mrathor@linux.microsoft.com>
+References: <20250828000156.23389-1-seanjc@google.com>
+ <20250828000156.23389-7-seanjc@google.com>
+Content-Language: en-US
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+In-Reply-To: <20250828000156.23389-7-seanjc@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_010019_209461_7BC37CFA 
-X-CRM114-Status: UNSURE (   8.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250828_170332_335454_DAC45E88 
+X-CRM114-Status: GOOD (  19.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,31 +91,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Wed, 27 Aug 2025 12:47:55 +0800 you wrote:
-> From: Sky Huang <skylake.huang@mediatek.com>
+On 8/27/2025 5:01 PM, Sean Christopherson wrote:
+> Use the kernel's common "entry virt" APIs to handle pending work prior to
+> (re)entering guest mode, now that the virt APIs don't have a superfluous
+> dependency on KVM.
 > 
-> Add LED support for MT7988's built-in 2.5Gphy. LED hardware has almost
-> the same design with MT7981's/MT7988's built-in GbE. So hook the same
-> helper function here.
+> No functional change intended.
 > 
-> Before mtk_phy_leds_state_init(), set correct default values of LED0
-> and LED1.
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  drivers/hv/Kconfig          |  1 +
+>  drivers/hv/mshv_root_main.c | 32 ++++++--------------------------
+>  2 files changed, 7 insertions(+), 26 deletions(-)
 > 
-> [...]
+> diff --git a/drivers/hv/Kconfig b/drivers/hv/Kconfig
+> index 2e8df09db599..894037afcbf9 100644
+> --- a/drivers/hv/Kconfig
+> +++ b/drivers/hv/Kconfig
+> @@ -66,6 +66,7 @@ config MSHV_ROOT
+>  	# no particular order, making it impossible to reassemble larger pages
+>  	depends on PAGE_SIZE_4KB
+>  	select EVENTFD
+> +	select VIRT_XFER_TO_GUEST_WORK
+>  	default n
+>  	help
+>  	  Select this option to enable support for booting and running as root
+> diff --git a/drivers/hv/mshv_root_main.c b/drivers/hv/mshv_root_main.c
+> index 0d849f09160a..7c83f656e071 100644
+> --- a/drivers/hv/mshv_root_main.c
+> +++ b/drivers/hv/mshv_root_main.c
+> @@ -8,6 +8,7 @@
+>   * Authors: Microsoft Linux virtualization team
+>   */
+>  
+> +#include <linux/entry-virt.h>
+>  #include <linux/kernel.h>
+>  #include <linux/module.h>
+>  #include <linux/fs.h>
+> @@ -481,29 +482,6 @@ mshv_vp_wait_for_hv_kick(struct mshv_vp *vp)
+>  	return 0;
+>  }
+>  
+> -static int mshv_pre_guest_mode_work(struct mshv_vp *vp)
+> -{
+> -	const ulong work_flags = _TIF_NOTIFY_SIGNAL | _TIF_SIGPENDING |
+> -				 _TIF_NEED_RESCHED  | _TIF_NEED_RESCHED_LAZY |
+> -				 _TIF_NOTIFY_RESUME;
+> -	ulong th_flags;
+> -
+> -	th_flags = read_thread_flags();
+> -	while (th_flags & work_flags) {
+> -		int ret;
+> -
+> -		/* nb: following will call schedule */
+> -		ret = mshv_do_pre_guest_mode_work(th_flags);
+> -
+> -		if (ret)
+> -			return ret;
+> -
+> -		th_flags = read_thread_flags();
+> -	}
+> -
+> -	return 0;
+> -}
+> -
+>  /* Must be called with interrupts enabled */
+>  static long mshv_run_vp_with_root_scheduler(struct mshv_vp *vp)
+>  {
+> @@ -524,9 +502,11 @@ static long mshv_run_vp_with_root_scheduler(struct mshv_vp *vp)
+>  		u32 flags = 0;
+>  		struct hv_output_dispatch_vp output;
+>  
+> -		ret = mshv_pre_guest_mode_work(vp);
+> -		if (ret)
+> -			break;
+> +		if (__xfer_to_guest_mode_work_pending()) {
+> +			ret = xfer_to_guest_mode_handle_work();
+> +			if (ret)
+> +				break;
+> +		}
+>  
+>  		if (vp->run.flags.intercept_suspend)
+>  			flags |= HV_DISPATCH_VP_FLAG_CLEAR_INTERCEPT_SUSPEND;
 
-Here is the summary with links:
-  - [net-next,1/1] net: phy: mtk-2p5ge: Add LED support for MT7988
-    https://git.kernel.org/netdev/net-next/c/5e3aae2d3271
+Also tested mshv_root with 1-6 applied, looks good to me. Possibly Naman,
+Saurabh, or Roman can test the mshv_vtl patches, I can't do it
+unfortunately.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Tested-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+Reviewed-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
 
