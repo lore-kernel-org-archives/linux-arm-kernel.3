@@ -4,94 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FC41CA0FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:48:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DEADCA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:48:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yT10QP5oqK3F446exZD0KGLZ5sek1iKMmJaaT6TvqMs=; b=V/4twgb43pNcX8BsXFwjfv8QWB
-	XzISj7yJPCRAq7pdjnr/LjCVdloGXD2dTf+CtuAKThzZVPyN69VKGKlXBHFshiy2970u+0EzMrpL8
-	Aoz7DgTsfUZd/MI1BCFY2T4oNtv0XiX26ykquEGeOXyTGJnsjEk8/47xMQ3ovWRdBMwrAS6prrvSJ
-	93mff5K15T7cj96Y4B3G7ccrbBpjHQ+/u4yROZyvdrsluGHHMEm6HXwfU44oCEzVTuF6iCOadjEyG
-	/hDjOxvUZwLlbBKR4BK9H9I+Acw6lv17zQ4o/MAsFr/61IdZgexJgUqFNb76KH+w7RPgKrxVHPWcA
-	p95OOiqw==;
+	bh=IhwLnMwYxq5njmDG57X+9xEi0P2GDdcwir6iPvE/3fc=; b=35UrA5VPCUaQfRzVHiSozthL+D
+	qMr5nEibZybUvM/QqtAFIaXtOPF6a07EmmVcFmm7RWqM6KfOA4AlzkV0Mc01vVlhgefLojN5DBhRO
+	C4krNWryls5XfLKj8dEgMinva60DwWwowBYzGmk1+TKkgxHQ5bYgCcg/cqvYi0nXWhPDcHjMrSUGM
+	7hskZMgcoGf5bI/GMT39Bm2rCdb64vYnVePPpRVp+E3XFRRv0ZnW4PAUhFte11epmFNx+itFjJvBd
+	+RbC6JPJnGAUrGqBSx1M8Yap0eJacEGadB7iz/9XTXMkLnXt3JArGWe1LHRiGQoJu9xM+we5/PW5t
+	bvYJGs8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us9lZ-00000007AT9-06UT;
-	Sat, 30 Aug 2025 00:48:25 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us2Ms-00000006Slz-2Zoa
+	id 1us9lc-00000007AXV-3Ik6;
+	Sat, 30 Aug 2025 00:48:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1us2dY-00000006Up0-1SfV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 16:54:28 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-61cd6089262so3408877a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 09:54:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756486465; x=1757091265; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yT10QP5oqK3F446exZD0KGLZ5sek1iKMmJaaT6TvqMs=;
-        b=Tbc3DMDk6oc5Vo19K2/gDoBtwfFxDMmVX6GMjOU2sZXxNpk9gyDiFnfK81TQjn8OeY
-         CJ+aOJVyokXwQZ6vLld+kLRjUE5kyyYY/Q0wMipGdonNmu5J09Emqld6pAMuikNLiyoM
-         iap6kHihmyBo9GeJojkIm2J2baj/r7saWWUZaRJeHabk2bGMZLz2fvcDJ4iR8JDGNMnI
-         NJZzFS/5SNA8XNi5t43cgqHQvNsHSqyd1FPmQLbJJz6wVzad4FQMll9o3lP4qqoqDTOT
-         bk5QIBCH2lmleEl7Sza5A5iA6UKJZjPba/iSHBCGMwEkZDvhjoUdP5rep6QtjnDzKyPM
-         z8Zw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756486465; x=1757091265;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=yT10QP5oqK3F446exZD0KGLZ5sek1iKMmJaaT6TvqMs=;
-        b=gJozOt6ex/HDfeclwzHr93RiTsZS9mPuslhZV6jqbs7EsfFCv5oCPonMJeC3lRRil1
-         kNc93mrIdPHHNBDxotc8p90mk67X7QDBHlSU2xD7p4TZJTnUX9tJUsKNS+BZWbZgXTmY
-         cy06B05TViCnJkH0ZIaiB9M8ZTN/5HwuzX6RXE+Di/I6f77dTTnB+oM+mFJnD4roZr7E
-         REznweuoLhFrjUuV4MRa1ZXjMBLqiut51V2PPb/Syb8goNQQ3LSma6Um8NtQ01ZYn79C
-         KZI8Cnmib5YZ+0x7wDEVy8ISMnMGy3V2esishl8EELSNEvEisnglujtWo0II39l3sjYK
-         7h9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVNIzD6dh4j7E4/vq2+jVptEkP0NNFSW11qyz8qGDvv/Shejan+5sNQefIszrp0FZv1PTXCGXQ5fnuhvguWr13z@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQwj5UIpE4uJJ/hJK+URpGd5td55L4+DSS3UKwSKlVBgmLx/RG
-	XpaHFjnbxsOn/+ISwa+16mIDDqHxMdGN0Jz4C9PvCNgcXMxkHojYDP8S
-X-Gm-Gg: ASbGncthF3iWLF3yQDi37XrvMEsebh3IP+148VOk5Aa/eM0PnqwPP37F1/3YJOgAvHz
-	yuNrvyZgb4K5+zT7Z/G4lZnoCeumpuUte70ZfVY4jCur86HKLW7lCuEsHgRj7OrjHxTWtQLPk5E
-	8gcnm/TLpySeyT+SzMx6We0opTRaQWpaPO/H4+JjPn5cz+Bkz3ieN3MsduLRBf8x5busoihE4Bb
-	O5DHoG7sHq7vye1xt/scntvScupHE+aCph2iLINgd4MFF3D2VbKepdFfHNtCrpnqofOU7YjIPkz
-	hlhGVjHqKEAytRS8MsAn2EUhBIyGHmH8YoLXpwHPqEG1LBCtew7FVbQ1vw7PRaQhaFArJLYzBmd
-	Esff2GK1EpDRuRvkvxV99eTEqrZ44bCkmX2pCt15AmJ+Nxir4/yGZ0HzAfzIo604oI6bBphm9WN
-	b1wywxQg==
-X-Google-Smtp-Source: AGHT+IH7TnXdjUkDJAD0KN3DsyxDKNR01RKR6hxKKsu5V+aRo8KE1h6UBi3/LaGUZLLJyhqx3GuoCg==
-X-Received: by 2002:a05:6402:4381:b0:609:9115:60f1 with SMTP id 4fb4d7f45d1cf-61c1b4a27c7mr25374326a12.16.1756486464884;
-        Fri, 29 Aug 2025 09:54:24 -0700 (PDT)
-Received: from Lord-Beerus.station (net-93-70-53-177.cust.vodafonedsl.it. [93.70.53.177])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-61cfc1c7848sm2130350a12.2.2025.08.29.09.54.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 Aug 2025 09:54:23 -0700 (PDT)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-To: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Stefano Radaelli <stefano.radaelli21@gmail.com>,
-	Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v5 3/3] arm64: dts: ti: var-som-am62p: Add support for Variscite Symphony Board
-Date: Fri, 29 Aug 2025 18:53:19 +0200
-Message-ID: <20250829165327.20007-4-stefano.radaelli21@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250829165327.20007-1-stefano.radaelli21@gmail.com>
-References: <20250829165327.20007-1-stefano.radaelli21@gmail.com>
+	Fri, 29 Aug 2025 17:11:41 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 36AE219F0;
+	Fri, 29 Aug 2025 10:11:31 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4B0823F738;
+	Fri, 29 Aug 2025 10:11:34 -0700 (PDT)
+Message-ID: <ceb64a9b-0ffe-4193-942e-5ddf71478e5d@arm.com>
+Date: Fri, 29 Aug 2025 18:11:32 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 33/33] arm_mpam: Add kunit tests for props_mismatch()
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
+ devicetree@vger.kernel.org
+Cc: shameerali.kolothum.thodi@huawei.com,
+ D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
+ Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
+ baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>
+References: <20250822153048.2287-1-james.morse@arm.com>
+ <20250822153048.2287-34-james.morse@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20250822153048.2287-34-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_095426_656400_72587DE9 
-X-CRM114-Status: GOOD (  16.97  )
+X-CRM114-CacheID: sfid-20250829_101140_488970_2D329739 
+X-CRM114-Status: GOOD (  22.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,556 +85,397 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree support for the Variscite Symphony carrier board with
-the VAR-SOM-AM62P system on module.
+Hi James,
 
-The Symphony board includes
-- uSD Card support
-- USB ports and OTG
-- Additional Gigabit Ethernet interface
-- Uart interfaces
-- OV5640 Camera support
-- GPIO Expander
-- CAN, I2C and general purpose interfaces
+The tests seem reasonable. Just some comments on the comments.
 
-Link: https://www.variscite.it/product/single-board-computers/symphony-board/
+On 8/22/25 16:30, James Morse wrote:
+> When features are mismatched between MSC the way features are combined
+> to the class determines whether resctrl can support this SoC.
+> 
+> Add some tests to illustrate the sort of thing that is expected to
+> work, and those that must be removed.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+>  drivers/resctrl/mpam_internal.h     |   8 +-
+>  drivers/resctrl/test_mpam_devices.c | 322 ++++++++++++++++++++++++++++
+>  2 files changed, 329 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index bbf0306abc82..6e973be095f8 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -18,6 +18,12 @@
+>  
+>  DECLARE_STATIC_KEY_FALSE(mpam_enabled);
+>  
+> +#ifdef CONFIG_MPAM_KUNIT_TEST
+> +#define PACKED_FOR_KUNIT __packed
+> +#else
+> +#define PACKED_FOR_KUNIT
+> +#endif
+> +
+>  static inline bool mpam_is_enabled(void)
+>  {
+>  	return static_branch_likely(&mpam_enabled);
+> @@ -209,7 +215,7 @@ struct mpam_props {
+>  	u16			dspri_wd;
+>  	u16			num_csu_mon;
+>  	u16			num_mbwu_mon;
+> -};
+> +} PACKED_FOR_KUNIT;
+>  
+>  #define mpam_has_feature(_feat, x)	((1 << (_feat)) & (x)->features)
+>  
+> diff --git a/drivers/resctrl/test_mpam_devices.c b/drivers/resctrl/test_mpam_devices.c
+> index 8e9d6c88171c..ef39696e7ff8 100644
+> --- a/drivers/resctrl/test_mpam_devices.c
+> +++ b/drivers/resctrl/test_mpam_devices.c
+> @@ -4,6 +4,326 @@
+>  
+>  #include <kunit/test.h>
+>  
+> +/*
+> + * This test catches fields that aren't being sanitised - but can't tell you
+> + * which one...
+> + */
+> +static void test__props_mismatch(struct kunit *test)
+> +{
+> +	struct mpam_props parent = { 0 };
+> +	struct mpam_props child;
+> +
+> +	memset(&child, 0xff, sizeof(child));
+> +	__props_mismatch(&parent, &child, false);
+> +
+> +	memset(&child, 0, sizeof(child));
+> +	KUNIT_EXPECT_EQ(test, memcmp(&parent, &child, sizeof(child)), 0);
+> +
+> +	memset(&child, 0xff, sizeof(child));
+> +	__props_mismatch(&parent, &child, true);
+> +
+> +	KUNIT_EXPECT_EQ(test, memcmp(&parent, &child, sizeof(child)), 0);
+> +}
+> +
+> +static void test_mpam_enable_merge_features(struct kunit *test)
+> +{
+> +	/* o/` How deep is your stack? o/` */
+> +	struct list_head fake_classes_list;
+> +	struct mpam_class fake_class = { 0 };
+> +	struct mpam_component fake_comp1 = { 0 };
+> +	struct mpam_component fake_comp2 = { 0 };
+> +	struct mpam_vmsc fake_vmsc1 = { 0 };
+> +	struct mpam_vmsc fake_vmsc2 = { 0 };
+> +	struct mpam_msc fake_msc1 = { 0 };
+> +	struct mpam_msc fake_msc2 = { 0 };
+> +	struct mpam_msc_ris fake_ris1 = { 0 };
+> +	struct mpam_msc_ris fake_ris2 = { 0 };
+> +	struct platform_device fake_pdev = { 0 };
+> +
+> +#define RESET_FAKE_HIEARCHY()	do {				\
+> +	INIT_LIST_HEAD(&fake_classes_list);			\
+> +								\
+> +	memset(&fake_class, 0, sizeof(fake_class));		\
+> +	fake_class.level = 3;					\
+> +	fake_class.type = MPAM_CLASS_CACHE;			\
+> +	INIT_LIST_HEAD_RCU(&fake_class.components);		\
+> +	INIT_LIST_HEAD(&fake_class.classes_list);		\
+> +								\
+> +	memset(&fake_comp1, 0, sizeof(fake_comp1));		\
+> +	memset(&fake_comp2, 0, sizeof(fake_comp2));		\
+> +	fake_comp1.comp_id = 1;					\
+> +	fake_comp2.comp_id = 2;					\
+> +	INIT_LIST_HEAD(&fake_comp1.vmsc);			\
+> +	INIT_LIST_HEAD(&fake_comp1.class_list);			\
+> +	INIT_LIST_HEAD(&fake_comp2.vmsc);			\
+> +	INIT_LIST_HEAD(&fake_comp2.class_list);			\
+> +								\
+> +	memset(&fake_vmsc1, 0, sizeof(fake_vmsc1));		\
+> +	memset(&fake_vmsc2, 0, sizeof(fake_vmsc2));		\
+> +	INIT_LIST_HEAD(&fake_vmsc1.ris);			\
+> +	INIT_LIST_HEAD(&fake_vmsc1.comp_list);			\
+> +	fake_vmsc1.msc = &fake_msc1;				\
+> +	INIT_LIST_HEAD(&fake_vmsc2.ris);			\
+> +	INIT_LIST_HEAD(&fake_vmsc2.comp_list);			\
+> +	fake_vmsc2.msc = &fake_msc2;				\
+> +								\
+> +	memset(&fake_ris1, 0, sizeof(fake_ris1));		\
+> +	memset(&fake_ris2, 0, sizeof(fake_ris2));		\
+> +	fake_ris1.ris_idx = 1;					\
+> +	INIT_LIST_HEAD(&fake_ris1.msc_list);			\
+> +	fake_ris2.ris_idx = 2;					\
+> +	INIT_LIST_HEAD(&fake_ris2.msc_list);			\
+> +								\
+> +	fake_msc1.pdev = &fake_pdev;				\
+> +	fake_msc2.pdev = &fake_pdev;				\
+> +								\
+> +	list_add(&fake_class.classes_list, &fake_classes_list);	\
+> +} while (0)
+> +
+> +	RESET_FAKE_HIEARCHY();
+> +
+> +	mutex_lock(&mpam_list_lock);
+> +
+> +	/* One Class+Comp, two RIS in one vMSC with common features */
+> +	fake_comp1.class = &fake_class;
+> +	list_add(&fake_comp1.class_list, &fake_class.components);
+> +	fake_comp2.class = NULL;
+> +	fake_vmsc1.comp = &fake_comp1;
+> +	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
+> +	fake_vmsc2.comp = NULL;
+> +	fake_ris1.vmsc = &fake_vmsc1;
+> +	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
+> +	fake_ris2.vmsc = &fake_vmsc1;
+> +	list_add(&fake_ris2.vmsc_list, &fake_vmsc1.ris);
+> +
+> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
+> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris2.props);
+> +	fake_ris1.props.cpbm_wd = 4;
+> +	fake_ris2.props.cpbm_wd = 4;
+> +
+> +	mpam_enable_merge_features(&fake_classes_list);
+> +
+> +	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
+> +	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 4);
+> +
+> +	RESET_FAKE_HIEARCHY();
+> +
+> +	/* One Class+Comp, two RIS in one vMSC with non-overlapping features */
+> +	fake_comp1.class = &fake_class;
+> +	list_add(&fake_comp1.class_list, &fake_class.components);
+> +	fake_comp2.class = NULL;
+> +	fake_vmsc1.comp = &fake_comp1;
+> +	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
+> +	fake_vmsc2.comp = NULL;
+> +	fake_ris1.vmsc = &fake_vmsc1;
+> +	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
+> +	fake_ris2.vmsc = &fake_vmsc1;
+> +	list_add(&fake_ris2.vmsc_list, &fake_vmsc1.ris);
+> +
+> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
+> +	mpam_set_feature(mpam_feat_cmax_cmin, &fake_ris2.props);
+> +	fake_ris1.props.cpbm_wd = 4;
+> +	fake_ris2.props.cmax_wd = 4;
+> +
+> +	mpam_enable_merge_features(&fake_classes_list);
+> +
+> +	/* Multiple RIS within one MSC controlling the same resource can be mismatched */
+> +	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
+> +	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cmax_cmin, &fake_class.props));
+> +	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cmax_cmin, &fake_vmsc1.props));
+> +	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 4);
+> +	KUNIT_EXPECT_EQ(test, fake_vmsc1.props.cmax_wd, 4);
+> +	KUNIT_EXPECT_EQ(test, fake_class.props.cmax_wd, 4);
+> +
+> +	RESET_FAKE_HIEARCHY();
+> +
+> +	/* One Class+Comp, two MSC with overlapping features */
+> +	fake_comp1.class = &fake_class;
+> +	list_add(&fake_comp1.class_list, &fake_class.components);
+> +	fake_comp2.class = NULL;
+> +	fake_vmsc1.comp = &fake_comp1;
+> +	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
+> +	fake_vmsc2.comp = &fake_comp1;
+> +	list_add(&fake_vmsc2.comp_list, &fake_comp1.vmsc);
+> +	fake_ris1.vmsc = &fake_vmsc1;
+> +	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
+> +	fake_ris2.vmsc = &fake_vmsc2;
+> +	list_add(&fake_ris2.vmsc_list, &fake_vmsc2.ris);
+> +
+> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
+> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris2.props);
+> +	fake_ris1.props.cpbm_wd = 4;
+> +	fake_ris2.props.cpbm_wd = 4;
+> +
+> +	mpam_enable_merge_features(&fake_classes_list);
+> +
+> +	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
+> +	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 4);
+> +
+> +	RESET_FAKE_HIEARCHY();
+> +
+> +	/* One Class+Comp, two MSC with non-overlapping features */
+> +	fake_comp1.class = &fake_class;
+> +	list_add(&fake_comp1.class_list, &fake_class.components);
+> +	fake_comp2.class = NULL;
+> +	fake_vmsc1.comp = &fake_comp1;
+> +	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
+> +	fake_vmsc2.comp = &fake_comp1;
+> +	list_add(&fake_vmsc2.comp_list, &fake_comp1.vmsc);
+> +	fake_ris1.vmsc = &fake_vmsc1;
+> +	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
+> +	fake_ris2.vmsc = &fake_vmsc2;
+> +	list_add(&fake_ris2.vmsc_list, &fake_vmsc2.ris);
+> +
+> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
+> +	mpam_set_feature(mpam_feat_cmax_cmin, &fake_ris2.props);
+> +	fake_ris1.props.cpbm_wd = 4;
+> +	fake_ris2.props.cmax_wd = 4;
+> +
+> +	mpam_enable_merge_features(&fake_classes_list);
+> +
+> +	/*
+> +	 * Multiple RIS in different MSC can't the same resource, mismatched
+s/can't the same/can't control the same/
 
-Signed-off-by: Stefano Radaelli <stefano.radaelli21@gmail.com>
----
-v5:
- - Update to match up with coding guidelines for device tree
-v4:
- - Moved every MCUs-related node into the SOM dtsi
-v3:
- - Change compatible string to match existing mainline format
- - Fixed underscore typo
-v2:
- - Fixed warnings and cleanup
+> +	 * features can not be supported.
+> +	 */
+> +	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
+> +	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_cmax_cmin, &fake_class.props));
+> +	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 0);
+> +	KUNIT_EXPECT_EQ(test, fake_class.props.cmax_wd, 0);
+> +
+> +	RESET_FAKE_HIEARCHY();
+> +
+> +	/* One Class+Comp, two MSC with incompatible overlapping features */
+> +	fake_comp1.class = &fake_class;
+> +	list_add(&fake_comp1.class_list, &fake_class.components);
+> +	fake_comp2.class = NULL;
+> +	fake_vmsc1.comp = &fake_comp1;
+> +	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
+> +	fake_vmsc2.comp = &fake_comp1;
+> +	list_add(&fake_vmsc2.comp_list, &fake_comp1.vmsc);
+> +	fake_ris1.vmsc = &fake_vmsc1;
+> +	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
+> +	fake_ris2.vmsc = &fake_vmsc2;
+> +	list_add(&fake_ris2.vmsc_list, &fake_vmsc2.ris);
+> +
+> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
+> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris2.props);
+> +	mpam_set_feature(mpam_feat_mbw_part, &fake_ris1.props);
+> +	mpam_set_feature(mpam_feat_mbw_part, &fake_ris2.props);
+> +	fake_ris1.props.cpbm_wd = 5;
+> +	fake_ris2.props.cpbm_wd = 3;
+> +	fake_ris1.props.mbw_pbm_bits = 5;
+> +	fake_ris2.props.mbw_pbm_bits = 3;
+> +
+> +	mpam_enable_merge_features(&fake_classes_list);
+> +
+> +	/*
+> +	 * Multiple RIS in different MSC can't the same resource, mismatched
+> +	 * features can not be supported.
+> +	 */
+Missing the word "control" again.
 
- arch/arm64/boot/dts/ti/Makefile               |   1 +
- .../dts/ti/k3-am62p5-var-som-symphony.dts     | 500 ++++++++++++++++++
- 2 files changed, 501 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-var-som-symphony.dts
+> +	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
+> +	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_mbw_part, &fake_class.props));
+> +	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 0);
+> +	KUNIT_EXPECT_EQ(test, fake_class.props.mbw_pbm_bits, 0);
+> +
+> +	RESET_FAKE_HIEARCHY();
+> +
+> +	/* One Class+Comp, two MSC with overlapping features that need tweaking */
+> +	fake_comp1.class = &fake_class;
+> +	list_add(&fake_comp1.class_list, &fake_class.components);
+> +	fake_comp2.class = NULL;
+> +	fake_vmsc1.comp = &fake_comp1;
+> +	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
+> +	fake_vmsc2.comp = &fake_comp1;
+> +	list_add(&fake_vmsc2.comp_list, &fake_comp1.vmsc);
+> +	fake_ris1.vmsc = &fake_vmsc1;
+> +	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
+> +	fake_ris2.vmsc = &fake_vmsc2;
+> +	list_add(&fake_ris2.vmsc_list, &fake_vmsc2.ris);
+> +
+> +	mpam_set_feature(mpam_feat_mbw_min, &fake_ris1.props);
+> +	mpam_set_feature(mpam_feat_mbw_min, &fake_ris2.props);
+> +	mpam_set_feature(mpam_feat_cmax_cmax, &fake_ris1.props);
+> +	mpam_set_feature(mpam_feat_cmax_cmax, &fake_ris2.props);
+> +	fake_ris1.props.bwa_wd = 5;
+> +	fake_ris2.props.bwa_wd = 3;
+> +	fake_ris1.props.cmax_wd = 5;
+> +	fake_ris2.props.cmax_wd = 3;
+> +
+> +	mpam_enable_merge_features(&fake_classes_list);
+> +
+> +	/*
+> +	 * Multiple RIS in different MSC can't the same resource, mismatched
+> +	 * features can not be supported.
+> +	 */
+Comment is for a different case.
+> +	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_mbw_min, &fake_class.props));
+> +	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cmax_cmax, &fake_class.props));
+> +	KUNIT_EXPECT_EQ(test, fake_class.props.bwa_wd, 3);
+> +	KUNIT_EXPECT_EQ(test, fake_class.props.cmax_wd, 3);
+> +
+> +	RESET_FAKE_HIEARCHY();
+> +
+> +	/* One Class Two Comp with overlapping features */
+> +	fake_comp1.class = &fake_class;
+> +	list_add(&fake_comp1.class_list, &fake_class.components);
+> +	fake_comp2.class = &fake_class;
+> +	list_add(&fake_comp2.class_list, &fake_class.components);
+> +	fake_vmsc1.comp = &fake_comp1;
+> +	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
+> +	fake_vmsc2.comp = &fake_comp2;
+> +	list_add(&fake_vmsc2.comp_list, &fake_comp2.vmsc);
+> +	fake_ris1.vmsc = &fake_vmsc1;
+> +	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
+> +	fake_ris2.vmsc = &fake_vmsc2;
+> +	list_add(&fake_ris2.vmsc_list, &fake_vmsc2.ris);
+> +
+> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
+> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris2.props);
+> +	fake_ris1.props.cpbm_wd = 4;
+> +	fake_ris2.props.cpbm_wd = 4;
+> +
+> +	mpam_enable_merge_features(&fake_classes_list);
+> +
+> +	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
+> +	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 4);
+> +
+> +	RESET_FAKE_HIEARCHY();
+> +
+> +	/* One Class Two Comp with non-overlapping features */
+> +	fake_comp1.class = &fake_class;
+> +	list_add(&fake_comp1.class_list, &fake_class.components);
+> +	fake_comp2.class = &fake_class;
+> +	list_add(&fake_comp2.class_list, &fake_class.components);
+> +	fake_vmsc1.comp = &fake_comp1;
+> +	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
+> +	fake_vmsc2.comp = &fake_comp2;
+> +	list_add(&fake_vmsc2.comp_list, &fake_comp2.vmsc);
+> +	fake_ris1.vmsc = &fake_vmsc1;
+> +	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
+> +	fake_ris2.vmsc = &fake_vmsc2;
+> +	list_add(&fake_ris2.vmsc_list, &fake_vmsc2.ris);
+> +
+> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
+> +	mpam_set_feature(mpam_feat_cmax_cmin, &fake_ris2.props);
+> +	fake_ris1.props.cpbm_wd = 4;
+> +	fake_ris2.props.cmax_wd = 4;
+> +
+> +	mpam_enable_merge_features(&fake_classes_list);
+> +
+> +	/*
+> +	 * Multiple components can't control the same resource, mismatched features can
+> +	 * not be supported.
+> +	 */
+> +	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
+> +	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_cmax_cmin, &fake_class.props));
+> +	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 0);
+> +	KUNIT_EXPECT_EQ(test, fake_class.props.cmax_wd, 0);
+> +
+> +	mutex_unlock(&mpam_list_lock);
+> +
+> +#undef RESET_FAKE_HIEARCHY
+> +}
+> +
+>  static void test_mpam_reset_msc_bitmap(struct kunit *test)
+>  {
+>  	char *buf = kunit_kzalloc(test, SZ_16K, GFP_KERNEL);
+> @@ -57,6 +377,8 @@ static void test_mpam_reset_msc_bitmap(struct kunit *test)
+>  
+>  static struct kunit_case mpam_devices_test_cases[] = {
+>  	KUNIT_CASE(test_mpam_reset_msc_bitmap),
+> +	KUNIT_CASE(test_mpam_enable_merge_features),
+> +	KUNIT_CASE(test__props_mismatch),
+>  	{}
+>  };
+>  
 
-diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-index aad9177930e6..b11cbf33422d 100644
---- a/arch/arm64/boot/dts/ti/Makefile
-+++ b/arch/arm64/boot/dts/ti/Makefile
-@@ -38,6 +38,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am62d2-evm.dtb
- 
- # Boards with AM62Px SoC
- dtb-$(CONFIG_ARCH_K3) += k3-am62p5-sk.dtb
-+dtb-$(CONFIG_ARCH_K3) += k3-am62p5-var-som-symphony.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-nonwifi-dahlia.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-nonwifi-dev.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-nonwifi-ivy.dtb
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-var-som-symphony.dts b/arch/arm64/boot/dts/ti/k3-am62p5-var-som-symphony.dts
-new file mode 100644
-index 000000000000..76c8dd31616c
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am62p5-var-som-symphony.dts
-@@ -0,0 +1,500 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Variscite Symphony carrier board for VAR-SOM-AM62P
-+ *
-+ * Link: https://www.variscite.it/product/single-board-computers/symphony-board/
-+ *
-+ * Copyright (C) 2025 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
-+
-+/dts-v1/;
-+
-+#include "k3-am62p5-var-som.dtsi"
-+
-+/ {
-+	model = "Variscite VAR-SOM-AM62P on Symphony-Board";
-+	compatible = "variscite,var-som-am62p-symphony", "variscite,var-som-am62p", "ti,am62p5";
-+
-+	aliases {
-+		ethernet0 = &cpsw_port1;
-+		ethernet1 = &cpsw_port2;
-+		mmc0 = &sdhci0;
-+		mmc1 = &sdhci1;
-+		mmc2 = &sdhci2;
-+		serial0 = &main_uart0;
-+		serial2 = &main_uart2;
-+		serial5 = &main_uart5;
-+		serial6 = &main_uart6;
-+		spi5 = &main_spi2;
-+		usb0 = &usb0;
-+		usb1 = &usb1;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	clk_ov5640_fixed: clock-24000000 {
-+		#clock-cells = <0>;
-+		compatible = "fixed-clock";
-+		clock-frequency = <24000000>;
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+
-+		button-back {
-+			label = "Back";
-+			linux,code = <KEY_BACK>;
-+			gpios = <&pca9534 1 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		button-home {
-+			label = "Home";
-+			linux,code = <KEY_HOME>;
-+			gpios = <&pca9534 2 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		button-menu {
-+			label = "Menu";
-+			linux,code = <KEY_MENU>;
-+			gpios = <&pca9534 3 GPIO_ACTIVE_LOW>;
-+		};
-+	};
-+
-+	gpio-leds {
-+		compatible = "gpio-leds";
-+
-+		led-heartbeat {
-+			label = "Heartbeat";
-+			linux,default-trigger = "heartbeat";
-+			gpios = <&pca9534 0 GPIO_ACTIVE_LOW>;
-+		};
-+	};
-+
-+	reg_2p8v: regulator-2p8v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "2P8V";
-+		regulator-min-microvolt = <2800000>;
-+		regulator-max-microvolt = <2800000>;
-+		vin-supply = <&reg_3v3>;
-+		regulator-always-on;
-+	};
-+
-+	reg_1p8v: regulator-1p8v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "1P8V";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		vin-supply = <&reg_3v3>;
-+		regulator-always-on;
-+	};
-+
-+	reg_1p5v: regulator-1p5v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "1P5V";
-+		regulator-min-microvolt = <1500000>;
-+		regulator-max-microvolt = <1500000>;
-+		vin-supply = <&reg_3v3>;
-+		regulator-always-on;
-+	};
-+
-+	reg_sdhc1_vmmc: regulator-sdhc1 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "+V3.3_SD";
-+		vin-supply = <&reg_sdhc1_vmmc_int>;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-boot-on;
-+		enable-active-high;
-+		gpio = <&main_gpio0 30 GPIO_ACTIVE_HIGH>;
-+		bootph-all;
-+	};
-+
-+	reg_sdhc1_vmmc_int: regulator-sdhc1-int {
-+		compatible = "regulator-fixed";
-+		regulator-name = "+V3.3_SD_INT";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_sd1_vmmc>;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-boot-on;
-+		enable-active-high;
-+		gpio = <&main_gpio0 53 GPIO_ACTIVE_HIGH>;
-+		bootph-all;
-+	};
-+
-+	reg_sdhc1_vqmmc: regulator-sdhci1-vqmmc {
-+		compatible = "regulator-gpio";
-+		regulator-name = "+V3.3_SD_VQMMC";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_sd1_vqmmc>;
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-boot-on;
-+		gpios = <&main_gpio0 56 GPIO_ACTIVE_HIGH>;
-+		states = <1800000 0x0>,
-+			 <3300000 0x1>;
-+		bootph-all;
-+	};
-+
-+	reg_ov5640_buf_en: regulator-camera-buf-en {
-+		compatible = "regulator-fixed";
-+		regulator-name = "ov5640_buf_en";
-+		gpios = <&main_gpio0 21 GPIO_ACTIVE_HIGH>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+	};
-+
-+	transceiver1: can-phy {
-+		compatible = "ti,tcan1042";
-+		#phy-cells = <0>;
-+		max-bitrate = <5000000>;
-+	};
-+
-+	connector {
-+		compatible = "gpio-usb-b-connector", "usb-b-connector";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_extcon>;
-+		label = "USB-C";
-+		id-gpios = <&main_gpio1 12 GPIO_ACTIVE_HIGH>;
-+		status = "okay";
-+
-+		port {
-+			usb_con_hs: endpoint {
-+				remote-endpoint = <&typec_hs>;
-+			};
-+		};
-+	};
-+};
-+
-+&cdns_csi2rx0 {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		csi0_port0: port@0 {
-+			reg = <0>;
-+			status = "okay";
-+
-+			csi2rx0_in_sensor: endpoint {
-+				remote-endpoint = <&csi2_cam0>;
-+				bus-type = <4>; /* CSI2 DPHY. */
-+				clock-lanes = <0>;
-+				data-lanes = <1 2>;
-+			};
-+		};
-+	};
-+};
-+
-+&cpsw3g {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_rgmii1>,
-+		    <&pinctrl_rgmii2>;
-+	status = "okay";
-+};
-+
-+&cpsw3g_mdio {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_mdio1>;
-+	status = "okay";
-+
-+	cpsw3g_phy1: ethernet-phy@5 {
-+		compatible = "ethernet-phy-id0283.bc30";
-+		reg = <5>;
-+		reset-gpios = <&pca9534 5 GPIO_ACTIVE_LOW>;
-+		reset-assert-us = <10000>;
-+		reset-deassert-us = <100000>;
-+	};
-+};
-+
-+&cpsw_port2 {
-+	/*
-+	 * The required RGMII TX and RX 2ns delays are implemented directly
-+	 * in hardware via passive delay elements on the Symphony PCB.
-+	 * No delay configuration is needed in software via PHY driver.
-+	 */
-+	phy-mode = "rgmii";
-+	phy-handle = <&cpsw3g_phy1>;
-+	status = "okay";
-+};
-+
-+&dphy0 {
-+	status = "okay";
-+};
-+
-+&main_i2c0{
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c0>;
-+	clock-frequency = <400000>;
-+	status = "okay";
-+
-+	ov5640: camera@3c {
-+		compatible = "ovti,ov5640";
-+		reg = <0x3c>;
-+		clocks = <&clk_ov5640_fixed>;
-+		clock-names = "xclk";
-+		AVDD-supply = <&reg_2p8v>;
-+		DOVDD-supply = <&reg_1p8v>;
-+		DVDD-supply = <&reg_1p5v>;
-+		powerdown-gpios = <&main_gpio0 10 GPIO_ACTIVE_HIGH>;
-+		reset-gpios = <&main_gpio0 22 GPIO_ACTIVE_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_ov5640>;
-+
-+		port {
-+			csi2_cam0: endpoint {
-+				remote-endpoint = <&csi2rx0_in_sensor>;
-+				clock-lanes = <0>;
-+				data-lanes = <1 2>;
-+			};
-+		};
-+	};
-+
-+	/* GPIO expander */
-+	pca9534: gpio@20 {
-+		compatible = "nxp,pca9534";
-+		reg = <0x20>;
-+		gpio-controller;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_pca9534>;
-+		interrupt-parent = <&main_gpio1>;
-+		interrupts = <30 IRQ_TYPE_EDGE_FALLING>;
-+		#gpio-cells = <2>;
-+		status = "okay";
-+
-+		usb3-sel-hog {
-+			gpio-hog;
-+			gpios = <4 0>;
-+			output-low;
-+			line-name = "usb3_sel";
-+		};
-+
-+		eth-som-vselect-hog {
-+			gpio-hog;
-+			gpios = <6 0>;
-+			output-low;
-+			line-name = "eth-vselect";
-+		};
-+
-+		eth-mdio-enable-hog {
-+			gpio-hog;
-+			gpios = <7 0>;
-+			output-high;
-+			line-name = "eth-mdio-enable";
-+		};
-+	};
-+};
-+
-+&main_i2c1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c1>;
-+	clock-frequency = <400000>;
-+	status = "okay";
-+
-+	rtc@68 {
-+		compatible = "dallas,ds1337";
-+		reg = <0x68>;
-+	};
-+};
-+
-+&main_mcan0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_mcan0>;
-+	phys = <&transceiver1>;
-+	status = "okay";
-+};
-+
-+&main_pmx0 {
-+	pinctrl_extcon: main-extcon-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x01a8, PIN_INPUT, 7) /* (F25) MCASP0_AFSX.GPIO1_12 */
-+		>;
-+	};
-+
-+	pinctrl_i2c0: main-i2c0-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x01e0, PIN_INPUT_PULLUP, 0) /* (B25) I2C0_SCL */
-+			AM62PX_IOPAD(0x01e4, PIN_INPUT_PULLUP, 0) /* (A24) I2C0_SDA */
-+		>;
-+	};
-+
-+	pinctrl_i2c1: main-i2c1-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x01e8, PIN_INPUT_PULLUP, 0) /* (C24) I2C1_SCL */
-+			AM62PX_IOPAD(0x01ec, PIN_INPUT_PULLUP, 0) /* (B24) I2C1_SDA */
-+		>;
-+		bootph-all;
-+	};
-+
-+	pinctrl_mcan0: main-mcan0-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x01dc, PIN_INPUT, 0) /* (F20) MCAN0_RX */
-+			AM62PX_IOPAD(0x01d8, PIN_OUTPUT, 0) /* (B23) MCAN0_TX */
-+		>;
-+	};
-+
-+	pinctrl_mmc1: main-mmc1-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x023c, PIN_INPUT, 0) /* (H20) MMC1_CMD */
-+			AM62PX_IOPAD(0x0234, PIN_OUTPUT, 0) /* (J24) MMC1_CLK */
-+			AM62PX_IOPAD(0x0230, PIN_INPUT, 0) /* (H21) MMC1_DAT0 */
-+			AM62PX_IOPAD(0x022c, PIN_INPUT_PULLUP, 0) /* (H23) MMC1_DAT1 */
-+			AM62PX_IOPAD(0x0228, PIN_INPUT_PULLUP, 0) /* (H22) MMC1_DAT2 */
-+			AM62PX_IOPAD(0x0224, PIN_INPUT_PULLUP, 0) /* (H25) MMC1_DAT3 */
-+			AM62PX_IOPAD(0x0240, PIN_INPUT, 0) /* (D23) MMC1_SDCD */
-+		>;
-+		bootph-all;
-+	};
-+
-+	pinctrl_rgmii2: main-rgmii2-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x0184, PIN_INPUT, 0) /* (E19) RGMII2_RD0 */
-+			AM62PX_IOPAD(0x0188, PIN_INPUT, 0) /* (E16) RGMII2_RD1 */
-+			AM62PX_IOPAD(0x018c, PIN_INPUT, 0) /* (E17) RGMII2_RD2 */
-+			AM62PX_IOPAD(0x0190, PIN_INPUT, 0) /* (C19) RGMII2_RD3 */
-+			AM62PX_IOPAD(0x0180, PIN_INPUT, 0) /* (D19) RGMII2_RXC */
-+			AM62PX_IOPAD(0x017c, PIN_INPUT, 0) /* (F19) RGMII2_RX_CTL */
-+			AM62PX_IOPAD(0x016c, PIN_INPUT, 0) /* (B19) RGMII2_TD0 */
-+			AM62PX_IOPAD(0x0170, PIN_INPUT, 0) /* (A21) RGMII2_TD1 */
-+			AM62PX_IOPAD(0x0174, PIN_INPUT, 0) /* (D17) RGMII2_TD2 */
-+			AM62PX_IOPAD(0x0178, PIN_INPUT, 0) /* (A19) RGMII2_TD3 */
-+			AM62PX_IOPAD(0x0168, PIN_INPUT_PULLDOWN, 0) /* (D16) RGMII2_TXC */
-+			AM62PX_IOPAD(0x0164, PIN_INPUT, 0) /* (A20) RGMII2_TX_CTL */
-+		>;
-+	};
-+
-+	pinctrl_spi2: main-spi2-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x01b0, PIN_INPUT, 1) /* (G20) MCASP0_ACLKR.SPI2_CLK */
-+			AM62PX_IOPAD(0x0194, PIN_OUTPUT, 1) /* (D25) MCASP0_AXR3.SPI2_D0 */
-+			AM62PX_IOPAD(0x0198, PIN_INPUT, 1) /* (E25) MCASP0_AXR2.SPI2_D1 */
-+			AM62PX_IOPAD(0x01ac, PIN_OUTPUT, 7) /* (G23) MCASP0_AFSR.GPIO1_13 */
-+		>;
-+	};
-+
-+	pinctrl_uart0: main-uart0-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x1c8, PIN_INPUT, 0)	/* (A22) UART0_RXD */
-+			AM62PX_IOPAD(0x1cc, PIN_OUTPUT, 0)	/* (B22) UART0_TXD */
-+		>;
-+		bootph-all;
-+	};
-+
-+	pinctrl_uart2: main-uart2-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x005c, PIN_INPUT_PULLUP, 2) /* (AC25) GPMC0_AD8.UART2_RXD */
-+			AM62PX_IOPAD(0x0060, PIN_OUTPUT, 2) /* (AB25) GPMC0_AD9.UART2_TXD */
-+		>;
-+	};
-+
-+	pinctrl_uart6: main-uart6-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x009c, PIN_INPUT_PULLUP, 3) /* (AD24) GPMC0_WAIT1.UART6_RXD */
-+			AM62PX_IOPAD(0x0244, PIN_OUTPUT, 1) /* (D24) MMC1_SDWP.UART6_TXD */
-+		>;
-+	};
-+
-+	pinctrl_usb1: main-usb1-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x0258, PIN_OUTPUT, 0) /* (G21) USB1_DRVVBUS */
-+		>;
-+	};
-+
-+	pinctrl_ov5640: main-ov5640-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x0028, PIN_OUTPUT, 7) /* (N20) OSPI0_D7.GPIO0_10 */
-+			AM62PX_IOPAD(0x0054, PIN_OUTPUT, 7) /* (V24) GPMC0_AD6.GPIO0_21 */
-+			AM62PX_IOPAD(0x0058, PIN_OUTPUT, 7) /* (W25) GPMC0_AD7.GPIO0_22 */
-+		>;
-+	};
-+
-+	pinctrl_pca9534: main-pca9534-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x01f0, PIN_INPUT, 7) /* (C25) EXT_REFCLK1.GPIO1_30 */
-+		>;
-+	};
-+
-+	pinctrl_sd1_vmmc: main-sd1-vmmc-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x0078, PIN_OUTPUT, 7) /* (AC24) GPMC0_AD15.GPIO0_30 */
-+			AM62PX_IOPAD(0x00d8, PIN_OUTPUT, 7) /* (AE22) VOUT0_DATA8.GPIO0_53 */
-+		>;
-+		bootph-all;
-+	};
-+
-+	pinctrl_sd1_vqmmc: main-sd1-vqmmc-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x00e4, PIN_OUTPUT, 7) /* (AE21) VOUT0_DATA11.GPIO0_56 */
-+		>;
-+		bootph-all;
-+	};
-+};
-+
-+&main_spi2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_spi2>;
-+	ti,pindir-d0-out-d1-in;
-+	cs-gpios = <&main_gpio1 13 GPIO_ACTIVE_HIGH>;
-+	status = "okay";
-+};
-+
-+&main_uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart0>;
-+	status = "okay";
-+};
-+
-+&main_uart2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart2>;
-+	status = "okay";
-+};
-+
-+&main_uart6 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart6>;
-+	status = "okay";
-+};
-+
-+&sdhci1 {
-+	/* SD Card */
-+	vmmc-supply = <&reg_sdhc1_vmmc>;
-+	vqmmc-supply = <&reg_sdhc1_vqmmc>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_mmc1>;
-+	disable-wp;
-+	bootph-all;
-+	status="okay";
-+};
-+
-+&ti_csi2rx0 {
-+	status = "okay";
-+};
-+
-+&usb0 {
-+	usb-role-switch;
-+	status = "okay";
-+
-+	port {
-+		typec_hs: endpoint {
-+			remote-endpoint = <&usb_con_hs>;
-+		};
-+	};
-+};
-+
-+&usb1 {
-+	dr_mode = "host";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_usb1>;
-+	status = "okay";
-+};
-+
-+&usbss0 {
-+	status = "okay";
-+};
-+
-+&usbss1 {
-+	status = "okay";
-+};
--- 
-2.43.0
+Thanks,
+
+Ben
 
 
