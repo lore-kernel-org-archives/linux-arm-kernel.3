@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B3C8CA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 17:09:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35EC1CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 29 Aug 2025 17:12:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jRa1lteH7MbLh92y/xYMLgWgOsFt/1/eYwT6t3cWhPE=; b=u3Luv+vTFPomd8LEFiEAx383TF
-	lMYTuWAcx8+BDfYH6ea/JLtaJTCL00T64OKuasuJJJD/G7Z5zYCz6f8Muax/1U1oX6p8K4WR4tNna
-	yYTLrIHZH2WNiRMuNw7fDAfyU5lacmwbURHUJOhbpyzfz/KGmfA7/bzW2KKxPTPPpUbos+92lDU+H
-	s5jXd/zpsxeeSW3Ghi+rLs7JTsMMrJ79goFFBC9lEvwHEYvWmZi2wDmT5wIyKfRlVY5Lg03dCxTdw
-	r2MCO5m+40FTKsiRWpHAiui/No+97X5faegyUyOnQhxV3eD9WivyKgSCR5aHhJmgPL2yIHBb+7Ie/
-	FKq9roLw==;
+	bh=ONvpxHJwQKWynf2tTp5oEsgVfvxKB8ggW3Ue0C/cw0k=; b=XT7izCbtWvn4l0i2M/QXtVegru
+	RcliDnw30GwUxmwuQ1xhUZOAMgHRq+T21+yfQdFgrX4rONLABaTBP9Nb1t2vuqyhEFGvsCkuMw9Oj
+	8LRNfN+5H9ih0JGL/qHMP4AdrKc0V8VF3jEmzR/ASXyJsMg4rs5wjDgYKm7o/ZlrfY8VNampG8A6m
+	frFASohDOcEIyuU48jvFTWNCp+k6CH50M4UYygpBb8HK/ORKadQdGwIhQF45o53D+vJ89LtENreD8
+	u0G5il9IRwHmvh86JzSjTw1RLrxaiD2BjrviysplXgF0GJQSBE+L8RCuwKLq6TsK5qNlOYLruh1At
+	HNyvQC6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us2bj-00000006Udz-2acb;
-	Fri, 29 Aug 2025 17:09:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1us2eQ-00000006Ust-1rMc;
+	Fri, 29 Aug 2025 17:12:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1urzgh-00000005xMa-2JTX
+	id 1urzk1-00000005y28-3R8X
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 14:02:43 +0000
+	Fri, 29 Aug 2025 14:06:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D1D6E600B0;
-	Fri, 29 Aug 2025 14:02:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB4E2C4CEF0;
-	Fri, 29 Aug 2025 14:02:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E0CD5600B0;
+	Fri, 29 Aug 2025 14:06:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63CF0C4CEF0;
+	Fri, 29 Aug 2025 14:06:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756476162;
-	bh=rYk7kh2K0XNkrKe1b/8Qa6EV2yfNmK1OMJY9R4tVrM0=;
+	s=k20201202; t=1756476368;
+	bh=5hnfrxB59btF5GVW6Vc7xXSqfEVv47osUlR/KT5zvJc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=H4+yTiGfnX3YWu36m9+qObMcDf+3Xd84tneLcq5ddTQ01i9fF2TsDhnVpDmHrSNJr
-	 LErQu3xvfxKgeYjxNOJl0ZRf/cgn3G+VF/4S+Cyn1unxOQUtYdPKk8XAATSLF2WGuV
-	 qyEJ+kkaZyBDyb6eoAVjRMIaHtNxzvsdTx+JCEghMUGMcoOmS5/PlzDqqTG1y0qFZX
-	 +PRyJ14/DKqxUdLoGFor5pfxYDWx7jDvrvgf0x9WksZN0UCe0FGn2SPvGZAMrQvv7X
-	 rA6y9oxen5kjMyfYhtA5AIl+/CgmyAAev/+MOCWI//D1zAbZ/BXbOpKjDFCIBFRmhW
-	 /ikGTzPPf2Ctg==
-Message-ID: <19196605-50fb-440f-9666-7502de9ddfd5@kernel.org>
-Date: Fri, 29 Aug 2025 16:02:36 +0200
+	b=Uhf2/HoiXGKYEqu/pkUaMb2gMLZ+iBw5kivrOV03qQ9PCcUoxKw51pzRvZEYvJ/ab
+	 knEgYDfSXfewnVQYciMw0Mw0dVOcaC6gB85gV6iuC991zGcd2Palbsg+OFI81+InTD
+	 jcXXpoPWlB/uIrVzYh5CGlL72Os0fwEKfHZDzS09Ft8ZUR9Ee+C2WABDq9UzEwKGSR
+	 rsIPmQyUUMnidYFGTy/HXIlkXq5A3lIO0BKhqiOQvOYg2yC18ZJdiVtm59zWMQGVzd
+	 ZCqrjgLZj4cSKK8h69DA1Emr5ISXUPR9TjJlXarSrabTK8Eu0CyBDBHkom9rteQMAF
+	 +KDIdWBUpNRpA==
+Message-ID: <5502f52d-d302-4479-93b8-1da47731cf1d@kernel.org>
+Date: Fri, 29 Aug 2025 16:06:02 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/9] media: chips-media: wave6: Add Wave6 core driver
+Subject: Re: [PATCH v3 8/9] media: chips-media: wave6: Add Wave6 control
+ driver
 To: Nas Chung <nas.chung@chipsnmedia.com>, mchehab@kernel.org,
  hverkuil@xs4all.nl, robh@kernel.org, krzk+dt@kernel.org,
  conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de
@@ -55,7 +56,7 @@ Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, jackson.lee@chipsnmedia.com,
  lafley.kim@chipsnmedia.com, Ming Qian <ming.qian@oss.nxp.com>
 References: <20250829084649.359-1-nas.chung@chipsnmedia.com>
- <20250829084649.359-6-nas.chung@chipsnmedia.com>
+ <20250829084649.359-9-nas.chung@chipsnmedia.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,7 +102,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250829084649.359-6-nas.chung@chipsnmedia.com>
+In-Reply-To: <20250829084649.359-9-nas.chung@chipsnmedia.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -119,37 +120,48 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 29/08/2025 10:46, Nas Chung wrote:
-> This adds the core driver for the Chips&Media Wave6 video codec IP.
-
-Please do not use "This commit/patch/change", but imperative mood. See
-longer explanation here:
-https://elixir.bootlin.com/linux/v6.16/source/Documentation/process/submitting-patches.rst#L94
-
-> 
-> The core region provides the encoding and decoding capabilities of
-> the VPU and depends on the control region for firmware and shared
-> resource management.
-> 
-
-
-...
-
 > +
-> +static int wave6_vpu_core_probe(struct platform_device *pdev)
+> +static void wave6_vpu_load_firmware(const struct firmware *fw, void *context)
 > +{
-> +	struct vpu_core_device *core;
-> +	const struct wave6_vpu_core_resource *res;
-> +	int ret;
-> +	int irq;
+> +	struct wave6_vpu_device *vpu = context;
 > +
-> +	res = device_get_match_data(&pdev->dev);
-> +	if (!res) {
-> +		dev_err(&pdev->dev, "missing resource\n");
+> +	guard(mutex)(&vpu->lock);
 
-This is almost impossible condition. Not worth printing errors.
+Why? How could this be called in parallel, before the probe?
 
-> +		return -EINVAL;
+> +
+> +	if (!fw || !fw->data) {
+> +		dev_err(vpu->dev, "No firmware.\n");
+> +		return;
 > +	}
+> +
+> +	if (!vpu->fw_available)
+> +		goto exit;
+> +
+> +	if (fw->size + W6_EXTRA_CODE_BUF_SIZE > wave6_vpu_get_code_buf_size(vpu)) {
+> +		dev_err(vpu->dev, "firmware size (%ld > %zd) is too big\n",
+> +			fw->size, vpu->code_buf.size);
+> +		vpu->fw_available = false;
+> +		goto exit;
+> +	}
+> +
+> +	memcpy(vpu->code_buf.vaddr, fw->data, fw->size);
+> +
+> +	vpu->get_vpu = wave6_vpu_get;
+> +	vpu->put_vpu = wave6_vpu_put;
+> +	vpu->req_work_buffer = wave6_vpu_require_work_buffer;
+> +	of_platform_populate(vpu->dev->of_node, NULL, NULL, vpu->dev);
+> +
+> +exit:
+> +	release_firmware(fw);
+> +}
+> +
+> +static int wave6_vpu_probe(struct platform_device *pdev)
+> +{
+> +	struct device_node *np;
+> +	struct wave6_vpu_device *vpu;
+> +	const struct wave6_vpu_resource *res;
+> +	int ret;
 > +
 > +	ret = dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(32));
 > +	if (ret < 0) {
@@ -157,107 +169,36 @@ This is almost impossible condition. Not worth printing errors.
 > +		return ret;
 > +	}
 > +
-> +	core = devm_kzalloc(&pdev->dev, sizeof(*core), GFP_KERNEL);
-> +	if (!core)
+> +	res = of_device_get_match_data(&pdev->dev);
+> +	if (!res)
+> +		return -ENODEV;
+> +
+> +	vpu = devm_kzalloc(&pdev->dev, sizeof(*vpu), GFP_KERNEL);
+> +	if (!vpu)
 > +		return -ENOMEM;
 > +
-> +	ret = devm_mutex_init(&pdev->dev, &core->dev_lock);
+> +	ret = devm_mutex_init(&pdev->dev, &vpu->lock);
 > +	if (ret)
 > +		return ret;
 > +
-> +	ret = devm_mutex_init(&pdev->dev, &core->hw_lock);
-> +	if (ret)
-> +		return ret;
+> +	atomic_set(&vpu->core_count, 0);
+> +	INIT_LIST_HEAD(&vpu->work_buffers);
+> +	dev_set_drvdata(&pdev->dev, vpu);
+> +	vpu->dev = &pdev->dev;
+> +	vpu->res = res;
+> +	vpu->reg_base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(vpu->reg_base))
+> +		return PTR_ERR(vpu->reg_base);
 > +
-> +	init_completion(&core->irq_done);
-> +	dev_set_drvdata(&pdev->dev, core);
-> +	core->dev = &pdev->dev;
-> +	core->res = res;
-> +
-> +	if (pdev->dev.parent->driver && pdev->dev.parent->driver->name &&
-> +	    !strcmp(pdev->dev.parent->driver->name, WAVE6_VPU_PLATFORM_DRIVER_NAME))
-> +		core->vpu = dev_get_drvdata(pdev->dev.parent);
-> +
-> +	core->reg_base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(core->reg_base))
-> +		return PTR_ERR(core->reg_base);
-> +
-> +	ret = devm_clk_bulk_get_all(&pdev->dev, &core->clks);
+> +	ret = devm_clk_bulk_get_all(&pdev->dev, &vpu->clks);
 > +	if (ret < 0) {
 > +		dev_warn(&pdev->dev, "unable to get clocks: %d\n", ret);
 
-You should handle deferred probe instead.
+You need to handle deferred probe.
 
 > +		ret = 0;
 > +	}
-> +	core->num_clks = ret;
-> +
-> +	ret = v4l2_device_register(&pdev->dev, &core->v4l2_dev);
-> +	if (ret) {
-> +		dev_err(&pdev->dev, "v4l2_device_register fail: %d\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	ret = wave6_vpu_init_m2m_dev(core);
-> +	if (ret)
-> +		goto err_v4l2_unregister;
-> +
-> +	irq = platform_get_irq(pdev, 0);
-> +	if (irq < 0) {
-> +		dev_err(&pdev->dev, "failed to get irq resource\n");
-
-Syntax is: dev_err_probe
-
-> +		ret = -ENXIO;
-
-Don't override error codes.
-
-> +		goto err_m2m_dev_release;
-> +	}
-> +
-> +	ret = kfifo_alloc(&core->irq_status, 16 * sizeof(int), GFP_KERNEL);
-> +	if (ret) {
-> +		dev_err(&pdev->dev, "failed to allocate fifo\n");
-> +		goto err_m2m_dev_release;
-> +	}
-> +
-> +	ret = devm_request_threaded_irq(&pdev->dev, irq,
-> +					wave6_vpu_core_irq,
-> +					wave6_vpu_core_irq_thread,
-> +					0, "vpu_irq", core);
-> +	if (ret) {
-> +		dev_err(&pdev->dev, "fail to register interrupt handler: %d\n", ret);
-> +		goto err_kfifo_free;
-> +	}
-> +
-> +	core->temp_vbuf.size = ALIGN(W6_TEMPBUF_SIZE, 4096);
-> +	ret = wave6_vdi_alloc_dma(core->dev, &core->temp_vbuf);
-> +	if (ret) {
-> +		dev_err(&pdev->dev, "alloc temp of size %zu failed\n",
-> +			core->temp_vbuf.size);
-> +		goto err_kfifo_free;
-> +	}
-> +
-> +	core->debugfs = debugfs_lookup(WAVE6_VPU_DEBUGFS_DIR, NULL);
-> +	if (IS_ERR_OR_NULL(core->debugfs))
-> +		core->debugfs = debugfs_create_dir(WAVE6_VPU_DEBUGFS_DIR, NULL);
-> +
-> +	pm_runtime_enable(&pdev->dev);
-> +
-> +	if (core->res->codec_types & WAVE6_IS_DEC) {
-> +		ret = wave6_vpu_dec_register_device(core);
-> +		if (ret) {
-> +			dev_err(&pdev->dev, "wave6_vpu_dec_register_device fail: %d\n", ret);
-> +			goto err_temp_vbuf_free;
-> +		}
-> +	}
-> +	if (core->res->codec_types & WAVE6_IS_ENC) {
-> +		ret = wave6_vpu_enc_register_device(core);
-> +		if (ret) {
-> +			dev_err(&pdev->dev, "wave6_vpu_enc_register_device fail: %d\n", ret);
-> +			goto err_dec_unreg;
-> +		}
-> +	}
+> +	vpu->num_clks = ret;
 Best regards,
 Krzysztof
 
