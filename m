@@ -4,71 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C84F0CA0FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:52:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 671E7CA0FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:52:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2CdJ1mReM43G4dHOZpQLjlHFVT6UhxpeQUqOBViW2Ws=; b=e+Qu6Eqtbd7a/3+YUP69fG8W5/
-	3Uh4JVdKeWNtZ8BDFx8zYB9CwCx+4C7WIHYwakcJpPwWIY2+HIkaIvatrCUU51WikeZNsJcWTEDij
-	RinFoeX7pkkYbwK61nEzS5uPCS7uzi4bD3a95a1TTZNA8plY3fbSNcJuwZi7fGFyfDwTaNN/POChh
-	VALBjk/DaNuptspDxdB+S0ylYPUQQLrJomu8E2fa1q/RJl6/NxzgU7M1xQfcXkRqhFeHYq/HVmPeD
-	E/pQY7i67FHZbtAzDrxC/VVWlBFaJEE49sSd6XUu/heTzO9T6f3eDiLK+FoOB6a2eP4IoAgoV1zK8
-	jWbt9Qfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4ZkOb/hPcVe8gnDPdefZkpPuz6ZACFjeMAIL1vSEcE4=; b=q9n7eOdYxtNMc4KqMUN79FENl6
+	mBtABSK7jy/qykpY7QxjLID33RAtqHGaRYS33O0nHSp+c+0l22RbxxcV0rd3C/zXF2BGwGMf+fKez
+	nX8b7NrRGeRUKhcLQLshEtYcSZNa5uQcRHEsXjZXO/HcFGLAAy4GwLgdTQZzJeF3OqHuNLrLegoJi
+	sCTaTBkYgvKvM0eoFzNS4t2F+Uw/JlGP/vkIf9SmZO7BuNm7s9gGwmKCujaUNwzVqaZ6VYrfvb3nl
+	Po5hexDrX9macMr+3U+0+2VGQEZ0RuIy0oHEjHrsQ7ODy6lk3Tc0nSyoYBMXi/YHYXEGCaZXF9Urx
+	XOVqa0oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us9pi-00000007DzC-3m3o;
-	Sat, 30 Aug 2025 00:52:42 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1us9po-00000007E61-0T20;
+	Sat, 30 Aug 2025 00:52:48 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us8Vx-0000000717v-1BM5
+	id 1us8zD-000000072iF-43fh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 29 Aug 2025 23:28:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1756510093; x=1788046093;
-  h=date:from:to:cc:subject:message-id;
-  bh=Hc2bTbDcKoXvcCMDD93kppSxxXuKfZgk17ybwJuYKeI=;
-  b=E1NVBoKDGM8KePpjHivRTOfdZVg3jWHiZE9+hqLYuIFCj9FEPrSgNN3e
-   6EqbYTmExKqs6UCax1gPD+U6NPSTsk8xzrRsidCnrn+dpQAw1JZQXUGdw
-   Zu3vOn5+wqy7u7fS3YRaYe9MkoODkhgl0cC5EGAnLzd5Fgkefgw1hy5y1
-   Ixy7vBBQT5c7GF0Y60T0z79E+wSMDbh6rvGYthuoMyzNNhNeEyoRO0FE7
-   d9bZjv846SAn9hv7RI9ccSouYY0uX4f8NMKhs0fEQxW+gkusl+g5cHsbF
-   qw0Am+psAccI++QC/y5+xkKtz3lyqGkeALzAOnAPoevektcHhm9vPrchE
-   Q==;
-X-CSE-ConnectionGUID: pMbvYOJ1RWK2HBd0RvgtgQ==
-X-CSE-MsgGUID: jg1J4ARyTuiQuaHkLz6NiA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11537"; a="58511402"
-X-IronPort-AV: E=Sophos;i="6.18,221,1751266800"; 
-   d="scan'208";a="58511402"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Aug 2025 16:28:09 -0700
-X-CSE-ConnectionGUID: qJNRR170SLKMbziUnRSIXg==
-X-CSE-MsgGUID: Ty5LIZI9S7mJfhFv1mi5MQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,221,1751266800"; 
-   d="scan'208";a="169745957"
-Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
-  by orviesa006.jf.intel.com with ESMTP; 29 Aug 2025 16:28:08 -0700
-Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1us8Uz-000V2z-1Z;
-	Fri, 29 Aug 2025 23:27:45 +0000
-Date: Sat, 30 Aug 2025 07:18:04 +0800
-From: kernel test robot <lkp@intel.com>
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Subject: [linusw-nomadik:nomadik] BUILD SUCCESS
- d799c1bdeaaf9bf59611bd8ca7ff53bcf88a18ab
-Message-ID: <202508300754.6tOWZ0hg-lkp@intel.com>
-User-Agent: s-nail v14.9.24
+	Fri, 29 Aug 2025 23:58:29 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-248ff4403b9so16549125ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 16:58:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1756511907; x=1757116707; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=4ZkOb/hPcVe8gnDPdefZkpPuz6ZACFjeMAIL1vSEcE4=;
+        b=Jqa/0LS65vFQrE4q+XL8d92enTmswT0QluscxjU5bJ3QTuF0CCItdBKnipRrJHRscq
+         djgSD+eqjsvxWUKwofSuXfvbttBuPfFOyhGKD2bfmvXwiJ5Vf+6IaFYRwO21gfOM+M+Q
+         HsxWjefMn6UPEvjd3dfqkm+BbnvIjowx9VW3g=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756511907; x=1757116707;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4ZkOb/hPcVe8gnDPdefZkpPuz6ZACFjeMAIL1vSEcE4=;
+        b=VYmncNAM7QytZir1yfmDh2UdK3MevwCsF/T8OI9kICKlQIS8gN/IFYhVFf9fe5i5Y4
+         jUCkgkYP8i8kKp8GldEvufJl7mBKaaJRORb2q4Vw4J/GLztJUNwJrPN7yKQpZB90IKcD
+         Yskf49B3i8jBUornhQF8Bzi5zdy0krhSusRNxWZxL4d37jrt9HP5y/Dl8JUyoyDnpBsm
+         PtmWQ6fZqM37CcR9moUxgYizptnBOlkR35R8ufCPSwgUoQSQ2nORLiBZ8pW+CvrqtD3u
+         ntVwGYe1L9eA9Y1xnh2SK4hHStXLoG7MtmqcT1qN2jOZaTwJZn3L5SafyBEilyXf3kl5
+         MqSw==
+X-Forwarded-Encrypted: i=1; AJvYcCWwqk6IXo/DrzYwO5h/JItF8x1FIyHHGYIKPqIkeTebFN1YnSKUap8jb33htA94RCHUlrnfl3mW848D/wEnVgUA@lists.infradead.org
+X-Gm-Message-State: AOJu0Yytsqvya1oeaaiB+/R4lwy9EaWwfAlb48qsqcOzMhEx8ohQb0ug
+	slMuM8D1zxjw8VqDag+gDW3pBt4Gp0zqVuQ1qRqqlbc6vK/8NOm4VB15syiE+h1bAQ==
+X-Gm-Gg: ASbGncsmNrIX+DfnYbfKGYWPEXcp2L6J7avcAVNBk2vWDPJQGZpEf7SVEGAAgTlMqui
+	HEkh1koYTsQmv8FzSIQZhgzQnXVDoHR0mBaiOhlfGcjt+y1Pr6ZNpKBkAgVC+epWAnSzCtTdtG+
+	H04aCnaiwLSTb1Eln00AN1xzJ33ocvoG642u9ptmIRp6QGz9co2mPCfkPsUYGnuNb3sZqy3G2oT
+	v6IOPiu84nyuyh8oJcSyKkPRjBw1zWQ30lj6D+DD6FaEG10CB4ynxXOXKV6AA+s1IB6XlEQzAM0
+	I2hit1xji3Eqb0zTzhlct2Gic85ZhVG5xmn5qwTBd7Z+AVuXga/8rfkbWkf5cv5dVnRKohexerA
+	QlsoznTzrPlI5PwWix/S37UuY82t7hAf4/8WFHK1yVQGV+TO0YahGKw0ZLdcV
+X-Google-Smtp-Source: AGHT+IFvZvVbN+tcqDt9IuyuJa1uB30zy62FBhMsBU2d4G2xup0DO7jJDkNE7M+ZQIjDPW8i5FxZDw==
+X-Received: by 2002:a17:903:2308:b0:249:33da:b3a with SMTP id d9443c01a7336-249448ad928mr5527165ad.14.1756511906811;
+        Fri, 29 Aug 2025 16:58:26 -0700 (PDT)
+Received: from localhost ([2a00:79e0:2e14:7:1d4b:87a6:eef4:9438])
+        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-24906390e6bsm36386045ad.96.2025.08.29.16.58.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 29 Aug 2025 16:58:25 -0700 (PDT)
+Date: Fri, 29 Aug 2025 16:58:24 -0700
+From: Brian Norris <briannorris@chromium.org>
+To: Lukas Wunner <lukas@wunner.de>
+Cc: manivannan.sadhasivam@oss.qualcomm.com,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
+	Oliver O'Halloran <oohall@gmail.com>, Will Deacon <will@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof Wilczynski <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Niklas Cassel <cassel@kernel.org>,
+	Wilfred Mallawa <wilfred.mallawa@wdc.com>,
+	Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+Subject: Re: [PATCH v6 2/4] PCI: host-common: Add link down handling for Root
+ Ports
+Message-ID: <aLI-oKWVJHFfst-i@google.com>
+References: <20250715-pci-port-reset-v6-0-6f9cce94e7bb@oss.qualcomm.com>
+ <20250715-pci-port-reset-v6-2-6f9cce94e7bb@oss.qualcomm.com>
+ <aLC7KIoi-LoH2en4@google.com>
+ <aLFmSFe5iyYDrIjt@wunner.de>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aLFmSFe5iyYDrIjt@wunner.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_162813_396239_D2257693 
-X-CRM114-Status: UNSURE (   5.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250829_165828_038142_41976107 
+X-CRM114-Status: GOOD (  40.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,215 +111,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-nomadik.git nomadik
-branch HEAD: d799c1bdeaaf9bf59611bd8ca7ff53bcf88a18ab  ARM: nomadik: get the cache running normally
+Hi Lukas,
 
-elapsed time: 1453m
+On Fri, Aug 29, 2025 at 10:35:20AM +0200, Lukas Wunner wrote:
+> On Thu, Aug 28, 2025 at 01:25:12PM -0700, Brian Norris wrote:
+> > On the flip side: it's not clear
+> > PCI_ERS_RESULT_NEED_RESET+pci_channel_io_normal works as documented
+> > either. An endpoint might think it's requesting a slot reset, but
+> > pcie_do_recovery() will ignore that and skip reset_subordinates()
+> > (pci_host_reset_root_port()).
+> > 
+> > All in all, the docs sound like endpoints _should_ have control over
+> > whether we exercise a full port/slot reset for all types of errors. But
+> > in practice, we do not actually give it that control. i.e., your commit
+> > message is correct, and the docs are not.
+> > 
+> > I have half a mind to suggest the appended change, so the behavior
+> > matches (some of) the docs a little better [1].
+> 
+> A change similar to the one you're proposing is already queued on the
+> pci/aer topic branch for v6.18:
+> 
+> https://git.kernel.org/pci/pci/c/d0a2dee7d458
 
-configs tested: 195
-configs skipped: 4
+Wow, nice coincidence. It's a reminder I should work off the maintainer
+/ -next branch, instead of just mainline...
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+> Here's the corresponding cover letter:
+> 
+> https://lore.kernel.org/r/cover.1755008151.git.lukas@wunner.de
+> 
+> There was a discussion why I didn't take the exact same approach you're
+> proposing, but only a similar one:
+> 
+> https://lore.kernel.org/r/aJ2uE6v46Zib30Jh@wunner.de
+> https://lore.kernel.org/r/aKHWf3L0NCl_CET5@wunner.de
 
-tested configs:
-alpha                             allnoconfig    clang-22
-alpha                             allnoconfig    gcc-15.1.0
-alpha                            allyesconfig    clang-19
-alpha                            allyesconfig    gcc-15.1.0
-alpha                               defconfig    clang-19
-arc                              allmodconfig    clang-19
-arc                              allmodconfig    gcc-15.1.0
-arc                               allnoconfig    clang-22
-arc                               allnoconfig    gcc-15.1.0
-arc                              allyesconfig    clang-19
-arc                              allyesconfig    gcc-15.1.0
-arc                                 defconfig    clang-19
-arc                         haps_hs_defconfig    gcc-15.1.0
-arc                   randconfig-001-20250829    gcc-12.5.0
-arc                   randconfig-001-20250829    gcc-8.5.0
-arc                   randconfig-002-20250829    gcc-10.5.0
-arc                   randconfig-002-20250829    gcc-12.5.0
-arm                              allmodconfig    clang-19
-arm                              allmodconfig    gcc-15.1.0
-arm                               allnoconfig    clang-22
-arm                              allyesconfig    clang-19
-arm                              allyesconfig    gcc-15.1.0
-arm                                 defconfig    clang-19
-arm                          exynos_defconfig    gcc-15.1.0
-arm                          ixp4xx_defconfig    gcc-15.1.0
-arm                         lpc18xx_defconfig    gcc-15.1.0
-arm                   randconfig-001-20250829    gcc-10.5.0
-arm                   randconfig-001-20250829    gcc-12.5.0
-arm                   randconfig-002-20250829    clang-22
-arm                   randconfig-002-20250829    gcc-12.5.0
-arm                   randconfig-003-20250829    clang-22
-arm                   randconfig-003-20250829    gcc-12.5.0
-arm                   randconfig-004-20250829    clang-22
-arm                   randconfig-004-20250829    gcc-12.5.0
-arm64                            allmodconfig    clang-19
-arm64                             allnoconfig    clang-22
-arm64                             allnoconfig    gcc-15.1.0
-arm64                               defconfig    clang-19
-arm64                 randconfig-001-20250829    clang-22
-arm64                 randconfig-001-20250829    gcc-12.5.0
-arm64                 randconfig-002-20250829    gcc-12.5.0
-arm64                 randconfig-003-20250829    clang-22
-arm64                 randconfig-003-20250829    gcc-12.5.0
-arm64                 randconfig-004-20250829    gcc-12.5.0
-arm64                 randconfig-004-20250829    gcc-9.5.0
-csky                              allnoconfig    clang-22
-csky                              allnoconfig    gcc-15.1.0
-csky                                defconfig    clang-19
-csky                  randconfig-001-20250829    clang-22
-csky                  randconfig-001-20250829    gcc-9.5.0
-csky                  randconfig-002-20250829    clang-22
-csky                  randconfig-002-20250829    gcc-10.5.0
-hexagon                          allmodconfig    clang-17
-hexagon                          allmodconfig    clang-19
-hexagon                           allnoconfig    clang-22
-hexagon                          allyesconfig    clang-19
-hexagon                          allyesconfig    clang-22
-hexagon                             defconfig    clang-19
-hexagon               randconfig-001-20250829    clang-22
-hexagon               randconfig-002-20250829    clang-22
-i386                             allmodconfig    clang-20
-i386                             allmodconfig    gcc-12
-i386                              allnoconfig    clang-20
-i386                              allnoconfig    gcc-12
-i386                             allyesconfig    clang-20
-i386                             allyesconfig    gcc-12
-i386        buildonly-randconfig-001-20250829    clang-20
-i386        buildonly-randconfig-001-20250829    gcc-12
-i386        buildonly-randconfig-002-20250829    clang-20
-i386        buildonly-randconfig-003-20250829    clang-20
-i386        buildonly-randconfig-004-20250829    clang-20
-i386        buildonly-randconfig-005-20250829    clang-20
-i386        buildonly-randconfig-005-20250829    gcc-12
-i386        buildonly-randconfig-006-20250829    clang-20
-i386                                defconfig    clang-20
-i386                  randconfig-001-20250829    clang-20
-i386                  randconfig-002-20250829    clang-20
-i386                  randconfig-003-20250829    clang-20
-i386                  randconfig-004-20250829    clang-20
-i386                  randconfig-005-20250829    clang-20
-i386                  randconfig-006-20250829    clang-20
-i386                  randconfig-007-20250829    clang-20
-i386                  randconfig-011-20250829    clang-20
-i386                  randconfig-012-20250829    clang-20
-i386                  randconfig-013-20250829    clang-20
-i386                  randconfig-014-20250829    clang-20
-i386                  randconfig-015-20250829    clang-20
-i386                  randconfig-016-20250829    clang-20
-i386                  randconfig-017-20250829    clang-20
-loongarch                        allmodconfig    clang-19
-loongarch                         allnoconfig    clang-22
-loongarch                           defconfig    clang-19
-loongarch             randconfig-001-20250829    clang-22
-loongarch             randconfig-002-20250829    clang-22
-m68k                             allmodconfig    clang-19
-m68k                             allmodconfig    gcc-15.1.0
-m68k                              allnoconfig    gcc-15.1.0
-m68k                             allyesconfig    clang-19
-m68k                             allyesconfig    gcc-15.1.0
-m68k                       bvme6000_defconfig    gcc-15.1.0
-m68k                                defconfig    clang-19
-microblaze                       allmodconfig    clang-19
-microblaze                        allnoconfig    gcc-15.1.0
-microblaze                       allyesconfig    clang-19
-microblaze                       allyesconfig    gcc-15.1.0
-microblaze                          defconfig    gcc-15.1.0
-mips                              allnoconfig    gcc-15.1.0
-nios2                             allnoconfig    gcc-11.5.0
-nios2                               defconfig    gcc-11.5.0
-nios2                               defconfig    gcc-15.1.0
-nios2                 randconfig-001-20250829    clang-22
-nios2                 randconfig-001-20250829    gcc-11.5.0
-nios2                 randconfig-002-20250829    clang-22
-nios2                 randconfig-002-20250829    gcc-11.5.0
-openrisc                          allnoconfig    gcc-15.1.0
-openrisc                         allyesconfig    gcc-15.1.0
-openrisc                            defconfig    gcc-12
-parisc                           allmodconfig    gcc-15.1.0
-parisc                            allnoconfig    gcc-15.1.0
-parisc                           allyesconfig    gcc-15.1.0
-parisc                              defconfig    gcc-15.1.0
-parisc                randconfig-001-20250829    clang-22
-parisc                randconfig-001-20250829    gcc-14.3.0
-parisc                randconfig-002-20250829    clang-22
-parisc                randconfig-002-20250829    gcc-8.5.0
-parisc64                            defconfig    gcc-15.1.0
-powerpc                           allnoconfig    gcc-15.1.0
-powerpc                     asp8347_defconfig    gcc-15.1.0
-powerpc                        fsp2_defconfig    gcc-15.1.0
-powerpc               randconfig-001-20250829    clang-22
-powerpc               randconfig-001-20250829    gcc-13.4.0
-powerpc               randconfig-002-20250829    clang-22
-powerpc               randconfig-003-20250829    clang-22
-powerpc               randconfig-003-20250829    gcc-12.5.0
-powerpc64             randconfig-001-20250829    clang-22
-powerpc64             randconfig-002-20250829    clang-22
-powerpc64             randconfig-003-20250829    clang-22
-powerpc64             randconfig-003-20250829    gcc-8.5.0
-riscv                             allnoconfig    gcc-15.1.0
-riscv                               defconfig    gcc-12
-s390                             allmodconfig    clang-18
-s390                              allnoconfig    clang-22
-s390                             allyesconfig    gcc-15.1.0
-s390                                defconfig    gcc-12
-sh                               allmodconfig    gcc-15.1.0
-sh                                allnoconfig    gcc-15.1.0
-sh                               allyesconfig    gcc-15.1.0
-sh                                  defconfig    gcc-12
-sh                 kfr2r09-romimage_defconfig    gcc-15.1.0
-sparc                            allmodconfig    gcc-15.1.0
-sparc                             allnoconfig    gcc-15.1.0
-sparc                               defconfig    gcc-15.1.0
-sparc64                             defconfig    gcc-12
-um                               allmodconfig    clang-19
-um                                allnoconfig    clang-22
-um                               allyesconfig    clang-19
-um                               allyesconfig    gcc-12
-um                                  defconfig    gcc-12
-um                             i386_defconfig    gcc-12
-um                           x86_64_defconfig    gcc-12
-x86_64                            allnoconfig    clang-20
-x86_64                           allyesconfig    clang-20
-x86_64      buildonly-randconfig-001-20250829    clang-20
-x86_64      buildonly-randconfig-001-20250829    gcc-11
-x86_64      buildonly-randconfig-002-20250829    clang-20
-x86_64      buildonly-randconfig-002-20250829    gcc-11
-x86_64      buildonly-randconfig-003-20250829    clang-20
-x86_64      buildonly-randconfig-003-20250829    gcc-12
-x86_64      buildonly-randconfig-004-20250829    clang-20
-x86_64      buildonly-randconfig-005-20250829    clang-20
-x86_64      buildonly-randconfig-006-20250829    clang-20
-x86_64                              defconfig    clang-20
-x86_64                              defconfig    gcc-11
-x86_64                                  kexec    clang-20
-x86_64                randconfig-001-20250829    gcc-12
-x86_64                randconfig-002-20250829    gcc-12
-x86_64                randconfig-003-20250829    gcc-12
-x86_64                randconfig-004-20250829    gcc-12
-x86_64                randconfig-005-20250829    gcc-12
-x86_64                randconfig-006-20250829    gcc-12
-x86_64                randconfig-007-20250829    gcc-12
-x86_64                randconfig-008-20250829    gcc-12
-x86_64                randconfig-071-20250829    clang-20
-x86_64                randconfig-072-20250829    clang-20
-x86_64                randconfig-073-20250829    clang-20
-x86_64                randconfig-074-20250829    clang-20
-x86_64                randconfig-075-20250829    clang-20
-x86_64                randconfig-076-20250829    clang-20
-x86_64                randconfig-077-20250829    clang-20
-x86_64                randconfig-078-20250829    clang-20
-x86_64                               rhel-9.4    clang-20
-x86_64                          rhel-9.4-func    clang-20
-x86_64                    rhel-9.4-kselftests    clang-20
-x86_64                          rhel-9.4-rust    clang-20
-xtensa                            allnoconfig    gcc-15.1.0
+Wow, that's a ton of great background and explanation. Thanks!
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> > Specifically, I'm trying to see what's supposed to happen with
+> > PCI_ERS_RESULT_CAN_RECOVER. I see that for pci_channel_io_frozen, almost
+> > all endpoint drivers return PCI_ERS_RESULT_NEED_RESET, but if drivers
+> > actually return PCI_ERS_RESULT_CAN_RECOVER, it's unclear what should
+> > happen.
+> > 
+> > Today, we don't actually respect it; pcie_do_recovery() just calls
+> > reset_subordinates() (pci_host_reset_root_port()) unconditionally. The
+> > only thing that return code affects is whether we call
+> > report_mmio_enabled() vs report_slot_reset() afterward. This seems odd.
+> 
+> In the series queued on pci/aer, I've only allowed drivers to opt in
+> to a reset on Non-Fatal Errors.  I didn't dare also letting them opt
+> out of a reset on Fatal Errors.
+
+Right, I can see where the latter is risky. Frankly, while I have
+endpoint drivers suggesting they should be able to do this, I'm not sure
+that's a great idea. Or at least, I can see how it would potentially
+break other clients, as you explain.
+
+> These changes of behavior are always risky, so it seemed prudent to not
+> introduce too many changes at once.  There was no urgent need to also
+> change behavior for Fatal Errors for the use case at hand (the xe graphics
+> driver).  I went through all drivers with pci_error_handlers to avoid
+> breaking any of them.  It's very tedious work, takes weeks.  It would
+> be necessary to do that again when changing behavior for Fatal Errors.
+> 
+> pcieaer-howto.rst justifies the unconditional reset on Fatal Errors by
+> saying that the link is unreliable and that a reset is thus required.
+> 
+> On the other hand, pci-error-recovery.rst (which is a few months older
+> than pcieaer-howto.rst) says in section "STEP 3: Link Reset":
+> "This is a PCIe specific step and is done whenever a fatal error has been
+> detected"
+> 
+> I'm wondering if the authors of pcieaer-howto.rst took that at face value
+> and thought they'd *have* to reset the link on Fatal Errors.
+> 
+> Looking through the Fatal Errors in PCIe r7.0 sec 6.2.7, I think a reset
+> is justified for some of them, but optional for others.  Which leads me
+> to believe that the AER driver should actually enforce a reset only for
+> certain Fatal Errors, not all of them.  So this seems like something
+> worth revisiting in the future.
+
+Hmm, possibly. I haven't looked so closely at the details on all Fatal
+Errors, but I may have a look eventually.
+
+> > All in all, the docs sound like endpoints _should_ have control over
+> > whether we exercise a full port/slot reset for all types of errors. But
+> > in practice, we do not actually give it that control. i.e., your commit
+> > message is correct, and the docs are not.
+> 
+> Indeed the documentation is no longer in sync with the code.  I've just
+> submitted a series to rectify that and cc'ed you:
+> 
+> https://lore.kernel.org/r/cover.1756451884.git.lukas@wunner.de
+
+Thanks! I'll try to take a pass at reviewing, but it may not be prompt.
+
+Thanks again for all the info and work here.
+
+Brian
 
