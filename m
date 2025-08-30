@@ -4,79 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C4F6CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 19:34:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F2ADCA0FFE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 19:37:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:From:MIME-Version:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=g9Ms4hIwxfuw6SwTL5RIgMEksEmD8lz0uMx7wT1GeCU=; b=TaKWQIRUinv/8PkANjouGjLcCM
-	7cH8qxBvQHOr6l134K2jX3GqNhmbIZTJaEVB5/R3ldUJPBAA9o+KpX243UEaH9d51flAg0+M4UHbH
-	6Uzpv4h0PIu6caHl23IOPNwJxfR9AjUiy8+S3+teY2cCwE7XcLsKz0Ua1whNoEJfbo25xeoNOgthW
-	3yeldf6wOpj8dnNl0rUs2qW9Iv4PoSE3/FSX4j2a2yHuPLHqlEGicY99DQm7A6RWXnzuNt2SgWxM7
-	aFqUf2k1mKxE9e6F5f4soua0TbS91QU3rOj6y3CTYBH9QvcovtrliEZQV2xDBPLRc76uoa7aE13/B
-	mh883dZg==;
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3rLLJhgYHhQvYp9/eSoMbwWQ9QTJU3+YaixBARoYFc4=; b=0w7Aa9hd0zQMbK+xmBCfaRJx7/
+	owPLki9O4kifk62mYz5e02ZnvQoAOgmBjzLyp8gD7kY+cS6EDt1GeGyd+Y4pdg0vOFgstvBxrW5oD
+	Kzo4DAY4ubFjm8aYi6vHFHaF5BmvsOUPvPT3tu4YgaUkRgSmMR+3+SB/79oT9MzMVu//CC8AZhiLI
+	F9V9Goue8EHZU5W0hWY2nvV7No22RavlaAYaAbaHCMmslZG3hcBUqt6P4qRaiOncUwJFFVKdPvJjA
+	iT/3bsP7SihEw1a4QfztBm4ceeIoStYCrsTfDBZpF7k4FmCuo8y7ZNHuFUZo1YFGRp3dTTjdgV1J0
+	h+HSrbGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usRKy-00000008Mjw-2cSy;
-	Sat, 30 Aug 2025 19:34:08 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1usRNh-00000008MvC-21Ow;
+	Sat, 30 Aug 2025 19:36:57 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usRFq-00000008MJx-1ooH
+	id 1usRGg-00000008MNC-04qy
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 Aug 2025 19:28:51 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-afcb7a7bad8so431893766b.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 12:28:50 -0700 (PDT)
+	Sat, 30 Aug 2025 19:29:43 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-61cd3748c6dso6425957a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 12:29:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756582129; x=1757186929; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:autocrypt:subject:from
-         :content-language:user-agent:mime-version:date:message-id:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=g9Ms4hIwxfuw6SwTL5RIgMEksEmD8lz0uMx7wT1GeCU=;
-        b=Lf9p2O8ah27euTKOR/AxNRNE1f9YuzKIg1sCa/BJXte5iYjnsaZV7ePQDZXHHlQit0
-         5ACvVOyZqmhwvQf17OY439fxBE49oc5DVwRgXOYpCiYx3hPNfGwOZHoZjkCwdnUWIBW4
-         2Mll0WqZkDIrG5gAg2t9yjWcbtwI9GkX1ZN3KxiNipOzhEcPiDvGdvgJu4qJ3+1doCxt
-         kMurk5uSOd+1ilCTW0JG/DSlaF96AEev/2jS8jJdattGMNyoMoignMqY2KlwRkxbOzkj
-         zSowXG/W+y+SLRznH0AdKCuMtpZk0/AjI1A/eTRG/UvYxkcagoDJy7xz8Y0FDo3pXQ5y
-         3ewQ==
+        d=gmail.com; s=20230601; t=1756582180; x=1757186980; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=3rLLJhgYHhQvYp9/eSoMbwWQ9QTJU3+YaixBARoYFc4=;
+        b=AK0ObBJhhoYLDcPBEVqsdx87RRX3+lHwQeqISc8mBLl6XYp4Eeib9r79UvK7ikeedd
+         8u/cl3CDzbiDUSGICATUmDtGjeZFQ6ZTAKlVg3Fd0TIEqJcS0hk7a1uRN05Ak4UfiqWw
+         5u+2uDO8xLdYfQgQZ3XjKLldsWnytJ1FSqmrFdxwKMHtziH2tfzbpy5ZLQyGUmv/C+2Q
+         9tfb5WcQDCQyFEwgVbTwAQUpV3QCHvqxKpZWc3+2lcWjMB8ikIpxXgI8yeKFfaIJYMlg
+         i1rpFIL11vfuuIPE1kYzMOxHdUJEG2mX6h6zovS16fAl6xD+NRvRUZLQX6VUUGrVD4Rr
+         CpEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756582129; x=1757186929;
-        h=content-transfer-encoding:cc:to:autocrypt:subject:from
-         :content-language:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=g9Ms4hIwxfuw6SwTL5RIgMEksEmD8lz0uMx7wT1GeCU=;
-        b=AKL0MCM4uuE89EZ9eoajdBG1CU4lI37BBjdtb7nKtdper3U80hUHENoKtmL+4XZbgy
-         z7NPq+TbtA+KbAK8JY5yfGzxoUewg5wHIP0ysSBa2YloMUiq98PMdWJXakTbCAEJO1ju
-         +I1Y5O6Zx8ictUtq10rRGUSkT4H/j3T2pHFVR7YuJPgQmVBBWWt9rX7HIKW0//aMx4xx
-         KDa5VFa4/hALGzvkgNf47sh9taFPASG0bPBu2MeDDbj1AVmMPNZhx4EeikWU31x2zHLT
-         rawW4g3Reik7Gd0Cv+lVFhWX9clqbaLXy0MCj9O1ObNdOfCmlfcRTQwOf5aozOFXhBDr
-         N5cA==
-X-Gm-Message-State: AOJu0YwNY7ApEzToD1Yc9/4rVlhNTcoppxdNbD2bnC31QGjIcKNO5bjT
-	YR8pHqGnQnX7Fw0Tjbwz2JWz4tRTvnVb1dUAruwSgRitrwC+nym1uxaQ
-X-Gm-Gg: ASbGncv+aQ+oi1+wySpwGhQ5m/7dknXRwt0F7i4zQ2ahgL7QUpTkLxk/kWzUNkCXv9U
-	qspUUxwe5YgMR91c58NqyNiBHrAdpbhcCJduNcccEU90wC+BlKooeUOrTQs7ST84b9IcSce1Cf1
-	Dofa1if9K4qDTsuiN9uh3Byz1K+gAvpSKaHbuOTBEo8U3BI260XwiDGAfyHaToKy3Yktx8tXmYX
-	bgYm/EOxuCO0/PcOpRCzuSSJEdWiCjKGc8Ux7I39sAb0+RZkkzIu8ToYO3T+mNefEvI8FWFd9Ha
-	3aqbtAbjrWCSgS4pGnQvl+XlaaKp6+eRmz/Z+MAP+4T9g5csd31Tr4hHUcuK9acHe3uzu2eOHmc
-	tTy/qwjxWzAorpgCDYYOnEz7kTIKD022taXWindk6ZLSOOQnb0qGByKAYJBjCnwCf4s+SfJbwYA
-	/1g7FzWFveGDj8qN5Ita3dVgWU5SBy+FSPiiHvTKVc49qrA7/YmtHvMYYL08n/2ts061w=
-X-Google-Smtp-Source: AGHT+IEJ/Gu/lFJ1aMzBBgxaQ2ogVr5hZIfka5fOlEdx/5pq6/tFR1Jp2zQyF/pR0Gl4mhVXUM6YEA==
-X-Received: by 2002:a17:907:9453:b0:afe:7d3b:846b with SMTP id a640c23a62f3a-b01d8a32453mr167748966b.7.1756582128633;
-        Sat, 30 Aug 2025 12:28:48 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1756582180; x=1757186980;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=3rLLJhgYHhQvYp9/eSoMbwWQ9QTJU3+YaixBARoYFc4=;
+        b=DXNzbPapjW3da0f47VtbmYTAMwtP7C0DL1qV/1uIvFqTP1n+rbZ1wZfQcP4Ld7c5Hf
+         exOwaEG7GySxUgM9MNshbCtq+4hXGG1deedqy/aJw8NSXXQS47GOU4P/8qTj57E6bxq6
+         2d0uFFZeRCkwKkJnYpejH43IPjFUdomgQKE/PX1OfxbnsXIiZUQmMt8ONlPEXs0cmL1H
+         t4nwCj2MWUyOJiKQugNfum4aSCau6fgqYc8BA8O0tTm9v0C3L6+9EQbLJQGKUvqsrHrt
+         PZB2mHS+jXvLHwO6kQMwrkm+DWkiyf552uc8bbYpvKtyIj4sGC3c9YpGhSH8dHZvYWOE
+         twog==
+X-Gm-Message-State: AOJu0Yy+dR5BnW7bmfPzvv69mOpG5o8UeELNyd1Onjv6dgajh1aoyIfk
+	0P+uT8Y7pWEv+Eo/hK1XcfV+gZj6ZTS2fEmN0plu7vOcpu2IpaHsjW4wrqHFiw==
+X-Gm-Gg: ASbGncuz3d2a7CJY3hLLFHSZ3bS+u4FHIsrhp86ABsD6f2LA7tNbppbjr3J4ENsMQ2T
+	cMvYyPCMFrEl0obfJFYh53g5MlKpApIs1DwaG7Kkdq1RYEInGPOHxay2OXqAhTYESs58qDRE3x7
+	4Y2W7tqdkTMsLMwfSQIefisPekLeL+prgtJkpd9kn2ZZllYt1EWBE0/byLvkiPBFzbF5tHLulkB
+	xiImMFVbP4tXBiAnAmZeNLoibuXiWohoYZUO/5qmPqqcJvgoxC2guJ25DvFuaW8j9mkajPHbwGM
+	Uon4neBh05QXclxvKVXkwrEbL6uICtfs1JwKt8GkfQDnIoTQPrIwpkLQlPVZ4P1dRH/fUj1WWRa
+	P6EKJJBFFa0/2XulEt0//fYukPwRD7RKN0ImcnZOiGIRg8wXrnmZ4PeDiFocmm69CwaGCdKrpDB
+	EvaGDoB81FJYXkj5oqSONnvNPsjxQlVNRgk9zG6KA1zsmr5qzv8idELn2i31u0YhP2HyA=
+X-Google-Smtp-Source: AGHT+IHgTaCK0S/XYssZtoOOtOK1Z6TGrDrOyTFbgg7Y/LQnnD+HImLfy3f8OoJe0VxTa+zTeAf8jA==
+X-Received: by 2002:a05:6402:84e:b0:61a:9385:c78b with SMTP id 4fb4d7f45d1cf-61d26ecf561mr2268262a12.38.1756582180303;
+        Sat, 30 Aug 2025 12:29:40 -0700 (PDT)
 Received: from ?IPV6:2003:ea:8f2f:9b00:d113:449:b8c4:341? (p200300ea8f2f9b00d1130449b8c40341.dip0.t-ipconnect.de. [2003:ea:8f2f:9b00:d113:449:b8c4:341])
-        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-afefca08b41sm465104766b.25.2025.08.30.12.28.47
+        by smtp.googlemail.com with ESMTPSA id 4fb4d7f45d1cf-61cfc4bbca5sm3994735a12.31.2025.08.30.12.29.38
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 30 Aug 2025 12:28:48 -0700 (PDT)
-Message-ID: <cd55d7fb-6600-49e5-a772-18b39811b0d2@gmail.com>
-Date: Sat, 30 Aug 2025 21:28:46 +0200
+        Sat, 30 Aug 2025 12:29:39 -0700 (PDT)
+Message-ID: <2211c0aa-c343-4930-9f7d-5d8058017d7c@gmail.com>
+Date: Sat, 30 Aug 2025 21:29:37 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Content-Language: en-US
+Subject: [PATCH v2 net-next 1/5] arm64: dts: ls1043a-qds: switch to new
+ fixed-link binding
 From: Heiner Kallweit <hkallweit1@gmail.com>
-Subject: [PATCH v2 net-next 0/5] net: phy: remove support for deprecated
- array-style fixed-link binding
+To: Shawn Guo <shawnguo@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Patrice Chotard <patrice.chotard@foss.st.com>,
+ Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ Russell King - ARM Linux <linux@armlinux.org.uk>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Eric Dumazet <edumazet@google.com>, David Miller <davem@davemloft.net>
+Cc: "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "netdev@vger.kernel.org" <netdev@vger.kernel.org>
+References: <cd55d7fb-6600-49e5-a772-18b39811b0d2@gmail.com>
+Content-Language: en-US
 Autocrypt: addr=hkallweit1@gmail.com; keydata=
  xsFNBF/0ZFUBEAC0eZyktSE7ZNO1SFXL6cQ4i4g6Ah3mOUIXSB4pCY5kQ6OLKHh0FlOD5/5/
  sY7IoIouzOjyFdFPnz4Bl3927ClT567hUJJ+SNaFEiJ9vadI6vZm2gcY4ExdIevYHWe1msJF
@@ -120,23 +133,12 @@ Autocrypt: addr=hkallweit1@gmail.com; keydata=
  H/0Z53okMykVs3a8tECPHIxnre2UxKdTbCEkjkR4V6JyplTS47oWMw3zyI7zkaadfzVFBxk2
  lo/Tny+FX1Azea3Ce7oOnRUEZtWSsUidtIjmL8YUQFZYm+JUIgfRmSpMFq8JP4VH43GXpB/S
  OCrl+/xujzvoUBFV/cHKjEQYBxo+MaiQa1U54ykM2W4DnHb1UiEf5xDkFd4=
-To: Shawn Guo <shawnguo@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Patrice Chotard <patrice.chotard@foss.st.com>,
- Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>,
- Russell King - ARM Linux <linux@armlinux.org.uk>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Eric Dumazet <edumazet@google.com>, David Miller <davem@davemloft.net>
-Cc: "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>
+In-Reply-To: <cd55d7fb-6600-49e5-a772-18b39811b0d2@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250830_122850_483001_212D945E 
-X-CRM114-Status: UNSURE (   9.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250830_122942_066649_5AA26857 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,32 +153,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The array-style fixed-link binding has been marked deprecated for more
-than 10 yrs. See e.g. 91c1d980d601 ("Documentation: devicetree: add old
-and deprecated 'fixed-link'") from 2014.
+The old array-type fixed-link binding has been deprecated
+for more than 10 yrs. Switch to the new binding.
 
-So migrate the remaining few in-kernel users of the old binding,
-and remove for it.
-
+Signed-off-by: Heiner Kallweit <hkallweit1@gmail.com>
+---
 v2:
-- fix "Properties must precede subnodes" error in patches 1 and 2
+- fix "Properties must precede subnodes" error
+---
+ arch/arm64/boot/dts/freescale/fsl-ls1043a-qds.dts | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-Heiner Kallweit (5):
-  arm64: dts: ls1043a-qds: switch to new fixed-link binding
-  ARM: dts: ls1021a: switch to new fixed-link binding
-  ARM: dts: st: switch to new fixed-link binding
-  net: mdio: remove support for old fixed-link binding
-  net: phy: phylink: remove support for deprecated fixed-link binding
-
- arch/arm/boot/dts/nxp/ls/ls1021a-iot.dts      |  5 +++-
- arch/arm/boot/dts/st/stih418-b2199.dts        |  5 +++-
- arch/arm/boot/dts/st/stihxxx-b2120.dtsi       |  5 +++-
- .../boot/dts/freescale/fsl-ls1043a-qds.dts    |  5 +++-
- drivers/net/mdio/of_mdio.c                    | 26 -------------------
- drivers/net/phy/phylink.c                     | 25 +-----------------
- 6 files changed, 17 insertions(+), 54 deletions(-)
-
+diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1043a-qds.dts b/arch/arm64/boot/dts/freescale/fsl-ls1043a-qds.dts
+index e850551b1..645588911 100644
+--- a/arch/arm64/boot/dts/freescale/fsl-ls1043a-qds.dts
++++ b/arch/arm64/boot/dts/freescale/fsl-ls1043a-qds.dts
+@@ -205,8 +205,11 @@ ethernet@ea000 {
+ 	};
+ 
+ 	ethernet@f0000 { /* DTSEC9/10GEC1 */
+-		fixed-link = <1 1 10000 0 0>;
+ 		phy-connection-type = "xgmii";
++		fixed-link {
++			speed = <10000>;
++			full-duplex;
++		};
+ 	};
+ };
+ 
 -- 
 2.51.0
+
 
 
