@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E523CA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 10:50:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F00FCCA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 10:52:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WHgH8oy5n+l+ZwlFEabPRf0dx6W3J1c630BijBzFt9g=; b=2Q8D1i92kRn1OoyKdeWpB6IztU
-	uS8isuqN/QV8j14ZCiV59Vwt8yqq/hK9fIflwjYz44SJhJvtpWp5ODY/S+vCIvmjiIeSGBofTLRLw
-	MjMPTM8AWF3ekn7MIdDQkNHgiM9dojLuZsPCdjLhRY5PhJF0YsigRn/Hn7N5y3Fx44kwBu2zXaQz0
-	l5HYuoK5vrp+sn6lD9iuYvYB3P0mO9cqbCj3bJdzkRL89HllAwXvHQZhaHEQME73igf1/y6nzavk1
-	dQkHoaeKNC4OVNmucNmKHsnbGllL8mEWHwoGgVZUI7m97fdXgYTTQldmjXY7quD07f28LTdrsQY+F
-	y1KZUlCQ==;
+	bh=zW9iMTsNFJqzaVU+9Umz/LvOS9lH5xEq/8s2G/XEJxE=; b=Ed7WNHHiazA6gr0OpaVf+n4T8f
+	YiW462A0skVej2w7iSb5bPobKnQUyWU/d/TeC65Ipz68qGoJ+NEtN0aSQ0vGvLotMrTOpgB0E79pP
+	BCnSH691OFXcsisXkFJdLMScvvnRi9WAuQbA2/Km2GxbAuzJzCVxgaHl/V2ktf3gKkBj7Ttlhrj0B
+	k+K7UNRBX0zsubyw+xPMomB9euOGUy+v2IQvO+i+cOkwsuYzj9BF/nl6Nue1Qtr5C6v+KiUadmwBD
+	wJmqycy37q1rnhM8YLnXrC+oppWdVa3HJ5b63DwfpJ8Pfuwt5Tc+d+kIT4VYOvWZskVVqTOdGFT/d
+	Bc3CHIzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usJ9j-00000007lLp-1NBY;
-	Sat, 30 Aug 2025 10:49:59 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1usJCR-00000007lUZ-0TFX;
+	Sat, 30 Aug 2025 10:52:47 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usIpH-00000007k81-1VHy
+	id 1usIqA-00000007kAV-30Ru
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 Aug 2025 10:28:52 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3d1bf79d75aso143504f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 03:28:51 -0700 (PDT)
+	Sat, 30 Aug 2025 10:29:47 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-61cbfa1d820so5588349a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 03:29:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756549730; x=1757154530; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1756549785; x=1757154585; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :references:cc:to:from:subject:user-agent:mime-version:date
          :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=WHgH8oy5n+l+ZwlFEabPRf0dx6W3J1c630BijBzFt9g=;
-        b=B9i4aN2gOrezFCn5hxo2gwAnTiF95z+KRcgx1XGNr1LGBxN52hu1n9lcy5BgSxmS54
-         uYkyP8g6cteN/BAtffA3sfKQTAmvGMvBcpboFbfLyfo5H4aqt+Fe4DbNgtaQ6KnW/nrL
-         vuccBcrbQeQ+G2PAsxsZ661vkI/J41Nwx+imh10JPC4KF1r1pZzDxDcv3vDZNbeJ9S3+
-         phYT7Rqrnf9jisLb/qu2JviMf5/orGmytEJgeCsj9J1bAoqQTQzd2MFuTZl6lbZ3MqQ8
-         vb0Vvm6hR0bDXX3GQNLgdTZRXtPTIVAtlVWZbIdQm0C+jgOUDZGHD8wi870dRo3EQ3HH
-         k7Xw==
+        bh=zW9iMTsNFJqzaVU+9Umz/LvOS9lH5xEq/8s2G/XEJxE=;
+        b=euJBKjbZu1n4rs1EVeYrBHW6n1xEI2qrrq2V9Ffp9HfT2q6MRKc6henIuOTrGgxx+Y
+         syZLY12IwPhn6o0Nf29AzhM01ReqHCzZUK9bfrqOiBtlWTjIv0IEX6gsas+hefOydUKX
+         8Y6rAsG+mEFuofdU4Shzx0A9G4MU4/bflMjSaXKBRYdgBhkQxfhFNUkGQ3apGGz2MUyb
+         qshbbC8bcEmf40eT+JD4K+u2zw8BHrElEo770Y7JGOVA7831etnA+94cdhA4WGb8KfGR
+         0zpvN115wwZtKBsv1bQCudldLqelDhBe9lWEFYe2//r3lgMiThcBusYkAdyg8QAh6uO3
+         dw9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756549730; x=1757154530;
+        d=1e100.net; s=20230601; t=1756549785; x=1757154585;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :references:cc:to:from:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=WHgH8oy5n+l+ZwlFEabPRf0dx6W3J1c630BijBzFt9g=;
-        b=pZSxGxUDHFjY0qCVT6OcbFTJEaZN+6EI120NWtzc998FwEG1EIa/auDUfUgNwNkjni
-         +BmuIW7rBNq4PflKyM8U5TlmOhAQuHp6FClBsw8ElYElcOQqPrakrBbRTHK18tC6vDyE
-         l8hWacWJLSBxa3YYVa4SioVWdx04m5/vWdqg285h9eJLmvWEjbkIme37aI28m9lvjW9W
-         B2/EggGAn67NKhrEn0T+IEDSCmVSpkE0I1k+plcYYr+CU/KWoRU+E3758wwjCz7S13Mn
-         aWUyFy47bsPovy9wZSfyE1GoOD0dq3BcfVBWBK1M3/1UgQTakE3b4G1Uimj26AojxwPZ
-         ARoQ==
-X-Gm-Message-State: AOJu0Yyp25O7s7/889gUH4EDN+fAqFpkX6Lv02IwMTRD34ZVKz9sbCSo
-	9YxWknfWh5H23sT4IUPewkMJSb/1UVbUoF4H85G3v6kIaw/mc7jxOgia
-X-Gm-Gg: ASbGncs1i4VkSIes2wO18hl4JyeBjuCXmWuxT2rKoDf6mksq9xA0k/RhK4/x6SI1BOw
-	GQ5qcTRsJHjfW6zDT5ssBdO8IH3uOiUTmmCkfoTo0z+p2dZtmS05ANR+kkP+nspy4iUzSBtYQ3w
-	afelfoB3WnWfeMIINtZffG9fYy4u31z/Xi2I8mwEvBQUHPDBFAT8MOqCPiBeOKOmkrx1QUH07lr
-	vFVomoLL3a4NrgMoVq1VVxwuR/Gn3iYuXZ18VegTjiuSPqde+MrLc/gHObz73gFJgCNknwUNM5w
-	px39j4PvPqFJUeFmydwnQQ5GBNw8Y9QOeTVUGMcQ8Mets6Eb6vvIQJvvhPTIT/GmjSQHKR/lTaP
-	cggngOKBN2FbUzFoWLDwCECsN6rQDQxsAbfq3E3Ww1hCsOMDqaW/vg7HRHJophZ5uvcYmVD0dsC
-	6vEo/S4eA4LCjszX5tAd4ZJ7n3/UkJ/6eMDBm4Ir2lXDAmCcAQJhx1AgklAYM4Adpo3zI=
-X-Google-Smtp-Source: AGHT+IHVJCd/+HdJVP9uB4pTqlOmy229F5d8tyap6dwLZFq0cuUVPwza6+iNT3KkXtyV+TvLcVITKQ==
-X-Received: by 2002:a05:6000:250a:b0:3ce:7673:bb30 with SMTP id ffacd0b85a97d-3d1b16f01e5mr1648635f8f.14.1756549729740;
-        Sat, 30 Aug 2025 03:28:49 -0700 (PDT)
+        bh=zW9iMTsNFJqzaVU+9Umz/LvOS9lH5xEq/8s2G/XEJxE=;
+        b=u+TPIzAeq8jtABWrBRRCbitVQab0kf5/MnklXmbKDCFPZnkfmA1zR6HWUNHIXqkGoB
+         fTdc06kzqMW0L/DoXRhL+98gbfOVODSj7xKwgbYNx1Qa2lBsCxxHTxyJESufwZlhDihO
+         6byWPRrCTLuTTxT/eiqytTQ5uEKkr9ANs1g3RYki0QpEISkJTPLEumIEjehvfbyOPwsY
+         mNh4rl3yzCzNS6jjEueCnDYpPiucngc+slp9q2vIuMUPHAkSKVybEeFFgmJPPSDzsvp/
+         MfWYorA9OE8jYyxYRrWytsXmZtGTRbKTY7WKwL8gFmQubNworK+hOj4ZOv1ROIB0xZTI
+         wV/A==
+X-Gm-Message-State: AOJu0YyHW/v8Zhig6sqdF7hnrS41dydPnf/iLOuXkDtPmdDFiK+WZha4
+	R+ApPhYqi9O6YQgWm0FmEQE2t0MHFPKZ4MQxQ90uJcCxu6ku2WHF+6se
+X-Gm-Gg: ASbGncuDqfOI+3RV2DQYXYjJ99K8adhomTtsiDAY0N+6+CSmRshyuXFvp1WxAwzl5Y/
+	JQsDjGstwqAeW60kyGDANT3lCrhtemHU4egH2KlMGg/Gqo92Yn2cgTxEhGxd1zIFq+/pEhI/WU1
+	sCNpHrFH+A3xk05HymMTv57Rq0J4i7U/v4oXbYpYqZZiyI8cEvCqBByxmSOF5CSfxJTH33DyjB0
+	E3XVoLNQhQNewWo3Bqmp1sani91yc1DrZOxe0o4+BWhqM+vYC0ir0Jv0wVUeODS4T4jeGaHh7Vc
+	ioy3Zg1uZlxc3RsE1OYzZnj2ZlUZcYjyZC8BIGf8FvmRzQ5ANYZXM/3FWhkgpLzb5pZsO8xmz8w
+	1rNzU/LWWLme3cFbKXX3fmIuRhM8t7A4HgHTKypBoqIo6FeDmDgvYSPOdIhtAfCwPxgAcwNLt1Q
+	e3JPJ75SPfux9H3RWYILh8exB3/7QfGqYLYwaeERBxQbSBE7VmVDi6Ooes
+X-Google-Smtp-Source: AGHT+IGdeSzlz//5vitphrudTeLP3+ohGqqg8AR+C2VuNQVE861iGJnmaLhDcyecyp7lhX1sBovH7A==
+X-Received: by 2002:a05:6402:2714:b0:61b:cadd:d95 with SMTP id 4fb4d7f45d1cf-61d269974c9mr1189801a12.8.1756549785008;
+        Sat, 30 Aug 2025 03:29:45 -0700 (PDT)
 Received: from ?IPV6:2003:ea:8f2f:9b00:80c:a2fc:7bcf:3a2? (p200300ea8f2f9b00080ca2fc7bcf03a2.dip0.t-ipconnect.de. [2003:ea:8f2f:9b00:80c:a2fc:7bcf:3a2])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3cf276cc915sm6584706f8f.21.2025.08.30.03.28.48
+        by smtp.googlemail.com with ESMTPSA id 4fb4d7f45d1cf-61cfc21542asm3234360a12.18.2025.08.30.03.29.44
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 30 Aug 2025 03:28:49 -0700 (PDT)
-Message-ID: <e5fec041-14b8-46ba-9302-25c34a30241f@gmail.com>
-Date: Sat, 30 Aug 2025 12:28:59 +0200
+        Sat, 30 Aug 2025 03:29:44 -0700 (PDT)
+Message-ID: <1d6eeae6-96c9-4c25-a250-01fb7580c9be@gmail.com>
+Date: Sat, 30 Aug 2025 12:29:54 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: [PATCH net-next 3/5] ARM: dts: st: switch to new fixed-link binding
+Subject: [PATCH net-next 4/5] net: mdio: remove support for old fixed-link
+ binding
 From: Heiner Kallweit <hkallweit1@gmail.com>
 To: Shawn Guo <shawnguo@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
@@ -136,8 +137,8 @@ In-Reply-To: <a3c2f8d3-36e6-4411-9526-78abbc60e1da@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250830_032851_414754_803B2B3F 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20250830_032946_799615_D8F65C37 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,46 +154,84 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 The old array-type fixed-link binding has been deprecated
-for more than 10 yrs. Switch to the new binding.
+for more than 10 yrs. So remove support for it.
 
 Signed-off-by: Heiner Kallweit <hkallweit1@gmail.com>
 ---
- arch/arm/boot/dts/st/stih418-b2199.dts  | 5 ++++-
- arch/arm/boot/dts/st/stihxxx-b2120.dtsi | 5 ++++-
- 2 files changed, 8 insertions(+), 2 deletions(-)
+ drivers/net/mdio/of_mdio.c | 26 --------------------------
+ 1 file changed, 26 deletions(-)
 
-diff --git a/arch/arm/boot/dts/st/stih418-b2199.dts b/arch/arm/boot/dts/st/stih418-b2199.dts
-index 53ac6c2b7..5231222b7 100644
---- a/arch/arm/boot/dts/st/stih418-b2199.dts
-+++ b/arch/arm/boot/dts/st/stih418-b2199.dts
-@@ -103,7 +103,10 @@ ethernet0: dwmac@9630000 {
- 			st,tx-retime-src = "clkgen";
- 			status = "okay";
- 			phy-mode = "rgmii";
--			fixed-link = <0 1 1000 0 0>;
-+			fixed-link {
-+				speed = <1000>;
-+				full-duplex;
-+			};
- 		};
- 	};
- };
-diff --git a/arch/arm/boot/dts/st/stihxxx-b2120.dtsi b/arch/arm/boot/dts/st/stihxxx-b2120.dtsi
-index 8d9a2dfa7..f45c65544 100644
---- a/arch/arm/boot/dts/st/stihxxx-b2120.dtsi
-+++ b/arch/arm/boot/dts/st/stihxxx-b2120.dtsi
-@@ -147,7 +147,10 @@ ethernet0: dwmac@9630000 {
- 			st,tx-retime-src = "clkgen";
- 			status = "okay";
- 			phy-mode = "rgmii";
--			fixed-link = <0 1 1000 0 0>;
-+			fixed-link {
-+				speed = <1000>;
-+				full-duplex;
-+			};
- 		};
+diff --git a/drivers/net/mdio/of_mdio.c b/drivers/net/mdio/of_mdio.c
+index d8ca63ed8..5df01717a 100644
+--- a/drivers/net/mdio/of_mdio.c
++++ b/drivers/net/mdio/of_mdio.c
+@@ -379,21 +379,12 @@ struct phy_device *of_phy_get_and_connect(struct net_device *dev,
+ }
+ EXPORT_SYMBOL(of_phy_get_and_connect);
  
- 		demux@8a20000 {
+-/*
+- * of_phy_is_fixed_link() and of_phy_register_fixed_link() must
+- * support two DT bindings:
+- * - the old DT binding, where 'fixed-link' was a property with 5
+- *   cells encoding various information about the fixed PHY
+- * - the new DT binding, where 'fixed-link' is a sub-node of the
+- *   Ethernet device.
+- */
+ bool of_phy_is_fixed_link(struct device_node *np)
+ {
+ 	struct device_node *dn;
+ 	int err;
+ 	const char *managed;
+ 
+-	/* New binding */
+ 	dn = of_get_child_by_name(np, "fixed-link");
+ 	if (dn) {
+ 		of_node_put(dn);
+@@ -404,10 +395,6 @@ bool of_phy_is_fixed_link(struct device_node *np)
+ 	if (err == 0 && strcmp(managed, "auto") != 0)
+ 		return true;
+ 
+-	/* Old binding */
+-	if (of_property_count_u32_elems(np, "fixed-link") == 5)
+-		return true;
+-
+ 	return false;
+ }
+ EXPORT_SYMBOL(of_phy_is_fixed_link);
+@@ -416,7 +403,6 @@ int of_phy_register_fixed_link(struct device_node *np)
+ {
+ 	struct fixed_phy_status status = {};
+ 	struct device_node *fixed_link_node;
+-	u32 fixed_link_prop[5];
+ 	const char *managed;
+ 
+ 	if (of_property_read_string(np, "managed", &managed) == 0 &&
+@@ -425,7 +411,6 @@ int of_phy_register_fixed_link(struct device_node *np)
+ 		goto register_phy;
+ 	}
+ 
+-	/* New binding */
+ 	fixed_link_node = of_get_child_by_name(np, "fixed-link");
+ 	if (fixed_link_node) {
+ 		status.link = 1;
+@@ -444,17 +429,6 @@ int of_phy_register_fixed_link(struct device_node *np)
+ 		goto register_phy;
+ 	}
+ 
+-	/* Old binding */
+-	if (of_property_read_u32_array(np, "fixed-link", fixed_link_prop,
+-				       ARRAY_SIZE(fixed_link_prop)) == 0) {
+-		status.link = 1;
+-		status.duplex = fixed_link_prop[1];
+-		status.speed  = fixed_link_prop[2];
+-		status.pause  = fixed_link_prop[3];
+-		status.asym_pause = fixed_link_prop[4];
+-		goto register_phy;
+-	}
+-
+ 	return -ENODEV;
+ 
+ register_phy:
 -- 
 2.51.0
 
