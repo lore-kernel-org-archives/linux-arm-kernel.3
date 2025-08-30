@@ -4,74 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B2AECA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 20:59:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 029D3CA0FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 21:14:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CdVeq+DH8Ok61ytouQu7G9Bwf3CEvXSVj4Eaz6xQmas=; b=lIxA+SGTyB9nR/eLuLBNZ5FBKD
-	QGJ3LHBOrKDSUGIRGp+ZlD726mUZ/HQ6CX23w3V2XlKlcAPxiFau7mc3y1rIwzGO72UE7Jrz0R0+w
-	R87IzDi30fmjEnwPNvdgb5xSU6Cg/b56aMBKD79s8IHS8K3MdxHIpUGFhNXFCsYgBCsQJXUfrJl1D
-	D95idIdFiAm1qYImV6TFtCjyHe/dxZzsv+LZGJvnO5NJv1G032o+I9QdVQfQVAsUstX8lKYrWh5FI
-	Bsz/4IJ5XomOhxR1EjLPEhYy82k5nqQpOdNj2zGZszIHp1C9KMlhvg4Vydpv5WwI/5slM9T74SE7p
-	S+scDLjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Muhbc/JF15c2mXhAE2ivU7Ll5S6D61f7q/qUwIHRK0c=; b=nDUYoFUjuS2CEBlVHjSRzVFc/M
+	4X5omPY7BQEDhD+XjSkcYm/hAQV40pkQRHUQUL8UHz7DzuTMSQH4CMv2PbNPSKJOCBMO5QAZN3zFN
+	Pvw7BNqFv6UWjWSRLbnfYOnQxxEeN2CkvUv0PxtCUCTIH3ZiS3P5IqSokSRbQgTOq/JwYhyjSxnLG
+	HYFHCpvwBLnQ0iy+l32zICWdfUA3VQfyxzkCaOKYsPyDkfd3JdM8MVQFdA35uDMyfhn6HVOFFyMsL
+	z825nGgy0rJLS4WWx7Ysl262R5FDyAt6tANApVlH1PBiucK2ZrXv6c6YCTM7YwKKFuUxSrP3at/D+
+	8yDxbl7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usSfM-00000008QjK-1QX7;
-	Sat, 30 Aug 2025 20:59:16 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1usStb-00000008RI6-1Dlm;
+	Sat, 30 Aug 2025 21:13:59 +0000
+Received: from chumsalmon.baetis.net ([2001:19f0:5:5b58:5400:5ff:fe17:97e8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usScb-00000008QVa-2a1M;
-	Sat, 30 Aug 2025 20:56:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1756587368; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=C80znvS6HLmQAR2Xqx2p569m7XK5YZhrcbQcKf/Yn94kJSD2gp1i0Rz4AZAC5ruC+LyUVfwavPbr0CNUuC9Ph0LaVbjwoxIt14uKkgCjit+yDbimkUj59ED/q9Y21J05sYFRnkRn0o4d2h6b52IAjM8lsct85yZdszmg0ntznvc=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1756587368; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=CdVeq+DH8Ok61ytouQu7G9Bwf3CEvXSVj4Eaz6xQmas=; 
-	b=e5vzX8Chj+/Lu12XCMK5TohKDcIYhhgxnvS0ofRnlz9o7UpVmcyCuXGokdTN1TJIavEk4QVklmLfWMl948BnoPDR8CRaokzBhw5SFlpAl+hXDW8sDjxD4/aGMBn/Z8CEpYElmvMXXxyVUmNCbSPuFObsnO6Em4oXbF5JCFJLKAE=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1756587368;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=CdVeq+DH8Ok61ytouQu7G9Bwf3CEvXSVj4Eaz6xQmas=;
-	b=KpA68xaPVh5VW42eEhcQOtvZo3Q3fZSv+V5Dt+9oiUS7gwaqusjKNf2maGPpjrGD
-	3uZBq/0EnVtpM6r7oedBPZYQcCFNtQJprZllgSAVLoZKP6CllbYgHqDR4KUNFHw0I/b
-	ygIU22VEXNh59NC7KnzcHpwgqKvEiXsXx78WT0A8=
-Received: by mx.zohomail.com with SMTPS id 1756587363738235.87912575851544;
-	Sat, 30 Aug 2025 13:56:03 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id C76E4180F91; Sat, 30 Aug 2025 22:55:58 +0200 (CEST)
-Date: Sat, 30 Aug 2025 22:55:58 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Damon Ding <damon.ding@rock-chips.com>
-Cc: heiko@sntech.de, andy.yan@rock-chips.com, hjc@rock-chips.com, 
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, 
-	simona@ffwll.ch, dmitry.baryshkov@oss.qualcomm.com, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] drm/rockchip: analogix_dp: Apply
- devm_clk_get_optional() for &rockchip_dp_device.grfclk
-Message-ID: <vtpva7fgzwgde3sgtjir4ckns2yak7kmrumgccutwbupyqxyjt@zmxbatrhiaoo>
-References: <20250824065441.3220852-1-damon.ding@rock-chips.com>
+	id 1usSqo-00000008RF6-2Hkp;
+	Sat, 30 Aug 2025 21:11:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=tahomasoft.com;
+	s=default; t=1756588262;
+	bh=w7AeKGA0VAqXrgbfJI3DCCFlApUNfQrCz+BcOLxH0gQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=j/gdM1r0EA03OeVXNxKphWjHsyz+IaNTwplDXwMdBbu2/hCGR7ujHbAnmvglk+ZbF
+	 eL1BWrkxk32VoU+qvjm0ZgqiWBOqfOEPfwh1w2wiqV4Dn9YUknPgbzdjic32exC3Hu
+	 czBkqWQqz0KAXuf8JyC/nshKq+/LkIHlUfvxfElIbJH4w97ojPdKJfMOFT/p/88yA1
+	 QG0iV98PuoZ3+5y0pqkiuOKECjVwi0wSO6IotVtDtnuJJrdeRtkcvg5AiDHBU6dfKx
+	 bq+bf/5jfL0Xm8FEzjOuPIiwtlaST8hj4rVXO/M3drNy1gRxdOMqaksEdJxEedoDGF
+	 1v4W3aGcjXkDA==
+Received: from WahpenayoPeak.tahoma.link (unknown [IPv6:2600:4040:50be:5a04:7b87:89ea:8410:bae3])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by chumsalmon.baetis.net (Postfix) with ESMTPSA id A7E9D27E467;
+	Sat, 30 Aug 2025 21:11:02 +0000 (UTC)
+Date: Sat, 30 Aug 2025 17:11:01 -0400
+From: Erik Beck <xunil@tahomasoft.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Chukun Pan <amadeus@jmu.edu.cn>, Rob Herring <robh@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH 0/4] arm64: dts: rockchip: Add HINLINK H66K/H68K
+Message-ID: <20250830171101.410bd954.xunil@tahomasoft.com>
+In-Reply-To: <175603280227.3445205.12980590537074643035.b4-ty@sntech.de>
+References: <20250818100009.170202-1-amadeus@jmu.edu.cn>
+	<175603280227.3445205.12980590537074643035.b4-ty@sntech.de>
+Organization: Tahoma Soft
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="xhy3y75flbopwu4h"
-Content-Disposition: inline
-In-Reply-To: <20250824065441.3220852-1-damon.ding@rock-chips.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-1.4.3/256.549.67
-X-ZohoMailClient: External
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250830_135625_709268_536A9F22 
-X-CRM114-Status: GOOD (  19.85  )
+X-CRM114-CacheID: sfid-20250830_141106_801270_5CC60945 
+X-CRM114-Status: GOOD (  19.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,90 +76,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun, 24 Aug 2025 12:54:40 +0200
+Heiko Stuebner <heiko@sntech.de> wrote:
 
---xhy3y75flbopwu4h
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2] drm/rockchip: analogix_dp: Apply
- devm_clk_get_optional() for &rockchip_dp_device.grfclk
-MIME-Version: 1.0
+> On Mon, 18 Aug 2025 18:00:05 +0800, Chukun Pan wrote:
+> > The HINLINK H66K and H68K are development boards with the Rockchip
+> > RK3568 SoC. These boards are all SoM plus expansion board structures.
+> > 
+> > Both boards can be booted from eMMC or SD-card using the
+> > U-Boot 2025.07 generic-rk3568 target.
+> > 
+> > The SoM board has CPU, RAM, eMMC and RK809 PMIC.
+> > There is no schematic for this part.
+> > 
+> > [...]  
+> 
+> Applied, thanks!
 
-Hi,
+Hi, apologies in advance if I'm going against protocol, but I'm still really
+new at the techniques for Linux patch development.
 
-On Sun, Aug 24, 2025 at 02:54:41PM +0800, Damon Ding wrote:
-> The "grf" clock is optional for Rockchip eDP controller(RK3399 needs
-> while RK3288 and RK3588 do not).
->=20
-> It can make the code more consice to use devm_clk_get_optional()
-> instead of devm_clk_get() with extra checks.
->=20
-> In addtion, DRM_DEV_ERROR() is replaced by dev_err_probe().
->=20
-> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->=20
-> ------
+As you may recall, I've been working on a similar patch for the nearly
+identical SeeedStudio LinkStar H68K (v1). I found this recent work from
+Chukun earlier today; my work, in part, relied on an offshoot of Chukun's
+work from circa 2022 and other inspirations from other rk3568 boards. 
+(See
+https://lore.kernel.org/linux-devicetree/20250723135008.1077970-1-amadeus@jmu.edu.cn/
+for example.)
 
-Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+Chukun's work from 18 August 2025 is better and more complete than where my
+code currently is, with one exception: the gmac0/1 phy-modes.
 
--- Sebastian
+As I worked on my dts, I discovered that the 1Gb ethernet ports, using an
+RTL8211, don't support rgmii-id mode; only rgmii.
+(https://www.realtek.com/Product/Index?id=3976&cate_id=786). 
 
->=20
-> Changes in v2:
-> - Replace DRM_DEV_ERROR() with dev_err_probe().
-> ---
->  drivers/gpu/drm/rockchip/analogix_dp-rockchip.c | 12 +++---------
->  1 file changed, 3 insertions(+), 9 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gp=
-u/drm/rockchip/analogix_dp-rockchip.c
-> index d30f0983a53a..937f83cf42fc 100644
-> --- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-> +++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-> @@ -335,15 +335,9 @@ static int rockchip_dp_of_probe(struct rockchip_dp_d=
-evice *dp)
->  		return PTR_ERR(dp->grf);
->  	}
-> =20
-> -	dp->grfclk =3D devm_clk_get(dev, "grf");
-> -	if (PTR_ERR(dp->grfclk) =3D=3D -ENOENT) {
-> -		dp->grfclk =3D NULL;
-> -	} else if (PTR_ERR(dp->grfclk) =3D=3D -EPROBE_DEFER) {
-> -		return -EPROBE_DEFER;
-> -	} else if (IS_ERR(dp->grfclk)) {
-> -		DRM_DEV_ERROR(dev, "failed to get grf clock\n");
-> -		return PTR_ERR(dp->grfclk);
-> -	}
-> +	dp->grfclk =3D devm_clk_get_optional(dev, "grf");
-> +	if (IS_ERR(dp->grfclk))
-> +		return dev_err_probe(dev, PTR_ERR(dp->grfclk), "failed to get grf cloc=
-k\n");
-> =20
->  	dp->pclk =3D devm_clk_get(dev, "pclk");
->  	if (IS_ERR(dp->pclk)) {
-> --=20
-> 2.34.1
->=20
+Changing this makes a huge difference in the ethernet throughput speed. With
+rgmii-id mode specified, throughput is about 6.5 Mbs. Changing this to rgmii
+mode increases throughput to about 960 Mbs. 
 
---xhy3y75flbopwu4h
-Content-Type: application/pgp-signature; name="signature.asc"
+I tested this on Chukun's code by making that change, and essentially
+backporting to my OpenWRT testing profile, using kernel 6.12 and U-Boot 25.04
+(also backporting the Hinlink dts to U-Boot).
 
------BEGIN PGP SIGNATURE-----
+I saw this over 100x speed difference both with my tree and Chukun's. 
 
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmizZVoACgkQ2O7X88g7
-+ppybRAAnuprNlS3e0DxWGjBWmgQes7KWMOHGqPxrwx+w7DGlx8UwANysNrj+7TP
-/WxUb7x9RoWqCkAQp+eZViVcWT9KJKwCiygwG8Y7Qs6yPOQF+totPtFOSjQjV5U1
-seRfhDHhOBF3tlOE6lu1sdaywS8sDetN93iFsXVrPVIPXMHwFuYRIM/RSK9v3tp/
-9kSs5cV7QqSAH1YPEVX3HKhbywFixMqld4EWpBz2/uPsS6jyqwo4FgrGoTfEoT0m
-o+Mys/Hzl/LxueJF6gn0FC6FGUxd7Jwi5bvkq4Hlyubn+Bb0/ouZJGrhuo8JIpcV
-W159aRLupmAb4Sh+NhPUjImDxjtsvoFCM7m64XUTxNsdxwFjEBujk84gYa/hjd9M
-P+PZb4HeEzU66JUK/1scp0yGGnXtOM+ZIM186VwIgfGVtqgLmGGswk5Fl0wPZGTn
-MqWMHE82iHMfWBOEhmIXMCLF5mOVwpFoFjcftc//2Ko80A27VPgCpzJcf9TXdJ7/
-FrZ1PPPfGO1JCLIXRrfXU45OH45xkuZZK55BRyb8TaAzsJ/2tpPCjjcRyJp/znWT
-GE2l+eWMNRwPGya3WhC4EOFyXmeTnfNtUhUa60XuINCfJjICM3P+dGtOrBS4lyM8
-+MIwGalFj1Odm+lZeHbIQUXJSxVb0IF/Z2SPEwS/ZztVMsuEbAM=
-=pWI8
------END PGP SIGNATURE-----
+I'll make a note of this in Chukun's patch email for the dts shortly.
 
---xhy3y75flbopwu4h--
+I'd like to help support further development of the HinLink/Linkstar patches,
+and am happy to base whatever assistance I can provide off Chukun's work. 
+
+Please advise on how I can best contribute.
+
+Regards,
+
+Erik
+
+> 
+> [1/4] dt-bindings: vendor-prefixes: Add HINLINK
+>       commit: 7d11b8c260ea68ce8f420ad467b04b21ea34b011
+> [2/4] dt-bindings: arm: rockchip: Add HINLINK H66K / H68K
+>       commit: 4bef07b79ab1ef7d963eaa2c37948030e418d538
+> [3/4] arm64: dts: rockchip: Add HINLINK H68K
+>       commit: 86a504b82f8d0e34f99ab9607712e7942c919fa3
+> [4/4] arm64: dts: rockchip: Add HINLINK H66K
+>       commit: bb9ef44f05c9558d58e3c9da141e93af1aa11c1f
+> 
+> Best regards,
+
 
