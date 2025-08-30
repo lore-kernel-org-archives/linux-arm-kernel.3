@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A57BCA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 16:34:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98A88CA0FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 16:37:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1JB3/HRxiAmtWh+pEgNnmHQKJRpUH6uuEO8MQvS3SDQ=; b=m8XGKmICv2bryQMBWoSpbd++7Q
-	b9rUGujKhWhvddEQ7IP5Vu5VwRW6F7R2w+w0FOpxzwwZr75fXQp6bH/s1F8rWh+FoQp21sKK++3IV
-	Sco/pxtFMYVGhdI5CVxtgUQOJkizAsPmENbI4KvLvzucFCcfhaGH3X89C07FvkE5B4Tzv+FV4bW+n
-	l/ZFsV91uX8OPHBa1qQ88SxjzhmoutXeGcakdPs/5QkKt23kpdNhpbDFO4jrGB81t8E4wQkFln4HG
-	TnadjQWU8kibEp1WW3SH/B3kkOolsQ4BpTanObOWyZHa9QQeAorCeEMkV0+4QctF3EnQGzYBuCk8O
-	sHh2YINw==;
+	bh=l20Ejg3eGN0MMaA6lUsOBsRKWq9HxWnc6pYE73v7Hlc=; b=U8qmWTCfxr3zghtgc9QXRFuR7p
+	43p/OefxU1asAT8QIXsgNahZ6+8udEn3geVf94rfJQb66PGR96Y+7E3kGRzE4IUOvkmpCYycDVrj4
+	kB6//XqB+XzAExU7dGHfEAkhrpAWXTBTjzxKeNaBBX3Omk2U+YN6qmgjrodj4JGoxQfxAVViV7vKj
+	2+/8O64hA2HpJx7sob+AAt3878NoaCo+HA/g4ybzIsvv+qh7Nh3f/cSUz3rBN3S8/wnyH3FKCqAAV
+	B2wgztJfnwu0jTlWjQPtr9N+kSDbn/+ZgndVen3i+CA3QDX+TkVr0GHI5IvqhCs+eO2mp3KhxfvED
+	wrVxaqsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usOWz-000000088xs-1389;
-	Sat, 30 Aug 2025 16:34:21 +0000
-Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
+	id 1usOZh-0000000898D-0UG6;
+	Sat, 30 Aug 2025 16:37:09 +0000
+Received: from mail-qv1-xf2b.google.com ([2607:f8b0:4864:20::f2b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usORW-000000088Mk-3Ufx
+	id 1usORX-000000088Mo-15bs
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 Aug 2025 16:28:43 +0000
-Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-7fe9eea0d21so85653685a.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 09:28:42 -0700 (PDT)
+	Sat, 30 Aug 2025 16:28:44 +0000
+Received: by mail-qv1-xf2b.google.com with SMTP id 6a1803df08f44-70de042246eso24825236d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 09:28:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20230601; t=1756571322; x=1757176122; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=1JB3/HRxiAmtWh+pEgNnmHQKJRpUH6uuEO8MQvS3SDQ=;
-        b=MDi09tFOmoXEM1/HYbskQzAU3Q3MBLh3jX4X2jbMGKyD6y9yoernyIyHSZfNSsmSXK
-         JSs836qjtRMlk6RGcyaA57i/dLGEeZHP389FbWEGkqPBC4lCQHCVA5PEAitUrG7dranw
-         tX25rrJIVb9yMLxp5f23e2FAB6f0Hn1FmbVNkGMli7OjeJPkr7rLzJEsyMpTSK6xNhkL
-         YPgYN6fRPPzbCQuI4Nc9/GCegmCqh1VqpTJ8RaWYog0aC+g6GPVEBYL+orPuzDzKIKWH
-         PKeqA20T19g1WNx1Cbx9AAxeKqCkdRpRjIFdkdeddId9symUzJOzGWM/Z1e+4yMR4TnI
-         wjOQ==
+        bh=l20Ejg3eGN0MMaA6lUsOBsRKWq9HxWnc6pYE73v7Hlc=;
+        b=j1csIPBOpFU946fHHDvn+4q11mmFGXsOeePHma8ILmhII1Q/B+oOVlrF6d2xvpImtZ
+         aoKYNE/4/UmJv/ffLmf1KT1qgHlVK2cozlYvZ2yvBsKSk95SX5SSUjbOgoVdsYOF3w4N
+         mz11noidcDTH82JcUmnarUg3nMyB7O+T/K54kZZOstr1TI+v7wS8kcT7eHCFKmoXDGsv
+         mn9AecJ5bPRPt9t9dCeCX275TRuBCQvBJRitorcvAsURWaf6FPIaY+E6CkAI7PV108EH
+         2GBelY/jkgCXwKbPBqlK+2r8hFo8R2EdgeJs3tZKbPs1CzH8k1VmdH1rR3zKc8o7CZ3d
+         MARg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20230601; t=1756571322; x=1757176122;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=1JB3/HRxiAmtWh+pEgNnmHQKJRpUH6uuEO8MQvS3SDQ=;
-        b=qt8yXxaE9IHD2+oXGq6y7sqQIsc0f4xCUUmLZtn2js9cmmqkSRzcGAJaGfsXdtnn8y
-         cpMGOJ01ojpzkELQ9W5oqz5phnCaBgBWrBHuyl7GZmsnVA7tczvT9TWmFy4NkpXN6lAQ
-         ycXnKg5svPRLNKMzS2sChaGaOjkEoh9Bq4uh/Gq7Dfj0UY+Zx6VeCGFT6Ukjft5n0BrP
-         XU/V6vLsCkyJxl84KUNSHtP9d0dyE+9jotzXuwjX56TrGMkDD2+aDUgavDtmQJ0d3zOs
-         kAwiji6/gEXIKaAhDCxP9SIkeLad/TcxYJbooiXOsmhWAJvse5KwrH6R7CLNaOFPw+bT
-         IAeQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXUAJEJnc8LP9/njFHm1hYjdz1ltiYvV703YjKKPN1ATZKZjIip8N4MFHUaLLW6iesxnitNP1UZREArPc1CVVwV@lists.infradead.org
-X-Gm-Message-State: AOJu0YzODBdEISXxpXKe8wnYKRXgOYH3TdFzpKZdZDFZSH1UwoiPtc+t
-	aQTHDk3gQrW1/MdMC5DsMcpARlJ9WMDtrEzkEm1coZ5PXf3wIKXKi4M5
-X-Gm-Gg: ASbGncvVP8dqBrda4JwS/Z4xn+3T3/S8KYxBQGfaDbcAMxVrlQnLMQfRB/MyYX2gWHW
-	Wv3huHaC/1Ntb0U502wkfY62IAqBMv1ihJpl/cFjAm8C0Emo710aVi3LtEjTFM9q3jGqQU7GdrM
-	R3io5Wh16KMNCmWt8olJ9e0BUivDCVip5SQYkK6zftngo9qqvhMPF0Ic6D4Zckfg23aUQePCLVu
-	xQ/WjiFd85VNnRPKj5+qs4NLW+AhzfL9hdypbjAz1C7pBYxBi50zaJ5OJhy/JQNA8l8LEHS0pZT
-	XnjxO8k8hM3cvbBrq4nPGZCoZjL3L4W2AZ1lQRHvtVZdQsuNnLtnCtKkfc40UKLclfOw5mnAt6h
-	oeezvnB142hRfqsAHkQcUUmHzudsVstjQ4PAMrQQ=
-X-Google-Smtp-Source: AGHT+IGnhEMMnBdR9lydAVMTUpQDQ/k7ZP81tvaRPU+NFS9Cml/2rz2bOOkl/9gh5lwSLSX/oq8avg==
-X-Received: by 2002:a05:620a:45a3:b0:7f9:c004:42e with SMTP id af79cd13be357-7ff21cfd0demr298897985a.0.1756571321432;
-        Sat, 30 Aug 2025 09:28:41 -0700 (PDT)
+        bh=l20Ejg3eGN0MMaA6lUsOBsRKWq9HxWnc6pYE73v7Hlc=;
+        b=TIsJW75jx8qEniAFjhej96W4WJ/+6kH0EoEnixtPELwyIvVURXCKssa0ESEAHyK3tX
+         3Y3tziM+jRZIVYl0VNj8H6B+ggYt16BDIH3EZDLaHIBDb/xbgT5KaAu/pd+vueBnhwlx
+         ZMcQIAr+v+Tj25N2YXDvAYmLFBjm3j8EBXnKXFCEDoQjl2/HJsTJp0HDywtYyKR5od4L
+         7ITjqR5uNEaN5YArtUeqtc9JKHuRORr9pHJzw5vq/Vljubie2GUJmorr9pDdY6YG7Qop
+         dEVPKnI+hkzhf2ouFPhmSWI0XNqnDe+aNwqdUoEF0vebIUXhqGOxKwW/dUqr0tN6GUll
+         rKiA==
+X-Forwarded-Encrypted: i=1; AJvYcCXPnj3JTnfm2ff1HpfN6H/F0YWCE02ebTu9+aW5zSKbixSGol3JIvUtLimUuSTx9MU/9ChNBzkY0iSG5BWND8lg@lists.infradead.org
+X-Gm-Message-State: AOJu0YyMgDIB9DRXForGxbnLpqokmTSBUT7esFeXVtOUXWTvqESVwOu5
+	1LJj+OE3aa5A6h44Crp0P0a3Lo5e2CHeY3OpX/XGB1STnysyp5SXSTCB
+X-Gm-Gg: ASbGncslXfLopzTuXdyL07dYLSFg7s+DtM2/33u631FlnUIih38B72Cf0jOgi/suT6i
+	jDHLOdByPWyw0LkSS9YDAbDOwiXQvalbWeJc9SyG/kNy3k1M1VAqxOdoBmGRgqGN/MdwgfOM2up
+	8tC7tAfPIvhfdtpuaeFYxZc2XoCWAbmB9MpfSTnXJpD966no4hUUsOccW6qZHuPbJVA1pOvHEp7
+	bjNM/LGsZg4k6XQ82qUPoqyh6H9dwuK+AfJhrAKH2Cw+IBheUnTHbXnjMbVfomyucgxSZ04x+LH
+	jRpfPAVJE08WfJBRU27NEM/sZlMqiD4lpltLN00bJKVE8BZrDA/fBqtwIPgEIc09YvU24QDwATd
+	tqzmLAyE7tnw2SMQW5nJAb0Np/MdP
+X-Google-Smtp-Source: AGHT+IGgD56T8rFSPjDXiXJt9jRvp9L/KlBHuDxS4C1LX1Fq+IuTna6soZQ73OXkifSOFU1gsKQr4w==
+X-Received: by 2002:ad4:5aac:0:b0:70d:ea79:b37f with SMTP id 6a1803df08f44-70fac940ad0mr26642316d6.62.1756571322175;
+        Sat, 30 Aug 2025 09:28:42 -0700 (PDT)
 Received: from [127.0.0.1] ([74.249.85.195])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-70fb28b5a26sm8110786d6.64.2025.08.30.09.28.40
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-70fb28b5a26sm8110786d6.64.2025.08.30.09.28.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Sat, 30 Aug 2025 09:28:41 -0700 (PDT)
 From: Denzeel Oliva <wachiturroxd150@gmail.com>
-Date: Sat, 30 Aug 2025 16:28:38 +0000
-Subject: [PATCH v5 1/5] clk: samsung: exynos990: Use PLL_CON0 for PLL
- parent muxes
+Date: Sat, 30 Aug 2025 16:28:39 +0000
+Subject: [PATCH v5 2/5] clk: samsung: exynos990: Fix CMU_TOP mux/div bit
+ widths
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250830-fix-cmu-top-v5-1-7c62f608309e@gmail.com>
+Message-Id: <20250830-fix-cmu-top-v5-2-7c62f608309e@gmail.com>
 References: <20250830-fix-cmu-top-v5-0-7c62f608309e@gmail.com>
 In-Reply-To: <20250830-fix-cmu-top-v5-0-7c62f608309e@gmail.com>
 To: Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -89,16 +89,16 @@ Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  devicetree@vger.kernel.org, Denzeel Oliva <wachiturroxd150@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756571319; l=2137;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1756571319; l=4124;
  i=wachiturroxd150@gmail.com; s=20250830; h=from:subject:message-id;
- bh=6yax87RqbvYF0ActasAJerhVa1SUTvfy73gnHEk7z9c=;
- b=BCbvIMxI7eRG7Yukaw4ERMJfQIzWK6VhM8NKMcnXh5upDYGzAtOTPVieAzFHIx6K4czcLEYoe
- JleTq1TdQLJDxq4lWQ+TFncQfCy35ey6m1XL8S3pVNDC2U2WTA4BgnJ
+ bh=eG/sqPWtkgzTsSio4RUmLrcfnT+7wa1K05i+7zQ30C0=;
+ b=FqjDR3kxtVKWkMfPKMbdpzUivCRJC3agpWnZo2mbw7MmxwpKp79EfVLlkbkY6Ra3EANpcmECo
+ VBq21rBMxfvBgeU+JMbz66hcgPA7l2PO7aR/GL7yTt0oef4SE7Q2n7n
 X-Developer-Key: i=wachiturroxd150@gmail.com; a=ed25519;
  pk=rxHEBGA1eos5vQkPC9SlkEPD6sil9F03N6bc8qmUFrQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250830_092842_876229_24B85284 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20250830_092843_304210_CAA130CA 
+X-CRM114-Status: GOOD (  10.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,57 +113,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Parent select bits for shared PLLs are in PLL_CON0, not PLL_CON3.
-Using the wrong register leads to incorrect parent selection and rates.
+Correct several mux/div widths (DSP_BUS, G2D_MSCL, HSI0 USBDP_DEBUG,
+HSI1 UFS_EMBD, APM_BUS, CPUCL0_DBG_BUS, DPU) to match hardware.
 
 Fixes: bdd03ebf721f ("clk: samsung: Introduce Exynos990 clock controller driver")
 Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
 ---
- drivers/clk/samsung/clk-exynos990.c | 15 +++++++++++----
- 1 file changed, 11 insertions(+), 4 deletions(-)
+ drivers/clk/samsung/clk-exynos990.c | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
 
 diff --git a/drivers/clk/samsung/clk-exynos990.c b/drivers/clk/samsung/clk-exynos990.c
-index 8d3f193d2b4d4c2146d9b8b57d76605b88dc9bbb..12e98bf5005ae2dc32da0da684a15133d64ed305 100644
+index 12e98bf5005ae2dc32da0da684a15133d64ed305..385f1d9726675b37a901e1bb6172dc839afbb209 100644
 --- a/drivers/clk/samsung/clk-exynos990.c
 +++ b/drivers/clk/samsung/clk-exynos990.c
-@@ -239,12 +239,19 @@ static const unsigned long top_clk_regs[] __initconst = {
- 	PLL_LOCKTIME_PLL_SHARED2,
- 	PLL_LOCKTIME_PLL_SHARED3,
- 	PLL_LOCKTIME_PLL_SHARED4,
-+	PLL_CON0_PLL_G3D,
- 	PLL_CON3_PLL_G3D,
-+	PLL_CON0_PLL_MMC,
- 	PLL_CON3_PLL_MMC,
-+	PLL_CON0_PLL_SHARED0,
- 	PLL_CON3_PLL_SHARED0,
-+	PLL_CON0_PLL_SHARED1,
- 	PLL_CON3_PLL_SHARED1,
-+	PLL_CON0_PLL_SHARED2,
- 	PLL_CON3_PLL_SHARED2,
-+	PLL_CON0_PLL_SHARED3,
- 	PLL_CON3_PLL_SHARED3,
-+	PLL_CON0_PLL_SHARED4,
- 	PLL_CON3_PLL_SHARED4,
- 	CLK_CON_MUX_MUX_CLKCMU_APM_BUS,
- 	CLK_CON_MUX_MUX_CLKCMU_AUD_CPU,
-@@ -689,13 +696,13 @@ PNAME(mout_cmu_vra_bus_p)		= { "dout_cmu_shared0_div3",
+@@ -766,11 +766,11 @@ static const struct samsung_mux_clock top_mux_clks[] __initconst = {
+ 	MUX(CLK_MOUT_CMU_DPU_ALT, "mout_cmu_dpu_alt",
+ 	    mout_cmu_dpu_alt_p, CLK_CON_MUX_MUX_CLKCMU_DPU_ALT, 0, 2),
+ 	MUX(CLK_MOUT_CMU_DSP_BUS, "mout_cmu_dsp_bus",
+-	    mout_cmu_dsp_bus_p, CLK_CON_MUX_MUX_CLKCMU_DSP_BUS, 0, 2),
++	    mout_cmu_dsp_bus_p, CLK_CON_MUX_MUX_CLKCMU_DSP_BUS, 0, 3),
+ 	MUX(CLK_MOUT_CMU_G2D_G2D, "mout_cmu_g2d_g2d",
+ 	    mout_cmu_g2d_g2d_p, CLK_CON_MUX_MUX_CLKCMU_G2D_G2D, 0, 2),
+ 	MUX(CLK_MOUT_CMU_G2D_MSCL, "mout_cmu_g2d_mscl",
+-	    mout_cmu_g2d_mscl_p, CLK_CON_MUX_MUX_CLKCMU_G2D_MSCL, 0, 1),
++	    mout_cmu_g2d_mscl_p, CLK_CON_MUX_MUX_CLKCMU_G2D_MSCL, 0, 2),
+ 	MUX(CLK_MOUT_CMU_HPM, "mout_cmu_hpm",
+ 	    mout_cmu_hpm_p, CLK_CON_MUX_MUX_CLKCMU_HPM, 0, 2),
+ 	MUX(CLK_MOUT_CMU_HSI0_BUS, "mout_cmu_hsi0_bus",
+@@ -782,7 +782,7 @@ static const struct samsung_mux_clock top_mux_clks[] __initconst = {
+ 	    0, 2),
+ 	MUX(CLK_MOUT_CMU_HSI0_USBDP_DEBUG, "mout_cmu_hsi0_usbdp_debug",
+ 	    mout_cmu_hsi0_usbdp_debug_p,
+-	    CLK_CON_MUX_MUX_CLKCMU_HSI0_USBDP_DEBUG, 0, 2),
++	    CLK_CON_MUX_MUX_CLKCMU_HSI0_USBDP_DEBUG, 0, 1),
+ 	MUX(CLK_MOUT_CMU_HSI1_BUS, "mout_cmu_hsi1_bus",
+ 	    mout_cmu_hsi1_bus_p, CLK_CON_MUX_MUX_CLKCMU_HSI1_BUS, 0, 3),
+ 	MUX(CLK_MOUT_CMU_HSI1_MMC_CARD, "mout_cmu_hsi1_mmc_card",
+@@ -795,7 +795,7 @@ static const struct samsung_mux_clock top_mux_clks[] __initconst = {
+ 	    0, 2),
+ 	MUX(CLK_MOUT_CMU_HSI1_UFS_EMBD, "mout_cmu_hsi1_ufs_embd",
+ 	    mout_cmu_hsi1_ufs_embd_p, CLK_CON_MUX_MUX_CLKCMU_HSI1_UFS_EMBD,
+-	    0, 1),
++	    0, 2),
+ 	MUX(CLK_MOUT_CMU_HSI2_BUS, "mout_cmu_hsi2_bus",
+ 	    mout_cmu_hsi2_bus_p, CLK_CON_MUX_MUX_CLKCMU_HSI2_BUS, 0, 1),
+ 	MUX(CLK_MOUT_CMU_HSI2_PCIE, "mout_cmu_hsi2_pcie",
+@@ -869,7 +869,7 @@ static const struct samsung_div_clock top_div_clks[] __initconst = {
+ 	    CLK_CON_DIV_PLL_SHARED4_DIV4, 0, 1),
  
- static const struct samsung_mux_clock top_mux_clks[] __initconst = {
- 	MUX(CLK_MOUT_PLL_SHARED0, "mout_pll_shared0", mout_pll_shared0_p,
--	    PLL_CON3_PLL_SHARED0, 4, 1),
-+	    PLL_CON0_PLL_SHARED0, 4, 1),
- 	MUX(CLK_MOUT_PLL_SHARED1, "mout_pll_shared1", mout_pll_shared1_p,
--	    PLL_CON3_PLL_SHARED1, 4, 1),
-+	    PLL_CON0_PLL_SHARED1, 4, 1),
- 	MUX(CLK_MOUT_PLL_SHARED2, "mout_pll_shared2", mout_pll_shared2_p,
--	    PLL_CON3_PLL_SHARED2, 4, 1),
-+	    PLL_CON0_PLL_SHARED2, 4, 1),
- 	MUX(CLK_MOUT_PLL_SHARED3, "mout_pll_shared3", mout_pll_shared3_p,
--	    PLL_CON3_PLL_SHARED3, 4, 1),
-+	    PLL_CON0_PLL_SHARED3, 4, 1),
- 	MUX(CLK_MOUT_PLL_SHARED4, "mout_pll_shared4", mout_pll_shared4_p,
- 	    PLL_CON0_PLL_SHARED4, 4, 1),
- 	MUX(CLK_MOUT_PLL_MMC, "mout_pll_mmc", mout_pll_mmc_p,
+ 	DIV(CLK_DOUT_CMU_APM_BUS, "dout_cmu_apm_bus", "gout_cmu_apm_bus",
+-	    CLK_CON_DIV_CLKCMU_APM_BUS, 0, 3),
++	    CLK_CON_DIV_CLKCMU_APM_BUS, 0, 2),
+ 	DIV(CLK_DOUT_CMU_AUD_CPU, "dout_cmu_aud_cpu", "gout_cmu_aud_cpu",
+ 	    CLK_CON_DIV_CLKCMU_AUD_CPU, 0, 3),
+ 	DIV(CLK_DOUT_CMU_BUS0_BUS, "dout_cmu_bus0_bus", "gout_cmu_bus0_bus",
+@@ -894,9 +894,9 @@ static const struct samsung_div_clock top_div_clks[] __initconst = {
+ 	    CLK_CON_DIV_CLKCMU_CMU_BOOST, 0, 2),
+ 	DIV(CLK_DOUT_CMU_CORE_BUS, "dout_cmu_core_bus", "gout_cmu_core_bus",
+ 	    CLK_CON_DIV_CLKCMU_CORE_BUS, 0, 4),
+-	DIV(CLK_DOUT_CMU_CPUCL0_DBG_BUS, "dout_cmu_cpucl0_debug",
++	DIV(CLK_DOUT_CMU_CPUCL0_DBG_BUS, "dout_cmu_cpucl0_dbg_bus",
+ 	    "gout_cmu_cpucl0_dbg_bus", CLK_CON_DIV_CLKCMU_CPUCL0_DBG_BUS,
+-	    0, 3),
++	    0, 4),
+ 	DIV(CLK_DOUT_CMU_CPUCL0_SWITCH, "dout_cmu_cpucl0_switch",
+ 	    "gout_cmu_cpucl0_switch", CLK_CON_DIV_CLKCMU_CPUCL0_SWITCH, 0, 3),
+ 	DIV(CLK_DOUT_CMU_CPUCL1_SWITCH, "dout_cmu_cpucl1_switch",
+@@ -986,8 +986,8 @@ static const struct samsung_div_clock top_div_clks[] __initconst = {
+ 	    CLK_CON_DIV_CLKCMU_TNR_BUS, 0, 4),
+ 	DIV(CLK_DOUT_CMU_VRA_BUS, "dout_cmu_vra_bus", "gout_cmu_vra_bus",
+ 	    CLK_CON_DIV_CLKCMU_VRA_BUS, 0, 4),
+-	DIV(CLK_DOUT_CMU_DPU, "dout_cmu_clkcmu_dpu", "gout_cmu_dpu",
+-	    CLK_CON_DIV_DIV_CLKCMU_DPU, 0, 4),
++	DIV(CLK_DOUT_CMU_DPU, "dout_cmu_dpu", "gout_cmu_dpu",
++	    CLK_CON_DIV_DIV_CLKCMU_DPU, 0, 3),
+ };
+ 
+ static const struct samsung_gate_clock top_gate_clks[] __initconst = {
 
 -- 
 2.50.1
