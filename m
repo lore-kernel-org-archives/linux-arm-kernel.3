@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9558FCA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 09:09:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BE42CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 09:12:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=71qINPXKpkJW8N5qX9O5vSZoCtpA1FdtX/86cSAK5JM=; b=JyP6M2tB4X+pUBj/pOAvi2MlD2
-	m6fipN4eHeJGn+JWBVDLSlE3DsPv9zDvfzb9NMPrjZsLit1IAdVoGRxKa8goYh7iXkF2O02NWmLUR
-	lXNYuogmM9WwzDGZyHIDO2pGNjxdKmsA7u4XPF2ItOA/+fJrqXtPXYmJgKAI5qlo9WbIUpuBMzzT6
-	G9xPZQn1y6VKiUdeK8RXECeUTojchyz+H8BxKUWZEu1GIaFGXBRmyeLdAHZnWgnqGML147weaB0ZP
-	Sp5gsLhwbiy1O3hafVgdvN3PpbiI1kg7qWAHc2lw7KJwP4jfdlO9F3mU7ARlFklUsa8oVm6eZl1rr
-	08FaeZRQ==;
+	bh=zPHx9dRmCTV+PrkkicijYZTgSKByy5wc+YNl11NvlXc=; b=ELhP8y6q2P7agpDheflIDz5atX
+	6efUVDhaFgtCZOPeIuiXH1hMWwAQgP1mA1Kpe12k52yUfVdyK6SUtvHR9t2Ft3SImKGQ4L8le+BjC
+	Ub2FNw80pBvNn1nebgishvAa2MwvWvdvIkShstQ5aRX1Fgqpgy9vnAXXodAzxf5rzB8pW5OEvD/yN
+	L+hXR+/NXn6X3vbRm7c+2QnTTvXEOnsGKv0xTnSNc4ZSf9Nstq7lzj+pVpbA17l0udbt3Gk8MUJvh
+	me++GwvMw/Hh2gcCVkULRCBOFzlVy1B6zI7U2piwbNZ3SH8zw+OIVjjrQC573fBMDVEtKlTCEbTO2
+	CGsjs42g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usHag-00000007eTK-0PDm;
-	Sat, 30 Aug 2025 09:09:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1usHdM-00000007ecS-3S0J;
+	Sat, 30 Aug 2025 09:12:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usHXy-00000007eIY-3Pms
+	id 1usHZA-00000007eMi-2rSU
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 Aug 2025 09:06:55 +0000
+	Sat, 30 Aug 2025 09:08:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 36BDD4370A;
-	Sat, 30 Aug 2025 09:06:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4459C4CEEB;
-	Sat, 30 Aug 2025 09:06:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A85B860195;
+	Sat, 30 Aug 2025 09:08:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03A92C4CEEB;
+	Sat, 30 Aug 2025 09:08:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756544814;
-	bh=mpWZMBrKYpqukOiHgjuGvad1OfHPQQN9cvi3zmQkyuE=;
+	s=k20201202; t=1756544887;
+	bh=27PN1sfIWBxKnrB+V8uXnT6HNOKJLQY9Xodlg62IbR4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BhbiGsvCYk30HFN3baBWG0Rf/dD78i+pnexb6GfhtIrmb4NODMXRyfvGtgILT03ND
-	 uM0rqUvS6yqPPGlHZTGqGn40aCKDrOy5UI2EGRsmlncrz5mO4FailR656uEeavzDn2
-	 pUUu7t8AR08/uUczyjrU+fQeyx3m99XCrDs0Sg9P5qtFETLahqJxxMHgKHn/Sy41B+
-	 zvnY8v8XW7xTQCZh1nGG84XSVX0pvB73V3YnHgtOrDonAzwqLG9vMH7qYchfotiueC
-	 0G5WJRzGE54tnS4qcyvjKiDwbQIz02EPR39gf6rLj6DkqvGebJ3/RDBM9L3lRk3cQC
-	 G6Kp48/oo5x7w==
-Message-ID: <f6acdd01-8847-4282-b375-f8e564be81d2@kernel.org>
-Date: Sat, 30 Aug 2025 11:06:49 +0200
+	b=nnaqmkCzKPmrCdXaUrhuw7f7bZ4Jmc7ppApy0f6hZ+rbMsTGmdHo2ODTCxEEMCVuG
+	 1PPRV29acvR2qoqEPpPa4Ax2aht866VSfujm7Gb1DKHGNy8UVHhpHts0J+w0Fa/t2j
+	 SG9LZTvdGWa4jOp+Y0+iX7eGn0xvuOuGsIwGZYdE0OlZW230i7mGlePb6LlOmIPjCQ
+	 hfaCGErRX11VypQPykDjuMvruSkP+zTTpWofcxpE7CEfVC/N2GjQXRT6g7bzK/4tDy
+	 YSbESYOPu0Uuov/dnSyiLDlqrQWe+AQ69OshxUxOtZ7kzf9O8yCogq3a5O/InEokpN
+	 /rZMEWDUpyjdQ==
+Message-ID: <e573cfc8-be9c-482c-9b06-4eedbb92d520@kernel.org>
+Date: Sat, 30 Aug 2025 11:08:02 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: thermal: samsung: Add tmu-name and
- sensor-index-ranges properties
+Subject: Re: [PATCH 3/3] arm64: dts: exynosautov920: Add tmu hardware binding
 To: Shin Son <shin.son@samsung.com>,
  Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
  "Rafael J . Wysocki" <rafael@kernel.org>,
@@ -58,8 +57,8 @@ Cc: linux-pm@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
 References: <20250825064929.188101-1-shin.son@samsung.com>
- <CGME20250825064933epcas2p33e2b4566b5911fef8d7127900fc10002@epcas2p3.samsung.com>
- <20250825064929.188101-2-shin.son@samsung.com>
+ <CGME20250825064933epcas2p40a7c491366097f90add675bc36822ef9@epcas2p4.samsung.com>
+ <20250825064929.188101-4-shin.son@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,12 +104,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250825064929.188101-2-shin.son@samsung.com>
+In-Reply-To: <20250825064929.188101-4-shin.son@samsung.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250830_020654_898913_219F9CF5 
-X-CRM114-Status: GOOD (  20.28  )
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,89 +122,156 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 25/08/2025 08:49, Shin Son wrote:
-> The exynosautov920 TMU requires per-sensor interrupt enablement
-> for its critical trip points.
-> Add two new DT properties to the Samsung thermal bindings
-> to support this requirement:
+> Create a new exynosautov920-tmu.dtsi describing new TMU hardware
+> and include it from exynosautov920.dtsi.
 > 
-> - **tmu-name**: an explicit identifier for each TMU,
-> 		used to skip specific sensors
-> (e.g., sensor 5 is temporarily disabled on the TMU_SUB1 block).
+> The exynosautov920-tmu node uses the misc clock as its source
+> and exposes two new DT properties:
 > 
-> - **sensor-index-ranges**: defines valid sensor index ranges
-> 			   for the driver’s bitmap in private data,
-> 			   enabling per-sensor interrupt setup and data access.
+> - tmu-name: identifies the TMU variant for sensor skipping
+> - sensor-index-ranges: defines valid sensor index ranges for the bitmap
+> 
+> This TMU binding defines six thermal zones with a critical trip point
+> at 125 degrees:
+> 
+> tmu_top : cpucl0-left, cpucl1
+> tmu_sub0: cpucl0-right, cpucl2
+> tmu_sub1: g3d, npu
 > 
 > Signed-off-by: Shin Son <shin.son@samsung.com>
 > ---
->  .../thermal/samsung,exynos-thermal.yaml       | 23 ++++++++++++++++++-
->  1 file changed, 22 insertions(+), 1 deletion(-)
+>  .../boot/dts/exynos/exynosautov920-tmu.dtsi   | 92 +++++++++++++++++++
+>  .../arm64/boot/dts/exynos/exynosautov920.dtsi | 34 +++++++
+>  2 files changed, 126 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/exynos/exynosautov920-tmu.dtsi
 > 
-> diff --git a/Documentation/devicetree/bindings/thermal/samsung,exynos-thermal.yaml b/Documentation/devicetree/bindings/thermal/samsung,exynos-thermal.yaml
-> index 29a08b0729ee..420fb7a944e3 100644
-> --- a/Documentation/devicetree/bindings/thermal/samsung,exynos-thermal.yaml
-> +++ b/Documentation/devicetree/bindings/thermal/samsung,exynos-thermal.yaml
-> @@ -8,6 +8,7 @@ title: Samsung Exynos SoC Thermal Management Unit (TMU)
->  
->  maintainers:
->    - Krzysztof Kozlowski <krzk@kernel.org>
-> +  - Shin Son <shin.son@samsung.com>
-
-This needs also explanation in commit msg.
-
->  
->  description: |
->    For multi-instance tmu each instance should have an alias correctly numbered
-> @@ -27,6 +28,7 @@ properties:
->        - samsung,exynos5420-tmu-ext-triminfo
->        - samsung,exynos5433-tmu
->        - samsung,exynos7-tmu
-> +      - samsung,exynosautov920-tmu
->  
->    clocks:
->      minItems: 1
-> @@ -62,11 +64,29 @@ properties:
->      minItems: 1
->  
->    '#thermal-sensor-cells':
-> -    const: 0
-> +    enum:
-> +      - 0
-> +      - 1
->  
->    vtmu-supply:
->      description: The regulator node supplying voltage to TMU.
->  
-> +  tmu-name:
-
-Generic property? Where is it defined.
-
-> +    description: The TMU hardware name.
-
-Anyway, you do not get instance IDs. I talked about this at OSSE25.
-
-
-> +    $ref: /schemas/types.yaml#/definitions/string-array
-> +    minItems: 1
-> +    maxItems: 1
+> diff --git a/arch/arm64/boot/dts/exynos/exynosautov920-tmu.dtsi b/arch/arm64/boot/dts/exynos/exynosautov920-tmu.dtsi
+> new file mode 100644
+> index 000000000000..fa88e9bcdfec
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/exynos/exynosautov920-tmu.dtsi
+> @@ -0,0 +1,92 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Samsung's ExynosAuto920 TMU configurations device tree source
+> + *
+> + * Copyright (c) 2020 Samsung Electronics Co., Ltd.
+> + *
+> + * Samsung's ExynosAuto920 SoC TMU(Thermal Managemenut Unit) are listed as
+> + * device tree nodes in this file.
+> + */
 > +
-> +  sensor-index-ranges:
-
-Where is the property defined? You keep adding generic properties.
-
-> +    description: |
-> +      Valid Sensor index ranges for the TMU hardware.
-
-I don't understand what is this for.
-
+> +/ {
+> +	thermal-zones {
+> +		cpucl0left-thermal {
+> +			polling-delay-passive = <0>;
+> +			polling-delay = <0>;
+> +			thermal-sensors = <&tmuctrl_top 0>;
 > +
-> +      Note:: On the ExynosautoV920 variant, the fifth sensor in the TMU SUB1 is disabled,
-> +      so the driver skips it when matching by tmu-name.
+> +			trips {
+> +				cpucl0_0_critical: cpucl0-0-critical {
+> +					temperature = <125000>;	/* millicelsius */
+> +					hysteresis = <0>;	/* millicelsius */
+> +					type = "critical";
+> +				};
+> +			};
+> +		};
 
-That's not name, so why are you referring to tmu-name? And driver has
-nothing to do here. Describe hardware.
+Missing blank line.
 
-None of this is really correct. :/
+> +		cpucl0right-thermal {
+
+It does not look like you tested the DTS against bindings. Please run
+`make dtbs_check W=1` (see
+Documentation/devicetree/bindings/writing-schema.rst or
+https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
+for instructions).
+Maybe you need to update your dtschema and yamllint. Don't rely on
+distro packages for dtschema and be sure you are using the latest
+released dtschema.
+
+> +			polling-delay-passive = <0>;
+> +			polling-delay = <0>;
+> +			thermal-sensors = <&tmuctrl_sub0 0>;
+> +
+> +			trips {
+> +				cpucl0_1_critical: cpucl0-1-critical {
+> +					temperature = <125000>;	/* millicelsius */
+> +					hysteresis = <0>;	/* millicelsius */
+> +					type = "critical";
+> +				};
+> +			};
+> +		};
+> +		cpucl1-thermal {
+> +			polling-delay-passive = <0>;
+> +			polling-delay = <0>;
+> +			thermal-sensors = <&tmuctrl_top 1>;
+> +
+> +			trips {
+> +				cpucl1_critical: cpucl1-critical {
+> +					temperature = <125000>;	/* millicelsius */
+> +					hysteresis = <0>;	/* millicelsius */
+> +					type = "critical";
+> +				};
+> +			};
+> +		};
+> +		cpucl2-thermal {
+> +			polling-delay-passive = <0>;
+> +			polling-delay = <0>;
+> +			thermal-sensors = <&tmuctrl_sub0 1>;
+> +
+> +			trips {
+> +				cpucl2_critical: cpucl2-critical {
+> +					temperature = <125000>;	/* millicelsius */
+> +					hysteresis = <0>;	/* millicelsius */
+> +					type = "critical";
+> +				};
+> +			};
+> +		};
+> +		g3d-thermal {
+> +			polling-delay-passive = <0>;
+> +			polling-delay = <0>;
+> +			thermal-sensors = <&tmuctrl_sub1 0>;
+> +
+> +			trips {
+> +				g3d_critical: g3d-critical {
+> +					temperature = <125000>; /* millicelsius */
+> +					hysteresis = <0>; /* millicelsius */
+> +					type = "critical";
+> +				};
+> +			};
+> +		};
+> +		npu-thermal {
+> +			polling-delay-passive = <0>;
+> +			polling-delay = <0>;
+> +			thermal-sensors = <&tmuctrl_sub1 1>;
+> +
+> +			trips {
+> +				npu_critical: npu-critical {
+> +					temperature = <125000>; /* millicelsius */
+> +					hysteresis = <0>; /* millicelsius */
+> +					type = "critical";
+> +				};
+> +			};
+> +		};
+> +	};
+> +};
+> diff --git a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+> index 0fdf2062930a..a4ff941f8e43 100644
+> --- a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+> +++ b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+> @@ -330,6 +330,39 @@ watchdog_cl1: watchdog@10070000 {
+>  			samsung,cluster-index = <1>;
+>  		};
+>  
+> +		tmuctrl_top: tmutop-thermal@100a0000 {
+
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+If you cannot find a name matching your device, please check in kernel
+sources for similar cases or you can grow the spec (via pull request to
+DT spec repo).
 
 
 Best regards,
