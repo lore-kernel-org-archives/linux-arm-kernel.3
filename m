@@ -4,100 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D749CA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 12:12:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A01DFCA0FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 12:31:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+89Tb3z6PgRGExGi9uXN/vuyp7/mITYWb84y/pCn9WU=; b=j2KP9VNenWGMg9o40H8VIiECf8
-	MMiCEOfy48PEh1INSUVBx+svHWX2tug7sKdTPwUQwfygzPSbjU0gt7S6vEgQSoVrAv8Vq4rIsdeOs
-	/W1XAB5PO9CI6MERRjYdPvYBm+B86T3oxC41kdgTT+yjpQgQZJZrxb3sX8tX/RDIUIEsKZuCKjagO
-	25g8/WL+UQaisgnSDJypgdHCYO/8gEFD2d3f+QXlUMSeX3+MSF3HS8oepgnAqjJMoPqhg1dmzVIP9
-	cfeRd66jT2ZoIuRAAG/zEo/sBlHKU961E4oNR6hQd14FQteXkQWLLOoahEen/hPBV0npGSzCsdKCq
-	fcwoOo6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nvc8o7UNrMIYNJEN9nvLvWQOOGJV+mKtBRbCIep0MbE=; b=Gav6a6g3igKiUes7zNcuDl7nJt
+	oMqDdsiLgQPdgv6uGx+3luiJDaRgZjRIC1H2fJsWtCX1krnN8sIryCW/CcsKYt0FXTmPgf2smd4E+
+	nVgJ8biAmYae9MbgUxSch0tHmgS5GfEwBd2P23RERgpA2ev3PB7xdBDFDNKS0pWKXFp04x4w3ZSba
+	XEwkHHJb8pQ7WldSxKpPtKSMxIomHHLyzWR4mb9VPiSKaah5OJz9S8tfvfKW1H9ZKTswd0tuJRU4O
+	i03ULRfsNaflTX3T6fw4EY0/jkde5zxwqw/OSF+lD4Wkhp01/3KWYIbEDd508GJltIDwd6Yu2ULMy
+	pHZ2Xjlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usKRd-00000007qzF-0B1C;
-	Sat, 30 Aug 2025 12:12:33 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1usKjV-00000007rjm-1BQ7;
+	Sat, 30 Aug 2025 12:31:01 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usKOs-00000007qs6-0dLQ;
-	Sat, 30 Aug 2025 12:09:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1756555782; x=1788091782;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=8P4WrA/SJEy/L79/DSQB7imWaic2ObRv8kUO/ujofXI=;
-  b=ZCDtJ/2f7GM4II5l3N5WVqAMIrs2U/nTff+YlawjNxXyBpWjTKyX53Ob
-   jpsSkYqUalz33sqZkh9pkJgSzZQYue3Ve6r4kizcxzn98R0ZmI2ZUDThA
-   n/NJCd4wBYWvICzDco4IQIPksPO0JqUmX58ovV3a/cvq2pJawC8onO1ZS
-   cHo+R89yWOmlIljUA0GfHy5nYyB5ryg9gt100FGGEp2QpI1QUP/IWO8N1
-   4n9AuruBLSKG1qcWligJt9d8Se0aqb88O3CCQMC694wbaQ30ZZ4dyLvED
-   NkLfLMcw6kFVo2rlUKpsRnwvarPoyCw6sbCnKtixBriZvpIV9S66GNL7h
-   A==;
-X-CSE-ConnectionGUID: pRwcHcqIR3yDP5RO32ztzg==
-X-CSE-MsgGUID: Tyv5QrKZTPKZsdaQNxUl3A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11537"; a="58020654"
-X-IronPort-AV: E=Sophos;i="6.18,225,1751266800"; 
-   d="scan'208";a="58020654"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Aug 2025 05:09:36 -0700
-X-CSE-ConnectionGUID: cxMSSuYbTdiZoHRafIE+eQ==
-X-CSE-MsgGUID: yliCIGqCQUeXg95YXH3hEQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,225,1751266800"; 
-   d="scan'208";a="170151300"
-Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
-  by orviesa009.jf.intel.com with ESMTP; 30 Aug 2025 05:09:28 -0700
-Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1usKON-000VLN-2J;
-	Sat, 30 Aug 2025 12:09:13 +0000
-Date: Sat, 30 Aug 2025 20:08:13 +0800
-From: kernel test robot <lkp@intel.com>
-To: Dmitry Baryshkov <lumag@kernel.org>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Sandy Huang <hjc@rock-chips.com>,
-	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>, Chen-Yu Tsai <wens@csie.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	=?iso-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>,
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-	Liu Ying <victor.liu@nxp.com>,
-	Rob Clark <robin.clark@oss.qualcomm.com>,
-	Abhinav Kumar <abhinav.kumar@linux.dev>,
-	Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
-	Sean Paul <sean@poorly.run>,
-	Marijn Suijten <marijn.suijten@somainline.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v3 07/11] drm/rockchip: rk3066: declare supported
- infoframes
-Message-ID: <202508301909.DvZIl8j0-lkp@intel.com>
-References: <20250830-drm-limit-infoframes-v3-7-32fcbec4634e@oss.qualcomm.com>
+	id 1usKgl-00000007rca-1pBP
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 30 Aug 2025 12:28:12 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-afcb7a8dd3dso400305866b.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 05:28:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756556890; x=1757161690; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nvc8o7UNrMIYNJEN9nvLvWQOOGJV+mKtBRbCIep0MbE=;
+        b=lrIPHxFDp2FAihpkxf2S67GNKjaCKHdJ3v84JNXTqpRz/jHpWzQ6/L4VOybr92aXnB
+         ZXJACHBn0iLkZpRMCfNUREOLjGK6bi1Ilz0XNfISeVdtwIeExBQN4lXHFTDRb+YzuKHB
+         JPU/3z/yJNy+hLI90cM7NeNQx5aWDEOxJWEbNdFnS01114p8XqGIH5+hUym4HefFr4UY
+         7GRQ4Eq0uW+t4YcrlA3EmveAg6bRV+94l1yv8JVVS86BFu3zzoPb625HaKl5/yEunisE
+         FDXM9S0qrmnsl9GBJSkjiFfzm4BmLUs+GGFBD73Coao5GG7B6AA89uCY6j/8AoATJ4b9
+         DL8Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756556890; x=1757161690;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=nvc8o7UNrMIYNJEN9nvLvWQOOGJV+mKtBRbCIep0MbE=;
+        b=rCIy/d7MohPHSMqW1BvT+QB5KLGLj12AmjqClOwGWK+jhV2zAAoW6J2Onc1EJz9ixT
+         MXpO9PA290Yf5DMvvHcsS/sQOA1zUfbpwxgMR+Q5XaIzp9g0/eg/Fz9FEwZpmDQz4bfa
+         xgmHbsxUeaicHxyxmeS+Zp2jtHHuaLTnP8MUmXHihYJKMvQZFrQSwgaHsfJXwFhUl8fs
+         mHTyw6tlGCP8oy3dAcJtqy7WOPg0k61sje/Jauaw46hYZvipwNIrqra1KMxSZyqHj21C
+         5vtkBIP7upjXeGjq52AKMjtYftWrq4aQtIzPQcbJ/SWDAwalK3bJijNBE1UjedhCBPLD
+         AlmQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVd2uJlu6BXxBFeSb8StcpFbPsm/j6WuYx9JJ+pmLZiUFaG2gD+k+G5LC8bkvU0L7ySRoSxLvu1o9eIKHSSb1cH@lists.infradead.org
+X-Gm-Message-State: AOJu0YyYIs45d1pKcQ4hrWCmM5rjS1MOuDrU+9zj1F9BkOsnbLw9URA9
+	VLqzq7TXPCXg1ImFezXyImBhPp7KCu9DrOK+h0JXS0JbDwALz/OVjShhwoisdXhlTIxliYy8XPi
+	hFsTlNFOkpux50GW4NlVAQ38LPcTug6NhTE9tnfs=
+X-Gm-Gg: ASbGncs4gRzfGOVR7+cykBb/eNBUVn53PTOAYcn8OCQnXn+8U4HRBetL7+LUkqxg0Qw
+	1RXKwN3oH8bxrLi/vfcIOK6cYMGErWi8cObT4Q6Fv+ZeFcgoLN2SuVt4Or1ciM2/MgQvfhvwD49
+	XjmH9a+cMEl74kskAq7TSg6gZlzhSBgbEyY+gXZC6ImACQMLMYiZgD1vFS//eMxuejBlgknp7hE
+	haCxAA=
+X-Google-Smtp-Source: AGHT+IEr0gAqLRVPp+T6uONOIrQAUIkZ8IPlCVuv/BuIBm4huTRigMtOCfRrrfAh3rWu2s7VHQSCiaBIs2UpJH3Iosw=
+X-Received: by 2002:a17:906:c149:b0:afe:af91:2e44 with SMTP id
+ a640c23a62f3a-b01d8a6ac14mr178645166b.14.1756556889693; Sat, 30 Aug 2025
+ 05:28:09 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250830-drm-limit-infoframes-v3-7-32fcbec4634e@oss.qualcomm.com>
+References: <20250830-s3c-cleanup-adc-v1-0-de54dfb1d9ea@linaro.org>
+In-Reply-To: <20250830-s3c-cleanup-adc-v1-0-de54dfb1d9ea@linaro.org>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Sat, 30 Aug 2025 15:27:33 +0300
+X-Gm-Features: Ac12FXzTMEaLZRx4DmdS9a1kWVVbTCHUuOOLisze_-ZWmUB9tOIR-XUWXvJJxDc
+Message-ID: <CAHp75VfTk7Vr6Rccq0DFDm8Qnhb37iPYj4DwH1U2bwDMV4h_Qw@mail.gmail.com>
+Subject: Re: [PATCH 0/5] iio: adc: samsung: Simplify, cleanup and drop S3C2410
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
+	=?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
+	Andy Shevchenko <andy@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250830_050942_194705_16C61EFE 
-X-CRM114-Status: GOOD (  14.97  )
+X-CRM114-CacheID: sfid-20250830_052811_479941_BAFEEEB6 
+X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,103 +101,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dmitry,
+On Sat, Aug 30, 2025 at 2:09=E2=80=AFPM Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
+>
+> S3C2410 is gone from kernel, so we can drop its support and remaining
+> related pieces.
 
-kernel test robot noticed the following build errors:
+>       iio: adc: exynos_adc: Drop S3C2410 support
+>       iio: adc: exynos_adc: Drop touchscreen support
+>       iio: adc: exynos_adc: Drop platform data support
 
-[auto build test ERROR on f4028ef65dc4fe9010bcc017597fe0fea6479097]
+Reviewed-by: Andy Shevchenko <andy@kernel.org>
+for patches 1-3.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Dmitry-Baryshkov/drm-connector-let-drivers-declare-infoframes-as-unsupported/20250830-082533
-base:   f4028ef65dc4fe9010bcc017597fe0fea6479097
-patch link:    https://lore.kernel.org/r/20250830-drm-limit-infoframes-v3-7-32fcbec4634e%40oss.qualcomm.com
-patch subject: [PATCH v3 07/11] drm/rockchip: rk3066: declare supported infoframes
-config: i386-buildonly-randconfig-002-20250830 (https://download.01.org/0day-ci/archive/20250830/202508301909.DvZIl8j0-lkp@intel.com/config)
-compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250830/202508301909.DvZIl8j0-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202508301909.DvZIl8j0-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/gpu/drm/rockchip/rk3066_hdmi.c:699:15: error: no member named 'supported_infoframes' in 'struct drm_bridge'; did you mean 'supported_formats'?
-     699 |         hdmi->bridge.supported_infoframes = DRM_CONNECTOR_INFOFRAME_AVI;
-         |                      ^~~~~~~~~~~~~~~~~~~~
-         |                      supported_formats
-   include/drm/drm_bridge.h:1199:15: note: 'supported_formats' declared here
-    1199 |         unsigned int supported_formats;
-         |                      ^
-   1 error generated.
-
-
-vim +699 drivers/gpu/drm/rockchip/rk3066_hdmi.c
-
-   666	
-   667	static int
-   668	rk3066_hdmi_register(struct drm_device *drm, struct rk3066_hdmi *hdmi)
-   669	{
-   670		struct drm_encoder *encoder = &hdmi->encoder.encoder;
-   671		struct device *dev = hdmi->dev;
-   672		int ret;
-   673	
-   674		encoder->possible_crtcs =
-   675			drm_of_find_possible_crtcs(drm, dev->of_node);
-   676	
-   677		/*
-   678		 * If we failed to find the CRTC(s) which this encoder is
-   679		 * supposed to be connected to, it's because the CRTC has
-   680		 * not been registered yet.  Defer probing, and hope that
-   681		 * the required CRTC is added later.
-   682		 */
-   683		if (encoder->possible_crtcs == 0)
-   684			return -EPROBE_DEFER;
-   685	
-   686		drm_encoder_helper_add(encoder, &rk3066_hdmi_encoder_helper_funcs);
-   687		drm_simple_encoder_init(drm, encoder, DRM_MODE_ENCODER_TMDS);
-   688	
-   689		hdmi->bridge.driver_private = hdmi;
-   690		hdmi->bridge.funcs = &rk3066_hdmi_bridge_funcs;
-   691		hdmi->bridge.ops = DRM_BRIDGE_OP_DETECT |
-   692				   DRM_BRIDGE_OP_EDID |
-   693				   DRM_BRIDGE_OP_HDMI |
-   694				   DRM_BRIDGE_OP_HPD;
-   695		hdmi->bridge.of_node = hdmi->dev->of_node;
-   696		hdmi->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
-   697		hdmi->bridge.vendor = "Rockchip";
-   698		hdmi->bridge.product = "RK3066 HDMI";
- > 699		hdmi->bridge.supported_infoframes = DRM_CONNECTOR_INFOFRAME_AVI;
-   700	
-   701		hdmi->bridge.ddc = rk3066_hdmi_i2c_adapter(hdmi);
-   702		if (IS_ERR(hdmi->bridge.ddc))
-   703			return PTR_ERR(hdmi->bridge.ddc);
-   704	
-   705		if (IS_ERR(hdmi->bridge.ddc))
-   706			return PTR_ERR(hdmi->bridge.ddc);
-   707	
-   708		ret = devm_drm_bridge_add(dev, &hdmi->bridge);
-   709		if (ret)
-   710			return ret;
-   711	
-   712		ret = drm_bridge_attach(encoder, &hdmi->bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
-   713		if (ret)
-   714			return ret;
-   715	
-   716		hdmi->connector = drm_bridge_connector_init(drm, encoder);
-   717		if (IS_ERR(hdmi->connector)) {
-   718			ret = PTR_ERR(hdmi->connector);
-   719			dev_err(hdmi->dev, "failed to init bridge connector: %d\n", ret);
-   720			return ret;
-   721		}
-   722	
-   723		drm_connector_attach_encoder(hdmi->connector, encoder);
-   724	
-   725		return 0;
-   726	}
-   727	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+--=20
+With Best Regards,
+Andy Shevchenko
 
