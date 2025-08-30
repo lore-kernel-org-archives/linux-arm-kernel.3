@@ -4,106 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CB8ECA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 08:22:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44CABCA0FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 08:28:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4yz+gNr9wnP1FuUv8NASxp4fC8wPUaxLjhsHiXAOzrk=; b=hM+DGjxiMWKQSBG+8rEMhk9QJN
-	3JiwFhDcyxdzoOx8E04MyRi6QgDTZTq+c3C2KUdZvmGxayRpAfAum1VtGGwqD7ZORLikEP+OaOOjx
-	QJnTCNaURFNzzonlbSCLaxgd7hrUNkN7Jn8t8G3HRYhe/FEU2LEdCQTBhGjHGDgM4M1Mdz7X2o3Mm
-	QUapnV8VjGJJbez9yxcXpdyBoEsg4ne/J4I5OyQ7iNppDAUsFByoQVEgAM34P/fauETXHuAmmKblN
-	dDrVoUsFtg/WiTZWcSgG5yc5P+P/U3lcRY57Hcheg7/t3sLz7obeWP3b8lfJdhzBlEKJXBxSsESSH
-	FEf0YrRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0Vn+ynz51W50SO7l02EXcaGm1pZto5LgbpdiQDrDnT0=; b=xVAD7USK+Knr+mZ0drZTtKDDJs
+	75xQRfhDKPtI0Yquxey3EphgEMA94chMdE3wLcgyP01grAL8LmMfdmN+vAEKhfSb9WcHiPJmaWM0p
+	Fed7h3NZzpiWgWPHORqS5TzZBZmaI0wq5icu9YgpETn6BTpjMQyWAK3Y9Vx8B+79D98G2Wde/2MQS
+	rSFf04tZOx0McJ9ZcgupVX4/2IleBy/wwwtpoyJ6OPPhdlzRLqZ/lydmbEcIvGsBtP9c3l48ax0VS
+	7cF2Nly2hqD6NCFwLibc0TwzxEI5tM4rhPbqi8MQXz2Y9YeO+04Y+Hk57FeilU3cjueP7LES+BoxA
+	Z29OTaTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usGrG-00000007bdo-2VTl;
-	Sat, 30 Aug 2025 08:22:46 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1usGwm-00000007brk-2c4q;
+	Sat, 30 Aug 2025 08:28:28 +0000
+Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usGoW-00000007bT6-2kdp;
-	Sat, 30 Aug 2025 08:19:57 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-afedbb49c26so433552066b.2;
-        Sat, 30 Aug 2025 01:19:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756541995; x=1757146795; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4yz+gNr9wnP1FuUv8NASxp4fC8wPUaxLjhsHiXAOzrk=;
-        b=km5GhV8NmTzJ2syzGIXxhr9e/NFAh/mnG8fZFQwlZ9AYqlDaZyiS+NWHHiHObzX+fZ
-         UQUbUcJeh4sU8elf75kaX/6xHf/DKOAD9zDg+3XHB4zn1KiSJR0Alc2r0W1VTErA/+DG
-         Yc5QBNzUKvwPESjivm3Tfk47+Pn0vVhoP2u5rlzx/ynSXV7dxFqwF/ASe4tyZjLk8wc6
-         ikDzQSJqcBT0yqoeUHn+iIX/dJJeP0TbEytb+KFoEaWkNanGPXJHmIATO++buc3Ssnmf
-         9YREQfKr9T9dJ3hqLF3uMYhj+ltr2E/0LoqE6WbTgLN+23hjv3g4ke67AaACR47GsywD
-         74Iw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756541995; x=1757146795;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=4yz+gNr9wnP1FuUv8NASxp4fC8wPUaxLjhsHiXAOzrk=;
-        b=HPDc8kfGjTIdqVew+/KvDjsJ9hcUc1/RTZSksKQ1B3TBzDdsfh33bsFpUKA4pp7i1y
-         91s45Y2qb25fWjnt0/9Z3OxFMhQ24WwbgVNolUSJ/t56Yu7V8JPlGZ5By9QQGQe8FGh9
-         vPBhV5XJ5L+GKQbFbWl4YBqp0PMYFEZaV1S7ywfUekF84sECjDnZ/dys/7fhjDuGdOpQ
-         ryVzX+7PRcX4IDCHzCSIkDjvGCG/Wd6dn4UNodYCUYJb3pqKWFKPklix5j+Vma4ITLUt
-         9PQTvG0GVK3EcHIIuBIuQameINq9uaDIcckDakgscnQf6P+2UIPFVkLh6v/4wIhIlC8t
-         wusw==
-X-Forwarded-Encrypted: i=1; AJvYcCXVEKm/uw3fIzshA23UnTzyXsstffmzTE2r+i4AbI35w7E+mMyA6w7Gn93+CwgIe/WYJ8x4TdC/meeAe+xzFm8T@lists.infradead.org, AJvYcCXxzOm4VnKGgyP8TRM4BQinMH1IqgfQyEna9tQOJY7/lZ4RqIjdUPk0jYsXBoQW7XYqiyLGOhwAMv9QgyyqHks=@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywm7fCgjBGstFUTqskDEgLrJ7YJlSxM2ZgtWX8ky7N2vjwTlCM4
-	KbqpH2og2+wnYoO4WT5VeIGcGGyN2D/SmQ5PTOfef4L6NO++txpuOMfGODqXimIjqeJy0ijTRZt
-	CjMAS+tf5aGN+MJIenQnjj2rMAn2/RUc=
-X-Gm-Gg: ASbGncuEcLD/vhl34c+8Y+6PyMl5b+kfjCK/OaiOlD0W9tag18HawS/TA2oTwm1/TzS
-	v+zupMI2Ts659i7V4bU9KkyhCGZgWK+OOOExrWNJnJGA7sxX/f251JAWDa45bCS0rxQzShgiNfy
-	2tKRfOLVjbGps8NIym+wbJCGsChjvAMuXWERhj7nLe/ySy+/TMaTxsn2U487Ns5+vZWauioVX5p
-	tBQjG5v1HIAZz/kYg==
-X-Google-Smtp-Source: AGHT+IFZ0wex4nlRzxOc5BG8ARrUjGz7n83ilxsIj2vkPtuKrq3/+IPw3T+K7YRUGhLq8JMm7BCY/eJH8jBRTGRUUSA=
-X-Received: by 2002:a17:907:d88:b0:afe:764d:6b24 with SMTP id
- a640c23a62f3a-b01d8a6a72cmr138313266b.14.1756541994858; Sat, 30 Aug 2025
- 01:19:54 -0700 (PDT)
+	id 1usGu4-00000007bmq-1W7M;
+	Sat, 30 Aug 2025 08:25:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Mz8zR5M9x+c0C51FaD8A5LpewYAERewFgRgPGgfwd/cIJibVowbFrduurybCkKH1G/SBPyMy69GKvqMBNybLTlEkzp23/he1w2lX6XZGx4ci/4p3funxWb+CsiMSkd701zfrggs2kJhevZSm18iKfHo6kepza+TAtSVSb4yuOYMoWbtV4naz2kyUlV/sf8en6vehPD7zEhmf6v+x6HMij+72WeinpupErpt6L1/JrCzwIXCAxGDNGueMbHXZAFsbKhyHtoGQ34xXhWSYF50k9WygrFH8GHlReyslItCs+N6wuiz013UedGrY57oVxy5LkYVIipTlJIAKvp6I5c/+jA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0Vn+ynz51W50SO7l02EXcaGm1pZto5LgbpdiQDrDnT0=;
+ b=m/gVL3KUUy6sgKeMBPLhzg8u6jYtmYiHnhN7yVPVJDYq3R9OX58IBgNavjI/KO2BXO6L83Kz8h0ERzA2BVER9YUUPtWwddeycTclPU0EkmKe081OyssInVCeZNgrA3H74we7OCIMcVYNImaidG2u3sPkCaQLnP3Y869QHOeYnOSeTx1mrWd+heFg1Nq97tf36KJ80r+z7p9iX8OZBKOHARWFMsB8DT5icls605rpL708y/eaGob2l53/2FWm2w2eBgGJO4LZRhSPd/+1Sf/eNlVtt8kntGdCm93Q86dNsa14h1sCOw7kZM7tZsJm3xkRGYS/JjEDmYe7sHEyawE8aw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
+ dkim=pass header.d=vivo.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0Vn+ynz51W50SO7l02EXcaGm1pZto5LgbpdiQDrDnT0=;
+ b=nPqNChiJY2wownMxfG3kp61fZvrBybbUTswoF4PerPGkNlsR5f1CATLlm7ALNl5Jv0EEQ15sDyHb1R49ZLsAJjrDXgxfq29L/juLNcy7AE+6STTgt3yYBHY7iKj43xIwSoFCXhFIYCbgFbgsSCCddHgksfV7MCN5KIXaSfFaSTYZGLRi9sm1YJDXuZisCtXjIf7iFlFNWvVz6g43bO+0lD8l3Le1OdjnYF4rH761YGBEa25fHHv8GcDK70L1Jh6SKYs2xn9D3d8D8d0FbH9383shpauh+A6NKvW3BlyZKK7O2M4GqcZFN8Qs7zyaCkMJ+YgfVeGA43wPgu9hrp3Qkw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=vivo.com;
+Received: from SI2PR06MB5140.apcprd06.prod.outlook.com (2603:1096:4:1af::9) by
+ TYUPR06MB6027.apcprd06.prod.outlook.com (2603:1096:400:351::7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9073.21; Sat, 30 Aug 2025 08:25:18 +0000
+Received: from SI2PR06MB5140.apcprd06.prod.outlook.com
+ ([fe80::468a:88be:bec:666]) by SI2PR06MB5140.apcprd06.prod.outlook.com
+ ([fe80::468a:88be:bec:666%5]) with mapi id 15.20.9073.021; Sat, 30 Aug 2025
+ 08:25:18 +0000
+Message-ID: <536ceeac-a180-47e1-9664-a047929ec3d7@vivo.com>
+Date: Sat, 30 Aug 2025 16:25:15 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] media: mediatek: vcodec: use = { } instead of memset()
+Content-Language: en-US
+To: Nicolas Dufresne <nicolas@ndufresne.ca>,
+ Tiffany Lin <tiffany.lin@mediatek.com>,
+ Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+ Yunfei Dong <yunfei.dong@mediatek.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Hans Verkuil <hverkuil@kernel.org>,
+ Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, linux-media@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20250803135514.118892-1-rongqianfeng@vivo.com>
+ <d76038453bfd06ea9d0c90e7583078abc85ce280.camel@ndufresne.ca>
+From: Qianfeng Rong <rongqianfeng@vivo.com>
+In-Reply-To: <d76038453bfd06ea9d0c90e7583078abc85ce280.camel@ndufresne.ca>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SG2PR01CA0197.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:189::8) To SI2PR06MB5140.apcprd06.prod.outlook.com
+ (2603:1096:4:1af::9)
 MIME-Version: 1.0
-References: <20250828-pinctrl-gpio-pinfuncs-v6-0-c9abb6bdb689@linaro.org>
-In-Reply-To: <20250828-pinctrl-gpio-pinfuncs-v6-0-c9abb6bdb689@linaro.org>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Sat, 30 Aug 2025 11:19:18 +0300
-X-Gm-Features: Ac12FXwW6CW7deBsm3Aef2wv7I2Olg4IsebLLUGVz2bUvR7gVeqwu6XUXgRk6VE
-Message-ID: <CAHp75Vd+q5NZ=4YSouU-EdbR4TZf7S8PGqR0B0HJG8DkVKKtAg@mail.gmail.com>
-Subject: Re: [PATCH v6 00/15] pinctrl: introduce the concept of a GPIO pin
- function category
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Alexey Klimov <alexey.klimov@linaro.org>, 
-	Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Paul Cercueil <paul@crapouillou.net>, Kees Cook <kees@kernel.org>, 
-	Andy Shevchenko <andy@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	David Hildenbrand <david@redhat.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, 
-	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
-	Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, NXP S32 Linux Team <s32@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Tony Lindgren <tony@atomide.com>, 
-	Haojian Zhuang <haojian.zhuang@linaro.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Mark Brown <broonie@kernel.org>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mips@vger.kernel.org, linux-hardening@vger.kernel.org, 
-	linux-mm@kvack.org, imx@lists.linux.dev, linux-omap@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Chen-Yu Tsai <wenst@chromium.org>, 
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SI2PR06MB5140:EE_|TYUPR06MB6027:EE_
+X-MS-Office365-Filtering-Correlation-Id: ffe3eb96-aa29-4a18-4137-08dde79ec102
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SWFleEtHOVcrUnoxN0xBelk2Wk9FYmRSNDEyNzQxOFQ0b2d2RWpRY1lNWHlO?=
+ =?utf-8?B?V3B1SXY1UFY0bTEyMUVWWU9YQnVlWDRmKzJFUFAxWHAzY0IvS1V3VUp4ekFY?=
+ =?utf-8?B?bXF2cWcrVFQxVVRSdHJWejIvTW9ReFV1UFRoV0hueHRQQnVTcGdCMENPSTZX?=
+ =?utf-8?B?N3FsMWN5VHpJcnQ2VlJkN3VPYXZkSEozbS9GYlRPeGdQSTVUVjY4YnQwTkZ1?=
+ =?utf-8?B?UEo3V2R1a0g2RE9EZDBmS2hqU0NtczhDZVlBcWxjU0g5eTg4OEc2aEZCSHlS?=
+ =?utf-8?B?WnpaZkpzSGlMdWxYRi8zc2poWW43M1JGa2FrRlhYdjgySGpFMk9kRGpOR3Na?=
+ =?utf-8?B?VDdwRW1Ma0NPRXg5K2tjOU00aTJzeG1tdVJGdEZyUnE5QUh5bURPVkkxRnFi?=
+ =?utf-8?B?bkNBS3lCMzJkZTBvQ1BZSW14TVVqYWNGdm1kelFxd2FKbkord291Q2NCbEhI?=
+ =?utf-8?B?bVBDUTBwMi9pOFVJM1c2SFhhb3pXSmd6cndNdVpiVCtqb3dONDVPTnBqRUdk?=
+ =?utf-8?B?cmViMkVCVGN5M0pUa1lMZWRoci9qZjU1bjIrclhTSWRHV044RlhGVjY4Sldu?=
+ =?utf-8?B?MVo1ZnN2LzNYTjJINHZ4bzlmY25YOVhQZ1VBcUwzcVE0NjRUWnlXcEdtOWJO?=
+ =?utf-8?B?QmxDTjMwMjB3STcyTFFDTks3bXF2SFZER2daQ0RscUMvUXNuTFA2dU4rVXFL?=
+ =?utf-8?B?dnJPMzZhcm5OWkFvT2lMNUJacnlIKy84YXo4SnZFOEFQNnhLM01QdTd3Wm5o?=
+ =?utf-8?B?N1FnVGp4cDdZeE5CK01PaE9GRmFlZENDZmRZRzhsSHJuK3MzQmg0dkNOZFlk?=
+ =?utf-8?B?OGRxa01aTmE5RmNuQ25mQ2hzWVRJdWx6QUJ6UWhHK3BGS09ERUx6OVMybE5j?=
+ =?utf-8?B?Z1pzZXZBSTJ1b2pUZExYMCtlTVJja0t0MTNkcGNoVUlCS2FpMzNYdWJqMnkv?=
+ =?utf-8?B?MU1LVThFOGt1d041Y1FNMHc1WXJxcG9ZazVtNytteEU1Q0d3amNGbVhUZ3ha?=
+ =?utf-8?B?Q2Z3c0Z4QW45U0dMNmZsQjgyNm9EYWpzaG5oRlpuandOYkhyVE1NdWtLZFVH?=
+ =?utf-8?B?eVRCbVVWN3hVdGs5aVBxblN4Tlo2UkpGL00rQjREU2xkSzdqRS9oYUgrNC90?=
+ =?utf-8?B?cWs4NmdxOGdNZTJNcU1NV09SMkQxN1M4WXpoTEVCdElRUmVZRDlGazFLUUZa?=
+ =?utf-8?B?QzVPSFpZYXIxUzdlZFFtUkZVWUJMTk5nRG1hTW52Qkw4WmFkSlA2Z0xINW94?=
+ =?utf-8?B?djJHVi9OclZsVVJ3S2lET2VWZEF5SFJRWXh3TTdyeC9rYU1uSHo5KzNRYjlS?=
+ =?utf-8?B?ZU1CU1gwSmFFUXpiRm94Nk5QcEszeS9DRjNoWmhUZ0tzUmt3Uk1EaENNak5h?=
+ =?utf-8?B?ajgwamNXdTRwbXdJb0VXN1R4NkhEa1J2RFlCbGlvZzA5QnZNTkNwNWVVb1pk?=
+ =?utf-8?B?YkZUQnFKY1cvMWRsbzlYdy9jS1pKcjRmamM2dHBiVTRNWllEVDdDbEVHQmJq?=
+ =?utf-8?B?RmE1anEvQUhpc1pFTkdSMndDZ3VmdmZKdGdkT1pFZHpLTUVBaWR2Y2pJMlRp?=
+ =?utf-8?B?MCs0dlVRaVc4c1lPNHphbEh6dkVkK3huNkV0cEthQ1VzQ21wQnR4MnRmMy8y?=
+ =?utf-8?B?SEFndjBIM0xMaDVERWpFVjFEenQxMHpLWnJaQy9jdTlrdWU1d05Wcmc2WE04?=
+ =?utf-8?B?RjVZYXozOG1pTmV2MkwrckZuOERMRStSRitlZzh3dVdNUVhKMzBHdnJXLzlx?=
+ =?utf-8?B?UWQxNnNBUDhVL21ZSzFDdFhWZ3lxeFNqbkJlcEZvZUFDdmIxWmJ3RUx4WXMy?=
+ =?utf-8?B?ZkxzUDg5bzdlUWZodStMSWhvRU5IRGdqQVRsVmMxUDVoRFgxTUtCT2h3QUxk?=
+ =?utf-8?B?TUFxbnAzdXdYVzZUL0dWcjI3TEh6N1BreHhIYUdrazlIRDRFbk5vRDgvZDZU?=
+ =?utf-8?B?VkNadWNNcjlONmlDY01ERjRWUndaUCtYQUJwZFdwZ1NHZ1FsU05KRmJ6ZGQ3?=
+ =?utf-8?B?c2d2WWt3emRRPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SI2PR06MB5140.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?czlvUmNEREVLMlhMNVhlSlA5UGs2bHdUd3VpUms0QmVHYi9iZjBXSnJuMGtE?=
+ =?utf-8?B?RTJvMitRSEVlRkYvY0cxQmVCTEhVeFJuTStrNUxud3Q4anFVQ0k1cmgzTFpl?=
+ =?utf-8?B?YlJhUVNKcVMzclVtWnZFSzBIaHhrcDRuNDJJTVdkQllEOU9pYk5TOElRV2ox?=
+ =?utf-8?B?eG9VL0tMZm5FaTllcFlXK0tyUk1mdnpwYkZxRTl1VVFYc3ZiOEZXOXRWcngr?=
+ =?utf-8?B?S3Z2emk4SWlSUm5RYnJHc1V4a09aVEhEcmdPalBPcjJVMXFIdXgxMm82MkJa?=
+ =?utf-8?B?ZGhPQkM4RDlWT1psWFA1V0lESVFrL09tMVVqeDhwQnppdUI1Zkd5aFI0Q1NM?=
+ =?utf-8?B?SGJTSUVwUC9ZK3VJYmZJZXl0YVQ5cXI2VTFUVVdMZ1dWLzBsYUNTWmlkS0dn?=
+ =?utf-8?B?b0h5eDZ5TnlJc3YvUjVTOHlidFRUajl3dEVJNVJzYlZrVXZTdFEzMm9Mbldx?=
+ =?utf-8?B?RmJkZmFFU3VRZy9rZ0lWWmJ5VTRRanEzMHdHUHB3QXM4S2NGVkNNa0YzZ0pE?=
+ =?utf-8?B?OHd1UzFaMzRlY2ZQTHNkdHlCeDIvL3NoWmw5TVRCOFlzOTE1VFh1VVpiUDF5?=
+ =?utf-8?B?Y1ZNeDJwazFRVU5lei9BUkg3WWQwT3RCbjliZy83MklYS0hUK3VxZWVNWUFO?=
+ =?utf-8?B?MVBwUU1TYzFtMGsyMDJHc0Q1YmJyNTEvNWpzRDcyMzU4VXh0VUErOEtmQjd1?=
+ =?utf-8?B?alBjSGt0MTc1UXBLZ0xSVlZmZGxaMmFhVXVmb0tHUi9CbTV1c1phV3hBYUlm?=
+ =?utf-8?B?a3BwOUVHVmluaWJGdG1udW9ZT0djbjV4WWZZMUJuL2xUWE5wWXQ1Qmh2YUFS?=
+ =?utf-8?B?cEloOFlIV1prRDgyak04U3N2UWprVjloL1VrZG5TSmsvdEczc1FHSXVVcU14?=
+ =?utf-8?B?d2pTc2pPR1lnV082NWRIemtvdlRmRkQyYzg1M3ZrVFRxaVBNdnZiVUlPVmVn?=
+ =?utf-8?B?R2daLy96TEQrR3VKdGl3N2d0YTFHTEZ5UlBVZ2NNdTdMb1gya3ByM2E1a0dQ?=
+ =?utf-8?B?bHVGWUVmcUdrVHVqaTBuMmprN0xSTXdZMVp0T2dlVXdScVhwYTQyMkFCMFcx?=
+ =?utf-8?B?TFF6eHRwRk5UNW8rWkZ1aWNjZmtObkZQVnlFdVZqNW84SW02bXRpYTRRczhm?=
+ =?utf-8?B?dE9rbWd3V05NWmFwcnEzYnEwbzVJNHR5MnBtK05ZaGwrSlJXV2tDdmFLa01z?=
+ =?utf-8?B?QVQ5NXpySTFWUGFFYSt1a2FmQndleTRqaEs2Sjl1Wk5kN09hNTNvOC9TK3VP?=
+ =?utf-8?B?cVkxN2tuSTJzWSs4Q3cxOHp0YSsrZDgzaUIrV0duT0V1UHhQSS9kSjdvRWlH?=
+ =?utf-8?B?ZzVzVWowdldEeXBCTmNmM1ovTUpyR244WDJVZ0E3Um5RMjJlY2E4c2lPR0Q4?=
+ =?utf-8?B?NjdBMFBWSXJYaG9FVUplbDZwL0RURjh2NkFtTElDVU85SHNnd0NCaDB1WEFS?=
+ =?utf-8?B?K0kzRElPZURrVVUzUllON0phZk9NUFhESmVNWXdTVTEzdHNwTkpYT01mWVRN?=
+ =?utf-8?B?UmYwemdZUjFiUFcwWUpiVkJsVTc5a2U0YytxYnI0R1c4T3FMUnhDSEVuUGRM?=
+ =?utf-8?B?VzRQNk9zeVpJTFgyM2ZKV212U2hhVllrTkZYNFpRd3JLS3l2bkt0SXY1bnVF?=
+ =?utf-8?B?YUdlRm5zZVg1N29yYjFUa1FwRHpWMUc3dU8xZ2FNUi8zMHVlYWFId0EwNlpF?=
+ =?utf-8?B?YURMTVIzMk42ZXlMMEljWi9FQm5HUU4yVXJiU2xxS1g3VnFhZkdTV1A3UDRL?=
+ =?utf-8?B?RVBWUmpxTWVGV0xQcEhvbGMwTzhCVWxjWWJBd3gxaER1cWxxQTl2ZUFkUkhZ?=
+ =?utf-8?B?dmlCajJXdU5aZFp0ZU5Edm9qYi9JWHpnaVFRelRTM28yenREZFhaZ0F6RjJi?=
+ =?utf-8?B?SkZNcDBLMEgyTVhydFoxWFpPVEUwUStzVGRVL3RzMnllNG40VUIrYjJDZGZt?=
+ =?utf-8?B?Nk1tVWw2YSt3Rzg3T1dzekxuaUlKTzYyTW5neENmd0VXNjl2RVg3ZC9Zalk3?=
+ =?utf-8?B?MGkzaVROckdWNCs0NDNyMlBTK0JNeWY0UHZUUDlDcnRseVR4ei9IMmFaQUpD?=
+ =?utf-8?B?Y0N6L0d2ckdOMEt0c0wxZm1ESWc3aXowM2hyNis5bGFkVzRmQ3FZWjl0dVlv?=
+ =?utf-8?Q?f4wUSnvd5uRRJ+jJa7YSP7k57?=
+X-OriginatorOrg: vivo.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ffe3eb96-aa29-4a18-4137-08dde79ec102
+X-MS-Exchange-CrossTenant-AuthSource: SI2PR06MB5140.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Aug 2025 08:25:18.6837
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XY79IPZzVwvY8DRoBBmnejPuQMO0at3Hw27h60/1G7OHrjQTKNmbLFvid6xydrjGc72ZcyMFZ99ky83ro3Audg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYUPR06MB6027
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250830_011956_704345_38E26C64 
-X-CRM114-Status: GOOD (  28.34  )
+X-CRM114-CacheID: sfid-20250830_012540_396373_1355BF76 
+X-CRM114-Status: GOOD (  14.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,56 +183,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 28, 2025 at 7:00=E2=80=AFPM Bartosz Golaszewski <brgl@bgdev.pl>=
- wrote:
->
-> Problem: when pinctrl core binds pins to a consumer device and the
-> pinmux ops of the underlying driver are marked as strict, the pin in
-> question can no longer be requested as a GPIO using the GPIO descriptor
-> API. It will result in the following error:
->
-> [    5.095688] sc8280xp-tlmm f100000.pinctrl: pin GPIO_25 already request=
-ed by regulator-edp-3p3; cannot claim for f100000.pinctrl:570
-> [    5.107822] sc8280xp-tlmm f100000.pinctrl: error -EINVAL: pin-25 (f100=
-000.pinctrl:570)
->
-> This typically makes sense except when the pins are muxed to a function
-> that actually says "GPIO". Of course, the function name is just a string
-> so it has no meaning to the pinctrl subsystem.
->
-> We have many Qualcomm SoCs (and I can imagine it's a common pattern in
-> other platforms as well) where we mux a pin to "gpio" function using the
-> `pinctrl-X` property in order to configure bias or drive-strength and
-> then access it using the gpiod API. This makes it impossible to mark the
-> pin controller module as "strict".
->
-> This series proposes to introduce a concept of a sub-category of
-> pinfunctions: GPIO functions where the above is not true and the pin
-> muxed as a GPIO can still be accessed via the GPIO consumer API even for
-> strict pinmuxers.
->
-> To that end: we first clean up the drivers that use struct function_desc
-> and make them use the smaller struct pinfunction instead - which is the
-> correct structure for drivers to describe their pin functions with. We
-> also rework pinmux core to not duplicate memory used to store the
-> pinfunctions unless they're allocated dynamically.
->
-> First: provide the kmemdup_const() helper which only duplicates memory
-> if it's not in the .rodata section. Then rework all pinctrl drivers that
-> instantiate objects of type struct function_desc as they should only be
-> created by pinmux core. Next constify the return value of the accessor
-> used to expose these structures to users and finally convert the
-> pinfunction object within struct function_desc to a pointer and use
-> kmemdup_const() to assign it. With this done proceed to add
-> infrastructure for the GPIO pin function category and use it in Qualcomm
-> drivers. At the very end: make the Qualcomm pinmuxer strict.
 
-Note mainly for Linus and Bart:
-I agree with the patches 1..11, but starting from 12 needs more
-discussion. That said, I hope Linus can apply the first 11 ones to
-make it easier to continue with the rest.
+在 2025/8/30 2:49, Nicolas Dufresne 写道:
+> Hi,
+>
+>
+> Le dimanche 03 août 2025 à 21:55 +0800, Qianfeng Rong a écrit :
+>> Based on testing and recommendations by David Lechner et al. [1][2],
+>> using = { } to initialize a structure or array is the preferred way
+>> to do this in the kernel.
+>>
+>> This patch converts memset() to = { }, thereby:
+>> - Eliminating the risk of sizeof() mismatches.
+>> - Simplifying the code.
+> Last month, Irui Wang sent an actual fix [0] for uninitialized data in this
+> driver. Your patch seems to be related, yet the previous fix is not covered and
+> this is not marked as a V2. Since this refactoring collide with an actual fix
+> that I'm waiting for a V2, I'd rather not take it and wait.
+>
+> Any chances you can respin this with a second patches covering Irui's fix ?
 
---=20
-With Best Regards,
-Andy Shevchenko
+
+Thanks for taking the time to explain!
+
+If there are conflicts, please ignore my patch for now, as it might
+not address the actual issue. After Irui's fix is merged, I can
+update my patch if necessary.
+
+
+Best regards,
+Qianfeng
+
 
