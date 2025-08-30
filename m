@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A92C6CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 10:47:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E523CA0FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 10:50:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eja/Sr2qjuVkf9pl7iOKbeZKj1qoBUOEtTGkXbe6Dbk=; b=1VOXBB8NhWg+qRyDmIFsy9lcgV
-	3wCU6VBrrszxa8hmUaiZGhCjCMT01qcpuctM+7vTk++PCyQ38QHMDc4miNKyYKHw2AXu/qryEDw6Y
-	RBl1k7hDNluReBETL8XVpMsQ1DmY4m0mq7LtmP+XRo1nhX1+HA07DQ0LTw/Lr5txdzO+QG4yK9SLc
-	qJ/uODlexe64szMmqsf5iPQbl7+CUDn84yrlZv4wyY1dicuJ+kovUHX7c8IE5VLk9rjhW/cBgZSDp
-	rm7nZeGiqq/VdaspbmsdOSDgLR7/D03oaRAZz2IEDbDR+hkrJ/nOSEfBPQFLHFRdbTeced1qH9d/J
-	qp1bhJWw==;
+	bh=WHgH8oy5n+l+ZwlFEabPRf0dx6W3J1c630BijBzFt9g=; b=2Q8D1i92kRn1OoyKdeWpB6IztU
+	uS8isuqN/QV8j14ZCiV59Vwt8yqq/hK9fIflwjYz44SJhJvtpWp5ODY/S+vCIvmjiIeSGBofTLRLw
+	MjMPTM8AWF3ekn7MIdDQkNHgiM9dojLuZsPCdjLhRY5PhJF0YsigRn/Hn7N5y3Fx44kwBu2zXaQz0
+	l5HYuoK5vrp+sn6lD9iuYvYB3P0mO9cqbCj3bJdzkRL89HllAwXvHQZhaHEQME73igf1/y6nzavk1
+	dQkHoaeKNC4OVNmucNmKHsnbGllL8mEWHwoGgVZUI7m97fdXgYTTQldmjXY7quD07f28LTdrsQY+F
+	y1KZUlCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usJ6z-00000007lEO-2BPf;
-	Sat, 30 Aug 2025 10:47:09 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1usJ9j-00000007lLp-1NBY;
+	Sat, 30 Aug 2025 10:49:59 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usIoR-00000007jxL-0vST
+	id 1usIpH-00000007k81-1VHy
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 Aug 2025 10:28:00 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-45b869d3571so165155e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 03:27:59 -0700 (PDT)
+	Sat, 30 Aug 2025 10:28:52 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3d1bf79d75aso143504f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 03:28:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756549678; x=1757154478; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1756549730; x=1757154530; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :references:cc:to:from:subject:user-agent:mime-version:date
          :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=eja/Sr2qjuVkf9pl7iOKbeZKj1qoBUOEtTGkXbe6Dbk=;
-        b=MprG3QyLuEgJnWHtCBIXZD8lfnw7GzveG3bZ6jg3qEb7m81TmE/Hgk30m1hSabrXoW
-         A30hObFPbexyhoxARVP5Xv0LgBOtNNIB6JR5e68Lu1pm7fIpc53Gzvam3zE9pxHzlnxN
-         1gvVmEKezThGKP/jrG++5bfU1HwO2MbWBFWZ9YpLqdQC+8smlj3OMZqb2hmrZ9WldAQo
-         DG76jCda2K69gd2bxWxDA71gpN8CSo+Sz72TIOKcc6tuNNy/6jXK8dyOTWhArJ49J2L8
-         QvGJM/Hsl1olANigPfTnc6LGVGZEAY0xTPc8uklS9ZCNVm0jpoX3H0iCXOh2EVrlylbS
-         gWQw==
+        bh=WHgH8oy5n+l+ZwlFEabPRf0dx6W3J1c630BijBzFt9g=;
+        b=B9i4aN2gOrezFCn5hxo2gwAnTiF95z+KRcgx1XGNr1LGBxN52hu1n9lcy5BgSxmS54
+         uYkyP8g6cteN/BAtffA3sfKQTAmvGMvBcpboFbfLyfo5H4aqt+Fe4DbNgtaQ6KnW/nrL
+         vuccBcrbQeQ+G2PAsxsZ661vkI/J41Nwx+imh10JPC4KF1r1pZzDxDcv3vDZNbeJ9S3+
+         phYT7Rqrnf9jisLb/qu2JviMf5/orGmytEJgeCsj9J1bAoqQTQzd2MFuTZl6lbZ3MqQ8
+         vb0Vvm6hR0bDXX3GQNLgdTZRXtPTIVAtlVWZbIdQm0C+jgOUDZGHD8wi870dRo3EQ3HH
+         k7Xw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756549678; x=1757154478;
+        d=1e100.net; s=20230601; t=1756549730; x=1757154530;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :references:cc:to:from:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=eja/Sr2qjuVkf9pl7iOKbeZKj1qoBUOEtTGkXbe6Dbk=;
-        b=qUYSz3YPAS+FTin4WR57nwGERWOqhSGk9OFVo+mO6rEv7u+VcLKBiAeRCHRtW3H4LN
-         pp39NrSvGkk673+4y2FT16L9mPEloQg618umOXKT8EUIkG4plGIjb9Z7KyW6BtgX+trq
-         ldtRmk2jG/0oUsz9ZudSBW5LPfr8QHy73DV59TdNcuSg7Fk7OHUPLfGPfna4v6BIg6U+
-         v9Fh1XI56h+zJ0mF7CQGU6t/LqdxF3qpBrSerqbO/o0RMVyn07GVa7acRTXZIpH7O+1A
-         rJ3q+Yky/W0xsrs8vYDhsr1/qm1Vvh4kEMNO9RZhAuNPGJfzhEuwWgvWOc6YNmFHRe+T
-         CvPg==
-X-Gm-Message-State: AOJu0YwNnJHS/vx9DAzM6/nZ4VDFUecuIst61I6FX1HZ/E3HCokq5ZLq
-	HNd6btPG70u5JlgYz3wy72a75uOWDHTVZd/nyo+MgkQCMefawH7EOfS/
-X-Gm-Gg: ASbGncv5Qw+1V5gByCXfuJcS+Trq/nUow74+nOWvqLGNXVXUVxDHYAYtqqhZbFibBBV
-	2utS7PdryyX7OpVP4SOoCTBdmycWlMLtCvP7PG3tKwiO68VSDjS9D4n6+b9dO2H0PTFVjAIjjtN
-	J9ZNbqZ4x8ygXIzot1pfA4VbNfSHdfjjGXredS13OvO4q9Pdm6TvTUflYyYJcjfKN1YJPaeHQ8Q
-	G69fv0xYmckbtOvkY6SboTw0IHbzVWBY5fHOt3BMrwPCCzXQeZWrvkhuG+Qf63W76ZSTTxcGVso
-	JCfxD1gcSZq9h4x/e5ejx25j07kETz/Y1wdatJfGj5PWLK4NyKi8KonFetmdORWl/R0RZjxIm35
-	Mco6CU37VR1NlhpgJh5nxXKjHhG9SD2WiygPaQQHA0X4+Ch8mzHlgZGLS17sCN6OGCzz+icD+tF
-	aVGQOnkcHGzh3/vHWMIeKap8v9jBrosDYkmtukNDrIyTMjAZU6RCN3HCQI6v3NDtHDuI4=
-X-Google-Smtp-Source: AGHT+IEbinJMv0Q50yWLcSQLB4WIKLpbG3dkEZKOAzvtHVjw3gGu6LpEKbKaKP2RsWcyI8GyeNhlCw==
-X-Received: by 2002:a05:600c:1f08:b0:45b:7bba:c7b5 with SMTP id 5b1f17b1804b1-45b8557c880mr10933925e9.28.1756549677730;
-        Sat, 30 Aug 2025 03:27:57 -0700 (PDT)
+        bh=WHgH8oy5n+l+ZwlFEabPRf0dx6W3J1c630BijBzFt9g=;
+        b=pZSxGxUDHFjY0qCVT6OcbFTJEaZN+6EI120NWtzc998FwEG1EIa/auDUfUgNwNkjni
+         +BmuIW7rBNq4PflKyM8U5TlmOhAQuHp6FClBsw8ElYElcOQqPrakrBbRTHK18tC6vDyE
+         l8hWacWJLSBxa3YYVa4SioVWdx04m5/vWdqg285h9eJLmvWEjbkIme37aI28m9lvjW9W
+         B2/EggGAn67NKhrEn0T+IEDSCmVSpkE0I1k+plcYYr+CU/KWoRU+E3758wwjCz7S13Mn
+         aWUyFy47bsPovy9wZSfyE1GoOD0dq3BcfVBWBK1M3/1UgQTakE3b4G1Uimj26AojxwPZ
+         ARoQ==
+X-Gm-Message-State: AOJu0Yyp25O7s7/889gUH4EDN+fAqFpkX6Lv02IwMTRD34ZVKz9sbCSo
+	9YxWknfWh5H23sT4IUPewkMJSb/1UVbUoF4H85G3v6kIaw/mc7jxOgia
+X-Gm-Gg: ASbGncs1i4VkSIes2wO18hl4JyeBjuCXmWuxT2rKoDf6mksq9xA0k/RhK4/x6SI1BOw
+	GQ5qcTRsJHjfW6zDT5ssBdO8IH3uOiUTmmCkfoTo0z+p2dZtmS05ANR+kkP+nspy4iUzSBtYQ3w
+	afelfoB3WnWfeMIINtZffG9fYy4u31z/Xi2I8mwEvBQUHPDBFAT8MOqCPiBeOKOmkrx1QUH07lr
+	vFVomoLL3a4NrgMoVq1VVxwuR/Gn3iYuXZ18VegTjiuSPqde+MrLc/gHObz73gFJgCNknwUNM5w
+	px39j4PvPqFJUeFmydwnQQ5GBNw8Y9QOeTVUGMcQ8Mets6Eb6vvIQJvvhPTIT/GmjSQHKR/lTaP
+	cggngOKBN2FbUzFoWLDwCECsN6rQDQxsAbfq3E3Ww1hCsOMDqaW/vg7HRHJophZ5uvcYmVD0dsC
+	6vEo/S4eA4LCjszX5tAd4ZJ7n3/UkJ/6eMDBm4Ir2lXDAmCcAQJhx1AgklAYM4Adpo3zI=
+X-Google-Smtp-Source: AGHT+IHVJCd/+HdJVP9uB4pTqlOmy229F5d8tyap6dwLZFq0cuUVPwza6+iNT3KkXtyV+TvLcVITKQ==
+X-Received: by 2002:a05:6000:250a:b0:3ce:7673:bb30 with SMTP id ffacd0b85a97d-3d1b16f01e5mr1648635f8f.14.1756549729740;
+        Sat, 30 Aug 2025 03:28:49 -0700 (PDT)
 Received: from ?IPV6:2003:ea:8f2f:9b00:80c:a2fc:7bcf:3a2? (p200300ea8f2f9b00080ca2fc7bcf03a2.dip0.t-ipconnect.de. [2003:ea:8f2f:9b00:80c:a2fc:7bcf:3a2])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-45b8525a94bsm23354035e9.15.2025.08.30.03.27.56
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3cf276cc915sm6584706f8f.21.2025.08.30.03.28.48
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 30 Aug 2025 03:27:57 -0700 (PDT)
-Message-ID: <7427825b-7d2f-4edb-a357-fa5eabb6d7d7@gmail.com>
-Date: Sat, 30 Aug 2025 12:28:07 +0200
+        Sat, 30 Aug 2025 03:28:49 -0700 (PDT)
+Message-ID: <e5fec041-14b8-46ba-9302-25c34a30241f@gmail.com>
+Date: Sat, 30 Aug 2025 12:28:59 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: [PATCH net-next 2/5] ARM: dts: ls1021a: switch to new fixed-link
- binding
+Subject: [PATCH net-next 3/5] ARM: dts: st: switch to new fixed-link binding
 From: Heiner Kallweit <hkallweit1@gmail.com>
 To: Shawn Guo <shawnguo@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
@@ -137,8 +136,8 @@ In-Reply-To: <a3c2f8d3-36e6-4411-9526-78abbc60e1da@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250830_032759_298591_080AC1C5 
-X-CRM114-Status: GOOD (  12.71  )
+X-CRM114-CacheID: sfid-20250830_032851_414754_803B2B3F 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,25 +157,42 @@ for more than 10 yrs. Switch to the new binding.
 
 Signed-off-by: Heiner Kallweit <hkallweit1@gmail.com>
 ---
- arch/arm/boot/dts/nxp/ls/ls1021a-iot.dts | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ arch/arm/boot/dts/st/stih418-b2199.dts  | 5 ++++-
+ arch/arm/boot/dts/st/stihxxx-b2120.dtsi | 5 ++++-
+ 2 files changed, 8 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm/boot/dts/nxp/ls/ls1021a-iot.dts b/arch/arm/boot/dts/nxp/ls/ls1021a-iot.dts
-index e13ccae62..8d2438498 100644
---- a/arch/arm/boot/dts/nxp/ls/ls1021a-iot.dts
-+++ b/arch/arm/boot/dts/nxp/ls/ls1021a-iot.dts
-@@ -120,7 +120,10 @@ &enet1 {
+diff --git a/arch/arm/boot/dts/st/stih418-b2199.dts b/arch/arm/boot/dts/st/stih418-b2199.dts
+index 53ac6c2b7..5231222b7 100644
+--- a/arch/arm/boot/dts/st/stih418-b2199.dts
++++ b/arch/arm/boot/dts/st/stih418-b2199.dts
+@@ -103,7 +103,10 @@ ethernet0: dwmac@9630000 {
+ 			st,tx-retime-src = "clkgen";
+ 			status = "okay";
+ 			phy-mode = "rgmii";
+-			fixed-link = <0 1 1000 0 0>;
++			fixed-link {
++				speed = <1000>;
++				full-duplex;
++			};
+ 		};
+ 	};
  };
+diff --git a/arch/arm/boot/dts/st/stihxxx-b2120.dtsi b/arch/arm/boot/dts/st/stihxxx-b2120.dtsi
+index 8d9a2dfa7..f45c65544 100644
+--- a/arch/arm/boot/dts/st/stihxxx-b2120.dtsi
++++ b/arch/arm/boot/dts/st/stihxxx-b2120.dtsi
+@@ -147,7 +147,10 @@ ethernet0: dwmac@9630000 {
+ 			st,tx-retime-src = "clkgen";
+ 			status = "okay";
+ 			phy-mode = "rgmii";
+-			fixed-link = <0 1 1000 0 0>;
++			fixed-link {
++				speed = <1000>;
++				full-duplex;
++			};
+ 		};
  
- &enet2 {
--	fixed-link = <0 1 1000 0 0>;
-+	fixed-link {
-+		speed = <1000>;
-+		full-duplex;
-+	};
- 	phy-connection-type = "rgmii-id";
- 	status = "okay";
- };
+ 		demux@8a20000 {
 -- 
 2.51.0
 
