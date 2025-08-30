@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25D10CA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 09:50:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD54BCA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 09:53:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IbrIg1eU413356pzs4YTMme/8HXkQ5PaIsuPZ7aPwhg=; b=iymHSb+/nGxjmjro+2jOi5P6wT
-	5bn5U7WuwGFaYmO2/IDhbUj2o8dcKfPArRxRlFlj35DqAaMk35OCDvHnC2+NYFSw9owJ8d0l4R0YB
-	2o1uFyzW5GsQ7Qei66B2AIf8yn3bAomDe7MsYEPW05zlDBZFKSKUcSQHHjppyY/C0nw+zRoGZ+BPb
-	yGemXStRjk+D82LvbzjWl4Yo4McQ8Y5FeFHWTIdyoMBkcS1hkzo70yPDTQEMDdukZf/00ARUsm0fT
-	p4PpJ+PbrTehYrARiF5sq2LFOnjlO8+vhIN9LLx1EHpGgnRVtKg85JGVsgiZXD32BCs9L+DLBryN/
-	RxNqpJ3Q==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uKji/FCmBwfqWJNW5C1m3HN1FANNuZMTcCJ632t2uJw=; b=PHejBk4RXM3uFKPtiOQif/xGbL
+	PgUblQz4N5UCaCWRI+8pcu23WJLDFkJD4Ey8QKbC915o8kWR5zaCK9KuTs1YFRsLJlGSYcSt5BEhi
+	h1NxKmd5UkhHZopo0xr2NQBeoXFNE273XDx/pUbxFFhxULfa2nbxpf+GIfsWExClKW0Q9rvhixF1a
+	xgRnHlNRtD65ppTUtjrG9scI40fGA/SO7+iQ1JzHuozBtGA1VDTFyQyL5ffAaOjEeK5MsCnYXoSe6
+	fhQ3UL9qMkrGpjM8o/bLtAV7aN62wRHtg17yrn9KA0Gse1Vw8rLFROL6q2I0cgFnLUqrD7LnT99Tm
+	8MZbgEqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usIEM-00000007h2C-0BH0;
-	Sat, 30 Aug 2025 09:50:42 +0000
+	id 1usIH3-00000007hIE-3D4r;
+	Sat, 30 Aug 2025 09:53:29 +0000
 Received: from mail.netcube.li ([173.249.15.149])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usIBa-00000007gde-2XQL;
+	id 1usIBb-00000007geO-2JZR;
 	Sat, 30 Aug 2025 09:47:52 +0000
 dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
-	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding:In-Reply-To:References;
-	bh=IbrIg1eU413356pzs4YTMme/8HXkQ5PaIsuPZ7aPwhg=;
-	b=r/+mcEIt+b0AxqCo8gCeD75X1YXv11GbyIYuLdYV+umM9tNaIQAJJSAVopKt4Pzbbd82mnxEjnD8Hc3M0FfLbmmoVXupeZrWKJASkF17kwSBWWZCBBELZuFvtxMk7od4JKkMSHCDenhAz+5eXN/ow2Di/Awm13EGHfxPxjfXzVc=
+	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding;
+	bh=uKji/FCmBwfqWJNW5C1m3HN1FANNuZMTcCJ632t2uJw=;
+	b=o+dctFqz3HX0r7Gm3jrCpKcguejk68zXpPYlNn76Mjs1/DFLP/uXv8/k3QZsf1aTVP8oyHqiwXJ1AqldCOVwMY7lLi9U1sg7xaZK8mBBhF72acr7VZMrLDFxzljWC6EKZxT0c+OPKCCuI9GdiV6vgSNjLSC2eFCJkgMkBxDQrtk=
 Received: from lukas-hpz440workstation.lan.sk100508.local (cm70-231.liwest.at [212.241.70.231])
 	by mail.netcube.li with ESMTPA
-	; Sat, 30 Aug 2025 11:47:33 +0200
+	; Sat, 30 Aug 2025 11:47:27 +0200
 From: Lukas Schmid <lukas.schmid@netcube.li>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -46,24 +46,20 @@ To: Rob Herring <robh@kernel.org>,
 	Alexandre Ghiti <alex@ghiti.fr>,
 	Maxime Ripard <mripard@kernel.org>
 Cc: Lukas Schmid <lukas.schmid@netcube.li>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v7 1/5] dt-bindings: arm: sunxi: Add NetCube Systems Nagami SoM and carrier board bindings
-Date: Sat, 30 Aug 2025 11:46:53 +0200
-Message-Id: <20250830094700.1715658-2-lukas.schmid@netcube.li>
+Subject: [PATCH v7 0/5] Add support for NetCube Systems Nagami SoM and its carrier boards
+Date: Sat, 30 Aug 2025 11:46:52 +0200
+Message-Id: <20250830094700.1715658-1-lukas.schmid@netcube.li>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250830094700.1715658-1-lukas.schmid@netcube.li>
-References: <20250830094700.1715658-1-lukas.schmid@netcube.li>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250830_024750_932427_368394A6 
-X-CRM114-Status: UNSURE (   8.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250830_024751_875451_92411B9D 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,43 +74,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The NetCube Systems Nagami is an System on Module base on the Allwinner
-T113s SoC. It is intended to be used in low cost devices which require
-simple layouts and low BOM cost.
+This series adds support for the NetCube Systems Nagami SoM and its
+associated carrier boards, the Nagami Basic Carrier and the Nagami Keypad
+Carrier.
 
-The NetCube Systems Nagami Basic Carrier Board is a simple carrier for the
-Nagami SoM. It is intended to serve as a simple reference design for a
-custom implementation or just evaluating the module with other peripherals
+Changes in v7:
+  - Fix the gpio numbering for the USB_SEC_EN gpio hog
+  - Fix the gpio-line-names for the keypad carrier
 
-The NetCube Systems Nagami Keypad Carrier is a custom board intended to
-fit a standard Ritto Intercom enclosure and provides a Keypad, NFC-Reader
-and Status-LED all controllable over Ethernet with PoE support.
+Changes in v6:
+  - Add 'usb0-enable-hog' to the som to enable the USB-OTG port by default
+  - Update the keypad carrier dts to match actual board revision
+
+Changes in v5:
+  - Re-add the non-removable property to the ESP32 interface
+  - Add the mmc-pwrseq node for the ESP32 to initialize the ESP32 correctly
+  - Remove the unused ehci0 and ohci0 nodes from the Keypad Carrier since
+    USB port is peripheral only
+
+Changes in v4:
+  - Disable the default interfaces on the card-edge but keep the pinctrl
+    definitions for them
+  - Split the pinctrl definitions for the SPI interface into the basic spi 
+    pins and the hold/wp pins
+  - Move some mmc0 properties to the Basic Carrier dts
+  - Remove non-removable property from the ESP32 interface
+  - Fix typo in the keypad matrix definition
+
+Changes in v3:
+  - Add missing dcxo node to the SoM dtsi
+  - Rename the multi-led node
+  - Change dr_mode to "peripheral" for the Keypad Carrier
+
+Changes in v2:
+ - Squash the binding patches into one patch
+ - Fix formatting of the phy node in the SoM dtsi
+ - Add description on where the phy is located in the SoM dtsi
+ - Fix the phy address in the SoM dtsi
+ - Move the carrier bindings into the same description as enums
 
 Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- Documentation/devicetree/bindings/arm/sunxi.yaml | 8 ++++++++
- 1 file changed, 8 insertions(+)
+Lukas Schmid (5):
+  dt-bindings: arm: sunxi: Add NetCube Systems Nagami SoM and carrier
+    board bindings
+  riscv: dts: allwinner: d1s-t113: Add pinctrl's required by NetCube
+    Systems Nagami SoM
+  ARM: dts: sunxi: add support for NetCube Systems Nagami SoM
+  ARM: dts: sunxi: add support for NetCube Systems Nagami Basic Carrier
+  ARM: dts: sunxi: add support for NetCube Systems Nagami Keypad Carrier
 
-diff --git a/Documentation/devicetree/bindings/arm/sunxi.yaml b/Documentation/devicetree/bindings/arm/sunxi.yaml
-index 7807ea613258..50f08d8d22f6 100644
---- a/Documentation/devicetree/bindings/arm/sunxi.yaml
-+++ b/Documentation/devicetree/bindings/arm/sunxi.yaml
-@@ -599,6 +599,14 @@ properties:
-           - const: netcube,kumquat
-           - const: allwinner,sun8i-v3s
- 
-+      - description: NetCube Systems Nagami SoM based boards
-+        items:
-+          - enum:
-+              - netcube,nagami-basic-carrier
-+              - netcube,nagami-keypad-carrier
-+          - const: netcube,nagami
-+          - const: allwinner,sun8i-t113s
-+
-       - description: NextThing Co. CHIP
-         items:
-           - const: nextthing,chip
+ .../devicetree/bindings/arm/sunxi.yaml        |   8 +
+ arch/arm/boot/dts/allwinner/Makefile          |   3 +
+ ...n8i-t113s-netcube-nagami-basic-carrier.dts |  67 +++++
+ ...8i-t113s-netcube-nagami-keypad-carrier.dts | 129 +++++++++
+ .../allwinner/sun8i-t113s-netcube-nagami.dtsi | 249 ++++++++++++++++++
+ .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |  48 ++++
+ 6 files changed, 504 insertions(+)
+ create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-basic-carrier.dts
+ create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-keypad-carrier.dts
+ create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
+
 -- 
 2.39.5
 
