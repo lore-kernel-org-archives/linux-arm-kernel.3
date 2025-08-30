@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB157CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 17:31:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 553A3CA0FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 17:33:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qY5y/HdkrOraZtssGmgA3rjNKre8srjDh5rTeec1KZ8=; b=Q/a0BGLUYEDIYeoMj1a1g1OcWb
-	PAHySS8gUn5FL9vaxTPUMMB/6dwN7n7RpPxlvA4GFUboCNHzj+9a8rHjhwJvYEoyE6YmnLTPqRjDg
-	wy9nhMhjrm0ZgoW+zAVL6DnYQgqcT0wkDccpKRdyv4ndMS8IbS3YGdxO8p1AW09G3epIOHanJm8q5
-	89Yhq7EsjsAbXBhJkztWWhOYiRZGoW0nHwkwbRsQL13wb/6ykb3SUQRxwTeJwLFGkbHtacITuTbZU
-	5fTx/KosOwllvtGAGfEyTv1OPfteYSinDs/kKJkfwBcJ/kCSho7ZVejIY14/wawhiNnZM9pdIuFdo
-	ldefwVzQ==;
+	bh=XMadSsSaeBFm1oO8fawgRrm+BvJYFHPwkhcWbNsCVZo=; b=ifCEPk0BZEXUoZk0Y1JZj+wDYg
+	Lg3wdYNraZQgB9FnhiXg/6bvFqkrv6fnQD1RuS0WL0JjuoK1BZGu2myxLS5K2Zehg3nyBNavg65TI
+	m+csa/hH13x3q4/nTMFYEdE1SdUDfsASB4XNXiqc/COykPSLYguhk0JPmseSEcdZUb81/2+JfJaBP
+	Z6HX5o3alzQw92VUu6+b5j4263alNHBNO+TG1E27aZBCX7KxJwEyrXwYH5s6gVeG8mdMRw/NI8Afi
+	hRlbRLNa9Pi79El1cIY8DaxfNUOYPwy5eYVv4lxf9JIbDwA7ImgP/hzkaUe/zvGk+SoLs7uwy/Hef
+	mlN0flJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usPPo-00000008Equ-3w2U;
-	Sat, 30 Aug 2025 17:31:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1usPSW-00000008F3Y-3GGD;
+	Sat, 30 Aug 2025 17:33:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usP4q-00000008CUM-3UwP
+	id 1usP4q-00000008CUJ-2VIJ
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 30 Aug 2025 17:09:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1C3A1448AD;
-	Sat, 30 Aug 2025 17:09:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADE33C4CEF8;
+	by sea.source.kernel.org (Postfix) with ESMTP id E516643EF5;
+	Sat, 30 Aug 2025 17:09:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0378C4CEEB;
 	Sat, 30 Aug 2025 17:09:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1756573759;
-	bh=5a6AXZ9/TQJt7kA1cVIkch5wEdFuJBLXnhAS02YEYgA=;
+	bh=u+4gHkt5DXNrjLXkvTpfwwb6DKaKcxGOlqkLQ/0Gubc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ow9x2nSICfTEAI30gtt2nKSajoSKBK5H5SZ3GptNsb6EHxzDAUoltjLG08m4OIkUa
-	 dt0MBFONHJxNYlJ0WW/KfuljhDlt+TtVGLYrTIRziCAOa8I4PzITRNTh1xQzUW1ozv
-	 m72l7hSS7KRHBpeRq6Xx1lR/j4NQMnC0nX+ODD9WSssbDCDwz9LUiKDnTWIu1sTePA
-	 wMTlEMAsHKod0zVP2SvruxdzuGGIYfWSKs9Rr+C8G0MhYDMq6ZU0YUb6Xkd7BLvPVf
-	 ao0otQvDv6PUUyDIOxLjAU9FDzHOB6wPergBEDDxWL1DX1HBnKXNahS8JIpZk+g5Zl
-	 0e3dS9SEkhYdQ==
+	b=I4ferjS0lWDaRDEPSigpfpZXcn1ecAQ4cv3cFgwhBBCG2vX1kOc45QAnqBpUwdVq9
+	 c3v44Y514Aw0hG7KECWZeN6eT4E2F65t7NZ+0tnWQkbD/ZDqHM7HibVSUasgoadxa/
+	 uxHudqTidIvqbjllVV4lP0TOZRN8YZHXkDSUnRxNBCZ+TX5xilo9HoBYy76ii41tCu
+	 KbP5/fRr1EDXUInEbNNKJBUTbPPgfAu7ENnVUUFNfLKAFwPVHUxW/Pg5lPwlkOqZAE
+	 vrNi0me373DjR7oHTJUqmLTEgRr7GT/uMoikO86PZ0bYpnWKqMD4vfp0UYFgmobLMw
+	 fnUkdpeZUMxaw==
 Received: by wens.tw (Postfix, from userid 1000)
-	id 5604D5FE30; Sun, 31 Aug 2025 01:09:17 +0800 (CST)
+	id 2686B5FA73; Sun, 31 Aug 2025 01:09:17 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -58,17 +58,17 @@ Cc: Andre Przywara <andre.przywara@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 3/8] clk: sunxi-ng: mp: Fix dual-divider clock rate readback
-Date: Sun, 31 Aug 2025 01:08:56 +0800
-Message-Id: <20250830170901.1996227-4-wens@kernel.org>
+Subject: [PATCH 1/8] dt-bindings: clock: sun55i-a523-ccu: Add missing NPU module clock
+Date: Sun, 31 Aug 2025 01:08:54 +0800
+Message-Id: <20250830170901.1996227-2-wens@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250830170901.1996227-1-wens@kernel.org>
 References: <20250830170901.1996227-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250830_100920_938169_D277101F 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20250830_100920_655432_87828EA1 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,32 +85,26 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chen-Yu Tsai <wens@csie.org>
 
-When dual-divider clock support was introduced, the P divider offset was
-left out of the .recalc_rate readback function. This causes the clock
-rate to become bogus or even zero (possibly due to the P divider being
-1, leading to a divide-by-zero).
+The main clock controller on the A523/T527 has the NPU's module clock.
+It was missing from the original submission, likely because that was
+based on the A523 user manual; the A523 is marketed without the NPU.
 
-Fix this by incorporating the P divider offset into the calculation.
-
-Fixes: 45717804b75e ("clk: sunxi-ng: mp: introduce dual-divider clock")
 Signed-off-by: Chen-Yu Tsai <wens@csie.org>
 ---
- drivers/clk/sunxi-ng/ccu_mp.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ include/dt-bindings/clock/sun55i-a523-ccu.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/clk/sunxi-ng/ccu_mp.c b/drivers/clk/sunxi-ng/ccu_mp.c
-index 354c981943b6..4221b1888b38 100644
---- a/drivers/clk/sunxi-ng/ccu_mp.c
-+++ b/drivers/clk/sunxi-ng/ccu_mp.c
-@@ -185,7 +185,7 @@ static unsigned long ccu_mp_recalc_rate(struct clk_hw *hw,
- 	p &= (1 << cmp->p.width) - 1;
+diff --git a/include/dt-bindings/clock/sun55i-a523-ccu.h b/include/dt-bindings/clock/sun55i-a523-ccu.h
+index c8259ac5ada7..54808fcfd556 100644
+--- a/include/dt-bindings/clock/sun55i-a523-ccu.h
++++ b/include/dt-bindings/clock/sun55i-a523-ccu.h
+@@ -185,5 +185,6 @@
+ #define CLK_FANOUT0		176
+ #define CLK_FANOUT1		177
+ #define CLK_FANOUT2		178
++#define CLK_NPU			179
  
- 	if (cmp->common.features & CCU_FEATURE_DUAL_DIV)
--		rate = (parent_rate / p) / m;
-+		rate = (parent_rate / (p + cmp->p.offset)) / m;
- 	else
- 		rate = (parent_rate >> p) / m;
- 
+ #endif /* _DT_BINDINGS_CLK_SUN55I_A523_CCU_H_ */
 -- 
 2.39.5
 
