@@ -4,116 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25E4ACA0FF9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D27ECA0FF0
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:52:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KJI2jcouIdNFIlkiN+u9++AoYlDayudAZRO2bQiSIRM=; b=MtQ5mnXCoNdaetxBoaGD2sZCXY
-	d+zXu8DXwrW4+x9m6Ja67mTzQjLRJNpQBBbq/zWfoBqCfEd6JC6GN/HUFDw7Hr7hXir8GQrtvYWyb
-	6KQDbBaiyIN3GTQDbtuznuvfp7FKjTq/pi5i+yv8HRDmbsziFe2p3hNjTXVIkJtX/w9uYGjwaBjEn
-	s+3jkP99B7SV3biZWY2b65heINhjJAqfUm26cj6Vg7tDVdPFo1XylR35qPBsjQzxGoKjeV308tcWT
-	vZX1uBe89yV11ORBHmM/94fA5j27L7pfl8NgdYxH3tebfMq055KD2hfDfySk1jBhW6CDpAzLtuPpI
-	empS668w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LZuXyDJM7XEnt+XU1HmyOjcNRk6JF6G/a2xc18hmYt4=; b=1icZH4fHYfr1CyKxLzLYYTsrJP
+	V7qVRSXgL8ncz6gE1nkWVtVPEhOND+ZsUOdhajB0qLb8RBrh+bXzo50DxD1ZBprqr0JgqZ6/0RtEA
+	XoE5mB1mdyzEl7XvCUxpe18B8qhDXYpgy6laG2D7MPksrvHMUtEUPnFoGwQ/BHAq2L1N0LxTxD6vL
+	ROglw9zdolejg+vpSaUorddkqQqE2G2Hlej7BB5riAZKsezHvDcpVR289XfQcJLzzl0NFk9/jzi9P
+	rRx7V3THSXmWSQCT68s9dzY1EPDriON2TaLOgvBZH3fl9O3tpGJMvdEHoOrkdX4IU6J4ftj6kD91Z
+	+mugUTWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us9pp-00000007E8z-42hH;
-	Sat, 30 Aug 2025 00:52:49 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us9Dz-0000000748a-2rnd
+	id 1us9po-00000007E7O-3Zj9;
+	Sat, 30 Aug 2025 00:52:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1us91Z-000000073nu-3zsW
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 Aug 2025 00:13:45 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57TJrdiL025419
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 00:13:41 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=KJI2jcouIdNFIlkiN+u9++Ao
-	YlDayudAZRO2bQiSIRM=; b=ArwZuVrc8lDKy+k0BX9azqRhXwe0BKUv/v/i4vTd
-	el/TJknG/c+BbwFmi667kCOPoMBLjvnJTROz1ZoRe3RUf7vjXT7JmuBFoB5fr75u
-	azxh7vOcooBqfKOIC9EPta/93TbKaAmbTTY5lvqMnEvRUP/LDrNRIWWMwAqcJqRX
-	1pRNjbTlcFWgujtSf7PksRjWj7+g5K1XBtbAyGAR8PadaOpfGA7aWwwHcpg1VNMY
-	yOvmpp0JPQJvIZpglyDXtCU2ncujgvxUI//Lx1YGFuw4yZMGsWi2Qypt8y8UPsUF
-	otSnDlQ0ym025ZTNWFpo9icxc84fiNM7ccudAGK/+Sx9zA==
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48u4xyjhqh-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 00:13:41 +0000 (GMT)
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-4b311414656so34363701cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 17:13:41 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756512820; x=1757117620;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KJI2jcouIdNFIlkiN+u9++AoYlDayudAZRO2bQiSIRM=;
-        b=J6xtl5FE2E9sXa5gXt0fM4VeIg6ycuCfdXibAt24tck5+42kKrVEkBM4k76oXGb7dk
-         YIg5VU0Vu61PNMiXYB/H0tnjej+4iZU98LZlMV0Is3hcnfGzmIRyKzHG7CW1shaj7zzh
-         xPQ1uv9aUbMfXDZk+GZqWVBjPJHtg419kJ8ncXX1DcZNDvk/MtNQxtkgazZIPj+SsYEy
-         yF1HJwxJQ5f6hi4jDo2s7Riy8zwl/glGL0pLbqqF/2W2CgG0GblVlV6Zjnux42T+gp5u
-         ouNlt9d5C0VoILV7xjlZ7U8GpxerwTVELnRoAM+qPRygOVVdQoj2jSOj0iyiIvCVcBug
-         6ZZA==
-X-Forwarded-Encrypted: i=1; AJvYcCU52oi0XbMh3FCT5U1HaqOeEc1hXD1aiIDcVI6IYhojVnwzSQ2plYwWWn5Nl/8AzYjOgYfDe1FIzkWWm5dpkZLr@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz5VJRJ3k63tnDH9G0Mm6fSdHsMi6bwqBtMu5pCV5tFwbLphrog
-	OiQkeftz2FYPCt3R+PJ4jwB9CxZtK4ZV0T9KeMaomIw76U3UC6Dkfzzg5Lh2BJPjqOu1B44PT3E
-	9MsK9zTJPkEwQW2Ghh6HJ3p58F+ziQFLzYmUb4wmwE+oghx8xLJj7glNzbovYqknPJRxQJpEviD
-	OyDw==
-X-Gm-Gg: ASbGncsLUcJkk4jdQgk5gclhHy7WG847LokWYfxNUn/EuR7BPWM8Wh8SVv4LqSKFqzw
-	gRGFJlBFy7FKaT/KKX8TJwFlJBpHKuHNfsjsXNrP36+HRRwoUoTKLp3nYC0Ga2gwd/lp5DbCH4y
-	T18AA3iSzuJ+EC3fcoAU1NIwc1WxMS0r7zbhDBFciBdsXGwqPP9LNKazj0o/X4jYdZnI6QyKx23
-	TdepRBnIzPVZTTTAegi6z9tH1AeVg42IY0+GY5TrxlKBly794TYgyQS7ob7bknCoAqhbSf6WSTH
-	rFks+7IihRz3sxiw3alxI7ds7zrIXiMglFerUE93DYiNKodG6HR2rZ4X9Ds/9Pcultvrq4qziNW
-	j4ZCPkx/nrsLTl+HAAGQnEOmQBXxgfoC/7s0VGsaDXlarmg99EBKn
-X-Received: by 2002:a05:622a:1353:b0:4b2:fe63:ade5 with SMTP id d75a77b69052e-4b31da02273mr5934171cf.29.1756512819908;
-        Fri, 29 Aug 2025 17:13:39 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFG7ajyHbJajLssqNp8zWk8T0G5qqW1Lj5h06mAnpHjHupukuww4VcBryXSzV5prlDAKnbf/Q==
-X-Received: by 2002:a05:622a:1353:b0:4b2:fe63:ade5 with SMTP id d75a77b69052e-4b31da02273mr5933951cf.29.1756512819440;
-        Fri, 29 Aug 2025 17:13:39 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-336b484c959sm7333281fa.43.2025.08.29.17.13.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 Aug 2025 17:13:38 -0700 (PDT)
-Date: Sat, 30 Aug 2025 03:13:35 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Petr Vorel <petr.vorel@gmail.com>
-Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        Alex Elder <elder@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-        Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
-Subject: Re: [PATCH 1/1] ARM: defconfig: Remove obsolete CONFIG_USB_EHCI_MSM
-Message-ID: <forjnpvup53gpezaaqg4kri7uek3qipgamqhwub5ke2n4gxfkz@tovo2wzvppqo>
-References: <20250829165031.110850-1-petr.vorel@gmail.com>
+	Sat, 30 Aug 2025 00:00:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 002631756;
+	Fri, 29 Aug 2025 17:00:44 -0700 (PDT)
+Received: from [10.57.3.75] (unknown [10.57.3.75])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 218C93F63F;
+	Fri, 29 Aug 2025 17:00:49 -0700 (PDT)
+Message-ID: <5e39026e-bec9-408f-b24a-bb60b3f1f411@arm.com>
+Date: Sat, 30 Aug 2025 01:00:47 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250829165031.110850-1-petr.vorel@gmail.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODI5MDAzMyBTYWx0ZWRfX0hy4CsApfBRN
- 0wWJlqTmpq8o7mAUYrkxDDYVdh9SnTkbQtcmO2MZudGSfiWvs/vecF4yyCh7nN9CxwacbabxGuR
- z+P1y2XuNBdq4q6u72RxNcygx3S6n9+wrdlAiJ0VSiAF4mao1ni+movMIUNsAH09I/SFaB60ay1
- KR7lBEyZTmFDkrJVuZx3kNiIMbG3+NHedwNJjlY9D8uztjapDv4CG556a4iDhOtAF8qrgSEzJ02
- a/PKYiz+L+5L5QUl2S9g5+tW+YPGxThYx8lVEwtTBC6Jj/DDlnRkxVfwXqVO9D5u+yoUBgDQJwo
- QsMlIMgLPADraSrkPhTKZ4OgWFBg2WVTNyjRen8qDYqB7knCWa4B3S+PnmB5F4jUD2aOrRm5gEo
- Rlao2xjO
-X-Proofpoint-ORIG-GUID: GGesRIjp93mBVkSzME1lc71wPKn9Swb0
-X-Authority-Analysis: v=2.4 cv=PYL/hjhd c=1 sm=1 tr=0 ts=68b24235 cx=c_pps
- a=WeENfcodrlLV9YRTxbY/uA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=2OwXVqhp2XgA:10 a=pGLkceISAAAA:8 a=EUspDBNiAAAA:8 a=dHa85sIdWx2pRmVuYm0A:9
- a=CjuIK1q_8ugA:10 a=kacYvNCVWA4VmyqE58fU:22
-X-Proofpoint-GUID: GGesRIjp93mBVkSzME1lc71wPKn9Swb0
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-29_07,2025-08-28_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 priorityscore=1501 impostorscore=0 clxscore=1015 suspectscore=0
- adultscore=0 malwarescore=0 phishscore=0 bulkscore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2508290033
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 11/14] dmaengine: dma350: Support device_prep_slave_sg
+To: Jisheng Zhang <jszhang@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250823154009.25992-1-jszhang@kernel.org>
+ <20250823154009.25992-12-jszhang@kernel.org>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20250823154009.25992-12-jszhang@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_171343_741493_74CE0EFE 
-X-CRM114-Status: GOOD (  14.77  )
+X-CRM114-CacheID: sfid-20250829_170054_089866_53AF0B97 
+X-CRM114-Status: GOOD (  34.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,20 +67,339 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 29, 2025 at 06:50:31PM +0200, Petr Vorel wrote:
-> CONFIG_USB_EHCI_MSM was removed long time ago in v4.14-rc6
-> 8b3f863033f9f ("usb: host: remove ehci-msm.c").
+On 2025-08-23 4:40 pm, Jisheng Zhang wrote:
+> Add device_prep_slave_sg() callback function so that DMA_MEM_TO_DEV
+> and DMA_DEV_TO_MEM operations in single mode can be supported.
 > 
-> Signed-off-by: Petr Vorel <petr.vorel@gmail.com>
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 > ---
->  arch/arm/configs/qcom_defconfig | 1 -
->  1 file changed, 1 deletion(-)
+>   drivers/dma/arm-dma350.c | 180 +++++++++++++++++++++++++++++++++++++--
+>   1 file changed, 174 insertions(+), 6 deletions(-)
 > 
+> diff --git a/drivers/dma/arm-dma350.c b/drivers/dma/arm-dma350.c
+> index 3d26a1f020df..a285778264b9 100644
+> --- a/drivers/dma/arm-dma350.c
+> +++ b/drivers/dma/arm-dma350.c
+> @@ -1,5 +1,6 @@
+>   // SPDX-License-Identifier: GPL-2.0
+>   // Copyright (C) 2024-2025 Arm Limited
+> +// Copyright (C) 2025 Synaptics Incorporated
+>   // Arm DMA-350 driver
+>   
+>   #include <linux/bitfield.h>
+> @@ -98,7 +99,23 @@
+>   
+>   #define CH_FILLVAL		0x38
+>   #define CH_SRCTRIGINCFG		0x4c
+> +#define CH_SRCTRIGINMODE	GENMASK(11, 10)
+> +#define CH_SRCTRIG_CMD		0
+> +#define CH_SRCTRIG_DMA_FC	2
+> +#define CH_SRCTRIG_PERIF_FC	3
+> +#define CH_SRCTRIGINTYPE	GENMASK(9, 8)
+> +#define CH_SRCTRIG_SW_REQ	0
+> +#define CH_SRCTRIG_HW_REQ	2
+> +#define CH_SRCTRIG_INTERN_REQ	3
+>   #define CH_DESTRIGINCFG		0x50
+> +#define CH_DESTRIGINMODE	GENMASK(11, 10)
+> +#define CH_DESTRIG_CMD		0
+> +#define CH_DESTRIG_DMA_FC	2
+> +#define CH_DESTRIG_PERIF_FC	3
+> +#define CH_DESTRIGINTYPE	GENMASK(9, 8)
+> +#define CH_DESTRIG_SW_REQ	0
+> +#define CH_DESTRIG_HW_REQ	2
+> +#define CH_DESTRIG_INTERN_REQ	3
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Like the CH_CFG_* definitions, let's just have common CH_TRIG* fields 
+that work for both SRC and DES to simplify matters. FWIW, my attempt to 
+balance clarity with conciseness would be:
 
+#define CH_TRIGINCFG_BLKSIZE	GENMASK(23, 16)
+#define CH_TRIGINCFG_MODE	GENMASK(11, 10)
+#define CH_TRIG_MODE_CMD	0
+#define CH_TRIG_MODE_DMA	2
+#define CH_TRIG_MODE_PERIPH	3
+#define CH_TRIGINCFG_TYPE	GENMASK(9, 8)
+#define CH_TRIG_TYPE_SW		0
+#define CH_TRIG_TYPE_HW		2
+#define CH_TRIG_TYPE_INTERN	3
+#define CH_TRIGINCFG_SEL	GENMASK(7, 0)
 
--- 
-With best wishes
-Dmitry
+>   #define CH_LINKATTR		0x70
+>   #define CH_LINK_SHAREATTR	GENMASK(9, 8)
+>   #define CH_LINK_MEMATTR		GENMASK(7, 0)
+> @@ -190,11 +207,13 @@ struct d350_chan {
+>   	struct d350_desc *desc;
+>   	void __iomem *base;
+>   	struct dma_pool *cmd_pool;
+> +	struct dma_slave_config config;
+>   	int irq;
+>   	enum dma_status status;
+>   	dma_cookie_t cookie;
+>   	u32 residue;
+>   	u8 tsz;
+> +	u8 ch;
+
+What's this for? It doesn't seem to be anything meaningful.
+
+>   	bool has_trig;
+>   	bool has_wrap;
+>   	bool coherent;
+> @@ -327,6 +346,144 @@ static struct dma_async_tx_descriptor *d350_prep_memset(struct dma_chan *chan,
+>   	return vchan_tx_prep(&dch->vc, &desc->vd, flags);
+>   }
+>   
+> +static struct dma_async_tx_descriptor *
+> +d350_prep_slave_sg(struct dma_chan *chan, struct scatterlist *sgl,
+> +		   unsigned int sg_len, enum dma_transfer_direction dir,
+> +		   unsigned long flags, void *context)
+> +{
+> +	struct d350_chan *dch = to_d350_chan(chan);
+> +	dma_addr_t src, dst, phys;
+> +	struct d350_desc *desc;
+> +	struct scatterlist *sg;
+> +	u32 len, trig, *cmd, *la_cmd, tsz;
+> +	struct d350_sg *dsg;
+> +	int i, j;
+> +
+> +	if (unlikely(!is_slave_direction(dir) || !sg_len))
+> +		return NULL;
+> +
+> +	desc = kzalloc(struct_size(desc, sg, sg_len), GFP_NOWAIT);
+> +	if (!desc)
+> +		return NULL;
+> +
+> +	desc->sglen = sg_len;
+> +
+> +	if (dir == DMA_MEM_TO_DEV)
+> +		tsz = __ffs(dch->config.dst_addr_width | (1 << dch->tsz));
+> +	else
+> +		tsz = __ffs(dch->config.src_addr_width | (1 << dch->tsz));
+
+Surely we should just use the exact addr_width requested?
+
+> +	for_each_sg(sgl, sg, sg_len, i) {
+> +		desc->sg[i].command = dma_pool_zalloc(dch->cmd_pool, GFP_NOWAIT, &phys);
+> +		if (unlikely(!desc->sg[i].command))
+> +			goto err_cmd_alloc;
+> +
+> +		desc->sg[i].phys = phys;
+> +		dsg = &desc->sg[i];
+> +		len = sg_dma_len(sg);
+> +
+> +		if (dir == DMA_MEM_TO_DEV) {
+> +			src = sg_dma_address(sg);
+> +			dst = dch->config.dst_addr;
+> +			trig = CH_CTRL_USEDESTRIGIN;
+> +		} else {
+> +			src = dch->config.src_addr;
+> +			dst = sg_dma_address(sg);
+> +			trig = CH_CTRL_USESRCTRIGIN;
+> +		}
+> +		dsg->tsz = tsz;
+> +		dsg->xsize = lower_16_bits(len >> dsg->tsz);
+> +		dsg->xsizehi = upper_16_bits(len >> dsg->tsz);
+> +
+> +		cmd = dsg->command;
+> +		if (!i) {
+> +			cmd[0] = LINK_CTRL | LINK_SRCADDR | LINK_SRCADDRHI | LINK_DESADDR |
+> +				 LINK_DESADDRHI | LINK_XSIZE | LINK_XSIZEHI | LINK_SRCTRANSCFG |
+> +				 LINK_DESTRANSCFG | LINK_XADDRINC | LINK_LINKADDR;
+> +
+> +			cmd[1] = FIELD_PREP(CH_CTRL_TRANSIZE, dsg->tsz) | trig |
+> +				 FIELD_PREP(CH_CTRL_XTYPE, CH_CTRL_XTYPE_CONTINUE);
+> +
+> +			cmd[2] = lower_32_bits(src);
+> +			cmd[3] = upper_32_bits(src);
+> +			cmd[4] = lower_32_bits(dst);
+> +			cmd[5] = upper_32_bits(dst);
+> +			cmd[6] = FIELD_PREP(CH_XY_SRC, dsg->xsize) |
+> +				 FIELD_PREP(CH_XY_DES, dsg->xsize);
+> +			cmd[7] = FIELD_PREP(CH_XY_SRC, dsg->xsizehi) |
+> +				 FIELD_PREP(CH_XY_DES, dsg->xsizehi);
+> +			if (dir == DMA_MEM_TO_DEV) {
+> +				cmd[0] |= LINK_DESTRIGINCFG;
+> +				cmd[8] = dch->coherent ? TRANSCFG_WB : TRANSCFG_NC;
+> +				cmd[9] = TRANSCFG_DEVICE;
+> +				cmd[10] = FIELD_PREP(CH_XY_SRC, 1);
+> +				cmd[11] = FIELD_PREP(CH_DESTRIGINMODE, CH_DESTRIG_DMA_FC) |
+> +					  FIELD_PREP(CH_DESTRIGINTYPE, CH_DESTRIG_HW_REQ);
+> +			} else {
+> +				cmd[0] |= LINK_SRCTRIGINCFG;
+> +				cmd[8] = TRANSCFG_DEVICE;
+> +				cmd[9] = dch->coherent ? TRANSCFG_WB : TRANSCFG_NC;
+> +				cmd[10] = FIELD_PREP(CH_XY_DES, 1);
+> +				cmd[11] = FIELD_PREP(CH_SRCTRIGINMODE, CH_SRCTRIG_DMA_FC) |
+> +					  FIELD_PREP(CH_SRCTRIGINTYPE, CH_SRCTRIG_HW_REQ);
+> +			}
+> +			la_cmd = &cmd[12];
+> +		} else {
+> +			*la_cmd = phys | CH_LINKADDR_EN;
+> +			if (i == sg_len - 1) {
+> +				cmd[0] = LINK_CTRL | LINK_SRCADDR | LINK_SRCADDRHI | LINK_DESADDR |
+> +					 LINK_DESADDRHI | LINK_XSIZE | LINK_XSIZEHI | LINK_LINKADDR;
+> +				cmd[1] = FIELD_PREP(CH_CTRL_TRANSIZE, dsg->tsz) | trig |
+> +					 FIELD_PREP(CH_CTRL_XTYPE, CH_CTRL_XTYPE_CONTINUE);
+> +				cmd[2] = lower_32_bits(src);
+> +				cmd[3] = upper_32_bits(src);
+> +				cmd[4] = lower_32_bits(dst);
+> +				cmd[5] = upper_32_bits(dst);
+> +				cmd[6] = FIELD_PREP(CH_XY_SRC, dsg->xsize) |
+> +					 FIELD_PREP(CH_XY_DES, dsg->xsize);
+> +				cmd[7] = FIELD_PREP(CH_XY_SRC, dsg->xsizehi) |
+> +					 FIELD_PREP(CH_XY_DES, dsg->xsizehi);
+> +				la_cmd = &cmd[8];
+> +			} else {
+> +				cmd[0] = LINK_SRCADDR | LINK_SRCADDRHI | LINK_DESADDR |
+> +					 LINK_DESADDRHI | LINK_XSIZE | LINK_XSIZEHI | LINK_LINKADDR;
+> +				cmd[1] = lower_32_bits(src);
+> +				cmd[2] = upper_32_bits(src);
+> +				cmd[3] = lower_32_bits(dst);
+> +				cmd[4] = upper_32_bits(dst);
+> +				cmd[5] = FIELD_PREP(CH_XY_SRC, dsg->xsize) |
+> +					 FIELD_PREP(CH_XY_DES, dsg->xsize);
+> +				cmd[6] = FIELD_PREP(CH_XY_SRC, dsg->xsizehi) |
+> +					 FIELD_PREP(CH_XY_DES, dsg->xsizehi);
+> +				la_cmd = &cmd[7];
+> +			}
+> +		}
+> +	}
+Again, the structure and duplication here is unbearable. I fail to 
+comprehend why the "if (i == sg_len - 1)" case even exists...
+
+More crucially, it clearly can't even work for DMA-350 since it would 
+always be selecting trigger 0. How much of this has been tested?
+
+> +	/* the last command */
+> +	*la_cmd = 0;
+> +	desc->sg[sg_len - 1].command[1] |= FIELD_PREP(CH_CTRL_DONETYPE, CH_CTRL_DONETYPE_CMD);
+> +
+> +	mb();
+> +
+> +	return vchan_tx_prep(&dch->vc, &desc->vd, flags);
+> +
+> +err_cmd_alloc:
+> +	for (j = 0; j < i; j++)
+> +		dma_pool_free(dch->cmd_pool, desc->sg[j].command, desc->sg[j].phys);
+> +	kfree(desc);
+> +	return NULL;
+> +}
+> +
+> +static int d350_slave_config(struct dma_chan *chan, struct dma_slave_config *config)
+> +{
+> +	struct d350_chan *dch = to_d350_chan(chan);
+Shouldn't we validate that the given channel has any chance of 
+supporting the given config?
+
+> +	memcpy(&dch->config, config, sizeof(*config));
+> +
+> +	return 0;
+> +}
+> +
+>   static int d350_pause(struct dma_chan *chan)
+>   {
+>   	struct d350_chan *dch = to_d350_chan(chan);
+> @@ -558,8 +715,9 @@ static irqreturn_t d350_irq(int irq, void *data)
+>   	writel_relaxed(ch_status, dch->base + CH_STATUS);
+>   
+>   	spin_lock(&dch->vc.lock);
+> -	vchan_cookie_complete(vd);
+>   	if (ch_status & CH_STAT_INTR_DONE) {
+> +		vchan_cookie_complete(vd);
+> +		dch->desc = NULL;
+
+What's this about? As I mentioned on the earlier patches it was very 
+fiddly to get consistently appropriate handling of errors for 
+MEM_TO_MEM, so please explain if this change is somehow necessary for 
+MEM_TO_DEV/DEV_TO_MEM. Otherwise, if anything it just looks like an 
+undocumented bodge around what those previous patches subtly broke.
+
+>   		dch->status = DMA_COMPLETE;
+>   		dch->residue = 0;
+>   		d350_start_next(dch);
+> @@ -617,7 +775,7 @@ static int d350_probe(struct platform_device *pdev)
+>   	struct device *dev = &pdev->dev;
+>   	struct d350 *dmac;
+>   	void __iomem *base;
+> -	u32 reg, dma_chan_mask;
+> +	u32 reg, dma_chan_mask, trig_bits = 0;
+>   	int ret, nchan, dw, aw, r, p;
+>   	bool coherent, memset;
+>   
+> @@ -637,13 +795,11 @@ static int d350_probe(struct platform_device *pdev)
+>   	dw = 1 << FIELD_GET(DMA_CFG_DATA_WIDTH, reg);
+>   	aw = FIELD_GET(DMA_CFG_ADDR_WIDTH, reg) + 1;
+>   
+> -	dma_set_mask_and_coherent(dev, DMA_BIT_MASK(aw));
+> -	coherent = device_get_dma_attr(dev) == DEV_DMA_COHERENT;
+> -
+>   	dmac = devm_kzalloc(dev, struct_size(dmac, channels, nchan), GFP_KERNEL);
+>   	if (!dmac)
+>   		return -ENOMEM;
+>   
+> +	dmac->dma.dev = dev;
+
+Similarly, why are these two hunks just moving lines around apparently 
+at random?
+
+>   	dmac->nchan = nchan;
+>   
+>   	/* Enable all channels by default */
+> @@ -655,12 +811,14 @@ static int d350_probe(struct platform_device *pdev)
+>   		return ret;
+>   	}
+>   
+> +	dma_set_mask_and_coherent(dev, DMA_BIT_MASK(aw));
+> +	coherent = device_get_dma_attr(dev) == DEV_DMA_COHERENT;
+> +
+>   	reg = readl_relaxed(base + DMAINFO + DMA_BUILDCFG1);
+>   	dmac->nreq = FIELD_GET(DMA_CFG_NUM_TRIGGER_IN, reg);
+>   
+>   	dev_dbg(dev, "DMA-350 r%dp%d with %d channels, %d requests\n", r, p, dmac->nchan, dmac->nreq);
+>   
+> -	dmac->dma.dev = dev;
+>   	for (int i = min(dw, 16); i > 0; i /= 2) {
+>   		dmac->dma.src_addr_widths |= BIT(i);
+>   		dmac->dma.dst_addr_widths |= BIT(i);
+> @@ -692,6 +850,7 @@ static int d350_probe(struct platform_device *pdev)
+>   
+>   		dch->coherent = coherent;
+>   		dch->base = base + DMACH(i);
+> +		dch->ch = i;
+>   		writel_relaxed(CH_CMD_CLEAR, dch->base + CH_CMD);
+>   
+>   		reg = readl_relaxed(dch->base + CH_BUILDCFG1);
+> @@ -711,6 +870,7 @@ static int d350_probe(struct platform_device *pdev)
+>   
+>   		/* Fill is a special case of Wrap */
+>   		memset &= dch->has_wrap;
+> +		trig_bits |= dch->has_trig << dch->ch;
+
+This is a bool merely dressed up as a bitmap, the shift is doing nothing.
+
+Thanks,
+Robin.
+
+>   		reg = readl_relaxed(dch->base + CH_BUILDCFG0);
+>   		dch->tsz = FIELD_GET(CH_CFG_DATA_WIDTH, reg);
+> @@ -723,6 +883,13 @@ static int d350_probe(struct platform_device *pdev)
+>   		vchan_init(&dch->vc, &dmac->dma);
+>   	}
+>   
+> +	if (trig_bits) {
+> +		dmac->dma.directions |= (BIT(DMA_DEV_TO_MEM) | BIT(DMA_MEM_TO_DEV));
+> +		dma_cap_set(DMA_SLAVE, dmac->dma.cap_mask);
+> +		dmac->dma.device_config = d350_slave_config;
+> +		dmac->dma.device_prep_slave_sg = d350_prep_slave_sg;
+> +	}
+> +
+>   	if (memset) {
+>   		dma_cap_set(DMA_MEMSET, dmac->dma.cap_mask);
+>   		dmac->dma.device_prep_dma_memset = d350_prep_memset;
+> @@ -759,5 +926,6 @@ static struct platform_driver d350_driver = {
+>   module_platform_driver(d350_driver);
+>   
+>   MODULE_AUTHOR("Robin Murphy <robin.murphy@arm.com>");
+> +MODULE_AUTHOR("Jisheng Zhang <jszhang@kernel.org>");
+>   MODULE_DESCRIPTION("Arm DMA-350 driver");
+>   MODULE_LICENSE("GPL v2");
 
