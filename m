@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82048CA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 09:22:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABE35CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 09:25:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PiCpVSQF5pSo2SVTBFYEDKcdWKHrOsEEZbDSq2TfM1Q=; b=TbWveXq3tYxeBVt4VDy+q1LNYa
-	LV7a6x3J1NcYpSdwYonpyHBtW9VP3HGl254vrU5Gx5jhA7ju9gTzyBx8yQl2bHj1wt2xoPiaIwGzj
-	ipn5YlLMsOTpgiDQmrpZfn6OvkI5c/mBmKZQAOQyvBn0Z7au7UMiS58YlhZSJMj8mHMVhqU+7e6Si
-	XL2MJpUplax52VYd+QNZxkaDIaTqG71/ySr46BAv1TQBF+iqxkps5cuAoKgo041furgEkZG9RY2me
-	H9bTCXma5A9L4A4fS1rlpOWqeX6Z2Q8i/gGh2Hab7GsPiP6UTUXiMLPRsWs+UmWOj575/75VyuLLA
-	h4h7m6WQ==;
+	bh=TSGCvmXX1Aq7bJXiI5CizRqUEzXcuXVdebR8hBd+VPQ=; b=Kj3TRshvnpT7weE/qqhwBYq0Lk
+	ee5C36YhwTukMnnJkMqjTt1Z9IPCEOoGOrQXPC2A9L+b2BHKKrwVzMfKFFwwsvnk/1YNodx3U/Of5
+	PXA1ClOxHg1poLEXove1FepC+9RJMEUdRlw4q5eE6Z8SWCVnmlnfTN8YxWjyJ2Bmw9qm3E15+8VJH
+	Mh9MwnBjJspunRRWpDrAvxkqHYM+B+NFkLrO/rlJiX48sR32Cg6SkptY5HeLT+U5w4FA1TQ9vaG1k
+	ZzLienJabrSmR8SOMV8UkEhMOa0WAMCdOHqnxGp2tOvmZsWn2kCeoKC5npYdDofHjrAx56xpzcazV
+	P1pHnbrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usHmr-00000007fOn-1XfG;
-	Sat, 30 Aug 2025 09:22:17 +0000
+	id 1usHpX-00000007fXf-0atX;
+	Sat, 30 Aug 2025 09:25:03 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usHiC-00000007ezS-0xpN
+	id 1usHj2-00000007f2S-07pd
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 Aug 2025 09:17:28 +0000
+	Sat, 30 Aug 2025 09:18:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 523E460195;
-	Sat, 30 Aug 2025 09:17:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3356C4CEEB;
-	Sat, 30 Aug 2025 09:17:23 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 763C760195;
+	Sat, 30 Aug 2025 09:18:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A983C4CEF5;
+	Sat, 30 Aug 2025 09:18:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756545447;
-	bh=PiCpVSQF5pSo2SVTBFYEDKcdWKHrOsEEZbDSq2TfM1Q=;
+	s=k20201202; t=1756545499;
+	bh=6Dsuecx+6uYfPydtCR6KibWWC7zXcfy10I2x2UJtlmA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CipwpUubuN8IlUgSL+zKVETGunKyx7tx6n+pvJ78+GxpLEdIiS7oQlghSvNyziXta
-	 O20a/rgIrNz1x2PSFFYGxipoz2h5igS89YDsIbmPr/xOyrdKW58kY+HFOgiPdoUWO0
-	 tVmVBOFwFllC6Cz36kyiw0IEAkBKHmmARxCAKU50mKJlhEZwEKg/zp0sniavIaESMG
-	 /V4QOiOAhcFtmBcAYNkWs9nuAHnk8unclrCsaNftSfhqHDPxppLeFWAG5oyuFVgJmU
-	 SWcNDoKlhhv+TIxlHqWcqURiFkvo201UaCt/PJgVK7b3H1Cg2/95eUK2P89sFP/SY5
-	 B/SnzEYK+t+xA==
-Message-ID: <f5897ae6-08b4-4446-be57-4c1e8f5c0d18@kernel.org>
-Date: Sat, 30 Aug 2025 11:17:21 +0200
+	b=ZwodF7OHxqaoiT+5BKbrvFLSLRCq8UjMwDV3Lv5TQ70hvU7Jkv90uBXoX9YoMchKd
+	 PfErxLnKl01iyukoQKeMor/g86yCp2QYtvbJtfLu3BvDcLo9lRfUmHJ71q9iWrdj3k
+	 sIUZeA+bOhiRVQR+C0aeNmtKem6VGtDLI6OU5TcXDfm7kUeG83G7Gp2c9wXvg2E6Yn
+	 JJ1UaQv4QKHoeLlmfFzSQumG5s71CHAP95iVAou9GnJ60N1J6VRHHigso1JfDUnzw3
+	 iNjkpbil2mB44wrENc//UkOjmOjYZcZa7t2B7tbdj3xoXtUeWNgT/yaBLvQKudMMv0
+	 wnbRIlJRhZNOg==
+Message-ID: <47ddc58b-02d6-42e7-83f8-09bb80d73894@kernel.org>
+Date: Sat, 30 Aug 2025 11:18:14 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/4] clk: samsung: exynos990: Fix CMU TOP mux/div
- widths and add fixed-factors
+Subject: Re: [PATCH v4 3/4] clk: samsung: exynos990: update CLK_NR_TOP for new
+ IDs clocks
 To: Denzeel Oliva <wachiturroxd150@gmail.com>,
  Sylwester Nawrocki <s.nawrocki@samsung.com>,
  Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
@@ -58,7 +58,7 @@ Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org
 References: <20250825-cmu-top-v4-0-71d783680529@gmail.com>
- <20250825-cmu-top-v4-1-71d783680529@gmail.com>
+ <20250825-cmu-top-v4-3-71d783680529@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,7 +104,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250825-cmu-top-v4-1-71d783680529@gmail.com>
+In-Reply-To: <20250825-cmu-top-v4-3-71d783680529@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -122,16 +122,28 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 25/08/2025 07:51, Denzeel Oliva wrote:
-> Correct mux/div bit widths in CMU TOP (DPU, DSP_BUS, G2D_MSCL,
-> HSI0/1/2). Replace wrong divs with fixed-factor clocks for
+> The new clock IDs have been added and put last,
+> it is necessary to change.
+> 
+> Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
+> ---
+>  drivers/clk/samsung/clk-exynos990.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/clk/samsung/clk-exynos990.c b/drivers/clk/samsung/clk-exynos990.c
+> index 105ba0363..9fcdad7cc 100644
+> --- a/drivers/clk/samsung/clk-exynos990.c
+> +++ b/drivers/clk/samsung/clk-exynos990.c
+> @@ -17,7 +17,7 @@
+>  #include "clk-pll.h"
+>  
+>  /* NOTE: Must be equal to the last clock ID increased by one */
+> -#define CLKS_NR_TOP (CLK_GOUT_CMU_VRA_BUS + 1)
+> +#define CLKS_NR_TOP (CLK_DOUT_CMU_CLK_CMUREF + 1)
 
-Separate commits.
-
-> HSI1/2 PCIe and USBDP debug. Also add OTP rate in ffactor.
-> These align with Exynos990 downstream cmucal and ensure correct
-> parent/rate selection.
-
-Fixes tags.
+This belongs to the driver patch introducing these new clocks. Such
+change alone makes no sense or commit msg really does not explain issue
+being fixed here.
 
 Best regards,
 Krzysztof
