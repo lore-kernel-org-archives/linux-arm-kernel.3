@@ -4,109 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABE35CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 09:25:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62B51CA0FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 09:27:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TSGCvmXX1Aq7bJXiI5CizRqUEzXcuXVdebR8hBd+VPQ=; b=Kj3TRshvnpT7weE/qqhwBYq0Lk
-	ee5C36YhwTukMnnJkMqjTt1Z9IPCEOoGOrQXPC2A9L+b2BHKKrwVzMfKFFwwsvnk/1YNodx3U/Of5
-	PXA1ClOxHg1poLEXove1FepC+9RJMEUdRlw4q5eE6Z8SWCVnmlnfTN8YxWjyJ2Bmw9qm3E15+8VJH
-	Mh9MwnBjJspunRRWpDrAvxkqHYM+B+NFkLrO/rlJiX48sR32Cg6SkptY5HeLT+U5w4FA1TQ9vaG1k
-	ZzLienJabrSmR8SOMV8UkEhMOa0WAMCdOHqnxGp2tOvmZsWn2kCeoKC5npYdDofHjrAx56xpzcazV
-	P1pHnbrQ==;
+	bh=GwyiQhik7suc6gbVzjEP6jIHrXVEYERHfJGEwviQmSk=; b=Kz9Y4ssnGrnUNX9JQPHJ/vJiqz
+	b3ooqPWCieAoc6xnhzN3ffCoyT6L1kyc8Rg1yYeFGwrPeFDlecC9zqKeM1evc0V9GtPcPDXiRndQa
+	xqhHpinqH9m655PCSmt2K5oZjBLesCw7NKFFg9nm700cZTZXraCUEmRQ+26VcgHmlIxzCo98e/exR
+	vdAM5UrVpBIH7YPzQ5qC+Up9b0+asY6zPKHuKHK4M/rCm16DCrf92KEfHdpQEqsQSWfzqMwDjD4Va
+	+1FS5HUgjOKFurnP1vxIC5C5t7X+4xGC6AdnOz6qPNnzwpg8wFbhptUNYN11Fyp775vMYybs7E37X
+	7G8oUMoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usHpX-00000007fXf-0atX;
-	Sat, 30 Aug 2025 09:25:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1usHsC-00000007fjG-47dM;
+	Sat, 30 Aug 2025 09:27:48 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usHj2-00000007f2S-07pd
+	id 1usHkb-00000007fBI-3tUL
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 Aug 2025 09:18:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 763C760195;
-	Sat, 30 Aug 2025 09:18:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A983C4CEF5;
-	Sat, 30 Aug 2025 09:18:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756545499;
-	bh=6Dsuecx+6uYfPydtCR6KibWWC7zXcfy10I2x2UJtlmA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ZwodF7OHxqaoiT+5BKbrvFLSLRCq8UjMwDV3Lv5TQ70hvU7Jkv90uBXoX9YoMchKd
-	 PfErxLnKl01iyukoQKeMor/g86yCp2QYtvbJtfLu3BvDcLo9lRfUmHJ71q9iWrdj3k
-	 sIUZeA+bOhiRVQR+C0aeNmtKem6VGtDLI6OU5TcXDfm7kUeG83G7Gp2c9wXvg2E6Yn
-	 JJ1UaQv4QKHoeLlmfFzSQumG5s71CHAP95iVAou9GnJ60N1J6VRHHigso1JfDUnzw3
-	 iNjkpbil2mB44wrENc//UkOjmOjYZcZa7t2B7tbdj3xoXtUeWNgT/yaBLvQKudMMv0
-	 wnbRIlJRhZNOg==
-Message-ID: <47ddc58b-02d6-42e7-83f8-09bb80d73894@kernel.org>
-Date: Sat, 30 Aug 2025 11:18:14 +0200
+	Sat, 30 Aug 2025 09:19:59 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3cd151c38ceso415630f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 02:19:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1756545596; x=1757150396; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GwyiQhik7suc6gbVzjEP6jIHrXVEYERHfJGEwviQmSk=;
+        b=WNHJ6MMoWNgRbNpD2QfPv9F0bNVO2JVo+qLBTrd0sVpYwndCq0ei6igUotWhbhJDvE
+         pdBAGMrjNPdXM49zApluqStBb3pn0NTQNG+XKzJClpaMH+w9va0b3wY4RzVnaWt1FN1A
+         n/j7DfB2ZHeOyG/zUhpG108DwHs/5bvGlgzPfVCkAEtsBLZzwzFzm6sVwcmi1XEKqQ7i
+         BZcU2T2XsRy1KdYCFXs//VPgCd1MF2C95L2CRs4gVG9YQm6SJfx9YxxlyVUpw6xgHvXP
+         onbRByMuVr/BalddFHIN5uTfzrlK0pMIr41Kk+zY7dqtmjfDlheAiGJ5RMTpN08fqF7G
+         6LTQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756545596; x=1757150396;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=GwyiQhik7suc6gbVzjEP6jIHrXVEYERHfJGEwviQmSk=;
+        b=GvB1N1UtJT2mKGfvustunG7AUgh8Emy70Z8F2DaixqZiTI41bgcSARkmwoy3ISAb5X
+         hMntow/Y4inNB2+Fav1jTebJnjgci6qVvmZm+RibP79jUu+2vWu7nN7G63mOXsXa6Nts
+         E5vMyM9j+Xb8f9PjHYhx97lJQHZBMHnxmLAcKCRVHpcDpgfjbZWfe86jZg9YxDzibbvi
+         Ubnv5TKR+fkq64tLPSjTN69BL26DIfl2fFshKOyQYx8DBPzZxQ0Z3xJ0wSzeEx535tZl
+         1tPCJu/b3h5Lg8oG4EZeo0XfNHFfwLpqed64BeB0Pq3qtDpc7S8n2s9XX1h1UTxwEMcz
+         mEvg==
+X-Forwarded-Encrypted: i=1; AJvYcCXCJFpw9DR64xXH2GsO3sj8P2gl36fwMZjEw95NUlQ3A6degBfagNh8lLNZiOvy5yc3dIc9Nmf4Zaelw6+NrIHv@lists.infradead.org
+X-Gm-Message-State: AOJu0YwEs1yKL7PsXXwaQ6suuZPg/nqjXNGLBduVGK9TGuT/2BpXKh9n
+	p0VkApS3lfoK+tGcWWHoRRb96/hLBn5sUs3AhV9hb9toS3skYatBlzf1ZjsRhukoE+rk03qY2VQ
+	Vs5/l
+X-Gm-Gg: ASbGncs/nkwAnUStZ+pZ6PQYc2Bg5DA6I97rDF3G5AZfWhJ6A3DbhL0uJgSVeKhbg+L
+	NM51X1P2MiPpRa/Cy7fE5eFZCmqdZoCUPWn9ROLq13pWmJF6MSSdxcBN9P6ZPCqC3OkiNauvtVY
+	7I0F2W2iFkGbTEpJihuHOovHm0blmXRQ/LSGgce5T9vokb5lLu+0nruvGYtfH9VcC8apyFCQ/pl
+	n/DyJfPOVtlMn7oTTu85JG3+HjJdfdyW++J0/4eK3K0SfBJDwnyN0Y+aNkA9PtT2xD5mkG1U6lF
+	YG3BOhCWA+RNXXlkmRUWbCqyiCPqv43bBFMNcBWanoZgGbBAlmdrzWSYZhIuhj2xgP6zn8rMR2K
+	kg3LmSeBUZ05t2qmQ2Gz1vEl8A5mnDPrRTqz9BUz7QfTNM3bqcA==
+X-Google-Smtp-Source: AGHT+IEqjNRxfqqCNOguFU7c3K/j2n3eHHM7h5HhcZ/u9DnUpSaUb/8k8UWDRGTaDD9Zj2mt2IJwjw==
+X-Received: by 2002:a05:6000:4310:b0:3ca:4e3:6e82 with SMTP id ffacd0b85a97d-3d0fcaaaef7mr1613229f8f.11.1756545595916;
+        Sat, 30 Aug 2025 02:19:55 -0700 (PDT)
+Received: from [127.0.1.1] ([178.197.219.123])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b8525a94bsm21186815e9.15.2025.08.30.02.19.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 30 Aug 2025 02:19:55 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Cc: linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20250815070500.3275491-1-ivo.ivanov.ivanov1@gmail.com>
+References: <20250815070500.3275491-1-ivo.ivanov.ivanov1@gmail.com>
+Subject: Re: [PATCH v3 0/4] arm64: dts: exynos2200: introduce serial
+ busses, except spi
+Message-Id: <175654559458.10738.12093256253809127560.b4-ty@linaro.org>
+Date: Sat, 30 Aug 2025 11:19:54 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/4] clk: samsung: exynos990: update CLK_NR_TOP for new
- IDs clocks
-To: Denzeel Oliva <wachiturroxd150@gmail.com>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <20250825-cmu-top-v4-0-71d783680529@gmail.com>
- <20250825-cmu-top-v4-3-71d783680529@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250825-cmu-top-v4-3-71d783680529@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250830_021957_981818_F8F99C3E 
+X-CRM114-Status: GOOD (  12.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,30 +103,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/08/2025 07:51, Denzeel Oliva wrote:
-> The new clock IDs have been added and put last,
-> it is necessary to change.
-> 
-> Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
-> ---
->  drivers/clk/samsung/clk-exynos990.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/clk/samsung/clk-exynos990.c b/drivers/clk/samsung/clk-exynos990.c
-> index 105ba0363..9fcdad7cc 100644
-> --- a/drivers/clk/samsung/clk-exynos990.c
-> +++ b/drivers/clk/samsung/clk-exynos990.c
-> @@ -17,7 +17,7 @@
->  #include "clk-pll.h"
->  
->  /* NOTE: Must be equal to the last clock ID increased by one */
-> -#define CLKS_NR_TOP (CLK_GOUT_CMU_VRA_BUS + 1)
-> +#define CLKS_NR_TOP (CLK_DOUT_CMU_CLK_CMUREF + 1)
 
-This belongs to the driver patch introducing these new clocks. Such
-change alone makes no sense or commit msg really does not explain issue
-being fixed here.
+On Fri, 15 Aug 2025 10:04:56 +0300, Ivaylo Ivanov wrote:
+> Hey, folks!
+> 
+> This patchset adds serial busses, implemented in usi, for exynos2200.
+> It's missing spi, due to me having troubles with reads when testing.
+> Serial_0/1 have not been included in the patchset, as it seems like
+> they're encapsulated in usi blocks, but are the only implemented
+> protocol and/or do not have a dedicated register for setting other
+> protocols in a sysreg. That'd at least require patches in the usi
+> driver and bindings to add support for.
+> 
+> [...]
+
+Applied, thanks!
+
+[1/4] arm64: dts: exynos2200: fix typo in hsi2c23 bus pins label
+      https://git.kernel.org/krzk/linux/c/1219992e16689f4937a333c98d90cf80ba91860a
+[2/4] arm64: dts: exynos2200: use 32-bit address space for /soc
+      https://git.kernel.org/krzk/linux/c/ad8ea30db80f825215d071370989b8ac45298a1a
+[3/4] arm64: dts: exynos2200: increase the size of all syscons
+      https://git.kernel.org/krzk/linux/c/0dff00633bbc8566fed6483daddddfa0dfdcf83a
+[4/4] arm64: dts: exynos2200: define all usi nodes
+      https://git.kernel.org/krzk/linux/c/1bc8f09ce98ca8a56f2059c9a8fe26cc351318f0
 
 Best regards,
-Krzysztof
+-- 
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
 
