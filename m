@@ -4,81 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 994E1CA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 11:14:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA0F8CA0FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 11:16:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=q1bivzFpeOn6zdj28AqutzvHysf6y4+jJdipsjR0D+8=; b=BFnY0cZYQXQZJD
-	HPpMyOYcVoBa0YKSFoHSxqsTnVbKS4HWGEC3uGWmODAaIcWGXdCCfQpemeThT24R6rhHt43gQbB0t
-	gOgxMqGFW/jglzJs+DoyB6KXAsNnaZbFZmmlpibzmUvQVGi4mU2c7RLmeKgjQn4HtBDHmxBONlX1z
-	XP6ocML0PzYHdJ2HeHudrcBtyCZHee3pHM9OzsPEFPYpii4x3FUgh4xvSsRhXXZGmXRuLIPe0TdzW
-	zqLEv+VHrhjScD5OyxCxYQCaMpGhZEa8Uwjt6MxbqfyAjthEjstlV8WrcnDmoQBg1nCIncJZNlKRx
-	r3IOtHim8dJ7mp0Rn/7g==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Mt6BHImGK+4nyxlNYHkaJPBTdr1Pfx4Jy5o27YwNXXE=; b=KhVf1ziMKXSQ0ihic5Su8L5bwZ
+	/JG20IO7j4ImnmusU73x1xWnsQ+vliOy3Jw8V9pbPhgodOttUtqhlWNclQVYbC+bwXX9WgEzlVsmq
+	wUooZMW1i4y1zeOmTrVQbBO/jEtyyBX3Yx5Ob1OSV4pMLH2wmsBzBYHd0YlxhQbn09MqpcED0KJI8
+	Nhp8rsXZdQdf8t7hNfJ0stTpsPk1AJHi8BzceBVqzremFjo/7Vaj1B/AvLAwHYpdXsBbYjFl0zilW
+	e2Vu9gN7eRb4GI/dV+Hx3PvUpZ3RrZkCfPzI57q1Rj+AfluU1UoMXBEdnKUyq1O5aup2M9UAY7Pb4
+	h0XtMPbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usJWz-00000007nE8-1iie;
-	Sat, 30 Aug 2025 11:14:01 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1usJZi-00000007nTX-0kOk;
+	Sat, 30 Aug 2025 11:16:50 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usJSu-00000007mrr-3GkJ
+	id 1usJSx-00000007msP-0teN
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 Aug 2025 11:09:50 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-61cbf01e472so507681a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 04:09:48 -0700 (PDT)
+	Sat, 30 Aug 2025 11:09:52 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-6188b5e3de6so402338a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 04:09:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756552187; x=1757156987; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=q1bivzFpeOn6zdj28AqutzvHysf6y4+jJdipsjR0D+8=;
-        b=lAx6t63td3Rrul8EyKS3QwVZ1yn9HnMRBl+ceLQ0MdGydPz878Nf/NcUlSqyoEvLbF
-         zugmZXQiVaPsqZyFfUr4UlChVGcedNv1b58/GlTby62bu2tZIMzRd63QmNLwKQxyyK42
-         53rqXlSP+HT35lCrjTSWK5kVxDn+G6cz4JRnqpbStH018G21d/yJO/TjNlRxII6QPakK
-         lqaCDVhfTTxyYw2d6gHiA9/NsauTfkhFF0OeTAec2BpqSowF81875n9qHVxhqKXDYuCT
-         9+sdEWIbsCElbsq0a2yLz+359O7uyu9m5101xRe+7TgWTmJP0XSpwWIQTaS2kXbSA3U1
-         9Gyg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756552187; x=1757156987;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=linaro.org; s=google; t=1756552190; x=1757156990; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=q1bivzFpeOn6zdj28AqutzvHysf6y4+jJdipsjR0D+8=;
-        b=GCifxXJptc8zYJBkWnjUNXM8Q9d8v1mjwhahs1Ux36x6p4b8RXr+yVGoPuZx8czPn8
-         ZVceahgPZ+chKLpcvgKYSVgXCH8OzLRDHzL0hKDh65q9iufgjabSylNDbegDHFj1VSgz
-         BdU3JEM47irvXgNVzYI3jDpo/mNRDyfxToeVJSQ/dXgUmZ4RJplrb5V0Zg5lBX0rGSEq
-         Pi+A8xeg/QlJjWyjStsYPBn4gXOLAxmhe8gkTUOiBsjmnwq2c5eoztD6CcK10SCdJN1l
-         rSBgl2qTjlpDgBBm2l00YTnkbKOujryr1s4zrvcJ+MpKY2miKQl2IqRKP0zVGEBPEt0O
-         eaAA==
-X-Forwarded-Encrypted: i=1; AJvYcCUWWhAg258otgsbb9gp4gPCBzt78t+AEzHIcKNxWwPDqnAmjLWjrmIctEXIWjAF2hVfCHP41xO00tphaSe6/UvU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzzag6Ny1Xa+cGo08rq24eX9rYcNfu3i5VUDvjjkT+sCKCXt+Gp
-	dLdxoZQDvZFCmASGpVJNxMk7WkKdzyG2cmB9tsmIV7hjK0JVIgxX7uUJXgujDAFxY/s=
-X-Gm-Gg: ASbGnct+ra7o/kH4DfjkQManv99NCKTW4eW46QQbwGoIhgMMHjjEN4TAZ603cxx+PQ2
-	2/hl2VjdEI0zP7XwQOJt9ibknxWZQ+TrOA4TMlf1iZPbL7fYIHWJQhZ8LhwBZi/NLCu4oUQpFNt
-	3Pep+fdEcmQimJaFhXfSY6ncKxrBQRfjEz9lgdutb4yExM7GFwyBSkns6LduJRmQz9hAc/BOfsF
-	uWHdVnd/NgO90FHUX2q3a8PNqcMZAkTQvytibRQbUeDYeINB4hiVwV/wlRoDsbMP/myp5JQSGYp
-	H3/ILYzEPbgkMrv88HC3TVyNfp/RFBLVyd8qHmXyW+o6aP7aU1RDv9cxKgwJxkTFDa+23Lqw3XM
-	ww4Fxv9G7n7qbYTX5PLbZAuXU2tjgrq+1MsAgH9U=
-X-Google-Smtp-Source: AGHT+IGpcs58MTRBzy8QSSt3KOW9IS8qh2Op0/WrgMhV43qjpLPuJ3b/P2nf8GBfY6hwmjebLcg+qg==
-X-Received: by 2002:a05:6402:13d0:b0:61b:6c51:4005 with SMTP id 4fb4d7f45d1cf-61d0d5f33e1mr2017383a12.6.1756552187107;
-        Sat, 30 Aug 2025 04:09:47 -0700 (PDT)
+        bh=Mt6BHImGK+4nyxlNYHkaJPBTdr1Pfx4Jy5o27YwNXXE=;
+        b=AToFcaDXoTwLRchkLiKIfIng3uP34VhRswnFVrqlrwg8UdX1BXQOowjYnsr61NBiC/
+         DOlrAw/oTgQexlAFpHpmdXg7Dxhs8JDQ+gavKOQ9UyT7j5PIBmFhKlvQgzH0BDLOeJeq
+         h+i47Ko1nCLcnv3hKKTiLVQQYRFfmS1kLpojNTJwOskn/Vx2ORd/vk+TRScsPDX0Vvcg
+         fxhKuGkxHKB7IbL8dgCQRLR68ZbgwCn6y0NipFYJirPEV6YZxU8H4slHI74nRuQEiZ7w
+         qqjxX4dx5sl7oae05EZco9L0cAINYuhVEipZTQ4E9CVcnu6xfWE7/KGK4160FNghqWA0
+         sY4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756552190; x=1757156990;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Mt6BHImGK+4nyxlNYHkaJPBTdr1Pfx4Jy5o27YwNXXE=;
+        b=AHPEDz6fMk059UqN/0SGKgVHwI3x1onu21gS1P8PBRsWY2Em2HWUanAnC5tnhOScrv
+         Zq642nFSrVzLAhghPiFiJldXE/W22YlVVDo3Wu2FjJIin48KezNsVpbLT+0RVLsUAv79
+         +8j/LwWthP1++KuTuHqDvG743uz1dqj6Dxr7WQY05wSzppfmszjMUiBzedkW8RPEtXWX
+         JDlirEn3v8cuqRIGc7i+aq8njlKWWmi+6C4mT/cfDXFEZDCfxhNfRwf3oLVvDaW3+cwv
+         F82xa3Shux81vrO2lF5VXwF489Tbuz2NbLqqB7Cjl2QBELxk14mXi9wNpcf5FZAPEoSV
+         yN3w==
+X-Forwarded-Encrypted: i=1; AJvYcCXffbs0/8nwHNLFYrjwFjRfNYA16oun7IAhb0J0XthzxacoKHW/J+Ow+qutjJQPjfAGsdeiRBogmAxk/ZYwkI5m@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw66iQJ8vND5MOOERyj5UUNYOMMA7t0F8sf3yPbTJnMThbfkXHn
+	3N98gQy2CqqaMRfz4hVNh6WbR2d6djNIjEE7xRx0hQEUR4FlncXC6+kPyUgqRg2xWUE=
+X-Gm-Gg: ASbGncvDL7+VrELxJbc4PSKa+fosjtd8M0pkGIoBqP3uhDtWcScT2e4XFehraIKXL1G
+	rOpz+7wvOxeGIhp444m49WWJCUSq9Ff2ttotYhlANvF+/6JqnDgyRjuxH3RIxPzhGN+exAJ0WgN
+	iKC6S/3mJUZ9f/eYT5Tl0epnaBCJgIkBvuYGbKVo58hqh/0JmRk3BvluYD4m7kK3IEzjKBq56FH
+	FZwmlgqxCh09x+b3CkrEias7HKDWeDmX0G/HViGCE/jyM50KYtfZK7e6hB5l9PtL/j44FqlcfVg
+	omkE8R+wLO4BqGxc9Mt7y7FVum8ObVZPhX3qZVsPKMw7LYSpB+ZKhZZBgIhG1cayPyF7nlHarV9
+	HZh7425iB7RpRV7hkepBwKwBeAdRgGSp6nZwy+OwSi1khEDreCQ==
+X-Google-Smtp-Source: AGHT+IFm3KrQiJLTnoLMRt7QTIhNFVWdnibXFvne96elYLkhnCNgt8ifCrnPRnxK3Ji1sk6Eo0cXfA==
+X-Received: by 2002:a05:6402:2546:b0:61c:ba89:fc81 with SMTP id 4fb4d7f45d1cf-61cfe99a87dmr2234309a12.4.1756552189591;
+        Sat, 30 Aug 2025 04:09:49 -0700 (PDT)
 Received: from [127.0.1.1] ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-61cfc21542asm3285666a12.18.2025.08.30.04.09.44
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-61cfc21542asm3285666a12.18.2025.08.30.04.09.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 30 Aug 2025 04:09:46 -0700 (PDT)
+        Sat, 30 Aug 2025 04:09:48 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH 0/5] iio: adc: samsung: Simplify, cleanup and drop S3C2410
-Date: Sat, 30 Aug 2025 13:09:37 +0200
-Message-Id: <20250830-s3c-cleanup-adc-v1-0-de54dfb1d9ea@linaro.org>
+Date: Sat, 30 Aug 2025 13:09:38 +0200
+Subject: [PATCH 1/5] iio: adc: exynos_adc: Drop S3C2410 support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAPHbsmgC/x3MMQqAMAxA0atIZgOxUlq9ijiUGDUgVVoUQby7x
- fEN/z+QJalk6KsHklyadY8FTV0BryEugjoVgyFjybeEuWXkTUI8DwwTo2sCe+qct4agVEeSWe/
- /OIzv+wEe2WmDYQAAAA==
-X-Change-ID: 20250830-s3c-cleanup-adc-71ac80978520
+Message-Id: <20250830-s3c-cleanup-adc-v1-1-de54dfb1d9ea@linaro.org>
+References: <20250830-s3c-cleanup-adc-v1-0-de54dfb1d9ea@linaro.org>
+In-Reply-To: <20250830-s3c-cleanup-adc-v1-0-de54dfb1d9ea@linaro.org>
 To: Jonathan Cameron <jic23@kernel.org>, 
  David Lechner <dlechner@baylibre.com>, 
  =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
@@ -91,27 +90,26 @@ Cc: linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  devicetree@vger.kernel.org, 
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=823;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4216;
  i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=MPAHQXQUpXiLCTcNCqhvtB/HRnhI8NNTl4O+MlOI1ks=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBostvzlCuQP5FPquq2lhYn0JmEK8niYeKAbQ7wN
- pTrsnpP9/iJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaLLb8wAKCRDBN2bmhouD
- 12FBD/9nHRQw5vlITMhdnscAzkVchRhGAmmUR0TsJVYZWXUEaliQJvfLbtxlpMeVMjuKYp0I3pA
- bucWOuH6Ru1FmVobvchYI9wYkYN/bJbW/OrqEW0da4IFhoc257hS5IfAxMI8MPFiJ8FS72/Pnqq
- EFadIC0BdIb7wuTUBCsrjCwVK3qiCEl9x6hHgvr41iX2PXgh++T/iQ+g4ahIohcjpEKxqMEvZpN
- gPr54LMn0PJQfjpDQB7GleIm79NEzeWsE8Mr2dZ0J83ScSPtGfTkC7lM2iVexgp+rVvImGVnEwE
- lBPOiFT2/qDlh7Wo0ENT5OoUPG0ExHz8SKPOInwTgtKcQkv2/SwFc8ATWh+cDQApu5gUAp+wkMu
- ta/FWCmlApsWAqbrikqJ+1s94VlIUvF7YOE0Xhk2fIDSvGEYyVDWTZddzrR40IvAVRFTQAwJaHo
- uYuyL8iZWiFRE9lQkoeSBLVwHwIw/iWoEkTnxYdl17Q2tXXycUhEEk37c+tyOlySp+WVnvcjbkg
- 6Y1zuMGNTygyiy+nbBP6cip/YYpNYxyHnsw7G11ysixC0kyoIQo/6Qfitz1RZTZjLE4m0qZ9bTp
- DiOYn1YxdktqnDSox2RwMIYtrNSpoPuoeBDLBCdEOJw70Mx28pgx92gz05qDEGKsTTBQXajEYx9
- 5eOIUs/+TCK/y4g==
+ bh=xlL9W2A8Ervk1zk4ml7XK13XijuLbMR6cMtKEKCqU4U=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBostv00r+mskd3qVXrYKZh1HyJjhQB2ZnbjdkDE
+ GI5PiaBKZ6JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaLLb9AAKCRDBN2bmhouD
+ 11sLD/9HygQMMQRy9yLtFTmoijHCENaBVNvBPHQaTRIreeQUCqjjaiB/JtgGUDjf/6iWHt3e0v6
+ 7GnfvISOZWlWUAHxggNlJVJrUbVUSNXIxLlwoqWoG0inQ9G8+Hm0M/4PTJFuJMvTmgOonzehjo0
+ 99VEr8iVewZjA/93YCSw65d9h391VcVlDsyNQk3RNiChvkp2D0qwmIgGHpm5r0pSW5SZ0c3+z/M
+ buEcjSS3nrDH82fc5oVxf9udiI/XmQKuYWOyXD99UbNekSBZkVEYE9OqXD1AFutGTaqTcvwoQo8
+ 0JvJhc9dF8tiR8EdIiKkMoeIdqw22l/jgwLzhlDXGQsAUdpjL38qNJ1JHkrHXFxXg2EugAmx8CT
+ aJki8VRB3EwCOtVX/OHlcbT9rqUsfC29p/O/++NHecMyKYxl8ygmrOHA0bE/jFJqt0G3B6uWTnn
+ NJ3BypW755mW4TYgeLui8nOCAu5cRqeZoOs9r2l9p7LmVAL0i+QTaCQJrDLHFBBKg7npC/i5aBK
+ +RnKyWQzRR13gMTc079rIZohXogU/kNpdlWM5itsmZ3l0SX9TUxOiToxUmyZokzqj7Zes7VjsxU
+ 4x5q0JF1GRV72ifLNu1qF7eqLnJwWmCkwnV34tY1+066g5SxfGvGhC8tKnVDTmI01dw2BNVNZCE
+ RKP77oFSoBRPdlw==
 X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250830_040948_831123_E88AD95F 
-X-CRM114-Status: UNSURE (   7.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250830_040951_259758_8BAE21C0 
+X-CRM114-Status: GOOD (  14.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,29 +124,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-S3C2410 is gone from kernel, so we can drop its support and remaining
-related pieces.
+Samsung S3C24xx family of SoCs was removed from the Linux kernel in the
+commit 61b7f8920b17 ("ARM: s3c: remove all s3c24xx support"), in January
+2023.  There are no in-kernel users of its compatibles.
 
-Best regards,
-Krzysztof
-
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
-Krzysztof Kozlowski (5):
-      iio: adc: exynos_adc: Drop S3C2410 support
-      iio: adc: exynos_adc: Drop touchscreen support
-      iio: adc: exynos_adc: Drop platform data support
-      dt-bindings: iio: adc: samsung,exynos: Drop S3C2410
-      dt-bindings: iio: adc: samsung,exynos: Drop touchscreen support
+ drivers/iio/adc/exynos_adc.c | 75 +-------------------------------------------
+ 1 file changed, 1 insertion(+), 74 deletions(-)
 
- .../bindings/iio/adc/samsung,exynos-adc.yaml       |  23 +-
- drivers/iio/adc/exynos_adc.c                       | 280 +--------------------
- 2 files changed, 4 insertions(+), 299 deletions(-)
----
-base-commit: 3cace99d63192a7250461b058279a42d91075d0c
-change-id: 20250830-s3c-cleanup-adc-71ac80978520
+diff --git a/drivers/iio/adc/exynos_adc.c b/drivers/iio/adc/exynos_adc.c
+index 4614cf848535944a41e0ab19f35c5ca0546000c0..17fd33c6bd6d0dcf41771331ecb328e58d820ed0 100644
+--- a/drivers/iio/adc/exynos_adc.c
++++ b/drivers/iio/adc/exynos_adc.c
+@@ -44,9 +44,6 @@
+ #define ADC_V1_MUX(x)		((x) + 0x1c)
+ #define ADC_V1_CLRINTPNDNUP(x)	((x) + 0x20)
+ 
+-/* S3C2410 ADC registers definitions */
+-#define ADC_S3C2410_MUX(x)	((x) + 0x18)
+-
+ /* Future ADC_V2 registers definitions */
+ #define ADC_V2_CON1(x)		((x) + 0x00)
+ #define ADC_V2_CON2(x)		((x) + 0x04)
+@@ -61,10 +58,8 @@
+ #define ADC_V1_CON_PRSCLV(x)	(((x) & 0xFF) << 6)
+ #define ADC_V1_CON_STANDBY	(1u << 2)
+ 
+-/* Bit definitions for S3C2410 ADC */
++/* Bit definitions for S3C2410 / S3C6410 ADC */
+ #define ADC_S3C2410_CON_SELMUX(x) (((x) & 7) << 3)
+-#define ADC_S3C2410_DATX_MASK	0x3FF
+-#define ADC_S3C2416_CON_RES_SEL	(1u << 3)
+ 
+ /* touch screen always uses channel 0 */
+ #define ADC_S3C2410_MUX_TS	0
+@@ -307,53 +302,6 @@ static const struct exynos_adc_data exynos_adc_s5pv210_data = {
+ 	.start_conv	= exynos_adc_v1_start_conv,
+ };
+ 
+-static void exynos_adc_s3c2416_start_conv(struct exynos_adc *info,
+-					  unsigned long addr)
+-{
+-	u32 con1;
+-
+-	/* Enable 12 bit ADC resolution */
+-	con1 = readl(ADC_V1_CON(info->regs));
+-	con1 |= ADC_S3C2416_CON_RES_SEL;
+-	writel(con1, ADC_V1_CON(info->regs));
+-
+-	/* Select channel for S3C2416 */
+-	writel(addr, ADC_S3C2410_MUX(info->regs));
+-
+-	con1 = readl(ADC_V1_CON(info->regs));
+-	writel(con1 | ADC_CON_EN_START, ADC_V1_CON(info->regs));
+-}
+-
+-static struct exynos_adc_data const exynos_adc_s3c2416_data = {
+-	.num_channels	= MAX_ADC_V1_CHANNELS,
+-	.mask		= ADC_DATX_MASK,	/* 12 bit ADC resolution */
+-
+-	.init_hw	= exynos_adc_v1_init_hw,
+-	.exit_hw	= exynos_adc_v1_exit_hw,
+-	.start_conv	= exynos_adc_s3c2416_start_conv,
+-};
+-
+-static void exynos_adc_s3c2443_start_conv(struct exynos_adc *info,
+-					  unsigned long addr)
+-{
+-	u32 con1;
+-
+-	/* Select channel for S3C2433 */
+-	writel(addr, ADC_S3C2410_MUX(info->regs));
+-
+-	con1 = readl(ADC_V1_CON(info->regs));
+-	writel(con1 | ADC_CON_EN_START, ADC_V1_CON(info->regs));
+-}
+-
+-static struct exynos_adc_data const exynos_adc_s3c2443_data = {
+-	.num_channels	= MAX_ADC_V1_CHANNELS,
+-	.mask		= ADC_S3C2410_DATX_MASK, /* 10 bit ADC resolution */
+-
+-	.init_hw	= exynos_adc_v1_init_hw,
+-	.exit_hw	= exynos_adc_v1_exit_hw,
+-	.start_conv	= exynos_adc_s3c2443_start_conv,
+-};
+-
+ static void exynos_adc_s3c64xx_start_conv(struct exynos_adc *info,
+ 					  unsigned long addr)
+ {
+@@ -365,15 +313,6 @@ static void exynos_adc_s3c64xx_start_conv(struct exynos_adc *info,
+ 	writel(con1 | ADC_CON_EN_START, ADC_V1_CON(info->regs));
+ }
+ 
+-static struct exynos_adc_data const exynos_adc_s3c24xx_data = {
+-	.num_channels	= MAX_ADC_V1_CHANNELS,
+-	.mask		= ADC_S3C2410_DATX_MASK, /* 10 bit ADC resolution */
+-
+-	.init_hw	= exynos_adc_v1_init_hw,
+-	.exit_hw	= exynos_adc_v1_exit_hw,
+-	.start_conv	= exynos_adc_s3c64xx_start_conv,
+-};
+-
+ static struct exynos_adc_data const exynos_adc_s3c64xx_data = {
+ 	.num_channels	= MAX_ADC_V1_CHANNELS,
+ 	.mask		= ADC_DATX_MASK,	/* 12 bit ADC resolution */
+@@ -486,18 +425,6 @@ static const struct exynos_adc_data exynos7_adc_data = {
+ 
+ static const struct of_device_id exynos_adc_match[] = {
+ 	{
+-		.compatible = "samsung,s3c2410-adc",
+-		.data = &exynos_adc_s3c24xx_data,
+-	}, {
+-		.compatible = "samsung,s3c2416-adc",
+-		.data = &exynos_adc_s3c2416_data,
+-	}, {
+-		.compatible = "samsung,s3c2440-adc",
+-		.data = &exynos_adc_s3c24xx_data,
+-	}, {
+-		.compatible = "samsung,s3c2443-adc",
+-		.data = &exynos_adc_s3c2443_data,
+-	}, {
+ 		.compatible = "samsung,s3c6410-adc",
+ 		.data = &exynos_adc_s3c64xx_data,
+ 	}, {
 
-Best regards,
 -- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+2.48.1
 
 
