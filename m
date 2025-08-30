@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53840CA0FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 17:22:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A574CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 17:25:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k22+B8ffEli9+24baonSp7Mbgcq1/aXtsuYwQP4MYQ8=; b=Ze+Od5iCbDlgyQ6darc2kwQSIb
-	4EvCJ6BG2QqeYPyIsk3Uv680QNOsD9GHiVCGcBaPfaxnj5HA1PHF1g19WMeFwJSuvpDkeUcVVWPOy
-	h1UuM+mFvppEZt01MD4DW7m7LJG1lgShMdLGk14snUwzuEcQB2Wysn2lLWH/aKuNK1zcHFBKxgN6o
-	CcxhfohNZYyhrSlZLhpFVdR9TWbSoq2JyAFFpX0/INCfiIQ1zzvEaJgK3zo3S818PFDRziy9x9eFd
-	DyTq6rF6thu16/OAGH7Yv0InVoP/vwUu2IXMzQ2zriRmeSS189zCpmZzNLs8Qz/2mgbcjKJmG4z1G
-	BIDgGLdw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kDx62LBnChHjtNkTDL7NQt8lduif//sDr7HGVvJarkc=; b=eF609u3Jlo1WBWZPWUzolU5h4V
+	UK0rKA5bvcoQ4nv51cx0ZIluIR+l+qi6X1cEUpsXDKQpMjMEPpeiKj61Ohbt6bqkLKKxpBiri5X+m
+	kGaYmXHYboMGzsP0usgpwTSy7L4gY5/0tYybYRHEubRjpJPVKESpKh/x3/CLNjLotFUZsToUdE4se
+	bTVt9f5+SEjsFK1HzBmJm9GPATemZwBEHArBEb6zv89gDKU/pNOjfK3lkUKwNzvzneBXp1+gt2uy9
+	xIuO6FagxWHcv+KTW3sVhkZCO29wB+4mWoccm4+box1qhdV2b5x4EYZYKlWPLp9LtXFFksfKFHMmZ
+	LGXAMscQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usPHi-00000008E80-2Ppi;
-	Sat, 30 Aug 2025 17:22:38 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1usPKP-00000008EPx-1KAV;
+	Sat, 30 Aug 2025 17:25:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usP4r-00000008CUL-02xQ
+	id 1usP4r-00000008CUN-0mLY
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 30 Aug 2025 17:09:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1BDCE60195;
+	by tor.source.kernel.org (Postfix) with ESMTP id 34EC9601A7;
 	Sat, 30 Aug 2025 17:09:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A21DFC4CEF1;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4497C4AF09;
 	Sat, 30 Aug 2025 17:09:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1756573759;
-	bh=2D4JpcfBxGUxLuSlwCEqmVQw8YDexdFZl9b/63oO114=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TFywBZj6Tmfjggcn4jcDCinw54P3REEoPmefMj2Vq9QQT+Yjyd5XZHo3GWBzl7SnE
-	 qq5YRSDIhC2iX3xXlIufp/do1mDtA9BQH43mFH9X9LAPrSRFDjMDBpPLQ0A+dUZbjX
-	 LRCt42TMJXRp325d0CWUAWR4yjLn7lW8vWxm7ADj4YhEc/abCaaII5qE2h3dR2/lAF
-	 SvWQsF6eldWAyQRFh5n8nzt7yy0kejonLJxS/8f9Pe80U34kUTBxN/kjpvnz+ELzDM
-	 oP6dUNwo7NgvXeLbg6X29/TP5Zv91+Fr6Hr8pUcTZkPSGnh1RKBrnk875F0Pwncwme
-	 g2n0WxZoCB1/A==
+	bh=Ga5zxO8ZZi+LW2SUjQleCojdx++Hf4rCOMhtGWIYz9Q=;
+	h=From:To:Cc:Subject:Date:From;
+	b=bQ2FDKUqku3BPMUozZpMqtcXYNpl952VOteqh2Kz7kyy5GaCFNg6Anu3FSIx6GLge
+	 e6jMuRn0bQ9pcJnNkXi18aV+xpp/w0A+0tBPPCJao2mP1M9w2Gjyg/UoAECXoT+tuy
+	 UAnfu7PHDQ3y85TXVjdTHOxw1SfEA0Iih5p9R3sYbAkl3PDBM7ppmqA5ka3AuOap64
+	 kPKEuzoW2XRfhYgmQPRpN1ZyAX56gPs6N0sJDNXNk23I9o3w13JUglKufd7/PQhC2a
+	 ioj0IR11U99jqDCnA3O1tBVYPszz0kHXA3r3nnCxrVs5PAffxn5a421VzhUTx1odVX
+	 /WXp5e6KJslSw==
 Received: by wens.tw (Postfix, from userid 1000)
-	id 356675FD50; Sun, 31 Aug 2025 01:09:17 +0800 (CST)
+	id 0C00C5FCC4; Sun, 31 Aug 2025 01:09:17 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -58,12 +58,10 @@ Cc: Andre Przywara <andre.przywara@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/8] dt-bindings: clock: sun55i-a523-ccu: Add A523 MCU CCU clock controller
-Date: Sun, 31 Aug 2025 01:08:55 +0800
-Message-Id: <20250830170901.1996227-3-wens@kernel.org>
+Subject: [PATCH 0/8] arm64: allwinner: a523: Enable MCU PRCM and NPU
+Date: Sun, 31 Aug 2025 01:08:53 +0800
+Message-Id: <20250830170901.1996227-1-wens@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250830170901.1996227-1-wens@kernel.org>
-References: <20250830170901.1996227-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -82,183 +80,75 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chen-Yu Tsai <wens@csie.org>
 
-There are four clock controllers in the A523 SoC. The existing binding
-already covers two of them that are critical for basic operation. The
-remaining ones are the MCU clock controller and CPU PLL clock
-controller.
+Hi folks,
 
-Add a description for the MCU CCU. This unit controls and provides
-clocks to the MCU (RISC-V) subsystem and peripherals meant to operate
-under low power conditions.
+This series adds support for the MCU PRCM and the NPU.
 
-Signed-off-by: Chen-Yu Tsai <wens@csie.org>
----
- .../clock/allwinner,sun55i-a523-ccu.yaml      | 35 +++++++++++-
- .../dt-bindings/clock/sun55i-a523-mcu-ccu.h   | 54 +++++++++++++++++++
- .../dt-bindings/reset/sun55i-a523-mcu-ccu.h   | 30 +++++++++++
- 3 files changed, 117 insertions(+), 2 deletions(-)
+The MCU PRCM is a Power, Reset & Clock Management block that has some
+clock and reset controls for the MCU, DSP and some peripherals that the
+MCU could use.
+
+The NPU is a Vivante IP block. It is clocked from the NPU PLL from the
+main clock unit, but the bus clock and reset controls lie in the MCU
+PRCM.
+
+Patch 1 adds the missing NPU module clock to the main clock control
+unit's binding.
+
+Patch 2 adds the binding for the MCU PRCM clock control unit
+
+Patch 3 fixes clock rate readback for the new dual-divider type added
+with the A523 family.
+
+Patch 4 adds the missing NPU module clock.
+
+Patch 5 adds support for power-of-two dividers to the sunxi-ng clk
+library.
+
+Patch 6 adds a new driver for the A523 MCU PRCM CCU.
+
+Patch 7 adds a device node for the MCU PRCM CCU.
+
+Patch 8 adds a device node for the NPU.
+
+The NPU was only lightly tested: the driver correctly probes and detects
+a model GC9000, revision 9003.
+
+Please have a look. All patches will be merged through the sunxi tree.
+
+
+Thanks
+ChenYu
+
+
+Chen-Yu Tsai (8):
+  dt-bindings: clock: sun55i-a523-ccu: Add missing NPU module clock
+  dt-bindings: clock: sun55i-a523-ccu: Add A523 MCU CCU clock controller
+  clk: sunxi-ng: mp: Fix dual-divider clock rate readback
+  clk: sunxi-ng: sun55i-a523-ccu: Add missing NPU module clock
+  clk: sunxi-ng: div: support power-of-two dividers
+  clk: sunxi-ng: add support for the A523/T527 MCU CCU
+  arm64: dts: allwinner: a523: Add MCU PRCM CCU node
+  arm64: dts: allwinner: a523: Add NPU device node
+
+ .../clock/allwinner,sun55i-a523-ccu.yaml      |  35 +-
+ .../arm64/boot/dts/allwinner/sun55i-a523.dtsi |  37 ++
+ drivers/clk/sunxi-ng/Kconfig                  |   5 +
+ drivers/clk/sunxi-ng/Makefile                 |   2 +
+ drivers/clk/sunxi-ng/ccu-sun55i-a523-mcu.c    | 447 ++++++++++++++++++
+ drivers/clk/sunxi-ng/ccu-sun55i-a523.c        |  21 +-
+ drivers/clk/sunxi-ng/ccu-sun55i-a523.h        |  14 -
+ drivers/clk/sunxi-ng/ccu_div.h                |  18 +
+ drivers/clk/sunxi-ng/ccu_mp.c                 |   2 +-
+ include/dt-bindings/clock/sun55i-a523-ccu.h   |   1 +
+ .../dt-bindings/clock/sun55i-a523-mcu-ccu.h   |  54 +++
+ .../dt-bindings/reset/sun55i-a523-mcu-ccu.h   |  30 ++
+ 12 files changed, 646 insertions(+), 20 deletions(-)
+ create mode 100644 drivers/clk/sunxi-ng/ccu-sun55i-a523-mcu.c
+ delete mode 100644 drivers/clk/sunxi-ng/ccu-sun55i-a523.h
  create mode 100644 include/dt-bindings/clock/sun55i-a523-mcu-ccu.h
  create mode 100644 include/dt-bindings/reset/sun55i-a523-mcu-ccu.h
 
-diff --git a/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
-index f5f62e9a10a1..1dbd92febc47 100644
---- a/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
-+++ b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
-@@ -19,6 +19,7 @@ properties:
-   compatible:
-     enum:
-       - allwinner,sun55i-a523-ccu
-+      - allwinner,sun55i-a523-mcu-ccu
-       - allwinner,sun55i-a523-r-ccu
- 
-   reg:
-@@ -26,11 +27,11 @@ properties:
- 
-   clocks:
-     minItems: 4
--    maxItems: 5
-+    maxItems: 8
- 
-   clock-names:
-     minItems: 4
--    maxItems: 5
-+    maxItems: 8
- 
- required:
-   - "#clock-cells"
-@@ -63,6 +64,36 @@ allOf:
-             - const: iosc
-             - const: losc-fanout
- 
-+  - if:
-+      properties:
-+        compatible:
-+          enum:
-+            - allwinner,sun55i-a523-mcu-ccu
-+
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: High Frequency Oscillator (usually at 24MHz)
-+            - description: Low Frequency Oscillator (usually at 32kHz)
-+            - description: Internal Oscillator
-+            - description: Audio PLL (4x)
-+            - description: Peripherals PLL 0 (300 MHz output)
-+            - description: DSP module clock
-+            - description: PRCM AHB clock
-+            - description: MBUS clock
-+
-+        clock-names:
-+          items:
-+            - const: hosc
-+            - const: losc
-+            - const: iosc
-+            - const: pll-audio0-4x
-+            - const: pll-periph0-300m
-+            - const: dsp
-+            - const: r-ahb
-+            - const: mbus
-+
-   - if:
-       properties:
-         compatible:
-diff --git a/include/dt-bindings/clock/sun55i-a523-mcu-ccu.h b/include/dt-bindings/clock/sun55i-a523-mcu-ccu.h
-new file mode 100644
-index 000000000000..6efc6bc7e11a
---- /dev/null
-+++ b/include/dt-bindings/clock/sun55i-a523-mcu-ccu.h
-@@ -0,0 +1,54 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
-+/*
-+ * Copyright (C) 2025 Chen-Yu Tsai <wens@csie.org>
-+ */
-+
-+#ifndef _DT_BINDINGS_CLK_SUN55I_A523_MCU_CCU_H_
-+#define _DT_BINDINGS_CLK_SUN55I_A523_MCU_CCU_H_
-+
-+#define CLK_MCU_PLL_AUDIO1	0
-+#define CLK_MCU_PLL_AUDIO1_DIV2	1
-+#define CLK_MCU_PLL_AUDIO1_DIV5	2
-+#define CLK_MCU_AUDIO_OUT	3
-+#define CLK_MCU_DSP		4
-+#define CLK_MCU_I2S0		5
-+#define CLK_MCU_I2S1		6
-+#define CLK_MCU_I2S2		7
-+#define CLK_MCU_I2S3		8
-+#define CLK_MCU_I2S3_ASRC	9
-+#define CLK_BUS_MCU_I2S0	10
-+#define CLK_BUS_MCU_I2S1	11
-+#define CLK_BUS_MCU_I2S2	12
-+#define CLK_BUS_MCU_I2S3	13
-+#define CLK_MCU_SPDIF_TX	14
-+#define CLK_MCU_SPDIF_RX	15
-+#define CLK_BUS_MCU_SPDIF	16
-+#define CLK_MCU_DMIC		17
-+#define CLK_BUS_MCU_DMIC	18
-+#define CLK_MCU_AUDIO_CODEC_DAC	19
-+#define CLK_MCU_AUDIO_CODEC_ADC	20
-+#define CLK_BUS_MCU_AUDIO_CODEC	21
-+#define CLK_BUS_MCU_DSP_MSGBOX	22
-+#define CLK_BUS_MCU_DSP_CFG	23
-+#define CLK_BUS_MCU_NPU_HCLK	24
-+#define CLK_BUS_MCU_NPU_ACLK	25
-+#define CLK_MCU_TIMER0		26
-+#define CLK_MCU_TIMER1		27
-+#define CLK_MCU_TIMER2		28
-+#define CLK_MCU_TIMER3		29
-+#define CLK_MCU_TIMER4		30
-+#define CLK_MCU_TIMER5		31
-+#define CLK_BUS_MCU_TIMER	32
-+#define CLK_BUS_MCU_DMA		33
-+#define CLK_MCU_TZMA0		34
-+#define CLK_MCU_TZMA1		35
-+#define CLK_BUS_MCU_PUBSRAM	36
-+#define CLK_MCU_MBUS_DMA	37
-+#define CLK_MCU_MBUS		38
-+#define CLK_MCU_RISCV		39
-+#define CLK_BUS_MCU_RISCV_CFG	40
-+#define CLK_BUS_MCU_RISCV_MSGBOX	41
-+#define CLK_MCU_PWM0		42
-+#define CLK_BUS_MCU_PWM0	43
-+
-+#endif /* _DT_BINDINGS_CLK_SUN55I_A523_MCU_CCU_H_ */
-diff --git a/include/dt-bindings/reset/sun55i-a523-mcu-ccu.h b/include/dt-bindings/reset/sun55i-a523-mcu-ccu.h
-new file mode 100644
-index 000000000000..a89a0b44f08b
---- /dev/null
-+++ b/include/dt-bindings/reset/sun55i-a523-mcu-ccu.h
-@@ -0,0 +1,30 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
-+/*
-+ * Copyright (C) 2025 Chen-Yu Tsai <wens@csie.org>
-+ */
-+
-+#ifndef _DT_BINDINGS_RST_SUN55I_A523_MCU_CCU_H_
-+#define _DT_BINDINGS_RST_SUN55I_A523_MCU_CCU_H_
-+
-+#define RST_BUS_MCU_I2S0		0
-+#define RST_BUS_MCU_I2S1		1
-+#define RST_BUS_MCU_I2S2		2
-+#define RST_BUS_MCU_I2S3		3
-+#define RST_BUS_MCU_SPDIF		4
-+#define RST_BUS_MCU_DMIC		5
-+#define RST_BUS_MCU_AUDIO_CODEC		6
-+#define RST_BUS_MCU_DSP_MSGBOX		7
-+#define RST_BUS_MCU_DSP_CFG		8
-+#define RST_BUS_MCU_NPU			9
-+#define RST_BUS_MCU_TIMER		10
-+#define RST_BUS_MCU_DSP_DEBUG		11
-+#define RST_BUS_MCU_DSP			12
-+#define RST_BUS_MCU_DMA			13
-+#define RST_BUS_MCU_PUBSRAM		14
-+#define RST_BUS_MCU_RISCV_CFG		15
-+#define RST_BUS_MCU_RISCV_DEBUG		16
-+#define RST_BUS_MCU_RISCV_CORE		17
-+#define RST_BUS_MCU_RISCV_MSGBOX	18
-+#define RST_BUS_MCU_PWM0		19
-+
-+#endif /* _DT_BINDINGS_RST_SUN55I_A523_MCU_CCU_H_ */
 -- 
 2.39.5
 
