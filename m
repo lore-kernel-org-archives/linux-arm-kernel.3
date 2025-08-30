@@ -4,82 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52F73CA0FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 04:20:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7FB8CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 07:03:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=9Z5xnfU2qT1cpEr4IPQsf35kJiGWlzs/2i53/O7XG7w=; b=rciN9fOK8BxSn7
-	sjXhXA+VBd9wpWAo0qz+7igIAUpMfIlCuvs26AnxEBLFstdIDXLxNKvwmnh/AFcrecChrti7xEwOg
-	7N+CTg495ZWu/qjICkrEXdNCVcTgl/IZuAEGf/oW2KD3UfOezUay3dsacJOLkiN2VE3XsyFOOYsbA
-	2s9kiwTmiWVhDNNj7eJ+YhUY8tYEfWRiQYEBciyH6rlpSaLLdDhM9Gk+uDEw++OedrtBqJb9BuY3P
-	VFCScCrzycWuDwNyy91SmfiMdQc+BgJQE2imHWh6ZCk5+2oxacR9qRte+Mof2ADl6cyN9bttlwJIk
-	KIGQ3sqpFhKWjXXiW1aw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a+gi6Wx7VGIQ0r36prbLs/0faVgWXfkjS1uyPmP0Q9Y=; b=HHw6fx9CvqRivXuOKsVv7Enqln
+	gpbMNr57H2Sr7+H0enoqtsEHj4NQ1jGx+AbA1j5P2dB+jf1ZoEQH6pO0ZVxwhPdCzPbX8Os3Jo8XO
+	3x347aZby3JGQHoDbq41/rgAaUoyXByb70QY/xwS7BoqUrhh7d8l3+lvvmw3NsRfqySndqtT31R2V
+	37f5L6QOG+nYGG1sTRRRtT7iomfDv8U48gBd40LdV9SWLcejGE7coECvAJdLwNE/rHtNjLdyFGXfi
+	RnJB3kJokMQnWTQvtahWgiVoiI0sR3yrj77N5+f8J9F8a65P3anfgiorToQHF1t6ob6mZ/BLNrvXD
+	15ctB7SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usD4F-00000007Q3W-200p;
-	Sat, 30 Aug 2025 04:19:55 +0000
-Received: from mail-il1-x14a.google.com ([2607:f8b0:4864:20::14a])
+	id 1usFc4-00000007WT1-1raJ;
+	Sat, 30 Aug 2025 07:03:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usCyE-00000007Peu-0hJS
+	id 1usFZJ-00000007WLj-3mvU
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 Aug 2025 04:13:43 +0000
-Received: by mail-il1-x14a.google.com with SMTP id e9e14a558f8ab-3f1ebcf0863so29673925ab.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 21:13:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1756527221; x=1757132021; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=9Z5xnfU2qT1cpEr4IPQsf35kJiGWlzs/2i53/O7XG7w=;
-        b=dYKVXxyGTPAl+jwjcpE8nRDVhjCLvwE9pmD57DdfECVHRdoQQjBhwMDhMvUBSh3H81
-         H8c6LkHTGovrUN4JptFF5dZbp4hCKzvU5IP0cmbdElubjVx5IGRUvpCImVjETNWa77cZ
-         r5SmVegvqUsbd0J3gYhf3+rp9Mp+6zmvDrmswlVf3RgSwKTulF8WAke5R4UvtKtv2L2d
-         1gpl9/WM5arp3i+k53dW7n/RTawgUvxV3JtV80HFvYiwIggmvEHYn63kYzYRtQ1uasZY
-         IUsXxNG9p75beP4v0mQsxvX4I+oHPAhf5s+WBNnrq7f4lqH1rfxOK1P5fcEN+j7dRFe0
-         qXZA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756527221; x=1757132021;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=9Z5xnfU2qT1cpEr4IPQsf35kJiGWlzs/2i53/O7XG7w=;
-        b=kHSx/D+6oq+1itvIh34P4GTwtM2fbjdvl5HEuJeLGG/2U5Z35CWAzMoUNFKbO9sn3m
-         MhxvMJatzXvf7vhDtR3rsh7Lts8DA5b4RdGKwvhLypVNmerJrN7YM93Sl5XBBhkstZXS
-         xK+YDiJZQOJkKlMafDjjbWGO9ukaaSy1Fvky1YUOL2t5iFwm5g4+zY1Q+urYNjMAhba1
-         4GpI6w5d68CIuQ9ZNjXa0H0IU/X86/geRI+jG2uQmp/3rC5CAz1kGkERQudQ2T7GbXA3
-         +k0G7Yqr7yNNyfGyqGWtx+MwnDvL/NzBfFqeoX3Nmnla+BrkcISB5LC4la97uJuGQur4
-         lk2w==
-X-Forwarded-Encrypted: i=1; AJvYcCUKJP56PPTUWLAjTE9A9JBHSXaz9Dv6pxh09uH0LBCdPFmQ9OxvEAjJGST+pFm1BtKhkF1a+WD/AwmWEP0iF5GZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwqSySLOAZVV+/fh1HkPoHiqlOCr+79pG+A/+3Ts33IY6Mul4UB
-	FtAgSZxXmTEeroYIOupkiTGZXRTqR+m4a94OcADzlYWmsGKEiVWkJsbwKCQNF6iaD5oRd4zEl0M
-	I5VPQ5jyGl/1Pph1gZvbfHypbpg==
-X-Google-Smtp-Source: AGHT+IHY4vn1mqRalNRHYDytRu2rdsx+RbQn0i1TrFXo8yYZdYFDPmN+UJ6HDalf3E1zNgCt7wnIiSapM5kbcPqUZA==
-X-Received: from iljh16.prod.google.com ([2002:a05:6e02:d50:b0:3f2:80cd:5b9e])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6e02:12cd:b0:3ef:175e:fd20 with SMTP id e9e14a558f8ab-3f400288a46mr20510375ab.8.1756527220822;
- Fri, 29 Aug 2025 21:13:40 -0700 (PDT)
-Date: Sat, 30 Aug 2025 04:13:39 +0000
-In-Reply-To: <20250714225917.1396543-7-coltonlewis@google.com> (message from
- Colton Lewis on Mon, 14 Jul 2025 22:59:00 +0000)
-Mime-Version: 1.0
-Message-ID: <gsntiki5cuq4.fsf@coltonlewis-kvm.c.googlers.com>
-Subject: Re: [PATCH v4 06/23] perf: arm_pmuv3: Keep out of guest counter partition
-From: Colton Lewis <coltonlewis@google.com>
-To: Colton Lewis <coltonlewis@google.com>
-Cc: kvm@vger.kernel.org, pbonzini@redhat.com, corbet@lwn.net, 
-	linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
-	maz@kernel.org, oliver.upton@linux.dev, mizhang@google.com, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	mark.rutland@arm.com, shuah@kernel.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-perf-users@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_211342_231939_A5CA3B30 
-X-CRM114-Status: GOOD (  34.12  )
+	Sat, 30 Aug 2025 07:00:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0768B60053;
+	Sat, 30 Aug 2025 07:00:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D848C4CEEB;
+	Sat, 30 Aug 2025 07:00:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756537208;
+	bh=SPgIy7oUucbrmZ+S1ARRKS/UEnUY/ohEYYI/F3/xYJs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OXe5Xq288p4UvOphSgKjt/UlKxTp2+trg1t4fVwX34H8F3oNR0gn52A0R/9t+DwG3
+	 FjvW9pDTp5LgOEzZj5TEui8U0W/sz+bNaRwNXH+HSlmlf9gbv04NeR0pavvH3vw9Zk
+	 44Ua9F0zsSjZ1jXZvBa4NDDOE/DjhYUZWe632xLEZrBukWBvZ93Vkht3SXhbC4xxBt
+	 A4VOf5yaSHEpcB+hkqTvhQRd+y6zpdpaODnQsjo0lT9OBlXByHPiuu+HDjs1PRUwC8
+	 nZtA7/8AWJOorNoo3Vifg/EuDRfUUtsnvVXZ/o4/ULtuBwpGExixkkz/8R59wR6xSw
+	 vTxPH9RWLFE1g==
+Date: Sat, 30 Aug 2025 12:29:57 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Claudiu <claudiu.beznea@tuxon.dev>
+Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, geert+renesas@glider.be, 
+	magnus.damm@gmail.com, catalin.marinas@arm.com, will@kernel.org, 
+	mturquette@baylibre.com, sboyd@kernel.org, p.zabel@pengutronix.de, lizhi.hou@amd.com, 
+	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>, Wolfram Sang <wsa+renesas@sang-engineering.com>
+Subject: Re: [PATCH v3 5/9] PCI: rzg3s-host: Add Initial PCIe Host Driver for
+ Renesas RZ/G3S SoC
+Message-ID: <ddxayjj5wcuuish4kvyluzrujkes5seo7zlusmomyjfjcgzcyj@xe3zzzmy2zaj>
+References: <20250704161410.3931884-1-claudiu.beznea.uj@bp.renesas.com>
+ <20250704161410.3931884-6-claudiu.beznea.uj@bp.renesas.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250704161410.3931884-6-claudiu.beznea.uj@bp.renesas.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,310 +76,606 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Colton Lewis <coltonlewis@google.com> writes:
-
-> If the PMU is partitioned, keep the driver out of the guest counter
-> partition and only use the host counter partition. Partitioning is
-> defined by the MDCR_EL2.HPMN register field and the maximum value KVM
-> can use is saved in cpu_pmu->hpmn_max. The range 0..HPMN-1 is
-> accessible by EL1 and EL0 while HPMN..PMCR.N is reserved for EL2.
-
-> Define some functions that take HPMN as an argument and construct
-> mutually exclusive bitmaps for testing which partition a particular
-> counter is in. Note that despite their different position in the
-> bitmap, the cycle and instruction counters are always in the guest
-> partition.
-
-> Signed-off-by: Colton Lewis <coltonlewis@google.com>
+On Fri, Jul 04, 2025 at 07:14:05PM GMT, Claudiu wrote:
+> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> 
+> The Renesas RZ/G3S features a PCIe IP that complies with the PCI Express
+> Base Specification 4.0 and supports speeds of up to 5 GT/s. It functions
+> only as a root complex, with a single-lane (x1) configuration. The
+> controller includes Type 1 configuration registers, as well as IP
+> specific registers (called AXI registers) required for various adjustments.
+> 
+> Hardware manual can be downloaded from the address in the "Link" section.
+> The following steps should be followed to access the manual:
+> 1/ Click the "User Manual" button
+> 2/ Click "Confirm"; this will start downloading an archive
+> 3/ Open the downloaded archive
+> 4/ Navigate to r01uh1014ej*-rzg3s-users-manual-hardware -> Deliverables
+> 5/ Open the file r01uh1014ej*-rzg3s.pdf
+> 
+> Link: https://www.renesas.com/en/products/rz-g3s?queryID=695cc067c2d89e3f271d43656ede4d12
+> Tested-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 > ---
->   arch/arm/include/asm/arm_pmuv3.h | 18 +++++++
->   arch/arm64/include/asm/kvm_pmu.h | 24 +++++++++
->   arch/arm64/kvm/pmu-direct.c      | 84 ++++++++++++++++++++++++++++++++
->   drivers/perf/arm_pmuv3.c         | 36 ++++++++++++--
->   4 files changed, 158 insertions(+), 4 deletions(-)
+> 
 
-> diff --git a/arch/arm/include/asm/arm_pmuv3.h  
-> b/arch/arm/include/asm/arm_pmuv3.h
-> index 49b1f2d7842d..5f6269039f44 100644
-> --- a/arch/arm/include/asm/arm_pmuv3.h
-> +++ b/arch/arm/include/asm/arm_pmuv3.h
-> @@ -231,6 +231,24 @@ static inline bool kvm_set_pmuserenr(u64 val)
->   }
+[...]
 
->   static inline void kvm_vcpu_pmu_resync_el0(void) {}
-> +static inline void kvm_pmu_host_counters_enable(void) {}
-> +static inline void kvm_pmu_host_counters_disable(void) {}
-> +
-> +static inline bool kvm_pmu_is_partitioned(struct arm_pmu *pmu)
+> +static bool rzg3s_pcie_child_issue_request(struct rzg3s_pcie_host *host)
 > +{
-> +	return false;
-> +}
+> +	u32 val;
+> +	int ret;
 > +
-> +static inline u64 kvm_pmu_host_counter_mask(struct arm_pmu *pmu)
-> +{
-> +	return ~0;
-> +}
+> +	rzg3s_pcie_update_bits(host->axi, RZG3S_PCI_REQISS,
+> +			       RZG3S_PCI_REQISS_REQ_ISSUE,
+> +			       RZG3S_PCI_REQISS_REQ_ISSUE);
+> +	ret = readl_poll_timeout_atomic(host->axi + RZG3S_PCI_REQISS, val,
+> +					!(val & RZG3S_PCI_REQISS_REQ_ISSUE),
+> +					5, RZG3S_REQ_ISSUE_TIMEOUT_US);
 > +
-> +static inline u64 kvm_pmu_guest_counter_mask(struct arm_pmu *pmu)
-> +{
-> +	return ~0;
+> +	return !!ret || (val & RZG3S_PCI_REQISS_MOR_STATUS);
+
+You don't need to do !!ret as the C11 standard guarantees that any scalar type
+stored as bool will have the value of 0 or 1.
+
 > +}
 > +
 
->   static inline bool has_vhe(void)
->   {
-> diff --git a/arch/arm64/include/asm/kvm_pmu.h  
-> b/arch/arm64/include/asm/kvm_pmu.h
-> index 8a2ed02e157d..6328e90952ba 100644
-> --- a/arch/arm64/include/asm/kvm_pmu.h
-> +++ b/arch/arm64/include/asm/kvm_pmu.h
-> @@ -88,6 +88,12 @@ void kvm_vcpu_pmu_resync_el0(void);
->   #define kvm_vcpu_has_pmu(vcpu)					\
->   	(vcpu_has_feature(vcpu, KVM_ARM_VCPU_PMU_V3))
+[...]
 
-> +bool kvm_pmu_is_partitioned(struct arm_pmu *pmu);
-> +u64 kvm_pmu_host_counter_mask(struct arm_pmu *pmu);
-> +u64 kvm_pmu_guest_counter_mask(struct arm_pmu *pmu);
-> +void kvm_pmu_host_counters_enable(void);
-> +void kvm_pmu_host_counters_disable(void);
-> +
->   /*
->    * Updates the vcpu's view of the pmu events for this cpu.
->    * Must be called before every vcpu run after disabling interrupts, to  
-> ensure
-> @@ -220,6 +226,24 @@ static inline bool kvm_pmu_counter_is_hyp(struct  
-> kvm_vcpu *vcpu, unsigned int id
-
->   static inline void kvm_pmu_nested_transition(struct kvm_vcpu *vcpu) {}
-
-> +static inline bool kvm_pmu_is_partitioned(struct arm_pmu *pmu)
+> +static void __iomem *rzg3s_pcie_root_map_bus(struct pci_bus *bus,
+> +					     unsigned int devfn,
+> +					     int where)
 > +{
-> +	return false;
+> +	struct rzg3s_pcie_host *host = bus->sysdata;
+> +
+> +	if (devfn)
+> +		return NULL;
+
+Is it really possible to have devfn as non-zero for a root bus?
+
+> +
+> +	return host->pcie + where;
 > +}
 > +
-> +static inline u64 kvm_pmu_host_counter_mask(struct arm_pmu *pmu)
+
+[...]
+
+> +static int rzg3s_pcie_msi_setup(struct rzg3s_pcie_host *host)
 > +{
-> +	return ~0;
+> +	size_t size = RZG3S_PCI_MSI_INT_NR * sizeof(u32);
+> +	struct rzg3s_pcie_msi *msi = &host->msi;
+> +	struct device *dev = host->dev;
+> +	int id, ret;
+> +
+> +	msi->pages = __get_free_pages(GFP_KERNEL | GFP_DMA, 0);
+> +	if (!msi->pages)
+> +		return -ENOMEM;
+> +
+> +	msi->dma_addr = dma_map_single(dev, (void *)msi->pages, size * 2,
+> +				       DMA_BIDIRECTIONAL);
+> +	if (dma_mapping_error(dev, msi->dma_addr)) {
+> +		ret = -ENOMEM;
+> +		goto free_pages;
+> +	}
+> +
+> +	/*
+> +	 * According to the RZ/G3S HW manual (Rev.1.10, section 34.4.5.2 Setting
+> +	 * the MSI Window) the MSI window need to be within any AXI window. Find
+> +	 * an AXI window to setup the MSI window.
+
+Are you really finding the AXI window or just making sure that the MSI window
+falls into one of the AXI window?
+
+And I believe it is OK to have more than one MSI window within an AXI window.
+
+> +	 */
+> +	for (id = 0; id < RZG3S_MAX_WINDOWS; id++) {
+> +		u64 base, basel, baseu;
+> +		u64 mask, maskl, masku;
+> +
+> +		basel = readl(host->axi + RZG3S_PCI_AWBASEL(id));
+> +		/* Skip checking this AXI window if it's not enabled */
+> +		if (!(basel & RZG3S_PCI_AWBASEL_WIN_ENA))
+> +			continue;
+> +
+> +		baseu = readl(host->axi + RZG3S_PCI_AWBASEU(id));
+> +		base = baseu << 32 | basel;
+> +
+> +		maskl = readl(host->axi + RZG3S_PCI_AWMASKL(id));
+> +		masku = readl(host->axi + RZG3S_PCI_AWMASKU(id));
+> +		mask = masku << 32 | maskl;
+> +
+> +		if (msi->dma_addr < base || msi->dma_addr > base + mask)
+> +			continue;
+> +
+> +		break;
+> +	}
+> +
+> +	if (id == RZG3S_MAX_WINDOWS) {
+> +		ret = -EINVAL;
+> +		goto dma_unmap;
+> +	}
+> +
+> +	/* The MSI base address need to be aligned to the MSI size */
+> +	msi->window_base = ALIGN(msi->dma_addr, size);
+> +	if (msi->window_base < msi->dma_addr) {
+> +		ret = -EINVAL;
+> +		goto dma_unmap;
+> +	}
+> +
+> +	rzg3s_pcie_msi_hw_setup(host);
+> +
+> +	return 0;
+> +
+> +dma_unmap:
+> +	dma_unmap_single(dev, msi->dma_addr, size * 2, DMA_BIDIRECTIONAL);
+> +free_pages:
+> +	free_pages(msi->pages, 0);
+> +	return ret;
 > +}
 > +
-> +static inline u64 kvm_pmu_guest_counter_mask(struct arm_pmu *pmu)
+
+[...]
+
+> +static int rzg3s_pcie_set_max_link_speed(struct rzg3s_pcie_host *host)
 > +{
-> +	return ~0;
+> +	u32 cs2, link_speed, remote_supported_link_speeds, tmp;
+> +	u32 pcie_cap = RZG3S_PCI_CFG_PCIEC;
+> +	u8 ltssm_state_l0 = 0xc;
+> +	u16 lcs;
+> +	int ret;
+> +
+> +	/*
+> +	 * According to the RZ/G3S HW manual (Rev.1.10, section 34.6.3 Caution
+> +	 * when Changing the Speed Spontaneously) link speed change can be done
+> +	 * only when the link training and status state machine in the PCIe Core
+> +	 * Link is L0.
+
+"...only when the LTSSM is in L0."
+
+> +	 */
+> +	ret = readl_poll_timeout(host->axi + RZG3S_PCI_PCSTAT1, tmp,
+> +				 FIELD_GET(RZG3S_PCI_PCSTAT1_LTSSM_STATE, tmp) == ltssm_state_l0,
+> +				 PCIE_LINK_WAIT_SLEEP_MS,
+> +				 PCIE_LINK_WAIT_SLEEP_MS *
+> +				 PCIE_LINK_WAIT_MAX_RETRIES * MILLI);
+> +	if (ret) {
+> +		dev_dbg(host->dev,
+> +			"Could not set max link speed! LTSSM not in L0, state=%lx\n",
+
+You should drop 'Could not set max link speed' since the caller is printing a
+similar error.
+
+> +			FIELD_GET(RZG3S_PCI_PCSTAT1_LTSSM_STATE, tmp));
+> +		return ret;
+> +	}
+> +
+> +	lcs = readw(host->pcie + pcie_cap + PCI_EXP_LNKSTA);
+> +	cs2 = readl(host->axi + RZG3S_PCI_PCSTAT2);
+> +
+> +	link_speed = FIELD_GET(PCI_EXP_LNKSTA_CLS, lcs);
+> +	remote_supported_link_speeds = FIELD_GET(RZG3S_PCI_PCSTAT2_SDRIRE, cs2);
+> +
+> +	/*
+> +	 * Return if link is @ 5.0 GT/s or the connected device doesn't support
+> +	 * it.
+> +	 */
+> +	if (link_speed == PCI_EXP_LNKSTA_CLS_5_0GB ||
+> +	    !(remote_supported_link_speeds != GENMASK(PCI_EXP_LNKSTA_CLS_5_0GB - 1, 0)))
+> +		return 0;
+> +
+> +	/* Set target Link speed to 5.0 GT/s */
+
+Instead of setting the link speed to 5 GT/s always, you should honor the link
+speed set in DTS by making use of of_pci_get_max_link_speed() API.
+
+> +	rzg3s_pcie_update_bits(host->pcie, pcie_cap + PCI_EXP_LNKCTL2,
+> +			       PCI_EXP_LNKCTL2_TLS,
+> +			       FIELD_PREP(PCI_EXP_LNKCTL2_TLS,
+> +					  PCI_EXP_LNKCTL2_TLS_5_0GT));
+> +
+> +	/* Request link speed change */
+> +	rzg3s_pcie_update_bits(host->axi, RZG3S_PCI_PCCTRL2,
+> +			       RZG3S_PCI_PCCTRL2_LS_CHG_REQ |
+> +			       RZG3S_PCI_PCCTRL2_LS_CHG,
+> +			       RZG3S_PCI_PCCTRL2_LS_CHG_REQ |
+> +			       FIELD_PREP(RZG3S_PCI_PCCTRL2_LS_CHG,
+> +					  PCI_EXP_LNKCTL2_TLS_5_0GT - 1));
+> +
+> +	ret = readl_poll_timeout(host->axi + RZG3S_PCI_PCSTAT2, cs2,
+> +				 (cs2 & RZG3S_PCI_PCSTAT2_LS_CHG_DONE),
+> +				 PCIE_LINK_WAIT_SLEEP_MS,
+> +				 PCIE_LINK_WAIT_SLEEP_MS *
+> +				 PCIE_LINK_WAIT_MAX_RETRIES * MILLI);
+> +
+> +	/*
+> +	 * According to the RZ/G3S HW manual (Rev.1.10, section 34.6.3 Caution
+> +	 * when Changing the Speed Spontaneously) the PCI_PCCTRL2_LS_CHG_REQ
+> +	 * should be de-asserted after checking for PCI_PCSTAT2_LS_CHG_DONE.
+> +	 */
+> +	rzg3s_pcie_update_bits(host->axi, RZG3S_PCI_PCCTRL2,
+> +			       RZG3S_PCI_PCCTRL2_LS_CHG_REQ, 0);
+> +
+> +	return ret;
 > +}
 > +
-> +static inline void kvm_pmu_host_counters_enable(void) {}
-> +static inline void kvm_pmu_host_counters_disable(void) {}
-> +
->   #endif
-
->   #endif
-> diff --git a/arch/arm64/kvm/pmu-direct.c b/arch/arm64/kvm/pmu-direct.c
-> index 9423d6f65059..22e9b2f9e7b6 100644
-> --- a/arch/arm64/kvm/pmu-direct.c
-> +++ b/arch/arm64/kvm/pmu-direct.c
-> @@ -5,7 +5,10 @@
->    */
-
->   #include <linux/kvm_host.h>
-> +#include <linux/perf/arm_pmu.h>
-> +#include <linux/perf/arm_pmuv3.h>
-
-> +#include <asm/arm_pmuv3.h>
->   #include <asm/kvm_pmu.h>
-
->   /**
-> @@ -20,3 +23,84 @@ bool kvm_pmu_partition_supported(void)
->   {
->   	return has_vhe();
->   }
-> +
-> +/**
-> + * kvm_pmu_is_partitioned() - Determine if given PMU is partitioned
-> + * @pmu: Pointer to arm_pmu struct
-> + *
-> + * Determine if given PMU is partitioned by looking at hpmn field. The
-> + * PMU is partitioned if this field is less than the number of
-> + * counters in the system.
-> + *
-> + * Return: True if the PMU is partitioned, false otherwise
-> + */
-> +bool kvm_pmu_is_partitioned(struct arm_pmu *pmu)
+> +static int rzg3s_pcie_config_init(struct rzg3s_pcie_host *host)
 > +{
-> +	return pmu->hpmn_max >= 0 &&
-> +		pmu->hpmn_max <= *host_data_ptr(nr_event_counters);
+> +	struct pci_host_bridge *bridge = pci_host_bridge_from_priv(host);
+> +	struct resource_entry *ft;
+> +	struct resource *bus;
+> +	u8 subordinate_bus;
+> +	u8 secondary_bus;
+> +	u8 primary_bus;
+> +
+> +	ft = resource_list_first_type(&bridge->windows, IORESOURCE_BUS);
+> +	if (!ft)
+> +		return -ENODEV;
+> +
+> +	bus = ft->res;
+> +	primary_bus = bus->start;
+> +	secondary_bus = bus->start + 1;
+> +	subordinate_bus = bus->end;
+> +
+> +	/* Enable access control to the CFGU */
+> +	writel(RZG3S_PCI_PERM_CFG_HWINIT_EN, host->axi + RZG3S_PCI_PERM);
+> +
+> +	/* Update vendor ID and device ID */
+
+Are you really updating it or setting it? If you are updating it, are the
+default IDs invalid?
+
+> +	writew(host->vendor_id, host->pcie + PCI_VENDOR_ID);
+> +	writew(host->device_id, host->pcie + PCI_DEVICE_ID);
+> +
+> +	/* HW manual recommends to write 0xffffffff on initialization */
+> +	writel(0xffffffff, host->pcie + RZG3S_PCI_CFG_BARMSK00L);
+> +	writel(0xffffffff, host->pcie + RZG3S_PCI_CFG_BARMSK00U);
+> +
+> +	/* Update bus info. */
+> +	writeb(primary_bus, host->pcie + PCI_PRIMARY_BUS);
+> +	writeb(secondary_bus, host->pcie + PCI_SECONDARY_BUS);
+> +	writeb(subordinate_bus, host->pcie + PCI_SUBORDINATE_BUS);
+> +
+> +	/* Disable access control to the CFGU */
+> +	writel(0, host->axi + RZG3S_PCI_PERM);
+> +
+> +	return 0;
 > +}
 > +
-> +/**
-> + * kvm_pmu_host_counter_mask() - Compute bitmask of host-reserved  
-> counters
-> + * @pmu: Pointer to arm_pmu struct
-> + *
-> + * Compute the bitmask that selects the host-reserved counters in the
-> + * {PMCNTEN,PMINTEN,PMOVS}{SET,CLR} registers. These are the counters
-> + * in HPMN..N
-> + *
-> + * Assumes pmu is partitioned and hpmn_max is a valid value.
-> + *
-> + * Return: Bitmask
-> + */
-> +u64 kvm_pmu_host_counter_mask(struct arm_pmu *pmu)
+
+[...]
+
+> +static int rzg3s_pcie_host_init(struct rzg3s_pcie_host *host, bool probe)
 > +{
-> +	u8 nr_counters = *host_data_ptr(nr_event_counters);
+> +	u32 val;
+> +	int ret;
 > +
-> +	return GENMASK(nr_counters - 1, pmu->hpmn_max);
+> +	/* Initialize the PCIe related registers */
+> +	ret = rzg3s_pcie_config_init(host);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* Initialize the interrupts */
+> +	rzg3s_pcie_irq_init(host);
+> +
+> +	ret = reset_control_bulk_deassert(host->data->num_cfg_resets,
+> +					  host->cfg_resets);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* Wait for link up */
+> +	ret = readl_poll_timeout(host->axi + RZG3S_PCI_PCSTAT1, val,
+> +				 !(val & RZG3S_PCI_PCSTAT1_DL_DOWN_STS),
+> +				 PCIE_LINK_WAIT_SLEEP_MS,
+> +				 PCIE_LINK_WAIT_SLEEP_MS *
+> +				 PCIE_LINK_WAIT_MAX_RETRIES * MILLI);
+> +	if (ret) {
+> +		reset_control_bulk_assert(host->data->num_cfg_resets,
+> +					  host->cfg_resets);
+> +		return ret;
+> +	}
+> +
+> +	val = readl(host->axi + RZG3S_PCI_PCSTAT2);
+> +	dev_info(host->dev, "PCIe link status [0x%x]\n", val);
+> +
+> +	val = FIELD_GET(RZG3S_PCI_PCSTAT2_STATE_RX_DETECT, val);
+> +	dev_info(host->dev, "PCIe x%d: link up\n", hweight32(val));
+> +
+> +	if (probe) {
+> +		ret = devm_add_action_or_reset(host->dev,
+> +					       rzg3s_pcie_cfg_resets_action,
+> +					       host);
+
+Oh well, this gets ugly. Now the devm_add_action_or_reset() is sprinkled
+throughout the driver :/
+
+As I said earlier, there are concerns in unloading the driver if it implements
+an irqchip. So if you change the module_platform_driver() to
+builtin_platform_driver() for this driver, these devm_add_action_or_reset()
+calls become unused.
+
+> +	}
+> +
+> +	return ret;
 > +}
 > +
-> +/**
-> + * kvm_pmu_guest_counter_mask() - Compute bitmask of guest-reserved  
-> counters
-> + *
-> + * Compute the bitmask that selects the guest-reserved counters in the
-> + * {PMCNTEN,PMINTEN,PMOVS}{SET,CLR} registers. These are the counters
-> + * in 0..HPMN and the cycle and instruction counters.
-> + *
-> + * Assumes pmu is partitioned and hpmn_max is a valid value.
-> + *
-> + * Return: Bitmask
-> + */
-> +u64 kvm_pmu_guest_counter_mask(struct arm_pmu *pmu)
+> +static void rzg3s_pcie_set_inbound_window(struct rzg3s_pcie_host *host,
+> +					  u64 cpu_addr, u64 pci_addr, u64 size,
+> +					  int id)
 > +{
-> +	return ARMV8_PMU_CNT_MASK_ALL & ~kvm_pmu_host_counter_mask(pmu);
+> +	/* Set CPU window base address */
+> +	writel(upper_32_bits(cpu_addr), host->axi + RZG3S_PCI_ADESTU(id));
+> +	writel(lower_32_bits(cpu_addr), host->axi + RZG3S_PCI_ADESTL(id));
+> +
+> +	/* Set window size */
+> +	writel(upper_32_bits(size), host->axi + RZG3S_PCI_AWMASKU(id));
+> +	writel(lower_32_bits(size), host->axi + RZG3S_PCI_AWMASKL(id));
+> +
+> +	/* Set PCIe window base address and enable the window */
+> +	writel(upper_32_bits(pci_addr), host->axi + RZG3S_PCI_AWBASEU(id));
+> +	writel(lower_32_bits(pci_addr) | RZG3S_PCI_AWBASEL_WIN_ENA,
+> +	       host->axi + RZG3S_PCI_AWBASEL(id));
 > +}
 > +
-> +/**
-> + * kvm_pmu_host_counters_enable() - Enable host-reserved counters
-> + *
-> + * When partitioned the enable bit for host-reserved counters is
-> + * MDCR_EL2.HPME instead of the typical PMCR_EL0.E, which now
-> + * exclusively controls the guest-reserved counters. Enable that bit.
-> + */
-> +void kvm_pmu_host_counters_enable(void)
+> +static int rzg3s_pcie_set_inbound_windows(struct rzg3s_pcie_host *host,
+> +					  struct resource_entry *entry,
+> +					  int *index)
 > +{
-> +	u64 mdcr = read_sysreg(mdcr_el2);
+> +	u64 pci_addr = entry->res->start - entry->offset;
+> +	u64 cpu_addr = entry->res->start;
+> +	u64 cpu_end = entry->res->end;
+> +	u64 size_id = 0;
+> +	int id = *index;
+> +	u64 size;
 > +
-> +	mdcr |= MDCR_EL2_HPME;
-> +	write_sysreg(mdcr, mdcr_el2);
+> +	while (cpu_addr < cpu_end) {
+> +		if (id >= RZG3S_MAX_WINDOWS)
+> +			return dev_err_probe(host->dev, -EINVAL,
+
+-ENOSPC
+
+> +					     "Failed to set inbound windows!\n");
+
+"Failed to map inbound window for resource (%s), entry->res->name"
+
+> +
+> +		size = resource_size(entry->res) - size_id;
+> +
+> +		/*
+> +		 * According to the RZ/G3S HW manual (Rev.1.10,
+> +		 * section 34.3.1.71 AXI Window Mask (Lower) Registers) the min
+> +		 * size is 4K.
+> +		 */
+> +		size = max(size, SZ_4K);
+> +
+> +		/*
+> +		 * According the RZ/G3S HW manual (Rev.1.10, sections:
+> +		 * - 34.3.1.69 AXI Window Base (Lower) Registers
+> +		 * - 34.3.1.71 AXI Window Mask (Lower) Registers
+> +		 * - 34.3.1.73 AXI Destination (Lower) Registers)
+> +		 * the CPU addr, PCIe addr, size should be 4K aligned and be a
+> +		 * power of 2.
+> +		 */
+> +		size = ALIGN(size, SZ_4K);
+> +
+> +		/*
+> +		 * According to the RZ/G3S HW manual (Rev.1.10, section
+> +		 * 34.3.1.71 AXI Window Mask (Lower) Registers) HW expects first
+> +		 * 12 LSB bits to be 0xfff. Subtract 1 from size for this.
+> +		 */
+> +		size = roundup_pow_of_two(size) - 1;
+> +
+> +		cpu_addr = ALIGN(cpu_addr, SZ_4K);
+> +		pci_addr = ALIGN(pci_addr, SZ_4K);
+> +
+> +		rzg3s_pcie_set_inbound_window(host, cpu_addr, pci_addr, size,
+> +					      id);
+> +
+> +		pci_addr += size;
+> +		cpu_addr += size;
+> +		size_id = size;
+> +		id++;
+> +	}
+> +	*index = id;
+> +
+> +	return 0;
+> +}
+
+[...]
+
+> +static int rzg3s_pcie_parse_map_ranges(struct rzg3s_pcie_host *host)
+> +{
+> +	struct pci_host_bridge *bridge = pci_host_bridge_from_priv(host);
+> +	struct resource_entry *win;
+> +	int i = 0;
+> +
+> +	resource_list_for_each_entry(win, &bridge->windows) {
+> +		struct resource *res = win->res;
+> +
+> +		if (i >= RZG3S_MAX_WINDOWS)
+> +			return dev_err_probe(host->dev, -EINVAL,
+
+-ENOSPC
+
+> +					     "Failed to set outbound windows!\n");
+
+"Failed to map outbound window for resource (%s), res->name"
+
+> +
+> +		if (!res->flags)
+> +			continue;
+> +
+> +		switch (resource_type(res)) {
+> +		case IORESOURCE_IO:
+> +		case IORESOURCE_MEM:
+> +			rzg3s_pcie_set_outbound_window(host, win, i);
+> +			i++;
+> +			break;
+> +		}
+> +	}
+> +
+> +	return 0;
 > +}
 > +
-> +/**
-> + * kvm_pmu_host_counters_disable() - Disable host-reserved counters
-> + *
-> + * When partitioned the disable bit for host-reserved counters is
-> + * MDCR_EL2.HPME instead of the typical PMCR_EL0.E, which now
-> + * exclusively controls the guest-reserved counters. Disable that bit.
-> + */
-> +void kvm_pmu_host_counters_disable(void)
+
+[...]
+
+> +static int rzg3s_pcie_probe(struct platform_device *pdev)
 > +{
-> +	u64 mdcr = read_sysreg(mdcr_el2);
+> +	struct pci_host_bridge *bridge;
+> +	struct device *dev = &pdev->dev;
+> +	struct device_node *np = dev->of_node;
+> +	struct device_node *sysc_np __free(device_node) =
+> +		of_parse_phandle(np, "renesas,sysc", 0);
+> +	struct rzg3s_pcie_host *host;
+> +	int ret;
 > +
-> +	mdcr &= ~MDCR_EL2_HPME;
-> +	write_sysreg(mdcr, mdcr_el2);
+> +	bridge = devm_pci_alloc_host_bridge(dev, sizeof(*host));
+> +	if (!bridge)
+> +		return -ENOMEM;
+> +
+> +	host = pci_host_bridge_priv(bridge);
+> +	host->dev = dev;
+> +	host->data = device_get_match_data(dev);
+> +	platform_set_drvdata(pdev, host);
+> +
+> +	host->axi = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(host->axi))
+> +		return PTR_ERR(host->axi);
+> +	host->pcie = host->axi + RZG3S_PCI_CFG_BASE;
+> +
+> +	ret = of_property_read_u32(np, "vendor-id", &host->vendor_id);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = of_property_read_u32(np, "device-id", &host->device_id);
+> +	if (ret)
+> +		return ret;
+> +
+> +	host->sysc = syscon_node_to_regmap(sysc_np);
+> +	if (IS_ERR(host->sysc))
+> +		return PTR_ERR(host->sysc);
+> +
+> +	ret = regmap_update_bits(host->sysc, RZG3S_SYS_PCIE_RST_RSM_B,
+> +				 RZG3S_SYS_PCIE_RST_RSM_B_MASK,
+> +				 FIELD_PREP(RZG3S_SYS_PCIE_RST_RSM_B_MASK, 1));
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = devm_add_action_or_reset(dev, rzg3s_pcie_sysc_signal_action,
+> +				       host->sysc);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = rzg3s_pcie_resets_prepare(host);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = devm_pm_runtime_enable(dev);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = pm_runtime_resume_and_get(dev);
+> +	if (ret)
+> +		return ret;
+> +
+
+Do you really need to do resume_and_get()? If not, you should do:
+
+	pm_runtime_set_active()
+	pm_runtime_no_callbacks()
+	devm_pm_runtime_enable()
+
+> +	ret = devm_add_action_or_reset(dev, rzg3s_pcie_pm_runtime_put, dev);
+> +	if (ret)
+> +		return ret;
+> +
+> +	raw_spin_lock_init(&host->hw_lock);
+> +
+> +	ret = rzg3s_pcie_host_setup(host, rzg3s_pcie_intx_setup,
+> +				    rzg3s_pcie_msi_enable, true);
+> +	if (ret)
+> +		return ret;
+> +
+> +	msleep(PCIE_RESET_CONFIG_WAIT_MS);
+> +
+> +	bridge->sysdata = host;
+> +	bridge->ops = &rzg3s_pcie_root_ops;
+> +	bridge->child_ops = &rzg3s_pcie_child_ops;
+> +	ret = pci_host_probe(bridge);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return devm_add_action_or_reset(dev, rzg3s_pcie_host_remove_action,
+> +					host);
 > +}
-> diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
-> index 339d3c2d91a0..bc8a99cf4f88 100644
-> --- a/drivers/perf/arm_pmuv3.c
-> +++ b/drivers/perf/arm_pmuv3.c
-> @@ -839,12 +839,18 @@ static void armv8pmu_start(struct arm_pmu *cpu_pmu)
->   	kvm_vcpu_pmu_resync_el0();
-
->   	/* Enable all counters */
-> +	if (kvm_pmu_is_partitioned(cpu_pmu))
-> +		kvm_pmu_host_counters_enable();
 > +
->   	armv8pmu_pmcr_write(armv8pmu_pmcr_read() | ARMV8_PMU_PMCR_E);
->   }
-
->   static void armv8pmu_stop(struct arm_pmu *cpu_pmu)
->   {
->   	/* Disable all counters */
-> +	if (kvm_pmu_is_partitioned(cpu_pmu))
-> +		kvm_pmu_host_counters_disable();
-> +
->   	armv8pmu_pmcr_write(armv8pmu_pmcr_read() & ~ARMV8_PMU_PMCR_E);
->   }
-
-> @@ -954,6 +960,7 @@ static int armv8pmu_get_event_idx(struct  
-> pmu_hw_events *cpuc,
-
->   	/* Always prefer to place a cycle counter into the cycle counter. */
->   	if ((evtype == ARMV8_PMUV3_PERFCTR_CPU_CYCLES) &&
-> +	    !kvm_pmu_is_partitioned(cpu_pmu) &&
->   	    !armv8pmu_event_get_threshold(&event->attr)) {
->   		if (!test_and_set_bit(ARMV8_PMU_CYCLE_IDX, cpuc->used_mask))
->   			return ARMV8_PMU_CYCLE_IDX;
-> @@ -969,6 +976,7 @@ static int armv8pmu_get_event_idx(struct  
-> pmu_hw_events *cpuc,
->   	 * may not know how to handle it.
->   	 */
->   	if ((evtype == ARMV8_PMUV3_PERFCTR_INST_RETIRED) &&
-> +	    !kvm_pmu_is_partitioned(cpu_pmu) &&
->   	    !armv8pmu_event_get_threshold(&event->attr) &&
->   	    test_bit(ARMV8_PMU_INSTR_IDX, cpu_pmu->cntr_mask) &&
->   	    !armv8pmu_event_want_user_access(event)) {
-> @@ -980,7 +988,7 @@ static int armv8pmu_get_event_idx(struct  
-> pmu_hw_events *cpuc,
->   	 * Otherwise use events counters
->   	 */
->   	if (armv8pmu_event_is_chained(event))
-> -		return	armv8pmu_get_chain_idx(cpuc, cpu_pmu);
-> +		return armv8pmu_get_chain_idx(cpuc, cpu_pmu);
->   	else
->   		return armv8pmu_get_single_idx(cpuc, cpu_pmu);
->   }
-> @@ -1072,6 +1080,14 @@ static int armv8pmu_set_event_filter(struct  
-> hw_perf_event *event,
->   	return 0;
->   }
-
-> +static void armv8pmu_reset_host_counters(struct arm_pmu *cpu_pmu)
+> +static int rzg3s_pcie_suspend_noirq(struct device *dev)
 > +{
-> +	int idx;
+> +	struct rzg3s_pcie_host *host = dev_get_drvdata(dev);
+> +	const struct rzg3s_pcie_soc_data *data = host->data;
+> +	struct regmap *sysc = host->sysc;
+> +	int ret;
 > +
-> +	for_each_set_bit(idx, cpu_pmu->cntr_mask,  
-> ARMV8_PMU_MAX_GENERAL_COUNTERS)
-> +		armv8pmu_write_evcntr(idx, 0);
+> +	ret = pm_runtime_put_sync(dev);
+> +	if (ret)
+> +		return ret;
+
+Since there are no runtime callbacks present, managing runtime PM in the driver
+makes no sense.
+
+> +
+> +	ret = reset_control_bulk_assert(data->num_power_resets,
+> +					host->power_resets);
+> +	if (ret)
+> +		goto rpm_restore;
+> +
+> +	ret = reset_control_bulk_assert(data->num_cfg_resets,
+> +					host->cfg_resets);
+> +	if (ret)
+> +		goto power_resets_restore;
+> +
+> +	ret = regmap_update_bits(sysc, RZG3S_SYS_PCIE_RST_RSM_B,
+> +				 RZG3S_SYS_PCIE_RST_RSM_B_MASK,
+> +				 FIELD_PREP(RZG3S_SYS_PCIE_RST_RSM_B_MASK, 0));
+> +	if (ret)
+> +		goto cfg_resets_restore;
+> +
+> +	return 0;
+> +
+> +	/* Restore the previous state if any error happens */
+> +cfg_resets_restore:
+> +	reset_control_bulk_deassert(data->num_cfg_resets,
+> +				    host->cfg_resets);
+> +power_resets_restore:
+> +	reset_control_bulk_deassert(data->num_power_resets,
+> +				    host->power_resets);
+> +rpm_restore:
+> +	pm_runtime_resume_and_get(dev);
+> +	return ret;
 > +}
 > +
->   static void armv8pmu_reset(void *info)
->   {
->   	struct arm_pmu *cpu_pmu = (struct arm_pmu *)info;
-> @@ -1079,6 +1095,9 @@ static void armv8pmu_reset(void *info)
 
->   	bitmap_to_arr64(&mask, cpu_pmu->cntr_mask, ARMPMU_MAX_HWEVENTS);
+[...]
 
-> +	if (kvm_pmu_is_partitioned(cpu_pmu))
-> +		mask &= kvm_pmu_host_counter_mask(cpu_pmu);
-> +
->   	/* The counter and interrupt enable registers are unknown at reset. */
->   	armv8pmu_disable_counter(mask);
->   	armv8pmu_disable_intens(mask);
-> @@ -1086,11 +1105,20 @@ static void armv8pmu_reset(void *info)
->   	/* Clear the counters we flip at guest entry/exit */
->   	kvm_clr_pmu_events(mask);
+> +static struct platform_driver rzg3s_pcie_driver = {
+> +	.driver = {
+> +		.name = "rzg3s-pcie-host",
+> +		.of_match_table = rzg3s_pcie_of_match,
+> +		.pm = pm_ptr(&rzg3s_pcie_pm_ops),
+> +		.suppress_bind_attrs = true,
+> +	},
+> +	.probe = rzg3s_pcie_probe,
+> +};
+> +module_platform_driver(rzg3s_pcie_driver);
 
-> +
-> +	pmcr = ARMV8_PMU_PMCR_LC;
-> +
->   	/*
-> -	 * Initialize & Reset PMNC. Request overflow interrupt for
-> -	 * 64 bit cycle counter but cheat in armv8pmu_write_counter().
-> +	 * Initialize & Reset PMNC. Request overflow interrupt for 64
-> +	 * bit cycle counter but cheat in armv8pmu_write_counter().
-> +	 *
-> +	 * When partitioned, there is no single bit to reset only the
-> +	 * host counters. so reset them individually.
->   	 */
-> -	pmcr = ARMV8_PMU_PMCR_P | ARMV8_PMU_PMCR_C | ARMV8_PMU_PMCR_LC;
-> +	if (kvm_pmu_is_partitioned(cpu_pmu))
-> +		armv8pmu_reset_host_counters(cpu_pmu);
-> +	else
-> +		pmcr = ARMV8_PMU_PMCR_P | ARMV8_PMU_PMCR_C;
+Use builtin_platform_driver() as this driver is not supposed to be removed due
+to concersn with irqchip.
 
-That line should be |=
+- Mani
 
-
->   	/* Enable long event counter support where available */
->   	if (armv8pmu_has_long_event(cpu_pmu))
-> --
-> 2.50.0.727.gbf7dc18ff4-goog
+-- 
+மணிவண்ணன் சதாசிவம்
 
