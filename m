@@ -4,109 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD8E9CA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 13:27:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C81BCA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 13:29:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0lgnqVvxFY08GIwRgazphEg7+3QXDYUBxtqlK2TdQQ8=; b=yC3B6tA6F9a+cqwlm90TiwcUuH
-	5Ke3OE2089K+rv6uTyuI0GJtinl113v2I3hRdkJpBe6aJf/gxmh+sPGPwYaKAP+/9rh/db06DKXsj
-	rSjx7sAylQf+moWsIvv2/TZ7kvx4u+Gqa0pVbnBeRPZ5jS7eNDz/C7nDd82sbcyVqWwDwDgEbAZY+
-	71EvrZpv9SLCrPUAwdJXsyC4xL8L/dEo7bilreabtZHxYX1TBz5hbYzjQ64y3Bsle9wEXtSzhiMbD
-	uvwP2wIThHge7RWUltT8l12XxbbXA1go9MIAJRjUQ0gh5NpcaP3GZtgancxZZQOsSo9FqiPPfW3+w
-	8UII2zjQ==;
+	bh=NvZr+jIhkslKZB56cSZ0aYjmrmFIErH1qN8pLQMr07w=; b=iR6oZRiMEhl611pEDeMcV7Rm3g
+	qtqRcH1flrkhQ+wdzgsfGwwKsOvqViVGkD3qgjCcTktJlnxm57Z/XTJmrYrMAj9aLDr1U4uxP31z+
+	UeUxwgrg9FnmoD/kFlAGPcSIp16Px5b/K6dVDrsONQuekX4tQPVQ13BzwyF2JLp4siUQa0inPUC+B
+	KdLt0UNwn9SNXVnMVnYOUwPPW9xG9MFRJye+LXsfdrTk2p42IXfF6WBwWHvbWBzOcBEw0LQkwhlOV
+	mIttaJjPbOLIExbT1lq4GzK4ufeKg/4MYLvxlCbF5pvnPcssa7ANYgoodTc91t5yUaebZExhLG+3L
+	sIqBYfsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usLbb-00000007w6Z-069a;
-	Sat, 30 Aug 2025 13:26:55 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1usLeK-00000007wNY-3LSv;
+	Sat, 30 Aug 2025 13:29:44 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usLCf-00000007tm1-3dZl
+	id 1usLKp-00000007uXZ-1KHp
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 Aug 2025 13:01:10 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3cd99b4bb72so254661f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 06:01:09 -0700 (PDT)
+	Sat, 30 Aug 2025 13:09:36 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-45b7f52cdf6so507165e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 06:09:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756558868; x=1757163668; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0lgnqVvxFY08GIwRgazphEg7+3QXDYUBxtqlK2TdQQ8=;
-        b=Yyy2VRVAZt14lZfcsOY2u3JS+qhckrQvxinhVGHzj7dXmwyhTMoO5uRDpKTSI4hEoT
-         dV4cAsEHRKD8HP1PsOb3sVRj5QAuEdLSGeU0KksEM6h0Eqh21GKStFfrzRArTKDujPIT
-         Mef1CPdBCY82k5A8vbJgFBysRYXKZo6Z2yn8j/wZ6Ca5gvjY4XmSaBGu9hNbDgfrrx1/
-         qQiPdH2b7tZa7WBcxr4Ipwi3yaNsCQwI5xUl214qV8KxGC4BbaEhgn4tXmbdi2u6qqVx
-         5huIflVJP/7B7Y3ma3T5NLoPG1PYrzbiVSF+pmdVSfpcflIY3DTXzku4ksfJN7jQJuW/
-         ykEw==
+        d=linaro.org; s=google; t=1756559374; x=1757164174; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=NvZr+jIhkslKZB56cSZ0aYjmrmFIErH1qN8pLQMr07w=;
+        b=kGzziYNAP8Un6IHG/SQYNNXXNg6o1x/yOzvyXB9gVYe5rOlqW1TmuiszsglbjtFNEh
+         BnHjTkKop5+lafDYtBZbhN54TRWnjM8G+PhLWSa4o4CrjZuto3wmmu/L8AYbM0X4e8+I
+         nDY+1tbUssTBPkq9CELdgqxwYXNJqTD53JFngrwUI4azANaepN1zncgiz0ZYnRWVoFTu
+         7Mpj8JBWe0LIJ76mPbMWPiNHYqhMARjfgVbA26aTUlsSnKzH5hPdYP0sCu7jekx1FEf/
+         Hgup8m/YDt9Oo1iLteHBsSJhZxZqQ0xk5wPVol8s7UTL046Uw64T+uwOHmNJc3w77JFA
+         Harg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756558868; x=1757163668;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0lgnqVvxFY08GIwRgazphEg7+3QXDYUBxtqlK2TdQQ8=;
-        b=VnrIi55pN2Kb2xDmsAwt1boO2nYjJ5X6RJjlXfn724//6ZRcHbvoG1hckWrIXr5Tlh
-         hOgJYusiuPgMI0FkauPrsdzFnlQN+woESmUklIcVkc+FnyB+EVPFofUwVOV03rSCeAZZ
-         8w6ExFm0eW2QaFYJ6oUZoAcQM45QCqeWxk/Kc224QbzphI+l98GGyn/y+2sqKwhaS6Pt
-         sV5r7BkrqmWbRxgeRxQd56U5xBIM+mD9JHtcTd8vNlcsdBb0j1N9H+FXVg6NnRhiQtFR
-         KSyGINuIeRGUomZi8RCeP3zPl8VecQu+0BZtXAS9wteu0fruLe9v4M2uJrKgpv343IGZ
-         xNrw==
-X-Forwarded-Encrypted: i=1; AJvYcCWO1o9gnxGoJLxnYXaH9ePMQ2HuN3aihmZy4QNqNNCIUekgOeHdvRyK9yT1Cjbnr20RBOtypT1XGvZQWp7m5dXV@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQStHqSYMD4ZfbAugww2ycppvdfv6RNlWBmGBLbeV8Y0/1m3Nc
-	D9U9qnPWZHAkDSZslKgSm1ZGqClwGG43uazTQDOXyUC8ey4l/UuwFxKPmPgojJ0zUn4=
-X-Gm-Gg: ASbGncvpqVkTze98MnnIXAR0A4IuLsS9Zp5YFFqwN2wCxnHsHJhnyEurSC2fs07jnHr
-	Jv6IsvEjtP8Wk9/3v2a1u94DPjiEAp3diwiHXw+U3wNrGVPyHrI6fUhcOTC1Q9yH08DVfGvATFY
-	R+MQ3QE9+NCkgYDsEmB/BI0ny3Mx2UnqU8qUH43SzcDgxF8R3HL5szYfJF8S797NnEBAd54uhqi
-	dJpMIcgDM5lkODdD3JEYEAIuxgr3a/cKtcwvG1k1+6ZBQhCfIOe/oCwSODHmXeGYy82vDvg7sv9
-	0ndVq8o5s1eZxXTcs4Crx/OXl2jOSUsfENdppr8fOYTP/KffMEmiRoiKdasIGn8uWvGM8qMeJkZ
-	XoShwkuMJJKuM1jnAocOeqXhuVL0A55wRoFG6KbcdY/C3
-X-Google-Smtp-Source: AGHT+IHQ4DW0XyUDaB3fbWwROqp7gBrugB5J2s56UPJs5B0GsbXF2q2Or8Czb0QcdVqITphsFKBwug==
-X-Received: by 2002:a05:600c:6385:b0:451:dee4:cd07 with SMTP id 5b1f17b1804b1-45b81e23616mr20236775e9.0.1756558868189;
-        Sat, 30 Aug 2025 06:01:08 -0700 (PDT)
-Received: from kuoka.. ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b7e74b72esm80211125e9.0.2025.08.30.06.01.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 30 Aug 2025 06:01:07 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Alan Stern <stern@rowland.harvard.edu>,
-	linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH 2/2] dt-bindings: usb: s3c2410-usb: Drop entirely S3C2410
-Date: Sat, 30 Aug 2025 15:01:03 +0200
-Message-ID: <20250830130101.142934-4-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250830130101.142934-3-krzysztof.kozlowski@linaro.org>
-References: <20250830130101.142934-3-krzysztof.kozlowski@linaro.org>
+        d=1e100.net; s=20230601; t=1756559374; x=1757164174;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NvZr+jIhkslKZB56cSZ0aYjmrmFIErH1qN8pLQMr07w=;
+        b=bg0ARXXdCPzd9PpN8vYY1ilHedMcAvFM8yYuxQtTiiXjIQWmNnQu0W4uToCbk6s5Pa
+         oDn+/a933VYlPh623S39WzZV6GX3IRyA92joMRyVqbg3qJWerYgvnH/ficDUnMAAQEsx
+         lldXgR45hYaiezzmDN2nR+1XfQxJhezcvNfY440cqQ2vdPqChVbDc6jwZKPef7BeW7lC
+         DpWPdKNCnLdeiqduVqdU48ALYju7PbHO1YWhmLu2JrPTCS40eGhnZ/d7XFFk2zYQSbrn
+         B1FJXMnLqQqxywGBGnM4pa74KbFb2asxfwp6e9du+ECPl/8dLy6IfjoyXVP6iXKYjoQD
+         BDTQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUoQ4uojXtiI4QSmvHLAa4XS6glBA2ATyRaiLMu63CsinTHqDKpUSeItM06SAMyzvTvEMRHhMM0P9CgLfj3rNP3@lists.infradead.org
+X-Gm-Message-State: AOJu0YxgQHMcbqoZrUEujoUnFqHKf03dQiNMiQpt3iS94yDHIFPNeCZU
+	dzbIAZc1tgEEpbUzBeyHOmtQxoXI+HtE7rYDOvbS021ycZadDHk3aDb+9OEovgLzP86C2G1c+xD
+	jf+Zu
+X-Gm-Gg: ASbGncvfy1e4IlsP08fUVK5+s29Rh5RjkrfFlL8+GfA7/gjYZxRkrcnLRLPtbu8j60Z
+	Spk0msqR22WTsTmVODbtugBsbYTYmiw76rbTpXtC+HogPpkuCRcOvawmEoN6d+0PXe4sor3t/Fb
+	56iRtFdWEzzVPIqgHLjz4Q5yhyUVoi+ZNU2SmyjkURjRlvu53WI31EbUl5geA2EZTpa3RrU3Irt
+	8et0hTDMofV/ZR5b4JuEcZHv5toWgsbMjkQJ+sUPEG2s6GOnn0RH58qdaWbmwAzeDf06nK8fnju
+	gOeQvg3v5vjvtcrkByKjBjvN5FFaqIYw+Gxw5qAGb4rpkTl/i24mgqTmdkuwRehIXME+rBKnZAJ
+	EoMAMk/rEczu8JGjdkjwMGpeaPt4KGuKnMWamo+rwiwE=
+X-Google-Smtp-Source: AGHT+IGa11CZQ7OVZSmolgs+BRgFwXxqJG6ECjAUdkPSx7J7mhDxvu3DET96g8lfamRAEETYvSkTZw==
+X-Received: by 2002:a05:600c:4f8b:b0:455:f12f:e3fc with SMTP id 5b1f17b1804b1-45b81e92f7fmr22047405e9.2.1756559373590;
+        Sat, 30 Aug 2025 06:09:33 -0700 (PDT)
+Received: from [192.168.1.29] ([178.197.219.123])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b7e68c83asm84593585e9.20.2025.08.30.06.09.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 30 Aug 2025 06:09:32 -0700 (PDT)
+Message-ID: <2bb6af10-c74d-450d-9932-8d161ae56a85@linaro.org>
+Date: Sat, 30 Aug 2025 15:09:31 +0200
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1471; i=krzysztof.kozlowski@linaro.org;
- h=from:subject; bh=x5aMDALxgOI1H+xD/vQpZoAkDT2ZtplDl945kHfXUoA=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBosvYOCRo3slczvzWNNs3J9n9kGWOjXZfTcdttO
- hFhXAnXOzOJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaLL2DgAKCRDBN2bmhouD
- 19gOD/99eTNOuqRJwZe9iS6GIhCcEqgdSGbZS3U64+s0yQv5H2LUP2ITmr75wgmS7TNSn9C2Yul
- OzJyYDvmx7TJlABGo2Xtt5zFPvji0hNI6uY+E8EEpjiSuRzI6XpYkggkPMAF9ROCu2tpwFI5jeJ
- 4bCG6RFu0wz18mYfYEQsGs4W4bulmhXNxcXT6YDqTL21AJcGsdAYZEyRu7TrX06bOeoros78mN4
- TsRc0FcJUlfvCVJO9IhPd0VxKyBP02Q/H3fC0ttURdcTo62IPTuoR+tnYNqUN8HzuvNeYbRCjuL
- bcbKCpGjDSRE5Bji4rSE/HqdR3CaE98Yr8h7d6o5lQ9GrVicM3u/7J7UbColzvKVYfuC5zdZtE5
- eajbzgJXg7dcW2WazI85qy77ajmeY/lzZHHbo73LqcvyRW0DRSfrgpdztEB0+OTyv3NiG4sx6zk
- DdkRridi38Nwv8Nl5LVkXTvRvND7COC5cyEDsSKfaGMAapS+zUjVzbYNDbuQjNkBfVeFkDddoGV
- vG9nvK+fPFWHLNhI0DVtvrm97bSCMHw4gUZ9+xVAF2/4ZGOzXVD9cMMvrGbLX9A8To3Fd6YyRRV
- nnLkgr2mgS2ouRXSSH9dBfUpfUrZ35RIrSjCYNWU0Nb3lY1t6cEN1fN8w2NeLo6tyOtQpcGeWq1 ZZt+hW4MoUpIPVQ==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/5] iio: adc: exynos_adc: Drop touchscreen support
+To: Jonathan Cameron <jic23@kernel.org>, David Lechner
+ <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
+ Andy Shevchenko <andy@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20250830-s3c-cleanup-adc-v1-0-de54dfb1d9ea@linaro.org>
+ <20250830-s3c-cleanup-adc-v1-2-de54dfb1d9ea@linaro.org>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ 2+47PN9NZAOyb771QoVr8A==
+In-Reply-To: <20250830-s3c-cleanup-adc-v1-2-de54dfb1d9ea@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250830_060109_915928_F2735A6E 
-X-CRM114-Status: GOOD (  13.09  )
+X-CRM114-CacheID: sfid-20250830_060935_365749_CC9FFF22 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,45 +153,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Samsung S3C24xx family of SoCs was removed the Linux kernel in the
-commit 61b7f8920b17 ("ARM: s3c: remove all s3c24xx support"), in January
-2023.  There are no in-kernel users of remaining S3C24xx compatibles.
+On 30/08/2025 13:09, Krzysztof Kozlowski wrote:
+> With last user of touchscreen via ADC (S3C24xx SoC) gone, drop the
+> remaining code from Samsung SoC ADC driver.
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
+>  drivers/iio/adc/exynos_adc.c | 196 +------------------------------------------
+>  1 file changed, 1 insertion(+), 195 deletions(-)
+> 
+I need to drop also touchscreen-s3c2410.h header.
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- .../devicetree/bindings/usb/s3c2410-usb.txt   | 22 -------------------
- 1 file changed, 22 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/usb/s3c2410-usb.txt
-
-diff --git a/Documentation/devicetree/bindings/usb/s3c2410-usb.txt b/Documentation/devicetree/bindings/usb/s3c2410-usb.txt
-deleted file mode 100644
-index 26c85afd0b53..000000000000
---- a/Documentation/devicetree/bindings/usb/s3c2410-usb.txt
-+++ /dev/null
-@@ -1,22 +0,0 @@
--Samsung S3C2410 and compatible SoC USB controller
--
--OHCI
--
--Required properties:
-- - compatible: should be "samsung,s3c2410-ohci" for USB host controller
-- - reg: address and length of the controller memory mapped region
-- - interrupts: interrupt number for the USB OHCI controller
-- - clocks: Should reference the bus and host clocks
-- - clock-names: Should contain two strings
--		"usb-bus-host" for the USB bus clock
--		"usb-host" for the USB host clock
--
--Example:
--
--usb0: ohci@49000000 {
--	compatible = "samsung,s3c2410-ohci";
--	reg = <0x49000000 0x100>;
--	interrupts = <0 0 26 3>;
--	clocks = <&clocks UCLK>, <&clocks HCLK_USBH>;
--	clock-names = "usb-bus-host", "usb-host";
--};
--- 
-2.48.1
-
+Best regards,
+Krzysztof
 
