@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 546E4CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 19:54:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7CB6CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 20:14:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gUGT9ZpP7T0v4R1MQrwTuz1NIpTv8oVeEjQlLS+Zn8c=; b=wS6IlvdLSsyrILGlF3DLlsF68f
-	UK/aATlHMbMu9wvP6ZqacxApRPqK/l1JeYS+5mFSmODR9NJeBa/o25Gyf9OOF0OJd9qraJr/gtx8Y
-	/ydl4oavbcNTQ8bAbW5kvTT9UvmVi4rHK8Rlzdp1suSth7bNfH/OE++EpQrwgCCcZvyujzVU6fx+s
-	EyAVp3hCBTZaOxTEMykt3d/chSp+zCfDAJRMy1hfQbHjdRzQnZh3W6rV+qZgMXAaiFecOkotLkUW9
-	0yrIGcYY8NCVkbqKPRnp9ebJOiREdIX0rKV+XTBVV/Q+J7oXH3pZFJR1vgaKcH8wOVFx3MEfuEAfU
-	QhELWPlA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	MIME-Version:Date:Content-Transfer-Encoding:Message-ID:Subject:To:From:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tmUK5RaEabijpt54ibk4c+G+vXTWEzetNX2FjaSbF6o=; b=zCSuUuk13oTUjdkbI0kg6QWvWE
+	jSIkT0TlXnDZ29aULWX4hGdQJiAE8kfQ+937wv2xtnB2TG6r98sOnzcsPm4fr6qtZQLr5DzXZRSuT
+	PplPJAwGnWKUeV0Td02uJYnRNKZWMJ9KA10+aZQJPgcyXvhKRy80PT9DY1+xRKlyq08wdnUV/O3NR
+	GP7gXOzhesak4B2/pZR05ACOXPP963vL3yGzDsf+ocVR+z98C4CsPgJFbBcFsjN6+OIJUUU9Dgamo
+	iY8xvd8/lDUnft7/QDCNby6zpRH+IfxJzZrYe4i+dvlwRaZ2JM9V6T2dCXUToi9ZxdwsQkLTtp/fg
+	0H+aXMVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usReF-00000008O6T-2TI9;
-	Sat, 30 Aug 2025 19:54:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1usRxi-00000008Osm-2HSg;
+	Sat, 30 Aug 2025 20:14:10 +0000
+Received: from cmsr-t-4.hinet.net ([203.69.209.163])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usRbX-00000008Nxt-1E7W
+	id 1usRuy-00000008Onx-0Uhs
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 Aug 2025 19:51:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5C03A44499;
-	Sat, 30 Aug 2025 19:51:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B181C4CEEB;
-	Sat, 30 Aug 2025 19:51:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756583473;
-	bh=gUGT9ZpP7T0v4R1MQrwTuz1NIpTv8oVeEjQlLS+Zn8c=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=dnYM+GUa0iWB5+jj10vKVbJaH1LmWnTenJtiGphiVapLIf4jiuGw1AemPGNvsGaFE
-	 iUTj5wbKG3IUtfed4wsATUB5ShUnxUVmJeQsroOeSzKIs/056k9Sda33ojIyPHeWJ7
-	 HQy9kV0ZDcQ/0SmVMhlBUVTgYDJyuzbMqyHYjWchnpviE2SGPczz38GlWZrAgeexiX
-	 FPdQscXttL0LoGGdEV6UnwK889fHWwEuhzPQ3SPimdT/ysDCHVDal/guTJ1WUQo+XC
-	 7lh6CqPvwNv68sxhGgG8cd9Ab36tC6PMAIkXWZ/MhmfrWr9K7iLCsvHxS3cSYNwQuF
-	 qp6oorfyUuwAQ==
-Date: Sat, 30 Aug 2025 20:51:04 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: Sakari Ailus <sakari.ailus@linux.intel.com>, David Lechner
- <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy
- Shevchenko <andy@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-iio@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Uwe
- =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <u.kleine-koenig@baylibre.com>
-Subject: Re: [PATCH v5 1/1] iio: dac: Remove redundant
- pm_runtime_mark_last_busy() calls
-Message-ID: <20250830205104.38d784a9@jic23-huawei>
-In-Reply-To: <CAHp75Vdr5atuW8wivgR3KRjhCK_i+JE2rJFTU3CkWwzpuNv_pg@mail.gmail.com>
-References: <20250828140617.3193288-1-sakari.ailus@linux.intel.com>
-	<CAHp75Vdr5atuW8wivgR3KRjhCK_i+JE2rJFTU3CkWwzpuNv_pg@mail.gmail.com>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.50; x86_64-pc-linux-gnu)
+	Sat, 30 Aug 2025 20:11:21 +0000
+Received: from cmsr8.hinet.net ([10.199.216.87])
+	by cmsr-t-4.hinet.net (8.15.2/8.15.2) with ESMTPS id 57UKB8NT398294
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NO)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 31 Aug 2025 04:11:08 +0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ms29.hinet.net;
+	s=s2; t=1756584668; bh=tmUK5RaEabijpt54ibk4c+G+vXTWEzetNX2FjaSbF6o=;
+	h=From:To:Subject:Date;
+	b=p/7m2eqqG6UQnKXBk6y7gwEdswN9MnRuvqbfoolpkoNhLsMNLrtXvFvP1dynzfaBn
+	 u28/yRrYypzTpnuicmq31i/VfIESxLVVVE5E/o4M9WoyVROQM3qQSrkZbyr51xM6ZG
+	 WarMwkVDJ2tfvwqL++G2zig64pNq8yBmCrmIs+2GU4jClBFMJ5qamwhmQxGjhuzhWC
+	 GB+QB0htWr4594watKwSxBJk+DqKbZLoMCN6VzdtcR+/yV4VvqTLUUXf+hVAxPA7IQ
+	 xyvQpXVVGQNsuXJIh4H37jASBnyzN2nIrl8x+v3qCC5vXpHxli1rBqeSio4PAZQfmy
+	 qUp+1tid4jQTA==
+Received: from [127.0.0.1] (61-230-192-37.dynamic-ip.hinet.net [61.230.192.37])
+	by cmsr8.hinet.net (8.15.2/8.15.2) with ESMTPS id 57UK9Els863196
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NO)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 31 Aug 2025 04:11:07 +0800
+From: "Info - Albinayah 719" <Linux-arm-kernel@ms29.hinet.net>
+To: linux-arm-kernel@lists.infradead.org
+Subject: =?UTF-8?B?TmV3IFNlcHRlbWJlciBPcmRlci4gMzg3MTEgU2F0dXJkYXksIEF1Z3VzdCAzMCwgMjAyNSBhdCAxMDoxMTowNSBQTQ==?=
+Message-ID: <01c3a711-003f-4175-105b-3617b5aa168c@ms29.hinet.net>
+Content-Transfer-Encoding: 7bit
+Date: Sat, 30 Aug 2025 20:11:06 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+X-CMAE-Score: 0
+X-CMAE-Analysis: v=2.4 cv=ZJd0mm7b c=1 sm=1 tr=0 ts=68b35adc
+	a=v5BfitmIEQD35Mg+6JuSWA==:117 a=IkcTkHD0fZMA:10 a=5KLPUuaC_9wA:10
+	a=OrFXhexWvejrBOeqCD4A:9 a=QEXdDO2ut3YA:10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250830_125115_352131_B588B97C 
-X-CRM114-Status: UNSURE (   9.86  )
+X-CRM114-CacheID: sfid-20250830_131120_462876_4FBBC002 
+X-CRM114-Status: UNSURE (   2.75  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,35 +71,24 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: "Info - Albinayah." <europe-sales@albinayah-group.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 28 Aug 2025 17:43:19 +0300
-Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
+Hi Linux-arm-kernel,
 
-> On Thu, Aug 28, 2025 at 5:06=E2=80=AFPM Sakari Ailus
-> <sakari.ailus@linux.intel.com> wrote:
-> >
-> > pm_runtime_put_autosuspend(), pm_runtime_put_sync_autosuspend(),
-> > pm_runtime_autosuspend() and pm_request_autosuspend() now include a call
-> > to pm_runtime_mark_last_busy(). Remove the now-reduntant explicit call =
-to =20
->=20
-> redundant
-Fixed up that whilst applying.
+Please provide a quote for your products:
 
-Thanks,
+Include:
+1.Pricing (per unit)
+2.Delivery cost & timeline
+3.Quote expiry date
 
-Jonathan
+Deadline: September
 
->=20
-> > pm_runtime_mark_last_busy().
-> >
-> > Also clean up error handling in stm32_dac_set_enable_state(). =20
->=20
->=20
-> Code looks good to me in this version
-> Reviewed-by: Andy Shevchenko <andy@kernel.org>
->=20
+Thanks!
 
+Kamal Prasad
+
+Albinayah Trading
 
