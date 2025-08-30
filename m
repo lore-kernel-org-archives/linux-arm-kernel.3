@@ -4,77 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6C20CA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 21:32:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 880D6CA0FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 21:35:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VLdSQW7+O0R1hhE3XjC/Wy7ssjU7PWHhYOnONnoYdgU=; b=49AtBY+/Vpae578Gl4mM1Cgl6p
-	ij3Ep4mAsioDFCqzw+4qspnlOATNlcxfoI5NHUOLoDiLCjgUwkGs4sDdAHER+QyGCM+3jHJoSkYy3
-	xOoYb9NK1uKYSaGX51RjoUHBCm+zxF1PX0ymEU+JnkztasWIofE4PXud8hAhYpipqMJrOE3+DGBPN
-	Gys2rhCbiKL3MONeh1jixdDHoVQcjg5fZkrzX13UN0Ls8UHVeYchbiLIOtafuoxerQ0eTP85SQrSd
-	ucSdX2SgeWM5PuvSfzm+IV/dPKCIGlPBLZYcMz48yxvxYGcjlkyPM3qG13dJCOfQZXg+ee4bl70Om
-	nTgmhhoQ==;
+	bh=W23h0CU2XPvyIBlM/7fXI8zhA7EF97uc2vwHzm5DU3E=; b=BbkXr2lxUTFcbbPOuKEDgWFcDx
+	5QakMmuHCd8D8jLc3ve3jSnOlAsqL3VI5huRjNYMFyw2rbFa9pk7RclVDbh/9jBEXIFuG+H2uZH9j
+	/26HNYcRC+IaAwcRDIcSz/9g53d/ashztEpTvK66b1ajtBpi1HNSW1IIaUpk0VYClddhgLPaIPwMb
+	jQDaqHDnltfdnihL4j9HO8jPkdmv2xm1krT3TdceQStIRAVU68DzudRaWJIFZX0GwVxNpWglQ+FFv
+	gvs2ytuI835ZvvJQJt4qhQ89BwcOrtcky1MIRc6qvgnSJs3Cdli8GCqHW6wA3IozPQvtnqq+Mr9em
+	zV5HAdBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usTBT-00000008SE9-3DwS;
-	Sat, 30 Aug 2025 21:32:27 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1usTEB-00000008SLj-2U4W;
+	Sat, 30 Aug 2025 21:35:15 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usT6n-00000008RxP-1F0E
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 Aug 2025 21:27:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=VLdSQW7+O0R1hhE3XjC/Wy7ssjU7PWHhYOnONnoYdgU=; b=e+CtcqMH5Dkqg+YMIEoQ+WwPOa
-	2FUxf10H6EbrNyJZgT3G1kwTA0R8GqFIQP4DLIU/ihIKnspRpa96TGG6U0ZcL+xgtdCPIgomfwBtd
-	i61RVfTXXxMzg006FakL++46JHX5D8Kxnh8+99gTOHamgwqm9Mr5EHhLlA1Y4ZP9SXd0fw8X8ICEa
-	WkdN9B3Ow7yhXn6YNoq8hBxtLGQ3mFqotIC1YEkiewqKH3j9oepeaiV3DnwhgtVHKleGVxZynBKKL
-	f+ZviAtD1mbJb8IfAsF+rhuoSOh/sOH/FeIOgH4fT4WQoO9yBBipj5s8Am259n4lYLEZkmCksCLWA
-	fjknDKYQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:42508)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1usT6Y-000000004Sw-2Maq;
-	Sat, 30 Aug 2025 22:27:22 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1usT6V-000000005PN-1BOn;
-	Sat, 30 Aug 2025 22:27:19 +0100
-Date: Sat, 30 Aug 2025 22:27:19 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Shawn Guo <shawnguo@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Eric Dumazet <edumazet@google.com>,
-	David Miller <davem@davemloft.net>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>
-Subject: Re: [PATCH net-next 1/5] arm64: dts: ls1043a-qds: switch to new
- fixed-link binding
-Message-ID: <aLNst1V_OSlvpC3t@shell.armlinux.org.uk>
-References: <a3c2f8d3-36e6-4411-9526-78abbc60e1da@gmail.com>
- <fe4c021d-c188-4fc2-8b2f-9c3c269056eb@gmail.com>
+	id 1usT8w-00000008S2P-33Vw;
+	Sat, 30 Aug 2025 21:29:52 +0000
+Received: from pendragon.ideasonboard.com (237.69-130-109.adsl-dyn.isp.belgacom.be [109.130.69.237])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 16DE4337C;
+	Sat, 30 Aug 2025 23:28:39 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1756589319;
+	bh=nazjNil7c6YoIWTwvr8MF0GJzNNzswGy21FyNw0czQ4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=coZsIh5JzjfqVisAaGMLyp5r3GM20OUCq708856ovzdu6b8NgKEA/LDIg//jBFcP0
+	 mfOCQ3HFvKWfn0LCAMQshiidRtUEWNvZKqdkD+7VF7GwY4qdCh2aWCVsVdy7ikrctI
+	 NLu8VHtXbco5TeC5FJpaGl1jWjf8LrXEKYIObNN8=
+Date: Sat, 30 Aug 2025 23:29:23 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Masaharu Noguchi <nogunix@gmail.com>
+Cc: gregkh@linuxfoundation.org, linux-staging@lists.linux.dev,
+	vaibhav.sr@gmail.com, mgreer@animalcreek.com, johan@kernel.org,
+	elder@kernel.org, greybus-dev@lists.linaro.org,
+	florian.fainelli@broadcom.com, rjui@broadcom.com,
+	sbranden@broadcom.com, bcm-kernel-feedback-list@broadcom.com,
+	dave.stevenson@raspberrypi.com, hverkuil@kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] staging: vc04_services: bcm2835-camera: avoid
+ -Wformat-truncation
+Message-ID: <20250830212923.GB16364@pendragon.ideasonboard.com>
+References: <20250830173850.323897-1-nogunix@gmail.com>
+ <20250830173850.323897-3-nogunix@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <fe4c021d-c188-4fc2-8b2f-9c3c269056eb@gmail.com>
+In-Reply-To: <20250830173850.323897-3-nogunix@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250830_142737_621795_DA253AF5 
-X-CRM114-Status: GOOD (  10.69  )
+X-CRM114-CacheID: sfid-20250830_142950_920815_A6065D17 
+X-CRM114-Status: GOOD (  16.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,17 +73,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 30, 2025 at 12:27:23PM +0200, Heiner Kallweit wrote:
-> The old array-type fixed-link binding has been deprecated
-> for more than 10 yrs. Switch to the new binding.
+On Sun, Aug 31, 2025 at 02:38:50AM +0900, Masaharu Noguchi wrote:
+>     - Fix -Wformat-truncation in vidioc_querycap() when composing bus_info.
+>     - Use scnprintf() for the prefix and strscpy() for the remainder.
+> 
+> Signed-off-by: Masaharu Noguchi <nogunix@gmail.com>
+> ---
+>  .../staging/vc04_services/bcm2835-camera/bcm2835-camera.c    | 5 +++--
+>  1 file changed, 3 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c b/drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c
+> index fa7ea4ca4c36..c2788659af12 100644
+> --- a/drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c
+> +++ b/drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c
+> @@ -874,13 +874,14 @@ static int vidioc_querycap(struct file *file, void *priv,
+>  	struct bcm2835_mmal_dev *dev = video_drvdata(file);
+>  	u32 major;
+>  	u32 minor;
+> +	int n;
+>  
+>  	vchiq_mmal_version(dev->instance, &major, &minor);
+>  
+>  	strscpy(cap->driver, "bcm2835 mmal", sizeof(cap->driver));
+>  	snprintf((char *)cap->card, sizeof(cap->card), "mmal service %d.%d", major, minor);
+> -
+> -	snprintf((char *)cap->bus_info, sizeof(cap->bus_info), "platform:%s", dev->v4l2_dev.name);
+> +	n = scnprintf((char *)cap->bus_info, sizeof(cap->bus_info), "platform:");
+> +	strscpy((char *)cap->bus_info + n, dev->v4l2_dev.name, sizeof(cap->bus_info) - n);
 
-... and the fact we have device trees that use it today means that we
-can't remove support for it from the kernel.
+The fact that we need such a complicated construct is a sign that
+there's something wrong in our APIs. The above code is too complicated
+for what it does, making it less readable, more difficult to maintain,
+and more bug-prone. I don't know if we need yet another sprintf variant
+in the kernel, or something else, but this doens't seem to be what we
+need.
 
-I think it would make sense to update the dts files, and add a noisy
-warning when we detect that it's being used to prevent future usage.
+>  	return 0;
+>  }
+>  
 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Regards,
+
+Laurent Pinchart
 
