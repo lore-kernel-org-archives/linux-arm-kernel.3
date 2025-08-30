@@ -4,55 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D27ECA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:52:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C502BCA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:52:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LZuXyDJM7XEnt+XU1HmyOjcNRk6JF6G/a2xc18hmYt4=; b=1icZH4fHYfr1CyKxLzLYYTsrJP
-	V7qVRSXgL8ncz6gE1nkWVtVPEhOND+ZsUOdhajB0qLb8RBrh+bXzo50DxD1ZBprqr0JgqZ6/0RtEA
-	XoE5mB1mdyzEl7XvCUxpe18B8qhDXYpgy6laG2D7MPksrvHMUtEUPnFoGwQ/BHAq2L1N0LxTxD6vL
-	ROglw9zdolejg+vpSaUorddkqQqE2G2Hlej7BB5riAZKsezHvDcpVR289XfQcJLzzl0NFk9/jzi9P
-	rRx7V3THSXmWSQCT68s9dzY1EPDriON2TaLOgvBZH3fl9O3tpGJMvdEHoOrkdX4IU6J4ftj6kD91Z
-	+mugUTWw==;
+	bh=b3MghWZoXYKGWm5kT0/fJsmO1EHuFwRnZNciIkUYSwE=; b=TVDX6OK4cm0w+2tkIEPupY17r4
+	NPekmnhUf5a1TQoVpAG568kRfdVfDjsQj/2ONgZhDrWjX7Rq2sen3+DEnN3jtdgZ30m2BJup0JxPJ
+	4x0XLf1Do9qc6H6J3LoyqYKzkpHja9aUlxKkHMUdEic++MEdMIHNlCd1rKkt5WaYSnQ1Y+EOpBO7X
+	rAxFFU5k8DBfLvC9BqzjCWzVLaxlRLvve9r5VUEWrjXHbFBLlc7hgyWLhT4CZuRoOe/JDrd/8SwZs
+	jC/FejvWtvmxguKw8tPq/I4BCWfKrLMlsgnB56jxg2vzIvq2V/iU51SvrGWDCc5Kmpipb9txrMob9
+	PDOJxsQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us9po-00000007E7O-3Zj9;
-	Sat, 30 Aug 2025 00:52:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us91Z-000000073nu-3zsW
+	id 1us9pr-00000007EBJ-2leb;
+	Sat, 30 Aug 2025 00:52:51 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1us9G2-000000074Cv-2ejA
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 Aug 2025 00:00:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 002631756;
-	Fri, 29 Aug 2025 17:00:44 -0700 (PDT)
-Received: from [10.57.3.75] (unknown [10.57.3.75])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 218C93F63F;
-	Fri, 29 Aug 2025 17:00:49 -0700 (PDT)
-Message-ID: <5e39026e-bec9-408f-b24a-bb60b3f1f411@arm.com>
-Date: Sat, 30 Aug 2025 01:00:47 +0100
+	Sat, 30 Aug 2025 00:15:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B04CF60142;
+	Sat, 30 Aug 2025 00:15:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D69F4C4CEF0;
+	Sat, 30 Aug 2025 00:15:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756512949;
+	bh=HNjsx0i8x73tfae/eOHpgGMql3FZ9c4OcgiZIKPT95A=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=iZcIlotZnZmYfFdJ1Oc7Aza4lrGYWrNZzw/6UYGujc8KDIerJaO5eBS6aelA9SVTs
+	 F1Qd0OE53bMMH8UD7Zo+6xBzYE51rblRUFPngwx7Tx2ttc6T0E6BxmAlywblHOGk5P
+	 DFp3ugjyLE3dB6YoEs1jItpKh9Dkop1IZW3FzveZ15VAag0BKj5hsrogEjPZHHH6xF
+	 reqOMqsi76TkbVCuJ7JiBbZQhYUDls+OE7hDTaVfoL9FhUC5q6N8P7/Vzd3LZCF/AZ
+	 +kNp/ihIF/4CyQ2y2AfRmC18FgtNmpJ6NOePp9MR9ZIfDcrbqflq5ol6hB9696od81
+	 4fG97Zov1H3zw==
+Date: Fri, 29 Aug 2025 17:15:48 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ "Alexandre Torgue" <alexandre.torgue@foss.st.com>, Richard Cochran
+ <richardcochran@gmail.com>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ <netdev@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <devicetree@vger.kernel.org>
+Subject: Re: [PATCH net-next v3 1/2] drivers: net: stmmac: handle start time
+ set in the past for flexible PPS
+Message-ID: <20250829171548.68d7addd@kernel.org>
+In-Reply-To: <57196414-5ab5-41b7-b2e3-ff6831589811@foss.st.com>
+References: <20250827-relative_flex_pps-v3-0-673e77978ba2@foss.st.com>
+	<20250827-relative_flex_pps-v3-1-673e77978ba2@foss.st.com>
+	<20250827193105.47aaa17b@kernel.org>
+	<57196414-5ab5-41b7-b2e3-ff6831589811@foss.st.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 11/14] dmaengine: dma350: Support device_prep_slave_sg
-To: Jisheng Zhang <jszhang@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250823154009.25992-1-jszhang@kernel.org>
- <20250823154009.25992-12-jszhang@kernel.org>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20250823154009.25992-12-jszhang@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_170054_089866_53AF0B97 
-X-CRM114-Status: GOOD (  34.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,339 +79,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-08-23 4:40 pm, Jisheng Zhang wrote:
-> Add device_prep_slave_sg() callback function so that DMA_MEM_TO_DEV
-> and DMA_DEV_TO_MEM operations in single mode can be supported.
+On Fri, 29 Aug 2025 12:51:40 +0200 Gatien CHEVALLIER wrote:
+> On 8/28/25 04:31, Jakub Kicinski wrote:
+> > On Wed, 27 Aug 2025 13:04:58 +0200 Gatien Chevallier wrote:  
+> >> +		curr_time = ns_to_timespec64(ns);
+> >> +		if (target_ns < ns + PTP_SAFE_TIME_OFFSET_NS) {
+> >> +			cfg->start = timespec64_add_safe(cfg->start, curr_time);  
+> > 
+> > Is there a strong reason to use timespec64_add_safe()?
+> > It's not exported to modules:
+> > ERROR: modpost: "timespec64_add_safe" [drivers/net/ethernet/stmicro/stmmac/stmmac.ko] undefined!  
 > 
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->   drivers/dma/arm-dma350.c | 180 +++++++++++++++++++++++++++++++++++++--
->   1 file changed, 174 insertions(+), 6 deletions(-)
+> Hello Jakub,
 > 
-> diff --git a/drivers/dma/arm-dma350.c b/drivers/dma/arm-dma350.c
-> index 3d26a1f020df..a285778264b9 100644
-> --- a/drivers/dma/arm-dma350.c
-> +++ b/drivers/dma/arm-dma350.c
-> @@ -1,5 +1,6 @@
->   // SPDX-License-Identifier: GPL-2.0
->   // Copyright (C) 2024-2025 Arm Limited
-> +// Copyright (C) 2025 Synaptics Incorporated
->   // Arm DMA-350 driver
->   
->   #include <linux/bitfield.h>
-> @@ -98,7 +99,23 @@
->   
->   #define CH_FILLVAL		0x38
->   #define CH_SRCTRIGINCFG		0x4c
-> +#define CH_SRCTRIGINMODE	GENMASK(11, 10)
-> +#define CH_SRCTRIG_CMD		0
-> +#define CH_SRCTRIG_DMA_FC	2
-> +#define CH_SRCTRIG_PERIF_FC	3
-> +#define CH_SRCTRIGINTYPE	GENMASK(9, 8)
-> +#define CH_SRCTRIG_SW_REQ	0
-> +#define CH_SRCTRIG_HW_REQ	2
-> +#define CH_SRCTRIG_INTERN_REQ	3
->   #define CH_DESTRIGINCFG		0x50
-> +#define CH_DESTRIGINMODE	GENMASK(11, 10)
-> +#define CH_DESTRIG_CMD		0
-> +#define CH_DESTRIG_DMA_FC	2
-> +#define CH_DESTRIG_PERIF_FC	3
-> +#define CH_DESTRIGINTYPE	GENMASK(9, 8)
-> +#define CH_DESTRIG_SW_REQ	0
-> +#define CH_DESTRIG_HW_REQ	2
-> +#define CH_DESTRIG_INTERN_REQ	3
+> you're absolutely right. I don't know how I did not encounter the build
+> error while performing some tests, that I'm getting now as well.
+> 
+> The handling of overflows is already done in that function. Either
+> I can make a patch to export the symbol or handle the computation in the
+> driver. What do you think is best?
 
-Like the CH_CFG_* definitions, let's just have common CH_TRIG* fields 
-that work for both SRC and DES to simplify matters. FWIW, my attempt to 
-balance clarity with conciseness would be:
-
-#define CH_TRIGINCFG_BLKSIZE	GENMASK(23, 16)
-#define CH_TRIGINCFG_MODE	GENMASK(11, 10)
-#define CH_TRIG_MODE_CMD	0
-#define CH_TRIG_MODE_DMA	2
-#define CH_TRIG_MODE_PERIPH	3
-#define CH_TRIGINCFG_TYPE	GENMASK(9, 8)
-#define CH_TRIG_TYPE_SW		0
-#define CH_TRIG_TYPE_HW		2
-#define CH_TRIG_TYPE_INTERN	3
-#define CH_TRIGINCFG_SEL	GENMASK(7, 0)
-
->   #define CH_LINKATTR		0x70
->   #define CH_LINK_SHAREATTR	GENMASK(9, 8)
->   #define CH_LINK_MEMATTR		GENMASK(7, 0)
-> @@ -190,11 +207,13 @@ struct d350_chan {
->   	struct d350_desc *desc;
->   	void __iomem *base;
->   	struct dma_pool *cmd_pool;
-> +	struct dma_slave_config config;
->   	int irq;
->   	enum dma_status status;
->   	dma_cookie_t cookie;
->   	u32 residue;
->   	u8 tsz;
-> +	u8 ch;
-
-What's this for? It doesn't seem to be anything meaningful.
-
->   	bool has_trig;
->   	bool has_wrap;
->   	bool coherent;
-> @@ -327,6 +346,144 @@ static struct dma_async_tx_descriptor *d350_prep_memset(struct dma_chan *chan,
->   	return vchan_tx_prep(&dch->vc, &desc->vd, flags);
->   }
->   
-> +static struct dma_async_tx_descriptor *
-> +d350_prep_slave_sg(struct dma_chan *chan, struct scatterlist *sgl,
-> +		   unsigned int sg_len, enum dma_transfer_direction dir,
-> +		   unsigned long flags, void *context)
-> +{
-> +	struct d350_chan *dch = to_d350_chan(chan);
-> +	dma_addr_t src, dst, phys;
-> +	struct d350_desc *desc;
-> +	struct scatterlist *sg;
-> +	u32 len, trig, *cmd, *la_cmd, tsz;
-> +	struct d350_sg *dsg;
-> +	int i, j;
-> +
-> +	if (unlikely(!is_slave_direction(dir) || !sg_len))
-> +		return NULL;
-> +
-> +	desc = kzalloc(struct_size(desc, sg, sg_len), GFP_NOWAIT);
-> +	if (!desc)
-> +		return NULL;
-> +
-> +	desc->sglen = sg_len;
-> +
-> +	if (dir == DMA_MEM_TO_DEV)
-> +		tsz = __ffs(dch->config.dst_addr_width | (1 << dch->tsz));
-> +	else
-> +		tsz = __ffs(dch->config.src_addr_width | (1 << dch->tsz));
-
-Surely we should just use the exact addr_width requested?
-
-> +	for_each_sg(sgl, sg, sg_len, i) {
-> +		desc->sg[i].command = dma_pool_zalloc(dch->cmd_pool, GFP_NOWAIT, &phys);
-> +		if (unlikely(!desc->sg[i].command))
-> +			goto err_cmd_alloc;
-> +
-> +		desc->sg[i].phys = phys;
-> +		dsg = &desc->sg[i];
-> +		len = sg_dma_len(sg);
-> +
-> +		if (dir == DMA_MEM_TO_DEV) {
-> +			src = sg_dma_address(sg);
-> +			dst = dch->config.dst_addr;
-> +			trig = CH_CTRL_USEDESTRIGIN;
-> +		} else {
-> +			src = dch->config.src_addr;
-> +			dst = sg_dma_address(sg);
-> +			trig = CH_CTRL_USESRCTRIGIN;
-> +		}
-> +		dsg->tsz = tsz;
-> +		dsg->xsize = lower_16_bits(len >> dsg->tsz);
-> +		dsg->xsizehi = upper_16_bits(len >> dsg->tsz);
-> +
-> +		cmd = dsg->command;
-> +		if (!i) {
-> +			cmd[0] = LINK_CTRL | LINK_SRCADDR | LINK_SRCADDRHI | LINK_DESADDR |
-> +				 LINK_DESADDRHI | LINK_XSIZE | LINK_XSIZEHI | LINK_SRCTRANSCFG |
-> +				 LINK_DESTRANSCFG | LINK_XADDRINC | LINK_LINKADDR;
-> +
-> +			cmd[1] = FIELD_PREP(CH_CTRL_TRANSIZE, dsg->tsz) | trig |
-> +				 FIELD_PREP(CH_CTRL_XTYPE, CH_CTRL_XTYPE_CONTINUE);
-> +
-> +			cmd[2] = lower_32_bits(src);
-> +			cmd[3] = upper_32_bits(src);
-> +			cmd[4] = lower_32_bits(dst);
-> +			cmd[5] = upper_32_bits(dst);
-> +			cmd[6] = FIELD_PREP(CH_XY_SRC, dsg->xsize) |
-> +				 FIELD_PREP(CH_XY_DES, dsg->xsize);
-> +			cmd[7] = FIELD_PREP(CH_XY_SRC, dsg->xsizehi) |
-> +				 FIELD_PREP(CH_XY_DES, dsg->xsizehi);
-> +			if (dir == DMA_MEM_TO_DEV) {
-> +				cmd[0] |= LINK_DESTRIGINCFG;
-> +				cmd[8] = dch->coherent ? TRANSCFG_WB : TRANSCFG_NC;
-> +				cmd[9] = TRANSCFG_DEVICE;
-> +				cmd[10] = FIELD_PREP(CH_XY_SRC, 1);
-> +				cmd[11] = FIELD_PREP(CH_DESTRIGINMODE, CH_DESTRIG_DMA_FC) |
-> +					  FIELD_PREP(CH_DESTRIGINTYPE, CH_DESTRIG_HW_REQ);
-> +			} else {
-> +				cmd[0] |= LINK_SRCTRIGINCFG;
-> +				cmd[8] = TRANSCFG_DEVICE;
-> +				cmd[9] = dch->coherent ? TRANSCFG_WB : TRANSCFG_NC;
-> +				cmd[10] = FIELD_PREP(CH_XY_DES, 1);
-> +				cmd[11] = FIELD_PREP(CH_SRCTRIGINMODE, CH_SRCTRIG_DMA_FC) |
-> +					  FIELD_PREP(CH_SRCTRIGINTYPE, CH_SRCTRIG_HW_REQ);
-> +			}
-> +			la_cmd = &cmd[12];
-> +		} else {
-> +			*la_cmd = phys | CH_LINKADDR_EN;
-> +			if (i == sg_len - 1) {
-> +				cmd[0] = LINK_CTRL | LINK_SRCADDR | LINK_SRCADDRHI | LINK_DESADDR |
-> +					 LINK_DESADDRHI | LINK_XSIZE | LINK_XSIZEHI | LINK_LINKADDR;
-> +				cmd[1] = FIELD_PREP(CH_CTRL_TRANSIZE, dsg->tsz) | trig |
-> +					 FIELD_PREP(CH_CTRL_XTYPE, CH_CTRL_XTYPE_CONTINUE);
-> +				cmd[2] = lower_32_bits(src);
-> +				cmd[3] = upper_32_bits(src);
-> +				cmd[4] = lower_32_bits(dst);
-> +				cmd[5] = upper_32_bits(dst);
-> +				cmd[6] = FIELD_PREP(CH_XY_SRC, dsg->xsize) |
-> +					 FIELD_PREP(CH_XY_DES, dsg->xsize);
-> +				cmd[7] = FIELD_PREP(CH_XY_SRC, dsg->xsizehi) |
-> +					 FIELD_PREP(CH_XY_DES, dsg->xsizehi);
-> +				la_cmd = &cmd[8];
-> +			} else {
-> +				cmd[0] = LINK_SRCADDR | LINK_SRCADDRHI | LINK_DESADDR |
-> +					 LINK_DESADDRHI | LINK_XSIZE | LINK_XSIZEHI | LINK_LINKADDR;
-> +				cmd[1] = lower_32_bits(src);
-> +				cmd[2] = upper_32_bits(src);
-> +				cmd[3] = lower_32_bits(dst);
-> +				cmd[4] = upper_32_bits(dst);
-> +				cmd[5] = FIELD_PREP(CH_XY_SRC, dsg->xsize) |
-> +					 FIELD_PREP(CH_XY_DES, dsg->xsize);
-> +				cmd[6] = FIELD_PREP(CH_XY_SRC, dsg->xsizehi) |
-> +					 FIELD_PREP(CH_XY_DES, dsg->xsizehi);
-> +				la_cmd = &cmd[7];
-> +			}
-> +		}
-> +	}
-Again, the structure and duplication here is unbearable. I fail to 
-comprehend why the "if (i == sg_len - 1)" case even exists...
-
-More crucially, it clearly can't even work for DMA-350 since it would 
-always be selecting trigger 0. How much of this has been tested?
-
-> +	/* the last command */
-> +	*la_cmd = 0;
-> +	desc->sg[sg_len - 1].command[1] |= FIELD_PREP(CH_CTRL_DONETYPE, CH_CTRL_DONETYPE_CMD);
-> +
-> +	mb();
-> +
-> +	return vchan_tx_prep(&dch->vc, &desc->vd, flags);
-> +
-> +err_cmd_alloc:
-> +	for (j = 0; j < i; j++)
-> +		dma_pool_free(dch->cmd_pool, desc->sg[j].command, desc->sg[j].phys);
-> +	kfree(desc);
-> +	return NULL;
-> +}
-> +
-> +static int d350_slave_config(struct dma_chan *chan, struct dma_slave_config *config)
-> +{
-> +	struct d350_chan *dch = to_d350_chan(chan);
-Shouldn't we validate that the given channel has any chance of 
-supporting the given config?
-
-> +	memcpy(&dch->config, config, sizeof(*config));
-> +
-> +	return 0;
-> +}
-> +
->   static int d350_pause(struct dma_chan *chan)
->   {
->   	struct d350_chan *dch = to_d350_chan(chan);
-> @@ -558,8 +715,9 @@ static irqreturn_t d350_irq(int irq, void *data)
->   	writel_relaxed(ch_status, dch->base + CH_STATUS);
->   
->   	spin_lock(&dch->vc.lock);
-> -	vchan_cookie_complete(vd);
->   	if (ch_status & CH_STAT_INTR_DONE) {
-> +		vchan_cookie_complete(vd);
-> +		dch->desc = NULL;
-
-What's this about? As I mentioned on the earlier patches it was very 
-fiddly to get consistently appropriate handling of errors for 
-MEM_TO_MEM, so please explain if this change is somehow necessary for 
-MEM_TO_DEV/DEV_TO_MEM. Otherwise, if anything it just looks like an 
-undocumented bodge around what those previous patches subtly broke.
-
->   		dch->status = DMA_COMPLETE;
->   		dch->residue = 0;
->   		d350_start_next(dch);
-> @@ -617,7 +775,7 @@ static int d350_probe(struct platform_device *pdev)
->   	struct device *dev = &pdev->dev;
->   	struct d350 *dmac;
->   	void __iomem *base;
-> -	u32 reg, dma_chan_mask;
-> +	u32 reg, dma_chan_mask, trig_bits = 0;
->   	int ret, nchan, dw, aw, r, p;
->   	bool coherent, memset;
->   
-> @@ -637,13 +795,11 @@ static int d350_probe(struct platform_device *pdev)
->   	dw = 1 << FIELD_GET(DMA_CFG_DATA_WIDTH, reg);
->   	aw = FIELD_GET(DMA_CFG_ADDR_WIDTH, reg) + 1;
->   
-> -	dma_set_mask_and_coherent(dev, DMA_BIT_MASK(aw));
-> -	coherent = device_get_dma_attr(dev) == DEV_DMA_COHERENT;
-> -
->   	dmac = devm_kzalloc(dev, struct_size(dmac, channels, nchan), GFP_KERNEL);
->   	if (!dmac)
->   		return -ENOMEM;
->   
-> +	dmac->dma.dev = dev;
-
-Similarly, why are these two hunks just moving lines around apparently 
-at random?
-
->   	dmac->nchan = nchan;
->   
->   	/* Enable all channels by default */
-> @@ -655,12 +811,14 @@ static int d350_probe(struct platform_device *pdev)
->   		return ret;
->   	}
->   
-> +	dma_set_mask_and_coherent(dev, DMA_BIT_MASK(aw));
-> +	coherent = device_get_dma_attr(dev) == DEV_DMA_COHERENT;
-> +
->   	reg = readl_relaxed(base + DMAINFO + DMA_BUILDCFG1);
->   	dmac->nreq = FIELD_GET(DMA_CFG_NUM_TRIGGER_IN, reg);
->   
->   	dev_dbg(dev, "DMA-350 r%dp%d with %d channels, %d requests\n", r, p, dmac->nchan, dmac->nreq);
->   
-> -	dmac->dma.dev = dev;
->   	for (int i = min(dw, 16); i > 0; i /= 2) {
->   		dmac->dma.src_addr_widths |= BIT(i);
->   		dmac->dma.dst_addr_widths |= BIT(i);
-> @@ -692,6 +850,7 @@ static int d350_probe(struct platform_device *pdev)
->   
->   		dch->coherent = coherent;
->   		dch->base = base + DMACH(i);
-> +		dch->ch = i;
->   		writel_relaxed(CH_CMD_CLEAR, dch->base + CH_CMD);
->   
->   		reg = readl_relaxed(dch->base + CH_BUILDCFG1);
-> @@ -711,6 +870,7 @@ static int d350_probe(struct platform_device *pdev)
->   
->   		/* Fill is a special case of Wrap */
->   		memset &= dch->has_wrap;
-> +		trig_bits |= dch->has_trig << dch->ch;
-
-This is a bool merely dressed up as a bitmap, the shift is doing nothing.
-
-Thanks,
-Robin.
-
->   		reg = readl_relaxed(dch->base + CH_BUILDCFG0);
->   		dch->tsz = FIELD_GET(CH_CFG_DATA_WIDTH, reg);
-> @@ -723,6 +883,13 @@ static int d350_probe(struct platform_device *pdev)
->   		vchan_init(&dch->vc, &dmac->dma);
->   	}
->   
-> +	if (trig_bits) {
-> +		dmac->dma.directions |= (BIT(DMA_DEV_TO_MEM) | BIT(DMA_MEM_TO_DEV));
-> +		dma_cap_set(DMA_SLAVE, dmac->dma.cap_mask);
-> +		dmac->dma.device_config = d350_slave_config;
-> +		dmac->dma.device_prep_slave_sg = d350_prep_slave_sg;
-> +	}
-> +
->   	if (memset) {
->   		dma_cap_set(DMA_MEMSET, dmac->dma.cap_mask);
->   		dmac->dma.device_prep_dma_memset = d350_prep_memset;
-> @@ -759,5 +926,6 @@ static struct platform_driver d350_driver = {
->   module_platform_driver(d350_driver);
->   
->   MODULE_AUTHOR("Robin Murphy <robin.murphy@arm.com>");
-> +MODULE_AUTHOR("Jisheng Zhang <jszhang@kernel.org>");
->   MODULE_DESCRIPTION("Arm DMA-350 driver");
->   MODULE_LICENSE("GPL v2");
+The odds of me being right about time related code are only slightly
+better than 50/50, and I don't know what "flexible PPS" is :)
+But in principle, if the reason you need to check for overflow is valid
+-- add the export. The time maintainers will tell us if they don't
+want it.
 
