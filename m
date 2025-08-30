@@ -4,66 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EF5DCA0FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 17:48:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0241CA0FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 17:52:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nrVrXcIV1xnh8psffPMKeIjdtAN0BTmtBgvYjgncv4Q=; b=JMRl5Ua6yhl8uBecYADox6mVbV
-	p1cmpg0ZTx9z8pnYqoxb+0lfWSxeMifxOolEtR3ElkM6aCnCTMrPms/qdcXxIPfkah4C8kQzxpWi9
-	utQsoS20FJtXqIWTd6USsmE7e3mTLpjrHR4/e4I25ELBdN+Bdn73G+1RTj1n2j9Z5wladvR24eqCL
-	DovTzkMYzxSHH9/U9KPx0Yu100WFqq45KypaoH7p0ScSm2XALOrdXItndS3ZN5m1lo03Q7qmPagXz
-	2Eem6tLCF8reOZpPlypIV+4J5uEAgpPb/Fh5swMq1eXlq1OKjVaOyH2o0ucMI3rqvZz40fk8JTD1C
-	v8Q+jDIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E0o0zbZ1leBqoT/C2lQiuVjLsxOFTJwcCrRDGQg1YJo=; b=sYxduUvbzxwdp6OPAZUL0nGtHC
+	+yAiCDp2as9lU0qnFZWc/vUwLBdo1WQc5txJrOJl//Sc+DntCi4I/8vAdJb1z7/wssWIgu2PgVEQR
+	chi0jQQJrFR/zFef8vUJ1ySWtYDLgO0vAjE4++YGamYbOhcY8TGNrQYBAtQSsvCLpLOIG0s/5IlWm
+	k95kJfEUHgEAOXoVUKK5MoQOHJpNBFli+cl9sdLP4FEBFyTDHLoKJyLLgrFAyEcrtHQ559m0gX5R/
+	P8c+OvCQXWaWrXQmJW3EktljuBfK6XGIo7UmnkytznZYFYZfJFDBBQsEQ6YRNcv6P4VGIqFAktKzc
+	83WnesTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usPgC-00000008GBl-3PnR;
-	Sat, 30 Aug 2025 17:47:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1usPk7-00000008GiI-3M9z;
+	Sat, 30 Aug 2025 17:51:59 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usP8Z-00000008DBY-3hGb;
-	Sat, 30 Aug 2025 17:13:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6CDE44418A;
-	Sat, 30 Aug 2025 17:13:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECAC8C4CEEB;
-	Sat, 30 Aug 2025 17:13:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756573991;
-	bh=nRpClAVmKhPM4s+plqvugvMv46C4EG57OiMmEMzwUH8=;
-	h=From:Date:Subject:To:Cc:From;
-	b=qF3Lim3CWUypANIPoraJu0T/iGf+K/Iqp9/M9juuCaZ1DVaomWRLAvPeL+VMJt/HQ
-	 kmqW8ZLN0bIBdA6lxqgP1RlYo1qJ9EeIQxT/LCZoiEssa8MEM/ofUTlQWXfsuWdNuM
-	 4xyFf1Isv6+n3SP6iZSLuaE0OYrM+BDTtdQc4C9tBx7sYBf1Tzwmafjmn76lNNUCez
-	 LWGc2RyZLmzzYJ1+sahL1/bi0PLuDXXa1U2+c3k/I/5aWp0RlvqE7NVjBJgOF9BMse
-	 o2TozfvGWvaeODIjiO+rEimjItEpFZmf4WJfILOl8RpQ9cN3o09qk8RwalSyQ4ZgDO
-	 8pjsXati3lPpQ==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Sat, 30 Aug 2025 19:12:50 +0200
-Subject: [PATCH mt76] wifi: mt76: mt7996: Set EML capabilities for AP
- interface
+	id 1usPcg-00000008FoA-1S9N
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 30 Aug 2025 17:44:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iLyR/Iw+ZWjoTwpQJxrjgrDd7MznGCXJ+YAlJczFCJoO+y8XyXl9WHxKY8FhQu5HedVtGJa4SIr8csPpJq9ZgIgi204nCpjTM+r3quoMWqYvbAZaq7SWXZrnQeFW/EbxcwBQbY/iNdFfemEqXTLnVXBUZ1czEedAwM6nkjtPM22T7PFtvQRHyLZADEKHjI+ToI9+TOPAh3OhhKt8Urzwl3O7o/DwAHWOs0yRkCvc+Ee4qgvtNOVobuHwQpEBBGxTU980V0w6xtfnLeuFdzOv6D2MrOPz8DyvevbeYP+eD8ycPBzLrH4ViEXCzsiFlKPqcOfD6aXa+rG1eZdFEBv/Ug==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=E0o0zbZ1leBqoT/C2lQiuVjLsxOFTJwcCrRDGQg1YJo=;
+ b=W4syP0awY4AwCitv+2BshXDOpqyHqFzsg/4Z2wRmp6Qi4J/NCMdXLrOX2XgvPTde8U0AalWICbIF7JT8UAMI/I2+sqZeoMdNGX8GsmxuWO1EM7lrdeR1i7jJ9iNMA0x2GM+ABxYEeu53iVj9pML5Ox9IjFDbpPBIZP3MjlRltwsA58SnV+Mmc+xLC7Enb6eccse+DappgNK/MBGtk0IqWtjmr3++KvElg9xFEQWtLsKND8ytkCEkO5ZniezCgATvPB7loj5Obm+5a+6naLZDIzDDC7Ra+yEkeelPRwD9ry/DbEmNtH2deiHEYCWgf/tLWGNv/JeWmrI/UyrTIDCrHA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=E0o0zbZ1leBqoT/C2lQiuVjLsxOFTJwcCrRDGQg1YJo=;
+ b=XIhO+p+9s2UB/zWq5Ksi1mfbSLCZMBoTGfsGAVCuP1xoGFk9Hfz0VGYo0XsL8dy85pbjVS65eLdy/G3Z05p6FC0OOH6qTifVaRBzhlRWf9Vg1UYcN8JQC8odfjsWgSejCvLWsmMmJiiN9XlIZJT0GmSXVeG3OJJPcu+twY848TNaKDLCdglwGDGvBE39JD4Pzi6kUDxmHuHeIW2YPQAyaZeKO3BkTqkD6sk7LONnbrc9VpHC+s/nsKnB3zqMlSRmdxdfXO1ADMKbyEbCZfCa9/hZOPz85wxLNgIpbcBDWA9m6p3miRApgruCnraCWX9DF8/5CpaG9/kHtPaB8pRMdg==
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
+ by AM7PR04MB6823.eurprd04.prod.outlook.com (2603:10a6:20b:102::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.12; Sat, 30 Aug
+ 2025 17:44:09 +0000
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::21bf:975e:f24d:1612]) by PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::21bf:975e:f24d:1612%7]) with mapi id 15.20.9094.011; Sat, 30 Aug 2025
+ 17:44:08 +0000
+From: Shenwei Wang <shenwei.wang@nxp.com>
+To: Rob Herring <robh@kernel.org>
+CC: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier
+	<mathieu.poirier@linaro.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Linus Walleij <linus.walleij@linaro.org>, Bartosz
+ Golaszewski <brgl@bgdev.pl>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, dl-linux-imx <linux-imx@nxp.com>
+Subject: Re: [PATCH 1/4] dt-bindings: remoteproc: imx_rproc: Add "rpmsg"
+ subnode support
+Thread-Topic: [PATCH 1/4] dt-bindings: remoteproc: imx_rproc: Add "rpmsg"
+ subnode support
+Thread-Index: AQHcGdWvuXRrlT06BUO4LAXqOCqHSQ==
+Date: Sat, 30 Aug 2025 17:44:08 +0000
+Message-ID: <PAXPR04MB9185E259C9BD4AC05AF785518905A@PAXPR04MB9185.eurprd04.prod.outlook.com>
+References: <20250818204420.794554-1-shenwei.wang@nxp.com>
+ <20250818204420.794554-2-shenwei.wang@nxp.com>
+ <20250826200904.GA375876-robh@kernel.org>
+ <PAXPR04MB9185EAFBDF13143860910C3A8938A@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <20250829150655.GA782291-robh@kernel.org>
+In-Reply-To: <20250829150655.GA782291-robh@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB9185:EE_|AM7PR04MB6823:EE_
+x-ms-office365-filtering-correlation-id: 9879ae61-c045-48dd-c50d-08dde7ecd286
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|7416014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?AzHkxGg2BFkzMsKopMeFpve4NLZeqRFgjlBiE9tlM31Qnysgzl9bOeq2l4/l?=
+ =?us-ascii?Q?BzyuG6huplFxNw1fhZ2mghrmAAs6A2o98SvCUAaTdlHYrew0xDh2C2DwTM58?=
+ =?us-ascii?Q?P5/fgLjrQ6guxbuIw61XNnwChJoNKTWM1LJkwP3+yIlU/7dCqXWmuvARJU+C?=
+ =?us-ascii?Q?RC++n7JERReEohfJZdqrje7cV436AfPsLvu10KDAFAxbLs+P0KYA7mlgIRhB?=
+ =?us-ascii?Q?fwLsi7OYV0qWEqu1bMvGjHQcSVv5EGUPG/NJPqkybNWVvEL9K6FX0MpPUzBc?=
+ =?us-ascii?Q?L41825DzKLZ/vpzxAOVb83H7KXTCiCSQ7/3xFiHupfjbSY6c9tvzu0BYM9pL?=
+ =?us-ascii?Q?od6YTGVSBLrwzT3BQEZ+Pyi4TDchH14XwGaDQ4VyhtT7YCkQjTRwUSRNDPB5?=
+ =?us-ascii?Q?yERyIOzgQ7IGQ2snjcaW3RrvOieZfSXA0z4+urGgS93uD0n/o0xsPE7cMBDR?=
+ =?us-ascii?Q?h9s0EySek8NWI1+rlWonUsSbUVpZ+0oZgbOLt93fCpKvrr77F+KtxvJO53Pd?=
+ =?us-ascii?Q?wQmm/nI9ShMEZW8YBftVxFWm+DFMe5gvKxGa4UXeBn9xLIyJoY3/Rb3fOjzK?=
+ =?us-ascii?Q?TAOMHdY6OiV5gcjXObZiTFn5mWZrhL3WzZjxVaba48x6Td72TQzLpWKYicMq?=
+ =?us-ascii?Q?e2OsuyBzoBaTG7cdVkUysX7J7Lat2gM5AyLU9tTT1yL2iqLRco1OL9/BgMcK?=
+ =?us-ascii?Q?w3GZo4lEj7CXAHGIvl4ACeAl6PttjGrlaqQblNyfp9YoCWgDG9x5M1p9jcT5?=
+ =?us-ascii?Q?/0kbhYmKNF+D6kzYTEvNE7N6pWpWxk8Eh4vv+FZRRjonl1C7KLrTa6LhXXSn?=
+ =?us-ascii?Q?2BwtoZSphbs8aG6e1xR11ri0vgrtFf0YWUGQ7vA90Cn/JoAJV+cKLbE7DqMf?=
+ =?us-ascii?Q?QNQLPL0+vW6EYkiXRO3Vk6S6Je3+FDIMKLRaRaLxYL2mgK/aolXtyJSwsm/N?=
+ =?us-ascii?Q?n4ia9TUUt40D6j9vl+/bZvjD2wbKkw3KhMJXyvLSaZFsyFcLAiwFFiaESGUu?=
+ =?us-ascii?Q?Kasa2i57PeS/bLtoXPm628DVlg1kZMkk6bC3Bu4Ln916DbjJgyN1fNqepbXY?=
+ =?us-ascii?Q?WNh8/Y2H5ZK/2cIopMRXdJLzE/Fso8Z2/+wtIOEUsw2lF/UPUTmuMnlPbf4q?=
+ =?us-ascii?Q?MaaJda5u8u7Sv4UjAql+hxa4YQvkdiEpbHQaflnjQVegp6b+orsrSHU3ygf4?=
+ =?us-ascii?Q?owTc4fi42ARyofuctszIn9Xf5dGwj6ndEHtPRDl9TIA8XLgdjUOjp/FshmKb?=
+ =?us-ascii?Q?D6o5J0qc7AydKjzdjOcP0YhKISyUVehgWRgZ0ho6GL0YLpmfaXFkTjTJsVjw?=
+ =?us-ascii?Q?7Y9BGelF/rPueTog7OH9jxRnf2xbu+rIFcnXcrCLvorcJ9N8Asj85juO33Ag?=
+ =?us-ascii?Q?hzbdhphMTquWIq4im2sFcQ95rChxvtjYfTjnEyR4/+e9lZnUt7k/kSEk2Phn?=
+ =?us-ascii?Q?2rizBkut5GfER2b3aDdpZbMsE4LGXCee7K7nKOsYatwMOvrM11IiMw=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?yn3+dVjcjSw/ZP9eQgciUCwlloXnnf8BpwPMo8/eyMzXbdERcPS8j/Uw/xq0?=
+ =?us-ascii?Q?RyKy0BNBM92OhKjfIMNE9SJ/zqoIrjrygKb7mKUggL4VTSZade6/ynxYLosu?=
+ =?us-ascii?Q?V5Ode/aUDSSqyT2LT1mIcQfLXQj55XrB/NC9bVxkVf0aqAAI4G6SX8lF//Bc?=
+ =?us-ascii?Q?0xDq4ClV2eVO3PoPs95miN+j3PY2czpCdvGcFy/z4lBnlKovDlVuROnYME3a?=
+ =?us-ascii?Q?t9veCXycxPHvq6yvOiQTyIxCAneuq75oSph8oE+w+IVE/rB/MMl7YGtB1bp4?=
+ =?us-ascii?Q?3Wnv1jnPqcJX8HgAnqMbGnsR/Uf/neRPnvjIpoNbBAT52oBy4ywQh8ZB2OB9?=
+ =?us-ascii?Q?gUYhWE59HZPhN6DDWAZyD851p4UZFsFDw6NWRdlffUazKY/lMy7XvH6NNtA6?=
+ =?us-ascii?Q?/1vxtRUenlZQ7IfLYH0YHVK3nKsVX6gH3mpOQZG8+kK8lf+8iV6rYaMSpQ/E?=
+ =?us-ascii?Q?ovsvLgeT0/Ac6ngyGX+9hYHulU24IaKgJ90zC5BHBb3dh47g/cj0JWp99n1Y?=
+ =?us-ascii?Q?pTlKFRj1zeIqMyuBmjJ7Xch292iJjLaPHJOjwYqysfzZgWvUuZpr5zFYWNkv?=
+ =?us-ascii?Q?ZxPchnWFRlFMxUR6Wye3LIZ9NuBwezcvfax37bUCQveQfYXpgOc+whBGZ4KL?=
+ =?us-ascii?Q?ifuGnZy/8+8Uq+hWSM5iigoRn7HJybmvt96ZpxEkXOD1bo157JphKMOhLMST?=
+ =?us-ascii?Q?mx6vEoc3ujivYkNOwLHEnDr+EkmJ7Zi4N9gFw6uYMxXF/T6EUZlV5hQARsUd?=
+ =?us-ascii?Q?/ABxt+tdN34IsXc6xO4cTVDO7v3aF3zx/VXYE9vmgvEx/qoaoFe1NLtJ4GZv?=
+ =?us-ascii?Q?cxc0+4mbo/IcxvMiX5vFeA1eInY1aah+xoAlwBQNIA7RhBOZbWEhf/tymkJR?=
+ =?us-ascii?Q?kWV0TsfjGnTNYee2hnEcd6vBr2VBz3q/EUGj2WZshZiYCIboma/WVbBrT8ou?=
+ =?us-ascii?Q?YHrRg1Yfj+ueG619nW+MfPXDOGljNCwnYnl6bFRxvBlPrkj5GjtHjPbGb2/r?=
+ =?us-ascii?Q?xZJImzk2pDLrEMAekPz9eide4s263KuWKhoYyg+bo8Fop4FulBRRtyJuhQq3?=
+ =?us-ascii?Q?jCefxhnhNqXkA24ra2aI4UlZollWrdLsG/PwP1rwEliprUBB5n3iZmIG6tT3?=
+ =?us-ascii?Q?89b3cn+7IVok3/pwciQB8QQp26wgo0QsNp28+yplu1SJDUKlUly/Ow5JIRvW?=
+ =?us-ascii?Q?TqLo9TFWZLGw+dOA6NOsecnOfBGAUQpPar6olNT3xYp+3mCCDuiX5Jp4RhYG?=
+ =?us-ascii?Q?gn1CzdcvCoSBShAOK1SsdTwZnoie/+UyYL7CsIw3sEu2X1dcBEf1m8trUOIN?=
+ =?us-ascii?Q?wiKH+KHCce1DUHLlsP6GfsT9nElEjN1pMZCDbQE1jX+E69t7sMHguJqRv+Vc?=
+ =?us-ascii?Q?YvtAtU2Gtj8Q5SG/HOkN7jaf1OZBnqOO0cg9/Q1m0YhmQIdJ2L4wXUGm8yoj?=
+ =?us-ascii?Q?xsy7yJFp6dYmv5wsnc5+6zUNR8EMygY2nWXGrPhdwe9fk/cVhK8E1f24lCMl?=
+ =?us-ascii?Q?8a+3eIbdJPA0FeFXtXFaae5J3f4MfqcArfRLk98wRXG0SqrT5YQ/p0QS/Cvt?=
+ =?us-ascii?Q?/N9NrM3ZeTodnQzau2Up6q4bv6E6hpAvzizFSS95?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250830-mt7996_ap_eml_capa-v1-1-ef69c97c6adc@kernel.org>
-X-B4-Tracking: v=1; b=H4sIABExs2gC/x3MTQqAIBBA4avErBNMsbKrRMhUUw30IxoRRHdPW
- n6L9x6IFJgiNNkDgS6OfOwJRZ7BsOA+k+AxGZRURtZaiu2srC0dekfb6gb0KLTCWlvq0U4GUug
- DTXz/07Z73w9ddaq3ZAAAAA==
-X-Change-ID: 20250830-mt7996_ap_eml_capa-32a839eba9f5
-To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
- Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9879ae61-c045-48dd-c50d-08dde7ecd286
+X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Aug 2025 17:44:08.6429
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: AbeC71x915nRLC3AlHzv7YE9kMc/cGnTMZmMgTg6GlEeCxacon6p5DxYHaEQGGZFufpfkRN5Q9iJMpLW1c5FOQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6823
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250830_101311_948893_9C0B14FD 
-X-CRM114-Status: UNSURE (   7.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250830_104418_412278_3004AA59 
+X-CRM114-Status: GOOD (  20.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,32 +174,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Report EML capabilities to hostapd for AP interface.
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/wireless/mediatek/mt76/mt7996/init.c | 1 +
- 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/init.c b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-index 29e0cf966bcac5ab805b927fd73b7a23d15877ec..5af78760dbeaf3aa3d123e6438ff27c52d00ed51 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-@@ -75,6 +75,7 @@ static const struct wiphy_iftype_ext_capab iftypes_ext_capa[] = {
- 		.extended_capabilities = if_types_ext_capa_ap,
- 		.extended_capabilities_mask = if_types_ext_capa_ap,
- 		.extended_capabilities_len = sizeof(if_types_ext_capa_ap),
-+		.eml_capabilities = IEEE80211_EML_CAP_EMLSR_SUPP,
- 		.mld_capa_and_ops =
- 			FIELD_PREP_CONST(IEEE80211_MLD_CAP_OP_MAX_SIMUL_LINKS,
- 					 MT7996_MAX_RADIOS - 1),
+> -----Original Message-----
+> From: Rob Herring <robh@kernel.org>
+> Sent: Friday, August 29, 2025 10:07 AM
+> To: Shenwei Wang <shenwei.wang@nxp.com>
+> Cc: Bjorn Andersson <andersson@kernel.org>; Mathieu Poirier
+> <mathieu.poirier@linaro.org>; Krzysztof Kozlowski <krzk+dt@kernel.org>; C=
+onor
+> Dooley <conor+dt@kernel.org>; Shawn Guo <shawnguo@kernel.org>; Sascha
+> Hauer <s.hauer@pengutronix.de>; Linus Walleij <linus.walleij@linaro.org>;
+> Bartosz Golaszewski <brgl@bgdev.pl>; Pengutronix Kernel Team
+> <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>; Peng Fan
+> <peng.fan@nxp.com>; linux-remoteproc@vger.kernel.org;
+> devicetree@vger.kernel.org; imx@lists.linux.dev; linux-arm-
+> kernel@lists.infradead.org; linux-kernel@vger.kernel.org; dl-linux-imx <l=
+inux-
+> imx@nxp.com>
+> Subject: [EXT] Re: [PATCH 1/4] dt-bindings: remoteproc: imx_rproc: Add "r=
+pmsg"
+> subnode support
+> > > >
+> > > > All remote devices associated with a given channel are defined as
+> > > > child nodes under the corresponding channel node.
+> > >
+> > > How is each channel addressed? Are they really grouped by type first
+> > > (i2c, gpio,
+> > > etc.) then an address within the group? Or is there some flat channel
+> numbering?
+> > > If the latter, then the addresses in the DT shoulc match the channel =
+number.
+> > >
+> >
+> > Yes, the channels are grouped by type and identified by unique channel
+> > names assigned by the remote processor.
+> >
+> > The RPMSG bus dynamically assigns addresses to each channel at
+> > runtime. Because these addresses are not static, they cannot be pre-def=
+ined in
+> the dts.
+>=20
+> But you did define addresses. How do you know which channel 'gpio@1'
+> corresponds to if RPMSG dynamically assigns addresses?
+>=20
 
----
-base-commit: 035ba65d13516fa2afa78203ba3ef54fd70584af
-change-id: 20250830-mt7996_ap_eml_capa-32a839eba9f5
+The remote devices within the rpmsg channels use pre-defined addresses spec=
+ified in=20
+the DTS. For example, the gpio@0 and gpio@1 nodes represent devices inside =
+the=20
+rpmsg-io-channel, each assigned a unique address within that channel.
 
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+The rpmsg-io-channel itself does not have a fixed address, as its address i=
+s dynamically=20
+allocated by the RPMSG bus. Therefore, we only use the unique channel name =
+here.
 
+            rpmsg {
+                     rpmsg-io-channel {
+                             gpio@0 {
+                                     compatible =3D "fsl,imx-rpmsg-gpio";
+                                     reg =3D <0>;
+                             };
+
+                             gpio@1 {
+                                     compatible =3D "fsl,imx-rpmsg-gpio";
+                                     reg =3D <1>;
+                             };
+
+                             ...
+                     };
+                     ...
+             };
+
+Thanks,
+Shenwei
+
+> Rob
 
