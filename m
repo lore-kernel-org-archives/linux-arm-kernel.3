@@ -4,69 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E834CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 11:06:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F8DDCA0FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 11:09:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D2l/6/ioKKJ7XV5ft82XnPBC3zpxKpF6lmBFY8Do/UE=; b=2HPJZRloeEgGjwppsDllMGjevK
-	/ymTHyZIpmiZ88MGWgP5Z9dC3uviBnN9XVcuJ5U+yo8JCPI4GLCPfwKBPkQr6VN/tS/Q741H5DI/z
-	3XqY2vDd0xLZeX/M+W6mUw/Yc2h78wMP8GaMoQnNM7w+li7vleSPXnT4w1iQ5NxGfFqLH3+gXNynZ
-	DKMTUL9PN87gGaCptGME8Fr++lyEUG965xbzl2cqNhiaEqKe+vYYYy9BCepZ7jIpBdaSV3XSjHxdI
-	JefR8+ZnMd3ErHx+7znVis8XLUjW++kdpwE74oPwVTSOEuE+KY78TKEsZYPi2mSUDvZWs/d01e5Gz
-	n+n/q5JQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=y6eUtUQ02u5rezVEVOgcTxRprhXqjnk3WqB6i5j0+DI=; b=SRqvnTnRtwRTvCr5gsbr0CSr0A
+	8Ycna1BH/hCo+RIo67EK8ySFrs18o8zzEmr30vxotIf+eYTsz3+DlVnsGF7XV1nOf1rhRGFdCZTj6
+	6NhBcMI4jTfEALTVjFo84/PFU89qG1bOBJIti3qGJNxEutKnobZsZo6f3etR8jClbS4fx3fePgy1v
+	0P4ovsNOtu3zBUVqL/DwVdC0IeWmy6pc4NIZ6T93x/lCUrrBDigq1Rz43KEP2Qj1snX4/YwQJiGKc
+	4nk9VqnAzcfbJ7rln7VDd5scuHL4TVmP+cgYawB185PwWxHqA7PWKww71RknynT/43u9Gp12UAERx
+	f0FjNxIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usJQ2-00000007maT-0rWm;
-	Sat, 30 Aug 2025 11:06:50 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1usJSl-00000007mqc-1ue6;
+	Sat, 30 Aug 2025 11:09:39 +0000
+Received: from out-183.mta0.migadu.com ([2001:41d0:1004:224b::b7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usJ0U-00000007kxD-1Hgj
+	id 1usJOl-00000007mSn-3bn9
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 Aug 2025 10:40:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 677CC601AB;
-	Sat, 30 Aug 2025 10:40:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBFFBC4CEEB;
-	Sat, 30 Aug 2025 10:40:20 +0000 (UTC)
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Kevin Brodsky <kevin.brodsky@arm.com>,
-	Kees Cook <kees@kernel.org>
-Cc: Will Deacon <will@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Yue Haibing <yuehaibing@huawei.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
+	Sat, 30 Aug 2025 11:05:33 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1756551927;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=y6eUtUQ02u5rezVEVOgcTxRprhXqjnk3WqB6i5j0+DI=;
+	b=dsyx5OLaLkbGBVOV2cA+VO323Uaoo28CF7YowEEWLL1EjbStcsce8x4ke/e+jbvOo4uQBb
+	IfWce4okynDccVnJ4+9cRL2wmuIpzvEnC4jVdtTxUBNPYULxpwPrlSmWYZcLOXJXp4cGTj
+	aZeUNFxEevxjH2FacO90OYwhw26VAoI=
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Fedor Pchelkin <boddah8794@gmail.com>,
+	"Christian A. Ehrhardt" <lk@c--e.de>,
+	Al Viro <viro@zeniv.linux.org.uk>
+Cc: Thorsten Blum <thorsten.blum@linux.dev>,
+	linux-usb@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	James Morse <james.morse@arm.com>,
-	Hardevsinh Palaniya <hardevsinh.palaniya@siliconsignals.io>,
-	David Hildenbrand <david@redhat.com>,
-	Zhenhua Huang <quic_zhenhuah@quicinc.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Dev Jain <dev.jain@arm.com>,
-	Yicong Yang <yangyicong@hisilicon.com>,
-	linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: mm: Fix CFI failure due to kpti_ng_pgd_alloc function signature
-Date: Sat, 30 Aug 2025 11:39:33 +0100
-Message-ID: <175655035973.1114907.7025015988406384082.b4-ty@arm.com>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250829190721.it.373-kees@kernel.org>
-References: <20250829190721.it.373-kees@kernel.org>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] usb: ucsi: stm32: Use min() to improve ucsi_stm32g0_fw_cb()
+Date: Sat, 30 Aug 2025 13:04:20 +0200
+Message-ID: <20250830110426.10007-2-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250830_040532_394774_0EC2D8A3 
+X-CRM114-Status: UNSURE (   8.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,25 +74,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 29 Aug 2025 12:07:25 -0700, Kees Cook wrote:
-> Seen during KPTI initialization:
-> 
->   CFI failure at create_kpti_ng_temp_pgd+0x124/0xce8 (target: kpti_ng_pgd_alloc+0x0/0x14; expected type: 0xd61b88b6)
-> 
-> The call site is alloc_init_pud() at arch/arm64/mm/mmu.c:
-> 
->   pud_phys = pgtable_alloc(TABLE_PUD);
-> 
-> [...]
+Use min() to improve ucsi_stm32g0_fw_cb() and avoid calculating
+'end - data' twice.
 
-Applied to arm64 (for-next/fixes), thanks!
+Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+---
+ drivers/usb/typec/ucsi/ucsi_stm32g0.c | 7 ++-----
+ 1 file changed, 2 insertions(+), 5 deletions(-)
 
-[1/1] arm64: mm: Fix CFI failure due to kpti_ng_pgd_alloc function signature
-      https://git.kernel.org/arm64/c/ceca927c86e6
-
-I added the acks from v1 directly as there's no change.
-
+diff --git a/drivers/usb/typec/ucsi/ucsi_stm32g0.c b/drivers/usb/typec/ucsi/ucsi_stm32g0.c
+index 57ef7d83a412..838ac0185082 100644
+--- a/drivers/usb/typec/ucsi/ucsi_stm32g0.c
++++ b/drivers/usb/typec/ucsi/ucsi_stm32g0.c
+@@ -10,6 +10,7 @@
+ #include <linux/firmware.h>
+ #include <linux/i2c.h>
+ #include <linux/interrupt.h>
++#include <linux/minmax.h>
+ #include <linux/module.h>
+ #include <linux/platform_device.h>
+ #include <linux/unaligned.h>
+@@ -523,11 +524,7 @@ static void ucsi_stm32g0_fw_cb(const struct firmware *fw, void *context)
+ 	data = fw->data;
+ 	end = fw->data + fw->size;
+ 	while (data < end) {
+-		if ((end - data) < STM32G0_I2C_BL_SZ)
+-			size = end - data;
+-		else
+-			size = STM32G0_I2C_BL_SZ;
+-
++		size = min(end - data, STM32G0_I2C_BL_SZ);
+ 		ret = ucsi_stm32g0_bl_write(g0->ucsi, addr, data, size);
+ 		if (ret) {
+ 			dev_err(g0->dev, "Write failed %d\n", ret);
 -- 
-Catalin
+2.50.1
 
 
