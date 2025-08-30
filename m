@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1C60CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 11:54:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FCD4CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 11:57:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GokYqYG+lmT2oxJ+O2O4SIepQEUsvS6Oqvc1Ps5nstE=; b=VIqHUkOoMNsgVjAa6Uo49DujEL
-	xQeVbZUcWy9OgDQr7JM7NgQyAfMIcxe0xcmVjNG277saAA25B1UbhIo956wFGZA8xaKtZK6sanbOt
-	UYAesXQaMq7tNGMla4O/vXY2kB3MYgWVDiXi+XPMb57xSWQI0TTIcYVYPv+A7BhUsFpG/6Lj/bg+E
-	JQMJxeY12g4iyqG/bXldhcb8jT4gWPTdi1rZZ7CgZGZQ+oI0SiPVJogwUUsgABwiRqZqjeF37Up3c
-	CzGDpOiwRFo39gn8BaPETNhuvpMxV/Ahsfct+aSCflpmTgS8SqKZYevJxruEpuFGT/+DUd/YqA6Kw
-	h1m+1rgQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=je5dBrj3vm985BEWP7xJBvRk6bSW3/nDeB6FvhlFHgM=; b=xDgHQZzLndrBylNdcl3mWjt0/C
+	zr0KjMsy3kvZKkruUVpnDW9stL0qLgZGH7tjEMxuRRwKyBz5m3M0q/MdbgOFJgjkurERHxnKCZxEw
+	+IwixiDMw9cahl2qOIGizh6uOBXyW6ajzkH1ZN96GPBkTvqB/wx3DKPdJMG4mQPteYjjEieVOiZY7
+	TdRgnYjov43sfvzv/pFLVPeN1woaaTKElI80DUnKw803BG7cNa5MYrWL7nQytPnAtEOQ6LdEpNDeL
+	UU7C+VeTg2uShbO3MBrSvoCXhwM9ps9nRCyC5pLKGD8miIoqeuL4kyYXV2caem86Q0N+rukZmEyC5
+	IyF4jcZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usKAA-00000007pxo-2AGa;
-	Sat, 30 Aug 2025 11:54:30 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1usKCt-00000007q70-3SQS;
+	Sat, 30 Aug 2025 11:57:19 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usK7R-00000007pqn-1Xcr;
-	Sat, 30 Aug 2025 11:51:42 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3cbb3ff70a0so1779730f8f.2;
-        Sat, 30 Aug 2025 04:51:40 -0700 (PDT)
+	id 1usK7T-00000007pr8-0IGU;
+	Sat, 30 Aug 2025 11:51:44 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-45b82a21e6bso8437175e9.2;
+        Sat, 30 Aug 2025 04:51:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756554699; x=1757159499; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=GokYqYG+lmT2oxJ+O2O4SIepQEUsvS6Oqvc1Ps5nstE=;
-        b=Imk7RHZznvnV2+nuY/X+Hst8A/IGzSmADayxEnr5N6ZyS7TnPtSGd+qv2t90OrxD7/
-         KNtm0QffEYyl+t4njYGPC8biO8c9mTNeD6ImMtw3w/rcXtL/z/eEtZZHL2HxtquSjDRr
-         TQIMN2z9riC2LohPDaJDhWgGSH8CTljvGwrx6wSZ13ql7fbkz9LqtbwLgs2LD6OAFCMK
-         8t61t0iIRldASo5TiJbJ8wMS83h03yhhcBkWvGSGFHHJi3/79wruFQvIHbpGvKjpAP9I
-         g8v435QD3XuJM9w/d0DK8UKZvVNXNw6V4MmWwMwmakoKGIbPNRuIyEwbsBYIWhn8g3l+
-         Ij5Q==
+        d=gmail.com; s=20230601; t=1756554701; x=1757159501; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=je5dBrj3vm985BEWP7xJBvRk6bSW3/nDeB6FvhlFHgM=;
+        b=TOxez2IsMaq/nCm+kQ4bw9xu3WPuUwpr8CR8ZpAEfEVB6xTJbEjR4lZ2ua3VD+LcR9
+         2HJxpnrf5wa9keoqh7+4/Lh4JVMOfiMiEA8DkDL8Vc32Osc7nm+TE9Yn014xGv9znl5H
+         u6wGLnP91zi9UTeefjGlYKduVE7B31jKaMPBlenmRyt3gGlQxXR4EErF2unCL93qHkcU
+         5CopKZ74HDmmDjM7lc5Nk+VbaS9mAVQfFsOzIMpzwwFC3MF2804GcN1ml0abmfldpGhK
+         qcWXIBSgMT4qISkUG6RTqAyyp8hGpU4cn8npE4Hp9mectn/v4QWMTMaoS+VwFHKiiDk2
+         rjVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756554699; x=1757159499;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=GokYqYG+lmT2oxJ+O2O4SIepQEUsvS6Oqvc1Ps5nstE=;
-        b=kV9OXWfwR3wBQfBrBmDjYSsSnlbcb5J6OGlGKNj/f0s1a5S1jhdxqginEf97cIR+B6
-         4PaG0GLhskX+Dcm+/APzpXkTr0Xs82giA1n6NGIQE9372uL7QdZ91DIKDkYFBpHw5nxd
-         /kQJWsmZQA2deaBpKjQeII9gQzXV5ftuHLcJf+ZCMmmSgXCF/8qdjRQwAA0X3oqVhIEw
-         AmfPiwVXwyo3Xnru84M5RDpg6dFt3QdkXKEZlgLd1wQ86bU9TJxwvz6En88oe4Ymtgf/
-         1yafxvhFcFvEQr/aqp8RlYbM4aZRIvdxbXMAnYsQFcyOZY3KHBvHZWCx8guiWGCMu9UE
-         7b1w==
-X-Forwarded-Encrypted: i=1; AJvYcCVc3YZRFwyuljGAoGyg3ZRg6cAyk3AfhBU/TNNCmKoGLMt4q9EMxVeAewK3XzIpdGvw4KiWAf4szDuxQiK/0fr6@lists.infradead.org, AJvYcCXSPPjY2ngYXpF/WilzUvU0AR82WpXOagbvLCqWthOEl6MNhdE0MyNrM6X23GNWiS6PcAtmibEt9OxlQfDH6Ak=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+b8eAZf0qk2hrB1yxJqmFxqT7wVwT8B0Fb2qiD7BzMwIUpQEf
-	xstpvY1ijed8pLToJ/JYEtR8M0IXYjyq289LI3y4vW3bGvR19miSSVTo
-X-Gm-Gg: ASbGnctPY63TGpbzmubMkJK25otSlT1bihxavbvwA1Bh2Q2E7f6ovfW2dL0phNUnkfR
-	n1Z8mhcwvRL5Z4O6+9f0NSe++s6mDiVCKakK9d6pKRbg4Ep/pqP1ByMVMotfAOZXVhe5lNTbWBT
-	jhnCKawtgxeMhaXumSHW4rjxRa9HwefHo/cyppcY9FrGfp+4BbE00Xq4ZaTtV6zILtQleKRZxsg
-	OrzBrjwZmFyrEN4FUy8L7vWB5YOwxji3ZwK0ESH6dkkO5ZOnjxU8JJqvCi5+1XCoafd6isgVBOJ
-	if4QDPDiq4Prk5MROAxIeg/LKqFzpUMtm5cpoRyNxTHLFdrViIl6zAKHqrCrbqx39+s6e7nTZxX
-	dlJvbYCjzvgUdPqG0IkNF821AoeucFYCyut8Hwg==
-X-Google-Smtp-Source: AGHT+IHyb14KPLvEBP1uzF4N+Mv+SwihHqssUNY/21QMVDEC/beh+sytji1kJH6KwbNaJwZlIJr5gg==
-X-Received: by 2002:a5d:5d10:0:b0:3d0:ebf6:90d2 with SMTP id ffacd0b85a97d-3d1e01d5561mr910309f8f.43.1756554699143;
-        Sat, 30 Aug 2025 04:51:39 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1756554701; x=1757159501;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=je5dBrj3vm985BEWP7xJBvRk6bSW3/nDeB6FvhlFHgM=;
+        b=n6iwW8Ws7Ogk19gaDRYyyY61R+4KoRbNh59YivwWqd2bewkGUxv6Gq3yHp7xIg3b5T
+         35WnW2WOCwl4XkPj2E5vtPAfcu9P7SAdrHD3d7XCFAJkq5/AgLbIkHbBwQ77tbcEtb6O
+         FjM+RvuphnRngdKj5aJbe79oSkPD4//D0xn+3akTycsBDSDQsgs3rcxNlecea7T6XS5L
+         DpJKyklrtlm4l3jDoNgLmcH/7bWuhtEdc3fTBi+VrxSBCgp83xkiDXeWz/EsnSXdY3E4
+         02e/fqu7KCelo00QUi0+GgqJ32BDVjaeTAoU/yPVfWq0JEDXV2ihiEvGORH/yrkBW3lw
+         NPDw==
+X-Forwarded-Encrypted: i=1; AJvYcCVrzEZAPZqkXK3ZT9g32cXp6WytQ7mmRQM45MMxn0Nk10S1UDLdzYN3mHd28BP3bTV45BJl9jC1pAUBUwtyei/F@lists.infradead.org, AJvYcCVsUUpqeSzDPV1sodMPDHhKJdAkSfO/WP4vz226/PgXSRNS1jwbnf6dN4jVC9jeB1mnP/oyDwnFCzkfUcqriuA=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzpvTn2kWNmZO4ZdlAsFSN8gw3v8yzP511Jd1WrYBQU8lyfWEXE
+	kKAvp59Q+cjwOb6b18GExv+z2sfgS4hfC8X9sD6XzztSiKHb1wff/6i5B+TbTuza
+X-Gm-Gg: ASbGnctGTwh7k96IQv1HYTfvDSiygMprglyp+4foQ4a5lcwDYoKVZPR6eJOtTWcPFpr
+	7F1y3CSZI1waj1o0oC8px9Q4QY+KXyaQv1vXFthEsxXfiyEGggTklwPXeC9nc+1yncCKj/d10Lk
+	plzRkSrVBwkjraPGrUl4oqfbLM9k8fBBf9F8o7mPpWuyXZlgZf2ZoSpmRxnRygU/bxu5nIF8rCa
+	K5tbYfn0TQ7mH1A3ns8YQlRAbYBDkqFxKp7JFVYZbAhNDa7SQVaZqyV4JZ0LCk4omvczReBGAUS
+	IugYhOOVqveSC9R0CCuFkVDjJFA2wNV2QLeQLKvt1Qc2E3iio+pivSAdHT4LXjZzhnqLycrLR4O
+	s9ks3J0cfuKSZJhYTSaVLlC+i/fR6x6ryBn3Dtg==
+X-Google-Smtp-Source: AGHT+IGGvKDGAltmu1fh2shx8QY2vgKaepr59Vv01ZMlUK3ev4dZ878EJwGDNjdAFH+LHASm8Pr2+g==
+X-Received: by 2002:a05:600c:3b9d:b0:45b:7b00:c113 with SMTP id 5b1f17b1804b1-45b8553f25fmr11981225e9.2.1756554701360;
+        Sat, 30 Aug 2025 04:51:41 -0700 (PDT)
 Received: from toolbox.. ([87.200.95.144])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b732671b7sm68161555e9.3.2025.08.30.04.51.36
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b732671b7sm68161555e9.3.2025.08.30.04.51.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 30 Aug 2025 04:51:38 -0700 (PDT)
+        Sat, 30 Aug 2025 04:51:41 -0700 (PDT)
 From: Christian Hewitt <christianshewitt@gmail.com>
 To: Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -77,15 +78,17 @@ To: Rob Herring <robh+dt@kernel.org>,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org
 Cc: Alex Bee <knaerzche@gmail.com>
-Subject: [PATCH 1/2] arm64: dts: rockchip: add GPU powerdomain, opps, and cooling to rk3328
-Date: Sat, 30 Aug 2025 11:51:34 +0000
-Message-Id: <20250830115135.3549305-1-christianshewitt@gmail.com>
+Subject: [PATCH 2/2] arm64: dts: rockchip: enable the Mali GPU on RK3328 boards
+Date: Sat, 30 Aug 2025 11:51:35 +0000
+Message-Id: <20250830115135.3549305-2-christianshewitt@gmail.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250830115135.3549305-1-christianshewitt@gmail.com>
+References: <20250830115135.3549305-1-christianshewitt@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250830_045141_413129_18942FBE 
-X-CRM114-Status: GOOD (  12.79  )
+X-CRM114-CacheID: sfid-20250830_045143_109765_F8096DFA 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,91 +105,67 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Alex Bee <knaerzche@gmail.com>
 
-Add GPU powerdomain, opp-table, and cooling map nodes for the Mali
-GPU on the RK3328 SoC. Opp-table frequencies are sourced from the
-Rockchip Linux v4.4 vendor kernel while voltages have been derived
-from practical use and support work: keeping voltage above 1075mV
-and disabling the 500MHz opp-point avoids instability and crashes.
+Add a gpu node to the rock64 board to enable the Mali GPU and
+move the existing node from roc-pc to the shared roc dtsi to
+enable it also for the roc-cc board.
 
 Signed-off-by: Alex Bee <knaerzche@gmail.com>
 Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
 ---
-These changes have been in-use with Armbian and LibreELEC for many
-years without issue. Investigations into crashing (esp. with rkvdec
-running) have led to voltage tweaks and dropping 500MHz. Changes
-cannot be justified in technical detail, but are field proven over
-a large number of users, boards, and cheap power supplies.
+Note: the a1 board already carries the same change. All other
+RK3328 boards appear to be headless designs that have no HDMI
+or obvious media capabilities, so no need for a gpu.
 
- arch/arm64/boot/dts/rockchip/rk3328.dtsi | 39 +++++++++++++++++++++++-
- 1 file changed, 38 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/rockchip/rk3328-roc-pc.dts | 4 ----
+ arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi   | 4 ++++
+ arch/arm64/boot/dts/rockchip/rk3328-rock64.dts | 4 ++++
+ 3 files changed, 8 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3328.dtsi b/arch/arm64/boot/dts/rockchip/rk3328.dtsi
-index 7d992c3c01ce..b99c78ecc4a9 100644
---- a/arch/arm64/boot/dts/rockchip/rk3328.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3328.dtsi
-@@ -331,6 +331,11 @@ power: power-controller {
- 			#address-cells = <1>;
- 			#size-cells = <0>;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3328-roc-pc.dts b/arch/arm64/boot/dts/rockchip/rk3328-roc-pc.dts
+index 329d03172433..c0b7b98ff788 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3328-roc-pc.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3328-roc-pc.dts
+@@ -44,10 +44,6 @@ &codec {
+ 	mute-gpios = <&grf_gpio 0 GPIO_ACTIVE_LOW>;
+ };
  
-+			power-domain@RK3328_PD_GPU {
-+				reg = <RK3328_PD_GPU>;
-+				clocks = <&cru ACLK_GPU>;
-+				#power-domain-cells = <0>;
-+			};
- 			power-domain@RK3328_PD_HEVC {
- 				reg = <RK3328_PD_HEVC>;
- 				clocks = <&cru SCLK_VENC_CORE>;
-@@ -570,9 +575,13 @@ map0 {
- 							 <&cpu3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
- 					contribution = <4096>;
- 				};
-+				map1 {
-+					trip = <&target>;
-+					cooling-device = <&gpu THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+					contribution = <4096>;
-+				};
- 			};
- 		};
+-&gpu {
+-	mali-supply = <&vdd_logic>;
+-};
 -
- 	};
+ &pinctrl {
+ 	ir {
+ 		ir_int: ir-int {
+diff --git a/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi b/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
+index aa1d5a6d7fd5..3fe0c17fd2b1 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3328-roc.dtsi
+@@ -167,6 +167,10 @@ &gmac2io {
+ 	status = "okay";
+ };
  
- 	tsadc: tsadc@ff250000 {
-@@ -651,7 +660,35 @@ gpu: gpu@ff300000 {
- 				  "ppmmu1";
- 		clocks = <&cru ACLK_GPU>, <&cru ACLK_GPU>;
- 		clock-names = "bus", "core";
-+		operating-points-v2 = <&gpu_opp_table>;
-+		power-domains = <&power RK3328_PD_GPU>;
- 		resets = <&cru SRST_GPU_A>;
-+		#cooling-cells = <2>;
-+	};
++&gpu {
++	mali-supply = <&vdd_logic>;
++};
 +
-+	gpu_opp_table: gpu-opp-table {
-+		compatible = "operating-points-v2";
-+		opp-200000000 {
-+			opp-hz = /bits/ 64 <200000000>;
-+			opp-microvolt = <1075000>;
-+		};
-+
-+		opp-300000000 {
-+			opp-hz = /bits/ 64 <300000000>;
-+			opp-microvolt = <1075000>;
-+		};
-+
-+		opp-400000000 {
-+			opp-hz = /bits/ 64 <400000000>;
-+			opp-microvolt = <1075000>;
-+		};
-+
-+		opp-500000000 {
-+			/* causes stability issues */
-+			opp-hz = /bits/ 64 <500000000>;
-+			opp-microvolt = <1150000>;
-+			status = "disabled";
-+		};
- 	};
+ &hdmi {
+ 	status = "okay";
+ };
+diff --git a/arch/arm64/boot/dts/rockchip/rk3328-rock64.dts b/arch/arm64/boot/dts/rockchip/rk3328-rock64.dts
+index 5367e5fa9232..592fd8ca21df 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3328-rock64.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3328-rock64.dts
+@@ -152,6 +152,10 @@ &gmac2io {
+ 	status = "okay";
+ };
  
- 	h265e_mmu: iommu@ff330200 {
++&gpu {
++	mali-supply = <&vdd_logic>;
++};
++
+ &hdmi {
+ 	avdd-0v9-supply = <&vdd_10>;
+ 	avdd-1v8-supply = <&vcc_18>;
 -- 
 2.34.1
 
