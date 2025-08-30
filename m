@@ -4,155 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E08FFCA0FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 01:54:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE761CA0FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 03:13:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=43JahB/w4Q9qr3p194NSk9uDBkqDfwBgTH71oZZD5dE=; b=Up+XT1PDpUVfeBqiuHFhDn60ta
-	makv+kyF5c7twSUgEZQzJg91iAxT8DJHHf/N7zLliEJPsXvHF7NexGsTw5m1fZkkSiELBc0CqjRER
-	WduiIeYpFVFwfinNXCmbtqbfySIk+Xq2iCf3mqVZooT3rmA/1LdYPNX5yeptEWIpv9Hr8elh2IgxS
-	GSYSrjQ28s+gwlmL5H5M8EDGTnZsrLrWurUW4qmdh1AEK/Jn8uZiIyfu7+1mlXwS7eHPo8fzFWs4h
-	dA+fDI7zqeuwvxo388IRh0GvMvMQDyZMCD4pCUZ6pg/hX0SzUKKFuhOh2/iI45GPqUgRC1xHxbvTn
-	XWhoAO+g==;
+	bh=HHWzcrLEfsdSNs2MHMZ9l6wvzjV+VwxYhrV+RK6//AU=; b=PLBEPvdUCBtq/OoSEAnwNK8Fge
+	caDUPylJ4kttu/AUH2SAkUstRAPd/95sPjQLRFystPOCUAyZe/IpbkI5oIA/mN3lILo+vmLl5kMoe
+	dWQ6tl8mE6CxmuQfmbcoJJAOCq40IVpUc6Tkm6+mLyuTS38qRziDDdoOj0XOtWP7XluUQ/ZUyh00i
+	GuMWCUWtEFdE5L3SJm20aEumfYb/t2ZinaVxZUwCTxeA/ARvQbgmS0IX9VCAb/V3cj2LJaJJeaN8J
+	cH4GMplrTaVYweyiRLnWX0kqNGsTPgAwzZoh9aJ0FKAuWBQJ7UV3ZiT8WEVnekvXpdriyVDLXzRdq
+	ocOTyAHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usAnE-00000007IuU-2lLk;
-	Sat, 30 Aug 2025 01:54:12 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1usC2D-00000007N4M-1ONG;
+	Sat, 30 Aug 2025 03:13:45 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us9NG-000000074bb-3Pxk
+	id 1usBzR-00000007MwW-3Vsn
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 Aug 2025 00:23:20 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57TKfaTw028429
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 00:23:18 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	43JahB/w4Q9qr3p194NSk9uDBkqDfwBgTH71oZZD5dE=; b=fyLAuIR1IcILuZsH
-	jXu6O6Tque4rEy2YIcJd6RPskLnjiWIEb9VXBaFQ1RRRXB3BKrVXss+Z5saHca8h
-	fTx9wZEvMFFI4CXX18xMZKtM1FEee6O4g427IzKzZfnLQn5pEHVagJ/kYSJeYMC0
-	rcOseGW9ufIJtlUNi4HD3Zaj/K48YG94k7GkgD2dg0rcwt4+6xyrqtDegL0JFdS4
-	D4fMry66nEU0aNHxptwvqrsoOyzNCTCHtb0cKTQMkn2GedJvvIeiwn7b0WlMth1u
-	i2LqJ8buj3UBuTQIsshr2yuD8pxGZKrnZZ86ysanf7BfphgLZ/aZIbD6W3hycpJC
-	d2ITiA==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48tp5k546p-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 00:23:18 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-4b109affec8so54201821cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 17:23:18 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756513397; x=1757118197;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=43JahB/w4Q9qr3p194NSk9uDBkqDfwBgTH71oZZD5dE=;
-        b=ISYEnGUWvVWe9oxc7y8/2o4RLTHz2EXZX+ntsAUpJHdigwcxFzs9NnFkbPWixVkUpK
-         YpSxeUvij/xvb8PBhgagEjYfr+EJPpjNLDBeNJibegGUuLGvYnucF81o9uRDHYAS4hAy
-         t0E8VeUtIG/UOCfib3ZfogRHcnl4k/jFP/1jJOiXpYE33zkHmZpfKf1mKQ6m88QrxaKA
-         MJDX0qH82VLDpIHkxenXqHsxwHTrTtsmR95spHTevAsW1ma6gQFuV8/KnWWJFUgNweoQ
-         Z9HhK3EOyisvxX84qlj+5RFj0DPZ9StlGEvsDuD6u7wFe27/cMC58//AAVqbmo/4rdu1
-         j5fQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXVRuS56fZdU1AD8B0MfawE+SNXvAKuLj1CGLQRNOu3dKz9cFWxQece62ArSY3wu6f6/KkHAW9ayyLMIDMLinas@lists.infradead.org
-X-Gm-Message-State: AOJu0YwEqJok1ZtkAqgt4mNYROd+N6gOvH8A9MVPIPaWnMIe9E2bP8Cj
-	b6AlznKDS3o5qT/uSZChj1cUMmA6YQsGizqT5R5v+zc/84/HmlEMWt78G1Wq4tGF0PcGJGpTrYu
-	Fjph32NLNoZikKAJAepIzuBIl1++QzWBZKBbgJvk6xKHD4lnqyrZEp6e1byjIiRleXuJo4hBLZb
-	PiRA==
-X-Gm-Gg: ASbGncvwBLtbB0OZyooz+1qrcAQqOVAGmzha4ylYbQj2NqvE+2H78wvb4/s/ipXP6T9
-	pY1fbUYGq70I1D+AaWulRuEW8y/HW+RRkkEqnxvaw6Soc9leTt/Su+GF6kzbYAj9euzu6ELV41J
-	ANbN7NkTMK6hhKRvuwdnmeGfRNslbmQ/6xb+4yJjImf7gu1eG7GrH0Y413KmOeH2T9ICi2ZX8Wl
-	QgTcyH+hXQ+zGqoMVjeKiagetXabsvLWLM7QMDAzK+AZgVjiO+RpydNHsSaLOwInSqiNpEW9pOx
-	iqy8gR7wED+T2cuyACrWerRuWdzj+HYDGiYTZ7SEp9UiJpKpEEdBxq2xoOUfIybqvHJA1x4tQ+/
-	2QZ2CD9U7f33hPnxtlIwLbQcgp/K3hv2NVzrGTBMpd7XeRF3enEfW
-X-Received: by 2002:ac8:5d14:0:b0:4b3:104:792c with SMTP id d75a77b69052e-4b31dd03c17mr6899011cf.57.1756513396981;
-        Fri, 29 Aug 2025 17:23:16 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE4oJ6O6HUL3QeLNimMJy0MJ4h9jyGyWC0EDFCrFCF4+QEafGCozsLgZkA63r60xpdo27y8Fw==
-X-Received: by 2002:ac8:5d14:0:b0:4b3:104:792c with SMTP id d75a77b69052e-4b31dd03c17mr6898491cf.57.1756513396484;
-        Fri, 29 Aug 2025 17:23:16 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55f676dc52esm1019907e87.8.2025.08.29.17.23.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 Aug 2025 17:23:15 -0700 (PDT)
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Date: Sat, 30 Aug 2025 03:23:03 +0300
-Subject: [PATCH v3 07/11] drm/rockchip: rk3066: declare supported
- infoframes
+	Sat, 30 Aug 2025 03:10:55 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.254])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4cDKrn30S9z14Mdq;
+	Sat, 30 Aug 2025 11:10:33 +0800 (CST)
+Received: from kwepemo100013.china.huawei.com (unknown [7.202.195.244])
+	by mail.maildlp.com (Postfix) with ESMTPS id 8AA25180491;
+	Sat, 30 Aug 2025 11:10:41 +0800 (CST)
+Received: from [10.67.120.83] (10.67.120.83) by kwepemo100013.china.huawei.com
+ (7.202.195.244) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Sat, 30 Aug
+ 2025 11:10:40 +0800
+Message-ID: <142957c5-64c2-47cd-846f-6ff0654aa3b7@h-partners.com>
+Date: Sat, 30 Aug 2025 11:10:40 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250830-drm-limit-infoframes-v3-7-32fcbec4634e@oss.qualcomm.com>
-References: <20250830-drm-limit-infoframes-v3-0-32fcbec4634e@oss.qualcomm.com>
-In-Reply-To: <20250830-drm-limit-infoframes-v3-0-32fcbec4634e@oss.qualcomm.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Sandy Huang <hjc@rock-chips.com>,
-        =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
-        Andy Yan <andy.yan@rock-chips.com>, Chen-Yu Tsai <wens@csie.org>,
-        Samuel Holland <samuel@sholland.org>,
-        Dave Stevenson <dave.stevenson@raspberrypi.com>,
-        =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
-        Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-        Liu Ying <victor.liu@nxp.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
-        Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev,
-        linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1590;
- i=dmitry.baryshkov@oss.qualcomm.com; h=from:subject:message-id;
- bh=/A/l0DP2POBzFZyyzIjBAuem9l4ed0fHlnMMJOHp1Ss=;
- b=owGbwMvMwMXYbdNlx6SpcZXxtFoSQ8YmlxT5296sO5kLeZM2n3p1M+/z9QjmgHnJS6tXfjsTZ
- fvOL6auk9GYhYGRi0FWTJHFp6Blasym5LAPO6bWwwxiZQKZwsDFKQATOb2Z/Q+H+Z4t1z+UTCpr
- ihGM63rdtftGwUyFjQpvlqzSYNPI4bvaq+/7ZDU3T0azBUvytver33ccXfDWvORvXfD7mddcUs1
- rdH/aTFs4xc1r74unr3IzNjDwTfGbMbPZ58gS530c7UarUzolFvoH+lVVF8XFy2R2N7a8VnnTHC
- T75EnMTp/5a89vdik/E+p7tWh7meDOLXOY2Bs3yhR+11XR85kcUh4b01V8bMaTK3xmvwSmsraty
- zf/m3cqesWWcKuS9a3J4loOd/nvpDOf8xd8VLA277VoHkeaSdYEX4Gq2q41y69v2JuwNbesx7s3
- smeXjsQmySCPlfze9gs0C97zHYvj/M8WuO7ctByN+ervAQ==
-X-Developer-Key: i=dmitry.baryshkov@oss.qualcomm.com; a=openpgp;
- fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
-X-Authority-Analysis: v=2.4 cv=V9F90fni c=1 sm=1 tr=0 ts=68b24476 cx=c_pps
- a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=2OwXVqhp2XgA:10 a=8AirrxEcAAAA:8 a=EUspDBNiAAAA:8 a=xyXfUSUFIH5c4GhWOVcA:9
- a=QEXdDO2ut3YA:10 a=dawVfQjAaf238kedN5IG:22 a=ST-jHhOKWsTCqRlWije3:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODI4MDA5NSBTYWx0ZWRfX0JeLeeEbeRCq
- cISvUWFwzm89LaU10JcR+EDsUPqHfnz8vyJL54ZRamK93MTNxkRWbbcsESXVcS2ylyWuckwPyEP
- iJQ8haY1QsSZDtBPJFdA8Mf+OK9MYEIpMnvRV+pbwDC0Q5fBO7cEca8rdYUmViayaAxrTQgC21P
- z7zxUv0K2fcT1ETlUx9GZurEMuArvPssMh8MEUVnCFu0G5AwxNPnC7NvgZymzEVB3jobp9vJRQV
- /6Gb1VRscUHVrHYgyu+awS3y8AYhPQOonKaMAxE9K9WCOypG1KcKvpe2R1yu9PCCP8+56EZvnqc
- uiESsaFxP8/tlVOcC9YaL4aJvsEGaV2yTxClx4/r9+fSC/U+eWPsXtXOJ5CrpiE6AQhoq+l/rzH
- frQmvdAc
-X-Proofpoint-ORIG-GUID: P6Z-r1Hhq6zKKLMg2En1dws5DT0V_Y9_
-X-Proofpoint-GUID: P6Z-r1Hhq6zKKLMg2En1dws5DT0V_Y9_
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-29_07,2025-08-28_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 bulkscore=0 spamscore=0 clxscore=1015 suspectscore=0
- phishscore=0 malwarescore=0 adultscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508280095
+User-Agent: Mozilla Thunderbird
+Subject: Re: [BUG] sysfs: duplicate resource file creation during PCIe rescan
+From: moubingquan <moubingquan@h-partners.com>
+To: <bhelgaas@google.com>
+CC: <ilpo.jarvinen@linux.intel.com>, <lukas@wunner.de>, linux-arm
+	<linux-arm-kernel@lists.infradead.org>, linux-kernl
+	<linux-kernel@vger.kernel.org>, linux-pci <linux-pci@vger.kernel.org>,
+	fanghao <fanghao11@huawei.com>, gaozhihao <gaozhihao6@h-partners.com>,
+	lujunhua <lujunhua7@h-partners.com>, shenyang <shenyang39@huawei.com>,
+	wushanping <wushanping@huawei.com>, zengtao <prime.zeng@hisilicon.com>,
+	<jonathan.cameron@huawei.com>
+References: <b51519d6-ce45-4b6d-8135-c70169bd110e@h-partners.com>
+ <9e3047e5-a6a2-4a56-967b-4dddbd3d1b43@h-partners.com>
+Content-Language: en-US
+In-Reply-To: <9e3047e5-a6a2-4a56-967b-4dddbd3d1b43@h-partners.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.120.83]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemo100013.china.huawei.com (7.202.195.244)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_172318_859247_AB453120 
-X-CRM114-Status: GOOD (  15.39  )
+X-CRM114-CacheID: sfid-20250829_201054_216272_1EAD5415 
+X-CRM114-Status: GOOD (  16.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,47 +77,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Declare which infoframes are supported via the .hdmi_write_infoframe()
-interface.
+Friendly ping ...
 
-Reviewed-by: Liu Ying <victor.liu@nxp.com>
-Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
----
- drivers/gpu/drm/rockchip/rk3066_hdmi.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/gpu/drm/rockchip/rk3066_hdmi.c b/drivers/gpu/drm/rockchip/rk3066_hdmi.c
-index ae4a5ac2299a93a49f87df7604752f6b651c839c..330c3e6ecaaca1602aee497c1a1be9599d1f886e 100644
---- a/drivers/gpu/drm/rockchip/rk3066_hdmi.c
-+++ b/drivers/gpu/drm/rockchip/rk3066_hdmi.c
-@@ -164,7 +164,7 @@ static int rk3066_hdmi_bridge_clear_infoframe(struct drm_bridge *bridge,
- 
- 	if (type != HDMI_INFOFRAME_TYPE_AVI) {
- 		drm_err(bridge->dev, "Unsupported infoframe type: %u\n", type);
--		return 0;
-+		return -EOPNOTSUPP;
- 	}
- 
- 	hdmi_writeb(hdmi, HDMI_CP_BUF_INDEX, HDMI_INFOFRAME_AVI);
-@@ -182,7 +182,7 @@ rk3066_hdmi_bridge_write_infoframe(struct drm_bridge *bridge,
- 
- 	if (type != HDMI_INFOFRAME_TYPE_AVI) {
- 		drm_err(bridge->dev, "Unsupported infoframe type: %u\n", type);
--		return 0;
-+		return -EOPNOTSUPP;
- 	}
- 
- 	rk3066_hdmi_bridge_clear_infoframe(bridge, type);
-@@ -696,6 +696,7 @@ rk3066_hdmi_register(struct drm_device *drm, struct rk3066_hdmi *hdmi)
- 	hdmi->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
- 	hdmi->bridge.vendor = "Rockchip";
- 	hdmi->bridge.product = "RK3066 HDMI";
-+	hdmi->bridge.supported_infoframes = DRM_CONNECTOR_INFOFRAME_AVI;
- 
- 	hdmi->bridge.ddc = rk3066_hdmi_i2c_adapter(hdmi);
- 	if (IS_ERR(hdmi->bridge.ddc))
-
--- 
-2.47.2
+On 8/11/2025 10:12 AM, moubingquan wrote:
+> Hello everyone, does anyone have any ideas on how to approach this problem。
+> 
+> On 7/29/2025 9:13 AM, moubingquan wrote:
+>> Hi all,
+>>
+>> When uninstalling the driver on the ARM64 platform and invoking `sriov_disable()`,
+>> another thread simultaneously performed `echo 1 > /sys/bus/pci/rescan`,
+>> which resulted in a call trace error (`sysfs: cannot create duplicate filename`) when subsequently loading the driver.
+>>
+>> Under certain multi-threaded scenarios (e.g. VF teardown + PCI rescan triggered in parallel),
+>> The following sequence may result in files appearing in sysfs that should not exist:
+>>
+>> 1. sriov_disable() uninstalls VFs and removes the corresponding VF files in sysfs.
+>> 2.At the same time, when rescan_store() rescan the entire PCI device tree,
+>> there is a possibility that VF files that should have been deleted are added back,
+>> resulting in VF files in sysfs that should have been removed but were not.
+>>
+>> Tested on:
+>> - Kernel version: Linux version 6.15.0-rc4+ (phisik3@10-50-163-153-ARM-openEuler22-3)
+>> - Platform: ARM64 (Huawei Kunpeng920)
+>> - Repro steps:
+>> 1.Thread A unloads the driver and VF (requires calling sriov_disable()).
+>> 2.Thread B calls `echo 1 > /sys/bus/pci/rescan `
+>>
+>> The system will report a call trace as follows:
+>>
+>> sysfs: cannot create duplicate filename '/devices/pci0000:3c/0000:3c:01.0/0000:3e:00.2/resource2'
+>> CPU: 138 UID: 0 PID: 11067 Comm: sh Kdump: loaded Tainted: G      D W  O        6.15.0-rc4+ #1 PREEMPT
+>> Tainted: [D]=DIE, [W]=WARN, [O]=OOT_MODULE
+>> Call trace:
+>>   show_stack+0x20/0x38 (C)
+>>   dump_stack_lvl+0x80/0xf8
+>>   dump_stack+0x18/0x28
+>>   sysfs_warn_dup+0x6c/0x90
+>>   sysfs_add_bin_file_mode_ns+0x12c/0x178
+>>   sysfs_create_bin_file+0x7c/0xb8
+>>   pci_create_attr+0x104/0x1b0
+>>   pci_create_resource_files.part.0+0x50/0xd0
+>>   pci_create_sysfs_dev_files+0x30/0x50
+>>   pci_bus_add_device+0x40/0x120
+>>   pci_bus_add_devices+0x40/0x98
+>>   pci_bus_add_devices+0x6c/0x98
+>>   pci_rescan_bus+0x38/0x58
+>>   rescan_store+0x80/0xb0
+>>   bus_attr_store+0x2c/0x48
+>>   sysfs_kf_write+0x84/0xa8
+>>   kernfs_fop_write_iter+0x120/0x1b8
+>>   vfs_write+0x338/0x3f8
+>>   ksys_write+0x70/0x110
+>>   __arm64_sys_write+0x24/0x38
+>>   invoke_syscall+0x50/0x120
+>>   el0_svc_common.constprop.0+0xc8/0xf0
+>>   do_el0_svc+0x24/0x38
+>>   el0_svc+0x34/0xf0
+>>   el0t_64_sync_handler+0xc8/0xd0
+>>   el0t_64_sync+0x1ac/0x1b0
+>>
+>> The general analysis and corresponding code are as follows:
+>>
+>> drivers/pci/iov.c
+>>
+>> 736 static void sriov_disable(struct pci_dev *dev)
+>> 737 {
+>> 738         struct pci_sriov *iov = dev->sriov;
+>> 739
+>> 740         if (!iov->num_VFs)
+>> 741                 return;
+>> 742
+>> 743         sriov_del_vfs(dev);
+>> 744         iov->ctrl &= ~(PCI_SRIOV_CTRL_VFE | PCI_SRIOV_CTRL_MSE);
+>> 745         pci_cfg_access_lock(dev);
+>> 746         pci_write_config_word(dev, iov->pos + PCI_SRIOV_CTRL, iov->ctrl);
+>> 747         ssleep(1);
+>> 748         pci_cfg_access_unlock(dev);
+>> 749
+>> 750         pcibios_sriov_disable(dev);
+>> 751
+>> 752         if (iov->link != dev->devfn)
+>> 753                 sysfs_remove_link(&dev->dev.kobj, "dep_link");
+>> 754
+>> 755         iov->num_VFs = 0;
+>> 756         pci_iov_set_numvfs(dev, 0);
+>> 757 }
+>>
+>> sriov_disable() will unload the VF and remove its files from sysfs.
+>>
+>> drivers/pci/pci-sysfs.c
+>>
+>>   435 static ssize_t rescan_store(const struct bus_type *bus, const char *buf, size_t count)
+>>   436 {
+>>   437         unsigned long val;
+>>   438         struct pci_bus *b = NULL;
+>>   439
+>>   440         if (kstrtoul(buf, 0, &val) < 0)
+>>   441                 return -EINVAL;
+>>   442
+>>   443         if (val) {
+>>   444                 pci_lock_rescan_remove();
+>>   445                 while ((b = pci_find_next_bus(b)) != NULL)
+>>   446                         pci_rescan_bus(b);
+>>   447                 pci_unlock_rescan_remove();
+>>   448         }
+>>   449         return count;
+>>   450 }
+>>   451 static BUS_ATTR_WO(rescan);
+>>
+>> The `rescan_store()` function will scan the entire PCI bus, including the relevant sysfs files for the aforementioned VFs.
+>>
+>> Initially, it seemed that directly adding the pci_lock_rescan_remove() lock to sriov_disable() could solve the problem.
+>> However, it was later discovered that this might lead to a deadlock issue (because the remove_store() function would call sriov_disable(), causing a deadlock).
+>>
+>> drivers/pci/pci-sysfs.c
+>>
+>>   487 static ssize_t remove_store(struct device *dev, struct device_attribute *attr,
+>>   488                             const char *buf, size_t count)
+>>   489 {
+>>   490         unsigned long val;
+>>   491
+>>   492         if (kstrtoul(buf, 0, &val) < 0)
+>>   493                 return -EINVAL;
+>>   494
+>>   495         if (val && device_remove_file_self(dev, attr))
+>>   496
+>>          //Subsequently, sriov_disable() will be invoked.
+>>                  pci_stop_and_remove_bus_device_locked(to_pci_dev(dev));
+>>   497         return count;
+>>   498 }
+>>   499 static DEVICE_ATTR_IGNORE_LOCKDEP(remove, 0220, NULL,
+>>   500                                   remove_store);
+>>
+>> The function `pci_stop_and_remove_bus_device_locked()` acquires the `pci_lock_rescan_remove()` lock and subsequently calls `sriov_disable()`.
+>> If the lock is added within `sriov_disable()`, it could lead to a deadlock.
+>>
+>> Should we add a new lock to address this issue, or are there any other ideas? I would like to consult and discuss this with everyone.
+>>
+>> Thanks,
+>> Bingquan Mou <moubingquan@h-partners.com>
+> 
 
 
