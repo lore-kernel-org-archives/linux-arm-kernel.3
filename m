@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5263CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 17:54:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B05E1CA0FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 17:57:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pd3QAgaI6xLn3TSraR7jO04+lJz847xBQQfmdUU8S+4=; b=f8t/chJbBRMglToB3H0QKytL/D
-	AiFFFWG+FYCk5nYDVIudLDO0mOHxNPWnYYtxZYQtSQFvEKmwLpyOH6pbanttZCySR/ImuY/3bWnCf
-	tsE2M3S5rmNfvGvUliiTkNsaSOq0rbcmi4PjjZuxcAYHfTSaHMR1F9cfd/1m8UjfO/HIMHEEhXW/m
-	SJauPBZskLCl8pm988hlPq2/JTaySt+ImwaawEIrfRgh3+xyUJFz8PeZNO2qJtVUwLXFHBa8YBa4A
-	KwBdtyG+GhgYFkZ48sQr5kt8h0T7XoMxzz1ldul8i41PniGDfJ1pL7t7kWk7g9LjX44N2+XOgInY0
-	n1AVV/Og==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xOoCafVA6rbpLZQPmX36iB5alrObXaK1nsnhC+086Mk=; b=Qvsca6Gw4EI2I56SLNimap5Xli
+	TqL0LaWJM2WQtVxinkdLJ4menlGDTOSXsJFTD8E91ekLrkn29GEhDJbL9fAcdHPkIwDhAcYv+IAZc
+	uftvpXOQ40rsod8XRo/OOdHwTfKPoqRx2IqVmedC0W5Ki0qHhO//mxrCxIuqsBpMOZ4+BZWZ0m01w
+	yAWo1/+3DUlZ/4BOq4mh7UefHPSaQUXs1EUiUA7lHHe8WqId8y/FHvobJas5zaaIlYzXaW33HVPAs
+	3mldpbhdVsS8CN9UkaGZydARB3EkOSt31HJZQtv3OtAMmw5+yIQX2IzzGDQt+pNzi6JT0C3gvowGp
+	RrVoqXKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usPmp-00000008Gq7-18ck;
-	Sat, 30 Aug 2025 17:54:47 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1usPpT-00000008H2w-1FK9;
+	Sat, 30 Aug 2025 17:57:31 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usPXZ-00000008FOf-1rno;
-	Sat, 30 Aug 2025 17:39:02 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-24aacdf40a2so32435ad.1;
-        Sat, 30 Aug 2025 10:39:00 -0700 (PDT)
+	id 1usPXi-00000008FRY-1RMm;
+	Sat, 30 Aug 2025 17:39:11 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-248e3eade89so5602125ad.3;
+        Sat, 30 Aug 2025 10:39:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756575540; x=1757180340; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=pd3QAgaI6xLn3TSraR7jO04+lJz847xBQQfmdUU8S+4=;
-        b=SNPb/3RN24azthLWgl2M5IQs6YYjE8vPtuCQ93bliyn5aNDMc0Bc6HO1kenFpUrYF0
-         v/y0N8QaHEC39dlpYcpJm5VbKuTEU6VEYcow1+PASYlHW8vqxt1O70B4MMLbInotCQX+
-         HKcXL0kTfsXSSvtAacLzom2RGKzAjxvF9mCeeYd7RUPrRcDJTfW2HicfAQpElByLQtxo
-         +yWKSEi8jXkZqEg7qhcYYl2S/149y8BERiv2BjS18fCYdFf13a6r7FmsjBplTTBkZGr0
-         6jLZjhOh8KNecHsKHO47ZPQWV44crsIMfT2PU6GR/gCMBGKWmOG/9/CPjMmGNk5VJvIe
-         6p9A==
+        d=gmail.com; s=20230601; t=1756575549; x=1757180349; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xOoCafVA6rbpLZQPmX36iB5alrObXaK1nsnhC+086Mk=;
+        b=WEffpoXt7aIjuTcMMVl6M+5QghgKi/RjHqNxSRw9ZBu43vWSGckMqCHZjfQI3A3LHy
+         /cXwCHadH8FKXsDgE5Aks5GBBmztH1v1hzgjexnYSHMwJTfXB4dRa1AI7fuiH7PdwGCE
+         01LzfCe6jyUy60BQ8xjBlxYvk2+EIhW8KYx9ghgRNKab4lQRK9gWWkfFC99ZpZDN56UF
+         W2FoCFc5rDjhoVkSHoa8mj7zAy9IgJCZLnOI4ieU9vpQto9T97+bimkd1VaqScANU5Hd
+         zFmcU8jrYV7LV4DHiQtPeC3ZtN660oeqiKn/mfc9PeSweXWUnxjfg6TftLfIbRM3MUVw
+         Ri5g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756575540; x=1757180340;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=pd3QAgaI6xLn3TSraR7jO04+lJz847xBQQfmdUU8S+4=;
-        b=rwDX5pAML2lgBDYSLsbbcg+FTsK4o/ndgbpWYFol0Z1bLv46rG/zoQZe+S7aEySd5I
-         phEDAHY76AAZlPOMZqDGAWkNZo2Gu+zrUoYsiVqNp3qYSCrafps2WqTkBikuM1UGL6il
-         3wjj0YIqlGwa3PW4B3agq8+z7k3d17v6zasRem+5EAUKBzSddOhr1hINv4OLMYIqL+1f
-         sfNv9LuTtLYh4vghQgIk5L4P69bfOpH1GSeF5MOBDnqS8qtAZYhPky/SNbbvEEyZmKcf
-         AyO/whHCKaPD451d6sf2TK0QQWciO29QhFKpBmMrh8RZrOu4k/JM9NvlOBIPj5bRgG5V
-         LDAg==
-X-Forwarded-Encrypted: i=1; AJvYcCUXiwGBaqD/T+CAnEkH8sFea2TGlhs5C/UYULaMCtvQgdd9vtrE7dTF6JkdB1cc2j/zTEJXWPVn8JNvURhcQvIfEQ==@lists.infradead.org, AJvYcCW3Z+ChW+tmSTLO1vXGAARCj/PGXLv0VnaXSRUaQCgdcqCm5onEX2GBcc+smlFLC8VP5G0LyelGFG9rYGGXZ2i2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxb7J6Z3fTqJBzHVqbmRLMmKNTjWQ1SKclF2Wv7cYrZC1m1LdGt
-	TVuxBz6QcgnTBIppWAAuReZn1zpf66FF0esmLrLHv/lskNAmRwJn8MIk
-X-Gm-Gg: ASbGnctHtTP7BQIUTw6K+cYyr5EnDBiLZYVlDor58GMrVTQEqWpTIWE4DY6GstcxcO5
-	E76BvX+1RlU+D7IhIPB3DIdGW+fU9P8L3MXOFTxjdPm9n50WK6lLtRkOg4jdtDAaJ2Sokw9qxrU
-	EqT+C4AEDOHc4Og5TS4Jc7dOuo5T1W/GSesohHAKTeT4L75Ul8um0GftJA+/4OvUhOKepaAs7Hr
-	r4JhJd3s3/AWBmoRNaQPsiheHLoehqAO0OwyAocHG+M3sAJd/9XvrwRlBiBknNtKZtEvaKTeb3b
-	rN6BSHuyunJKSELX+lFMQlsbxded46kw27Ble8pRhx0bxiLaxcBdBJ6e0aAqpwj4nF5zDEr+AlC
-	hjv5H9/V/AXoEQ9ZeTX/jkiOC0SYJKy3t2oev9Lxu8Q==
-X-Google-Smtp-Source: AGHT+IGXSHsujaSl2ROKONAWQE6+Ygosv4F3z5UVve5pQ4wzulH1rYWqg7jKwQSm4YJbOk69qQJB0w==
-X-Received: by 2002:a17:90b:4b87:b0:324:f79c:2dd2 with SMTP id 98e67ed59e1d1-327e666e931mr5142096a91.8.1756575540232;
-        Sat, 30 Aug 2025 10:39:00 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1756575549; x=1757180349;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=xOoCafVA6rbpLZQPmX36iB5alrObXaK1nsnhC+086Mk=;
+        b=ClfBjlBvA+c/dWCNzkEYEn5M9v0VWV6EkipXAo362mpmwfH7ReKrnjCQq/yA7/Ff0+
+         bQoBHmn2/H4BP+2sX7rhR6p27lcTIthpLGe6B6pBwbhYHL5powgGMb9uwoj+0bT/y30O
+         u2XaNXi6vkywK7lW4foy67XIZgZJAubOMvKh4b61PiJ9KNnN1XTYXwtVV7OGTUewGciD
+         kYpRZ4bw0yHA0bhC10h3/6VK1x9pIgFMr6yU0gWc5KeWC3dJEAG7lHNlm4KIwVwRUaCp
+         6Sx9AqUhZ4awiIWWjMonfskstTkn43/NLZlr0s9tQe3y+z0Gq8PiFs5fKZ+TTfyHJ4Rl
+         c3vQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU4vUqEL8Te1JlfXCbVwowkTPaaTB8F8JG1ULwi4DqJR5tfsil3ccKVgspD5bpQCsLKhuo+OJR7jPR2TIyP+Qg/@lists.infradead.org, AJvYcCU9kDRsTenx7A6k5RMqLtrVkvCyBWS8roMElRi9FpAFl/+EmGx79e0ZYfQt8mzGTTBaBOtjh4AULEslsl5FjqfVcQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxrzQaZwMdPFcU2DkVmT8EVLDNB00I6u0lQgUlvxcVGbf5iFLYf
+	FuGFCvtxc48UYzsBIan+zdNqN2xbM4fYyE6t52cisDAI9Rl/ZFsDVWNi
+X-Gm-Gg: ASbGncueAdwdPUPPExNeUj5rk96CKWs/AdBFtAxleQvfoNxRYRO5GqI4akB+RVy2sfI
+	1YjItKW7BjZMvEWlSO52SidM//kEMhqMl3fjMo1Lp5ZyxKSeuv1/+wn4tEGFmeeOfc9LLkXSXNN
+	dL0A3vDhOSir1BAPwnqzdAWfxYKcmqS0SwqBK8PqFKeX7xmr+YrPmwFOH9pPTeVFO/zplxwtrfk
+	nmQ5Ch2uVQSeYiZKpDbgN2vHIAtOy0k+p9heBSagNFAU80SaESs1F6nQvI4BP/MxcD5yCGPuG0Q
+	sRcNGlWrAJpM5vcJ36yT/3XdQx6XATHOaGgoRDgA4bvCifeKEG0UbSLSPPOJ/Ud57nW4YfG/Tt2
+	vjpnOw2aqnFVZ2Y2ZLdaC0pPHqU9ao0ZKYhdVkPOASQ==
+X-Google-Smtp-Source: AGHT+IHTDqX8ysZkgx+mDXMRZKsxTFu34Ov03/Jj/KOA6Fo+OIeYKzdlGZBtzPGukVtx80QGvKg5DQ==
+X-Received: by 2002:a05:6a21:3391:b0:203:cb2e:7a08 with SMTP id adf61e73a8af0-243c8457780mr3986145637.5.1756575549342;
+        Sat, 30 Aug 2025 10:39:09 -0700 (PDT)
 Received: from raspberrypi.flets-east.jp ([2400:4050:d860:9700:eabe:57a8:cf74:875e])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b4cd28ad39csm5154525a12.27.2025.08.30.10.38.56
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b4cd28ad39csm5154525a12.27.2025.08.30.10.39.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 30 Aug 2025 10:38:59 -0700 (PDT)
+        Sat, 30 Aug 2025 10:39:08 -0700 (PDT)
 From: Masaharu Noguchi <nogunix@gmail.com>
 To: gregkh@linuxfoundation.org,
 	linux-staging@lists.linux.dev
@@ -86,16 +87,17 @@ Cc: vaibhav.sr@gmail.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Masaharu Noguchi <nogunix@gmail.com>
-Subject: [PATCH 0/2] staging: fix W=1 format-truncation warnings
-Date: Sun, 31 Aug 2025 02:38:48 +0900
-Message-Id: <20250830173850.323897-1-nogunix@gmail.com>
+Subject: [PATCH 1/2] staging: greybus: audio_topology: avoid -Wformat-truncation
+Date: Sun, 31 Aug 2025 02:38:49 +0900
+Message-Id: <20250830173850.323897-2-nogunix@gmail.com>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250830173850.323897-1-nogunix@gmail.com>
+References: <20250830173850.323897-1-nogunix@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250830_103901_483790_1663D7E9 
-X-CRM114-Status: UNSURE (   6.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250830_103910_381406_C2D14DBA 
+X-CRM114-Status: GOOD (  10.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,20 +112,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-    - This series fixes -Wformat-truncation warnings in staging drivers found with W=1 builds:
-    - greybus: prefix device id to widget/control names safely
-    - vc04_services/bcm2835-camera: compose V4L2 bus_info safely
-    Both changes use scnprintf() for the prefix and strscpy() for the remainder. No functional change
-    intended.
+    - Fix -Wformat-truncation when prefixing device id to widget/control
+      names.
+    - Write the prefix with scnprintf() and copy the remainder with
+      strscpy().
+    - This avoids potential truncation and satisfies W=1 builds in
+      drivers/staging/greybus.
 
-Masaharu Noguchi (2):
-  staging: greybus: audio_topology: avoid -Wformat-truncation
-  staging: vc04_services: bcm2835-camera: avoid -Wformat-truncation
+Signed-off-by: Masaharu Noguchi <nogunix@gmail.com>
+---
+ drivers/staging/greybus/audio_topology.c | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
 
- drivers/staging/greybus/audio_topology.c              | 11 ++++++-----
- .../vc04_services/bcm2835-camera/bcm2835-camera.c     |  5 +++--
- 2 files changed, 9 insertions(+), 7 deletions(-)
-
+diff --git a/drivers/staging/greybus/audio_topology.c b/drivers/staging/greybus/audio_topology.c
+index 6ca938dca4fd..5bf8b5e29dd8 100644
+--- a/drivers/staging/greybus/audio_topology.c
++++ b/drivers/staging/greybus/audio_topology.c
+@@ -1013,7 +1013,7 @@ static int gbaudio_tplg_create_widget(struct gbaudio_module_info *module,
+ 				      struct snd_soc_dapm_widget *dw,
+ 				      struct gb_audio_widget *w, int *w_size)
+ {
+-	int i, ret, csize;
++	int i, ret, csize, n;
+ 	struct snd_kcontrol_new *widget_kctls;
+ 	struct gb_audio_control *curr;
+ 	struct gbaudio_control *control, *_control;
+@@ -1087,7 +1087,8 @@ static int gbaudio_tplg_create_widget(struct gbaudio_module_info *module,
+ 
+ 	/* Prefix dev_id to widget control_name */
+ 	strscpy(temp_name, w->name, sizeof(temp_name));
+-	snprintf(w->name, sizeof(w->name), "GB %d %s", module->dev_id, temp_name);
++	n = scnprintf(w->name, sizeof(w->name), "GB %d ", module->dev_id);
++	strscpy(w->name + n, temp_name, sizeof(w->name) - n);
+ 
+ 	switch (w->type) {
+ 	case snd_soc_dapm_spk:
+@@ -1138,7 +1139,7 @@ static int gbaudio_tplg_create_widget(struct gbaudio_module_info *module,
+ static int gbaudio_tplg_process_kcontrols(struct gbaudio_module_info *module,
+ 					  struct gb_audio_control *controls)
+ {
+-	int i, csize, ret;
++	int i, csize, ret, n;
+ 	struct snd_kcontrol_new *dapm_kctls;
+ 	struct gb_audio_control *curr;
+ 	struct gbaudio_control *control, *_control;
+@@ -1169,8 +1170,8 @@ static int gbaudio_tplg_process_kcontrols(struct gbaudio_module_info *module,
+ 		control->id = curr->id;
+ 		/* Prefix dev_id to widget_name */
+ 		strscpy(temp_name, curr->name, sizeof(temp_name));
+-		snprintf(curr->name, sizeof(curr->name), "GB %d %s", module->dev_id,
+-			 temp_name);
++		n = scnprintf(curr->name, sizeof(curr->name), "GB %d ", module->dev_id);
++		strscpy(curr->name + n, temp_name, sizeof(curr->name) - n);
+ 		control->name = curr->name;
+ 		if (curr->info.type == GB_AUDIO_CTL_ELEM_TYPE_ENUMERATED) {
+ 			struct gb_audio_enumerated *gbenum =
 -- 
 2.39.5
 
