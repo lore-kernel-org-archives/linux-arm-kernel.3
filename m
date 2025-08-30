@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66516CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 10:02:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44078CA0FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 10:04:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qXVKCltj1fq6EwK3VjDJ0tB61eSP6doosd0jsyQ0Cyg=; b=C2EPNpxAXInFBROBS8dM1d648W
-	BC4hyUEjFtjQsaK2kQ/ySmuGBAZs/wwO9FXbodSn9rnGryq9LGfi0bZlaeoMKLVjnNDajPMIKkC1K
-	z1jSasekQ4waZDeIZeoLYGpB65F6nV0qWDD5IKr3D1Fbtws7EO5hmg9s8IV2CeYehEwJP4oQR/Y13
-	cCIjH0ViC5otYhuTaH+8ptISIaSZbhuU8aPLWITB7GKueewJyV0t86iuLu14d1umyjzJm9J+K+MiJ
-	2TA2qhjdzimCY518hmGP0ZASZcFWasmqSXFRvkHszoG9lKNN6lL9CfPrQgSX4VZGUCSWgTDRvIWdq
-	+cFeQq3Q==;
+	bh=jRy/S1m33Q74m2vLNvRcZ66fmz2K2y/9/fVpVzz+O0E=; b=mgWhNPD7ZF6+Lc0f/nlSIQfLMa
+	V1YtAYsYlgGXPWEygnR8sxn8QJNVl+rjdxbEEYIH+08LjV2i5UKFSEDR/hq95l6xcamZaj+/w9eJe
+	54V5+LwZB0onETncL4hv+VwweQZhLuBkSmoqqYx4xmtqiJYeeQ0vk4OmmqmWyZ97nB8jGT8c5ZVyL
+	zK+ttr4Od6Q20OWMokFLN7pPDgQs8bjPNmG1HLIQ60UjIQkACHyFXUBOE1LGgaF9MR06EXS1r7CkD
+	8AUCdtgsfHT48EN+Cmi8f4coo0OG7BhltjvstuEBRoCEgQKZs1Mo36atp7p/xV7N7Hj8i50pdsx9R
+	pXuyudKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usIPD-00000007i5o-0JdS;
-	Sat, 30 Aug 2025 10:01:55 +0000
+	id 1usIRx-00000007iIh-1qLR;
+	Sat, 30 Aug 2025 10:04:45 +0000
 Received: from mail.netcube.li ([173.249.15.149])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usIBk-00000007ghx-2R8u;
-	Sat, 30 Aug 2025 09:48:01 +0000
+	id 1usIBo-00000007gis-1L7V;
+	Sat, 30 Aug 2025 09:48:05 +0000
 dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
 	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding:In-Reply-To:References;
-	bh=qXVKCltj1fq6EwK3VjDJ0tB61eSP6doosd0jsyQ0Cyg=;
-	b=Cehl5yr5wjaMhSTZfUzj5O/1uVIhqMOGxMK6zNVNxaKzKLyT1v1OxogyNpqiKFXIefBoKRERtTA3th6OxJJ2EV4NoAU5Ek/KzjeU72vmGzZVHOG7zORReqoVSlqM5O9OakT6av660xxd/HtwPVlmHUBHLDZMeELfImkUrApbmEQ=
+	bh=jRy/S1m33Q74m2vLNvRcZ66fmz2K2y/9/fVpVzz+O0E=;
+	b=VUVKjkx6tUN9+aogRN/pEJXnLaoKPzjfsWvZRVjEHQwF3hV+TutmJEmRH9veaXsUoaoZ6UXPpFLRgyFGnghF/aEKCpGYKEsBANPGaKNOnILHoJKBxVVeMeWqFOnkkz96WWjmrpbXemS/TMLB6vL3ogITb4z74cJHEfgKfgfV6pI=
 Received: from lukas-hpz440workstation.lan.sk100508.local (cm70-231.liwest.at [212.241.70.231])
 	by mail.netcube.li with ESMTPA
-	; Sat, 30 Aug 2025 11:47:49 +0200
+	; Sat, 30 Aug 2025 11:47:54 +0200
 From: Lukas Schmid <lukas.schmid@netcube.li>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -51,17 +51,17 @@ Cc: Lukas Schmid <lukas.schmid@netcube.li>,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v7 4/5] ARM: dts: sunxi: add support for NetCube Systems Nagami Basic Carrier
-Date: Sat, 30 Aug 2025 11:46:56 +0200
-Message-Id: <20250830094700.1715658-5-lukas.schmid@netcube.li>
+Subject: [PATCH v7 5/5] ARM: dts: sunxi: add support for NetCube Systems Nagami Keypad Carrier
+Date: Sat, 30 Aug 2025 11:46:57 +0200
+Message-Id: <20250830094700.1715658-6-lukas.schmid@netcube.li>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250830094700.1715658-1-lukas.schmid@netcube.li>
 References: <20250830094700.1715658-1-lukas.schmid@netcube.li>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250830_024800_905233_86D66244 
-X-CRM114-Status: GOOD (  13.35  )
+X-CRM114-CacheID: sfid-20250830_024804_644362_0EE0388A 
+X-CRM114-Status: GOOD (  13.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,44 +76,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The NetCube Systems Nagami Basic Carrier is a Carrier for the Nagami SoM
-It provides an ethernet port for the phy on the SoM and some USB-Ports.
-All other interfaces and gpios are available on pinheader, except for the
-SD-Interface which is available on a micro-sd slot.
+The NetCube Systems Nagami Keypad Carrier uses the Nagami SoM and contains
+a TCA8418 connected to a 4x4 matrix keypad. The I2C2 interface is connected
+to said TCA8418 and also a header for an PN532 NFC-Module. It also provides
+a pin-header for a bi-color status led. Ethernet with PoE support is
+available on a screwterminal after magnetics.
 
 Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
 ---
- arch/arm/boot/dts/allwinner/Makefile          |  2 +
- ...n8i-t113s-netcube-nagami-basic-carrier.dts | 67 +++++++++++++++++++
- 2 files changed, 69 insertions(+)
- create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-basic-carrier.dts
+ arch/arm/boot/dts/allwinner/Makefile          |   1 +
+ ...8i-t113s-netcube-nagami-keypad-carrier.dts | 129 ++++++++++++++++++
+ 2 files changed, 130 insertions(+)
+ create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-keypad-carrier.dts
 
 diff --git a/arch/arm/boot/dts/allwinner/Makefile b/arch/arm/boot/dts/allwinner/Makefile
-index d799ad153b37..af287bb3231c 100644
+index af287bb3231c..a2137bbe2230 100644
 --- a/arch/arm/boot/dts/allwinner/Makefile
 +++ b/arch/arm/boot/dts/allwinner/Makefile
-@@ -199,6 +199,7 @@ DTC_FLAGS_sun8i-h3-nanopi-r1 := -@
- DTC_FLAGS_sun8i-h3-orangepi-pc := -@
- DTC_FLAGS_sun8i-h3-bananapi-m2-plus-v1.2 := -@
- DTC_FLAGS_sun8i-h3-orangepi-pc-plus := -@
-+DTC_FLAGS_sun8i-t113s-netcube-nagami-basic-carrier := -@
- DTC_FLAGS_sun8i-v3s-netcube-kumquat := -@
- dtb-$(CONFIG_MACH_SUN8I) += \
- 	sun8i-a23-evb.dtb \
-@@ -257,6 +258,7 @@ dtb-$(CONFIG_MACH_SUN8I) += \
- 	sun8i-s3-lichee-zero-plus.dtb \
+@@ -259,6 +259,7 @@ dtb-$(CONFIG_MACH_SUN8I) += \
  	sun8i-s3-pinecube.dtb \
  	sun8i-t113s-mangopi-mq-r-t113.dtb \
-+	sun8i-t113s-netcube-nagami-basic-carrier.dtb \
+ 	sun8i-t113s-netcube-nagami-basic-carrier.dtb \
++	sun8i-t113s-netcube-nagami-keypad-carrier.dtb \
  	sun8i-t3-cqa3t-bv3.dtb \
  	sun8i-v3-sl631-imx179.dtb \
  	sun8i-v3s-anbernic-rg-nano.dtb \
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-basic-carrier.dts b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-basic-carrier.dts
+diff --git a/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-keypad-carrier.dts b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-keypad-carrier.dts
 new file mode 100644
-index 000000000000..5ee9a211a5cc
+index 000000000000..048a6245684a
 --- /dev/null
-+++ b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-basic-carrier.dts
-@@ -0,0 +1,67 @@
++++ b/arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-keypad-carrier.dts
+@@ -0,0 +1,129 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +/*
 + * Copyright (C) 2025 Lukas Schmid <lukas.schmid@netcube.li>
@@ -122,63 +115,125 @@ index 000000000000..5ee9a211a5cc
 +/dts-v1/;
 +#include "sun8i-t113s-netcube-nagami.dtsi"
 +
++#include <dt-bindings/input/input.h>
++#include <dt-bindings/leds/common.h>
++
 +/ {
-+	model = "NetCube Systems Nagami Basic Carrier Board";
-+	compatible = "netcube,nagami-basic-carrier", "netcube,nagami",
++	model = "NetCube Systems Nagami Keypad Carrier Board";
++	compatible = "netcube,nagami-keypad-carrier", "netcube,nagami",
 +				 "allwinner,sun8i-t113s";
-+};
 +
-+&can0 {
-+	status = "okay";
-+};
++	leds {
++		compatible = "gpio-leds";
 +
-+&can1 {
-+	status = "okay";
-+};
++		led_status_red: led-status-red {
++			gpios = <&pio 3 16 GPIO_ACTIVE_HIGH>;  /* PD16 */
++			color = <LED_COLOR_ID_RED>;
++			function = LED_FUNCTION_STATUS;
++		};
 +
-+&ehci0 {
-+	status = "okay";
-+};
-+
-+&ehci1 {
-+	status = "okay";
++		led_status_green: led-status-green {
++			gpios = <&pio 3 22 GPIO_ACTIVE_HIGH>;  /* PD22 */
++			color = <LED_COLOR_ID_GREEN>;
++			function = LED_FUNCTION_STATUS;
++		};
++	};
 +};
 +
 +&i2c2 {
 +	status = "okay";
++
++	tca8418: keypad@34 {
++		compatible = "ti,tca8418";
++		reg = <0x34>;
++		interrupts-extended = <&pio 5 6 IRQ_TYPE_EDGE_FALLING>;  /* PF6 */
++		linux,keymap = <MATRIX_KEY(0x03, 0x00, KEY_NUMERIC_A)
++						MATRIX_KEY(0x03, 0x01, KEY_NUMERIC_1)
++						MATRIX_KEY(0x03, 0x02, KEY_NUMERIC_2)
++						MATRIX_KEY(0x03, 0x03, KEY_NUMERIC_3)
++						MATRIX_KEY(0x02, 0x00, KEY_NUMERIC_B)
++						MATRIX_KEY(0x02, 0x01, KEY_NUMERIC_4)
++						MATRIX_KEY(0x02, 0x02, KEY_NUMERIC_5)
++						MATRIX_KEY(0x02, 0x03, KEY_NUMERIC_6)
++						MATRIX_KEY(0x01, 0x00, KEY_NUMERIC_C)
++						MATRIX_KEY(0x01, 0x01, KEY_NUMERIC_7)
++						MATRIX_KEY(0x01, 0x02, KEY_NUMERIC_8)
++						MATRIX_KEY(0x01, 0x03, KEY_NUMERIC_9)
++						MATRIX_KEY(0x00, 0x00, KEY_NUMERIC_D)
++						MATRIX_KEY(0x00, 0x01, KEY_CLEAR)
++						MATRIX_KEY(0x00, 0x02, KEY_NUMERIC_0)
++						MATRIX_KEY(0x00, 0x03, KEY_OK)
++		>;
++		keypad,num-rows = <4>;
++		keypad,num-columns = <4>;
++	};
 +};
 +
-+&i2s1 {
-+	status = "okay";
-+};
-+
-+&mmc0 {
-+	vmmc-supply = <&reg_vcc3v3>;
-+	broken-cd;
-+	disable-wp;
-+	bus-width = <4>;
-+	status = "okay";
-+};
-+
-+&ohci0 {
-+	status = "okay";
-+};
-+
-+&ohci1 {
-+	status = "okay";
-+};
-+
-+&spi1 {
-+	status = "okay";
++&pio {
++	gpio-line-names = "", "", "", "", // PA
++					  "", "", "", "",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "", "", "", "", // PB
++					  "", "", "UART3_TX", "UART3_RX",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "", "", "eMMC_CLK", "eMMC_CMD", // PC
++					  "eMMC_D2", "eMMC_D1", "eMMC_D0", "eMMC_D3",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "", "", "", "", // PD
++					  "", "", "", "",
++					  "", "USB_SEC_EN", "", "",
++					  "", "", "", "",
++					  "LED_STATUS_RED", "", "", "",
++					  "I2C2_SCL", "I2C2_SDA", "LED_STATUS_GREEN", "",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "ETH_CRSDV", "ETH_RXD0", "ETH_RXD1", "ETH_TXCK", // PE
++					  "ETH_TXD0", "ETH_TXD1", "ETH_TXEN", "",
++					  "ETH_MDC", "ETH_MDIO", "QWIIC_nINT", "",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "", "", "", "", // PF
++					  "", "", "KEY_nINT", "",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "ESP_CLK", "ESP_CMD", "ESP_D0", "ESP_D1", // PG
++					  "ESP_D2", "ESP_D3", "UART1_TXD", "UART1_RXD",
++					  "ESP_nBOOT", "ESP_nRST", "I2C3_SCL", "I2C3_SDA",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "", "", "", "",
++					  "", "", "", "";
 +};
 +
 +&usb_otg {
-+	dr_mode = "otg";
++	dr_mode = "peripheral";
 +	status = "okay";
 +};
 +
 +&usbphy {
-+	usb0_id_det-gpios = <&pio 5 6 GPIO_ACTIVE_HIGH>; /* PF6 */
 +	status = "okay";
 +};
 -- 
