@@ -4,82 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9154CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 10:22:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE033CA0FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 10:24:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5sUn7QP2kz00DztPqMuLvh5JhaL5x74fWgbdKmTLlw4=; b=jVg0tno+Y6DZH5
-	7BxGBG6abMw/mVZzXeIJbY3HzcIm98cNnJew2EVIX9Uu9U3L+4zsmjQiTcyAX8L8Jeh95lZ8wSLc6
-	vGjYadx0RTiskIifeycPXojC6Gp8vMiPhVGKYbKRvHPMfhCnfxq6syhBbY03wTunkdZTr4lGYQ/Ju
-	3WkT6jMIjJ39DxGGinTI1QOMu4hKEGoCgepjx72UpjQKhSy1nv0hdkFT7nMrN/SAAvVJ8bZlRJGFr
-	3Xo0fVAQFckmKkto3SEuCIqLjcV7L7P3Lkz5g9QMzjEmWi8Uw92gJNNnxtSEFudsBJM8mj9cZeZwm
-	TcmKRDk5FisroJ8znRRw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Lc4VvtndTdQUwu9NAMxU40diYp84hx+fKTxM5CnEC0U=; b=I9jeI5nOuYNo16CDBI9it+/3xP
+	fU4deCkY2CxA8oUiiZdwWxRck8E83pAi0yxcEsou30nmeMrTh0mqz1ipgG4Z00PrUQlvtI8CRhOKJ
+	IlEkGINXvOe63ZF5LXpPDE+dPjzE2Ua8VXSxTCy7XW7hdKdFFjyH6MC6miuiuVd4MrEDGdXFL7buW
+	X3Hw0LZnMTAg/IEE/aTE+/m5FPs8U2wHq6sBOPEgKYvHAYK7qWulF2bxrW7sDpCr0aebL+bRiVTUq
+	XVRFpTXwRnbqeiULsMtS6MdpDUG5pdc0CgL6dXb4g06FcrfenWw+2fHDQ+Cdcko4oN1Zit8dqHoDT
+	mX7OiCww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usIib-00000007jZZ-3WxG;
-	Sat, 30 Aug 2025 10:21:57 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1usIlJ-00000007jil-2ZzO;
+	Sat, 30 Aug 2025 10:24:45 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usIfq-00000007jHB-2tNd
+	id 1usIfs-00000007jHS-1F4p
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 Aug 2025 10:19:07 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3cd151c38ceso419988f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 03:19:06 -0700 (PDT)
+	Sat, 30 Aug 2025 10:19:09 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3ce208c7505so414615f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 03:19:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756549145; x=1757153945; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=5sUn7QP2kz00DztPqMuLvh5JhaL5x74fWgbdKmTLlw4=;
-        b=QilsoSSO75nApsR4bNCVNncSb111Mmp5R2E0WvHimV9/Sb8j0tQ3Wnv21/nLnRFvNa
-         bJOEPLN9J78+YmPLfluI8rxD83et761fyasR/YiLsI5GJUFFN4LIaXWB91y9tUfZtoFz
-         2iNVYpACt1DLHlAmRqmMyEZ9lD93V2/u9JaIKGkuzfx9dmydB949tiVkxuR3Dn/rUOMN
-         bRFwzOR+0YYKAPEHqyKckjMnMEQpkX2YrClWdEW8h//rZFyXpclRRNMXj7SP+oL5oZFZ
-         VQSTQaZ1h90C6uEj9waAZVIAzkJNHNwqJPm2R1+8lGm5GfrrYntsYgIIT/3/8GOrnKi1
-         ktag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756549145; x=1757153945;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=linaro.org; s=google; t=1756549147; x=1757153947; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=5sUn7QP2kz00DztPqMuLvh5JhaL5x74fWgbdKmTLlw4=;
-        b=dA5Q+EcQP9nFfVTC0F0mRLmh7EycMjNmq0jT07+oMyPcTQfMFqqWrCafnQjZ7ymWCm
-         6a1Gsd8X2E21SD360N2uQi58PXfsK5KXAXbrX3HgE5E6fL4AJeBMfIxm1qq9HDJTuDLt
-         IYT2vCxiTPFoJ0Yz06zzAGTxeqJc2CD8OppSiJCxJD7BhE78RbFEY2iE6ztTRV1gsH0Z
-         UndOSbVnd6rg7D3usgwC7FlBuSuD9YDKDFOdoHwWevYJ5/eBbakTOCIO3fbUbuSgiBgq
-         vM3RMOoUvSKDq1X0jJMrIKFTT3mt6IUvU7IXN5qFJK8eIAKq0mVQ6oPgVOw9gLVTv5Ah
-         DDAg==
-X-Forwarded-Encrypted: i=1; AJvYcCULFwKu5GVsTcDyNuSOhjDDYFvyBmoPva2+59hNcPLYmIWdKITALd3EkvWsQ0VQ4aonZqKYjIYB/reDAZ2OefAY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy9i3II8k5D0fU5id8SIQlxZofF/BY2kVE8+ZpWgc7I7XNSZmpC
-	p6Z/weCrOTI9s0WKOwmxaH9o9fgMWdQkWPRuAJv+Cy47oOa/K6gvSnZhTXiiIne1hso=
-X-Gm-Gg: ASbGncuTDnkWu9ruWudU2x5hr/gSAi8yOl0lV5ZLcqXd52aI+XCj2kr9bAdRjWjzT6H
-	zQBH78+HPz6fhYt/KzclVzV6Zrysl2peu8ElyLA+2L5h+i4ew8hkfJCauYv2Dmuy3SmXYn+PPx6
-	2pZHT3hma0Rx98qYgCI0PUwoX8MnJ8qKfnGHKVvSMIs9IYh1T5NoGlbBiG5A8dMnnxsaP8doSxW
-	KX/cOBlJ5s0sBMbCwvodO4t6rcdnBV/d7AfcKgCPZc6DvXQZdSnz5VBRardMJf26fRyHqreh3Qw
-	yyxIYfdZTyXTcFoHOcZtXlBxVHUGO9RoS35l8n7U70/CdzC709vX4DAiPWGi+uEzEjqHV0lhN4V
-	DQowrB4lrFpjrPrRY/1nhNnfLybegjqL9cv2AXLqQMYSuPvPKOQ==
-X-Google-Smtp-Source: AGHT+IHbvCTcAI6lW9P8ZAuKzeHNMi6YmoSOvGR+3NoZENtf5TPqRuQC7jK7/7r4VeX5isvy0wOxHQ==
-X-Received: by 2002:a05:600c:8289:b0:453:7011:fcdb with SMTP id 5b1f17b1804b1-45b81e930bfmr19246945e9.1.1756549144734;
-        Sat, 30 Aug 2025 03:19:04 -0700 (PDT)
+        bh=Lc4VvtndTdQUwu9NAMxU40diYp84hx+fKTxM5CnEC0U=;
+        b=V0qyZ+fYoNqclikdwFKv6RWJvvsyemOvy5Wp8f+L9ro0cvy41/pYKvQxYT8mi8OCPK
+         kfLRUMtVR6KXen1AN1scEeYjI5Og841VtJUaeir8r3llWOQdpVwvKVfFsFFHk3ZfR9oH
+         X/2t2JF7SPUldEY6T1HWsRBzR1sgbPX2oiyLs1D8aowbycJ9WIlw7p9UgqHY8xDk57ch
+         7tvx0S5cOAin13Xy2SXjGMjkIX1PXY+06rb20ZxCwKI6xuPdLOSRzY9NJr1IFbnP6IFR
+         02HtwAG7NE5DB5bPFmcauoPmbWePQTIeGxA0e4k2E9Xg1C2QvSqnwoRnAODGfo9m9Hke
+         f1pw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756549147; x=1757153947;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Lc4VvtndTdQUwu9NAMxU40diYp84hx+fKTxM5CnEC0U=;
+        b=IgKsyvQl0bCVEzv8OQE+VRkPctjYIqpRwWRv2OkESEtb9EVUYLnBI/+PBBM5VX6b/a
+         m2tzYrrpwMbogLvCUEPWF2Aqp7z4F0Q61/FcB/DAP8LTn8ZOCj1/EjJ2mF6Kn2GPE/0I
+         EET2GAVBeHSpG7yiGVtpBXwzxS8KNwbePm7ki8tSS/Qdxi4w377CNWa1vouJWMqoaZcK
+         c6CGIvXLROICrbqk9wGNkVeQvxDEBCz/PFPAed+Nqnap4cu4rDogGFNKrJr+a+gOw4/8
+         6ONnxJGlumXiHozcLYXq2rMoM1PWyWpdrGVMc/withNTORAVENgzNKkulI7BNQCC0wrt
+         rLxw==
+X-Forwarded-Encrypted: i=1; AJvYcCXuianXv2X+evEDBJ8RSfZ+MqKUtmqUkwX33xmqs4pWdr05OeNuv3UV6xpYf7yARLCqVJ/M8M+KnGGmIypxx83G@lists.infradead.org
+X-Gm-Message-State: AOJu0YyGF8KLI3MlpRzXrx5i5PPkLhkhfV/bUH2cxp/wBak6/GTa9LIe
+	9LfWK8HRv6cajBNxGOFxln1kzxG1f+mWAmswiJW4t4+Esw3xKa1mhW4hATs3soX0opg=
+X-Gm-Gg: ASbGnct2/Av9D3oIfCDW4txdIeHkkGX7zjy3ZtbHp19FdlDbCx7CKGKAmnJx+tIqFAT
+	cFBsM9qLTLzZ+ryYl7Adh76XiyEOvGdBHfIlu96g2dWcZk37hwgCSKVBF4KRq88i4F7wBg2jivt
+	2/BJd72gOGDUXZc87NPUCYCW8ewuSyWyIkgED2P7NQ6cKdfpz+DgQAdmUGZH1TSa4QiJ04ETUbS
+	gYJUKcf20ewOyIM4q6JOqdtjboXCar+UA21/4Q5sUxvjrsf7c6sCvzNq05s7DpYXE7a4PnVl2k/
+	i74loAXtecmIA0027fXtv1ToymblEE0EW0F2gpD8rCVc/JC9aB61C+9RjkqwE4JYEmqwXzcDW3n
+	tufZNrvP56dQKzPyARu1HFvfbGEbVsPfY9JlAnkM=
+X-Google-Smtp-Source: AGHT+IElyjWIDdnRLs09FR+6PzPMYJ0mBBOSNWeVs5b3fm069jnqc4HgASV/Qa+IsKi3cpsKc2Birw==
+X-Received: by 2002:a5d:5d0d:0:b0:3c9:1b91:71e5 with SMTP id ffacd0b85a97d-3d06606301emr1956916f8f.7.1756549146595;
+        Sat, 30 Aug 2025 03:19:06 -0700 (PDT)
 Received: from [127.0.1.1] ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3cf276c8eccsm6547492f8f.20.2025.08.30.03.19.02
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3cf276c8eccsm6547492f8f.20.2025.08.30.03.19.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 30 Aug 2025 03:19:04 -0700 (PDT)
+        Sat, 30 Aug 2025 03:19:06 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH 0/4] watchdog: s3c2410_wdt: Simplify, cleanup and drop
- S3C2410
-Date: Sat, 30 Aug 2025 12:18:56 +0200
-Message-Id: <20250830-watchdog-s3c-cleanup-v1-0-837ae94a21b5@linaro.org>
+Date: Sat, 30 Aug 2025 12:18:57 +0200
+Subject: [PATCH 1/4] dt-bindings: watchdog: samsung-wdt: Define cluster
+ constraints top-level
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIABDQsmgC/x3MTQqAIBBA4avErBswJZCuEi10GmsgLLQ/iO6et
- PwW7z2QOQln6KoHEp+SZY0FTV0BzS5OjDIWg1a6VdYovNxO87hOmA0hLezisSEFp60P1ntNUNI
- tcZD73/bD+37RmBCIZgAAAA==
-X-Change-ID: 20250830-watchdog-s3c-cleanup-cfa28bf8bb2c
+Message-Id: <20250830-watchdog-s3c-cleanup-v1-1-837ae94a21b5@linaro.org>
+References: <20250830-watchdog-s3c-cleanup-v1-0-837ae94a21b5@linaro.org>
+In-Reply-To: <20250830-watchdog-s3c-cleanup-v1-0-837ae94a21b5@linaro.org>
 To: Wim Van Sebroeck <wim@linux-watchdog.org>, 
  Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -89,27 +88,26 @@ Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-watchdog@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=823;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1227;
  i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=mBL3wH8Zv3gv3XD9pXxPdu8BLbNtjAnS1/nt1THHYdU=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBostASNGDkfBHqdI8SdUYlxbtH7WC94z0R+uy+A
- mta0ZnarceJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaLLQEgAKCRDBN2bmhouD
- 1yUzEACOf59cQzzBtTDBnQpXT72uFzQBgLc2W63iuHo7n8Z4baF+xyrn3IfvoPv2BnIthmCepvu
- oyNYaxkaA7XirALUW05Cz/y07xi/hqJanb7ZuNWqSZgBA31+V5Za+6iWFcb40Ik5bfBDMYALJb/
- iDPMyE9/20a7onCLRgGmGKhbnxHIXw2RoxZ2l888N2iMnf3/NuZcUVRtnfR/Qz5G2W+FvgejKd0
- 9j7gUwxSZ0VCM7LlbBHSW/+1th8Ab8xvcRAnlnRa0/E/xv7usrcQbDtnyqf2xxScVeBjYoOYniG
- cEWMSjCBnUv9xRJb0+vY0W2T/GFXqsoNFaCVNqbMGzU8q/AFDvekCz1R+welxjn7DzeXihYpFF6
- FXKk2BtaYFdtJ7UuV+ID296cy+IsRraPW1llrw/D6iSd22SGT+IL/cCn1qJ0InoQyC1yaHoviZD
- TW/JVxzqS1ggNI/ey2P7ogV7OCWnpFZCeCiRu3Q9yPyQGRasZbXUwV8AoqjqJG9JjYzlU0ohGmj
- dBYSo+BI4/+DU7Mc3wgaBRIXJc6yCt0k3aryAmtxz70PVjfKgjJIl+6gjltG4Jr/v/7kI3bL6aj
- WFokFak9Ri+IneCymYbboyPmhNB0LyKW/7E7AwjdnN4ds3naV8e7J0Fz+L/ph/cz3KNUdEvG3Z2
- N+1dsLyX4sVubZQ==
+ bh=phCIU7qXQwzL9ywXevhpCuLOX4bC84K3Yg163SS2Jhc=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBostATWdrpdUjx7iDa4Cq4mMsNQm8U0vKHMo27y
+ uln7YNtvyaJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaLLQEwAKCRDBN2bmhouD
+ 1/u9D/91m8aRXiwMrNQqYcDCDbp+fzpNTIX1p0ufDEiWmRJdp4r9vOLcLqClJ0ZrIN0QPFKfV8A
+ ZwN7RWtY9x658v8E8l1eosqy3gwhoba2WgKC0cZpVltv8wEqCPATPk6Z4wNAl5ALIIXDSM3blgW
+ FFoLip9pEF7F94wca7cKsdIdLKtkOiklZ3c7c8EmI11uiGgV/rm3JtbTaUdtZubMCcNoj7/KF3c
+ R9fP6FnjwFbXwUC+DmDegoOBKKmdMvioZVjsFX1RDGhVwULF5J0A+XtzqYVFJFv5LsQPrUTNyqK
+ 5eIyaXy20Qmm50YIauobjAYV4JSwL+4BMyQt2L/TIx8D7cy8ZtFybxjbJ8/vp+pbhU4vbWG99K0
+ xmn6JzcqHSt9uAeL+majTJPB7v94/DLdXRpbzFMQ6TPvTHHJRrjB2A8jmiqNXGvstRiYPNIBSP2
+ DqXlm2K7X8uaZ/Xr7F6cWeCRy3nypZ4G/xZFD8klLD36PDbJJJkhoksqaAPcV1OfZJIhrkrj5QW
+ omWsoukJVFDZw1nBJeZOnIb1o+fxpzHsyk58xPOTQBxNRKl1XhioEzQLW6m6BAdrTVkxNvVOpfV
+ lRXtKh/Mlqcm0Hes1AsZ92NTSStjpD/H6651y+S7P0oyqZgrrAqfobIQXEidlDzAqsYhK996DtQ
+ /ylTuDAV9xIAy5g==
 X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250830_031906_746564_63F6EC4E 
-X-CRM114-Status: UNSURE (   7.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250830_031908_339945_04A39E93 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,28 +122,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-S3C2410 is gone from kernel, so we can drop its support.  Also cleanup
-and correct a bit the bindings.
+Properties should be always constrained in top-level part of the
+bindings, so move the samsung,cluster-index constrain from if: block.
 
-Best regards,
-Krzysztof
-
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
-Krzysztof Kozlowski (4):
-      dt-bindings: watchdog: samsung-wdt: Define cluster constraints top-level
-      watchdog: s3c2410_wdt: Drop S3C2410 support
-      dt-bindings: watchdog: samsung-wdt: Drop S3C2410
-      dt-bindings: watchdog: samsung-wdt: Split if:then: and constrain more
+ Documentation/devicetree/bindings/watchdog/samsung-wdt.yaml | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
- .../devicetree/bindings/watchdog/samsung-wdt.yaml  | 72 ++++++++++++++++------
- drivers/watchdog/s3c2410_wdt.c                     | 22 +------
- 2 files changed, 53 insertions(+), 41 deletions(-)
----
-base-commit: 3cace99d63192a7250461b058279a42d91075d0c
-change-id: 20250830-watchdog-s3c-cleanup-cfa28bf8bb2c
+diff --git a/Documentation/devicetree/bindings/watchdog/samsung-wdt.yaml b/Documentation/devicetree/bindings/watchdog/samsung-wdt.yaml
+index 53fc64f5b56d33f910395d32b35e0905b8b9aa53..445c5271879f002f2b05645a0e748dd9be5aaf72 100644
+--- a/Documentation/devicetree/bindings/watchdog/samsung-wdt.yaml
++++ b/Documentation/devicetree/bindings/watchdog/samsung-wdt.yaml
+@@ -49,6 +49,7 @@ properties:
+ 
+   samsung,cluster-index:
+     $ref: /schemas/types.yaml#/definitions/uint32
++    enum: [0, 1, 2]
+     description:
+       Index of CPU cluster on which watchdog is running (in case of Exynos850,
+       Exynos990 or Google gs101).
+@@ -104,8 +105,6 @@ allOf:
+           items:
+             - const: watchdog
+             - const: watchdog_src
+-        samsung,cluster-index:
+-          enum: [0, 1, 2]
+       required:
+         - samsung,cluster-index
+     else:
 
-Best regards,
 -- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+2.48.1
 
 
