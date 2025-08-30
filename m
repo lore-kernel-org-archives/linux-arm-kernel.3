@@ -4,82 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E6CDCA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 16:31:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A57BCA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 16:34:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=t5qRg8dL7CV+FgonqN1II497OJX54kF6SQzjUzNxw88=; b=qjdxvEj9krswyy
-	eanF0r3Ta75HJ3/+vOwcT3I+RKAoIhwqPYdW5KYlTmjADHppcExa5mC/qo1ND+1lWajz5Yso697Mg
-	WmU+pfU3TS5XdTYVXRQYF32rz+zxn/JsV+MVPNXUTkKT0hVp8L7YsSnGTZGobkSTjm/qTM9Um1TBJ
-	BbBq1UUzJjSjdWSkdPCRNDGSc5km07Gf9i1OD9BUBoufbeBzmC/1VB99N91gKhConcQl3O6GFlyP1
-	jQ5gG9QJLRPL/lGYPlYlS6zgENXsNLHC9U/yP1XF1F0CrsLBquj1ZPVQa+EHpL5odllbknJ6n/lxQ
-	zK2+aFwq8zwX/vzSGGQA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1JB3/HRxiAmtWh+pEgNnmHQKJRpUH6uuEO8MQvS3SDQ=; b=m8XGKmICv2bryQMBWoSpbd++7Q
+	b9rUGujKhWhvddEQ7IP5Vu5VwRW6F7R2w+w0FOpxzwwZr75fXQp6bH/s1F8rWh+FoQp21sKK++3IV
+	Sco/pxtFMYVGhdI5CVxtgUQOJkizAsPmENbI4KvLvzucFCcfhaGH3X89C07FvkE5B4Tzv+FV4bW+n
+	l/ZFsV91uX8OPHBa1qQ88SxjzhmoutXeGcakdPs/5QkKt23kpdNhpbDFO4jrGB81t8E4wQkFln4HG
+	TnadjQWU8kibEp1WW3SH/B3kkOolsQ4BpTanObOWyZHa9QQeAorCeEMkV0+4QctF3EnQGzYBuCk8O
+	sHh2YINw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usOUH-000000088nN-2AJD;
-	Sat, 30 Aug 2025 16:31:33 +0000
-Received: from mail-qv1-xf2c.google.com ([2607:f8b0:4864:20::f2c])
+	id 1usOWz-000000088xs-1389;
+	Sat, 30 Aug 2025 16:34:21 +0000
+Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usORW-000000088MU-0naM
+	id 1usORW-000000088Mk-3Ufx
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 30 Aug 2025 16:28:43 +0000
-Received: by mail-qv1-xf2c.google.com with SMTP id 6a1803df08f44-70def63ec87so23439856d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 09:28:41 -0700 (PDT)
+Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-7fe9eea0d21so85653685a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 09:28:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756571321; x=1757176121; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=t5qRg8dL7CV+FgonqN1II497OJX54kF6SQzjUzNxw88=;
-        b=b37S1Ee7lUpXMFkABpU9hfiw3pqXiNwUMbbFM2I5qu1Gbdm2bKWIhH5WZjAkoTkNg/
-         0gYEfCc0dVc6KRMw1+OqwjAQHOfB08MwvmOZoLbN7bbIKmxBI5uTYvQzgoLfaCgcHTvU
-         ZdssTIcUwE17yEBicfWKhvf4MLIKhbeVqdJd4/HiIdYrgp4gtDER6Eq2R6vLFojheCCi
-         4yGKQ2zotiVnwhr7d4GqyydzQRYDxtkimMbJmzh1lk1kRc79KaZkHBH688nOtcmLRBSP
-         l92LxyJulWMFbVVkLV5pTwIt7eErXL7SXbY1TvubViD33z01kAiWh8ZXefKytdCDnv3i
-         BXwg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756571321; x=1757176121;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=gmail.com; s=20230601; t=1756571322; x=1757176122; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=t5qRg8dL7CV+FgonqN1II497OJX54kF6SQzjUzNxw88=;
-        b=Dai1/4rJbdS7EUCN/PPHUClg+87+MHaAbr89OLp4pifFOUWy79EJw1/JT55STJxCJe
-         lwH4ueBdllA0xSNimlsmQpEaeb4N4Bctnumr4qMYsBOviW2x8nKSW4h9iqgDrNyGvAVz
-         NY9mGw4QOonM055c0zvdYLOtMlXY5r1+ZxNIufQLcrbIVZahzTItqYbAWsLwwTEBP8OP
-         sgbx+ThHukF8C7IL0OxSOQ7zyhujl9u4kGC9zfm3U9hNvPn5lOr0barmQONOXBg1WaVr
-         mDvbks68L+NAnmpvGBepzgplMQB9s6ODEGJJokeQBwvbCNH3Ie7VM6jOnTlHSG4rbXLl
-         X+jg==
-X-Forwarded-Encrypted: i=1; AJvYcCXbxvMYbM2nbsmQiEIRAc/uk6yiFYQCfbAPpdmELFiE1yfFdeOeG+UiqZs74czJBlvZ/a//PKyeyEbUdhDdmpv5@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTZNQU6fHk+klUBRiCioIPWrn6BzzqbJjnBXTwJmwd4U5G6eWS
-	G9olBXcZX1AQIAsvUMcozE4SRwewLtOMA+mKfEtJSoLjAJaBs56Gx7RL
-X-Gm-Gg: ASbGncsOxhBqreYHdI6f8A+DNlk4T2KGIDxNPmsqJMkmRh6qMKPzU4yhPKJfVM9soSW
-	N+EOMxaaZxyUjcvxCXX+jV+W2FjE3aiouMj+ot69lDN/FReFci2tf7drUxqrglqpzERjbtKYDJN
-	WGvWnBjvmA8Hj3dKV9k+3/MFOgetb9CULT8ZCv6PRXh3+bR6ys+eAYOoG6NAG2PsukKEvWjQf6n
-	vSdVBQfKP/tzdnRIcM3A5VKFimAYyNbnaYdwK4cl5hsDPoktQUPjaQ6iqp8qUsL6jQAUsvSF/hM
-	CtPvMa9oqIKcRz571AsMN9EAQC8Jl50pAwVAPw/4UL3pRLfYKvksP02oxqi74q7wvgj211hIREj
-	jA20xKJC6Yg9Db4T5RmMuXkxYwVeF
-X-Google-Smtp-Source: AGHT+IEDsnzVzmDqICYsDSEbi2aaTM/6NHF5Tn3lwCq02oQLmPIh4l49hBu0D6JUcNECJ8GrIWvnTg==
-X-Received: by 2002:a05:6214:f09:b0:70d:9291:bdd8 with SMTP id 6a1803df08f44-70fac7c7ed1mr28987296d6.30.1756571320599;
-        Sat, 30 Aug 2025 09:28:40 -0700 (PDT)
+        bh=1JB3/HRxiAmtWh+pEgNnmHQKJRpUH6uuEO8MQvS3SDQ=;
+        b=MDi09tFOmoXEM1/HYbskQzAU3Q3MBLh3jX4X2jbMGKyD6y9yoernyIyHSZfNSsmSXK
+         JSs836qjtRMlk6RGcyaA57i/dLGEeZHP389FbWEGkqPBC4lCQHCVA5PEAitUrG7dranw
+         tX25rrJIVb9yMLxp5f23e2FAB6f0Hn1FmbVNkGMli7OjeJPkr7rLzJEsyMpTSK6xNhkL
+         YPgYN6fRPPzbCQuI4Nc9/GCegmCqh1VqpTJ8RaWYog0aC+g6GPVEBYL+orPuzDzKIKWH
+         PKeqA20T19g1WNx1Cbx9AAxeKqCkdRpRjIFdkdeddId9symUzJOzGWM/Z1e+4yMR4TnI
+         wjOQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756571322; x=1757176122;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=1JB3/HRxiAmtWh+pEgNnmHQKJRpUH6uuEO8MQvS3SDQ=;
+        b=qt8yXxaE9IHD2+oXGq6y7sqQIsc0f4xCUUmLZtn2js9cmmqkSRzcGAJaGfsXdtnn8y
+         cpMGOJ01ojpzkELQ9W5oqz5phnCaBgBWrBHuyl7GZmsnVA7tczvT9TWmFy4NkpXN6lAQ
+         ycXnKg5svPRLNKMzS2sChaGaOjkEoh9Bq4uh/Gq7Dfj0UY+Zx6VeCGFT6Ukjft5n0BrP
+         XU/V6vLsCkyJxl84KUNSHtP9d0dyE+9jotzXuwjX56TrGMkDD2+aDUgavDtmQJ0d3zOs
+         kAwiji6/gEXIKaAhDCxP9SIkeLad/TcxYJbooiXOsmhWAJvse5KwrH6R7CLNaOFPw+bT
+         IAeQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXUAJEJnc8LP9/njFHm1hYjdz1ltiYvV703YjKKPN1ATZKZjIip8N4MFHUaLLW6iesxnitNP1UZREArPc1CVVwV@lists.infradead.org
+X-Gm-Message-State: AOJu0YzODBdEISXxpXKe8wnYKRXgOYH3TdFzpKZdZDFZSH1UwoiPtc+t
+	aQTHDk3gQrW1/MdMC5DsMcpARlJ9WMDtrEzkEm1coZ5PXf3wIKXKi4M5
+X-Gm-Gg: ASbGncvVP8dqBrda4JwS/Z4xn+3T3/S8KYxBQGfaDbcAMxVrlQnLMQfRB/MyYX2gWHW
+	Wv3huHaC/1Ntb0U502wkfY62IAqBMv1ihJpl/cFjAm8C0Emo710aVi3LtEjTFM9q3jGqQU7GdrM
+	R3io5Wh16KMNCmWt8olJ9e0BUivDCVip5SQYkK6zftngo9qqvhMPF0Ic6D4Zckfg23aUQePCLVu
+	xQ/WjiFd85VNnRPKj5+qs4NLW+AhzfL9hdypbjAz1C7pBYxBi50zaJ5OJhy/JQNA8l8LEHS0pZT
+	XnjxO8k8hM3cvbBrq4nPGZCoZjL3L4W2AZ1lQRHvtVZdQsuNnLtnCtKkfc40UKLclfOw5mnAt6h
+	oeezvnB142hRfqsAHkQcUUmHzudsVstjQ4PAMrQQ=
+X-Google-Smtp-Source: AGHT+IGnhEMMnBdR9lydAVMTUpQDQ/k7ZP81tvaRPU+NFS9Cml/2rz2bOOkl/9gh5lwSLSX/oq8avg==
+X-Received: by 2002:a05:620a:45a3:b0:7f9:c004:42e with SMTP id af79cd13be357-7ff21cfd0demr298897985a.0.1756571321432;
+        Sat, 30 Aug 2025 09:28:41 -0700 (PDT)
 Received: from [127.0.0.1] ([74.249.85.195])
         by smtp.gmail.com with ESMTPSA id 6a1803df08f44-70fb28b5a26sm8110786d6.64.2025.08.30.09.28.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 30 Aug 2025 09:28:40 -0700 (PDT)
+        Sat, 30 Aug 2025 09:28:41 -0700 (PDT)
 From: Denzeel Oliva <wachiturroxd150@gmail.com>
-Subject: [PATCH v5 0/5] clk: samsung: exynos990: CMU_TOP fixes (mux regs,
- widths, factors)
-Date: Sat, 30 Aug 2025 16:28:37 +0000
-Message-Id: <20250830-fix-cmu-top-v5-0-7c62f608309e@gmail.com>
+Date: Sat, 30 Aug 2025 16:28:38 +0000
+Subject: [PATCH v5 1/5] clk: samsung: exynos990: Use PLL_CON0 for PLL
+ parent muxes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIALUms2gC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyTHUUlJIzE
- vPSU3UzU4B8JSMDI1MDC2MD3bTMCt3k3FLdkvwCXQNLQ/PERAsTC3PDJCWgjoKiVKA02LTo2Np
- aAIZGO1pdAAAA
-X-Change-ID: 20250830-fix-cmu-top-0917aa84871b
+Message-Id: <20250830-fix-cmu-top-v5-1-7c62f608309e@gmail.com>
+References: <20250830-fix-cmu-top-v5-0-7c62f608309e@gmail.com>
+In-Reply-To: <20250830-fix-cmu-top-v5-0-7c62f608309e@gmail.com>
 To: Krzysztof Kozlowski <krzk@kernel.org>, 
  Sylwester Nawrocki <s.nawrocki@samsung.com>, 
  Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
@@ -90,16 +89,16 @@ Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  devicetree@vger.kernel.org, Denzeel Oliva <wachiturroxd150@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756571319; l=1607;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1756571319; l=2137;
  i=wachiturroxd150@gmail.com; s=20250830; h=from:subject:message-id;
- bh=DTu6htZoqYuzhaeQFD9mKEvbhzis4l6Wheni3yeZONY=;
- b=TLrfWOSA0lvmaSNnT+NdMXez4B1AptncW54LbNAkWa5w+d2JzK+N+1IQ+yAVMSNO25fxPCFEy
- UBnQgmyzbFwA4LaOd57KjANj/h0Y/WEc/z/cFH4T5EBqdNC4JeVz7MX
+ bh=6yax87RqbvYF0ActasAJerhVa1SUTvfy73gnHEk7z9c=;
+ b=BCbvIMxI7eRG7Yukaw4ERMJfQIzWK6VhM8NKMcnXh5upDYGzAtOTPVieAzFHIx6K4czcLEYoe
+ JleTq1TdQLJDxq4lWQ+TFncQfCy35ey6m1XL8S3pVNDC2U2WTA4BgnJ
 X-Developer-Key: i=wachiturroxd150@gmail.com; a=ed25519;
  pk=rxHEBGA1eos5vQkPC9SlkEPD6sil9F03N6bc8qmUFrQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250830_092842_232005_554FC449 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20250830_092842_876229_24B85284 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,58 +113,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Parent select bits for shared PLLs are in PLL_CON0, not PLL_CON3.
+Using the wrong register leads to incorrect parent selection and rates.
 
-Two small fixes for Exynos990 CMU_TOP:
-
-Correct PLL mux register selection (use PLL_CON0), add DPU_BUS and
-CMUREF mux/div, and update clock IDs.
-Fix mux/div bit widths and replace a few bogus divs with fixed-factor
-clocks (HSI1/2 PCIe, USBDP debug); also fix OTP rate.
-
-Changes in v2:
-
-- In the first commit the divratio of
-  PLL_SHARED0_DIV3 should not be changed.
-
-Changes in v3:
-
-- There is no ABI massive break, the new ID clocks are
-  in the last define CMU_TOP block.
-
-Changes in v4:
-
-- Fix compilation for define CLK_DOUT_CMU_CMUREF to
-  CLK_DOUT_CMU_CLK_CMUREF
-
-Changes in v5:
-
--  Rewrite commits and remove cosmetic/non-operational changes
-   and unrelated rebases.
-   CLKS_NR_TOP will be moved to the patch that adds the new clocks.
-
-Please review.
-
-Denzeel Oliva
-
+Fixes: bdd03ebf721f ("clk: samsung: Introduce Exynos990 clock controller driver")
 Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
 ---
-Denzeel Oliva (5):
-      clk: samsung: exynos990: Use PLL_CON0 for PLL parent muxes
-      clk: samsung: exynos990: Fix CMU_TOP mux/div bit widths
-      clk: samsung: exynos990: Replace bogus divs with fixed-factor clocks
-      dt-bindings: clock: exynos990: Extend clocks IDs
-      clk: samsung: exynos990: Add DPU_BUS and CMUREF mux/div and update CLKS_NR_TOP
+ drivers/clk/samsung/clk-exynos990.c | 15 +++++++++++----
+ 1 file changed, 11 insertions(+), 4 deletions(-)
 
- drivers/clk/samsung/clk-exynos990.c           | 80 ++++++++++++++++++++-------
- include/dt-bindings/clock/samsung,exynos990.h |  4 ++
- 2 files changed, 63 insertions(+), 21 deletions(-)
----
-base-commit: 39f90c1967215375f7d87b81d14b0f3ed6b40c29
-change-id: 20250830-fix-cmu-top-0917aa84871b
+diff --git a/drivers/clk/samsung/clk-exynos990.c b/drivers/clk/samsung/clk-exynos990.c
+index 8d3f193d2b4d4c2146d9b8b57d76605b88dc9bbb..12e98bf5005ae2dc32da0da684a15133d64ed305 100644
+--- a/drivers/clk/samsung/clk-exynos990.c
++++ b/drivers/clk/samsung/clk-exynos990.c
+@@ -239,12 +239,19 @@ static const unsigned long top_clk_regs[] __initconst = {
+ 	PLL_LOCKTIME_PLL_SHARED2,
+ 	PLL_LOCKTIME_PLL_SHARED3,
+ 	PLL_LOCKTIME_PLL_SHARED4,
++	PLL_CON0_PLL_G3D,
+ 	PLL_CON3_PLL_G3D,
++	PLL_CON0_PLL_MMC,
+ 	PLL_CON3_PLL_MMC,
++	PLL_CON0_PLL_SHARED0,
+ 	PLL_CON3_PLL_SHARED0,
++	PLL_CON0_PLL_SHARED1,
+ 	PLL_CON3_PLL_SHARED1,
++	PLL_CON0_PLL_SHARED2,
+ 	PLL_CON3_PLL_SHARED2,
++	PLL_CON0_PLL_SHARED3,
+ 	PLL_CON3_PLL_SHARED3,
++	PLL_CON0_PLL_SHARED4,
+ 	PLL_CON3_PLL_SHARED4,
+ 	CLK_CON_MUX_MUX_CLKCMU_APM_BUS,
+ 	CLK_CON_MUX_MUX_CLKCMU_AUD_CPU,
+@@ -689,13 +696,13 @@ PNAME(mout_cmu_vra_bus_p)		= { "dout_cmu_shared0_div3",
+ 
+ static const struct samsung_mux_clock top_mux_clks[] __initconst = {
+ 	MUX(CLK_MOUT_PLL_SHARED0, "mout_pll_shared0", mout_pll_shared0_p,
+-	    PLL_CON3_PLL_SHARED0, 4, 1),
++	    PLL_CON0_PLL_SHARED0, 4, 1),
+ 	MUX(CLK_MOUT_PLL_SHARED1, "mout_pll_shared1", mout_pll_shared1_p,
+-	    PLL_CON3_PLL_SHARED1, 4, 1),
++	    PLL_CON0_PLL_SHARED1, 4, 1),
+ 	MUX(CLK_MOUT_PLL_SHARED2, "mout_pll_shared2", mout_pll_shared2_p,
+-	    PLL_CON3_PLL_SHARED2, 4, 1),
++	    PLL_CON0_PLL_SHARED2, 4, 1),
+ 	MUX(CLK_MOUT_PLL_SHARED3, "mout_pll_shared3", mout_pll_shared3_p,
+-	    PLL_CON3_PLL_SHARED3, 4, 1),
++	    PLL_CON0_PLL_SHARED3, 4, 1),
+ 	MUX(CLK_MOUT_PLL_SHARED4, "mout_pll_shared4", mout_pll_shared4_p,
+ 	    PLL_CON0_PLL_SHARED4, 4, 1),
+ 	MUX(CLK_MOUT_PLL_MMC, "mout_pll_mmc", mout_pll_mmc_p,
 
-Best regards,
 -- 
-Denzeel Oliva <wachiturroxd150@gmail.com>
+2.50.1
 
 
