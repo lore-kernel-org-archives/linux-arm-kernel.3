@@ -4,143 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E157CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 22:32:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2961CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 22:55:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GNi6qlMhUO/dlDLKPCpe1EohMUP/BhLmz8wF/QSm9/A=; b=aMBSam8BUcMvNBcay/afsYGBgN
-	luBO249rmUJEzRlV/VHxlBtoqKnLLk5UO9MCDVSck3zYtf4BDT6vVD53sPQZZmlDCD/gkDOJws6em
-	BxjStTOjyLsf1gfUjLGOjgWG1kQSxXsCe4/Ez5qqru4KvcbBT6p+ZFUfz4VXPKP3H7OcSa3n61Yjo
-	RxPIDfzfnC0hA4rVmVKCP8eiA7ewYF+8arIE1bMRf1Yp7GN8BidSEi8MyU2Lfy4BxcCQ/AAJ68l1z
-	4eatwPhrVpZh610NPcXPshEcz1BINmVxZTqvgnXu8w/OZAYA/Plt54LvRLz04kDxPI1zZnDRa8aTM
-	OrFtkWug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xrZ1qN3DYmU2M5pGPX1QKTcsDyaZXEbX9yPyZzRw9Ug=; b=pDjJQbyZUxyCRSijpaqFLEBF1U
+	an/veFf4agCaZ0Cr7ABn10DRwnivdUJoVaTMDPI7JS8RkJSyJiBSDaINKTHQrszssKOZ+qNJfxEut
+	L8Z7kphdVLqwhm4XX7ReCfm9PNEVkYyXCK2EjDGF/FeCYqBSJll5ufURdpE8PPTGG693plrVN83Jc
+	NCJ9Yx/RAoAD4M6Fb7zi0FCu6Vc5N6YVprgenNr+vGHNizQTyi+VIf3FPyaVNroIpiOhU8OpY1okh
+	6x5tTlwuOArbTp+TDTFSoh2RXrOrfzNkt3TGvVTOLvnEgM4jwlUlWDE1dK9vnCgcdJiehQ04uQb8/
+	IIfrJcNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usU7G-00000008UwI-1Qr3;
-	Sat, 30 Aug 2025 22:32:10 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1usUTI-00000008Vq4-1wTK;
+	Sat, 30 Aug 2025 22:54:56 +0000
+Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usU4V-00000008Uhx-3xME
+	id 1usUQZ-00000008Vk3-08hU
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 Aug 2025 22:29:21 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57ULBgIG015918
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 22:29:19 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=GNi6qlMhUO/dlDLKPCpe1Eoh
-	MUP/BhLmz8wF/QSm9/A=; b=i3GnX8W6MzF7/jJqLQfusJdMEK+lmRXnmxPfHHY1
-	JPvU271NEVX0/v6y7ODjamnq+H35oviI2R0naUJNBJpMjQ372GejEdRgYAaVwriD
-	UuP6g6EZHnfjp6jRkib7fwem4DSzBXnuwGFWs8Bx/dKken7qgT+Q47BDBEnHD/fW
-	AOjVS77HhoxWByxt9zCkSoPxghyGfIfk80XXJk/y483CHjFMaGP4kjQ/AcYT6ciI
-	i0qD3LFPO0B/sa8mnRCx5iomQnAJyXkhrVP00urFpwzbtyFGPxJgQ03tWBSnsQAX
-	T1fqATL+5HD27JlCxMLfLyKmM7EZNQWozZhMbvA9sqGkOQ==
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48urvys8qa-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 22:29:18 +0000 (GMT)
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-70dff062d38so40149806d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 15:29:18 -0700 (PDT)
+	Sat, 30 Aug 2025 22:52:08 +0000
+Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-4b1099192b0so62123201cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 15:52:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756594324; x=1757199124; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=xrZ1qN3DYmU2M5pGPX1QKTcsDyaZXEbX9yPyZzRw9Ug=;
+        b=Jc5a86xjq/VRfpoWMDeAts8SMvRtDkDgGatGVwqi3ryzIwdWSNwXwAtu/w4eUcVsfo
+         LWOHQTxQ1dtMu710vQ+zqxezebKRgmt5MVwYSbVQHmYS78Wm5dvA42k6kfh4uzCYBuQs
+         8n9kDrfMfpQSL0tZcgTAPoJzIFLwgOlLNWQhCr98JedU7OhBzSHAkjXTPoWxzqKthdMW
+         Lu9fbDOn90VxeLYPB7k3U7s8DLOCsCIln6Qg4gAQ7dgoIbm3KMb19swzUlMznVWhKCaU
+         j76IrZYSGIa3E068P9/zP46rZg2w3u++h64cAulWP7zLrustFV22ZccHSNzLOTLyB3U/
+         IAZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756592958; x=1757197758;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GNi6qlMhUO/dlDLKPCpe1EohMUP/BhLmz8wF/QSm9/A=;
-        b=bgS5ok4fx08Tu4SY6iWuryOxyHsPnfD6LNoqsme1t3DlBF6tD3/u+UluICUXPJ6UJl
-         DwOOr0gOW8bCiSmMXmycaVd2sanQ9BuuJ4sBBJhL4V8QjRULyGV+BDBxau3XMDj7fqZt
-         mtKUz877ixTOFruFl/ErcOi4Qst6qwMt+Pz/OTrFJku9eKypXIT64dPYrGjRBrHaXw7M
-         fK1/2b3OB3SNif6DJVq1iYG6FKpc48SxhOGfTdtKhF21hlTSZXj8O52VFtnwKt1HXhsL
-         YV8Jz6JXi4enP22xPFIQYuVwQn/wyR1qGUoRCEIAwbHgsOI76ZT2zFHR8hHi6HlGtv74
-         j46A==
-X-Forwarded-Encrypted: i=1; AJvYcCUzqGyCdXWqFJ9Klz7QqCO7rXUc+1n1Z2ighYPm7Lamdnb1RR0E+JP4AHfC+ujWMDZEz5wimtvSFKKCxpc8SkTM@lists.infradead.org
-X-Gm-Message-State: AOJu0YwuPvKKT+iqpWImuYtL4i25BskQexc3wTlO4tJeMpOH170Zqlu4
-	yJeOmwMVRArrSPTM8eLL68uKW/4xVNrt5lPuU7PXhNYpJdaVq/ZildUNu/j8eFZ49UNnzQwv29H
-	rsX80KB5fDABjiNdQdcTep+u3gIsFN4PakPHgWqttDPV14+nB6yy/mPuBA2QIo9/fHs/vvq8xBB
-	6t9w==
-X-Gm-Gg: ASbGncvlJtwAImJg8S2uNlHEMkoZzSb6F8U6NsEnOtFZdTeWIado7se4pdolzeRkzrz
-	O6dcXR1drAvLgiL0bNaF+n8LF1XyiWSecfpg1MgD92dVVQPRVEVZGVlXBG5I/dnH/jeVTfPCTtY
-	fihkKUYaJHD4j6SOTlBiLfA/ekBSHgGgLAE9TwNCIsWaPRxrBCMhHs1FZeh/xWWefzeu6p5Nv5C
-	DisrwV/lAP2w6rnrNX52rPwmymkUd7zKXFX2J78tlfoo+pqsqiAqoJn7gDvzD+nOuR4F5MO0p6R
-	cgxp0G/KAxmAmKgI3yUCD4XXrt7AizXRECNYaTZg/tPzgdvBWh/bRUtoaMQIkN3kdqmv9BxISbB
-	9xZYSs2JJ8iy9R3AU/D2TPxQw2j+fkmBVCj1zXqfCNQX5qcGtRueZ
-X-Received: by 2002:a05:6214:21cb:b0:70d:c6b9:c256 with SMTP id 6a1803df08f44-70fac94115cmr30677686d6.58.1756592957755;
-        Sat, 30 Aug 2025 15:29:17 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFaqdCzqqQwp+xBjOwKvWSPX4p3qiZ0ZzV9L7+TYukjcGa33kntlWRwDlkYGow/owafc/jjnw==
-X-Received: by 2002:a05:6214:21cb:b0:70d:c6b9:c256 with SMTP id 6a1803df08f44-70fac94115cmr30677306d6.58.1756592956994;
-        Sat, 30 Aug 2025 15:29:16 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-336d0e3f3absm4929391fa.37.2025.08.30.15.29.15
+        d=1e100.net; s=20230601; t=1756594324; x=1757199124;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xrZ1qN3DYmU2M5pGPX1QKTcsDyaZXEbX9yPyZzRw9Ug=;
+        b=L5D+d2lY99yqRImzjWWYIz+Jp8Hnh7HYHzOr9HkYev8DMHsYmHWSV7K9dftLAAgWxy
+         Bn/4/FesGJu0JwZ5EJsAMFxrdZviEenmG1M/7KbEFAV9rLwuMKpbMM4dCI/WJIJqllaP
+         4tLfpO9Y0TpWhdPG8I6zyHmbG8LbaDYGmlAZUPuabEkLU+96UnnZvn7cQcMisRGvOosz
+         dS/cdZzgIwA1ljyS5v+Ve//pVm/J0iYMsKZ0qsekr9OE+E+hQfUuMyWUyXdbdXHwRMxM
+         71a0Nem+owI/L5uA0Lw+vkBBGt353j5ef1QKOECBJn2dAjChAiYIgBhc52w16wEDkgT3
+         gxOA==
+X-Forwarded-Encrypted: i=1; AJvYcCUXlfz/rn1+drzWE1ei1p22quGJIM3JkpN1eLuA+PTDozG4TAdXSet0FkiygcVvyAFU3qWBt6+rSyNzOwl9LTjJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwSDX6d7MNTxe8ipPFXYXUS7aBnMDl4wn/Kuaus6jzRLuqraAce
+	e2iDimYohdh4xXSMsMPsj4rkYf3WalvS/auQTN4y9Yaa5qMSNEuK+c0=
+X-Gm-Gg: ASbGncum7GfqiYDW7qwAFHxyj+c+bHcuZhZsKepnMJJ2wuMBz1Hl7sdQS6cdwG7yxLM
+	MZ55g9R/Dzd8fX0EOX/W/UQOjKKu8G66b7OajcN5DZqlbh2wSAv+r0c+KWAfOcI4DUgK/fvyApe
+	q4HfIN2cLIY3iRxLWrLiDNA18+nf9nvOr22pEYnzOySaCQ6ZzvPWbuIHbgG7ePlM05xIU7/6SW+
+	3BIVcU3P7NjDJ0jEAGDQnuQ7iV9IQy24b2W1Vvj7JsfGvqF3eGXfBX2j0Uh4SuYHrpZz7wmHTQs
+	qdpYwo86w3Up1vsRolU5gKRqwRh29hMOL7mCe1YKnJ8HP0eGXEYOcRJEuS8K3OJglCnYPRVmPzk
+	vsGiG6W8KO+2NcxnxL4qqUqA9EzR0vAfVb73H/nRK8NcDuiKhCnmSQrFg
+X-Google-Smtp-Source: AGHT+IHj1Y7mSbhB/V78RbLpZrF2ojqkt4iRIfegSDPVQpLKIbvDqEpOolWmEiXgivm+8z/ghRL4WQ==
+X-Received: by 2002:a05:622a:2284:b0:4b1:103b:bb84 with SMTP id d75a77b69052e-4b31db67395mr34440651cf.62.1756594323672;
+        Sat, 30 Aug 2025 15:52:03 -0700 (PDT)
+Received: from localhost.localdomain ([2a0d:e487:68e:c28d:1818:9595:da56:53b9])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4b30b67894bsm38752341cf.33.2025.08.30.15.52.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 30 Aug 2025 15:29:15 -0700 (PDT)
-Date: Sun, 31 Aug 2025 01:29:13 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Daniel Stone <daniel@fooishbar.org>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Sandy Huang <hjc@rock-chips.com>,
-        Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>,
-        Andy Yan <andy.yan@rock-chips.com>, Chen-Yu Tsai <wens@csie.org>,
-        Samuel Holland <samuel@sholland.org>,
-        Dave Stevenson <dave.stevenson@raspberrypi.com>,
-        =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>,
-        Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-        Liu Ying <victor.liu@nxp.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
-        Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev,
-        linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org
-Subject: Re: [PATCH v3 00/11] drm/connector: hdmi: limit infoframes per
- driver capabilities
-Message-ID: <57ekub6uba7iee34sviadareqxv234zbmkr7avqofxes4mqnru@vgkppexnj6cb>
-References: <20250830-drm-limit-infoframes-v3-0-32fcbec4634e@oss.qualcomm.com>
- <CAPj87rNDtfEYV88Ue0bFXJwQop-zy++Ty7uQ9XfrQ2TbAijeRg@mail.gmail.com>
+        Sat, 30 Aug 2025 15:52:02 -0700 (PDT)
+From: Jihed Chaibi <jihed.chaibi.dev@gmail.com>
+To: mcoquelin.stm32@gmail.com,
+	robh@kernel.org
+Cc: alexandre.torgue@foss.st.com,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	shuah@kernel.org,
+	jihed.chaibi.dev@gmail.com
+Subject: [PATCH] ARM: dts: stm32: stm32mp151c-plyaqm: Use correct dai-format property
+Date: Sun, 31 Aug 2025 00:51:15 +0200
+Message-Id: <20250830225115.303663-1-jihed.chaibi.dev@gmail.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAPj87rNDtfEYV88Ue0bFXJwQop-zy++Ty7uQ9XfrQ2TbAijeRg@mail.gmail.com>
-X-Proofpoint-GUID: jUFZLpb5IwGEaGEhgxLs4zH9c7OpNvSo
-X-Proofpoint-ORIG-GUID: jUFZLpb5IwGEaGEhgxLs4zH9c7OpNvSo
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODMwMDAyNyBTYWx0ZWRfXySXFthhfuR1C
- y8k4SC2MFmMpMEIMS800Zuz6ND+Tt5bgA0MM6lbeqcSd1aEz1JyNFRCtk6ITQ4YLhJa/GsDe6rr
- 8hXucG9U9ZGwlI2XWglBaP3MslsdESv62ONw0luSAKAJKET9NATi0fyQHfQ5mWimqvcDXus50AB
- GVXh/HQPXdc717x+/bYINF9TdTksd9kr5n/OvkbvcmnQNf3hPM09xCl6v41ZlPnTT9LKRYjD1/5
- GJy9GsudvhkH/FJhrFLNVmXGjfVMvIII/Gl+WXBS7p6Msb56pH5jpTWZWY4+otDRXuyjQGMLlIN
- Jrj4cqiNkv+l3MoroA3bhRijytY545CpDVT/782P8qlxDLDSobNv6e9aL2uoEHfMQRyD0yr5/oQ
- hIC1OIVV
-X-Authority-Analysis: v=2.4 cv=NrDRc9dJ c=1 sm=1 tr=0 ts=68b37b3e cx=c_pps
- a=oc9J++0uMp73DTRD5QyR2A==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=2OwXVqhp2XgA:10 a=EUspDBNiAAAA:8 a=eLVs-IFDZWC_gK9YM6cA:9 a=CjuIK1q_8ugA:10
- a=iYH6xdkBrDN1Jqds4HTS:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-30_09,2025-08-28_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 suspectscore=0 malwarescore=0 priorityscore=1501 phishscore=0
- impostorscore=0 spamscore=0 bulkscore=0 adultscore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2508300027
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250830_152920_101855_F7EC915B 
-X-CRM114-Status: GOOD (  31.15  )
+X-CRM114-CacheID: sfid-20250830_155207_072978_B954F193 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,46 +103,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 30, 2025 at 09:30:01AM +0200, Daniel Stone wrote:
-> Hi Dmitry,
-> 
-> On Sat, 30 Aug 2025 at 02:23, Dmitry Baryshkov
-> <dmitry.baryshkov@oss.qualcomm.com> wrote:
-> > It's not uncommon for the particular device to support only a subset of
-> > HDMI InfoFrames. It's not a big problem for the kernel, since we adopted
-> > a model of ignoring the unsupported Infoframes, but it's a bigger
-> > problem for the userspace: we end up having files in debugfs which do
-> > mot match what is being sent on the wire.
-> >
-> > Sort that out, making sure that all interfaces are consistent.
-> 
-> Thanks for the series, it's a really good cleanup.
-> 
-> I know that dw-hdmi-qp can support _any_ infoframe, by manually
-> packing it into the two GHDMI banks. So the supported set there is
-> 'all of the currently well-known ones, plus any two others, but only
-> two and not more'. I wonder if that has any effect on the interface
-> you were thinking about for userspace?
+The stm32-i2s binding inherits from the standard audio-graph-port
+schema for its 'port' subnode, audio-graph-port requires the use
+of the 'dai-format' property. The stm32mp151c-plyaqm dts file was
+using the non-standard name 'format'.
 
-I was mostly concerned with the existing debugfs interface (as it is
-also used e.g. for edid-decode, etc).
+Correct the property name to 'dai-format' to fix the dtbs_check
+validation error.
 
-It seems "everything + 2 spare" is more or less common (ADV7511, MSM
-HDMI also have those. I don't have at hand the proper datasheet for
-LT9611 (non-UXC one), but I think its InfoFrames are also more or less
-generic).  Maybe we should change debugfs integration to register the
-file when the frame is being enabled and removing it when it gets unset.
+Fixes: 9365fa46be358 ("ARM: dts: stm32: Add Plymovent AQM devicetree")
+Signed-off-by: Jihed Chaibi <jihed.chaibi.dev@gmail.com>
+---
+ arch/arm/boot/dts/st/stm32mp151c-plyaqm.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Then in the long run we can add 'slots' and allocate some of the frames
-to the slots. E.g. ADV7511 would get 'software AVI', 'software SPD',
-'auto AUDIO' + 2 generic slots (and MPEG InfoFrame which can probably be
-salvaged as another generic one)). MSM HDMI would get 'software AVI',
-'software AUDIO' + 2 generic slots (+MPEG + obsucre HDMI which I don't
-want to use). Then the framework might be able to prioritize whether to
-use generic slots for important data (as DRM HDR, HDMI) or less important
-(SPD).
-
+diff --git a/arch/arm/boot/dts/st/stm32mp151c-plyaqm.dts b/arch/arm/boot/dts/st/stm32mp151c-plyaqm.dts
+index 39a3211c613..55fe916740d 100644
+--- a/arch/arm/boot/dts/st/stm32mp151c-plyaqm.dts
++++ b/arch/arm/boot/dts/st/stm32mp151c-plyaqm.dts
+@@ -239,7 +239,7 @@ &i2s1 {
+ 
+ 	i2s1_port: port {
+ 		i2s1_endpoint: endpoint {
+-			format = "i2s";
++			dai-format = "i2s";
+ 			mclk-fs = <256>;
+ 			remote-endpoint = <&codec_endpoint>;
+ 		};
 -- 
-With best wishes
-Dmitry
+2.39.5
+
 
