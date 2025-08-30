@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55260CA0FFE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:53:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4254CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 00:53:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yR8ojpGZaE3dckXhUPm62p+tv8/S+wacYcr4NjEKkXY=; b=eWdmnjb7zVNdB+nc2OWrTHoZs9
-	TedkNYbhO1vaLQiP6FDzv8IfGD747SIkzvwFFd3YErnbIcafungFMi7h4fiXuhqT36sKPWEXE5CTo
-	gQu0Dpt8C5aRDaKhyqcNbcdCXcI2DQB/yxRZuVCIOXuwnBuy2sLAshtltKJoYCw+cELf16jU4tEGh
-	n4EKxWbzdQHgxio0jsDLGo6v70x8nh0iLSZU4P6kLjHqbOKCmDqNOS9e0m68q5vcXDA9zhAczI0GT
-	fgvlght3S7j+lk+W2Pio30DRDtRcAilEyLMD+1Q0a3MsMPjfhJrWJJCj2G20u3YA1qyUscngTYW7J
-	caD2X6yQ==;
+	bh=5Ph9fpMKwyVh1QpkoJDUD9CEJnYrcgjdCLeyqaq6qOo=; b=RA16pUHCFVNxrMVD6NNXOz9Mcc
+	qvGIegvy3jTXyFDUrc5pjT1LK2sJ1ZNvB5d7yJ4xJWvf2hmGzEekQgmA1ByVEm8imdE81elrCE9h8
+	AhpBo8QK5Id31O21pBLNxfF/dcdsuT9p94AvZWkGFAokQrmT+dyVw9TDYXWrFXRAgqZ8xip8XgBmQ
+	G0bcwffZjcalHaxtuCuCs4t2WZmNMpV9BUb61DEaSE5hiTIVnxn58uG/6c0yoW2zVfJlWvW74DhBr
+	C0rPFLL3xp9ylmvmkHIkmTjcaCUN8gktfmJGz/CJKk9w4U8UkzV32u45cl4y09ALRNWSdz/imXGfJ
+	50Rxablg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us9qD-00000007EZw-1UtD;
-	Sat, 30 Aug 2025 00:53:13 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1us9qI-00000007Een-09dN;
+	Sat, 30 Aug 2025 00:53:18 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1us9N9-000000074Wi-3hZK
+	id 1us9NB-000000074Xr-2CW1
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 Aug 2025 00:23:13 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57TNOUQJ007731
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 00:23:11 GMT
+	Sat, 30 Aug 2025 00:23:14 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57TNVW5U032595
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 00:23:12 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	yR8ojpGZaE3dckXhUPm62p+tv8/S+wacYcr4NjEKkXY=; b=UClwzVJgdHkDXZo7
-	w3HM0F5aHQ2GZ+oRT5p8dn1CO2MLAhjgATxyxp+iakcyr9esh6YHe4ZUpZpeBRjj
-	Ik2Gx3v21Yc/5quAu0rD8AjaWkB7FynQ2yGPMT2sdTyQ3p5dLi+8ZWH62WowuuuQ
-	lg7kaEmnDKL6WOmc/CutjHol/YWAAKRaPGcX0+g4IoSL8xB/2y4pXhsf9pkzoN3k
-	uaoECza7pCvR2bLDT7xtmVAzjw8p+bqzfThSU38R4ssxQrWFLJBYrG4U01wOm8HT
-	w6VFuVebCKhIDl8dtJ1o4oJwxidP72REwLXT55tq1sT8XlSEQmJWC1hfwv92yHFu
-	UtD4/w==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48q5w35dsq-1
+	5Ph9fpMKwyVh1QpkoJDUD9CEJnYrcgjdCLeyqaq6qOo=; b=UMrWNzqMYMrZjeNx
+	lYnPwFSM1DlBJnTfCbOVORANqwmE5ZANTNLbCQxA5h0Nihow7ScdskL6QJWkOmuA
+	vnTrj/HyOKDAAoCio5lvtPu2sVEiE6uo+b2Oa+dSqVYs8/PdXmgfmnbY/2CVWKu7
+	au00EnICgrvEGxh90n950pV+jSVJxRMi6paAXydM1QJMZxlHRArTP5rFcL+zkMET
+	eCRlTP71YCJ9UQ/aErsHTmz9dI16r7nTObvARC+BLZ6KlbnzRfMcOsK6wEfqjWA1
+	u+1Rhv4VrkJ3tnGz7xDgal9Bh7h+5oliTjISg7i5WV8VA7v91eEL/Jc5u68XCOZ9
+	ClPVBg==
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48q5y5vvpc-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 00:23:11 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4b2dab82f70so75533801cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 17:23:11 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 00:23:12 +0000 (GMT)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-4b31ba1392fso6666551cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 29 Aug 2025 17:23:12 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756513390; x=1757118190;
+        d=1e100.net; s=20230601; t=1756513392; x=1757118192;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=yR8ojpGZaE3dckXhUPm62p+tv8/S+wacYcr4NjEKkXY=;
-        b=Yd2PChM672fZNqDp9vRuIi26I/bM9pIVe3Nu71qTmUpEhYWPUB7NU1VYED4Y4G0ubo
-         wYumqpJhKb9Qbfes/N+sy3PZy7y+EWdnfDYHlwvMY0eLYWQsKMIwplo0d8plXhBIk3R9
-         gcpvAT8VdWwPtM4CO66GZfq7hiknlzb/QTAPU8RGO6HXr1uY7TKXcBh3b6p/b+n635/P
-         zvWtZwqaFqYxsJPhWzD4NToUHzkY65t1je4MQ/8XAgtybKvRj6ZDtoCVYm7L/Kwv6aYl
-         1amBdR/7jTnmY77MjeiDQFSw+MFpQdkNo8zfCslYbuudKQ2mFNKXNY8oPZkjWO8GE84E
-         c0cQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXU8UueTaP66j3w/VfmE1BOuDI6Lg3c5OdZDyMK9tKqVU/ipb4MUEJ2l+2l6Y78zmsjTE1y+rpEsO/a7fsV2lEG@lists.infradead.org
-X-Gm-Message-State: AOJu0YwljSx+N/ZPOCQNbTFiHEa592Xx4cwC5MrJwNJZszTqhmm3bCX2
-	q4iPCvxw3XWqALc4gQPb1CtzVbfhbp8OF3OMSxNrcVdSXwynzEYFP+WBwdJFVwwfD8D1/T3uEXZ
-	bTtMdzt8atc2+eIOrgoN/l9vYNzY4We27aGVS0K+1Sccp7mAYElLpljv/OUf0HfPf+AeSmmXAU7
-	IcXg==
-X-Gm-Gg: ASbGncsVk93RZvtq8RP2MdmVohRB/TmWr3CVjhvxnlzN4QoEZl/7arFxH/HqNN4ufMG
-	+8AXUDm7yO6KRakJkHsXKJbcv8OFmbnlj3ybChMeH2SvsaFEc4oz6jWTpCwni7Kq7aMNCT4TurO
-	luCJyO4VOwmpUtpI/HYbONMXNivuA2gRqeDSitZiKGP+e9Mee+wtY79EZogfHC0/+WoiATN8n4+
-	fVsIXINVeyEnYXwxBEK8ufMbljMkdf0ohp7NZtUYRsQXdOm4rHaU5XdP+TG0twuP2XIIorTtM/2
-	jPZ9wowG5Nh5w0WDnDD+XiBQDpVHkjceskvB91Rvd7i9zyJW5eOu2usgSlPBfZPeGvmp307ZA0W
-	79MQhctcsGoY633f/GIX67vMcUgTs8MY7e8OF8aGUM1xl57hnAMbZ
-X-Received: by 2002:a05:622a:1806:b0:4b2:f786:92dd with SMTP id d75a77b69052e-4b31da700f5mr6048971cf.57.1756513390019;
-        Fri, 29 Aug 2025 17:23:10 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IF7MI5AgeDyZIhBXp4nqzUlr+O9xa2caPrlb9g34SvQBLOsNrDgnfALkKyRc05CDcviHb65Vw==
-X-Received: by 2002:a05:622a:1806:b0:4b2:f786:92dd with SMTP id d75a77b69052e-4b31da700f5mr6048661cf.57.1756513389582;
-        Fri, 29 Aug 2025 17:23:09 -0700 (PDT)
+        bh=5Ph9fpMKwyVh1QpkoJDUD9CEJnYrcgjdCLeyqaq6qOo=;
+        b=Xip4WHKEDBGTZXsYEKm8RjAh+fUfTWph7/AFnARogA7cL31k0waGtn0hSoQpO5TfDq
+         8CoP95cnfLO0+HfbnSMx7VkG1r9bJZFi/ak6QzhnwLvQcXmbQKCD1vABeHneCePUMkDU
+         XSFJObtPPHLido+/Y/RvFzxQE4+4etSU9xQY+nv8kc6lUhEUcHn0gN3J/J+HlVF9KoGG
+         id5TBybHh5FVkFM8WCQ8tc34NOcGTauvxVbZFHPEBbDsGp0gNM2IbdKr5jqVZoKwSj2F
+         IbKWpBaGIPIFGwYIgs3O+7VLX2NriVRwi7FnQ3AQr6nDNWQt/u50cR7bC7tjQov1HXoT
+         Jp9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCV2jTL2iywJx5XgW5+b08Z87VvROhqRVn5/keDFVqOfD9Mvp7qWb/YfkgrV8tiDleL3NEE4w4bqpycxgLFbiFZM@lists.infradead.org
+X-Gm-Message-State: AOJu0YwMgqV3h7+U8yRUEquT6zC6YTWY4T5viNoYzthbECNBKJWG/kkk
+	P4pcWsmWIUf/3lcTPFJFM8jI+vd8+NOmT8vwzaqHAXtpiTbHSjwVKnCV1PdunbddbUAJod9KcNS
+	0VOUddtEbOWQAm+RfzUu6S+ZRyAqq5RBrIX1Oy07DyPymHgJA38VO1llprxc6LPLImxVhgLM9PH
+	VY5g==
+X-Gm-Gg: ASbGncsAmuBhXVgZNjU/yGyxZ9AyaHO7m7cPZPMgo549YnLzb6InGr6bPVlqEeuJ9yG
+	DkhBnYwyEf1Hr6QPM9dPDQvH1AmxmLKpL/IN+TZzQg8Cdy00EgpNAPoBFvnWodNovKBLHn0QmXM
+	iQHkXY+/QhGwDmGuwQvs06au5KP4xvtnRzgEI6+I9kh5yivTb+s34uq7KZfM+fMnNejUwiCpCMU
+	Asl9i0+4XckKDrfHtcRAaToCyfpwvM2Fb8vsPV5km5OVKovz79K6wq6UyREU5Vo46rzPWlJQER9
+	fK2wHs6vdydAqphmc0pRl+olDAisi6hK8J9Ew/EQwY7PF31VcUj10mXyh3Z57/2V57IawxRyb3Y
+	+Hbb/JnFIxXV4n7Cu45TufWnDxZAWoQoqwEPqbrt1UtNZ0Z9qEooT
+X-Received: by 2002:ac8:7d4e:0:b0:4b0:7989:13db with SMTP id d75a77b69052e-4b31dd21723mr4241511cf.58.1756513391683;
+        Fri, 29 Aug 2025 17:23:11 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEHd0n8qaUqx1S4BeHPfs6IpVe24aic04/cEgU1Am0csv+xPy83xFNb93VjtGw3hJtcKfrI7A==
+X-Received: by 2002:ac8:7d4e:0:b0:4b0:7989:13db with SMTP id d75a77b69052e-4b31dd21723mr4241371cf.58.1756513391171;
+        Fri, 29 Aug 2025 17:23:11 -0700 (PDT)
 Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55f676dc52esm1019907e87.8.2025.08.29.17.23.05
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55f676dc52esm1019907e87.8.2025.08.29.17.23.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 29 Aug 2025 17:23:06 -0700 (PDT)
+        Fri, 29 Aug 2025 17:23:10 -0700 (PDT)
 From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Date: Sat, 30 Aug 2025 03:22:59 +0300
-Subject: [PATCH v3 03/11] drm/bridge: ite-it6263: declare supported
+Date: Sat, 30 Aug 2025 03:23:00 +0300
+Subject: [PATCH v3 04/11] drm/bridge: lontium-lt9611: declare supported
  infoframes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250830-drm-limit-infoframes-v3-3-32fcbec4634e@oss.qualcomm.com>
+Message-Id: <20250830-drm-limit-infoframes-v3-4-32fcbec4634e@oss.qualcomm.com>
 References: <20250830-drm-limit-infoframes-v3-0-32fcbec4634e@oss.qualcomm.com>
 In-Reply-To: <20250830-drm-limit-infoframes-v3-0-32fcbec4634e@oss.qualcomm.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>,
@@ -117,42 +117,42 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
         linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev,
         linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1689;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1606;
  i=dmitry.baryshkov@oss.qualcomm.com; h=from:subject:message-id;
- bh=Ehca0mnSJRD6ppoLiHXuwtaX4XwYLAYeehZSVf/evtI=;
- b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBoskRj11vVN09hllSph2xCMLc0Do8yrAjG7XStQ
- fWhXkyDAaaJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCaLJEYwAKCRCLPIo+Aiko
- 1TWWB/4rD0vAi94fpXgnZ/MAOGSejRTzdVcbXAhKRnofFOaPhsGaS/JXnirro1+t0KnU3RTBpDT
- qUILqYS/Jzl/1JMqs/TPPLURpwv0RrtFpmc/HAZYEcLS2ptOq9zgkpx6EKA3Vu0Q5UjMKra/mNg
- TILceD4EvuFfESWUcc2cjZJtjIIwayFwgP+f0GbyaYK7Tg9o6vR7kh37CYQiAVa8c1Gm1YcK3b1
- C/0Mhu0uJEkwcXFROdPZmEItNVR7kZMZOmfUjYFmjVBcYIwIDe69U7eLVRhFCPqPYKs/1Fb2kPY
- E8QdgsNmJMHRw8efstr7kx/kBQWYWUxXpKZuhf6DFZnhA5B+
+ bh=4s8HKYSS0MgM6zvdVaXPrA7S2HD2NH/k39knkirGVZc=;
+ b=owGbwMvMwMXYbdNlx6SpcZXxtFoSQ8Yml2SbZ896twlcmpFYdb3yiNI2XV4x9X7bfjcNlm3zv
+ ms+vfKyk9GYhYGRi0FWTJHFp6Blasym5LAPO6bWwwxiZQKZwsDFKQATOSfN/s+U70GO8d2+Db0p
+ /pN1z9m/2y0T0DMvz+NpxuZFXmJBn23ZPKsfs4svW+bYZGf3LKdbWyZn2nKFlVejZz2vP7r9Z/E
+ E00Bj9pPP38rLZN7Tvp3K2hfeFrhHkWnmKekpb8/mXYoVCMt1+Bztn71ONMRryfo44T1JLy72t2
+ 33iGl60Wy8bMEafuegeTlLzM3L0y9GWe6c+N9EwnKpp7bm3UdPVlnL3nDd+b/+WJjb1GCZ9u/p1
+ y3s+bO9rkc2R5mJrn+TnqR/ZbLwAfuupdoV7uu8bBZYc1hFTWANWLtK7OHNXc0HrV/U/p8bupdz
+ 16WmTMsyI75JubpRa48wq2S455fpPNVdaKP4xvHWk+oNAA==
 X-Developer-Key: i=dmitry.baryshkov@oss.qualcomm.com; a=openpgp;
  fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
-X-Authority-Analysis: v=2.4 cv=Z/vsHGRA c=1 sm=1 tr=0 ts=68b2446f cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=2OwXVqhp2XgA:10 a=8AirrxEcAAAA:8 a=EUspDBNiAAAA:8 a=HkIXcrnrDl8JFVr2q_4A:9
- a=QEXdDO2ut3YA:10 a=uxP6HrT_eTzRwkO_Te1X:22 a=ST-jHhOKWsTCqRlWije3:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDAzMyBTYWx0ZWRfX1wMBhomen+mP
- HtGE69su7HQogJxs5CrQHXUWJ/xbQ0w0VSlG+vTkV9IQE2KzKSIynA60QFAWNCvCR8w5O9zZ2Fq
- j2t6T95PEp9JNb+LaTZdOh5xCIoIWk5pFAXkXzvcu48JdCxNP69Ap8mk1W+mq3gJ2yGfDi93wY8
- KYtB0tGe1yprMLbW4DBglKp/3eNQ3GeSotsYJ/sCHJtbG8CWCFf3cLqK7DO4XY778FFDCh+qu/5
- xAPe/kuBCClitfoMurVqLHVV5iiYNAIZ8MQEyrlNZ9ZBMXNBSK9qEvZBb/qIg0NERb94fKFg7+y
- 2ZdoyytaFflGFcNQJWjGtCdEQPEkIYGMRNjkrjqTvP5+KWT10hViQldDDxbnA2cnzybp/dRZDks
- TYMztfsY
-X-Proofpoint-GUID: RLmvIZteEjWZddl1X4BpJEd_0jPg65xb
-X-Proofpoint-ORIG-GUID: RLmvIZteEjWZddl1X4BpJEd_0jPg65xb
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIzMDAzMyBTYWx0ZWRfXxswaGS7RvNHR
+ 6/8loNzNs6AXKxlkHJhfYTDfdo6AlGFQUtJTifItUdk7Lgfk9hdEn5HOZi0yy3/ia/kiI6R7hYc
+ ZG8cFqeBTrQFnC1LdOMHfXGA858wHDDTrC95RaRwMO6YFYOtuZ37jCSe+7uhC7cWMU6l4hKVVAc
+ 5JGtoV7IiApuEjSdgP3st7/Mlp8I0oI6a+waz8d6xYLZ/SdY4snmSAucmqbuqf5+rqnJqzSftpZ
+ Bto4a/cWZsubBMdpWUvq122Q0SZA3tC7STZSm2Og3B0AnVP/nui28gTN3wZT7/yiyWhornuQYy+
+ uhIooo9I2p5sViBrIs58OW7yZOBevvV+GA12IhnoBQuBebzDOW0lcn+CHXu4d5k+evPh973yYgk
+ MAlUtXWE
+X-Authority-Analysis: v=2.4 cv=Lco86ifi c=1 sm=1 tr=0 ts=68b24470 cx=c_pps
+ a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=2OwXVqhp2XgA:10 a=EUspDBNiAAAA:8 a=AMvF8s34Jxw15HKoVo4A:9 a=QEXdDO2ut3YA:10
+ a=dawVfQjAaf238kedN5IG:22
+X-Proofpoint-GUID: bCokvZdNRLNqldNtezBtZxcfSAutY9l7
+X-Proofpoint-ORIG-GUID: bCokvZdNRLNqldNtezBtZxcfSAutY9l7
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-08-29_07,2025-08-28_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 priorityscore=1501 malwarescore=0 phishscore=0 clxscore=1015
- suspectscore=0 impostorscore=0 adultscore=0 bulkscore=0
+ impostorscore=0 adultscore=0 clxscore=1015 malwarescore=0 spamscore=0
+ suspectscore=0 phishscore=0 priorityscore=1501 bulkscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508230033
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250829_172311_964342_1980C889 
-X-CRM114-Status: GOOD (  15.98  )
+X-CRM114-CacheID: sfid-20250829_172313_709106_61BE2CD0 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,49 +170,47 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Declare which infoframes are supported via the .hdmi_write_infoframe()
 interface.
 
-Reviewed-by: Liu Ying <victor.liu@nxp.com>
 Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 ---
- drivers/gpu/drm/bridge/ite-it6263.c | 11 +++++++----
+ drivers/gpu/drm/bridge/lontium-lt9611.c | 11 +++++++----
  1 file changed, 7 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/ite-it6263.c b/drivers/gpu/drm/bridge/ite-it6263.c
-index cf813672b4ffb8ab5c524c6414ee7b414cebc018..f2d54ad8fb64254747f2e8e301f19accf337128f 100644
---- a/drivers/gpu/drm/bridge/ite-it6263.c
-+++ b/drivers/gpu/drm/bridge/ite-it6263.c
-@@ -755,10 +755,12 @@ static int it6263_hdmi_clear_infoframe(struct drm_bridge *bridge,
- {
- 	struct it6263 *it = bridge_to_it6263(bridge);
+diff --git a/drivers/gpu/drm/bridge/lontium-lt9611.c b/drivers/gpu/drm/bridge/lontium-lt9611.c
+index a2d032ee4744715b88eb66883edf69bab4c274b0..271295e1549885ea054647b06cb95d483e352f4d 100644
+--- a/drivers/gpu/drm/bridge/lontium-lt9611.c
++++ b/drivers/gpu/drm/bridge/lontium-lt9611.c
+@@ -870,8 +870,7 @@ static int lt9611_hdmi_clear_infoframe(struct drm_bridge *bridge,
  
--	if (type == HDMI_INFOFRAME_TYPE_AVI)
--		regmap_write(it->hdmi_regmap, HDMI_REG_AVI_INFOFRM_CTRL, 0);
--	else
-+	if (type != HDMI_INFOFRAME_TYPE_AVI) {
- 		dev_dbg(it->dev, "unsupported HDMI infoframe 0x%x\n", type);
-+		return -EOPNOTSUPP;
-+	}
-+
-+	regmap_write(it->hdmi_regmap, HDMI_REG_AVI_INFOFRM_CTRL, 0);
- 
- 	return 0;
- }
-@@ -772,7 +774,7 @@ static int it6263_hdmi_write_infoframe(struct drm_bridge *bridge,
- 
- 	if (type != HDMI_INFOFRAME_TYPE_AVI) {
- 		dev_dbg(it->dev, "unsupported HDMI infoframe 0x%x\n", type);
--		return 0;
+ 	default:
+ 		drm_dbg_driver(lt9611->bridge.dev, "Unsupported HDMI InfoFrame %x\n", type);
+-		mask = 0;
+-		break;
 +		return -EOPNOTSUPP;
  	}
  
- 	/* write the first AVI infoframe data byte chunk(DB1-DB5) */
-@@ -875,6 +877,7 @@ static int it6263_probe(struct i2c_client *client)
- 	it->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
- 	it->bridge.vendor = "ITE";
- 	it->bridge.product = "IT6263";
-+	it->bridge.software_infoframes = DRM_CONNECTOR_INFOFRAME_AVI;
+ 	if (mask)
+@@ -911,8 +910,7 @@ static int lt9611_hdmi_write_infoframe(struct drm_bridge *bridge,
  
- 	return devm_drm_bridge_add(dev, &it->bridge);
- }
+ 	default:
+ 		drm_dbg_driver(lt9611->bridge.dev, "Unsupported HDMI InfoFrame %x\n", type);
+-		mask = 0;
+-		break;
++		return -EOPNOTSUPP;
+ 	}
+ 
+ 	if (mask) {
+@@ -1136,6 +1134,11 @@ static int lt9611_probe(struct i2c_client *client)
+ 	lt9611->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
+ 	lt9611->bridge.vendor = "Lontium";
+ 	lt9611->bridge.product = "LT9611";
++	lt9611->bridge.software_infoframes =
++		DRM_CONNECTOR_INFOFRAME_AUDIO |
++		DRM_CONNECTOR_INFOFRAME_AVI |
++		DRM_CONNECTOR_INFOFRAME_SPD |
++		DRM_CONNECTOR_INFOFRAME_VENDOR;
+ 	lt9611->bridge.hdmi_audio_dev = dev;
+ 	lt9611->bridge.hdmi_audio_max_i2s_playback_channels = 8;
+ 	lt9611->bridge.hdmi_audio_dai_port = 2;
 
 -- 
 2.47.2
