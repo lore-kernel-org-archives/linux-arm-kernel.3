@@ -4,64 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7FB8CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 07:03:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95A8ACA0FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 07:33:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a+gi6Wx7VGIQ0r36prbLs/0faVgWXfkjS1uyPmP0Q9Y=; b=HHw6fx9CvqRivXuOKsVv7Enqln
-	gpbMNr57H2Sr7+H0enoqtsEHj4NQ1jGx+AbA1j5P2dB+jf1ZoEQH6pO0ZVxwhPdCzPbX8Os3Jo8XO
-	3x347aZby3JGQHoDbq41/rgAaUoyXByb70QY/xwS7BoqUrhh7d8l3+lvvmw3NsRfqySndqtT31R2V
-	37f5L6QOG+nYGG1sTRRRtT7iomfDv8U48gBd40LdV9SWLcejGE7coECvAJdLwNE/rHtNjLdyFGXfi
-	RnJB3kJokMQnWTQvtahWgiVoiI0sR3yrj77N5+f8J9F8a65P3anfgiorToQHF1t6ob6mZ/BLNrvXD
-	15ctB7SA==;
+	bh=u5ZG8/bv7fEyY7/sBaZXohrNcXIrZPRq+HcTim4TiEo=; b=zxvrVeis4FTt9srVACLuvyD4tk
+	424kg4zGgOPs2AunmPgHP1zf2V5zoIghRX7rXhCVqCXSK6oj6zWaEjiBuX7l7JhfpujJPjV5Wby6e
+	T1HcziPOhXcDLcaOAUF0eYC1Z3smp9zpSB43Omb4yv4rZcf6l/aJw3x2bx69174g/ByU0TF7pZkfR
+	TJNt3zlhYtfDPa0jm8GLdOdnnVgzXm71/BNbhc2nVGnS4wKVdvIVB0qgzTaWUm+DxB8I9UbtyFCOP
+	BwsnD9ISNpvlCXceyeBDjdvPUi+K/PA76hTToL0LcvTJXq6sOCCDBA6Lb9MwjyTi1NeaY6M9aDOUh
+	RHv/8sqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usFc4-00000007WT1-1raJ;
-	Sat, 30 Aug 2025 07:03:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1usG5D-00000007Xph-0TJV;
+	Sat, 30 Aug 2025 07:33:07 +0000
+Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usFZJ-00000007WLj-3mvU
+	id 1usG2P-00000007XU4-3n9d
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 30 Aug 2025 07:00:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0768B60053;
-	Sat, 30 Aug 2025 07:00:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D848C4CEEB;
-	Sat, 30 Aug 2025 07:00:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756537208;
-	bh=SPgIy7oUucbrmZ+S1ARRKS/UEnUY/ohEYYI/F3/xYJs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OXe5Xq288p4UvOphSgKjt/UlKxTp2+trg1t4fVwX34H8F3oNR0gn52A0R/9t+DwG3
-	 FjvW9pDTp5LgOEzZj5TEui8U0W/sz+bNaRwNXH+HSlmlf9gbv04NeR0pavvH3vw9Zk
-	 44Ua9F0zsSjZ1jXZvBa4NDDOE/DjhYUZWe632xLEZrBukWBvZ93Vkht3SXhbC4xxBt
-	 A4VOf5yaSHEpcB+hkqTvhQRd+y6zpdpaODnQsjo0lT9OBlXByHPiuu+HDjs1PRUwC8
-	 nZtA7/8AWJOorNoo3Vifg/EuDRfUUtsnvVXZ/o4/ULtuBwpGExixkkz/8R59wR6xSw
-	 vTxPH9RWLFE1g==
-Date: Sat, 30 Aug 2025 12:29:57 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Claudiu <claudiu.beznea@tuxon.dev>
-Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, geert+renesas@glider.be, 
-	magnus.damm@gmail.com, catalin.marinas@arm.com, will@kernel.org, 
-	mturquette@baylibre.com, sboyd@kernel.org, p.zabel@pengutronix.de, lizhi.hou@amd.com, 
-	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
-	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>, Wolfram Sang <wsa+renesas@sang-engineering.com>
-Subject: Re: [PATCH v3 5/9] PCI: rzg3s-host: Add Initial PCIe Host Driver for
- Renesas RZ/G3S SoC
-Message-ID: <ddxayjj5wcuuish4kvyluzrujkes5seo7zlusmomyjfjcgzcyj@xe3zzzmy2zaj>
-References: <20250704161410.3931884-1-claudiu.beznea.uj@bp.renesas.com>
- <20250704161410.3931884-6-claudiu.beznea.uj@bp.renesas.com>
+	Sat, 30 Aug 2025 07:30:15 +0000
+Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-4b30f73ca43so10486411cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 30 Aug 2025 00:30:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=fooishbar.org; s=google; t=1756539012; x=1757143812; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=u5ZG8/bv7fEyY7/sBaZXohrNcXIrZPRq+HcTim4TiEo=;
+        b=WYOkHE841+SPv/KecEk0DxrSIRjbo6HAFQpHD0PnOmiTc6wH21tqYsQBW9QWHZrzsz
+         9/SsDEGLFl7/h++9WaO1iwFMxcBSAr3159hbQFO1raSn8jJT1ScnmHgEw0OC9+gSpiMy
+         TiC6gzkB146/7htrEvLlzF/xN6DUVvVcpmMuh+qP+SysbWNqTfMz6VtAH5J5i9cJfRxI
+         XIoaphtWUWlKlnu+k2dHy4bKUgOyrhLO7vKh9NT+dwAE1/AiVdNnkBwOMSCxb3UQiL+k
+         Bw2EvrXas4g/vWaT+AtT6yXkUei3hm/z88pHPPd6rldH9qdBajrFYo+Btc17/jZj+j+x
+         TK2Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756539012; x=1757143812;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=u5ZG8/bv7fEyY7/sBaZXohrNcXIrZPRq+HcTim4TiEo=;
+        b=qxQFPs+KuwIVQupwqaAyN+tNE/cr9ijl75oYu5RIJFHdrWrZy15aDCEwlP3cy0wjgG
+         BGpjJlfYQyO9ktUFBo9od5XfmTmfr3HCemYEhuwl02Vij/faUqkZwUZh66oOgVQHf75z
+         6shwVowTj0ZZ+xuvSVY+mdGzK5r2z1H+QY5RBmzhqp+NQn+kx8e9Ggqc2v6K0bR4oWFP
+         QC77e35x9ZId5iWtG7SUCBUXok1Sf+U5zmbK6b8QCkIXCUBZq2Sy5mO5DtOBj0sIRqrV
+         wufeVn/Z0LFyBgygxnjJyYJfjhKXrn9FYJlUYNMWqK7aHZOCjyafdGCwBM4TYEMpCYHH
+         a3dw==
+X-Forwarded-Encrypted: i=1; AJvYcCXNSy0OD1VyDA/YtAgbq+8SIgqQjo2nwChnF0qKLv6J4+PvMP57pQftVWHHyJXShYq+G7fZfOI83y0Mu30QulMj@lists.infradead.org
+X-Gm-Message-State: AOJu0YyrWpbkmpAXIHI0/q7kuvPMZvBIEBVfxym5oAKqYWAYndyJkbkp
+	wNvKxwx0fjStVzG3/ND3jycuMjLJFR04pt4YstS7FMTOxEbphXdzgV2CapdEnZFwT4F7CAU5n99
+	vUxnsOubH+XgYX2oH1VHnymRbv9f37P3IwP8z8yoDIg==
+X-Gm-Gg: ASbGncuQCaRTfwVy4ksKoRZIZkSmSzynCCq1kaedpf5FD31qZpcftXdZUsOkG0C5q4P
+	C9S4bisKh5im7Xk/oey00ln/h1xl1UUziqBkgyQ+zpisQItnkOAkZsoF+Pn391KqjftSX9THoXs
+	mrhAwof3DrNT9v2hftKc15gbvSA0XDnTVmZFywgcOt2IX3qDZNN6JAa5FSzMRFeQF1vW0ebddv9
+	xmY2cB8ezDt1w1T
+X-Google-Smtp-Source: AGHT+IEoXuFZJwCV9cwGNvRYz37SGk7fTBsYXDUKkjm0VNio3cHCVlLucdjG7nkDJhE227CIqVsjn4jhHmK64RhHXes=
+X-Received: by 2002:ac8:5a12:0:b0:4b2:d607:16cb with SMTP id
+ d75a77b69052e-4b31d855a89mr14707801cf.22.1756539012519; Sat, 30 Aug 2025
+ 00:30:12 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250704161410.3931884-6-claudiu.beznea.uj@bp.renesas.com>
+References: <20250830-drm-limit-infoframes-v3-0-32fcbec4634e@oss.qualcomm.com>
+In-Reply-To: <20250830-drm-limit-infoframes-v3-0-32fcbec4634e@oss.qualcomm.com>
+From: Daniel Stone <daniel@fooishbar.org>
+Date: Sat, 30 Aug 2025 09:30:01 +0200
+X-Gm-Features: Ac12FXwherP7pCCw1eIolUuD4CaoGI8lRnTYIDVTJZ8XE8BvqysFq5xqSgK9g3A
+Message-ID: <CAPj87rNDtfEYV88Ue0bFXJwQop-zy++Ty7uQ9XfrQ2TbAijeRg@mail.gmail.com>
+Subject: Re: [PATCH v3 00/11] drm/connector: hdmi: limit infoframes per driver capabilities
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+	Andy Yan <andy.yan@rock-chips.com>, Chen-Yu Tsai <wens@csie.org>, 
+	Samuel Holland <samuel@sholland.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	=?UTF-8?B?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Liu Ying <victor.liu@nxp.com>, 
+	Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, 
+	Abhinav Kumar <abhinav.kumar@linux.dev>, Jessica Zhang <jessica.zhang@oss.qualcomm.com>, 
+	Sean Paul <sean@poorly.run>, Marijn Suijten <marijn.suijten@somainline.org>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
+	freedreno@lists.freedesktop.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250830_003014_554383_A83D3FDF 
+X-CRM114-Status: GOOD (  16.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,606 +108,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 04, 2025 at 07:14:05PM GMT, Claudiu wrote:
-> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-> 
-> The Renesas RZ/G3S features a PCIe IP that complies with the PCI Express
-> Base Specification 4.0 and supports speeds of up to 5 GT/s. It functions
-> only as a root complex, with a single-lane (x1) configuration. The
-> controller includes Type 1 configuration registers, as well as IP
-> specific registers (called AXI registers) required for various adjustments.
-> 
-> Hardware manual can be downloaded from the address in the "Link" section.
-> The following steps should be followed to access the manual:
-> 1/ Click the "User Manual" button
-> 2/ Click "Confirm"; this will start downloading an archive
-> 3/ Open the downloaded archive
-> 4/ Navigate to r01uh1014ej*-rzg3s-users-manual-hardware -> Deliverables
-> 5/ Open the file r01uh1014ej*-rzg3s.pdf
-> 
-> Link: https://www.renesas.com/en/products/rz-g3s?queryID=695cc067c2d89e3f271d43656ede4d12
-> Tested-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
-> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-> ---
-> 
+Hi Dmitry,
 
-[...]
+On Sat, 30 Aug 2025 at 02:23, Dmitry Baryshkov
+<dmitry.baryshkov@oss.qualcomm.com> wrote:
+> It's not uncommon for the particular device to support only a subset of
+> HDMI InfoFrames. It's not a big problem for the kernel, since we adopted
+> a model of ignoring the unsupported Infoframes, but it's a bigger
+> problem for the userspace: we end up having files in debugfs which do
+> mot match what is being sent on the wire.
+>
+> Sort that out, making sure that all interfaces are consistent.
 
-> +static bool rzg3s_pcie_child_issue_request(struct rzg3s_pcie_host *host)
-> +{
-> +	u32 val;
-> +	int ret;
-> +
-> +	rzg3s_pcie_update_bits(host->axi, RZG3S_PCI_REQISS,
-> +			       RZG3S_PCI_REQISS_REQ_ISSUE,
-> +			       RZG3S_PCI_REQISS_REQ_ISSUE);
-> +	ret = readl_poll_timeout_atomic(host->axi + RZG3S_PCI_REQISS, val,
-> +					!(val & RZG3S_PCI_REQISS_REQ_ISSUE),
-> +					5, RZG3S_REQ_ISSUE_TIMEOUT_US);
-> +
-> +	return !!ret || (val & RZG3S_PCI_REQISS_MOR_STATUS);
+Thanks for the series, it's a really good cleanup.
 
-You don't need to do !!ret as the C11 standard guarantees that any scalar type
-stored as bool will have the value of 0 or 1.
+I know that dw-hdmi-qp can support _any_ infoframe, by manually
+packing it into the two GHDMI banks. So the supported set there is
+'all of the currently well-known ones, plus any two others, but only
+two and not more'. I wonder if that has any effect on the interface
+you were thinking about for userspace?
 
-> +}
-> +
-
-[...]
-
-> +static void __iomem *rzg3s_pcie_root_map_bus(struct pci_bus *bus,
-> +					     unsigned int devfn,
-> +					     int where)
-> +{
-> +	struct rzg3s_pcie_host *host = bus->sysdata;
-> +
-> +	if (devfn)
-> +		return NULL;
-
-Is it really possible to have devfn as non-zero for a root bus?
-
-> +
-> +	return host->pcie + where;
-> +}
-> +
-
-[...]
-
-> +static int rzg3s_pcie_msi_setup(struct rzg3s_pcie_host *host)
-> +{
-> +	size_t size = RZG3S_PCI_MSI_INT_NR * sizeof(u32);
-> +	struct rzg3s_pcie_msi *msi = &host->msi;
-> +	struct device *dev = host->dev;
-> +	int id, ret;
-> +
-> +	msi->pages = __get_free_pages(GFP_KERNEL | GFP_DMA, 0);
-> +	if (!msi->pages)
-> +		return -ENOMEM;
-> +
-> +	msi->dma_addr = dma_map_single(dev, (void *)msi->pages, size * 2,
-> +				       DMA_BIDIRECTIONAL);
-> +	if (dma_mapping_error(dev, msi->dma_addr)) {
-> +		ret = -ENOMEM;
-> +		goto free_pages;
-> +	}
-> +
-> +	/*
-> +	 * According to the RZ/G3S HW manual (Rev.1.10, section 34.4.5.2 Setting
-> +	 * the MSI Window) the MSI window need to be within any AXI window. Find
-> +	 * an AXI window to setup the MSI window.
-
-Are you really finding the AXI window or just making sure that the MSI window
-falls into one of the AXI window?
-
-And I believe it is OK to have more than one MSI window within an AXI window.
-
-> +	 */
-> +	for (id = 0; id < RZG3S_MAX_WINDOWS; id++) {
-> +		u64 base, basel, baseu;
-> +		u64 mask, maskl, masku;
-> +
-> +		basel = readl(host->axi + RZG3S_PCI_AWBASEL(id));
-> +		/* Skip checking this AXI window if it's not enabled */
-> +		if (!(basel & RZG3S_PCI_AWBASEL_WIN_ENA))
-> +			continue;
-> +
-> +		baseu = readl(host->axi + RZG3S_PCI_AWBASEU(id));
-> +		base = baseu << 32 | basel;
-> +
-> +		maskl = readl(host->axi + RZG3S_PCI_AWMASKL(id));
-> +		masku = readl(host->axi + RZG3S_PCI_AWMASKU(id));
-> +		mask = masku << 32 | maskl;
-> +
-> +		if (msi->dma_addr < base || msi->dma_addr > base + mask)
-> +			continue;
-> +
-> +		break;
-> +	}
-> +
-> +	if (id == RZG3S_MAX_WINDOWS) {
-> +		ret = -EINVAL;
-> +		goto dma_unmap;
-> +	}
-> +
-> +	/* The MSI base address need to be aligned to the MSI size */
-> +	msi->window_base = ALIGN(msi->dma_addr, size);
-> +	if (msi->window_base < msi->dma_addr) {
-> +		ret = -EINVAL;
-> +		goto dma_unmap;
-> +	}
-> +
-> +	rzg3s_pcie_msi_hw_setup(host);
-> +
-> +	return 0;
-> +
-> +dma_unmap:
-> +	dma_unmap_single(dev, msi->dma_addr, size * 2, DMA_BIDIRECTIONAL);
-> +free_pages:
-> +	free_pages(msi->pages, 0);
-> +	return ret;
-> +}
-> +
-
-[...]
-
-> +static int rzg3s_pcie_set_max_link_speed(struct rzg3s_pcie_host *host)
-> +{
-> +	u32 cs2, link_speed, remote_supported_link_speeds, tmp;
-> +	u32 pcie_cap = RZG3S_PCI_CFG_PCIEC;
-> +	u8 ltssm_state_l0 = 0xc;
-> +	u16 lcs;
-> +	int ret;
-> +
-> +	/*
-> +	 * According to the RZ/G3S HW manual (Rev.1.10, section 34.6.3 Caution
-> +	 * when Changing the Speed Spontaneously) link speed change can be done
-> +	 * only when the link training and status state machine in the PCIe Core
-> +	 * Link is L0.
-
-"...only when the LTSSM is in L0."
-
-> +	 */
-> +	ret = readl_poll_timeout(host->axi + RZG3S_PCI_PCSTAT1, tmp,
-> +				 FIELD_GET(RZG3S_PCI_PCSTAT1_LTSSM_STATE, tmp) == ltssm_state_l0,
-> +				 PCIE_LINK_WAIT_SLEEP_MS,
-> +				 PCIE_LINK_WAIT_SLEEP_MS *
-> +				 PCIE_LINK_WAIT_MAX_RETRIES * MILLI);
-> +	if (ret) {
-> +		dev_dbg(host->dev,
-> +			"Could not set max link speed! LTSSM not in L0, state=%lx\n",
-
-You should drop 'Could not set max link speed' since the caller is printing a
-similar error.
-
-> +			FIELD_GET(RZG3S_PCI_PCSTAT1_LTSSM_STATE, tmp));
-> +		return ret;
-> +	}
-> +
-> +	lcs = readw(host->pcie + pcie_cap + PCI_EXP_LNKSTA);
-> +	cs2 = readl(host->axi + RZG3S_PCI_PCSTAT2);
-> +
-> +	link_speed = FIELD_GET(PCI_EXP_LNKSTA_CLS, lcs);
-> +	remote_supported_link_speeds = FIELD_GET(RZG3S_PCI_PCSTAT2_SDRIRE, cs2);
-> +
-> +	/*
-> +	 * Return if link is @ 5.0 GT/s or the connected device doesn't support
-> +	 * it.
-> +	 */
-> +	if (link_speed == PCI_EXP_LNKSTA_CLS_5_0GB ||
-> +	    !(remote_supported_link_speeds != GENMASK(PCI_EXP_LNKSTA_CLS_5_0GB - 1, 0)))
-> +		return 0;
-> +
-> +	/* Set target Link speed to 5.0 GT/s */
-
-Instead of setting the link speed to 5 GT/s always, you should honor the link
-speed set in DTS by making use of of_pci_get_max_link_speed() API.
-
-> +	rzg3s_pcie_update_bits(host->pcie, pcie_cap + PCI_EXP_LNKCTL2,
-> +			       PCI_EXP_LNKCTL2_TLS,
-> +			       FIELD_PREP(PCI_EXP_LNKCTL2_TLS,
-> +					  PCI_EXP_LNKCTL2_TLS_5_0GT));
-> +
-> +	/* Request link speed change */
-> +	rzg3s_pcie_update_bits(host->axi, RZG3S_PCI_PCCTRL2,
-> +			       RZG3S_PCI_PCCTRL2_LS_CHG_REQ |
-> +			       RZG3S_PCI_PCCTRL2_LS_CHG,
-> +			       RZG3S_PCI_PCCTRL2_LS_CHG_REQ |
-> +			       FIELD_PREP(RZG3S_PCI_PCCTRL2_LS_CHG,
-> +					  PCI_EXP_LNKCTL2_TLS_5_0GT - 1));
-> +
-> +	ret = readl_poll_timeout(host->axi + RZG3S_PCI_PCSTAT2, cs2,
-> +				 (cs2 & RZG3S_PCI_PCSTAT2_LS_CHG_DONE),
-> +				 PCIE_LINK_WAIT_SLEEP_MS,
-> +				 PCIE_LINK_WAIT_SLEEP_MS *
-> +				 PCIE_LINK_WAIT_MAX_RETRIES * MILLI);
-> +
-> +	/*
-> +	 * According to the RZ/G3S HW manual (Rev.1.10, section 34.6.3 Caution
-> +	 * when Changing the Speed Spontaneously) the PCI_PCCTRL2_LS_CHG_REQ
-> +	 * should be de-asserted after checking for PCI_PCSTAT2_LS_CHG_DONE.
-> +	 */
-> +	rzg3s_pcie_update_bits(host->axi, RZG3S_PCI_PCCTRL2,
-> +			       RZG3S_PCI_PCCTRL2_LS_CHG_REQ, 0);
-> +
-> +	return ret;
-> +}
-> +
-> +static int rzg3s_pcie_config_init(struct rzg3s_pcie_host *host)
-> +{
-> +	struct pci_host_bridge *bridge = pci_host_bridge_from_priv(host);
-> +	struct resource_entry *ft;
-> +	struct resource *bus;
-> +	u8 subordinate_bus;
-> +	u8 secondary_bus;
-> +	u8 primary_bus;
-> +
-> +	ft = resource_list_first_type(&bridge->windows, IORESOURCE_BUS);
-> +	if (!ft)
-> +		return -ENODEV;
-> +
-> +	bus = ft->res;
-> +	primary_bus = bus->start;
-> +	secondary_bus = bus->start + 1;
-> +	subordinate_bus = bus->end;
-> +
-> +	/* Enable access control to the CFGU */
-> +	writel(RZG3S_PCI_PERM_CFG_HWINIT_EN, host->axi + RZG3S_PCI_PERM);
-> +
-> +	/* Update vendor ID and device ID */
-
-Are you really updating it or setting it? If you are updating it, are the
-default IDs invalid?
-
-> +	writew(host->vendor_id, host->pcie + PCI_VENDOR_ID);
-> +	writew(host->device_id, host->pcie + PCI_DEVICE_ID);
-> +
-> +	/* HW manual recommends to write 0xffffffff on initialization */
-> +	writel(0xffffffff, host->pcie + RZG3S_PCI_CFG_BARMSK00L);
-> +	writel(0xffffffff, host->pcie + RZG3S_PCI_CFG_BARMSK00U);
-> +
-> +	/* Update bus info. */
-> +	writeb(primary_bus, host->pcie + PCI_PRIMARY_BUS);
-> +	writeb(secondary_bus, host->pcie + PCI_SECONDARY_BUS);
-> +	writeb(subordinate_bus, host->pcie + PCI_SUBORDINATE_BUS);
-> +
-> +	/* Disable access control to the CFGU */
-> +	writel(0, host->axi + RZG3S_PCI_PERM);
-> +
-> +	return 0;
-> +}
-> +
-
-[...]
-
-> +static int rzg3s_pcie_host_init(struct rzg3s_pcie_host *host, bool probe)
-> +{
-> +	u32 val;
-> +	int ret;
-> +
-> +	/* Initialize the PCIe related registers */
-> +	ret = rzg3s_pcie_config_init(host);
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* Initialize the interrupts */
-> +	rzg3s_pcie_irq_init(host);
-> +
-> +	ret = reset_control_bulk_deassert(host->data->num_cfg_resets,
-> +					  host->cfg_resets);
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* Wait for link up */
-> +	ret = readl_poll_timeout(host->axi + RZG3S_PCI_PCSTAT1, val,
-> +				 !(val & RZG3S_PCI_PCSTAT1_DL_DOWN_STS),
-> +				 PCIE_LINK_WAIT_SLEEP_MS,
-> +				 PCIE_LINK_WAIT_SLEEP_MS *
-> +				 PCIE_LINK_WAIT_MAX_RETRIES * MILLI);
-> +	if (ret) {
-> +		reset_control_bulk_assert(host->data->num_cfg_resets,
-> +					  host->cfg_resets);
-> +		return ret;
-> +	}
-> +
-> +	val = readl(host->axi + RZG3S_PCI_PCSTAT2);
-> +	dev_info(host->dev, "PCIe link status [0x%x]\n", val);
-> +
-> +	val = FIELD_GET(RZG3S_PCI_PCSTAT2_STATE_RX_DETECT, val);
-> +	dev_info(host->dev, "PCIe x%d: link up\n", hweight32(val));
-> +
-> +	if (probe) {
-> +		ret = devm_add_action_or_reset(host->dev,
-> +					       rzg3s_pcie_cfg_resets_action,
-> +					       host);
-
-Oh well, this gets ugly. Now the devm_add_action_or_reset() is sprinkled
-throughout the driver :/
-
-As I said earlier, there are concerns in unloading the driver if it implements
-an irqchip. So if you change the module_platform_driver() to
-builtin_platform_driver() for this driver, these devm_add_action_or_reset()
-calls become unused.
-
-> +	}
-> +
-> +	return ret;
-> +}
-> +
-> +static void rzg3s_pcie_set_inbound_window(struct rzg3s_pcie_host *host,
-> +					  u64 cpu_addr, u64 pci_addr, u64 size,
-> +					  int id)
-> +{
-> +	/* Set CPU window base address */
-> +	writel(upper_32_bits(cpu_addr), host->axi + RZG3S_PCI_ADESTU(id));
-> +	writel(lower_32_bits(cpu_addr), host->axi + RZG3S_PCI_ADESTL(id));
-> +
-> +	/* Set window size */
-> +	writel(upper_32_bits(size), host->axi + RZG3S_PCI_AWMASKU(id));
-> +	writel(lower_32_bits(size), host->axi + RZG3S_PCI_AWMASKL(id));
-> +
-> +	/* Set PCIe window base address and enable the window */
-> +	writel(upper_32_bits(pci_addr), host->axi + RZG3S_PCI_AWBASEU(id));
-> +	writel(lower_32_bits(pci_addr) | RZG3S_PCI_AWBASEL_WIN_ENA,
-> +	       host->axi + RZG3S_PCI_AWBASEL(id));
-> +}
-> +
-> +static int rzg3s_pcie_set_inbound_windows(struct rzg3s_pcie_host *host,
-> +					  struct resource_entry *entry,
-> +					  int *index)
-> +{
-> +	u64 pci_addr = entry->res->start - entry->offset;
-> +	u64 cpu_addr = entry->res->start;
-> +	u64 cpu_end = entry->res->end;
-> +	u64 size_id = 0;
-> +	int id = *index;
-> +	u64 size;
-> +
-> +	while (cpu_addr < cpu_end) {
-> +		if (id >= RZG3S_MAX_WINDOWS)
-> +			return dev_err_probe(host->dev, -EINVAL,
-
--ENOSPC
-
-> +					     "Failed to set inbound windows!\n");
-
-"Failed to map inbound window for resource (%s), entry->res->name"
-
-> +
-> +		size = resource_size(entry->res) - size_id;
-> +
-> +		/*
-> +		 * According to the RZ/G3S HW manual (Rev.1.10,
-> +		 * section 34.3.1.71 AXI Window Mask (Lower) Registers) the min
-> +		 * size is 4K.
-> +		 */
-> +		size = max(size, SZ_4K);
-> +
-> +		/*
-> +		 * According the RZ/G3S HW manual (Rev.1.10, sections:
-> +		 * - 34.3.1.69 AXI Window Base (Lower) Registers
-> +		 * - 34.3.1.71 AXI Window Mask (Lower) Registers
-> +		 * - 34.3.1.73 AXI Destination (Lower) Registers)
-> +		 * the CPU addr, PCIe addr, size should be 4K aligned and be a
-> +		 * power of 2.
-> +		 */
-> +		size = ALIGN(size, SZ_4K);
-> +
-> +		/*
-> +		 * According to the RZ/G3S HW manual (Rev.1.10, section
-> +		 * 34.3.1.71 AXI Window Mask (Lower) Registers) HW expects first
-> +		 * 12 LSB bits to be 0xfff. Subtract 1 from size for this.
-> +		 */
-> +		size = roundup_pow_of_two(size) - 1;
-> +
-> +		cpu_addr = ALIGN(cpu_addr, SZ_4K);
-> +		pci_addr = ALIGN(pci_addr, SZ_4K);
-> +
-> +		rzg3s_pcie_set_inbound_window(host, cpu_addr, pci_addr, size,
-> +					      id);
-> +
-> +		pci_addr += size;
-> +		cpu_addr += size;
-> +		size_id = size;
-> +		id++;
-> +	}
-> +	*index = id;
-> +
-> +	return 0;
-> +}
-
-[...]
-
-> +static int rzg3s_pcie_parse_map_ranges(struct rzg3s_pcie_host *host)
-> +{
-> +	struct pci_host_bridge *bridge = pci_host_bridge_from_priv(host);
-> +	struct resource_entry *win;
-> +	int i = 0;
-> +
-> +	resource_list_for_each_entry(win, &bridge->windows) {
-> +		struct resource *res = win->res;
-> +
-> +		if (i >= RZG3S_MAX_WINDOWS)
-> +			return dev_err_probe(host->dev, -EINVAL,
-
--ENOSPC
-
-> +					     "Failed to set outbound windows!\n");
-
-"Failed to map outbound window for resource (%s), res->name"
-
-> +
-> +		if (!res->flags)
-> +			continue;
-> +
-> +		switch (resource_type(res)) {
-> +		case IORESOURCE_IO:
-> +		case IORESOURCE_MEM:
-> +			rzg3s_pcie_set_outbound_window(host, win, i);
-> +			i++;
-> +			break;
-> +		}
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-
-[...]
-
-> +static int rzg3s_pcie_probe(struct platform_device *pdev)
-> +{
-> +	struct pci_host_bridge *bridge;
-> +	struct device *dev = &pdev->dev;
-> +	struct device_node *np = dev->of_node;
-> +	struct device_node *sysc_np __free(device_node) =
-> +		of_parse_phandle(np, "renesas,sysc", 0);
-> +	struct rzg3s_pcie_host *host;
-> +	int ret;
-> +
-> +	bridge = devm_pci_alloc_host_bridge(dev, sizeof(*host));
-> +	if (!bridge)
-> +		return -ENOMEM;
-> +
-> +	host = pci_host_bridge_priv(bridge);
-> +	host->dev = dev;
-> +	host->data = device_get_match_data(dev);
-> +	platform_set_drvdata(pdev, host);
-> +
-> +	host->axi = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(host->axi))
-> +		return PTR_ERR(host->axi);
-> +	host->pcie = host->axi + RZG3S_PCI_CFG_BASE;
-> +
-> +	ret = of_property_read_u32(np, "vendor-id", &host->vendor_id);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = of_property_read_u32(np, "device-id", &host->device_id);
-> +	if (ret)
-> +		return ret;
-> +
-> +	host->sysc = syscon_node_to_regmap(sysc_np);
-> +	if (IS_ERR(host->sysc))
-> +		return PTR_ERR(host->sysc);
-> +
-> +	ret = regmap_update_bits(host->sysc, RZG3S_SYS_PCIE_RST_RSM_B,
-> +				 RZG3S_SYS_PCIE_RST_RSM_B_MASK,
-> +				 FIELD_PREP(RZG3S_SYS_PCIE_RST_RSM_B_MASK, 1));
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = devm_add_action_or_reset(dev, rzg3s_pcie_sysc_signal_action,
-> +				       host->sysc);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = rzg3s_pcie_resets_prepare(host);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = devm_pm_runtime_enable(dev);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = pm_runtime_resume_and_get(dev);
-> +	if (ret)
-> +		return ret;
-> +
-
-Do you really need to do resume_and_get()? If not, you should do:
-
-	pm_runtime_set_active()
-	pm_runtime_no_callbacks()
-	devm_pm_runtime_enable()
-
-> +	ret = devm_add_action_or_reset(dev, rzg3s_pcie_pm_runtime_put, dev);
-> +	if (ret)
-> +		return ret;
-> +
-> +	raw_spin_lock_init(&host->hw_lock);
-> +
-> +	ret = rzg3s_pcie_host_setup(host, rzg3s_pcie_intx_setup,
-> +				    rzg3s_pcie_msi_enable, true);
-> +	if (ret)
-> +		return ret;
-> +
-> +	msleep(PCIE_RESET_CONFIG_WAIT_MS);
-> +
-> +	bridge->sysdata = host;
-> +	bridge->ops = &rzg3s_pcie_root_ops;
-> +	bridge->child_ops = &rzg3s_pcie_child_ops;
-> +	ret = pci_host_probe(bridge);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return devm_add_action_or_reset(dev, rzg3s_pcie_host_remove_action,
-> +					host);
-> +}
-> +
-> +static int rzg3s_pcie_suspend_noirq(struct device *dev)
-> +{
-> +	struct rzg3s_pcie_host *host = dev_get_drvdata(dev);
-> +	const struct rzg3s_pcie_soc_data *data = host->data;
-> +	struct regmap *sysc = host->sysc;
-> +	int ret;
-> +
-> +	ret = pm_runtime_put_sync(dev);
-> +	if (ret)
-> +		return ret;
-
-Since there are no runtime callbacks present, managing runtime PM in the driver
-makes no sense.
-
-> +
-> +	ret = reset_control_bulk_assert(data->num_power_resets,
-> +					host->power_resets);
-> +	if (ret)
-> +		goto rpm_restore;
-> +
-> +	ret = reset_control_bulk_assert(data->num_cfg_resets,
-> +					host->cfg_resets);
-> +	if (ret)
-> +		goto power_resets_restore;
-> +
-> +	ret = regmap_update_bits(sysc, RZG3S_SYS_PCIE_RST_RSM_B,
-> +				 RZG3S_SYS_PCIE_RST_RSM_B_MASK,
-> +				 FIELD_PREP(RZG3S_SYS_PCIE_RST_RSM_B_MASK, 0));
-> +	if (ret)
-> +		goto cfg_resets_restore;
-> +
-> +	return 0;
-> +
-> +	/* Restore the previous state if any error happens */
-> +cfg_resets_restore:
-> +	reset_control_bulk_deassert(data->num_cfg_resets,
-> +				    host->cfg_resets);
-> +power_resets_restore:
-> +	reset_control_bulk_deassert(data->num_power_resets,
-> +				    host->power_resets);
-> +rpm_restore:
-> +	pm_runtime_resume_and_get(dev);
-> +	return ret;
-> +}
-> +
-
-[...]
-
-> +static struct platform_driver rzg3s_pcie_driver = {
-> +	.driver = {
-> +		.name = "rzg3s-pcie-host",
-> +		.of_match_table = rzg3s_pcie_of_match,
-> +		.pm = pm_ptr(&rzg3s_pcie_pm_ops),
-> +		.suppress_bind_attrs = true,
-> +	},
-> +	.probe = rzg3s_pcie_probe,
-> +};
-> +module_platform_driver(rzg3s_pcie_driver);
-
-Use builtin_platform_driver() as this driver is not supposed to be removed due
-to concersn with irqchip.
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+Cheers,
+Daniel
 
