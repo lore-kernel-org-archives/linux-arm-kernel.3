@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ACF9CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 17:36:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0F6ECA0FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 17:39:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uYWRz20Rmvhnac0DS9sDWqyczHi/Us3clZQP6R0KXd4=; b=ZCYLZsjcRhpmWXEM3hnEHcniZo
-	+/cxjqOlPzhivzJ8Q+DKCk92bjTIoDwn3w0e5217DkMGEEBrAFjmE400ynS0jNJlGTpK5pyLrm3/k
-	M/Ys7lLg5mp2bjFUmYh+1A6WIVyhY+5+ljcry172ANvyYyybR9f36furIyGn7H90McZEXJixj2i01
-	iy4aOey2M3s37yqGM5pQjMgiJ81S7/BbgqZUbktJUFa/H8+Ex7JOoOrbKI+YdgEjXHByRCt190qw3
-	og8LOKq3+ciRHxUpEvQUzARQUbgH81IMMl4Fby8026hhLTwrHHsH4WlLk+Tr/09/knLCx1MnagjGE
-	coitNdTQ==;
+	bh=86JnbPZHN24W53Nvfx/LI3LWEGRRd2dsK7mmPDNbAFM=; b=4X28eyJaFrSBM7Baxluko2QEvi
+	cibjakaT7lz0q34K1o2INB0xu/MMv0DWIxPCfLLiTK1fDrcFyJWLA+zKr3G/fvE0vTU2Hg3gff03O
+	IDWogpsDW5ejYXEOS7giRYcJpZb3O1HbU9sbjMdgAqX5wkIJubA07Bb5uaFeCEK+dB+4AFSiQ2+OL
+	6nnMJ1I/mZ+wMnGv1ZHgRfRukbUdlmz8gbTr9sDrp2O8fYHz1+K0adOaBZTH/+lkVTb2p6Tt+XC+J
+	VROr1d0snRiQ6GRVE8o2gfR7MrD4hno1QUxL62vIGSAVDmoAaNUUTzlKK6AlPYMCZhICWgC8Upg7v
+	n28UCyJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usPVE-00000008FG6-278o;
-	Sat, 30 Aug 2025 17:36:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1usPXw-00000008FVo-1feW;
+	Sat, 30 Aug 2025 17:39:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usP4t-00000008CWe-1U4X
+	id 1usP4s-00000008CVZ-17gm
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 30 Aug 2025 17:09:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BC009601A3;
+	by sea.source.kernel.org (Postfix) with ESMTP id 07F2E448C7;
 	Sat, 30 Aug 2025 17:09:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B991C4CEEB;
-	Sat, 30 Aug 2025 17:09:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0542C4CEFB;
+	Sat, 30 Aug 2025 17:09:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756573762;
-	bh=1ZGcBxhR574KIHzPTRucl3u543FWRbkCW4Ao9ObAk1g=;
+	s=k20201202; t=1756573761;
+	bh=3EElTfctldD5Dqcdckanf0DB/BbI9/XMswzxMb6oj8Y=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=vI83iiQZBW4XV+q5tHTOwmQ1UKfYiLXsk0MMtdOuCQ9ZbneFFI3fw89x+rrjWm42X
-	 QxJVdB+b/kND+DX3O/zobvZZ6DgTCvc5nqw7dRXvYknALf8gHzwb8b0KDAM9oRbXp8
-	 DTM8frvOfBj+awY3OsDoQZjOJeQDbnTxXIpbco6C3SrQtYEcAsNXwzLiVIQHV6VcWl
-	 B3qDoc+ODPjbq/o6YT4lG+uj2LNChj9BCdBR5I8IZPHNT4BFZpC2vEUPdZyrHGX2/h
-	 vgJ23Gx71wOtQK5AphGRUjaFMkE9RjX0/eztrdX79rkAD9Y4RHtXX8nE6c8o4lHtvc
-	 rNCtz6f+mL0TQ==
+	b=J5HIgdZo7fUrIavRXEx4kKLTdmW8vPp6jyDArGG2ys1mr6zR78jA9pttUs+fqdaSD
+	 T8EgKByOc1RUn7/IfHXBh7IR9rkIBeYVgNNQbJowLQFksA5CJ1VM1X4bO1bGvFvLeY
+	 8HEMDLX3TxdrTK/jnBhf5UgSTdrVP1yyFIZvHFY4ak99ScG9sHbTs81PjFfRbGTRQg
+	 BsjjVMwBC8Cw2vQBGC1Bna0kXP/qQv3GlW00U/PIb5g6JoVcr6IgwFu5/xz/zfonGx
+	 WV/iFawQZNHaBEHI6k6PvKmS+fzgBihWb+i5uXOOqjEDtbXXKHNDFPl3xKBexwJpwF
+	 eixc+hikrSxyw==
 Received: by wens.tw (Postfix, from userid 1000)
-	id 6AA495FDD4; Sun, 31 Aug 2025 01:09:17 +0800 (CST)
+	id 72A7E5FEDF; Sun, 31 Aug 2025 01:09:17 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -58,14 +58,17 @@ Cc: Andre Przywara <andre.przywara@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 5/8] clk: sunxi-ng: div: support power-of-two dividers
-Date: Sun, 31 Aug 2025 01:08:58 +0800
-Message-Id: <20250830170901.1996227-6-wens@kernel.org>
+Subject: [PATCH 7/8] arm64: dts: allwinner: a523: Add MCU PRCM CCU node
+Date: Sun, 31 Aug 2025 01:09:00 +0800
+Message-Id: <20250830170901.1996227-8-wens@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250830170901.1996227-1-wens@kernel.org>
 References: <20250830170901.1996227-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250830_100922_347263_509D700E 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,46 +85,61 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chen-Yu Tsai <wens@csie.org>
 
-Some clocks (for timers) on the A523 are mux-divider-gate types
-with the divider being values of power-of-two.
-
-Add a macro for these types of clocks so that we can use the divider
-types instead of the M-P types without an M divider.
+Add a device node for the third supported clock controller found in the
+A523 / T527 SoCs. This controller has clocks and resets for the RISC-V
+MCU, and others peripherals possibly meant to operate in low power mode
+driven by the MCU, such as audio interfaces, an audio DSP, and the NPU.
 
 Signed-off-by: Chen-Yu Tsai <wens@csie.org>
 ---
- drivers/clk/sunxi-ng/ccu_div.h | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+ .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 25 +++++++++++++++++++
+ 1 file changed, 25 insertions(+)
 
-diff --git a/drivers/clk/sunxi-ng/ccu_div.h b/drivers/clk/sunxi-ng/ccu_div.h
-index 90d49ee8e0cc..be00b3277e97 100644
---- a/drivers/clk/sunxi-ng/ccu_div.h
-+++ b/drivers/clk/sunxi-ng/ccu_div.h
-@@ -274,6 +274,24 @@ struct ccu_div {
- 	SUNXI_CCU_M_HWS_WITH_GATE(_struct, _name, _parent, _reg,	\
- 				  _mshift, _mwidth, 0, _flags)
- 
-+#define SUNXI_CCU_P_DATA_WITH_MUX_GATE(_struct, _name, _parents, _reg,	\
-+				       _mshift, _mwidth,		\
-+				       _muxshift, _muxwidth,		\
-+				       _gate, _flags)			\
-+	struct ccu_div _struct = {					\
-+		.enable	= _gate,					\
-+		.div	= _SUNXI_CCU_DIV_FLAGS(_mshift, _mwidth,	\
-+					       CLK_DIVIDER_POWER_OF_TWO), \
-+		.mux	= _SUNXI_CCU_MUX(_muxshift, _muxwidth),		\
-+		.common	= {						\
-+			.reg		= _reg,				\
-+			.hw.init	= CLK_HW_INIT_PARENTS_DATA(_name, \
-+								   _parents, \
-+								   &ccu_div_ops, \
-+								   _flags), \
-+		},							\
-+	}
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+index 79bd9ce08c7c..b6e82d53af54 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+@@ -4,8 +4,10 @@
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
+ #include <dt-bindings/clock/sun6i-rtc.h>
+ #include <dt-bindings/clock/sun55i-a523-ccu.h>
++#include <dt-bindings/clock/sun55i-a523-mcu-ccu.h>
+ #include <dt-bindings/clock/sun55i-a523-r-ccu.h>
+ #include <dt-bindings/reset/sun55i-a523-ccu.h>
++#include <dt-bindings/reset/sun55i-a523-mcu-ccu.h>
+ #include <dt-bindings/reset/sun55i-a523-r-ccu.h>
+ #include <dt-bindings/power/allwinner,sun55i-a523-ppu.h>
+ #include <dt-bindings/power/allwinner,sun55i-a523-pck-600.h>
+@@ -825,6 +827,29 @@ rtc: rtc@7090000 {
+ 			clock-names = "bus", "hosc", "ahb";
+ 			#clock-cells = <1>;
+ 		};
 +
- static inline struct ccu_div *hw_to_ccu_div(struct clk_hw *hw)
- {
- 	struct ccu_common *common = hw_to_ccu_common(hw);
++		mcu_ccu: clock-controller@7102000 {
++			compatible = "allwinner,sun55i-a523-mcu-ccu";
++			reg = <0x7102000 0x164>;
++			clocks = <&osc24M>,
++				 <&rtc CLK_OSC32K>,
++				 <&rtc CLK_IOSC>,
++				 <&ccu CLK_PLL_AUDIO0_4X>,
++				 <&ccu CLK_PLL_PERIPH0_300M>,
++				 <&ccu CLK_DSP>,
++				 <&r_ccu CLK_R_AHB>,
++				 <&ccu CLK_MBUS>;
++			clock-names = "hosc",
++				      "losc",
++				      "iosc",
++				      "pll-audio0-4x",
++				      "pll-periph0-300m",
++				      "dsp",
++				      "r-ahb",
++				      "mbus";
++			#clock-cells = <1>;
++			#reset-cells = <1>;
++		};
+ 	};
+ 
+ 	thermal-zones {
 -- 
 2.39.5
 
