@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BAE3CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 04:01:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E885CA0FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 30 Aug 2025 04:11:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mTnmdAUvE/DVsBxLqP0djy/2Dolj5ax2p26Q/UU4kXM=; b=vME3mtTm7aOGiBwIEEh3Hcl8+B
-	ej4beESNAybmW6rr6XFndYfmfRKRqzWTtczt5Ae4I1b/cfSq3Vly55ARZQRPMyMoomnqDutg54UV8
-	RpqRYr6f6H6yWzJzmUbjKGmt7ORZzq8QJJ73L/WeVPFk4XuyyJ1mcGjGkYMSEPnnpeGMrIpEyeLNw
-	eK3Mg8UKZz99od3xPlAeIzk6bZIYzk9d+5chx512lBDbQA/vg3g39jCa/prOyHI9Rv/8+OX9twSJU
-	cB88JMSeXSTRZGDjpYPDX94aaU73TdsR5sTnmuLRxBl1huONuiqew9PYAJsPMBxFq+07I0+OM+2PD
-	5mpec9LQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zT+n6YMpXnejer2g1ZQoFUR8z+OaWWV48kU3JesbiR8=; b=AAwQm9iRd9RBiRhqZbEGMNtNLR
+	HyzPslMsngo/CeUamKHz4CPw/wrTWEcOP/sudgsKasPIRsHIaCOu/eo74dM/l45KHQzs+XK4+NTh8
+	bu32hwh62UJJ+OO1woW+2rlcewXjwVTM8lIAI4AJzVG8upV7NeRyuv+seFNFbG2kopdEBhCv59YUM
+	e+tOBpfquexrriPitPhdgo7KLf6Qs05puVAg+7fnp/NykZuCygGZuQbw56BNc3PKM32hn4zCZdOdJ
+	8Xxd+RMntwElQNcyDtB8xqQ0oDnuFpbcFC3KbUdxQdjUtRT+eGtDzvv/7bxElAHVEYu0TEQ5JzoH5
+	q4g5+9Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usCmg-00000007Ox7-0lYH;
-	Sat, 30 Aug 2025 04:01:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1usCw3-00000007PVj-03CK;
+	Sat, 30 Aug 2025 04:11:27 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usCjv-00000007OkP-0eVo;
-	Sat, 30 Aug 2025 03:58:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9155F60191;
-	Sat, 30 Aug 2025 03:58:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABF6EC4CEEB;
-	Sat, 30 Aug 2025 03:58:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756526334;
-	bh=VABUD4jO9Kymnm8cj7uMAQ8AvocLC42Iebzpv/8ohiw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=knb/vVYf4lzqy+199q3lrWFfPdLUs3K4k2ZKF73nP9OEKi7V13ySggZQiv2/QnjKn
-	 YATGK0Lmv/VQ9OpWMJLweUDUxXJrNz7qFfJMXHaKkNSVCB8SA5cbykG9MhYfHd4KBA
-	 MjjMQ0SfPFwcJoz4Kpx7ZcO5ma6EzP76t1UHW37Fq+w/aeq9ValcipbntIFij7dNE5
-	 K76xpi0EB9sVHWIiNteFgj6o55LbRmLuON7mGnck+00x2/Qp9qvuDEIY8mwPEk7jJR
-	 ww4rvZWGxCeyCpaiJvC17/LAn0NToem0XETjxU3QuukDR03GcyUTjOTgZJOD6CjU02
-	 wGM3SiHbl2QLw==
-Date: Sat, 30 Aug 2025 09:28:44 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Shradha Todi <shradha.t@samsung.com>
-Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-phy@lists.infradead.org, lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
-	bhelgaas@google.com, jingoohan1@gmail.com, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	alim.akhtar@samsung.com, vkoul@kernel.org, kishon@kernel.org, arnd@arndb.de, 
-	m.szyprowski@samsung.com, jh80.chung@samsung.com, pankaj.dubey@samsung.com
-Subject: Re: [PATCH v3 12/12] arm64: dts: fsd: Add PCIe support for Tesla FSD
- SoC
-Message-ID: <dsa7u5pz7qmjaunzrqgpjkyv4xh427bbnpkdzvkpz3w6v6xf6v@5kxhihh4hw2j>
-References: <20250811154638.95732-1-shradha.t@samsung.com>
- <CGME20250811154746epcas5p261ba0c811f9dd8748f8f241b76be6525@epcas5p2.samsung.com>
- <20250811154638.95732-13-shradha.t@samsung.com>
+	id 1usCtG-00000007PII-1oCp
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 30 Aug 2025 04:08:36 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.163])
+	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4cDM442X76z1R8gt;
+	Sat, 30 Aug 2025 12:05:24 +0800 (CST)
+Received: from kwepemo100006.china.huawei.com (unknown [7.202.195.47])
+	by mail.maildlp.com (Postfix) with ESMTPS id C9A9418001B;
+	Sat, 30 Aug 2025 12:08:21 +0800 (CST)
+Received: from [10.67.121.58] (10.67.121.58) by kwepemo100006.china.huawei.com
+ (7.202.195.47) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Sat, 30 Aug
+ 2025 12:08:20 +0800
+Message-ID: <c64d1999-9070-0d1d-35a7-9f2c55f39fc8@hisilicon.com>
+Date: Sat, 30 Aug 2025 12:08:20 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250811154638.95732-13-shradha.t@samsung.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.2
+Subject: Re: [PATCH v5 1/3] arm64: topology: Set scale freq source only for
+ the CPUs that have not been set before
+To: Lifeng Zheng <zhenglifeng1@huawei.com>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <rafael@kernel.org>, <viresh.kumar@linaro.org>,
+	<beata.michalska@arm.com>, <sudeep.holla@arm.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linuxarm@huawei.com>,
+	<jonathan.cameron@huawei.com>, <vincent.guittot@linaro.org>,
+	<yangyicong@hisilicon.com>, <lihuisong@huawei.com>, <yubowen8@huawei.com>,
+	<zhangpengjie2@huawei.com>, <linhongye@h-partners.com>
+References: <20250819072931.1647431-1-zhenglifeng1@huawei.com>
+ <20250819072931.1647431-2-zhenglifeng1@huawei.com>
+From: Jie Zhan <zhanjie9@hisilicon.com>
+In-Reply-To: <20250819072931.1647431-2-zhenglifeng1@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.58]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemo100006.china.huawei.com (7.202.195.47)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250829_210834_666015_CFEF2583 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,93 +78,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 11, 2025 at 09:16:38PM GMT, Shradha Todi wrote:
-> Add the support for PCIe controller driver and phy driver for Tesla FSD.
-> It includes support for both RC and EP.
+
+
+On 19/08/2025 15:29, Lifeng Zheng wrote:
+> The scale freq source of the CPUs in 'amu_fie_cpus' mask are already set to
+> AMU tick before, so in amu_fie_setup(), only the CPUs in the 'cpus' mask
+> should be set.
 > 
-> Signed-off-by: Pankaj Dubey <pankaj.dubey@samsung.com>
-> Signed-off-by: Shradha Todi <shradha.t@samsung.com>
+LGTM.
+
+Reviewed-by: Jie Zhan <zhanjie9@hisilicon.com>
+> Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
 > ---
->  arch/arm64/boot/dts/tesla/fsd-evb.dts      |  34 +++++
->  arch/arm64/boot/dts/tesla/fsd-pinctrl.dtsi |  65 +++++++++
->  arch/arm64/boot/dts/tesla/fsd.dtsi         | 147 +++++++++++++++++++++
->  3 files changed, 246 insertions(+)
+>  arch/arm64/kernel/topology.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/arch/arm64/boot/dts/tesla/fsd-evb.dts b/arch/arm64/boot/dts/tesla/fsd-evb.dts
-> index 9ff22e1c8723..1b63c5d72d19 100644
-> --- a/arch/arm64/boot/dts/tesla/fsd-evb.dts
-> +++ b/arch/arm64/boot/dts/tesla/fsd-evb.dts
-> @@ -130,3 +130,37 @@ &serial_0 {
->  &ufs {
->  	status = "okay";
->  };
-> +
-> +&pcierc2 {
-
-It'd be good to use underscore to differentiate RC and EP modes:
-
-	pcie_rc1
-	pcie_ep1
-
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pcie1_clkreq>, <&pcie1_wake>, <&pcie1_preset>,
-> +			<&pcie0_slot1>;
-
-Could you please explain what these 'preset' and 'slot' pins are?
-
-> +};
-> +
-> +&pcieep2 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pcie1_clkreq>, <&pcie1_wake>, <&pcie1_preset>,
-> +			<&pcie0_slot1>;
-> +};
-> +
-> +&pcierc0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pcie0_clkreq>, <&pcie0_wake0>, <&pcie0_preset0>,
-> +			 <&pcie0_slot0>;
-> +};
-> +
-> +&pcieep0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pcie0_clkreq>, <&pcie0_wake0>, <&pcie0_preset0>,
-> +			 <&pcie0_slot0>;
-> +};
-> +
-> +&pcierc1 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pcie0_clkreq>, <&pcie0_wake1>, <&pcie0_preset0>;
-> +};
-> +
-> +&pcieep1 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pcie0_clkreq>, <&pcie0_wake1>, <&pcie0_preset0>;
-> +};
-
-[...]
-
-> +		pcieep2: pcie-ep@15400000 {
-> +			compatible = "tesla,fsd-pcie-ep";
-> +			reg = <0x0 0x15090000 0x0 0x1000>,
-> +			      <0x0 0x15400000 0x0 0x2000>,
-> +			      <0x0 0x15402000 0x0 0x80>,
-> +			      <0x0 0x15800000 0x0 0xff0000>;
-> +			reg-names = "elbi", "dbi", "dbi2", "addr_space";
-> +			clocks = <&clock_fsys0 PCIE_SUBCTRL_INST0_AUX_CLK_SOC>,
-> +				 <&clock_fsys0 PCIE_SUBCTRL_INST0_DBI_ACLK_SOC>,
-> +				 <&clock_fsys0 PCIE_SUBCTRL_INST0_MSTR_ACLK_SOC>,
-> +				 <&clock_fsys0 PCIE_SUBCTRL_INST0_SLV_ACLK_SOC>;
-> +			clock-names = "aux", "dbi", "mstr", "slv";
-> +			num-lanes = <4>;
-> +			phys = <&pciephy0>;
-> +			samsung,syscon-pcie = <&sysreg_fsys0 0x434>;
-> +			status = "disabled";
-
-So only host mode DMA is cache coherent and not endpoint? Weird.
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+> index 5d07ee85bdae..9317a618bb87 100644
+> --- a/arch/arm64/kernel/topology.c
+> +++ b/arch/arm64/kernel/topology.c
+> @@ -373,7 +373,7 @@ static void amu_fie_setup(const struct cpumask *cpus)
+>  
+>  	cpumask_or(amu_fie_cpus, amu_fie_cpus, cpus);
+>  
+> -	topology_set_scale_freq_source(&amu_sfd, amu_fie_cpus);
+> +	topology_set_scale_freq_source(&amu_sfd, cpus);
+>  
+>  	pr_debug("CPUs[%*pbl]: counters will be used for FIE.",
+>  		 cpumask_pr_args(cpus));
 
