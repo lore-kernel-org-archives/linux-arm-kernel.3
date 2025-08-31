@@ -4,63 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1798CA0FE8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 18:26:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91862CA0FE8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 18:32:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vABlHPQgjFRuHSCqmY3oGjz+EXzN17jq36avVrc15Bo=; b=l1SHMXs+ufsiGbJq2ypXCXbstZ
-	VZ18DHTh53zhjvcsRe9F4HoqJy+UU8LaaIEEsJFNMQGpBAidpOm0gfqGMG8stlsS2p7Zg4b6eGhU5
-	NtW0eV7ArvS3zQSGzWpiMsc9VS+GhjLNKL4EBcK2RrGxfrDb9ayDWaZHApu7LITNe1KIQPRfiyWZL
-	L/XB+0al031mo/LZ1REae5vmyERnOPJoMHtchBOohVJceRkW3/GnZ/SnXRbDvsKGKWNGmav5Gc1QT
-	zPgqvgW2BWQDHjD66/ryix7UFI52iAbYjT7c/OOv0yjbcjiBvQwaPRjq151KWGfPzAVFOmdBCMxuk
-	9M3PHlMw==;
+	bh=bXyO5/oYhnJR0y4bbel0y9/KAIGH5qbVDwIP+gHMAwc=; b=Ztz+47NjfrgS2VXQjuXgt8fdhg
+	AbL/jnGC4ZLoUGz4RwqUA4eVy4s+P/GUys03wWzgkcZMnwv0wKwHfo8E7QbjTXVS3dX+GfYIGwqS2
+	0U8vV6ql8Sq3EGY8ikzgGLCBwPz68Oq4QsXca0PoBVEMARMtQV4qwblOYKztDg7iHCBWH6mUYXwOR
+	6k0+KE9WYA+dGep6nDd7csazYO624WmHlWUFDXdF0/Lg0uBjHjUZGFN6m5C6ow7snzCpzxlDB6je0
+	ozc1lZ56H7Sv6PdPqsGgb33cCjYHKOqWqzRUcnXQvdgQgzWbSMUMDsCp4uPr9w9yfH1BnTbIm0wuE
+	iDjY6PTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usmkY-0000000AXPA-1zd8;
-	Sun, 31 Aug 2025 18:25:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1usmqp-0000000AXqj-2DA5;
+	Sun, 31 Aug 2025 18:32:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usmhr-0000000AXE0-35MH
+	id 1usmo7-0000000AXef-0OCo
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 Aug 2025 18:23:11 +0000
+	Sun, 31 Aug 2025 18:29:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4090A601AE;
-	Sun, 31 Aug 2025 18:23:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DD5EC4CEF6;
-	Sun, 31 Aug 2025 18:23:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D19EE4492E;
+	Sun, 31 Aug 2025 18:29:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B92A1C4CEED;
+	Sun, 31 Aug 2025 18:29:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756664589;
-	bh=LE/s0xTjGqERQm+oRr6TmGSio6PkYKZF+Zhb64b9oaM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=rbQNM7jgZsYAAqJOg5AXGdlP0k75F1es+bk51qcSRgX3ICqeRPuOeA5nAq83wHv+5
-	 NEMxMfbiU3ndsSjKTyXg1dMhTjRh7kjJrZke0vzjO9U/mAjtpeLcgZWDApb9K04yjl
-	 NzUHLHvws0C14nH0BuDsxfwrzeEKW6aaXcKVj3p1GYCtGZL9zLJJqOqK1AGxhmGg09
-	 oBTUnDGZfn38xT2zEnv2PN2zvvuKnvFBs7o2BVNgCYXq9Lt0vMRDcMPDpdPhok9mIN
-	 Y5HQIDJbGB3UoIZtShnY/UxM6qXyvXDx8A2GiHY6lU9gOV5HSxt7oVOHBCGVnSNEJV
-	 cccuaR6WtP7Vw==
-Message-ID: <09e1a345-21d5-4ff7-831c-755e00898a45@kernel.org>
-Date: Sun, 31 Aug 2025 20:23:03 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] dt-bindings: spmi: Add Apple A11 and T2 compatible
-To: Nick Chan <towinchenmi@gmail.com>, Janne Grunau <j@jannau.net>,
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Sasha Finkelstein <fnkl.kernel@gmail.com>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-References: <20250829-t8015-spmi-v3-0-58b15ee2c825@gmail.com>
- <20250829-t8015-spmi-v3-1-58b15ee2c825@gmail.com>
-Content-Language: en-US
+	s=k20201202; t=1756664977;
+	bh=KjHhTkMJ/HyvpaGMX1/ZuMt5yAN5aupaBijM9djMns8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=gSEDxVVczmhv2xuAzK34rJ5E5uA+Xm1tulv+ccO7aaAOptE1pW0c8yGFnDxnfoqmR
+	 im7cXuWUPhKPazxsUFcXgMKgjJFkyx1mREeNOan/R/gkC7wOb6Bf648aqlbaLDJb5h
+	 UbIsnFB+qCh6awlRcCtrghGsQUYTXKVFz6ZvaM+J3h3IeqffyKqjE/D4IuSA+66Fg9
+	 avdjLzqnpcABliDLLX1xAUSRl2PWit7bdXtdgG53AqHA5sH6GfLLIWgWrRKnB6q34a
+	 i9CDmzRryyL1MZqdZqPokrtGlqAg83aPmJQAtfuCoV8AnC2sACOROSvZ4uXLn7ixKe
+	 JdjAtoAhc6pcg==
 From: Sven Peter <sven@kernel.org>
-In-Reply-To: <20250829-t8015-spmi-v3-1-58b15ee2c825@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+To: Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Neal Gompa <neal@gompa.dev>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Mark Kettenis <kettenis@openbsd.org>,
+	Hector Martin <marcan@marcan.st>,
+	Janne Grunau <j@jannau.net>
+Cc: Sven Peter <sven@kernel.org>,
+	asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/5] Apple device tree sync from downstream kernel
+Date: Sun, 31 Aug 2025 20:29:28 +0200
+Message-Id: <175666489772.4936.11580561887424147768.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+In-Reply-To: <20250823-apple-dt-sync-6-17-v2-0-6dc0daeb4786@jannau.net>
+References: <20250823-apple-dt-sync-6-17-v2-0-6dc0daeb4786@jannau.net>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250831_112939_156588_64CA06CD 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,31 +82,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29.08.25 10:47, Nick Chan wrote:
-> The SPMI bus found on Apple A11 and T2 SoCs are compatible with the
-> existing driver for t8103's spmi so add their compatibles.
+On Sat, 23 Aug 2025 11:49:43 +0200, Janne Grunau wrote:
+> This series pulls changes from the downstream device trees which are
+> supported in upstream kernel.
+> Most importantly it fixes the PCIe description for a specific iMac model
+> (iMac M1, 2 USB-C ports, 2021). This is worked around in the downstream
+> kernel by not disabling the port. In preparation for submitting M2
+> Pro/Max/Ultra devices trees I investigated the issue on the similarly
+> affected M2 Pro Mac mini and fixed it this way.
+> It completes the Wlan/BT device nodes for t600x based devices and adds
+> the missing 15-inch Macbook Air (M2, 2023).
 > 
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
-> Reviewed-by: Sven Peter <sven@kernel.org>
+> [...]
 
-Please drops those tags if you make a significant change like you did 
-here between v2 and v3.
+Applied to git@github.com:AsahiLinux/linux.git (apple-soc/dt-6.18), thanks!
 
-> Signed-off-by: Nick Chan <towinchenmi@gmail.com>
-> ---
+[1/5] arm64: dts: apple: t8103-j457: Fix PCIe ethernet iommu-map
+      https://github.com/AsahiLinux/linux/commit/6e08cdd604ed
+[2/5] arm64: dts: apple: t600x: Add missing WiFi properties
+      https://github.com/AsahiLinux/linux/commit/3050713d84f5
+[3/5] arm64: dts: apple: t600x: Add bluetooth device nodes
+      https://github.com/AsahiLinux/linux/commit/c34e2ec6a84e
+[4/5] dt-bindings: arm: apple: Add t8112 j415 compatible
+      https://github.com/AsahiLinux/linux/commit/efad8eaf6f2f
+[5/5] arm64: dts: apple: Add devicetreee for t8112-j415
+      https://github.com/AsahiLinux/linux/commit/273be31e5afd
 
-[...]
-
-> @@ -27,7 +30,6 @@ properties:
->                 - apple,t6000-spmi
->                 - apple,t8112-spmi
->             - const: apple,spmi
-> -
-
-Why are you removing the blank line here?
-
-
-Sven
-
+Best regards,
+-- 
+Sven Peter <sven@kernel.org>
 
 
