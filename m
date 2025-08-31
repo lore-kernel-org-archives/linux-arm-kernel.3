@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5A46CA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 10:53:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94DEACA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 10:57:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=USdwVkEmQnPASQDIjCj1Uq3klFXBmsJ9IL+kcxVlMRs=; b=WYCCxF95t50HDPuZCP9hxf3BF1
-	IJlunZ3zZESl/QSEiDl3T2Scqk1pqoOMttIhV0UPdD8HD0QPpvexrKxDWl5z9p/dr95rQgHriNCYM
-	whVcdfxJ3lawAEIWkczdpToAH1pSdOeODw7id3ZtFDZ6eMhMhRKiLpvZjKrCp6eSgdmxvDLU8PZDq
-	X6tWmipyVpmZKrl+MH/+EEIpcFHyg5E3PcK73aDuxEbTcC0fWTW2mPhLxZT+uywL3w+cZg4y6u5sZ
-	sOpN4sbtvxW4xAq48wi7wIJCmSrW9NBet1pANWTY55q6Veh/rJIPzFkdXC0W7wwZghGtI5YLzbXiY
-	4K5BIfLQ==;
+	bh=FrShZV/dqRBi1rL4EpOtQ1P6KOOwQ6eLAekGBYo74BY=; b=izfLxGU7h7VhIm/RfGpiSCcMau
+	gCcNmFkpZS6DeTnnHRC+QTrBIe+3GtEqT2rhrp9CHrXk5en/zae32gTeokW0j1QTR3nK1Ajsls8BF
+	lVAY+IrKPYfYuSqa8eR2Xc1Jb5t4DEV1+h65nGT2hfTNxHxcnqyF2OZumjXWBA3JzsJWVjzi2DTxO
+	ADkA+mUfMJmxC/xuH8/DIVG2E5eOxo+ZndzGAChfP4ia4r6OlCxdqsuZT5rA6Uu2Rvpc+jyTexrM8
+	xa/ijO3TZcKt4wYWsdvqEkOXhTROog9iw+jhhohZjJ9FucDBCdMrZ53KbsYF+cFwqRah0eKmrbwFe
+	pz6Lxdkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usfgg-0000000A48K-32R5;
-	Sun, 31 Aug 2025 10:53:30 +0000
+	id 1usfka-0000000A4W8-3IbS;
+	Sun, 31 Aug 2025 10:57:32 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usfe0-0000000A3xp-39nt
+	id 1usfhv-0000000A4Gu-1GG8
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 Aug 2025 10:50:44 +0000
+	Sun, 31 Aug 2025 10:54:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D7EC6601AA;
-	Sun, 31 Aug 2025 10:50:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D26CC4CEED;
-	Sun, 31 Aug 2025 10:50:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B0C9D601AE;
+	Sun, 31 Aug 2025 10:54:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FFC2C4CEED;
+	Sun, 31 Aug 2025 10:54:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756637443;
-	bh=8Ux488ZO3JpS0NhQiMHmXYrDdFjO370XPpgnu/QOm9c=;
+	s=k20201202; t=1756637686;
+	bh=CnelNP+ANEWc1xG0HybwKsWf76kaf+w3bCYh0h3jL2o=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JWobBYBH3Lvd3v6TEhtVVVcGy2ANQyf64v4tYyp9cbgli3DWHrty/3gL4E0U+ItG7
-	 m8lLr+tmQ1w9B/wja9XnctVBIEhYXSfiI7+XU/cV299M2Y4Y3dLtbPhpodJJyrIvW0
-	 X4rBOiuI9j3McD5sS8iO67mvkXuZcDvWMuDbRI9gAKx//GrgrdT9KphTdQ/CupqEqt
-	 tKe/bR3cRpFPi+zwHYP59th+NbTnOq2AmqJA35pM0UzAS3kha+IM2tdsVkvcdV83Rt
-	 IMV2cManh22A7uCsHg5S+UN2/ad2dMe9wBGMnsQjFZpchya1uicxia1vALxxusJ5Vw
-	 96cPcz3UrAU1g==
-Message-ID: <e8346a38-fef7-482f-81ab-20621988b047@kernel.org>
-Date: Sun, 31 Aug 2025 12:50:36 +0200
+	b=ebtinnNawK+QSFc7Gwif+BEJZ1eBim8TzKwqXfsv8nTFw9C7KfmflvysxhChl99N9
+	 iW43+UFyR4WLZwFSb8/spt00320kC3Jt5L7CFnviIqZe4/IdpEYEGUurZwb+2Y3yAa
+	 bNwE4t72AeVxE42jWh8wn9yETvBVjPunZyYLLH0pdcN4Uj57FQUhZCJTkEnmK7xVsY
+	 8JPFrscbfL0vxxm2yLC9t9SDvAs5M8P74rjgCRpbAaF3di0nBy2zOd+UC4aYpYjALf
+	 1owoJj9SVmWYHRf9Q5z5xxESzF7MNBFZ1mCUFIqGXCknjaufaFeWXdU8NsxETfotDp
+	 9KHNjxmPLlU7Q==
+Message-ID: <f4f98fd8-2282-491a-81a5-fdbcd91b4035@kernel.org>
+Date: Sun, 31 Aug 2025 12:54:41 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/5] firmware: exynos-acpm: register ACPM clocks dev
-To: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+Subject: Re: [PATCH v5 1/5] clk: samsung: exynos990: Use PLL_CON0 for PLL
+ parent muxes
+To: Denzeel Oliva <wachiturroxd150@gmail.com>,
  Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
-References: <20250827-acpm-clk-v2-0-de5c86b49b64@linaro.org>
- <20250827-acpm-clk-v2-4-de5c86b49b64@linaro.org>
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20250830-fix-cmu-top-v5-0-7c62f608309e@gmail.com>
+ <20250830-fix-cmu-top-v5-1-7c62f608309e@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,7 +104,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250827-acpm-clk-v2-4-de5c86b49b64@linaro.org>
+In-Reply-To: <20250830-fix-cmu-top-v5-1-7c62f608309e@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -123,65 +121,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/08/2025 14:42, Tudor Ambarus wrote:
-> +
-> +static const struct acpm_clk_variant gs101_acpm_clks[] = {
-> +	ACPM_CLK(CLK_ACPM_DVFS_MIF, "mif"),
-> +	ACPM_CLK(CLK_ACPM_DVFS_INT, "int"),
-> +	ACPM_CLK(CLK_ACPM_DVFS_CPUCL0, "cpucl0"),
-> +	ACPM_CLK(CLK_ACPM_DVFS_CPUCL1, "cpucl1"),
-> +	ACPM_CLK(CLK_ACPM_DVFS_CPUCL2, "cpucl2"),
-> +	ACPM_CLK(CLK_ACPM_DVFS_G3D, "g3d"),
-> +	ACPM_CLK(CLK_ACPM_DVFS_G3DL2, "g3dl2"),
-> +	ACPM_CLK(CLK_ACPM_DVFS_TPU, "tpu"),
-> +	ACPM_CLK(CLK_ACPM_DVFS_INTCAM, "intcam"),
-> +	ACPM_CLK(CLK_ACPM_DVFS_TNR, "tnr"),
-> +	ACPM_CLK(CLK_ACPM_DVFS_CAM, "cam"),
-> +	ACPM_CLK(CLK_ACPM_DVFS_MFC, "mfc"),
-> +	ACPM_CLK(CLK_ACPM_DVFS_DISP, "disp"),
-> +	ACPM_CLK(CLK_ACPM_DVFS_BO, "b0"),
-> +};
+On 30/08/2025 18:28, Denzeel Oliva wrote:
+> Parent select bits for shared PLLs are in PLL_CON0, not PLL_CON3.
+> Using the wrong register leads to incorrect parent selection and rates.
+> 
+> Fixes: bdd03ebf721f ("clk: samsung: Introduce Exynos990 clock controller driver")
+> Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
+I don't remember if I asked, but please add CC-stable in the future.
 
-I don't understand why clocks are defined in the firmware driver, not in
-the clock driver.
-
-This creates dependency of this patch on the clock patch, so basically
-there is no way I will take it in one cycle.
-
-> +
->  /**
->   * acpm_get_saved_rx() - get the response if it was already saved.
->   * @achan:	ACPM channel info.
-> @@ -606,6 +636,7 @@ static void acpm_setup_ops(struct acpm_info *acpm)
->  
->  static int acpm_probe(struct platform_device *pdev)
->  {
-> +	const struct acpm_clk_platform_data *acpm_clk_pdata;
->  	const struct acpm_match_data *match_data;
->  	struct device *dev = &pdev->dev;
->  	struct device_node *shmem;
-> @@ -647,7 +678,30 @@ static int acpm_probe(struct platform_device *pdev)
->  
->  	platform_set_drvdata(pdev, acpm);
->  
-> -	return devm_of_platform_populate(dev);
-> +	acpm_clk_pdata = match_data->acpm_clk_pdata;
-> +	acpm->clk_pdev = platform_device_register_data(dev, "acpm-clocks",
-> +						       PLATFORM_DEVID_NONE,
-> +						       acpm_clk_pdata,
-> +						       sizeof(*acpm_clk_pdata));
-> +	if (IS_ERR(acpm->clk_pdev))
-> +		return dev_err_probe(dev, PTR_ERR(acpm->clk_pdev),
-> +				     "Failed to register ACPM clocks device.\n");
-> +
-> +	ret = devm_of_platform_populate(dev);
-> +	if (ret) {
-> +		platform_device_unregister(acpm->clk_pdev);
-
-I think this should stick to devm-interfaces everywhere, not mix them,
-to have exactly expected cleanup sequence. Now your remove() first
-unregisters and then de-populates, which is different order than it was
-done in probe(). Use devm-action handler for device unregistering.
+I added when applying.
 
 Best regards,
 Krzysztof
