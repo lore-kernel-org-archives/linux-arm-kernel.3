@@ -4,66 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A303CA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 04:10:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F2C8CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 06:56:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oe+j17a62BLHAQWV/HOy9bmgDAunNGboGUOEQ4so8yE=; b=lRSLPIIRkgBrw7Z98mNiebd5vA
-	bkMF0QnqT/bnmq0tsgW2i2Cq7/Ku0/7odQ4y60DGhxNY7n+MhaK/OdGfN+Fk18nWohXspoAs51rXc
-	N0juLRO5/5LKMCdkaoQ1oJlQwKajFZpD7PUTRk1+4P5NeExszHaBON4O/2u9QvPAjA5OlpMsJegDx
-	sYe5jyqFe2Ekzz9p5rOQiDh/rmEIZrnoJYj0448nF1RCDjY6FzV82sguQv0AurGVX3DKxhRWC/+V5
-	fye6aTscUljROBtdTvVHZTQhoAwsXFL/IFZuijXV3Qyme6ABHf/aVI46MhJgsQFqobGP3Ht30MYlc
-	rIui6U9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5zU8QHTwibUZPZEInyV6WN+DmIrPUEWk2NEVidvinjk=; b=agT3b9z07OGLNjqizV1rtmO7ys
+	1IQf9l+SNm/zAZMgbPtGB0cVq/F1rpiWfN4dE8u7l7oX5iOL0PVESN/++oJQdbEKr+80isu4Oxw7I
+	4J2eCuedJNXELqK1eseNX9X6xtCkxpmjKCiCH5Ti1AoZiV7GmDXOcSvJQq627rXaODd6qycseUO1i
+	rvleVppSV7jhOom3wIBYd+sbIbFPIHjUjY+7eypwbYDmjl54Awjo7xDAOiZW6ZAb9zA3dJOeyIQpo
+	qvTH5ShDOKGfo96vFjlRN/TkbDJ5aUaSMePQK04hWRvZL2AR8eVxFrHspAgo/Eqw5lrHQT1pL+0Aq
+	oDoEa0hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usZOV-000000096co-1oV6;
-	Sun, 31 Aug 2025 04:10:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1usbyr-00000009q60-49y3;
+	Sun, 31 Aug 2025 06:56:01 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usZLl-000000095rX-3YwR
+	id 1usbw9-00000009pww-1Las
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 Aug 2025 04:07:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9250B601A7;
-	Sun, 31 Aug 2025 04:07:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BFE8C4CEED;
-	Sun, 31 Aug 2025 04:07:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756613247;
-	bh=LptXLD1zwFlWZSHFVxFcX1U/UXwMN65+JMNh3/oeSoI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LbFk+MFWyECQgwWN/R2B7l0hcZN7hA2vUQVDt1Z3vI+4xJ3whKk9FXHuOSLrhh68P
-	 HgDKzytxI9JEgGTqLShXuxO5gzSXveAhj/0L+tAk3KhXz+RWTt4YyXJeDE3WTswKVQ
-	 AqyW+cv2P79nBkjorkKxY8lhHwuLTsXTNYrIOvJWNTT8hLKaVaG/JT0Buj1ZluwEGZ
-	 0T9Z0g99KxMdPVAJcY7C+z1Oy0MCGyqXkXjNLTAsLMbeJ2bxsyknjvLi81LciN82+c
-	 uFx/JoVnTWTTtlvAqGEvpG+08cvISOMgCy7Y7MTumCDyV7Fg+QKPdRJyqiN3KXtr1Q
-	 QzC86xUv46DfQ==
-Date: Sun, 31 Aug 2025 09:37:17 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, geert+renesas@glider.be, 
-	magnus.damm@gmail.com, catalin.marinas@arm.com, will@kernel.org, 
-	mturquette@baylibre.com, sboyd@kernel.org, p.zabel@pengutronix.de, lizhi.hou@amd.com, 
-	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
-	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>, Wolfram Sang <wsa+renesas@sang-engineering.com>
-Subject: Re: [PATCH v3 5/9] PCI: rzg3s-host: Add Initial PCIe Host Driver for
- Renesas RZ/G3S SoC
-Message-ID: <zsgncwvhykw4ja3bbqaxwupppjsqq4pcrdgrsduahokmt72xsm@twekpse6uzzh>
-References: <20250704161410.3931884-1-claudiu.beznea.uj@bp.renesas.com>
- <20250704161410.3931884-6-claudiu.beznea.uj@bp.renesas.com>
- <ddxayjj5wcuuish4kvyluzrujkes5seo7zlusmomyjfjcgzcyj@xe3zzzmy2zaj>
- <8ef466aa-b470-4dcb-9024-0a9c36eb9a6a@tuxon.dev>
+	Sun, 31 Aug 2025 06:53:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UrDXyd1igbH7OvUhsy1kzrInZgFEsCJ3tjgKfHQRQo0771LH557PGpXwEs4oTUWPbfAQAqNlablwM1+i2pcYCc/yLFLUd2DXet12yJLjgxCK12WaqDgha0ytrACweAdydrTHBSSxjvwFUlfuuOBY4lzDd5Wf8r3HTw7ZWk20tGto3lDzfyvGi+lkQNq5/S7sD+ZVWOLLr7d/vdd0PPvS2VV21mbnwHc3+9NQr2AUsIGx5p6efya5opPfX/GwzjXvEG+AnlJwrXp77ObU8tPMl1sfwVie9J7n+n4s+q0UBpfzkgLrOBeLzEthcYlngtvq7StAnG+SJxfukNYIAzccaQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5zU8QHTwibUZPZEInyV6WN+DmIrPUEWk2NEVidvinjk=;
+ b=rmBm1DZ5CDC25L83+NjllSNfp5LJwI2qPxZ9HCDN8X6o/4kSRUMMfq7DHhtkUxIQYH0n7L2pnSUZTrn4IZhcg0yzgmk7ep4E4d0s2Y1XKTOagkPGN2Urwq4yEU8hN5MIO/jQl8xfVEH6bqv7Q2H9O7pZ32P0M+fyuUl30kStbfdriOHT8mXkvA/GG62u4XKoA8L+AMXKBxDKoNb21x2UcACBV1s8W3u01ckxOdbXW1GaJWlay3ofqH8KyA5GzJ0P0qC4KfcP64flT4xvfmNxS0UlpBODS/Gh9xGCuS0+XNc53mZzHj99MMvV9RHDmRomiOQBGHRb4gELTyTlZ9WkDg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5zU8QHTwibUZPZEInyV6WN+DmIrPUEWk2NEVidvinjk=;
+ b=DHB07dS11sln0DooUNjcSd0obXZvs9PX2mNhBK4EUu73l0ce/iqJxn1fB77PV44eON9jXuAvagMBg2IuMwmj3C8/a6Ca/MOtTtP8J/sAc5dqBILivdqe4aPYJdo0+TJL1O5MSOQ/k7Q5sed/g5euEbASiWxFBnsx8xf086k8B6I7l9m8ebcXOxEw4BDpYnwM45VAMwnEhpsECaQ0ecg/t/kq4PN5DhaxOYmorU9sQdGXxA7e/djKZmLL46iF1BTaiM+79yjdp8VZPtlDWt7GIGzjcdivklon2WjFug+RZrU/KBhDwYH0r21ZcRWG46j7y5ozSa1ezEQsrv6JVVDsRw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by GV1PR04MB10156.eurprd04.prod.outlook.com (2603:10a6:150:1ad::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.21; Sun, 31 Aug
+ 2025 06:52:58 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.9094.011; Sun, 31 Aug 2025
+ 06:52:58 +0000
+From: Peng Fan <peng.fan@nxp.com>
+Date: Sun, 31 Aug 2025 14:52:37 +0800
+Subject: [PATCH] firmware: arm_scmi: Fix typo for scmi_perf_proto_ops
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250831-scmi-cpufreq-v1-1-493031cf6e9b@nxp.com>
+X-B4-Tracking: v=1; b=H4sIADXxs2gC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDC2ND3eLk3Ezd5ILStKLUQl1Ly1Qjs1TjFGMjAwsloJaCotS0zAqwcdG
+ xtbUAVH2zdF4AAAA=
+X-Change-ID: 20250831-scmi-cpufreq-99e26e3d3208
+To: Sudeep Holla <sudeep.holla@arm.com>, 
+ Cristian Marussi <cristian.marussi@arm.com>
+Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1756623174; l=1042;
+ i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
+ bh=jitSfmGIV5W9t1RJ6AbGTydFxeiQ9QJdguVuEyY97yA=;
+ b=FOAyKMWMC0NSNNpklu6NjB6K+jxWK0n8fL0OniYHnA2fbj1T0jq8JdWwAp0Ktm429/91Jl0qM
+ Wk09p9yf98zAZ2JbxZpxXKKt1v4RTzxP3Ry9fp/zjKgkFqMuywVX6u3
+X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
+ pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
+X-ClientProxiedBy: SI2PR01CA0024.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:192::20) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <8ef466aa-b470-4dcb-9024-0a9c36eb9a6a@tuxon.dev>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|GV1PR04MB10156:EE_
+X-MS-Office365-Filtering-Correlation-Id: ea329421-fe3b-45f6-c6cc-08dde85b0501
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|376014|52116014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?V3Z5a3RoNUsyYzJmM2c2NktWSzM3TU5lcndSUHZnL1hRQmROQVhVZk1LbmZK?=
+ =?utf-8?B?Rit4YWh4RkhpUHdBQjVUb1p5RTZNc09ueGc2MGh1bnV1ekZCc0lJeTFRamZZ?=
+ =?utf-8?B?eVB2bWZsSm5RUXBWeEUxZlVBM1c5ZUJxTWVZUlpPbjRwa2FNbTZzbkEyUzRE?=
+ =?utf-8?B?M0FkeHovU1ZpMUZXVVFIdmtRQUEwdVZRMVpQSnRjYVl2cGlKcVBoeExXL2la?=
+ =?utf-8?B?OG1OcGNiSmR2ZEVmNmdOS2Y5TUdpYUwxUGw3ekNIR1Q4bFc5MVJDN0JSejM4?=
+ =?utf-8?B?N0Q1SUZ0RWhDR3phb0R3RjNmNjFvZTRnd2l0RnNHNEhyN1paVlp0WXdXZWF3?=
+ =?utf-8?B?ZVpYYUo5Rld4dXVLbGthY1BiZHZQRzBsa0lha3JYU3hLOFNQT3cvVDU3YWdO?=
+ =?utf-8?B?OXBZUmpoTVhNVG15NkpsQUpOdFZUL2c3aUpJUEdheUE2M3doblZOVStuMlZv?=
+ =?utf-8?B?M1NtNXVXTDg0NDlCUGUyRXgxMWpvSlZSNUVpdVdIbW9PWmtWVkxBYWYxTThy?=
+ =?utf-8?B?MUFHZm1tV3Zzd3dJMG1DVzdseUNXOTMrRk5WdTFNK2FjS1FCbG4yUERuS01k?=
+ =?utf-8?B?R2FIVzZmYmZiZGVUQ0NKdElUU1VwaW83a2J6TWNIR2sxNzBHSU4yYWwyRlBp?=
+ =?utf-8?B?NG1NbXBhLzV1VGlOenREamUvVW51RzQzbENzaGtxMnFhSEtlclNLVCtWMmF5?=
+ =?utf-8?B?d25PNWZXeXhoQlNXREZKMU9GZCtnSnBnd0JGRzVMYjFiTkFETEdPbDFZaVZi?=
+ =?utf-8?B?bjRMYVpZN1pxUERwcjh0QUNoQ1ZKcExTdFlBUEl2NW9BWGV4SkRJN3dJeFgx?=
+ =?utf-8?B?WFlVTVAzbjFIKzEyTzFHMEZqK0ZQRXFLYUxpWUdNSTN2c0I2Rm8wcjRkNElD?=
+ =?utf-8?B?RlJWZ0RmZVpKRjZFMWh1Rm9WREhRT3JHSGF1dTdqeHZ1eGptTzN2OXhLRE1Q?=
+ =?utf-8?B?M2lyWnFURDgwNldKTVFwd01vT1FZMHpGRG15TGc3YkY4dGQ3bkkxeEJiOGNB?=
+ =?utf-8?B?WmNCenUwbU9FWWRQNXZld1poUURhVnBzYlZmL2QyQXZ0TnNFajg0TktKYmJL?=
+ =?utf-8?B?bU1HaXZ1M3BoRzF4QmY0RGpuZGtobm94cDUrQXNZZWJ5cnpCdjVaSE5meW1x?=
+ =?utf-8?B?Ti8xNW1wTTRSbU9pUTU0aURGYktmM2E0Q2dpZEg5UTUvZnBLWGlZbjllQ3cz?=
+ =?utf-8?B?VEpsVGxzQmhTRmVuWXpkMzM2QXZ4N0pOcEZoZW16WWJpd1l6cTVTdFZwRGZM?=
+ =?utf-8?B?eitDZWVRdGNNUXhmWXFHNnk0aEhqZTBhY3E0UW05Nnl1cjRFU3R6RnVsd1Nv?=
+ =?utf-8?B?VE1YcXVGNjRuMmV5U1dYMXdRRDBmK2pzdmtzNlN4Z05kRUVEU0NwLy9TcVdy?=
+ =?utf-8?B?cno5dmFqaTdyTVM4RGlna2hOblRtN0NRdTVRNWVVOWtxamw5NldmTTdPazd4?=
+ =?utf-8?B?Z0tucXkvTlUrSXBUanlQMmt5ZVhncUg2V2cvRGlnck9RZVB4T3YxcHpyMHVh?=
+ =?utf-8?B?ZHZpdksyVndyNTFSMTZuQytXaGJSZ29BNVFtYlpxd0RhdDJsOStmR1hvSE9V?=
+ =?utf-8?B?OVNsYStrVG93MjMxYlNPenUzTUczUzFOWWxRck42U3BORFFOQjEyQ3pQVEcz?=
+ =?utf-8?B?Zk90aHVyY21ZbVpLTEl2ekMvajdZbmcvdFJ4UFVVM2F3dHY2aVEyZ2VsMU5C?=
+ =?utf-8?B?M2RKTjBtZnYvUHNhL05SSXVnc0puRDNPbThLeGpYT0ZYeWpqUGhDMzlCaEg1?=
+ =?utf-8?B?TzlJNEpGUzl5SlBtYmlPTUIrWTRpWk5WZm1TRjhsN0RTRWpzU0V3MkxuVW01?=
+ =?utf-8?B?UkpoQllsUWlRbko4N29hcms5cU1VN2MzY3A0SVBiMWxYbE9TRUNxVzhvSExZ?=
+ =?utf-8?B?WFZGenFPQWc4b3RIeUZ1aytLT0xpQ3lqUGlWV0xwQ1hXQjJ1NlNkWGVwL1Nt?=
+ =?utf-8?B?b2VMZHVneW53Z05tMlFldFBOak10TkwyUTZYTk9KMEMzMFJpQTBkL2hhS2NV?=
+ =?utf-8?B?UUIvVHhLRjdBPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(52116014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WVBRaisxV01ROFIzR1cvM1NJYllkeW4xYklzYm9hUnlpMk1OWER2VCtsWTk0?=
+ =?utf-8?B?c2lzc0pqanc1Y0RtWGhtRjI1ekVEWFU2ZVY3Y3BGdXl1VjV5eWxDenkyVHRx?=
+ =?utf-8?B?NjljclBmMHI5WVNWLzVJWlRxME8zb3A3UGxZNlN3QW5pTmpTQ3hxWlVPOERR?=
+ =?utf-8?B?ZWFEZXlud1FuejhOT3ExOGo3NXZCT25zUDZsZjB6SjBPRzlNcUdpaEk5d2pC?=
+ =?utf-8?B?Q3NhM3d4R2kwbS9neCtVWTR0UHcyRGs5dnc2RStWMUxsckJ5QnUzSFVtakFu?=
+ =?utf-8?B?YnRTMWJpRWt0N29sK0JDa3FDNXpnVXNHcGRIVnZaMnl6VmFLcXBNNzJSZ2Z4?=
+ =?utf-8?B?ck4vYjQvbDlKNGZnQTd4WG9FS3M4S3FtVmxyK3FpaDFua0M5R0h1VHBSYk5C?=
+ =?utf-8?B?WU1Gc1B3VjRQZEV1Tm9yMXhpU3RFWFZFOHN2b0gyZHoycVRkQmxicmpKV2Jn?=
+ =?utf-8?B?VzlLUlBKRDBRRm9rcGhGTVpiWk5ZOTNKNlVNRFpIWG9uK1hBWXFXSDVqdWxw?=
+ =?utf-8?B?cVI4Y2lXdXE2SXFoV2JrNi85VkhOVENEczVVNlRPM2liRXNEZzE3TWt1eGFN?=
+ =?utf-8?B?ZjdWazFXbllGdXp1WERjMHdiVy9oSkx0ZDFxT0dEakVVRVdubktkYWxSQmdI?=
+ =?utf-8?B?b3FFU2Z5a1k5a0llcXlWT0Nud3dPOS9ZOVU3RGJvdjMxTXRYTlByZGFCTmJ5?=
+ =?utf-8?B?aFBNOHFEeUhiMXNhQlkvMWRpUkpYM0dhTk1sNlNXTktNTlgybkNrVlhkeUtU?=
+ =?utf-8?B?c0I2MVBtdDZKSlkyNXlWeEY1T1RQS3NHLy9ETTVBQVpTRHlyQkxROWozVlNR?=
+ =?utf-8?B?cklrVFZmdDlwNVIzWFd3TUhzWnJpWUJiUUNidWtIanMzRGRqR2prWnhwOG5Y?=
+ =?utf-8?B?djJWMHpMc0VSNVdBczdnL3ppaGgyMEdqYzlvblVFdVF6QWRnRkdSdVZ6OWl4?=
+ =?utf-8?B?VlRIOVlKazd5SmpGYjRTWjAvaWJobFN3TjY4TEVsbUhEeWU2d2lEbVRkMHVT?=
+ =?utf-8?B?elZKNDZlRWFzYnRXcy80SGY4NXk0cWNkREd6cjR2clhsalRKRFZtVit1QUFJ?=
+ =?utf-8?B?OSs3S2FDYWp2d2MySEEwVk1sRWFpMGlYQVgwWHVrNERqUm5YQm4rbklsbUoy?=
+ =?utf-8?B?bXFPWjFldXFLbzR4OG1kREFKc0pNZ0FYZlZvQWRSY2xzcWNsbDBZMVhTcGpS?=
+ =?utf-8?B?ZW9pdW0rSnh5KzJ6SDVZMmZUVit0aFhCVlFWZk5NbUJsbFBKUE5XYU1ES0xl?=
+ =?utf-8?B?SkZWdDByK0RXbEFkVzZsdlptQWFTN2JIWVpvZ3dHdWZHMXVBdEdoZDBSSzIz?=
+ =?utf-8?B?b2s0OWVXTTZYajBRRUdwNVR0N29xNUd1dDU2Rncycm4ra2ZJV2VsVjJnSGk4?=
+ =?utf-8?B?U2piZUg2VDYxSXB2bTYwNmI2a09ocklZbkVUSlYydy84d2wrRVFzbVA2WDU5?=
+ =?utf-8?B?R2d0QmlKc3JPZ3BEVzh5eGxtWnlPUFRoeTlqYTFldVdycWpBbCtpQ2ZibEhx?=
+ =?utf-8?B?MFVTdzVUb29Lc1NDQUlzQ3hjWS9SQkFSbm1FMmFUZlRSQjJ5RFZQbHZRdzRW?=
+ =?utf-8?B?N3lWbmdzMUVWUEd5Sk83V0FHWTBuREtDUkZXc2d4cXYrZmc0KzU0QXBHL2o1?=
+ =?utf-8?B?NWhxcXVQK3htZlRDU3IraXlrRGR0djRjMytwS2dGdWVjZWNvN2UxQ2x4bTZn?=
+ =?utf-8?B?aEVKUG5NZDdlNjhJaURDQWJNNHNjOVpnalVBZHU3ZDMvZDFRUHZVd0N6ZHBm?=
+ =?utf-8?B?Yllmd1gvczdmVGw4dGFjZ1dHSUhHR3UzSXFTRmFja1dFNHYvT1hHN1VWUlVQ?=
+ =?utf-8?B?dWF3Z0FJbmR0NlFRQ21MUHVWUURmYm5laVBtajQ1UzRGVk42Sll0V3lINXF3?=
+ =?utf-8?B?R1ExVzg4NVRZK3ZRSmNjTHljZFZZbGRDREdaNk9kMEtOMCtJYWhhbUdYSnJT?=
+ =?utf-8?B?VXJDVGZPdWNOZzlHcll1MDNzczFWcFA0WWZ1MUFUUmVaUTRXK0NWSlcwTDg2?=
+ =?utf-8?B?VE1CT09GcVYrSU5EWU5jVGp2WTVFMDV1NVhMRENIYWkyTldNVWMwRk16VFVy?=
+ =?utf-8?B?YjZtcVMwRFFGa25CWVc3SnhIc2VFN200ZStZSHUyaitRTG8yQStEYVJPd0RL?=
+ =?utf-8?Q?qcqgG4R1TcPRWo0KgOgZKDMoS?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ea329421-fe3b-45f6-c6cc-08dde85b0501
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2025 06:52:58.1987
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: mN40ow2kP+F5UJLOl2j0sXh520kHjJLzcftgxfs0yllCRID2Zly0YBoy+I8Qr4PveR0KcF4vX3FTwSmOcb59/A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10156
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250830_235313_391528_4A13E40D 
+X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,302 +184,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 30, 2025 at 02:22:45PM GMT, Claudiu Beznea wrote:
-> 
-> 
-> On 30.08.2025 09:59, Manivannan Sadhasivam wrote:
-> > On Fri, Jul 04, 2025 at 07:14:05PM GMT, Claudiu wrote:
-> >> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-> >>
-> >> The Renesas RZ/G3S features a PCIe IP that complies with the PCI Express
-> >> Base Specification 4.0 and supports speeds of up to 5 GT/s. It functions
-> >> only as a root complex, with a single-lane (x1) configuration. The
-> >> controller includes Type 1 configuration registers, as well as IP
-> >> specific registers (called AXI registers) required for various adjustments.
-> >>
-> >> Hardware manual can be downloaded from the address in the "Link" section.
-> >> The following steps should be followed to access the manual:
-> >> 1/ Click the "User Manual" button
-> >> 2/ Click "Confirm"; this will start downloading an archive
-> >> 3/ Open the downloaded archive
-> >> 4/ Navigate to r01uh1014ej*-rzg3s-users-manual-hardware -> Deliverables
-> >> 5/ Open the file r01uh1014ej*-rzg3s.pdf
-> >>
-> >> Link: https://www.renesas.com/en/products/rz-g3s?queryID=695cc067c2d89e3f271d43656ede4d12
-> >> Tested-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
-> >> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-> >> ---
-> >>
-> > 
-> > [...]
-> > 
-> >> +static bool rzg3s_pcie_child_issue_request(struct rzg3s_pcie_host *host)
-> >> +{
-> >> +	u32 val;
-> >> +	int ret;
-> >> +
-> >> +	rzg3s_pcie_update_bits(host->axi, RZG3S_PCI_REQISS,
-> >> +			       RZG3S_PCI_REQISS_REQ_ISSUE,
-> >> +			       RZG3S_PCI_REQISS_REQ_ISSUE);
-> >> +	ret = readl_poll_timeout_atomic(host->axi + RZG3S_PCI_REQISS, val,
-> >> +					!(val & RZG3S_PCI_REQISS_REQ_ISSUE),
-> >> +					5, RZG3S_REQ_ISSUE_TIMEOUT_US);
-> >> +
-> >> +	return !!ret || (val & RZG3S_PCI_REQISS_MOR_STATUS);
-> > 
-> > You don't need to do !!ret as the C11 standard guarantees that any scalar type
-> > stored as bool will have the value of 0 or 1.
-> 
-> OK, will drop it anyway as suggested in another thread.
-> 
-> > 
-> >> +}
-> >> +
-> > 
-> > [...]
-> > 
-> >> +static void __iomem *rzg3s_pcie_root_map_bus(struct pci_bus *bus,
-> >> +					     unsigned int devfn,
-> >> +					     int where)
-> >> +{
-> >> +	struct rzg3s_pcie_host *host = bus->sysdata;
-> >> +
-> >> +	if (devfn)
-> >> +		return NULL;
-> > 
-> > Is it really possible to have devfn as non-zero for a root bus?
-> 
-> I will drop it.
-> 
-> > 
-> >> +
-> >> +	return host->pcie + where;
-> >> +}
-> >> +
-> > 
-> > [...]
-> > 
-> >> +static int rzg3s_pcie_msi_setup(struct rzg3s_pcie_host *host)
-> >> +{
-> >> +	size_t size = RZG3S_PCI_MSI_INT_NR * sizeof(u32);
-> >> +	struct rzg3s_pcie_msi *msi = &host->msi;
-> >> +	struct device *dev = host->dev;
-> >> +	int id, ret;
-> >> +
-> >> +	msi->pages = __get_free_pages(GFP_KERNEL | GFP_DMA, 0);
-> >> +	if (!msi->pages)
-> >> +		return -ENOMEM;
-> >> +
-> >> +	msi->dma_addr = dma_map_single(dev, (void *)msi->pages, size * 2,
-> >> +				       DMA_BIDIRECTIONAL);
-> >> +	if (dma_mapping_error(dev, msi->dma_addr)) {
-> >> +		ret = -ENOMEM;
-> >> +		goto free_pages;
-> >> +	}
-> >> +
-> >> +	/*
-> >> +	 * According to the RZ/G3S HW manual (Rev.1.10, section 34.4.5.2 Setting
-> >> +	 * the MSI Window) the MSI window need to be within any AXI window. Find
-> >> +	 * an AXI window to setup the MSI window.
-> > 
-> > Are you really finding the AXI window or just making sure that the MSI window
-> > falls into one of the AXI window?
-> 
-> I'm making sure the MSI windows falls into one of the enabled AXI windows.
-> 
+The name is power_scale_get, not power_scale_mw_get, correct it.
 
-Then you need to reword the comment as such. Currently, it is not clear.
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+ include/linux/scmi_protocol.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> > 
-> > And I believe it is OK to have more than one MSI window within an AXI window.
-> 
-> This IP supports a single MSI window that need to fit into one of the
-> enabled AXI windows.
-> 
+diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+index 688466a0e816247d24704f7ba109667a14226b67..aafaac1496b06a6e4f0ca32eee58a9edf7d4a70f 100644
+--- a/include/linux/scmi_protocol.h
++++ b/include/linux/scmi_protocol.h
+@@ -153,7 +153,7 @@ struct scmi_perf_domain_info {
+  *	for a given device
+  * @fast_switch_rate_limit: gets the minimum time (us) required between
+  *	successive fast_switching requests
+- * @power_scale_mw_get: indicates if the power values provided are in milliWatts
++ * @power_scale_get: indicates if the power values provided are in milliWatts
+  *	or in some other (abstract) scale
+  */
+ struct scmi_perf_proto_ops {
 
-[...]
+---
+base-commit: 3cace99d63192a7250461b058279a42d91075d0c
+change-id: 20250831-scmi-cpufreq-99e26e3d3208
 
-> >> +
-> >> +	/* Update vendor ID and device ID */
-> > 
-> > Are you really updating it or setting it? If you are updating it, are the
-> > default IDs invalid?
-> 
-> Default IDs are valid (at least on RZ/G3S) but Renesas specific. Renesas
-> wants to let individual users to set their own IDs.
-> 
-
-So they are optional then? But the binding treats them as required, which should
-be changed if the default IDs are valid.
-
-> > 
-> >> +	writew(host->vendor_id, host->pcie + PCI_VENDOR_ID);
-> >> +	writew(host->device_id, host->pcie + PCI_DEVICE_ID);
-> >> +
-> >> +	/* HW manual recommends to write 0xffffffff on initialization */
-> >> +	writel(0xffffffff, host->pcie + RZG3S_PCI_CFG_BARMSK00L);
-> >> +	writel(0xffffffff, host->pcie + RZG3S_PCI_CFG_BARMSK00U);
-> >> +
-> >> +	/* Update bus info. */
-> >> +	writeb(primary_bus, host->pcie + PCI_PRIMARY_BUS);
-> >> +	writeb(secondary_bus, host->pcie + PCI_SECONDARY_BUS);
-> >> +	writeb(subordinate_bus, host->pcie + PCI_SUBORDINATE_BUS);
-> >> +
-> >> +	/* Disable access control to the CFGU */
-> >> +	writel(0, host->axi + RZG3S_PCI_PERM);
-> >> +
-> >> +	return 0;
-> >> +}
-> >> +
-> > 
-> > [...]
-> > 
-> >> +static int rzg3s_pcie_host_init(struct rzg3s_pcie_host *host, bool probe)
-> >> +{
-> >> +	u32 val;
-> >> +	int ret;
-> >> +
-> >> +	/* Initialize the PCIe related registers */
-> >> +	ret = rzg3s_pcie_config_init(host);
-> >> +	if (ret)
-> >> +		return ret;
-> >> +
-> >> +	/* Initialize the interrupts */
-> >> +	rzg3s_pcie_irq_init(host);
-> >> +
-> >> +	ret = reset_control_bulk_deassert(host->data->num_cfg_resets,
-> >> +					  host->cfg_resets);
-> >> +	if (ret)
-> >> +		return ret;
-> >> +
-> >> +	/* Wait for link up */
-> >> +	ret = readl_poll_timeout(host->axi + RZG3S_PCI_PCSTAT1, val,
-> >> +				 !(val & RZG3S_PCI_PCSTAT1_DL_DOWN_STS),
-> >> +				 PCIE_LINK_WAIT_SLEEP_MS,
-> >> +				 PCIE_LINK_WAIT_SLEEP_MS *
-> >> +				 PCIE_LINK_WAIT_MAX_RETRIES * MILLI);
-> >> +	if (ret) {
-> >> +		reset_control_bulk_assert(host->data->num_cfg_resets,
-> >> +					  host->cfg_resets);
-> >> +		return ret;
-> >> +	}
-> >> +
-> >> +	val = readl(host->axi + RZG3S_PCI_PCSTAT2);
-> >> +	dev_info(host->dev, "PCIe link status [0x%x]\n", val);
-> >> +
-> >> +	val = FIELD_GET(RZG3S_PCI_PCSTAT2_STATE_RX_DETECT, val);
-> >> +	dev_info(host->dev, "PCIe x%d: link up\n", hweight32(val));
-> >> +
-> >> +	if (probe) {
-> >> +		ret = devm_add_action_or_reset(host->dev,
-> >> +					       rzg3s_pcie_cfg_resets_action,
-> >> +					       host);
-> > 
-> > Oh well, this gets ugly. Now the devm_add_action_or_reset() is sprinkled
-> > throughout the driver :/
-> > 
-> > As I said earlier, there are concerns in unloading the driver if it implements
-> > an irqchip. So if you change the module_platform_driver() to
-> > builtin_platform_driver() for this driver, these devm_add_action_or_reset()
-> > calls become unused.
-> 
-> They can still be useful in case the probe fails. As the initialization
-> path is complicated, having actions or resets looks to me that makes the
-> code cleaner as the rest of devm_* helpers.
-> 
-> I can drop it and replace with gotos and dedicated functions but this will
-> complicate the code, AFAICT.
-> 
-> Please let me know how would you like me to proceed.
-> 
-
-It is generally preferred to cleanup the resources in err path using goto
-labels.
-
-> > 
-> >> +	}
-> >> +
-> >> +	return ret;
-> >> +}
-> >> +
-
-[...]
-
-> >> +	ret = pm_runtime_resume_and_get(dev);
-> >> +	if (ret)
-> >> +		return ret;
-> >> +
-> > 
-> > Do you really need to do resume_and_get()? If not, you should do:
-> 
-> It it's needed to enable the clock PM domain the device is part of.
-> 
-
-I've replied below.
-
-> > 
-> > 	pm_runtime_set_active()
-> > 	pm_runtime_no_callbacks()
-> > 	devm_pm_runtime_enable()
-> > 
-> >> +	ret = devm_add_action_or_reset(dev, rzg3s_pcie_pm_runtime_put, dev);
-> >> +	if (ret)
-> >> +		return ret;
-> >> +
-> >> +	raw_spin_lock_init(&host->hw_lock);
-> >> +
-> >> +	ret = rzg3s_pcie_host_setup(host, rzg3s_pcie_intx_setup,
-> >> +				    rzg3s_pcie_msi_enable, true);
-> >> +	if (ret)
-> >> +		return ret;
-> >> +
-> >> +	msleep(PCIE_RESET_CONFIG_WAIT_MS);
-> >> +
-> >> +	bridge->sysdata = host;
-> >> +	bridge->ops = &rzg3s_pcie_root_ops;
-> >> +	bridge->child_ops = &rzg3s_pcie_child_ops;
-> >> +	ret = pci_host_probe(bridge);
-> >> +	if (ret)
-> >> +		return ret;
-> >> +
-> >> +	return devm_add_action_or_reset(dev, rzg3s_pcie_host_remove_action,
-> >> +					host);
-> >> +}
-> >> +
-> >> +static int rzg3s_pcie_suspend_noirq(struct device *dev)
-> >> +{
-> >> +	struct rzg3s_pcie_host *host = dev_get_drvdata(dev);
-> >> +	const struct rzg3s_pcie_soc_data *data = host->data;
-> >> +	struct regmap *sysc = host->sysc;
-> >> +	int ret;
-> >> +
-> >> +	ret = pm_runtime_put_sync(dev);
-> >> +	if (ret)
-> >> +		return ret;
-> > 
-> > Since there are no runtime callbacks present, managing runtime PM in the driver
-> > makes no sense.
-> 
-> The PCIe device is part of a clock power domain. Dropping
-> pm_runtime_enable()/pm_runtime_put_sync() in this driver will lead to this
-> IP failing to work as its clocks will not be enabled/disabled. If you don't
-> like the pm_runtime_* approach that could be replaced with:
-> 
-> devm_clk_get_enabled() in probe and clk_disable()/clk_enable() on
-> suspend/resume. W/o clocks the IP can't work.
-> 
-
-Yes, you should explicitly handle clocks in the driver. Runtime PM makes sense
-if you have a power domain attached to the IP, which you also do as I see now.
-So to conclude, you should enable/disable the clocks explicitly for managing
-clocks and use runtime PM APIs for managing the power domain associated with
-clock controller.
-
-But please add a comment above pm_runtime_resume_and_get() to make it clear as
-most of the controller drivers are calling it for no reason.
-
-- Mani
-
+Best regards,
 -- 
-மணிவண்ணன் சதாசிவம்
+Peng Fan <peng.fan@nxp.com>
+
 
