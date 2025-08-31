@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C1E4CA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 15:10:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D3EACA0FE8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 15:13:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NZfUhY1EZQv1OuZe5tH097MUEDvYB4HeowDcrbjOqWg=; b=sd0d3pL3DRmPsvPp1giD9zpc4n
-	eO6BfIdE+k5gfcbYpANnM/dug2GmCXqY0Lgy97LB4qDSJ8kul7bfzzBHx4k9qHg/Psf84bM3gn/WH
-	Myi3rdm6oASAHFP+9/pRkcF7W5cpKUQaWmE8Ef6w4wVC71Vd3aepJ80xw0NIseJPxUp3Ypmh5Jr8/
-	JpxMLLGs9UeP+Amo9L8CwPbaJIKaF6teGHYf/BcHFmbwrlyTj+vHW0QC/5hByKDJ81peH1W9r/VyG
-	ISmV3Eu6D64+AMuWx29kkEZQPTog0kWyL4XVau68u/hJ/n+3aHN7GqwrgSv0Nvqf8bwIqDgVVLEeG
-	N1epPn6w==;
+	bh=m2D31ldRCNyyz8A8vsgNbC3FnyuJad7s6giy8XoOyqU=; b=dVtvkujlgqHP44xHd7AMJyPkzU
+	8dnEqAmvhKTYu947u6YgbcIdUWQbbOLomvdDgroUZ0yfODv/NtzjErD9g6ekRXB9tVkeG07rROX37
+	RQe9PfbJllrZDNwNd/1TfrupN0eKRErCTpHsyBB+iIg0rQSsVqRoktWr+JANDVL11re8a2ItyNU2z
+	86gWZGgwnqIA6bm49RbBLETu+HukmBHEKk9Z+1eVJTZLDPW8vWKIlJvGIHeH9JVKnFNUh1VnZfPoS
+	Ai0+qf9TTxEYtjOf07Vhm0LZpG22mUomY8dFJkZoLrai8Q9KETgsX8owKRiHVDngFaYXTpgWGhF70
+	nSlxv/bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usjhK-0000000AKpz-3A3I;
-	Sun, 31 Aug 2025 15:10:26 +0000
+	id 1usjjz-0000000ALCz-3xrn;
+	Sun, 31 Aug 2025 15:13:11 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usjdV-0000000AKNu-1ay0;
-	Sun, 31 Aug 2025 15:06:30 +0000
+	id 1usjgu-0000000AKnz-48VT;
+	Sun, 31 Aug 2025 15:10:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=NZfUhY1EZQv1OuZe5tH097MUEDvYB4HeowDcrbjOqWg=; b=zr7VUttrCYLdhVOAGJ/Lr9oKmN
-	G17tELZOSR5+6G4+83RfqgDQD/koYmtt9ulOu5Kclyt9jtnUg9Joo7kLYQ7y26JP3s70oJS1k8V1q
-	VBlejvPkHAhDchJt1rPJPxDpVCHRVAqd+6aLiQ91iKqw8BprlR4WkqqgkRLxnyDZCJd9MG+ioCEtF
-	D/R9aJP05KKdNhuapyq/iqDdbKSFoCxNqaLk7T0iI8tjtlohdhLRWMkHhsYgAKiR6wO0rWTMXEppn
-	8BzRFiAA0xvrcP6jVybEF+pSEvWrkFGNwF29EOGMMAbhnyCfKJ6zlA/KPxEuWm6pUldy8GrqB9luh
-	NU/pUbRg==;
+	bh=m2D31ldRCNyyz8A8vsgNbC3FnyuJad7s6giy8XoOyqU=; b=otdUEdVXVjmS2dJIdEkiGfJrSh
+	DhqOUY5/k7q+TlolUG+CZKhggYQI+oniHZhoHXGdIVHffkOQwEGLBdL0T81ZNJykOHCOTgrAZJqDO
+	9GfkMhJbie4xTpjbrEhi50d59yqqnJig5P/E6HKR7hvMGdwiHQ16Ia7wYaW9L0w9ctkseGD5VuvKk
+	PL3/NPl75XlvYLwdD7K5/D1bHU0ZSLg1ToJwOPXgTsp7FiyYOTsYbt6GuNYg0iChF2Gu1y6XGBExL
+	Pp9rvxKLkrDLIJK6R0GPeHKL4aXvyuMdecTRnrBo6Mu/rzCKX3Dub015T1zit4r+n5mSgfL5PKyBi
+	96MtlX+Q==;
 Received: from i53875b56.versanet.de ([83.135.91.86] helo=diego.localnet)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1usjdR-0001Dx-BJ; Sun, 31 Aug 2025 17:06:25 +0200
+	id 1usjgq-0007PW-SX; Sun, 31 Aug 2025 17:09:56 +0200
 From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
 To: robh@kernel.org, WeiHao Li <cn.liweihao@gmail.com>
 Cc: hjc@rock-chips.com, andy.yan@rock-chips.com, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
  linux-clk@vger.kernel.org, WeiHao Li <cn.liweihao@gmail.com>
-Subject: Re: [PATCH v1 6/7] ARM: dts: rockchip: Add D-PHY for RK3368
-Date: Sun, 31 Aug 2025 17:06:24 +0200
-Message-ID: <8571992.T7Z3S40VBb@diego>
-In-Reply-To: <20250831104855.45883-7-cn.liweihao@gmail.com>
+Subject: Re: [PATCH v1 0/7] drm/rockchip: Add MIPI DSI support for RK3368
+Date: Sun, 31 Aug 2025 17:09:55 +0200
+Message-ID: <22816630.EfDdHjke4D@diego>
+In-Reply-To: <20250831104855.45883-1-cn.liweihao@gmail.com>
 References: <20250831104855.45883-1-cn.liweihao@gmail.com>
- <20250831104855.45883-7-cn.liweihao@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250831_080629_417527_828120FA 
-X-CRM114-Status: GOOD (  13.83  )
+X-CRM114-CacheID: sfid-20250831_081001_031240_163CC6C8 
+X-CRM114-Status: GOOD (  18.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,47 +70,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Sonntag, 31. August 2025, 12:48:54 Mitteleurop=C3=A4ische Sommerzeit sch=
+Hi,
+
+Am Sonntag, 31. August 2025, 12:48:48 Mitteleurop=C3=A4ische Sommerzeit sch=
 rieb WeiHao Li:
-> RK3368 has a InnoSilicon D-PHY which supports DSI/LVDS/TTL with maximum
-> trasnfer rate of 1 Gbps per lane.
+> This series adds MIPI DSI support for the Rockchip RK3368 SoC, enabling
+> native display connectivity through the MIPI DSI host controller and
+> PHY. The changes span multiple subsystems, including clock control,
+> DRM/VOP integration, DSI controller binding, and PHY driver updates.
 >=20
+> Key changes:
+>   - Update the Rockchip MIPI DSI PHY driver to preperly handle RK3368
+>     phy initialization.
+
+which patch is doing this, because I don't see any phy-related change
+
+>   - Add missing lut_size of vop_data for RK3368.
+>   - Add missing clock ID SCLK_MIPIDSI_24M to the RK3368 CRU driver,
+>     which is required for enabling the 24MHz reference clock.
+>   - Add MIPI DSI node to rk3368.dtsi with correct clocks, resets,
+>     and register mappings.
+>=20
+> These changes were tested on a RK3368-based board with a MIPI DSI
+> panel [1]. The display boots successfully with console output.
+>=20
+> [1] https://ieiao.github.io/wiki/embedded-dev/rockchip/rk3368
+
+Do you plan on submitting this board to mainline?
+Because having an actual user of the code you're adding would
+be really really nice.
+
+Thanks
+Heiko
+
+>=20
+> Tested-by: WeiHao Li <cn.liweihao@gmail.com>
 > Signed-off-by: WeiHao Li <cn.liweihao@gmail.com>
-> ---
->  arch/arm64/boot/dts/rockchip/rk3368.dtsi | 14 ++++++++++++++
->  1 file changed, 14 insertions(+)
 >=20
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3368.dtsi b/arch/arm64/boot/d=
-ts/rockchip/rk3368.dtsi
-> index 0e47bf59a..674a3676d 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3368.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3368.dtsi
-> @@ -884,6 +884,20 @@ display_subsystem: display-subsystem {
->  		status =3D "disabled";
->  	};
-> =20
-> +	video_phy: video-phy@ff968000 {
-
-I think the node should be something like
-dsi_dphy: phy@ff968000
-
-
-> +		compatible =3D "rockchip,rk3368-dsi-dphy";
-> +		reg =3D <0x0 0xff968000 0x0 0x4000>,
-> +		      <0x0 0xff960000 0x0 0x4000>;
-> +		clocks =3D <&cru SCLK_MIPIDSI_24M>, <&cru PCLK_DPHYTX0>,
-> +			 <&cru PCLK_MIPI_DSI0>;
-> +		clock-names =3D "ref", "pclk", "pclk_host";
-> +		#clock-cells =3D <0>;
-> +		resets =3D <&cru SRST_MIPIDPHYTX>;
-> +		reset-names =3D "apb";
-> +		#phy-cells =3D <0>;
-> +		status =3D "disabled";
-> +	};
-> +
->  	hevc_mmu: iommu@ff9a0440 {
->  		compatible =3D "rockchip,iommu";
->  		reg =3D <0x0 0xff9a0440 0x0 0x40>,
+> WeiHao Li (7):
+>   drm/rockchip: dsi: Add support for RK3368
+>   drm/rockchip: vop: add lut_size for RK3368 vop_data
+>   dt-bindings: clock: rk3368: Add SCLK_MIPIDSI_24M
+>   clk: rockchip: use clock ids for SCLK_MIPIDSI_24M on rk3368
+>   ARM: dts: rockchip: Add display subsystem for RK3368
+>   ARM: dts: rockchip: Add D-PHY for RK3368
+>   ARM: dts: rockchip: Add DSI for RK3368
+>=20
+>  arch/arm64/boot/dts/rockchip/rk3368.dtsi      | 79 +++++++++++++++++++
+>  drivers/clk/rockchip/clk-rk3368.c             |  2 +-
+>  .../gpu/drm/rockchip/dw-mipi-dsi-rockchip.c   | 20 +++++
+>  drivers/gpu/drm/rockchip/rockchip_vop_reg.c   |  1 +
+>  include/dt-bindings/clock/rk3368-cru.h        |  1 +
+>  5 files changed, 102 insertions(+), 1 deletion(-)
+>=20
 >=20
 
 
