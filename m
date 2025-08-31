@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85878CA0FE8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 20:09:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E36C1CA0FE8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 22:17:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/9/BUvxgzj5dRQfxnjFZTYhC24PVq25XRwmWcnk5S6s=; b=NXcA/ZUyLegY6dWdEj+wuBIJcD
-	mMtwd7TIPFV51jNv/BFR1nMkxO2frvuoEOlkldYAZLjUNnZqpG3XO6MhQ5PojCcUU/tcZybnDW14v
-	uidDDdcGOduWbcYeS3Of9GDYYmcTSD/DyVrMOwgd9mlZnIZzOCEaIrp1/SKoBFYpOl1CBqFB/cxHi
-	EXoWmJ5dU0CyT+Jc3ANVBi3gkEtlMeZ1KGn567Oo5AmubgUSytE40NsIWtta7s6F6p6NC6Ybfotij
-	vLFzdM/ks5DgCnPNU46wmA9vAkHiToCZZ5Y4VLUuGFvm0DeJcBzOH+NjpeY1nBkXc4O/9LCQryt9p
-	SWRTVUlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7UGpC4k1s4o++ArXEHYGWSUE1IqVb/ADaDnpWYicHDU=; b=OwZag40/riHp/1yobFyoUeXQdw
+	Dd0bhyZzxt5cHSkIvXKksogaCeB/L4vquydf25W2+kypL9IvZ8/UsXjN/zieayHwVQN6Cb9o+Owfe
+	Xg6iEbnTaw6lbYA3LSm1bjFl5QRcUcXMMA6vZuyfmVQgcrYt+YINPj0Y0v82J3GKYjaZ5aypP9YDG
+	/VtRuqYgneMYI1ItfS4QY4apacB6jgfGYcQ0TSYqPbIUZBtex2QcRbuPrxyVi8ucYoe0tEw2yw5It
+	EbOCPBNTEW5a+reLGWW8rV4eKn1yuJS/smK7cQB+/T2Nvhr8moOND6Vd4pG262hz+KjIYa7uK8fYw
+	Ikza51hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usoMv-0000000AfFA-40xj;
-	Sun, 31 Aug 2025 20:09:41 +0000
-Received: from freeshell.de ([116.202.128.144])
+	id 1usqMo-0000000Akf8-3wwp;
+	Sun, 31 Aug 2025 22:17:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usoKD-0000000Af29-0xLh
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 Aug 2025 20:06:54 +0000
-Received: from hay.lan (unknown [IPv6:2605:59c0:2078:cf00:6ecf:39ff:fe00:8375])
-	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id 7E21CB220079;
-	Sun, 31 Aug 2025 22:06:44 +0200 (CEST)
-From: E Shattow <e@freeshell.de>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Abel Vesa <abelvesa@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>
-Cc: E Shattow <e@freeshell.de>,
-	Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org
-Subject: [PATCH v1] dts: arm64: freescale: move imx9*-clock.h imx9*-power.h into dt-bindings
-Date: Sun, 31 Aug 2025 13:04:45 -0700
-Message-ID: <20250831200516.522179-1-e@freeshell.de>
-X-Mailer: git-send-email 2.50.0
+	id 1usqK9-0000000Akbp-2Kpi;
+	Sun, 31 Aug 2025 22:14:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 993C1601B1;
+	Sun, 31 Aug 2025 22:14:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAA38C4CEED;
+	Sun, 31 Aug 2025 22:14:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756678496;
+	bh=3Xss2Co3He96uRMaXnCLjMQL0IkTNyb4K4s+G1NFEY8=;
+	h=From:Date:Subject:To:Cc:From;
+	b=sxz1Y0SDU6qOkz8svjCRGFQhGoKXfbodfvAE42iVSDCQFREY0WK89E3wE01hjtyhd
+	 OcoT4LPn+y1pV2o2H/GGHDioCq9NBBa5vmENZ6jteFJWhsU4Woz2R6oWYEUu6g1XNY
+	 kHDfDtApSKifk/oWHXALG3q05tT5fcG8HEzCAV7UU3RJYtumkpnjobO3DYP9qkybMc
+	 ypBn1hvE+I6DJdis3TSmGnJALGEPLAv8fKP86VlHbifBE05Y3nuneUcqc0ZfAHPaQw
+	 HozvhyFowbj1AC08V73yPEqYWH5yZvLO7VZXn2zWkka+fslrA7c1PwG/YHwALtg3x7
+	 U4mrqkGqThWzA==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Mon, 01 Sep 2025 00:14:37 +0200
+Subject: [PATCH mt76] wifi: mt76: mt7996: Use proper link_id in
+ link_sta_rc_update callback
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250831_130653_408408_84F20A7A 
-X-CRM114-Status: UNSURE (   8.24  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250901-mt7996-fix-link_sta_rc_update-callback-v1-1-e24caf196222@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAEzJtGgC/x2NQQ7CIBAAv9Ls2U2gxFr8ijFkgVU3RWwAjUnTv
+ 0s8zmFmNqhchCuchw0Kf6TKK3fQhwHCg/KdUWJnGNV4VLPR+Gwnaye8yReT5MXVRq4E914jNcZ
+ AKXkKC8aZlDFWs/cT9NhauCv/0eW67z+bvBSJeAAAAA==
+X-Change-ID: 20250831-mt7996-fix-link_sta_rc_update-callback-d8a03391ebb6
+To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
+ Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Bo Jiao <Bo.Jiao@mediatek.com>, Peter Chiu <chui-hao.chiu@mediatek.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,75 +76,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move imx9*-{clock,power}.h headers into
-include/dt-bindings/{clock,power}/ and fix up the DTs
+Do not always use deflink_id in link_sta_rc_update mac80211
+callback but use the proper link_id provided by mac80211.
 
-Reported-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Signed-off-by: E Shattow <e@freeshell.de>
+Fixes: 0762bdd30279f ("wifi: mt76: mt7996: rework mt7996_mac_sta_rc_work to support MLO")
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- arch/arm64/boot/dts/freescale/imx94.dtsi                      | 4 ++--
- arch/arm64/boot/dts/freescale/imx95.dtsi                      | 4 ++--
- .../dts/freescale => include/dt-bindings/clock}/imx94-clock.h | 0
- .../dts/freescale => include/dt-bindings/clock}/imx95-clock.h | 0
- .../dts/freescale => include/dt-bindings/power}/imx94-power.h | 0
- .../dts/freescale => include/dt-bindings/power}/imx95-power.h | 0
- 6 files changed, 4 insertions(+), 4 deletions(-)
- rename {arch/arm64/boot/dts/freescale => include/dt-bindings/clock}/imx94-clock.h (100%)
- rename {arch/arm64/boot/dts/freescale => include/dt-bindings/clock}/imx95-clock.h (100%)
- rename {arch/arm64/boot/dts/freescale => include/dt-bindings/power}/imx94-power.h (100%)
- rename {arch/arm64/boot/dts/freescale => include/dt-bindings/power}/imx95-power.h (100%)
+ drivers/net/wireless/mediatek/mt76/mt7996/main.c | 43 +++++++++++++++---------
+ 1 file changed, 28 insertions(+), 15 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx94.dtsi b/arch/arm64/boot/dts/freescale/imx94.dtsi
-index 44dee2cbd42d..1fe6ef4518a8 100644
---- a/arch/arm64/boot/dts/freescale/imx94.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx94.dtsi
-@@ -8,9 +8,9 @@
- #include <dt-bindings/input/input.h>
- #include <dt-bindings/interrupt-controller/arm-gic.h>
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+index 7f3a117c52bd3438b6bb41a068bbf11658dfba42..21d290cad4f49b06c8dc8d3fc103da7ccaca99b6 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+@@ -1662,19 +1662,13 @@ static void mt7996_sta_statistics(struct ieee80211_hw *hw,
+ 	}
+ }
  
--#include "imx94-clock.h"
-+#include <dt-bindings/clock/imx94-clock.h>
- #include "imx94-pinfunc.h"
--#include "imx94-power.h"
-+#include <dt-bindings/power/imx94-power.h>
+-static void mt7996_link_rate_ctrl_update(void *data, struct ieee80211_sta *sta)
++static void mt7996_link_rate_ctrl_update(void *data,
++					 struct mt7996_sta_link *msta_link)
+ {
+-	struct mt7996_sta *msta = (struct mt7996_sta *)sta->drv_priv;
++	struct mt7996_sta *msta = msta_link->sta;
+ 	struct mt7996_dev *dev = msta->vif->deflink.phy->dev;
+-	struct mt7996_sta_link *msta_link;
+ 	u32 *changed = data;
  
- / {
- 	#address-cells = <2>;
-diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
-index 4ca6a7ea586e..787d3f829816 100644
---- a/arch/arm64/boot/dts/freescale/imx95.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
-@@ -10,9 +10,9 @@
- #include <dt-bindings/interrupt-controller/arm-gic.h>
- #include <dt-bindings/thermal/thermal.h>
+-	rcu_read_lock();
+-
+-	msta_link = rcu_dereference(msta->link[msta->deflink_id]);
+-	if (!msta_link)
+-		goto out;
+-
+ 	spin_lock_bh(&dev->mt76.sta_poll_lock);
  
--#include "imx95-clock.h"
-+#include <dt-bindings/clock/imx95-clock.h>
- #include "imx95-pinfunc.h"
--#include "imx95-power.h"
-+#include <dt-bindings/power/imx95-power.h>
+ 	msta_link->changed |= *changed;
+@@ -1682,8 +1676,6 @@ static void mt7996_link_rate_ctrl_update(void *data, struct ieee80211_sta *sta)
+ 		list_add_tail(&msta_link->rc_list, &dev->sta_rc_list);
  
- / {
- 	interrupt-parent = <&gic>;
-diff --git a/arch/arm64/boot/dts/freescale/imx94-clock.h b/include/dt-bindings/clock/imx94-clock.h
-similarity index 100%
-rename from arch/arm64/boot/dts/freescale/imx94-clock.h
-rename to include/dt-bindings/clock/imx94-clock.h
-diff --git a/arch/arm64/boot/dts/freescale/imx95-clock.h b/include/dt-bindings/clock/imx95-clock.h
-similarity index 100%
-rename from arch/arm64/boot/dts/freescale/imx95-clock.h
-rename to include/dt-bindings/clock/imx95-clock.h
-diff --git a/arch/arm64/boot/dts/freescale/imx94-power.h b/include/dt-bindings/power/imx94-power.h
-similarity index 100%
-rename from arch/arm64/boot/dts/freescale/imx94-power.h
-rename to include/dt-bindings/power/imx94-power.h
-diff --git a/arch/arm64/boot/dts/freescale/imx95-power.h b/include/dt-bindings/power/imx95-power.h
-similarity index 100%
-rename from arch/arm64/boot/dts/freescale/imx95-power.h
-rename to include/dt-bindings/power/imx95-power.h
+ 	spin_unlock_bh(&dev->mt76.sta_poll_lock);
+-out:
+-	rcu_read_unlock();
+ }
+ 
+ static void mt7996_link_sta_rc_update(struct ieee80211_hw *hw,
+@@ -1691,11 +1683,32 @@ static void mt7996_link_sta_rc_update(struct ieee80211_hw *hw,
+ 				      struct ieee80211_link_sta *link_sta,
+ 				      u32 changed)
+ {
+-	struct mt7996_dev *dev = mt7996_hw_dev(hw);
+ 	struct ieee80211_sta *sta = link_sta->sta;
++	struct mt7996_sta *msta = (struct mt7996_sta *)sta->drv_priv;
++	struct mt7996_sta_link *msta_link;
+ 
+-	mt7996_link_rate_ctrl_update(&changed, sta);
+-	ieee80211_queue_work(hw, &dev->rc_work);
++	rcu_read_lock();
++
++	msta_link = rcu_dereference(msta->link[link_sta->link_id]);
++	if (msta_link) {
++		struct mt7996_dev *dev = mt7996_hw_dev(hw);
++
++		mt7996_link_rate_ctrl_update(&changed, msta_link);
++		ieee80211_queue_work(hw, &dev->rc_work);
++	}
++
++	rcu_read_unlock();
++}
++
++static void mt7996_sta_rate_ctrl_update(void *data, struct ieee80211_sta *sta)
++{
++	struct mt7996_sta *msta = (struct mt7996_sta *)sta->drv_priv;
++	struct mt7996_sta_link *msta_link;
++	u32 *changed = data;
++
++	msta_link = rcu_dereference(msta->link[msta->deflink_id]);
++	if (msta_link)
++		mt7996_link_rate_ctrl_update(&changed, msta_link);
+ }
+ 
+ static int
+@@ -1716,7 +1729,7 @@ mt7996_set_bitrate_mask(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
+ 	 * - multiple rates: if it's not in range format i.e 0-{7,8,9} for VHT
+ 	 * then multiple MCS setting (MCS 4,5,6) is not supported.
+ 	 */
+-	ieee80211_iterate_stations_atomic(hw, mt7996_link_rate_ctrl_update,
++	ieee80211_iterate_stations_atomic(hw, mt7996_sta_rate_ctrl_update,
+ 					  &changed);
+ 	ieee80211_queue_work(hw, &dev->rc_work);
+ 
 
-base-commit: 5c3b3264e5858813632031ba58bcd6e1eeb3b214
+---
+base-commit: 035ba65d13516fa2afa78203ba3ef54fd70584af
+change-id: 20250831-mt7996-fix-link_sta_rc_update-callback-d8a03391ebb6
+
+Best regards,
 -- 
-2.50.0
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
