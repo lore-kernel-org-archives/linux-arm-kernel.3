@@ -4,92 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F340CA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 14:16:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB8ABCA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 14:44:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cZYLdktZ4EPO06YD32v1q0DpK8GiNv05c9EBnf+HoCw=; b=EY3aV3SfjLMaQ4bqcx/YeHsLTK
-	e08tJhAc7JaaanotPlQY7B69cKqXz0w37h5sYyOaBJg9Ec0yGCW7W5kE9rWWfA+z5O/sPZzxftMAy
-	vnZz+FX4WyDy0thZx6xSkrnqn7cdCv01/8YlajqFFZ2RmBfQIBChXb9Vp0ZZxN4bPgXTPQYngxYRJ
-	4ENxMCn2acl2bYqr764lOAsh8QyWIKdAulIwN1aP/B1ZE9FhNc6S60RK/Y8cC0CVJCHziUaTWe69N
-	SFCtuH6t2mpV0PbRtlAzyKPxzYxrYnNbs3W7FrcAAMjp1Kqc8Uh7Z+xJYwSqaaSh1ySNY5JvCLc4G
-	7CtMs20Q==;
+	bh=1yA5JPGmM9+DIovHFNOYfqsmTWKkkgyERhyC5rBngGI=; b=dlw6j6SAdd3D2/Cc+VLMhLf0R5
+	OiWJhw/jbGOO30qYJ/PEuntEst5DvCs5cujVlieDe66tkwK6k6jGMOmhRUTK6ZVYf/c75/a1DrnUN
+	WcpUIf/81Bc3OL/aVRKFfxXPBO0iSYEKl3LtJJbXYumgJuNAQZjkh4U0ybsOGREDcXcMoadDUpd2q
+	Lwn5s8Zs7YjzngLxoi0cSrnuASGyr8/GlPaF+zy++9q4K+f+GJNWaOxby3R5n6lrxyhfKAFNsnOUm
+	OTDmO0V06cdzixMPyzsLE810NenIaivCtehic0vkb2n0TkahGttpkfyDNHc5s8RoSl3fRMYj/zBTR
+	u4TDyX8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usiqp-0000000AGuP-2ARp;
-	Sun, 31 Aug 2025 14:16:11 +0000
-Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
+	id 1usjI1-0000000AINb-2tr4;
+	Sun, 31 Aug 2025 14:44:17 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usio7-0000000AGdy-0Svw
+	id 1usjFI-0000000AIDM-3mUZ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 Aug 2025 14:13:25 +0000
-Received: by mail-qk1-x735.google.com with SMTP id af79cd13be357-7e86faa158fso369458585a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 Aug 2025 07:13:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rowland.harvard.edu; s=google; t=1756649602; x=1757254402; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cZYLdktZ4EPO06YD32v1q0DpK8GiNv05c9EBnf+HoCw=;
-        b=UNq4uf0MjoKsRAyU5IVwIU6VPtjdbLd277XD3G2QuYc+Tz/b7SgKVUV96rg/RM6CSL
-         ivdTQH+cRpUBLJx+WpArCNeQyprG3721WVJEp9rBnhbrs4GDVMSIVIL2xThXsvijQylG
-         uqo01BQVoMwPkZyO610FXVMSIyY/kpgeZzezOMe8mj+EYCu+no9Jzi5XtotnRtuugS6R
-         779vfDSC2ARCX/VUu2mbtQrSdDhysCGHlkDfNSdxUhgFhVMtIVynHT1sZZTvW4M5pD0B
-         o7SOiiWp+wpzRAk4iRCnOpWr7n76sJ6SYXRVt8nGFREOAn9R5MunhMfq+TMzva3IFBjc
-         pUkg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756649602; x=1757254402;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cZYLdktZ4EPO06YD32v1q0DpK8GiNv05c9EBnf+HoCw=;
-        b=EUtbk0OZDbtpQivSlEPZO6vjsJ5RMgHTNhE1QQU7gm4deJAo0kZ6IUTPwQGVZW8Uek
-         P/lQB+JLMcZwO+2vd7UUfS7PwJFPIsr2QTH9HNIOMiF86r+L+fB1P+AY6cR3Jo3cU/Yn
-         UHOoFl28AiUeVGNO7GxtSywn85RU78g/2vtakJaGcZBkbVU/jlDsh8YOiVi7bL8tzTu/
-         wQ514jxfFAFZgBL8E+lCBU6WNjS+FgCWJUiSXC5K2wQOBtZbOlnZcZzs6y53iKYC4y2z
-         S0KA3yXCnehUrBoz7xcL8RA+sbBsSUXFk4zuhazasumj3A1DH47jVdL90e84wjUzzOcb
-         pUPA==
-X-Forwarded-Encrypted: i=1; AJvYcCU/u1A4GS4c8ZxvaokRDu8EPVtRp9XZRQSmvIMTnJhdh27o36Tju4WdbdJ3NTFugmvZR5Jfvs9pOYboJwdwphG+@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUDk99X9KDcm2ueWmsFnH9BUoxqpR2nzdHCa7/sG0Xopjuzrvn
-	Ta9SdlTwPl6adnmcOcO+jp4v9VluRj5joXavpOFNuuMp0Ca0KO2Y/0DRkayCEI+RkA==
-X-Gm-Gg: ASbGnct6CEktWovAFsjjQS9ZpBF3MJO05UWZGnqhLWwrV/1QLRa69d2MnW/US7bCFfU
-	32MWCSskMCTEERwx+pKBvo1QRLSaco0HxFnRl3EZZXkxq83BCXYgNon8NalJ0opdlWmjBFZOGr5
-	teiKKGTbglKl7jUwFlNm8UuUW+kB9hljOgrTwl79VldJp8uinlI+Pj7Cvj5XaKEjoJhx+L1t5dP
-	/VlJBAwh7pAnOHK5HyWxOrfSrvEKAqiVKdqFlzldhQ1cQHKyks16qme+gGi0mv4iib7ZEHmMfgh
-	vMCgb7W0gXMHDvCkrhbb813bwR8WC2G++lsP4DACduuVR1C7fGHrpDM+YmM8SAKVBV4TkuaHIdf
-	I15cELml+fEqUdThRZ/gF6AdVb1zlgQ==
-X-Google-Smtp-Source: AGHT+IE8Mqej1JDZrtuPz7sl66EYUl3Vb5Z2gtzRXa0W+3TefhnO3F5sshyISi1xvDod49i2QcLnew==
-X-Received: by 2002:a05:620a:172a:b0:7ea:61e:3ce with SMTP id af79cd13be357-7ff26f9fd08mr460588985a.4.1756649601956;
-        Sun, 31 Aug 2025 07:13:21 -0700 (PDT)
-Received: from rowland.harvard.edu ([2601:19b:681:fd10::f777])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7fc1484a7a8sm512990985a.43.2025.08.31.07.13.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 31 Aug 2025 07:13:21 -0700 (PDT)
-Date: Sun, 31 Aug 2025 10:13:18 -0400
-From: Alan Stern <stern@rowland.harvard.edu>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] usb: ohci: s3c2410: Drop support for S3C2410
- systems
-Message-ID: <188881e4-09a7-49fb-8128-ea7ee85147a2@rowland.harvard.edu>
-References: <20250831122222.50332-3-krzysztof.kozlowski@linaro.org>
+	Sun, 31 Aug 2025 14:41:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=1yA5JPGmM9+DIovHFNOYfqsmTWKkkgyERhyC5rBngGI=; b=J4+35CvvDsKQ/kpNwfXcCm65GQ
+	rXJLTHlYgXGoL76HF60A5gT1N1DEllJg4LEeY4poc2aDrrSYcXeG7ROhzylm0vhj0SgbxdJnGBkWp
+	G133F7bu7ZkfIkLtj0i/UAKgC7eBpnuyUPQCf1K3hS7Js+IpPQGdn1ueLxX3R5eC5Yt0=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1usjF7-006eZw-E6; Sun, 31 Aug 2025 16:41:17 +0200
+Date: Sun, 31 Aug 2025 16:41:17 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Qianfeng Rong <rongqianfeng@vivo.com>
+Cc: Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	"moderated list:ARM/Marvell Kirkwood and Armada 370, 375, 38x,..." <linux-arm-kernel@lists.infradead.org>,
+	"open list:PIN CONTROL SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 1/3] pinctrl: armada-37xx: Use int type to store negative
+ error codes
+Message-ID: <272eb94c-0d19-47ee-868b-94d07a692877@lunn.ch>
+References: <20250831084958.431913-1-rongqianfeng@vivo.com>
+ <20250831084958.431913-2-rongqianfeng@vivo.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250831122222.50332-3-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20250831084958.431913-2-rongqianfeng@vivo.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250831_071323_421541_734443E6 
-X-CRM114-Status: GOOD (  23.16  )
+X-CRM114-CacheID: sfid-20250831_074128_942078_16968631 
+X-CRM114-Status: UNSURE (   9.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,53 +75,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 31, 2025 at 02:22:23PM +0200, Krzysztof Kozlowski wrote:
-> Samsung S3C24xx family of SoCs was removed the Linux kernel in the
-> commit 61b7f8920b17 ("ARM: s3c: remove all s3c24xx support"), in January
-> 2023.  There are no in-kernel users of remaining S3C24xx compatibles.
+On Sun, Aug 31, 2025 at 04:49:56PM +0800, Qianfeng Rong wrote:
+> In armada_37xx_gpio_direction_output(), the 'ret' variable might store
+> the negative error codes returned by regmap_update_bits(), and in
+> armada_37xx_edge_both_irq_swap_pol(), the 'ret' variable directly
+> stores -1, so the type of the 'ret' variable needs to be changed to
+> int in both cases.
 > 
-> The driver (named s3c2410) is still being used via platform code for
-> S3C64xx platforms.
+> No effect on runtime.
 > 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> 
-> ---
+> Signed-off-by: Qianfeng Rong <rongqianfeng@vivo.com>
 
-Acked-by: Alan Stern <stern@rowland.harvard.edu>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-> Changes in v2:
-> 1. Commit subject (Alan).
-> ---
->  drivers/usb/host/ohci-s3c2410.c | 8 --------
->  1 file changed, 8 deletions(-)
-> 
-> diff --git a/drivers/usb/host/ohci-s3c2410.c b/drivers/usb/host/ohci-s3c2410.c
-> index 66d970854357..e623e24d3f8e 100644
-> --- a/drivers/usb/host/ohci-s3c2410.c
-> +++ b/drivers/usb/host/ohci-s3c2410.c
-> @@ -448,13 +448,6 @@ static const struct dev_pm_ops ohci_hcd_s3c2410_pm_ops = {
->  	.resume		= ohci_hcd_s3c2410_drv_resume,
->  };
->  
-> -static const struct of_device_id ohci_hcd_s3c2410_dt_ids[] = {
-> -	{ .compatible = "samsung,s3c2410-ohci" },
-> -	{ /* sentinel */ }
-> -};
-> -
-> -MODULE_DEVICE_TABLE(of, ohci_hcd_s3c2410_dt_ids);
-> -
->  static struct platform_driver ohci_hcd_s3c2410_driver = {
->  	.probe		= ohci_hcd_s3c2410_probe,
->  	.remove		= ohci_hcd_s3c2410_remove,
-> @@ -462,7 +455,6 @@ static struct platform_driver ohci_hcd_s3c2410_driver = {
->  	.driver		= {
->  		.name	= "s3c2410-ohci",
->  		.pm	= &ohci_hcd_s3c2410_pm_ops,
-> -		.of_match_table	= ohci_hcd_s3c2410_dt_ids,
->  	},
->  };
->  
-> -- 
-> 2.48.1
-> 
+    Andrew
 
