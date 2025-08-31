@@ -4,102 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ABD6CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 11:47:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D20CCA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 11:50:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UX2JSAZgj2wBU/RFTeov5tRZASF8EFkjg2DWvmdKZ/0=; b=yWavxerSLaONrZg+XR68dxyH/3
-	iFGs1Npwdb0yxV2U5eX5DTt0lduxn3sebocjGOoXEQuTAHF/koU/nIyOYKL6TgkMFb6vbgzvIGak1
-	03mZOm8RH4ksF5z/CNtLVAMiBK/QM/hWggKtKz/RKrJna/FZv4ta77lvF0OOyt4KPFaJp/Nj85ELI
-	sfJaHvxIUmpUSUngb4edNBBhhOCQ7jrzDV5SeyvChSwiaRW7baOPJqI37YiGVbFJNj2KS4Wq8oN0S
-	pTQyVJ5tAOoF1H9w9oSF60s8CYgf6Hp90HdVSo/U3yTA8s+FUhiAg98BzuuxcNsfj/ITrVNT0IVZE
-	xl7Gw+Og==;
+	bh=rs9J8IXPmtKNZlcqxLj24/YijV8v0WmMlRv6yXyKC38=; b=5EbTWDAJKTuL8G50VecsQKNSUF
+	csvREeoKWRFrJjZQSDcquLKWJxFQR8L6wSvZIqlB+SXkhong+QnGTmx3+3RV40K4jjDt09Akw6hk0
+	20zn4T3qG8aNIUbWd3Kp5IIJYq1OHOoiZ1hs9K3UkNgLIFd2ymhykjV8hTk8wfyHj9CaoQ7dXoUqd
+	FN1uFUs7F/1zeDdbn7sxhwEpNE/1z330EWVFk78BOwybKCPx9z+aPy2TEbEFkwdgiHVYfRPaW7Bt1
+	uxwYjGu6JvEWcgebQfOF4TQTYdTGa44jXWdsdQuD9RtNbFjJ2J7XBM3B/yDeQJhTHafdi5zkjiQOI
+	kpAoCl9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usgX6-0000000A7aJ-35tV;
-	Sun, 31 Aug 2025 11:47:40 +0000
-Received: from mail-qv1-xf29.google.com ([2607:f8b0:4864:20::f29])
+	id 1usgZk-0000000A7nk-2UBm;
+	Sun, 31 Aug 2025 11:50:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usgMO-0000000A6vl-05Uk
+	id 1usgWn-0000000A7X6-0QAi
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 Aug 2025 11:36:37 +0000
-Received: by mail-qv1-xf29.google.com with SMTP id 6a1803df08f44-70ddab8117cso29633796d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 Aug 2025 04:36:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756640195; x=1757244995; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=UX2JSAZgj2wBU/RFTeov5tRZASF8EFkjg2DWvmdKZ/0=;
-        b=SvdGiq9ZnZyCcgjhq4hUiWYXukeIkV5/DhcE37Au+O3MKiCeY7AnfYAj+6xfAWSyFP
-         bPeradTPVYE7RNKvZg8ljCYqxajVOlnWWszJ7qEiYUmDTcU1UioJDP4GDUu0BVUT5Pve
-         SqnlJNlIVZyA7/GKoCaRcoAhLPccyTx+ed1vgn6/0foPSMaVew6lz1b7tBNI74mt1jl+
-         UKLtLQUNTSLz4mhid8RyD2xQPVlArJ5GIKgGcTQ4eqziJ0PvrTaJGp/UluLWp84ew9zs
-         8lQk8OiRMzqVQTzf8Hsor57RVyK230MLAGoD+JGlmSx3X09d0O+hjS8uoUBROS08wlLo
-         zG3w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756640195; x=1757244995;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=UX2JSAZgj2wBU/RFTeov5tRZASF8EFkjg2DWvmdKZ/0=;
-        b=BCuaEKwUIrfhhUQwlZjTF2be6ATrIkDqL+0Q/Mq0rV4ydTKts5bxqReDcQrMlif3Af
-         UxRgKz/es0WcDFh1RLmsA7kZ2WAN/fmFOw56jrznCVZOlY1Zy+ojjyOIMFxLNyTgNuPh
-         0K/CV2cpYKpnZn5h1DuhYSRJG8vy6c3SAXOD1Inpq/pfohVtR/MzjxHn6lFk2qeMcJc5
-         q2xC1KqQemDaXdDUVTHE87aDut19sa1A7R6+ZpPfUL+fXvP0/hxOIyl57zADFuth5QgA
-         i6zPecNFF9wtI/z9SNg6+6cqhXUXb139QFNvdKvT45tQrioq2DNie31zc1QbW5s9KWpL
-         tA4Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUOvT3KOsMssCK6UO3DQZsPxZFWZtDzzOc//AxEn1EF6T5c7mcqzobtXaGVJvHauKdIC0/YSOOYg2Bz+Urb+8lX@lists.infradead.org
-X-Gm-Message-State: AOJu0YzrMmb3BjdNKa+7lOlqiWU/ZOUJ+baTNCJYiLQC103ChHimejKh
-	LqEaBMKm8HjmMw/Bb1LcqewNsleWe6kmq4iTKQcxE6K7f66Qb+bdAipg
-X-Gm-Gg: ASbGnctJgiMJ3Jz+FtcejT/82s6/X6yddlOQdkC/+GuoXe0Z8sEFqKiFYFfrEvYeXl/
-	XATSJq/AdkglDlOP1/uvac9OaNrpdGpCnmUc1/1KFfZ7DlmOSk5oIEJQ4ktel9FghuCo3EOa48j
-	ejrJ+ns1qDkgQggH6qUZExuH9nHF9Etgw8/OwezPqNQRW13SmG0p0Nm4PSt04efBAAJUHKG82WW
-	8gWkOutpYIbeoidFJqv7s35UiOPBv4DTt5v381Sxoh3SS19LAXiDLXlgNxVNVnyU2ebX/e6KQ1U
-	MoGKxKozWXVfO9fVpKx/Bc9Mnfdq6NvnRKEnAjdkQK21SNDzFGahwcTTLNmHAXKJTEQCm57FJtJ
-	VuGTIm1Ixf43Kh3t7lROZBKlFGVmUK904CM+X9vnWxw==
-X-Google-Smtp-Source: AGHT+IHTkP26xog0yMNm3B+SwhBdAjr8QJEF3EYmYKgDrxr8Gok7j2NB8tDWQTeOuXHpveiVGhgqjA==
-X-Received: by 2002:a05:6214:76e:b0:713:12c3:9fae with SMTP id 6a1803df08f44-71312c3a291mr22891676d6.8.1756640194865;
-        Sun, 31 Aug 2025 04:36:34 -0700 (PDT)
-Received: from [127.0.0.1] ([135.237.130.227])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-70fb28383b9sm20519076d6.37.2025.08.31.04.36.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 31 Aug 2025 04:36:34 -0700 (PDT)
-From: Denzeel Oliva <wachiturroxd150@gmail.com>
-Date: Sun, 31 Aug 2025 11:36:28 +0000
-Subject: [PATCH 3/3] clk: samsung: exynos990: Add missing USB clock
- registers to HSI0
+	Sun, 31 Aug 2025 11:47:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E19B143A2B;
+	Sun, 31 Aug 2025 11:47:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56202C4CEED;
+	Sun, 31 Aug 2025 11:47:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756640839;
+	bh=sydcbx6eXw+bJ0LHhJFOtpoHmSVDqG0WI6nSt89fNH8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=PoR61D6tZU+60J55AMGwUFoMlHIJff+XJPc2M0YySARzieX/KPj9OJrG0MMT1EQxm
+	 kzDb0rj94KKxH04dGuiIXKV2MWMmHVYicLebukKj4LLUuOFOFG9JAhkmUTDpCBgK+9
+	 93CkmE9pmMHXF14m1cwK5we1M1YR5ruoFe8boGA5c9Rh+sQw9DDFtK8jTiNK9ul9xS
+	 RM+QB7fAtGw8eHDmlnvs5sqUuivxZgNtWJQ2QVtrDwLRMpff5OQVUYfLUHFm92bWet
+	 9HqWLO7opLSZNK4adH+CRwLATQoRxaDrqxcigenhF6HdEiglDHNem/DtssAM8G4yjG
+	 agr0P6fdQ4x3g==
+Message-ID: <f2edc075-4bad-40a6-8cb2-14d3e6f3cdaa@kernel.org>
+Date: Sun, 31 Aug 2025 13:47:14 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250831-usb-v1-3-02ec5ea50627@gmail.com>
-References: <20250831-usb-v1-0-02ec5ea50627@gmail.com>
-In-Reply-To: <20250831-usb-v1-0-02ec5ea50627@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] dt-bindings: clock: exynos990: Add LHS_ACEL clock ID
+ for HSI0 block
+To: Denzeel Oliva <wachiturroxd150@gmail.com>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Denzeel Oliva <wachiturroxd150@gmail.com>, 
- stable@vger.kernel.org
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756640191; l=1291;
- i=wachiturroxd150@gmail.com; s=20250831; h=from:subject:message-id;
- bh=NZAHdt9F5rXzmbN5Hw/0e1pggZILf7NjvtYrLHqHZzg=;
- b=N74W6zP61WXE3Sp8sdVokQOqEkn6v08RPGvUJjdp9ga8f8gznDsm6utDRnqmMuQ09GG3+2yM8
- u/VQPgqm0VqDiWMIupNJCxHf79sZFuFwKm48ns1pYGgnmsKOTJNWwC3
-X-Developer-Key: i=wachiturroxd150@gmail.com; a=ed25519;
- pk=3fZmF8+BzoNPhZuzL19/BkBXzCDwLBPlLqQYILU0U5k=
+Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+References: <20250831-usb-v1-0-02ec5ea50627@gmail.com>
+ <20250831-usb-v1-1-02ec5ea50627@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250831-usb-v1-1-02ec5ea50627@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250831_043636_068127_A887F8DF 
-X-CRM114-Status: GOOD (  10.84  )
+X-CRM114-CacheID: sfid-20250831_044721_184939_13E0171A 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,31 +124,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These registers are required for proper USB operation and were omitted
-in the initial clock controller setup.
+On 31/08/2025 13:36, Denzeel Oliva wrote:
+> Add the missing LHS_ACEL clock ID for the HSI0 block. This clock is
+> required for proper USB operation, as without it, USB connections fail
+> with errors like device descriptor read timeouts and address response
+> issues.
 
-Fixes: bdd03ebf721f ("clk: samsung: Introduce Exynos990 clock controller driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
----
- drivers/clk/samsung/clk-exynos990.c | 2 ++
- 1 file changed, 2 insertions(+)
+Incomplete feature due to missing clock is not really a fix, considering
+that we add clocks piece-by-piece. Otherwise every new clock would be a fix.
 
-diff --git a/drivers/clk/samsung/clk-exynos990.c b/drivers/clk/samsung/clk-exynos990.c
-index 7884354d612c54039289fa9b80ad08f34b9b7029..47a1e0850c3020ab66931ae0c5ac4920f41496d0 100644
---- a/drivers/clk/samsung/clk-exynos990.c
-+++ b/drivers/clk/samsung/clk-exynos990.c
-@@ -1224,6 +1224,8 @@ static const unsigned long hsi0_clk_regs[] __initconst = {
- 	CLK_CON_GAT_GOUT_BLK_HSI0_UID_SYSMMU_USB_IPCLKPORT_CLK_S2,
- 	CLK_CON_GAT_GOUT_BLK_HSI0_UID_SYSREG_HSI0_IPCLKPORT_PCLK,
- 	CLK_CON_GAT_GOUT_BLK_HSI0_UID_USB31DRD_IPCLKPORT_ACLK_PHYCTRL,
-+	CLK_CON_GAT_GOUT_BLK_HSI0_UID_USB31DRD_IPCLKPORT_I_USB31DRD_REF_CLK_40,
-+	CLK_CON_GAT_GOUT_BLK_HSI0_UID_USB31DRD_IPCLKPORT_I_USBDPPHY_REF_SOC_PLL,
- 	CLK_CON_GAT_GOUT_BLK_HSI0_UID_USB31DRD_IPCLKPORT_I_USBDPPHY_SCL_APB_PCLK,
- 	CLK_CON_GAT_GOUT_BLK_HSI0_UID_USB31DRD_IPCLKPORT_I_USBPCS_APB_CLK,
- 	CLK_CON_GAT_GOUT_BLK_HSI0_UID_USB31DRD_IPCLKPORT_BUS_CLK_EARLY,
+Unless something else changed and the USB was working fine before?
 
--- 
-2.50.1
+If not, drop fixes and cc-stable from this and following commits.
 
+> 
+> Fixes: 5feae3e79dbe ("dt-bindings: clock: samsung: Add Exynos990 SoC CMU bindings")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
+> ---
+>  include/dt-bindings/clock/samsung,exynos990.h | 1 +
+Best regards,
+Krzysztof
 
