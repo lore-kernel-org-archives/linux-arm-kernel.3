@@ -4,118 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED71BCA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 13:42:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBAE6CA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 13:49:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gsre5BO/TAdbCYSk+CvwM6ZyYKiGhSp1jKm3V04y0NU=; b=OSWt+abc9yzJpW/UZK+uGfI64a
-	cQ0DJdPTUEGKnv9zllrWdlcFNYrF8u1WFIMU85XIRFfChNwIlMPCrvImgje/Z8cItzgtVbhaTPbN1
-	odlxNrS6g0rrxza1e2Qg0WqRglpjYD+WIxlCPIHLaFTG/YHMIqd/5yJah5otZENi5GLyw18MIpaGQ
-	+Ep4hAAitT/Aeg6tQdl3RVg/UGSw9oT6YUZKl3aZ59VnPCjW8vIU1mXlBtJHsrh8ifh+CA/1vbXoC
-	G2Ql0NzLL934rrqI9nA7V6z5U9E3ybwNS1Bn548wvu+J/RdAEvJUmYJSaPJ7pJ59iC9j4GsLPtC5i
-	JjTBnbRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jwybc7U/Gu47otp5cNNeYZoMPwQff+yr/8w72U7737w=; b=WidKJuMaebfD9uXWy7/8OP3R7X
+	eG6dHbG7gVZlsiQX3dFJ664sM08wkI4/kRItjQcc+EmnSn59jXhpx4LLudpDpEX8kXTWrSqhRhM/i
+	7xwB7oeN0EUYtMtd2uNHzWno4CanYjdLBjkbSsJSv3nSDh7TJdSdgs1kg9QZJml3m/yw6IoJm9M1W
+	EDiMaO62iciJXrNFuzAe0/vIADb7d/ve6Q5BWLv/IdgWz9YCib3KnedeO+g35F5NXmmZ+F8SUiH1x
+	P3gXkafhJPCeMHVeUmeo/e85GbSFN0vp2pUGbjUWiymb2hnsGx015bdmIa5k7O6cIkFgh70QJxjA7
+	TnVQJu4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usiJn-0000000AEx8-2aCF;
-	Sun, 31 Aug 2025 13:42:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1usiQw-0000000AFGW-3AdD;
+	Sun, 31 Aug 2025 13:49:26 +0000
+Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usi82-0000000AEKW-2bNR
+	id 1usiOF-0000000AF98-0UqC
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 Aug 2025 13:29:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0276F43ACC;
-	Sun, 31 Aug 2025 13:29:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DE7BC4CEED;
-	Sun, 31 Aug 2025 13:29:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756646993;
-	bh=SrMZkbWdusRiH0hmaE91NI0Lw0F3UPdK23OAzsrNGUM=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=Q63wtjREnKbKCYx54RcSmujLZ6KEnlVBKCl9h9qMj6j8rXNoFIxUvVYlg3hfy6tkp
-	 dXtfq/oBfz+XYw+54JkWlTv8BBD83m7a4NAVi7C6SeWxYmSerB75ht4V1iRFx48rtT
-	 bg1/vZXDWb6tz88BUXWEEKHhKe7FiV9TD3wYpan5TAYYAu+GFD7bszkLT0ELiGsEIh
-	 HP671kpJk/Qm1qBXZ3ojJyXWTun0gyzNuHP2p3Du5/3hlRsVGqxXvmJ9QATym+yqnI
-	 AKpWtpK0iic6fVZQ25+eQElYopvl3XleeuVqOCOWKqmAzLQLxaIxjdDLKtZ26VGYPU
-	 Yk698P/rntfrA==
-Message-ID: <15508cb4-843c-42d1-8854-5eabd79ca0df@kernel.org>
-Date: Sun, 31 Aug 2025 15:29:43 +0200
+	Sun, 31 Aug 2025 13:46:40 +0000
+Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-7f7edf7621dso305904985a.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 Aug 2025 06:46:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=fooishbar.org; s=google; t=1756647996; x=1757252796; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=jwybc7U/Gu47otp5cNNeYZoMPwQff+yr/8w72U7737w=;
+        b=WYhk/xR+cecIdAMO3eum1H7gEUABxOloxBP/FN33ntSQe9mAzbu9qUI2G0n8w0mKsX
+         /HWYqujJvloyZtjugDN6GCCJ3DACN/tn9K6asTI6lOJs0vYVXnZNYxw5DVxMwu+cCVu1
+         L15KBd61Cxp96zrHBDMVjn+q6Gsn1xcVj8Aj27Y/SUXC2XUyeKa9M1jBjrK/dIqXuKoK
+         dZ++NLGXvxf42Vfsw37FGS1vxy6y9SE54widMKIM+9LUS0tysBA6ytrwJH9mkWh/7fxi
+         ROOxYSF9YYKX4lTV1IFuSMETvsneXy2l+BSa9NgPCHStqE+obHaCf2e+xO14u/7dFXeo
+         22BA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756647996; x=1757252796;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jwybc7U/Gu47otp5cNNeYZoMPwQff+yr/8w72U7737w=;
+        b=V6TdEyVNX/Yb9hevOHbhDjDEFvrFStDpIkQcqvdcUEhVFV/PYyOL4S9ITgrYSQF1d0
+         B7v0z4TfrHe+XTYfVg6yhT3td084SSrSYuoTT2yZNmFuhDj5i7EYFtbhHSTWKXgaR0EG
+         CUgxX/FwH5isf8eZQ1TBvbC8/CJgrB5DtlfJUVOBWc9xTxA/MAZ9Ux8J23mzpFotjmS+
+         TTYeeH/daC38/JnSwV8TXqiQHSGJ+iyiVIsEmM6nfe7SDJR571dnH2HKepYUifMu6Q32
+         IQ7iHhcwRp/DGMZBbERdNE8cWj4QnOBNLdBZg9ooiswqXDRPOUt0bIqXMBTjkc7FQTZ4
+         JqCg==
+X-Forwarded-Encrypted: i=1; AJvYcCXo0OxtsS6UaDW6X9nrTNyvGyBPfuE3onVccHKTPDobqnDlbcPJ2Z9d6fOJohjdA5214HnqzLYX3m7koBEiSJ08@lists.infradead.org
+X-Gm-Message-State: AOJu0YzeIN7kHCWfH5w+ysxuokLfy3aqW0X6Ml7mSqIQHeIeSg+5G67g
+	d8Xy4uj20aEQR2GAG4vnH5YcbqP9XFrkz0QOIUXjXUJUM4WmD36ZXiuUt3aAsli2Hex+fZ2euf3
+	JMcvhoTZOBYAB/7t/QLhMFH0RkFdbpC9owK2PynqAmQ==
+X-Gm-Gg: ASbGncupjvue25UuXRB3eaGk1HZehr7tjKD5pRcWFtBksWZxI5b6FuhA7KJrElewgwW
+	dZCojQQ4iyNK9eVu328ozK6sQyId0056jCCzmslj+YX0g9gc41LdV7JJXK94o8HMxkvB0kLK0q6
+	Th9J0N7NRjqNYSxwgMDUn1TkVxcXukGr3ujMdUHxnoNcg4FgkmZSe7ML6N/YcPOETVTdYKB6BSO
+	elC8Q==
+X-Google-Smtp-Source: AGHT+IF0dh6mtaD+ci0SXGWWOl3LWwfmYnKKOgfGlK7FZ7iXiuG8d9Mqq2iCDHrHKRWGSRl6Gppx/kRr2i15hBvQ/kA=
+X-Received: by 2002:a05:620a:c43:b0:7f7:c2a3:eaa5 with SMTP id
+ af79cd13be357-7ff2b9817c6mr503403385a.68.1756647996439; Sun, 31 Aug 2025
+ 06:46:36 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 00/10] Add support for the Axis ARTPEC-8 SoC
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Ravi Patel <ravi.patel@samsung.com>, jesper.nilsson@axis.com,
- mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, s.nawrocki@samsung.com,
- cw00.choi@samsung.com, alim.akhtar@samsung.com, linus.walleij@linaro.org,
- tomasz.figa@gmail.com, catalin.marinas@arm.com, will@kernel.org,
- arnd@arndb.de
-Cc: ksk4725@coasia.com, kenkim@coasia.com, pjsin865@coasia.com,
- gwk1013@coasia.com, hgkim05@coasia.com, mingyoungbo@coasia.com,
- smn1196@coasia.com, pankaj.dubey@samsung.com, shradha.t@samsung.com,
- inbaraj.e@samsung.com, swathi.ks@samsung.com, hrishikesh.d@samsung.com,
- dj76.yang@samsung.com, hypmean.kim@samsung.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-arm-kernel@axis.com,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-gpio@vger.kernel.org, soc@lists.linux.dev
-References: <CGME20250825120654epcas5p17bdbd92679d2b4c0f0c9bbb348163c0b@epcas5p1.samsung.com>
- <20250825114436.46882-1-ravi.patel@samsung.com>
- <db692853-a43c-4a4a-9a07-a7485bc9fdb9@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <db692853-a43c-4a4a-9a07-a7485bc9fdb9@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250830-drm-limit-infoframes-v3-0-32fcbec4634e@oss.qualcomm.com>
+ <CAPj87rNDtfEYV88Ue0bFXJwQop-zy++Ty7uQ9XfrQ2TbAijeRg@mail.gmail.com> <57ekub6uba7iee34sviadareqxv234zbmkr7avqofxes4mqnru@vgkppexnj6cb>
+In-Reply-To: <57ekub6uba7iee34sviadareqxv234zbmkr7avqofxes4mqnru@vgkppexnj6cb>
+From: Daniel Stone <daniel@fooishbar.org>
+Date: Sun, 31 Aug 2025 15:46:25 +0200
+X-Gm-Features: Ac12FXyJd7t7ZABF85TqQwXSEhwFfQP0deD84tmrq8IHkkpEGuVOeuzNQcUs-Sw
+Message-ID: <CAPj87rOSb90S_TeA8Cu5kd-M8bbfiE0fvPzgr9Gr4e9_rfZeFQ@mail.gmail.com>
+Subject: Re: [PATCH v3 00/11] drm/connector: hdmi: limit infoframes per driver capabilities
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+	Andy Yan <andy.yan@rock-chips.com>, Chen-Yu Tsai <wens@csie.org>, 
+	Samuel Holland <samuel@sholland.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	=?UTF-8?B?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Liu Ying <victor.liu@nxp.com>, 
+	Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, 
+	Abhinav Kumar <abhinav.kumar@linux.dev>, Jessica Zhang <jessica.zhang@oss.qualcomm.com>, 
+	Sean Paul <sean@poorly.run>, Marijn Suijten <marijn.suijten@somainline.org>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
+	freedreno@lists.freedesktop.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250831_062954_700475_7C5E68DB 
-X-CRM114-Status: GOOD (  14.13  )
+X-CRM114-CacheID: sfid-20250831_064639_268646_CBC4CC91 
+X-CRM114-Status: GOOD (  24.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,33 +109,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/08/2025 14:35, Krzysztof Kozlowski wrote:
-> On 25/08/2025 13:44, Ravi Patel wrote:
->> This patch series includes below changes:
->> - CMU (Clock Management Unit) driver and its bindings
->> - GPIO pinctrl configuration and its bindings
->> - Basic Device Tree for ARTPEC-8 SoC and boards
->>
->> The patch series has been tested on the ARTPEC-8 EVB with
->> Linux v6.15-rc5 and intended to be merged via the `arm-soc` tree.
->>
->> ---
->> Changes in v3:
->> - Rebased patchset on linux-samsung-soc "for-next" branch which includes round_rate() drop
->> - Add CPU mask in dtsi patch #8
->>
->> Link to v2: https://lore.kernel.org/all/20250821123310.94089-1-ravi.patel@samsung.com/
-> 
-> Thanks for v2. Just a note: due to OSSE 25 I will look at it at a later
-> time, probably next week.
+Hi Dmitry,
 
-I applied few patches and checked the rest (left review when
-applicable). Please send v4 after rebasing and dropping applied patches.
-In general everything looks pretty nice, so I am very happy!
+On Sun, 31 Aug 2025 at 00:29, Dmitry Baryshkov
+<dmitry.baryshkov@oss.qualcomm.com> wrote:
+> On Sat, Aug 30, 2025 at 09:30:01AM +0200, Daniel Stone wrote:
+> > I know that dw-hdmi-qp can support _any_ infoframe, by manually
+> > packing it into the two GHDMI banks. So the supported set there is
+> > 'all of the currently well-known ones, plus any two others, but only
+> > two and not more'. I wonder if that has any effect on the interface
+> > you were thinking about for userspace?
+>
+> I was mostly concerned with the existing debugfs interface (as it is
+> also used e.g. for edid-decode, etc).
+>
+> It seems "everything + 2 spare" is more or less common (ADV7511, MSM
+> HDMI also have those. I don't have at hand the proper datasheet for
+> LT9611 (non-UXC one), but I think its InfoFrames are also more or less
+> generic).  Maybe we should change debugfs integration to register the
+> file when the frame is being enabled and removing it when it gets unset.
 
-Note, I will be closing my trees earlier this cycle, probably 1-2 weeks
-more max.
+Oh right, that's really interesting.
 
-Best regards,
-Krzysztof
+> Then in the long run we can add 'slots' and allocate some of the frames
+> to the slots. E.g. ADV7511 would get 'software AVI', 'software SPD',
+> 'auto AUDIO' + 2 generic slots (and MPEG InfoFrame which can probably be
+> salvaged as another generic one)). MSM HDMI would get 'software AVI',
+> 'software AUDIO' + 2 generic slots (+MPEG + obsucre HDMI which I don't
+> want to use). Then the framework might be able to prioritize whether to
+> use generic slots for important data (as DRM HDR, HDMI) or less important
+> (SPD).
+
+Yeah, that sounds good! I wonder if we want to surface that from the
+debugfs interface: maybe just files named 0..$numslots with the
+content of the infoframes, one named 'slots' with the integer index,
+which infoframe type it's currently carrying, and which types it's
+capable of carrying. Then to preserve the current interface, symlinks
+from the infoframe type name to the slot index.
+
+Cheers,
+Daniel
 
