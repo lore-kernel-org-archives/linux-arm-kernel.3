@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF00ACA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 02:17:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 226F5CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 02:20:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=/X5ICgCO9mFK1dcI03FeXGC11uS9PqgDvHYa8gHPgNM=; b=quJiT6or6jrFAN
-	XyIoSjlWxpMXvtLa8T+vlG219sA0TRVyYqmUgoUUscmRKdasQ6F2DcEpMsU/xa3fHgzP18x4f1SYc
-	U02g6YEP/y3AzvFvF1K3Ia3WLh+ms4r+fnG0kMpJYzw8k2j26fICqoyXAo8fCkN2hlzE3X9a2118R
-	bHZ4PuzCnzFUCDtrgUV8r7fiUlDmexJ3udoZcO3+AezFytZR3Nt4PcIiH8HXcuiUHwncMkXJbW6zb
-	hpLlZoZLYUjzdCSzHLPJ5Azk7c0J/ysZoAeA3x+hj+otwk7KExg2V6LBTsfsauZffKYYRj6uFlah3
-	RLP++JpBEKKNS4QVH8xw==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QrWzls7O/+jEbh6Y0fnGpDPqADwTB7yR8q78JkRYMu0=; b=fBXSPe35xpGEGz5rfby3JLuRmO
+	MiPmSr4MKTZ2JhCYPjyn6dGgAfPe6DgPNW3bCqkwzMBhD9xqD8xQb4mBzcdnlKTWwp43a4slVmXnZ
+	NdehD4zqd+Ntl0+JXl7onz/6dcBeDHhgq9roFoySl96E/MnY1VOmazPVP8WAbHaGBCZvGvk3aykZ1
+	gJ5y8uETtz/0jatgtwlYn60DvtT0jLqZ1whqR1D2PAUixE3pYDnkT42ATF1GnhoIBflIOcCfUXmHv
+	Wsc/cCKGiP9kX5fRmmA2eY1Ah1Q7qWhMk2qj0PasEhVnlg/V74Mb90pNYuEUHDWYYFrh639zQVmO5
+	+HeG45fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usXdU-00000008lwa-0iEb;
-	Sun, 31 Aug 2025 02:17:40 +0000
+	id 1usXgA-00000008mVc-3pYq;
+	Sun, 31 Aug 2025 02:20:26 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usXaj-00000008kya-3ESX
+	id 1usXal-00000008kya-2Sfu
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 Aug 2025 02:14:51 +0000
+	Sun, 31 Aug 2025 02:14:52 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Sun, 31 Aug
@@ -42,16 +42,18 @@ To: ryan_chen <ryan_chen@aspeedtech.com>, Eddie James <eajames@linux.ibm.com>,
 	Lee Jones <lee@kernel.org>, <linux-aspeed@lists.ozlabs.org>,
 	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v2 0/4] irqchip: Add support for Aspeed AST2700 SCU interrupt controller
-Date: Sun, 31 Aug 2025 10:14:34 +0800
-Message-ID: <20250831021438.976893-1-ryan_chen@aspeedtech.com>
+Subject: [PATCH v2 1/4] irqchip/aspeed-scu-ic: Refactor driver to support variant-based initialization
+Date: Sun, 31 Aug 2025 10:14:35 +0800
+Message-ID: <20250831021438.976893-2-ryan_chen@aspeedtech.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250831021438.976893-1-ryan_chen@aspeedtech.com>
+References: <20250831021438.976893-1-ryan_chen@aspeedtech.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250830_191449_813887_4F05E8AB 
-X-CRM114-Status: GOOD (  10.97  )
+X-CRM114-CacheID: sfid-20250830_191451_628621_2825FA75 
+X-CRM114-Status: GOOD (  18.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,40 +68,256 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for the SCU (System Control Unit) interrupt
-controllers on the Aspeed AST2700 SoC.
+The original SCU IC driver handled each AST2600 instance with separate
+initialization functions and hardcoded register definitions. This patch
+consolidates the implementation by introducing a variant-based structure,
+selected via compatible string.
 
-AST2700 follows the same multi-instance SCU interrupt controller design
-as AST2600, with four independent interrupt domains (scu-ic0 to 3).
-However, unlike previous SoCs that use a single register for both enable
-and status bits, AST2700 splits them into separate IER (Interrupt Enable)
-and ISR (Interrupt Status) registers.
+The driver now uses a unified init path and MMIO access via of_iomap().
+This simplifies the code and prepares for upcoming SoCs like AST2700,
+which require split register handling.
 
-To support this, the driver is refactored to use a variant-based init
-structure, selected by compatible string. Register access is also
-converted from regmap to MMIO (via `of_iomap()`), and a per-variant
-IRQ handler is used depending on register layout.
+Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+---
+ drivers/irqchip/irq-aspeed-scu-ic.c | 143 ++++++++++++----------------
+ 1 file changed, 59 insertions(+), 84 deletions(-)
 
-v2:
-- Refactor SCU IC driver to support variant-based initialization
-- Add AST2700 compatible strings to YAML and header files
-- Extend DT bindings in mfd and irqchip for AST2700
-- Add IRQ handler logic for separate IER/ISR layout
-
-Ryan Chen (4):
-  irqchip/aspeed-scu-ic: Refactor driver to support variant-based
-    initialization
-  dt-bindings: mfd: aspeed: Add AST2700 SCU compatibles
-  dt-bindings: interrupt-controller: aspeed: Add AST2700 SCU IC
-    compatibles
-  irqchip/aspeed-scu-ic: Add support AST2700 SCU interrupt controllers
-
- .../aspeed,ast2500-scu-ic.yaml                |   6 +-
- .../bindings/mfd/aspeed,ast2x00-scu.yaml      |   4 +
- drivers/irqchip/irq-aspeed-scu-ic.c           | 238 ++++++++++--------
- .../interrupt-controller/aspeed-scu-ic.h      |  14 ++
- 4 files changed, 163 insertions(+), 99 deletions(-)
-
+diff --git a/drivers/irqchip/irq-aspeed-scu-ic.c b/drivers/irqchip/irq-aspeed-scu-ic.c
+index 1c7045467c48..cbfc35919281 100644
+--- a/drivers/irqchip/irq-aspeed-scu-ic.c
++++ b/drivers/irqchip/irq-aspeed-scu-ic.c
+@@ -7,52 +7,52 @@
+  */
+ 
+ #include <linux/bitops.h>
++#include <linux/io.h>
+ #include <linux/irq.h>
+ #include <linux/irqchip.h>
+ #include <linux/irqchip/chained_irq.h>
+ #include <linux/irqdomain.h>
+-#include <linux/mfd/syscon.h>
++#include <linux/of_address.h>
+ #include <linux/of_irq.h>
+-#include <linux/regmap.h>
+ 
+-#define ASPEED_SCU_IC_REG		0x018
+-#define ASPEED_SCU_IC_SHIFT		0
+-#define ASPEED_SCU_IC_ENABLE		GENMASK(15, ASPEED_SCU_IC_SHIFT)
+-#define ASPEED_SCU_IC_NUM_IRQS		7
+ #define ASPEED_SCU_IC_STATUS		GENMASK(28, 16)
+ #define ASPEED_SCU_IC_STATUS_SHIFT	16
+ 
+-#define ASPEED_AST2600_SCU_IC0_REG	0x560
+-#define ASPEED_AST2600_SCU_IC0_SHIFT	0
+-#define ASPEED_AST2600_SCU_IC0_ENABLE	\
+-	GENMASK(5, ASPEED_AST2600_SCU_IC0_SHIFT)
+-#define ASPEED_AST2600_SCU_IC0_NUM_IRQS	6
++struct aspeed_scu_ic_variant {
++	const char		*compatible;
++	unsigned long	irq_enable;
++	unsigned long	irq_shift;
++	unsigned int	num_irqs;
++};
++
++#define SCU_VARIANT(_compat, _shift, _enable, _num) { \
++	.compatible		=	_compat,	\
++	.irq_shift		=	_shift,		\
++	.irq_enable		=	_enable,	\
++	.num_irqs		=	_num,		\
++}
+ 
+-#define ASPEED_AST2600_SCU_IC1_REG	0x570
+-#define ASPEED_AST2600_SCU_IC1_SHIFT	4
+-#define ASPEED_AST2600_SCU_IC1_ENABLE	\
+-	GENMASK(5, ASPEED_AST2600_SCU_IC1_SHIFT)
+-#define ASPEED_AST2600_SCU_IC1_NUM_IRQS	2
++static const struct aspeed_scu_ic_variant scu_ic_variants[]	__initconst = {
++	SCU_VARIANT("aspeed,ast2400-scu-ic",	0,	GENMASK(15, 0),	7),
++	SCU_VARIANT("aspeed,ast2500-scu-ic",	0,	GENMASK(15, 0), 7),
++	SCU_VARIANT("aspeed,ast2600-scu-ic0",	0,	GENMASK(5, 0),	6),
++	SCU_VARIANT("aspeed,ast2600-scu-ic1",	4,	GENMASK(5, 4),	2),
++};
+ 
+ struct aspeed_scu_ic {
+-	unsigned long irq_enable;
+-	unsigned long irq_shift;
+-	unsigned int num_irqs;
+-	unsigned int reg;
+-	struct regmap *scu;
+-	struct irq_domain *irq_domain;
++	unsigned long		irq_enable;
++	unsigned long		irq_shift;
++	unsigned int		num_irqs;
++	void __iomem		*base;
++	struct irq_domain	*irq_domain;
+ };
+ 
+ static void aspeed_scu_ic_irq_handler(struct irq_desc *desc)
+ {
+-	unsigned int sts;
+-	unsigned long bit;
+-	unsigned long enabled;
+-	unsigned long max;
+-	unsigned long status;
+ 	struct aspeed_scu_ic *scu_ic = irq_desc_get_handler_data(desc);
+ 	struct irq_chip *chip = irq_desc_get_chip(desc);
+-	unsigned int mask = scu_ic->irq_enable << ASPEED_SCU_IC_STATUS_SHIFT;
++	unsigned long bit, enabled, max, status;
++	unsigned int sts, mask;
+ 
+ 	chained_irq_enter(chip, desc);
+ 
+@@ -66,7 +66,7 @@ static void aspeed_scu_ic_irq_handler(struct irq_desc *desc)
+ 	 * shifting the status down to get the mapping and then back up to
+ 	 * clear the bit.
+ 	 */
+-	regmap_read(scu_ic->scu, scu_ic->reg, &sts);
++	sts = readl(scu_ic->base);
+ 	enabled = sts & scu_ic->irq_enable;
+ 	status = (sts >> ASPEED_SCU_IC_STATUS_SHIFT) & enabled;
+ 
+@@ -76,9 +76,9 @@ static void aspeed_scu_ic_irq_handler(struct irq_desc *desc)
+ 	for_each_set_bit_from(bit, &status, max) {
+ 		generic_handle_domain_irq(scu_ic->irq_domain,
+ 					  bit - scu_ic->irq_shift);
+-
+-		regmap_write_bits(scu_ic->scu, scu_ic->reg, mask,
+-				  BIT(bit + ASPEED_SCU_IC_STATUS_SHIFT));
++		writel((readl(scu_ic->base) & ~mask) |
++		       BIT(bit + ASPEED_SCU_IC_STATUS_SHIFT),
++		       scu_ic->base);
+ 	}
+ 
+ 	chained_irq_exit(chip, desc);
+@@ -95,7 +95,7 @@ static void aspeed_scu_ic_irq_mask(struct irq_data *data)
+ 	 * operation from clearing the status bits, they should be under the
+ 	 * mask and written with 0.
+ 	 */
+-	regmap_update_bits(scu_ic->scu, scu_ic->reg, mask, 0);
++	writel(readl(scu_ic->base) & ~mask, scu_ic->base);
+ }
+ 
+ static void aspeed_scu_ic_irq_unmask(struct irq_data *data)
+@@ -110,7 +110,7 @@ static void aspeed_scu_ic_irq_unmask(struct irq_data *data)
+ 	 * operation from clearing the status bits, they should be under the
+ 	 * mask and written with 0.
+ 	 */
+-	regmap_update_bits(scu_ic->scu, scu_ic->reg, mask, bit);
++	writel((readl(scu_ic->base) & ~mask) | bit, scu_ic->base);
+ }
+ 
+ static int aspeed_scu_ic_irq_set_affinity(struct irq_data *data,
+@@ -146,18 +146,13 @@ static int aspeed_scu_ic_of_init_common(struct aspeed_scu_ic *scu_ic,
+ 	int irq;
+ 	int rc = 0;
+ 
+-	if (!node->parent) {
+-		rc = -ENODEV;
++	scu_ic->base = of_iomap(node, 0);
++	if (IS_ERR(scu_ic->base)) {
++		rc = PTR_ERR(scu_ic->base);
+ 		goto err;
+ 	}
+-
+-	scu_ic->scu = syscon_node_to_regmap(node->parent);
+-	if (IS_ERR(scu_ic->scu)) {
+-		rc = PTR_ERR(scu_ic->scu);
+-		goto err;
+-	}
+-	regmap_write_bits(scu_ic->scu, scu_ic->reg, ASPEED_SCU_IC_STATUS, ASPEED_SCU_IC_STATUS);
+-	regmap_write_bits(scu_ic->scu, scu_ic->reg, ASPEED_SCU_IC_ENABLE, 0);
++	writel(ASPEED_SCU_IC_STATUS, scu_ic->base);
++	writel(0, scu_ic->base);
+ 
+ 	irq = irq_of_parse_and_map(node, 0);
+ 	if (!irq) {
+@@ -166,8 +161,8 @@ static int aspeed_scu_ic_of_init_common(struct aspeed_scu_ic *scu_ic,
+ 	}
+ 
+ 	scu_ic->irq_domain = irq_domain_create_linear(of_fwnode_handle(node), scu_ic->num_irqs,
+-						   &aspeed_scu_ic_domain_ops,
+-						   scu_ic);
++						      &aspeed_scu_ic_domain_ops,
++						      scu_ic);
+ 	if (!scu_ic->irq_domain) {
+ 		rc = -ENOMEM;
+ 		goto err;
+@@ -184,57 +179,37 @@ static int aspeed_scu_ic_of_init_common(struct aspeed_scu_ic *scu_ic,
+ 	return rc;
+ }
+ 
+-static int __init aspeed_scu_ic_of_init(struct device_node *node,
+-					struct device_node *parent)
++static const struct aspeed_scu_ic_variant *
++aspeed_scu_ic_find_variant(struct device_node *np)
+ {
+-	struct aspeed_scu_ic *scu_ic = kzalloc(sizeof(*scu_ic), GFP_KERNEL);
+-
+-	if (!scu_ic)
+-		return -ENOMEM;
++	for (int i = 0; i < ARRAY_SIZE(scu_ic_variants); i++)
++		if (of_device_is_compatible(np, scu_ic_variants[i].compatible))
++			return &scu_ic_variants[i];
+ 
+-	scu_ic->irq_enable = ASPEED_SCU_IC_ENABLE;
+-	scu_ic->irq_shift = ASPEED_SCU_IC_SHIFT;
+-	scu_ic->num_irqs = ASPEED_SCU_IC_NUM_IRQS;
+-	scu_ic->reg = ASPEED_SCU_IC_REG;
+-
+-	return aspeed_scu_ic_of_init_common(scu_ic, node);
++	return NULL;
+ }
+ 
+-static int __init aspeed_ast2600_scu_ic0_of_init(struct device_node *node,
+-						 struct device_node *parent)
++static int __init aspeed_scu_ic_of_init(struct device_node *node, struct device_node *parent)
+ {
+-	struct aspeed_scu_ic *scu_ic = kzalloc(sizeof(*scu_ic), GFP_KERNEL);
+-
+-	if (!scu_ic)
+-		return -ENOMEM;
++	const struct aspeed_scu_ic_variant *variant;
++	struct aspeed_scu_ic *scu_ic;
+ 
+-	scu_ic->irq_enable = ASPEED_AST2600_SCU_IC0_ENABLE;
+-	scu_ic->irq_shift = ASPEED_AST2600_SCU_IC0_SHIFT;
+-	scu_ic->num_irqs = ASPEED_AST2600_SCU_IC0_NUM_IRQS;
+-	scu_ic->reg = ASPEED_AST2600_SCU_IC0_REG;
+-
+-	return aspeed_scu_ic_of_init_common(scu_ic, node);
+-}
+-
+-static int __init aspeed_ast2600_scu_ic1_of_init(struct device_node *node,
+-						 struct device_node *parent)
+-{
+-	struct aspeed_scu_ic *scu_ic = kzalloc(sizeof(*scu_ic), GFP_KERNEL);
++	variant = aspeed_scu_ic_find_variant(node);
++	if (!variant)
++		return -ENODEV;
+ 
++	scu_ic = kzalloc(sizeof(*scu_ic), GFP_KERNEL);
+ 	if (!scu_ic)
+ 		return -ENOMEM;
+ 
+-	scu_ic->irq_enable = ASPEED_AST2600_SCU_IC1_ENABLE;
+-	scu_ic->irq_shift = ASPEED_AST2600_SCU_IC1_SHIFT;
+-	scu_ic->num_irqs = ASPEED_AST2600_SCU_IC1_NUM_IRQS;
+-	scu_ic->reg = ASPEED_AST2600_SCU_IC1_REG;
++	scu_ic->irq_enable    = variant->irq_enable;
++	scu_ic->irq_shift     = variant->irq_shift;
++	scu_ic->num_irqs      = variant->num_irqs;
+ 
+ 	return aspeed_scu_ic_of_init_common(scu_ic, node);
+ }
+ 
+ IRQCHIP_DECLARE(ast2400_scu_ic, "aspeed,ast2400-scu-ic", aspeed_scu_ic_of_init);
+ IRQCHIP_DECLARE(ast2500_scu_ic, "aspeed,ast2500-scu-ic", aspeed_scu_ic_of_init);
+-IRQCHIP_DECLARE(ast2600_scu_ic0, "aspeed,ast2600-scu-ic0",
+-		aspeed_ast2600_scu_ic0_of_init);
+-IRQCHIP_DECLARE(ast2600_scu_ic1, "aspeed,ast2600-scu-ic1",
+-		aspeed_ast2600_scu_ic1_of_init);
++IRQCHIP_DECLARE(ast2600_scu_ic0, "aspeed,ast2600-scu-ic0", aspeed_scu_ic_of_init);
++IRQCHIP_DECLARE(ast2600_scu_ic1, "aspeed,ast2600-scu-ic1",     aspeed_scu_ic_of_init);
 -- 
 2.34.1
 
