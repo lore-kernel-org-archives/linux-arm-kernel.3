@@ -4,65 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABB07CA1000
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 14:51:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7125DCA0FE8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 15:03:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hXN3u9gmX8M81RD47CrGHkF0QMMIcEt0NP7+VL2Ck7A=; b=coEFK4hMiXpIcXFdQiHKOYTrPu
-	kSR1gmLdE3L6oE7/4Rpon71VdojjYUsRMc8Ed8mkS4omOCpHXCImOjylPJ5JjbREMGLyIqJ93bFvF
-	P+EYbuM2VqvXxZ4IOArxC4lqY9XyttovDr1gZhM3unYXa+6+F8xFS11oIXOBjFZIcE0aUp/tLP0Ow
-	rt7CoY8ZlZ+uywPHBuKSNA5Jp5McrKps1KKhvQ9xTs+6MknpS0EKG8LHy3ovct6A7hIqtmkD4VBO2
-	qiDcoXdp1BqOEcXs1kWj7z0t+ZfHAaBbnvULvlzr7X+dS5NICGKaDRZSInQK5ezWPzWBaJby8auG4
-	rMwBTTeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Fr6WeyZngKjkJ5+vVtCZO61j1ruKlxiA/dfdiEwKXnQ=; b=b56fWsLma4vnEzXwbqfVRYtTsW
+	cjJYUVu7yPhmF8SPIOeJwtV2dt0UgG5+kWKMQyD3eSKPhAybOqlpnaESakPBQ3rhZ17K3vaaXAYP2
+	BTOVt/iKJcxna3vDt6uhqj5zZRMYCJ2d5m9iiD2bCJHQ9H5hzPzKmzgWNfIGUmGHWt9t2fLtSx6t+
+	VApqAjUHH1t81hFnpkgfHiLhMW05MLRPHTdVpe2T/T5WAiU6Ciyc0+fWosSrv9X5rVNLNt7HmrFih
+	BfYQDcmsQGJTFEY5CLpK1xVsI0RJFw+Mp7Umagj87wtNpwN7MO1fSLrQyQBmQXS/aIL18x+RAlIzI
+	DFrV9vBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usjP2-0000000AImF-3ORv;
-	Sun, 31 Aug 2025 14:51:32 +0000
-Received: from chumsalmon.baetis.net ([2001:19f0:5:5b58:5400:5ff:fe17:97e8])
+	id 1usjaE-0000000AK0f-3hxl;
+	Sun, 31 Aug 2025 15:03:06 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usjMI-0000000AIcQ-2jtD;
-	Sun, 31 Aug 2025 14:48:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=tahomasoft.com;
-	s=default; t=1756651720;
-	bh=yjP8Q67gJ8paeMTc0Y4T9nY+2o85Zvxpki0vD4SYeOk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=fWf9ipaq00vZUxq/dTf2JtUZL10xEi1Y+KpE+y1VHQyODXE2Y+fzvb+ML9Xi2Bjrp
-	 l1E48TJYZc+tfp7pyL8pL/x4ict/9uLUT8n73SHugBA5II3sSYR2nLuu82UoeE2REs
-	 iPpDyjX++d+r7iJLrm+Y1DJsTxDIEgtox5MuHsvggotH9CKdx6qKgnTHN5TuMe6x7A
-	 d7x2CPSqSoazj+jJIjbR+HmO4yoP06KONwTeg1MMBovuwqxfIPfkmOCqZcqj5RY2zu
-	 vN7jGth3kexhm5aNok/9gkAohriJBghqo+Ll3IoB2iWc6Hyj3KAby5dE+2bkCR6WjE
-	 82/why8OE8naQ==
-Received: from WahpenayoPeak.tahoma.link (unknown [IPv6:2600:4040:50be:5a04:7b87:89ea:8410:bae3])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by chumsalmon.baetis.net (Postfix) with ESMTPSA id 21D4427E468;
-	Sun, 31 Aug 2025 14:48:40 +0000 (UTC)
-Date: Sun, 31 Aug 2025 10:48:39 -0400
-From: Erik Beck <xunil@tahomasoft.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Chukun Pan <amadeus@jmu.edu.cn>, Heiko Stuebner <heiko@sntech.de>, Rob
- Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org
-Subject: Re: [PATCH 3/4] arm64: dts: rockchip: Add HINLINK H68K
-Message-ID: <20250831104839.7b71f2fc.xunil@tahomasoft.com>
-In-Reply-To: <5285B176-5178-4F6F-8FB6-B898AC0EC939@tahomasoft.com>
-References: <021c2e76-cbde-4a2e-a165-a61223cdff93@lunn.ch>
-	<5285B176-5178-4F6F-8FB6-B898AC0EC939@tahomasoft.com>
-Organization: Tahoma Soft
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
+	id 1usjXT-0000000AJhS-1tTG;
+	Sun, 31 Aug 2025 15:00:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=Fr6WeyZngKjkJ5+vVtCZO61j1ruKlxiA/dfdiEwKXnQ=; b=LfMXg7NI+LMPnZfVWumdDKjTyJ
+	0uX6YKgMouWgKkBiHu6f+kxKivGn9BwAMdUyKqPq4yCbL/qgdjLvWsXMEwCdRuvwyXhaYysFpgmzs
+	kyxCUbdhxD8IvEaKjipla6gnREgCpzdQiit83mftQoPsBM0H8z8NfyLuSw5yUbG0EOwd03aTElKA0
+	eV/5b1XpLlAM3X5/+0E2vrey41ZB0Mel1vM3R9aZtvQL5hDS3qGOzWChpTL80SfNJbffKz2vgowZK
+	XC2bPf/Qk3F6s91Ir5dkICdjdvAUYhuwdDF3YZ2V36gPCD4Dl67f8wdKgzLNEDcO/6Vb2vdiHlMmo
+	x5MDfHJA==;
+Received: from i53875b56.versanet.de ([83.135.91.86] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1usjXF-0007mn-4M; Sun, 31 Aug 2025 17:00:01 +0200
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: robh@kernel.org, WeiHao Li <cn.liweihao@gmail.com>
+Cc: hjc@rock-chips.com, andy.yan@rock-chips.com, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-clk@vger.kernel.org, WeiHao Li <cn.liweihao@gmail.com>
+Subject: Re: [PATCH v1 3/7] dt-bindings: clock: rk3368: Add SCLK_MIPIDSI_24M
+Date: Sun, 31 Aug 2025 17:00:00 +0200
+Message-ID: <2235041.irdbgypaU6@diego>
+In-Reply-To: <20250831104855.45883-4-cn.liweihao@gmail.com>
+References: <20250831104855.45883-1-cn.liweihao@gmail.com>
+ <20250831104855.45883-4-cn.liweihao@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250831_074842_851006_44D60F31 
-X-CRM114-Status: GOOD (  14.82  )
+X-CRM114-CacheID: sfid-20250831_080015_513558_A6A9D387 
+X-CRM114-Status: GOOD (  13.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,59 +71,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 30 Aug 2025 18:21:18 -0400
-Erik Beck <xunil@tahomasoft.com> wrote:
-
-> > On Aug 30, 2025, at 17:38, Andrew Lunn <andrew@lunn.ch> wrote:
-> >=20
-> > =EF=BB=BF =20
-> >>  =20
-> >>> +&gmac0 {
-> >>> +    assigned-clocks =3D <&cru SCLK_GMAC0_RX_TX>, <&cru SCLK_GMAC0>;
-> >>> +    assigned-clock-parents =3D <&cru SCLK_GMAC0_RGMII_SPEED>;
-> >>> +    assigned-clock-rates =3D <0>, <125000000>;
-> >>> +    clock_in_out =3D "output";
-> >>> +    phy-handle =3D <&rgmii_phy0>;
-> >>> +    phy-mode =3D "rgmii-id"; =20
-> >>=20
-> >> Please change phy-mode here to "rgmii". This change will yield an
-> >> ethernet speed throughput change of a factor of 100+. =20
-> >=20
-> > Rockchip by default do bad things with RGMII delays.
-> >=20
-> >  tx_delay:
-> >    description: Delay value for TXD timing.
-> >    $ref: /schemas/types.yaml#/definitions/uint32
-> >    minimum: 0
-> >    maximum: 0x7F
-> >    default: 0x30
-> >=20
-> >  rx_delay:
-> >    description: Delay value for RXD timing.
-> >    $ref: /schemas/types.yaml#/definitions/uint32
-> >    minimum: 0
-> >    maximum: 0x7F
-> >    default: 0x10
-> >=20
-> > Try setting both of these to 0. And then use 'rgmii-id'.
-> >=20
-> >    Andrew =20
-Setting both gmac0 and gmac1 to phy-mode=3Drgmii-id with tx/rx delay set to
-<0x0> yields about a 7x improvement from ~6 Mbs (with phy-mode=3Drgmii-id a=
-nd
-tx/rx delay unset) to about 43 Mbps, which is still well below the ~950 Mbs
-with phy-mode=3Drgmii and tx/rx delay unset.
-
-Regards,
-
-Erik
-
+Hi,
+Am Sonntag, 31. August 2025, 12:48:51 Mitteleurop=C3=A4ische Sommerzeit sch=
+rieb WeiHao Li:
+> Add a clock id for mipi dsi reference clock, mipi dsi node used it.
 >=20
-> Thank you!
-> >=20
-> > _______________________________________________
-> > Linux-rockchip mailing list
-> > Linux-rockchip@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-rockchip =20
+> Signed-off-by: WeiHao Li <cn.liweihao@gmail.com>
+
+you missed a number of devicetree maintainers, Rob thankfully does
+not need to do this on his own anymore.
+
+so please get the appropriate list of maintainers via scripts/get_maintaine=
+r.pl
+
+Change itself looks fine though.
+
+Heiko
+
+> ---
+>  include/dt-bindings/clock/rk3368-cru.h | 1 +
+>  1 file changed, 1 insertion(+)
+>=20
+> diff --git a/include/dt-bindings/clock/rk3368-cru.h b/include/dt-bindings=
+/clock/rk3368-cru.h
+> index ebae3cbf8..b951e2906 100644
+> --- a/include/dt-bindings/clock/rk3368-cru.h
+> +++ b/include/dt-bindings/clock/rk3368-cru.h
+> @@ -72,6 +72,7 @@
+>  #define SCLK_SFC		126
+>  #define SCLK_MAC		127
+>  #define SCLK_MACREF_OUT		128
+> +#define SCLK_MIPIDSI_24M	129
+>  #define SCLK_TIMER10		133
+>  #define SCLK_TIMER11		134
+>  #define SCLK_TIMER12		135
+>=20
+
+
+
 
 
