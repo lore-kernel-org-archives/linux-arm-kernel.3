@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98163CA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 13:33:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4140BCA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 13:36:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mD6lZo1DYlhz45rUzy85fH782HipOjBn1uPVn9HDDvM=; b=ow9XUbGMy7Wk1bbfrQZaUmHCs3
-	eYqT/74PnVZ73LDPFVaN03PRxxQNUgjj7HyHUNuFdqKO6lEfcww8GznNd1ZBbDH+VH6PJhWX/5rKs
-	W7QX8k5e/JNCAeCCUjdHifqC4bx/5yV3EwXFrOr5T9Gp343bmREJP7Xgz3OXSxBfuTJdszPdL2XEf
-	BvOmAelmDPOtECinOND4OjmWj4IH0uP40mOcHGHEprgjq1QwcJbUcPpa2ZOma8FsrAaFyYdIDIf3f
-	2ZFFuoal4z6RzuCJmb1LcnUZdg9CaqWcP2jkbYav2aul78PQSZaEbMWgSH+NMMeE9jmUy1RAJrQKs
-	IqxsXqUA==;
+	bh=VUsiiWH7g4d6FEVfKTRPbe3R6ugJoOhF5bsWtOAIO6k=; b=GHwtpW1qNLh+Y1B1Lw1cJk0p9/
+	hqv46/TAMMrMe5/B/aDaqE/VV/5fugBegRacWJ/dj08SiCq8k6Zi59Ao44x3/gHrQ8tqCMyHOdnHQ
+	mohiZPRgt9ifgb65gfrSOY+TVLuJ5SuhNscVFJotjU9i4p8BlneVjVvY54MgS2b6OP1C6DqIubULe
+	hWAQW2XXcljcMGJiRFd4E6itzSL2sydGMhrhfDxtlAs+hVYKxSAOIufB9wah67tVSC85xE7i9IgFV
+	PEj/Dwy0FXZ2t/kCG6rsi5zajiLgcEvAxji7agbfmuIi6ClBtHeFFDdZN863JleW5K28dFOiHZh9f
+	5XcZreJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usiBq-0000000AEXS-1FT4;
-	Sun, 31 Aug 2025 13:33:50 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1usiEU-0000000AEg3-08F0;
+	Sun, 31 Aug 2025 13:36:34 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usi6R-0000000AE5l-09nB
+	id 1usi6T-0000000AE6N-1WMA
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 Aug 2025 13:28:16 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3cbb5e7f5aaso499387f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 Aug 2025 06:28:14 -0700 (PDT)
+	Sun, 31 Aug 2025 13:28:18 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-45b76f3b24eso3885635e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 Aug 2025 06:28:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756646893; x=1757251693; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1756646896; x=1757251696; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=mD6lZo1DYlhz45rUzy85fH782HipOjBn1uPVn9HDDvM=;
-        b=jenwx3MvaqTKdGEAcIdHgFIMhofvgY2DgQ4IiI8/dzEF/MVzX2QU4m1DEch36heuyZ
-         MJmT41NCO037o7vEThW4Ns4ePTlhb9mp0EGhP7DEq53l7449Y0Ju6uGizup8u/ZvaJnh
-         zkJG5LoznF+IzbCQrj2XdJU3dgDDB8bSo+2iKWifpX410Tj0lIXXmjjk5iK/CI7YGYgn
-         6025W58XSfMoQBisZzK1cg/qsR7csNg3O9Ri6EmMjHwJWtcpl0JK4TkzNuDVYPP/V53X
-         kBlvxtoD3MRTk37Y7VaIesQG6D/xZ82yUBpoCH6eztOFmA5xEhKA4gDpLOiRlVOL7E4r
-         J0ag==
+        bh=VUsiiWH7g4d6FEVfKTRPbe3R6ugJoOhF5bsWtOAIO6k=;
+        b=WHkvpKiT5TwHG1NhBj+zIFOPXaC52/GNS2G8kdZJG4on+F1uqc2/ubWrPlpIdqh4E1
+         j/nrnen5/3DFL6XOQRBD7Tb+psJcgUpPRmzlubYQ+UOP82fIKt4TQ5jrLikoTKA0QVUP
+         mz4z7NnKJwcRGitVq8DD57AjCGFxic1wOTBg/DCItIFy5cdZ8vuQ9voSHmFN/Xit8G+L
+         xlpg1HghbJR5Tqq5zNOM9q0ub472ZNYqZnEjCwBB9no1oaWjIkpdLPtWAd8O5GLzaOce
+         exl/mK2fcQhr5UckEJzjXGY82WSZ+tnfnyygKrxZq6VN4a7PLeoAvqBfk0PJP1MXt+M8
+         pSXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756646893; x=1757251693;
+        d=1e100.net; s=20230601; t=1756646896; x=1757251696;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=mD6lZo1DYlhz45rUzy85fH782HipOjBn1uPVn9HDDvM=;
-        b=gmQCHcgrnvCwSBPamfB1teGmr6Sc4Eo3W1aPizASCOPt9TXCQekxWY9HYPXarvXe5a
-         EY6UPJV4Q30mkQbQs6NCdIUocCxIhPQOZsZpZf/rZJ75Wp6UEncP1dxnOl3TLYslf9Aa
-         I+YH2VDT31giwRe3M44UsM8a/WG0DWGaKpfijuhtgkU1Zn8tMwuqRImqvfDmVd8prauW
-         LwrtR01x54O+fQNXXRqy56pHGpWtSLDDMUWc03On0fPVrToJEZBANHVkk5QNZBjgaaMe
-         C7PRZS5bBhQyFtzFPAGSPkudjchc7LvYWK0w3ZyzMhibCz6RTucViG7ConNH6MfFxrK7
-         /SUw==
-X-Forwarded-Encrypted: i=1; AJvYcCU3ZEmCR99eSE/40jAa+GaDyCk9coNXKXYEeOfYyStD+VdHusrz45A6yEfWQ/spknrZKP3qDeO6Re81et+iOG1e@lists.infradead.org
-X-Gm-Message-State: AOJu0YwokmQGvC/m3dILMkQgUbKENZ9b4/72uO7J1Nzrv1s4JhzFlC+P
-	qJkzkNMTmhfDmeDE2kmdHzU6wklsjHPawWNujSvPhmltxKelwDhWrTZjNRSail0p8EM=
-X-Gm-Gg: ASbGncv654ysXvzoV0zm9T/xAK3+PUDsLqq5kCW+8jzJ6nHjVIUyMyURPh24nsWRK3j
-	Sy9UiF53L6aEicNOaZHbJSX2rAGGhXbKYjnz8mh0JcjHGyQ9z0mrP11SQf9pr2Exf8Jn5RhhboE
-	vg5idRkh7wcN9TsRKqtjqm7Y3xjmhhoE58XVV6NdBfDSKkwRpdbseFbjQJTmMPIBTJiPQIQRYf3
-	NpV0qk+iXOqXE0EVk99Ne4BfqndiGRKG/iZSLe30XHFAhmfcz2kMyolgGWwEllUvDN+4jKsu1U1
-	miGFA9q/fKHmQh7KCU/5VKH1qXWnJsdBkK18rUorzr10YTKiSI6lQt3gXd1ANzO/9ZXfG7AF2NG
-	43/OSMqniEGhm3H4aW6sYR/+agIBc0SidbvZSeYBAbVvfoJ7Mxw==
-X-Google-Smtp-Source: AGHT+IENOgSWDvrR5me5DMoY53wRwsPVCOq3Mq4OdX9AjWmXw0wgs5GSbqe1NiXMSDlX3rSsquKhHQ==
-X-Received: by 2002:a05:600c:4e0f:b0:458:b6b9:6df5 with SMTP id 5b1f17b1804b1-45b81eb0a80mr30834275e9.1.1756646893387;
-        Sun, 31 Aug 2025 06:28:13 -0700 (PDT)
+        bh=VUsiiWH7g4d6FEVfKTRPbe3R6ugJoOhF5bsWtOAIO6k=;
+        b=SGPGVSWogRI72zgiI3KkzSra/gasveEMezqnK3a6yim7PKJgDkSc2t1Ee93YvYH0C8
+         eybkOCLz/T5Ci4cfui6G8V5F29+WhTbXQc6jif++wxG8pG6BZGtGBXTnbvvrDyd9VBVx
+         8U0lDjr1z3AJWZgr2Fk74hvcqN0WKosCyvEdzymKKVnuoqSn4b//7/txjLnz7GgwqF4a
+         E+Sa8osEXCtZvdWjfA4aOIEIbfhsBrOcXrgvHSEYcM5LVuVuO5I9hxJN7Ocj9Nl4WTQB
+         ncTYCw0O2TuhXcLmUPCq6kK5f+qckClgylCiwuN6GTvbcYxOmx0v9bLVl/ThpxiG5XUZ
+         d/Tw==
+X-Forwarded-Encrypted: i=1; AJvYcCWOu+HeDiDNdECpp46NfKI06AWyPHG6MNkl+Kl84Zf5wEV2C5KkzUMybCyHjwWdnk6b5AvWD6Z+vvUfMcjqRwhC@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfczmMX2yZBo0WAmXaSvyXDT9jFpw/IVBj2mbI9BKb30OkKkSg
+	noblWgk24F+mmXQ1VF2/ED13zNU+od0rOeUdjt9FTGiUa0J9d621JXo75u2lTen411E=
+X-Gm-Gg: ASbGnctmOT0oe+M6TNkp+WxiSVGMGZZbO6mHp4mELRevRcKF+6LTugDzBOe6ljmPFau
+	wteU0QToaxJ276LtwR5OtXc7F53zaFeFQ4YqbmGJBudoXTSuOMxh4ASYiwetqx7BE2PjSdzeMvl
+	FV9vfZnp2TyPGAxlx6oh1C1q1oWuF2XPBXy7mgB+L4bxwvl1fulJ1egF5mCyfTBLNg1TlSmJY9z
+	rYr/+9DO2j+AE9RHEjnevpxRpIDSftFcQs7EjYnKCmU/AkvFaU8xPSl+FQ8kWCzLJx5LZ0XMvoX
+	W+ay2S9nM1pjQZrtlrCoM4TwPkHERqzVBi5m6aEfzMgs9ah6t1gmxh+OPgtGcD6CZJlc4foFP2y
+	TYe5bQ9vc5oV5zNVkIPXxYf7B+MBLc+Ct2iMjf30e5ohL4WH/QQ==
+X-Google-Smtp-Source: AGHT+IHuGuVHHk5pZhTIqaJ6T0pRMpVLKOi+qYDhard/uCHRhDaK8a/HDroJFFPgp6qQQ0xTGeYLmw==
+X-Received: by 2002:a05:600c:6385:b0:451:dee4:cd07 with SMTP id 5b1f17b1804b1-45b81e23616mr32007925e9.0.1756646895694;
+        Sun, 31 Aug 2025 06:28:15 -0700 (PDT)
 Received: from [127.0.1.1] ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b87b3900dsm29956925e9.0.2025.08.31.06.28.11
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b87b3900dsm29956925e9.0.2025.08.31.06.28.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 31 Aug 2025 06:28:12 -0700 (PDT)
+        Sun, 31 Aug 2025 06:28:15 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 To: jesper.nilsson@axis.com, mturquette@baylibre.com, sboyd@kernel.org, 
  robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, krzk@kernel.org, 
@@ -83,22 +83,23 @@ Cc: ksk4725@coasia.com, kenkim@coasia.com, pjsin865@coasia.com,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-samsung-soc@vger.kernel.org, linux-arm-kernel@axis.com, 
  linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-gpio@vger.kernel.org, soc@lists.linux.dev
-In-Reply-To: <20250825114436.46882-3-ravi.patel@samsung.com>
+ linux-gpio@vger.kernel.org, soc@lists.linux.dev, 
+ Varada Pavani <v.pavani@samsung.com>
+In-Reply-To: <20250825114436.46882-4-ravi.patel@samsung.com>
 References: <20250825114436.46882-1-ravi.patel@samsung.com>
- <CGME20250825120704epcas5p37385c913027d74d221012c4ae1550c73@epcas5p3.samsung.com>
- <20250825114436.46882-3-ravi.patel@samsung.com>
-Subject: Re: (subset) [PATCH v3 02/10] clk: samsung: Add clock PLL support
- for ARTPEC-8 SoC
-Message-Id: <175664689125.195158.15680456692339310248.b4-ty@linaro.org>
-Date: Sun, 31 Aug 2025 15:28:11 +0200
+ <CGME20250825120710epcas5p421c3c8169019599e76f782bb7086e0e1@epcas5p4.samsung.com>
+ <20250825114436.46882-4-ravi.patel@samsung.com>
+Subject: Re: (subset) [PATCH v3 03/10] clk: samsung: artpec-8: Add initial
+ clock support for ARTPEC-8 SoC
+Message-Id: <175664689350.195158.6648344469963977673.b4-ty@linaro.org>
+Date: Sun, 31 Aug 2025 15:28:13 +0200
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250831_062815_080662_C5C2BC26 
-X-CRM114-Status: UNSURE (   7.01  )
+X-CRM114-CacheID: sfid-20250831_062817_407318_9FF4022F 
+X-CRM114-Status: UNSURE (   7.76  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -115,21 +116,26 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 25 Aug 2025 17:14:28 +0530, Ravi Patel wrote:
-> Add below clock PLL support for Axis ARTPEC-8 SoC platform:
-> - pll_1017x: Integer PLL with mid frequency FVCO (950 to 2400 MHz)
->              This is used in ARTPEC-8 SoC for shared PLL
+On Mon, 25 Aug 2025 17:14:29 +0530, Ravi Patel wrote:
+> Add initial clock support for Axis ARTPEC-8 SoC which is required
+> for enabling basic clock management.
 > 
-> - pll_1031x: Integer/Fractional PLL with mid frequency FVCO
->              (600 to 1200 MHz)
->              This is used in ARTPEC-8 SoC for Audio PLL
+> Add clock support for below CMU (Clock Management Unit) blocks
+> in ARTPEC-8 SoC:
+>  - CMU_CMU
+>  - CMU_BUS
+>  - CMU_CORE
+>  - CMU_CPUCL
+>  - CMU_FSYS
+>  - CMU_IMEM
+>  - CMU_PERI
 > 
 > [...]
 
 Applied, thanks!
 
-[02/10] clk: samsung: Add clock PLL support for ARTPEC-8 SoC
-        https://git.kernel.org/krzk/linux/c/80770fccb7f60b0bc795852c154273e511f296a0
+[03/10] clk: samsung: artpec-8: Add initial clock support for ARTPEC-8 SoC
+        https://git.kernel.org/krzk/linux/c/bd5336e3f7040f300b01702215b45e6267a400cc
 
 Best regards,
 -- 
