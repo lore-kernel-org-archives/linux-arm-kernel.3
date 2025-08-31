@@ -4,101 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECACACA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 12:27:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DBE8CA0FE8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 12:29:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PDmfIIxvbccs+VTC9JbCAL+D/6aBtsGaiV5H5qK73Vc=; b=SRIGubGsRIX9AWmVf/tL/tPi1q
-	dOKtvEEmgefN93RWwcFCCNU4CuYvn0D8t8PIh8CUH/Onc/lL3Rrt3aO86nQVlz5nECBKDhdBntkCX
-	2dhcscYPd/AnEBSQPuCfolrsNYMqk5rbbHoWy4cqPs/AedV527xttN8GnNrGgrs6ypxuJRiFJ0kh2
-	tr5EPGF6oR2hAqLw5hfBjA9JkuX+ml2jSSBgI9TDuhfg/IhhVp72xBVLJL1CXhtzyjMqAG00jYfTx
-	7AXu2fdAwSVcsQmayiPZ6xE/oLLVQIPPKPharD0SC+f63bD0j+dMs+yz40izp55OQFDsrcotabKT8
-	6s/iaQZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tbdz/rnk5XYs1sNxhaGSOYuYNRBLnymKQPJwzl9yArs=; b=Qm1bg5DG6eNCkn3YjCzh7f/TgL
+	3BlmxLFFa2J6IYR/G65hzK/co7Fa5md4ryg0p8xU7Tn+RPE9OD0VNmWvKHy5lS6PVtcL8aEJxNzcV
+	mk1tr8B7SlR44b8kdYWO9zA0rnu92wPA2ecbElRMsooa6gdh+3A7adKLvotmqedoMtSYOttUe2Tuu
+	0ztOjqYecYT0C60g6fxviaNVcPgqan3Gip0ruzW5okz7Yzfvz+tb2cY475Eyr29PZ7Pg22YEL7c0m
+	Efv7JPBFP4+byxgMcpnLGU5i7etbvR4mxdZOZGsx2tqi3gAqfScZcQVDYx9Vg/IuHYVWB79T/ZTzw
+	+ff22VGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ush9D-0000000A9ot-2RDx;
-	Sun, 31 Aug 2025 12:27:03 +0000
-Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
+	id 1ushBr-0000000A9yb-1Ujr;
+	Sun, 31 Aug 2025 12:29:47 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usgvv-0000000A8m8-29UW
+	id 1ush4m-0000000A9Ui-2j8t
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 Aug 2025 12:13:20 +0000
-Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-7f8ea864d68so332513985a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 Aug 2025 05:13:19 -0700 (PDT)
+	Sun, 31 Aug 2025 12:22:29 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3d323be1617so114030f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 Aug 2025 05:22:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756642397; x=1757247197; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=PDmfIIxvbccs+VTC9JbCAL+D/6aBtsGaiV5H5qK73Vc=;
-        b=OHLnT+TCypQ6hZq1d0oLCoKIfdSETtO7wF5fB7cADMtRz/QWGE3tggB9RUjqC8skxc
-         yh47vVXBP4hrqAsdLdlGr/H16Os3ffQX+v0ApbEO5LNAc74WeD5ruVjupMNFKP3a4iIT
-         N3ba+T0zCYAuKN72dDZV2HpFj54pcVnvFuP7bgL3fWFr44zfgf8U1RCpsewXv3CyOmlX
-         LHAl0tP0KD8ODgJC09Fn+vwG20L+5MnOzdtFifpuEWDElnrI0Hz+DGJA3kSUV6+PgtZk
-         LxFKtsVRUMMNhUdOHBxiiLd4Mgr5D/Ki1uARQSA72iSdLXe+Jm/pEHxO2ci35CWo2tBc
-         p1Fg==
+        d=linaro.org; s=google; t=1756642947; x=1757247747; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=tbdz/rnk5XYs1sNxhaGSOYuYNRBLnymKQPJwzl9yArs=;
+        b=TttSm7AVqrDWNkgXQgXaKQqqZgjiJw7zS/jKtidInmyaIvF4YeLqOTOZUWbITRxuZl
+         0q48fi43cCcN8byZunDGu3IaPhTPMd7q5U0eSbdlZ4jFRJUh5kZRqxRERmO0Io3QxhEG
+         AtrroG4NSE2/FxyG4tEjvu/xKVn/Cwu7/+qkoidtIOTiTkDTpT7sOS7pXOoNnllv/87l
+         o4Fy8ScAlQxP9BAZ2KvtFLP5F3RQ1CIav227lKToquvj/ZEEIyb56fl6tlzTE3lgcXkf
+         Br4uGsQeTdQQNEBcKr5l72A3ijhPLExO/Pr7xIRnOWi4/D/4pGBelw+GRseZCFWfoTWi
+         k2lQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756642397; x=1757247197;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=PDmfIIxvbccs+VTC9JbCAL+D/6aBtsGaiV5H5qK73Vc=;
-        b=SeyLH6+CSqWnWQvLkqpUDIjRDj4lDa/n9vY6KrO/u+3NvDGj3Z+3rp/d1ORNAd3KXo
-         TG1D0AglBngsvW0kj9B1OYJ9p69wuL8cnpFKMIHa39n/qA9fkKrzB/9PmpIZ20bEw7Tx
-         o8epyEcl2WCp1m92K6vBZqoSzyrbg/on6g9cp8Q0OZ9H5gS6NfVCrkcUV2vCpkPgs9jY
-         RwdOOKRgpCR53NK3BpPAGOOCG27QfxeLPs/aR3XhxbXzfoMvg+QTydpI3J1r0zO7wbSA
-         PCmfFiNQuyg+0Ipp9y2DOAk2Za/e40NHqtMmfq65rK242ZpPovW96fnD4nY66W+95/3S
-         8J9A==
-X-Forwarded-Encrypted: i=1; AJvYcCUwJOxJaPppA8sBJLQzFX/TaHBWbt1YDNIZci2PO7w9KsFN/YtEM+Qa8qLqrHAaYoGbMClzh4YpqW+5N0UfM50P@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxh/R6+aOh8NT+PGaap03a8Yks2mrXpF9Mo622hO5Yj9LF2Y0+0
-	FI+kircBwZoJKbDDo4MhTJPw3NmSpHsAD6bAT7tEd16kvanzBTMrinlCQZn6eCIBaF0=
-X-Gm-Gg: ASbGncuiYaNc6hbDaZNlcMHWSgyKeowUeMGKzpAg8695WpKr+uJhp73t/YjSN31MTta
-	OJOl3o9UkhflUzfeOfWmK+dtwlSiImboCnTRnwAYPn1X13VDNBGaWXCidEmOrnKfEEBJHFYkq9q
-	4s0dAu4ZzR3ZLGn94/vLThCpcjIVVYuER3x3dz+KcMMzg6MsxfTTVV/i4hFdYRg+GpWb4Q0DV2T
-	2r//Lg0BUQ95IdJ9zTmfApv5BwEXqvEg7tv73RQ1z9KxeYjBOeNIZ1KX0dQj4W7qzefpevHQMWD
-	rho0uprlmBj2sF3Mbo4Ubq/i2Vr+sXTU8ILsSKecWS4T5tFX7XdvC+ocuu7apOWsJY2hUrZEDlM
-	BvV+Dlg7vQZiGgpH3zh4fhzAKe03xiss=
-X-Google-Smtp-Source: AGHT+IEfAh2UbkwIQ39wtorHVguSuFgrNsM8OO8yQro++Hj3XAfs/mNEBkj0O/3oJVq6SgUMzK0njw==
-X-Received: by 2002:a05:620a:17a8:b0:801:3834:f643 with SMTP id af79cd13be357-8013834f6c4mr197407185a.57.1756642397105;
-        Sun, 31 Aug 2025 05:13:17 -0700 (PDT)
-Received: from [127.0.0.1] ([135.237.130.227])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-70fb289f518sm21163776d6.56.2025.08.31.05.13.16
+        d=1e100.net; s=20230601; t=1756642947; x=1757247747;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=tbdz/rnk5XYs1sNxhaGSOYuYNRBLnymKQPJwzl9yArs=;
+        b=bzuHGtSrHWU21JivRr8F/PPEk9zhRUPjRf2Xj3hr+VuJN6ZxkbdVv9tnO04NHSa9Ni
+         PtyPDylNLE0tdENu0UFzgcUST2lppePK4FFOVBxBJNYF9RkKgR0eaCwIaUjCwJ4KqVKT
+         J8peWz4gf3dJk+D/34Z1ggCj5THEiuLRBeAxXOoUciRJbS1HzZhbIdziy/fKUw/UtqeV
+         Q+00qM7x9hqLyMi+scdXVr8ToZDAx36YtFyQTp7bEPdcBYjs3bbn/DhbZa6mqvQBtB0t
+         pC0EyAk1LagExGSz4n6baJv+5I21OkT86Zio3FrD7K2JLijgVZ4DEyMj9Yy0czU5iX10
+         2+6w==
+X-Forwarded-Encrypted: i=1; AJvYcCWfRaB7Sd8QMp/aXTyjh6fW0HwY/a1k726HQKhDlmzTKpjN7DTztBQAU3fIGJ1SQm5oMY26t4SrS/qsjQoKoxVl@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9thMKjoYF1uHK8SVBfghkrk2AEx8Kv+jldsAdxl2sN307Qeh/
+	XCl0E9JSzd8II/tVNIm1MJzvTWuOUx6cDEqwbk+bvFyqfzm2hkQ4U0gMRTVGaH+fhCY=
+X-Gm-Gg: ASbGncv/BHM64oz+Cm2mXdt9qHiAnjSwXMq8lfrMOyNNzF/Ry71k2dI74sQrTw3AMIb
+	1NScqvSDvJa3lXO6EfFm45O+cagn7loDzjz4nWEozKRXzcKyep6lT01vV9YZPuL7g1vpW1pv23U
+	hJIvWPAWUC7qQADjDk+IOcfIwGEC/ydjzc9d4nVqSl6aqmcmSW+0VwnGzTDYOJCn6NyTsNP19Z1
+	fo2lhrRg0HVRwr4X3nAJExu/YLGmTJONWBRhoDLZN/CkUfH5szq01yW7QPCZBLH0y8d+joUwtxV
+	Oq+3PrLisaX2MrklMQp5rBWC2DbABwC8z9yXWKWE5WExe1z9A47keSlxzQUhZ81uOAw15IyhIj8
+	RiRf3Pj/hhnQq+BQJMWD7Yodl+yTaL71Giw==
+X-Google-Smtp-Source: AGHT+IE/b5iJsNRkZ58Htd00eUR1h8c49rg/ihy2xqZajld0Xwde0K/MZR/16orZ6YWVgu6EdslHzg==
+X-Received: by 2002:a05:600c:4fd5:b0:454:aac0:ce1e with SMTP id 5b1f17b1804b1-45b802c5548mr31769935e9.4.1756642947010;
+        Sun, 31 Aug 2025 05:22:27 -0700 (PDT)
+Received: from kuoka.. ([178.197.219.123])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b6f0c6b99sm194866225e9.4.2025.08.31.05.22.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 31 Aug 2025 05:13:16 -0700 (PDT)
-From: Denzeel Oliva <wachiturroxd150@gmail.com>
-Date: Sun, 31 Aug 2025 12:13:15 +0000
-Subject: [PATCH v2 2/3] clk: samsung: exynos990: Add LHS_ACEL gate clock
- for HSI0 and update CLK_NR_TOP
+        Sun, 31 Aug 2025 05:22:26 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Alan Stern <stern@rowland.harvard.edu>,
+	linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v2 1/2] usb: ohci: s3c2410: Drop support for S3C2410 systems
+Date: Sun, 31 Aug 2025 14:22:23 +0200
+Message-ID: <20250831122222.50332-3-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250831-usb-v2-2-00b9c0559733@gmail.com>
-References: <20250831-usb-v2-0-00b9c0559733@gmail.com>
-In-Reply-To: <20250831-usb-v2-0-00b9c0559733@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Denzeel Oliva <wachiturroxd150@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756642395; l=1601;
- i=wachiturroxd150@gmail.com; s=20250831; h=from:subject:message-id;
- bh=Pu/jnxs8vnoSEdVAdFl2BrrhE0Ef1+tymfgD1ZqCFYw=;
- b=zy4l1QKfCVLor0PXgeTtwdg6HleS57KspRKQ3hEkCQh3sSRZ3FxdOdhzXAlNXihshzq9NUphb
- hT0ddS/LwMiD3UzURxrl/9WIm5dZC3ETlNQpi+dOY9F9XKE1z3XG1Zi
-X-Developer-Key: i=wachiturroxd150@gmail.com; a=ed25519;
- pk=3fZmF8+BzoNPhZuzL19/BkBXzCDwLBPlLqQYILU0U5k=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1410; i=krzysztof.kozlowski@linaro.org;
+ h=from:subject; bh=v5nyT8+tGZRsO9dAtikr+4PQWjweFrMo06731HGMRIU=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBotD5+nEPqC2MIN8fjO2Pd41yMpJ+38QYiDL69b
+ 6llNeR4wHWJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaLQ+fgAKCRDBN2bmhouD
+ 13HfEACBXdBXTLrrWqCSOgYhgpk6KYuSF8sG1d7wBgJglr/sWcza2pYYGs2qRYb4pn1VFmpkE+Q
+ 6eH4CnJgGZsf6PQmkvKnc/kf9Oy452Iw7gpLFbWkbj0oZgd1LI3hPZriTvqrN+HwIGq7Q+JuY8i
+ sYPNCHqYDXDiDDAE6R4IQhdowiPwx8VUhTA5U+RcyIqmbKuJZmOdHhe710wAsG8yTe70EnkaIiz
+ 51W5JdNTrXjlVEyGR2ucuQ0MlPAptnMVQEjJdYiXOGD9cNaLPbrE7Dt9mhI7Xy2CJlNnf3KRzxH
+ dIo6Lwf863V4no9rAersy28ZUcte3ze4gM24jjmL/oGT04VY7yB4yhHk4YbUzk1EuYCE4dhPXdJ
+ 8s6mCALIBw0SeUk5uC7+gGhug92YNekj7QcmmqO5UyjAzZAnwCZN1GMDxq5JaX3JJI9K92ypb4P
+ iYd240ThCF7IemH/v8ApKYEhBiDW6gacsyOMuaxvImcXEKIAaN02awiJvMVHUWKY3RFkvVsfFlm
+ R2/vNaAFcAnTBLLlvFvUcZzk70dvmfmMPIaYnFr/yr8AvKQVGlNojywNHqvvHMhqFBLOq9y5gSA
+ Bgl1WObRCdpuwRSKU1yTzz1Klpi5TFTlkBkkWOL0uKalgQH07Gk7vbtsFYH6b8NgnTsFD0brJFL akZAgNUk7bJsXpg==
+X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250831_051319_554570_A39FCD25 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20250831_052228_690845_9142701A 
+X-CRM114-Status: GOOD (  15.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,42 +118,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the LHS_ACEL gate clock to the HSI0 clock controller. This clock is
-critical for USB functionality and mark it as critical to keep it enabled.
+Samsung S3C24xx family of SoCs was removed the Linux kernel in the
+commit 61b7f8920b17 ("ARM: s3c: remove all s3c24xx support"), in January
+2023.  There are no in-kernel users of remaining S3C24xx compatibles.
 
-Update CLK_NR_TOP to include the new clock.
+The driver (named s3c2410) is still being used via platform code for
+S3C64xx platforms.
 
-Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
 ---
- drivers/clk/samsung/clk-exynos990.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/clk/samsung/clk-exynos990.c b/drivers/clk/samsung/clk-exynos990.c
-index 91736b15c4b4a0759419517f7b04dd0a8f38a289..7884354d612c54039289fa9b80ad08f34b9b7029 100644
---- a/drivers/clk/samsung/clk-exynos990.c
-+++ b/drivers/clk/samsung/clk-exynos990.c
-@@ -18,7 +18,7 @@
- 
- /* NOTE: Must be equal to the last clock ID increased by one */
- #define CLKS_NR_TOP (CLK_DOUT_CMU_CLK_CMUREF + 1)
--#define CLKS_NR_HSI0 (CLK_GOUT_HSI0_XIU_D_HSI0_ACLK + 1)
-+#define CLKS_NR_HSI0 (CLK_GOUT_HSI0_LHS_ACEL_D_HSI0_CLK + 1)
- #define CLKS_NR_PERIS (CLK_GOUT_PERIS_OTP_CON_TOP_OSCCLK + 1)
- 
- /* ---- CMU_TOP ------------------------------------------------------------- */
-@@ -1332,6 +1332,10 @@ static const struct samsung_gate_clock hsi0_gate_clks[] __initconst = {
- 	     "gout_hsi0_xiu_d_hsi0_aclk", "mout_hsi0_bus_user",
- 	     CLK_CON_GAT_GOUT_BLK_HSI0_UID_XIU_D_HSI0_IPCLKPORT_ACLK,
- 	     21, CLK_IGNORE_UNUSED, 0),
-+	GATE(CLK_GOUT_HSI0_LHS_ACEL_D_HSI0_CLK,
-+	     "gout_hsi0_lhs_acel_d_hsi0_clk", "mout_hsi0_bus_user",
-+	     CLK_CON_GAT_GOUT_BLK_HSI0_UID_LHS_ACEL_D_HSI0_IPCLKPORT_I_CLK,
-+	     21, CLK_IS_CRITICAL, 0),
+Changes in v2:
+1. Commit subject (Alan).
+---
+ drivers/usb/host/ohci-s3c2410.c | 8 --------
+ 1 file changed, 8 deletions(-)
+
+diff --git a/drivers/usb/host/ohci-s3c2410.c b/drivers/usb/host/ohci-s3c2410.c
+index 66d970854357..e623e24d3f8e 100644
+--- a/drivers/usb/host/ohci-s3c2410.c
++++ b/drivers/usb/host/ohci-s3c2410.c
+@@ -448,13 +448,6 @@ static const struct dev_pm_ops ohci_hcd_s3c2410_pm_ops = {
+ 	.resume		= ohci_hcd_s3c2410_drv_resume,
  };
  
- static const struct samsung_cmu_info hsi0_cmu_info __initconst = {
-
+-static const struct of_device_id ohci_hcd_s3c2410_dt_ids[] = {
+-	{ .compatible = "samsung,s3c2410-ohci" },
+-	{ /* sentinel */ }
+-};
+-
+-MODULE_DEVICE_TABLE(of, ohci_hcd_s3c2410_dt_ids);
+-
+ static struct platform_driver ohci_hcd_s3c2410_driver = {
+ 	.probe		= ohci_hcd_s3c2410_probe,
+ 	.remove		= ohci_hcd_s3c2410_remove,
+@@ -462,7 +455,6 @@ static struct platform_driver ohci_hcd_s3c2410_driver = {
+ 	.driver		= {
+ 		.name	= "s3c2410-ohci",
+ 		.pm	= &ohci_hcd_s3c2410_pm_ops,
+-		.of_match_table	= ohci_hcd_s3c2410_dt_ids,
+ 	},
+ };
+ 
 -- 
-2.50.1
+2.48.1
 
 
