@@ -4,65 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DC7ACA0FE8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 13:58:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F340CA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 14:16:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5c+0+oYE+tS7iK4TXn4hPbelEo4k0fM5Jp/KTALRgDw=; b=c6WbNfaLFDUkVmp9DCa2rS/KeL
-	N1qDGVoRbl8W1a5pZ25o2AFcvu5ZEAqWNMToQRc6JjBylmGp8x88jyGF3IYhfup0dyEUVoGRcroZs
-	hYO8yglHjXS/UWHria7Elo/JFtuZkr+B7JPJYWreg5tXC3m79xN4pjpvSaSk3JO7boosjv7HgOwwW
-	mHdH0TRzrZdrio9t5Ai8kMoEyUrFlcGkNccFPk3HabfDNVpTQmin2KfPFnkNS/HYZAZToD0fO4Yq5
-	1ctdg2r/XF2g2PLGzx9lRbOSyh0iTwIfx5sWEBqTvGaI46YavKDGcmK3Xy9pDTNBTujsM1t7pfA+v
-	SDH+eHTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cZYLdktZ4EPO06YD32v1q0DpK8GiNv05c9EBnf+HoCw=; b=EY3aV3SfjLMaQ4bqcx/YeHsLTK
+	e08tJhAc7JaaanotPlQY7B69cKqXz0w37h5sYyOaBJg9Ec0yGCW7W5kE9rWWfA+z5O/sPZzxftMAy
+	vnZz+FX4WyDy0thZx6xSkrnqn7cdCv01/8YlajqFFZ2RmBfQIBChXb9Vp0ZZxN4bPgXTPQYngxYRJ
+	4ENxMCn2acl2bYqr764lOAsh8QyWIKdAulIwN1aP/B1ZE9FhNc6S60RK/Y8cC0CVJCHziUaTWe69N
+	SFCtuH6t2mpV0PbRtlAzyKPxzYxrYnNbs3W7FrcAAMjp1Kqc8Uh7Z+xJYwSqaaSh1ySNY5JvCLc4G
+	7CtMs20Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usiZm-0000000AFfR-1YmY;
-	Sun, 31 Aug 2025 13:58:34 +0000
-Received: from chumsalmon.baetis.net ([2001:19f0:5:5b58:5400:5ff:fe17:97e8])
+	id 1usiqp-0000000AGuP-2ARp;
+	Sun, 31 Aug 2025 14:16:11 +0000
+Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usiX2-0000000AFYE-0jxL;
-	Sun, 31 Aug 2025 13:55:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=tahomasoft.com;
-	s=default; t=1756648542;
-	bh=0JG/R7bAPQm+MlZqDUVOJ+JY4WzqiuAbKuf2QpGCbFA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=D37S7zqU2/F08JIqFoIrL8DJEcIUVIgB/zPrNVJpOp5BSM2nUvb4LXkuIPWOrB2z7
-	 GESW0lUajM8e6O0kd6lP+B2T4nG9MsvkXfmzGSKDcGjvtxCPjt5A0qPe2t6IlFOsjW
-	 Tyq3lcDuJgySMWmzr4MY5ZmPlmp/WEDZCRlOmqrPQuO6flF/9L1IWbdKn7gpOL4WVr
-	 6fikEV0C85y/GSryytNG06kKqqv0/mXN4I1CFFpcuyQhfSBxaMbg7cK1TExGSbaA/9
-	 6bblqQ2A/iyL26sH4pl1XJCtE5HxCZ7q14uza8Dag5AG0hHMAfxVV6PMiwH1psrUzW
-	 1d2XiN8gzeS+Q==
-Received: from WahpenayoPeak.tahoma.link (unknown [IPv6:2600:4040:50be:5a04:7b87:89ea:8410:bae3])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by chumsalmon.baetis.net (Postfix) with ESMTPSA id 78C2D27E468;
-	Sun, 31 Aug 2025 13:55:42 +0000 (UTC)
-Date: Sun, 31 Aug 2025 09:55:41 -0400
-From: Erik Beck <xunil@tahomasoft.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Heiko Stuebner <heiko@sntech.de>, Chukun Pan <amadeus@jmu.edu.cn>, Rob
- Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org
-Subject: Re: [PATCH 0/4] arm64: dts: rockchip: Add HINLINK H66K/H68K
-Message-ID: <20250831095541.49568044.xunil@tahomasoft.com>
-In-Reply-To: <AAEEDECA-1419-487E-B018-E0590ED532D1@tahomasoft.com>
-References: <2803b3d8-332e-4ada-a28f-eeba8285b7ec@lunn.ch>
-	<AAEEDECA-1419-487E-B018-E0590ED532D1@tahomasoft.com>
-Organization: Tahoma Soft
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
+	id 1usio7-0000000AGdy-0Svw
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 31 Aug 2025 14:13:25 +0000
+Received: by mail-qk1-x735.google.com with SMTP id af79cd13be357-7e86faa158fso369458585a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 Aug 2025 07:13:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rowland.harvard.edu; s=google; t=1756649602; x=1757254402; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=cZYLdktZ4EPO06YD32v1q0DpK8GiNv05c9EBnf+HoCw=;
+        b=UNq4uf0MjoKsRAyU5IVwIU6VPtjdbLd277XD3G2QuYc+Tz/b7SgKVUV96rg/RM6CSL
+         ivdTQH+cRpUBLJx+WpArCNeQyprG3721WVJEp9rBnhbrs4GDVMSIVIL2xThXsvijQylG
+         uqo01BQVoMwPkZyO610FXVMSIyY/kpgeZzezOMe8mj+EYCu+no9Jzi5XtotnRtuugS6R
+         779vfDSC2ARCX/VUu2mbtQrSdDhysCGHlkDfNSdxUhgFhVMtIVynHT1sZZTvW4M5pD0B
+         o7SOiiWp+wpzRAk4iRCnOpWr7n76sJ6SYXRVt8nGFREOAn9R5MunhMfq+TMzva3IFBjc
+         pUkg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756649602; x=1757254402;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=cZYLdktZ4EPO06YD32v1q0DpK8GiNv05c9EBnf+HoCw=;
+        b=EUtbk0OZDbtpQivSlEPZO6vjsJ5RMgHTNhE1QQU7gm4deJAo0kZ6IUTPwQGVZW8Uek
+         P/lQB+JLMcZwO+2vd7UUfS7PwJFPIsr2QTH9HNIOMiF86r+L+fB1P+AY6cR3Jo3cU/Yn
+         UHOoFl28AiUeVGNO7GxtSywn85RU78g/2vtakJaGcZBkbVU/jlDsh8YOiVi7bL8tzTu/
+         wQ514jxfFAFZgBL8E+lCBU6WNjS+FgCWJUiSXC5K2wQOBtZbOlnZcZzs6y53iKYC4y2z
+         S0KA3yXCnehUrBoz7xcL8RA+sbBsSUXFk4zuhazasumj3A1DH47jVdL90e84wjUzzOcb
+         pUPA==
+X-Forwarded-Encrypted: i=1; AJvYcCU/u1A4GS4c8ZxvaokRDu8EPVtRp9XZRQSmvIMTnJhdh27o36Tju4WdbdJ3NTFugmvZR5Jfvs9pOYboJwdwphG+@lists.infradead.org
+X-Gm-Message-State: AOJu0YxUDk99X9KDcm2ueWmsFnH9BUoxqpR2nzdHCa7/sG0Xopjuzrvn
+	Ta9SdlTwPl6adnmcOcO+jp4v9VluRj5joXavpOFNuuMp0Ca0KO2Y/0DRkayCEI+RkA==
+X-Gm-Gg: ASbGnct6CEktWovAFsjjQS9ZpBF3MJO05UWZGnqhLWwrV/1QLRa69d2MnW/US7bCFfU
+	32MWCSskMCTEERwx+pKBvo1QRLSaco0HxFnRl3EZZXkxq83BCXYgNon8NalJ0opdlWmjBFZOGr5
+	teiKKGTbglKl7jUwFlNm8UuUW+kB9hljOgrTwl79VldJp8uinlI+Pj7Cvj5XaKEjoJhx+L1t5dP
+	/VlJBAwh7pAnOHK5HyWxOrfSrvEKAqiVKdqFlzldhQ1cQHKyks16qme+gGi0mv4iib7ZEHmMfgh
+	vMCgb7W0gXMHDvCkrhbb813bwR8WC2G++lsP4DACduuVR1C7fGHrpDM+YmM8SAKVBV4TkuaHIdf
+	I15cELml+fEqUdThRZ/gF6AdVb1zlgQ==
+X-Google-Smtp-Source: AGHT+IE8Mqej1JDZrtuPz7sl66EYUl3Vb5Z2gtzRXa0W+3TefhnO3F5sshyISi1xvDod49i2QcLnew==
+X-Received: by 2002:a05:620a:172a:b0:7ea:61e:3ce with SMTP id af79cd13be357-7ff26f9fd08mr460588985a.4.1756649601956;
+        Sun, 31 Aug 2025 07:13:21 -0700 (PDT)
+Received: from rowland.harvard.edu ([2601:19b:681:fd10::f777])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7fc1484a7a8sm512990985a.43.2025.08.31.07.13.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 31 Aug 2025 07:13:21 -0700 (PDT)
+Date: Sun, 31 Aug 2025 10:13:18 -0400
+From: Alan Stern <stern@rowland.harvard.edu>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] usb: ohci: s3c2410: Drop support for S3C2410
+ systems
+Message-ID: <188881e4-09a7-49fb-8128-ea7ee85147a2@rowland.harvard.edu>
+References: <20250831122222.50332-3-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250831122222.50332-3-krzysztof.kozlowski@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250831_065544_341878_6FFAF73E 
-X-CRM114-Status: GOOD (  20.48  )
+X-CRM114-CacheID: sfid-20250831_071323_421541_734443E6 
+X-CRM114-Status: GOOD (  23.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,54 +104,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 30 Aug 2025 18:20:50 -0400
-Erik Beck <xunil@tahomasoft.com> wrote:
+On Sun, Aug 31, 2025 at 02:22:23PM +0200, Krzysztof Kozlowski wrote:
+> Samsung S3C24xx family of SoCs was removed the Linux kernel in the
+> commit 61b7f8920b17 ("ARM: s3c: remove all s3c24xx support"), in January
+> 2023.  There are no in-kernel users of remaining S3C24xx compatibles.
+> 
+> The driver (named s3c2410) is still being used via platform code for
+> S3C64xx platforms.
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> 
+> ---
 
-> > On Aug 30, 2025, at 17:30, Andrew Lunn <andrew@lunn.ch> wrote:
-> >=20
-> > =EF=BB=BF =20
-> >>=20
-> >> As I worked on my dts, I discovered that the 1Gb ethernet ports, using=
- an
-> >> RTL8211, don't support rgmii-id mode; only rgmii.
-> >> (https://www.realtek.com/Product/Index?id=3D3976&cate_id=3D786). =20
-> >=20
-> > Which exact RTL8211 does the board use? You link to information for
-> > the RTL8211FD(I)-CG, which i assume is supported in Linux as RTL8211F. =
-=20
->=20
-> Thanks Andrew; It isn't clear to me which specific variation it has. I'll
-> take another look at the boot logs and see. The silkscreen on the chips a=
-re
-> faint, but will look there too.
+Acked-by: Alan Stern <stern@rowland.harvard.edu>
 
-dmesg reports it is an RTL8211F.
-
-> >=20
-> > https://elixir.bootlin.com/linux/v6.16.3/source/drivers/net/phy/realtek=
-/realtek_main.c#L519
-> >=20
-> > This indicates it supports all four RGMII modes. And in general, all
-> > PHY drivers in Linux for RGMII PHYs support all four RGMII modes.
-> >  =20
-> >> Changing this makes a huge difference in the ethernet throughput speed.
-> >> With rgmii-id mode specified, throughput is about 6.5 Mbs. Changing th=
-is
-> >> to rgmii mode increases throughput to about 960 Mbs. =20
-> >=20
-> > Here is some more information about that the four RGMII modes mean,
-> > and how you should use them in Linux:
-> >=20
-> > https://elixir.bootlin.com/linux/v6.16.3/source/Documentation/devicetre=
-e/bindings/net/ethernet-controller.yaml#L264
-> >=20
-> >    Andrew =20
->=20
-> Thank you!
-> >=20
-> > _______________________________________________
-> > Linux-rockchip mailing list
-> > Linux-rockchip@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-rockchip =20
-
+> Changes in v2:
+> 1. Commit subject (Alan).
+> ---
+>  drivers/usb/host/ohci-s3c2410.c | 8 --------
+>  1 file changed, 8 deletions(-)
+> 
+> diff --git a/drivers/usb/host/ohci-s3c2410.c b/drivers/usb/host/ohci-s3c2410.c
+> index 66d970854357..e623e24d3f8e 100644
+> --- a/drivers/usb/host/ohci-s3c2410.c
+> +++ b/drivers/usb/host/ohci-s3c2410.c
+> @@ -448,13 +448,6 @@ static const struct dev_pm_ops ohci_hcd_s3c2410_pm_ops = {
+>  	.resume		= ohci_hcd_s3c2410_drv_resume,
+>  };
+>  
+> -static const struct of_device_id ohci_hcd_s3c2410_dt_ids[] = {
+> -	{ .compatible = "samsung,s3c2410-ohci" },
+> -	{ /* sentinel */ }
+> -};
+> -
+> -MODULE_DEVICE_TABLE(of, ohci_hcd_s3c2410_dt_ids);
+> -
+>  static struct platform_driver ohci_hcd_s3c2410_driver = {
+>  	.probe		= ohci_hcd_s3c2410_probe,
+>  	.remove		= ohci_hcd_s3c2410_remove,
+> @@ -462,7 +455,6 @@ static struct platform_driver ohci_hcd_s3c2410_driver = {
+>  	.driver		= {
+>  		.name	= "s3c2410-ohci",
+>  		.pm	= &ohci_hcd_s3c2410_pm_ops,
+> -		.of_match_table	= ohci_hcd_s3c2410_dt_ids,
+>  	},
+>  };
+>  
+> -- 
+> 2.48.1
+> 
 
