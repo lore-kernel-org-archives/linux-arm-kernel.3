@@ -4,92 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 492D1CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 10:30:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7FDCCA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 10:43:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wlTrT8N/8QrvwfonXm3IyAKAHRQ9/e6rOitYE9NgwIo=; b=X70Q2YOqK7OJHAujVp9yFba0E9
-	jPH8aAVi8B/ySl8cEoLvBlUpG9i58P74odRvsFnac2AZC2kZ8ZEgFYXkSZQv2ZK8cZ+VTl0D5F28p
-	/LuPC99gJ8ZFjzD7qzlTjzyAeILL+/UhERgDmQ/LrrUz9ClMdXNA/XffQgOxFoHS/v88ZAbqKBBv0
-	5tw0kvAhR0kdFfIgHYO3YnMuOSrZ0nAhKho3IzHTIiKv6eJAssJuMvKp4f8LAjLHYkIvlsfyYCaW7
-	wK956g6i7N5ZmNccnfU8Adbu3awQGFy6iRURVRiylZiJiuFEbhDlMaMfQdJuMT8OxNqk+aY2tK3h1
-	OMRiPLZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TKK3a9Bq+25VQPjcrwk6/ScgqvQ+ftbGHJVx4wqmseE=; b=acYZobAdMexj1gGbvwGZbh7wJi
+	DKESUHy7Ffu4lRPCmcCANzw6moMTfRFCaXiLxkvUQOgmA5adc05g6LYScO8D3vtokd3htbriOYul1
+	w+ia1iztVPlTIskcwnwmkU9yFkBHVGo9DfiIHydFc2bS3e4YPxEjp/kr9m89DHWnPt6gGOY5OjIJL
+	1Pul8QyQVcwXf7ntnK1qv7hl4q8Zs8tNeA9wQUeIzcbkvuqbiX6oJpXY7DlvNq4MClyMGeyYtbOne
+	/DZhSSoJW1QseyPlZO5xLESVkjkwq1nEhsZYlJsCgfn0VlZHUwNfJ1TG3n5W35w4UM8u5/+2nG018
+	Ri/C9x7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usfKc-0000000A33r-1n7u;
-	Sun, 31 Aug 2025 10:30:42 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1usfWe-0000000A3bm-3h37;
+	Sun, 31 Aug 2025 10:43:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usfHt-0000000A2t9-45Xc
+	id 1usfTz-0000000A3Uw-0pMQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 Aug 2025 10:27:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1756636074; x=1788172074;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=G3VUUUy+Z0eEDLbmnC2uWZmW+NftXH+FJS/0FINvCZo=;
-  b=IkywPRkm7AZUd0/KKDKEQueyQ8fcJqFyRX7c66tjSI/4v8uz8vyQrZje
-   JPyX7HfIxvG95tNJKvgeZrsz+nzARLjzSD5UGyyLHiXG0e43AoWKzZ29Q
-   Xw+26X+1evqXaFsTfZj3OobP704sjqrUPkswBTvYdKMt6WF0AeBrcI0jm
-   yRlf9MeP5w4hzyjvy4Fzab/csxNf5fQgzmDdXsvb4r3kKt/4FG9JV5Gga
-   p3skKWCZpZt3PBdxgS5x53sGVrJfMtgV6L9wCNHzpUyDG+igW1T1LCWZP
-   8zOK/nlaSpWYSREPNpYWiag5/4knWDLyQB5y4KaZHYZ3rzGJqOdZp9n3s
-   Q==;
-X-CSE-ConnectionGUID: ZtW4zwdlTIqpsxHty9i1hQ==
-X-CSE-MsgGUID: pUFREyjhTn6MK8Zyn9RX4g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11537"; a="46429008"
-X-IronPort-AV: E=Sophos;i="6.18,225,1751266800"; 
-   d="scan'208";a="46429008"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Aug 2025 03:27:46 -0700
-X-CSE-ConnectionGUID: XAOUGNalRseEqI7XAhA2rA==
-X-CSE-MsgGUID: t8fpDd0QR+6w+3bfnX9N/Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,225,1751266800"; 
-   d="scan'208";a="169989735"
-Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
-  by orviesa006.jf.intel.com with ESMTP; 31 Aug 2025 03:27:42 -0700
-Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1usfH3-000W4p-1J;
-	Sun, 31 Aug 2025 10:27:07 +0000
-Date: Sun, 31 Aug 2025 18:26:08 +0800
-From: kernel test robot <lkp@intel.com>
-To: "Roy, Patrick" <roypat@amazon.co.uk>,
-	"david@redhat.com" <david@redhat.com>,
-	"seanjc@google.com" <seanjc@google.com>
-Cc: oe-kbuild-all@lists.linux.dev, "Roy, Patrick" <roypat@amazon.co.uk>,
-	"tabba@google.com" <tabba@google.com>,
-	"ackerleytng@google.com" <ackerleytng@google.com>,
-	"pbonzini@redhat.com" <pbonzini@redhat.com>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"rppt@kernel.org" <rppt@kernel.org>,
-	"will@kernel.org" <will@kernel.org>,
-	"vbabka@suse.cz" <vbabka@suse.cz>,
-	"Cali, Marco" <xmarcalx@amazon.co.uk>,
-	"Kalyazin, Nikita" <kalyazin@amazon.co.uk>,
-	"Thomson, Jack" <jackabt@amazon.co.uk>,
-	"Manwaring, Derek" <derekmn@amazon.com>
-Subject: Re: [PATCH v5 03/12] mm: introduce AS_NO_DIRECT_MAP
-Message-ID: <202508311805.yfcdeaFC-lkp@intel.com>
-References: <20250828093902.2719-4-roypat@amazon.co.uk>
+	Sun, 31 Aug 2025 10:40:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 84440601AA;
+	Sun, 31 Aug 2025 10:40:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DC84C4CEED;
+	Sun, 31 Aug 2025 10:40:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756636822;
+	bh=YV2SSY9ZqeG/b2RIPFwJf1y40Dnim4om2nZdAq3sl5A=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=gICgBOix1Jp+csjT9+PeNifZNnSNBcf02qIm5JTiGx0SRR2LDP8YD3sTyauwIuGsY
+	 YRPJmP39r+TYhYMCDR3NB/E7ERJ0lFFboqrlG6og9iNMZZIYUqjzhkEExuT1f32HZ5
+	 gOxNX7SkM+wJ8MLNIhrR/XD//v8uOHIWcjHZpXIxPWpbYIIEVIARv5waBE+L5kYYYw
+	 cuylZ9JRB2ob0Ge5MLT9hBlYLkCGcx8pAQTIFDSNH2yAaD1VuCGaBPq6IUvt2iMHFL
+	 FqCxNbzkW+7GRaOwZAqD/CEB7QJAecE/BjpBJY9SJDuUrHbL8mFr0Ab+0LXW/FHoBV
+	 2cANqW0gH2qTA==
+Message-ID: <b5d0e355-2681-4eaa-8a67-82a364312ec5@kernel.org>
+Date: Sun, 31 Aug 2025 12:40:15 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250828093902.2719-4-roypat@amazon.co.uk>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250831_032754_025064_75EDE45A 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/5] dt-bindings: firmware: google,gs101-acpm-ipc: add
+ #clock-cells
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
+References: <20250827-acpm-clk-v2-0-de5c86b49b64@linaro.org>
+ <20250827-acpm-clk-v2-1-de5c86b49b64@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250827-acpm-clk-v2-1-de5c86b49b64@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,39 +124,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Patrick,
+On 27/08/2025 14:42, Tudor Ambarus wrote:
+> diff --git a/include/dt-bindings/clock/google,gs101.h b/include/dt-bindings/clock/google,gs101.h
+> index 442f9e9037dc33198a1cee20af62fc70bbd96605..f1d0df412fdd49b300db4ba88bc0b1674cf0cdf8 100644
+> --- a/include/dt-bindings/clock/google,gs101.h
+> +++ b/include/dt-bindings/clock/google,gs101.h
+> @@ -634,4 +634,19 @@
+>  #define CLK_GOUT_PERIC1_CLK_PERIC1_USI9_USI_CLK		45
+>  #define CLK_GOUT_PERIC1_SYSREG_PERIC1_PCLK		46
 
-kernel test robot noticed the following build warnings:
+I missed it last time - this is a header for SoC clock controller
+bindings. ACPM firmware is completely different device, so should go to
+its own binding header.
 
-[auto build test WARNING on a6ad54137af92535cfe32e19e5f3bc1bb7dbd383]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Roy-Patrick/filemap-Pass-address_space-mapping-to-free_folio/20250828-174202
-base:   a6ad54137af92535cfe32e19e5f3bc1bb7dbd383
-patch link:    https://lore.kernel.org/r/20250828093902.2719-4-roypat%40amazon.co.uk
-patch subject: [PATCH v5 03/12] mm: introduce AS_NO_DIRECT_MAP
-config: loongarch-randconfig-r133-20250831 (https://download.01.org/0day-ci/archive/20250831/202508311805.yfcdeaFC-lkp@intel.com/config)
-compiler: loongarch64-linux-gcc (GCC) 14.3.0
-reproduce: (https://download.01.org/0day-ci/archive/20250831/202508311805.yfcdeaFC-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202508311805.yfcdeaFC-lkp@intel.com/
-
-sparse warnings: (new ones prefixed by >>)
->> mm/secretmem.c:155:39: sparse: sparse: symbol 'secretmem_aops' was not declared. Should it be static?
-
-vim +/secretmem_aops +155 mm/secretmem.c
-
-1507f51255c9ff Mike Rapoport           2021-07-07  154  
-1507f51255c9ff Mike Rapoport           2021-07-07 @155  const struct address_space_operations secretmem_aops = {
-46de8b979492e1 Matthew Wilcox (Oracle  2022-02-09  156) 	.dirty_folio	= noop_dirty_folio,
-6612ed24a24273 Matthew Wilcox (Oracle  2022-05-02  157) 	.free_folio	= secretmem_free_folio,
-5409548df3876a Matthew Wilcox (Oracle  2022-06-06  158) 	.migrate_folio	= secretmem_migrate_folio,
-1507f51255c9ff Mike Rapoport           2021-07-07  159  };
-1507f51255c9ff Mike Rapoport           2021-07-07  160  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+>  
+> +#define CLK_ACPM_DVFS_MIF				0
+> +#define CLK_ACPM_DVFS_INT				1
+> +#define CLK_ACPM_DVFS_CPUCL0				2
+Best regards,
+Krzysztof
 
