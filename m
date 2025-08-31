@@ -4,56 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E542CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 02:28:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A303CA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 04:10:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jRGv440ZeDXCFtIhCloF5USwCzdjbmXFA6mzo7QTG5w=; b=qYaAXo3yhp4IqEFIaiOa1HveHf
-	6rQPhzef1D93LK57Vnw9lxsiWcH7/mpsp/0S4ixInVu1QTaM7+d0Ot56PHGbCrZvGSi9Kxfze7BAF
-	51FXonHRotsg4F6GElzSO9NsRM3Ae2gWra9kVldHLRhnMqZZ98PqXYYrqedTVx1Wcw8djmOyLBfYy
-	s8M2CqOQztn9a9dqIQFKJ62sG4ENSTQkaIIRpUSi9RaqokRCMPJtwzGpWVd7pZoVreP/My7+IkAzT
-	GF86OiZ9iAWktVADnujrzza22KHAFxbboQbubu52N/drbBhNT7Po0i/6t9ofPXsOkpneU9OpycJAj
-	3nEPKQHA==;
+	bh=oe+j17a62BLHAQWV/HOy9bmgDAunNGboGUOEQ4so8yE=; b=lRSLPIIRkgBrw7Z98mNiebd5vA
+	bkMF0QnqT/bnmq0tsgW2i2Cq7/Ku0/7odQ4y60DGhxNY7n+MhaK/OdGfN+Fk18nWohXspoAs51rXc
+	N0juLRO5/5LKMCdkaoQ1oJlQwKajFZpD7PUTRk1+4P5NeExszHaBON4O/2u9QvPAjA5OlpMsJegDx
+	sYe5jyqFe2Ekzz9p5rOQiDh/rmEIZrnoJYj0448nF1RCDjY6FzV82sguQv0AurGVX3DKxhRWC/+V5
+	fye6aTscUljROBtdTvVHZTQhoAwsXFL/IFZuijXV3Qyme6ABHf/aVI46MhJgsQFqobGP3Ht30MYlc
+	rIui6U9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usXoG-00000008odU-1PEJ;
-	Sun, 31 Aug 2025 02:28:48 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1usZOV-000000096co-1oV6;
+	Sun, 31 Aug 2025 04:10:19 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usXaq-00000008kya-01tb
+	id 1usZLl-000000095rX-3YwR
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 Aug 2025 02:14:57 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Sun, 31 Aug
- 2025 10:14:39 +0800
-Received: from twmbx02.aspeed.com (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Sun, 31 Aug 2025 10:14:39 +0800
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-To: ryan_chen <ryan_chen@aspeedtech.com>, Eddie James <eajames@linux.ibm.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Lee Jones <lee@kernel.org>, <linux-aspeed@lists.ozlabs.org>,
-	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v2 4/4] irqchip/aspeed-scu-ic: Add support AST2700 SCU interrupt controllers
-Date: Sun, 31 Aug 2025 10:14:38 +0800
-Message-ID: <20250831021438.976893-5-ryan_chen@aspeedtech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250831021438.976893-1-ryan_chen@aspeedtech.com>
-References: <20250831021438.976893-1-ryan_chen@aspeedtech.com>
+	Sun, 31 Aug 2025 04:07:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9250B601A7;
+	Sun, 31 Aug 2025 04:07:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BFE8C4CEED;
+	Sun, 31 Aug 2025 04:07:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756613247;
+	bh=LptXLD1zwFlWZSHFVxFcX1U/UXwMN65+JMNh3/oeSoI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=LbFk+MFWyECQgwWN/R2B7l0hcZN7hA2vUQVDt1Z3vI+4xJ3whKk9FXHuOSLrhh68P
+	 HgDKzytxI9JEgGTqLShXuxO5gzSXveAhj/0L+tAk3KhXz+RWTt4YyXJeDE3WTswKVQ
+	 AqyW+cv2P79nBkjorkKxY8lhHwuLTsXTNYrIOvJWNTT8hLKaVaG/JT0Buj1ZluwEGZ
+	 0T9Z0g99KxMdPVAJcY7C+z1Oy0MCGyqXkXjNLTAsLMbeJ2bxsyknjvLi81LciN82+c
+	 uFx/JoVnTWTTtlvAqGEvpG+08cvISOMgCy7Y7MTumCDyV7Fg+QKPdRJyqiN3KXtr1Q
+	 QzC86xUv46DfQ==
+Date: Sun, 31 Aug 2025 09:37:17 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, geert+renesas@glider.be, 
+	magnus.damm@gmail.com, catalin.marinas@arm.com, will@kernel.org, 
+	mturquette@baylibre.com, sboyd@kernel.org, p.zabel@pengutronix.de, lizhi.hou@amd.com, 
+	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>, Wolfram Sang <wsa+renesas@sang-engineering.com>
+Subject: Re: [PATCH v3 5/9] PCI: rzg3s-host: Add Initial PCIe Host Driver for
+ Renesas RZ/G3S SoC
+Message-ID: <zsgncwvhykw4ja3bbqaxwupppjsqq4pcrdgrsduahokmt72xsm@twekpse6uzzh>
+References: <20250704161410.3931884-1-claudiu.beznea.uj@bp.renesas.com>
+ <20250704161410.3931884-6-claudiu.beznea.uj@bp.renesas.com>
+ <ddxayjj5wcuuish4kvyluzrujkes5seo7zlusmomyjfjcgzcyj@xe3zzzmy2zaj>
+ <8ef466aa-b470-4dcb-9024-0a9c36eb9a6a@tuxon.dev>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250830_191456_051691_E4513F0E 
-X-CRM114-Status: GOOD (  19.45  )
+In-Reply-To: <8ef466aa-b470-4dcb-9024-0a9c36eb9a6a@tuxon.dev>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,226 +78,302 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The AST2700 continues the multi-instance SCU interrupt controller model
-introduced in the AST2600, with four independent interrupt domains
-(scu-ic0 to 3).
+On Sat, Aug 30, 2025 at 02:22:45PM GMT, Claudiu Beznea wrote:
+> 
+> 
+> On 30.08.2025 09:59, Manivannan Sadhasivam wrote:
+> > On Fri, Jul 04, 2025 at 07:14:05PM GMT, Claudiu wrote:
+> >> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> >>
+> >> The Renesas RZ/G3S features a PCIe IP that complies with the PCI Express
+> >> Base Specification 4.0 and supports speeds of up to 5 GT/s. It functions
+> >> only as a root complex, with a single-lane (x1) configuration. The
+> >> controller includes Type 1 configuration registers, as well as IP
+> >> specific registers (called AXI registers) required for various adjustments.
+> >>
+> >> Hardware manual can be downloaded from the address in the "Link" section.
+> >> The following steps should be followed to access the manual:
+> >> 1/ Click the "User Manual" button
+> >> 2/ Click "Confirm"; this will start downloading an archive
+> >> 3/ Open the downloaded archive
+> >> 4/ Navigate to r01uh1014ej*-rzg3s-users-manual-hardware -> Deliverables
+> >> 5/ Open the file r01uh1014ej*-rzg3s.pdf
+> >>
+> >> Link: https://www.renesas.com/en/products/rz-g3s?queryID=695cc067c2d89e3f271d43656ede4d12
+> >> Tested-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+> >> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> >> ---
+> >>
+> > 
+> > [...]
+> > 
+> >> +static bool rzg3s_pcie_child_issue_request(struct rzg3s_pcie_host *host)
+> >> +{
+> >> +	u32 val;
+> >> +	int ret;
+> >> +
+> >> +	rzg3s_pcie_update_bits(host->axi, RZG3S_PCI_REQISS,
+> >> +			       RZG3S_PCI_REQISS_REQ_ISSUE,
+> >> +			       RZG3S_PCI_REQISS_REQ_ISSUE);
+> >> +	ret = readl_poll_timeout_atomic(host->axi + RZG3S_PCI_REQISS, val,
+> >> +					!(val & RZG3S_PCI_REQISS_REQ_ISSUE),
+> >> +					5, RZG3S_REQ_ISSUE_TIMEOUT_US);
+> >> +
+> >> +	return !!ret || (val & RZG3S_PCI_REQISS_MOR_STATUS);
+> > 
+> > You don't need to do !!ret as the C11 standard guarantees that any scalar type
+> > stored as bool will have the value of 0 or 1.
+> 
+> OK, will drop it anyway as suggested in another thread.
+> 
+> > 
+> >> +}
+> >> +
+> > 
+> > [...]
+> > 
+> >> +static void __iomem *rzg3s_pcie_root_map_bus(struct pci_bus *bus,
+> >> +					     unsigned int devfn,
+> >> +					     int where)
+> >> +{
+> >> +	struct rzg3s_pcie_host *host = bus->sysdata;
+> >> +
+> >> +	if (devfn)
+> >> +		return NULL;
+> > 
+> > Is it really possible to have devfn as non-zero for a root bus?
+> 
+> I will drop it.
+> 
+> > 
+> >> +
+> >> +	return host->pcie + where;
+> >> +}
+> >> +
+> > 
+> > [...]
+> > 
+> >> +static int rzg3s_pcie_msi_setup(struct rzg3s_pcie_host *host)
+> >> +{
+> >> +	size_t size = RZG3S_PCI_MSI_INT_NR * sizeof(u32);
+> >> +	struct rzg3s_pcie_msi *msi = &host->msi;
+> >> +	struct device *dev = host->dev;
+> >> +	int id, ret;
+> >> +
+> >> +	msi->pages = __get_free_pages(GFP_KERNEL | GFP_DMA, 0);
+> >> +	if (!msi->pages)
+> >> +		return -ENOMEM;
+> >> +
+> >> +	msi->dma_addr = dma_map_single(dev, (void *)msi->pages, size * 2,
+> >> +				       DMA_BIDIRECTIONAL);
+> >> +	if (dma_mapping_error(dev, msi->dma_addr)) {
+> >> +		ret = -ENOMEM;
+> >> +		goto free_pages;
+> >> +	}
+> >> +
+> >> +	/*
+> >> +	 * According to the RZ/G3S HW manual (Rev.1.10, section 34.4.5.2 Setting
+> >> +	 * the MSI Window) the MSI window need to be within any AXI window. Find
+> >> +	 * an AXI window to setup the MSI window.
+> > 
+> > Are you really finding the AXI window or just making sure that the MSI window
+> > falls into one of the AXI window?
+> 
+> I'm making sure the MSI windows falls into one of the enabled AXI windows.
+> 
 
-Unlike earlier generations that combine interrupt enable and status bits
-into a single register, the AST2700 separates these into distinct IER and
-ISR registers. Support for this layout is implemented by using register
-offsets and separate chained IRQ handlers.
+Then you need to reword the comment as such. Currently, it is not clear.
 
-The variant table is extended to cover AST2700 IC instances, enabling
-shared initialization logic while preserving support for previous SoCs.
+> > 
+> > And I believe it is OK to have more than one MSI window within an AXI window.
+> 
+> This IP supports a single MSI window that need to fit into one of the
+> enabled AXI windows.
+> 
 
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
----
- drivers/irqchip/irq-aspeed-scu-ic.c | 123 +++++++++++++++++++++-------
- 1 file changed, 95 insertions(+), 28 deletions(-)
+[...]
 
-diff --git a/drivers/irqchip/irq-aspeed-scu-ic.c b/drivers/irqchip/irq-aspeed-scu-ic.c
-index cbfc35919281..ffdd9b4e44c1 100644
---- a/drivers/irqchip/irq-aspeed-scu-ic.c
-+++ b/drivers/irqchip/irq-aspeed-scu-ic.c
-@@ -17,12 +17,16 @@
- 
- #define ASPEED_SCU_IC_STATUS		GENMASK(28, 16)
- #define ASPEED_SCU_IC_STATUS_SHIFT	16
-+#define AST2700_SCU_IC_STATUS		GENMASK(15, 0)
- 
- struct aspeed_scu_ic_variant {
- 	const char		*compatible;
- 	unsigned long	irq_enable;
- 	unsigned long	irq_shift;
- 	unsigned int	num_irqs;
-+	bool			split_ier_isr;
-+	unsigned long	ier;
-+	unsigned long	isr;
- };
- 
- #define SCU_VARIANT(_compat, _shift, _enable, _num) { \
-@@ -30,13 +34,20 @@ struct aspeed_scu_ic_variant {
- 	.irq_shift		=	_shift,		\
- 	.irq_enable		=	_enable,	\
- 	.num_irqs		=	_num,		\
-+	.split_ier_isr	=	_split,		\
-+	.ier			=	_ier,		\
-+	.isr			=	_isr,		\
- }
- 
- static const struct aspeed_scu_ic_variant scu_ic_variants[]	__initconst = {
--	SCU_VARIANT("aspeed,ast2400-scu-ic",	0,	GENMASK(15, 0),	7),
--	SCU_VARIANT("aspeed,ast2500-scu-ic",	0,	GENMASK(15, 0), 7),
--	SCU_VARIANT("aspeed,ast2600-scu-ic0",	0,	GENMASK(5, 0),	6),
--	SCU_VARIANT("aspeed,ast2600-scu-ic1",	4,	GENMASK(5, 4),	2),
-+	SCU_VARIANT("aspeed,ast2400-scu-ic",	0, GENMASK(15, 0),	7,	false,	0,	0),
-+	SCU_VARIANT("aspeed,ast2500-scu-ic",	0, GENMASK(15, 0),	7,	false,	0,	0),
-+	SCU_VARIANT("aspeed,ast2600-scu-ic0",	0, GENMASK(5, 0),	6,	false,	0,	0),
-+	SCU_VARIANT("aspeed,ast2600-scu-ic1",	4, GENMASK(5, 4),	2,	false,	0,	0),
-+	SCU_VARIANT("aspeed,ast2700-scu-ic0",	0, GENMASK(3, 0),	4,	true,	0x00, 0x04),
-+	SCU_VARIANT("aspeed,ast2700-scu-ic1",	0, GENMASK(3, 0),	4,	true,	0x00, 0x04),
-+	SCU_VARIANT("aspeed,ast2700-scu-ic2",	0, GENMASK(3, 0),	4,	true,	0x04, 0x00),
-+	SCU_VARIANT("aspeed,ast2700-scu-ic3",	0, GENMASK(1, 0),	2,	true,	0x04, 0x00),
- };
- 
- struct aspeed_scu_ic {
-@@ -45,9 +56,12 @@ struct aspeed_scu_ic {
- 	unsigned int		num_irqs;
- 	void __iomem		*base;
- 	struct irq_domain	*irq_domain;
-+	bool				split_ier_isr;
-+	unsigned long		ier;
-+	unsigned long		isr;
- };
- 
--static void aspeed_scu_ic_irq_handler(struct irq_desc *desc)
-+static void aspeed_scu_ic_irq_handler_combined(struct irq_desc *desc)
- {
- 	struct aspeed_scu_ic *scu_ic = irq_desc_get_handler_data(desc);
- 	struct irq_chip *chip = irq_desc_get_chip(desc);
-@@ -84,33 +98,69 @@ static void aspeed_scu_ic_irq_handler(struct irq_desc *desc)
- 	chained_irq_exit(chip, desc);
- }
- 
-+static void aspeed_scu_ic_irq_handler_split(struct irq_desc *desc)
-+{
-+	struct aspeed_scu_ic *scu_ic = irq_desc_get_handler_data(desc);
-+	struct irq_chip *chip = irq_desc_get_chip(desc);
-+	unsigned long bit, enabled, max, status;
-+	unsigned int sts, mask;
-+
-+	chained_irq_enter(chip, desc);
-+
-+	mask = scu_ic->irq_enable;
-+	sts = readl(scu_ic->base + scu_ic->isr);
-+	enabled = sts & scu_ic->irq_enable;
-+	sts = readl(scu_ic->base + scu_ic->isr);
-+	status = sts & enabled;
-+
-+	bit = scu_ic->irq_shift;
-+	max = scu_ic->num_irqs + bit;
-+
-+	for_each_set_bit_from(bit, &status, max) {
-+		generic_handle_domain_irq(scu_ic->irq_domain, bit - scu_ic->irq_shift);
-+		writel(BIT(bit), scu_ic->base + scu_ic->isr); // clear interrupt
-+	}
-+
-+	chained_irq_exit(chip, desc);
-+}
-+
- static void aspeed_scu_ic_irq_mask(struct irq_data *data)
- {
- 	struct aspeed_scu_ic *scu_ic = irq_data_get_irq_chip_data(data);
--	unsigned int mask = BIT(data->hwirq + scu_ic->irq_shift) |
--		(scu_ic->irq_enable << ASPEED_SCU_IC_STATUS_SHIFT);
- 
--	/*
--	 * Status bits are cleared by writing 1. In order to prevent the mask
--	 * operation from clearing the status bits, they should be under the
--	 * mask and written with 0.
--	 */
--	writel(readl(scu_ic->base) & ~mask, scu_ic->base);
-+	if (scu_ic->split_ier_isr) {
-+		writel(readl(scu_ic->base) & ~BIT(data->hwirq + scu_ic->irq_shift),
-+		       scu_ic->base + scu_ic->ier);
-+	} else {
-+		unsigned int mask = BIT(data->hwirq + scu_ic->irq_shift) |
-+			(scu_ic->irq_enable << ASPEED_SCU_IC_STATUS_SHIFT);
-+
-+		/*
-+		 * Status bits are cleared by writing 1. In order to prevent the mask
-+		 * operation from clearing the status bits, they should be under the
-+		 * mask and written with 0.
-+		 */
-+		writel(readl(scu_ic->base) & ~mask, scu_ic->base);
-+	}
- }
- 
- static void aspeed_scu_ic_irq_unmask(struct irq_data *data)
- {
- 	struct aspeed_scu_ic *scu_ic = irq_data_get_irq_chip_data(data);
- 	unsigned int bit = BIT(data->hwirq + scu_ic->irq_shift);
--	unsigned int mask = bit |
--		(scu_ic->irq_enable << ASPEED_SCU_IC_STATUS_SHIFT);
- 
--	/*
--	 * Status bits are cleared by writing 1. In order to prevent the unmask
--	 * operation from clearing the status bits, they should be under the
--	 * mask and written with 0.
--	 */
--	writel((readl(scu_ic->base) & ~mask) | bit, scu_ic->base);
-+	if (scu_ic->split_ier_isr) {
-+		writel(readl(scu_ic->base) | bit, scu_ic->base + scu_ic->ier);
-+	} else {
-+		unsigned int mask = bit | (scu_ic->irq_enable << ASPEED_SCU_IC_STATUS_SHIFT);
-+
-+		/*
-+		 * Status bits are cleared by writing 1. In order to prevent the unmask
-+		 * operation from clearing the status bits, they should be under the
-+		 * mask and written with 0.
-+		 */
-+		writel((readl(scu_ic->base) & ~mask) | bit, scu_ic->base);
-+	}
- }
- 
- static int aspeed_scu_ic_irq_set_affinity(struct irq_data *data,
-@@ -151,8 +201,14 @@ static int aspeed_scu_ic_of_init_common(struct aspeed_scu_ic *scu_ic,
- 		rc = PTR_ERR(scu_ic->base);
- 		goto err;
- 	}
--	writel(ASPEED_SCU_IC_STATUS, scu_ic->base);
--	writel(0, scu_ic->base);
-+
-+	if (scu_ic->split_ier_isr) {
-+		writel(AST2700_SCU_IC_STATUS, scu_ic->base + scu_ic->isr);
-+		writel(0, scu_ic->base + scu_ic->ier);
-+	} else {
-+		writel(ASPEED_SCU_IC_STATUS, scu_ic->base);
-+		writel(0, scu_ic->base);
-+	}
- 
- 	irq = irq_of_parse_and_map(node, 0);
- 	if (!irq) {
-@@ -168,8 +224,12 @@ static int aspeed_scu_ic_of_init_common(struct aspeed_scu_ic *scu_ic,
- 		goto err;
- 	}
- 
--	irq_set_chained_handler_and_data(irq, aspeed_scu_ic_irq_handler,
--					 scu_ic);
-+	if (scu_ic->split_ier_isr)
-+		irq_set_chained_handler_and_data(irq, aspeed_scu_ic_irq_handler_split,
-+						 scu_ic);
-+	else
-+		irq_set_chained_handler_and_data(irq, aspeed_scu_ic_irq_handler_combined,
-+						 scu_ic);
- 
- 	return 0;
- 
-@@ -202,9 +262,12 @@ static int __init aspeed_scu_ic_of_init(struct device_node *node, struct device_
- 	if (!scu_ic)
- 		return -ENOMEM;
- 
--	scu_ic->irq_enable    = variant->irq_enable;
--	scu_ic->irq_shift     = variant->irq_shift;
--	scu_ic->num_irqs      = variant->num_irqs;
-+	scu_ic->irq_enable	= variant->irq_enable;
-+	scu_ic->irq_shift	= variant->irq_shift;
-+	scu_ic->num_irqs	= variant->num_irqs;
-+	scu_ic->split_ier_isr	= variant->split_ier_isr;
-+	scu_ic->ier		= variant->ier;
-+	scu_ic->isr		= variant->isr;
- 
- 	return aspeed_scu_ic_of_init_common(scu_ic, node);
- }
-@@ -213,3 +276,7 @@ IRQCHIP_DECLARE(ast2400_scu_ic, "aspeed,ast2400-scu-ic", aspeed_scu_ic_of_init);
- IRQCHIP_DECLARE(ast2500_scu_ic, "aspeed,ast2500-scu-ic", aspeed_scu_ic_of_init);
- IRQCHIP_DECLARE(ast2600_scu_ic0, "aspeed,ast2600-scu-ic0", aspeed_scu_ic_of_init);
- IRQCHIP_DECLARE(ast2600_scu_ic1, "aspeed,ast2600-scu-ic1",     aspeed_scu_ic_of_init);
-+IRQCHIP_DECLARE(ast2700_scu_ic0, "aspeed,ast2700-scu-ic0", aspeed_scu_ic_of_init);
-+IRQCHIP_DECLARE(ast2700_scu_ic1, "aspeed,ast2700-scu-ic1", aspeed_scu_ic_of_init);
-+IRQCHIP_DECLARE(ast2700_scu_ic2, "aspeed,ast2700-scu-ic2", aspeed_scu_ic_of_init);
-+IRQCHIP_DECLARE(ast2700_scu_ic3, "aspeed,ast2700-scu-ic3", aspeed_scu_ic_of_init);
+> >> +
+> >> +	/* Update vendor ID and device ID */
+> > 
+> > Are you really updating it or setting it? If you are updating it, are the
+> > default IDs invalid?
+> 
+> Default IDs are valid (at least on RZ/G3S) but Renesas specific. Renesas
+> wants to let individual users to set their own IDs.
+> 
+
+So they are optional then? But the binding treats them as required, which should
+be changed if the default IDs are valid.
+
+> > 
+> >> +	writew(host->vendor_id, host->pcie + PCI_VENDOR_ID);
+> >> +	writew(host->device_id, host->pcie + PCI_DEVICE_ID);
+> >> +
+> >> +	/* HW manual recommends to write 0xffffffff on initialization */
+> >> +	writel(0xffffffff, host->pcie + RZG3S_PCI_CFG_BARMSK00L);
+> >> +	writel(0xffffffff, host->pcie + RZG3S_PCI_CFG_BARMSK00U);
+> >> +
+> >> +	/* Update bus info. */
+> >> +	writeb(primary_bus, host->pcie + PCI_PRIMARY_BUS);
+> >> +	writeb(secondary_bus, host->pcie + PCI_SECONDARY_BUS);
+> >> +	writeb(subordinate_bus, host->pcie + PCI_SUBORDINATE_BUS);
+> >> +
+> >> +	/* Disable access control to the CFGU */
+> >> +	writel(0, host->axi + RZG3S_PCI_PERM);
+> >> +
+> >> +	return 0;
+> >> +}
+> >> +
+> > 
+> > [...]
+> > 
+> >> +static int rzg3s_pcie_host_init(struct rzg3s_pcie_host *host, bool probe)
+> >> +{
+> >> +	u32 val;
+> >> +	int ret;
+> >> +
+> >> +	/* Initialize the PCIe related registers */
+> >> +	ret = rzg3s_pcie_config_init(host);
+> >> +	if (ret)
+> >> +		return ret;
+> >> +
+> >> +	/* Initialize the interrupts */
+> >> +	rzg3s_pcie_irq_init(host);
+> >> +
+> >> +	ret = reset_control_bulk_deassert(host->data->num_cfg_resets,
+> >> +					  host->cfg_resets);
+> >> +	if (ret)
+> >> +		return ret;
+> >> +
+> >> +	/* Wait for link up */
+> >> +	ret = readl_poll_timeout(host->axi + RZG3S_PCI_PCSTAT1, val,
+> >> +				 !(val & RZG3S_PCI_PCSTAT1_DL_DOWN_STS),
+> >> +				 PCIE_LINK_WAIT_SLEEP_MS,
+> >> +				 PCIE_LINK_WAIT_SLEEP_MS *
+> >> +				 PCIE_LINK_WAIT_MAX_RETRIES * MILLI);
+> >> +	if (ret) {
+> >> +		reset_control_bulk_assert(host->data->num_cfg_resets,
+> >> +					  host->cfg_resets);
+> >> +		return ret;
+> >> +	}
+> >> +
+> >> +	val = readl(host->axi + RZG3S_PCI_PCSTAT2);
+> >> +	dev_info(host->dev, "PCIe link status [0x%x]\n", val);
+> >> +
+> >> +	val = FIELD_GET(RZG3S_PCI_PCSTAT2_STATE_RX_DETECT, val);
+> >> +	dev_info(host->dev, "PCIe x%d: link up\n", hweight32(val));
+> >> +
+> >> +	if (probe) {
+> >> +		ret = devm_add_action_or_reset(host->dev,
+> >> +					       rzg3s_pcie_cfg_resets_action,
+> >> +					       host);
+> > 
+> > Oh well, this gets ugly. Now the devm_add_action_or_reset() is sprinkled
+> > throughout the driver :/
+> > 
+> > As I said earlier, there are concerns in unloading the driver if it implements
+> > an irqchip. So if you change the module_platform_driver() to
+> > builtin_platform_driver() for this driver, these devm_add_action_or_reset()
+> > calls become unused.
+> 
+> They can still be useful in case the probe fails. As the initialization
+> path is complicated, having actions or resets looks to me that makes the
+> code cleaner as the rest of devm_* helpers.
+> 
+> I can drop it and replace with gotos and dedicated functions but this will
+> complicate the code, AFAICT.
+> 
+> Please let me know how would you like me to proceed.
+> 
+
+It is generally preferred to cleanup the resources in err path using goto
+labels.
+
+> > 
+> >> +	}
+> >> +
+> >> +	return ret;
+> >> +}
+> >> +
+
+[...]
+
+> >> +	ret = pm_runtime_resume_and_get(dev);
+> >> +	if (ret)
+> >> +		return ret;
+> >> +
+> > 
+> > Do you really need to do resume_and_get()? If not, you should do:
+> 
+> It it's needed to enable the clock PM domain the device is part of.
+> 
+
+I've replied below.
+
+> > 
+> > 	pm_runtime_set_active()
+> > 	pm_runtime_no_callbacks()
+> > 	devm_pm_runtime_enable()
+> > 
+> >> +	ret = devm_add_action_or_reset(dev, rzg3s_pcie_pm_runtime_put, dev);
+> >> +	if (ret)
+> >> +		return ret;
+> >> +
+> >> +	raw_spin_lock_init(&host->hw_lock);
+> >> +
+> >> +	ret = rzg3s_pcie_host_setup(host, rzg3s_pcie_intx_setup,
+> >> +				    rzg3s_pcie_msi_enable, true);
+> >> +	if (ret)
+> >> +		return ret;
+> >> +
+> >> +	msleep(PCIE_RESET_CONFIG_WAIT_MS);
+> >> +
+> >> +	bridge->sysdata = host;
+> >> +	bridge->ops = &rzg3s_pcie_root_ops;
+> >> +	bridge->child_ops = &rzg3s_pcie_child_ops;
+> >> +	ret = pci_host_probe(bridge);
+> >> +	if (ret)
+> >> +		return ret;
+> >> +
+> >> +	return devm_add_action_or_reset(dev, rzg3s_pcie_host_remove_action,
+> >> +					host);
+> >> +}
+> >> +
+> >> +static int rzg3s_pcie_suspend_noirq(struct device *dev)
+> >> +{
+> >> +	struct rzg3s_pcie_host *host = dev_get_drvdata(dev);
+> >> +	const struct rzg3s_pcie_soc_data *data = host->data;
+> >> +	struct regmap *sysc = host->sysc;
+> >> +	int ret;
+> >> +
+> >> +	ret = pm_runtime_put_sync(dev);
+> >> +	if (ret)
+> >> +		return ret;
+> > 
+> > Since there are no runtime callbacks present, managing runtime PM in the driver
+> > makes no sense.
+> 
+> The PCIe device is part of a clock power domain. Dropping
+> pm_runtime_enable()/pm_runtime_put_sync() in this driver will lead to this
+> IP failing to work as its clocks will not be enabled/disabled. If you don't
+> like the pm_runtime_* approach that could be replaced with:
+> 
+> devm_clk_get_enabled() in probe and clk_disable()/clk_enable() on
+> suspend/resume. W/o clocks the IP can't work.
+> 
+
+Yes, you should explicitly handle clocks in the driver. Runtime PM makes sense
+if you have a power domain attached to the IP, which you also do as I see now.
+So to conclude, you should enable/disable the clocks explicitly for managing
+clocks and use runtime PM APIs for managing the power domain associated with
+clock controller.
+
+But please add a comment above pm_runtime_resume_and_get() to make it clear as
+most of the controller drivers are calling it for no reason.
+
+- Mani
+
 -- 
-2.34.1
-
+மணிவண்ணன் சதாசிவம்
 
