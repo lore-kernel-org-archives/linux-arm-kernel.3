@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEDC5CA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 15:07:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C1E4CA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 15:10:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FibP0s8DsDRdRncEUYqsAz/ECZHtws1JsEgePtJvE8Y=; b=ctrZwRUj/DvEAuxNjS/5ISRmua
-	14umdtlARp8UQuOtPqL3UgrA5uHC6W45VKuk8AvvSECX7myBrgvs7cCk11xbwjwIUJfZt5GuL6DoO
-	P0Ho4MLObnYtIF/DeXhpGU4FNhznk01kO/ym4YWiVFDF5DHw652Mmhmt1DU3IkHD5VbK8pFKwfldk
-	9Zn5Pa2x+B48iXeGEF62lTVVyOceIsOJlEg9Y0kIKKRy5kKTI2U8fTntLNUVg2X6ai3jhKRUpfFOR
-	ETQ3/PD3fX9duvbOybX94LI6yTlQ4+A1tp07Xeib7D+vn4Gd9LGEoiLFnMb7QbElktO3i3BJahf+B
-	3sPqNbIA==;
+	bh=NZfUhY1EZQv1OuZe5tH097MUEDvYB4HeowDcrbjOqWg=; b=sd0d3pL3DRmPsvPp1giD9zpc4n
+	eO6BfIdE+k5gfcbYpANnM/dug2GmCXqY0Lgy97LB4qDSJ8kul7bfzzBHx4k9qHg/Psf84bM3gn/WH
+	Myi3rdm6oASAHFP+9/pRkcF7W5cpKUQaWmE8Ef6w4wVC71Vd3aepJ80xw0NIseJPxUp3Ypmh5Jr8/
+	JpxMLLGs9UeP+Amo9L8CwPbaJIKaF6teGHYf/BcHFmbwrlyTj+vHW0QC/5hByKDJ81peH1W9r/VyG
+	ISmV3Eu6D64+AMuWx29kkEZQPTog0kWyL4XVau68u/hJ/n+3aHN7GqwrgSv0Nvqf8bwIqDgVVLEeG
+	N1epPn6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usjef-0000000AKXu-2cIP;
-	Sun, 31 Aug 2025 15:07:41 +0000
+	id 1usjhK-0000000AKpz-3A3I;
+	Sun, 31 Aug 2025 15:10:26 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usjbw-0000000AKFL-1RpV;
-	Sun, 31 Aug 2025 15:04:53 +0000
+	id 1usjdV-0000000AKNu-1ay0;
+	Sun, 31 Aug 2025 15:06:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=FibP0s8DsDRdRncEUYqsAz/ECZHtws1JsEgePtJvE8Y=; b=cPpv6qlPTEnbNultnuF78/ObsZ
-	AIKnE4RuwUdabNTi4jRz45mFbmRfArz4IW6ike0/r3Xu/W9X/375j7UZmiBWXZJEHEamxRpNynWxL
-	Cu0TYqtV0mhrm9mlUo7vTTisqt1lSxfqkLnJTkQ4PnVlcAe8ypN9kPwjKkzlP7jsT0p1FVlu1Bqnd
-	hCK/lGaOHH4G2Nr8TPya/dsBLmavC9S5wIc6z2Gp3FbEGMSPgL84l+Xmp0xs8gKWU2aqb8vHsRvrZ
-	cs+bHCI/QbaLu0B5B0rzb76oUTyJ7+RfIOxSpDRWUq5RICFnN5wAbwQgffL/tvEZikO6JnGtfRstr
-	6IsWn1Qw==;
+	bh=NZfUhY1EZQv1OuZe5tH097MUEDvYB4HeowDcrbjOqWg=; b=zr7VUttrCYLdhVOAGJ/Lr9oKmN
+	G17tELZOSR5+6G4+83RfqgDQD/koYmtt9ulOu5Kclyt9jtnUg9Joo7kLYQ7y26JP3s70oJS1k8V1q
+	VBlejvPkHAhDchJt1rPJPxDpVCHRVAqd+6aLiQ91iKqw8BprlR4WkqqgkRLxnyDZCJd9MG+ioCEtF
+	D/R9aJP05KKdNhuapyq/iqDdbKSFoCxNqaLk7T0iI8tjtlohdhLRWMkHhsYgAKiR6wO0rWTMXEppn
+	8BzRFiAA0xvrcP6jVybEF+pSEvWrkFGNwF29EOGMMAbhnyCfKJ6zlA/KPxEuWm6pUldy8GrqB9luh
+	NU/pUbRg==;
 Received: from i53875b56.versanet.de ([83.135.91.86] helo=diego.localnet)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1usjbr-0006Xs-Pd; Sun, 31 Aug 2025 17:04:47 +0200
+	id 1usjdR-0001Dx-BJ; Sun, 31 Aug 2025 17:06:25 +0200
 From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
 To: robh@kernel.org, WeiHao Li <cn.liweihao@gmail.com>
 Cc: hjc@rock-chips.com, andy.yan@rock-chips.com, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
  linux-clk@vger.kernel.org, WeiHao Li <cn.liweihao@gmail.com>
-Subject: Re: [PATCH v1 5/7] ARM: dts: rockchip: Add display subsystem for RK3368
-Date: Sun, 31 Aug 2025 17:04:47 +0200
-Message-ID: <3368190.aeNJFYEL58@diego>
-In-Reply-To: <20250831104855.45883-6-cn.liweihao@gmail.com>
+Subject: Re: [PATCH v1 6/7] ARM: dts: rockchip: Add D-PHY for RK3368
+Date: Sun, 31 Aug 2025 17:06:24 +0200
+Message-ID: <8571992.T7Z3S40VBb@diego>
+In-Reply-To: <20250831104855.45883-7-cn.liweihao@gmail.com>
 References: <20250831104855.45883-1-cn.liweihao@gmail.com>
- <20250831104855.45883-6-cn.liweihao@gmail.com>
+ <20250831104855.45883-7-cn.liweihao@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250831_080452_386036_62EC1E08 
-X-CRM114-Status: GOOD (  13.45  )
+X-CRM114-CacheID: sfid-20250831_080629_417527_828120FA 
+X-CRM114-Status: GOOD (  13.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,64 +71,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-Am Sonntag, 31. August 2025, 12:48:53 Mitteleurop=C3=A4ische Sommerzeit sch=
+Am Sonntag, 31. August 2025, 12:48:54 Mitteleurop=C3=A4ische Sommerzeit sch=
 rieb WeiHao Li:
-> Add vop and display-subsystem nodes to RK3368's device tree.
+> RK3368 has a InnoSilicon D-PHY which supports DSI/LVDS/TTL with maximum
+> trasnfer rate of 1 Gbps per lane.
 >=20
 > Signed-off-by: WeiHao Li <cn.liweihao@gmail.com>
-
-please use the appropriate patch prefix. For arm64 this should be
-arm64: dts: rockchip:
-
-The one you're using is from the arm32 side.
-
-Also please sort things appropriately both node-position and order of
-properties inside nodes, see
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Doc=
-umentation/devicetree/bindings/dts-coding-style.rst
-
-
-Heiko
-
 > ---
->  arch/arm64/boot/dts/rockchip/rk3368.dtsi | 26 ++++++++++++++++++++++++
->  1 file changed, 26 insertions(+)
+>  arch/arm64/boot/dts/rockchip/rk3368.dtsi | 14 ++++++++++++++
+>  1 file changed, 14 insertions(+)
 >=20
 > diff --git a/arch/arm64/boot/dts/rockchip/rk3368.dtsi b/arch/arm64/boot/d=
 ts/rockchip/rk3368.dtsi
-> index 73618df7a..0e47bf59a 100644
+> index 0e47bf59a..674a3676d 100644
 > --- a/arch/arm64/boot/dts/rockchip/rk3368.dtsi
 > +++ b/arch/arm64/boot/dts/rockchip/rk3368.dtsi
-> @@ -858,6 +858,32 @@ vop_mmu: iommu@ff930300 {
+> @@ -884,6 +884,20 @@ display_subsystem: display-subsystem {
 >  		status =3D "disabled";
 >  	};
 > =20
-> +	vop: vop@ff930000 {
-> +		compatible =3D "rockchip,rk3368-vop";
-> +		reg =3D <0x0 0xff930000 0x0 0x2fc>, <0x0 0xff931000 0x0 0x400>;
-> +		reg-names =3D "regs", "gamma_lut";
-> +		interrupts =3D <GIC_SPI 15 IRQ_TYPE_LEVEL_HIGH>;
-> +		clocks =3D <&cru ACLK_VOP>, <&cru DCLK_VOP>, <&cru HCLK_VOP>;
-> +		clock-names =3D "aclk_vop", "dclk_vop", "hclk_vop";
-> +		assigned-clocks =3D <&cru ACLK_VOP>, <&cru HCLK_VOP>;
-> +		assigned-clock-rates =3D <400000000>, <200000000>;
-> +		resets =3D <&cru SRST_LCDC0_AXI>, <&cru SRST_LCDC0_AHB>, <&cru SRST_LC=
-DC0_DCLK>;
-> +		reset-names =3D "axi", "ahb", "dclk";
-> +		iommus =3D <&vop_mmu>;
-> +		status =3D "disabled";
-> +
-> +		vop_out: port {
-> +			#address-cells =3D <1>;
-> +			#size-cells =3D <0>;
-> +		};
-> +	};
-> +
-> +	display_subsystem: display-subsystem {
-> +		compatible =3D "rockchip,display-subsystem";
-> +		ports =3D <&vop_out>;
+> +	video_phy: video-phy@ff968000 {
+
+I think the node should be something like
+dsi_dphy: phy@ff968000
+
+
+> +		compatible =3D "rockchip,rk3368-dsi-dphy";
+> +		reg =3D <0x0 0xff968000 0x0 0x4000>,
+> +		      <0x0 0xff960000 0x0 0x4000>;
+> +		clocks =3D <&cru SCLK_MIPIDSI_24M>, <&cru PCLK_DPHYTX0>,
+> +			 <&cru PCLK_MIPI_DSI0>;
+> +		clock-names =3D "ref", "pclk", "pclk_host";
+> +		#clock-cells =3D <0>;
+> +		resets =3D <&cru SRST_MIPIDPHYTX>;
+> +		reset-names =3D "apb";
+> +		#phy-cells =3D <0>;
 > +		status =3D "disabled";
 > +	};
 > +
