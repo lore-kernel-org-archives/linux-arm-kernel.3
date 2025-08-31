@@ -4,60 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DDD1CA0FE8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 12:48:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D96ACA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 31 Aug 2025 13:28:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5nP20hIvt575wfWhhlQQZcFKlTnROMvoGZsyE95OcUE=; b=MmVa9k02meFeYDux5OOZjAgSXE
-	Q/vjx0jlZHtspRrkIdXBkdOSo1lY8NaCerYe8XJPaG5MJdwCn0GdvJZhtYd8ZXbZlBKGT3AH4zzMh
-	ekwJxcOfqx8zdtznnF4+t1DInkp4nFaaB6AZDdAWd+oRzVM8mrdzqjKewTVGOCLJEgSyzIOzCpB48
-	IE43uYuMPB5pB6GuB5g/qRAT8IgIZLVY1hHcpuTFX2SeWLJfX6nnOsYLw6TLPKgaRm01yMRXPm4PZ
-	hxVw1adLPkx/Dpyx9lIw6LLZybKPevH2zZH8jYImfWhGw4riTAeMDKqF9HjSDbr6NT915wTxBz/5H
-	fIDLOjDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q8il7s50JyZqqTJtf1fNkyt7hHamfJKXZIZviny++Ug=; b=zVGmZv8XqsujjzApdI0UrekIi8
+	B8HTy1vGto4wJ5AjcCPCMc9cEb7isXVWvYr83BZZhRzVDwuv6l53iywKBkrG+XYcC22bPY8+jZZVr
+	FRneUkyY5t5nXx2RQdUqdjJMlPLsZfAg3LsHI/vVNNGTPi0IYEfmRONe/pY+HJHTqVXAMKKhuPmMh
+	uNLreRJr/VIly6yQicTyzRpXlzCQdVTTfg2gb/Pl7suwZ8BwiwkE5Y4IEPwLU5B7jTyrvlNA3d11+
+	5+D/8PUG1/LSNev+pwXJA2YNE5zdO59mA+c2Tnda0bt3B8eighW6r5JRG/0WNhcvHGG3cFZ5DTBIC
+	MLoL5unw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ushTc-0000000ACSe-2WTG;
-	Sun, 31 Aug 2025 12:48:08 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1usi6Q-0000000AE5r-348n;
+	Sun, 31 Aug 2025 13:28:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ushQw-0000000ACHS-3yaD
+	id 1usi3l-0000000ADzu-0zK5
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 31 Aug 2025 12:45:23 +0000
+	Sun, 31 Aug 2025 13:25:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6022D601B2;
-	Sun, 31 Aug 2025 12:45:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DF89C4CEED;
-	Sun, 31 Aug 2025 12:45:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 42644601AA;
+	Sun, 31 Aug 2025 13:25:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58A2FC4CEED;
+	Sun, 31 Aug 2025 13:25:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756644322;
-	bh=j8zEHiKo/duY7tUu4UrzzTl6RAMNLEJ5SUnWOsj1FVQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DM+sdTicjOy2wpuEeqSXiwIXMY8RTOMLwWBAxknRduz174iodwPxTLQEV3OhYLS07
-	 sqwk72JrTgJpXV+JE+IDtjyzrs/t3p1Pc2vqWpBZpO7Jd1mfEY6ZVjm+WVxGOoRFHC
-	 Y3GrzBTOQSrEEaGe1qqpi+xzMIvPoyIvS3W8Li/aK58AAWfLcz2FD7drjF/T/fmxoO
-	 cTrVldVxFWwAoJ4BNo/JSIflTqMcAPECue9lu7VHWa0P+zgzFX883B2asgpwRdwx9V
-	 OohgznRUslYqvaNc5LzMNRHqQk33vuKV1emAQB/PWMt0cujaUzUMpgZm5g2zt3iZA3
-	 pMsYVHgU6jQfg==
-Date: Sun, 31 Aug 2025 18:15:13 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
-	bhelgaas@google.com, helgaas@kernel.org, kishon@kernel.org, vigneshr@ti.com, 
-	stable@vger.kernel.org, linux-pci@vger.kernel.org, linux-omap@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, srk@ti.com
-Subject: Re: [PATCH v3] PCI: j721e: Fix programming sequence of "strap"
- settings
-Message-ID: <oztilfun77apxtjxumx4tydkcd2gsalsak4m2rvsry2oooqjna@2yvcx6cnuemm>
-References: <20250829091707.2990211-1-s-vadapalli@ti.com>
+	s=k20201202; t=1756646727;
+	bh=elVMf+284ZRxCOWIwbNMVAG/IsEPy/rN1u5TN27FxI8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=epRPYIo1pltWP3Qesp47bCZs1ty5J4ypYuL9JxJ++VKP+A0Hd2d74OOVlGGIC6fOB
+	 FVLKEGVzNsqhbpvVMcdcZ1J2bzBvOer/Rgi4uM+GiZlqfbwgfao63ymtk+0/BBe9L4
+	 lJ2lM00AfmjYHA4FwGSLw1eHF2XGhHaOsWCOegUsfBEdbxFtY3RcukT2ASwgIwMIAv
+	 bhYBQhOeUhzfK6XqfUEYgdRy5alVVZH4fXZzCz7LhdwAAMJ3j57EN82c6sxkZrccew
+	 pVejKf0llZdBgk7J/SEAcCsZU7wWiKGrktUpL6hHnk0jCdXkEZqiKMqEWStRYxnLWq
+	 Sb3faCPcoRRRA==
+Message-ID: <b8085dd8-e1a0-48b1-a49f-f3edaa0381da@kernel.org>
+Date: Sun, 31 Aug 2025 15:25:17 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250829091707.2990211-1-s-vadapalli@ti.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 04/10] dt-bindings: pinctrl: samsung: Add compatible
+ for ARTPEC-8 SoC
+To: Ravi Patel <ravi.patel@samsung.com>, jesper.nilsson@axis.com,
+ mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, s.nawrocki@samsung.com,
+ cw00.choi@samsung.com, alim.akhtar@samsung.com, linus.walleij@linaro.org,
+ tomasz.figa@gmail.com, catalin.marinas@arm.com, will@kernel.org,
+ arnd@arndb.de
+Cc: ksk4725@coasia.com, kenkim@coasia.com, pjsin865@coasia.com,
+ gwk1013@coasia.com, hgkim05@coasia.com, mingyoungbo@coasia.com,
+ smn1196@coasia.com, pankaj.dubey@samsung.com, shradha.t@samsung.com,
+ inbaraj.e@samsung.com, swathi.ks@samsung.com, hrishikesh.d@samsung.com,
+ dj76.yang@samsung.com, hypmean.kim@samsung.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-arm-kernel@axis.com,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-gpio@vger.kernel.org, soc@lists.linux.dev
+References: <20250825114436.46882-1-ravi.patel@samsung.com>
+ <CGME20250825120715epcas5p3a0c8b6eaff7bdd69cbed6ce463079c64@epcas5p3.samsung.com>
+ <20250825114436.46882-5-ravi.patel@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250825114436.46882-5-ravi.patel@samsung.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,109 +128,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 29, 2025 at 02:46:28PM GMT, Siddharth Vadapalli wrote:
-> The Cadence PCIe Controller integrated in the TI K3 SoCs supports both
-> Root-Complex and Endpoint modes of operation. The Glue Layer allows
-> "strapping" the Mode of operation of the Controller, the Link Speed
-> and the Link Width. This is enabled by programming the "PCIEn_CTRL"
-> register (n corresponds to the PCIe instance) within the CTRL_MMR
-> memory-mapped register space. The "reset-values" of the registers are
-> also different depending on the mode of operation.
+On 25/08/2025 13:44, Ravi Patel wrote:
+> From: SeonGu Kang <ksk4725@coasia.com>
 > 
-> Since the PCIe Controller latches onto the "reset-values" immediately
-> after being powered on, if the Glue Layer configuration is not done while
-> the PCIe Controller is off, it will result in the PCIe Controller latching
-> onto the wrong "reset-values". In practice, this will show up as a wrong
-> representation of the PCIe Controller's capability structures in the PCIe
-> Configuration Space. Some such capabilities which are supported by the PCIe
-> Controller in the Root-Complex mode but are incorrectly latched onto as
-> being unsupported are:
-> - Link Bandwidth Notification
-> - Alternate Routing ID (ARI) Forwarding Support
-> - Next capability offset within Advanced Error Reporting (AER) capability
+> Document the compatible string for ARTPEC-8 SoC pinctrl block,
+> which is similar to other Samsung SoC pinctrl blocks.
 > 
-> Fix this by powering off the PCIe Controller before programming the "strap"
-> settings and powering it on after that.
-> 
-> Fixes: f3e25911a430 ("PCI: j721e: Add TI J721E PCIe driver")
-> Cc: <stable@vger.kernel.org>
-> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> Signed-off-by: SeonGu Kang <ksk4725@coasia.com>
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
 > ---
-> 
-> Hello,
-> 
-> This patch is based on commit
-> 07d9df80082b Merge tag 'perf-tools-fixes-for-v6.17-2025-08-27' of git://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools
-> of Mainline Linux.
-> 
-> v2 of this patch is at:
-> https://lore.kernel.org/r/20250819101336.292013-1-s-vadapalli@ti.com/
-> Changes since v2:
-> - Based on Bjorn's feedback at:
->   https://lore.kernel.org/r/20250819221748.GA598958@bhelgaas/
->   1) Commit message has been rephrased to summarize the issue and the
->   fix without elaborating too much on the details.
->   2) Description of the issue's symptoms noticeable by a user has been
->   added to the commit message.
->   3) Comment has been wrapped to fit within 80 columns.
->   4) The implementation has been simplified by moving the Controller
->   Power OFF and Power ON sequence into j721e_pcie_ctrl_init() as a
->   result of which the code reordering as well as function parameter
->   changes are no longer required.
-> - Based on offline feedback from Vignesh, Runtime PM APIs are used
->   instead of PM DOMAIN APIs to power off and power on the PCIe
->   Controller.
-> - Rebased patch on latest Mainline Linux.
-> 
-> Test Logs on J7200 EVM without the current patch applied show that the
-> ARI Forwarding Capability incorrectly shows up as not being supported:
-> https://gist.github.com/Siddharth-Vadapalli-at-TI/768bca36025ed630c4e69bcc3d94501a
-> 
-> Test Logs on J7200 EVM with the current patch applied show that the
-> ARI Forwarding Capability correctly shows up as being supported:
-> https://gist.github.com/Siddharth-Vadapalli-at-TI/fc1752d17140646c8fa57209eccd86ce
-> 
-> As explained in the commit message, this discrepancy is solely due to
-> the PCIe Controller latching onto the incorrect reset-values which
-> occurs when the strap settings are programmed after the PCIe Controller
-> is powered on, at which point, the reset-values don't toggle anymore.
-> 
-> Regards,
-> Siddharth.
-> 
->  drivers/pci/controller/cadence/pci-j721e.c | 22 ++++++++++++++++++++++
->  1 file changed, 22 insertions(+)
-> 
-> diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
-> index 6c93f39d0288..c178b117215a 100644
-> --- a/drivers/pci/controller/cadence/pci-j721e.c
-> +++ b/drivers/pci/controller/cadence/pci-j721e.c
-> @@ -284,6 +284,22 @@ static int j721e_pcie_ctrl_init(struct j721e_pcie *pcie)
->  	if (!ret)
->  		offset = args.args[0];
->  
-> +	/*
-> +	 * The PCIe Controller's registers have different "reset-values"
-> +	 * depending on the "strap" settings programmed into the PCIEn_CTRL
-> +	 * register within the CTRL_MMR memory-mapped register space.
-> +	 * The registers latch onto a "reset-value" based on the "strap"
-> +	 * settings sampled after the PCIe Controller is powered on.
-> +	 * To ensure that the "reset-values" are sampled accurately, power
-> +	 * off the PCIe Controller before programming the "strap" settings
-> +	 * and power it on after that.
-> +	 */
-> +	ret = pm_runtime_put_sync(dev);
-> +	if (ret < 0) {
-> +		dev_err(dev, "Failed to power off PCIe Controller\n");
-> +		return ret;
-> +	}
+>  Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 
-How does the controller gets powered off after pm_runtime_put_sync() since you
-do not have runtime PM callbacks? I believe the parent is turning off the power
-domain?
 
-- Mani
+No wakeup-eint interrupts here? samsung,pinctrl-wakeup-interrupt.yaml?
 
--- 
-மணிவண்ணன் சதாசிவம்
+
+Best regards,
+Krzysztof
 
