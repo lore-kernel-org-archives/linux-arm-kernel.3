@@ -4,115 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB9F2CA100D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 23:12:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E61DECA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 23:12:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jkEShtyZMAsDf/J3X4vsiABth2SEec0fiHHSpv4k9x8=; b=GgKgWCYfeZu0wyc1TSqYzuoAfb
-	T9oncGn5GTiPV7YomuUze2XBUIDhkjjNsWH24r0WMRHGEfNI3M4MnvdZXddp6jvkCjtKgSsZyaEh6
-	ae3ZEo0o6SJF+uX1Rv45xGIGzDPAjXt85tk/jct6Ojizw5Q9hTkI3w0xg4ny7B5W7bHtJwS3X5G67
-	zJexaqCnpp0Gv7HukLa8FUlOsA0QFITjG3X1I0X2j+zKl9D2FaiVWZF/ltrx/pFvMw5jRxXevLTYM
-	uMDu162xktBBgATPAEhi54vAjycFZidvX9oahFwfp0gVbHJ/kk78d8STgouV8RCqJTgV7HIyE1kq+
-	RM7FrGIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IpD9WC+lIAWpalgfsw+H21gpTmX7hZzvp3NwJpCbAFg=; b=NzHuITDMgpae7/ioUiRa99jVlr
+	c41DLudrqXoA4cbwXMLKya+MQnjREYMo1yWIOQ1KZ7ugaPw8lV/hN879ZAXIz4lUx18gJUls5BIRi
+	C+cFpzmfl9Llf9gMTRtElJa39Uil0DLkfJYoTaD03aChlJ9c1ACs6AlwS3CQMZ1P3sOreUxN3djW0
+	fSQQEi73RNMxRsh8vZNfGqK0ttA8F9XrhEE4eBy/lC8HbykHWnd4IQYRZQUUAG3/Eony2Qx9BHk+n
+	yUK/hl93IAVi1k033XUmfKv90KIPKDyJ4jQwYKKkkKZpZRiGLrbAxth8VcXST4cIJVcZ24KLD9cAs
+	Gyu5n6ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utDgr-0000000EDlw-3u6R;
-	Mon, 01 Sep 2025 23:11:57 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1utDh2-0000000EDxG-0aCT;
+	Mon, 01 Sep 2025 23:12:08 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut6EG-0000000D1cc-1YuI
+	id 1ut6j5-0000000DAIW-3Xil
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 01 Sep 2025 15:45:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=IpD9WC+lIAWpalgfsw+H21gpTmX7hZzvp3NwJpCbAFg=; b=GFMVSkMnXwpgL5AoL1o54Lx/Bl
+	1LzUK2t5+XQLfZ18ihQXxC0+tYBVoqMpwIlLLEQSyZO5QK6O2zyYt1L8qfPxXahcoJKoc0/INsvwZ
+	vUV+G3Ei2Gc27tieGrjg6ce5lJYetIEq82JaYkPLzvlHcFilKw97YCwkrZzrjCcju2SYRS6zg/5fg
+	kpUvnW+mxsU8PcZwYkb/5CaTA/Fq1zjh3KInRCf6H4kh+DVi2tDXp3gjMHQDzNM8JGaL7Ls4Vf03q
+	WQ5iZWtXY++tlQvE69eGRFfYSofDJ9AJHOQzFibdzWSdlXDkMnR+QOymcUmyJ7Z0TR2oHs6jSIPQX
+	GEM0G6FA==;
+Received: from mgamail.intel.com ([198.175.65.12])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ut6j2-00000003nWP-0BBF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 15:13:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756739635;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jkEShtyZMAsDf/J3X4vsiABth2SEec0fiHHSpv4k9x8=;
-	b=WKXsh5P+H1qNTNZkPhx7SE/4NliaZ1lT4nEt0Y0cMkzZyM3PV1gZejAZu7eWSvGAkh9orm
-	fW8JkbHKDzxzXxE7fSS/525xgxAsEwgNFS6v820IWoV0Amddm3faXwi7CoiMBAkUEV7oq5
-	hu01y0ahMtIqckWvZxipvCWfQIXMuEk=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-1-o2-TD6CtMRuqF-LwyESxUQ-1; Mon,
- 01 Sep 2025 11:13:51 -0400
-X-MC-Unique: o2-TD6CtMRuqF-LwyESxUQ-1
-X-Mimecast-MFC-AGG-ID: o2-TD6CtMRuqF-LwyESxUQ_1756739625
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4DA9F1800561;
-	Mon,  1 Sep 2025 15:13:45 +0000 (UTC)
-Received: from t14s.fritz.box (unknown [10.22.88.45])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id CF9891800447;
-	Mon,  1 Sep 2025 15:13:30 +0000 (UTC)
-From: David Hildenbrand <david@redhat.com>
-To: linux-kernel@vger.kernel.org
-Cc: David Hildenbrand <david@redhat.com>,
-	Marco Elver <elver@google.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Alexander Potapenko <glider@google.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Brendan Jackman <jackmanb@google.com>,
-	Christoph Lameter <cl@gentwo.org>,
-	Dennis Zhou <dennis@kernel.org>,
-	dri-devel@lists.freedesktop.org,
-	intel-gfx@lists.freedesktop.org,
-	iommu@lists.linux.dev,
-	io-uring@vger.kernel.org,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Jens Axboe <axboe@kernel.dk>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	John Hubbard <jhubbard@nvidia.com>,
-	kasan-dev@googlegroups.com,
-	kvm@vger.kernel.org,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	linux-arm-kernel@axis.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-crypto@vger.kernel.org,
-	linux-ide@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-mmc@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	netdev@vger.kernel.org,
-	Oscar Salvador <osalvador@suse.de>,
-	Peter Xu <peterx@redhat.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Tejun Heo <tj@kernel.org>,
-	virtualization@lists.linux.dev,
-	Vlastimil Babka <vbabka@suse.cz>,
-	wireguard@lists.zx2c4.com,
-	x86@kernel.org,
-	Zi Yan <ziy@nvidia.com>
-Subject: [PATCH v2 35/37] kfence: drop nth_page() usage
-Date: Mon,  1 Sep 2025 17:03:56 +0200
-Message-ID: <20250901150359.867252-36-david@redhat.com>
-In-Reply-To: <20250901150359.867252-1-david@redhat.com>
-References: <20250901150359.867252-1-david@redhat.com>
+	Mon, 01 Sep 2025 15:45:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1756741544; x=1788277544;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=zxaxdww8toDhus2z2vp/yYJXW2OksJavlXEQDZZP3JI=;
+  b=S5PaFiujjS+lhOmFq3mLSkpW9fysUMu5Rz+qGhtSgig3M7hkuZyzg6aT
+   uuYKiiBUudYXFauT3Je+0LK7jSzksfa6S+fmmqDBOf+URXVV5IDedFjuy
+   1vIVLnCX4iMxkCo60BkI0e+swDgDUafcfR5CxigORwoLSm4123hsRLbRE
+   cmzEfQhPZD1QHltSUAZAH/WzQ30C8iuC7TfH5Elf2QqFLfAbj2UTnMGcX
+   Ms6xmcPnK2kmrExA1gza634MtzzCgVuOBiUuklI86Lz0/tOOzOr+Wn1hy
+   HG24cdeqLgkCx/w6Mb3YcUlSrxWsGOSmLRtiGo31/+EJZqojFMBlT1p4y
+   A==;
+X-CSE-ConnectionGUID: aWOthuveRPSDZ1tVhDgbBg==
+X-CSE-MsgGUID: 1gE0dS+FTCm7ZxSe/8uv/g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11540"; a="70433355"
+X-IronPort-AV: E=Sophos;i="6.18,225,1751266800"; 
+   d="scan'208";a="70433355"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Sep 2025 08:45:37 -0700
+X-CSE-ConnectionGUID: L5oquOi4RzSHvuGPIcM5QQ==
+X-CSE-MsgGUID: meWZh0FPSAi3ZPDUVfbplQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,225,1751266800"; 
+   d="scan'208";a="170917036"
+Received: from smile.fi.intel.com ([10.237.72.52])
+  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Sep 2025 08:45:33 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1ut6io-0000000AScj-2OEy;
+	Mon, 01 Sep 2025 18:45:30 +0300
+Date: Mon, 1 Sep 2025 18:45:30 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Gabor Juhos <j4g8y7@gmail.com>
+Cc: Wolfram Sang <wsa@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Russell King <rmk+kernel@armlinux.org.uk>,
+	Andrew Lunn <andrew@lunn.ch>, Hanna Hawa <hhhawa@amazon.com>,
+	Robert Marko <robert.marko@sartura.hr>,
+	Linus Walleij <linus.walleij@linaro.org>, linux-i2c@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org, Imre Kaloz <kaloz@openwrt.org>
+Subject: Re: [PATCH v3 0/2] i2c: pxa: fix I2C communication on Armada 3700
+Message-ID: <aLW_mqrhnRIsW-pc@smile.fi.intel.com>
+References: <20250827-i2c-pxa-fix-i2c-communication-v3-0-052c9b1966a2@gmail.com>
+ <aLVmKrxEzYgbMUQU@smile.fi.intel.com>
+ <3d3c9d5a-d3a4-4c94-8199-a5870474aa23@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+In-Reply-To: <3d3c9d5a-d3a4-4c94-8199-a5870474aa23@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_081356_503368_C853DF16 
-X-CRM114-Status: GOOD (  16.63  )
+X-CRM114-CacheID: sfid-20250901_164544_683406_D61911C3 
+X-CRM114-Status: GOOD (  19.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,79 +114,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We want to get rid of nth_page(), and kfence init code is the last user.
+On Mon, Sep 01, 2025 at 05:24:51PM +0200, Gabor Juhos wrote:
+> 2025. 09. 01. 11:23 keltezéssel, Andy Shevchenko írta:
+> > On Wed, Aug 27, 2025 at 07:13:57PM +0200, Gabor Juhos wrote:
 
-Unfortunately, we might actually walk a PFN range where the pages are
-not contiguous, because we might be allocating an area from memblock
-that could span memory sections in problematic kernel configs (SPARSEMEM
-without SPARSEMEM_VMEMMAP).
+...
 
-We could check whether the page range is contiguous
-using page_range_contiguous() and failing kfence init, or making kfence
-incompatible these problemtic kernel configs.
+> >>   - remove Imre's tag from the cover letter, and replace his SoB tag to
+> >>     Reviewed-by in the individual patches
+> > 
+> > Note, this can be automated with `b4`.
+> > 
+> > 	# Start a new branch of the same base
+> > 	git checkout -b v3 ...
+> > 	# Apply last version from the mailing list
+> > 	b4 am $MESSAGE_ID_OF_v2
+> > 	# Do actual development of v3
+> > 	...
+> 
+> As far as I know it can be used only to collect tags offered publicly on the
+> mailing lists. I can even use 'b4 trailers --update' for that on an existing b4
+> tracked branch.
+> 
+> However, the current case is a bit different. I have replaced Imre's tag
+> manually according to our previous discussion [1].
 
-Let's keep it simple and simply use pfn_to_page() by iterating PFNs.
+Right, but technically it can be done via `b4`. I thought you have done that
+manually. Seems I misinterpreted things.
 
-Reviewed-by: Marco Elver <elver@google.com>
-Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: Alexander Potapenko <glider@google.com>
-Cc: Dmitry Vyukov <dvyukov@google.com>
-Signed-off-by: David Hildenbrand <david@redhat.com>
----
- mm/kfence/core.c | 12 +++++++-----
- 1 file changed, 7 insertions(+), 5 deletions(-)
+> [1] https://lore.kernel.org/all/aJyM3N9T4xI4Xo1G@smile.fi.intel.com/
 
-diff --git a/mm/kfence/core.c b/mm/kfence/core.c
-index 0ed3be100963a..727c20c94ac59 100644
---- a/mm/kfence/core.c
-+++ b/mm/kfence/core.c
-@@ -594,15 +594,14 @@ static void rcu_guarded_free(struct rcu_head *h)
-  */
- static unsigned long kfence_init_pool(void)
- {
--	unsigned long addr;
--	struct page *pages;
-+	unsigned long addr, start_pfn;
- 	int i;
- 
- 	if (!arch_kfence_init_pool())
- 		return (unsigned long)__kfence_pool;
- 
- 	addr = (unsigned long)__kfence_pool;
--	pages = virt_to_page(__kfence_pool);
-+	start_pfn = PHYS_PFN(virt_to_phys(__kfence_pool));
- 
- 	/*
- 	 * Set up object pages: they must have PGTY_slab set to avoid freeing
-@@ -613,11 +612,12 @@ static unsigned long kfence_init_pool(void)
- 	 * enters __slab_free() slow-path.
- 	 */
- 	for (i = 0; i < KFENCE_POOL_SIZE / PAGE_SIZE; i++) {
--		struct slab *slab = page_slab(nth_page(pages, i));
-+		struct slab *slab;
- 
- 		if (!i || (i % 2))
- 			continue;
- 
-+		slab = page_slab(pfn_to_page(start_pfn + i));
- 		__folio_set_slab(slab_folio(slab));
- #ifdef CONFIG_MEMCG
- 		slab->obj_exts = (unsigned long)&kfence_metadata_init[i / 2 - 1].obj_exts |
-@@ -665,10 +665,12 @@ static unsigned long kfence_init_pool(void)
- 
- reset_slab:
- 	for (i = 0; i < KFENCE_POOL_SIZE / PAGE_SIZE; i++) {
--		struct slab *slab = page_slab(nth_page(pages, i));
-+		struct slab *slab;
- 
- 		if (!i || (i % 2))
- 			continue;
-+
-+		slab = page_slab(pfn_to_page(start_pfn + i));
- #ifdef CONFIG_MEMCG
- 		slab->obj_exts = 0;
- #endif
 -- 
-2.50.1
+With Best Regards,
+Andy Shevchenko
+
 
 
