@@ -4,81 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52E31CA100E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 00:52:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA4ADCA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 00:52:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9uhrFD/vYsdj0h963DKynmrnwTlXHxQqVFywnLF2a/s=; b=QLiv2uCCbdeA5G9SLv5Qipm5Fd
-	AOlH0SCPyAuZy1rO+GWYqd3QrJBx1rjmWqHj3rY8x+V23MX+fRaxVvwO42y51Qjb+xvuYDbbzpSgZ
-	NhrEtfhIBLQBT6ybFksgh6kTw9FIstafPAaKqdLKk4G2uv0jjYnjfZrjjmGjebSNHFCDTs3bFPkVD
-	w0Lkg2hPa++pRHxvNleos6yEKtGg01ZBBa69G0Lc/qFniw+i7pvhgkF0/EN2VrYJr51MnpvXGhdFs
-	zMQpqrWfsKLh0FOzyq4Nq1KOTf88ls2BHBU09jISif3K1TTxI12v8jR5c2r60gwV85ptTFQlVIxiP
-	Ra8TghuQ==;
+	bh=VNXuSkgS1Hm7xTazT9euvf9ZBvJ3UBxy+akBpKYBLgY=; b=Jgr+cGfJtTEY0SfQJt2Pdz2SZG
+	csl4zOb+DzfZ3wNjE5t/CHoRmihXlySluAJhLgV2vWcRuvieRBbf13SJDwoMQyLMKFyDTeX+toXT8
+	tELdtBnZ1EzlkETPwXJ4S5FlyWy58NVN3lms5SPrBv+mJehUgJ6U5m6fzidyoVcPdxyATAR8ei3PR
+	CiX//kW/mAPVtaqc5MdmZBBZcRA4qGudW3xQwfvFnpMvBcE3YEBnUg5q9ngcWy9OSpEuTr4/6CzAF
+	AYm4hx20jtYj1bhAP0ygXVdxJqeuh6vc33vELrqfVXVZUD50xwPaGcIWglIxKPBFJiYuVCfwSDcmy
+	kb025JSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utFGH-0000000EYVG-1Nwd;
-	Tue, 02 Sep 2025 00:52:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utB0n-0000000DlnZ-14gK
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 01 Sep 2025 20:20:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=9uhrFD/vYsdj0h963DKynmrnwTlXHxQqVFywnLF2a/s=; b=S6Va6MvdSBdHMNfSVHCqcwLq2v
-	6r3P1rzW4ohTkowCpTNAg6baDK1uOyCFIKZIVBKq2LbOLn5zNWz6VvbEFKORhuFzWxL863GPMcjGr
-	tDHF08/nCBe+1ZAFntrtib0rjDl+9U8LoAf5m7C26xXIjUVN7Sra+a9sxrLIFGC5/c1esPBbqqQ23
-	QdZctpmrKa9scx1Z4RaBbhtuAQkuNQx4uU8CWjCvlrpUlNeP2nvFvgYmK8JKd4xM8UWqefqIuNWXE
-	Xi1b2XrzO58GiGHdD41PspBmH970IKKs1vcrX/eXsmQ4ZDUCdWB8UtJGj3cECAlLwwT2brTvzUf2j
-	SGyMumAA==;
+	id 1utFGQ-0000000EYim-018I;
+	Tue, 02 Sep 2025 00:52:46 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utB0a-00000003rmc-0yVj
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 20:20:16 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1utBby-0000000DtM0-2xQ1;
+	Mon, 01 Sep 2025 20:58:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D1834451C0;
-	Mon,  1 Sep 2025 20:20:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6ECEFC4CEF0;
-	Mon,  1 Sep 2025 20:20:04 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 715184404D;
+	Mon,  1 Sep 2025 20:58:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00250C4CEF0;
+	Mon,  1 Sep 2025 20:58:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756758004;
-	bh=QOMqlcOFBLAVbrllK3DKq6nvUKB0xqaJAJzvmyO/MC0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=roGLZfiq0+KvDkfgOCfb/6FJmchCmTQA688JEV43tKNqWkSNIM47ycaSYBfxjomCY
-	 DEj/qhGVI1FNKEI66BokU4AMA2yIjh65qpMzW7Mdkldbf75ty7Afk3fAX9hVp1Arwy
-	 8qnY2QdcrfLwMHxVn1nYL1iXnkNmZb+SCOsi5iO8fLSqNc3dOEvv+zj0V60M+s/z5f
-	 76+7UglYgWW9gqbFLGife5h+6sF8/aemqxPgCjZCJDZIgt7XxibLUWwWL9QN6VJaMW
-	 KxzJZeyHbB2UWyR7IKNvqunnr7YIuXWUSz7iZpmD3U/rZ5g+o9i+lbTyNq3d3WVAkA
-	 Q+hxhso2TllsA==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Zhiqi Song <songzhiqi1@huawei.com>,
-	Longfang Liu <liulongfang@huawei.com>,
-	x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 5/6] lib/crypto: curve25519: Consolidate into single module
-Date: Mon,  1 Sep 2025 13:18:14 -0700
-Message-ID: <20250901201815.594177-6-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250901201815.594177-1-ebiggers@kernel.org>
-References: <20250901201815.594177-1-ebiggers@kernel.org>
+	s=k20201202; t=1756760326;
+	bh=4LtXezcLDIRzSZNWcZUrsVNzGN2YdOtuIfCVfM61mFA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=aO3IcorpKp2p8gA1JEK7RuH1VqEx1igpJVT13GXsbYn04mGqwg9MFTgGF7maJhAfH
+	 z5oWr6cSah5Ky5kCRArSMM39AGbTv05Ke6xl5TJyPwfAUV61xbwn9fdRlr7xESwkco
+	 5luq8BQdpoZaGzgOYd5OfytzqJr6Od7gsM7MQylLyjzNdKGXKw3N/cQnup9YM0xqwz
+	 UrahGl05nZBIzQNlRF84YDrZKm+aCzgn/t5vpPsehMY6I85Bju8zSFiNg0fkNI1SHL
+	 nbCIer6TGJ+E1FUkNy2fsE/u7+mLUsFw7+Tfz3NRBLSbBrSB6drv/WCLixDWQGw8QO
+	 6B1lkFcn0//ng==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Mon, 01 Sep 2025 22:58:05 +0200
+Subject: [PATCH mt76 v2 09/14] wifi: mt76: mt7996: Enable WED for MT7992
+ chipset
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250901-mt7996-rro-rework-v2-9-1f95086b51d1@kernel.org>
+References: <20250901-mt7996-rro-rework-v2-0-1f95086b51d1@kernel.org>
+In-Reply-To: <20250901-mt7996-rro-rework-v2-0-1f95086b51d1@kernel.org>
+To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
+ Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Sujuan Chen <sujuan.chen@mediatek.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, Rex Lu <rex.lu@mediatek.com>, 
+ Benjamin Lin <benjamin-jw.lin@mediatek.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_212011_735322_CA30D998 
-X-CRM114-Status: GOOD (  19.02  )
+X-CRM114-CacheID: sfid-20250901_135846_792838_006CB197 
+X-CRM114-Status: GOOD (  19.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,675 +78,333 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reorganize the Curve25519 library code:
+From: Rex Lu <rex.lu@mediatek.com>
 
-- Build a single libcurve25519 module, instead of up to three modules:
-  libcurve25519, libcurve25519-generic, and an arch-specific module.
+Introduce WED offload support for MT7992 chipset in MT7996 driver.
 
-- Move the arch-specific Curve25519 code from arch/$(SRCARCH)/crypto/ to
-  lib/crypto/$(SRCARCH)/.  Centralize the build rules into
-  lib/crypto/Makefile and lib/crypto/Kconfig.
-
-- Include the arch-specific code directly in lib/crypto/curve25519.c via
-  a header, rather than using a separate .c file.
-
-- Eliminate the entanglement with CRYPTO.  CRYPTO_LIB_CURVE25519 no
-  longer selects CRYPTO, and the arch-specific Curve25519 code no longer
-  depends on CRYPTO.
-
-This brings Curve25519 in line with the latest conventions for
-lib/crypto/, used by other algorithms.  The exception is that I kept the
-generic code in separate translation units for now.  (Some of the
-function names collide between the x86 and generic Curve25519 code.  And
-the Curve25519 functions are very long anyway, so inlining doesn't
-matter as much for Curve25519 as it does for some other algorithms.)
-
-Signed-off-by: Eric Biggers <ebiggers@kernel.org>
+Co-developed-by: Sujuan Chen <sujuan.chen@mediatek.com>
+Signed-off-by: Sujuan Chen <sujuan.chen@mediatek.com>
+Co-developed-by: Benjamin Lin <benjamin-jw.lin@mediatek.com>
+Signed-off-by: Benjamin Lin <benjamin-jw.lin@mediatek.com>
+Signed-off-by: Rex Lu <rex.lu@mediatek.com>
+Co-developed-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- arch/arm/crypto/Kconfig                       | 12 -----
- arch/arm/crypto/Makefile                      |  2 -
- arch/powerpc/crypto/Kconfig                   | 12 -----
- arch/powerpc/crypto/Makefile                  |  2 -
- arch/x86/crypto/Kconfig                       | 12 -----
- arch/x86/crypto/Makefile                      |  5 ---
- include/crypto/curve25519.h                   | 10 -----
- lib/crypto/Kconfig                            | 37 ++++++---------
- lib/crypto/Makefile                           | 26 ++++++++---
- .../crypto/arm}/curve25519-core.S             |  0
- .../crypto/arm/curve25519.h                   | 29 +++---------
- lib/crypto/curve25519-generic.c               | 25 -----------
- lib/crypto/curve25519.c                       | 45 ++++++++++++-------
- .../crypto/powerpc}/curve25519-ppc64le_asm.S  |  0
- .../crypto/powerpc/curve25519.h               | 19 +++-----
- lib/crypto/tests/Kconfig                      |  3 +-
- .../crypto/x86/curve25519.h                   | 31 +++----------
- 17 files changed, 84 insertions(+), 186 deletions(-)
- rename {arch/arm/crypto => lib/crypto/arm}/curve25519-core.S (100%)
- rename arch/arm/crypto/curve25519-glue.c => lib/crypto/arm/curve25519.h (61%)
- delete mode 100644 lib/crypto/curve25519-generic.c
- rename {arch/powerpc/crypto => lib/crypto/powerpc}/curve25519-ppc64le_asm.S (100%)
- rename arch/powerpc/crypto/curve25519-ppc64le-core.c => lib/crypto/powerpc/curve25519.h (88%)
- rename arch/x86/crypto/curve25519-x86_64.c => lib/crypto/x86/curve25519.h (98%)
+ drivers/net/wireless/mediatek/mt76/mt7996/dma.c    | 26 +++++++-
+ drivers/net/wireless/mediatek/mt76/mt7996/init.c   | 11 ++--
+ drivers/net/wireless/mediatek/mt76/mt7996/main.c   | 19 +++---
+ drivers/net/wireless/mediatek/mt76/mt7996/mmio.c   | 72 ++++++++++++++++------
+ drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h |  3 +
+ drivers/net/wireless/mediatek/mt76/mt7996/pci.c    |  1 +
+ drivers/net/wireless/mediatek/mt76/mt7996/regs.h   |  4 ++
+ 7 files changed, 101 insertions(+), 35 deletions(-)
 
-diff --git a/arch/arm/crypto/Kconfig b/arch/arm/crypto/Kconfig
-index 97718d86f6007..c436eec22d86c 100644
---- a/arch/arm/crypto/Kconfig
-+++ b/arch/arm/crypto/Kconfig
-@@ -1,21 +1,9 @@
- # SPDX-License-Identifier: GPL-2.0
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/dma.c b/drivers/net/wireless/mediatek/mt76/mt7996/dma.c
+index b3665bb0a433ae4cdbf02fa647d644961509d7aa..c5fd25acf9a1a60d4aaffe8ba6d2cf2aafe4fd87 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/dma.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/dma.c
+@@ -17,7 +17,7 @@ int mt7996_init_tx_queues(struct mt7996_phy *phy, int idx, int n_desc,
+ 		ring_base += MT_TXQ_ID(0) * MT_RING_SIZE;
+ 		idx -= MT_TXQ_ID(0);
  
- menu "Accelerated Cryptographic Algorithms for CPU (arm)"
+-		if (phy->mt76->band_idx == MT_BAND2)
++		if (wed == &dev->mt76.mmio.wed_hif2)
+ 			flags = MT_WED_Q_TX(0);
+ 		else
+ 			flags = MT_WED_Q_TX(idx);
+@@ -429,6 +429,30 @@ static void mt7996_dma_enable(struct mt7996_dev *dev, bool reset)
+ 		mt76_rmw(dev, MT_WFDMA_AXI_R2A_CTRL,
+ 			 MT_WFDMA_AXI_R2A_CTRL_OUTSTAND_MASK, 0x14);
  
--config CRYPTO_CURVE25519_NEON
--	tristate
--	depends on KERNEL_MODE_NEON
--	select CRYPTO_LIB_CURVE25519_GENERIC
--	select CRYPTO_ARCH_HAVE_LIB_CURVE25519
--	default CRYPTO_LIB_CURVE25519_INTERNAL
--	help
--	  Curve25519 algorithm
++		if (dev->hif2->speed < PCIE_SPEED_5_0GT ||
++		    (dev->hif2->speed == PCIE_SPEED_5_0GT &&
++		     dev->hif2->width < PCIE_LNK_X2)) {
++			mt76_rmw(dev, WF_WFDMA0_GLO_CFG_EXT0 + hif1_ofs,
++				 WF_WFDMA0_GLO_CFG_EXT0_OUTSTAND_MASK,
++				 FIELD_PREP(WF_WFDMA0_GLO_CFG_EXT0_OUTSTAND_MASK,
++					    0x1));
++			mt76_rmw(dev, MT_WFDMA_AXI_R2A_CTRL2,
++				 MT_WFDMA_AXI_R2A_CTRL2_OUTSTAND_MASK,
++				 FIELD_PREP(MT_WFDMA_AXI_R2A_CTRL2_OUTSTAND_MASK,
++					    0x1));
++		} else if (dev->hif2->speed < PCIE_SPEED_8_0GT ||
++			   (dev->hif2->speed == PCIE_SPEED_8_0GT &&
++			    dev->hif2->width < PCIE_LNK_X2)) {
++			mt76_rmw(dev, WF_WFDMA0_GLO_CFG_EXT0 + hif1_ofs,
++				 WF_WFDMA0_GLO_CFG_EXT0_OUTSTAND_MASK,
++				 FIELD_PREP(WF_WFDMA0_GLO_CFG_EXT0_OUTSTAND_MASK,
++					    0x2));
++			mt76_rmw(dev, MT_WFDMA_AXI_R2A_CTRL2,
++				 MT_WFDMA_AXI_R2A_CTRL2_OUTSTAND_MASK,
++				 FIELD_PREP(MT_WFDMA_AXI_R2A_CTRL2_OUTSTAND_MASK,
++					    0x2));
++		}
++
+ 		/* WFDMA rx threshold */
+ 		mt76_wr(dev, MT_WFDMA0_PAUSE_RX_Q_45_TH + hif1_ofs, 0xc000c);
+ 		mt76_wr(dev, MT_WFDMA0_PAUSE_RX_Q_67_TH + hif1_ofs, 0x10008);
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/init.c b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
+index 023f788ac5f8ce6f01e5556a6000765ed42cc646..075e5caaa31e54071111b6919bfd9b4eabca5177 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/init.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
+@@ -666,7 +666,9 @@ static int mt7996_register_phy(struct mt7996_dev *dev, enum mt76_band_id band)
+ 	if (!mt7996_band_valid(dev, band))
+ 		return 0;
+ 
+-	if (is_mt7996(&dev->mt76) && band == MT_BAND2 && dev->hif2) {
++	if (dev->hif2 &&
++	    ((is_mt7996(&dev->mt76) && band == MT_BAND2) ||
++	     (is_mt7992(&dev->mt76) && band == MT_BAND1))) {
+ 		hif1_ofs = MT_WFDMA0_PCIE1(0) - MT_WFDMA0(0);
+ 		wed = &dev->mt76.mmio.wed_hif2;
+ 	}
+@@ -724,10 +726,9 @@ static int mt7996_register_phy(struct mt7996_dev *dev, enum mt76_band_id band)
+ 		goto error;
+ 
+ 	if (wed == &dev->mt76.mmio.wed_hif2 && mtk_wed_device_active(wed)) {
+-		u32 irq_mask = dev->mt76.mmio.irqmask | MT_INT_TX_DONE_BAND2;
 -
--	  Architecture: arm with
--	  - NEON (Advanced SIMD) extensions
+-		mt76_wr(dev, MT_INT1_MASK_CSR, irq_mask);
+-		mtk_wed_device_start(&dev->mt76.mmio.wed_hif2, irq_mask);
++		mt76_wr(dev, MT_INT_PCIE1_MASK_CSR, MT_INT_TX_RX_DONE_EXT);
++		mtk_wed_device_start(&dev->mt76.mmio.wed_hif2,
++				     MT_INT_TX_RX_DONE_EXT);
+ 	}
+ 
+ 	return 0;
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+index d4a79db4371c2789c96b2eed8dd8887581f6a98a..87d9ceaacc3ca1c34886414530c592c3c4c6fdfb 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+@@ -2156,9 +2156,7 @@ mt7996_net_fill_forward_path(struct ieee80211_hw *hw,
+ 	struct mt7996_dev *dev = mt7996_hw_dev(hw);
+ 	struct mtk_wed_device *wed = &dev->mt76.mmio.wed;
+ 	struct mt7996_sta_link *msta_link;
+-	struct mt7996_vif_link *link;
+ 	struct mt76_vif_link *mlink;
+-	struct mt7996_phy *phy;
+ 
+ 	mlink = rcu_dereference(mvif->mt76.link[msta->deflink_id]);
+ 	if (!mlink)
+@@ -2171,13 +2169,10 @@ mt7996_net_fill_forward_path(struct ieee80211_hw *hw,
+ 	if (!msta_link->wcid.sta || msta_link->wcid.idx > MT7996_WTBL_STA)
+ 		return -EIO;
+ 
+-	link = (struct mt7996_vif_link *)mlink;
+-	phy = mt7996_vif_link_phy(link);
+-	if (!phy)
+-		return -ENODEV;
 -
- config CRYPTO_GHASH_ARM_CE
- 	tristate "Hash functions: GHASH (PMULL/NEON/ARMv8 Crypto Extensions)"
- 	depends on KERNEL_MODE_NEON
- 	select CRYPTO_AEAD
- 	select CRYPTO_HASH
-diff --git a/arch/arm/crypto/Makefile b/arch/arm/crypto/Makefile
-index 4f23999ae17df..6346a73effc06 100644
---- a/arch/arm/crypto/Makefile
-+++ b/arch/arm/crypto/Makefile
-@@ -5,17 +5,15 @@
+-	if (phy != &dev->phy && phy->mt76->band_idx == MT_BAND2)
+-		wed = &dev->mt76.mmio.wed_hif2;
++	if (dev->hif2 &&
++	    ((is_mt7996(&dev->mt76) && msta_link->wcid.phy_idx == MT_BAND2) ||
++	     (is_mt7992(&dev->mt76) && msta_link->wcid.phy_idx == MT_BAND1)))
++	    wed = &dev->mt76.mmio.wed_hif2;
  
- obj-$(CONFIG_CRYPTO_AES_ARM) += aes-arm.o
- obj-$(CONFIG_CRYPTO_AES_ARM_BS) += aes-arm-bs.o
- obj-$(CONFIG_CRYPTO_BLAKE2B_NEON) += blake2b-neon.o
- obj-$(CONFIG_CRYPTO_NHPOLY1305_NEON) += nhpoly1305-neon.o
--obj-$(CONFIG_CRYPTO_CURVE25519_NEON) += curve25519-neon.o
+ 	if (!mtk_wed_device_active(wed))
+ 		return -ENODEV;
+@@ -2189,7 +2184,11 @@ mt7996_net_fill_forward_path(struct ieee80211_hw *hw,
+ 	path->mtk_wdma.queue = 0;
+ 	path->mtk_wdma.wcid = msta_link->wcid.idx;
  
- obj-$(CONFIG_CRYPTO_AES_ARM_CE) += aes-arm-ce.o
- obj-$(CONFIG_CRYPTO_GHASH_ARM_CE) += ghash-arm-ce.o
+-	path->mtk_wdma.amsdu = mtk_wed_is_amsdu_supported(wed);
++	if (ieee80211_hw_check(hw, SUPPORTS_AMSDU_IN_AMPDU) &&
++	    mtk_wed_is_amsdu_supported(wed))
++		path->mtk_wdma.amsdu = msta_link->wcid.amsdu;
++	else
++		path->mtk_wdma.amsdu = 0;
+ 	ctx->dev = NULL;
  
- aes-arm-y	:= aes-cipher-core.o aes-cipher-glue.o
- aes-arm-bs-y	:= aes-neonbs-core.o aes-neonbs-glue.o
- blake2b-neon-y  := blake2b-neon-core.o blake2b-neon-glue.o
- aes-arm-ce-y	:= aes-ce-core.o aes-ce-glue.o
- ghash-arm-ce-y	:= ghash-ce-core.o ghash-ce-glue.o
- nhpoly1305-neon-y := nh-neon-core.o nhpoly1305-neon-glue.o
--curve25519-neon-y := curve25519-core.o curve25519-glue.o
-diff --git a/arch/powerpc/crypto/Kconfig b/arch/powerpc/crypto/Kconfig
-index 6106a219da6af..662aed46f9c79 100644
---- a/arch/powerpc/crypto/Kconfig
-+++ b/arch/powerpc/crypto/Kconfig
-@@ -1,21 +1,9 @@
- # SPDX-License-Identifier: GPL-2.0
+ 	return 0;
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c b/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
+index a8b4ef433c2bfdbbf79ae7f6aa54f33a5d5254ff..aa70e5fce98f005ef5c3f588203f61e179ff04e8 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
+@@ -459,14 +459,14 @@ int mt7996_mmio_wed_init(struct mt7996_dev *dev, void *pdev_ptr,
+ #ifdef CONFIG_NET_MEDIATEK_SOC_WED
+ 	struct mtk_wed_device *wed = &dev->mt76.mmio.wed;
+ 	struct pci_dev *pci_dev = pdev_ptr;
+-	u32 hif1_ofs = 0;
++	u32 hif1_ofs;
  
- menu "Accelerated Cryptographic Algorithms for CPU (powerpc)"
+ 	if (!wed_enable)
+ 		return 0;
  
--config CRYPTO_CURVE25519_PPC64
--	tristate
--	depends on PPC64 && CPU_LITTLE_ENDIAN
--	select CRYPTO_LIB_CURVE25519_GENERIC
--	select CRYPTO_ARCH_HAVE_LIB_CURVE25519
--	default CRYPTO_LIB_CURVE25519_INTERNAL
--	help
--	  Curve25519 algorithm
+ 	dev->has_rro = true;
+ 
+-	hif1_ofs = MT_WFDMA0_PCIE1(0) - MT_WFDMA0(0);
++	hif1_ofs = dev->hif2 ? MT_WFDMA0_PCIE1(0) - MT_WFDMA0(0) : 0;
+ 
+ 	if (hif2)
+ 		wed = &dev->mt76.mmio.wed_hif2;
+@@ -491,10 +491,17 @@ int mt7996_mmio_wed_init(struct mt7996_dev *dev, void *pdev_ptr,
+ 					     MT_TXQ_RING_BASE(0) +
+ 					     MT7996_TXQ_BAND2 * MT_RING_SIZE;
+ 		if (dev->has_rro) {
+-			wed->wlan.wpdma_txfree = wed->wlan.phy_base + hif1_ofs +
+-						 MT_RXQ_RING_BASE(0) +
+-						 MT7996_RXQ_TXFREE2 * MT_RING_SIZE;
+-			wed->wlan.txfree_tbit = ffs(MT_INT_RX_TXFREE_EXT) - 1;
++			if (is_mt7996(&dev->mt76)) {
++				wed->wlan.txfree_tbit = ffs(MT_INT_RX_TXFREE_EXT) - 1;
++				wed->wlan.wpdma_txfree = wed->wlan.phy_base + hif1_ofs +
++							 MT_RXQ_RING_BASE(0) +
++							 MT7996_RXQ_TXFREE2 * MT_RING_SIZE;
++			} else {
++				wed->wlan.txfree_tbit = ffs(MT_INT_RX_TXFREE_BAND1_EXT) - 1;
++				wed->wlan.wpdma_txfree = wed->wlan.phy_base + hif1_ofs +
++							 MT_RXQ_RING_BASE(0) +
++							 MT7996_RXQ_MCU_WA_EXT * MT_RING_SIZE;
++			}
+ 		} else {
+ 			wed->wlan.wpdma_txfree = wed->wlan.phy_base + hif1_ofs +
+ 						 MT_RXQ_RING_BASE(0) +
+@@ -504,8 +511,8 @@ int mt7996_mmio_wed_init(struct mt7996_dev *dev, void *pdev_ptr,
+ 
+ 		wed->wlan.wpdma_rx_glo = wed->wlan.phy_base + hif1_ofs + MT_WFDMA0_GLO_CFG;
+ 		wed->wlan.wpdma_rx[0] = wed->wlan.phy_base + hif1_ofs +
+-					MT_RXQ_RING_BASE(MT7996_RXQ_BAND0) +
+-					MT7996_RXQ_BAND0 * MT_RING_SIZE;
++					MT_RXQ_RING_BASE(MT7996_RXQ_BAND2) +
++					MT7996_RXQ_BAND2 * MT_RING_SIZE;
+ 
+ 		wed->wlan.id = MT7996_DEVICE_ID_2;
+ 		wed->wlan.tx_tbit[0] = ffs(MT_INT_TX_DONE_BAND2) - 1;
+@@ -525,9 +532,19 @@ int mt7996_mmio_wed_init(struct mt7996_dev *dev, void *pdev_ptr,
+ 		wed->wlan.wpdma_rx_rro[0] = wed->wlan.phy_base +
+ 					    MT_RXQ_RING_BASE(MT7996_RXQ_RRO_BAND0) +
+ 					    MT7996_RXQ_RRO_BAND0 * MT_RING_SIZE;
+-		wed->wlan.wpdma_rx_rro[1] = wed->wlan.phy_base + hif1_ofs +
+-					    MT_RXQ_RING_BASE(MT7996_RXQ_RRO_BAND2) +
+-					    MT7996_RXQ_RRO_BAND2 * MT_RING_SIZE;
++		if (is_mt7996(&dev->mt76)) {
++			wed->wlan.wpdma_rx_rro[1] = wed->wlan.phy_base + hif1_ofs +
++						    MT_RXQ_RING_BASE(MT7996_RXQ_RRO_BAND2) +
++						    MT7996_RXQ_RRO_BAND2 * MT_RING_SIZE;
++		} else {
++			wed->wlan.wpdma_rx_rro[1] = wed->wlan.phy_base + hif1_ofs +
++						    MT_RXQ_RING_BASE(MT7996_RXQ_RRO_BAND1) +
++						    MT7996_RXQ_RRO_BAND1 * MT_RING_SIZE;
++			wed->wlan.wpdma_rx[1] = wed->wlan.phy_base + hif1_ofs +
++						MT_RXQ_RING_BASE(MT7996_RXQ_BAND1) +
++						MT7996_RXQ_BAND1 * MT_RING_SIZE;
++		}
++
+ 		wed->wlan.wpdma_rx_pg = wed->wlan.phy_base +
+ 					MT_RXQ_RING_BASE(MT7996_RXQ_MSDU_PG_BAND0) +
+ 					MT7996_RXQ_MSDU_PG_BAND0 * MT_RING_SIZE;
+@@ -537,10 +554,14 @@ int mt7996_mmio_wed_init(struct mt7996_dev *dev, void *pdev_ptr,
+ 		wed->wlan.rx_size = SKB_WITH_OVERHEAD(MT_RX_BUF_SIZE);
+ 
+ 		wed->wlan.rx_tbit[0] = ffs(MT_INT_RX_DONE_BAND0) - 1;
+-		wed->wlan.rx_tbit[1] = ffs(MT_INT_RX_DONE_BAND2) - 1;
 -
--	  Architecture: PowerPC64
--	  - Little-endian
--
- config CRYPTO_AES_PPC_SPE
- 	tristate "Ciphers: AES, modes: ECB/CBC/CTR/XTS (SPE)"
- 	depends on SPE
- 	select CRYPTO_SKCIPHER
- 	help
-diff --git a/arch/powerpc/crypto/Makefile b/arch/powerpc/crypto/Makefile
-index 9eb59dce67f36..5960e5300db71 100644
---- a/arch/powerpc/crypto/Makefile
-+++ b/arch/powerpc/crypto/Makefile
-@@ -6,16 +6,14 @@
- #
+ 		wed->wlan.rro_rx_tbit[0] = ffs(MT_INT_RX_DONE_RRO_BAND0) - 1;
+-		wed->wlan.rro_rx_tbit[1] = ffs(MT_INT_RX_DONE_RRO_BAND2) - 1;
++		if (is_mt7996(&dev->mt76)) {
++			wed->wlan.rx_tbit[1] = ffs(MT_INT_RX_DONE_BAND2) - 1;
++			wed->wlan.rro_rx_tbit[1] = ffs(MT_INT_RX_DONE_RRO_BAND2) - 1;
++		} else {
++			wed->wlan.rx_tbit[1] = ffs(MT_INT_RX_DONE_BAND1) - 1;
++			wed->wlan.rro_rx_tbit[1] = ffs(MT_INT_RX_DONE_RRO_BAND1) - 1;
++		}
  
- obj-$(CONFIG_CRYPTO_AES_PPC_SPE) += aes-ppc-spe.o
- obj-$(CONFIG_CRYPTO_AES_GCM_P10) += aes-gcm-p10-crypto.o
- obj-$(CONFIG_CRYPTO_DEV_VMX_ENCRYPT) += vmx-crypto.o
--obj-$(CONFIG_CRYPTO_CURVE25519_PPC64) += curve25519-ppc64le.o
+ 		wed->wlan.rx_pg_tbit[0] = ffs(MT_INT_RX_DONE_MSDU_PG_BAND0) - 1;
+ 		wed->wlan.rx_pg_tbit[1] = ffs(MT_INT_RX_DONE_MSDU_PG_BAND1) - 1;
+@@ -548,16 +569,27 @@ int mt7996_mmio_wed_init(struct mt7996_dev *dev, void *pdev_ptr,
  
- aes-ppc-spe-y := aes-spe-core.o aes-spe-keys.o aes-tab-4k.o aes-spe-modes.o aes-spe-glue.o
- aes-gcm-p10-crypto-y := aes-gcm-p10-glue.o aes-gcm-p10.o ghashp10-ppc.o aesp10-ppc.o
- vmx-crypto-objs := vmx.o aesp8-ppc.o ghashp8-ppc.o aes.o aes_cbc.o aes_ctr.o aes_xts.o ghash.o
--curve25519-ppc64le-y := curve25519-ppc64le-core.o curve25519-ppc64le_asm.o
+ 		wed->wlan.tx_tbit[0] = ffs(MT_INT_TX_DONE_BAND0) - 1;
+ 		wed->wlan.tx_tbit[1] = ffs(MT_INT_TX_DONE_BAND1) - 1;
+-		if (dev->has_rro) {
+-			wed->wlan.wpdma_txfree = wed->wlan.phy_base + MT_RXQ_RING_BASE(0) +
+-						 MT7996_RXQ_TXFREE0 * MT_RING_SIZE;
+-			wed->wlan.txfree_tbit = ffs(MT_INT_RX_TXFREE_MAIN) - 1;
++		if (is_mt7996(&dev->mt76)) {
++			if (dev->has_rro) {
++				wed->wlan.wpdma_txfree = wed->wlan.phy_base +
++							 MT_RXQ_RING_BASE(0) +
++							 MT7996_RXQ_TXFREE0 * MT_RING_SIZE;
++				wed->wlan.txfree_tbit = ffs(MT_INT_RX_TXFREE_MAIN) - 1;
++			} else {
++				wed->wlan.wpdma_txfree = wed->wlan.phy_base +
++							 MT_RXQ_RING_BASE(0) +
++							 MT7996_RXQ_MCU_WA_MAIN * MT_RING_SIZE;
++				wed->wlan.txfree_tbit = ffs(MT_INT_RX_DONE_WA_MAIN) - 1;
++			}
+ 		} else {
+ 			wed->wlan.txfree_tbit = ffs(MT_INT_RX_DONE_WA_MAIN) - 1;
+ 			wed->wlan.wpdma_txfree = wed->wlan.phy_base + MT_RXQ_RING_BASE(0) +
+ 						  MT7996_RXQ_MCU_WA_MAIN * MT_RING_SIZE;
+ 		}
+ 		dev->mt76.rx_token_size = MT7996_TOKEN_SIZE + wed->wlan.rx_npkt;
++
++		if (dev->hif2 && is_mt7992(&dev->mt76))
++			wed->wlan.id = 0x7992;
+ 	}
  
- ifeq ($(CONFIG_CPU_LITTLE_ENDIAN),y)
- override flavour := linux-ppc64le
- else
- ifdef CONFIG_PPC64_ELF_ABI_V2
-diff --git a/arch/x86/crypto/Kconfig b/arch/x86/crypto/Kconfig
-index 6a895a571b00e..d9c6fc78cf332 100644
---- a/arch/x86/crypto/Kconfig
-+++ b/arch/x86/crypto/Kconfig
-@@ -1,21 +1,9 @@
- # SPDX-License-Identifier: GPL-2.0
+ 	wed->wlan.nbuf = MT7996_HW_TOKEN_SIZE;
+@@ -576,8 +608,10 @@ int mt7996_mmio_wed_init(struct mt7996_dev *dev, void *pdev_ptr,
+ 		wed->wlan.reset_complete = mt76_wed_reset_complete;
+ 	}
  
- menu "Accelerated Cryptographic Algorithms for CPU (x86)"
+-	if (mtk_wed_device_attach(wed))
++	if (mtk_wed_device_attach(wed)) {
++		dev->has_rro = false;
+ 		return 0;
++	}
  
--config CRYPTO_CURVE25519_X86
--	tristate
--	depends on 64BIT
--	select CRYPTO_LIB_CURVE25519_GENERIC
--	select CRYPTO_ARCH_HAVE_LIB_CURVE25519
--	default CRYPTO_LIB_CURVE25519_INTERNAL
--	help
--	  Curve25519 algorithm
--
--	  Architecture: x86_64 using:
--	  - ADX (large integer arithmetic)
--
- config CRYPTO_AES_NI_INTEL
- 	tristate "Ciphers: AES, modes: ECB, CBC, CTS, CTR, XCTR, XTS, GCM (AES-NI/VAES)"
- 	select CRYPTO_AEAD
- 	select CRYPTO_LIB_AES
- 	select CRYPTO_LIB_GF128MUL
-diff --git a/arch/x86/crypto/Makefile b/arch/x86/crypto/Makefile
-index d402963d6b579..dfba7e5e88ea6 100644
---- a/arch/x86/crypto/Makefile
-+++ b/arch/x86/crypto/Makefile
-@@ -60,12 +60,10 @@ polyval-clmulni-y := polyval-clmulni_asm.o polyval-clmulni_glue.o
- obj-$(CONFIG_CRYPTO_NHPOLY1305_SSE2) += nhpoly1305-sse2.o
- nhpoly1305-sse2-y := nh-sse2-x86_64.o nhpoly1305-sse2-glue.o
- obj-$(CONFIG_CRYPTO_NHPOLY1305_AVX2) += nhpoly1305-avx2.o
- nhpoly1305-avx2-y := nh-avx2-x86_64.o nhpoly1305-avx2-glue.o
- 
--obj-$(CONFIG_CRYPTO_CURVE25519_X86) += curve25519-x86_64.o
--
- obj-$(CONFIG_CRYPTO_SM3_AVX_X86_64) += sm3-avx-x86_64.o
- sm3-avx-x86_64-y := sm3-avx-asm_64.o sm3_avx_glue.o
- 
- obj-$(CONFIG_CRYPTO_SM4_AESNI_AVX_X86_64) += sm4-aesni-avx-x86_64.o
- sm4-aesni-avx-x86_64-y := sm4-aesni-avx-asm_64.o sm4_aesni_avx_glue.o
-@@ -79,8 +77,5 @@ aria-aesni-avx-x86_64-y := aria-aesni-avx-asm_64.o aria_aesni_avx_glue.o
- obj-$(CONFIG_CRYPTO_ARIA_AESNI_AVX2_X86_64) += aria-aesni-avx2-x86_64.o
- aria-aesni-avx2-x86_64-y := aria-aesni-avx2-asm_64.o aria_aesni_avx2_glue.o
- 
- obj-$(CONFIG_CRYPTO_ARIA_GFNI_AVX512_X86_64) += aria-gfni-avx512-x86_64.o
- aria-gfni-avx512-x86_64-y := aria-gfni-avx512-asm_64.o aria_gfni_avx512_glue.o
--
--# Disable GCOV in odd or sensitive code
--GCOV_PROFILE_curve25519-x86_64.o := n
-diff --git a/include/crypto/curve25519.h b/include/crypto/curve25519.h
-index 78aa5f28c847f..db63a5577c004 100644
---- a/include/crypto/curve25519.h
-+++ b/include/crypto/curve25519.h
-@@ -11,24 +11,14 @@
- 
- enum curve25519_lengths {
- 	CURVE25519_KEY_SIZE = 32
+ 	*irq = wed->irq;
+ 	dev->mt76.dma_dev = wed->dev;
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
+index 9af3382003bcfecd2eed5d1384d57bdf65af7f82..f6dfd36a44c0bf587d3ac85a5a9d38e24deb14d4 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
+@@ -280,6 +280,9 @@ struct mt7996_hif {
+ 	struct device *dev;
+ 	void __iomem *regs;
+ 	int irq;
++
++	enum pci_bus_speed speed;
++	enum pcie_link_width width;
  };
  
--extern const u8 curve25519_null_point[];
--extern const u8 curve25519_base_point[];
--
- void curve25519_generic(u8 out[CURVE25519_KEY_SIZE],
- 			const u8 scalar[CURVE25519_KEY_SIZE],
- 			const u8 point[CURVE25519_KEY_SIZE]);
+ struct mt7996_wed_rro_addr {
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/pci.c b/drivers/net/wireless/mediatek/mt76/mt7996/pci.c
+index f5ce50056ee94e2915fd189419905acc8cebd853..3f49bbbba3b9ccd100267f54775838ddef634766 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/pci.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/pci.c
+@@ -87,6 +87,7 @@ static int mt7996_pci_hif2_probe(struct pci_dev *pdev)
+ 	hif->dev = &pdev->dev;
+ 	hif->regs = pcim_iomap_table(pdev)[0];
+ 	hif->irq = pdev->irq;
++	pcie_bandwidth_available(pdev, NULL, &hif->speed, &hif->width);
+ 	spin_lock_bh(&hif_lock);
+ 	list_add(&hif->list, &hif_list);
+ 	spin_unlock_bh(&hif_lock);
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/regs.h b/drivers/net/wireless/mediatek/mt76/mt7996/regs.h
+index 070cdebcd19d7713ebae1d74fdf0c6062eb7c925..d239fa3f375f5e86f9cf650fda713a4e1e4b2f96 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/regs.h
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/regs.h
+@@ -442,6 +442,7 @@ enum offs_rev {
+ #define MT_WFDMA0_PAUSE_RX_Q_RRO_TH		MT_WFDMA0(0x27c)
  
--void curve25519_arch(u8 out[CURVE25519_KEY_SIZE],
--		     const u8 scalar[CURVE25519_KEY_SIZE],
--		     const u8 point[CURVE25519_KEY_SIZE]);
--
--void curve25519_base_arch(u8 pub[CURVE25519_KEY_SIZE],
--			  const u8 secret[CURVE25519_KEY_SIZE]);
--
- bool __must_check curve25519(u8 mypublic[CURVE25519_KEY_SIZE],
- 			     const u8 secret[CURVE25519_KEY_SIZE],
- 			     const u8 basepoint[CURVE25519_KEY_SIZE]);
+ #define WF_WFDMA0_GLO_CFG_EXT0			MT_WFDMA0(0x2b0)
++#define WF_WFDMA0_GLO_CFG_EXT0_OUTSTAND_MASK	GENMASK(27, 24)
+ #define WF_WFDMA0_GLO_CFG_EXT0_RX_WB_RXD	BIT(18)
+ #define WF_WFDMA0_GLO_CFG_EXT0_WED_MERGE_MODE	BIT(14)
  
- bool __must_check curve25519_generate_public(u8 pub[CURVE25519_KEY_SIZE],
-diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index 37d85e0c9b979..eea17e36a22be 100644
---- a/lib/crypto/Kconfig
-+++ b/lib/crypto/Kconfig
-@@ -52,39 +52,28 @@ config CRYPTO_LIB_CHACHA_ARCH
- 	default y if PPC64 && CPU_LITTLE_ENDIAN && VSX
- 	default y if RISCV && 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
- 	default y if S390
- 	default y if X86_64
+@@ -473,6 +474,9 @@ enum offs_rev {
+ #define MT_WFDMA_AXI_R2A_CTRL			MT_WFDMA_EXT_CSR(0x500)
+ #define MT_WFDMA_AXI_R2A_CTRL_OUTSTAND_MASK	GENMASK(4, 0)
  
--config CRYPTO_ARCH_HAVE_LIB_CURVE25519
--	bool
--	help
--	  Declares whether the architecture provides an arch-specific
--	  accelerated implementation of the Curve25519 library interface,
--	  either builtin or as a module.
--
--config CRYPTO_LIB_CURVE25519_GENERIC
-+config CRYPTO_LIB_CURVE25519
- 	tristate
- 	select CRYPTO_LIB_UTILS
- 	help
--	  This symbol can be depended upon by arch implementations of the
--	  Curve25519 library interface that require the generic code as a
--	  fallback, e.g., for SIMD implementations. If no arch specific
--	  implementation is enabled, this implementation serves the users
--	  of CRYPTO_LIB_CURVE25519.
-+	  The Curve25519 library functions.  Select this if your module uses any
-+	  of the functions from <crypto/curve25519.h>.
- 
--config CRYPTO_LIB_CURVE25519_INTERNAL
--	tristate
--	select CRYPTO_LIB_CURVE25519_GENERIC if CRYPTO_ARCH_HAVE_LIB_CURVE25519=n
-+config CRYPTO_LIB_CURVE25519_ARCH
-+	bool
-+	depends on CRYPTO_LIB_CURVE25519 && !UML && !KMSAN
-+	default y if ARM && KERNEL_MODE_NEON
-+	default y if PPC64 && CPU_LITTLE_ENDIAN
-+	default y if X86_64
- 
--config CRYPTO_LIB_CURVE25519
--	tristate
--	select CRYPTO
--	select CRYPTO_LIB_CURVE25519_INTERNAL
--	help
--	  Enable the Curve25519 library interface. This interface may be
--	  fulfilled by either the generic implementation or an arch-specific
--	  one, if one is available and enabled.
-+config CRYPTO_LIB_CURVE25519_GENERIC
-+	bool
-+	depends on CRYPTO_LIB_CURVE25519
-+	default y if !CRYPTO_LIB_CURVE25519_ARCH || ARM || X86_64
- 
- config CRYPTO_LIB_DES
- 	tristate
- 
- config CRYPTO_LIB_MD5
-diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
-index 6c3be971ace09..bded351aeacef 100644
---- a/lib/crypto/Makefile
-+++ b/lib/crypto/Makefile
-@@ -74,21 +74,35 @@ endif # CONFIG_CRYPTO_LIB_CHACHA_ARCH
- 
- obj-$(CONFIG_CRYPTO_LIB_CHACHA20POLY1305)	+= libchacha20poly1305.o
- libchacha20poly1305-y				+= chacha20poly1305.o
- libchacha20poly1305-$(CONFIG_CRYPTO_SELFTESTS)	+= chacha20poly1305-selftest.o
- 
--obj-$(CONFIG_CRYPTO_LIB_CURVE25519_GENERIC)	+= libcurve25519-generic.o
--libcurve25519-generic-y				:= curve25519-fiat32.o
--libcurve25519-generic-$(CONFIG_ARCH_SUPPORTS_INT128)	:= curve25519-hacl64.o
--libcurve25519-generic-y				+= curve25519-generic.o
-+################################################################################
++#define MT_WFDMA_AXI_R2A_CTRL2			MT_WFDMA_EXT_CSR(0x508)
++#define MT_WFDMA_AXI_R2A_CTRL2_OUTSTAND_MASK	GENMASK(31, 28)
 +
-+obj-$(CONFIG_CRYPTO_LIB_CURVE25519) += libcurve25519.o
-+libcurve25519-y := curve25519.o
-+
-+# Disable GCOV in odd or sensitive code
-+GCOV_PROFILE_curve25519.o := n
-+
-+ifeq ($(CONFIG_ARCH_SUPPORTS_INT128),y)
-+libcurve25519-$(CONFIG_CRYPTO_LIB_CURVE25519_GENERIC) += curve25519-hacl64.o
-+else
-+libcurve25519-$(CONFIG_CRYPTO_LIB_CURVE25519_GENERIC) += curve25519-fiat32.o
-+endif
- # clang versions prior to 18 may blow out the stack with KASAN
- ifeq ($(call clang-min-version, 180000),)
- KASAN_SANITIZE_curve25519-hacl64.o := n
- endif
- 
--obj-$(CONFIG_CRYPTO_LIB_CURVE25519)		+= libcurve25519.o
--libcurve25519-y					+= curve25519.o
-+ifeq ($(CONFIG_CRYPTO_LIB_CURVE25519_ARCH),y)
-+CFLAGS_curve25519.o += -I$(src)/$(SRCARCH)
-+libcurve25519-$(CONFIG_ARM) += arm/curve25519-core.o
-+libcurve25519-$(CONFIG_PPC) += powerpc/curve25519-ppc64le_asm.o
-+endif
-+
-+################################################################################
- 
- obj-$(CONFIG_CRYPTO_LIB_DES)			+= libdes.o
- libdes-y					:= des.o
- 
- ################################################################################
-diff --git a/arch/arm/crypto/curve25519-core.S b/lib/crypto/arm/curve25519-core.S
-similarity index 100%
-rename from arch/arm/crypto/curve25519-core.S
-rename to lib/crypto/arm/curve25519-core.S
-diff --git a/arch/arm/crypto/curve25519-glue.c b/lib/crypto/arm/curve25519.h
-similarity index 61%
-rename from arch/arm/crypto/curve25519-glue.c
-rename to lib/crypto/arm/curve25519.h
-index 3076020d8fbeb..be9aecf6a8f3c 100644
---- a/arch/arm/crypto/curve25519-glue.c
-+++ b/lib/crypto/arm/curve25519.h
-@@ -10,53 +10,38 @@
- #include <asm/hwcap.h>
- #include <asm/neon.h>
- #include <asm/simd.h>
- #include <crypto/internal/simd.h>
- #include <linux/types.h>
--#include <linux/module.h>
--#include <linux/init.h>
- #include <linux/jump_label.h>
--#include <crypto/curve25519.h>
- 
- asmlinkage void curve25519_neon(u8 mypublic[CURVE25519_KEY_SIZE],
- 				const u8 secret[CURVE25519_KEY_SIZE],
- 				const u8 basepoint[CURVE25519_KEY_SIZE]);
- 
- static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_neon);
- 
--void curve25519_arch(u8 out[CURVE25519_KEY_SIZE],
--		     const u8 scalar[CURVE25519_KEY_SIZE],
--		     const u8 point[CURVE25519_KEY_SIZE])
-+static void curve25519_arch(u8 out[CURVE25519_KEY_SIZE],
-+			    const u8 scalar[CURVE25519_KEY_SIZE],
-+			    const u8 point[CURVE25519_KEY_SIZE])
- {
- 	if (static_branch_likely(&have_neon) && crypto_simd_usable()) {
- 		kernel_neon_begin();
- 		curve25519_neon(out, scalar, point);
- 		kernel_neon_end();
- 	} else {
- 		curve25519_generic(out, scalar, point);
- 	}
- }
--EXPORT_SYMBOL(curve25519_arch);
- 
--void curve25519_base_arch(u8 pub[CURVE25519_KEY_SIZE],
--			  const u8 secret[CURVE25519_KEY_SIZE])
-+static void curve25519_base_arch(u8 pub[CURVE25519_KEY_SIZE],
-+				 const u8 secret[CURVE25519_KEY_SIZE])
- {
- 	return curve25519_arch(pub, secret, curve25519_base_point);
- }
--EXPORT_SYMBOL(curve25519_base_arch);
- 
--static int __init arm_curve25519_init(void)
-+#define curve25519_mod_init_arch curve25519_mod_init_arch
-+static void curve25519_mod_init_arch(void)
- {
- 	if (elf_hwcap & HWCAP_NEON)
- 		static_branch_enable(&have_neon);
--	return 0;
- }
--
--static void __exit arm_curve25519_exit(void)
--{
--}
--
--module_init(arm_curve25519_init);
--module_exit(arm_curve25519_exit);
--
--MODULE_DESCRIPTION("Public key crypto: Curve25519 (NEON-accelerated)");
--MODULE_LICENSE("GPL v2");
-diff --git a/lib/crypto/curve25519-generic.c b/lib/crypto/curve25519-generic.c
-deleted file mode 100644
-index f8aa70c9f5598..0000000000000
---- a/lib/crypto/curve25519-generic.c
-+++ /dev/null
-@@ -1,25 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0 OR MIT
--/*
-- * Copyright (C) 2015-2019 Jason A. Donenfeld <Jason@zx2c4.com>. All Rights Reserved.
-- *
-- * This is an implementation of the Curve25519 ECDH algorithm, using either
-- * a 32-bit implementation or a 64-bit implementation with 128-bit integers,
-- * depending on what is supported by the target compiler.
-- *
-- * Information: https://cr.yp.to/ecdh.html
-- */
--
--#include <crypto/curve25519.h>
--#include <linux/export.h>
--#include <linux/module.h>
--
--const u8 curve25519_null_point[CURVE25519_KEY_SIZE] __aligned(32) = { 0 };
--const u8 curve25519_base_point[CURVE25519_KEY_SIZE] __aligned(32) = { 9 };
--
--EXPORT_SYMBOL(curve25519_null_point);
--EXPORT_SYMBOL(curve25519_base_point);
--EXPORT_SYMBOL(curve25519_generic);
--
--MODULE_LICENSE("GPL v2");
--MODULE_DESCRIPTION("Curve25519 scalar multiplication");
--MODULE_AUTHOR("Jason A. Donenfeld <Jason@zx2c4.com>");
-diff --git a/lib/crypto/curve25519.c b/lib/crypto/curve25519.c
-index 1b786389d714a..510b4a3048960 100644
---- a/lib/crypto/curve25519.c
-+++ b/lib/crypto/curve25519.c
-@@ -13,19 +13,36 @@
- #include <crypto/utils.h>
- #include <linux/export.h>
- #include <linux/init.h>
- #include <linux/module.h>
- 
-+static const u8 curve25519_null_point[CURVE25519_KEY_SIZE] __aligned(32) = { 0 };
-+static const u8 curve25519_base_point[CURVE25519_KEY_SIZE] __aligned(32) = { 9 };
-+
-+#ifdef CONFIG_CRYPTO_LIB_CURVE25519_ARCH
-+#include "curve25519.h" /* $(SRCARCH)/curve25519.h */
-+#else
-+static void curve25519_arch(u8 mypublic[CURVE25519_KEY_SIZE],
-+			    const u8 secret[CURVE25519_KEY_SIZE],
-+			    const u8 basepoint[CURVE25519_KEY_SIZE])
-+{
-+	curve25519_generic(mypublic, secret, basepoint);
-+}
-+
-+static void curve25519_base_arch(u8 pub[CURVE25519_KEY_SIZE],
-+				 const u8 secret[CURVE25519_KEY_SIZE])
-+{
-+	curve25519_generic(pub, secret, curve25519_base_point);
-+}
-+#endif
-+
- bool __must_check
- curve25519(u8 mypublic[CURVE25519_KEY_SIZE],
- 	   const u8 secret[CURVE25519_KEY_SIZE],
- 	   const u8 basepoint[CURVE25519_KEY_SIZE])
- {
--	if (IS_ENABLED(CONFIG_CRYPTO_ARCH_HAVE_LIB_CURVE25519))
--		curve25519_arch(mypublic, secret, basepoint);
--	else
--		curve25519_generic(mypublic, secret, basepoint);
-+	curve25519_arch(mypublic, secret, basepoint);
- 	return crypto_memneq(mypublic, curve25519_null_point,
- 			     CURVE25519_KEY_SIZE);
- }
- EXPORT_SYMBOL(curve25519);
- 
-@@ -34,29 +51,27 @@ curve25519_generate_public(u8 pub[CURVE25519_KEY_SIZE],
- 			   const u8 secret[CURVE25519_KEY_SIZE])
- {
- 	if (unlikely(!crypto_memneq(secret, curve25519_null_point,
- 				    CURVE25519_KEY_SIZE)))
- 		return false;
--
--	if (IS_ENABLED(CONFIG_CRYPTO_ARCH_HAVE_LIB_CURVE25519))
--		curve25519_base_arch(pub, secret);
--	else
--		curve25519_generic(pub, secret, curve25519_base_point);
-+	curve25519_base_arch(pub, secret);
- 	return crypto_memneq(pub, curve25519_null_point, CURVE25519_KEY_SIZE);
- }
- EXPORT_SYMBOL(curve25519_generate_public);
- 
--static int __init curve25519_init(void)
-+#ifdef curve25519_mod_init_arch
-+static int __init curve25519_mod_init(void)
- {
-+	curve25519_mod_init_arch();
- 	return 0;
- }
-+subsys_initcall(curve25519_mod_init);
- 
--static void __exit curve25519_exit(void)
-+static void __exit curve25519_mod_exit(void)
- {
- }
--
--module_init(curve25519_init);
--module_exit(curve25519_exit);
-+module_exit(curve25519_mod_exit);
-+#endif
- 
- MODULE_LICENSE("GPL v2");
--MODULE_DESCRIPTION("Curve25519 scalar multiplication");
-+MODULE_DESCRIPTION("Curve25519 algorithm");
- MODULE_AUTHOR("Jason A. Donenfeld <Jason@zx2c4.com>");
-diff --git a/arch/powerpc/crypto/curve25519-ppc64le_asm.S b/lib/crypto/powerpc/curve25519-ppc64le_asm.S
-similarity index 100%
-rename from arch/powerpc/crypto/curve25519-ppc64le_asm.S
-rename to lib/crypto/powerpc/curve25519-ppc64le_asm.S
-diff --git a/arch/powerpc/crypto/curve25519-ppc64le-core.c b/lib/crypto/powerpc/curve25519.h
-similarity index 88%
-rename from arch/powerpc/crypto/curve25519-ppc64le-core.c
-rename to lib/crypto/powerpc/curve25519.h
-index 6eb18ee19cad3..dee6234c48e92 100644
---- a/arch/powerpc/crypto/curve25519-ppc64le-core.c
-+++ b/lib/crypto/powerpc/curve25519.h
-@@ -5,16 +5,13 @@
-  * X25519 scalar multiplication with 51 bits limbs for PPC64le.
-  *   Based on RFC7748 and AArch64 optimized implementation for X25519
-  *     - Algorithm 1 Scalar multiplication of a variable point
-  */
- 
--#include <crypto/curve25519.h>
--
- #include <linux/types.h>
- #include <linux/jump_label.h>
- #include <linux/kernel.h>
--#include <linux/module.h>
- 
- #include <linux/cpufeature.h>
- #include <linux/processor.h>
- 
- typedef uint64_t fe51[5];
-@@ -173,23 +170,17 @@ static void curve25519_fe51(uint8_t out[32], const uint8_t scalar[32],
- 	finv(z2, z2);
- 	fmul(x2, x2, z2);
- 	fe51_tobytes(out, x2);
- }
- 
--void curve25519_arch(u8 mypublic[CURVE25519_KEY_SIZE],
--		     const u8 secret[CURVE25519_KEY_SIZE],
--		     const u8 basepoint[CURVE25519_KEY_SIZE])
-+static void curve25519_arch(u8 mypublic[CURVE25519_KEY_SIZE],
-+			    const u8 secret[CURVE25519_KEY_SIZE],
-+			    const u8 basepoint[CURVE25519_KEY_SIZE])
- {
- 	curve25519_fe51(mypublic, secret, basepoint);
- }
--EXPORT_SYMBOL(curve25519_arch);
- 
--void curve25519_base_arch(u8 pub[CURVE25519_KEY_SIZE],
--			  const u8 secret[CURVE25519_KEY_SIZE])
-+static void curve25519_base_arch(u8 pub[CURVE25519_KEY_SIZE],
-+				 const u8 secret[CURVE25519_KEY_SIZE])
- {
- 	curve25519_fe51(pub, secret, curve25519_base_point);
- }
--EXPORT_SYMBOL(curve25519_base_arch);
--
--MODULE_DESCRIPTION("PPC64le Curve25519 scalar multiplication with 51 bits limbs");
--MODULE_LICENSE("GPL v2");
--MODULE_AUTHOR("Danny Tsen <dtsen@us.ibm.com>");
-diff --git a/lib/crypto/tests/Kconfig b/lib/crypto/tests/Kconfig
-index 7e4e66f30a7a6..c0f3b64489dd6 100644
---- a/lib/crypto/tests/Kconfig
-+++ b/lib/crypto/tests/Kconfig
-@@ -11,13 +11,14 @@ config CRYPTO_LIB_BLAKE2S_KUNIT_TEST
- 	  KUnit tests for the BLAKE2s cryptographic hash function.
- 
- config CRYPTO_LIB_CURVE25519_KUNIT_TEST
- 	tristate "KUnit tests for Curve25519" if !KUNIT_ALL_TESTS
- 	depends on KUNIT
--	default KUNIT_ALL_TESTS
-+	default KUNIT_ALL_TESTS || CRYPTO_SELFTESTS
- 	select CRYPTO_LIB_BENCHMARK_VISIBLE
- 	select CRYPTO_LIB_CURVE25519
-+	select CRYPTO_LIB_CURVE25519_GENERIC
- 	help
- 	  KUnit tests for Curve25519.
- 
- config CRYPTO_LIB_MD5_KUNIT_TEST
- 	tristate "KUnit tests for MD5" if !KUNIT_ALL_TESTS
-diff --git a/arch/x86/crypto/curve25519-x86_64.c b/lib/crypto/x86/curve25519.h
-similarity index 98%
-rename from arch/x86/crypto/curve25519-x86_64.c
-rename to lib/crypto/x86/curve25519.h
-index ab91368284a47..5c0b8408852de 100644
---- a/arch/x86/crypto/curve25519-x86_64.c
-+++ b/lib/crypto/x86/curve25519.h
-@@ -2,17 +2,13 @@
- /*
-  * Copyright (C) 2020 Jason A. Donenfeld <Jason@zx2c4.com>. All Rights Reserved.
-  * Copyright (c) 2016-2020 INRIA, CMU and Microsoft Corporation
-  */
- 
--#include <crypto/curve25519.h>
--
--#include <linux/export.h>
- #include <linux/types.h>
- #include <linux/jump_label.h>
- #include <linux/kernel.h>
--#include <linux/module.h>
- 
- #include <asm/cpufeature.h>
- #include <asm/processor.h>
- 
- static __always_inline u64 eq_mask(u64 a, u64 b)
-@@ -1588,43 +1584,30 @@ static void curve25519_ever64_base(u8 *out, const u8 *priv)
- 	memzero_explicit(tmp, sizeof(tmp));
- }
- 
- static __ro_after_init DEFINE_STATIC_KEY_FALSE(curve25519_use_bmi2_adx);
- 
--void curve25519_arch(u8 mypublic[CURVE25519_KEY_SIZE],
--		     const u8 secret[CURVE25519_KEY_SIZE],
--		     const u8 basepoint[CURVE25519_KEY_SIZE])
-+static void curve25519_arch(u8 mypublic[CURVE25519_KEY_SIZE],
-+			    const u8 secret[CURVE25519_KEY_SIZE],
-+			    const u8 basepoint[CURVE25519_KEY_SIZE])
- {
- 	if (static_branch_likely(&curve25519_use_bmi2_adx))
- 		curve25519_ever64(mypublic, secret, basepoint);
- 	else
- 		curve25519_generic(mypublic, secret, basepoint);
- }
--EXPORT_SYMBOL(curve25519_arch);
- 
--void curve25519_base_arch(u8 pub[CURVE25519_KEY_SIZE],
--			  const u8 secret[CURVE25519_KEY_SIZE])
-+static void curve25519_base_arch(u8 pub[CURVE25519_KEY_SIZE],
-+				 const u8 secret[CURVE25519_KEY_SIZE])
- {
- 	if (static_branch_likely(&curve25519_use_bmi2_adx))
- 		curve25519_ever64_base(pub, secret);
- 	else
- 		curve25519_generic(pub, secret, curve25519_base_point);
- }
--EXPORT_SYMBOL(curve25519_base_arch);
- 
--static int __init curve25519_mod_init(void)
-+#define curve25519_mod_init_arch curve25519_mod_init_arch
-+static void curve25519_mod_init_arch(void)
- {
- 	if (boot_cpu_has(X86_FEATURE_BMI2) && boot_cpu_has(X86_FEATURE_ADX))
- 		static_branch_enable(&curve25519_use_bmi2_adx);
--	return 0;
--}
--
--static void __exit curve25519_mod_exit(void)
--{
- }
--
--module_init(curve25519_mod_init);
--module_exit(curve25519_mod_exit);
--
--MODULE_DESCRIPTION("Curve25519 algorithm, ADX optimized");
--MODULE_LICENSE("GPL v2");
--MODULE_AUTHOR("Jason A. Donenfeld <Jason@zx2c4.com>");
+ #define MT_PCIE_RECOG_ID			0xd7090
+ #define MT_PCIE_RECOG_ID_MASK			GENMASK(30, 0)
+ #define MT_PCIE_RECOG_ID_SEM			BIT(31)
+
 -- 
 2.50.1
 
