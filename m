@@ -4,99 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB4B6CA100A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 16:35:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82E28CA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 16:35:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YGtpCZfgBTuGsyBPIkbeq53HmntuKbontBvcg3TVESk=; b=R+71WVYECeS5UbUFp+UMv+hUUx
-	XoCkgkfd+5Pd6/rrjN73Zmsf4dq0ggiGIlSmmL9Wl19pD69dcT+gSmoNmHz9Z34WKbQ4nqICEeX7V
-	gMB2/vxBwX45P6wUfTf3simw6Mb+dePaq3LsnSTcVwMbxe/oMwuZdWVKOJrV2Yad8oQ3Uunx1r+TE
-	IvSKgFU9hkMOJ4vlsO4wKSWT77l/RaCTYh1CpYoQxwSm86svTGgTU5XR/foqdGjhVQwOVXls5TIox
-	MdgRJW8+4/b0HEaa00gWzW7BmocX2TgmwMIwRo9Y+vNqjAn1UgoR68Q/yCDEpl6PDvgrk3oIX3b4l
-	1igl8b3A==;
+	bh=KBhm91W/X6btvvCZjMsTtSPxGaGBYZHao/LH8z03qog=; b=RypB1nBmpEArjR0kNGo4o9TIp+
+	7o+U1ShAh4/Mg1ouUWHr5n4s3vJPnY3xxa33vKuW3ZQXbCCcxejC+KECXg/9TCG3MGn9DsbXi2/y8
+	U7HOK1nCD1lPxo6V3gMA2U0kzUAnq+cw5sFq7VWxKEoIPv5ljovvL+KsCgmm5F4g49yZMV40/sUKU
+	nU1+z1BFRWmInbwA6HKeI5C5rOPsmvyTlpV6cX7cFPgatSMXOxaGr4TioHEr93B3dpa5YukuhzVVe
+	Cgu6X0NH791DhA2JSEJg8TlxlG6gBkj27FIsLcVOdLx+UWmb9jODH+KWZsYQsDB0Yd1LIEzQ96J3l
+	PNA2x2KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut7VT-0000000DH0c-0pgl;
-	Mon, 01 Sep 2025 16:35:47 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1ut7VK-0000000DGsF-07cx;
+	Mon, 01 Sep 2025 16:35:38 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut3rI-0000000CZ2A-0G9E
+	id 1ut3li-0000000CXVO-2mXx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 12:42:05 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-45b83ae1734so15460615e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 05:42:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756730523; x=1757335323; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=YGtpCZfgBTuGsyBPIkbeq53HmntuKbontBvcg3TVESk=;
-        b=iNh1LPf0Kjjp7uN935G1/DtvGlQmZMb2vOpYri3iVl7EcUE4YdihNHRMs0X4ZFqbBZ
-         wbOuth101zX+i4ECy3FEGOuyMtoJprDu6rRRafARgZzvRC1K2oGta0M+1GLyoBHqWuwo
-         sndS0GF2CI2E+tOCVheaRytn0D+BgJHIdjysaabBOj/XOiPnpF1s7/qZ5J8jIaXW4V3f
-         v9BBydZb23gyc+pd4rm8QQSLukbRZ52agsS9pEgcU2MeTW6n5OcfmoO6lNzV0pp2gRLI
-         UFc8KBkGfhzOWW8inLC94m6ofEbzby7f07MPpoF3sP2n53WFqidzzVSqLZwIYhN3V3sP
-         IBLg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756730523; x=1757335323;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YGtpCZfgBTuGsyBPIkbeq53HmntuKbontBvcg3TVESk=;
-        b=qK+TgZhgsSvIGtI+a73LOqCtYnkec1ikhADGHUsGZ3xSj7PgYGtS2I7YIvInPOYDlB
-         15wGJBZLNwzcjdN6mmqQmGtxqQa+guVDMYu1umKYHiqMwnXqpr2yV2mKmwJ8VTy6CsqI
-         6Zfb1se/8H8db8sOOZPGEtTjf5u8G3oyxGyr/+y1pK/7gZwqPVCrzc9eVQZI+vS3lMlf
-         P5oudNejngZ8GYokljWPsJQcG9WPQLpGRNzjaUOSFUDw+HVO2grMEF9mC38bjwEzqtsr
-         Q1tGDOkS8rXK4YbwDiVTO68zM/RwTehU3cl6vSHeKNFvgImXUYS8KIKbwtAalu2g/Bs0
-         0s+Q==
-X-Gm-Message-State: AOJu0Yw0T1c5o1IING5FLop0hIpP5zpFCW0fmuN07LTaq5b+dpZ71cUR
-	+RSIvb7d89VBFdCt6mtM0mdGz0JIm6C8C4P9eHF22kHLS0hr04+7gW7tFIIoH/Kj/q4=
-X-Gm-Gg: ASbGncvYM6UiBAzHO/aDvOwjMxEOBOL67q5/6mHakibJ0ApNR0+ZFmwvAxNWNsDUgjh
-	m8gGFRxuxxYbDOuS4Gu+qvfyr5WeLvO6iItSRJsSRbxfSyH+tnaXUjsl/v20w8JaKp9GIVA4V9u
-	Klvcqc4dYlfW0MjMrtGqctHbSeh8nqhFzQK2zjzI5hpmxTX5lFjRL+9PSmC7a7+DkAkJ6z8+9mq
-	UgmFmFA6aEOWykr/L6mgKfuf74Hlqam+2w4S2e8IUdLxLOq1FsSxw5PmN093O9nyh7NLhmlU70x
-	lbLh6Dz5fugM2oL+LATvv2wVhXMIlDWGY4DeN/Ut9nR6N1+/pkkM84WO9cj/d3ABFig0dQoef8S
-	dlGv7VUE4JJ6/vfWudi9FviXa7Gwo+Jc=
-X-Google-Smtp-Source: AGHT+IEQj3GrkfSjpxyNOrXOZvvlmQ+TSw4g8/XmWwPgGUWH337/Zp0pT39A7m8T0jFPe3YqQi07Lg==
-X-Received: by 2002:a05:600c:46c6:b0:45b:84b1:b409 with SMTP id 5b1f17b1804b1-45b855ad0b0mr80544675e9.30.1756730522690;
-        Mon, 01 Sep 2025 05:42:02 -0700 (PDT)
-Received: from ho-tower-lan.lan ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b7e898b99sm154946315e9.19.2025.09.01.05.42.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Sep 2025 05:42:02 -0700 (PDT)
-From: James Clark <james.clark@linaro.org>
-Date: Mon, 01 Sep 2025 13:40:39 +0100
-Subject: [PATCH v8 10/12] tools headers UAPI: Sync linux/perf_event.h with
- the kernel sources
+	Mon, 01 Sep 2025 12:36:19 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 581CaFKw2370398;
+	Mon, 1 Sep 2025 07:36:15 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1756730175;
+	bh=KBhm91W/X6btvvCZjMsTtSPxGaGBYZHao/LH8z03qog=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=FXviXmr1OZDsrkmSPqK01MrRoDoUtP+R3+qDhLBBU0D9eqGOHb81jaik1nXtXkbcv
+	 DDGUCD2sFRUOxGVAHhNnG1rqh8S5j0xxex//gkK2iG5yyuEEN3EEl0CDE/nKZrZ9XM
+	 OWVdRlFDSmRLYg4WQ06QD3zA9WDMyCf0QZTmbALU=
+Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 581CaFfp2102724
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 1 Sep 2025 07:36:15 -0500
+Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE104.ent.ti.com
+ (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 1
+ Sep 2025 07:36:15 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Mon, 1 Sep 2025 07:36:15 -0500
+Received: from [10.24.68.177] (akashdeep-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.68.177])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 581CaBNq2514359;
+	Mon, 1 Sep 2025 07:36:11 -0500
+Message-ID: <d6ab538c-f3b1-4513-8226-773a13510f86@ti.com>
+Date: Mon, 1 Sep 2025 18:06:10 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] arm64: dts: ti: k3-pinctrl: Add the remaining macros
+To: Vignesh Raghavendra <vigneshr@ti.com>, <praneeth@ti.com>, <nm@ti.com>,
+        <afd@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+CC: <vishalm@ti.com>, <sebin.francis@ti.com>
+References: <20250731115631.3263798-1-a-kaur@ti.com>
+ <20250731115631.3263798-4-a-kaur@ti.com>
+ <39f2bc33-e35c-4de4-9377-cf41f510ecc2@ti.com>
+Content-Language: en-US
+From: Akashdeep Kaur <a-kaur@ti.com>
+In-Reply-To: <39f2bc33-e35c-4de4-9377-cf41f510ecc2@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250901-james-perf-feat_spe_eft-v8-10-2e2738f24559@linaro.org>
-References: <20250901-james-perf-feat_spe_eft-v8-0-2e2738f24559@linaro.org>
-In-Reply-To: <20250901-james-perf-feat_spe_eft-v8-0-2e2738f24559@linaro.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
- Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, Peter Zijlstra <peterz@infradead.org>, 
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, Leo Yan <leo.yan@arm.com>, 
- Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org, 
- kvmarm@lists.linux.dev, James Clark <james.clark@linaro.org>
-X-Mailer: b4 0.14.0
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_054204_118028_EB16A311 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20250901_053618_792985_BE38BD31 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,37 +89,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To pickup config4 changes.
+Hi Vignesh,
 
-Tested-by: Leo Yan <leo.yan@arm.com>
-Reviewed-by: Ian Rogers <irogers@google.com>
-Signed-off-by: James Clark <james.clark@linaro.org>
----
- tools/include/uapi/linux/perf_event.h | 2 ++
- 1 file changed, 2 insertions(+)
+On 13/08/25 20:08, Vignesh Raghavendra wrote:
+> 
+> 
+> On 31/07/25 17:26, Akashdeep Kaur wrote:
+>> Add the drive strength, schmitt trigger enable macros to pinctrl file.
+...
+>> +#define DS_ISO_OVERRIDE_EN_SHIFT (22)
+>> +#define DS_ISO_BYPASS_EN_SHIFT  (23)
+> 
+> These *_SHIFT macros are mostly arranged in ascending order of bit
+> position, please follow the same.
+Rearranged the newly added macros to mostly fit in ascending order.
+> 
+> Also, ST_EN_SHIFT is already defined ?
+Removed
+> 
+>>   
+>>   /* Schmitt trigger configuration */
+>>   #define ST_DISABLE		(0 << ST_EN_SHIFT)
+...
+>> -#define PIN_DS_PULL_DOWN		(0 << DS_PULLTYPE_SEL_SHIFT)
+>> -#define PIN_DS_PULL_UP			(1 << DS_PULLTYPE_SEL_SHIFT)
+> 
+> No we cannot delete these. There maybe downstream dts files already
+> using these macros and thus can cause incompatibilities.
+Added these back for backward compatibility
+> 
+>> +#define PIN_DS_FORCE_ENABLE		    (1 << FORCE_DS_EN_SHIFT)
+...
+>> +#define WKUP_EN_LEVEL_HIGH	(WKUP_ENABLE | WKUP_ON_LEVEL | WKUP_LEVEL_HIGH)
+>> +#define WKUP_EN		        WKUP_EN_EDGE
+> 
+> All existing macros in this block have PIN_* suffix. Please align with
+> the same.
 
-diff --git a/tools/include/uapi/linux/perf_event.h b/tools/include/uapi/linux/perf_event.h
-index 78a362b80027..0d0ed85ad8cb 100644
---- a/tools/include/uapi/linux/perf_event.h
-+++ b/tools/include/uapi/linux/perf_event.h
-@@ -382,6 +382,7 @@ enum perf_event_read_format {
- #define PERF_ATTR_SIZE_VER6			120	/* Add: aux_sample_size */
- #define PERF_ATTR_SIZE_VER7			128	/* Add: sig_data */
- #define PERF_ATTR_SIZE_VER8			136	/* Add: config3 */
-+#define PERF_ATTR_SIZE_VER9			144	/* add: config4 */
- 
- /*
-  * 'struct perf_event_attr' contains various attributes that define
-@@ -543,6 +544,7 @@ struct perf_event_attr {
- 	__u64	sig_data;
- 
- 	__u64	config3; /* extension of config2 */
-+	__u64	config4; /* extension of config3 */
- };
- 
- /*
+Added
+> 
+>>   
+>>   /* Default mux configuration for gpio-ranges to use with pinctrl */
+>>   #define PIN_GPIO_RANGE_IOPAD	(PIN_INPUT | 7)
+> 
+> 
+> For future versions, please split the changes to 2 patches: one for
+> white-space changes only and one for addition of new macros.
+Point Noted
 
--- 
-2.34.1
+Regards,
+Akashdeep Kaur
 
 
