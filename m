@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 118FECA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 06:15:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5F00CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 06:18:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=X5jJzhHlol9iuCRH9wcJdJ+CUHknf07sIOCVsOGsGDI=; b=nq72K6hcQZzaeiwaBPFa9gd4v/
-	KP1mHAIXu1KJ6YZTFWuzQ/4ouLDM/VpLLq+X5DyZ988W5pL+/gvxCqJZsM+XYptsBSHTyfvylycln
-	jzf7P2zz/U+yWGrt1DJV/AhRRmrbkefzUnFEIx9L0A4S1EFrY6wqt1Ab/nmXyoL12CPAANdXWBxc6
-	OYgnaoVSEfqcABHGf77qOTmR6WxYCBh74KDpzPWq0oQJwlAnJcsPGnr2QJnbB/jkPEVyWFUftBzSz
-	2ZOn/mCsi4YHhhVmVrnas404S3PPEXrmT8uhhIb9GffWQk0uh95JQNKkl2FN6P24Jxm11NmFK3mOR
-	36KIcY6Q==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Zb2e1UJDlseKMMev+81jfZOWccINvEhFRYBkYXxN2lY=; b=XDOqgsGoDQQ/UC1vx6+EoHCqfx
+	EpOeWGAxMa8E38rGAEEYjLvrMBCpqmXhfrM5+HHfivqOoC7ctUpy0u/fPbOVEuKlm1TAjosGMLno4
+	u8TvtBVCVxSsIF8XDjIMFeteYd3CuIyYCUftT/dXwT18OKFaXrc0g3xb0EjLPtJikT1YKOiRN62m0
+	upNmZa1nARd5GUNW66spD8Hr1N0VjutH4cekOAUyEDj6yti9I2Se5pIDRT7XTSLzuM4FAZ/dkB9WN
+	de7Yw/bKxVvyJoIikbkFDi5CAKTOdrWJl31cR9/RUMnihqKjJgfNmQDKB+zDp8zh+t8p2womsInkM
+	dxaNsJLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usxpV-0000000BIyX-3pII;
-	Mon, 01 Sep 2025 06:15:49 +0000
+	id 1usxsB-0000000BJI7-07bV;
+	Mon, 01 Sep 2025 06:18:35 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usxZf-0000000BGBM-1Ji4;
-	Mon, 01 Sep 2025 05:59:28 +0000
+	id 1usxZh-0000000BGBM-07ST;
+	Mon, 01 Sep 2025 05:59:30 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Mon, 1 Sep
@@ -44,16 +44,18 @@ To: <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-phy@lists.infradead.org>, <openbmc@lists.ozlabs.org>,
 	<linux-gpio@vger.kernel.org>
 CC: <jacky_chou@aspeedtech.com>
-Subject: [PATCH v3 00/10] Add ASPEED PCIe Root Complex support
-Date: Mon, 1 Sep 2025 13:59:12 +0800
-Message-ID: <20250901055922.1553550-1-jacky_chou@aspeedtech.com>
+Subject: [PATCH v3 01/10] dt-bindings: soc: aspeed: Add ASPEED PCIe Config
+Date: Mon, 1 Sep 2025 13:59:13 +0800
+Message-ID: <20250901055922.1553550-2-jacky_chou@aspeedtech.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250901055922.1553550-1-jacky_chou@aspeedtech.com>
+References: <20250901055922.1553550-1-jacky_chou@aspeedtech.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250831_225927_356674_469CCF38 
-X-CRM114-Status: GOOD (  15.56  )
+X-CRM114-CacheID: sfid-20250831_225929_067467_2D5A2D31 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,83 +70,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series adds support for the ASPEED PCIe Root Complex,
-including device tree bindings, pinctrl support, and the PCIe host controller
-driver. The patches introduce the necessary device tree nodes, pinmux groups,
-and driver implementation to enable PCIe functionality on ASPEED platforms.
-Currently, the ASPEED PCIe Root Complex only supports a single port.
+Add the ASPEED PCIe configuration syscon block. This shared register
+space is used by multiple PCIe-related devices to coordinate and manage
+common PCIe settings. The binding describes the required compatible
+strings and register space for the configuration node.
 
-Summary of changes:
-- Add device tree binding documents for ASPEED PCIe PHY, PCIe Config, and PCIe RC
-- Update MAINTAINERS for new bindings and driver
-- Add PCIe RC node and PERST control pin to aspeed-g6 device tree
-- Implement ASPEED PCIe PHY driver
-- Implement ASPEED PCIe Root Complex host controller driver
-
-This series has been tested on AST2600/AST2700 platforms and enables PCIe device
-enumeration and operation.
-
-Jacky Chou (10):
-  dt-bindings: soc: aspeed: Add ASPEED PCIe Config
-  dt-bindings: phy: aspeed: Add ASPEED PCIe PHY
-  dt-bindings: PCI: Add ASPEED PCIe RC support
-  dt-bindings: pinctrl: aspeed,ast2600-pinctrl: Add PCIe RC PERST# group
-  ARM: dts: aspeed-g6: Add AST2600 PCIe RC PERST#
-  ARM: dts: aspeed-g6: Add PCIe RC and PCIe PHY node
-  PHY: aspeed: Add ASPEED PCIe PHY driver
-  PCI: Add FMT and TYPE definition for TLP header
-  PCI: aspeed: Add ASPEED PCIe RC driver
-  MAINTAINERS: Add ASPEED PCIe RC driver
-
- .../bindings/pci/aspeed,ast2600-pcie.yaml     |  179 +++
- .../bindings/phy/aspeed,ast2600-pcie-phy.yaml |   42 +
- .../pinctrl/aspeed,ast2600-pinctrl.yaml       |    2 +
- .../soc/aspeed/aspeed,ast2700-pcie-cfg.yaml   |   46 +
- MAINTAINERS                                   |   11 +
- .../boot/dts/aspeed/aspeed-g6-pinctrl.dtsi    |    5 +
- arch/arm/boot/dts/aspeed/aspeed-g6.dtsi       |   56 +
- drivers/pci/controller/Kconfig                |   16 +
- drivers/pci/controller/Makefile               |    1 +
- drivers/pci/controller/pcie-aspeed.c          | 1137 +++++++++++++++++
- drivers/pci/pci.h                             |   12 +
- drivers/phy/Kconfig                           |    1 +
- drivers/phy/Makefile                          |    1 +
- drivers/phy/aspeed/Kconfig                    |   15 +
- drivers/phy/aspeed/Makefile                   |    2 +
- drivers/phy/aspeed/phy-aspeed-pcie.c          |  209 +++
- 16 files changed, 1735 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pci/aspeed,ast2600-pcie.yaml
- create mode 100644 Documentation/devicetree/bindings/phy/aspeed,ast2600-pcie-phy.yaml
+Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
+---
+ .../soc/aspeed/aspeed,ast2700-pcie-cfg.yaml   | 46 +++++++++++++++++++
+ 1 file changed, 46 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/soc/aspeed/aspeed,ast2700-pcie-cfg.yaml
- create mode 100644 drivers/pci/controller/pcie-aspeed.c
- create mode 100644 drivers/phy/aspeed/Kconfig
- create mode 100644 drivers/phy/aspeed/Makefile
- create mode 100644 drivers/phy/aspeed/phy-aspeed-pcie.c
 
----
-v3:
- - Add ASPEED PCIe PHY driver
- - Remove the aspeed,pciecfg property from AST2600 RC node, merged into RC node
- - Update the binding doc for aspeed,ast2700-pcie-cfg to reflect the changes
- - Update the binding doc for aspeed,ast2600-pcie to reflect the changes
- - Update the binding doc for aspeed,ast2600-pinctrl to reflect the changes
- - Update the device tree source to reflect the changes
- - Adjusted the use of mutex in RC drivers to use GRAND
- - Updated from reviewer comments
-
-v2:
- - Moved ASPEED PCIe PHY yaml binding to `soc/aspeed` directory and
-   changed it as syscon
- - Added `MAINTAINERS` entry for the new PCIe RC driver
- - Updated device tree bindings to reflect the new structure
- - Refactored configuration read and write functions to main bus and
-   child bus ops
- - Refactored initialization to implement multiple ports support
- - Added PCIe FMT and TYPE definitions for TLP header in
-   `include/uapi/linux/pci_regs.h`
- - Updated from reviewer comments
----
-
+diff --git a/Documentation/devicetree/bindings/soc/aspeed/aspeed,ast2700-pcie-cfg.yaml b/Documentation/devicetree/bindings/soc/aspeed/aspeed,ast2700-pcie-cfg.yaml
+new file mode 100644
+index 000000000000..c1a90bb6a785
+--- /dev/null
++++ b/Documentation/devicetree/bindings/soc/aspeed/aspeed,ast2700-pcie-cfg.yaml
+@@ -0,0 +1,46 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/soc/aspeed/aspeed,ast2700-pcie-cfg.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: ASPEED PCIe Configuration
++
++maintainers:
++  - Jacky Chou <jacky_chou@aspeedtech.com>
++
++description:
++  The ASPEED PCIe configuration syscon block provides a set of registers shared
++  by multiple PCIe-related devices within the SoC. This node represents the
++  common configuration space that allows these devices to coordinate and manage
++  shared PCIe settings, including address mapping, control, and status
++  registers. The syscon interface enables for various PCIe devices to access
++  and modify these shared registers in a consistent and centralized manner.
++
++properties:
++  compatible:
++    items:
++      - enum:
++          - aspeed,ast2700-pcie-cfg
++      - const: syscon
++
++  reg:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++
++additionalProperties: false
++
++examples:
++  - |
++    soc0 {
++      #address-cells = <2>;
++      #size-cells = <1>;
++
++      syscon@12c02a00 {
++        compatible = "aspeed,ast2700-pcie-cfg", "syscon";
++        reg = <0 0x12c02a00 0x80>;
++      };
++    };
 -- 
 2.43.0
 
