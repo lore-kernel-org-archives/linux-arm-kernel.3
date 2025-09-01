@@ -4,158 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC874CA1000
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 17:56:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10C96CA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 17:59:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZQf4Reiy5apT64tfdgfETW33d38jjuSty8SoNlXS3hY=; b=pRH0Dwp80W6Bem1i/lWEqSwmsE
-	1B4YqydxJRFcW8n4oDutS0NbcVxcDtdExJWsLlzYpaiRQqQvSx0YhrcevmUVSxyTqwgtqawCAw54O
-	WCDBTgNjmw237MkkFj0s1cTKlaasmaro5mkpcxSCwPl+HRAxkPrpsj5L1IuuYvaG+sf5rjAY9Ir0x
-	dbHYVG2rP79Vqpf3Su935F4eEWhwdcD+yM5irGGDXUDFt1QG7bF34GzSS6XSoeN9shGo03JH0Z2sx
-	dQw/za90+Y8+DXGH8/L5GLiTQNb3BKua9BNjnjTtm5uAct7emGklUd5mNKHUDpwJhgPBw+AV+tWp0
-	e/RcB2rQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=92piqbUZtNVeqfIr/LdlQWA3Ra3Ni21lDoPqNB9Cr0E=; b=roYQiU9wNQA4DuPrXNJ0/zl/b+
+	t7RpwzCSFeG33w9yiY+P1Ev4MH3VQP3zzhfbd4RNusWxOnUvqlBFErrO9PI7J875FeEOiGItPudEW
+	aElW1XlVaqBO19Cn2/YWIiS4BTmBLmQJQbv9UVhbOclq2HIlQzRyLKUMW0yIeZ4gQqk86M2ucwKIz
+	XNn52yOzUYfJ0IKuOx/Z59pQ0dUDfJGuHry21t1pS5ISV8RvnFFjh/EP2ude/nv1RyWXzEzHNY7rQ
+	EgBYLXHZBIYuLuep+uMHqXJjto2negYdMZBh5BPBwZvF8T/IZ9Zvo8Yw8GdslxskShu9tMhvpNjMU
+	EBOoHugQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut8lT-0000000DVfp-49uM;
-	Mon, 01 Sep 2025 17:56:23 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1ut8o9-0000000DVyd-02U3;
+	Mon, 01 Sep 2025 17:59:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut5kn-0000000Cs4A-0J8q
+	id 1ut5mp-0000000CsXG-1NYf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 14:43:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756737807;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=ZQf4Reiy5apT64tfdgfETW33d38jjuSty8SoNlXS3hY=;
-	b=he83A8Hr4oZxw6L7xZYUs5O56bNktzRy1zVWXInnzvHq6lU9BSaZhxS71R1yPfCC7poltk
-	ul6uyxGnyjxq32PJhu5YntHb/ow7v59L9W+f9sCh3+ZnLuZG3Xws98WHMAAlh5yYtopkff
-	zsQh8SlOPC6LGLSZi1jId1Np6uy00LA=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-153-iwFLhbd9MzqESP-4jhpUfA-1; Mon, 01 Sep 2025 10:43:26 -0400
-X-MC-Unique: iwFLhbd9MzqESP-4jhpUfA-1
-X-Mimecast-MFC-AGG-ID: iwFLhbd9MzqESP-4jhpUfA_1756737805
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-45b869d3582so9646675e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 07:43:26 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756737805; x=1757342605;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ZQf4Reiy5apT64tfdgfETW33d38jjuSty8SoNlXS3hY=;
-        b=e4/zRs/b66IvicmAEBrM4AeOAp5jwPt/WbBDfo/lDNwcqv02/LxhOQNMc/Ewu3hdgi
-         iVjjIdpwTL42o8Hql5N0gbpZHAPPjqk4nP9GubFTTwfQ926fW+N5RoOCZkdMQI1NvBYa
-         ZjUEeDCfhoEynutP0VpDO4KjuJRLnYnAdZpRB5Azf07kwwCZqvN6xFseJOuj0LDYetEH
-         6YvUSnOXnB/uX9PXfid7tZ9sIcC8uSME6BZJnkIuCoPRTsecOeHpmmT0cqlM6WY0quYr
-         /JWCNcova+Nl8aw25Fc6AHb5T5sqjFXdmabNAM9ioQws7bVQhZcMi1Q2FnkAC1x/HvrD
-         uspA==
-X-Forwarded-Encrypted: i=1; AJvYcCUo5t68+ikd73Z0eWUHKc/dzAHL26iRs3TMOOM0vKFVOBssZn0mPy+3YMdqMxVKDn4z3nhWwKgIXR8ObteDZn3v@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywu0CnZcQ+RXPrizv8IKAE2WK1mKfCWLcIHdInJ+6SoFO97V3z+
-	XY3CakwyzvGtFzcL1n68L0vcT/3eYAg1vNYcp2OyDft2kLzsLJRATbykbuXqmVYB9rmDbAP9/kw
-	TOwe81L65wc9MwUOFUdYjOgJZWpEXRxRHPUxGCUPuyDTNX4wDFfnbFF6k2ytW+AYWjjn9lal94o
-	KR
-X-Gm-Gg: ASbGnct1yOfIvEJHCfPbx+2c5zGnVTpMLvQUGXjOhb9fjZRmRpCirxb0fJZmiy2hS/k
-	ZpLzPS5HP1F/YQWg10aFUL3kxCIQjKjxtwjzZ/fzDNVlGY0wDgNuNy68tOBT9AaaMkXfjCK3r/I
-	aOmsVO/X8tsdYw41GrEtMY1uSqZ9TuZxm8kXKu74z7bT9JxVxmgVc1VNYvZWl8JVkzJH1DSFgOi
-	mBqBMstDyUD9QmkG9R+v8ZGVD5yk4qjr6VMq3QpFSVZghSBpX0+m3VI0ZHdS2J4Yp5/P3dY490Y
-	ujqCBr5W1yY/xkdwU4blqFwk4cCLeeI7eWD/PmASjnEPqhNbsPSTuRZzGgYgYHAW1Z2Z3xAOimT
-	TtY8ldc/6Z1YjojR5/ARGCXj/C+uBbc+DK6imn61eXxkU05tRuaoKzh8nUDspNgCHXgE=
-X-Received: by 2002:a05:600c:3b9d:b0:45b:8a84:503b with SMTP id 5b1f17b1804b1-45b8a845256mr54590865e9.31.1756737805320;
-        Mon, 01 Sep 2025 07:43:25 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHQRfn5sR/77vqQEmdzkbnhL4QNlRAOrqr4TrvFYBM6bDd/eneSMeY2Ldu8ZaHvy16wvsmCiw==
-X-Received: by 2002:a05:600c:3b9d:b0:45b:8a84:503b with SMTP id 5b1f17b1804b1-45b8a845256mr54590595e9.31.1756737804892;
-        Mon, 01 Sep 2025 07:43:24 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f37:2b00:948c:dd9f:29c8:73f4? (p200300d82f372b00948cdd9f29c873f4.dip0.t-ipconnect.de. [2003:d8:2f37:2b00:948c:dd9f:29c8:73f4])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b87b38fcfsm53262385e9.0.2025.09.01.07.43.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 01 Sep 2025 07:43:24 -0700 (PDT)
-Message-ID: <e2620083-656b-4af1-91d5-6452eda2e4a7@redhat.com>
-Date: Mon, 1 Sep 2025 16:43:22 +0200
+	Mon, 01 Sep 2025 14:45:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id BB935601D9;
+	Mon,  1 Sep 2025 14:45:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0C4CC4CEF0;
+	Mon,  1 Sep 2025 14:45:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756737934;
+	bh=S/pG0a+pdik3O+EKJnS+m1hVoSUlv6Wpum7/EHnsWAY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JfLoa4GVy3TtrHdJ+EtfqTgRicnrSM9xzMkUbw681pMiuPBjXUvPAtLaOg2zprJoL
+	 a3qFMnkEgZQAIAEo1IH4famds+IFbytLGpGJl//m1C0ZWNxyMUM53q1V+cMX7DKFQa
+	 Z06X3KbdYlp/rokhzdxSLtZhp9e2U2gi3ER+Nzp0UsYcvHttNHdUZds3D2794KXQLs
+	 HWFDIQZ3FVgzES3+rfxQFc19fuR6pswH9LSnhCjwzOsuYNhc1Lxm8R4YgDT/emGuDS
+	 HbjTQ7QrXa4xzpNVJDw1gikBjOiOpBVRZJr99cF8Vl9W6g08wBrIEdHx3wroS+SwpT
+	 oMN0S5bMI5rDg==
+Date: Mon, 1 Sep 2025 20:15:24 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
+	bhelgaas@google.com, helgaas@kernel.org, kishon@kernel.org, vigneshr@ti.com, 
+	stable@vger.kernel.org, linux-pci@vger.kernel.org, linux-omap@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, srk@ti.com
+Subject: Re: [PATCH v3] PCI: j721e: Fix programming sequence of "strap"
+ settings
+Message-ID: <7hxdcjm7evlphkldct7seytno4is7rjkx5vquvtfhpdkzxdhu6@yocrjgzciwu3>
+References: <20250829091707.2990211-1-s-vadapalli@ti.com>
+ <oztilfun77apxtjxumx4tydkcd2gsalsak4m2rvsry2oooqjna@2yvcx6cnuemm>
+ <b2fb9252-6bfc-45da-973a-31cdfcc86b3d@ti.com>
+ <z3ubracmtlq23yicbrhqjgnzrfoqheffm6cvhfnawlvbu4cmmp@ddu2o7xhw5tz>
+ <48e9d897-2cd3-48ef-b46a-635ae75f5ac6@ti.com>
+ <3wc3t6y5gzzspgfeklsqo3bupfp6gsfy6mls6t66hflcqlqsfk@cu26wv3sow4y>
+ <9d2bba15-52e4-432a-8f7f-a0f5d7c2e4ad@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 05/12] KVM: Documentation: describe
- GUEST_MEMFD_FLAG_NO_DIRECT_MAP
-To: "Roy, Patrick" <roypat@amazon.co.uk>
-Cc: "ackerleytng@google.com" <ackerleytng@google.com>,
- "Manwaring, Derek" <derekmn@amazon.com>, "Thomson, Jack"
- <jackabt@amazon.co.uk>, "Kalyazin, Nikita" <kalyazin@amazon.co.uk>,
- "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
- "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-mm@kvack.org" <linux-mm@kvack.org>,
- "pbonzini@redhat.com" <pbonzini@redhat.com>,
- "rppt@kernel.org" <rppt@kernel.org>, "seanjc@google.com"
- <seanjc@google.com>, "tabba@google.com" <tabba@google.com>,
- "vbabka@suse.cz" <vbabka@suse.cz>, "will@kernel.org" <will@kernel.org>,
- "Cali, Marco" <xmarcalx@amazon.co.uk>
-References: <786503d6-e58d-412a-a17b-f5e4e481c3fe@redhat.com>
- <20250901143000.5017-1-roypat@amazon.co.uk>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20250901143000.5017-1-roypat@amazon.co.uk>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: qW2-5dT0o-83ufT_JMMcRpiKgkw3oD-D2eHN-6RE3aw_1756737805
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_074329_190064_0E90A186 
-X-CRM114-Status: GOOD (  17.02  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <9d2bba15-52e4-432a-8f7f-a0f5d7c2e4ad@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,67 +78,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01.09.25 16:30, Roy, Patrick wrote:
-> On Thu, 2025-08-28 at 11:27 +0100, David Hildenbrand wrote:
->> On 28.08.25 11:39, Roy, Patrick wrote:
->>> Signed-off-by: Patrick Roy <roypat@amazon.co.uk>
->>> ---
->>>    Documentation/virt/kvm/api.rst | 5 +++++
->>>    1 file changed, 5 insertions(+)
->>>
->>> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
->>> index c17a87a0a5ac..b52c14d58798 100644
->>> --- a/Documentation/virt/kvm/api.rst
->>> +++ b/Documentation/virt/kvm/api.rst
->>> @@ -6418,6 +6418,11 @@ When the capability KVM_CAP_GUEST_MEMFD_MMAP is supported, the 'flags' field
->>>    supports GUEST_MEMFD_FLAG_MMAP.  Setting this flag on guest_memfd creation
->>>    enables mmap() and faulting of guest_memfd memory to host userspace.
->>>
->>> +When the capability KVM_CAP_GMEM_NO_DIRECT_MAP is supported, the 'flags' field
->>> +supports GUEST_MEMFG_FLAG_NO_DIRECT_MAP. Setting this flag makes the guest_memfd
->>> +instance behave similarly to memfd_secret, and unmaps the memory backing it from
->>> +the kernel's address space after allocation.
->>> +
->>>    When the KVM MMU performs a PFN lookup to service a guest fault and the backing
->>>    guest_memfd has the GUEST_MEMFD_FLAG_MMAP set, then the fault will always be
->>>    consumed from guest_memfd, regardless of whether it is a shared or a private
->>
->> WARNING: Missing commit description - Add an appropriate one
+On Mon, Sep 01, 2025 at 04:50:02PM GMT, Siddharth Vadapalli wrote:
+> On Mon, Sep 01, 2025 at 12:14:51PM +0530, Manivannan Sadhasivam wrote:
+> > On Mon, Sep 01, 2025 at 11:51:33AM GMT, Siddharth Vadapalli wrote:
+> > > On Mon, Sep 01, 2025 at 11:18:23AM +0530, Manivannan Sadhasivam wrote:
+> > > > On Mon, Sep 01, 2025 at 10:27:51AM GMT, Siddharth Vadapalli wrote:
+> > > > > On Sun, Aug 31, 2025 at 06:15:13PM +0530, Manivannan Sadhasivam wrote:
+> > > > > 
+> > > > > Hello Mani,
+> > > > > 
+> > > > > > On Fri, Aug 29, 2025 at 02:46:28PM GMT, Siddharth Vadapalli wrote:
+> > > 
+> > > [...]
+> > > 
+> > > > > > > +	/*
+> > > > > > > +	 * The PCIe Controller's registers have different "reset-values"
+> > > > > > > +	 * depending on the "strap" settings programmed into the PCIEn_CTRL
+> > > > > > > +	 * register within the CTRL_MMR memory-mapped register space.
+> > > > > > > +	 * The registers latch onto a "reset-value" based on the "strap"
+> > > > > > > +	 * settings sampled after the PCIe Controller is powered on.
+> > > > > > > +	 * To ensure that the "reset-values" are sampled accurately, power
+> > > > > > > +	 * off the PCIe Controller before programming the "strap" settings
+> > > > > > > +	 * and power it on after that.
+> > > > > > > +	 */
+> > > > > > > +	ret = pm_runtime_put_sync(dev);
+> > > > > > > +	if (ret < 0) {
+> > > > > > > +		dev_err(dev, "Failed to power off PCIe Controller\n");
+> > > > > > > +		return ret;
+> > > > > > > +	}
+> > > > > > 
+> > > > > > How does the controller gets powered off after pm_runtime_put_sync() since you
+> > > > > > do not have runtime PM callbacks? I believe the parent is turning off the power
+> > > > > > domain?
+> > > > > 
+> > > > > By invoking 'pm_runtime_put_sync(dev)', the ref-count is being
+> > > > > decremented and it results in the device being powered off. I have
+> > > > > verified it by printing the power domain index within the functions for
+> > > > > powering off and powering on devices on the J7200 SoC. Logs:
+> > > > > 
+> > > > > 	root@j7200-evm:~# modprobe pci_j721e
+> > > > > 	[   25.231675] [Powering On]: 240
+> > > > > 	[   25.234848] j721e-pcie 2910000.pcie: host bridge /bus@100000/pcie@2910000 ranges:
+> > > > > 	[   25.242378] j721e-pcie 2910000.pcie:       IO 0x4100001000..0x4100100fff -> 0x0000001000
+> > > > > 	[   25.250496] j721e-pcie 2910000.pcie:      MEM 0x4100101000..0x41ffffffff -> 0x0000101000
+> > > > > 	[   25.258588] j721e-pcie 2910000.pcie:   IB MEM 0x0000000000..0xffffffffffff -> 0x0000000000
+> > > > > 	[   25.267098] [Powering Off]: 240
+> > > > > 	[   25.270318] [Powering On]: 240
+> > > > > 	[   25.273511] [Powering On]: 187
+> > > > > 	[   26.372361] j721e-pcie 2910000.pcie: PCI host bridge to bus 0000:00
+> > > > > 	[   26.378666] pci_bus 0000:00: root bus resource [bus 00-ff]
+> > > > > 	[   26.384156] pci_bus 0000:00: root bus resource [io  0x0000-0xfffff] (bus address [0x1000-0x100fff])
+> > > > > 	[   26.393197] pci_bus 0000:00: root bus resource [mem 0x4100101000-0x41ffffffff] (bus address [0x00101000-0xffffffff])
+> > > > > 	[   26.403728] pci 0000:00:00.0: [104c:b00f] type 01 class 0x060400 PCIe Root Port
+> > > > > 	[   26.411044] pci 0000:00:00.0: PCI bridge to [bus 00]
+> > > > > 	[   26.416009] pci 0000:00:00.0:   bridge window [io  0x0000-0x0fff]
+> > > > > 	[   26.422091] pci 0000:00:00.0:   bridge window [mem 0x00000000-0x000fffff]
+> > > > > 	[   26.428874] pci 0000:00:00.0:   bridge window [mem 0x00000000-0x000fffff 64bit pref]
+> > > > > 	[   26.436676] pci 0000:00:00.0: supports D1
+> > > > > 	[   26.440699] pci 0000:00:00.0: PME# supported from D0 D1 D3hot
+> > > > > 	[   26.448064] pci 0000:00:00.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+> > > > > 	[   26.456274] pci_bus 0000:01: busn_res: [bus 01-ff] end is updated to 01
+> > > > > 	[   26.462923] pci 0000:00:00.0: PCI bridge to [bus 01]
+> > > > > 	[   26.467933] pci_bus 0000:00: resource 4 [io  0x0000-0xfffff]
+> > > > > 	[   26.473595] pci_bus 0000:00: resource 5 [mem 0x4100101000-0x41ffffffff]
+> > > > > 	[   26.480337] pcieport 0000:00:00.0: of_irq_parse_pci: failed with rc=-22
+> > > > > 	[   26.487479] pcieport 0000:00:00.0: PME: Signaling with IRQ 701
+> > > > > 	[   26.493909] pcieport 0000:00:00.0: AER: enabled with IRQ 701
+> > > > > 
+> > > > > In the above logs, '240' is the Power Domain Index for the PCIe
+> > > > > Controller on J7200 SoC. It is powered on initially before the driver is
+> > > > > probed.
+> > > > 
+> > > > In that case, the driver should not call pm_runtime_get_sync() in its probe.
+> > > > What it should do is:
+> > > > 
+> > > > 	pm_runtime_set_active()
+> > > > 	pm_runtime_enable()
+> > > 
+> > > If I understand correctly, are you suggesting the following?
+> > > 
+> > > j721e_pcie_probe()
+> > > 	pm_runtime_set_active()
+> > > 	pm_runtime_enable()
+> > > 	ret = j721e_pcie_ctrl_init(pcie);
+> > > 		/*
+> > > 		 * PCIe Controller should be powered off here, but is there
+> > > 		 * a way to ensure that it has been powered off?
+> > > 		 */
+> > > 		=> Program the strap settings and return to
+> > > 		j721e_pcie_probe()
+> > > 	/* Power on the PCIe Controller now */
+> > > 	ret = pm_runtime_get_sync(dev);
+> > 
+> > This pm_runtime_get_sync() should be part of j721e_pcie_ctrl_init() where you
+> > do power off, program strap and power on.
+> > 
+> > This should not be part of probe() as by that time, controller is already
+> > powered on. So pm_runtime_set_active() and pm_runtime_enable() should be enough
+> > to convey the state of the device to PM core.
 > 
-> Admittedly wasn't sure what to say that wouldn't just repeat the commit title
-> or the contents. Maybe that just means this shouldn't be its own patch. Will
-> squash in the previous one (same for PATCH 11/12).
-
-Very right :)
-
-If there is nothing to say then probably everything was already said 
-(other patch), lol
-
+> I have tried out the suggestion in the following manner:
 > 
->> WARNING: From:/Signed-off-by: email name mismatch: 'From: "Roy, Patrick"
->> <roypat@amazon.co.uk>' != 'Signed-off-by: Patrick Roy <roypat@amazon.co.uk>'
+> 	j721e_pcie_probe()
+> 		...
+> 		pm_runtime_set_active(dev);
+> 		pm_runtime_enable(dev);
+> 		ret = j721e_pcie_ctrl_init(pcie);
+> 			... within j721e_pcie_ctrl_init()
+> 			ret = pm_runtime_put_sync(dev);
+> 			/* Program Strap Settings */
+> 			ret = pm_runtime_get_sync(dev);
+> 			...
+> 		...
+> 		exit probe
 > 
-> Heh, my git config only ever uses "Patrick Roy <roypat@amazon.co.uk>". Not sure
-> where "Roy, Patrick" comes from, could it be the mail server mangling things?
+> Since a 'pm_runtime_get_sync()' hasn't yet been invoked prior to the
+> section where 'pm_runtime_put_sync()' is invoked, it leads to a ref-count
+> underflow error at runtime. Please let me know if I am missing
+> something.
+> 
 
-Good question. Does it only happen through git?
+Doh... At the start of probe(), device PM usage_count will be 0. So we cannot
+decrement it without incrementing it.
 
-When Nikita sends through amazon.com[1] it seems to be fine.
+Could you try below sequence?
 
-But when he also sent through amazon.co.uk [2], it's also messed up.
+	probe()
+	...
+	pm_runtime_set_active()
+	pm_runtime_enable()
+	j721e_pcie_ctrl_init()
+		...
+		pm_runtime_get() /* Just increment usage_count */
+		pm_runtime_put_sync() /* ask PM core to turn off */
+		/* program strap setting */
+		pm_runtime_get_sync() /* ask PM core to turn on */
+		pm_runtime_put_noidle() /* balance the usage_count without
+						suspending the device */
+	...
 
-I suggest contacting the amazon.co.uk admin or ... sending through 
-amazon.com :)
-
-
-[1] 
-https://lore.kernel.org/all/cda7c46b-c474-48f4-b703-e2f988470f3b@amazon.com/T/#u
-[1] 
-https://lore.kernel.org/all/20250828153049.3922-1-kalyazin@amazon.com/T/#u
+- Mani
 
 -- 
-Cheers
-
-David / dhildenb
-
+மணிவண்ணன் சதாசிவம்
 
