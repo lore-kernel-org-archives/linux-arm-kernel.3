@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A772CA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 05:59:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C22CDCA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 06:02:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
 	In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yQuDkkBEvyY5Pt7iRYQ2Pcj3famUClF/QwXS+CmFsW4=; b=bRF2uItzppn8P7xAVlAqs4CGfl
-	yT8SNJgAIeBf/ONt2y/agRAgEgJuiml3r7WSwsLtsNcJSXEedI3zMR7uFVq9x0aYwqv3JInu62wxk
-	p6Beh580m6DAZspFhdp9/wPizhTfkkb9TqkTvI+Cg0UtBjG/w5BAT30rJxDSyD8u8NHPd6DyG6pAt
-	CUKyhqgcXpBScYDoPq+0kHdKiOzq3D7d3AL25cqpvig+3TFicVaNiAbYUiEeriyvX//QZOc/OJgFm
-	0s5DwJp+IANSepjbWnaz4pQ0in3PSnpONtTSUhcTqOJzqXS2EMKXd1TXj16JC8V7lsLFRRMW7DSzS
-	zSG1hb6Q==;
+	bh=AnmAPrcDCYbR1J1LfBH1PHR8aqxWFYZaUH5QmVjWvUc=; b=NX4D1ASRfrkSH8Jx+4rRaVJcl+
+	qdOmS/ty+DqUpIp7WiSB8McxY7Lv5MpALZDgTQYOW33P9qR8KFkF52019gs1ZnGuYg/UFLF1KeJuc
+	HnWN+6gi2IslsTIP6DGU9OWczSLnqzIaFOdQjPDGbh1IDf3OzL8I8Ay6EoUL09U338bngMH3UEqrH
+	6DtUHGiZZf4C8Wl8n0+xUrQjowX1UT8u2jRK8GUOCJ+47uMH2E1Rwbn/fb6bnPk7bwUcVRln/upNb
+	a9yiow77z7OrZW9XrPEMP5L55apEbg2MsS0sLwNS6w1sxHqJ0QC7jy6d7PQ9VGR5JzvQDkbHmmJg0
+	IHcWNgsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usxZS-0000000BGA6-42U0;
-	Mon, 01 Sep 2025 05:59:16 +0000
+	id 1usxc8-0000000BGqU-3yP7;
+	Mon, 01 Sep 2025 06:02:00 +0000
 Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usxJn-0000000BEZq-1BNw
+	id 1usxJs-0000000BEbT-11Gk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 05:43:04 +0000
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250901054301epoutp0321814ccc68c8982612c72a3b6e8fd7d7~hEjy23MDb1983419834epoutp03V
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  1 Sep 2025 05:43:01 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250901054301epoutp0321814ccc68c8982612c72a3b6e8fd7d7~hEjy23MDb1983419834epoutp03V
+	Mon, 01 Sep 2025 05:43:09 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250901054306epoutp037916ae51bbe8f85246f6aa903d706956~hEj3g7Kch1970919709epoutp03g
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  1 Sep 2025 05:43:06 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250901054306epoutp037916ae51bbe8f85246f6aa903d706956~hEj3g7Kch1970919709epoutp03g
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1756705381;
-	bh=yQuDkkBEvyY5Pt7iRYQ2Pcj3famUClF/QwXS+CmFsW4=;
+	s=mail20170921; t=1756705386;
+	bh=AnmAPrcDCYbR1J1LfBH1PHR8aqxWFYZaUH5QmVjWvUc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Pi5r/L/Se0I0CtOXS/4skK3VqXFYhPnKZpEDhSzobqC9wV4j2+cuodB3LWK8yKcCE
-	 X5TriumQfXX8YV5Vx9SZFq4NN9zquDwVEiffnRNUTQTCFfbWV84Q/yFcFuz7iGaMiO
-	 OM2sturRLnC4gHN9Dld2x3Ly3mgJsU4D4oAe7Gf8=
+	b=II5Cequgt6q9CtOhYCIb3N+bn9QdzOGomIY/0+Cb9GThx2JqCaKIri702R0rLA0nz
+	 Hy1f2ZMTxeu2y74p0/j6RBwq3wSs4v61oHYvgyuca4K306G30wSgtfz9FL710NsrfD
+	 H+QDmCj+AwTMIb2fU8dyKX6XVq/VxzyWeXZm7OQo=
 Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
 	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
-	20250901054300epcas5p39dfcf5e8ee8f8217a7e012656831cdb3~hEjx-nab_2113321133epcas5p3D;
-	Mon,  1 Sep 2025 05:43:00 +0000 (GMT)
-Received: from epcas5p1.samsung.com (unknown [182.195.38.91]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4cFd7l5BBWz6B9mB; Mon,  1 Sep
-	2025 05:42:59 +0000 (GMT)
+	20250901054305epcas5p3486a5537dd8999135776b1141f184bd5~hEj2klCpO1883718837epcas5p3u;
+	Mon,  1 Sep 2025 05:43:05 +0000 (GMT)
+Received: from epcas5p3.samsung.com (unknown [182.195.38.92]) by
+	epsnrtp01.localdomain (Postfix) with ESMTP id 4cFd7r44bQz6B9m9; Mon,  1 Sep
+	2025 05:43:04 +0000 (GMT)
 Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250901054259epcas5p13dfe6ccb7759af018a07403ceb1e86f4~hEjwhx9hK2199821998epcas5p1X;
-	Mon,  1 Sep 2025 05:42:59 +0000 (GMT)
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20250901054303epcas5p3d8079b7806d995bfaf3004cbb4f95e41~hEj08CsBi1883718837epcas5p3o;
+	Mon,  1 Sep 2025 05:43:03 +0000 (GMT)
 Received: from Jaguar.samsungds.net (unknown [107.109.115.6]) by
 	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250901054254epsmtip2cd39da9df11ba5a00e247f88f522f66d~hEjsS3DyO0761907619epsmtip2y;
-	Mon,  1 Sep 2025 05:42:54 +0000 (GMT)
+	20250901054259epsmtip210578938dcab54c7343fe60c0383dde6~hEjww4qJX0605106051epsmtip2W;
+	Mon,  1 Sep 2025 05:42:59 +0000 (GMT)
 From: Ravi Patel <ravi.patel@samsung.com>
 To: jesper.nilsson@axis.com, mturquette@baylibre.com, sboyd@kernel.org,
 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, krzk@kernel.org,
@@ -67,23 +67,23 @@ Cc: ksk4725@coasia.com, kenkim@coasia.com, pjsin865@coasia.com,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@axis.com,
 	devicetree@vger.kernel.org, linux-gpio@vger.kernel.org
-Subject: [PATCH v4 5/6] arm64: dts: axis: Add ARTPEC-8 Grizzly dts support
-Date: Mon,  1 Sep 2025 10:49:25 +0530
-Message-Id: <20250901051926.59970-6-ravi.patel@samsung.com>
+Subject: [PATCH v4 6/6] arm64: defconfig: Enable Axis ARTPEC SoC
+Date: Mon,  1 Sep 2025 10:49:26 +0530
+Message-Id: <20250901051926.59970-7-ravi.patel@samsung.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20250901051926.59970-1-ravi.patel@samsung.com>
-X-CMS-MailID: 20250901054259epcas5p13dfe6ccb7759af018a07403ceb1e86f4
+X-CMS-MailID: 20250901054303epcas5p3d8079b7806d995bfaf3004cbb4f95e41
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 CMS-TYPE: 105P
 cpgsPolicy: CPGSC10-541,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250901054259epcas5p13dfe6ccb7759af018a07403ceb1e86f4
+X-CMS-RootMailID: 20250901054303epcas5p3d8079b7806d995bfaf3004cbb4f95e41
 References: <20250901051926.59970-1-ravi.patel@samsung.com>
-	<CGME20250901054259epcas5p13dfe6ccb7759af018a07403ceb1e86f4@epcas5p1.samsung.com>
+	<CGME20250901054303epcas5p3d8079b7806d995bfaf3004cbb4f95e41@epcas5p3.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250831_224303_634156_DCA6F0EC 
-X-CRM114-Status: GOOD (  15.89  )
+X-CRM114-CacheID: sfid-20250831_224308_439615_8E5F6DAB 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,72 +98,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: SeonGu Kang <ksk4725@coasia.com>
+From: SungMin Park <smn1196@coasia.com>
 
-Add initial devcie tree for the ARTPEC-8 Grizzly board.
-The ARTPEC-8 Grizzly is a small board developed by Axis,
-based on the Axis ARTPEC-8 SoC.
+Enable the Axis ARTPEC-8 SoC in arm64 defconfig.
 
-Signed-off-by: SeonGu Kang <ksk4725@coasia.com>
+Signed-off-by: SungMin Park <smn1196@coasia.com>
 Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
 ---
- arch/arm64/boot/dts/exynos/axis/Makefile      |  4 +++
- .../boot/dts/exynos/axis/artpec8-grizzly.dts  | 35 +++++++++++++++++++
- 2 files changed, 39 insertions(+)
- create mode 100644 arch/arm64/boot/dts/exynos/axis/Makefile
- create mode 100644 arch/arm64/boot/dts/exynos/axis/artpec8-grizzly.dts
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/boot/dts/exynos/axis/Makefile b/arch/arm64/boot/dts/exynos/axis/Makefile
-new file mode 100644
-index 000000000000..ccf00de64016
---- /dev/null
-+++ b/arch/arm64/boot/dts/exynos/axis/Makefile
-@@ -0,0 +1,4 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+dtb-$(CONFIG_ARCH_ARTPEC) += \
-+	artpec8-grizzly.dtb
-diff --git a/arch/arm64/boot/dts/exynos/axis/artpec8-grizzly.dts b/arch/arm64/boot/dts/exynos/axis/artpec8-grizzly.dts
-new file mode 100644
-index 000000000000..5ae864ec3193
---- /dev/null
-+++ b/arch/arm64/boot/dts/exynos/axis/artpec8-grizzly.dts
-@@ -0,0 +1,35 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Axis ARTPEC-8 Grizzly board device tree source
-+ *
-+ * Copyright (c) 2025 Samsung Electronics Co., Ltd.
-+ *             https://www.samsung.com
-+ * Copyright (c) 2025  Axis Communications AB.
-+ *             https://www.axis.com
-+ */
-+
-+/dts-v1/;
-+#include "artpec8.dtsi"
-+#include "artpec8-pinctrl.dtsi"
-+#include <dt-bindings/gpio/gpio.h>
-+/ {
-+	model = "ARTPEC-8 grizzly board";
-+	compatible = "axis,artpec8-grizzly", "axis,artpec8";
-+
-+	aliases {
-+		serial0 = &serial_0;
-+	};
-+
-+	chosen {
-+		stdout-path = &serial_0;
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x80000000 0x0 0x80000000>;
-+	};
-+};
-+
-+&osc_clk {
-+	clock-frequency = <50000000>;
-+};
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 58f87d09366c..6660d3ee6f99 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -38,6 +38,7 @@ CONFIG_ARCH_AIROHA=y
+ CONFIG_ARCH_SUNXI=y
+ CONFIG_ARCH_ALPINE=y
+ CONFIG_ARCH_APPLE=y
++CONFIG_ARCH_ARTPEC=y
+ CONFIG_ARCH_AXIADO=y
+ CONFIG_ARCH_BCM=y
+ CONFIG_ARCH_BCM2835=y
 -- 
 2.49.0
 
