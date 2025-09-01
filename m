@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B070CA0FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 14:47:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A256CA0FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 14:50:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/SyVhSrpIopy5tAXrZM1C7QBHH3aNqDn8lxKBUW9xaA=; b=2TmLhPrv3WjDFHRMrBgcbqFpY8
-	IO+26YuLdLASiFSo9zheewKUIIDDLSN9lS/hAqpbVl/6laBTxyqZHdWzFmqvCz1oxqQt7LmxtPtse
-	k1MtTU8dYD9oR4ySeKpReqM3x2OSmU+IC74pM8warNt11Dm+kVoYftZUrBTPjOXGd7xL+BJJI2g3B
-	FpkVEUykcetUpYsWy3UJIFClJjMy/IITwsxWha4wP4qlZLgPL1m0K/14bHF1COv3ZxlmKuhDWdKMf
-	GPaVln4A+QXx5frD3P8yib0DmCdT66JqmRfY51onh9eejBfVOiGcgoOZjYLsNf2LTJUMPumosR/Iy
-	F8LjlpVA==;
+	bh=jfBjyfo26o556nYIaOxd76pUYR9GB6/0sA+87NT+4x8=; b=imq3Y+wTS4AUvTXfPjPnjeXqv1
+	sXgPrR891stS4DxfC/qNzcJ/dekMYB3XfwKTVKD/D8xfSh/b3wvOddHEVYWK9fS6K1goH8zWXPG6s
+	rpIYlEP+rkwBO7dFaIBunEqUdfdgkl3zWeTRGRKiTpa2RMt4XtQQNN94wEe0HsjbbmVhOo93pdvm/
+	+G0UmYUgJpOQHaAhm0Iwj6iIlrJopvx/wD9I4sSHnQ9ApjokbpDLbVPqovxg5Jw86v/pZpn6ad9By
+	XELCnm8Ik7U7TvO2cOoA9DI5b+CiHW8AxcbpHy0qnywuQ6L77Rtm5JFXjpc7TjEZmjWcwVvcNr5I/
+	g1x0g6Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut5oe-0000000Cssq-20XD;
-	Mon, 01 Sep 2025 14:47:28 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1ut5rP-0000000CuwE-46xO;
+	Mon, 01 Sep 2025 14:50:19 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut3Me-0000000CEL5-0KAj
+	id 1ut3c1-0000000CQLL-0fOS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 12:10:25 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.163])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4cFng12cMNz2VRdZ;
-	Mon,  1 Sep 2025 20:07:09 +0800 (CST)
-Received: from dggpemf500002.china.huawei.com (unknown [7.185.36.57])
-	by mail.maildlp.com (Postfix) with ESMTPS id E36991800B2;
-	Mon,  1 Sep 2025 20:10:13 +0800 (CST)
-Received: from [10.174.178.247] (10.174.178.247) by
- dggpemf500002.china.huawei.com (7.185.36.57) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 1 Sep 2025 20:10:12 +0800
-Subject: Re: [PATCH] ACPI/IORT: Fix memory leak in iort_rmr_alloc_sids()
-To: Miaoqian Lin <linmq006@gmail.com>, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>, "Rafael J.
- Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, Joerg Roedel
-	<jroedel@suse.de>, Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
-	Robin Murphy <robin.murphy@arm.com>, <linux-acpi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<bpf@vger.kernel.org>
-CC: <stable@vger.kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>
-References: <20250828112243.61460-1-linmq006@gmail.com>
-From: Hanjun Guo <guohanjun@huawei.com>
-Message-ID: <a2ac5b97-ea63-3187-164c-9568d7810a0a@huawei.com>
-Date: Mon, 1 Sep 2025 20:10:11 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101
- Thunderbird/68.6.0
+	Mon, 01 Sep 2025 12:26:18 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 01BE51A0A08;
+	Mon,  1 Sep 2025 12:26:16 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id CD7A060699;
+	Mon,  1 Sep 2025 12:26:15 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 63DFD1C22D4DC;
+	Mon,  1 Sep 2025 14:26:08 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1756729575; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=jfBjyfo26o556nYIaOxd76pUYR9GB6/0sA+87NT+4x8=;
+	b=rt1Rbw3zcTPUue49SXLIRf8FXerPpqAtXDyHoC58kowt+IPGCOJ+OZT6GwaYpKB3VcBESO
+	O7+GzFBF5/XLeDvNylSecqCeOT2ErTYO1HIDMfZ80tL6fVmgg8PGhcJfFpRY/lRZjO9Fa8
+	DpPv1GehPdVDoKFYXNMOzrofvqyv3wAbAQirDvZJSfh7GJBYCqsF/7cH7AGO8eCOETDQn3
+	YIK0YzbPnLqb5cMv328PCfDFiQXQXpIHX6pnkSqekDVkaQLa/Zlqi2YesVNDWuXNC24tiN
+	xd4ELJxe3crX/UqryFGTPxfN2WeZ6tLSaEUs8wrhWR7qXrILNpykFWmVQ5SaTQ==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Richard Weinberger <richard@nod.at>, 
+ Vignesh Raghavendra <vigneshr@ti.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Boris Brezillon <bbrezillon@kernel.org>, 
+ Christophe Kerello <christophe.kerello@st.com>, 
+ Christophe Kerello <christophe.kerello@foss.st.com>
+Cc: linux-mtd@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org
+In-Reply-To: <20250812-fix-dma-overlapping-v1-1-c3bf81d79de7@foss.st.com>
+References: <20250812-fix-dma-overlapping-v1-1-c3bf81d79de7@foss.st.com>
+Subject: Re: [PATCH] mtd: rawnand: stm32_fmc2: avoid overlapping mappings
+ on ECC buffer
+Message-Id: <175672956825.48300.17672070424508952641.b4-ty@bootlin.com>
+Date: Mon, 01 Sep 2025 14:26:08 +0200
 MIME-Version: 1.0
-In-Reply-To: <20250828112243.61460-1-linmq006@gmail.com>
-Content-Type: text/plain; charset="utf-8"; format=flowed
-Content-Language: en-GB
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.178.247]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- dggpemf500002.china.huawei.com (7.185.36.57)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.14.2
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_051024_288962_D7B37BA0 
-X-CRM114-Status: GOOD (  17.74  )
+X-CRM114-CacheID: sfid-20250901_052617_339747_F8056C2E 
+X-CRM114-Status: UNSURE (   6.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,45 +84,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+Cc Catalin, Will
-
-On 2025/8/28 19:22, Miaoqian Lin wrote:
-> If krealloc_array() fails in iort_rmr_alloc_sids(), the function returns
-> NULL but does not free the original 'sids' allocation. This results in a
-> memory leak since the caller overwrites the original pointer with the
-> NULL return value.
+On Tue, 12 Aug 2025 09:26:58 +0200, Christophe Kerello wrote:
+> Avoid below overlapping mappings by using a contiguous
+> non-cacheable buffer.
 > 
-> Fixes: 491cf4a6735a ("ACPI/IORT: Add support to retrieve IORT RMR reserved regions")
-> Cc: <stable@vger.kernel.org>
-> Signed-off-by: Miaoqian Lin <linmq006@gmail.com>
-> ---
-> This follows the same pattern as the fix in commit 06615967d488
-> ("bpf, verifier: Fix memory leak in array reallocation for stack state").
-> ---
->   drivers/acpi/arm64/iort.c | 4 +++-
->   1 file changed, 3 insertions(+), 1 deletion(-)
+> [    4.077708] DMA-API: stm32_fmc2_nfc 48810000.nand-controller: cacheline tracking EEXIST,
+> overlapping mappings aren't supported
+> [    4.089103] WARNING: CPU: 1 PID: 44 at kernel/dma/debug.c:568 add_dma_entry+0x23c/0x300
+> [    4.097071] Modules linked in:
+> [    4.100101] CPU: 1 PID: 44 Comm: kworker/u4:2 Not tainted 6.1.82 #1
+> [    4.106346] Hardware name: STMicroelectronics STM32MP257F VALID1 SNOR / MB1704 (LPDDR4 Power discrete) + MB1703 + MB1708 (SNOR MB1730) (DT)
+> [    4.118824] Workqueue: events_unbound deferred_probe_work_func
+> [    4.124674] pstate: 60000005 (nZCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> [    4.131624] pc : add_dma_entry+0x23c/0x300
+> [    4.135658] lr : add_dma_entry+0x23c/0x300
+> [    4.139792] sp : ffff800009dbb490
+> [    4.143016] x29: ffff800009dbb4a0 x28: 0000000004008022 x27: ffff8000098a6000
+> [    4.150174] x26: 0000000000000000 x25: ffff8000099e7000 x24: ffff8000099e7de8
+> [    4.157231] x23: 00000000ffffffff x22: 0000000000000000 x21: ffff8000098a6a20
+> [    4.164388] x20: ffff000080964180 x19: ffff800009819ba0 x18: 0000000000000006
+> [    4.171545] x17: 6361727420656e69 x16: 6c6568636163203a x15: 72656c6c6f72746e
+> [    4.178602] x14: 6f632d646e616e2e x13: ffff800009832f58 x12: 00000000000004ec
+> [    4.185759] x11: 00000000000001a4 x10: ffff80000988af58 x9 : ffff800009832f58
+> [    4.192916] x8 : 00000000ffffefff x7 : ffff80000988af58 x6 : 80000000fffff000
+> [    4.199972] x5 : 000000000000bff4 x4 : 0000000000000000 x3 : 0000000000000000
+> [    4.207128] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffff0000812d2c40
+> [    4.214185] Call trace:
+> [    4.216605]  add_dma_entry+0x23c/0x300
+> [    4.220338]  debug_dma_map_sg+0x198/0x350
+> [    4.224373]  __dma_map_sg_attrs+0xa0/0x110
+> [    4.228411]  dma_map_sg_attrs+0x10/0x2c
+> [    4.232247]  stm32_fmc2_nfc_xfer.isra.0+0x1c8/0x3fc
+> [    4.237088]  stm32_fmc2_nfc_seq_read_page+0xc8/0x174
+> [    4.242127]  nand_read_oob+0x1d4/0x8e0
+> [    4.245861]  mtd_read_oob_std+0x58/0x84
+> [    4.249596]  mtd_read_oob+0x90/0x150
+> [    4.253231]  mtd_read+0x68/0xac
 > 
-> diff --git a/drivers/acpi/arm64/iort.c b/drivers/acpi/arm64/iort.c
-> index 98759d6199d3..65f0f56ad753 100644
-> --- a/drivers/acpi/arm64/iort.c
-> +++ b/drivers/acpi/arm64/iort.c
-> @@ -937,8 +937,10 @@ static u32 *iort_rmr_alloc_sids(u32 *sids, u32 count, u32 id_start,
->   
->   	new_sids = krealloc_array(sids, count + new_count,
->   				  sizeof(*new_sids), GFP_KERNEL);
-> -	if (!new_sids)
-> +	if (!new_sids) {
-> +		kfree(sids);
->   		return NULL;
-> +	}
->   
->   	for (i = count; i < total_count; i++)
->   		new_sids[i] = id_start++;
+> [...]
 
-Good catch!
+Applied to mtd/fixes, thanks!
 
-Reviewed-by: Hanjun Guo <guohanjun@huawei.com>
+[1/1] mtd: rawnand: stm32_fmc2: avoid overlapping mappings on ECC buffer
+      commit: 513c40e59d5a414ab763a9c84797534b5e8c208d
 
-Thanks
-Hanjun
+Patche(s) should be available on mtd/linux.git and will be
+part of the next PR (provided that no robot complains by then).
+
+Kind regards,
+Miquèl
+
 
