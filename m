@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A661CCA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 05:14:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AEC5CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 05:29:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vH8uCohmtqsEFpI0t6Wc+b4YHVillWMuFTHVS4aWYT0=; b=Cx8R1JImfZvvJ6OKkUtZ/eQ1V4
-	XtkUpPHgKqajPNEY3qlCgLH9iiAJD904CBYp8usMskPoAG/j/QMMlTxwXsYFd3KySGRfhONVh54oL
-	3TVX36PCFYHc8QWo5SS2lF4bxaD2dOEbCXUPdX51yCSun1RAdQ0f9MVCKLcZUjmPWa9Z2SBJ7dpvC
-	1BWZp7IqpI1H4jkIed1WcywjL/0rz8EypLLEEBPFE9JsALQyeXnc2jCcmCYhboiscGsPi8/n3lSIw
-	jHb0RxIT1nJvjuweCLJyBFNpvm8PJtg/n2Ijcc9K7XEtpubtp0kPxlMxg6YYKSlpUXqHoBAonb2Iq
-	vCcDfL8g==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pe1ELgksaiQsiQmE182Vcn0PJJVj38GS1AZbzs9hnko=; b=LFIsfXsn8cyyR52zg9Mt2P7Qwm
+	yfekT2RA8cqKzUBVRGDtxb3JurRSuvA/b4VBnQvH24cglzqhLTMctfifiE8HiDd0X3BvtEHBJWJbW
+	aFVE16iMF/8qpTC24FIS09R2yU0TcMPDcwV5dH2YRqFQk50oVlf2eKRWfug4jhdzXRv7OZVMXpCo8
+	kC9qUpedL3KQ/onrb8+l5s8O3rBdUvHomHeyzmTNSn911iZjs+/vHx56MxTYtfLPthrhnd4QJ/ldu
+	KdwzumjEf0p21INXQFITWgkeqigmoaf+eG2+YTqpN0OIIdjyeWfDXvrIrCjYQfTZRBptW0h7T+gir
+	MC5BP+og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uswsN-0000000BBwx-2eWH;
-	Mon, 01 Sep 2025 05:14:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1usx6V-0000000BDaN-0Oeq;
+	Mon, 01 Sep 2025 05:29:19 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uswpi-0000000BBrK-1iy7
+	id 1usx3m-0000000BDNF-3HUp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 05:11:58 +0000
+	Mon, 01 Sep 2025 05:26:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0E4F4601BB;
-	Mon,  1 Sep 2025 05:11:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77E36C4CEF0;
-	Mon,  1 Sep 2025 05:11:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2BC55444F9;
+	Mon,  1 Sep 2025 05:26:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2E68C4CEF0;
+	Mon,  1 Sep 2025 05:26:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756703516;
-	bh=0zcGP1JHy/F4YX2Ldd+o0wMIBnWn3+zAZi/ObO2lfWI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=iXxFGAxCyAX2Z/ywg/XTCdRGqX79L6oBBeyP61F+WMwJg6iYcL060e1uvnqvJrSVl
-	 eSWFl94eCQPDLdUPxOObV2KH038zR9dClh6XwqdfYpu5Kn6Jkl6fohDg9HlGov+n+M
-	 cX3/YBqSK4WlGVn8u9X/KHKukZAVwT3bndFB94AjkJtef3E6buyP805gRqd0WhaYDK
-	 CxyhnZ82kTr/EesV5DzOmo8iNApgiYBYgbg2VuTIQkovtYJfCpOllYBmYKEwSM/xca
-	 IPSSqumL1ENJEKQPZhvJE6soZ82L0zkISRnoKUleKab0h5OFcAHcInGZLYgbugOeDf
-	 55ua6+AvgjyKA==
-Message-ID: <e3f6d000-bbb7-45c2-93f2-69be9815ca99@kernel.org>
-Date: Mon, 1 Sep 2025 07:11:46 +0200
+	s=k20201202; t=1756704390;
+	bh=FRFTRStSejwYOz/sgD9a0MfVP0EKn4qNwwC+A2ftFS8=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=Nbvm5O6Pj2OiQimofs8q/FvJwJxK0ea3lWeTfxM64+SNtaoIsxtkwpAUAW6YEUg3g
+	 hQjVipiP5dVZ+rbwYSZQxePI/PK1/BRdbTDp9IawnR22uGF5htHmzsHnFi90VVbZL0
+	 Z8Q9x4TUiORpXbFL3wCZL0XXtjUcmC4t9H/uu2EXk/mC3HV5pScsmQ+oIg74ylapW2
+	 0l/Avrn893QUswQ0fBuP4tKb81ouKe6TZ975iI5u7ScpWsnnOXDOX6BtDFdSsiK8TE
+	 5Z3vP8BnRedowl2dgXNyhDWYiK8c6YSciQ5RWMCqIjP8Jqfe4fRLR5NuFw2JY5iYBS
+	 l3oKzuywFcLkQ==
+Message-ID: <a305a5e3-7164-4aba-b732-7ccb9f2daa76@kernel.org>
+Date: Mon, 1 Sep 2025 07:26:21 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 04/10] dt-bindings: pinctrl: samsung: Add compatible
- for ARTPEC-8 SoC
-To: Ravi Patel <ravi.patel@samsung.com>, jesper.nilsson@axis.com,
- mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, s.nawrocki@samsung.com,
- cw00.choi@samsung.com, alim.akhtar@samsung.com, linus.walleij@linaro.org,
- tomasz.figa@gmail.com, catalin.marinas@arm.com, will@kernel.org,
- arnd@arndb.de
-Cc: ksk4725@coasia.com, kenkim@coasia.com, pjsin865@coasia.com,
- gwk1013@coasia.com, hgkim05@coasia.com, mingyoungbo@coasia.com,
- smn1196@coasia.com, pankaj.dubey@samsung.com, shradha.t@samsung.com,
- inbaraj.e@samsung.com, swathi.ks@samsung.com, hrishikesh.d@samsung.com,
- dj76.yang@samsung.com, hypmean.kim@samsung.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-arm-kernel@axis.com,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-gpio@vger.kernel.org, soc@lists.linux.dev
-References: <20250825114436.46882-1-ravi.patel@samsung.com>
- <CGME20250825120715epcas5p3a0c8b6eaff7bdd69cbed6ce463079c64@epcas5p3.samsung.com>
- <20250825114436.46882-5-ravi.patel@samsung.com>
- <b8085dd8-e1a0-48b1-a49f-f3edaa0381da@kernel.org>
- <000201dc1af2$537b4e70$fa71eb50$@samsung.com>
+Subject: Re: [PATCH v5 5/5] arm64: configs: Update defconfig for AST2700
+ platform support
+To: Ryan Chen <ryan_chen@aspeedtech.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Nishanth Menon <nm@ti.com>,
+ nfraprado@collabora.com, Taniya Das <quic_tdas@quicinc.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ Eric Biggers <ebiggers@google.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org, soc@lists.linux.dev,
+ Mo Elbadry <elbadrym@google.com>, Rom Lemarchand <romlem@google.com>,
+ William Kennington <wak@google.com>, Yuxiao Zhang <yuxiaozhang@google.com>,
+ wthai@nvidia.com, leohu@nvidia.com, dkodihalli@nvidia.com,
+ spuranik@nvidia.com
+References: <20250901031311.1247805-1-ryan_chen@aspeedtech.com>
+ <20250901031311.1247805-6-ryan_chen@aspeedtech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -113,9 +113,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <000201dc1af2$537b4e70$fa71eb50$@samsung.com>
+In-Reply-To: <20250901031311.1247805-6-ryan_chen@aspeedtech.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250831_222630_873987_B873DEBC 
+X-CRM114-Status: UNSURE (   8.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,46 +134,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/09/2025 05:41, Ravi Patel wrote:
+On 01/09/2025 05:13, Ryan Chen wrote:
+> Enable options for ASPEED AST2700 SoC.
 > 
-> 
->> -----Original Message-----
->> From: Krzysztof Kozlowski <krzk@kernel.org>
->> Sent: 31 August 2025 18:55
->> To: Ravi Patel <ravi.patel@samsung.com>; jesper.nilsson@axis.com; mturquette@baylibre.com; sboyd@kernel.org; robh@kernel.org;
->> krzk+dt@kernel.org; conor+dt@kernel.org; s.nawrocki@samsung.com; cw00.choi@samsung.com; alim.akhtar@samsung.com;
->> linus.walleij@linaro.org; tomasz.figa@gmail.com; catalin.marinas@arm.com; will@kernel.org; arnd@arndb.de
->> Cc: ksk4725@coasia.com; kenkim@coasia.com; pjsin865@coasia.com; gwk1013@coasia.com; hgkim05@coasia.com;
->> mingyoungbo@coasia.com; smn1196@coasia.com; pankaj.dubey@samsung.com; shradha.t@samsung.com; inbaraj.e@samsung.com;
->> swathi.ks@samsung.com; hrishikesh.d@samsung.com; dj76.yang@samsung.com; hypmean.kim@samsung.com; linux-
->> kernel@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-samsung-soc@vger.kernel.org; linux-arm-kernel@axis.com; linux-
->> clk@vger.kernel.org; devicetree@vger.kernel.org; linux-gpio@vger.kernel.org; soc@lists.linux.dev
->> Subject: Re: [PATCH v3 04/10] dt-bindings: pinctrl: samsung: Add compatible for ARTPEC-8 SoC
->>
->> On 25/08/2025 13:44, Ravi Patel wrote:
->>> From: SeonGu Kang <ksk4725@coasia.com>
->>>
->>> Document the compatible string for ARTPEC-8 SoC pinctrl block,
->>> which is similar to other Samsung SoC pinctrl blocks.
->>>
->>> Signed-off-by: SeonGu Kang <ksk4725@coasia.com>
->>> Acked-by: Rob Herring (Arm) <robh@kernel.org>
->>> Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
->>> ---
->>>  Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml | 1 +
->>>  1 file changed, 1 insertion(+)
->>
->>
->> No wakeup-eint interrupts here? samsung,pinctrl-wakeup-interrupt.yaml?
-> 
-> I don't see any use case for external wake-up interrupt here (as of now).
+> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+> ---
+>  arch/arm64/configs/defconfig | 1 +
+>  1 file changed, 1 insertion(+)
 
-It is more about hardware, not use case. Does this hardware has EINT
-wakeup pin banks?
-
-> So wakeup-eint entry is not present in dts and yaml both.
-
-
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
