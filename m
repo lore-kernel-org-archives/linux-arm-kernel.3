@@ -4,93 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 357B6CA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 08:57:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAFBECA0FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 09:00:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=39DETOS6vNez6Y226+ALS8td0nl160a+Uf7v79luhD8=; b=DpeBQCp9Qqk2YzYSMiUc0q3FgO
-	qb3NopNGC6Ek4YsKlo2rAMvgmQrdyluNjc5Z2FSbEtkFnxP3UiS/ljgSZLzkGljjJx+uicQ9cMlkE
-	7u1rYijJW7Lv0PA6ywvS6PMzAIMwSDohQ/gfVtQUjONKwr0d2j2OqDwvz/u7mlyvSQBRHZ6YE/0D4
-	+TBJSvXxYrUXs9saojbZ3uVCCB3dovxsWA1ZKdWAtlaF4q02oClS7NfOuleCv6FrN9vD9iWrvHD1p
-	OLsRvqtzEzEi9XTtB1VW3rfTeCuuMoYhvfR6htYr54Dv191D9/C6YrKFaB7Q9VzZSFiwedwlVJ8zo
-	LmTb2y9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yr1dug9uoqsjy9Ng7VRdaYQdcsKDOrIf9XRnIh5aotY=; b=XKIKM4ojO+38SGWMU0/cjrXU0D
+	3E1AeE01kVQbikiWu/4d0fW9hCTEb6uP9B43Gpjh0mAD1NEJuqLsZLqiRG16ycBgrdiOPF/1ywauN
+	1ZfneNiempgjhuqjtgpDBeB+Q+KIRRa6HxeKzpzZOoXcH08g+hT7aGyt+obW0T6EvQPccXTE4Ys1s
+	GGxa+sC4bJOGs+YbeE7DOS+lONRUnkCgkH8+5SQsAYtU0U+DgjltTvduFVkeFmal2Z4NCqsvKaW2q
+	srzPIx8kibV7AHBed9jIK+oVq1JBkImIfsEUrj3EUg0MDyhaMxDHfiVMzWqJgshLR6nqh8fUMbAID
+	QtxiUx0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut0Le-0000000BecB-2qLp;
-	Mon, 01 Sep 2025 08:57:10 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1ut0OK-0000000BfU8-2HpV;
+	Mon, 01 Sep 2025 08:59:56 +0000
+Received: from mail-ej1-x643.google.com ([2a00:1450:4864:20::643])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uszzp-0000000BamM-1wTD
+	id 1ut02H-0000000BbQE-2ImW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 08:34:38 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-5607c2f1598so209723e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 01:34:36 -0700 (PDT)
+	Mon, 01 Sep 2025 08:37:10 +0000
+Received: by mail-ej1-x643.google.com with SMTP id a640c23a62f3a-b043a33b060so42487966b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 01:37:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756715675; x=1757320475; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=39DETOS6vNez6Y226+ALS8td0nl160a+Uf7v79luhD8=;
-        b=CrfLhQX4J+xEbeR2UiKrdbxHBd72//hMYIRX9OVgxM2ijgTF0qTpy+YOHu3Gl1moDK
-         q9fRy1zMNsKbLBASlAfZsFk4ZkyzqInUOGsHfN3GnvyJTtQb0Q2V3ZIujItAAyevGhxa
-         gJzr79VqFPWgP39xDZuprFinM4qxSRka73oRcUF+CJRyYzv+cO4MTH/Sfi8mRD+PnCpU
-         aDa6vGLhzUMf9R5J9UrVFgRhwi6RJutK7Gugwux8l6CzZxSBQAKqVpGlnwQHWRv5/Lhe
-         NUkwoe475lC6+Tq5wifzP3OMkBjQkSS8JDksS5VNS2+ZerWwwmFs/xhX5p3oeV2CBM/h
-         5YIw==
+        d=suse.com; s=google; t=1756715827; x=1757320627; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=Yr1dug9uoqsjy9Ng7VRdaYQdcsKDOrIf9XRnIh5aotY=;
+        b=H11vCr44oOQs5z6WUR8f36umXNAZ2ud86rtzbi1NfjoJeJI/xGESdT0Po4nHYGKC3l
+         hvHqdHvDN1V88M8U0ATbwDBNbfeiZ0SKGCV6uN8DYogthbH6qFl9PLSO0Qdhjn528PDG
+         /4G96CgUpeJjRO4/BwU6x/xIiT74RohDFbb7ndUXe9EBM0s9PNbBTY+iNGMNx+muCOL5
+         Uq2rfvuVHAEta779nMd1lFsXnxmerqBQyAMib8VjIkPuY5hVZE3DV5OkXwAWu68XVrel
+         E4bTMGKEwcp1yPJTPMpopHIgDHUDfjt1DUMIbWQy0torO7NMHValYgCPj0fttQPPtvUB
+         n7MQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756715675; x=1757320475;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=39DETOS6vNez6Y226+ALS8td0nl160a+Uf7v79luhD8=;
-        b=ufPvghG15wBrcZNHQ5pixdlnAWQdJr6F4zIH9BkNM6s/LwhQqJwtnlW3toehdAjigN
-         JlSxi9o43OJ5l8tvxA2cAbgRsZAw5PqWFzWdDJ59QtGVxrhnRCCKoEv18ts6ClbEZXfj
-         QkMrv/xARdwcxujhcHSSV70+8RJSoNbB/eECZNHzoUBc1BvCIXNqYQ3C4YaAPdpsxgVM
-         0uNvQjMRN1IsYxbVUmecGbBsV/JG7iBetHkQ/M57J2OmwMM9CT9kJYqabb9+mtEDZ/mx
-         UxndO68DVPuDZMoR0vQYZLmWiFRpQ4hLAvd45rUne5K6jETMG2XKhGba3cBDRUgIVHwR
-         2mtA==
-X-Forwarded-Encrypted: i=1; AJvYcCVQtZuecJLOlcYZsiifOzB975u44zhm+Z0AhIpOPaW/YeXaKjXy5RDnxeF8ydsuUY2hUtsbE3jCpRHwA6WzVc5q@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw8FWC2qoSATpY74MOxUaL1xQx1jMZ9G0Msnl0kJDOCOSwvUf3u
-	gHTRKLxYxYYPofHlpUceQfmi2ANpN+YaiWXg28LkUsl42Qp08xXXL8VHCaeYaGo7Hbg7/IpvEQA
-	o4Egs1pKvPVl1BUenEStmKsWhSZHzyyVrZe4csOitU0KQjMHBdUC7
-X-Gm-Gg: ASbGncvTW65H1VBRNEDYci7voAcvlaX/Hsn4YZ1hjEdtcYibHMrFWlVtl9+ZqNMJsmQ
-	IugS5Syr/xyW4W0ROegtN1ojHd7fGpIpEHqlAf37gm+RwP2jfmfpnLqEOf7OstSdmTUOGyMBOIu
-	S5GeDAH0drOQyWgAZpMIHCXDzEy8H4nk9lSMdKCiIJCBJVd5itqShVQ3ZtVwudQXJLUceXvYMmD
-	JxKCszF8E6XDyiFU0qwflVuH6DtDg67Drv2Qfq820sdfnFSXA==
-X-Google-Smtp-Source: AGHT+IFvvN9ahNPe5qHZqgsGxSWYWIYkUijyOt4zXNDAGa1vEQF6LNv4KjL2EC1uh6zpjK1hm4xOhtvSP0h6YecbdGs=
-X-Received: by 2002:a05:6512:1289:b0:55f:3f25:f03d with SMTP id
- 2adb3069b0e04-55f708dbc89mr2314529e87.32.1756715675202; Mon, 01 Sep 2025
- 01:34:35 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250828-pinctrl-gpio-pinfuncs-v6-0-c9abb6bdb689@linaro.org>
- <CAHp75Vd+q5NZ=4YSouU-EdbR4TZf7S8PGqR0B0HJG8DkVKKtAg@mail.gmail.com> <CACRpkdZcPwwpie51D55AHTQRSqG_EQ=tVG+0aMJpHhYZLGq1yg@mail.gmail.com>
-In-Reply-To: <CACRpkdZcPwwpie51D55AHTQRSqG_EQ=tVG+0aMJpHhYZLGq1yg@mail.gmail.com>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Mon, 1 Sep 2025 10:34:23 +0200
-X-Gm-Features: Ac12FXw1K_oL8rhC-DnjIn1Cs7YcfvulHGz-GiwjDWSfYP_4tIeMD4yzENOHaAA
-Message-ID: <CAMRc=Mcy8ia5Cp-hpvZp4Pz-gLEibzjg=MHA01YTeFk-OkFspg@mail.gmail.com>
-Subject: Re: [PATCH v6 00/15] pinctrl: introduce the concept of a GPIO pin
- function category
+        d=1e100.net; s=20230601; t=1756715827; x=1757320627;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Yr1dug9uoqsjy9Ng7VRdaYQdcsKDOrIf9XRnIh5aotY=;
+        b=orkw20xQztN+AvOSZbUHdhaJOUW+gGE71V9ImTO2ZsTeurF7/i2ZCNUQVh5kjIk80q
+         K87UviZEaquneC8q42Lnbx+5u9bkUY6iiFaR4No8v7pqSM0I+LVxwTqTOx2a9TX/8TTJ
+         gakwBISaq4/6dp4WTiWDJfZLcC1JWNfpH4/mz1S4gnvX9XY+AXcoa8XIcHGFHIHjrDqx
+         kvoTTNqtVxpuy8PF7X99/njdbLqZaYlPj/hNhk6CrTziunusuSarlDp3BQFfUrX+v79Z
+         lZ6c3AfrF6oz9Q/60FfMCM6CYLFad/ZdgqWCzInkV5tS9ZMNwth7Cjwrk5FMnoewZNDr
+         N0mQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUn/oHZFnQ3eEqXvdmiKHQUGOt8zrp8QUpVhxq2YbfWx02TYcBqp9E6keTMi1oCiM2aOTSQqvIoMvpPGaQKjjjt@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywx8vU5zgv/UioZqk7QiOC3IK3RKUEnI551JfXzvBHLg2xZyVIm
+	zMHV1Qmz18HgkFu3DQAZ+MwhGHlwjLagU1F8WucDxs9XQzcFg9XWW7LnTeSZTPVgfMI=
+X-Gm-Gg: ASbGnctuPN35dcnuADVIuJudmCa/c04mg/45NVbGuaN711axcvLY3Xartel/Jm3laNo
+	K6362w2BI/VlPyO33rl8Sd6miaazg+bUUYMAICWOoP4K659dsbXa0PjWP9+J8N2FTK7NTf3TZrq
+	5l1NVn5dCJqGpVG33Buq6coPjewqOC9S2Uv2hqdVOQxGOu78wrUnOBcf2kYk06Txtv0dOVOjLys
+	G08CRyWHjO19miA/T6HQBQih0i0cDOMI3aSMv+7ANd/7TrNfpNL7HcJ0c6NVZ/oh9/awdsaNdDf
+	Sbh2jPSBMgvK4cIGVNZ7jkdtHdCb4fv6co0gZ0bZdY4WrCxFE718yz5s2k3bizUL4xtIs+LBAlF
+	Ne53aFQ7egA9Mc10TBMQt01gKKa5adDldfwIRGWhbzxAKZyY2khB1UAwicMIe2EeZHbLUb8+x/D
+	503crQT/ttkSZSxlDt
+X-Google-Smtp-Source: AGHT+IG4idgtXWk4yyXo4GDjPHKwPNprzgZph1e8/RSYaT9SzIcOKN/gOowhBxj+9vbOLZt6n+qv7w==
+X-Received: by 2002:a17:907:1c0f:b0:afe:b7c3:df29 with SMTP id a640c23a62f3a-b01d8a3274bmr655257566b.8.1756715827391;
+        Mon, 01 Sep 2025 01:37:07 -0700 (PDT)
+Received: from localhost (host-79-36-0-44.retail.telecomitalia.it. [79.36.0.44])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b018fe7c638sm550465666b.6.2025.09.01.01.37.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 01 Sep 2025 01:37:07 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Mon, 1 Sep 2025 10:39:02 +0200
 To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Andy Shevchenko <andy.shevchenko@gmail.com>, Andrea della Porta <andrea.porta@suse.com>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Andy Shevchenko <andy@kernel.org>, 
-	David Hildenbrand <david@redhat.com>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
-	Vlastimil Babka <vbabka@suse.cz>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Mark Brown <broonie@kernel.org>, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Cc: Andrea della Porta <andrea.porta@suse.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org,
+	florian.fainelli@broadcom.com, wahrenst@gmx.net,
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, iivanov@suse.de, svarbanov@suse.de,
+	mbrugger@suse.com, Jonathan Bell <jonathan@raspberrypi.com>,
+	Phil Elwell <phil@raspberrypi.com>
+Subject: Re: [PATCH v4 2/3] pinctrl: bcm: Add STB family pin controller driver
+Message-ID: <aLVbpq99bDHWPjV4@apocalypse>
+References: <cover.1756372805.git.andrea.porta@suse.com>
+ <bee7c98a96c7000db32495b94ebae2ea06fe0e77.1756372805.git.andrea.porta@suse.com>
+ <CACRpkdac9K7mc5DAUnb82bR-eyzdsurRX_qFu8qoCFARDmTe4Q@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CACRpkdac9K7mc5DAUnb82bR-eyzdsurRX_qFu8qoCFARDmTe4Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_013437_501856_B8DDB002 
-X-CRM114-Status: GOOD (  15.67  )
+X-CRM114-CacheID: sfid-20250901_013709_589077_DE09B49D 
+X-CRM114-Status: GOOD (  18.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,22 +111,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 1, 2025 at 10:31=E2=80=AFAM Linus Walleij <linus.walleij@linaro=
-.org> wrote:
->
-> On Sat, Aug 30, 2025 at 10:19=E2=80=AFAM Andy Shevchenko
-> <andy.shevchenko@gmail.com> wrote:
->
-> > Note mainly for Linus and Bart:
-> > I agree with the patches 1..11, but starting from 12 needs more
-> > discussion. That said, I hope Linus can apply the first 11 ones to
-> > make it easier to continue with the rest.
->
-> I applied patches 1 thru 11 so we get some traction.
->
+Hi Linus,
 
-Ah, I hoped to get a Tested-by from Mark on the IMX first as I'm not
-100% sure the fix in this iteration actually works.
+On 10:21 Mon 01 Sep     , Linus Walleij wrote:
+> On Thu, Aug 28, 2025 at 2:45 PM Andrea della Porta
+> <andrea.porta@suse.com> wrote:
+> 
+> > From: "Ivan T. Ivanov" <iivanov@suse.de>
+> >
+> > This driver provide pin muxing and configuration functionality
+> > for BCM2712 SoC used by RPi5. According to [1] this chip is an
+> > instance of the one used in Broadcom STB  product line.
+> >
+> > [1] https://lore.kernel.org/lkml/f6601f73-cb22-4ba3-88c5-241be8421fc3@broadcom.com/
+> >
+> > Cc: Jonathan Bell <jonathan@raspberrypi.com>
+> > Cc: Phil Elwell <phil@raspberrypi.com>
+> > Signed-off-by: Ivan T. Ivanov <iivanov@suse.de>
+> > Reviewed-by: Phil Elwell <phil@raspberrypi.com>
+> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> 
+> Overall this feels merge class, I am looking over the requirement
+> series from Bartosz to see if we can merge it all today.
 
-Bartosz
+This would be great! Thanks!
+
+Andrea
+
+> 
+> I also looked in a vendor tree for the (by now 6 years old...)
+> BCMBCA driver, but it appears to be a completely different
+> beast, requiring some magic 0x21 to be written into a register
+> to "commit" a pin control change.
+> 
+> Yours,
+> Linus Walleij
 
