@@ -4,59 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19DF5CA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 19:50:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED384CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 19:50:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cV5OJglULPTt+xt0aGUVyF0eHFXIwnz0I/sY2PHK9D0=; b=FKUTNFeX665g9MiM4P7MZSBD2Q
-	v8GKi3uJc1WM3tQzpRtWps55uu5gZvjrG2/00coXx51R9BzjRU+jL6rX99rjqLxRgA66NvHXsmht8
-	0ozoUMzEVA2Zp6WAaCiPC7Ilseffdfo86Wx9NcjTciP31WDX3NTAKSqq6i8w3YB+9cMbjsA+zQAUZ
-	oQgyUU1VxuTnJRMunRDpn/dV6UaLpMLJMfd+jV7hzYM6TnqRdy7LOKwTaGVlGsm/BSPJzIEnwAWZ9
-	DuKEcBuLmqRZ9zdYs+pk9kc7iUVu+yyiIuGcJUh0qOjrV5NK+MZDnSw8KY3SrXt52pNtaTsiWpwy9
-	eAdOKa0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mAfKoAk3BjXDpYNpIdhbv1IZbJ+eBwXiufEhnDK/Dq4=; b=kRs7S8umCFYCcz0/CynhAuV59c
+	GwtXXbHPC+6BxphoTJRYboJ6BMH61fMv6fkm+6leDS53yRfMy0aUVS4U+gxZGVW8PwIAmazkfguIp
+	n0ae9K4eSX1Zimz/y9mTesRaV+sZBnm7+1u9vFRZ0Sm+CNRPOWO+FU0gcugUhgEvwLTdHr1GJXQ4b
+	XLOD9d2OngrBGfk6BRihfc6svC40tbiQakWPgfRQKKrIszIxWLd8ch3Cix9ZOOFm/CnYSfAQpeiGA
+	Ybxrh7p88KSiFilurOS/oQeEfHTTb48jnR7SuffyQYx5nLAdv/jNTBTloD8psoDgzlvce33YUbya/
+	NL45xqMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utAXf-0000000Dgm0-0ttg;
-	Mon, 01 Sep 2025 19:50:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut6Dc-0000000D1Lk-15AX
+	id 1utAXp-0000000Dh4A-3u6F;
+	Mon, 01 Sep 2025 19:50:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ut6eZ-0000000D9Jy-146g
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 15:13:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C9EC916A3;
-	Mon,  1 Sep 2025 08:13:05 -0700 (PDT)
-Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 33B8D3F6A8;
-	Mon,  1 Sep 2025 08:13:10 -0700 (PDT)
-Date: Mon, 1 Sep 2025 16:13:07 +0100
-From: Dave Martin <Dave.Martin@arm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org,
-	oliver.upton@linux.dev, anshuman.khandual@arm.com, robh@kernel.org,
-	james.morse@arm.com, mark.rutland@arm.com, joey.gouly@arm.com,
-	ahmed.genidi@arm.com, kevin.brodsky@arm.com,
-	scott@os.amperecomputing.com, mbenes@suse.cz,
-	james.clark@linaro.org, frederic@kernel.org, rafael@kernel.org,
-	pavel@kernel.org, ryan.roberts@arm.com, suzuki.poulose@arm.com,
-	maz@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v4 2/5] arm64: initialise SCTLR2_ELx register at boot time
-Message-ID: <aLW4A3rTcJvA0c+j@e133380.arm.com>
-References: <20250821172408.2101870-1-yeoreum.yun@arm.com>
- <20250821172408.2101870-3-yeoreum.yun@arm.com>
+	Mon, 01 Sep 2025 15:41:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id ED0334419A;
+	Mon,  1 Sep 2025 15:41:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37ADEC4CEF0;
+	Mon,  1 Sep 2025 15:41:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756741266;
+	bh=kd7FhV0h7tbWfakzhbMWN+hW8grh3fetFbtxrJY2Ng8=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=B5wAI5/ZAs5y7f0CUJsq/+TTkHDzEYaDJlVtcOCZqjWnBx9JiyaMd32/MHUq4efU2
+	 g7+/46Ssz+Z2W7EV9J1XQA8EWD6Ie6oAhT7q1YwdGXgXShtEoiCoxRwL4xOTEJb/zZ
+	 4NC3NNX+jAaM8UBkd+FZZDo2hPrtaLxQ+xTSkoxhyzIDL6l/vfHKyyuDdo8fp1uji0
+	 CreGVckPlu9eu5wktEiLpRzKr1XbHRtwrlbpIOLfZ5mpkZJEk5bueHPYw17kXCbF4I
+	 kvkYmyLvJfbFXnif65s7B5nRXAqDEnXBI5Mv4rCEtoSsGAIyg1NxMnpojyUiMG0Q1I
+	 MOjVAa8/+/dgQ==
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
+ bhelgaas@google.com, vigneshr@ti.com, 
+ Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: stable@vger.kernel.org, linux-pci@vger.kernel.org, 
+ linux-omap@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, srk@ti.com
+In-Reply-To: <20250901120359.3410774-1-s-vadapalli@ti.com>
+References: <20250901120359.3410774-1-s-vadapalli@ti.com>
+Subject: Re: [PATCH] PCI: j721e: Fix module autoloading
+Message-Id: <175674126281.14910.10970925698535914087.b4-ty@kernel.org>
+Date: Mon, 01 Sep 2025 21:11:02 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250821172408.2101870-3-yeoreum.yun@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_081316_375962_CCF89DFB 
-X-CRM114-Status: GOOD (  25.70  )
+X-CRM114-CacheID: sfid-20250901_084107_316945_8265FF8B 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,129 +76,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On Thu, Aug 21, 2025 at 06:24:05PM +0100, Yeoreum Yun wrote:
-> The value of the SCTLR2_ELx register is UNKNOWN after reset.
-> If the firmware initializes these registers properly, no additional
-> initialization is required.
-> However, in cases where they are not initialized correctly,
-> initialize the SCTLR2_ELx registers during CPU/vCPU boot
-> to prevent unexpected system behavior caused by invalid values.
+On Mon, 01 Sep 2025 17:33:55 +0530, Siddharth Vadapalli wrote:
+> Commit under Fixes added support to build the driver as a loadable
+> module. However, it did not add MODULE_DEVICE_TABLE() which is required
+> for autoloading the driver when it is built as a loadable module.
 > 
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> ---
+> Fix it.
+> 
+> 
+> [...]
 
-[...]
+Applied, thanks!
 
-> diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
-> index 23be85d93348..c25c2aed5125 100644
-> --- a/arch/arm64/include/asm/assembler.h
-> +++ b/arch/arm64/include/asm/assembler.h
-> @@ -738,6 +738,21 @@ alternative_endif
->  	set_sctlr sctlr_el2, \reg
->  .endm
->  
-> +/* Set SCTLR2_ELx to the @reg value. */
-> +.macro set_sctlr2_elx, el, reg, tmp
-> +	mrs_s	\tmp, SYS_ID_AA64MMFR3_EL1
-> +	ubfx	\tmp, \tmp, #ID_AA64MMFR3_EL1_SCTLRX_SHIFT, #4
-> +	cbz	\tmp, .Lskip_sctlr2_\@
-> +	.if	\el == 2
-> +	msr_s	SYS_SCTLR2_EL2, \reg
-> +	.elseif	\el == 12
-> +	msr_s	SYS_SCTLR2_EL12, \reg
-> +	.else
-> +	msr_s	SYS_SCTLR2_EL1, \reg
-> +	.endif
-> +.Lskip_sctlr2_\@:
-> +.endm
-> +
+[1/1] PCI: j721e: Fix module autoloading
+      commit: 9a7f144e18dc5f037d85a0f0d99524a574331098
 
-You were right that just doing
+Best regards,
+-- 
+Manivannan Sadhasivam <mani@kernel.org>
 
-	msr_s	SYS_SCTLR_\el, \reg
-
-here doesn't work.  It looks like we rely on the C preprocessor to
-expand the SYS_FOO_REG names to numeric sysreg encodings.  By the time
-the assembler macros are expanded, it is too late to construct sysreg
-names -- the C preprocessor only runs once, before the assembler.
-
-So, your code here looks reasonable.
-
-But, it will still silently do the wrong thing if \el is empty or
-garbage, so it is probably worth adding an error check:
-
-	.else
-	.error "Bad EL \"\el\" in set_sctlr2_elx"
-	.endif
-
-
-Also, looking at all this again, the "1", "2" and "12" suffixes are not
-really numbers: SYS_REG_EL02 would definitely not be the same thing as
-SYS_REG_EL2 (although there is no _EL02 version of this particular
-register).
-
-So, can you use .ifc to do a string comparison instead?
-
-If might be a good idea to migrate other macros that use an "el"
-argument to do something similar -- although that probably doesn't
-belong in this series.
-
-The assembler seems to have no ".elseifc" directive, so you'll need
-separate nested .ifc blocks:
-
-	.ifc	\el,2
-	msr_s	SYS_SCTLR2_EL2, \reg
-	.else
-	.ifc	\el,12
-	msr_s	SYS_SCTLR2_EL12, \reg
-	.else
-	.ifc	\el,1
-	msr_s	SYS_SCTLR2_EL1, \reg
-	.else
-	.error	"Bad EL \"\el\" in set_sctlr2_elx"
-	.endif
-	.endif
-	.endif
-
-(Note, I've not tested this approach.  If you can think of a better
-way, please feel free to suggest.)
-
-[...]
-
-> diff --git a/arch/arm64/kernel/hyp-stub.S b/arch/arm64/kernel/hyp-stub.S
-> index 36e2d26b54f5..ac12f1b4f8e2 100644
-> --- a/arch/arm64/kernel/hyp-stub.S
-> +++ b/arch/arm64/kernel/hyp-stub.S
-> @@ -144,7 +144,17 @@ SYM_CODE_START_LOCAL(__finalise_el2)
->  
->  .Lskip_indirection:
->  .Lskip_tcr2:
-> +	mrs_s	x1, SYS_ID_AA64MMFR3_EL1
-> +	ubfx	x1, x1, #ID_AA64MMFR3_EL1_SCTLRX_SHIFT, #4
-> +	cbz	x1, .Lskip_sctlr2
-> +	mrs_s	x1, SYS_SCTLR2_EL12
-> +	msr_s	SYS_SCTLR2_EL1, x1
->  
-> +	// clean SCTLR2_EL1
-> +	mov_q	x1, INIT_SCTLR2_EL1
-> +	msr_s	SYS_SCTLR2_EL12, x1
-
-I'm still not sure why we need to do this.  The code doesn't seem to
-clean up by the EL1 value of any other register -- or have I missed
-something?
-
-We have already switched to EL2, via the HVC call that jumped to
-__finalise_el2.  We won't run at EL1 again unless KVM starts a guest --
-but in that case, it's KVM's responsibility to set up the EL1 registers
-before handing control to the guest.
-
-In any case, is SCTLR2_EL1 ever set to anything except INIT_SCTLR2_EL1
-before we get here?
-
-[...]
-
-Cheers
----Dave
 
