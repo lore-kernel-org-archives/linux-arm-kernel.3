@@ -4,67 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9F44CA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 23:12:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FC39CA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 23:12:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m8sEMoUdmZx3RdAvP1OTi9dV+iysH79W1ma4AxYkWSQ=; b=cZcV5HErqvkZXLMRzeqdX/646h
-	Z7OZb2NLfW9fd6UtkTSTQOcxrgqc9RxiouLpFS0/wAjJGz6AZf6YJLSMDboIZGwzmbuodZohbOdMt
-	YWSDQ1/GAH3J1F2C7yol68VnF4ztZzmd7rlFGzjHUBp+V+ugrF/OWlOA7v4D4WvAkB0gbC9KvGV69
-	KqGIx1+M4+91afx91JfcwxtYrs9QI9isPH4lq9XQptfrXuyOb4Gnpx1hAbd9tyxHIcnpvlbpQuu8R
-	u32csTQCs4P+6R5Tv1Bh8LIFZVg/HYxm1/1XHM2aI4hz4k1IW/5GMCco+s8STIVedfSgsq01o4Y70
-	6icA0slw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6THNwrpoBfouLzYXf4ByDtFHFToTMlZqLQcLkTvGv/c=; b=N4pk1RHJhLKmAp+Io0DOrAjn8X
+	lIsxlo/TmVl8CpdSl2GjWwYMc02Ps+xoU2hMpEnQaBTqQHX0iNNsOeZastPKyKnF2DM8qWlsppL2h
+	g2JwG1TsUClJdY8h7HHiCZzaMIwkXgLjQ8+JRas66ZQRFc1nzVXe4reE1us/jG+g6ie2Ct0jBsQp3
+	14eFFiUfyYJ0/qnc+3/2wHgHQXPRMxVa13Yb3w27SAkD1IJY90lVnY19DcIHLXpZPKTM3T/dPygP3
+	metdRa+Q7RAEndcu/t9XBlq813x/yO3CRyVYOmsYwru5RxFgnKyViYcyx5rEiJNIRVNFiPkhLPM3Q
+	GDf6/rfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utDh8-0000000EE8n-1Buj;
-	Mon, 01 Sep 2025 23:12:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut6tl-0000000DCGv-3XQg
+	id 1utDgq-0000000EDl7-0zKF;
+	Mon, 01 Sep 2025 23:11:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ut6Ds-0000000D1Uz-47zF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 15:56:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4A544406F1;
-	Mon,  1 Sep 2025 15:56:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C88B1C4CEF1;
-	Mon,  1 Sep 2025 15:56:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756742209;
-	bh=QRrP1L09Z/tIsyyTHnZE5kLupetP4zN0OUXv+gdnLxM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=s+hHGCrVP5/Uqb2MOTw2HVgpr6oRsF7MUtdSFcFhI89V8gRTjRULuEJoLc8Gpq0hw
-	 F1BdujSnDIEvOHM4ihyrNytqHkb8fvgsjy15fYhOhxn7tRljLmCOJU1bFOKcE6onK5
-	 Le69W7GBDmgmh5rwo2zvdxM3Y4Tz74rPfPmEaHh1xlzVA/Y5g5DNRYsBUdZEEqOnHB
-	 Crdk6XF6mWBQYX0yZoRkV+hxUA70hdzoMFDuWCSs7O2g8rxthmvccZ3etoDMYiyABR
-	 dB6yqUkYYfHZsaKUzxyMR3zpUeNklwKUH/tDMCYI3rSlJqwRQ9RyM7Nu7U8OcA7dQv
-	 MPp2jFt4xrlzA==
-Date: Tue, 2 Sep 2025 00:56:45 +0900
-From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: Luo Gengkun <luogengkun@huaweicloud.com>, mhiramat@kernel.org,
- mathieu.desnoyers@efficios.com, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-arm-kernel@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH] tracing: Fix tracing_marker may trigger page fault
- during preempt_disable
-Message-Id: <20250902005645.8c6436b535731a4917745c5d@kernel.org>
-In-Reply-To: <20250829082604.1e3fd06e@gandalf.local.home>
-References: <20250819105152.2766363-1-luogengkun@huaweicloud.com>
-	<20250819135008.5f1ba00e@gandalf.local.home>
-	<436e4fa7-f8c7-4c23-a28a-4e5eebe2f854@huaweicloud.com>
-	<20250829082604.1e3fd06e@gandalf.local.home>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+	Mon, 01 Sep 2025 15:13:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 26719175A;
+	Mon,  1 Sep 2025 08:13:24 -0700 (PDT)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 847B83F6A8;
+	Mon,  1 Sep 2025 08:13:28 -0700 (PDT)
+Date: Mon, 1 Sep 2025 16:13:25 +0100
+From: Dave Martin <Dave.Martin@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org,
+	oliver.upton@linux.dev, anshuman.khandual@arm.com, robh@kernel.org,
+	james.morse@arm.com, mark.rutland@arm.com, joey.gouly@arm.com,
+	ahmed.genidi@arm.com, kevin.brodsky@arm.com,
+	scott@os.amperecomputing.com, mbenes@suse.cz,
+	james.clark@linaro.org, frederic@kernel.org, rafael@kernel.org,
+	pavel@kernel.org, ryan.roberts@arm.com, suzuki.poulose@arm.com,
+	maz@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v4 4/5] arm64: initialise SCTLR2_EL1 at cpu_soft_restart()
+Message-ID: <aLW4FTcqommWSIej@e133380.arm.com>
+References: <20250821172408.2101870-1-yeoreum.yun@arm.com>
+ <20250821172408.2101870-5-yeoreum.yun@arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250821172408.2101870-5-yeoreum.yun@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_085649_927978_40B83355 
-X-CRM114-Status: GOOD (  33.22  )
+X-CRM114-CacheID: sfid-20250901_081333_060962_EDC07C74 
+X-CRM114-Status: GOOD (  16.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,113 +71,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 29 Aug 2025 08:26:04 -0400
-Steven Rostedt <rostedt@goodmis.org> wrote:
+Hi,
 
+On Thu, Aug 21, 2025 at 06:24:07PM +0100, Yeoreum Yun wrote:
+> Explicitly initialize the SCTLR2_ELx register before launching
+> a new kernel via kexec() to avoid leaving SCTLR2_ELx with an
+> arbitrary value when the new kernel runs.
 > 
-> [ Adding arm64 maintainers ]
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+>  arch/arm64/kernel/cpu-reset.S      | 4 ++++
+>  arch/arm64/kvm/hyp/nvhe/hyp-init.S | 3 +++
+>  2 files changed, 7 insertions(+)
 > 
-> On Fri, 29 Aug 2025 16:29:07 +0800
-> Luo Gengkun <luogengkun@huaweicloud.com> wrote:
-> 
-> > On 2025/8/20 1:50, Steven Rostedt wrote:
-> > > On Tue, 19 Aug 2025 10:51:52 +0000
-> > > Luo Gengkun <luogengkun@huaweicloud.com> wrote:
-> > >  
-> > >> Both tracing_mark_write and tracing_mark_raw_write call
-> > >> __copy_from_user_inatomic during preempt_disable. But in some case,
-> > >> __copy_from_user_inatomic may trigger page fault, and will call schedule()
-> > >> subtly. And if a task is migrated to other cpu, the following warning will  
-> > > Wait! What?
-> > >
-> > > __copy_from_user_inatomic() is allowed to be called from in atomic context.
-> > > Hence the name it has. How the hell can it sleep? If it does, it's totally
-> > > broken!
-> > >
-> > > Now, I'm not against using nofault() as it is better named, but I want to
-> > > know why you are suggesting this change. Did you actually trigger a bug here?  
-> > 
-> > yes, I trigger this bug in arm64.
-> 
-> And I still think this is an arm64 bug.
+> diff --git a/arch/arm64/kernel/cpu-reset.S b/arch/arm64/kernel/cpu-reset.S
+> index c87445dde674..c8888891dc8d 100644
+> --- a/arch/arm64/kernel/cpu-reset.S
+> +++ b/arch/arm64/kernel/cpu-reset.S
+> @@ -37,6 +37,10 @@ SYM_TYPED_FUNC_START(cpu_soft_restart)
+>  	 * regime if HCR_EL2.E2H == 1
+>  	 */
+>  	msr	sctlr_el1, x12
+> +
+> +	mov_q	x12, INIT_SCTLR2_EL1
+> +	set_sctlr2_elx	1, x12, x8
+> +
 
-I think it could be.
+Nit: does it matter whether we reset SCTLR2 before SCTLR?
 
-> > >  
-> > >> be trigger:
-> > >>          if (RB_WARN_ON(cpu_buffer,
-> > >>                         !local_read(&cpu_buffer->committing)))
-> > >>
-> > >> An example can illustrate this issue:
+I can't find a convincing architectural reason why they need to be
+reset in a particular order, but it looks a bit strange that the
+cpu_soft_restart and __kvm_handle_stub_hvc versions of this reset the
+registers in the opposite order...
 
-You've missed an important part.
+>  	isb
+>  
+>  	cbz	x0, 1f				// el2_switch?
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-init.S b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
+> index aada42522e7b..cc569656fe35 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-init.S
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
+> @@ -255,6 +255,9 @@ SYM_CODE_START(__kvm_handle_stub_hvc)
+>  	mov	x0, xzr
+>  reset:
+>  	/* Reset kvm back to the hyp stub. */
+> +	mov_q 	x5, INIT_SCTLR2_EL2
+> +	set_sctlr2_elx	2, x5, x4
+> +
+>  	mov_q	x5, INIT_SCTLR_EL2_MMU_OFF
+>  	pre_disable_mmu_workaround
+>  	msr	sctlr_el2, x5
 
-> > >>
-> > >> process flow						CPU
-> > >> ---------------------------------------------------------------------
-> > >>
-> > >> tracing_mark_raw_write():				cpu:0
-> > >>     ...
-> > >>     ring_buffer_lock_reserve():				cpu:0
-> > >>        ...
+Otherwise, I guess this is fine.
 
-	preempt_disable_notrace(); --> this is unlocked by ring_buffer_unlock_commit()
-
-> > >>        cpu = raw_smp_processor_id()			cpu:0
-> > >>        cpu_buffer = buffer->buffers[cpu]			cpu:0
-> > >>        ...
-> > >>     ...
-> > >>     __copy_from_user_inatomic():				cpu:0
-
-So this is called under preempt-disabled.
-
-> > >>        ...
-> > >>        # page fault
-> > >>        do_mem_abort():					cpu:0  
-> > > Sounds to me that arm64 __copy_from_user_inatomic() may be broken.
-> > >  
-> > >>           ...
-> > >>           # Call schedule
-> > >>           schedule()					cpu:0
-
-If this does not check the preempt flag, it is a problem.
-Maybe arm64 needs to do fixup and abort instead of do_mem_abort()?
-
-> > >> 	 ...
-> > >>     # the task schedule to cpu1
-> > >>     __buffer_unlock_commit():				cpu:1
-> > >>        ...
-> > >>        ring_buffer_unlock_commit():			cpu:1
-> > >> 	 ...
-> > >> 	 cpu = raw_smp_processor_id()			cpu:1
-> > >> 	 cpu_buffer = buffer->buffers[cpu]		cpu:1
-
-	preempt_enable_notrace(); <-- here we enable preempt again.
-
-> > >>
-> > >> As shown above, the process will acquire cpuid twice and the return values
-> > >> are not the same.
-> > >>
-> > >> To fix this problem using copy_from_user_nofault instead of
-> > >> __copy_from_user_inatomic, as the former performs 'access_ok' before
-> > >> copying.
-> > >>
-> > >> Fixes: 656c7f0d2d2b ("tracing: Replace kmap with copy_from_user() in trace_marker writing")  
-> > > The above commit was intorduced in 2016. copy_from_user_nofault() was
-> > > introduced in 2020. I don't think this would be the fix for that kernel.
-> > >
-> > > So no, I'm not taking this patch. If you see __copy_from_user_inatomic()
-> > > sleeping, it's users are not the issue. That function is.
-
-
-BTW, the biggest difference between __copy_from_user() and
- __copy_from_user_inatomic() is `might_fault()` and `should_fail_usercopy()`.
-The latter is a fault injection, so we can ignore it. But since
-the `might_fail()` is NOT in __copy_from_user_inatomic(), it is designed
-not to cause fault as Steve said?
-
-Thank you,
-
--- 
-Masami Hiramatsu (Google) <mhiramat@kernel.org>
+Cheers
+---Dave
 
