@@ -4,103 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39922CA0FF0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54672CA1000
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 14:47:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EkH9UhD037/tOlhct2dcf8bkxNsOyHNCUyc1hozxGl4=; b=mrRoHLr4POlr5GgCO+/4GBImPx
-	rYK89IBtcVAhqsHBcLUacApDO4CGvuYFxgIKAEdrLG4lgjuljqx7zhn6TsVOK5XYnV+FkUgGkPBI/
-	zlOBJEVuGP6NZzfyhd8o8s9JDWWbUml8ItzEQzTb4j7MD7UY0SrKViNLV7RHOM2x58T41gTdN5l/f
-	omGW9RcJaJiUS/Hv90kX4bPNF7NtJ9dimBDUfnolXbLwJJcHuf9xDRJFrYsg4oZrEE1vtgosDph9V
-	yd9VMcizX5kwUIoFlq1lUqULoLr+LmerPfAlmep6EMfvqQolOpo0ri+9E0HiD+W/5J+gbTSvagueW
-	6sW6Za3A==;
+	bh=D78iTDA/7g7+/en1E0rusPo7FLP4WuICwiUYKjNkxXk=; b=1G1TdkE4TwDK5xu+NADjDY/lX7
+	niF/Ukmmr1WA7sqiww9c2XNG2szvSKeax2bde5azmvqARzzjVPJU7+NTQk6caqfwgfYyafPwwLrne
+	Kt+CyyjzdHYBSMKadm3u3Cpzxu8kXkW8H7uBpO3WI4vt2KGnkGho8G4OEcaUErkyez1KH+H3Ill/6
+	XNIp/q4JHI+qjYRUMG5jPNOE1rFiAugmFSIeP9SmrMTrY4sgYjEhnqiVa3jc3/idlIteWRjuNwpxy
+	mmWHHAIRuStJZ3iPq8ggqmxwe4xuR2QEwWENqKZwT1FAYfREgcy/H+sZagAsVaGRsC7S+hqSM4iX9
+	4O4IrZSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut5ok-0000000Ct07-3JO0;
+	id 1ut5ok-0000000CszT-061g;
 	Mon, 01 Sep 2025 14:47:34 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut3Wy-0000000CLxH-1xd2
+Received: from pegase2.c-s.fr ([93.17.235.10])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ut3Wq-0000000CLrq-0rfU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 12:21:05 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3d4dcf3863dso839284f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 05:21:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756729263; x=1757334063; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=EkH9UhD037/tOlhct2dcf8bkxNsOyHNCUyc1hozxGl4=;
-        b=YQiwmYZiOtT42MxbIf326C7j3FoNgAyNo46UNKFegDdRvs+lAlkcgpE6EEcx2ohfOu
-         cTCoJ0JiWcO4mhADwQi36hnexAqH8D6G04Z1gwwPnSWtQL4f5BNEK0OvVQsH9Tr6N6wR
-         J0GbW1IS/NhdtQJ+Y5b/dO168abcS3FzXZe2p5xpt8FPDQdfEnOO/8O9npwpTtmLsB/i
-         bpOhk3ff57JV8/unH9fsSG7oBrwZUkxVP+d3kiJAmOoPzyJkytQtXfU0LJ2Rf0sBUq1F
-         zBXGY8OgA0oGpX7Ry0OcWZ9KvGWe6LmyZbU5VijNi8/qvdrxJqfN2zNHvUpX/KKM2znt
-         NO2Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756729263; x=1757334063;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=EkH9UhD037/tOlhct2dcf8bkxNsOyHNCUyc1hozxGl4=;
-        b=cPfMMAgbJbWa+8LYaJABDUoDRXHOOodsSfyLmVOBtYvQaWX9ePC37jEbcw8hBQiHUf
-         2EMc4PbpeIFnyuXsvhvI30bR7Xv0TsKT4x2YvpJJtfQFQu3uiqXOTV+9ho61xKrHio2L
-         Y1tc4w9HsozQO+gujNHd5lQ/KdNL7/3s2oSRAxIS4xds5f/jjx/dbb8HxjIaGV+d6gOj
-         5isuCax3V9U7Ulh2FY5V3Ydg3GHIgLsczWVxommPSS1ocV6ooQoHGKrzM3Ts9ZqEbVpB
-         9bAfRocD25UQsd4NNZpMs5n6JuKwd/jHwCcP0/NGiU3kUm5Q13MCKTYi/gxjojnaGqj4
-         Q+4A==
-X-Forwarded-Encrypted: i=1; AJvYcCW+CYl0UkPqy2ovVzikIV7q+qFyBmgJL98CrXUSp/NVxAoj8J3WGmi4gXqCtmYMQw8PndDiPruX9zt2eGDKP7wa@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCdSJcmMmbG9913JKKgT82vMAmutf8uQvqSxBAFgzJ+EXXujHO
-	V4qQ6ek/2WiYMaRNgui7NhlJghUaq9NV0B97uhmQSqWQnoP3k+AyYxo0B3lo3MnvIWc=
-X-Gm-Gg: ASbGncvT2t9IosPYouVVVm/lFS30cdmmMd17YKpowYeE17r9YogTnxoippWR2gFaRgt
-	sX+ddub8HX32vJmQJJugtiimE5HuAAA6bQmgw0B2sujIFfUFzXPSaZ8XRAzIhJj3nrrDNCKpKSj
-	6vaL0SEfacGXoDh14M87jaXQf5ZAX8ifZ9eGl2/08fICs6Vv9SL2FyDzGo4eLOpu2inyBBRtZaV
-	cG+78qBvWzTCkvvBYjL+wI59RLuKlPFqht9StN2vx/XHMElV5k+k4cIfLpwRfXSG3zbpWgR8AuI
-	bccXLvMbGiho1otd1YZn5/IafugYgZIfmlY4DJ9n5RqRZtQ/cF2r9tMn8g3uoajHIjm8Awr5Rei
-	4Wb0GOkRSUayx3Ce/BkKYWXcBWH8=
-X-Google-Smtp-Source: AGHT+IHbSmwRu3Gk1EehF9mFzPZ3IgKGG6T2VrHQ2WXexIn9NyB08JhzOfdoNYyeZhdmO1rufQhWyA==
-X-Received: by 2002:a05:6000:1ace:b0:3c4:bc55:65e1 with SMTP id ffacd0b85a97d-3d1dd434397mr6103249f8f.24.1756729262852;
-        Mon, 01 Sep 2025 05:21:02 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3d60cf93cb2sm5542282f8f.12.2025.09.01.05.21.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 01 Sep 2025 05:21:02 -0700 (PDT)
-Message-ID: <bd224e52-d786-4922-b2ba-b52f0c73badf@linaro.org>
-Date: Mon, 1 Sep 2025 13:21:01 +0100
+	Mon, 01 Sep 2025 12:20:57 +0000
+Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
+	by localhost (Postfix) with ESMTP id 4cFndF2tsgz9sSy;
+	Mon,  1 Sep 2025 14:05:37 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase2.c-s.fr ([172.26.127.65])
+	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 87dt3CIn6EIv; Mon,  1 Sep 2025 14:05:37 +0200 (CEST)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4cFndC2vXJz9sSj;
+	Mon,  1 Sep 2025 14:05:35 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 4D1248B78C;
+	Mon,  1 Sep 2025 14:05:35 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id zQI-rZ0Nw15p; Mon,  1 Sep 2025 14:05:35 +0200 (CEST)
+Received: from PO20335.idsi0.si.c-s.fr (unknown [10.25.207.160])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 229D28B77B;
+	Mon,  1 Sep 2025 14:05:35 +0200 (CEST)
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+To: Qiang Zhao <qiang.zhao@nxp.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
+	linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: [PATCH v5 2/7] soc: fsl: qe: Change GPIO driver to a proper platform driver
+Date: Mon,  1 Sep 2025 14:05:09 +0200
+Message-ID: <12fefcd1c190b37b85e604f7e8e286f445a4564a.1756727747.git.christophe.leroy@csgroup.eu>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <cover.1756727747.git.christophe.leroy@csgroup.eu>
+References: <cover.1756727747.git.christophe.leroy@csgroup.eu>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 06/12] arm64/boot: Enable EL2 requirements for
- SPE_FEAT_FDS
-To: Leo Yan <leo.yan@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
- kvmarm@lists.linux.dev
-References: <20250814-james-perf-feat_spe_eft-v7-0-6a743f7fa259@linaro.org>
- <20250814-james-perf-feat_spe_eft-v7-6-6a743f7fa259@linaro.org>
- <20250901101904.GK745921@e132581.arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250901101904.GK745921@e132581.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1756728308; l=4836; i=christophe.leroy@csgroup.eu; s=20211009; h=from:subject:message-id; bh=2f7yMXfZqmnt4TnAL1vLrmJcXWLAvkgUDWqAJg/zucU=; b=yaX9PZ/esSZhQqPq3cYQLnzsBXR56oVU06ZFDZX6TmOxmumNzoUCXILiJ6k7QKCzwJyO7HzCs 0YOYg6EZM5MBhCokhLUj8GnDQtXu0oN3hRujQTx9SCIaEnOonvNUasf
+X-Developer-Key: i=christophe.leroy@csgroup.eu; a=ed25519; pk=HIzTzUj91asvincQGOFx6+ZF5AoUuP9GdOtQChs7Mm0=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_052104_514268_601583B6 
-X-CRM114-Status: GOOD (  17.70  )
+X-CRM114-CacheID: sfid-20250901_052056_399449_2C0540F0 
+X-CRM114-Status: GOOD (  19.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,52 +88,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+In order to be able to add interrupts to the GPIOs, first change the
+QE GPIO driver to the proper platform driver in order to allow
+initialisation to be done in the right order, otherwise the GPIOs
+get added before the interrupts are registered.
 
+Remove linux/of.h and linux/property.h which are unused.
 
-On 01/09/2025 11:19 am, Leo Yan wrote:
-> On Thu, Aug 14, 2025 at 10:25:28AM +0100, James Clark wrote:
-> 
-> [...]
-> 
->> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
->> index 3a4ca7f9acfb..a0361ddcdca4 100644
->> --- a/arch/arm64/include/asm/el2_setup.h
->> +++ b/arch/arm64/include/asm/el2_setup.h
->> @@ -392,6 +392,17 @@
->>   	orr	x0, x0, #HDFGRTR2_EL2_nPMICFILTR_EL0
->>   	orr	x0, x0, #HDFGRTR2_EL2_nPMUACR_EL1
->>   .Lskip_pmuv3p9_\@:
->> +	/* If SPE is implemented, */
->> +	__spe_vers_imp .Lskip_spefds_\@, ID_AA64DFR0_EL1_PMSVer_IMP, x1
->> +	/* we can read PMSIDR and */
->> +	mrs_s	x1, SYS_PMSIDR_EL1
->> +	and	x1, x1,  #PMSIDR_EL1_FDS
->> +	/* if FEAT_SPE_FDS is implemented, */
->> +	cbz	x1, .Lskip_spefds_\@
->> +	/* disable traps to PMSDSFR. */
-> 
-> Nitpick: the comment is a bit ambiguous for me. Would it be better to
-> say "disable traps to EL2" or "set the PMSDSFR bit to disable trapping" ?
-> 
-> Otherwise, LGTM:
-> 
-> Reviewed-by: Leo Yan <leo.yan@arm.com>
+And to improve readability and reduce risk of errors, add a macro to
+transform a pin number into the mask that matches the associated bit
+in registers.
 
-The bit we're setting is actually called nPMSDSFR_EL1, but I can change 
-it to:
+Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+---
+v5: Added the PIN_MASK() macro
+---
+ drivers/soc/fsl/qe/gpio.c | 98 +++++++++++++++++++++------------------
+ 1 file changed, 53 insertions(+), 45 deletions(-)
 
-   /* disable traps of PMSDSFR to EL2 */
-
-> 
->> +	orr	x0, x0, #HDFGRTR2_EL2_nPMSDSFR_EL1
->> +
->> +.Lskip_spefds_\@:
->>   	msr_s   SYS_HDFGRTR2_EL2, x0
->>   	msr_s   SYS_HDFGWTR2_EL2, x0
->>   	msr_s   SYS_HFGRTR2_EL2, xzr
->>
->> -- 
->> 2.34.1
->>
+diff --git a/drivers/soc/fsl/qe/gpio.c b/drivers/soc/fsl/qe/gpio.c
+index 8df1e8fa86a5..04b44fc2bb58 100644
+--- a/drivers/soc/fsl/qe/gpio.c
++++ b/drivers/soc/fsl/qe/gpio.c
+@@ -12,16 +12,17 @@
+ #include <linux/spinlock.h>
+ #include <linux/err.h>
+ #include <linux/io.h>
+-#include <linux/of.h>
+ #include <linux/gpio/legacy-of-mm-gpiochip.h>
+ #include <linux/gpio/consumer.h>
+ #include <linux/gpio/driver.h>
+ #include <linux/slab.h>
+ #include <linux/export.h>
+-#include <linux/property.h>
++#include <linux/platform_device.h>
+ 
+ #include <soc/fsl/qe/qe.h>
+ 
++#define PIN_MASK(gpio) (1UL << (QE_PIO_PINS - 1 - (gpio)))
++
+ struct qe_gpio_chip {
+ 	struct of_mm_gpio_chip mm_gc;
+ 	spinlock_t lock;
+@@ -52,7 +53,7 @@ static int qe_gpio_get(struct gpio_chip *gc, unsigned int gpio)
+ {
+ 	struct of_mm_gpio_chip *mm_gc = to_of_mm_gpio_chip(gc);
+ 	struct qe_pio_regs __iomem *regs = mm_gc->regs;
+-	u32 pin_mask = 1 << (QE_PIO_PINS - 1 - gpio);
++	u32 pin_mask = PIN_MASK(gpio);
+ 
+ 	return !!(ioread32be(&regs->cpdata) & pin_mask);
+ }
+@@ -63,7 +64,7 @@ static int qe_gpio_set(struct gpio_chip *gc, unsigned int gpio, int val)
+ 	struct qe_gpio_chip *qe_gc = gpiochip_get_data(gc);
+ 	struct qe_pio_regs __iomem *regs = mm_gc->regs;
+ 	unsigned long flags;
+-	u32 pin_mask = 1 << (QE_PIO_PINS - 1 - gpio);
++	u32 pin_mask = PIN_MASK(gpio);
+ 
+ 	spin_lock_irqsave(&qe_gc->lock, flags);
+ 
+@@ -95,9 +96,9 @@ static int qe_gpio_set_multiple(struct gpio_chip *gc,
+ 			break;
+ 		if (__test_and_clear_bit(i, mask)) {
+ 			if (test_bit(i, bits))
+-				qe_gc->cpdata |= (1U << (QE_PIO_PINS - 1 - i));
++				qe_gc->cpdata |= PIN_MASK(i);
+ 			else
+-				qe_gc->cpdata &= ~(1U << (QE_PIO_PINS - 1 - i));
++				qe_gc->cpdata &= ~PIN_MASK(i);
+ 		}
+ 	}
+ 
+@@ -295,45 +296,52 @@ void qe_pin_set_gpio(struct qe_pin *qe_pin)
+ }
+ EXPORT_SYMBOL(qe_pin_set_gpio);
+ 
+-static int __init qe_add_gpiochips(void)
++static int qe_gpio_probe(struct platform_device *ofdev)
+ {
+-	struct device_node *np;
+-
+-	for_each_compatible_node(np, NULL, "fsl,mpc8323-qe-pario-bank") {
+-		int ret;
+-		struct qe_gpio_chip *qe_gc;
+-		struct of_mm_gpio_chip *mm_gc;
+-		struct gpio_chip *gc;
+-
+-		qe_gc = kzalloc(sizeof(*qe_gc), GFP_KERNEL);
+-		if (!qe_gc) {
+-			ret = -ENOMEM;
+-			goto err;
+-		}
++	struct device *dev = &ofdev->dev;
++	struct device_node *np = dev->of_node;
++	struct qe_gpio_chip *qe_gc;
++	struct of_mm_gpio_chip *mm_gc;
++	struct gpio_chip *gc;
+ 
+-		spin_lock_init(&qe_gc->lock);
+-
+-		mm_gc = &qe_gc->mm_gc;
+-		gc = &mm_gc->gc;
+-
+-		mm_gc->save_regs = qe_gpio_save_regs;
+-		gc->ngpio = QE_PIO_PINS;
+-		gc->direction_input = qe_gpio_dir_in;
+-		gc->direction_output = qe_gpio_dir_out;
+-		gc->get = qe_gpio_get;
+-		gc->set = qe_gpio_set;
+-		gc->set_multiple = qe_gpio_set_multiple;
+-
+-		ret = of_mm_gpiochip_add_data(np, mm_gc, qe_gc);
+-		if (ret)
+-			goto err;
+-		continue;
+-err:
+-		pr_err("%pOF: registration failed with status %d\n",
+-		       np, ret);
+-		kfree(qe_gc);
+-		/* try others anyway */
+-	}
+-	return 0;
++	qe_gc = devm_kzalloc(dev, sizeof(*qe_gc), GFP_KERNEL);
++	if (!qe_gc)
++		return -ENOMEM;
++
++	spin_lock_init(&qe_gc->lock);
++
++	mm_gc = &qe_gc->mm_gc;
++	gc = &mm_gc->gc;
++
++	mm_gc->save_regs = qe_gpio_save_regs;
++	gc->ngpio = QE_PIO_PINS;
++	gc->direction_input = qe_gpio_dir_in;
++	gc->direction_output = qe_gpio_dir_out;
++	gc->get = qe_gpio_get;
++	gc->set = qe_gpio_set;
++	gc->set_multiple = qe_gpio_set_multiple;
++
++	return of_mm_gpiochip_add_data(np, mm_gc, qe_gc);
++}
++
++static const struct of_device_id qe_gpio_match[] = {
++	{
++		.compatible = "fsl,mpc8323-qe-pario-bank",
++	},
++	{},
++};
++MODULE_DEVICE_TABLE(of, qe_gpio_match);
++
++static struct platform_driver qe_gpio_driver = {
++	.probe		= qe_gpio_probe,
++	.driver		= {
++		.name	= "qe-gpio",
++		.of_match_table	= qe_gpio_match,
++	},
++};
++
++static int __init qe_gpio_init(void)
++{
++	return platform_driver_register(&qe_gpio_driver);
+ }
+-arch_initcall(qe_add_gpiochips);
++arch_initcall(qe_gpio_init);
+-- 
+2.49.0
 
 
