@@ -4,88 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A45FCA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 12:07:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B679FCA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 12:31:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0i5QpIyudkj0DESLieNBClWyAhZMEeba8yZNtq0Apww=; b=yioaVRSoNSxseZHAlun8+mSchY
-	Fo3EL/xtcHDi0khEeoYhv2wO/4MUKyUoS60wPMIbhrDO1k7HuZsWuqUDAMKxG6KybpyRH6SgLwif4
-	fQFrSHfnIXuofaUqHcuc1D+y/7OsiD1+xyYOhvLE5TNeaKnJhyFgrM4VxUyMdiXIiJ5IVbtZgDkxu
-	dAnshTvb15XUTExBE14DIvsBRCALTHAT/oJer7AEFd22qUkMxNtsMCgZgY2/WOR4oCPXSTLtykcJv
-	g8+TfOlmSg/spGKUWaLktUetqA1jUub+UNL1KKzY+W/iEP3W29JWxktdefWuTSPAffi51SkhLPDJc
-	pn23MLXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=U3wMAXUg6TcQMtXg5Lgxugiws7d3wfWBJLDrvyAva+k=; b=44W0uxAyCdQFIn
+	A0RZHu4Metz/+8TT10nGwSulXMKSdXNlHWMHNl3pVsmdSoK1tTHaQ5LH7JHF/zntIPjfKUWmaZSI/
+	brr9LTjm57pyC5sFVon8Y7t+6PuMZBD5tXYFgIy51cPW1M5uWiYgc8WQDcmyFldmcuvAXAusXkuWh
+	ogmzI+lRaW9Qdw5Le3I90yZuaGVXx4sLVVfjSCKUjQzddpSyIKS7N5u6uS+V/F77LBiYjP7wlo+VS
+	dJBpKiwEmWjaRmd7O7Shz9T6jXw+s7/qvgWI42swgzM9rRFSIJkve64vm1jtaEKy/w+Zwl52O+aIS
+	tdrJzyOf/pYuYxfaql0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut3K6-0000000CCUl-1REQ;
-	Mon, 01 Sep 2025 12:07:46 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1ut3gr-0000000CUpf-17yl;
+	Mon, 01 Sep 2025 12:31:17 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut1jR-0000000Bu2M-2VJq
+	id 1ut1kh-0000000BuER-1S7l
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 10:25:51 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250901102543euoutp0203fb8485f2910c2bdc31dc6530f94ba4~hIanx4xUL0477304773euoutp02m
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  1 Sep 2025 10:25:43 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250901102543euoutp0203fb8485f2910c2bdc31dc6530f94ba4~hIanx4xUL0477304773euoutp02m
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1756722343;
-	bh=0i5QpIyudkj0DESLieNBClWyAhZMEeba8yZNtq0Apww=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=kb7lCGLk7D9Hdwh9lJSLy1cNVaWOaudPEgFUP5EMD3NnelqzLeRGJKxpkmGosarGy
-	 xyoNgPsLvqKsuvlC+8dVzC43xxh2RD5D7uzGxCCcLpHdV1eOC4rthcfg+NcLgwPLcR
-	 J0x29gjWogIZ9oCQPZiU7IpnyfkRQmO+2+7wp3AI=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250901102542eucas1p2d9dced055a8e021c8fa2c938bc9a9764~hIanQLu1r1127911279eucas1p2M;
-	Mon,  1 Sep 2025 10:25:42 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250901102541eusmtip1e9890e14b6cf3f08dc2ad68f30fc9ad3~hIalo15pj1151611516eusmtip1Y;
-	Mon,  1 Sep 2025 10:25:41 +0000 (GMT)
-Message-ID: <ea57ca6e-4000-49f7-8e0b-899f34b7693a@samsung.com>
-Date: Mon, 1 Sep 2025 12:25:40 +0200
+	Mon, 01 Sep 2025 10:27:08 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3d1bf79d6eeso1227635f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 03:27:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1756722425; x=1757327225; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
+         :to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=U3wMAXUg6TcQMtXg5Lgxugiws7d3wfWBJLDrvyAva+k=;
+        b=sn8HBA3SPhHrSzWSd0tpe758Va1kGKHFIItskyHU4TxpGx3Uo4EVyu0ABODmPhQRCz
+         8G00VClDrJ5S96VjBXUOlxnJw2JtpGa9OdeOupR9fn8ivgVrCPYR+y5CgI1jzxjLDVyB
+         NsSsQx1bm2s72UibbQFnjFq+QGO/sQ4k902pmp0Dfjz8HkLV2d7tSVhz5hOOSBNOVn7z
+         f8eAh7NOsOU3DibBGVfENrtWLU8dql7dQjWgXON5IoncTvrV6Z4Z8ZbsJUu47sxmbnnb
+         cIR0qUKddUfJ0XajJdTuN1RVKLAmHuATLzH8qknGIijKvRC6JFZGKbmR4abS/r+4xbHv
+         MrIQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756722425; x=1757327225;
+        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
+         :to:from:date:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=U3wMAXUg6TcQMtXg5Lgxugiws7d3wfWBJLDrvyAva+k=;
+        b=t5Lbvevrh/FcYZecz8yAOm8+Nj3d7e27gZi/mwgrKrt4bxBYI65bV/+I1z2VNKd/CX
+         vpC+synaK/wuFnzWN+4RaHJMGbOMp5deCB13w+sPGDVDmvsboaSHfcx4J7lisDtYu3tv
+         +ynMLgxlXzc465DeKt/iCcIUEfiM+PasfKQkI4LTsh9qOw6ozB14Bn/pHe/fwuEeDE9q
+         W7nV+ihjj05HRD2GdY2o22NbMIla9BtalCaeE9/0BktB+0T0VQGcThfUuRiXSXblfleS
+         ytb8iL9+jgOvdTIk9MWl71X3W9YcqpwiUNgWdkOqNd4VrLkK5dt1RuMGbWBaayJKHZpf
+         0syw==
+X-Forwarded-Encrypted: i=1; AJvYcCX6cpQCDJ4Vp/Du5VWp7tG4Sjma/MKKlX/N6AoFadxOXavQZx9i/Q59Jx6AirDDIjxdHM33JJPdgas2LG1wgWu+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4xShv6gIA1y935MxD5fdmYWS5aGOnGxrsiE/TdEAB2YMLMhXZ
+	xCroAANCYjBVH7tRDfFY2fETNZafjrpwrNAZpaGZx4uFY6URUARvPR660QoCOFDgNFc=
+X-Gm-Gg: ASbGncvVI/MXgRjtXEMmwoc+aeOMdLbph4YtvEs3R8gCxzrPosy+UJ/74Bsaj6Z9xjc
+	XVorPZ5XoKzw6HB706FjTn1o0vqqlFE1vRzaj4CLNlZTBB7nFTh3ASt2S8Aq0eJkv9gJsb4nUQI
+	cC1gsXIW8nlMC8TLbdTsSz+nLx7bWMKCWS+WRayQNHCGzFssfbWGSY300QWY5m4+2VqaOhMjQkq
+	6pcl19W1cx3bEzzAY4/zGL7mw0VXhdFBRJUTg28uxjJSOMct9wXHX0HJUf6ScaBz5al+vAqs8ze
+	yaz6uSXIAQu/A09ntPMIiYplfH1wkbFC6dZQhT6gMOdifISeWPGLMeHyIER7LWt8WK7wm+QDS3T
+	mgUhZc5Wxukbmh+wUJCj7grgBsrcjjGMv3Y6how==
+X-Google-Smtp-Source: AGHT+IE2RqWOouUNKF0LuMwYDv8VNEg+V4AVmzf6zsck7npghoz21h/jWKBn3nN0q+raGVTCFFwHxQ==
+X-Received: by 2002:a05:6000:2510:b0:3d7:7def:8435 with SMTP id ffacd0b85a97d-3d77def8d9dmr1055874f8f.18.1756722425227;
+        Mon, 01 Sep 2025 03:27:05 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3cf34493b8csm14441165f8f.59.2025.09.01.03.27.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 01 Sep 2025 03:27:04 -0700 (PDT)
+Date: Mon, 1 Sep 2025 13:27:01 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: oe-kbuild@lists.linux.dev, Jisheng Zhang <jszhang@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>
+Cc: lkp@intel.com, oe-kbuild-all@lists.linux.dev, dmaengine@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 10/14] dmaengine: dma350: Alloc command[] from dma pool
+Message-ID: <202508291556.kjNumYgR-lkp@intel.com>
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v4 00/13] Apply drm_bridge_connector and panel_bridge
- helper for the Analogix DP driver
-To: Damon Ding <damon.ding@rock-chips.com>, andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org, rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
-	jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
-	jingoohan1@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
-	kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
-	hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
-	dmitry.baryshkov@oss.qualcomm.com, l.stach@pengutronix.de,
-	dianders@chromium.org, dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <46f9137e-402d-4c0f-a224-10520f80c8b4@rock-chips.com>
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250901102542eucas1p2d9dced055a8e021c8fa2c938bc9a9764
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20250814104818eucas1p2c5029f6d5997f4fafd6370f9e7fb2264
-X-EPHeader: CA
-X-CMS-RootMailID: 20250814104818eucas1p2c5029f6d5997f4fafd6370f9e7fb2264
-References: <CGME20250814104818eucas1p2c5029f6d5997f4fafd6370f9e7fb2264@eucas1p2.samsung.com>
-	<20250814104753.195255-1-damon.ding@rock-chips.com>
-	<a3a2f8be-2c3c-49e7-b27a-72364ea48b06@samsung.com>
-	<7cb50c9c-ac41-43b6-8c69-5f184e7c94cf@samsung.com>
-	<1ccd3889-5f13-4609-9bd8-2c208e17fc96@rock-chips.com>
-	<f2ebfff1-08ab-4f26-98f3-6d6415d58a5e@samsung.com>
-	<a5e613ba-b404-40ae-b467-0f6f223f5d4c@rock-chips.com>
-	<461daea4-5582-4aa2-bfea-130d2fb93717@samsung.com>
-	<46f9137e-402d-4c0f-a224-10520f80c8b4@rock-chips.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250823154009.25992-11-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_032549_907614_4E051D7A 
-X-CRM114-Status: GOOD (  27.22  )
+X-CRM114-CacheID: sfid-20250901_032707_395860_B4F172E8 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,198 +101,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01.09.2025 05:41, Damon Ding wrote:
-> On 8/29/2025 4:23 PM, Marek Szyprowski wrote:
->> On 29.08.2025 10:08, Damon Ding wrote:
->>> On 8/20/2025 5:20 AM, Marek Szyprowski wrote:
->>>> On 15.08.2025 04:59, Damon Ding wrote:
->>>>> On 2025/8/15 5:16, Marek Szyprowski wrote:
->>>>>> On 14.08.2025 16:33, Marek Szyprowski wrote:
->>>>>>> On 14.08.2025 12:47, Damon Ding wrote:
->>>>>>>> PATCH 1 is a small format optimization for struct
->>>>>>>> analogid_dp_device.
->>>>>>>> PATCH 2 is to perform mode setting in
->>>>>>>> &drm_bridge_funcs.atomic_enable.
->>>>>>>> PATCH 3-6 are preparations for apply drm_bridge_connector helper.
->>>>>>>> PATCH 7 is to apply the drm_bridge_connector helper.
->>>>>>>> PATCH 8-10 are to move the panel/bridge parsing to the Analogix
->>>>>>>> side.
->>>>>>>> PATCH 11-12 are preparations for apply panel_bridge helper.
->>>>>>>> PATCH 13 is to apply the panel_bridge helper.
->>>>>>>
->>>>>>> This series lacks 'select DRM_BRIDGE_CONNECTOR' in ExynosDP's
->>>>>>> Kconfig,
->>>>>>> so it causes build break:
->>>>>>>
->>>>>>> drivers/gpu/drm/exynos/exynos_dp.c:177: undefined reference to
->>>>>>> `drm_bridge_connector_init'
->>>>>>> make[2]: *** [scripts/Makefile.vmlinux:91: vmlinux] Error 1
->>>>>>>
->>>>>>> After adding this dependency, the Exynos DP driver stops 
->>>>>>> working. On
->>>>>>> Samsung Snow Chromebook I observed following issue:
->>>>>>>
->>>>>>> [    4.534220] exynos-dp 145b0000.dp-controller: failed to attach
->>>>>>> following panel or bridge (-16)
->>>>>>> [    4.543428] exynos-drm exynos-drm: failed to bind
->>>>>>> 145b0000.dp-controller (ops exynos_dp_ops): -16
->>>>>>> [    4.551775] exynos-drm exynos-drm: adev bind failed: -16
->>>>>>> [    4.556559] exynos-dp 145b0000.dp-controller: probe with driver
->>>>>>> exynos-dp failed with error -16
->>>>>>>
->>>>>>> I will investigate details later in the evening.
->>>>>>
->>>>>> The failure is caused by trying to add plat_data->next_bridge twice
->>>>>> (from exynos_dp's .attach callback, and from analogix' ->bind
->>>>>> callback).
->>>>>>
->>>>>>
->>>>>> Best regards
->>>>>
->>>>> I see. The bridge attachment for the next bridge was not well thought
->>>>> out. It may be better to move panel_bridge addition a little forward
->>>>> and remove next_bridge attachment on the Analogix side. Then, the
->>>>> Rockchip side and Exynos side can do their own next_bridge attachment
->>>>> in &analogix_dp_plat_data.attach() as they want.
->>>>>
->>>>> Could you please help test the following modifications(they have been
->>>>> tested on my RK3588S EVB1 Board) on the Samsung Snow Chromebook? ;-)
->>>>
->>>> Assuming that I properly applied the malformed diff, it doesn't solve
->>>> all the issues. There are no errors reported though, but the display
->>>> chain doesn't work and no valid mode is reported:
->>>>
->>>> # dmesg | grep drm
->>>> [    3.384992] [drm] Initialized panfrost 1.4.0 for 11800000.gpu on
->>>> minor 0
->>>> [    4.487739] [drm] Exynos DRM: using 14400000.fimd device for DMA
->>>> mapping operations
->>>> [    4.494202] exynos-drm exynos-drm: bound 14400000.fimd (ops
->>>> fimd_component_ops)
->>>> [    4.502374] exynos-drm exynos-drm: bound 14450000.mixer (ops
->>>> mixer_component_ops)
->>>> [    4.511930] exynos-drm exynos-drm: bound 145b0000.dp-controller 
->>>> (ops
->>>> exynos_dp_ops)
->>>> [    4.518411] exynos-drm exynos-drm: bound 14530000.hdmi (ops
->>>> hdmi_component_ops)
->>>> [    4.529628] [drm] Initialized exynos 1.1.0 for exynos-drm on 
->>>> minor 1
->>>> [    4.657434] exynos-drm exynos-drm: [drm] Cannot find any crtc or
->>>> sizes
->>>> [    4.925023] exynos-drm exynos-drm: [drm] Cannot find any crtc or
->>>> sizes
->>>>
->>>> # ./modetest -c -Mexynos
->>>> Connectors:
->>>> id      encoder status          name            size (mm)       modes
->>>>      encoders
->>>> 69      0       disconnected    LVDS-1          0x0             0
->>>>        68
->>>>     props:
->>>>           1 EDID:
->>>>                   flags: immutable blob
->>>>                   blobs:
->>>>
->>>>                   value:
->>>>           2 DPMS:
->>>>                   flags: enum
->>>>                   enums: On=0 Standby=1 Suspend=2 Off=3
->>>>                   value: 0
->>>>           5 link-status:
->>>>                   flags: enum
->>>>                   enums: Good=0 Bad=1
->>>>                   value: 0
->>>>           6 non-desktop:
->>>>                   flags: immutable range
->>>>                   values: 0 1
->>>>                   value: 0
->>>>           4 TILE:
->>>>                   flags: immutable blob
->>>>                   blobs:
->>>>
->>>>                   value:
->>>> 71      0       disconnected    HDMI-A-1        0x0             0
->>>>        70
->>>>     props:
->>>>           1 EDID:
->>>>                   flags: immutable blob
->>>>                   blobs:
->>>>
->>>>                   value:
->>>>           2 DPMS:
->>>>                   flags: enum
->>>>                   enums: On=0 Standby=1 Suspend=2 Off=3
->>>>                   value: 0
->>>>           5 link-status:
->>>>                   flags: enum
->>>>                   enums: Good=0 Bad=1
->>>>                   value: 0
->>>>           6 non-desktop:
->>>>                   flags: immutable range
->>>>                   values: 0 1
->>>>                   value: 0
->>>>           4 TILE:
->>>>                   flags: immutable blob
->>>>                   blobs:
->>>>
->>>>                   value:
->>>>
->>>>
->>>> I will investigate details later this week.
->>>>
->>>
->>> Could you please provide the related DTS file for the test? I will
->>> also try to find out the reason for this unexpected issue. ;-)
->>
->> Unfortunately I didn't find enough time to debug this further. The above
->> log is from Samsung Snow Chromebook,
->> arch/arm/boot/dts/samsung/exynos5250-snow.dts
->>
->>
->
-> I compare the differences in the following display path before and 
-> after this patch series:
->
-> exynos_dp -> nxp-ptn3460 -> panel "auo,b116xw03"
->
-> The issue is likely caused by the &drm_connector_funcs.detect() 
-> related logic. Before this patch series, the nxp-ptn3460 connector is 
-> always connector_status_connected because there is not available 
-> &drm_connector_funcs.detect(). After it, the DRM_BRIDGE_OP_DETECT flag 
-> make the connection status depend on analogix_dp_bridge_detect().
->
-> Could you please add the following patches additionally and try again?
-> (Not the final solution, just validation)
->
-> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c 
-> b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-> index a93ff8f0a468..355911c47354 100644
-> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-> @@ -1491,9 +1491,11 @@ int analogix_dp_bind(struct analogix_dp_device 
-> *dp, struct drm_device *drm_dev)
->                 }
->         }
->
-> -       bridge->ops = DRM_BRIDGE_OP_DETECT |
-> -                     DRM_BRIDGE_OP_EDID |
-> +       bridge->ops = DRM_BRIDGE_OP_EDID |
->                       DRM_BRIDGE_OP_MODES;
-> +       if (drm_bridge_is_panel(dp->plat_data->next_bridge))
-> +               bridge->ops |= DRM_BRIDGE_OP_DETECT;
-> +
->         bridge->of_node = dp->dev->of_node;
->         bridge->type = DRM_MODE_CONNECTOR_eDP;
->         ret = devm_drm_bridge_add(dp->dev, &dp->bridge);
+Hi Jisheng,
 
-It is better. Now the display panel is detected and reported to 
-userspace, but it looks that something is not properly initialized, 
-because there is garbage instead of the proper picture.
+kernel test robot noticed the following build warnings:
 
-Best regards
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Jisheng-Zhang/dmaengine-dma350-Fix-CH_CTRL_USESRCTRIGIN-definition/20250824-000425
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/vkoul/dmaengine.git next
+patch link:    https://lore.kernel.org/r/20250823154009.25992-11-jszhang%40kernel.org
+patch subject: [PATCH 10/14] dmaengine: dma350: Alloc command[] from dma pool
+config: arm-randconfig-r073-20250829 (https://download.01.org/0day-ci/archive/20250829/202508291556.kjNumYgR-lkp@intel.com/config)
+compiler: arm-linux-gnueabi-gcc (GCC) 13.4.0
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
+| Closes: https://lore.kernel.org/r/202508291556.kjNumYgR-lkp@intel.com/
+
+smatch warnings:
+drivers/dma/arm-dma350.c:387 d350_get_residue() error: uninitialized symbol 'sgcur'.
+
+vim +/sgcur +387 drivers/dma/arm-dma350.c
+
+5d099706449d54 Robin Murphy  2025-03-12  360  static u32 d350_get_residue(struct d350_chan *dch)
+5d099706449d54 Robin Murphy  2025-03-12  361  {
+eae79fde2ff50c Jisheng Zhang 2025-08-23  362  	u32 res, xsize, xsizehi, linkaddr, linkaddrhi, hi_new;
+eae79fde2ff50c Jisheng Zhang 2025-08-23  363  	int i, sgcur, retries = 3; /* 1st time unlucky, 2nd improbable, 3rd just broken */
+eae79fde2ff50c Jisheng Zhang 2025-08-23  364  	struct d350_desc *desc = dch->desc;
+5d099706449d54 Robin Murphy  2025-03-12  365  
+5d099706449d54 Robin Murphy  2025-03-12  366  	hi_new = readl_relaxed(dch->base + CH_XSIZEHI);
+5d099706449d54 Robin Murphy  2025-03-12  367  	do {
+5d099706449d54 Robin Murphy  2025-03-12  368  		xsizehi = hi_new;
+5d099706449d54 Robin Murphy  2025-03-12  369  		xsize = readl_relaxed(dch->base + CH_XSIZE);
+5d099706449d54 Robin Murphy  2025-03-12  370  		hi_new = readl_relaxed(dch->base + CH_XSIZEHI);
+5d099706449d54 Robin Murphy  2025-03-12  371  	} while (xsizehi != hi_new && --retries);
+5d099706449d54 Robin Murphy  2025-03-12  372  
+eae79fde2ff50c Jisheng Zhang 2025-08-23  373  	hi_new = readl_relaxed(dch->base + CH_LINKADDRHI);
+eae79fde2ff50c Jisheng Zhang 2025-08-23  374  	do {
+eae79fde2ff50c Jisheng Zhang 2025-08-23  375  		linkaddrhi = hi_new;
+eae79fde2ff50c Jisheng Zhang 2025-08-23  376  		linkaddr = readl_relaxed(dch->base + CH_LINKADDR);
+eae79fde2ff50c Jisheng Zhang 2025-08-23  377  		hi_new = readl_relaxed(dch->base + CH_LINKADDRHI);
+eae79fde2ff50c Jisheng Zhang 2025-08-23  378  	} while (linkaddrhi != hi_new && --retries);
+eae79fde2ff50c Jisheng Zhang 2025-08-23  379  
+eae79fde2ff50c Jisheng Zhang 2025-08-23  380  	for (i = 0; i < desc->sglen; i++) {
+eae79fde2ff50c Jisheng Zhang 2025-08-23  381  		if (desc->sg[i].phys == (((u64)linkaddrhi << 32) | (linkaddr & ~CH_LINKADDR_EN)))
+eae79fde2ff50c Jisheng Zhang 2025-08-23  382  			sgcur = i;
+
+I'm suprised there isn't a break statement after this assignment.
+What if we exit the loop with i == desc->sglen?
+
+eae79fde2ff50c Jisheng Zhang 2025-08-23  383  	}
+eae79fde2ff50c Jisheng Zhang 2025-08-23  384  
+5d099706449d54 Robin Murphy  2025-03-12  385  	res = FIELD_GET(CH_XY_DES, xsize);
+5d099706449d54 Robin Murphy  2025-03-12  386  	res |= FIELD_GET(CH_XY_DES, xsizehi) << 16;
+eae79fde2ff50c Jisheng Zhang 2025-08-23 @387  	res <<= desc->sg[sgcur].tsz;
+                                                                 ^^^^^
+Uninitialized.
+
+eae79fde2ff50c Jisheng Zhang 2025-08-23  388  
+eae79fde2ff50c Jisheng Zhang 2025-08-23  389  	for (i = sgcur + 1; i < desc->sglen; i++)
+eae79fde2ff50c Jisheng Zhang 2025-08-23  390  		res += (((u32)desc->sg[i].xsizehi << 16 | desc->sg[i].xsize) << desc->sg[i].tsz);
+5d099706449d54 Robin Murphy  2025-03-12  391  
+eae79fde2ff50c Jisheng Zhang 2025-08-23  392  	return res;
+5d099706449d54 Robin Murphy  2025-03-12  393  }
+
 -- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 
