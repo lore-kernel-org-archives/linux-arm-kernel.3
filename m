@@ -4,69 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B466CA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 04:34:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7B4ECA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 04:58:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=quDK9J6zNIvpJEID6bs9zR7wT+kKDFkKNW3zLnLB/YI=; b=Qk0aUWUUyYzIG4hGVFYnuX5ofE
-	vXZ8rXlil+5BijP60Wo++6ql2MIjrWCkBl6QTh8Lp26EfOwoRghhtlfj6lOgl3aRAaCOILR+eMoL8
-	NZ/GMim7EiHca0up+c2rzn+0H8DydCRJ7+nDLZTkkoUVdrK5KrafIVl0nX32//PZouXdDFNYaEkDY
-	fOeiSqxVmjtjQ3Burdkza05d6sFer6OjFyvktdgBCluB2jJ4KsX7/ZCKyTWwLTRZj67vDlTXhslIz
-	pfjLWeHxmjU4SUp/732Ecd3m8f09zau96x3MZIJSgMxN7XaYIRazE85qevGP8sAe6lobYSBFY6Svt
-	eBLJQZcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0eS2taJONz3Qi/rNF5f7NmVYquugu+IPk8/RXX7aAR8=; b=aO4uJdlWHByAqAzNp/8hd616+2
+	5ZdOnKhFl43OLBYo9DhwmO5eK0J+kEJV96cwVlJE+yCZMEh1Fw0ZFhTB5qftaUdjJ+PJcZl8GEyYq
+	csmAnv1EPI3KVaF0O9+Ejcef1kKzD+a+LJS4JSrxM84hUAkCVmGcsImEgEdZQyc/tA53XjzSV0sv8
+	XBGMGOAIlZY0YTA8tXmlAOUjmobodom/ReUNkEIteqDSzJtfe5uA/46cWhbqGKFewRb8THy/j0xKQ
+	5Lk7txQP/WaQol492qIXuKWk04AQeHyONTyi9lA3KI8741Vvh4JQrXaCmEjSTD+WjLKfPeLVSrrwg
+	LDwJKOJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uswEx-0000000B9I7-1YpH;
-	Mon, 01 Sep 2025 04:33:59 +0000
-Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
+	id 1uswcL-0000000BAdm-2V7R;
+	Mon, 01 Sep 2025 04:58:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uswCD-0000000B9Aq-3RXc
+	id 1uswZf-0000000BATG-1um0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 04:31:13 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9D664105A26;
-	Mon,  1 Sep 2025 06:30:54 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1756701057;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=quDK9J6zNIvpJEID6bs9zR7wT+kKDFkKNW3zLnLB/YI=;
-	b=bzJQgNFof6zUwcL4ZoVzZy16oEN20bmKOjJL889sBGUDlqXpyG8YmN6+e6f+OgBkc5GMKO
-	lU0nfn6opw9N1+MTB+e5hFhNPBAzSorQkqU8xCq7IAp7rfmG2bfzePfCN32aUnHtAnJYTG
-	kh6x5LPQQ4TsgFdovW5QBeMce7qXlBczosh2fn+pKmiJRDCxS1CKzxgp1FDGRgXqPoA8kB
-	UiDqo/3LyMB/PX8Aj/i5po8dq4pgfE/ZBB6r60W+d1McQgHiOujtxY4LLfMH6S4v7nHRXK
-	lrx0yhj4pCVQxzzn3FEfaqqSBryAFrHjp6GSjzi6if0QMb91PesWLOs//s30+g==
-Message-ID: <ddab6133-076c-53b0-b425-c65a5447f666@nabladev.com>
-Date: Mon, 1 Sep 2025 06:31:25 +0200
+	Mon, 01 Sep 2025 04:55:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 838A3601B8;
+	Mon,  1 Sep 2025 04:55:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F2FFC4CEF0;
+	Mon,  1 Sep 2025 04:55:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756702521;
+	bh=FTdg3qQDLcLg/WJueya255ckIzqEnwBISq9UOPfgb1g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Sb0PPBuy4LNuawkiyKqy4flACZvPyACS2s8cmFCOIajbAtXsGkPnL8mGiy0wvQdwL
+	 o5Y3OECor5b3FrN+UCofWsGFx3ncy6tVkRCmWH31FxH97bBVF32qAWiDO4jAmX41cL
+	 OyivnUoIDI0EORzt0BmSvlxBhbIarAQSC6kxOmzrxYjOKLtdc2Vx+N7hchKZS7xtoX
+	 lV0NWZbEMlLKuHPProj2luwqxlt/rN7vrVt0kRZ4iZXGhDyOG+ixZ7np2Hr6pTxeHN
+	 0oxKYlxRjATQ0lp/XKAf7cbAMegR2KtPCYpozMXYlL/QMzTAgcP4bedjYjOTr9ePP3
+	 v2gfk6h9iFdoA==
+Date: Mon, 1 Sep 2025 06:55:19 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Inbaraj E <inbaraj.e@samsung.com>
+Cc: rmfrfs@gmail.com, laurent.pinchart@ideasonboard.com, martink@posteo.de, 
+	kernel@puri.sm, mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, linux-media@vger.kernel.org, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, pankaj.dubey@samsung.com, 
+	ravi.patel@samsung.com, shradha.t@samsung.com
+Subject: Re: [PATCH v3 2/7] dt-bindings: media: fsd: Add CSIS video capture
+ interface
+Message-ID: <20250901-rousing-orange-crab-c05fdf@kuoka>
+References: <20250828085911.81266-1-inbaraj.e@samsung.com>
+ <CGME20250828085930epcas5p1719c7db08074bf1540dc85b71736a6c5@epcas5p1.samsung.com>
+ <20250828085911.81266-3-inbaraj.e@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.2.0
-Subject: Re: [PATCH v2] ARM: dts: imx6-aristainetos2: Replace license text
- comment with SPDX identifier
-Content-Language: en-US
-To: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>,
- Heiko Schocher <hs@denx.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Erika Unter <e.unter@denx.de>
-References: <20250709-abb-dts-lic-v2-1-adc5e4781f65@prolan.hu>
- <58709258-9154-4ec1-b64c-5be161b061e8@prolan.hu>
-From: Heiko Schocher <hs@nabladev.com>
-In-Reply-To: <58709258-9154-4ec1-b64c-5be161b061e8@prolan.hu>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250831_213110_079971_E92963FA 
-X-CRM114-Status: GOOD (  11.61  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250828085911.81266-3-inbaraj.e@samsung.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,37 +76,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Bence,
-
-Sorry was in vacation...
-
-On 13.08.25 17:11, Csókás Bence wrote:
-> Hi Heiko,
+On Thu, Aug 28, 2025 at 02:29:06PM +0530, Inbaraj E wrote:
+> The Tesla FSD CSIS video capture interface is used to capture frames.
 > 
-> On 2025. 07. 09. 9:28, Bence Csókás wrote:
->> Replace verbatim license text with a `SPDX-License-Identifier`.
->>
->> The comment header mis-attributes this license to be "X11", but the
->> license text does not include the last line "Except as contained in this
->> notice, the name of the X Consortium shall not be used in advertising or
->> otherwise to promote the sale, use or other dealings in this Software
->> without prior written authorization from the X Consortium.". Therefore,
->> this license is actually equivalent to the SPDX "MIT" license (confirmed
->> by text diffing).
->>
->> Cc: Heiko Schocher <hs@denx.de>
->> Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+> Signed-off-by: Inbaraj E <inbaraj.e@samsung.com>
+> ---
+>  .../bindings/media/tesla,fsd-csis-media.yaml  | 76 +++++++++++++++++++
+>  1 file changed, 76 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/media/tesla,fsd-csis-media.yaml
 > 
-> Do you agree with this change?
+> diff --git a/Documentation/devicetree/bindings/media/tesla,fsd-csis-media.yaml b/Documentation/devicetree/bindings/media/tesla,fsd-csis-media.yaml
+> new file mode 100644
+> index 000000000000..f045094ae539
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/media/tesla,fsd-csis-media.yaml
+> @@ -0,0 +1,76 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/media/tesla,fsd-csis-media.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Tesla FSD SoC MIPI CSI-2 video capture interface(Bridge device).
 
-Reviewed-by: Heiko Schocher <hs@nabladev.com>
+Drop final full stop. Also missing space before (
 
-bye,
-Heiko
--- 
-Nabla Software Engineering
-HRB 40522 Augsburg
-Phone: +49 821 45592596
-E-Mail: office@nabladev.com
-Geschäftsführer : Stefano Babic
+
+> +
+> +maintainers:
+> +  - Inbaraj E <inbaraj.e@samsung.com>
+> +
+> +description:
+> +  The Tesla FSD CSIS has an internal video capture interface to capture
+> +  frames originating from the sensor. The power supply for the IP is
+> +  managed by custom firmware and is expected to remain enabled
+> +  permanently, so power supply control is not added in linux.
+> +
+> +properties:
+> +  compatible:
+> +    const: tesla,fsd-csis-media
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 3
+> +
+> +  clock-names:
+> +    items:
+> +      - const: aclk
+> +      - const: pclk
+> +      - const: pll
+> +
+> +  iommus:
+> +    maxItems: 1
+> +
+> +  port:
+> +    $ref: /schemas/graph.yaml#/properties/port
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - clocks
+> +  - clock-names
+> +  - iommus
+> +  - port
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/fsd-clk.h>
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +    csis0: csis@12641000 {
+
+Incorrect unit address.
+
+> +        compatible = "tesla,fsd-csis-media";
+> +        reg = <0x12661000 0x44c>;
+
+
+Best regards,
+Krzysztof
+
 
