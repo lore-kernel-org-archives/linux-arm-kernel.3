@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A629BCA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 23:18:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22BA4CA100D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 23:18:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RkCfNQSMCduwcUT3pMyREmC3tJV9XQ6M4+jKDSwW4KA=; b=MNC3z5M/mZtLoPg6Pd0em359bU
-	/bcfcRD1+bcYcU5v6gP8Kw6RjDRf66iBWmIIbI8bdq7+4lw2fyaphk+T9JOXYFQZCDOcpUtxQRMI6
-	UUlRXQ/tNUUIAl+TkMwUGKmoUO73v/jS7FTuZs29pUhxJWWn3nwZqbsWX89FZfznZUSH4ujnNBvl0
-	17rP5JncwgX8jpzfCrav4VkFyCstG1x4R0l//aVFb1n/9RneDzlUA5QtgDIqnxJhBu4iiw3hlzy03
-	wyyo1XFpW5Wh/p/IFRJpm7/P/jm2TC6kOazPL3cEHdsL2Wh93QKy+BxI4YNvRcdF9YWhDw/ZYYzBr
-	RniJDYRA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YDDudy93Qt6NRe3X6MCDF5AVld8isjkmSup5quV1GdU=; b=2tGYrCYfglkJmeTYzsurwqs0a9
+	o8krzss8smQfAvhIOAyX82DnQTqEkHXQA3NUGwabF9sKHuBFs/+xww5yDwcK3+8JWyXmMfclkIVYY
+	CO3GGa0fLIyHUdgQGh95Cswn2bBY0WgwG90O/v2j9bmk2WoiMV2hofIOOypZA5YgaDYEI8ZdgYaBf
+	By0zIsyLZaSkLl8iMxkWIoZZak64OBT/wnfBwa0X6pt1MFHkWkVss7KiX3e1R2b6scwRDADQ0hbvM
+	WWZAFt5dlh7ulV7q9P4iOp86AZWLRUocVYZBiyRvYYX3FUca36++xZRLFM/7IySdulJIQ9jKBkoR/
+	H0vCsCaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utDnP-0000000EIVV-2FTw;
-	Mon, 01 Sep 2025 23:18:43 +0000
+	id 1utDnQ-0000000EIXA-1rtj;
+	Mon, 01 Sep 2025 23:18:44 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utB0i-0000000Dllh-2Rwi
+	id 1utB0i-0000000Dlm3-3DO9
 	for linux-arm-kernel@bombadil.infradead.org;
 	Mon, 01 Sep 2025 20:20:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=RkCfNQSMCduwcUT3pMyREmC3tJV9XQ6M4+jKDSwW4KA=; b=o2EC20Hk0vV2Mfl2b8hw22yplb
-	nZE5sWmGF4p47XUD4V5IxU2l+3j6kjFsSVSjhZNh/MNxnZOoQyNw4OcV0SG0cC034G2jjQMVdCjzn
-	17uDryjGhP17Kao50etr++dC0+o+1jeSogOkgdyw/CyD/AI4ZgEQ4PjMiQMS6+TgyMriIU2jQ8g19
-	rqVPIVcG1Wf5+d/JrknNZv+zSlrmVxPgBitFEcLwEk2g8RBT+i7AYthpogWRyjPhpSAM/ERcVIgCU
-	AmqMpBzYnUvCd4CynDu7b3nAFqSBSYbx8NDbBgy365SsB7lqnnix82yXXAThEhMryn4fRK53DkJoq
-	WtFYnJeA==;
-Received: from sea.source.kernel.org ([172.234.252.31])
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=YDDudy93Qt6NRe3X6MCDF5AVld8isjkmSup5quV1GdU=; b=SAs//vJqCmbVPlBWKcGXASO7He
+	G+k7aTWy6JnLUG0+fju8jUbFV/pm33Y4Cdbv5aj6aDBVgYz9b62p7plp+dkAzCIuB49z+GQCjKFla
+	LGB9KBhlsCVqUiNJu/b3aewT7u5hR0NTDvL5RvAT6uoYOeC1wLj1vyg+y5O7zvc2ZuXFkDPpxbBft
+	x2HaduWiN5pIR5Kwkj9Ubt5OqlqfN7ZrixDZsqYesU+z23TIytj0EceXX5bAuDmnXwlYMcV/Kes6p
+	fFHNQkOcslqYSjvZokfLNkXX5CeoyWw/DbHOw3HS5SP+qufa/TEhK6AihtcpIHy0sRudHEv/+7LEx
+	Eg15xTeA==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utB0a-00000003rma-0ihP
+	id 1utB0a-00000003rmW-0JBS
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 01 Sep 2025 20:20:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6839B4519B;
-	Mon,  1 Sep 2025 20:20:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0637DC4CEF9;
-	Mon,  1 Sep 2025 20:20:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A6412448D3;
+	Mon,  1 Sep 2025 20:20:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A09FC4CEF0;
+	Mon,  1 Sep 2025 20:20:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756758004;
-	bh=CQJ4knDhIHFMSRh4/nbpAJJmql9MOH99GJgLFyWdS58=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=UmTzfHJVn58a/hi+Y2BEVI/E0gwajpfj3l1+MhWb2/inRfscleDQ32kTkuenid5SL
-	 K7l9t1IUSL9vIj3z1zolWo8XQdNqzsVPp/WnAil7mWZSAELJmSp0gjfmqgTRGDBfNg
-	 nFSyHHMR8gXykAgVPG3TvllBPw9BSha/1ZHH7Zt/o0W/D+tde7zHFcu7NygYlnFZ9K
-	 yocztZRzbyylq4hjA3CwIkGj2SsHagflp7P/Ul4KLFpCL2u8H/HVBKKXFizBMOw+UM
-	 rT6byPz4yGFr78RhaZYpil4MXKPZ8g4nY0eeMsA2VyKSey4S4Glh0FyBPtDEAzKwFC
-	 JjCJjJyaZxNIw==
+	s=k20201202; t=1756758002;
+	bh=LoGorSDHkEkIDGpixgk16+eL3mYFxlvutZWyJcKrM/I=;
+	h=From:To:Cc:Subject:Date:From;
+	b=AIzhIB/CNTd0wQFTtQjTvf7CsPNPwGEkwECUVhQOAz+FgHxLrCvXjjQTQKSXXcMB7
+	 HAFQwwyPtBlLZgivyflOdd+HxDbrXS1bYj7HuhR75Pf4piROorXcT+eMYY0cGTaJXz
+	 jU20iRaetmGGLVL8ixBenxqd0DXxsVtgTe/XywK8pjUdRtp0wwsnSycmifhMWTHm3m
+	 gMlqHexiPwAgKPX9uoJRLLtRAbl0TN0vofhHgWAlyV87Rxl7Aokfuo2luCm5+fDzeU
+	 +NKtrOtCxyJd8LDrfZgg29Sxa9hqhUvlHTqooqlRV/VGc/rVqx0DbKF+ABC2/PoCyb
+	 QZDoRWJ6VDFvA==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -68,17 +68,15 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linuxppc-dev@lists.ozlabs.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 4/6] lib/crypto: curve25519: Move a couple functions out-of-line
-Date: Mon,  1 Sep 2025 13:18:13 -0700
-Message-ID: <20250901201815.594177-5-ebiggers@kernel.org>
+Subject: [PATCH 0/6] Curve25519 cleanup
+Date: Mon,  1 Sep 2025 13:18:09 -0700
+Message-ID: <20250901201815.594177-1-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250901201815.594177-1-ebiggers@kernel.org>
-References: <20250901201815.594177-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_212011_718010_E5FF4023 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20250901_212011_763954_8570DADA 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,122 +91,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move curve25519() and curve25519_generate_public() from curve25519.h to
-curve25519.c.  There's no good reason for them to be inline.
+This series is targeting libcrypto-next.  It can also be retrieved from:
 
-Signed-off-by: Eric Biggers <ebiggers@kernel.org>
----
- include/crypto/curve25519.h | 28 +++-------------------------
- lib/crypto/curve25519.c     | 34 +++++++++++++++++++++++++++++++++-
- 2 files changed, 36 insertions(+), 26 deletions(-)
+    git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git curve25519-v1
 
-diff --git a/include/crypto/curve25519.h b/include/crypto/curve25519.h
-index 4e6dc840b1592..78aa5f28c847f 100644
---- a/include/crypto/curve25519.h
-+++ b/include/crypto/curve25519.h
-@@ -4,11 +4,10 @@
-  */
- 
- #ifndef CURVE25519_H
- #define CURVE25519_H
- 
--#include <crypto/algapi.h> // For crypto_memneq.
- #include <linux/types.h>
- #include <linux/random.h>
- 
- enum curve25519_lengths {
- 	CURVE25519_KEY_SIZE = 32
-@@ -26,37 +25,16 @@ void curve25519_arch(u8 out[CURVE25519_KEY_SIZE],
- 		     const u8 point[CURVE25519_KEY_SIZE]);
- 
- void curve25519_base_arch(u8 pub[CURVE25519_KEY_SIZE],
- 			  const u8 secret[CURVE25519_KEY_SIZE]);
- 
--static inline
- bool __must_check curve25519(u8 mypublic[CURVE25519_KEY_SIZE],
- 			     const u8 secret[CURVE25519_KEY_SIZE],
--			     const u8 basepoint[CURVE25519_KEY_SIZE])
--{
--	if (IS_ENABLED(CONFIG_CRYPTO_ARCH_HAVE_LIB_CURVE25519))
--		curve25519_arch(mypublic, secret, basepoint);
--	else
--		curve25519_generic(mypublic, secret, basepoint);
--	return crypto_memneq(mypublic, curve25519_null_point,
--			     CURVE25519_KEY_SIZE);
--}
-+			     const u8 basepoint[CURVE25519_KEY_SIZE]);
- 
--static inline bool
--__must_check curve25519_generate_public(u8 pub[CURVE25519_KEY_SIZE],
--					const u8 secret[CURVE25519_KEY_SIZE])
--{
--	if (unlikely(!crypto_memneq(secret, curve25519_null_point,
--				    CURVE25519_KEY_SIZE)))
--		return false;
--
--	if (IS_ENABLED(CONFIG_CRYPTO_ARCH_HAVE_LIB_CURVE25519))
--		curve25519_base_arch(pub, secret);
--	else
--		curve25519_generic(pub, secret, curve25519_base_point);
--	return crypto_memneq(pub, curve25519_null_point, CURVE25519_KEY_SIZE);
--}
-+bool __must_check curve25519_generate_public(u8 pub[CURVE25519_KEY_SIZE],
-+					     const u8 secret[CURVE25519_KEY_SIZE]);
- 
- static inline void curve25519_clamp_secret(u8 secret[CURVE25519_KEY_SIZE])
- {
- 	secret[0] &= 248;
- 	secret[31] = (secret[31] & 127) | 64;
-diff --git a/lib/crypto/curve25519.c b/lib/crypto/curve25519.c
-index 25f16777865bf..1b786389d714a 100644
---- a/lib/crypto/curve25519.c
-+++ b/lib/crypto/curve25519.c
-@@ -8,12 +8,44 @@
-  *
-  * Information: https://cr.yp.to/ecdh.html
-  */
- 
- #include <crypto/curve25519.h>
--#include <linux/module.h>
-+#include <crypto/utils.h>
-+#include <linux/export.h>
- #include <linux/init.h>
-+#include <linux/module.h>
-+
-+bool __must_check
-+curve25519(u8 mypublic[CURVE25519_KEY_SIZE],
-+	   const u8 secret[CURVE25519_KEY_SIZE],
-+	   const u8 basepoint[CURVE25519_KEY_SIZE])
-+{
-+	if (IS_ENABLED(CONFIG_CRYPTO_ARCH_HAVE_LIB_CURVE25519))
-+		curve25519_arch(mypublic, secret, basepoint);
-+	else
-+		curve25519_generic(mypublic, secret, basepoint);
-+	return crypto_memneq(mypublic, curve25519_null_point,
-+			     CURVE25519_KEY_SIZE);
-+}
-+EXPORT_SYMBOL(curve25519);
-+
-+bool __must_check
-+curve25519_generate_public(u8 pub[CURVE25519_KEY_SIZE],
-+			   const u8 secret[CURVE25519_KEY_SIZE])
-+{
-+	if (unlikely(!crypto_memneq(secret, curve25519_null_point,
-+				    CURVE25519_KEY_SIZE)))
-+		return false;
-+
-+	if (IS_ENABLED(CONFIG_CRYPTO_ARCH_HAVE_LIB_CURVE25519))
-+		curve25519_base_arch(pub, secret);
-+	else
-+		curve25519_generic(pub, secret, curve25519_base_point);
-+	return crypto_memneq(pub, curve25519_null_point, CURVE25519_KEY_SIZE);
-+}
-+EXPORT_SYMBOL(curve25519_generate_public);
- 
- static int __init curve25519_init(void)
- {
- 	return 0;
- }
+This series removes the unused crypto_kpp support for Curve25519,
+migrates curve25519-selftest to a KUnit test suite, and reorganizes the
+generic and arch-optimized Curve25519 code to all be located in
+lib/crypto/ and built into a single libcurve25519 module.
+
+Eric Biggers (6):
+  crypto: curve25519 - Remove kpp support
+  lib/crypto: tests: Migrate Curve25519 self-test to KUnit
+  lib/crypto: tests: Add Curve25519 benchmark
+  lib/crypto: curve25519: Move a couple functions out-of-line
+  lib/crypto: curve25519: Consolidate into single module
+  wireguard: kconfig: Simplify crypto kconfig selections
+
+ arch/arm/crypto/Kconfig                       |   13 -
+ arch/arm/crypto/Makefile                      |    2 -
+ arch/arm/crypto/curve25519-glue.c             |  137 --
+ arch/m68k/configs/amiga_defconfig             |    1 -
+ arch/m68k/configs/apollo_defconfig            |    1 -
+ arch/m68k/configs/atari_defconfig             |    1 -
+ arch/m68k/configs/bvme6000_defconfig          |    1 -
+ arch/m68k/configs/hp300_defconfig             |    1 -
+ arch/m68k/configs/mac_defconfig               |    1 -
+ arch/m68k/configs/multi_defconfig             |    1 -
+ arch/m68k/configs/mvme147_defconfig           |    1 -
+ arch/m68k/configs/mvme16x_defconfig           |    1 -
+ arch/m68k/configs/q40_defconfig               |    1 -
+ arch/m68k/configs/sun3_defconfig              |    1 -
+ arch/m68k/configs/sun3x_defconfig             |    1 -
+ arch/powerpc/crypto/Kconfig                   |   13 -
+ arch/powerpc/crypto/Makefile                  |    2 -
+ arch/s390/configs/debug_defconfig             |    1 -
+ arch/s390/configs/defconfig                   |    1 -
+ arch/x86/crypto/Kconfig                       |   13 -
+ arch/x86/crypto/Makefile                      |    5 -
+ crypto/Kconfig                                |    8 -
+ crypto/Makefile                               |    1 -
+ crypto/curve25519-generic.c                   |   91 --
+ crypto/testmgr.c                              |    6 -
+ crypto/testmgr.h                              | 1225 -----------------
+ drivers/crypto/hisilicon/Kconfig              |    1 -
+ drivers/crypto/hisilicon/hpre/hpre_crypto.c   |  394 ------
+ drivers/net/Kconfig                           |   15 +-
+ include/crypto/curve25519.h                   |   40 +-
+ lib/crypto/Kconfig                            |   37 +-
+ lib/crypto/Makefile                           |   27 +-
+ .../crypto/arm}/curve25519-core.S             |    0
+ lib/crypto/arm/curve25519.h                   |   47 +
+ lib/crypto/curve25519-generic.c               |   25 -
+ lib/crypto/curve25519.c                       |   64 +-
+ .../crypto/powerpc}/curve25519-ppc64le_asm.S  |    0
+ .../crypto/powerpc/curve25519.h               |  124 +-
+ lib/crypto/tests/Kconfig                      |   10 +
+ lib/crypto/tests/Makefile                     |    1 +
+ .../curve25519_kunit.c}                       |  100 +-
+ .../crypto/x86/curve25519.h                   |  127 +-
+ 42 files changed, 232 insertions(+), 2310 deletions(-)
+ delete mode 100644 arch/arm/crypto/curve25519-glue.c
+ delete mode 100644 crypto/curve25519-generic.c
+ rename {arch/arm/crypto => lib/crypto/arm}/curve25519-core.S (100%)
+ create mode 100644 lib/crypto/arm/curve25519.h
+ delete mode 100644 lib/crypto/curve25519-generic.c
+ rename {arch/powerpc/crypto => lib/crypto/powerpc}/curve25519-ppc64le_asm.S (100%)
+ rename arch/powerpc/crypto/curve25519-ppc64le-core.c => lib/crypto/powerpc/curve25519.h (56%)
+ rename lib/crypto/{curve25519-selftest.c => tests/curve25519_kunit.c} (96%)
+ rename arch/x86/crypto/curve25519-x86_64.c => lib/crypto/x86/curve25519.h (94%)
+
+base-commit: 362f92286065d9f8282da5def89e173a12191568
 -- 
 2.50.1
 
