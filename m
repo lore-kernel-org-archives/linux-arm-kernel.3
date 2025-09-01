@@ -4,70 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 267ABCA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 23:18:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A4F4CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 23:18:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SF9gYy00YaZ4EelqsIDi1QGepPiDZbF5yG6DyUiaag0=; b=BvW9ROb4CPf8LmA/+Ki6f3qBtI
-	50Rm4XPHv8jNJYKWUhdXiUgbucH2I0Ckx1wU99n8BfkYYFSXWB8HDssvetAA2zBDBD8m1mXq5U/hu
-	HwUIVtdTwDUcCALo7MhvmQnHlwV06pkQacOjmH6fD8BowYqEA3zitmwqI7buZzgYLvnVHdwhHXUGU
-	/hbC3aemVwVJk1TFQ6wT5OrSHVzc1PGChAbCtmLrxGCe7hd4sPxjSC1AUkQJwrK1OZHFaRnVCae65
-	5k9JUEjJg3sBoHC8ivOVqhkuKJG1okVE0Ybd3bITcGyvM9efiI2blh1qeUG5lLoVTVChY3bzkmz+Q
-	GFE2nw8Q==;
+	bh=+AbE/75K2GVqTBVNgvpt+w56HmHXmLPpo7k65ZoP/Xs=; b=EZ3o2lZqKPUvvK5MC7nAVcYodZ
+	fDmfhPbPXm4IgJuYJ0S7P0/u6a/OqmAakCpjyOBgmDK23Njr7sc5BsIlucg3i48XV9P0M4MKCOGYV
+	rcThT5VWASrzvc1VFp6739TCz/zIbsvhVXrZ3jGNxemAm/HOFAsfAz3KxlHdPC7FIfiSxNvgcwFSO
+	OlxYzAsUYUlnHH4zwg8EVyosLaSqLu7DGsTZkCe3kZhB40ZBqZSrs8tdq1K7s5/8ANBRSWrfYk+kT
+	xwJ7pmmlgF2sW2OHebKyLFHqXFHDvqSQmkSDNLui0sID6z8M/TU6xk16N7L0etaa9fgK2UvmG7clN
+	zuy9yfCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utDnV-0000000EIeC-03Yd;
-	Mon, 01 Sep 2025 23:18:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1utDna-0000000EInE-1Aje;
+	Mon, 01 Sep 2025 23:18:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utB1z-0000000DmAS-1MS9;
-	Mon, 01 Sep 2025 20:21:36 +0000
+	id 1utB9P-0000000Dnd7-0pwG
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 01 Sep 2025 20:29:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id ED00541E48;
-	Mon,  1 Sep 2025 20:21:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9C65C4CEF0;
-	Mon,  1 Sep 2025 20:21:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E132B405E1;
+	Mon,  1 Sep 2025 20:29:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E475C4CEF0;
+	Mon,  1 Sep 2025 20:29:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756758094;
-	bh=zupmcbT7MYzC+6+FlkMyuP3znHTEX3ZeQyS/vH9i+Gs=;
+	s=k20201202; t=1756758554;
+	bh=xIsLH653UR9bpg6VTzgFv8umlPBg//nOtGBqWRExVFk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EW+IGomsJAUChff9Gfgx3X5WbTf2EUQ+5T88BsXsDAWjg3VLClfaczOTrC4ltqKYm
-	 1FcnaH9p0mlgM/q31XczwR0fdwMvgdHH8dXzkQLi+y2pu/o3wLP15oOZ7AQCMZ+TWu
-	 64XhQLtlPKeElWy9r3O8Ilc7seDm0rx6MVCQ4+gwTXp3dDb+tGkY3rJZZ14ALGCvK2
-	 030OxJ91/4dYE4PKW4ha0791/jnLi6GslFzimkfOEth2Gj0haXg6Q10XhSd3Ti+VtM
-	 Z/t5RP/S8BlpP4ETgG4+Xd074Xso3ZjIcuO2a50T9DK/un/sjJzR5stW00O6B9z+D6
-	 708z4g2CEN4kg==
-Date: Mon, 1 Sep 2025 15:21:33 -0500
+	b=sOrMtuokVlRFxgVNtMVpHJEVW3oVaxoEgCPwPi9LEN42ziu6Zc5t3rAmOk0Vo91T7
+	 kHG+sVCbL2AIGFI9nAY+DYtZR5qXGISaie+hM3SkCzexv3az3cWCpM4scLm9dWFcj5
+	 +8gymTMSRrS5kelGB9ECeoZjR1+bJ+ewRjaqF707tQ7RR6ZHmeaMrGDvqwOm0vnBQf
+	 4sTNv4KGmHnJ8Z6oM8FWTKdlhJ1iC0YaqLhjpFM4T1nxS74gBOr8Kz4JR3aoJMSODc
+	 TCJC0o7piMc4+GUfBl6/DWNtubQBAaF5VlTAN5NFd6/Lenf8/HTyxgpknXugarlCJO
+	 7oh15BkrIBkbA==
+Date: Mon, 1 Sep 2025 15:29:13 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Miquel Raynal <miquel.raynal@bootlin.com>, linux-kernel@vger.kernel.org,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
+To: Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: Joel Stanley <joel@jms.id.au>, linux-aspeed@lists.ozlabs.org,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-samsung-soc@vger.kernel.org,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	linux-mtd@lists.infradead.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH 2/4] dt-bindings: mtd samsung-s3c2410: Drop S3C2410
- support
-Message-ID: <175675809322.277369.1491301346340311064.robh@kernel.org>
-References: <20250830-s3c-cleanup-nand-v1-0-05b99ef990fe@linaro.org>
- <20250830-s3c-cleanup-nand-v1-2-05b99ef990fe@linaro.org>
+	linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+	Eddie James <eajames@linux.ibm.com>,
+	Thomas Gleixner <tglx@linutronix.de>, Lee Jones <lee@kernel.org>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Andrew Jeffery <andrew@codeconstruct.com.au>
+Subject: Re: [PATCH v2 3/4] dt-bindings: interrupt-controller: aspeed: Add
+ AST2700 SCU IC compatibles
+Message-ID: <175675855315.287526.6300698694684294700.robh@kernel.org>
+References: <20250831021438.976893-1-ryan_chen@aspeedtech.com>
+ <20250831021438.976893-4-ryan_chen@aspeedtech.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250830-s3c-cleanup-nand-v1-2-05b99ef990fe@linaro.org>
+In-Reply-To: <20250831021438.976893-4-ryan_chen@aspeedtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_132135_382275_726CF6CC 
-X-CRM114-Status: UNSURE (   9.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250901_132915_255403_EBC8B39B 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,15 +79,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sat, 30 Aug 2025 19:01:10 +0200, Krzysztof Kozlowski wrote:
-> Samsung S3C24xx family of SoCs was removed from the Linux kernel in the
-> commit 61b7f8920b17 ("ARM: s3c: remove all s3c24xx support"), in January
-> 2023.  There are no in-kernel users of its compatibles.
+On Sun, 31 Aug 2025 10:14:37 +0800, Ryan Chen wrote:
+> Add compatible strings for the four SCU interrupt controller instances
+> on the AST2700 SoC (scu-ic0 to 3), following the multi-instance model used
+> on AST2600.
 > 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Also define interrupt indices in the binding header.
+> 
+> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
 > ---
->  .../devicetree/bindings/mtd/samsung-s3c2410.txt    | 56 ----------------------
->  1 file changed, 56 deletions(-)
+>  .../aspeed,ast2500-scu-ic.yaml                     |  6 +++++-
+>  .../interrupt-controller/aspeed-scu-ic.h           | 14 ++++++++++++++
+>  2 files changed, 19 insertions(+), 1 deletion(-)
 > 
 
 Acked-by: Rob Herring (Arm) <robh@kernel.org>
