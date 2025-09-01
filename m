@@ -4,68 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99036CA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 09:52:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 177F7CA0FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 09:55:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w1z2g3tMgXYEg5H4trifnuOVtOVDKxzPGY78FqbQVls=; b=HYnh5RjzyL4pr3j0NoAzqCS9th
-	0cUcGKQ6GYGpgC7+H/+Fg2whTe1c1eNAfjaySJ90cVVuEefVnSBnzBFShoLXxfD50rWN3cE43dX6d
-	zUj/0DtogHXKBtPTBHnqQ6v6dg8Om9B+8nTGbh94NZwePT2Q7aYpJkN3flJJQ95ke2LgWTu6aLdN7
-	7kEKXVHXY+5pYunzyPA5xPxGduFoWyhH8NbXF0vc5aDtURDPZ9hqrlWRUco3TTBjp219mylTrM4+D
-	SCh/FDADeZgsw6Z7MNvG3bq/BHj2p2+guehCeIYJ53ENQ5bkrmiyP8zipQBOgTEQyQb6M9yRnVSCY
-	UKGJkPYg==;
+	bh=KdWH7nTM4UtBAwVn6YzUtn8xVQGtx4qAoD1NnPACvBw=; b=s5LVbHEyG8KR3ncME0vp70wFuG
+	5bQ15/Y5ih2mCsSp4evmFnSp3Xvkr4MVuNcOZgSiPTP6Kg51qu6yiFSnThu4/PTclO0nxFRB2Rpny
+	bLzcnhGbzfYQGFZ59Aufw/hedFlcnMneqzfNmlQeh3f4PaZqn8sfBd+xx/4iQN+d2vQA1MA9s7c7z
+	UUuNeJBUhUnaCtWG28ROWsDuvd1a1ZAE48vPaEYDxOUZlsGH3U4wSIG7oMBGKYy/BzZVitbEeZ8t8
+	bL8VP50q5Rn1QDPTPgdpVW8Jm/5hjEQ8KYoe1DGmFHIj2qhNIe5bfUGf9cuxjWkVxtpfO2SUruLUP
+	bgOFzqmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut1DV-0000000BoWQ-3iOu;
-	Mon, 01 Sep 2025 09:52:49 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut0NU-0000000Bf9S-2NZZ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 01 Sep 2025 08:59:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=w1z2g3tMgXYEg5H4trifnuOVtOVDKxzPGY78FqbQVls=; b=XYZiaMhcSgyoiC964t6tM86sX/
-	aeq7skVsL+KgaS0nV75XXV3hlgAcAFsi54Dk/JJrl4R5XakZGLYkah1ZZXdjCBuEpDr0d/mOYDwwB
-	mrxv5/jm9HDmt8TiVWQml5QLED0e9AbFEUO2F2SpbVuCrdZ3JOIrTkReuYwUHPOUYFzrX2ifHevF9
-	+hOn7R5pBfs5s/ouZ5xaqwCiIXd6Vwqy5+l8lo7aZ6bJ8CuIUOkx33+8OXel6O2p1mvwj70p1EbBS
-	fXg5nF3w4VjvpHx49h42Ts6cz+0ncKa/Y2iB7tZdaVRjQBokGjr9Q4e0uWfgky7YwsKXSIQLMehOp
-	eShqiQIA==;
+	id 1ut1GC-0000000Bol0-2gDI;
+	Mon, 01 Sep 2025 09:55:36 +0000
 Received: from mailgw.kylinos.cn ([124.126.103.232])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut0NQ-00000003gZX-1sQJ
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ut0Na-0000000BfAT-2LV1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 08:59:03 +0000
-X-UUID: dd0b02c6871111f0b29709d653e92f7d-20250901
+	Mon, 01 Sep 2025 08:59:11 +0000
+X-UUID: e86bfae4871111f0b29709d653e92f7d-20250901
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.45,REQID:46c283cc-b5bb-46ec-a1f7-907896491998,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:6493067,CLOUDID:d27fee2e8a6b06d9cbfaef5d3190c03b,BulkI
+X-CID-O-INFO: VERSION:1.1.45,REQID:9856c3cb-6274-461f-bd60-bd9e3453544a,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:6493067,CLOUDID:1f38d007408be91faa64e7344a36a8e5,BulkI
 	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850,TC:nil,Content:0|50,EDM:-3
 	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
 	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 0
 X-CID-BAS: 0,_,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: dd0b02c6871111f0b29709d653e92f7d-20250901
+X-UUID: e86bfae4871111f0b29709d653e92f7d-20250901
 Received: from mail.kylinos.cn [(10.44.16.175)] by mailgw.kylinos.cn
 	(envelope-from <zhangzihuan@kylinos.cn>)
 	(Generic MTA)
-	with ESMTP id 793860202; Mon, 01 Sep 2025 16:58:44 +0800
+	with ESMTP id 1266094301; Mon, 01 Sep 2025 16:59:03 +0800
 Received: from mail.kylinos.cn (localhost [127.0.0.1])
-	by mail.kylinos.cn (NSMail) with SMTP id 86233E008FA5;
-	Mon,  1 Sep 2025 16:58:43 +0800 (CST)
-X-ns-mid: postfix-68B56043-381034747
+	by mail.kylinos.cn (NSMail) with SMTP id B89CBE008FA7;
+	Mon,  1 Sep 2025 16:59:02 +0800 (CST)
+X-ns-mid: postfix-68B56055-952872770
 Received: from localhost.localdomain (unknown [172.25.120.24])
-	by mail.kylinos.cn (NSMail) with ESMTPA id BDA8EE008FA7;
-	Mon,  1 Sep 2025 16:58:39 +0800 (CST)
+	by mail.kylinos.cn (NSMail) with ESMTPA id C0DDDE008FA8;
+	Mon,  1 Sep 2025 16:58:52 +0800 (CST)
 From: Zihuan Zhang <zhangzihuan@kylinos.cn>
 To: "Rafael J . wysocki" <rafael@kernel.org>,
 	Viresh Kumar <viresh.kumar@linaro.org>,
@@ -114,17 +99,17 @@ Cc: Ben Horgan <ben.horgan@arm.com>,
 	linux-omap@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Zihuan Zhang <zhangzihuan@kylinos.cn>
-Subject: [PATCH v3 10/12] thermal: imx: Use scope-based cleanup helper
-Date: Mon,  1 Sep 2025 16:57:46 +0800
-Message-Id: <20250901085748.36795-11-zhangzihuan@kylinos.cn>
+Subject: [PATCH v3 12/12] PM: EM: Use scope-based cleanup helper
+Date: Mon,  1 Sep 2025 16:57:48 +0800
+Message-Id: <20250901085748.36795-13-zhangzihuan@kylinos.cn>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250901085748.36795-1-zhangzihuan@kylinos.cn>
 References: <20250901085748.36795-1-zhangzihuan@kylinos.cn>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_095901_310165_E83D17B0 
-X-CRM114-Status: GOOD (  12.85  )
+X-CRM114-CacheID: sfid-20250901_015910_907160_1CB34DDD 
+X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,62 +132,57 @@ No functional change intended.
 
 Signed-off-by: Zihuan Zhang <zhangzihuan@kylinos.cn>
 ---
- drivers/thermal/imx_thermal.c | 12 ++++--------
- 1 file changed, 4 insertions(+), 8 deletions(-)
+ kernel/power/energy_model.c | 9 +++------
+ 1 file changed, 3 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/thermal/imx_thermal.c b/drivers/thermal/imx_thermal.=
-c
-index 38c993d1bcb3..8d5fd5ca39da 100644
---- a/drivers/thermal/imx_thermal.c
-+++ b/drivers/thermal/imx_thermal.c
-@@ -201,7 +201,6 @@ static struct thermal_soc_data thermal_imx7d_data =3D=
+diff --git a/kernel/power/energy_model.c b/kernel/power/energy_model.c
+index ea7995a25780..852d48039ce2 100644
+--- a/kernel/power/energy_model.c
++++ b/kernel/power/energy_model.c
+@@ -451,7 +451,7 @@ static void
+ em_cpufreq_update_efficiencies(struct device *dev, struct em_perf_state =
+*table)
  {
-=20
- struct imx_thermal_data {
- 	struct device *dev;
+ 	struct em_perf_domain *pd =3D dev->em_pd;
 -	struct cpufreq_policy *policy;
- 	struct thermal_zone_device *tz;
- 	struct thermal_cooling_device *cdev;
- 	struct regmap *tempmon;
-@@ -541,22 +540,20 @@ MODULE_DEVICE_TABLE(of, of_imx_thermal_match);
- static int imx_thermal_register_legacy_cooling(struct imx_thermal_data *=
-data)
- {
- 	struct device_node *np;
-+	struct cpufreq_policy *policy __free(put_cpufreq_policy) =3D cpufreq_cp=
-u_get(0);
- 	int ret =3D 0;
++	struct cpufreq_policy *policy __free(put_cpufreq_policy);
+ 	int found =3D 0;
+ 	int i, cpu;
 =20
--	data->policy =3D cpufreq_cpu_get(0);
--	if (!data->policy) {
-+	if (!policy) {
- 		pr_debug("%s: CPUFreq policy not found\n", __func__);
- 		return -EPROBE_DEFER;
+@@ -479,8 +479,6 @@ em_cpufreq_update_efficiencies(struct device *dev, st=
+ruct em_perf_state *table)
+ 			found++;
  	}
 =20
--	np =3D of_get_cpu_node(data->policy->cpu, NULL);
-+	np =3D of_get_cpu_node(policy->cpu, NULL);
+-	cpufreq_cpu_put(policy);
+-
+ 	if (!found)
+ 		return;
 =20
- 	if (!np || !of_property_present(np, "#cooling-cells")) {
- 		data->cdev =3D cpufreq_cooling_register(data->policy);
--		if (IS_ERR(data->cdev)) {
-+		if (IS_ERR(data->cdev))
- 			ret =3D PTR_ERR(data->cdev);
--			cpufreq_cpu_put(data->policy);
--		}
- 	}
+@@ -787,21 +785,20 @@ static void em_check_capacity_update(void)
 =20
- 	of_node_put(np);
-@@ -567,7 +564,6 @@ static int imx_thermal_register_legacy_cooling(struct=
- imx_thermal_data *data)
- static void imx_thermal_unregister_legacy_cooling(struct imx_thermal_dat=
-a *data)
- {
- 	cpufreq_cooling_unregister(data->cdev);
--	cpufreq_cpu_put(data->policy);
- }
+ 	/* Check if CPUs capacity has changed than update EM */
+ 	for_each_possible_cpu(cpu) {
+-		struct cpufreq_policy *policy;
++		struct cpufreq_policy *policy __free(put_cpufreq_policy) =3D
++			cpufreq_cpu_get(cpu);
+ 		struct em_perf_domain *pd;
+ 		struct device *dev;
 =20
- #else
+ 		if (cpumask_test_cpu(cpu, cpu_done_mask))
+ 			continue;
+=20
+-		policy =3D cpufreq_cpu_get(cpu);
+ 		if (!policy) {
+ 			pr_debug("Accessing cpu%d policy failed\n", cpu);
+ 			schedule_delayed_work(&em_update_work,
+ 					      msecs_to_jiffies(1000));
+ 			break;
+ 		}
+-		cpufreq_cpu_put(policy);
+=20
+ 		dev =3D get_cpu_device(cpu);
+ 		pd =3D em_pd_get(dev);
 --=20
 2.25.1
 
