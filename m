@@ -4,69 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 830F6CA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 00:54:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 390B6CA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 00:54:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2zcgRmIXCbrIKc8FxkKITlNihcAQ6h2DXOsEm8mAF18=; b=a76Lp4E6eC3EpbnBZPSLVf7D3G
-	xCmcIlL5gSZWFKWcSAajpDa0ZvxeME+kLZctKL1ycqKYph5md83LADM6Y9RI/zRPcglu6W8lWdaO8
-	yKX3prMaEdhmRtlFJyfluDIH1v0onbe20mrMPXcFkL2RpU5PTX2JY1IJ7/gIop+FSX00w6h6yTn+P
-	hD7OxmokevWl+TB8q3YNrUoDHOgp3n2482AItiCkLuv/ysvrReKZvXZtfH95vhpNVMwKRjLmQMh6M
-	01BMRAsgBYShsFKWgTTysYtw539qdZALoBy/FH25Iu9UgQpTL+YFwsKdlUsak48CN6X7nPvXwCAj3
-	gKa3b2gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=21cy0heJjmP9Ld43G50zc2SVhk5aa4VJAaf/J1BjNx0=; b=Xe7dDOSSgoPtM8dsbvT9LwthSC
+	K9sRk4xBo8v/yh0t6vdpJ/Hm77LKbXLXv0Vf4Z/QtVqpw5MD1mdBdyQAcx2FBln9Pugjn/Wv7ieoN
+	WX/2/C6msVJVbZH5N9V1BgIXJQphlDFpJM4pR7zKrgc+yWRv/qs3Sb0X9fSccWQ47aXeZOYgKfclA
+	2srmt6asmCi65lBATFDd33n2fO2j4I93DKMuRRtr3D61OXbGwJTM4vmDkTaaHlFyZzUf4Tr48eO9X
+	OaubNjNsI2nJrIPgxIX0ULfsY7UgZZaJlQf9IvwmDvx1xvM9LzERfxF0jIC2EXX+f9vzYJ0rFWNud
+	dCF0o4mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utFHY-0000000EafM-0Uwu;
-	Tue, 02 Sep 2025 00:53:56 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1utFHk-0000000Eb4z-1izN;
+	Tue, 02 Sep 2025 00:54:08 +0000
+Received: from mout-p-103.mailbox.org ([80.241.56.161])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utDJ1-0000000EAP5-36ro
+	id 1utE11-0000000EMl8-2iqO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 22:47:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=2zcgRmIXCbrIKc8FxkKITlNihcAQ6h2DXOsEm8mAF18=; b=DhSCe94TnGa6VnplH5DLlL0vHA
-	r4Urt0wwe1CScuy98/B8P3sNOOgHQgY3D7uo4RLV/r/z8p+FDamsHXiw1TLOAc98wSfQbJj9nD6w/
-	65Ty6MpzVtNMw+Qh/rVJJCgsjlijuHSOGpNC2RIoesxBVm9iSh5dxzY2xu4UzMTJiIgY=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1utDIl-006p2z-QY; Tue, 02 Sep 2025 00:47:03 +0200
-Date: Tue, 2 Sep 2025 00:47:03 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Heiner Kallweit <hkallweit1@gmail.com>
-Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Eric Dumazet <edumazet@google.com>,
-	David Miller <davem@davemloft.net>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>
-Subject: Re: [PATCH net-next 1/5] arm64: dts: ls1043a-qds: switch to new
- fixed-link binding
-Message-ID: <7b5a01ae-f3f1-4029-8b43-87861a8f8b8f@lunn.ch>
-References: <a3c2f8d3-36e6-4411-9526-78abbc60e1da@gmail.com>
- <fe4c021d-c188-4fc2-8b2f-9c3c269056eb@gmail.com>
- <aLNst1V_OSlvpC3t@shell.armlinux.org.uk>
- <a5411ede-5312-4510-a559-e3b09e7e763b@gmail.com>
+	Mon, 01 Sep 2025 23:32:48 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4cG4t24TCTz9t5M;
+	Tue,  2 Sep 2025 01:32:42 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1756769562;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=21cy0heJjmP9Ld43G50zc2SVhk5aa4VJAaf/J1BjNx0=;
+	b=rBH0tXnHVrXPb8dCrZ4CQ2TwrIYBKhZISkYa24/yPyJPUnQKlR1HjpfVrlj5PgXzukKbeO
+	LpRxIQOHXSVkIsMPVAYM1fvnNMq3dvQ/WrD/0ZytPMR1OCBqt62u9M60C/s4GjEm1cx5iR
+	6mCBkvLWbFFGsZOYRq/sYA/oSJzgemPsE1OImBKLwzlY7KUvfgtdWPcNNOebPdx3XaU9u2
+	rq+fNX2VNdwsNJik/KXQZJeaCUqzN5RdoSYEo5TDwdDc5Da7OYIzJE198jIM0gVZMLiU8J
+	OWaeNVWQoF+8Z3Rut0e8G9R1Mci/Yi6/EDhVGJR52e1gjjJq9INC5E/sb7ztoQ==
+Message-ID: <be2fc937-b7a6-49a7-b57d-6e3f16f4ccc3@mailbox.org>
+Date: Tue, 2 Sep 2025 01:32:38 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <a5411ede-5312-4510-a559-e3b09e7e763b@gmail.com>
+Subject: Re: [PATCH v1] dts: arm64: freescale: move imx9*-clock.h
+ imx9*-power.h into dt-bindings
+To: Krzysztof Kozlowski <krzk@kernel.org>, Peng Fan <peng.fan@oss.nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Abel Vesa <abelvesa@kernel.org>,
+ Peng Fan <peng.fan@nxp.com>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+ E Shattow <e@freeshell.de>
+References: <20250831200516.522179-1-e@freeshell.de>
+ <20250901032203.GA393@nxa18884-linux.ap.freescale.net>
+ <3a165d77-3e36-4c0d-a193-aa9b27e0d523@mailbox.org>
+ <05f7d69a-9c05-4b47-ab04-594c37e975eb@kernel.org>
+ <51daddc4-1b86-4688-98cb-ef0f041d4126@mailbox.org>
+ <8920d24b-e796-4b02-b43b-8a5deed3e8fb@kernel.org>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <8920d24b-e796-4b02-b43b-8a5deed3e8fb@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-ID: 7953aab8df04900d273
+X-MBO-RS-META: ox39hmicyjhub973d6jzuxm3y1aktfrc
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_154719_775792_993CD91C 
-X-CRM114-Status: GOOD (  11.71  )
+X-CRM114-CacheID: sfid-20250901_163247_834912_A6F4069E 
+X-CRM114-Status: GOOD (  22.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,17 +91,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Usage of the deprecated binding was added to this dt file with ab9d8032dbd0
-> ("arm64: dts: ls1043a-qds: add mmio based mdio-mux support") in 2022.
-> At that time the binding had been marked deprecated for years already.
-> I think it would be good if dtc would warn already if a deprecated
-> binding is detected, so that CI can complain.
+On 9/1/25 12:54 PM, Krzysztof Kozlowski wrote:
+> On 01/09/2025 12:30, Marek Vasut wrote:
+>> On 9/1/25 5:33 AM, Krzysztof Kozlowski wrote:
+>>> On 01/09/2025 04:22, Marek Vasut wrote:
+>>>> On 9/1/25 5:22 AM, Peng Fan wrote:
+>>>>> On Sun, Aug 31, 2025 at 01:04:45PM -0700, E Shattow wrote:
+>>>>>> Move imx9*-{clock,power}.h headers into
+>>>>>> include/dt-bindings/{clock,power}/ and fix up the DTs
+>>>>>
+>>>>> No. The files should be under arch/arm64/boot/dts/freescale/
+>>>> Why ? Linux already has include/dt-bindings/clock/ and
+>>>> include/dt-bindings/power directories for exactly those headers , why
+>>>> did iMX9 suddenly start conflating them into arch/arm64/boot/dts/freescale ?
+>>>
+>>>
+>>> Because maybe these are not bindings?
+>>
+>> Please compare arch/arm64/boot/dts/freescale/imx95-clock.h and
+>> include/dt-bindings/clock/imx8mp-clock.h and clarify to me, why the
+>> imx95-clock.h is not bindings and the imx8mp-clock.h is bindings.
+> 
+> That's uno reverse card. I do not have to prove why these are different.
+> You need to prove why imx95 are bindings.
+> 
+>>
+>> Both files list clock IDs for the clock nodes, one clock one is SCMI
+>> clock (iMX95), the other clock node is CCM clock (iMX8MP), and they are
+> 
+> Yeah, entirely different things. Like comparing apples and oranges.
+> 
+>> both (SCMI and CCM) clock nodes in DT. Both header files may have to be
+>> included in drivers, the iMX8MP headers already are, the iMX95 headers
+> 
+> No, the SCMI cannot be used in the drivers, because these are not
+> abstract IDs mapping between driver and DTS.
 
-I don't think the DTC compiler can help. It does not use the .yaml
-files. You can compile a dtc file to dtb without any outside help.
+The SCMI clock protocol on iMX9 uses fixed clock IDs (the ones in 
+imx95-clock.h), just like the iMX CCM clock driver uses fixed clock IDs 
+(the ones in imx8mp-clock.h).
 
-What i think we need is 'make dtbs_check', with some additional flags,
-like W=2, looking for such deprecated properties being used.
+Where does the "SCMI cannot be used in the drivers" come from ? Can you 
+elaborate on this part ?
 
-	Andrew
+>> currently are included only in U-Boot drivers.
+>>
+>> I really don't see the difference here, sorry.
+> 
+> You just pointed out difference - no usage in drivers, no ABI!
+
+Surely at least the SCMI clock protocol clock driver does use those SCMI 
+clock IDs , so that is "yes usage in drivers" ?
+
+Also, the SCMI clock protocol clock IDs are being used in U-Boot 
+drivers, which does make those IDs an ABI .
+
+> Instead of playing this "I found this code somewhere, so I can do
+> whatever the same" answer the first implied question - why these are
+> bindings? Provide arguments what do they bind.
+
+I am not sure how to answer this, but what I can write is, that if I 
+scramble these IDs in either the DT or the firmware (which provides the 
+SCMI clock service), then the system cannot work. I am not sure if this 
+is the answer you are looking for.
 
