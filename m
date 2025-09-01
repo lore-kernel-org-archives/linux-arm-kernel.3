@@ -4,61 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B8B5CA100C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 23:12:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7876ACA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 23:12:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=da6TUBDYE6KQNjXkXNkmjGgzc2pXTxu6abiP0BqqvEw=; b=XzvhFvNWIP9liLIN172XpnVbWU
-	R9DA3e2237N+Dw8s8mNbdkrCNAj02EnHbheOqqpWNz8Q4ZS6IXmmckSiw1BmLuAlOI9iFdbLhj+VK
-	sT9iUPDQmRdmELYQEg4Ktf+6eJoWHcFxdG40a9xthFUV1ObeTViXL2hLOHnJ0ETwrELjFxRHnfLyF
-	Y5Qc9p7znGcPTkVwRguk+ba05cBjf1xQeBm49/CNM+1kLUqcQdudgjlLUAPpS+j2IUlhcRK7F8nJM
-	qS7b7VxA+VkBlzgC0GAR72Hot+3btQZdpZbUPIVMRjmTEwsmJkRdsnIo3iRUsB1sFiO1SDnfnO//r
-	q/WiVKpA==;
+	bh=QFlj6LeYeVXuLBI0PnR72/5EffcGcDPd5XwN7nEIac0=; b=4Qx1TF6KUDIo5rtiA6tYGZl7Ex
+	XDXoinw9zsrFmd/voQcN1jY8O+5cOMmzG4IdU9iXkFPriso6AZ8ylkyJ0nqYt3baOk38Vj1DjdDjR
+	bg3ZmANu4U/I3KifOuNDxtcWG8XggNYQkv7Hq92E9loKDlmst6CZMdkbTFK7Yt6AyLfGtdz3tW5qy
+	t9g8bmOyp4ICHjUlmHtu0JHM7Fe+9iZ0yMnoFY3xeabRddOTec1ztp69vE1Gv+LNIx5yANbnAcMGf
+	kFvyHveak9VmaS8995iBXFcoHL+ydQUT7oAJ25sgPRLjcc1E/1P/Qie2XU7WTdBUz7lx2o1TqbWaE
+	rasfevBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utDgw-0000000EDqQ-36by;
-	Mon, 01 Sep 2025 23:12:02 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1utDgz-0000000EDtd-2uuh;
+	Mon, 01 Sep 2025 23:12:05 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut6Nw-0000000D4Me-482K
+	id 1ut6aX-0000000D8Dg-0amv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 15:23:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6E014601D9;
-	Mon,  1 Sep 2025 15:23:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24263C4CEF0;
-	Mon,  1 Sep 2025 15:23:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756740236;
-	bh=Z6Bw+FcjIx5936FqSyasEITeMW7G2tVVJ6eaKgA8l4w=;
+	Mon, 01 Sep 2025 15:36:58 +0000
+Received: from pendragon.ideasonboard.com (230.215-178-91.adsl-dyn.isp.belgacom.be [91.178.215.230])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 4DAADB63;
+	Mon,  1 Sep 2025 17:35:45 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1756740945;
+	bh=JG/FmgDIqDX7Pla+FvRtTebcB0C0aiOljtqjKTBfLkI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pnCxcj6hmR3kyzFGjXyzGmi+Ebjv1J9Oo9OIj93UmdWU9kULjfM4TSPiQHqD86GIg
-	 gaBATn92CB4h6hY0lpJwhGxe0hmQ3bB9d71Ne5FVNdTn8/S/W+hUTtYRtTK1+iOmzm
-	 aO8R9+mTGcbFwDiT2mAQ+KqbaOoIXKDFnxGJFGfcrdH3GU3lxXjNOY2UWRubiJIU0v
-	 8SF3VlxhFs6iZFJdc/0Cbm53TpsPRhc5P2WhSrJrG59oX5sjXC0+Gf9QlPPhEd4UBm
-	 j0gSyZ6ZIUbbAYz6bxqnpJCpQ5pUzHnouZ7L6Q24poIF1Hz5oFeWBoJWGjp/1D4EQ2
-	 uuoluUILDgrSg==
-Date: Mon, 1 Sep 2025 16:23:52 +0100
-From: Simon Horman <horms@kernel.org>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: netdev@vger.kernel.org, Sunil Goutham <sgoutham@marvell.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	"moderated list:ARM/CAVIUM THUNDER NETWORK DRIVER" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] net: thunder_bgx: use OF loop instead of fwnode
-Message-ID: <20250901152352.GG15473@horms.kernel.org>
-References: <20250830214217.74801-1-rosenp@gmail.com>
+	b=EKiXZZw+1L6xfHznEGef9KgZOxr+v2EfyaEghsc+nhd3PwhWKlq+dfiA9Z/qY9w5j
+	 uFUEQ3zSgaQAGjEGOIaQx0RGoQO2LE1kQZBl3JhHsYwhbaWvOz6HmNQnQy8aaqoP51
+	 w3N3wDxa0jrMGM/kPZ6JX3/ozGtYUUHBC4/lLFNY=
+Date: Mon, 1 Sep 2025 17:36:32 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Guoniu Zhou <guoniu.zhou@nxp.com>
+Cc: Rui Miguel Silva <rmfrfs@gmail.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 3/4] media: imx8mq-mipi-csi2: Explicitly release reset
+Message-ID: <20250901153632.GA13448@pendragon.ideasonboard.com>
+References: <20250901-csi2_imx8ulp-v5-0-67964d1471f3@nxp.com>
+ <20250901-csi2_imx8ulp-v5-3-67964d1471f3@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250830214217.74801-1-rosenp@gmail.com>
+In-Reply-To: <20250901-csi2_imx8ulp-v5-3-67964d1471f3@nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250901_083657_311102_C091EF5E 
+X-CRM114-Status: GOOD (  19.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,42 +79,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 30, 2025 at 02:42:17PM -0700, Rosen Penev wrote:
-> The loop ends up converting fwnode to device_node anyway.
+Hi Guoniu,
+
+Thank you for the patch.
+
+On Mon, Sep 01, 2025 at 02:25:31PM +0800, Guoniu Zhou wrote:
+> Call reset_control_deassert() to explicitly release reset to make sure
+> reset bits are cleared since platform like i.MX8ULP can't clear reset
+> bits automatically.
 > 
-> While at it, handle return value of of_get_mac_address in case of NVMEM.
-
-I think that this part should be a separate patch.
-Possibly targeted at net with a Fixes tag.
-
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+> ---
+>  drivers/media/platform/nxp/imx8mq-mipi-csi2.c | 8 ++------
+>  1 file changed, 2 insertions(+), 6 deletions(-)
 > 
-> Simplify while loop iteration.
-> 
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> diff --git a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> index 2bf11984690af2e687a3217e465697333d9d995d..6b83aa85af42e1dac25cf29056863680c1f89402 100644
+> --- a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> +++ b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> @@ -337,18 +337,14 @@ static int imx8mq_mipi_csi_sw_reset(struct csi_state *state)
+>  {
+>  	int ret;
+>  
+> -	/*
+> -	 * these are most likely self-clearing reset bits. to make it
+> -	 * more clear, the reset-imx7 driver should implement the
+> -	 * .reset() operation.
 
-...
+What happened to this plan, would it be feasible to implement the
+.reset() operation in the relevant drivers to be able to use
+reset_control_reset() here ?
 
-> @@ -1514,14 +1510,13 @@ static int bgx_init_of_phy(struct bgx *bgx)
->  	/* We are bailing out, try not to leak device reference counts
->  	 * for phy devices we may have already found.
->  	 */
-> -	while (lmac) {
-> +	while (lmac--) {
->  		if (bgx->lmac[lmac].phydev) {
->  			put_device(&bgx->lmac[lmac].phydev->mdio.dev);
->  			bgx->lmac[lmac].phydev = NULL;
->  		}
-> -		lmac--;
+> -	 */
+>  	ret = reset_control_assert(state->rst);
+>  	if (ret < 0) {
+>  		dev_err(state->dev, "Failed to assert resets: %d\n", ret);
+>  		return ret;
 >  	}
-
-The update to this look looks correct to me, even without the rest of
-the patch separate. If so, I'm wondering if it should also be a separate
-patch. Again, possibly for net with a Fixes tag.
-
-> -	of_node_put(node);
-> +	of_node_put(child);
->  	return -EPROBE_DEFER;
+>  
+> -	return 0;
+> +	/* Explicitly release reset to make sure reset bits are cleared. */
+> +	return reset_control_deassert(state->rst);
 >  }
+>  
+>  static void imx8mq_mipi_csi_set_params(struct csi_state *state)
 
-...
+-- 
+Regards,
+
+Laurent Pinchart
 
