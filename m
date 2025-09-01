@@ -4,74 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B7BFCA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 15:10:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47099CA0FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 15:12:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wVHBx19iLTQy7v40qomYm/I4NT1A84lCMrZzoEXUF/I=; b=VZfhaItiqmnnCNvBKlnTNNV8v4
-	Ac0HKRy2Sik8D8Go1Fiah7tQJCbDQetR39cxlJxGbWPO5KiLaaCjlhwGD3YQmWWyxgn49hx7ZBqVv
-	CmpMgVLl7TS8Jwo6Rs4g3gkRBJDHxKdDRwrbID4UwkXnAN+vWpeJSdVsDaTvCJkKp6HmcFBZMKbgl
-	apzD/zSWxSspui/7oDRtunbQ8fDHrHxdt2zDXy9HERhnH8tg0oKKDlJWWkdjjyepSLbtvNwEYAVlY
-	/sopsG9mgGxSZ0HqVUmyKJo0bHZ/vnY8udH5yuoOXPjrIwqmWs83J6xR73JrXR1aTyJ7hpOmwipoy
-	SzZsLUpw==;
+	bh=QdiPPLZWJJB7/3u42OQnI20Eaqu3AwluA7etN42m9mo=; b=JpWbrJBJVFKj4sCtRnoFwMqb2s
+	17PgcgTS0cB0V39iwSRdZuIrLdZpc0MaXcsuM+JLP4JbkiRXb7pn/K48QDMVnBinwiJwxYZg11e5t
+	omeZ5TntLC0h0Pe66ME2AAMqweD908Zs1ced7hasuJAOmhO6qMuBK3jJzWBzxBE1en4D1Zi5sk8sX
+	/KjW6v4sqInxeqYlqCAbL+S6WSypE7+Hw/dmUTNjo4UqxwTZ5W2fMSdvY5fk0zwNl5UVanAqgtt9G
+	i93QheU/+6QA+JLCskWOrZCU5t5SJPIEeDKVLPHwzgPDsqCIZBjRvnhfoG4qSziOktUQRpXFLiKBD
+	C01TsX+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut6Ab-0000000CzLe-3Iqr;
-	Mon, 01 Sep 2025 15:10:09 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1ut6D5-0000000D1A1-0fdA;
+	Mon, 01 Sep 2025 15:12:43 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut3ei-0000000CShs-21Ds
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 12:29:05 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 581CT1iG2369183;
-	Mon, 1 Sep 2025 07:29:01 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1756729741;
-	bh=wVHBx19iLTQy7v40qomYm/I4NT1A84lCMrZzoEXUF/I=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=f4FvVwhBapk3J+Dqdf4qb6W6M7KFWCoOriZ6oqFPry4GwrxCYW/wzHUoWc4a0VuHY
-	 f7qzPBWAbmM5XVKVap0U3QuQnDK9R8o0pGfnCryjdLYOubUDvPLASdj5xrFq+YHI40
-	 TqcCv5sy74FqgiZjOjQwyBUhEyNjslPHdbqqqrxI=
-Received: from DFLE111.ent.ti.com (dfle111.ent.ti.com [10.64.6.32])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 581CT0d42721597
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 1 Sep 2025 07:29:01 -0500
-Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE111.ent.ti.com
- (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 1
- Sep 2025 07:29:00 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 1 Sep 2025 07:29:00 -0500
-Received: from akashdeep-HP-Z2-Tower-G5-Workstation.dhcp.ti.com (akashdeep-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.68.177])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 581CSc7t2504775;
-	Mon, 1 Sep 2025 07:28:56 -0500
-From: Akashdeep Kaur <a-kaur@ti.com>
-To: <praneeth@ti.com>, <nm@ti.com>, <afd@ti.com>, <vigneshr@ti.com>,
-        <d-gole@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-CC: <vishalm@ti.com>, <sebin.francis@ti.com>
-Subject: [PATCH v2 3/3] arm64: dts: ti: k3-pinctrl: Add the remaining macros
-Date: Mon, 1 Sep 2025 17:58:35 +0530
-Message-ID: <20250901122835.3022850-4-a-kaur@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250901122835.3022850-1-a-kaur@ti.com>
-References: <20250901122835.3022850-1-a-kaur@ti.com>
+	id 1ut3gg-0000000CUdo-1ZRq;
+	Mon, 01 Sep 2025 12:31:07 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-325006ff07eso268205a91.1;
+        Mon, 01 Sep 2025 05:31:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756729865; x=1757334665; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=QdiPPLZWJJB7/3u42OQnI20Eaqu3AwluA7etN42m9mo=;
+        b=UXrfosH4BxTwvYhANy0VxOjqW+4GZbA7VunSFBKBNdZew/vV0YcV+x1Pcc6CU5Hems
+         PRp4LzyZ1q+dccLx+YVNICvwjUTjELsOyReM+EbDWyV+m0I/839HFRowCSKyMzZiN+PS
+         l07TM3kSPQt+JmV6713s23hJ3mytMXNwzyJvnjNqEbtNj/HWeYRk66Q1D97tCAI3CYFJ
+         s7d/RiLqEiXqaGxbvIwVfKnP6TuU/lw9F0qTIQYnq2Brn0baDBiyO21DzHNQqi+arxOF
+         FwUr8c8kIy1SIJr/yp0uUvM+w/W8+0N5wpVN3CJ6tBarNAldc7kUxI6JhcA2cQ0a/8sz
+         wolA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756729865; x=1757334665;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QdiPPLZWJJB7/3u42OQnI20Eaqu3AwluA7etN42m9mo=;
+        b=J7CXjHql9VElIDw472AgEJu5Kivpax/SfuZJDChrW+deAfab11isnYe04PjN6xJ3WH
+         XglF1r1Z0f1bjPUDYuyzRHedTvJpO8lottMnL8Xu/aO+c1qwoEOSkDp/AI9e+n6BrOcY
+         i2sv/1tY6CZ3uT8LfE0VIf9kg9x23+iTIcZwdB/OOEO7j8h99LnTiGXW4IcZ9g+cXXBK
+         jo50AED8ETa4/2OmF5vh5TLKzT1HCX7RY6zsrWeukR0Ab8MVJ6fWAkFsgeRDxSFCUBVF
+         DFzjeD5zKBK+hPmW4fqSJcDSQF6zGcewUWGLuIct82Xi5h3qm/T266reFLqACdooTwua
+         kaAQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUPuavi7sDFQBFkyx4j1LFd036hpCBHMezvpg1wzvv8gaioTRA/iSrr+RVzhy+SOEVwsUCyZcF9Q7aATF5aOjrV@lists.infradead.org, AJvYcCVsyvjLxAO+25bp9k8iyzEFds/SlFxSY9pf0XHBfiu1a7kobESxHBowBLLk7Pp7Ii1cgQNZlTNvXSknYgM7QqIqVQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4zwNTWey71wngsu2Pgr2DKju7Qd9X0+07m6SRNQ3KYOiujawY
+	s73JnjF7yKzyq2nSr3+UZF00dUZGNvmH5EUSnbncXFzd5Uhh/QErtxJ/o4T93g==
+X-Gm-Gg: ASbGncuhbe6o/Z1grNGWNjIGM6f/sh78IqC8nFpJKa78zF+LV21j9ZhZDLObYEq0nOq
+	OExjKd99v4ih7evTJRAkPV49dMLKHQWMVqh8kLtHL/GUF0AGGfFqzm3bUrGoPvLdYWRE9DYYhZ1
+	HtkKfn3yodAu4P9RsvFS9BhzBIpB68qryDvPIUSl//6tyR5Qp0vum6zvAuVDz6WjP6j9zIglW1O
+	Y8CpevFZOhNDGdcuK601kF9Dc6gvIcaXC+X78Q6pT+gh7HgEHJHaJzcUhgvTqCDXT7mXs5tp/w6
+	jo2kb1oxtyCPr7ybJP8BccyFIDwsK1/HYK5ykvshFnhfv29i3x9GpEJvon5thVwrHWxGMTNUKC1
+	EpQJc6E6Ax4VfuS3e
+X-Google-Smtp-Source: AGHT+IHuPeIgSdm25HDXIhjWczun9s0SrO4hSzN9HThHTxxeNAPcVKH5+g+uW+k/rl8zuQL2W/L6jA==
+X-Received: by 2002:a17:90b:1e11:b0:31f:11d6:ce9c with SMTP id 98e67ed59e1d1-327e666d073mr7238986a91.7.1756729864986;
+        Mon, 01 Sep 2025 05:31:04 -0700 (PDT)
+Received: from fedora ([2400:4050:d860:9700:8e8a:52de:86af:cfe3])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b4cd28ade38sm9252219a12.34.2025.09.01.05.31.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 01 Sep 2025 05:31:04 -0700 (PDT)
+Date: Mon, 1 Sep 2025 21:30:58 +0900
+From: Masaharu Noguchi <nogunix@gmail.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: gregkh@linuxfoundation.org, linux-staging@lists.linux.dev,
+	vaibhav.sr@gmail.com, mgreer@animalcreek.com, johan@kernel.org,
+	elder@kernel.org, greybus-dev@lists.linaro.org,
+	florian.fainelli@broadcom.com, rjui@broadcom.com,
+	sbranden@broadcom.com, bcm-kernel-feedback-list@broadcom.com,
+	dave.stevenson@raspberrypi.com, hverkuil@kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] staging: vc04_services: bcm2835-camera: avoid
+ -Wformat-truncation
+Message-ID: <aLWSAiAA8Ombi0WB@fedora>
+References: <20250830173850.323897-1-nogunix@gmail.com>
+ <20250830173850.323897-3-nogunix@gmail.com>
+ <20250830212923.GB16364@pendragon.ideasonboard.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250830212923.GB16364@pendragon.ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_052904_612288_1C08C226 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20250901_053106_416903_DABDE24A 
+X-CRM114-Status: UNSURE (   6.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,127 +106,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the drive stregth, schmitt trigger enable macros to pinctrl file.
-Add the missing macros for DeepSleep configuration control referenced
-from "Table 14-6172. Description Of The Pad Configuration Register Bits"
-in AM625 TRM[0].
-Add some DeepSleep macros to provide combinations that can be used
-directly in device tree files example PIN_DS_OUTPUT_LOW that
-configures pin to be output and also sets its value to 0.
+Thanks for the explanation. I understand now that this patch is not needed.
+Please drop it.
 
-[0] https://www.ti.com/lit/ug/spruiv7b/spruiv7b.pdf
-
-Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
----
- arch/arm64/boot/dts/ti/k3-pinctrl.h | 55 +++++++++++++++++++++++++++--
- 1 file changed, 52 insertions(+), 3 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-pinctrl.h b/arch/arm64/boot/dts/ti/k3-pinctrl.h
-index c0f09be8d3f94..ad53880b0dda0 100644
---- a/arch/arm64/boot/dts/ti/k3-pinctrl.h
-+++ b/arch/arm64/boot/dts/ti/k3-pinctrl.h
-@@ -3,15 +3,20 @@
-  * This header provides constants for pinctrl bindings for TI's K3 SoC
-  * family.
-  *
-- * Copyright (C) 2018-2024 Texas Instruments Incorporated - https://www.ti.com/
-+ * Copyright (C) 2018-2025 Texas Instruments Incorporated - https://www.ti.com/
-  */
- #ifndef DTS_ARM64_TI_K3_PINCTRL_H
- #define DTS_ARM64_TI_K3_PINCTRL_H
- 
-+#define WKUP_LVL_EN_SHIFT       (7)
-+#define WKUP_LVL_POL_SHIFT      (8)
- #define ST_EN_SHIFT		(14)
- #define PULLUDEN_SHIFT		(16)
- #define PULLTYPESEL_SHIFT	(17)
- #define RXACTIVE_SHIFT		(18)
-+#define DRV_STR_SHIFT           (19)
-+#define DS_ISO_OVERRIDE_EN_SHIFT(22)
-+#define DS_ISO_BYPASS_EN_SHIFT  (23)
- #define DEBOUNCE_SHIFT		(11)
- #define FORCE_DS_EN_SHIFT	(15)
- #define DS_EN_SHIFT		(24)
-@@ -19,6 +24,7 @@
- #define DS_OUT_VAL_SHIFT	(26)
- #define DS_PULLUD_EN_SHIFT	(27)
- #define DS_PULLTYPE_SEL_SHIFT	(28)
-+#define WKUP_EN_SHIFT           (29)
- 
- /* Schmitt trigger configuration */
- #define ST_DISABLE		(0 << ST_EN_SHIFT)
-@@ -33,6 +39,26 @@
- #define INPUT_EN		(1 << RXACTIVE_SHIFT)
- #define INPUT_DISABLE		(0 << RXACTIVE_SHIFT)
- 
-+#define DS_PULL_DISABLE		(1 << DS_PULLUD_EN_SHIFT)
-+#define DS_PULL_ENABLE		(0 << DS_PULLUD_EN_SHIFT)
-+
-+#define DS_PULL_UP              (1 << DS_PULLTYPE_SEL_SHIFT | DS_PULL_ENABLE)
-+#define DS_PULL_DOWN		(0 << DS_PULLTYPE_SEL_SHIFT | DS_PULL_ENABLE)
-+
-+#define DS_INPUT_EN             (1 << DS_OUT_DIS_SHIFT)
-+#define DS_INPUT_DISABLE        (0 << DS_OUT_DIS_SHIFT)
-+
-+#define DS_OUT_VALUE_ZERO       (0 << DS_OUT_VAL_SHIFT)
-+#define DS_OUT_VALUE_ONE        (1 << DS_OUT_VAL_SHIFT)
-+
-+#define WKUP_ENABLE             (1 << WKUP_EN_SHIFT)
-+#define WKUP_ON_LEVEL		(1 << WKUP_LVL_EN_SHIFT)
-+#define WKUP_ON_EDGE            (0 << WKUP_LVL_EN_SHIFT)
-+#define WKUP_LEVEL_LOW          (0 << WKUP_LVL_POL_SHIFT)
-+#define WKUP_LEVEL_HIGH		(1 << WKUP_LVL_POL_SHIFT)
-+
-+#define WKUP_DISABLE            (0 << WKUP_EN_SHIFT)
-+
- /* Only these macros are expected be used directly in device tree files */
- #define PIN_OUTPUT		(INPUT_DISABLE | PULL_DISABLE)
- #define PIN_OUTPUT_PULLUP	(INPUT_DISABLE | PULL_UP)
-@@ -53,18 +79,41 @@
- #define PIN_DEBOUNCE_CONF5	(5 << DEBOUNCE_SHIFT)
- #define PIN_DEBOUNCE_CONF6	(6 << DEBOUNCE_SHIFT)
- 
-+#define PIN_DRIVE_STRENGTH_NOMINAL      (0 << DRV_STR_SHIFT)
-+#define PIN_DRIVE_STRENGTH_SLOW         (1 << DRV_STR_SHIFT)
-+#define PIN_DRIVE_STRENGTH_FAST         (2 << DRV_STR_SHIFT)
-+
-+#define PIN_SCHMITT_TRIGGER_DISABLE	(0 << ST_EN_SHIFT)
-+#define PIN_SCHMITT_TRIGGER_ENABLE	(1 << ST_EN_SHIFT)
-+
- #define PIN_DS_FORCE_DISABLE		(0 << FORCE_DS_EN_SHIFT)
- #define PIN_DS_FORCE_ENABLE		(1 << FORCE_DS_EN_SHIFT)
- #define PIN_DS_IO_OVERRIDE_DISABLE	(0 << DS_IO_OVERRIDE_EN_SHIFT)
- #define PIN_DS_IO_OVERRIDE_ENABLE	(1 << DS_IO_OVERRIDE_EN_SHIFT)
--#define PIN_DS_OUT_ENABLE		(0 << DS_OUT_DIS_SHIFT)
--#define PIN_DS_OUT_DISABLE		(1 << DS_OUT_DIS_SHIFT)
-+#define PIN_DS_OUT_ENABLE		DS_INPUT_DISABLE
-+#define PIN_DS_OUT_DISABLE		DS_INPUT_EN
- #define PIN_DS_OUT_VALUE_ZERO		(0 << DS_OUT_VAL_SHIFT)
- #define PIN_DS_OUT_VALUE_ONE		(1 << DS_OUT_VAL_SHIFT)
- #define PIN_DS_PULLUD_ENABLE		(0 << DS_PULLUD_EN_SHIFT)
- #define PIN_DS_PULLUD_DISABLE		(1 << DS_PULLUD_EN_SHIFT)
- #define PIN_DS_PULL_DOWN		(0 << DS_PULLTYPE_SEL_SHIFT)
- #define PIN_DS_PULL_UP			(1 << DS_PULLTYPE_SEL_SHIFT)
-+#define PIN_DS_ISO_BYPASS               (1 << DS_ISO_BYPASS_EN_SHIFT)
-+#define PIN_DS_ISO_BYPASS_DISABLE       (0 << DS_ISO_BYPASS_EN_SHIFT)
-+
-+#define DS_STATE_VAL                    (1 << DS_EN_SHIFT)
-+#define ACTIVE_STATE_VAL                (0 << DS_EN_SHIFT)
-+
-+#define PIN_DS_OUTPUT_LOW               (DS_STATE_VAL | DS_INPUT_DISABLE | DS_OUT_VALUE_ZERO)
-+#define PIN_DS_OUTPUT_HIGH              (DS_STATE_VAL | DS_INPUT_DISABLE | DS_OUT_VALUE_ONE)
-+#define PIN_DS_INPUT                    (DS_STATE_VAL | DS_INPUT_EN | DS_PULL_DISABLE)
-+#define PIN_DS_INPUT_PULLUP             (DS_STATE_VAL | DS_INPUT_EN | DS_PULL_UP)
-+#define PIN_DS_INPUT_PULLDOWN           (DS_STATE_VAL | DS_INPUT_EN | DS_PULL_DOWN)
-+
-+#define PIN_WKUP_EN_EDGE                (WKUP_ENABLE | WKUP_ON_EDGE)
-+#define PIN_WKUP_EN_LEVEL_LOW	        (WKUP_ENABLE | WKUP_ON_LEVEL | WKUP_LEVEL_LOW)
-+#define PIN_WKUP_EN_LEVEL_HIGH	        (WKUP_ENABLE | WKUP_ON_LEVEL | WKUP_LEVEL_HIGH)
-+#define PIN_WKUP_EN                     WKUP_EN_EDGE
- 
- /* Default mux configuration for gpio-ranges to use with pinctrl */
- #define PIN_GPIO_RANGE_IOPAD	(PIN_INPUT | 7)
--- 
-2.34.1
-
+Best regards,
+Masaharu Noguchi
 
