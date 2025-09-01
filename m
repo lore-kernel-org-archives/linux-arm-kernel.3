@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B08DACA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 16:36:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDF06CA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 16:36:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Uk23reMmXgDI/w5qmGpfWGxz6PEwbCh/kpCkjC9vHM=; b=e3mBeDxCPsWhqPgJoppoFUQHqn
-	SfETe0cwNaWb1JXpAhhQ6EeYTl4bUAHc9SllwciLP748KO6CjptaHtCI2VAvD6jA0rvbkuLBZcOu6
-	gktop4iLGrsRJiqtKIovfjHt05VJitd/H56Hq0JujAehXTd8KrR69cHIswLXCi9n1pOuXyX3m6frF
-	M7d/Z1AHzaY95gQ6KRsV+9Jz2eDKLuA4EnDpioagKn4mn5xEPCmY6lUnd+gUWxsY09qQlVKA/Zg1k
-	3K2aOkyrwEqMhHNG0b9Dem2g2JULXN6iQXsoq5hX5zop8QLh/1RmVHZXLkYVbbUr8Q3tNLfD3KgN8
-	tvjbiOig==;
+	bh=LajjRTBlYEsi7dzIrIXznZEWMv2DMfPXR+f7i8S1vlg=; b=ax2tDfT9WA+qQW9V5VnjWfdOoC
+	pIKHp6l9cW0Dl40iWGvWTO7Rfi5ZQmMtxcXkPkrrxFh0AabEBuDhPfsiAfKdhHtnSWT9qYOHEpciy
+	cytPxsw+onYuMYmR+P6YA1dMrSkm8Vk3EniSnoh0Su2+ZW2gpjvSJ5EjMu7lFj4U5YA8VLWwX88me
+	CERlExVSyPfFsI9qwP0tvMqiwb+A7tSG8jqf+BxYgP1h/u+h5a58IaogPfeSFfk6n72dTXVPNpqMZ
+	CxvRk4skE6jKeKp9RSyANYUazfhz1PeR0xPvX8In1TyuWC0/fBxMEAo7Hzirhzs2J0LTlKZCFgrts
+	g0NXY0sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut7Vr-0000000DHhB-13oJ;
-	Mon, 01 Sep 2025 16:36:11 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1ut7Vs-0000000DHjQ-0pre;
+	Mon, 01 Sep 2025 16:36:12 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut3zZ-0000000CalY-0dM6
+	id 1ut3za-0000000Calo-1H4j
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 12:50:38 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-55f98e7782bso960004e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 05:50:36 -0700 (PDT)
+	Mon, 01 Sep 2025 12:50:39 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-55f7ad815ceso1185620e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 05:50:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756731035; x=1757335835; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1756731036; x=1757335836; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=6Uk23reMmXgDI/w5qmGpfWGxz6PEwbCh/kpCkjC9vHM=;
-        b=tViXKK9gVzc3FAof4i2iiN0Q9G2upUrYVXxS6wbyPTRk6TA72Y0wT/ZH3pn840l6xt
-         f3lng013YcsXIeMeI+rMvpxq77T00M0SGwtyvhneyStuPdKXhoIIaN7DRcDiXT555ETg
-         ivOc+xZCIWv4ZOPltN9+yawZzNXuO7d2rU5nZKhPkpvUf7RE0GVsnZnUSd1bQOmhf204
-         In8UIgT6S4ZZdC41o4NU0yhDSLmkr/UjjSY0tceWUhq2jTlqI/gJFfi+WtMF4CGyOXWT
-         lZT7vsoOAxBaEgW+zr5vnB3NsqEPkp8R9F1X15I6MPGzyLmp8VoYt4zAm9xmdJKlBawD
-         bPBQ==
+        bh=LajjRTBlYEsi7dzIrIXznZEWMv2DMfPXR+f7i8S1vlg=;
+        b=diMVG9Ub/jAuaf/MS5WCkSNTlgJpKXEFzmTSzsSKCwMXoJZZRkaZLEe1jaaHEdPonM
+         /yv4TgEMoaFHKL+05RZyhirY6R9OcYr3lubk/KH7G5lQi1cug/s6qSCSsQtPtWl1S6FC
+         M3T5rPlsaUJ46dZIJQgDqu24ro8sYglcl6n/I672DQOuuiRi53kmMSon7YLle8Kli0xp
+         C/4U967J4LdwwSAsCAywUEue9HUeI1VvkBQrlfjFwHoov1Oeze75XtQVQ4xLQifkWOmA
+         saAgFGC0vSed0znbjJbqOsZ1cUkPLMJUQMaUoE9IIhtYkLOR3fZRZtvHDXJ2TfgSfGP/
+         e1Sg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756731035; x=1757335835;
+        d=1e100.net; s=20230601; t=1756731036; x=1757335836;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=6Uk23reMmXgDI/w5qmGpfWGxz6PEwbCh/kpCkjC9vHM=;
-        b=efCY+mbQnFcbr/gsLfOPTLKQ8vCceaHfWbzRwpBANJl9Gx4Dvu5tqXXGmqcxRjJDAq
-         t0LM+q5nUh0jFz5shZmMn0j9hJxbOWSGoT9KxknRNm0AVKXCAOVaD8O7x4wA+10aondw
-         bt5gDNwAHeEZlR9owxv7WoIXjpLgNHGPY0WoRxqmkzB+TbTcFzWh61IXgBK2JiLZcLns
-         NdPqekiICitWHVuh9gabGu/yDjYJq/tRa5pMSRIFPmy0UalB5gWF87t2JwhPe79i5s9t
-         OJZ1fDtmoE7KXCCsc7WIxtuP6CCtV+muk0MyFiDCfdGg4u8YquxuKd0BYRYML/Hvihuz
-         Q3wA==
-X-Gm-Message-State: AOJu0YwCtPSLlVsubwAN45cCMf4GAZDRn+k+1kxByrnXIlD5jae8ct9G
-	L6WAoDlTw9Ce9bTR/7ycrEQaKmyOW6YBxZ5q1mWRg7UUVNJPnEOg7SeV+TnKrJD50ZM=
-X-Gm-Gg: ASbGncuUKPdEVKN6Hos5/5fVn9+xH2DUYuWFSOuPCUToGX5OUZD8sgSIRJjN1743N88
-	PeAWAmt2ap1DYDTQDbkNF9xhAsbs4fy4mVjHPejRwroJqhuFuceAr8psp0XX5RLoV6+mMoolP6H
-	65KCArv4X3sNhBYv9nKOUw4n7TEPyCI1uuwsqfqhIN/nEhPRmdLz0efa+Iuvaedi/V21gJ5tfP3
-	wjFKUWrNgDnl6t8YHNeHVwIleFqKtHjv2qRjntOamIpcOsULKe0T5vMTS2jVCBRYhiFsEFRJZhx
-	WhmQxbYdaaKqF2D0t/W7Fm3LCoGRh9Z/n0XKT4tFVDTP9Mof6I2O/pb13+A4uCvxEoeOgh+IWg/
-	kcSUZTTk2jWCVLguViptH63fuRX3hvU61C7cXpfOSjVA=
-X-Google-Smtp-Source: AGHT+IGgDZfF6ACIKhFVzFs6/NPIi4QNdokWZPxPF83q3UjpzjtiD/USsFl39rjmYe2ag4JT1J4UTQ==
-X-Received: by 2002:ac2:5e6b:0:b0:55c:df64:3769 with SMTP id 2adb3069b0e04-55f6f6bff08mr1379694e87.9.1756731035358;
-        Mon, 01 Sep 2025 05:50:35 -0700 (PDT)
+        bh=LajjRTBlYEsi7dzIrIXznZEWMv2DMfPXR+f7i8S1vlg=;
+        b=fTT3GdT0XeJZ5YH8cnRdmhrXPha8CColIsHxDG/ASBRD+82Mb9XDtsUe9iEy73vnlj
+         zBVUuEhldR1jMBg+HPiSLTRTWmXfQ+RZJrmd532aMoW/uOGrOpNDIqzrziYzj/0ofXbk
+         izLUX1e4Y+ay5djiIXkDjjE9ucuuCZdRuQlMZ8T0RmOKt5SQA5j/q0JlpoxpwC5+ItoD
+         8yeeO7LES6IifQA7ldnhcXNanaImUWJ2BJ7EeNjs57QpFaQ09UW9TApn6rVD8RWfhMnW
+         DJgaSeYtdz9NLn7yENP3uLSCiTrgkHorh2U8+MauwWe5Md2yW0IK9Y7BDta55AcTSEes
+         Ok+w==
+X-Gm-Message-State: AOJu0Yyt/8ZiGrbExGYdbf1IXDAbXM46N8Map/a7w84UwkrVzDjADqsk
+	Jlpgi+b5PgAXYTboMlrHx/ToDcmV7qK5gWA9WiGS/qo4/UXmL46+O0HNvwcDJyuP31c=
+X-Gm-Gg: ASbGncuEa6+YsKPYQQQU0r0HMC4qoL7ME0SWPXfmyg040tncHvaFkYxSKjsXLOOCAtf
+	8nqZu0YcXMuRd4k2NWAMOzr6rb7RJAQs5Ow4VlJ+Kc66LCLh0f3Rj9uc6Mb04MTC/acXTEDWsQB
+	SjX6wFMQjlFRKi1bXRd81yIutP5CLCIBt8tbYYthLdWf4zK8yuL9FkWz75g9uvo/hN8FniB4fcO
+	XuWqJwZKPAAWGrtFsMDLr+VtRXs4bqYTvxFioh9wh9Qe81pMmSuvv9jV26ab4ZbUgTmSav55K7L
+	beGjQdhCaUmoa/WzVHVfMIolKcNUJ5gok4LoLho36tsk/e4CoXb67+giDkDZ32KER451f7L4R8k
+	QrlaV8QvBalwd7DIKFwSeo6NWiU3uvzch
+X-Google-Smtp-Source: AGHT+IHe4MCOdvoC+w1MXtumj6zxvCUtfLsSeBvyDtpuGXxqb/TDaowzgdOE6aacSmVQ3aHqMU3yyg==
+X-Received: by 2002:a05:6512:b24:b0:55f:4ac2:a5a8 with SMTP id 2adb3069b0e04-55f708bce0bmr1616268e87.13.1756731036438;
+        Mon, 01 Sep 2025 05:50:36 -0700 (PDT)
 Received: from [192.168.1.140] ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55f6774bc3fsm2926155e87.59.2025.09.01.05.50.34
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55f6774bc3fsm2926155e87.59.2025.09.01.05.50.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Sep 2025 05:50:34 -0700 (PDT)
+        Mon, 01 Sep 2025 05:50:35 -0700 (PDT)
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Mon, 01 Sep 2025 14:50:32 +0200
-Subject: [PATCH 7/8] ARM: dts: bcm63138: Add STB I2C block
+Date: Mon, 01 Sep 2025 14:50:33 +0200
+Subject: [PATCH 8/8] ARM: dts: bcm63148: Add STB I2C block
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250901-bcmbca-i2c-dts-v1-7-ad81f60d4276@linaro.org>
+Message-Id: <20250901-bcmbca-i2c-dts-v1-8-ad81f60d4276@linaro.org>
 References: <20250901-bcmbca-i2c-dts-v1-0-ad81f60d4276@linaro.org>
 In-Reply-To: <20250901-bcmbca-i2c-dts-v1-0-ad81f60d4276@linaro.org>
 To: William Zhang <william.zhang@broadcom.com>, 
@@ -87,8 +87,8 @@ Cc: linux-arm-kernel@lists.infradead.org,
  Linus Walleij <linus.walleij@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_055037_196249_045D6437 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20250901_055038_346670_CD69388F 
+X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,21 +103,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The BCM63138 has a STB I2C block.
+The BCM63148 has a STB I2C block.
+
+The peripheral range needs to be extended to accommodate
+it. The Boot LUT is at offset + 0x10000 so extend it to
+cover at least that too, 128 KB.
 
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- arch/arm/boot/dts/broadcom/bcm63138.dtsi | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ arch/arm/boot/dts/broadcom/bcm63148.dtsi | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm63138.dtsi b/arch/arm/boot/dts/broadcom/bcm63138.dtsi
-index d7410bb1b5a8e221d7ca1f2f299ce6d2bc40b763..3bf41760ea52a74632744c50a5d096e8b193a046 100644
---- a/arch/arm/boot/dts/broadcom/bcm63138.dtsi
-+++ b/arch/arm/boot/dts/broadcom/bcm63138.dtsi
-@@ -312,6 +312,15 @@ bootlut: bootlut@8000 {
- 			reg = <0x8000 0x50>;
- 		};
+diff --git a/arch/arm/boot/dts/broadcom/bcm63148.dtsi b/arch/arm/boot/dts/broadcom/bcm63148.dtsi
+index d94da16ab799c0ab25946e9cf24ae25812e85817..76c418030fbef3352e8266b679541c9129338eae 100644
+--- a/arch/arm/boot/dts/broadcom/bcm63148.dtsi
++++ b/arch/arm/boot/dts/broadcom/bcm63148.dtsi
+@@ -97,7 +97,7 @@ bus@ff800000 {
+ 		compatible = "simple-bus";
+ 		#address-cells = <1>;
+ 		#size-cells = <1>;
+-		ranges = <0 0xfffe8000 0x8000>;
++		ranges = <0 0xfffe8000 0x20000>;
  
+ 		/* GPIOs 0 .. 31 */
+ 		gpio0: gpio@100 {
+@@ -197,5 +197,14 @@ nandcs: nand@0 {
+ 				reg = <0>;
+ 			};
+ 		};
++
 +		i2c0: i2c@be00 {
 +			compatible = "brcm,brcmstb-i2c";
 +			reg = <0xbe00 0x60>;
@@ -126,10 +140,8 @@ index d7410bb1b5a8e221d7ca1f2f299ce6d2bc40b763..3bf41760ea52a74632744c50a5d096e8
 +			#size-cells = <0>;
 +			status = "disabled";
 +		};
-+
- 		pl081_dma: dma-controller@d000 {
- 			compatible = "arm,pl081", "arm,primecell";
- 			// The magic B105F00D info is missing
+ 	};
+ };
 
 -- 
 2.50.1
