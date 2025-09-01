@@ -4,70 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABF3DCA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 08:21:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D19DCA0FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 08:24:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ImQL93cWU9txQnD2Z/VJCpp3Mddb+X9LqtZaBzfGqPs=; b=Yp9MxZd6q7YlQ2n25A9HMpDo8V
-	czjhpQb47sBSK1O3pEhg1ySNjkCCJOjMh+zfWpvlqURt1/UjWMuPHKN7B5L4XYWy68qyFPTtqfDBV
-	SIQ7bjUzPNoWieHMr4p2Nt4ScWGfRBRFdOQoO8S4eqGq8hTPXE4gXVsKreCfFksA/6LlHtZwK7Gth
-	ZYlVj9HHkp/p7PxbZJatvVRV8ZLI6+m7SWC4UCwYP7g6UyeoDJPX5F4095navfJ/kOCuAkA0fTtgD
-	PXf258oNtQKEGSw0HOb8MbRAk635QM82YO4mZEJiqK6LCJX8pnTjUnKp9BcNS2qxuSkEW9tXTg12i
-	UDpAH57Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8Nr/MwF31XEwBjX/1QgxunAdY2Zjigki+lCVGwyIqxs=; b=eJSirFFOdw8bV5chlEu7XOJPhU
+	w+wsjzeyV0hjsGMfe+2qxs2REKLVSy1VU6BHSNn3cFS4hF2/51XQpy3rZkfTXDRANlNsvogid1lwK
+	i6cZP1UGtx29ytp3xWtIc+afKwOr+xgUQvBplWV7sPzHROL2VuiA4PiYFG35hENJGhIAIZ6KOPkOW
+	7iyZEXDyBkzSa5U2Ef/zrWHvE/7tZOxaIOyIT33nmBhowbvt3iFTzi1UdB+u97TQNMyLMmCewhsqh
+	6h9ltIgCF1QM4d1B7UGAmtm0KQRfvJm/CfETzDev3f9deGiFT63tRaw7SvmCTCnBAADKBK2emmhC0
+	WiIZC3OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uszmq-0000000BYse-2TTI;
-	Mon, 01 Sep 2025 08:21:12 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usyvs-0000000BQvh-0OAN;
-	Mon, 01 Sep 2025 07:26:30 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id AF1ADC653FA;
-	Mon,  1 Sep 2025 07:26:08 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 6DB7B60699;
-	Mon,  1 Sep 2025 07:26:23 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 291E41C22DC76;
-	Mon,  1 Sep 2025 09:26:02 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1756711582; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=ImQL93cWU9txQnD2Z/VJCpp3Mddb+X9LqtZaBzfGqPs=;
-	b=218vl8jrV5nS1OF9XPtgqctOBR4E5Wt9W4UG6OxZHv7VtXkQRBmbUVPaVY/3b1cPBl7ehQ
-	J7kK4SYpusaEVXga/qqSB0wfgkzV9Xt8jKrBzVRabErX/7SV2YBYZ2q8FAQAJ1EigBut1s
-	luu06JS21cW3gu2DjeH9Jet88Qx3zB/QM7V+5dZ6hNn1z9Do6W0Yo8wZ+ClFPoglbkXT/Q
-	ii9Sl8lbZqdedK97AHAk6UzFxuoZPlr5m9YkYhiiBZ7lix/nt9QHMSrAohu3Sb+yskUiXh
-	F2EpllC44LqrZxMO0GAq6p3Sc0xKPaXuSnNd4s7Rq7Zgg7yw6UbWFjtYS6PmLg==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
- <vigneshr@ti.com>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
- <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Krzysztof
- Kozlowski <krzk@kernel.org>,  Alim Akhtar <alim.akhtar@samsung.com>,
-  Russell King <linux@armlinux.org.uk>,  linux-mtd@lists.infradead.org,
-  linux-kernel@vger.kernel.org,  devicetree@vger.kernel.org,
-  linux-arm-kernel@lists.infradead.org,  linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH 4/4] ARM: s3c6400_defconfig: Drop MTD_NAND_S3C2410
-In-Reply-To: <20250830-s3c-cleanup-nand-v1-4-05b99ef990fe@linaro.org>
-	(Krzysztof Kozlowski's message of "Sat, 30 Aug 2025 19:01:12 +0200")
-References: <20250830-s3c-cleanup-nand-v1-0-05b99ef990fe@linaro.org>
-	<20250830-s3c-cleanup-nand-v1-4-05b99ef990fe@linaro.org>
-User-Agent: mu4e 1.12.7; emacs 30.1
-Date: Mon, 01 Sep 2025 09:26:01 +0200
-Message-ID: <87qzwqr5va.fsf@bootlin.com>
+	id 1uszpW-0000000BZOH-1xEF;
+	Mon, 01 Sep 2025 08:23:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1usyyp-0000000BRI1-0XPx
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 01 Sep 2025 07:29:32 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3029D1A25;
+	Mon,  1 Sep 2025 00:29:20 -0700 (PDT)
+Received: from localhost (ionvoi01-desktop.cambridge.arm.com [10.2.80.58])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 201C93F63F;
+	Mon,  1 Sep 2025 00:29:28 -0700 (PDT)
+Date: Mon, 1 Sep 2025 08:29:26 +0100
+From: Ionela Voinescu <ionela.voinescu@arm.com>
+To: Lifeng Zheng <zhenglifeng1@huawei.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org,
+	viresh.kumar@linaro.org, beata.michalska@arm.com,
+	sudeep.holla@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linuxarm@huawei.com, jonathan.cameron@huawei.com,
+	vincent.guittot@linaro.org, yangyicong@hisilicon.com,
+	zhanjie9@hisilicon.com, lihuisong@huawei.com, yubowen8@huawei.com,
+	zhangpengjie2@huawei.com, linhongye@h-partners.com
+Subject: Re: [PATCH v5 3/3] arm64: topology: Setup AMU FIE for online CPUs
+ only
+Message-ID: <aLVJdy3M1NRBR5LF@arm.com>
+References: <20250819072931.1647431-1-zhenglifeng1@huawei.com>
+ <20250819072931.1647431-4-zhenglifeng1@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250819072931.1647431-4-zhenglifeng1@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_002628_647740_701CAF13 
-X-CRM114-Status: UNSURE (   7.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250901_002931_264780_EB4079B1 
+X-CRM114-Status: GOOD (  29.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,22 +70,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Krzysztof,
+Hi,
 
-On 30/08/2025 at 19:01:12 +02, Krzysztof Kozlowski <krzysztof.kozlowski@lin=
-aro.org> wrote:
-
-> MTD_NAND_S3C2410 driver was removed from the kernel, so cleanup
-> defconfig as well.
->
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->
+On Tuesday 19 Aug 2025 at 15:29:31 (+0800), Lifeng Zheng wrote:
+> When boot with maxcpu=1 restrict, and LPI(Low Power Idle States) is on,
+> only CPU0 will go online. The support AMU flag of CPU0 will be set but the
+> flags of other CPUs will not. This will cause AMU FIE set up fail for CPU0
+> when it shares a cpufreq policy with other CPU(s). After that, when other
+> CPUs are finally online and the support AMU flags of them are set, they'll
+> never have a chance to set up AMU FIE, even though they're eligible.
+> 
+> To solve this problem, the process of setting up AMU FIE needs to be
+> modified as follows:
+> 
+> 1. Set up AMU FIE only for the online CPUs.
+> 
+> 2. Try to set up AMU FIE each time a CPU goes online and do the
+> freq_counters_valid() check. If this check fails, clear scale freq source
+> of all the CPUs related to the same policy, in case they use different
+> source of the freq scale.
+> 
+> At the same time, this change also be applied to cpufreq when calling
+> arch_set_freq_scale.
+> 
+> Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
 > ---
->
-> I will take it via Samsung SoC.
+>  arch/arm64/kernel/topology.c | 54 ++++++++++++++++++++++++++++++++++--
+>  drivers/cpufreq/cpufreq.c    |  4 +--
+>  2 files changed, 54 insertions(+), 4 deletions(-)
+> 
+[..]
+>  
+> diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
+> index 78ca68ea754d..d1890a2af1af 100644
+> --- a/drivers/cpufreq/cpufreq.c
+> +++ b/drivers/cpufreq/cpufreq.c
+> @@ -417,7 +417,7 @@ void cpufreq_freq_transition_end(struct cpufreq_policy *policy,
+>  
+>  	cpufreq_notify_post_transition(policy, freqs, transition_failed);
+>  
+> -	arch_set_freq_scale(policy->related_cpus,
+> +	arch_set_freq_scale(policy->cpus,
+>  			    policy->cur,
+>  			    arch_scale_freq_ref(policy->cpu));
+>  
+> @@ -2219,7 +2219,7 @@ unsigned int cpufreq_driver_fast_switch(struct cpufreq_policy *policy,
+>  		return 0;
+>  
+>  	policy->cur = freq;
+> -	arch_set_freq_scale(policy->related_cpus, freq,
+> +	arch_set_freq_scale(policy->cpus, freq,
+>  			    arch_scale_freq_ref(policy->cpu));
 
-Ok, I'll take the other patches through mtd.
+I think it might be good to keep these calls to arch_set_freq_scale() for
+all related CPUs and not only online ones. This can result in CPUs coming
+out of hotplug with a wrong scale factor, because while they were out, any
+frequency transitions of the policy only modified the scale factor of
+online CPUs. When they come out of hotplug, arch_set_freq_scale() will not
+be called for them until there's a new frequency transition.
 
-Thanks,
-Miqu=C3=A8l
+I understand that if this is not changed to only pass online CPUs,
+supports_scale_freq_counters() will now fail when called in
+topology_set_freq_scale() for scenarios when only some CPUs in a policy
+are online - e.g. the scenario in your commit message. But I think a
+simple change in supports_scale_freq_counters() that instead checks that
+at least one CPU in the policy supports AMU-based FIE, instead of all,
+is a better fix that does not break the cpufreq-based FIE. If at least
+one CPU is marked as supporting AMUs for FIE we know that the AMU setup
+path is in progress and we should bail out of
+topology_set_freq_scale()/arch_set_freq_scale(). 
+
+Hope it helps,
+Ionela.
+
+>  	cpufreq_stats_record_transition(policy, freq);
+>  
+> -- 
+> 2.33.0
+> 
+> 
 
