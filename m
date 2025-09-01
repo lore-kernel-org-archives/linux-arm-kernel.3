@@ -4,69 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11121CA0FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 17:23:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6AE8CA0FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 17:26:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J+CYc9N+3NsErodoKl8WmtYNwqTGZDK3TSNDiGadEas=; b=Ozgmwx3M9PqhJQPnJ4QawNyFKc
-	4Q/q4aGwgvfVYz9hhP/Y+iQqL5hNdjgdYoi9qdNeTwMWAR7xMyPgk5OO9O9RvMni4s2ataz1mwlj4
-	NJE8V/KD1PcUbSaU0vv0u7Tdqsxr94yK9r9kJyrDZtMeMhXj/pJsvb0xINzzBhkxuY9zY4y3c1vIe
-	gJKNLDa7nKbAdr3eKREDtg7qjPHLRcbjwy3UUNdG4Y43bVpOLBNRgasBPWTH9nr4AKObmaIT5dkB5
-	jvrq/87D8Nk9N20HA3g7nNd94ZUIRj69SWhFbW2GwaC6q8nUEi8Q3fbAHaqRaz3zeeJDjTAs+kIlG
-	mQ2+OUJQ==;
+	bh=Kse27neqs7TZ5sTIdJhbs0CXmugDWDcv4gD+1oQQ4ac=; b=oxz1cfrzJwK6FLYx6tZNzLCWUf
+	f9PLNLfbmCgSUA5U66DunXCgQK+PBj2yD8tRamlrb2YMyfrtjrG3VRca7PpPgHeYhuZYv0fAlknhL
+	StNcuex0S7cXHGa2GpLjClekLr47ezHyuyV+HdK0fxp5UUG9r90ohO+V35/rhJgTmBPp/22M5lypY
+	1q4srAfWD6hzDlgEFfCYD3XGW77cyiX86VAH8oM6UtmA0Jv6IyJ8aRwS9zZ0/3K9COEOMQcJ1Xjhm
+	33ctgvJ8PU6T+4LoVyeGWeG5z+iVmnAEi4zGS4BPAzO/yN/32TY23RlHHp8ZlTzuI6FJbAqA9hLBQ
+	OCgnfPdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut8FM-0000000DRs1-0bsG;
-	Mon, 01 Sep 2025 17:23:12 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ut8I0-0000000DSA1-3lGq;
+	Mon, 01 Sep 2025 17:25:56 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut58e-0000000CneI-3RAb
+	id 1ut5A4-0000000CnoS-37F0
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 01 Sep 2025 14:05:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Kse27neqs7TZ5sTIdJhbs0CXmugDWDcv4gD+1oQQ4ac=; b=D1pqgoVBvHdg8z7EDJhnb9e642
+	FgWYSQcHm0VKFbxr2LfghZ1fjuBcH3LhcRUQLWhbb2kRMsK7V6bk2nkebR9XtTvdsVkgt+7Z8ftc8
+	EGrDjBYnowozMP+YHaFpuutCJvT0LX/5pmh9Ged4QG4fP6wpNLRO9AAE7OCOmysZiEkg5QZdn/UmD
+	9hRazggLCNNMGgz1Ed9MYFcvVLmBWpiX95gxP9DMF8oU5XeNh/UBHffZZWuE+S3ShssJU35+9f5P3
+	yGt/aeLchBRITtReWvCi3rxi8oB9tvgU7pGwW829lzzo3Bt+oTCvR6Haon2gitd7nKBusLHakdzLt
+	Osi4Y87Q==;
+Received: from fra-out-014.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([18.199.210.3])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ut59z-00000003l1a-3hxV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 14:04:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 08F8260010;
-	Mon,  1 Sep 2025 14:04:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25E63C4CEF0;
-	Mon,  1 Sep 2025 14:03:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756735443;
-	bh=0I395bScAfXDaELxzjx7kkUg8Yab6NEvTHxGLJFKH38=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ON7rfcZrWkVmBjYtjlMhkKpQek1xpm3hU1TZGbJ6OOaING+Vrn9QuQ1ZfeI48TsG8
-	 BA3Z9dKoifyKhxyV2JV1zAIVeDE8xdfc/P6cEA/ZUVM4SHjFbbaRRwnpd4bLlInZET
-	 +SC9ca9otIPB3FTcRoLSoSQMimq8sw3dBcUXN/BKE6bJu4Z1brMcww598dC/ghhGPl
-	 9CnMioU4rvmGR8TbEc2JzA69sCv9U8D7ogozmHtweIaiqWtWbfH3/BIjRLdPf5QxXo
-	 tt3zFsHlWpUU/jpm4bGVq+8TjoE9xfHIx+6Uxr0xgk9Xvs3Vwd9n5loRXhVYywkWvk
-	 /mmn9n/bmgjDg==
-Date: Mon, 1 Sep 2025 19:33:51 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Claudiu Beznea <claudiu.beznea@tuxon.dev>, bhelgaas@google.com, 
-	lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, geert+renesas@glider.be, magnus.damm@gmail.com, 
-	catalin.marinas@arm.com, will@kernel.org, mturquette@baylibre.com, sboyd@kernel.org, 
-	p.zabel@pengutronix.de, lizhi.hou@amd.com, linux-pci@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
-	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>, Wolfram Sang <wsa+renesas@sang-engineering.com>
-Subject: Re: [PATCH v3 5/9] PCI: rzg3s-host: Add Initial PCIe Host Driver for
- Renesas RZ/G3S SoC
-Message-ID: <6f2hpdkonomgrfzqoupcex2rpqtlhql4lmsqm7hqk25qakp7ax@bfrzflghmnev>
-References: <20250704161410.3931884-1-claudiu.beznea.uj@bp.renesas.com>
- <20250704161410.3931884-6-claudiu.beznea.uj@bp.renesas.com>
- <ddxayjj5wcuuish4kvyluzrujkes5seo7zlusmomyjfjcgzcyj@xe3zzzmy2zaj>
- <8ef466aa-b470-4dcb-9024-0a9c36eb9a6a@tuxon.dev>
- <zsgncwvhykw4ja3bbqaxwupppjsqq4pcrdgrsduahokmt72xsm@twekpse6uzzh>
- <CAMuHMdUu0uXBJndcwWoZp8NNyBJox5dZw4aoB8Ex50vBDDtP7g@mail.gmail.com>
+	Mon, 01 Sep 2025 14:05:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.co.uk; i=@amazon.co.uk; q=dns/txt;
+  s=amazoncorp2; t=1756735527; x=1788271527;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=Kse27neqs7TZ5sTIdJhbs0CXmugDWDcv4gD+1oQQ4ac=;
+  b=IeHKIisdRCXoZ5+V441l9oXqa7nrbEkpfLyaC0umnYkFL/LbuVXeiFnj
+   BhgsLae20Tlq1w4DSiqC48YHBv+GVqku1yOGfD0fdk6/0lZGbRbuiGVWP
+   63r5/nUvd6FMLgpueoH8UgaLfdkjnUSJeOhhv3YaOBZo4m7adb83Tpa7G
+   lfEYZRYD4j3yDKoylKH9GKksATNVzCcNeDSd78BLXHlvXyVtH2rIYdW5r
+   V7xIJkNaGSvlKMF9+nKvGVtRSIK2LFwVGLqshvlOG5z/KI1SM1ErRbR2q
+   tT5PMXQRYJ+SO91KGf1UA/nn9gscfAZJhw0SoT80PRAyGPEepUT8AgZWr
+   Q==;
+X-CSE-ConnectionGUID: 6cHdMLo7TCuPNE/i2oSWAA==
+X-CSE-MsgGUID: 9a3n9BLESJaLUrTeRH3vhg==
+X-IronPort-AV: E=Sophos;i="6.17,290,1747699200"; 
+   d="scan'208";a="1361090"
+Received: from ip-10-6-6-97.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.6.97])
+  by internal-fra-out-014.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Sep 2025 14:05:17 +0000
+Received: from EX19MTAEUB001.ant.amazon.com [54.240.197.234:5495]
+ by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.18.194:2525] with esmtp (Farcaster)
+ id b74a8fdc-df20-4ffe-a94c-ca7bfc8d3d2d; Mon, 1 Sep 2025 14:05:17 +0000 (UTC)
+X-Farcaster-Flow-ID: b74a8fdc-df20-4ffe-a94c-ca7bfc8d3d2d
+Received: from EX19D015EUB004.ant.amazon.com (10.252.51.13) by
+ EX19MTAEUB001.ant.amazon.com (10.252.51.26) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.17;
+ Mon, 1 Sep 2025 14:05:17 +0000
+Received: from EX19D015EUB004.ant.amazon.com (10.252.51.13) by
+ EX19D015EUB004.ant.amazon.com (10.252.51.13) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
+ Mon, 1 Sep 2025 14:05:16 +0000
+Received: from EX19D015EUB004.ant.amazon.com ([fe80::2dc9:7aa9:9cd3:fc8a]) by
+ EX19D015EUB004.ant.amazon.com ([fe80::2dc9:7aa9:9cd3:fc8a%3]) with mapi id
+ 15.02.2562.020; Mon, 1 Sep 2025 14:05:16 +0000
+From: "Roy, Patrick" <roypat@amazon.co.uk>
+To: "lkp@intel.com" <lkp@intel.com>
+CC: "ackerleytng@google.com" <ackerleytng@google.com>, "david@redhat.com"
+	<david@redhat.com>, "Manwaring, Derek" <derekmn@amazon.com>, "Thomson, Jack"
+	<jackabt@amazon.co.uk>, "Kalyazin, Nikita" <kalyazin@amazon.co.uk>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"oe-kbuild-all@lists.linux.dev" <oe-kbuild-all@lists.linux.dev>,
+	"pbonzini@redhat.com" <pbonzini@redhat.com>, "Roy, Patrick"
+	<roypat@amazon.co.uk>, "rppt@kernel.org" <rppt@kernel.org>,
+	"seanjc@google.com" <seanjc@google.com>, "tabba@google.com"
+	<tabba@google.com>, "vbabka@suse.cz" <vbabka@suse.cz>, "will@kernel.org"
+	<will@kernel.org>, "Cali, Marco" <xmarcalx@amazon.co.uk>
+Subject: Re: [PATCH v5 03/12] mm: introduce AS_NO_DIRECT_MAP
+Thread-Topic: [PATCH v5 03/12] mm: introduce AS_NO_DIRECT_MAP
+Thread-Index: AQHcG0lxZt1T5YHk+UqqKLGu1cJJ3g==
+Date: Mon, 1 Sep 2025 14:05:16 +0000
+Message-ID: <20250901140515.15769-1-roypat@amazon.co.uk>
+References: <202508311805.yfcdeaFC-lkp@intel.com>
+In-Reply-To: <202508311805.yfcdeaFC-lkp@intel.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [172.19.88.180]
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMuHMdUu0uXBJndcwWoZp8NNyBJox5dZw4aoB8Ex50vBDDtP7g@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250901_150528_114182_884F5EB9 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,120 +123,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 01, 2025 at 11:25:30AM GMT, Geert Uytterhoeven wrote:
-> Hi Mani,
-> 
-> On Sun, 31 Aug 2025 at 06:07, Manivannan Sadhasivam <mani@kernel.org> wrote:
-> > On Sat, Aug 30, 2025 at 02:22:45PM GMT, Claudiu Beznea wrote:
-> > > On 30.08.2025 09:59, Manivannan Sadhasivam wrote:
-> > > > On Fri, Jul 04, 2025 at 07:14:05PM GMT, Claudiu wrote:
-> > > >> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-> > > >>
-> > > >> The Renesas RZ/G3S features a PCIe IP that complies with the PCI Express
-> > > >> Base Specification 4.0 and supports speeds of up to 5 GT/s. It functions
-> > > >> only as a root complex, with a single-lane (x1) configuration. The
-> > > >> controller includes Type 1 configuration registers, as well as IP
-> > > >> specific registers (called AXI registers) required for various adjustments.
-> > > >>
-> > > >> Hardware manual can be downloaded from the address in the "Link" section.
-> > > >> The following steps should be followed to access the manual:
-> > > >> 1/ Click the "User Manual" button
-> > > >> 2/ Click "Confirm"; this will start downloading an archive
-> > > >> 3/ Open the downloaded archive
-> > > >> 4/ Navigate to r01uh1014ej*-rzg3s-users-manual-hardware -> Deliverables
-> > > >> 5/ Open the file r01uh1014ej*-rzg3s.pdf
-> > > >>
-> > > >> Link: https://www.renesas.com/en/products/rz-g3s?queryID=695cc067c2d89e3f271d43656ede4d12
-> > > >> Tested-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
-> > > >> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-> 
-> > > >> +  ret = pm_runtime_resume_and_get(dev);
-> > > >> +  if (ret)
-> > > >> +          return ret;
-> > > >> +
-> > > >
-> > > > Do you really need to do resume_and_get()? If not, you should do:
-> > >
-> > > It it's needed to enable the clock PM domain the device is part of.
-> > >
-> >
-> > I've replied below.
-> >
-> > > >
-> > > >     pm_runtime_set_active()
-> > > >     pm_runtime_no_callbacks()
-> > > >     devm_pm_runtime_enable()
-> 
-> > > >> +static int rzg3s_pcie_suspend_noirq(struct device *dev)
-> > > >> +{
-> > > >> +  struct rzg3s_pcie_host *host = dev_get_drvdata(dev);
-> > > >> +  const struct rzg3s_pcie_soc_data *data = host->data;
-> > > >> +  struct regmap *sysc = host->sysc;
-> > > >> +  int ret;
-> > > >> +
-> > > >> +  ret = pm_runtime_put_sync(dev);
-> > > >> +  if (ret)
-> > > >> +          return ret;
-> > > >
-> > > > Since there are no runtime callbacks present, managing runtime PM in the driver
-> > > > makes no sense.
-> > >
-> > > The PCIe device is part of a clock power domain. Dropping
-> > > pm_runtime_enable()/pm_runtime_put_sync() in this driver will lead to this
-> > > IP failing to work as its clocks will not be enabled/disabled. If you don't
-> > > like the pm_runtime_* approach that could be replaced with:
-> > >
-> > > devm_clk_get_enabled() in probe and clk_disable()/clk_enable() on
-> > > suspend/resume. W/o clocks the IP can't work.
-> >
-> > Yes, you should explicitly handle clocks in the driver. Runtime PM makes sense
-> > if you have a power domain attached to the IP, which you also do as I see now.
-> > So to conclude, you should enable/disable the clocks explicitly for managing
-> > clocks and use runtime PM APIs for managing the power domain associated with
-> > clock controller.
-> 
-> Why? For the past decade, we've been trying to get rid of explicit
-> module clock handling for all devices that are always part of a
-> clock domain.
-> 
-> The Linux PM Domain abstraction is meant for both power and clock
-> domains.  This is especially useful when a device is present on multiple
-> SoCs, on some also part of a power domain,  and the number of module
-> clocks that needs to be enabled for it to function is not the same on
-> all SoCs.  In such cases, the PM Domain abstraction takes care of many
-> of the integration-specific differences.
-> 
-
-Hmm, my understanding was that we need to explicitly handle clocks from the
-consumer drivers. But that maybe because, the client drivers I've dealt with
-requires configuring the clocks (like setting the rate, re-parenting etc...) on
-their own. But if there is no such requirement, then I guess it is OK to rely on
-the PM core and clock controller drivers.
-
-Thanks for clarifying.
-
-> > But please add a comment above pm_runtime_resume_and_get() to make it clear as
-> > most of the controller drivers are calling it for no reason.
-> 
-> Note that any child device that uses Runtime PM depends on all
-> its parents in the hierarchy to call pm_runtime_enable() and
-> pm_runtime_resume_and_get().
-> 
-
-Two things to note from your statement:
-
-1. 'child device that uses runtime PM' - Not all child drivers are doing
-runtime PM on their own. So there is no need to do pm_runtime_resume_and_get()
-unless they depend on the parent for resource enablement as below.
-
-2. 'child devices depending on parents in the hierarchy' - Again, not all
-child drivers require their parent to enable the resources. In those cases, they
-can just call pm_runtime_set_active() and pm_runtime_enable() in their probe.
-There is absolutely no need to do pm_runtime_resume_and_get() AFAIK (correct me
-if I'm wrong).
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+=0A=
+On Sun, 2025-08-31 at 11:26 +0100, kernel test robot wrote:=0A=
+> Hi Patrick,=0A=
+> =0A=
+> kernel test robot noticed the following build warnings:=0A=
+> =0A=
+> [auto build test WARNING on a6ad54137af92535cfe32e19e5f3bc1bb7dbd383]=0A=
+> =0A=
+> url:    https://github.com/intel-lab-lkp/linux/commits/Roy-Patrick/filema=
+p-Pass-address_space-mapping-to-free_folio/20250828-174202=0A=
+> base:   a6ad54137af92535cfe32e19e5f3bc1bb7dbd383=0A=
+> patch link:    https://lore.kernel.org/r/20250828093902.2719-4-roypat%40a=
+mazon.co.uk=0A=
+> patch subject: [PATCH v5 03/12] mm: introduce AS_NO_DIRECT_MAP=0A=
+> config: loongarch-randconfig-r133-20250831 (https://download.01.org/0day-=
+ci/archive/20250831/202508311805.yfcdeaFC-lkp@intel.com/config)=0A=
+> compiler: loongarch64-linux-gcc (GCC) 14.3.0=0A=
+> reproduce: (https://download.01.org/0day-ci/archive/20250831/202508311805=
+.yfcdeaFC-lkp@intel.com/reproduce)=0A=
+> =0A=
+> If you fix the issue in a separate patch/commit (i.e. not just a new vers=
+ion of=0A=
+> the same patch/commit), kindly add following tags=0A=
+> | Reported-by: kernel test robot <lkp@intel.com>=0A=
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202508311805.yfcdeaFC-lkp=
+@intel.com/=0A=
+> =0A=
+> sparse warnings: (new ones prefixed by >>)=0A=
+>>> mm/secretmem.c:155:39: sparse: sparse: symbol 'secretmem_aops' was not =
+declared. Should it be static?=0A=
+> =0A=
+> vim +/secretmem_aops +155 mm/secretmem.c=0A=
+> =0A=
+> 1507f51255c9ff Mike Rapoport           2021-07-07  154=0A=
+> 1507f51255c9ff Mike Rapoport           2021-07-07 @155  const struct addr=
+ess_space_operations secretmem_aops =3D {=0A=
+> 46de8b979492e1 Matthew Wilcox (Oracle  2022-02-09  156)         .dirty_fo=
+lio    =3D noop_dirty_folio,=0A=
+> 6612ed24a24273 Matthew Wilcox (Oracle  2022-05-02  157)         .free_fol=
+io     =3D secretmem_free_folio,=0A=
+> 5409548df3876a Matthew Wilcox (Oracle  2022-06-06  158)         .migrate_=
+folio  =3D secretmem_migrate_folio,=0A=
+> 1507f51255c9ff Mike Rapoport           2021-07-07  159  };=0A=
+> 1507f51255c9ff Mike Rapoport           2021-07-07  160=0A=
+> =0A=
+> --=0A=
+> 0-DAY CI Kernel Test Service=0A=
+> https://github.com/intel/lkp-tests/wiki=0A=
+=0A=
+This is the same thing Mike already pointed out (making `secretmem_aops` st=
+atic)=0A=
 
