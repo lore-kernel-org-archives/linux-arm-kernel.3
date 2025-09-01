@@ -4,99 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79A30CA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 07:32:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67006CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 07:34:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n5gwX0oUoQ1OWBmNFYCauKpaErmMd3o/oWX1X0hG9WI=; b=sdbQAozCbN82o5JqyBE/hoEWd7
-	nTxfczFpSdZ7ZEe/XwB4FoKroSXrbK5pxj4Pv+2A9orRlQUbkE+5qwa0o6wMEKb+AhXXmcVWF3i3c
-	3GUYYtT9eB/T8K51z8umWPsBJEcepRUXoQbOL8NT/8WTbpAmRTsKkbh6d/t2w2C0jCBqZZ0nU/JAi
-	Y/5Pi59GETqYp1TSdCdwXve2wloEeOv+E695r2aV64uEnYzM7E3LlsOJkf/r1snf+f5lddpQNIXsn
-	SNMDRJVLFS0Sef9L3LvQqFbzv1vJtlHUjXR2W7Pl8vlVnb36+g1M/m/OYiZ3MCav5ZmJZFcf45Q2c
-	xAASNwQA==;
+	bh=R2ZenOczyNRPh+gBJvOKUiI+2zJ13iDNHmu85jEHTew=; b=Rye1VYbTlebw5JPqwFza4vZ5Gd
+	H8nufwhAQLOQDj8jezCu9MxNg2hRTJ/wQw4bV1Kkr5Ettn7MTVQAkW9S6mwHyG1j0+IvBpXPHeWh9
+	Fo72yqbyEmiIGarwEmyAI5HmCN4t1r00AkvdZBnjxvdTMfXNH9FfQNOaRpMs/DbBJOAT8OppNmj8+
+	eCaxc97TIRasEbnTHynYmJEUHoUB+vIsW7ojxglH+d6gqrEwX1hq0O5BZCs2fQup4xAyiPhywmCS4
+	m2lRBsMNxHeLk5AO6lxKyTeOSWaTBfSQWRt0q0gEx32A3Q0CQ6po5z/mUVMha5zDlenT3nrCBnsjd
+	OpBF18VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usz1J-0000000BRen-1Nfb;
-	Mon, 01 Sep 2025 07:32:05 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1usz3z-0000000BS9o-0QTa;
+	Mon, 01 Sep 2025 07:34:51 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usyTG-0000000BNfz-1Pnl
+	id 1usyUf-0000000BNp2-2qCN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 06:56:55 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-45b84c9775cso7856385e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 Aug 2025 23:56:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756709813; x=1757314613; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=n5gwX0oUoQ1OWBmNFYCauKpaErmMd3o/oWX1X0hG9WI=;
-        b=bhmI83wV6/I5cj2U6WjJ52m46CulP/y4TcwUonepY82wKmCXyBKltfvGl32Tc/QA+P
-         Avwtx1iXHAeV21my8meQVn9/kjuFRhVf9SfGP22p9501TzxIMwQLtf683xt4rA5mY6No
-         BLk7q89PYNjRi2oOlyonAuCNmzlStUaQb555gL4Qyo3DjNHQYYac/hO19Q7H5aIOGLHA
-         rjo0Rj2IGVIEJ/aJ6EKsxiqWZiCMtfjy2C6/dtqes3amihaURTfxiHlbxtAlGGKjRKHR
-         zkFo6cW9GaSolPr14uaQSYz8BQQu6wT1COLcfeVJvbRJtkQ7Yyr72qTLrS6tBgJ97uNF
-         1B/g==
+	Mon, 01 Sep 2025 06:58:22 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57VNjDuR032094
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 1 Sep 2025 06:58:21 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	R2ZenOczyNRPh+gBJvOKUiI+2zJ13iDNHmu85jEHTew=; b=WDUyUbYgRLl7jdI7
+	Kof+UedANVrgMe07x+uNpGBTUGIZeOIClybm8bgH+915O0qHldXZwwmRI4PA2diy
+	7halh5sos5IXlC1CQdE6LFySw+LPnZgcXv76WAS6XIFXIdfIVULP42iSCFZWCIMp
+	XTZ/MN/+u6TLFOVD3Ug7eMnqYmSno9Iq2GvGRTEM8x0/3MvIwH6Z5YnSAhCnb/U6
+	iA89cqIJBkbJkpihO5Z/V+oGtKuxC50DNs/h/XoZkvI+oqMMgCW6K5wvUXd6+z2i
+	ZQ+w/3Bv9kCzeKx0oIVilh0BF4pmFJqD6jic8ubRKqAyiiIrXv+n+7Q32sNU1E5A
+	uCoDdw==
+Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48ur8ruq18-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 06:58:21 +0000 (GMT)
+Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-b471737c5efso3095448a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 31 Aug 2025 23:58:21 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756709813; x=1757314613;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=n5gwX0oUoQ1OWBmNFYCauKpaErmMd3o/oWX1X0hG9WI=;
-        b=M/TDbEQEh7eT9oAxiChR1hc3aK2+hbc34zldRu+YJaQLNlKK7qiG2gcXcRanhxTNUc
-         jPcPgXDDfY6e9riFRjxLUSA9+Kwu0UKWohpClHuH3yAo0ddg8Gz+kVJm9VIfVh1N4gdI
-         YhpoFgHHDAwKtlKSk7PRQnIENAZ2lmIoNm4hzQXrH2l7TR0JpWuFYSvxJqwcH1sI/q4y
-         3VnkDElqI7O59Ks1qnRY5b2MaYT1OrEYU2vkBAo0ezbK+JKOVQetM/VPXHJipk4PWy2U
-         9KJTTCVRL9pV952GXEZBdv0NtaDSp6WnJYUtCDh0AFmz2j2xnw3AzoaXbK4jqkFYSjR8
-         DltA==
-X-Forwarded-Encrypted: i=1; AJvYcCUX/NMsVWw83WCtgUOs4pVgZV7pfPeqFGBR7bFWV5yh66Fyzanr+Mao3CsWHKNfmYtNaX4exhWjAG3BiNFrHG9f@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJza58RSelrXyrQlX9QNdSfH3ObMm6ZqGi335RMZM8B/8PBFu+
-	9JSNq+Xs3fm4Azxh0kIn7tKwRUELYEtqJNXOcGONRt2PAZlChSV5MeHfRa7wUvj0vMo=
-X-Gm-Gg: ASbGnct3VWrjXY9QxVfV909gMkrH9uz/jaVXw2GSSa0K1czLbx670ANNcOWQYtiVU3e
-	VDZvfTg1VaGvnPqom4yIQI/9pSQuHWPbvXSrfTMVgkNtw+XWdxdBvdNx3lOxocHUNpoKfEGqZi6
-	k6i4RT7uzyoHBg+5l49Zx8xV+oAYTO+XYkX5HAvJdBkige8kbgzE5Q7Gv6BlsDvrTCVdf0LGetl
-	mrO4ixrjaz1+1coWx2+8+qD5NsbxW+5WFnMIqHBM1m+nkv4bcKa0TorRoBWJTMw+c+sictncAet
-	wwlDh9XafhNCg8NtoeWCv14wGXm3V7D7J+GsUp1XKyp4W5MzbTuWh8FUcD+OpQTJyzjSbUfmr/t
-	7o3d65DmlV2r+slzHSQ5ytfsd+EQXKuxz40/m4Uh+
-X-Google-Smtp-Source: AGHT+IFTyDtYclqmVOzGIS9ZJjlqs10NwWpon1hN8bxRSUY5lhRzsuWs0h2u4qUYWfT36TppjXjdDQ==
-X-Received: by 2002:a05:6000:40ce:b0:3d5:f5ef:3bb with SMTP id ffacd0b85a97d-3d5f5ef0766mr2382494f8f.11.1756709812699;
-        Sun, 31 Aug 2025 23:56:52 -0700 (PDT)
-Received: from [192.168.0.251] ([79.115.63.1])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3d12c90a01bsm11387089f8f.31.2025.08.31.23.56.50
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 31 Aug 2025 23:56:52 -0700 (PDT)
-Message-ID: <761936e8-1626-47f8-b3f5-ebc62f4a409b@linaro.org>
-Date: Mon, 1 Sep 2025 07:56:50 +0100
+        d=1e100.net; s=20230601; t=1756709900; x=1757314700;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=R2ZenOczyNRPh+gBJvOKUiI+2zJ13iDNHmu85jEHTew=;
+        b=DqogRpQw5CP3egb+yuVd6/yJSCvBkiuyLm0TT+80R7qFH/0QKTs/ieuor+BXmtQ+lr
+         LByF3uNA8BEwN2ImyIKvqMkIVFq+hpYDDMPx77ShRLdPWbyqOnLBY/wqmrHRSD1XpTiX
+         Y8s/UKSILYTEYzf/YePd4gurOYB5CxdLQkFGCI8IGPz42lWMRDwbq6Qta2GDAf/3I69t
+         lXBCOEE6iSU8WZEv6rYu42iY/0NcWwRa7zn0y/ZTPu9wvYVmvV70+m2YQ67KiYCwmTQS
+         XZwoOTnSL9yiyqCBJv8WBC2QAaVKM3bgU0nE9Ck/QDMOgrsjGvx78/UvuR8AA1u62CGB
+         vkjg==
+X-Forwarded-Encrypted: i=1; AJvYcCWRFlJYHNVadf/WSNttA5lyTi/3nUSFn2IUBMnZzXdVm08zQMBO8GZ5GiJKDLd42lPYns7o3D7jZT5MPcb1I8qo@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxq+ZQdp91EseQBzqG6R6cbDTulT0OHCmRfuA/sfurkoPS1N4QZ
+	zupUS4D6xQydzQ/IaBXbGBdsbglueuH3h0BV+3HIHAPH/fDC0pBenX/qnduVTRNUpezTT7R/eXs
+	KR1JCwBC1s7RGWpsYJTaG3xz9FfEBhBr8EJXic1BE7RVojueNrqTSMwPDqZTr2FCwkkasR3TUbz
+	xLZg==
+X-Gm-Gg: ASbGncv7cuJkwnS4fdx0sqMl3I63s6+38e/yk3/znPBHvDkUN5wMiBNBRPOxX4L/b4G
+	xZAA6iLnZ9hwhFJbTxShbfhZGYB/lS1Amd2W6wwNRdTFLui40ihGKKEa+pTfH5UlJnKv1fyQmFo
+	ep6/gACjT/igFGKgVXYTTA5VYAD8YONZ600N9ur6KskjkPcPFAGmuHHhoThutxFGM71poOewxLk
+	dVoNZpDHo72pgHrcZ/7QrW3KYd/2MG6IFR9eMQS8Z/uZG/3AZYsOYvc1bXazi8BMaExQZRv+8q0
+	CiO83n6jzObnGOpTxQ0yHs+CiDl4d+cWiVhRjQLr4WX+B1trZoEJn5EO5AbLOytiSuzUW1/0+k6
+	MctU4XaCQZGiq1nD4s5QlRg==
+X-Received: by 2002:a05:6a20:3949:b0:243:25b0:2321 with SMTP id adf61e73a8af0-243d6f7e6d2mr10335754637.52.1756709900293;
+        Sun, 31 Aug 2025 23:58:20 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFBrdSMOV835ZSodM/ToG95GYGlvM5rcn6Xyqn5yubD8Vrxqydn7Qb9jXXaPnNnhXEEII5VfQ==
+X-Received: by 2002:a05:6a20:3949:b0:243:25b0:2321 with SMTP id adf61e73a8af0-243d6f7e6d2mr10335712637.52.1756709899850;
+        Sun, 31 Aug 2025 23:58:19 -0700 (PDT)
+Received: from hu-yuanfang-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b4cd366f95asm8559358a12.51.2025.08.31.23.58.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 31 Aug 2025 23:58:19 -0700 (PDT)
+From: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+Date: Sun, 31 Aug 2025 23:58:13 -0700
+Subject: [PATCH v4 1/3] dt-bindings: arm: qcom: Add Coresight Interconnect
+ TNOC
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/5] firmware: exynos-acpm: register ACPM clocks dev
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
-References: <20250827-acpm-clk-v2-0-de5c86b49b64@linaro.org>
- <20250827-acpm-clk-v2-4-de5c86b49b64@linaro.org>
- <e8346a38-fef7-482f-81ab-20621988b047@kernel.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <e8346a38-fef7-482f-81ab-20621988b047@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250831-itnoc-v4-1-f0fb0ef822a5@oss.qualcomm.com>
+References: <20250831-itnoc-v4-0-f0fb0ef822a5@oss.qualcomm.com>
+In-Reply-To: <20250831-itnoc-v4-0-f0fb0ef822a5@oss.qualcomm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: kernel@oss.qualcomm.com, coresight@lists.linaro.org,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1756709897; l=3075;
+ i=yuanfang.zhang@oss.qualcomm.com; s=20250814; h=from:subject:message-id;
+ bh=Y867aF4IBjLOR2gpmZC8PqfLpe9/4Juk6DhmSLbLZ8U=;
+ b=2EFvjtdW0aDYQylD4PeK2l7hUEXE+8EE2A/CHNTTApxMR4JJgxpAITja7UdmxovLQuemCM2f7
+ vkq81UZFpmkBtY40PzRN6vSsQT2Uuha1jQw9G1gNBiAYZXLQiXJ90kB
+X-Developer-Key: i=yuanfang.zhang@oss.qualcomm.com; a=ed25519;
+ pk=9oS/FoPW5k0CsqSDDrPlnV+kVIOUaAe0O5pr4M1wHgY=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODMwMDAxOSBTYWx0ZWRfX9K4laRtND07C
+ ZMnkmy6QqX2ZUzgtF9PkHdnltB5LM8+igXb+ypV2P9DEiPVCr8HaXZAjTXV4pAsz+1ohchDy/y+
+ hY2zgXm2sTiaNr4zrFNp66dKOzXc4ro7XAm8v3eHTg+Xf1+65ajJIWDuksp2uD7vkTb2Z3xoFAT
+ vovF6euorK6a0kVNUNM30R7KMh+fxtazk+Ngv2sed/6m507EezSfZFuxSV+Olua4995HIQpqZH1
+ PgwZtNh/D8uv8X+bAcRYCjjqjmj1PVR5Iq/UCZS4E/H7JdHinJPPHEsL74fwUKgJaaKCsnAWnCt
+ nxT5xyBfyqNullsfqmlgjO4KB3HxalrE+Mm2n1uaVaYLtooziyoM2D3w/HZYdjKndW6Pej2us3+
+ hEOT/LZj
+X-Proofpoint-GUID: top-iXA6YBjxyc0hdrNVOHEBKi4WZI51
+X-Proofpoint-ORIG-GUID: top-iXA6YBjxyc0hdrNVOHEBKi4WZI51
+X-Authority-Analysis: v=2.4 cv=PNkP+eqC c=1 sm=1 tr=0 ts=68b5440d cx=c_pps
+ a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=gEfo2CItAAAA:8 a=EUspDBNiAAAA:8
+ a=VwQbUJbxAAAA:8 a=-QmmxQN2S_yWG1-YAlkA:9 a=QEXdDO2ut3YA:10
+ a=_Vgx9l1VpLgwpw_dHYaR:22 a=sptkURWiP4Gy88Gu7hUp:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-01_03,2025-08-28_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 bulkscore=0 priorityscore=1501 impostorscore=0 clxscore=1015
+ suspectscore=0 adultscore=0 phishscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508300019
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250831_235654_386669_DBF91F39 
-X-CRM114-Status: GOOD (  25.65  )
+X-CRM114-CacheID: sfid-20250831_235821_724232_2C3C3569 
+X-CRM114-Status: GOOD (  17.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,88 +145,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add device tree binding for Qualcomm Coresight Interconnect Trace
+Network On Chip (ITNOC). This TNOC acts as a CoreSight
+graph link that forwards trace data from a subsystem to the
+Aggregator TNOC, without aggregation or ATID functionality.
 
+Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../bindings/arm/qcom,coresight-itnoc.yaml         | 90 ++++++++++++++++++++++
+ 1 file changed, 90 insertions(+)
 
-On 8/31/25 11:50 AM, Krzysztof Kozlowski wrote:
-> On 27/08/2025 14:42, Tudor Ambarus wrote:
->> +
->> +static const struct acpm_clk_variant gs101_acpm_clks[] = {
->> +	ACPM_CLK(CLK_ACPM_DVFS_MIF, "mif"),
->> +	ACPM_CLK(CLK_ACPM_DVFS_INT, "int"),
->> +	ACPM_CLK(CLK_ACPM_DVFS_CPUCL0, "cpucl0"),
->> +	ACPM_CLK(CLK_ACPM_DVFS_CPUCL1, "cpucl1"),
->> +	ACPM_CLK(CLK_ACPM_DVFS_CPUCL2, "cpucl2"),
->> +	ACPM_CLK(CLK_ACPM_DVFS_G3D, "g3d"),
->> +	ACPM_CLK(CLK_ACPM_DVFS_G3DL2, "g3dl2"),
->> +	ACPM_CLK(CLK_ACPM_DVFS_TPU, "tpu"),
->> +	ACPM_CLK(CLK_ACPM_DVFS_INTCAM, "intcam"),
->> +	ACPM_CLK(CLK_ACPM_DVFS_TNR, "tnr"),
->> +	ACPM_CLK(CLK_ACPM_DVFS_CAM, "cam"),
->> +	ACPM_CLK(CLK_ACPM_DVFS_MFC, "mfc"),
->> +	ACPM_CLK(CLK_ACPM_DVFS_DISP, "disp"),
->> +	ACPM_CLK(CLK_ACPM_DVFS_BO, "b0"),
->> +};
-> 
-> I don't understand why clocks are defined in the firmware driver, not in
-> the clock driver.
+diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-itnoc.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-itnoc.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..8936bb7c3e8ea267ca66e0cc3fc4dac33ba6de30
+--- /dev/null
++++ b/Documentation/devicetree/bindings/arm/qcom,coresight-itnoc.yaml
+@@ -0,0 +1,90 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/arm/qcom,coresight-itnoc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Qualcomm Interconnect Trace Network On Chip - ITNOC
++
++maintainers:
++  - Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
++
++description:
++  The Interconnect TNOC is a CoreSight graph link that forwards trace data
++  from a subsystem to the Aggregator TNOC. Compared to Aggregator TNOC, it
++  does not have aggregation and ATID functionality.
++
++properties:
++  $nodename:
++    pattern: "^itnoc(@[0-9a-f]+)?$"
++
++  compatible:
++    const: qcom,coresight-itnoc
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  clock-names:
++    items:
++      - const: apb
++
++  in-ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    patternProperties:
++      '^port(@[0-9a-f]{1,2})?$':
++        description: Input connections from CoreSight Trace Bus
++        $ref: /schemas/graph.yaml#/properties/port
++
++  out-ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++    additionalProperties: false
++
++    properties:
++      port:
++        description: out connections to aggregator TNOC
++        $ref: /schemas/graph.yaml#/properties/port
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - in-ports
++  - out-ports
++
++additionalProperties: false
++
++examples:
++  - |
++    itnoc@109ac000 {
++        compatible = "qcom,coresight-itnoc";
++        reg = <0x109ac000 0x1000>;
++
++        clocks = <&aoss_qmp>;
++        clock-names = "apb";
++
++        in-ports {
++            #address-cells = <1>;
++            #size-cells = <0>;
++            port@0 {
++                reg = <0>;
++                tn_ic_in_tpdm_dcc: endpoint {
++                    remote-endpoint = <&tpdm_dcc_out_tn_ic>;
++                };
++            };
++        };
++
++        out-ports {
++            port {
++                tn_ic_out_tnoc_aggr: endpoint {
++                    /* to Aggregator TNOC input */
++                    remote-endpoint = <&tn_ag_in_tn_ic>;
++                };
++            };
++        };
++    };
++...
 
-I chose to define the clocks in the firmware driver and pass them as 
-platform data to the clock platform device for extensibility. In case
-other SoCs have different clock IDs, they'll be able to pass the
-clock data without needing to modify the clock driver. GS201 defines
-the same ACPM clocks as GS101, but I don't have access to other newer
-SoCs to tell if the ACPM clocks differ or not.
+-- 
+2.34.1
 
-The alternative is to define the clocks in the clock driver and
-use platform_device_register_simple() to register the clock platform
-device. The clock driver will be rigid in what clocks it supports.
-
-I'm fine either way for now. What do you prefer?
-
-> 
-> This creates dependency of this patch on the clock patch, so basically
-> there is no way I will take it in one cycle.
-
-Would it work to have an immutable tag for the clock and samsung-soc
-subsytems to use?
-
-> 
->> +
->>  /**
->>   * acpm_get_saved_rx() - get the response if it was already saved.
->>   * @achan:	ACPM channel info.
->> @@ -606,6 +636,7 @@ static void acpm_setup_ops(struct acpm_info *acpm)
->>  
->>  static int acpm_probe(struct platform_device *pdev)
->>  {
->> +	const struct acpm_clk_platform_data *acpm_clk_pdata;
->>  	const struct acpm_match_data *match_data;
->>  	struct device *dev = &pdev->dev;
->>  	struct device_node *shmem;
->> @@ -647,7 +678,30 @@ static int acpm_probe(struct platform_device *pdev)
->>  
->>  	platform_set_drvdata(pdev, acpm);
->>  
->> -	return devm_of_platform_populate(dev);
->> +	acpm_clk_pdata = match_data->acpm_clk_pdata;
->> +	acpm->clk_pdev = platform_device_register_data(dev, "acpm-clocks",
->> +						       PLATFORM_DEVID_NONE,
->> +						       acpm_clk_pdata,
->> +						       sizeof(*acpm_clk_pdata));
->> +	if (IS_ERR(acpm->clk_pdev))
->> +		return dev_err_probe(dev, PTR_ERR(acpm->clk_pdev),
->> +				     "Failed to register ACPM clocks device.\n");
->> +
->> +	ret = devm_of_platform_populate(dev);
->> +	if (ret) {
->> +		platform_device_unregister(acpm->clk_pdev);
-> 
-> I think this should stick to devm-interfaces everywhere, not mix them,
-> to have exactly expected cleanup sequence. Now your remove() first
-> unregisters and then de-populates, which is different order than it was
-> done in probe(). Use devm-action handler for device unregistering.
-> 
-
-Right, I will take a look. Thanks!
-ta
 
