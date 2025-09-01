@@ -4,97 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDE18CA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 17:50:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57062CA1000
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 17:53:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dLl1oyt4RUhXcYIWGbyNXvmAubTcFciHIOgmTgsswPk=; b=ekwdk58v3S2epRuQneZS38upuc
-	/8tSbY2yIQR0NELc8PDffQ9Dvc9El9e7VrIfUrL6p6Ftf5DXXNE3qeRH2xnGHTF5EcXaCaAPKGcny
-	tiCZABIgUxXGTVGxfgOfTZHuCGh+YRfj/4D8ZsmInFPtiBJsnHFHpXD4ouwSa4/ufietqKVmASLIR
-	Tm4QrEQdwINVzdHnorJW8W/kFYG4dcu0KCLkmsi/WJYXUlzhjmDZv/udef+ngj6gTrogb75N+c+HX
-	WWLuB2PT1SQ4cPAcWV21PdBkrrTHKka1Vzhk30KNUqeP/WezUGSMbs432XCVdDqDPenl6y53QN+zO
-	BJIxNlCQ==;
+	bh=eDBs7h7WrM7l69Eva8SJd0Cr/dn27ADGm+SkuMR5gmc=; b=phO2bpEzcscMXhLgSrPALepu8Z
+	CTV0tQBByf+yoeZyzQqsLub/0AGYManSs2Zx8xklDrMvxm2Ty0nXb9QQYyUzbmQT1uUqQWD5lAeoE
+	zzl4X5GjhqkPXeW1BVGmINTIxK//jFWuDlMAaGZOI+ENldNA+dn3WTyxNi7FhnsjZ1IAG061XzoEU
+	nrwuufzP/YV9n2RRq2OrX7Llot5Yf8bqXp1BSCKSjMt/IjvLJND06KH+tJVylzSTvxB2apKaFGevD
+	y+XN2EJ4jbW5FGs7C5zkYpyL07ZJBI2L3IXHr55hvoy1K5AO+WpVIoPACsaUCy2d1401RglITV4R8
+	zPKvQCxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut8g7-0000000DUxF-3Frv;
-	Mon, 01 Sep 2025 17:50:51 +0000
-Received: from fra-out-002.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([3.65.3.180])
+	id 1ut8io-0000000DVOd-1uSU;
+	Mon, 01 Sep 2025 17:53:38 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut5Xx-0000000CqIh-41Q6
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 14:30:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.co.uk; i=@amazon.co.uk; q=dns/txt;
-  s=amazoncorp2; t=1756737014; x=1788273014;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=dLl1oyt4RUhXcYIWGbyNXvmAubTcFciHIOgmTgsswPk=;
-  b=W2toBpZruDj06N5msc7008uzKME/VPBjbASPH52Qlgm1HxLjUJaKE/8Y
-   5f2M7lfigNk0R3JQ53ozN2rjxlOzqxomsnp0Mc6uC44vh4Pdjz7A1Jf45
-   pEH0olpvOTKv/2+OvtSVUmeDPNTGsCHJr3MPPKK/VHIrMJLW0w2/Wlqi0
-   8eFr2ZYGk9/4O1hx784qrV7/elazZwQJLh+C78scvOdJf+uLPjWdHjXcb
-   sqWLwkQ6YzclJ61pxFwrwG3DALdefHdsRSXPlN1f1oDeWYjibS3UMPYPy
-   NHfOafzVZLMpLiOHcLIPYuY1dol+hz+4wBSfakT7/LPLekIYDu3fh98VM
-   w==;
-X-CSE-ConnectionGUID: 7B/ba3PkSy26ZXnwYQdRbw==
-X-CSE-MsgGUID: s/0fbb7eT56B6Mg2WRcDHg==
-X-IronPort-AV: E=Sophos;i="6.17,290,1747699200"; 
-   d="scan'208";a="1466996"
-Received: from ip-10-6-6-97.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.6.97])
-  by internal-fra-out-002.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Sep 2025 14:30:03 +0000
-Received: from EX19MTAEUB001.ant.amazon.com [54.240.197.234:23216]
- by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.18.194:2525] with esmtp (Farcaster)
- id 24b98d19-0a60-4c24-a3c6-c81ad810034e; Mon, 1 Sep 2025 14:30:03 +0000 (UTC)
-X-Farcaster-Flow-ID: 24b98d19-0a60-4c24-a3c6-c81ad810034e
-Received: from EX19D015EUB001.ant.amazon.com (10.252.51.114) by
- EX19MTAEUB001.ant.amazon.com (10.252.51.26) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.17;
- Mon, 1 Sep 2025 14:30:02 +0000
-Received: from EX19D015EUB004.ant.amazon.com (10.252.51.13) by
- EX19D015EUB001.ant.amazon.com (10.252.51.114) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
- Mon, 1 Sep 2025 14:30:01 +0000
-Received: from EX19D015EUB004.ant.amazon.com ([fe80::2dc9:7aa9:9cd3:fc8a]) by
- EX19D015EUB004.ant.amazon.com ([fe80::2dc9:7aa9:9cd3:fc8a%3]) with mapi id
- 15.02.2562.020; Mon, 1 Sep 2025 14:30:01 +0000
-From: "Roy, Patrick" <roypat@amazon.co.uk>
-To: "david@redhat.com" <david@redhat.com>
-CC: "ackerleytng@google.com" <ackerleytng@google.com>, "Manwaring, Derek"
-	<derekmn@amazon.com>, "Thomson, Jack" <jackabt@amazon.co.uk>, "Kalyazin,
- Nikita" <kalyazin@amazon.co.uk>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"pbonzini@redhat.com" <pbonzini@redhat.com>, "Roy, Patrick"
-	<roypat@amazon.co.uk>, "rppt@kernel.org" <rppt@kernel.org>,
-	"seanjc@google.com" <seanjc@google.com>, "tabba@google.com"
-	<tabba@google.com>, "vbabka@suse.cz" <vbabka@suse.cz>, "will@kernel.org"
-	<will@kernel.org>, "Cali, Marco" <xmarcalx@amazon.co.uk>
-Subject: Re: [PATCH v5 05/12] KVM: Documentation: describe
- GUEST_MEMFD_FLAG_NO_DIRECT_MAP
-Thread-Topic: [PATCH v5 05/12] KVM: Documentation: describe
- GUEST_MEMFD_FLAG_NO_DIRECT_MAP
-Thread-Index: AQHcG0zmqnuL2jS1NUKSUglbGWh4mA==
-Date: Mon, 1 Sep 2025 14:30:01 +0000
-Message-ID: <20250901143000.5017-1-roypat@amazon.co.uk>
-References: <786503d6-e58d-412a-a17b-f5e4e481c3fe@redhat.com>
-In-Reply-To: <786503d6-e58d-412a-a17b-f5e4e481c3fe@redhat.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [172.19.88.180]
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	id 1ut5fF-0000000CrBt-1lKD;
+	Mon, 01 Sep 2025 14:37:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 939CA60010;
+	Mon,  1 Sep 2025 14:37:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91158C4CEF0;
+	Mon,  1 Sep 2025 14:37:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756737464;
+	bh=gIvp8Vp/E1swy4wyBXx3jb2SoCxt+LuCiS4lw6AuyVU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DJgb866OavVlQXKjEcSDRgX01RL+TgYXMilYRhox1DG2A4pbmL/EMuUOSPQkhKm9y
+	 ZvbgzuWzlkHcKChIVmdcfSamTbXnIcObi8vEvl5/9muDCgJpxid02CByyOsACIh1yU
+	 OKX98+D8HARzpuduhCAuxsNQWh5qbLNOOQS83t6frONv3iLVNfsFrehXLjwvOHBqVS
+	 gJYuwaea4P7AtESKCzphgnRjeu3/3j4HbVoPTYqH34hpPGEiqkEowrs9BdVtPLHybV
+	 TE95H7tVbki8s9jUEg4vMUHVN4eZ+ZaHfW6KZvrIPhItfOg2iPgxsvk5RylWjzgxwD
+	 tuJt2jvYGPKOQ==
+Date: Mon, 1 Sep 2025 15:37:33 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Alexey Klimov <alexey.klimov@linaro.org>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Sean Wang <sean.wang@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Paul Cercueil <paul@crapouillou.net>, Kees Cook <kees@kernel.org>,
+	Andy Shevchenko <andy@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@redhat.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>, Dong Aisheng <aisheng.dong@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Jacky Bai <ping.bai@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	NXP S32 Linux Team <s32@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Tony Lindgren <tony@atomide.com>,
+	Haojian Zhuang <haojian.zhuang@linaro.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-hardening@vger.kernel.org, linux-mm@kvack.org,
+	imx@lists.linux.dev, linux-omap@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH v6 06/15] pinctrl: imx: don't access the pin function
+ radix tree directly
+Message-ID: <4a633387-08a9-43c8-81d7-488e7222aeda@sirena.org.uk>
+References: <20250828-pinctrl-gpio-pinfuncs-v6-0-c9abb6bdb689@linaro.org>
+ <20250828-pinctrl-gpio-pinfuncs-v6-6-c9abb6bdb689@linaro.org>
+ <61bad868-d976-4f49-805c-8d14d4d8b3e4@sirena.org.uk>
+ <CAMRc=MfB_3e0sjCpV+XaKcKvit7Opk5LczH2wsxO=RftrAabjg@mail.gmail.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_073014_302037_73F47A42 
-X-CRM114-Status: GOOD (  13.03  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="j8LdXSlZH7SdW4XI"
+Content-Disposition: inline
+In-Reply-To: <CAMRc=MfB_3e0sjCpV+XaKcKvit7Opk5LczH2wsxO=RftrAabjg@mail.gmail.com>
+X-Cookie: Auction:
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,63 +107,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2025-08-28 at 11:27 +0100, David Hildenbrand wrote:=0A=
-> On 28.08.25 11:39, Roy, Patrick wrote:=0A=
->> Signed-off-by: Patrick Roy <roypat@amazon.co.uk>=0A=
->> ---=0A=
->>   Documentation/virt/kvm/api.rst | 5 +++++=0A=
->>   1 file changed, 5 insertions(+)=0A=
->>=0A=
->> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api=
-.rst=0A=
->> index c17a87a0a5ac..b52c14d58798 100644=0A=
->> --- a/Documentation/virt/kvm/api.rst=0A=
->> +++ b/Documentation/virt/kvm/api.rst=0A=
->> @@ -6418,6 +6418,11 @@ When the capability KVM_CAP_GUEST_MEMFD_MMAP is s=
-upported, the 'flags' field=0A=
->>   supports GUEST_MEMFD_FLAG_MMAP.  Setting this flag on guest_memfd crea=
-tion=0A=
->>   enables mmap() and faulting of guest_memfd memory to host userspace.=
-=0A=
->>=0A=
->> +When the capability KVM_CAP_GMEM_NO_DIRECT_MAP is supported, the 'flags=
-' field=0A=
->> +supports GUEST_MEMFG_FLAG_NO_DIRECT_MAP. Setting this flag makes the gu=
-est_memfd=0A=
->> +instance behave similarly to memfd_secret, and unmaps the memory backin=
-g it from=0A=
->> +the kernel's address space after allocation.=0A=
->> +=0A=
->>   When the KVM MMU performs a PFN lookup to service a guest fault and th=
-e backing=0A=
->>   guest_memfd has the GUEST_MEMFD_FLAG_MMAP set, then the fault will alw=
-ays be=0A=
->>   consumed from guest_memfd, regardless of whether it is a shared or a p=
-rivate=0A=
-> =0A=
-> WARNING: Missing commit description - Add an appropriate one=0A=
-=0A=
-Admittedly wasn't sure what to say that wouldn't just repeat the commit tit=
-le=0A=
-or the contents. Maybe that just means this shouldn't be its own patch. Wil=
-l=0A=
-squash in the previous one (same for PATCH 11/12).=0A=
-=0A=
-> WARNING: From:/Signed-off-by: email name mismatch: 'From: "Roy, Patrick"=
-=0A=
-> <roypat@amazon.co.uk>' !=3D 'Signed-off-by: Patrick Roy <roypat@amazon.co=
-.uk>'=0A=
-=0A=
-Heh, my git config only ever uses "Patrick Roy <roypat@amazon.co.uk>". Not =
-sure=0A=
-where "Roy, Patrick" comes from, could it be the mail server mangling thing=
-s?=0A=
-=0A=
-> -- =0A=
-> Cheers=0A=
-> =0A=
-> David / dhildenb=0A=
-> =0A=
-Best,=0A=
-Patrick=0A=
+
+--j8LdXSlZH7SdW4XI
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Mon, Sep 01, 2025 at 03:20:44PM +0200, Bartosz Golaszewski wrote:
+
+> That's not a lot of info but it fails in strcmp() which - I suppose -
+> is the one in pinmux_func_name_to_selector(). Any chance you could
+> check what the value of np->name is in imx_pinctrl_parse_functions()?
+> Is it NULL for some reason?
+
+[    0.628245] imx8mp-pinctrl 30330000.pinctrl: np->name pinctrl
+
+https://lava.sirena.org.uk/scheduler/job/1758947#L705
+
+--j8LdXSlZH7SdW4XI
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmi1r60ACgkQJNaLcl1U
+h9BW/wf/VkjCjvE+ktBljc+ZJ9dT0UQZrXYUDHUyuCETxomTnFA+SILt5aJ5bGe/
+iD8AWBpbbDsJH4vnF0ozS/kwuILQKFDettcRtaH7dIBsn/izkOQipQk8GdpbQ8WM
+hWYcC4httv6HQ2rMJMgKMjRxy7L5L6xf+VRzgPc8X+0GfzYeCig6jLv6tX80PLkO
+kOxJn1iP3VVHkXsDCw2fENaiXRuUOaSlrbwkkvBihKNbrM0499j/uQ4hwqAT8bTa
+9ubBJhS8X9FGO12dl2qkEJPtjal2M0Vf4H4PoJilobNInq/WByIDsQANxJC8XDhG
+4/h5vZiPNAzd8Qj8VQAkfeNquySq2Q==
+=Lt5F
+-----END PGP SIGNATURE-----
+
+--j8LdXSlZH7SdW4XI--
 
