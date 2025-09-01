@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C3C1CA100D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65CCBCA100C
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 00:52:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,34 +12,34 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wiX2k989cQjsVrzFTK6c2wE7V0dx2J3WDdk+6I7U+ao=; b=NIxmSuapPfuIBp+lXjenmtACez
-	409uiiBOWfJtorBB1X2u0C7GlxoYCjJJ24CeNcXlEfKDDbyGYtLFFMqACiuc+rd/2cRwQRyDil6H/
-	x7dcQUSDiTXIJOO26BAHu9FK+FR1NfSxRofLzZWhOw9oulGBh6uBWNLJQ4Z8a1DzimGqCdsc+ISZg
-	rp4qjMgMnGQl3H58wrnxJ5dTrniTHqQD3YeJsUn64AbH4Sdq3r5D39bWyxMvKpxfCFwQF7POLod1J
-	roKManOZAF/HFfvSDglXX6SaEZrfVw8N2tk9zdd+z2wFaiMjRzAgNQIOPO+8gH+Nrq2lgtMnQ5Ixi
-	o9FWzXxA==;
+	bh=ABBbzPW/6UgCX/sfTGVcUskFfJx+VpJZGLG1GYiZcWw=; b=fuxnqJrrkWa20/uAV0w/kB87LR
+	aDeiToWHYHCoKgv1VI5jqVZ8ekmaObt7ANiGbWwm7YLIUghfSGiPuPutlnanuP/wGCjJNM48hEUOW
+	PwaVTkfLZkCcyO+wbQnlziOVkjKqVFx/+wtCLauryaoLPkRBZz/AfI96HMsTIs9Vvbd0eouVtbbTk
+	ZpeJSyM1v97WJl1x9mnxSAW6/328ST9Vu7aZ2YXA/WfaxrhMpEzwK9yUsvPGK5MqZgWi0FSCnmy21
+	0w87o2k1H2dEtypolPn5wt96oTQKC8svnQatlyZ44YR9jrth25oaeiXmgZXYBEyOvi16r9vuS0PRO
+	ukKqGtig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utFG7-0000000EYEw-1VXV;
-	Tue, 02 Sep 2025 00:52:27 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1utFG6-0000000EYE8-32W7;
+	Tue, 02 Sep 2025 00:52:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utAlG-0000000Dk65-3MNq
+	id 1utAke-0000000Djyi-2hHU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 20:04:18 +0000
+	Mon, 01 Sep 2025 20:03:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E1E16600AC;
-	Mon,  1 Sep 2025 20:04:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6CD8C4CEF0;
-	Mon,  1 Sep 2025 20:04:16 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EA4C34442C;
+	Mon,  1 Sep 2025 20:03:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15AA6C4CEF0;
+	Mon,  1 Sep 2025 20:03:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1756757057;
-	bh=JjMEb+rcANH9IoHEvd4So3cfv4dWZoqGvcHUiSWe6I0=;
+	s=korg; t=1756757019;
+	bh=ABBbzPW/6UgCX/sfTGVcUskFfJx+VpJZGLG1GYiZcWw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=syStq+NA4tCIhKOKN571VBlVzKRxvHgdQBE+1pOx0lmdTsOUKrAWuwywf1USnJc39
-	 9QJn68tkB1yKiTYF4Py2dCAl910835pbge0/6i4xvRGyw9iJPCpLdWzRzqMxgDe4wA
-	 zmRsDbEXUN0ppWiNoBgzecrmeY9sCODevGXmxruw=
-Date: Mon, 1 Sep 2025 22:04:14 +0200
+	b=D3ai8iboGgoAXYygiCORD/fWBp/WDZ7yk+HF5r5FderXW/vUy6n8FT3LGOPyQ7umR
+	 1UYmXp9hMxp/95BxTO/K8AeIdyGHuYl2fe1eXDJffNj8uO+uJdu2Th4/9H/7iYcOId
+	 tPZrkSxXwNGTxuaHcLFz6FwRGDcmi5O8kzXv5eJ8=
+Date: Mon, 1 Sep 2025 22:03:36 +0200
 From: Greg KH <gregkh@linuxfoundation.org>
 To: Gyujeong Jin <wlsrbwjd7232@gmail.com>
 Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
@@ -53,12 +53,16 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
 	Jaewon Yang <r4mbb1@example.com>
 Subject: Re: [PATCH] KVM: arm64: nested: Fix VA sign extension in VNCR/TLBI
  paths
-Message-ID: <2025090158-kilt-fabulous-3e76@gregkh>
+Message-ID: <2025090123-worst-acid-92c8@gregkh>
 References: <20250901141551.57981-1-wlsrbwjd7232@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <20250901141551.57981-1-wlsrbwjd7232@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250901_130340_696117_A86DC651 
+X-CRM114-Status: UNSURE (   6.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,32 +79,7 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On Mon, Sep 01, 2025 at 11:15:51PM +0900, Gyujeong Jin wrote:
 > From: gyutrange <wlsrbwjd643@naver.com>
-> 
-> VNCR/TLBI VA reconstruction currently uses bit 48 as the sign bit,
-> but for 48-bit virtual addresses the correct sign bit is bit 47.
-> Using 48 can mis-canonicalize addresses in the negative half and may
-> cause missed invalidations.
-> 
-> Although VNCR_EL2 encodes other architectural fields (RESS, BADDR;
-> see Arm ARM D24.2.206), sign_extend64() interprets its second argument
-> as the index of the sign bit. Passing 48 prevents propagation of the
-> canonical sign bit for 48-bit VAs.
-> 
-> Impact:
-> - Incorrect canonicalization of VAs with bit47=1
-> - Potential stale VNCR pseudo-TLB entries after TLBI or MMU notifier
-> - Possible incorrect translation/permissions or DoS when combined
->   with other issues
-> 
-> Fixes: 667304740537 ("KVM: arm64: Mask out non-VA bits from TLBI VA* on VNCR invalidation")
-> Cc: stable@vger.kernel.org
-> Reported-by: DongHa Lee <gap-dev@example.com>
-> Reported-by: Gyujeong Jin <wlsrbwjd7232@gmail.com>
-> Reported-by: Daehyeon Ko <4ncient@example.com>
-> Reported-by: Geonha Lee <leegn4a@example.com>
-> Reported-by: Hyungyu Oh <dqpc_lover@example.com>
-> Reported-by: Jaewon Yang <r4mbb1@example.com>
 
-Please do not use fake email addresses.
+Does not match your signed-off-by line :(
 
 
