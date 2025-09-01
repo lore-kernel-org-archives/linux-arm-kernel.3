@@ -4,97 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D11B7CA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 09:05:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFF5CCA0FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 09:08:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WrzB9NAU8AL+JbGiYOShZmT1xWel7aF8cSCJNbT1IGQ=; b=LFi0fQlaNzzHKjBg9rSWtsfMVE
-	NhamyGrx56V4uJTuAB6baYIk2PV6kk6v8i+r3Y6Mk3/vpj3l2ICweUYJM7Q15CaH6Q97FFetsKrQW
-	SL/P/BSBS65cMO4C7+fXEWTUm4on2vJ3flLmNOhJ293Srauc3tbxLDBqHatKGFLNo3z2GpRLs24zd
-	DOoIIcoxw0Qc511tBcXeKlKgAIqHMzIob8uHlpTVa2Ps1dBmsZBtSk9THmsigsQnRKvSiSepr7Ulw
-	wEY7YvzZKKFeOfYEf8BKvKwaBwBoHUYOk6bx0mUFv0FaMQcHJZYaRn6InGctM9e6k/8zX00XR5/Bq
-	zfMIieaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X1PqOUmZ0Ne7FPif1yb7D1u9567Eu8Y0LGe+cU3C1kk=; b=zoCrllQxYwuRVrwl/Sq17Yd5OC
+	nO5F4xn4wkIpfm1D0Jjl+lUQuwVRYLAHqE0Yx6XOijjIOUqRQRHMTB1a52/nAUp5fgSloUzhioMV7
+	Mj6T6JGMEBXKq51DzI5FWKzh9XDlUCwSTwYhvWEIVUf1z/t1j0wfOOqOVBpOjlLN0mOnKevSE5g/H
+	BTuXn3SOTeWWF7KshmsqnAIwEA2tmsh844yUjVJLzbfIzkiHVaEMlb6LAWWcAeLpZQHBljlADkjVL
+	LVEVg52Orqzs/uSKaOERLk+rMrRKCy3CEcAJW7jPZVw/4VSEKhkrCDnL7az9s2RIwd2kiKh8Q7JEp
+	EGidu2MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut0Tj-0000000Bh0M-2gnd;
-	Mon, 01 Sep 2025 09:05:31 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1ut0WQ-0000000BhHE-1tpf;
+	Mon, 01 Sep 2025 09:08:18 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut06t-0000000BcP2-24OC
+	id 1ut08a-0000000BcX6-3v31
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 08:41:56 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-afcb732eee6so707468566b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 01:41:55 -0700 (PDT)
+	Mon, 01 Sep 2025 08:43:42 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-45b7d485173so24428805e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 01:43:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1756716114; x=1757320914; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=WrzB9NAU8AL+JbGiYOShZmT1xWel7aF8cSCJNbT1IGQ=;
-        b=ODrIAZ7oqPXsg8wm5M0mk5K8gZcgE7tlfULGmQoedOsLteKdI2UBUcP1Wc/G3zt8Ze
-         T8ATZ/M9ccXyLV3j7DXqC7oYEW+ggxy8QpGOSbZFEfnSojZSu3TqqjWBxMOQLTxvikaj
-         N8M23tNXf4HPDEdE6WO82h+eLb1KkROq/lYQ+tSSIO3ZlBuWWkzkFGW/71bSFcf4uyd5
-         sFYpYEQXuyZYTZ6k8FJdKY+asioZm5HfB01ZP43hsmQEuRK0MAZy+zaWlWbRE+C7Xxcw
-         /eDHF0VQCQq7JN7aRNP6XGltuMQAYMVlebUn9fqQcLRA0Yj4uBAtntxQX3sgPxM3ifwL
-         TUlw==
+        d=linaro.org; s=google; t=1756716219; x=1757321019; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=X1PqOUmZ0Ne7FPif1yb7D1u9567Eu8Y0LGe+cU3C1kk=;
+        b=IXPJjjWlvtxsU+IDH3JkFqAMdqXCRYbFk92vQDDWRDXue4TavlZabwMnurRXUG2x8W
+         LALDTlIMhmkJWTaCXe2wCsJZBol84y2b4Vh68xPHNgLTEwIfBWFs0s7za19PXCGcjNCK
+         Aks5iaj2x6IBIp2JReTuAfbmI6zIQLmyBG3MB1wt85CFmC1QgLiaLCiWDw2HTuwfElnr
+         3wovSOYsEvOZSY67KJBNvl2pQ/SzinaXhXwpX1rRoRppgyaabNGTc+yvSOwXe4k5MFk4
+         QvHnq+4ospiXIFBxNg5TKJWDAmw3EnLIupWmfm1kM0JFDanmYaDtMyRWUA5YufdQdAWc
+         tiIw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756716114; x=1757320914;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WrzB9NAU8AL+JbGiYOShZmT1xWel7aF8cSCJNbT1IGQ=;
-        b=EdcwW/H4XoFrlChuQcXVQVCT4ZQjNVpiVgQ3ONxDhY5aLPTzO1m/ujsF52DP77Ng2Q
-         xliQ/iBt7ygLbk6uAZmL9v9DxOpIC9AxRLHHcD+zgdKyr72UNe3GkJCasgE8bIVkNKxQ
-         0zPh0SMD/y25lMITw06vjFeyeKIx2PhFfLLgPoWeSzy7wBHZ5n3Udf9OmNQ9TvymQe6V
-         ++t55Aq9fTcS+uiWr/Kh5Pr5gjXo3dlxopX82ce/9lI7/NmWyVA52sSnBEpOGBZJQx/G
-         AMjMsdCRWvsBVnDAuxprVMCEyrUuB3LvHFkcJliCNgaLhCnB8D+XtRiWfYu6GiyYxaVC
-         Qqdg==
-X-Forwarded-Encrypted: i=1; AJvYcCWDWI7xrbN7YIclnzZ1lBYzh3iN0LtYLa8kL0ugyjPafO5qqO6knpFpdIg14XMO0hLUaHRl5V1cNW5VAm1cHMDo@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyh1YjWffG7jiyMf7Vm1IZIl/n9TgONk5i2DCd8glb7fpTke2dB
-	gzWyVQh8AENTiMyD4VkmYpLTh17jzMAJGW1OC0TztHoo0LTfjXWXvaQVXy4xdst7As4=
-X-Gm-Gg: ASbGnctC2Z1X6hKct8HYxws65vpQVyJmKPJ8IInu8q5/SyTdhoD/bVhPK+q3fKmix00
-	xHGCZ7gEoC15J/YX7UVy96tpF2C3F/RFOaC5UX0XEdpiOS9Xp6JsRRq56725lYYU88haYdmMTC9
-	93bvKblQcxwd0MhV2oEJJM3cYH2shU8gK0PNMvL1tSmz3oeIScTV8DB/O075NgiFsVRpKZr9oOC
-	0Db1E1tMUYKBjiG3e3PsyQv0/rHiznFy9ciDMlibMQJO5zpXXBRcS+qKSzcfLNDOGXCi+2GRR8L
-	r89urlWvh+Zw7n10xsz0pDxlxsJ7qqInF8BDQdjN4DjaVu47BZsh4dPQKmuyhWG+xtRbc4IkiiG
-	dQOMzB0hsaq7/OkO+c1i+ccg42FlO40AjNa/+fz7wg1FAO6rCvrDj4+ShbPvh4z1BsH+1SM4VCO
-	GpLJcU71IlGI+vfeFP
-X-Google-Smtp-Source: AGHT+IH2zSDfBqSV/fMxZqWNDlUTgT9uEj4Uc7dil2+MCQuXaiyEKD87E68kEKAxnY0UHRKOEarrsA==
-X-Received: by 2002:a17:907:e8f:b0:afe:8f28:fd5 with SMTP id a640c23a62f3a-b01d9719057mr758066166b.41.1756716113939;
-        Mon, 01 Sep 2025 01:41:53 -0700 (PDT)
-Received: from localhost (host-79-36-0-44.retail.telecomitalia.it. [79.36.0.44])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b0410138d0asm408801166b.53.2025.09.01.01.41.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Sep 2025 01:41:53 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Mon, 1 Sep 2025 10:43:49 +0200
-To: Rob Herring <robh@kernel.org>
-Cc: Andrea della Porta <andrea.porta@suse.com>, linus.walleij@linaro.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org,
-	florian.fainelli@broadcom.com, wahrenst@gmx.net,
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, iivanov@suse.de, svarbanov@suse.de,
-	mbrugger@suse.com, Jonathan Bell <jonathan@raspberrypi.com>,
-	Phil Elwell <phil@raspberrypi.com>
-Subject: Re: [PATCH v4 1/3] dt-bindings: pinctrl: Add support for Broadcom
- STB pin controller
-Message-ID: <aLVcxYeMeQqHoH_U@apocalypse>
-References: <cover.1756372805.git.andrea.porta@suse.com>
- <7ed0f2779829f4e63b69d8cf5cedda9f849996bc.1756372805.git.andrea.porta@suse.com>
- <20250829175957.GA1073350-robh@kernel.org>
+        d=1e100.net; s=20230601; t=1756716219; x=1757321019;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=X1PqOUmZ0Ne7FPif1yb7D1u9567Eu8Y0LGe+cU3C1kk=;
+        b=S/M1g11saH8nck1VaQMOwXYJb1txquzfljJdhGmAK0wLU0J0ED0h5oGsj5odszeKa8
+         EmNAoBPfo5YwveFqHNASD5KccX+VHGBrpbKtbIBtt8HNx5kE3QLZTaXGQs4/ZkVtvkVF
+         PLRXY386coy3Yh5lBZHg7dLhFq+D9b1WEZYDVzgOnI9Y3YDFxwlYU5xppdZOwnH8WqJ6
+         +5tod+nLYTQHno6R0xMmuJQBDLveh0qPPvoXHP0YbpfKbefL1HPuR8pr/jw7tenVWMI1
+         2psrkePdVOFqy0V2QD3/B70ELsBfrZ0yQugzhFzqVd1I2EXa3e1qd+ECX28FcbTSdqgN
+         rOsw==
+X-Forwarded-Encrypted: i=1; AJvYcCUJHMR2NvibfsTg1ZuWwz5Qek5aiH1xdv9Z4ycvIXKoBROmDD4YLEFsc4JqK6WcVAWwZUCGXGVFcIksc9lUSbeR@lists.infradead.org
+X-Gm-Message-State: AOJu0YxcBNIAGVKkG0wVVu9tGGxWgEJjoiHzFbXBEjjb6ROs4+msmX6E
+	9h08u2FL6GwXIja2K5Hjwgdfq7kWzTviPLSbv76ByOi770KtDumSd0BYULvx9P45hSs=
+X-Gm-Gg: ASbGnctbXVBI3yQ9KrfD8rDhQfI0c7q6lWJEWWxaCR8QnSripkFYO6jUtD5JqakaXvA
+	mvA6KHTEZ7899Yiyvo91R4sNGKXVEaiVE8ZIeRQ1YEYBONlv2Vd1lNB/WuxZ1Y/DIjhH4SRi0iO
+	p5+tMoR0hN0lKJGCLu2ljRDU3pnyHrFUMhIdC918NXGqrzlw0Ljomn8pQBs0TwAn0fMIeiNm/Vy
+	mmESKdS7Kl6uFBlCVHDERmF1blAl+zWRgJBNxlnYW7oRi5Uav8KkQ9utS0ymb4J2T4uDpHgCyca
+	j3ewHYm0Nq9UU8aHJ6/tO45ZZITL7Z30DZFZPkbmqbBVo9lcXvJZbW7U1tQNE0ZHsFsR2t4K27I
+	Cg3SusEjhZUCNOZsoXeDUeQnuWIooQg==
+X-Google-Smtp-Source: AGHT+IEOfIZTQy6jci7xeBxd5WsSj+WaclDlxn3VgJ9N1OGclS2wRjNkjBAzbocqqf4Z87S9TOQbdQ==
+X-Received: by 2002:a05:600c:a4b:b0:45b:6365:794e with SMTP id 5b1f17b1804b1-45b855711fdmr62236345e9.24.1756716219178;
+        Mon, 01 Sep 2025 01:43:39 -0700 (PDT)
+Received: from [192.168.0.251] ([79.115.63.1])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b69b7529asm139030665e9.0.2025.09.01.01.43.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 01 Sep 2025 01:43:38 -0700 (PDT)
+Message-ID: <c1321c46-e7a4-4489-a63b-a3ed72e5e98a@linaro.org>
+Date: Mon, 1 Sep 2025 09:43:36 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250829175957.GA1073350-robh@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/5] firmware: exynos-acpm: register ACPM clocks dev
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
+References: <20250827-acpm-clk-v2-0-de5c86b49b64@linaro.org>
+ <20250827-acpm-clk-v2-4-de5c86b49b64@linaro.org>
+ <e8346a38-fef7-482f-81ab-20621988b047@kernel.org>
+ <761936e8-1626-47f8-b3f5-ebc62f4a409b@linaro.org>
+ <2567a939-4938-4c92-8893-83d03ff8767f@kernel.org>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <2567a939-4938-4c92-8893-83d03ff8767f@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_014155_530543_BBB2D673 
-X-CRM114-Status: GOOD (  17.48  )
+X-CRM114-CacheID: sfid-20250901_014340_978549_186236E1 
+X-CRM114-Status: GOOD (  27.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,77 +113,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
 
-On 12:59 Fri 29 Aug     , Rob Herring wrote:
-> On Thu, Aug 28, 2025 at 02:47:38PM +0200, Andrea della Porta wrote:
-> > From: "Ivan T. Ivanov" <iivanov@suse.de>
-> > 
-> > The STB pin controller represents a family whose silicon instances
-> > are found e.g. on BCM2712 SoC.
-> > 
-> > In particular, on RaspberryPi 5, there are two separate instantiations
-> > of the same IP block which differ in the number of pins that are
-> > associated and the pinmux functions for each of those pins. The
-> > -aon- variant stands for 'Always On'.
-> > 
-> > Depending on the revision of the BCM2712 (CO or D0), the pin
-> > controller instance has slight differences in the register layout.
-> > 
-> > Signed-off-by: Ivan T. Ivanov <iivanov@suse.de>
-> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> > ---
 
-[...]
-
-> > +  - compatible
-> > +  - reg
-> > +
-> > +unevaluatedProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    brcm_pinctrl: pinctrl@7d504100 {
+On 9/1/25 8:48 AM, Krzysztof Kozlowski wrote:
+> On 01/09/2025 08:56, Tudor Ambarus wrote:
+>>
+>>
+>> On 8/31/25 11:50 AM, Krzysztof Kozlowski wrote:
+>>> On 27/08/2025 14:42, Tudor Ambarus wrote:
+>>>> +
+>>>> +static const struct acpm_clk_variant gs101_acpm_clks[] = {
+>>>> +	ACPM_CLK(CLK_ACPM_DVFS_MIF, "mif"),
+>>>> +	ACPM_CLK(CLK_ACPM_DVFS_INT, "int"),
+>>>> +	ACPM_CLK(CLK_ACPM_DVFS_CPUCL0, "cpucl0"),
+>>>> +	ACPM_CLK(CLK_ACPM_DVFS_CPUCL1, "cpucl1"),
+>>>> +	ACPM_CLK(CLK_ACPM_DVFS_CPUCL2, "cpucl2"),
+>>>> +	ACPM_CLK(CLK_ACPM_DVFS_G3D, "g3d"),
+>>>> +	ACPM_CLK(CLK_ACPM_DVFS_G3DL2, "g3dl2"),
+>>>> +	ACPM_CLK(CLK_ACPM_DVFS_TPU, "tpu"),
+>>>> +	ACPM_CLK(CLK_ACPM_DVFS_INTCAM, "intcam"),
+>>>> +	ACPM_CLK(CLK_ACPM_DVFS_TNR, "tnr"),
+>>>> +	ACPM_CLK(CLK_ACPM_DVFS_CAM, "cam"),
+>>>> +	ACPM_CLK(CLK_ACPM_DVFS_MFC, "mfc"),
+>>>> +	ACPM_CLK(CLK_ACPM_DVFS_DISP, "disp"),
+>>>> +	ACPM_CLK(CLK_ACPM_DVFS_BO, "b0"),
+>>>> +};
+>>>
+>>> I don't understand why clocks are defined in the firmware driver, not in
+>>> the clock driver.
+>>
+>> I chose to define the clocks in the firmware driver and pass them as 
+>> platform data to the clock platform device for extensibility. In case
+>> other SoCs have different clock IDs, they'll be able to pass the
 > 
-> Drop unused label.
+> You will have to modify firmware driver, so still at least one driver
+> has to be changed. Having clocks defined in non-clock driver is really
+> unusual.
+> 
+> This solution here creates also dependency on clock bindings and makes
+> merging everything unnecessary difficult.
+> 
+>> clock data without needing to modify the clock driver. GS201 defines
+>> the same ACPM clocks as GS101, but I don't have access to other newer
+>> SoCs to tell if the ACPM clocks differ or not.
+>>
+>> The alternative is to define the clocks in the clock driver and
+>> use platform_device_register_simple() to register the clock platform
+>> device. The clock driver will be rigid in what clocks it supports.
+>>
+>> I'm fine either way for now. What do you prefer?
+> 
+> Please move them to the driver.
 
-Ack.
+Okay, will move the clock definitions to the clock driver.
 
 > 
-> > +        compatible = "brcm,bcm2712c0-pinctrl";
-> > +        reg = <0x7d504100 0x30>;
-> > +
-> > +        bt-shutdown-default-state {
-> > +           function = "gpio";
-> > +           pins = "gpio29";
+>>
+>>>
+>>> This creates dependency of this patch on the clock patch, so basically
+>>> there is no way I will take it in one cycle.
+>>
+>> Would it work to have an immutable tag for the clock and samsung-soc
+>> subsytems to use?
 > 
-> Wrong indentation. With those fixed,
-
-Ack.
-
-Many thanks,
-Andrea
-
+> No, just try yourself. Patch #3 depends on patch #2, so that's the cross
+> tree merge. It's fine, but now patch #4 depends on patch #3, so you need
+> two merges.
 > 
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Or how do you actually see it being merged with immutable tag? What goes
+> where?
 > 
-> > +        };
-> > +
-> > +        uarta-default-state {
-> > +            rts-tx-pins {
-> > +                function = "uart0";
-> > +                pins = "gpio24", "gpio26";
-> > +                bias-disable;
-> > +            };
-> > +
-> > +            cts-rx-pins {
-> > +                function = "uart0";
-> > +                pins = "gpio25", "gpio27";
-> > +                bias-pull-up;
-> > +            };
-> > +        };
-> > +    };
-> > -- 
-> > 2.35.3
-> > 
+
+Unnecessary difficult indeed. Hypothetically, if we kept the current
+structure, we could have have a single tag on #4. Since the dependency was
+on a new clock driver, the clock subsystem could have lived without merging
+the tag, as the chances of conflicts with the clk core are small. But not
+ideal. Lesson learnt, always put yourself in the maintainer's shoes.
+Thanks for the patience!
+
+Cheers,
+ta
+
+
 
