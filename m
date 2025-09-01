@@ -4,57 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D27B5CA1002
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C98A9CA1000
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 13:49:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dXKtdZdVRU5jaokeCxU4a3pcHC4KSVTuFmm06WjEP+0=; b=jILM4fJbuPzfW8+qdFxjczFYQi
-	Fhp7ZUkXy4n1AKro/+yfdqxqd16rwyiUoO3Ctnb5vhLY1rMBMi3sbcgGRIqv4BGBc8vn5DJKsYJuh
-	NshVo9Hvl+10AoPO9ZQHWy8iRwMk4on6DZaZdzTVt9Nv5gbD8zSoa/xTOWwr+sSBw7+owlnJztWid
-	cgsNFnn04Aay+8aJ6bskYlA3LDSwqxDfgD7xSW9u5k20KvUwxVNQIpPQHGp3Zjutz2lUr1qVrqMKm
-	lrKoHEPsdQJEdj/igwVPgUr6Lh+kFiHkpNQhYAEQeJGM81ZcA10IbnkTIFkH6smS+MB1FhGl9e1L2
-	DVqa42vQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iO+9DN4kZw2GIL+RKeeWzO0Af7WR3lwN/5J9HFBZGPg=; b=oKj0QHtTnNTY3fQcFHl9WD9jjm
+	N4JHPYn96iZLC7Fr1uwZ1y6/I+O0oOkJYjYepm0HzUxhK05iSlJtkbsmGxX8UUb+8YyMsvlB/TcnP
+	prQ4WbTF5tUDAY+zk3oE8/XPwTJfruMWrVcbO0C8Q83fWPBSODOO/qVyW3bBg5qdpyxpoikduNqLE
+	XIlBpf3HZiyU7zV4wF0Xy1Knir2AmZrC2QvQ7p6a41kW/Mu073JlzvkeqGNS7zhErPRgthj4EVAkE
+	Bv4T42qLAG9pS7tPuTIo4mYnP+ogWPu3L/h5LpPKUkRA9mlAVcp+ZBlT3xvbK99txzPxRkMbzMGeM
+	4LkLN/1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut4uS-0000000Ck9y-2r4L;
-	Mon, 01 Sep 2025 13:49:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut2je-0000000C3j7-1yLZ
+	id 1ut4uQ-0000000Ck8B-0gFB;
+	Mon, 01 Sep 2025 13:49:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ut2XR-0000000C28i-19K3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 11:30:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5DED34462E;
-	Mon,  1 Sep 2025 11:30:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B9EEC4CEF0;
-	Mon,  1 Sep 2025 11:30:02 +0000 (UTC)
-Date: Mon, 1 Sep 2025 12:29:59 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Ankur Arora <ankur.a.arora@oracle.com>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
-	arnd@arndb.de, will@kernel.org, peterz@infradead.org,
-	akpm@linux-foundation.org, mark.rutland@arm.com,
-	harisokn@amazon.com, cl@gentwo.org, ast@kernel.org,
-	memxor@gmail.com, zhenglifeng1@huawei.com,
-	xueshuai@linux.alibaba.com, joao.m.martins@oracle.com,
-	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
-Subject: Re: [PATCH v4 1/5] asm-generic: barrier: Add
- smp_cond_load_relaxed_timewait()
-Message-ID: <aLWDt9NpfYO_Utky@arm.com>
-References: <20250829080735.3598416-1-ankur.a.arora@oracle.com>
- <20250829080735.3598416-2-ankur.a.arora@oracle.com>
+	Mon, 01 Sep 2025 11:17:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 523881A00;
+	Mon,  1 Sep 2025 04:17:20 -0700 (PDT)
+Received: from [10.163.70.120] (unknown [10.163.70.120])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ECE1A3F6A8;
+	Mon,  1 Sep 2025 04:17:24 -0700 (PDT)
+Message-ID: <8faf8d1d-0987-4ce0-b626-01de8f214baf@arm.com>
+Date: Mon, 1 Sep 2025 16:47:21 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250829080735.3598416-2-ankur.a.arora@oracle.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V3 2/2] arm64/sysreg: Replace TCR_EL1 field macros
+To: Ben Horgan <ben.horgan@arm.com>, linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Mark Brown <broonie@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20250901072037.743380-1-anshuman.khandual@arm.com>
+ <20250901072037.743380-3-anshuman.khandual@arm.com>
+ <07171e19-71a4-4672-adfd-03feb17433e9@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <07171e19-71a4-4672-adfd-03feb17433e9@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_043006_520616_8F081758 
-X-CRM114-Status: GOOD (  11.73  )
+X-CRM114-CacheID: sfid-20250901_041729_409171_F105BA14 
+X-CRM114-Status: GOOD (  19.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,29 +68,204 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 29, 2025 at 01:07:31AM -0700, Ankur Arora wrote:
-> Add smp_cond_load_relaxed_timewait(), which extends
-> smp_cond_load_relaxed() to allow waiting for a finite duration.
-> 
-> The additional parameter allows for the timeout check.
-> 
-> The waiting is done via the usual cpu_relax() spin-wait around the
-> condition variable with periodic evaluation of the time-check.
-> 
-> The number of times we spin is defined by SMP_TIMEWAIT_SPIN_COUNT
-> (chosen to be 200 by default) which, assuming each cpu_relax()
-> iteration takes around 20-30 cycles (measured on a variety of x86
-> platforms), amounts to around 4000-6000 cycles.
-> 
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Peter Zijlstra <peterz@infradead.org>
-> Cc: linux-arch@vger.kernel.org
-> Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
 
-Apart from the name, this looks fine (I'd have preferred the "timeout"
-suffix).
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+On 01/09/25 4:07 PM, Ben Horgan wrote:
+> Hi Anshuman,
+> 
+> On 9/1/25 08:20, Anshuman Khandual wrote:
+>> This just replaces all used TCR_EL1 field macros with tools sysreg variant
+>> based fields and subsequently drops them from the header (pgtable-hwdef.h)
+>> and moves them into KVM header (asm/kvm_arm.h) for continued usage in KVM.
+>>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: Marc Zyngier <maz@kernel.org>
+>> Cc: Mark Brown <broonie@kernel.org>
+>> Cc: kvmarm@lists.linux.dev
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: linux-kernel@vger.kernel.org
+>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>> ---
+>> Changes in V3:
+>>
+>> - KVM TCR_XXX flags are expressed via TCR_EL1_XXX flags per Marc
+>>
+>>  arch/arm64/include/asm/assembler.h     |  6 +-
+>>  arch/arm64/include/asm/cputype.h       |  2 +-
+>>  arch/arm64/include/asm/kvm_arm.h       | 78 ++++++++++++++++++++
+>>  arch/arm64/include/asm/mmu_context.h   |  4 +-
+>>  arch/arm64/include/asm/pgtable-hwdef.h | 98 +-------------------------
+>>  arch/arm64/include/asm/pgtable-prot.h  |  2 +-
+>>  arch/arm64/kernel/cpufeature.c         |  4 +-
+>>  arch/arm64/kernel/pi/map_kernel.c      |  8 +--
+>>  arch/arm64/kernel/vmcore_info.c        |  2 +-
+>>  arch/arm64/mm/proc.S                   | 36 ++++++----
+>>  tools/arch/arm64/include/asm/cputype.h |  2 +-
+>>  11 files changed, 118 insertions(+), 124 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
+>> index 23be85d93348..1392860a3c97 100644
+>> --- a/arch/arm64/include/asm/assembler.h
+>> +++ b/arch/arm64/include/asm/assembler.h
+>> @@ -325,14 +325,14 @@ alternative_cb_end
+>>   * tcr_set_t0sz - update TCR.T0SZ so that we can load the ID map
+>>   */
+>>  	.macro	tcr_set_t0sz, valreg, t0sz
+>> -	bfi	\valreg, \t0sz, #TCR_T0SZ_OFFSET, #TCR_TxSZ_WIDTH
+>> +	bfi	\valreg, \t0sz, #TCR_EL1_T0SZ_SHIFT, #TCR_EL1_T0SZ_WIDTH
+>>  	.endm
+>>  
+>>  /*
+>>   * tcr_set_t1sz - update TCR.T1SZ
+>>   */
+>>  	.macro	tcr_set_t1sz, valreg, t1sz
+>> -	bfi	\valreg, \t1sz, #TCR_T1SZ_OFFSET, #TCR_TxSZ_WIDTH
+>> +	bfi	\valreg, \t1sz, #TCR_EL1_T1SZ_SHIFT, #TCR_EL1_T1SZ_WIDTH
+>>  	.endm
+>>  
+>>  /*
+>> @@ -589,7 +589,7 @@ alternative_endif
+>>  	.macro	offset_ttbr1, ttbr, tmp
+>>  #if defined(CONFIG_ARM64_VA_BITS_52) && !defined(CONFIG_ARM64_LPA2)
+>>  	mrs	\tmp, tcr_el1
+>> -	and	\tmp, \tmp, #TCR_T1SZ_MASK
+>> +	and	\tmp, \tmp, #TCR_EL1_T1SZ_MASK
+>>  	cmp	\tmp, #TCR_T1SZ(VA_BITS_MIN)
+>>  	orr	\tmp, \ttbr, #TTBR1_BADDR_4852_OFFSET
+>>  	csel	\ttbr, \tmp, \ttbr, eq
+>> diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
+>> index 661735616787..5d80710ca85f 100644
+>> --- a/arch/arm64/include/asm/cputype.h
+>> +++ b/arch/arm64/include/asm/cputype.h
+>> @@ -243,7 +243,7 @@
+>>  /* Fujitsu Erratum 010001 affects A64FX 1.0 and 1.1, (v0r0 and v1r0) */
+>>  #define MIDR_FUJITSU_ERRATUM_010001		MIDR_FUJITSU_A64FX
+>>  #define MIDR_FUJITSU_ERRATUM_010001_MASK	(~MIDR_CPU_VAR_REV(1, 0))
+>> -#define TCR_CLEAR_FUJITSU_ERRATUM_010001	(TCR_NFD1 | TCR_NFD0)
+>> +#define TCR_CLEAR_FUJITSU_ERRATUM_010001	(TCR_EL1_NFD1 | TCR_EL1_NFD0)
+>>  
+>>  #ifndef __ASSEMBLY__
+>>  
+>> diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+>> index 1da290aeedce..4e0ca6140857 100644
+>> --- a/arch/arm64/include/asm/kvm_arm.h
+>> +++ b/arch/arm64/include/asm/kvm_arm.h
+>> @@ -107,6 +107,84 @@
+>>  
+>>  #define MPAMHCR_HOST_FLAGS	0
+>>  
+>> +#define TCR_T0SZ_MASK		TCR_EL1_T0SZ_MASK
+>> +#define TCR_T1SZ_MASK		TCR_EL1_T1SZ_MASK
+>> +
+>> +#define TCR_EPD0_MASK		TCR_EL1_EPD0_MASK
+>> +#define TCR_EPD1_MASK		TCR_EL1_EPD1_MASK
+>> +
+>> +#define TCR_IRGN0_MASK		TCR_EL1_IRGN0_MASK
+>> +#define TCR_IRGN0_NC		(TCR_EL1_IRGN0_NC << TCR_EL1_IRGN0_SHIFT)
+>> +#define TCR_IRGN0_WBWA		(TCR_EL1_IRGN0_WBWA << TCR_EL1_IRGN0_SHIFT)
+>> +#define TCR_IRGN0_WT		(TCR_EL1_IRGN0_WT << TCR_EL1_IRGN0_SHIFT)
+>> +#define TCR_IRGN0_WBnWA		(TCR_EL1_IRGN0_WBnWA << TCR_EL1_IRGN0_SHIFT)
+>> +
+>> +#define TCR_IRGN1_MASK		TCR_EL1_IRGN1_MASK
+>> +#define TCR_IRGN1_NC		(TCR_EL1_IRGN1_NC << TCR_EL1_IRGN1_SHIFT)
+>> +#define TCR_IRGN1_WBWA		(TCR_EL1_IRGN1_WBWA << TCR_EL1_IRGN1_SHIFT)
+>> +#define TCR_IRGN1_WT		(TCR_EL1_IRGN1_WT << TCR_EL1_IRGN1_SHIFT)
+>> +#define TCR_IRGN1_WBnWA		(TCR_EL1_IRGN1_WBnWA << TCR_EL1_IRGN1_SHIFT)
+>> +
+>> +#define TCR_IRGN_NC		(TCR_EL1_IRGN0_NC | TCR_EL1_IRGN1_NC)
+>> +#define TCR_IRGN_WT		(TCR_EL1_IRGN0_WT | TCR_EL1_IRGN1_WT)
+>> +#define TCR_IRGN_WBnWA		(TCR_EL1_IRGN0_WBnWA | TCR_EL1_IRGN1_WBnWA)
+>> +#define TCR_IRGN_MASK		(TCR_EL1_IRGN0_MASK | TCR_EL1_IRGN1_MASK)
+>> +
+>> +#define TCR_ORGN0_MASK		TCR_EL1_ORGN0_MASK
+>> +#define TCR_ORGN0_NC		(TCR_EL1_ORGN0_NC << TCR_EL1_ORGN0_SHIFT)
+>> +#define TCR_ORGN0_WBWA		(TCR_EL1_ORGN0_WBWA << TCR_EL1_ORGN0_SHIFT)
+>> +#define TCR_ORGN0_WT		(TCR_EL1_ORGN0_WT << TCR_EL1_ORGN0_SHIFT)
+>> +#define TCR_ORGN0_WBnWA		(TCR_EL1_ORGN0_WBnWA << TCR_EL1_ORGN0_SHIFT)
+>> +
+>> +#define TCR_ORGN1_MASK		TCR_EL1_ORGN1_MASK
+>> +#define TCR_ORGN1_NC		(TCR_EL1_ORGN1_NC << TCR_EL1_ORGN1_SHIFT)
+>> +#define TCR_ORGN1_WBWA		(TCR_EL1_ORGN1_WBWA << TCR_EL1_ORGN1_SHIFT)
+>> +#define TCR_ORGN1_WT		(TCR_EL1_ORGN1_WT << TCR_EL1_ORGN1_SHIFT)
+>> +#define TCR_ORGN1_WBnWA		(TCR_EL1_ORGN1_WBnWA << TCR_EL1_ORGN1_SHIFT)
+>> +
+>> +#define TCR_ORGN_NC		(TCR_EL1_ORGN0_NC | TCR_EL1_ORGN1_NC)
+>> +#define TCR_ORGN_WT		(TCR_EL1_ORGN0_WT | TCR_EL1_ORGN1_WT)
+>> +#define TCR_ORGN_WBnWA		(TCR_EL1_ORGN0_WBnWA | TCR_EL1_ORGN1_WBnWA)
+> Shouldn't these 3 be defined as per the code you remove below?
+> 
+> #define TCR_ORGN_NC		(TCR_ORGN0_NC | TCR_ORGN1_NC)
+> #define TCR_ORGN_WT		(TCR_ORGN0_WT | TCR_ORGN1_WT)
+> #define TCR_ORGN_WBnWA		(TCR_ORGN0_WBnWA | TCR_ORGN1_WBnWA)
+> 
+> However, it does seem surprising that whether or not EL1 is in the name
+> changes whether there is a shift or not.
+
+I am afraid you are right.
+
+Originally TCR_ORGN_NC actually ORed in place shifted values
+for both ORGN0 and ORGN1 register fields.
+
+TCR_ORGN0_NC (UL(0) << TCR_ORGN0_SHIFT)
+TCR_ORGN1_NC (UL(0) << TCR_ORGN1_SHIFT)
+TCR_ORGN_NC (TCR_ORGN0_NC | TCR_ORGN1_NC)
+
+Hence after this change it should still do the same.
+
+TCR_ORGN0_NC            (TCR_EL1_ORGN0_NC << TCR_EL1_ORGN0_SHIFT)
+TCR_ORGN1_WBWA          (TCR_EL1_ORGN1_WBWA << TCR_EL1_ORGN1_SHIFT)
+
+As TCR_ORGN0_NC and TCR_ORGN1_WBWA again contain the shifted
+in place register field values, hence these macro definitions
+should not change at all.
+
+It should still be
+
+TCR_ORGN_NC		(TCR_ORGN0_NC | TCR_ORGN1_NC)
+
+Not as proposed in this patch
+
+TCR_ORGN_NC		(TCR_EL1_ORGN0_NC | TCR_EL1_ORGN1_NC)
+
+This problem exists for the above TCR_IRGN_XXX flags as well.
+Will do the following changes.
+
+--- a/arch/arm64/include/asm/kvm_arm.h
++++ b/arch/arm64/include/asm/kvm_arm.h
+@@ -125,10 +125,10 @@
+ #define TCR_IRGN1_WT           (TCR_EL1_IRGN1_WT << TCR_EL1_IRGN1_SHIFT)
+ #define TCR_IRGN1_WBnWA                (TCR_EL1_IRGN1_WBnWA << TCR_EL1_IRGN1_SHIFT)
+
+-#define TCR_IRGN_NC            (TCR_EL1_IRGN0_NC | TCR_EL1_IRGN1_NC)
+-#define TCR_IRGN_WT            (TCR_EL1_IRGN0_WT | TCR_EL1_IRGN1_WT)
+-#define TCR_IRGN_WBnWA         (TCR_EL1_IRGN0_WBnWA | TCR_EL1_IRGN1_WBnWA)
+-#define TCR_IRGN_MASK          (TCR_EL1_IRGN0_MASK | TCR_EL1_IRGN1_MASK)
++#define TCR_IRGN_NC            (TCR_IRGN0_NC | TCR_IRGN1_NC)
++#define TCR_IRGN_WT            (TCR_IRGN0_WT | TCR_IRGN1_WT)
++#define TCR_IRGN_WBnWA         (TCR_IRGN0_WBnWA | TCR_IRGN1_WBnWA)
++#define TCR_IRGN_MASK          (TCR_IRGN0_MASK | TCR_IRGN1_MASK)
+
+ #define TCR_ORGN0_MASK         TCR_EL1_ORGN0_MASK
+ #define TCR_ORGN0_NC           (TCR_EL1_ORGN0_NC << TCR_EL1_ORGN0_SHIFT)
+@@ -142,10 +142,10 @@
+ #define TCR_ORGN1_WT           (TCR_EL1_ORGN1_WT << TCR_EL1_ORGN1_SHIFT)
+ #define TCR_ORGN1_WBnWA                (TCR_EL1_ORGN1_WBnWA << TCR_EL1_ORGN1_SHIFT)
+
+-#define TCR_ORGN_NC            (TCR_EL1_ORGN0_NC | TCR_EL1_ORGN1_NC)
+-#define TCR_ORGN_WT            (TCR_EL1_ORGN0_WT | TCR_EL1_ORGN1_WT)
+-#define TCR_ORGN_WBnWA         (TCR_EL1_ORGN0_WBnWA | TCR_EL1_ORGN1_WBnWA)
+-#define TCR_ORGN_MASK          (TCR_EL1_ORGN0_MASK | TCR_EL1_ORGN1_MASK)
++#define TCR_ORGN_NC            (TCR_ORGN0_NC | TCR_ORGN1_NC)
++#define TCR_ORGN_WT            (TCR_ORGN0_WT | TCR_ORGN1_WT)
++#define TCR_ORGN_WBnWA         (TCR_ORGN0_WBnWA | TCR_ORGN1_WBnWA)
++#define TCR_ORGN_MASK          (TCR_ORGN0_MASK | TCR_ORGN1_MASK)
+
+ #define TCR_SH0_MASK           TCR_EL1_SH0_MASK
+ #define TCR_SH0_INNER          (TCR_EL1_SH0_INNER << TCR_EL1_SH0_SHIFT) 
+
+
+
+
+
 
