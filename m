@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2A03CA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 09:44:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DB8DCA0FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 09:47:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dTWP2SZ/+gCKSZch/97sVZiexKDt12IghseG3ObzV/E=; b=bOb40tpSC/Wo80tiiwbYIHIE4S
-	V0PvMb7M/6nMY0XDlGors7J4tplraLS9sgfjPscs24232ycLiRSD7y5YJqDGPSqmFUJwxmgw3ETHO
-	tqW9It2x/8v1KVvIjQAGPQGvNJDTJxWW/FZ45YZFKGDR0/H6vqDAl4dof2B4l5pipNRo2iynq0Dxj
-	GnMSv0V2XLY6/nkQ2DCV7NoNOUelzUJwHv1Kq3XnUFrU+O25RrhxluhWPjpIaOhIykuIu8mCugJzh
-	UHbMKA2icuT+iGjxchZWJbUxxAkuuydSzyQxyYeZtf++bgvKbTcWk0FhF+bv37BK0K8NXUuIMJNo6
-	vQ0Ga23w==;
+	bh=J8UleJ8NObE7PXOm0FyfxMMKkFzdnCkJ6ZRlwQXf3Kk=; b=gRACsSeYRoWx5rmvRlJDiPVjb4
+	f3ix5zp9vMCSDR45s+EDQiBhn0FoQgFnhhfwhxPTg3AmkwVe/Ixnkng8F4C/OBUHyt/C9o2PFh6Dz
+	hWp8+l8sZo71OeRcyqTmjZziBMQVbPPWrS5ivur/nvh/cF5smUCqQ3akgTuSr2v8UZ99+qfypHs33
+	j4cxdRgvri5d6Ha6MysxT0xC5hlpiOT6dbZ3pKHcX1mmES232t/tyOle1CH22FG8aHp0fyH+Dibg7
+	nl6mOiKPg0IEo+ABjc6SBQHsqmrBG52xEYEPIDBwqAnli/aXMqrgEvz//u8XLpWzYDjXx8pTKEmsh
+	tfH/CBMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut15O-0000000Bnhf-1h50;
-	Mon, 01 Sep 2025 09:44:26 +0000
+	id 1ut186-0000000Bnyq-16mZ;
+	Mon, 01 Sep 2025 09:47:14 +0000
 Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut0N8-0000000Bevw-1PcG
+	id 1ut0NC-0000000Bezi-33Ch
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 08:58:43 +0000
-X-UUID: d88a416c871111f0b29709d653e92f7d-20250901
+	Mon, 01 Sep 2025 08:58:48 +0000
+X-UUID: dab7a34e871111f0b29709d653e92f7d-20250901
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.45,REQID:f0312209-cc58-49da-b2fe-bd1490843f15,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:6493067,CLOUDID:cb619b8137095f381006df9a56b13c38,BulkI
+X-CID-O-INFO: VERSION:1.1.45,REQID:bed9fbe2-11d3-4407-afe8-1156de4cb1de,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:6493067,CLOUDID:b623ff232d1ac7c6941a48d46afe61b6,BulkI
 	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850,TC:nil,Content:0|50,EDM:-3
 	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
 	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 0
 X-CID-BAS: 0,_,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: d88a416c871111f0b29709d653e92f7d-20250901
+X-UUID: dab7a34e871111f0b29709d653e92f7d-20250901
 Received: from mail.kylinos.cn [(10.44.16.175)] by mailgw.kylinos.cn
 	(envelope-from <zhangzihuan@kylinos.cn>)
 	(Generic MTA)
-	with ESMTP id 155411594; Mon, 01 Sep 2025 16:58:36 +0800
+	with ESMTP id 480119038; Mon, 01 Sep 2025 16:58:40 +0800
 Received: from mail.kylinos.cn (localhost [127.0.0.1])
-	by mail.kylinos.cn (NSMail) with SMTP id EEA53E008FAB;
-	Mon,  1 Sep 2025 16:58:35 +0800 (CST)
-X-ns-mid: postfix-68B5603B-776156745
+	by mail.kylinos.cn (NSMail) with SMTP id CD393E008FA8;
+	Mon,  1 Sep 2025 16:58:39 +0800 (CST)
+X-ns-mid: postfix-68B5603F-551072746
 Received: from localhost.localdomain (unknown [172.25.120.24])
-	by mail.kylinos.cn (NSMail) with ESMTPA id 344EFE008FA8;
-	Mon,  1 Sep 2025 16:58:32 +0800 (CST)
+	by mail.kylinos.cn (NSMail) with ESMTPA id 0422BE008FAC;
+	Mon,  1 Sep 2025 16:58:35 +0800 (CST)
 From: Zihuan Zhang <zhangzihuan@kylinos.cn>
 To: "Rafael J . wysocki" <rafael@kernel.org>,
 	Viresh Kumar <viresh.kumar@linaro.org>,
@@ -99,17 +99,17 @@ Cc: Ben Horgan <ben.horgan@arm.com>,
 	linux-omap@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Zihuan Zhang <zhangzihuan@kylinos.cn>
-Subject: [PATCH v3 08/12] cpufreq: powerpc: macintosh: Use scope-based cleanup helper
-Date: Mon,  1 Sep 2025 16:57:44 +0800
-Message-Id: <20250901085748.36795-9-zhangzihuan@kylinos.cn>
+Subject: [PATCH v3 09/12] powercap: dtpm_cpu: Use scope-based cleanup helper
+Date: Mon,  1 Sep 2025 16:57:45 +0800
+Message-Id: <20250901085748.36795-10-zhangzihuan@kylinos.cn>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250901085748.36795-1-zhangzihuan@kylinos.cn>
 References: <20250901085748.36795-1-zhangzihuan@kylinos.cn>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_015842_669632_E25CB3FC 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20250901_015847_096991_B239434A 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,39 +132,92 @@ No functional change intended.
 
 Signed-off-by: Zihuan Zhang <zhangzihuan@kylinos.cn>
 ---
- drivers/macintosh/windfarm_cpufreq_clamp.c | 5 +----
- 1 file changed, 1 insertion(+), 4 deletions(-)
+ drivers/powercap/dtpm_cpu.c | 26 +++++++-------------------
+ 1 file changed, 7 insertions(+), 19 deletions(-)
 
-diff --git a/drivers/macintosh/windfarm_cpufreq_clamp.c b/drivers/macinto=
-sh/windfarm_cpufreq_clamp.c
-index 28d18ef22bbb..08558756990b 100644
---- a/drivers/macintosh/windfarm_cpufreq_clamp.c
-+++ b/drivers/macintosh/windfarm_cpufreq_clamp.c
-@@ -62,12 +62,11 @@ static const struct wf_control_ops clamp_ops =3D {
-=20
- static int __init wf_cpufreq_clamp_init(void)
+diff --git a/drivers/powercap/dtpm_cpu.c b/drivers/powercap/dtpm_cpu.c
+index 99390ec1481f..5e18438782f8 100644
+--- a/drivers/powercap/dtpm_cpu.c
++++ b/drivers/powercap/dtpm_cpu.c
+@@ -144,19 +144,15 @@ static int update_pd_power_uw(struct dtpm *dtpm)
+ static void pd_release(struct dtpm *dtpm)
  {
+ 	struct dtpm_cpu *dtpm_cpu =3D to_dtpm_cpu(dtpm);
 -	struct cpufreq_policy *policy;
 +	struct cpufreq_policy *policy __free(put_cpufreq_policy) =3D cpufreq_cp=
-u_get(0);
- 	struct wf_control *clamp;
- 	struct device *dev;
- 	int ret;
+u_get(dtpm_cpu->cpu);
 =20
--	policy =3D cpufreq_cpu_get(0);
- 	if (!policy) {
- 		pr_warn("%s: cpufreq policy not found cpu0\n", __func__);
- 		return -EPROBE_DEFER;
-@@ -79,8 +78,6 @@ static int __init wf_cpufreq_clamp_init(void)
- 	ret =3D freq_qos_add_request(&policy->constraints, &qos_req, FREQ_QOS_M=
-AX,
- 				   max_freq);
+ 	if (freq_qos_request_active(&dtpm_cpu->qos_req))
+ 		freq_qos_remove_request(&dtpm_cpu->qos_req);
+=20
+-	policy =3D cpufreq_cpu_get(dtpm_cpu->cpu);
+-	if (policy) {
++	if (policy)
+ 		for_each_cpu(dtpm_cpu->cpu, policy->related_cpus)
+ 			per_cpu(dtpm_per_cpu, dtpm_cpu->cpu) =3D NULL;
+=20
+-		cpufreq_cpu_put(policy);
+-	}
+-
+ 	kfree(dtpm_cpu);
+ }
+=20
+@@ -192,7 +188,7 @@ static int cpuhp_dtpm_cpu_online(unsigned int cpu)
+ static int __dtpm_cpu_setup(int cpu, struct dtpm *parent)
+ {
+ 	struct dtpm_cpu *dtpm_cpu;
+-	struct cpufreq_policy *policy;
++	struct cpufreq_policy *policy __free(put_cpufreq_policy) =3D cpufreq_cp=
+u_get(cpu);
+ 	struct em_perf_state *table;
+ 	struct em_perf_domain *pd;
+ 	char name[CPUFREQ_NAME_LEN];
+@@ -202,21 +198,16 @@ static int __dtpm_cpu_setup(int cpu, struct dtpm *p=
+arent)
+ 	if (dtpm_cpu)
+ 		return 0;
+=20
+-	policy =3D cpufreq_cpu_get(cpu);
+ 	if (!policy)
+ 		return 0;
+=20
+ 	pd =3D em_cpu_get(cpu);
+-	if (!pd || em_is_artificial(pd)) {
+-		ret =3D -EINVAL;
+-		goto release_policy;
+-	}
++	if (!pd || em_is_artificial(pd))
++		return -EINVAL;
+=20
+ 	dtpm_cpu =3D kzalloc(sizeof(*dtpm_cpu), GFP_KERNEL);
+-	if (!dtpm_cpu) {
+-		ret =3D -ENOMEM;
+-		goto release_policy;
+-	}
++	if (!dtpm_cpu)
++		return -ENOMEM;
+=20
+ 	dtpm_init(&dtpm_cpu->dtpm, &dtpm_ops);
+ 	dtpm_cpu->cpu =3D cpu;
+@@ -239,7 +230,6 @@ static int __dtpm_cpu_setup(int cpu, struct dtpm *par=
+ent)
+ 	if (ret < 0)
+ 		goto out_dtpm_unregister;
 =20
 -	cpufreq_cpu_put(policy);
--
- 	if (ret < 0) {
- 		pr_err("%s: Failed to add freq constraint (%d)\n", __func__,
- 		       ret);
+ 	return 0;
+=20
+ out_dtpm_unregister:
+@@ -251,8 +241,6 @@ static int __dtpm_cpu_setup(int cpu, struct dtpm *par=
+ent)
+ 		per_cpu(dtpm_per_cpu, cpu) =3D NULL;
+ 	kfree(dtpm_cpu);
+=20
+-release_policy:
+-	cpufreq_cpu_put(policy);
+ 	return ret;
+ }
+=20
 --=20
 2.25.1
 
