@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7373FCA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 06:29:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2E31CA0FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 06:32:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KK1+3po0lpD6XTjsRxyqO5W6xZmY+U5UmFlcUZ2ALoQ=; b=HeHlcD5i7/8ZV8rLMS1FijFMfN
-	JDwCLnrZZZ2PU29Hcpw8SGEp6DYIAZDukbd+2nrjJRRHyqmrLhiGLc0bWOXbcqqm3q1jysH7d1uUV
-	FdczBTG8ljA3vndZ0/adW/ush1raVqPzBk0GHtODDc2YnUKMlx1My87JRyg10uTpu1sIppUwPeWvv
-	XR43hnXKcYsimMiO+w5hj2wMbCfMpoWpfzv8plFwfhALDNKjSNQtTowmxH9RiA7bRqgHOei6UrXqR
-	kdvZT6Xor7ny1Y5hl2SHvq7X/giR85eCnWICYC9PCP/3LLAUkmweL36myi8APjP278ZqjSpIwbDtk
-	KSy834Wg==;
+	bh=Gt9zx1+YPCz+bE3umXvvwz7y9FWGS2q7FyqDfk5fjjo=; b=bv8vmq3QCmEfaky/swau9L8CqH
+	/B+2NqiE4IUx46jPS5E6sAirryR3HjHsk7Q40A0nBJlOii24wufmeuJNK16INPOHtnxBsPBvbS9MO
+	m5ftXU4cnw2ldomvttiFGUJBVcPPUvfQBo38D69cJhl1CL0lrz7d0lnTMGkXOqgHw6nQa7xA3ChMg
+	fIVQMh2qBkmt0LpdqvWvEoKlFPveOP2ZOXYUij0Lxzr2ObS/y4VVMDg1VDwnrEsHsKRF3bjuxa4sK
+	FawG9x3M51cDaiHBC+/aSnJTD34DMx+7ggpDFNpe2o8eId0bZdR27O3HsmLYgpZWWMClfEbn3gTcI
+	zTSIcNuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usy2s-0000000BKfL-2fBw;
-	Mon, 01 Sep 2025 06:29:38 +0000
+	id 1usy5Y-0000000BKsZ-2mco;
+	Mon, 01 Sep 2025 06:32:24 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usxZn-0000000BGBM-14EF;
-	Mon, 01 Sep 2025 05:59:36 +0000
+	id 1usxZo-0000000BGBM-2hOg;
+	Mon, 01 Sep 2025 05:59:37 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Mon, 1 Sep
@@ -44,9 +44,9 @@ To: <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-phy@lists.infradead.org>, <openbmc@lists.ozlabs.org>,
 	<linux-gpio@vger.kernel.org>
 CC: <jacky_chou@aspeedtech.com>
-Subject: [PATCH v3 05/10] ARM: dts: aspeed-g6: Add AST2600 PCIe RC PERST#
-Date: Mon, 1 Sep 2025 13:59:17 +0800
-Message-ID: <20250901055922.1553550-6-jacky_chou@aspeedtech.com>
+Subject: [PATCH v3 06/10] ARM: dts: aspeed-g6: Add PCIe RC and PCIe PHY node
+Date: Mon, 1 Sep 2025 13:59:18 +0800
+Message-ID: <20250901055922.1553550-7-jacky_chou@aspeedtech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250901055922.1553550-1-jacky_chou@aspeedtech.com>
 References: <20250901055922.1553550-1-jacky_chou@aspeedtech.com>
@@ -54,8 +54,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250831_225935_292026_D8E2D9F5 
-X-CRM114-Status: UNSURE (   7.27  )
+X-CRM114-CacheID: sfid-20250831_225936_682770_09B87EF2 
+X-CRM114-Status: UNSURE (   8.03  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,29 +71,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add pinctrl support for PCIe RC PERST#.
+The AST2600 has one PCIe RC and add the PCIe PHY for RC.
 
 Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
 ---
- arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi | 5 +++++
- 1 file changed, 5 insertions(+)
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi | 56 +++++++++++++++++++++++++
+ 1 file changed, 56 insertions(+)
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi
-index 289668f051eb..ea879f086c25 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi
-+++ b/arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi
-@@ -2,6 +2,11 @@
- // Copyright 2019 IBM Corp.
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+index 8ed715bd53aa..a1ccc141647f 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
++++ b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+@@ -379,6 +379,62 @@ rng: hwrng@1e6e2524 {
+ 				quality = <100>;
+ 			};
  
- &pinctrl {
-+	pinctrl_pcierc1_default: pcierc1-default {
-+		function = "PCIERC1";
-+		groups = "PCIERC1";
-+	};
++			pcie_phy1: phy@1e6ed200 {
++				compatible = "aspeed,ast2600-pcie-phy";
++				reg = <0x1e6ed200 0x100>;
++				#phy-cells = <0>;
++			};
 +
- 	pinctrl_adc0_default: adc0_default {
- 		function = "ADC0";
- 		groups = "ADC0";
++			pcie0: pcie@1e770000 {
++				compatible = "aspeed,ast2600-pcie";
++				device_type = "pci";
++				reg = <0x1e770000 0x100>;
++				linux,pci-domain = <0>;
++				#address-cells = <3>;
++				#size-cells = <2>;
++				interrupts = <GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>;
++				bus-range = <0x80 0xff>;
++
++				ranges = <0x01000000 0x0 0x00018000 0x00018000 0x0 0x00008000
++					  0x02000000 0x0 0x70000000 0x70000000 0x0 0x10000000>;
++
++				status = "disabled";
++
++				resets = <&syscon ASPEED_RESET_H2X>;
++				reset-names = "h2x";
++
++				#interrupt-cells = <1>;
++				msi-parent = <&pcie0>;
++				msi-controller;
++
++				aspeed,ahbc = <&ahbc>;
++
++				interrupt-map-mask = <0 0 0 7>;
++				interrupt-map = <0 0 0 1 &pcie_intc0 0>,
++						<0 0 0 2 &pcie_intc0 1>,
++						<0 0 0 3 &pcie_intc0 2>,
++						<0 0 0 4 &pcie_intc0 3>;
++				pcie_intc0: interrupt-controller {
++					interrupt-controller;
++					#address-cells = <0>;
++					#interrupt-cells = <1>;
++				};
++
++				pcie@8,0 {
++					reg = <0x804000 0 0 0 0>;
++					#address-cells = <3>;
++					#size-cells = <2>;
++					device_type = "pci";
++					resets = <&syscon ASPEED_RESET_PCIE_RC_O>;
++					reset-names = "perst";
++					clocks = <&syscon ASPEED_CLK_GATE_BCLK>;
++					pinctrl-names = "default";
++					pinctrl-0 = <&pinctrl_pcierc1_default>;
++					phys = <&pcie_phy1>;
++					ranges;
++				};
++			};
++
+ 			gfx: display@1e6e6000 {
+ 				compatible = "aspeed,ast2600-gfx", "syscon";
+ 				reg = <0x1e6e6000 0x1000>;
 -- 
 2.43.0
 
