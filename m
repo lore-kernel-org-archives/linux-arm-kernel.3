@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77632CA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 11:35:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED9FCCA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 11:38:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LglhPlwMqIEb5lp6QQRc6h7tbZs7go6i8tgRSxiq4X8=; b=u8zb1Z3HL4AVCnpwGwDd5pl6lN
-	4T+PBnvpukxZDszdxoQSpk61vZDPf+vluw3zt1r5DwmqCQtw4yM/UvuCWwtbN58yZq3RgPTOX0/qV
-	mz8xUKF5GesBIqHmKfqnOEvdAeogbTDS0USN6neCu91KsxMQTJaiABonhoUef/k33H3eOuhkTNl8l
-	uEWWsFj+hh+oB1BmtlB6OjW9T0IAUaYhblaM3gWyxV1jq4JvyyGmwqMB/5oOI2be3AhlOLgKnuRgI
-	+zD4cn0xBnzpv9PfrC+Ttt9/nC4+hIcT1wH/QVpNVIHznovnKBt50HV2AcKkPTRsP8NkR1/B9z72e
-	5ERxQ7EA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Pvs8350FZrxwBnqnkvx08YGeQyjKhwj9ElyMOBOm5qk=; b=bE4/d3hbeEQpmwtVo1gO3RgI46
+	ZGNezhdN+KQQQHCSPDxJHKhDiu1IIxy3sQ0ca1ugJvK5WaU668RfOzRKJHaT8Bm0shmRLTPnqXvze
+	LZTfTxFlpXhGEybbJIAz2ljTo7vTC/Nv96y1z1iZeyTnHKkq55bfbKPjsZ1z0Bi3py1Mprmt8exhs
+	PD8QdPtD0k65rJww/cD1AYfhk9yOxo8XEX0IEOpazqHCFvSub06fjzBBFeejeyMfhkUlrVYk/iHhR
+	KrWlreE0MJdX72n+U4UoddM+7DHFUsP3KviwNY0V2L7fMzQRkh15NxRzj970zKr19gcNxsfU+4PLI
+	QPwJ9gVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut2op-0000000C4Zx-43Jr;
-	Mon, 01 Sep 2025 11:35:28 +0000
+	id 1ut2rW-0000000C50A-0mXg;
+	Mon, 01 Sep 2025 11:38:14 +0000
 Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut1PC-0000000Bqu7-0uSn
+	id 1ut1PE-0000000Bqu7-22CG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 10:04:56 +0000
+	Mon, 01 Sep 2025 10:04:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1756721094; x=1788257094;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=LglhPlwMqIEb5lp6QQRc6h7tbZs7go6i8tgRSxiq4X8=;
-  b=jOtRQ4zdbOLm+zEb7wRIGGRv0Scm5Qi8C5Q5+8cFvJnJwj3Fpg7f6vu2
-   ina2YyGjPWSmvew/iM5F2Lrczbh9Ehizcjy4+crdZik6kCVvEaR3wZcVN
-   79fBoadj6TIF6PzPaHNT1ccmPE/aJ/J9fJklh/XLRbTqZOpmsq6hNd1hV
-   /9awWAea4+qUW8ZMkaTHs4ZkSTxUETNORBMiuNt0qh5RPmTCOxr1qQK7j
-   Uqc7h9bn1l+Sncsy5H+tNo26fZ7g6UYAFaydv3VVxwI6E3mwPaPzTc9ME
-   iIiVk21/nrwzjwZ9Wz6BNAMU8l/m1T2uO3dBbVC4wbFcRmbxEiFHgBRoO
-   g==;
-X-CSE-ConnectionGUID: y/fatGMXSAqiuNPuVA67sg==
-X-CSE-MsgGUID: ZRt67WOPR++GxyGeS8zMrg==
+  t=1756721096; x=1788257096;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=Pvs8350FZrxwBnqnkvx08YGeQyjKhwj9ElyMOBOm5qk=;
+  b=B8+8c28DMOozII4axYU36fVBIArVtNn65HKO/+TtpetQdUs/PeAF1XgS
+   Dzo+wF0F70Mly6K/qKP3HU7/Fzuoc9bVjSRvmIVBrG7SdobcYXEkkAQX+
+   qscobXlpHOC35AlOXWFbY/H/SE3U0N91lbMfFe//IMBB7MOks6W+EuNjj
+   HFnlLcfUe+jHoUl8wIMbahMzlCTGQD8fXxlMb4eq1exjX5cV5ZZ+G8I7M
+   V00LDxUN9SPQpArNcgNIH53O2g7ZteBXD1+EW4xrkVWLdHFUlcySlGYYu
+   b++9Y+HL5XfIEvILXtSCoHMBD0xjpoUSb7n1dZcXtvWrnH49mdgWi+kRN
+   w==;
+X-CSE-ConnectionGUID: FgzPcpssSvmPFu5NPxH+mg==
+X-CSE-MsgGUID: b7IrLCzIR+GoNMJPJVpGAg==
 X-IronPort-AV: E=Sophos;i="6.18,225,1751234400"; 
-   d="scan'208";a="46004680"
+   d="scan'208";a="46004685"
 Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 01 Sep 2025 12:04:49 +0200
-X-CheckPoint: {68B56FC1-1B-20CAA7DA-EC9DC758}
-X-MAIL-CPID: BD1DAF44F32A66FB5B73D9DFF9139FF1_0
-X-Control-Analysis: str=0001.0A00210D.68B56F5F.0090,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 683611697BF;
-	Mon,  1 Sep 2025 12:04:44 +0200 (CEST)
+  by mx1.tq-group.com with ESMTP; 01 Sep 2025 12:04:54 +0200
+X-CheckPoint: {68B56FC6-19-9821D066-F5C64F68}
+X-MAIL-CPID: 88A8AB47C7CBFF3E8C2043CFAE755D90_2
+X-Control-Analysis: str=0001.0A00210D.68B56F64.0063,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E7516165AA3;
+	Mon,  1 Sep 2025 12:04:49 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1756721085; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=LglhPlwMqIEb5lp6QQRc6h7tbZs7go6i8tgRSxiq4X8=;
-	b=MtZJxsr05piR25btcguKeO1U9Tx+XOs3scH1EgiBapVT4FRoy/HuRE8CcvDkY/rrx4lQRa
-	LSo5jxNWt5Qgfo7sUIgiWzYFTAQdC9T49Uxay+Y7kdNdYtRPQ0lJQuH5MmLEJNN7F54CPB
-	P8XAjoGxm+YcTOp9UIv72vdbMcCHUoPif6K8lh6Ws1FG20ggGJE1Ct6iskkwmS0dTlmTaA
-	M6iaTr9avPZeDEb7+ft2Du9BPpxtuGQm7GDYyO0dKNMKdFVIkc6hvxaovhse82/jC3HY2q
-	ePQYr7qb2iLK5N1MeSvhlO48s2QntA1cO1gJpR0yQvJJh3bOvwrJ5J6fW7F9Dg==
+	s=dkim; t=1756721090; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=Pvs8350FZrxwBnqnkvx08YGeQyjKhwj9ElyMOBOm5qk=;
+	b=QIlrpxbEeu1QHO2DvCXxe16cISymPAm0umc7j/LIxN84QcfmQl/9dFP7UMMMdC3s96CC4P
+	g2xOsNVciHe/25Md4WleOBzDiwVwAtKLqcqmou5HFMdAujdfBFI9yyI4eSAckG4nvIwFxB
+	d04HKIFWqrhFwszu+ES4nQIM4/yR1zkFncW5wZnfas2eDz4ElMTVSOl/8wcmMRBaW63jkr
+	vivwlnwejqjHc+a3TFrW7gsyKh/87qIUgDz2RdhvapF4FgfyQLEvAGkQFAZDPMJyDLq350
+	PWJy2bbS5rQ7IFp3Ph16Qtw/UcH1mqruhPx+cYR6UJNr1+EIe8TB8BmP1j3MoA==
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -72,17 +73,20 @@ Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
 	linux-kernel@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux@ew.tq-group.com
-Subject: [PATCH v2 0/2] TQMa91xx support
-Date: Mon,  1 Sep 2025 12:04:28 +0200
-Message-ID: <20250901100432.139163-1-alexander.stein@ew.tq-group.com>
+	linux@ew.tq-group.com,
+	Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH v2 1/2] dt-bindings: arm: fsl: add TQMa91xx SOM series
+Date: Mon,  1 Sep 2025 12:04:29 +0200
+Message-ID: <20250901100432.139163-2-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250901100432.139163-1-alexander.stein@ew.tq-group.com>
+References: <20250901100432.139163-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_030454_737040_D4B6E5C7 
-X-CRM114-Status: GOOD (  10.09  )
+X-CRM114-CacheID: sfid-20250901_030456_820833_FBE8BF63 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,37 +101,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+TQMa91xx series is using NXP i.MX91 CPU on an LGA or socketable type board.
+MBa91xxCA is a starterkit base board for TQMa91xx on an adapter board.
 
-this series supports i.MX91 based module series TQMa91xx. It is available
-in a socketable variant (CA [1]) and as an LGA variant (LA [2]). Both
-are covered by the same device tree file.
-The hardware is identical to their TQMa93xx counterparts, just a different SoC.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+Changes in v2:
+* TQMa91xx series includes both CA & LA variant (socket & LGA)
+  adjust commit message accordingly
 
-This series depends on the i.MX91 SoC support [3].
+ Documentation/devicetree/bindings/arm/fsl.yaml | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-Best regards
-Alexander Stein
-
-[1] https://www.tq-group.com/en/products/tq-embedded/arm-architecture/tqma91xxca/
-[2] https://www.tq-group.com/en/products/tq-embedded/arm-architecture/tqma91xxla/
-[3] https://lore.kernel.org/all/20250825091223.1378137-1-joy.zou@nxp.com/
-
-v1:
-* https://lore.kernel.org/all/20250828094745.3733533-1-alexander.stein@ew.tq-group.com/
-
-Alexander Stein (2):
-  dt-bindings: arm: fsl: add TQMa91xx SOM series
-  arm64: dts: freescale: add initial device tree for TQMa91xx/MBa91xxCA
-
- .../devicetree/bindings/arm/fsl.yaml          |  18 +
- arch/arm64/boot/dts/freescale/Makefile        |   1 +
- .../freescale/imx91-tqma9131-mba91xxca.dts    | 739 ++++++++++++++++++
- .../boot/dts/freescale/imx91-tqma9131.dtsi    | 295 +++++++
- 4 files changed, 1053 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx91-tqma9131-mba91xxca.dts
- create mode 100644 arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi
-
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index ebafa6ecbcb64..0843c5e9275be 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1433,6 +1433,24 @@ properties:
+               - fsl,imxrt1170-evk         # i.MXRT1170 EVK Board
+           - const: fsl,imxrt1170
+ 
++      - description:
++          TQMa91xxLA and TQMa91xxCA are two series of feature compatible SOM
++          using NXP i.MX91 SOC in 11x11 mm package.
++          TQMa91xxLA is designed to be soldered on different carrier boards.
++          TQMa91xxCA is a compatible variant using board to board connectors.
++          All SOM and CPU variants use the same device tree hence only one
++          compatible is needed. Bootloader disables all features not present
++          in the assembled SOC.
++          MBa91xxCA mainboard can be used as starterkit for the SOM
++          soldered on an adapter board or for the connector variant
++          MBa91xxLA mainboard is a single board computer using the solderable
++          SOM variant
++        items:
++          - enum:
++              - tq,imx91-tqma9131-mba91xxca # TQ-Systems GmbH i.MX91 TQMa91xxCA/LA SOM on MBa91xxCA
++          - const: tq,imx91-tqma9131        # TQ-Systems GmbH i.MX91 TQMa91xxCA/LA SOM
++          - const: fsl,imx91
++
+       - description:
+           TQMa93xxLA and TQMa93xxCA are two series of feature compatible SOM
+           using NXP i.MX93 SOC in 11x11 mm package.
 -- 
 2.43.0
 
