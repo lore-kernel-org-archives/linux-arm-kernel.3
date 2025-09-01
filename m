@@ -4,64 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C38CCA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 00:53:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21547CA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 00:53:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X15/L+qfe/XysoZnt/lEZo8YVQ6nEiYFeZS91NqwMvk=; b=a6YZ4jy47Vib279eqocLXn70/Q
-	aC0mz5oTbkfn+S4swYZlKFodC/SMvnHi5GFA7eUuaqxnQZRVAro8bRIm+Ste5aQVV9nkK6oCd0TSt
-	+a6e7LuiqHjHhS316L091UiMzYTEuLuZil/89YMyLu7qOJuahXwI3XYzswcKeqTpaDwHTEgyJxLWV
-	aF7HJnMLu1AAMLlrRwX8fce+kUM9Ur0+kuO6boiLxObyVCpuz6x8bvzqoXRggwkbLB196bGkMThuD
-	5MRdmBSZ6vQW2Ma1TNcxIUKEcU/EAt4rci8DN1qWDZIeDCsGj+3JraBNr7+4VSOgJ6JnsCthngGeM
-	Qysb6KNg==;
+	bh=RSez17Rtm4X1yOoWBhpqLG2T8D025QZO2FrqcLRkLz8=; b=vRKftl6JO02q7COPskcZofX6FS
+	xGRJ+Iw8idZfwe9YsTNcD+Wy52dwlOF7qHUVHkCL9PBC8BxzwcWWZr+sh+jE3t8iK3WMJRY+OQn3w
+	aFIFEdJSTzW6rSX9IHv81Dl9r4CLavNwD0L2U3LSiI6fs1BXDkghPd8dPkNZms8uUpBNWqdxZ8Oj6
+	YTDCK5Yjrv+r5G2ItYhr4gapjiLodJAnJhHSslusMZM3s/daUG/TqKCG36eBQ2IgBf+q40OlFGZFS
+	8KGZ5YdGDwsXhbEvfC1in+V0cHyp8uEbXEOtQFeGaFYZrcYqadcEtsKwA6iHd8rD0d8zkHqbnoQ8j
+	wSmSlHgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utFH9-0000000EZtQ-3rC4;
-	Tue, 02 Sep 2025 00:53:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1utFHC-0000000EZzZ-1zHx;
+	Tue, 02 Sep 2025 00:53:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utC7a-0000000Dz5l-34Ec
+	id 1utC98-0000000DzQ4-2TjP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 21:31:26 +0000
+	Mon, 01 Sep 2025 21:33:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2ACEA601DA;
-	Mon,  1 Sep 2025 21:31:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FB72C4CEF0;
-	Mon,  1 Sep 2025 21:31:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4E1E34063D;
+	Mon,  1 Sep 2025 21:33:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6264C4CEF0;
+	Mon,  1 Sep 2025 21:33:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756762285;
-	bh=pYGx4Z5PyQy+FBk43EbI6DGF/1qa7cKPoVZH27D9KxQ=;
+	s=k20201202; t=1756762382;
+	bh=/mIouZW3eukRsCBlCEfrv5lA4/NnpjfEvBd3Y1zXg1k=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=o7+IhNQks9WAXZh5dRfApNnaOoV8N2Yw80HEtMQu/g4rLqCguPt8jS0WTUYBTj5/Y
-	 KDeyInm5+0uybxPJZd+FrYZJt70C3XHEPUJEVMkZfU4zbbuuKlpKZLizqloRa8HFen
-	 4BtqPhknnurexE1dUVYnsS6rlhXdEAghpZY/DaNbyFK6320VHLpK+fLzA3If/k3QRi
-	 M5i2b/ZcLyJ/8X955S1jvqfjiiRqpJ8Q19++YxlKcCrT14384N7lHMdp0JvmagHAPA
-	 UMvy8VF5Jz8uj7uwuBfBcHMtv+cE+/GRVIaTIFKzgr+m2TJSbUT6fzksm+3pGLfIuk
-	 XNCaMiH81IKnQ==
-Date: Mon, 1 Sep 2025 16:31:24 -0500
+	b=LF3k2jGCGKtYMmpW+BfplhnUEjcgeJc/QBjueCTInMmnaYkLovRGpztSPG4hgXidS
+	 2yoQrDwQwm4eQZp2ij4SqD0E6SmkeIDVodXsdL1sQt6JRRVq+PbrYfhbb2itW2eKPa
+	 q7Jm8LgYNdo+sztySd7y8KAkLSpzZGEHWpK41eZSA2v18dNaAs8w72a+vB5OrLfkGO
+	 ePi8tyfAfE9TrsN6Y1oG5jt6Y4modQi98ePJZwKstOJ8zrMAs/EW+J2pvQHT6HM/1M
+	 QHwtQt75mB4t1ZXGDaQo4Xa0NLosXQxTZBmLRvICWEjgpBEKA7YVd4O6Le0PEXtwI3
+	 UoWxCFEL8TVYA==
+Date: Mon, 1 Sep 2025 16:33:00 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: Stephen Boyd <sboyd@kernel.org>, Samuel Holland <samuel@sholland.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Jernej Skrabec <jernej@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-sunxi@lists.linux.dev,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Chen-Yu Tsai <wens@csie.org>
-Subject: Re: [PATCH 2/8] dt-bindings: clock: sun55i-a523-ccu: Add A523 MCU
- CCU clock controller
-Message-ID: <175676228396.377947.13021468225327496814.robh@kernel.org>
-References: <20250830170901.1996227-1-wens@kernel.org>
- <20250830170901.1996227-3-wens@kernel.org>
+To: Denzeel Oliva <wachiturroxd150@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	linux-kernel@vger.kernel.org,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Stephen Boyd <sboyd@kernel.org>, devicetree@vger.kernel.org,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chanwoo Choi <cw00.choi@samsung.com>
+Subject: Re: [PATCH v2 1/3] dt-bindings: clock: exynos990: Add LHS_ACEL clock
+ ID for HSI0 block
+Message-ID: <175676238020.380265.9436129584616218710.robh@kernel.org>
+References: <20250831-usb-v2-0-00b9c0559733@gmail.com>
+ <20250831-usb-v2-1-00b9c0559733@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250830170901.1996227-3-wens@kernel.org>
+In-Reply-To: <20250831-usb-v2-1-00b9c0559733@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250901_143302_646191_F4F22506 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,28 +82,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sun, 31 Aug 2025 01:08:55 +0800, Chen-Yu Tsai wrote:
-> From: Chen-Yu Tsai <wens@csie.org>
+On Sun, 31 Aug 2025 12:13:14 +0000, Denzeel Oliva wrote:
+> Add the missing LHS_ACEL clock ID for the HSI0 block. This clock is
+> required for proper USB operation, as without it, USB connections fail
+> with errors like device descriptor read timeouts and address response
+> issues.
 > 
-> There are four clock controllers in the A523 SoC. The existing binding
-> already covers two of them that are critical for basic operation. The
-> remaining ones are the MCU clock controller and CPU PLL clock
-> controller.
-> 
-> Add a description for the MCU CCU. This unit controls and provides
-> clocks to the MCU (RISC-V) subsystem and peripherals meant to operate
-> under low power conditions.
-> 
-> Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+> Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
 > ---
->  .../clock/allwinner,sun55i-a523-ccu.yaml      | 35 +++++++++++-
->  .../dt-bindings/clock/sun55i-a523-mcu-ccu.h   | 54 +++++++++++++++++++
->  .../dt-bindings/reset/sun55i-a523-mcu-ccu.h   | 30 +++++++++++
->  3 files changed, 117 insertions(+), 2 deletions(-)
->  create mode 100644 include/dt-bindings/clock/sun55i-a523-mcu-ccu.h
->  create mode 100644 include/dt-bindings/reset/sun55i-a523-mcu-ccu.h
+>  include/dt-bindings/clock/samsung,exynos990.h | 1 +
+>  1 file changed, 1 insertion(+)
 > 
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
