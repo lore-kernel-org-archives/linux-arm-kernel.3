@@ -4,59 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FC39CA1007
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51A4FCA1002
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 23:12:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6THNwrpoBfouLzYXf4ByDtFHFToTMlZqLQcLkTvGv/c=; b=N4pk1RHJhLKmAp+Io0DOrAjn8X
-	lIsxlo/TmVl8CpdSl2GjWwYMc02Ps+xoU2hMpEnQaBTqQHX0iNNsOeZastPKyKnF2DM8qWlsppL2h
-	g2JwG1TsUClJdY8h7HHiCZzaMIwkXgLjQ8+JRas66ZQRFc1nzVXe4reE1us/jG+g6ie2Ct0jBsQp3
-	14eFFiUfyYJ0/qnc+3/2wHgHQXPRMxVa13Yb3w27SAkD1IJY90lVnY19DcIHLXpZPKTM3T/dPygP3
-	metdRa+Q7RAEndcu/t9XBlq813x/yO3CRyVYOmsYwru5RxFgnKyViYcyx5rEiJNIRVNFiPkhLPM3Q
-	GDf6/rfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kPHmZzTajGoiIu4Pb16cc/zxagZSiNHTxiRnREwqsAY=; b=FGHw0DMcU5kUzRYI6xEGEgjWTF
+	C6o1fKBDvT6Tw2g3jQRyLIFPbJY8NWPFn40YER5We2TRichrAXAbiZC+bcSGqovmbdYjo/vdvKDum
+	mntokuPZj0fEk3GdcH66pmeCPywrNacGIslAHxQn3XH5KLggfmiRqgpzQ4OhWJtuVKqdCcjSeIV6x
+	mEG4PYvKGUpyyXT44329I9WVHbfF+JLhQj8GApElPMszklMOYGU28w4/pL5tsvNpAVQnZgtX4gyhf
+	POKgH3yC48+aOb3Yo8Fx2gd9aW1iH3HrkWhFdkMCgSXvo/38IqUEB9OfnFfUSj+Cnt7SjTKjqR3zR
+	8t46Jkpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utDgq-0000000EDl7-0zKF;
+	id 1utDgq-0000000EDlQ-3I37;
 	Mon, 01 Sep 2025 23:11:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut6Ds-0000000D1Uz-47zF
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ut6Dz-0000000D1WO-1P7H
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 15:13:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 26719175A;
-	Mon,  1 Sep 2025 08:13:24 -0700 (PDT)
-Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 847B83F6A8;
-	Mon,  1 Sep 2025 08:13:28 -0700 (PDT)
-Date: Mon, 1 Sep 2025 16:13:25 +0100
-From: Dave Martin <Dave.Martin@arm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org,
-	oliver.upton@linux.dev, anshuman.khandual@arm.com, robh@kernel.org,
-	james.morse@arm.com, mark.rutland@arm.com, joey.gouly@arm.com,
-	ahmed.genidi@arm.com, kevin.brodsky@arm.com,
-	scott@os.amperecomputing.com, mbenes@suse.cz,
-	james.clark@linaro.org, frederic@kernel.org, rafael@kernel.org,
-	pavel@kernel.org, ryan.roberts@arm.com, suzuki.poulose@arm.com,
-	maz@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v4 4/5] arm64: initialise SCTLR2_EL1 at cpu_soft_restart()
-Message-ID: <aLW4FTcqommWSIej@e133380.arm.com>
-References: <20250821172408.2101870-1-yeoreum.yun@arm.com>
- <20250821172408.2101870-5-yeoreum.yun@arm.com>
+	Mon, 01 Sep 2025 15:13:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756739618;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=kPHmZzTajGoiIu4Pb16cc/zxagZSiNHTxiRnREwqsAY=;
+	b=PZYQAclMa9O33BJ0b5fGUBIXonyJORLVhEyERoZxNYpsnNB/ggnM7fGI2P/8cefNLcktYZ
+	nS8UZO4C5kP4LbpXKWUTKFo8V3Mew1PckyXSqtVlMnO2J6/zcPYW4z8yZZr1416YBYSeIi
+	qFPv5UlHnWop96CFkYVoqZOomKnu1w0=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-626-GrEIet-nN5GvzvRvynVS6A-1; Mon,
+ 01 Sep 2025 11:13:35 -0400
+X-MC-Unique: GrEIet-nN5GvzvRvynVS6A-1
+X-Mimecast-MFC-AGG-ID: GrEIet-nN5GvzvRvynVS6A_1756739610
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 5BC2F18004A7;
+	Mon,  1 Sep 2025 15:13:30 +0000 (UTC)
+Received: from t14s.fritz.box (unknown [10.22.88.45])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 8D7A81800447;
+	Mon,  1 Sep 2025 15:13:15 +0000 (UTC)
+From: David Hildenbrand <david@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: David Hildenbrand <david@redhat.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Alexander Potapenko <glider@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Brendan Jackman <jackmanb@google.com>,
+	Christoph Lameter <cl@gentwo.org>,
+	Dennis Zhou <dennis@kernel.org>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	dri-devel@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org,
+	iommu@lists.linux.dev,
+	io-uring@vger.kernel.org,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Jens Axboe <axboe@kernel.dk>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	John Hubbard <jhubbard@nvidia.com>,
+	kasan-dev@googlegroups.com,
+	kvm@vger.kernel.org,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-arm-kernel@axis.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org,
+	linux-ide@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-mmc@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	Marco Elver <elver@google.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	netdev@vger.kernel.org,
+	Oscar Salvador <osalvador@suse.de>,
+	Peter Xu <peterx@redhat.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Tejun Heo <tj@kernel.org>,
+	virtualization@lists.linux.dev,
+	Vlastimil Babka <vbabka@suse.cz>,
+	wireguard@lists.zx2c4.com,
+	x86@kernel.org,
+	Zi Yan <ziy@nvidia.com>
+Subject: [PATCH v2 34/37] mm/gup: drop nth_page() usage in unpin_user_page_range_dirty_lock()
+Date: Mon,  1 Sep 2025 17:03:55 +0200
+Message-ID: <20250901150359.867252-35-david@redhat.com>
+In-Reply-To: <20250901150359.867252-1-david@redhat.com>
+References: <20250901150359.867252-1-david@redhat.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250821172408.2101870-5-yeoreum.yun@arm.com>
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_081333_060962_EDC07C74 
-X-CRM114-Status: GOOD (  16.98  )
+X-CRM114-CacheID: sfid-20250901_081339_438925_B50140B9 
+X-CRM114-Status: GOOD (  17.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,59 +127,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+There is the concern that unpin_user_page_range_dirty_lock() might do
+some weird merging of PFN ranges -- either now or in the future -- such
+that PFN range is contiguous but the page range might not be.
 
-On Thu, Aug 21, 2025 at 06:24:07PM +0100, Yeoreum Yun wrote:
-> Explicitly initialize the SCTLR2_ELx register before launching
-> a new kernel via kexec() to avoid leaving SCTLR2_ELx with an
-> arbitrary value when the new kernel runs.
-> 
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> ---
->  arch/arm64/kernel/cpu-reset.S      | 4 ++++
->  arch/arm64/kvm/hyp/nvhe/hyp-init.S | 3 +++
->  2 files changed, 7 insertions(+)
-> 
-> diff --git a/arch/arm64/kernel/cpu-reset.S b/arch/arm64/kernel/cpu-reset.S
-> index c87445dde674..c8888891dc8d 100644
-> --- a/arch/arm64/kernel/cpu-reset.S
-> +++ b/arch/arm64/kernel/cpu-reset.S
-> @@ -37,6 +37,10 @@ SYM_TYPED_FUNC_START(cpu_soft_restart)
->  	 * regime if HCR_EL2.E2H == 1
->  	 */
->  	msr	sctlr_el1, x12
-> +
-> +	mov_q	x12, INIT_SCTLR2_EL1
-> +	set_sctlr2_elx	1, x12, x8
-> +
+Let's sanity-check for that and drop the nth_page() usage.
 
-Nit: does it matter whether we reset SCTLR2 before SCTLR?
+Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Signed-off-by: David Hildenbrand <david@redhat.com>
+---
+ mm/gup.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
-I can't find a convincing architectural reason why they need to be
-reset in a particular order, but it looks a bit strange that the
-cpu_soft_restart and __kvm_handle_stub_hvc versions of this reset the
-registers in the opposite order...
+diff --git a/mm/gup.c b/mm/gup.c
+index f0f4d1a68e094..010fe56f6e132 100644
+--- a/mm/gup.c
++++ b/mm/gup.c
+@@ -237,7 +237,7 @@ void folio_add_pin(struct folio *folio)
+ static inline struct folio *gup_folio_range_next(struct page *start,
+ 		unsigned long npages, unsigned long i, unsigned int *ntails)
+ {
+-	struct page *next = nth_page(start, i);
++	struct page *next = start + i;
+ 	struct folio *folio = page_folio(next);
+ 	unsigned int nr = 1;
+ 
+@@ -342,6 +342,10 @@ EXPORT_SYMBOL(unpin_user_pages_dirty_lock);
+  * "gup-pinned page range" refers to a range of pages that has had one of the
+  * pin_user_pages() variants called on that page.
+  *
++ * The page range must be truly physically contiguous: the page range
++ * corresponds to a contiguous PFN range and all pages can be iterated
++ * naturally.
++ *
+  * For the page ranges defined by [page .. page+npages], make that range (or
+  * its head pages, if a compound page) dirty, if @make_dirty is true, and if the
+  * page range was previously listed as clean.
+@@ -359,6 +363,8 @@ void unpin_user_page_range_dirty_lock(struct page *page, unsigned long npages,
+ 	struct folio *folio;
+ 	unsigned int nr;
+ 
++	VM_WARN_ON_ONCE(!page_range_contiguous(page, npages));
++
+ 	for (i = 0; i < npages; i += nr) {
+ 		folio = gup_folio_range_next(page, npages, i, &nr);
+ 		if (make_dirty && !folio_test_dirty(folio)) {
+-- 
+2.50.1
 
->  	isb
->  
->  	cbz	x0, 1f				// el2_switch?
-> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-init.S b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
-> index aada42522e7b..cc569656fe35 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/hyp-init.S
-> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
-> @@ -255,6 +255,9 @@ SYM_CODE_START(__kvm_handle_stub_hvc)
->  	mov	x0, xzr
->  reset:
->  	/* Reset kvm back to the hyp stub. */
-> +	mov_q 	x5, INIT_SCTLR2_EL2
-> +	set_sctlr2_elx	2, x5, x4
-> +
->  	mov_q	x5, INIT_SCTLR_EL2_MMU_OFF
->  	pre_disable_mmu_workaround
->  	msr	sctlr_el2, x5
-
-Otherwise, I guess this is fine.
-
-Cheers
----Dave
 
