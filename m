@@ -4,159 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DA13CA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 08:10:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45CC4CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 08:12:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2/5B9JlC9H0WqsVCFuSfoaDVuX+LGrJc1PzKbI1rmJE=; b=rCXxPujA0t27W81GeRcwI5XthX
-	lIKnHCy36EgU7Q9okMcF+AL+Kz6MHHXTqLaMAfeYDFS/uBVVUEtxrCK90LCKsxZR9Mgs9uQVREWgt
-	7AkhNy2moj4OyEI9KZAFuxuApEJ6A/NDTV0FFitHlJ6jr4fhYpE7HRr8mCwohu2tJ/L/6CAvFt1sX
-	k/gLMcrPbNvci/BXm5sviQ39fcdPvcx1nt0tytcWFuJz/hIYSFX7vM7d1wFD36feIrrIgEhjCle4q
-	hZG7I3+l2Dela0wDVUFrr4Es+jhqiT7EK9lxQzYcHSuhJfMB5hjQU0m/t9pvuAhdprGr58HbO6Pr6
-	P5KobRbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iibTz8NizXmv0rJTZmcrOl/SVVw1umMMtUTwAAF76vE=; b=tczxxOc5uZccUH7/EyueLn316A
+	jo9ns3Y8WVabc1u0Ymva8GEWx5KF0tUV+aTM7C/9rpJ6iQkvjZfSbNVAHnDHnUPkef1aZHWE+DOTK
+	xWjyM8t2HlK/4LAAxT2FAx4or+zR61HH3ZuA9DZFXeZe+9OYZEeI9vdKs7cVSn6W4miT2wpWNfltC
+	8uwGEV8E7TfBSizsGwYJHZ+511chPfYDytYMfhetL+C7oAqxC6ZM3HhW8knBtemV9nzCcDO+puvX7
+	k3suBCvRfpVpCmw0G0GaifOhlINlWPtneNpy2CM/BjrbFtrBS1yu0r8ck1U3Hq7R4Y3jvc/j1gGRm
+	o7F3Ev0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uszc8-0000000BXXq-06za;
-	Mon, 01 Sep 2025 08:10:08 +0000
-Received: from mail-koreasouthazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c410::1] helo=PUWP216CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uszMg-0000000BUc7-0nn6
+	id 1uszeo-0000000BXxh-045a;
+	Mon, 01 Sep 2025 08:12:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1usyqP-0000000BQM6-0Tbk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 07:54:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sGJMU0AFwnSsVE/nj3a4ObMsJlns2ALpIpN8EqxUbKJuzgUznFpvBncsgwupv8tki3gQ8tl+3xmD+lfTOM7F5ddOwhzabG8AG++dDfHYPg2S85tN1bBTLN69vDACs4PiitES9PnMWlKRg/jXtEeh3bNnosLC+bbQF2ognrEhBF2zSsECFk0wDbzgstgVYVS8xUR3PqpLrem71Wo313gZKa7sDcgu62YywRNbLczefJU/PmwVo7bptJyKVVg8CwNP3f7sm8v/XPRZNW76BDaxqJOymK3d0roFuUEVcQF59OsXj7sJ+e0cfxEpsMAZCJDR/skqs2jx0fPfANBNq3W4Yw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2/5B9JlC9H0WqsVCFuSfoaDVuX+LGrJc1PzKbI1rmJE=;
- b=YItFC+XjfWxbCG4YINFblDWy4DTJgB8Yf3ksKaDM6G7VZUis6H9IRDcnHJGRKGx2U6v0mM1xrwf+BlaF7jHLF6IV12gGGM9UrdkAFRzR7RbNt4rhN/flp2h6l68jBjsWUUx00yCtqyMALAdFH7aqgavq3+oZC5k2xKc6fofllOo5hJ9IvPi40Mi0IEiCYXbuJiz/78oWWQyg434hmVaI/WpJfMoqC9L2DyE/3L8coxkS4AmIWbMSuGVmjgGeB3FCkQJ4oRK4iALnW3VB6Rg9rnnhfcBQ9LEfX2hCZ2tAvO8EiKWg0jRSzda2nW+d+W4JH7+JyNJ1OSIu8hWrxOMInw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=chipsnmedia.com; dmarc=pass action=none
- header.from=chipsnmedia.com; dkim=pass header.d=chipsnmedia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chipsnmedia.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2/5B9JlC9H0WqsVCFuSfoaDVuX+LGrJc1PzKbI1rmJE=;
- b=YAkIuvd0wF4VoL7Amdu1tX7AJmYoc03zvuQYj37z8icieeeAWzPFhF39HhALkct1Zknqr9I+pEzYBuGc8KCbqdwbaGn1g6X5GgLxcHO1EU6yrglNo8ui+h2BKb9myDBOqUozGRQMA91Hd4AlYJmL3sl299/rNR4+YojZsWbm56o=
-Received: from SL2P216MB1246.KORP216.PROD.OUTLOOK.COM (2603:1096:101:a::9) by
- PU4P216MB1584.KORP216.PROD.OUTLOOK.COM (2603:1096:301:d1::6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9094.16; Mon, 1 Sep 2025 07:38:24 +0000
-Received: from SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
- ([fe80::9e3d:ee20:8cc7:3c07]) by SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
- ([fe80::9e3d:ee20:8cc7:3c07%5]) with mapi id 15.20.9094.015; Mon, 1 Sep 2025
- 07:38:24 +0000
-From: Nas Chung <nas.chung@chipsnmedia.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, "mchehab@kernel.org"
-	<mchehab@kernel.org>, "hverkuil@xs4all.nl" <hverkuil@xs4all.nl>,
-	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de"
-	<s.hauer@pengutronix.de>
-CC: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-imx@nxp.com" <linux-imx@nxp.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, jackson.lee
-	<jackson.lee@chipsnmedia.com>, lafley.kim <lafley.kim@chipsnmedia.com>
-Subject: RE: [PATCH v3 9/9] arm64: dts: freescale: imx95: Add video codec node
-Thread-Topic: [PATCH v3 9/9] arm64: dts: freescale: imx95: Add video codec
- node
-Thread-Index: AQHcGMGM5yWyx69OvEaH5er/KGf+KrR5qwcAgARIVrA=
-Date: Mon, 1 Sep 2025 07:38:23 +0000
-Message-ID: <SL2P216MB124642A800176DF8FAC26B7BFB07A@SL2P216MB1246.KORP216.PROD.OUTLOOK.COM>
-References: <20250829084649.359-1-nas.chung@chipsnmedia.com>
- <20250829084649.359-10-nas.chung@chipsnmedia.com>
- <6801197c-ccf7-47ea-bab6-5f567dfca418@kernel.org>
-In-Reply-To: <6801197c-ccf7-47ea-bab6-5f567dfca418@kernel.org>
-Accept-Language: en-US, ko-KR
-Content-Language: ko-KR
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=chipsnmedia.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SL2P216MB1246:EE_|PU4P216MB1584:EE_
-x-ms-office365-filtering-correlation-id: d77275ed-d5b9-44c9-149d-08dde92a883a
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|7416014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?Qxq2odfaLRc39ACzmYXG3ZRtGI4covu2iN5BLRq3tRtxga5OurniOsj5Ef53?=
- =?us-ascii?Q?R8OHS82uYGeDGx342AnmfucuBZO0EztFV2xhcHPRH4O9vwa4I1nhTfKDlwH4?=
- =?us-ascii?Q?HmsZp7SqloFbevZDhTJl+m/BVdfbwovQJUesEwNXHXNchvbbr7dDB/WH2vdf?=
- =?us-ascii?Q?1U5O3ct/LME3whejx0k65ht/69iiE8kyQjhG2o+hBt+94xPIaUv7PHifHyTT?=
- =?us-ascii?Q?+2xx8XO6yncOKPjfoBuoDimSmYDXXcm5Bi/75s/o9a15dgtXQbMPuzavQD88?=
- =?us-ascii?Q?c55VJbOb9If2P3gy9eevKwNZ9HEboQOHl/FnfZVPs7069B1yBHrnQVzqLI/g?=
- =?us-ascii?Q?EqDchr41VM/2IhcAXwbfJUFgdN0sgKVI1vdTK2ElSFdjH6BeMZ2D56IGN/Ep?=
- =?us-ascii?Q?FIiqr+bDiyeLgTAbmAmixJhbeMRBZix2qb1TkkFI2+jeUs0QuDYtYVh6IK1W?=
- =?us-ascii?Q?tW6HSYul0lUu8jF99HP49En6vBqKlyo1BcOPaIhOkpUyE0dgva7gTdho4ih2?=
- =?us-ascii?Q?OAzYJUfRrtRe4E99WxUyllN1SkL9bAwXR/Hopd/M+w2zekbZB/DjnZa36175?=
- =?us-ascii?Q?f6yBwWhajKbh0xJYQsm11hlkzYCqVAZYgIr7T5DygN3TKqux8XtSVo3LtWt0?=
- =?us-ascii?Q?fk7RLcK6jItADW7ebwSMZoz1Iwh0QMkdoU7oEywo2TA5OMo47LYOIaftdbBz?=
- =?us-ascii?Q?sRwW/PcTGR6Ck7XVq67kDcIRUNZEM8K0fx5jDAFNctSrcgWfWMzOZxBLebXp?=
- =?us-ascii?Q?jDvK3GXE5j5ojQi00ubyUdkV1NQKg+mFfuNqJZl/sFSiqJITMl4x+Ybv3VYX?=
- =?us-ascii?Q?1BXoqtmNgxSRfNwBIweXS9k2mh1KWFbRisu87jdaMmv2dXyECztvXbBEeh/U?=
- =?us-ascii?Q?DLImh8/zV+9QEzkKGxQNiDXDlFXZp8ytItX6qAy+86P2f93/2vcga9uDm2nn?=
- =?us-ascii?Q?YkW0RoJCCdNyK89Kng2DrCbA01bMCWlBySMZv93UsoxEb8ogPYEr+mRuD3hL?=
- =?us-ascii?Q?XGhd1ps/PlxAVp9aJkQlx5Dn584HvtKX/8LeiZNS9pxcmD1gpOHaF1jNAVzX?=
- =?us-ascii?Q?GeXP02gdgUfcli/vHJ7dF8eR3j8H/BZ8n137nS0ZHgl4quyoEv9KZ1I2FmXV?=
- =?us-ascii?Q?iueJDr5gJX8kBMiWsWK1hO2Q5BjOwmk46wtCjFRTWCOPGKgJVXMfHUnbNKDz?=
- =?us-ascii?Q?ggGR4jUe3bwLThuaTmcT0AD3RVv9DNOQA4Mf9m6VQ1E7Uytmy9u5eq6t684z?=
- =?us-ascii?Q?6R8vCZ9fQBI2rCGSB8eDxMMJhpAwCbd/fqRdNGgEQn4IMUFUJ7zsPots7BRq?=
- =?us-ascii?Q?DsjV7QdPmeZIKsrGhgv4y7oBaqEl2BCt59Z2U7uJ5ff71NgEuzuqOHoXFnbe?=
- =?us-ascii?Q?yUw+PZZeiG9U4jFCKT+yTw5ot0KQk5oc5mnU6eaA3/Q8K+QODyqIWWtRFN03?=
- =?us-ascii?Q?m3i/oqKnBteJg5rAxYUjasE6ZVP+rk+9MXfSUnEHZx5lggeu4vMDiw=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SL2P216MB1246.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(7416014)(38070700018);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?RnqJhHu0EyEzBoQaY8yyO88dpIUyhgmVK+S5428t9ovh4A09JQYL/3xgRfLn?=
- =?us-ascii?Q?YJbqAIQNcE/6aenIaszmiJcdjNB+nUFCkfR8CZS0LcyuCNxcxt7xx6rpIPg5?=
- =?us-ascii?Q?/YXo4bmkoDbXth7wN2+W5tISIL5zUiWb+gxWG4E745b34H+YLhim5fFmOEmF?=
- =?us-ascii?Q?+oy2mxj1e+kqCdZkd1J+0iJA5+J8YwwBQq9g8r1c5io7F94Xw1q92zHd8xVF?=
- =?us-ascii?Q?ng1TlU09vJhxJzIafOycS4T4rgk/3d3VkpZESZHlVaNAwOiwnC75Wzz5lwoc?=
- =?us-ascii?Q?5jhas6Tl3aAKdoLc0nB9ycyoHXqwmOSaM8lqb+WhF97IDb3356UIzhV2y0oV?=
- =?us-ascii?Q?sRq5vszV7KvXA4B8+Xo6mNG3yPn7VcMnALJ2fx6lvGs6rpqt4CRQ0AdrA/BN?=
- =?us-ascii?Q?vD42IsC36DUb2oWpS9IxiIIW+hAuaRW2rPeN9JkHGFyaW4QDNy+7uRke0q2s?=
- =?us-ascii?Q?+p0GsIU/kKaLQSFgp0tNNlixAgtcqGfcpABU+4lbpvFZFtZgwys80AwQCSDa?=
- =?us-ascii?Q?HxxHFkutrTiTKyCHWfwBiMR3h9yV8T2gX5T+qkAtTrbtzLprLci0lD0jVdTc?=
- =?us-ascii?Q?IrNpupTJW2eihXMwHfcFXUf/UR3p3zh54LMFtotjwugqUWaM7MFua6sajI4A?=
- =?us-ascii?Q?ENc5+23XoyD/uJbn/nMk4+E0XpdljRL2sdr/fmX7qATd6txeusT2kDMhDutN?=
- =?us-ascii?Q?OrldEs/O8uKAtDwrH85xyn7JMBhr2e9dEgoVA2nY0fBGdym5RoXn/MTdvIRC?=
- =?us-ascii?Q?t/zMk3fVHLGGL8tf9othzRKNpPTTHsbqfS6SOUo6hgFUtvnGN9gTda8NMnx8?=
- =?us-ascii?Q?bXNeJREbOrPsGIHSZqhXQQ6QYISgcHowxHbGA+bUDNodAMVJtEBnJQfFFScE?=
- =?us-ascii?Q?QiaRudLkeqt/ejI2nJOPBOhaP9LrjLfOxW+TynunvsvjtUPYKP+w2Z8obUCI?=
- =?us-ascii?Q?UUbNlwm4ussS+wnlsUd/+RnlR0HeFRss3jXB7kmwROda2+Du2ZgQZQ6Mhs/y?=
- =?us-ascii?Q?qIovsQxFn5xp6Nwa3mP6PmrXh6A3aPqEIyocWeOhNrtJUl72XNTbmqRUKj2V?=
- =?us-ascii?Q?QhWk+Eej5kwGCP1gcO5BnDykO11U10rZmVe9XhcF5d6/Rv53dLvmy/bkk7S2?=
- =?us-ascii?Q?m3Xyn3UDbbC4GO4bmb15cIcKX9IOU4oAQzvMS3bgDhSyLLmoOx+U6waBsy7u?=
- =?us-ascii?Q?ia/OlCYw5FZ0EE91f8l+pcwBer1e08d/+487kXMVLzLTOEOLva8fLzfRvsAH?=
- =?us-ascii?Q?bS0ttUkIsiTnp6oziU1aqK+rvTiW0MMQuzL/vAwccpZMNyV5t9pjK6pPZDz9?=
- =?us-ascii?Q?P0Hdb5itNLo7v2O76il9AMMYZFf3/qoGoIKM11o3W23eWYoLtEFCzFcTJPxC?=
- =?us-ascii?Q?+7kJ75NRuCAKDHBhINo0dyXPc/Z8VBpDl5CuXAhY5kXHR4Fi/2rcbpT6EKmM?=
- =?us-ascii?Q?jx7k2ywIOfC00uw+gRVyoDs17o+iUYV/WPAaEinShfSSYPp+B8GQbbDwSXvT?=
- =?us-ascii?Q?VvTdMTjOnK+vURL3gDTeZv61xXPWrSdnYudvZc4B5fzrUbvtgusSC6+5s31r?=
- =?us-ascii?Q?46YUyPa/i+N2kGfg/in+yHkhZnNcz5xDAyFFqb9Z?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Mon, 01 Sep 2025 07:20:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 124181A25;
+	Mon,  1 Sep 2025 00:20:37 -0700 (PDT)
+Received: from a076716.blr.arm.com (a076716.blr.arm.com [10.164.21.47])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 741A23F63F;
+	Mon,  1 Sep 2025 00:20:42 -0700 (PDT)
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Mark Brown <broonie@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH V3 0/2] arm64/sysreg: Clean up TCR_EL1 field macros
+Date: Mon,  1 Sep 2025 12:50:35 +0530
+Message-Id: <20250901072037.743380-1-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-OriginatorOrg: chipsnmedia.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: d77275ed-d5b9-44c9-149d-08dde92a883a
-X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Sep 2025 07:38:23.9038
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 4d70c8e9-142b-4389-b7f2-fa8a3c68c467
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: rA3TOKh1ITbp3BJeADsvN/elfeCOcjsTdPBgM45Pk/byruM/usEZRqNga/d85K95GOyBqRNZ7Q5sK9iM/CAgM8jvRS/d3XpNoFOQgOEbJts=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PU4P216MB1584
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_005410_233184_5AA0C92D 
-X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-CacheID: sfid-20250901_002049_192697_463644BD 
+X-CRM114-Status: UNSURE (   8.91  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -172,82 +68,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Krzysztof.
+Currently TCR_EL1 field macros are sprinkled across the arm64 platform code
+including KVM implementation. Clean these up via updating required register
+filed definitions in tools sysreg format and then subsequently doing all
+necessary replacements. TCR_XXX macros are moved from (asm/pgtable-hwdef.h)
+into KVM header (asm/kvm_arm.h) for their continued usage in KVM.
 
->-----Original Message-----
->From: Krzysztof Kozlowski <krzk@kernel.org>
->Sent: Friday, August 29, 2025 11:08 PM
->To: Nas Chung <nas.chung@chipsnmedia.com>; mchehab@kernel.org;
->hverkuil@xs4all.nl; robh@kernel.org; krzk+dt@kernel.org;
->conor+dt@kernel.org; shawnguo@kernel.org; s.hauer@pengutronix.de
->Cc: linux-media@vger.kernel.org; devicetree@vger.kernel.org; linux-
->kernel@vger.kernel.org; linux-imx@nxp.com; linux-arm-
->kernel@lists.infradead.org; jackson.lee <jackson.lee@chipsnmedia.com>;
->lafley.kim <lafley.kim@chipsnmedia.com>
->Subject: Re: [PATCH v3 9/9] arm64: dts: freescale: imx95: Add video codec
->node
->
->On 29/08/2025 10:46, Nas Chung wrote:
->> diff --git a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
->b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
->> index 2f949a0d48d2..c9d8b78d5768 100644
->> --- a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
->> +++ b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
->> @@ -75,6 +75,11 @@ linux_cma: linux,cma {
->>  			linux,cma-default;
->>  			reusable;
->>  		};
->> +
->> +		vpu_boot: vpu_boot@a0000000 {
->
->Follow DTS coding style.
+The cleanup does not cause any functional change.
 
-Okay, I will change the node name to "memory", e.g.:
+This applies on v6.17-rc4
 
-		vpu_boot: memory@a0000000 {
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>
+Cc: Mark Brown <broonie@kernel.org>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: kvmarm@lists.linux.dev
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
 
->
->> +			reg =3D <0 0xa0000000 0 0x100000>;
->> +			no-map;
->> +		};
->>  	};
->>
->>  	flexcan1_phy: can-phy0 {
->> @@ -1044,3 +1049,8 @@ &tpm6 {
->>  	pinctrl-0 =3D <&pinctrl_tpm6>;
->>  	status =3D "okay";
->>  };
->> +
->> +&vpu {
->> +	memory-region =3D <&vpu_boot>;
->> +	sram =3D <&sram1>;
->> +};
->> diff --git a/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi
->b/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi
->> index 7519d5bd06ba..73c84ab60dfd 100644
->> --- a/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi
->> +++ b/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi
->> @@ -59,6 +59,11 @@ linux,cma {
->>  			size =3D <0 0x3c000000>;
->>  			linux,cma-default;
->>  		};
->> +
->> +		vpu_boot: vpu_boot@a0000000 {
->
->Same problem.
+Changes in V3:
 
-I will fix it in the same way.
+- KVM TCR_XXX flags are expressed via TCR_EL1_XXX flags per Marc
 
-Thanks,
-Nas.
+Changes in V2:
 
->
->> +			reg =3D <0 0xa0000000 0 0x100000>;
->> +			no-map;
->> +		};
->>  	};
->
->> +
->Best regards,
->Krzysztof
+https://lore.kernel.org/all/20250829060215.1086792-1-anshuman.khandual@arm.com/
+
+- Fixed ARM ARM version from 7.B to L.B
+- Changed UnsignedEnum into Enum per Mark
+- Dropped all TCR_EL1 replacements from KVM code
+- Moved existing TCR_XXX macros from (asm/pgtable-hwdef.h) into KVM header
+  (asm/kvm_arm.h) for their continued usage
+- Dropped patches 3 and 4 which could be done subsequently
+
+Changes in V1:
+
+https://lore.kernel.org/linux-arm-kernel/20250818045759.672408-1-anshuman.khandual@arm.com/
+
+
+Anshuman Khandual (2):
+  arm64/sysreg: Update TCR_EL1 register
+  arm64/sysreg: Replace TCR_EL1 field macros
+
+ arch/arm64/include/asm/assembler.h     |  6 +-
+ arch/arm64/include/asm/cputype.h       |  2 +-
+ arch/arm64/include/asm/kvm_arm.h       | 78 ++++++++++++++++++++
+ arch/arm64/include/asm/mmu_context.h   |  4 +-
+ arch/arm64/include/asm/pgtable-hwdef.h | 98 +-------------------------
+ arch/arm64/include/asm/pgtable-prot.h  |  2 +-
+ arch/arm64/include/asm/sysreg.h        |  2 -
+ arch/arm64/kernel/cpufeature.c         |  4 +-
+ arch/arm64/kernel/pi/map_kernel.c      |  8 +--
+ arch/arm64/kernel/vmcore_info.c        |  2 +-
+ arch/arm64/mm/proc.S                   | 36 ++++++----
+ arch/arm64/tools/sysreg                | 52 +++++++++++---
+ tools/arch/arm64/include/asm/cputype.h |  2 +-
+ 13 files changed, 162 insertions(+), 134 deletions(-)
+
+-- 
+2.25.1
+
 
