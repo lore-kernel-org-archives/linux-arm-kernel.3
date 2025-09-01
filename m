@@ -4,85 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C227DCA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 23:26:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E501CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 00:52:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a1Tg3csBW9cQH+zLeCwL9eBjnzF/5yA0NVOKjcXCN0U=; b=oepY3k3oen0q2+4Le2ykcQIZxa
-	qeZyiunX95shHKDxEzrckZJpGKQ18N+ZutXOGS0oLvnwgiRO3w0BUShE2pFugIW+6CmyEpQ40PCyV
-	YbDexGA6SBnZmagfMdETPRo8R7o6RbpH1OOBZpOM/mvfA1K+nE7oKEiGoFpypiCa3Mmq0qdZX2OU1
-	PT7k1Av3I4kbpdHuGgVP7BSUuqoTV/LhNwc4vIjiu2f5wR1z1dMg5Gb6cBr96lB03tv1fAxZb7mZI
-	6fk3mTHcwvhnmZWIeIZl7i4DvtI8BUoJPR3SbiSdxjmCGflS1gLTqIdSYwwSFeyEPio8vswub33vZ
-	kpzpGYig==;
+	bh=JIl5W/bIgW8FVjVtco/bINFJvVMTa/CFL0n0N73oRmY=; b=s4w2hWUDSBmewV6dzId514ETGY
+	kK3AV/FDswxVXHM/0tMScEQIpQu/R2GSREP7cr87OuBtHwX/XnKxi0FWp6F4Ks5qcb/XrWYEDjAk5
+	II0ys1vzDWjNOlKyMvmlAfhSmOnVrwVaclXFHWl3iFa3FwLN9EzbFP4bpHIktZpxeRAsPbkThAixS
+	3bVssevBMC4etV0nf9zS7bkGp8AaYMh1O3DbxaxzX0AMbCGlsXHPRkapJtrpxuKJSFj89PIMoCkD8
+	tc65NvwJxDQE0uhFvJPKyr4Gt/TfwU0F7vN0oJutGHkYqg95lv1u9d3OZ2vUALF31Xwh6c7rnNQEQ
+	ZdAFt1wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utDv5-0000000ELuc-0v3X;
-	Mon, 01 Sep 2025 23:26:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1utFFi-0000000EXmd-3AIw;
+	Tue, 02 Sep 2025 00:52:02 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utBez-0000000DttR-42QH;
-	Mon, 01 Sep 2025 21:01:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1A652451DF;
-	Mon,  1 Sep 2025 21:01:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id EA3BFC116B1;
-	Mon,  1 Sep 2025 21:01:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756760513;
-	bh=Gc8hKhZmvez+1R7qBtxkfGOQDqE59bJ02H/Yc1b0Phs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=SJMuyCskelQfVc3zUjKQg18B8fejhiYYVgzVVu7Rg66NpinGhIHgVT17//kcu8cL3
-	 74bhTAgwVZCXVzDxM7+XhB7AeOe2CfDCXPKXZALJLydAhnOprfWPNgSaeeKeqrhGlY
-	 pQYDhUcmKvHEjwQrzLr+zHzTRahxebuO1lW2iqMhivNgxfnjJw5TNdPo41WfHaOLx1
-	 8RWuXWfvGKu+dUODLSfnreJ1/p3lq9QeHt0ZUg9Emt+c6OnTzMzhvAlUeJ6qQH4QPG
-	 SwtB5vhU/3OuNlIEQcX98dz9NqadXA3Lx9cHARWIBm3cJEt2sXbBLj11Vog0Mzn8Nw
-	 vIuxPV9S1LKPA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E0B50CA1005;
-	Mon,  1 Sep 2025 21:01:52 +0000 (UTC)
-From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
-Date: Mon, 01 Sep 2025 22:47:47 +0200
-Subject: [PATCH v3 6/7] phy: rockchip: phy-rockchip-inno-csidphy: add
- support for rk3588 variant
+	id 1ut7St-0000000DGRu-20nk
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 01 Sep 2025 16:33:08 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-55f76277413so1764381e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 09:33:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756744386; x=1757349186; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JIl5W/bIgW8FVjVtco/bINFJvVMTa/CFL0n0N73oRmY=;
+        b=Ou+wH9FWpGZdzqzE0ah2CG5CwEjcUg5nQMAj/sy3ThLg4ydfeIU57LHLosuWQyg5VG
+         ToaN9FMnuGF4rnjqLYr3hd1QiCAiRCmZn76Soc4YfkGwdf1F2Q2JLQZUdbdjMbAT+IZ7
+         knwzf8RIJd5n6x0P8QSv+7o1n341zt7aCB/fLMt4hnqbMzFTAS62T4arxlG8EwtMr5LZ
+         SzjCRKaNEtnjfQ/pwYe9GmtQ+0y/2pjKTEuCi5kD97vtOz9wE1H2QtOtnRf9oyPYCENY
+         OCgGlC6eEl7gqpsGvqeaMB5B7QlZPS7KTpbAE2yxE5v8jYh1G5Yo1NczrdZ3iT/EwJy/
+         LdrQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756744386; x=1757349186;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=JIl5W/bIgW8FVjVtco/bINFJvVMTa/CFL0n0N73oRmY=;
+        b=NioNWJcoXh1SOHrLCQPTBL9tMQ6JSuAyNufmWen9yN3hoGxHfzmOYcxi21Vx/or7FK
+         Slf2pZfrbuZnl9yNnbJ7yUzblbofry6lsT6ZPXcKiAis3NpUzwWqFELXL1YBY5nvRPhL
+         m+WnqclaufAs685rF2dB2XLaTy/5HT4cyRymqYRI0L20ZvUgAJUbixA7xI1b7aGtD2W2
+         YAsN5/iTJWMXu96Tpj34ORkCEl8DySShyYFtayu9sPabYKR9oVnh5kLbnjdZnzrHp8cd
+         zeZEyZSvyEOsOgOr2qyCVMNm5MXskfXU9VaZS+ugQcghYTLSRFo3BE6lcaVmaF+HHGqG
+         swxA==
+X-Forwarded-Encrypted: i=1; AJvYcCXVvhKj4yn2JO7QiVeFrWvKYMUyHKW9T3utqCu/5EoJoQ9+N6wMidWAXajOO0BwT0fAmEmjVdt38z5fN5zjrqdu@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx8d05+gbv3g35hiqbZqNZI4wai3pAitED8YDUvcPTdhjKlb1cD
+	2cxcEtF78Lj47c9UIzcKv7XYzSgSR0QvoojUsqjN0o1bg3e+8HgHZTswjCstV3pvqlU=
+X-Gm-Gg: ASbGncvP9Ghod5iQK4bNv2dO95l9DLP39AvN4SwRv9nYV1hhU+GE+B75XUvU6TXgoag
+	yjHSj84Swa/HmIrNcoZqvPN4PmC0vO5aziX3x0BzQ5xwIt5bmrdzA5TUIV3hxgh9GVwyqdsJ7P2
+	tmxUw5TzzZN+RLwPwhOeRxOtDDHS2BVtyEWbDHJIsmUQlREBrPZRMx4Iq2HKjaCJQoeaV4wCQ34
+	ZiKhyytaDx6SFByL2kjxnT83Ki6FQf6uxlFcr1ZwYkcfwd2hRsRSmgQxdPP1Mj1fB0zmSB0kUEO
+	CyF04nlOES+okaUFU0MeN+Ni6C2ozQk8tAmY1r4FwAfXBT//ia3CCsid9T3ygzzOtXBKRWwqePe
+	/UjhvB0LQgicKfAbN30hDTd3vzBrqcZgRHQ5MbSZucA==
+X-Google-Smtp-Source: AGHT+IEOzCiW/l9/IwVBabZcYmD6FGDThQuo6tecUi00yi4YZaYtlLaBCrKKgYh8GWti+hodMlYjBw==
+X-Received: by 2002:a05:651c:20c9:b0:336:8809:6730 with SMTP id 38308e7fff4ca-336caf88d6bmr15563211fa.40.1756744385419;
+        Mon, 01 Sep 2025 09:33:05 -0700 (PDT)
+Received: from NB-6746.corp.yadro.com ([88.201.206.176])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-336d0e78e82sm15291861fa.53.2025.09.01.09.33.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 01 Sep 2025 09:33:05 -0700 (PDT)
+From: Artem Shimko <artyom.shimko@gmail.com>
+To: Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>
+Cc: Artem Shimko <artyom.shimko@gmail.com>,
+	arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/2] Subject: [PATCH v2 0/2] firmware: arm_scmi: Minor cleanups and documentation fixes
+Date: Mon,  1 Sep 2025 19:32:59 +0300
+Message-ID: <20250901163304.2504493-1-artyom.shimko@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <y>
+References: <y>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250616-rk3588-csi-dphy-v3-6-a5ccd5f1f438@collabora.com>
-References: <20250616-rk3588-csi-dphy-v3-0-a5ccd5f1f438@collabora.com>
-In-Reply-To: <20250616-rk3588-csi-dphy-v3-0-a5ccd5f1f438@collabora.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Kever Yang <kever.yang@rock-chips.com>, 
- Jagan Teki <jagan@amarulasolutions.com>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Diederik de Haas <didi.debian@cknow.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Heiko Stuebner <heiko@sntech.de>, 
- Collabora Kernel Team <kernel@collabora.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-phy@lists.infradead.org, 
- Michael Riesch <michael.riesch@collabora.com>
-X-Mailer: b4 0.12.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756759662; l=2783;
- i=michael.riesch@collabora.com; s=20250410; h=from:subject:message-id;
- bh=yeQXRqZNa57y0uWiIJSkXVpQ6zTLhd7z989yNwE9ju8=;
- b=axGHdEEOobUeI3zoNKyi3w/BvIeQnc8c0vieQuJvuILqmfq0hDhf2j9lz4n1HHC+mpZpcMGlQ
- sfnI99iovo6Aet9/dP2floam3L5KHcJtMU5lA8hHcrkYTxJ+rk2qwrA
-X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
- pk=+MWX1fffLFZtTPG/I6XdYm/+OSvpRE8D9evQaWbiN04=
-X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20250410
- with auth_id=371
-X-Original-From: Michael Riesch <michael.riesch@collabora.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_140154_102103_547FB031 
-X-CRM114-Status: GOOD (  12.96  )
+X-CRM114-CacheID: sfid-20250901_093307_524274_26AC2774 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,93 +98,45 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: michael.riesch@collabora.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Michael Riesch <michael.riesch@collabora.com>
+Hello maintainers,
 
-The Rockchip RK3588 MIPI CSI-2 DPHY can be supported using the existing
-phy-rockchip-inno-csidphy driver, the notable differences being
- - the control bits in the GRF
- - the additional reset line
-Add support for this variant.
+This small patch series addresses some minor issues found in the SCMI driver:
 
-Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
----
- drivers/phy/rockchip/phy-rockchip-inno-csidphy.c | 28 ++++++++++++++++++++++++
- 1 file changed, 28 insertions(+)
+Patch 1 fixes alignment and indentation inconsistencies in multiple files:
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-inno-csidphy.c b/drivers/phy/rockchip/phy-rockchip-inno-csidphy.c
-index 6c4ddcd7e5de..c79fb53d8ee5 100644
---- a/drivers/phy/rockchip/phy-rockchip-inno-csidphy.c
-+++ b/drivers/phy/rockchip/phy-rockchip-inno-csidphy.c
-@@ -30,6 +30,8 @@
- #define RK3568_GRF_VI_CON0		0x0340
- #define RK3568_GRF_VI_CON1		0x0344
- 
-+#define RK3588_CSIDPHY_GRF_CON0		0x0000
-+
- /* PHY */
- #define CSIDPHY_CTRL_LANE_ENABLE		0x00
- #define CSIDPHY_CTRL_LANE_ENABLE_CK		BIT(6)
-@@ -117,6 +119,12 @@ static const struct dphy_reg rk3568_grf_dphy_regs[] = {
- 	[GRF_DPHY_CSIPHY_CLKLANE_EN] = PHY_REG(RK3568_GRF_VI_CON0, 1, 8),
- };
- 
-+static const struct dphy_reg rk3588_grf_dphy_regs[] = {
-+	[GRF_DPHY_CSIPHY_FORCERXMODE] = PHY_REG(RK3588_CSIDPHY_GRF_CON0, 4, 0),
-+	[GRF_DPHY_CSIPHY_DATALANE_EN] = PHY_REG(RK3588_CSIDPHY_GRF_CON0, 4, 4),
-+	[GRF_DPHY_CSIPHY_CLKLANE_EN] = PHY_REG(RK3588_CSIDPHY_GRF_CON0, 1, 8),
-+};
-+
- struct hsfreq_range {
- 	u32 range_h;
- 	u8 cfg_bit;
-@@ -183,6 +191,11 @@ static const char *const rk3368_reset_names[] = {
- 	"apb"
- };
- 
-+static const char *const rk3588_reset_names[] = {
-+	"apb",
-+	"phy"
-+};
-+
- static void rockchip_inno_csidphy_ths_settle(struct rockchip_inno_csidphy *priv,
- 					     int hsfreq, int offset)
- {
-@@ -390,6 +403,17 @@ static const struct dphy_drv_data rk3568_mipidphy_drv_data = {
- 	.resets_num = ARRAY_SIZE(rk3368_reset_names),
- };
- 
-+static const struct dphy_drv_data rk3588_mipidphy_drv_data = {
-+	.pwrctl_offset = -1,
-+	.ths_settle_offset = RK3568_CSIDPHY_CLK_WR_THS_SETTLE,
-+	.calib_offset = RK3568_CSIDPHY_CLK_CALIB_EN,
-+	.hsfreq_ranges = rk1808_mipidphy_hsfreq_ranges,
-+	.num_hsfreq_ranges = ARRAY_SIZE(rk1808_mipidphy_hsfreq_ranges),
-+	.grf_regs = rk3588_grf_dphy_regs,
-+	.resets = rk3588_reset_names,
-+	.resets_num = ARRAY_SIZE(rk3588_reset_names),
-+};
-+
- static const struct of_device_id rockchip_inno_csidphy_match_id[] = {
- 	{
- 		.compatible = "rockchip,px30-csi-dphy",
-@@ -411,6 +435,10 @@ static const struct of_device_id rockchip_inno_csidphy_match_id[] = {
- 		.compatible = "rockchip,rk3568-csi-dphy",
- 		.data = &rk3568_mipidphy_drv_data,
- 	},
-+	{
-+		.compatible = "rockchip,rk3588-csi-dphy",
-+		.data = &rk3588_mipidphy_drv_data,
-+	},
- 	{}
- };
- MODULE_DEVICE_TABLE(of, rockchip_inno_csidphy_match_id);
+Adjusts function parameter alignment in protocol_id_show()
+
+Fixes debugfs call alignment in raw_mode.c for both message and message_async entries
+
+Patch 2 adds missing documentation for the xfer_lock spinlock that protects
+access to xfer buffers and transfer allocation mechanism, making the code
+more maintainable and easier to understand.
+
+These are straightforward cleanups that don't change any functionality but
+improve code quality and documentation.
+
+Best regards,
+Artem Shimko
+
+Changes in v2:
+
+Added missing alignment fix for message_async debugfs call that was
+overlooked in the initial version.
+
+Artem Shimko (2):
+  firmware: arm_scmi: fix alignment in protocol_id_show and debugfs
+    calls
+  firmware: arm_scmi: add missing spinlock documentation
+
+ drivers/firmware/arm_scmi/bus.c      | 2 +-
+ drivers/firmware/arm_scmi/driver.c   | 1 +
+ drivers/firmware/arm_scmi/raw_mode.c | 8 ++++----
+ 3 files changed, 6 insertions(+), 5 deletions(-)
 
 -- 
-2.39.5
-
+2.43.0
 
 
