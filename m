@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D170DCA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 09:22:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C88B0CA0FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 09:25:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Mps6aSE+IJbjIcapJ0FXuPjRT6PLfWZ0CugfMkJfNsE=; b=4tU6SJjM+aCpztn2A62RDmYPvY
-	WMyd2tJymNbosTsQjLwve2KqRyqMgYTFjgwbE6662nzBx485UQ9sAXcFR6JoQoMmSpzuDtY9xRsoS
-	5vKQxT4bau79+KbBqeSD0ZSCyNS0AhSMR+21eiSknkohKbrz8voOxirQL9iy+pT9ruJg02X/5ucpL
-	xjTwcl5FWuvVuRVWSUeEmkrzwwSuC3IiJvjXAY+aSDL+hjrOTa3MmP6S/KNVrzDmW2BLjaBCDEfhN
-	M98kM83BzJ+EbA5HNHIMIDqDYCBvSD9AqOU3y3qVKXh3aT8pUo0VYZ8ge8RYVpK4eW8NzVbFpy/Ry
-	QeCSFAEw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C+CH8r2wXcGDK1vEuDpDtwVoqW0mlfHqypJqjEci2HU=; b=TmFhrzYWzyGix4lSe6abODuqLB
+	wzOWwG6jaAUNFivYyHSrMbuGt2CBjWFcuNBVd5ujz9/ly/qrYWnD2QeVoRZbhOVVI9Kaozitz3ddk
+	MsKQQROgdzAh2ryW7tyxPhPWvb5R/tW3S872ll2JPQIeElhpNVJuGb554qnRRTTsx6d5bWCNzeH1h
+	jXNTUpdmHDK+/NYvxuMUlGjHU2/rSd/Y3yIxklQDIUDmCMt4iyynzMl12UYQJw0FyFgWHKaFLmb5u
+	d03iO1QDD5oqXcksinOmD924JP3K5Rm8s/TeJm0C+6XfW2YwkrpBe4levIttDTxf7wzcQMVovK5Cl
+	FZmKSS1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut0jv-0000000Bjmq-3iKs;
-	Mon, 01 Sep 2025 09:22:15 +0000
+	id 1ut0mb-0000000BkJu-2xlw;
+	Mon, 01 Sep 2025 09:25:01 +0000
 Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut0Mj-0000000BenN-3W17
+	id 1ut0Ml-0000000Benb-1mou
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 08:58:19 +0000
-X-UUID: c4d74aac871111f0b29709d653e92f7d-20250901
+	Mon, 01 Sep 2025 08:58:20 +0000
+X-UUID: c7ef96b8871111f0b29709d653e92f7d-20250901
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.45,REQID:f1e2aab6-178f-4d82-b846-3ad535999412,IP:0,U
-	RL:0,TC:0,Content:26,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:26
-X-CID-META: VersionHash:6493067,CLOUDID:16a24fa6142617347b8ddbaac62faf64,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:102|850,TC:nil,Content:4|50,EDM:-3,IP:ni
-	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
-	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-O-INFO: VERSION:1.1.45,REQID:6d13546f-8429-4618-a1c3-1481c587b2a4,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:6493067,CLOUDID:bdf8f6555902ff4aa82c4fdfd0209733,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850,TC:nil,Content:0|50,EDM:-3
+	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 0
 X-CID-BAS: 0,_,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: c4d74aac871111f0b29709d653e92f7d-20250901
+X-UUID: c7ef96b8871111f0b29709d653e92f7d-20250901
 Received: from mail.kylinos.cn [(10.44.16.175)] by mailgw.kylinos.cn
 	(envelope-from <zhangzihuan@kylinos.cn>)
 	(Generic MTA)
-	with ESMTP id 920024082; Mon, 01 Sep 2025 16:58:03 +0800
+	with ESMTP id 95500762; Mon, 01 Sep 2025 16:58:08 +0800
 Received: from mail.kylinos.cn (localhost [127.0.0.1])
-	by mail.kylinos.cn (NSMail) with SMTP id CD288E008FA7;
-	Mon,  1 Sep 2025 16:58:02 +0800 (CST)
-X-ns-mid: postfix-68B5601A-630246734
+	by mail.kylinos.cn (NSMail) with SMTP id E1EACE008FA6;
+	Mon,  1 Sep 2025 16:58:06 +0800 (CST)
+X-ns-mid: postfix-68B5601E-556482735
 Received: from localhost.localdomain (unknown [172.25.120.24])
-	by mail.kylinos.cn (NSMail) with ESMTPA id 23964E008FA6;
-	Mon,  1 Sep 2025 16:57:54 +0800 (CST)
+	by mail.kylinos.cn (NSMail) with ESMTPA id D540EE008FA8;
+	Mon,  1 Sep 2025 16:58:02 +0800 (CST)
 From: Zihuan Zhang <zhangzihuan@kylinos.cn>
 To: "Rafael J . wysocki" <rafael@kernel.org>,
 	Viresh Kumar <viresh.kumar@linaro.org>,
@@ -99,15 +99,17 @@ Cc: Ben Horgan <ben.horgan@arm.com>,
 	linux-omap@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Zihuan Zhang <zhangzihuan@kylinos.cn>
-Subject: [PATCH v3 00/12] cpufreq: use __free() for all cpufreq_cpu_get() references
-Date: Mon,  1 Sep 2025 16:57:36 +0800
-Message-Id: <20250901085748.36795-1-zhangzihuan@kylinos.cn>
+Subject: [PATCH v3 01/12] arm64: topology: Use scope-based cleanup helper
+Date: Mon,  1 Sep 2025 16:57:37 +0800
+Message-Id: <20250901085748.36795-2-zhangzihuan@kylinos.cn>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250901085748.36795-1-zhangzihuan@kylinos.cn>
+References: <20250901085748.36795-1-zhangzihuan@kylinos.cn>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_015818_212535_B96AD7DF 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20250901_015819_761488_BAD47C0A 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,61 +124,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patchset converts all remaining cpufreq users to rely on the
-__free(put_cpufreq_policy) annotation for policy references, instead of
-calling cpufreq_cpu_put() manually.
+Replace the manual cpufreq_cpu_put() with __free(put_cpufreq_policy)
+annotation for policy references. This reduces the risk of reference
+counting mistakes and aligns the code with the latest kernel style.
 
-Motivation:
-- Reduce the chance of reference counting mistakes
-- Make the code more consistent with the latest kernel style
-- behavior remains the same, but reference counting is now safer=20
-  and easier to maintain.
+No functional change intended.
 
-The changes are split into 12 patches as they touch different subsystems
-and are maintained by different people. There is no functional change.
+Signed-off-by: Zihuan Zhang <zhangzihuan@kylinos.cn>
+---
+ arch/arm64/kernel/topology.c | 9 +++------
+ 1 file changed, 3 insertions(+), 6 deletions(-)
 
-V3:
- - drop patch 'KVM: x86: Use __free(put_cpufreq_policy) for policy refere=
-nce'
- - removed 5 patches which has been applied
- - Consolidate CPUFreq policy assignments and allocations into one line,
-   suggested by Ben Horgan
- - Change cpu_has_cpufreq() return type to bool, following Rafael's sugge=
-stion
- - Change the title to 'Use scope-based cleanup helper'
-
-V2:
- - Fix compile error in powernv-cpufreq.c
- - Split patch to separate logical changes
-
-Zihuan Zhang (12):
-  arm64: topology: Use scope-based cleanup helper
-  ACPI: processor: thermal: Use scope-based cleanup helper
-  cpufreq: intel_pstate: Use scope-based cleanup helper
-  cpufreq: longhaul: Use scope-based cleanup helper
-  cpufreq: powernv: Use scope-based cleanup helper
-  PM / devfreq: Use scope-based cleanup helper
-  drm/i915: Use scope-based cleanup helper
-  cpufreq: powerpc: macintosh: Use scope-based cleanup helper
-  powercap: dtpm_cpu: Use scope-based cleanup helper
-  thermal: imx: Use scope-based cleanup helper
-  thermal/drivers/ti-soc-thermal: Use scope-based cleanup helper
-  PM: EM: Use scope-based cleanup helper
-
- arch/arm64/kernel/topology.c                  |  9 +++----
- drivers/acpi/processor_thermal.c              | 18 +++++--------
- drivers/cpufreq/intel_pstate.c                |  8 +++---
- drivers/cpufreq/longhaul.c                    |  3 +--
- drivers/cpufreq/powernv-cpufreq.c             | 11 ++++----
- drivers/devfreq/governor_passive.c            | 25 +++++++-----------
- drivers/gpu/drm/i915/gt/intel_llc.c           |  4 +--
- drivers/macintosh/windfarm_cpufreq_clamp.c    |  5 +---
- drivers/powercap/dtpm_cpu.c                   | 26 +++++--------------
- drivers/thermal/imx_thermal.c                 | 12 +++------
- .../ti-soc-thermal/ti-thermal-common.c        | 11 +++-----
- kernel/power/energy_model.c                   |  9 +++----
- 12 files changed, 46 insertions(+), 95 deletions(-)
-
+diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+index 5d07ee85bdae..fa0980968f45 100644
+--- a/arch/arm64/kernel/topology.c
++++ b/arch/arm64/kernel/topology.c
+@@ -307,17 +307,16 @@ int arch_freq_get_on_cpu(int cpu)
+ 		 */
+ 		if (!housekeeping_cpu(cpu, HK_TYPE_TICK) ||
+ 		    time_is_before_jiffies(last_update + msecs_to_jiffies(AMU_SAMPLE_E=
+XP_MS))) {
+-			struct cpufreq_policy *policy =3D cpufreq_cpu_get(cpu);
++			struct cpufreq_policy *policy __free(put_cpufreq_policy) =3D
++				cpufreq_cpu_get(info->opp_cpu);
+ 			int ref_cpu;
+=20
+ 			if (!policy)
+ 				return -EINVAL;
+=20
+ 			if (!cpumask_intersects(policy->related_cpus,
+-						housekeeping_cpumask(HK_TYPE_TICK))) {
+-				cpufreq_cpu_put(policy);
++						housekeeping_cpumask(HK_TYPE_TICK)))
+ 				return -EOPNOTSUPP;
+-			}
+=20
+ 			for_each_cpu_wrap(ref_cpu, policy->cpus, cpu + 1) {
+ 				if (ref_cpu =3D=3D start_cpu) {
+@@ -329,8 +328,6 @@ int arch_freq_get_on_cpu(int cpu)
+ 					break;
+ 			}
+=20
+-			cpufreq_cpu_put(policy);
+-
+ 			if (ref_cpu >=3D nr_cpu_ids)
+ 				/* No alternative to pull info from */
+ 				return -EAGAIN;
 --=20
 2.25.1
 
