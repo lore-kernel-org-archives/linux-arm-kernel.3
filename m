@@ -4,99 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF46ECA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 23:12:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17182CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 23:12:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=24qH0Sswquq+jWyuu2MbZpKldoNeCC2aANfHuwWayUg=; b=B1E4XDy42gktyoYbSUNfHg/Uaf
-	jeBiUjz3LNGIKRnVdFeahuhcGNhlKGsPsRuGelfHkb+p0yxA/jdNwwkvziOwMWaJpEpXm3kFmqe2s
-	3qVhF/QiS5q78XK8R7RpavNE+VPOmxVdT4Rr6HlHgkKq4OygRkLdQPNyp3KjgD3g4A8IJ6ccbrZFr
-	50LvLw5jR3jaJSNdOyHVDlzASDsW93Y1PNZxxMiJAS7OxNbEyfjLebWTlVFOZYTX0ymXMci/OV1AZ
-	kwwio53J/RPD47d/t9KnB5pnVVWtLLF0gH/h+jnNB+yg3bDSeTFHe8Z7Zet0+A37UlpRD0Zbh0RSk
-	2A9oTJtw==;
+	bh=6HemR4kSrfP/7khlBRkJG8otPNKX3FGzo4p9L0pbKqM=; b=NhF9regSnWO6GxmzeHwK/aec98
+	7AXvlWieuI0NhzeW/lIk72Iv3VKpsAdA8WMJpKl/z7KzVy9cc6E2YHtCQNaoZzSBuM9wPKG+p0rzN
+	isNR5FHzVYK6zfsAOx4Kx+FvtK8zqkJZ5qMQI8bsVbrowrRo2O8Oye/XvRZy9z3R1QivJUZkUn86f
+	6Pd1UvFcSnRg4OOeaVAHgIOi4099rTMAPp3oL9FmwaILVqk0lUpIR83NON4TAmUeLhg6EhSW1z2sX
+	Bp0PlUkoeKt1it/tBfOfawqVKSQJ8rX5zekruh3uLLTEe571xnGn2u0OtxlQIZA/hUH5n4dnT91H7
+	KsplKHxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utDh3-0000000EE0W-3kJ2;
-	Mon, 01 Sep 2025 23:12:09 +0000
-Received: from mail-yw1-x1162.google.com ([2607:f8b0:4864:20::1162])
+	id 1utDh6-0000000EE4U-0Lal;
+	Mon, 01 Sep 2025 23:12:12 +0000
+Received: from mail-pj1-x1061.google.com ([2607:f8b0:4864:20::1061])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut6n4-0000000DBAW-3QbJ
+	id 1ut6p8-0000000DBbZ-0Voq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 15:49:56 +0000
-Received: by mail-yw1-x1162.google.com with SMTP id 00721157ae682-72267c0505fso20805887b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 08:49:53 -0700 (PDT)
+	Mon, 01 Sep 2025 15:52:03 +0000
+Received: by mail-pj1-x1061.google.com with SMTP id 98e67ed59e1d1-327e5b65e2cso2589482a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 08:52:01 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756741793; x=1757346593;
+        d=1e100.net; s=20230601; t=1756741921; x=1757346721;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:dkim-signature:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=24qH0Sswquq+jWyuu2MbZpKldoNeCC2aANfHuwWayUg=;
-        b=vW6Jeyl3O4ShUqdz+5qfmxcQ/LhaKTNSEXaY/kkldc3aN4vApmxZABwcoJ3pNDAltl
-         jcoRrZLuRPL0ezEz/IGGXfVvHPQQb+3SVIYySo5zbIVWJhcfzkL19yPRusQXPvIxrcGl
-         b/A2AZK7YdspBVO7+ncr9Di8NXDhNu2J0u+DNPGT8eVhOYg1aTbrP3VjrrQlzBti93Nj
-         z1/Y9QU1c+yvE5D3ifQX09zXMreorymd1RB9EC3BYekb0hM8UPXyJOze4iExF9rmD0EL
-         SW3EjQT/loL6Favs71mm6w2OXCq4aNUdCPAraWQQlGTllUL4j6GXy1qyBgEWXAdSjfK/
-         7ESA==
-X-Gm-Message-State: AOJu0YzbznvvoL+0Q4l7nnNaJX6G7zmmjafB26zf/66D3dfE1pbmftci
-	deITtRdiAKaHq67N1JrNQVzN/65nrNrL9lZYqQJVgWTRC8kZBdn1/KAdLYhUbbzrLhebr8Hmxc2
-	MstecoYEHfp9ogVl/Cb/C3N2RvkUQWI7tncUTftB+Bwghn2uVZUdcqvTXC1sVdI0ZuaG9fb7HU5
-	SnzgmhObAytRmQypuAlo2UVyQ77AOOVLq0F1OFph4ZdX8d/Oj6j1jQInYWHMvuMbJ6qA2TR5co9
-	UgelEj9LQRiZCkdKXsE70bXsCo/Is1XzfM=
-X-Gm-Gg: ASbGncubwzINbHc27K3mYQeAuQs31u6FPsUasiCt7AhAEpTjUqc3HoEkoBbjWhDdLCJ
-	tMJzou7BzvodXtKJ8ej2ffuf/stLOLHhcfEj5YWb9cMQrZQ2M9gEwSQYSXvNP0DR5bi1ENiYqWF
-	ecJy8+Ptx6Wn1TMcHkK5q/psn3fuGSog+kIQKq2+DSyl+Mf3OEaEww6Ohj2tM47/O7Sxx59V/B4
-	/WA/RFfBifSagCxMaEqc14iQIBqnRM9MsypmnzDdFFjI3L1jU2COw74jzVAG7K1lxi37R3ohaAU
-	5LnHDMoqYXKyIETFHHClkSoCt2kOE3qdCvhsvxB9lrGow9ACAO8q8ru5ny7mJ5MhSwMcWg/7KYE
-	39Y6xPS4HWAZIiXkk/jDAuVPKyBMtTaeFs+JE0pCqIzGWdCugFmAl6i+urWU2UCFBrVcJ9rQpTI
-	TjrQ7g
-X-Google-Smtp-Source: AGHT+IHK4Z3iKCdyY1uKz6QrP4KTABo3N92iy2NnKZWQ7SODp1LSotoC7uR21vRvV2UbGZOEsPnH9RfYqcOS
-X-Received: by 2002:a05:690c:7244:b0:71f:eb2b:83e0 with SMTP id 00721157ae682-7227635f8femr85452377b3.13.1756741793042;
-        Mon, 01 Sep 2025 08:49:53 -0700 (PDT)
+        bh=6HemR4kSrfP/7khlBRkJG8otPNKX3FGzo4p9L0pbKqM=;
+        b=GZb5dBnni5FeDg/5j7H4SVc29+d4zOZ1BV21YbYcaJXa/wzNCtI0U/0PInRVp9UkK1
+         wGCLtusPGrZLQhRx8NVtdS5rBtVBKpywKvZ25uEea8ZymlS46pUdUDc57PA6S7sFsDCe
+         pxdnVbDetl+YDJGvQBBqChTnI+0vr4qOXbTUIuQYk1UuRNeiAfK0xqxl8UsIdExXFO8l
+         /wJ14/tyjZBUjW7ETtgUKDJmBec8/CvEhbzmpYrbiH8smibNXdDA6GuCIJQK0HkZzNJ3
+         5D8dQX3jevTYJxaicIGSWnpIGSJyQUmH+zOSF4Jyp2UUq6uPzBMn2SU4A3zvgXw7+eKE
+         33zw==
+X-Forwarded-Encrypted: i=1; AJvYcCXZj6POMmskr+neBrEc/xJOA5XAiM/cyg3S8XtDHwYDffLo5HoAe6qN3Vjot/skXuvR0KmfPFCLT/ACukBSYahv@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzd95VOM743wnzUsmKaZyOLdTfacO+IOnj62lW3yeV7K0EbwNhB
+	Uc5g4FHMEBA+3kjkcUl0exdIqcWoxPlBtxEAsZhXMef1sOfZDxXpjOAJj5Y2AaRTH+LXobe+8t4
+	Q95Pu2eBGbo3AdgclAUQAy5F/0WNoU1kgeVLiVfQnETk50hAFKyDVYlkGfOR4mj+RDz/4skjSZ0
+	ipRE2N6UA2cbMZWmqeCB/RW33vSB+nj3Rs9nLAeIBw//UjsOQmu33m3NHb9sd8ITqiY40DoBQBQ
+	MxNfA6km+H7snbOHxwmagEE8ThLrEFMngA=
+X-Gm-Gg: ASbGncszMsGUgGtVChNPb/yt6+Evu8JSI5rVAC5V/bY1KjvIz9GBeM/nUkLYJRQgVy9
+	/KGEqNWk0k5qJsKf9KfnFUZgo70UTSUxYrt5bqT2xrTDNyfh7zyttk0S+EkxZWXPL7IwnzRe2Ix
+	sZv2Hi4wcp2RQWBsbV61Md7hvDO0zV6b58pbr2Zg63EUl1RDtczEiWxNYyWaYQ6XXxTUlvfN1VV
+	+8rHUyV30ivTE9nT79qrLbpQTNX0XgbfakVnfTfe20OwLkjKWBNsfLRwS0XvXm19+HXVJCyzRfo
+	o7YQ2yLwWq8VmLLH6AlwgwwjWZOgxDdEg0YxQ4ez2fvZNpGbU32zqeZX50fbapvPIemYQFHK195
+	D1v852NMbCOHBCaHO3qIGnUFnuEZkE6vSZO9Xu17pT8OfjgeQX7FWMnYYV0ZqacOjpLXP/p5U8u
+	cwDsIe
+X-Google-Smtp-Source: AGHT+IH9E7umySvJW4FzGtxEuDqeGZPFPjwynIFh1lNXjAJj8fJNPVbW0QdniYUwvPCuRw4IEIj/8lQYSy3Y
+X-Received: by 2002:a17:90b:3148:b0:327:4d3b:fc46 with SMTP id 98e67ed59e1d1-328156b9261mr13497952a91.17.1756741921230;
+        Mon, 01 Sep 2025 08:52:01 -0700 (PDT)
 Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-16.dlp.protect.broadcom.com. [144.49.247.16])
-        by smtp-relay.gmail.com with ESMTPS id 00721157ae682-7227d5d1f0asm3513027b3.6.2025.09.01.08.49.52
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-327da8e70f5sm772236a91.8.2025.09.01.08.52.00
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 01 Sep 2025 08:49:53 -0700 (PDT)
+        Mon, 01 Sep 2025 08:52:01 -0700 (PDT)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-76e6e71f7c6so4133106b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 08:49:52 -0700 (PDT)
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-325e31cecd6so4382432a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 08:52:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1756741792; x=1757346592; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1756741920; x=1757346720; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=24qH0Sswquq+jWyuu2MbZpKldoNeCC2aANfHuwWayUg=;
-        b=DNGFgSk++CKRWcCz+VuafbCWOqPmOcNigSRiikvYMhRY96APfy6Uy0/EFbmcaFHqsU
-         Kd7r8O+2h8h5Ukg7c+QQzfiQBtkC5JOdE6tExF/Jc5Q8Lg8jOFiBuw1HUueMMRqn8G1q
-         b5X8w6mTDyXnxWP7Jz+zyUHtdB8P0J96Hck90=
-X-Received: by 2002:a05:6a21:32a7:b0:243:ba10:66c7 with SMTP id adf61e73a8af0-243d6e02262mr12329323637.24.1756741791809;
-        Mon, 01 Sep 2025 08:49:51 -0700 (PDT)
-X-Received: by 2002:a05:6a21:32a7:b0:243:ba10:66c7 with SMTP id adf61e73a8af0-243d6e02262mr12329299637.24.1756741791373;
-        Mon, 01 Sep 2025 08:49:51 -0700 (PDT)
+        bh=6HemR4kSrfP/7khlBRkJG8otPNKX3FGzo4p9L0pbKqM=;
+        b=e5qOiIlwsA997cwXcmV9u7tt0ON0laY5NVsloAcnJJZqTp0prSxlXvHoWI3UT5EHkL
+         6aomKQukL3GKTkr5SLupeStkK4Z/ZypDDnHZc7vp+R25j2TLVj0uWH5+QxqrfBEVYgW0
+         GfBAdtT1fSgn2jKhhIahMfFrMRlbyvcbBKhx4=
+X-Forwarded-Encrypted: i=1; AJvYcCWrTvk9mF3LzoM2SYjKzfvgY6jr/mf4VU/Wtzv2GbtaxhndNIR1pt9thVnIWq9KaK0z0d4lwX4GPgVTMhKiL5eY@lists.infradead.org
+X-Received: by 2002:a17:90b:1848:b0:327:96dd:6293 with SMTP id 98e67ed59e1d1-328156cb806mr12019349a91.26.1756741919609;
+        Mon, 01 Sep 2025 08:51:59 -0700 (PDT)
+X-Received: by 2002:a17:90b:1848:b0:327:96dd:6293 with SMTP id 98e67ed59e1d1-328156cb806mr12019311a91.26.1756741919133;
+        Mon, 01 Sep 2025 08:51:59 -0700 (PDT)
 Received: from [192.168.1.3] (ip68-4-215-93.oc.oc.cox.net. [68.4.215.93])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b4cd0e1cfbbsm9883575a12.23.2025.09.01.08.49.49
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3276f57b232sm17144343a91.2.2025.09.01.08.51.54
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 01 Sep 2025 08:49:50 -0700 (PDT)
-Message-ID: <2c5daf76-ed0b-486d-9f8f-dcaf35365042@broadcom.com>
-Date: Mon, 1 Sep 2025 08:49:47 -0700
+        Mon, 01 Sep 2025 08:51:58 -0700 (PDT)
+Message-ID: <f6938ed6-30cd-4bf3-9753-ae107b4b28d4@broadcom.com>
+Date: Mon, 1 Sep 2025 08:51:53 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/8] ARM: dts: bcm6846: Add I2C bus block
+Subject: Re: [PATCH v4 2/3] pinctrl: bcm: Add STB family pin controller driver
 To: Linus Walleij <linus.walleij@linaro.org>,
- William Zhang <william.zhang@broadcom.com>,
- Anand Gore <anand.gore@broadcom.com>, Kursad Oney
- <kursad.oney@broadcom.com>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?=
- <rafal@milecki.pl>,
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: linux-arm-kernel@lists.infradead.org
-References: <20250901-bcmbca-i2c-dts-v1-0-ad81f60d4276@linaro.org>
- <20250901-bcmbca-i2c-dts-v1-4-ad81f60d4276@linaro.org>
+ Andrea della Porta <andrea.porta@suse.com>,
+ Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ wahrenst@gmx.net, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ iivanov@suse.de, svarbanov@suse.de, mbrugger@suse.com,
+ Jonathan Bell <jonathan@raspberrypi.com>, Phil Elwell <phil@raspberrypi.com>
+References: <cover.1756372805.git.andrea.porta@suse.com>
+ <bee7c98a96c7000db32495b94ebae2ea06fe0e77.1756372805.git.andrea.porta@suse.com>
+ <CACRpkdac9K7mc5DAUnb82bR-eyzdsurRX_qFu8qoCFARDmTe4Q@mail.gmail.com>
 Content-Language: en-US
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -131,13 +136,13 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20250901-bcmbca-i2c-dts-v1-4-ad81f60d4276@linaro.org>
+In-Reply-To: <CACRpkdac9K7mc5DAUnb82bR-eyzdsurRX_qFu8qoCFARDmTe4Q@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_084955_000379_95BA49F6 
-X-CRM114-Status: GOOD (  17.52  )
+X-CRM114-CacheID: sfid-20250901_085202_161921_E2579708 
+X-CRM114-Status: GOOD (  17.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,44 +159,36 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 9/1/2025 5:50 AM, Linus Walleij wrote:
-> The BCM6846 has a STB I2C block.
+On 9/1/2025 1:21 AM, Linus Walleij wrote:
+> On Thu, Aug 28, 2025 at 2:45 PM Andrea della Porta
+> <andrea.porta@suse.com> wrote:
 > 
-> Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
-> ---
->   arch/arm/boot/dts/broadcom/bcm6846.dtsi | 9 +++++++++
->   1 file changed, 9 insertions(+)
+>> From: "Ivan T. Ivanov" <iivanov@suse.de>
+>>
+>> This driver provide pin muxing and configuration functionality
+>> for BCM2712 SoC used by RPi5. According to [1] this chip is an
+>> instance of the one used in Broadcom STB  product line.
+>>
+>> [1] https://lore.kernel.org/lkml/f6601f73-cb22-4ba3-88c5-241be8421fc3@broadcom.com/
+>>
+>> Cc: Jonathan Bell <jonathan@raspberrypi.com>
+>> Cc: Phil Elwell <phil@raspberrypi.com>
+>> Signed-off-by: Ivan T. Ivanov <iivanov@suse.de>
+>> Reviewed-by: Phil Elwell <phil@raspberrypi.com>
+>> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
 > 
-> diff --git a/arch/arm/boot/dts/broadcom/bcm6846.dtsi b/arch/arm/boot/dts/broadcom/bcm6846.dtsi
-> index f5591a45d2e4ad64d8f95680aea327771825252b..ac5c810a92d76f1130d0caf0286d6401e0e7bbe6 100644
-> --- a/arch/arm/boot/dts/broadcom/bcm6846.dtsi
-> +++ b/arch/arm/boot/dts/broadcom/bcm6846.dtsi
-> @@ -242,6 +242,15 @@ mdio: mdio@2060 {
->   			status = "disabled";
->   		};
->   
-> +		i2c0: i2c@2100 {
-> +			compatible = "brcm,brcmstb-i2c";
-
-Historically the BCA SoCs have byte-sized FIFOs rather than word-sized 
-FIFOs which is why the compatible string "brcm,brcmper-i2c" was defined. 
-I assume this was changed at some point and this works correctly with 
-the "brcm,brcmstb-i2c" compatible string.
-
-Was there any I2C peripheral you could interface with?
-
-> +			reg = <0x2100 0x60>;
-> +			interrupts = <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +
->   		pl081_dma: dma-controller@59000 {
->   			compatible = "arm,pl081", "arm,primecell";
->   			// The magic B105F00D info is missing
+> Overall this feels merge class, I am looking over the requirement
+> series from Bartosz to see if we can merge it all today.
 > 
+> I also looked in a vendor tree for the (by now 6 years old...)
+> BCMBCA driver, but it appears to be a completely different
+> beast, requiring some magic 0x21 to be written into a register
+> to "commit" a pin control change.
 
+Yeah, the BCA chips have a different controller for pin mux/control.
+This driver submitted by Andrea is common to STB and CM product lines, 
+although the CM chips also used the BCA block at some point in their 
+history.
 -- 
 Florian
 
