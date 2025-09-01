@@ -4,83 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 263B8CA0FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 17:17:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F0C5CA0FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 17:20:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ShuxvqvDerzcNDGyxqNGPvo4DRrl5n6jGqzZ1svVTj0=; b=zJhyo2xFS5SqwnN1l9+2TJMp8Z
-	XaqG8fxmoMmmaXqilCUzOB4CDX5NBSoHdRN/rFhMwi0+XsVswLCoDmokO5YEx1Sa0UHGGtrGOA9rF
-	ibznnH6Mqqzr9TIXK+iJYK7EKE0JR2xStvmowqzOaH18KjoAeSNRCcY+LcOGeQyPzkffSoUj0lsVH
-	ppOHzO1qhFmYB7RHl+7/ku4RPcFbJSokWI4F7o8HWXuymUDz+vKnGdzRm8+YH8oo493pI/NltvbmW
-	zUdtV11pa6Uvav+OOuX2QX25iYvskisR2yNhDJXMBBnxwbH3VLs+d0c427ww7Kc1pddaVRuC9wUVR
-	MZErRVtw==;
+	bh=ZpDM1obzK12bUteESwrJgWTMch0DIESyPnVssVZOnU8=; b=b9WFUqY5eDygNdzCx6jb9Z8Tbg
+	BIQu4UjBbE2OSljg2okiiwNMmvD1Jd04pfKqWaxNx6E6WjKMvR37alMVDesK6MCj88nFmxAh7ZMgU
+	t0OiAIwYaIKDhshq79QCPasR9iuEOMP5XL/a6PVzqJieGHr7CtZw05ogE6OOBCbyfW0FrAnyx40oO
+	Wqj0SzWwWURx42YrIbDyagBCwJnonkDmTl1Anc1mnvytvrLnS+lZTJLrGgEc1OiUnTTtWcFNCttgg
+	6yP296OAwJ1EIR+rxAjo4OeGAEv5wbqzlnoQbda+puW+6UhxYoGPI+aH8HbuwgoFWdJdManJOqF1g
+	6dL7yJeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut89z-0000000DR2E-1101;
-	Mon, 01 Sep 2025 17:17:39 +0000
-Received: from fra-out-001.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([18.156.205.64])
+	id 1ut8Cg-0000000DRPw-1CPd;
+	Mon, 01 Sep 2025 17:20:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut51J-0000000CmiU-1JzF
+	id 1ut57y-0000000Cnbv-47gC
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 01 Sep 2025 14:03:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=ZpDM1obzK12bUteESwrJgWTMch0DIESyPnVssVZOnU8=; b=erZ3y/6yUNjjjS/7fKG8pdr7SW
+	ygCO9K5N+Q2UOIS1+I8AkwMlKauCAQRMIvwKjRiycVxLpMZ92PnyYTjLqjpYLiUkWUtQWzy6z12OD
+	jKrvWpNZ5C7MAGqhHgYl1JwcPfLmYdzOIaQ/rp1rkkDOubhz7Vcai0fecTs/8yHLeWGNfvZCi23iC
+	m0C02nHdQaRmYLOOUs1d9kL59sWkrS8sqetVewCppXZG3X1hfuUlfvIJmLs4ga/J6npR3o2txohfd
+	C13BnnZ8YWw8ZFODilvN4+e80Bp06VFRWuULnf8ztMqRvh1MoaxbcIET7/dQTUbGEqGHxqU8snDSp
+	w8md1P6g==;
+Received: from fra-out-015.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([18.158.153.154])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ut57v-00000003kus-2dbm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 13:56:30 +0000
+	Mon, 01 Sep 2025 14:03:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.co.uk; i=@amazon.co.uk; q=dns/txt;
-  s=amazoncorp2; t=1756734989; x=1788270989;
+  s=amazoncorp2; t=1756735399; x=1788271399;
   h=from:to:cc:subject:date:message-id:references:
    in-reply-to:content-transfer-encoding:mime-version;
-  bh=ShuxvqvDerzcNDGyxqNGPvo4DRrl5n6jGqzZ1svVTj0=;
-  b=nN55qao4HgdRMWCFPd5/RcbXigDTarfAgoEZtOFu9ZGGivWzIfJ9NDT1
-   EFXXEXRwGMJU7njUFcpriXljfpdI+q0H1EJZZDMSTV+iO91yxqG+nJZYy
-   /6D+WitpUo5skByOd9zr7Wj9JWvfet3TAl+RTwL8CfBr1XzTVrJBBFJkZ
-   +cxx5aEQtX1i/+eoqBi46YxCfhfjI48Dq/0RMk1wBKNhWtODD0SjZThS+
-   l3XaW9IHZ8F6HkGnXSBA40dVuKtwE0k9oG42EXejLdNSf2MGc165WzTN3
-   1vnfAiLu4Vnvxz83NtJgL1fF52pg5ch2YmUlyAzOAY8J9VWHl0J9jD9T2
-   Q==;
-X-CSE-ConnectionGUID: W0SVbbBGRzWj4V7tZRsvSQ==
-X-CSE-MsgGUID: 1UgY4F0/TxuSRxd+6VB0Jg==
-X-IronPort-AV: E=Sophos;i="6.18,214,1751241600"; 
-   d="scan'208";a="1464002"
+  bh=ZpDM1obzK12bUteESwrJgWTMch0DIESyPnVssVZOnU8=;
+  b=osup1+2Hxd2VCATgNX4Sy/fSKzR0ljxUGXKvtp0y/B7TYaiUyb3c84O1
+   3QE5F1FsasakihqSrHIBB+KrR/0v+956c0BAqSjsUOG8h0Hfe8baifZQs
+   1frwva4LiVyzns5Qlxa6J1uJkYUvl5jgEiK+nxzRA0GkCutFGz0AxFjkE
+   LE+mIcmiklRV+bK4GPa74eh4xmdkh8f/ubOu+6ze81Z0uE5Jh1bETmMCP
+   z4u+7Wj5tJnk9sX07jcDVzFF3Dz8G3kbA8QHEpdN9jvk+oaWJR0huWXy3
+   LqAN164x+gDIoQ4I5uOxSnt+A4NGkfTxx0Aj/zt8HvN2MNu6knSq6RX/x
+   g==;
+X-CSE-ConnectionGUID: cy41DMtgQzWT9ehlwIF+7w==
+X-CSE-MsgGUID: AJVPOO4OT6GsjUOkK8ggbg==
+X-IronPort-AV: E=Sophos;i="6.17,290,1747699200"; 
+   d="scan'208";a="1356650"
 Received: from ip-10-6-11-83.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.11.83])
-  by internal-fra-out-001.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Sep 2025 13:56:18 +0000
-Received: from EX19MTAEUB001.ant.amazon.com [54.240.197.226:27204]
- by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.18.194:2525] with esmtp (Farcaster)
- id 3007a2af-4f0d-4c19-b4ab-3118cbde73e5; Mon, 1 Sep 2025 13:56:18 +0000 (UTC)
-X-Farcaster-Flow-ID: 3007a2af-4f0d-4c19-b4ab-3118cbde73e5
+  by internal-fra-out-015.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Sep 2025 14:03:07 +0000
+Received: from EX19MTAEUC002.ant.amazon.com [54.240.197.228:17259]
+ by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.42.3:2525] with esmtp (Farcaster)
+ id 1e95fe30-2115-4c92-bf6e-bd2030ad81f1; Mon, 1 Sep 2025 14:03:07 +0000 (UTC)
+X-Farcaster-Flow-ID: 1e95fe30-2115-4c92-bf6e-bd2030ad81f1
 Received: from EX19D015EUB003.ant.amazon.com (10.252.51.113) by
- EX19MTAEUB001.ant.amazon.com (10.252.51.26) with Microsoft SMTP Server
+ EX19MTAEUC002.ant.amazon.com (10.252.51.181) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.17;
- Mon, 1 Sep 2025 13:56:17 +0000
+ Mon, 1 Sep 2025 14:03:07 +0000
 Received: from EX19D015EUB004.ant.amazon.com (10.252.51.13) by
  EX19D015EUB003.ant.amazon.com (10.252.51.113) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
- Mon, 1 Sep 2025 13:56:17 +0000
+ Mon, 1 Sep 2025 14:03:06 +0000
 Received: from EX19D015EUB004.ant.amazon.com ([fe80::2dc9:7aa9:9cd3:fc8a]) by
  EX19D015EUB004.ant.amazon.com ([fe80::2dc9:7aa9:9cd3:fc8a%3]) with mapi id
- 15.02.2562.020; Mon, 1 Sep 2025 13:56:17 +0000
+ 15.02.2562.020; Mon, 1 Sep 2025 14:03:06 +0000
 From: "Roy, Patrick" <roypat@amazon.co.uk>
-To: "rppt@kernel.org" <rppt@kernel.org>
-CC: "ackerleytng@google.com" <ackerleytng@google.com>, "david@redhat.com"
-	<david@redhat.com>, "Manwaring, Derek" <derekmn@amazon.com>, "Thomson, Jack"
-	<jackabt@amazon.co.uk>, "Kalyazin, Nikita" <kalyazin@amazon.co.uk>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+To: "david@redhat.com" <david@redhat.com>
+CC: "ackerleytng@google.com" <ackerleytng@google.com>, "Manwaring, Derek"
+	<derekmn@amazon.com>, "Thomson, Jack" <jackabt@amazon.co.uk>, "Kalyazin,
+ Nikita" <kalyazin@amazon.co.uk>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
 	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
 	<linux-kernel@vger.kernel.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>,
 	"pbonzini@redhat.com" <pbonzini@redhat.com>, "Roy, Patrick"
-	<roypat@amazon.co.uk>, "seanjc@google.com" <seanjc@google.com>,
-	"tabba@google.com" <tabba@google.com>, "vbabka@suse.cz" <vbabka@suse.cz>,
-	"will@kernel.org" <will@kernel.org>, "Cali, Marco" <xmarcalx@amazon.co.uk>
+	<roypat@amazon.co.uk>, "rppt@kernel.org" <rppt@kernel.org>,
+	"seanjc@google.com" <seanjc@google.com>, "tabba@google.com"
+	<tabba@google.com>, "vbabka@suse.cz" <vbabka@suse.cz>, "will@kernel.org"
+	<will@kernel.org>, "Cali, Marco" <xmarcalx@amazon.co.uk>
 Subject: Re: [PATCH v5 03/12] mm: introduce AS_NO_DIRECT_MAP
 Thread-Topic: [PATCH v5 03/12] mm: introduce AS_NO_DIRECT_MAP
-Thread-Index: AQHcG0gw3raZWQR6+ESSIUK7nFklbw==
-Date: Mon, 1 Sep 2025 13:56:17 +0000
-Message-ID: <20250901135615.7601-1-roypat@amazon.co.uk>
-References: <aLBnHwUN74ErKVjX@kernel.org>
-In-Reply-To: <aLBnHwUN74ErKVjX@kernel.org>
+Thread-Index: AQHcG0kkyhDN15WuC0qLRSRUvcsDSg==
+Date: Mon, 1 Sep 2025 14:03:06 +0000
+Message-ID: <20250901140305.14081-1-roypat@amazon.co.uk>
+References: <7ef927d8-190d-4b22-8ec7-dcb9f5f75dba@redhat.com>
+In-Reply-To: <7ef927d8-190d-4b22-8ec7-dcb9f5f75dba@redhat.com>
 Accept-Language: en-US
 Content-Language: en-US
 X-MS-Has-Attach: 
@@ -90,8 +106,8 @@ Content-Type: text/plain; charset="iso-8859-1"
 Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_065629_652204_8FD8D103 
-X-CRM114-Status: GOOD (  17.18  )
+X-CRM114-CacheID: sfid-20250901_150319_860800_8E8BE385 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,10 +122,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mike,=0A=
 =0A=
-On Thu, 2025-08-28 at 15:26 +0100, Mike Rapoport wrote:=0A=
-> On Thu, Aug 28, 2025 at 09:39:19AM +0000, Roy, Patrick wrote:=0A=
+On Thu, 2025-08-28 at 22:00 +0100, David Hildenbrand wrote:=0A=
+> On 28.08.25 11:39, Roy, Patrick wrote:=0A=
 >> Add AS_NO_DIRECT_MAP for mappings where direct map entries of folios are=
 =0A=
 >> set to not present . Currently, mappings that match this description are=
@@ -145,87 +160,36 @@ s=0A=
 >>=0A=
 >> Signed-off-by: Patrick Roy <roypat@amazon.co.uk>=0A=
 >> ---=0A=
->>  include/linux/pagemap.h   | 16 ++++++++++++++++=0A=
->>  include/linux/secretmem.h | 18 ------------------=0A=
->>  lib/buildid.c             |  4 ++--=0A=
->>  mm/gup.c                  | 14 +++-----------=0A=
->>  mm/mlock.c                |  2 +-=0A=
->>  mm/secretmem.c            |  6 +-----=0A=
->>  6 files changed, 23 insertions(+), 37 deletions(-)=0A=
->>=0A=
->> diff --git a/include/linux/secretmem.h b/include/linux/secretmem.h=0A=
->> index e918f96881f5..0ae1fb057b3d 100644=0A=
->> --- a/include/linux/secretmem.h=0A=
->> +++ b/include/linux/secretmem.h=0A=
->> @@ -4,28 +4,10 @@=0A=
->>=0A=
->>  #ifdef CONFIG_SECRETMEM=0A=
->>=0A=
->> -extern const struct address_space_operations secretmem_aops;=0A=
+> [...]=0A=
 > =0A=
-> Please also make secretmem_aops static in mm/secretmem.c=0A=
-=0A=
-Ack.=0A=
-=0A=
->> -static inline bool secretmem_mapping(struct address_space *mapping)=0A=
->> -{=0A=
->> -     return mapping->a_ops =3D=3D &secretmem_aops;=0A=
->> -}=0A=
->> -=0A=
+>> +static inline bool vma_is_no_direct_map(const struct vm_area_struct *vm=
+a)=0A=
+>> +{=0A=
+>> +     return vma->vm_file && mapping_no_direct_map(vma->vm_file->f_mappi=
+ng);=0A=
+>> +}=0A=
+>> +=0A=
 > =0A=
-> ...=0A=
+> "vma_is_no_direct_map" reads a bit weird.=0A=
 > =0A=
->> diff --git a/mm/gup.c b/mm/gup.c=0A=
->> index adffe663594d..8c988e076e5d 100644=0A=
->> --- a/mm/gup.c=0A=
->> +++ b/mm/gup.c=0A=
->> @@ -1234,7 +1234,7 @@ static int check_vma_flags(struct vm_area_struct *=
-vma, unsigned long gup_flags)=0A=
->>       if ((gup_flags & FOLL_SPLIT_PMD) && is_vm_hugetlb_page(vma))=0A=
->>               return -EOPNOTSUPP;=0A=
->>=0A=
->> -     if (vma_is_secretmem(vma))=0A=
->> +     if (vma_is_no_direct_map(vma))=0A=
->>               return -EFAULT;=0A=
->>=0A=
->>       if (write) {=0A=
->> @@ -2751,7 +2751,6 @@ static bool gup_fast_folio_allowed(struct folio *f=
-olio, unsigned int flags)=0A=
->>  {=0A=
->>       bool reject_file_backed =3D false;=0A=
->>       struct address_space *mapping;=0A=
->> -     bool check_secretmem =3D false;=0A=
->>       unsigned long mapping_flags;=0A=
->>=0A=
->>       /*=0A=
->> @@ -2763,14 +2762,6 @@ static bool gup_fast_folio_allowed(struct folio *=
-folio, unsigned int flags)=0A=
->>               reject_file_backed =3D true;=0A=
->>=0A=
->>       /* We hold a folio reference, so we can safely access folio fields=
-. */=0A=
->> -=0A=
->> -     /* secretmem folios are always order-0 folios. */=0A=
->> -     if (IS_ENABLED(CONFIG_SECRETMEM) && !folio_test_large(folio))=0A=
->> -             check_secretmem =3D true;=0A=
->> -=0A=
->> -     if (!reject_file_backed && !check_secretmem)=0A=
->> -             return true;=0A=
->> -=0A=
->>       if (WARN_ON_ONCE(folio_test_slab(folio)))=0A=
->>               return false;=0A=
+> "vma_has_no_direct_map" or "vma_no_direct_mapping" might be better.=0A=
+=0A=
+I went with "vma_has_no_direct_map" for now, because vma_no_direct_mapping=
+=0A=
+would imply (to me at least) changing "mapping_no_direct_map" to=0A=
+"mapping_no_direct_mapping", which also reads a bit weird imo.=0A=
+=0A=
+> With the comment Mike and Fuad raised, this LGTM.=0A=
 > =0A=
-> There's a check for hugetlb after this and a comment there mentions=0A=
-> secretmem, please update that to "mapping with no direct map" or somethin=
-g=0A=
-> like that.=0A=
+> =0A=
+> -- =0A=
+> Cheers=0A=
+> =0A=
+> David / dhildenb=0A=
 =0A=
-Ack.=0A=
-=0A=
-> --=0A=
-> Sincerely yours,=0A=
-> Mike.=0A=
-=0A=
-Thanks,=0A=
+Best,=0A=
 Patrick=0A=
+=0A=
+=0A=
+=0A=
 
