@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97BA7CA100D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 23:13:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6D96CA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 23:13:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8P+m7Y/nxWzgTwgV0lOUpGrfM4BscgupyGBe9TnMFyM=; b=MQ3NOKemBdl4z1QtrrT9B9AxQQ
-	R9fO2gJXYZVMDAN6AHKUFYPrpxOpQmLNlZfUAYNxwhiVPo+d57vSdq8YlQbT1SxSE/Y3ut5pBhrwA
-	irMUfddhEwvMIcE2yM/hILhXkRfQSRAd4zAKvD/OifaBKgaNANT9NGbo7kCGg580BaBMQXYACo463
-	ctjkVpuSJbKilO3Ahsu94Y/X8M+8XEK+clsBAMYJ1264cPJPn/DQgUN+jXw90OtRgmOTRMbWWEpJO
-	IjieZ+EinR7lZkhtKbXmYXBh8X5IXQEq/HTcxt6LealuZxb+3OXJqFrS3PlFm0J1zqjnEAz5IPHS5
-	tB6A/acw==;
+	bh=lzcedc5ariPE0ii4husYv8u/WHZjFrvu0Oy0OmgexK4=; b=m3uQfsl/bAcC+4AtDZkNpm+i2y
+	uN1O+qNU39SuqkXxKzQeqGJm3u+QLPLzv143RupEtemuFxQyXNQ7rkBinBlp0jTLQnR7Xkrnbdxy6
+	EgESUYIeP2LJCFyI5RV/ZEjXrXgW4msXuS0IIWScGQ6HzY54yKIVBbVg4+Vc508adRCzrbqgCIMfz
+	fuhwdyyj9nEdq37d4JXYygZ1q1NS7nG7pkcsvmXOd8HYV+G9D/m38w48W/zIrwkDNvDFL4s+qU1EF
+	7yJugUUi0E05lt1V+qi3Gi6p/bBa3nTFxCtVf1TOSi/FDTzOy1p6lByCBGzuKub33wIJkv/oL7OBN
+	dq1lVeGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utDiS-0000000EGFE-04Uk;
-	Mon, 01 Sep 2025 23:13:36 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1utDiV-0000000EGKO-0oSv;
+	Mon, 01 Sep 2025 23:13:39 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut812-0000000DPTs-2ewc
+	id 1ut816-0000000DPUq-0Gz0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 17:08:25 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5607c2f1598so716917e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 10:08:24 -0700 (PDT)
+	Mon, 01 Sep 2025 17:08:29 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-55f716e25d9so2048119e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 10:08:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756746503; x=1757351303; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1756746506; x=1757351306; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=8P+m7Y/nxWzgTwgV0lOUpGrfM4BscgupyGBe9TnMFyM=;
-        b=UdAgK/tfT563QmYuek4paxh39FyCsidozjvDVQWseIGhGWeik+djmXJMiNtHr9IN9r
-         MPDHBPLfe4PEEXaGMswRTXFjrZdVOXO7AwpwLQkpJN8MZEqzXbuKyZm5lOalOqbUVXd6
-         HZOOlv4HlwtLGWoIdvEfZQcBMDF6c3d+8XhFF+1xst1shpwc97cCS1EUX2DXdTUoUF0d
-         LUf+Og65ykksEImXhihj/MK6Ru7iUHKGruN98ykPXvuyo5axr5Q3eDaZHXcu1qxwrnR4
-         2jfyUyQ11dap/YO3r9HY9Jlplrs6Q7r/VwErAXuH4iLPM4gPwdZwQQDtR8amwpA4KsQN
-         q5sQ==
+        bh=lzcedc5ariPE0ii4husYv8u/WHZjFrvu0Oy0OmgexK4=;
+        b=bVdDFImo0C3itAPT3E8ApnokUlz5QgEfaybdnQQOurJlz+u6UfSwz1CjDugCr9rwMq
+         nqmiUs1ysmczdd0269f1lEV7205slHoRAZuMuWwwxf/VY52vi3bmticqLrn8NFbvqCfH
+         RYEig68CoxYToeycA87AH5hITxX75106fxCoLxGsAc+nel7zQGVcIDMh0G5k+AotlAdr
+         7KOJY+1OB7ZsgxmMGkxhU4fv5eAzsCGDVQhH+GuLda4TUu3mkSwYPHseAkaVWjOuZYr5
+         eh0Q6w3PBPdI4ENgdi+8pgmkPIE7N9S92Ixd+X5gu0avdoStxy++sIQsZF209C0My6YO
+         JMxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756746503; x=1757351303;
+        d=1e100.net; s=20230601; t=1756746506; x=1757351306;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=8P+m7Y/nxWzgTwgV0lOUpGrfM4BscgupyGBe9TnMFyM=;
-        b=euuqZ15v54mQC952hcqn82COK6x/ipKcmFC1VFuS2B93+vsH2P7RSr0T7NzBMy48vg
-         0/0e7ofq9ipWnQ3M+JCn8OZPAs9oy6B3NNimpsFvfDedv7Hl+2lU1JK9ocEikxTDnhvD
-         TJIj7vMXefyHXo5hW6KGkJxovFRn+hJEkJCXkn2I6W8BEZzCeDr79auHYFc5ngRCQpGJ
-         idhVcb8C4W3irxHq8OdDicgLt7DOZBaEj8gOgmFFiF0cPfsjSogxQ9rXJ/zGjkKg+MBT
-         RwabUeBMWh9UZidB4fsjAroPCoXkorBF9I6Iq9CQfnToCKx4XjsRPfSBmjYEYnYO2rP4
-         R4TQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUP1Hg00coQ6es6+rOt4DQ8G3hpZzYX0d+XZYkcWxtFdf3R33bIKYQdf6HE8BJOBkBq2tRmPaMxU93tEZRm6tbS@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy9Z6FvlagiWI9AqTQ4O8vpF/2NFRt3UA2ZykoraXzxXbeGcmnq
-	D+MRiuMegu/wc04wr4kuHnRpkb6NiSkny3JqpRc4vEH9EPtSCcXbHDFs
-X-Gm-Gg: ASbGnctZt1ChM1lkDr6S3TMafP668YsQKJ3I684o6UD+TuuXXK9LjC0ue1aQlgjxJQB
-	RPkh19l1sugnoicd0iW4RZfqXuMnhUTHJAOwO+GLLwWdvXJvEuQszRzKjp1fNCGZY7Bs4Si3vC5
-	Epghpxsf+odTxNObnQqSW1xcgZ0/4Fqi4TWOQOQmYfCy2Ye+HNYQKtHoRL/sMrvo359sX/RBZs0
-	JrTL3H1Az8s2S9iQXuhTGJOjsVfkig9LFXGNz2dMEg0ISHI89eKWHiwacSUxcPOneVGhZBh7/P4
-	mfZTWNQaKqO5wWmfSb8B0Icn9lym2/xau4clKCkGybfUxO5YQRHS5AOUoOYOIinRfYiToZR/H5J
-	GWxtDjFLOKAvyP8c2mM8cph7Tk5jYTB4qq9A=
-X-Google-Smtp-Source: AGHT+IELIB4bITlhgOPTurMm6oZh59uaBBEBFYTOPZ6U/I2q6zrEZv9FpccN6USg6GENgO5mVScJCA==
-X-Received: by 2002:ac2:4bc5:0:b0:55f:3e82:9c7f with SMTP id 2adb3069b0e04-55f7099a779mr2066829e87.51.1756746502867;
-        Mon, 01 Sep 2025 10:08:22 -0700 (PDT)
+        bh=lzcedc5ariPE0ii4husYv8u/WHZjFrvu0Oy0OmgexK4=;
+        b=iKDUgaivv9/OhvH5gE8X/Xx7nsy0/7OCbFQaatC6MknIHKG+OMFqsAXGD0pmVYa16N
+         19Y+SXxf5okq6ZECAKXSR9je1kM0xecVZ5fsxcXFv02c3B2NhIW+aKUlzAK3Fg0U/ubJ
+         0qGtEmsPhmS8CoafYtKzGHcDpz3sQAE61tCVenXBycO77VYcMhA6YtRIfIuqqJK+cnJ9
+         mbCeZBvPJDUv3fObPU62G2fmlcCl3Fbx1baI5I3rLoxGSRYNJSD8Zhg5OFFJXvWpfdxt
+         sNeiRbwS44JirW8R9CblCdt8KFGRdjEd9aMsNIbjPn0yS+Z9nJA4WI11K6Ymq2V0pwpE
+         riaA==
+X-Forwarded-Encrypted: i=1; AJvYcCXtoCDpwZGga9wueNh+jgtofG4Fa1F+5JWxoSTpSzHYENzWkjvBMNqeeXZKn/tXPtXU1PwEQ49ndOICEcBnqvOD@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUCocd7ZM5Zjc5yipihfDiIKW3IAIg+Qo6MAWLtLe2M60F7c18
+	sSLwbiZNtYPab8cP8WLCIwj6KJMeZgF29L6eWdsnEK5O1frzu7Ni+avn
+X-Gm-Gg: ASbGncs9AkvYCvYdlMyKtogUx633C6f9l4WxULWA5xA7koyLaQANOd9ZPxWpxFLgAKM
+	WWjBUlq2+JumIv+RV2XT2K9q5nYQM6+eeBRsVDgcHWpAfDkgE6T/hF2U060E9vJDOMfoeHeu1Fg
+	2ZcWmH2T+wzv3wztdcGzKRz5OvE+yhVmOo6aLxjDaMuP9RmJ6CEJ965cr4A0yyzBaJ29CKGi/IP
+	HwOugZRd0neUHW+auYS3bT7omTZvZEmpJuKfgcvnYKOrSVG47QvWBvEH4lhp6f79N1V7hCK5laa
+	4cdy9ofTKeBgjyXN5+yT+zpDF6DXb7qmYmaCjg7O7dQKY5PL6YAB+oft1C76YW/RYM7nw7Pr8za
+	vxujvHRjB7Y8/kE1Dz95XGiKrLGLiom19qyg=
+X-Google-Smtp-Source: AGHT+IH3pC8k3xQeBOb/wW4FK2pwYVKYg0crcqd0bKD2RvBOb6fMiSJN0mQaI0dyPcIMeY6TJ6SyCQ==
+X-Received: by 2002:a05:6512:3d18:b0:55f:6f76:42b with SMTP id 2adb3069b0e04-55f70995a8amr2636282e87.30.1756746506104;
+        Mon, 01 Sep 2025 10:08:26 -0700 (PDT)
 Received: from tablet.my.domain ([2a00:f44:892:8a37:6b0:21e7:549b:225b])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55f7abf7abesm1137666e87.55.2025.09.01.10.08.20
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55f7abf7abesm1137666e87.55.2025.09.01.10.08.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Sep 2025 10:08:22 -0700 (PDT)
+        Mon, 01 Sep 2025 10:08:25 -0700 (PDT)
 From: Artur Weber <aweber.kernel@gmail.com>
-Date: Mon, 01 Sep 2025 19:07:14 +0200
-Subject: [PATCH RESEND v6 8/9] ARM: dts: bcm2166x-common: Add matching bus
+Date: Mon, 01 Sep 2025 19:07:15 +0200
+Subject: [PATCH RESEND v6 9/9] ARM: dts: bcm11351: Add corresponding bus
  clocks for peripheral clocks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250901-kona-bus-clock-v6-8-c3ac8215bd4d@gmail.com>
+Message-Id: <20250901-kona-bus-clock-v6-9-c3ac8215bd4d@gmail.com>
 References: <20250901-kona-bus-clock-v6-0-c3ac8215bd4d@gmail.com>
 In-Reply-To: <20250901-kona-bus-clock-v6-0-c3ac8215bd4d@gmail.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -92,26 +92,26 @@ Cc: Alex Elder <elder@kernel.org>,
  ~postmarketos/upstreaming@lists.sr.ht, linux-arm-kernel@lists.infradead.org, 
  Artur Weber <aweber.kernel@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2451;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2485;
  i=aweber.kernel@gmail.com; h=from:subject:message-id;
- bh=OMng8naVRXMXeI95f6muap+cKQ9MSMRKToTbyrOWZkk=;
- b=owEBbQKS/ZANAwAKAbO7+KEToFFoAcsmYgBotdLKguyUaS87eDMZUI7MCjHhhosHT/OmHzMPf
- bhMLUpCljaJAjMEAAEKAB0WIQTmYwAOrB3szWrSiQ2zu/ihE6BRaAUCaLXSygAKCRCzu/ihE6BR
- aD31D/4wuD30cdNOi2kPvIwZvJywOqEaj3s5BdZ2DlFwEsFX+lAI2s/M/iajO3yN5lL1Tt0ntIh
- N/bv3O/Vm3yolUmy9rhV/r1LP3t5g+HAtNtmRuZ+21JYrrugcP57seO7iEwupUmHZwBRLe9/PyR
- AbP3YVWI1gEqBVXLUIX7Yc9+2WDpJtERhMAhJ+koHgvBPcbZF46P4Xy+4oyBUCRx0lA1TO31YrY
- 84FmKasmp0xV8PxGKaWX0SAosUoxTQsThd2H6tCbHv2lPHRcP5MnwE/Zq6O3HiE4DeVklLjDiaF
- tqV5hewKD7xZJcTTvjPzZOCLZ5EArCsmbwdB1GbTFkGO18MIVO+7c8NmMHhsBFqQvTz1t6OUHll
- hbUgi6r7K95BAnCdWYi13G/HYWWwfvisBaIMBoGf+ibkdnic+Abp2y5I0u/iyvWbK6qvpUWQ7FT
- 4FBJnuzq8dKZL0mB0N+S9RQvckXngNqMY+AkoBaTibRhTM1No42pU9AfgiXhRoxbT5XuHO4f0dA
- 0lN1Dy1epfe2p0QoV1Wogsfpw6SgIxuj54Ax0MxZ+XXdz3VIsuqGomGZKSaGih5lowX20yl6x32
- h554c1b47jM1zbU1l4zoegZNII5gh2XNXuH8j584PsOVFQsqF5q+db4virt5jOgW8SbGw5iSbeL
- hDrAZCdLawi0CEA==
+ bh=jZ6SN7U3gtrOXPIdIQzLylVY/8dXMuB4ayQmv6+f1VU=;
+ b=owEBbQKS/ZANAwAKAbO7+KEToFFoAcsmYgBotdLKHjx+ECuGJdyX/Z4riBATTgknEagxk7FP7
+ 0Dcob8ewOiJAjMEAAEKAB0WIQTmYwAOrB3szWrSiQ2zu/ihE6BRaAUCaLXSygAKCRCzu/ihE6BR
+ aOGIEAChVctWAwTWP6uIYuZGmmTCvZPBte5WgDTJxGyAwWGzzJZj+CrvdZBOcLVJMIvmJr/DzcI
+ TrLz+u6+Q+D+zmu1P0wPm26Xt9upRBGJnWAyv7lHhuPMS1QdUzxEwIgrpyHPtytK2gEXFm/2Ae8
+ pn4jac85PbVPK8WJweLR/nVpgEyUVL+7SIARo8qXhq1Sum3AqVAnTewki5+5I7kKDYM5ArDSj9d
+ eIZ0B7DDnUJ1cP5QyWNtUYHvOQ9Vl5aUeeQQ5r3z/phqXULjJqxpyfUCJ+VFx5w/82OwUWkm8lB
+ O5BwPpd0ZRE0+yhcOqY4junQ1h/DaZAoy7h2utOqcXquBDaYytgB44Vx2HV+IlC8hgxyzeRJXMG
+ 2uB9FT3iUcjMAhg/+3KIokEJ6UQO4v/Ol900VY5/cx/bs1FTmNkEkdgaidz3kNbCOjBR8mkaLWD
+ H1eej5CLmh5EXtQ4WRr+QOrY8VQan12pPqTut1ZZlOU99oowPQzosQ9AucWiQ4c9a0ymkG+kLVz
+ g24lxjAXg4c6xmS6ty6ZgoZ9yYVMuLiwOaoAGkqhTaTwqVgrNW3an6UwbKTP8efDTtkUV8iarMC
+ 4c20Gv9CC5Rx1V7S3GwKf9RuiVTSAayYzn6U5yRLF4iM+eB4avJVd5zwX/SOTgULl5mHjFubcM3
+ lDpcBIhS85h6+pA==
 X-Developer-Key: i=aweber.kernel@gmail.com; a=openpgp;
  fpr=E663000EAC1DECCD6AD2890DB3BBF8A113A05168
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_100824_682595_177C8C8B 
-X-CRM114-Status: GOOD (  13.05  )
+X-CRM114-CacheID: sfid-20250901_100828_108516_103759AD 
+X-CRM114-Status: GOOD (  12.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,85 +126,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Following changes in the clock driver, add bus clocks for timer, SDIO,
-BSC and UART to the DTS clock output names. Replace the usb_otg_ahb
-fixed clock with the real bus clock.
+Following changes in the clock driver, add matching bus clocks for
+existing peripheral clocks. Replace the usb_otg_ahb fixed clock with
+the real bus clock.
 
 Signed-off-by: Artur Weber <aweber.kernel@gmail.com>
 ---
-Changes in v4:
-- Change commit summary to match equivalent BCM281xx commit
+Changes in v2:
+- Add this patch (BCM281xx bus clocks)
 ---
- arch/arm/boot/dts/broadcom/bcm2166x-common.dtsi | 28 ++++++++++++++++---------
- 1 file changed, 18 insertions(+), 10 deletions(-)
+ arch/arm/boot/dts/broadcom/bcm11351.dtsi | 33 ++++++++++++++++++++++----------
+ 1 file changed, 23 insertions(+), 10 deletions(-)
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm2166x-common.dtsi b/arch/arm/boot/dts/broadcom/bcm2166x-common.dtsi
-index f535212cb52fec0668abfc06e7268bead70d958a..b8a6b81d2b7cac00cf393ee37aae4dcc379e487c 100644
---- a/arch/arm/boot/dts/broadcom/bcm2166x-common.dtsi
-+++ b/arch/arm/boot/dts/broadcom/bcm2166x-common.dtsi
-@@ -148,7 +148,7 @@ usbotg: usb@e20000 {
- 			compatible = "snps,dwc2";
- 			reg = <0x00e20000 0x10000>;
- 			interrupts = <GIC_SPI 47 IRQ_TYPE_LEVEL_HIGH>;
--			clocks = <&usb_otg_ahb_clk>;
-+			clocks = <&master_ccu BCM21664_MASTER_CCU_USB_OTG_AHB>;
- 			clock-names = "otg";
- 			phys = <&usbphy>;
- 			phy-names = "usb2-phy";
-@@ -253,12 +253,6 @@ var_52m_clk: var_52m {
+diff --git a/arch/arm/boot/dts/broadcom/bcm11351.dtsi b/arch/arm/boot/dts/broadcom/bcm11351.dtsi
+index 53857e572080d752732c512ed27f942756d59c46..fac5cf5a46bd9a4b7e09a2e65c3e807d1b4ef960 100644
+--- a/arch/arm/boot/dts/broadcom/bcm11351.dtsi
++++ b/arch/arm/boot/dts/broadcom/bcm11351.dtsi
+@@ -233,7 +233,9 @@ aon_ccu: aon_ccu@35002000 {
+ 			#clock-cells = <1>;
+ 			clock-output-names = "hub_timer",
+ 					     "pmu_bsc",
+-					     "pmu_bsc_var";
++					     "pmu_bsc_var",
++					     "hub_timer_apb",
++					     "pmu_bsc_apb";
+ 		};
+ 
+ 		master_ccu: master_ccu@3f001000 {
+@@ -246,7 +248,14 @@ master_ccu: master_ccu@3f001000 {
+ 					     "sdio4",
+ 					     "usb_ic",
+ 					     "hsic2_48m",
+-					     "hsic2_12m";
++					     "hsic2_12m",
++					     "sdio1_ahb",
++					     "sdio2_ahb",
++					     "sdio3_ahb",
++					     "sdio4_ahb",
++					     "usb_ic_ahb",
++					     "hsic2_ahb",
++					     "usb_otg_ahb";
+ 		};
+ 
+ 		slave_ccu: slave_ccu@3e011000 {
+@@ -262,7 +271,17 @@ slave_ccu: slave_ccu@3e011000 {
+ 					     "bsc1",
+ 					     "bsc2",
+ 					     "bsc3",
+-					     "pwm";
++					     "pwm",
++					     "uartb_apb",
++					     "uartb2_apb",
++					     "uartb3_apb",
++					     "uartb4_apb",
++					     "ssp0_apb",
++					     "ssp2_apb",
++					     "bsc1_apb",
++					     "bsc2_apb",
++					     "bsc3_apb",
++					     "pwm_apb";
+ 		};
+ 
+ 		ref_1m_clk: ref_1m {
+@@ -325,12 +344,6 @@ var_52m_clk: var_52m {
  			clock-frequency = <52000000>;
  		};
  
 -		usb_otg_ahb_clk: usb_otg_ahb {
--			#clock-cells = <0>;
 -			compatible = "fixed-clock";
 -			clock-frequency = <52000000>;
+-			#clock-cells = <0>;
 -		};
 -
  		ref_96m_clk: ref_96m {
  			#clock-cells = <0>;
  			compatible = "fixed-clock";
-@@ -306,7 +300,8 @@ aon_ccu: aon_ccu@35002000 {
- 			compatible = "brcm,bcm21664-aon-ccu";
- 			reg = <0x35002000 0x0f00>;
- 			#clock-cells = <1>;
--			clock-output-names = "hub_timer";
-+			clock-output-names = "hub_timer",
-+					     "hub_timer_apb";
- 		};
- 
- 		slave_ccu: slave_ccu@3e011000 {
-@@ -319,7 +314,15 @@ slave_ccu: slave_ccu@3e011000 {
- 					     "bsc1",
- 					     "bsc2",
- 					     "bsc3",
--					     "bsc4";
-+					     "bsc4",
-+					     "uartb_apb",
-+					     "uartb2_apb",
-+					     "uartb3_apb",
-+					     "bsc1_apb",
-+					     "bsc2_apb",
-+					     "bsc3_apb",
-+					     "bsc4_apb";
-+
- 		};
- 
- 		master_ccu: master_ccu@3f001000 {
-@@ -333,7 +336,12 @@ master_ccu: master_ccu@3f001000 {
- 					     "sdio1_sleep",
- 					     "sdio2_sleep",
- 					     "sdio3_sleep",
--					     "sdio4_sleep";
-+					     "sdio4_sleep",
-+					     "sdio1_ahb",
-+					     "sdio2_ahb",
-+					     "sdio3_ahb",
-+					     "sdio4_ahb",
-+					     "usb_otg_ahb";
- 		};
- 	};
- };
+@@ -396,7 +409,7 @@ usbotg: usb@3f120000 {
+ 		compatible = "snps,dwc2";
+ 		reg = <0x3f120000 0x10000>;
+ 		interrupts = <GIC_SPI 47 IRQ_TYPE_LEVEL_HIGH>;
+-		clocks = <&usb_otg_ahb_clk>;
++		clocks = <&master_ccu BCM281XX_MASTER_CCU_USB_OTG_AHB>;
+ 		clock-names = "otg";
+ 		phys = <&usbphy>;
+ 		phy-names = "usb2-phy";
 
 -- 
 2.51.0
