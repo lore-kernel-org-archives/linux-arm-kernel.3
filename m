@@ -4,101 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFF5CCA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 09:08:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 269B1CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 09:11:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X1PqOUmZ0Ne7FPif1yb7D1u9567Eu8Y0LGe+cU3C1kk=; b=zoCrllQxYwuRVrwl/Sq17Yd5OC
-	nO5F4xn4wkIpfm1D0Jjl+lUQuwVRYLAHqE0Yx6XOijjIOUqRQRHMTB1a52/nAUp5fgSloUzhioMV7
-	Mj6T6JGMEBXKq51DzI5FWKzh9XDlUCwSTwYhvWEIVUf1z/t1j0wfOOqOVBpOjlLN0mOnKevSE5g/H
-	BTuXn3SOTeWWF7KshmsqnAIwEA2tmsh844yUjVJLzbfIzkiHVaEMlb6LAWWcAeLpZQHBljlADkjVL
-	LVEVg52Orqzs/uSKaOERLk+rMrRKCy3CEcAJW7jPZVw/4VSEKhkrCDnL7az9s2RIwd2kiKh8Q7JEp
-	EGidu2MA==;
+	bh=SaiJq4hJF5lom7z5ZsALf4JWoA+Plm0B5+LT0O2PI34=; b=dz1GOCZeaNLG9AsN0CjAx2h5VJ
+	2+lJBezQkfUjYoE17wJ8yF3Hi5O4dd4MgDpLVvH/MAe55BSkTJRxln2/14g3Z0JoZ3VCQfpWm3wyo
+	njTaszMgO8sr+fcaMo/2SxZTAvP4HDvetjd0F23Jrj138OSRt2UNjnDbxSQ62YPV3Yi8iHeI50Spl
+	xFiWH8C+vI5RMLHPGdRM0/KDA/XTzMGS/DUFFMB0XIExKkuQP16j/TroPG7ev42x42hA6juSXlN0U
+	0itKd+OA0ljug54ubt1qHfIsL1JO4JshiE7IsxFXWuRs51goS5h2q+L9hAcGO0GkLOs0HgtRVKakI
+	t8XQeOOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut0WQ-0000000BhHE-1tpf;
-	Mon, 01 Sep 2025 09:08:18 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1ut0Z6-0000000Bhga-1rBS;
+	Mon, 01 Sep 2025 09:11:04 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut08a-0000000BcX6-3v31
+	id 1ut09D-0000000Bcd8-1EYy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 08:43:42 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-45b7d485173so24428805e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 01:43:40 -0700 (PDT)
+	Mon, 01 Sep 2025 08:44:20 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-55f6017004dso3690870e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 01:44:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756716219; x=1757321019; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=X1PqOUmZ0Ne7FPif1yb7D1u9567Eu8Y0LGe+cU3C1kk=;
-        b=IXPJjjWlvtxsU+IDH3JkFqAMdqXCRYbFk92vQDDWRDXue4TavlZabwMnurRXUG2x8W
-         LALDTlIMhmkJWTaCXe2wCsJZBol84y2b4Vh68xPHNgLTEwIfBWFs0s7za19PXCGcjNCK
-         Aks5iaj2x6IBIp2JReTuAfbmI6zIQLmyBG3MB1wt85CFmC1QgLiaLCiWDw2HTuwfElnr
-         3wovSOYsEvOZSY67KJBNvl2pQ/SzinaXhXwpX1rRoRppgyaabNGTc+yvSOwXe4k5MFk4
-         QvHnq+4ospiXIFBxNg5TKJWDAmw3EnLIupWmfm1kM0JFDanmYaDtMyRWUA5YufdQdAWc
-         tiIw==
+        d=linaro.org; s=google; t=1756716257; x=1757321057; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SaiJq4hJF5lom7z5ZsALf4JWoA+Plm0B5+LT0O2PI34=;
+        b=r/wcwRDbyGkpdFEXllUgG4xuh8t06+sWwzz3AfdzB07Rf+58UPPXS/lRBxr0VkOniv
+         0gnUb2PcHmo+fJYFnRxP7uXWLelalxKhYi06q5tcGhuqvHe6xdDwnPdfCFpJp7hRawQX
+         kdWi3XBkj5KWeTLeGqeXahAaCYk0uptV2Tifkkn0XNMg8QrWHUhrTJDnPV9tJQCzGU31
+         ma/NEAzJIelBY/1ILmeyRcCAXPJce/36CH/Ma+D4XSGrlsKxSzEoDJ9Wza9MXdidpeZa
+         oHR2CDjNOuQtgPD516OVd+tGMdkdd4qrzmCQDPd2MYTzTB5UetkIRlyfo8Gfwc0UoDAR
+         pUEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756716219; x=1757321019;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=X1PqOUmZ0Ne7FPif1yb7D1u9567Eu8Y0LGe+cU3C1kk=;
-        b=S/M1g11saH8nck1VaQMOwXYJb1txquzfljJdhGmAK0wLU0J0ED0h5oGsj5odszeKa8
-         EmNAoBPfo5YwveFqHNASD5KccX+VHGBrpbKtbIBtt8HNx5kE3QLZTaXGQs4/ZkVtvkVF
-         PLRXY386coy3Yh5lBZHg7dLhFq+D9b1WEZYDVzgOnI9Y3YDFxwlYU5xppdZOwnH8WqJ6
-         +5tod+nLYTQHno6R0xMmuJQBDLveh0qPPvoXHP0YbpfKbefL1HPuR8pr/jw7tenVWMI1
-         2psrkePdVOFqy0V2QD3/B70ELsBfrZ0yQugzhFzqVd1I2EXa3e1qd+ECX28FcbTSdqgN
-         rOsw==
-X-Forwarded-Encrypted: i=1; AJvYcCUJHMR2NvibfsTg1ZuWwz5Qek5aiH1xdv9Z4ycvIXKoBROmDD4YLEFsc4JqK6WcVAWwZUCGXGVFcIksc9lUSbeR@lists.infradead.org
-X-Gm-Message-State: AOJu0YxcBNIAGVKkG0wVVu9tGGxWgEJjoiHzFbXBEjjb6ROs4+msmX6E
-	9h08u2FL6GwXIja2K5Hjwgdfq7kWzTviPLSbv76ByOi770KtDumSd0BYULvx9P45hSs=
-X-Gm-Gg: ASbGnctbXVBI3yQ9KrfD8rDhQfI0c7q6lWJEWWxaCR8QnSripkFYO6jUtD5JqakaXvA
-	mvA6KHTEZ7899Yiyvo91R4sNGKXVEaiVE8ZIeRQ1YEYBONlv2Vd1lNB/WuxZ1Y/DIjhH4SRi0iO
-	p5+tMoR0hN0lKJGCLu2ljRDU3pnyHrFUMhIdC918NXGqrzlw0Ljomn8pQBs0TwAn0fMIeiNm/Vy
-	mmESKdS7Kl6uFBlCVHDERmF1blAl+zWRgJBNxlnYW7oRi5Uav8KkQ9utS0ymb4J2T4uDpHgCyca
-	j3ewHYm0Nq9UU8aHJ6/tO45ZZITL7Z30DZFZPkbmqbBVo9lcXvJZbW7U1tQNE0ZHsFsR2t4K27I
-	Cg3SusEjhZUCNOZsoXeDUeQnuWIooQg==
-X-Google-Smtp-Source: AGHT+IEOfIZTQy6jci7xeBxd5WsSj+WaclDlxn3VgJ9N1OGclS2wRjNkjBAzbocqqf4Z87S9TOQbdQ==
-X-Received: by 2002:a05:600c:a4b:b0:45b:6365:794e with SMTP id 5b1f17b1804b1-45b855711fdmr62236345e9.24.1756716219178;
-        Mon, 01 Sep 2025 01:43:39 -0700 (PDT)
-Received: from [192.168.0.251] ([79.115.63.1])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b69b7529asm139030665e9.0.2025.09.01.01.43.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 01 Sep 2025 01:43:38 -0700 (PDT)
-Message-ID: <c1321c46-e7a4-4489-a63b-a3ed72e5e98a@linaro.org>
-Date: Mon, 1 Sep 2025 09:43:36 +0100
+        d=1e100.net; s=20230601; t=1756716257; x=1757321057;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=SaiJq4hJF5lom7z5ZsALf4JWoA+Plm0B5+LT0O2PI34=;
+        b=OmHPx0X0hQ8mNoeCGEKON8Y6c8q7FnygLsz+LazKAMIh/DsRCp7Lelaya2l9/IHz7W
+         MlBcdmIfu7rieyzl2PeKnEugO28cGJ/HYLchza5KE11G8qcgw/IGR1AJjmc9RDTzNzaU
+         mVwpaH/0VJCqW17LGo6cdDSntD+LsE8/c2uNQdKKsDkJgU3BYoIcYrnWISUmHej4WuQL
+         MflHAW4LL5YDPK5B5T6uDvYcBcp+NKWRFyBFOzTlRaT66ni8nsfYBUjaEgxjHYVukb1v
+         O4jP9GrpwYcrBx45+YCZAOQooTeuF3zO8wYnK8dIEPiJ7fwyg70m82NPpUfYapT+ERsd
+         +Ruw==
+X-Forwarded-Encrypted: i=1; AJvYcCXpBYk9xjr/AhEYgA6YLa8CZ+EAbgGJ10KZoLcZu0dDZ5AU0f3hXviyRX0l5lNq6W4+Xn3SKkL4N46xU2IuoILs@lists.infradead.org
+X-Gm-Message-State: AOJu0YwdoO4xJODYzYY7htNQ2zxaSgb1ohF8nwIqyTVumrr+za+MWeU5
+	UNt+PKC/FnlaTrNDmTf5mU8GkkWZJ9PjTxjyH3Ntsu/7bkp71DPlhO41QYqJxUv7vVb4Bo/QM4M
+	govnh4I7mCZE+G1+rjLelNm3ostpnoILDiIX9LZfSWZjD3/hWBPTl
+X-Gm-Gg: ASbGncvqDcJZv4Urwt57eMqWKf5efwc/O3ImKadnstiC+71sRTYsv1SUChZBF0xodnY
+	JsKJxwpu3v7mrDEIsqat2EGk0V+p1N1srGuJmeha+Cz8gY0XzXtQgsTCGAtyDpOtJ8+tAnqtHN+
+	pnbtQpLq3Fl3oQDvIoHtIxnpZDFjCK8uwwVZmTbe6xEJQP9fbesuWFR1YU53Q/2QFHUsTkLCsJs
+	BLTlpk=
+X-Google-Smtp-Source: AGHT+IHYQJGcS72pgyUEaoA+hO1sKdExLWvqpK7R1Mhqds887ElGFErBA9UBYpgc8SVbOT1Ijil+SH1kwRpSDvkqpJw=
+X-Received: by 2002:a05:6512:a90:b0:55f:3faa:7c02 with SMTP id
+ 2adb3069b0e04-55f7093eb00mr1641808e87.40.1756716257451; Mon, 01 Sep 2025
+ 01:44:17 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/5] firmware: exynos-acpm: register ACPM clocks dev
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
-References: <20250827-acpm-clk-v2-0-de5c86b49b64@linaro.org>
- <20250827-acpm-clk-v2-4-de5c86b49b64@linaro.org>
- <e8346a38-fef7-482f-81ab-20621988b047@kernel.org>
- <761936e8-1626-47f8-b3f5-ebc62f4a409b@linaro.org>
- <2567a939-4938-4c92-8893-83d03ff8767f@kernel.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <2567a939-4938-4c92-8893-83d03ff8767f@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250828-pinctrl-gpio-pinfuncs-v6-0-c9abb6bdb689@linaro.org>
+ <CAHp75Vd+q5NZ=4YSouU-EdbR4TZf7S8PGqR0B0HJG8DkVKKtAg@mail.gmail.com>
+ <CACRpkdZcPwwpie51D55AHTQRSqG_EQ=tVG+0aMJpHhYZLGq1yg@mail.gmail.com> <CAMRc=Mcy8ia5Cp-hpvZp4Pz-gLEibzjg=MHA01YTeFk-OkFspg@mail.gmail.com>
+In-Reply-To: <CAMRc=Mcy8ia5Cp-hpvZp4Pz-gLEibzjg=MHA01YTeFk-OkFspg@mail.gmail.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Mon, 1 Sep 2025 10:44:04 +0200
+X-Gm-Features: Ac12FXz3KPbvuWEnpXmjpCyuSYHy_eQu2RsnQJOIHbwbqbNB252k8odhTX9e2FE
+Message-ID: <CACRpkdb=8GFLaAtSyWx4jgV6BN4gPAFH3tDKmDQT8b0b1xeasA@mail.gmail.com>
+Subject: Re: [PATCH v6 00/15] pinctrl: introduce the concept of a GPIO pin
+ function category
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Andy Shevchenko <andy.shevchenko@gmail.com>, Andrea della Porta <andrea.porta@suse.com>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Andy Shevchenko <andy@kernel.org>, 
+	David Hildenbrand <david@redhat.com>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+	Vlastimil Babka <vbabka@suse.cz>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Mark Brown <broonie@kernel.org>, linux-gpio@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_014340_978549_186236E1 
-X-CRM114-Status: GOOD (  27.68  )
+X-CRM114-CacheID: sfid-20250901_014419_335989_2CF0B64F 
+X-CRM114-Status: GOOD (  17.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,86 +106,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Sep 1, 2025 at 10:34=E2=80=AFAM Bartosz Golaszewski <brgl@bgdev.pl>=
+ wrote:
+> On Mon, Sep 1, 2025 at 10:31=E2=80=AFAM Linus Walleij <linus.walleij@lina=
+ro.org> wrote:
+> >
+> > On Sat, Aug 30, 2025 at 10:19=E2=80=AFAM Andy Shevchenko
+> > <andy.shevchenko@gmail.com> wrote:
+> >
+> > > Note mainly for Linus and Bart:
+> > > I agree with the patches 1..11, but starting from 12 needs more
+> > > discussion. That said, I hope Linus can apply the first 11 ones to
+> > > make it easier to continue with the rest.
+> >
+> > I applied patches 1 thru 11 so we get some traction.
+> >
+>
+> Ah, I hoped to get a Tested-by from Mark on the IMX first as I'm not
+> 100% sure the fix in this iteration actually works.
 
+OK I backed it out for now, let's give it a week.
 
-On 9/1/25 8:48 AM, Krzysztof Kozlowski wrote:
-> On 01/09/2025 08:56, Tudor Ambarus wrote:
->>
->>
->> On 8/31/25 11:50 AM, Krzysztof Kozlowski wrote:
->>> On 27/08/2025 14:42, Tudor Ambarus wrote:
->>>> +
->>>> +static const struct acpm_clk_variant gs101_acpm_clks[] = {
->>>> +	ACPM_CLK(CLK_ACPM_DVFS_MIF, "mif"),
->>>> +	ACPM_CLK(CLK_ACPM_DVFS_INT, "int"),
->>>> +	ACPM_CLK(CLK_ACPM_DVFS_CPUCL0, "cpucl0"),
->>>> +	ACPM_CLK(CLK_ACPM_DVFS_CPUCL1, "cpucl1"),
->>>> +	ACPM_CLK(CLK_ACPM_DVFS_CPUCL2, "cpucl2"),
->>>> +	ACPM_CLK(CLK_ACPM_DVFS_G3D, "g3d"),
->>>> +	ACPM_CLK(CLK_ACPM_DVFS_G3DL2, "g3dl2"),
->>>> +	ACPM_CLK(CLK_ACPM_DVFS_TPU, "tpu"),
->>>> +	ACPM_CLK(CLK_ACPM_DVFS_INTCAM, "intcam"),
->>>> +	ACPM_CLK(CLK_ACPM_DVFS_TNR, "tnr"),
->>>> +	ACPM_CLK(CLK_ACPM_DVFS_CAM, "cam"),
->>>> +	ACPM_CLK(CLK_ACPM_DVFS_MFC, "mfc"),
->>>> +	ACPM_CLK(CLK_ACPM_DVFS_DISP, "disp"),
->>>> +	ACPM_CLK(CLK_ACPM_DVFS_BO, "b0"),
->>>> +};
->>>
->>> I don't understand why clocks are defined in the firmware driver, not in
->>> the clock driver.
->>
->> I chose to define the clocks in the firmware driver and pass them as 
->> platform data to the clock platform device for extensibility. In case
->> other SoCs have different clock IDs, they'll be able to pass the
-> 
-> You will have to modify firmware driver, so still at least one driver
-> has to be changed. Having clocks defined in non-clock driver is really
-> unusual.
-> 
-> This solution here creates also dependency on clock bindings and makes
-> merging everything unnecessary difficult.
-> 
->> clock data without needing to modify the clock driver. GS201 defines
->> the same ACPM clocks as GS101, but I don't have access to other newer
->> SoCs to tell if the ACPM clocks differ or not.
->>
->> The alternative is to define the clocks in the clock driver and
->> use platform_device_register_simple() to register the clock platform
->> device. The clock driver will be rigid in what clocks it supports.
->>
->> I'm fine either way for now. What do you prefer?
-> 
-> Please move them to the driver.
+I'm just a bit jumpy... I really want this to get some cooking
+in Linux-next by now.
 
-Okay, will move the clock definitions to the clock driver.
-
-> 
->>
->>>
->>> This creates dependency of this patch on the clock patch, so basically
->>> there is no way I will take it in one cycle.
->>
->> Would it work to have an immutable tag for the clock and samsung-soc
->> subsytems to use?
-> 
-> No, just try yourself. Patch #3 depends on patch #2, so that's the cross
-> tree merge. It's fine, but now patch #4 depends on patch #3, so you need
-> two merges.
-> 
-> Or how do you actually see it being merged with immutable tag? What goes
-> where?
-> 
-
-Unnecessary difficult indeed. Hypothetically, if we kept the current
-structure, we could have have a single tag on #4. Since the dependency was
-on a new clock driver, the clock subsystem could have lived without merging
-the tag, as the chances of conflicts with the clk core are small. But not
-ideal. Lesson learnt, always put yourself in the maintainer's shoes.
-Thanks for the patience!
-
-Cheers,
-ta
-
-
+Yours,
+Linus Walleij
 
