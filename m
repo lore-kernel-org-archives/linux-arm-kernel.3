@@ -4,89 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B679FCA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 12:31:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA399CA0FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 12:31:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=U3wMAXUg6TcQMtXg5Lgxugiws7d3wfWBJLDrvyAva+k=; b=44W0uxAyCdQFIn
-	A0RZHu4Metz/+8TT10nGwSulXMKSdXNlHWMHNl3pVsmdSoK1tTHaQ5LH7JHF/zntIPjfKUWmaZSI/
-	brr9LTjm57pyC5sFVon8Y7t+6PuMZBD5tXYFgIy51cPW1M5uWiYgc8WQDcmyFldmcuvAXAusXkuWh
-	ogmzI+lRaW9Qdw5Le3I90yZuaGVXx4sLVVfjSCKUjQzddpSyIKS7N5u6uS+V/F77LBiYjP7wlo+VS
-	dJBpKiwEmWjaRmd7O7Shz9T6jXw+s7/qvgWI42swgzM9rRFSIJkve64vm1jtaEKy/w+Zwl52O+aIS
-	tdrJzyOf/pYuYxfaql0w==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=erRPpCwv0zrGxM2LnT16YuV44X2ypJ/NozmhWetNO/8=; b=mxnH1koRPOSDnvrhMnQo/3X0te
+	Ibzo+PoLDkUXDhazuO/g2mzdcTkeDtF3XIsbN483EGO7gAGl95563X5w6dcT0XKOEu/JQ7AhDTH7z
+	ycrydf5Q9dW3wIsHS00JY2URS1kBaY+6+jlfsCbUZHrjrJDURbrFRkCMNbif4YqC2msR9GYHmXu6f
+	VRna+OjaXfsew4DQt2Ia6EVmOxvaOqnAyLyMu1D0QNDvp2PyQLfildmkD459PwwrrLpNL2NQzzGAE
+	flyCdJg+ey0/aedkX3yX4eAv2KdAmIKe6Uh1+24361bom1YABEg1/+27nzWtplHxD+wkj+VFDb0/N
+	WSFPBuXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut3gr-0000000CUpf-17yl;
+	id 1ut3gr-0000000CUqB-3UfV;
 	Mon, 01 Sep 2025 12:31:17 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut1kh-0000000BuER-1S7l
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ut1kl-0000000BuFd-1hYp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 10:27:08 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3d1bf79d6eeso1227635f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 03:27:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756722425; x=1757327225; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=U3wMAXUg6TcQMtXg5Lgxugiws7d3wfWBJLDrvyAva+k=;
-        b=sn8HBA3SPhHrSzWSd0tpe758Va1kGKHFIItskyHU4TxpGx3Uo4EVyu0ABODmPhQRCz
-         8G00VClDrJ5S96VjBXUOlxnJw2JtpGa9OdeOupR9fn8ivgVrCPYR+y5CgI1jzxjLDVyB
-         NsSsQx1bm2s72UibbQFnjFq+QGO/sQ4k902pmp0Dfjz8HkLV2d7tSVhz5hOOSBNOVn7z
-         f8eAh7NOsOU3DibBGVfENrtWLU8dql7dQjWgXON5IoncTvrV6Z4Z8ZbsJUu47sxmbnnb
-         cIR0qUKddUfJ0XajJdTuN1RVKLAmHuATLzH8qknGIijKvRC6JFZGKbmR4abS/r+4xbHv
-         MrIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756722425; x=1757327225;
-        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=U3wMAXUg6TcQMtXg5Lgxugiws7d3wfWBJLDrvyAva+k=;
-        b=t5Lbvevrh/FcYZecz8yAOm8+Nj3d7e27gZi/mwgrKrt4bxBYI65bV/+I1z2VNKd/CX
-         vpC+synaK/wuFnzWN+4RaHJMGbOMp5deCB13w+sPGDVDmvsboaSHfcx4J7lisDtYu3tv
-         +ynMLgxlXzc465DeKt/iCcIUEfiM+PasfKQkI4LTsh9qOw6ozB14Bn/pHe/fwuEeDE9q
-         W7nV+ihjj05HRD2GdY2o22NbMIla9BtalCaeE9/0BktB+0T0VQGcThfUuRiXSXblfleS
-         ytb8iL9+jgOvdTIk9MWl71X3W9YcqpwiUNgWdkOqNd4VrLkK5dt1RuMGbWBaayJKHZpf
-         0syw==
-X-Forwarded-Encrypted: i=1; AJvYcCX6cpQCDJ4Vp/Du5VWp7tG4Sjma/MKKlX/N6AoFadxOXavQZx9i/Q59Jx6AirDDIjxdHM33JJPdgas2LG1wgWu+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4xShv6gIA1y935MxD5fdmYWS5aGOnGxrsiE/TdEAB2YMLMhXZ
-	xCroAANCYjBVH7tRDfFY2fETNZafjrpwrNAZpaGZx4uFY6URUARvPR660QoCOFDgNFc=
-X-Gm-Gg: ASbGncvVI/MXgRjtXEMmwoc+aeOMdLbph4YtvEs3R8gCxzrPosy+UJ/74Bsaj6Z9xjc
-	XVorPZ5XoKzw6HB706FjTn1o0vqqlFE1vRzaj4CLNlZTBB7nFTh3ASt2S8Aq0eJkv9gJsb4nUQI
-	cC1gsXIW8nlMC8TLbdTsSz+nLx7bWMKCWS+WRayQNHCGzFssfbWGSY300QWY5m4+2VqaOhMjQkq
-	6pcl19W1cx3bEzzAY4/zGL7mw0VXhdFBRJUTg28uxjJSOMct9wXHX0HJUf6ScaBz5al+vAqs8ze
-	yaz6uSXIAQu/A09ntPMIiYplfH1wkbFC6dZQhT6gMOdifISeWPGLMeHyIER7LWt8WK7wm+QDS3T
-	mgUhZc5Wxukbmh+wUJCj7grgBsrcjjGMv3Y6how==
-X-Google-Smtp-Source: AGHT+IE2RqWOouUNKF0LuMwYDv8VNEg+V4AVmzf6zsck7npghoz21h/jWKBn3nN0q+raGVTCFFwHxQ==
-X-Received: by 2002:a05:6000:2510:b0:3d7:7def:8435 with SMTP id ffacd0b85a97d-3d77def8d9dmr1055874f8f.18.1756722425227;
-        Mon, 01 Sep 2025 03:27:05 -0700 (PDT)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3cf34493b8csm14441165f8f.59.2025.09.01.03.27.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Sep 2025 03:27:04 -0700 (PDT)
-Date: Mon, 1 Sep 2025 13:27:01 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: oe-kbuild@lists.linux.dev, Jisheng Zhang <jszhang@kernel.org>,
-	Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>
-Cc: lkp@intel.com, oe-kbuild-all@lists.linux.dev, dmaengine@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 10/14] dmaengine: dma350: Alloc command[] from dma pool
-Message-ID: <202508291556.kjNumYgR-lkp@intel.com>
+	Mon, 01 Sep 2025 10:27:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6961F16A3;
+	Mon,  1 Sep 2025 03:27:01 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3B6EC3F6A8;
+	Mon,  1 Sep 2025 03:27:09 -0700 (PDT)
+Date: Mon, 1 Sep 2025 11:27:07 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v7 09/12] perf: arm_spe: Add support for filtering on
+ data source
+Message-ID: <20250901102707.GL745921@e132581.arm.com>
+References: <20250814-james-perf-feat_spe_eft-v7-0-6a743f7fa259@linaro.org>
+ <20250814-james-perf-feat_spe_eft-v7-9-6a743f7fa259@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250823154009.25992-11-jszhang@kernel.org>
+In-Reply-To: <20250814-james-perf-feat_spe_eft-v7-9-6a743f7fa259@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_032707_395860_B4F172E8 
-X-CRM114-Status: GOOD (  11.25  )
+X-CRM114-CacheID: sfid-20250901_032711_481177_78246C8A 
+X-CRM114-Status: GOOD (  16.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,74 +80,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jisheng,
+On Thu, Aug 14, 2025 at 10:25:31AM +0100, James Clark wrote:
+> SPE_FEAT_FDS adds the ability to filter on the data source of packets.
+> Like the other existing filters, enable filtering with PMSFCR_EL1.FDS
+> when any of the filter bits are set.
+> 
+> Each bit maps to data sources 0-63 described by bits[0:5] in the data
+> source packet (although the full range of data source is 16 bits so
+> higher value data sources can't be filtered on). The filter is an OR of
+> all the bits, so for example clearing bits 0 and 3 only includes packets
+> from data sources 0 OR 3.
+> 
+> Invert the filter given by userspace so that the default value of 0 is
+> equivalent to including all values (no filtering). This allows us to
+> skip adding a new format bit to enable filtering and still support
+> excluding all data sources which would have been a filter value of 0 if
+> not for the inversion.
+> 
+> Tested-by: Leo Yan <leo.yan@arm.com>
+> Signed-off-by: James Clark <james.clark@linaro.org>
 
-kernel test robot noticed the following build warnings:
-
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Jisheng-Zhang/dmaengine-dma350-Fix-CH_CTRL_USESRCTRIGIN-definition/20250824-000425
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/vkoul/dmaengine.git next
-patch link:    https://lore.kernel.org/r/20250823154009.25992-11-jszhang%40kernel.org
-patch subject: [PATCH 10/14] dmaengine: dma350: Alloc command[] from dma pool
-config: arm-randconfig-r073-20250829 (https://download.01.org/0day-ci/archive/20250829/202508291556.kjNumYgR-lkp@intel.com/config)
-compiler: arm-linux-gnueabi-gcc (GCC) 13.4.0
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-| Closes: https://lore.kernel.org/r/202508291556.kjNumYgR-lkp@intel.com/
-
-smatch warnings:
-drivers/dma/arm-dma350.c:387 d350_get_residue() error: uninitialized symbol 'sgcur'.
-
-vim +/sgcur +387 drivers/dma/arm-dma350.c
-
-5d099706449d54 Robin Murphy  2025-03-12  360  static u32 d350_get_residue(struct d350_chan *dch)
-5d099706449d54 Robin Murphy  2025-03-12  361  {
-eae79fde2ff50c Jisheng Zhang 2025-08-23  362  	u32 res, xsize, xsizehi, linkaddr, linkaddrhi, hi_new;
-eae79fde2ff50c Jisheng Zhang 2025-08-23  363  	int i, sgcur, retries = 3; /* 1st time unlucky, 2nd improbable, 3rd just broken */
-eae79fde2ff50c Jisheng Zhang 2025-08-23  364  	struct d350_desc *desc = dch->desc;
-5d099706449d54 Robin Murphy  2025-03-12  365  
-5d099706449d54 Robin Murphy  2025-03-12  366  	hi_new = readl_relaxed(dch->base + CH_XSIZEHI);
-5d099706449d54 Robin Murphy  2025-03-12  367  	do {
-5d099706449d54 Robin Murphy  2025-03-12  368  		xsizehi = hi_new;
-5d099706449d54 Robin Murphy  2025-03-12  369  		xsize = readl_relaxed(dch->base + CH_XSIZE);
-5d099706449d54 Robin Murphy  2025-03-12  370  		hi_new = readl_relaxed(dch->base + CH_XSIZEHI);
-5d099706449d54 Robin Murphy  2025-03-12  371  	} while (xsizehi != hi_new && --retries);
-5d099706449d54 Robin Murphy  2025-03-12  372  
-eae79fde2ff50c Jisheng Zhang 2025-08-23  373  	hi_new = readl_relaxed(dch->base + CH_LINKADDRHI);
-eae79fde2ff50c Jisheng Zhang 2025-08-23  374  	do {
-eae79fde2ff50c Jisheng Zhang 2025-08-23  375  		linkaddrhi = hi_new;
-eae79fde2ff50c Jisheng Zhang 2025-08-23  376  		linkaddr = readl_relaxed(dch->base + CH_LINKADDR);
-eae79fde2ff50c Jisheng Zhang 2025-08-23  377  		hi_new = readl_relaxed(dch->base + CH_LINKADDRHI);
-eae79fde2ff50c Jisheng Zhang 2025-08-23  378  	} while (linkaddrhi != hi_new && --retries);
-eae79fde2ff50c Jisheng Zhang 2025-08-23  379  
-eae79fde2ff50c Jisheng Zhang 2025-08-23  380  	for (i = 0; i < desc->sglen; i++) {
-eae79fde2ff50c Jisheng Zhang 2025-08-23  381  		if (desc->sg[i].phys == (((u64)linkaddrhi << 32) | (linkaddr & ~CH_LINKADDR_EN)))
-eae79fde2ff50c Jisheng Zhang 2025-08-23  382  			sgcur = i;
-
-I'm suprised there isn't a break statement after this assignment.
-What if we exit the loop with i == desc->sglen?
-
-eae79fde2ff50c Jisheng Zhang 2025-08-23  383  	}
-eae79fde2ff50c Jisheng Zhang 2025-08-23  384  
-5d099706449d54 Robin Murphy  2025-03-12  385  	res = FIELD_GET(CH_XY_DES, xsize);
-5d099706449d54 Robin Murphy  2025-03-12  386  	res |= FIELD_GET(CH_XY_DES, xsizehi) << 16;
-eae79fde2ff50c Jisheng Zhang 2025-08-23 @387  	res <<= desc->sg[sgcur].tsz;
-                                                                 ^^^^^
-Uninitialized.
-
-eae79fde2ff50c Jisheng Zhang 2025-08-23  388  
-eae79fde2ff50c Jisheng Zhang 2025-08-23  389  	for (i = sgcur + 1; i < desc->sglen; i++)
-eae79fde2ff50c Jisheng Zhang 2025-08-23  390  		res += (((u32)desc->sg[i].xsizehi << 16 | desc->sg[i].xsize) << desc->sg[i].tsz);
-5d099706449d54 Robin Murphy  2025-03-12  391  
-eae79fde2ff50c Jisheng Zhang 2025-08-23  392  	return res;
-5d099706449d54 Robin Murphy  2025-03-12  393  }
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
+Reviewed-by: Leo Yan <leo.yan@arm.com>
 
