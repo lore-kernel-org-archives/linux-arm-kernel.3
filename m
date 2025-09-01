@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DEB5CA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 03:57:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73DE6CA0FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 03:59:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J86dgRDCawW4Av86GBI/sQUyfYwts+GndGO5SiFw3A0=; b=T0Ow3hrXqcml76bhfyKW/RpaMa
-	oMW73jxrBfRx6dQvGz+xoRfJA0ZSHWcLSgdSuzda0rGicmR0yDGHMFCUZpDllUG0lRCzPfUw3tcXM
-	ACKGF/rPDafQB0DSaMxr8rERjf8EaNgVlgK4PcVPgu6NvSydGBayA4eZVLnb0F8/XZXvBmRqX5wME
-	i8KrVLbl3ZpczLYW/0fHNzphpL4wrtJvK8qLlUDe4nSZsvHw4MDvouQbEhoYVupLjKeJmRLNuk4mV
-	kBAysV/Ncd26flhwLZZ7EKb72HN6nUN0/Xr4dnWxL59L+oJHpo62YbPsgjD4ewZV10ZzyyG2HZZSN
-	zGNC168w==;
+	bh=dQWQ+5UCc02D5GihAMopVNC1XBQ9vJVFE0GjW21PQ/A=; b=ss3/x608WWNqVSTJfPiQ0ZEVSG
+	rI53SiQoVpT/m5S5JSqqZlonuxPS4HmLaiv+09LmQzaILSnWWppotJ8BxDsoJR/T8Cmom8TD6le7z
+	l0IDRWBsomar2d7JWQHZ1j8uJRi7qmic+mLXsuqDH+Zv3YSfXG3OpF1KKbZsUpZNKN55h+3/K9TJG
+	r49g/yCZQBbOl0SIpenyqZq72UqNrBI4XSgFXKB1BoiyS9EBneSxJJxU+9DwL3Bf5Q/8rGlQOWVBc
+	VKFspVXNRHn5utwYKylYUUe3SyVuLlY0DSfHHgrI29NyHlufjAtsyxiCjLnTlpwef34S8pRPWHnyB
+	1vOeXg1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usvfD-0000000B5rq-1MWr;
-	Mon, 01 Sep 2025 03:57:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1usvht-0000000B6FV-0MBg;
+	Mon, 01 Sep 2025 03:59:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usvHz-0000000B2bc-1QkB
+	id 1usvIz-0000000B2g8-3LU0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 03:33:03 +0000
+	Mon, 01 Sep 2025 03:34:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A6C68601B5;
-	Mon,  1 Sep 2025 03:33:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E533AC4CEF0;
-	Mon,  1 Sep 2025 03:32:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3B181434AE;
+	Mon,  1 Sep 2025 03:34:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A9BEC4CEF0;
+	Mon,  1 Sep 2025 03:34:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756697582;
-	bh=xR/jjE25Ao+BdAatMaMjOo9qLuJFyaz/aryuYb/IMnQ=;
+	s=k20201202; t=1756697645;
+	bh=3IMxmQrY05RHnLpjanoo61eVTxFix1to4caUCV0hfOY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=r61O3p9ioLFTblgtvQj+JtahXqW2VoRyQceVr9j4LlT2on90SjuG3rhgtwWF4v3FI
-	 Qn5cSr8fJ8pjyW7RO8zr/dsS6ikNs+AP+C6VBfcTHLKl9q/me01secKQP1GtDLsXOf
-	 Km5+66AwT7UE/mW2x8L6X2L9IY6d1v74rOPmjv6SNsH0Ko8p8WD6AI7RzUZcM0vsWT
-	 4EtKp/vxi1HoAewgZW7F8uIOnNxPEZAubhZ7bLQGVqq2AK3TtX3NZ3J65Scf4gHcaC
-	 PbnDMy/cew0t6uc6L/AcZey05/K7J42ZbjfZsSgBjYxugB+NTk9wfksw0TGXoOW+WY
-	 rF6RJvVEKDJiQ==
-Message-ID: <d802bcea-d81f-49eb-96ce-5d89dddca7c3@kernel.org>
-Date: Mon, 1 Sep 2025 05:32:55 +0200
+	b=GlCPiZZP7edJWIneHpeMhTT3Sd+vngEEMLNO8Py0P39Wn/HMRKt7AbbTDm8hmlEOT
+	 JttDPwtEQ1c+8nzra99vy/KFo0SgaMJnge0pshJcDmSRJZ7HDEnW100FH3ZQWj3Cg4
+	 FqSRGanicMqsty6hBFGlX6UN+AWuQuuPbH6EZUgiMb9/A9k7O3m7FVFncnJ5xwkyfL
+	 rDJ4U6sJjCmQeYyDuTuLGJD3m2CpWYg3ssVX761x0EeOucM0Z6pqYafrS4Rcp7LD2+
+	 IQj5iWzXDymbRzv6/Bct7t6sAotOZH/on2R63gYLradTs562AllsZ+AFqQH0n5nKK4
+	 mAeUpyAxTUJng==
+Message-ID: <05f7d69a-9c05-4b47-ab04-594c37e975eb@kernel.org>
+Date: Mon, 1 Sep 2025 05:33:58 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v1] dts: arm64: freescale: move imx9*-clock.h
  imx9*-power.h into dt-bindings
-To: E Shattow <e@freeshell.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+To: Marek Vasut <marek.vasut@mailbox.org>, Peng Fan <peng.fan@oss.nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
  Sascha Hauer <s.hauer@pengutronix.de>,
  Pengutronix Kernel Team <kernel@pengutronix.de>,
  Fabio Estevam <festevam@gmail.com>, Abel Vesa <abelvesa@kernel.org>,
  Peng Fan <peng.fan@nxp.com>, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-clk@vger.kernel.org
+ Stephen Boyd <sboyd@kernel.org>,
+ Marek Vasut <marek.vasut+renesas@mailbox.org>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+ E Shattow <e@freeshell.de>
 References: <20250831200516.522179-1-e@freeshell.de>
+ <20250901032203.GA393@nxa18884-linux.ap.freescale.net>
+ <3a165d77-3e36-4c0d-a193-aa9b27e0d523@mailbox.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,9 +108,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250831200516.522179-1-e@freeshell.de>
+In-Reply-To: <3a165d77-3e36-4c0d-a193-aa9b27e0d523@mailbox.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250831_203405_884706_59A82CA4 
+X-CRM114-Status: UNSURE (   9.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,18 +129,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/08/2025 22:04, E Shattow wrote:
-> Move imx9*-{clock,power}.h headers into
-> include/dt-bindings/{clock,power}/ and fix up the DTs
+On 01/09/2025 04:22, Marek Vasut wrote:
+> On 9/1/25 5:22 AM, Peng Fan wrote:
+>> On Sun, Aug 31, 2025 at 01:04:45PM -0700, E Shattow wrote:
+>>> Move imx9*-{clock,power}.h headers into
+>>> include/dt-bindings/{clock,power}/ and fix up the DTs
+>>
+>> No. The files should be under arch/arm64/boot/dts/freescale/
+> Why ? Linux already has include/dt-bindings/clock/ and 
+> include/dt-bindings/power directories for exactly those headers , why 
+> did iMX9 suddenly start conflating them into arch/arm64/boot/dts/freescale ?
 
-Huh? Why?
 
-> 
-> Reported-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-
-What sort of bug are you fixing? Nothing in commit msg explains that at all.
-
-> Signed-off-by: E Shattow <e@freeshell.de>
+Because maybe these are not bindings? Regardless whether you agree or
+not, the commit should clearly explain the reason behind.
 
 
 Best regards,
