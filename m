@@ -4,74 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 965B7CA1006
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 13:49:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81F00CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 13:49:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ov6wMdPGQTpOTkZ9Y+cqy7C8d/zeGdI1DxhgjNtbkUY=; b=nFms3B16rNfiK6creR63MnhUuV
-	u7eotoIhh/tlFZ0/hDl93bc6yMw+Dn4+69myzxaPjt4W/8Cw73PDwT0aB6U1AMKf7HIls4FsnqaLh
-	duetydrZQPJijGChJXte9k0glcsYGNpa2FDA+AYsgRUuEdY6sZN3HojKs6Fs5r2tV83S2apCNCY6O
-	QwFaNpdSOqyjuJgR+3/TCu3EgvBge4uE5N2MPEILqjwTXn9iczFYNRAt2lgk2o5ELhjjPuSz9ms5l
-	NporIA7pvLr+72dzim6NoGP0EDhZtrIFgz9/uTkBMNL2ZWd/j5Z7la5lbQj3t2ySFrPEhzBnRl4z+
-	pST43hFA==;
+	bh=+iZ8MmCCQxNn7JJJ2JVsdMX74JFKS2INmkF2wJx8RyE=; b=bb+gb69CjbZlar8nXYZGmxasns
+	v3mw4ix2bXy1eFTHARrCFqMaB9Bj7bCEhyF2Zuy3Je7UqqTvM5tldnGKzfgjQYXFP4xp9xCKXKY3b
+	TnaN5b05dO5IS3PmmWUlMo1PbZJE0u6WfmxV8cIR0Ncxc90yfHeLi4OeawGenoiBGhr0uqiNTcIeg
+	i9LocJjKjymy4Ry7h6oZaFntqxwyr0oCwfixnWPKQSJAQehAWtMOYl9c5AozjiNTuM0t01IGExx3k
+	6VhTevfTHfC18t2RcwfEsH1HLc353uuXFkhYhNaH7AqSIvQb+sH65ryfUslChPlE7+QAUNe/cvZLY
+	HwelR7JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut4uR-0000000Ck8x-1w0P;
-	Mon, 01 Sep 2025 13:49:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut2bB-0000000C2Ym-3H1x
+	id 1ut4uQ-0000000Ck8c-3KQd;
+	Mon, 01 Sep 2025 13:49:22 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ut2a1-0000000C2Oz-1eXo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 11:21:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5D8F01A00;
-	Mon,  1 Sep 2025 04:21:12 -0700 (PDT)
-Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2198E3F6A8;
-	Mon,  1 Sep 2025 04:21:14 -0700 (PDT)
-Date: Mon, 1 Sep 2025 12:21:12 +0100
-From: Dave Martin <Dave.Martin@arm.com>
-To: James Morse <james.morse@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
-	D Scott Phillips OS <scott@os.amperecomputing.com>,
-	carl@os.amperecomputing.com, lcherian@marvell.com,
-	bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
-	baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
-	Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
-	dfustini@baylibre.com, amitsinght@marvell.com,
-	David Hildenbrand <david@redhat.com>,
-	Rex Nie <rex.nie@jaguarmicro.com>, Koba Ko <kobak@nvidia.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
-	baisheng.gao@unisoc.com,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
-	Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>
-Subject: Re: [PATCH 10/33] arm_mpam: Add probe/remove for mpam msc driver and
- kbuild boiler plate
-Message-ID: <aLWBqNMKoTl9VDIS@e133380.arm.com>
-References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-11-james.morse@arm.com>
+	Mon, 01 Sep 2025 11:20:10 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 581BK4oI2795916;
+	Mon, 1 Sep 2025 06:20:04 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1756725604;
+	bh=+iZ8MmCCQxNn7JJJ2JVsdMX74JFKS2INmkF2wJx8RyE=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=toRBMDb5ogTWkr0FtS/Qulh3bMM4iUThgURHskyzcHgbNbNmBG6RlusJE2mMM5GsD
+	 DId21QBzXITHvMFsgGycEWdWTP28zeOxEUZiYvajT1MOtyQF5OmtLDzsIQyXF7Y6fN
+	 9lwJjBdDoH/cBfhnUw2CM++wbe4ckppigFxYGWTQ=
+Received: from DFLE111.ent.ti.com (dfle111.ent.ti.com [10.64.6.32])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 581BK4IS2688665
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 1 Sep 2025 06:20:04 -0500
+Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 1
+ Sep 2025 06:20:03 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Mon, 1 Sep 2025 06:20:03 -0500
+Received: from localhost (uda0492258.dhcp.ti.com [172.24.231.84])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 581BK2oL2408054;
+	Mon, 1 Sep 2025 06:20:03 -0500
+Date: Mon, 1 Sep 2025 16:50:02 +0530
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Manivannan Sadhasivam <mani@kernel.org>
+CC: Siddharth Vadapalli <s-vadapalli@ti.com>, <lpieralisi@kernel.org>,
+        <kwilczynski@kernel.org>, <robh@kernel.org>, <bhelgaas@google.com>,
+        <helgaas@kernel.org>, <kishon@kernel.org>, <vigneshr@ti.com>,
+        <stable@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+        <linux-omap@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>
+Subject: Re: [PATCH v3] PCI: j721e: Fix programming sequence of "strap"
+ settings
+Message-ID: <9d2bba15-52e4-432a-8f7f-a0f5d7c2e4ad@ti.com>
+References: <20250829091707.2990211-1-s-vadapalli@ti.com>
+ <oztilfun77apxtjxumx4tydkcd2gsalsak4m2rvsry2oooqjna@2yvcx6cnuemm>
+ <b2fb9252-6bfc-45da-973a-31cdfcc86b3d@ti.com>
+ <z3ubracmtlq23yicbrhqjgnzrfoqheffm6cvhfnawlvbu4cmmp@ddu2o7xhw5tz>
+ <48e9d897-2cd3-48ef-b46a-635ae75f5ac6@ti.com>
+ <3wc3t6y5gzzspgfeklsqo3bupfp6gsfy6mls6t66hflcqlqsfk@cu26wv3sow4y>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20250822153048.2287-11-james.morse@arm.com>
+In-Reply-To: <3wc3t6y5gzzspgfeklsqo3bupfp6gsfy6mls6t66hflcqlqsfk@cu26wv3sow4y>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_042121_907320_691FEE7E 
-X-CRM114-Status: GOOD (  53.55  )
+X-CRM114-CacheID: sfid-20250901_042009_533423_CF96C1BE 
+X-CRM114-Status: GOOD (  38.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,525 +92,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
-
-On Fri, Aug 22, 2025 at 03:29:51PM +0000, James Morse wrote:
-> Probing MPAM is convoluted. MSCs that are integrated with a CPU may
-> only be accessible from those CPUs, and they may not be online.
-> Touching the hardware early is pointless as MPAM can't be used until
-> the system-wide common values for num_partid and num_pmg have been
-> discovered.
+On Mon, Sep 01, 2025 at 12:14:51PM +0530, Manivannan Sadhasivam wrote:
+> On Mon, Sep 01, 2025 at 11:51:33AM GMT, Siddharth Vadapalli wrote:
+> > On Mon, Sep 01, 2025 at 11:18:23AM +0530, Manivannan Sadhasivam wrote:
+> > > On Mon, Sep 01, 2025 at 10:27:51AM GMT, Siddharth Vadapalli wrote:
+> > > > On Sun, Aug 31, 2025 at 06:15:13PM +0530, Manivannan Sadhasivam wrote:
+> > > > 
+> > > > Hello Mani,
+> > > > 
+> > > > > On Fri, Aug 29, 2025 at 02:46:28PM GMT, Siddharth Vadapalli wrote:
+> > 
+> > [...]
+> > 
+> > > > > > +	/*
+> > > > > > +	 * The PCIe Controller's registers have different "reset-values"
+> > > > > > +	 * depending on the "strap" settings programmed into the PCIEn_CTRL
+> > > > > > +	 * register within the CTRL_MMR memory-mapped register space.
+> > > > > > +	 * The registers latch onto a "reset-value" based on the "strap"
+> > > > > > +	 * settings sampled after the PCIe Controller is powered on.
+> > > > > > +	 * To ensure that the "reset-values" are sampled accurately, power
+> > > > > > +	 * off the PCIe Controller before programming the "strap" settings
+> > > > > > +	 * and power it on after that.
+> > > > > > +	 */
+> > > > > > +	ret = pm_runtime_put_sync(dev);
+> > > > > > +	if (ret < 0) {
+> > > > > > +		dev_err(dev, "Failed to power off PCIe Controller\n");
+> > > > > > +		return ret;
+> > > > > > +	}
+> > > > > 
+> > > > > How does the controller gets powered off after pm_runtime_put_sync() since you
+> > > > > do not have runtime PM callbacks? I believe the parent is turning off the power
+> > > > > domain?
+> > > > 
+> > > > By invoking 'pm_runtime_put_sync(dev)', the ref-count is being
+> > > > decremented and it results in the device being powered off. I have
+> > > > verified it by printing the power domain index within the functions for
+> > > > powering off and powering on devices on the J7200 SoC. Logs:
+> > > > 
+> > > > 	root@j7200-evm:~# modprobe pci_j721e
+> > > > 	[   25.231675] [Powering On]: 240
+> > > > 	[   25.234848] j721e-pcie 2910000.pcie: host bridge /bus@100000/pcie@2910000 ranges:
+> > > > 	[   25.242378] j721e-pcie 2910000.pcie:       IO 0x4100001000..0x4100100fff -> 0x0000001000
+> > > > 	[   25.250496] j721e-pcie 2910000.pcie:      MEM 0x4100101000..0x41ffffffff -> 0x0000101000
+> > > > 	[   25.258588] j721e-pcie 2910000.pcie:   IB MEM 0x0000000000..0xffffffffffff -> 0x0000000000
+> > > > 	[   25.267098] [Powering Off]: 240
+> > > > 	[   25.270318] [Powering On]: 240
+> > > > 	[   25.273511] [Powering On]: 187
+> > > > 	[   26.372361] j721e-pcie 2910000.pcie: PCI host bridge to bus 0000:00
+> > > > 	[   26.378666] pci_bus 0000:00: root bus resource [bus 00-ff]
+> > > > 	[   26.384156] pci_bus 0000:00: root bus resource [io  0x0000-0xfffff] (bus address [0x1000-0x100fff])
+> > > > 	[   26.393197] pci_bus 0000:00: root bus resource [mem 0x4100101000-0x41ffffffff] (bus address [0x00101000-0xffffffff])
+> > > > 	[   26.403728] pci 0000:00:00.0: [104c:b00f] type 01 class 0x060400 PCIe Root Port
+> > > > 	[   26.411044] pci 0000:00:00.0: PCI bridge to [bus 00]
+> > > > 	[   26.416009] pci 0000:00:00.0:   bridge window [io  0x0000-0x0fff]
+> > > > 	[   26.422091] pci 0000:00:00.0:   bridge window [mem 0x00000000-0x000fffff]
+> > > > 	[   26.428874] pci 0000:00:00.0:   bridge window [mem 0x00000000-0x000fffff 64bit pref]
+> > > > 	[   26.436676] pci 0000:00:00.0: supports D1
+> > > > 	[   26.440699] pci 0000:00:00.0: PME# supported from D0 D1 D3hot
+> > > > 	[   26.448064] pci 0000:00:00.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+> > > > 	[   26.456274] pci_bus 0000:01: busn_res: [bus 01-ff] end is updated to 01
+> > > > 	[   26.462923] pci 0000:00:00.0: PCI bridge to [bus 01]
+> > > > 	[   26.467933] pci_bus 0000:00: resource 4 [io  0x0000-0xfffff]
+> > > > 	[   26.473595] pci_bus 0000:00: resource 5 [mem 0x4100101000-0x41ffffffff]
+> > > > 	[   26.480337] pcieport 0000:00:00.0: of_irq_parse_pci: failed with rc=-22
+> > > > 	[   26.487479] pcieport 0000:00:00.0: PME: Signaling with IRQ 701
+> > > > 	[   26.493909] pcieport 0000:00:00.0: AER: enabled with IRQ 701
+> > > > 
+> > > > In the above logs, '240' is the Power Domain Index for the PCIe
+> > > > Controller on J7200 SoC. It is powered on initially before the driver is
+> > > > probed.
+> > > 
+> > > In that case, the driver should not call pm_runtime_get_sync() in its probe.
+> > > What it should do is:
+> > > 
+> > > 	pm_runtime_set_active()
+> > > 	pm_runtime_enable()
+> > 
+> > If I understand correctly, are you suggesting the following?
+> > 
+> > j721e_pcie_probe()
+> > 	pm_runtime_set_active()
+> > 	pm_runtime_enable()
+> > 	ret = j721e_pcie_ctrl_init(pcie);
+> > 		/*
+> > 		 * PCIe Controller should be powered off here, but is there
+> > 		 * a way to ensure that it has been powered off?
+> > 		 */
+> > 		=> Program the strap settings and return to
+> > 		j721e_pcie_probe()
+> > 	/* Power on the PCIe Controller now */
+> > 	ret = pm_runtime_get_sync(dev);
 > 
-> Start with driver probe/remove and mapping the MSC.
+> This pm_runtime_get_sync() should be part of j721e_pcie_ctrl_init() where you
+> do power off, program strap and power on.
 > 
-> CC: Carl Worth <carl@os.amperecomputing.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> ---
-> Changes since RFC:
->  * Check for status=broken DT devices.
->  * Moved all the files around.
->  * Made Kconfig symbols depend on EXPERT
-> ---
-
-[...]
-
-> diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
-> new file mode 100644
-> index 000000000000..dff7b87280ab
-> --- /dev/null
-> +++ b/drivers/resctrl/Kconfig
-> @@ -0,0 +1,11 @@
-> +# Confusingly, this is everything but the CPU bits of MPAM. CPU here means
-> +# CPU resources, not containers or cgroups etc.
-
-Drop confusing comment?
-
-CPUs are not mentioned other than in the comment -- I think the
-descriptions are sufficiently self-explanatory that they don't read
-onto CPUs.
-
-> +config ARM64_MPAM_DRIVER
-> +	bool "MPAM driver for System IP, e,g. caches and memory controllers"
-> +	depends on ARM64_MPAM && EXPERT
-> +
-> +config ARM64_MPAM_DRIVER_DEBUG
-> +	bool "Enable debug messages from the MPAM driver."
-
-Nit: spurious full stop.
-
-(i.e., people don't add one in these one-line descriptions.
-They are title-like and self-delimiting, even when the text is a valid
-sentence.)
-
-> +	depends on ARM64_MPAM_DRIVER
-> +	help
-> +	  Say yes here to enable debug messages from the MPAM driver.
-> diff --git a/drivers/resctrl/Makefile b/drivers/resctrl/Makefile
-> new file mode 100644
-> index 000000000000..92b48fa20108
-> --- /dev/null
-> +++ b/drivers/resctrl/Makefile
-> @@ -0,0 +1,4 @@
-> +obj-$(CONFIG_ARM64_MPAM_DRIVER)			+= mpam.o
-> +mpam-y						+= mpam_devices.o
-> +
-> +cflags-$(CONFIG_ARM64_MPAM_DRIVER_DEBUG)	+= -DDEBUG
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> new file mode 100644
-> index 000000000000..a0d9a699a6e7
-> --- /dev/null
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -0,0 +1,336 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +// Copyright (C) 2025 Arm Ltd.
-> +
-> +#define pr_fmt(fmt) "%s:%s: " fmt, KBUILD_MODNAME, __func__
-> +
-> +#include <linux/acpi.h>
-> +#include <linux/arm_mpam.h>
-> +#include <linux/cacheinfo.h>
-> +#include <linux/cpu.h>
-> +#include <linux/cpumask.h>
-> +#include <linux/device.h>
-> +#include <linux/errno.h>
-> +#include <linux/gfp.h>
-> +#include <linux/list.h>
-> +#include <linux/lockdep.h>
-> +#include <linux/mutex.h>
-> +#include <linux/of.h>
-> +#include <linux/of_platform.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/printk.h>
-> +#include <linux/slab.h>
-> +#include <linux/spinlock.h>
-> +#include <linux/srcu.h>
-> +#include <linux/types.h>
-> +
-> +#include <acpi/pcc.h>
-> +
-> +#include "mpam_internal.h"
-> +
-> +/*
-> + * mpam_list_lock protects the SRCU lists when writing. Once the
-> + * mpam_enabled key is enabled these lists are read-only,
-> + * unless the error interrupt disables the driver.
-> + */
-> +static DEFINE_MUTEX(mpam_list_lock);
-> +static LIST_HEAD(mpam_all_msc);
-> +
-> +static struct srcu_struct mpam_srcu;
-> +
-> +/* MPAM isn't available until all the MSC have been probed. */
-
-Comment doesn't really explain the variable.
-
-Maybe something like "Number of MSCs that need to be probed for MPAM
-to be usable" ?
-
-> +static u32 mpam_num_msc;
-
-Any particular reason this is u32 and not unsigned int?
-
-How are accesses to this protected against data races?
-
-If there are supposed to be locks to protect globals in the MPAM driver,
-is it worth wrapping them in access functions with a lockdep assert?
-Otherwise, it feels rather easy to get this wrong -- I think I've found
-at least one bug (see mpam_msc_drv_probe().)
-
-> +
-> +static void mpam_discovery_complete(void)
-> +{
-> +	pr_err("Discovered all MSC\n");
-> +}
-
-As others have commented, if this is non-functional code that gets
-removed later on, it's probably best to drop this up-front?
-
-
-[...]
-
-> +static int mpam_dt_parse_resource(struct mpam_msc *msc, struct device_node *np,
-> +				  u32 ris_idx)
-> +{
-> +	int err = 0;
-> +	u32 level = 0;
-> +	unsigned long cache_id;
-> +	struct device_node *cache;
-> +
-> +	do {
-> +		if (of_device_is_compatible(np, "arm,mpam-cache")) {
-> +			cache = of_parse_phandle(np, "arm,mpam-device", 0);
-> +			if (!cache) {
-> +				pr_err("Failed to read phandle\n");
-> +				break;
-> +			}
-> +		} else if (of_device_is_compatible(np->parent, "cache")) {
-> +			cache = of_node_get(np->parent);
-> +		} else {
-> +			/* For now, only caches are supported */
-> +			cache = NULL;
-> +			break;
-> +		}
-> +
-> +		err = of_property_read_u32(cache, "cache-level", &level);
-> +		if (err) {
-> +			pr_err("Failed to read cache-level\n");
-> +			break;
-> +		}
-> +
-> +		cache_id = cache_of_calculate_id(cache);
-> +		if (cache_id == ~0UL) {
-
-The type of cache_id may change if the return type of
-cache_of_calculate_id() changes (see comments on patch 1).
-
-Possible #define for the exceptional value.
-
-> +			err = -ENOENT;
-> +			break;
-
-The lack of a diagnostic here is inconsistent with the level of
-diagnostics in the rest of the loop.
-
-> +		}
-> +
-> +		err = mpam_ris_create(msc, ris_idx, MPAM_CLASS_CACHE, level,
-> +				      cache_id);
-> +	} while (0);
-
-Abuse of do ... while () here?
-
-There is no loop.  The breaks are stealth "goto"s to this statement:
-
-> +	of_node_put(cache);
-
-(It works either way, but maybe gotos to an explicit label would be
-more readable, as well as avoiding an unnecessary level of indentation.)
-
-> +
-> +	return err;
-> +}
-
-[...]
-
-> +/*
-> + * An MSC can control traffic from a set of CPUs, but may only be accessible
-> + * from a (hopefully wider) set of CPUs. The common reason for this is power
-> + * management. If all the CPUs in a cluster are in PSCI:CPU_SUSPEND, the
-> + * the corresponding cache may also be powered off. By making accesses from
-
-Nit: the the
-
-> + * one of those CPUs, we ensure this isn't the case.
-> + */
-> +static int update_msc_accessibility(struct mpam_msc *msc)
-> +{
-> +	struct device_node *parent;
-> +	u32 affinity_id;
-> +	int err;
-> +
-> +	if (!acpi_disabled) {
-> +		err = device_property_read_u32(&msc->pdev->dev, "cpu_affinity",
-> +					       &affinity_id);
-> +		if (err)
-> +			cpumask_copy(&msc->accessibility, cpu_possible_mask);
-> +		else
-> +			acpi_pptt_get_cpus_from_container(affinity_id,
-> +							  &msc->accessibility);
-> +
-> +		return 0;
-> +	}
-> +
-> +	/* This depends on the path to of_node */
-> +	parent = of_get_parent(msc->pdev->dev.of_node);
-> +	if (parent == of_root) {
-> +		cpumask_copy(&msc->accessibility, cpu_possible_mask);
-> +		err = 0;
-> +	} else {
-> +		err = -EINVAL;
-> +		pr_err("Cannot determine accessibility of MSC: %s\n",
-> +		       dev_name(&msc->pdev->dev));
-> +	}
-> +	of_node_put(parent);
-> +
-> +	return err;
-> +}
-> +
-> +static int fw_num_msc;
-
-Does this need to be protected against data races?
-
-If individual mpam_msc_drv_probe() calls may execute on different CPUs
-from mpam_msc_driver_init(), then seem to be potential races here.
-
-> +
-> +static void mpam_pcc_rx_callback(struct mbox_client *cl, void *msg)
-> +{
-> +	/* TODO: wake up tasks blocked on this MSC's PCC channel */
-
-So, is this broken in this commit?
-
-(If the series does not get broken up or applied piecemail, that's not
-such a concern, though.)
-
-> +}
-> +
-> +static void mpam_msc_drv_remove(struct platform_device *pdev)
-> +{
-
-The MPAM driver cannot currently be built as a module.
-
-Is it possible to exercise the driver remove paths, today?
-
-> +	struct mpam_msc *msc = platform_get_drvdata(pdev);
-> +
-> +	if (!msc)
-> +		return;
-> +
-> +	mutex_lock(&mpam_list_lock);
-> +	mpam_num_msc--;
-> +	platform_set_drvdata(pdev, NULL);
-> +	list_del_rcu(&msc->glbl_list);
-> +	synchronize_srcu(&mpam_srcu);
-> +	devm_kfree(&pdev->dev, msc);
-> +	mutex_unlock(&mpam_list_lock);
-> +}
-> +
-> +static int mpam_msc_drv_probe(struct platform_device *pdev)
-> +{
-> +	int err;
-> +	struct mpam_msc *msc;
-> +	struct resource *msc_res;
-> +	void *plat_data = pdev->dev.platform_data;
-> +
-> +	mutex_lock(&mpam_list_lock);
-> +	do {
-> +		msc = devm_kzalloc(&pdev->dev, sizeof(*msc), GFP_KERNEL);
-> +		if (!msc) {
-> +			err = -ENOMEM;
-> +			break;
-> +		}
-> +
-> +		mutex_init(&msc->probe_lock);
-> +		mutex_init(&msc->part_sel_lock);
-> +		mutex_init(&msc->outer_mon_sel_lock);
-> +		raw_spin_lock_init(&msc->inner_mon_sel_lock);
-> +		msc->id = mpam_num_msc++;
-> +		msc->pdev = pdev;
-> +		INIT_LIST_HEAD_RCU(&msc->glbl_list);
-> +		INIT_LIST_HEAD_RCU(&msc->ris);
-> +
-> +		err = update_msc_accessibility(msc);
-> +		if (err)
-> +			break;
-> +		if (cpumask_empty(&msc->accessibility)) {
-> +			pr_err_once("msc:%u is not accessible from any CPU!",
-> +				    msc->id);
-> +			err = -EINVAL;
-> +			break;
-> +		}
-> +
-> +		if (device_property_read_u32(&pdev->dev, "pcc-channel",
-> +					     &msc->pcc_subspace_id))
-> +			msc->iface = MPAM_IFACE_MMIO;
-> +		else
-> +			msc->iface = MPAM_IFACE_PCC;
-> +
-> +		if (msc->iface == MPAM_IFACE_MMIO) {
-> +			void __iomem *io;
-> +
-> +			io = devm_platform_get_and_ioremap_resource(pdev, 0,
-> +								    &msc_res);
-> +			if (IS_ERR(io)) {
-> +				pr_err("Failed to map MSC base address\n");
-> +				err = PTR_ERR(io);
-> +				break;
-> +			}
-> +			msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
-> +			msc->mapped_hwpage = io;
-> +		} else if (msc->iface == MPAM_IFACE_PCC) {
-> +			msc->pcc_cl.dev = &pdev->dev;
-> +			msc->pcc_cl.rx_callback = mpam_pcc_rx_callback;
-> +			msc->pcc_cl.tx_block = false;
-> +			msc->pcc_cl.tx_tout = 1000; /* 1s */
-> +			msc->pcc_cl.knows_txdone = false;
-> +
-> +			msc->pcc_chan = pcc_mbox_request_channel(&msc->pcc_cl,
-> +								 msc->pcc_subspace_id);
-> +			if (IS_ERR(msc->pcc_chan)) {
-> +				pr_err("Failed to request MSC PCC channel\n");
-> +				err = PTR_ERR(msc->pcc_chan);
-> +				break;
-> +			}
-> +		}
-
-Should the lock be held across initialisation of the msc fields?
-
-list_add_rcu() might imply sufficient barriers to ensure that the
-initialisations are visible to other threads that obtain the msc
-pointer by iterating over mpam_all_msc.
-
-It's probably cleaner to hold the lock explicitly, though.
-
-What other ways of obtaining the msc pointer exist?
-
-
-> +
-> +		list_add_rcu(&msc->glbl_list, &mpam_all_msc);
-> +		platform_set_drvdata(pdev, msc);
-> +	} while (0);
-> +	mutex_unlock(&mpam_list_lock);
-> +
-> +	if (!err) {
-> +		/* Create RIS entries described by firmware */
-> +		if (!acpi_disabled)
-> +			err = acpi_mpam_parse_resources(msc, plat_data);
-> +		else
-> +			err = mpam_dt_parse_resources(msc, plat_data);
-> +	}
-> +
-> +	if (!err && fw_num_msc == mpam_num_msc)
-
-Unlocked read of mpam_num_msc?
-
-> +		mpam_discovery_complete();
-> +
-> +	if (err && msc)
-> +		mpam_msc_drv_remove(pdev);
-> +
-> +	return err;
-> +}
-> +
-> +static const struct of_device_id mpam_of_match[] = {
-> +	{ .compatible = "arm,mpam-msc", },
-> +	{},
-> +};
-> +MODULE_DEVICE_TABLE(of, mpam_of_match);
-> +
-> +static struct platform_driver mpam_msc_driver = {
-> +	.driver = {
-> +		.name = "mpam_msc",
-> +		.of_match_table = of_match_ptr(mpam_of_match),
-> +	},
-> +	.probe = mpam_msc_drv_probe,
-> +	.remove = mpam_msc_drv_remove,
-> +};
-> +
-> +/*
-> + * MSC that are hidden under caches are not created as platform devices
-> + * as there is no cache driver. Caches are also special-cased in
-> + * update_msc_accessibility().
-> + */
-
-Can you elaborate?  I don't understand quite what this is doing.
-
-> +static void mpam_dt_create_foundling_msc(void)
-> +{
-> +	int err;
-> +	struct device_node *cache;
-> +
-> +	for_each_compatible_node(cache, NULL, "cache") {
-> +		err = of_platform_populate(cache, mpam_of_match, NULL, NULL);
-> +		if (err)
-> +			pr_err("Failed to create MSC devices under caches\n");
-> +	}
-> +}
-
-[...]
-
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> new file mode 100644
-> index 000000000000..07e0f240eaca
-> --- /dev/null
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -0,0 +1,62 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +// Copyright (C) 2024 Arm Ltd.
-> +
-> +#ifndef MPAM_INTERNAL_H
-> +#define MPAM_INTERNAL_H
-> +
-> +#include <linux/arm_mpam.h>
-> +#include <linux/cpumask.h>
-> +#include <linux/io.h>
-> +#include <linux/mailbox_client.h>
-> +#include <linux/mutex.h>
-> +#include <linux/resctrl.h>
-> +#include <linux/sizes.h>
-> +
-> +struct mpam_msc {
-> +	/* member of mpam_all_msc */
-> +	struct list_head        glbl_list;
-
-It is worth making these names less mismatched?
-
-> +
-> +	int			id;
-> +	struct platform_device *pdev;
-> +
-> +	/* Not modified after mpam_is_enabled() becomes true */
-> +	enum mpam_msc_iface	iface;
-> +	u32			pcc_subspace_id;
-> +	struct mbox_client	pcc_cl;
-> +	struct pcc_mbox_chan	*pcc_chan;
-> +	u32			nrdy_usec;
-> +	cpumask_t		accessibility;
-> +
-> +	/*
-> +	 * probe_lock is only take during discovery. After discovery these
-> +	 * properties become read-only and the lists are protected by SRCU.
-> +	 */
-> +	struct mutex		probe_lock;
-
-Can we have more clarify about the locking strategy, including details
-of which things each lock is supposed to apply to and when, and how (if
-at all) the locks are intended to nest?
-
-(Similarly for the global locks.)
-
-> +	unsigned long		ris_idxs[128 / BITS_PER_LONG];
-> +	u32			ris_max;
-
-nrdy_usec, ris_idxs and ris_max appear unused in this patch (though I
-suppose they get initialised by virtue of kzalloc()).  Is this
-intentional?
-
-> +
-> +	/* mpam_msc_ris of this component */
-> +	struct list_head	ris;
-> +
-> +	/*
-> +	 * part_sel_lock protects access to the MSC hardware registers that are
-> +	 * affected by MPAMCFG_PART_SEL. (including the ID registers that vary
-> +	 * by RIS).
-> +	 * If needed, take msc->lock first.
-> +	 */
-
-What's msc->lock ?
-
-> +	struct mutex		part_sel_lock;
-> +
-> +	/*
-> +	 * mon_sel_lock protects access to the MSC hardware registers that are
-> +	 * affeted by MPAMCFG_MON_SEL.
-> +	 * If needed, take msc->lock first.
-> +	 */
-
-Same here.
-
-> +	struct mutex		outer_mon_sel_lock;
-> +	raw_spinlock_t		inner_mon_sel_lock;
-> +	unsigned long		inner_mon_sel_flags;
-> +
-> +	void __iomem		*mapped_hwpage;
-> +	size_t			mapped_hwpage_sz;
-> +};
-> +
-> +#endif /* MPAM_INTERNAL_H */
-
-[...]
-
-Cheers
----Dave
+> This should not be part of probe() as by that time, controller is already
+> powered on. So pm_runtime_set_active() and pm_runtime_enable() should be enough
+> to convey the state of the device to PM core.
+
+I have tried out the suggestion in the following manner:
+
+	j721e_pcie_probe()
+		...
+		pm_runtime_set_active(dev);
+		pm_runtime_enable(dev);
+		ret = j721e_pcie_ctrl_init(pcie);
+			... within j721e_pcie_ctrl_init()
+			ret = pm_runtime_put_sync(dev);
+			/* Program Strap Settings */
+			ret = pm_runtime_get_sync(dev);
+			...
+		...
+		exit probe
+
+Since a 'pm_runtime_get_sync()' hasn't yet been invoked prior to the
+section where 'pm_runtime_put_sync()' is invoked, it leads to a ref-count
+underflow error at runtime. Please let me know if I am missing
+something.
+
+The following is the working implementation from the current patch:
+
+	j721e_pcie_probe()
+		...
+		/*
+		 * The following two lines are identical to the existing
+		 * driver code
+		 */
+		pm_runtime_enable(dev);
+		ret = pm_runtime_get_sync(dev);
+		...
+		ret = j721e_pcie_ctrl_init(pcie);
+			... within j721e_pcie_ctrl_init()
+			ret = pm_runtime_put_sync(dev);
+			...
+			/* PCIe Controller is now powered off */
+			/* Program the strap settings */
+			...
+			ret = pm_runtime_get_sync(dev);
+			...
+		...
+		exit probe
+
+Regards,
+Siddharth.
 
