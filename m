@@ -4,76 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 698BECA1000
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 14:47:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5458FCA1009
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 14:47:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vVWhDqEJzhDyYpO6FXAZEmGG2kWWPpeCE8Ah+HVn9rM=; b=HDdj5+mAj2+SegIyqqPZaxGGTO
-	OlxatmR4vnH27DMxeM2F4tGfN2GlJBm9HA0NWYABztIqoEfLOQ6VzRxsykKoTRjhWFkhCfyWbZuAQ
-	qDOQ/umkIP6ugVnzMWsdBwPtPhTgZxwYLkdWCDUisauz3oud8uOZSB9IkYS3Qr3nBNQp/PsDIU9Px
-	rq9fmvJUZ2QA1GgUv9i1QQxcCcXkYL7PA3+8TqcaOmyYjGp/e41ZcEhx1VJCxfFon7mfut85/95Jv
-	gwXHEJV7PUezC7YasUdYvQ4PwIKA0vOqZiK+92uR8nD6oWTspVgWWGJEwGAJDxUlCqh9o/ugwfIvT
-	TWBlXk5w==;
+	bh=E7wsDKVeU07tqfba5mhUpd3DLLKgZKYNe/5Ehj98m6A=; b=1XoUlZIA8haUvJgl+bqpBVJFUr
+	Z2RwPTAg6GHCaWsURuEPzziHfNymJ9/tocPJvuVUk4sdyX4M/6PdGrlGyWOAknndeRerf18tQ+sZB
+	7pNk5OZkjOBmiTypCbr/hQkVWngaf0Y4W6m9I3kT+d+qEuCS+MAh7qB1yEnBhrOmCVYcpLzZauI7F
+	uj9wSswPgbgvjfNB8nccmsxwVT1u3rgGnUlRb3DswlXwu2+H8zmu0n+Vl8Oli4qRYPNP/VhHeVpXl
+	3Rx2kPGD91AB/O198XlLP7O+ebrccFzXjlz5yDEd4Cw4FSFKgTOx3vAmFHL70g7bi3Skz1WVDjPKp
+	bAQjVL+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut5oh-0000000Csvq-26tT;
-	Mon, 01 Sep 2025 14:47:31 +0000
-Received: from pegase2.c-s.fr ([93.17.235.10])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut3WW-0000000CLab-19MV
+	id 1ut5og-0000000CsvJ-3Vjz;
+	Mon, 01 Sep 2025 14:47:30 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ut3TQ-0000000CJLj-4AzJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 12:20:37 +0000
-Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4cFndJ2RLlz9sSp;
-	Mon,  1 Sep 2025 14:05:40 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id Uqek8JJfWF8y; Mon,  1 Sep 2025 14:05:40 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4cFndC5GNSz9sSq;
-	Mon,  1 Sep 2025 14:05:35 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id A3ED18B790;
-	Mon,  1 Sep 2025 14:05:35 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id UrGKXVX00Xao; Mon,  1 Sep 2025 14:05:35 +0200 (CEST)
-Received: from PO20335.idsi0.si.c-s.fr (unknown [10.25.207.160])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 7B3FA8B78C;
-	Mon,  1 Sep 2025 14:05:35 +0200 (CEST)
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-To: Qiang Zhao <qiang.zhao@nxp.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
-	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v5 5/7] dt-bindings: soc: fsl: qe: Add an interrupt controller for QUICC Engine Ports
-Date: Mon,  1 Sep 2025 14:05:12 +0200
-Message-ID: <b36ab796493fedd607f05287706bfa5ce22d8543.1756727747.git.christophe.leroy@csgroup.eu>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <cover.1756727747.git.christophe.leroy@csgroup.eu>
-References: <cover.1756727747.git.christophe.leroy@csgroup.eu>
+	Mon, 01 Sep 2025 12:17:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756729044;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=E7wsDKVeU07tqfba5mhUpd3DLLKgZKYNe/5Ehj98m6A=;
+	b=GKL3fhdYoLdPaW9YLfWTX9pdyCmeuuAmXx4IPFamkJWD9goCpVwu6KkTDQY5XcxvaAvtlI
+	X12XHEXU3uSWar6weRmd822HTl1xrSqca1C2lfqRTsqXl0acUyB/FJWvIF0Jck9tr9G+1r
+	mhWsiHr4ETbXLoxmXmYJR0UdAcULoSI=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-226-ZZX27wDyOBO3XT_W7iGp6w-1; Mon, 01 Sep 2025 08:17:23 -0400
+X-MC-Unique: ZZX27wDyOBO3XT_W7iGp6w-1
+X-Mimecast-MFC-AGG-ID: ZZX27wDyOBO3XT_W7iGp6w_1756729042
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-45a15f10f31so40554525e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 05:17:22 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756729042; x=1757333842;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=E7wsDKVeU07tqfba5mhUpd3DLLKgZKYNe/5Ehj98m6A=;
+        b=WSPHOQKkTdkd4UahzHt98WyIOMMI7zx1c4taxqy4J/9VktU4KgtDhVTH+CguHDADgb
+         MPpLfJOEivAL+lePZoIfiOBQe632mh/v1C+tNmXRe4yXchshhpWEeEjw38X2Q5tFfHTe
+         3jnI1/t/akq0qNqzOw1+vq8slynuAKb8Y754tER5bXLOxTcRWXrKwiXlgyIkew/scFKY
+         71BHyO0aRdGDMUfUTbrikYy+Vqh/JipZEkpNg51KFh9/LrXhIANnaSt690Sv/2Cz3zoN
+         164DeIVwbOSmKC7KurIUubVjgJOrEtta0UJTZa/AIV8yQ7gLblBKR5rRzo8U4HQ6Byy4
+         hYtw==
+X-Forwarded-Encrypted: i=1; AJvYcCWPIsrBn+iKE9PA0r1oQPuSnHx24NcaHiXuEp1pxPAM29H01b1bWsZjKZNwZTy8G1G7cFV82LUbYSxSlMWgtEHJ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyl21vU7AglLPQDpKBWyCGDyn+QBkR37HZ+4vKlc5y7e6jPdZBA
+	yGWiL9b+TASzPVDt463I25mNdrzJiPBAfIfVbCHgFHn+AirtvLekyZs5qF4yrfd8gRz5aOKvueY
+	/md+V6u+NEwG/hk1BsOJYZ6eoGEsRV01SDCJwoea5b1edZmGo8xxtXzawyYa4Gtn1+ue5PL90ct
+	iJ
+X-Gm-Gg: ASbGncs/KvLKuleqdCWcGc9td/uNpNHAEgz4XI8EeFJhBA7FuGkKNUGn9Zen9Ym3TL5
+	RGlBTgb8YuTZZQyn5kWIFPgv2RogWvYuXOp6w21IE+O9cvYbHAfQB56RMGVqls0RQN57uuqmhC1
+	Zziq32dPeEOBjLrHNEHUnVZIAr2giJ0lT1uXPKiaX7gRjbRAOyWInTS0dTBseUDv6C6NGg+K9m6
+	fYfddibvj+udiJHaiUO2yPd9H4SGm/dNsNeM6p5DBHUR7U1cwkZ8aKOEkwOodOc60zN3ZPepXHm
+	mtpOlXgbo1Ca/mjeQDrDWCRvAVYYHGdz/R5dY7BIcgy9DKS8kg0ScRmZ/HPjPU3jLeo+z2SRGXw
+	lFZYGAuE27dB840liLAGhi5TQG+P7zRFScbSf/chCEi2f5PjnnrKTwSigVG5Mm13qlYs=
+X-Received: by 2002:a05:6000:290e:b0:3c7:e6d0:b1b6 with SMTP id ffacd0b85a97d-3d1dcb77f57mr6172969f8f.9.1756729041590;
+        Mon, 01 Sep 2025 05:17:21 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH4HyO3MsW/7JB2c6b+uWwxyC9MpHi848L8uRbEPhjkFkXwnypkP58uX2s27AjDoWG3KsJ0dw==
+X-Received: by 2002:a05:6000:290e:b0:3c7:e6d0:b1b6 with SMTP id ffacd0b85a97d-3d1dcb77f57mr6172942f8f.9.1756729041066;
+        Mon, 01 Sep 2025 05:17:21 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f37:2b00:948c:dd9f:29c8:73f4? (p200300d82f372b00948cdd9f29c873f4.dip0.t-ipconnect.de. [2003:d8:2f37:2b00:948c:dd9f:29c8:73f4])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3d48760d1c9sm7371553f8f.17.2025.09.01.05.17.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 01 Sep 2025 05:17:20 -0700 (PDT)
+Message-ID: <cab1db60-e7bc-4f31-b781-c52ad1b24da6@redhat.com>
+Date: Mon, 1 Sep 2025 14:17:18 +0200
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756728308; l=2384; i=christophe.leroy@csgroup.eu; s=20211009; h=from:subject:message-id; bh=6GGB8fj116M7fld93yabp+Sk9w91NwwwbI5I6K0AiZU=; b=jR+31eCAFRr4bN9Eu6xmfDeciVfmvlPu9ExV5VARP8nsAOGNFwb90XySqHjMyi1lIHHu36+2y LGi6cKMqC+ICyMni+CveDj7l2leszHXF7NXGxdBQNi1fciTurQMzy/U
-X-Developer-Key: i=christophe.leroy@csgroup.eu; a=ed25519; pk=HIzTzUj91asvincQGOFx6+ZF5AoUuP9GdOtQChs7Mm0=
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC][PATCH v2 22/29] mm/numa: Register information into Kmemdump
+To: Eugen Hristev <eugen.hristev@linaro.org>, Michal Hocko <mhocko@suse.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-mm@kvack.org, tglx@linutronix.de,
+ andersson@kernel.org, pmladek@suse.com,
+ linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
+ corbet@lwn.net, mojha@qti.qualcomm.com, rostedt@goodmis.org,
+ jonechou@google.com, tudor.ambarus@linaro.org,
+ Christoph Hellwig <hch@infradead.org>,
+ Sergey Senozhatsky <senozhatsky@chromium.org>
+References: <20250724135512.518487-1-eugen.hristev@linaro.org>
+ <751514db-9e03-4cf3-bd3e-124b201bdb94@redhat.com>
+ <aJCRgXYIjbJ01RsK@tiehlicka>
+ <e2c031e8-43bd-41e5-9074-c8b1f89e04e6@linaro.org>
+ <23e7ec80-622e-4d33-a766-312c1213e56b@redhat.com>
+ <f43a61b4-d302-4009-96ff-88eea6651e16@linaro.org>
+ <77d17dbf-1609-41b1-9244-488d2ce75b33@redhat.com>
+ <ecd33fa3-8362-48f0-b3c2-d1a11d8b02e3@linaro.org>
+ <9f13df6f-3b76-4d02-aa74-40b913f37a8a@redhat.com>
+ <64a93c4a-5619-4208-9e9f-83848206d42b@linaro.org>
+ <f1f290fc-b2f0-483b-96d5-5995362e5a8b@redhat.com>
+ <01c67173-818c-48cf-8515-060751074c37@linaro.org>
+ <aab5e2af-04d6-485f-bf81-557583f2ae4b@redhat.com>
+ <1b52419c-101b-487e-a961-97bd405c5c33@linaro.org>
+ <99d2cc96-03ea-4026-883e-1ee083a96c39@redhat.com>
+ <98afe1bd-99d2-4b5d-866a-e9541390fab4@linaro.org>
+ <c59f2528-31b0-4b9d-8d20-f204a0600ff6@redhat.com>
+ <40e802eb-3764-47af-8b4f-9f7c8b5b60c1@linaro.org>
+ <7e1f4f64-dfc4-4366-8e01-0891b2d4d2b4@redhat.com>
+ <94f537ae-c2b1-4928-a3f3-6449c30cb624@linaro.org>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
+ dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
+ QZLQMzNE74ap+GDK0wnacPQFpcG1AE9RMq3aeErY5tujekBS32jfC/7AnH7I0v1v1TbbK3Gp
+ XNeiN4QroO+5qaSr0ID2sz5jtBLRb15RMre27E1ImpaIv2Jw8NJgW0k/D1RyKCwaTsgRdwuK
+ Kx/Y91XuSBdz0uOyU/S8kM1+ag0wvsGlpBVxRR/xw/E8M7TEwuCZQArqqTCmkG6HGcXFT0V9
+ PXFNNgV5jXMQRwU0O/ztJIQqsE5LsUomE//bLwzj9IVsaQpKDqW6TAPjcdBDPLHvriq7kGjt
+ WhVhdl0qEYB8lkBEU7V2Yb+SYhmhpDrti9Fq1EsmhiHSkxJcGREoMK/63r9WLZYI3+4W2rAc
+ UucZa4OT27U5ZISjNg3Ev0rxU5UH2/pT4wJCfxwocmqaRr6UYmrtZmND89X0KigoFD/XSeVv
+ jwBRNjPAubK9/k5NoRrYqztM9W6sJqrH8+UWZ1Idd/DdmogJh0gNC0+N42Za9yBRURfIdKSb
+ B3JfpUqcWwE7vUaYrHG1nw54pLUoPG6sAA7Mehl3nd4pZUALHwARAQABzSREYXZpZCBIaWxk
+ ZW5icmFuZCA8ZGF2aWRAcmVkaGF0LmNvbT7CwZoEEwEIAEQCGwMCF4ACGQEFCwkIBwICIgIG
+ FQoJCAsCBBYCAwECHgcWIQQb2cqtc1xMOkYN/MpN3hD3AP+DWgUCaJzangUJJlgIpAAKCRBN
+ 3hD3AP+DWhAxD/9wcL0A+2rtaAmutaKTfxhTP0b4AAp1r/eLxjrbfbCCmh4pqzBhmSX/4z11
+ opn2KqcOsueRF1t2ENLOWzQu3Roiny2HOU7DajqB4dm1BVMaXQya5ae2ghzlJN9SIoopTWlR
+ 0Af3hPj5E2PYvQhlcqeoehKlBo9rROJv/rjmr2x0yOM8qeTroH/ZzNlCtJ56AsE6Tvl+r7cW
+ 3x7/Jq5WvWeudKrhFh7/yQ7eRvHCjd9bBrZTlgAfiHmX9AnCCPRPpNGNedV9Yty2Jnxhfmbv
+ Pw37LA/jef8zlCDyUh2KCU1xVEOWqg15o1RtTyGV1nXV2O/mfuQJud5vIgzBvHhypc3p6VZJ
+ lEf8YmT+Ol5P7SfCs5/uGdWUYQEMqOlg6w9R4Pe8d+mk8KGvfE9/zTwGg0nRgKqlQXrWRERv
+ cuEwQbridlPAoQHrFWtwpgYMXx2TaZ3sihcIPo9uU5eBs0rf4mOERY75SK+Ekayv2ucTfjxr
+ Kf014py2aoRJHuvy85ee/zIyLmve5hngZTTe3Wg3TInT9UTFzTPhItam6dZ1xqdTGHZYGU0O
+ otRHcwLGt470grdiob6PfVTXoHlBvkWRadMhSuG4RORCDpq89vu5QralFNIf3EysNohoFy2A
+ LYg2/D53xbU/aa4DDzBb5b1Rkg/udO1gZocVQWrDh6I2K3+cCs7BTQRVy5+RARAA59fefSDR
+ 9nMGCb9LbMX+TFAoIQo/wgP5XPyzLYakO+94GrgfZjfhdaxPXMsl2+o8jhp/hlIzG56taNdt
+ VZtPp3ih1AgbR8rHgXw1xwOpuAd5lE1qNd54ndHuADO9a9A0vPimIes78Hi1/yy+ZEEvRkHk
+ /kDa6F3AtTc1m4rbbOk2fiKzzsE9YXweFjQvl9p+AMw6qd/iC4lUk9g0+FQXNdRs+o4o6Qvy
+ iOQJfGQ4UcBuOy1IrkJrd8qq5jet1fcM2j4QvsW8CLDWZS1L7kZ5gT5EycMKxUWb8LuRjxzZ
+ 3QY1aQH2kkzn6acigU3HLtgFyV1gBNV44ehjgvJpRY2cC8VhanTx0dZ9mj1YKIky5N+C0f21
+ zvntBqcxV0+3p8MrxRRcgEtDZNav+xAoT3G0W4SahAaUTWXpsZoOecwtxi74CyneQNPTDjNg
+ azHmvpdBVEfj7k3p4dmJp5i0U66Onmf6mMFpArvBRSMOKU9DlAzMi4IvhiNWjKVaIE2Se9BY
+ FdKVAJaZq85P2y20ZBd08ILnKcj7XKZkLU5FkoA0udEBvQ0f9QLNyyy3DZMCQWcwRuj1m73D
+ sq8DEFBdZ5eEkj1dCyx+t/ga6x2rHyc8Sl86oK1tvAkwBNsfKou3v+jP/l14a7DGBvrmlYjO
+ 59o3t6inu6H7pt7OL6u6BQj7DoMAEQEAAcLBfAQYAQgAJgIbDBYhBBvZyq1zXEw6Rg38yk3e
+ EPcA/4NaBQJonNqrBQkmWAihAAoJEE3eEPcA/4NaKtMQALAJ8PzprBEXbXcEXwDKQu+P/vts
+ IfUb1UNMfMV76BicGa5NCZnJNQASDP/+bFg6O3gx5NbhHHPeaWz/VxlOmYHokHodOvtL0WCC
+ 8A5PEP8tOk6029Z+J+xUcMrJClNVFpzVvOpb1lCbhjwAV465Hy+NUSbbUiRxdzNQtLtgZzOV
+ Zw7jxUCs4UUZLQTCuBpFgb15bBxYZ/BL9MbzxPxvfUQIPbnzQMcqtpUs21CMK2PdfCh5c4gS
+ sDci6D5/ZIBw94UQWmGpM/O1ilGXde2ZzzGYl64glmccD8e87OnEgKnH3FbnJnT4iJchtSvx
+ yJNi1+t0+qDti4m88+/9IuPqCKb6Stl+s2dnLtJNrjXBGJtsQG/sRpqsJz5x1/2nPJSRMsx9
+ 5YfqbdrJSOFXDzZ8/r82HgQEtUvlSXNaXCa95ez0UkOG7+bDm2b3s0XahBQeLVCH0mw3RAQg
+ r7xDAYKIrAwfHHmMTnBQDPJwVqxJjVNr7yBic4yfzVWGCGNE4DnOW0vcIeoyhy9vnIa3w1uZ
+ 3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
+ CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
+ qIws/H2t
+In-Reply-To: <94f537ae-c2b1-4928-a3f3-6449c30cb624@linaro.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: gLRNhml7mjwTNbw0qGg1EGUdz9_nc6CbWVPHTwj_c0Q_1756729042
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_052036_468073_08EAEDA1 
-X-CRM114-Status: GOOD (  13.46  )
+X-CRM114-CacheID: sfid-20250901_051725_113843_AD2B8A67 
+X-CRM114-Status: GOOD (  23.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,85 +181,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The QUICC Engine provides interrupts for a few I/O ports. This is
-handled via a separate interrupt ID and managed via a triplet of
-dedicated registers hosted by the SoC.
+On 01.09.25 14:02, Eugen Hristev wrote:
+> 
+> 
+> On 9/1/25 13:01, David Hildenbrand wrote:
+>>>>> What do you think ?
+>>>>
+>>>> Looks a bit over-engineered, and will require us to import a header
+>>>> (likely kmemdump.h) in these files, which I don't really enjoy.
+>>>>
+>>>> I would start simple, without any such macro-magic. It's a very simple
+>>>> function after all, and likely you won't end up having many of these?
+>>>>
+>>>
+>>> Thanks David, I will do it as you suggested and see what comes out of it.
+>>>
+>>> I have one side question you might know much better to answer:
+>>> As we have a start and a size for each region, this start is a virtual
+>>> address. The firmware/coprocessor that reads the memory and dumps it,
+>>> requires physical addresses.
+>>
+>> Right. I was asking myself the same question while reviewing: should we
+>> directly export physical ranges here instead of virtual ones. I guess
+>> virtual ones is ok.
+> 
+> In patch 22/29, some areas are registered using
+> memblock_phys_alloc_try_nid() which allocates physical.
+> In this case , phys_to_virt() didn't work for me, it was returning a
+> wrong address. I used __va() and this worked. So there is a difference
+> between them.
 
-Implement an interrupt driver for it for that those IRQs can then
-be linked to the related GPIOs.
+memblock_alloc_internal() calls memblock_alloc_range_nid() to then 
+perform a phys_to_virt().
 
-Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
----
- .../soc/fsl/cpm_qe/fsl,qe-ports-ic.yaml       | 58 +++++++++++++++++++
- 1 file changed, 58 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe-ports-ic.yaml
+memblock_phys_alloc_try_nid() calls memblock_alloc_range_nid() without 
+the phys_to_virt().
 
-diff --git a/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe-ports-ic.yaml b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe-ports-ic.yaml
-new file mode 100644
-index 000000000000..a356ad8b13f5
---- /dev/null
-+++ b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe-ports-ic.yaml
-@@ -0,0 +1,58 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe-ports-ic.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Freescale QUICC Engine I/O Ports Interrupt Controller
-+
-+maintainers:
-+  - Christophe Leroy <christophe.leroy@csgroup.eu>
-+
-+description:
-+  Interrupt controller for the QUICC Engine I/O ports found on some Freescale/NXP PowerQUICC and QorIQ SoCs.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - fsl,mpc8323-qe-ports-ic
-+      - fsl,mpc8360-qe-ports-ic
-+      - fsl,mpc8568-qe-ports-ic
-+
-+  reg:
-+    maxItems: 1
-+    description: Base address and size of the QE I/O Ports Interrupt Controller registers.
-+
-+  interrupt-controller: true
-+
-+  '#address-cells':
-+    const: 0
-+
-+  '#interrupt-cells':
-+    const: 1
-+
-+  interrupts:
-+    maxItems: 1
-+    description: Interrupt line to which the QE I/O Ports controller is connected.
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupt-controller
-+  - '#address-cells'
-+  - '#interrupt-cells'
-+  - interrupts
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    interrupt-controller@c00 {
-+      compatible = "fsl,mpc8323-qe-ports-ic";
-+      reg = <0xc00 0x18>;
-+      interrupt-controller;
-+      #address-cells = <0>;
-+      #interrupt-cells = <1>;
-+      interrupts = <74 0x8>;
-+      interrupt-parent = <&ipic>;
-+    };
+So it's rather surprising the a phys_to_virt() would not work in that case.
+
+Maybe for these cases where you export the area through a new helper, 
+you can just export the physical addr + length instead.
+
+Then, it's also clear that this area is actually physically contiguous.
+
+> 
+>>
+>> What do you suggest to use to retrieve that
+>>> address ? virt_to_phys might be problematic, __pa or __pa_symbol? or
+>>> better lm_alias ?
+>>
+>> All areas should either come from memblock or be global variables, right?
+> 
+> I would like to be able to register from anywhere. For example someone
+> debugging their driver, to just register kmalloc'ed struct.
+> Other use case is to register dma coherent CMA areas.
+
+Then probably better to export physical addresses (that you need either 
+way) directly from the helpers you have to add.
+
+> 
+>>
+>> IIRC, virt_to_phys() should work for these. Did you run into any
+>> problems with them or why do you think virt_to_phys could be problematic?
+>>
+> 
+> I am pondering about whether it would work in all cases, considering
+> it's source code comments that it shall not be used because it does not
+> work for any address.
+
+Yeah, it does for example not work for kernel stacks IIRC.
+
 -- 
-2.49.0
+Cheers
+
+David / dhildenb
 
 
