@@ -4,76 +4,188 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C525DCA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 17:01:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AC3CCA0FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 17:01:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nf0iEYuoy/f3YEAHd8aIcTjvCp6fnDRySrUJPkt8Z04=; b=iTC9pI6Hs9eZbn/yo6XPl59YSP
-	FGjsKv+WVJT+/t2l1xn9dMQ4BCBV8uILcQXOZp5fYYca9e+AAi2MaaiTn+PP0EU5N6N/MKBfmjQC9
-	GaT0AFbcQt3B0zmas8h64fhrFpfK9uj8u6iU5P5PQoANhl2/BwXiJO1ibu/9vcAU+ueJiR++9rZ0P
-	oY+L5GbAmbj5jR3R7s0INjt/SKZMcGzAXnYcaF2uxb4qyQ3AUISTCmu0vo4bs75CLuAfL79vmfcKz
-	VpF+Ha2GR48bdbU53CXfiIHPJaKO7ShaBc7WkdAb5+TyLY8yE49MZ9XSl3dzG2RJoJrhoOP1H82/T
-	2AKZ9+Dg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tnXepClSCa4TtmpEoW4LNnvfPXJBpj0jhMGD19t2OsQ=; b=fODkeQEW2Sj8TCq5xjwkRU/rSo
+	nFCYQrCE4ZMfWU8SS1yLZTfLon7lA1uZJivRPFrnmLw0I9acAA4hEQ/SIY/yT5M+H12F5mdHbYuKR
+	KJ3PzeJb74aub5GN33geM7carg32IVGbrTn8u6zYC8soKF3v00gfy9ckGM8e5KIKnjKPG63IiiWgD
+	yD8swowXlrNkMzNuebk/mDFC2Sms5jxjjiVsYVzW1AWCDsk0xKkq3OPxKV9fB5ZQlxKMctZIEGqxQ
+	u7wnr/+yWSlFokMb+yNa3C4VsPC6Ka2cmKUyRNZXkjz98dai1LyW3ZZFEl+lUEKjXrKrhUuTxJfrN
+	wGQxR75A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut7tt-0000000DNGZ-0750;
-	Mon, 01 Sep 2025 17:01:01 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ut7tq-0000000DNEE-2UiV;
+	Mon, 01 Sep 2025 17:00:58 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut4a4-0000000Cgf0-3JIl
+	id 1ut4Wz-0000000Cg3y-2dgf
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 01 Sep 2025 13:25:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=tnXepClSCa4TtmpEoW4LNnvfPXJBpj0jhMGD19t2OsQ=; b=JQHccXDQOFkQFmXPgXig0sFXlq
+	O70NEfg+HIDUKlFz8ilvj/wrJ4NPsdJpjMmABi2LrPeAK3PbGGq6SuceA7jLPTUxE11qKFqZPtTus
+	ElwDlLXQ60ALuJ7gM5BWt+7SkYRJdj0FWttjA4vADR0oSmIRl0urUshzsImhhNwzCuPr72jVUT9/Z
+	o4S+hgC1+GDjLNjZf4AztnFfHcy3MoHDlb1wazHMf4LKrDn0GStMGJN7MiXT73csU6vNI70cfx9oB
+	5BP5z5OWMLIO+3Ivq1U2HjWgzJ29JTRT0p1/ovk526qCeETFy97eQn34bHAbE+TkT6Ao0LYWhDIN8
+	G8yPNTtg==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ut4Ww-00000003jeU-0Kh8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 13:28:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 062FE601D6;
-	Mon,  1 Sep 2025 13:28:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD465C4CEF0;
-	Mon,  1 Sep 2025 13:28:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756733298;
-	bh=Zij+aiPmhHbsz6ba8gUa8QWGp81pVIPzIJsYgiGdtnI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=ca6rdAH3pva2fovuGbIWfgXcx484jiVI7RZ6LdQTXP3H/8arYoZnXfvhfyD3AwCX2
-	 byss9qUQQXj2N0KlPj724lbgQdUFYASUmt7ZtyTLmrp7GdvFB30FTxIFF5HbU5BOTZ
-	 lf6Rmk0QyBDFb6nLiOmYxoBbpjE8YX092ZJOFU5V49SHy8zZH/CJf7WrhB/DdV2Zts
-	 qHb7Gz7B9S+zJeflg+ZjaGPe9ihXFcsiH1xDCk1gz5EBpJhiXyyfvLtFZ4x/ZAqerW
-	 lD+Anfs4T61RDNgDj646O1IQUHKx63m85easozpSlGHJiKh27LrVGZwnmzRAKYJWNw
-	 Xn/lVC3odT8dQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1ut4a0-00000002Gdt-2tvq;
-	Mon, 01 Sep 2025 13:28:16 +0000
-Date: Mon, 01 Sep 2025 14:28:16 +0100
-Message-ID: <86zfbecnf3.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Gyujeong Jin <wlsrbwjd7232@gmail.com>
-Cc: oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	gyutrange <wlsrbwjd643@naver.com>
-Subject: Re: [PATCH] KVM: arm64: nested: Fix VA sign extension in VNCR/TLBI paths
-In-Reply-To: <20250901124520.54259-1-wlsrbwjd7232@gmail.com>
-References: <20250901124520.54259-1-wlsrbwjd7232@gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: wlsrbwjd7232@gmail.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, wlsrbwjd643@naver.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 01 Sep 2025 13:25:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756733104;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=tnXepClSCa4TtmpEoW4LNnvfPXJBpj0jhMGD19t2OsQ=;
+	b=PVERd+mCExzDiKOXtcatrllKxPoCJO2KgRuWOhtqBXPZeK/JDySlxuRtD9zO0fHphr45kz
+	kuKsi8o6GWR0Ce/WwJOZuQUpAOuvYahT3JnkdkW0us3BGFXMMZPB2Vl//KDFI78DcBlUde
+	wzSUhqWhotcRmBTw9rIVWfV9YDH6H78=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756733104;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=tnXepClSCa4TtmpEoW4LNnvfPXJBpj0jhMGD19t2OsQ=;
+	b=PVERd+mCExzDiKOXtcatrllKxPoCJO2KgRuWOhtqBXPZeK/JDySlxuRtD9zO0fHphr45kz
+	kuKsi8o6GWR0Ce/WwJOZuQUpAOuvYahT3JnkdkW0us3BGFXMMZPB2Vl//KDFI78DcBlUde
+	wzSUhqWhotcRmBTw9rIVWfV9YDH6H78=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-153-nIqIWa7aODuIs2BsxKmFXg-1; Mon, 01 Sep 2025 09:25:03 -0400
+X-MC-Unique: nIqIWa7aODuIs2BsxKmFXg-1
+X-Mimecast-MFC-AGG-ID: nIqIWa7aODuIs2BsxKmFXg_1756733102
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-45b8a307c12so6334545e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 06:25:02 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756733102; x=1757337902;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=tnXepClSCa4TtmpEoW4LNnvfPXJBpj0jhMGD19t2OsQ=;
+        b=rJ5tgyYKtzk564oFILXZxPlwuUK++Rz+MEvuzEj0cMdgITdezaH3aY2OkhuF8y9TJ6
+         CK0webMI4QvT9oXgNB2fMmQh7Am28m5wauiWp0hZINTIbg2pwcnXnh4P49t06BaHp2gy
+         w15zMfVIj0lcKSp7jWzfx2J4EeCc3c9v+mIKGR1pENy9geR5WVNT922K2wg96rQ2En9G
+         cUnFGkRj+G6K3su55YN3OHv9sid5qKlws0jKCSVrSlg4AHyk0MYRCkp4WGoJGexCu8v3
+         9xWPuoFjuyd/N5DrcxdK9EddD3kRBwXlFlflieTA367B5NsXsYeOvT+ZUuTwQvz4pHew
+         tHpA==
+X-Forwarded-Encrypted: i=1; AJvYcCXEL99wRMToTXLCAFvMo7hHAGIN21SHWpFulAyV1sSDtxCZrwkR+s6xBp+Gx8K5nodql318UKL89IoqRTCGSEXB@lists.infradead.org
+X-Gm-Message-State: AOJu0YxIAnDuSN3NyZdEwiVIFFiTEN/krP7CGalOYLqAav+NnRf4qRtr
+	O3zG1K2NgEAqRP00gBqlV0Xug0vi6RYWsgrmqoQT2njyz9e0/kASqHsm4/rNwIYX0n/aCufgFzZ
+	Vlrc4PSZHSr96Q0VbPczdo5+eLI3/BYpEEdhlAcLQVi4j0LHVgWoS7oxBMKw3I/XNF1pmTn+/Nz
+	NI
+X-Gm-Gg: ASbGncvXNt0jqkPRbefvhCoS03CuDPb0+UC2IlwcRm8246kyjoOmugFvL4ntr3EOyiW
+	KUEGnqVWaDpffev4SoHg9mUgV8VNiT+uGbbyuoswHwwpFx9uX6JehIUuypjppB/aitUhRQtrSTj
+	gSgHUaoGbp/AQc8wGNbnheTuo/MRqNs3+X47JxS3RWQtKZkjBQqHUnf0wz+fW3eWVq/w5onjO3/
+	gZqUX7bq4EFDDeWM/s3Wxum4uK2J2hlxqCG+vVx5dnSpELEJTV/3JO7twUiR3JXGlhXEY9oakba
+	WW9dVPdvSGyfkIWKRE9hwEMbmIp0jHfcFuNq+Aog8YR9/ElIauuDyicfu1lD9g4xXC/EgLNHEjt
+	Vilf28V7BXgczOB8U1005XHzw983ZA8Z9Z5DgKmiRtD9YJuPSynciUTEivYluhlZj7/0=
+X-Received: by 2002:a05:600c:1c98:b0:45b:8cee:580a with SMTP id 5b1f17b1804b1-45b8cee5b84mr29479405e9.35.1756733101691;
+        Mon, 01 Sep 2025 06:25:01 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFn4DAGKD4/hR6ptaEjNoxJNELsNDQWoqjaZ80cydfGU/2h/6IoyZcnqEvOz4BgFx0o138wIQ==
+X-Received: by 2002:a05:600c:1c98:b0:45b:8cee:580a with SMTP id 5b1f17b1804b1-45b8cee5b84mr29478885e9.35.1756733101175;
+        Mon, 01 Sep 2025 06:25:01 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f37:2b00:948c:dd9f:29c8:73f4? (p200300d82f372b00948cdd9f29c873f4.dip0.t-ipconnect.de. [2003:d8:2f37:2b00:948c:dd9f:29c8:73f4])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b6f0c6dc1sm239218725e9.1.2025.09.01.06.24.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 01 Sep 2025 06:25:00 -0700 (PDT)
+Message-ID: <94ec640b-76cd-478e-9ee7-ff8597d1fafc@redhat.com>
+Date: Mon, 1 Sep 2025 15:24:59 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] copy_sighand: Handle architectures where
+ sizeof(unsigned long) < sizeof(u64)
+To: schuster.simon@siemens-energy.com, Dinh Nguyen <dinguyen@kernel.org>,
+ Christian Brauner <brauner@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka
+ <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org,
+ linux-block@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+ cgroups@vger.kernel.org, linux-security-module@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, apparmor@lists.ubuntu.com,
+ selinux@vger.kernel.org, linux-alpha@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, stable@vger.kernel.org
+References: <20250901-nios2-implement-clone3-v2-0-53fcf5577d57@siemens-energy.com>
+ <20250901-nios2-implement-clone3-v2-1-53fcf5577d57@siemens-energy.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20250901-nios2-implement-clone3-v2-1-53fcf5577d57@siemens-energy.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: byngcT9AjtdPA7RzloHr9nuYw8CxhGW9TFn7sgeNE1M_1756733102
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250901_142506_447591_73B03FA2 
+X-CRM114-Status: GOOD (  15.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,47 +200,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 01 Sep 2025 13:45:20 +0100,
-Gyujeong Jin <wlsrbwjd7232@gmail.com> wrote:
+On 01.09.25 15:09, Simon Schuster via B4 Relay wrote:
+> From: Simon Schuster <schuster.simon@siemens-energy.com>
 > 
-> From: gyutrange <wlsrbwjd643@naver.com>
+> With the introduction of clone3 in commit 7f192e3cd316 ("fork: add
+> clone3") the effective bit width of clone_flags on all architectures was
+> increased from 32-bit to 64-bit. However, the signature of the copy_*
+> helper functions (e.g., copy_sighand) used by copy_process was not
+> adapted.
 > 
-> Signed-off-by: gyutrange <wlsrbwjd643@naver.com>
-
-Where is the commit message?
-
+> As such, they truncate the flags on any 32-bit architectures that
+> supports clone3 (arc, arm, csky, m68k, microblaze, mips32, openrisc,
+> parisc32, powerpc32, riscv32, x86-32 and xtensa).
+> 
+> For copy_sighand with CLONE_CLEAR_SIGHAND being an actual u64
+> constant, this triggers an observable bug in kernel selftest
+> clone3_clear_sighand:
+> 
+>          if (clone_flags & CLONE_CLEAR_SIGHAND)
+> 
+> in function copy_sighand within fork.c will always fail given:
+> 
+>          unsigned long /* == uint32_t */ clone_flags
+>          #define CLONE_CLEAR_SIGHAND 0x100000000ULL
+> 
+> This commit fixes the bug by always passing clone_flags to copy_sighand
+> via their declared u64 type, invariant of architecture-dependent integer
+> sizes.
+> 
+> Fixes: b612e5df4587 ("clone3: add CLONE_CLEAR_SIGHAND")
+> Cc: stable@vger.kernel.org # linux-5.5+
+> Signed-off-by: Simon Schuster <schuster.simon@siemens-energy.com>
+> Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
 > ---
->  arch/arm64/kvm/nested.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> index 77db81bae86f..eaa6dd9da086 100644
-> --- a/arch/arm64/kvm/nested.c
-> +++ b/arch/arm64/kvm/nested.c
-> @@ -1169,7 +1169,7 @@ int kvm_vcpu_allocate_vncr_tlb(struct kvm_vcpu *vcpu)
->  
->  static u64 read_vncr_el2(struct kvm_vcpu *vcpu)
->  {
-> -	return (u64)sign_extend64(__vcpu_sys_reg(vcpu, VNCR_EL2), 48);
-> +	return (u64)sign_extend64(__vcpu_sys_reg(vcpu, VNCR_EL2), 47);
->  }
->  
 
-This code is not there for sign extension of the VA. It is there for
-the propagation of bit 48 (yes, bit 48, not a typo) in RESS and the
-top bits of BADDR. D24.2.206 has all the details for this.
+(stripping To list)
 
-Furthermore, we already check that the VA is canonical at the point of
-establishing the translation (see the references to R_YYVYV and
-I_THCZK in the S1 PTW code), and don't install a TLB in that case.
-
-But maybe you have spotted something I didn't, so some explanations
-would be very welcome.
-
-Thanks,
-
-	M.
+Acked-by: David Hildenbrand <david@redhat.com>
 
 -- 
-Without deviation from the norm, progress is not possible.
+Cheers
+
+David / dhildenb
+
 
