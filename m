@@ -4,75 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97B3CCA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 14:47:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BA45CA100B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 14:47:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sRERapiSYoHPjwQWpt8qOWCUW2mbCGSleJj5U5fd4CA=; b=lgCcjH4fM+gtehh1hln4OLHlXp
-	HrZI9dfhUQfiScLh2SO/YOeBKMFRIJ6KXlffb3a5uIRHjYPkgkDYcYhIGxUW738Y6XRIBI6rSwuyk
-	h3lpQo4fHffgM9RSlZdH/riAbkbk5lUGo/3j2UIvgBr1iQQgRTVle7xRXxjVbDaAYYlccuXs72sLV
-	BLg0fUuRnHKOZANJcoEbIbP2dOL1zGrKA54pzqpllbjUHBtf6HIvYmITaFeM1Rddq2k6dHQBFn/ei
-	2jfehESBOa4AjBdjvH3iJWv8AXBjenkZYyjfP6jbo3wQ7qXJLSQO8998aZK5vcOANs6NMngirMC5l
-	ZGsoFDzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xqLtvN8NDsM8+HqcXXWyZ6s63353++hlV04CzTz0M9o=; b=MAqGZ7IP5+uKYohZA1647BZV93
+	JwOVA6CkM0uZH4KFHLF1/d+f/67cWbB6VgbmBKCaqLfJl6blHbeUes3FubcSWjgdd6M2cxhcmbcph
+	ceGZ6wRqdb2ylWOEceATJQmzQuG+waa+BNT3WbStopirajW/W/Mw636i5TQmgE+SzmeR7KB3qZy10
+	v5mGbsfbZVrTItQSKYI3OoPkc1abQfWRnlJ5KkYwH+R0Lg+BBbsdl/TgmxbM29V12vzDRfqop1Qzq
+	3H0A9Vts+WQO0A1nB+TnIJcihk3pv+pLwKlkSD6LXxUC8gy0Ci9BGZnxkAHRpeOoxpYl2aHwGcsQJ
+	marqTjKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut5on-0000000Ct56-3uaH;
-	Mon, 01 Sep 2025 14:47:37 +0000
-Received: from pegase2.c-s.fr ([93.17.235.10])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut3XK-0000000CMHx-3zzt
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 12:21:28 +0000
-Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4cFndL0hyTz9sT8;
-	Mon,  1 Sep 2025 14:05:42 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id 8chmUpmbiw-6; Mon,  1 Sep 2025 14:05:42 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4cFndD0SFrz9sSs;
-	Mon,  1 Sep 2025 14:05:36 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id ECB808B77B;
-	Mon,  1 Sep 2025 14:05:35 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id vyRL5fj0VNV1; Mon,  1 Sep 2025 14:05:35 +0200 (CEST)
-Received: from PO20335.idsi0.si.c-s.fr (unknown [10.25.207.160])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id BB70F8B78C;
-	Mon,  1 Sep 2025 14:05:35 +0200 (CEST)
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-To: Qiang Zhao <qiang.zhao@nxp.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
-	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
+	id 1ut5oe-0000000Cssw-49tA;
+	Mon, 01 Sep 2025 14:47:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ut3O8-0000000CFYN-1nbs;
+	Mon, 01 Sep 2025 12:11:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 96F8D403B9;
+	Mon,  1 Sep 2025 12:11:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C32FC4CEF0;
+	Mon,  1 Sep 2025 12:11:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756728715;
+	bh=qBCtOBJT2cV+mYRDVrXbHxe214BFli2AJqzlHAFeHmE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IgM4H5HrKPqzEWKaSZZ7G5TFgQ07XB5abKuclMAVTDyb72U8Mej25CusONsJTcqUA
+	 D8HD6YysFa4BLj7g866Hk/j8mfg7NLIcRq0I57I4DBx+xCOH4xiVd3hwq4Ken3omiY
+	 7P4hMwDYQ2lOEB7aFsWcQ+d7Sb82DMMfmmNCaffJJOTEepv71yzjo3FsRsD6TmfaQV
+	 cT0/PVLi/7Iqh5DsfIOmEYvalaeUnHIjpNQVefdV6+GUxOV/0QZkbt0TC2+34r0eMt
+	 u1fxeyrUs6OGR/HoSCu4I9xWptMRoncdQ2+GqxTpRL9Kx02riRJi1DhTi0bT0DQetk
+	 hxABn07H4QR+w==
+Date: Mon, 1 Sep 2025 17:41:50 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Shradha Todi <shradha.t@samsung.com>
+Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH v5 7/7] dt-bindings: soc: fsl: qe: Add support of IRQ in QE GPIO
-Date: Mon,  1 Sep 2025 14:05:14 +0200
-Message-ID: <4d7560f77dbd60f6297958acbc0cf412d8921856.1756727747.git.christophe.leroy@csgroup.eu>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <cover.1756727747.git.christophe.leroy@csgroup.eu>
-References: <cover.1756727747.git.christophe.leroy@csgroup.eu>
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org, mani@kernel.org,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org,
+	bhelgaas@google.com, jingoohan1@gmail.com, krzk+dt@kernel.org,
+	conor+dt@kernel.org, alim.akhtar@samsung.com, kishon@kernel.org,
+	arnd@arndb.de, m.szyprowski@samsung.com, jh80.chung@samsung.com,
+	pankaj.dubey@samsung.com
+Subject: Re: [PATCH v3 10/12] phy: exynos: Add PCIe PHY support for FSD SoC
+Message-ID: <aLWNhv0eLj7LRrvM@vaman>
+References: <20250811154638.95732-1-shradha.t@samsung.com>
+ <CGME20250811154738epcas5p1d1202f799c4d950c5d5e7f45e39a51e7@epcas5p1.samsung.com>
+ <20250811154638.95732-11-shradha.t@samsung.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756728308; l=3640; i=christophe.leroy@csgroup.eu; s=20211009; h=from:subject:message-id; bh=59wZHIxllxZcwCrUxSll7FEcA0fEA5AxS+AodcoXc0o=; b=cy9tS21IUHMGiZz2LkFhr/4YksRHLYEUvFGDBOX1axyjBo+bzEtfYV3xtcm8RSYCvbvRHjfst 3wmxkdbNoD3BJ0zgTn8FewQGYmGd3efkqIdatLK/NyqRDmBjpdLHkdM
-X-Developer-Key: i=christophe.leroy@csgroup.eu; a=ed25519; pk=HIzTzUj91asvincQGOFx6+ZF5AoUuP9GdOtQChs7Mm0=
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250811154638.95732-11-shradha.t@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_052127_163512_5D81D21F 
-X-CRM114-Status: GOOD (  11.44  )
+X-CRM114-CacheID: sfid-20250901_051156_515081_391DE00D 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,102 +80,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the QE, a few GPIOs have an associated IRQ to notify changes.
-Add IRQ support to QE GPIO.
+On 11-08-25, 21:16, Shradha Todi wrote:
+> Add PCIe PHY support for Tesla FSD SoC.
 
-As not all GPIOs have an associated IRQ, the driver needs to know
-to which GPIO corresponds each provided IRQ. This is provided via
-multiple compatible properties:
+Can you pls add a bit more description of what you are adding, helps to
+understand the change
 
-	compatible = "fsl,mpc8323-qe-pario-bank-a"
-	compatible = "fsl,mpc8323-qe-pario-bank-b"
-	compatible = "fsl,mpc8323-qe-pario-bank-c"
+> +/* FSD: PCIe PCS registers */
+> +#define FSD_PCIE_PCS_BRF_0		0x0004
+> +#define FSD_PCIE_PCS_BRF_1		0x0804
+> +#define FSD_PCIE_PCS_CLK		0x0180
+> +
+> +/* FSD: PCIe SYSREG registers */
+> +#define FSD_PCIE_SYSREG_PHY_0_CON			0x042c
+> +#define FSD_PCIE_SYSREG_PHY_0_CON_MASK			0x03ff
+> +#define FSD_PCIE_SYSREG_PHY_0_REF_SEL			(0x2 << 0)
 
-	compatible = "fsl,mpc8360-qe-pario-bank-a"
-	compatible = "fsl,mpc8360-qe-pario-bank-b"
-	compatible = "fsl,mpc8360-qe-pario-bank-c"
-	compatible = "fsl,mpc8360-qe-pario-bank-d"
-	compatible = "fsl,mpc8360-qe-pario-bank-e"
-	compatible = "fsl,mpc8360-qe-pario-bank-f"
-	compatible = "fsl,mpc8360-qe-pario-bank-g"
+Use GENMASK() please here and elsewhere
 
-	compatible = "fsl,mpc8568-qe-pario-bank-a"
-	compatible = "fsl,mpc8568-qe-pario-bank-b"
-	compatible = "fsl,mpc8568-qe-pario-bank-c"
-	compatible = "fsl,mpc8568-qe-pario-bank-d"
-	compatible = "fsl,mpc8568-qe-pario-bank-e"
-	compatible = "fsl,mpc8568-qe-pario-bank-f"
+> +static int fsd_pcie_phy0_reset(struct phy *phy)
+> +{
+> +	struct exynos_pcie_phy *phy_ctrl = phy_get_drvdata(phy);
+> +
+> +	writel(0x1, phy_ctrl->pcs_base + FSD_PCIE_PCS_CLK);
+> +
+> +	regmap_update_bits(phy_ctrl->fsysreg, FSD_PCIE_SYSREG_PHY_0_CON,
+> +			FSD_PCIE_SYSREG_PHY_0_CON_MASK, 0x0);
+> +	regmap_update_bits(phy_ctrl->fsysreg, FSD_PCIE_SYSREG_PHY_0_CON,
+> +		FSD_PCIE_SYSREG_PHY_0_AUX_EN, FSD_PCIE_SYSREG_PHY_0_AUX_EN);
+> +	regmap_update_bits(phy_ctrl->fsysreg, FSD_PCIE_SYSREG_PHY_0_CON,
+> +		FSD_PCIE_SYSREG_PHY_0_REF_SEL_MASK, FSD_PCIE_SYSREG_PHY_0_REF_SEL);
+> +	regmap_update_bits(phy_ctrl->fsysreg, FSD_PCIE_SYSREG_PHY_0_CON,
+> +		FSD_PCIE_SYSREG_PHY_0_INIT_RSTN, FSD_PCIE_SYSREG_PHY_0_INIT_RSTN);
 
-When not using IRQ and for banks having no IRQ (like bank D on mpc8323)
-the origin compatible = "fsl,mpc8323-qe-pario-bank" is still valid.
+pls conform to coding style for these
 
-Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
----
-v5: Changed to DT schema
----
- .../fsl/cpm_qe/fsl,mpc8323-qe-pario-bank.yaml | 27 +++++++++++++++++--
- 1 file changed, 25 insertions(+), 2 deletions(-)
+> +
+> +	return 0;
 
-diff --git a/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,mpc8323-qe-pario-bank.yaml b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,mpc8323-qe-pario-bank.yaml
-index e6ba319a75c1..80f93914c779 100644
---- a/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,mpc8323-qe-pario-bank.yaml
-+++ b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,mpc8323-qe-pario-bank.yaml
-@@ -17,6 +17,22 @@ properties:
-     items:
-       - enum:
-           - fsl,chip-qe-pario-bank
-+          - fsl,mpc8323-qe-pario-bank-a
-+          - fsl,mpc8323-qe-pario-bank-b
-+          - fsl,mpc8323-qe-pario-bank-c
-+          - fsl,mpc8360-qe-pario-bank-a
-+          - fsl,mpc8360-qe-pario-bank-b
-+          - fsl,mpc8360-qe-pario-bank-c
-+          - fsl,mpc8360-qe-pario-bank-d
-+          - fsl,mpc8360-qe-pario-bank-e
-+          - fsl,mpc8360-qe-pario-bank-f
-+          - fsl,mpc8360-qe-pario-bank-g
-+          - fsl,mpc8568-qe-pario-bank-a
-+          - fsl,mpc8568-qe-pario-bank-b
-+          - fsl,mpc8568-qe-pario-bank-c
-+          - fsl,mpc8568-qe-pario-bank-d
-+          - fsl,mpc8568-qe-pario-bank-e
-+          - fsl,mpc8568-qe-pario-bank-f
-       - const: fsl,mpc8323-qe-pario-bank
- 
-   reg:
-@@ -28,6 +44,9 @@ properties:
-   '#gpio-cells':
-     const: 2
- 
-+  interrupts:
-+    description: List of interrupts for lines of the port that trigger interrupts on change.
-+
- required:
-   - compatible
-   - reg
-@@ -39,15 +58,19 @@ additionalProperties: false
- examples:
-   - |
-     qe_pio_a: gpio-controller@1400 {
--        compatible = "fsl,mpc8360-qe-pario-bank", "fsl,mpc8323-qe-pario-bank";
-+        compatible = "fsl,mpc8360-qe-pario-bank-a", "fsl,mpc8323-qe-pario-bank";
-         reg = <0x1400 0x18>;
-         gpio-controller;
-         #gpio-cells = <2>;
-+        interrupts = <0 1 2 3>;
-+        interrupt-parent = <&qepic>;
-     };
- 
-     qe_pio_e: gpio-controller@1460 {
--        compatible = "fsl,mpc8360-qe-pario-bank", "fsl,mpc8323-qe-pario-bank";
-+        compatible = "fsl,mpc8360-qe-pario-bank-e", "fsl,mpc8323-qe-pario-bank";
-         reg = <0x1460 0x18>;
-         gpio-controller;
-         #gpio-cells = <2>;
-+        interrupts = <19 20 21 22 23 24 25>;
-+        interrupt-parent = <&qepic>;
-     };
+why return a value when this wont ever return anything else than 0?
+
+> +
+> +	writel(0x2, pbase + FSD_PCIE_PHY_CMN_RESET);
+> +
+> +	writel(0x00, phy_ctrl->pcs_base + FSD_PCIE_PCS_BRF_0);
+> +	writel(0x00, phy_ctrl->pcs_base + FSD_PCIE_PCS_BRF_1);
+> +	writel(0x00, pbase + FSD_PCIE_PHY_AGG_BIF_RESET);
+> +	writel(0x00, pbase + FSD_PCIE_PHY_AGG_BIF_CLOCK);
+> +
+> +	fsd_pcie_phy_writel(phy_ctrl, FSD_PCIE_PHY_TRSV_REG07B_LN_N, 0x20);
+> +	fsd_pcie_phy_writel(phy_ctrl, FSD_PCIE_PHY_TRSV_REG052_LN_N, 0x00);
+> +	writel(0xaa, pbase + FSD_PCIE_PHY_TRSV_CMN_REG01E);
+> +	writel(0x28, pbase + FSD_PCIE_PHY_TRSV_CMN_REG02D);
+> +	writel(0x28, pbase + FSD_PCIE_PHY_TRSV_CMN_REG031);
+> +	writel(0x21, pbase + FSD_PCIE_PHY_TRSV_CMN_REG036);
+> +	writel(0x12, pbase + FSD_PCIE_PHY_TRSV_CMN_REG05F);
+> +	writel(0x23, pbase + FSD_PCIE_PHY_TRSV_CMN_REG060);
+> +	writel(0x0, pbase + FSD_PCIE_PHY_TRSV_CMN_REG061);
+> +	writel(0x0, pbase + FSD_PCIE_PHY_TRSV_CMN_REG062);
+> +	writel(0x15, pbase + FSD_PCIE_PHY_TRSV_CMN_REG03);
+
+Magic numbers?
 -- 
-2.49.0
-
+~Vinod
 
