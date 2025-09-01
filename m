@@ -4,64 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FF91CA100C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 16:50:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ADD9CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 16:50:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Foe2CicxDk3WNhkgIZaS9bziagmtWXzImPpSCCMXj9U=; b=xY/pGWAhkbaTL1Z9DZw9Pph8mt
-	xrwmuz1bzNxLsb1QkdB7lG7nY6R43aAAtaEara8j3QNvmeA2RvK6zI3Ho+4Fm2LKg0R9JgmzImNSd
-	emQgEiTqYNQVsPW+TpqOM8eqHkC4lp2brT71YuMyYurEAqfor4vr6s9kG+KbQwr3HH9dqNTKFzzJ0
-	duAWEFtPJDIDxdbZFoJQbpFSyIWrOoITtYSWDBXZvvNUincnsaQat1l//YRCzIw9LycOlIvld3kNC
-	gXMEBulyblxKSND3b10vTaDNfihfiAu1rDOQlz6ovBXKJ+n8oTP1H7GZhRi84+qu/twiSzNLekCuB
-	R/OYLRtQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o1/2ukhzETswBvigFCZUS4xPD90/kXRG6GUxtAy8yc0=; b=27OIPZovW3MO0yPiTkTyPLiQ78
+	kjhAihjNN/yUWBMo7W+S+Dtx6+sOZf4xUlqBfCafz0iOx7P7IvSQFTCkgKQ7pHzpjMsCl5YA/L6Ga
+	byt6wbQ1KLQ/vzklMfLRb7QuH8R2nZmwINltnL3UEMWvdKGbeYMRDI98i8nr7SD4PDBoE0R4ZkddI
+	6ps8/pesYtPhYs0NeLOptkM2pvCNMasLb+/lOwJepOSf0Z+e7O1BnSX3tXtSBndCFJbVYIF8BgOjp
+	vMvWtNYY8865NyK/WGIdYUdR6Tw1L42imTran3G1G+gwKKi2gryiYQbYq6J7F9tb82ftkMQgF8qcn
+	jCkinymg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut7jF-0000000DLId-1Uje;
-	Mon, 01 Sep 2025 16:50:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut4G3-0000000Cdee-2kgB
+	id 1ut7jH-0000000DLM2-2Q1p;
+	Mon, 01 Sep 2025 16:50:03 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ut4Jt-0000000CdxD-3pxf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 13:07:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B37A316A3;
-	Mon,  1 Sep 2025 06:07:30 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 314873F694;
-	Mon,  1 Sep 2025 06:07:37 -0700 (PDT)
-Date: Mon, 1 Sep 2025 14:07:32 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Steven Rostedt <rostedt@goodmis.org>,
-	Luo Gengkun <luogengkun@huaweicloud.com>, mhiramat@kernel.org,
-	mathieu.desnoyers@efficios.com, linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Al Viro <viro@zeniv.linux.org.uk>
-Subject: Re: [PATCH] tracing: Fix tracing_marker may trigger page fault
- during preempt_disable
-Message-ID: <aLWalJm3cdfBS70l@J2N7QTR9R3>
-References: <20250819105152.2766363-1-luogengkun@huaweicloud.com>
- <20250819135008.5f1ba00e@gandalf.local.home>
- <436e4fa7-f8c7-4c23-a28a-4e5eebe2f854@huaweicloud.com>
- <20250829082604.1e3fd06e@gandalf.local.home>
- <20250829083655.3d38d02b@gandalf.local.home>
- <aLIFRHcsEo2e2GE7@arm.com>
- <20250829181311.079f33bf@gandalf.local.home>
- <aLLQ-43Ll8rF7kon@arm.com>
- <aLVt30-Lc9lesqS6@J2N7QTR9R3>
- <aLWRUTFeumwr1--E@arm.com>
+	Mon, 01 Sep 2025 13:11:39 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-55f646b1db8so3962746e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 06:11:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1756732296; x=1757337096; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=o1/2ukhzETswBvigFCZUS4xPD90/kXRG6GUxtAy8yc0=;
+        b=r4XBGHOgJeDaCvYImkqYiGEYYuoo3EYGxTjOTulzsYJ1gFKFYg/21NnJo8qPX85i0Y
+         rIxODV/fY84V0broVQO+TvUjkJAUXdpMSeKAtR6UeeRApDhz+D8m3IoRLITt8y5HFh+U
+         NGNUqpra0rDIWPbFJjHTp9eMh459Ofnpx+cN8K+JsExvGXhxaJp174W/Lo7grFxOe6C3
+         ppv8NJtSyRuTCHUkBEHbgHZV21b7h399ccISkV1j/ejWgWxtJZ2y7uiPWMip+nYznP3i
+         vxkVp6lhFqggu9TxEZ3GPPrzgrk037yKC3UBGYaKHuH6qTZKEsyt9y6q5Bet0TYxiKSW
+         /7lg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756732296; x=1757337096;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=o1/2ukhzETswBvigFCZUS4xPD90/kXRG6GUxtAy8yc0=;
+        b=cAema92A2aNPeAVYhMWV8ZFIb9YsP/eavCbxFIZ0gZictvpuwcfcLYIeY/ObToPiL3
+         mtiNZ1CfWTaDzXxQytlxSSskreCSYtVWKlbafTdX/OrzNEPe/yl5x4cBwVMkUBwHpXpl
+         1ksJBuhWjEnYJ1iLOfJla67R2r32zBVtlD7lKAsKHAiyaTDItk3T3q7fim8VdsaoOThz
+         S/u/xnjpbX9CWtLXqyO7u4Tos02X6vxD+ZOu/+6oSE6/DW7soLvc+9dapugMA2EhBYZE
+         v4sHa7PlqS/0z1EZuDlgdNl44preFchCQUYcRtXZIQdG43B15MnKWooUH5giYQc0YIqo
+         yJ/w==
+X-Forwarded-Encrypted: i=1; AJvYcCU1FYHGYYXbNYKy9+0dVmye9o0v8x/RosfTVeKHb+G6H8eZ4oB2R5WUprAvilQ8GV4ZjsguZq53bkxscqs4PGWG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/8POwvP0WSLuBe+C4rrURtYSZsBzfnPRnKeZHA+NlOFfp+548
+	IgO6UtiBBrvvn/acnw7prJ3HBmxvErM4qmBBIiIciVUmiXAvnEARh5qJWJ5kJwXI3S9gxxXOlYq
+	1xsuL9LHS3kEvH3UW1ullNDeFkQJ1gWAd0t/6i0j78g==
+X-Gm-Gg: ASbGnctLHKb5DKjkjvPHww5Xnq+Fj0kFNDQwRS6KMFdwBfVtmpjmGxKoNIAXwL37q8h
+	yjkDFgo26hbxSGM4oKIUH3Ed0AMtYLG5//V9zy6KFrpFb/vkHoGcTqZ/xdue495w3ndhc5nz3zb
+	EB+iS1dL9LhUKcnlUQ+0fmUU6CCHbD9tXS2fcahz0CcfQ9K9Uo5A8bZjT0t+4YU0cF8PeivAvNK
+	vyCPxk=
+X-Google-Smtp-Source: AGHT+IFdtZUV12X2qQohTcmgXoI8sX/n2MdDB3IP/SMHaxKOnh4rNFzghcV2U9qSUnmpWORF0iKHeIacxU0C0GZ7Nxw=
+X-Received: by 2002:a05:6512:2353:b0:55f:6a6a:4955 with SMTP id
+ 2adb3069b0e04-55f708bff41mr1832610e87.25.1756732296026; Mon, 01 Sep 2025
+ 06:11:36 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aLWRUTFeumwr1--E@arm.com>
+References: <20250831084958.431913-1-rongqianfeng@vivo.com> <20250831084958.431913-2-rongqianfeng@vivo.com>
+In-Reply-To: <20250831084958.431913-2-rongqianfeng@vivo.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Mon, 1 Sep 2025 15:11:25 +0200
+X-Gm-Features: Ac12FXzMx74oEGw0sys3dqlvnEr6aJBPDjUSlodZm8Lf6MbYZWveT4WA0nkRQcE
+Message-ID: <CACRpkdY14ZuAp+mg==M62draaaf897Ry-Nkh93UR132iUqnLvw@mail.gmail.com>
+Subject: Re: [PATCH 1/3] pinctrl: armada-37xx: Use int type to store negative
+ error codes
+To: Qianfeng Rong <rongqianfeng@vivo.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	"moderated list:ARM/Marvell Kirkwood and Armada 370, 375, 38x,..." <linux-arm-kernel@lists.infradead.org>, 
+	"open list:PIN CONTROL SUBSYSTEM" <linux-gpio@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_060739_777049_11CDE7C4 
-X-CRM114-Status: GOOD (  45.67  )
+X-CRM114-CacheID: sfid-20250901_061137_956836_C7D1CCD4 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,113 +98,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 01, 2025 at 01:28:01PM +0100, Catalin Marinas wrote:
-> On Mon, Sep 01, 2025 at 10:56:47AM +0100, Mark Rutland wrote:
-> > On Sat, Aug 30, 2025 at 11:22:51AM +0100, Catalin Marinas wrote:
-> > > On Fri, Aug 29, 2025 at 06:13:11PM -0400, Steven Rostedt wrote:
-> > > > On Fri, 29 Aug 2025 20:53:40 +0100
-> > > > Catalin Marinas <catalin.marinas@arm.com> wrote:
-> > > > valid user address.
-> > > > > BTW, arm64 also bails out early in do_page_fault() if in_atomic() but I
-> > > > > suspect that's not the case here.
-> > > > > 
-> > > > > Adding Al Viro since since he wrote a large part of uaccess.h.
-> > > > 
-> > > > So, __copy_from_user_inatomic() is supposed to be called if
-> > > > pagefault_disable() has already been called? If this is the case, can we
-> > > > add more comments to this code? I've been using the inatomic() version this
-> > > > way in preempt disabled locations since 2016.
-> > > 
-> > > This should work as long as in_atomic() returns true as it's checked in
-> > > the arm64 fault code. With PREEMPT_NONE, however, I don't think this
-> > > works.
-> > 
-> > Sorry, what exactly breaks for the PREEMPT_NONE case?
-> 
-> This code would trigger a warning:
-> 
-> 	preempt_disable();
-> 	WARN_ON(!in_atomic());
-> 	preempt_enable();
+On Sun, Aug 31, 2025 at 10:50=E2=80=AFAM Qianfeng Rong <rongqianfeng@vivo.c=
+om> wrote:
 
-Ah, you mean in the absence of pagefault_disable()..pagefault_enable().
+> In armada_37xx_gpio_direction_output(), the 'ret' variable might store
+> the negative error codes returned by regmap_update_bits(), and in
+> armada_37xx_edge_both_irq_swap_pol(), the 'ret' variable directly
+> stores -1, so the type of the 'ret' variable needs to be changed to
+> int in both cases.
+>
+> No effect on runtime.
+>
+> Signed-off-by: Qianfeng Rong <rongqianfeng@vivo.com>
 
-The page fault handling code uses faulthandler_disabled(), which checks
-whether either pagefault_disabled() or in_atomic() are true, and aborts
-if either are. Given that, using pagefault_disable() should work fine on
-PREEMPT_NONE.
+This patch (1/3) applied for next in the pinctrl tree.
 
-> More importantly, a faulting __copy_from_user_inatomic() between
-> get/put_cpu() could trigger migration.
-
-Yep, in the absence of pagefault_disable().
-
-> > > > I just wanted to figure out why __copy_from_user_inatomic() wasn't atomic.
-> > > > If anything, it needs to be better documented.
-> > > 
-> > > Yeah, I had no idea until I looked at the code. I guess it means it can
-> > > be safely used if in_atomic() == true (well, making it up, not sure what
-> > > the intention was).
-> > 
-> > I think that was the intention -- it's the caller asserting that they
-> > know the access won't fault (and hence won't sleep), and that's why
-> > __copy_to_user_inatomic() and __copy_to_user() only differ by the latter
-> > calling might_sleep().
-> > 
-> > It looks like other inconsistencies have crept in by accident. AFAICT
-> > the should_fail_usercopy() check in __copy_from_user() was accidentally
-> > missed from __copy_from_user_inatomic() when it was introduced in
-> > commit:
-> 
-> I was wondering about that but some code comment for the inatomic
-> variant states that it's the responsibility of the caller to ensure it
-> doesn't fault.
-
-I think you mean the kerneldoc comment for __copy_to_user_inatomic(),
-which says:
-
-| The caller should also make sure he pins the user space address
-| so that we don't result in page fault and sleep.
-
-... and I think the key aspect is to avoid the sleeping, and actually
-taking a fault (and failing the uaccess) has to be fine, or the _nofault
-API (which uses the _inatomic API) is broken by design.
-
-I think the bit about pinning the address space is misleading.
-
-> Not sure one can do other than pinning the page _and_ taking the mm
-> lock. So I agree we should add the fault injection here as well.
-
-Cool.
-
-> > ... so there's a bunch of scope for cleanup, and we could probably have:
-> > 
-> > 	/*
-> > 	 * TODO: comment saying to only call this directly when you know
-> > 	 * that the fault handler won't sleep.
-> > 	 */
-> > 	static __always_inline __must_check unsigned long
-> > 	__copy_from_user_inatomic(void *to, const void __user *from, unsigned long n)
-> > 	{
-> > 		...
-> > 	}
-> > 
-> > 	static __always_inline __must_check unsigned long
-> > 	__copy_from_user(void *to, const void __user *from, unsigned long n)
-> > 	{
-> > 		might_fault();
-> > 		return __copy_from_user_inatomic();
-> > 	}
-> > 
-> > ... to avoid the inconsistency.
-> 
-> I think the _inatomic variant should be reserved to arch code that knows
-> the conditions. Generic code/drivers may not necessarily be aware of
-> what the arch fault handler does. The _nofault API I think is better
-> suited in generic code.
-
-I agree. In almost all situations it's better for code to use the
-_nofault API.
-
-Mark.
+Yours,
+Linus Walleij
 
