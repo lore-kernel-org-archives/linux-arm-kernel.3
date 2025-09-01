@@ -4,60 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EEBECA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 00:53:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B13A2CA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 00:53:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YPDpdrlAt+g/liJ07vsdJcZrV0S5aUK3gYKnW7keQBI=; b=E7hq8PNRNmMDVCQwS5zbb+NQEC
-	TdZVDgae0p6trclNXpSfm21eR/X9AtwWw3wiWhUTZLQ7Loj0gRKvKug+b9JgVFY2lOAAdqLnIHath
-	xh9xmU6vA34Bg9W+pn4HyYNSnGg9wzHWXcNzThIxATIz9frWhDw4MVTIvBiiniPphmzPZ4uH7UK9W
-	wpvaP6yZVwxqyV+/7stvIOPJrQ7ii+8rN2lLxJJeDKiXmI6HDLhMr0PifVrHswWlfw6oOCNsuRbWG
-	wquiHM0tvG+ugsGcwnvbzxVisYYJt+vZJOPxNoWpCktIGax7DsVpVPd4zG9+yaBkawu25hL9XEaSD
-	mvtUW5KA==;
+	bh=5aEzpioEnVAaVyWyNZeOyoP4rfKIhvC7XDRdVAv5wyI=; b=xZpxZ7qh4LcyW0p943hwokCovh
+	fDnkJRkeV7U/1N0ah4Pw62kU+0NkQ/F4FJrwFxFWxt11NWlwSQX0zabirlltyUsvpMVhsp5BDysv/
+	Aj1GJgIKIaXFSNML8OykUT54dyu7iievXhqO5XuMZi9sMlcZ06hk/5AtJV6eb5/pnfaBK2drbC3Bw
+	SKl2QUb5EE6HpDUnyknwf3aF+6K9aCKCT9UKh9V8TlPuNBLQe8EXxsCU2dA0/A9k+urJwxNoyr1hG
+	Tga4EtqLB71b7+ct58cV7VQttXoy5BKUrKxkJzNRe7ZHgw1hJZMmci7oTbtoiXxJFqKZoyKObQgoJ
+	ic35/dSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utFHJ-0000000EaE7-3DC2;
-	Tue, 02 Sep 2025 00:53:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1utFHN-0000000EaL5-42xY;
+	Tue, 02 Sep 2025 00:53:46 +0000
+Received: from out-183.mta1.migadu.com ([95.215.58.183])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utCo3-0000000E5L2-3Guw
+	id 1utCrA-0000000E5tV-17oE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 22:15:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CC605601DA;
-	Mon,  1 Sep 2025 22:15:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 710C6C4CEF0;
-	Mon,  1 Sep 2025 22:15:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756764917;
-	bh=8uAKWbLvP1JhsUUPjrpM3S120Et8nLPU32AZnH1mpuw=;
-	h=From:To:In-Reply-To:References:Subject:Date:From;
-	b=TzSkoxwZfGvW1SDB4X8VCWoZN5VQVEks9sWvRhg3kaR83tYDuOrwBuoHLkjGeo5kF
-	 /aTaGkLYjkRtxFKzdijJ3UHxkBXMclitlaOpini/sjpH44cW/qVD8gic5ncADQlFIm
-	 Spe7agkHqvjipAU33fA7wVFBZQZ2KyVDPFC/T5RogjKylCNc2sdeQSNQ1BRZwzFJ9W
-	 +8RWGGeF+bL/eGD7rdnFneFE9H8bW2Bt1pmS1RF2HNxJSMoV81EtkoVvfSsF0cUz3N
-	 joZSd4cX2iiad/TNVYkdRJakTuojDnEUpvo9FAtx55o3FN2zmhx/6oY3oI2g17p2ks
-	 nyxo6OvdrsLEA==
-From: Mark Brown <broonie@kernel.org>
-To: Sudeep Holla <sudeep.holla@arm.com>, 
- Cristian Marussi <cristian.marussi@arm.com>, 
- Liam Girdwood <lgirdwood@gmail.com>, arm-scmi@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Qianfeng Rong <rongqianfeng@vivo.com>
-In-Reply-To: <20250829101411.625214-1-rongqianfeng@vivo.com>
-References: <20250829101411.625214-1-rongqianfeng@vivo.com>
-Subject: Re: [PATCH] regulator: scmi: Use int type to store negative error
- codes
-Message-Id: <175676491502.901001.14592841978206903121.b4-ty@kernel.org>
-Date: Mon, 01 Sep 2025 23:15:15 +0100
+	Mon, 01 Sep 2025 22:18:33 +0000
+Message-ID: <0a5588c2-bac5-4d9a-a726-57c6d22341ff@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1756765109;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=5aEzpioEnVAaVyWyNZeOyoP4rfKIhvC7XDRdVAv5wyI=;
+	b=KTszi41xFK5aOcCPIZ/WHGDkVYDB8Nn0oYztx9Mg4O2/Wh6EFjfUcyAHQ1D8reV1U13jm0
+	6aJGFPbvPKDsjAML+vjZ+BG/Av8+/nLdirTRfy9pWDx5R8vGyiIz4izcWTYhQ1bwz6bF8l
+	5K7YULnrmHNK/AfcH1NPULRd89QPAIE=
+Date: Mon, 1 Sep 2025 23:18:15 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Subject: Re: [PATCH net] net: thunder_bgx: decrement cleanup index before use
+To: Rosen Penev <rosenp@gmail.com>, netdev@vger.kernel.org
+Cc: Sunil Goutham <sgoutham@marvell.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, David Daney <david.daney@cavium.com>,
+ "moderated list:ARM/CAVIUM THUNDER NETWORK DRIVER"
+ <linux-arm-kernel@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>
+References: <20250901213314.48599-1-rosenp@gmail.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+In-Reply-To: <20250901213314.48599-1-rosenp@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-cff91
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250901_151832_462166_174710BF 
+X-CRM114-Status: GOOD (  16.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,43 +74,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 29 Aug 2025 18:14:11 +0800, Qianfeng Rong wrote:
-> Change the 'ret' variable from u32 to int to store negative error codes or
-> zero returned by of_property_read_u32().
+On 01/09/2025 22:33, Rosen Penev wrote:
+> All paths in probe that call goto defer do so before assigning phydev
+> and thus it makes sense to cleanup the prior index. It also fixes a bug
+> where index 0 does not get cleaned up.
 > 
-> Storing the negative error codes in unsigned type, doesn't cause an issue
-> at runtime but it's ugly as pants. Additionally, assigning negative error
-> codes to unsigned type may trigger a GCC warning when the -Wsign-conversion
-> flag is enabled.
+> Fixes: b7d3e3d3d21a ("net: thunderx: Don't leak phy device references on -EPROBE_DEFER condition.")
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> ---
+>   drivers/net/ethernet/cavium/thunder/thunder_bgx.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> [...]
+> diff --git a/drivers/net/ethernet/cavium/thunder/thunder_bgx.c b/drivers/net/ethernet/cavium/thunder/thunder_bgx.c
+> index 21495b5dce25..90c718af06c1 100644
+> --- a/drivers/net/ethernet/cavium/thunder/thunder_bgx.c
+> +++ b/drivers/net/ethernet/cavium/thunder/thunder_bgx.c
+> @@ -1515,11 +1515,11 @@ static int bgx_init_of_phy(struct bgx *bgx)
+>   	 * for phy devices we may have already found.
+>   	 */
+>   	while (lmac) {
+> +		lmac--;
+>   		if (bgx->lmac[lmac].phydev) {
+>   			put_device(&bgx->lmac[lmac].phydev->mdio.dev);
+>   			bgx->lmac[lmac].phydev = NULL;
+>   		}
+> -		lmac--;
+>   	}
+>   	of_node_put(node);
+>   	return -EPROBE_DEFER;
 
-Applied to
-
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-next
-
-Thanks!
-
-[1/1] regulator: scmi: Use int type to store negative error codes
-      commit: 9d35d068fb138160709e04e3ee97fe29a6f8615b
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+Reviewed-by: Vadim Fedorenko <vadim.fedorenko@linux.dev>
 
