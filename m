@@ -4,140 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E592FCA100B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 19:50:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19DF5CA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 19:50:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fIzsdHZ3fBP51ER2numDMmmgvS6jLZjlCpLLEi+lFJs=; b=xccD0YQC7HWqm3jSqjIEDlOQ9s
-	A25IS1ncyiqV6L1PEFYU6WCuGBDyZ77t+Szxo9H6Y56spHOFcyV/Rr7yuZm0xwHg5GcJCBzbfrG7K
-	emdkJDVyDutjU76v8AYj0s2FFhOa35A80tqyMW3v4B1twsUN0Q1mPjtdUw+2MoCQs1NRI5h+Mpi2G
-	pRzEL3iW4jFTd56Fs4dN8lNP5o8YXqRET8FlvJ4p+ODdyZuzdeZdExfCsNR2qhNYvnWT/Y4Rg+gEg
-	p/1KH3B8j9DgPkKnp7LiV5/0QYc7mEfDRhdXYBdKvqwTNceq0LCE2xtiBb/mq2vZyTGl3pCrwaVT2
-	MxgntfzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cV5OJglULPTt+xt0aGUVyF0eHFXIwnz0I/sY2PHK9D0=; b=FKUTNFeX665g9MiM4P7MZSBD2Q
+	v8GKi3uJc1WM3tQzpRtWps55uu5gZvjrG2/00coXx51R9BzjRU+jL6rX99rjqLxRgA66NvHXsmht8
+	0ozoUMzEVA2Zp6WAaCiPC7Ilseffdfo86Wx9NcjTciP31WDX3NTAKSqq6i8w3YB+9cMbjsA+zQAUZ
+	oQgyUU1VxuTnJRMunRDpn/dV6UaLpMLJMfd+jV7hzYM6TnqRdy7LOKwTaGVlGsm/BSPJzIEnwAWZ9
+	DuKEcBuLmqRZ9zdYs+pk9kc7iUVu+yyiIuGcJUh0qOjrV5NK+MZDnSw8KY3SrXt52pNtaTsiWpwy9
+	eAdOKa0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utAXM-0000000DgJc-3ZK3;
-	Mon, 01 Sep 2025 19:49:56 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut6BA-0000000D0B9-3O1D
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 01 Sep 2025 15:10:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=fIzsdHZ3fBP51ER2numDMmmgvS6jLZjlCpLLEi+lFJs=; b=cKIPOacEE2mZG/RNCamv7VSM5t
-	FCXVIhtHlDbW8SQW6OqC8eBguj2gX05H9LjlV1zKViz7FxUGpbCapPIcVUzyAfRzRukNbRYJTbAMN
-	R4IS6ovBwFCHlj4/fPHXm4zXq+jMDPHOHcUYmPgRCLVrpEybGl9Gc/j5LaZjadD5niQ0Y8GKluHt8
-	W7927KVkoieoMY8Rx/+1J4r9kYBali76W/AEg61vicXYjPZe9SOi656F+66CIxiPQn6FrPheL/oSg
-	m5VgaJ+LxpPVZ7i8WicY+kWWIwwhvq6xaTTboZv5FxaEsmiso8F9hQXgcP3I/RpZAlmBB+gNwPQMX
-	E0rUWEow==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut6B4-00000003mvH-45gL
+	id 1utAXf-0000000Dgm0-0ttg;
+	Mon, 01 Sep 2025 19:50:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ut6Dc-0000000D1Lk-15AX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 15:10:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756739437;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=fIzsdHZ3fBP51ER2numDMmmgvS6jLZjlCpLLEi+lFJs=;
-	b=BN1KTdln/5MbiDdBMw67t9XEU3/y8iVDnTySLhGNwxwsGhqYrKo+Rll77/AOQbjvlei2/h
-	W9GtwsEUow4NwAySOGYY3e8rgzQnFh+iVo49KEGTi71IAgDzld0V5Ion5OKk0XKig4/Znz
-	wrIPAroMtiu1XA+dtZknCtyXYvf56/Y=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756739437;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=fIzsdHZ3fBP51ER2numDMmmgvS6jLZjlCpLLEi+lFJs=;
-	b=BN1KTdln/5MbiDdBMw67t9XEU3/y8iVDnTySLhGNwxwsGhqYrKo+Rll77/AOQbjvlei2/h
-	W9GtwsEUow4NwAySOGYY3e8rgzQnFh+iVo49KEGTi71IAgDzld0V5Ion5OKk0XKig4/Znz
-	wrIPAroMtiu1XA+dtZknCtyXYvf56/Y=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-326-b49aMdn1OuiZpoH1EqfeVQ-1; Mon,
- 01 Sep 2025 11:10:36 -0400
-X-MC-Unique: b49aMdn1OuiZpoH1EqfeVQ-1
-X-Mimecast-MFC-AGG-ID: b49aMdn1OuiZpoH1EqfeVQ_1756739429
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D9D7819560BF;
-	Mon,  1 Sep 2025 15:10:28 +0000 (UTC)
-Received: from t14s.fritz.box (unknown [10.22.88.45])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 4F426180028F;
-	Mon,  1 Sep 2025 15:10:14 +0000 (UTC)
-From: David Hildenbrand <david@redhat.com>
-To: linux-kernel@vger.kernel.org
-Cc: David Hildenbrand <david@redhat.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Brendan Jackman <jackmanb@google.com>,
-	Christoph Lameter <cl@gentwo.org>,
-	Dennis Zhou <dennis@kernel.org>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	dri-devel@lists.freedesktop.org,
-	intel-gfx@lists.freedesktop.org,
-	iommu@lists.linux.dev,
-	io-uring@vger.kernel.org,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Jens Axboe <axboe@kernel.dk>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	John Hubbard <jhubbard@nvidia.com>,
-	kasan-dev@googlegroups.com,
-	kvm@vger.kernel.org,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	linux-arm-kernel@axis.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-crypto@vger.kernel.org,
-	linux-ide@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-mmc@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	Marco Elver <elver@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	netdev@vger.kernel.org,
-	Oscar Salvador <osalvador@suse.de>,
-	Peter Xu <peterx@redhat.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Tejun Heo <tj@kernel.org>,
-	virtualization@lists.linux.dev,
-	Vlastimil Babka <vbabka@suse.cz>,
-	wireguard@lists.zx2c4.com,
-	x86@kernel.org,
-	Zi Yan <ziy@nvidia.com>
-Subject: [PATCH v2 23/37] dma-remap: drop nth_page() in dma_common_contiguous_remap()
-Date: Mon,  1 Sep 2025 17:03:44 +0200
-Message-ID: <20250901150359.867252-24-david@redhat.com>
-In-Reply-To: <20250901150359.867252-1-david@redhat.com>
-References: <20250901150359.867252-1-david@redhat.com>
+	Mon, 01 Sep 2025 15:13:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C9EC916A3;
+	Mon,  1 Sep 2025 08:13:05 -0700 (PDT)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 33B8D3F6A8;
+	Mon,  1 Sep 2025 08:13:10 -0700 (PDT)
+Date: Mon, 1 Sep 2025 16:13:07 +0100
+From: Dave Martin <Dave.Martin@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org,
+	oliver.upton@linux.dev, anshuman.khandual@arm.com, robh@kernel.org,
+	james.morse@arm.com, mark.rutland@arm.com, joey.gouly@arm.com,
+	ahmed.genidi@arm.com, kevin.brodsky@arm.com,
+	scott@os.amperecomputing.com, mbenes@suse.cz,
+	james.clark@linaro.org, frederic@kernel.org, rafael@kernel.org,
+	pavel@kernel.org, ryan.roberts@arm.com, suzuki.poulose@arm.com,
+	maz@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v4 2/5] arm64: initialise SCTLR2_ELx register at boot time
+Message-ID: <aLW4A3rTcJvA0c+j@e133380.arm.com>
+References: <20250821172408.2101870-1-yeoreum.yun@arm.com>
+ <20250821172408.2101870-3-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250821172408.2101870-3-yeoreum.yun@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_161039_226656_01A21406 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20250901_081316_375962_CCF89DFB 
+X-CRM114-Status: GOOD (  25.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,35 +71,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-dma_common_contiguous_remap() is used to remap an "allocated contiguous
-region". Within a single allocation, there is no need to use nth_page()
-anymore.
+Hi,
 
-Neither the buddy, nor hugetlb, nor CMA will hand out problematic page
-ranges.
+On Thu, Aug 21, 2025 at 06:24:05PM +0100, Yeoreum Yun wrote:
+> The value of the SCTLR2_ELx register is UNKNOWN after reset.
+> If the firmware initializes these registers properly, no additional
+> initialization is required.
+> However, in cases where they are not initialized correctly,
+> initialize the SCTLR2_ELx registers during CPU/vCPU boot
+> to prevent unexpected system behavior caused by invalid values.
+> 
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
 
-Acked-by: Marek Szyprowski <m.szyprowski@samsung.com>
-Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: Robin Murphy <robin.murphy@arm.com>
-Signed-off-by: David Hildenbrand <david@redhat.com>
----
- kernel/dma/remap.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+[...]
 
-diff --git a/kernel/dma/remap.c b/kernel/dma/remap.c
-index 9e2afad1c6152..b7c1c0c92d0c8 100644
---- a/kernel/dma/remap.c
-+++ b/kernel/dma/remap.c
-@@ -49,7 +49,7 @@ void *dma_common_contiguous_remap(struct page *page, size_t size,
- 	if (!pages)
- 		return NULL;
- 	for (i = 0; i < count; i++)
--		pages[i] = nth_page(page, i);
-+		pages[i] = page++;
- 	vaddr = vmap(pages, count, VM_DMA_COHERENT, prot);
- 	kvfree(pages);
- 
--- 
-2.50.1
+> diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
+> index 23be85d93348..c25c2aed5125 100644
+> --- a/arch/arm64/include/asm/assembler.h
+> +++ b/arch/arm64/include/asm/assembler.h
+> @@ -738,6 +738,21 @@ alternative_endif
+>  	set_sctlr sctlr_el2, \reg
+>  .endm
+>  
+> +/* Set SCTLR2_ELx to the @reg value. */
+> +.macro set_sctlr2_elx, el, reg, tmp
+> +	mrs_s	\tmp, SYS_ID_AA64MMFR3_EL1
+> +	ubfx	\tmp, \tmp, #ID_AA64MMFR3_EL1_SCTLRX_SHIFT, #4
+> +	cbz	\tmp, .Lskip_sctlr2_\@
+> +	.if	\el == 2
+> +	msr_s	SYS_SCTLR2_EL2, \reg
+> +	.elseif	\el == 12
+> +	msr_s	SYS_SCTLR2_EL12, \reg
+> +	.else
+> +	msr_s	SYS_SCTLR2_EL1, \reg
+> +	.endif
+> +.Lskip_sctlr2_\@:
+> +.endm
+> +
 
+You were right that just doing
+
+	msr_s	SYS_SCTLR_\el, \reg
+
+here doesn't work.  It looks like we rely on the C preprocessor to
+expand the SYS_FOO_REG names to numeric sysreg encodings.  By the time
+the assembler macros are expanded, it is too late to construct sysreg
+names -- the C preprocessor only runs once, before the assembler.
+
+So, your code here looks reasonable.
+
+But, it will still silently do the wrong thing if \el is empty or
+garbage, so it is probably worth adding an error check:
+
+	.else
+	.error "Bad EL \"\el\" in set_sctlr2_elx"
+	.endif
+
+
+Also, looking at all this again, the "1", "2" and "12" suffixes are not
+really numbers: SYS_REG_EL02 would definitely not be the same thing as
+SYS_REG_EL2 (although there is no _EL02 version of this particular
+register).
+
+So, can you use .ifc to do a string comparison instead?
+
+If might be a good idea to migrate other macros that use an "el"
+argument to do something similar -- although that probably doesn't
+belong in this series.
+
+The assembler seems to have no ".elseifc" directive, so you'll need
+separate nested .ifc blocks:
+
+	.ifc	\el,2
+	msr_s	SYS_SCTLR2_EL2, \reg
+	.else
+	.ifc	\el,12
+	msr_s	SYS_SCTLR2_EL12, \reg
+	.else
+	.ifc	\el,1
+	msr_s	SYS_SCTLR2_EL1, \reg
+	.else
+	.error	"Bad EL \"\el\" in set_sctlr2_elx"
+	.endif
+	.endif
+	.endif
+
+(Note, I've not tested this approach.  If you can think of a better
+way, please feel free to suggest.)
+
+[...]
+
+> diff --git a/arch/arm64/kernel/hyp-stub.S b/arch/arm64/kernel/hyp-stub.S
+> index 36e2d26b54f5..ac12f1b4f8e2 100644
+> --- a/arch/arm64/kernel/hyp-stub.S
+> +++ b/arch/arm64/kernel/hyp-stub.S
+> @@ -144,7 +144,17 @@ SYM_CODE_START_LOCAL(__finalise_el2)
+>  
+>  .Lskip_indirection:
+>  .Lskip_tcr2:
+> +	mrs_s	x1, SYS_ID_AA64MMFR3_EL1
+> +	ubfx	x1, x1, #ID_AA64MMFR3_EL1_SCTLRX_SHIFT, #4
+> +	cbz	x1, .Lskip_sctlr2
+> +	mrs_s	x1, SYS_SCTLR2_EL12
+> +	msr_s	SYS_SCTLR2_EL1, x1
+>  
+> +	// clean SCTLR2_EL1
+> +	mov_q	x1, INIT_SCTLR2_EL1
+> +	msr_s	SYS_SCTLR2_EL12, x1
+
+I'm still not sure why we need to do this.  The code doesn't seem to
+clean up by the EL1 value of any other register -- or have I missed
+something?
+
+We have already switched to EL2, via the HVC call that jumped to
+__finalise_el2.  We won't run at EL1 again unless KVM starts a guest --
+but in that case, it's KVM's responsibility to set up the EL1 registers
+before handing control to the guest.
+
+In any case, is SCTLR2_EL1 ever set to anything except INIT_SCTLR2_EL1
+before we get here?
+
+[...]
+
+Cheers
+---Dave
 
