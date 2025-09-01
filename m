@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37D11CA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 03:32:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3409CCA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 03:35:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hPCl6SjrAVzAHktcZ70ahObZGpyN9X3TgGnu+O9tSgU=; b=tOTYJsW1FsOCoTpW/yawd73DU+
-	jFV7pUJUylrgJkgSBJvNH4Vhmx34eijYq5aHQmRHjIEwHPrbF8w/8DNsqCeUKc0JJ0YiajD/MnTQV
-	XEs4f+DzHRvjfs8xAAdY+k3NCnc1ft/zEo1J+fyJKAMLPsrXOUnySjLKD/acBYgwcVo0b2kq7dUYr
-	7oZh6Ok9vP8AWHLdXyHIelhaAS5zSheQw2QaZr05R/ocMvLvWdIwKOozZtYYocqw2SM8NlDIBwVSu
-	nHKLq2CbBdW1MadTiH+lLKWS2+UbsRkdTS/+uMdNd1VvF5wVbxl/qg2WWaakg/2ckmxC/7I/wZe8l
-	DyVUHXrA==;
+	bh=sBGjZVTo1lLlsTTOsV6Y4EGxuRnurfo/vbXFBM++hX0=; b=iLTfRcznXMBzBAinOQDT6lVEKK
+	lAx60WdPDIZv1t7j79iEPBFq+rwnnAJBhn8IMSFKUHW3ROlEECs7L4kehtbREig7314RB7R73/kEh
+	UQJeyGBSGyEMALMW6IHXrp/gWT4YNDwV67kDSmb9ql96k9nYFlXKIyz0pv/cEiR+9URH6ZkzBoZOY
+	JEmuZ5/ssOcoNDi+4J2c1kR4kzUHQ6qdPlTDjuCWO3EYFg+Bw4JPz3fiujY6/2zkSqUFedwuIeJSx
+	9j1TWbLVxCCEDjVDrvhj+HWjtJNTa73yI6ZswGLpOAS9udq0ZvlR97RgLjAmMAFwr1SauZxWSTEDm
+	BYcWw9YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usvHB-0000000B2W5-0s7m;
-	Mon, 01 Sep 2025 03:32:13 +0000
+	id 1usvJq-0000000B2n0-0GVp;
+	Mon, 01 Sep 2025 03:34:58 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usuz3-0000000B0tw-3c0W
+	id 1usuz5-0000000B0tw-16Rl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 03:13:30 +0000
+	Mon, 01 Sep 2025 03:13:32 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Mon, 1 Sep
@@ -51,9 +51,9 @@ To: ryan_chen <ryan_chen@aspeedtech.com>, Rob Herring <robh@kernel.org>,
 	<romlem@google.com>, William Kennington <wak@google.com>, Yuxiao Zhang
 	<yuxiaozhang@google.com>, <wthai@nvidia.com>, <leohu@nvidia.com>,
 	<dkodihalli@nvidia.com>, <spuranik@nvidia.com>
-Subject: [PATCH v5 4/5] arm64: dts: aspeed: Add AST2700 Evaluation Board
-Date: Mon, 1 Sep 2025 11:13:10 +0800
-Message-ID: <20250901031311.1247805-5-ryan_chen@aspeedtech.com>
+Subject: [PATCH v5 5/5] arm64: configs: Update defconfig for AST2700 platform support
+Date: Mon, 1 Sep 2025 11:13:11 +0800
+Message-ID: <20250901031311.1247805-6-ryan_chen@aspeedtech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250901031311.1247805-1-ryan_chen@aspeedtech.com>
 References: <20250901031311.1247805-1-ryan_chen@aspeedtech.com>
@@ -61,8 +61,9 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250831_201329_903463_4F597D1F 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20250831_201331_339169_7DDF7C2F 
+X-CRM114-Status: UNSURE (   7.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,65 +78,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ASPEED AST2700 EVB is prototype development board based
-on AST2700 SOC.
+Enable options for ASPEED AST2700 SoC.
 
 Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
 ---
- arch/arm64/boot/dts/Makefile               |  1 +
- arch/arm64/boot/dts/aspeed/Makefile        |  4 ++++
- arch/arm64/boot/dts/aspeed/ast2700-evb.dts | 22 ++++++++++++++++++++++
- 3 files changed, 27 insertions(+)
- create mode 100644 arch/arm64/boot/dts/aspeed/Makefile
- create mode 100644 arch/arm64/boot/dts/aspeed/ast2700-evb.dts
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/boot/dts/Makefile b/arch/arm64/boot/dts/Makefile
-index b0844404eda1..3729e7d480db 100644
---- a/arch/arm64/boot/dts/Makefile
-+++ b/arch/arm64/boot/dts/Makefile
-@@ -38,3 +38,4 @@ subdir-y += tesla
- subdir-y += ti
- subdir-y += toshiba
- subdir-y += xilinx
-+subdir-y += aspeed
-diff --git a/arch/arm64/boot/dts/aspeed/Makefile b/arch/arm64/boot/dts/aspeed/Makefile
-new file mode 100644
-index 000000000000..ffe7e15017cc
---- /dev/null
-+++ b/arch/arm64/boot/dts/aspeed/Makefile
-@@ -0,0 +1,4 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+dtb-$(CONFIG_ARCH_ASPEED) += \
-+	ast2700-evb.dtb
-diff --git a/arch/arm64/boot/dts/aspeed/ast2700-evb.dts b/arch/arm64/boot/dts/aspeed/ast2700-evb.dts
-new file mode 100644
-index 000000000000..654b36ec24de
---- /dev/null
-+++ b/arch/arm64/boot/dts/aspeed/ast2700-evb.dts
-@@ -0,0 +1,22 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+
-+/dts-v1/;
-+#include "aspeed-g7.dtsi"
-+
-+/ {
-+	model = "AST2700 EVB";
-+	compatible = "aspeed,ast2700-evb", "aspeed,ast2700";
-+
-+	chosen {
-+		stdout-path = "serial12:115200n8";
-+	};
-+
-+	memory@400000000 {
-+		device_type = "memory";
-+		reg = <0x4 0x00000000 0x0 0x40000000>;
-+	};
-+};
-+
-+&uart12 {
-+	status = "okay";
-+};
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 58f87d09366c..321a7dbccff8 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -38,6 +38,7 @@ CONFIG_ARCH_AIROHA=y
+ CONFIG_ARCH_SUNXI=y
+ CONFIG_ARCH_ALPINE=y
+ CONFIG_ARCH_APPLE=y
++CONFIG_ARCH_ASPEED=y
+ CONFIG_ARCH_AXIADO=y
+ CONFIG_ARCH_BCM=y
+ CONFIG_ARCH_BCM2835=y
 -- 
 2.34.1
 
