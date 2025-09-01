@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAA6CCA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 23:19:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 881FDCA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 23:19:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ku1RWelcYa32c9Go7yNNmbB2f6KuSI2yh0M2bafQJ+U=; b=adlHRTlFlmtepwZnSx2C/ieNdN
-	j/l56qhpWsUUqX+i7ue3Qbnou3s3+SIXUkCAnT87mYmRDZ/N033r1WLdbRNGBwAuN6rBMQfQ+abhB
-	7c+RId2J/Ev6RjqMBjXGYQ6ImS+yDsAYlv5x7b7mMjS1fFXKMOkp5AGpXDvR6Gm6DjJxyfgHczxsQ
-	QPaDqTycx6QdsrxBcqBNGMTrkXRXLyzl7hNWSLO5+grKBKT38yHbtrKQSJU5jyFp6UpDvOdJcN4b7
-	/C24OxtHjFmSg0QfPGBd9rm+PGGcYomICC7tcda0vutgCqnxnh9RdsbiSpFVRCTDq8HJr76R3fKaU
-	qeYKTqhA==;
+	bh=R/OOMMnGRa0UXdpVnw4kyErz+/pXJcwYvTUnm/qmSyM=; b=5GlcurgLJ5OhggmbH/jSzx8tKG
+	qO7XwWSH7E5185u6fIcPUB0cyukgG9wNgCUXO2fkLP2hXQvp4+3HOkfERbEkZsgDnCNfuRR6Hv2j+
+	LW8G54fKTU+V7bZPv8J9s40OdQQdWaAN/yAdumfnYlZtMusYslZMZxLNJ3SYHSJ99e6Vt4XhaQgsH
+	y/9xX4KY89R0gT8sRGNWYQti73rIbnYwOHG1RAwNZUXpJcV7NvpebbBQRMhxJiGOW65qqbkJVskI/
+	l2C4Gv1KisPQVlxM48I5jPk2cC3HSj/Hd6Pplo0sw0eue1JgzS67ohdTG2pgi6XBF32Z5cW5kEllA
+	0RBQZZIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utDo5-0000000EJdL-2iPT;
-	Mon, 01 Sep 2025 23:19:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1utDoG-0000000EJqt-0tTe;
+	Mon, 01 Sep 2025 23:19:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utBbt-0000000DtKG-11mb;
-	Mon, 01 Sep 2025 20:58:42 +0000
+	id 1utBbw-0000000DtLb-2wdo;
+	Mon, 01 Sep 2025 20:58:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 03C9F4404D;
-	Mon,  1 Sep 2025 20:58:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85F75C4CEF0;
-	Mon,  1 Sep 2025 20:58:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D4F45600BB;
+	Mon,  1 Sep 2025 20:58:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33E5DC4CEF0;
+	Mon,  1 Sep 2025 20:58:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756760320;
-	bh=0l7ANV3oc32SME44FBPiXCTBRDuZfxoqru6H1toeifk=;
+	s=k20201202; t=1756760323;
+	bh=MFLQY/3DGbD2c7bfFL0UAO+xBUCRpSIBXkqsHYgalMg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=saGs03zzGG95Q1Nd47TrYK0ZAh3G5ow9hAyGAKRiDHUHMbnAFlohd3ovRZVKZ36Fr
-	 ekml9EGgCprsILI1Z0Ft6scqUTU41sytFUY4/3LaFG8c5zDYeBki8cuy/Xuxg+cmpK
-	 FT/+IgoohNBac3ny+KspHOav+MPQN8d/7d/U+VwA9jtgI15Au+IlMa2OdkThF/Myxb
-	 HPeGutJj8sqtLVbr7otK57E9tmNHx7ENGjW+sw8/QA9g8F8oJbMDXxGxeSFJNfLyeQ
-	 cXQRQk/CP9kV1v1K+cKbZxl+JmPlnC2rrKBOUucBL+oNges5bnh9a/8Rs8x6wn+lhm
-	 deBwayXeZifkA==
+	b=ZtMiiqi/k0YkYWbqza5g2kWLIvjtuyhm0IjWzZ2/uLeNfF8cp2u5XI3ySn7WbVkEN
+	 QLOJRgDz+1Hzq3jix3h01yFmlmuMuZCHJ4uQ1OIqJyfbp2CSsMmvFcabr/iRUD4vvi
+	 JNOYDDFhI/4AAQxC75B18pUSJxNDrpMUDvRt52mK5tip8utiT/P/Zmtq2YzLRlLceL
+	 MzuSC+nG1ZR48GJeFQ68aLyZBUEyFRhOD4TUBSoCSPh1E6/ccdQBi7ITAfuZSsl/8r
+	 9Lj8cvLFZ1gy7uHSreOTzeEfY4kz2NgRDtKrDXBD7642WBtrXmLY0UWQTKnX63IHpy
+	 xHoHgwQLxRTwQ==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Mon, 01 Sep 2025 22:58:03 +0200
-Subject: [PATCH mt76 v2 07/14] wifi: mt76: mt7996: Fix tx-queues
- initialization for second phy on mt7996
+Date: Mon, 01 Sep 2025 22:58:04 +0200
+Subject: [PATCH mt76 v2 08/14] wifi: mt76: mt7996: Fix RX packets
+ configuration for primary WED device
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250901-mt7996-rro-rework-v2-7-1f95086b51d1@kernel.org>
+Message-Id: <20250901-mt7996-rro-rework-v2-8-1f95086b51d1@kernel.org>
 References: <20250901-mt7996-rro-rework-v2-0-1f95086b51d1@kernel.org>
 In-Reply-To: <20250901-mt7996-rro-rework-v2-0-1f95086b51d1@kernel.org>
 To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
@@ -58,12 +58,8 @@ To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>,
  Sujuan Chen <sujuan.chen@mediatek.com>, 
  Lorenzo Bianconi <lorenzo@kernel.org>
 Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- Benjamin Lin <benjamin-jw.lin@mediatek.com>, Rex Lu <rex.lu@mediatek.com>
+ linux-mediatek@lists.infradead.org
 X-Mailer: b4 0.14.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_135841_304656_D7C00A88 
-X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,53 +74,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix the second phy tx queue initialization if hif device is not
-available for MT7990 chipset.
+In order to properly set the number of rx packets for primary WED device
+if hif device is available, move hif pointer initialization before
+running mt7996_mmio_wed_init routine.
 
 Fixes: 83eafc9251d6d ("wifi: mt76: mt7996: add wed tx support")
-Co-developed-by: Sujuan Chen <sujuan.chen@mediatek.com>
-Signed-off-by: Sujuan Chen <sujuan.chen@mediatek.com>
-Co-developed-by: Benjamin Lin <benjamin-jw.lin@mediatek.com>
-Signed-off-by: Benjamin Lin <benjamin-jw.lin@mediatek.com>
-Co-developed-by: Rex Lu <rex.lu@mediatek.com>
-Signed-off-by: Rex Lu <rex.lu@mediatek.com>
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/wireless/mediatek/mt76/mt7996/init.c | 21 ++++++++++++++-------
- 1 file changed, 14 insertions(+), 7 deletions(-)
+ drivers/net/wireless/mediatek/mt76/mt7996/pci.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/init.c b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-index b66ba38df570503839e1a9ba1819b4e29303532f..023f788ac5f8ce6f01e5556a6000765ed42cc646 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-@@ -703,13 +703,20 @@ static int mt7996_register_phy(struct mt7996_dev *dev, enum mt76_band_id band)
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/pci.c b/drivers/net/wireless/mediatek/mt76/mt7996/pci.c
+index 19e99bc1c6c4157fb3c2c1b9ee70ed00a6e28a73..f5ce50056ee94e2915fd189419905acc8cebd853 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/pci.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/pci.c
+@@ -137,6 +137,7 @@ static int mt7996_pci_probe(struct pci_dev *pdev,
+ 	mdev = &dev->mt76;
+ 	mt7996_wfsys_reset(dev);
+ 	hif2 = mt7996_pci_init_hif2(pdev);
++	dev->hif2 = hif2;
  
- 	/* init wiphy according to mphy and phy */
- 	mt7996_init_wiphy_band(mphy->hw, phy);
--	ret = mt7996_init_tx_queues(mphy->priv,
--				    MT_TXQ_ID(band),
--				    MT7996_TX_RING_SIZE,
--				    MT_TXQ_RING_BASE(band) + hif1_ofs,
--				    wed);
--	if (ret)
--		goto error;
-+
-+	if (is_mt7996(&dev->mt76) && !dev->hif2 && band == MT_BAND1) {
-+		int i;
-+
-+		for (i = 0; i <= MT_TXQ_PSD; i++)
-+			mphy->q_tx[i] = dev->mt76.phys[MT_BAND0]->q_tx[0];
-+	} else {
-+		ret = mt7996_init_tx_queues(mphy->priv, MT_TXQ_ID(band),
-+					    MT7996_TX_RING_SIZE,
-+					    MT_TXQ_RING_BASE(band) + hif1_ofs,
-+					    wed);
-+		if (ret)
-+			goto error;
-+	}
+ 	ret = mt7996_mmio_wed_init(dev, pdev, false, &irq);
+ 	if (ret < 0)
+@@ -161,7 +162,6 @@ static int mt7996_pci_probe(struct pci_dev *pdev,
  
- 	ret = mt76_register_phy(mphy, true, mt76_rates,
- 				ARRAY_SIZE(mt76_rates));
+ 	if (hif2) {
+ 		hif2_dev = container_of(hif2->dev, struct pci_dev, dev);
+-		dev->hif2 = hif2;
+ 
+ 		ret = mt7996_mmio_wed_init(dev, hif2_dev, true, &hif2_irq);
+ 		if (ret < 0)
 
 -- 
 2.50.1
