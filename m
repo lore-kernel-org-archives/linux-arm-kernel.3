@@ -4,96 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 907AECA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 17:01:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C525DCA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 17:01:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ICiwcLIU71Izuhu8fP8tVO8odVf8d1Nj7kJu4RHQNHg=; b=jleMN+DCmsZoVQbVI2SK1AXHjy
-	L7uPUW0UCwo3lW9TB+7p4LdrdSr/G0Nb3x3RcAct6sVb8oWH1/+J0W1MnRE3ZeDFLtz7aRPsWCYGO
-	BqTx35JstDJtSn5bSxUT9TTwPNekQw1Lq5BCgyQ8Dv36ElmilBPDgIDvmLjq4xnBSvYMOam1534u2
-	6D5kUFfiPvug3Quy7USDYmlI61flaHz2Ipy30PqJJ8H35RTpJeGFzek2ZiRqEqrPJWvzlpNX+KILr
-	19+KrQop/e933KOYURaOPrIiDpSCnSmjVCI3m+dIfSd3u0luFVW7rVWWUG/oNkOAkNlDJTacUs88d
-	xRhSFwfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nf0iEYuoy/f3YEAHd8aIcTjvCp6fnDRySrUJPkt8Z04=; b=iTC9pI6Hs9eZbn/yo6XPl59YSP
+	FGjsKv+WVJT+/t2l1xn9dMQ4BCBV8uILcQXOZp5fYYca9e+AAi2MaaiTn+PP0EU5N6N/MKBfmjQC9
+	GaT0AFbcQt3B0zmas8h64fhrFpfK9uj8u6iU5P5PQoANhl2/BwXiJO1ibu/9vcAU+ueJiR++9rZ0P
+	oY+L5GbAmbj5jR3R7s0INjt/SKZMcGzAXnYcaF2uxb4qyQ3AUISTCmu0vo4bs75CLuAfL79vmfcKz
+	VpF+Ha2GR48bdbU53CXfiIHPJaKO7ShaBc7WkdAb5+TyLY8yE49MZ9XSl3dzG2RJoJrhoOP1H82/T
+	2AKZ9+Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut7tr-0000000DNFO-3V2h;
-	Mon, 01 Sep 2025 17:00:59 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1ut7tt-0000000DNGZ-0750;
+	Mon, 01 Sep 2025 17:01:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut4YV-0000000CgKG-0fbB
+	id 1ut4a4-0000000Cgf0-3JIl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 13:26:44 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-afcb731ca55so76609266b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 06:26:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756733201; x=1757338001; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ICiwcLIU71Izuhu8fP8tVO8odVf8d1Nj7kJu4RHQNHg=;
-        b=XR6/oNnSaIQmq20RXglr0Zm8128L8wRqTEyuN82jU+dHXe2XV3ta5MKKING8oXa7vO
-         rw08DSY7wFSISWuuJqsjqdbSBizX6PrcMDh6CHRPMvN76K83032eaPvAQh15P9oY69Ii
-         7Szvy5zJ6m+eAcMGO6ITtwX1BMV8sOss29K4yCYZwBL++5qByTQlqVXu1/30otGrYxA1
-         bmqv4psBajDwnqK7G/nNYInMIeqcsp933sQl5poiCUY2NsnB+n3LxVAnTZHsy4Ii/Gb9
-         6kL5z/iVtD2xe4LA7pcMyuqLN+lwPpKcuaOYiKlAvtC4S51OFPmBXrGzwAF5pY19YCMQ
-         ZzYg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756733201; x=1757338001;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ICiwcLIU71Izuhu8fP8tVO8odVf8d1Nj7kJu4RHQNHg=;
-        b=YSNN2GcZwl07Lv4jOAbUaGQpPgoiw8L7X7JoZ0yEbJb2qQorCcUCK22uzSTSlzACTs
-         v4bj8UJFLhpuC8lTASpW/d/MeY8Bxy2bXMex4idXSK9Z3+gTmrkca5QDu3GmJN6kks9U
-         co8kC4aZTua6Pm1kcZDpEI5Llf+SqKR4BW8taoQbiOPrm6KfpN7r1FaqifnX3sqYgTux
-         JDKFNpI0rQp32LX/O8pC7uQxJS3KVIUZfgbsj+JsjOdr9odDhFmo1rLl3EW1+6oDN4yS
-         MlMu2ATU5L6bEVEGUJFmAt7t6K0zQmPoFRzhM6n86om/saLE8s8TzsinZLOgQutmVqzk
-         cVJA==
-X-Forwarded-Encrypted: i=1; AJvYcCUs5LbpQIqEwcqPvz+dGkUFsGVSMZkr5yUi9CuYrSo5p7JNoP8jnuclKllsrlzn+6pX1l3zg+T/XQIICbjdpXkw@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwklMBJboCWetXZR9J8vUEwwNRKr2xWLUwJAzk7uFrne+wNLJq
-	E+ibNTtbL2f7N1aUGVR8pRXsIPamZMfNud/1qo01llI5tgk1KfTFhReXG79SIy4R+CM=
-X-Gm-Gg: ASbGncupxYHNVdeSlGUpLYfP+FZaX2tK2KUW/v5cNH2vpFIrC8neQkaufzARirgpuWB
-	ty6v2o16I1vt6tA1HBAfDB0I2uSB/jXVXb6O4lnQagSBFk0gc3cRg2GTD8baZMxYrz2ctu85CFS
-	jlmPRij4vtwrR6sOnbBePI55grfaNhb7zbRxQZibLhxsnzN1b5DK2fNi+KZ5BCkSjCoix8mW6E3
-	VxyXR+V8/xY5pu9gVKtcVwrsZKQWtlxRfVoHRWqU8A9ilxdFV1QDgxRYpiR6M2AdJrhaHcp5x1G
-	DR4Dhy3BBRWlAsqygfZU6m8CkOdI7s4/WHt+4dfPecIcGEISFLZ7+4vqqb1Y5jh88fMj3eUDWpd
-	wEEUGUeYy0mdwCBQIWAEd7l1xxQWFhfrZ69Fhvk8=
-X-Google-Smtp-Source: AGHT+IHQTmAvbsKv0D4j4Hvyh4K0kyRVksjF4qrxn2f9tAR+H9KrYnWzvnDmgth3oDHi6jyc4O8txA==
-X-Received: by 2002:a17:906:16da:b0:b04:1fc6:1347 with SMTP id a640c23a62f3a-b041fc67c80mr223542566b.0.1756733201076;
-        Mon, 01 Sep 2025 06:26:41 -0700 (PDT)
-Received: from [127.0.1.1] ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b04241b2e7esm305997566b.43.2025.09.01.06.26.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Sep 2025 06:26:39 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Miquel Raynal <miquel.raynal@bootlin.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, Russell King <linux@armlinux.org.uk>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org
-In-Reply-To: <20250830-s3c-cleanup-nand-v1-4-05b99ef990fe@linaro.org>
-References: <20250830-s3c-cleanup-nand-v1-0-05b99ef990fe@linaro.org>
- <20250830-s3c-cleanup-nand-v1-4-05b99ef990fe@linaro.org>
-Subject: Re: (subset) [PATCH 4/4] ARM: s3c6400_defconfig: Drop
- MTD_NAND_S3C2410
-Message-Id: <175673319874.45844.111501190462962489.b4-ty@linaro.org>
-Date: Mon, 01 Sep 2025 15:26:38 +0200
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_062643_217247_2D3AA71A 
-X-CRM114-Status: UNSURE (   9.05  )
-X-CRM114-Notice: Please train this message.
+	Mon, 01 Sep 2025 13:28:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 062FE601D6;
+	Mon,  1 Sep 2025 13:28:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD465C4CEF0;
+	Mon,  1 Sep 2025 13:28:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756733298;
+	bh=Zij+aiPmhHbsz6ba8gUa8QWGp81pVIPzIJsYgiGdtnI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ca6rdAH3pva2fovuGbIWfgXcx484jiVI7RZ6LdQTXP3H/8arYoZnXfvhfyD3AwCX2
+	 byss9qUQQXj2N0KlPj724lbgQdUFYASUmt7ZtyTLmrp7GdvFB30FTxIFF5HbU5BOTZ
+	 lf6Rmk0QyBDFb6nLiOmYxoBbpjE8YX092ZJOFU5V49SHy8zZH/CJf7WrhB/DdV2Zts
+	 qHb7Gz7B9S+zJeflg+ZjaGPe9ihXFcsiH1xDCk1gz5EBpJhiXyyfvLtFZ4x/ZAqerW
+	 lD+Anfs4T61RDNgDj646O1IQUHKx63m85easozpSlGHJiKh27LrVGZwnmzRAKYJWNw
+	 Xn/lVC3odT8dQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1ut4a0-00000002Gdt-2tvq;
+	Mon, 01 Sep 2025 13:28:16 +0000
+Date: Mon, 01 Sep 2025 14:28:16 +0100
+Message-ID: <86zfbecnf3.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Gyujeong Jin <wlsrbwjd7232@gmail.com>
+Cc: oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	gyutrange <wlsrbwjd643@naver.com>
+Subject: Re: [PATCH] KVM: arm64: nested: Fix VA sign extension in VNCR/TLBI paths
+In-Reply-To: <20250901124520.54259-1-wlsrbwjd7232@gmail.com>
+References: <20250901124520.54259-1-wlsrbwjd7232@gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: wlsrbwjd7232@gmail.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, wlsrbwjd643@naver.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,20 +88,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Sat, 30 Aug 2025 19:01:12 +0200, Krzysztof Kozlowski wrote:
-> MTD_NAND_S3C2410 driver was removed from the kernel, so cleanup
-> defconfig as well.
+On Mon, 01 Sep 2025 13:45:20 +0100,
+Gyujeong Jin <wlsrbwjd7232@gmail.com> wrote:
 > 
+> From: gyutrange <wlsrbwjd643@naver.com>
 > 
+> Signed-off-by: gyutrange <wlsrbwjd643@naver.com>
 
-Applied, thanks!
+Where is the commit message?
 
-[4/4] ARM: s3c6400_defconfig: Drop MTD_NAND_S3C2410
-      https://git.kernel.org/krzk/linux/c/ae6f637a456c1de75a582afa9cb6169813e89b83
+> ---
+>  arch/arm64/kvm/nested.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> index 77db81bae86f..eaa6dd9da086 100644
+> --- a/arch/arm64/kvm/nested.c
+> +++ b/arch/arm64/kvm/nested.c
+> @@ -1169,7 +1169,7 @@ int kvm_vcpu_allocate_vncr_tlb(struct kvm_vcpu *vcpu)
+>  
+>  static u64 read_vncr_el2(struct kvm_vcpu *vcpu)
+>  {
+> -	return (u64)sign_extend64(__vcpu_sys_reg(vcpu, VNCR_EL2), 48);
+> +	return (u64)sign_extend64(__vcpu_sys_reg(vcpu, VNCR_EL2), 47);
+>  }
+>  
 
-Best regards,
+This code is not there for sign extension of the VA. It is there for
+the propagation of bit 48 (yes, bit 48, not a typo) in RESS and the
+top bits of BADDR. D24.2.206 has all the details for this.
+
+Furthermore, we already check that the VA is canonical at the point of
+establishing the translation (see the references to R_YYVYV and
+I_THCZK in the S1 PTW code), and don't install a TLB in that case.
+
+But maybe you have spotted something I didn't, so some explanations
+would be very welcome.
+
+Thanks,
+
+	M.
+
 -- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
+Without deviation from the norm, progress is not possible.
 
