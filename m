@@ -4,75 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EBEACA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 13:05:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5FAACA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 13:35:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b8jTxoxu6fM2YyVPoK/aAvaCJ5ksiaw3bZKSjKUEM/U=; b=LWxLF5YSg0UW8ybGIqYwG7p0lh
-	bLOI6E94gfIZOGMtEQaAaYQ+9ClUIfhAE3/JWZczB7VYyMArfgLbD2DBPpDfaRLeVLNDNAoRT+JpD
-	bf2CHvZWHndKhxKUtJClNjYFixGyw30d3Otv0L/UIbps5xaw9PkQt4PhCJbfv2+j0xjCXKgaQCpH9
-	/IdfmlbEhOi3DQVJ68ZIQQS9grc0HEKiFii+MOMsKHWmsoZDq5mywYiSVWQiqPC/OtPRkJQet6j+7
-	LPiIBETIsRFUlPboL5w1m7H6a3V0V5UuTV1xgfkk1L8gLEEHH8wtB3tFG+jGsCWzAKfXZQ1hGHzGa
-	O66cqGgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Kz+RySS8LGix0VcD4AgFEgxoXSpio7LFezNktoKp8tI=; b=CIa7kRkjj1nfB4ExgMTGrj5aO1
+	0ZMF9v3C0de3ZoQNXfIaKnY5ikh1+1IN6VDolJgzMz8KDK3fnRXCUDueGc03L1eATI0HyyWK8S3rx
+	J5A5FQQpMjM/cPyfS5q+b1C8fDr165F8YhzosBJ5oJ6pBFP3Uc1LlvREVOaktHMqc/9bqJeCUs1Q5
+	OW/56AWcka7zXJ2voN2f7GIKs+JQjcj/sH5Q8Y2sHALDWGLwonD1Dww3Jb/KSlmH/C/z8F1pdC30x
+	tvh0vXXs0JLLaIZvaACOqxTCfLoQF7ic/lHs0OpNniGU8zE7kc9HxKTxWe3pfg9pT1VXbfbqdu2TU
+	23jEshyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut4DR-0000000CcgW-0awD;
-	Mon, 01 Sep 2025 13:04:57 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1ut4gx-0000000ChP0-01Id;
+	Mon, 01 Sep 2025 13:35:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut2GI-0000000Byut-0v32;
-	Mon, 01 Sep 2025 10:59:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=b8jTxoxu6fM2YyVPoK/aAvaCJ5ksiaw3bZKSjKUEM/U=; b=RpaGy4XLA2c8YZbgeSDDso6S1v
-	Oq+FsFM7XHisXgM9rW4mmHd7SdV6y32fbWlLjPI0RAygFIsPgPoNluuqQZNVroLT/F2auR68tNQ4Y
-	tiFfd+Dvh6V+OKoRhvvhyTTOmD3Bv9hdYlxB496hP52VeyuFbv5NTQOkwlXef959spGX2yfhCzNfx
-	sb8GcCicl0XC1MJ5GHahwYid1616J5X2RvY35RwumHQsoDxueaks1SRe2oZJc/DtHriO5UQZP0xfz
-	DrphtNNohbV6b9/EXMt+SoT1VWC1fy+LCtWlVB60NP6CE/Eez7CjZ0pZWPSgxz+KN5AhY66C73Gux
-	zLLCRaVQ==;
-Received: from i53875a2d.versanet.de ([83.135.90.45] helo=phil..)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1ut2G3-0001WA-HP; Mon, 01 Sep 2025 12:59:31 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: dmitry.baryshkov@oss.qualcomm.com,
-	Andy Yan <andyshrk@163.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	hjc@rock-chips.com,
-	mripard@kernel.org,
-	naoki@radxa.com,
-	stephen@radxa.com,
-	cristian.ciocaltea@collabora.com,
-	neil.armstrong@linaro.org,
-	Laurent.pinchart@ideasonboard.com,
-	yubing.zhang@rock-chips.com,
-	krzk+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
+	id 1ut2Mk-0000000Bzqz-0IOO
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 01 Sep 2025 11:06:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 802A0601D7;
+	Mon,  1 Sep 2025 11:06:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30E0CC4CEF0;
+	Mon,  1 Sep 2025 11:06:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756724785;
+	bh=BLKwIniZaRvZZv+sqfSQfIekcdvuVVsnll7sWAynepU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Yl9J+wxkNvzhr4pStX6mk8mohCv/DsVXKf2ZTclhPx46O7qw00o1XY4dUZO/BVnD5
+	 WiiqQvNPcBOv0CJ8Ec1qcnqArCRXALjRnoA4yFoYMZk5Fa87RWM8ANkcPZVsdIzAe1
+	 df9YzIgl5mD97fm4MzUTpDp5ae70dIXsF2sx7QjisTb59KMpWAN2B5vtLqodQ8ELFl
+	 3BAVMIG2rYzLvIL1avpZNOnkdJKnWhfP8v70AAGk0xl77PffAYT4E19+QBkWIJdZhZ
+	 xE9CLN9/rZRybAhWJuivVVyAIN9UE/iAQLvoGJMOlixQ29uE8clvZtTD2nGASS5HDs
+	 V08z73e7KofyQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1ut2Mg-00000002Dh6-35F5;
+	Mon, 01 Sep 2025 11:06:22 +0000
+Date: Mon, 01 Sep 2025 12:06:22 +0100
+Message-ID: <864itme8k1.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
+Cc: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	robh@kernel.org,
-	sebastian.reichel@collabora.com,
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: Re: (subset) [PATCH v7 00/10] Add support for RK3588 DisplayPort Controller
-Date: Mon,  1 Sep 2025 12:59:27 +0200
-Message-ID: <175672432555.3612134.264758265580488174.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250822063959.692098-1-andyshrk@163.com>
-References: <20250822063959.692098-1-andyshrk@163.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_035946_254667_C0C18D55 
-X-CRM114-Status: GOOD (  12.31  )
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH] KVM: arm64: nv: Allow shadow stage 2 read fault
+In-Reply-To: <djypsyratk63ovzv3flzb2tmunqtcoryzserwhsaaq5nuogsrx@u3uuwynnafbj>
+References: <20250822031853.2007437-1-r09922117@csie.ntu.edu.tw>
+	<87a53rk83s.wl-maz@kernel.org>
+	<djypsyratk63ovzv3flzb2tmunqtcoryzserwhsaaq5nuogsrx@u3uuwynnafbj>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: r09922117@csie.ntu.edu.tw, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,39 +89,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 22 Aug 2025 14:39:44 +0800, Andy Yan wrote:
-> There are two DW DPTX based DisplayPort Controller on rk3588 which
-> are compliant with the DisplayPort Specification Version 1.4 with
-> the following features:
+On Tue, 26 Aug 2025 14:49:27 +0100,
+Wei-Lin Chang <r09922117@csie.ntu.edu.tw> wrote:
 > 
-> * DisplayPort 1.4a
-> * Main Link: 1/2/4 lanes
-> * Main Link Support 1.62Gbps, 2.7Gbps, 5.4Gbps and 8.1Gbps
-> * AUX channel 1Mbps
-> * Single Stream Transport(SST)
-> * Multistream Transport (MST)
-> * Type-C support (alternate mode)
-> * HDCP 2.2, HDCP 1.3
-> * Supports up to 8/10 bits per color component
-> * Supports RBG, YCbCr4:4:4, YCbCr4:2:2, YCbCr4:2:0
-> * Pixel clock up to 594MHz
-> * I2S, SPDIF audio interface
+> Hi Marc,
 > 
-> [...]
+> On Fri, Aug 22, 2025 at 10:40:07AM +0100, Marc Zyngier wrote:
+> >
+> > This would imply taking the guest's S2 permission at face value, and
+> > only drop W permission when the memslot is RO -- you'd then need to
+> > keep track of the original W bit somewhere. And that's where things
+> > become much harder, because KVM can decide to remap arbitrary ranges
+> > of IPA space as RO, which implies we should track the W bit at all
+> > times, most likely as one of the SW bits in the PTE.
+> 
+> But sorry, I struggle to understand this paragraph after reading it many
+> times, probably my experience with the code isn't enough for me to make
+> the connection. Why are we talking about the W bit suddenly?
+> If you don't mind, can you reword what's discussed here?
+> I only very vaguely get that there will be 2 W bits, one from what L1 set,
+> and one from the L0 memslot, if I didn't completely miss the point..
 
-Applied, thanks!
+Sorry, I quickly drifted into something related.
 
-[07/10] arm64: dts: rockchip: Add DP0 for rk3588
-        commit: 8c239f24341ab9ac75992a0a3c32bb8cddf48a20
-[08/10] arm64: dts: rockchip: Add DP1 for rk3588
-        commit: 445e4ac0d85821904b3f2bee410def4181987c4e
-[09/10] arm64: dts: rockchip: Enable DisplayPort for rk3588s Cool Pi 4B
-        commit: 1b242cafdfc4bc7d43ed9147cbffe5480632f661
-[10/10] arm64: dts: rockchip: Enable DP2HDMI for ROCK 5 ITX
-        commit: df02252f271b4fa50c7087a0e6f5a7d7ed2f1dcc
+My take on this category of problems is that we're better off always
+using the permissions that the guest gives us. This is the scheme that
+we have adopted with VNCR. It means we wouldn't have to rewalk the
+guest S2 on permission fault, since we'd be guaranteed to have the
+latest update.
 
-Best regards,
+However, S2 management implies that a S2 mapping can be made read-only
+at any point (dirty log, for example). Which means that on a
+permission fault, you'd need to find out whether the page is R/O
+because the guest said so, or because the host decided to make it so.
+
+Which means that somehow you need to work out why you have taken a
+permission fault. You can either
+
+- rewalk the guest S2 as if you missed in the TLB
+- or keep a copy of the W bit in the shadow SW
+
+> > We'll need exactly that if we ever want to implement the
+> > Hardware-managed Dirty Bit, but I have the feeling we need an actual
+> > design for this, and not a quick hack. Your approach is therefore the
+> > correct one for the time being.
+
+And that's why I brought this up: to support HD in the guest S2, we
+need to mark the full shadow S2 as R/O, and update the guest S2 on the
+back of that fault.
+
+Thanks,
+
+	M.
+
 -- 
-Heiko Stuebner <heiko@sntech.de>
+Without deviation from the norm, progress is not possible.
 
