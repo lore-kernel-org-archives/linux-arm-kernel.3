@@ -4,97 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6891CA0FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 17:34:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3D28CA0FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 17:37:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iESc6dfW9RcmL1rZ9bcUT9E2jgBG3o06ZEwcLauMwJI=; b=fuCKD2/xMKgEP/5xuUzaBYEvme
-	5WPFbQbMzle2R7GQnAIk72k3gZ2b+7T5bgsnA5Th0ajz+Cc9Xz3UXOWUcotE2XbyRAvreM3WP4VFo
-	C2uDLlaz15T8VW3pme88znsOOUT5eFKKbaAdb4KOWHMjeJf69kCdIvWUCxVhKbhZFwAAsw/TuatLb
-	rWA7ue6JYII4O/z43Ifcvhn4ioAp0K5xr7LaOhZQWoQLMGOAqrHWgvOL/LcjrQpL1jNO80LMnJDXf
-	UKyht5MAr9zW44JckFKuhwv8sXApoTWkktVt4j7e7J5ikohWsGPSh5bLWVnPvGsW3/j9j4s3S7/FW
-	WrJiMDdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NexCRVeiTn8yKPd81BsG0VP8TjQq1oA2bxWGfc7HsT4=; b=2RVqHVImN0IpKWm/nlxvhiRthl
+	/vCBWs++KEN9fyVH3trxwiSe6gDvgDyTeQYP/LrLMrsheggAXlIJCuvb2GaVSnBxgHsiIIWnRg1gn
+	DJXDAttOOT5tjruaYpqSwL1JWUDqXCrVnLa60PsKxI/IHt0LwxN4Iziu3AMtGeYt+k+5j5gNoPnKE
+	AMfwYRWhfblk5SwWuJNzkpLDBRFtUBFAl1cW8lWxR9o3tjX94/Hm2gILffLuNUsdC2eTvAK88hd/a
+	7P9xsG+les1taMX2WXJ+gDicTlBHVl+HaXU4buU5J9ZzoupsbIlzJC/silvuAWQHbFlnrHH5ILiax
+	J5F6vm7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut8Q4-0000000DTOC-3ZWk;
-	Mon, 01 Sep 2025 17:34:16 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1ut8Sk-0000000DTmT-0adm;
+	Mon, 01 Sep 2025 17:37:02 +0000
+Received: from fra-out-005.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([63.176.194.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut5L0-0000000CojD-3YNd
+	id 1ut5QP-0000000Cp3p-1fl5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 14:16:51 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3d1bf79d758so1835060f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 07:16:50 -0700 (PDT)
+	Mon, 01 Sep 2025 14:22:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756736209; x=1757341009; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=iESc6dfW9RcmL1rZ9bcUT9E2jgBG3o06ZEwcLauMwJI=;
-        b=fZVd1raKY4PXMzSZBurlpbOqF9/FLYy75Qs76Tji4MIEVGqVhCYUQkF8mQ/p3chqAd
-         xM5BwuisYP/kxCnNhMIJ2vw4iA9uUGvnvMP7LnWHk9sXC5Rf4IznT0UP855//wA59sqM
-         iBA24CF2SBAC4INncVivnEKXodoEVFTzMxONqIz6dbim80ncA9JTaOrauAsCRJ67t6cp
-         skytXUuQLm77YGx6HlwQrvwPKUdKOdZUFGM8oni33QRe1cYEHUDYOcIMUFAX+Htth2WL
-         xBgEnWlaoiU7MXT63D3KyAVvy1LsmCC7H0qzYERXPFNDW+d4I7UmrhGSS6ePy5PtaEI5
-         7gUg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756736209; x=1757341009;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=iESc6dfW9RcmL1rZ9bcUT9E2jgBG3o06ZEwcLauMwJI=;
-        b=M5O9C8AwZu23qWDnwzP/1xRpwDKxJwKGRjZyqIwCytc8OU/1UgpSGQ4byRdNwQSK/V
-         50r01gPe9t2Rjqw2xgQeETuWXTzn3KRScaXVrgSHH226cIcySyEvAVRbaPE7xwen+URB
-         hthzkcfDQgb9PSHb5cZafNILraSQzLdPf279OHtSyOCILQ12TiNrnVJJGKrF8+Sg6R1i
-         CAadEI8Rx4weCX642Tw6REEkPwe4ec7RpdOFpASDC/7JZk+TjOq55t/iCiONg8UDa81e
-         tUiVi+hNoZtljuoRxYAZIvQMd9t7jinLuRS2A3SQETKVuEKTsaoL8zxKGtn+soqa14dZ
-         e6SA==
-X-Gm-Message-State: AOJu0YzBNWqLNWaggiy+9xpUsHtuXmYo1aKc+ruUmuIYVFpmx4U5k3RH
-	ZJ4TLroB6OTsXcH8xllM8bI+aO0N7yZxcno51bPgyDMcWeFzTejfrHDHedpkyePZHvc=
-X-Gm-Gg: ASbGncuQ0V9JW5s7SFEVj3Es1ODG0gyd5RbCILGYhDnLtpul0PU+7FPOw69ow0WdhT1
-	v457RmmpXC3oLHNPdE4tIpEe4cLmiYkzbRS5yyfEgP89WjBd6PjPkE0QR2GovLkplZnLSvgler9
-	fCTeeml2fBdGLEJ+PrM4If+4jTb9HSZ8CUizITlesmkNzx3k3LVrB+sun33hjYc6jbWnbgilK0x
-	jP2piYU5pytct5V0FG528mZviI0PdhMmkI2+xRT8Q5EJLNNRSWErC/4cqQ5tKb8Q0tEY9+Nx5yp
-	D7EfMasHZNCMX2I8AtnKuwtu+KJJ8uI2TrJRcwPTF96zWtn4SiWB4ZoSmQG8TnDEjJuepKmof7h
-	cyHjs6b9WlEZ4FEJM4VKDxNOtqLE=
-X-Google-Smtp-Source: AGHT+IHlQJYM2HX5g9ub7kOJOAXNXL4BWDzftuXNNBg0pmc4Ys0RWFLMX49ejuXDiUIn/rslt0RP/A==
-X-Received: by 2002:a05:6000:4021:b0:3ce:e9d6:ad24 with SMTP id ffacd0b85a97d-3d1e05bab3dmr5752072f8f.50.1756736209038;
-        Mon, 01 Sep 2025 07:16:49 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3d21a32dbc5sm11053282f8f.11.2025.09.01.07.16.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 01 Sep 2025 07:16:48 -0700 (PDT)
-Message-ID: <239f2e3d-1fb5-4d53-869f-aba2d7a6530d@linaro.org>
-Date: Mon, 1 Sep 2025 15:16:47 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] KVM: arm64: Fix NULL pointer access issue
-To: Marc Zyngier <maz@kernel.org>,
- Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- linux-kernel@vger.kernel.org, quic_yingdeng@quicinc.com,
- jinlong.mao@oss.qualcomm.com, tingwei.zhang@oss.qualcomm.com,
- Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>
-References: <20250901-etm_crash-v1-1-ce65e44c137c@oss.qualcomm.com>
- <450f11c2-6c11-4ffa-ae20-db4ea419a3ca@linaro.org>
- <863496e4yg.wl-maz@kernel.org>
- <80178c90-b9f3-4e1f-baa5-f54aa89ec927@linaro.org>
- <86y0qycnb8.wl-maz@kernel.org>
+  d=amazon.co.uk; i=@amazon.co.uk; q=dns/txt;
+  s=amazoncorp2; t=1756736545; x=1788272545;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=NexCRVeiTn8yKPd81BsG0VP8TjQq1oA2bxWGfc7HsT4=;
+  b=QLvSna8c5AseRpSbUAD406B7YSqPUUq7C2mDvQU6i1LFMtZbOWY5F1Hd
+   RWihydQ40o+DO2IO5t2ImfchoLuVb9gy/IF/3ejgA2RbcmYeFXowZRwJe
+   ws/F1eq+2VvbJqk42XwoI00iAwexehsup173zwzVYkPNkOnk6MQoFJcLd
+   6QS0n5Ulx1Mm4uzRYOZTgmgJ6jbuumKLKW9PXI2hQgrUN8VVts6kyAtDF
+   mpAjJvBU2ecJboHQJeHgNtytV1BT1u2Zam6aF+s00gLxE2g7eicCDviFx
+   g2pYSdYWuOJ3C3IEl1v4suwmg3IDT8GDWJ79O8vqnYN9/YcjxRGiFxL/G
+   g==;
+X-CSE-ConnectionGUID: qEKZaT7/TbumQlwD4xw4aw==
+X-CSE-MsgGUID: lOy7Z9IPRo66N0b8RO5ESg==
+X-IronPort-AV: E=Sophos;i="6.18,214,1751241600"; 
+   d="scan'208";a="1465584"
+Received: from ip-10-6-11-83.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.11.83])
+  by internal-fra-out-005.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Sep 2025 14:22:23 +0000
+Received: from EX19MTAEUA001.ant.amazon.com [54.240.197.233:2933]
+ by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.3.140:2525] with esmtp (Farcaster)
+ id ce39f935-8ca3-4e3f-9b35-e9483f981017; Mon, 1 Sep 2025 14:22:23 +0000 (UTC)
+X-Farcaster-Flow-ID: ce39f935-8ca3-4e3f-9b35-e9483f981017
+Received: from EX19D015EUB004.ant.amazon.com (10.252.51.13) by
+ EX19MTAEUA001.ant.amazon.com (10.252.50.192) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.17;
+ Mon, 1 Sep 2025 14:22:23 +0000
+Received: from EX19D015EUB004.ant.amazon.com (10.252.51.13) by
+ EX19D015EUB004.ant.amazon.com (10.252.51.13) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
+ Mon, 1 Sep 2025 14:22:22 +0000
+Received: from EX19D015EUB004.ant.amazon.com ([fe80::2dc9:7aa9:9cd3:fc8a]) by
+ EX19D015EUB004.ant.amazon.com ([fe80::2dc9:7aa9:9cd3:fc8a%3]) with mapi id
+ 15.02.2562.020; Mon, 1 Sep 2025 14:22:22 +0000
+From: "Roy, Patrick" <roypat@amazon.co.uk>
+To: "rppt@kernel.org" <rppt@kernel.org>
+CC: "ackerleytng@google.com" <ackerleytng@google.com>, "david@redhat.com"
+	<david@redhat.com>, "Manwaring, Derek" <derekmn@amazon.com>, "Thomson, Jack"
+	<jackabt@amazon.co.uk>, "Kalyazin, Nikita" <kalyazin@amazon.co.uk>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"pbonzini@redhat.com" <pbonzini@redhat.com>, "Roy, Patrick"
+	<roypat@amazon.co.uk>, "seanjc@google.com" <seanjc@google.com>,
+	"tabba@google.com" <tabba@google.com>, "vbabka@suse.cz" <vbabka@suse.cz>,
+	"will@kernel.org" <will@kernel.org>, "Cali, Marco" <xmarcalx@amazon.co.uk>
+Subject: Re: [PATCH v5 04/12] KVM: guest_memfd: Add flag to remove from direct
+ map
+Thread-Topic: [PATCH v5 04/12] KVM: guest_memfd: Add flag to remove from
+ direct map
+Thread-Index: AQHcG0vV41OK1VctH0adgeriedPTLg==
+Date: Mon, 1 Sep 2025 14:22:22 +0000
+Message-ID: <20250901142220.30610-1-roypat@amazon.co.uk>
+References: <aLBtwIhQpX6AR2Z6@kernel.org>
+In-Reply-To: <aLBtwIhQpX6AR2Z6@kernel.org>
+Accept-Language: en-US
 Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <86y0qycnb8.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [172.19.88.180]
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_071650_896985_B9CE7C97 
-X-CRM114-Status: GOOD (  21.91  )
+X-CRM114-CacheID: sfid-20250901_072225_743195_A75904BC 
+X-CRM114-Status: GOOD (  31.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,100 +108,221 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 01/09/2025 2:30 pm, Marc Zyngier wrote:
-> On Mon, 01 Sep 2025 13:31:23 +0100,
-> James Clark <james.clark@linaro.org> wrote:
->>
->>
->>
->> On 01/09/2025 1:24 pm, Marc Zyngier wrote:
->>> On Mon, 01 Sep 2025 11:36:11 +0100,
->>> James Clark <james.clark@linaro.org> wrote:
->>>>
->>>>
->>>>
->>>> On 01/09/2025 11:01 am, Yingchao Deng wrote:
->>>>> When linux is booted in EL1, macro "host_data_ptr()" is a wrapper that
->>>>> resolves to "&per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)",
->>>>> is_hyp_mode_available() return false during kvm_arm_init, the per-CPU base
->>>>> pointer __kvm_nvhe_kvm_arm_hyp_percpu_base[cpu] remains uninitialized.
->>>>> Consequently, any access via per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)
->>>>> will result in a NULL pointer.
->>>>>
->>>>> Add is_kvm_arm_initialised() condition check to ensure that kvm_arm_init
->>>>> completes all necessary initialization steps, including init_hyp_mode.
->>>>>
->>>>> Fixes: 054b88391bbe2 ("KVM: arm64: Support trace filtering for guests")
->>>>> Signed-off-by: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
->>>>> ---
->>>>> Add a check to prevent accessing uninitialized per-CPU data.
->>>>> ---
->>>>>     arch/arm64/kvm/debug.c | 7 ++++---
->>>>>     1 file changed, 4 insertions(+), 3 deletions(-)
->>>>>
->>>>> diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
->>>>> index 381382c19fe4741980c79b08bbdab6a1bcd825ad..add58056297293b4eb337028773b1b018ecc9d35 100644
->>>>> --- a/arch/arm64/kvm/debug.c
->>>>> +++ b/arch/arm64/kvm/debug.c
->>>>> @@ -233,7 +233,7 @@ void kvm_debug_handle_oslar(struct kvm_vcpu *vcpu, u64 val)
->>>>>     void kvm_enable_trbe(void)
->>>>>     {
->>>>>     	if (has_vhe() || is_protected_kvm_enabled() ||
->>>>> -	    WARN_ON_ONCE(preemptible()))
->>>>> +	    WARN_ON_ONCE(preemptible()) || !is_kvm_arm_initialised())
->>>>
->>>> Hi Yingchao,
->>>>
->>>> There shouldn't be a warning for this, at least for the case where
->>>> it's not initialized and never will be. If you're never going to run a
->>>> guest these functions can all skip, the same way for !has_vhe() etc.
->>>
->>> It's not a warning. It's a bona-fide crash:
->>>
->>> void kvm_enable_trbe(void)
->>> {
->>> 	if (has_vhe() || is_protected_kvm_enabled() ||
->>> 	    WARN_ON_ONCE(preemptible()))
->>> 		return;
->>>
->>> 	host_data_set_flag(TRBE_ENABLED); <--- Explodes here
->>> }
->>>
->>> So the write of the flag has to be skipped if KVM is available, even
->>> if KVM is compiled in.
->>>
->>> 	M.
->>>
->>
->> Yeah. And just in case there is any confusion, I didn't mean that we
->> should not have the check entirely, just that it shouldn't be in the
->> WARN_ON_ONCE(). We should put it in the part that makes the functions
->> silently skip:
->>
->>    if (has_vhe() || is_protected_kvm_enabled() ||
->>        !is_kvm_arm_initialised() ||
->>        WARN_ON_ONCE(preemptible()))
->>            return;
-> 
-> Which is exactly what the OP wrote, except for swapping the last two
-> terms.
-> 
-> 	M.
-> 
-
-Hah! So it is. Being on the same line as the warning really threw me 
-despite looking at it 10 times.
-
-Not sure if it's just me but I think having the warning at the end or on 
-its own line is more readable.
-
-Either way:
-
-Reviewed-by: James Clark <james.clark@linaro.org>
-
-
-
-
+On Thu, 2025-08-28 at 15:54 +0100, Mike Rapoport wrote:=0A=
+> On Thu, Aug 28, 2025 at 09:39:21AM +0000, Roy, Patrick wrote:=0A=
+>> Add GUEST_MEMFD_FLAG_NO_DIRECT_MAP flag for KVM_CREATE_GUEST_MEMFD()=0A=
+>> ioctl. When set, guest_memfd folios will be removed from the direct map=
+=0A=
+>> after preparation, with direct map entries only restored when the folios=
+=0A=
+>> are freed.=0A=
+>>=0A=
+>> To ensure these folios do not end up in places where the kernel cannot=
+=0A=
+>> deal with them, set AS_NO_DIRECT_MAP on the guest_memfd's struct=0A=
+>> address_space if GUEST_MEMFD_FLAG_NO_DIRECT_MAP is requested.=0A=
+>>=0A=
+>> Add KVM_CAP_GUEST_MEMFD_NO_DIRECT_MAP to let userspace discover whether=
+=0A=
+>> guest_memfd supports GUEST_MEMFD_FLAG_NO_DIRECT_MAP. Support depends on=
+=0A=
+>> guest_memfd itself being supported, but also on whether KVM can=0A=
+>> manipulate the direct map at page granularity at all (possible most of=
+=0A=
+>> the time, just arm64 is a notable outlier where its impossible if the=0A=
+>> direct map has been setup using hugepages, as arm64 cannot break these=
+=0A=
+>> apart due to break-before-make semantics).=0A=
+> =0A=
+> There's also powerpc that does not select ARCH_HAS_SET_DIRECT_MAP=0A=
+=0A=
+Ah, thanks! Although powerpc also doesnt support guest_memfd in the first=
+=0A=
+place, but will mention.=0A=
+=0A=
+>> Note that this flag causes removal of direct map entries for all=0A=
+>> guest_memfd folios independent of whether they are "shared" or "private"=
+=0A=
+>> (although current guest_memfd only supports either all folios in the=0A=
+>> "shared" state, or all folios in the "private" state if=0A=
+>> GUEST_MEMFD_FLAG_MMAP is not set). The usecase for removing direct map=
+=0A=
+>> entries of also the shared parts of guest_memfd are a special type of=0A=
+>> non-CoCo VM where, host userspace is trusted to have access to all of=0A=
+>> guest memory, but where Spectre-style transient execution attacks=0A=
+>> through the host kernel's direct map should still be mitigated.  In this=
+=0A=
+>> setup, KVM retains access to guest memory via userspace mappings of=0A=
+>> guest_memfd, which are reflected back into KVM's memslots via=0A=
+>> userspace_addr. This is needed for things like MMIO emulation on x86_64=
+=0A=
+>> to work.=0A=
+>>=0A=
+>> Do not perform TLB flushes after direct map manipulations. This is=0A=
+>> because TLB flushes resulted in a up to 40x elongation of page faults in=
+=0A=
+>> guest_memfd (scaling with the number of CPU cores), or a 5x elongation=
+=0A=
+>> of memory population. TLB flushes are not needed for functional=0A=
+>> correctness (the virt->phys mapping technically stays "correct",  the=0A=
+>> kernel should simply to not it for a while). On the other hand, it means=
+=0A=
+> =0A=
+>                           ^ not use it?=0A=
+=0A=
+Yup, thanks!=0A=
+=0A=
+>> that the desired protection from Spectre-style attacks is not perfect,=
+=0A=
+>> as an attacker could try to prevent a stale TLB entry from getting=0A=
+>> evicted, keeping it alive until the page it refers to is used by the=0A=
+>> guest for some sensitive data, and then targeting it using a=0A=
+>> spectre-gadget.=0A=
+>>=0A=
+>> Signed-off-by: Patrick Roy <roypat@amazon.co.uk>=0A=
+>> ---=0A=
+>>  arch/arm64/include/asm/kvm_host.h | 12 ++++++++++++=0A=
+>>  include/linux/kvm_host.h          |  7 +++++++=0A=
+>>  include/uapi/linux/kvm.h          |  2 ++=0A=
+>>  virt/kvm/guest_memfd.c            | 29 +++++++++++++++++++++++++----=0A=
+>>  virt/kvm/kvm_main.c               |  5 +++++=0A=
+>>  5 files changed, 51 insertions(+), 4 deletions(-)=0A=
+> =0A=
+> ...=0A=
+> =0A=
+>> diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c=0A=
+>> index 9ec4c45e3cf2..e3696880405c 100644=0A=
+>> --- a/virt/kvm/guest_memfd.c=0A=
+>> +++ b/virt/kvm/guest_memfd.c=0A=
+>> @@ -4,6 +4,7 @@=0A=
+>>  #include <linux/kvm_host.h>=0A=
+>>  #include <linux/pagemap.h>=0A=
+>>  #include <linux/anon_inodes.h>=0A=
+>> +#include <linux/set_memory.h>=0A=
+>>=0A=
+>>  #include "kvm_mm.h"=0A=
+>>=0A=
+>> @@ -42,8 +43,18 @@ static int __kvm_gmem_prepare_folio(struct kvm *kvm, =
+struct kvm_memory_slot *slo=0A=
+>>       return 0;=0A=
+>>  }=0A=
+>>=0A=
+>> +static bool kvm_gmem_test_no_direct_map(struct inode *inode)=0A=
+>> +{=0A=
+>> +     return ((unsigned long) inode->i_private) & GUEST_MEMFD_FLAG_NO_DI=
+RECT_MAP;=0A=
+>> +}=0A=
+>> +=0A=
+>>  static inline void kvm_gmem_mark_prepared(struct folio *folio)=0A=
+>>  {=0A=
+>> +     struct inode *inode =3D folio_inode(folio);=0A=
+>> +=0A=
+>> +     if (kvm_gmem_test_no_direct_map(inode))=0A=
+>> +             set_direct_map_valid_noflush(folio_page(folio, 0), folio_n=
+r_pages(folio), false);=0A=
+> =0A=
+> This may fail to split large mapping in the direct map. Why not move this=
+=0A=
+> to kvm_gmem_prepare_folio() where you can handle returned error?=0A=
+=0A=
+Argh, yeah, got that the wrong way around. Will update the error handling.=
+=0A=
+=0A=
+> I think that using set_direct_map_invalid_noflush() here and=0A=
+> set_direct_map_default_noflush() in kvm_gmem_free_folio() better is=0A=
+> clearer and makes it more obvious that here the folio is removed from the=
+=0A=
+> direct map and when freed it's direct mapping is restored.=0A=
+> =0A=
+> This requires to export two symbols in patch 2, but I think it's worth it=
+.=0A=
+=0A=
+Mh, but set_direct_map_[default|invalid]_noflush() only take a single struc=
+t=0A=
+page * argument, so they'd either need to gain a npages argument, or we add=
+ yet=0A=
+more functions to set_memory.h.  Do you still think that's worth it? =0A=
+=0A=
+>>       folio_mark_uptodate(folio);=0A=
+>>  }=0A=
+>>=0A=
+>> @@ -429,25 +440,29 @@ static int kvm_gmem_error_folio(struct address_spa=
+ce *mapping, struct folio *fol=0A=
+>>       return MF_DELAYED;=0A=
+>>  }=0A=
+>>=0A=
+>> -#ifdef CONFIG_HAVE_KVM_ARCH_GMEM_INVALIDATE=0A=
+>>  static void kvm_gmem_free_folio(struct address_space *mapping,=0A=
+>>                               struct folio *folio)=0A=
+>>  {=0A=
+>>       struct page *page =3D folio_page(folio, 0);=0A=
+>> +=0A=
+>> +#ifdef CONFIG_HAVE_KVM_ARCH_GMEM_INVALIDATE=0A=
+>>       kvm_pfn_t pfn =3D page_to_pfn(page);=0A=
+>>       int order =3D folio_order(folio);=0A=
+>> +#endif=0A=
+>>=0A=
+>> +     if (kvm_gmem_test_no_direct_map(mapping->host))=0A=
+>> +             WARN_ON_ONCE(set_direct_map_valid_noflush(page, folio_nr_p=
+ages(folio), true));=0A=
+> =0A=
+> I don't think it can fail here. The direct map was split when you removed=
+=0A=
+> the folio so here it will merely update the prot bits.=0A=
+=0A=
+Yup, will drop this WARN_ON_ONCE.=0A=
+=0A=
+>> +#ifdef CONFIG_HAVE_KVM_ARCH_GMEM_INVALIDATE=0A=
+>>       kvm_arch_gmem_invalidate(pfn, pfn + (1ul << order));=0A=
+>> -}=0A=
+>>  #endif=0A=
+>> +}=0A=
+> =0A=
+> Instead of moving #ifdefs into kvm_gmem_free_folio() it's better to add, =
+say,=0A=
+> kvm_gmem_invalidate() and move ifdefery there or even better have a stati=
+c=0A=
+> inline stub for !CONFIG_HAVE_KVM_ARCH_GMEM_INVALIDATE case.=0A=
+=0A=
+Ack, will do the latter=0A=
+=0A=
+>> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c=0A=
+>> index 18f29ef93543..0dbfd17e1191 100644=0A=
+>> --- a/virt/kvm/kvm_main.c=0A=
+>> +++ b/virt/kvm/kvm_main.c=0A=
+>> @@ -65,6 +65,7 @@=0A=
+>>  #include <trace/events/kvm.h>=0A=
+>>=0A=
+>>  #include <linux/kvm_dirty_ring.h>=0A=
+>> +#include <linux/set_memory.h>=0A=
+>>=0A=
+>>=0A=
+>>  /* Worst case buffer size needed for holding an integer. */=0A=
+>> @@ -4916,6 +4917,10 @@ static int kvm_vm_ioctl_check_extension_generic(s=
+truct kvm *kvm, long arg)=0A=
+>>               return kvm_supported_mem_attributes(kvm);=0A=
+>>  #endif=0A=
+>>  #ifdef CONFIG_KVM_GUEST_MEMFD=0A=
+>> +     case KVM_CAP_GUEST_MEMFD_NO_DIRECT_MAP:=0A=
+>> +             if (!can_set_direct_map())=0A=
+> =0A=
+> Shouldn't this check with kvm_arch_gmem_supports_no_direct_map()?=0A=
+=0A=
+Absolutely, thanks for catching!=0A=
+=0A=
+>> +                     return false;=0A=
+>> +             fallthrough;=0A=
+>>       case KVM_CAP_GUEST_MEMFD:=0A=
+>>               return 1;=0A=
+>>       case KVM_CAP_GUEST_MEMFD_MMAP:=0A=
+>> --=0A=
+>> 2.50.1=0A=
+>>=0A=
+> =0A=
+> --=0A=
+> Sincerely yours,=0A=
+> Mike.=0A=
+=0A=
+Best,=0A=
+Patrick=0A=
 
