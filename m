@@ -4,116 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 694B2CA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 08:07:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DA13CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 08:10:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EqGQRz9OSpVf8DV6/Ix+p5V8zS1w2oNQNut3bLjdDcw=; b=s8SAbtp1fV951LcX+ZUiqsXToP
-	KD445tKqVS8kb6VXA5k4A8DXpEKU1gHIXZ84UaWbA9hPlX85ljQ4oot81Fe96a5FdeBwVuqNEN6R7
-	r16QMnlVCcmuc+f2W5dYJLd8k4vNRH7zJKeU9gj3khHuRgAE1PpNEqsh3nxoV6PKjGdjqKZAZHXDz
-	mBnU5tHeN9YMVjRhu26pS7f4obcH7MmZiOCC3scW8NH0eO8koYw+Ci27PrCQ0dFTwTHxIGFSmj4nz
-	Jrz1kk7J7/ek/D6+1F5LLmgszdWWDmlgvbUTbjZA52+Cd+tOw/25LRBMp/NoOmh05emmgX4hdnPyr
-	RGRdHjEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2/5B9JlC9H0WqsVCFuSfoaDVuX+LGrJc1PzKbI1rmJE=; b=rCXxPujA0t27W81GeRcwI5XthX
+	lIKnHCy36EgU7Q9okMcF+AL+Kz6MHHXTqLaMAfeYDFS/uBVVUEtxrCK90LCKsxZR9Mgs9uQVREWgt
+	7AkhNy2moj4OyEI9KZAFuxuApEJ6A/NDTV0FFitHlJ6jr4fhYpE7HRr8mCwohu2tJ/L/6CAvFt1sX
+	k/gLMcrPbNvci/BXm5sviQ39fcdPvcx1nt0tytcWFuJz/hIYSFX7vM7d1wFD36feIrrIgEhjCle4q
+	hZG7I3+l2Dela0wDVUFrr4Es+jhqiT7EK9lxQzYcHSuhJfMB5hjQU0m/t9pvuAhdprGr58HbO6Pr6
+	P5KobRbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uszZR-0000000BXCk-3MB2;
-	Mon, 01 Sep 2025 08:07:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uszc8-0000000BXXq-06za;
+	Mon, 01 Sep 2025 08:10:08 +0000
+Received: from mail-koreasouthazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c410::1] helo=PUWP216CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uszH9-0000000BTqs-2UEy
+	id 1uszMg-0000000BUc7-0nn6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 07:48:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D1C9940203;
-	Mon,  1 Sep 2025 07:48:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E00E1C4CEF0;
-	Mon,  1 Sep 2025 07:48:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756712906;
-	bh=FAmpQYHkaMukkoETSDRLB6k4Yp43aZ5GEeo14onHYZc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=rFT+CKZIJx+CgOTa7zF9l3kTk7uOeG+S9iNoc2XJ2zHBk8IwoOaQASRDK+JfXIQO4
-	 IcR5SCJhg+yE3YYKYIl5O/bS8VtVzFf9rL/3lSECBtmx3c5Gpk53jH9ksNaGoNbfQx
-	 Z9WA08PxvK9XjgJIJaXIVArkg6Cjk/bqznAn+k0MDGWwVuESP2Z9LYWOLICkbJvSBG
-	 RxP+fbfVq+9lTYdWpN3TmLbTooNaB4SYxeLX9DnKoqU3HNxvXrzKTOdZtMoAyoyQ27
-	 VP+C7VSDvxsvt2HKufAxgTV7+RGeIDloG857XOi++7v77QhhNmV7roSXNGb2mQjrA2
-	 G8DveNmo8aonA==
-Message-ID: <2567a939-4938-4c92-8893-83d03ff8767f@kernel.org>
-Date: Mon, 1 Sep 2025 09:48:19 +0200
+	Mon, 01 Sep 2025 07:54:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sGJMU0AFwnSsVE/nj3a4ObMsJlns2ALpIpN8EqxUbKJuzgUznFpvBncsgwupv8tki3gQ8tl+3xmD+lfTOM7F5ddOwhzabG8AG++dDfHYPg2S85tN1bBTLN69vDACs4PiitES9PnMWlKRg/jXtEeh3bNnosLC+bbQF2ognrEhBF2zSsECFk0wDbzgstgVYVS8xUR3PqpLrem71Wo313gZKa7sDcgu62YywRNbLczefJU/PmwVo7bptJyKVVg8CwNP3f7sm8v/XPRZNW76BDaxqJOymK3d0roFuUEVcQF59OsXj7sJ+e0cfxEpsMAZCJDR/skqs2jx0fPfANBNq3W4Yw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2/5B9JlC9H0WqsVCFuSfoaDVuX+LGrJc1PzKbI1rmJE=;
+ b=YItFC+XjfWxbCG4YINFblDWy4DTJgB8Yf3ksKaDM6G7VZUis6H9IRDcnHJGRKGx2U6v0mM1xrwf+BlaF7jHLF6IV12gGGM9UrdkAFRzR7RbNt4rhN/flp2h6l68jBjsWUUx00yCtqyMALAdFH7aqgavq3+oZC5k2xKc6fofllOo5hJ9IvPi40Mi0IEiCYXbuJiz/78oWWQyg434hmVaI/WpJfMoqC9L2DyE/3L8coxkS4AmIWbMSuGVmjgGeB3FCkQJ4oRK4iALnW3VB6Rg9rnnhfcBQ9LEfX2hCZ2tAvO8EiKWg0jRSzda2nW+d+W4JH7+JyNJ1OSIu8hWrxOMInw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=chipsnmedia.com; dmarc=pass action=none
+ header.from=chipsnmedia.com; dkim=pass header.d=chipsnmedia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chipsnmedia.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2/5B9JlC9H0WqsVCFuSfoaDVuX+LGrJc1PzKbI1rmJE=;
+ b=YAkIuvd0wF4VoL7Amdu1tX7AJmYoc03zvuQYj37z8icieeeAWzPFhF39HhALkct1Zknqr9I+pEzYBuGc8KCbqdwbaGn1g6X5GgLxcHO1EU6yrglNo8ui+h2BKb9myDBOqUozGRQMA91Hd4AlYJmL3sl299/rNR4+YojZsWbm56o=
+Received: from SL2P216MB1246.KORP216.PROD.OUTLOOK.COM (2603:1096:101:a::9) by
+ PU4P216MB1584.KORP216.PROD.OUTLOOK.COM (2603:1096:301:d1::6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9094.16; Mon, 1 Sep 2025 07:38:24 +0000
+Received: from SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+ ([fe80::9e3d:ee20:8cc7:3c07]) by SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+ ([fe80::9e3d:ee20:8cc7:3c07%5]) with mapi id 15.20.9094.015; Mon, 1 Sep 2025
+ 07:38:24 +0000
+From: Nas Chung <nas.chung@chipsnmedia.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, "mchehab@kernel.org"
+	<mchehab@kernel.org>, "hverkuil@xs4all.nl" <hverkuil@xs4all.nl>,
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de"
+	<s.hauer@pengutronix.de>
+CC: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-imx@nxp.com" <linux-imx@nxp.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, jackson.lee
+	<jackson.lee@chipsnmedia.com>, lafley.kim <lafley.kim@chipsnmedia.com>
+Subject: RE: [PATCH v3 9/9] arm64: dts: freescale: imx95: Add video codec node
+Thread-Topic: [PATCH v3 9/9] arm64: dts: freescale: imx95: Add video codec
+ node
+Thread-Index: AQHcGMGM5yWyx69OvEaH5er/KGf+KrR5qwcAgARIVrA=
+Date: Mon, 1 Sep 2025 07:38:23 +0000
+Message-ID: <SL2P216MB124642A800176DF8FAC26B7BFB07A@SL2P216MB1246.KORP216.PROD.OUTLOOK.COM>
+References: <20250829084649.359-1-nas.chung@chipsnmedia.com>
+ <20250829084649.359-10-nas.chung@chipsnmedia.com>
+ <6801197c-ccf7-47ea-bab6-5f567dfca418@kernel.org>
+In-Reply-To: <6801197c-ccf7-47ea-bab6-5f567dfca418@kernel.org>
+Accept-Language: en-US, ko-KR
+Content-Language: ko-KR
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=chipsnmedia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SL2P216MB1246:EE_|PU4P216MB1584:EE_
+x-ms-office365-filtering-correlation-id: d77275ed-d5b9-44c9-149d-08dde92a883a
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|7416014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?Qxq2odfaLRc39ACzmYXG3ZRtGI4covu2iN5BLRq3tRtxga5OurniOsj5Ef53?=
+ =?us-ascii?Q?R8OHS82uYGeDGx342AnmfucuBZO0EztFV2xhcHPRH4O9vwa4I1nhTfKDlwH4?=
+ =?us-ascii?Q?HmsZp7SqloFbevZDhTJl+m/BVdfbwovQJUesEwNXHXNchvbbr7dDB/WH2vdf?=
+ =?us-ascii?Q?1U5O3ct/LME3whejx0k65ht/69iiE8kyQjhG2o+hBt+94xPIaUv7PHifHyTT?=
+ =?us-ascii?Q?+2xx8XO6yncOKPjfoBuoDimSmYDXXcm5Bi/75s/o9a15dgtXQbMPuzavQD88?=
+ =?us-ascii?Q?c55VJbOb9If2P3gy9eevKwNZ9HEboQOHl/FnfZVPs7069B1yBHrnQVzqLI/g?=
+ =?us-ascii?Q?EqDchr41VM/2IhcAXwbfJUFgdN0sgKVI1vdTK2ElSFdjH6BeMZ2D56IGN/Ep?=
+ =?us-ascii?Q?FIiqr+bDiyeLgTAbmAmixJhbeMRBZix2qb1TkkFI2+jeUs0QuDYtYVh6IK1W?=
+ =?us-ascii?Q?tW6HSYul0lUu8jF99HP49En6vBqKlyo1BcOPaIhOkpUyE0dgva7gTdho4ih2?=
+ =?us-ascii?Q?OAzYJUfRrtRe4E99WxUyllN1SkL9bAwXR/Hopd/M+w2zekbZB/DjnZa36175?=
+ =?us-ascii?Q?f6yBwWhajKbh0xJYQsm11hlkzYCqVAZYgIr7T5DygN3TKqux8XtSVo3LtWt0?=
+ =?us-ascii?Q?fk7RLcK6jItADW7ebwSMZoz1Iwh0QMkdoU7oEywo2TA5OMo47LYOIaftdbBz?=
+ =?us-ascii?Q?sRwW/PcTGR6Ck7XVq67kDcIRUNZEM8K0fx5jDAFNctSrcgWfWMzOZxBLebXp?=
+ =?us-ascii?Q?jDvK3GXE5j5ojQi00ubyUdkV1NQKg+mFfuNqJZl/sFSiqJITMl4x+Ybv3VYX?=
+ =?us-ascii?Q?1BXoqtmNgxSRfNwBIweXS9k2mh1KWFbRisu87jdaMmv2dXyECztvXbBEeh/U?=
+ =?us-ascii?Q?DLImh8/zV+9QEzkKGxQNiDXDlFXZp8ytItX6qAy+86P2f93/2vcga9uDm2nn?=
+ =?us-ascii?Q?YkW0RoJCCdNyK89Kng2DrCbA01bMCWlBySMZv93UsoxEb8ogPYEr+mRuD3hL?=
+ =?us-ascii?Q?XGhd1ps/PlxAVp9aJkQlx5Dn584HvtKX/8LeiZNS9pxcmD1gpOHaF1jNAVzX?=
+ =?us-ascii?Q?GeXP02gdgUfcli/vHJ7dF8eR3j8H/BZ8n137nS0ZHgl4quyoEv9KZ1I2FmXV?=
+ =?us-ascii?Q?iueJDr5gJX8kBMiWsWK1hO2Q5BjOwmk46wtCjFRTWCOPGKgJVXMfHUnbNKDz?=
+ =?us-ascii?Q?ggGR4jUe3bwLThuaTmcT0AD3RVv9DNOQA4Mf9m6VQ1E7Uytmy9u5eq6t684z?=
+ =?us-ascii?Q?6R8vCZ9fQBI2rCGSB8eDxMMJhpAwCbd/fqRdNGgEQn4IMUFUJ7zsPots7BRq?=
+ =?us-ascii?Q?DsjV7QdPmeZIKsrGhgv4y7oBaqEl2BCt59Z2U7uJ5ff71NgEuzuqOHoXFnbe?=
+ =?us-ascii?Q?yUw+PZZeiG9U4jFCKT+yTw5ot0KQk5oc5mnU6eaA3/Q8K+QODyqIWWtRFN03?=
+ =?us-ascii?Q?m3i/oqKnBteJg5rAxYUjasE6ZVP+rk+9MXfSUnEHZx5lggeu4vMDiw=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SL2P216MB1246.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(7416014)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?RnqJhHu0EyEzBoQaY8yyO88dpIUyhgmVK+S5428t9ovh4A09JQYL/3xgRfLn?=
+ =?us-ascii?Q?YJbqAIQNcE/6aenIaszmiJcdjNB+nUFCkfR8CZS0LcyuCNxcxt7xx6rpIPg5?=
+ =?us-ascii?Q?/YXo4bmkoDbXth7wN2+W5tISIL5zUiWb+gxWG4E745b34H+YLhim5fFmOEmF?=
+ =?us-ascii?Q?+oy2mxj1e+kqCdZkd1J+0iJA5+J8YwwBQq9g8r1c5io7F94Xw1q92zHd8xVF?=
+ =?us-ascii?Q?ng1TlU09vJhxJzIafOycS4T4rgk/3d3VkpZESZHlVaNAwOiwnC75Wzz5lwoc?=
+ =?us-ascii?Q?5jhas6Tl3aAKdoLc0nB9ycyoHXqwmOSaM8lqb+WhF97IDb3356UIzhV2y0oV?=
+ =?us-ascii?Q?sRq5vszV7KvXA4B8+Xo6mNG3yPn7VcMnALJ2fx6lvGs6rpqt4CRQ0AdrA/BN?=
+ =?us-ascii?Q?vD42IsC36DUb2oWpS9IxiIIW+hAuaRW2rPeN9JkHGFyaW4QDNy+7uRke0q2s?=
+ =?us-ascii?Q?+p0GsIU/kKaLQSFgp0tNNlixAgtcqGfcpABU+4lbpvFZFtZgwys80AwQCSDa?=
+ =?us-ascii?Q?HxxHFkutrTiTKyCHWfwBiMR3h9yV8T2gX5T+qkAtTrbtzLprLci0lD0jVdTc?=
+ =?us-ascii?Q?IrNpupTJW2eihXMwHfcFXUf/UR3p3zh54LMFtotjwugqUWaM7MFua6sajI4A?=
+ =?us-ascii?Q?ENc5+23XoyD/uJbn/nMk4+E0XpdljRL2sdr/fmX7qATd6txeusT2kDMhDutN?=
+ =?us-ascii?Q?OrldEs/O8uKAtDwrH85xyn7JMBhr2e9dEgoVA2nY0fBGdym5RoXn/MTdvIRC?=
+ =?us-ascii?Q?t/zMk3fVHLGGL8tf9othzRKNpPTTHsbqfS6SOUo6hgFUtvnGN9gTda8NMnx8?=
+ =?us-ascii?Q?bXNeJREbOrPsGIHSZqhXQQ6QYISgcHowxHbGA+bUDNodAMVJtEBnJQfFFScE?=
+ =?us-ascii?Q?QiaRudLkeqt/ejI2nJOPBOhaP9LrjLfOxW+TynunvsvjtUPYKP+w2Z8obUCI?=
+ =?us-ascii?Q?UUbNlwm4ussS+wnlsUd/+RnlR0HeFRss3jXB7kmwROda2+Du2ZgQZQ6Mhs/y?=
+ =?us-ascii?Q?qIovsQxFn5xp6Nwa3mP6PmrXh6A3aPqEIyocWeOhNrtJUl72XNTbmqRUKj2V?=
+ =?us-ascii?Q?QhWk+Eej5kwGCP1gcO5BnDykO11U10rZmVe9XhcF5d6/Rv53dLvmy/bkk7S2?=
+ =?us-ascii?Q?m3Xyn3UDbbC4GO4bmb15cIcKX9IOU4oAQzvMS3bgDhSyLLmoOx+U6waBsy7u?=
+ =?us-ascii?Q?ia/OlCYw5FZ0EE91f8l+pcwBer1e08d/+487kXMVLzLTOEOLva8fLzfRvsAH?=
+ =?us-ascii?Q?bS0ttUkIsiTnp6oziU1aqK+rvTiW0MMQuzL/vAwccpZMNyV5t9pjK6pPZDz9?=
+ =?us-ascii?Q?P0Hdb5itNLo7v2O76il9AMMYZFf3/qoGoIKM11o3W23eWYoLtEFCzFcTJPxC?=
+ =?us-ascii?Q?+7kJ75NRuCAKDHBhINo0dyXPc/Z8VBpDl5CuXAhY5kXHR4Fi/2rcbpT6EKmM?=
+ =?us-ascii?Q?jx7k2ywIOfC00uw+gRVyoDs17o+iUYV/WPAaEinShfSSYPp+B8GQbbDwSXvT?=
+ =?us-ascii?Q?VvTdMTjOnK+vURL3gDTeZv61xXPWrSdnYudvZc4B5fzrUbvtgusSC6+5s31r?=
+ =?us-ascii?Q?46YUyPa/i+N2kGfg/in+yHkhZnNcz5xDAyFFqb9Z?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/5] firmware: exynos-acpm: register ACPM clocks dev
-To: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
-References: <20250827-acpm-clk-v2-0-de5c86b49b64@linaro.org>
- <20250827-acpm-clk-v2-4-de5c86b49b64@linaro.org>
- <e8346a38-fef7-482f-81ab-20621988b047@kernel.org>
- <761936e8-1626-47f8-b3f5-ebc62f4a409b@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <761936e8-1626-47f8-b3f5-ebc62f4a409b@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-OriginatorOrg: chipsnmedia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: d77275ed-d5b9-44c9-149d-08dde92a883a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Sep 2025 07:38:23.9038
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 4d70c8e9-142b-4389-b7f2-fa8a3c68c467
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: rA3TOKh1ITbp3BJeADsvN/elfeCOcjsTdPBgM45Pk/byruM/usEZRqNga/d85K95GOyBqRNZ7Q5sK9iM/CAgM8jvRS/d3XpNoFOQgOEbJts=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PU4P216MB1584
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_004827_716945_3D1BF084 
-X-CRM114-Status: GOOD (  22.60  )
+X-CRM114-CacheID: sfid-20250901_005410_233184_5AA0C92D 
+X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,71 +172,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/09/2025 08:56, Tudor Ambarus wrote:
-> 
-> 
-> On 8/31/25 11:50 AM, Krzysztof Kozlowski wrote:
->> On 27/08/2025 14:42, Tudor Ambarus wrote:
->>> +
->>> +static const struct acpm_clk_variant gs101_acpm_clks[] = {
->>> +	ACPM_CLK(CLK_ACPM_DVFS_MIF, "mif"),
->>> +	ACPM_CLK(CLK_ACPM_DVFS_INT, "int"),
->>> +	ACPM_CLK(CLK_ACPM_DVFS_CPUCL0, "cpucl0"),
->>> +	ACPM_CLK(CLK_ACPM_DVFS_CPUCL1, "cpucl1"),
->>> +	ACPM_CLK(CLK_ACPM_DVFS_CPUCL2, "cpucl2"),
->>> +	ACPM_CLK(CLK_ACPM_DVFS_G3D, "g3d"),
->>> +	ACPM_CLK(CLK_ACPM_DVFS_G3DL2, "g3dl2"),
->>> +	ACPM_CLK(CLK_ACPM_DVFS_TPU, "tpu"),
->>> +	ACPM_CLK(CLK_ACPM_DVFS_INTCAM, "intcam"),
->>> +	ACPM_CLK(CLK_ACPM_DVFS_TNR, "tnr"),
->>> +	ACPM_CLK(CLK_ACPM_DVFS_CAM, "cam"),
->>> +	ACPM_CLK(CLK_ACPM_DVFS_MFC, "mfc"),
->>> +	ACPM_CLK(CLK_ACPM_DVFS_DISP, "disp"),
->>> +	ACPM_CLK(CLK_ACPM_DVFS_BO, "b0"),
->>> +};
+Hi, Krzysztof.
+
+>-----Original Message-----
+>From: Krzysztof Kozlowski <krzk@kernel.org>
+>Sent: Friday, August 29, 2025 11:08 PM
+>To: Nas Chung <nas.chung@chipsnmedia.com>; mchehab@kernel.org;
+>hverkuil@xs4all.nl; robh@kernel.org; krzk+dt@kernel.org;
+>conor+dt@kernel.org; shawnguo@kernel.org; s.hauer@pengutronix.de
+>Cc: linux-media@vger.kernel.org; devicetree@vger.kernel.org; linux-
+>kernel@vger.kernel.org; linux-imx@nxp.com; linux-arm-
+>kernel@lists.infradead.org; jackson.lee <jackson.lee@chipsnmedia.com>;
+>lafley.kim <lafley.kim@chipsnmedia.com>
+>Subject: Re: [PATCH v3 9/9] arm64: dts: freescale: imx95: Add video codec
+>node
+>
+>On 29/08/2025 10:46, Nas Chung wrote:
+>> diff --git a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
+>b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
+>> index 2f949a0d48d2..c9d8b78d5768 100644
+>> --- a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
+>> +++ b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
+>> @@ -75,6 +75,11 @@ linux_cma: linux,cma {
+>>  			linux,cma-default;
+>>  			reusable;
+>>  		};
+>> +
+>> +		vpu_boot: vpu_boot@a0000000 {
+>
+>Follow DTS coding style.
+
+Okay, I will change the node name to "memory", e.g.:
+
+		vpu_boot: memory@a0000000 {
+
+>
+>> +			reg =3D <0 0xa0000000 0 0x100000>;
+>> +			no-map;
+>> +		};
+>>  	};
 >>
->> I don't understand why clocks are defined in the firmware driver, not in
->> the clock driver.
-> 
-> I chose to define the clocks in the firmware driver and pass them as 
-> platform data to the clock platform device for extensibility. In case
-> other SoCs have different clock IDs, they'll be able to pass the
+>>  	flexcan1_phy: can-phy0 {
+>> @@ -1044,3 +1049,8 @@ &tpm6 {
+>>  	pinctrl-0 =3D <&pinctrl_tpm6>;
+>>  	status =3D "okay";
+>>  };
+>> +
+>> +&vpu {
+>> +	memory-region =3D <&vpu_boot>;
+>> +	sram =3D <&sram1>;
+>> +};
+>> diff --git a/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi
+>b/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi
+>> index 7519d5bd06ba..73c84ab60dfd 100644
+>> --- a/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi
+>> +++ b/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi
+>> @@ -59,6 +59,11 @@ linux,cma {
+>>  			size =3D <0 0x3c000000>;
+>>  			linux,cma-default;
+>>  		};
+>> +
+>> +		vpu_boot: vpu_boot@a0000000 {
+>
+>Same problem.
 
-You will have to modify firmware driver, so still at least one driver
-has to be changed. Having clocks defined in non-clock driver is really
-unusual.
+I will fix it in the same way.
 
-This solution here creates also dependency on clock bindings and makes
-merging everything unnecessary difficult.
+Thanks,
+Nas.
 
-> clock data without needing to modify the clock driver. GS201 defines
-> the same ACPM clocks as GS101, but I don't have access to other newer
-> SoCs to tell if the ACPM clocks differ or not.
-> 
-> The alternative is to define the clocks in the clock driver and
-> use platform_device_register_simple() to register the clock platform
-> device. The clock driver will be rigid in what clocks it supports.
-> 
-> I'm fine either way for now. What do you prefer?
-
-Please move them to the driver.
-
-> 
->>
->> This creates dependency of this patch on the clock patch, so basically
->> there is no way I will take it in one cycle.
-> 
-> Would it work to have an immutable tag for the clock and samsung-soc
-> subsytems to use?
-
-No, just try yourself. Patch #3 depends on patch #2, so that's the cross
-tree merge. It's fine, but now patch #4 depends on patch #3, so you need
-two merges.
-
-Or how do you actually see it being merged with immutable tag? What goes
-where?
-
-
-Best regards,
-Krzysztof
+>
+>> +			reg =3D <0 0xa0000000 0 0x100000>;
+>> +			no-map;
+>> +		};
+>>  	};
+>
+>> +
+>Best regards,
+>Krzysztof
 
