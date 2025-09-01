@@ -4,87 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77D52CA1000
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 18:04:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED3ACCA1000
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 18:07:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BM2bi8XRe0Tu2TIMsONhhCSzDVLZSgA3tXyyfFdHX3Y=; b=BNeZCZBNo+b8s5QZkrpfPj6Xjm
-	qLCE6QQUV02/2xosMGi/ZAkTVmQXmYEsDq7HwmvmddiogQRsDyUCSiizWXoYk2fSrFieLYG4uptoQ
-	hCrysm5J4JK2bFb0O44idPZQndhA/y3KVoCm4ZY1OggaX80O1f11iAQFVDUVjG8nlukCcrFbfh7nQ
-	11ZlQ+hqU584GX9HPOIbsDMTVB1zMpz7ToOIUNWbV41MuAnIq3rfKMFTT0E0DgbVTDJIo/Bb+LkoT
-	eMRzlSkB+zGxomkcLm/c93NwPQ+iMlcovcsTAElMLSFXywq2DHDtYLbj2sz8vgDeIz+FoevPtoPvA
-	TWfepotg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DzdixQuy30cIOdtGPtZhymwxAjNsuo6l8KhPTQzil28=; b=FP+DTbTUoy+G7OLfaD6Ji/YDVE
+	y4zP1R22yMOH1I80R0W/AOGrmMP++IR0tvLzaTFU9/v7pEgTvkb1GrAqrdRoHiaINf6jLa4oKawtO
+	oCOMj/ii+He7wPyB5rvPVJklkvNjOADilZK8ZLUpdBZ+qPL80OUCKjr5vQI7b8H+vkx5rDXTHQBvs
+	97mP8b0HWMUoUVOH2voTUB7tGuOEO7iMWbeNww+jH3E28i24Vk3TOD5zHHsU1lt8k0U29In7DNfAs
+	6EG2IE44hJpqGyRtUrD4RWP2uUL3CFdS8MZsmJ8Iv5poTfd4ApxY/B402nUxCHupaWg6LzXqWN1E5
+	dZZXdzFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut8tW-0000000DWUc-1anG;
-	Mon, 01 Sep 2025 18:04:42 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1ut8wC-0000000DWik-1VkZ;
+	Mon, 01 Sep 2025 18:07:28 +0000
+Received: from fra-out-011.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([52.28.197.132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut5sW-0000000CvPH-1ne1
+	id 1ut5xc-0000000CwnG-2Qva
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 14:51:29 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 581En5Ht2389135;
-	Mon, 1 Sep 2025 09:49:05 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1756738145;
-	bh=BM2bi8XRe0Tu2TIMsONhhCSzDVLZSgA3tXyyfFdHX3Y=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=QTDqVkHuLE5jwYg6dSJ09edO1hNNNA9dWYcbctfJzbJU+MrSLbcIUsBB+c5t3DxY+
-	 m0M6dPQuOBLcSSxTOM0vqMpQpEpWjyfqWGQd8vf/mULIDWLCyhtHAyA7KXOCsgZdKw
-	 X/cSnefthPRuFHZx/h3Aj7sH4M6mA7L70XgG0ZA8=
-Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 581En5ik2171508
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 1 Sep 2025 09:49:05 -0500
-Received: from DFLE104.ent.ti.com (10.64.6.25) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 1
- Sep 2025 09:49:04 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 1 Sep 2025 09:49:04 -0500
-Received: from [10.249.130.61] ([10.249.130.61])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 581EmpLK2668338;
-	Mon, 1 Sep 2025 09:48:52 -0500
-Message-ID: <1b892cde-bcdc-4a4e-83b7-35cc13eef8f4@ti.com>
-Date: Mon, 1 Sep 2025 20:18:50 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v14 2/5] net: ti: icssm-prueth: Adds ICSSM
- Ethernet driver
-To: Parvathi Pudi <parvathi@couthit.com>, <danishanwar@ti.com>,
-        <rogerq@kernel.org>, <andrew+netdev@lunn.ch>, <davem@davemloft.net>,
-        <edumazet@google.com>, <kuba@kernel.org>, <pabeni@redhat.com>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <ssantosh@kernel.org>, <richardcochran@gmail.com>, <m-malladi@ti.com>,
-        <s.hauer@pengutronix.de>, <afd@ti.com>, <jacob.e.keller@intel.com>,
-        <horms@kernel.org>, <johan@kernel.org>, <m-karicheri2@ti.com>,
-        <s-anna@ti.com>, <glaroque@baylibre.com>, <saikrishnag@marvell.com>,
-        <kory.maincent@bootlin.com>, <diogo.ivo@siemens.com>,
-        <javier.carrasco.cruz@gmail.com>, <basharath@couthit.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <vadim.fedorenko@linux.dev>, <alok.a.tiwari@oracle.com>,
-        <bastien.curutchet@bootlin.com>, <pratheesh@ti.com>, <prajith@ti.com>,
-        <vigneshr@ti.com>, <praneeth@ti.com>, <srk@ti.com>, <rogerq@ti.com>,
-        <krishna@couthit.com>, <pmohan@couthit.com>, <mohan@couthit.com>
-References: <20250822132758.2771308-1-parvathi@couthit.com>
- <20250822132758.2771308-3-parvathi@couthit.com>
+	Mon, 01 Sep 2025 14:56:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.co.uk; i=@amazon.co.uk; q=dns/txt;
+  s=amazoncorp2; t=1756738604; x=1788274604;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=DzdixQuy30cIOdtGPtZhymwxAjNsuo6l8KhPTQzil28=;
+  b=Zz/3rOz02k0CZijphqp9ZkI2uI+MNzRHVUtqSaZj0zco6n+GKXQecmxT
+   v0winJS3clIBs3DoevV7i21tnrZHvkBYMIzZc488ErWNdDvdPuLXFlic3
+   NuB7uWF4peU+w6IYuB5aimAFu4wNfAFqvXa/fFYQIGJnFRMcutOZpWs9f
+   oqYoFpzHYBbU3aJ4Z+RCn5ucKCSQzhGWMN10ISnPXJMlsJ+uYjPy45Lsu
+   ghCjiS03i/pxxXd1WGydNCWFW2Jf3/yYQg5NHwJNGCbTfwbYRonT8wMzR
+   T34wslWVo3fHlrDg31uws6b6a2gxBCVEp6Bz6wBNIukxyJOYNZmEjo2B4
+   A==;
+X-CSE-ConnectionGUID: TP9bWQ1xROib+ix+/ngIXQ==
+X-CSE-MsgGUID: YwAZ6XeoRvujHV/6Dg0jJQ==
+X-IronPort-AV: E=Sophos;i="6.17,290,1747699200"; 
+   d="scan'208";a="1364214"
+Received: from ip-10-6-3-216.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.3.216])
+  by internal-fra-out-011.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Sep 2025 14:56:34 +0000
+Received: from EX19MTAEUB002.ant.amazon.com [54.240.197.232:28303]
+ by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.36.37:2525] with esmtp (Farcaster)
+ id 90fd1a2a-3fc2-46c8-b14d-04ef65bb514a; Mon, 1 Sep 2025 14:56:34 +0000 (UTC)
+X-Farcaster-Flow-ID: 90fd1a2a-3fc2-46c8-b14d-04ef65bb514a
+Received: from EX19D015EUB002.ant.amazon.com (10.252.51.123) by
+ EX19MTAEUB002.ant.amazon.com (10.252.51.59) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.17;
+ Mon, 1 Sep 2025 14:56:33 +0000
+Received: from EX19D015EUB004.ant.amazon.com (10.252.51.13) by
+ EX19D015EUB002.ant.amazon.com (10.252.51.123) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
+ Mon, 1 Sep 2025 14:56:33 +0000
+Received: from EX19D015EUB004.ant.amazon.com ([fe80::2dc9:7aa9:9cd3:fc8a]) by
+ EX19D015EUB004.ant.amazon.com ([fe80::2dc9:7aa9:9cd3:fc8a%3]) with mapi id
+ 15.02.2562.020; Mon, 1 Sep 2025 14:56:33 +0000
+From: "Roy, Patrick" <roypat@amazon.co.uk>
+To: "Roy, Patrick" <roypat@amazon.co.uk>
+CC: "ackerleytng@google.com" <ackerleytng@google.com>, "david@redhat.com"
+	<david@redhat.com>, "Manwaring, Derek" <derekmn@amazon.com>, "Thomson, Jack"
+	<jackabt@amazon.co.uk>, "Kalyazin, Nikita" <kalyazin@amazon.co.uk>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"pbonzini@redhat.com" <pbonzini@redhat.com>, "rppt@kernel.org"
+	<rppt@kernel.org>, "seanjc@google.com" <seanjc@google.com>,
+	"tabba@google.com" <tabba@google.com>, "vbabka@suse.cz" <vbabka@suse.cz>,
+	"will@kernel.org" <will@kernel.org>, "Cali, Marco" <xmarcalx@amazon.co.uk>
+Subject: Re: [PATCH v5 03/12] mm: introduce AS_NO_DIRECT_MAP
+Thread-Topic: [PATCH v5 03/12] mm: introduce AS_NO_DIRECT_MAP
+Thread-Index: AQHcG0fkqK4jccjXtUKv/NLtaS3P1rR+aqUA
+Date: Mon, 1 Sep 2025 14:56:33 +0000
+Message-ID: <20250901145632.28172-1-roypat@amazon.co.uk>
+References: <20250901135408.5965-1-roypat@amazon.co.uk>
+In-Reply-To: <20250901135408.5965-1-roypat@amazon.co.uk>
+Accept-Language: en-US
 Content-Language: en-US
-From: "Anwar, Md Danish" <a0501179@ti.com>
-In-Reply-To: <20250822132758.2771308-3-parvathi@couthit.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [172.19.88.180]
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_075128_646496_56BED8FF 
-X-CRM114-Status: GOOD (  14.30  )
+X-CRM114-CacheID: sfid-20250901_075644_972975_0DF261DF 
+X-CRM114-Status: GOOD (  13.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,80 +106,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Parvathi,
-
-On 8/22/2025 6:55 PM, Parvathi Pudi wrote:
-> From: Roger Quadros <rogerq@ti.com>
-> 
-> Updates Kernel configuration to enable PRUETH driver and its dependencies
-> along with makefile changes to add the new PRUETH driver.
-> 
-> Changes includes init and deinit of ICSSM PRU Ethernet driver including
-> net dev registration and firmware loading for DUAL-MAC mode running on
-> PRU-ICSS2 instance.
-> 
-> Changes also includes link handling, PRU booting, default firmware loading
-> and PRU stopping using existing remoteproc driver APIs.
-> 
-> Signed-off-by: Roger Quadros <rogerq@ti.com>
-> Signed-off-by: Andrew F. Davis <afd@ti.com>
-> Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
-> Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
-
-[ ... ]
-
-> +	/* get mac address from DT and set private and netdev addr */
-> +	ret = of_get_ethdev_address(eth_node, ndev);
-> +	if (!is_valid_ether_addr(ndev->dev_addr)) {
-> +		eth_hw_addr_random(ndev);
-> +		dev_warn(prueth->dev, "port %d: using random MAC addr: %pM\n",
-> +			 port, ndev->dev_addr);
-> +	}
-> +	ether_addr_copy(emac->mac_addr, ndev->dev_addr);
-> +
-> +	/* connect PHY */
-> +	emac->phydev = of_phy_get_and_connect(ndev, eth_node,
-> +					      icssm_emac_adjust_link);
-> +	if (!emac->phydev) {
-> +		dev_dbg(prueth->dev, "PHY connection failed\n");
-> +		ret = -EPROBE_DEFER;
-> +		goto free;
-> +	}
-> +
-
-Why are you returning EPROBE_DEFER here? If phy connection fails, you
-should just return and fail the probe. That's what ICSSG driver does.
-
-In drivers/net/ethernet/ti/icssg/icssg_prueth.c
-
- 404   │     ndev->phydev = of_phy_connect(emac->ndev, emac->phy_node,
- 405   │                       &emac_adjust_link, 0,
- 406   │                       emac->phy_if);
- 407   │     if (!ndev->phydev) {
- 408   │         dev_err(prueth->dev, "couldn't connect to phy %s\n",
- 409   │             emac->phy_node->full_name);
- 410   │         return -ENODEV;
- 411   │     }
-
-
-Before phy connect you do `dev_warn(prueth->dev, "port %d: using random
-MAC addr: %pM\n"`
-
-If device is using random mac address, this will be printed, your phy
-connect fails, you try probe again, print comes again, phy fails again
-and so on ...
-
-This results in system getting spammed with continuos prints of "using
-random MAC addr"
-
-I suggest if phy fails, let the probe fail don't do EPROBE_DEFER.
-
-Saw this issue on few boards which has issue with ICSSG phy.
-
-> +	/* remove unsupported modes */
-> +	phy_remove_link_mode(emac->phydev, ETHTOOL_LINK_MODE_10baseT_Full_BIT);
--- 
-Thanks and Regards,
-Md Danish Anwar
-
+On Mon, 2025-09-01 at 14:54 +0100, "Roy, Patrick" wrote:=0A=
+> =0A=
+> Hi Fuad!=0A=
+> =0A=
+> On Thu, 2025-08-28 at 11:21 +0100, Fuad Tabba wrote:=0A=
+>> Hi Patrick,=0A=
+>>=0A=
+>> On Thu, 28 Aug 2025 at 10:39, Roy, Patrick <roypat@amazon.co.uk> wrote:=
+=0A=
+>>> diff --git a/include/linux/pagemap.h b/include/linux/pagemap.h=0A=
+>>> index 12a12dae727d..b52b28ae4636 100644=0A=
+>>> --- a/include/linux/pagemap.h=0A=
+>>> +++ b/include/linux/pagemap.h=0A=
+>>> @@ -211,6 +211,7 @@ enum mapping_flags {=0A=
+>>>                                    folio contents */=0A=
+>>>         AS_INACCESSIBLE =3D 8,    /* Do not attempt direct R/W access t=
+o the mapping */=0A=
+>>>         AS_WRITEBACK_MAY_DEADLOCK_ON_RECLAIM =3D 9,=0A=
+>>> +       AS_NO_DIRECT_MAP =3D 10,  /* Folios in the mapping are not in t=
+he direct map */=0A=
+>>>         /* Bits 16-25 are used for FOLIO_ORDER */=0A=
+>>>         AS_FOLIO_ORDER_BITS =3D 5,=0A=
+>>>         AS_FOLIO_ORDER_MIN =3D 16,=0A=
+>>> @@ -346,6 +347,21 @@ static inline bool mapping_writeback_may_deadlock_=
+on_reclaim(struct address_spac=0A=
+>>>         return test_bit(AS_WRITEBACK_MAY_DEADLOCK_ON_RECLAIM, &mapping-=
+>flags);=0A=
+>>>  }=0A=
+>>>=0A=
+>>> +static inline void mapping_set_no_direct_map(struct address_space *map=
+ping)=0A=
+>>> +{=0A=
+>>> +       set_bit(AS_NO_DIRECT_MAP, &mapping->flags);=0A=
+>>> +}=0A=
+>>> +=0A=
+>>> +static inline bool mapping_no_direct_map(struct address_space *mapping=
+)=0A=
+>>> +{=0A=
+>>> +       return test_bit(AS_NO_DIRECT_MAP, &mapping->flags);=0A=
+>>> +}=0A=
+>>> +=0A=
+>>> +static inline bool vma_is_no_direct_map(const struct vm_area_struct *v=
+ma)=0A=
+>>> +{=0A=
+>>> +       return vma->vm_file && mapping_no_direct_map(vma->vm_file->f_ma=
+pping);=0A=
+>>> +}=0A=
+>>> +=0A=
+>> Any reason vma is const whereas mapping in the function that it calls=0A=
+>> (defined above it) isn't?=0A=
+> =0A=
+> Ah, I cannot say that that was a conscious decision, but rather an artifa=
+ct of=0A=
+> the code that I looked at for reference when writing these two simply did=
+ it=0A=
+> this way.  Are you saying both should be const, or neither (in my mind, b=
+oth=0A=
+> could be const, but the mapping_*() family of functions further up in thi=
+s file=0A=
+> dont take const arguments, so I'm a bit unsure now)?=0A=
+=0A=
+Hah, just saw=0A=
+https://lore.kernel.org/linux-mm/20250901123028.3383461-3-max.kellermann@io=
+nos.com/.=0A=
+Guess that means "both should be const" then :D=0A=
+=0A=
+>> Cheers,=0A=
+>> /fuad=0A=
+> =0A=
+> Best,=0A=
+> Patrick=0A=
+=0A=
 
