@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AF70CA1007
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 952BACA0FFF
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 16:35:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,70 +12,69 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IH4IhsI7u0PxrBs1+bnHSTEJenEfrd4F7dzjVPqlBZM=; b=AM6u40kAFVHkWiv/z7pvr13600
-	EkgOOmEX4WvYAmRtEK2uU/funrXORw88MpGS+T7OPLV0dnUfqFBBbLCpQ+a9X7fNT68dEh6KAPdN3
-	OdFYHjEOMAf4UDtSbOLSVM5rspaIYF409E6Bq4hmUe5sonxe5ZL3Ao8UScssF3c68KMATJ0wwByUY
-	Df/s/qh8AsYlKc6NYql4H+Hemn0l9E+jZVZiT7/ATyixa/i5QYAxWb6t8hf0ot7PczZZkWBufN5ca
-	IEoD6bkp3LZMQig6+yHIV7j0uuzZy4SHrep/EudxspmvnGLvi7YECF6QeVXo39k5KzqbLJ6OHTvBw
-	kBMlIR6w==;
+	bh=45z9IaVf3DvIHNyRK9bNlm2YHb8XHVPseevdKZOW65I=; b=rK3k/RmrIrL6sIZVsx/qT2pUhf
+	Uq0v3ybn5ccMcXtINLBooJ2vmCEqBHbldljfjAiWhO1wEJ656xvoj35cCzucpSF6OgDbdXy7bxzXD
+	xDCTlfQR8r4KX6WRyOWeaVgfSoSQkkTjN5hTLpbI2Te1ZmZ3Qe6FBRfe5qN6kCgbdhBI0MmbWr9u2
+	zDBgQH8NAoM4y685qgNWXelAJprFKzx5bKb+k5cg/hSFLEkZ5bAX1ZTAvFEql5mdcwpUBrYcduN3O
+	O2KTkDL3/cqYzUIaDc7xjnTYJVoYetG16ntNvsamkq2CuXGZUdskxkTflri//LYItqSaNanG2yXsX
+	pWDzHAug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut7VP-0000000DGxK-3crB;
-	Mon, 01 Sep 2025 16:35:43 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1ut7VR-0000000DGzR-43Uv;
+	Mon, 01 Sep 2025 16:35:45 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut3rB-0000000CYyB-0A9L
+	id 1ut3rF-0000000CZ0q-22Zw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 12:41:58 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-45b4d89217aso25802785e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 05:41:56 -0700 (PDT)
+	Mon, 01 Sep 2025 12:42:02 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-45b7e69570bso20253945e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 05:42:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756730516; x=1757335316; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1756730520; x=1757335320; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=IH4IhsI7u0PxrBs1+bnHSTEJenEfrd4F7dzjVPqlBZM=;
-        b=jVYX6fJoJTLWZBcVST/TfY4EG2DrD5ZYJzkKnTxNBHkHShYwXYHRUxk/1KKmjAhodc
-         rRoP5cXqJbGWXjD1e+0gvuHda7I2qVkor5y4H+/7E0llVWdC/1YDPOHo+NZwwaVV5QBQ
-         NBHFjfrYXUz3QgFsdiu0S0cNEXMslgvxMJekW1XcOuKMQ0q+eGY0MxznupTK+YyH4Rju
-         dlJL8t+qPGm6ebeh+dkAM5nNjLqpBQarkX16hEA6sw0k27crwUYxVJbqeUd1K1+IHeLG
-         0mXoapb0PUI0ynuyvF8iD9FMunQiHW5HWlyBlwJEceiNc/Cnt3TzFbdkGvvLoKonqOfY
-         S4Fg==
+        bh=45z9IaVf3DvIHNyRK9bNlm2YHb8XHVPseevdKZOW65I=;
+        b=zkD+n3r0ZjDglEGZMvqMx3vXi6NNKIlarL3IulTx7zGbA+3JBIXSrpmHlP6M7xs4c1
+         5eeucs4ruQrlLtwnitIvC7m3g81Mor3F0tWjKSEqKvdtySN58PzgVE+4bhS9qGJGkGwA
+         xXcWlc0fcEJqgBD7VoS5qc1crFegYcHcU5W5cppujENCGtzZxUsg9KB459j+bZfrnRDr
+         CpqzliFTBybpz40HwAPRKfi6BLVXtVot32xGA0fA3h1w4bVZ3w8qI6kc8DzDcgjnpzsA
+         3NpAybGKli9zHOsK99ZeMcjG2gK+8+fy2z3AoUEmChtNXsjh/TInzVbF0KKpjW1oGFWE
+         N30Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756730516; x=1757335316;
+        d=1e100.net; s=20230601; t=1756730520; x=1757335320;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=IH4IhsI7u0PxrBs1+bnHSTEJenEfrd4F7dzjVPqlBZM=;
-        b=cwTccy0rjvuDsbJ9TYLwIcYJfjMGBaKdWZOPp4dP5eJ0R3vufaRaINWPqqJKmXy4GR
-         w0U/UZUj4wUBVk8aUovbeVjyVjQB++C8wcVBMeVMlDx/nfbX9a1YOqJ3WycuipGMgsaW
-         COaAxiv2ddGnEWb+Ugz39RFpvwN2bVGXfO8aTpozJyleCpRd/uPTzE63df/fDak5ifM4
-         jLT/C/2buLkwZgOL+L7G+YzMIikPKZIiaRXHeZ6fL1uJ7lvvtXyceVrVDkW38ORAtxA5
-         APC6D5nM7xEBNEuy1RwKVZBnJkBx24/YlVIrN+21rh/lxr/biTjS1+R/ZMA33UK4cW/g
-         nKNQ==
-X-Gm-Message-State: AOJu0Yw3JdhmD6g1t4vaC1cbR28LH1EVIUwgfM+nNPtpiBxrZk6qA8NA
-	71puFbewGl7gVG2JKXyGqp1FBAcmkTCe6jfNapeufRszgZhb+4y0A9IwIFaQgtUbwsc=
-X-Gm-Gg: ASbGnctrd+Z2zyPR3VxF755dnnFO2jj0viCqPSVW10do/FF+/Q7xSwU2bh8+KCSweBw
-	J0l0/qNmM8elk/kldhrd6fUvENKfzRdJELV+oddCEGH6W+O7tn/xR5dNidww3Ff/h2zCr9dYA4k
-	ONjtJ04dkKM7Gm3+UueIOI9sMXRSml2mX8PJP1ChaXBuLG1qfVY5hU2kLUDva5eSsPdQD+XAMC1
-	2ymc7XmLmJ715TCHA4cjkkJKV7mCp17Uyk/sGVB0wiQX9dge01LlYtC4YQuRoGzc0tjCyQanzQ3
-	RYM5FzcXKxOYHztLdMfW3N3pUMDuyP4OB6V6I0byGE81BGRQgYvNk3/X6skCk2Ilh7BJcDk/auI
-	UMYc+ddOFy+uSFMXwnVMFxpMENjs6sykErnBaSw/ZCA==
-X-Google-Smtp-Source: AGHT+IHhau7EY0MQDlSyqPT+GtgoSvzp5Mp3oC9O8x1gCNdLj74/uD4J58UjK1u3FTzG5sPU+DMpPg==
-X-Received: by 2002:a05:600c:3b10:b0:45b:8f38:8d36 with SMTP id 5b1f17b1804b1-45b8f388f6bmr19047285e9.30.1756730515555;
-        Mon, 01 Sep 2025 05:41:55 -0700 (PDT)
+        bh=45z9IaVf3DvIHNyRK9bNlm2YHb8XHVPseevdKZOW65I=;
+        b=ozzjExW8WKf17q/RVWrXcoovCoYfXrCHMnwVvkEqU0q/V8AFLxwr95FN+HBdkq13uN
+         D3wgmU6j1WP9QPDwe+pMSb3bSk1/noACOYs6wlHJnrPEfUng6fxAKJQQ0xrcPuPXMTkq
+         oKQP0DtGZBAnCb+6U33TXHn2npYV21xC9e4+oUM2C3MQ534QnmdsYYZY0zypiZVl2mkg
+         wGuMSJHXAD5hzYRApVAhFQLwLYLVaeMV3OqrzuCSYbL/QFipL6yF4Ez4lFr2URzYx5R6
+         NAkCRQaX0vp8Z7MDDA3il5iD1YOyG3KsqdbbvZxL8du3iGjCsI1wB4r/r3Cs6N2xVooV
+         twEQ==
+X-Gm-Message-State: AOJu0Yw42d9mSHs0kGzC5vf3KZRho25fjm73ZcnDNiL7G8pr7zUDX6Os
+	zkBGCVS2XiowbdPAtzP32pniWGwJvvbqHeOSZ+F2MOK8WUuuaELuWbwxtmjG00KfdZw=
+X-Gm-Gg: ASbGncu7NCLJ3ZWj8ytsWIkPRKrUTzACZPIibg8ibHtFYd/vN0EjFghfZi3vRHRfRjn
+	75K9587BVmvv2Wnv/MbRcdIf0Av1JzUSy9lUemRzPLdVuDQCggEWGYxBEXSSkxmmJAxXGVl4nG4
+	yHnHl7/NkpCwJ8WZmcyyEmSOZn2RWmXioWvL0YydVCZB+fz9VbgdcrlL+OeEyEnEkfjoSY98p02
+	1kK/URoIMmSLQoHHQzNScFU8KF+KkP5Neim7yxuSJ8UDShqyialoK7lnGF6BGdHv698kTIWV6R/
+	+ppKtStnhLL+NIiCI8C+JIHsEPt/yl7ktWPk4lRJHZrL2ypia5RIupPdKDnGKVmy1XOzvYoVAbz
+	F8S1HY+dRuZSEsRjACDwEm+/ngWCqgYIuY9B2T8IvPQ==
+X-Google-Smtp-Source: AGHT+IFPTd5JV8rlNw+el2iMeq4VwQ39O/JeQnoM1FnI5OWoImn9QUGVjCoJJX8IN0HGzcTQOolA/Q==
+X-Received: by 2002:a05:600c:4f89:b0:45b:8d2a:cce7 with SMTP id 5b1f17b1804b1-45b8e2ee782mr21104445e9.15.1756730519938;
+        Mon, 01 Sep 2025 05:41:59 -0700 (PDT)
 Received: from ho-tower-lan.lan ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b7e898b99sm154946315e9.19.2025.09.01.05.41.54
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b7e898b99sm154946315e9.19.2025.09.01.05.41.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Sep 2025 05:41:55 -0700 (PDT)
+        Mon, 01 Sep 2025 05:41:59 -0700 (PDT)
 From: James Clark <james.clark@linaro.org>
-Date: Mon, 01 Sep 2025 13:40:34 +0100
-Subject: [PATCH v8 05/12] arm64/boot: Factor out a macro to check SPE
- version
+Date: Mon, 01 Sep 2025 13:40:37 +0100
+Subject: [PATCH v8 08/12] perf: Add perf_event_attr::config4
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250901-james-perf-feat_spe_eft-v8-5-2e2738f24559@linaro.org>
+Message-Id: <20250901-james-perf-feat_spe_eft-v8-8-2e2738f24559@linaro.org>
 References: <20250901-james-perf-feat_spe_eft-v8-0-2e2738f24559@linaro.org>
 In-Reply-To: <20250901-james-perf-feat_spe_eft-v8-0-2e2738f24559@linaro.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -95,8 +94,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  kvmarm@lists.linux.dev, James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_054157_093825_FDC1B82B 
-X-CRM114-Status: GOOD (  14.60  )
+X-CRM114-CacheID: sfid-20250901_054201_535430_F0E390DE 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,61 +110,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We check the version of SPE twice, and we'll add one more check in the
-next commit so factor out a macro to do this. Change the #3 magic number
-to the actual SPE version define (V1p2) to make it more readable.
+Arm FEAT_SPE_FDS adds the ability to filter on the data source of a
+packet using another 64-bits of event filtering control. As the existing
+perf_event_attr::configN fields are all used up for SPE PMU, an
+additional field is needed. Add a new 'config4' field.
 
-No functional changes intended.
-
-Tested-by: Leo Yan <leo.yan@arm.com>
 Reviewed-by: Leo Yan <leo.yan@arm.com>
+Tested-by: Leo Yan <leo.yan@arm.com>
+Reviewed-by: Ian Rogers <irogers@google.com>
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- arch/arm64/include/asm/el2_setup.h | 17 +++++++++++------
- 1 file changed, 11 insertions(+), 6 deletions(-)
+ include/uapi/linux/perf_event.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-index 46033027510c..a305386eb2e3 100644
---- a/arch/arm64/include/asm/el2_setup.h
-+++ b/arch/arm64/include/asm/el2_setup.h
-@@ -91,6 +91,14 @@
- 	msr	cntvoff_el2, xzr		// Clear virtual offset
- .endm
+diff --git a/include/uapi/linux/perf_event.h b/include/uapi/linux/perf_event.h
+index 78a362b80027..0d0ed85ad8cb 100644
+--- a/include/uapi/linux/perf_event.h
++++ b/include/uapi/linux/perf_event.h
+@@ -382,6 +382,7 @@ enum perf_event_read_format {
+ #define PERF_ATTR_SIZE_VER6			120	/* Add: aux_sample_size */
+ #define PERF_ATTR_SIZE_VER7			128	/* Add: sig_data */
+ #define PERF_ATTR_SIZE_VER8			136	/* Add: config3 */
++#define PERF_ATTR_SIZE_VER9			144	/* add: config4 */
  
-+/* Branch to skip_label if SPE version is less than given version */
-+.macro __spe_vers_imp skip_label, version, tmp
-+    mrs    \tmp, id_aa64dfr0_el1
-+    ubfx   \tmp, \tmp, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
-+    cmp    \tmp, \version
-+    b.lt   \skip_label
-+.endm
-+
- .macro __init_el2_debug
- 	mrs	x1, id_aa64dfr0_el1
- 	ubfx	x0, x1, #ID_AA64DFR0_EL1_PMUVer_SHIFT, #4
-@@ -103,8 +111,7 @@
- 	csel	x2, xzr, x0, eq			// all PMU counters from EL1
+ /*
+  * 'struct perf_event_attr' contains various attributes that define
+@@ -543,6 +544,7 @@ struct perf_event_attr {
+ 	__u64	sig_data;
  
- 	/* Statistical profiling */
--	ubfx	x0, x1, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
--	cbz	x0, .Lskip_spe_\@		// Skip if SPE not present
-+	__spe_vers_imp .Lskip_spe_\@, ID_AA64DFR0_EL1_PMSVer_IMP, x0 // Skip if SPE not present
+ 	__u64	config3; /* extension of config2 */
++	__u64	config4; /* extension of config3 */
+ };
  
- 	mrs_s	x0, SYS_PMBIDR_EL1              // If SPE available at EL2,
- 	and	x0, x0, #(1 << PMBIDR_EL1_P_SHIFT)
-@@ -263,10 +270,8 @@
- 
- 	mov	x0, xzr
- 	mov	x2, xzr
--	mrs	x1, id_aa64dfr0_el1
--	ubfx	x1, x1, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
--	cmp	x1, #3
--	b.lt	.Lskip_spe_fgt_\@
-+	/* If SPEv1p2 is implemented, */
-+	__spe_vers_imp .Lskip_spe_fgt_\@, #ID_AA64DFR0_EL1_PMSVer_V1P2, x1
- 	/* Disable PMSNEVFR_EL1 read and write traps */
- 	orr	x0, x0, #HDFGRTR_EL2_nPMSNEVFR_EL1_MASK
- 	orr	x2, x2, #HDFGWTR_EL2_nPMSNEVFR_EL1_MASK
+ /*
 
 -- 
 2.34.1
