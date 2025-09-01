@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A256CA0FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 14:50:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78FE0CA0FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 14:53:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jfBjyfo26o556nYIaOxd76pUYR9GB6/0sA+87NT+4x8=; b=imq3Y+wTS4AUvTXfPjPnjeXqv1
-	sXgPrR891stS4DxfC/qNzcJ/dekMYB3XfwKTVKD/D8xfSh/b3wvOddHEVYWK9fS6K1goH8zWXPG6s
-	rpIYlEP+rkwBO7dFaIBunEqUdfdgkl3zWeTRGRKiTpa2RMt4XtQQNN94wEe0HsjbbmVhOo93pdvm/
-	+G0UmYUgJpOQHaAhm0Iwj6iIlrJopvx/wD9I4sSHnQ9ApjokbpDLbVPqovxg5Jw86v/pZpn6ad9By
-	XELCnm8Ik7U7TvO2cOoA9DI5b+CiHW8AxcbpHy0qnywuQ6L77Rtm5JFXjpc7TjEZmjWcwVvcNr5I/
-	g1x0g6Kg==;
+	bh=SFNATNLdkkhOB5Wp70sKdHDjY39hB6qXWiRzlnD4aTQ=; b=yHTkN8iwjXc6mGs2c2llUxjISC
+	RfuwYU6i8P2sU3Ep9Ap6REf8UXcc3Z+wJoz8AWELNye+d+2+mR1YyQPf3IRTYM3lhJ5mGX9oTfjpu
+	sRJLz1/aZJv8e4Tv9TSd7McceeS8gdDBl87F4VykxHcX2OdsPz9RytEneJhhZ9p+HG4LSV+0ym0LC
+	SdRc//eFEl0XvSmT0vLhjMH9l87c7z5h/V7TX5/H6VJwA1noycawUeqsjT9GDmbJ1WInwfSYKKPc4
+	8P1LPFKqAKMyNZi/7YsDBp/5xd89v5u8cF/V7ugYoBx5L0vaU+UEG3a5IKPnBi0Z2nyjRsjh6OXOU
+	e3nY+5/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut5rP-0000000CuwE-46xO;
-	Mon, 01 Sep 2025 14:50:19 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1ut5u8-0000000Cvil-0Jzp;
+	Mon, 01 Sep 2025 14:53:08 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut3c1-0000000CQLL-0fOS
+	id 1ut3c2-0000000CQNE-3Cgb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 12:26:18 +0000
+	Mon, 01 Sep 2025 12:26:20 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 01BE51A0A08;
-	Mon,  1 Sep 2025 12:26:16 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 64F67C8F1DC;
+	Mon,  1 Sep 2025 12:26:02 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id CD7A060699;
-	Mon,  1 Sep 2025 12:26:15 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 63DFD1C22D4DC;
-	Mon,  1 Sep 2025 14:26:08 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 3E86060699;
+	Mon,  1 Sep 2025 12:26:17 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 533BE1C22D935;
+	Mon,  1 Sep 2025 14:26:15 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1756729575; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1756729576; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=jfBjyfo26o556nYIaOxd76pUYR9GB6/0sA+87NT+4x8=;
-	b=rt1Rbw3zcTPUue49SXLIRf8FXerPpqAtXDyHoC58kowt+IPGCOJ+OZT6GwaYpKB3VcBESO
-	O7+GzFBF5/XLeDvNylSecqCeOT2ErTYO1HIDMfZ80tL6fVmgg8PGhcJfFpRY/lRZjO9Fa8
-	DpPv1GehPdVDoKFYXNMOzrofvqyv3wAbAQirDvZJSfh7GJBYCqsF/7cH7AGO8eCOETDQn3
-	YIK0YzbPnLqb5cMv328PCfDFiQXQXpIHX6pnkSqekDVkaQLa/Zlqi2YesVNDWuXNC24tiN
-	xd4ELJxe3crX/UqryFGTPxfN2WeZ6tLSaEUs8wrhWR7qXrILNpykFWmVQ5SaTQ==
+	bh=SFNATNLdkkhOB5Wp70sKdHDjY39hB6qXWiRzlnD4aTQ=;
+	b=bFhzcgjyq8a1r+ZKtRxUtY4dg0rai4FuY7GOmJcUuWg6W3UMSRflyHOmvhZi4nyF9sV40q
+	CHwCU7T5UCZAtb3g0f1aeq+gNSERRaebP/u2QlruxkarvrEt+ZMX4ciwccjhsAlBt0XtIO
+	valKroBjETgrkxYAuOqZeipXma1Fww4vmArdEwJUx+SPh/o3LPd9qHyaPFv/pzGlHxt/SI
+	6ZDBWED6Sm73oezo8vcc7U+2gOFmLESBSpyFbafu4ab1f4sFoWV2i9JOlO+AP5DYBWFSym
+	tuBQm967OYg0BNnmTRuX8wIIm+pcp67E7KpWUCaknN2n4C3Kiowqxa9WH8tF9A==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, 
  Vignesh Raghavendra <vigneshr@ti.com>, 
  Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
  Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Boris Brezillon <bbrezillon@kernel.org>, 
  Christophe Kerello <christophe.kerello@st.com>, 
+ Boris Brezillon <bbrezillon@kernel.org>, 
  Christophe Kerello <christophe.kerello@foss.st.com>
 Cc: linux-mtd@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  stable@vger.kernel.org
-In-Reply-To: <20250812-fix-dma-overlapping-v1-1-c3bf81d79de7@foss.st.com>
-References: <20250812-fix-dma-overlapping-v1-1-c3bf81d79de7@foss.st.com>
-Subject: Re: [PATCH] mtd: rawnand: stm32_fmc2: avoid overlapping mappings
- on ECC buffer
-Message-Id: <175672956825.48300.17672070424508952641.b4-ty@bootlin.com>
-Date: Mon, 01 Sep 2025 14:26:08 +0200
+In-Reply-To: <20250812-fix-ecc-overwrite-v1-1-6585c55c88b0@foss.st.com>
+References: <20250812-fix-ecc-overwrite-v1-1-6585c55c88b0@foss.st.com>
+Subject: Re: [PATCH] mtd: rawnand: stm32_fmc2: fix ECC overwrite
+Message-Id: <175672957522.48300.12612690456292698217.b4-ty@bootlin.com>
+Date: Mon, 01 Sep 2025 14:26:15 +0200
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailer: b4 0.14.2
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_052617_339747_F8056C2E 
-X-CRM114-Status: UNSURE (   6.37  )
+X-CRM114-CacheID: sfid-20250901_052618_981082_FC1A8465 
+X-CRM114-Status: UNSURE (   6.78  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,49 +83,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 12 Aug 2025 09:26:58 +0200, Christophe Kerello wrote:
-> Avoid below overlapping mappings by using a contiguous
-> non-cacheable buffer.
+On Tue, 12 Aug 2025 09:30:08 +0200, Christophe Kerello wrote:
+> In case OOB write is requested during a data write, ECC is currently
+> lost. Avoid this issue by only writing in the free spare area.
+> This issue has been seen with a YAFFS2 file system.
 > 
-> [    4.077708] DMA-API: stm32_fmc2_nfc 48810000.nand-controller: cacheline tracking EEXIST,
-> overlapping mappings aren't supported
-> [    4.089103] WARNING: CPU: 1 PID: 44 at kernel/dma/debug.c:568 add_dma_entry+0x23c/0x300
-> [    4.097071] Modules linked in:
-> [    4.100101] CPU: 1 PID: 44 Comm: kworker/u4:2 Not tainted 6.1.82 #1
-> [    4.106346] Hardware name: STMicroelectronics STM32MP257F VALID1 SNOR / MB1704 (LPDDR4 Power discrete) + MB1703 + MB1708 (SNOR MB1730) (DT)
-> [    4.118824] Workqueue: events_unbound deferred_probe_work_func
-> [    4.124674] pstate: 60000005 (nZCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> [    4.131624] pc : add_dma_entry+0x23c/0x300
-> [    4.135658] lr : add_dma_entry+0x23c/0x300
-> [    4.139792] sp : ffff800009dbb490
-> [    4.143016] x29: ffff800009dbb4a0 x28: 0000000004008022 x27: ffff8000098a6000
-> [    4.150174] x26: 0000000000000000 x25: ffff8000099e7000 x24: ffff8000099e7de8
-> [    4.157231] x23: 00000000ffffffff x22: 0000000000000000 x21: ffff8000098a6a20
-> [    4.164388] x20: ffff000080964180 x19: ffff800009819ba0 x18: 0000000000000006
-> [    4.171545] x17: 6361727420656e69 x16: 6c6568636163203a x15: 72656c6c6f72746e
-> [    4.178602] x14: 6f632d646e616e2e x13: ffff800009832f58 x12: 00000000000004ec
-> [    4.185759] x11: 00000000000001a4 x10: ffff80000988af58 x9 : ffff800009832f58
-> [    4.192916] x8 : 00000000ffffefff x7 : ffff80000988af58 x6 : 80000000fffff000
-> [    4.199972] x5 : 000000000000bff4 x4 : 0000000000000000 x3 : 0000000000000000
-> [    4.207128] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffff0000812d2c40
-> [    4.214185] Call trace:
-> [    4.216605]  add_dma_entry+0x23c/0x300
-> [    4.220338]  debug_dma_map_sg+0x198/0x350
-> [    4.224373]  __dma_map_sg_attrs+0xa0/0x110
-> [    4.228411]  dma_map_sg_attrs+0x10/0x2c
-> [    4.232247]  stm32_fmc2_nfc_xfer.isra.0+0x1c8/0x3fc
-> [    4.237088]  stm32_fmc2_nfc_seq_read_page+0xc8/0x174
-> [    4.242127]  nand_read_oob+0x1d4/0x8e0
-> [    4.245861]  mtd_read_oob_std+0x58/0x84
-> [    4.249596]  mtd_read_oob+0x90/0x150
-> [    4.253231]  mtd_read+0x68/0xac
 > 
-> [...]
 
 Applied to mtd/fixes, thanks!
 
-[1/1] mtd: rawnand: stm32_fmc2: avoid overlapping mappings on ECC buffer
-      commit: 513c40e59d5a414ab763a9c84797534b5e8c208d
+[1/1] mtd: rawnand: stm32_fmc2: fix ECC overwrite
+      commit: 811c0da4542df3c065f6cb843ced68780e27bb44
 
 Patche(s) should be available on mtd/linux.git and will be
 part of the next PR (provided that no robot complains by then).
