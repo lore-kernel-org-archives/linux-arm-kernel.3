@@ -4,53 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36979CA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 09:50:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99036CA0FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 09:52:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=33ocR1/KWnKamLI2VB5KEQkatsxXrNn5E9NDKwqiK0Q=; b=BxGfPhq+7PBtGh5MKMZLLHCA0f
-	eGzHCh+VQ93zOGe8G6oFYTnjLWHLtdpB6OYlbRENZZ3fApY1pZT0yjwqVFHLjXVjXqSl9mTqtU3i9
-	6Bc/lu9wuWfXacJk+XKHwykh1LZdKMBRFaLif16Ui3qzqBtduoOe1KEXlqPaINLeF+VohA/8x5qau
-	NE9sYaQ5HC/Im8ms02wdPAUD7CAq5OMKPHeK1KD/0FIj95mzsHy2NnoV8zdRYZ51h2ZogZGw7AE5Y
-	sWPSUTbXav8SnxoFHjHpF1FK254UoeDpv4uZUfO8q5XrsMKY1MvKYbv3IM7fClTuRudO/RvZSt2VU
-	6lA4EqZA==;
+	bh=w1z2g3tMgXYEg5H4trifnuOVtOVDKxzPGY78FqbQVls=; b=HYnh5RjzyL4pr3j0NoAzqCS9th
+	0cUcGKQ6GYGpgC7+H/+Fg2whTe1c1eNAfjaySJ90cVVuEefVnSBnzBFShoLXxfD50rWN3cE43dX6d
+	zUj/0DtogHXKBtPTBHnqQ6v6dg8Om9B+8nTGbh94NZwePT2Q7aYpJkN3flJJQ95ke2LgWTu6aLdN7
+	7kEKXVHXY+5pYunzyPA5xPxGduFoWyhH8NbXF0vc5aDtURDPZ9hqrlWRUco3TTBjp219mylTrM4+D
+	SCh/FDADeZgsw6Z7MNvG3bq/BHj2p2+guehCeIYJ53ENQ5bkrmiyP8zipQBOgTEQyQb6M9yRnVSCY
+	UKGJkPYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut1Ap-0000000BoEQ-0K6d;
-	Mon, 01 Sep 2025 09:50:03 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1ut1DV-0000000BoWQ-3iOu;
+	Mon, 01 Sep 2025 09:52:49 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut0NO-0000000Bf4g-2xmn
+	id 1ut0NU-0000000Bf9S-2NZZ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 01 Sep 2025 08:59:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=w1z2g3tMgXYEg5H4trifnuOVtOVDKxzPGY78FqbQVls=; b=XYZiaMhcSgyoiC964t6tM86sX/
+	aeq7skVsL+KgaS0nV75XXV3hlgAcAFsi54Dk/JJrl4R5XakZGLYkah1ZZXdjCBuEpDr0d/mOYDwwB
+	mrxv5/jm9HDmt8TiVWQml5QLED0e9AbFEUO2F2SpbVuCrdZ3JOIrTkReuYwUHPOUYFzrX2ifHevF9
+	+hOn7R5pBfs5s/ouZ5xaqwCiIXd6Vwqy5+l8lo7aZ6bJ8CuIUOkx33+8OXel6O2p1mvwj70p1EbBS
+	fXg5nF3w4VjvpHx49h42Ts6cz+0ncKa/Y2iB7tZdaVRjQBokGjr9Q4e0uWfgky7YwsKXSIQLMehOp
+	eShqiQIA==;
+Received: from mailgw.kylinos.cn ([124.126.103.232])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ut0NQ-00000003gZX-1sQJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 08:59:00 +0000
-X-UUID: e2624004871111f0b29709d653e92f7d-20250901
+	Mon, 01 Sep 2025 08:59:03 +0000
+X-UUID: dd0b02c6871111f0b29709d653e92f7d-20250901
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.45,REQID:084774f6-4f27-4563-9c15-27e02553a790,IP:0,U
+X-CID-O-INFO: VERSION:1.1.45,REQID:46c283cc-b5bb-46ec-a1f7-907896491998,IP:0,U
 	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
 	release,TS:0
-X-CID-META: VersionHash:6493067,CLOUDID:bf6960de0fea4d96f52c7ed05c9793fa,BulkI
+X-CID-META: VersionHash:6493067,CLOUDID:d27fee2e8a6b06d9cbfaef5d3190c03b,BulkI
 	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850,TC:nil,Content:0|50,EDM:-3
 	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
 	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 0
 X-CID-BAS: 0,_,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: e2624004871111f0b29709d653e92f7d-20250901
+X-UUID: dd0b02c6871111f0b29709d653e92f7d-20250901
 Received: from mail.kylinos.cn [(10.44.16.175)] by mailgw.kylinos.cn
 	(envelope-from <zhangzihuan@kylinos.cn>)
 	(Generic MTA)
-	with ESMTP id 1064011897; Mon, 01 Sep 2025 16:58:53 +0800
+	with ESMTP id 793860202; Mon, 01 Sep 2025 16:58:44 +0800
 Received: from mail.kylinos.cn (localhost [127.0.0.1])
-	by mail.kylinos.cn (NSMail) with SMTP id B014EE008FA5;
-	Mon,  1 Sep 2025 16:58:52 +0800 (CST)
-X-ns-mid: postfix-68B5604C-514101748
-Received: from localhost.localdomain (unknown [172.25.120.24])
-	by mail.kylinos.cn (NSMail) with ESMTPA id 93864E008FA7;
+	by mail.kylinos.cn (NSMail) with SMTP id 86233E008FA5;
 	Mon,  1 Sep 2025 16:58:43 +0800 (CST)
+X-ns-mid: postfix-68B56043-381034747
+Received: from localhost.localdomain (unknown [172.25.120.24])
+	by mail.kylinos.cn (NSMail) with ESMTPA id BDA8EE008FA7;
+	Mon,  1 Sep 2025 16:58:39 +0800 (CST)
 From: Zihuan Zhang <zhangzihuan@kylinos.cn>
 To: "Rafael J . wysocki" <rafael@kernel.org>,
 	Viresh Kumar <viresh.kumar@linaro.org>,
@@ -99,17 +114,17 @@ Cc: Ben Horgan <ben.horgan@arm.com>,
 	linux-omap@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Zihuan Zhang <zhangzihuan@kylinos.cn>
-Subject: [PATCH v3 11/12] thermal/drivers/ti-soc-thermal: Use scope-based cleanup helper
-Date: Mon,  1 Sep 2025 16:57:47 +0800
-Message-Id: <20250901085748.36795-12-zhangzihuan@kylinos.cn>
+Subject: [PATCH v3 10/12] thermal: imx: Use scope-based cleanup helper
+Date: Mon,  1 Sep 2025 16:57:46 +0800
+Message-Id: <20250901085748.36795-11-zhangzihuan@kylinos.cn>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250901085748.36795-1-zhangzihuan@kylinos.cn>
 References: <20250901085748.36795-1-zhangzihuan@kylinos.cn>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_015859_071259_3D40A0D7 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20250901_095901_310165_E83D17B0 
+X-CRM114-Status: GOOD (  12.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,36 +147,31 @@ No functional change intended.
 
 Signed-off-by: Zihuan Zhang <zhangzihuan@kylinos.cn>
 ---
- drivers/thermal/ti-soc-thermal/ti-thermal-common.c | 11 +++--------
- 1 file changed, 3 insertions(+), 8 deletions(-)
+ drivers/thermal/imx_thermal.c | 12 ++++--------
+ 1 file changed, 4 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/thermal/ti-soc-thermal/ti-thermal-common.c b/drivers=
-/thermal/ti-soc-thermal/ti-thermal-common.c
-index 0cf0826b805a..daea718291a6 100644
---- a/drivers/thermal/ti-soc-thermal/ti-thermal-common.c
-+++ b/drivers/thermal/ti-soc-thermal/ti-thermal-common.c
-@@ -27,7 +27,6 @@
-=20
- /* common data structures */
- struct ti_thermal_data {
--	struct cpufreq_policy *policy;
- 	struct thermal_zone_device *ti_thermal;
- 	struct thermal_zone_device *pcb_tz;
- 	struct thermal_cooling_device *cool_dev;
-@@ -218,6 +217,7 @@ int ti_thermal_register_cpu_cooling(struct ti_bandgap=
- *bgp, int id)
+diff --git a/drivers/thermal/imx_thermal.c b/drivers/thermal/imx_thermal.=
+c
+index 38c993d1bcb3..8d5fd5ca39da 100644
+--- a/drivers/thermal/imx_thermal.c
++++ b/drivers/thermal/imx_thermal.c
+@@ -201,7 +201,6 @@ static struct thermal_soc_data thermal_imx7d_data =3D=
  {
- 	struct ti_thermal_data *data;
- 	struct device_node *np =3D bgp->dev->of_node;
+=20
+ struct imx_thermal_data {
+ 	struct device *dev;
+-	struct cpufreq_policy *policy;
+ 	struct thermal_zone_device *tz;
+ 	struct thermal_cooling_device *cdev;
+ 	struct regmap *tempmon;
+@@ -541,22 +540,20 @@ MODULE_DEVICE_TABLE(of, of_imx_thermal_match);
+ static int imx_thermal_register_legacy_cooling(struct imx_thermal_data *=
+data)
+ {
+ 	struct device_node *np;
 +	struct cpufreq_policy *policy __free(put_cpufreq_policy) =3D cpufreq_cp=
 u_get(0);
-=20
- 	/*
- 	 * We are assuming here that if one deploys the zone
-@@ -234,8 +234,7 @@ int ti_thermal_register_cpu_cooling(struct ti_bandgap=
- *bgp, int id)
- 	if (!data)
- 		return -EINVAL;
+ 	int ret =3D 0;
 =20
 -	data->policy =3D cpufreq_cpu_get(0);
 -	if (!data->policy) {
@@ -169,29 +179,30 @@ u_get(0);
  		pr_debug("%s: CPUFreq policy not found\n", __func__);
  		return -EPROBE_DEFER;
  	}
-@@ -246,7 +245,6 @@ int ti_thermal_register_cpu_cooling(struct ti_bandgap=
- *bgp, int id)
- 		int ret =3D PTR_ERR(data->cool_dev);
- 		dev_err(bgp->dev, "Failed to register cpu cooling device %d\n",
- 			ret);
--		cpufreq_cpu_put(data->policy);
 =20
- 		return ret;
- 	}
-@@ -261,11 +259,8 @@ int ti_thermal_unregister_cpu_cooling(struct ti_band=
-gap *bgp, int id)
+-	np =3D of_get_cpu_node(data->policy->cpu, NULL);
++	np =3D of_get_cpu_node(policy->cpu, NULL);
 =20
- 	data =3D ti_bandgap_get_sensor_data(bgp, id);
-=20
--	if (!IS_ERR_OR_NULL(data)) {
-+	if (!IS_ERR_OR_NULL(data))
- 		cpufreq_cooling_unregister(data->cool_dev);
--		if (data->policy)
+ 	if (!np || !of_property_present(np, "#cooling-cells")) {
+ 		data->cdev =3D cpufreq_cooling_register(data->policy);
+-		if (IS_ERR(data->cdev)) {
++		if (IS_ERR(data->cdev))
+ 			ret =3D PTR_ERR(data->cdev);
 -			cpufreq_cpu_put(data->policy);
--	}
+-		}
+ 	}
 =20
- 	return 0;
+ 	of_node_put(np);
+@@ -567,7 +564,6 @@ static int imx_thermal_register_legacy_cooling(struct=
+ imx_thermal_data *data)
+ static void imx_thermal_unregister_legacy_cooling(struct imx_thermal_dat=
+a *data)
+ {
+ 	cpufreq_cooling_unregister(data->cdev);
+-	cpufreq_cpu_put(data->policy);
  }
+=20
+ #else
 --=20
 2.25.1
 
