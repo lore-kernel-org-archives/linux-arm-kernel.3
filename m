@@ -4,103 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 077B2CA1006
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 14:47:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88415CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 14:47:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LoSJIL4KWhDGVADj7RHQlobVtqqX19ExJc3z0hs3VMY=; b=1h66MscMU7wf2tnSUy+fOIdC4y
-	MSugfYxyVxrDESWXlJFzm1+o7+aFG9RfyceD6yMFiCVGVJ4Y4B+RcapU7I58j4ZwxlkxU1nQ+C6XH
-	7ft/ANw1X5QoUNIteESjByoILLMu/Pnl7zkFbwWyaNT8KlqgWxs51sj2z1lNpn1+shDeZA4wGn1Xb
-	hqXmnPxUZA5SEzX45oimvLrvlL4Z6FzU9zZ6yqTXt85mq6VpWzZpJYI9KWYHMXbtcsO1fdAJ5N9t5
-	uYtv/0QXkIWb90OfAsjLRB3Jo3SrbK4piPWrXHo0EMQXoU6Y6Z+u9NpeqhPosp3x6MBxVG54wqz/k
-	xG2xvf2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Av62sJ3FV0iPeome6BM/Ow3eq/moaLVzrZp3MwMoc1o=; b=0HDnmwLsrhoR9TY6uoMoaR/InT
+	RkuZD2fCt+1tgfjCijUSMYWOrkidEPlawh9fSMcjPGDFa0joUiWdUpO9RsJt80ANYCChfFbjeTgN7
+	qeNYc5vkoSoTr7ipczpz3M+xjUMg5vHESbmvOMAPhkEGIegsXzUdDnLWkdDoZ9K1Dz2OVMcDe+Wws
+	reGQx2+dk5bc4SUprPJqC69Q3wSpCeokJ+e2LE5CDHS2lMZA34POhz0LglAStkFCEMSgmiPRQMA+C
+	2Y9xu0ouPK2V5QkYKzYcChP0J5BTkZJQAPaq9gbkMYMyMusP5SD4MgMAEXpcJhdEbNS5zP/acGHke
+	ciG8/JBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut5oo-0000000Ct5p-2Zgc;
-	Mon, 01 Sep 2025 14:47:38 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1ut5op-0000000Ct82-267S;
+	Mon, 01 Sep 2025 14:47:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut3Ya-0000000CNMA-1AGF
+	id 1ut3Zz-0000000COV2-3FnW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 12:22:46 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-45b7d485173so26302605e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 05:22:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756729363; x=1757334163; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=LoSJIL4KWhDGVADj7RHQlobVtqqX19ExJc3z0hs3VMY=;
-        b=zNqfNu5Y+R5xWptRy/Y+hztIYSs7u0tF5xTdcbSH7K1eN9rCe6KAyiHlHopUSSae3C
-         1GnYSpn2GAPtuide+Dk4/AubW4BlKSXyIT3ddvYDioNAjun3rnaiggcFSkGugd86LcOO
-         +V5e304Ao8z7Eq7FGkY7OyP0OM/cly78a35AIUG78uhbE+DgMHABgfxPzwT1iwunw2u9
-         +89dkwRLQmEjuH+TR1BHpEIwfVvrRecehd+WPZrzEPj/AOKakJfNPnbFWPG/9V9SYqnx
-         22RVWvXuUxmmIGDbpGFrMeFg1eilYTfgXjgcfP5x/TiYhC8PjwqdKffR6P1zZ7UIJB3C
-         1x1Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756729363; x=1757334163;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=LoSJIL4KWhDGVADj7RHQlobVtqqX19ExJc3z0hs3VMY=;
-        b=F+0K5UaLjQkAGgtqUpCgta5MyqK7X0iXyH390g9WWFNGcnfrJDcpgfiKIxWZTcg/rm
-         x3shka2Zi5vOOvL1QcThfFWCoCmZ1KEGibUDh8gtEMRWvEJi7mQCbpvBc9vt2D1+R7NT
-         aT7zMilCW276l9V0Jr/732k/8Qdmh296tvmag0jeInTkLsZl/ARnYYFiplieFPoftDZi
-         ti74QX/5tBNCOORxRYGM0fTI3fPwoIEycEvy73Vcu9X/x0jEWpuCHE5443y0G2LDfcsD
-         MQJAvuVeZuSHwuF0AzH/rQjx6nOrqalkXwjyL0cJtjG3ak1ozNYN5YtzfuLOTuXH899M
-         b2xw==
-X-Forwarded-Encrypted: i=1; AJvYcCWe5mc/h7kDunIfMQzA6iInxvtiYpJMQfl0XGgxlMGwEMJvscP2rEw4zNljNcC0EQKgKm/SlKh2MVVzp2MtUowh@lists.infradead.org
-X-Gm-Message-State: AOJu0YwsuTWMur5vOKRMJgh5+/TU4H8GZoIFKbSmAaTDRq8rxIpoiV1C
-	oX6MfVUB5M7F3AiCHdVeRZCZ8KFqGYAHHjkEn/q+YyQVhVay2XnwC+pCEvn6kx1KVzE=
-X-Gm-Gg: ASbGncsNyugZROC8aybvxf5Y1JiAyewEtCES2BR0SrDSJOT0VHm4bERgGwaTGWUi0Yd
-	SdCutK9ZsRSn2lJlDWlMy67PzO2zccIXMESqtuZHBu9HIOv83IsD38PPlyrti5wvc1YMdPfxHKP
-	Dr8cgcMvagHzV/HPGINpbqy8n8Gs7p87iLCcsPtMQhhQedtuhfKD41QZ5kOpZmg8zcNh4H8geH5
-	E4tG3o9LaADMsGu6nFeIcqZs/Zcwk0UX4LsJuRHJc7fghpSVyDG/Ty0h8tuRQK+zHJgOA18S37v
-	dU393U+NqHx9wMaVIfRUQoJtXbiKfPQaCYxfpAeRNamoLFcFiZOo+zqEs/Y7qQ2Q2yR2rAZ1mV+
-	MEG9aeF3Nwx+v+vlp1DmOnXdTlpIy1yiTUc1RN2NFdlLeYvy+
-X-Google-Smtp-Source: AGHT+IEUYIop2eCnZ9cDKO0ghaVfpBEoRkqiBiGK9LUPFsTbQpLi8gzA5x26B8+fFer989zfNL4Sag==
-X-Received: by 2002:a05:600c:4f41:b0:45b:8b3e:9f7c with SMTP id 5b1f17b1804b1-45b8b3ea0e1mr33370165e9.19.1756729362553;
-        Mon, 01 Sep 2025 05:22:42 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b87abc740sm88325035e9.7.2025.09.01.05.22.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 01 Sep 2025 05:22:42 -0700 (PDT)
-Message-ID: <e759f728-2a77-42a7-ba92-0d5f8afe2273@linaro.org>
-Date: Mon, 1 Sep 2025 13:22:40 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 05/12] arm64/boot: Factor out a macro to check SPE
- version
-To: Leo Yan <leo.yan@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
- kvmarm@lists.linux.dev
-References: <20250814-james-perf-feat_spe_eft-v7-0-6a743f7fa259@linaro.org>
- <20250814-james-perf-feat_spe_eft-v7-5-6a743f7fa259@linaro.org>
- <20250901100558.GJ745921@e132581.arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250901100558.GJ745921@e132581.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_052244_365163_8CEF4158 
-X-CRM114-Status: GOOD (  22.20  )
+	Mon, 01 Sep 2025 12:24:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E14B0601D6;
+	Mon,  1 Sep 2025 12:24:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94EFEC4CEF0;
+	Mon,  1 Sep 2025 12:24:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756729450;
+	bh=1y1C3r+YYCBCldCQKr3GO6JKvPpDZX9+NRK0YMyqE/c=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=bMqtVR+pnPwQGrofgqUly/HRw5+is5i33ASvrU3eqrSUaY6VndIg6J/zUi2HTccUP
+	 Cs8Bp01Iobubz67QuN8CXqUXAs8ycsuVmHHl3FnGnT1c4ugIsE4YW7BFI2A2DXMHJZ
+	 r7LRwHFY9vG53RqA6aSDJ0HlafWV1ydatN5yQdY1edikeBePJa8qLwvK4Z8nTa0/Q5
+	 ntTTnaDB1gS9b6YpI8Nc5zg+KXI5ltrn3VKvNMFLvn4EtE2LHsKjWPD7HTX8lHZSPW
+	 CBcMn/nbXMnBhQuswnFHP7NAjbLe+hnU3AgPOxLUQVH2bjyah0xXSHUepJg75VxuNi
+	 REe1eNB40fadA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1ut3Zw-00000002F4D-0jUI;
+	Mon, 01 Sep 2025 12:24:08 +0000
+Date: Mon, 01 Sep 2025 13:24:07 +0100
+Message-ID: <863496e4yg.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: James Clark <james.clark@linaro.org>
+Cc: Yingchao Deng <yingchao.deng@oss.qualcomm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	quic_yingdeng@quicinc.com,
+	jinlong.mao@oss.qualcomm.com,
+	tingwei.zhang@oss.qualcomm.com,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas
+ <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH] KVM: arm64: Fix NULL pointer access issue
+In-Reply-To: <450f11c2-6c11-4ffa-ae20-db4ea419a3ca@linaro.org>
+References: <20250901-etm_crash-v1-1-ce65e44c137c@oss.qualcomm.com>
+	<450f11c2-6c11-4ffa-ae20-db4ea419a3ca@linaro.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: james.clark@linaro.org, yingchao.deng@oss.qualcomm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, quic_yingdeng@quicinc.com, jinlong.mao@oss.qualcomm.com, tingwei.zhang@oss.qualcomm.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,79 +93,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 01/09/2025 11:05 am, Leo Yan wrote:
-> On Thu, Aug 14, 2025 at 10:25:27AM +0100, James Clark wrote:
->> We check the version of SPE twice, and we'll add one more check in the
->> next commit so factor out a macro to do this. Change the #3 magic number
->> to the actual SPE version define (V1p2) to make it more readable.
->>
->> No functional changes intended.
->>
->> Tested-by: Leo Yan <leo.yan@arm.com>
->> Signed-off-by: James Clark <james.clark@linaro.org>
->> ---
->>   arch/arm64/include/asm/el2_setup.h | 17 +++++++++++------
->>   1 file changed, 11 insertions(+), 6 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
->> index 46033027510c..3a4ca7f9acfb 100644
->> --- a/arch/arm64/include/asm/el2_setup.h
->> +++ b/arch/arm64/include/asm/el2_setup.h
->> @@ -103,8 +103,7 @@
->>   	csel	x2, xzr, x0, eq			// all PMU counters from EL1
->>   
->>   	/* Statistical profiling */
->> -	ubfx	x0, x1, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
->> -	cbz	x0, .Lskip_spe_\@		// Skip if SPE not present
->> +	__spe_vers_imp .Lskip_spe_\@, ID_AA64DFR0_EL1_PMSVer_IMP, x0 // Skip if SPE not present
->>   
->>   	mrs_s	x0, SYS_PMBIDR_EL1              // If SPE available at EL2,
->>   	and	x0, x0, #(1 << PMBIDR_EL1_P_SHIFT)
->> @@ -255,6 +254,14 @@
->>   .Lskip_brbe_\@:
->>   .endm
->>   
->> +/* Branch to skip_label if SPE version is less than given version */
->> +.macro __spe_vers_imp skip_label, version, tmp
->> +    mrs    \tmp, id_aa64dfr0_el1
->> +    ubfx   \tmp, \tmp, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
->> +    cmp    \tmp, \version
->> +    b.lt   \skip_label
->> +.endm
->> +
+On Mon, 01 Sep 2025 11:36:11 +0100,
+James Clark <james.clark@linaro.org> wrote:
 > 
-> Just wondering if we need to move the macro to the beginning of the
-> file, so that we can define it first and call it afterwards.
 > 
-> Otherwise, LGTM:
 > 
-> Reviewed-by: Leo Yan <leo.yan@arm.com>
+> On 01/09/2025 11:01 am, Yingchao Deng wrote:
+> > When linux is booted in EL1, macro "host_data_ptr()" is a wrapper that
+> > resolves to "&per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)",
+> > is_hyp_mode_available() return false during kvm_arm_init, the per-CPU base
+> > pointer __kvm_nvhe_kvm_arm_hyp_percpu_base[cpu] remains uninitialized.
+> > Consequently, any access via per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)
+> > will result in a NULL pointer.
+> > 
+> > Add is_kvm_arm_initialised() condition check to ensure that kvm_arm_init
+> > completes all necessary initialization steps, including init_hyp_mode.
+> > 
+> > Fixes: 054b88391bbe2 ("KVM: arm64: Support trace filtering for guests")
+> > Signed-off-by: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
+> > ---
+> > Add a check to prevent accessing uninitialized per-CPU data.
+> > ---
+> >   arch/arm64/kvm/debug.c | 7 ++++---
+> >   1 file changed, 4 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
+> > index 381382c19fe4741980c79b08bbdab6a1bcd825ad..add58056297293b4eb337028773b1b018ecc9d35 100644
+> > --- a/arch/arm64/kvm/debug.c
+> > +++ b/arch/arm64/kvm/debug.c
+> > @@ -233,7 +233,7 @@ void kvm_debug_handle_oslar(struct kvm_vcpu *vcpu, u64 val)
+> >   void kvm_enable_trbe(void)
+> >   {
+> >   	if (has_vhe() || is_protected_kvm_enabled() ||
+> > -	    WARN_ON_ONCE(preemptible()))
+> > +	    WARN_ON_ONCE(preemptible()) || !is_kvm_arm_initialised())
 > 
+> Hi Yingchao,
+> 
+> There shouldn't be a warning for this, at least for the case where
+> it's not initialized and never will be. If you're never going to run a
+> guest these functions can all skip, the same way for !has_vhe() etc.
 
-It's not required, but all the other macros are defined before use and 
-it looks a bit weird to not do it, so I can move it.
+It's not a warning. It's a bona-fide crash:
 
->>   /* Disable any fine grained traps */
->>   .macro __init_el2_fgt
->>   	mrs	x1, id_aa64mmfr0_el1
->> @@ -263,10 +270,8 @@
->>   
->>   	mov	x0, xzr
->>   	mov	x2, xzr
->> -	mrs	x1, id_aa64dfr0_el1
->> -	ubfx	x1, x1, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
->> -	cmp	x1, #3
->> -	b.lt	.Lskip_spe_fgt_\@
->> +	/* If SPEv1p2 is implemented, */
->> +	__spe_vers_imp .Lskip_spe_fgt_\@, #ID_AA64DFR0_EL1_PMSVer_V1P2, x1
->>   	/* Disable PMSNEVFR_EL1 read and write traps */
->>   	orr	x0, x0, #HDFGRTR_EL2_nPMSNEVFR_EL1_MASK
->>   	orr	x2, x2, #HDFGWTR_EL2_nPMSNEVFR_EL1_MASK
->>
->> -- 
->> 2.34.1
->>
+void kvm_enable_trbe(void)
+{
+	if (has_vhe() || is_protected_kvm_enabled() ||
+	    WARN_ON_ONCE(preemptible()))
+		return;
 
+	host_data_set_flag(TRBE_ENABLED); <--- Explodes here
+}
+
+So the write of the flag has to be skipped if KVM is available, even
+if KVM is compiled in.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
