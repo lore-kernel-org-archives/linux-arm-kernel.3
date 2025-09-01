@@ -4,109 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 993EECA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 10:37:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B23CCA0FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 10:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=srcQe2QCCiAwB7DGCqKHSCUVph+K4Lh5idtVMweUwUM=; b=BBECorQlfGutFpQSCSDV4bMiPp
-	MCThze5S0Hx5zOvf4m0X+RfVr1GbSydw3tcOs9vD2B/fLI915GAwe2JAKJQYyEjKA8A/R0w+URvQV
-	i4/ujjprJX8G03E6XSQRvxKL4Q31shZpCWWUq4W1Jwg8hlCapFIjRyI4F7gRwxjpZMQH1CClUsgb3
-	Ecy8hgLioiDJApAkd82yAJ75JzgY7Zy0HGkOw14BdjmT1In+JV78NFlEJ8L+YPdF5/lliSdqlvyiL
-	j4VLsGleSMYZHboEe+834yt9/iec4wMf4OPfTxcZYdXwPWY571fsLkLShzvSJJIETpFh9gn+iW5JL
-	dn7TmXQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7JhBkaIQk4XEh1u1e6y0Jir0IMVNYctdxKlnujv938I=; b=ivHuzNMNJT2EgWVWMDZkOdZdzZ
+	YCH10Yf1sxUDNWCf3bm1Y9e8dr9svQvh3f3C1lwl8yc3VIg+UaMuZyV8BNGQ1j+2EEXGHhR4dwDcs
+	M3Mnz3JmmmGaPk67TzFLb9yZTRBolkeneA3duO1eMHbotqJGUhfkR0N8NslASscx6/gcclnyVQdaP
+	cGXaTAUMqHoimYFrZQ+8USI1EV1nBV5Dbr1MjheLobfBHlMar7f45tIgLSDTSi/tDuc1gB541lt5a
+	ny51cFsD5qHePFnx5XXXyQQg0NsGP9/RW/pHW+giF+5lYgAziHcIbTSlo8rG/7IN3ws1IDNObUiFw
+	dm701v/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut1uX-0000000BvL2-2OVH;
-	Mon, 01 Sep 2025 10:37:17 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ut1xD-0000000Bw1J-3AsD;
+	Mon, 01 Sep 2025 10:40:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut0nM-0000000BkZY-4C6n
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 01 Sep 2025 09:25:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=srcQe2QCCiAwB7DGCqKHSCUVph+K4Lh5idtVMweUwUM=; b=GDcQ+l88uCYuxN3BAhG3+2vFmX
-	2Hn+6tI5e5bdk+ytajsj6Y9LD49v+utdzh4+/uU5rEahCqi9R0R0AGs0obZb1jiZJ9iv3tNQcuxzG
-	A0txSRuy4DZFu187LX0brMdq6/dTADBzYdMws4wlAzGfaVY/t+GDYNfdiHVjlWl9phYm+G5dWsi7O
-	+jcXNvaZqufoN3OPgGvRCH8Cj/3kX6A20Sw74VKAUGR7Ri4jzjAFmZ1VFALwuNEq+GOpsMwfT5Q/S
-	JBf+oclJ0WasW5zgyxHuc5WHX5mptN9r0tfm64l0szC2nrXVCg6gZK9UZDNFZiBC03M/6+xmASahe
-	Q+Xi9JYQ==;
-Received: from mail-vs1-f49.google.com ([209.85.217.49])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut0nJ-00000003hEs-2LUi
+	id 1ut0vP-0000000BmCf-1hLn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 09:25:47 +0000
-Received: by mail-vs1-f49.google.com with SMTP id ada2fe7eead31-529da1b07b5so207869137.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 02:25:44 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756718743; x=1757323543;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=srcQe2QCCiAwB7DGCqKHSCUVph+K4Lh5idtVMweUwUM=;
-        b=kirzfJaaSW9Zo43mmrREIRWCItw3kSioRcqcPvATuXHl8oQ6q5VPV69d8l+lDGINMh
-         vSujMKGjQBfjL018PDwAbbB3Q7wwvi4Wk8hq6aYDaxBJyUE/xXaURDlX7zy1kYqT/BTI
-         SK/1ugjG5HT4jYkkLuibVFQDym+IclAKmNwE1aeLuWvlBp75ncgQoWTlteB+tMgAVqjX
-         dhlrfvxv4DyiGPeH1qp3P9YGftLpo3eqQ43hbnjcAyXO3yGacGsp5aqQIVheQT/j5UeL
-         PuvaH0GJKiwxZ+QggQ1Lp/19whg2x2oCJ+E7VQC9X/sE6rzEY2ref26oB69MTZSilNmW
-         C5SQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUFOdE67cu0maH3J9p8GLMzELpi2aTV4pb8VqQ1jwySZF7hR1kGPrVoT3p7L+Du3ewFHxwqePJIxonQlnT7rkbA@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxZPyF2pfZECyG3JK8ZnCemrSncplTGtAq1DT0/zdp7kirf0BE
-	TUwd45T5hTmlSfmhVXN3G0q+lYeWmOw01Wb6icgo3WvehOy+dZTfcYYyXH/hV8Ak
-X-Gm-Gg: ASbGnctO/gyKjjKPnDUcYaH+515b28Dqo61JM4DPilrMZ4XZYhUuBoSO5OBuh2JflEU
-	aIyRZ2I+efbhTQTFvnn5ghUPLr3g66B2xNrQTUV9xeDllJ3di3zEbjLRjDaGcCalEmsQjCQF+BI
-	Mapj0Vha/nhCWJLCTF5z388A5OgRE9xo81RLzURQ0hm+UZ4dqALKU0zGS6k6gIvSEiNg+OxWtBY
-	3j1lbIVlrGjXxWUNm0qSus+pb5EcP9ZY7ZBsvinXQIRI/+7S0jHHhPyUzv+KJN5AP9G8HNwEIS6
-	eWRv4geLG/u1ZkQsnBvZpFhtgFlLWnLh4k2C2JUUGXBPlPc1p/KV80m+OUUG65rMAe6Eqttt5ib
-	MUnnvCJrrkHmoNKsHDvmfqyoxZOVraZpwUhDwi4fYrV65zES4dYT6ZNEiFMCV
-X-Google-Smtp-Source: AGHT+IFHuHMsuUkMEsJzdxhHOzQId1YJtUhz+o3H3bE9L9p9UH1PkBMpvCHfjz2POhl+2D946mO5dg==
-X-Received: by 2002:a05:6102:441e:b0:4e6:a338:a421 with SMTP id ada2fe7eead31-52b19534c68mr1361099137.6.1756718742499;
-        Mon, 01 Sep 2025 02:25:42 -0700 (PDT)
-Received: from mail-ua1-f54.google.com (mail-ua1-f54.google.com. [209.85.222.54])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-52af19156ecsm3020661137.12.2025.09.01.02.25.42
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 01 Sep 2025 02:25:42 -0700 (PDT)
-Received: by mail-ua1-f54.google.com with SMTP id a1e0cc1a2514c-892196f0471so1313855241.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 02:25:42 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXloJP/8m1uOSH46U8t2xR6pDXNbTiKx5ofgUlw6pPF9iuAMqZGqTlVn/w57mvx6j/DhHXZkInuMLWqZszFRrqA@lists.infradead.org
-X-Received: by 2002:a05:6102:c51:b0:527:4113:6ad6 with SMTP id
- ada2fe7eead31-52b19a54877mr1662294137.9.1756718741912; Mon, 01 Sep 2025
- 02:25:41 -0700 (PDT)
+	Mon, 01 Sep 2025 09:34:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CDF4B601D6;
+	Mon,  1 Sep 2025 09:34:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF865C4CEF0;
+	Mon,  1 Sep 2025 09:34:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756719246;
+	bh=3pD43VmzuMnbKqEZBMBvRD8QOeColEDDiPA98Xg+SaI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=up5IY0Lz+TWMrst6sxwJCXHZlvksy+Kyvgdb5EAAQyC+UHTG6/VphlFt01RyHvzdY
+	 SpU7YnF5+Jqv0wV6aIuRTNVyJMCpVHjQyME6P1+siibcpvKIrd1QOnpg8aTaePOXU/
+	 QvT67wDPOMoeNkN9KpE1mREID6KnHbBNmAqEobXL092QepnV9neHZRxgpw6FGBEUUh
+	 NPw6CEx8P9CGBIzoTcXJo+Y3n4/aN7N5E/YDXz95PBTWB2RVvsl7Mfp9smS62ZJXhp
+	 izWNuW6h6BRCHrXysOq6sHn5ZHhZngDG/WcJAe3ynXx+8m1AjDe6cCP1rhiJl+yTmO
+	 67GBt22Hy8KSw==
+Message-ID: <44d8a998-efe7-4c2f-8580-5248b1a98c44@kernel.org>
+Date: Mon, 1 Sep 2025 11:34:00 +0200
 MIME-Version: 1.0
-References: <20250704161410.3931884-1-claudiu.beznea.uj@bp.renesas.com>
- <20250704161410.3931884-6-claudiu.beznea.uj@bp.renesas.com>
- <ddxayjj5wcuuish4kvyluzrujkes5seo7zlusmomyjfjcgzcyj@xe3zzzmy2zaj>
- <8ef466aa-b470-4dcb-9024-0a9c36eb9a6a@tuxon.dev> <zsgncwvhykw4ja3bbqaxwupppjsqq4pcrdgrsduahokmt72xsm@twekpse6uzzh>
-In-Reply-To: <zsgncwvhykw4ja3bbqaxwupppjsqq4pcrdgrsduahokmt72xsm@twekpse6uzzh>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 1 Sep 2025 11:25:30 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdUu0uXBJndcwWoZp8NNyBJox5dZw4aoB8Ex50vBDDtP7g@mail.gmail.com>
-X-Gm-Features: Ac12FXz8RcNX144qqXwdTyVaOdBuKNMLkMT1y2uQFu-Wa0Ecb0dTxg5TkCmB8Xs
-Message-ID: <CAMuHMdUu0uXBJndcwWoZp8NNyBJox5dZw4aoB8Ex50vBDDtP7g@mail.gmail.com>
-Subject: Re: [PATCH v3 5/9] PCI: rzg3s-host: Add Initial PCIe Host Driver for
- Renesas RZ/G3S SoC
-To: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Claudiu Beznea <claudiu.beznea@tuxon.dev>, bhelgaas@google.com, lpieralisi@kernel.org, 
-	kwilczynski@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, geert+renesas@glider.be, magnus.damm@gmail.com, 
-	catalin.marinas@arm.com, will@kernel.org, mturquette@baylibre.com, 
-	sboyd@kernel.org, p.zabel@pengutronix.de, lizhi.hou@amd.com, 
-	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
-	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>, 
-	Wolfram Sang <wsa+renesas@sang-engineering.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_102545_867390_BE4A490E 
-X-CRM114-Status: GOOD (  46.19  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/5] firmware: exynos-acpm: register ACPM clocks dev
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
+References: <20250827-acpm-clk-v2-0-de5c86b49b64@linaro.org>
+ <20250827-acpm-clk-v2-4-de5c86b49b64@linaro.org>
+ <e8346a38-fef7-482f-81ab-20621988b047@kernel.org>
+ <761936e8-1626-47f8-b3f5-ebc62f4a409b@linaro.org>
+ <2567a939-4938-4c92-8893-83d03ff8767f@kernel.org>
+ <c1321c46-e7a4-4489-a63b-a3ed72e5e98a@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <c1321c46-e7a4-4489-a63b-a3ed72e5e98a@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,103 +127,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mani,
+On 01/09/2025 10:43, Tudor Ambarus wrote:
+> 
+> 
+> On 9/1/25 8:48 AM, Krzysztof Kozlowski wrote:
+>> On 01/09/2025 08:56, Tudor Ambarus wrote:
+>>>
+>>>
+>>> On 8/31/25 11:50 AM, Krzysztof Kozlowski wrote:
+>>>> On 27/08/2025 14:42, Tudor Ambarus wrote:
+>>>>> +
+>>>>> +static const struct acpm_clk_variant gs101_acpm_clks[] = {
+>>>>> +	ACPM_CLK(CLK_ACPM_DVFS_MIF, "mif"),
+>>>>> +	ACPM_CLK(CLK_ACPM_DVFS_INT, "int"),
+>>>>> +	ACPM_CLK(CLK_ACPM_DVFS_CPUCL0, "cpucl0"),
+>>>>> +	ACPM_CLK(CLK_ACPM_DVFS_CPUCL1, "cpucl1"),
+>>>>> +	ACPM_CLK(CLK_ACPM_DVFS_CPUCL2, "cpucl2"),
+>>>>> +	ACPM_CLK(CLK_ACPM_DVFS_G3D, "g3d"),
+>>>>> +	ACPM_CLK(CLK_ACPM_DVFS_G3DL2, "g3dl2"),
+>>>>> +	ACPM_CLK(CLK_ACPM_DVFS_TPU, "tpu"),
+>>>>> +	ACPM_CLK(CLK_ACPM_DVFS_INTCAM, "intcam"),
+>>>>> +	ACPM_CLK(CLK_ACPM_DVFS_TNR, "tnr"),
+>>>>> +	ACPM_CLK(CLK_ACPM_DVFS_CAM, "cam"),
+>>>>> +	ACPM_CLK(CLK_ACPM_DVFS_MFC, "mfc"),
+>>>>> +	ACPM_CLK(CLK_ACPM_DVFS_DISP, "disp"),
+>>>>> +	ACPM_CLK(CLK_ACPM_DVFS_BO, "b0"),
+>>>>> +};
+>>>>
+>>>> I don't understand why clocks are defined in the firmware driver, not in
+>>>> the clock driver.
+>>>
+>>> I chose to define the clocks in the firmware driver and pass them as 
+>>> platform data to the clock platform device for extensibility. In case
+>>> other SoCs have different clock IDs, they'll be able to pass the
+>>
+>> You will have to modify firmware driver, so still at least one driver
+>> has to be changed. Having clocks defined in non-clock driver is really
+>> unusual.
+>>
+>> This solution here creates also dependency on clock bindings and makes
+>> merging everything unnecessary difficult.
+>>
+>>> clock data without needing to modify the clock driver. GS201 defines
+>>> the same ACPM clocks as GS101, but I don't have access to other newer
+>>> SoCs to tell if the ACPM clocks differ or not.
+>>>
+>>> The alternative is to define the clocks in the clock driver and
+>>> use platform_device_register_simple() to register the clock platform
+>>> device. The clock driver will be rigid in what clocks it supports.
+>>>
+>>> I'm fine either way for now. What do you prefer?
+>>
+>> Please move them to the driver.
+> 
+> Okay, will move the clock definitions to the clock driver.
+> 
+>>
+>>>
+>>>>
+>>>> This creates dependency of this patch on the clock patch, so basically
+>>>> there is no way I will take it in one cycle.
+>>>
+>>> Would it work to have an immutable tag for the clock and samsung-soc
+>>> subsytems to use?
+>>
+>> No, just try yourself. Patch #3 depends on patch #2, so that's the cross
+>> tree merge. It's fine, but now patch #4 depends on patch #3, so you need
+>> two merges.
+>>
+>> Or how do you actually see it being merged with immutable tag? What goes
+>> where?
+>>
+> 
+> Unnecessary difficult indeed. Hypothetically, if we kept the current
 
-On Sun, 31 Aug 2025 at 06:07, Manivannan Sadhasivam <mani@kernel.org> wrote:
-> On Sat, Aug 30, 2025 at 02:22:45PM GMT, Claudiu Beznea wrote:
-> > On 30.08.2025 09:59, Manivannan Sadhasivam wrote:
-> > > On Fri, Jul 04, 2025 at 07:14:05PM GMT, Claudiu wrote:
-> > >> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-> > >>
-> > >> The Renesas RZ/G3S features a PCIe IP that complies with the PCI Express
-> > >> Base Specification 4.0 and supports speeds of up to 5 GT/s. It functions
-> > >> only as a root complex, with a single-lane (x1) configuration. The
-> > >> controller includes Type 1 configuration registers, as well as IP
-> > >> specific registers (called AXI registers) required for various adjustments.
-> > >>
-> > >> Hardware manual can be downloaded from the address in the "Link" section.
-> > >> The following steps should be followed to access the manual:
-> > >> 1/ Click the "User Manual" button
-> > >> 2/ Click "Confirm"; this will start downloading an archive
-> > >> 3/ Open the downloaded archive
-> > >> 4/ Navigate to r01uh1014ej*-rzg3s-users-manual-hardware -> Deliverables
-> > >> 5/ Open the file r01uh1014ej*-rzg3s.pdf
-> > >>
-> > >> Link: https://www.renesas.com/en/products/rz-g3s?queryID=695cc067c2d89e3f271d43656ede4d12
-> > >> Tested-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
-> > >> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+No, it is impossible.
 
-> > >> +  ret = pm_runtime_resume_and_get(dev);
-> > >> +  if (ret)
-> > >> +          return ret;
-> > >> +
-> > >
-> > > Do you really need to do resume_and_get()? If not, you should do:
-> >
-> > It it's needed to enable the clock PM domain the device is part of.
-> >
->
-> I've replied below.
->
-> > >
-> > >     pm_runtime_set_active()
-> > >     pm_runtime_no_callbacks()
-> > >     devm_pm_runtime_enable()
+> structure, we could have have a single tag on #4. Since the dependency was
 
-> > >> +static int rzg3s_pcie_suspend_noirq(struct device *dev)
-> > >> +{
-> > >> +  struct rzg3s_pcie_host *host = dev_get_drvdata(dev);
-> > >> +  const struct rzg3s_pcie_soc_data *data = host->data;
-> > >> +  struct regmap *sysc = host->sysc;
-> > >> +  int ret;
-> > >> +
-> > >> +  ret = pm_runtime_put_sync(dev);
-> > >> +  if (ret)
-> > >> +          return ret;
-> > >
-> > > Since there are no runtime callbacks present, managing runtime PM in the driver
-> > > makes no sense.
-> >
-> > The PCIe device is part of a clock power domain. Dropping
-> > pm_runtime_enable()/pm_runtime_put_sync() in this driver will lead to this
-> > IP failing to work as its clocks will not be enabled/disabled. If you don't
-> > like the pm_runtime_* approach that could be replaced with:
-> >
-> > devm_clk_get_enabled() in probe and clk_disable()/clk_enable() on
-> > suspend/resume. W/o clocks the IP can't work.
->
-> Yes, you should explicitly handle clocks in the driver. Runtime PM makes sense
-> if you have a power domain attached to the IP, which you also do as I see now.
-> So to conclude, you should enable/disable the clocks explicitly for managing
-> clocks and use runtime PM APIs for managing the power domain associated with
-> clock controller.
+What does it mean tag on #4? There are no further users, so tagging this
+patch has zero effect.
 
-Why? For the past decade, we've been trying to get rid of explicit
-module clock handling for all devices that are always part of a
-clock domain.
+> on a new clock driver, the clock subsystem could have lived without merging
+> the tag, as the chances of conflicts with the clk core are small. But not
 
-The Linux PM Domain abstraction is meant for both power and clock
-domains.  This is especially useful when a device is present on multiple
-SoCs, on some also part of a power domain,  and the number of module
-clocks that needs to be enabled for it to function is not the same on
-all SoCs.  In such cases, the PM Domain abstraction takes care of many
-of the integration-specific differences.
+Quick look tells me nothing would compile. Really, try yourself. Neither
+patch #3 nor patch #4 builds!
 
-> But please add a comment above pm_runtime_resume_and_get() to make it clear as
-> most of the controller drivers are calling it for no reason.
-
-Note that any child device that uses Runtime PM depends on all
-its parents in the hierarchy to call pm_runtime_enable() and
-pm_runtime_resume_and_get().
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Best regards,
+Krzysztof
 
