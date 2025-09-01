@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C88B0CA0FFD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 09:25:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A4C5CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 09:27:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C+CH8r2wXcGDK1vEuDpDtwVoqW0mlfHqypJqjEci2HU=; b=TmFhrzYWzyGix4lSe6abODuqLB
-	wzOWwG6jaAUNFivYyHSrMbuGt2CBjWFcuNBVd5ujz9/ly/qrYWnD2QeVoRZbhOVVI9Kaozitz3ddk
-	MsKQQROgdzAh2ryW7tyxPhPWvb5R/tW3S872ll2JPQIeElhpNVJuGb554qnRRTTsx6d5bWCNzeH1h
-	jXNTUpdmHDK+/NYvxuMUlGjHU2/rSd/Y3yIxklQDIUDmCMt4iyynzMl12UYQJw0FyFgWHKaFLmb5u
-	d03iO1QDD5oqXcksinOmD924JP3K5Rm8s/TeJm0C+6XfW2YwkrpBe4levIttDTxf7wzcQMVovK5Cl
-	FZmKSS1w==;
+	bh=5qV0MtsU/GF9KPGf9HXWloMnjPVgpCO8eIPKOkDesIg=; b=s2coj7eefARO8367Ra3XvS43pl
+	fEV8PLgoldq4O6qLjPvo/efyj/QXEYu9EpQeOVjYpL1b5FrjUZ9LokqI3VgcI/bKWi/CH4dC1sH4m
+	z3xxr1tqicSGYygx7mhXPZ6U8xqn66cJ1GIEM6NTsg84nP2GyFk7igv71CT1vTotp4n25BtnPhKOY
+	aonDssEF8nFilSpUznAtnB8wDIdtm7trHHBrTFOcAIH9xXe5dR/OU131YWf7socPg/YsfO8peBdr1
+	tZgdHoGePFIozyXSgkf1i3tAXOB4Z5IftRKYSmZdaTE+1G8XtyW5fEt/Q1e10T82SJURu3Br77Rl6
+	/RRc6Byg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut0mb-0000000BkJu-2xlw;
-	Mon, 01 Sep 2025 09:25:01 +0000
+	id 1ut0pI-0000000Bl2w-22lh;
+	Mon, 01 Sep 2025 09:27:48 +0000
 Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut0Ml-0000000Benb-1mou
+	id 1ut0Ml-0000000BeoC-230l
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 01 Sep 2025 08:58:20 +0000
-X-UUID: c7ef96b8871111f0b29709d653e92f7d-20250901
+X-UUID: c9b1c00c871111f0b29709d653e92f7d-20250901
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.45,REQID:6d13546f-8429-4618-a1c3-1481c587b2a4,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:6493067,CLOUDID:bdf8f6555902ff4aa82c4fdfd0209733,BulkI
+X-CID-O-INFO: VERSION:1.1.45,REQID:9c8abea4-fa85-4f70-8053-8228d0bd40fc,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:6493067,CLOUDID:af33568b0772d3dc82685951b3e91b37,BulkI
 	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850,TC:nil,Content:0|50,EDM:-3
 	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
 	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 0
 X-CID-BAS: 0,_,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: c7ef96b8871111f0b29709d653e92f7d-20250901
+X-UUID: c9b1c00c871111f0b29709d653e92f7d-20250901
 Received: from mail.kylinos.cn [(10.44.16.175)] by mailgw.kylinos.cn
 	(envelope-from <zhangzihuan@kylinos.cn>)
 	(Generic MTA)
-	with ESMTP id 95500762; Mon, 01 Sep 2025 16:58:08 +0800
+	with ESMTP id 235447165; Mon, 01 Sep 2025 16:58:11 +0800
 Received: from mail.kylinos.cn (localhost [127.0.0.1])
-	by mail.kylinos.cn (NSMail) with SMTP id E1EACE008FA6;
-	Mon,  1 Sep 2025 16:58:06 +0800 (CST)
-X-ns-mid: postfix-68B5601E-556482735
+	by mail.kylinos.cn (NSMail) with SMTP id 4B3D7E008FA6;
+	Mon,  1 Sep 2025 16:58:11 +0800 (CST)
+X-ns-mid: postfix-68B56023-128246736
 Received: from localhost.localdomain (unknown [172.25.120.24])
-	by mail.kylinos.cn (NSMail) with ESMTPA id D540EE008FA8;
-	Mon,  1 Sep 2025 16:58:02 +0800 (CST)
+	by mail.kylinos.cn (NSMail) with ESMTPA id F1DFEE008FA7;
+	Mon,  1 Sep 2025 16:58:06 +0800 (CST)
 From: Zihuan Zhang <zhangzihuan@kylinos.cn>
 To: "Rafael J . wysocki" <rafael@kernel.org>,
 	Viresh Kumar <viresh.kumar@linaro.org>,
@@ -99,17 +99,17 @@ Cc: Ben Horgan <ben.horgan@arm.com>,
 	linux-omap@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Zihuan Zhang <zhangzihuan@kylinos.cn>
-Subject: [PATCH v3 01/12] arm64: topology: Use scope-based cleanup helper
-Date: Mon,  1 Sep 2025 16:57:37 +0800
-Message-Id: <20250901085748.36795-2-zhangzihuan@kylinos.cn>
+Subject: [PATCH v3 02/12] ACPI: processor: thermal: Use scope-based cleanup helper
+Date: Mon,  1 Sep 2025 16:57:38 +0800
+Message-Id: <20250901085748.36795-3-zhangzihuan@kylinos.cn>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250901085748.36795-1-zhangzihuan@kylinos.cn>
 References: <20250901085748.36795-1-zhangzihuan@kylinos.cn>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_015819_761488_BAD47C0A 
-X-CRM114-Status: GOOD (  11.36  )
+X-CRM114-CacheID: sfid-20250901_015819_829665_14935336 
+X-CRM114-Status: GOOD (  13.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,44 +132,75 @@ No functional change intended.
 
 Signed-off-by: Zihuan Zhang <zhangzihuan@kylinos.cn>
 ---
- arch/arm64/kernel/topology.c | 9 +++------
- 1 file changed, 3 insertions(+), 6 deletions(-)
+ drivers/acpi/processor_thermal.c | 18 ++++++------------
+ 1 file changed, 6 insertions(+), 12 deletions(-)
 
-diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-index 5d07ee85bdae..fa0980968f45 100644
---- a/arch/arm64/kernel/topology.c
-+++ b/arch/arm64/kernel/topology.c
-@@ -307,17 +307,16 @@ int arch_freq_get_on_cpu(int cpu)
- 		 */
- 		if (!housekeeping_cpu(cpu, HK_TYPE_TICK) ||
- 		    time_is_before_jiffies(last_update + msecs_to_jiffies(AMU_SAMPLE_E=
-XP_MS))) {
--			struct cpufreq_policy *policy =3D cpufreq_cpu_get(cpu);
-+			struct cpufreq_policy *policy __free(put_cpufreq_policy) =3D
-+				cpufreq_cpu_get(info->opp_cpu);
- 			int ref_cpu;
+diff --git a/drivers/acpi/processor_thermal.c b/drivers/acpi/processor_th=
+ermal.c
+index 1219adb11ab9..3c8b57df9619 100644
+--- a/drivers/acpi/processor_thermal.c
++++ b/drivers/acpi/processor_thermal.c
+@@ -62,19 +62,14 @@ static int phys_package_first_cpu(int cpu)
+ 	return 0;
+ }
 =20
- 			if (!policy)
- 				return -EINVAL;
+-static int cpu_has_cpufreq(unsigned int cpu)
++static bool cpu_has_cpufreq(unsigned int cpu)
+ {
+-	struct cpufreq_policy *policy;
++	struct cpufreq_policy *policy __free(put_cpufreq_policy) =3D cpufreq_cp=
+u_get(cpu);
 =20
- 			if (!cpumask_intersects(policy->related_cpus,
--						housekeeping_cpumask(HK_TYPE_TICK))) {
--				cpufreq_cpu_put(policy);
-+						housekeeping_cpumask(HK_TYPE_TICK)))
- 				return -EOPNOTSUPP;
--			}
+ 	if (!acpi_processor_cpufreq_init)
+ 		return 0;
 =20
- 			for_each_cpu_wrap(ref_cpu, policy->cpus, cpu + 1) {
- 				if (ref_cpu =3D=3D start_cpu) {
-@@ -329,8 +328,6 @@ int arch_freq_get_on_cpu(int cpu)
- 					break;
- 			}
+-	policy =3D cpufreq_cpu_get(cpu);
+-	if (policy) {
+-		cpufreq_cpu_put(policy);
+-		return 1;
+-	}
+-	return 0;
++	return !!policy;
+ }
 =20
--			cpufreq_cpu_put(policy);
+ static int cpufreq_get_max_state(unsigned int cpu)
+@@ -95,7 +90,6 @@ static int cpufreq_get_cur_state(unsigned int cpu)
+=20
+ static int cpufreq_set_cur_state(unsigned int cpu, int state)
+ {
+-	struct cpufreq_policy *policy;
+ 	struct acpi_processor *pr;
+ 	unsigned long max_freq;
+ 	int i, ret;
+@@ -111,6 +105,9 @@ static int cpufreq_set_cur_state(unsigned int cpu, in=
+t state)
+ 	 * frequency.
+ 	 */
+ 	for_each_online_cpu(i) {
++		struct cpufreq_policy *policy __free(put_cpufreq_policy) =3D
++			cpufreq_cpu_get(i);
++
+ 		if (topology_physical_package_id(i) !=3D
+ 		    topology_physical_package_id(cpu))
+ 			continue;
+@@ -120,15 +117,12 @@ static int cpufreq_set_cur_state(unsigned int cpu, =
+int state)
+ 		if (unlikely(!freq_qos_request_active(&pr->thermal_req)))
+ 			continue;
+=20
+-		policy =3D cpufreq_cpu_get(i);
+ 		if (!policy)
+ 			return -EINVAL;
+=20
+ 		max_freq =3D (policy->cpuinfo.max_freq *
+ 			    (100 - reduction_step(i) * cpufreq_thermal_reduction_pctg)) / 100=
+;
+=20
+-		cpufreq_cpu_put(policy);
 -
- 			if (ref_cpu >=3D nr_cpu_ids)
- 				/* No alternative to pull info from */
- 				return -EAGAIN;
+ 		ret =3D freq_qos_update_request(&pr->thermal_req, max_freq);
+ 		if (ret < 0) {
+ 			pr_warn("Failed to update thermal freq constraint: CPU%d (%d)\n",
 --=20
 2.25.1
 
