@@ -4,152 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CC85CA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 03:05:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDC8ECA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 03:16:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zpszoBsV4HtMgNhFccg0OurTg12GNhFyaWVChL8D7Tw=; b=TW+dtuzEtSh0UqemW7ktSRmpII
-	JXlbJ/cE1IOr4DjW4LoTs+lWuRBXaaj381Yojxn1T5XwjXEGcR360l/EErhMQFW+IK8ksh7716Y/K
-	Md2WP53K3pSynfNNnQxLOA6GAgMsOB2jF/0da/LloJnbsoMunxXTugUmuvsnSDfu93gMCzEu/o0MV
-	4WLIC6mHwe3unyxaoX45Mm3YEfVy0sCKaDVNxCs44V8+/d88oMKHjGoT76tQtUFez8tmYWs1v876s
-	vUg52JTaz1klqT50Z9uV8A31rzRG2BhWbvNusH6g2nq7HtQSfIXLpOThDwM7Rb36FkEuSqcvUKzsx
-	TUbK1VAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=eOX5nCEtnm85EEFMJUUhPpt7LAEw7KZkr3wJhZ+/VdY=; b=hgsvHHAb/kauib
+	o2MW9X5XOeWsMx/aQw39PuYA+j8wrEHaG/M7t1upP+qgsXng8V/OX7cm6B8VW8eARP3Kq3CUKqeu5
+	Da6QTuTgzK3/qjWPyWIjgZ9yHJM3UV1HrlgpKAY/zDecAGH73Zcj3cog2Cr6+Z1Qisnmzlwc62o34
+	SQX8FUbi0igp5kst8AzJ7/y+SVbbIrgMfvOM7PJauQKmnWjBmoz1fpjREDSIQcpkrFQIhxvG4SbrP
+	J/qTO8gTwBkUQ8zDi75ui7lW9vJps8QV4MsQzHrkIbrm41j5TKE5IOLLrhC3oP3c20fuVDi7s2hlg
+	uF0eFNumWSXNb/wNj/Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usuri-0000000B0TW-32uQ;
-	Mon, 01 Sep 2025 03:05:54 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1usv1h-0000000B1Ey-0Anv;
+	Mon, 01 Sep 2025 03:16:13 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usul7-0000000AzfF-0aLs
+	id 1usuyx-0000000B0tw-2yjj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 02:59:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rLIEM544jFuFFYALnC7cD8YafzzDzhD/cBgq4Ug3Mx7kiwsQEg1PCMG1GsqWf5EcVlyqGlUUuyQdz90faRT0XOTDuc/aa6q7usKz75vKEUQE4p+OxInuT3GdhJnYkEU4Sfyxm2W9u0Qo3MvgRU6SLD8iHjcnMY1gwY8ILJYcz0mJqE29zR4kmMsFkvx+yADwO75ciz+5EifDUKLW5IdnYIjqRkJ5LXawX5GK49kS0wPc354D/B29hE8K4QYfXuPoGo9cWT1svaHY0Q6xeUvBjrgfAZN+9kB3WK5xHQV8kz6TSDwWLhwXkZ5j7Xz6cQ2c8ox45Cpf46LIQx+RkF6mzA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zpszoBsV4HtMgNhFccg0OurTg12GNhFyaWVChL8D7Tw=;
- b=B1aJu+NBaImtTZs/xn1abZv6YbYLE9qRNviJ5XzKz8AcGrgUzouftlzv7QQc2HKDHTFRTppoUhX5ZJil1HWbngpUfPx1Vo8ODsFF5amjfR+WYxZ293NvqsiMVgR7QXB9LPxs3GXZXKqLYnE4ZcZ+l0KoStxoKQysfMNA0oticq8Lxu/+GKhO11PISEYKuaaP5Gj3gSALFQSdy7KfTvEtVGdSiTGMEymi1F5Jsd2JFE+Fbowc0h4hbMTQVcFnuqNp7P7ry06BAwJ1PH31qxOJy/pJZUC00R2wCGCD4SKs7CJut3tlTeJzdhTPQ42qdUNst4TvQtEPhZt+O4PyxP3/VQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zpszoBsV4HtMgNhFccg0OurTg12GNhFyaWVChL8D7Tw=;
- b=lSvbDA8/xoaNWp6uDWp4YjEvd5WbJBAGoIk2CTVwtli7qQVMnOr6RHw5y6zREmIdYC9YAVorSDciZIGtg3thkrbaBLv3VyK/xwTOzLVDee29z6CIskFbHQ7Jz7ql8smcvO21QoNN6eoqcVSTHx8oD5vmLc9x9ZOkhTUx+ReLQd1bZ54YN56xOzBDhwLTZPGy8+ZOETkBIxGk5HSlReJ8g43et9WX0FAaKbb3dlutoAe1MflBFJt+yaFl+9HIN1QZsy4LYoF+CiA4xwSh24HvMIMOzOyi9XXkKxY9RtvriBSXbtrP49X/6jAolEunCRNjMFJRT2dIQ2h/9n97GnZPwQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by PA4PR04MB9269.eurprd04.prod.outlook.com (2603:10a6:102:2a4::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.12; Mon, 1 Sep
- 2025 02:58:57 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.9094.015; Mon, 1 Sep 2025
- 02:58:57 +0000
-Date: Mon, 1 Sep 2025 12:10:13 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Shawn Guo <shawnguo@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev
-Subject: Re: [PATCH v3 0/4] ARM: dts: clean up most ls1021a CHECK_DTB warning
-Message-ID: <20250901041013.GC393@nxa18884-linux.ap.freescale.net>
-References: <20250822-ls1021a_dts_warning-v3-0-6b611a2f23a4@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250822-ls1021a_dts_warning-v3-0-6b611a2f23a4@nxp.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: MA5PR01CA0019.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:177::16) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Mon, 01 Sep 2025 03:13:25 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Mon, 1 Sep
+ 2025 11:13:11 +0800
+Received: from twmbx02.aspeed.com (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Mon, 1 Sep 2025 11:13:11 +0800
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+To: ryan_chen <ryan_chen@aspeedtech.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>, Bjorn Andersson
+	<bjorn.andersson@oss.qualcomm.com>, Geert Uytterhoeven
+	<geert@linux-m68k.org>, Nishanth Menon <nm@ti.com>,
+	<nfraprado@collabora.com>, Taniya Das <quic_tdas@quicinc.com>, Lad Prabhakar
+	<prabhakar.mahadev-lad.rj@bp.renesas.com>, Kuninori Morimoto
+	<kuninori.morimoto.gx@renesas.com>, Eric Biggers <ebiggers@google.com>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
+	<soc@lists.linux.dev>, Mo Elbadry <elbadrym@google.com>, Rom Lemarchand
+	<romlem@google.com>, William Kennington <wak@google.com>, Yuxiao Zhang
+	<yuxiaozhang@google.com>, <wthai@nvidia.com>, <leohu@nvidia.com>,
+	<dkodihalli@nvidia.com>, <spuranik@nvidia.com>
+Subject: [PATCH v5 0/5] Introduce ASPEED AST2700 BMC SoC
+Date: Mon, 1 Sep 2025 11:13:06 +0800
+Message-ID: <20250901031311.1247805-1-ryan_chen@aspeedtech.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PA4PR04MB9269:EE_
-X-MS-Office365-Filtering-Correlation-Id: 229bb078-6056-4d23-b17c-08dde9037df7
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|19092799006|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?XXxlArLJUsyYY1BS2CM66DBKT2L1/CqBc/AKDRgjRcKsUMRhlPqCzKgz2ypp?=
- =?us-ascii?Q?igBzvCV74Jsmx/+QahJmrcoATFUx/Pg3yVyGQ4KfBJ52vSpN0+RKHwL/ujZw?=
- =?us-ascii?Q?lWVkCHj/gsNXj4Unft9galt92Renq8tYdFUjIvv+EqFztZe7/Te/rTlCG6CE?=
- =?us-ascii?Q?lKjIxKT2Xt+A0W3FSmJRQgp9cfmz5RmX/qwa8vK1B4mj08kSKc86rKuaUFp7?=
- =?us-ascii?Q?WZQo/5W6np0YWQUGboPO0OYGt5FJDiCGUsSZPNRK7N3TyrZXM6qO7KHD9ytH?=
- =?us-ascii?Q?icSNUHxdkYHtCA62JcOU8nFE6UyMCr2tQNbZVWqC+qyVIdhULCD0O0VCZL5/?=
- =?us-ascii?Q?l/ine4OzFuOKEWrMkPFVFf5VbjmICJElqTX1QTHcxgYILq80EMEw9eihySZZ?=
- =?us-ascii?Q?6ZeRFKPD16lmSJENrXjnRg887ZeRG5d7i4z9Dwimj4oIOWEUPv2hAWg7jTuH?=
- =?us-ascii?Q?lBlsYSS2cFl0CyoSCk0TFq7NNkiO26j2CatoiCjt9P/MPWgBfumFEIo2MqtS?=
- =?us-ascii?Q?8Y0ohls1KgRPDG3xp3YqSD4xt9UgH4oXJ24rVM1M3E4sFnRjO2+k8TpQwd9g?=
- =?us-ascii?Q?v4JHnJtHCECDtVqmFM70KCxXf6VDgh+kzF72e0okNGS5V4TREfqHuVUTIRa4?=
- =?us-ascii?Q?t/NMydAqVPzN/nsJJeTxfeu/3x9qAYQpJIa7+OzkEm04EJp/kJ1Hgu0OW6rG?=
- =?us-ascii?Q?ah55RzN4ds0cOluIQflUgfNeLp4Gv/MxpZ3+WEVRj6FModz0ByBWG8pJcAdU?=
- =?us-ascii?Q?bZRWtNKKogzU5B2Cowm1DwaimcNnYoKXLKKJuubat+J9ekz0ChtSOtgTyJcB?=
- =?us-ascii?Q?b3kwB0gBvXo+oIfk9m5hk2K8iEJKEHGCvun/WKmSs8idKgWMq992qu6MuKok?=
- =?us-ascii?Q?AdM2bauKhZ3nDb/32NCceJLji8E1Tf/ms0P/dWlrGP8Z7ipX+Ty911FRgrTQ?=
- =?us-ascii?Q?od2Cs0X1B/wdNfbeR/ghfnAZtd9kG2sv3Cc6dNJosaHEf00PgyDHhVnMntzU?=
- =?us-ascii?Q?Z5dJ0Lx5P9gbRzxFv+5/zAoNL6fdrYZpQeMduvJdsHc8s5CsZD93/V0EXH3e?=
- =?us-ascii?Q?ucCR6hfMauOzrT8t2cwAdLe7qR/3zcvw0t8EFIQWiseSYwUrbI+fg7Ss1mIw?=
- =?us-ascii?Q?zgzTubAziLjhuMa3PnPF9vim8hvSzJuIWqsmNC3nIimnnfsz//SWRCRSrSDD?=
- =?us-ascii?Q?hxcqxKfxFfph4gJg3hBj2TP1/9ifJmbRRsGL9X3KOd1o6lPwpovoO5sKGVuy?=
- =?us-ascii?Q?h3xDqBG8EcHOZDHxARUKpKqx+ZfRTMR2ELC8O1G5j6VueR6WIMhIvjUlVjRV?=
- =?us-ascii?Q?WCWF8OpnXBzCFtjLGCjKXWuJuwhpbQ9CSopYLwE3grOZhIrwA2gyaCTvJ4VL?=
- =?us-ascii?Q?fOpLU86r9bDmGnUf9xIynLUyyFDB3eqayxjNdh10yMvfIg9SSToCCuQvpcMm?=
- =?us-ascii?Q?jTzq3c6fuusGAey+67CkRFwJPUsY6AvO73fouzojjubNd4iCCqVkG2LkshRj?=
- =?us-ascii?Q?NFZs/B/OUpD3VGs=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(19092799006)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?horIGs7T9KlGC9rBJ6U4yG8v2oRhT+jvk6JoTKn1Qg7vaSTP57irUds8zQeg?=
- =?us-ascii?Q?Hm5h0H8rmmji6TItx/xrG3lWqdyUt8vWLCgeKRXPIHAnZOyhyCEpvz5Y+6yn?=
- =?us-ascii?Q?0zTroxkQvDgAaQ7pKVpA1CMuQbTiXDjrS+OX1Q4lqHBxYbQcr2SIAjWbYmRn?=
- =?us-ascii?Q?vX3SIhCx7AxG18NOj0xh1ewfqenLRpZvYvwO7NLDhy4Tw1+KZZpOW/MB/OwF?=
- =?us-ascii?Q?BqBMd+8xr0VpNCRBc52z4NjVs4oYa9+LKHE0yavgu1XbH7OoTZIB8BoVX5oT?=
- =?us-ascii?Q?drllxGAyhLJ/PHmbcFSjiCAd6olNPGwHs67C4bCZ6G0sBDZOM4WBspsfjseY?=
- =?us-ascii?Q?llJj4zN30bQ1EtBNFbyoNcID/AeelX210XPHuPy7mN92lHTaHp3/Ij9ZtazF?=
- =?us-ascii?Q?yqpe+PDnBppw0dhBX5u/qLly/ZwE8RLKbppshMiYQu83HEdWEBv/LfyczBhZ?=
- =?us-ascii?Q?wD9uCKPwlm+GLNF9zLH5gwNIGlb5yK++gflNb/L12ef29qkuTAwXybAfVHHa?=
- =?us-ascii?Q?tfh3Ilav3gkHAQamdsz2ZoZKrcFoLrJYP4CtwuzOck/D4IzRouZfMWUvMepN?=
- =?us-ascii?Q?0ZiW4S3k81OnquLnhb7Y+S3AvJXDocY2TWFQ90YYRmSDYk2zkHVQIjftSySH?=
- =?us-ascii?Q?xcLWepFFdToDp7um4/YFNu7WbVU19bEHYSYyWiALwtzjj1MUUU9vcRLzwxGs?=
- =?us-ascii?Q?G+iJ/elrcBpc7jTAx5yDkkWKWL53y4qq8Np73vLW83O1xoidN9fIJdVyVh2c?=
- =?us-ascii?Q?5AP0dJ3LtS0QppDEz2Ll67qF8Q6B1AAIp/ZoWQtGL+wAE5bFDygbFhfkHmfB?=
- =?us-ascii?Q?SY5qZscDBYpy1mLi/xI6qjjXEOlAu5keo6Wg1VVKEgo7K5gDr5xIDhvUYf5Q?=
- =?us-ascii?Q?HhGcvSF1B3NdBDV6X7ezvvXOh8jhFr9RzWqOgmdrzTouoeuutgjHvYN4b0tn?=
- =?us-ascii?Q?HQSHVIq8yGaqZnrLh+/afy5jL9i5fmCSo3SB9Jf9CZvdVjrA+HiZbhSMJPlb?=
- =?us-ascii?Q?IvyrLjONJmycS1VMNoFl5VOqo9virNBVxPqX8IaulnbRxC+rygtCHiPm0c02?=
- =?us-ascii?Q?NFRUwDw5Ebht2PTjaV4eFhzRFkz3r68zfAMBSdQg4fKkdT9whxoWPt0ztGQf?=
- =?us-ascii?Q?VwQkdE0DIky64HAAQf2h/ab/bfBalB5WRuwsYBDexz32OShiwQyCalFF0LHP?=
- =?us-ascii?Q?zGFc2UopYeVGNmFbwc/wZsceJJC/8N8X7dCvMj9Id8jZjdfnS58+D9/RtyCH?=
- =?us-ascii?Q?eSQX3B439opvyczd5kaDnfu8962a16v5HAp45bQRDRpXyvSNaxuDNoImnChY?=
- =?us-ascii?Q?rKPbPlQ5kG3LaWzDD793jVJIpTCjVh6VSyOT5BytrJUewHvxdCDv4TMQYWoV?=
- =?us-ascii?Q?g55R4vPcjLvN1HFLFEFIjhKmkZUixaadn1a3m+mFHWfDkZfC0+Ndx3hbbLtp?=
- =?us-ascii?Q?HrG5vZl3oY4ySIXkLjeMy30OOk7ALu7Z1i8HmALg/hR5L/ayGRXgsD9AQZ3i?=
- =?us-ascii?Q?mrz7BJ8/kN+TWz04TZqeMU1heyD4C8A83hfHNdBvzCGVcIUKiaQnsZiknRMv?=
- =?us-ascii?Q?MjgKHmDg0QUWklWe/MlP2PA+gWALTetA1/wuVmsb?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 229bb078-6056-4d23-b17c-08dde9037df7
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Sep 2025 02:58:57.6656
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: sXagczjVzJ64Y1vsCEzRTytnxHxgGUf7Ps0//hdbTYYwf9odI6kVFQ6XntMe+AYLuc7VXm12n9EbNo1qKyafzA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9269
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250831_195905_181777_95BA26AA 
-X-CRM114-Status: UNSURE (   8.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250831_201323_748474_CB29B7CB 
+X-CRM114-Status: GOOD (  11.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,32 +75,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 22, 2025 at 10:49:57AM -0400, Frank Li wrote:
->clean up most ls1021a CHECK_DTB warning.
->
->Old uboot check esdhc@1560000. The new uboot already switch to check both
->esdhc@1560000 and mmc@1560000. So we can rename it now.
->
->Signed-off-by: Frank Li <Frank.Li@nxp.com>
->---
->Changes in v3:
->- rebase guoshawn/imx/dt tree. Remove patches that were already merged.
->- Link to v2: https://lore.kernel.org/r/20250820-ls1021a_dts_warning-v2-0-2e39648a32b7@nxp.com
->
->Changes in v2:
->- squash rename to flash patches
->- remove duplicate patches already post in
->https://lore.kernel.org/linux-devicetree/20250725061339.266125-1-alexander.stein@ew.tq-group.com/
->- Link to v1: https://lore.kernel.org/r/20250818-ls1021a_dts_warning-v1-0-7a79b6b4a0e2@nxp.com
->
->---
->Frank Li (4):
->      ARM: dts: ls1021a: Rename node name nor to flash
->      ARM: dts: ls1021a: Rename 'mdio-mux-emi1' to 'mdio-mux@54'
->      ARM: dts: ls1021a: Rename esdhc@1560000 to mmc@1560000
->      ARM: dts: ls1021a-tsn: Remove redundant #address-cells for ethernet-switch@1
->
+This introduces initial support for the Aspeed AST2700 SoC and the AST2700
+Evaluation Board (EVB) to the Linux kernel. The AST27XX is the 8th
+generation Baseboard Management Controller (BMC) SoC from Aspeed,
+featuring improved performance, enhanced security, and expanded I/O
+capabilities compared to previous generations.
 
+AST27XX SOC Family
+ - https://www.aspeedtech.com/server_ast2700/
+ - https://www.aspeedtech.com/server_ast2720/
+ - https://www.aspeedtech.com/server_ast2750/
 
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
+Bindings Dependencies:
+- intc-ic: Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
+- scu/silicon-id: Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
+- gpio: Documentation/devicetree/bindings/gpio/aspeed,ast2400-gpio.yaml
+- mdio: Documentation/devicetree/bindings/net/aspeed,ast2600-mdio.yaml
+
+v5:
+- modify ast27XX 7th generation description to 8th generation.
+- aspeed.yaml
+ - modify missing blank line.
+- Kconfig.platforms
+ - modify ast27XX 7th generation to 8th generation.
+
+v4:
+- make CHECK_DTBS=y arch/arm64/boot/dts/aspeed/ fix.
+- modify commit message remove itemlize.
+- remove modify aspeed,ast2700-intc.yaml patch.
+- aspeed.yaml
+ - Add AST2700 board compatible.
+- aspeed-g7.dtsi
+ - modify all size-cells from 1 to 2.
+ - add serial aliases, gpio, mdio, uart0 ~ 14.
+ - add firmware for optee, reserved memory for atf and optee.
+ - modify cpu@0 to cpu0: cpu@0.
+ - fix intc-ic for yaml dependency.
+- ast2700-evb.dts
+ - update stdout-path = "serial12:115200n8";
+
+v3:
+- https://lore.kernel.org/all/20241212155237.848336-1-kevin_chen@aspeedtech.com/
+- Split clk and reset driver to other commits, which are in series of
+  "Add support for AST2700 clk driver".
+- For BMC console by UART12, add uart12 using ASPEED INTC architecture.
+
+aspeed,ast2700-intc.yaml
+- Add minItems to 1 to fix the warning by "make dtbs_check W=1".
+- Add intc1 into example.
+
+Kconfig.platforms
+  - Remove MACH_ASPEED_G7.
+
+Ryan Chen (5):
+  dt-bindings: arm: aspeed: Add AST2700 board compatible
+  arm64: Kconfig: Add Aspeed SoC family (ast27XX) Kconfig support
+  arm64: dts: aspeed: Add initial AST2700 SoC device tree
+  arm64: dts: aspeed: Add AST2700 Evaluation Board
+  arm64: configs: Update defconfig for AST2700 platform support
+
+ .../bindings/arm/aspeed/aspeed.yaml           |   6 +
+ arch/arm64/Kconfig.platforms                  |   6 +
+ arch/arm64/boot/dts/Makefile                  |   1 +
+ arch/arm64/boot/dts/aspeed/Makefile           |   4 +
+ arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi     | 452 ++++++++++++++++++
+ arch/arm64/boot/dts/aspeed/ast2700-evb.dts    |  22 +
+ arch/arm64/configs/defconfig                  |   1 +
+ 7 files changed, 492 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/aspeed/Makefile
+ create mode 100644 arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi
+ create mode 100644 arch/arm64/boot/dts/aspeed/ast2700-evb.dts
+
+-- 
+2.34.1
+
 
