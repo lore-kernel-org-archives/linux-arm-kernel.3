@@ -4,188 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AC3CCA0FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 17:01:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9FBDCA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 17:03:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tnXepClSCa4TtmpEoW4LNnvfPXJBpj0jhMGD19t2OsQ=; b=fODkeQEW2Sj8TCq5xjwkRU/rSo
-	nFCYQrCE4ZMfWU8SS1yLZTfLon7lA1uZJivRPFrnmLw0I9acAA4hEQ/SIY/yT5M+H12F5mdHbYuKR
-	KJ3PzeJb74aub5GN33geM7carg32IVGbrTn8u6zYC8soKF3v00gfy9ckGM8e5KIKnjKPG63IiiWgD
-	yD8swowXlrNkMzNuebk/mDFC2Sms5jxjjiVsYVzW1AWCDsk0xKkq3OPxKV9fB5ZQlxKMctZIEGqxQ
-	u7wnr/+yWSlFokMb+yNa3C4VsPC6Ka2cmKUyRNZXkjz98dai1LyW3ZZFEl+lUEKjXrKrhUuTxJfrN
-	wGQxR75A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YRqPV4s5f+svVpzEXHl/t5wHu7f9AYdXZQfoft8LKo4=; b=vUX0SDFrWsq+GYmptbZxCGliVv
+	rnEaNm+vWWyJdURKu76kL+qj4Ow41NtMrrn8fbheLvf3j5xYCpuLoOv9dyOuR9zm7nzKzLlYHqUF4
+	6fufX8RD9YRuSdhwJqRfmkdLYtNLfNEcrfCa2CihhGB+eVvAr+moNZjQ1TtQ8EA1vVW6U43ylakVo
+	cFjZE/TkrptYkcmGjlftmiRdAgY4Ue3YFYwMr1DkXGobsKAc9U301lMrD59hljOM0wQQAFHPR4y8j
+	ltqa6CfeEBPSqB+HZqeveq24PxiGCP5qXH6u504PxWWWcUUbZEVFtPqwHEcEW8L8ukRYswE8vzues
+	afuClQcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut7tq-0000000DNEE-2UiV;
-	Mon, 01 Sep 2025 17:00:58 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ut7wU-0000000DO7x-3LFr;
+	Mon, 01 Sep 2025 17:03:42 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut4Wz-0000000Cg3y-2dgf
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 01 Sep 2025 13:25:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=tnXepClSCa4TtmpEoW4LNnvfPXJBpj0jhMGD19t2OsQ=; b=JQHccXDQOFkQFmXPgXig0sFXlq
-	O70NEfg+HIDUKlFz8ilvj/wrJ4NPsdJpjMmABi2LrPeAK3PbGGq6SuceA7jLPTUxE11qKFqZPtTus
-	ElwDlLXQ60ALuJ7gM5BWt+7SkYRJdj0FWttjA4vADR0oSmIRl0urUshzsImhhNwzCuPr72jVUT9/Z
-	o4S+hgC1+GDjLNjZf4AztnFfHcy3MoHDlb1wazHMf4LKrDn0GStMGJN7MiXT73csU6vNI70cfx9oB
-	5BP5z5OWMLIO+3Ivq1U2HjWgzJ29JTRT0p1/ovk526qCeETFy97eQn34bHAbE+TkT6Ao0LYWhDIN8
-	G8yPNTtg==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut4Ww-00000003jeU-0Kh8
+	id 1ut4cI-0000000CgtM-1sBY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 13:25:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756733104;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=tnXepClSCa4TtmpEoW4LNnvfPXJBpj0jhMGD19t2OsQ=;
-	b=PVERd+mCExzDiKOXtcatrllKxPoCJO2KgRuWOhtqBXPZeK/JDySlxuRtD9zO0fHphr45kz
-	kuKsi8o6GWR0Ce/WwJOZuQUpAOuvYahT3JnkdkW0us3BGFXMMZPB2Vl//KDFI78DcBlUde
-	wzSUhqWhotcRmBTw9rIVWfV9YDH6H78=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756733104;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=tnXepClSCa4TtmpEoW4LNnvfPXJBpj0jhMGD19t2OsQ=;
-	b=PVERd+mCExzDiKOXtcatrllKxPoCJO2KgRuWOhtqBXPZeK/JDySlxuRtD9zO0fHphr45kz
-	kuKsi8o6GWR0Ce/WwJOZuQUpAOuvYahT3JnkdkW0us3BGFXMMZPB2Vl//KDFI78DcBlUde
-	wzSUhqWhotcRmBTw9rIVWfV9YDH6H78=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-153-nIqIWa7aODuIs2BsxKmFXg-1; Mon, 01 Sep 2025 09:25:03 -0400
-X-MC-Unique: nIqIWa7aODuIs2BsxKmFXg-1
-X-Mimecast-MFC-AGG-ID: nIqIWa7aODuIs2BsxKmFXg_1756733102
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-45b8a307c12so6334545e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 06:25:02 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756733102; x=1757337902;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=tnXepClSCa4TtmpEoW4LNnvfPXJBpj0jhMGD19t2OsQ=;
-        b=rJ5tgyYKtzk564oFILXZxPlwuUK++Rz+MEvuzEj0cMdgITdezaH3aY2OkhuF8y9TJ6
-         CK0webMI4QvT9oXgNB2fMmQh7Am28m5wauiWp0hZINTIbg2pwcnXnh4P49t06BaHp2gy
-         w15zMfVIj0lcKSp7jWzfx2J4EeCc3c9v+mIKGR1pENy9geR5WVNT922K2wg96rQ2En9G
-         cUnFGkRj+G6K3su55YN3OHv9sid5qKlws0jKCSVrSlg4AHyk0MYRCkp4WGoJGexCu8v3
-         9xWPuoFjuyd/N5DrcxdK9EddD3kRBwXlFlflieTA367B5NsXsYeOvT+ZUuTwQvz4pHew
-         tHpA==
-X-Forwarded-Encrypted: i=1; AJvYcCXEL99wRMToTXLCAFvMo7hHAGIN21SHWpFulAyV1sSDtxCZrwkR+s6xBp+Gx8K5nodql318UKL89IoqRTCGSEXB@lists.infradead.org
-X-Gm-Message-State: AOJu0YxIAnDuSN3NyZdEwiVIFFiTEN/krP7CGalOYLqAav+NnRf4qRtr
-	O3zG1K2NgEAqRP00gBqlV0Xug0vi6RYWsgrmqoQT2njyz9e0/kASqHsm4/rNwIYX0n/aCufgFzZ
-	Vlrc4PSZHSr96Q0VbPczdo5+eLI3/BYpEEdhlAcLQVi4j0LHVgWoS7oxBMKw3I/XNF1pmTn+/Nz
-	NI
-X-Gm-Gg: ASbGncvXNt0jqkPRbefvhCoS03CuDPb0+UC2IlwcRm8246kyjoOmugFvL4ntr3EOyiW
-	KUEGnqVWaDpffev4SoHg9mUgV8VNiT+uGbbyuoswHwwpFx9uX6JehIUuypjppB/aitUhRQtrSTj
-	gSgHUaoGbp/AQc8wGNbnheTuo/MRqNs3+X47JxS3RWQtKZkjBQqHUnf0wz+fW3eWVq/w5onjO3/
-	gZqUX7bq4EFDDeWM/s3Wxum4uK2J2hlxqCG+vVx5dnSpELEJTV/3JO7twUiR3JXGlhXEY9oakba
-	WW9dVPdvSGyfkIWKRE9hwEMbmIp0jHfcFuNq+Aog8YR9/ElIauuDyicfu1lD9g4xXC/EgLNHEjt
-	Vilf28V7BXgczOB8U1005XHzw983ZA8Z9Z5DgKmiRtD9YJuPSynciUTEivYluhlZj7/0=
-X-Received: by 2002:a05:600c:1c98:b0:45b:8cee:580a with SMTP id 5b1f17b1804b1-45b8cee5b84mr29479405e9.35.1756733101691;
-        Mon, 01 Sep 2025 06:25:01 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFn4DAGKD4/hR6ptaEjNoxJNELsNDQWoqjaZ80cydfGU/2h/6IoyZcnqEvOz4BgFx0o138wIQ==
-X-Received: by 2002:a05:600c:1c98:b0:45b:8cee:580a with SMTP id 5b1f17b1804b1-45b8cee5b84mr29478885e9.35.1756733101175;
-        Mon, 01 Sep 2025 06:25:01 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f37:2b00:948c:dd9f:29c8:73f4? (p200300d82f372b00948cdd9f29c873f4.dip0.t-ipconnect.de. [2003:d8:2f37:2b00:948c:dd9f:29c8:73f4])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b6f0c6dc1sm239218725e9.1.2025.09.01.06.24.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 01 Sep 2025 06:25:00 -0700 (PDT)
-Message-ID: <94ec640b-76cd-478e-9ee7-ff8597d1fafc@redhat.com>
-Date: Mon, 1 Sep 2025 15:24:59 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] copy_sighand: Handle architectures where
- sizeof(unsigned long) < sizeof(u64)
-To: schuster.simon@siemens-energy.com, Dinh Nguyen <dinguyen@kernel.org>,
- Christian Brauner <brauner@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Andrew Morton <akpm@linux-foundation.org>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka
- <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-block@vger.kernel.org, linux-fsdevel@vger.kernel.org,
- cgroups@vger.kernel.org, linux-security-module@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-perf-users@vger.kernel.org, apparmor@lists.ubuntu.com,
- selinux@vger.kernel.org, linux-alpha@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-um@lists.infradead.org, stable@vger.kernel.org
-References: <20250901-nios2-implement-clone3-v2-0-53fcf5577d57@siemens-energy.com>
- <20250901-nios2-implement-clone3-v2-1-53fcf5577d57@siemens-energy.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20250901-nios2-implement-clone3-v2-1-53fcf5577d57@siemens-energy.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: byngcT9AjtdPA7RzloHr9nuYw8CxhGW9TFn7sgeNE1M_1756733102
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	Mon, 01 Sep 2025 13:30:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2812144474;
+	Mon,  1 Sep 2025 13:30:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFF45C4CEF0;
+	Mon,  1 Sep 2025 13:30:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756733438;
+	bh=e2lNX30J79IdJmjUmjr3EtEfeJFIPem/dnVmubqrERk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=GBdH+kpT9TwqPh+0+7OX99d6ts0qcgKMkaK8UOYfHrRloHgbWGfXD0a8QyN18bsus
+	 JmScz2CRXclNO+XFUjHNIXv3Uk6DaegLkgKG+WR7kE+Li1B9ZVqx7gEepXHrHKhU+7
+	 TekPfuGmhTJbVlL0sr91uCzleu/c0SuquxI1ls3tmrzTRK43v20CQPP3TYlfoOsbdj
+	 5X4FSbBa5+Ct06LlE2HArLb8gjyt3OIYz1ateIAQ/VAgK10qMyx6nIg6HpqS4IcBFu
+	 EvIryrwyMrSnYzla+63jks8blz8XGUv/GOjNUquibXX3gjt+jJlQMhpNcykCmA4UMD
+	 7k0FbgepvtrSQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1ut4cF-00000002Ggu-3kyv;
+	Mon, 01 Sep 2025 13:30:36 +0000
+Date: Mon, 01 Sep 2025 14:30:35 +0100
+Message-ID: <86y0qycnb8.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: James Clark <james.clark@linaro.org>
+Cc: Yingchao Deng <yingchao.deng@oss.qualcomm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	quic_yingdeng@quicinc.com,
+	jinlong.mao@oss.qualcomm.com,
+	tingwei.zhang@oss.qualcomm.com,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu
+ <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH] KVM: arm64: Fix NULL pointer access issue
+In-Reply-To: <80178c90-b9f3-4e1f-baa5-f54aa89ec927@linaro.org>
+References: <20250901-etm_crash-v1-1-ce65e44c137c@oss.qualcomm.com>
+	<450f11c2-6c11-4ffa-ae20-db4ea419a3ca@linaro.org>
+	<863496e4yg.wl-maz@kernel.org>
+	<80178c90-b9f3-4e1f-baa5-f54aa89ec927@linaro.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: james.clark@linaro.org, yingchao.deng@oss.qualcomm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, quic_yingdeng@quicinc.com, jinlong.mao@oss.qualcomm.com, tingwei.zhang@oss.qualcomm.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_142506_447591_73B03FA2 
-X-CRM114-Status: GOOD (  15.77  )
+X-CRM114-CacheID: sfid-20250901_063038_527684_51EEF931 
+X-CRM114-Status: GOOD (  30.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -200,47 +98,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01.09.25 15:09, Simon Schuster via B4 Relay wrote:
-> From: Simon Schuster <schuster.simon@siemens-energy.com>
+On Mon, 01 Sep 2025 13:31:23 +0100,
+James Clark <james.clark@linaro.org> wrote:
 > 
-> With the introduction of clone3 in commit 7f192e3cd316 ("fork: add
-> clone3") the effective bit width of clone_flags on all architectures was
-> increased from 32-bit to 64-bit. However, the signature of the copy_*
-> helper functions (e.g., copy_sighand) used by copy_process was not
-> adapted.
 > 
-> As such, they truncate the flags on any 32-bit architectures that
-> supports clone3 (arc, arm, csky, m68k, microblaze, mips32, openrisc,
-> parisc32, powerpc32, riscv32, x86-32 and xtensa).
 > 
-> For copy_sighand with CLONE_CLEAR_SIGHAND being an actual u64
-> constant, this triggers an observable bug in kernel selftest
-> clone3_clear_sighand:
+> On 01/09/2025 1:24 pm, Marc Zyngier wrote:
+> > On Mon, 01 Sep 2025 11:36:11 +0100,
+> > James Clark <james.clark@linaro.org> wrote:
+> >> 
+> >> 
+> >> 
+> >> On 01/09/2025 11:01 am, Yingchao Deng wrote:
+> >>> When linux is booted in EL1, macro "host_data_ptr()" is a wrapper that
+> >>> resolves to "&per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)",
+> >>> is_hyp_mode_available() return false during kvm_arm_init, the per-CPU base
+> >>> pointer __kvm_nvhe_kvm_arm_hyp_percpu_base[cpu] remains uninitialized.
+> >>> Consequently, any access via per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)
+> >>> will result in a NULL pointer.
+> >>> 
+> >>> Add is_kvm_arm_initialised() condition check to ensure that kvm_arm_init
+> >>> completes all necessary initialization steps, including init_hyp_mode.
+> >>> 
+> >>> Fixes: 054b88391bbe2 ("KVM: arm64: Support trace filtering for guests")
+> >>> Signed-off-by: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
+> >>> ---
+> >>> Add a check to prevent accessing uninitialized per-CPU data.
+> >>> ---
+> >>>    arch/arm64/kvm/debug.c | 7 ++++---
+> >>>    1 file changed, 4 insertions(+), 3 deletions(-)
+> >>> 
+> >>> diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
+> >>> index 381382c19fe4741980c79b08bbdab6a1bcd825ad..add58056297293b4eb337028773b1b018ecc9d35 100644
+> >>> --- a/arch/arm64/kvm/debug.c
+> >>> +++ b/arch/arm64/kvm/debug.c
+> >>> @@ -233,7 +233,7 @@ void kvm_debug_handle_oslar(struct kvm_vcpu *vcpu, u64 val)
+> >>>    void kvm_enable_trbe(void)
+> >>>    {
+> >>>    	if (has_vhe() || is_protected_kvm_enabled() ||
+> >>> -	    WARN_ON_ONCE(preemptible()))
+> >>> +	    WARN_ON_ONCE(preemptible()) || !is_kvm_arm_initialised())
+> >> 
+> >> Hi Yingchao,
+> >> 
+> >> There shouldn't be a warning for this, at least for the case where
+> >> it's not initialized and never will be. If you're never going to run a
+> >> guest these functions can all skip, the same way for !has_vhe() etc.
+> > 
+> > It's not a warning. It's a bona-fide crash:
+> > 
+> > void kvm_enable_trbe(void)
+> > {
+> > 	if (has_vhe() || is_protected_kvm_enabled() ||
+> > 	    WARN_ON_ONCE(preemptible()))
+> > 		return;
+> > 
+> > 	host_data_set_flag(TRBE_ENABLED); <--- Explodes here
+> > }
+> > 
+> > So the write of the flag has to be skipped if KVM is available, even
+> > if KVM is compiled in.
+> > 
+> > 	M.
+> > 
 > 
->          if (clone_flags & CLONE_CLEAR_SIGHAND)
+> Yeah. And just in case there is any confusion, I didn't mean that we
+> should not have the check entirely, just that it shouldn't be in the
+> WARN_ON_ONCE(). We should put it in the part that makes the functions
+> silently skip:
 > 
-> in function copy_sighand within fork.c will always fail given:
-> 
->          unsigned long /* == uint32_t */ clone_flags
->          #define CLONE_CLEAR_SIGHAND 0x100000000ULL
-> 
-> This commit fixes the bug by always passing clone_flags to copy_sighand
-> via their declared u64 type, invariant of architecture-dependent integer
-> sizes.
-> 
-> Fixes: b612e5df4587 ("clone3: add CLONE_CLEAR_SIGHAND")
-> Cc: stable@vger.kernel.org # linux-5.5+
-> Signed-off-by: Simon Schuster <schuster.simon@siemens-energy.com>
-> Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-> ---
+>   if (has_vhe() || is_protected_kvm_enabled() ||
+>       !is_kvm_arm_initialised() ||
+>       WARN_ON_ONCE(preemptible()))
+>           return;
 
-(stripping To list)
+Which is exactly what the OP wrote, except for swapping the last two
+terms.
 
-Acked-by: David Hildenbrand <david@redhat.com>
+	M.
 
 -- 
-Cheers
-
-David / dhildenb
-
+Without deviation from the norm, progress is not possible.
 
