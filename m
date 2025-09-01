@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 754EBCA0FE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 00:36:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96C4ACA0FE8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 00:49:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MvH3gCh3YcyePorgXaVz1lgEivaFSAAjIPEZY4vEWpE=; b=xupdxTegJl4UboDouGuKVX94b2
-	bkG0rrSFbWiLQmUfuGynhxKcCVoyQIhQm2rC/lC1jL6S4apM+DMyCtxMCBST0SNpkLZ6XdoeXIa1y
-	pnM5UiXxavy0jdIT7ZYUXx+3Osxv6NCiFqzx/d2ziocTdfR/rLum/ld+B5pN5hp/CWEspYJdBOHSZ
-	4YCnTt5EimVikcyPyMN2FjroEzq2BeT8v62GtqHKTVBRm8APPVYpkq3hpLGgOMULcKadZrCWdG6mi
-	2PMKNStiOmjnoDj/0vdGHWyo7yaggQQ6x+OK4mUFmViJ2yV+QwYdCPCb1k24pI7Anpl2bh1gpNOLn
-	z2faLSpQ==;
+	bh=caq28f0MR5Zp2zVT+QmZvY0xnQl9VUoGhuuYwcNrVy8=; b=UrdhAv/VgxlTeFu9bAm/kqUUTL
+	K04nsEuq9YICGoTNkcjwK06RjMNYz6+MT71w8odbk87fn+7t4MU3OrPLFD4ffT06T7AEOwyrGpAPE
+	3zqZFnHUhGVLJMvROGMAYizdF88dRfiIHEKHLO/f84nw67JO3m4omoLnXiZCR6itTNMmY8UiMo0SG
+	tUGqKsGq+86tYw7nDs/sorBGWkmawrDK8HvKPdIIkIBlbkuIoKyXwi+ttoEqbWfeeRwYz2kmTxKvO
+	Kx5X++IWABAvOgJPgQ8iEjkBlJ4p19eCXQYN0cqlZe+s52+6BagAOE+SQr3PE3AR9XFwso+86Pnuu
+	BI9oLdxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ussXM-0000000As7d-1H5Q;
-	Mon, 01 Sep 2025 00:36:44 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1ussjX-0000000AswM-43QW;
+	Mon, 01 Sep 2025 00:49:19 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ussUf-0000000As3Y-0oN4;
-	Mon, 01 Sep 2025 00:33:58 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-61e425434bbso964865a12.2;
-        Sun, 31 Aug 2025 17:33:56 -0700 (PDT)
+	id 1ussgp-0000000Asq8-09dA;
+	Mon, 01 Sep 2025 00:46:32 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-61cb4370e7bso5633110a12.3;
+        Sun, 31 Aug 2025 17:46:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756686835; x=1757291635; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1756687589; x=1757292389; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MvH3gCh3YcyePorgXaVz1lgEivaFSAAjIPEZY4vEWpE=;
-        b=BbhqPGBMposKMQFNaPJXuaDBvuJvemqnxWLzYpdT6SfXY9ANLyivTFu28CRyAYYGJo
-         J5HUcGBQR3TYkHBol0kd333qvQxnDoYxdOKlaiepES7pgXfLXXXp0AZb/Ey6WIl8Lq6c
-         2FQy9IDQUQfpzn8J/yoOM+0OhWyfowUwDN4dKXS81f4e6khqfXMX72RUH1nzpg9bxnZ7
-         vRiFlmK7GtgfoC7+zUFEk5WxIX03Xd9wXHxejoN3ga34a3xIfooZ9ujph4qQE+os2d2+
-         DsQN9uCiEzAZWbwsulaZU8ur0j3p6AoEHD2xnNrgUpRMAagNtYSgZfPdbuvtW8Ut2hYO
-         gGVw==
+        bh=caq28f0MR5Zp2zVT+QmZvY0xnQl9VUoGhuuYwcNrVy8=;
+        b=a5GOGz1WkBkGtZ+DBu3lSmLvpbzx3N1QLVb6PzNZMpXrVcpaXrO2TgvbSRLweISlPl
+         IDz4jlUsgsxD8wnb4JVrHF/JIO5Xtcy73i2bFob4A5EwdvFuEBD9yxYiEQOfJTv95LVF
+         LveitNm3niAJ1ygIL1RuvDAdpCTe2oDxExv7xDWRiOqYf/yUssJE5AHEhw9/WCRv1gkP
+         tJBH+xDJqzMSnCCEiM1Q8S/e2cIG2+p6knoVSzzjDzQJiZfNqEi/IF7228qhxFbxYBbc
+         puWntW+qvEqcIcYktrlKVkFByGg/OA1qBXRerRtiXV1xJu1JvguWdUnQSdOXJZZUqBSN
+         D9fQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756686835; x=1757291635;
+        d=1e100.net; s=20230601; t=1756687589; x=1757292389;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=MvH3gCh3YcyePorgXaVz1lgEivaFSAAjIPEZY4vEWpE=;
-        b=uCRtn/yAdvhfN1sueP6xZyGsUkfozUpvifIye+bsEHa/Ofz7VjZ22Gm6ZV3uwrUo1c
-         nSDI53D9qHHYuNxOkMlcLLN7v/B4hZGiVpsnOeOvEt5LjIERkygFteqPAhvbgdDOd1Fs
-         k1npakIQfZlhdJ0R0hYsJq0qkx0/qQ43cy7AYDUIb+eAz/Fmfbs53CSLBRPIBAVWMhDY
-         lha9wzVtq5rh/Gq7NYFhAY79jgC75F74TCMV/qCuXxWenjcwAwHg28FBhJAGWPkuXopj
-         /nic2ryx0kTb3k+oHqhEcxgEnd8bSMweywsSL9Y0AMudJZ/pL9GvaL+Ra5hLY9TF/cbV
-         SQzg==
-X-Forwarded-Encrypted: i=1; AJvYcCUkuACg/+0Oj5kIJTOs09EMlIYmeZ/gE0XF15xmHQwjdoWdBeX3fX1iY0a6SYwrQyGN3RQQ51GN6vMZNKZAUnI=@lists.infradead.org, AJvYcCWT7nrvJIoSD4kJt4UzcYY+kVCIVoRhXdabI+zh+9iEDFpy2FOLQvtQ2d4amOCOj8/RAdOJi3O8QurTbuoGLixb@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmOu6+G+Kpo9FZDK7pm3pNTXujmohik3N7vCpgSuxhEiS+KtVi
-	poWHqtcpNa2Rh1GQES4fH0y2tNT6h//yLP2O3tUh69g+CIwVim+7++nHhtMHsj63zECOWmTKqH1
-	FnerUaA70NKMasSRyn+Y9AtQ7S1E7rgM=
-X-Gm-Gg: ASbGncvEY4pCZraPZooUsAfSY16eG8EtaUdYZ1Jtan+Xe6wpV4BGi8qiQt2Z0xbji1j
-	nujEsGN6Xm9NN5MUEubkZnYFzFHgQAe5vTjRq/wYonNzdn2D5NgoWwbB50HxjkrCpqZ6AzUJTIh
-	aLWk+qH3CVUpMNxPOgu1XUFnVQwG+TNRjSnG4fRFufGdtLqTKIbLJ4DabQRb6nT1dq0ti4VnXhf
-	TVUEvDaNp8oeD0Ui/kSJuis
-X-Google-Smtp-Source: AGHT+IHsnDIYWknvZ46S599IimzZF74o7ha/d+7Cbv/hBrVMIpqV1LTK6TMA9HYQ0QgUHmynIKjrSHRY7rxC6a02QK0=
-X-Received: by 2002:a05:6402:27c9:b0:61c:bd9f:723e with SMTP id
- 4fb4d7f45d1cf-61d26c3fabfmr4557103a12.22.1756686835238; Sun, 31 Aug 2025
- 17:33:55 -0700 (PDT)
+        bh=caq28f0MR5Zp2zVT+QmZvY0xnQl9VUoGhuuYwcNrVy8=;
+        b=YrG3pl1Mx4vS7ChjG/RVFgGvmmkefdGBOYd7ksM1RZS5Whk/bFYeogQqIJo1xvm5p5
+         tg9EBFX8dkBBdf28KVA6Pdxls5yH/IoNBmaKRmdNk+68IH97BKIZyZmzd0P348nt8Wsl
+         yqWnPaNNJ41gOvWYS9+6uRNn+RFW3Dyy3uDUr2u9uFxTWKLjG6p2Rz1d0g/SPGJdUdtS
+         j5mrZmkZXIpMtAejAOBSv4JZ2Kyk/vhU3xUJfUiWVnUkfGVsCOzbaVGGJ4OhQCyi7ULZ
+         PTal69erDY+aZ+s+bEfBT3xgmjATu6o8N1eHZfz7KanFHSF6THPiLCEHANhNMM2adtDi
+         ztxg==
+X-Forwarded-Encrypted: i=1; AJvYcCUbMgdk/BfH2hteKEmUH0duc4CS8kgU7TJ3BMdJv5gFDqWwj73mkCxYALJU1b5/N1ee1XKWyrmeB0eqS0sXLcs=@lists.infradead.org, AJvYcCVJ0R+rlmZxrdJvjsH3tyYamCNZ9Fyu9K6ise7N3hXH27YfIZKA2i+2pBfgI1kHyfOiyg6iwSuSi8EoHn5R9pj3@lists.infradead.org
+X-Gm-Message-State: AOJu0YxqzUcrXIJODN7XCVJ7/XMqz4i5KjXTwknMVTyAJKdg1NGeUNCO
+	A5nQhnyGWzPRZbWvQKdh2scXb/QCQw7rEUpt187X36xKdjE3M3PG60hOLR7pHXL0baPm2GtYdPn
+	3az8aPPQdqeU4Vhia0xhd8Kc4wJ31Kzk=
+X-Gm-Gg: ASbGncsZSqARAA5yLhB4Pj1i7n8YggRNQ3B+8jwIW8/i8D8ErgPrXQrnQrJHSMIgk3f
+	7+3VT30TYHR8FYZjzJsx9mEn4GMMqKDNb1LFvRxKOMvFpoPTc4pA0xUINHEs6yMFwrnXrfVeenh
+	mTWDH4o1Aywc9Lz+vASN6vIJnnJarBQMG2u8i33vaSPxRLgBXqL8v+NWtgZCw274XIGAVH4chfz
+	TVUTaGkzjBAAw==
+X-Google-Smtp-Source: AGHT+IHK3Leq+3fJeu89rJWaErCRBW5RO5impY2LzaF/J9OxH2CGpEFncXZ0kPXeWO36QfuOyJpThlBtVSnMBaPVn+c=
+X-Received: by 2002:a05:6402:42cc:b0:618:38d6:7819 with SMTP id
+ 4fb4d7f45d1cf-61d26d78d3cmr5362734a12.21.1756687589297; Sun, 31 Aug 2025
+ 17:46:29 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250831104855.45883-1-cn.liweihao@gmail.com> <20250831104855.45883-7-cn.liweihao@gmail.com>
- <8571992.T7Z3S40VBb@diego>
-In-Reply-To: <8571992.T7Z3S40VBb@diego>
+References: <20250831104855.45883-1-cn.liweihao@gmail.com> <22816630.EfDdHjke4D@diego>
+In-Reply-To: <22816630.EfDdHjke4D@diego>
 From: =?UTF-8?B?5p2O57u06LGq?= <cn.liweihao@gmail.com>
-Date: Mon, 1 Sep 2025 08:33:44 +0800
-X-Gm-Features: Ac12FXwjlx-F7jqLTPXkOkYRV923MnWRyR-cXYRmkjdjk9ub15vW_5_Mbgck2YU
-Message-ID: <CAPEOAkRpuOOVXwDDha+990znhh0-PZwqa=F=mibGkJck5rgZ_w@mail.gmail.com>
-Subject: Re: [PATCH v1 6/7] ARM: dts: rockchip: Add D-PHY for RK3368
+Date: Mon, 1 Sep 2025 08:46:18 +0800
+X-Gm-Features: Ac12FXyd3Kd-w_dxJLbuguLcQGoKS7dFJvAoLApW6pAwLmBXGkKQ-alchoyDVCE
+Message-ID: <CAPEOAkSm+6WtzSL1GzU_srHQT0ZBKKoFD1v5+ePqHTPBndPS=g@mail.gmail.com>
+Subject: Re: [PATCH v1 0/7] drm/rockchip: Add MIPI DSI support for RK3368
 To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
 Cc: robh@kernel.org, hjc@rock-chips.com, andy.yan@rock-chips.com, 
 	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
@@ -80,8 +79,8 @@ Cc: robh@kernel.org, hjc@rock-chips.com, andy.yan@rock-chips.com,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250831_173357_237608_5C1EE930 
-X-CRM114-Status: GOOD (  14.78  )
+X-CRM114-CacheID: sfid-20250831_174631_095767_2F28D688 
+X-CRM114-Status: GOOD (  24.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,61 +97,84 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi,
 
-This phy is a MIPI_DSI/LVDS/TTL combo phy.
+Heiko St=C3=BCbner <heiko@sntech.de> =E4=BA=8E2025=E5=B9=B48=E6=9C=8831=E6=
+=97=A5=E5=91=A8=E6=97=A5 23:10=E5=86=99=E9=81=93=EF=BC=9A
 
-maybe it be better to use dphy: phy@ff968000?
+>
+> Hi,
+>
+> Am Sonntag, 31. August 2025, 12:48:48 Mitteleurop=C3=A4ische Sommerzeit s=
+chrieb WeiHao Li:
+> > This series adds MIPI DSI support for the Rockchip RK3368 SoC, enabling
+> > native display connectivity through the MIPI DSI host controller and
+> > PHY. The changes span multiple subsystems, including clock control,
+> > DRM/VOP integration, DSI controller binding, and PHY driver updates.
+> >
+> > Key changes:
+> >   - Update the Rockchip MIPI DSI PHY driver to preperly handle RK3368
+> >     phy initialization.
+>
+> which patch is doing this, because I don't see any phy-related change
+>
+
+The first patch, changes for dw-mipi-dsi-rockchip.c, some settings for
+mipi dphy.
+
+Maybe I should adjust the description, it's a bit unclear.
+
+> >   - Add missing lut_size of vop_data for RK3368.
+> >   - Add missing clock ID SCLK_MIPIDSI_24M to the RK3368 CRU driver,
+> >     which is required for enabling the 24MHz reference clock.
+> >   - Add MIPI DSI node to rk3368.dtsi with correct clocks, resets,
+> >     and register mappings.
+> >
+> > These changes were tested on a RK3368-based board with a MIPI DSI
+> > panel [1]. The display boots successfully with console output.
+> >
+> > [1] https://ieiao.github.io/wiki/embedded-dev/rockchip/rk3368
+>
+> Do you plan on submitting this board to mainline?
+> Because having an actual user of the code you're adding would
+> be really really nice.
+>
+
+I'd be happy to submit this board support.
+
+However, after searching for a while, I couldn't find the manufacturer
+information of this device and mipi dsi panel. I am not sure whether
+the devicetree support of unknown manufacturers allows submission to
+mainline.
+
+
+> Thanks
+> Heiko
+>
+> >
+> > Tested-by: WeiHao Li <cn.liweihao@gmail.com>
+> > Signed-off-by: WeiHao Li <cn.liweihao@gmail.com>
+> >
+> > WeiHao Li (7):
+> >   drm/rockchip: dsi: Add support for RK3368
+> >   drm/rockchip: vop: add lut_size for RK3368 vop_data
+> >   dt-bindings: clock: rk3368: Add SCLK_MIPIDSI_24M
+> >   clk: rockchip: use clock ids for SCLK_MIPIDSI_24M on rk3368
+> >   ARM: dts: rockchip: Add display subsystem for RK3368
+> >   ARM: dts: rockchip: Add D-PHY for RK3368
+> >   ARM: dts: rockchip: Add DSI for RK3368
+> >
+> >  arch/arm64/boot/dts/rockchip/rk3368.dtsi      | 79 +++++++++++++++++++
+> >  drivers/clk/rockchip/clk-rk3368.c             |  2 +-
+> >  .../gpu/drm/rockchip/dw-mipi-dsi-rockchip.c   | 20 +++++
+> >  drivers/gpu/drm/rockchip/rockchip_vop_reg.c   |  1 +
+> >  include/dt-bindings/clock/rk3368-cru.h        |  1 +
+> >  5 files changed, 102 insertions(+), 1 deletion(-)
+> >
+> >
+>
+>
+>
+>
 
 Best regards,
 WeiHao
-
-Heiko St=C3=BCbner <heiko@sntech.de> =E4=BA=8E2025=E5=B9=B48=E6=9C=8831=E6=
-=97=A5=E5=91=A8=E6=97=A5 23:06=E5=86=99=E9=81=93=EF=BC=9A
-
->
-> Am Sonntag, 31. August 2025, 12:48:54 Mitteleurop=C3=A4ische Sommerzeit s=
-chrieb WeiHao Li:
-> > RK3368 has a InnoSilicon D-PHY which supports DSI/LVDS/TTL with maximum
-> > trasnfer rate of 1 Gbps per lane.
-> >
-> > Signed-off-by: WeiHao Li <cn.liweihao@gmail.com>
-> > ---
-> >  arch/arm64/boot/dts/rockchip/rk3368.dtsi | 14 ++++++++++++++
-> >  1 file changed, 14 insertions(+)
-> >
-> > diff --git a/arch/arm64/boot/dts/rockchip/rk3368.dtsi b/arch/arm64/boot=
-/dts/rockchip/rk3368.dtsi
-> > index 0e47bf59a..674a3676d 100644
-> > --- a/arch/arm64/boot/dts/rockchip/rk3368.dtsi
-> > +++ b/arch/arm64/boot/dts/rockchip/rk3368.dtsi
-> > @@ -884,6 +884,20 @@ display_subsystem: display-subsystem {
-> >               status =3D "disabled";
-> >       };
-> >
-> > +     video_phy: video-phy@ff968000 {
->
-> I think the node should be something like
-> dsi_dphy: phy@ff968000
->
->
-> > +             compatible =3D "rockchip,rk3368-dsi-dphy";
-> > +             reg =3D <0x0 0xff968000 0x0 0x4000>,
-> > +                   <0x0 0xff960000 0x0 0x4000>;
-> > +             clocks =3D <&cru SCLK_MIPIDSI_24M>, <&cru PCLK_DPHYTX0>,
-> > +                      <&cru PCLK_MIPI_DSI0>;
-> > +             clock-names =3D "ref", "pclk", "pclk_host";
-> > +             #clock-cells =3D <0>;
-> > +             resets =3D <&cru SRST_MIPIDPHYTX>;
-> > +             reset-names =3D "apb";
-> > +             #phy-cells =3D <0>;
-> > +             status =3D "disabled";
-> > +     };
-> > +
-> >       hevc_mmu: iommu@ff9a0440 {
-> >               compatible =3D "rockchip,iommu";
-> >               reg =3D <0x0 0xff9a0440 0x0 0x40>,
-> >
->
->
->
->
 
