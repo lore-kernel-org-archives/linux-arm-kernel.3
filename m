@@ -4,99 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5ACECA100A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 16:35:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63F96CA1009
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 16:35:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7XfWTbVgLd+JOqYthg70wtq8ZILm6OycONzgKD9jOeg=; b=LY//4CH8oGT1kV8jxMTgoR+cys
-	AYC4DAvRVHlMeN5puHotD7akqYHeuMVe7a9s4URqgVe9mBptZF1bjhPNyd31l7TopPjmJM1KwgzgM
-	pEdg6reb1v5DH8DLm367SWJPl3xIge21VIu394h/3K8eSlpYNE8oe6IrGjQUZtDC/93drPpU7mAz8
-	byGZ5RswIV/DRykboogRU2Mjo12nqRFFuXa5ox9NeLobtwm9+uG1kJtDJ5Hc/5Dsby8wcsyuZY8xL
-	FOi8WbJpUcGfl91MQ+1yFpWn/dpSKCTR9ELEg2PrIi0I0Kj+dCkiP44W7kina7YXps2VDRpPFLQKW
-	fc6akLJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=csflGkGVe+tGDPds0oHrcGeP5DvCaPpm7S46nEtwnKw=; b=0nuVHDxFcivY5LSOPW6LeL8dFt
+	0EyNvJrtRI7zc1N0ZhRw8dWzfKLyrwftbs9AjfuU4udochm4bnH8RxFccECy4myVu9LcDTs6hALdM
+	TaLOkr3qWwGNhtMDuuE62/P6DMAP6q6VbCb3lUaFXFNNcSYYKel3oLsG+5R+Gan84VJQohAvEy/gS
+	xluUarEeQTgJRYK72ZQnEgAIQ8ld00GYo9CW5oP602+GZ5S7Dnmn0q+T19YodZCHFIDIoSEUb0UaM
+	eoIfBToPK7N5aIL3hHlhmTINLRF0du4mTW8ZEcfQSACb33TvVfjL9/yiCOC9j6+9i2uIrFs0d+Qkm
+	glZhPT0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut7VT-0000000DH2Q-3niD;
-	Mon, 01 Sep 2025 16:35:47 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1ut7VX-0000000DH7k-1Ixl;
+	Mon, 01 Sep 2025 16:35:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut3rJ-0000000CZ31-2jGR
+	id 1ut3tH-0000000CZba-47il
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 12:42:06 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-45b7d485204so33858405e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 05:42:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756730524; x=1757335324; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7XfWTbVgLd+JOqYthg70wtq8ZILm6OycONzgKD9jOeg=;
-        b=NOdh5wOeipA4d1S4AQCns/MDosariKaTwpI3pFaSyAvpA2Djxz+SVH/XElGO+DbVqn
-         l8JAX0q6lXEfWVt0uGNavufj+MLZwVwfU8ZWpVB2vZl9089U5/9umEOY4ul0WcR3X+yp
-         l+3XiYEXfLXHgjp03ACH+/G0sEOPzCgjZX71I6Uccnbl7cieW6uOHpZHjqt/7207HU8T
-         E4k+hhpr4zvpOIXZATcbaUgCadlGVI+i0HG0gQCq7W8UhekHgSSGVqqbza9Ofwk9DiqE
-         i2LJ8eW4X+ZUaGk4D34ZqIAf4UQfoqzMZb2IdVwAWj5Zcos15qu1CR0DhWV1em5zAWel
-         0Dkw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756730524; x=1757335324;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7XfWTbVgLd+JOqYthg70wtq8ZILm6OycONzgKD9jOeg=;
-        b=iDKAjQLQbsyoSlLjqeU/C/rYJIqoxe1KFc95sOrEYq9IRyAunyyx98pvd8vEq0pTaw
-         X5C8vVZ6xpriwU4ZYZabykjspFP7lrVTDoIWFoF4Q1iGFMxh0uEUXrXJp8aB1Veou6VI
-         gIExIzuIalaM6dZB70MjW+Fiye8BXTl7N4XCHeW5huBgi5BIcsPiv4ejGCy9MtE5AYau
-         5Ls9u+9h45aIRpAEypdQstnGi4W/may+4BFoheY/fww9eznrZhNb2oFhpClSHNBjX0AL
-         QSVvcKAY5jp6CHIZ9ouMRlnPZkYH5w1H4uk8xbK9W2fIFIIStJtpQTP4upZF4mzENo33
-         2XgA==
-X-Gm-Message-State: AOJu0YzWqF9viVgJIUpZAvFxYVtEPg43pH5TIfb5ig/8i+DiZtoI/w/f
-	LBdIQdb8vO6Bg48z2mQo3XAq+53erxpaibnQRy5lSBmMiPLatDbP2w249KhTJ9sFe0g=
-X-Gm-Gg: ASbGncvO0Ask1ezGbz41WfHkwLrHNnrBYEX6CHg8YShZ0peflUQTB3c4Q9ByDwMhNu+
-	dcyVmQzHhx3a1aW+E8u2T70V9POUjYnQm+gtE7X7R8Q0hEkdT7LZ8KYCd3tWLPCeTIHu06Pi5zk
-	AOq/NpQ67HSm5XTVnY7L0uRhEhoCJQXkK2Z72gQ8RDDaCRdSBnTbDaOqDC1r32DA1DVC7sclcMz
-	V9qnN8cv0Ct6YRx9njnnjWv2jWUmX+H1pBBLR5XEtKdeH2AwWrh8AsuqoAkHoc9TDV8jj9jHppu
-	8yvaUsDt27JiVbb3snasgn0GYa33SljTz/xTLLUZKuVS9CX/TmCwMVvKEdTIL+uPUOSmM9azxGr
-	pKM9iBPpDt3drNhsoRS6cG1GGn2fu8TyDy2X1/6+2/L7x9KpVWF7+
-X-Google-Smtp-Source: AGHT+IE3klXttsPiEipLDxL5zv9yhkpRFlRjpdtkt2+C+vyGhe17anthlDt1sMdCiW1RqMpy+xqD7Q==
-X-Received: by 2002:a05:600c:c162:b0:45b:8352:4475 with SMTP id 5b1f17b1804b1-45b85598a56mr60040715e9.36.1756730524122;
-        Mon, 01 Sep 2025 05:42:04 -0700 (PDT)
-Received: from ho-tower-lan.lan ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b7e898b99sm154946315e9.19.2025.09.01.05.42.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Sep 2025 05:42:03 -0700 (PDT)
-From: James Clark <james.clark@linaro.org>
-Date: Mon, 01 Sep 2025 13:40:40 +0100
-Subject: [PATCH v8 11/12] perf tools: Add support for
- perf_event_attr::config4
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250901-james-perf-feat_spe_eft-v8-11-2e2738f24559@linaro.org>
-References: <20250901-james-perf-feat_spe_eft-v8-0-2e2738f24559@linaro.org>
-In-Reply-To: <20250901-james-perf-feat_spe_eft-v8-0-2e2738f24559@linaro.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
- Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, Peter Zijlstra <peterz@infradead.org>, 
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, Leo Yan <leo.yan@arm.com>, 
- Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org, 
- kvmarm@lists.linux.dev, James Clark <james.clark@linaro.org>
-X-Mailer: b4 0.14.0
+	Mon, 01 Sep 2025 12:44:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 14B7740869;
+	Mon,  1 Sep 2025 12:44:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3317C4CEF0;
+	Mon,  1 Sep 2025 12:44:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756730647;
+	bh=xS03v2TkqZ914q+CnyNuJM7g8ydeDJk4rbXJkzSNvzo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ZM4wnWCw3tsA75GNFGlp/0sQun8y4D4YdR2MCR8YW+lJXSw9ZktiGYeFb423TrUQ0
+	 0dtvqMY6EzjZ7A1O/5dS0YchqbOY7sZnzDUwyGtVfXN/aH6pPdw71z3gwixyxTyn2t
+	 yVZ3s9wpExIlZd346VsPR9bHG5bO3AySlSy6saktl8Uvd11mVQ6WNZMdTgEs7YyWrg
+	 6cSswBws8PKdP6wopplVz2HkQPC0G6YQud4LukjK2ZbNhxZZhhYolKmnAP1s6Rxwtc
+	 M5Wx6bFTaF35RAyg/mAGOYa8Oh8QM8C0D6hc+lfdKn7fWavTRV8ewVaceBleoXFlZI
+	 xuKOPzlvTA0FQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1ut3tE-00000002Fm1-2nPt;
+	Mon, 01 Sep 2025 12:44:04 +0000
+Date: Mon, 01 Sep 2025 13:44:04 +0100
+Message-ID: <861poqe417.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <shuah@kernel.org>,
+	Dave Martin <Dave.Martin@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v7 00/29] KVM: arm64: Implement support for SME
+In-Reply-To: <20250822-kvm-arm64-sme-v7-0-7a65d82b8b10@kernel.org>
+References: <20250822-kvm-arm64-sme-v7-0-7a65d82b8b10@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: broonie@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, catalin.marinas@arm.com, suzuki.poulose@arm.com, will@kernel.org, pbonzini@redhat.com, corbet@lwn.net, shuah@kernel.org, Dave.Martin@arm.com, tabba@google.com, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_054205_822377_6E708850 
-X-CRM114-Status: GOOD (  18.44  )
+X-CRM114-CacheID: sfid-20250901_054408_039917_965AAEAE 
+X-CRM114-Status: GOOD (  16.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,203 +98,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-perf_event_attr has gained a new field, config4, so add support for it
-extending the existing configN support.
+On Fri, 22 Aug 2025 02:53:29 +0100,
+Mark Brown <broonie@kernel.org> wrote:
+> 
+> I've removed the RFC tag from this version of the series, but the items
+> that I'm looking for feedback on remains the same:
+> 
+>  - The userspace ABI, in particular:
+>   - The vector length used for the SVE registers, access to the SVE
+>     registers and access to ZA and (if available) ZT0 depending on
+>     the current state of PSTATE.{SM,ZA}.
+>   - The use of a single finalisation for both SVE and SME.
 
-Reviewed-by: Leo Yan <leo.yan@arm.com>
-Reviewed-by: Ian Rogers <irogers@google.com>
-Tested-by: Leo Yan <leo.yan@arm.com>
-Signed-off-by: James Clark <james.clark@linaro.org>
----
- tools/perf/tests/parse-events.c | 14 +++++++++++++-
- tools/perf/util/parse-events.c  | 11 +++++++++++
- tools/perf/util/parse-events.h  |  1 +
- tools/perf/util/parse-events.l  |  1 +
- tools/perf/util/pmu.c           |  8 ++++++++
- tools/perf/util/pmu.h           |  1 +
- 6 files changed, 35 insertions(+), 1 deletion(-)
+How about Cc'ing the QEMU folks? They are the ones consuming these
+APIs. Peter Maydell and Eric Auger spring to mind as potential
+targets.
 
-diff --git a/tools/perf/tests/parse-events.c b/tools/perf/tests/parse-events.c
-index bb8004397650..342ed896b703 100644
---- a/tools/perf/tests/parse-events.c
-+++ b/tools/perf/tests/parse-events.c
-@@ -615,6 +615,8 @@ static int test__checkevent_pmu(struct evlist *evlist)
- 	TEST_ASSERT_VAL("wrong config1",    1 == evsel->core.attr.config1);
- 	TEST_ASSERT_VAL("wrong config2",    3 == evsel->core.attr.config2);
- 	TEST_ASSERT_VAL("wrong config3",    0 == evsel->core.attr.config3);
-+	TEST_ASSERT_VAL("wrong config4",    0 == evsel->core.attr.config4);
-+
- 	/*
- 	 * The period value gets configured within evlist__config,
- 	 * while this test executes only parse events method.
-@@ -637,6 +639,7 @@ static int test__checkevent_list(struct evlist *evlist)
- 		TEST_ASSERT_VAL("wrong config1", 0 == evsel->core.attr.config1);
- 		TEST_ASSERT_VAL("wrong config2", 0 == evsel->core.attr.config2);
- 		TEST_ASSERT_VAL("wrong config3", 0 == evsel->core.attr.config3);
-+		TEST_ASSERT_VAL("wrong config4", 0 == evsel->core.attr.config4);
- 		TEST_ASSERT_VAL("wrong exclude_user", !evsel->core.attr.exclude_user);
- 		TEST_ASSERT_VAL("wrong exclude_kernel", !evsel->core.attr.exclude_kernel);
- 		TEST_ASSERT_VAL("wrong exclude_hv", !evsel->core.attr.exclude_hv);
-@@ -813,6 +816,15 @@ static int test__checkterms_simple(struct parse_events_terms *terms)
- 	TEST_ASSERT_VAL("wrong val", term->val.num == 4);
- 	TEST_ASSERT_VAL("wrong config", !strcmp(term->config, "config3"));
- 
-+	/* config4=5 */
-+	term = list_entry(term->list.next, struct parse_events_term, list);
-+	TEST_ASSERT_VAL("wrong type term",
-+			term->type_term == PARSE_EVENTS__TERM_TYPE_CONFIG4);
-+	TEST_ASSERT_VAL("wrong type val",
-+			term->type_val == PARSE_EVENTS__TERM_TYPE_NUM);
-+	TEST_ASSERT_VAL("wrong val", term->val.num == 5);
-+	TEST_ASSERT_VAL("wrong config", !strcmp(term->config, "config4"));
-+
- 	/* umask=1*/
- 	term = list_entry(term->list.next, struct parse_events_term, list);
- 	TEST_ASSERT_VAL("wrong type term",
-@@ -2451,7 +2463,7 @@ struct terms_test {
- 
- static const struct terms_test test__terms[] = {
- 	[0] = {
--		.str   = "config=10,config1,config2=3,config3=4,umask=1,read,r0xead",
-+		.str   = "config=10,config1,config2=3,config3=4,config4=5,umask=1,read,r0xead",
- 		.check = test__checkterms_simple,
- 	},
- };
-diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
-index 8282ddf68b98..5f0b4a3c3dda 100644
---- a/tools/perf/util/parse-events.c
-+++ b/tools/perf/util/parse-events.c
-@@ -247,6 +247,8 @@ __add_event(struct list_head *list, int *idx,
- 						PERF_PMU_FORMAT_VALUE_CONFIG2, "config2");
- 			perf_pmu__warn_invalid_config(pmu, attr->config3, name,
- 						PERF_PMU_FORMAT_VALUE_CONFIG3, "config3");
-+			perf_pmu__warn_invalid_config(pmu, attr->config4, name,
-+						PERF_PMU_FORMAT_VALUE_CONFIG4, "config4");
- 		}
- 	}
- 	/*
-@@ -811,6 +813,7 @@ const char *parse_events__term_type_str(enum parse_events__term_type term_type)
- 		[PARSE_EVENTS__TERM_TYPE_CONFIG1]		= "config1",
- 		[PARSE_EVENTS__TERM_TYPE_CONFIG2]		= "config2",
- 		[PARSE_EVENTS__TERM_TYPE_CONFIG3]		= "config3",
-+		[PARSE_EVENTS__TERM_TYPE_CONFIG4]		= "config4",
- 		[PARSE_EVENTS__TERM_TYPE_NAME]			= "name",
- 		[PARSE_EVENTS__TERM_TYPE_SAMPLE_PERIOD]		= "period",
- 		[PARSE_EVENTS__TERM_TYPE_SAMPLE_FREQ]		= "freq",
-@@ -859,6 +862,7 @@ config_term_avail(enum parse_events__term_type term_type, struct parse_events_er
- 	case PARSE_EVENTS__TERM_TYPE_CONFIG1:
- 	case PARSE_EVENTS__TERM_TYPE_CONFIG2:
- 	case PARSE_EVENTS__TERM_TYPE_CONFIG3:
-+	case PARSE_EVENTS__TERM_TYPE_CONFIG4:
- 	case PARSE_EVENTS__TERM_TYPE_NAME:
- 	case PARSE_EVENTS__TERM_TYPE_METRIC_ID:
- 	case PARSE_EVENTS__TERM_TYPE_SAMPLE_PERIOD:
-@@ -928,6 +932,10 @@ do {									   \
- 		CHECK_TYPE_VAL(NUM);
- 		attr->config3 = term->val.num;
- 		break;
-+	case PARSE_EVENTS__TERM_TYPE_CONFIG4:
-+		CHECK_TYPE_VAL(NUM);
-+		attr->config4 = term->val.num;
-+		break;
- 	case PARSE_EVENTS__TERM_TYPE_SAMPLE_PERIOD:
- 		CHECK_TYPE_VAL(NUM);
- 		break;
-@@ -1153,6 +1161,7 @@ static int config_term_tracepoint(struct perf_event_attr *attr,
- 	case PARSE_EVENTS__TERM_TYPE_CONFIG1:
- 	case PARSE_EVENTS__TERM_TYPE_CONFIG2:
- 	case PARSE_EVENTS__TERM_TYPE_CONFIG3:
-+	case PARSE_EVENTS__TERM_TYPE_CONFIG4:
- 	case PARSE_EVENTS__TERM_TYPE_NAME:
- 	case PARSE_EVENTS__TERM_TYPE_SAMPLE_PERIOD:
- 	case PARSE_EVENTS__TERM_TYPE_SAMPLE_FREQ:
-@@ -1294,6 +1303,7 @@ do {								\
- 		case PARSE_EVENTS__TERM_TYPE_CONFIG1:
- 		case PARSE_EVENTS__TERM_TYPE_CONFIG2:
- 		case PARSE_EVENTS__TERM_TYPE_CONFIG3:
-+		case PARSE_EVENTS__TERM_TYPE_CONFIG4:
- 		case PARSE_EVENTS__TERM_TYPE_NAME:
- 		case PARSE_EVENTS__TERM_TYPE_METRIC_ID:
- 		case PARSE_EVENTS__TERM_TYPE_RAW:
-@@ -1332,6 +1342,7 @@ static int get_config_chgs(struct perf_pmu *pmu, struct parse_events_terms *head
- 		case PARSE_EVENTS__TERM_TYPE_CONFIG1:
- 		case PARSE_EVENTS__TERM_TYPE_CONFIG2:
- 		case PARSE_EVENTS__TERM_TYPE_CONFIG3:
-+		case PARSE_EVENTS__TERM_TYPE_CONFIG4:
- 		case PARSE_EVENTS__TERM_TYPE_NAME:
- 		case PARSE_EVENTS__TERM_TYPE_SAMPLE_PERIOD:
- 		case PARSE_EVENTS__TERM_TYPE_SAMPLE_FREQ:
-diff --git a/tools/perf/util/parse-events.h b/tools/perf/util/parse-events.h
-index 62dc7202e3ba..9e482cfdaaf9 100644
---- a/tools/perf/util/parse-events.h
-+++ b/tools/perf/util/parse-events.h
-@@ -60,6 +60,7 @@ enum parse_events__term_type {
- 	PARSE_EVENTS__TERM_TYPE_CONFIG1,
- 	PARSE_EVENTS__TERM_TYPE_CONFIG2,
- 	PARSE_EVENTS__TERM_TYPE_CONFIG3,
-+	PARSE_EVENTS__TERM_TYPE_CONFIG4,
- 	PARSE_EVENTS__TERM_TYPE_NAME,
- 	PARSE_EVENTS__TERM_TYPE_SAMPLE_PERIOD,
- 	PARSE_EVENTS__TERM_TYPE_SAMPLE_FREQ,
-diff --git a/tools/perf/util/parse-events.l b/tools/perf/util/parse-events.l
-index 2034590eb789..300d84fd09ad 100644
---- a/tools/perf/util/parse-events.l
-+++ b/tools/perf/util/parse-events.l
-@@ -317,6 +317,7 @@ config			{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_CONFIG); }
- config1			{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_CONFIG1); }
- config2			{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_CONFIG2); }
- config3			{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_CONFIG3); }
-+config4			{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_CONFIG4); }
- name			{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_NAME); }
- period			{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_SAMPLE_PERIOD); }
- freq			{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_SAMPLE_FREQ); }
-diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
-index 5a291f1380ed..5868d654872b 100644
---- a/tools/perf/util/pmu.c
-+++ b/tools/perf/util/pmu.c
-@@ -1539,6 +1539,10 @@ static int pmu_config_term(const struct perf_pmu *pmu,
- 			assert(term->type_val == PARSE_EVENTS__TERM_TYPE_NUM);
- 			pmu_format_value(bits, term->val.num, &attr->config3, zero);
- 			break;
-+		case PARSE_EVENTS__TERM_TYPE_CONFIG4:
-+			assert(term->type_val == PARSE_EVENTS__TERM_TYPE_NUM);
-+			pmu_format_value(bits, term->val.num, &attr->config4, zero);
-+			break;
- 		case PARSE_EVENTS__TERM_TYPE_USER: /* Not hardcoded. */
- 			return -EINVAL;
- 		case PARSE_EVENTS__TERM_TYPE_NAME ... PARSE_EVENTS__TERM_TYPE_CPU:
-@@ -1586,6 +1590,9 @@ static int pmu_config_term(const struct perf_pmu *pmu,
- 	case PERF_PMU_FORMAT_VALUE_CONFIG3:
- 		vp = &attr->config3;
- 		break;
-+	case PERF_PMU_FORMAT_VALUE_CONFIG4:
-+		vp = &attr->config4;
-+		break;
- 	default:
- 		return -EINVAL;
- 	}
-@@ -1912,6 +1919,7 @@ int perf_pmu__for_each_format(struct perf_pmu *pmu, void *state, pmu_format_call
- 		"config1=0..0xffffffffffffffff",
- 		"config2=0..0xffffffffffffffff",
- 		"config3=0..0xffffffffffffffff",
-+		"config4=0..0xffffffffffffffff",
- 		"name=string",
- 		"period=number",
- 		"freq=number",
-diff --git a/tools/perf/util/pmu.h b/tools/perf/util/pmu.h
-index 1ebcf0242af8..67431f765266 100644
---- a/tools/perf/util/pmu.h
-+++ b/tools/perf/util/pmu.h
-@@ -23,6 +23,7 @@ enum {
- 	PERF_PMU_FORMAT_VALUE_CONFIG1,
- 	PERF_PMU_FORMAT_VALUE_CONFIG2,
- 	PERF_PMU_FORMAT_VALUE_CONFIG3,
-+	PERF_PMU_FORMAT_VALUE_CONFIG4,
- 	PERF_PMU_FORMAT_VALUE_CONFIG_END,
- };
- 
+	M.
 
 -- 
-2.34.1
-
+Without deviation from the norm, progress is not possible.
 
