@@ -4,88 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66132CA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 11:41:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC6DBCA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 11:43:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lXpDL8Gl7piZP6jIcG431jQahSLKngZZz7c0KQIzVbA=; b=ZgD1Qck2EX/OMfVjMNlKs0+Kvn
-	FLh2/jznrQzuniJ6jMw8stKoNCgKCTlwm238ff5uJTDl/jPzSsyEDygnnVmiWOiwre7Z6HkWuha/y
-	M5+V7vOnXU3b3Ql0ZinPiFkr600brztp3K+Zt/cFMMpJ+O7cJlDA/XEAZk8TndL5udoP0Q2HBRICB
-	IKQoylZUTaYESJujiqpsET4AJmuS7LI/MLx/B3zOB3/ZDug22sjS4ekSPt9ll8139nw+CEdGdCea1
-	WHoz7g1vqz+fxP3gj5uqKy+qbaCljK4WzjsGyofxDgo207R+UDIfOU2VSzElqpPiECeeFK/znIruI
-	cdGQpMqw==;
+	bh=dh9b7AlOOK6Nz997MqkWuItvNa3u1/h3zv0KPDGXI9A=; b=4Vqn3In3ztVuBARa6NjgzITtKF
+	qz3x3f2N/R7qmMNnamAYYwKUQtGsZMZIP8ePkiiY9g5rtViFBoa6wpdbWCuEHf13n4lFNSKadUXRW
+	8y+XlNlowg60z8MBW/8quMDP3sycr2Nw+FRjaDik+Ke8+nUOXPd89UAFqBrzrSCqHGPbVsqf1y9a6
+	miMztx9D7OeEnNBvHm8hHSFJWrxcB2WrhATJvkbDDItY9ha2dKBnhz0MFDPz52sDms7wf3L2gnRFN
+	aYI0XFKpphnjVMMcXrp8Lbe3rkP7CrOaZLkywe8pL6eO5hOKM7fVX7FvncraG+wFckcEwbDtByOLN
+	6iqwQp6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut2uB-0000000C5Uk-3vg7;
-	Mon, 01 Sep 2025 11:40:59 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut1PL-0000000BqxQ-1kbM
+	id 1ut2wr-0000000C5tL-3PLd;
+	Mon, 01 Sep 2025 11:43:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ut1Pn-0000000Br2p-2L33
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 10:05:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1756721103; x=1788257103;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=lXpDL8Gl7piZP6jIcG431jQahSLKngZZz7c0KQIzVbA=;
-  b=Pl7x/4si9IeIYxefm7foCYkYUP6+MJXr23Qsk8s7aP0Zn6lTAMERdpny
-   rL0Q3c8j8eoODrdsNQsKSIRTQXGsyv8aR3guRAim1LTPhA9ZvgqRKRtnt
-   JYWkgscdFVCK7ifp1Uk3aVTiGjYPEKfBIFvRWMJhBvbQXnwISPuortI2R
-   NI3t//DzeBRgN+6lRWhdKRFlEXpPQAKpgvIk1+WcyNa0zIgtRPz0bjEqK
-   0sM40ALlQi2+voS//xDhZv34GMcQr0qCNr3FO9FhmyXO9bQu8LwYKUO2t
-   pWbYzVmcDvYhmTyibFBnO12cizV4C1GQ5nWsml33gyJOL/ATCuYf/7gx6
-   w==;
-X-CSE-ConnectionGUID: v89mzFlGT0+byQjwuy/FeQ==
-X-CSE-MsgGUID: UAaGCeOQTqi6T+P0QS1Lkw==
-X-IronPort-AV: E=Sophos;i="6.18,225,1751234400"; 
-   d="scan'208";a="46004687"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 01 Sep 2025 12:05:01 +0200
-X-CheckPoint: {68B56FCD-8-20CAA7DA-EC9DC758}
-X-MAIL-CPID: ECD96F65A74E9455DA66096B3E0AA2C2_0
-X-Control-Analysis: str=0001.0A00210B.68B570F4.003D,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 70B8C16B2BA;
-	Mon,  1 Sep 2025 12:04:56 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1756721096; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=lXpDL8Gl7piZP6jIcG431jQahSLKngZZz7c0KQIzVbA=;
-	b=kTa4sv9BJykfuOhvZb591QDk+3qMqVBPE2sRhP4JllCoR5pGMzgruzZO0fNGcJWiPSJ5Gq
-	Hv+LYgn2nvMbweaxJPGfjMyg8+xP+RpXw6waOlOWHJv6Rhm7yIrOvO/KYdk7TlbVEHygKW
-	squT9soEE7V5ybnNsIfExPJqEFL+PeqMvgdhPQVTrioCjxbACG1p7758Eqt6d9w/AMiYEF
-	+AVJob2MxSz2I5Kfy0IobVHBFk18eOXNF5LIXYw9SHf8aveM00T5RjaHlLA7LlX99El64U
-	grLiKJr2F6nmo2VPuT6q+eaWiE462WtwfPHmpSkWVfjh79+MRLr8w3b9b10Cag==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux@ew.tq-group.com
-Subject: [PATCH v2 2/2] arm64: dts: freescale: add initial device tree for TQMa91xx/MBa91xxCA
-Date: Mon,  1 Sep 2025 12:04:30 +0200
-Message-ID: <20250901100432.139163-3-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250901100432.139163-1-alexander.stein@ew.tq-group.com>
-References: <20250901100432.139163-1-alexander.stein@ew.tq-group.com>
+	Mon, 01 Sep 2025 10:05:32 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8A1C01A25;
+	Mon,  1 Sep 2025 03:05:22 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 98A843F6A8;
+	Mon,  1 Sep 2025 03:05:25 -0700 (PDT)
+Message-ID: <91824224-6d70-43d9-98b9-930971cc53e7@arm.com>
+Date: Mon, 1 Sep 2025 11:05:24 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 22/33] arm_mpam: Register and enable IRQs
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
+ devicetree@vger.kernel.org
+Cc: shameerali.kolothum.thodi@huawei.com,
+ D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
+ Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
+ baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>
+References: <20250822153048.2287-1-james.morse@arm.com>
+ <20250822153048.2287-57-james.morse@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20250822153048.2287-57-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_030503_916083_4C4287F2 
-X-CRM114-Status: GOOD (  17.85  )
+X-CRM114-CacheID: sfid-20250901_030531_686071_9AF41D93 
+X-CRM114-Status: GOOD (  37.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,1085 +85,513 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds support for TQMa91xx module attached to MBa91xxCA board.
-TQMa91xx is a SOM series using i.MX91 SOC. The SOM features PMIC, RAM,
-e-MMC and some optional peripherals like SPI-NOR, RTC, EEPROM,
-gyroscope and secure element.
+Hi James,
 
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
-Changes in v2:
-* TQMa91xx series includes both CA & LA variant (socket & LGA)
-  adjust commit message accordingly
-* Use JTAG pinctrl by GPIO controller
-* Rename DT node name 'imu' to 'accelerometer'
+On 8/22/25 16:30, James Morse wrote:
+> Register and enable error IRQs. All the MPAM error interrupts indicate a
+> software bug, e.g. out of range partid. If the error interrupt is ever
+> signalled, attempt to disable MPAM.
+> 
+> Only the irq handler accesses the ESR register, so no locking is needed.
+> The work to disable MPAM after an error needs to happen at process
+> context, use a threaded interrupt.
+> 
+> There is no support for percpu threaded interrupts, for now schedule
+> the work to be done from the irq handler.
+> 
+> Enabling the IRQs in the MSC may involve cross calling to a CPU that
+> can access the MSC.
+> 
+> Once the IRQ is requested, the mpam_disable() path can be called
+> asynchronously, which will walk structures sized by max_partid. Ensure
+> this size is fixed before the interrupt is requested.
+> 
+> CC: Rohit Mathew <rohit.mathew@arm.com>
+> Tested-by: Rohit Mathew <rohit.mathew@arm.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+> Changes since RFC:
+>  * Use guard marco when walking srcu list.
+>  * Use INTEN macro for enabling interrupts.
+>  * Move partid_max_published up earlier in mpam_enable_once().
+> ---
+>  drivers/resctrl/mpam_devices.c  | 311 +++++++++++++++++++++++++++++++-
+>  drivers/resctrl/mpam_internal.h |   9 +-
+>  2 files changed, 312 insertions(+), 8 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index 3516cbe8623e..210d64fad0b1 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -14,6 +14,9 @@
+>  #include <linux/device.h>
+>  #include <linux/errno.h>
+>  #include <linux/gfp.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/irq.h>
+> +#include <linux/irqdesc.h>
+>  #include <linux/list.h>
+>  #include <linux/lockdep.h>
+>  #include <linux/mutex.h>
+> @@ -62,6 +65,12 @@ static DEFINE_SPINLOCK(partid_max_lock);
+>   */
+>  static DECLARE_WORK(mpam_enable_work, &mpam_enable);
+>  
+> +/*
+> + * All mpam error interrupts indicate a software bug. On receipt, disable the
+> + * driver.
+> + */
+> +static DECLARE_WORK(mpam_broken_work, &mpam_disable);
+> +
+>  /*
+>   * An MSC is a physical container for controls and monitors, each identified by
+>   * their RIS index. These share a base-address, interrupts and some MMIO
+> @@ -159,6 +168,24 @@ static u64 mpam_msc_read_idr(struct mpam_msc *msc)
+>  	return (idr_high << 32) | idr_low;
+>  }
+>  
+> +static void mpam_msc_zero_esr(struct mpam_msc *msc)
+> +{
+> +	__mpam_write_reg(msc, MPAMF_ESR, 0);
+> +	if (msc->has_extd_esr)
+> +		__mpam_write_reg(msc, MPAMF_ESR + 4, 0);
+> +}
+> +
+> +static u64 mpam_msc_read_esr(struct mpam_msc *msc)
+> +{
+> +	u64 esr_high = 0, esr_low;
+> +
+> +	esr_low = __mpam_read_reg(msc, MPAMF_ESR);
+> +	if (msc->has_extd_esr)
+> +		esr_high = __mpam_read_reg(msc, MPAMF_ESR + 4);
+> +
+> +	return (esr_high << 32) | esr_low;
+> +}
+> +
+>  static void __mpam_part_sel_raw(u32 partsel, struct mpam_msc *msc)
+>  {
+>  	lockdep_assert_held(&msc->part_sel_lock);
+> @@ -405,12 +432,12 @@ static void mpam_msc_destroy(struct mpam_msc *msc)
+>  
+>  	lockdep_assert_held(&mpam_list_lock);
+>  
+> -	list_del_rcu(&msc->glbl_list);
+> -	platform_set_drvdata(pdev, NULL);
+> -
+>  	list_for_each_entry_safe(ris, tmp, &msc->ris, msc_list)
+>  		mpam_ris_destroy(ris);
+>  
+> +	list_del_rcu(&msc->glbl_list);
+> +	platform_set_drvdata(pdev, NULL);
+> +
 
- arch/arm64/boot/dts/freescale/Makefile        |   1 +
- .../freescale/imx91-tqma9131-mba91xxca.dts    | 739 ++++++++++++++++++
- .../boot/dts/freescale/imx91-tqma9131.dtsi    | 295 +++++++
- 3 files changed, 1035 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx91-tqma9131-mba91xxca.dts
- create mode 100644 arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi
+Reordering can be done when introduced.
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 947de7f125caf..3a937232d6f29 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -338,6 +338,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8qxp-tqma8xqps-mb-smarc-2.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8ulp-9x9-evk.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8ulp-evk.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx91-11x11-evk.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx91-tqma9131-mba91xxca.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-9x9-qsb.dtb
- 
- imx93-9x9-qsb-i3c-dtbs += imx93-9x9-qsb.dtb imx93-9x9-qsb-i3c.dtbo
-diff --git a/arch/arm64/boot/dts/freescale/imx91-tqma9131-mba91xxca.dts b/arch/arm64/boot/dts/freescale/imx91-tqma9131-mba91xxca.dts
-new file mode 100644
-index 0000000000000..d9e471e00d760
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx91-tqma9131-mba91xxca.dts
-@@ -0,0 +1,739 @@
-+// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
-+/*
-+ * Copyright (c) 2022-2025 TQ-Systems GmbH <linux@ew.tq-group.com>,
-+ * D-82229 Seefeld, Germany.
-+ * Author: Markus Niebel
-+ * Author: Alexander Stein
-+ */
-+/dts-v1/;
-+
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/net/ti-dp83867.h>
-+#include <dt-bindings/pwm/pwm.h>
-+#include <dt-bindings/usb/pd.h>
-+#include "imx91-tqma9131.dtsi"
-+
-+/{
-+	model = "TQ-Systems i.MX91 TQMa91xxLA/TQMa91xxCA on MBa91xxCA starter kit";
-+	compatible = "tq,imx91-tqma9131-mba91xxca", "tq,imx91-tqma9131", "fsl,imx91";
-+	chassis-type = "embedded";
-+
-+	chosen {
-+		stdout-path = &lpuart1;
-+	};
-+
-+	aliases {
-+		eeprom0 = &eeprom0;
-+		ethernet0 = &eqos;
-+		ethernet1 = &fec;
-+		gpio0 = &gpio1;
-+		gpio1 = &gpio2;
-+		gpio2 = &gpio3;
-+		gpio3 = &gpio4;
-+		i2c0 = &lpi2c1;
-+		i2c1 = &lpi2c2;
-+		i2c2 = &lpi2c3;
-+		mmc0 = &usdhc1;
-+		mmc1 = &usdhc2;
-+		rtc0 = &pcf85063;
-+		rtc1 = &bbnsm_rtc;
-+		serial0 = &lpuart1;
-+		serial1 = &lpuart2;
-+	};
-+
-+	backlight: backlight {
-+		compatible = "pwm-backlight";
-+		pwms = <&tpm2 2 5000000 0>;
-+		brightness-levels = <0 4 8 16 32 64 128 255>;
-+		default-brightness-level = <7>;
-+		power-supply = <&reg_12v0>;
-+		enable-gpios = <&expander2 2 GPIO_ACTIVE_HIGH>;
-+		status = "disabled";
-+	};
-+
-+	display: display {
-+		/*
-+		 * Display is not fixed, so compatible has to be added from
-+		 * DT overlay
-+		 */
-+		power-supply = <&reg_3v3>;
-+		enable-gpios = <&expander2 1 GPIO_ACTIVE_HIGH>;
-+		backlight = <&backlight>;
-+		status = "disabled";
-+
-+		port {
-+			panel_in: endpoint {
-+			};
-+		};
-+	};
-+
-+	fan0: gpio-fan {
-+		compatible = "gpio-fan";
-+		gpios = <&expander2 4 GPIO_ACTIVE_HIGH>;
-+		gpio-fan,speed-map = <0 0>, <10000 1>;
-+		fan-supply = <&reg_12v0>;
-+		#cooling-cells = <2>;
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+		autorepeat;
-+
-+		switch-a {
-+			label = "switcha";
-+			linux,code = <BTN_0>;
-+			gpios = <&expander0 6 GPIO_ACTIVE_LOW>;
-+			wakeup-source;
-+		};
-+
-+		switch-b {
-+			label = "switchb";
-+			linux,code = <BTN_1>;
-+			gpios = <&expander0 7 GPIO_ACTIVE_LOW>;
-+			wakeup-source;
-+		};
-+	};
-+
-+	gpio-leds {
-+		compatible = "gpio-leds";
-+
-+		led-1 {
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_STATUS;
-+			gpios = <&expander2 6 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "default-on";
-+		};
-+
-+		led-2 {
-+			color = <LED_COLOR_ID_AMBER>;
-+			function = LED_FUNCTION_HEARTBEAT;
-+			gpios = <&expander2 7 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "heartbeat";
-+		};
-+	};
-+
-+	iio-hwmon {
-+		compatible = "iio-hwmon";
-+		io-channels = <&adc1 0>, <&adc1 1>, <&adc1 2>, <&adc1 3>;
-+	};
-+
-+	lvds_encoder: lvds-encoder {
-+		compatible = "ti,sn75lvds83", "lvds-encoder";
-+		powerdown-gpios = <&expander2 3 GPIO_ACTIVE_LOW>;
-+		power-supply = <&reg_3v3>;
-+		status = "disabled";
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@0 {
-+				reg = <0>;
-+
-+				lvds_encoder_input: endpoint {
-+				};
-+			};
-+
-+			port@1 {
-+				reg = <1>;
-+
-+				lvds_encoder_output: endpoint {
-+				};
-+			};
-+		};
-+	};
-+
-+	reg_3v3: regulator-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "V_3V3_MB";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+	};
-+
-+	reg_5v0: regulator-5v0 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "V_5V0_MB";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+	};
-+
-+	reg_12v0: regulator-12v0 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "V_12V";
-+		regulator-min-microvolt = <12000000>;
-+		regulator-max-microvolt = <12000000>;
-+		gpio = <&expander1 7 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
-+	reg_mpcie_1v5: regulator-mpcie-1v5 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "V_1V5_MPCIE";
-+		regulator-min-microvolt = <1500000>;
-+		regulator-max-microvolt = <1500000>;
-+		gpio = <&expander0 2 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+		regulator-always-on;
-+	};
-+
-+	reg_mpcie_3v3: regulator-mpcie-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "V_3V3_MPCIE";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpio = <&expander0 3 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+		regulator-always-on;
-+	};
-+};
-+
-+&adc1 {
-+	status = "okay";
-+};
-+
-+&eqos {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_eqos>;
-+	phy-mode = "rgmii-id";
-+	phy-handle = <&ethphy_eqos>;
-+	status = "okay";
-+
-+	mdio {
-+		compatible = "snps,dwmac-mdio";
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		ethphy_eqos: ethernet-phy@0 {
-+			compatible = "ethernet-phy-ieee802.3-c22";
-+			reg = <0>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pinctrl_eqos_phy>;
-+			reset-gpios = <&expander1 0 GPIO_ACTIVE_LOW>;
-+			reset-assert-us = <500000>;
-+			reset-deassert-us = <50000>;
-+			interrupt-parent = <&gpio3>;
-+			interrupts = <26 IRQ_TYPE_LEVEL_LOW>;
-+			enet-phy-lane-no-swap;
-+			ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_25_NS>;
-+			ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_25_NS>;
-+			ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
-+			ti,dp83867-rxctrl-strap-quirk;
-+			ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
-+		};
-+	};
-+};
-+
-+&fec {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_fec>;
-+	phy-mode = "rgmii-id";
-+	phy-handle = <&ethphy_fec>;
-+	fsl,magic-packet;
-+	status = "okay";
-+
-+	mdio {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		clock-frequency = <5000000>;
-+
-+		ethphy_fec: ethernet-phy@0 {
-+			compatible = "ethernet-phy-ieee802.3-c22";
-+			reg = <0>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pinctrl_fec_phy>;
-+			reset-gpios = <&expander1 1 GPIO_ACTIVE_LOW>;
-+			reset-assert-us = <500000>;
-+			reset-deassert-us = <50000>;
-+			interrupt-parent = <&gpio3>;
-+			interrupts = <27 IRQ_TYPE_LEVEL_LOW>;
-+			enet-phy-lane-no-swap;
-+			ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_25_NS>;
-+			ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_25_NS>;
-+			ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
-+			ti,dp83867-rxctrl-strap-quirk;
-+			ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
-+		};
-+	};
-+};
-+
-+&flexcan1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_flexcan1>;
-+	xceiver-supply = <&reg_3v3>;
-+	status = "okay";
-+};
-+
-+&gpio1 {
-+	gpio-line-names =
-+		/* 00 */ "", "", "", "PMIC_IRQ#",
-+		/* 04 */ "", "", "", "",
-+		/* 08 */ "", "", "USB_C_ALERT#", "BM2_LCD_INT#",
-+		/* 12 */ "PEX_INT#", "", "RTC_EVENT#", "",
-+		/* 16 */ "", "", "", "",
-+		/* 20 */ "", "", "", "",
-+		/* 24 */ "", "", "", "",
-+		/* 28 */ "", "", "", "";
-+};
-+
-+&gpio2 {
-+	gpio-line-names =
-+		/* 00 */ "", "", "", "",
-+		/* 04 */ "", "", "", "",
-+		/* 08 */ "", "", "", "",
-+		/* 12 */ "", "", "", "",
-+		/* 16 */ "", "", "", "",
-+		/* 20 */ "", "", "", "",
-+		/* 24 */ "", "", "", "",
-+		/* 28 */ "", "", "", "";
-+};
-+
-+&gpio3 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_jtag>;
-+	gpio-line-names =
-+		/* 00 */ "SD2_CD#", "", "", "",
-+		/* 04 */ "", "", "", "SD2_RST#",
-+		/* 08 */ "", "", "", "",
-+		/* 12 */ "", "", "", "",
-+		/* 16 */ "", "", "", "",
-+		/* 20 */ "", "", "", "",
-+		/* 24 */ "", "", "ENET1_INT#", "ENET2_INT#",
-+		/* 28 */ "", "", "", "";
-+};
-+
-+&gpio4 {
-+	gpio-line-names =
-+		/* 00 */ "", "", "", "",
-+		/* 04 */ "", "", "", "",
-+		/* 08 */ "", "", "", "",
-+		/* 12 */ "", "", "", "",
-+		/* 16 */ "", "", "", "",
-+		/* 20 */ "", "", "", "",
-+		/* 24 */ "", "", "", "",
-+		/* 28 */ "", "", "", "";
-+};
-+
-+&lpi2c3 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	clock-frequency = <400000>;
-+	pinctrl-names = "default", "sleep";
-+	pinctrl-0 = <&pinctrl_lpi2c3>;
-+	pinctrl-1 = <&pinctrl_lpi2c3>;
-+	status = "okay";
-+
-+	temperature-sensor@1c {
-+		compatible = "nxp,se97b", "jedec,jc-42.4-temp";
-+		reg = <0x1c>;
-+	};
-+
-+	ptn5110: usb-typec@50 {
-+		compatible = "nxp,ptn5110", "tcpci";
-+		reg = <0x50>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_typec>;
-+		interrupt-parent = <&gpio1>;
-+		interrupts = <10 IRQ_TYPE_EDGE_FALLING>;
-+
-+		connector {
-+			compatible = "usb-c-connector";
-+			label = "X17";
-+			power-role = "dual";
-+			data-role = "dual";
-+			try-power-role = "sink";
-+			typec-power-opmode = "default";
-+			pd-disable;
-+			self-powered;
-+
-+			port {
-+				typec_con_hs: endpoint {
-+					remote-endpoint = <&typec_hs>;
-+				};
-+			};
-+		};
-+	};
-+
-+	eeprom2: eeprom@54 {
-+		compatible = "nxp,se97b", "atmel,24c02";
-+		reg = <0x54>;
-+		pagesize = <16>;
-+		vcc-supply = <&reg_3v3>;
-+	};
-+
-+	expander0: gpio@70 {
-+		compatible = "nxp,pca9538";
-+		reg = <0x70>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_pexp_irq>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-controller;
-+		#interrupt-cells = <2>;
-+		interrupt-parent = <&gpio1>;
-+		interrupts = <12 IRQ_TYPE_LEVEL_LOW>;
-+		vcc-supply = <&reg_3v3>;
-+		gpio-line-names = "TEMP_EVENT_MOD#", "MPCIE_WAKE#",
-+				  "MPCIE_1V5_EN", "MPCIE_3V3_EN",
-+				  "MPCIE_PERST#", "MPCIE_WDISABLE#",
-+				  "BUTTON_A#", "BUTTON_B#";
-+
-+		temp-event-mod-hog {
-+			gpio-hog;
-+			gpios = <0 GPIO_ACTIVE_LOW>;
-+			input;
-+			line-name = "TEMP_EVENT_MOD#";
-+		};
-+
-+		mpcie-wake-hog {
-+			gpio-hog;
-+			gpios = <1 GPIO_ACTIVE_LOW>;
-+			input;
-+			line-name = "MPCIE_WAKE#";
-+		};
-+
-+		/*
-+		 * Controls the mPCIE slot reset which is low active as
-+		 * reset signal. The output-low states, the signal is
-+		 * inactive, e.g. not in reset
-+		 */
-+		mpcie_rst_hog: mpcie-rst-hog {
-+			gpio-hog;
-+			gpios = <4 GPIO_ACTIVE_LOW>;
-+			output-low;
-+			line-name = "MPCIE_PERST#";
-+		};
-+
-+		/*
-+		 * Controls the mPCIE slot WDISABLE pin which is low active
-+		 * as disable signal. The output-low states, the signal is
-+		 * inactive, e.g. not disabled
-+		 */
-+		mpcie_wdisable_hog: mpcie-wdisable-hog {
-+			gpio-hog;
-+			gpios = <5 GPIO_ACTIVE_LOW>;
-+			output-low;
-+			line-name = "MPCIE_WDISABLE#";
-+		};
-+	};
-+
-+	expander1: gpio@71 {
-+		compatible = "nxp,pca9538";
-+		reg = <0x71>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		vcc-supply = <&reg_3v3>;
-+		gpio-line-names = "ENET1_RESET#", "ENET2_RESET#",
-+				  "USB_RESET#", "",
-+				  "WLAN_PD#", "WLAN_W_DISABLE#",
-+				  "WLAN_PERST#", "12V_EN";
-+
-+		/*
-+		 * Controls the WiFi card PD pin which is low active
-+		 * as power down signal. The output-low states, the signal
-+		 * is inactive, e.g. not power down
-+		 */
-+		wlan-pd-hog {
-+			gpio-hog;
-+			gpios = <4 GPIO_ACTIVE_LOW>;
-+			output-low;
-+			line-name = "WLAN_PD#";
-+		};
-+
-+		/*
-+		 * Controls the WiFi card disable pin which is low active
-+		 * as disable signal. The output-low states, the signal
-+		 * is inactive, e.g. not disabled
-+		 */
-+		wlan-wdisable-hog {
-+			gpio-hog;
-+			gpios = <5 GPIO_ACTIVE_LOW>;
-+			output-low;
-+			line-name = "WLAN_W_DISABLE#";
-+		};
-+
-+		/*
-+		 * Controls the WiFi card reset pin which is low active
-+		 * as reset signal. The output-low states, the signal
-+		 * is inactive, e.g. not in reset
-+		 */
-+		wlan-perst-hog {
-+			gpio-hog;
-+			gpios = <6 GPIO_ACTIVE_LOW>;
-+			output-low;
-+			line-name = "WLAN_PERST#";
-+		};
-+	};
-+
-+	expander2: gpio@72 {
-+		compatible = "nxp,pca9538";
-+		reg = <0x72>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		vcc-supply = <&reg_3v3>;
-+		gpio-line-names = "LCD_RESET#", "LCD_PWR_EN",
-+				  "LCD_BLT_EN", "LVDS_SHDN#",
-+				  "FAN_PWR_EN", "",
-+				  "USER_LED1", "USER_LED2";
-+	};
-+};
-+
-+&lpuart1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart1>;
-+	status = "okay";
-+};
-+
-+&lpuart2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart2>;
-+	linux,rs485-enabled-at-boot-time;
-+	status = "okay";
-+};
-+
-+&pcf85063 {
-+	/* RTC_EVENT# from SoM is connected on mainboard */
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_pcf85063>;
-+	interrupt-parent = <&gpio1>;
-+	interrupts = <14 IRQ_TYPE_EDGE_FALLING>;
-+};
-+
-+&se97_som {
-+	/* TEMP_EVENT# from SoM is connected on mainboard */
-+	interrupt-parent = <&expander0>;
-+	interrupts = <0 IRQ_TYPE_LEVEL_LOW>;
-+};
-+
-+&tpm2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_tpm2>;
-+	status = "okay";
-+};
-+
-+&usbotg1 {
-+	dr_mode = "otg";
-+	hnp-disable;
-+	srp-disable;
-+	adp-disable;
-+	usb-role-switch;
-+	disable-over-current;
-+	status = "okay";
-+
-+	port {
-+		typec_hs: endpoint {
-+			remote-endpoint = <&typec_con_hs>;
-+		};
-+	};
-+};
-+
-+&usbotg2 {
-+	dr_mode = "host";
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	disable-over-current;
-+	status = "okay";
-+
-+	hub_2_0: hub@1 {
-+		compatible = "usb424,2517";
-+		reg = <1>;
-+		reset-gpios = <&expander1 2 GPIO_ACTIVE_LOW>;
-+		vdd-supply = <&reg_3v3>;
-+	};
-+};
-+
-+&usdhc2 {
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz";
-+	pinctrl-0 = <&pinctrl_usdhc2_hs>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-1 = <&pinctrl_usdhc2_uhs>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-2 = <&pinctrl_usdhc2_uhs>, <&pinctrl_usdhc2_gpio>;
-+	cd-gpios = <&gpio3 0 GPIO_ACTIVE_LOW>;
-+	vmmc-supply = <&reg_usdhc2_vmmc>;
-+	bus-width = <4>;
-+	no-sdio;
-+	no-mmc;
-+	disable-wp;
-+	status = "okay";
-+};
-+
-+&iomuxc {
-+	pinctrl_eqos: eqosgrp {
-+		fsl,pins = /* PD | FSEL_2 | DSE X4 */
-+			   <MX91_PAD_ENET1_MDC__ENET1_MDC				0x51e>,
-+			   /* SION | HYS | FSEL_2 | DSE X4 */
-+			   <MX91_PAD_ENET1_MDIO__ENET_QOS_MDIO				0x4000111e>,
-+			   /* HYS | FSEL_0 | DSE no drive */
-+			   <MX91_PAD_ENET1_RD0__ENET_QOS_RGMII_RD0			0x1000>,
-+			   <MX91_PAD_ENET1_RD1__ENET_QOS_RGMII_RD1			0x1000>,
-+			   <MX91_PAD_ENET1_RD2__ENET_QOS_RGMII_RD2			0x1000>,
-+			   <MX91_PAD_ENET1_RD3__ENET_QOS_RGMII_RD3			0x1000>,
-+			   <MX91_PAD_ENET1_RX_CTL__ENET_QOS_RGMII_RX_CTL		0x1000>,
-+			   /* HYS | PD | FSEL_0 | DSE no drive */
-+			   <MX91_PAD_ENET1_RXC__ENET_QOS_RGMII_RXC			0x1400>,
-+			   /* PD | FSEL_2 | DSE X4 */
-+			   <MX91_PAD_ENET1_TD0__ENET_QOS_RGMII_TD0			0x51e>,
-+			   <MX91_PAD_ENET1_TD1__ENET1_RGMII_TD1				0x51e>,
-+			   <MX91_PAD_ENET1_TD2__ENET_QOS_RGMII_TD2			0x51e>,
-+			   <MX91_PAD_ENET1_TD3__ENET_QOS_RGMII_TD3			0x51e>,
-+			   <MX91_PAD_ENET1_TX_CTL__ENET_QOS_RGMII_TX_CTL		0x51e>,
-+			   /* PD | FSEL_3 | DSE X3 */
-+			   <MX91_PAD_ENET1_TXC__CCM_ENET_QOS_CLOCK_GENERATE_TX_CLK	0x58e>;
-+	};
-+
-+	pinctrl_eqos_phy: eqosphygrp {
-+		fsl,pins = /* HYS | FSEL_0 | DSE no drive */
-+			   <MX91_PAD_CCM_CLKO1__GPIO3_IO26		0x1000>;
-+	};
-+
-+	pinctrl_fec: fecgrp {
-+		fsl,pins = /* PD | FSEL_2 | DSE X4 */
-+			   <MX91_PAD_ENET2_MDC__ENET2_MDC		0x51e>,
-+			   /* SION | HYS | FSEL_2 | DSE X4 */
-+			   <MX91_PAD_ENET2_MDIO__ENET2_MDIO		0x4000111e>,
-+			   /* HYS | FSEL_0 | DSE no drive */
-+			   <MX91_PAD_ENET2_RD0__ENET2_RGMII_RD0		0x1000>,
-+			   <MX91_PAD_ENET2_RD1__ENET2_RGMII_RD1		0x1000>,
-+			   <MX91_PAD_ENET2_RD2__ENET2_RGMII_RD2		0x1000>,
-+			   <MX91_PAD_ENET2_RD3__ENET2_RGMII_RD3		0x1000>,
-+			   <MX91_PAD_ENET2_RX_CTL__ENET2_RGMII_RX_CTL	0x1000>,
-+			   /* HYS | PD | FSEL_0 | DSE no drive */
-+			   <MX91_PAD_ENET2_RXC__ENET2_RGMII_RXC		0x1400>,
-+			   /* PD | FSEL_2 | DSE X4 */
-+			   <MX91_PAD_ENET2_TD0__ENET2_RGMII_TD0		0x51e>,
-+			   <MX91_PAD_ENET2_TD1__ENET2_RGMII_TD1		0x51e>,
-+			   <MX91_PAD_ENET2_TD2__ENET2_RGMII_TD2		0x51e>,
-+			   <MX91_PAD_ENET2_TD3__ENET2_RGMII_TD3		0x51e>,
-+			   <MX91_PAD_ENET2_TX_CTL__ENET2_RGMII_TX_CTL	0x51e>,
-+			   /* PD | FSEL_3 | DSE X3 */
-+			   <MX91_PAD_ENET2_TXC__ENET2_RGMII_TXC		0x58e>;
-+	};
-+
-+	pinctrl_fec_phy: fecphygrp {
-+		fsl,pins = /* HYS | FSEL_0 | DSE no drive */
-+			   <MX91_PAD_CCM_CLKO2__GPIO3_IO27		0x1000>;
-+	};
-+
-+	pinctrl_flexcan1: flexcan1grp {
-+		fsl,pins = /* HYS | PU | FSEL_0 | DSE no drive */
-+			   <MX91_PAD_PDM_BIT_STREAM0__CAN1_RX		0x1200>,
-+			   /* PU | FSEL_3 | DSE X4 */
-+			   <MX91_PAD_PDM_CLK__CAN1_TX			0x039e>;
-+	};
-+
-+	pinctrl_jtag: jtaggrp {
-+		fsl,pins = <MX91_PAD_DAP_TCLK_SWCLK__JTAG_MUX_TCK	0x051e>,
-+			   <MX91_PAD_DAP_TDI__JTAG_MUX_TDI		0x1200>,
-+			   <MX91_PAD_DAP_TDO_TRACESWO__JTAG_MUX_TDO	0x031e>,
-+			   <MX91_PAD_DAP_TMS_SWDIO__JTAG_MUX_TMS	0x1200>;
-+	};
-+
-+	pinctrl_lpi2c3: lpi2c3grp {
-+		fsl,pins = /* SION | HYS | OD | FSEL_3 | DSE X4 */
-+			   <MX91_PAD_GPIO_IO28__LPI2C3_SDA		0x4000199e>,
-+			   <MX91_PAD_GPIO_IO29__LPI2C3_SCL		0x4000199e>;
-+	};
-+
-+	pinctrl_pcf85063: pcf85063grp {
-+		fsl,pins = <MX91_PAD_SAI1_RXD0__GPIO1_IO14		0x1000>;
-+	};
-+
-+	pinctrl_pexp_irq: pexpirqgrp {
-+		fsl,pins = /* HYS | FSEL_0 | No DSE */
-+			   <MX91_PAD_SAI1_TXC__GPIO1_IO12		0x1000>;
-+	};
-+
-+	pinctrl_rgbdisp: rgbdispgrp {
-+		fsl,pins = <MX91_PAD_GPIO_IO00__MEDIAMIX_DISP_CLK	0x31e>,
-+			   <MX91_PAD_GPIO_IO01__MEDIAMIX_DISP_DE	0x31e>,
-+			   <MX91_PAD_GPIO_IO02__MEDIAMIX_DISP_VSYNC	0x31e>,
-+			   <MX91_PAD_GPIO_IO03__MEDIAMIX_DISP_HSYNC	0x31e>,
-+			   <MX91_PAD_GPIO_IO04__MEDIAMIX_DISP_DATA0	0x31e>,
-+			   <MX91_PAD_GPIO_IO05__MEDIAMIX_DISP_DATA1	0x31e>,
-+			   <MX91_PAD_GPIO_IO06__MEDIAMIX_DISP_DATA2	0x31e>,
-+			   <MX91_PAD_GPIO_IO07__MEDIAMIX_DISP_DATA3	0x31e>,
-+			   <MX91_PAD_GPIO_IO08__MEDIAMIX_DISP_DATA4	0x31e>,
-+			   <MX91_PAD_GPIO_IO09__MEDIAMIX_DISP_DATA5	0x31e>,
-+			   <MX91_PAD_GPIO_IO10__MEDIAMIX_DISP_DATA6	0x31e>,
-+			   <MX91_PAD_GPIO_IO11__MEDIAMIX_DISP_DATA7	0x31e>,
-+			   <MX91_PAD_GPIO_IO12__MEDIAMIX_DISP_DATA8	0x31e>,
-+			   <MX91_PAD_GPIO_IO13__MEDIAMIX_DISP_DATA9	0x31e>,
-+			   <MX91_PAD_GPIO_IO14__MEDIAMIX_DISP_DATA10	0x31e>,
-+			   <MX91_PAD_GPIO_IO15__MEDIAMIX_DISP_DATA11	0x31e>,
-+			   <MX91_PAD_GPIO_IO16__MEDIAMIX_DISP_DATA12	0x31e>,
-+			   <MX91_PAD_GPIO_IO17__MEDIAMIX_DISP_DATA13	0x31e>,
-+			   <MX91_PAD_GPIO_IO18__MEDIAMIX_DISP_DATA14	0x31e>,
-+			   <MX91_PAD_GPIO_IO19__MEDIAMIX_DISP_DATA15	0x31e>,
-+			   <MX91_PAD_GPIO_IO20__MEDIAMIX_DISP_DATA16	0x31e>,
-+			   <MX91_PAD_GPIO_IO21__MEDIAMIX_DISP_DATA17	0x31e>,
-+			   <MX91_PAD_GPIO_IO22__MEDIAMIX_DISP_DATA18	0x31e>,
-+			   <MX91_PAD_GPIO_IO23__MEDIAMIX_DISP_DATA19	0x31e>,
-+			   <MX91_PAD_GPIO_IO24__MEDIAMIX_DISP_DATA20	0x31e>,
-+			   <MX91_PAD_GPIO_IO25__MEDIAMIX_DISP_DATA21	0x31e>,
-+			   <MX91_PAD_GPIO_IO26__MEDIAMIX_DISP_DATA22	0x31e>,
-+			   <MX91_PAD_GPIO_IO27__MEDIAMIX_DISP_DATA23	0x31e>;
-+	};
-+
-+	pinctrl_touch: touchgrp {
-+		fsl,pins = /* HYS | FSEL_0 | No DSE */
-+			   <MX91_PAD_SAI1_TXFS__GPIO1_IO11		0x1000>;
-+	};
-+
-+	pinctrl_tpm2: tpm2grp {
-+		fsl,pins = <MX91_PAD_I2C2_SCL__TPM2_CH2			0x57e>;
-+	};
-+
-+	pinctrl_typec: typecgrp {
-+		fsl,pins = /* HYS | FSEL_0 | No DSE */
-+			   <MX91_PAD_PDM_BIT_STREAM1__GPIO1_IO10	0x1000>;
-+	};
-+
-+	pinctrl_uart1: uart1grp {
-+		fsl,pins = /* HYS | FSEL_0 | No DSE */
-+			   <MX91_PAD_UART1_RXD__LPUART1_RX		0x1000>,
-+			   /* FSEL_2 | DSE X4 */
-+			   <MX91_PAD_UART1_TXD__LPUART1_TX		0x011e>;
-+	};
-+
-+	pinctrl_uart2: uart2grp {
-+		fsl,pins = /* HYS | FSEL_0 | No DSE */
-+			   <MX91_PAD_UART2_RXD__LPUART2_RX		0x1000>,
-+			   /* FSEL_2 | DSE X4 */
-+			   <MX91_PAD_UART2_TXD__LPUART2_TX		0x011e>,
-+			   /* FSEL_2 | DSE X4 */
-+			   <MX91_PAD_SAI1_TXD0__LPUART2_RTS_B		0x011e>;
-+	};
-+
-+	pinctrl_usdhc2_gpio: usdhc2gpiogrp {
-+		fsl,pins = /* HYS | FSEL_0 | No DSE */
-+			   <MX91_PAD_SD2_CD_B__GPIO3_IO0		0x1000>;
-+	};
-+
-+	/* enable SION for data and cmd pad due to ERR052021 */
-+	pinctrl_usdhc2_hs: usdhc2hsgrp {
-+		fsl,pins = /* PD | FSEL_3 | DSE X5 */
-+			   <MX91_PAD_SD2_CLK__USDHC2_CLK		0x05be>,
-+			   /* HYS | PU | FSEL_3 | DSE X4 */
-+			   <MX91_PAD_SD2_CMD__USDHC2_CMD		0x4000139e>,
-+			   /* HYS | PU | FSEL_3 | DSE X3 */
-+			   <MX91_PAD_SD2_DATA0__USDHC2_DATA0		0x4000138e>,
-+			   <MX91_PAD_SD2_DATA1__USDHC2_DATA1		0x4000138e>,
-+			   <MX91_PAD_SD2_DATA2__USDHC2_DATA2		0x4000138e>,
-+			   <MX91_PAD_SD2_DATA3__USDHC2_DATA3		0x4000138e>,
-+			   /* FSEL_2 | DSE X3 */
-+			   <MX91_PAD_SD2_VSELECT__USDHC2_VSELECT	0x010e>;
-+	};
-+
-+	/* enable SION for data and cmd pad due to ERR052021 */
-+	pinctrl_usdhc2_uhs: usdhc2uhsgrp {
-+		fsl,pins = /* PD | FSEL_3 | DSE X6 */
-+			   <MX91_PAD_SD2_CLK__USDHC2_CLK		0x05fe>,
-+			   /* HYS | PU | FSEL_3 | DSE X4 */
-+			   <MX91_PAD_SD2_CMD__USDHC2_CMD		0x4000139e>,
-+			   <MX91_PAD_SD2_DATA0__USDHC2_DATA0		0x4000139e>,
-+			   <MX91_PAD_SD2_DATA1__USDHC2_DATA1		0x4000139e>,
-+			   <MX91_PAD_SD2_DATA2__USDHC2_DATA2		0x4000139e>,
-+			   <MX91_PAD_SD2_DATA3__USDHC2_DATA3		0x4000139e>,
-+			   /* FSEL_2 | DSE X3 */
-+			   <MX91_PAD_SD2_VSELECT__USDHC2_VSELECT	0x010e>;
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi b/arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi
-new file mode 100644
-index 0000000000000..5792952b7a8e1
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi
-@@ -0,0 +1,295 @@
-+// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
-+/*
-+ * Copyright (c) 2022-2025 TQ-Systems GmbH <linux@ew.tq-group.com>,
-+ * D-82229 Seefeld, Germany.
-+ * Author: Markus Niebel
-+ * Author: Alexander Stein
-+ */
-+
-+#include "imx91.dtsi"
-+
-+/{
-+	model = "TQ-Systems i.MX91 TQMa91xxCA / TQMa91xxLA SOM";
-+	compatible = "tq,imx91-tqma9131", "fsl,imx91";
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		/* our minimum RAM config will be 1024 MiB */
-+		reg = <0x00000000 0x80000000 0 0x40000000>;
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		/* default CMA, must not exceed assembled memory */
-+		linux,cma {
-+			compatible = "shared-dma-pool";
-+			reusable;
-+			alloc-ranges = <0 0x80000000 0 0x40000000>;
-+			size = <0 0x10000000>;
-+			linux,cma-default;
-+		};
-+
-+		/* EdgeLock secure enclave  */
-+		ele_reserved: ele-reserved@a4120000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0 0xa4120000 0 0x100000>;
-+			no-map;
-+		};
-+	};
-+
-+	/* SD2 RST# via PMIC SW_EN */
-+	reg_usdhc2_vmmc: regulator-usdhc2 {
-+		compatible = "regulator-fixed";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_reg_usdhc2_vmmc>;
-+		regulator-name = "VSD_3V3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&buck4>;
-+		gpio = <&gpio3 7 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+};
-+
-+&adc1 {
-+	vref-supply = <&buck5>;
-+};
-+
-+&flexspi1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_flexspi1>;
-+	status = "okay";
-+
-+	flash0: flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg = <0>;
-+		/*
-+		 * no DQS, RXCLKSRC internal loop back, max 66 MHz
-+		 * clk framework uses CLK_DIVIDER_ROUND_CLOSEST
-+		 * selected value together with root from
-+		 * IMX91_CLK_SYS_PLL_PFD1 @ 800.000.000 Hz helps to
-+		 * respect the maximum value.
-+		 */
-+		spi-max-frequency = <62000000>;
-+		spi-tx-bus-width = <4>;
-+		spi-rx-bus-width = <4>;
-+		vcc-supply = <&buck5>;
-+
-+		partitions {
-+			compatible = "fixed-partitions";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+		};
-+	};
-+};
-+
-+&lpi2c1 {
-+	clock-frequency = <400000>;
-+	pinctrl-names = "default", "sleep";
-+	pinctrl-0 = <&pinctrl_lpi2c1>;
-+	pinctrl-1 = <&pinctrl_lpi2c1>;
-+	status = "okay";
-+
-+	se97_som: temperature-sensor@1b {
-+		compatible = "nxp,se97b", "jedec,jc-42.4-temp";
-+		reg = <0x1b>;
-+	};
-+
-+	pca9451a: pmic@25 {
-+		compatible = "nxp,pca9451a";
-+		reg = <0x25>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_pca9451>;
-+		interrupt-parent = <&gpio1>;
-+		interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
-+
-+		regulators {
-+			/* V_0V8_SOC - hw developer guide: 0.75 .. 0.9 */
-+			buck1: BUCK1 {
-+				regulator-name = "BUCK1";
-+				regulator-min-microvolt = <750000>;
-+				regulator-max-microvolt = <900000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+				regulator-ramp-delay = <3125>;
-+			};
-+
-+			/* V_DDRQ - 1.1 V for LPDDR4 */
-+			buck2: BUCK2 {
-+				regulator-name = "BUCK2";
-+				regulator-min-microvolt = <1100000>;
-+				regulator-max-microvolt = <1100000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+				regulator-ramp-delay = <3125>;
-+			};
-+
-+			/* V_3V3 - EEPROM, RTC, ... */
-+			buck4: BUCK4 {
-+				regulator-name = "BUCK4";
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			/* V_1V8 - SPI NOR, eMMC, RAM VDD1... */
-+			buck5: BUCK5 {
-+				regulator-name = "BUCK5";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			/* V_1V1 - RAM VDD2*/
-+			buck6: BUCK6 {
-+				regulator-name = "BUCK6";
-+				regulator-min-microvolt = <1100000>;
-+				regulator-max-microvolt = <1100000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			/* V_1V8_BBSM, fix 1.8 */
-+			ldo1: LDO1 {
-+				regulator-name = "LDO1";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			/* V_0V8_ANA */
-+			ldo4: LDO4 {
-+				regulator-name = "LDO4";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <800000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			/* V_SD2 - 3.3/1.8V USDHC2 io Voltage */
-+			ldo5: LDO5 {
-+				regulator-name = "LDO5";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+		};
-+	};
-+
-+	pcf85063: rtc@51 {
-+		compatible = "nxp,pcf85063a";
-+		reg = <0x51>;
-+		quartz-load-femtofarads = <7000>;
-+	};
-+
-+	eeprom0: eeprom@53 {
-+		compatible = "nxp,se97b", "atmel,24c02";
-+		reg = <0x53>;
-+		pagesize = <16>;
-+		read-only;
-+		vcc-supply = <&buck4>;
-+	};
-+
-+	eeprom1: eeprom@57 {
-+		compatible = "atmel,24c64";
-+		reg = <0x57>;
-+		pagesize = <32>;
-+		vcc-supply = <&buck4>;
-+	};
-+
-+	/* protectable identification memory (part of M24C64-D @57) */
-+	eeprom@5f {
-+		compatible = "atmel,24c64d-wl";
-+		reg = <0x5f>;
-+		vcc-supply = <&buck4>;
-+	};
-+
-+	accelerometer@6a {
-+		compatible = "st,ism330dhcx";
-+		reg = <0x6a>;
-+		vdd-supply = <&buck4>;
-+		vddio-supply = <&buck4>;
-+	};
-+};
-+
-+&usdhc1 {
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz";
-+	pinctrl-0 = <&pinctrl_usdhc1>;
-+	pinctrl-1 = <&pinctrl_usdhc1>;
-+	pinctrl-2 = <&pinctrl_usdhc1>;
-+	vmmc-supply = <&buck4>;
-+	vqmmc-supply = <&buck5>;
-+	bus-width = <8>;
-+	non-removable;
-+	no-sdio;
-+	no-sd;
-+	status = "okay";
-+};
-+
-+&wdog3 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_wdog>;
-+	fsl,ext-reset-output;
-+	status = "okay";
-+};
-+
-+&iomuxc {
-+	pinctrl_flexspi1: flexspi1grp {
-+		fsl,pins = /* FSEL 3  | DSE X6 */
-+			   <MX91_PAD_SD3_CMD__FLEXSPI1_A_SS0_B		0x01fe>,
-+			   <MX91_PAD_SD3_CLK__FLEXSPI1_A_SCLK		0x01fe>,
-+			   /* HYS | PU | FSEL 3  | DSE X6 */
-+			   <MX91_PAD_SD3_DATA0__FLEXSPI1_A_DATA0	0x13fe>,
-+			   <MX91_PAD_SD3_DATA1__FLEXSPI1_A_DATA1	0x13fe>,
-+			   /* HYS | FSEL 3  | DSE X6 (external PU) */
-+			   <MX91_PAD_SD3_DATA2__FLEXSPI1_A_DATA2	0x11fe>,
-+			   <MX91_PAD_SD3_DATA3__FLEXSPI1_A_DATA3	0x11fe>;
-+	};
-+
-+	pinctrl_lpi2c1: lpi2c1grp {
-+		fsl,pins = /* SION | OD | FSEL 3 | DSE X4 */
-+			   <MX91_PAD_I2C1_SCL__LPI2C1_SCL		0x4000199e>,
-+			   <MX91_PAD_I2C1_SDA__LPI2C1_SDA		0x4000199e>;
-+	};
-+
-+	pinctrl_pca9451: pca9451grp {
-+		fsl,pins = /* HYS | PU */
-+			   <MX91_PAD_I2C2_SDA__GPIO1_IO3		0x1200>;
-+	};
-+
-+	pinctrl_reg_usdhc2_vmmc: regusdhc2vmmcgrp {
-+		fsl,pins = /* FSEL 2 | DSE X2 */
-+			   <MX91_PAD_SD2_RESET_B__GPIO3_IO7		0x106>;
-+	};
-+
-+	/* enable SION for data and cmd pad due to ERR052021 */
-+	pinctrl_usdhc1: usdhc1grp {
-+		fsl,pins = /* PD | FSEL 3 | DSE X5 */
-+			   <MX91_PAD_SD1_CLK__USDHC1_CLK		0x5be>,
-+			   /* HYS | FSEL 0 | no drive */
-+			   <MX91_PAD_SD1_STROBE__USDHC1_STROBE		0x1000>,
-+			   /* HYS | FSEL 3 | X5 */
-+			   <MX91_PAD_SD1_CMD__USDHC1_CMD		0x400011be>,
-+			   /* HYS | FSEL 3 | X4 */
-+			   <MX91_PAD_SD1_DATA0__USDHC1_DATA0		0x4000119e>,
-+			   <MX91_PAD_SD1_DATA1__USDHC1_DATA1		0x4000119e>,
-+			   <MX91_PAD_SD1_DATA2__USDHC1_DATA2		0x4000119e>,
-+			   <MX91_PAD_SD1_DATA3__USDHC1_DATA3		0x4000119e>,
-+			   <MX91_PAD_SD1_DATA4__USDHC1_DATA4		0x4000119e>,
-+			   <MX91_PAD_SD1_DATA5__USDHC1_DATA5		0x4000119e>,
-+			   <MX91_PAD_SD1_DATA6__USDHC1_DATA6		0x4000119e>,
-+			   <MX91_PAD_SD1_DATA7__USDHC1_DATA7		0x4000119e>;
-+	};
-+
-+	pinctrl_wdog: wdoggrp {
-+		fsl,pins = /* PU | FSEL 1 | DSE X4 */
-+			   <MX91_PAD_WDOG_ANY__WDOG1_WDOG_ANY		0x31e>;
-+	};
-+};
--- 
-2.43.0
+>  	add_to_garbage(msc);
+>  	msc->garbage.pdev = pdev;
+>  }
+> @@ -828,6 +855,7 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>  		pmg_max = FIELD_GET(MPAMF_IDR_PMG_MAX, idr);
+>  		msc->partid_max = min(msc->partid_max, partid_max);
+>  		msc->pmg_max = min(msc->pmg_max, pmg_max);
+> +		msc->has_extd_esr = FIELD_GET(MPAMF_IDR_HAS_EXTD_ESR, idr);
+>  
+>  		ris = mpam_get_or_create_ris(msc, ris_idx);
+>  		if (IS_ERR(ris))
+> @@ -840,6 +868,9 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>  		mutex_unlock(&msc->part_sel_lock);
+>  	}
+>  
+> +	/* Clear any stale errors */
+> +	mpam_msc_zero_esr(msc);
+> +
+>  	spin_lock(&partid_max_lock);
+>  	mpam_partid_max = min(mpam_partid_max, msc->partid_max);
+>  	mpam_pmg_max = min(mpam_pmg_max, msc->pmg_max);
+> @@ -973,6 +1004,13 @@ static void mpam_reset_msc(struct mpam_msc *msc, bool online)
+>  	mpam_mon_sel_outer_unlock(msc);
+>  }
+>  
+> +static void _enable_percpu_irq(void *_irq)
+> +{
+> +	int *irq = _irq;
+> +
+> +	enable_percpu_irq(*irq, IRQ_TYPE_NONE);
+> +}
+> +
+>  static int mpam_cpu_online(unsigned int cpu)
+>  {
+>  	int idx;
+> @@ -983,6 +1021,9 @@ static int mpam_cpu_online(unsigned int cpu)
+>  		if (!cpumask_test_cpu(cpu, &msc->accessibility))
+>  			continue;
+>  
+> +		if (msc->reenable_error_ppi)
+> +			_enable_percpu_irq(&msc->reenable_error_ppi);
+> +
+>  		if (atomic_fetch_inc(&msc->online_refs) == 0)
+>  			mpam_reset_msc(msc, true);
+>  	}
+> @@ -1031,6 +1072,9 @@ static int mpam_cpu_offline(unsigned int cpu)
+>  		if (!cpumask_test_cpu(cpu, &msc->accessibility))
+>  			continue;
+>  
+> +		if (msc->reenable_error_ppi)
+> +			disable_percpu_irq(msc->reenable_error_ppi);
+> +
+>  		if (atomic_dec_and_test(&msc->online_refs))
+>  			mpam_reset_msc(msc, false);
+>  	}
+> @@ -1057,6 +1101,51 @@ static void mpam_register_cpuhp_callbacks(int (*online)(unsigned int online),
+>  	mutex_unlock(&mpam_cpuhp_state_lock);
+>  }
+>  
+> +static int __setup_ppi(struct mpam_msc *msc)
+> +{
+> +	int cpu;
+> +
+> +	msc->error_dev_id = alloc_percpu_gfp(struct mpam_msc *, GFP_KERNEL);
+
+Simpler to use alloc_percpu().
+
+> +	if (!msc->error_dev_id)
+> +		return -ENOMEM;
+> +
+> +	for_each_cpu(cpu, &msc->accessibility) {
+> +		struct mpam_msc *empty = *per_cpu_ptr(msc->error_dev_id, cpu);
+> +
+> +		if (empty) {
+> +			pr_err_once("%s shares PPI with %s!\n",
+> +				    dev_name(&msc->pdev->dev),
+> +				    dev_name(&empty->pdev->dev));
+> +			return -EBUSY;
+> +		}
+> +		*per_cpu_ptr(msc->error_dev_id, cpu) = msc;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int mpam_msc_setup_error_irq(struct mpam_msc *msc)
+> +{
+> +	int irq;
+> +
+> +	irq = platform_get_irq_byname_optional(msc->pdev, "error");
+> +	if (irq <= 0)
+> +		return 0;
+> +
+> +	/* Allocate and initialise the percpu device pointer for PPI */
+> +	if (irq_is_percpu(irq))
+> +		return __setup_ppi(msc);
+> +
+> +	/* sanity check: shared interrupts can be routed anywhere? */
+> +	if (!cpumask_equal(&msc->accessibility, cpu_possible_mask)) {
+> +		pr_err_once("msc:%u is a private resource with a shared error interrupt",
+> +			    msc->id);
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  static int mpam_dt_count_msc(void)
+>  {
+>  	int count = 0;
+> @@ -1265,6 +1354,10 @@ static int mpam_msc_drv_probe(struct platform_device *pdev)
+>  			break;
+>  		}
+>  
+> +		err = mpam_msc_setup_error_irq(msc);
+> +		if (err)
+> +			break;
+> +
+>  		if (device_property_read_u32(&pdev->dev, "pcc-channel",
+>  					     &msc->pcc_subspace_id))
+>  			msc->iface = MPAM_IFACE_MMIO;
+> @@ -1547,11 +1640,171 @@ static void mpam_enable_merge_features(struct list_head *all_classes_list)
+>  	}
+>  }
+>  
+> +static char *mpam_errcode_names[16] = {
+> +	[0] = "No error",
+> +	[1] = "PARTID_SEL_Range",
+> +	[2] = "Req_PARTID_Range",
+> +	[3] = "MSMONCFG_ID_RANGE",
+> +	[4] = "Req_PMG_Range",
+> +	[5] = "Monitor_Range",
+> +	[6] = "intPARTID_Range",
+> +	[7] = "Unexpected_INTERNAL",
+> +	[8] = "Undefined_RIS_PART_SEL",
+> +	[9] = "RIS_No_Control",
+> +	[10] = "Undefined_RIS_MON_SEL",
+> +	[11] = "RIS_No_Monitor",
+> +	[12 ... 15] = "Reserved"
+> +};
+
+These names match the spec.
+
+> +
+> +static int mpam_enable_msc_ecr(void *_msc)
+> +{
+> +	struct mpam_msc *msc = _msc;
+> +
+> +	__mpam_write_reg(msc, MPAMF_ECR, MPAMF_ECR_INTEN);
+> +
+> +	return 0;
+> +}
+> +
+> +static int mpam_disable_msc_ecr(void *_msc)
+> +{
+> +	struct mpam_msc *msc = _msc;
+> +
+> +	__mpam_write_reg(msc, MPAMF_ECR, 0);
+> +
+> +	return 0;
+> +}
+> +
+> +static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
+> +{
+> +	u64 reg;
+> +	u16 partid;
+> +	u8 errcode, pmg, ris;
+> +
+> +	if (WARN_ON_ONCE(!msc) ||
+> +	    WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(),
+> +					   &msc->accessibility)))
+> +		return IRQ_NONE;
+> +
+> +	reg = mpam_msc_read_esr(msc);
+> +
+> +	errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
+> +	if (!errcode)
+> +		return IRQ_NONE;
+> +
+> +	/* Clear level triggered irq */
+> +	mpam_msc_zero_esr(msc);
+> +
+> +	partid = FIELD_GET(MPAMF_ESR_PARTID_MON, reg);
+> +	pmg = FIELD_GET(MPAMF_ESR_PMG, reg);
+> +	ris = FIELD_GET(MPAMF_ESR_RIS, reg);
+> +
+> +	pr_err("error irq from msc:%u '%s', partid:%u, pmg: %u, ris: %u\n",
+> +	       msc->id, mpam_errcode_names[errcode], partid, pmg, ris);
+> +
+> +	if (irq_is_percpu(irq)) {
+> +		mpam_disable_msc_ecr(msc);
+> +		schedule_work(&mpam_broken_work);
+> +		return IRQ_HANDLED;
+> +	}
+> +
+> +	return IRQ_WAKE_THREAD;
+> +}
+> +
+> +static irqreturn_t mpam_ppi_handler(int irq, void *dev_id)
+> +{
+> +	struct mpam_msc *msc = *(struct mpam_msc **)dev_id;
+> +
+> +	return __mpam_irq_handler(irq, msc);
+> +}
+> +
+> +static irqreturn_t mpam_spi_handler(int irq, void *dev_id)
+> +{
+> +	struct mpam_msc *msc = dev_id;
+> +
+> +	return __mpam_irq_handler(irq, msc);
+> +}
+> +
+> +static irqreturn_t mpam_disable_thread(int irq, void *dev_id);
+> +
+> +static int mpam_register_irqs(void)
+> +{
+> +	int err, irq;
+> +	struct mpam_msc *msc;
+> +
+> +	lockdep_assert_cpus_held();
+> +
+> +	guard(srcu)(&mpam_srcu);
+> +	list_for_each_entry_srcu(msc, &mpam_all_msc, glbl_list, srcu_read_lock_held(&mpam_srcu)) {
+> +		irq = platform_get_irq_byname_optional(msc->pdev, "error");
+> +		if (irq <= 0)
+> +			continue;
+> +
+> +		/* The MPAM spec says the interrupt can be SPI, PPI or LPI */
+> +		/* We anticipate sharing the interrupt with other MSCs */
+> +		if (irq_is_percpu(irq)) {
+> +			err = request_percpu_irq(irq, &mpam_ppi_handler,
+> +						 "mpam:msc:error",
+> +						 msc->error_dev_id);
+> +			if (err)
+> +				return err;
+> +
+> +			msc->reenable_error_ppi = irq;
+> +			smp_call_function_many(&msc->accessibility,
+> +					       &_enable_percpu_irq, &irq,
+> +					       true);
+> +		} else {
+> +			err = devm_request_threaded_irq(&msc->pdev->dev, irq,
+> +							&mpam_spi_handler,
+> +							&mpam_disable_thread,
+> +							IRQF_SHARED,
+> +							"mpam:msc:error", msc);
+> +			if (err)
+> +				return err;
+> +		}
+> +
+> +		msc->error_irq_requested = true;
+> +		mpam_touch_msc(msc, mpam_enable_msc_ecr, msc);
+> +		msc->error_irq_hw_enabled = true;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static void mpam_unregister_irqs(void)
+> +{
+> +	int irq, idx;
+> +	struct mpam_msc *msc;
+> +
+> +	cpus_read_lock();
+> +	/* take the lock as free_irq() can sleep */
+> +	idx = srcu_read_lock(&mpam_srcu);
+> +	list_for_each_entry_srcu(msc, &mpam_all_msc, glbl_list, srcu_read_lock_held(&mpam_srcu)) {
+> +		irq = platform_get_irq_byname_optional(msc->pdev, "error");
+> +		if (irq <= 0)
+> +			continue;
+> +
+> +		if (msc->error_irq_hw_enabled) {
+> +			mpam_touch_msc(msc, mpam_disable_msc_ecr, msc);
+> +			msc->error_irq_hw_enabled = false;
+> +		}
+> +
+> +		if (msc->error_irq_requested) {
+> +			if (irq_is_percpu(irq)) {
+> +				msc->reenable_error_ppi = 0;
+> +				free_percpu_irq(irq, msc->error_dev_id);
+> +			} else {
+> +				devm_free_irq(&msc->pdev->dev, irq, msc);
+> +			}
+> +			msc->error_irq_requested = false;
+> +		}
+> +	}
+> +	srcu_read_unlock(&mpam_srcu, idx);
+> +	cpus_read_unlock();
+> +}
+> +
+>  static void mpam_enable_once(void)
+>  {
+> -	mutex_lock(&mpam_list_lock);
+> -	mpam_enable_merge_features(&mpam_classes);
+> -	mutex_unlock(&mpam_list_lock);
+> +	int err;
+>  
+>  	/*
+>  	 * Once the cpuhp callbacks have been changed, mpam_partid_max can no
+> @@ -1561,6 +1814,27 @@ static void mpam_enable_once(void)
+>  	partid_max_published = true;
+>  	spin_unlock(&partid_max_lock);
+>  
+> +	/*
+> +	 * If all the MSC have been probed, enabling the IRQs happens next.
+> +	 * That involves cross-calling to a CPU that can reach the MSC, and
+> +	 * the locks must be taken in this order:
+> +	 */
+> +	cpus_read_lock();
+> +	mutex_lock(&mpam_list_lock);
+> +	mpam_enable_merge_features(&mpam_classes);
+> +
+> +	err = mpam_register_irqs();
+> +	if (err)
+> +		pr_warn("Failed to register irqs: %d\n", err);
+> +
+> +	mutex_unlock(&mpam_list_lock);
+> +	cpus_read_unlock();
+> +
+> +	if (err) {
+> +		schedule_work(&mpam_broken_work);
+> +		return;
+> +	}
+> +
+>  	mpam_register_cpuhp_callbacks(mpam_cpu_online, mpam_cpu_offline);
+>  
+>  	printk(KERN_INFO "MPAM enabled with %u partid and %u pmg\n",
+> @@ -1615,16 +1889,39 @@ static void mpam_reset_class(struct mpam_class *class)
+>   * All of MPAMs errors indicate a software bug, restore any modified
+>   * controls to their reset values.
+>   */
+> -void mpam_disable(void)
+> +static irqreturn_t mpam_disable_thread(int irq, void *dev_id)
+>  {
+>  	int idx;
+>  	struct mpam_class *class;
+> +	struct mpam_msc *msc, *tmp;
+> +
+> +	mutex_lock(&mpam_cpuhp_state_lock);
+> +	if (mpam_cpuhp_state) {
+> +		cpuhp_remove_state(mpam_cpuhp_state);
+> +		mpam_cpuhp_state = 0;
+> +	}
+> +	mutex_unlock(&mpam_cpuhp_state_lock);
+> +
+> +	mpam_unregister_irqs();
+>  
+>  	idx = srcu_read_lock(&mpam_srcu);
+>  	list_for_each_entry_srcu(class, &mpam_classes, classes_list,
+>  				 srcu_read_lock_held(&mpam_srcu))
+>  		mpam_reset_class(class);
+>  	srcu_read_unlock(&mpam_srcu, idx);
+> +
+> +	mutex_lock(&mpam_list_lock);
+> +	list_for_each_entry_safe(msc, tmp, &mpam_all_msc, glbl_list)
+> +		mpam_msc_destroy(msc);
+> +	mutex_unlock(&mpam_list_lock);
+> +	mpam_free_garbage();
+> +
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +void mpam_disable(struct work_struct *ignored)
+> +{
+> +	mpam_disable_thread(0, NULL);
+>  }
+>  
+>  /*
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index b30fee2b7674..c9418c9cf9f2 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -44,6 +44,11 @@ struct mpam_msc {
+>  	struct pcc_mbox_chan	*pcc_chan;
+>  	u32			nrdy_usec;
+>  	cpumask_t		accessibility;
+> +	bool			has_extd_esr;
+> +
+> +	int				reenable_error_ppi;
+> +	struct mpam_msc * __percpu	*error_dev_id;
+> +
+>  	atomic_t		online_refs;
+>  
+>  	/*
+> @@ -52,6 +57,8 @@ struct mpam_msc {
+>  	 */
+>  	struct mutex		probe_lock;
+>  	bool			probed;
+> +	bool			error_irq_requested;
+> +	bool			error_irq_hw_enabled;
+>  	u16			partid_max;
+>  	u8			pmg_max;
+>  	unsigned long		ris_idxs[128 / BITS_PER_LONG];
+> @@ -281,7 +288,7 @@ extern u8 mpam_pmg_max;
+>  
+>  /* Scheduled work callback to enable mpam once all MSC have been probed */
+>  void mpam_enable(struct work_struct *work);
+> -void mpam_disable(void);
+> +void mpam_disable(struct work_struct *work);
+>  
+>  int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
+>  				   cpumask_t *affinity);
+
+Thanks,
+
+Ben
 
 
