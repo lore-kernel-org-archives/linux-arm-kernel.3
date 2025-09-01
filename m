@@ -4,86 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 853F0CA1000
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 18:24:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D73E7CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 18:29:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1uoE6NXhltHN+7rLv53vXfhLviFP/GMqcI5NGlTVFxQ=; b=cIjECNsM+v/qC8dFg5/GcvyMRy
-	IKityH8wZuUDEBxcSb37BsrblgOCMRsyLbUike+bg8ktkLC0LLDbQmMp6o2w9MxN0dK8EMiZ5Ilec
-	nLkqbuYZggFWcaMAAgsBc3tDSyUUAU/j5OeCZpZJAMu45fSkqD70l9qp9Qqlqwz9OgddkjYDTtizU
-	j14ixJjA5VTfCcm4cAb5X82pEfvNql7iuLQhne0z27vJMM1bY8Mx/5vnHaU6n0To/ZcxBchqg4W9e
-	3iS1rEx7fx1xxCe5D5mAcGjId8Ow8Ob0MCRPqWSeAC/GsXlHmzt60pHC8sc7mhW3VjPRJcrgybNKl
-	YCHlXn3Q==;
+	bh=ELSebXAokPeuwfrjxvlrywVw1FQ39DJ4AGa2Bi31LpI=; b=yLVpplmN6dhTAguxdlzxpygeV7
+	NY98oO2d+3jPoSx1fAX0pYX+Grt+V5OkbLz3YPMHadpZ0BGn3XGoGqXe4HDsH4+peAjz8d0lHxcJN
+	dfRIZ1U9rzLEFCm9M0RkMaQHePs+7NJ74LO/c+v3zExtC7vZLKdOsXo+awX7MG56rZ53i5B5MIoRQ
+	XpbCoNAfYVMuqRZlKexwgcx41qmDjomE/G2SVmwM9RT5GTQor2n/MpBN5EHOFLhU1rSswVvjX3DEB
+	S7n05MUqHKWTXvm6aJgmW0k6hKoS/N2kQtSowBGbg0+1AA+CK7WE4W0ozwzWjATemgP+ZHd80wLVP
+	T4FuzFQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut9CG-0000000DYwU-3kOu;
-	Mon, 01 Sep 2025 18:24:04 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ut9Hb-0000000DZUt-41Xr;
+	Mon, 01 Sep 2025 18:29:35 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut68F-0000000CyUi-04d4
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 01 Sep 2025 15:07:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=1uoE6NXhltHN+7rLv53vXfhLviFP/GMqcI5NGlTVFxQ=; b=W80N7Zc5M/IYiRXpDkjVof+vP6
-	bFDRqaR90o44CK4fdPdBdjP/uMiRGqXVMBoDMRGRkOP0whadrx3gSze1FGYNVmR4lpyRQ5zBFCHRw
-	XyZloxTGh+GZsPfhb73IWHwCHD4NiqFtg+7CSEHerHaukf9nEaaoCt6esQZH+q2ZaTIzbJnFBzeCd
-	Kvl4P3TBHfBJewks0fS/TIeHu/xU+b9W0hcl3T9GfIHc8KqDdJvJ52cpYAuydp4jzg4/RZmEtHlgP
-	2SF/rboiVwixo40Vx20cSBOU2em+njxF5A0Xw/sjY3Cju+5cEf3JgCBselu7pIMZlvSh3lUz/KW69
-	L6sHcdGg==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut68B-00000003mhJ-3yqO
+	id 1ut68h-0000000CyZl-1GDl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 15:07:41 +0000
+	Mon, 01 Sep 2025 15:08:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756739258;
+	s=mimecast20190719; t=1756739290;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=1uoE6NXhltHN+7rLv53vXfhLviFP/GMqcI5NGlTVFxQ=;
-	b=AAcxLvWomIjpPJByqRFGgCyPQVoGYnKakB1kHPjMqTGHFDzxronQhTvhr9pbzVStOuOjsO
-	rGFGnYUTW7C5oPO03nd0vJALpWywuulmUswZVawNAAHMYEfpYTGWTYT6wm+CeAlGmdT9N0
-	uRmjfGUuQ48i4vlOot6H7pekn9y4/5E=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756739258;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1uoE6NXhltHN+7rLv53vXfhLviFP/GMqcI5NGlTVFxQ=;
-	b=AAcxLvWomIjpPJByqRFGgCyPQVoGYnKakB1kHPjMqTGHFDzxronQhTvhr9pbzVStOuOjsO
-	rGFGnYUTW7C5oPO03nd0vJALpWywuulmUswZVawNAAHMYEfpYTGWTYT6wm+CeAlGmdT9N0
-	uRmjfGUuQ48i4vlOot6H7pekn9y4/5E=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+	bh=ELSebXAokPeuwfrjxvlrywVw1FQ39DJ4AGa2Bi31LpI=;
+	b=jVtSfBrtwsRtWxTQVYmOcRncJL8uuhJZakPrcCrKiajno0nAnYRzcr9B9VCu/YBWfqqc/1
+	ENBIQQcJi250CAIPJk+ShQDyU/UH+jmXRj6LAweO2YSXC9xwFMSQPM0r9A5SwiXgkuXYGs
+	HVuYcMZJcz5OhKOl7yGtEE9TieIgeUg=
+Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-458-Vu95gNDhN86FCvXuoQpXFg-1; Mon,
- 01 Sep 2025 11:07:34 -0400
-X-MC-Unique: Vu95gNDhN86FCvXuoQpXFg-1
-X-Mimecast-MFC-AGG-ID: Vu95gNDhN86FCvXuoQpXFg_1756739249
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-479-Hz9nJ24_MAmhMNG_k-jiQA-1; Mon,
+ 01 Sep 2025 11:08:05 -0400
+X-MC-Unique: Hz9nJ24_MAmhMNG_k-jiQA-1
+X-Mimecast-MFC-AGG-ID: Hz9nJ24_MAmhMNG_k-jiQA_1756739279
 Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 609CF195608B;
-	Mon,  1 Sep 2025 15:07:29 +0000 (UTC)
+	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 1600C195609E;
+	Mon,  1 Sep 2025 15:07:59 +0000 (UTC)
 Received: from t14s.fritz.box (unknown [10.22.88.45])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 9DFF318003FC;
-	Mon,  1 Sep 2025 15:07:15 +0000 (UTC)
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id A66A118003FC;
+	Mon,  1 Sep 2025 15:07:44 +0000 (UTC)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: David Hildenbrand <david@redhat.com>,
-	Zi Yan <ziy@nvidia.com>,
 	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
-	Wei Yang <richard.weiyang@gmail.com>,
 	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
 	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
 	Alexander Potapenko <glider@google.com>,
@@ -127,18 +100,19 @@ Cc: David Hildenbrand <david@redhat.com>,
 	virtualization@lists.linux.dev,
 	Vlastimil Babka <vbabka@suse.cz>,
 	wireguard@lists.zx2c4.com,
-	x86@kernel.org
-Subject: [PATCH v2 11/37] mm: limit folio/compound page sizes in problematic kernel configs
-Date: Mon,  1 Sep 2025 17:03:32 +0200
-Message-ID: <20250901150359.867252-12-david@redhat.com>
+	x86@kernel.org,
+	Zi Yan <ziy@nvidia.com>
+Subject: [PATCH v2 13/37] mm/hugetlb: cleanup hugetlb_folio_init_tail_vmemmap()
+Date: Mon,  1 Sep 2025 17:03:34 +0200
+Message-ID: <20250901150359.867252-14-david@redhat.com>
 In-Reply-To: <20250901150359.867252-1-david@redhat.com>
 References: <20250901150359.867252-1-david@redhat.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_160740_214188_15061292 
-X-CRM114-Status: GOOD (  15.55  )
+X-CRM114-CacheID: sfid-20250901_080811_409978_386EDFF5 
+X-CRM114-Status: GOOD (  19.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,68 +127,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Let's limit the maximum folio size in problematic kernel config where
-the memmap is allocated per memory section (SPARSEMEM without
-SPARSEMEM_VMEMMAP) to a single memory section.
+We can now safely iterate over all pages in a folio, so no need for the
+pfn_to_page().
 
-Currently, only a single architectures supports ARCH_HAS_GIGANTIC_PAGE
-but not SPARSEMEM_VMEMMAP: sh.
+Also, as we already force the refcount in __init_single_page() to 1
+through init_page_count(), we can just set the refcount to 0 and
+avoid page_ref_freeze() + VM_BUG_ON. Likely, in the future, we would just
+want to tell __init_single_page() to which value to initialize the
+refcount.
 
-Fortunately, the biggest hugetlb size sh supports is 64 MiB
-(HUGETLB_PAGE_SIZE_64MB) and the section size is at least 64 MiB
-(SECTION_SIZE_BITS == 26), so their use case is not degraded.
+Further, adjust the comments to highlight that we are dealing with an
+open-coded prep_compound_page() variant, and add another comment explaining
+why we really need the __init_single_page() only on the tail pages.
 
-As folios and memory sections are naturally aligned to their order-2 size
-in memory, consequently a single folio can no longer span multiple memory
-sections on these problematic kernel configs.
+Note that the current code was likely problematic, but we never ran into
+it: prep_compound_tail() would have been called with an offset that might
+exceed a memory section, and prep_compound_tail() would have simply
+added that offset to the page pointer -- which would not have done the
+right thing on sparsemem without vmemmap.
 
-nth_page() is no longer required when operating within a single compound
-page / folio.
-
-Reviewed-by: Zi Yan <ziy@nvidia.com>
-Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-Reviewed-by: Wei Yang <richard.weiyang@gmail.com>
+Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Reviewed-by: Liam R. Howlett <Liam.Howlett@oracle.com>
+Acked-by: Liam R. Howlett <Liam.Howlett@oracle.com>
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- include/linux/mm.h | 22 ++++++++++++++++++----
- 1 file changed, 18 insertions(+), 4 deletions(-)
+ mm/hugetlb.c | 20 ++++++++++++--------
+ 1 file changed, 12 insertions(+), 8 deletions(-)
 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 77737cbf2216a..2dee79fa2efcf 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -2053,11 +2053,25 @@ static inline long folio_nr_pages(const struct folio *folio)
- 	return folio_large_nr_pages(folio);
+diff --git a/mm/hugetlb.c b/mm/hugetlb.c
+index d3542e92a712e..56e6d2af08434 100644
+--- a/mm/hugetlb.c
++++ b/mm/hugetlb.c
+@@ -3237,17 +3237,18 @@ static void __init hugetlb_folio_init_tail_vmemmap(struct folio *folio,
+ {
+ 	enum zone_type zone = zone_idx(folio_zone(folio));
+ 	int nid = folio_nid(folio);
++	struct page *page = folio_page(folio, start_page_number);
+ 	unsigned long head_pfn = folio_pfn(folio);
+ 	unsigned long pfn, end_pfn = head_pfn + end_page_number;
+-	int ret;
+-
+-	for (pfn = head_pfn + start_page_number; pfn < end_pfn; pfn++) {
+-		struct page *page = pfn_to_page(pfn);
+ 
++	/*
++	 * As we marked all tail pages with memblock_reserved_mark_noinit(),
++	 * we must initialize them ourselves here.
++	 */
++	for (pfn = head_pfn + start_page_number; pfn < end_pfn; page++, pfn++) {
+ 		__init_single_page(page, pfn, zone, nid);
+ 		prep_compound_tail((struct page *)folio, pfn - head_pfn);
+-		ret = page_ref_freeze(page, 1);
+-		VM_BUG_ON(!ret);
++		set_page_count(page, 0);
+ 	}
  }
  
--/* Only hugetlbfs can allocate folios larger than MAX_ORDER */
--#ifdef CONFIG_ARCH_HAS_GIGANTIC_PAGE
--#define MAX_FOLIO_ORDER		PUD_ORDER
--#else
-+#if !defined(CONFIG_ARCH_HAS_GIGANTIC_PAGE)
-+/*
-+ * We don't expect any folios that exceed buddy sizes (and consequently
-+ * memory sections).
-+ */
- #define MAX_FOLIO_ORDER		MAX_PAGE_ORDER
-+#elif defined(CONFIG_SPARSEMEM) && !defined(CONFIG_SPARSEMEM_VMEMMAP)
-+/*
-+ * Only pages within a single memory section are guaranteed to be
-+ * contiguous. By limiting folios to a single memory section, all folio
-+ * pages are guaranteed to be contiguous.
-+ */
-+#define MAX_FOLIO_ORDER		PFN_SECTION_SHIFT
-+#else
-+/*
-+ * There is no real limit on the folio size. We limit them to the maximum we
-+ * currently expect (e.g., hugetlb, dax).
-+ */
-+#define MAX_FOLIO_ORDER		PUD_ORDER
- #endif
+@@ -3257,12 +3258,15 @@ static void __init hugetlb_folio_init_vmemmap(struct folio *folio,
+ {
+ 	int ret;
  
- #define MAX_FOLIO_NR_PAGES	(1UL << MAX_FOLIO_ORDER)
+-	/* Prepare folio head */
++	/*
++	 * This is an open-coded prep_compound_page() whereby we avoid
++	 * walking pages twice by initializing/preparing+freezing them in the
++	 * same go.
++	 */
+ 	__folio_clear_reserved(folio);
+ 	__folio_set_head(folio);
+ 	ret = folio_ref_freeze(folio, 1);
+ 	VM_BUG_ON(!ret);
+-	/* Initialize the necessary tail struct pages */
+ 	hugetlb_folio_init_tail_vmemmap(folio, 1, nr_pages);
+ 	prep_compound_head((struct page *)folio, huge_page_order(h));
+ }
 -- 
 2.50.1
 
