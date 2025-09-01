@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56DC4CA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 07:23:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D184ACA0FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 07:26:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5z82KRw7kGCL+JcSr/9I68QG3ZSmlgUeGDgaSLDqohc=; b=DGJB999GbwQz95W1KzYE3L3xow
-	RVes98gkvD/W0er5hmc7aV2zWlkaQjBcCsgzTeLvbg6FnV7/zRb3PzecfOLHnuIiBaaiFdZV17sJ4
-	FXRHO1CCkqaW5kLrWq5eMIPgb+y/14RL9SZPtu2xAIKcoIfka8kPXUYmSMpzRppjYL2r3d/abzR/l
-	2xjS3HEB+LycL8s3CxdW8qJcXIzb0eABo7Fjxzw6dqZ3HS89ils4LH4Th59Tx1aZwrIJvrJAxVjoB
-	CMEw9BXd4wZozTd8r5BukHZ2Mio6VQ5sJWre+2PgY4xgFRrJrUUbLD24jYWMndVCle9Znz7rol/gj
-	HIz0b2Jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wu3CV7rAnax3xOdpVrI2BuRPRfuaZqv1S+8culmQGRs=; b=vqx4XgeT+IGnrUopQadW0x3MQz
+	x5iwyCsyP3pryIuTdqq+kL4J5Tz1Kqca3GhpruxsR2stNksCqjuC0pPy1lif2id0tWl2vEnzovKv1
+	fvNQ9aCmzTYnUtPMBExlhZWaP6ki2SgWkKeFbA3FeqwARJk3FqMvCbMHUNj8tIHp+Vt8RLjnZI0cS
+	l73NsiEKKsfIwkSrVi0TQDk8D6l9uLey3mygvdkX2j9dhYQQ/grgzzKPWkClCfkjAtEXv+0h+tcvq
+	xKUa6q9nLLCnk1xZDNWeoClSzxzBErbodk5SB/FKCl3LNA+wANwjUwBFSE4FPGdEPFFwdVBga6qIZ
+	itqZuD6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usytI-0000000BQi8-2C2s;
-	Mon, 01 Sep 2025 07:23:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1usyvy-0000000BQwG-1ViD;
+	Mon, 01 Sep 2025 07:26:34 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1usyHi-0000000BMLj-49Pu
+	id 1usyLo-0000000BMom-1DkP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 06:45:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A70A74059C;
-	Mon,  1 Sep 2025 06:44:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90986C4CEF0;
-	Mon,  1 Sep 2025 06:44:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756709098;
-	bh=v2eZIqPOo2OudPRqDX5kzJtAjfTXJAadp0/fdfmvLZA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pUWXj12y/46qUHn/Ji4NDqSOkiEAFPhAk/HA28xDSFlq608cUDldqgm0BqowQfybX
-	 TdqhHMeZjfv+8OP5DfS56YA6zEZDbBuGlWE9fpfDUaC6fJN2PvoRfUNaGy3QxE6zg/
-	 eS7exKNlmjIsKz0Qsox+fhdqhY49+ajcxrR1ZlQv6Z2orPxTxXcV5Yw/te2U0A6jLU
-	 TuZ/b1Q6UOb1fSOaD+72HuuRx2rAQElzhl2R2UW95EpMPrrP3ddKpl8F7ricUw3Psm
-	 52tNVEHJJrzmXIilswkxejmhP8NJJ7P3wHAmjAoqNChN2SKtlE4KKFU/QJO3YZ2V+H
-	 dMbsTxAQLAnhg==
-Date: Mon, 1 Sep 2025 12:14:51 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
-	bhelgaas@google.com, helgaas@kernel.org, kishon@kernel.org, vigneshr@ti.com, 
-	stable@vger.kernel.org, linux-pci@vger.kernel.org, linux-omap@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, srk@ti.com
-Subject: Re: [PATCH v3] PCI: j721e: Fix programming sequence of "strap"
- settings
-Message-ID: <3wc3t6y5gzzspgfeklsqo3bupfp6gsfy6mls6t66hflcqlqsfk@cu26wv3sow4y>
-References: <20250829091707.2990211-1-s-vadapalli@ti.com>
- <oztilfun77apxtjxumx4tydkcd2gsalsak4m2rvsry2oooqjna@2yvcx6cnuemm>
- <b2fb9252-6bfc-45da-973a-31cdfcc86b3d@ti.com>
- <z3ubracmtlq23yicbrhqjgnzrfoqheffm6cvhfnawlvbu4cmmp@ddu2o7xhw5tz>
- <48e9d897-2cd3-48ef-b46a-635ae75f5ac6@ti.com>
+	Mon, 01 Sep 2025 06:49:14 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.112])
+	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4cFfXb5p3rz1R97H;
+	Mon,  1 Sep 2025 14:46:07 +0800 (CST)
+Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 42879140109;
+	Mon,  1 Sep 2025 14:49:06 +0800 (CST)
+Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
+ dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 1 Sep 2025 14:49:06 +0800
+Received: from [10.67.121.177] (10.67.121.177) by
+ kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 1 Sep 2025 14:49:05 +0800
+CC: <yangyicong@hisilicon.com>, <robin.murphy@arm.com>,
+	<Jonathan.Cameron@huawei.com>, <liuyonglong@huawei.com>,
+	<wanghuiqiang@huawei.com>, <prime.zeng@hisilicon.com>,
+	<hejunhao3@h-partners.com>, <linuxarm@huawei.com>, <fanghao11@huawei.com>
+Subject: Re: [PATCH v3 9/9] Documentation: hisi-pmu: Add introduction to
+ HiSilicon V3 PMU
+To: Yushan Wang <wangyushan12@huawei.com>, <will@kernel.org>,
+	<mark.rutland@arm.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20250829101427.2557899-1-wangyushan12@huawei.com>
+ <20250829101427.2557899-10-wangyushan12@huawei.com>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <ebf838bd-93ec-15ea-bc98-d3afc5629256@huawei.com>
+Date: Mon, 1 Sep 2025 14:49:04 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <48e9d897-2cd3-48ef-b46a-635ae75f5ac6@ti.com>
+In-Reply-To: <20250829101427.2557899-10-wangyushan12@huawei.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250831_234459_077984_9C03AD75 
-X-CRM114-Status: GOOD (  32.65  )
+X-CRM114-CacheID: sfid-20250831_234912_698072_682A2FB0 
+X-CRM114-Status: GOOD (  18.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,105 +81,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 01, 2025 at 11:51:33AM GMT, Siddharth Vadapalli wrote:
-> On Mon, Sep 01, 2025 at 11:18:23AM +0530, Manivannan Sadhasivam wrote:
-> > On Mon, Sep 01, 2025 at 10:27:51AM GMT, Siddharth Vadapalli wrote:
-> > > On Sun, Aug 31, 2025 at 06:15:13PM +0530, Manivannan Sadhasivam wrote:
-> > > 
-> > > Hello Mani,
-> > > 
-> > > > On Fri, Aug 29, 2025 at 02:46:28PM GMT, Siddharth Vadapalli wrote:
+On 2025/8/29 18:14, Yushan Wang wrote:
+> Some of HiSilicon V3 PMU hardware is divided into parts to fulfill the
+> job of monitoring specific parts of a device.  Add description on that
+> as well as the newly added ext option for L3C PMU.
 > 
-> [...]
+> Acked-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
+
+Reviewed-by: Yicong Yang <yangyicong@hisilicon.com>
+
+> ---
+>  Documentation/admin-guide/perf/hisi-pmu.rst | 33 +++++++++++++++++++++
+>  1 file changed, 33 insertions(+)
 > 
-> > > > > +	/*
-> > > > > +	 * The PCIe Controller's registers have different "reset-values"
-> > > > > +	 * depending on the "strap" settings programmed into the PCIEn_CTRL
-> > > > > +	 * register within the CTRL_MMR memory-mapped register space.
-> > > > > +	 * The registers latch onto a "reset-value" based on the "strap"
-> > > > > +	 * settings sampled after the PCIe Controller is powered on.
-> > > > > +	 * To ensure that the "reset-values" are sampled accurately, power
-> > > > > +	 * off the PCIe Controller before programming the "strap" settings
-> > > > > +	 * and power it on after that.
-> > > > > +	 */
-> > > > > +	ret = pm_runtime_put_sync(dev);
-> > > > > +	if (ret < 0) {
-> > > > > +		dev_err(dev, "Failed to power off PCIe Controller\n");
-> > > > > +		return ret;
-> > > > > +	}
-> > > > 
-> > > > How does the controller gets powered off after pm_runtime_put_sync() since you
-> > > > do not have runtime PM callbacks? I believe the parent is turning off the power
-> > > > domain?
-> > > 
-> > > By invoking 'pm_runtime_put_sync(dev)', the ref-count is being
-> > > decremented and it results in the device being powered off. I have
-> > > verified it by printing the power domain index within the functions for
-> > > powering off and powering on devices on the J7200 SoC. Logs:
-> > > 
-> > > 	root@j7200-evm:~# modprobe pci_j721e
-> > > 	[   25.231675] [Powering On]: 240
-> > > 	[   25.234848] j721e-pcie 2910000.pcie: host bridge /bus@100000/pcie@2910000 ranges:
-> > > 	[   25.242378] j721e-pcie 2910000.pcie:       IO 0x4100001000..0x4100100fff -> 0x0000001000
-> > > 	[   25.250496] j721e-pcie 2910000.pcie:      MEM 0x4100101000..0x41ffffffff -> 0x0000101000
-> > > 	[   25.258588] j721e-pcie 2910000.pcie:   IB MEM 0x0000000000..0xffffffffffff -> 0x0000000000
-> > > 	[   25.267098] [Powering Off]: 240
-> > > 	[   25.270318] [Powering On]: 240
-> > > 	[   25.273511] [Powering On]: 187
-> > > 	[   26.372361] j721e-pcie 2910000.pcie: PCI host bridge to bus 0000:00
-> > > 	[   26.378666] pci_bus 0000:00: root bus resource [bus 00-ff]
-> > > 	[   26.384156] pci_bus 0000:00: root bus resource [io  0x0000-0xfffff] (bus address [0x1000-0x100fff])
-> > > 	[   26.393197] pci_bus 0000:00: root bus resource [mem 0x4100101000-0x41ffffffff] (bus address [0x00101000-0xffffffff])
-> > > 	[   26.403728] pci 0000:00:00.0: [104c:b00f] type 01 class 0x060400 PCIe Root Port
-> > > 	[   26.411044] pci 0000:00:00.0: PCI bridge to [bus 00]
-> > > 	[   26.416009] pci 0000:00:00.0:   bridge window [io  0x0000-0x0fff]
-> > > 	[   26.422091] pci 0000:00:00.0:   bridge window [mem 0x00000000-0x000fffff]
-> > > 	[   26.428874] pci 0000:00:00.0:   bridge window [mem 0x00000000-0x000fffff 64bit pref]
-> > > 	[   26.436676] pci 0000:00:00.0: supports D1
-> > > 	[   26.440699] pci 0000:00:00.0: PME# supported from D0 D1 D3hot
-> > > 	[   26.448064] pci 0000:00:00.0: bridge configuration invalid ([bus 00-00]), reconfiguring
-> > > 	[   26.456274] pci_bus 0000:01: busn_res: [bus 01-ff] end is updated to 01
-> > > 	[   26.462923] pci 0000:00:00.0: PCI bridge to [bus 01]
-> > > 	[   26.467933] pci_bus 0000:00: resource 4 [io  0x0000-0xfffff]
-> > > 	[   26.473595] pci_bus 0000:00: resource 5 [mem 0x4100101000-0x41ffffffff]
-> > > 	[   26.480337] pcieport 0000:00:00.0: of_irq_parse_pci: failed with rc=-22
-> > > 	[   26.487479] pcieport 0000:00:00.0: PME: Signaling with IRQ 701
-> > > 	[   26.493909] pcieport 0000:00:00.0: AER: enabled with IRQ 701
-> > > 
-> > > In the above logs, '240' is the Power Domain Index for the PCIe
-> > > Controller on J7200 SoC. It is powered on initially before the driver is
-> > > probed.
-> > 
-> > In that case, the driver should not call pm_runtime_get_sync() in its probe.
-> > What it should do is:
-> > 
-> > 	pm_runtime_set_active()
-> > 	pm_runtime_enable()
+> diff --git a/Documentation/admin-guide/perf/hisi-pmu.rst b/Documentation/admin-guide/perf/hisi-pmu.rst
+> index a307bce2f5c5..b78381a1e5e9 100644
+> --- a/Documentation/admin-guide/perf/hisi-pmu.rst
+> +++ b/Documentation/admin-guide/perf/hisi-pmu.rst
+> @@ -113,6 +113,39 @@ uring channel. It is 2 bits. Some important codes are as follows:
+>  - 2'b00: default value, count the events which sent to the both uring and
+>    uring_ext channel;
+>  
+> +For HiSilicon uncore PMU v3 whose identifier is 0x40, some uncore PMUs are
+> +further divided into parts for finer granularity of tracing, each part has its
+> +own dedicated PMU, and all such PMUs together cover the monitoring job of events
+> +on particular uncore device. Such PMUs are described in sysfs with name format
+> +slightly changed::
+> +
+> +/sys/bus/event_source/devices/hisi_sccl{X}_<l3c{Y}_{Z}/ddrc{Y}_{Z}/noc{Y}_{Z}>
+> +
+> +Z is the sub-id, indicating different PMUs for part of hardware device.
+> +
+> +Usage of most PMUs with different sub-ids are identical. Specially, L3C PMU
+> +provides ``ext`` option to allow exploration of even finer granual statistics
+> +of L3C PMU.  L3C PMU driver uses that as hint of termination when delivering
+> +perf command to hardware:
+> +
+> +- ext=0: Default, could be used with event names.
+> +- ext=1 and ext=2: Must be used with event codes, event names are not supported.
+> +
+> +An example of perf command could be::
+> +
+> +  $# perf stat -a -e hisi_sccl0_l3c1_0/rd_spipe/ sleep 5
+> +
+> +or::
+> +
+> +  $# perf stat -a -e hisi_sccl0_l3c1_0/event=0x1,ext=1/ sleep 5
+> +
+> +As above, ``hisi_sccl0_l3c1_0`` locates PMU of Super CPU CLuster 0, L3 cache 1
+> +pipe0.
+> +
+> +First command locates the first part of L3C since ``ext=0`` is implied by
+> +default. Second command issues the counting on another part of L3C with the
+> +event ``0x1``.
+> +
+>  Users could configure IDs to count data come from specific CCL/ICL, by setting
+>  srcid_cmd & srcid_msk, and data desitined for specific CCL/ICL by setting
+>  tgtid_cmd & tgtid_msk. A set bit in srcid_msk/tgtid_msk means the PMU will not
 > 
-> If I understand correctly, are you suggesting the following?
-> 
-> j721e_pcie_probe()
-> 	pm_runtime_set_active()
-> 	pm_runtime_enable()
-> 	ret = j721e_pcie_ctrl_init(pcie);
-> 		/*
-> 		 * PCIe Controller should be powered off here, but is there
-> 		 * a way to ensure that it has been powered off?
-> 		 */
-> 		=> Program the strap settings and return to
-> 		j721e_pcie_probe()
-> 	/* Power on the PCIe Controller now */
-> 	ret = pm_runtime_get_sync(dev);
-
-This pm_runtime_get_sync() should be part of j721e_pcie_ctrl_init() where you
-do power off, program strap and power on.
-
-This should not be part of probe() as by that time, controller is already
-powered on. So pm_runtime_set_active() and pm_runtime_enable() should be enough
-to convey the state of the device to PM core.
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
 
