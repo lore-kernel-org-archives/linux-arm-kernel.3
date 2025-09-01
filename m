@@ -4,72 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28CD4CA100C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24D43CA100A
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 14:47:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6s67FAZDJUizll6nPEf6TZibmkbOoVBvmJUSm6yE6vc=; b=CaYK8VTU19E8JV7oinUltiTYqj
-	VRIAOOdvJilYekHSvjRGTtbaQY6n3MxF8f4AbmT6H7pmSfkDKIV8JaQ4tQ0PPvI0dzch/WdB8Evyy
-	Eb83YAeuJT/71KVlc0UHnrOyqRYy+PF7QLv6SDfovqt7Sr00VFHQ8PZVmcKNGuiiU7u1/p0gI0L6N
-	HJH5GcEgCh+z1h2ucul5RwJB/3DEzT9slAXsxKand8443smn+GJKjATfNkD9y/2QW15Caqjunr3JE
-	1VcZM7GZufeWVLW8b4xlG8bZ2TQv8Wo/eGUrELyG/CcKWuE3qts/rGHo5NLAv0BWppALF1oWYrWPn
-	SA6bmwvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=irXPgS42zFgkQHjW10ATbOmLq7FuFJt14i+mSxGaFpM=; b=5Bh6vzldKEV+GrCZmjw8EBs1fF
+	4d662cuhG8cj3BgmTRhzE/IVb0iqainl9A7hqlbX8cUrHeEUtu7ziGxnVUdGJrW/wYlnYOnfHqaXF
+	lgF+oCf2h5N1bDlpgyp3YAw2Z5+Pbbyt8WkZV+CMAcx7xKi4WvF3anJoImAhWs01M1cuww//PfS+X
+	2aawDBPVK58Ib8dy3pS/nGSf0jAVaEACPnUbOtowncgucWuvM5r+BVtANutlzqB0rRzCbo0x6lNR+
+	8aYOodDRtccthoAsNn9hvEzxO8TsVZmxPTzon2LEesLawfyTourWzJrzrShW6FJG8urGcGdQtbGJA
+	JAi7XywQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut5od-0000000Css4-0G8d;
-	Mon, 01 Sep 2025 14:47:27 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut3Ga-0000000CA6W-3SEu
+	id 1ut5ol-0000000Ct1O-2LKL;
+	Mon, 01 Sep 2025 14:47:35 +0000
+Received: from pegase2.c-s.fr ([93.17.235.10])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ut3Wz-0000000CLyO-1b5g
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 12:04:10 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 581C44rR2801951;
-	Mon, 1 Sep 2025 07:04:04 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1756728244;
-	bh=6s67FAZDJUizll6nPEf6TZibmkbOoVBvmJUSm6yE6vc=;
-	h=From:To:CC:Subject:Date;
-	b=yPIzxOa13fWYaShw/EVS1xRj4NZETT0OsRwAi3ieDNmlrKjpdwDnK9KnDNjkqQ+vo
-	 eU+c4dAVhOSDKbZl1tV7QqnMHI68U1Ij7Nqlto1tTxFd8H3SMLokyeSDhBdQyCE4cC
-	 X4Cp1syqPxnRI5hPkq5Ur31+FnJOSzoOaadQdL44=
-Received: from DLEE111.ent.ti.com (dlee111.ent.ti.com [157.170.170.22])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 581C44Za1527093
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 1 Sep 2025 07:04:04 -0500
-Received: from DLEE115.ent.ti.com (157.170.170.26) by DLEE111.ent.ti.com
- (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 1
- Sep 2025 07:04:03 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE115.ent.ti.com
- (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 1 Sep 2025 07:04:03 -0500
-Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [172.24.231.84])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 581C3xQj2472040;
-	Mon, 1 Sep 2025 07:04:00 -0500
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <mani@kernel.org>,
-        <robh@kernel.org>, <bhelgaas@google.com>, <vigneshr@ti.com>
-CC: <stable@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-        <linux-omap@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        <s-vadapalli@ti.com>
-Subject: [PATCH] PCI: j721e: Fix module autoloading
-Date: Mon, 1 Sep 2025 17:33:55 +0530
-Message-ID: <20250901120359.3410774-1-s-vadapalli@ti.com>
-X-Mailer: git-send-email 2.43.0
+	Mon, 01 Sep 2025 12:21:06 +0000
+Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
+	by localhost (Postfix) with ESMTP id 4cFndK1HxPz9sT7;
+	Mon,  1 Sep 2025 14:05:41 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase2.c-s.fr ([172.26.127.65])
+	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id AoA5S3BHDBbU; Mon,  1 Sep 2025 14:05:41 +0200 (CEST)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4cFndC6fbFz9sSr;
+	Mon,  1 Sep 2025 14:05:35 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id CE69E8B790;
+	Mon,  1 Sep 2025 14:05:35 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id r-KaAi8_MPiL; Mon,  1 Sep 2025 14:05:35 +0200 (CEST)
+Received: from PO20335.idsi0.si.c-s.fr (unknown [10.25.207.160])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 9AED58B77B;
+	Mon,  1 Sep 2025 14:05:35 +0200 (CEST)
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+To: Qiang Zhao <qiang.zhao@nxp.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
+	linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: [PATCH v5 6/7] dt-bindings: soc: fsl: qe: Convert QE GPIO to DT schema
+Date: Mon,  1 Sep 2025 14:05:13 +0200
+Message-ID: <48b4e7b25878b94dcb738f8239c815be484cf9c9.1756727747.git.christophe.leroy@csgroup.eu>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <cover.1756727747.git.christophe.leroy@csgroup.eu>
+References: <cover.1756727747.git.christophe.leroy@csgroup.eu>
 MIME-Version: 1.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1756728308; l=3362; i=christophe.leroy@csgroup.eu; s=20211009; h=from:subject:message-id; bh=NiGGEzSVsJLntFwP1MIryFHdxpjk8igr3FrrVNxKPP0=; b=5WGZ5OgL+UExib3sv3fqbTbNCnvFZWxhkGlIIBNdXJikd0CcgFn/iAKdoshFpSqdsfhcw8u+A AJl1zujb3KNA/2ZISoit2AJr8HNP+vrVFJqtJpC2pYIMie16Qi8gN0s
+X-Developer-Key: i=christophe.leroy@csgroup.eu; a=ed25519; pk=HIzTzUj91asvincQGOFx6+ZF5AoUuP9GdOtQChs7Mm0=
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_050408_915016_D6B4B9DC 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20250901_052105_576476_5E6320D3 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,47 +87,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit under Fixes added support to build the driver as a loadable
-module. However, it did not add MODULE_DEVICE_TABLE() which is required
-for autoloading the driver when it is built as a loadable module.
+Convert QE QPIO devicetree binding to DT schema.
 
-Fix it.
-
-Fixes: a2790bf81f0f ("PCI: j721e: Add support to build as a loadable module")
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 ---
+v5: New
+---
+ .../fsl/cpm_qe/fsl,mpc8323-qe-pario-bank.yaml | 53 +++++++++++++++++++
+ .../bindings/soc/fsl/cpm_qe/qe/par_io.txt     | 26 +--------
+ 2 files changed, 54 insertions(+), 25 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,mpc8323-qe-pario-bank.yaml
 
-Hello,
-
-This patch is based on commit
-b320789d6883 Linux 6.17-rc4
-of Mainline Linux.
-
-Patch has been tested on J7200-EVM with the driver configs set to 'm'.
-The pci-j721e.c driver is autoloaded as Linux boots and it doesn't need
-to be manually probed. Logs:
-https://gist.github.com/Siddharth-Vadapalli-at-TI/f64eed4df6fd4f714747b3c7e7876f24
-
-Regards,
-Siddharth.
-
- drivers/pci/controller/cadence/pci-j721e.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
-index 6c93f39d0288..cfca13a4c840 100644
---- a/drivers/pci/controller/cadence/pci-j721e.c
-+++ b/drivers/pci/controller/cadence/pci-j721e.c
-@@ -440,6 +440,7 @@ static const struct of_device_id of_j721e_pcie_match[] = {
- 	},
- 	{},
- };
-+MODULE_DEVICE_TABLE(of, of_j721e_pcie_match);
+diff --git a/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,mpc8323-qe-pario-bank.yaml b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,mpc8323-qe-pario-bank.yaml
+new file mode 100644
+index 000000000000..e6ba319a75c1
+--- /dev/null
++++ b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,mpc8323-qe-pario-bank.yaml
+@@ -0,0 +1,53 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,mpc8323-qe-pario-bank.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Freescale QUICC Engine Parallel I/O (QE PARIO) GPIO Bank
++
++maintainers:
++  - Christophe Leroy <christophe.leroy@csgroup.eu>
++
++description:
++  Bindings for the Freescale QUICC Engine Parallel I/O (PARIO) GPIO controller.
++
++properties:
++  compatible:
++    items:
++      - enum:
++          - fsl,chip-qe-pario-bank
++      - const: fsl,mpc8323-qe-pario-bank
++
++  reg:
++    maxItems: 1
++    description: Offset to the register set and its length.
++
++  gpio-controller: true
++
++  '#gpio-cells':
++    const: 2
++
++required:
++  - compatible
++  - reg
++  - gpio-controller
++  - '#gpio-cells'
++
++additionalProperties: false
++
++examples:
++  - |
++    qe_pio_a: gpio-controller@1400 {
++        compatible = "fsl,mpc8360-qe-pario-bank", "fsl,mpc8323-qe-pario-bank";
++        reg = <0x1400 0x18>;
++        gpio-controller;
++        #gpio-cells = <2>;
++    };
++
++    qe_pio_e: gpio-controller@1460 {
++        compatible = "fsl,mpc8360-qe-pario-bank", "fsl,mpc8323-qe-pario-bank";
++        reg = <0x1460 0x18>;
++        gpio-controller;
++        #gpio-cells = <2>;
++    };
+diff --git a/Documentation/devicetree/bindings/soc/fsl/cpm_qe/qe/par_io.txt b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/qe/par_io.txt
+index 09b1b05fa677..782699c14567 100644
+--- a/Documentation/devicetree/bindings/soc/fsl/cpm_qe/qe/par_io.txt
++++ b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/qe/par_io.txt
+@@ -24,28 +24,4 @@ par_io@1400 {
  
- static int j721e_pcie_probe(struct platform_device *pdev)
- {
+ Note that "par_io" nodes are obsolete, and should not be used for
+ the new device trees. Instead, each Par I/O bank should be represented
+-via its own gpio-controller node:
+-
+-Required properties:
+-- #gpio-cells : should be "2".
+-- compatible : should be "fsl,<chip>-qe-pario-bank",
+-  "fsl,mpc8323-qe-pario-bank".
+-- reg : offset to the register set and its length.
+-- gpio-controller : node to identify gpio controllers.
+-
+-Example:
+-	qe_pio_a: gpio-controller@1400 {
+-		#gpio-cells = <2>;
+-		compatible = "fsl,mpc8360-qe-pario-bank",
+-		"fsl,mpc8323-qe-pario-bank";
+-		reg = <0x1400 0x18>;
+-		gpio-controller;
+-	  };
+-
+-	qe_pio_e: gpio-controller@1460 {
+-		#gpio-cells = <2>;
+-		compatible = "fsl,mpc8360-qe-pario-bank",
+-			     "fsl,mpc8323-qe-pario-bank";
+-		reg = <0x1460 0x18>;
+-		gpio-controller;
+-	  };
++via its own gpio-controller node.
 -- 
-2.43.0
+2.49.0
 
 
