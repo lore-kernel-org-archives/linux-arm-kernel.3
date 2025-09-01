@@ -4,115 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51A4FCA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 23:12:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78861CA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 23:12:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kPHmZzTajGoiIu4Pb16cc/zxagZSiNHTxiRnREwqsAY=; b=FGHw0DMcU5kUzRYI6xEGEgjWTF
-	C6o1fKBDvT6Tw2g3jQRyLIFPbJY8NWPFn40YER5We2TRichrAXAbiZC+bcSGqovmbdYjo/vdvKDum
-	mntokuPZj0fEk3GdcH66pmeCPywrNacGIslAHxQn3XH5KLggfmiRqgpzQ4OhWJtuVKqdCcjSeIV6x
-	mEG4PYvKGUpyyXT44329I9WVHbfF+JLhQj8GApElPMszklMOYGU28w4/pL5tsvNpAVQnZgtX4gyhf
-	POKgH3yC48+aOb3Yo8Fx2gd9aW1iH3HrkWhFdkMCgSXvo/38IqUEB9OfnFfUSj+Cnt7SjTKjqR3zR
-	8t46Jkpg==;
+	bh=b3kuu5CI2ft6NhqQgaYd+txYg738aNgWcaWN3jesvh8=; b=D1ACu127SMGq4o871Oh/wdt45F
+	zrC905qa1WKdnOm81m4t4rNJOWcyM6EMkArZbuo7gc7iv4XHmt/vIl7/0RTHNOzRE5TdkR3OLq6fn
+	uq/FSXjko3G5JDyVe34BaI/d6j1Phx52TLO3DVZm6YdqYwcZA6Bz68kf917yHoCc0kGOhTZMgAQWu
+	rY5DEiEanoOGdK55cmwjGFOPy4rh/q10QDxkCs7fNIoQhjnjIDwzrQWzEXcs1aZsUh+SN7YeD/sni
+	ObTMvNOXmPtITRjLZrDQwOMxWBZEC8i+Op0VYUQm85RmGTaZe2Xtw00CM5PaS+jX94Eh9k/Hf0fvX
+	gAJWysSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utDgq-0000000EDlQ-3I37;
-	Mon, 01 Sep 2025 23:11:56 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1utDhP-0000000EEXG-2v2c;
+	Mon, 01 Sep 2025 23:12:31 +0000
+Received: from chumsalmon.baetis.net ([2001:19f0:5:5b58:5400:5ff:fe17:97e8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut6Dz-0000000D1WO-1P7H
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 15:13:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756739618;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=kPHmZzTajGoiIu4Pb16cc/zxagZSiNHTxiRnREwqsAY=;
-	b=PZYQAclMa9O33BJ0b5fGUBIXonyJORLVhEyERoZxNYpsnNB/ggnM7fGI2P/8cefNLcktYZ
-	nS8UZO4C5kP4LbpXKWUTKFo8V3Mew1PckyXSqtVlMnO2J6/zcPYW4z8yZZr1416YBYSeIi
-	qFPv5UlHnWop96CFkYVoqZOomKnu1w0=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-626-GrEIet-nN5GvzvRvynVS6A-1; Mon,
- 01 Sep 2025 11:13:35 -0400
-X-MC-Unique: GrEIet-nN5GvzvRvynVS6A-1
-X-Mimecast-MFC-AGG-ID: GrEIet-nN5GvzvRvynVS6A_1756739610
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	id 1ut7LL-0000000DFmS-2fXk;
+	Mon, 01 Sep 2025 16:25:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=tahomasoft.com;
+	s=default; t=1756743917;
+	bh=oqLCMPmrU2maHdetgpMqd9TGV9xAUoi5L40b0QiYVxA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ogtN0J2iBrpFvd9fpGuxFCpXqzimN4Jzc7Oc9ChsgDSPWWHfNYU2+v/hTf7/Wd7mE
+	 1DKhBgSbwsYPbzlch9TIO+hYyGOfkpQ7f4T7QVkScYgpDl7N952kZfdvkPWmcD7yjo
+	 Rjc6cw2UFjgE+sqPTAslomrLimjKm/Cu4Ix0BnrZ50e744FcTnWCd5er4yAHXLwVp7
+	 oy4tzC7XIqjhJupDPk+rRhfqUsSzMgqEPlsX3vZCxSKkNNwZX5MPYZ1ogWr9ofZj/I
+	 YhZZfXSb0SgQLeNUm6FAfYbVHdClyRLXQSQRmd3Zk3okp1ZR6xVos2S+X+chZ9NIHn
+	 OMX3ebi8PaiuA==
+Received: from WahpenayoPeak.tahoma.link (unknown [IPv6:2600:4040:50be:5a04:892f:ee51:308e:70d0])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 5BC2F18004A7;
-	Mon,  1 Sep 2025 15:13:30 +0000 (UTC)
-Received: from t14s.fritz.box (unknown [10.22.88.45])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 8D7A81800447;
-	Mon,  1 Sep 2025 15:13:15 +0000 (UTC)
-From: David Hildenbrand <david@redhat.com>
-To: linux-kernel@vger.kernel.org
-Cc: David Hildenbrand <david@redhat.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Brendan Jackman <jackmanb@google.com>,
-	Christoph Lameter <cl@gentwo.org>,
-	Dennis Zhou <dennis@kernel.org>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	dri-devel@lists.freedesktop.org,
-	intel-gfx@lists.freedesktop.org,
-	iommu@lists.linux.dev,
-	io-uring@vger.kernel.org,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Jens Axboe <axboe@kernel.dk>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	John Hubbard <jhubbard@nvidia.com>,
-	kasan-dev@googlegroups.com,
-	kvm@vger.kernel.org,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	linux-arm-kernel@axis.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-crypto@vger.kernel.org,
-	linux-ide@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-mmc@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	Marco Elver <elver@google.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	netdev@vger.kernel.org,
-	Oscar Salvador <osalvador@suse.de>,
-	Peter Xu <peterx@redhat.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Tejun Heo <tj@kernel.org>,
-	virtualization@lists.linux.dev,
-	Vlastimil Babka <vbabka@suse.cz>,
-	wireguard@lists.zx2c4.com,
-	x86@kernel.org,
-	Zi Yan <ziy@nvidia.com>
-Subject: [PATCH v2 34/37] mm/gup: drop nth_page() usage in unpin_user_page_range_dirty_lock()
-Date: Mon,  1 Sep 2025 17:03:55 +0200
-Message-ID: <20250901150359.867252-35-david@redhat.com>
-In-Reply-To: <20250901150359.867252-1-david@redhat.com>
-References: <20250901150359.867252-1-david@redhat.com>
+	by chumsalmon.baetis.net (Postfix) with ESMTPSA id 7334C27E494;
+	Mon,  1 Sep 2025 16:25:17 +0000 (UTC)
+Date: Mon, 1 Sep 2025 12:25:16 -0400
+From: Erik Beck <xunil@tahomasoft.com>
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, heiko@sntech.de,
+ krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, Andrew
+ Lunn <andrew@lunn.ch>
+Subject: Re: [PATCH 3/4] arm64: dts: rockchip: Add HINLINK H68K
+Message-ID: <20250901122516.775b6e3e.xunil@tahomasoft.com>
+In-Reply-To: <20250901062437.780cc71a.xunil@tahomasoft.com>
+References: <20250830171409.592c1f63.xunil@tahomasoft.com>
+ <20250901070008.68662-1-amadeus@jmu.edu.cn>
+ <20250901062437.780cc71a.xunil@tahomasoft.com>
+Organization: Tahoma Soft
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_081339_438925_B50140B9 
-X-CRM114-Status: GOOD (  17.24  )
+X-CRM114-CacheID: sfid-20250901_092519_840162_37E64067 
+X-CRM114-Status: GOOD (  21.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,52 +77,430 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is the concern that unpin_user_page_range_dirty_lock() might do
-some weird merging of PFN ranges -- either now or in the future -- such
-that PFN range is contiguous but the page range might not be.
 
-Let's sanity-check for that and drop the nth_page() usage.
+Resending due to mailer error.
 
-Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Signed-off-by: David Hildenbrand <david@redhat.com>
----
- mm/gup.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+>>>> On Mon, 1 Sep 2025 06:24:37 -0400
+>>>> Erik Beck <xunil@tahomasoft.com> wrote:
 
-diff --git a/mm/gup.c b/mm/gup.c
-index f0f4d1a68e094..010fe56f6e132 100644
---- a/mm/gup.c
-+++ b/mm/gup.c
-@@ -237,7 +237,7 @@ void folio_add_pin(struct folio *folio)
- static inline struct folio *gup_folio_range_next(struct page *start,
- 		unsigned long npages, unsigned long i, unsigned int *ntails)
- {
--	struct page *next = nth_page(start, i);
-+	struct page *next = start + i;
- 	struct folio *folio = page_folio(next);
- 	unsigned int nr = 1;
- 
-@@ -342,6 +342,10 @@ EXPORT_SYMBOL(unpin_user_pages_dirty_lock);
-  * "gup-pinned page range" refers to a range of pages that has had one of the
-  * pin_user_pages() variants called on that page.
-  *
-+ * The page range must be truly physically contiguous: the page range
-+ * corresponds to a contiguous PFN range and all pages can be iterated
-+ * naturally.
-+ *
-  * For the page ranges defined by [page .. page+npages], make that range (or
-  * its head pages, if a compound page) dirty, if @make_dirty is true, and if the
-  * page range was previously listed as clean.
-@@ -359,6 +363,8 @@ void unpin_user_page_range_dirty_lock(struct page *page, unsigned long npages,
- 	struct folio *folio;
- 	unsigned int nr;
- 
-+	VM_WARN_ON_ONCE(!page_range_contiguous(page, npages));
-+
- 	for (i = 0; i < npages; i += nr) {
- 		folio = gup_folio_range_next(page, npages, i, &nr);
- 		if (make_dirty && !folio_test_dirty(folio)) {
--- 
-2.50.1
+> On Mon,  1 Sep 2025 15:00:08 +0800
+> Chukun Pan <amadeus@jmu.edu.cn> wrote:
+> 
+> > Hi,
+> > 
+> > > Please change phy-mode here to "rgmii". This change will yield an
+> > > ethernet speed throughput change of a factor of 100+.   
+> > 
+> > > Same as above: Please change phy-mode here to "rgmii". This change
+> > > will yield an ethernet speed throughput change of a factor of 100+.   
+> > 
+> > This doesn't make sense. When I first submitted it to coolsnowwolf/lede
+> > in 2022, I used "rgmii-id" as the phy-mode, and it worked:
+> > https://github.com/coolsnowwolf/lede/blob/master/target/linux/rockchip/files/arch/arm64/boot/dts/rockchip/rk3568-opc-h68k.dts#L24
+> > 
+> > Are you experiencing issues with both eth0 and eth1 or just one of them?
+> > Are you using the generic-rk3568 target for U-Boot?
+> > 
+> 
+> Hi Chukun, thanks for your response. 
+> 
+> At Andrew Lunn's suggestion, I'm doing
+> more granular and rigorous testing, now using iperf3. I'll post more details
+> of results here after I retest a couple of scenarios. 
+> 
+> However, I will report now that so far, I'm getting better (faster) and more
+> consistent results using iperf3.
+> 
+> ~Erik
+
+Below are my results.
+
+In summary, the speeds in certain scenarios are closer than in others.
+Pooling everything together, at the eyeball level, things look pretty similar
+across using RGMII-ID and RGMII (no internal delay). If I were to run these
+tests repeatedly, pool the results, and do a statistical comparison (probably
+with a Kolmogorov-Smirnov (KS) test or similar), I doubt I could reject the
+null hypothesis of no significant difference between the two sample
+distributions. 
+
+So what I said earlier regarding rgmii vs rgmii-id DOES NOT hold up under
+more rigorous and careful testing.
+
+Thanks,
+
+Erik
+
+___________________________
+Results with (gmac0 & gmac1) phy-mode = "rgmii-id", tx_rx_delay unspecified
+(kernel on boot sets tx_delay = 0x30 and rx_delay = 0x10 itself, both gmacs) 
+
+eth0/wan
+iperf3 -s -F VidTest-1.4Gb.mp4
+
+{openwrt device is 192.168.2.241}
+{desktop on openwrt WAN is 192.168.2.90}
+
+-----------------------------------------------------------
+Server listening on 5201 (test #1)
+-----------------------------------------------------------
+Accepted connection from 192.168.2.241, port 44414
+[  5] local 192.168.2.90 port 5201 connected to 192.168.2.241 port 44422
+[ ID] Interval           Transfer     Bitrate
+[  5]   0.00-1.00   sec   112 MBytes   935 Mbits/sec                  
+[  5]   1.00-2.00   sec   112 MBytes   939 Mbits/sec                  
+[  5]   2.00-3.00   sec   112 MBytes   940 Mbits/sec                  
+[  5]   3.00-4.00   sec   112 MBytes   939 Mbits/sec                  
+[  5]   4.00-5.00   sec   112 MBytes   939 Mbits/sec                  
+[  5]   5.00-6.00   sec   112 MBytes   939 Mbits/sec                  
+[  5]   6.00-7.00   sec   112 MBytes   938 Mbits/sec                  
+[  5]   7.00-8.00   sec   112 MBytes   940 Mbits/sec                  
+[  5]   8.00-9.00   sec   112 MBytes   938 Mbits/sec                  
+[  5]   9.00-10.00  sec   112 MBytes   940 Mbits/sec                  
+[  5]  10.00-10.00  sec   384 KBytes   815 Mbits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate
+        Sent 1.09 GByte / 1.09 GByte (100%) of VidTest-1.4Gb.mp4
+[  5]   0.00-10.00  sec  1.09 GBytes   939 Mbits/sec                  receiver
+-----------------------------------------------------------
+
+< Reverse >
+
+iperf3 -s 
+-----------------------------------------------------------
+Server listening on 5201 (test #1)
+-----------------------------------------------------------
+Accepted connection from 192.168.2.241, port 45870
+[  5] local 192.168.2.90 port 5201 connected to 192.168.2.241 port 45886
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-1.00   sec   114 MBytes   953 Mbits/sec  120    158 KBytes       
+[  5]   1.00-2.00   sec   112 MBytes   935 Mbits/sec  143    141 KBytes       
+[  5]   2.00-3.00   sec   110 MBytes   923 Mbits/sec  131    195 KBytes       
+[  5]   3.00-4.00   sec   112 MBytes   939 Mbits/sec  142    167 KBytes       
+[  5]   4.00-5.00   sec   112 MBytes   942 Mbits/sec  136    133 KBytes       
+[  5]   5.00-6.00   sec   111 MBytes   929 Mbits/sec  119    175 KBytes       
+[  5]   6.00-7.00   sec   111 MBytes   932 Mbits/sec  126    115 KBytes       
+[  5]   7.00-8.00   sec   112 MBytes   943 Mbits/sec  150    113 KBytes       
+[  5]   8.00-9.00   sec   105 MBytes   884 Mbits/sec   28    110 KBytes       
+[  5]   9.00-10.00  sec   112 MBytes   938 Mbits/sec  140    160 KBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-10.00  sec  1.08 GBytes   932 Mbits/sec  1235            sender
+
+
+eth1/lan
+
+iperf3 -s -F VidTest-1.4Gb.mp4 
+-----------------------------------------------------------
+{openwrt device is 192.168.1.1}
+{Laptop attached to openwrt is 192.168.1.134}
+
+Server listening on 5201 (test #1)
+-----------------------------------------------------------
+Accepted connection from 192.168.1.1, port 53876
+[  5] local 192.168.1.134 port 5201 connected to 192.168.1.1 port 53890
+[ ID] Interval           Transfer     Bitrate
+[  5]   0.00-1.00   sec  31.9 MBytes   267 Mbits/sec                  
+[  5]   1.00-2.00   sec  32.5 MBytes   273 Mbits/sec                  
+[  5]   2.00-3.00   sec  33.6 MBytes   282 Mbits/sec                  
+[  5]   3.00-4.00   sec  29.2 MBytes   245 Mbits/sec                  
+[  5]   4.00-5.00   sec  33.8 MBytes   283 Mbits/sec                  
+[  5]   5.00-6.00   sec  32.6 MBytes   274 Mbits/sec                  
+[  5]   6.00-7.00   sec  34.1 MBytes   286 Mbits/sec                  
+[  5]   7.00-8.00   sec  35.0 MBytes   294 Mbits/sec                  
+[  5]   8.00-9.00   sec  33.6 MBytes   282 Mbits/sec                  
+[  5]   9.00-10.00  sec  32.8 MBytes   275 Mbits/sec                  
+[  5]  10.00-10.00  sec   128 KBytes   872 Mbits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate
+        Sent  329 MByte /  329 MByte (100%) of VidTest-1.4Gb.mp4
+[  5]   0.00-10.00  sec   329 MBytes   276 Mbits/sec                  receiver
+-----------------------------------------------------------
+
+< reverse >
+
+iperf3 -c 192.168.1.1
+Connecting to host 192.168.1.1, port 5201
+[  5] local 192.168.1.134 port 60508 connected to 192.168.1.1 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-1.00   sec   113 MBytes   948 Mbits/sec    0    393 KBytes       
+[  5]   1.00-2.00   sec   111 MBytes   931 Mbits/sec    0    411 KBytes       
+[  5]   2.00-3.00   sec   112 MBytes   935 Mbits/sec    0    433 KBytes       
+[  5]   3.00-4.00   sec   111 MBytes   933 Mbits/sec    0    433 KBytes       
+[  5]   4.00-5.00   sec   111 MBytes   934 Mbits/sec    0    433 KBytes       
+[  5]   5.00-6.00   sec   111 MBytes   932 Mbits/sec    0    433 KBytes       
+[  5]   6.00-7.00   sec   111 MBytes   930 Mbits/sec    0    433 KBytes       
+[  5]   7.00-8.00   sec   111 MBytes   934 Mbits/sec    0    433 KBytes       
+[  5]   8.00-9.00   sec   111 MBytes   932 Mbits/sec    0    433 KBytes       
+[  5]   9.00-10.00  sec   113 MBytes   944 Mbits/sec    0    573 KBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-10.00  sec  1.09 GBytes   936 Mbits/sec    0            sender
+[  5]   0.00-10.00  sec  1.09 GBytes   933 Mbits/sec                  receiver
+
+
+
+Throughput (wan (eth0) -> lan (eth1) -> laptop)
+
+Desktop <------> Laptop via Openwrt
+192.168.2.90     192.168.1.134
+
+iperf3 -c 192.168.2.90
+Connecting to host 192.168.2.90, port 5201
+[  5] local 192.168.1.134 port 54694 connected to 192.168.2.90 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-1.00   sec   106 MBytes   889 Mbits/sec    0    461 KBytes       
+[  5]   1.00-2.00   sec   111 MBytes   933 Mbits/sec    0    461 KBytes       
+[  5]   2.00-3.00   sec   111 MBytes   933 Mbits/sec    0    461 KBytes       
+[  5]   3.00-4.00   sec   111 MBytes   934 Mbits/sec    0    461 KBytes       
+[  5]   4.00-5.00   sec   111 MBytes   932 Mbits/sec    0    461 KBytes       
+[  5]   5.00-6.00   sec   111 MBytes   933 Mbits/sec    0    461 KBytes       
+[  5]   6.00-7.00   sec   111 MBytes   931 Mbits/sec    0    503 KBytes       
+[  5]   7.00-8.00   sec   112 MBytes   938 Mbits/sec    0    503 KBytes       
+[  5]   8.00-9.00   sec   111 MBytes   931 Mbits/sec    0    503 KBytes       
+[  5]   9.00-10.00  sec   111 MBytes   933 Mbits/sec    0    503 KBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-10.00  sec  1.08 GBytes   929 Mbits/sec    0            sender
+[  5]   0.00-10.00  sec  1.08 GBytes   927 Mbits/sec                  receive
+
+
+
+
+
+< Reverse >
+
+iperf3 -c 192.168.2.90
+Connecting to host 192.168.2.90, port 5201
+[  5] local 192.168.1.134 port 54694 connected to 192.168.2.90 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-1.00   sec   106 MBytes   889 Mbits/sec    0    461 KBytes       
+[  5]   1.00-2.00   sec   111 MBytes   933 Mbits/sec    0    461 KBytes       
+[  5]   2.00-3.00   sec   111 MBytes   933 Mbits/sec    0    461 KBytes       
+[  5]   3.00-4.00   sec   111 MBytes   934 Mbits/sec    0    461 KBytes       
+[  5]   4.00-5.00   sec   111 MBytes   932 Mbits/sec    0    461 KBytes       
+[  5]   5.00-6.00   sec   111 MBytes   933 Mbits/sec    0    461 KBytes       
+[  5]   6.00-7.00   sec   111 MBytes   931 Mbits/sec    0    503 KBytes       
+[  5]   7.00-8.00   sec   112 MBytes   938 Mbits/sec    0    503 KBytes       
+[  5]   8.00-9.00   sec   111 MBytes   931 Mbits/sec    0    503 KBytes       
+[  5]   9.00-10.00  sec   111 MBytes   933 Mbits/sec    0    503 KBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-10.00  sec  1.08 GBytes   929 Mbits/sec    0            sender
+[  5]   0.00-10.00  sec  1.08 GBytes   927 Mbits/sec                  receive
+
+
+---------
+
+
+Results with (gmac0 & gmac1) phy-mode = "rgmii", tx_rx_delay unspecified
+(kernel on boot sets tx_delay = 0x30 and rx_delay = 0x10 itself, both gmacs)
+
+
+eth0/wan
+iperf3 -s -F VidTest-1.4Gb.mp4
+
+{openwrt device is 192.168.2.241}
+{desktop on openwrt WAN is 192.168.2.90}
+
+iperf3 -s -F VidTest-1.4Gb.mp4 
+-----------------------------------------------------------
+Server listening on 5201 (test #1)
+-----------------------------------------------------------
+Accepted connection from 192.168.2.241, port 35070
+[  5] local 192.168.2.90 port 5201 connected to 192.168.2.241 port 35084
+[ ID] Interval           Transfer     Bitrate
+[  5]   0.00-1.00   sec   112 MBytes   936 Mbits/sec                  
+[  5]   1.00-2.00   sec   112 MBytes   939 Mbits/sec                  
+[  5]   2.00-3.00   sec   112 MBytes   938 Mbits/sec                  
+[  5]   3.00-4.00   sec   112 MBytes   939 Mbits/sec                  
+[  5]   4.00-5.00   sec   112 MBytes   939 Mbits/sec                  
+[  5]   5.00-6.00   sec   112 MBytes   940 Mbits/sec                  
+[  5]   6.00-7.00   sec   112 MBytes   938 Mbits/sec                  
+[  5]   7.00-8.00   sec   112 MBytes   940 Mbits/sec                  
+[  5]   8.00-9.00   sec   112 MBytes   939 Mbits/sec                  
+[  5]   9.00-10.00  sec   112 MBytes   939 Mbits/sec                  
+[  5]  10.00-10.00  sec   384 KBytes   869 Mbits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate
+        Sent 1.09 GByte / 1.09 GByte (100%) of VidTest-1.4Gb.mp4
+[  5]   0.00-10.00  sec  1.09 GBytes   939 Mbits/sec                  receiver
+-----------------------------------------------------------
+
+
+<reverse>
+Accepted connection from 192.168.2.241, port 51650
+[  5] local 192.168.2.90 port 5201 connected to 192.168.2.241 port 51660
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-1.00   sec   114 MBytes   953 Mbits/sec  168    209 KBytes       
+[  5]   1.00-2.00   sec   112 MBytes   938 Mbits/sec  224    148 KBytes       
+[  5]   2.00-3.00   sec   112 MBytes   940 Mbits/sec  196    158 KBytes       
+[  5]   3.00-4.00   sec   112 MBytes   943 Mbits/sec  196    180 KBytes       
+[  5]   4.00-5.00   sec   112 MBytes   937 Mbits/sec  196    187 KBytes       
+[  5]   5.00-6.00   sec   112 MBytes   940 Mbits/sec  196    195 KBytes       
+[  5]   6.00-7.00   sec   112 MBytes   937 Mbits/sec  196    204 KBytes       
+[  5]   7.00-8.00   sec   112 MBytes   940 Mbits/sec  224    136 KBytes       
+[  5]   8.00-9.00   sec   112 MBytes   940 Mbits/sec  196    158 KBytes       
+[  5]   9.00-10.00  sec   110 MBytes   922 Mbits/sec  196    188 KBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-10.00  sec  1.09 GBytes   939 Mbits/sec  1988            sender
+        Sent 1.09 GByte / 1.09 GByte (100%) of VidTest-1.4Gb.mp4
+-----------------------------------------------------------
+
+
+
+eth1/lan
+
+{192.168.1.1 is Openwrt device}
+{192.168.1.134 is laptop directly attached to Openwrt}
+
+
+iperf3 -s -F VidTest-1.4Gb.mp4 
+-----------------------------------------------------------
+Server listening on 5201 (test #1)
+-----------------------------------------------------------
+Accepted connection from 192.168.1.1, port 40866
+[  5] local 192.168.1.134 port 5201 connected to 192.168.1.1 port 40868
+[ ID] Interval           Transfer     Bitrate
+[  5]   0.00-1.00   sec  67.4 MBytes   565 Mbits/sec                  
+[  5]   1.00-2.00   sec  69.4 MBytes   582 Mbits/sec                  
+[  5]   2.00-3.00   sec  65.9 MBytes   553 Mbits/sec                  
+[  5]   3.00-4.00   sec  66.5 MBytes   558 Mbits/sec                  
+[  5]   4.00-5.00   sec  70.2 MBytes   589 Mbits/sec                  
+[  5]   5.00-6.00   sec  52.5 MBytes   440 Mbits/sec                  
+[  5]   6.00-7.00   sec  67.2 MBytes   564 Mbits/sec                  
+[  5]   7.00-8.00   sec  70.2 MBytes   589 Mbits/sec                  
+[  5]   8.00-9.00   sec  57.9 MBytes   486 Mbits/sec                  
+[  5]   9.00-10.00  sec  66.9 MBytes   561 Mbits/sec                  
+[  5]  10.00-10.00  sec   128 KBytes   909 Mbits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate
+        Sent  654 MByte /  654 MByte (100%) of VidTest-1.4Gb.mp4
+[  5]   0.00-10.00  sec   654 MBytes   549 Mbits/sec                  receiver
+
+
+
+
+< reverse >
+
+iperf3 -c 192.168.1.134 --reverse
+Connecting to host 192.168.1.134, port 5201
+Reverse mode, remote host 192.168.1.134 is sending
+[  5] local 192.168.1.1 port 58380 connected to 192.168.1.134 port 5201
+[ ID] Interval           Transfer     Bitrate
+[  5]   0.00-1.00   sec   104 MBytes   870 Mbits/sec                  
+[  5]   1.00-2.00   sec  98.5 MBytes   826 Mbits/sec                  
+[  5]   2.00-3.00   sec  89.9 MBytes   754 Mbits/sec                  
+[  5]   3.00-4.00   sec  87.4 MBytes   733 Mbits/sec                  
+[  5]   4.00-5.00   sec  97.0 MBytes   814 Mbits/sec                  
+[  5]   5.00-6.00   sec  95.5 MBytes   801 Mbits/sec                  
+[  5]   6.00-7.00   sec  82.1 MBytes   689 Mbits/sec                  
+[  5]   7.00-8.00   sec  0.00 Bytes  0.00 bits/sec                  
+[  5]   8.00-9.00   sec  0.00 Bytes  0.00 bits/sec                  
+[  5]   9.00-10.00  sec  0.00 Bytes  0.00 bits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-10.00  sec   654 MBytes   549 Mbits/sec  235            sender
+[  5]   0.00-10.00  sec   654 MBytes   549 Mbits/sec                  receiver
+
+
+
+
+
+Throughput (wan (eth0) -> lan (eth1) -> laptop)
+
+Desktop <------> Laptop via Openwrt
+192.168.2.90     192.168.1.134
+
+iperf3 -c 192.168.2.90
+Connecting to host 192.168.2.90, port 5201
+[  5] local 192.168.1.134 port 44380 connected to 192.168.2.90 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-1.00   sec  91.8 MBytes   769 Mbits/sec   15   76.4 KBytes       
+[  5]   1.00-2.00   sec  99.5 MBytes   835 Mbits/sec   11    102 KBytes       
+[  5]   2.00-3.00   sec  98.8 MBytes   828 Mbits/sec   12    167 KBytes       
+[  5]   3.00-4.00   sec  95.4 MBytes   800 Mbits/sec   17    126 KBytes       
+[  5]   4.00-5.00   sec   106 MBytes   890 Mbits/sec    9    117 KBytes       
+[  5]   5.00-6.00   sec  96.5 MBytes   810 Mbits/sec   15    123 KBytes       
+[  5]   6.00-7.00   sec  99.6 MBytes   835 Mbits/sec   13    144 KBytes       
+[  5]   7.00-8.00   sec   100 MBytes   842 Mbits/sec   15   58.0 KBytes       
+[  5]   8.00-9.00   sec  96.1 MBytes   806 Mbits/sec   15    115 KBytes       
+[  5]   9.00-10.00  sec  95.4 MBytes   800 Mbits/sec   14    126 KBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-10.00  sec   980 MBytes   822 Mbits/sec  136            sender
+[  5]   0.00-10.00  sec   979 MBytes   821 Mbits/sec                  receiver
+
+
+< reverse >
+
+perf3 -c 192.168.2.90 --reverse
+Connecting to host 192.168.2.90, port 5201
+Reverse mode, remote host 192.168.2.90 is sending
+[  5] local 192.168.1.134 port 51148 connected to 192.168.2.90 port 5201
+[ ID] Interval           Transfer     Bitrate
+[  5]   0.00-1.00   sec  40.6 MBytes   340 Mbits/sec                  
+[  5]   1.00-2.00   sec  54.9 MBytes   460 Mbits/sec                  
+[  5]   2.00-3.00   sec  49.6 MBytes   416 Mbits/sec                  
+[  5]   3.00-4.00   sec  47.4 MBytes   397 Mbits/sec                  
+[  5]   4.00-5.00   sec  45.9 MBytes   385 Mbits/sec                  
+[  5]   5.00-6.00   sec  52.8 MBytes   443 Mbits/sec                  
+[  5]   6.00-7.00   sec  45.1 MBytes   379 Mbits/sec                  
+[  5]   7.00-8.00   sec  46.1 MBytes   387 Mbits/sec                  
+[  5]   8.00-9.00   sec  42.8 MBytes   359 Mbits/sec                  
+[  5]   9.00-10.00  sec  40.6 MBytes   341 Mbits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-10.00  sec   467 MBytes   392 Mbits/sec  403            sender
+[  5]   0.00-10.00  sec   466 MBytes   391 Mbits/sec                  receiver
+
+____________________________________
+
+
+> 
+> > I can't reproduce your problem in my test.
+> > 
+> > eth0/gmac1 (as lan):
+> > root@OpenWrt:~# iperf3 -c 192.168.1.100
+> > Connecting to host 192.168.1.100, port 5201
+> > [ ID] Interval           Transfer     Bitrate         Retr
+> > [  5]   0.00-10.00  sec  1.10 GBytes   942 Mbits/sec   29
+> > sender [  5]   0.00-10.04  sec  1.10 GBytes   936 Mbits/sec
+> > receiver
+> > 
+> > root@OpenWrt:~# iperf3 -c 192.168.1.100 -R
+> > Connecting to host 192.168.1.100, port 5201
+> > Reverse mode, remote host 192.168.1.100 is sending
+> > [ ID] Interval           Transfer     Bitrate         Retr
+> > [  5]   0.00-10.04  sec  1.10 GBytes   939 Mbits/sec    1
+> > sender [  5]   0.00-10.00  sec  1.10 GBytes   941 Mbits/sec
+> > receiver
+> > 
+> > eth1/gmac0 (as wan):
+> > root@OpenWrt:~# iperf3 -c 192.168.0.2 -P 4
+> > Connecting to host 192.168.0.2, port 5201
+> > [ ID] Interval           Transfer     Bitrate         Retr
+> > [SUM]   0.00-10.00  sec  1.10 GBytes   945 Mbits/sec  1191
+> > sender [SUM]   0.00-10.05  sec  1.09 GBytes   935 Mbits/sec
+> >  receiver
+> > 
+> > root@OpenWrt:~# iperf3 -c 192.168.0.2 -R
+> > Connecting to host 192.168.0.2, port 5201
+> > Reverse mode, remote host 192.168.0.2 is sending
+> > [ ID] Interval           Transfer     Bitrate         Retr
+> > [  5]   0.00-10.06  sec  1.10 GBytes   939 Mbits/sec    6
+> > sender [  5]   0.00-10.00  sec  1.10 GBytes   941 Mbits/sec
+> > receiver
+> > 
+> > --
+> > 2.25.1
+> > 
+> > 
+> > 
+> > _______________________________________________
+> > Linux-rockchip mailing list
+> > Linux-rockchip@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-rockchip
+> 
 
 
