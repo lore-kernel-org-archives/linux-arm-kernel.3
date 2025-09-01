@@ -4,85 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62993CA1005
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 19:50:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54971CA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 19:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qfiq0B+dTjY9T7uZZN1EGvA+QpBiXzU5iR+jbjMvbBM=; b=iTKwV8lBVYLbv9ycTh7Ah4yHHW
-	8kYtfqJ+tE3KZsyOIWJ+/cN7Rg8greqjZ6a51RJJRbnTvdWf2+jjKSuPlugvh2ZO9TgKNEhDvHcTr
-	PeH/IpXbCfwZbpK5vYUtPy2kpZxuRnNHrVlmZnveQKrC+sC583U8tDP4RAwd2G9LRHYJ5oocVUP1z
-	s4AITkzVm9AyaB/34/HUUyQc3ujhO10AukBfjXIr0+SHPUuiwFoGNz145l5l/I5Zh9asxtZZMUVS3
-	3MjUbRPPVIA3N/VkfwDKhdqftwD3Hx9Cpqe6198STveRatyR/440r/LgHj+fcods/ZsTVD0t/FBsB
-	EBEeJUCg==;
+	bh=gFQCeV5GlShS/zx1bu5/T/iLUPYfRFaciJSmR65IujE=; b=2M1FiJu2KdsLKNlmjQVg2Vh1k5
+	78gJew/BNA73VxKFp7/mUfhdLN4yhNJtf+/ZCfRZSBy038vx+GRzM7ejWjMnbjseFaQSDZ/ZAxuAP
+	mbNUd+JW9R3u7TxUpq9AmzHcFf55ZQCBJfsvwAps5kXaLXYXffeaAb8UODEmL84P37uAeHoQZnU+x
+	nyz81fYeJECyH2X/NaRjrqWqZp/GsRQ/Ldyp1YuPfDey+ZsAZtMl+4hQ/ZtVkTSxcPwfOvXk93WMd
+	ydFeJfStqNNBCNHhHq/lC6OGKJkXFOM2NOI9/l4qUGXuMgRQrt8ePz5WhJTTQxdwwDSLdIpLnZeoP
+	u3grOp8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utAXK-0000000DgHl-3zuZ;
-	Mon, 01 Sep 2025 19:49:54 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut6At-0000000Czmy-0YkR
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 01 Sep 2025 15:10:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=Qfiq0B+dTjY9T7uZZN1EGvA+QpBiXzU5iR+jbjMvbBM=; b=cjbehtezg1oDZEqKcCPxkkyoVw
-	jTqwktSda0WKOJWYmV+K8BPHRmA0JZeeM00J9JUK3CV9AEkmQGO9HJMtoXwMNrDW0Of0ETzkJWX1i
-	2dLn5fWkJE/o4kCet03kG6aYRyxeRa46JjoboGIebTuNoYrY839lPQN572/l1jUaV8XTA2OjSk/bP
-	yRenAqUGw06Pf4HoxfITgFOeN0wLo9NOw0rmvVJg/SK6WgXM/TZBa8NqKXScrYy+6d9u/U3mo0kjF
-	uA24sI3lSewNdbfAutrfx9hSLtKZm2YwX8xoJg4gniO8xZkTYmBFT2hsdj6XnNZXZ3gE8N3jO7lzv
-	dKmikh3g==;
+	id 1utAXE-0000000DgCz-0BhZ;
+	Mon, 01 Sep 2025 19:49:48 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut6Ap-00000003mnx-3EJe
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ut67z-0000000CyPx-1Wzy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 15:10:25 +0000
+	Mon, 01 Sep 2025 15:07:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756739421;
+	s=mimecast20190719; t=1756739246;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Qfiq0B+dTjY9T7uZZN1EGvA+QpBiXzU5iR+jbjMvbBM=;
-	b=CtAIwORKbrgLmdiJywtggQySMZOpTbhDZ47uVaFtZmO32scO089xPluQX3CZGIC7p0B3Uk
-	12bRw0RTVnWWJ1t6SAwev12P3D2pE3HWfNxTm6zbFi22DG3gvOQ5l4Ayf3oJxaFJEit2RJ
-	9dKcj+h5PxPHnP1dBC4mm5/Hb1Rv5no=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1756739422;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Qfiq0B+dTjY9T7uZZN1EGvA+QpBiXzU5iR+jbjMvbBM=;
-	b=Gfh8XWjYeX477pKpBoqjpoJ8sbAPvnbudBzB5Oaf5rUCnIQvqJIFHTjsZWXITINsANcdGB
-	sktbkAjadoCcai/pWz/xDG1/lbRV7S4caysMGsrlyUYc5A6HheyN10VjJHpO9eDinCpGjn
-	ukl5t0veYCevOWP6YrhqOxwY1i09T/Y=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+	bh=gFQCeV5GlShS/zx1bu5/T/iLUPYfRFaciJSmR65IujE=;
+	b=gDO/h06hdqV6cgHz5ossmxeoAnG12KGWKW1zz9QLicmrgJdwmdEO46d7UfyF+zu/WVzgfT
+	h2LISr+5qq7p0dX5NFA7sEoVaV98jjJxQzDoqHJoGayjzkLaplWGOa7GLKeLS8UezP3BjV
+	PzzJy8b7QXrrv/kFsHPYHGtKyxLRFgU=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-576-C7HqVpXnPaeMVQh_fJcpwQ-1; Mon,
- 01 Sep 2025 11:10:19 -0400
-X-MC-Unique: C7HqVpXnPaeMVQh_fJcpwQ-1
-X-Mimecast-MFC-AGG-ID: C7HqVpXnPaeMVQh_fJcpwQ_1756739414
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-616-CT1kZFJdPz29r0kFU6Fbtg-1; Mon,
+ 01 Sep 2025 11:07:20 -0400
+X-MC-Unique: CT1kZFJdPz29r0kFU6Fbtg-1
+X-Mimecast-MFC-AGG-ID: CT1kZFJdPz29r0kFU6Fbtg_1756739235
 Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id AFFD4195608C;
-	Mon,  1 Sep 2025 15:10:13 +0000 (UTC)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 09663180035C;
+	Mon,  1 Sep 2025 15:07:15 +0000 (UTC)
 Received: from t14s.fritz.box (unknown [10.22.88.45])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 1094E18003FC;
-	Mon,  1 Sep 2025 15:09:58 +0000 (UTC)
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 90EDB1800447;
+	Mon,  1 Sep 2025 15:07:01 +0000 (UTC)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: David Hildenbrand <david@redhat.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Zi Yan <ziy@nvidia.com>,
+	Wei Yang <richard.weiyang@gmail.com>,
 	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
 	Alexander Potapenko <glider@google.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Brendan Jackman <jackmanb@google.com>,
@@ -99,7 +76,6 @@ Cc: David Hildenbrand <david@redhat.com>,
 	John Hubbard <jhubbard@nvidia.com>,
 	kasan-dev@googlegroups.com,
 	kvm@vger.kernel.org,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
 	Linus Torvalds <torvalds@linux-foundation.org>,
 	linux-arm-kernel@axis.com,
 	linux-arm-kernel@lists.infradead.org,
@@ -126,19 +102,18 @@ Cc: David Hildenbrand <david@redhat.com>,
 	virtualization@lists.linux.dev,
 	Vlastimil Babka <vbabka@suse.cz>,
 	wireguard@lists.zx2c4.com,
-	x86@kernel.org,
-	Zi Yan <ziy@nvidia.com>
-Subject: [PATCH v2 22/37] mm/cma: refuse handing out non-contiguous page ranges
-Date: Mon,  1 Sep 2025 17:03:43 +0200
-Message-ID: <20250901150359.867252-23-david@redhat.com>
+	x86@kernel.org
+Subject: [PATCH v2 10/37] mm: sanity-check maximum folio size in folio_set_order()
+Date: Mon,  1 Sep 2025 17:03:31 +0200
+Message-ID: <20250901150359.867252-11-david@redhat.com>
 In-Reply-To: <20250901150359.867252-1-david@redhat.com>
 References: <20250901150359.867252-1-david@redhat.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_161024_042058_D8958856 
-X-CRM114-Status: GOOD (  29.13  )
+X-CRM114-CacheID: sfid-20250901_080727_467742_C39DE53F 
+X-CRM114-Status: GOOD (  12.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,184 +128,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Let's disallow handing out PFN ranges with non-contiguous pages, so we
-can remove the nth-page usage in __cma_alloc(), and so any callers don't
-have to worry about that either when wanting to blindly iterate pages.
+Let's sanity-check in folio_set_order() whether we would be trying to
+create a folio with an order that would make it exceed MAX_FOLIO_ORDER.
 
-This is really only a problem in configs with SPARSEMEM but without
-SPARSEMEM_VMEMMAP, and only when we would cross memory sections in some
-cases.
+This will enable the check whenever a folio/compound page is initialized
+through prepare_compound_head() / prepare_compound_page() with
+CONFIG_DEBUG_VM set.
 
-Will this cause harm? Probably not, because it's mostly 32bit that does
-not support SPARSEMEM_VMEMMAP. If this ever becomes a problem we could
-look into allocating the memmap for the memory sections spanned by a
-single CMA region in one go from memblock.
-
-Reviewed-by: Alexandru Elisei <alexandru.elisei@arm.com>
+Reviewed-by: Zi Yan <ziy@nvidia.com>
+Reviewed-by: Wei Yang <richard.weiyang@gmail.com>
 Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Reviewed-by: Liam R. Howlett <Liam.Howlett@oracle.com>
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- include/linux/mm.h |  6 ++++++
- mm/cma.c           | 39 ++++++++++++++++++++++++---------------
- mm/util.c          | 35 +++++++++++++++++++++++++++++++++++
- 3 files changed, 65 insertions(+), 15 deletions(-)
+ mm/internal.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index f6880e3225c5c..2ca1eb2db63ec 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -209,9 +209,15 @@ extern unsigned long sysctl_user_reserve_kbytes;
- extern unsigned long sysctl_admin_reserve_kbytes;
- 
- #if defined(CONFIG_SPARSEMEM) && !defined(CONFIG_SPARSEMEM_VMEMMAP)
-+bool page_range_contiguous(const struct page *page, unsigned long nr_pages);
- #define nth_page(page,n) pfn_to_page(page_to_pfn((page)) + (n))
- #else
- #define nth_page(page,n) ((page) + (n))
-+static inline bool page_range_contiguous(const struct page *page,
-+		unsigned long nr_pages)
-+{
-+	return true;
-+}
- #endif
- 
- /* to align the pointer to the (next) page boundary */
-diff --git a/mm/cma.c b/mm/cma.c
-index e56ec64d0567e..813e6dc7b0954 100644
---- a/mm/cma.c
-+++ b/mm/cma.c
-@@ -780,10 +780,8 @@ static int cma_range_alloc(struct cma *cma, struct cma_memrange *cmr,
- 				unsigned long count, unsigned int align,
- 				struct page **pagep, gfp_t gfp)
+diff --git a/mm/internal.h b/mm/internal.h
+index 45da9ff5694f6..9b0129531d004 100644
+--- a/mm/internal.h
++++ b/mm/internal.h
+@@ -755,6 +755,7 @@ static inline void folio_set_order(struct folio *folio, unsigned int order)
  {
--	unsigned long mask, offset;
--	unsigned long pfn = -1;
--	unsigned long start = 0;
- 	unsigned long bitmap_maxno, bitmap_no, bitmap_count;
-+	unsigned long start, pfn, mask, offset;
- 	int ret = -EBUSY;
- 	struct page *page = NULL;
+ 	if (WARN_ON_ONCE(!order || !folio_test_large(folio)))
+ 		return;
++	VM_WARN_ON_ONCE(order > MAX_FOLIO_ORDER);
  
-@@ -795,7 +793,7 @@ static int cma_range_alloc(struct cma *cma, struct cma_memrange *cmr,
- 	if (bitmap_count > bitmap_maxno)
- 		goto out;
- 
--	for (;;) {
-+	for (start = 0; ; start = bitmap_no + mask + 1) {
- 		spin_lock_irq(&cma->lock);
- 		/*
- 		 * If the request is larger than the available number
-@@ -812,6 +810,22 @@ static int cma_range_alloc(struct cma *cma, struct cma_memrange *cmr,
- 			spin_unlock_irq(&cma->lock);
- 			break;
- 		}
-+
-+		pfn = cmr->base_pfn + (bitmap_no << cma->order_per_bit);
-+		page = pfn_to_page(pfn);
-+
-+		/*
-+		 * Do not hand out page ranges that are not contiguous, so
-+		 * callers can just iterate the pages without having to worry
-+		 * about these corner cases.
-+		 */
-+		if (!page_range_contiguous(page, count)) {
-+			spin_unlock_irq(&cma->lock);
-+			pr_warn_ratelimited("%s: %s: skipping incompatible area [0x%lx-0x%lx]",
-+					    __func__, cma->name, pfn, pfn + count - 1);
-+			continue;
-+		}
-+
- 		bitmap_set(cmr->bitmap, bitmap_no, bitmap_count);
- 		cma->available_count -= count;
- 		/*
-@@ -821,29 +835,24 @@ static int cma_range_alloc(struct cma *cma, struct cma_memrange *cmr,
- 		 */
- 		spin_unlock_irq(&cma->lock);
- 
--		pfn = cmr->base_pfn + (bitmap_no << cma->order_per_bit);
- 		mutex_lock(&cma->alloc_mutex);
- 		ret = alloc_contig_range(pfn, pfn + count, ACR_FLAGS_CMA, gfp);
- 		mutex_unlock(&cma->alloc_mutex);
--		if (ret == 0) {
--			page = pfn_to_page(pfn);
-+		if (!ret)
- 			break;
--		}
- 
- 		cma_clear_bitmap(cma, cmr, pfn, count);
- 		if (ret != -EBUSY)
- 			break;
- 
- 		pr_debug("%s(): memory range at pfn 0x%lx %p is busy, retrying\n",
--			 __func__, pfn, pfn_to_page(pfn));
-+			 __func__, pfn, page);
- 
--		trace_cma_alloc_busy_retry(cma->name, pfn, pfn_to_page(pfn),
--					   count, align);
--		/* try again with a bit different memory target */
--		start = bitmap_no + mask + 1;
-+		trace_cma_alloc_busy_retry(cma->name, pfn, page, count, align);
- 	}
- out:
--	*pagep = page;
-+	if (!ret)
-+		*pagep = page;
- 	return ret;
- }
- 
-@@ -882,7 +891,7 @@ static struct page *__cma_alloc(struct cma *cma, unsigned long count,
- 	 */
- 	if (page) {
- 		for (i = 0; i < count; i++)
--			page_kasan_tag_reset(nth_page(page, i));
-+			page_kasan_tag_reset(page + i);
- 	}
- 
- 	if (ret && !(gfp & __GFP_NOWARN)) {
-diff --git a/mm/util.c b/mm/util.c
-index d235b74f7aff7..fbdb73aaf35fe 100644
---- a/mm/util.c
-+++ b/mm/util.c
-@@ -1280,4 +1280,39 @@ unsigned int folio_pte_batch(struct folio *folio, pte_t *ptep, pte_t pte,
- {
- 	return folio_pte_batch_flags(folio, NULL, ptep, &pte, max_nr, 0);
- }
-+
-+#if defined(CONFIG_SPARSEMEM) && !defined(CONFIG_SPARSEMEM_VMEMMAP)
-+/**
-+ * page_range_contiguous - test whether the page range is contiguous
-+ * @page: the start of the page range.
-+ * @nr_pages: the number of pages in the range.
-+ *
-+ * Test whether the page range is contiguous, such that they can be iterated
-+ * naively, corresponding to iterating a contiguous PFN range.
-+ *
-+ * This function should primarily only be used for debug checks, or when
-+ * working with page ranges that are not naturally contiguous (e.g., pages
-+ * within a folio are).
-+ *
-+ * Returns true if contiguous, otherwise false.
-+ */
-+bool page_range_contiguous(const struct page *page, unsigned long nr_pages)
-+{
-+	const unsigned long start_pfn = page_to_pfn(page);
-+	const unsigned long end_pfn = start_pfn + nr_pages;
-+	unsigned long pfn;
-+
-+	/*
-+	 * The memmap is allocated per memory section, so no need to check
-+	 * within the first section. However, we need to check each other
-+	 * spanned memory section once, making sure the first page in a
-+	 * section could similarly be reached by just iterating pages.
-+	 */
-+	for (pfn = ALIGN(start_pfn, PAGES_PER_SECTION);
-+	     pfn < end_pfn; pfn += PAGES_PER_SECTION)
-+		if (unlikely(page + (pfn - start_pfn) != pfn_to_page(pfn)))
-+			return false;
-+	return true;
-+}
-+#endif
- #endif /* CONFIG_MMU */
+ 	folio->_flags_1 = (folio->_flags_1 & ~0xffUL) | order;
+ #ifdef NR_PAGES_IN_LARGE_FOLIO
 -- 
 2.50.1
 
