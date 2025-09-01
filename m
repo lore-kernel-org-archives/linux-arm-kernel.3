@@ -4,81 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88415CA0FF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 14:47:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B92E1CA1006
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 14:47:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Av62sJ3FV0iPeome6BM/Ow3eq/moaLVzrZp3MwMoc1o=; b=0HDnmwLsrhoR9TY6uoMoaR/InT
-	RkuZD2fCt+1tgfjCijUSMYWOrkidEPlawh9fSMcjPGDFa0joUiWdUpO9RsJt80ANYCChfFbjeTgN7
-	qeNYc5vkoSoTr7ipczpz3M+xjUMg5vHESbmvOMAPhkEGIegsXzUdDnLWkdDoZ9K1Dz2OVMcDe+Wws
-	reGQx2+dk5bc4SUprPJqC69Q3wSpCeokJ+e2LE5CDHS2lMZA34POhz0LglAStkFCEMSgmiPRQMA+C
-	2Y9xu0ouPK2V5QkYKzYcChP0J5BTkZJQAPaq9gbkMYMyMusP5SD4MgMAEXpcJhdEbNS5zP/acGHke
-	ciG8/JBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8hGKL4FKs6i1GHIz+xvbOKSl/l4umvQsOiUCwcWZt3c=; b=cwrUZB3wfWH4pqCM+LDv5QReFg
+	SOPvOhVN2Ym0muOzQW7+6rVfCBuhYHhqHImGRBb1z+62DjbkxVYILP6LjqE45B9PKzFVDpK+GBYl1
+	TQiqd2BKPDrRSFtsjcRSkLRDZ/gJjZyYkJJ03fkkxvLwySFyrI91qpWjc3Md+EObpq2i8U+Wp6GmI
+	bHB9s071VohM5/Tlt9cdKRN/dRFOsPT9bnhZuJYjSgHns0kZZqbediiRUU8e/G2WgtAah5ufEuFSz
+	Vk4WHDQ3vfhdFpsEPxLfrbSGr1j5+qhOD5JYvbxQCZKrw3I8Q7FiPIqwJNG1hpo9IGCNyeYam5b3d
+	ELyKLl0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut5op-0000000Ct82-267S;
-	Mon, 01 Sep 2025 14:47:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ut5os-0000000CtCb-1l2B;
+	Mon, 01 Sep 2025 14:47:42 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut3Zz-0000000COV2-3FnW
+	id 1ut3bp-0000000CQ4f-3nsX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 12:24:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E14B0601D6;
-	Mon,  1 Sep 2025 12:24:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94EFEC4CEF0;
-	Mon,  1 Sep 2025 12:24:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756729450;
-	bh=1y1C3r+YYCBCldCQKr3GO6JKvPpDZX9+NRK0YMyqE/c=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=bMqtVR+pnPwQGrofgqUly/HRw5+is5i33ASvrU3eqrSUaY6VndIg6J/zUi2HTccUP
-	 Cs8Bp01Iobubz67QuN8CXqUXAs8ycsuVmHHl3FnGnT1c4ugIsE4YW7BFI2A2DXMHJZ
-	 r7LRwHFY9vG53RqA6aSDJ0HlafWV1ydatN5yQdY1edikeBePJa8qLwvK4Z8nTa0/Q5
-	 ntTTnaDB1gS9b6YpI8Nc5zg+KXI5ltrn3VKvNMFLvn4EtE2LHsKjWPD7HTX8lHZSPW
-	 CBcMn/nbXMnBhQuswnFHP7NAjbLe+hnU3AgPOxLUQVH2bjyah0xXSHUepJg75VxuNi
-	 REe1eNB40fadA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1ut3Zw-00000002F4D-0jUI;
-	Mon, 01 Sep 2025 12:24:08 +0000
-Date: Mon, 01 Sep 2025 13:24:07 +0100
-Message-ID: <863496e4yg.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: Yingchao Deng <yingchao.deng@oss.qualcomm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	quic_yingdeng@quicinc.com,
-	jinlong.mao@oss.qualcomm.com,
-	tingwei.zhang@oss.qualcomm.com,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas
- <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH] KVM: arm64: Fix NULL pointer access issue
-In-Reply-To: <450f11c2-6c11-4ffa-ae20-db4ea419a3ca@linaro.org>
-References: <20250901-etm_crash-v1-1-ce65e44c137c@oss.qualcomm.com>
-	<450f11c2-6c11-4ffa-ae20-db4ea419a3ca@linaro.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: james.clark@linaro.org, yingchao.deng@oss.qualcomm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, quic_yingdeng@quicinc.com, jinlong.mao@oss.qualcomm.com, tingwei.zhang@oss.qualcomm.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 01 Sep 2025 12:26:08 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 6ABF9C8F1CA;
+	Mon,  1 Sep 2025 12:25:48 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 41FBD60699;
+	Mon,  1 Sep 2025 12:26:03 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id F2DF91C22D736;
+	Mon,  1 Sep 2025 14:25:50 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1756729562; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=8hGKL4FKs6i1GHIz+xvbOKSl/l4umvQsOiUCwcWZt3c=;
+	b=ICva/DOhoEqp0sA/6pEKzHDp66jcy4SdmY8zOiDNLM/OAzy2LXngum3o1tpj3CFzbRhWav
+	dSu8CrivVDRGAnuO7HUwM7hJ0u1+5nvI74OY9iDBX2wA4uZ1eoFrjKKo6HX5h5LkQ0SQ2o
+	kfy5behNlzpFHvhiXPnndYs1DvuU+5jLkPpTu98qEhsMv7E7z2ds8pYwloloJUVcpVcHOr
+	V7bbVLfvGGoj108tZnogq9g+yN0rPZxPvUL1sjHC/knOiOujD+aPXCbA5Kf8TPC1MIjN+I
+	GS4y0PiZ8HhRTmqzlW8Qya6sZ/6vnxC5IvXiYhpfmFsVHAhNUbYp2FHOcRdqxA==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Richard Weinberger <richard@nod.at>, 
+ Vignesh Raghavendra <vigneshr@ti.com>, Jacky Huang <ychuang3@nuvoton.com>, 
+ Shan-Chun Hung <schung@nuvoton.com>, Hui-Ping Chen <hpchen0nvt@gmail.com>, 
+ Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Cc: linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org, 
+ linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+In-Reply-To: <a2a4ca2010ac4aa2aee0bec151d2e57e812510a0.1753904852.git.christophe.jaillet@wanadoo.fr>
+References: <a2a4ca2010ac4aa2aee0bec151d2e57e812510a0.1753904852.git.christophe.jaillet@wanadoo.fr>
+Subject: Re: [PATCH] mtd: rawnand: nuvoton: Fix an error handling path in
+ ma35_nand_chips_init()
+Message-Id: <175672955080.48300.7085440480114483519.b4-ty@bootlin.com>
+Date: Mon, 01 Sep 2025 14:25:50 +0200
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.14.2
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250901_052606_312392_CDADE2BB 
+X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,63 +80,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 01 Sep 2025 11:36:11 +0100,
-James Clark <james.clark@linaro.org> wrote:
+On Wed, 30 Jul 2025 21:47:46 +0200, Christophe JAILLET wrote:
+> If a ma35_nand_chip_init() call fails, then a reference to 'nand_np' still
+> needs to be released.
+> 
+> Use for_each_child_of_node_scoped() to fix the issue.
 > 
 > 
-> 
-> On 01/09/2025 11:01 am, Yingchao Deng wrote:
-> > When linux is booted in EL1, macro "host_data_ptr()" is a wrapper that
-> > resolves to "&per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)",
-> > is_hyp_mode_available() return false during kvm_arm_init, the per-CPU base
-> > pointer __kvm_nvhe_kvm_arm_hyp_percpu_base[cpu] remains uninitialized.
-> > Consequently, any access via per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)
-> > will result in a NULL pointer.
-> > 
-> > Add is_kvm_arm_initialised() condition check to ensure that kvm_arm_init
-> > completes all necessary initialization steps, including init_hyp_mode.
-> > 
-> > Fixes: 054b88391bbe2 ("KVM: arm64: Support trace filtering for guests")
-> > Signed-off-by: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-> > ---
-> > Add a check to prevent accessing uninitialized per-CPU data.
-> > ---
-> >   arch/arm64/kvm/debug.c | 7 ++++---
-> >   1 file changed, 4 insertions(+), 3 deletions(-)
-> > 
-> > diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
-> > index 381382c19fe4741980c79b08bbdab6a1bcd825ad..add58056297293b4eb337028773b1b018ecc9d35 100644
-> > --- a/arch/arm64/kvm/debug.c
-> > +++ b/arch/arm64/kvm/debug.c
-> > @@ -233,7 +233,7 @@ void kvm_debug_handle_oslar(struct kvm_vcpu *vcpu, u64 val)
-> >   void kvm_enable_trbe(void)
-> >   {
-> >   	if (has_vhe() || is_protected_kvm_enabled() ||
-> > -	    WARN_ON_ONCE(preemptible()))
-> > +	    WARN_ON_ONCE(preemptible()) || !is_kvm_arm_initialised())
-> 
-> Hi Yingchao,
-> 
-> There shouldn't be a warning for this, at least for the case where
-> it's not initialized and never will be. If you're never going to run a
-> guest these functions can all skip, the same way for !has_vhe() etc.
 
-It's not a warning. It's a bona-fide crash:
+Applied to mtd/fixes, thanks!
 
-void kvm_enable_trbe(void)
-{
-	if (has_vhe() || is_protected_kvm_enabled() ||
-	    WARN_ON_ONCE(preemptible()))
-		return;
+[1/1] mtd: rawnand: nuvoton: Fix an error handling path in ma35_nand_chips_init()
+      commit: 1eae113dd5ff5192cfd3e11b6ab7b96193b42c01
 
-	host_data_set_flag(TRBE_ENABLED); <--- Explodes here
-}
+Patche(s) should be available on mtd/linux.git and will be
+part of the next PR (provided that no robot complains by then).
 
-So the write of the flag has to be skipped if KVM is available, even
-if KVM is compiled in.
+Kind regards,
+Miquèl
 
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
