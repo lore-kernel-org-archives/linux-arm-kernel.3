@@ -4,56 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B87DCA1005
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 12:31:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB36ACA0FFD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 12:31:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LIJswlnS1XPK8dxK7Wm0x+2qw1HXwmjdSCmdObnXLdk=; b=Pb4VV+Nlk96za9FaFa1JjdYAXa
-	E7+1e3pUEbO0H6LajhQKug6NKMZ2RePuCpQU3a/LaQ0y3Nv4aTpwUqudZy5z0/aIY7YMyL/PJkzqf
-	N4w94Stwim4p/NUc5x36uE9CT+xkKbkySNtrzM4CfR264BF0JVEtjsdSRHO2Rf9gHSDrzFLBl2muV
-	V2TtLMF1hAcUJ6jaDMXc+jOjdsNqiiyqAGcGJ376IlrOdjHKsrYmka10CGy9z745XQRojsZKq4gCq
-	bIDx9xUFss0oCcxK6IX6VA4Jocu23v+oQoHL8BhNIreibvQyzYxFeDZFZ4ev6dyJyFsgF4C0NLmGg
-	XE5kXWPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9VperyxVAjlwlbJCJkMjCmXrIBGNM7jAh5WR9v8W14M=; b=oEbsf5UxCOcFRZ5k8b8KBMRjpg
+	iW2FqOnqqLxmvk7XsK4M5VGHqYIHHpVWJS1ZwyTSz/pSAk5O/5UNIZt9EhcSTrboP/5yjagKS6q6c
+	IEFzKJKQnw+wBMuzmAfKYNvUaIsUxWFaIJdPm52lFo5MRj0hQHR8Yt+AAkauTlM2e7uHOu6VsxXnG
+	UqMue1Qd3xOUl/3gx5+zdaAQULITz5dR2nOSyvIms0SASxKEz1TwkdmTAfz1akVGKrn0HSqEiBMc3
+	njkYBSCV2X4ANi6tDnVkq/nispRJdyDMq0cfieGvMrsl2y7BnRQ84BHm86IgLWvVuEOuoMKvfd6sV
+	o6IAFqeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut3gw-0000000CUug-2BzQ;
-	Mon, 01 Sep 2025 12:31:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut1ui-0000000BvMb-2x50
+	id 1ut3gx-0000000CUvM-0ytt;
+	Mon, 01 Sep 2025 12:31:23 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ut1up-0000000BvNd-1d3W
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 10:37:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B017D16A3;
-	Mon,  1 Sep 2025 03:37:19 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 778B43F6A8;
-	Mon,  1 Sep 2025 03:37:26 -0700 (PDT)
-Message-ID: <07171e19-71a4-4672-adfd-03feb17433e9@arm.com>
-Date: Mon, 1 Sep 2025 11:37:25 +0100
+	Mon, 01 Sep 2025 10:37:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lb7yOVEEj6TrpWS9YtQp12eaZzYUles6KDnRK8HUFHnR8Eu1e4ly8tr0hegfHPnYs6kVnUbZ7yuZzHItqVRCOHMLqES0pCPcmkICeAjeQdu/AfSqvMQysk3mclA3eBr23zny2y534kXpKwBbraO1nov2St+iOMJAQGMQxFgQidvOowC94p8r0pr4YFkm2njRgebUqv0+CB6YelmoEl2hl1P+MmMeLURuvrPNi778ffk81M8HaRropl6zXL+mbxxa9BebxUmn+WJQpCdm+51d0NbPM3m1aNYTTCcDumi+L/vWekB62wIiH6kCPWDQ+X+3kQPbsHazbEGoDzVD5OL0cA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9VperyxVAjlwlbJCJkMjCmXrIBGNM7jAh5WR9v8W14M=;
+ b=hAczhlcMYFVj5kSZAubWSR3WF5LzkJ44JyVESt/vR3fPWVbCGQPEfBhe4YffF2D5X/z1faM3iYjjyr9PzH8rAKikj8sKqoY0V6EkDqltFBYK+AUG+OZJSH4/+1wkFSP3rrgRMDDK7ONHmyM9quGyc88i9fsS6FGFzKmZYI5jhrNlD2PYXRk/fLfCQKTnlCVhNeC3Ae2X5EAm0Bfi7KWIls2/N7IrNWpBViWu4ltNnRnWdNf4W1PFfBGpO8TW4A5K1UVf8A5Qasw/IC1jsCcK3QEl8C6rYJzSj5dr2N9vvqn4tR/lye3cfxQ9ehmhxxXnHWpiU4JuBWXvGb9IJSvDjQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9VperyxVAjlwlbJCJkMjCmXrIBGNM7jAh5WR9v8W14M=;
+ b=RoCFRRqx2Ia/OOfrnWm/PPTJD1VwPZEHWHLXXdChFTgZOoiKocVvaX7yIXnpu0bOYDZeLwk91DqUOjiBh5+P+4x3c99upLTj0lwJfqPpQrc5pLzirgFEitUreasZw+pmpXO8SRLWYy3bnACK0I4tgzLHwd6p381YVhjB2Xwz5K9kvVNPaxGzisp5cJinVirg0zOGohR2+JMXPEYm2t/PO/6h38VzexdjdKYmIcp8dRgx+92EIWuaLe9aixp9znAfA12aBWV0jqTruqRCJTp0Q00aVXafzIY034swBRF78vXCbxeBehhbLnK5+PrKGEI3DUs/EGg0ZroHQllKa7p52Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS4PR04MB9386.eurprd04.prod.outlook.com (2603:10a6:20b:4e9::8)
+ by GV2PR04MB11304.eurprd04.prod.outlook.com (2603:10a6:150:2a8::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.13; Mon, 1 Sep
+ 2025 10:37:25 +0000
+Received: from AS4PR04MB9386.eurprd04.prod.outlook.com
+ ([fe80::261e:eaf4:f429:5e1c]) by AS4PR04MB9386.eurprd04.prod.outlook.com
+ ([fe80::261e:eaf4:f429:5e1c%7]) with mapi id 15.20.9094.011; Mon, 1 Sep 2025
+ 10:37:25 +0000
+From: Joy Zou <joy.zou@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	richardcochran@gmail.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	frieder.schrempf@kontron.de,
+	primoz.fiser@norik.com,
+	othacehe@gnu.org,
+	Markus.Niebel@ew.tq-group.com,
+	alexander.stein@ew.tq-group.com
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux@ew.tq-group.com,
+	netdev@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Frank.Li@nxp.com
+Subject: [PATCH v10 0/6] Add i.MX91 platform support
+Date: Mon,  1 Sep 2025 18:36:26 +0800
+Message-Id: <20250901103632.3409896-1-joy.zou@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR01CA0021.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:192::19) To AS4PR04MB9386.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4e9::8)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V3 2/2] arm64/sysreg: Replace TCR_EL1 field macros
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Mark Brown <broonie@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
- kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20250901072037.743380-1-anshuman.khandual@arm.com>
- <20250901072037.743380-3-anshuman.khandual@arm.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20250901072037.743380-3-anshuman.khandual@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4PR04MB9386:EE_|GV2PR04MB11304:EE_
+X-MS-Office365-Filtering-Correlation-Id: 625b64e4-5c7e-4ead-0b7d-08dde9438a44
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|52116014|7416014|376014|1800799024|366016|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?2FFu8OwIvNeeKR0f1XnC036v0YMntfbaYaB+eKKvxQt5whXLMLLqW/GXExYU?=
+ =?us-ascii?Q?IlJs6K9buW5exX4ldstkqbeYPM7kAfAl+12x2ALfjmedRzBnongexrFCE+bh?=
+ =?us-ascii?Q?zeyw8/AjOp5NtNx7lL1U8rM1pnYZiB96R3iU7K+8kc2ABJkj+VRaI8QyQhih?=
+ =?us-ascii?Q?3tIPxRXnx57ZDByjQG6/YDS/SsEXIaCgBemsa8zVJlroPBECYFKhPyXyXfMZ?=
+ =?us-ascii?Q?DolMThgLGOskKl7/0eKJFia4nd+skO/3pRscH2y0ZGgdeZByJbQug2XhxHpw?=
+ =?us-ascii?Q?lEh1FXNTJpSa0w8+I8W8gTmAeKQl9JJiY0KwbrdIp5o02sHP6pe8bCItL9vp?=
+ =?us-ascii?Q?LAU+om0DYWHM2PwXVNjYbVLNWWeaav8hKrReJ8cJtr/OTx4EM1CB/XltL9JP?=
+ =?us-ascii?Q?V53Cbiws2GcFcVIPjT5Eqvf9WAoYMF/pbEQUQT/asIdWXudMAC6sJmUBCXu0?=
+ =?us-ascii?Q?ffSFLmVPtt1z0WfjrjR7Ux7y5NGCbPIGRVfQ4Aad8HcZ1uLX5TUvVRNYqqhX?=
+ =?us-ascii?Q?u8IQEw9oPtrZqQludYAW/4/p4eVt3Fz/wvFdkqDAZ9p5HeCG6UmQPpcSk2FU?=
+ =?us-ascii?Q?cSFIu8O58jwExwGhUlQbf8XRtHwGtCn4hV5I0BH4DSutgnDcj52V1OWaPYrn?=
+ =?us-ascii?Q?0uqP3XJJUrTwEIraVJfjyedjsgypBnAV/HLGcmjowGnIgKKsH/XJUF5LpKVA?=
+ =?us-ascii?Q?mBoiBkjoSGLm+sEYmwjjCOI/tIT76bhN/e9vPdB03ucdf5GcgSjQMeeQLBTX?=
+ =?us-ascii?Q?P9VDTBgA5mj0cVlSi2lufWWIefou7ElyMsq736fUGV2ZZ/1z2wmFNvaa4/Nj?=
+ =?us-ascii?Q?EWK7G34qP8S21s/fuRw/at1QhdnYymXGZfdllOJ5ibANG8/+g5zK25umcehh?=
+ =?us-ascii?Q?wGgv2/iH/h2vSZarkKQwucQ20srmv3K7lpMPc+yeFS42bFkpJMTkG9+x/o0k?=
+ =?us-ascii?Q?dQbjJbrAwBcxJr2w6Mz6tCBMFDoAPPUiS5ts4BFga0S7fUCAgpnwXn64as06?=
+ =?us-ascii?Q?f6lZ1n1bw/PRNHndY+gUowMqoz1PqCBtJeGXisR2TMFmrwLaFxFiTJHqJi66?=
+ =?us-ascii?Q?f6jMHBqd+gr7NdDYmuXyLpr4kMeJ85xDRyzGokjPasQ8aHdxLlqPGS+OZxqf?=
+ =?us-ascii?Q?v+xOpLJaCVJ2QRAc29elQJDkWIiqr4oj37ln2DwitBgVg+/mnMzeG+oq2ezw?=
+ =?us-ascii?Q?ofRj7hc8nMJDvfL6RABZcA4+HjGwfLX3mFcl98WpF3dr2gLFub3QeJO2nzV/?=
+ =?us-ascii?Q?B/vgQCqZyPAEJDEwrSQFEEY77QGoEzQm7QYE/qsCXmjD8Zd6R1LNa2SH2s1t?=
+ =?us-ascii?Q?OKiZp6VJAU+/qA2VCkKnxjNhq2+PL5SE3j2RvPjk6b5UQMwg8UHfQtUGswJy?=
+ =?us-ascii?Q?Q6YXpv90KCzoXd5UJ0u/EHbTFspGPueLe+G/NqxGZuneppPC+G5EEjkb/kvH?=
+ =?us-ascii?Q?I2jO+iJb/eq1o1UlA5KCWsfQyiwD6e8Y?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9386.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(52116014)(7416014)(376014)(1800799024)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?iZlyCBtuOY9yJTOAs1OFL0uAbex+NMRARc8WZPsyyBaI54HXT1IBUJZWiyuz?=
+ =?us-ascii?Q?dg1d7lbiCDj6rjqGRufH9tlI8cntqfzVTOWNVc7aVrI9JYYT91MbLYhaPdeN?=
+ =?us-ascii?Q?pXAlyGeHSeT83WrUjxdZq0RLHzX6krHzXLwxbvH8LVS5q3MCPx/wSLCEyqEt?=
+ =?us-ascii?Q?9bW+QQp9Plqv0Y/VpbfxSdDDws2Ky5+bAlLLplGO2Bxv+f7DQN8tOkfGgMCY?=
+ =?us-ascii?Q?a9xxwjEjAxbkk4YGnQgSrjCx5TLtTiXcpGo4Rj2XQBHJb9tG7XmdB7aqfVwY?=
+ =?us-ascii?Q?LmRTeMYBoy8F/Pv/uPnvIZbM0XmfCnwkX4ucmcVCAaq4zdiLVvKWfI895X32?=
+ =?us-ascii?Q?wemgooODpOoTvXXpog5mraQbMecTY87bfyEgRLufi5OeiZUIY+qFD0cinpJs?=
+ =?us-ascii?Q?+qa45COHk4hM37Eg0VW7QrGbyqT4G/mM6Ygd7LfcSFWKZBiEuP3o8FGp5UVk?=
+ =?us-ascii?Q?hAs2ityLTv9XJCFmiweJdZF+1nz7O8g9PzCNpKDp8Lzk+5BwvCtuWveQPkPs?=
+ =?us-ascii?Q?nrXDjoMHuGykR2dM0HZqCKNEaaVn2ykuQ4YBySJ1lpODSzzGXrZPJtddMDSA?=
+ =?us-ascii?Q?lI+c3+bRVnjRzEpL4BiMI9QjL91Ay2WtaqwqnQzseG4dkueXC02VhkWd8Ro1?=
+ =?us-ascii?Q?eMrqqowG9XLCd+1dMEKtfQkkXY2ry5Pf6j2uQrtk+xG0vZgqgdQdD8MLm6IO?=
+ =?us-ascii?Q?oT4G37dpzG5HsaI/VdMVisZpsEO77dAaeuvwzWnG7zABwxmHoL6GkidWTinR?=
+ =?us-ascii?Q?ZdSCCslNZjmhPIpJLJBn03TSrwm1Vl1R43+cOm2eBrrNlLqu4oJG08HtuIw0?=
+ =?us-ascii?Q?txtfmlRQ8xK9+iIR6nq2ZtkxxiVzXeptu5zmzD52YuGzDcYP6pI0f6seXcKa?=
+ =?us-ascii?Q?ydWlknbwkTves7ooJzFIpOZ0U873nxPBMPNXcJuGudeUJEPDGnTXNB32ghVW?=
+ =?us-ascii?Q?qcfwi6dIyGcyaC1RRQOjmlIzB1ZOkdUuxy9jOzdWPThPAikPKxpBfeGtEzSc?=
+ =?us-ascii?Q?9xOyfh0F3cCNTfWt/q5KilwHjGVIMw1eb80Gn7w9hhbeDBEiDFs7jThVo8vd?=
+ =?us-ascii?Q?IccXqkzGKEChPE4K79bT1JZlJw8WMYh+PI1yw5++TeKDOkmoVgcevvFXmixx?=
+ =?us-ascii?Q?5u0B4LxwTt4pnDnRKQnvIOQ3OAI1VeTsggJTllKY+YC9UoonKJJr6Bey6a1a?=
+ =?us-ascii?Q?ZhOZYLXFz+XyxIsgrvL64DkxF2R/4EOfh3K4r13svFgN074LEjRFEK/RvPvV?=
+ =?us-ascii?Q?vg8gyuMTrsTWpXtWO6v7+wUClkoSPQ2yW0lZmPP16ejhNv+WpdxX5QqEQVbd?=
+ =?us-ascii?Q?QtSS2lTW/DdCUfUTb+rv4+GBkzwVeb3XVFwyczLwDTFwJf/h2Gd3K5xGrqrc?=
+ =?us-ascii?Q?rLCxTXWP3EmycpmnQQZIqwNKebWO6dfF+gSneF23Nx3DMO1Yt745DN2RI0OM?=
+ =?us-ascii?Q?1B9HMbtLg1CtciYld5egwzAKbEDQ/Bfv9QKn/9YnsFNn74XKZLSoIRt//fx9?=
+ =?us-ascii?Q?N6VUj8gVvTECYo+Ta/U6993I19hEdAjJD5LBFwtMbFrS8n1pUqWpbszZczE7?=
+ =?us-ascii?Q?hQFPTns4FRr33T6SKJrSR1DNUUGhzdC1zpRMLETy?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 625b64e4-5c7e-4ead-0b7d-08dde9438a44
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9386.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Sep 2025 10:37:25.2251
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: rZAvSV1byZ4iN41aKtcrFNZRgfEhJwauRKhtwKVnLAvinlSpxTLx0iNE6UlDPgI6
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11304
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_033728_839226_DA8CDA16 
-X-CRM114-Status: GOOD (  22.96  )
+X-CRM114-CacheID: sfid-20250901_033735_604563_7FFEEC59 
+X-CRM114-Status: GOOD (  22.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,510 +180,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Anshuman,
+The design of i.MX91 platform is very similar to i.MX93.
+Extracts the common parts in order to reuse code.
 
-On 9/1/25 08:20, Anshuman Khandual wrote:
-> This just replaces all used TCR_EL1 field macros with tools sysreg variant
-> based fields and subsequently drops them from the header (pgtable-hwdef.h)
-> and moves them into KVM header (asm/kvm_arm.h) for continued usage in KVM.
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Mark Brown <broonie@kernel.org>
-> Cc: kvmarm@lists.linux.dev
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
-> Changes in V3:
-> 
-> - KVM TCR_XXX flags are expressed via TCR_EL1_XXX flags per Marc
-> 
->  arch/arm64/include/asm/assembler.h     |  6 +-
->  arch/arm64/include/asm/cputype.h       |  2 +-
->  arch/arm64/include/asm/kvm_arm.h       | 78 ++++++++++++++++++++
->  arch/arm64/include/asm/mmu_context.h   |  4 +-
->  arch/arm64/include/asm/pgtable-hwdef.h | 98 +-------------------------
->  arch/arm64/include/asm/pgtable-prot.h  |  2 +-
->  arch/arm64/kernel/cpufeature.c         |  4 +-
->  arch/arm64/kernel/pi/map_kernel.c      |  8 +--
->  arch/arm64/kernel/vmcore_info.c        |  2 +-
->  arch/arm64/mm/proc.S                   | 36 ++++++----
->  tools/arch/arm64/include/asm/cputype.h |  2 +-
->  11 files changed, 118 insertions(+), 124 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
-> index 23be85d93348..1392860a3c97 100644
-> --- a/arch/arm64/include/asm/assembler.h
-> +++ b/arch/arm64/include/asm/assembler.h
-> @@ -325,14 +325,14 @@ alternative_cb_end
->   * tcr_set_t0sz - update TCR.T0SZ so that we can load the ID map
->   */
->  	.macro	tcr_set_t0sz, valreg, t0sz
-> -	bfi	\valreg, \t0sz, #TCR_T0SZ_OFFSET, #TCR_TxSZ_WIDTH
-> +	bfi	\valreg, \t0sz, #TCR_EL1_T0SZ_SHIFT, #TCR_EL1_T0SZ_WIDTH
->  	.endm
->  
->  /*
->   * tcr_set_t1sz - update TCR.T1SZ
->   */
->  	.macro	tcr_set_t1sz, valreg, t1sz
-> -	bfi	\valreg, \t1sz, #TCR_T1SZ_OFFSET, #TCR_TxSZ_WIDTH
-> +	bfi	\valreg, \t1sz, #TCR_EL1_T1SZ_SHIFT, #TCR_EL1_T1SZ_WIDTH
->  	.endm
->  
->  /*
-> @@ -589,7 +589,7 @@ alternative_endif
->  	.macro	offset_ttbr1, ttbr, tmp
->  #if defined(CONFIG_ARM64_VA_BITS_52) && !defined(CONFIG_ARM64_LPA2)
->  	mrs	\tmp, tcr_el1
-> -	and	\tmp, \tmp, #TCR_T1SZ_MASK
-> +	and	\tmp, \tmp, #TCR_EL1_T1SZ_MASK
->  	cmp	\tmp, #TCR_T1SZ(VA_BITS_MIN)
->  	orr	\tmp, \ttbr, #TTBR1_BADDR_4852_OFFSET
->  	csel	\ttbr, \tmp, \ttbr, eq
-> diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
-> index 661735616787..5d80710ca85f 100644
-> --- a/arch/arm64/include/asm/cputype.h
-> +++ b/arch/arm64/include/asm/cputype.h
-> @@ -243,7 +243,7 @@
->  /* Fujitsu Erratum 010001 affects A64FX 1.0 and 1.1, (v0r0 and v1r0) */
->  #define MIDR_FUJITSU_ERRATUM_010001		MIDR_FUJITSU_A64FX
->  #define MIDR_FUJITSU_ERRATUM_010001_MASK	(~MIDR_CPU_VAR_REV(1, 0))
-> -#define TCR_CLEAR_FUJITSU_ERRATUM_010001	(TCR_NFD1 | TCR_NFD0)
-> +#define TCR_CLEAR_FUJITSU_ERRATUM_010001	(TCR_EL1_NFD1 | TCR_EL1_NFD0)
->  
->  #ifndef __ASSEMBLY__
->  
-> diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
-> index 1da290aeedce..4e0ca6140857 100644
-> --- a/arch/arm64/include/asm/kvm_arm.h
-> +++ b/arch/arm64/include/asm/kvm_arm.h
-> @@ -107,6 +107,84 @@
->  
->  #define MPAMHCR_HOST_FLAGS	0
->  
-> +#define TCR_T0SZ_MASK		TCR_EL1_T0SZ_MASK
-> +#define TCR_T1SZ_MASK		TCR_EL1_T1SZ_MASK
-> +
-> +#define TCR_EPD0_MASK		TCR_EL1_EPD0_MASK
-> +#define TCR_EPD1_MASK		TCR_EL1_EPD1_MASK
-> +
-> +#define TCR_IRGN0_MASK		TCR_EL1_IRGN0_MASK
-> +#define TCR_IRGN0_NC		(TCR_EL1_IRGN0_NC << TCR_EL1_IRGN0_SHIFT)
-> +#define TCR_IRGN0_WBWA		(TCR_EL1_IRGN0_WBWA << TCR_EL1_IRGN0_SHIFT)
-> +#define TCR_IRGN0_WT		(TCR_EL1_IRGN0_WT << TCR_EL1_IRGN0_SHIFT)
-> +#define TCR_IRGN0_WBnWA		(TCR_EL1_IRGN0_WBnWA << TCR_EL1_IRGN0_SHIFT)
-> +
-> +#define TCR_IRGN1_MASK		TCR_EL1_IRGN1_MASK
-> +#define TCR_IRGN1_NC		(TCR_EL1_IRGN1_NC << TCR_EL1_IRGN1_SHIFT)
-> +#define TCR_IRGN1_WBWA		(TCR_EL1_IRGN1_WBWA << TCR_EL1_IRGN1_SHIFT)
-> +#define TCR_IRGN1_WT		(TCR_EL1_IRGN1_WT << TCR_EL1_IRGN1_SHIFT)
-> +#define TCR_IRGN1_WBnWA		(TCR_EL1_IRGN1_WBnWA << TCR_EL1_IRGN1_SHIFT)
-> +
-> +#define TCR_IRGN_NC		(TCR_EL1_IRGN0_NC | TCR_EL1_IRGN1_NC)
-> +#define TCR_IRGN_WT		(TCR_EL1_IRGN0_WT | TCR_EL1_IRGN1_WT)
-> +#define TCR_IRGN_WBnWA		(TCR_EL1_IRGN0_WBnWA | TCR_EL1_IRGN1_WBnWA)
-> +#define TCR_IRGN_MASK		(TCR_EL1_IRGN0_MASK | TCR_EL1_IRGN1_MASK)
-> +
-> +#define TCR_ORGN0_MASK		TCR_EL1_ORGN0_MASK
-> +#define TCR_ORGN0_NC		(TCR_EL1_ORGN0_NC << TCR_EL1_ORGN0_SHIFT)
-> +#define TCR_ORGN0_WBWA		(TCR_EL1_ORGN0_WBWA << TCR_EL1_ORGN0_SHIFT)
-> +#define TCR_ORGN0_WT		(TCR_EL1_ORGN0_WT << TCR_EL1_ORGN0_SHIFT)
-> +#define TCR_ORGN0_WBnWA		(TCR_EL1_ORGN0_WBnWA << TCR_EL1_ORGN0_SHIFT)
-> +
-> +#define TCR_ORGN1_MASK		TCR_EL1_ORGN1_MASK
-> +#define TCR_ORGN1_NC		(TCR_EL1_ORGN1_NC << TCR_EL1_ORGN1_SHIFT)
-> +#define TCR_ORGN1_WBWA		(TCR_EL1_ORGN1_WBWA << TCR_EL1_ORGN1_SHIFT)
-> +#define TCR_ORGN1_WT		(TCR_EL1_ORGN1_WT << TCR_EL1_ORGN1_SHIFT)
-> +#define TCR_ORGN1_WBnWA		(TCR_EL1_ORGN1_WBnWA << TCR_EL1_ORGN1_SHIFT)
-> +
-> +#define TCR_ORGN_NC		(TCR_EL1_ORGN0_NC | TCR_EL1_ORGN1_NC)
-> +#define TCR_ORGN_WT		(TCR_EL1_ORGN0_WT | TCR_EL1_ORGN1_WT)
-> +#define TCR_ORGN_WBnWA		(TCR_EL1_ORGN0_WBnWA | TCR_EL1_ORGN1_WBnWA)
+The mainly difference between i.MX91 and i.MX93 is as follows:
+- i.MX91 removed some clocks and modified the names of some clocks.
+- i.MX91 only has one A core.
+- i.MX91 has different pinmux.
 
-Shouldn't these 3 be defined as per the code you remove below?
+---
+Changes for v10:
+- add Reviewed-by tag for patch #6, 1.
+- add Tested-by tag for patch #3.
+- modify code comment indicating that imx91 is a required property
+  for patch #6.
+- Link to v9: https://lore.kernel.org/imx/20250825091223.1378137-1-joy.zou@nxp.com/
 
-#define TCR_ORGN_NC		(TCR_ORGN0_NC | TCR_ORGN1_NC)
-#define TCR_ORGN_WT		(TCR_ORGN0_WT | TCR_ORGN1_WT)
-#define TCR_ORGN_WBnWA		(TCR_ORGN0_WBnWA | TCR_ORGN1_WBnWA)
+Changes for v9:
+- rebased onto commit 0f4c93f7eb86 ("Add linux-next specific files for 20250822")
+  to align with latest changes.
+- there is no functional changes for these patches.
+- Link to v8: https://lore.kernel.org/imx/20250806114119.1948624-1-joy.zou@nxp.com/
 
-However, it does seem surprising that whether or not EL1 is in the name
-changes whether there is a shift or not.
+Changes for v8:
+- add Reviewed-by tag for patch #2/3/4/5/6/7/8/9/11.
+- modify commit message for patch #10.
+- move imx91 before imx93 in Makefile for patch #6.
+- modify the commit message to keep wrap at 75 chars for patch #5.
+- Link to v7: https://lore.kernel.org/imx/20250728071438.2332382-1-joy.zou@nxp.com/
 
+Changes for v7:
+- Optimize i.MX91 num_clks hardcode with ARRAY_SIZE()for patch #10.
+- Add new patch in order to optimize i.MX93 num_clks hardcode
+  with ARRAY_SIZE() for patch #9.
+- remove this unused comments for patch #6.
+- align all pinctrl value to the same column for patch #6.
+- add aliases because remove aliases from common dtsi for patch #6.
+- remove fec property eee-broken-1000t from imx91 and imx93 board dts
+  for patch #6 and #7.
+- The aliases are removed from common.dtsi because the imx93.dtsi
+  aliases are removed for patch #4.
+- Add new patch that move aliases from imx93.dtsi to board dts for
+  patch #3.
+- These aliases aren't common, so need to drop in imx93.dtsi for patch #3.
+- Only add aliases using to imx93 board dts for patch #3.
+- patch #3 changes come from review comments:
+  https://lore.kernel.org/imx/4e8f2426-92a1-4c7e-b860-0e10e8dd886c@kernel.org/
+- add clocks constraints in the if-else branch for patch #2.
+- reorder the imx93 and imx91 if-else branch for patch #2.
+- patch #2 changes come from review comments:
+  https://lore.kernel.org/imx/urgfsmkl25woqy5emucfkqs52qu624po6rd532hpusg3fdnyg3@s5iwmhnfsi26/
+- add Reviewed-by tag for patch #2.
+- Link to v6: https://lore.kernel.org/imx/20250623095732.2139853-1-joy.zou@nxp.com/
 
-> +#define TCR_ORGN_MASK		(TCR_EL1_ORGN0_MASK | TCR_EL1_ORGN1_MASK)
-> +
-> +#define TCR_SH0_MASK		TCR_EL1_SH0_MASK
-> +#define TCR_SH0_INNER		(TCR_EL1_SH0_INNER << TCR_EL1_SH0_SHIFT)
-> +
-> +#define TCR_SH1_MASK		TCR_EL1_SH1_MASK
-> +#define TCR_SH1_INNER		(TCR_EL1_SH1_INNER << TCR_EL1_SH1_SHIFT)
-> +
-> +#define TCR_TG0_SHIFT		TCR_EL1_TG0_SHIFT
-> +#define TCR_TG0_MASK		TCR_EL1_TG0_MASK
-> +#define TCR_TG0_4K		(TCR_EL1_TG0_4K << TCR_EL1_TG0_SHIFT)
-> +#define TCR_TG0_64K		(TCR_EL1_TG0_64K << TCR_EL1_TG0_SHIFT)
-> +#define TCR_TG0_16K		(TCR_EL1_TG0_16K << TCR_EL1_TG0_SHIFT)
-> +
-> +#define TCR_TG1_SHIFT		TCR_EL1_TG1_SHIFT
-> +#define TCR_TG1_MASK		TCR_EL1_TG1_MASK
-> +#define TCR_TG1_16K		(TCR_EL1_TG1_16K << TCR_EL1_TG1_SHIFT)
-> +#define TCR_TG1_4K		(TCR_EL1_TG1_4K << TCR_EL1_TG1_SHIFT)
-> +#define TCR_TG1_64K		(TCR_EL1_TG1_64K << TCR_EL1_TG1_SHIFT)
-> +
-> +#define TCR_IPS_SHIFT		TCR_EL1_IPS_SHIFT
-> +#define TCR_IPS_MASK		TCR_EL1_IPS_MASK
-> +#define TCR_A1			TCR_EL1_A1
-> +#define TCR_ASID16		TCR_EL1_AS
-> +#define TCR_TBI0		TCR_EL1_TBI0
-> +#define TCR_TBI1		TCR_EL1_TBI1
-> +#define TCR_HA			TCR_EL1_HA
-> +#define TCR_HD			TCR_EL1_HD
-> +#define TCR_HPD0		TCR_EL1_HPD0
-> +#define TCR_HPD1		TCR_EL1_HPD1
-> +#define TCR_TBID0		TCR_EL1_TBID0
-> +#define TCR_TBID1		TCR_EL1_TBID1
-> +#define TCR_NFD0		TCR_EL1_NFD0
-> +#define TCR_NFD1		TCR_EL1_NFD1
-> +#define TCR_E0PD0		TCR_EL1_E0PD0
-> +#define TCR_E0PD1		TCR_EL1_E0PD1
-> +#define TCR_TCMA0		TCR_EL1_TCMA0
-> +#define TCR_TCMA1		TCR_EL1_TCMA1
-> +#define TCR_DS			TCR_EL1_DS
-> +
->  /* TCR_EL2 Registers bits */
->  #define TCR_EL2_DS		(1UL << 32)
->  #define TCR_EL2_RES1		((1U << 31) | (1 << 23))
-> diff --git a/arch/arm64/include/asm/mmu_context.h b/arch/arm64/include/asm/mmu_context.h
-> index 0dbe3b29049b..1b4ac7b23e18 100644
-> --- a/arch/arm64/include/asm/mmu_context.h
-> +++ b/arch/arm64/include/asm/mmu_context.h
-> @@ -73,10 +73,10 @@ static inline void __cpu_set_tcr_t0sz(unsigned long t0sz)
->  {
->  	unsigned long tcr = read_sysreg(tcr_el1);
->  
-> -	if ((tcr & TCR_T0SZ_MASK) == t0sz)
-> +	if ((tcr & TCR_EL1_T0SZ_MASK) == t0sz)
->  		return;
->  
-> -	tcr &= ~TCR_T0SZ_MASK;
-> +	tcr &= ~TCR_EL1_T0SZ_MASK;
->  	tcr |= t0sz;
->  	write_sysreg(tcr, tcr_el1);
->  	isb();
-> diff --git a/arch/arm64/include/asm/pgtable-hwdef.h b/arch/arm64/include/asm/pgtable-hwdef.h
-> index f3b77deedfa2..5059abda78d8 100644
-> --- a/arch/arm64/include/asm/pgtable-hwdef.h
-> +++ b/arch/arm64/include/asm/pgtable-hwdef.h
-> @@ -228,102 +228,8 @@
->  /*
->   * TCR flags.
->   */
-> -#define TCR_T0SZ_OFFSET		0
-> -#define TCR_T1SZ_OFFSET		16
-> -#define TCR_T0SZ(x)		((UL(64) - (x)) << TCR_T0SZ_OFFSET)
-> -#define TCR_T1SZ(x)		((UL(64) - (x)) << TCR_T1SZ_OFFSET)
-> -#define TCR_TxSZ(x)		(TCR_T0SZ(x) | TCR_T1SZ(x))
-> -#define TCR_TxSZ_WIDTH		6
-> -#define TCR_T0SZ_MASK		(((UL(1) << TCR_TxSZ_WIDTH) - 1) << TCR_T0SZ_OFFSET)
-> -#define TCR_T1SZ_MASK		(((UL(1) << TCR_TxSZ_WIDTH) - 1) << TCR_T1SZ_OFFSET)
-> -
-> -#define TCR_EPD0_SHIFT		7
-> -#define TCR_EPD0_MASK		(UL(1) << TCR_EPD0_SHIFT)
-> -#define TCR_IRGN0_SHIFT		8
-> -#define TCR_IRGN0_MASK		(UL(3) << TCR_IRGN0_SHIFT)
-> -#define TCR_IRGN0_NC		(UL(0) << TCR_IRGN0_SHIFT)
-> -#define TCR_IRGN0_WBWA		(UL(1) << TCR_IRGN0_SHIFT)
-> -#define TCR_IRGN0_WT		(UL(2) << TCR_IRGN0_SHIFT)
-> -#define TCR_IRGN0_WBnWA		(UL(3) << TCR_IRGN0_SHIFT)
-> -
-> -#define TCR_EPD1_SHIFT		23
-> -#define TCR_EPD1_MASK		(UL(1) << TCR_EPD1_SHIFT)
-> -#define TCR_IRGN1_SHIFT		24
-> -#define TCR_IRGN1_MASK		(UL(3) << TCR_IRGN1_SHIFT)
-> -#define TCR_IRGN1_NC		(UL(0) << TCR_IRGN1_SHIFT)
-> -#define TCR_IRGN1_WBWA		(UL(1) << TCR_IRGN1_SHIFT)
-> -#define TCR_IRGN1_WT		(UL(2) << TCR_IRGN1_SHIFT)
-> -#define TCR_IRGN1_WBnWA		(UL(3) << TCR_IRGN1_SHIFT)
-> -
-> -#define TCR_IRGN_NC		(TCR_IRGN0_NC | TCR_IRGN1_NC)
-> -#define TCR_IRGN_WBWA		(TCR_IRGN0_WBWA | TCR_IRGN1_WBWA)
-> -#define TCR_IRGN_WT		(TCR_IRGN0_WT | TCR_IRGN1_WT)
-> -#define TCR_IRGN_WBnWA		(TCR_IRGN0_WBnWA | TCR_IRGN1_WBnWA)
-> -#define TCR_IRGN_MASK		(TCR_IRGN0_MASK | TCR_IRGN1_MASK)
-> -
-> -
-> -#define TCR_ORGN0_SHIFT		10
-> -#define TCR_ORGN0_MASK		(UL(3) << TCR_ORGN0_SHIFT)
-> -#define TCR_ORGN0_NC		(UL(0) << TCR_ORGN0_SHIFT)
-> -#define TCR_ORGN0_WBWA		(UL(1) << TCR_ORGN0_SHIFT)
-> -#define TCR_ORGN0_WT		(UL(2) << TCR_ORGN0_SHIFT)
-> -#define TCR_ORGN0_WBnWA		(UL(3) << TCR_ORGN0_SHIFT)
-> -
-> -#define TCR_ORGN1_SHIFT		26
-> -#define TCR_ORGN1_MASK		(UL(3) << TCR_ORGN1_SHIFT)
-> -#define TCR_ORGN1_NC		(UL(0) << TCR_ORGN1_SHIFT)
-> -#define TCR_ORGN1_WBWA		(UL(1) << TCR_ORGN1_SHIFT)
-> -#define TCR_ORGN1_WT		(UL(2) << TCR_ORGN1_SHIFT)
-> -#define TCR_ORGN1_WBnWA		(UL(3) << TCR_ORGN1_SHIFT)
-> -
-> -#define TCR_ORGN_NC		(TCR_ORGN0_NC | TCR_ORGN1_NC)
-> -#define TCR_ORGN_WBWA		(TCR_ORGN0_WBWA | TCR_ORGN1_WBWA)
-> -#define TCR_ORGN_WT		(TCR_ORGN0_WT | TCR_ORGN1_WT)
-> -#define TCR_ORGN_WBnWA		(TCR_ORGN0_WBnWA | TCR_ORGN1_WBnWA)
-> -#define TCR_ORGN_MASK		(TCR_ORGN0_MASK | TCR_ORGN1_MASK)
-> -
-> -#define TCR_SH0_SHIFT		12
-> -#define TCR_SH0_MASK		(UL(3) << TCR_SH0_SHIFT)
-> -#define TCR_SH0_INNER		(UL(3) << TCR_SH0_SHIFT)
-> -
-> -#define TCR_SH1_SHIFT		28
-> -#define TCR_SH1_MASK		(UL(3) << TCR_SH1_SHIFT)
-> -#define TCR_SH1_INNER		(UL(3) << TCR_SH1_SHIFT)
-> -#define TCR_SHARED		(TCR_SH0_INNER | TCR_SH1_INNER)
-> -
-> -#define TCR_TG0_SHIFT		14
-> -#define TCR_TG0_MASK		(UL(3) << TCR_TG0_SHIFT)
-> -#define TCR_TG0_4K		(UL(0) << TCR_TG0_SHIFT)
-> -#define TCR_TG0_64K		(UL(1) << TCR_TG0_SHIFT)
-> -#define TCR_TG0_16K		(UL(2) << TCR_TG0_SHIFT)
-> -
-> -#define TCR_TG1_SHIFT		30
-> -#define TCR_TG1_MASK		(UL(3) << TCR_TG1_SHIFT)
-> -#define TCR_TG1_16K		(UL(1) << TCR_TG1_SHIFT)
-> -#define TCR_TG1_4K		(UL(2) << TCR_TG1_SHIFT)
-> -#define TCR_TG1_64K		(UL(3) << TCR_TG1_SHIFT)
-> -
-> -#define TCR_IPS_SHIFT		32
-> -#define TCR_IPS_MASK		(UL(7) << TCR_IPS_SHIFT)
-> -#define TCR_A1			(UL(1) << 22)
-> -#define TCR_ASID16		(UL(1) << 36)
-> -#define TCR_TBI0		(UL(1) << 37)
-> -#define TCR_TBI1		(UL(1) << 38)
-> -#define TCR_HA			(UL(1) << 39)
-> -#define TCR_HD			(UL(1) << 40)
-> -#define TCR_HPD0_SHIFT		41
-> -#define TCR_HPD0		(UL(1) << TCR_HPD0_SHIFT)
-> -#define TCR_HPD1_SHIFT		42
-> -#define TCR_HPD1		(UL(1) << TCR_HPD1_SHIFT)
-> -#define TCR_TBID0		(UL(1) << 51)
-> -#define TCR_TBID1		(UL(1) << 52)
-> -#define TCR_NFD0		(UL(1) << 53)
-> -#define TCR_NFD1		(UL(1) << 54)
-> -#define TCR_E0PD0		(UL(1) << 55)
-> -#define TCR_E0PD1		(UL(1) << 56)
-> -#define TCR_TCMA0		(UL(1) << 57)
-> -#define TCR_TCMA1		(UL(1) << 58)
-> -#define TCR_DS			(UL(1) << 59)
-> +#define TCR_T0SZ(x)		((UL(64) - (x)) << TCR_EL1_T0SZ_SHIFT)
-> +#define TCR_T1SZ(x)		((UL(64) - (x)) << TCR_EL1_T1SZ_SHIFT)
->  
->  /*
->   * TTBR.
-> diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
-> index 85dceb1c66f4..21a3d3342283 100644
-> --- a/arch/arm64/include/asm/pgtable-prot.h
-> +++ b/arch/arm64/include/asm/pgtable-prot.h
-> @@ -84,7 +84,7 @@ extern unsigned long prot_ns_shared;
->  #else
->  static inline bool __pure lpa2_is_enabled(void)
->  {
-> -	return read_tcr() & TCR_DS;
-> +	return read_tcr() & TCR_EL1_DS;
->  }
->  
->  #define PTE_MAYBE_SHARED	(lpa2_is_enabled() ? 0 : PTE_SHARED)
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index ef269a5a37e1..98b53e1a228e 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -2065,7 +2065,7 @@ static struct cpumask dbm_cpus __read_mostly;
->  
->  static inline void __cpu_enable_hw_dbm(void)
->  {
-> -	u64 tcr = read_sysreg(tcr_el1) | TCR_HD;
-> +	u64 tcr = read_sysreg(tcr_el1) | TCR_EL1_HD;
->  
->  	write_sysreg(tcr, tcr_el1);
->  	isb();
-> @@ -2342,7 +2342,7 @@ static bool has_generic_auth(const struct arm64_cpu_capabilities *entry,
->  static void cpu_enable_e0pd(struct arm64_cpu_capabilities const *cap)
->  {
->  	if (this_cpu_has_cap(ARM64_HAS_E0PD))
-> -		sysreg_clear_set(tcr_el1, 0, TCR_E0PD1);
-> +		sysreg_clear_set(tcr_el1, 0, TCR_EL1_E0PD1);
->  }
->  #endif /* CONFIG_ARM64_E0PD */
->  
-> diff --git a/arch/arm64/kernel/pi/map_kernel.c b/arch/arm64/kernel/pi/map_kernel.c
-> index 0f4bd7771859..3f81e0610577 100644
-> --- a/arch/arm64/kernel/pi/map_kernel.c
-> +++ b/arch/arm64/kernel/pi/map_kernel.c
-> @@ -135,13 +135,13 @@ static void __init map_kernel(u64 kaslr_offset, u64 va_offset, int root_level)
->  static void noinline __section(".idmap.text") set_ttbr0_for_lpa2(u64 ttbr)
->  {
->  	u64 sctlr = read_sysreg(sctlr_el1);
-> -	u64 tcr = read_sysreg(tcr_el1) | TCR_DS;
-> +	u64 tcr = read_sysreg(tcr_el1) | TCR_EL1_DS;
->  	u64 mmfr0 = read_sysreg(id_aa64mmfr0_el1);
->  	u64 parange = cpuid_feature_extract_unsigned_field(mmfr0,
->  							   ID_AA64MMFR0_EL1_PARANGE_SHIFT);
->  
-> -	tcr &= ~TCR_IPS_MASK;
-> -	tcr |= parange << TCR_IPS_SHIFT;
-> +	tcr &= ~TCR_EL1_IPS_MASK;
-> +	tcr |= parange << TCR_EL1_IPS_SHIFT;
->  
->  	asm("	msr	sctlr_el1, %0		;"
->  	    "	isb				;"
-> @@ -256,7 +256,7 @@ asmlinkage void __init early_map_kernel(u64 boot_status, void *fdt)
->  	}
->  
->  	if (va_bits > VA_BITS_MIN)
-> -		sysreg_clear_set(tcr_el1, TCR_T1SZ_MASK, TCR_T1SZ(va_bits));
-> +		sysreg_clear_set(tcr_el1, TCR_EL1_T1SZ_MASK, TCR_T1SZ(va_bits));
->  
->  	/*
->  	 * The virtual KASLR displacement modulo 2MiB is decided by the
-> diff --git a/arch/arm64/kernel/vmcore_info.c b/arch/arm64/kernel/vmcore_info.c
-> index b19d5d6cb8b3..9619ece66b79 100644
-> --- a/arch/arm64/kernel/vmcore_info.c
-> +++ b/arch/arm64/kernel/vmcore_info.c
-> @@ -14,7 +14,7 @@ static inline u64 get_tcr_el1_t1sz(void);
->  
->  static inline u64 get_tcr_el1_t1sz(void)
->  {
-> -	return (read_sysreg(tcr_el1) & TCR_T1SZ_MASK) >> TCR_T1SZ_OFFSET;
-> +	return (read_sysreg(tcr_el1) & TCR_EL1_T1SZ_MASK) >> TCR_EL1_T1SZ_SHIFT;
->  }
->  
->  void arch_crash_save_vmcoreinfo(void)
-> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
-> index 8c75965afc9e..46a1addc1465 100644
-> --- a/arch/arm64/mm/proc.S
-> +++ b/arch/arm64/mm/proc.S
-> @@ -23,15 +23,18 @@
->  #include <asm/sysreg.h>
->  
->  #ifdef CONFIG_ARM64_64K_PAGES
-> -#define TCR_TG_FLAGS	TCR_TG0_64K | TCR_TG1_64K
-> +#define TCR_TG_FLAGS	((TCR_EL1_TG0_64K << TCR_EL1_TG0_SHIFT) |\
-> +			 (TCR_EL1_TG1_64K << TCR_EL1_TG1_SHIFT))
->  #elif defined(CONFIG_ARM64_16K_PAGES)
-> -#define TCR_TG_FLAGS	TCR_TG0_16K | TCR_TG1_16K
-> +#define TCR_TG_FLAGS	((TCR_EL1_TG0_16K << TCR_EL1_TG0_SHIFT) |\
-> +			 (TCR_EL1_TG1_16K << TCR_EL1_TG1_SHIFT))
->  #else /* CONFIG_ARM64_4K_PAGES */
-> -#define TCR_TG_FLAGS	TCR_TG0_4K | TCR_TG1_4K
-> +#define TCR_TG_FLAGS	((TCR_EL1_TG0_4K << TCR_EL1_TG0_SHIFT) |\
-> +			 (TCR_EL1_TG1_4K << TCR_EL1_TG1_SHIFT))
->  #endif
->  
->  #ifdef CONFIG_RANDOMIZE_BASE
-> -#define TCR_KASLR_FLAGS	TCR_NFD1
-> +#define TCR_KASLR_FLAGS	TCR_EL1_NFD1
->  #else
->  #define TCR_KASLR_FLAGS	0
->  #endif
-> @@ -40,23 +43,30 @@
->  #define TCR_CACHE_FLAGS	TCR_IRGN_WBWA | TCR_ORGN_WBWA
->  
->  #ifdef CONFIG_KASAN_SW_TAGS
-> -#define TCR_KASAN_SW_FLAGS TCR_TBI1 | TCR_TBID1
-> +#define TCR_KASAN_SW_FLAGS TCR_EL1_TBI1 | TCR_EL1_TBID1
->  #else
->  #define TCR_KASAN_SW_FLAGS 0
->  #endif
->  
->  #ifdef CONFIG_KASAN_HW_TAGS
-> -#define TCR_MTE_FLAGS TCR_TCMA1 | TCR_TBI1 | TCR_TBID1
-> +#define TCR_MTE_FLAGS TCR_EL1_TCMA1 | TCR_EL1_TBI1 | TCR_EL1_TBID1
->  #elif defined(CONFIG_ARM64_MTE)
->  /*
->   * The mte_zero_clear_page_tags() implementation uses DC GZVA, which relies on
->   * TBI being enabled at EL1.
->   */
-> -#define TCR_MTE_FLAGS TCR_TBI1 | TCR_TBID1
-> +#define TCR_MTE_FLAGS TCR_EL1_TBI1 | TCR_EL1_TBID1
->  #else
->  #define TCR_MTE_FLAGS 0
->  #endif
->  
-> +#define TCR_IRGN_WBWA	((TCR_EL1_IRGN0_WBWA << TCR_EL1_IRGN0_SHIFT) |\
-> +			 (TCR_EL1_IRGN1_WBWA << TCR_EL1_IRGN1_SHIFT))
-> +#define TCR_ORGN_WBWA	((TCR_EL1_ORGN0_WBWA << TCR_EL1_ORGN0_SHIFT) |\
-> +			 (TCR_EL1_ORGN1_WBWA << TCR_EL1_ORGN1_SHIFT))
-> +#define TCR_SHARED	((TCR_EL1_SH0_INNER << TCR_EL1_SH0_SHIFT) |\
-> +			 (TCR_EL1_SH1_INNER << TCR_EL1_SH1_SHIFT))
-> +
->  /*
->   * Default MAIR_EL1. MT_NORMAL_TAGGED is initially mapped as Normal memory and
->   * changed during mte_cpu_setup to Normal Tagged if the system supports MTE.
-> @@ -129,7 +139,7 @@ SYM_FUNC_START(cpu_do_resume)
->  
->  	/* Don't change t0sz here, mask those bits when restoring */
->  	mrs	x7, tcr_el1
-> -	bfi	x8, x7, TCR_T0SZ_OFFSET, TCR_TxSZ_WIDTH
-> +	bfi	x8, x7, TCR_EL1_T0SZ_SHIFT, TCR_EL1_T0SZ_WIDTH
->  
->  	msr	tcr_el1, x8
->  	msr	vbar_el1, x9
-> @@ -468,8 +478,8 @@ SYM_FUNC_START(__cpu_setup)
->  	tcr2	.req	x15
->  	mov_q	mair, MAIR_EL1_SET
->  	mov_q	tcr, TCR_T0SZ(IDMAP_VA_BITS) | TCR_T1SZ(VA_BITS_MIN) | TCR_CACHE_FLAGS | \
-> -		     TCR_SHARED | TCR_TG_FLAGS | TCR_KASLR_FLAGS | TCR_ASID16 | \
-> -		     TCR_TBI0 | TCR_A1 | TCR_KASAN_SW_FLAGS | TCR_MTE_FLAGS
-> +		     TCR_SHARED | TCR_TG_FLAGS | TCR_KASLR_FLAGS | TCR_EL1_AS | \
-> +		     TCR_EL1_TBI0 | TCR_EL1_A1 | TCR_KASAN_SW_FLAGS | TCR_MTE_FLAGS
->  	mov	tcr2, xzr
->  
->  	tcr_clear_errata_bits tcr, x9, x5
-> @@ -479,7 +489,7 @@ SYM_FUNC_START(__cpu_setup)
->  alternative_if ARM64_HAS_VA52
->  	tcr_set_t1sz	tcr, x9
->  #ifdef CONFIG_ARM64_LPA2
-> -	orr		tcr, tcr, #TCR_DS
-> +	orr		tcr, tcr, #TCR_EL1_DS
->  #endif
->  alternative_else_nop_endif
->  #endif
-> @@ -487,7 +497,7 @@ alternative_else_nop_endif
->  	/*
->  	 * Set the IPS bits in TCR_EL1.
->  	 */
-> -	tcr_compute_pa_size tcr, #TCR_IPS_SHIFT, x5, x6
-> +	tcr_compute_pa_size tcr, #TCR_EL1_IPS_SHIFT, x5, x6
->  #ifdef CONFIG_ARM64_HW_AFDBM
->  	/*
->  	 * Enable hardware update of the Access Flags bit.
-> @@ -497,7 +507,7 @@ alternative_else_nop_endif
->  	mrs	x9, ID_AA64MMFR1_EL1
->  	ubfx	x9, x9, ID_AA64MMFR1_EL1_HAFDBS_SHIFT, #4
->  	cbz	x9, 1f
-> -	orr	tcr, tcr, #TCR_HA		// hardware Access flag update
-> +	orr	tcr, tcr, #TCR_EL1_HA		// hardware Access flag update
->  #ifdef CONFIG_ARM64_HAFT
->  	cmp	x9, ID_AA64MMFR1_EL1_HAFDBS_HAFT
->  	b.lt	1f
-> diff --git a/tools/arch/arm64/include/asm/cputype.h b/tools/arch/arm64/include/asm/cputype.h
-> index 139d5e87dc95..dfa12df5e290 100644
-> --- a/tools/arch/arm64/include/asm/cputype.h
-> +++ b/tools/arch/arm64/include/asm/cputype.h
-> @@ -243,7 +243,7 @@
->  /* Fujitsu Erratum 010001 affects A64FX 1.0 and 1.1, (v0r0 and v1r0) */
->  #define MIDR_FUJITSU_ERRATUM_010001		MIDR_FUJITSU_A64FX
->  #define MIDR_FUJITSU_ERRATUM_010001_MASK	(~MIDR_CPU_VAR_REV(1, 0))
-> -#define TCR_CLEAR_FUJITSU_ERRATUM_010001	(TCR_NFD1 | TCR_NFD0)
-> +#define TCR_CLEAR_FUJITSU_ERRATUM_010001	(TCR_EL1_NFD1 | TCR_EL1_NFD0)
->  
->  #ifndef __ASSEMBLY__
->  
+Changes for v6:
+- add changelog in per patch.
+- correct commit message spell for patch #1.
+- merge rename imx93.dtsi to imx91_93_common.dtsi and move i.MX93
+  specific part from imx91_93_common.dtsi to imx93.dtsi for patch #3.
+- modify the commit message for patch #3.
+- restore copyright time and add modification time for common dtsi for
+  patch #3.
+- remove unused map0 label in imx91_93_common.dtsi for patch #3.
+- remove tmu related node for patch #4.
+- remove unused regulators and pinctrl settings for patch #5.
+- add new modification for aliases change patch #6.
+- Link to v5: https://lore.kernel.org/imx/20250613100255.2131800-1-joy.zou@nxp.com/
 
-Thanks,
+Changes for v5:
+- rename imx93.dtsi to imx91_93_common.dtsi.
+- move imx93 specific part from imx91_93_common.dtsi to imx93.dtsi.
+- modify the imx91.dtsi to use imx91_93_common.dtsi.
+- add new the imx93-blk-ctrl binding and driver patch for imx91 support.
+- add new net patch for imx91 support.
+- change node name codec and lsm6dsm into common name audio-codec and
+  inertial-meter, and add BT compatible string for imx91 board dts.
+- Link to v4: https://lore.kernel.org/imx/20250121074017.2819285-1-joy.zou@nxp.com/
 
-Ben
+Changes for v4:
+- Add one imx93 patch that add labels in imx93.dtsi
+- modify the references in imx91.dtsi
+- modify the code alignment
+- remove unused newline
+- delete the status property
+- align pad hex values
+- Link to v3: https://lore.kernel.org/imx/20241120094945.3032663-1-pengfei.li_1@nxp.com/
+
+Changes for v3:
+- Add Conor's ack on patch #1
+- format imx91-11x11-evk.dts with the dt-format tool
+- add lpi2c1 node
+- Link to v2: https://lore.kernel.org/imx/20241118051541.2621360-1-pengfei.li_1@nxp.com/
+
+Changes for v2:
+- change ddr node pmu compatible
+- remove mu1 and mu2
+- change iomux node compatible and enable 91 pinctrl
+- refine commit message for patch #2
+- change hex to lowercase in pinfunc.h
+- ordering nodes with the dt-format tool
+- Link to v1: https://lore.kernel.org/imx/20241108022703.1877171-1-pengfei.li_1@nxp.com/
+
+Joy Zou (6):
+  arm64: dts: freescale: move aliases from imx93.dtsi to board dts
+  arm64: dts: freescale: rename imx93.dtsi to imx91_93_common.dtsi and
+    modify them
+  arm64: dts: imx91: add i.MX91 dtsi support
+  arm64: dts: freescale: add i.MX91 11x11 EVK basic support
+  arm64: dts: imx93-11x11-evk: remove fec property eee-broken-1000t
+  net: stmmac: imx: add i.MX91 support
+
+ arch/arm64/boot/dts/freescale/Makefile        |    1 +
+ .../boot/dts/freescale/imx91-11x11-evk.dts    |  674 ++++++++
+ arch/arm64/boot/dts/freescale/imx91-pinfunc.h |  770 +++++++++
+ arch/arm64/boot/dts/freescale/imx91.dtsi      |   71 +
+ .../{imx93.dtsi => imx91_93_common.dtsi}      |  176 +-
+ .../boot/dts/freescale/imx93-11x11-evk.dts    |   20 +-
+ .../boot/dts/freescale/imx93-14x14-evk.dts    |   15 +
+ .../boot/dts/freescale/imx93-9x9-qsb.dts      |   18 +
+ .../dts/freescale/imx93-kontron-bl-osm-s.dts  |   21 +
+ .../dts/freescale/imx93-phyboard-nash.dts     |   21 +
+ .../dts/freescale/imx93-phyboard-segin.dts    |    9 +
+ .../freescale/imx93-tqma9352-mba91xxca.dts    |   11 +
+ .../freescale/imx93-tqma9352-mba93xxca.dts    |   25 +
+ .../freescale/imx93-tqma9352-mba93xxla.dts    |   25 +
+ .../dts/freescale/imx93-var-som-symphony.dts  |   17 +
+ arch/arm64/boot/dts/freescale/imx93.dtsi      | 1518 ++---------------
+ .../net/ethernet/stmicro/stmmac/dwmac-imx.c   |    4 +-
+ 17 files changed, 1864 insertions(+), 1532 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx91-pinfunc.h
+ create mode 100644 arch/arm64/boot/dts/freescale/imx91.dtsi
+ copy arch/arm64/boot/dts/freescale/{imx93.dtsi => imx91_93_common.dtsi} (90%)
+ rewrite arch/arm64/boot/dts/freescale/imx93.dtsi (97%)
+
+-- 
+2.37.1
 
 
