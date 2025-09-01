@@ -4,75 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9A82CA0FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 14:47:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39922CA0FF0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Sep 2025 14:47:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jtz4NMD0OIuFJ1vGUjeFJCuc29nxu0XN/MgbJYMuBGE=; b=PgDiS7HvvcjSiEf59SBVQBrmjo
-	oDj27qDi+VxcMzaRgC3fBp8NMsbh3foYNnkoP9+n4pUgGlT8RaQnaS6kqv5RZVS+VQefEg/kvsZX7
-	Zl1Q6ZDlmXsY9Gc+wiMO1BdxRmlo//OPO/4Unxe4SQ/yIA4WugItPz7rO9aCLK0YgLZ6ZFVXG24vR
-	B2A7usw3FcbJc9g0/Q2HHLIb0Jme/QO8XA0tkbAEDM8Tpxjvi6DyfsG7/KMSDOPo/vyVqrw7g6u0z
-	l56nvCMq/UyfV8CEYn1Gkc0RZqSe8MQbQqmDOpeurqec8BhksNmVUfLX0BHQetDGQvHvZFzk/y366
-	GrqwV17Q==;
+	bh=EkH9UhD037/tOlhct2dcf8bkxNsOyHNCUyc1hozxGl4=; b=mrRoHLr4POlr5GgCO+/4GBImPx
+	rYK89IBtcVAhqsHBcLUacApDO4CGvuYFxgIKAEdrLG4lgjuljqx7zhn6TsVOK5XYnV+FkUgGkPBI/
+	zlOBJEVuGP6NZzfyhd8o8s9JDWWbUml8ItzEQzTb4j7MD7UY0SrKViNLV7RHOM2x58T41gTdN5l/f
+	omGW9RcJaJiUS/Hv90kX4bPNF7NtJ9dimBDUfnolXbLwJJcHuf9xDRJFrYsg4oZrEE1vtgosDph9V
+	yd9VMcizX5kwUIoFlq1lUqULoLr+LmerPfAlmep6EMfvqQolOpo0ri+9E0HiD+W/5J+gbTSvagueW
+	6sW6Za3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut5oj-0000000Csyv-1W1R;
-	Mon, 01 Sep 2025 14:47:33 +0000
-Received: from pegase2.c-s.fr ([93.17.235.10])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ut3Wg-0000000CLjM-2bZP
+	id 1ut5ok-0000000Ct07-3JO0;
+	Mon, 01 Sep 2025 14:47:34 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ut3Wy-0000000CLxH-1xd2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 12:20:48 +0000
-Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4cFndG1JW7z9sSj;
-	Mon,  1 Sep 2025 14:05:38 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id YjItXt-aDJex; Mon,  1 Sep 2025 14:05:38 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4cFndC3wLgz9sSn;
-	Mon,  1 Sep 2025 14:05:35 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 6DFC88B790;
-	Mon,  1 Sep 2025 14:05:35 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id 8IHJKJa_apLX; Mon,  1 Sep 2025 14:05:35 +0200 (CEST)
-Received: from PO20335.idsi0.si.c-s.fr (unknown [10.25.207.160])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 397938B796;
-	Mon,  1 Sep 2025 14:05:35 +0200 (CEST)
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-To: Qiang Zhao <qiang.zhao@nxp.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
-	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH v5 3/7] soc: fsl: qe: Drop legacy-of-mm-gpiochip.h header from GPIO driver
-Date: Mon,  1 Sep 2025 14:05:10 +0200
-Message-ID: <c5788504a473625faeb9f99b08d3bca5e7135120.1756727747.git.christophe.leroy@csgroup.eu>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <cover.1756727747.git.christophe.leroy@csgroup.eu>
-References: <cover.1756727747.git.christophe.leroy@csgroup.eu>
+	Mon, 01 Sep 2025 12:21:05 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3d4dcf3863dso839284f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 05:21:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1756729263; x=1757334063; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=EkH9UhD037/tOlhct2dcf8bkxNsOyHNCUyc1hozxGl4=;
+        b=YQiwmYZiOtT42MxbIf326C7j3FoNgAyNo46UNKFegDdRvs+lAlkcgpE6EEcx2ohfOu
+         cTCoJ0JiWcO4mhADwQi36hnexAqH8D6G04Z1gwwPnSWtQL4f5BNEK0OvVQsH9Tr6N6wR
+         J0GbW1IS/NhdtQJ+Y5b/dO168abcS3FzXZe2p5xpt8FPDQdfEnOO/8O9npwpTtmLsB/i
+         bpOhk3ff57JV8/unH9fsSG7oBrwZUkxVP+d3kiJAmOoPzyJkytQtXfU0LJ2Rf0sBUq1F
+         zBXGY8OgA0oGpX7Ry0OcWZ9KvGWe6LmyZbU5VijNi8/qvdrxJqfN2zNHvUpX/KKM2znt
+         NO2Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756729263; x=1757334063;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=EkH9UhD037/tOlhct2dcf8bkxNsOyHNCUyc1hozxGl4=;
+        b=cPfMMAgbJbWa+8LYaJABDUoDRXHOOodsSfyLmVOBtYvQaWX9ePC37jEbcw8hBQiHUf
+         2EMc4PbpeIFnyuXsvhvI30bR7Xv0TsKT4x2YvpJJtfQFQu3uiqXOTV+9ho61xKrHio2L
+         Y1tc4w9HsozQO+gujNHd5lQ/KdNL7/3s2oSRAxIS4xds5f/jjx/dbb8HxjIaGV+d6gOj
+         5isuCax3V9U7Ulh2FY5V3Ydg3GHIgLsczWVxommPSS1ocV6ooQoHGKrzM3Ts9ZqEbVpB
+         9bAfRocD25UQsd4NNZpMs5n6JuKwd/jHwCcP0/NGiU3kUm5Q13MCKTYi/gxjojnaGqj4
+         Q+4A==
+X-Forwarded-Encrypted: i=1; AJvYcCW+CYl0UkPqy2ovVzikIV7q+qFyBmgJL98CrXUSp/NVxAoj8J3WGmi4gXqCtmYMQw8PndDiPruX9zt2eGDKP7wa@lists.infradead.org
+X-Gm-Message-State: AOJu0YwCdSJcmMmbG9913JKKgT82vMAmutf8uQvqSxBAFgzJ+EXXujHO
+	V4qQ6ek/2WiYMaRNgui7NhlJghUaq9NV0B97uhmQSqWQnoP3k+AyYxo0B3lo3MnvIWc=
+X-Gm-Gg: ASbGncvT2t9IosPYouVVVm/lFS30cdmmMd17YKpowYeE17r9YogTnxoippWR2gFaRgt
+	sX+ddub8HX32vJmQJJugtiimE5HuAAA6bQmgw0B2sujIFfUFzXPSaZ8XRAzIhJj3nrrDNCKpKSj
+	6vaL0SEfacGXoDh14M87jaXQf5ZAX8ifZ9eGl2/08fICs6Vv9SL2FyDzGo4eLOpu2inyBBRtZaV
+	cG+78qBvWzTCkvvBYjL+wI59RLuKlPFqht9StN2vx/XHMElV5k+k4cIfLpwRfXSG3zbpWgR8AuI
+	bccXLvMbGiho1otd1YZn5/IafugYgZIfmlY4DJ9n5RqRZtQ/cF2r9tMn8g3uoajHIjm8Awr5Rei
+	4Wb0GOkRSUayx3Ce/BkKYWXcBWH8=
+X-Google-Smtp-Source: AGHT+IHbSmwRu3Gk1EehF9mFzPZ3IgKGG6T2VrHQ2WXexIn9NyB08JhzOfdoNYyeZhdmO1rufQhWyA==
+X-Received: by 2002:a05:6000:1ace:b0:3c4:bc55:65e1 with SMTP id ffacd0b85a97d-3d1dd434397mr6103249f8f.24.1756729262852;
+        Mon, 01 Sep 2025 05:21:02 -0700 (PDT)
+Received: from [192.168.1.3] ([185.48.76.109])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3d60cf93cb2sm5542282f8f.12.2025.09.01.05.21.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 01 Sep 2025 05:21:02 -0700 (PDT)
+Message-ID: <bd224e52-d786-4922-b2ba-b52f0c73badf@linaro.org>
+Date: Mon, 1 Sep 2025 13:21:01 +0100
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756728308; l=7337; i=christophe.leroy@csgroup.eu; s=20211009; h=from:subject:message-id; bh=zHMhkGOir99C4zE6CP2P9w4fbrPG2js+Iq37Oh0usVQ=; b=JCxpWDQg8OT10Z6xzFFQz7qWBVLJ3RJwav5YcIOtO07QXfDpRAg1A9uG5tFz3Z3jwLeuwAyfi deFgDBXXM30Alvf3L3FJ/ZG2MGYKdoX18I2J2JmSoeiso2DstWnIpJG
-X-Developer-Key: i=christophe.leroy@csgroup.eu; a=ed25519; pk=HIzTzUj91asvincQGOFx6+ZF5AoUuP9GdOtQChs7Mm0=
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 06/12] arm64/boot: Enable EL2 requirements for
+ SPE_FEAT_FDS
+To: Leo Yan <leo.yan@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Zenghui Yu <yuzenghui@huawei.com>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
+ kvmarm@lists.linux.dev
+References: <20250814-james-perf-feat_spe_eft-v7-0-6a743f7fa259@linaro.org>
+ <20250814-james-perf-feat_spe_eft-v7-6-6a743f7fa259@linaro.org>
+ <20250901101904.GK745921@e132581.arm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20250901101904.GK745921@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_052046_840475_DDE7916C 
-X-CRM114-Status: GOOD (  19.55  )
+X-CRM114-CacheID: sfid-20250901_052104_514268_601583B6 
+X-CRM114-Status: GOOD (  17.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,209 +115,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove legacy-of-mm-gpiochip.h header file. The above mentioned
-file provides an OF API that's deprecated. There is no agnostic
-alternatives to it and we have to open code the logic which was
-hidden behind of_mm_gpiochip_add_data(). Note, most of the GPIO
-drivers are using their own labeling schemas and resource retrieval
-that only a few may gain of the code deduplication, so whenever
-alternative is appear we can move drivers again to use that one.
 
-As a side effect this change fixes a potential memory leak on
-an error path, if of_mm_gpiochip_add_data() fails.
 
-[Text copied from commit 34064c8267a6 ("powerpc/8xx: Drop
-legacy-of-mm-gpiochip.h header")]
+On 01/09/2025 11:19 am, Leo Yan wrote:
+> On Thu, Aug 14, 2025 at 10:25:28AM +0100, James Clark wrote:
+> 
+> [...]
+> 
+>> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+>> index 3a4ca7f9acfb..a0361ddcdca4 100644
+>> --- a/arch/arm64/include/asm/el2_setup.h
+>> +++ b/arch/arm64/include/asm/el2_setup.h
+>> @@ -392,6 +392,17 @@
+>>   	orr	x0, x0, #HDFGRTR2_EL2_nPMICFILTR_EL0
+>>   	orr	x0, x0, #HDFGRTR2_EL2_nPMUACR_EL1
+>>   .Lskip_pmuv3p9_\@:
+>> +	/* If SPE is implemented, */
+>> +	__spe_vers_imp .Lskip_spefds_\@, ID_AA64DFR0_EL1_PMSVer_IMP, x1
+>> +	/* we can read PMSIDR and */
+>> +	mrs_s	x1, SYS_PMSIDR_EL1
+>> +	and	x1, x1,  #PMSIDR_EL1_FDS
+>> +	/* if FEAT_SPE_FDS is implemented, */
+>> +	cbz	x1, .Lskip_spefds_\@
+>> +	/* disable traps to PMSDSFR. */
+> 
+> Nitpick: the comment is a bit ambiguous for me. Would it be better to
+> say "disable traps to EL2" or "set the PMSDSFR bit to disable trapping" ?
+> 
+> Otherwise, LGTM:
+> 
+> Reviewed-by: Leo Yan <leo.yan@arm.com>
 
-Suggested-by: Bartosz Golaszewski <brgl@bgdev.pl>
-Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
----
- arch/powerpc/platforms/Kconfig |  1 -
- drivers/soc/fsl/qe/gpio.c      | 51 ++++++++++++++++++----------------
- 2 files changed, 27 insertions(+), 25 deletions(-)
+The bit we're setting is actually called nPMSDSFR_EL1, but I can change 
+it to:
 
-diff --git a/arch/powerpc/platforms/Kconfig b/arch/powerpc/platforms/Kconfig
-index fea3766eac0f..5b689bd3ddf4 100644
---- a/arch/powerpc/platforms/Kconfig
-+++ b/arch/powerpc/platforms/Kconfig
-@@ -232,7 +232,6 @@ config QE_GPIO
- 	bool "QE GPIO support"
- 	depends on QUICC_ENGINE
- 	select GPIOLIB
--	select OF_GPIO_MM_GPIOCHIP
- 	help
- 	  Say Y here if you're going to use hardware that connects to the
- 	  QE GPIOs.
-diff --git a/drivers/soc/fsl/qe/gpio.c b/drivers/soc/fsl/qe/gpio.c
-index 04b44fc2bb58..c54154b404df 100644
---- a/drivers/soc/fsl/qe/gpio.c
-+++ b/drivers/soc/fsl/qe/gpio.c
-@@ -12,7 +12,6 @@
- #include <linux/spinlock.h>
- #include <linux/err.h>
- #include <linux/io.h>
--#include <linux/gpio/legacy-of-mm-gpiochip.h>
- #include <linux/gpio/consumer.h>
- #include <linux/gpio/driver.h>
- #include <linux/slab.h>
-@@ -24,7 +23,8 @@
- #define PIN_MASK(gpio) (1UL << (QE_PIO_PINS - 1 - (gpio)))
- 
- struct qe_gpio_chip {
--	struct of_mm_gpio_chip mm_gc;
-+	struct gpio_chip gc;
-+	void __iomem *regs;
- 	spinlock_t lock;
- 
- 	/* shadowed data register to clear/set bits safely */
-@@ -34,11 +34,9 @@ struct qe_gpio_chip {
- 	struct qe_pio_regs saved_regs;
- };
- 
--static void qe_gpio_save_regs(struct of_mm_gpio_chip *mm_gc)
-+static void qe_gpio_save_regs(struct qe_gpio_chip *qe_gc)
- {
--	struct qe_gpio_chip *qe_gc =
--		container_of(mm_gc, struct qe_gpio_chip, mm_gc);
--	struct qe_pio_regs __iomem *regs = mm_gc->regs;
-+	struct qe_pio_regs __iomem *regs = qe_gc->regs;
- 
- 	qe_gc->cpdata = ioread32be(&regs->cpdata);
- 	qe_gc->saved_regs.cpdata = qe_gc->cpdata;
-@@ -51,8 +49,8 @@ static void qe_gpio_save_regs(struct of_mm_gpio_chip *mm_gc)
- 
- static int qe_gpio_get(struct gpio_chip *gc, unsigned int gpio)
- {
--	struct of_mm_gpio_chip *mm_gc = to_of_mm_gpio_chip(gc);
--	struct qe_pio_regs __iomem *regs = mm_gc->regs;
-+	struct qe_gpio_chip *qe_gc = gpiochip_get_data(gc);
-+	struct qe_pio_regs __iomem *regs = qe_gc->regs;
- 	u32 pin_mask = PIN_MASK(gpio);
- 
- 	return !!(ioread32be(&regs->cpdata) & pin_mask);
-@@ -60,9 +58,8 @@ static int qe_gpio_get(struct gpio_chip *gc, unsigned int gpio)
- 
- static int qe_gpio_set(struct gpio_chip *gc, unsigned int gpio, int val)
- {
--	struct of_mm_gpio_chip *mm_gc = to_of_mm_gpio_chip(gc);
- 	struct qe_gpio_chip *qe_gc = gpiochip_get_data(gc);
--	struct qe_pio_regs __iomem *regs = mm_gc->regs;
-+	struct qe_pio_regs __iomem *regs = qe_gc->regs;
- 	unsigned long flags;
- 	u32 pin_mask = PIN_MASK(gpio);
- 
-@@ -83,9 +80,8 @@ static int qe_gpio_set(struct gpio_chip *gc, unsigned int gpio, int val)
- static int qe_gpio_set_multiple(struct gpio_chip *gc,
- 				unsigned long *mask, unsigned long *bits)
- {
--	struct of_mm_gpio_chip *mm_gc = to_of_mm_gpio_chip(gc);
- 	struct qe_gpio_chip *qe_gc = gpiochip_get_data(gc);
--	struct qe_pio_regs __iomem *regs = mm_gc->regs;
-+	struct qe_pio_regs __iomem *regs = qe_gc->regs;
- 	unsigned long flags;
- 	int i;
- 
-@@ -111,13 +107,12 @@ static int qe_gpio_set_multiple(struct gpio_chip *gc,
- 
- static int qe_gpio_dir_in(struct gpio_chip *gc, unsigned int gpio)
- {
--	struct of_mm_gpio_chip *mm_gc = to_of_mm_gpio_chip(gc);
- 	struct qe_gpio_chip *qe_gc = gpiochip_get_data(gc);
- 	unsigned long flags;
- 
- 	spin_lock_irqsave(&qe_gc->lock, flags);
- 
--	__par_io_config_pin(mm_gc->regs, gpio, QE_PIO_DIR_IN, 0, 0, 0);
-+	__par_io_config_pin(qe_gc->regs, gpio, QE_PIO_DIR_IN, 0, 0, 0);
- 
- 	spin_unlock_irqrestore(&qe_gc->lock, flags);
- 
-@@ -126,7 +121,6 @@ static int qe_gpio_dir_in(struct gpio_chip *gc, unsigned int gpio)
- 
- static int qe_gpio_dir_out(struct gpio_chip *gc, unsigned int gpio, int val)
- {
--	struct of_mm_gpio_chip *mm_gc = to_of_mm_gpio_chip(gc);
- 	struct qe_gpio_chip *qe_gc = gpiochip_get_data(gc);
- 	unsigned long flags;
- 
-@@ -134,7 +128,7 @@ static int qe_gpio_dir_out(struct gpio_chip *gc, unsigned int gpio, int val)
- 
- 	spin_lock_irqsave(&qe_gc->lock, flags);
- 
--	__par_io_config_pin(mm_gc->regs, gpio, QE_PIO_DIR_OUT, 0, 0, 0);
-+	__par_io_config_pin(qe_gc->regs, gpio, QE_PIO_DIR_OUT, 0, 0, 0);
- 
- 	spin_unlock_irqrestore(&qe_gc->lock, flags);
- 
-@@ -240,7 +234,7 @@ EXPORT_SYMBOL(qe_pin_free);
- void qe_pin_set_dedicated(struct qe_pin *qe_pin)
- {
- 	struct qe_gpio_chip *qe_gc = qe_pin->controller;
--	struct qe_pio_regs __iomem *regs = qe_gc->mm_gc.regs;
-+	struct qe_pio_regs __iomem *regs = qe_gc->regs;
- 	struct qe_pio_regs *sregs = &qe_gc->saved_regs;
- 	int pin = qe_pin->num;
- 	u32 mask1 = 1 << (QE_PIO_PINS - (pin + 1));
-@@ -269,7 +263,6 @@ void qe_pin_set_dedicated(struct qe_pin *qe_pin)
- 
- 	iowrite32be(qe_gc->cpdata, &regs->cpdata);
- 	qe_clrsetbits_be32(&regs->cpodr, mask1, sregs->cpodr & mask1);
--
- 	spin_unlock_irqrestore(&qe_gc->lock, flags);
- }
- EXPORT_SYMBOL(qe_pin_set_dedicated);
-@@ -284,7 +277,7 @@ EXPORT_SYMBOL(qe_pin_set_dedicated);
- void qe_pin_set_gpio(struct qe_pin *qe_pin)
- {
- 	struct qe_gpio_chip *qe_gc = qe_pin->controller;
--	struct qe_pio_regs __iomem *regs = qe_gc->mm_gc.regs;
-+	struct qe_pio_regs __iomem *regs = qe_gc->regs;
- 	unsigned long flags;
- 
- 	spin_lock_irqsave(&qe_gc->lock, flags);
-@@ -301,7 +294,6 @@ static int qe_gpio_probe(struct platform_device *ofdev)
- 	struct device *dev = &ofdev->dev;
- 	struct device_node *np = dev->of_node;
- 	struct qe_gpio_chip *qe_gc;
--	struct of_mm_gpio_chip *mm_gc;
- 	struct gpio_chip *gc;
- 
- 	qe_gc = devm_kzalloc(dev, sizeof(*qe_gc), GFP_KERNEL);
-@@ -310,18 +302,29 @@ static int qe_gpio_probe(struct platform_device *ofdev)
- 
- 	spin_lock_init(&qe_gc->lock);
- 
--	mm_gc = &qe_gc->mm_gc;
--	gc = &mm_gc->gc;
-+	gc = &qe_gc->gc;
- 
--	mm_gc->save_regs = qe_gpio_save_regs;
-+	gc->base = -1;
- 	gc->ngpio = QE_PIO_PINS;
- 	gc->direction_input = qe_gpio_dir_in;
- 	gc->direction_output = qe_gpio_dir_out;
- 	gc->get = qe_gpio_get;
- 	gc->set = qe_gpio_set;
- 	gc->set_multiple = qe_gpio_set_multiple;
-+	gc->parent = dev;
-+	gc->owner = THIS_MODULE;
-+
-+	gc->label = devm_kasprintf(dev, GFP_KERNEL, "%pOF", np);
-+	if (!gc->label)
-+		return -ENOMEM;
-+
-+	qe_gc->regs = devm_of_iomap(dev, np, 0, NULL);
-+	if (IS_ERR(qe_gc->regs))
-+		return PTR_ERR(qe_gc->regs);
-+
-+	qe_gpio_save_regs(qe_gc);
- 
--	return of_mm_gpiochip_add_data(np, mm_gc, qe_gc);
-+	return devm_gpiochip_add_data(dev, gc, qe_gc);
- }
- 
- static const struct of_device_id qe_gpio_match[] = {
--- 
-2.49.0
+   /* disable traps of PMSDSFR to EL2 */
+
+> 
+>> +	orr	x0, x0, #HDFGRTR2_EL2_nPMSDSFR_EL1
+>> +
+>> +.Lskip_spefds_\@:
+>>   	msr_s   SYS_HDFGRTR2_EL2, x0
+>>   	msr_s   SYS_HDFGWTR2_EL2, x0
+>>   	msr_s   SYS_HFGRTR2_EL2, xzr
+>>
+>> -- 
+>> 2.34.1
+>>
 
 
