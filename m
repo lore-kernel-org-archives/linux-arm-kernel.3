@@ -4,77 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9847ECA100D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:11:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27975CA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XZhR5vC+b5jGByrsGl+I17mSTr+5gAmJbDumtIuc2ZA=; b=EhSYe3NF8vrUROSZ8spBLoOLlt
-	kjqOKoASaJVphjWyyKxky+8BMIn/RhjxQKcJMCiXYGrBNdQw6SZ9L6rNnUb7kJ9xeHPT4TWFHXFpP
-	8UwwJO7MTPy8iuL0paARsNZmAKH2WowcMShFRFa963j3nPmnwezFMDd8eZ1MPJpc1vNdVuGwEVk5A
-	dDGk1E5P3fGDgRpNSqBDBUKs5KU+vl4vTIQhVFJPeBsT58qNcE7p5rg4WWCHoZCEz15ifjwZ2FpOr
-	3GadgN+kBYFFVquI7lcM3+xe+aXTka7ZnJQdKn23EDUZm4Ba+0WH4WE+/Xmwwg03Tn16MRTEJTIrv
-	2WkiMy7Q==;
+	bh=lnoH1+ZsxBYCzbeJtuEiwBsgC/lAs0DmEqE9uy46sWE=; b=tF3hkw8UtsiHXZKHHCOKube9Ih
+	DD4HLGD7OJowDWQE2cxhoiZSELU0zgDi7nNFCydJnpg9uAHqjstV5gGCDA0Tc6zzPzhPcLKj/7WAZ
+	6zS89Gxe4CoXAY7obUWHwmsdY2h1aEPU7gfJrx5OzIBzDIkW1Rdko0X0MGB5bg36AINYrrvLIJprP
+	bHQVexqMR1xvkWKExwQexJ8+VKugX/ao07ZN8spJ9NtZ1jsJEg9/83KHN798fYhAeqDNluKmyCxSj
+	EBDix1uxOdDvs405KHZJQqWs1QciOPZ68i2iog5WYe6iDS/iM+Bksw0YfMdyVBUBc7rsm2ngHYttC
+	O2IQW3UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utWPZ-00000001cED-1CVS;
-	Tue, 02 Sep 2025 19:11:21 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1utWPg-00000001cMt-30eQ;
+	Tue, 02 Sep 2025 19:11:28 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utR64-000000003qK-2O7M
+	id 1utR7h-000000004M2-1MEa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 13:30:54 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-55f6507bd53so5138246e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 06:30:52 -0700 (PDT)
+	Tue, 02 Sep 2025 13:32:34 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-55f6f7edf45so3016137e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 06:32:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756819851; x=1757424651; darn=lists.infradead.org;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756819951; x=1757424751; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=XZhR5vC+b5jGByrsGl+I17mSTr+5gAmJbDumtIuc2ZA=;
-        b=txt1l88zEr2AENXs4se+L1eu4YaZcjoHw/BuBf0wp129yTi2LN3JlfifRvix/siTMQ
-         0lyxIi3l0U02QHyY1gfj5t3O+cHMNsWoK3uVIalIUDNBdyb6LIUKvuQJ4ZtwlVgkabVI
-         UG5FaPN8C3kbIQxs8U/gIX9qu3VqPX3F3t8eUK7dCrShOZH/JMi8GYMD9n0IedMqmU0s
-         2EesGKkwHpEysQQOjvlUtBuLo0q2U2RIsBmmOMyrdNl0RLNzumY+g75N5864aUU9mWUf
-         fx8iqK1QvaWOEPuYba1ehrxR1TSDl3mgcTu9cEWq9IpT32SSzIa6Rrb6WyqfqYThvyT/
-         EFiQ==
+        bh=lnoH1+ZsxBYCzbeJtuEiwBsgC/lAs0DmEqE9uy46sWE=;
+        b=bIb99jIuxGXypJjtjjxkpWiXAZWKZzS06y++fmfh7HYtxnymNvWCXHr2XvQKdsXvN6
+         2oqm4cBOn0uROyyi7cvdGJA23zD+/yqwfSl68WHHCKwcdl+wPUC0S+9NCJ+Yq6NVHCD7
+         rIBFE8mbIPPoeXa6GKy7jGlXCFIQH3Blu1A9VYsEUEQT+BcIsLEKo2Egu2O2JeRq7QJQ
+         +PEyjlQWvXsHBi4IY9xERzwt99La+llVlQyh+acGeHR8QY/5cUkD2fXCoNX0lToP2ktC
+         j4j4dvmec6IaiJlFO3oEiouCvEz1loKoLM2z8mQDiqVHc+jmygLu6CU5B+mquaqBjRPa
+         kBng==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756819851; x=1757424651;
+        d=1e100.net; s=20230601; t=1756819951; x=1757424751;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=XZhR5vC+b5jGByrsGl+I17mSTr+5gAmJbDumtIuc2ZA=;
-        b=eToMy2dUaS5t06gcAPQBPNBoh190hu6wDV/LEcSbuE57lipvr6DXsRGCveBAx2Wvuf
-         A/V2sEubYHdPDZ4V2gMTk7dyb6FSth1R/W9Ch+G4034oPyfBhdF3H/4QNjPHZI2DN+TI
-         IrJeu8JAkSvRm8yXu9Jtfjv8k6WPaiWnm/bM0yxhDdPfZrKyhwCnxEEoN6/9smCTZ6Ol
-         YfC+eeA/hQII4+klsmlgmk2luxDAPcLtKHj35Ffb3VUNur4WfuyG1ov6JskrrkToWmwV
-         e8edRNIq6hDJqxcdEA0kI98+I8wnCPZO5kmyGJ4wjszl/0Acw3gTosyYRfbKOAbkD1zR
-         bKqg==
-X-Forwarded-Encrypted: i=1; AJvYcCWwbMPJZLgikH0SPUOUFtx68bufFuylT0w26u8p7bu6ThhqMFwRPekO0QI/Z89paIKNm3l8OzCSljnJvDRf7wDg@lists.infradead.org
-X-Gm-Message-State: AOJu0YxFd/D6jfG91w1qRoWIZXA+QAnhDq4tPuW6eKhFRE1P1GL1w5kA
-	GpWnf4l7bA4Sj9NzIbV3hV8RYArfX4plFsmEEvdeVLqpvtNv5zK0DnOZiEIsLOTNWpj8NR1u33Y
-	UMmBTi1yAiHDxfnNc8TP1CkzB2qpSK+xsvJJHsMBkVw==
-X-Gm-Gg: ASbGncuko/lJsmoiJw6f6Lj7XPrfuYaJjDsETUEZZjmulG2PgyFhnxDXq2+NKfkhaxz
-	Z8Fw02ZCUJF0KmLVrk45JP3Ut+yXFn6W4uz75UDL8Y8Azrz7OeLErIt1WsbeESVjHVcbuVK2Rli
-	ZR9hM+RfoXcQKdJk3Vyeom67wtKIZY8YgyvbceaAsasOdO0MADZDJozwbUzr0FFo3GqjFYn8mjK
-	eq4EplPH+S9yyypuaIssmu/rRzfAV6jqdCATcc=
-X-Google-Smtp-Source: AGHT+IETXrXrPtCI9kHaUsOk3PiYBtzLQDyO5BpniBUPpd4tNEA5zWWpm33Zl8pshGOfywjYNp9sGHw+kB/41Th8Wwg=
-X-Received: by 2002:a05:6512:2522:b0:55f:4429:15a6 with SMTP id
- 2adb3069b0e04-55f70967db8mr4302395e87.48.1756819849325; Tue, 02 Sep 2025
- 06:30:49 -0700 (PDT)
+        bh=lnoH1+ZsxBYCzbeJtuEiwBsgC/lAs0DmEqE9uy46sWE=;
+        b=VXA3nGuJoyQ5/Eq0rDPCIgXI6qRpTm1VBsomY4wQdsmVaWpL+un/mj2qOexaK+EbRL
+         kkzf408psT5S0m+UC1CE6Rg9JL5esA1RVb9DzXePjYAXQPybt2w5XL68EVd6Mu79i2oJ
+         VZS7lalH6wr+KoyXK8p5k/FRp8xZEBqktpzuuFGPswqS6F2n0BshlBQ+lF3flGUE6E1F
+         nwpw75jbc4ZGjgVh0YLhHJ7f3pBkQJI7iYnEnfZX3NDlpm0ooTn8VNL8SaGZfrxUoLBz
+         jFlvPtQzeoki0QHBsUnR16Jwaaqr4/PZ7j8nV3yHKeohZdXI5ZgZMeWnjCT760mk++mL
+         xeGw==
+X-Forwarded-Encrypted: i=1; AJvYcCWlxUO47mDwlPDkO9vQ9W9nPzy6NdOtjcVKC7KVGyOZdx0BxSHibb2AehsNz3p3S3/PjMZFS8Sm2AV+AHKArh4N@lists.infradead.org
+X-Gm-Message-State: AOJu0YyCKzNqumIiCGUEHdXvj22cUQWAII0/Wvu0J3UC6QEqKbE9ifJZ
+	Hv/olbn3Ni3bdHrvam5CPgZ5pPyh7lbBkYgFcxa0vZ5SsQsboMV2grDv7el73wAUZeiiZBmpHEq
+	WNAKXqTebd7EbGYXAQbEyfS9Nza7E+xVAtVC5ECt+xQ==
+X-Gm-Gg: ASbGnctx/0okHnDMrB7Va9UCmrRFnHxBdIEpY8/j8hhtizrCVEpbk/d51RY0SkCIFgD
+	97XjbKapC2+eXK+DzQAG4wF8h9NdXs7+0rMbIL/GKamqrrDfqrfpfiI5QEXQIZSucCT2401O9IQ
+	EuuQ5lFeJn1PbvnOib8wjmSWFbYlI8dFoNAyBjIVufKo0mQmVxgsOFKWI9WRv2/jQl3W9SQz75Y
+	SSg53vaJVSREqaMkJEXeUqOVmC+oaDD5QINcdo=
+X-Google-Smtp-Source: AGHT+IHbC8qI4AC5+0YZNljCnPe19ZYxRaps+B2CcXld1o2mGtDbXzoveQoI0IeEbDNxVlYlEUG/+tn7nGWqsyLzmeE=
+X-Received: by 2002:a05:6512:3ca9:b0:55f:55ad:2263 with SMTP id
+ 2adb3069b0e04-55f708b6c5bmr4286185e87.16.1756819949961; Tue, 02 Sep 2025
+ 06:32:29 -0700 (PDT)
 MIME-Version: 1.0
 References: <20250902-pinctrl-gpio-pinfuncs-v7-0-bb091daedc52@linaro.org>
- <20250902-pinctrl-gpio-pinfuncs-v7-8-bb091daedc52@linaro.org> <aLbsr4s7nfvCKLnd@smile.fi.intel.com>
-In-Reply-To: <aLbsr4s7nfvCKLnd@smile.fi.intel.com>
+ <20250902-pinctrl-gpio-pinfuncs-v7-12-bb091daedc52@linaro.org> <aLbt2euqYQM5xXuZ@smile.fi.intel.com>
+In-Reply-To: <aLbt2euqYQM5xXuZ@smile.fi.intel.com>
 From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 2 Sep 2025 15:30:38 +0200
-X-Gm-Features: Ac12FXwa7a499RP9JirYFVy7SbY2WfOVu2ugSGxCUkawbutvsj6hahPNBLiFvFg
-Message-ID: <CAMRc=MfgXac4kRgeiw+SkNUZS_ThoX5qcXeRX5bPWm-t3JQ9Xg@mail.gmail.com>
-Subject: Re: [PATCH v7 08/16] pinctrl: keembay: release allocated memory in
- detach path
+Date: Tue, 2 Sep 2025 15:32:18 +0200
+X-Gm-Features: Ac12FXySKFnql5rdsxfRBFF-2EejY2a696V_6zV_jaWq_9WtZl4uQNoHEj4w7YY
+Message-ID: <CAMRc=Mdnp8T46Gi_xZintgc9AZGCGiRPYc9mR32Xwodxy7DLqw@mail.gmail.com>
+Subject: Re: [PATCH v7 12/16] pinctrl: qcom: use generic pin function helpers
 To: Andy Shevchenko <andriy.shevchenko@intel.com>
 Cc: Linus Walleij <linus.walleij@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
 	Konrad Dybcio <konradybcio@kernel.org>, Alexey Klimov <alexey.klimov@linaro.org>, 
@@ -99,12 +98,13 @@ Cc: Linus Walleij <linus.walleij@linaro.org>, Bjorn Andersson <andersson@kernel.
 	linux-mips@vger.kernel.org, linux-hardening@vger.kernel.org, 
 	linux-mm@kvack.org, imx@lists.linux.dev, linux-omap@vger.kernel.org, 
 	linux-renesas-soc@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_063052_614236_CFD745EB 
-X-CRM114-Status: GOOD (  23.79  )
+X-CRM114-CacheID: sfid-20250902_063233_363634_8EFBD342 
+X-CRM114-Status: GOOD (  17.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,55 +119,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 2, 2025 at 3:10=E2=80=AFPM Andy Shevchenko
+On Tue, Sep 2, 2025 at 3:15=E2=80=AFPM Andy Shevchenko
 <andriy.shevchenko@intel.com> wrote:
 >
-> On Tue, Sep 02, 2025 at 01:59:17PM +0200, Bartosz Golaszewski wrote:
+> On Tue, Sep 02, 2025 at 01:59:21PM +0200, Bartosz Golaszewski wrote:
 > >
-> > Unlike all the other allocations in this driver, the memory for storing
-> > the pin function descriptions allocated with kcalloc() and later resize=
-d
-> > with krealloc() is never freed. Use devres like elsewhere to handle
-> > that. While at it - replace krealloc() with more suitable
-> > devm_krealloc_array().
->
-> With that in mind...
->
-> > Note: the logic in this module is pretty convoluted and could probably
-> > use some revisiting, we should probably be able to calculate the exact
-> > amount of memory needed in advance or even skip the allocation
-> > altogether and just add each function to the radix tree separately.
+> > With the pinmux core no longer duplicating memory used to store the
+> > struct pinfunction objects in .rodata, we can now use the existing
+> > infrastructure for storing and looking up pin functions in qualcomm
+> > drivers. Remove hand-crafted callbacks.
 >
 > ...
 >
-> > Tested-by: Neil Armstrong <neil.armstrong@linaro.org>
+> > +     for (i =3D 0; i < soc_data->nfunctions; i++) {
+> > +             func =3D &soc_data->functions[i];
+> > +
+> > +             ret =3D pinmux_generic_add_pinfunction(pctrl->pctrl, func=
+, NULL);
+> > +             if (ret < 0)
 >
+> Why not simply
+>
+>                 if (ret)
+>
+> > +                     return ret;
+> > +     }
 
-Ah, I just ran b4 trailers -u and didn't check the result. :(
-
-> This tag is not applicable to all patches, I do not believe this has been
-> tested.
->
-> ...
->
-> > -     keembay_funcs =3D kcalloc(kpc->npins * 8, sizeof(*keembay_funcs),=
- GFP_KERNEL);
-> > +     keembay_funcs =3D devm_kcalloc(kpc->dev, kpc->npins * 8,
->
-> ...switching to size_mul() also adds more robustness against too big npin=
-s
-> values.
->
-
-Eh... ok, if there'll be a v8.
+Because it returns a possibly positive selector number.
 
 Bart
-
-> > +                                  sizeof(*keembay_funcs), GFP_KERNEL);
->
-> --
-> With Best Regards,
-> Andy Shevchenko
->
->
 
