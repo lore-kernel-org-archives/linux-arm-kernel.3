@@ -4,124 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE495CA100F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:09:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1603ECA100D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:09:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3f1XYFam/ZdD7bKsVOK5MXlYwi8RwL7yiWW6ZpEJHe0=; b=vGa/s9JiEOx1uCIWv13iZ7Ap5e
-	PA9gsrR179c82k5bc6SUOi8nL4lJRQYAS61VLn7YXU7o3WQj1eTQfgdbkD9x4P5SY3pklgPRrDulW
-	G7irotDmQqZZMYm4tMqYPiCVfGjXZ2GmGlQ1wEpbdl8eE3rVR05rq3t3X1bpjUJ7kADjifPVVUxAL
-	gW+efO605v3kOpEhHy+crlO2/hs0iCS4Bfek1sJOdPKXUT18bHvnpldEqldkfxe1UFInCpD5Fxwrr
-	sNdnbhmaDO4RwEEXJATkbHvgW/CheZNp+997YyTG+b6UKoOvQ66srMoX0IOa4PweRalri91km2dou
-	KK8d5jGA==;
+	bh=oAW2ULjFPf5Zf9gIiW3qrbqOsQCJ1tcABHPn8lB8mHo=; b=R/5mf1HouGeC4CO5luSyfMN6Wn
+	oac8Dj1MCS3U5nN7fGG+k93frc2Lf4yKxyLRo2dtOR7OcYrtG/7qUn4vYD01Si8Slu4JGwFrRbi9S
+	iP159HV5IHlQ6DwYv2sPnO8DjMem3+NPGJfwnEskYEVhec2RpDtOGci9zNKzoRWw3EI3qyM6Wlv9b
+	q/pJxViVudxWGEA9KKTKTV2tntwgLX31auoNf5/aetO/GP4QjTX2nzMJEhWczvg2IE1I5KXjsk3Ww
+	cTxCkU9kcuQwA9Zy8hR0KcCy8qNml2NxZ9WP2/fkOthqsmjJAG4oq1hlnqD/usrk68VhaEgEKfrBx
+	D2UK+OGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utWNZ-00000001Z5z-2V8s;
-	Tue, 02 Sep 2025 19:09:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1utWNP-00000001Yxx-2kNB;
+	Tue, 02 Sep 2025 19:09:07 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utQc9-0000000HU4K-11Xy;
-	Tue, 02 Sep 2025 12:59:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DD007404B9;
-	Tue,  2 Sep 2025 12:59:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA087C4CEED;
-	Tue,  2 Sep 2025 12:59:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756817995;
-	bh=0XSzGHyxrlHY0R+vVgbyhveuiGA7Q39+JTLE1lisLH0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GuYL5+Wz2w8bUCyce8AOvsQH/Sgd0mYOjdV7UhOUWmw4uqljpV13dKq1QNwBhfgFi
-	 TicDSY5yK6wmE4CucZVNPxAyNsphqOIIU9/XaXQHXg/QNmmHOIu8ue6GV6GZ359Ndv
-	 KYna7n8Uqz88uo4y6t/oVWhCYWQv229xMnoMt4BMhHYQG+NMZmdZcWTGvgirjkbg/c
-	 29fwOoeSM94zmmCCMMncLNehQH3KC/1s/dtrH9fCB/akkbqXebD8vjPvEwhnqvaPf1
-	 Vr3dT7MDNvY5Eo72CK/iE+3AqI15LfSOKMmYKdm3veY0L/a/qP/2b7BHIqHhlsooVH
-	 sh0dhiMZ0143Q==
-Message-ID: <55fa6d7f-392d-4acd-b354-330848b43d41@kernel.org>
-Date: Tue, 2 Sep 2025 14:59:47 +0200
+	id 1utQDu-0000000HLwf-2RfA
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 02 Sep 2025 12:34:55 +0000
+Received: from thinkpad.ideasonboard.com (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 19761C77;
+	Tue,  2 Sep 2025 14:27:32 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1756816052;
+	bh=SfU1BmkFn+/uikC+Ti2+q5KjRSs4erXTxBfEJyRqQBU=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=ekd3L/fcwqGdOgNIo1NDy8RQ5jXMDUURTxhOT6dRqGJyWAZYYHYyNEiYpKlA7ocMu
+	 tLdfone79FcAzKJAS5yKc0nOBMeuCW+x8qdiYqNn3cedCzK5nOaGNhWNCmhLE538OY
+	 LlD/k9j31WKrarI8sIiqSO62z0B21NvJo3Zyn75M=
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 5/6] dt-bindings: phy: samsung,usb3-drd-phy: add
- ExynosAutov920 combo ssphy
-To: Pritam Manohar Sutar <pritam.sutar@samsung.com>,
- 'Alim Akhtar' <alim.akhtar@samsung.com>
-Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, andre.draszik@linaro.org, peter.griffin@linaro.org,
- kauschluss@disroot.org, ivo.ivanov.ivanov1@gmail.com,
- igor.belwon@mentallysanemainliners.org, johan@kernel.org,
- m.szyprowski@samsung.com, s.nawrocki@samsung.com,
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
- dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
- selvarasu.g@samsung.com
-References: <20250822093845.1179395-1-pritam.sutar@samsung.com>
- <CGME20250822093022epcas5p42d8c16c851769dab0e1da9d45743ab1f@epcas5p4.samsung.com>
- <20250822093845.1179395-6-pritam.sutar@samsung.com>
- <20250824-rough-fresh-orangutan-eecb2f@kuoka>
- <007501dc1653$e36c3b50$aa44b1f0$@samsung.com>
- <83dc9435-5850-425d-b345-52e84ef9262c@kernel.org>
- <000401dc18cd$ec02a1b0$c407e510$@samsung.com>
- <e8e99c16-ad40-4d79-be92-1aa55c13f9ea@kernel.org>
- <263801dc18d3$d1e20950$75a61bf0$@samsung.com>
- <6b5f20ed-4e88-441e-8f61-20866e2b39c7@kernel.org>
- <000001dc1c02$cc89fda0$659df8e0$@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <000001dc1c02$cc89fda0$659df8e0$@samsung.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20250819024413.GJ5862@pendragon.ideasonboard.com>
+References: <20250814113701.165644-1-isaac.scott@ideasonboard.com> <aJ77VTtZy96JJCHE@valkosipuli.retiisi.eu> <20250815103205.GJ6201@pendragon.ideasonboard.com> <aJ8ZJFSn5Wxhj2Aj@valkosipuli.retiisi.eu> <20250815113633.GM6201@pendragon.ideasonboard.com> <aJ8pKs_6YpAiPjlq@valkosipuli.retiisi.eu> <20250819024413.GJ5862@pendragon.ideasonboard.com>
+Subject: Re: [PATCH] imx-mipi-csis: Get the number of active lanes from mbus_config
+From: Isaac Scott <isaac.scott@ideasonboard.com>
+Cc: linux-media@vger.kernel.org, rmfrfs@gmail.com, martink@posteo.de, kernel@puri.sm, mchehab@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Sakari Ailus <sakari.ailus@iki.fi>
+Date: Tue, 02 Sep 2025 13:28:37 +0100
+Message-ID: <175681611736.1349241.9877873145029586025@isaac-ThinkPad-T16-Gen-2>
+User-Agent: alot/0.10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_055957_323940_2C573022 
-X-CRM114-Status: UNSURE (   7.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250902_053454_769030_E852C34D 
+X-CRM114-Status: GOOD (  32.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,22 +66,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/09/2025 14:12, Pritam Manohar Sutar wrote:
->>>
->>
->> Thank you for the pointers, will refer the examples and update the commit
->> messages accordingly.
-> 
-> Can you please confirm, if below message looks fine?
-> 
-> " 
-> dt-bindings: phy: samsung,usb3-drd-phy: add ExynosAutov920 combo ssphy
-> 
-> The USBDRD31 5nm controller consists of Synopsys USB20 phy and 
-> USB31 SSP+ combophy. Document support for the USB31 SSP+ phy found
-> on combophy of the ExynosAutov920 SoC.
-Yes, that's fine.
+Hi All,
 
-Best regards,
-Krzysztof
+Quoting Laurent Pinchart (2025-08-19 03:44:13)
+<snip>
+> > > > > That would need to parse the endpoint every time we start streami=
+ng, it
+> > > > > doesn't sound ideal.
+> > > >=20
+> > > > Perhaps not, but does that matter in practice? Parsing the endpoint=
+ is,
+> > > > after all, fairly trivial. The advantage would be simplifying drive=
+rs.
+> > >=20
+> > > It's trivial from a code point of view, but it's not a cheap operatio=
+n.
+> > > I'd like to avoid making starting streaming more expensive.
+> >=20
+> > How cheap is "not cheap"? I'd be surprised if parsing an endpoint took =
+more
+> > time than e.g. an I=C2=B2C register write. Of course it depends on the =
+CPU...
+>=20
+> Still, it's not cheap, and I think it can easily be avoided.
+>=20
+> > > > Alternatively we could think of caching this information somewhere =
+but I
+> > > > don't think it's worth it.
+> > >=20
+> > > Drivers likely need to parse endpoints for other reasons. I'd cache t=
+he
+> > > value in drivers, like done today, and pass it to a get_active_lanes
+> > > helper.
+> >=20
+> > Then drivers presumably would also validate this against the endpoint
+> > configuration, wouldn't they? That's extra code in every CSI-2 receiver
+> > driver.
+>=20
+> Why so ? The number of connected lanes can be passed to the helper
+> function, which can use it to validate the number of lanes reported by
+> the source subdev.
+>=20
+
+Apologies if I'm interpreting this wrong, but it seems that the main
+thing I'm reading is that this is not the correct place to implement
+this, and it should be implemented at a higher level (e.g. in v4l2) that
+lets all MIPI CSI reciever drivers use it?
+
+I have noticed that similar functionality has been implemented as part
+of __v4l2_get_link_freq_pad. Are you suggesting that I take a similar
+approach and resubmit as a new series?
+
+> > > > > > The function could take struct media_pad pointer as an argument=
+, or struct
+> > > > > > v4l2_subdev pointer and the pad number.
+> > > > > >=20
+> > > > > > I wonder if any other parameters could change dynamically but I=
+ can't think
+> > > > > > of that now, so perhaps just the number of lanes is what the fu=
+nction
+> > > > > > should indeed return.
+> > > > > >=20
+> > > > > > > +
+> > > > > > > +   return 0;
+> > > > > > > +}
+> > > > > > > +
+> > > > > > >  static int mipi_csis_s_stream(struct v4l2_subdev *sd, int en=
+able)
+> > > > > > >  {
+> > > > > > >     struct mipi_csis_device *csis =3D sd_to_mipi_csis_device(=
+sd);
+> > > > > > > @@ -965,6 +1002,10 @@ static int mipi_csis_s_stream(struct v4=
+l2_subdev *sd, int enable)
+> > > > > > >     format =3D v4l2_subdev_state_get_format(state, CSIS_PAD_S=
+INK);
+> > > > > > >     csis_fmt =3D find_csis_format(format->code);
+> > > > > > > =20
+> > > > > > > +   ret =3D mipi_csis_get_active_lanes(sd);
+> > > > > > > +   if (ret < 0)
+> > > > > > > +           dev_dbg(csis->dev, "Failed to get active lanes: %=
+d", ret);
+> > > > > > > +
+> > > > > > >     ret =3D mipi_csis_calculate_params(csis, csis_fmt);
+> > > > > > >     if (ret < 0)
+> > > > > > >             goto err_unlock;
+>=20
+> --=20
+> Regards,
+>=20
+> Laurent Pinchart
+
+Thank you very much for the help!
+
+Best wishes,
+
+Isaac
 
