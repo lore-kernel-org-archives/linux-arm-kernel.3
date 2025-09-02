@@ -4,86 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C0D4CA1005
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 12:28:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B69A2CA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 12:28:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RjnsL3XW3UaJ1NXrQ/ByHcSCbiuu0UPyPN32gblwuVo=; b=p/05GqWrkQobhdMSbrj68ASgFP
-	04dqeDVWOmAa+gmksaZ/U8JKHM4cqx52kjyqz8rPSB9E3sFLb2+6XebFLGiybqhR0ljl99qaCUGaw
-	xloquyM/rcsi1RU1xMZ38DOweyRB3ik7Z0DMLHJirHhVYSP/lowuMYwKTer0e7E8lmSfBRXtq7U+w
-	gifHRDGkHB/5imcSrnOFukD8sSL07KNKnMbKewq2Q0Uc7alv3kSxL6drjqQu0zaSjH+LElT41QLMm
-	gHOsgl7viulvnpoilRNaNFzz0CKPIs73PjxexWnwiE8LV6UNJ5bHaskDyRlyEBJ+2NL0P5b9Xcb8u
-	HDZAw9DA==;
+	bh=zppQBq1IDIZBQNs2Vh4VDNCqY9edXSDXe3ufBolqY2o=; b=GL+Hs8LOunHU3um+ZQF9oapJ1l
+	RWWcDsmXbVWqjn0K+EnBvyjCKtQGwM3zE3mGnRN4DH0AGuGHX2MDn7Gh5e/UrzJWOvaIc7MC19Hms
+	YO+LcqoL7EIdzykMfeQmj11hYczz2uyXFEF3dbHMC35QZtP8hDIszP5o8d6/xiv+Poe9x8c0Y1h1U
+	9bP+ofL/Dh4UrNFMloUHIpYcNIGzcWvUWzRDQCX4bX7xfnBcDwKBk2WTYWnHc9qPpFv5WfmOq8p4o
+	CJWsYkD0Qp1hrleJxkb761hU2lf40wbrwrgmFPXvgXFj7bcr0R9wATm21/NV86U1opTkWIWHmQIgu
+	LwSp4baA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utQ7T-0000000HF20-4Bc9;
-	Tue, 02 Sep 2025 12:28:16 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1utQ7r-0000000HFWT-2e4g;
+	Tue, 02 Sep 2025 12:28:39 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utNHv-0000000GMdt-0CYO
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 09:26:55 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-55f7204b6aaso2454442e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 02:26:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756805209; x=1757410009; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RjnsL3XW3UaJ1NXrQ/ByHcSCbiuu0UPyPN32gblwuVo=;
-        b=D1lfu8iNyuLnDmG9cLEnFO39XECfSjPYo/1h/9r9h6AWqfCJWokgR9suEx8UWnHMFD
-         lXyFLUtltFySNqt+29YxIB8d/ZGVbqzfysHvkev6/CSoMN+vB3NfRGOoqtbYJMyJUYjI
-         1zhRqocsvwNKgreZUpxNI8cCXW0GaflR6ZKmPcmv2hiRY6cmRPhk360Yo4R83SOAkHvt
-         wR0oLE+clBKAQ7SBW2bgWPyHiVEu6n2RF8H+yO6pdlX1Sfw1/vkh98fIuMwjdjbU1ten
-         yXlREyCT03ZdDQcZ1v0AZwKr8GDNMesdSYxNsYnk1OpcnBwtOtK7SthAPoVlrCa6ettV
-         q3GQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756805209; x=1757410009;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=RjnsL3XW3UaJ1NXrQ/ByHcSCbiuu0UPyPN32gblwuVo=;
-        b=oQt93Aqb/LzDKUIi+zmmOvv+O6a4YbbssmobtF8wWF+yaspKmVBUpj7z9Fa6onCXwm
-         nWRUqceK35t2SiaXYLV45YKHpCLG6I0AGuVIWppYMyvhWBYfHANZgOqoSLkBscmL/6Tq
-         ykgDO2RDJ7EqQhf9lxIe7JmJX8BQTgvGA6y7TvAx0YoVzR1TpKFVFOoZgJ9rgdC0kGsA
-         AnfmqV/N8yvnmOJ7sTTwvj9bWy5nKlIBatisHyHLBGQfJ2qqWFM81Fpj4+SAdb4C9vpT
-         2xm6xFIFmWuCGJbk8xZReZx7bAMohszFOtM29x/XjYJomk8ev63g9903fb4Rq0zu7zke
-         TfjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVEbQ3/77qk+9CRpZbnLhii4gENS1FlS3FjZHXnHCrfvy+AMXKlKGu20hKAFhGP6h49yKfatqkecPBg3QCJATwh@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVJihaM7bz4ER+aG4jyBV/QqgNSAeLhHRg0Y3bBXHLYFSQn08U
-	tvnS/o7DpXFLVoDhFORzSOCjD49RrU7QW5UNhPMFaEMG59A56dvUrcVgqw6dJwJnwDU0fTGFU5E
-	8rJNLXE19ZaSsOlps3nfTZItruOCdeFxwvp9kSKOc3w==
-X-Gm-Gg: ASbGnctfVdPsEREpTIcJYBsTYgcSYfH5hIKrKcybprZ8GhnGPSzOBHhkKe0B5Br08m1
-	YcPBHSJUqPOgJ+SwtTSceujqNjcMfVZYkT+Rxgt7Jec/bAcM7N3I8sTFv89NrbWic2g60Y7VjqK
-	MBBabVedLrQ7aqtXwSxh8ZNJSHdfaBjrIYh+0Tujd+Xce13xNS1T5wxOlQKUKyyckjmfeKIXG6F
-	8iV26CT0kpGtX7VW/EeqAs6awQZ
-X-Google-Smtp-Source: AGHT+IGJjurN9JA0rscto8t99g0Y8tUzB0NwVw3hs98dkcT0jBqS8SNMy1ybjM5cAAuSdEp7ZyMJ+Whx78oyr6hiRrw=
-X-Received: by 2002:a05:6512:4042:b0:55f:48ab:a2c9 with SMTP id
- 2adb3069b0e04-55f709954efmr3358483e87.31.1756805208488; Tue, 02 Sep 2025
- 02:26:48 -0700 (PDT)
+	id 1utNJA-0000000GN5O-3zOE;
+	Tue, 02 Sep 2025 09:28:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1756805287;
+	bh=YtwElPS8aR4gW4cx1Fi4f1c2ZQrNeyC9qjC7zQ2lfzM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=QLqWswT/plgp0WihKxXmc8Ek7MMT+Bv87dJrvqF7XJTaTKd3VbFvZ0fRjzzRp10Ou
+	 +81ctYoi0IN98HhTQP+pYTFSN/5wDzNXBl+EyANuCrkPbnOR2JTcd8pvtw328KTuQY
+	 XAYLHfJcI8750dVd0WKks/seZkLXC0jZbzxQYSIlBcSccN6sL/lzOKjPnnmfBxnY02
+	 /fh0r4S08W3Z0whRPFKj/AISBrBnhMzHG2Dz++2bjo0JSiMNPEWvCn66TimZx6LYcn
+	 72EOXt3RVBt5kJnBwtuZl2yWoQKZsrMS+FzeC6xC3Lu0LxKj7DfZWaMuOwxO8qOuou
+	 28YSy7OXmP3Jg==
+Received: from localhost (unknown [82.79.138.60])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 0E23617E12B9;
+	Tue,  2 Sep 2025 11:28:07 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Tue, 02 Sep 2025 12:27:56 +0300
+Subject: [PATCH 1/2] drm: Add CRTC background color property
 MIME-Version: 1.0
-References: <20250901-bcmbca-i2c-dts-v1-0-ad81f60d4276@linaro.org>
- <20250901-bcmbca-i2c-dts-v1-4-ad81f60d4276@linaro.org> <2c5daf76-ed0b-486d-9f8f-dcaf35365042@broadcom.com>
-In-Reply-To: <2c5daf76-ed0b-486d-9f8f-dcaf35365042@broadcom.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 2 Sep 2025 11:26:37 +0200
-X-Gm-Features: Ac12FXxpZyw8Ld2p9LAajSUL5_6eX8KJUILwnVdStX61ZrJSSWDRbGJlqECUNUc
-Message-ID: <CACRpkdaiRMzBi8cMQDrsqOR+YG6WqECK91Qeu53xitYuP5C4ww@mail.gmail.com>
-Subject: Re: [PATCH 4/8] ARM: dts: bcm6846: Add I2C bus block
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: William Zhang <william.zhang@broadcom.com>, Anand Gore <anand.gore@broadcom.com>, 
-	Kursad Oney <kursad.oney@broadcom.com>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250902-rk3588-bgcolor-v1-1-fd97df91d89f@collabora.com>
+References: <20250902-rk3588-bgcolor-v1-0-fd97df91d89f@collabora.com>
+In-Reply-To: <20250902-rk3588-bgcolor-v1-0-fd97df91d89f@collabora.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, Matt Roper <matthew.d.roper@intel.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_022651_205414_24EA9F81 
-X-CRM114-Status: GOOD (  19.59  )
+X-CRM114-CacheID: sfid-20250902_022809_180426_81EBBE67 
+X-CRM114-Status: GOOD (  25.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,125 +79,249 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 1, 2025 at 5:49=E2=80=AFPM Florian Fainelli
-<florian.fainelli@broadcom.com> wrote:
-> On 9/1/2025 5:50 AM, Linus Walleij wrote:
+Some display controllers can be hardware programmed to show non-black
+colors for pixels that are either not covered by any plane or are
+exposed through transparent regions of higher planes.  This feature can
+help reduce memory bandwidth usage, e.g. in compositors managing a UI
+with a solid background color while using smaller planes to render the
+remaining content.
 
+To support this capability, introduce the BACKGROUND_COLOR standard DRM
+mode property, which can be attached to a CRTC through the
+drm_crtc_attach_background_color_property() helper function.
 
-> > +             i2c0: i2c@2100 {
-> > +                     compatible =3D "brcm,brcmstb-i2c";
->
-> Historically the BCA SoCs have byte-sized FIFOs rather than word-sized
-> FIFOs which is why the compatible string "brcm,brcmper-i2c" was defined.
-> I assume this was changed at some point and this works correctly with
-> the "brcm,brcmstb-i2c" compatible string.
->
-> Was there any I2C peripheral you could interface with?
+Additionally, define a 64-bit ARGB format value to be built with the
+help of a dedicated drm_argb64() utility macro.  Individual color
+components can be extracted with desired precision using the
+corresponding DRM_ARGB64_*() macros.
 
-Good question!
+Co-developed-by: Matt Roper <matthew.d.roper@intel.com>
+Signed-off-by: Matt Roper <matthew.d.roper@intel.com>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ drivers/gpu/drm/drm_atomic_state_helper.c |  1 +
+ drivers/gpu/drm/drm_atomic_uapi.c         |  4 ++++
+ drivers/gpu/drm/drm_blend.c               | 37 +++++++++++++++++++++++++++----
+ drivers/gpu/drm/drm_mode_config.c         |  6 +++++
+ include/drm/drm_blend.h                   |  4 +++-
+ include/drm/drm_crtc.h                    | 12 ++++++++++
+ include/drm/drm_mode_config.h             |  5 +++++
+ include/uapi/drm/drm_mode.h               | 30 +++++++++++++++++++++++++
+ 8 files changed, 94 insertions(+), 5 deletions(-)
 
-I have an SFP on I2C and it doesn't connect with either mode of the
-I2C, I think because I need pin control for BCA working first :(
+diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/drm/drm_atomic_state_helper.c
+index 7142e163e618ea0d7d9d828e1bd9ff2a6ec0dfeb..359264cf467c5270b77f0b04548073bc92cb812e 100644
+--- a/drivers/gpu/drm/drm_atomic_state_helper.c
++++ b/drivers/gpu/drm/drm_atomic_state_helper.c
+@@ -75,6 +75,7 @@ __drm_atomic_helper_crtc_state_reset(struct drm_crtc_state *crtc_state,
+ 				     struct drm_crtc *crtc)
+ {
+ 	crtc_state->crtc = crtc;
++	crtc_state->background_color = drm_argb64(0xffff, 0, 0, 0);
+ }
+ EXPORT_SYMBOL(__drm_atomic_helper_crtc_state_reset);
+ 
+diff --git a/drivers/gpu/drm/drm_atomic_uapi.c b/drivers/gpu/drm/drm_atomic_uapi.c
+index 85dbdaa4a2e25878c953b9b41539c8566d55c6d9..a447cb119aaa6cd11348be77b39f342a1386836d 100644
+--- a/drivers/gpu/drm/drm_atomic_uapi.c
++++ b/drivers/gpu/drm/drm_atomic_uapi.c
+@@ -407,6 +407,8 @@ static int drm_atomic_crtc_set_property(struct drm_crtc *crtc,
+ 					&replaced);
+ 		state->color_mgmt_changed |= replaced;
+ 		return ret;
++	} else if (property == config->background_color_property) {
++		state->background_color = val;
+ 	} else if (property == config->prop_out_fence_ptr) {
+ 		s32 __user *fence_ptr = u64_to_user_ptr(val);
+ 
+@@ -452,6 +454,8 @@ drm_atomic_crtc_get_property(struct drm_crtc *crtc,
+ 		*val = (state->ctm) ? state->ctm->base.id : 0;
+ 	else if (property == config->gamma_lut_property)
+ 		*val = (state->gamma_lut) ? state->gamma_lut->base.id : 0;
++	else if (property == config->background_color_property)
++		*val = state->background_color;
+ 	else if (property == config->prop_out_fence_ptr)
+ 		*val = 0;
+ 	else if (property == crtc->scaling_filter_property)
+diff --git a/drivers/gpu/drm/drm_blend.c b/drivers/gpu/drm/drm_blend.c
+index 6852d73c931ce32e62062e2b8f8c5e38612d5210..5a287d12685b007a2732f510f62675f500e53727 100644
+--- a/drivers/gpu/drm/drm_blend.c
++++ b/drivers/gpu/drm/drm_blend.c
+@@ -191,10 +191,6 @@
+  *		 plane does not expose the "alpha" property, then this is
+  *		 assumed to be 1.0
+  *
+- * Note that all the property extensions described here apply either to the
+- * plane or the CRTC (e.g. for the background color, which currently is not
+- * exposed and assumed to be black).
+- *
+  * SCALING_FILTER:
+  *     Indicates scaling filter to be used for plane scaler
+  *
+@@ -207,6 +203,23 @@
+  *
+  * Drivers can set up this property for a plane by calling
+  * drm_plane_create_scaling_filter_property
++ *
++ * The property extensions described above all apply to the plane.  Drivers
++ * may also expose the following crtc property extension:
++ *
++ * BACKGROUND_COLOR:
++ *	Background color is set via drm_crtc_attach_background_color_property().
++ *	It controls the ARGB color of a full-screen layer that exists below all
++ *	planes.  This color will be used for pixels not covered by any plane and
++ *	may also be blended with plane contents as allowed by a plane's alpha
++ *	values.  The background color defaults to black, and is assumed to be
++ *	black for drivers that do not expose this property.  Although background
++ *	color isn't a plane, it is assumed that the color provided here
++ *	undergoes the same pipe-level degamma/CSC/gamma transformations that
++ *	planes undergo.  Note that the color value provided here includes an
++ *	alpha channel, hence non-opaque background color values are allowed, but
++ *	are generally only honored in special cases (e.g. when a memory
++ *	writeback connector is in use).
+  */
+ 
+ /**
+@@ -621,3 +634,19 @@ int drm_plane_create_blend_mode_property(struct drm_plane *plane,
+ 	return 0;
+ }
+ EXPORT_SYMBOL(drm_plane_create_blend_mode_property);
++
++/**
++ * drm_crtc_attach_background_color_property - attach background color property
++ * @crtc: drm crtc
++ *
++ * Attaches the background color property to @crtc.  The property defaults to
++ * solid black and will accept 64-bit ARGB values in the format generated by
++ * drm_argb64().
++ */
++void drm_crtc_attach_background_color_property(struct drm_crtc *crtc)
++{
++	drm_object_attach_property(&crtc->base,
++				   crtc->dev->mode_config.background_color_property,
++				   drm_argb64(0xffff, 0, 0, 0));
++}
++EXPORT_SYMBOL(drm_crtc_attach_background_color_property);
+diff --git a/drivers/gpu/drm/drm_mode_config.c b/drivers/gpu/drm/drm_mode_config.c
+index 25f376869b3a41d47bbe72b0df3e35cad142f3e6..6d70bfab45ca2bb81ed3ca1940fd1cd85e8cc58e 100644
+--- a/drivers/gpu/drm/drm_mode_config.c
++++ b/drivers/gpu/drm/drm_mode_config.c
+@@ -375,6 +375,12 @@ static int drm_mode_create_standard_properties(struct drm_device *dev)
+ 		return -ENOMEM;
+ 	dev->mode_config.gamma_lut_size_property = prop;
+ 
++	prop = drm_property_create_range(dev, 0,
++					 "BACKGROUND_COLOR", 0, U64_MAX);
++	if (!prop)
++		return -ENOMEM;
++	dev->mode_config.background_color_property = prop;
++
+ 	prop = drm_property_create(dev,
+ 				   DRM_MODE_PROP_IMMUTABLE | DRM_MODE_PROP_BLOB,
+ 				   "IN_FORMATS", 0);
+diff --git a/include/drm/drm_blend.h b/include/drm/drm_blend.h
+index 88bdfec3bd8848acd1ef5742aaaa23483b332a2e..c7e888767c81c2745cd3cce88c10db4bbe305d1e 100644
+--- a/include/drm/drm_blend.h
++++ b/include/drm/drm_blend.h
+@@ -31,8 +31,9 @@
+ #define DRM_MODE_BLEND_COVERAGE		1
+ #define DRM_MODE_BLEND_PIXEL_NONE	2
+ 
+-struct drm_device;
+ struct drm_atomic_state;
++struct drm_crtc;
++struct drm_device;
+ struct drm_plane;
+ 
+ static inline bool drm_rotation_90_or_270(unsigned int rotation)
+@@ -58,4 +59,5 @@ int drm_atomic_normalize_zpos(struct drm_device *dev,
+ 			      struct drm_atomic_state *state);
+ int drm_plane_create_blend_mode_property(struct drm_plane *plane,
+ 					 unsigned int supported_modes);
++void drm_crtc_attach_background_color_property(struct drm_crtc *crtc);
+ #endif
+diff --git a/include/drm/drm_crtc.h b/include/drm/drm_crtc.h
+index caa56e039da2a748cf40ebf45b37158acda439d9..4653dacc1077b9ed8fb4cf27cc84530ba1706f6a 100644
+--- a/include/drm/drm_crtc.h
++++ b/include/drm/drm_crtc.h
+@@ -274,6 +274,18 @@ struct drm_crtc_state {
+ 	 */
+ 	struct drm_property_blob *gamma_lut;
+ 
++	/**
++	 * @background_color:
++	 *
++	 * RGB value representing the pipe's background color.  The background
++	 * color (aka "canvas color") of a pipe is the color that will be used
++	 * for pixels not covered by a plane, or covered by transparent pixels
++	 * of a plane.  The value here should be built using drm_argb64(), while
++	 * the individual color components can be extracted with desired
++	 * precision via the DRM_ARGB64_*() macros.
++	 */
++	u64 background_color;
++
+ 	/**
+ 	 * @target_vblank:
+ 	 *
+diff --git a/include/drm/drm_mode_config.h b/include/drm/drm_mode_config.h
+index 2e848b816218584eb077ed887bf97705f012a622..ea422afec5c4108a223dc872e1b6835ffc596cc3 100644
+--- a/include/drm/drm_mode_config.h
++++ b/include/drm/drm_mode_config.h
+@@ -814,6 +814,11 @@ struct drm_mode_config {
+ 	 * gamma LUT as supported by the driver (read-only).
+ 	 */
+ 	struct drm_property *gamma_lut_size_property;
++	/**
++	 * @background_color_property: Optional CRTC property to set the
++	 * background color.
++	 */
++	struct drm_property *background_color_property;
+ 
+ 	/**
+ 	 * @suggested_x_property: Optional connector property with a hint for
+diff --git a/include/uapi/drm/drm_mode.h b/include/uapi/drm/drm_mode.h
+index a122bea2559387576150236e3a88f99c24ad3138..4bd6a8ca8868109bcbe21f9f6e9864519c9d03ec 100644
+--- a/include/uapi/drm/drm_mode.h
++++ b/include/uapi/drm/drm_mode.h
+@@ -1363,6 +1363,36 @@ struct drm_mode_closefb {
+ 	__u32 pad;
+ };
+ 
++/*
++ * Put 16-bit ARGB values into a standard 64-bit representation that
++ * can be used for ioctl parameters, inter-driver communication, etc.
++ */
++static inline __u64
++drm_argb64(__u16 alpha, __u16 red, __u16 green, __u16 blue)
++{
++	return (__u64)alpha << 48 | (__u64)red << 32 | (__u64)green << 16 | blue;
++}
++
++/*
++ * Extract the specified number of least-significant bits of a specific
++ * color component from a standard 64-bit ARGB value.
++ */
++#define DRM_ARGB64_COMP(c, shift, numlsb) \
++	((__u16)(((c) >> (shift)) & ((1UL << (numlsb) % 17) - 1)))
++#define DRM_ARGB64_ALPHA_LSB(c, numlsb) DRM_ARGB64_COMP(c, 48, numlsb)
++#define DRM_ARGB64_RED_LSB(c, numlsb)   DRM_ARGB64_COMP(c, 32, numlsb)
++#define DRM_ARGB64_GREEN_LSB(c, numlsb) DRM_ARGB64_COMP(c, 16, numlsb)
++#define DRM_ARGB64_BLUE_LSB(c, numlsb)  DRM_ARGB64_COMP(c, 0, numlsb)
++
++/*
++ * Convenience wrappers to extract all 16 bits of a specific color
++ * component from a standard 64-bit ARGB value.
++ */
++#define DRM_ARGB64_ALPHA(c)		DRM_ARGB64_ALPHA_LSB(c, 16)
++#define DRM_ARGB64_RED(c)		DRM_ARGB64_RED_LSB(c, 16)
++#define DRM_ARGB64_GREEN(c)		DRM_ARGB64_GREEN_LSB(c, 16)
++#define DRM_ARGB64_BLUE(c)		DRM_ARGB64_BLUE_LSB(c, 16)
++
+ #if defined(__cplusplus)
+ }
+ #endif
 
-I look into the i2c_bcm63xxx.c driver by Prataba Reddy, which
-is what at least BCM6846 is using. The register access looks like this:
+-- 
+2.51.0
 
-/* Read the value from given bcm63000 register */
-static inline int reg_read(uint32* offset)
-{
-    int ret;
-    ret =3D *offset;
-    BCM_LOG_DEBUG(BCM_LOG_ID_I2C, "reg_read: offset =3D %lx, val is %x\n",
-                  (long int)offset, ret);
-    return ret;
-}
-
-/* Write the given value to given bcm63000 register */
-static inline void reg_write(uint32* offset, int val)
-{
-    BCM_LOG_DEBUG(BCM_LOG_ID_I2C, "reg_write: offset =3D %lx; val =3D %x\n"=
-,
-                  (long int)offset, val);
-    *offset =3D val;
-}
-
-And those are used like this for the FIFO (read):
-
-        /* Read the data */
-        if (fifo_len =3D=3D 8)
-        {
-            for (j =3D 0; j < xfer_cnt; j++)
-                buf[i*fifo_len + j] =3D
-                    (u8)reg_read((uint32 *)&i2c_dev->reg_base->DataOut0 + j=
-);
-        }
-        else
-        {
-            int num_dwords =3D (xfer_cnt)/4;
-            int left_over =3D (xfer_cnt)%4;
-            int temp_data=3D0;
-            for (j =3D 0; j < num_dwords; j++)
-            {
-#ifdef __LITTLE_ENDIAN
-                *((int *)&buf[i*fifo_len + j*4]) =3D
-                    reg_read((uint32 *)&i2c_dev->reg_base->DataOut0 + j);
-#else
-                *((int *)&buf[i*fifo_len + j*4]) =3D
-                    swab32(reg_read((uint32
-*)&i2c_dev->reg_base->DataOut0 + j));
-#endif
-            }
-            if(left_over)
-            {
-#ifdef __LITTLE_ENDIAN
-                temp_data =3D
-                    reg_read((uint32 *)&i2c_dev->reg_base->DataOut0 + j);
-#else
-                temp_data =3D
-                    swab32(reg_read((uint32
-*)&i2c_dev->reg_base->DataOut0 + j));
-#endif
-                memcpy((char*)&buf[i*fifo_len + j*4],
-(char*)&temp_data, left_over);
-
-            }
-
-        }
-
-And for write:
-
-        /* Write the data */
-        if (fifo_len =3D=3D 8)
-        {
-            for (j =3D 0; j < xfer_cnt; j++)
-                reg_write((uint32 *)&i2c_dev->reg_base->DataIn0 + j,
-buf[i * fifo_len + j]);
-        }
-        else
-        {
-            int num_dwords =3D (xfer_cnt + 3)/4;
-            for (j =3D 0; j < num_dwords; j++)
-            {
-#ifdef __LITTLE_ENDIAN
-                reg_write((uint32 *)&i2c_dev->reg_base->DataIn0 + j,
-                          *((int *)&buf[i * fifo_len + j*4]));
-#else
-                reg_write((uint32 *)&i2c_dev->reg_base->DataIn0 + j,
-                          swab32(*((int *)&buf[i * fifo_len + j*4])));
-#endif
-            }
-        }
-
-
-To me this looks like 32bit access and one byte in the LSB of each
-32bit word. But the FIFO data_regsz code in i2c-brcmstb.c is a bit
-terse here, which one should I be using?
-
-I guess brcm,brcmper-i2c?
-
-Unfortunately Documentation/devicetree/bindings/i2c/brcm,brcmstb-i2c.yaml
-isn't very helpful with this, I can patch it after we conclude this.
-
-Yours,
-Linus Walleij
 
