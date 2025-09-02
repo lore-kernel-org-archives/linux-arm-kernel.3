@@ -4,79 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 390B6CA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 00:54:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19253CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 00:54:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=21cy0heJjmP9Ld43G50zc2SVhk5aa4VJAaf/J1BjNx0=; b=Xe7dDOSSgoPtM8dsbvT9LwthSC
-	K9sRk4xBo8v/yh0t6vdpJ/Hm77LKbXLXv0Vf4Z/QtVqpw5MD1mdBdyQAcx2FBln9Pugjn/Wv7ieoN
-	WX/2/C6msVJVbZH5N9V1BgIXJQphlDFpJM4pR7zKrgc+yWRv/qs3Sb0X9fSccWQ47aXeZOYgKfclA
-	2srmt6asmCi65lBATFDd33n2fO2j4I93DKMuRRtr3D61OXbGwJTM4vmDkTaaHlFyZzUf4Tr48eO9X
-	OaubNjNsI2nJrIPgxIX0ULfsY7UgZZaJlQf9IvwmDvx1xvM9LzERfxF0jIC2EXX+f9vzYJ0rFWNud
-	dCF0o4mQ==;
+	bh=xMe78xPSO9mNHK8wN9EVQJTpSkugiza3fx/eHKCpnS8=; b=ZHZc79IjB06mqirTx63usEZflw
+	Sqm//nII7Ghf5vSLwfaByAA7wuPFB9hvWMa+WsZq+W6ybxcdbl0VNFvi9p8ponSdseUScP29p1NTY
+	SlYg2V36YaPqY3EQnuUfxTwD/lx6IOjnaBwGulDYxmWm3dGkHbxjVabw497gqYQIgmNG1IXpho7gy
+	ZHMPDz0O9X0vID8hjY713VgeW9AeT1mwpJ23AdRH7JFRgRsWPxTm0q64keKJllslyTCF8JHXfKf+y
+	LgehVFEEGD0zD0TAiqRuUaJsdBrNvwYdWjufNYLqipQK5r4gGCLvBokXZ2x4eB/U/Oh8YzAkywM3p
+	0JrPVsfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utFHk-0000000Eb4z-1izN;
-	Tue, 02 Sep 2025 00:54:08 +0000
-Received: from mout-p-103.mailbox.org ([80.241.56.161])
+	id 1utFHq-0000000EbDn-0IK2;
+	Tue, 02 Sep 2025 00:54:14 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utE11-0000000EMl8-2iqO
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Sep 2025 23:32:48 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	id 1utES4-0000000EQOT-13Ue;
+	Tue, 02 Sep 2025 00:00:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1756771241;
+	bh=lTx5ebup15L8Y8dWezY7Q+L8eTFTcPmG7X75AeaDG7E=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Uyhey97Hq08CpJlD4ljK9VVtmMYrunawlcrse06eEGa8pTAZasj3E8hNswtF2a92d
+	 iiqxAdfK055Cfczmv+fkX85vHvdfz6EQehT4M8SgQNIEIKvQNTx5WfgR7f00aG/kWd
+	 saaI5J1aAkuYOIsCRtX8e1S4NaUFVynlWnZG1xwCbtihv2/GTC/BQ2sbugtx9gwZx+
+	 JKo/st3OX8fxXuY8wma6YIVLBF2TsGywK+jB0MtOeTA0/ii/cv0p0eJSH3IUZhwsCk
+	 9J+r0b/xQRbKwIoC/g4pUGaUS8mPelIVT9R+yp/2MjADokykyfDPLxavq+hFXXPB3B
+	 KBZEfr57+g86w==
+Received: from [10.40.0.100] (185-251-200-65.lampert.tv [185.251.200.65])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4cG4t24TCTz9t5M;
-	Tue,  2 Sep 2025 01:32:42 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1756769562;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=21cy0heJjmP9Ld43G50zc2SVhk5aa4VJAaf/J1BjNx0=;
-	b=rBH0tXnHVrXPb8dCrZ4CQ2TwrIYBKhZISkYa24/yPyJPUnQKlR1HjpfVrlj5PgXzukKbeO
-	LpRxIQOHXSVkIsMPVAYM1fvnNMq3dvQ/WrD/0ZytPMR1OCBqt62u9M60C/s4GjEm1cx5iR
-	6mCBkvLWbFFGsZOYRq/sYA/oSJzgemPsE1OImBKLwzlY7KUvfgtdWPcNNOebPdx3XaU9u2
-	rq+fNX2VNdwsNJik/KXQZJeaCUqzN5RdoSYEo5TDwdDc5Da7OYIzJE198jIM0gVZMLiU8J
-	OWaeNVWQoF+8Z3Rut0e8G9R1Mci/Yi6/EDhVGJR52e1gjjJq9INC5E/sb7ztoQ==
-Message-ID: <be2fc937-b7a6-49a7-b57d-6e3f16f4ccc3@mailbox.org>
-Date: Tue, 2 Sep 2025 01:32:38 +0200
+	(Authenticated sender: mriesch)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C7B9617E0488;
+	Tue,  2 Sep 2025 02:00:40 +0200 (CEST)
+Message-ID: <03182857-2d74-42f5-850f-d5edca9ad19c@collabora.com>
+Date: Tue, 2 Sep 2025 02:00:40 +0200
 MIME-Version: 1.0
-Subject: Re: [PATCH v1] dts: arm64: freescale: move imx9*-clock.h
- imx9*-power.h into dt-bindings
-To: Krzysztof Kozlowski <krzk@kernel.org>, Peng Fan <peng.fan@oss.nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Abel Vesa <abelvesa@kernel.org>,
- Peng Fan <peng.fan@nxp.com>, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
- E Shattow <e@freeshell.de>
-References: <20250831200516.522179-1-e@freeshell.de>
- <20250901032203.GA393@nxa18884-linux.ap.freescale.net>
- <3a165d77-3e36-4c0d-a193-aa9b27e0d523@mailbox.org>
- <05f7d69a-9c05-4b47-ab04-594c37e975eb@kernel.org>
- <51daddc4-1b86-4688-98cb-ef0f041d4126@mailbox.org>
- <8920d24b-e796-4b02-b43b-8a5deed3e8fb@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 7/7] arm64: dts: rockchip: add mipi csi-2 dphy nodes to
+ rk3588
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Kever Yang <kever.yang@rock-chips.com>,
+ Jagan Teki <jagan@amarulasolutions.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Diederik de Haas <didi.debian@cknow.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Collabora Kernel Team <kernel@collabora.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org
+References: <20250616-rk3588-csi-dphy-v3-0-a5ccd5f1f438@collabora.com>
+ <20250616-rk3588-csi-dphy-v3-7-a5ccd5f1f438@collabora.com>
 Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <8920d24b-e796-4b02-b43b-8a5deed3e8fb@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <20250616-rk3588-csi-dphy-v3-7-a5ccd5f1f438@collabora.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-MBO-RS-ID: 7953aab8df04900d273
-X-MBO-RS-META: ox39hmicyjhub973d6jzuxm3y1aktfrc
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_163247_834912_A6F4069E 
-X-CRM114-Status: GOOD (  22.28  )
+X-CRM114-CacheID: sfid-20250901_170044_457861_93223397 
+X-CRM114-Status: GOOD (  15.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,67 +86,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/1/25 12:54 PM, Krzysztof Kozlowski wrote:
-> On 01/09/2025 12:30, Marek Vasut wrote:
->> On 9/1/25 5:33 AM, Krzysztof Kozlowski wrote:
->>> On 01/09/2025 04:22, Marek Vasut wrote:
->>>> On 9/1/25 5:22 AM, Peng Fan wrote:
->>>>> On Sun, Aug 31, 2025 at 01:04:45PM -0700, E Shattow wrote:
->>>>>> Move imx9*-{clock,power}.h headers into
->>>>>> include/dt-bindings/{clock,power}/ and fix up the DTs
->>>>>
->>>>> No. The files should be under arch/arm64/boot/dts/freescale/
->>>> Why ? Linux already has include/dt-bindings/clock/ and
->>>> include/dt-bindings/power directories for exactly those headers , why
->>>> did iMX9 suddenly start conflating them into arch/arm64/boot/dts/freescale ?
->>>
->>>
->>> Because maybe these are not bindings?
->>
->> Please compare arch/arm64/boot/dts/freescale/imx95-clock.h and
->> include/dt-bindings/clock/imx8mp-clock.h and clarify to me, why the
->> imx95-clock.h is not bindings and the imx8mp-clock.h is bindings.
+Hi all,
+
+On 9/1/25 22:47, Michael Riesch via B4 Relay wrote:
+> From: Michael Riesch <michael.riesch@collabora.com>
 > 
-> That's uno reverse card. I do not have to prove why these are different.
-> You need to prove why imx95 are bindings.
+> The Rockchip RK3588 features two MIPI CSI-2 DPHYs. Add the device
+> tree nodes for them.
 > 
->>
->> Both files list clock IDs for the clock nodes, one clock one is SCMI
->> clock (iMX95), the other clock node is CCM clock (iMX8MP), and they are
+> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+> ---
+>  arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 33 +++++++++++++++++++++++++++
+>  1 file changed, 33 insertions(+)
 > 
-> Yeah, entirely different things. Like comparing apples and oranges.
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+> index 70f03e68ba55..eedf93247e9c 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+> @@ -621,6 +621,16 @@ php_grf: syscon@fd5b0000 {
+>  		reg = <0x0 0xfd5b0000 0x0 0x1000>;
+>  	};
+>  
+> +	csidphy0_grf: syscon@fd5b4000 {
+> +		compatible = "rockchip,rk3588-csidphy-grf", "syscon";
+> +		reg = <0x0 0xfd5b4000 0x0 0x1000>;
+> +	};
+> +
+> +	csidphy1_grf: syscon@fd5b5000 {
+> +		compatible = "rockchip,rk3588-csidphy-grf", "syscon";
+> +		reg = <0x0 0xfd5b5000 0x0 0x1000>;
+> +	};
+> +
+>  	pipe_phy0_grf: syscon@fd5bc000 {
+>  		compatible = "rockchip,rk3588-pipe-phy-grf", "syscon";
+>  		reg = <0x0 0xfd5bc000 0x0 0x100>;
+> @@ -3052,6 +3062,29 @@ mipidcphy1: phy@fedb0000 {
+>  			 <&cru SRST_S_MIPI_DCPHY1>;
+>  		reset-names = "m_phy", "apb", "grf", "s_phy";
+>  		#phy-cells = <1>;
+
+Not my day today, apparently. status = "disabled"; is removed from the
+mipicdphy1 node.
+
+Hence, there is going to be a v4 in which I fix this -- but maybe you
+all can still review the series.
+
+Best regards,
+Michael
+
+> +	};
+> +
+> +	csi_dphy0: phy@fedc0000 {
+> +		compatible = "rockchip,rk3588-csi-dphy";
+> +		reg = <0x0 0xfedc0000 0x0 0x8000>;
+> +		clocks = <&cru PCLK_CSIPHY0>;
+> +		clock-names = "pclk";
+> +		#phy-cells = <0>;
+> +		resets = <&cru SRST_P_CSIPHY0>, <&cru SRST_CSIPHY0>;
+> +		reset-names = "apb", "phy";
+> +		rockchip,grf = <&csidphy0_grf>;
+> +		status = "disabled";
+> +	};
+> +
+> +	csi_dphy1: phy@fedc8000 {
+> +		compatible = "rockchip,rk3588-csi-dphy";
+> +		reg = <0x0 0xfedc8000 0x0 0x8000>;
+> +		clocks = <&cru PCLK_CSIPHY1>;
+> +		clock-names = "pclk";
+> +		#phy-cells = <0>;
+> +		resets = <&cru SRST_P_CSIPHY1>, <&cru SRST_CSIPHY1>;
+> +		reset-names = "apb", "phy";
+> +		rockchip,grf = <&csidphy1_grf>;
+>  		status = "disabled";
+>  	};
+>  
 > 
->> both (SCMI and CCM) clock nodes in DT. Both header files may have to be
->> included in drivers, the iMX8MP headers already are, the iMX95 headers
-> 
-> No, the SCMI cannot be used in the drivers, because these are not
-> abstract IDs mapping between driver and DTS.
 
-The SCMI clock protocol on iMX9 uses fixed clock IDs (the ones in 
-imx95-clock.h), just like the iMX CCM clock driver uses fixed clock IDs 
-(the ones in imx8mp-clock.h).
-
-Where does the "SCMI cannot be used in the drivers" come from ? Can you 
-elaborate on this part ?
-
->> currently are included only in U-Boot drivers.
->>
->> I really don't see the difference here, sorry.
-> 
-> You just pointed out difference - no usage in drivers, no ABI!
-
-Surely at least the SCMI clock protocol clock driver does use those SCMI 
-clock IDs , so that is "yes usage in drivers" ?
-
-Also, the SCMI clock protocol clock IDs are being used in U-Boot 
-drivers, which does make those IDs an ABI .
-
-> Instead of playing this "I found this code somewhere, so I can do
-> whatever the same" answer the first implied question - why these are
-> bindings? Provide arguments what do they bind.
-
-I am not sure how to answer this, but what I can write is, that if I 
-scramble these IDs in either the DT or the firmware (which provides the 
-SCMI clock service), then the system cannot work. I am not sure if this 
-is the answer you are looking for.
 
