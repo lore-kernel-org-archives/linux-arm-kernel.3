@@ -4,146 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD0ABCA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:43:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75257CA1009
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:43:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r1SOQ46E/29ii7NOe0dMseenbNXVTPfB9cR3qwZszXE=; b=0iWmbcbJWvZiOI07arrOcTC/M7
-	E4Oe8RM2+QHPAyHNBD0W8z4U1sTuZne+bGLvAcOP7VZR5XExAPDtIlcmqMmuAbtI4DFSvIExffFEW
-	ATXvZekiXW1qiAQ0tALvov2+7ZRpTanSKyj4jdhv5wRM6JjWfsleuz+TB32EdO7l3BzwHWlT4toJr
-	u7ig8M+WCmC/Ypvfnf8zIZ+/i2GkLqR+sKEfOaAAV6Wi8msCTP1IakbSIQ8PHXbQHZD47CbdNtqq5
-	+UKvzcmjBS5E2JjLyGDTHaR7QteHk/dPxTbfKpilJXlAK5UBbLYbNECWR0W9SijbGmFeNFDVHMxFV
-	MCFA8Xfw==;
+	bh=yzXOYoDcw0s4gQ4w74V4qvU2nwkX5U7En2+CKV1FmvU=; b=DgWmW+x1dKNfY8mWvr2dIcQyI8
+	2G9fq4Q7ZjGG1tZBq6lvfWYXSmLpbZ0XchEZpK55eCvzGlTzF9HbHtvqyJJ3Br9TbdqswDcsTK/fS
+	Y4tl8h1jxdt/thIcIqhXXltu0aYF92hUxomVUXkV6GlSudENwoVU55hOQs+nsAG2HwpvOWTxKj9+J
+	Uga1GdtjQVtcwGWjgdSxeTLTE77gEPeTsx5k4d5aAa4le3Mh9lk/AVl2SWaK7h3q3qBiqephze0os
+	PLMG6mGfIEhbbRuyv040SolVt1mir+xR9WMDvKVGjYrt92XfrVYDj8hfTbDTTOYIEzFZUcU3wzDZz
+	uEVV4YTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utYmD-00000002Amv-2AyQ;
-	Tue, 02 Sep 2025 21:42:53 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1utYlx-00000002ALW-0CDZ;
+	Tue, 02 Sep 2025 21:42:37 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utSaK-00000000a3t-08wp
+	id 1utQyQ-000000000wW-1NCm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 15:06:13 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 582EqL68023532
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 2 Sep 2025 15:06:10 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	r1SOQ46E/29ii7NOe0dMseenbNXVTPfB9cR3qwZszXE=; b=YdC/jkh8xvXAp9wu
-	CKDzkCFExpg00v8hlSfM2NnTxpUffrIb2CxhRu/Tp85TV98nCHfTT5zxx/ak2dr8
-	fmVm06mpEff/tLeEc60kwVpX4rna7EewkYbwzUWPFW2Ml2zpwAy+2Sp1aYyaP5cI
-	u+fFVUPHVRNTs3LsMttiNcXZkb/cM4ys5KQZJI9Pd9yPt7Pp9uDWFQ0dpDbosjDN
-	kZq16JV+eU0p8GZeZIs+2B7HCHO3M/mLWSgCaCRJYdp4xbSkvnfjYGpYDi2Mg+SP
-	swQ9VBJ3zpK3VkPXM/qRpoZIEJ5zpTkZYBQpCvGBRTgNRd36hiCDNrV0iBAi9hf4
-	3X2pYg==
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48upnp8cef-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 15:06:09 +0000 (GMT)
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-329b750757aso1890760a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 08:06:09 -0700 (PDT)
+	Tue, 02 Sep 2025 13:22:59 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-45b84367affso28831665e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 06:22:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756819377; x=1757424177; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yzXOYoDcw0s4gQ4w74V4qvU2nwkX5U7En2+CKV1FmvU=;
+        b=Ku8ahdqew9jxB0HT2ncXmiWxrJ0W75+phCUoDIyjunrmfs/n2uFIUsi37tdSKgV9cT
+         uUfBiFlQE0Vt31AsJqjricUjKtqpePOMWWLeBi1wGoOdkL7t43a84b/Il1h8LvK/NlMr
+         IwSnjRuykCYquPKLVM+jQQ0JFPQYpkS2/ymCWIxIECWBoYJxEgcg3QhbMWK8hemORqjh
+         uiNSTe8K0C1ryU1yVwDfuIqUsgWOT54qGZvYjwmBREbqQZpSHsmBJ1WwwklQGNQ52jPo
+         s3FQK56AnkIFMF8gS2QdN2tOL+RnyHWPd4Kq8+Ul5VuNUyVKnf1qJvxJiMVTq5+qIIaX
+         /L7A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756825568; x=1757430368;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=r1SOQ46E/29ii7NOe0dMseenbNXVTPfB9cR3qwZszXE=;
-        b=qmEMSj9+hTsmgy0EUiVdBTMmnE7CZ/6GGGRKDcDJD51Psq+SSt59eQQ4HmfkmadpW0
-         HcdFIKKB7RZ6Fndh9TipA07eVHjRU4rw180oVz96Nrltxw11CrJNtL3HdktiMyoOFx3g
-         bEbhLKKSqWTx967825Z4NMlj2BxCfhfpce2wrpXvtjMj9m7A2VmN2V8Xg4vSmz18e9n0
-         BUP7xT5Z8hGtvbJjD+tOKWXt6XQNqUmW0EAxwL3wg4KSKhty0EoLWgr9CAEi1B0JjMc0
-         v+55BjJ5nm7tE1ALjoNe4Sz+vuYoitVlIC+4LaRewmlSPVEkdpMJQa+VgCQzVhVlLOsQ
-         KCeg==
-X-Forwarded-Encrypted: i=1; AJvYcCX9Zcp9mPZzC2ViX6mGqdZY0li3K4bFimDC6/DC+AL95EM4P1sgKazCmLtNiWo4pJ2FN7g/DgEeHFkj6oXu9Rx0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxh284evbI9HKINGHRTeMji2Ots1ctFZszSEE1SKJCtqnqjsIZl
-	k2D+7j+sxUCxxZag0pnd7YmnxbRh63ShcqRWFzPwOc9yfmQNIBHZ8U76NlATEO+T38ybyBoUoOE
-	N+DAI+O35qPbrmHURhdslAzeV71Cv/NB1XMMOAX/a1p1fk+qRBtPNLYueP0v4DpuG8ryfSeZzBH
-	7vSw==
-X-Gm-Gg: ASbGncsEOE8nY7nWN836Q3Jxr4fQSNviqBzHihYeXRwZsY1quPg0S8TDmlVEK16uxMT
-	9p+NRZJipPmDR6R2TYKlq8c/UfMdxoPMioAyQ7GN3QVTIPKbm//UBDrqXQFxwKb1Vfe2kMb31FR
-	9dz+7sSJy7sHLp3vQevHuAdZuRzIj8S1KANzs8F/AhWeBfPdneQD8cqNNy5/23fC3trUD+mdBCm
-	hyqUkC2EnD3rsZxD+6pKIh1CFGMOUs8zgoPLvqii5WRCt11EtBkE/aAm2iz++MeEZqR2YDwZN+D
-	U36nF+eBUQJYdCcyKGLEsW0/sr5INeduZUNkE1iqcNwtle0C1wkXz2um1oPcsPUNVzx9zt/eR20
-	ybQcGVw==
-X-Received: by 2002:a17:90b:3fc3:b0:325:1548:f0f with SMTP id 98e67ed59e1d1-32815452baamr14929681a91.14.1756825567975;
-        Tue, 02 Sep 2025 08:06:07 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFJe+SAiP+/Rz1UolPPoJ/b1VYRXTQmZzDKLHgwcUU5CG0sTmKazqPtSbReEIm7ZQdOuOTLLw==
-X-Received: by 2002:a17:90b:3fc3:b0:325:1548:f0f with SMTP id 98e67ed59e1d1-32815452baamr14929597a91.14.1756825567148;
-        Tue, 02 Sep 2025 08:06:07 -0700 (PDT)
-Received: from [10.74.205.70] ([27.61.53.99])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-327d9347189sm14704647a91.9.2025.09.02.08.05.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 02 Sep 2025 08:06:06 -0700 (PDT)
-Message-ID: <cd5d26a6-cf60-48b4-8c52-d7eae531e9c0@oss.qualcomm.com>
-Date: Tue, 2 Sep 2025 20:35:53 +0530
+        d=1e100.net; s=20230601; t=1756819377; x=1757424177;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=yzXOYoDcw0s4gQ4w74V4qvU2nwkX5U7En2+CKV1FmvU=;
+        b=sJbeeU3g/vIjki9l+Zbt5GWsYfVskaHd675/n+qM2KN45CaafTSxl2a9RLf/29gsGf
+         NqY5+2Rico217c6rl2Rb5XTcWtabyBOGYOIeTEuGajRTBz6HI/We4/PRlE0CIiKLuF07
+         dry0xU+p9dekOYADL3hZIeJcv1xL8eOLKdJUoodp/zPBsPj0AqAhaa4QpBYds5XV3QT/
+         pWs8AjqaE0rwDtKrj7OmPGYMoK161V60A1tXO7khrkXmg0rgWDzYXxeDq2AtE2mNByvn
+         WksSGf0X/IayrtD0xU5mxX9WDKk8LmZDzHaxes2UOtCrmJXAgXucVpy3oulkVYcaVdeN
+         Co6A==
+X-Forwarded-Encrypted: i=1; AJvYcCX1xSIes6dxU4RvCVyVKhJbeweAgx/XV2szKL8AFPuozOWCohRd+59km77ImB1oero/7+WmB1cm5fvkmpRgEMk2@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpjgxRJ7+9Wl9bwWNuTOYIy44f2Kj7o7VLq2OeCRKUK6B5+edl
+	7yTIKnFYjtcA13HBxs2Pqfb0U4WI0ugJTznysGlDfbGn4bR8iDbVSqAxBM9A+w==
+X-Gm-Gg: ASbGncuk6xgo8B91QwywWNhDNdXILIxms0KqK8dS7QMZ9OTFUDhJWDqpm7xFrjuanN0
+	sAawnO4ZVcGxCSM6TGHIR6MzoCGNCZZVG+oE62OkgrZqTF2uBZWfW4LRQDHqT2kosQ9+bnUNDtV
+	juD6WQLevYhnt2kbYTFeN3IQ5+QzbSLO4sGcQmjpKn8FpWtnn0bIRw50Nsi8Qft+3ZF5lXUYtb6
+	FURepebjjZzd5ICEYfeGxB6UE8FQa2EG7p1mripSKZnkJDQ4xaWCwFaS73Jy8tcTXNKUzfcgI3P
+	U4zcKORXIsCuElHs3nzW0vZ8CeUdeOLIaSV2e8ATqUGoU+1tgX6PF0qZzOnxhYl6stfzRS2dUGT
+	h8eA8+9G8vbFgV3tjacRa0WcQq46iCf7lRQ==
+X-Google-Smtp-Source: AGHT+IFt+jAuwZmgoKT1RiQF+kj0FR8UU7YL3V14hPMpMmBPvbwYtZIzf4vHPonAarMjK9TcaNg3/A==
+X-Received: by 2002:a05:600c:3b28:b0:459:d46a:ee3d with SMTP id 5b1f17b1804b1-45b872e711emr80758545e9.2.1756819376326;
+        Tue, 02 Sep 2025 06:22:56 -0700 (PDT)
+Received: from ws-linux01 ([2a02:2f0e:c207:b600:978:f6fa:583e:b091])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b945332adsm44452155e9.4.2025.09.02.06.22.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 02 Sep 2025 06:22:55 -0700 (PDT)
+From: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+To: clabbe.montjoie@gmail.com,
+	herbert@gondor.apana.org.au,
+	davem@davemloft.net,
+	linux-crypto@vger.kernel.org
+Cc: wens@csie.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+Subject: [PATCH v3 1/9] crypto: sun8i-ce - remove channel timeout field
+Date: Tue,  2 Sep 2025 16:21:26 +0300
+Message-ID: <20250902132134.3287515-2-ovidiu.panait.oss@gmail.com>
+X-Mailer: git-send-email 2.50.0
+In-Reply-To: <20250902132134.3287515-1-ovidiu.panait.oss@gmail.com>
+References: <20250902132134.3287515-1-ovidiu.panait.oss@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 00/10] Implement vendor resets for PSCI SYSTEM_RESET2
-To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
-        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Sudeep Holla <sudeep.holla@arm.com>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Arnd Bergmann <arnd@arndb.de>, Konrad Dybcio <konradybcio@kernel.org>,
-        cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Stephen Boyd <swboyd@chromium.org>,
-        Andre Draszik
- <andre.draszik@linaro.org>, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        Elliot Berman <quic_eberman@quicinc.com>,
-        Srinivas Kandagatla <srini@kernel.org>,
-        Elliot Berman <elliot.berman@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-References: <20250815-arm-psci-system_reset2-vendor-reboots-v14-0-37d29f59ac9a@oss.qualcomm.com>
- <b08aa8f4-7283-40d5-9f5e-ed8697f882a9@oss.qualcomm.com>
- <7941da77-06bb-a2d3-c2fa-ad2fba54b4a1@oss.qualcomm.com>
-Content-Language: en-US
-From: Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>
-In-Reply-To: <7941da77-06bb-a2d3-c2fa-ad2fba54b4a1@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: Sr8_RC1TWBxWGIef-i-XfOBaU9u9X-tN
-X-Authority-Analysis: v=2.4 cv=Jt/xrN4C c=1 sm=1 tr=0 ts=68b707e1 cx=c_pps
- a=vVfyC5vLCtgYJKYeQD43oA==:117 a=fw+wMC9hJO9cSnC0spttlA==:17
- a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8
- a=EUspDBNiAAAA:8 a=FYkGx2FOHYfMPCDhCJAA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=rl5im9kqc5Lf4LNbBjHf:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: Sr8_RC1TWBxWGIef-i-XfOBaU9u9X-tN
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODMwMDAwMSBTYWx0ZWRfX8ToNyKofNfkn
- j5Svi8Cr6IRx79v7aD2+wVH6s/T9JyAI0dsKBeAw4Rsnxgsby5qh0w+VinUZnCmhug0Nv07PM95
- 2WlrSINB90VArHwXyEer81YBiazbDq/W1Z55jRn4S20QcIaAzC7Zh+a5Ggjv+NtCVQtmUf5D7tO
- buDqI6eBZ0xtZ1u/uOvsuq3f0o53c3Dq01Pqq3FtTq78zBIbrXqg1ZN+TRTB1JQQjF/p2Jdxe1u
- KhAyzqetl0YRxpiuxtq0jnKI1G4DvG/RrbRYjTHacxeWX3lZc87T0bfBx8pIHYBY3cYy7xeL/NX
- PL6zxhkZjBj2nxfsCZiEFB4GZAihC7V8h27BCt053st/z+zZzfq/bJNDDrVBaISKQs5o3D8FxTi
- Z11dQjUW
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-02_05,2025-08-28_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 priorityscore=1501 clxscore=1015 bulkscore=0 impostorscore=0
- spamscore=0 phishscore=0 suspectscore=0 malwarescore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2508300001
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_080612_200923_37765A51 
-X-CRM114-Status: GOOD (  27.14  )
+X-CRM114-CacheID: sfid-20250902_062258_364649_63D29935 
+X-CRM114-Status: GOOD (  15.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,171 +106,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Using the number of bytes in the request as DMA timeout is really
+inconsistent, as large requests could possibly set a timeout of
+hundreds of seconds.
 
-On 9/2/2025 6:40 PM, Shivendra Pratap wrote:
->
-> On 8/28/2025 1:35 PM, Kathiravan Thirumoorthy wrote:
->> On 8/15/2025 8:05 PM, Shivendra Pratap wrote:
->>> The PSCI SYSTEM_RESET2 call allows vendor firmware to define
->>> additional reset types which could be mapped to the reboot
->>> argument.
->>>
->>> User-space should be able to reboot a device into different
->>> operational boot-states supported by underlying bootloader and
->>> firmware. Generally, some HW registers need to be written, based
->>> on which the bootloader and firmware decide the next boot state
->>> of device, after the reset. For example, a requirement on
->>> Qualcomm platforms may state that reboot with "bootloader"
->>> command, should reboot the device into bootloader flashing mode
->>> and reboot with “edl” command, should reboot the device into an
->>> Emergency flashing mode.  Setting up such reboots on Qualcomm
->>> devices can be inconsistent across SoC platforms and may require
->>> setting different HW registers, where some of these registers may
->>> not be accessible to HLOS. These knobs evolve over product
->>> generations and require more drivers.  PSCI defines a
->>> vendor-specific reset in SYSTEM_RESET2 spec, which enables the
->>> firmware to take care of underlying setting for any such
->>> supported vendor-specific reboot. Qualcomm firmwares are
->>> beginning to support and expose PSCI SYSTEM_RESET2
->>> vendor-specific reset types to simplify driver requirements from
->>> Linux. With such support added in the firmware, we now need a
->>> Linux interface which can make use of the firmware calls for PSCI
->>> vendor-specific resets. This will align such reboot requirement
->>> across platforms and vendors.
->>>
->>> The current psci driver supports two types of resets –
->>> SYSTEM_RESET2 Arch warm-reset and SYSTEM_RESET cold-reset. The
->>> patchset introduces the PSCI SYSTEM_RESET2 vendor-specific reset
->>> into the reset path of the psci driver and aligns it to work with
->>> reboot system call - LINUX_REBOOT_CMD_RESTART2, when used along
->>> with a supported string-based command in “*arg”.
->>>
->>> The patchset uses reboot-mode based commands, to define the
->>> supported vendor reset-types commands in psci device tree node
->>> and registers these commands with the reboot-mode framework.
->>>
->>> The PSCI vendor-specific reset takes two arguments, being,
->>> reset_type and cookie as defined by the spec. To accommodate this
->>> requirement, enhance the reboot-mode framework to support two
->>> 32-bit arguments by switching to 64-bit magic values.
->>>
->>> Along this line, the patchset also extends the reboot-mode
->>> framework to add a non-device-based registration function, which
->>> will allow drivers to register using device tree node, while
->>> keeping backward compatibility for existing users of reboot-mode.
->>> This will enable psci driver to register for reboot-mode and
->>> implement a write function, which will save the magic and then
->>> use it in psci reset path to make a vendor-specific reset call
->>> into the firmware. In addition, the patchset will expose a sysfs
->>> entry interface within reboot-mode which can be used by userspace
->>> to view the supported reboot-mode commands.
->>>
->>> The list of vendor-specific reset commands remains open due to
->>> divergent requirements across vendors, but this can be
->>> streamlined and standardized through dedicated device tree
->>> bindings.
->>>
->>> Currently three drivers register with reboot-mode framework -
->>> syscon-reboot-mode, nvmem-reboot-mode and qcom-pon. Consolidated
->>> list of commands currently added across various vendor DTs:
->>>    mode-loader
->>>    mode-normal
->>>    mode-bootloader
->>>    mode-charge
->>>    mode-fastboot
->>>    mode-reboot-ab-update
->>>    mode-recovery
->>>    mode-rescue
->>>    mode-shutdown-thermal
->>>    mode-shutdown-thermal-battery
->>>
->>> On gs101 we also pass kernel-generated modes from kernel_restart()
->>> or panic(), specifically DM verity's 'dm-verity device corrupted':
->>>      mode-dm-verity-device-corrupted = <0x50>;
->>>
->>> - thanks Andre' for providing this.
->>>
->>> Detailed list of commands being used by syscon-reboot-mode:
->>>       arm64/boot/dts/exynos/exynosautov9.dtsi:
->>>      mode-bootloader = <EXYNOSAUTOV9_BOOT_BOOTLOADER>;
->>>      mode-fastboot = <EXYNOSAUTOV9_BOOT_FASTBOOT>;
->>>      mode-recovery = <EXYNOSAUTOV9_BOOT_RECOVERY>;
->>>
->>>       arm64/boot/dts/exynos/google/gs101.dtsi:
->>>           mode-bootloader = <0xfc>;
->>>           mode-charge = <0x0a>;
->>>           mode-fastboot = <0xfa>;
->>>           mode-reboot-ab-update = <0x52>;
->>>           mode-recovery = <0xff>;
->>>           mode-rescue = <0xf9>;
->>>           mode-shutdown-thermal = <0x51>;
->>>           mode-shutdown-thermal-battery = <0x51>;
->>>
->>>       arm64/boot/dts/hisilicon/hi3660-hikey960.dts:
->>>           mode-normal = <0x77665501>;
->>>           mode-bootloader = <0x77665500>;
->>>           mode-recovery = <0x77665502>;
->>>
->>>       arm64/boot/dts/hisilicon/hi6220-hikey.dts:
->>>           mode-normal = <0x77665501>;
->>>           mode-bootloader = <0x77665500>;
->>>           mode-recovery = <0x77665502>;
->>>
->>>       arm64/boot/dts/rockchip/px30.dtsi:
->>>           mode-bootloader = <BOOT_BL_DOWNLOAD>;
->>>           mode-fastboot = <BOOT_FASTBOOT>;
->>>           mode-loader = <BOOT_BL_DOWNLOAD>;
->>>           mode-normal = <BOOT_NORMAL>;
->>>           mode-recovery = <BOOT_RECOVERY>;
->>>
->>>       arm64/boot/dts/rockchip/rk3308.dtsi:
->>>           mode-bootloader = <BOOT_BL_DOWNLOAD>;
->>>           mode-loader = <BOOT_BL_DOWNLOAD>;
->>>           mode-normal = <BOOT_NORMAL>;
->>>           mode-recovery = <BOOT_RECOVERY>;
->>>           mode-fastboot = <BOOT_FASTBOOT>;
->>>
->>>       arm64/boot/dts/rockchip/rk3566-lckfb-tspi.dts:
->>>           mode-normal = <BOOT_NORMAL>;
->>>           mode-loader = <BOOT_BL_DOWNLOAD>;
->>>              mode-recovery = <BOOT_RECOVERY>;
->>>              mode-bootloader = <BOOT_FASTBOOT>;
->>>
->>> Detailed list of commands being used by nvmem-reboot-mode:
->>>       arm64/boot/dts/qcom/pmXXXX.dtsi:(multiple qcom DTs)
->>>              mode-recovery = <0x01>;
->>>              mode-bootloader = <0x02>;
->>>
->>> Previous discussions around SYSTEM_RESET2:
->>> -https://lore.kernel.org/lkml/20230724223057.1208122-2-quic_eberman@quicinc.com/T/
->>> -https://lore.kernel.org/all/4a679542-b48d-7e11-f33a-63535a5c68cb@quicinc.com/
->>>
->>> Signed-off-by: Elliot Berman<quic_eberman@quicinc.com>
->>> Signed-off-by: Shivendra Pratap<shivendra.pratap@oss.qualcomm.com>
->>
->> With this series, 'edl' mode is working fine in QCOM's IPQ5424 SoC. So
->>
->> Tested-by: Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com> # IPQ5424-RDP466
->>
-> Thanks for giving time for testing this series for IPQ5424. So we have PSCI SYS reset2 support for
-> IPQ5424 firmware?
+Remove the per-channel timeout field and use a single, static DMA
+timeout of 3 seconds for all requests.
 
+Signed-off-by: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+Tested-by: Corentin LABBE <clabbe.montjoie@gmail.com>
+Reviewed-by: Corentin LABBE <clabbe.montjoie@gmail.com>
+---
+ drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c | 1 -
+ drivers/crypto/allwinner/sun8i-ce/sun8i-ce-core.c   | 5 ++---
+ drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c   | 2 --
+ drivers/crypto/allwinner/sun8i-ce/sun8i-ce-prng.c   | 1 -
+ drivers/crypto/allwinner/sun8i-ce/sun8i-ce-trng.c   | 1 -
+ drivers/crypto/allwinner/sun8i-ce/sun8i-ce.h        | 2 +-
+ 6 files changed, 3 insertions(+), 9 deletions(-)
 
-Yeah, the latest IPQ5424 firmware (To be specific - 
-TZ.WIN_WC.1.0-00043-IPQ5424MAPAANAZT-1 onwards) supports PSCI SYS RESET2.
+diff --git a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c
+index 5663df49dd81..113a1100f2ae 100644
+--- a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c
++++ b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c
+@@ -276,7 +276,6 @@ static int sun8i_ce_cipher_prepare(struct crypto_engine *engine, void *async_req
+ 		goto theend_sgs;
+ 	}
+ 
+-	chan->timeout = areq->cryptlen;
+ 	rctx->nr_sgs = ns;
+ 	rctx->nr_sgd = nd;
+ 	return 0;
+diff --git a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-core.c b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-core.c
+index 658f520cee0c..79ec172e5c99 100644
+--- a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-core.c
++++ b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-core.c
+@@ -210,11 +210,10 @@ int sun8i_ce_run_task(struct sun8i_ce_dev *ce, int flow, const char *name)
+ 	mutex_unlock(&ce->mlock);
+ 
+ 	wait_for_completion_interruptible_timeout(&ce->chanlist[flow].complete,
+-			msecs_to_jiffies(ce->chanlist[flow].timeout));
++			msecs_to_jiffies(CE_DMA_TIMEOUT_MS));
+ 
+ 	if (ce->chanlist[flow].status == 0) {
+-		dev_err(ce->dev, "DMA timeout for %s (tm=%d) on flow %d\n", name,
+-			ce->chanlist[flow].timeout, flow);
++		dev_err(ce->dev, "DMA timeout for %s on flow %d\n", name, flow);
+ 		err = -EFAULT;
+ 	}
+ 	/* No need to lock for this read, the channel is locked so
+diff --git a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c
+index 13bdfb8a2c62..b26f5427c1e0 100644
+--- a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c
++++ b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c
+@@ -446,8 +446,6 @@ int sun8i_ce_hash_run(struct crypto_engine *engine, void *breq)
+ 	else
+ 		cet->t_dlen = cpu_to_le32(areq->nbytes / 4 + j);
+ 
+-	chan->timeout = areq->nbytes;
+-
+ 	err = sun8i_ce_run_task(ce, flow, crypto_ahash_alg_name(tfm));
+ 
+ 	dma_unmap_single(ce->dev, addr_pad, j * 4, DMA_TO_DEVICE);
+diff --git a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-prng.c b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-prng.c
+index 762459867b6c..d0a1ac66738b 100644
+--- a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-prng.c
++++ b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-prng.c
+@@ -137,7 +137,6 @@ int sun8i_ce_prng_generate(struct crypto_rng *tfm, const u8 *src,
+ 
+ 	cet->t_dst[0].addr = desc_addr_val_le32(ce, dma_dst);
+ 	cet->t_dst[0].len = cpu_to_le32(todo / 4);
+-	ce->chanlist[flow].timeout = 2000;
+ 
+ 	err = sun8i_ce_run_task(ce, 3, "PRNG");
+ 	mutex_unlock(&ce->rnglock);
+diff --git a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-trng.c b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-trng.c
+index e1e8bc15202e..244529bf0616 100644
+--- a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-trng.c
++++ b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-trng.c
+@@ -79,7 +79,6 @@ static int sun8i_ce_trng_read(struct hwrng *rng, void *data, size_t max, bool wa
+ 
+ 	cet->t_dst[0].addr = desc_addr_val_le32(ce, dma_dst);
+ 	cet->t_dst[0].len = cpu_to_le32(todo / 4);
+-	ce->chanlist[flow].timeout = todo;
+ 
+ 	err = sun8i_ce_run_task(ce, 3, "TRNG");
+ 	mutex_unlock(&ce->rnglock);
+diff --git a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce.h b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce.h
+index 0f9a89067016..f12c32d1843f 100644
+--- a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce.h
++++ b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce.h
+@@ -106,6 +106,7 @@
+ #define MAX_SG 8
+ 
+ #define CE_MAX_CLOCKS 4
++#define CE_DMA_TIMEOUT_MS	3000
+ 
+ #define MAXFLOW 4
+ 
+@@ -196,7 +197,6 @@ struct sun8i_ce_flow {
+ 	struct completion complete;
+ 	int status;
+ 	dma_addr_t t_phy;
+-	int timeout;
+ 	struct ce_task *tl;
+ 	void *backup_iv;
+ 	void *bounce_iv;
+-- 
+2.50.0
 
-
-> and did we make any extra changes in DT for edl mode?
-
-
-Yes, I submitted the DTS patch[1] for this similar to the other platforms.
-
-[1] [PATCH] arm64: dts: qcom: ipq5424: Add support for emergency 
-download mode - Kathiravan Thirumoorthy 
-<https://lore.kernel.org/linux-arm-msm/20250828-ipq5424-edl-v1-1-d6a403800023@oss.qualcomm.com/>.
-
-
->
-> thanks,
-> Shivendra
 
