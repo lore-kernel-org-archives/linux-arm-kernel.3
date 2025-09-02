@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57BBFCA0FFE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 03:15:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D440CA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 03:18:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6lbDWXEgEqXhch4D00V6FHkzoctzi7I+pGhatlsXg5g=; b=Po6iR9Pq4I+/2sZfhRqFp82gvJ
-	dNaEKO+q1EM/4/yzUESHv1aKdDXz9/6TpCkj8JucLpU+IQafvmkdELVKE7AbzXL/9FOWkClClNAQb
-	3O6neP6hajXYuvAYabI6jnGL96fBLk5GfweClEzkJKNoz8MYnUznd/+fcOp9fdyZj29sid844dB2q
-	/1pYvFfYVL4DVEow1J6xbuN8iKsj0fI+isEYSB7wQADAca5z7QY1Jfa3Dd21YE7LsLugmr+AJpB3U
-	31qvfLUPqXoZkqart7k5iyTs0TPZnV9RrWhF2U4vkwqgHYqMxj5wBTnLro020zgbCQxXRGLa9rHdA
-	uL+zTalQ==;
+	bh=mFT7TaYN9yFmUBnkUS/DV54BAuRMajtXQdEYrtXcv6Q=; b=UUAlk75rpdlbZrG9dGWWn9/kII
+	bJlb2bc3zx+Nxkjh8J8nvVz2Q0pxx9GGFJhKAJAHq9DjfMJ9XfgUTPiyhSxLIj5QI59qtCg4xw2Ty
+	jwjSnvCoLQ0NwzYBF+AiJHiR2JIXN+4VplLFLsLqs62gXDemZZ75PTY5hUq6Cl6AgkrNwW479GM9s
+	QowZDOdAUz+LV786dv3TikfvFn6wNGg95pf5t8QZR9d6mcUptdp+YoA93FqkWa3NxDcEFGqfPdWH0
+	kokS7sgd52+pMET6js6B46GSSDLuSrMAGOUJadVo99lWGSO50tdR8iAwQqJFUN4JbzorTEEItWZfW
+	OxEqzjHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utHUf-0000000Ezx3-1BQK;
-	Tue, 02 Sep 2025 03:15:37 +0000
+	id 1utHXM-0000000F0N0-0nSw;
+	Tue, 02 Sep 2025 03:18:24 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utHRv-0000000EzM6-1PRU
+	id 1utHSb-0000000EzWg-1LgR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 03:12:48 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5822Y3Me000383
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 2 Sep 2025 03:12:45 GMT
+	Tue, 02 Sep 2025 03:13:30 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5822RoaH012377
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 2 Sep 2025 03:13:29 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=6lbDWXEgEqXhch4D00V6FHkz
-	octzi7I+pGhatlsXg5g=; b=HALbmYUSYmfADHj+OKudStXby6SIFOf0cIKkYT1A
-	vn8vl33kl3VesRmBYBfRvj3vwjbZ+UeGt/Cg0VL4mBi+IIoX2+ECFdyg85saPcMj
-	GKtufC5IsBWP1NK1f7m8d/X7s69F85SVPZmUqUkAFtFaG5Il+fxzIs49pFkC0u8e
-	aREgMEIzTwTMY31L7uxBvyfv/qFZzm7VFMIG+NK8EfhaKi8NhnyEnhMJxxQp0+Gj
-	FALG/CoNAXhTtivgdFblA5APkrXERWH5r3SscEaEK2FTr3hlB3IcW4gpQPWrkuJ0
-	vG70vmAbR65rSGd4AuDp2MQHgMULihwax3e3yYpcI+yGKA==
+	:references:subject:to; s=qcppdkim1; bh=mFT7TaYN9yFmUBnkUS/DV54B
+	AuRMajtXQdEYrtXcv6Q=; b=JWMSW4mD3PTluOAloZo2v2G5SpKLxOuXPtreb91I
+	HO2B7mjqxjJB6HZTSE/JG8bM86XKEfm1+HRcRAGizJR1zv+x7kKsmGSkJCgDWBQQ
+	hZuZfoYQgstxYme1EFXQuvAlb6T5459ib/NfGUUB/xYAxoO2tNqCndbAgmPKxE3d
+	1oTL95XM0ElVnBpABJAOBFwYgig4M1fYxaSZKiEpR+lBWRrl8wbh9obSoNA22z1x
+	XMM61AB5Lb+y2lYPLcYLOmBHqTufDM659xl+4Le2NcwcroQNpuDsU1XN0SCBNq6n
+	l6IauTpkF2si4mrFHIiiGj1Vyh2HUa5m8BQ41a4jq74tZw==
 Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48wqvw82ns-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48ut2fe7qx-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 03:12:45 +0000 (GMT)
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-70fa02d10ccso53115456d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 20:12:45 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 03:13:28 +0000 (GMT)
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-71ffd145fa9so8805046d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 20:13:28 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756782764; x=1757387564;
+        d=1e100.net; s=20230601; t=1756782807; x=1757387607;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=6lbDWXEgEqXhch4D00V6FHkzoctzi7I+pGhatlsXg5g=;
-        b=v822gON8HaL+8UW1lI8Iq4lZTz6PklaZvH2hIne681Nd5Z14kafDfmzjUui7FXxB+9
-         vXuKjlwtpKRRuBVXEejVAvx1w1sS+HlzS1nsfjakb1RA2ZI4tZX0dN4bkkEPN+5ONrxK
-         6fWJb/pJ5PvKymf0gDTCGgJ1hMPWCx8t0WuoS0FixEOrUC/1oR80SOyqshiKzWh2+2YQ
-         SvccnTJLhNyR6PqzkRiPAQRq78QnBSAHL61bvV01GEyCLXfoJsLtF0IxFtLuWWm53y6i
-         VSQga0rQRDEG9wXwZ7oIYZoTHZQYgOvbqs0WOKM9mw/aORZTePXb5EwOZ88zpTgINQQ0
-         ueWA==
-X-Forwarded-Encrypted: i=1; AJvYcCV9avIcfz/jaa9DbZR2CX1YTj3nOeNxw27wWsBkgNzAlIyyhGPjYRhsq7cv7uuKH/w5sIyXvUwmRGUNxUO1yT0U@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQd5yEaifsaGdzp2gPhYGJnFtask4hVpMUKmkRebsS3GZLbktd
-	aR0gWFNDd6f5Le3wJoOJGvFYwT79L98iCFzaLWTKML38QYDcunKdDPcDwomx7HF9R4Ptk4oLl2Y
-	rO+sj4yzvJJSwpTw8XuJ2AXNFVBsoMbmi/Rpv1ircDVATcBD1zG2kGtJ2EPBCXEye0j+e/EsYlo
-	nDLQ==
-X-Gm-Gg: ASbGncvO8dlAHK950C6dyAK51wRYdm1NMzkEom/hJ+VGRAOaVwuu4fEw+/kntdzWP8w
-	du4FwClky1eNzpAXQyHuRXclatwvbp6cG31jVZ1zYfz9yMutwQFFX/W4OXPSkZrvisQoyScQGPH
-	qjV/SU79aH6a1UyP1RByyMntCpxXsjF15qS5IZ/SB4/7KfdhV+LuMC+NruZppyzg0+4r55VuxiB
-	ii9RLqt3l1Zm6W0b2JZY8LH/FY4Y63b9IulJiuZjCbRB3MpCZV9KVG8EdJPUDo8XUyZU4p215a5
-	ElRaMbWWn0BSOm7P0TO3MhC9tPFeurLWnt3A14fAE4/U7q/VlHobKp8IV2ZNJ6cYf16MGAABKb5
-	qvNFToF1I1C/XFmmsfjAZ7I9GBd7O4Honw8ScG13/jNMHdWF3V8XU
-X-Received: by 2002:a05:6214:5195:b0:70d:f30d:926e with SMTP id 6a1803df08f44-70fac75a8d4mr95814946d6.15.1756782763465;
-        Mon, 01 Sep 2025 20:12:43 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGh+aJ/m5oTiwm+rskkcePX5cAOyjDOxdmOvAbEJz1ZfqKko/eqgSi/7Mh11qb5m3SqAxkBDw==
-X-Received: by 2002:a05:6214:5195:b0:70d:f30d:926e with SMTP id 6a1803df08f44-70fac75a8d4mr95814496d6.15.1756782762755;
-        Mon, 01 Sep 2025 20:12:42 -0700 (PDT)
+        bh=mFT7TaYN9yFmUBnkUS/DV54BAuRMajtXQdEYrtXcv6Q=;
+        b=isBAzcO3TKe1/dKww1hN8tTuMaAUWbEOaJEwvqxo7u/k3W6OU2RPmKH9eIlHrbQYIb
+         LY+qDgOHiYxlY4IdBxa1z8J0VetfSR5F7OcUkC61wS5xcxldlzI9n6slAuHinbpL7C5W
+         kffUusIRAAk8DYo2DZfO+8+CFp5Gcv3ldrRmjxfWQCeaC9e149osi8FstN4uflJPSNFk
+         EM4i0RdWiTuycRXgZgrZcLrpjdftLwwppVOAXeyklx/883J4/rjfpG9mXDfAVeYw+wq1
+         7edeTKvsd1ePCQj4Hmwrt7Y7Fccv67UmwIzA2pYOJeyG1xKS14yg2+g0DaP5TxP5sCpH
+         XlpQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXQsKDB1vxig7JzIkE7FA5sh9AifTDxX/fkFoyc648g8ZhIT/YT6TdeW4HXjDz5+0tvjFELKt+GvcpQLRg3LBQ+@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywp8astVlS359oiZ9VUgYG820jyH98wLxFTEAiP6eTZpAgMO0TT
+	U3pDRqxC1/IwWoi0VL20/5Ws4kgoF3uNA7ck0fOJTD3kjjET6CbLwbepXqdW+LijDp3g8dgm5RI
+	go8MVunXY/8JF8OQM/I2Cw5fSapMOinBVo09leBaRT05HI2zS14U+8qRYCZp++LcaVdtyAABEas
+	B1aw==
+X-Gm-Gg: ASbGncvvJolQTeid+yeeIxEzoN46l3fAN3ooQwKlsFrbCdSeocpbZr1pVZsj8SCi2ga
+	hBPKjT45ZiVgKA/4aIi/FhC9FxxqNZeU//vTGzvdQbY7AjDhimVhO1B55NmnGRnXGDk63u9WXti
+	5n1MngOajoNK4++7FuKLThnZFfCZJsfjsy9/mqPdzkOYBw0Eu+plM35q1Mt6WDPMj4EPth5USXJ
+	CruQSrjf5FpXnhL0nbGW6EXT+juggAsLW6R0+ByV6s9c91YbL+oFnyoCaFldqWNoIeJWfj4GMDr
+	oSwaStu193DrNmEKo0RwdNcVft7MTjQpjuvMjPo9cyOBlr4tr/wFNFsuMST7O5XoPz88tSZD2QR
+	JpNfMoNNRjIchDnnDmsAQk9sIMxcL/gOKPRfVQ+WQIZUboadyq1Gn
+X-Received: by 2002:a05:6214:2425:b0:70d:bee7:22a6 with SMTP id 6a1803df08f44-70fac90b081mr99124156d6.57.1756782807487;
+        Mon, 01 Sep 2025 20:13:27 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGx3s/TeSWd/gD8+0Pzv1Eys9blTUBbEzGio/Yd+gCc0H1VU32BQyJUk3uEjCaZ6DP8MJyUzQ==
+X-Received: by 2002:a05:6214:2425:b0:70d:bee7:22a6 with SMTP id 6a1803df08f44-70fac90b081mr99123866d6.57.1756782807080;
+        Mon, 01 Sep 2025 20:13:27 -0700 (PDT)
 Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-560827b3dd5sm312381e87.148.2025.09.01.20.12.41
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-560827a53bbsm309669e87.124.2025.09.01.20.13.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Sep 2025 20:12:41 -0700 (PDT)
-Date: Tue, 2 Sep 2025 06:12:39 +0300
+        Mon, 01 Sep 2025 20:13:26 -0700 (PDT)
+Date: Tue, 2 Sep 2025 06:13:24 +0300
 From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 To: Maxime Ripard <mripard@kernel.org>
 Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
@@ -107,44 +107,40 @@ Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
         linux-arm-kernel@lists.infradead.org,
         linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev,
         linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org
-Subject: Re: [PATCH v2 1/8] drm/connector: let drivers declare infoframes as
- unsupported
-Message-ID: <rkxdyzm4uwvq5nxw5q25qv2xqqqvirgn77u54jydebm6a2wrk3@m2y3y3zcjb4j>
-References: <20250819-drm-limit-infoframes-v2-0-7595dda24fbd@oss.qualcomm.com>
- <20250819-drm-limit-infoframes-v2-1-7595dda24fbd@oss.qualcomm.com>
- <20250820-artichoke-silkworm-of-election-521b5e@houat>
- <v7w7xkefm6ap7delx7wsvxmc76fwptqhe4ehokzfh4baueb7hr@acrx36exv42v>
- <20250827-adorable-ocelot-of-adventure-ba88b7@houat>
- <jrvjvayhjczgb4yx3xshbv3e6ndzkmb7uu3ynoes2maniwjg37@hamxu5mzqmf7>
- <20250901-illustrious-dark-kagu-f4ef76@houat>
+Subject: Re: [PATCH v3 02/11] drm/bridge: adv7511: declare supported
+ infoframes
+Message-ID: <4rzkxynpbe7j5uyfiqscjt6l2yr4teothqcga3js7fn6e4tap2@s6npztjtbjbq>
+References: <20250830-drm-limit-infoframes-v3-0-32fcbec4634e@oss.qualcomm.com>
+ <20250830-drm-limit-infoframes-v3-2-32fcbec4634e@oss.qualcomm.com>
+ <20250901-tidy-auburn-tarsier-e7b1e7@houat>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250901-illustrious-dark-kagu-f4ef76@houat>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTAyMDAyNCBTYWx0ZWRfXz+9NBkUUbULx
- 8f335u5TuWE+iPQKt+l8lzOtnL3Knd6b1rIj+/B5fbWJxZ9w7LpWxH7tJSc63NBp65VMYA1Z50T
- 1D5iwbafyIOHYKzQGF4Ks51JWoGZTj9Apq1eZsCzb8nDEvqa4WcWvRvxqeQ08JiJpEJuXlkS/s7
- 3CjBoCDQKhksfEr6yrMcG2Sm2/32ayjFxmqql5N1OagcBxYzOCCz7J+pcfmbfj6eSkV291oHPBd
- J55u92660ZhJAh67qOP/QyXU0brHlBjVlAqTdUY04GTNTUNKczgBi3mG3ZXeTL0iFZ9YhO84soh
- GcpCvSpBNCkLyaKNJj0iQKeTE+/A3rfB+CBKgYl8XxrbAZ+Oy+K/Yl4uchNSdH2NTBEv8KcKvKZ
- Ws0Eeikg
-X-Authority-Analysis: v=2.4 cv=WKh/XmsR c=1 sm=1 tr=0 ts=68b660ad cx=c_pps
+In-Reply-To: <20250901-tidy-auburn-tarsier-e7b1e7@houat>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODMwMDAzOCBTYWx0ZWRfXwgv78aw04Zw1
+ cyx2UIZFwH5USFENeKsLB1Of0LR9xWkCuzNobPEYK9zP2LsaHRCx/sWiLHon4bwBiU/UyfU4oFL
+ BbNhI3kfgJq/HC37y88V6GUXI2JHB2/tzBsqXrdkDIfBdkRdZdPcEyShjkA7Fon+JiFGRCesWAO
+ qmOje8OjHWNXpdH/kL50qh1DR8b3itkyrjmGd8GFg1k4m0s0JVqRebfsxnULyScfHfvTGZSPng6
+ pxbkY72ZM7jldtmA+WTEGWFhUtODy3jQEIt/OwSp9FZcBjlginn4BVY24p+u9F7XDQ4AMpfBiZi
+ LaT4ncuEwXCvcxU5H+rSKiRvui0SGNxcLksJ9R+aS5hFsO+5G7qO0/hfNAAal5KjfX5nJLu34oD
+ dXkFkQAu
+X-Proofpoint-ORIG-GUID: 67ChF8fNT1ymPpiX5SinJ71ek8tLu0ow
+X-Proofpoint-GUID: 67ChF8fNT1ymPpiX5SinJ71ek8tLu0ow
+X-Authority-Analysis: v=2.4 cv=U7iSDfru c=1 sm=1 tr=0 ts=68b660d9 cx=c_pps
  a=wEM5vcRIz55oU/E2lInRtA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=yJojWOMRYYMA:10 a=EUspDBNiAAAA:8 a=ZZMQJF9JEhsP1qjey_MA:9 a=CjuIK1q_8ugA:10
- a=OIgjcC2v60KrkQgK7BGD:22
-X-Proofpoint-GUID: s_XHJ2zTQmIt3Rv82D3X89NoUy6ZnAq4
-X-Proofpoint-ORIG-GUID: s_XHJ2zTQmIt3Rv82D3X89NoUy6ZnAq4
+ a=yJojWOMRYYMA:10 a=8AirrxEcAAAA:8 a=EUspDBNiAAAA:8 a=u7Ex-Lb6nDjXBYZR8i8A:9
+ a=CjuIK1q_8ugA:10 a=OIgjcC2v60KrkQgK7BGD:22 a=ST-jHhOKWsTCqRlWije3:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-09-02_01,2025-08-28_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 suspectscore=0 bulkscore=0 phishscore=0 adultscore=0
- spamscore=0 malwarescore=0 impostorscore=0 priorityscore=1501
+ spamscore=0 phishscore=0 clxscore=1015 impostorscore=0 suspectscore=0
+ malwarescore=0 priorityscore=1501 adultscore=0 bulkscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509020024
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508300038
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_201247_386090_7C1FF90B 
-X-CRM114-Status: GOOD (  74.05  )
+X-CRM114-CacheID: sfid-20250901_201329_372489_AEF4ACC5 
+X-CRM114-Status: GOOD (  24.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,180 +155,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 01, 2025 at 08:54:18AM +0200, Maxime Ripard wrote:
-> On Wed, Aug 27, 2025 at 05:04:53PM +0300, Dmitry Baryshkov wrote:
-> > On Wed, Aug 27, 2025 at 09:30:20AM +0200, Maxime Ripard wrote:
-> > > On Wed, Aug 20, 2025 at 12:52:44PM +0300, Dmitry Baryshkov wrote:
-> > > > On Wed, Aug 20, 2025 at 09:15:36AM +0200, Maxime Ripard wrote:
-> > > > > Hi,
-> > > > > 
-> > > > > On Tue, Aug 19, 2025 at 09:57:30PM +0300, Dmitry Baryshkov wrote:
-> > > > > > Currently DRM framework expects that the HDMI connector driver supports
-> > > > > > all infoframe types: it generates the data as required and calls into
-> > > > > > the driver to program all of them, letting the driver to soft-fail if
-> > > > > > the infoframe is unsupported. This has a major drawback on userspace
-> > > > > > API: the framework also registers debugfs files for all Infoframe types,
-> > > > > > possibly surprising the users when infoframe is visible in the debugfs
-> > > > > > file, but it is not visible on the wire.
-> > > > > > 
-> > > > > > Let drivers declare that they support only a subset of infoframes,
-> > > > > > creating a more consistent interface.
-> > > > > > 
-> > > > > > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> > > > > 
-> > > > > I'm not really convinced. Infoframes aren't really something you should
-> > > > > ignore, AVI is effectively mandatory, HDMI kind of is too, AUDIO is if
-> > > > > audio support is enabled, DRM is mandatory if HDR is used.
-> > > > 
-> > > > Nevertheless, sun4i, innohdmi, adv7511, it6263 and rk3066 drivers
-> > > > provide support only for the AVI infoframe.
-> > > 
-> > > Yes, but it's still something we shouldn't paper over. The spec mandates
-> > > it, if drivers want to deviate from it it's something we should warn
-> > > about, not silence.
-> > > 
-> > > sun4i is a good example, to me at least since I have the doc. The
-> > > hardware supports AVI, Audio, ACP, and SPD. HDR isn't supported, so DRM
-> > > isn't either. The only missing one is HDMI, but the documentation isn't
-> > > the best so it might still be supported. In short, it's a driver issue.
-> > > 
-> > > adv7511 supports AVI, Audio, ACP, SPD, ACP, and looks to have a
-> > > mechanism to send any infoframe as is. So, again, driver issue.
+On Mon, Sep 01, 2025 at 09:12:45AM +0200, Maxime Ripard wrote:
+> On Sat, Aug 30, 2025 at 03:22:58AM +0300, Dmitry Baryshkov wrote:
+> > Declare which infoframes are supported via the .hdmi_write_infoframe()
+> > interface. Audio infoframe is handled separately.
 > > 
-> > I've send a patch, enabling SPD and VSI (HDMI) InfoFrames on ADV7511.
+> > Reviewed-by: Liu Ying <victor.liu@nxp.com>
+> > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> > ---
+> >  drivers/gpu/drm/bridge/adv7511/adv7511_drv.c | 10 ++++++++--
+> >  1 file changed, 8 insertions(+), 2 deletions(-)
 > > 
-> > > 
-> > > I couldn't find the other datasheet, but I'd be very surprised if it
-> > > wasn't the case for these too.
-> > > 
-> > > > Some of them can be extended to support other infoframe kinds (e.g.
-> > > > ADV7511 has two spare infoframes which can be used for HDMI and SPD).
-> > > > 
-> > > > > SPD is indeed optional though.
-> > > > > 
-> > > > > So, it's really dynamic in essence, and not really something we should
-> > > > > expect drivers to ignore.
-> > > > > 
-> > > > > I do acknowledge that a lot of drivers just silently ignore the
-> > > > > infoframes they don't support at the moment, which isn't great either.
-> > > > > 
-> > > > > Maybe we should standardize and document what drivers should do when
-> > > > > they don't support a given infoframe type?
-> > > > 
-> > > > The chips might be generating infoframes internally. This series was
-> > > > triggered by LT9611UXC, which does all HDMI work under the hood in the
-> > > > firmware. See [1]. The series I posted hooks HDMI audio directly into
-> > > > the bridge driver, but I'd really prefer to be able to use
-> > > > drm_atomic_helper_connector_hdmi_hotplug(), especially if I ever get to
-> > > > implementing CEC support for it.
-> > > > 
-> > > > ADV7511 likewise generates audio infoframe without Linux
-> > > > help (audio-related fields are programmed, but it's not the
-> > > > infoframe itself).
-> > > 
-> > > Implementing the write_infoframe hooks as a nop with a comment in those
-> > > case is totally reasonable to me.
-> > > 
-> > > I'd still like to document that drivers should only return 0 if they
-> > > programmed the infoframe, and -ENOTSUPP (and the core logging a warning)
-> > > otherwise.
-> > > 
-> > > That way, we would be able to differentiate between the legimitate
-> > > LT9611UXC case, and the "driver is broken" sun4i (and others) case.
-> > 
-> > I don't want to end up in a sitation where userspace has a different
-> > idea of the InfoFrame being sent than the actual one being present on
-> > the wire.
+> > diff --git a/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c b/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
+> > index 26f8ef4824235a9a85b57a9a3a816fe26a59e45c..fe30567b56b4f600683f0545ed270665e692b12c 100644
+> > --- a/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
+> > +++ b/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
+> > @@ -904,7 +904,7 @@ static int adv7511_bridge_hdmi_clear_infoframe(struct drm_bridge *bridge,
+> >  		break;
+> >  	default:
+> >  		drm_dbg_driver(adv7511->bridge.dev, "Unsupported HDMI InfoFrame %x\n", type);
+> > -		break;
+> > +		return -EOPNOTSUPP;
+> >  	}
+> >  
+> >  	return 0;
+> > @@ -938,7 +938,7 @@ static int adv7511_bridge_hdmi_write_infoframe(struct drm_bridge *bridge,
+> >  		break;
+> >  	default:
+> >  		drm_dbg_driver(adv7511->bridge.dev, "Unsupported HDMI InfoFrame %x\n", type);
+> > -		break;
+> > +		return -EOPNOTSUPP;
 > 
-> It's not ideal, sure, but also, what's wrong with it? We're doing it
-> *all the time*. Modes programmed by userspace are adjusted for the
-> hardware, and thus the mode reported by the CRTC turns out different
-> than the one actually used in hardware. Audio sampling rates might not
-> match exactly what we're doing. The quirks infrastructure disables part
-> of the EDID the userspace has access to, etc.
-> 
-> And all those are under the userspace control, which the infoframes
-> aren't.
+> We do need to document that it's what drivers must return though.
 
-I think there is a differnece between 'change userspace input',
-'knowingly mangle data' and 'lie to userspace because the driver doesn't
-care'. This is especially important e.g. if a user is trying to debug
-AV issues which can be caused by wrong information in the infoframe.
+Ack
 
-> 
-> > It seems, we need several states per the infoframe:
-> > 
-> > - Not supported
-> 
-> Honestly, I'm not sure we need a state for that one. If that infoframe
-> was set by the framework, then the driver must support it. And if it
-> wasn't, then there's nothing in debugfs.
-
-Yes, I ended up dropping this and having two separate flags.
-
-> 
-> > - Autogenerated
-> 
-> Do we have any way to read them back on those?
-
-Usually not. E.g. I don't think I can read back Audio InfoFrame on
-ADV7511. Nor can I read InfoFrames on LT9611UXC.
-
-> 
-> > - Generated by software
-> > 
-> > E.g. in case of ADV7511 we can declare that Audio InfofFrame is
-> > autogenerated, AVI, HDMI and SPD as 'software-generated' and DRM (HDR)
-> > as unsupported. LT9611UXC will declare all (need to check) frame types
-> > as auto.
-> > 
-> > This way we can implement the checks and still keep userspace from
-> > having irrelevant data in debugfs.
-> 
-> If the only thing you're after is to prevent inconsistent data in
-> userpace for devices that can generate it automatically, then I guess we
-> could just implement an (optional) callback to read an infoframe from
-> the hardware when reading from debugfs. Would that work?
-
-As I wrote, this is not always possible, so I'd skip this.
-
-> 
-> > I will update my patchset to implement this, but I have another question
-> > beforehand: should we just declare VSI support or should it be more exact,
-> > specifying that the driver support HVS (00:0c:03), HVFS (c4:5d:d8), etc?
-> 
-> I guess you're talking about HDMI 1.4 Vendor specific Infoframe vs HDMI
-> 2.0 HF-VSIF here?
-
-Yes. H14v-VSIF vs HF-VSIF.
-
-> 
-> If so, the toggle should be HDMI 2.0 support. We'll need that toggle for
-> other things anyway (scrambler, YUV420, etc.)
-> 
-> > I'm asking, because e.g. MSM HDMI controller has hardware support for
-> > generating HVS frames (but only HVS, the OUI is not programmed, register
-> > format doesn't match 1:1 frame contents, etc). I instead ended up using
-> > GENERIC0, because it was more flexible (it's like SPARE packets on
-> > ADV7511, the contents is being sent as is). However if we ever need to
-> > send DRM infoframes, we might need to switch from GENERIC0 to HVS, for
-> > the price of being unable to send HVFS frames.
-> 
-> Section 10.2 of the HDMI 2.0 states:
-> 
->   Transmission of the HF-VSIF by Source Devices is optional unless one (or
->   more) of the features listed in Table 10-1 is active 1. If such features
->   are active, transmission of the HF-VSIF is mandatory.
-> 
-> The features in question being 3d.
-
-Or ALLM. It's not on my todo list though.
-
-> So unless you're supporting 3d, suppporting VSI only seems ok to me.
-
-MSM HDMI controllers can support some bits and pieces of 3D. Nobody
-bothered to implement that though. Maybe I should try getting a monitor
-which supports stereo output.
 
 -- 
 With best wishes
