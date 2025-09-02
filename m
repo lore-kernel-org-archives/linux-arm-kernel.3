@@ -4,61 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7485CA0FFE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 12:28:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1C20CA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 12:28:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4dZBmnZLlRmk5OvM03gX8pPWE48sZfMKFsj6rryLjOM=; b=SZOJFznXTowgjtFGesJNwqAa7K
-	BOMm5JThBgqoxGfM6MFnEtfmZt5Fj5TRcYnX8bd7QmAoafhni7hTK8hokgPsPjln8z8rkaW7d37Wn
-	JC05hAAzjtoHHjJzqyjcs4uGI7CjuyaF2t0WoOELE4/EXMmAghQaaSwVizfB1Jo5YJDT1BvXALXSr
-	1p7nwPJENrwMUPF0YrzJoSp3W7Lfoi8mAYAB92W+XmV2TYx8toGfC0FlREmSmBIhdPJLNHJx12vbS
-	iqOksKupp/xItKCcAbNJPREhw5D+bCkqaJ6ulGRi6pSXd7ZsOYAOG0U0xknrVWACd/+yjt13qIfO1
-	4vPQXw0Q==;
+	bh=OxLiY9VXwmW64brotYTwmn0HZmpUyP4jQLvqjXxfH1s=; b=zDFZO9GhTsZFw0h1xOw8XSesXE
+	o0sExBVqgJBMctX0TyR1v28ML3QQIANZqI3EXegyBshHuYg9pO7iuLXJSt0V6CTvPsnZbtIek9Kuf
+	bLuGQmj6X+lD4SOwqW/RmBkOwFfmXrBsOvWs/tcHhlgq0COt3HZOAo7xMQ9WC4E3acq9+6bDFtIwB
+	9Sgip+q9pTwIrTWqIo+9eKLaDv+vFIhYZja2QwQhE/foa5pL8Uzqi2j/nEargtxRT876wyzWVcTKo
+	Y1RqTpHrrB8MfA1OFwTSocYTFZJKX0IhzalrXWaW7KhDZUSWflHcv07xw6mZd0yuGrH74ZNh4jKdT
+	l/oQBYxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utQ73-0000000HESo-1B87;
-	Tue, 02 Sep 2025 12:27:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1utQ6b-0000000HDtm-0SMt;
+	Tue, 02 Sep 2025 12:27:21 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utND1-0000000GKWe-3cfM
+	id 1utN04-0000000GGlu-0gMK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 09:21:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1234D601FE;
-	Tue,  2 Sep 2025 09:21:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2624DC4CEF7;
-	Tue,  2 Sep 2025 09:21:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756804906;
-	bh=HUiiWQDITg8+MQmQcEFhCfgm6csIP75981a83wPC3pM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Eod2bVdZA1JoFnBpSlGb1uMtFbmpo/S/3ll6IHa3mIRnUT710Ldv3oYumW7C7bXp0
-	 X7ZQ7eeLbYKbuhvYxs0Tm5/o3C2Hc2NgdU6aFyIpgqXmxTA2Hstdwgx0Sd6JeY07pb
-	 QE97kDpMCLIWNZqiHPDHa1D6nvT8EJWhMdhKaYWMfy8e3xdi0LncKk83CrT1WGWYAB
-	 ZMW9eYATgQMhKpsi0Fow5oX+NDHBNSd1LMYZ4pJ5V96ii1Ov9wzeGTK9ndR3W3T8ia
-	 ExRT+VZC4Ed55yDJIVTF6IeSOok7n0XCfbClwBF0VtBM7NcGgJR2aAgLScmQ3hdC86
-	 kI9EhS6ixVPqg==
-Date: Tue, 2 Sep 2025 11:21:43 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Dharma Balasubiramani <dharma.b@microchip.com>
-Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	linux-spi@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/5] spi: atmel,quadspi: Document sam9x7 QSPI
-Message-ID: <20250902-macho-violet-orangutan-faac78@kuoka>
-References: <20250902-microchip-qspi-v1-0-37af59a0406a@microchip.com>
- <20250902-microchip-qspi-v1-1-37af59a0406a@microchip.com>
+	Tue, 02 Sep 2025 09:08:25 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58297rtT2987826;
+	Tue, 2 Sep 2025 04:07:53 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1756804073;
+	bh=OxLiY9VXwmW64brotYTwmn0HZmpUyP4jQLvqjXxfH1s=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=ycTw6eUyDwd9cRZQkw8mSlrcUh76XL7nT5H29Uznigoe+EA3bxRLnYvvm12jaM3o7
+	 1JJSzJTnpcBgoKfAbeEeviSaqrIfuD+KcsC7vqSDrGisfUdWTQ/rEHjxkOim1phG8j
+	 mbLoMHlbA2n2Fv0zbIuq0wbCfTHoXOCFNjqpsLGU=
+Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58297rbQ2729543
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Tue, 2 Sep 2025 04:07:53 -0500
+Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 2
+ Sep 2025 04:07:51 -0500
+Received: from fllvem-mr08.itg.ti.com (10.64.41.88) by DLEE102.ent.ti.com
+ (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Tue, 2 Sep 2025 04:07:51 -0500
+Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
+	by fllvem-mr08.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58297p561001497;
+	Tue, 2 Sep 2025 04:07:51 -0500
+Received: from localhost (danish-tpc.dhcp.ti.com [172.24.231.152])
+	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 58297ofC020820;
+	Tue, 2 Sep 2025 04:07:51 -0500
+From: MD Danish Anwar <danishanwar@ti.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller"
+	<davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Mathieu
+ Poirier <mathieu.poirier@linaro.org>,
+        Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+        Nishanth Menon <nm@ti.com>, Vignesh
+ Raghavendra <vigneshr@ti.com>,
+        Mengyuan Lou <mengyuanlou@net-swift.com>,
+        MD
+ Danish Anwar <danishanwar@ti.com>, Xin Guo <guoxin09@huawei.com>,
+        Lei Wei
+	<quic_leiwei@quicinc.com>, Lee Trager <lee@trager.us>,
+        Michael Ellerman
+	<mpe@ellerman.id.au>, Fan Gong <gongfan1@huawei.com>,
+        Lorenzo Bianconi
+	<lorenzo@kernel.org>,
+        Geert Uytterhoeven <geert+renesas@glider.be>,
+        Lukas
+ Bulwahn <lukas.bulwahn@redhat.com>,
+        Parthiban Veerasooran
+	<Parthiban.Veerasooran@microchip.com>,
+        Suman Anna <s-anna@ti.com>
+CC: Tero Kristo <kristo@kernel.org>, <netdev@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-remoteproc@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        Roger Quadros
+	<rogerq@kernel.org>
+Subject: [PATCH net-next v2 1/8] dt-bindings: net: ti,rpmsg-eth: Add DT binding for RPMSG ETH
+Date: Tue, 2 Sep 2025 14:37:39 +0530
+Message-ID: <20250902090746.3221225-2-danishanwar@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250902090746.3221225-1-danishanwar@ti.com>
+References: <20250902090746.3221225-1-danishanwar@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250902-microchip-qspi-v1-1-37af59a0406a@microchip.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250902_020824_388220_DC291E63 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,34 +120,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 02, 2025 at 11:22:18AM +0530, Dharma Balasubiramani wrote:
-> Document the sam9x75 quad spi that supports interface to serial memories
+Add device tree binding documentation for Texas Instruments RPMsg Ethernet
+channels. This binding describes the shared memory communication interface
+between host processor and a remote processor for Ethernet packet exchange.
 
-9x75 here...
+The binding defines the required 'memory-region' property that references
+the dedicated shared memory area used for exchanging Ethernet packets
+between processors.
 
-> operating in
-> 
-> - Single-bit SPI, Dual SPI, Quad SPI and Octal SPI
-> - Single Data Rate or Double Data Rate modes
-> 
-> Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
-> ---
->  Documentation/devicetree/bindings/spi/atmel,quadspi.yaml | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/spi/atmel,quadspi.yaml b/Documentation/devicetree/bindings/spi/atmel,quadspi.yaml
-> index b0d99bc10535..c17114123034 100644
-> --- a/Documentation/devicetree/bindings/spi/atmel,quadspi.yaml
-> +++ b/Documentation/devicetree/bindings/spi/atmel,quadspi.yaml
-> @@ -17,6 +17,7 @@ properties:
->      enum:
->        - atmel,sama5d2-qspi
->        - microchip,sam9x60-qspi
-> +      - microchip,sam9x7-ospi
+Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+---
+ .../devicetree/bindings/net/ti,rpmsg-eth.yaml | 38 +++++++++++++++++++
+ 1 file changed, 38 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/ti,rpmsg-eth.yaml
 
-... but 9x7 here. Confusing.
-
-Best regards,
-Krzysztof
+diff --git a/Documentation/devicetree/bindings/net/ti,rpmsg-eth.yaml b/Documentation/devicetree/bindings/net/ti,rpmsg-eth.yaml
+new file mode 100644
+index 000000000000..1c86d5c020b0
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/ti,rpmsg-eth.yaml
+@@ -0,0 +1,38 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/ti,rpmsg-eth.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Texas Instruments RPMsg channel nodes for Ethernet communication
++
++description: |
++  RPMsg Ethernet subnode represents the communication interface between host
++  processor and a remote processor.
++
++maintainers:
++  - MD Danish Anwar <danishanwar@ti.com>
++
++properties:
++  memory-region:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: |
++      Phandle to the shared memory region used for communication between the
++      host processor and the remote processor.
++      This shared memory region is used to exchange Ethernet packets.
++
++required:
++  - memory-region
++
++additionalProperties: false
++
++examples:
++  - |
++    main_r5fss0_core0 {
++        mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core0>;
++        memory-region = <&main_r5fss0_core0_dma_memory_region>,
++                        <&main_r5fss0_core0_memory_region>;
++        rpmsg-eth {
++            memory-region = <&main_r5fss0_core0_memory_region_shm>;
++        };
++    };
+-- 
+2.34.1
 
 
