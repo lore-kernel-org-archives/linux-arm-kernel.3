@@ -4,94 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2377CA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:11:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FFBDCA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:11:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J+zU65F7Gerz/ADwaQ8W/yEAgtxRKhLtaag+pELJ150=; b=jrMfh21nGx4eN2jVFjaiFxG4jB
-	XfbAuSGSoAY0KMzyI819FRINtwwY4FG8znZHj6905vIv+XKn78lYlnOD58QFZNMH5Li7TDRY9LfnX
-	PhLrXQV8LWyATU5pTmkYRAjRn19psSpRa6+Lz7/ZDLZ5MFZskDTG6oW62SK/RENFc/d41U8YXMf7M
-	eOMQRewr5FhT9Ga081UuBSIBiofSgGPUpaKuv0L4uewJl3soO37quFUm54ZzwHphy63W/unjkiGps
-	HpH2qGbqInb4kw0x1Jtg5aq578IZ/6v9qLgI9ujK8W4OquvZQkb3aYBOjHaICk7WRvpZCFfFYNRux
-	sXch6WWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DhYHhdpq3o9OaEYWMGamjRW3AE6EMxkRxl/8TQh1o2g=; b=p+k6eBXh/dXL3swL2kCz6b3+xV
+	W2LFCMnQjY+ix1swhD67nUHKYMyCE9emJOY1hbNSauVgbxQDJV90QzuJ0XrgRg43biEzE3UcRGjff
+	Oq678inyR9MxaTB4NV3fYTe7eTxxTfAYl/yeolRbAWCZRKPjlt6UteA7UvbYutp3SSpEW+Sm43h6z
+	6fCIETK22pMXlCJlxjyVMlFXRG31ssBU7zq9Ko9LSy8LU4AOZb5kpSLvL2Mqq+4UObO9nd6csmxXZ
+	Pok9aaeqRlQBpXS80R6rPEhhKm/mjcpOk6E1BGhxzDH7ZVn9s3dKGEgI0ZSklIWgYjZtA9zN5rNRK
+	VBp+G7Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utWPC-00000001bh9-3b8m;
-	Tue, 02 Sep 2025 19:10:58 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1utWPH-00000001bnz-1Xd6;
+	Tue, 02 Sep 2025 19:11:03 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utQya-0000000013O-0tT1
+	id 1utQzr-000000001Zi-1kno
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 13:23:09 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3d1bf79d6afso2250339f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 06:23:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756819386; x=1757424186; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=J+zU65F7Gerz/ADwaQ8W/yEAgtxRKhLtaag+pELJ150=;
-        b=f+Fw6iNoLhxOFxhFdeTPaY4OBB+8tpwhYTB1moY1iGtGBmlom2H0vrfOY0Gxtml6sf
-         +ZOReZs6HLOLRmc1r+nwcu/YDUSNKSPeNEsEHTsgkCTjccHr6SeF0d5qzRFJPqJOtHr7
-         o5/7JDeFAGToUupT0j3reRLI+FG8/1hYHcyIQn33MPkoEV/rqV5TIcanjDPIUKNmJPi5
-         hsFsHLnTo1+NuNWfN9o4cMFk15OemTGh8zSVbRL0Zeha7hf3e1KE1usGCyQl/9qEo3Q2
-         HWSugKDnjy8NyRAFEi5kIo9kbdE+4c6DNcyn8hUSi0/fGPBQsbIziQmrqTEvitSK3dFA
-         NXJg==
+	Tue, 02 Sep 2025 13:24:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756819465;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DhYHhdpq3o9OaEYWMGamjRW3AE6EMxkRxl/8TQh1o2g=;
+	b=VJt/2IXJrJi+HPzkmC36rGmfXLdMxh5KQRDZw3ckznRg0zCpn9YsIifOPg+uEpA3vwvWhO
+	3rinJIrP/oZ37w62qQr4cLHcBVfjZn6PwWdZjGIzde/x4oiag0n/UYxPATY5pM5xUZmHmY
+	tBe/gOONzgaE+eUEB5MHORw6fQqfPx8=
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com
+ [209.85.219.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-539-XprOWJecNNm-QXRzar_6Lg-1; Tue, 02 Sep 2025 09:24:23 -0400
+X-MC-Unique: XprOWJecNNm-QXRzar_6Lg-1
+X-Mimecast-MFC-AGG-ID: XprOWJecNNm-QXRzar_6Lg_1756819463
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-70de6f22487so96421926d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 06:24:23 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756819386; x=1757424186;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1756819457; x=1757424257;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=J+zU65F7Gerz/ADwaQ8W/yEAgtxRKhLtaag+pELJ150=;
-        b=AyIYygCsncPyp0RWFz847jhFM2wElZOAKz1S4CBrJG8RsaxuVSA/NtNBU6Pr0lPj6W
-         Glq/hrd5b2ZXvkTo7jqWtVl6FYy/9NZloa6n0KNHXxRwUXXmDFlBRJFeRp38r2GFSmwc
-         YGX5GZ70uUyZUI5BDnqL775tG/MZxG5BaRXk742r9eW9m9ZpJ2nHhPhy7lpI5gtZIqLQ
-         pQ15fucS3x7AjcrtTD1BIZRob6U9HIpkgQmKSum0/hyZYnMe4y8BtfodiALLh4OwOrMp
-         C89Z9WdZGbDnqiGl259l2+S4uo3QvYCnduEGjRuj/3liK8gkMmoJVKib45BdV3S2d/p/
-         9cPA==
-X-Forwarded-Encrypted: i=1; AJvYcCVH2WaDZhULp27wwv/QL4rKWmOSY5dExuzs4SCGJXuz6PoUEwsTa1zasXJ8cQGkhA6+7jkW6TvdkjTnL89rUkzv@lists.infradead.org
-X-Gm-Message-State: AOJu0YzcGRZ1ojFLVi/iWhkknFriEod5aBZRWA/BK3A7FiaBzTlor1dd
-	bEu1FL/pao6a9uX9IpiHYALwkqFK5D93NLKUM/DJumLIlXOdashZJ/JO
-X-Gm-Gg: ASbGncucSlIRQVIUk9Yb8MX8xhuzv4wd+/Ktif6xcIODhFkSt3WJ3QZkhWpGRccpOyd
-	2FpVwKI+Mp4VxMn8jLVVZWEeb86CWGQy1N0J7wqU3e/7UVg+r0OFohbEIeqd7tk5cnFdsLc9mhz
-	f2Fwz+wOkaDBZQnvfm5AkhhpCUhB+ZFM1vmaLHPlyKeYHr86QiyY1Ys0+kRSoydTYuE3TYCbyKn
-	Vsidf29pk/Lj34IYlz9De5qBhD6eJZj5FHkbkWdMYRrVAHBjAV5vl5+gHFh1RgHBO3r/9M1mqjG
-	ZfVp3vt/CPwMJ0x2QmoWU1n33CyaIm6zlBdlVKDN3mewsTncYaRi2xr78U1bEpQYYrEpy59HVWC
-	wjnkB/Uq8o6dC2nWaMCpWC7uqN2G5SZ+kZ6Lz9pmcsgof
-X-Google-Smtp-Source: AGHT+IGEIroq02nSpRHx0vFtxRxr9TNdfsRxwLjDOb7ndAqqFPycS5qCf/jnA7MepquM0G+zsISS8Q==
-X-Received: by 2002:a05:6000:2281:b0:3ca:83e2:6339 with SMTP id ffacd0b85a97d-3d1e02cb35fmr8305578f8f.49.1756819386400;
-        Tue, 02 Sep 2025 06:23:06 -0700 (PDT)
-Received: from ws-linux01 ([2a02:2f0e:c207:b600:978:f6fa:583e:b091])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b945332adsm44452155e9.4.2025.09.02.06.23.05
+        bh=DhYHhdpq3o9OaEYWMGamjRW3AE6EMxkRxl/8TQh1o2g=;
+        b=N6mhAfnk662rhw45WHYIUPE5QdQpPADPEX+YD+3ZtT4Y5grqg/MzvpRfemVUWFiraX
+         17zmFGgeKUGgB6/rKXfWBpHMnenfYDYBWMg1lOVu7EEqQkCWjMbuu9R7hvkKECS4vYyD
+         qmoCkjOMI76eHojOTU/jlxVAFFwdP+xP64BD7qYqHEt5PRUkMY1r2uDzni3YjBz4aCmi
+         pwvBLD19uZP/xX+Ovv5SR5aaBuq7e6RXa3SGO38omX4LJtZJFpv5VrrP8s9abc55Wz6z
+         txQVlo3vuC4GhDblw/OAwdTcGZ/AjXEMgLMSXgdq4kk1BfCnT2agWZm3XyOOzWZEQpU8
+         Uh0w==
+X-Forwarded-Encrypted: i=1; AJvYcCXCYUiaOWA+QJ9Id/cazW/ymJhVxioE/vZ9uVaZmkuT8cVMNptKzBFN8QEM0iR4j46EJwO9/EkEdHHc7Q/MC0FK@lists.infradead.org
+X-Gm-Message-State: AOJu0YwC/nx1OK3c6i9CMYHUlH5gl3sa74aCAgHJGPijUVkjIO5YL49x
+	FpfpLipmfazepxbzdewk1fowWWZjvpkaFxFYelF6sj18Snk4kkrLO4ZWzEVD1xkT+pnWmoMyXAl
+	cpVnwRBe4xB6xiYkIQKn/3C0IGOlZlxxGrFFtMpmt8kxSAk5JnAeXrBrazsTFc+RsoZhN8UPX2y
+	aK
+X-Gm-Gg: ASbGncsCpAhAcOAW+K8xWKZUHotEA9fqQ4S76kjGn8k8dKNqx5JIduCcvkWml01crkG
+	Xi41+d74fWlDjNxR06tNsdarbpH2wPsgACJ3u6A0NOQoq5amg6sNkFx4h2WUQYFbTgCtkc2S+gi
+	jyjOk5EDQvVRToLdK9INEirWkxQnSphxRN2l5+8oMfQu/zZfNby0TtMY7V18VLFjNOC4qXsGaYu
+	Fgqwnha4hAfCVMxDo5udjfIXJlP+1s7/5f3nY9LHGo7Zw68C65p4QmEhvU4GQYRlaMJIy/jDYWc
+	XtcEaKnJNhKglo7ZPEMNbxb/bn5AGGP8hRmUjyr9KRznWlwdWC+hyJ+j0Ko=
+X-Received: by 2002:ad4:5bcb:0:b0:71f:238c:1495 with SMTP id 6a1803df08f44-71f238c1812mr45372466d6.12.1756819456906;
+        Tue, 02 Sep 2025 06:24:16 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH2gpj5sDjHqMalc6nLErCXydSa307HuH4gEcNe0djbjrEuBMYzkPHUoJgDAmOWEyhdUzjogg==
+X-Received: by 2002:ad4:5bcb:0:b0:71f:238c:1495 with SMTP id 6a1803df08f44-71f238c1812mr45371836d6.12.1756819456245;
+        Tue, 02 Sep 2025 06:24:16 -0700 (PDT)
+Received: from x1 ([2600:382:7727:a6e4:b49a:a295:b546:7faf])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-720acdff0dbsm11654266d6.18.2025.09.02.06.24.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Sep 2025 06:23:06 -0700 (PDT)
-From: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
-To: clabbe.montjoie@gmail.com,
-	herbert@gondor.apana.org.au,
-	davem@davemloft.net,
-	linux-crypto@vger.kernel.org
-Cc: wens@csie.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
+        Tue, 02 Sep 2025 06:24:15 -0700 (PDT)
+Date: Tue, 2 Sep 2025 09:24:12 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: claudiu beznea <claudiu.beznea@tuxon.dev>, mturquette@baylibre.com,
+	sboyd@kernel.org, geert+renesas@glider.be, linux@armlinux.org.uk,
+	linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Ovidiu Panait <ovidiu.panait.oss@gmail.com>
-Subject: [PATCH v3 9/9] crytpo: sun8i-ce - factor out prepare/unprepare from sun8i_ce_hash_run()
-Date: Tue,  2 Sep 2025 16:21:34 +0300
-Message-ID: <20250902132134.3287515-10-ovidiu.panait.oss@gmail.com>
-X-Mailer: git-send-email 2.50.0
-In-Reply-To: <20250902132134.3287515-1-ovidiu.panait.oss@gmail.com>
-References: <20250902132134.3287515-1-ovidiu.panait.oss@gmail.com>
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+Subject: Re: [PATCH 0/2] clk: renesas: rzg2l: Disable unused clocks after
+ resume
+Message-ID: <aLbv_FmJV8xV8hpR@x1>
+References: <20250821080333.27049-1-claudiu.beznea.uj@bp.renesas.com>
+ <aKyX4YJswZLuqA6Y@x1>
+ <0d71269f-1c78-4732-8235-5640bf340d00@tuxon.dev>
+ <aK2gE0CysSWisFwB@x1>
+ <CAMuHMdXNnGg0rEcM1hvvjBUJXFFAx4oiX=qVb3nKfmd4YBxhGw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMuHMdXNnGg0rEcM1hvvjBUJXFFAx4oiX=qVb3nKfmd4YBxhGw@mail.gmail.com>
+User-Agent: Mutt/2.2.14 (2025-02-20)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: qNypoyAGMzC6eTtAq9wtSV-L4fA6y3bVbnaV0EJoQWo_1756819463
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_062308_251054_99AF6215 
-X-CRM114-Status: GOOD (  14.03  )
+X-CRM114-CacheID: sfid-20250902_062427_530316_1ABD9231 
+X-CRM114-Status: GOOD (  41.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,127 +117,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to make the ahash code more clear and modular, split the
-monolithic sun8i_ce_hash_run() callback into two parts, prepare and
-unprepare (therefore aligning it with the sun8i-ce skcipher code).
+Hi Geert,
 
-Signed-off-by: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
----
- .../crypto/allwinner/sun8i-ce/sun8i-ce-hash.c | 62 ++++++++++++++-----
- 1 file changed, 46 insertions(+), 16 deletions(-)
+On Mon, Sep 01, 2025 at 11:46:34AM +0200, Geert Uytterhoeven wrote:
+> On Tue, 26 Aug 2025 at 13:52, Brian Masney <bmasney@redhat.com> wrote:
+> > On Tue, Aug 26, 2025 at 02:01:56PM +0300, claudiu beznea wrote:
+> > > On 8/25/25 20:05, Brian Masney wrote:
+> > > > On Thu, Aug 21, 2025 at 11:03:30AM +0300, Claudiu wrote:
+> > > > > From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> > > > > This series disables clocks that remain unused after resume.
+> > > > > This is necessary when the resume process is done with the help of the
+> > > > > bootloader, as the bootloader enables various clocks when returning from
+> > > > > resume.
+> > > > >
+> > > > > On the RZ/G3S SoC (where this series was tested), the bootloader enables
+> > > > > the SDHI clocks (for all SDHI modules, of which 2 are used by Linux and
+> > > > > 1 is unused) and the clocks for a serial IP (unused by Linux).
+> > > > >
+> > > > > Testing was done on the RZ/G3S SMARC Carrier II board.
+> > > >
+> > > > Do you think that other boards would also benefit from this change? If
+> > > > so, what do you think about putting the call to register_pm_notifier()
+> > > > inside an __init block in clk.c so that this same change doesn't have to
+> > > > be implemented across various clk drivers?
+> > >
+> > > Yes, that was my other approach I was thinking about. I wanted to see how
+> > > other people consider this version.
+> > >
+> > > > Alternatively, if this is board specific, could this be fixed in the
+> > > > boot loader so that the clock that's not used by Linus is properly shut
+> > > > down on resume?
+> > >
+> > > As a result of your request I did some more investigations on my side, I can
+> > > say that, yes, in theory that could be also handled by bootloader.
+> > >
+> > > I can drop this and try to do it in bootloader, if any. Please let me know
+> > > if you still consider this (or the variant that implements it in a generic
+> > > way) necessary.
+> >
+> > Personally I would go the route of fixing this in the bootloader for
+> > this particular platform.
+> >
+> > If this issue affects other platforms, particularly across multiple
+> > SoC vendors, then I think it would be worthwhile to have a discussion
+> > about adding this functionality to the clk core.
+> 
+> How would the bootloader know which clocks are not used by Linux?
+> And why to offload this to the bootloader for resume, but not for boot?
 
-diff --git a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c
-index 6573c566bd0d..d01594353d9a 100644
---- a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c
-+++ b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c
-@@ -313,18 +313,15 @@ static u64 hash_pad(__le32 *buf, unsigned int bufsize, u64 padi, u64 byte_count,
- 	return j;
- }
- 
--int sun8i_ce_hash_run(struct crypto_engine *engine, void *breq)
-+static int sun8i_ce_hash_prepare(struct ahash_request *areq, struct ce_task *cet)
- {
--	struct ahash_request *areq = container_of(breq, struct ahash_request, base);
- 	struct crypto_ahash *tfm = crypto_ahash_reqtfm(areq);
- 	struct ahash_alg *alg = __crypto_ahash_alg(tfm->base.__crt_alg);
- 	struct sun8i_ce_hash_reqctx *rctx = ahash_request_ctx_dma(areq);
- 	struct sun8i_ce_alg_template *algt;
- 	struct sun8i_ce_dev *ce;
--	struct sun8i_ce_flow *chan;
--	struct ce_task *cet;
- 	struct scatterlist *sg;
--	int nr_sgs, flow, err;
-+	int nr_sgs, err;
- 	unsigned int len;
- 	u32 common;
- 	u64 byte_count;
-@@ -345,18 +342,14 @@ int sun8i_ce_hash_run(struct crypto_engine *engine, void *breq)
- 
- 	bf = (__le32 *)rctx->pad;
- 
--	flow = rctx->flow;
--	chan = &ce->chanlist[flow];
--
- 	if (IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG))
- 		algt->stat_req++;
- 
- 	dev_dbg(ce->dev, "%s %s len=%d\n", __func__, crypto_tfm_alg_name(areq->base.tfm), areq->nbytes);
- 
--	cet = chan->tl;
- 	memset(cet, 0, sizeof(struct ce_task));
- 
--	cet->t_id = cpu_to_le32(flow);
-+	cet->t_id = cpu_to_le32(rctx->flow);
- 	common = ce->variant->alg_hash[algt->ce_algo_id];
- 	common |= CE_COMM_INT;
- 	cet->t_common_ctl = cpu_to_le32(common);
-@@ -434,22 +427,59 @@ int sun8i_ce_hash_run(struct crypto_engine *engine, void *breq)
- 	else
- 		cet->t_dlen = cpu_to_le32(areq->nbytes / 4 + j);
- 
--	err = sun8i_ce_run_task(ce, flow, crypto_ahash_alg_name(tfm));
--
--	dma_unmap_single(ce->dev, rctx->addr_pad, rctx->pad_len, DMA_TO_DEVICE);
-+	return 0;
- 
- err_unmap_result:
- 	dma_unmap_single(ce->dev, rctx->addr_res, rctx->result_len,
- 			 DMA_FROM_DEVICE);
--	if (!err)
--		memcpy(areq->result, rctx->result, crypto_ahash_digestsize(tfm));
- 
- err_unmap_src:
- 	dma_unmap_sg(ce->dev, areq->src, rctx->nr_sgs, DMA_TO_DEVICE);
- 
- err_out:
-+	return err;
-+}
-+
-+static void sun8i_ce_hash_unprepare(struct ahash_request *areq,
-+				    struct ce_task *cet)
-+{
-+	struct sun8i_ce_hash_reqctx *rctx = ahash_request_ctx_dma(areq);
-+	struct crypto_ahash *tfm = crypto_ahash_reqtfm(areq);
-+	struct sun8i_ce_hash_tfm_ctx *ctx = crypto_ahash_ctx(tfm);
-+	struct sun8i_ce_dev *ce = ctx->ce;
-+
-+	dma_unmap_single(ce->dev, rctx->addr_pad, rctx->pad_len, DMA_TO_DEVICE);
-+	dma_unmap_single(ce->dev, rctx->addr_res, rctx->result_len,
-+			 DMA_FROM_DEVICE);
-+	dma_unmap_sg(ce->dev, areq->src, rctx->nr_sgs, DMA_TO_DEVICE);
-+}
-+
-+int sun8i_ce_hash_run(struct crypto_engine *engine, void *async_req)
-+{
-+	struct ahash_request *areq = ahash_request_cast(async_req);
-+	struct crypto_ahash *tfm = crypto_ahash_reqtfm(areq);
-+	struct sun8i_ce_hash_tfm_ctx *ctx = crypto_ahash_ctx(tfm);
-+	struct sun8i_ce_hash_reqctx *rctx = ahash_request_ctx_dma(areq);
-+	struct sun8i_ce_dev *ce = ctx->ce;
-+	struct sun8i_ce_flow *chan;
-+	int err;
-+
-+	chan = &ce->chanlist[rctx->flow];
-+
-+	err = sun8i_ce_hash_prepare(areq, chan->tl);
-+	if (err)
-+		return err;
-+
-+	err = sun8i_ce_run_task(ce, rctx->flow, crypto_ahash_alg_name(tfm));
-+
-+	sun8i_ce_hash_unprepare(areq, chan->tl);
-+
-+	if (!err)
-+		memcpy(areq->result, rctx->result,
-+		       crypto_ahash_digestsize(tfm));
-+
- 	local_bh_disable();
--	crypto_finalize_hash_request(engine, breq, err);
-+	crypto_finalize_hash_request(engine, async_req, err);
- 	local_bh_enable();
- 
- 	return 0;
--- 
-2.50.0
+If the bootloader is involved with resume, then I assume that it's also
+involved with suspend as well? If so, could the boot loader save the
+state of the 3 clocks on suspend, and set them back to that same state
+on resume?
+
+How widespread is this issue? Does it just affect this board, or is it
+common across other boards?
+
+There are some longstanding issues with clk_disable_unused that Stephen
+talked about at Linux Plumbers almost two years ago [1]. We'll have to
+wait to hear back from him, however I suspect he may be reluctant to
+expand the scope of clk_disable_unused even further given the existing
+issues.
+
+[1] https://www.youtube.com/watch?v=tXYzM8yLIQA
+
+Brian
 
 
