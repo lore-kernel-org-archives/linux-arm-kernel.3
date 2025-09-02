@@ -4,67 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B69A2CA1005
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 12:28:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88498CA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 12:29:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zppQBq1IDIZBQNs2Vh4VDNCqY9edXSDXe3ufBolqY2o=; b=GL+Hs8LOunHU3um+ZQF9oapJ1l
-	RWWcDsmXbVWqjn0K+EnBvyjCKtQGwM3zE3mGnRN4DH0AGuGHX2MDn7Gh5e/UrzJWOvaIc7MC19Hms
-	YO+LcqoL7EIdzykMfeQmj11hYczz2uyXFEF3dbHMC35QZtP8hDIszP5o8d6/xiv+Poe9x8c0Y1h1U
-	9bP+ofL/Dh4UrNFMloUHIpYcNIGzcWvUWzRDQCX4bX7xfnBcDwKBk2WTYWnHc9qPpFv5WfmOq8p4o
-	CJWsYkD0Qp1hrleJxkb761hU2lf40wbrwrgmFPXvgXFj7bcr0R9wATm21/NV86U1opTkWIWHmQIgu
-	LwSp4baA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=edYlP8Z5hwCifcr6FufgXJe0x3O4W0S+n8Or6v62MHE=; b=maAUNivcgVES8RQ5QknDWRItXD
+	eRRoqKdYNN7HeN8QRPAcOBg5kxNESAiV1eFoehZAX5CfoD5AUwdtZgx2tGPD3fOZVumLYyJVbgPvn
+	e7yn6/R4h4UynFuh6/zPiQSW4tE7jyw6AA/ORMub1eHnVbEVI3VziKHfwK215QRV2zFY+cCfF2xNe
+	nX92DKBta15FZBVBkiD0IQqx4z4G2hobAE6hc086M0WV0FtLxY5ooM3ZZxMno8S2rb1phyJf2WtB6
+	os8gO8mDMxyOVO0J1ARTDdzlbLAaSeGFJOK/9nPTP3oLK+ThLksnUuy2h+FxwA3tjg0141adWh7+x
+	0ER3bhFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utQ7r-0000000HFWT-2e4g;
-	Tue, 02 Sep 2025 12:28:39 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1utQ8M-0000000HG8C-3byJ;
+	Tue, 02 Sep 2025 12:29:10 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utNJA-0000000GN5O-3zOE;
-	Tue, 02 Sep 2025 09:28:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1756805287;
-	bh=YtwElPS8aR4gW4cx1Fi4f1c2ZQrNeyC9qjC7zQ2lfzM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=QLqWswT/plgp0WihKxXmc8Ek7MMT+Bv87dJrvqF7XJTaTKd3VbFvZ0fRjzzRp10Ou
-	 +81ctYoi0IN98HhTQP+pYTFSN/5wDzNXBl+EyANuCrkPbnOR2JTcd8pvtw328KTuQY
-	 XAYLHfJcI8750dVd0WKks/seZkLXC0jZbzxQYSIlBcSccN6sL/lzOKjPnnmfBxnY02
-	 /fh0r4S08W3Z0whRPFKj/AISBrBnhMzHG2Dz++2bjo0JSiMNPEWvCn66TimZx6LYcn
-	 72EOXt3RVBt5kJnBwtuZl2yWoQKZsrMS+FzeC6xC3Lu0LxKj7DfZWaMuOwxO8qOuou
-	 28YSy7OXmP3Jg==
-Received: from localhost (unknown [82.79.138.60])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 0E23617E12B9;
-	Tue,  2 Sep 2025 11:28:07 +0200 (CEST)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Tue, 02 Sep 2025 12:27:56 +0300
-Subject: [PATCH 1/2] drm: Add CRTC background color property
+	id 1utNJp-0000000GNSH-2pE7
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 02 Sep 2025 09:28:50 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-45b8b2712d8so22331955e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 02:28:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1756805328; x=1757410128; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=edYlP8Z5hwCifcr6FufgXJe0x3O4W0S+n8Or6v62MHE=;
+        b=q9RxqcE/nXguXTedlKM2OpLqlMa5yynEEaueSGYCZ/hTH7FTpPqKBTlUNfeSLVfc+N
+         Yb6lcMZl6GQa2EIzzCihFZFK/ygVmPEUJMCPD3bGamjHX34VzwhLU0IKKGQL43tGDVzu
+         3yim/yQUIOz6PkhLlWcgbDW5QAAf9iXbhbJq34ZjgoM+bqgRvg8RThAurXDGIRC1p5pc
+         gGSgtBHYzglk5pWwm3vtyhfqT0y2GA8XVsaXVfuYLKRlK1dCMEI9QgCW6gLbsZAaxU0K
+         6312xVTGe6OVjg8w6DUGe0y++RGdMNQ0gRgGaXHGz0G2Cef30g1kOUP5rEYRWA3vvMTL
+         Tsug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756805328; x=1757410128;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=edYlP8Z5hwCifcr6FufgXJe0x3O4W0S+n8Or6v62MHE=;
+        b=EN2D3HOsSIijZLM7zFuagpDvZ+DBc0Ccw/i++RGA2u7tDfDaSmfNkpa9HYEjrMENZe
+         Wv5GYDkhX5mG+bmJd3u8ghvYH1b+ZsUnCC8G6SwQtcoQYRvwYiYmbHBID10k8laKVj3c
+         +4fSZenMEJOiohAtA4uvriFHkaED8onyLJwVhsfRheU6Un0XFpoYq28scsENavCHIp0N
+         Co93XxY5n7OsiqGxjE5TFrDHOMDIJRN8FaFEWBRrSWxQzKGtZcg/ggmfh7pACd3n55zn
+         6p0thLN2QfbIm6Bv5xtKlwHnLzhq6YaoripurHJKOCOwnbZJj14PWgly7Gl2O8UPl1tH
+         b0Cg==
+X-Gm-Message-State: AOJu0Yw85bPvIBWUK5tDWWaueNL49Zr7ZWFfHfNbXVmv1Z4B75+nQMeO
+	PvplTr2j7NWweFb4pq+l3x8PrbM/K/EcnjuDlbN85+4egbw98ae1zDXGDvr797mQ5S50Uyd/isJ
+	pg+wZIEk=
+X-Gm-Gg: ASbGncuW6NC60PhPul7dJuH5RRKxXsKRlM+x7x1EUh/JT9Rtu6OtfEkBj8gOX/QLlzU
+	8CElTP0bTsw5rYRvReouFy7AMh0eWmQDBtwWZ/puYoG7YkZgnPXcaOKPmqkffpSCL6OCHsFH3qI
+	0TBo9uVG9lBPqS6RLh62t0k6EgDCcZxzA2Y8zra48ViyC4l8ckFojdXaEqlmtRi9NHdfTCTgCAS
+	7mt46B4+rfeNoJ9GSb2GsAeJ0DFEdkLCJwRpXZWEhwwTgbVEeOTgaXm6Z1TVHSrhEbOZwzFGLaT
+	z/kZIYM0rC2uFfi3RnAPDRdC8uNAD9fZrDLPb3lTb5M28SIXFaCGS/KqcYgFJltRrsWHEDY1ZJ5
+	EKd4pWTWm1HoYxYSnmOQiTM6YpqYqyuTuLSoNs0VImAk=
+X-Google-Smtp-Source: AGHT+IEY/YSFrI6UrJniUuogyMXmb035NLrPVWZyM/wPk//oA7hmbyBZ5lCICvvZzOw9e+9BtJ6+4Q==
+X-Received: by 2002:a05:600c:1386:b0:45b:81ad:336 with SMTP id 5b1f17b1804b1-45b855340e4mr100469205e9.16.1756805328090;
+        Tue, 02 Sep 2025 02:28:48 -0700 (PDT)
+Received: from arrakeen.starnux.net ([2a01:e0a:3d9:2080:8261:5fff:fe11:bdda])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b6f0c6b99sm271502805e9.4.2025.09.02.02.28.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 02 Sep 2025 02:28:47 -0700 (PDT)
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Date: Tue, 02 Sep 2025 11:28:45 +0200
+Subject: [PATCH] arm64: Add command-line override for
+ ID_AA64ISAR0_EL1.ATOMIC
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250902-rk3588-bgcolor-v1-1-fd97df91d89f@collabora.com>
-References: <20250902-rk3588-bgcolor-v1-0-fd97df91d89f@collabora.com>
-In-Reply-To: <20250902-rk3588-bgcolor-v1-0-fd97df91d89f@collabora.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, Matt Roper <matthew.d.roper@intel.com>
+Message-Id: <20250902-topic-arm64-pi-aa64isar0-atomic-v1-1-125f9538a230@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAMy4tmgC/x2NSwqFMAwAryJZG6il9XcVcRFsfC8LbUlFBPHuF
+ pfDwMwNmVU4w1jdoHxKlrgXaOoKlj/tP0YJhcEa681gLB4xyYKkW+swCRK1TjKpQTriVky/huA
+ 673tmhlJJyqtc32Gan+cFqwYyf3EAAAA=
+X-Change-ID: 20250902-topic-arm64-pi-aa64isar0-atomic-8fdd47558eee
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Neil Armstrong <neil.armstrong@linaro.org>
 X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4097;
+ i=neil.armstrong@linaro.org; h=from:subject:message-id;
+ bh=zIiaEMcLOGEflrFqgwtyUbqqcZexOFcO+SM0N5ku4Tc=;
+ b=owEBbQKS/ZANAwAKAXfc29rIyEnRAcsmYgBotrjPlqmBSDdqD8zMfFv0XXzw9wN/I6nNGhVgkTIT
+ 4qSzP1mJAjMEAAEKAB0WIQQ9U8YmyFYF/h30LIt33NvayMhJ0QUCaLa4zwAKCRB33NvayMhJ0Q6xD/
+ 9NrU+WTr64/PlGUBAU4zpCqh4GbhRID9UPxztpzTuunIxA36J6wiqy4+BmSohWo1aDkaUoKtvYAIJG
+ eL0Uq+L5f/6W4Y5g28ndrd2tka+uFAm1eOdQfFx2+MkdbLKOi2JzExOVkPcgjI9JOpH/q0SL/Jkpuz
+ wAMU2j3NlI58hI95QQITls69ZvIsjtUItY965hdk58nfYuJhd+qWTNZXY5Kr/JHmMtM7stI038ztGC
+ v/NU/d1eoE5OauYWiNFblLfvxstouQbwoRHuNTDjSwd64ipSltyk2eDP192sg9OXUuepkRUNts1Ugb
+ MgY2Mm02Z5cg4tB+KnK41wfEENiwuviRiDVFk0hIym6rexpb3hK7BpaE4es/fGzlRGHF3BaP4F6zms
+ k/C0GseF+bam4LlECstlVD/8jTI40B9UrOXm3Adegl/5PvwDLgaBpbYqCKxsTb1ddpT3d/6Hkfb0YN
+ SaSaB3Q0/6o65ljjMICXCOfD1O1UsbgGePEJH4nqZU3hjWqcHQ6+Bk5nx0XNI0HGLv/ni/reAzeckW
+ 7ZIwE/29l3OVoogFMt72ZHymEMLDFVqS3y1BqZe0f3p5GNowkd7grzFX/hE7f0lHYJt84v2ufkYByT
+ tCFeeDRTMoy6LHxlTCiUruqz+kfUOmK4uQSCJusUW1Ch6G5bZaiLz/xSzXsg==
+X-Developer-Key: i=neil.armstrong@linaro.org; a=openpgp;
+ fpr=89EC3D058446217450F22848169AB7B1A4CFF8AE
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_022809_180426_81EBBE67 
-X-CRM114-Status: GOOD (  25.93  )
+X-CRM114-CacheID: sfid-20250902_022849_719967_554BD248 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,249 +118,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some display controllers can be hardware programmed to show non-black
-colors for pixels that are either not covered by any plane or are
-exposed through transparent regions of higher planes.  This feature can
-help reduce memory bandwidth usage, e.g. in compositors managing a UI
-with a solid background color while using smaller planes to render the
-remaining content.
+Implement overriding AA64ISAR0_EL1 to set the ATOMIC feature bits,
+allowing booting with LSE Atomic disabled in case the feature
+is badly advertised as implemented or incorrectly masked by
+the hypervisor.
 
-To support this capability, introduce the BACKGROUND_COLOR standard DRM
-mode property, which can be attached to a CRTC through the
-drm_crtc_attach_background_color_property() helper function.
-
-Additionally, define a 64-bit ARGB format value to be built with the
-help of a dedicated drm_argb64() utility macro.  Individual color
-components can be extracted with desired precision using the
-corresponding DRM_ARGB64_*() macros.
-
-Co-developed-by: Matt Roper <matthew.d.roper@intel.com>
-Signed-off-by: Matt Roper <matthew.d.roper@intel.com>
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>
 ---
- drivers/gpu/drm/drm_atomic_state_helper.c |  1 +
- drivers/gpu/drm/drm_atomic_uapi.c         |  4 ++++
- drivers/gpu/drm/drm_blend.c               | 37 +++++++++++++++++++++++++++----
- drivers/gpu/drm/drm_mode_config.c         |  6 +++++
- include/drm/drm_blend.h                   |  4 +++-
- include/drm/drm_crtc.h                    | 12 ++++++++++
- include/drm/drm_mode_config.h             |  5 +++++
- include/uapi/drm/drm_mode.h               | 30 +++++++++++++++++++++++++
- 8 files changed, 94 insertions(+), 5 deletions(-)
+ arch/arm64/include/asm/cpufeature.h   | 1 +
+ arch/arm64/kernel/cpufeature.c        | 4 +++-
+ arch/arm64/kernel/image-vars.h        | 1 +
+ arch/arm64/kernel/pi/idreg-override.c | 9 +++++++++
+ 4 files changed, 14 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/drm/drm_atomic_state_helper.c
-index 7142e163e618ea0d7d9d828e1bd9ff2a6ec0dfeb..359264cf467c5270b77f0b04548073bc92cb812e 100644
---- a/drivers/gpu/drm/drm_atomic_state_helper.c
-+++ b/drivers/gpu/drm/drm_atomic_state_helper.c
-@@ -75,6 +75,7 @@ __drm_atomic_helper_crtc_state_reset(struct drm_crtc_state *crtc_state,
- 				     struct drm_crtc *crtc)
- {
- 	crtc_state->crtc = crtc;
-+	crtc_state->background_color = drm_argb64(0xffff, 0, 0, 0);
- }
- EXPORT_SYMBOL(__drm_atomic_helper_crtc_state_reset);
+diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+index bf13d676aae2cc9903c83e9a3c4be0ad4bc86204..74fa9efd6938905a6397c78aeddb03a134d4d8c9 100644
+--- a/arch/arm64/include/asm/cpufeature.h
++++ b/arch/arm64/include/asm/cpufeature.h
+@@ -963,6 +963,7 @@ extern struct arm64_ftr_override id_aa64pfr0_override;
+ extern struct arm64_ftr_override id_aa64pfr1_override;
+ extern struct arm64_ftr_override id_aa64zfr0_override;
+ extern struct arm64_ftr_override id_aa64smfr0_override;
++extern struct arm64_ftr_override id_aa64isar0_override;
+ extern struct arm64_ftr_override id_aa64isar1_override;
+ extern struct arm64_ftr_override id_aa64isar2_override;
  
-diff --git a/drivers/gpu/drm/drm_atomic_uapi.c b/drivers/gpu/drm/drm_atomic_uapi.c
-index 85dbdaa4a2e25878c953b9b41539c8566d55c6d9..a447cb119aaa6cd11348be77b39f342a1386836d 100644
---- a/drivers/gpu/drm/drm_atomic_uapi.c
-+++ b/drivers/gpu/drm/drm_atomic_uapi.c
-@@ -407,6 +407,8 @@ static int drm_atomic_crtc_set_property(struct drm_crtc *crtc,
- 					&replaced);
- 		state->color_mgmt_changed |= replaced;
- 		return ret;
-+	} else if (property == config->background_color_property) {
-+		state->background_color = val;
- 	} else if (property == config->prop_out_fence_ptr) {
- 		s32 __user *fence_ptr = u64_to_user_ptr(val);
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index ef269a5a37e12c53e8e825e947b910f6d3efd296..1084475c479b0101e151ff7dfc12c7b79506cbed 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -778,6 +778,7 @@ struct arm64_ftr_override __read_mostly id_aa64pfr0_override;
+ struct arm64_ftr_override __read_mostly id_aa64pfr1_override;
+ struct arm64_ftr_override __read_mostly id_aa64zfr0_override;
+ struct arm64_ftr_override __read_mostly id_aa64smfr0_override;
++struct arm64_ftr_override __read_mostly id_aa64isar0_override;
+ struct arm64_ftr_override __read_mostly id_aa64isar1_override;
+ struct arm64_ftr_override __read_mostly id_aa64isar2_override;
  
-@@ -452,6 +454,8 @@ drm_atomic_crtc_get_property(struct drm_crtc *crtc,
- 		*val = (state->ctm) ? state->ctm->base.id : 0;
- 	else if (property == config->gamma_lut_property)
- 		*val = (state->gamma_lut) ? state->gamma_lut->base.id : 0;
-+	else if (property == config->background_color_property)
-+		*val = state->background_color;
- 	else if (property == config->prop_out_fence_ptr)
- 		*val = 0;
- 	else if (property == crtc->scaling_filter_property)
-diff --git a/drivers/gpu/drm/drm_blend.c b/drivers/gpu/drm/drm_blend.c
-index 6852d73c931ce32e62062e2b8f8c5e38612d5210..5a287d12685b007a2732f510f62675f500e53727 100644
---- a/drivers/gpu/drm/drm_blend.c
-+++ b/drivers/gpu/drm/drm_blend.c
-@@ -191,10 +191,6 @@
-  *		 plane does not expose the "alpha" property, then this is
-  *		 assumed to be 1.0
-  *
-- * Note that all the property extensions described here apply either to the
-- * plane or the CRTC (e.g. for the background color, which currently is not
-- * exposed and assumed to be black).
-- *
-  * SCALING_FILTER:
-  *     Indicates scaling filter to be used for plane scaler
-  *
-@@ -207,6 +203,23 @@
-  *
-  * Drivers can set up this property for a plane by calling
-  * drm_plane_create_scaling_filter_property
-+ *
-+ * The property extensions described above all apply to the plane.  Drivers
-+ * may also expose the following crtc property extension:
-+ *
-+ * BACKGROUND_COLOR:
-+ *	Background color is set via drm_crtc_attach_background_color_property().
-+ *	It controls the ARGB color of a full-screen layer that exists below all
-+ *	planes.  This color will be used for pixels not covered by any plane and
-+ *	may also be blended with plane contents as allowed by a plane's alpha
-+ *	values.  The background color defaults to black, and is assumed to be
-+ *	black for drivers that do not expose this property.  Although background
-+ *	color isn't a plane, it is assumed that the color provided here
-+ *	undergoes the same pipe-level degamma/CSC/gamma transformations that
-+ *	planes undergo.  Note that the color value provided here includes an
-+ *	alpha channel, hence non-opaque background color values are allowed, but
-+ *	are generally only honored in special cases (e.g. when a memory
-+ *	writeback connector is in use).
-  */
+@@ -832,7 +833,8 @@ static const struct __ftr_reg_entry {
+ 	ARM64_FTR_REG(SYS_ID_AA64DFR1_EL1, ftr_raz),
  
- /**
-@@ -621,3 +634,19 @@ int drm_plane_create_blend_mode_property(struct drm_plane *plane,
- 	return 0;
- }
- EXPORT_SYMBOL(drm_plane_create_blend_mode_property);
-+
-+/**
-+ * drm_crtc_attach_background_color_property - attach background color property
-+ * @crtc: drm crtc
-+ *
-+ * Attaches the background color property to @crtc.  The property defaults to
-+ * solid black and will accept 64-bit ARGB values in the format generated by
-+ * drm_argb64().
-+ */
-+void drm_crtc_attach_background_color_property(struct drm_crtc *crtc)
-+{
-+	drm_object_attach_property(&crtc->base,
-+				   crtc->dev->mode_config.background_color_property,
-+				   drm_argb64(0xffff, 0, 0, 0));
-+}
-+EXPORT_SYMBOL(drm_crtc_attach_background_color_property);
-diff --git a/drivers/gpu/drm/drm_mode_config.c b/drivers/gpu/drm/drm_mode_config.c
-index 25f376869b3a41d47bbe72b0df3e35cad142f3e6..6d70bfab45ca2bb81ed3ca1940fd1cd85e8cc58e 100644
---- a/drivers/gpu/drm/drm_mode_config.c
-+++ b/drivers/gpu/drm/drm_mode_config.c
-@@ -375,6 +375,12 @@ static int drm_mode_create_standard_properties(struct drm_device *dev)
- 		return -ENOMEM;
- 	dev->mode_config.gamma_lut_size_property = prop;
+ 	/* Op1 = 0, CRn = 0, CRm = 6 */
+-	ARM64_FTR_REG(SYS_ID_AA64ISAR0_EL1, ftr_id_aa64isar0),
++	ARM64_FTR_REG_OVERRIDE(SYS_ID_AA64ISAR0_EL1, ftr_id_aa64isar0,
++			       &id_aa64isar0_override),
+ 	ARM64_FTR_REG_OVERRIDE(SYS_ID_AA64ISAR1_EL1, ftr_id_aa64isar1,
+ 			       &id_aa64isar1_override),
+ 	ARM64_FTR_REG_OVERRIDE(SYS_ID_AA64ISAR2_EL1, ftr_id_aa64isar2,
+diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
+index 714b0b5ec5ac4a64037834545b0246eb04fb2bce..10deaa63ce7f801fb96d69fc97ae033bcea73fb1 100644
+--- a/arch/arm64/kernel/image-vars.h
++++ b/arch/arm64/kernel/image-vars.h
+@@ -46,6 +46,7 @@ PROVIDE(__pi___memcpy			= __pi_memcpy);
+ PROVIDE(__pi___memmove			= __pi_memmove);
+ PROVIDE(__pi___memset			= __pi_memset);
  
-+	prop = drm_property_create_range(dev, 0,
-+					 "BACKGROUND_COLOR", 0, U64_MAX);
-+	if (!prop)
-+		return -ENOMEM;
-+	dev->mode_config.background_color_property = prop;
-+
- 	prop = drm_property_create(dev,
- 				   DRM_MODE_PROP_IMMUTABLE | DRM_MODE_PROP_BLOB,
- 				   "IN_FORMATS", 0);
-diff --git a/include/drm/drm_blend.h b/include/drm/drm_blend.h
-index 88bdfec3bd8848acd1ef5742aaaa23483b332a2e..c7e888767c81c2745cd3cce88c10db4bbe305d1e 100644
---- a/include/drm/drm_blend.h
-+++ b/include/drm/drm_blend.h
-@@ -31,8 +31,9 @@
- #define DRM_MODE_BLEND_COVERAGE		1
- #define DRM_MODE_BLEND_PIXEL_NONE	2
- 
--struct drm_device;
- struct drm_atomic_state;
-+struct drm_crtc;
-+struct drm_device;
- struct drm_plane;
- 
- static inline bool drm_rotation_90_or_270(unsigned int rotation)
-@@ -58,4 +59,5 @@ int drm_atomic_normalize_zpos(struct drm_device *dev,
- 			      struct drm_atomic_state *state);
- int drm_plane_create_blend_mode_property(struct drm_plane *plane,
- 					 unsigned int supported_modes);
-+void drm_crtc_attach_background_color_property(struct drm_crtc *crtc);
- #endif
-diff --git a/include/drm/drm_crtc.h b/include/drm/drm_crtc.h
-index caa56e039da2a748cf40ebf45b37158acda439d9..4653dacc1077b9ed8fb4cf27cc84530ba1706f6a 100644
---- a/include/drm/drm_crtc.h
-+++ b/include/drm/drm_crtc.h
-@@ -274,6 +274,18 @@ struct drm_crtc_state {
- 	 */
- 	struct drm_property_blob *gamma_lut;
- 
-+	/**
-+	 * @background_color:
-+	 *
-+	 * RGB value representing the pipe's background color.  The background
-+	 * color (aka "canvas color") of a pipe is the color that will be used
-+	 * for pixels not covered by a plane, or covered by transparent pixels
-+	 * of a plane.  The value here should be built using drm_argb64(), while
-+	 * the individual color components can be extracted with desired
-+	 * precision via the DRM_ARGB64_*() macros.
-+	 */
-+	u64 background_color;
-+
- 	/**
- 	 * @target_vblank:
- 	 *
-diff --git a/include/drm/drm_mode_config.h b/include/drm/drm_mode_config.h
-index 2e848b816218584eb077ed887bf97705f012a622..ea422afec5c4108a223dc872e1b6835ffc596cc3 100644
---- a/include/drm/drm_mode_config.h
-+++ b/include/drm/drm_mode_config.h
-@@ -814,6 +814,11 @@ struct drm_mode_config {
- 	 * gamma LUT as supported by the driver (read-only).
- 	 */
- 	struct drm_property *gamma_lut_size_property;
-+	/**
-+	 * @background_color_property: Optional CRTC property to set the
-+	 * background color.
-+	 */
-+	struct drm_property *background_color_property;
- 
- 	/**
- 	 * @suggested_x_property: Optional connector property with a hint for
-diff --git a/include/uapi/drm/drm_mode.h b/include/uapi/drm/drm_mode.h
-index a122bea2559387576150236e3a88f99c24ad3138..4bd6a8ca8868109bcbe21f9f6e9864519c9d03ec 100644
---- a/include/uapi/drm/drm_mode.h
-+++ b/include/uapi/drm/drm_mode.h
-@@ -1363,6 +1363,36 @@ struct drm_mode_closefb {
- 	__u32 pad;
++PI_EXPORT_SYM(id_aa64isar0_override);
+ PI_EXPORT_SYM(id_aa64isar1_override);
+ PI_EXPORT_SYM(id_aa64isar2_override);
+ PI_EXPORT_SYM(id_aa64mmfr0_override);
+diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/pi/idreg-override.c
+index bc57b290e5e7bab51a9de90d23fe36e1640e4b6b..326fa7d69b6df044d840164be3b504af6d8e8482 100644
+--- a/arch/arm64/kernel/pi/idreg-override.c
++++ b/arch/arm64/kernel/pi/idreg-override.c
+@@ -160,6 +160,14 @@ static const struct ftr_set_desc pfr1 __prel64_initconst = {
+ 	},
  };
  
-+/*
-+ * Put 16-bit ARGB values into a standard 64-bit representation that
-+ * can be used for ioctl parameters, inter-driver communication, etc.
-+ */
-+static inline __u64
-+drm_argb64(__u16 alpha, __u16 red, __u16 green, __u16 blue)
-+{
-+	return (__u64)alpha << 48 | (__u64)red << 32 | (__u64)green << 16 | blue;
-+}
-+
-+/*
-+ * Extract the specified number of least-significant bits of a specific
-+ * color component from a standard 64-bit ARGB value.
-+ */
-+#define DRM_ARGB64_COMP(c, shift, numlsb) \
-+	((__u16)(((c) >> (shift)) & ((1UL << (numlsb) % 17) - 1)))
-+#define DRM_ARGB64_ALPHA_LSB(c, numlsb) DRM_ARGB64_COMP(c, 48, numlsb)
-+#define DRM_ARGB64_RED_LSB(c, numlsb)   DRM_ARGB64_COMP(c, 32, numlsb)
-+#define DRM_ARGB64_GREEN_LSB(c, numlsb) DRM_ARGB64_COMP(c, 16, numlsb)
-+#define DRM_ARGB64_BLUE_LSB(c, numlsb)  DRM_ARGB64_COMP(c, 0, numlsb)
-+
-+/*
-+ * Convenience wrappers to extract all 16 bits of a specific color
-+ * component from a standard 64-bit ARGB value.
-+ */
-+#define DRM_ARGB64_ALPHA(c)		DRM_ARGB64_ALPHA_LSB(c, 16)
-+#define DRM_ARGB64_RED(c)		DRM_ARGB64_RED_LSB(c, 16)
-+#define DRM_ARGB64_GREEN(c)		DRM_ARGB64_GREEN_LSB(c, 16)
-+#define DRM_ARGB64_BLUE(c)		DRM_ARGB64_BLUE_LSB(c, 16)
-+
- #if defined(__cplusplus)
- }
- #endif
++static const struct ftr_set_desc isar0 __prel64_initconst = {
++	.name		= "id_aa64isar0",
++	.override	= &id_aa64isar0_override,
++	.fields		= {
++		FIELD("atomic", ID_AA64ISAR0_EL1_ATOMIC_SHIFT, NULL),
++		{}
++	},
++};
+ static const struct ftr_set_desc isar1 __prel64_initconst = {
+ 	.name		= "id_aa64isar1",
+ 	.override	= &id_aa64isar1_override,
+@@ -222,6 +230,7 @@ PREL64(const struct ftr_set_desc, reg) regs[] __prel64_initconst = {
+ 	{ &mmfr2	},
+ 	{ &pfr0 	},
+ 	{ &pfr1 	},
++	{ &isar0	},
+ 	{ &isar1	},
+ 	{ &isar2	},
+ 	{ &smfr0	},
 
+---
+base-commit: 33bcf93b9a6b028758105680f8b538a31bc563cf
+change-id: 20250902-topic-arm64-pi-aa64isar0-atomic-8fdd47558eee
+
+Best regards,
 -- 
-2.51.0
+Neil Armstrong <neil.armstrong@linaro.org>
 
 
