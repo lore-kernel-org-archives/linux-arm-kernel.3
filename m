@@ -4,77 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A8F9CA1005
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:12:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8DD3CA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:12:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=90ocVc/YJC3isdTykofnEb+YfRvmtfJI6WUnAmF/m/g=; b=Dy2SnIB35ECpPA
-	f1eDpikP09dh/dPdzM+IhvvVhPgEob12x2Drl9wn3Rcf4X+bhfPk8bJHGQoQH9/vPew+sNXUEeAAx
-	BQq2k0KXA26+Y7HJdfq2UEf0B4+O7D7BM7e6lK+sH3IqtczZJvl/Yyw5Xts6VvjIuYrXFGmbMTX6a
-	/yxEK3UigdSGGYXURi8W2ZzfjFUjyKT+FII/44G1plWffJJWmANgy7/F1/4bbsLL7BLOMMVX1Iwm+
-	Vx8jbMckQzrnJGCJ/a2b77eHYn1NPAppFHc2kHDOkPnPi4Tq2KqI+iBYGXpmLCKRNDveeE0LvfxT9
-	XKvqS/xegfY0e1/+sddg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k8wzm/mr5xp7tXM1oehlTTQpv32VYRWQAoA0cZh04As=; b=LXVBg/jE4cd2wa+S4XulqjbvoP
+	RcDhaXikY52Lykk2Yl2Siqpg3+nKCIrKJn5C4JyNSOb5SOPpZ3m5mWA9rPElv6ELZFXoaFxAofn0c
+	4vi2Ui5zrUccFWnMUS3E1yFXdfgbZZFRh+Q0rBoxJFyZOGoqQdOKzC522lNNPeYBNkdzg/hgr/ElS
+	LPR8eN10Sz0tHLQJLUmuat3jY12iEimIZUGeNT8xzVaedZnDLwO9qvW29wDH33qGhQCaKrAEAgf94
+	/AHOixeuDNrigPbGLvyRWHnzPAgywNP8pt7I4DDV9WnwOfqv300OvvWDyUC61Ut7CQVY8jwv1Ayxy
+	RV0sUEfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utWQn-00000001dsN-0Qbs;
-	Tue, 02 Sep 2025 19:12:37 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1utWQp-00000001dw6-2tDp;
+	Tue, 02 Sep 2025 19:12:39 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utSEk-00000000R7J-1plw
+	id 1utSEk-00000000R7L-2zot
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 14:43:55 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-45b8b25296fso16948655e9.2
+	Tue, 02 Sep 2025 14:43:56 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-45b4d89217aso33861495e9.2
         for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 07:43:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1756824233; x=1757429033; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=90ocVc/YJC3isdTykofnEb+YfRvmtfJI6WUnAmF/m/g=;
-        b=v5fzQmI8XHS7XF7HKtpzc+ssbgR9jcEacfHwtM+B+c1diDXSRwOi4gWbGpTmZvtVch
-         /tTn6yVrSohbkPcxH/cu9PCDA/WITR74LCl2FpeoVZ75dFh7gkdEoTmmUI2sV6C9YR8e
-         3n0a15Qcj0vv1nTmL62GfDOX1CBIrVvz9CARB8515YKKBYU03l8StyaQwb36MioHHPqQ
-         Qwqh8YhJ3avxgYuNcjEHMzwTMpWrYpk+gbS7jhq1LjUpHhbv+nL0MmykGqrVM3PxiX2N
-         sUQwT4daR3bB86Rx94MBkHayGFkgXvSBEJvV635j8MNrZF4QLSArW/x3RE3ivfUYLuqV
-         yFxg==
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=k8wzm/mr5xp7tXM1oehlTTQpv32VYRWQAoA0cZh04As=;
+        b=SOaCHnJauQLNropxMz8mYWL7tYnokWyIWYCP/GZJL4t+j9Oh6wY56IMIw6Yia6OLuC
+         XF2VhNa+fBO+ylm5RVd48bDVQr1xUU1IFPIQVuS6SN5eTtKzq8vzolLIfcYkCjA2Xwl1
+         9n+zG6+3PCJtkCsE6lD+5LpdC79+XiKh/pa1Tv+9AC7IEO/oXMctCCTylNkRajlyMb4G
+         PyRpOkQ1NaIq4LLAVjsld9M+kb73yUlu7+0fB1at6XIUCfrdjH8l1pW+T5stBQSw5kOI
+         WTreyKZitKDDt0YAdzX+zYcbPDFrO/DR+7I51HuNWoaqc3tO0hhkXvUIJdSPTjqRq74W
+         m+WA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20230601; t=1756824233; x=1757429033;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=90ocVc/YJC3isdTykofnEb+YfRvmtfJI6WUnAmF/m/g=;
-        b=WCgtDledGrd1TX6boRhOIauzuo0olKghkkUsyEGXSUecIYfL/cuowi5w/fo8BHrNXT
-         3w/QXbpZDKGNfeMELwf5V9t7ngPXVYe3jMpdCaSMjCVkYFD0pciIdc4SBczb1d66zF2d
-         7fnFUwyNLzxpak5R7AUziFjHQvnm2im+u/xot4U6+G6SE7J3RiwO1IxuiVcmjmVyhD0p
-         13sm+TY7s1pnYI7bLqW+hrWrINCNaBqMg7byNdH3apkcfR+USxLc7L9DmT+yrew/mkVo
-         C1aUuXvNV0w5jZeLc66rxGp7zo3vXNKahp3QwiWmfl3CADAJCzR3ZDYTR+TjKW9u6Poc
-         NNDw==
-X-Forwarded-Encrypted: i=1; AJvYcCViI4BNGBLZP+HXC9ijO0CZnRMuW6pbyB9KnA1kWbdVw1JWewNSme6PHundVwFbj3VccUDN5K59UXnKP+XGM5+a@lists.infradead.org
-X-Gm-Message-State: AOJu0YwwWts5N/f5WA1800Swjxpa/4zMssCu184yHKS3erEMI/gZVKkh
-	BCY/Yob7sb9wADJEDyjY0gMmxO6iv0NJqKXgtBuVfforPzLobZZw2ne0EzuVcoEj5jk=
-X-Gm-Gg: ASbGncvQAY18aeKTjMmn+aISe6q5xFjPF3rmMDLU/RqbL81n1Mb1V9kShe5ab23IgNB
-	sN+4K6qj93hOSPNSpKhS3nCTitpKHED08Byl8xUd1i096Ngdr/ijVlaoWoQvPW3U0+uCfMmkh8o
-	HFETuZXrKLN+U9GJM5Zq7zAn+mWz6IP+Hsz1K1CaEs+byWWukRxnnv1jtK+Ta/Obr7oRi+pGfbD
-	P5XXwnuYO87YcSVLoU5vz/8qu2G6hXqs/e6Gz0fqKTPCH5K17FbSgyRsv/enDQYgh0vBdOC3q08
-	sO5ceWf4+QzlU1nv8xFTp9tdaCQfdA/zZoWR7t+t2Dvaas7S9eNtIXObTFpeIV1iOXonf8izdkO
-	XwWRtN+nNvtCodRP+yKy/mpw5dK/MCUDXNwX8
-X-Google-Smtp-Source: AGHT+IFMkODIxexa64qaDsiP0rdu+jkcSKh5+xPuASKAkLpcnKLSE7yMQp/f0qku1r+x1P9TGQiZMA==
-X-Received: by 2002:a05:600c:1d24:b0:456:fc1:c286 with SMTP id 5b1f17b1804b1-45b8553d964mr84047225e9.1.1756824232406;
-        Tue, 02 Sep 2025 07:43:52 -0700 (PDT)
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=k8wzm/mr5xp7tXM1oehlTTQpv32VYRWQAoA0cZh04As=;
+        b=YrZGufmRMmKjubiVK/Dterj7t3+VydTYjuXccjI9jTy7EEFwDdu8jK87XzfAbxYCix
+         Iz/SJRD3kaJ0BRGoNjTNvFQ6SrP0Tkg7hfSA53VT3r4na7wh5REx4kUpuM+Ud8d6R2Q8
+         uP1KiFHa7pLdeXtXyAR7VzZnlEmr90s1PcOtR41TGGtIET36uGlSIexxu4+ik3yUCT8j
+         VurvBUOGUEsYhXarDRD9L7xnZ9LB/KlzhS3ria1ImSJPuoaFCU5J3q3aqLkC4VJXVDcU
+         YkFqz6DbXRW/rB6HcmbqHZoEYvnRTJ2C7Ogm8PW7MSWWR3HfS9ZdXzAubWKj5KRSghMf
+         rr1Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUluIUqlNFxy+igOEdiiXJCNAUi5wWEGyL55bBEbpf2ce30O2GBKVCz90x0U8OAaGcESDKpxzZY3/fnPahuof+u@lists.infradead.org
+X-Gm-Message-State: AOJu0YwsGo2UjWP0RgOn/08ogwz4I7a0QpzcQPH4LVX1I2+1twhEt2nj
+	hXk+NZNFZcLPfDwMu1o1YyQHzmRRzJ7b9lgnK1twwxAPvZImlAuPkfUm08P6FQj94bQ=
+X-Gm-Gg: ASbGnctj0vn2whI2NW62gLlDO/Od2xjNkQYkxvwf7T3lG9pof+FYtRIT/ov8gRNsmDc
+	jRAKcyW+jgyBelZL5k/2JJ8Ek3F0KQPtrYgCsT40a7gVWdcy9KVe20DiB8vzyHAsUTLKCAXfVcG
+	xcqOVjQLY8pVwyDgW7ab3Ul80FCJSpC0lzCKaaILCC5VVgpOj8tCphmY/dvvDNgAtVovVcD3C9g
+	/0H+9y2991M/AS5Vg0U+yLOGT+92tRbSXHwzR58nq1ip1FnhluFGeDlNv9KSLvWgdzzOYgriRwl
+	Q6UZwL5XfxmqnJSRhH8O6FPhCeHMvDU1BK14JTYZXFqfsDe8zF0qJdLwPo9bzZWdpzhZRfjZfSp
+	9w35O0uK6r/aDFVArpdINGpAJJQ==
+X-Google-Smtp-Source: AGHT+IHRnjnVV4+h89iJA6vomGUrvNgbPO9WKrF6Sr0B7KSXUlhBS820UObNuEt6/CaNgmJwauk31A==
+X-Received: by 2002:a05:600c:35c8:b0:45b:8939:8b1c with SMTP id 5b1f17b1804b1-45b89398f5emr74684795e9.27.1756824233151;
+        Tue, 02 Sep 2025 07:43:53 -0700 (PDT)
 Received: from [127.0.1.1] ([2a01:e0a:e50:3860:5982:3242:38ad:8b12])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b7e8ab093sm209604635e9.22.2025.09.02.07.43.51
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b7e8ab093sm209604635e9.22.2025.09.02.07.43.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Tue, 02 Sep 2025 07:43:52 -0700 (PDT)
 From: Guillaume La Roque <glaroque@baylibre.com>
-Subject: [PATCH RESEND v2 0/2] Enable TI SCI INTA MSI as loadable module
-Date: Tue, 02 Sep 2025 16:43:48 +0200
-Message-Id: <20250902-timsi-v2-0-a5bf0f32905b@baylibre.com>
+Date: Tue, 02 Sep 2025 16:43:49 +0200
+Subject: [PATCH RESEND v2 1/2] genirq/msi: Export functions to support TI
+ SCI INTA MSI module
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250902-timsi-v2-1-a5bf0f32905b@baylibre.com>
+References: <20250902-timsi-v2-0-a5bf0f32905b@baylibre.com>
+In-Reply-To: <20250902-timsi-v2-0-a5bf0f32905b@baylibre.com>
 To: Thomas Gleixner <tglx@linutronix.de>, vigneshr@ti.com, 
  Nishanth Menon <nm@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>, 
  Tero Kristo <kristo@kernel.org>
@@ -82,8 +86,8 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Guillaume La Roque <glaroque@baylibre.com>
 X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_074354_483768_4AE1F7DB 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20250902_074354_764775_F12F8CEA 
+X-CRM114-Status: GOOD (  11.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,38 +102,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series enables the TI SCI INTA MSI driver to be compiled as a loadable
-module instead of being built-in only. This provides more flexibility for
-system configuration and reduces kernel size when the functionality is not
-always needed.
+Export MSI domain management functions to allow the TI SCI INTA MSI
+driver to be compiled as a module.
 
-The series includes two patches:
-- Export necessary MSI functions from the core kernel to support module compilation
-- Update the TI SCI INTA MSI driver to support module compilation
+The following functions are now available for module use:
+
+- msi_domain_insert_msi_desc()
+- msi_domain_free_msi_descs_range()
+- msi_setup_device_data()
+- msi_create_irq_domain()
+- msi_domain_alloc_irqs_all_locked()
 
 Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
 ---
-Changes in v2:
-- Fixed patch subject
-- Replaced 'symbols' with more precise 'functions' terminology
-- Used function notation with parentheses for exported functions
-- Link to v1: https://lore.kernel.org/r/20250707-timsi-v1-0-80ae43b2c550@baylibre.com
+ kernel/irq/msi.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
----
-Guillaume La Roque (2):
-      genirq/msi: Export functions to support TI SCI INTA MSI module
-      soc: ti: ti_sci_inta_msi: Enable module compilation support
+diff --git a/kernel/irq/msi.c b/kernel/irq/msi.c
+index 9febe797a5f6..4af232b6796b 100644
+--- a/kernel/irq/msi.c
++++ b/kernel/irq/msi.c
+@@ -163,6 +163,7 @@ int msi_domain_insert_msi_desc(struct device *dev, unsigned int domid,
+ 
+ 	return msi_insert_desc(dev, desc, domid, init_desc->msi_index);
+ }
++EXPORT_SYMBOL_GPL(msi_domain_insert_msi_desc);
+ 
+ static bool msi_desc_match(struct msi_desc *desc, enum msi_desc_filter filter)
+ {
+@@ -235,6 +236,7 @@ void msi_domain_free_msi_descs_range(struct device *dev, unsigned int domid,
+ 
+ 	msi_domain_free_descs(dev, &ctrl);
+ }
++EXPORT_SYMBOL_GPL(msi_domain_free_msi_descs_range);
+ 
+ /**
+  * msi_domain_add_simple_msi_descs - Allocate and initialize MSI descriptors
+@@ -342,6 +344,7 @@ int msi_setup_device_data(struct device *dev)
+ 	devres_add(dev, md);
+ 	return 0;
+ }
++EXPORT_SYMBOL_GPL(msi_setup_device_data);
+ 
+ /**
+  * __msi_lock_descs - Lock the MSI descriptor storage of a device
+@@ -910,6 +913,7 @@ struct irq_domain *msi_create_irq_domain(struct fwnode_handle *fwnode,
+ {
+ 	return __msi_create_irq_domain(fwnode, info, 0, parent);
+ }
++EXPORT_SYMBOL_GPL(msi_create_irq_domain);
+ 
+ /**
+  * msi_create_parent_irq_domain - Create an MSI-parent interrupt domain
+@@ -1472,6 +1476,7 @@ int msi_domain_alloc_irqs_all_locked(struct device *dev, unsigned int domid, int
+ 
+ 	return msi_domain_alloc_locked(dev, &ctrl);
+ }
++EXPORT_SYMBOL_GPL(msi_domain_alloc_irqs_all_locked);
+ 
+ static struct msi_map __msi_domain_alloc_irq_at(struct device *dev, unsigned int domid,
+ 						unsigned int index,
 
- drivers/soc/ti/Kconfig           | 5 ++++-
- drivers/soc/ti/ti_sci_inta_msi.c | 5 +++++
- kernel/irq/msi.c                 | 5 +++++
- 3 files changed, 14 insertions(+), 1 deletion(-)
----
-base-commit: 666f6d7e7fadd8132f310a87d1f8ae08c3966e4a
-change-id: 20250707-timsi-c66a2816c84f
-
-Best regards,
 -- 
-Guillaume La Roque <glaroque@baylibre.com>
+2.34.1
 
 
