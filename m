@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1BABCA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:09:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7E7DCA100D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:09:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eSrgughWmHCMbvQQVln/YeRM+x1ol47uNfI7H84GJFQ=; b=C+M+PSLxV18sKB2fUPm4OExxWq
-	2PfZt/MR5IpuC29sivP5PJJvBb1Uru3ZRmmjAFVnHnYeLAjETlP/QwerOqfzREONy2brcDbKNAJKB
-	UdUz74FYpwCv8/kQiaQdbVEa7sA0Cv7UrfLDGW4O+dYf4QVaW4gGx9uOkkvky171GV6h6Zl4Bf9sL
-	KY5v0ou/YVp5tCPwi4TujpeWKnnkej1r99b4vK0IgyqqZhcOYsJJnX9qHKgrbrrsB36rKK3bD2SBM
-	rvSJxeI5UXZXxafnzuelP9qVSHRIvSHRlupgrCpWiGXFW9gxjMhVKbwzyG/uWLgKRYo9hnVZlfgYQ
-	0vYRZNhg==;
+	bh=8OJ3kStOhTEyRMjIObNLLMoHXjJibq3K0YZa48aJLG4=; b=opbrTXmM6sBmXY1XkPCr98J6et
+	YCfXQ3Bw3DxMF9p9EyFJ0YcyriDmWRSAgXPWrmdaCEc6PgTMttM3ufwVwj9amGDdj082r+vw1HitJ
+	GoSS0NSFVRrtdUUJVUXDD/c6vc8Kebna/CmOc5u5yCTaToF6HW9OwL+4TU71FqYjw1qG2493jLmKd
+	92g2K4R8+JXkgEeuHZR8CH1SSIgrEBcXIaJYFegYp1vJL6yRyfNWYmjscTN12CZgvNn3wAFTRerSv
+	2lH0HRnI4PmQxN85HxgKKvLKU90YRqeFFvoVPbrcuJDrErg1tHZcJlATTG8pTjkPUgdQIZXJpeY//
+	bZzy7OOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utWNy-00000001ZrK-3MFH;
-	Tue, 02 Sep 2025 19:09:42 +0000
+	id 1utWO2-00000001ZzI-3xdz;
+	Tue, 02 Sep 2025 19:09:47 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utQtM-0000000Ha1c-3afp;
-	Tue, 02 Sep 2025 13:17:46 +0000
+	id 1utQtR-0000000Ha2t-2e6u;
+	Tue, 02 Sep 2025 13:17:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7E2A24013C;
-	Tue,  2 Sep 2025 13:17:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4C79C4CEED;
-	Tue,  2 Sep 2025 13:17:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5EC61449FA;
+	Tue,  2 Sep 2025 13:17:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67A10C4CEED;
+	Tue,  2 Sep 2025 13:17:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756819064;
-	bh=apcyxtU2BfTEuwGJmPoxK78BUoU73MBDkSB83mC20sg=;
+	s=k20201202; t=1756819069;
+	bh=0sg61u0uyVCS9xwuRcskyxRu04POcVBwSj8TjqSmI18=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=Uz/OlBgaC+w8NLJANKHBevuL6qZ7J/gpSGqFeotyS0j8p+uDqeRN4BsE9mlCitLgG
-	 Xntog9q3fPpgv6iRy4weq0Vrm+NnPlyUGLZNptlMXkCSnVhKo2G4X20HgM52juBxIt
-	 ZSUhuBTReMUoYMVDVbk20iealcBE654OjiGMnuWnEFIiM/qQ6DupXP9/3z79RMQezA
-	 L7+eWIhTg8MfKFl9zNNRzjsgwur1UtZh2zG+yZJDGUzg0pyXSTKjvDM5oBCW7BZ83P
-	 UwxrLfzzVTVCWLbsRG7iZrjtFVrREIIZgC0zSyeMR8H3tXA+XADufJGkDm0j8tVBeA
-	 4MZ80CAzs2RCw==
-Date: Tue, 02 Sep 2025 08:17:40 -0500
+	b=eu4/NfokIPmUj2uB7t4VprquBt3vjrI0wae9I2ZQI00SsPUHBHNz23cJsd0bymBFg
+	 hHyCjj3Iva60E7AS7VjfjTK/8D9TU3vppQW57Q+G7m7jV0Wr+ulPFSIIxBq6fP0MbI
+	 +lq80DgsjmX/dAunD8spzyeeQo7QrNwbmR3AveXNoGGu9zUcXNDWGlolblVSRLB7sm
+	 utNLlEkOw0iUvc6iSmjT5QIua4HmgZ/U0jDhZrA2SzqzLYMpTd43xHfqMllDbtPO7Z
+	 jNTpQZY8hNwsAg1Do4c/ek+IL4eH1ekBhIJk5QK2moeb8MuIY0kuugqw3oH4ESKNCp
+	 qXKjsVA+1ch1w==
+Date: Tue, 02 Sep 2025 08:17:45 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Alex Bee <knaerzche@gmail.com>, linux-kernel@vger.kernel.org, 
- Rob Herring <robh+dt@kernel.org>, linux-rockchip@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-To: Christian Hewitt <christianshewitt@gmail.com>
-In-Reply-To: <20250830115135.3549305-1-christianshewitt@gmail.com>
-References: <20250830115135.3549305-1-christianshewitt@gmail.com>
-Message-Id: <175678730682.877806.14001841198578934927.robh@kernel.org>
-Subject: Re: [PATCH 1/2] arm64: dts: rockchip: add GPU powerdomain, opps,
- and cooling to rk3328
+Cc: heiko@sntech.de, linux-clk@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ andy.yan@rock-chips.com, linux-rockchip@lists.infradead.org, 
+ hjc@rock-chips.com
+To: WeiHao Li <cn.liweihao@gmail.com>
+In-Reply-To: <20250831104855.45883-1-cn.liweihao@gmail.com>
+References: <20250831104855.45883-1-cn.liweihao@gmail.com>
+Message-Id: <175678730903.877861.3501490977293619593.robh@kernel.org>
+Subject: Re: [PATCH v1 0/7] drm/rockchip: Add MIPI DSI support for RK3368
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_061744_938050_9AD6DE7F 
-X-CRM114-Status: GOOD (  17.15  )
+X-CRM114-CacheID: sfid-20250902_061749_714335_FEE0CB67 
+X-CRM114-Status: GOOD (  20.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,26 +73,49 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sat, 30 Aug 2025 11:51:34 +0000, Christian Hewitt wrote:
-> From: Alex Bee <knaerzche@gmail.com>
+On Sun, 31 Aug 2025 18:48:48 +0800, WeiHao Li wrote:
+> This series adds MIPI DSI support for the Rockchip RK3368 SoC, enabling
+> native display connectivity through the MIPI DSI host controller and
+> PHY. The changes span multiple subsystems, including clock control,
+> DRM/VOP integration, DSI controller binding, and PHY driver updates.
 > 
-> Add GPU powerdomain, opp-table, and cooling map nodes for the Mali
-> GPU on the RK3328 SoC. Opp-table frequencies are sourced from the
-> Rockchip Linux v4.4 vendor kernel while voltages have been derived
-> from practical use and support work: keeping voltage above 1075mV
-> and disabling the 500MHz opp-point avoids instability and crashes.
+> Key changes:
+>   - Update the Rockchip MIPI DSI PHY driver to preperly handle RK3368
+>     phy initialization.
+>   - Add missing lut_size of vop_data for RK3368.
+>   - Add missing clock ID SCLK_MIPIDSI_24M to the RK3368 CRU driver,
+>     which is required for enabling the 24MHz reference clock.
+>   - Add MIPI DSI node to rk3368.dtsi with correct clocks, resets,
+>     and register mappings.
 > 
-> Signed-off-by: Alex Bee <knaerzche@gmail.com>
-> Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
-> ---
-> These changes have been in-use with Armbian and LibreELEC for many
-> years without issue. Investigations into crashing (esp. with rkvdec
-> running) have led to voltage tweaks and dropping 500MHz. Changes
-> cannot be justified in technical detail, but are field proven over
-> a large number of users, boards, and cheap power supplies.
+> These changes were tested on a RK3368-based board with a MIPI DSI
+> panel [1]. The display boots successfully with console output.
 > 
->  arch/arm64/boot/dts/rockchip/rk3328.dtsi | 39 +++++++++++++++++++++++-
->  1 file changed, 38 insertions(+), 1 deletion(-)
+> [1] https://ieiao.github.io/wiki/embedded-dev/rockchip/rk3368
+> 
+> Tested-by: WeiHao Li <cn.liweihao@gmail.com>
+> Signed-off-by: WeiHao Li <cn.liweihao@gmail.com>
+> 
+> WeiHao Li (7):
+>   drm/rockchip: dsi: Add support for RK3368
+>   drm/rockchip: vop: add lut_size for RK3368 vop_data
+>   dt-bindings: clock: rk3368: Add SCLK_MIPIDSI_24M
+>   clk: rockchip: use clock ids for SCLK_MIPIDSI_24M on rk3368
+>   ARM: dts: rockchip: Add display subsystem for RK3368
+>   ARM: dts: rockchip: Add D-PHY for RK3368
+>   ARM: dts: rockchip: Add DSI for RK3368
+> 
+>  arch/arm64/boot/dts/rockchip/rk3368.dtsi      | 79 +++++++++++++++++++
+>  drivers/clk/rockchip/clk-rk3368.c             |  2 +-
+>  .../gpu/drm/rockchip/dw-mipi-dsi-rockchip.c   | 20 +++++
+>  drivers/gpu/drm/rockchip/rockchip_vop_reg.c   |  1 +
+>  include/dt-bindings/clock/rk3368-cru.h        |  1 +
+>  5 files changed, 102 insertions(+), 1 deletion(-)
+> 
+> --
+> 2.47.2
+> 
+> 
 > 
 
 
@@ -114,65 +135,118 @@ make sure dt-schema is up to date:
 
 This patch series was applied (using b4) to base:
  Base: attempting to guess base-commit...
- Base: tags/next-20250829 (best guess, 2/4 blobs matched)
+ Base: tags/next-20250829 (exact match)
 
 If this is not the correct base, please add 'base-commit' tag
 (or use b4 which does this automatically)
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for 20250830115135.3549305-1-christianshewitt@gmail.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for 20250831104855.45883-1-cn.liweihao@gmail.com:
 
-arch/arm64/boot/dts/rockchip/rk3318-a95x-z2.dtb: gpu-opp-table (operating-points-v2): $nodename:0: 'gpu-opp-table' does not match '^opp-table(-[a-z0-9]+)?$'
-	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
-arch/arm64/boot/dts/rockchip/rk3318-a95x-z2.dtb: gpu-opp-table (operating-points-v2): Unevaluated properties are not allowed ('opp-200000000', 'opp-300000000', 'opp-400000000', 'opp-500000000' were unexpected)
-	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
-arch/arm64/boot/dts/rockchip/rk3328-rock64.dtb: gpu-opp-table (operating-points-v2): $nodename:0: 'gpu-opp-table' does not match '^opp-table(-[a-z0-9]+)?$'
-	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
-arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dtb: gpu-opp-table (operating-points-v2): $nodename:0: 'gpu-opp-table' does not match '^opp-table(-[a-z0-9]+)?$'
-	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
-arch/arm64/boot/dts/rockchip/rk3328-rock64.dtb: gpu-opp-table (operating-points-v2): Unevaluated properties are not allowed ('opp-200000000', 'opp-300000000', 'opp-400000000', 'opp-500000000' were unexpected)
-	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
-arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dtb: gpu-opp-table (operating-points-v2): Unevaluated properties are not allowed ('opp-200000000', 'opp-300000000', 'opp-400000000', 'opp-500000000' were unexpected)
-	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
-arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2s.dtb: gpu-opp-table (operating-points-v2): $nodename:0: 'gpu-opp-table' does not match '^opp-table(-[a-z0-9]+)?$'
-	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
-arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2s.dtb: gpu-opp-table (operating-points-v2): Unevaluated properties are not allowed ('opp-200000000', 'opp-300000000', 'opp-400000000', 'opp-500000000' were unexpected)
-	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
-arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2c.dtb: gpu-opp-table (operating-points-v2): $nodename:0: 'gpu-opp-table' does not match '^opp-table(-[a-z0-9]+)?$'
-	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
-arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2c.dtb: gpu-opp-table (operating-points-v2): Unevaluated properties are not allowed ('opp-200000000', 'opp-300000000', 'opp-400000000', 'opp-500000000' were unexpected)
-	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
-arch/arm64/boot/dts/rockchip/rk3328-roc-pc.dtb: gpu-opp-table (operating-points-v2): $nodename:0: 'gpu-opp-table' does not match '^opp-table(-[a-z0-9]+)?$'
-	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
-arch/arm64/boot/dts/rockchip/rk3328-roc-pc.dtb: gpu-opp-table (operating-points-v2): Unevaluated properties are not allowed ('opp-200000000', 'opp-300000000', 'opp-400000000', 'opp-500000000' were unexpected)
-	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
-arch/arm64/boot/dts/rockchip/rk3328-rock-pi-e.dtb: gpu-opp-table (operating-points-v2): $nodename:0: 'gpu-opp-table' does not match '^opp-table(-[a-z0-9]+)?$'
-	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
-arch/arm64/boot/dts/rockchip/rk3328-rock-pi-e.dtb: gpu-opp-table (operating-points-v2): Unevaluated properties are not allowed ('opp-200000000', 'opp-300000000', 'opp-400000000', 'opp-500000000' were unexpected)
-	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
-arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2c-plus.dtb: gpu-opp-table (operating-points-v2): $nodename:0: 'gpu-opp-table' does not match '^opp-table(-[a-z0-9]+)?$'
-	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
-arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2c-plus.dtb: gpu-opp-table (operating-points-v2): Unevaluated properties are not allowed ('opp-200000000', 'opp-300000000', 'opp-400000000', 'opp-500000000' were unexpected)
-	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
-arch/arm64/boot/dts/rockchip/rk3328-evb.dtb: gpu-opp-table (operating-points-v2): $nodename:0: 'gpu-opp-table' does not match '^opp-table(-[a-z0-9]+)?$'
-	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
-arch/arm64/boot/dts/rockchip/rk3328-evb.dtb: gpu-opp-table (operating-points-v2): Unevaluated properties are not allowed ('opp-200000000', 'opp-300000000', 'opp-400000000', 'opp-500000000' were unexpected)
-	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
-arch/arm64/boot/dts/rockchip/rk3328-roc-cc.dtb: gpu-opp-table (operating-points-v2): $nodename:0: 'gpu-opp-table' does not match '^opp-table(-[a-z0-9]+)?$'
-	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
-arch/arm64/boot/dts/rockchip/rk3328-roc-cc.dtb: gpu-opp-table (operating-points-v2): Unevaluated properties are not allowed ('opp-200000000', 'opp-300000000', 'opp-400000000', 'opp-500000000' were unexpected)
-	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
-arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dtb: gpu-opp-table (operating-points-v2): $nodename:0: 'gpu-opp-table' does not match '^opp-table(-[a-z0-9]+)?$'
-	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
-arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dtb: gpu-opp-table (operating-points-v2): Unevaluated properties are not allowed ('opp-200000000', 'opp-300000000', 'opp-400000000', 'opp-500000000' were unexpected)
-	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
-arch/arm64/boot/dts/rockchip/rk3328-a1.dtb: gpu-opp-table (operating-points-v2): $nodename:0: 'gpu-opp-table' does not match '^opp-table(-[a-z0-9]+)?$'
-	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
-arch/arm64/boot/dts/rockchip/rk3328-a1.dtb: gpu-opp-table (operating-points-v2): Unevaluated properties are not allowed ('opp-200000000', 'opp-300000000', 'opp-400000000', 'opp-500000000' were unexpected)
-	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
-arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2s-plus.dtb: gpu-opp-table (operating-points-v2): $nodename:0: 'gpu-opp-table' does not match '^opp-table(-[a-z0-9]+)?$'
-	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
-arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2s-plus.dtb: gpu-opp-table (operating-points-v2): Unevaluated properties are not allowed ('opp-200000000', 'opp-300000000', 'opp-400000000', 'opp-500000000' were unexpected)
-	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-r88.dtb: vop@ff930000 (rockchip,rk3368-vop): 'reg-names' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/display/rockchip/rockchip-vop.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-r88.dtb: mipi-dsi@ff960000 (rockchip,rk3368-mipi-dsi): $nodename:0: 'mipi-dsi@ff960000' does not match '^dsi(@.*)?$'
+	from schema $id: http://devicetree.org/schemas/display/rockchip/rockchip,dw-mipi-dsi.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-r88.dtb: mipi-dsi@ff960000 (rockchip,rk3368-mipi-dsi): compatible:0: 'rockchip,rk3368-mipi-dsi' is not one of ['rockchip,px30-mipi-dsi', 'rockchip,rk3128-mipi-dsi', 'rockchip,rk3288-mipi-dsi', 'rockchip,rk3399-mipi-dsi', 'rockchip,rk3568-mipi-dsi', 'rockchip,rv1126-mipi-dsi']
+	from schema $id: http://devicetree.org/schemas/display/rockchip/rockchip,dw-mipi-dsi.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-r88.dtb: /mipi-dsi@ff960000: failed to match any schema with compatible: ['rockchip,rk3368-mipi-dsi', 'snps,dw-mipi-dsi']
+arch/arm64/boot/dts/rockchip/rk3368-r88.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): '#clock-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-r88.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): clock-names: ['ref', 'pclk', 'pclk_host'] is too long
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-r88.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): clocks: [[10, 129], [10, 371], [10, 356]] is too long
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-r88.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): reg: [[0, 4288053248, 0, 16384], [0, 4288020480, 0, 16384]] is too long
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-geekbox.dtb: vop@ff930000 (rockchip,rk3368-vop): 'reg-names' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/display/rockchip/rockchip-vop.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-geekbox.dtb: mipi-dsi@ff960000 (rockchip,rk3368-mipi-dsi): $nodename:0: 'mipi-dsi@ff960000' does not match '^dsi(@.*)?$'
+	from schema $id: http://devicetree.org/schemas/display/rockchip/rockchip,dw-mipi-dsi.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-geekbox.dtb: mipi-dsi@ff960000 (rockchip,rk3368-mipi-dsi): compatible:0: 'rockchip,rk3368-mipi-dsi' is not one of ['rockchip,px30-mipi-dsi', 'rockchip,rk3128-mipi-dsi', 'rockchip,rk3288-mipi-dsi', 'rockchip,rk3399-mipi-dsi', 'rockchip,rk3568-mipi-dsi', 'rockchip,rv1126-mipi-dsi']
+	from schema $id: http://devicetree.org/schemas/display/rockchip/rockchip,dw-mipi-dsi.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-geekbox.dtb: /mipi-dsi@ff960000: failed to match any schema with compatible: ['rockchip,rk3368-mipi-dsi', 'snps,dw-mipi-dsi']
+arch/arm64/boot/dts/rockchip/rk3368-geekbox.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): '#clock-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-geekbox.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): clock-names: ['ref', 'pclk', 'pclk_host'] is too long
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-geekbox.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): clocks: [[10, 129], [10, 371], [10, 356]] is too long
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-geekbox.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): reg: [[0, 4288053248, 0, 16384], [0, 4288020480, 0, 16384]] is too long
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-px5-evb.dtb: vop@ff930000 (rockchip,rk3368-vop): 'reg-names' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/display/rockchip/rockchip-vop.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-px5-evb.dtb: mipi-dsi@ff960000 (rockchip,rk3368-mipi-dsi): $nodename:0: 'mipi-dsi@ff960000' does not match '^dsi(@.*)?$'
+	from schema $id: http://devicetree.org/schemas/display/rockchip/rockchip,dw-mipi-dsi.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-px5-evb.dtb: mipi-dsi@ff960000 (rockchip,rk3368-mipi-dsi): compatible:0: 'rockchip,rk3368-mipi-dsi' is not one of ['rockchip,px30-mipi-dsi', 'rockchip,rk3128-mipi-dsi', 'rockchip,rk3288-mipi-dsi', 'rockchip,rk3399-mipi-dsi', 'rockchip,rk3568-mipi-dsi', 'rockchip,rv1126-mipi-dsi']
+	from schema $id: http://devicetree.org/schemas/display/rockchip/rockchip,dw-mipi-dsi.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-px5-evb.dtb: /mipi-dsi@ff960000: failed to match any schema with compatible: ['rockchip,rk3368-mipi-dsi', 'snps,dw-mipi-dsi']
+arch/arm64/boot/dts/rockchip/rk3368-lion-haikou.dtb: vop@ff930000 (rockchip,rk3368-vop): 'reg-names' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/display/rockchip/rockchip-vop.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-px5-evb.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): '#clock-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-px5-evb.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): clock-names: ['ref', 'pclk', 'pclk_host'] is too long
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-px5-evb.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): clocks: [[10, 129], [10, 371], [10, 356]] is too long
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-px5-evb.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): reg: [[0, 4288053248, 0, 16384], [0, 4288020480, 0, 16384]] is too long
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-lion-haikou.dtb: mipi-dsi@ff960000 (rockchip,rk3368-mipi-dsi): $nodename:0: 'mipi-dsi@ff960000' does not match '^dsi(@.*)?$'
+	from schema $id: http://devicetree.org/schemas/display/rockchip/rockchip,dw-mipi-dsi.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-lion-haikou.dtb: mipi-dsi@ff960000 (rockchip,rk3368-mipi-dsi): compatible:0: 'rockchip,rk3368-mipi-dsi' is not one of ['rockchip,px30-mipi-dsi', 'rockchip,rk3128-mipi-dsi', 'rockchip,rk3288-mipi-dsi', 'rockchip,rk3399-mipi-dsi', 'rockchip,rk3568-mipi-dsi', 'rockchip,rv1126-mipi-dsi']
+	from schema $id: http://devicetree.org/schemas/display/rockchip/rockchip,dw-mipi-dsi.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-lion-haikou.dtb: /mipi-dsi@ff960000: failed to match any schema with compatible: ['rockchip,rk3368-mipi-dsi', 'snps,dw-mipi-dsi']
+arch/arm64/boot/dts/rockchip/rk3368-lion-haikou.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): '#clock-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-lion-haikou.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): clock-names: ['ref', 'pclk', 'pclk_host'] is too long
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-lion-haikou.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): clocks: [[11, 129], [11, 371], [11, 356]] is too long
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-lion-haikou.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): reg: [[0, 4288053248, 0, 16384], [0, 4288020480, 0, 16384]] is too long
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-evb-act8846.dtb: vop@ff930000 (rockchip,rk3368-vop): 'reg-names' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/display/rockchip/rockchip-vop.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-evb-act8846.dtb: mipi-dsi@ff960000 (rockchip,rk3368-mipi-dsi): $nodename:0: 'mipi-dsi@ff960000' does not match '^dsi(@.*)?$'
+	from schema $id: http://devicetree.org/schemas/display/rockchip/rockchip,dw-mipi-dsi.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-evb-act8846.dtb: mipi-dsi@ff960000 (rockchip,rk3368-mipi-dsi): compatible:0: 'rockchip,rk3368-mipi-dsi' is not one of ['rockchip,px30-mipi-dsi', 'rockchip,rk3128-mipi-dsi', 'rockchip,rk3288-mipi-dsi', 'rockchip,rk3399-mipi-dsi', 'rockchip,rk3568-mipi-dsi', 'rockchip,rv1126-mipi-dsi']
+	from schema $id: http://devicetree.org/schemas/display/rockchip/rockchip,dw-mipi-dsi.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-evb-act8846.dtb: /mipi-dsi@ff960000: failed to match any schema with compatible: ['rockchip,rk3368-mipi-dsi', 'snps,dw-mipi-dsi']
+arch/arm64/boot/dts/rockchip/rk3368-evb-act8846.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): '#clock-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-evb-act8846.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): clock-names: ['ref', 'pclk', 'pclk_host'] is too long
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-evb-act8846.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): clocks: [[10, 129], [10, 371], [10, 356]] is too long
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-evb-act8846.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): reg: [[0, 4288053248, 0, 16384], [0, 4288020480, 0, 16384]] is too long
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-orion-r68-meta.dtb: vop@ff930000 (rockchip,rk3368-vop): 'reg-names' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/display/rockchip/rockchip-vop.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-orion-r68-meta.dtb: mipi-dsi@ff960000 (rockchip,rk3368-mipi-dsi): $nodename:0: 'mipi-dsi@ff960000' does not match '^dsi(@.*)?$'
+	from schema $id: http://devicetree.org/schemas/display/rockchip/rockchip,dw-mipi-dsi.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-orion-r68-meta.dtb: mipi-dsi@ff960000 (rockchip,rk3368-mipi-dsi): compatible:0: 'rockchip,rk3368-mipi-dsi' is not one of ['rockchip,px30-mipi-dsi', 'rockchip,rk3128-mipi-dsi', 'rockchip,rk3288-mipi-dsi', 'rockchip,rk3399-mipi-dsi', 'rockchip,rk3568-mipi-dsi', 'rockchip,rv1126-mipi-dsi']
+	from schema $id: http://devicetree.org/schemas/display/rockchip/rockchip,dw-mipi-dsi.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-orion-r68-meta.dtb: /mipi-dsi@ff960000: failed to match any schema with compatible: ['rockchip,rk3368-mipi-dsi', 'snps,dw-mipi-dsi']
+arch/arm64/boot/dts/rockchip/rk3368-orion-r68-meta.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): '#clock-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-orion-r68-meta.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): clock-names: ['ref', 'pclk', 'pclk_host'] is too long
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-orion-r68-meta.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): clocks: [[10, 129], [10, 371], [10, 356]] is too long
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-orion-r68-meta.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): reg: [[0, 4288053248, 0, 16384], [0, 4288020480, 0, 16384]] is too long
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-lba3368.dtb: vop@ff930000 (rockchip,rk3368-vop): 'reg-names' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/display/rockchip/rockchip-vop.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-lba3368.dtb: mipi-dsi@ff960000 (rockchip,rk3368-mipi-dsi): $nodename:0: 'mipi-dsi@ff960000' does not match '^dsi(@.*)?$'
+	from schema $id: http://devicetree.org/schemas/display/rockchip/rockchip,dw-mipi-dsi.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-lba3368.dtb: mipi-dsi@ff960000 (rockchip,rk3368-mipi-dsi): compatible:0: 'rockchip,rk3368-mipi-dsi' is not one of ['rockchip,px30-mipi-dsi', 'rockchip,rk3128-mipi-dsi', 'rockchip,rk3288-mipi-dsi', 'rockchip,rk3399-mipi-dsi', 'rockchip,rk3568-mipi-dsi', 'rockchip,rv1126-mipi-dsi']
+	from schema $id: http://devicetree.org/schemas/display/rockchip/rockchip,dw-mipi-dsi.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-lba3368.dtb: /mipi-dsi@ff960000: failed to match any schema with compatible: ['rockchip,rk3368-mipi-dsi', 'snps,dw-mipi-dsi']
+arch/arm64/boot/dts/rockchip/rk3368-lba3368.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): '#clock-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-lba3368.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): clock-names: ['ref', 'pclk', 'pclk_host'] is too long
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-lba3368.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): clocks: [[11, 129], [11, 371], [11, 356]] is too long
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
+arch/arm64/boot/dts/rockchip/rk3368-lba3368.dtb: video-phy@ff968000 (rockchip,rk3368-dsi-dphy): reg: [[0, 4288053248, 0, 16384], [0, 4288020480, 0, 16384]] is too long
+	from schema $id: http://devicetree.org/schemas/phy/rockchip,px30-dsi-dphy.yaml#
 
 
 
