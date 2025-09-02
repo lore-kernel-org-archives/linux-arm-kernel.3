@@ -4,68 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 242F1CA1009
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:42:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 660F3CA1011
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:42:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1a7P+yEOUQIyn71XO8cqMUBzF8Nlrusg9Qd44W2Mwlg=; b=0fMYUpST0cDQLZI7tWIzinRAkG
-	lLhZTJUtx57dcOjt7u9outQMRG2Z+80Yt9BMcztOsU9JpJ1PXttieJ4vHxht9BbjXxsDbei9nP1sR
-	emjeYySmzKZYhb8TsMmhBs9ZW7I+C7LnquDqZ+kHvxfggNZwQmCAgL3iSLISyr8hbo+PTRr5/MPX4
-	zFz4SKVlUHWkttiC4/pfDud5Z9uqG9iOTAnMiI5QZgcqlLiFDZ0w9+RkkVhXFjrBw9s8mD1U51Xfv
-	q6muhRX2Wymp5EXTy/FjwrgduyipATAQhGT4Oboz6p99fTkRzKoZ2sUf+KZiMhDE1IAdCfJaE8MG/
-	ELn27faA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8vy67ObTbkZdZhbIeej3G7oE3M7Losn79kkcFsXwKCg=; b=n8GLkPSu0tDH7GGag7q7t+B/s8
+	w+UKEcMzAHRZ1jL/zcoMEtGw250RBp61WykHwbee2fHiK1x+vNra7pfdlCFdWoKk1oimzPpntGA0D
+	oHbEg6Pb7tWrCy302GOilHViKRv44DrTuCGvqIZa2n13xDK3Vy/S3VbrokCyu8MyghKVPYyLF5lF0
+	z3o/AWz1iTr865DlgZfAxu7Bv70jCVHBYqpezrC+WlPTOHW+f3WyTLKTzwAgHAQaG7awmXG9ZFjj4
+	11n9NV+Gtk+YsrSmQJYkUw+LAbXo56nMrpzwqdtEW07AFy7Cf8D0Bdey0TIi+rZVlaaqa3kH6kr61
+	Vebh73oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utYm5-00000002AZX-3BIZ;
-	Tue, 02 Sep 2025 21:42:45 +0000
-Received: from smtprelay0017.hostedemail.com ([216.40.44.17] helo=relay.hostedemail.com)
+	id 1utYmA-00000002Ahq-4AOM;
+	Tue, 02 Sep 2025 21:42:50 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utRjt-00000000HKC-0h8u
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 14:12:03 +0000
-Received: from omf19.hostedemail.com (a10.router.float.18 [10.200.18.1])
-	by unirelay03.hostedemail.com (Postfix) with ESMTP id 38965B6B60;
-	Tue,  2 Sep 2025 14:11:54 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf19.hostedemail.com (Postfix) with ESMTPA id 404B720025;
-	Tue,  2 Sep 2025 14:11:52 +0000 (UTC)
-Date: Tue, 2 Sep 2025 10:11:51 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Luo Gengkun
- <luogengkun@huaweicloud.com>, mhiramat@kernel.org,
- mathieu.desnoyers@efficios.com, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, Will Deacon <will@kernel.org>,
- linux-arm-kernel@lists.infradead.org, Al Viro <viro@zeniv.linux.org.uk>
-Subject: Re: [PATCH] tracing: Fix tracing_marker may trigger page fault
- during preempt_disable
-Message-ID: <20250902101151.7b6bfabb@batman.local.home>
-In-Reply-To: <aLVqyEGoHKVCFGFR@J2N7QTR9R3>
-References: <20250819105152.2766363-1-luogengkun@huaweicloud.com>
-	<20250819135008.5f1ba00e@gandalf.local.home>
-	<436e4fa7-f8c7-4c23-a28a-4e5eebe2f854@huaweicloud.com>
-	<20250829082604.1e3fd06e@gandalf.local.home>
-	<20250829083655.3d38d02b@gandalf.local.home>
-	<aLIFRHcsEo2e2GE7@arm.com>
-	<20250829181311.079f33bf@gandalf.local.home>
-	<aLVqyEGoHKVCFGFR@J2N7QTR9R3>
-X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	id 1utS4N-00000000Nad-24rt;
+	Tue, 02 Sep 2025 14:33:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1756823591; x=1788359591;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=CqeygO38G2UqLYwyJWypxYe4AznIXuR38IzQgfyWO78=;
+  b=R+NOi+nJrarhs80YhsVfWzBjLjNOh1LR+BDIiUxqfFYOimx7IRISA52F
+   e1tpSpQcfj7/pR/gk6PzacsO2gLM7J5vM4kcwcZzRFRWOCpXX/YOxBJCe
+   IagZlfxytlGfste3qJOvso0JPtFNFMnX5kW6tJOgxGo5k5FfpU/uAIP1p
+   y32SUjuI5fkNZhbKKwPBr88owZIhURVJnijlUyc3soXbz8++L7SvMpYyv
+   d4wFxdequ/Mh+vF3+uCgRowN4z6lLGiRQivs74MyPB8npz4N+UPFq01W9
+   DfnlZIP9wRWFbvBOGYrEVtR3tX029JZHAcwQcA4dKgwmozC0nshns5ft0
+   w==;
+X-CSE-ConnectionGUID: Kn23gWXFRP+qedQy3N/9Wg==
+X-CSE-MsgGUID: jzXLv+1nTNCHTkmRou/95Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11541"; a="70529031"
+X-IronPort-AV: E=Sophos;i="6.18,230,1751266800"; 
+   d="scan'208";a="70529031"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Sep 2025 07:33:10 -0700
+X-CSE-ConnectionGUID: t6YdkPslS0eCpPn1gsG2vA==
+X-CSE-MsgGUID: 2hQHF1LATnKCD8YNAvpqBg==
+X-ExtLoop1: 1
+Received: from smile.fi.intel.com ([10.237.72.52])
+  by fmviesa003.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Sep 2025 07:33:01 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@intel.com>)
+	id 1utS49-0000000AiVG-092e;
+	Tue, 02 Sep 2025 17:32:57 +0300
+Date: Tue, 2 Sep 2025 17:32:56 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Alexey Klimov <alexey.klimov@linaro.org>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Sean Wang <sean.wang@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Paul Cercueil <paul@crapouillou.net>, Kees Cook <kees@kernel.org>,
+	Andy Shevchenko <andy@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@redhat.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>, Dong Aisheng <aisheng.dong@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Jacky Bai <ping.bai@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	NXP S32 Linux Team <s32@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Tony Lindgren <tony@atomide.com>,
+	Haojian Zhuang <haojian.zhuang@linaro.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Mark Brown <broonie@kernel.org>, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-hardening@vger.kernel.org, linux-mm@kvack.org,
+	imx@lists.linux.dev, linux-omap@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Subject: Re: [PATCH v7 15/16] pinctrl: qcom: mark the `gpio` and `egpio` pins
+ function as non-strict functions
+Message-ID: <aLcAGKnrh-GeR-NL@smile.fi.intel.com>
+References: <20250902-pinctrl-gpio-pinfuncs-v7-0-bb091daedc52@linaro.org>
+ <20250902-pinctrl-gpio-pinfuncs-v7-15-bb091daedc52@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Stat-Signature: yfdqd1rqmcrdaxngseijdutusixhu8z3
-X-Rspamd-Server: rspamout03
-X-Rspamd-Queue-Id: 404B720025
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX1/3a4ZlCJqnzjOJTHcJTR8oy/SOfj8p6YY=
-X-HE-Tag: 1756822312-777584
-X-HE-Meta: U2FsdGVkX1//P+0V3cvSYifPjfQTtkjYA3kwKM05QyUhd38/lHcPSo2h/lta995pbi6WwAdjmyuSvNRcAQsD+hL5ESmOEB5mv/qd53yLYb1p6qvs0wiQYvakljuWB/zDPPzSBmB8oUJlf4gQ3Y41+2g7armRU8zyjPg3RdFnYs87QO4MYtihj2V+61TAZk8OPbCCi0IiCH42iaRK2MY7PWspIgcDxkfFj8gpYMhkqzHYKTNOpAMp4LZv2duSryOYi7OlaXm31KgYo0WBZxl8YClJNNLoaTJg3WHoaSNDZP3P2qUPcfiQBuHUlS0za9z0BOM7c6V0RNjIYwm1tIHYYzPk6Gqunk0cY4xhbjUaUxQpVC/DmJcnV9K7jnlg3dLD
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250902-pinctrl-gpio-pinfuncs-v7-15-bb091daedc52@linaro.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_071201_267932_3E809F08 
-X-CRM114-Status: GOOD (  22.23  )
+X-CRM114-CacheID: sfid-20250902_073311_579500_A777E35E 
+X-CRM114-Status: GOOD (  10.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,44 +124,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 1 Sep 2025 10:43:36 +0100
-Mark Rutland <mark.rutland@arm.com> wrote:
-
-> > So, __copy_from_user_inatomic() is supposed to be called if
-> > pagefault_disable() has already been called? If this is the case, can we
-> > add more comments to this code?  
+On Tue, Sep 02, 2025 at 01:59:24PM +0200, Bartosz Golaszewski wrote:
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 > 
-> Just to check, you're asking for better comments in <linux/uaccess.h>,
-> right?
+> Allow pins muxed to the "gpio" or "egpio" function to be requested as
+> GPIOs even if pinmux_ops say the controller should be strict.
 
-Yes.
+Why?
 
-> 
-> > I've been using the inatomic() version this
-> > way in preempt disabled locations since 2016.
-> > 
-> > Looks like it needs to be converted to copy_from_user_nofault().
-> > 
-> > Luo, this version of the patch looks legit, no need for a v2.
-> > 
-> > I just wanted to figure out why __copy_from_user_inatomic() wasn't atomic.
-> > If anything, it needs to be better documented.  
-> 
-> If that had roughly the same kerneldoc comment as for
-> __copy_to_user_inatomic(), would that be sufficient, or do you think
-> both need to be made more explicit?
+-- 
+With Best Regards,
+Andy Shevchenko
 
-Yeah, it would have been very helpful to have that. Note, my use of
-__copy_from_user_inatomic() was added before copy_from_user_nofault()
-existed. So it would likely not have been helpful back then ;-)
-
-I think even adding a comment to the kerneldoc of these functions with
-something like:
-
-  You probably want to use copy_from/to_user_nofault(). These are more
-  for internal handling, and should be avoided unless you really know
-  what you are doing.
-
--- Steve
 
 
