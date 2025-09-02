@@ -4,113 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0770ECA1005
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:09:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1BABCA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:09:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KRJDgRmHBw+J65zqV+/QCRhrrek5fZfoXh2Mkgbf81o=; b=jVKgGdFrpsKseAw8F25aYw9wnl
-	Gmgc8YrQdJsG+9BEVGELMZiVX//KjjcCvdAgIzGi+k4HIx2jfThtBxvmPgSB6elyuUxNXh16RkLeK
-	kvyEOIeG1fQ7WkCluUqGSCpg3nXNYmN79F9a+pI9nsSupjlsqYYb0NnxJHz0MH148X1GYPd46+q7b
-	KQbWCvE6MbKnDBtxnDUlwTX7rbJBBbQAInG7n2dCK5BASzb9DdGlpex5RVxaYivWPYVTaRU7bu9Vp
-	VpvZ7dSxNXZmSD/FxDHmESHCgrf0Z2a2cQELcGgPvlsPwDMyfvMJiH0nbJFaHYWV1mmNpOgl7AQsY
-	YGywD1hg==;
+	bh=eSrgughWmHCMbvQQVln/YeRM+x1ol47uNfI7H84GJFQ=; b=C+M+PSLxV18sKB2fUPm4OExxWq
+	2PfZt/MR5IpuC29sivP5PJJvBb1Uru3ZRmmjAFVnHnYeLAjETlP/QwerOqfzREONy2brcDbKNAJKB
+	UdUz74FYpwCv8/kQiaQdbVEa7sA0Cv7UrfLDGW4O+dYf4QVaW4gGx9uOkkvky171GV6h6Zl4Bf9sL
+	KY5v0ou/YVp5tCPwi4TujpeWKnnkej1r99b4vK0IgyqqZhcOYsJJnX9qHKgrbrrsB36rKK3bD2SBM
+	rvSJxeI5UXZXxafnzuelP9qVSHRIvSHRlupgrCpWiGXFW9gxjMhVKbwzyG/uWLgKRYo9hnVZlfgYQ
+	0vYRZNhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utWNu-00000001Zhg-0RrY;
-	Tue, 02 Sep 2025 19:09:38 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1utWNy-00000001ZrK-3MFH;
+	Tue, 02 Sep 2025 19:09:42 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utQr3-0000000HZAf-0SxN;
-	Tue, 02 Sep 2025 13:15:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1756818921; x=1788354921;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=cIei6RTUCtT55QsspDgWfZe1lPcqVs/yM9oKakcEt4M=;
-  b=FTIEpFsuLv9mZ8+akStrwqn7q0K3h49PXIrkbx8Ksykja4UHhcl3M19D
-   17n1cfItwZn1D8DdsKTTZI0bt/JL4cdyAPrNIS85yJI6QthMY7z1YydGm
-   8KgU3djf9M1El7zJfFU5cvIlFcppF2cX9hvLExudeCXLxkSakQE3i6/Vj
-   JzExbneItCn/D61gR4vI3G+b+y0WOdH6FOPZmmXRlke7rgUONOG4K/UdC
-   I/0AgEAUzAsqbQsdAZZwjzR1lhvlEIb5+zowvYzjlzaulzFuILzghyDAi
-   GoW6bvSER5qEPqyrrxD18t9xJQn4yoPKnpAzVo4kHBQ7XY2ubSvFC2gVP
-   Q==;
-X-CSE-ConnectionGUID: z0U/lNb+TsK3hv0nWldAdw==
-X-CSE-MsgGUID: 01LLDi2FQjKAuAAq1aN69w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="59041784"
-X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
-   d="scan'208";a="59041784"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Sep 2025 06:15:20 -0700
-X-CSE-ConnectionGUID: QF8sMWo2SGOcClSTfRIdKw==
-X-CSE-MsgGUID: FLZgbnm/Swu9LSfjg8Kdhw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,230,1751266800"; 
-   d="scan'208";a="170530232"
-Received: from smile.fi.intel.com ([10.237.72.52])
-  by orviesa006.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Sep 2025 06:15:09 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@intel.com>)
-	id 1utQqn-0000000AhVQ-1jBt;
-	Tue, 02 Sep 2025 16:15:05 +0300
-Date: Tue, 2 Sep 2025 16:15:05 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Alexey Klimov <alexey.klimov@linaro.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Sean Wang <sean.wang@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Paul Cercueil <paul@crapouillou.net>, Kees Cook <kees@kernel.org>,
-	Andy Shevchenko <andy@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@redhat.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>, Dong Aisheng <aisheng.dong@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
-	Jacky Bai <ping.bai@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	NXP S32 Linux Team <s32@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Tony Lindgren <tony@atomide.com>,
-	Haojian Zhuang <haojian.zhuang@linaro.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Mark Brown <broonie@kernel.org>, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linux-hardening@vger.kernel.org, linux-mm@kvack.org,
-	imx@lists.linux.dev, linux-omap@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: Re: [PATCH v7 12/16] pinctrl: qcom: use generic pin function helpers
-Message-ID: <aLbt2euqYQM5xXuZ@smile.fi.intel.com>
-References: <20250902-pinctrl-gpio-pinfuncs-v7-0-bb091daedc52@linaro.org>
- <20250902-pinctrl-gpio-pinfuncs-v7-12-bb091daedc52@linaro.org>
+	id 1utQtM-0000000Ha1c-3afp;
+	Tue, 02 Sep 2025 13:17:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7E2A24013C;
+	Tue,  2 Sep 2025 13:17:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4C79C4CEED;
+	Tue,  2 Sep 2025 13:17:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756819064;
+	bh=apcyxtU2BfTEuwGJmPoxK78BUoU73MBDkSB83mC20sg=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=Uz/OlBgaC+w8NLJANKHBevuL6qZ7J/gpSGqFeotyS0j8p+uDqeRN4BsE9mlCitLgG
+	 Xntog9q3fPpgv6iRy4weq0Vrm+NnPlyUGLZNptlMXkCSnVhKo2G4X20HgM52juBxIt
+	 ZSUhuBTReMUoYMVDVbk20iealcBE654OjiGMnuWnEFIiM/qQ6DupXP9/3z79RMQezA
+	 L7+eWIhTg8MfKFl9zNNRzjsgwur1UtZh2zG+yZJDGUzg0pyXSTKjvDM5oBCW7BZ83P
+	 UwxrLfzzVTVCWLbsRG7iZrjtFVrREIIZgC0zSyeMR8H3tXA+XADufJGkDm0j8tVBeA
+	 4MZ80CAzs2RCw==
+Date: Tue, 02 Sep 2025 08:17:40 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250902-pinctrl-gpio-pinfuncs-v7-12-bb091daedc52@linaro.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Alex Bee <knaerzche@gmail.com>, linux-kernel@vger.kernel.org, 
+ Rob Herring <robh+dt@kernel.org>, linux-rockchip@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+To: Christian Hewitt <christianshewitt@gmail.com>
+In-Reply-To: <20250830115135.3549305-1-christianshewitt@gmail.com>
+References: <20250830115135.3549305-1-christianshewitt@gmail.com>
+Message-Id: <175678730682.877806.14001841198578934927.robh@kernel.org>
+Subject: Re: [PATCH 1/2] arm64: dts: rockchip: add GPU powerdomain, opps,
+ and cooling to rk3328
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_061521_194057_BC27B7A0 
-X-CRM114-Status: GOOD (  14.85  )
+X-CRM114-CacheID: sfid-20250902_061744_938050_9AD6DE7F 
+X-CRM114-Status: GOOD (  17.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,31 +74,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 02, 2025 at 01:59:21PM +0200, Bartosz Golaszewski wrote:
+
+On Sat, 30 Aug 2025 11:51:34 +0000, Christian Hewitt wrote:
+> From: Alex Bee <knaerzche@gmail.com>
 > 
-> With the pinmux core no longer duplicating memory used to store the
-> struct pinfunction objects in .rodata, we can now use the existing
-> infrastructure for storing and looking up pin functions in qualcomm
-> drivers. Remove hand-crafted callbacks.
+> Add GPU powerdomain, opp-table, and cooling map nodes for the Mali
+> GPU on the RK3328 SoC. Opp-table frequencies are sourced from the
+> Rockchip Linux v4.4 vendor kernel while voltages have been derived
+> from practical use and support work: keeping voltage above 1075mV
+> and disabling the 500MHz opp-point avoids instability and crashes.
+> 
+> Signed-off-by: Alex Bee <knaerzche@gmail.com>
+> Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
+> ---
+> These changes have been in-use with Armbian and LibreELEC for many
+> years without issue. Investigations into crashing (esp. with rkvdec
+> running) have led to voltage tweaks and dropping 500MHz. Changes
+> cannot be justified in technical detail, but are field proven over
+> a large number of users, boards, and cheap power supplies.
+> 
+>  arch/arm64/boot/dts/rockchip/rk3328.dtsi | 39 +++++++++++++++++++++++-
+>  1 file changed, 38 insertions(+), 1 deletion(-)
+> 
 
-...
 
-> +	for (i = 0; i < soc_data->nfunctions; i++) {
-> +		func = &soc_data->functions[i];
-> +
-> +		ret = pinmux_generic_add_pinfunction(pctrl->pctrl, func, NULL);
-> +		if (ret < 0)
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-Why not simply
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
-		if (ret)
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
 
-> +			return ret;
-> +	}
+  pip3 install dtschema --upgrade
 
--- 
-With Best Regards,
-Andy Shevchenko
+
+This patch series was applied (using b4) to base:
+ Base: attempting to guess base-commit...
+ Base: tags/next-20250829 (best guess, 2/4 blobs matched)
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for 20250830115135.3549305-1-christianshewitt@gmail.com:
+
+arch/arm64/boot/dts/rockchip/rk3318-a95x-z2.dtb: gpu-opp-table (operating-points-v2): $nodename:0: 'gpu-opp-table' does not match '^opp-table(-[a-z0-9]+)?$'
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
+arch/arm64/boot/dts/rockchip/rk3318-a95x-z2.dtb: gpu-opp-table (operating-points-v2): Unevaluated properties are not allowed ('opp-200000000', 'opp-300000000', 'opp-400000000', 'opp-500000000' were unexpected)
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
+arch/arm64/boot/dts/rockchip/rk3328-rock64.dtb: gpu-opp-table (operating-points-v2): $nodename:0: 'gpu-opp-table' does not match '^opp-table(-[a-z0-9]+)?$'
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
+arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dtb: gpu-opp-table (operating-points-v2): $nodename:0: 'gpu-opp-table' does not match '^opp-table(-[a-z0-9]+)?$'
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
+arch/arm64/boot/dts/rockchip/rk3328-rock64.dtb: gpu-opp-table (operating-points-v2): Unevaluated properties are not allowed ('opp-200000000', 'opp-300000000', 'opp-400000000', 'opp-500000000' were unexpected)
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
+arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus.dtb: gpu-opp-table (operating-points-v2): Unevaluated properties are not allowed ('opp-200000000', 'opp-300000000', 'opp-400000000', 'opp-500000000' were unexpected)
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
+arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2s.dtb: gpu-opp-table (operating-points-v2): $nodename:0: 'gpu-opp-table' does not match '^opp-table(-[a-z0-9]+)?$'
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
+arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2s.dtb: gpu-opp-table (operating-points-v2): Unevaluated properties are not allowed ('opp-200000000', 'opp-300000000', 'opp-400000000', 'opp-500000000' were unexpected)
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
+arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2c.dtb: gpu-opp-table (operating-points-v2): $nodename:0: 'gpu-opp-table' does not match '^opp-table(-[a-z0-9]+)?$'
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
+arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2c.dtb: gpu-opp-table (operating-points-v2): Unevaluated properties are not allowed ('opp-200000000', 'opp-300000000', 'opp-400000000', 'opp-500000000' were unexpected)
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
+arch/arm64/boot/dts/rockchip/rk3328-roc-pc.dtb: gpu-opp-table (operating-points-v2): $nodename:0: 'gpu-opp-table' does not match '^opp-table(-[a-z0-9]+)?$'
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
+arch/arm64/boot/dts/rockchip/rk3328-roc-pc.dtb: gpu-opp-table (operating-points-v2): Unevaluated properties are not allowed ('opp-200000000', 'opp-300000000', 'opp-400000000', 'opp-500000000' were unexpected)
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
+arch/arm64/boot/dts/rockchip/rk3328-rock-pi-e.dtb: gpu-opp-table (operating-points-v2): $nodename:0: 'gpu-opp-table' does not match '^opp-table(-[a-z0-9]+)?$'
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
+arch/arm64/boot/dts/rockchip/rk3328-rock-pi-e.dtb: gpu-opp-table (operating-points-v2): Unevaluated properties are not allowed ('opp-200000000', 'opp-300000000', 'opp-400000000', 'opp-500000000' were unexpected)
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
+arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2c-plus.dtb: gpu-opp-table (operating-points-v2): $nodename:0: 'gpu-opp-table' does not match '^opp-table(-[a-z0-9]+)?$'
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
+arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2c-plus.dtb: gpu-opp-table (operating-points-v2): Unevaluated properties are not allowed ('opp-200000000', 'opp-300000000', 'opp-400000000', 'opp-500000000' were unexpected)
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
+arch/arm64/boot/dts/rockchip/rk3328-evb.dtb: gpu-opp-table (operating-points-v2): $nodename:0: 'gpu-opp-table' does not match '^opp-table(-[a-z0-9]+)?$'
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
+arch/arm64/boot/dts/rockchip/rk3328-evb.dtb: gpu-opp-table (operating-points-v2): Unevaluated properties are not allowed ('opp-200000000', 'opp-300000000', 'opp-400000000', 'opp-500000000' were unexpected)
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
+arch/arm64/boot/dts/rockchip/rk3328-roc-cc.dtb: gpu-opp-table (operating-points-v2): $nodename:0: 'gpu-opp-table' does not match '^opp-table(-[a-z0-9]+)?$'
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
+arch/arm64/boot/dts/rockchip/rk3328-roc-cc.dtb: gpu-opp-table (operating-points-v2): Unevaluated properties are not allowed ('opp-200000000', 'opp-300000000', 'opp-400000000', 'opp-500000000' were unexpected)
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
+arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dtb: gpu-opp-table (operating-points-v2): $nodename:0: 'gpu-opp-table' does not match '^opp-table(-[a-z0-9]+)?$'
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
+arch/arm64/boot/dts/rockchip/rk3328-orangepi-r1-plus-lts.dtb: gpu-opp-table (operating-points-v2): Unevaluated properties are not allowed ('opp-200000000', 'opp-300000000', 'opp-400000000', 'opp-500000000' were unexpected)
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
+arch/arm64/boot/dts/rockchip/rk3328-a1.dtb: gpu-opp-table (operating-points-v2): $nodename:0: 'gpu-opp-table' does not match '^opp-table(-[a-z0-9]+)?$'
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
+arch/arm64/boot/dts/rockchip/rk3328-a1.dtb: gpu-opp-table (operating-points-v2): Unevaluated properties are not allowed ('opp-200000000', 'opp-300000000', 'opp-400000000', 'opp-500000000' were unexpected)
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
+arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2s-plus.dtb: gpu-opp-table (operating-points-v2): $nodename:0: 'gpu-opp-table' does not match '^opp-table(-[a-z0-9]+)?$'
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
+arch/arm64/boot/dts/rockchip/rk3328-nanopi-r2s-plus.dtb: gpu-opp-table (operating-points-v2): Unevaluated properties are not allowed ('opp-200000000', 'opp-300000000', 'opp-400000000', 'opp-500000000' were unexpected)
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml#
+
+
+
 
 
 
