@@ -4,85 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECAFBCA1005
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 12:29:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EABF6CA1009
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 12:29:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sgn/vJYsBdxnr7Nj+togafj+OMxwmvaU1XUkgIJUYhQ=; b=yDE26VXu6xK813u5usbpV5RSqa
-	4C81jpK4oP3R3c0UGODVpd0qthRPjeKtWPaQTqhCbWNpJAIg+FV7bYXuNPwtvlZ0swOjykSpb2b6K
-	OtvQ9uAftlTH7Vza+MYvg2eQclyvMjcGOUxPIdV2ZaN1TaGxf7goIb5tnNOS/4aMGMFahGuFKA99s
-	oBtrZnrmIDx4qv/PtBsuEZXz+y1RzeO5HlBuyOTX2IiWzTc8nbom+ge1y8C9/B/bJlLbYkrMgtjoq
-	vdQMqwOI+6QuQDlso0QXFUhai5+z8v3qwsURfF5g687vtrl6wN8LnXGggH9Q6PhAnt417trNllICY
-	aesEf01Q==;
+	bh=W7lv1zEQhiIlMtDfAV3HHZP/QG4fpavk+gl2GJ0VNL0=; b=KxsPXJgqvg52u0XUqbljQgZKuQ
+	bwM++3aHTiaWcGbvt/898z6qA+C0PQD6j7fnGtICSODR/Sz79R95Wddfnth/2thNIQeUsnfo59yw8
+	h5WilFFOfRSmpwHHcSZOifpfEmxxNcceLCcqyYX98oNdVlPaImh4cxYzym0m9JdxKo2isFLB1+KgZ
+	f3qU04D8RnDTV971bOzE3aSxXZxU5c0xUVQ/YpN6kaKxligaWdbgOPkwofslfr5udS+zXEU6vuWEe
+	+GQu2gSeJ6RAAPPnE87aVlCCFBZPGFh2jiKExctRLEQlR4e9pvgV+JSov2mDSS9ll23O3g6E9N8mu
+	D/QXwJEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utQ8X-0000000HGLf-2KFK;
-	Tue, 02 Sep 2025 12:29:21 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1utQ8i-0000000HGc9-2nlp;
+	Tue, 02 Sep 2025 12:29:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utNK2-0000000GNXM-327S
+	id 1utNL6-0000000GO10-3wc6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 09:29:04 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-5607c2f1598so1395345e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 02:29:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756805341; x=1757410141; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Sgn/vJYsBdxnr7Nj+togafj+OMxwmvaU1XUkgIJUYhQ=;
-        b=Uqht7nPpK2Swp2lGcvjGjYFLlioE/BMlWK87+zsWXKRV8ryH60Qt/kJAqoEQ8dtI/D
-         6BuNwsKMOmuDgINpIVmCWt1WaQEUa8BdB7p1rYjzbAh0n5hXBm1vKs5qlvblr0lIRDrF
-         g54skrRuIxpEJycvtj9rbLpeld1fIHmJRt+s0Ur9EzB9BuabT1fDYJcLdELPPqhcz60k
-         Va1rSJTCm5T6jXCPWzGctsBHOSgbHLiPxOnZhOncSCmMaFh96C0drxBe1JmuIU0ux1UR
-         F1vFhnqF2arorYLY1Yag7kgCC4WYldJ4QXVIzZItVN7kotUURbe6Zpa+6a2Jrg1lIQjk
-         L75A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756805341; x=1757410141;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Sgn/vJYsBdxnr7Nj+togafj+OMxwmvaU1XUkgIJUYhQ=;
-        b=cTw42f8TIXtLXXDfEobRTEpCsPFOb4O1J0DNHFwxQdAf4lOOG46yDL49Ry0JU9kCQ6
-         8uZd4SbIN+KKRLrTAxf7vwQfgSdQyddFEMMqTAFVrR7nf+1g8001snlEC81SopYM1Xr4
-         tAc4s1XI46qd7ZBDE/KxRFHZkuyrxhrOHoqEWa9vAuNou1urjfQJlRZcv2gPqWMylndA
-         DA2nSGhZkJNgyo4chh6JSgJBX0RlKwMBmZ6DzHYGX6daql9za3h7NzAeeOAq0LjEJ+P6
-         ToSGe71anz+LUecGwfPm1iNI3GqV+wNIsEd9JVvlK91N2GzCwd1rDND8lXqKTbOS/J4Y
-         6T+g==
-X-Gm-Message-State: AOJu0YxIVHkMa5TduXByDBRl9v+6UsbydPv4QJ6zftzArk5GGHWsKrIc
-	ZUDauy+7Kr92Fj3oUgDj9+kgZJto6qaUlz1fJXjgmHHzOoTopuKX0f5It04syc6TYACjuSjtOJO
-	kFAo6+KlnY+C70rame3yzJn5VoUI7txcXLgix/jXZcw==
-X-Gm-Gg: ASbGncsIksOz/psDXKjJ3Q0UAeRQyigO6ie77jq7eJiTw/Inw4fa7Z+L5emjRTNqPY9
-	9t3SvWQSEyviElyYBTXE3aeCneH8xir1laOO7EywkBEN8SfN6tjcSghnk7OXiWf/Jzc9jgGAviM
-	0RL8uKf2GV4zzIs8aOt1Nvn99B4YDqtmbvwGhT9Kfsu9y71/0KGJECW33orpyU7hCT0oXpDQ3b/
-	QJJJUPgmdTmZAwyx/PshxI8IfvTGx+ZqtZftvH5eyZxUurMYw==
-X-Google-Smtp-Source: AGHT+IEbZleDaAu1wkbBHOjnlGL8C0lL2XvTBcBG1o0Yu7ShYVTEpic0xTaWFK07gn8fwR7JGIFClShl9m8jNgG1o5M=
-X-Received: by 2002:a05:6512:680b:b0:55f:4e62:f0ca with SMTP id
- 2adb3069b0e04-55f708db56bmr2636846e87.29.1756805340472; Tue, 02 Sep 2025
- 02:29:00 -0700 (PDT)
+	Tue, 02 Sep 2025 09:30:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A6A3D449AC;
+	Tue,  2 Sep 2025 09:30:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19FEBC4CEF7;
+	Tue,  2 Sep 2025 09:30:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756805408;
+	bh=aLweEdgVdtXKhjU2Dm0VS5DMHPmFRxoY7Gp6xg4UMnc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=IrEsmS4SJcBW4kwpziEUSQq8HfC2G+ftvwtZxv2r8gDapBrRk2eosUhiNxm0xrfQf
+	 EqZP9i4I9UuzHtGS9p8l7yXB3HL1sY43Y9wAhNyf0vS3P5lKnu1iAPQPe5ryKRaHnt
+	 e2qnZe8txMvJZNBV6olHXMRy8Yw/6sbHO5gkXaIzGKf/onlRJsn8HahaEtlT5hQDh7
+	 j5yekU3PlW4snc8thZ4GI257jH8OtawjUHkm47SHjTT0p9LKPgYqJ0GWATFOeubB3c
+	 /D68kVwshl7sOP/3UHAv5whbQOtrD4CPsbHm/uvDvAxKad/WibQXaEBY6fStzVribG
+	 akmOlpRmkfyyw==
+Message-ID: <3fc54ddb-3947-4c2b-825c-01c16d4c7dab@kernel.org>
+Date: Tue, 2 Sep 2025 11:30:03 +0200
 MIME-Version: 1.0
-References: <20250811-gpio-mmio-mfd-conv-v1-0-68c5c958cf80@linaro.org>
-In-Reply-To: <20250811-gpio-mmio-mfd-conv-v1-0-68c5c958cf80@linaro.org>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 2 Sep 2025 11:28:49 +0200
-X-Gm-Features: Ac12FXwyTg5R9QK3KWUxLTr3m9eLRisbXrlkPr4WlpAVjY7_RF2FsWzkYU59lb4
-Message-ID: <CAMRc=Md+2_3w5kdaUF9-nGdHv9C+tGRfN9TTu6E4+hSdFbwGBQ@mail.gmail.com>
-Subject: Re: [PATCH 0/2] mfd: vexpress: convert the driver to using the new
- generic GPIO chip API
-To: Lee Jones <lee@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
-	Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@arm.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Pawel Moll <pawel.moll@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] arm64: dts: exynosautov920: Add tmu hardware binding
+To: =?UTF-8?B?7IaQ7Iug?= <shin.son@samsung.com>,
+ 'Bartlomiej Zolnierkiewicz' <bzolnier@gmail.com>,
+ "'Rafael J . Wysocki'" <rafael@kernel.org>,
+ 'Daniel Lezcano' <daniel.lezcano@linaro.org>,
+ 'Zhang Rui' <rui.zhang@intel.com>, 'Lukasz Luba' <lukasz.luba@arm.com>,
+ 'Rob Herring' <robh@kernel.org>, 'Conor Dooley' <conor+dt@kernel.org>,
+ 'Alim Akhtar' <alim.akhtar@samsung.com>
+Cc: linux-pm@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250825064929.188101-1-shin.son@samsung.com>
+ <CGME20250825064933epcas2p40a7c491366097f90add675bc36822ef9@epcas2p4.samsung.com>
+ <20250825064929.188101-4-shin.son@samsung.com>
+ <e573cfc8-be9c-482c-9b06-4eedbb92d520@kernel.org>
+ <000501dc1be8$e9ac0640$bd0412c0$@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <000501dc1be8$e9ac0640$bd0412c0$@samsung.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_022902_999899_2BD316B7 
-X-CRM114-Status: GOOD (  18.67  )
+X-CRM114-CacheID: sfid-20250902_023009_055404_80123ACC 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,36 +127,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 11, 2025 at 3:36=E2=80=AFPM Bartosz Golaszewski <brgl@bgdev.pl>=
- wrote:
->
-> This converts the vexpress-sysreg MFD driver to using the new generic
-> GPIO interface but first fixes an issue with an unchecked return value
-> of devm_gpiochio_add_data().
->
-> Lee: Please, create an immutable branch containing these commits after
-> you pick them up, as I'd like to merge it into the GPIO tree and remove
-> the legacy interface in this cycle.
->
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> ---
-> Bartosz Golaszewski (2):
->       mfd: vexpress-sysreg: check the return value of devm_gpiochip_add_d=
-ata()
->       mfd: vexpress-sysreg: use new generic GPIO chip API
->
->  drivers/mfd/vexpress-sysreg.c | 25 ++++++++++++++++++++-----
->  1 file changed, 20 insertions(+), 5 deletions(-)
-> ---
-> base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
-> change-id: 20250728-gpio-mmio-mfd-conv-d27c2cfbccfe
->
-> Best regards,
-> --
-> Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
->
+On 02/09/2025 11:06, 손신 wrote:
+> 
+>>
+>>> +		cpucl0right-thermal {
+>>
+>> It does not look like you tested the DTS against bindings. Please run
+>> `make dtbs_check W=1` (see Documentation/devicetree/bindings/writing-
+>> schema.rst or https://protect2.fireeye.com/v1/url?k=004c918d-61c784be-
+>> 004d1ac2-000babff9bb7-06e007e7dc12091d&q=1&e=d6a22592-2d45-41f5-b737-
+>> a90830cceaeb&u=https%3A%2F%2Fwww.linaro.org%2Fblog%2Ftips-and-tricks-for-
+>> validating-devicetree-sources-with-the-devicetree-schema%2F
+>> for instructions).
+>> Maybe you need to update your dtschema and yamllint. Don't rely on distro
+>> packages for dtschema and be sure you are using the latest released
+>> dtschema.
+>>
+> 
+> Actually, I also updated both dtschema and yamllint and ran "make CHECK_DTBS=y W=1 exynos/exynosautov920-sadk.dtb", but no other issues were detected.
 
-It's been almost a month, so gentle ping.
+Thanks
 
-Bart
+> I assume that the problem you mentioned about "cpucl0right-thermal" might be related to the regex.
+
+You actually fit exactly in the limit.
+
+Best regards,
+Krzysztof
 
