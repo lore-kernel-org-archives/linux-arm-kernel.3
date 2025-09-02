@@ -4,110 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 482EFCA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 00:54:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D3C5CA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 01:35:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yYNmQYHvpUW9ygwaADrHIo+U++1cqaaqBXRIk4cWf5E=; b=JT7UWMIzY1vJe9fM/0ECGTV0Vu
-	3ibHiJaFS0TFwERIkqrEkPeykLt79ZXhqTFqMbvHcz7DLSAXOv5S9vCLJtNBik2HtLdwOBwvI9Vrv
-	S8vcE0S7qYS6JU80N0CGtio+q8ovu92rk6SZs8sklrNpuHW7SBTkL3bxdvYiLUrR8Y72U8/nhddkp
-	rnkPjKzrTGvfxad4cAVHULEF8FEddsKSETd35dNEyT/mJ6hzMsf4z0syV4fdBwiA3y/+03NC45rm3
-	I85bhrKdRSYvNB91Wt/VB1rHh5VXMrEKAE/I0A4hA+qEmFHCeqIY19JTaIHwPmXyEns/3bNSDWj+e
-	+XjoOb/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BVVNzRh8T8JLyCNoAZ79IEkQcS/VJTNo8wJjeji3QLI=; b=jJTdX9dwdmdYOpGGkpJw05dqwS
+	1Wgo/D4hb9UoHyzri3pmzP1mPbNiVcYJnjS3/iqnIfIpSMEpKYREnwadxKnT/jmetxm4XFaJ3a5vv
+	w5uEHp1uDXeJslOpGiT6AOD4x6k+nXjPuVxETdBamGYxubP9QFwhdqtVAgXZ7R7kyIpHrsYfaJz/O
+	DjfLKqpEfnENtSAiOexFQgKb4x5FaNs815GEs90niZq8ivpw37Z1/+quYI6NX+tHKZwPSiE+Tto7Z
+	LAAY0drzuZJc4cK7HQ30qL/WCo/zSvSbH0G94kujJYAEdwTiSTDhhqqkDOvB2De2XkTLJHz97v9UO
+	1lzJe2Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utFI8-0000000Ebhc-30YL;
-	Tue, 02 Sep 2025 00:54:32 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1utFvd-0000000EiVt-1Vcv;
+	Tue, 02 Sep 2025 01:35:21 +0000
+Received: from mail-mw2nam04on2061e.outbound.protection.outlook.com ([2a01:111:f403:240a::61e] helo=NAM04-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utEe8-0000000ES9O-0OuG
+	id 1utFsw-0000000Ei04-0E5v
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 00:13:13 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-45b7e69570bso23548905e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 17:13:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756771990; x=1757376790; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yYNmQYHvpUW9ygwaADrHIo+U++1cqaaqBXRIk4cWf5E=;
-        b=h9tUi1/FdDgV6ubOloinFcK1uUFp/G0OBiCk/5GARuJ7/REmZU9qdGcvAfcTIdKRX/
-         FiVVMDXrP0gDMFIuJ3Lm/EgyIzcwEBUcgrTyCX3VheM8rBI/dX9rRWxSkzTgsozUUK86
-         KYwri9QKYCcjsBN271bkEMIJOqeAiG9l0sqteiuQE1yGQybBtlaeQPy4j/afKPuGqcGU
-         qs0RA8qOzYkWVPIKogL4zLZNFFI2VpzAJ9aP7R8ZhpGD6mu07AEZSneSMxLRbj4yZur2
-         f6RzRbn45KlNmMMGjIoUBuEEAAp8XHyTCxhRaUTnEOMVaXMd08ZfNgK0zCLjU8beIkRT
-         yBYQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756771990; x=1757376790;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=yYNmQYHvpUW9ygwaADrHIo+U++1cqaaqBXRIk4cWf5E=;
-        b=BzXgDVs6Ca2cqaXKDF4Ebmt2JlmuGwVzzBNcdWYczLagdgZnsm1vJpRFsEGLYM4O3/
-         0Twu+XPk7T2ZGH8EwzEDAathJu1S9Ul6duAVgfWNLNsnMZsoSWXMDEK4HpYYEuh3lJZU
-         Mnxy+nSHAKIek8r6+fUDkCWXl3NcRlB8IR1kBXVOzES+Q0+Xn6FWzweoXrU0r7g/hSLj
-         gOHrjoARykm4Gy//TECLCJ6Fl23vz3U4SmWigpt8cNhFuoRF7Br957EigYN/hgizgp4X
-         QPHpppjdL/cjk8wvbAZMTlCrpPpv6k4aN88vxHiU9UNiWr0g5aZQYuY01KBBxaE2Ka8F
-         66fg==
-X-Forwarded-Encrypted: i=1; AJvYcCWF5myDoPwQuThbHEc4fW247HCWay3xqzsTRZc2T5/0GVvdqKW/UIC4AoRAY/0FvijIDdVQ718e0I44GnF6YL8S@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyahh2KN7g5RbKqoSJvKW6K/TqpjAYQuHD5Dtt4ojLJyH/aTr/y
-	xYmCk5KvfZ2U9dGvv0fe8i74KzWoWwtb36a7C9NmiZFrLLQCsVODzQ1q
-X-Gm-Gg: ASbGncu3MUfxbtKPumWOcR/uzMAJdRtXdiNY/S6RyKJ64u5NdOCIWSjenSq3OD0W4/7
-	IY1A0fKmYOokSTLZPEyFvPpuqxHg60wZ0L/IKF27hEWiHdUa2tty9b1opkyZkGiVhxJtUOBJd2P
-	wMHYo831e9kMaI29jTFsJcyXYS1TXii55NOmJIHgdgWips2n4iM97PR/l8M8BTFccSShA6hknYP
-	bP5fG9BGhD8NgsGTyKUeEAzTKQ2jp/KICTy33uaKGAnVmKrCSXzeECI8KL+WRae5eWkTZePhAGt
-	fXlm+Y/+yKiNj/KzLTEu5BO+yJM/v+LSkXZDPL3b4hNG3kLCwFSx6t19ZwWXOBN/FamTXK8kfrW
-	DWuAP2Hz2iv0PGq4uaP8AIazWWMrNHNz5x+dCbiyAUma/cQ==
-X-Google-Smtp-Source: AGHT+IFGGuLbjih6Gj+w7x0wLgIFZo1ltt4HE5wOWmB54nwG1DjvGnz2BT6uviOKTC8YNommrrKJIQ==
-X-Received: by 2002:a05:600c:4fcd:b0:45b:7185:9e5 with SMTP id 5b1f17b1804b1-45b85525cddmr83857055e9.5.1756771990377;
-        Mon, 01 Sep 2025 17:13:10 -0700 (PDT)
-Received: from iku.Home ([2a06:5906:61b:2d00:ca6c:86b2:c8f:84d6])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3d92d51982bsm2138153f8f.21.2025.09.01.17.13.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Sep 2025 17:13:09 -0700 (PDT)
-From: Prabhakar <prabhakar.csengg@gmail.com>
-X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>
-Cc: linux-renesas-soc@vger.kernel.org,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Prabhakar <prabhakar.csengg@gmail.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH net-next 4/4] net: stmmac: dwmac-renesas-gbeth: Add support for RZ/T2H SoC
-Date: Tue,  2 Sep 2025 01:13:02 +0100
-Message-ID: <20250902001302.3823418-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20250902001302.3823418-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20250902001302.3823418-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	Tue, 02 Sep 2025 01:32:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XiqGjJICPDKiUAYkW88lsWJXdSFjU2nXvDj/xPjkjo1U+oSCH1T0XGw8BOLBDMaHfSQLNXr9ax/SYtFefmGyRiBN0yxdykJg5RNl+jAJ2x6HaGl2s+3A15qtuAR+9EXpuSgoejV1nEHOaL5VAOrqZQ1bE2hjoTDTpGVUG9IkRekf+SmqNX5NcivDeJwBDKZPIYy1WC7bk3YJ9VtC4NI+TTdxR1vcTB6grpG+VHR+EiKLLtkgqOLtXXuzY/oxsacoRxBDdTmuTfpvd5xAF2e7YMCokLux6tqUdReuRsfrH1vH0xUIRKRjc25E1rHEq3oAIMmyPon8vUI7FVDxUIGG+Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BVVNzRh8T8JLyCNoAZ79IEkQcS/VJTNo8wJjeji3QLI=;
+ b=bQqcYbmUV7G4E6Klo0wU+NlupPzQdlAZ6k3iky3cgWJU+5lfpCG6O9TPRabjzvZmmBOU/qkDieRGK4BRdsoGD3jpTDlSlvIbKfnE16cfM3fE7yQdhe4UYlABLQzODRgIgODVl+Ui4JUGNCYL7yRvKh4nH1CKiXjEDFzGq3NVIDCNAkDczJ2czA/6qENwviNtkW+Eg4B6busb7FpApnAx6XHb0yZrbmZOU2LaEUCQLuSZnsnwZNZKawEf3naBAfkFbg/KTL2ux4J2pavzYrKRaYvxGse2EFisDFtW/9q7ShzIrBxgC6ue45SVwgsxD14mgklLuh32+8BxELuMtKzMZQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BVVNzRh8T8JLyCNoAZ79IEkQcS/VJTNo8wJjeji3QLI=;
+ b=SDfo6bmwUZsmD7INo1WTQlIT53v+3TFY9oXZfC4na2ubu/RDnRCIyi/cTlM1cb78oI4C/0rPqSKF5R+dOHiBMYHl1vvapeUSGka2DpqZdOZ9/3sC3qaPrd1Y7OWcrdyQ2EP/WIzRxIo5ts2Qn6dH9rEnzRnwe+RfNKjctaN3d3w=
+Received: from SA0PR11CA0117.namprd11.prod.outlook.com (2603:10b6:806:d1::32)
+ by DM4PR12MB7598.namprd12.prod.outlook.com (2603:10b6:8:10a::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.25; Tue, 2 Sep
+ 2025 01:32:20 +0000
+Received: from SA2PEPF00003F65.namprd04.prod.outlook.com
+ (2603:10b6:806:d1:cafe::c8) by SA0PR11CA0117.outlook.office365.com
+ (2603:10b6:806:d1::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9073.27 via Frontend Transport; Tue,
+ 2 Sep 2025 01:32:20 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
+Received: from SATLEXMB04.amd.com (165.204.84.17) by
+ SA2PEPF00003F65.mail.protection.outlook.com (10.167.248.40) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.9094.14 via Frontend Transport; Tue, 2 Sep 2025 01:32:19 +0000
+Received: from SATLEXMB06.amd.com (10.181.40.147) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 1 Sep
+ 2025 20:32:18 -0500
+Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB06.amd.com
+ (10.181.40.147) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 1 Sep
+ 2025 20:32:17 -0500
+Received: from xhdradheys41.xilinx.com (10.180.168.240) by SATLEXMB03.amd.com
+ (10.181.40.144) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
+ Transport; Mon, 1 Sep 2025 20:32:07 -0500
+From: Abin Joseph <abin.joseph@amd.com>
+To: <radhey.shyam.pandey@amd.com>, <andrew+netdev@lunn.ch>,
+	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <michal.simek@amd.com>
+CC: <git@amd.com>, <abin.joseph@amd.com>, <netdev@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<stable@vger.kernel.org>
+Subject: [PATCH net v2] net: xilinx: axienet: Add error handling for RX metadata pointer retrieval
+Date: Tue, 2 Sep 2025 07:02:05 +0530
+Message-ID: <20250902013205.2849707-1-abin.joseph@amd.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF00003F65:EE_|DM4PR12MB7598:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0d29c0bb-ae93-4a3f-50e9-08dde9c08ec7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700013|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?+rQ+gKSEWeN5D3j20nuT2TmErrBsk7L2u05Pf6uUL4AIG6ygdR81HfvGqT1s?=
+ =?us-ascii?Q?VxTeV5KpiXzZkJTIsqX0CqiK75fpgOk5T09QgQQ/HTxdl+9usRE2UBL9OVkZ?=
+ =?us-ascii?Q?TgzF/qa5vjUQv8yS+6LWSeSFXtuOx/I0lMNzKbh0Q0UCEiZE44ecxWhuQVLt?=
+ =?us-ascii?Q?A4FoMs44RFeGH07z7I61m2v2Bst/YyFBa9h1jbn/qfoLJEbveQ9Fe78udc87?=
+ =?us-ascii?Q?4BKCgYzFPAwFJeN3meacylgNvPxQVHmfxp0dR9zh815xdAoE56kD2LCqLwV1?=
+ =?us-ascii?Q?zKWmSLdhYEeYYRYsHH1VHs00nsJHg2T4yeCMwz1ElwLRn2QhKt6679T7zTy8?=
+ =?us-ascii?Q?L2Yv7BWuKEzcsQM4fhgnLfAxDfh6TsGAzAqkNCvVI9DkZQoCUnkpTxjMcIVI?=
+ =?us-ascii?Q?SIj30GeRmiM4DMhxTLRDGsi3BqYHVDT0Vc5ShbPldT8QRJzigwh4sxz/ek9R?=
+ =?us-ascii?Q?L+DGLBG4BfDWGJO4zMyTsiZZeDGEKX2fR5rCerPKyQYffByma+i9Qt7atquH?=
+ =?us-ascii?Q?0qg7GlJx1SorN0YtHodt2W7yQ7IRaCuAUe4Ay2pXxnUAe3eE1jePXtckm079?=
+ =?us-ascii?Q?WrGBkiNOzTiNptLjeqgFCdBq290h3QusiyxwZQS3EBduSwEMcw9rmFHma0ou?=
+ =?us-ascii?Q?EJv18HQpUv53UBQNcTLviCEv4LtmmQbCDZxZji/A5owZF0s88Ss4uAEVgo1z?=
+ =?us-ascii?Q?o4WK6Z6c+jYtCYqujSwB5l5IbYfJNgPSGs9g2FS/W9aQayfOeTsmTQpnRtXN?=
+ =?us-ascii?Q?e4Fzd4Nz70hDRdrEBeEgDxESmytK1L7bRFMsfxaqc8S+1Jjgbrv1nkyOh/UL?=
+ =?us-ascii?Q?zUYU1+2bgxkm9MUNXWPn6efbAtoSzLstv4U3hLQJDSShvcgKRYYHUjlOXXpa?=
+ =?us-ascii?Q?j+LY2yl+IQC4NxsA1lK2d4GyRcFArtlUbiSarxdo0qTl295fjO1vFu0AqlpH?=
+ =?us-ascii?Q?dJN5qCH+nm+ZRnKjVo4gUiT3yUinB6VF9pQidiapBaSBptBEGxipNTb8KWEP?=
+ =?us-ascii?Q?ZvkNe/YAqJ+nKfj4ljhJFTddTpDfQ6fjcY0d/xN/iu23yzku7Ey8qphLHTWa?=
+ =?us-ascii?Q?QUqs7zr9HljkDhnUzo/jFsDUWL3pPYtSZPPgZSTG0DO/enVGQYckqQHoo/zB?=
+ =?us-ascii?Q?vT4+ztLQ78n3xjOcdwPigpR1ZXPsmg00FpOC6Zv+7MPVczVhAMK6aZqd4ZBx?=
+ =?us-ascii?Q?Uq7eLZ8eQPpBqUYbvtC2YrzcWwyasklS0fgEm3dXvNkrIyCDzcwWnudcLJKS?=
+ =?us-ascii?Q?Am6IDakCURoOzH0ZRk3spoT5ykPPzUykFvO+yXyr45r2cmGbaYL7myHVMUCz?=
+ =?us-ascii?Q?r8IkKTKhzCKMDOmpt2Wusu3XAu0oGFPdDidIp3YsgsL+D0FhOMOw2jgQEwYR?=
+ =?us-ascii?Q?IQtELYYHgSeBxokqjsL3aUnWlF4CW3tYJWLANBUjIzJ5rjPLWg+9irFN0sm7?=
+ =?us-ascii?Q?u/B1J1WEiCf8jkQEZdKEBMsn32t1O87SgXe4qu3BtegcOMrQgwqNfmUCkP8d?=
+ =?us-ascii?Q?EpUQlcffVGbneCYW4l7U5wCxbAhuCMhUTCgM?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700013)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2025 01:32:19.4221
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0d29c0bb-ae93-4a3f-50e9-08dde9c08ec7
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003F65.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB7598
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_171312_140455_B8C9FFE8 
-X-CRM114-Status: GOOD (  22.53  )
+X-CRM114-CacheID: sfid-20250901_183234_084882_57736133 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,140 +148,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Add proper error checking for dmaengine_desc_get_metadata_ptr() which
+can return an error pointer and lead to potential crashes or undefined
+behaviour if the pointer retrieval fails.
 
-Extend the Renesas GBETH stmmac glue driver to support the RZ/T2H SoC,
-where the GMAC is connected through a MIIC PCS. Introduce a new
-`has_pcs` flag in `struct renesas_gbeth_of_data` to indicate when PCS
-handling is required.
+Properly handle the error by unmapping DMA buffer, freeing the skb and
+returning early to prevent further processing with invalid data.
 
-When enabled, the driver parses the `pcs-handle` phandle, creates a PCS
-instance with `miic_create()`, and wires it into phylink. Proper cleanup
-is done with `miic_destroy()`. New init/exit/select hooks are added to
-`plat_stmmacenet_data` for PCS integration.
-
-Update Kconfig to select `PCS_RZN1_MIIC` when building the Renesas GBETH
-driver so the PCS support is always available.
-
-Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Fixes: 6a91b846af85 ("net: axienet: Introduce dmaengine support")
+Signed-off-by: Abin Joseph <abin.joseph@amd.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/Kconfig   |  1 +
- .../stmicro/stmmac/dwmac-renesas-gbeth.c      | 52 +++++++++++++++++++
- 2 files changed, 53 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-index 67fa879b1e52..a01c83b109f9 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-+++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-@@ -136,6 +136,7 @@ config DWMAC_RENESAS_GBETH
- 	tristate "Renesas RZ/V2H(P) GBETH support"
- 	default ARCH_RENESAS
- 	depends on OF && (ARCH_RENESAS || COMPILE_TEST)
-+	select PCS_RZN1_MIIC
- 	help
- 	  Support for Gigabit Ethernet Interface (GBETH) on Renesas
- 	  RZ/V2H(P) SoCs.
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
-index 022e595a9e1b..ad89f7b8f279 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
-@@ -17,6 +17,7 @@
- #include <linux/device.h>
- #include <linux/module.h>
- #include <linux/of.h>
-+#include <linux/pcs-rzn1-miic.h>
- #include <linux/platform_device.h>
- #include <linux/reset.h>
- #include <linux/types.h>
-@@ -33,6 +34,7 @@
-  *                handled by the glue driver or core driver.
-  * @set_clk_tx_rate: Flag to indicate if Tx clock is fixed or
-  *                   set_clk_tx_rate is needed.
-+ * @has_pcs: Flag to indicate if the MAC has a PCS
-  */
- struct renesas_gbeth_of_data {
- 	const char * const *clks;
-@@ -40,6 +42,7 @@ struct renesas_gbeth_of_data {
- 	u32 stmmac_flags;
- 	bool handle_reset;
- 	bool set_clk_tx_rate;
-+	bool has_pcs;
- };
- 
- struct renesas_gbeth {
-@@ -53,6 +56,41 @@ static const char *const renesas_gbeth_clks[] = {
- 	"tx", "tx-180", "rx", "rx-180",
- };
- 
-+static const char *const renesas_gmac_clks[] = {
-+	"tx",
-+};
+Changes in v2:
+Update the alias to net
+
+---
+ drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+index 0d8a05fe541a..83469f7f08d1 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+@@ -1166,8 +1166,18 @@ static void axienet_dma_rx_cb(void *data, const struct dmaengine_result *result)
+ 	skb = skbuf_dma->skb;
+ 	app_metadata = dmaengine_desc_get_metadata_ptr(skbuf_dma->desc, &meta_len,
+ 						       &meta_max_len);
 +
-+static int renesas_gmac_pcs_init(struct stmmac_priv *priv)
-+{
-+	struct device_node *np = priv->device->of_node;
-+	struct device_node *pcs_node;
-+	struct phylink_pcs *pcs;
+ 	dma_unmap_single(lp->dev, skbuf_dma->dma_address, lp->max_frm_size,
+ 			 DMA_FROM_DEVICE);
 +
-+	pcs_node = of_parse_phandle(np, "pcs-handle", 0);
-+	if (pcs_node) {
-+		pcs = miic_create(priv->device, pcs_node);
-+		of_node_put(pcs_node);
-+		if (IS_ERR(pcs))
-+			return PTR_ERR(pcs);
-+
-+		priv->hw->phylink_pcs = pcs;
++	if (IS_ERR(app_metadata)) {
++		if (net_ratelimit())
++			netdev_err(lp->ndev, "Failed to get RX metadata pointer\n");
++		dev_kfree_skb_any(skb);
++		lp->ndev->stats.rx_dropped++;
++		goto rx_submit;
 +	}
 +
-+	return 0;
-+}
-+
-+static void renesas_gmac_pcs_exit(struct stmmac_priv *priv)
-+{
-+	if (priv->hw->phylink_pcs)
-+		miic_destroy(priv->hw->phylink_pcs);
-+}
-+
-+static struct phylink_pcs *renesas_gmac_select_pcs(struct stmmac_priv *priv,
-+						   phy_interface_t interface)
-+{
-+	return priv->hw->phylink_pcs;
-+}
-+
- static int renesas_gbeth_init(struct platform_device *pdev, void *priv)
- {
- 	struct plat_stmmacenet_data *plat_dat;
-@@ -149,6 +187,11 @@ static int renesas_gbeth_probe(struct platform_device *pdev)
- 	plat_dat->init = renesas_gbeth_init;
- 	plat_dat->exit = renesas_gbeth_exit;
- 	plat_dat->flags |= gbeth->of_data->stmmac_flags;
-+	if (of_data->has_pcs) {
-+		plat_dat->pcs_init = renesas_gmac_pcs_init;
-+		plat_dat->pcs_exit = renesas_gmac_pcs_exit;
-+		plat_dat->select_pcs = renesas_gmac_select_pcs;
-+	}
+ 	/* TODO: Derive app word index programmatically */
+ 	rx_len = (app_metadata[LEN_APP] & 0xFFFF);
+ 	skb_put(skb, rx_len);
+@@ -1180,6 +1190,7 @@ static void axienet_dma_rx_cb(void *data, const struct dmaengine_result *result)
+ 	u64_stats_add(&lp->rx_bytes, rx_len);
+ 	u64_stats_update_end(&lp->rx_stat_sync);
  
- 	return devm_stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
- }
-@@ -163,8 +206,17 @@ static const struct renesas_gbeth_of_data renesas_gbeth_of_data = {
- 			STMMAC_FLAG_SPH_DISABLE,
- };
- 
-+static const struct renesas_gbeth_of_data renesas_gmac_of_data = {
-+	.clks = renesas_gmac_clks,
-+	.num_clks = ARRAY_SIZE(renesas_gmac_clks),
-+	.stmmac_flags = STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY |
-+			STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP,
-+	.has_pcs = true,
-+};
-+
- static const struct of_device_id renesas_gbeth_match[] = {
- 	{ .compatible = "renesas,rzv2h-gbeth", .data = &renesas_gbeth_of_data },
-+	{ .compatible = "renesas,rzt2h-gbeth", .data = &renesas_gmac_of_data },
- 	{ /* Sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, renesas_gbeth_match);
++rx_submit:
+ 	for (i = 0; i < CIRC_SPACE(lp->rx_ring_head, lp->rx_ring_tail,
+ 				   RX_BUF_NUM_DEFAULT); i++)
+ 		axienet_rx_submit_desc(lp->ndev);
 -- 
-2.51.0
+2.34.1
 
 
