@@ -4,71 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68142CA0FFE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 16:07:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66058CA0FFE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 16:10:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4slDyr7KGiE0XZi52LNTVAi2VJmkRfwRlKup7c0Bk20=; b=beFvBponTUrJExdfDah78E6aER
-	skbtT/NFbr5oCT73F6U2Gr+imzV0T02D5xdsaaBdcyziuUXsb/UeC2DXZ1+u9ANVxklkfiUQN5lS0
-	y8gk3Y24EiN+IPXmo2kXY+m0yhr7FMarWJSyqJT4qmITGv32GD9WNKDl9YN0DXI6WUchth7X5avK4
-	5abZpgAgsiJ45Tm8CuqWIfE9f2YclKSrXBGN+8ivKeNTPvPFyri5TSEyYeOsU6lC+n1HIA7Yy8Vkh
-	aVH1OKk2/jGb7FxO7XbmFwxAPhzfpp2ik61T6NC18Mq4dnMjjNeHI5xBFBemBrhw9B0WUa+z6jq7O
-	moOtVTTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VQGo8mSpNdawdXK5gcjr//W/UJwwByVl1T2RsevJCv8=; b=lcKgUC9HUUYAS4DQsDICKKQBkq
+	2FLvjCw20ZGxscR8+gTS29K14JpZzBLrcOOOuAlzHdepQhuB24ctFvAMfqvcyeoevhY6kJTknWAg5
+	GWYEhvFb2CvQN9q84M3Ce75ZK1/w9yKR5BQyGvSZm3UtZOs8GHfEpkEgYygnjCsEW7/UVd3qUQi6G
+	Fo5rvmuAh8eWMTCG+5HG6dodVprg86r25V/7N1MQmVZU0qh4yzCz3tJm4beH1z5DNoHidt4Ozyv5d
+	MZoJumZirUiVXTjKw7gryGoj6cUKj0KGjf8UprKGHNpoiWdwj6FeFDGqWdamfxr88J9MynwXGQ3h9
+	lGx78Pgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utTXO-00000000rWY-1vT8;
-	Tue, 02 Sep 2025 16:07:14 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
+	id 1utTa5-00000000sQ7-3Rni;
+	Tue, 02 Sep 2025 16:10:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utPui-0000000H9hw-1spe
+	id 1utQ1v-0000000HC9n-2eeq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 12:15:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1756815304; x=1788351304;
-  h=date:from:to:cc:subject:message-id;
-  bh=e2F3ZVHt6Zu7j4Lf/YimEF3074Xtr6ges17IEiu0Z40=;
-  b=VTU476Brs2B8q6EZkDRPpfQBSvyNS03CyczEH1ohVnvDp2URbqMVoxQ9
-   vjQAbx+iwAv9O+9Js20o5O7EWGiQC7W7BIYQ1iAR5DJ9Xw4bkmpsuY3s4
-   /CtedwQuZzZqXMSuPr4QwHcq/YhvpUwx6mDyR8iL0hJykCULVXkQsGSy3
-   j2IbEyHmy3RKEO0JD+x3nC2LU6b1f/yJ2DDfmJYLHcnEcHf43qmfD1Tw8
-   NjS60UauqCPCjP+GJJrsZYbH7H1EXJ4KkBdqjqoFah97XB7ezQFEUS1ch
-   Dx/X47pIUhJvRA3mfe/t6iXx+dMWFP5gNSzreV/s/w6SJ2tZ/yG0O2aLn
-   w==;
-X-CSE-ConnectionGUID: XRkzoacPTHCf2bdIDhV4RA==
-X-CSE-MsgGUID: nFca5c/LS7251K/Vk4lEOQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11540"; a="76686159"
-X-IronPort-AV: E=Sophos;i="6.18,230,1751266800"; 
-   d="scan'208";a="76686159"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Sep 2025 05:15:02 -0700
-X-CSE-ConnectionGUID: Xy1Ty1j+QQqm8Kk0ehoDAA==
-X-CSE-MsgGUID: alQNMqb/TT+K5XWLwc+OAg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,230,1751266800"; 
-   d="scan'208";a="208455123"
-Received: from lkp-server02.sh.intel.com (HELO 06ba48ef64e9) ([10.239.97.151])
-  by orviesa001.jf.intel.com with ESMTP; 02 Sep 2025 05:15:00 -0700
-Received: from kbuild by 06ba48ef64e9 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1utPuI-0001xJ-1t;
-	Tue, 02 Sep 2025 12:14:44 +0000
-Date: Tue, 02 Sep 2025 20:10:01 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:soc/dt] BUILD SUCCESS
- cea9c89d46c62b5fdc719c60bc7b2e3abd8c0153
-Message-ID: <202509022045.qKenSjUO-lkp@intel.com>
-User-Agent: s-nail v14.9.24
+	Tue, 02 Sep 2025 12:22:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CF5D640BFF;
+	Tue,  2 Sep 2025 12:22:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3778AC4CEF9;
+	Tue,  2 Sep 2025 12:22:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756815750;
+	bh=WNvwZbGhhRwiEb2NPZN3SCJ15SAxBEIHxjUM1lFStyY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YjxLry+kEeJUnxV6320vUXHUgAtysOdDe1jnnqQakBn7XHkLy8IoCYiz8XaXyarnp
+	 bWqO7UB1DMQbu6g/GNEI/9c683OShl1Tm5ybjq3HTAJ0dXNzeBgLPPvO/SE7jgcA6c
+	 on9jzYxcdrpIA8yMU+NHVWtno+Lr2A3a7ziQdUWLsRYUGyi58FjZMBnWq/r9qjRrVt
+	 moZAi2g3uJsCbVOi+L0c9EDWk68EAcF57Jl4mdwJ2fRqfB31D0uMEk7wcBGy/tp+kM
+	 ZrDCqn2GQow2szfYXf3yfR8Z0EfenYPsDinvAIX+5UA855oKs6nUJqJgTB/whvPG1t
+	 ttqlMwa6eVV5A==
+Date: Tue, 2 Sep 2025 14:22:28 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Liu Ying <victor.liu@nxp.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Hui Pu <Hui.Pu@gehealthcare.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Andrew Morton <akpm@linux-foundation.org>, 
+	Zijun Hu <quic_zijuhu@quicinc.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Subject: Re: [PATCH v2 1/9] list: add list_last_entry_or_null()
+Message-ID: <20250902-speedy-friendly-alpaca-f80709@houat>
+References: <20250801-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v2-0-888912b0be13@bootlin.com>
+ <20250801-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v2-1-888912b0be13@bootlin.com>
+ <aJJ9ttmL7wiw41fY@smile.fi.intel.com>
+ <20250814183609.3788a6df@booty>
+ <aKXRHAyfPHPpZmMs@smile.fi.intel.com>
+ <20250902135709.19e1ef54@booty>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="ha3ss3lic4lbxxde"
+Content-Disposition: inline
+In-Reply-To: <20250902135709.19e1ef54@booty>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_051504_500024_70791AF2 
-X-CRM114-Status: UNSURE (   5.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250902_052231_716613_C6C612A4 
+X-CRM114-Status: GOOD (  30.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,174 +88,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/dt
-branch HEAD: cea9c89d46c62b5fdc719c60bc7b2e3abd8c0153  Merge tag 'sti-dt-for-v6.18-round1' of https://git.kernel.org/pub/scm/linux/kernel/git/pchotard/sti into soc/dt
 
-elapsed time: 1497m
+--ha3ss3lic4lbxxde
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2 1/9] list: add list_last_entry_or_null()
+MIME-Version: 1.0
 
-configs tested: 154
-configs skipped: 4
+On Tue, Sep 02, 2025 at 01:57:09PM +0200, Luca Ceresoli wrote:
+> Hello DRM maintainers,
+>=20
+> On Wed, 20 Aug 2025 16:43:56 +0300
+> Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
+>=20
+> > On Thu, Aug 14, 2025 at 06:36:09PM +0200, Luca Ceresoli wrote:
+> > > On Wed, 6 Aug 2025 00:55:02 +0300
+> > > Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
+> > >  =20
+> > > > On Fri, Aug 01, 2025 at 07:05:23PM +0200, Luca Ceresoli wrote: =20
+> > > > > Add an equivalent of list_first_entry_or_null() to obtain the las=
+t element
+> > > > > of a list.   =20
+> > > >=20
+> > > > Acked-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com> =20
+> > >=20
+> > > Thanks Andy!
+> > >=20
+> > > However I'm not sure when and where this should be applied.
+> > >=20
+> > > Except for this one patch, all patches in the series are for
+> > > drm-misc-next. Also, patch 1 is currently not needed by any other
+> > > series AFAIK.
+> > >=20
+> > > Based on the above, is it correct to assume that the whole series can
+> > > be applied on drm-misc-next? (when other patches will have a
+> > > R-by/Ack-by of course)
+> > >=20
+> > > Also, is Andy's A-by enough to apply this patch? =20
+> >=20
+> > The list.h is common for many, I think going via DRM with my Ack is eno=
+ugh
+> > based on the Git history of my changes in this file. But if you want mo=
+re
+> > reliable source, get an Ack from Andrew Morton.
+>=20
+> While applying this patch with dim on drm-misc-next, dim push-branch
+> failed because:
+>=20
+>   dim: ERROR: cb86408b1fc2 ("list: add list_last_entry_or_null()"): Manda=
+tory Maintainer Acked-by missing., aborting
+>=20
+> Looking at the dim code, it is looking for a Reviewed- or Acked-by from
+> people listed by `scripts/get_maintainer.pl --no-git-fallback -m --nol
+> --norolestats`. but that command returns an empty string, so it will
+> never allow me to push.
+>=20
+> How can I get that commit pushed to drm-misc-next?
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+Adding a MAINTAINERS entry for it would be nice too
 
-tested configs:
-alpha                             allnoconfig    clang-22
-alpha                             allnoconfig    gcc-15.1.0
-alpha                            allyesconfig    gcc-15.1.0
-arc                              allmodconfig    gcc-15.1.0
-arc                               allnoconfig    clang-22
-arc                               allnoconfig    gcc-15.1.0
-arc                              allyesconfig    gcc-15.1.0
-arc                   randconfig-001-20250902    gcc-11.5.0
-arc                   randconfig-002-20250902    gcc-9.5.0
-arm                              allmodconfig    gcc-15.1.0
-arm                               allnoconfig    clang-22
-arm                              allyesconfig    gcc-15.1.0
-arm                        neponset_defconfig    gcc-15.1.0
-arm                   randconfig-001-20250902    gcc-15.1.0
-arm                   randconfig-002-20250902    gcc-8.5.0
-arm                   randconfig-003-20250902    clang-22
-arm                   randconfig-004-20250902    clang-22
-arm                           stm32_defconfig    gcc-15.1.0
-arm                    vt8500_v6_v7_defconfig    gcc-15.1.0
-arm64                            allmodconfig    clang-19
-arm64                             allnoconfig    clang-22
-arm64                             allnoconfig    gcc-15.1.0
-arm64                 randconfig-001-20250902    gcc-8.5.0
-arm64                 randconfig-002-20250902    clang-22
-arm64                 randconfig-003-20250902    gcc-12.5.0
-arm64                 randconfig-004-20250902    clang-22
-csky                              allnoconfig    clang-22
-csky                              allnoconfig    gcc-15.1.0
-csky                  randconfig-001-20250902    gcc-14.3.0
-csky                  randconfig-002-20250902    gcc-12.5.0
-hexagon                          allmodconfig    clang-17
-hexagon                           allnoconfig    clang-22
-hexagon                          allyesconfig    clang-22
-hexagon               randconfig-001-20250902    clang-18
-hexagon               randconfig-002-20250902    clang-22
-i386                             alldefconfig    gcc-12
-i386                             allmodconfig    gcc-12
-i386                              allnoconfig    gcc-12
-i386        buildonly-randconfig-001-20250902    clang-20
-i386        buildonly-randconfig-002-20250902    clang-20
-i386        buildonly-randconfig-003-20250902    gcc-12
-i386        buildonly-randconfig-004-20250902    clang-20
-i386        buildonly-randconfig-005-20250902    gcc-12
-i386        buildonly-randconfig-006-20250902    clang-20
-i386                                defconfig    clang-20
-i386                  randconfig-011-20250902    gcc-12
-i386                  randconfig-012-20250902    gcc-12
-i386                  randconfig-013-20250902    gcc-12
-i386                  randconfig-014-20250902    gcc-12
-i386                  randconfig-015-20250902    gcc-12
-i386                  randconfig-016-20250902    gcc-12
-i386                  randconfig-017-20250902    gcc-12
-loongarch                        allmodconfig    clang-19
-loongarch                         allnoconfig    clang-22
-loongarch             randconfig-001-20250902    clang-22
-loongarch             randconfig-002-20250902    clang-22
-m68k                             allmodconfig    gcc-15.1.0
-m68k                              allnoconfig    gcc-15.1.0
-m68k                             allyesconfig    gcc-15.1.0
-m68k                            mac_defconfig    gcc-15.1.0
-m68k                        mvme147_defconfig    gcc-15.1.0
-microblaze                       allmodconfig    gcc-15.1.0
-microblaze                        allnoconfig    gcc-15.1.0
-microblaze                       allyesconfig    gcc-15.1.0
-microblaze                          defconfig    gcc-15.1.0
-mips                              allnoconfig    gcc-15.1.0
-mips                        bcm63xx_defconfig    gcc-15.1.0
-mips                         db1xxx_defconfig    clang-22
-mips                      maltaaprp_defconfig    clang-22
-mips                          rb532_defconfig    clang-18
-nios2                             allnoconfig    gcc-11.5.0
-nios2                             allnoconfig    gcc-15.1.0
-nios2                               defconfig    gcc-11.5.0
-nios2                               defconfig    gcc-15.1.0
-nios2                 randconfig-001-20250902    gcc-9.5.0
-nios2                 randconfig-002-20250902    gcc-11.5.0
-openrisc                          allnoconfig    clang-22
-openrisc                          allnoconfig    gcc-15.1.0
-openrisc                         allyesconfig    gcc-15.1.0
-parisc                           allmodconfig    gcc-15.1.0
-parisc                            allnoconfig    clang-22
-parisc                            allnoconfig    gcc-15.1.0
-parisc                           allyesconfig    gcc-15.1.0
-parisc                              defconfig    gcc-15.1.0
-parisc                randconfig-001-20250902    gcc-8.5.0
-parisc                randconfig-002-20250902    gcc-11.5.0
-parisc64                            defconfig    gcc-15.1.0
-powerpc                          allmodconfig    gcc-15.1.0
-powerpc                           allnoconfig    clang-22
-powerpc                           allnoconfig    gcc-15.1.0
-powerpc                          allyesconfig    clang-22
-powerpc               randconfig-001-20250902    gcc-9.5.0
-powerpc               randconfig-002-20250902    gcc-8.5.0
-powerpc               randconfig-003-20250902    gcc-11.5.0
-powerpc                     skiroot_defconfig    clang-22
-powerpc                        warp_defconfig    gcc-15.1.0
-powerpc64             randconfig-001-20250902    gcc-12.5.0
-powerpc64             randconfig-002-20250902    clang-22
-powerpc64             randconfig-003-20250902    clang-22
-riscv                            allmodconfig    clang-22
-riscv                             allnoconfig    clang-22
-riscv                             allnoconfig    gcc-15.1.0
-riscv                            allyesconfig    clang-16
-riscv                 randconfig-001-20250902    gcc-13.4.0
-riscv                 randconfig-002-20250902    clang-22
-s390                             allmodconfig    clang-18
-s390                              allnoconfig    clang-22
-s390                             allyesconfig    gcc-15.1.0
-s390                  randconfig-001-20250902    clang-22
-s390                  randconfig-002-20250902    gcc-10.5.0
-sh                               allmodconfig    gcc-15.1.0
-sh                                allnoconfig    gcc-15.1.0
-sh                               allyesconfig    gcc-15.1.0
-sh                    randconfig-001-20250902    gcc-12.5.0
-sh                    randconfig-002-20250902    gcc-12.5.0
-sh                          rsk7269_defconfig    gcc-15.1.0
-sh                        sh7757lcr_defconfig    gcc-15.1.0
-sparc                            allmodconfig    gcc-15.1.0
-sparc                             allnoconfig    gcc-15.1.0
-sparc                               defconfig    gcc-15.1.0
-sparc                 randconfig-001-20250902    gcc-14.3.0
-sparc                 randconfig-002-20250902    gcc-8.5.0
-sparc                       sparc32_defconfig    gcc-15.1.0
-sparc64               randconfig-001-20250902    clang-20
-sparc64               randconfig-002-20250902    gcc-9.5.0
-um                               allmodconfig    clang-19
-um                                allnoconfig    clang-22
-um                               allyesconfig    gcc-12
-um                    randconfig-001-20250902    gcc-12
-um                    randconfig-002-20250902    gcc-12
-x86_64                            allnoconfig    clang-20
-x86_64                           allyesconfig    clang-20
-x86_64      buildonly-randconfig-001-20250902    clang-20
-x86_64      buildonly-randconfig-002-20250902    clang-20
-x86_64      buildonly-randconfig-003-20250902    clang-20
-x86_64      buildonly-randconfig-004-20250902    clang-20
-x86_64      buildonly-randconfig-004-20250902    gcc-12
-x86_64      buildonly-randconfig-005-20250902    clang-20
-x86_64      buildonly-randconfig-005-20250902    gcc-12
-x86_64      buildonly-randconfig-006-20250902    clang-20
-x86_64      buildonly-randconfig-006-20250902    gcc-12
-x86_64                              defconfig    gcc-11
-x86_64                randconfig-001-20250902    clang-20
-x86_64                randconfig-002-20250902    clang-20
-x86_64                randconfig-003-20250902    clang-20
-x86_64                randconfig-004-20250902    clang-20
-x86_64                randconfig-005-20250902    clang-20
-x86_64                randconfig-006-20250902    clang-20
-x86_64                randconfig-007-20250902    clang-20
-x86_64                randconfig-008-20250902    clang-20
-x86_64                          rhel-9.4-rust    clang-20
-xtensa                            allnoconfig    gcc-15.1.0
-xtensa                randconfig-001-20250902    gcc-9.5.0
-xtensa                randconfig-002-20250902    gcc-10.5.0
+Maxime
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+--ha3ss3lic4lbxxde
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaLbhewAKCRAnX84Zoj2+
+dkQBAYDszpV6SGYWBTBgJCvIUpiseT/exARuDvzdOQmtFKiQnfCnA6jnGgP8dcxi
+1t81QSABfjclCtf2qV5ucKcKjfmq3i46LSX4vnLy8fnGVrq09f1F1r8yuY2lSQs0
+Cp9wkfBFxA==
+=G+6D
+-----END PGP SIGNATURE-----
+
+--ha3ss3lic4lbxxde--
 
