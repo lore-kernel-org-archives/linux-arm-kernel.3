@@ -4,95 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09722CA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:54:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4F38CA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 22:57:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h0tyuMeYrRF3UuyC0u24L8yefESvpiLXMf//ew+AAMA=; b=Dv0QpgjPH0LOzQ1K+5JTqkKhO+
-	lZ0zbZ0zoAQGD8Rm7s1+/XWS0Rch81jzqVw8Ttjtq9J4OoTQvFHmOTCnaGrRvqfl//mWjK2/3xTYm
-	b8OicwQ0GBekl3RA0VvUSvqPVI/ux6K9uaAF8KwZlxVQMJe+DriHzWcgfMDzePdNTjBK4LD7LmE2b
-	fdMjj3Leb1SqECTmgDucFwH15ztNcDD0aWRHS9NWD7yj6yTxSNihTKsEjBftZtDOGgQtJY9FJLuRF
-	ITY7rMimscD40CG2tTLJJc0UVSakVY1dkQVRUoYsUKiKyR1VuyDyNPluskUm/w3zPpcXe90YEjpv2
-	H1GQfEYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s8MTrRQ3wYOwYWqanX40mGoykrUG5ot4hkijNd6l1Fo=; b=GsOZVOewdqWWcukOcHS9Ic0ogc
+	V/dLlGcDWv6aJ6IqZWLPnqXelDx0KemOCt1WV+ocknscTnoEbaX2aiilJYCSq1wLsGsLMI0VOI2tY
+	/MpBkI3HZh8VoufL63psar/qOqo+Z6Heboz6pbwqvCPDfJYkJKLuXvAldimBTqwbMIB1JJjn1c/2J
+	CFoDHrNfhIowUL9pwb18pDLfUihpmWPzLOJOI3BekIp1qNQfYZ6fPjvxXuLOyufnSlhiAqGI2xwpX
+	S6tZfh8kZwyxxUW2aIKcik6wFN3YtxvhyW1nnShvA3Vua0mJcdWMyMMsWvTIcRG60HhFOli7ih9yV
+	uKI5KbEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utYx5-00000002H6a-1OLa;
-	Tue, 02 Sep 2025 21:54:07 +0000
-Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
+	id 1utZwn-00000002UbU-1VnS;
+	Tue, 02 Sep 2025 22:57:53 +0000
+Received: from mail-mw2nam10on2062c.outbound.protection.outlook.com ([2a01:111:f403:2412::62c] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utWLC-00000001Yai-2Tse
+	id 1utU9X-000000011py-0zD0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 19:06:51 +0000
-Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-b4cb3367d87so3289908a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 12:06:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756840010; x=1757444810; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=h0tyuMeYrRF3UuyC0u24L8yefESvpiLXMf//ew+AAMA=;
-        b=f07dZyUDwNfgiycjEk5Ah6TeGPOM/ZWKN91cTdH6JXfB6MUTyJbIgoGdrdUMTm+ozv
-         RU+LnWoP6AuieewS4VwdP63DmEd3lbNvFMirCGgXMLYRThgIb2/0SkuqCYMrGTe0ps51
-         1YO2bR2aalDYWDrp9ZnsSakN0Dz3lSzBJUBO0qmlYvrxkW34ymUYTwqP06jWseCR4qMB
-         3+Z66jmzUAyoPPJ9+mpKvBap8uf2eV9ePy7423CkkQepgL1Ona2uzZED1+6kUtmGTtlW
-         HzQt4lwUiP5hAXoU0jI06Q23+CK2BlR0CraVDJHcpd167Cu2+NbGhhDHanG1Xqq1GPk1
-         6ENQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756840010; x=1757444810;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=h0tyuMeYrRF3UuyC0u24L8yefESvpiLXMf//ew+AAMA=;
-        b=FcI1+j78aYSqQ8K788WSgD2N6WDSmeGAPI35FSzX2MxvlGHJEyj5Xs7rpFuv8MMQeF
-         KzpPf6Ch+4nL9oSjF9hnWctWslOsF/EZFu2mWPnZSBPC7IACz6g809lrWBjD7MC7cVS+
-         DMz1a3QWy2mLkglux5Lz1mm4qoSFFmWh2GEMcXXydZ2xsQzEJwIbmTdDq6QK8i0hPZfu
-         E8HHrFGRP79w2onI4jkrSyjWNunCSbovmaxbV8noXorgFaxEvhypa4uuke6FmUzg1ZNM
-         rcgVGT/lK+WfARGH/nXfJY2CahtcmZGHGDqnmIeCkaF3BSKx91Kg6OASQKkek4Fzlc8m
-         u3yw==
-X-Forwarded-Encrypted: i=1; AJvYcCUrq63T0GdvtoJ3GSHgcMX2xHt7Zb3MEuswbPiJOqr4ZbetlfzBCEh7nM8pajJl3UaCcNmLwEUM9BZUNwt9ez5N@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLMIWlJJ7f4LIK59Dm8ULRY3J3g+HlDSYh3HPqmkbAAmDOdhXL
-	E5/EsIqB97tFfeXbhzIubzLm75y89Bxnash21SheSfg2xy+Xd3k8M7nd
-X-Gm-Gg: ASbGnctFjpYGfRG7e8iGS8wk8Y0saTUzn11N9mUFo8wtcUAQ10f7PLFg92yqzXTA35E
-	wfVmJNAmYVwJUBhOESW1b3PdMKekU5CJLLRRXaGB80GYHkHgGZ/iVWHtx+3Bqw4yGy5aIQIH7Js
-	bIIDaYI/XsC/dffTMAEWuwrC3pLSWucLwT14TuIYwVgdiHosq6Ea1LHwKfQ8wZ8tSsO1xkY9TQO
-	NhiAYGOtZ+bvUktEU6AW6pouN/WkSi5aL2gCuZsbmv3RZyO1oV1LTqGXKXMmR8PK9UUsC+nu2qv
-	nDS/A+lwUuW3Xa2sR1dBuyqBojlKb/84G2z+WEf9vkb4cayfchb3H2rrukywQz5I2upec+baE9S
-	3/CyTj9749tVLuqO1HrwEKIfNEzTuEMhl5cA=
-X-Google-Smtp-Source: AGHT+IGiaaNenZIIlYQ031zqIJ8csfv12moDoXvpOr+m9JD1YnwbUBskbJecUQoUMXDhWons6OPv4g==
-X-Received: by 2002:a17:903:1211:b0:246:ceda:ebeb with SMTP id d9443c01a7336-24944aa2848mr155824775ad.33.1756840009795;
-        Tue, 02 Sep 2025 12:06:49 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-24903702354sm140993485ad.19.2025.09.02.12.06.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Sep 2025 12:06:49 -0700 (PDT)
-Date: Tue, 2 Sep 2025 12:06:48 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH 4/4] dt-bindings: watchdog: samsung-wdt: Split if:then:
- and constrain more
-Message-ID: <fc652345-1dcd-4adf-a472-907c9692de89@roeck-us.net>
-References: <20250830-watchdog-s3c-cleanup-v1-0-837ae94a21b5@linaro.org>
- <20250830-watchdog-s3c-cleanup-v1-4-837ae94a21b5@linaro.org>
+	Tue, 02 Sep 2025 16:46:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rs0QLGscikOAi8Zu4WUT45yKtB5Hgclg4zF0u+t9YkxDnnP6Ne/28hmwLXNJdomTUFMfFD4Q0g3KUdgW6W3+Kn/utzD8Y58Ix+RqduwHR4au4u/UOZj9M+bOSxG11/rG2oGuSTV8XQjmHGxRT/xmuyKrggEvuhSeSN7wDsTVraBN4OonnI41fd62woZyAyAvRAyxRo9fUBemn3WXEQNMHxMb9/5Sc05IpccDX0yNxM/c41rgczl4/918ZChZsEQ7h/Vf8ZZIGCEp68MuUznpELJ37sE4kNh4N2kjCjnWI2TXJqqyOlen4WXvqgf94MxrCb7qa5fu/B7O+X5caeQ3ZQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=s8MTrRQ3wYOwYWqanX40mGoykrUG5ot4hkijNd6l1Fo=;
+ b=Bpr9st44sSdz0hbmuuVagmpbcloZgzcT7IEx3AFK2ZeoSLVTctjuJ0vdAeCqhoc75imIYM+uc9SlEy0k2BjsWefOsg11rvsSEDOmKk8GrWgS8LQEZ+lsL8J2l1rDSVGo9tiJVteH7aUPT8evdgjQLRtFKaTyw/WTh6qzjrHCMyP05QGKhVyICCSOBnnyLSaigOEI3D86/8FWDYcEqvdPW+jmgv+EawCmdhwLHKhI2YtxDhmTDkcdNLwST3epN+5yOov4LcZk7oFPUBTTjiFaIgz56xVofPPn39/j7Wa17CK+L7E9wYBVELUBYC53ht5a1TOBMdhSetB1m2j6e2eeoA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=amarulasolutions.com smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=s8MTrRQ3wYOwYWqanX40mGoykrUG5ot4hkijNd6l1Fo=;
+ b=HdQ9pQODRI94wQo8Yirmzv2TwGstzbyP6yOFEZd8PWesKnGf/ZazLcbYjfGlRh+FlFODemE7FUF3ts5/0msS4Iit++bN0hhLE80FdeDfteYyuHpRqp0xsn3TeGh7AS5eR/c/TadrkyBD+mFpOs2i0vfqiEL8vVK4aDlzG/oOQEQ=
+Received: from MW4PR04CA0095.namprd04.prod.outlook.com (2603:10b6:303:83::10)
+ by PH7PR12MB9073.namprd12.prod.outlook.com (2603:10b6:510:2eb::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.16; Tue, 2 Sep
+ 2025 16:46:31 +0000
+Received: from SJ1PEPF00002325.namprd03.prod.outlook.com
+ (2603:10b6:303:83:cafe::d0) by MW4PR04CA0095.outlook.office365.com
+ (2603:10b6:303:83::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9094.16 via Frontend Transport; Tue,
+ 2 Sep 2025 16:46:30 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=SATLEXMB03.amd.com; pr=C
+Received: from SATLEXMB03.amd.com (165.204.84.17) by
+ SJ1PEPF00002325.mail.protection.outlook.com (10.167.242.88) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.9094.14 via Frontend Transport; Tue, 2 Sep 2025 16:46:30 +0000
+Received: from SATLEXMB05.amd.com (10.181.40.146) by SATLEXMB03.amd.com
+ (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 2 Sep
+ 2025 11:46:28 -0500
+Received: from SATLEXMB04.amd.com (10.181.40.145) by SATLEXMB05.amd.com
+ (10.181.40.146) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 2 Sep
+ 2025 11:46:28 -0500
+Received: from [172.19.71.207] (10.180.168.240) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
+ Transport; Tue, 2 Sep 2025 11:46:27 -0500
+Message-ID: <318ba0b9-a730-15b1-7573-db23c2cd9e32@amd.com>
+Date: Tue, 2 Sep 2025 09:46:22 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250830-watchdog-s3c-cleanup-v1-4-837ae94a21b5@linaro.org>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.11.0
+Subject: Re: [PATCH v2] dmaengine: xilinx: xdma: Fix regmap max_register
+Content-Language: en-US
+From: Lizhi Hou <lizhi.hou@amd.com>
+To: <anthony@amarulasolutions.com>, Brian Xu <brian.xu@amd.com>, "Raj Kumar
+ Rampelli" <raj.kumar.rampelli@amd.com>, Vinod Koul <vkoul@kernel.org>, Michal
+ Simek <michal.simek@amd.com>
+CC: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20250901-xdma-max-reg-v2-1-fa3723a718cd@amarulasolutions.com>
+ <423ef4b3-d92b-8833-e21e-88ac4153c87e@amd.com>
+In-Reply-To: <423ef4b3-d92b-8833-e21e-88ac4153c87e@amd.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+Received-SPF: None (SATLEXMB05.amd.com: lizhi.hou@amd.com does not designate
+ permitted sender hosts)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002325:EE_|PH7PR12MB9073:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1dedb09f-bf51-4a0d-7d13-08ddea4044d0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|376014|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?WG1IMEVMbG0vbC83MHZYWDllTnRKSUE1SFl2akdncHdyK3hRY0wzT2FRc0Vk?=
+ =?utf-8?B?eWdtRGxMUm84NnIzWFl2bzlSVHZLbTJ3ZWNNWXZndjc2ODBQbW9DM0pIUEp1?=
+ =?utf-8?B?TXpLM2xnbDJqaDZONERVZWp6SFRIQTl4NmgrTThETi9ZNUM0ZndrYkRhOGJ5?=
+ =?utf-8?B?eDBxR3dRRmRtSkZaOG83N2Y3RmxOYWVLcTZhald0WUxtSWx1SFRMZncrY2xk?=
+ =?utf-8?B?aG1lK2xSc01XKzB2ZGJuN2pTalVLZTBrcCtVY2xuQnBZUEtkSnBtNlcyYU1D?=
+ =?utf-8?B?WFphN3hoeHlwK1JRaStTN1A5QXlab3NRa2FvZGYrUklqcVZ2dFF6a2phamhs?=
+ =?utf-8?B?U2tlWjZPS01odlpjODY5SnJvZkNoS1ppa1VFRitBZHBNanh3NXd0NjhMbEtN?=
+ =?utf-8?B?ZVNGNFFPTWpWSnBHdkJ2d1EwRUFFQ2pCMVBycGs4dWRwME1HZUJJSVFNeGQv?=
+ =?utf-8?B?bDQ2M1RBNjdibytzc29TaEl1ZFNaUWNtRmFEWUVuK1Y1WXN1SUdncGZPRnQ4?=
+ =?utf-8?B?RXg4MGEwKyt1bXlmd2k3M05BUStyR2hyMXBSaE4rQnFtWktQQW1mb0ozRFNS?=
+ =?utf-8?B?YnZHNDJIS0dXK3E2NTZsRk9ScFQvdmMyclNpdk16bDNtNGM1cm4rNmxwV3Fk?=
+ =?utf-8?B?S2g2MWN3VzNGWCtDdSsrZUZjNG9wRTdDZkdBdFRCZXpkNGhBZk5WM3NWWk9w?=
+ =?utf-8?B?UXNBL3ZrTTIyS3FnN2EzcnV4NmdXUVlFMmM2WXRyRWxkVHRIbDl3K1pDVERn?=
+ =?utf-8?B?OE1hMW1hS2MxWFRQUUYvMWxkZGcydmtGZGdpOW9KMTVlZDc5VEt6RmVIRFcr?=
+ =?utf-8?B?Y3FwWkdySTVYSnJBZytXbFBuUkh3RTluUDlzNHZwcDdoZXJvMTFpNmJybzU1?=
+ =?utf-8?B?dnBkMzJxYllKcEVZMzcwZmpoa0o4dEtsT3lWUFZXeVBFZzhXbFlrdTQwcUpX?=
+ =?utf-8?B?RmdQZGxXd0NxWmlzUDRxM3pBQW9BMHYrS0UrQ2FPSVpjemdmQkgvcVRWdklu?=
+ =?utf-8?B?TStpamp5TGpUd3M4Qi9KR21OL0VVRmRla2VCK0h0RHhic1VoVXM5UVpZb1Qy?=
+ =?utf-8?B?eXc2a3NIbzNnaityR2UzejdDSnIvdzROZTJHYVZjZmpiai9kOVptOXRwUURQ?=
+ =?utf-8?B?MmFTQWt3cFlLc0lTc0VRajBhcFAyaUhMd2FzZTJuTFdoWlJYSnpDdkxPK2Ir?=
+ =?utf-8?B?WjJmNVIva0NUeTNEVXhsOERTYTJwZWRlWVRqcmtITElUeG5ZdXVCeFo4bEhO?=
+ =?utf-8?B?dDFvUnJFT2NNaEFmN1pVVTJrN0t1cUY3QnRDQVNva0wwUDRNSHdLRzZtTndS?=
+ =?utf-8?B?RmZtVTFzOVlSRk5KWFBBbGg4bm5FcmxWZSthQ1IwNFNOZmpPeXVkcFdpYnRE?=
+ =?utf-8?B?M2Q2RE5ObnBvdElsZGN5cU9XY1hYeTJMMjAwcDhJaHZCblJkcFI2Z2VKSkN6?=
+ =?utf-8?B?NjN2YXpMdDBRNHF1TncrVzhlcUdPdUx4MGNiRUNCczNjWjcxa1RQZWpOSTBs?=
+ =?utf-8?B?UDFnV2N4RnFIUGZlc0IvaHVTYXpIeExEL3NTaFVkSFNjM2R3ZnRKL3FjcGtO?=
+ =?utf-8?B?ZGR1NFRZbTVyZWZDODBpdEVpQUZYa0lPOStHL0RzVzZ1TE5makZQdzZRSkIx?=
+ =?utf-8?B?ZTFRbkQ0SmpnaXFJTnNod1ZXb25jMk0xM0M4aTd4U04xR1dxOTRqWkJzSE1r?=
+ =?utf-8?B?NFVNTDlZeDM5M3lNd0RSWU5jVFhiRDBXY1dmNFZYTGZheklxOHRYdHpnQzcx?=
+ =?utf-8?B?cytHNWw0ZlRRbXhpQll3KzliRWcxejJtRkEzdmFHZTVkS3N3QjdxN3oyTWc1?=
+ =?utf-8?B?ZWRvZzNuSDZnNFRsa0JRWVFNQzNpR0lBc1lYK2twMG5hOUQxUUpxeTUvay9x?=
+ =?utf-8?B?b3ZvVTNTSnVOZlFLaXJpaWZFcTFTb2FtWWZNS1JsQmU0c0thTXZDR1JyRGVG?=
+ =?utf-8?B?TGRVVVZsNG9XWm5vTkNHL09oUWpiMWxHWTNRNmFwWFIycWZvamR4Y2h1Y2tM?=
+ =?utf-8?B?QWRyd1ozOExRPT0=?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(376014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2025 16:46:30.8457
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1dedb09f-bf51-4a0d-7d13-08ddea4044d0
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB03.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002325.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB9073
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_120650_626917_2AF2397D 
-X-CRM114-Status: GOOD (  14.98  )
+X-CRM114-CacheID: sfid-20250902_094639_274741_5D2F956B 
+X-CRM114-Status: GOOD (  17.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,25 +162,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 30, 2025 at 12:19:00PM +0200, Krzysztof Kozlowski wrote:
-> Binding defined two if:then: blocks covering different conditions but
-> not fully constraining the properties per each variant:
-> 1. "if:" to require samsung,syscon-phandle,
-> 2. "if:" with "else:" to narrow number of clocks and require or disallow
->    samsung,cluster-index.
-> 
-> This still did not cover following cases:
-> 1. Disallow samsung,syscon-phandle when not applicable,
-> 2. Narrow samsung,cluster-index to [0, 1], for SoCs with only two
->    clusters.
-> 
-> Solving this in current format would lead to spaghetti code, so re-write
-> entire "if:then:" approach into mutually exclusive cases so each SoC
-> appears only in one "if:" block.  This allows to forbid
-> samsung,syscon-phandle for S3C6410, and narrow samsung,cluster-index
-> to [0, 1].
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Forgot to mention that it needs a 'Fixes:' tag.
 
-Acked-by: Guenter Roeck <linux@roeck-us.net>
+On 9/2/25 09:42, Lizhi Hou wrote:
+> Reviewed-by: Lizhi Hou <lizhi.hou@amd.com>
+>
+> On 9/1/25 14:30, Anthony Brandon via B4 Relay wrote:
+>> From: Anthony Brandon <anthony@amarulasolutions.com>
+>>
+>> The max_register field is assigned the size of the register memory
+>> region instead of the offset of the last register.
+>> The result is that reading from the regmap via debugfs can cause
+>> a segmentation fault:
+>>
+>> tail /sys/kernel/debug/regmap/xdma.1.auto/registers
+>> Unable to handle kernel paging request at virtual address 
+>> ffff800082f70000
+>> Mem abort info:
+>>    ESR = 0x0000000096000007
+>>    EC = 0x25: DABT (current EL), IL = 32 bits
+>>    SET = 0, FnV = 0
+>>    EA = 0, S1PTW = 0
+>>    FSC = 0x07: level 3 translation fault
+>> [...]
+>> Call trace:
+>>   regmap_mmio_read32le+0x10/0x30
+>>   _regmap_bus_reg_read+0x74/0xc0
+>>   _regmap_read+0x68/0x198
+>>   regmap_read+0x54/0x88
+>>   regmap_read_debugfs+0x140/0x380
+>>   regmap_map_read_file+0x30/0x48
+>>   full_proxy_read+0x68/0xc8
+>>   vfs_read+0xcc/0x310
+>>   ksys_read+0x7c/0x120
+>>   __arm64_sys_read+0x24/0x40
+>>   invoke_syscall.constprop.0+0x64/0x108
+>>   do_el0_svc+0xb0/0xd8
+>>   el0_svc+0x38/0x130
+>>   el0t_64_sync_handler+0x120/0x138
+>>   el0t_64_sync+0x194/0x198
+>> Code: aa1e03e9 d503201f f9400000 8b214000 (b9400000)
+>> ---[ end trace 0000000000000000 ]---
+>> note: tail[1217] exited with irqs disabled
+>> note: tail[1217] exited with preempt_count 1
+>> Segmentation fault
+>>
+>> Signed-off-by: Anthony Brandon <anthony@amarulasolutions.com>
+>> ---
+>> Changes in v2:
+>> - Define new constant XDMA_MAX_REG_OFFSET and use that.
+>> - Link to v1: 
+>> https://lore.kernel.org/r/20250901-xdma-max-reg-v1-1-b6a04561edb1@amarulasolutions.com
+>> ---
+>>   drivers/dma/xilinx/xdma-regs.h | 1 +
+>>   drivers/dma/xilinx/xdma.c      | 2 +-
+>>   2 files changed, 2 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/dma/xilinx/xdma-regs.h 
+>> b/drivers/dma/xilinx/xdma-regs.h
+>> index 
+>> 6ad08878e93862b770febb71b8bc85e66813428e..70bca92621aa41b0367d1e236b3e276344a26320 
+>> 100644
+>> --- a/drivers/dma/xilinx/xdma-regs.h
+>> +++ b/drivers/dma/xilinx/xdma-regs.h
+>> @@ -9,6 +9,7 @@
+>>     /* The length of register space exposed to host */
+>>   #define XDMA_REG_SPACE_LEN    65536
+>> +#define XDMA_MAX_REG_OFFSET    (XDMA_REG_SPACE_LEN - 4)
+>>     /*
+>>    * maximum number of DMA channels for each direction:
+>> diff --git a/drivers/dma/xilinx/xdma.c b/drivers/dma/xilinx/xdma.c
+>> index 
+>> 0d88b1a670e142dac90d09c515809faa2476a816..5ecf8223c112e468c79ce635398ba393a535b9e0 
+>> 100644
+>> --- a/drivers/dma/xilinx/xdma.c
+>> +++ b/drivers/dma/xilinx/xdma.c
+>> @@ -38,7 +38,7 @@ static const struct regmap_config 
+>> xdma_regmap_config = {
+>>       .reg_bits = 32,
+>>       .val_bits = 32,
+>>       .reg_stride = 4,
+>> -    .max_register = XDMA_REG_SPACE_LEN,
+>> +    .max_register = XDMA_MAX_REG_OFFSET,
+>>   };
+>>     /**
+>>
+>> ---
+>> base-commit: b320789d6883cc00ac78ce83bccbfe7ed58afcf0
+>> change-id: 20250901-xdma-max-reg-1649c6459358
+>>
+>> Best regards,
 
