@@ -4,60 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 130F0CA1005
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 12:30:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C41F0CA0FFE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 12:30:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fxgs3Bk08QrxKooWu8Hqpj6+OcO1bosAzA5skUM7MQM=; b=mVypHZbc5NOvysVOSiDruXlNF4
-	feS3yXum8i20FMPytd5HJFVPGUDUnAcwyhuOqwlRZ/f0YVF+cM/FFco+VRd7BASSF4ykef+Amv6sK
-	ybyycPCwC0BohEfh7UO14KdHSfGIfApbOhkv25GJeCim3rcYaAdI6QmeNDWamy4+Eh3bDfj3wWs6c
-	aEBoa63p7M4nBQhKJ4yvhar/Q+ne1rpSafgCMbNf0vIU/AKFWUYnol0/zaCXgIdQXNOBtfubYObZc
-	WSNeec5oJJ2I6jCZ69hAw7XYc3gdmkhhylae1sA6FlZM/mYhgIk5s+O05ZWR4JmRG67103AsIAAdH
-	QR+4PvZg==;
+	bh=Ek44j+taq2c0pP3ZgbbarkxWXGF/ST7eK83cOYjQXqo=; b=FQ/1nKxVVS5yeWKbiln5wEhup8
+	DJe2/227cxn+0H/e/QlOIToYhn3MSSg34kMZV+Au8KYsp2R0DvDHEmruLnq90484w4TbPxbpf2sNL
+	3gBggKiVWDEgTE4DaE9Oz55/vJHko5DqmCv9IgWO0ROO2c1j7hTFqFTnygzuflpZWIeE+JW1vG+o3
+	FEXoh4CrwXJxUyUTD0WYhUrk0+i0brMsogonj5rp5mDzIiKeP8Zf+wqtdP+EqhepxhzKhLA5w4/mL
+	D0A2uo4R8dFXqJMtTTIfIntn0vHABD0ZtxE2wmY0ROn+cRAv6JCM9V99oHkgCbiomrpfs1tM39h8D
+	Lg0E/4Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utQ9g-0000000HHpI-39G0;
-	Tue, 02 Sep 2025 12:30:32 +0000
+	id 1utQ9k-0000000HHtB-16yQ;
+	Tue, 02 Sep 2025 12:30:36 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utNeE-0000000GTrg-0UN5
+	id 1utNeL-0000000GTus-0aGh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 09:49:54 +0000
+	Tue, 02 Sep 2025 09:50:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6A6BE60207;
-	Tue,  2 Sep 2025 09:49:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3C30C4CEF5;
-	Tue,  2 Sep 2025 09:49:49 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 90BB6601FC;
+	Tue,  2 Sep 2025 09:50:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7957DC4CEFC;
+	Tue,  2 Sep 2025 09:49:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756806593;
-	bh=dIWtODJzj2z3afarX1J115TDTUy4z/tY9fh6ITu9yak=;
+	s=k20201202; t=1756806600;
+	bh=8DvXbPFnI4+n7hHxbxXgOGqvAp5g/qxDSdMttlnJd5U=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=YYVsMbmJBDhypGCtghxtK0hJhb/2u35ExwxIh+zRss2RrKBGs4OdBMOYkASinP00W
-	 msmDIzknYFGwq/SiQ+0lFnesE0aAzwEE2hQMmI5lsQi2pNnIOm7kdaDMAvt9pXI1L1
-	 Ax24QYIy4qpScDlqiE3o9q2mQvIsF/Z0Vn76CP4c2hBqIVXamwyEkVvkopPPXS2AYa
-	 Dy2veRrBOICFlKytvRUT9fT4Nz6O7IAuvficoiAoHlmD+F6IBjYCavWzl2nIWSulD4
-	 ju93+tNVT20oEdJg48eBJE3vx2EqOAML1txMOqBNtX1ShN2+XCeD0fyQYrf4pq3hDR
-	 oAzIwRycFxmxg==
+	b=DItEqcQPAEKKBmNhaurvDktBCHmT4CxXYPQrpqnvvYXk2r0RBKOm83KnoAEDAwv3f
+	 M+prW8UAbGCbx0WoabkpX+LsWr8thXEGRllDEA03z8xd+6qJUTowAq3bBw4HylU5+k
+	 rJtnUhVHR93a0PTH5cD61Bj6EunKByj7bbyA262xogNu+FrHa/P6nYPAMO0uoNeN9O
+	 wtrCD8yU/JSKvMMo+DZs4uq4VzUqMFalJj8DuwYCk4WIYPpEt+ogQE6wioQoUGasjh
+	 0OXbh1cKAFPZ1a99p8faURKF94Zrsk4jDWZpjMiiMQ75nI5YCh6rqUKLgV7kh14VK7
+	 fQvGPlTVVl1xw==
 From: Vinod Koul <vkoul@kernel.org>
-To: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Folker Schwesinger <dev@folker-schwesinger.de>
-Cc: Michal Simek <michal.simek@amd.com>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
- Marek Vasut <marex@denx.de>, 
- Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-In-Reply-To: <DCCKQLKOZC06.2H6LJ8RJQJNV2@folker-schwesinger.de>
-References: <DCCKQLKOZC06.2H6LJ8RJQJNV2@folker-schwesinger.de>
-Subject: Re: [PATCH v4] dmaengine: xilinx_dma: Support descriptor setup
- from dma_vecs
-Message-Id: <175680658917.246694.14605510999685994638.b4-ty@kernel.org>
-Date: Tue, 02 Sep 2025 15:19:49 +0530
+To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+ michal.simek@amd.com, radhey.shyam.pandey@amd.com, 
+ Abin Joseph <abin.joseph@amd.com>
+Cc: git@amd.com, dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20250825130423.5739-1-abin.joseph@amd.com>
+References: <20250825130423.5739-1-abin.joseph@amd.com>
+Subject: Re: [PATCH RESEND] dt-bindings: dmaengine: xilinx_dma: Remove DMA
+ client properties
+Message-Id: <175680659600.246694.18044016578906182085.b4-ty@kernel.org>
+Date: Tue, 02 Sep 2025 15:19:56 +0530
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
@@ -77,21 +73,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 26 Aug 2025 20:21:10 +0200, Folker Schwesinger wrote:
-> The DMAEngine provides an interface for obtaining DMA transaction
-> descriptors from an array of scatter gather buffers represented by
-> struct dma_vec. This interface is used in the DMABUF API of the IIO
-> framework [1][2].
-> To enable DMABUF support through the IIO framework for the Xilinx DMA,
-> implement callback .device_prep_peripheral_dma_vec() of struct
-> dma_device in the driver.
+On Mon, 25 Aug 2025 18:34:23 +0530, Abin Joseph wrote:
+> Remove DMA client section mentioned in the dt-bindings as it is
+> not required to document client bindings in dmaengine bindings.
 > 
-> [...]
+> 
 
 Applied, thanks!
 
-[1/1] dmaengine: xilinx_dma: Support descriptor setup from dma_vecs
-      commit: 38433a6fdfb75d12a90ffff262705e1ecfe88556
+[1/1] dt-bindings: dmaengine: xilinx_dma: Remove DMA client properties
+      commit: d5df661c9c76cb36d90527349ac6197a4baf2aba
 
 Best regards,
 -- 
