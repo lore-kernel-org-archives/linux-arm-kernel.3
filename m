@@ -4,103 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75AA4CA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:44:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B92B1CA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:44:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n7Rb+Gc4bzsX0WrGoFt7okZVsdi4ux/eNHzNp2DsalU=; b=sq/JEpTyWQrXk4gfx4aZSbhmPW
-	8QngR4rqaK5BGx/NlvDDWmBY1PT/ZzKYuj/e2VOS6YtVbcRNqe4DATQvjBN+Sy42/aS4igXUmbT7K
-	aqmuKkPWF7wi3wzAb8cIDvtXmB9gZtCwJO2T3M1oPYWmbuwcn7d/sTvLKENT9VXfmVKk8BV3WLF5z
-	d4mD9OUYuU/IBP9XV/VZkYqxPeO86FlqJMgi0CXHV2Q1B1QNN3EzVXKUpNlrmV89HvwQaOeGRJbuZ
-	rWsJrt4C6Z0dfwcU+rg3HwWXyyt70pbXNsmFRbOTAuOWVsrDUQ37LiS/hbFlngMgoBaP7bAUFJOuk
-	G00+pzyQ==;
+	bh=M9gONrj2FsjjAypywne1ESJ+5v6XO13fgCkn/vxi/zo=; b=LAcHl2XFMeGysF9nTiMHq7GlAw
+	VWTzNAf/NAVE2z4a9xMQRazwo/SYbXy2Mk7kC8bTLikXAQW1fuhjzVRKGDSJ0R4KEY8FI1e2qQsgJ
+	7X5wKkQpwAq+/++8aLLKICzGD0Q6WsK0u/yqc7EvC2a9gpWXol4noDOpfnXGJEbYPD/p9/N6+y+ur
+	qFV54o7zdqggHjAew700WQksh2tff9he49CdRXUg5xP8eC+HUpbldmLOOc9xO1NMrSva+jOMna8S+
+	wpFJWTaCduvYj2zZZe7lgkeuinM+ofpWjKXJExl2wSUnzcGEMWPgI+tH0An/YBByHFwVStRRNxSYa
+	O53fCDDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utYo6-00000002DEl-19KW;
-	Tue, 02 Sep 2025 21:44:50 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1utYo8-00000002DHx-33Si;
+	Tue, 02 Sep 2025 21:44:52 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utUQX-000000016HM-0IAT
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 17:04:14 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-7724cacc32bso2127197b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 10:04:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1756832650; x=1757437450; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=n7Rb+Gc4bzsX0WrGoFt7okZVsdi4ux/eNHzNp2DsalU=;
-        b=J3BmKZ6HZ3D1U6Un+pRncdik4k7h/kJYyzOg5YFJKP8y9Xw76T+jPEQua97DSsmMQe
-         HfFm2qcQKyT6Z8aKYKR0wvcyDhY4iJzhoRv9dnI/mT32N3T8MgHQ7M7zfCvQ9xrMVrSM
-         XLXWBE8gC82acLo0UVQXChonyfOw+74bv5Na0=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756832650; x=1757437450;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=n7Rb+Gc4bzsX0WrGoFt7okZVsdi4ux/eNHzNp2DsalU=;
-        b=VJr4owq/3KDdmQtG9w4205R9uaL7St2Sl3bz+AaW5InxJvOeAqYHbfofzIz8S4KNfj
-         BC3qbKnO52eMwcm3cD1Ov/YBcq3CUFPsdLST6eRHuab+kTqlv+jUsj1+1mgWZOkK/cyx
-         BQucAqvoQ1YCN/7jkyaTtXkbgNSTmsrpgrGty6v1MCrcRDdEOiHByDCvo/S4aN8pau4D
-         Azkp89SVqJKDgu390rdKR2rkSDIIyFN1iIRlqTD/rcHycYoQnjyogPenIE99Dc7ptiJ6
-         KXcxWrXHKkXXOWjszHiWsoOgm3OdQxXmyDNBmlpJ7KZAc4V1CwnKPUR+07aQ5dMA3rBC
-         GgyA==
-X-Forwarded-Encrypted: i=1; AJvYcCUB1rbUQSw9s+trZMvIsNllH0WEKoa07b1R34LmjzhGcM0MB8qDlO8yNj42exigQRYz0+Ca8wt5plB3CiKiYg0M@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAaBF9Cti5Qz/gmyrUxHFKILzliyjQ6Mo6b4iSYciNDCQg7n9p
-	YdFFEq2S9MPwc5Sv76AfxW7atDb1hIMLznlA95B+HXOaJaKw82I1Kcl+Pkv++EIYgEGmXA3YU5F
-	EOxc=
-X-Gm-Gg: ASbGncvdFDSe1/s23w6FyPMhADjP152ActoQmtm3IPBA93P2kjLObobbJJyzfTBvISq
-	u8hPjd6PobWjNY3ENgTmlLXTjvTikKPHrK9PaZiIufSgo6bMRxxuoGD2SCACVvvy2X7Q/P4YRom
-	CO4XM/YeVNdeOuxDOyauyux8aldpoFzJ0k3mPCvHKlJMt1J3E/MaPEMw3XfzD8HVPD0x1+d111g
-	RHpSsxJkCKmGPr/SWgDi3cCxNA97jjI0PgjheAh/JdE2K4TeJw0W4viOiw+V+/HTI1aK1ipX5Qx
-	ljB7015lkWbU7j5Nsf0t2rH8aD0JL1N2jwVAEYBfWMHtCeaJtq+nv4tQWqmk9+tkazvp3eHxPig
-	exLxfLnlJzdxDubEhMZWUbhpDJ+MoAFr3XxYYXLHBIxdrjEvRs+zPYv32QMw9eh8LqBRJAQNTtp
-	3Y
-X-Google-Smtp-Source: AGHT+IG0BaNIVPDR7FfZJvyiOGPCoPZopmgn1ujG4nteHm1tv30NpPEoADGrxdxfnVSC0YYQ8kfCDA==
-X-Received: by 2002:a05:6a20:42a3:b0:243:78a:827a with SMTP id adf61e73a8af0-243d6f59555mr16664059637.50.1756832649780;
-        Tue, 02 Sep 2025 10:04:09 -0700 (PDT)
-Received: from mail-pg1-f174.google.com (mail-pg1-f174.google.com. [209.85.215.174])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-77248cfbc9esm9236843b3a.99.2025.09.02.10.04.07
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 02 Sep 2025 10:04:07 -0700 (PDT)
-Received: by mail-pg1-f174.google.com with SMTP id 41be03b00d2f7-b4f9d61e7deso390703a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 10:04:07 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWKWE0FscDC7qVBWnNRPs5g0iNmtngOen5J03qEe0XECfTd0IXnsIeMUr7HX20KgnMhFJlVs7vqSz9Z33lGnrOz@lists.infradead.org
-X-Received: by 2002:a17:903:384b:b0:240:84b:a11a with SMTP id
- d9443c01a7336-249448f24abmr161721465ad.17.1756832646700; Tue, 02 Sep 2025
- 10:04:06 -0700 (PDT)
+	id 1utUTY-000000017GC-0Lt1;
+	Tue, 02 Sep 2025 17:07:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1756832838;
+	bh=p9G1JdZNHBB20Qe5ZLlqmEbY+P1qY7hzK//FQaEBq4w=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=pHqNrY+N3mjBpHj7h9Np5BDPKapnNxYvnrQXzeOAGKI8HtnIFXX5EPfwWSkIz3i/y
+	 tUD/nEEExEbYIBUZPCdQyaez4Y4X01ZwJ8ScgRVjC+t3igaf6EFbByj7mm0GXLzaiE
+	 pAb50nhqMjAGswxxp2F8hRypBsluV8Yp3ZqBLxo8CDrbCFcJJGqYpADUIRbZtUUT0/
+	 1mcpsWqp5N+/zSBOMX5SAAb2FV6cA/Hiv7IltdnIJhBV7n/Nri7g0o5UgIQQsetcwm
+	 1sMIb2/CfTLu9tR9NSJQT0INuNpaNBeW9feFC3Hjn/Gn+RHmOQHtRliBRAkt6i1Evb
+	 mKJHf14x1V5kg==
+Received: from localhost (unknown [82.79.138.60])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 4D9F417E1301;
+	Tue,  2 Sep 2025 19:07:18 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Tue, 02 Sep 2025 20:06:59 +0300
+Subject: [PATCH 1/3] phy: rockchip: samsung-hdptx: Fix reported clock rate
+ in high bpc mode
 MIME-Version: 1.0
-References: <20250827100959.83023-1-cuiyunhui@bytedance.com>
- <20250827100959.83023-2-cuiyunhui@bytedance.com> <CAD=FV=WiZ5=4Ck3G2gme=ey6uYQhi-3Wo32DpLj9P53wxGCojw@mail.gmail.com>
- <CAEEQ3wmBvevbkP8XmwR0_q_1QWQsie5g0UUxTFm6ovS1m41pEQ@mail.gmail.com>
-In-Reply-To: <CAEEQ3wmBvevbkP8XmwR0_q_1QWQsie5g0UUxTFm6ovS1m41pEQ@mail.gmail.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Tue, 2 Sep 2025 10:03:55 -0700
-X-Gmail-Original-Message-ID: <CAD=FV=UzUCPtwuQRFR0SkAkh63MbzMefxNYmiOBxCemL3P_+EQ@mail.gmail.com>
-X-Gm-Features: Ac12FXykSrYm05H2zP7oRG7JrK-8ugSYBV29nSAU-8Tvd7BMAeSBbf3oz6aTBn8
-Message-ID: <CAD=FV=UzUCPtwuQRFR0SkAkh63MbzMefxNYmiOBxCemL3P_+EQ@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH 1/2] watchdog: refactor watchdog_hld functionality
-To: yunhui cui <cuiyunhui@bytedance.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	alex@ghiti.fr, atish.patra@linux.dev, anup@brainfault.org, will@kernel.org, 
-	mark.rutland@arm.com, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org, catalin.marinas@arm.com, 
-	masahiroy@kernel.org, suzuki.poulose@arm.com, maz@kernel.org, 
-	zhanjie9@hisilicon.com, yangyicong@hisilicon.com, mingo@kernel.org, 
-	lihuafei1@huawei.com, akpm@linux-foundation.org, jpoimboe@kernel.org, 
-	rppt@kernel.org, kees@kernel.org, thomas.weissschuh@linutronix.de
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250902-phy-hdptx-fixes-v1-1-e8d9ef9748d6@collabora.com>
+References: <20250902-phy-hdptx-fixes-v1-0-e8d9ef9748d6@collabora.com>
+In-Reply-To: <20250902-phy-hdptx-fixes-v1-0-e8d9ef9748d6@collabora.com>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Algea Cao <algea.cao@rock-chips.com>
+Cc: kernel@collabora.com, linux-phy@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Andy Yan <andy.yan@rock-chips.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_100413_105005_768F8A79 
-X-CRM114-Status: GOOD (  22.59  )
+X-CRM114-CacheID: sfid-20250902_100720_277504_8A0FF530 
+X-CRM114-Status: GOOD (  12.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,49 +78,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+When making use of the clock provider functionality, the output clock
+does normally match the TMDS character rate, which is what the PHY PLL
+gets configured to.
 
-On Sun, Aug 31, 2025 at 10:57=E2=80=AFPM yunhui cui <cuiyunhui@bytedance.co=
-m> wrote:
->
-> Hi Doug,
->
-> On Sat, Aug 30, 2025 at 5:34=E2=80=AFAM Doug Anderson <dianders@chromium.=
-org> wrote:
-> >
-> > Hi,
-> >
-> > On Wed, Aug 27, 2025 at 3:10=E2=80=AFAM Yunhui Cui <cuiyunhui@bytedance=
-.com> wrote:
-> > >
-> > > Move watchdog_hld.c to kernel/, and rename arm_pmu_irq_is_nmi()
-> > > to arch_pmu_irq_is_nmi() for cross-arch reusability.
-> > >
-> > > Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
-> > > ---
-> > >  arch/arm64/kernel/Makefile                   | 1 -
-> > >  drivers/perf/arm_pmu.c                       | 2 +-
-> > >  include/linux/nmi.h                          | 1 +
-> > >  include/linux/perf/arm_pmu.h                 | 2 --
-> > >  kernel/Makefile                              | 2 +-
-> > >  {arch/arm64/kernel =3D> kernel}/watchdog_hld.c | 8 ++++++--
-> > >  6 files changed, 9 insertions(+), 7 deletions(-)
-> > >  rename {arch/arm64/kernel =3D> kernel}/watchdog_hld.c (97%)
-> >
-> > I'm not a huge fan of the perf hardlockup detector and IMO we should
-> > maybe just delete it. Thus spreading it to support a new architecture
-> > isn't my favorite thing to do. Can't you use the buddy hardlockup
-> > detector?
->
-> Why is there a plan to remove CONFIG_HARDLOCKUP_DETECTOR_PERF? Could
-> you explain the specific reasons? Is the community's future plan to
-> favor CONFIG_HARDLOCKUP_DETECTOR_BUDDY?
+However, this is only applicable for default color depth of 8 bpc.  For
+higher depths, the output clock is further divided by the hardware
+according to the formula:
 
-I don't think there are any concrete plans, but there was some discussion h=
-ere:
+  output_clock_rate = tmds_char_rate * 8 / bpc
 
-https://lore.kernel.org/all/CAD=3DFV=3DWWUiCi6bZCs_gseFpDDWNkuJMoL6XCftEo6W=
-7q6jRCkg@mail.gmail.com/
+Since the existence of the clock divider wasn't taken into account when
+support for high bpc has been introduced, make the necessary adjustments
+to report the correct clock rate.
 
--Doug
+Fixes: 9d0ec51d7c22 ("phy: rockchip: samsung-hdptx: Add high color depth management")
+Reported-by: Andy Yan <andy.yan@rock-chips.com>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 14 ++++++++------
+ 1 file changed, 8 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+index 01bbf668e05ef94e24a3fa11f96f219c4f942451..aee03e8655f66d4b25de39bd2b2bf49d7a8b5b86 100644
+--- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
++++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+@@ -1037,7 +1037,8 @@ static int rk_hdptx_ropll_tmds_cmn_config(struct rk_hdptx_phy *hdptx)
+ 
+ 	ret = rk_hdptx_post_enable_pll(hdptx);
+ 	if (!ret)
+-		hdptx->hw_rate = hdptx->hdmi_cfg.tmds_char_rate;
++		hdptx->hw_rate = DIV_ROUND_CLOSEST_ULL(hdptx->hdmi_cfg.tmds_char_rate * 8,
++						       hdptx->hdmi_cfg.bpc);
+ 
+ 	return ret;
+ }
+@@ -1895,19 +1896,20 @@ static long rk_hdptx_phy_clk_round_rate(struct clk_hw *hw, unsigned long rate,
+ 	 * hence ensure rk_hdptx_phy_clk_set_rate() won't be invoked with
+ 	 * a different rate argument.
+ 	 */
+-	return hdptx->hdmi_cfg.tmds_char_rate;
++	return DIV_ROUND_CLOSEST_ULL(hdptx->hdmi_cfg.tmds_char_rate * 8, hdptx->hdmi_cfg.bpc);
+ }
+ 
+ static int rk_hdptx_phy_clk_set_rate(struct clk_hw *hw, unsigned long rate,
+ 				     unsigned long parent_rate)
+ {
+ 	struct rk_hdptx_phy *hdptx = to_rk_hdptx_phy(hw);
++	unsigned long long tmds_rate = DIV_ROUND_CLOSEST_ULL(rate * hdptx->hdmi_cfg.bpc, 8);
+ 
+ 	/* Revert any unlikely TMDS char rate change since round_rate() */
+-	if (hdptx->hdmi_cfg.tmds_char_rate != rate) {
+-		dev_warn(hdptx->dev, "Reverting unexpected rate change from %lu to %llu\n",
+-			 rate, hdptx->hdmi_cfg.tmds_char_rate);
+-		hdptx->hdmi_cfg.tmds_char_rate = rate;
++	if (hdptx->hdmi_cfg.tmds_char_rate != tmds_rate) {
++		dev_warn(hdptx->dev, "Reverting unexpected rate change from %llu to %llu\n",
++			 tmds_rate, hdptx->hdmi_cfg.tmds_char_rate);
++		hdptx->hdmi_cfg.tmds_char_rate = tmds_rate;
+ 	}
+ 
+ 	/*
+
+-- 
+2.51.0
+
 
