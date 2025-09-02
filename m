@@ -4,91 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5C81CA100E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:42:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40D4ECA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:42:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=edZLfiZt8B4p4uO3hUsASn2XOCnLkF3RAYMn9M9Bwpk=; b=2NgQ1J2Er2xfEszkk8QnEmvUZe
-	p3yHzmE3trVVGDTwN/j3WOBwoPw74juRsnEsDvSXQlEDl/cPrYZNphe2pZLp2ymxBxgDLQAsSfsx2
-	4kca3NkuSol1W5JExXS7/RomNc+9ahGK8hkyccLB5DTNr4KVvqa4rRzBQ70rFUVxUruSlvI92i4/b
-	8cdbLK4jSrHpEDQER7/EUzDuFcRYFwUTv2xJVN4+FWdgeaANuc9Jm3wMnrlj80U/YLTIahS1uIH++
-	f3VpRDKA5KYlpwnyUSltG3ZwNxyHpcLSApwQwtv+eKGJRdTs0aH3RfYRmlieEyXog03Z7+IdhOooe
-	AnG9vBAw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cFH5cDNds5B5T/pje3FPEuPlO2hxs24Eot+U2AM5tl8=; b=ur2ncqoKqIKVNvz+rdDzGQRoV0
+	8/sxJRKS6fJxuWrxYaYdWnydJazSTbdN5ZhsimKKpDHgcIXF8iqvLG83LE3KjqF0HFnAtMcLxmyx7
+	2Q2HYqS3uqTzqaZZbShOwjBhBxgDj7dmjoi2Sr1w59lsAaQCVovom6k7ogID0n1LysLz+fg0GDJHg
+	uKUZn/Wy+XPXrcuBDCAK1ryfOl52tBSlPqpTI/cKZk1aC+vgiAY2uOJruRlcCYQGJNUwea5F91+Jd
+	77jt+jHXfYk+l9bt/4a0MYSUikGi1ID7Setiiz1MQ0xRn7nCqdAG6qeSljo0YWsSZNgNQ+wC5as7y
+	6bp01/ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utYlw-00000002AKY-0Qnw;
-	Tue, 02 Sep 2025 21:42:36 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1utYm7-00000002AcP-2weD;
+	Tue, 02 Sep 2025 21:42:47 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utQyP-000000000w7-1QKg
+	id 1utRsl-00000000K8k-3RPg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 13:22:58 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-45b79ec2fbeso36403435e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 06:22:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756819375; x=1757424175; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=edZLfiZt8B4p4uO3hUsASn2XOCnLkF3RAYMn9M9Bwpk=;
-        b=C2AyjmzSyvYs3YeL9HON6fsddYhTn+2sFGYxrAsbMUZboSC+W3O17qyaFKDVFIVYNc
-         sWYR/mVWNzC6CHyKzbXH4R+G+myPFgkes2GRZqZ4pOYZjfX1HCiG06xHbM/Lj2uZ19/z
-         WS7R4/+gIlv9MovXrTl0h+I2LfFamZgqmWP2jxoY742zR6cWaWdhtqHC4ijjem1o4AZ/
-         u3jAdL3e/yfzRhVgv5Zb2cHIPldd3DMon8ug6FloA11RP3dIFaiJFdZ+nb4wDXiOBXBo
-         BUMlqhDi0lnVY9EhliXPcriayhTI75i1HPHMJRke3/cQthaEm/vPhulmvh9rzc8lHgFx
-         /wzA==
+	Tue, 02 Sep 2025 14:21:13 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 582B3B8C025567
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 2 Sep 2025 14:21:10 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	cFH5cDNds5B5T/pje3FPEuPlO2hxs24Eot+U2AM5tl8=; b=SWE+h9baJZPg0zr+
+	h1VZBwnEPUP82cZ9ImIy24Jh4zgzo/2qILVaNrT21iAph2NMju2XB3jE5iQxS7uG
+	Iwl1soq01wpYlpscMNpjn3haYm3gzIyvm6XWOYT7tfCemR+a7OkbNsCEwJBsCYVj
+	gOdLUGnVpCtqtLB/Q4Z5j9NgLmA3R8J/wshkDR2wcPJ2EEMN+7WDwr6ta/UvVMJa
+	+4z1oo9rg4lSxeIwSBHqFAk5fJMlsDGwRd5BuNxcy77ZMn4TxnhUw22EDCyS3UvR
+	hTdD+MpQOgivxSlhDw6JFyTADU0xanIEsPOSM5PBMWUz02c0xzvKuM3oT7InLn3Z
+	1fs5Ng==
+Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48uscv04mn-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 14:21:10 +0000 (GMT)
+Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-7724bca103dso2310743b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 07:21:10 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756819375; x=1757424175;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=edZLfiZt8B4p4uO3hUsASn2XOCnLkF3RAYMn9M9Bwpk=;
-        b=LunkEPIsEU5huqcHJBkaXsJcekrcPOLSOpYgofZWgEEZnEaSxPdytQExITbBJmv5x2
-         5QO95UGkMQ6mBfADA0N82Jie4REyVoWg6ojkl4MqFU9t++1WV0yjfcOs19eEjjj6JEQE
-         fb8PrAH30h2NYyAT9jIhC3jSVJOsDxNYKVYAeFCwi7MaUwSb8g/Lj9h0J32M6h0vuEUm
-         2bKuL/XWuSFZZSCDRlu++96SG96j0dUragArIsquYRiy8P8YsD7EaXV2bVTJB7qwJezk
-         SCEX3uE26zZ81uAm/qY5VeG2ZjyPVB/JSqFzfHoF2ByQLKBUGxQ0/8P+GnlerAZ6YxHy
-         jZEg==
-X-Forwarded-Encrypted: i=1; AJvYcCU38b753Eui1D/pcTjOZRmoScrN0+7FN31yx0l20zTZm8dEhFOgsn4gwzaiL78UnTzXpps7pDtJdmWQRsVBn8BM@lists.infradead.org
-X-Gm-Message-State: AOJu0YwEfQPkrC/XHekYALogc8rJ+dX1qNiFltnrdGkxDjvgBnhasOpR
-	lP7/Ia9YizwTRHzlHztSqRzGSPGsTuUXnQyX3vZ/1vwWO0AZew4WG9uj
-X-Gm-Gg: ASbGncuuJvfzboYgv3+ZSV9CA5xpRkexImpdpsRmmKyk28YXV+UFBaHb7WQtTSmPVCR
-	c6SREqdAep/q2uLm0tvD4QfWUlxsbkuBCJOSpetEZrv7Fagvm56QZ9Cadw+XhHNNiH/sX+EqpaR
-	wUktS+CNQ6KYDOImSx7bP+rBssLd/z8m5fIW9+GS0xIzcY/viiQwNXRaDK+8svTE+uN6nHHXWF0
-	tQ9HRCHnUgHZxjNvkarumxnCSYqAO5nziABEcFo1toK+AJ2Wcnm0bTDKR1syuviXH0gT61F/l4K
-	V629Kv/oRoVjJofr3zqPfLfvElw+uca4AT1zNlyGk0M7D/J0asLSFybflIUajdlVI/KvKTpdap8
-	6vjpBJ9GPoSKdGdBoNFZE+90YpPLqzQ1J38kALyBuEadM
-X-Google-Smtp-Source: AGHT+IH7LkldeuIVl0roiAT8alXAPPPGwsjQFZhyThmF6wIdY2fazyGKGh4QM5al/Tpt7/lQ+R0tnw==
-X-Received: by 2002:a05:600c:4ecd:b0:45b:876b:bccd with SMTP id 5b1f17b1804b1-45b876bc00dmr86469705e9.6.1756819375070;
-        Tue, 02 Sep 2025 06:22:55 -0700 (PDT)
-Received: from ws-linux01 ([2a02:2f0e:c207:b600:978:f6fa:583e:b091])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b945332adsm44452155e9.4.2025.09.02.06.22.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Sep 2025 06:22:54 -0700 (PDT)
-From: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
-To: clabbe.montjoie@gmail.com,
-	herbert@gondor.apana.org.au,
-	davem@davemloft.net,
-	linux-crypto@vger.kernel.org
-Cc: wens@csie.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Ovidiu Panait <ovidiu.panait.oss@gmail.com>
-Subject: [PATCH v3 0/9] sun8i-ce: small cleanups/refactoring
-Date: Tue,  2 Sep 2025 16:21:25 +0300
-Message-ID: <20250902132134.3287515-1-ovidiu.panait.oss@gmail.com>
-X-Mailer: git-send-email 2.50.0
+        d=1e100.net; s=20230601; t=1756822869; x=1757427669;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=cFH5cDNds5B5T/pje3FPEuPlO2hxs24Eot+U2AM5tl8=;
+        b=JLNEZPQonAysfCj8mu18tVgxi3314hqfM0svOwD8+r+jlnHqHcxiCvvpFt4iIL397Q
+         tVj9U0kkchEF8ZACqDH2oZKbPt35ZTfhCxkV+97SmQselk2K1cvGylmkzQhpiyh66Zls
+         znOAwQps+VUkuaHh4+4YOcb9gzPe1Yx60TSjN7ZhvwsqJVnirmbkIsAPgoawIy8XIGiL
+         m4C99rsrhywx6t2vlq9jzB/ADgmgn5lg8VG5FkkXyqHjJl4WjyUw+TJcPaQ4Mpxo2YaN
+         eSyuuf6Gyd8b5cLhIt5mRAwPIpfvlYpVndODj2PHzI9rioj0I2xdAOq6Db3/RIz+Ckkb
+         I8XA==
+X-Forwarded-Encrypted: i=1; AJvYcCXRc2vI434lox2vU8UKhLWdfeXXXLfoWfcXZK+V25tpRwKkcxWp3cF+xzX7fVERk2MKQb9sX5o7lPZR1s32EYKD@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/cGiW0WVQMc1iGnxwY5pQKOC62qRoQcPYFIwbpsNz15A7MaMk
+	nE7usXD0bQ3nEJGWEqNq4NmcAHPc4F0lI6wtSs/d7kANuh4UbPN0/paK3HeAwsTLPi13crHZq0Z
+	/DGy3ae0AFZLo6bGOt4SFPorLdZDePo+M48gjP9zmeqJMmYMyxdrr12f78X8BmWqWEkypzihR5s
+	XEog==
+X-Gm-Gg: ASbGncs8XJT08IGNt3/fVwZrrVwUjWV7iAr/ciJqzQzCqXcjXSF1YSnEPRz6UzV0N10
+	MBn5p4tiqMc+3IZyF6WbBlbUVdKg31m7H+Ab/WanfACJbIFTBs1P3/buKeAv9WNvBNt+151RMmf
+	Md2jvdo0yn9RY0nu/K+6h5kIH2EMbY64aA759lTZC7rzzjklN4JpaBK3506OY9kyPXK0o3eN3XB
+	zpfEjrZ7UJ7wnnQM3Gl+h1bXNJrHITxdMRzdRVnQr8Gphf+iR4jF63O73tp5lmpua/ElWe76y0W
+	+n4F3CmLE9un54PElgo79KbR6g6RIkF0lFAuKv+5xgE4Xyj09TeADyLOuGvWRUeXyvXoV13e
+X-Received: by 2002:a05:6a20:3949:b0:243:25b0:2321 with SMTP id adf61e73a8af0-243d6f7e6d2mr17559817637.52.1756822869350;
+        Tue, 02 Sep 2025 07:21:09 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFqXouN6x5NC3Ff1ESu4awUlD3wgjdZZfk9g/KwRyDmJBn/xJVqTV3xHk+1W13vbBTuHhuaMw==
+X-Received: by 2002:a05:6a20:3949:b0:243:25b0:2321 with SMTP id adf61e73a8af0-243d6f7e6d2mr17559757637.52.1756822868877;
+        Tue, 02 Sep 2025 07:21:08 -0700 (PDT)
+Received: from [10.216.7.97] ([202.46.23.19])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-772396d2dbcsm11499176b3a.50.2025.09.02.07.20.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 02 Sep 2025 07:21:08 -0700 (PDT)
+Message-ID: <f7394b06-d51a-cdbc-7990-13209b478398@oss.qualcomm.com>
+Date: Tue, 2 Sep 2025 19:50:58 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.5.1
+Subject: Re: [PATCH v14 03/10] power: reset: reboot-mode: Add support for 64
+ bit magic
+Content-Language: en-US
+To: Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>,
+        Casey Connolly <casey.connolly@linaro.org>,
+        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Sebastian Reichel <sre@kernel.org>,
+        Sudeep Holla <sudeep.holla@arm.com>,
+        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Andy Yan <andy.yan@rock-chips.com>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+        Stephen Boyd <swboyd@chromium.org>,
+        Andre Draszik
+ <andre.draszik@linaro.org>, linux-pm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        Elliot Berman <quic_eberman@quicinc.com>,
+        Srinivas Kandagatla <srini@kernel.org>
+References: <20250815-arm-psci-system_reset2-vendor-reboots-v14-0-37d29f59ac9a@oss.qualcomm.com>
+ <20250815-arm-psci-system_reset2-vendor-reboots-v14-3-37d29f59ac9a@oss.qualcomm.com>
+ <88ee0a26-8d64-4060-b703-40156cd011a7@linaro.org>
+From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+In-Reply-To: <88ee0a26-8d64-4060-b703-40156cd011a7@linaro.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODMwMDAzMSBTYWx0ZWRfX8FS6uYVf4387
+ rGPojWfU39CnaIHD2CJ+nzZ5cqHIfXkGoMH9YdkWOsGN7bi1ISXlniQM8D5TQDyCxpCdqP6I7jd
+ v28h4rVIjreCox9ELCFUs2JToq95yk7c87mZFNNWxfxmNJ4iwA3A422YKDVhtD6PYBYQAu/7gaG
+ 8lxKesQcmUCiR07AmIPGoWhrW5vIVAZriaRSmuqoxmgdgMo5VkuLCnL0WJ2wxBE8OD63PYZqyvK
+ kfFUKaOeifqX25dPv/GyfCT0wilL7BWh5rnTbRE7DOOxel7gdbGrz0fnI3Rqra53oxHlmzeKdGI
+ +iXcpWKMWTpgqRBqhOP8CCe/8N9WzlKbcCMniX/NdNfTMrqW68i6wsyLseuLeQfwyYh6eqf8Fzz
+ Dtx5cSSL
+X-Authority-Analysis: v=2.4 cv=A8xsP7WG c=1 sm=1 tr=0 ts=68b6fd56 cx=c_pps
+ a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
+ a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=FBzynz1gJkPyhc2EhIcA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=IoOABgeZipijB_acs4fv:22
+X-Proofpoint-ORIG-GUID: 2qkEhCFGwSwXAZ6EDM88TRdk2fGOdque
+X-Proofpoint-GUID: 2qkEhCFGwSwXAZ6EDM88TRdk2fGOdque
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-02_04,2025-08-28_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 spamscore=0 impostorscore=0 bulkscore=0 clxscore=1015
+ suspectscore=0 malwarescore=0 priorityscore=1501 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508300031
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_062257_374786_C30A6E85 
-X-CRM114-Status: GOOD (  13.55  )
+X-CRM114-CacheID: sfid-20250902_072111_984686_5386DA58 
+X-CRM114-Status: GOOD (  18.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,53 +157,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series includes only the refactoring commits from [1]. The batching
-related changes were dropped since they are no longer relevant (batching
-support in crypto_engine was retired in [2]).
 
-This series includes various small cleanups and refactoring:
-- move request-specific skcipher and hash data to request context,
-  eliminating the need to allocate extra memory in the digest path
-- make the hashing code more clear and modular
-- reduce a bit of boilerplate/duplicated code
 
-Changes in v3:
-   - dropped ____cacheline_aligned attributes from buffers used for
-     to-device DMA only
-   - set up proper alignment for ahash reqctx, in order to allow from-device DMA
-     into reqctx buffer:
-      * increased ahash reqsize by CRYPTO_DMA_PADDING
-      * added __aligned(CRYPTO_DMA_ALIGN) attribute for the 'result' buffer
-      * converted all ahash_request_ctx_dma() calls to ahash_request_ctx_dma()
+On 8/28/2025 6:52 PM, Casey Connolly wrote:
+> Hi Shivendra,
+> 
+> On 15/08/2025 16:35, Shivendra Pratap wrote:
+>> Current reboot-mode supports a single 32-bit argument for any
+>> supported mode. Some reboot-mode based drivers may require
+>> passing two independent 32-bit arguments during a reboot
+>> sequence, for uses-cases, where a mode requires an additional
+>> argument. Such drivers may not be able to use the reboot-mode
+>> driver. For example, ARM PSCI vendor-specific resets, need two
+>> arguments for its operation – reset_type and cookie, to complete
+>> the reset operation. If a driver wants to implement this
+>> firmware-based reset, it cannot use reboot-mode framework.
+>>
+>> Introduce 64-bit magic values in reboot-mode driver to
+>> accommodate dual 32-bit arguments when specified via device tree.
+>> In cases, where no second argument is passed from device tree,
+>> keep the upper 32-bit of magic un-changed(0) to maintain backward
+>> compatibility.
+> 
+> How about adding a n_magic_args property to struct reboot_mode_driver?
+> Then in struct mode_info change magic to be a u32 array of a fixed
+> length (currently two in-keeping with the DT bindings).
 
-Changes in v2:
-   - fixed [-Wunused-but-set-variable] warning reported by kernel test robot
+Arnd/Rob,
 
-[1] https://lore.kernel.org/linux-crypto/20250626095813.83963-1-ovidiu.panait.oss@gmail.com/
-[2] c470ffa6f486 ("crypto: engine - remove request batching support")
+As per previous discussion on patch v10, magic and cookie were implemented
+as a 64 bit number (64 bit magic).
 
-Ovidiu Panait (9):
-  crypto: sun8i-ce - remove channel timeout field
-  crypto: sun8i-ce - remove boilerplate in sun8i_ce_hash_digest()
-  crypto: sun8i-ce - remove unnecessary __maybe_unused annotations
-  crypto: sun8i-ce - add a new function for dumping task descriptors
-  crypto: sun8i-ce - move bounce_iv and backup_iv to request context
-  crypto: sun8i-ce - fold sun8i_ce_cipher_run() into
-    sun8i_ce_cipher_do_one()
-  crypto: sun8i-ce - pass task descriptor to cipher prepare/unprepare
-  crypto: sun8i-ce - save hash buffers and dma info to request context
-  crytpo: sun8i-ce - factor out prepare/unprepare from
-    sun8i_ce_hash_run()
+Need you thoughts that if we should change the magic to 32bit array, as being
+suggested in the above comments.
 
- .../allwinner/sun8i-ce/sun8i-ce-cipher.c      |  85 +++++-----
- .../crypto/allwinner/sun8i-ce/sun8i-ce-core.c |  35 ++---
- .../crypto/allwinner/sun8i-ce/sun8i-ce-hash.c | 145 ++++++++++--------
- .../crypto/allwinner/sun8i-ce/sun8i-ce-prng.c |   1 -
- .../crypto/allwinner/sun8i-ce/sun8i-ce-trng.c |   1 -
- drivers/crypto/allwinner/sun8i-ce/sun8i-ce.h  |  27 +++-
- 6 files changed, 147 insertions(+), 147 deletions(-)
-
--- 
-2.50.0
-
+thanks,
+Shivendra
 
