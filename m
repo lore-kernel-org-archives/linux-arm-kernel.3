@@ -4,62 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2E2FCA100E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:42:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4745BCA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:42:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T3wyZ6jtecqFDOGjVL1fyOX/b7Gmqgj53Psy+nVhaxE=; b=LEEiEIIUi6R7DenmrcnzN0ud3m
-	UjMo3ng4vL/4QU7ziK/+7xtBLz5qHqtNR5odKSIfa5PwYg2R2348IIuJnExVs0DJuNoACB0QDoIEf
-	GX73IoPN7to1mmDdCLOUKp7sTbECGQA6CNQUmhCNly5o/zKkr6K1gMCOnAyeFiaEuDmeaAFG4qjf2
-	Xc6IPD6oiOb/svSfg0RASxkdNvpylDvCtJb4dVOsT1V7q97tSHHA/V7B9HgYxqmecVsvnRbRTwgiu
-	QYWnXWO3eA3LJ4RcWqBVwCrkwj5wfSXY2iPiruS3Wsc0Jae8iWSFZq6NG/aN7jiCGUaG9wBB8AoHi
-	D6Mz8fwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vafXsShjHcqkqqUbmMwx8jDPKmy/omG9aRFir+yZ4Po=; b=nVGcXaXRygEuI/1phOLOS56L1l
+	Ex7l4KULeV6lqRwgG33/VX5rc1wZYDCAfUqQTLN4RKHrtwR3Qi1IoYv+mIte+uFRgHhI7qKfHkixr
+	rrwoILQk6XM8zo5gRdIy0VwlD7kMOcGh7uBr7Y04XsChTUMQQnjmnv1Y0U0ahYw4N/UjfnEyAI/AW
+	3L23zAed+WIsBG2/4oULdAN+1mehTf/xJjLOxnm0Lv2WO2H1bx7Wgw4vqdMtrqMGEpm8Cnw62b7qS
+	CQ5ZIejl+8MGIJRvxAcAfVgtj/a1DWO20qoijEWnqzlj1NSDEH0RtdiClKVLL/UNw9jSODXL2Re/1
+	2/CgarMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utYm4-00000002AXQ-3bsv;
-	Tue, 02 Sep 2025 21:42:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1utYm6-00000002AaJ-1qjh;
+	Tue, 02 Sep 2025 21:42:46 +0000
+Received: from smtprelay0013.hostedemail.com ([216.40.44.13] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utRjW-00000000HEA-38ZW
+	id 1utRml-00000000IJP-3vEC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 14:11:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 619DF40B7A;
-	Tue,  2 Sep 2025 14:11:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1832C4CEED;
-	Tue,  2 Sep 2025 14:11:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756822298;
-	bh=T3wyZ6jtecqFDOGjVL1fyOX/b7Gmqgj53Psy+nVhaxE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PGGOM86HcFpJ3YVUjeAOSaRCxRnk6EAQ2f9GFx0xl2YwcXWNHKEAJVJ+lRasFvNEo
-	 z6HTyRa9bLS8/m8dWbDjncohPJhC6GhJL6VWIA762BxoY3L7/CbCnl6RZ9Qhlqu/Yx
-	 64PeucOP6FW6oiDD6kzJMuUaGwETnec1ChpGjbODt0C+85o8nea6e8T7EsbfVgysSY
-	 1Pv5bbO+g9W/E+zOwqsKrf3Lm676SKYj3soWjgdy4EM0a+8vz4wyZynCuTda//V8Rj
-	 qOwRGcwlm9N2cYeMRlvDwk6M8YPJ1zoCmcrFKzMSjLmhLlrdACcj6bz42+tDl08JGl
-	 SziNxYvIE6v7w==
-Date: Tue, 2 Sep 2025 16:11:34 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Conley Lee <conleylee@foxmail.com>
-Cc: andrew@lunn.ch, kuba@kernel.org, davem@davemloft.net, wens@csie.org, 
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH] arm: dts: add nand device in
- sun7i-a20-haoyu-marsboard.dts
-Message-ID: <stdtaaoxpnwbinjk72nutik4dsh77iywfqpoogtgxhebkuxcl3@yhnu5u2wvtsb>
-References: <tencent_57056C4B1E98EF5C0517A5685B2E4D060508@qq.com>
+	Tue, 02 Sep 2025 14:15:01 +0000
+Received: from omf14.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay06.hostedemail.com (Postfix) with ESMTP id B0BE3118DE0;
+	Tue,  2 Sep 2025 14:14:57 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf14.hostedemail.com (Postfix) with ESMTPA id D75B22F;
+	Tue,  2 Sep 2025 14:14:55 +0000 (UTC)
+Date: Tue, 2 Sep 2025 10:14:54 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Luo Gengkun <luogengkun@huaweicloud.com>
+Cc: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
+ mathieu.desnoyers@efficios.com, linux-kernel@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH] tracing: Fix tracing_marker may trigger page fault
+ during preempt_disable
+Message-ID: <20250902101454.08ac4b51@batman.local.home>
+In-Reply-To: <cc6eb973-d82b-4afc-83fb-a2c28cc79d36@huaweicloud.com>
+References: <20250819105152.2766363-1-luogengkun@huaweicloud.com>
+	<20250819135008.5f1ba00e@gandalf.local.home>
+	<436e4fa7-f8c7-4c23-a28a-4e5eebe2f854@huaweicloud.com>
+	<20250829082604.1e3fd06e@gandalf.local.home>
+	<20250902005645.8c6436b535731a4917745c5d@kernel.org>
+	<cc6eb973-d82b-4afc-83fb-a2c28cc79d36@huaweicloud.com>
+X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="zip2peffqy3jbkf7"
-Content-Disposition: inline
-In-Reply-To: <tencent_57056C4B1E98EF5C0517A5685B2E4D060508@qq.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Stat-Signature: beakny4makx9cgn6wr3cpdqnepb7zwzk
+X-Rspamd-Server: rspamout08
+X-Rspamd-Queue-Id: D75B22F
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1/Vny/0m1YTHEB86J0KxD22azBiTD+a6Bc=
+X-HE-Tag: 1756822495-445596
+X-HE-Meta: U2FsdGVkX184HKgOFkdHQFjK+vres2d7VudWt6HZdwYteDupaA5t8163Q1Cdzk5ffctsf+ji2tSeR5xXFP78YjW2zatrfZOwMQS2KXzu0/20/e5PEAyxQMHxTSY4wf58CvnSFV56gUR4RcAoGgEb7lyEro680Ri5G+pxONAwzgKFUOsfdU6EyC8jTEMSzTopv8FcBjcoOSWn5N/xHneyLIJ4gUrAyNA9C2KxeawuR5JgDJ9qcoy5jJisn1wz87OJ3F60Ef9bNyFGDjoS8aDfzta/VXK187CkvGH+uEbQPqMcpDc60Hi/LzR9u1XxahZwvUupmWNHDPJzAhT4eRnnmOz/bJDsUuBVg85WDSVDvNy9pa4VYNXIIw==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_071138_803971_CC7FBC90 
-X-CRM114-Status: GOOD (  11.49  )
+X-CRM114-CacheID: sfid-20250902_071500_030525_B0D0CFBA 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,37 +78,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 2 Sep 2025 11:47:32 +0800
+Luo Gengkun <luogengkun@huaweicloud.com> wrote:
 
---zip2peffqy3jbkf7
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] arm: dts: add nand device in
- sun7i-a20-haoyu-marsboard.dts
-MIME-Version: 1.0
+> > If this does not check the preempt flag, it is a problem.
+> > Maybe arm64 needs to do fixup and abort instead of do_mem_abort()?  
+> 
+> My kernel was built without CONFIG_PREEMPT_COUNT, so the preempt_disable()
+> does nothing more than act as a barrier. In this case, it can pass the
+> check by schedule(). Perhaps this is another issue?
 
-On Mon, Sep 01, 2025 at 05:05:21PM +0800, Conley Lee wrote:
-> The Haoyu MarsBoard-A20 comes with an 8G Hynix NAND flash,
-> and this commit adds this NAND device in the device tree.
->=20
-> Signed-off-by: Conley Lee <conleylee@foxmail.com>
+This is why I never triggered it. I always have PREEMPT_COUNT enabled.
+I have tests that test without it, but I don't think those tests access
+trace_marker, and if they do, they don't stress it.
 
-MLC NANDs are very unreliable, we must not enable them by default in the
-current state of UBI / UBIFS.
-
-Maxime
-
---zip2peffqy3jbkf7
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaLb7BwAKCRAnX84Zoj2+
-dguyAX9u3yR4AN55O69wO/UyeI+BKx82ca33p0QxRMC9v3A6uvffoiSuhq3FxYFT
-tauF1e0Bf2nxCJpegHoktTqCPgJG1BXoVvCkL7sJHt0f6IDGzK+M5LJLOSLE7qap
-ur39lheVPw==
-=Z7CA
------END PGP SIGNATURE-----
-
---zip2peffqy3jbkf7--
+-- Steve
 
