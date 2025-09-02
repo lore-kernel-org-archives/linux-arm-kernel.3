@@ -4,59 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2606BCA1005
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:10:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD4A4CA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:10:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pHAoQIZFTgS8rsJlU80z1j4gq01F3RHravH7EVfXeog=; b=qLT19OxyfmUY1XohEW34gLI5jP
-	vNtnw6yWhO4ChQ8ky6In7yOtlvKp7Jf8e+vTuqom7HeH5sHiPYzvNnDqeRVVSbmP8uBRKyBsgEF51
-	0fAnfTP3jAjxZiNlLhOkt+eqv/Id6IYLedu3hL9aA4nl0iSDoDvfChgDxJe18+ksVZMon5U40jb/M
-	/zsytBxHqmlY8olFvS+jjsGZn8k2UjluzqcySfM/OBkmz/hYAU8QWToA7XQZZBLgWyQ5Z0xMAXqzD
-	TtSad8I0+yNrw+4JtfoI9hRZTDsDiYlbsIrU6CslNNqH9/sXosIDWVnhSPlP5qsNaa3F+QC6/7exu
-	PPX8LtIQ==;
+	bh=6iwY/DvHmnwsyLorWVY60Mu75ZP2JaPCrgAdT0NkVYY=; b=mScrut2Z6sw7fzEi2oNUe8zbnG
+	BF50OhodKSXnby6/XmGn3M4wFgazKu6HnP9jVu8Qo8RbXFnMHlj56iMGDgXn4v1nfV1KNVm67iUt5
+	1bn8Fs2JQvj2J9JuM+ZabWRwrBJd2GjPuK9lARnV7UbS1crv1MZVvjxzeIdS7gcPbkhrgMweuu1Oj
+	SZIg8lnQ60cw6sNycBHy1LYrVmzWur00bPxuVjV3R1LuoYhfEAYuyJlmRrJ9qSwAUYpp9RjZZeM2Y
+	MRzvL0At/lMeye1PQBm7gVjIGZ2Gsq6AnGbf0xWXQA4ZYaeMvsuFdQB3iVH6BNlIk7Ykz/haquBdP
+	P6Y7zk/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utWOI-00000001aR4-48H8;
-	Tue, 02 Sep 2025 19:10:02 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1utWOM-00000001aYV-1uRZ;
+	Tue, 02 Sep 2025 19:10:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utQtv-0000000HaDj-00Ne;
-	Tue, 02 Sep 2025 13:18:19 +0000
+	id 1utQu2-0000000HaGy-3LPs
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 02 Sep 2025 13:18:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6EA8360206;
-	Tue,  2 Sep 2025 13:18:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92BAFC4CEED;
-	Tue,  2 Sep 2025 13:18:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 51AE044AE3;
+	Tue,  2 Sep 2025 13:18:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD50BC4CEED;
+	Tue,  2 Sep 2025 13:18:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756819098;
-	bh=K0GSdivUZWDBfPpkGbzM+dh5X2lVniJv3YjK1fZ5fEM=;
+	s=k20201202; t=1756819106;
+	bh=FGa7ZgDMj8ZzjbgcMztCURZjWDqJpJhpglo5MQK07Tc=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=UFqXKUeicCIzvOluYdJkonrNBf/8NoPzAq1tQwdG8JSYZMnvVmrABd/iL+IF7QyHS
-	 ft3YG30ij+cp5MBdJwKPNfJ15Ih3ZgTXTDD9wr9lB14ZlRrjJXvVVcTx5Te0rhKNso
-	 4XdqqPIRU/OzfqghFsZ8tNSLOUi2kngMCdOvll0PwYGssKqoouM/oKpROgjayRMLvV
-	 YPpdQkzGdmlQ+BZ+Fah1AeE8uLrW4N8Bn6LmfDUpDcB/0mB4tGhG65rfvjmKZFDq+w
-	 hxQfjpHBa4uhvOyZpV3c3L0wKz4zHrk6rV4t2e16E4I/pTy/yI4ziyPCWU1xGXzs5f
-	 uuZ4+yvT/+Y4A==
-Date: Tue, 02 Sep 2025 08:18:00 -0500
+	b=vIG2fMUYOJGTB+1YSHvjxGf5Q3T8tqmuUCNeaKMpRfHsHGBWnBDv2cUL5UIrEPUcc
+	 BwfgQ5m7FwJ4Iz7GfpdQEsdGZmUrzW0oDbMJZNSCtzIcw4gSCv8ep2sCNCwORgj18L
+	 /6dZN6PIRi0gYetVeUI66IXga2yu1KfMV/Zq1HHkmAaXJgjFHqsXU5upbxm4ZM/e9O
+	 /qXAGi1F9/PEYL1uuFbG9ylCRtdtU0oGDxfjydI9f0NGlLGAP1w2g/DnAVwrXCcgJw
+	 XYCTiJJ3bvliyZ2NoizvFArBO/XaKPdXVeAlOW4uvVONWck3Mazzp4lCsJ+1s/taXZ
+	 rE6Gvn5rdaokg==
+Date: Tue, 02 Sep 2025 08:18:23 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
- Fred Bloggs <f.blogs@napier.co.nz>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- Heiko Stuebner <heiko@sntech.de>, Stephen Rothwell <sfr@canb.auug.org.au>, 
- linux-kernel@vger.kernel.org
-To: Hsun Lai <i@chainsx.cn>
-In-Reply-To: <20250901025037.81548-1-i@chainsx.cn>
-References: <20250901025037.81548-1-i@chainsx.cn>
-Message-Id: <175678731228.878036.16153642695383320999.robh@kernel.org>
-Subject: Re: [PATCH v3 0/2] Add support for 100ASK DShanPi A1
+Cc: andrew@lunn.ch, davem@davemloft.net, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ kuba@kernel.org, mripard@kernel.org, wens@csie.org, 
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org
+To: Conley Lee <conleylee@foxmail.com>
+In-Reply-To: <tencent_57056C4B1E98EF5C0517A5685B2E4D060508@qq.com>
+References: <tencent_57056C4B1E98EF5C0517A5685B2E4D060508@qq.com>
+Message-Id: <175678731473.878204.3446095909067556324.robh@kernel.org>
+Subject: Re: [PATCH] arm: dts: add nand device in
+ sun7i-a20-haoyu-marsboard.dts
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250902_061826_860885_B87A8D65 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,43 +75,14 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 01 Sep 2025 10:50:35 +0800, Hsun Lai wrote:
-> This series add support for 100ASK DShanPi A1.
+On Mon, 01 Sep 2025 17:05:21 +0800, Conley Lee wrote:
+> The Haoyu MarsBoard-A20 comes with an 8G Hynix NAND flash,
+> and this commit adds this NAND device in the device tree.
 > 
-> Info of device can be found at:
-> https://wiki.dshanpi.org/en/docs/DshanPi-A1/intro/
-> 
-> Changes in v3:
-> - Update the name of vcc_in regulator (Chukun Pan, v2)
-> - Fix PCIE (Chukun Pan, v2)
-> - Update the name of typec5v_pwren_h pinctrl (Chukun Pan, v2)
-> - Fix USB3 (Chukun Pan, v2)
-> - Remove i2c2 node, unsupported RTC model rs4c1338 (Chukun Pan, v2)
-> 
-> Changes in v2:
-> - Delete the pwm include file (Chukun Pan, v1)
-> - Fix vcc3v3_pcie gpios (Chukun Pan, v1)
-> - Adjust the order of some nodes (Chukun Pan, v1)
-> - Fix sdmmc (Chukun Pan, v1)
-> - Add phy-supply for u2phy0_otg (Chukun Pan, v1)
-> 
-> Changes in v1:
-> - Add support for 100ASK DShanPi A1
-> 
-> Hsun Lai (2):
->   dt-bindings: arm: rockchip: Add 100ASK DShanPi A1
->   arm64: dts: rockchip: add DTs for 100ASK DShanPi A1
-> 
->  .../devicetree/bindings/arm/rockchip.yaml     |   5 +
->  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
->  .../dts/rockchip/rk3576-100ask-dshanpi-a1.dts | 795 ++++++++++++++++++
->  3 files changed, 801 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dts
-> 
-> --
-> 2.34.1
-> 
-> 
+> Signed-off-by: Conley Lee <conleylee@foxmail.com>
+> ---
+>  .../allwinner/sun7i-a20-haoyu-marsboard.dts   | 67 +++++++++++++++++++
+>  1 file changed, 67 insertions(+)
 > 
 
 
@@ -128,16 +102,15 @@ make sure dt-schema is up to date:
 
 This patch series was applied (using b4) to base:
  Base: attempting to guess base-commit...
- Base: tags/v6.17-rc1-22-g7d11b8c260ea (exact match)
+ Base: tags/next-20250829 (exact match)
 
 If this is not the correct base, please add 'base-commit' tag
 (or use b4 which does this automatically)
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for 20250901025037.81548-1-i@chainsx.cn:
+New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/allwinner/' for tencent_57056C4B1E98EF5C0517A5685B2E4D060508@qq.com:
 
-arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dtb: syscon@26034000 (rockchip,rk3576-dcphy-grf): clocks: False schema does not allow [[21, 492]]
-	from schema $id: http://devicetree.org/schemas/soc/rockchip/grf.yaml#
-arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dtb: /soc/dsi@27d80000: failed to match any schema with compatible: ['rockchip,rk3576-mipi-dsi2']
+arch/arm/boot/dts/allwinner/sun7i-a20-haoyu-marsboard.dtb: pinctrl@1c20800 (allwinner,sun7i-a20-pinctrl): 'nand_base0@0', 'nand_cs@0', 'nand_cs@1', 'nand_cs@2', 'nand_cs@3', 'nand_rb@0', 'nand_rb@1' do not match any of the regexes: '^([rs]-)?(([a-z0-9]{3,}|[a-oq-z][a-z0-9]*?)?-)+?(p[a-ilm][0-9]*?-)??pins?$', '^pinctrl-[0-9]+$', '^vcc-p[a-ilm]-supply$'
+	from schema $id: http://devicetree.org/schemas/pinctrl/allwinner,sun4i-a10-pinctrl.yaml#
 
 
 
