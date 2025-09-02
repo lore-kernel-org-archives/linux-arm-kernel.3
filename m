@@ -4,116 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72F9ECA1005
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 12:27:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E16FCA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 12:27:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=m/8bnMdkcwBrzdormqUmLTK3k80g92+lN3p1s60KZ+k=; b=0rCnYof0PaVDPKVXOdfTz3Ee1M
-	tkGM2STr6CaIBrmCNwqZxxEmSw/KVCfltcTuNoBhZiZeVnMzV+rL51hEYmDUSlXkAD0+HhTSv9T1a
-	Eu/lUe4XKZr9brYJnFlGUy1OSe9v6a0yvIoA33EgpLWiCqavRYA5woSrsPVZ0LofeM4gCRkPCWGLj
-	oucuLf1y5K6uRf4FHFC52d2J2yB9wVqEqmSGb03M13HAmaIo+5uFsaZ6qHuD7drDtuKeERIxm5yQP
-	uaKhW9oYN2Vt8AUgG6FqdWNpsrV+jqcZri/E0/XJ1g6r1XS0lyFJifqn5hICTg3SnxJU6Hedzaon7
-	uXVDSvVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nqogwPdlvq7AEEvwLHEeyKv2i7NgHAJdNmEi0OQOf7s=; b=jTurWFg2KwcYwibjDa03whdIrE
+	HrTHIj6/RN9Bq74RVVZMwvYJsz2rVsKIZZHLOr/2FVN0Dr4XqGkIhp+bq+wTRXpTyxFIJ/VPV9+Ok
+	AFNy3PEAADMe5fkdyfDamyoZZORi30xvOFuj5gcBMZ/cBXkv4L5d5MX4gJ2PemPXmlGdpkA5InyJH
+	kOpqXYAWYno1xCRVO09l3a/HMT00unlOAmFf3lpYmuL32iWZB8wFx5oAnU0kXOhT80Ae9tRPCendY
+	buIoelTgE9ns+6GxasHCsSph+Z4j3cebBl1MzCldWNxli3DBcBcKWhgBZpl3RVmCQ+HwgqQhAliTE
+	6e0nbuyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utQ6v-0000000HEG5-3ofb;
-	Tue, 02 Sep 2025 12:27:41 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1utQ6c-0000000HDvN-3glW;
+	Tue, 02 Sep 2025 12:27:22 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utN77-0000000GIxU-1MLY
+	id 1utN04-0000000GGm0-2tY9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 09:15:42 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b041b155a6dso23198266b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 02:15:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756804540; x=1757409340; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=m/8bnMdkcwBrzdormqUmLTK3k80g92+lN3p1s60KZ+k=;
-        b=d2m2tX9Ze0WZYVeoARyLnxVjNrjoB1J8H7F41X5KTpV15h/smnEUys0TuXfNIV2OcZ
-         iXeN++BZSIWCKLbG8RKsjc9ldMAT+SQrX29iRlCBXFHsrt9BrbDxbEpffMXURg/Ftg4z
-         AMYqfYVYvGaHxX2WAbRl75KxB0fTV4Hde4ygAZ2UUrJyvBWZdYcu5pKRlfMO37ZRXLZa
-         A28MasCeEBpIlWMDXLK/93qHqU3Fj9sKT/VggC3/hGUTs/79SiqBnMt/nAFbIcCA0/+2
-         ipDEmEsGb9D9r1ZQYRc5jo6Dslcp1rbVXMmWQUzHmsIxHQrHlo1OFluRNYaixty37k8J
-         w41Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756804540; x=1757409340;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=m/8bnMdkcwBrzdormqUmLTK3k80g92+lN3p1s60KZ+k=;
-        b=OLtqGbfODDTM7gMTsnCSQ/4fwuyPqRz8JzowpxSo+5n92h6dVZ8ROBgQ0OGrW5nd25
-         z46/KNCTXOBB+U6BJEpoXrfSlkuyyMBdkvvtZbfBloNgZWVUbIB0jZ0U+ijUf3atZkdf
-         SZvR3MF//S89ruVD9btZzKs0suPcP7cp+enixplq0YBR4DVPe0dAnr/SmbtV1amEMJtO
-         iCUqMZ6HujGhp3VNrBjp9r65KKuqashUgctdIRyFxyd9/OqR9HM68D/D0G/UkwY5JGzJ
-         eKJlkHA3eEpTuJZnPiEwLB5y/ISpc+XxxPnN61paHplvHSl0i3Nq0mXcIVTz2sMoO9NI
-         DITw==
-X-Forwarded-Encrypted: i=1; AJvYcCWfuhElaeb+LJvigEMizHjMFyTiaKTUQismMjrT6vAmCE+knxRlJzjoF5wusXJrKUM9hxMmv2+Ht25xUJ1gRvN6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzxi0hRQLI5VVTgUDo4zSKWSJl/h2zlMo7eGa6tb/Cb/7UhvdzA
-	14efWdfcuq7pQntKdtJlx5rONSfskBqFScjP2BfhZZO+KaRjgvx93auuTXpQf0LoTOA=
-X-Gm-Gg: ASbGncvmdD+WUF8Qz9lX/sh1vuqA4F47Ni63V8lxJDUInXFLan0p8iZvw7Jrd+ol6Z6
-	SXfjQz4C8uN6v55Yh/06RrCaIksp4++ygjSZALVJGZJHRUUNUsjrY+QBIrrFJH9AjZqsQgSJhsz
-	tZnFiZxHZ/Vg9GUp7HfYaBWe7R5r4IOWWIyTBbaHcIVcAxcAs7SD0a4BlnM4vNBQvBMnn+HZfWl
-	G3Sx74cPSnzSc0nZ0X3+BjKYxmVhii43VEZHPc8/mlEkqv/WwEGj8HieKl4oENUpHb42MsQyIWo
-	LSBfLqMDeBGbshswvCMbTRNvGjyB5G5JN0K7+4OfnsGNqdgLSlBFxAfGnIOQcin6IAEUgJ1DeaT
-	HRdL86y5hZfRVJcWZ26Zg4YOqVcQdoD8BfKwGgD6bAd8SzBRvFqolu40=
-X-Google-Smtp-Source: AGHT+IGsSFPfLqX1TSTY7vx9/w5ZifFk746DiQHROlsIAv27SMqvJyUuB9Px6z4DG9dMMXNer8ncTw==
-X-Received: by 2002:a17:907:95a2:b0:b01:989f:46d0 with SMTP id a640c23a62f3a-b0198ae8b17mr566468666b.11.1756804539611;
-        Tue, 02 Sep 2025 02:15:39 -0700 (PDT)
-Received: from kuoka.. ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aff15fccb15sm877008866b.98.2025.09.02.02.15.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Sep 2025 02:15:38 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Matthew Gerlach <matthew.gerlach@altera.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH net-next 1/2] dt-bindings: net: altr,socfpga-stmmac: Constrain interrupts
-Date: Tue,  2 Sep 2025 11:15:27 +0200
-Message-ID: <20250902091526.105905-3-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.48.1
+	Tue, 02 Sep 2025 09:08:27 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58297oXq2552615;
+	Tue, 2 Sep 2025 04:07:50 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1756804070;
+	bh=nqogwPdlvq7AEEvwLHEeyKv2i7NgHAJdNmEi0OQOf7s=;
+	h=From:To:CC:Subject:Date;
+	b=YFZCdqdwq8yWUw0jYqrSif1z5Sq/uO4sktL2tGSXazw135W2ZJhfv+aADvNRBKR7E
+	 FMmuA0tTpaWL21CA5pZkOKq8QHstztcFJ9fNkhhryP/vQ/TJfK0I9F4yREHlXyy6VN
+	 r37/IiL51SdDKA6cbDrdE14X3vJcxQh2dJ5lrmL8=
+Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58297ow52171631
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Tue, 2 Sep 2025 04:07:50 -0500
+Received: from DLEE114.ent.ti.com (157.170.170.25) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 2
+ Sep 2025 04:07:49 -0500
+Received: from fllvem-mr08.itg.ti.com (10.64.41.88) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Tue, 2 Sep 2025 04:07:49 -0500
+Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
+	by fllvem-mr08.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58297nDR1001478;
+	Tue, 2 Sep 2025 04:07:49 -0500
+Received: from localhost (danish-tpc.dhcp.ti.com [172.24.231.152])
+	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 58297mND020814;
+	Tue, 2 Sep 2025 04:07:48 -0500
+From: MD Danish Anwar <danishanwar@ti.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller"
+	<davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Mathieu
+ Poirier <mathieu.poirier@linaro.org>,
+        Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+        Nishanth Menon <nm@ti.com>, Vignesh
+ Raghavendra <vigneshr@ti.com>,
+        Mengyuan Lou <mengyuanlou@net-swift.com>,
+        MD
+ Danish Anwar <danishanwar@ti.com>, Xin Guo <guoxin09@huawei.com>,
+        Lei Wei
+	<quic_leiwei@quicinc.com>, Lee Trager <lee@trager.us>,
+        Michael Ellerman
+	<mpe@ellerman.id.au>, Fan Gong <gongfan1@huawei.com>,
+        Lorenzo Bianconi
+	<lorenzo@kernel.org>,
+        Geert Uytterhoeven <geert+renesas@glider.be>,
+        Lukas
+ Bulwahn <lukas.bulwahn@redhat.com>,
+        Parthiban Veerasooran
+	<Parthiban.Veerasooran@microchip.com>,
+        Suman Anna <s-anna@ti.com>
+CC: Tero Kristo <kristo@kernel.org>, <netdev@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-remoteproc@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        Roger Quadros
+	<rogerq@kernel.org>
+Subject: [PATCH net-next v2 0/8] Add RPMSG Ethernet Driver
+Date: Tue, 2 Sep 2025 14:37:38 +0530
+Message-ID: <20250902090746.3221225-1-danishanwar@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=912; i=krzysztof.kozlowski@linaro.org;
- h=from:subject; bh=omOLYYYjh3z0DVh1O46NQbX5aRk5HswOved29mAUMag=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBotrWu6Rq20SlnUGOaA358hH5nv1fnKm5T701YM
- YgxMdCPxreJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaLa1rgAKCRDBN2bmhouD
- 100DD/9FY3aTCBs5BXmVSlnhJDkPZWHvDYOPI4Ae46T6toYdFe0oHBCT1ivV3pDoDGSKU73VZdG
- 4E82JAx/MwQyjQ4F4iyK/iN6J1wXAQ6i61V+oYGoyKS+lR4eroU9Dx8odZXyXbdyVq3lU3sO+MG
- TDML8f+YKLY/tOdjh+vJcUU+n7Ipf9HjXQKFVmWNzWlcopnWLu+hCztmEm523MO/p1nwr7EbwzS
- AE+Q93zwfJEIQvKPuS9HS1E/MCAEVvrv+j8hvLkvmDxui+woZc/NUr111q/CmX1NgYQVyjmtExN
- /BwHQi0xOsvXemvA1ABLngFYG/dTIRx8KEfwl6pEKcqZj6MZrsUok0KLHgP0q0yP0RJEGikumsY
- mXQV/LE1skdf/aP0YwXf/b6CQ7zUG+u7gs7mGvZhYthkIhPxlmSbMsX/+TsZYDGTLu/qSfQYuT5
- WVsC78X2Hv5kVCE3+9mfwv4cuAU8quFWeKWOzdzIvNMX63WhjHv+91/WFpl17WfG6XXdGSlgztf
- R5hp2f+n5jEtt0OlSWeRqSWMezS3EsPt0fbsgR8Jub4XEpAM22Xh5X9nBqMYS2HEBd+j7hbvtib
- 2d7ORY8wvGFU4MGzahiBEwPT0rO4qhj4XqcoWUECr78rM46doe2LQeEOP2JfNG/jl5b4jREKBwl 30tClks5II7F44g==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_021541_400247_31EE3988 
-X-CRM114-Status: UNSURE (   9.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250902_020824_830383_9099DC7F 
+X-CRM114-Status: GOOD (  23.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,34 +118,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-STMMAC on SoCFPGA uses exactly one interrupt in in-kernel DTS and common
-snps,dwmac.yaml binding is flexible, so define precise constrain for
-this device.
+This patch series introduces the RPMSG Ethernet driver, which provides a
+virtual Ethernet interface for communication between a host processor and
+a remote processor using the RPMSG framework. The driver enables
+Ethernet-like packet transmission and reception over shared memory,
+facilitating inter-core communication in systems with heterogeneous
+processors.
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- .../devicetree/bindings/net/altr,socfpga-stmmac.yaml       | 7 +++++++
- 1 file changed, 7 insertions(+)
+Key features of this driver:
 
-diff --git a/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml b/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
-index 3a22d35db778..fc445ad5a1f1 100644
---- a/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
-+++ b/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
-@@ -62,6 +62,13 @@ properties:
-       - const: stmmaceth
-       - const: ptp_ref
- 
-+  interrupts:
-+    maxItems: 1
-+
-+  interrupt-names:
-+    items:
-+      - const: macirq
-+
-   iommus:
-     minItems: 1
-     maxItems: 2
+1. Virtual Ethernet interface using RPMSG framework
+2. Shared memory-based packet transmission and reception
+3. Support for multicast address filtering
+4. Dynamic MAC address assignment
+5. NAPI support for efficient packet processing
+6. State machine for managing interface states
+
+The series begins by adding device tree binding documentation, continues
+with  core driver implementation, and concludes with platform-specific DTS
+changes for the TI K3 AM64 SoC. The driver is designed to be generic and
+can be used by any vendor that implements compatible firmware for their
+remote processors.
+
+This driver is designed to be generic and vendor-agnostic. Vendors can
+develop firmware for the remote processor to make it compatible with this
+driver by adhering to the shared memory layout and communication protocol
+described in the documentation.
+
+This patch series has been tested on a TI AM64xx platform with a
+compatible remote processor firmware. Feedback and suggestions for
+improvement are welcome.
+
+Changes since v1:
+- Added dt binding for rpmsg-eth node similar to `qcom,glink-edge.yaml`
+  and `google,cros-ec.yaml`
+- Added phandle to rpmsg-eth node to dt binding `ti,k3-r5f-rproc.yaml`
+- In the driver, shared memory region is now obtained from the rpmsg-eth
+  node in device tree.
+- Dropped base address from rpmsg callback. Since base address is obtained
+  from device tree, no need for rpmsg callback to share this base address
+  again.
+- Dropped usage of pointers and strictly using only offsets while
+  communicating to firmware.
+- Updated documentation based on the changes in driver and bindings.
+- Added "Naming convention" section to documentation to clarify naming and
+  various terms used in the driver and documentation.
+- Kept the naming should be consistent throughout the documentation and
+  driver as suggested by Andrew Lunn <andrew@lunn.ch>
+- Added device tree patch in the series to clarify how the changes will be
+  done in device tree and how the driver will use device tree information.
+
+v1 https://lore.kernel.org/all/20250723080322.3047826-1-danishanwar@ti.com/
+
+MD Danish Anwar (8):
+  dt-bindings: net: ti,rpmsg-eth: Add DT binding for RPMSG ETH
+  dt-bindings: remoteproc: k3-r5f: Add rpmsg-eth subnode
+  net: rpmsg-eth: Add Documentation for RPMSG-ETH Driver
+  net: rpmsg-eth: Add basic rpmsg skeleton
+  net: rpmsg-eth: Register device as netdev
+  net: rpmsg-eth: Add netdev ops
+  net: rpmsg-eth: Add support for multicast filtering
+  arch: arm64: dts: k3-am64*: Add rpmsg-eth node
+
+ .../devicetree/bindings/net/ti,rpmsg-eth.yaml |  38 ++
+ .../bindings/remoteproc/ti,k3-r5f-rproc.yaml  |   6 +
+ .../device_drivers/ethernet/index.rst         |   1 +
+ .../device_drivers/ethernet/rpmsg_eth.rst     | 368 ++++++++++
+ arch/arm64/boot/dts/ti/k3-am642-evm.dts       |  11 +-
+ drivers/net/ethernet/Kconfig                  |  10 +
+ drivers/net/ethernet/Makefile                 |   1 +
+ drivers/net/ethernet/rpmsg_eth.c              | 639 ++++++++++++++++++
+ drivers/net/ethernet/rpmsg_eth.h              | 283 ++++++++
+ 9 files changed, 1356 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/devicetree/bindings/net/ti,rpmsg-eth.yaml
+ create mode 100644 Documentation/networking/device_drivers/ethernet/rpmsg_eth.rst
+ create mode 100644 drivers/net/ethernet/rpmsg_eth.c
+ create mode 100644 drivers/net/ethernet/rpmsg_eth.h
+
+
+base-commit: 2fd4161d0d2547650d9559d57fc67b4e0a26a9e3
 -- 
-2.48.1
+2.34.1
 
 
