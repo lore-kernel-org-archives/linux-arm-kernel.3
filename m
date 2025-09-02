@@ -4,61 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ED54CA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:45:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 637B3CA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:45:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=Loo48Cqc0sttLWPXwus4d54m/xuBTKFODYQYcFHWVEc=; b=Wq54jbXu6BGcMP
-	n55Px6SXUsrgKRMHx79o4M5td3KTthxGW65ujvwmhErExJ+gi9TMMyO27vE+J2oFHBjn3VbPICXLf
-	xPC1evJVm/QHdRZrHgOFh0z37T27ZT7g1sjEVv101CYyHuvJ72MoeXm6SarxfzvOpdZ/3nzLoIzmj
-	plwnKaTxRl8tGbXYKWq6iYQjAahJZ5wAp+gJHQchMpKxVpr4s2HWATzKUiXziFEhM790jHBW0ycQG
-	v9aVL7SxB75kgAEomyiuIZ6WomGLD/c9W8Gf3eTH+rS94sPoj7oilynm02VfEiQMJ1QzJ8epsTfXT
-	oan612Lw/TWB7YEZIlvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Qq79ok73NgzUNSPN3ElH84ehBnROIulXyA0yyA4cddE=; b=jlPdcaikTHevs9YMKK98DXlKL7
+	vETG6x87aoMdRrysgaWnrWyObE+GQzn5RQNj4k2x/hEE3nvgrFLpjFwzxJ6/0NLzC3dcadxWsGA9h
+	E5gaUb2hJ95tG6Spjt2ACLv3ZHqH1nrn2GshzlYz6V/+Ni1bZqBsksWt8stV85nwC0jsZhkIBkcZv
+	bEgR/izVDKVDiHOgR+8DUk1EpynyNbYriesEytV4a+Axwv8pUrOfbYrDnNw8XNh0ERSApHwLaYdH0
+	KAy7NDqOuEiPjlo1Nd3NxggcLlRf3UYj3gQ1hncycbNgF+erUxNcXCRyub9bz8E0IN4Q1MRGTM6hV
+	ude9Ln3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utYp1-00000002EQb-2vpl;
-	Tue, 02 Sep 2025 21:45:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1utYp4-00000002EUD-1NkF;
+	Tue, 02 Sep 2025 21:45:50 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utV7P-00000001GKn-1e78;
-	Tue, 02 Sep 2025 17:48:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 98A1060055;
-	Tue,  2 Sep 2025 17:48:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B832C4CEED;
-	Tue,  2 Sep 2025 17:48:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756835310;
-	bh=Ml5xDwIj2ou2yj2DtWoHvojD3g+Fyp27UWcuuPsZx30=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=VpgiDiHIzDRjLEPSlhTvW8AjxfDsKuQE4Ar7rjQicUnXODvJeZ41RJ+LppU5vwSuU
-	 K8qGjkNpw1qFDxJnNzZvYBc70U9C71dbTP/DLqYceHZuNFvfB14g9spGiLkmmw8Jcf
-	 DMznEoe3YYXsuGT5+WYNjofzk2zqkGeAFIKBjRPTJ7eMobvVP1j7z7eK8WfyN7n2hf
-	 xiMaDMHewuZ16HSj/lXJUTU5Sj847GIDrNK3qHS/CjHacl2Ud6yTaeHcolYR0u/WwB
-	 OhvnrJiaZOXBbr2QsG38HCoIrFKje9afPMVrqbes7OpiR+eFs4LFi3zHYO9IRYL1JN
-	 IXvExVf8LLogA==
-Date: Tue, 2 Sep 2025 12:48:28 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Hans Zhang <18255117159@163.com>
-Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, bhelgaas@google.com,
-	heiko@sntech.de, mani@kernel.org, yue.wang@amlogic.com,
-	pali@kernel.org, neil.armstrong@linaro.org, robh@kernel.org,
-	jingoohan1@gmail.com, khilman@baylibre.com, jbrunet@baylibre.com,
-	martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Niklas Cassel <cassel@kernel.org>
-Subject: Re: [PATCH v5 1/2] PCI: Configure root port MPS during host probing
-Message-ID: <20250902174828.GA1165373@bhelgaas>
+	id 1utV93-00000001GmJ-2CxN
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 02 Sep 2025 17:50:14 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-55f7b6e4145so2241310e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 10:50:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756835412; x=1757440212; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Qq79ok73NgzUNSPN3ElH84ehBnROIulXyA0yyA4cddE=;
+        b=bz9Vu4gQaxLWhNfXi7RN4eZv0CiNpElVD+5pPPE2ZhNnK+HXFO6UHpo2AUDFyuy+y+
+         W4CGxdqZx2sTc41lokiFD0Ny0bsy4iV0rtBHqCBIaftFeS8n0EjKQJ89Y0PcLI2UE4tc
+         lrEVoFPlSV377ZBolPlhwB7JKwDKYlE/fcoT76RR/jqoxQFTVoGuqM9eV21gjLUjvEdl
+         EJdU343aQvRbpIhwrw1oh+SuCZyPaQTdLlv9eLrKYFbQJnHW1jXpv8iF9BjmFq/oje8t
+         53KzjqkYPN+91MYrsK057d0eDrC112Ty0ya1NWxs4duA3UwRpuoso/VJdHHjLVLToula
+         IDPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756835412; x=1757440212;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Qq79ok73NgzUNSPN3ElH84ehBnROIulXyA0yyA4cddE=;
+        b=FOzdibV0u7xGTFgRHa3RXLKN+eNN/rIYd+G6U9Dx8V2G46ZKUBq9qD/eLKjJ+wJHch
+         C9qIsHBuDjlPP3YPpITdjSJpx49dSRjwab4E03ilbazNyDSTLhf+7l3HwAPObNL5vHO+
+         nX3qzUn5oNDPnfyUS/Mg4OcAsne/OyPIB49XpbRmDR+0Lv0xEpTenNRpGg5uj0ljF8xs
+         118s3/SCRIyzmz/J160EZew7bvLJoNsqDR84CnO5xt6IMZeuS+z+Xa5Anx+ed1LpvRcD
+         p8vWb/CBa4ZDKiseaYt76+KaqsU4ipZjJxSf8vQCNLnN0Gc8L8lL6nvZBmswMZ6eh/pz
+         S6Kg==
+X-Forwarded-Encrypted: i=1; AJvYcCXyvuxddfdK4X5Y8fxxi6uSAbrjugzK6beNfJBOLlL/8k7/QNimllug1w7DbkGrzoth21oFJ67z3dQzJYivtHq6@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfKAHshZdrJe/tIpiF6PHl0UF5HGI3hIpJDzUhIxJ+McrQLTMf
+	z/jHSIsUqQKHUefmY69YbmBMa3AG7kb4Zds3RT6QC7MgC4clv3eomURZe3p9qKtbqVzDQDqMbWc
+	6b1J28sU6gThPUNeWQII50Rz/7Bu45ZeZ9aFzX2kfTA==
+X-Gm-Gg: ASbGncvht9SYBWhi8SXoyIAtvCBJlrqrDKlmfxuVUPYrvoHBKfDsJzwqp28UamrQjG3
+	qurxcmw7Kj/8Th8Nn0nmjDYDj5zI9+F9EPqz//7gIDoMlp33ur/ppJXnUdqR1+KClMakAk7C4iX
+	7tM5STMjZ9aE76TIbHJlm6ch9UsV+XOueqPXxIZxBfzQykiMCpD7Pp031yKYXKhVIzexwicyLOX
+	tQyhb3oBzUD/qLKUYj0ugDSv82n+v7cuW50H4ebLF7qt1rYJg==
+X-Google-Smtp-Source: AGHT+IHWxMY/UX5pahdxyPomER2R5wCG7WJNOYIC76WLDnRgZXryLWeY1Ce628zgGwqGftmJqN1QawcJ1KuqTk6lVI8=
+X-Received: by 2002:a05:6512:3b12:b0:55f:4f99:f3c9 with SMTP id
+ 2adb3069b0e04-55f708ec830mr4334057e87.32.1756835411674; Tue, 02 Sep 2025
+ 10:50:11 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250620155507.1022099-2-18255117159@163.com>
+References: <20250902-pinctrl-gpio-pinfuncs-v7-0-bb091daedc52@linaro.org>
+ <20250902-pinctrl-gpio-pinfuncs-v7-13-bb091daedc52@linaro.org> <aLb_pOG-yc-CHoiY@smile.fi.intel.com>
+In-Reply-To: <aLb_pOG-yc-CHoiY@smile.fi.intel.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Tue, 2 Sep 2025 19:50:00 +0200
+X-Gm-Features: Ac12FXzmJRg8_mGsvbk9kTYEAk6i5wfrx-8rp8gdl4L5LHxLn-6rA1BsDeyDmdo
+Message-ID: <CAMRc=Mc-NEFawz11Lr5JGStoe=PU7b91E-MVB3xkdBr_JoiStQ@mail.gmail.com>
+Subject: Re: [PATCH v7 13/16] pinctrl: allow to mark pin functions as
+ requestable GPIOs
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Alexey Klimov <alexey.klimov@linaro.org>, 
+	Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Paul Cercueil <paul@crapouillou.net>, Kees Cook <kees@kernel.org>, 
+	Andy Shevchenko <andy@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	David Hildenbrand <david@redhat.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, 
+	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+	Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, NXP S32 Linux Team <s32@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Tony Lindgren <tony@atomide.com>, 
+	Haojian Zhuang <haojian.zhuang@linaro.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Mark Brown <broonie@kernel.org>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mips@vger.kernel.org, linux-hardening@vger.kernel.org, 
+	linux-mm@kvack.org, imx@lists.linux.dev, linux-omap@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250902_105013_567818_8CA35785 
+X-CRM114-Status: GOOD (  31.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,82 +119,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 20, 2025 at 11:55:06PM +0800, Hans Zhang wrote:
-> Current PCIe initialization logic may leave root ports operating with
-> non-optimal Maximum Payload Size (MPS) settings. While downstream device
-> configuration is handled during bus enumeration, root port MPS values
-> inherited from firmware or hardware defaults ...
+On Tue, Sep 2, 2025 at 4:31=E2=80=AFPM Andy Shevchenko
+<andriy.shevchenko@intel.com> wrote:
+>
+> On Tue, Sep 02, 2025 at 01:59:22PM +0200, Bartosz Golaszewski wrote:
+> >
+> > The name of the pin function has no real meaning to pinctrl core and is
+> > there only for human readability of device properties. Some pins are
+> > muxed as GPIOs but for "strict" pinmuxers it's impossible to request
+> > them as GPIOs if they're bound to a devide - even if their function nam=
+e
+> > explicitly says "gpio". Add a new field to struct pinfunction that
+> > allows to pass additional flags to pinctrl core.
+>
+> Which I disagree with. The pin control _knows_ about itself. If one needs
+> to request a pin as GPIO it can be done differently (perhaps with a new,
+> special callback or with the existing ones, I need to dive to this).
 
-Apparently Root Port MPS configuration is different from that for
-downstream devices?
+What? Why? Makes no sense, there already is a function for requesting
+a pin as GPIO, it's called pinctrl_gpio_request(). And it's affected
+by this series because otherwise we fail as explained in the cover
+letter.
 
-> might not utilize the full
-> capabilities supported by the controller hardware. This can result in
-> suboptimal data transfer efficiency across the PCIe hierarchy.
-> 
-> During host controller probing phase, when PCIe bus tuning is enabled,
-> the implementation now configures root port MPS settings to their
-> hardware-supported maximum values. Specifically, when configuring the MPS
-> for a PCIe device, if the device is a root port and the bus tuning is not
-> disabled (PCIE_BUS_TUNE_OFF), the MPS is set to 128 << dev->pcie_mpss to
-> match the Root Port's maximum supported payload size. The Max Read Request
-> Size (MRRS) is subsequently adjusted through existing companion logic to
-> maintain compatibility with PCIe specifications.
-> 
-> Note that this initial setting of the root port MPS to the maximum might
-> be reduced later during the enumeration of downstream devices if any of
-> those devices do not support the maximum MPS of the root port.
-> 
-> Explicit initialization at host probing stage ensures consistent PCIe
-> topology configuration before downstream devices perform their own MPS
-> negotiations. This proactive approach addresses platform-specific
-> requirements where controller drivers depend on properly initialized
-> root port settings, while maintaining backward compatibility through
-> PCIE_BUS_TUNE_OFF conditional checks. Hardware capabilities are fully
-> utilized without altering existing device negotiation behaviors.
+> On a brief view this can be done in the same way as valid_mask in GPIO,
+> actually this is exactly what should be (re-)used in my opinion here.
+>
 
-This last paragraph seems kind of like marketing without any real
-content.  Is there something important in there?
+Except that the valid_mask is very unclear and IMO it's much cleaner
+to have a flag for that.
 
-Nits:
-s/root port/Root Port/
+> > While we could go with
+> > a boolean "is_gpio" field, a flags field is more future-proof.
+>
+> This sentence is probably extra in the commit message and can be omitted.
+>
+> > If the PINFUNCTION_FLAG_GPIO is set for a given function, the pin muxed
+> > to it can be requested as GPIO even on strict pin controllers.
+>
+> So. this changes the contract between pin control (mux) core and drivers.
 
-Reword "implementation now configures" to be clear about whether "now"
-refers to before this patch or after.
+Yes, that's allowed in the kernel. The current contract is wrong and
+the reason why we can for instance confuse debug UARTs by requesting
+its pins as GPIOs from user-space whereas a strict pinmuxer will not
+allow it. But to convert pinmuxers to "strict" we need to change the
+behavior.
 
-Update the MRRS "to maintain compatibility" part.  I'm dubious about
-there being a spec compatibility issue with respect to MRRS.  Cite the
-relevant section if there is an issue.
+> Why? How is it supposed to work on the really strict controllers, please?
+>
 
-> Suggested-by: Niklas Cassel <cassel@kernel.org>
-> Suggested-by: Manivannan Sadhasivam <mani@kernel.org>
-> Signed-off-by: Hans Zhang <18255117159@163.com>
-> ---
->  drivers/pci/probe.c | 10 ++++++++++
->  1 file changed, 10 insertions(+)
-> 
-> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
-> index 4b8693ec9e4c..9f8803da914c 100644
-> --- a/drivers/pci/probe.c
-> +++ b/drivers/pci/probe.c
-> @@ -2178,6 +2178,16 @@ static void pci_configure_mps(struct pci_dev *dev)
->  		return;
->  	}
->  
-> +	/*
-> +	 * Unless MPS strategy is PCIE_BUS_TUNE_OFF (don't touch MPS at all),
-> +	 * start off by setting root ports' MPS to MPSS. Depending on the MPS
-> +	 * strategy, and the MPSS of the devices below the root port, the MPS
-> +	 * of the root port might get overridden later.
-> +	 */
-> +	if (pci_pcie_type(dev) == PCI_EXP_TYPE_ROOT_PORT &&
-> +	    pcie_bus_config != PCIE_BUS_TUNE_OFF)
-> +		pcie_set_mps(dev, 128 << dev->pcie_mpss);
-> +
->  	if (!bridge || !pci_is_pcie(bridge))
->  		return;
->  
-> -- 
-> 2.25.1
-> 
+Like what I explained several times? You have pins used by a device.
+User-space comes around and requests them and fiddles with them and
+now the state of your device is undefined/broken. With a strict
+pinmuxer user-space will fail to request the pins muxed to a non-GPIO
+function.
+
+> > Add a new callback to struct pinmux_ops - function_is_gpio() - that all=
+ows
+> > pinmux core to inspect a function and see if it's a GPIO one. Provide a
+> > generic implementation of this callback.
+
+Bartosz
 
