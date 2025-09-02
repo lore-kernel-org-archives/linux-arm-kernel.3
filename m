@@ -4,147 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD730CA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 22:57:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FA26CA1009
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 22:57:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P8ZPk7pHhe9CS5wxuHRIkvDpa/m/8S6/lQZG225TEss=; b=ndD1Um0jo6QzgxVDtBremCN1E6
-	1HNVcMkal9DyVQTtLxxPDwQjXJdT25TAt4n4NVlSi3rlvR3ba9MVmNm07Sj2tL2XSA6iDvfVXnTjR
-	XqO4jWVLSJjCzr8r0fs+cB27LoPZ4xFo1UDzgET/PDx9xM1g390iiJGDX3+zOrUJ3MhoDJgxpUNPP
-	Wx6nlkoCcp3q8V6WGGcGYxPirQXHKCn9fyrTpWaIDT09QpEBYhSsT7xJiBYqqkQupNerIyTj5vF5S
-	AvwHlKzVrSxYp3bm8uvb8ky21SEo1SePc6rl08fiB7751yNCL8N+Q/8AiJ18TQlVrSTSnhGVz25Ii
-	GA/sLF2g==;
+	bh=0/F5S5aCKnKbWER3cwLRRgL9laoETfmCZ7U45E2983k=; b=3Lmekva/IQc1qbBwmP31L0jmIJ
+	HBTYwPlfyWZTSVRPMQln8gW8bjS2oYnbcV74h5JBjBQLzfjwZp3ECmNlLPRODyW5avF2C+aTP5EQB
+	mnRSTi8umrxLRDJsQvxVEDdbX2Zcg7Isl8/Dg9A06KiHpjtN/31dV7vZ4s0TovUr4bwgkuymKQR6S
+	2BMAyUBooyY4a1Lb0MMszP6/MY1Q/QvJy69aMLGDlt7uDSJeVCUTjjP4j8Z0/6EpP/+5QMrJF/sUa
+	cvInGuwngYP90olptdVBManEx5jJkXs1Dv8iMLnrHgB9gwg34QJA7Aqg7/IeFktcPuLs7OdBl1Kes
+	/Row5uaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utZwm-00000002UZM-0P2r;
-	Tue, 02 Sep 2025 22:57:52 +0000
-Received: from mail-bn8nam11on2060f.outbound.protection.outlook.com ([2a01:111:f403:2414::60f] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1utZwh-00000002UVH-0Vbj;
+	Tue, 02 Sep 2025 22:57:47 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utU5z-000000010st-08Di
+	id 1utTEP-00000000lrW-1Zwb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 16:43:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sm/WarTe8VhCIU+EeVOTS4ofL26q9Zr/1mbsny74LA5h6br+x77Y/s/As5r6YMoQ9ubBASDxRLCWMs8wo5iH80QZiukmFwikQysBq1bgIMwBz09nFxKUoNirrwEf5cuXEaLAon65UrcqGL3WLwZYGnEG9abmyAklqGGPOA7ATaKaWTxLW+ngeFZccZ1uWldBayZlOeXqWlLSOU/bPkUhGcygbdkxKD6eqEnrVOPjpFvutJ7VEU3ruQJoSZSjr07ORB4EivGQLhm650oXPPRdAZTvhlpqsAw+Co3TjQBLRjp3NnfYFGYSRnUMBrCIDeYS3Sy/dOjsMKqScCqd0TM2kA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=P8ZPk7pHhe9CS5wxuHRIkvDpa/m/8S6/lQZG225TEss=;
- b=FjfwWzvxgWG6SQfI7/zE9ox1qNmLEF1sI9lVZxjDH+7AzgE3QjizVMdnDgWtSW5mDrZ0cnZtKpjWKEZBechFyC/q3Ls+wZs0Lp/d4FMpLdvifaIGe6HpzJZ7VYWgqT0/wFXoAQlHMtLk1qTmeH3dJ9mALiovWb4zCQKFxxLProHlps3QgfVLN2XSH0K3Envph+HrTY4zCDcYRa42WRUDPzn3jP2t9IKkxJQVYEWcERUsWFYNjtAQx7FW7TFFuZTIA9LLnC1sqFXY4LsNH5PYfKzHpHE878G7q/mYnSqlrY+yQkqCa1qa6dokYW/9M0YKbm2+P6JNWBwTntrCmsy7iQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=amarulasolutions.com smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=P8ZPk7pHhe9CS5wxuHRIkvDpa/m/8S6/lQZG225TEss=;
- b=Wg8dBJfFtv1gFCcnRFbm8iwVWovYQUtzlAZA86WkylRBzY/ZRnrVIU+lwmgg1lZSBwAhtBZNgBlJ4aA4sH8Pn3ftB8hosSyw3QppEmDkRH286qONwN3K4/OW3AsZCBlzJ4QM23yqEgC8OVRpSV048y0GK1231B8H7EaACTT8TOA=
-Received: from CH2PR20CA0004.namprd20.prod.outlook.com (2603:10b6:610:58::14)
- by MN0PR12MB6055.namprd12.prod.outlook.com (2603:10b6:208:3cd::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.27; Tue, 2 Sep
- 2025 16:42:53 +0000
-Received: from CH3PEPF00000011.namprd21.prod.outlook.com
- (2603:10b6:610:58:cafe::af) by CH2PR20CA0004.outlook.office365.com
- (2603:10b6:610:58::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9052.29 via Frontend Transport; Tue,
- 2 Sep 2025 16:42:53 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB03.amd.com; pr=C
-Received: from SATLEXMB03.amd.com (165.204.84.17) by
- CH3PEPF00000011.mail.protection.outlook.com (10.167.244.116) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.9115.0 via Frontend Transport; Tue, 2 Sep 2025 16:42:53 +0000
-Received: from satlexmb07.amd.com (10.181.42.216) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 2 Sep
- 2025 11:42:52 -0500
-Received: from SATLEXMB03.amd.com (10.181.40.144) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.1748.10; Tue, 2 Sep
- 2025 09:42:52 -0700
-Received: from [172.19.71.207] (10.180.168.240) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
- Transport; Tue, 2 Sep 2025 11:42:52 -0500
-Message-ID: <423ef4b3-d92b-8833-e21e-88ac4153c87e@amd.com>
-Date: Tue, 2 Sep 2025 09:42:51 -0700
+	Tue, 02 Sep 2025 15:47:38 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-b03fa5c5a89so466289366b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 08:47:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756828056; x=1757432856; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0/F5S5aCKnKbWER3cwLRRgL9laoETfmCZ7U45E2983k=;
+        b=IpyU/Ahs2bBTp8yzP2gOUoZB31CsLeyAMHNCFXNkOZPgY5VByTOM536nisGEi2M1al
+         sO9ZMeTZMshjl16MI6mJ7OpD+s7zcvaYjE7/DedyaWSyDNO48Vk1QUVlj8Nr3OU4w4RY
+         ZoggdworIkjupDd5Fuda6hRbdE5K54nWEhUvTBEOQ7Cn98WcrJZArcLKheNroKxoBl/w
+         hfaTbPY5tzn1rMbqBZesQpPOQzor+cZhCvThIrT5AHt7f/iOonzYY1EbZPyfKr6wb0IX
+         EJGCjzmIoCpJEu2G2BZMbXgdrSmcpt6GtHfUDA8XWQBGXtKd7yg8oulMJq995UoKSdk8
+         Tr0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756828056; x=1757432856;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=0/F5S5aCKnKbWER3cwLRRgL9laoETfmCZ7U45E2983k=;
+        b=Jie2d9LenDhlVMO0ycWr689CsBLDR9A37mff5dvNlz+z0t5ddv7nyAiJQBkZswL10h
+         FVMGgj/f92iVDm+9ArxQzoFLOSmGaVxU+gw6BnXLvo8kQr5Zy+Vm8s6DEnvhZcoLDnfD
+         kx8244E7wO/vrJ+rOxoJl2ojYSUWeOZjajIv+GCvFle2S1lhkOWIRpyG3vu11dQfUKIS
+         UfAha+iEq0C9LOOnnMaQ6q2jxOAOFAwsMQFVlj123JVJLfh4SAknabPq+VcuEb05tF9Z
+         /9Je37qKOR4929wsObq1/Nwm0EWhjH01i84OsV8j131u38/0Na+M3IMFHfw4+NhP9jFm
+         iPMw==
+X-Forwarded-Encrypted: i=1; AJvYcCVOUSeE0qf5o1/XVontK+1jiRzYhRK0ZrW+wKYkkZ0+d62Gc2nA7v+GrYSm/deygLOYClyGTyMakSbFH6sUduVL@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxkj+/FDPGG3U0I4HcHkp7MVGuPhLCt9gjDcsr/auFeHyIBt26P
+	RtTAEhFTArqUI42bI6rlVd40IJpYvoEGEuvkmr9gVKq2amE/aEgTW3/Ub/a8hPTPXGCYHFaJsws
+	7rEiPkN6RDRAQ1YXCdKLcodkaR1gdD5A=
+X-Gm-Gg: ASbGncsYx//NxeAYeFkv3mBQ2SVm1d9VtOdp8TVoI3i9Ll/5+Am9o3vePLXGlPxyAla
+	tichZ9x7dligIyB1hoYZpaQSl4eLmQntMWyOAPhwaOAhQooh/QQJBVJM0uik4mjlHrKE/zs/9a1
+	o36gxpxhDuerNppdB8pWs83hY9DX2HkhOdQVgxmaULesGj+/K3oq2RxDROuP8n7r23TZu1DjjWD
+	iHiPT26HkYQSuFW+e69743mv6/65CTh05MrsMZoR3ThRuUENGM=
+X-Google-Smtp-Source: AGHT+IHO+sVlMfx8QSa3E+jJFs1XKq77eH6sT+Oi/0M3FytKmT7dw3Vd7isDjyUaRs4YzytFZXWn/W7miK4fa9ZB2ws=
+X-Received: by 2002:a17:907:968c:b0:b04:36e3:c077 with SMTP id
+ a640c23a62f3a-b0436e3c5c7mr610057766b.22.1756828055502; Tue, 02 Sep 2025
+ 08:47:35 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.11.0
-Subject: Re: [PATCH v2] dmaengine: xilinx: xdma: Fix regmap max_register
-Content-Language: en-US
-To: <anthony@amarulasolutions.com>, Brian Xu <brian.xu@amd.com>, "Raj Kumar
- Rampelli" <raj.kumar.rampelli@amd.com>, Vinod Koul <vkoul@kernel.org>, Michal
- Simek <michal.simek@amd.com>
-CC: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20250901-xdma-max-reg-v2-1-fa3723a718cd@amarulasolutions.com>
-From: Lizhi Hou <lizhi.hou@amd.com>
-In-Reply-To: <20250901-xdma-max-reg-v2-1-fa3723a718cd@amarulasolutions.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PEPF00000011:EE_|MN0PR12MB6055:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2141bff9-cb01-4e1c-1823-08ddea3fc32f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|1800799024|376014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VTFLdW5Tb3NRYmJQeWpPRi92RFVOKzJ3ZWwvVTBaaVNjT05PVUdWTjlJUVhj?=
- =?utf-8?B?VlptSVBaRC9sYlFXaUpVVzZHTklvaEZCY213R0dDUjJ3M0VLSmVHdW10MjZr?=
- =?utf-8?B?UjlQZmRlTXdiSVlQY3czOWtQRXhHZnZFakRFcUJ0S08weGUvdmpFTXVpNjNL?=
- =?utf-8?B?eWVWMFR1NVRPRlJRck1uOVJuVHlBeU5aZVBwTjkyUFY4SG94WnpvVHQ1eGJ0?=
- =?utf-8?B?YWlSSEd5YnQxVzFTMld5aWg0ZGJNTGJnanVGVzFWb2RjdHJQVzE3aldxUE5E?=
- =?utf-8?B?cjBPL1JGNmZHbkhkQmU1Ylk2bDZPbTJjdzJzOC9iTnR5T3pMRSt4c3ErSExE?=
- =?utf-8?B?WTQ1TkNnekJ2dWNWTVBSYW5jSEt0MHNVZE9nNHpIVEFuYUlVQVVDSG9mZ2Nr?=
- =?utf-8?B?QnBibXZBQ2V5cnZsMnI5WG5LdW05TWZQUDZ5OTVIbXpTdXlQVFFlczJVQXRv?=
- =?utf-8?B?UmZXQzVWK2MvaGVEbVJ2cnQ5OVNJWkU2QmIyVkF6LzFQeU9kTW45cnZCWmdo?=
- =?utf-8?B?MnlyaHJiK0pXYnpZeWZhNGJ6dWpSK0t5OEFtWStEM0NhTU5wNEVNUmxHV1Rq?=
- =?utf-8?B?MlZ0M3FjRTU3dUl6M0NRQUZ4V1dibmxnUlAwZmpuQmQwdWd6VkJMTy9vLzkx?=
- =?utf-8?B?MVBUUnE5NGxYTzVjc01KcUZhVXBVYkxiWml0UE5RN0M2WXJDclRsbVdEeGZu?=
- =?utf-8?B?MHJTZm4vTk9naFZIbEM3aVhLN2RLSEwxMGZXZFBZaFU4eGtEVUltNDNOdmRE?=
- =?utf-8?B?b0YvaS9uVlVMYmw0UndQbzF0YkpKWFoyZ1VQUGhmWW93RlkrakQ4NDZlTXF4?=
- =?utf-8?B?TU9WVzQvTU16YUdNd3FXUFR5dWZ1bWFWcG43dTIrNjBVR3pnRStBTmw2VkVj?=
- =?utf-8?B?a0t3SUlSY3V3UW5nZDkwU3NsL0RKVjdWSlFnN0hvSWlheEJ4cHNMSFJBejdI?=
- =?utf-8?B?VEtFR2xScGwwRmZtSFJMNDdCN2JhMVFDN1pUVXhsUSsxVkNZZFhtcW1mUysz?=
- =?utf-8?B?a2lGTXdDbUc0VkNhSHdiQVhEUkNKZXJoOTRQWmZMS3BiOGw2T01FSVBYcE13?=
- =?utf-8?B?Y2lwSTV0NWl3UFRrZTcveHg0K2I0VlA0VW5iN3NzdXpTOU5BNlgvS2s2OG90?=
- =?utf-8?B?S2NvNVVJM2QrYU5raDNEWk5QMUZQNkVPblk3ZkhQZXA2TU5RemIzUnFjb1M3?=
- =?utf-8?B?dWZCeFZLMFd3SjhXaTM0bFZ1WlFQYk5Db3p6R3p3K3kwM0tJRFBQVnI0c1My?=
- =?utf-8?B?RFRnRXMweVhJQndRUThkQ0dMRXdmT1hNSG9BK3hBaWVkN3JJMFFOSVRHUVc5?=
- =?utf-8?B?S3RxUi96L1oxZ2p3Y1BVTGhHZ3UvU1k5OG9jZWdyTzMxSDZSdXZ0UytwNnJ6?=
- =?utf-8?B?TTUrVTNia2Z5TVRBclE4SHdIQUVkNGpDZk4wU3ZqMVZvRjJoSUtsLzVkSk81?=
- =?utf-8?B?R3gxYURtNnVjMldycnlqakZCZEhJSHlGdnVFWnE2bVlDSW1PQ2oySlBKVE11?=
- =?utf-8?B?UzZUOXc5VGsxRVpjRk94ZmloOXJrekh1a3pwM1JKejhTbGEwOHdFSEdXNVph?=
- =?utf-8?B?ekIvSytPVjcvdjVwSVplaVhmM215L1ZqSHBiMCtYMWtyMmxEOW5pdDN0M1FI?=
- =?utf-8?B?anBtLytKWjdGclRyeWVLU1lhSUtOd0lNQjJtTHVEbk9uOGZiZWwyMDRSR3Js?=
- =?utf-8?B?ZGRHZ3lDYVF3UWhkZjh1OWEwTjhySmJmSmdZZjZXd1hPbW0rcG1qQmlMbGlF?=
- =?utf-8?B?TWpXWXB5emNRVCsvUDd4dEhReXpxTFliQXNaMExKNVc4MmxCZWdPQ0w1b1Z6?=
- =?utf-8?B?Rmh6TjhxR2RzUTcxT0ltUXZ3U1NwZmZBZnkzclY1VzBxamFlcVYySXpCVFJx?=
- =?utf-8?B?VGhMSlpCV2N1bGxJSnJWeVdyN21lTzJQWXRVdkVtZWcxMHB4L1RUYjMzSjV2?=
- =?utf-8?B?YlhuNTdEaDBJbWtzYjlzWklwenJZL011S2lvb2hNcEJZZ2RUaUhGTEo1UU9v?=
- =?utf-8?B?dDA1Sm1CY3dRPT0=?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(1800799024)(376014)(7053199007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2025 16:42:53.4407
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2141bff9-cb01-4e1c-1823-08ddea3fc32f
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB03.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF00000011.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6055
+References: <20250902001302.3823418-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20250902001302.3823418-3-prabhakar.mahadev-lad.rj@bp.renesas.com> <20250902-gainful-meerkat-of-prestige-dd4952@kuoka>
+In-Reply-To: <20250902-gainful-meerkat-of-prestige-dd4952@kuoka>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Tue, 2 Sep 2025 16:47:09 +0100
+X-Gm-Features: Ac12FXyetOJaltGA4R1b5ReNmp3InDleaQQESJFgb0N2JVhr0jmjLXveZ2CLraE
+Message-ID: <CA+V-a8up6WfMzRCig=HCaU_QbC63FPCXyk1ZgJrNkGj+FsRbKA@mail.gmail.com>
+Subject: Re: [PATCH net-next 2/4] dt-bindings: net: renesas,rzv2h-gbeth:
+ Document Renesas RZ/T2H and RZ/N2H SoCs
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Russell King <linux@armlinux.org.uk>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+	Jose Abreu <joabreu@synopsys.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	linux-renesas-soc@vger.kernel.org, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_094259_080283_2C50EFE3 
-X-CRM114-Status: GOOD (  21.98  )
+X-CRM114-CacheID: sfid-20250902_084737_419336_9A103A0C 
+X-CRM114-Status: GOOD (  25.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,86 +108,227 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reviewed-by: Lizhi Hou <lizhi.hou@amd.com>
+Hi Krzysztof,
 
-On 9/1/25 14:30, Anthony Brandon via B4 Relay wrote:
-> From: Anthony Brandon <anthony@amarulasolutions.com>
+Thank you for the review.
+
+On Tue, Sep 2, 2025 at 10:01=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
+g> wrote:
 >
-> The max_register field is assigned the size of the register memory
-> region instead of the offset of the last register.
-> The result is that reading from the regmap via debugfs can cause
-> a segmentation fault:
+> On Tue, Sep 02, 2025 at 01:13:00AM +0100, Prabhakar wrote:
+> > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> >
+> > Document the Ethernet MAC (GMAC) IP present on the Renesas RZ/T2H
+> > (R9A09G077) and RZ/N2H (R9A09G087) SoCs. The GMAC IP on RZ/N2H is
+> > identical to that found on the RZ/T2H SoC.
+> >
+> > While the RZ/V2H(P), RZ/T2H, and RZ/N2H SoCs all integrate the Synopsys
+> > DesignWare MAC (version 5.20), the hardware is synthesized with differe=
+nt
+> > options compared to the RZ/V2H(P):
+> >   - RZ/T2H requires only 3 clocks instead of 7
+> >   - RZ/T2H supports 8 RX/TX queue pairs instead of 4
+> >   - RZ/T2H needs 2 reset controls with reset-names property, vs. a sing=
+le
+> >     unnamed reset
+> >   - RZ/T2H has the split header feature enabled, while it is disabled o=
+n
+> >     RZ/V2H(P)
+> >
+> > To accommodate these differences, introduce a new generic compatible
+> > string `renesas,rzt2h-gbeth`, used as a fallback for both RZ/T2H and
+> > RZ/N2H SoCs.
+> >
+> > The DT schema is updated to validate the clocks, resets, reset-names,
+> > interrupts, and interrupt-names properties accordingly. Also extend
+> > `snps,dwmac.yaml` with the new `renesas,rzt2h-gbeth` compatible.
+> >
+> > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > ---
+> >  .../bindings/net/renesas,rzv2h-gbeth.yaml     | 177 ++++++++++++++----
+> >  .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
+> >  2 files changed, 138 insertions(+), 40 deletions(-)
+> >
+> > diff --git a/Documentation/devicetree/bindings/net/renesas,rzv2h-gbeth.=
+yaml b/Documentation/devicetree/bindings/net/renesas,rzv2h-gbeth.yaml
+> > index 23e39bcea96b..e01763389164 100644
+> > --- a/Documentation/devicetree/bindings/net/renesas,rzv2h-gbeth.yaml
+> > +++ b/Documentation/devicetree/bindings/net/renesas,rzv2h-gbeth.yaml
+> > @@ -17,63 +17,112 @@ select:
+> >            - renesas,r9a09g047-gbeth
+> >            - renesas,r9a09g056-gbeth
+> >            - renesas,r9a09g057-gbeth
+> > +          - renesas,r9a09g077-gbeth
+> > +          - renesas,r9a09g087-gbeth
+> >            - renesas,rzv2h-gbeth
+> >    required:
+> >      - compatible
+> >
+> >  properties:
+> >    compatible:
+> > -    items:
+> > -      - enum:
+> > -          - renesas,r9a09g047-gbeth # RZ/G3E
+> > -          - renesas,r9a09g056-gbeth # RZ/V2N
+> > -          - renesas,r9a09g057-gbeth # RZ/V2H(P)
+> > -      - const: renesas,rzv2h-gbeth
+> > -      - const: snps,dwmac-5.20
+> > +    oneOf:
+> > +      - items:
+> > +          - enum:
+> > +              - renesas,r9a09g047-gbeth # RZ/G3E
+> > +              - renesas,r9a09g056-gbeth # RZ/V2N
+> > +              - renesas,r9a09g057-gbeth # RZ/V2H(P)
+> > +          - const: renesas,rzv2h-gbeth
+> > +          - const: snps,dwmac-5.20
+> > +
+> > +      - items:
+> > +          - enum:
+> > +              - renesas,r9a09g077-gbeth # RZ/T2H
+> > +              - renesas,r9a09g087-gbeth # RZ/N2H
+> > +          - const: renesas,rzt2h-gbeth
+> > +          - const: snps,dwmac-5.20
+> >
+> >    reg:
+> >      maxItems: 1
+> >
+> >    clocks:
+> > -    items:
+> > -      - description: CSR clock
+> > -      - description: AXI system clock
+> > -      - description: PTP clock
+> > -      - description: TX clock
+> > -      - description: RX clock
+> > -      - description: TX clock phase-shifted by 180 degrees
+> > -      - description: RX clock phase-shifted by 180 degrees
+> > +    oneOf:
+> > +      - items:
+> > +          - description: CSR clock
+> > +          - description: AXI system clock
+> > +          - description: PTP clock
+> > +          - description: TX clock
+> > +          - description: RX clock
+> > +          - description: TX clock phase-shifted by 180 degrees
+> > +          - description: RX clock phase-shifted by 180 degrees
+> > +
 >
-> tail /sys/kernel/debug/regmap/xdma.1.auto/registers
-> Unable to handle kernel paging request at virtual address ffff800082f70000
-> Mem abort info:
->    ESR = 0x0000000096000007
->    EC = 0x25: DABT (current EL), IL = 32 bits
->    SET = 0, FnV = 0
->    EA = 0, S1PTW = 0
->    FSC = 0x07: level 3 translation fault
-> [...]
-> Call trace:
->   regmap_mmio_read32le+0x10/0x30
->   _regmap_bus_reg_read+0x74/0xc0
->   _regmap_read+0x68/0x198
->   regmap_read+0x54/0x88
->   regmap_read_debugfs+0x140/0x380
->   regmap_map_read_file+0x30/0x48
->   full_proxy_read+0x68/0xc8
->   vfs_read+0xcc/0x310
->   ksys_read+0x7c/0x120
->   __arm64_sys_read+0x24/0x40
->   invoke_syscall.constprop.0+0x64/0x108
->   do_el0_svc+0xb0/0xd8
->   el0_svc+0x38/0x130
->   el0t_64_sync_handler+0x120/0x138
->   el0t_64_sync+0x194/0x198
-> Code: aa1e03e9 d503201f f9400000 8b214000 (b9400000)
-> ---[ end trace 0000000000000000 ]---
-> note: tail[1217] exited with irqs disabled
-> note: tail[1217] exited with preempt_count 1
-> Segmentation fault
+> Drop blank line
 >
-> Signed-off-by: Anthony Brandon <anthony@amarulasolutions.com>
-> ---
-> Changes in v2:
-> - Define new constant XDMA_MAX_REG_OFFSET and use that.
-> - Link to v1: https://lore.kernel.org/r/20250901-xdma-max-reg-v1-1-b6a04561edb1@amarulasolutions.com
-> ---
->   drivers/dma/xilinx/xdma-regs.h | 1 +
->   drivers/dma/xilinx/xdma.c      | 2 +-
->   2 files changed, 2 insertions(+), 1 deletion(-)
+OK.
+
+> > +      - items:
+> > +          - description: CSR clock
+> > +          - description: AXI system clock
+> > +          - description: TX clock
+> >
+> >    clock-names:
+> > -    items:
+> > -      - const: stmmaceth
+> > -      - const: pclk
+> > -      - const: ptp_ref
+> > -      - const: tx
+> > -      - const: rx
+> > -      - const: tx-180
+> > -      - const: rx-180
+> > -
+> > -  interrupts:
+> > -    minItems: 11
+> > +    oneOf:
+> > +      - items:
+> > +          - const: stmmaceth
+> > +          - const: pclk
+> > +          - const: ptp_ref
+> > +          - const: tx
+> > +          - const: rx
+> > +          - const: tx-180
+> > +          - const: rx-180
+> > +
 >
-> diff --git a/drivers/dma/xilinx/xdma-regs.h b/drivers/dma/xilinx/xdma-regs.h
-> index 6ad08878e93862b770febb71b8bc85e66813428e..70bca92621aa41b0367d1e236b3e276344a26320 100644
-> --- a/drivers/dma/xilinx/xdma-regs.h
-> +++ b/drivers/dma/xilinx/xdma-regs.h
-> @@ -9,6 +9,7 @@
->   
->   /* The length of register space exposed to host */
->   #define XDMA_REG_SPACE_LEN	65536
-> +#define XDMA_MAX_REG_OFFSET	(XDMA_REG_SPACE_LEN - 4)
->   
->   /*
->    * maximum number of DMA channels for each direction:
-> diff --git a/drivers/dma/xilinx/xdma.c b/drivers/dma/xilinx/xdma.c
-> index 0d88b1a670e142dac90d09c515809faa2476a816..5ecf8223c112e468c79ce635398ba393a535b9e0 100644
-> --- a/drivers/dma/xilinx/xdma.c
-> +++ b/drivers/dma/xilinx/xdma.c
-> @@ -38,7 +38,7 @@ static const struct regmap_config xdma_regmap_config = {
->   	.reg_bits = 32,
->   	.val_bits = 32,
->   	.reg_stride = 4,
-> -	.max_register = XDMA_REG_SPACE_LEN,
-> +	.max_register = XDMA_MAX_REG_OFFSET,
->   };
->   
->   /**
+> Drop blank line
 >
-> ---
-> base-commit: b320789d6883cc00ac78ce83bccbfe7ed58afcf0
-> change-id: 20250901-xdma-max-reg-1649c6459358
+OK.
+
+> > +      - items:
+> > +          - const: stmmaceth
+> > +          - const: pclk
+> > +          - const: tx
+> > +
+> >
 >
-> Best regards,
+> Just one blank line
+>
+OK.
+
+> >    interrupt-names:
+> > -    items:
+> > -      - const: macirq
+> > -      - const: eth_wake_irq
+> > -      - const: eth_lpi
+> > -      - const: rx-queue-0
+> > -      - const: rx-queue-1
+> > -      - const: rx-queue-2
+> > -      - const: rx-queue-3
+> > -      - const: tx-queue-0
+> > -      - const: tx-queue-1
+> > -      - const: tx-queue-2
+> > -      - const: tx-queue-3
+> > +    oneOf:
+> > +      - items:
+> > +          - const: macirq
+> > +          - const: eth_wake_irq
+> > +          - const: eth_lpi
+> > +          - const: rx-queue-0
+> > +          - const: rx-queue-1
+> > +          - const: rx-queue-2
+> > +          - const: rx-queue-3
+> > +          - const: tx-queue-0
+> > +          - const: tx-queue-1
+> > +          - const: tx-queue-2
+> > +          - const: tx-queue-3
+> > +
+> > +      - items:
+> > +          - const: macirq
+> > +          - const: eth_wake_irq
+> > +          - const: eth_lpi
+> > +          - const: rx-queue-0
+> > +          - const: rx-queue-1
+> > +          - const: rx-queue-2
+> > +          - const: rx-queue-3
+> > +          - const: rx-queue-4
+> > +          - const: rx-queue-5
+> > +          - const: rx-queue-6
+> > +          - const: rx-queue-7
+> > +          - const: tx-queue-0
+> > +          - const: tx-queue-1
+> > +          - const: tx-queue-2
+> > +          - const: tx-queue-3
+> > +          - const: tx-queue-4
+> > +          - const: tx-queue-5
+> > +          - const: tx-queue-6
+> > +          - const: tx-queue-7
+> >
+> >    resets:
+> > -    items:
+> > -      - description: AXI power-on system reset
+> > +    oneOf:
+> > +      - items:
+> > +          - description: AXI power-on system reset
+> > +
+> > +      - items:
+> > +          - description: GMAC stmmaceth reset
+>
+> That's the same as before, no?
+>
+Yes, I will update it.
+
+> > +          - description: AHB reset
+> > +
+> > +  reset-names: true
+>
+> Does not look needed.
+>
+Agreed, I will drop it.
+
+Cheers,
+Prabhakar
 
