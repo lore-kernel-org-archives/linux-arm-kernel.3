@@ -4,93 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1001CA1005
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:43:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71631CA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:43:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=z/+y/tdM/NG8BWfS1y/m+V54Xiln8R8eIncX37hI0yA=; b=AmZba30WuegoGBridhX3+izN1h
-	2sHYyWGK2zT8sX7suQfb41/th3xGNVr4dmwv2p4oylsju+bV2CIQKlD23KoLQTUgSjuoyj4yoOhaM
-	sIG9fehnIhYqncQjsBoxByYF7NBwuuYd7jphrMs6T1ZaQZ9JgNqblZKrGDfIsd0ue7Fu9+WCM8Zsu
-	Wklr4OZEu93mVSgXTFxpKAHYwarLfl5w8gbfuH3V4jRXOWyPkDzSnA5NFxpxtnWgf1gcwLPxajDJ5
-	7vIX1MBKVr/bl0eaJxAj30ckOA9jRnFuOQFJtZ9JwEfIvHtkaz1JqgOjLZTHq8OBPe63rZ5sX8R+s
-	PA8CISrA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eGnUT6FgCyMwUMrN5WxQNTGRhMGZl0QVyrFIAhmCYRY=; b=Gt6GsSb3EzK/b1lSbr8J5+p4+c
+	1MefAIGE34SqtIY3UvYNcSzK0lQbU+QXxl/tHRyuu3VXzBNrcxxaa8XPwo5JFSYK18/L+PMRQK5lK
+	mUPCYiKQ+kGUD/dCBW/HTP2zx0P2LWKmIsmCHu1cQAxwCvzHg0/IVY7LN1qd5iq7NwL54gYxCKy/C
+	dPVV5crVM3vLyJpEba5jyKP/n/qRrVaUdnpSkAmMnnyDGE224QcEk8LNBLM0RbH/w5g8M97nMYIUU
+	PTne5IBrEKgUV4JKe9V/0mvS6FplSBDmELZrs/XiF/epUfe8vRJ36YOyJLaM9mYPusDXDzD3DbP27
+	w2uJULvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utYmI-00000002Av4-1vQ9;
-	Tue, 02 Sep 2025 21:42:58 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1utYmJ-00000002AxP-3guO;
+	Tue, 02 Sep 2025 21:42:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utSkt-00000000d03-2Fk0
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 15:17:08 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-45b7c01a708so19340355e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 08:17:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756826226; x=1757431026; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=z/+y/tdM/NG8BWfS1y/m+V54Xiln8R8eIncX37hI0yA=;
-        b=CO2QFQYFKZ0ZvHFmkAzGCgg0vuXZFJ8G7Y++/Al+Sd7n1sMWprx0WV+HbWeuApG4n2
-         Q5OqHt7ag/kQQNyKIawM4FP06moc4074I5vzFrWBSBNpFrKxKNF/zuPBNJFymLwe5l4d
-         l2g0QUOVbb0rR9IkFY6y0IWZqQ+ncWZ7Q2W7gaCIDuMD0Y50WJhrLA7N3hfG9PRCNxWO
-         a12k3p+S1S5Stv380GU3cJ+Cqc6vcg6hSklcmg/JKJ4eJ7ydVRz90CuMFzn8XdHYcSe+
-         TEgzpI+2xEAyCbl2dZcOJQzbc6jcXCqCwxKuBWcdrQ5bxbdCY7f/3k2CfFcrqE1y/SzB
-         YQsQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756826226; x=1757431026;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=z/+y/tdM/NG8BWfS1y/m+V54Xiln8R8eIncX37hI0yA=;
-        b=CgVqYFck7EQoJ2pSHKTmmt9e+GGIgJQ++7bDg3yYuSXuQc8lcVgO3um1Qlnrnog0/a
-         IonMJ5AwRHD3eDphxy77pnHtg+/MMeM3M29EF1SEGt3am+ReEz2aDr/NPFbu6IVM2nHq
-         0MWgc2OcZJMeY64nny7nlsU/a1j1U+R2OnmnHWkk5OKWvW6geyWlSZ0EgpZOly0ipPrA
-         9f8qAWRIC14CZQPb1p/XFnGCs+SfmHUMZkrA9MYCvkakVHoojyiATkFhCNrICE8DuH0l
-         0D/KRl0KYahAykEg+oYfiSaBqBgMDity5YX+SyluAxSc9LxQS/J+ZgOA/qaPc2LHw2oq
-         ZlOw==
-X-Forwarded-Encrypted: i=1; AJvYcCVdGuhuYvwR8KBGIhMKh/Ts/nEJ5HkWy9savjKe2GO8rxJdnNtGnL3h775z6J5pM2lFtAQDtcmQSzl81oupTMRa@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywe56m7jWEZFJMxNkjgo2CTiXA4POz4si1eULXy8Oi7qw8SUmd5
-	hbIoqpyecV8ypEunrqRewAPUdWCR+4Z/DnnuDx0PXOQPFVBmt5A4HkhU
-X-Gm-Gg: ASbGncsvDD8L6PZApDNAPPp4sEuhPepwB3KlpwcyFakrBoLGQJVkIawDt+kknldWdTx
-	iU1UpdblxWnzTtzpp58IITFf5uXNGsReGRVdneDRz92XUk71r03LLRJc0CilLurdxBo5ACmfzow
-	sgXeqd/k5r5XUpUFFm4HjtgNLDbdbW3XTZq6ncqDy4d3ON6ICcFyC382qYy7HfjDwClNJE9BJzG
-	IqpU4SdFC7zmug90eQjYnhn7ObH5w1o/Z9K6nxR59ET5/wC+6b5QJujJdAGVGvTVVakn4joi01n
-	cvt1lecyHgSddECt2ea6iSWosK27BFquHcAR48cv3LoG+PgZl+FiLfHRUnRMMnYoFjVLzXCVko3
-	Br1XPwz9V79SJHFwS7cc9gDc+rjyhvA==
-X-Google-Smtp-Source: AGHT+IHPrxWG9n0jv/V9dHimweE6JV57TFo0vu1l+QiPK2mACEOvsa8ilVRABmpFuv6uFYWMmNxRuw==
-X-Received: by 2002:a05:600c:3ba9:b0:456:1a41:f932 with SMTP id 5b1f17b1804b1-45c6fa9a71amr2875755e9.22.1756826225515;
-        Tue, 02 Sep 2025 08:17:05 -0700 (PDT)
-Received: from mars ([2a02:168:6806:0:3f02:d36b:e22e:74c6])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b6f0d32a2sm308037565e9.9.2025.09.02.08.17.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Sep 2025 08:17:04 -0700 (PDT)
-From: Klaus Kudielka <klaus.kudielka@gmail.com>
-To: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	=?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Klaus Kudielka <klaus.kudielka@gmail.com>,
-	Bjorn Helgaas <helgaas@kernel.org>,
-	Jan Palus <jpalus@fastmail.com>
-Subject: [PATCH] PCI: mvebu: Fix the use of the for_each_of_range() iterator
-Date: Tue,  2 Sep 2025 17:13:42 +0200
-Message-ID: <20250902151543.147439-1-klaus.kudielka@gmail.com>
-X-Mailer: git-send-email 2.50.1
+	id 1utSoW-00000000e8Y-4AeC;
+	Tue, 02 Sep 2025 15:20:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2B4EA6020C;
+	Tue,  2 Sep 2025 15:20:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 991B9C4CEED;
+	Tue,  2 Sep 2025 15:20:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756826451;
+	bh=PgnpS+OJ+OH80B0RKl39e2pHarXjAdJZp7WT5DCSVcU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Q2Rup3PTliTol+0fzWRBDpCRhts7KHhL2QASNisikZ4XIMfu3INaRFmqz2v7TwpAd
+	 e8JEhL6HcgifGBcBHa2mz8+8dj3exN59qmN9HEPNCwqojBqXBs8ZvlC+Rj0vsWi/Eg
+	 a68NQBn0ql05cXZu+ayVXgnt/twOLZDM5JHr960wRqLeDSu1wvMNn+eVBCQaz+B1wq
+	 C0MF814H1j8X/HLTzo2vBDTD1ojE0M+e4RGPCYefs9cfk77EkOwBnk25uOeNVk7u8N
+	 z6T1Jq5uFg/FAZA9p0XoFHz4DLCzPDSlWSUlCh47zJsSGOLREUIXImF3KRNsNWvBAo
+	 64uoXcVgwHAEA==
+Message-ID: <63e43445-ef5f-49b2-85c1-f85d95426d5d@kernel.org>
+Date: Tue, 2 Sep 2025 17:20:41 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_081707_579978_BF842D49 
-X-CRM114-Status: GOOD (  13.68  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: (subset) [PATCH v2] dt-bindings: mfd: Move embedded controllers
+ to own directory
+To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Benson Leung <bleung@chromium.org>,
+ Guenter Roeck <groeck@chromium.org>, Tim Harvey <tharvey@gateworks.com>,
+ Michael Walle <mwalle@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Jean Delvare <jdelvare@suse.com>,
+ Thomas Gleixner <tglx@linutronix.de>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
+ <ukleinek@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Cheng-Yi Chiang <cychiang@chromium.org>, Tzung-Bi Shih <tzungbi@kernel.org>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Wim Van Sebroeck <wim@linux-watchdog.org>,
+ Thierry Reding <thierry.reding@gmail.com>,
+ Tinghan Shen <tinghan.shen@mediatek.com>, devicetree@vger.kernel.org,
+ chrome-platform@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-hwmon@vger.kernel.org,
+ linux-pwm@vger.kernel.org, linux-remoteproc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-sound@vger.kernel.org, linux-watchdog@vger.kernel.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Mathew McBride <matt@traverse.com.au>
+References: <20250822075712.27314-2-krzysztof.kozlowski@linaro.org>
+ <175682479961.2401991.17056649550187344851.b4-ty@kernel.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <175682479961.2401991.17056649550187344851.b4-ty@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,68 +134,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The blamed commit simplifies code, by using the for_each_of_range()
-iterator. But it results in no pci devices being detected anymore on
-Turris Omnia (and probably other mvebu targets).
+On 02/09/2025 16:53, Lee Jones wrote:
+>> [...]
+> 
+> Applied, thanks!
+> 
+> [1/1] dt-bindings: mfd: Move embedded controllers to own directory
+>       commit: 152afab28f7659a4292c9f7d3324eaeb49a55b8b
 
-Analysis:
 
-To determine range.flags, of_pci_range_parser_one() uses bus->get_flags(),
-which resolves to of_bus_pci_get_flags(). That function already returns an
-IORESOURCE bit field, and NOT the original flags from the "ranges"
-resource.
+There was a v3 here:
 
-Then mvebu_get_tgt_attr() attempts the very same conversion again.
-But this is a misinterpretation of range.flags.
+https://lore.kernel.org/r/20250825081201.9775-2-krzysztof.kozlowski@linaro.org/
 
-Remove the misinterpretation of range.flags in mvebu_get_tgt_addr(),
-to restore the intended behavior.
-
-Signed-off-by: Klaus Kudielka <klaus.kudielka@gmail.com>
-Fixes: 5da3d94a23c6 ("PCI: mvebu: Use for_each_of_range() iterator for parsing "ranges"")
-Reported-by: Bjorn Helgaas <helgaas@kernel.org>
-Closes: https://lore.kernel.org/r/20250820184603.GA633069@bhelgaas/
-Reported-by: Jan Palus <jpalus@fastmail.com>
-Closes: https://bugzilla.kernel.org/show_bug.cgi?id=220479
----
- drivers/pci/controller/pci-mvebu.c | 14 ++------------
- 1 file changed, 2 insertions(+), 12 deletions(-)
-
-diff --git a/drivers/pci/controller/pci-mvebu.c b/drivers/pci/controller/pci-mvebu.c
-index 755651f338..4e2e1fa197 100644
---- a/drivers/pci/controller/pci-mvebu.c
-+++ b/drivers/pci/controller/pci-mvebu.c
-@@ -1168,9 +1168,6 @@ static void __iomem *mvebu_pcie_map_registers(struct platform_device *pdev,
- 	return devm_ioremap_resource(&pdev->dev, &port->regs);
- }
- 
--#define DT_FLAGS_TO_TYPE(flags)       (((flags) >> 24) & 0x03)
--#define    DT_TYPE_IO                 0x1
--#define    DT_TYPE_MEM32              0x2
- #define DT_CPUADDR_TO_TARGET(cpuaddr) (((cpuaddr) >> 56) & 0xFF)
- #define DT_CPUADDR_TO_ATTR(cpuaddr)   (((cpuaddr) >> 48) & 0xFF)
- 
-@@ -1189,17 +1186,10 @@ static int mvebu_get_tgt_attr(struct device_node *np, int devfn,
- 		return -EINVAL;
- 
- 	for_each_of_range(&parser, &range) {
--		unsigned long rtype;
- 		u32 slot = upper_32_bits(range.bus_addr);
- 
--		if (DT_FLAGS_TO_TYPE(range.flags) == DT_TYPE_IO)
--			rtype = IORESOURCE_IO;
--		else if (DT_FLAGS_TO_TYPE(range.flags) == DT_TYPE_MEM32)
--			rtype = IORESOURCE_MEM;
--		else
--			continue;
--
--		if (slot == PCI_SLOT(devfn) && type == rtype) {
-+		if (slot == PCI_SLOT(devfn) &&
-+		    type == (range.flags & IORESOURCE_TYPE_BITS)) {
- 			*tgt = DT_CPUADDR_TO_TARGET(range.cpu_addr);
- 			*attr = DT_CPUADDR_TO_ATTR(range.cpu_addr);
- 			return 0;
--- 
-2.50.1
-
+Best regards,
+Krzysztof
 
