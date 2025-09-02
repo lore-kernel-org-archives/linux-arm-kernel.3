@@ -4,164 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D1BECA1009
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 00:44:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91C43CA100E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 00:45:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QOsxfYa3Ml3Ngt5QujncTBk7bpNi6IOPOUNXoYgkg3I=; b=Vlet7RWiusJFugrVSO5+o6lMQ/
-	fj4qDGYKqa78K8tGPcUiY64LClXLdVLkAjVmWIY7dWkOTkOvprkbJV2qAiXxWqK3QmOsA6T8GnfLK
-	lzZuzp4mObl8HnkHmeL7frgwS4ZmwlPmHhXiHqdlozwEeoTZyixquYxqyxVakBrj4rD3cJQ/N3Bnk
-	qTEdV2zRbWQ/3A1e4Tvg6x34Xp3DqcxNak/ikL9zcMR94YLMcBrqXVbweXEQa5Dz1hQ8aO/j/f/5w
-	B7qDLJyzG45+SwfXRz6KmvVjiZYwtGDOEdcVRnCDMXDMWY4sUzN85KCt10FGWyOXKD38dhNNSau4Y
-	FDgWZpvg==;
+	bh=/NSFPAHqSqrxQ0DhjXXLFNCbtDZ2kkzYN2tiwGvwbXA=; b=OJU9cLWt46LuzikVghDcSlSnhn
+	ZMZRg2m62wI2hkXplouORrTxzSjkeYN1VcPEWldoNIXQm1+X2NjT559ZxSGdmw+foCw04PGTTAcW+
+	Bn09zXZoFyGhOT1VT2Pa2tVO510BE80FmNwsr22XtfLm+96sMFhJxJb9/aoeUe4EY0uBSNeK5DvNS
+	Wm4x3U+zmV94wU4vSIaABoAkvIEOl7QcF/73X48ZBoE2QcCgK4cnGlDL1BarPoS7G8fjpquZ1om+s
+	0e+UfOBWqhn4kXBvA5Qn16DGM7sWyhYzQ07TAIcxriTaAx/b1R8CbdZEGtlqjvoFDNb2lF2oP6N7D
+	QuqDe4Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utbcI-00000002pQ2-0g45;
-	Wed, 03 Sep 2025 00:44:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1utbcR-00000002pjG-2fwl;
+	Wed, 03 Sep 2025 00:44:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utWrQ-00000001l9T-1Pi6
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 02 Sep 2025 19:40:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:References:
-	Message-ID:In-Reply-To:Subject:cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=QOsxfYa3Ml3Ngt5QujncTBk7bpNi6IOPOUNXoYgkg3I=; b=Ez5/OCCKXse4Efv8MmhmwjmnvI
-	HfSRW7QlwZgnEqKQHftyxU/KsTn++ZLVAQZEEwhfGFPVOXkPu4qs35wMdpxTC/5Uc4RzPcEC58Crm
-	oefQaLjbVnY2awsN5phMLDcMMz9oRfEXrMDNzLNOCIY0uOkYeYrr35kh9cJXC9lFPNInSuYHfP+0R
-	0ne35Qy4nujI+qU8NyDWbaCzOlhB6ex/rZRe4+yBujxCPty3Ru7XQH7wWFwexNsW3RidK56pdBWZt
-	G03WApPoTvl2BlpuiPXa0hWNxsXzi/Tpktw2J+VZQ5/f8oVlOdjqUUoQOudv/lA7XxCUCltmwEw8L
-	Bayyglug==;
-Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utWrL-000000043bv-1RKD
+	id 1utXg7-00000001vQt-0Hsx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 19:40:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=B/TRFxIQSXbdrXENFAuaIZ9dkz/PHYDRKsBj307raRRzO4jez91Hx7PgB1ZPbaDmmTHkfi0Z3x/DwSTZxqeU8UT2z7uU0BRnz2L7dhVi79kwQn1xdWBREurPgrkl6w8CYOmm63xkxnn6miywZvF7LBz8dYEChR5JNVcx3T0yqiJFWOuHD7NY8/PgD4g8PCvSdRQpjFj3hIRPxeaenYVzBbBvwpbVAgoPWtsspo2i/fpSqB8LVywGwT0w6kQgBiAowwTvvJGxxFEclTFAxHqVFKU0/sok+jhIEJ/MnXzHeHc1xAjR6WYEQMiEbxGKsXWLMTpEeR7uxX2uEh0ErU4v1g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QOsxfYa3Ml3Ngt5QujncTBk7bpNi6IOPOUNXoYgkg3I=;
- b=B8R8f+pS6n5/z1S9ZmAUScqqK57cs8go8B5W2RarNwwsDknl2F/3RX5Nu/XbDQgtULaXvOc4mKsuPMsqzfO3fiYpCop7Bk1G4P/uxrHthtZKhHnvTmF8JOwbOA1//UggzCg6hZJd57Xfi6n9KgiR37P87txEQj5cfrT4nNLBS39dvHuyeObQlc8ALcHNw+E5mfRqaYXll5/okOraGLP/lY5FBd4nE9/USB8j58Wa1LVNX9jXYyg3GFQnBZS+26Tu0W43EAvOO7H0bzgfua2qXFpHkyCIfFnQs9S/uANGxzCLFimQQr0bdQs/y+1/fzx5LPgTPvylv0ocpM/kmHlDzQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QOsxfYa3Ml3Ngt5QujncTBk7bpNi6IOPOUNXoYgkg3I=;
- b=c+bFtKTC02NO1jH5EeBb1+QHqWljYvhWNwYcWSb6SZBT052hCF/nIJ4mxhN8vsGYq/ac+dH/VX0230G8hvyIi81SL933n40GIgXFLnfCbZ/UanYuCt2gwrYr2+mejJBOuDivVXnCQHQD/mD5ZhVYkfKAIGF4/Fj2E5pzDR0nCMs=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from MW4PR01MB6228.prod.exchangelabs.com (2603:10b6:303:76::7) by
- BL3PR01MB6803.prod.exchangelabs.com (2603:10b6:208:33e::16) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9073.27; Tue, 2 Sep 2025 19:39:50 +0000
-Received: from MW4PR01MB6228.prod.exchangelabs.com
- ([fe80::86f5:4db2:7ad5:7fc4]) by MW4PR01MB6228.prod.exchangelabs.com
- ([fe80::86f5:4db2:7ad5:7fc4%6]) with mapi id 15.20.9094.016; Tue, 2 Sep 2025
- 19:39:50 +0000
-Date: Tue, 2 Sep 2025 12:39:43 -0700 (PDT)
-From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-To: Kazuhiro Abe <fj1078ii@aa.jp.fujitsu.com>
-cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-    Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>, 
-    "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
-    linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-    linux-kernel@vger.kernel.org, 
-    Ilkka Koskinen <ilkka@os.amperecomputing.com>
-Subject: Re: [PATCH v2] ACPI: AGDI: Add interrupt signaling mode support
-In-Reply-To: <20250829101154.2377800-1-fj1078ii@aa.jp.fujitsu.com>
-Message-ID: <f61868d2-3344-b6a9-d587-98cc654885f4@os.amperecomputing.com>
-References: <20250829101154.2377800-1-fj1078ii@aa.jp.fujitsu.com>
-Content-Type: text/plain; format=flowed; charset=US-ASCII
-X-ClientProxiedBy: CY8PR10CA0003.namprd10.prod.outlook.com
- (2603:10b6:930:4f::24) To MW4PR01MB6228.prod.exchangelabs.com
- (2603:10b6:303:76::7)
+	Tue, 02 Sep 2025 20:32:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1210641B24;
+	Tue,  2 Sep 2025 20:32:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BB34C4CEED;
+	Tue,  2 Sep 2025 20:32:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756845149;
+	bh=aN+hgxqhYaMjS0OXhoT6xA2ZJ5xTCuRclQagaKdbDmA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gX3RMnNGwDfunjeKLJnizcoSlSH0Y96fUw8jlru3J3uExFS0QX07rGRMViPRYkwyG
+	 rLOZwz4/fbRsYq8fScmJ1zxfA2nbTqxA5W2IGEvPDGSrIyFpCEqB2AsPU1z2RNdyaW
+	 WJWGDwpDPCIMnyeRidGkbkIdlyFErMaCZ3BL2+NnCBnSsdqsIhMtBT/UgLZhk8b5Sk
+	 AQOePqYHwZTuLwfoY5xqfc8q59IzkwM+eV5olmMmM8HWgjht1HycdDnFFqhYY3bLO+
+	 tK+lXj09ZHfqtxIcAVpYcQ/9iF/w1pv9K1NxhES/F1zXVSfwocnzAQlz5lfk+1q89l
+	 8WwY0XKaAIpLg==
+Received: by pali.im (Postfix)
+	id 9BE454BB; Tue,  2 Sep 2025 22:32:26 +0200 (CEST)
+Date: Tue, 2 Sep 2025 22:32:26 +0200
+From: Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Rob Herring <robh@kernel.org>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Jan Palus <jpalus@fastmail.com>,
+	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+	regressions@lists.linux.dev
+Subject: Re: [Bug 220479] New: [regression 6.16] mvebu: no pci devices
+ detected on turris omnia
+Message-ID: <20250902203226.u4i43vygl4bl2dqa@pali>
+References: <bug-220479-41252@https.bugzilla.kernel.org/>
+ <20250820184603.GA633069@bhelgaas>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW4PR01MB6228:EE_|BL3PR01MB6803:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3e89ba63-fc5c-4863-28c9-08ddea587b10
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|376014|366016|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?aER1rwlQpGKKgiDhFkZZ5G86yNEzHB32qXAi4/4f3rKbwqqb5jitcvX6B6ZM?=
- =?us-ascii?Q?KWyL/q9kQ+9jrZJh/g030puTjse5cJwMZ4yHh48LukBNCwkmwkkfxExsTjoe?=
- =?us-ascii?Q?UqN+I3VhYCBIvefylVrcp+bi3T1Q7dZQGYep4UOMoFaIOuQqvtyU8iq2KDlo?=
- =?us-ascii?Q?e5zHb5nAklLgEOhAB+x2Kq99DyOVZmCHXOFxBvAbcwnTRLjOmClHz5oN5K1V?=
- =?us-ascii?Q?VYRalhw2AWWt6ZYdUx9ZqRhZKkaSc4+GZNKjra8t/dcnYxXDlffkH+ZM9Qf+?=
- =?us-ascii?Q?VAjiwHALEseEAwMxYTW0JmH0+gP5aNdvx5/0o8HL1+7VQwzOS45WIe4PYQfu?=
- =?us-ascii?Q?lXFKMRwi7lRrUD2mv/xXBKNudMV8mHFcvHkkJM/IS2kPcS3x8wxMjb9Wvtw3?=
- =?us-ascii?Q?0Y2SoQ8t0fWd0lYCyHKOE0ZARjUf53vOU0hCnVNbVP25RCCQBghOyPF6Q/ol?=
- =?us-ascii?Q?fy/Rw6hufFiJ2v9FtcDhfOMUZASCTENnXR85SGKzD1qzIP4EDUrfUiB+25GL?=
- =?us-ascii?Q?mThKsCEj39+l/sUIipOfvrhFWIgwpTLTSTGfg3XOGvgC+h3/dNC9EXcPOEeo?=
- =?us-ascii?Q?ecIh5WElELLSmFPK9qloHLn6Sbp8HIcahY4oz84KEP8hA9bx7U8HEC3s16xa?=
- =?us-ascii?Q?d3iBoNL6T+iPvHg82OybEzdpu0tjXSzuC5IQJzBBS6Pm3U+hTUMy1Ul3R8f4?=
- =?us-ascii?Q?BGQJlZNUWIzGAE1p67o3UrCIiEUi7V8IWJ3kTBJsV51dAKQA0wb7ETUz6fFK?=
- =?us-ascii?Q?NIi2zklsLPLC/u5PJJJ/OqNHPW8Shmwq5KmqUKcSX1Kcg7FNze0pdqGoZNvH?=
- =?us-ascii?Q?AxA/bLw7GdudJNpD23EsVhjmebyyjqqfRpwIq9MXGC8WgHgJ9JkdJyswYujP?=
- =?us-ascii?Q?cDth0pM1DD73tRR1R/Obhge3t/MdzeREYg91T7+x3y3scXKCLSQmxrOivhLx?=
- =?us-ascii?Q?wNvc70UwTkvU1fnFMJOhI9SfLtb7ql+POPbhg5L8+Vc4vI3ndZa1XidMeBFw?=
- =?us-ascii?Q?nlfoIkyT3WWTBzmRTwkzXNwKp8xezRKGHpBMQgnsyIL7sHKVdNIfid8o17/n?=
- =?us-ascii?Q?dmX3w8PxOriEJ8GmAwTPXTlpqH7rkNYd2l5MC5YqfEbWs+yjXPRJUkJBANuF?=
- =?us-ascii?Q?Ygeix8y6ZWtH6n2RBZZF4gCxEaMW0ILX/+q2YYGKtJHcZP4JJROd28AS6LdB?=
- =?us-ascii?Q?IfBYDndw3llN3JhfYa0rpR98XIrUGuZelXyfqCZ9JKKBX0UcoqeotV2NeUTr?=
- =?us-ascii?Q?hLjnp6Zb9vHf8MJi6KuHRW85sGCJ2qhUPN880BmnOdkvsBRC/8bZiHFFCnuj?=
- =?us-ascii?Q?96WIHAmss+ZtBawFDU+QYdPcnrrE4UBzrYFLst+pyJsXR5wYYndNOWkBoAcV?=
- =?us-ascii?Q?WaNAai+XNxzM156t8jBHy9bjRgOqV73WvVED03Wuxhn8s7J5XBCdzWXVrM5Y?=
- =?us-ascii?Q?LWb66k+NDHq+DiwV6hZql6KUmVHGwuRNq9tjqT6jIIUAu1zWTyS70Q=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR01MB6228.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(376014)(366016)(38350700014)(7053199007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kCtoqOuBQdn9ktMS/PH6HgVtCIevuA8RcDYnrFHcXaWjQ9y6T5OiQ1vN6Ya/?=
- =?us-ascii?Q?aN+Qrwoo1tMut+6BA2F8k2XioiSrvWknoOOTj0fG+PaXVto5O0IR+S7CYPiq?=
- =?us-ascii?Q?DsrJ7w0hBFGlenRQIm8aLZPNYdwcmu8nupu9zCkfOJfeWHCcJfAW8rna6Vla?=
- =?us-ascii?Q?YCOFwev9AEfwLRd3ahlTAP2J3sQ9E2bCqOd5tJXu6WjhjC64t9sfoDHDxafJ?=
- =?us-ascii?Q?1EeCFbmLPbfL5z8oKcfOnNRzt0Ob0Kadef4OLae9wGEbxOJlEKyeQ9p/qggq?=
- =?us-ascii?Q?CoVnrnLcRW/yLmK2F4HL9WUbjTgD0MwgTtlzlHKVMiHqOELN7q99sz6xUHLq?=
- =?us-ascii?Q?w6Qo3qYrDR0Pubt2PH/t2r6cvDwLuM+WL0/jKWHNgL371DKkEA2OStrsESGl?=
- =?us-ascii?Q?NToi0rcU0PMHDWnUZErghwroQu2MMuwV75sDWIo+FFltyIaAd7guHhUtdHGh?=
- =?us-ascii?Q?/3JtVFpu7RZfoSxSEYtB1GvbIy+UFcYoyYWHL62XdTLyWCbY/2v92GaO6Jiq?=
- =?us-ascii?Q?SrGwK+NQqlDHuqgWza1o4muOBjhxsVXzS+Uz9fAV3uYEVEUteMU5l+CgiPv+?=
- =?us-ascii?Q?X3I/Nu+FRPMf+I/VFpjFd54QrpXi5x0nBMOHIGIifUd2YuOjjUZZkXTjfpW/?=
- =?us-ascii?Q?FkEUEY/SjDDO0rwALiTT4hrLrhCyKemnrDch0VqAV1e94qQX8a60eEiSDdSZ?=
- =?us-ascii?Q?ODs0Ks67kOtBby/njtU8LhgzxEOzpZfAj54nYUOScfE8tfy3u+SnZQTb40og?=
- =?us-ascii?Q?TPIwXrYCXj7DJzTfMCufAS1hUYylb77O7u6oyFkbJHqswnpvsvUDn8ZCiYr+?=
- =?us-ascii?Q?ZT9Sd82CnjRe0qfFKZ3MMEvskTPW/qxkZJclENjxXlzWY7gHk1hJ4RPykM2c?=
- =?us-ascii?Q?EqrhgZOZOEql16aUb2J8vFinga8IQc1/UmBtj5RgAqX5TGaHTkd3vljCpQad?=
- =?us-ascii?Q?KDhRy6fqAFa7Llch8vEpFUa2feZkv0UyASFg36PukMVRJmt2cF7E8Wap83+S?=
- =?us-ascii?Q?z5E5LYuKcarcy2Abp76wb7BlmTJ91slw8n/Mubn1G5coA5XC2ngn+tYWtnIq?=
- =?us-ascii?Q?b5/1G8v+6FvJqSwihqjC14GY78D6e3Lz1/XGKobklNAAppZYxZbHwc30c+Hk?=
- =?us-ascii?Q?o0cmy5w5tjEJ7QgChOCx2gLDsV6tFC8JBNwfIQdp+Houi1jv6k4K0ReoVPS9?=
- =?us-ascii?Q?T4anbtbvZjDOCL0PjKBIdDcqHoZDsoajHgJQ1ysfL+Mpbe+OVsFe9olPUUGZ?=
- =?us-ascii?Q?mYDaDbWZu0bDj9ntqObLzlMKE6wjOUGFT8/uiRyIWt7sqFbE0Qa2BoL1Qrja?=
- =?us-ascii?Q?LpuhGI/ua032XC0pUFOwhXIGWB3Guhv14IXo8QWWE68ud/sGKs4c4blsqkkf?=
- =?us-ascii?Q?gycnWMFzga99nXKuC21anCE+1uG04BiOeNLRhyPn2xiupH3HtAXc/l499kvs?=
- =?us-ascii?Q?DJvssF9X+vD/eLgf55+5l9M0GGxQ49Ne3j9pgvrsKEEDRWwCL5vbNnx5Vyrf?=
- =?us-ascii?Q?dYcot1Y05FbK9zUxN2+zVfR0zR340NkVLBOZ4nBqx/d7eSnV4nSK4DNIYdDY?=
- =?us-ascii?Q?dBZuQfxclOunubXy1EsH3dccJpLZ4q3sRRW/8MjVqCdoCF9c84GshGuXt5d0?=
- =?us-ascii?Q?e/XzWWovA1MCrS4r3UWUQ9g=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3e89ba63-fc5c-4863-28c9-08ddea587b10
-X-MS-Exchange-CrossTenant-AuthSource: MW4PR01MB6228.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2025 19:39:50.0529
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: M201TDMwARiy3+mLM1Nuco0I/P5Skf/CwUJNAtAhkk2At+HW0rhFe93mGTgOusUKKzggkIt+plx8Mkn1IUcv6BrdSwfTCepZLbwpvkTXCMQG9wSMHof0Cikw8LZJ9kVZ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR01MB6803
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250820184603.GA633069@bhelgaas>
+User-Agent: NeoMutt/20180716
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_204004_047406_07A52968 
-X-CRM114-Status: GOOD (  24.27  )
+X-CRM114-CacheID: sfid-20250902_133231_154578_5AD35D6E 
+X-CRM114-Status: GOOD (  22.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,72 +79,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+These issues have been discussed more times for last 3 years.
+Tested changes which are fixing real bugs and are improving the
+pci-mvebu.c driver from people listed as M: in MAINTAINERS are being
+rejected or silently ignored. And untested changes which are not going
+to fix any bug are being accepted and causing new regressions. People
+then reporting bug reports to M: people who cannot do anything with it.
+The only advice which they can get is to not use mainline kernel.
+This pci-mvebu.c driver in mainline kernel is broken and nobody wanted
+to do anything with this situation for last 3 years, I was pointing for
+it more times. Due to this I'm ignoring bug reports for pci-mvebu.c
+driver for mainline kernel.
 
-Hi Kazuhiro,
-
-I have a couple of minor comments below
-
-On Fri, 29 Aug 2025, Kazuhiro Abe wrote:
-> AGDI has two types of signaling modes: SDEI and interrupt.
-> Currently, the AGDI driver only supports SDEI.
-> Therefore, add support for interrupt singaling mode
-> The interrupt vector is retrieved from the AGDI table, and call panic
-> function when an interrupt occurs.
->
-> ---
-> I keep normal IRQ code when NMI cannot be used.
-> If there is any concern, please let me know.
->
-> v1->v2
-> - Remove acpica update since there is no need to update define value
->   for this patch.
->
-> Signed-off-by: Kazuhiro Abe <fj1078ii@aa.jp.fujitsu.com>
-> ---
-> drivers/acpi/arm64/agdi.c | 98 ++++++++++++++++++++++++++++++++++++---
-> 1 file changed, 91 insertions(+), 7 deletions(-)
->
-> diff --git a/drivers/acpi/arm64/agdi.c b/drivers/acpi/arm64/agdi.c
-> index e0df3daa4abf..e887aab6b448 100644
-> --- a/drivers/acpi/arm64/agdi.c
-> +++ b/drivers/acpi/arm64/agdi.c
-
-...
-
-> static int agdi_probe(struct platform_device *pdev)
-> {
-> 	struct agdi_data *adata = dev_get_platdata(&pdev->dev);
-> @@ -55,12 +108,17 @@ static int agdi_probe(struct platform_device *pdev)
-> 	if (!adata)
-> 		return -EINVAL;
->
-> -	return agdi_sdei_probe(pdev, adata);
-> +	if (adata->flags & ACPI_AGDI_SIGNALING_MODE)
-> +		agdi_interrupt_probe(pdev, adata);
-> +	else
-> +		agdi_sdei_probe(pdev, adata);
-> +
-> +	return 0;
-
-Is there a reason why you always return zero instead of a possible
-error code from either of the probe functions?
-
-> }
->
-
-...
-
-> +static void agdi_remove(struct platform_device *pdev)
-> +{
-> +	struct agdi_data *adata = dev_get_platdata(&pdev->dev);
-> +
-> +	if (adata->flags & ACPI_AGDI_SIGNALING_MODE) {
-> +		agdi_interrupt_remove(pdev, adata);
-> +	} else {
-> +		agdi_sdei_remove(pdev, adata);
-> +	}
-
-You don't need curly braces in this if/else block.
-
-Cheers, Ilkka
+On Wednesday 20 August 2025 13:46:03 Bjorn Helgaas wrote:
+> [+cc maintainers, regressions list]
+> 
+> Jan, thanks very much for the report and the bisection.  Could you
+> attach the devicetree you're using to the bugzilla?
+> 
+> On Wed, Aug 20, 2025 at 05:43:39PM +0000, bugzilla-daemon@kernel.org wrote:
+> > https://bugzilla.kernel.org/show_bug.cgi?id=220479
+> > 
+> >            Summary: [regression 6.16] mvebu: no pci devices detected on
+> >                     turris omnia
+> >           Reporter: jpalus@fastmail.com
+> > 
+> > Booting kernel 6.16 results in no PCI devices being detected (output of `lspci`
+> > is completely empty). Bisected to:
+> > 
+> > 5da3d94a23c6c1ee1f896aeeb00965eacf1d0bb3 is the first new commit
+> > commit 5da3d94a23c6c1ee1f896aeeb00965eacf1d0bb3 (HEAD)
+> > Author: Rob Herring (Arm) <robh@kernel.org>
+> > Date:   Thu Nov 7 16:32:55 2024
+> > 
+> >     PCI: mvebu: Use for_each_of_range() iterator for parsing "ranges"
+> > 
+> >     The mvebu "ranges" is a bit unusual with its own encoding of addresses,
+> >     but it's still just normal "ranges" as far as parsing is concerned.
+> >     Convert mvebu_get_tgt_attr() to use the for_each_of_range() iterator
+> >     instead of open coding the parsing.
+> > 
+> >     Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> >     Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> >     Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> >     Link: https://patch.msgid.link/20241107153255.2740610-1-robh@kernel.org
+> > 
+> >  drivers/pci/controller/pci-mvebu.c | 26 +++++++++-----------------
+> >  1 file changed, 9 insertions(+), 17 deletions(-)
+> > 
+> > 
+> > kernel 6.16 logs following mesages related to PCI:
+> > 
+> > mvebu-pcie soc:pcie: host bridge /soc/pcie ranges:
+> > mvebu-pcie soc:pcie:      MEM 0x00f1080000..0x00f1081fff -> 0x0000080000
+> > mvebu-pcie soc:pcie:      MEM 0x00f1040000..0x00f1041fff -> 0x0000040000
+> > mvebu-pcie soc:pcie:      MEM 0x00f1044000..0x00f1045fff -> 0x0000044000
+> > mvebu-pcie soc:pcie:      MEM 0x00f1048000..0x00f1049fff -> 0x0000048000
+> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
+> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
+> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
+> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
+> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
+> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
+> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
+> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
+> > mvebu-pcie soc:pcie: pcie0.0: cannot get tgt/attr for mem window
+> > mvebu-pcie soc:pcie: pcie1.0: cannot get tgt/attr for mem window
+> > mvebu-pcie soc:pcie: pcie2.0: cannot get tgt/attr for mem window
+> > mvebu-pcie soc:pcie: PCI host bridge to bus 0000:00
+> > pci_bus 0000:00: root bus resource [bus 00-ff]
+> > pci_bus 0000:00: root bus resource [mem 0xf1080000-0xf1081fff] (bus address
+> > [0x00080000-0x00081fff])
+> > pci_bus 0000:00: root bus resource [mem 0xf1040000-0xf1041fff] (bus address
+> > [0x00040000-0x00041fff])
+> > pci_bus 0000:00: root bus resource [mem 0xf1044000-0xf1045fff] (bus address
+> > [0x00044000-0x00045fff])
+> > pci_bus 0000:00: root bus resource [mem 0xf1048000-0xf1049fff] (bus address
+> > [0x00048000-0x00049fff])
+> > pci_bus 0000:00: root bus resource [mem 0xe0000000-0xe7ffffff]
+> > pci_bus 0000:00: root bus resource [io  0x1000-0xeffff]
+> > PCI: bus0: Fast back to back transfers enabled
+> > pci_bus 0000:00: resource 4 [mem 0xf1080000-0xf1081fff]
+> > pci_bus 0000:00: resource 5 [mem 0xf1040000-0xf1041fff]
+> > pci_bus 0000:00: resource 6 [mem 0xf1044000-0xf1045fff]
+> > pci_bus 0000:00: resource 7 [mem 0xf1048000-0xf1049fff]
+> > pci_bus 0000:00: resource 8 [mem 0xe0000000-0xe7ffffff]
+> > pci_bus 0000:00: resource 9 [io  0x1000-0xeffff]
+> > 
+> > 
+> > while kernel 6.15 logs following:
+> > 
+> > mvebu-pcie soc:pcie: host bridge /soc/pcie ranges:
+> > mvebu-pcie soc:pcie:      MEM 0x00f1080000..0x00f1081fff -> 0x0000080000
+> > mvebu-pcie soc:pcie:      MEM 0x00f1040000..0x00f1041fff -> 0x0000040000
+> > mvebu-pcie soc:pcie:      MEM 0x00f1044000..0x00f1045fff -> 0x0000044000
+> > mvebu-pcie soc:pcie:      MEM 0x00f1048000..0x00f1049fff -> 0x0000048000
+> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
+> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
+> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
+> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
+> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
+> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
+> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
+> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
+> > mvebu-pcie soc:pcie: pcie0.0: Slot power limit 10.0W
+> > mvebu-pcie soc:pcie: pcie1.0: Slot power limit 10.0W
+> > mvebu-pcie soc:pcie: pcie2.0: Slot power limit 10.0W
+> > mvebu-pcie soc:pcie: PCI host bridge to bus 0000:00
+> > pci_bus 0000:00: root bus resource [bus 00-ff]
+> > pci_bus 0000:00: root bus resource [mem 0xf1080000-0xf1081fff] (bus address
+> > [0x00080000-0x00081fff])
+> > pci_bus 0000:00: root bus resource [mem 0xf1040000-0xf1041fff] (bus address
+> > [0x00040000-0x00041fff])
+> > pci_bus 0000:00: root bus resource [mem 0xf1044000-0xf1045fff] (bus address
+> > [0x00044000-0x00045fff])
+> > pci_bus 0000:00: root bus resource [mem 0xf1048000-0xf1049fff] (bus address
+> > [0x00048000-0x00049fff])
+> > pci_bus 0000:00: root bus resource [mem 0xe0000000-0xe7ffffff]
+> > pci_bus 0000:00: root bus resource [io  0x1000-0xeffff]
+> > pci 0000:00:01.0: [11ab:6820] type 01 class 0x060400 PCIe Root Port
+> > pci 0000:00:01.0: PCI bridge to [bus 00]
+> > pci 0000:00:01.0:   bridge window [io  0x0000-0x0fff]
+> > pci 0000:00:01.0:   bridge window [mem 0x00000000-0x000fffff]
+> > /soc/pcie/pcie@1,0: Fixed dependency cycle(s) with
+> > /soc/pcie/pcie@1,0/interrupt-controller
+> > pci 0000:00:02.0: [11ab:6820] type 01 class 0x060400 PCIe Root Port
+> > pci 0000:00:02.0: PCI bridge to [bus 00]
+> > pci 0000:00:02.0:   bridge window [io  0x0000-0x0fff]
+> > pci 0000:00:02.0:   bridge window [mem 0x00000000-0x000fffff]
+> > /soc/pcie/pcie@2,0: Fixed dependency cycle(s) with
+> > /soc/pcie/pcie@2,0/interrupt-controller
+> > pci 0000:00:03.0: [11ab:6820] type 01 class 0x060400 PCIe Root Port
+> > pci 0000:00:03.0: PCI bridge to [bus 00]
+> > pci 0000:00:03.0:   bridge window [io  0x0000-0x0fff]
+> > pci 0000:00:03.0:   bridge window [mem 0x00000000-0x000fffff]
+> > /soc/pcie/pcie@3,0: Fixed dependency cycle(s) with
+> > /soc/pcie/pcie@3,0/interrupt-controller
+> > PCI: bus0: Fast back to back transfers disabled
+> > pci 0000:00:01.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+> > pci 0000:00:02.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+> > pci 0000:00:03.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+> > PCI: bus1: Fast back to back transfers enabled
+> > pci_bus 0000:01: busn_res: [bus 01-ff] end is updated to 01
+> > pci 0000:02:00.0: [168c:003c] type 00 class 0x028000 PCIe Endpoint
+> > pci 0000:02:00.0: BAR 0 [mem 0x00000000-0x001fffff 64bit]
+> > pci 0000:02:00.0: ROM [mem 0x00000000-0x0000ffff pref]
+> > pci 0000:02:00.0: supports D1
+> > pci 0000:02:00.0: PME# supported from D0 D1 D3hot
+> > pci 0000:00:02.0: ASPM: current common clock configuration is inconsistent,
+> > reconfiguring
+> > pci 0000:00:02.0: ASPM: Bridge does not support changing Link Speed to 2.5 GT/s
+> > pci 0000:00:02.0: ASPM: Retrain Link at higher speed is disallowed by quirk
+> > PCI: bus2: Fast back to back transfers disabled
+> > pci_bus 0000:02: busn_res: [bus 02-ff] end is updated to 02
+> > pci 0000:03:00.0: [168c:0033] type 00 class 0x028000 PCIe Endpoint
+> > pci 0000:03:00.0: BAR 0 [mem 0x00000000-0x0001ffff 64bit]
+> > pci 0000:03:00.0: ROM [mem 0x00000000-0x0000ffff pref]
+> > pci 0000:03:00.0: supports D1
+> > pci 0000:03:00.0: PME# supported from D0 D1 D3hot
+> > pci 0000:00:03.0: ASPM: current common clock configuration is inconsistent,
+> > reconfiguring
+> > pci 0000:00:03.0: ASPM: Bridge does not support changing Link Speed to 2.5 GT/s
+> > pci 0000:00:03.0: ASPM: Retrain Link at higher speed is disallowed by quirk
+> > PCI: bus3: Fast back to back transfers disabled
+> > pci_bus 0000:03: busn_res: [bus 03-ff] end is updated to 03
+> > pci 0000:00:02.0: bridge window [mem 0x00200000-0x003fffff] to [bus 02]
+> > add_size 200000 add_align 200000
+> > pci 0000:00:02.0: bridge window [mem 0xe0000000-0xe03fffff]: assigned
+> > pci 0000:00:03.0: bridge window [mem 0xe0400000-0xe04fffff]: assigned
+> > pci 0000:00:01.0: PCI bridge to [bus 01]
+> > pci 0000:02:00.0: BAR 0 [mem 0xe0000000-0xe01fffff 64bit]: assigned
+> > pci 0000:02:00.0: ROM [mem 0xe0200000-0xe020ffff pref]: assigned
+> > pci 0000:00:02.0: PCI bridge to [bus 02]
+> > pci 0000:00:02.0:   bridge window [mem 0xe0000000-0xe03fffff]
+> > pci 0000:03:00.0: BAR 0 [mem 0xe0400000-0xe041ffff 64bit]: assigned
+> > pci 0000:03:00.0: ROM [mem 0xe0420000-0xe042ffff pref]: assigned
+> > pci 0000:00:03.0: PCI bridge to [bus 03]
+> > pci 0000:00:03.0:   bridge window [mem 0xe0400000-0xe04fffff]
+> > pci_bus 0000:00: resource 4 [mem 0xf1080000-0xf1081fff]
+> > pci_bus 0000:00: resource 5 [mem 0xf1040000-0xf1041fff]
+> > pci_bus 0000:00: resource 6 [mem 0xf1044000-0xf1045fff]
+> > pci_bus 0000:00: resource 7 [mem 0xf1048000-0xf1049fff]
+> > pci_bus 0000:00: resource 8 [mem 0xe0000000-0xe7ffffff]
+> > pci_bus 0000:00: resource 9 [io  0x1000-0xeffff]
+> > pci_bus 0000:02: resource 1 [mem 0xe0000000-0xe03fffff]
+> > pci_bus 0000:03: resource 1 [mem 0xe0400000-0xe04fffff]
+> > pcieport 0000:00:02.0: enabling device (0140 -> 0142)
+> > pcieport 0000:00:03.0: enabling device (0140 -> 0142)
+> 
+> #regzbot introduced: 5da3d94a23c6 ("PCI: mvebu: Use for_each_of_range() iterator for parsing "ranges"")
 
