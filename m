@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64999CA0FFE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 12:30:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 130F0CA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 12:30:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/4/XJ9D73TP0STT4CGa6csLzIeRTuDdoTaz4bTOmNE0=; b=hCtkzL9RnyIFgnmHYmeN6TiMEz
-	M7uv5bGBF96JhxfkFus2s+vrrwkDfOjCf2TSbQ1RPEnr52b+STSJXJefktTv9fSNQ5WSY9Axw59hl
-	6CQocZ7UP0KfDN/xuaTULRgtyrf+bcUhmo+dopr8fQ/C4b8ejHOUb/G+o7vBRXzD35XP1XwauGLJb
-	9jUYUYHPLRT49r4vj9flep2raGytOErhZT2qdZcek+a7dEIX7Qy5UQSInKXX/wdJ6GU4eNvNOGHwe
-	VJDbMxeH4Tjw9GFHrfRaZDVgbELEOO18y7C0jkjw3EGeAmZ0GPN5/2QbLShuArUB8rfGYlHWUjhH6
-	JPnXpERQ==;
+	bh=fxgs3Bk08QrxKooWu8Hqpj6+OcO1bosAzA5skUM7MQM=; b=mVypHZbc5NOvysVOSiDruXlNF4
+	feS3yXum8i20FMPytd5HJFVPGUDUnAcwyhuOqwlRZ/f0YVF+cM/FFco+VRd7BASSF4ykef+Amv6sK
+	ybyycPCwC0BohEfh7UO14KdHSfGIfApbOhkv25GJeCim3rcYaAdI6QmeNDWamy4+Eh3bDfj3wWs6c
+	aEBoa63p7M4nBQhKJ4yvhar/Q+ne1rpSafgCMbNf0vIU/AKFWUYnol0/zaCXgIdQXNOBtfubYObZc
+	WSNeec5oJJ2I6jCZ69hAw7XYc3gdmkhhylae1sA6FlZM/mYhgIk5s+O05ZWR4JmRG67103AsIAAdH
+	QR+4PvZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utQ9b-0000000HHjZ-36UM;
-	Tue, 02 Sep 2025 12:30:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1utQ9g-0000000HHpI-39G0;
+	Tue, 02 Sep 2025 12:30:32 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utNe7-0000000GTpo-03Qk
+	id 1utNeE-0000000GTrg-0UN5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 09:49:48 +0000
+	Tue, 02 Sep 2025 09:49:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B7FA543C1F;
-	Tue,  2 Sep 2025 09:49:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF9B7C4CEED;
-	Tue,  2 Sep 2025 09:49:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6A6BE60207;
+	Tue,  2 Sep 2025 09:49:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3C30C4CEF5;
+	Tue,  2 Sep 2025 09:49:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756806586;
-	bh=oiC77Gt5Bj8xCAydKBJRED6CaafusXzrJw9yIWxwsDw=;
+	s=k20201202; t=1756806593;
+	bh=dIWtODJzj2z3afarX1J115TDTUy4z/tY9fh6ITu9yak=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=tYzAFZ38V5G6Gt3eTwgJvUQUA7ZPqTjMvC3nQOZ/EyjmYUBXTCYCw8DaoGrJdvjYM
-	 bZyBoyzCstWCUjYVf3TS4iak2Qr/3IL6VIbDPwQc6LLegOdZp/vFyqCPgYTRDsncr7
-	 kI9CawhkuRWGTeyPunYkMRiF7/TgHZ7SuU6BUA0hLpcuE0OGQl8hd2YyA4FowukegJ
-	 sZdOHIl4Wpwd1FYlGXuBJyu3v8FtADzdkv8R15Ip+dilBj3RQ8uCz11iTwfdSU8OYV
-	 MGEvVnpHDhVcJdgY4LqalvPG/MIpfwXwGQ17c9LtA8QKsb0WFbnl3DGFlrCOBsAT4K
-	 C1oOOVJXtQPqA==
+	b=YYVsMbmJBDhypGCtghxtK0hJhb/2u35ExwxIh+zRss2RrKBGs4OdBMOYkASinP00W
+	 msmDIzknYFGwq/SiQ+0lFnesE0aAzwEE2hQMmI5lsQi2pNnIOm7kdaDMAvt9pXI1L1
+	 Ax24QYIy4qpScDlqiE3o9q2mQvIsF/Z0Vn76CP4c2hBqIVXamwyEkVvkopPPXS2AYa
+	 Dy2veRrBOICFlKytvRUT9fT4Nz6O7IAuvficoiAoHlmD+F6IBjYCavWzl2nIWSulD4
+	 ju93+tNVT20oEdJg48eBJE3vx2EqOAML1txMOqBNtX1ShN2+XCeD0fyQYrf4pq3hDR
+	 oAzIwRycFxmxg==
 From: Vinod Koul <vkoul@kernel.org>
-To: shawnguo@kernel.org, s.hauer@pengutronix.de, 
- Chelsy Ratnawat <chelsyratnawat2001@gmail.com>
-Cc: kernel@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev, 
- dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20250830132633.1803300-1-chelsyratnawat2001@gmail.com>
-References: <20250830132633.1803300-1-chelsyratnawat2001@gmail.com>
-Subject: Re: [PATCH] dma: Replace zero-length array with flexible-array
-Message-Id: <175680658329.246694.13588903495066267713.b4-ty@kernel.org>
-Date: Tue, 02 Sep 2025 15:19:43 +0530
+To: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ Folker Schwesinger <dev@folker-schwesinger.de>
+Cc: Michal Simek <michal.simek@amd.com>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+ Marek Vasut <marex@denx.de>, 
+ Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+In-Reply-To: <DCCKQLKOZC06.2H6LJ8RJQJNV2@folker-schwesinger.de>
+References: <DCCKQLKOZC06.2H6LJ8RJQJNV2@folker-schwesinger.de>
+Subject: Re: [PATCH v4] dmaengine: xilinx_dma: Support descriptor setup
+ from dma_vecs
+Message-Id: <175680658917.246694.14605510999685994638.b4-ty@kernel.org>
+Date: Tue, 02 Sep 2025 15:19:49 +0530
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.13.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_024947_120496_1DB571AF 
-X-CRM114-Status: UNSURE (   6.15  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,17 +77,21 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sat, 30 Aug 2025 06:26:33 -0700, Chelsy Ratnawat wrote:
-> Documentation/process/deprecated.rst suggests that zero-length
-> and one-element arrays are deprecated, flexible-array members
-> should be used instead.
+On Tue, 26 Aug 2025 20:21:10 +0200, Folker Schwesinger wrote:
+> The DMAEngine provides an interface for obtaining DMA transaction
+> descriptors from an array of scatter gather buffers represented by
+> struct dma_vec. This interface is used in the DMABUF API of the IIO
+> framework [1][2].
+> To enable DMABUF support through the IIO framework for the Xilinx DMA,
+> implement callback .device_prep_peripheral_dma_vec() of struct
+> dma_device in the driver.
 > 
-> 
+> [...]
 
 Applied, thanks!
 
-[1/1] dma: Replace zero-length array with flexible-array
-      commit: 981d4978ff09d13690739663b3cd71ad8bb5ad94
+[1/1] dmaengine: xilinx_dma: Support descriptor setup from dma_vecs
+      commit: 38433a6fdfb75d12a90ffff262705e1ecfe88556
 
 Best regards,
 -- 
