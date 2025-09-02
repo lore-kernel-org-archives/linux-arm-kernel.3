@@ -4,122 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71631CA1005
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:43:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF156CA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:43:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eGnUT6FgCyMwUMrN5WxQNTGRhMGZl0QVyrFIAhmCYRY=; b=Gt6GsSb3EzK/b1lSbr8J5+p4+c
-	1MefAIGE34SqtIY3UvYNcSzK0lQbU+QXxl/tHRyuu3VXzBNrcxxaa8XPwo5JFSYK18/L+PMRQK5lK
-	mUPCYiKQ+kGUD/dCBW/HTP2zx0P2LWKmIsmCHu1cQAxwCvzHg0/IVY7LN1qd5iq7NwL54gYxCKy/C
-	dPVV5crVM3vLyJpEba5jyKP/n/qRrVaUdnpSkAmMnnyDGE224QcEk8LNBLM0RbH/w5g8M97nMYIUU
-	PTne5IBrEKgUV4JKe9V/0mvS6FplSBDmELZrs/XiF/epUfe8vRJ36YOyJLaM9mYPusDXDzD3DbP27
-	w2uJULvQ==;
+	bh=6ElWdGUyg9Q9uvasE/0knQrvGqeT+AHFO5zlC/AHADc=; b=l30qLKr5bV+tzX5OmvYvTJ4DZh
+	yPZ340EDhTx6+1H9LtBtV/f/SxCINekibMbQYDTz/2R9FTZyPLUlxcQejHL6HXW/j1pJetDnXEqAd
+	1GfrqoOB80W3ec2ma2NIvDrVviJH9iXcOS9543ESejaQsg29DQpKEq1i47X9KN92F9NioEnw3ZQrC
+	BqdTBNybOJYdxuNuhpVkLnosSKq1hX+mFLxq4UCLXOBqMmqr2OLvEs5DJcc5E0nInOY1W/dRM6PS6
+	MLkl1Ap4MuWdv2g8EtDu6PJ1j5YVFUOEas6EoSV0t53wfc9EX5nKRiDZOPS7u3D8eGiNdkhwBnm3H
+	K0ydfayA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utYmJ-00000002AxP-3guO;
-	Tue, 02 Sep 2025 21:42:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1utYlx-00000002AN1-3LzH;
+	Tue, 02 Sep 2025 21:42:37 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utSoW-00000000e8Y-4AeC;
-	Tue, 02 Sep 2025 15:20:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2B4EA6020C;
-	Tue,  2 Sep 2025 15:20:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 991B9C4CEED;
-	Tue,  2 Sep 2025 15:20:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756826451;
-	bh=PgnpS+OJ+OH80B0RKl39e2pHarXjAdJZp7WT5DCSVcU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Q2Rup3PTliTol+0fzWRBDpCRhts7KHhL2QASNisikZ4XIMfu3INaRFmqz2v7TwpAd
-	 e8JEhL6HcgifGBcBHa2mz8+8dj3exN59qmN9HEPNCwqojBqXBs8ZvlC+Rj0vsWi/Eg
-	 a68NQBn0ql05cXZu+ayVXgnt/twOLZDM5JHr960wRqLeDSu1wvMNn+eVBCQaz+B1wq
-	 C0MF814H1j8X/HLTzo2vBDTD1ojE0M+e4RGPCYefs9cfk77EkOwBnk25uOeNVk7u8N
-	 z6T1Jq5uFg/FAZA9p0XoFHz4DLCzPDSlWSUlCh47zJsSGOLREUIXImF3KRNsNWvBAo
-	 64uoXcVgwHAEA==
-Message-ID: <63e43445-ef5f-49b2-85c1-f85d95426d5d@kernel.org>
-Date: Tue, 2 Sep 2025 17:20:41 +0200
+	id 1utQyR-000000000xQ-2QG2
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 02 Sep 2025 13:23:00 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-45b7c56a987so17106815e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 06:22:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756819378; x=1757424178; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6ElWdGUyg9Q9uvasE/0knQrvGqeT+AHFO5zlC/AHADc=;
+        b=N43dDjq5DgX7Ux89Rr7sNdSZlqTCoA1NdCC0vd63lemysua/WhHrMa6MIYdF3A1DDp
+         J/OirKUlMx0f+zxHeG7UKvU3J2o3diQTOf9csTiwGPzZSnCvC+aojeTWlxgcM8JVzKIi
+         rVNqnz9qAaGeO50RSlQTorpjxjLMrGngNW1H57xaLRh+se5yZmdnt3RrerKHP9ZgrJbV
+         /68UTMrQF0H4u64BwCWBkYvyNd1+xHdlOa4XJSctneL/t5M/wqr5cJG/vfulusnW82z7
+         VUDiM8NaKZArDRINbIOfqandOnk/tZCN3k1v/f8em28OyDlHUePR5PnVs82bLvpyIHxN
+         X/HQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756819378; x=1757424178;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=6ElWdGUyg9Q9uvasE/0knQrvGqeT+AHFO5zlC/AHADc=;
+        b=Mq9aLUk0dpPr/Q65UJ03BliS3JbIjkBAVK0xa+scZ0/WHQunkgwHfbSKuXxC/ZpldL
+         rfkbYaOnxDjfrH+khaxBpa9rMMu7LI5hE7I1CB1NysYx2VEwcm/a2qf9FC5gP0f/deoC
+         dknxtCtXbndJnoxWiUVy94+y9nb7FRo3pYAFG0kkY9zCzmsVjnPr05NqnkQTSbMuAUEy
+         4kwp6GouBxMpcF6uw03ecGazFAxHrNkQ3iBFUhX759CxErP9qf3hPECaojOzMHodVEOv
+         ca+kz7Q6i3GP6eL2p/M1y3OjEeyYRaP4G/3FGLfB8hKkRH5lKBwBiMjEtmfBmgi6QmLu
+         qiSw==
+X-Forwarded-Encrypted: i=1; AJvYcCXTNO8jzdxAogvRnsr6wmRVQKi/yP4mZ+6kIJn5zahj9CYy3nKSyLkO+dAVbXFpyROy+dOMBhVnVBlcOMMpZm+6@lists.infradead.org
+X-Gm-Message-State: AOJu0YyP8ybQdEIa6rQ4eC4+p7Ow6s3MQFfYXSWg4LRX/L4DDkx17FQY
+	zRErQMZjT+JvrbyCLjmkcSsjfuk6HW6X1wKJ7ljR9YvpRXTnyGD0+RKn
+X-Gm-Gg: ASbGncusV1+yDEfABMASP3wAAgCJ8L5+MRmDzYa349fPvCxg5WXMf6vlp1YF/1NkyNZ
+	ZQgsCjJ2S8BKnB10/J1W0VLRiW/TkgfdcVLDqb26Mr5EpoZTWobWc8bHltYPHJDl99omgY5mACY
+	B+fbIh4U/XMCcqvuNkZBuiqtCLSifh+wXo6+RIclUYYOin2mNQ3VC9jVM3z6OtGROJzEObSFWcO
+	cCOEh9rtiEea351dNzyTReisFf4pAWbkPYXxLBmC8qPL+YhmtYLXXizzovSIkWpm9Uc5A6epKel
+	jpr0zl/72JSD8bdV2daALHgUssBZmWaG6hkQWm5CZR5VCaIHRy/3pfHyEDoG3EiScheX4gjZ4nj
+	YIF+w4Av9SKzqW39hRVvTHNUiEu4fcRG2eQ==
+X-Google-Smtp-Source: AGHT+IHcyDVYiBnpcbLNKDERC0dfFteGZiJ+qGt3KiUljAkJChMcYHaPXwrQyaik6ZY9zKUEaa9wZw==
+X-Received: by 2002:a05:600c:4c06:b0:45c:4470:270a with SMTP id 5b1f17b1804b1-45c447028b8mr66195e9.9.1756819377579;
+        Tue, 02 Sep 2025 06:22:57 -0700 (PDT)
+Received: from ws-linux01 ([2a02:2f0e:c207:b600:978:f6fa:583e:b091])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b945332adsm44452155e9.4.2025.09.02.06.22.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 02 Sep 2025 06:22:57 -0700 (PDT)
+From: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+To: clabbe.montjoie@gmail.com,
+	herbert@gondor.apana.org.au,
+	davem@davemloft.net,
+	linux-crypto@vger.kernel.org
+Cc: wens@csie.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+Subject: [PATCH v3 2/9] crypto: sun8i-ce - remove boilerplate in sun8i_ce_hash_digest()
+Date: Tue,  2 Sep 2025 16:21:27 +0300
+Message-ID: <20250902132134.3287515-3-ovidiu.panait.oss@gmail.com>
+X-Mailer: git-send-email 2.50.0
+In-Reply-To: <20250902132134.3287515-1-ovidiu.panait.oss@gmail.com>
+References: <20250902132134.3287515-1-ovidiu.panait.oss@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: (subset) [PATCH v2] dt-bindings: mfd: Move embedded controllers
- to own directory
-To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Benson Leung <bleung@chromium.org>,
- Guenter Roeck <groeck@chromium.org>, Tim Harvey <tharvey@gateworks.com>,
- Michael Walle <mwalle@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Jean Delvare <jdelvare@suse.com>,
- Thomas Gleixner <tglx@linutronix.de>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
- <ukleinek@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
- Mathieu Poirier <mathieu.poirier@linaro.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Cheng-Yi Chiang <cychiang@chromium.org>, Tzung-Bi Shih <tzungbi@kernel.org>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Wim Van Sebroeck <wim@linux-watchdog.org>,
- Thierry Reding <thierry.reding@gmail.com>,
- Tinghan Shen <tinghan.shen@mediatek.com>, devicetree@vger.kernel.org,
- chrome-platform@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-hwmon@vger.kernel.org,
- linux-pwm@vger.kernel.org, linux-remoteproc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-sound@vger.kernel.org, linux-watchdog@vger.kernel.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Mathew McBride <matt@traverse.com.au>
-References: <20250822075712.27314-2-krzysztof.kozlowski@linaro.org>
- <175682479961.2401991.17056649550187344851.b4-ty@kernel.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <175682479961.2401991.17056649550187344851.b4-ty@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250902_062259_616628_A5D901D9 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,19 +106,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/09/2025 16:53, Lee Jones wrote:
->> [...]
-> 
-> Applied, thanks!
-> 
-> [1/1] dt-bindings: mfd: Move embedded controllers to own directory
->       commit: 152afab28f7659a4292c9f7d3324eaeb49a55b8b
+Retrieve the dev pointer from tfm context to eliminate some boilerplate
+code in sun8i_ce_hash_digest().
 
+Signed-off-by: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+Tested-by: Corentin LABBE <clabbe.montjoie@gmail.com>
+Reviewed-by: Corentin LABBE <clabbe.montjoie@gmail.com>
+---
+ drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c | 8 ++------
+ 1 file changed, 2 insertions(+), 6 deletions(-)
 
-There was a v3 here:
+diff --git a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c
+index b26f5427c1e0..61e8d968fdcc 100644
+--- a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c
++++ b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c
+@@ -238,19 +238,15 @@ static bool sun8i_ce_hash_need_fallback(struct ahash_request *areq)
+ int sun8i_ce_hash_digest(struct ahash_request *areq)
+ {
+ 	struct crypto_ahash *tfm = crypto_ahash_reqtfm(areq);
+-	struct ahash_alg *alg = __crypto_ahash_alg(tfm->base.__crt_alg);
++	struct sun8i_ce_hash_tfm_ctx *ctx = crypto_ahash_ctx(tfm);
+ 	struct sun8i_ce_hash_reqctx *rctx = ahash_request_ctx(areq);
+-	struct sun8i_ce_alg_template *algt;
+-	struct sun8i_ce_dev *ce;
++	struct sun8i_ce_dev *ce = ctx->ce;
+ 	struct crypto_engine *engine;
+ 	int e;
+ 
+ 	if (sun8i_ce_hash_need_fallback(areq))
+ 		return sun8i_ce_hash_digest_fb(areq);
+ 
+-	algt = container_of(alg, struct sun8i_ce_alg_template, alg.hash.base);
+-	ce = algt->ce;
+-
+ 	e = sun8i_ce_get_engine_number(ce);
+ 	rctx->flow = e;
+ 	engine = ce->chanlist[e].engine;
+-- 
+2.50.0
 
-https://lore.kernel.org/r/20250825081201.9775-2-krzysztof.kozlowski@linaro.org/
-
-Best regards,
-Krzysztof
 
