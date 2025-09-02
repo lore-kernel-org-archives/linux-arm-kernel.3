@@ -4,111 +4,182 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21301CA0FFE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 03:34:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63A84CA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 03:37:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rkLicw+foGt31+4JdXLWo90mqh6D3FRA50hbaqtqq28=; b=Y35m2VdcHaC/HaUibskrfQGh0Y
-	Ca4V9Zv5Fry0s5W791mZ1XKIW9EGk07AvJn3AyEQG51U4Qu8mg8+1GWuhXgdu4e3dcKWM/v3++MS4
-	F5Hqnr1YM7ViOtJUPuRBk4+zG23FkeIpjXvqdDlu9CoGJQILkjxF4yAKE0bX0XJnOIj1Z+rUJMUxq
-	QCZQmMenJ0ZU3spXx6uxUebzsClnxqNwaINugZhxwE54am1uOMa7wveZCN9hYQz1ucAnVWfVES5AX
-	2qd1MtC8lJCTZ5P4sQ//d9Pd3XROnt+owY8JE9bA9t4Wo41C99vmhu5Db5EHz+Qo55czyiFYaqaNE
-	K//1hTgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=T85Y7LjCrhqFTN1RtR7Y4CbpDfcjl+zQA3uHxgA+0P4=; b=vOE/VXe92ADXnn0AIaSp2igria
+	PDf7bKLSKrF5vpwKvUA0/Jgpm4x1rTrRqCqOvF9Ab87dfvoc2A4I2t7gMrXZ8AuyDW3a5pI7ZmI5l
+	3tNR6WD5HNm0n5r8J/mJWnLV6ScKGqNWqBjlXd0e/9rURZZ5kJsF9b26pkwL8bAveeOm8ukqMRZFS
+	eGy4VR3xMmfh7Jj7FcR6KbgG5LOH0Va6Y4eBAKeLMGXA2/1AvQexAgA44Yl10rrxV0Xg7v6RaoG9K
+	o8hjX9QB+a/gNmosLSyUiCuSMDNHAbCONDGl4GP10VUYQoTutFc713ChLWqEp2y1npdiHJ5jDAFXi
+	/Nv8nrBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utHmi-0000000F33b-2ENE;
-	Tue, 02 Sep 2025 03:34:16 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1utHpR-0000000F3XH-1KJx;
+	Tue, 02 Sep 2025 03:37:05 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utHjx-0000000F2W0-0mSa
+	id 1utHlq-0000000F2rT-3Zlj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 03:31:26 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5822Rob7015191;
-	Tue, 2 Sep 2025 03:31:11 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	rkLicw+foGt31+4JdXLWo90mqh6D3FRA50hbaqtqq28=; b=DEWUmhUqKd9qZK1V
-	+e3Ojlnv9C6gxtQkgYc5AnL9V/FMXfy8lHp5S+iy+yX5B4rPPDtKoRT+9DcdH2Tg
-	Su1mbg3Y02pV38M/LTPpj1BABj/1e11w4CZFGZ66foPTx70T88Fv81K0OJI39/Uk
-	V0KVjOjG9Wt7zjgqqvgCgvTzcBSWhRaltoVqZGW40ee+jdYMiiQPXwSg+YdqPZrW
-	/1VT1P/hBA2InAJ8oKjLASxDCeQoDgCH0c+r5KY3Z8F1tjB/5ylW/3kU+xXZs2Mp
-	ukMDNwIQgEvXZlhmxedS8Wtg2Qy2HoCKofXgOEI1swixNXTRQR6hKofEKE+HaMbF
-	MPRQiA==
-Received: from nasanppmta03.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48urvyxca8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 02 Sep 2025 03:31:10 +0000 (GMT)
-Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
-	by NASANPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5823V9dp004701
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 2 Sep 2025 03:31:09 GMT
-Received: from [10.233.71.148] (10.80.80.8) by nasanex01a.na.qualcomm.com
- (10.52.223.231) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.24; Mon, 1 Sep
- 2025 20:30:28 -0700
-Message-ID: <8eb373a0-0d73-4555-9e64-a62245727d56@quicinc.com>
-Date: Tue, 2 Sep 2025 11:30:26 +0800
+	Tue, 02 Sep 2025 03:33:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=p7uV6R2p1VkggkXhPOYtJpvk6B0iswlGaDVTerQZkUO/xPQ0hCYFU30HIioQH0ZriO9GLFsBtSjC0VwbghIoFpgVOKXz6ifLH1USJR9eQJy/Ex41Xku57FGFDnwHkKfmE0SKruxutCEEXX0kPV9ixSNFa++bKC6qp7GUrgA2ZtjI4EqP6hlhfr9nUiG7t2XQ2X5pwD1YcXKrRmtH1ECuZ+T5c9/Bf9bEJMEkB8yr/1IKUCa2JSn9ZdOQog7Xxy4AxUVfP/5CPb5fQAbTls0D4WTTkvxFnYMnbQ0byecB8/16QQJolhcKknWGx5kk66J2c/UwXEMFveoEasFpjiyoZQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=T85Y7LjCrhqFTN1RtR7Y4CbpDfcjl+zQA3uHxgA+0P4=;
+ b=gEQPdgn5pDiPp4HhEHg5+xyfZ8TIdtdtTh7Ob7Uzh1h+7m+vQ+3ettGEufGnznQzSH4X8nniVIF2n8MJz6np4JZupc68AntooJMg2GHHAOD6huKR7n2P8q2P8XRib3lkoAZ+AVrwAJyfJAa0R/jj5iBBQRX5X1ceq7DWfGYf8g5vS9TSWKYQPpkmWzAcTFNNQqWJMueJ7q+AgrEueAuKv9E6sYo+XGKUmJM8JX6z+OWxSO0aN3SO6tzkLdDZRUnAXHK9GNy5+Dezyiu16p8VgZVWsktBLeirKI9XYN5Geo0PN9wOBeIJIqFI+q+M8aJUo272B+HAif84B5VRak2gLA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=T85Y7LjCrhqFTN1RtR7Y4CbpDfcjl+zQA3uHxgA+0P4=;
+ b=niVGK4+5P25/fmDTHZ9bLtSLU1gaETHIEUIwV36CcrR/4yl2KCaWOFAWSeYTDRSxxgK+7LkcdtQ7kR4njPZeCJW6OB3ZLazVStfHuTvt8ICuL1El/73nVQqTviRi5ZROkvt2VxI8J5AlOGUO9MM0vZOPfX0DXJkmaVMJPi9jMZcFSZPMIDiz9nYF3PamG4ipxDyYXvMuCyDEs/Y6A9s/bsF6x86eWJTw/g/IICMjN2UOuf1yXDesQ8rLjHu0rxKd4c4+Tke3F8eP5iTtc1XNQe+eAX56jGKbvPgon4J6SU/VgdJ9Ko9qAkpKrlW4ibuU/OLi3hYRdOlqXOTiq+0KBQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AS1PR04MB9583.eurprd04.prod.outlook.com (2603:10a6:20b:472::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.27; Tue, 2 Sep
+ 2025 03:33:19 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.9094.015; Tue, 2 Sep 2025
+ 03:33:18 +0000
+From: Peng Fan <peng.fan@nxp.com>
+Subject: [PATCH v3 0/4] pmdomain: core: Introduce
+ device_set/get_out_band_wakeup and use it in usb
+Date: Tue, 02 Sep 2025 11:32:59 +0800
+Message-Id: <20250902-pm-v3-0-ffadbb454cdc@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGtltmgC/yWMQQ7CIBBFr9LMWgwOGIor72G6qDjYWRQaMKSm4
+ e7Sunw//70NMiWmDLdug0SFM8fQQJ06cNMY3iT41RhQ4lUatGKZBWrlvZHWkNbQjksiz+sReQy
+ NJ86fmL5Hs+C+/vVeXna9oJDCGtf7J45aKXcP63J2cYah1voDr/EyJ5IAAAA=
+X-Change-ID: 20250729-pm-243ff7097e44
+To: Ulf Hansson <ulf.hansson@linaro.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
+ Pavel Machek <pavel@kernel.org>, Peter Chen <peter.chen@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
+ Vincent Guittot <vincent.guittot@linaro.org>, Xu Yang <xu.yang_2@nxp.com>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-usb@vger.kernel.org, imx@lists.linux.dev, arm-scmi@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1756783991; l=2011;
+ i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
+ bh=torLNiIvuR2CI+3fr9gulff30bMAE4PIXnOYnPbqFNE=;
+ b=7KmbWdUhKDER8a13lv8lvzFdJZLwPqTk04GzWi9BvRc11PGWZH63kn2ClrJqjdx9N5bQJVg6D
+ AdkLEsiKTzVB3JXrEz05FTabDJr0PnD509uTDiVSyF2a8v/hvgum+GX
+X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
+ pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
+X-ClientProxiedBy: SI1PR02CA0014.apcprd02.prod.outlook.com
+ (2603:1096:4:1f7::9) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] KVM: arm64: Fix NULL pointer access issue
-To: James Clark <james.clark@linaro.org>, Marc Zyngier <maz@kernel.org>,
-        Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-        <linux-kernel@vger.kernel.org>, <jinlong.mao@oss.qualcomm.com>,
-        <tingwei.zhang@oss.qualcomm.com>,
-        Oliver Upton <oliver.upton@linux.dev>,
-        "Joey Gouly" <joey.gouly@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>
-References: <20250901-etm_crash-v1-1-ce65e44c137c@oss.qualcomm.com>
- <450f11c2-6c11-4ffa-ae20-db4ea419a3ca@linaro.org>
- <863496e4yg.wl-maz@kernel.org>
- <80178c90-b9f3-4e1f-baa5-f54aa89ec927@linaro.org>
- <86y0qycnb8.wl-maz@kernel.org>
- <239f2e3d-1fb5-4d53-869f-aba2d7a6530d@linaro.org>
-Content-Language: en-US
-From: "Yingchao Deng (Consultant)" <quic_yingdeng@quicinc.com>
-In-Reply-To: <239f2e3d-1fb5-4d53-869f-aba2d7a6530d@linaro.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01a.na.qualcomm.com (10.52.223.231)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: IToa63p__ilb4I3CXqNWRXgBkeCIQC5x
-X-Proofpoint-ORIG-GUID: IToa63p__ilb4I3CXqNWRXgBkeCIQC5x
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODMwMDAyNyBTYWx0ZWRfX3/0hXenUcHyD
- 2us1qEa4kCcr+9k8zKGBY3WxFYiQZX7kFNOomj9J6VfDpF2iiPB6dmrj3lwfQt02+pd5QN75qe0
- /ZsALbFE9PSanlI1PHWcihcv9XLoFilsG4aRB5Cjb9g/6qWWWznp9cKZN7EUoeXsy/QwAtd96UC
- J5DEwXmCKMr0sqpxMKSAC6OC1g2uUi1mOJ781xoaKpmmEbC75AGYp3igd40yQNYfEWhl60+avLP
- OfDtMhPheCkyPXfbwdV3hThhrwrt/rg5asSfQr35vdgCVtvYvKJvizQF7RBmgzzy7GWKwuMsoRF
- iIuEgs51alqSqNHOEGDVkyfvq/jaOE5jazr6N2PYfEhygEpIZb00vd3in9jCSTXWm3h+R0WHkLt
- XIUlXP6K
-X-Authority-Analysis: v=2.4 cv=NrDRc9dJ c=1 sm=1 tr=0 ts=68b664fe cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=KKAkSRfTAAAA:8
- a=EUspDBNiAAAA:8 a=9zBjmbKyw9-5aDrWJ3wA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-02_01,2025-08-28_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1011 suspectscore=0 malwarescore=0 priorityscore=1501 phishscore=0
- impostorscore=0 spamscore=0 bulkscore=0 adultscore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2508300027
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AS1PR04MB9583:EE_
+X-MS-Office365-Filtering-Correlation-Id: 88db0c2f-4808-46bc-1219-08dde9d1758d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|366016|376014|19092799006|1800799024|13003099007|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bjJwT0dNYmxSVTZNK2JGNEFlRHAzblRDOG1kOVNEaEwrUTc5ckROZFRHdHE5?=
+ =?utf-8?B?UGZPbmFHZjdCOFBVQTBScWhyNW9DUk9EQWw5aU01NlBTRVpZeC96TjVTdFNi?=
+ =?utf-8?B?VDhBc2FtN043WUZEY21VS25KQ2taL0YyY3dIZU1Hd00xc1JTSXdkQ1c0K05v?=
+ =?utf-8?B?OThXU1pEdHBnKzBadGI2dnVycjA0ekFocm41SVdPN2ZieUpjamIxa1A3eXJL?=
+ =?utf-8?B?aXVJekJYbVhNTnBkRzRWZFVKSGM0cnQxSFlNVzlVbWNTOGI5eDR5czlsbzhC?=
+ =?utf-8?B?Z0VUYVE1T2tYbzIyalJEVm9mVlJaSXd5VFNITnBIQ2t3S2NqejlkQksyUmp5?=
+ =?utf-8?B?dXA3Ykg0dVB6MjhDQVhxaXI0T2FHVGNxcEFTcVoyUGhzaXJ1MUoxSFpEQ1FI?=
+ =?utf-8?B?K0dQMzI0N0tSaU56bklvM29TeHlLeUdKaVR5TUZ1Vm50SFNSWW15Sno0cUtX?=
+ =?utf-8?B?Ym4xcnNiZTM3eDU4aGtQVUliVlJXNW1YWUhEQi9HYzVGaTZpblFiRkUvNEtT?=
+ =?utf-8?B?U2htUWV1cDhmQVRRbE16YVpVUlVhMDBiN3dheVEvV0NTSGdwZnRvTHhYS1hB?=
+ =?utf-8?B?N1A4SUY4M1ZUSitSUzZjd2lvcExSQ1A4dFJSYjVPTnU4czRET1E1c0JqTy9a?=
+ =?utf-8?B?WGx6cW5jRDUvaUF2eUJiN0h2NWJLM1BkTGxsTDNRNkc3Unh2NE1GcDhzTHp2?=
+ =?utf-8?B?dHR0L2VPYTgvMEZVVk9UemptZE5uNUhBMCtGano0Q0cxK092MUozZkZiODZL?=
+ =?utf-8?B?Z05jeExrZVRaVi8vRzhpSER0U081bTdPRDI0MHlZcjBXaXBUSFlwYTF1VjMr?=
+ =?utf-8?B?RFdiOThCK2hyRVNaVDJTSVdrcUpPSmtHSE90SlcxeGt2VkNRdTZVMTVoQ2c4?=
+ =?utf-8?B?YWFYeDdwdVZaSFBkTUJyVUVKTU5mL3JCbmR6aHlVMUpiY1E5VnpoRVpiaEds?=
+ =?utf-8?B?SDVDK29pNU5zTm01dW14WG0zaElqNHloMmNwU1JpMjhQRzRsK0FTSEtaY1RC?=
+ =?utf-8?B?cGFlcSt2MHJNMmZxOXg0S0hLbGEzeWhrcUJpUUNTd0FpSkwwRUtSSkU4anNU?=
+ =?utf-8?B?YTM1VHp1ajBsQzlZUnVucEJlMGJoVUJ4NFo4MzBwRk9wOWpEWmtYT0pieEFl?=
+ =?utf-8?B?a2swbEt3bnNTY1dybUU2WExrQzg0ZUxZNU8zTEhGVWhPdURmT3hWcStHTC9B?=
+ =?utf-8?B?bzNBQS80YW0vRXh6d1hnUld5ZjRVY0Vid21YQzRxVVMyRE1JWlF5NlJOdkFM?=
+ =?utf-8?B?cnk5WUhQWllaNkM2Uk9TRHVZbnZ5WkFacW92UFhXM2dEYUpCZC9mU3A3K3BZ?=
+ =?utf-8?B?dkg2aVJybkdCczhxTjlkam9nK0lsVG9ZaU1wU2VBUktKekNEZmkzeVBJSm1n?=
+ =?utf-8?B?VHJPSjRIYVBEZlA1WnFkaUxRdDAvUzQ5OVhNMjBWSis4MiswRkdzK0pMNTBx?=
+ =?utf-8?B?QXFvYlo1cXUzK0JsMFA4cG5zVTZrNFhTRzc4aUtqeHNqUUc0eEtnVUdFTzRh?=
+ =?utf-8?B?RCtUck82elJmK251ZlNtYmVMZG54SHVIdU1Ua1pZcVRrOWJJcTE5WG1TRSt6?=
+ =?utf-8?B?U0dNK0Y3YTI2QmdOTFFmbFlyS3JqanB2OEMveGw1NEVOSis0cDhPVXRGZjRw?=
+ =?utf-8?B?Y1JPUmdjRnpqYllUT1FLUzg5K2pQVHpKdnVjRlo4UVk5MWhPU2FlbGU5L01h?=
+ =?utf-8?B?YUEzZFhHSTBvYTNsS1lZMVVuYVJtYXJiZTVtaERhQkVLOGhPR0wwSE10VkNv?=
+ =?utf-8?B?bE9pVWZnelp4Y1lKbld0UG9sOWFDa1pNS0FZM3g3eWl1RmFQUzRJTkVvWGxB?=
+ =?utf-8?B?aUgrYWIwbDNSNHExd09uaVZ2Tk5ZeTNBdmZyVnNiMS9UTTZocDY4T2t6QmF1?=
+ =?utf-8?B?MGc0QlJtdTEyNHFxMVdnYkhIbzZsYmV0TzU3MVdvSTU1OG5ZUUhMRFd6Nng1?=
+ =?utf-8?B?L3RsWjJUdjBrSWNJRWxJL1pHU01xd214UFZtN2g5TlhKZy80VFZXc2dPaVlG?=
+ =?utf-8?B?RWI4SmpEc0trRnFRanFYNjlhZ05zb2k0MmJqTHhLTmU4V0djdWlyUExNcjZX?=
+ =?utf-8?Q?7685xE?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(366016)(376014)(19092799006)(1800799024)(13003099007)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Sktva0FHdEZ6UEFTcXhtUDF5Rkd4MFV4Q2hLbGhlRjhDVXkvaFpVSSs1U0M1?=
+ =?utf-8?B?Nk9LSHpkQnNVV2FOVEdCZXNnS2o1YWlBKzJQK1hWMk5rLzlyR1NFK084bDUv?=
+ =?utf-8?B?V1dldTlNZkprRUt0U3NwZ3pGU3M3QVRKSTlveUZzTmlsZmZwdThaS0ZreVM0?=
+ =?utf-8?B?a2FsZGhDSngzYTBseGlGTUc4S1NjT0sxM2x6KzRBR1RGNVJOOFdTM0p4R3hP?=
+ =?utf-8?B?b3NzWUlPd253RVhDa0lQbzlsYzQ4N0VTSXlzSmlXSUtSSGM1QnQycHFQell6?=
+ =?utf-8?B?bFFJN0FuOVI1dG82aUNSVDVtSGp1eUhKN2FGVzBWTE1IMlQ4bno2VnhtZnNQ?=
+ =?utf-8?B?aDdSbU00RnpPNWVsbzNzdFVJbEhGbUVEaVI0dzRhNDhPZmloa1NjdWVBVytP?=
+ =?utf-8?B?SFFKSW80b1BBREVTRk1BMG92a2I3K1VFeVhJOG1CSmRzTWJUcFNyWHY0WWxI?=
+ =?utf-8?B?MGlMc1MvYlRsR0U1MFVUYS9ra1A4U010clJPM1k0ZkthdGtzdTRoMkxXUkxZ?=
+ =?utf-8?B?M0x4VXpsemtsV2lyUENJQXgxUWVjallOYmJBSWVTS1ZZUWJWY0k2L05jNFRS?=
+ =?utf-8?B?VVJMZDNRNDI4ejdsU3M4Z1FKNTh6V1hJcnB4RG5WejYrYktGd0xaaWJlVGNQ?=
+ =?utf-8?B?cmRsZ1FndldxNnZEZEkwb01MOXNoSmlBbXdyUVFoZzh2bmdlallsQUlKSFox?=
+ =?utf-8?B?WjhycUZQaXdDcEV6VDdQRVFsMWthRldySVU2amxIZkxoL3h2MXNsT2ZFUk16?=
+ =?utf-8?B?WmNBS1E5TlFxbVUxa1VFTlRFQ09DNXNXT3ZpdldNaDFLTnZ2UmdHejVFMzRT?=
+ =?utf-8?B?OGw1SHFibDRZRCtkaksyWG9ZdW5CMDgyTDFOdGx1aUVXc2lKWU9iWFk3clNV?=
+ =?utf-8?B?S0pOOXdrOThhcHc5ZDFwZ3UzcEwwenRYWkZDUE5zWHZmRmttN3IzMlNVMUlE?=
+ =?utf-8?B?Sjlkc2dRUWhpZzROK3MxT254UFl5dGtPNEU3eExwM2VjaFF5akxickZLR0hJ?=
+ =?utf-8?B?TFg1YUp1NUROR0RKalM1VjVGYllnRVNSWE1tbk1MeUpQd2lNejVuR2duRlhv?=
+ =?utf-8?B?eUZISGVIVlJLQlI1cStobG82MnJmcmhRRHZkUkJWZytvNnJxMStXaWlaUmsv?=
+ =?utf-8?B?ZXFiWEJwMXJlK3dCaEJhbjJIVUVpNzE0MW5rU0hwU2ZsUlBMTTM3Y2xlcnRi?=
+ =?utf-8?B?UjMveWNYUlFiS1ptbFpjK0RzUmcrcGdrUDNPYlczU29HdkFhUE9mUmtJSFo4?=
+ =?utf-8?B?WC8wb2RKdGtLdnRLMDhKRldhRDhjaHVtWHE3cDVaaW1EQ3VRVUZhVEJaaUYx?=
+ =?utf-8?B?cDZmaVJXSllFWUlTZ2haSWE3M2d3TzduSmtwTThkR1I1QVB5UEhNaTFjUVls?=
+ =?utf-8?B?ZWQxZC95cnhHRGR3RVdCSVdJcHVUWFlhbTFKUHJ3WkRvd2J3RDRjeTZ3SVcx?=
+ =?utf-8?B?YTVxTUZNL1BHODNMYlB3WDhpV0ppWDJDTjNsUzZPYUg2eGlMRUNOdm1lOFB0?=
+ =?utf-8?B?NDdHT3dVVEQrTllyNGVxU1JlMTkrdmhYcjNiT1dSMzA0NGpUMjArcDk3VjZS?=
+ =?utf-8?B?bEJPSmNjTHBQd2FyZTNQQ0NMVStPK2gzdDNRNVd3UXY4WmZvTFRLd2RoY29Q?=
+ =?utf-8?B?WUlLYUl0N0x0azJMQlRLdEw5ekVQSVFrRUNzTXF5SncwVHJ6aFhac1Q1bHhT?=
+ =?utf-8?B?K2psMi9JQWZ0VFlLL1RuaVFMRHRmVGpiQXdpRWwvS1RyREJNUng1Q1RUNVFE?=
+ =?utf-8?B?SkZRSW02ZjBwVlJVRGQ1YWRYT1FPanUwOTFIbW5paXZjVDZEb1JSMEY0QStD?=
+ =?utf-8?B?elpwU1RmNnpaREc2RjFHazMzL2pOemRvam1RVDFyUUJXNk5xYmxNQ2V1Vzkz?=
+ =?utf-8?B?aVJGVnRISFpYekNaMFNFMVZXRVRnb0JFZkVibmd0SUxQUFRRanNVcFpvelo1?=
+ =?utf-8?B?NS9SZ2lmUk5ZL0JVdTl0YUkvK0ZJNjJsNHZuY3RHMHEwMXhLOThBRExYNjZT?=
+ =?utf-8?B?eWlzenh6RXJHQUw5NmFoUnh3dGhqTkJvU0NpWWF1eWZaQXJwNXFnV1p6SjJt?=
+ =?utf-8?B?Q1pJTlVDQW8vYzhhVlVkOXRmaDJpVkdOdUxjK3FPY0VLY2psM0RDRGdudGhL?=
+ =?utf-8?Q?ciFLptnyCdEWRKupAs0bznM1F?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 88db0c2f-4808-46bc-1219-08dde9d1758d
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2025 03:33:18.8952
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: PauFQUCRuDXmAMMqW0DDJPOEc/Cl0Xgvw1Puhd8NC3+wPGMoiyECsFBn8C85a2Pd03UGJKJkwPpuKUtcYsJ8uA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9583
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_203125_344549_B2E67346 
-X-CRM114-Status: GOOD (  22.48  )
+X-CRM114-CacheID: sfid-20250901_203322_949235_90478D57 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,117 +194,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks James & Marc
-Will upload v2 and move the warning to the end for better readability.
+This is pick up of [1] which does not have response in about 5 months.
+This V2 patchset
+- includes usb driver changes(patch 2,3) to give people a full picture on how it is used.
+- Rebased next-20250729 to resolve conflicts
 
-Thanks,
-Yingchao
-On 9/1/2025 10:16 PM, James Clark wrote:
->
->
-> On 01/09/2025 2:30 pm, Marc Zyngier wrote:
->> On Mon, 01 Sep 2025 13:31:23 +0100,
->> James Clark <james.clark@linaro.org> wrote:
->>>
->>>
->>>
->>> On 01/09/2025 1:24 pm, Marc Zyngier wrote:
->>>> On Mon, 01 Sep 2025 11:36:11 +0100,
->>>> James Clark <james.clark@linaro.org> wrote:
->>>>>
->>>>>
->>>>>
->>>>> On 01/09/2025 11:01 am, Yingchao Deng wrote:
->>>>>> When linux is booted in EL1, macro "host_data_ptr()" is a wrapper 
->>>>>> that
->>>>>> resolves to "&per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)",
->>>>>> is_hyp_mode_available() return false during kvm_arm_init, the 
->>>>>> per-CPU base
->>>>>> pointer __kvm_nvhe_kvm_arm_hyp_percpu_base[cpu] remains 
->>>>>> uninitialized.
->>>>>> Consequently, any access via per_cpu_ptr_nvhe_sym(kvm_host_data, 
->>>>>> cpu)
->>>>>> will result in a NULL pointer.
->>>>>>
->>>>>> Add is_kvm_arm_initialised() condition check to ensure that 
->>>>>> kvm_arm_init
->>>>>> completes all necessary initialization steps, including 
->>>>>> init_hyp_mode.
->>>>>>
->>>>>> Fixes: 054b88391bbe2 ("KVM: arm64: Support trace filtering for 
->>>>>> guests")
->>>>>> Signed-off-by: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
->>>>>> ---
->>>>>> Add a check to prevent accessing uninitialized per-CPU data.
->>>>>> ---
->>>>>>     arch/arm64/kvm/debug.c | 7 ++++---
->>>>>>     1 file changed, 4 insertions(+), 3 deletions(-)
->>>>>>
->>>>>> diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
->>>>>> index 
->>>>>> 381382c19fe4741980c79b08bbdab6a1bcd825ad..add58056297293b4eb337028773b1b018ecc9d35 
->>>>>> 100644
->>>>>> --- a/arch/arm64/kvm/debug.c
->>>>>> +++ b/arch/arm64/kvm/debug.c
->>>>>> @@ -233,7 +233,7 @@ void kvm_debug_handle_oslar(struct kvm_vcpu 
->>>>>> *vcpu, u64 val)
->>>>>>     void kvm_enable_trbe(void)
->>>>>>     {
->>>>>>         if (has_vhe() || is_protected_kvm_enabled() ||
->>>>>> -        WARN_ON_ONCE(preemptible()))
->>>>>> +        WARN_ON_ONCE(preemptible()) || !is_kvm_arm_initialised())
->>>>>
->>>>> Hi Yingchao,
->>>>>
->>>>> There shouldn't be a warning for this, at least for the case where
->>>>> it's not initialized and never will be. If you're never going to 
->>>>> run a
->>>>> guest these functions can all skip, the same way for !has_vhe() etc.
->>>>
->>>> It's not a warning. It's a bona-fide crash:
->>>>
->>>> void kvm_enable_trbe(void)
->>>> {
->>>>     if (has_vhe() || is_protected_kvm_enabled() ||
->>>>         WARN_ON_ONCE(preemptible()))
->>>>         return;
->>>>
->>>>     host_data_set_flag(TRBE_ENABLED); <--- Explodes here
->>>> }
->>>>
->>>> So the write of the flag has to be skipped if KVM is available, even
->>>> if KVM is compiled in.
->>>>
->>>>     M.
->>>>
->>>
->>> Yeah. And just in case there is any confusion, I didn't mean that we
->>> should not have the check entirely, just that it shouldn't be in the
->>> WARN_ON_ONCE(). We should put it in the part that makes the functions
->>> silently skip:
->>>
->>>    if (has_vhe() || is_protected_kvm_enabled() ||
->>>        !is_kvm_arm_initialised() ||
->>>        WARN_ON_ONCE(preemptible()))
->>>            return;
->>
->> Which is exactly what the OP wrote, except for swapping the last two
->> terms.
->>
->>     M.
->>
->
-> Hah! So it is. Being on the same line as the warning really threw me 
-> despite looking at it 10 times.
->
-> Not sure if it's just me but I think having the warning at the end or 
-> on its own line is more readable.
->
-> Either way:
->
-> Reviewed-by: James Clark <james.clark@linaro.org>
->
->
->
->
+To i.MX95, USB2 and USB3 are in HSIOMIX, but there is always on logic
+to make USB2 and USB3 has wakeup capability when HSIOMIX power domain
+is in off state. Otherwise the HSIOMIX will be kept on when
+USB2 and USB3 are configured to be wakeup source and Linux suspended.
+With this patchset, HSIOMIX could be powered off and Linux could still
+be woke up by USB hotplug event.
+
+Patch 1 introduces device_set/get_out_band_wakeup
+Patch 2 and 3 are drivers changes to use device_set_out_band_wakeup
+
+[1]https://lore.kernel.org/linux-pm/20250311083239.3336439-1-peng.fan@oss.nxp.com/
+
+More old discussions:
+https://lore.kernel.org/linux-pm/20250311083239.3336439-1-peng.fan@oss.nxp.com/
+
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+Changes in v3:
+- Add a new patch from Xu Yang to detach power domain for ci hdrc
+- Add A-b for patch 4
+- Link to v2: https://lore.kernel.org/r/20250801-pm-v2-0-97c8fb2a433c@nxp.com
+
+---
+Peng Fan (3):
+      pmdomain: core: Introduce device_set/get_out_band_wakeup()
+      usb: chipidea: ci_hdrc_imx: Set out of band wakeup for i.MX95
+      usb: dwc3: imx8mp: Set out of band wakeup for i.MX95
+
+Xu Yang (1):
+      usb: chipidea: core: detach power domain for ci_hdrc platform device
+
+ drivers/pmdomain/core.c            |  6 ++++--
+ drivers/usb/chipidea/ci_hdrc_imx.c |  8 ++++++++
+ drivers/usb/chipidea/core.c        |  3 +++
+ drivers/usb/dwc3/dwc3-imx8mp.c     |  4 ++++
+ include/linux/pm.h                 |  1 +
+ include/linux/pm_wakeup.h          | 17 +++++++++++++++++
+ include/linux/usb/chipidea.h       |  1 +
+ 7 files changed, 38 insertions(+), 2 deletions(-)
+---
+base-commit: 1b09efec32046a9c78cfecc46a26b1b139a3e8a8
+change-id: 20250729-pm-243ff7097e44
+
+Best regards,
+-- 
+Peng Fan <peng.fan@nxp.com>
+
 
