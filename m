@@ -4,215 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B514CA1005
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 12:36:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECB6ECA0FFE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 12:39:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pwdV+dehK2QOZg6Gt2pn37MPgwsFmhnDm8kfR1mWyZc=; b=T5FyVtlgN+0iJ8/giLaCnlLBzi
-	qE8R0V3YNpGBINBFCNLQI7D5U6hSTs49cNS/dn6tgn9Y7wU8T89OzQyfZ+vkufm+R2CskrxbwQC80
-	6+d+661G95mPUhBuEnzcF0ykTpIYaU6dRdlygafZsvu9fip52YClmJ2GL/tdErnKqwj4WxPMCVxNZ
-	uy3SJ0iE6wb177bsG8Y20qcHW7Bfo+gL4ruoe5aEixHR0J8cJEQodUZH3K1/yg3YgtKWwXYdP4Yb1
-	SC4xImrdQC+LLHvLGATIHoRtHvc7U9BOxMHwKkglOEX6ouTsZI31gW52sZzRTlp0BTTXR9eGZmIvd
-	Z9IJ+Cug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=98GrAJno92DtCQZEPAy9W7Uzdr9pTw990Q22kkCJlRY=; b=LmaPEpZqhrD21VPi1jTKzq8I/6
+	uQgFoqVeAtPeNmcsZfWm9YXx1ThuOGswoIYhNhXe7jpDt4gd3qCbDQLEyFsycL8KURvDcnN4YlJgI
+	kGQOqLfrdMVjaHw3/4r/JE9FmF8wg2RamGdAOyWH1qL9wc5KXkr4V+8h3RtAXDi+6dwIuy5s+KQZ+
+	bMbPQ/iPX9D/ZKgG2pwI5La6RKmE2sNrWGKiq88Dre6akQ+aHhBYFLzz9c15XPD6R44hdIY4CJo2H
+	ZPJp5PVDMN5aAiI2eKZDqo/LH2rTqAjWyvKGymaatIwzeYVRkmLr5eqnfq6I5edCfz8PJiQkDPn9O
+	oAgT37Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utQFX-0000000HMVZ-1640;
-	Tue, 02 Sep 2025 12:36:35 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1utQIF-0000000HNMP-0cA6;
+	Tue, 02 Sep 2025 12:39:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utOqY-0000000GpWd-366v
+	id 1utOsd-0000000GqAE-1ZSW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 11:06:45 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=po1FJyLRP/nimXd43tXDrvtr2+AZcYnlZGH8Hrugi1TXaXKQcXx0IWznxxuFev3b9A0DPApgQygVLor0wGCm9wjtFzx4gVlS2gUmvAkrSQmPucDl2bualh9BPFBJhJd1NXqvoWrQSrBi/92GMizyYJ/KX4zgzlmacF9it+oJ386+lUBXIrsPBpU9Wajz5AR9GezfwSsmUJsPIjVaa4yW5KHmxjzIRxAR5kIyGVMqCpitg19nnZ2yERQ6VhSJW2tPMQD+aGwLGMmrPewZE7EQ7orvYQfk22t6JGKxod4EJsjmOqlE/EU2p4bKHAhDLJhQbLKd4o6lxaG70S9AoMKCqA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pwdV+dehK2QOZg6Gt2pn37MPgwsFmhnDm8kfR1mWyZc=;
- b=OyXr+mk/Ia6RJOZ8Tcj5q3cptrLTTEd/QirK++PP51cCOcH4YVUFX/9PGrufc4f4L8BNPJrE61aA18OGF+DnAZNaI2p6a959EjtIpCJYTglzuDS9AZBIk6rmYAQQA2Sgh57R8V78gPpKDgISYCFlm7g3B9YMwYE84iYpc8ZaSNB3T80N+6Ygs7jMfij7WfElzN/8XEJCWIHdMCePLv3f7mY9YXeCA9InjCnpv9/24XVKm3/pfIQqkKCSACs6wTwgbCaUTrKw88HptvH6aEYSX48PAp5Nux8Pa5txZC3YXGPOH9otZSwqltcuT3QLMEsDw/s2giZNHX1C30kmsfqInA==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pwdV+dehK2QOZg6Gt2pn37MPgwsFmhnDm8kfR1mWyZc=;
- b=dz/JlEU0jU6bVU2S0DV/SFmjOQWOl/KXIDpA0qbGXYoE3K47Gacq5Sm+xrFzFXLM48cPMAl/2xwmMEJ2S/U2N0Ax8rSaEKc8tFmKsbgFQuyLUow1coxmlBpJrIDbnAeXS0nLA/3mYqO1t6rvl7Xkxzt5H5pJ2/ttKr/wApgfM/k=
-Received: from DU2PR04CA0011.eurprd04.prod.outlook.com (2603:10a6:10:3b::16)
- by DU2PR08MB7326.eurprd08.prod.outlook.com (2603:10a6:10:2e5::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.16; Tue, 2 Sep
- 2025 11:06:31 +0000
-Received: from DB3PEPF00008860.eurprd02.prod.outlook.com
- (2603:10a6:10:3b:cafe::a3) by DU2PR04CA0011.outlook.office365.com
- (2603:10a6:10:3b::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9073.27 via Frontend Transport; Tue,
- 2 Sep 2025 11:06:31 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB3PEPF00008860.mail.protection.outlook.com (10.167.242.11) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9094.14
- via Frontend Transport; Tue, 2 Sep 2025 11:06:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LNCieBYMUBTc3A0JlGsYIgQooYLZxGlY9nUXJ9ZzAlW43zDIpnXHYTnobJe9zl6kB2W5JxKeaa+i9rVJnAKCg8XVD9C/PJnWbehD9CdfMbNnYxT1TCrNHpO4kTBV0Qzsr/DI9ae6Zh3QNAKMY5f8entdNc6D5CUj8yIDriIEmU5KXpEo2f6hOwT84dvwGsH9GJBIARCrPemDXpBxclrkk1PcXJ8r9H4Y6Cv5GpTE9H3oqTeovVJisg7KsOGaf6CAcX2LP4I9ilHDAtHV7kzVPTtm7DdDuWNRQkVAky6uXOnsDZrxsexyx/rzB0F/9YZvj2L6Kv2UPebqwaRsnchhFw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pwdV+dehK2QOZg6Gt2pn37MPgwsFmhnDm8kfR1mWyZc=;
- b=hwy2X3dKYX7tDlJwnpucQDUe4RlF2hRiVGoXJRiStbKTUFhAi+3XE6t9IwJ3+7hsDBx2sM+na+hINFQPW3IVOiKy21V5CzZQvpXItR6PBYyis7qY2a5xWlcQiMxOXac1jHOisRoVRn5U8WPK2jqb6Danfn5pTiQB0EPOOwwL775RexIPgCcVuBuGxOHlCRTvkSKxFq0McEdatcEpHEZHvstVu2tImFq618LlX2il3XULAuaoR2byBk1Sq6SxzNNH+Ix3t7JMS19nJ2lpvSJlfKqkSInUNROuDgg8fxCmoHXAk1gAUfaEwjr/SkXvrbiUk0Vbmog7B+rV9OKpqHE3yA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pwdV+dehK2QOZg6Gt2pn37MPgwsFmhnDm8kfR1mWyZc=;
- b=dz/JlEU0jU6bVU2S0DV/SFmjOQWOl/KXIDpA0qbGXYoE3K47Gacq5Sm+xrFzFXLM48cPMAl/2xwmMEJ2S/U2N0Ax8rSaEKc8tFmKsbgFQuyLUow1coxmlBpJrIDbnAeXS0nLA/3mYqO1t6rvl7Xkxzt5H5pJ2/ttKr/wApgfM/k=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by AS4PR08MB8069.eurprd08.prod.outlook.com
- (2603:10a6:20b:588::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.27; Tue, 2 Sep
- 2025 11:05:54 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%7]) with mapi id 15.20.9073.021; Tue, 2 Sep 2025
- 11:05:53 +0000
-Date: Tue, 2 Sep 2025 12:05:50 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Dave Martin <Dave.Martin@arm.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org,
-	oliver.upton@linux.dev, anshuman.khandual@arm.com, robh@kernel.org,
-	james.morse@arm.com, mark.rutland@arm.com, joey.gouly@arm.com,
-	ahmed.genidi@arm.com, kevin.brodsky@arm.com,
-	scott@os.amperecomputing.com, mbenes@suse.cz,
-	james.clark@linaro.org, frederic@kernel.org, rafael@kernel.org,
-	pavel@kernel.org, ryan.roberts@arm.com, suzuki.poulose@arm.com,
-	maz@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v4 2/5] arm64: initialise SCTLR2_ELx register at boot time
-Message-ID: <aLbPjmy/ZYSd+wzA@e129823.arm.com>
-References: <20250821172408.2101870-1-yeoreum.yun@arm.com>
- <20250821172408.2101870-3-yeoreum.yun@arm.com>
- <aLW4A3rTcJvA0c+j@e133380.arm.com>
- <aLXmCJOuxCHVXEYx@e129823.arm.com>
- <aLbJeQf9LKXFTxzS@e133380.arm.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aLbJeQf9LKXFTxzS@e133380.arm.com>
-X-ClientProxiedBy: LO4P302CA0044.GBRP302.PROD.OUTLOOK.COM
- (2603:10a6:600:317::10) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	Tue, 02 Sep 2025 11:08:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CAB0E601D3;
+	Tue,  2 Sep 2025 11:08:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2A47C4CEED;
+	Tue,  2 Sep 2025 11:08:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756811330;
+	bh=98GrAJno92DtCQZEPAy9W7Uzdr9pTw990Q22kkCJlRY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ifW05R+LdY8B6zwqefFGGNa0leX7MA7g+cKDdAinoLxOYupDZyZ5sfVUSeKWcL9pu
+	 gukM8j7ssOnOgcLwnq9iJnzi3WAYlRr5dMNN0QaS5+Z3tudL2qVFQoquzc0+aq/dmO
+	 /BseaJiu3B4HxSSFcdbU/nOg4d5OvcI9B+zqb6P0pHjvHG5XR85yil2QtjXMOpj5wP
+	 HY3t4yPsbH3ZFct7V/3M5agxgx7pHpU4JK5y9Hi9jwbS0TvyPqavtwVJBT5pCnrR+k
+	 FqZZdHkeHtF0mNPB0U0m4Ng3us4+AGg1bAbjIDM5bNMUs319Oag0n1co/6JCzjIt0U
+	 DPjz+vFpwuQqA==
+Date: Tue, 2 Sep 2025 12:08:45 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Dharma Balasubiramani <dharma.b@microchip.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>, linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Varshini Rajendran <varshini.rajendran@microchip.com>
+Subject: Re: [PATCH 0/5] Add QSPI support for sam9x7 and sama7d65 SoCs
+Message-ID: <33770201-9c62-44ea-be9c-6d84e783a5a7@sirena.org.uk>
+References: <20250902-microchip-qspi-v1-0-37af59a0406a@microchip.com>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|AS4PR08MB8069:EE_|DB3PEPF00008860:EE_|DU2PR08MB7326:EE_
-X-MS-Office365-Filtering-Correlation-Id: 882dd958-5d74-406b-8999-08ddea10c58f
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?Tk04Mlhkd1ZJV3FIelo3eno0ckMwNmhudGs4MmJmRmpwZlJack5jbDlPK01h?=
- =?utf-8?B?bC9DUE9sRXNURy8rVzBUY1JodXQ5K3NyV2g0Y2Fzb21yNkI4aHJkNjd5Mi94?=
- =?utf-8?B?RmxqcEw5b1ErYTljb1AvVElMSDZodFZvTllpdTZCYzZiYkpkVWtjcms5VXF1?=
- =?utf-8?B?OFFVcmhsZ1FrdzZRZnFINzdDVUVrYXBsZVRuL3A2eHU3RWttZjgvSXZaWW9H?=
- =?utf-8?B?VHVZbENzTGtydXJNcUNMNUZtdkpOeFQvUm9lRytwOVc1cXNveHdJdzZRWVBk?=
- =?utf-8?B?R0x6WUFnK2RGcDcvL0x1cjd4ZW1RSTBYMXIrQ3lleTg3NkxvR3RkR0t0WDRo?=
- =?utf-8?B?ZnR6NUIwL0VxZ1QzSlVNb1IwKzUxV1hpVmlUTi80T09PVm9FeTY4eXlXR2Ji?=
- =?utf-8?B?ZzdkcFFSRUtkRG5xbWNmRlgwc0IxT0hwdkVYOWJXREFRZDh2NDdrbDZhWENY?=
- =?utf-8?B?YVpNbUxPUWcrUGtEdHpMVFQwM1FjSkJGUkFzSFh3clNYZlVTdk1rOHp2T0t4?=
- =?utf-8?B?ZkdLR0lvVEFTRVNaaE5HaDVSOFltTzd1YzlDSjQ2NjUyVUlMRHBnUTVTaWpy?=
- =?utf-8?B?ZGNFMDYycjRDNjNPM3dkZStzdncvZG9rY01hNnk5RDhEWXV2dU8vZmZQS040?=
- =?utf-8?B?ZzdtMHM1UHQ4M1J5U1hVMVFjTnJjLzBTT2lqVi9vNk1xTnY4Z1NoQ2tuSVRv?=
- =?utf-8?B?QmZEcUVhTEVkZGNrLzZaZXVoV2gxT01USG9YNEsyM3BXOXFwUnFzNmtQQ2gr?=
- =?utf-8?B?c1k0OUhTQm1ycitxNExFclcxYXlRWXlMQkZZSVdsRkpjQUZBUkxOdzVJV0p1?=
- =?utf-8?B?amdRcGFoQ0llSGRRZ1p0UTRUUEhWT3VwQWkrZE8rM2o4LzBhdTBpQmNPYllu?=
- =?utf-8?B?MVc5WXFPa3gyb2E1WHhYS25IQ2trN1JaN2xITVBxK0l0Z3MxSGk4Zzl0VCti?=
- =?utf-8?B?aGdiRytnZnZvM1QyVUVNNnVaTi95OHN6T2RKUTZ4TXF3YUFTWFYxdzk0d0Qy?=
- =?utf-8?B?dUFjdjFvcGZiL2FqTnNuY1prclAwVUc5R2NnWXEwZGUyRzZ4T0tiN0UxYVVk?=
- =?utf-8?B?NVZiK2NSeVZWREtxN2xCd2hnYVZCK1BZNmlCYTNTTm1KUXRxZnZjbExiSDhE?=
- =?utf-8?B?bUEzbXQ4UlhCR3FRS0w3QjhFOEt6d3BCWUdDTmdSZE1ELzYzaThweGsrSjBv?=
- =?utf-8?B?UlE2empKczNBQ2N6TTUyVnA4T01ZVDNmY3JFdkxSeFd4V0ZHdC9lYmFiQnZl?=
- =?utf-8?B?aEpiUDJ1MlVJZTBpNGVGNHdYYmNkTGtrcUxQOXg2TVJFSmRraXBvOVVVWWZi?=
- =?utf-8?B?QS9lYVh6MURzOTV6SW9HcGRQSXhQek02YXpLZERvekJDZG9vY3pCbzJTVld1?=
- =?utf-8?B?MWxTRzg1cm5tUTdqdmxaSFJHRWh5elhXcGxxdjRPTk5GRzd3a25KRmpiekhN?=
- =?utf-8?B?K1Q3SG5QenpSdFFUZW1DTzZaYTVnN0d1Q09jbFpaTEtYd2prb29rVGpDOFB2?=
- =?utf-8?B?eHZpRmhTMnBRdWs5S2VWbWRHOFBnUzJ3ZUZka2Vwb2lvSkUvTEpJZUY2TTJr?=
- =?utf-8?B?SVZjeWtOTllHQ2VzT2NRRFlkdnY4aDJFLzF5QW4xRzdmdDZxRmtDUlpjRy83?=
- =?utf-8?B?Z25vY3ViR3pWNmJwT2xSQ25QdkdVZXNKWXdodlQ4anJQTG1UMmoyRTNPdStD?=
- =?utf-8?B?S05tWUNiME9yQVJVNURzam1TT0xCajVVNjBIY3pnYzFIUU02aitPemVSNStU?=
- =?utf-8?B?d3BsZzdVWlpDUFZmd1o2ODNkeHovRS9GWms4OXA4cUMyVzVsM0oyZmFIMHRS?=
- =?utf-8?B?S3oraDlwK3IvV3VBRnYvN2d3bmRJc3lRUElDVmNyN3RySkpJMXJwZFllT2tx?=
- =?utf-8?B?dC95UUJPWHNHb2oxdVZNSGNMdk51bGpJamgwVWJ4YjJVKzloaWJIUTZKSUlk?=
- =?utf-8?Q?IAr1zMPTv8M=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR08MB8069
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB3PEPF00008860.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 699a96f1-b1c0-4368-81e7-08ddea10af04
-X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|14060799003|1800799024|82310400026|7416014|376014|36860700013;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?aUtRSnpUNDgrK0pxYXhyODA4Y2xEUjFPQStuTnZZRFdBWCsxaGNCUko1R05P?=
- =?utf-8?B?MjJPbUtJR3FlMm9rTDdNdEw4N01GQ1AwejVmQlByeFZESGdjcVJYMm1abVBp?=
- =?utf-8?B?aUdERU83Qy9jdk9CdFlrUFRHMHBtNTVOS2gyeDU2Q0wvbnJnbFdNeHhJRGZZ?=
- =?utf-8?B?NVhoSTJKbFh5WTBHRkQrL2pZcUJNNmYxcFRmUGhkckxFWnJMYzBrLzJlOWRY?=
- =?utf-8?B?STBldUgxeWRxVzFjQmxuSzNwZUpSR3g1OWtBNUVGbTZxblNPSFhMZzBUTkV5?=
- =?utf-8?B?bXhITFA5YlNaaXRUNU12Qm9FVFR5TXJvZWczZEFUa3h4WUpQNVBFWktQeFM5?=
- =?utf-8?B?Z1VVN1VwSUxUK0hRdUZJSTA3czlCS2RYZk9yMWZqS1NCVUd6U1NXT2huQ0o3?=
- =?utf-8?B?dzdoRnl3ZHZuK0k3NEZkNmFNeVJFc1U0S0wvMXhTYnBRTGhENGtXcVNGYW5z?=
- =?utf-8?B?UWtDMW9PR25Ic0F3TS9pU04rSU1tVVZjL0ljYnZIaGFyOGRqeUJpSERMdEE3?=
- =?utf-8?B?L3ZUQy93bUY2T2I1ekJiM0RtZjdnOSs0YlpFUnVRMDdoZlFBbGVBRzFaSEp2?=
- =?utf-8?B?M2pmeWRFa3FxTE1SdGxnNSttMkVKekdwOVhySU54TWdlU2xSclp4YjF3R3ps?=
- =?utf-8?B?Y2JTdW5jaENPaGVMdnM4QUNnbURqZnhYWHBBcVdsd2VnU3gvRmg1am1zVkRp?=
- =?utf-8?B?NlpZbm01a2tOaExQQTNRN056UndTdlVqb20vU3RoNDVxQ0VFL2tldytTY2lN?=
- =?utf-8?B?LzFDSXdCcUdOK0k1d3ZoUTlaWUdLQ3cyYXo0dmRFYXEwV010KzNTdEg1QUwr?=
- =?utf-8?B?V1VXN2diMDhKTVFHS2VWRGc3N0E5VkhNYWUyUENZMXNFNkZ5UHRUcWd0ZGpB?=
- =?utf-8?B?Yzd3aGFaWXo0dzJUNFZDM1MwdzJaQWRraTBPZ3IvYzdxcDBVbUJrUjdVcVRX?=
- =?utf-8?B?YUY1eWFGS0NndDdjTm8yMml3UmZIUlI4RVlwdC8xbkY4ME9WR0kzUkZ5eEtr?=
- =?utf-8?B?NmJ0V2pKUUM2ZnVpbStJUU9lOU5BVnNwVTFTdEJjTDNPOVZVem8zYkRjazh6?=
- =?utf-8?B?V0NNZ2RUNlJDZE83eVBDcFM3ZC9oc1NMZEdHMUxDbEFqNlNtblQxRUhsSE5N?=
- =?utf-8?B?VGk4RVVvZkJGZW9iZVdldnQ5NXlCOFNOYzYyL0pabkI1UGs0RmU2UHNDSC9W?=
- =?utf-8?B?WnJlT3daQ0xJb2F1cElnWmRCbU9CRmp4ZnBXOWhPS1M5M3NHUzIySE9NS2FX?=
- =?utf-8?B?MkJUUC9mT2VRekE5bVA4Nm94OHZTeDhXNitGaEVzQStzSXRuYmREYUp0WTdv?=
- =?utf-8?B?ZjdsUk9jTm5PV0VHNVVCaHZwZG5JcHRJM0RkRTdyRkZDeGxLdlVndUpDcHRB?=
- =?utf-8?B?ZVM2UXVENWIyNFd6aWsxK00vUGhpdGp2MGxTTXFwMzJaYyt3L3U1QlU1b0tI?=
- =?utf-8?B?MnZmTjliUGJOdERtMUsrSGQrcVFzTHhlSy9iQzRmdlppWFFNTWQ0Ri9NNHFB?=
- =?utf-8?B?NGdEenJiZXN3WjZVcG9WUERUVjRpY2s3N2pBZ0pRNDRHcmM5YTdybGlNZU90?=
- =?utf-8?B?Z21VV2ZtdEhrTXF6S01BbVFYSDJWcHVReDJJQkNWZXU1YkQwVy9NaVpmbFVX?=
- =?utf-8?B?dmdxWmJyOWg5c09IcDYvSDJyV2xoRytqRmZRNGphY2JPaVFEYWV0U1FUdHhV?=
- =?utf-8?B?VEpodmszb2xlRHNSZmJ3eFY3amI2WTBXRjRHUVp5ckF2R2ovTk5HbXRINkpR?=
- =?utf-8?B?UXNJTE9qNUU4cXNjcjgrTWxvNms2Ky9NcWpvLzhPMTFtQ2ZrRFhxYW5QVHlr?=
- =?utf-8?B?SGtIRVkxZWZzSXhseVg4a2lhUjZYWnFnWXJ0ejF3ckMvREJmTEF2N2hlUTl3?=
- =?utf-8?B?SFNjOU9RYW9DcUFSbXhsdlpHeUNVODVaMHo0RWhpTFNXQXZQSzEycXdFRlIz?=
- =?utf-8?B?dlJuQ3VQQzMzNUlXMTJ1T0VUdUN2MHJ0d2J2T1p6cnY0L1Y0dy9tYlh6RVE4?=
- =?utf-8?B?MjQzMWZEOUhWY1JkMUFyeXJ2RHVNQ296WnVBT1JzQkt1cnVKdDU3TUgwKzVu?=
- =?utf-8?Q?sIk7h+?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(14060799003)(1800799024)(82310400026)(7416014)(376014)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2025 11:06:31.0303
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 882dd958-5d74-406b-8999-08ddea10c58f
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB3PEPF00008860.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR08MB7326
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_040643_003910_A369A2D9 
-X-CRM114-Status: GOOD (  25.30  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="WoEm1YhYkZYnPu1J"
+Content-Disposition: inline
+In-Reply-To: <20250902-microchip-qspi-v1-0-37af59a0406a@microchip.com>
+X-Cookie: Vote anarchist.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -227,97 +77,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dave,
 
-[...]
+--WoEm1YhYkZYnPu1J
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> > > > diff --git a/arch/arm64/kernel/hyp-stub.S b/arch/arm64/kernel/hyp-stub.S
-> > > > index 36e2d26b54f5..ac12f1b4f8e2 100644
-> > > > --- a/arch/arm64/kernel/hyp-stub.S
-> > > > +++ b/arch/arm64/kernel/hyp-stub.S
-> > > > @@ -144,7 +144,17 @@ SYM_CODE_START_LOCAL(__finalise_el2)
-> > > >
-> > > >  .Lskip_indirection:
-> > > >  .Lskip_tcr2:
-> > > > +	mrs_s	x1, SYS_ID_AA64MMFR3_EL1
-> > > > +	ubfx	x1, x1, #ID_AA64MMFR3_EL1_SCTLRX_SHIFT, #4
-> > > > +	cbz	x1, .Lskip_sctlr2
-> > > > +	mrs_s	x1, SYS_SCTLR2_EL12
-> > > > +	msr_s	SYS_SCTLR2_EL1, x1
-> > > >
-> > > > +	// clean SCTLR2_EL1
-> > > > +	mov_q	x1, INIT_SCTLR2_EL1
-> > > > +	msr_s	SYS_SCTLR2_EL12, x1
-> > >
-> > > I'm still not sure why we need to do this.  The code doesn't seem to
-> > > clean up by the EL1 value of any other register -- or have I missed
-> > > something?
-> > >
-> > > We have already switched to EL2, via the HVC call that jumped to
-> > > __finalise_el2.  We won't run at EL1 again unless KVM starts a guest --
-> > > but in that case, it's KVM's responsibility to set up the EL1 registers
-> > > before handing control to the guest.
-> > >
-> > > In any case, is SCTLR2_EL1 ever set to anything except INIT_SCTLR2_EL1
-> > > before we get here?
-> >
-> > Regardless of VHE and nVHE, between init_kernel_el() and finalise_el2()
-> > the kernel modifies SCTLR_EL1/SCTLR2_EL1 (since el level in this period
-> > is EL1).
-> > and at the end of finalise_el2(), kernel switches to el2 and
-> > if VHE, it writes the SCTLR_EL1/SCTLR2_EL1 to SCTLR_EL2/SCTLR2_EL2 and
-> > initialize the SCTLR_EL1/SCTLR2_EL1.
-> >
-> > Although there is no code to modify SCTLR2_EL1 between this period,
-> > as SCTLR1_ELx, I initialize the SCTLR2_EL1 as init value for the future
-> > usage.
->
-> I think that we don't need to ensure that all sysregs are cleanly
-> initialised; only those that can affect execution in some way need to
-> be initialised.
->
-> Once we are running at EL2 with VHE, we don't switch back to EL1, so
-> the _EL1 control registers don't affect execution any more.
->
-> If we did have to clean up the _EL1 registers, then this code would
-> need to clean up all the other regs too, but I can't see clean-up for
-> anything other than SCTLR2_EL1 here.  Is there some cleanup code
-> elsewhere that I have missed?
->
-> Cheers
-> ---Dave
+On Tue, Sep 02, 2025 at 11:22:17AM +0530, Dharma Balasubiramani wrote:
+> This patch series adds support for SAM9X7 and sama7d65 QSPI controller
+> along with the SoC-specific capabilities.
 
-When I look at init_el2(), it returns to EL1 via:
+The driver bits of this all look OK to me.
 
-  mov x0, #INIT_PSTATE_EL1
-  msr spsr_el2, x0
-  ...
-  eret
+--WoEm1YhYkZYnPu1J
+Content-Type: application/pgp-signature; name="signature.asc"
 
-In other words, from init_kernel_el() through finalise_el2(),
-all system-register accesses are made at EL1 (i.e., SYS_REG_EL1).
-During this period, it appears that only SCTLR_EL1 is modified,
-so the code only needs to care about the accessed register — SCTLR_EL1.
+-----BEGIN PGP SIGNATURE-----
 
-That’s why SCTLR_EL1 is reinitialised at the end of finalise_el2().
-Otherwise, the MMU bit might remain enabled, which could cause errors later
-when launching a VM under VHE.
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmi20DwACgkQJNaLcl1U
+h9D5Qgf/f5J1ANHIWLWnMtWR1RwnzOz1QDrcwcMjPKsHh84tpstX1jmhmDnCv2/R
+QuXbIgk8AUZ3ykObhqQgbpb4CHoYEBN3ah0L3li/UFZykiWaMAs9GWpTrSuEsbiA
+zuINXKaiDfkcZQqElk963QLLpf+MPV51YycUFbLqtQysqDzvkcTGieXb6QkXLTnM
+riguC9rm303m3kWZ0RMREjAyVtclyy50hjF0TQHtxjrhiFftMvLPyQoSVvshRdyS
+7pxIhaPFRreFvdpTbKfoo4q6LwIWjizDHzWK0i2TZPMcJBrKk0zkChR5QX0wGMvd
+UA+StqccRScoVssTI0w9wVa2Fhw5Nw==
+=kwiz
+-----END PGP SIGNATURE-----
 
-However, the idea behind this patch is to initialise SCTLR2_ELx
-the same way as SCTLR_ELx.
-I’m not sure whether SCTLR2_ELx is modified during this period.
-If it is (now or in the future),
-it should be cleared/reinitialised just like SCTLR_EL1.
-
-This patch is based on the assumption that there may be modifications to
-SCTLR2_ELx during this period. So it isn’t about other system registers;
-it’s about the register actually used during this period.
-
-Am I missing anything?
-
-Thanks!
-
---
-Sincerely,
-Yeoreum Yun
+--WoEm1YhYkZYnPu1J--
 
