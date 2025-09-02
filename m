@@ -4,80 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9F18CA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 03:53:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24E0DCA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 03:56:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XY0eS2Pmvb1kN1KjGDYSxKu5k6JqjgX3BryZI02Dl6k=; b=rwvTg1JdSKZ4QUGWBKqEyzF/M3
-	MsTvixHVprpLSzOyO0rW+gIOUY9tqplMEhvoQH0ONE/8OmfiH9jmi6+8fRvSX6oIpT55fgivNvIqp
-	vk8/MVO67tyf2MxFcYjzFp1bzZzl1Zh8hJcyqNJiuRHTd+RWFK0OmOywsDlg1fhYV6TdwKZ9hZBU4
-	y0PxARnlPhxuTazfoJYifKAcnuT//1fCDvVQAnjOwY0xRjbndk3EEJXIG9bNWYSfXdC08r6svwDo5
-	X4rUo7MUA8M+XZZoUQaCkuBtWPgOphiS7Tc1/Ulsba8MGiVpxp0JK08xxNnrnjNMjTXeyvyOupaZh
-	pTsI9Kdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yKa72tAMaYiEp5QU2uzmYrLEiYq8WJdxdN4mi1XQFe4=; b=PGbZexX4WQjuf9gikT6IjlFuw6
+	LQEbstisQzRySi4ddSLaX5bz4hrJfq7SGWP0nBrUpbFPodRaRtLvalxx5P4zRz3Xnx1oQgE/AdIS3
+	P/ULuj7w8V0Z5k5aCUE/GTXkvb+gJKcEl/ZY1cFevQB7AlFSkgxZ8A5zZufx+JfVCT1xiqU+5aI+S
+	cCIm/tif3wNumPl///IjSvswxUxDVBTgqfFXweXvnibxyD2Py+eBL7eKUUvOOMZ1nAvnbS1BiCPVN
+	GVvyzWkyB4dpWij7ayANmZ0JQxiIfvwk28XgDikG25bCWRhm4o6bhNaSJysak0/CbLg48aF1LH8Og
+	//WT5ZnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utI5X-0000000F6uH-0Gw8;
-	Tue, 02 Sep 2025 03:53:43 +0000
-Received: from dggsgout12.his.huawei.com ([45.249.212.56])
+	id 1utI8E-0000000F7VG-3rrW;
+	Tue, 02 Sep 2025 03:56:30 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utHzj-0000000F5Xk-2uZs
+	id 1utI0Y-0000000F5m3-0Gvx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 03:47:46 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.235])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4cGBX56wp5zKHN7f
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  2 Sep 2025 11:47:33 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.128])
-	by mail.maildlp.com (Postfix) with ESMTP id CB6561A0DB8
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  2 Sep 2025 11:47:33 +0800 (CST)
-Received: from [10.67.108.244] (unknown [10.67.108.244])
-	by APP4 (Coremail) with SMTP id gCh0CgCn8IzUaLZou5poBA--.16810S3;
-	Tue, 02 Sep 2025 11:47:33 +0800 (CST)
-Message-ID: <cc6eb973-d82b-4afc-83fb-a2c28cc79d36@huaweicloud.com>
-Date: Tue, 2 Sep 2025 11:47:32 +0800
+	Tue, 02 Sep 2025 03:48:35 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5822RoKF024999
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 2 Sep 2025 03:48:33 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=yKa72tAMaYiEp5QU2uzmYr
+	LEiYq8WJdxdN4mi1XQFe4=; b=V9WQ0yxkytlWbP/SkTsiQKHrLJW0XQxHQeGOc3
+	AHm1VbemjWBjeBCgQWX2+CiwMilJ1VHzH2tSAViGZ+WbxC6oCDb5A9euLdw1JXoZ
+	oaB+yImSicqjw2TtuW5hMe1YJSt/chIT8nUTF0O9tN2mp1+kp7XsASDU4AwZqvVE
+	MNxpLsebgy68Hi3rGTz46dZ176jhFMDl8nMSrsn2xCMP5WvZtYRg5aew6Ap9B4Hc
+	yUwIY5ho9Z+7SGGGKo9X9s38NYcrOBpUgELZ4372vYpmAlEbdrD6FoW01fcRgIpv
+	U8z60PVIzZIbz6sGKi33NuykUnPtEkVYK9UaYQRHWPT9shcw==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48uscuxe8h-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 03:48:33 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2445803f0cfso63089205ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 20:48:32 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756784912; x=1757389712;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=yKa72tAMaYiEp5QU2uzmYrLEiYq8WJdxdN4mi1XQFe4=;
+        b=KFB+seYbc+7tPYj6nlmiKM/7ft8jarkgSjbZj1lVg7quaEcyBjfbhNiR+8wtS04ksh
+         84NWLRC3mZvJs2UuJUsGY4lPwjN8dzvd8Pe//rnPIqpjrIb5EANOFqt6KMwS39ozaAqt
+         I4awIBdKAVCiR/PEkje3IKqVE0wjJ2v8hd0KQ4Pg3MQ+R4YcwbZtD0DDG+yAewn28jlY
+         ekgx7WCX5yAeNCN3ZlEtPj43qiy2nzRNpBInndue1VPV47UyLme7B+CIC1VNxLgj1EZV
+         n6NrRVy8FyOCNtDaXhgF2qfhUDuLWiO/ACePQZ3wCOd+PK7WDAklmJcWNe/D2q/DKTcl
+         gLJg==
+X-Gm-Message-State: AOJu0Yx7LMf6u1RDzfZeQWsJSopGZ0F5yjT2haIxSIRJFixgLcpJ43q/
+	oRuWaHP/e2mtHVwLcwzflGcwksSS5vxCVF30uUgzWII9VpeWbd5mOqWB24fbel/pi7Hhg/9eL6W
+	hibikWTzdq8g+4tj8ZAxUYo2EUCSX+DZ6L7yl8WWVqz31N9jdKZEmHA4W9m9QeJ5qUaSDpIwHTW
+	VVtA==
+X-Gm-Gg: ASbGncuSzUSdtznIYpQKcAi2X/6PkjHU7fkTexbWEmeSiJ40n8Mt5uQIAi8HyYH/+vT
+	CS7mV4/SM0KpC3/fPlApQFIjXF3OMlefqHABEJYQQ84ZA8iKeMoIsG/tHh3ns1LVQtAqec0T7oc
+	cGKNUanXeqnAi7Ge/mYH9ImenUlqHoU87fdtKc+8D13eeNyFaLOoCTWHmqrZOYyuqw2uJE6g411
+	w5tTzbjDfbCF2Z+V5rSKcDGZ/eORmnFGMxwEh6qfznQA9AtkntA8CeYm9/SVpTTEYgYnmwTb2m+
+	unaSGO/Pu39FtUBtiCb7Z/rGC2rZLIvu0Rty2WLDS5WvrFPPdEP/XfiMlvT9SpgR1d8Wv6Vt5yu
+	9c3WCWWdTmNnulsKid5OcUGPWsQoybtXNpLC1
+X-Received: by 2002:a17:902:e80f:b0:240:968f:4d64 with SMTP id d9443c01a7336-249448f9c33mr135634165ad.11.1756784911731;
+        Mon, 01 Sep 2025 20:48:31 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IExAbd7KtHY902tMepR979+mkTIDMW7M9jw2QHkr4Ls1PNDX5hM4GxNt4OPOJy08c/0mSNzYg==
+X-Received: by 2002:a17:902:e80f:b0:240:968f:4d64 with SMTP id d9443c01a7336-249448f9c33mr135633765ad.11.1756784911264;
+        Mon, 01 Sep 2025 20:48:31 -0700 (PDT)
+Received: from jinlmao-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-24b168157b6sm3467515ad.13.2025.09.01.20.48.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 01 Sep 2025 20:48:30 -0700 (PDT)
+From: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
+Date: Tue, 02 Sep 2025 11:48:25 +0800
+Subject: [PATCH v2] KVM: arm64: Fix NULL pointer access issue
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] tracing: Fix tracing_marker may trigger page fault during
- preempt_disable
-Content-Language: en-US
-To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
- Steven Rostedt <rostedt@goodmis.org>
-Cc: mathieu.desnoyers@efficios.com, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-arm-kernel@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>
-References: <20250819105152.2766363-1-luogengkun@huaweicloud.com>
- <20250819135008.5f1ba00e@gandalf.local.home>
- <436e4fa7-f8c7-4c23-a28a-4e5eebe2f854@huaweicloud.com>
- <20250829082604.1e3fd06e@gandalf.local.home>
- <20250902005645.8c6436b535731a4917745c5d@kernel.org>
-From: Luo Gengkun <luogengkun@huaweicloud.com>
-In-Reply-To: <20250902005645.8c6436b535731a4917745c5d@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: gCh0CgCn8IzUaLZou5poBA--.16810S3
-X-Coremail-Antispam: 1UD129KBjvJXoWxurW8tF17XF1xCr4UJry3XFb_yoWrGr4xpr
-	yfKa9rKF45X34jywsFvw10qryUtr4UXry8Wr1kGF18W34q9rn8XFWxKw48uFWUWr9rJw1S
-	yw4UXr9xWr15Za7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUymb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I
-	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
-	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
-	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vI
-	r41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8Gjc
-	xK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0
-	cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8V
-	AvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E
-	14v26r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x07UAwIDUUUUU=
-X-CM-SenderInfo: 5oxrwvpqjn3046kxt4xhlfz01xgou0bp/
+Message-Id: <20250902-etm_crash-v2-1-aa9713a7306b@oss.qualcomm.com>
+X-B4-Tracking: v=1; b=H4sIAAhptmgC/5WMQQrCMBBFr1KyNiVJkzZ15T2kSBinNmAbzdSil
+ N7dtFt1IQMf/mfemxlh9Ehsn80s4uTJhyEVtcsYdG64IPfn1JkSyohaSI5jf4LoqOMCsVYFprT
+ A0v8tYuufm+vYpN55GkN8bepJrus3yyR5OigLWRkhjbGHQJTfH+4Koe/zFKv7F6grqK1srXai/
+ QsELA1qDbKo4BNslmV5A95872wbAQAA
+X-Change-ID: 20250901-etm_crash-0ee923eee98c
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+        Joey Gouly <joey.gouly@arm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu <yuzenghui@huawei.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+        linux-kernel@vger.kernel.org, quic_yingdeng@quicinc.com,
+        jinlong.mao@oss.qualcomm.com, tingwei.zhang@oss.qualcomm.com,
+        Yingchao Deng <yingchao.deng@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1756784908; l=2434;
+ i=yingchao.deng@oss.qualcomm.com; s=20250901; h=from:subject:message-id;
+ bh=pomve51ySnfeym3a5NacsGQMLiUMbbW2nqwOtU9Q3SM=;
+ b=bb5AIneQZyVNy1w/19DaiOY0pRfZROqaFONWQ94N/D2KTzx4Qwhkqa6plCGU5jzJpmtAP/dLg
+ 2aAiLb7LhkMDRSfnmZt1hgR8nWzcT8mVlW5YJt4j6mL+o+/77IbjXhq
+X-Developer-Key: i=yingchao.deng@oss.qualcomm.com; a=ed25519;
+ pk=xilq+l2r3MI2IvgF26j2OwmdNb/TQNeJMQ3VdJi8C4U=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODMwMDAzMSBTYWx0ZWRfX9lplM5v/CagD
+ SyvQnqg2KJ4R9D3EXeBnT+i461YpySEH3MsTEbyOO6dcFS8QsgzT4+m4fQMBXniu4jsNU1J9g3L
+ y9X7rPZwJJ0E2SS7Tc8oCxkhtV4jxqipPop9TXrdpBYa78H8yNHfkxFTf3Y6c3znnM+YbUIbu1n
+ xE2eVZuwRhvIBRndHPzLwe960qtrY9+i8sA8dUbSA66iwRngTP8muKVpKluU9lh+NW8oXvxzpJN
+ mJ7n5zEqsAaKpbH/aj2D6Mol40MXkOIs1Dzdvly9zGFwz6q1IfmK6EB7sjci7v3owyqOxmVw6b2
+ k+bund5p/hqiyZLvnNSg0Fx6cpoD5m6NGhyAtBMK4Tms57aWbukzzNC3pMDXzptoDKLjCF6d+Wi
+ zFtI1Xx0
+X-Authority-Analysis: v=2.4 cv=A8xsP7WG c=1 sm=1 tr=0 ts=68b66911 cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
+ a=KKAkSRfTAAAA:8 a=ZDfnslOjjdbEBvoarX8A:9 a=QEXdDO2ut3YA:10
+ a=uG9DUKGECoFWVXl0Dc02:22 a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-ORIG-GUID: h-gKX2uXBAHpwF2AROYGZ4MGcfxHcHDQ
+X-Proofpoint-GUID: h-gKX2uXBAHpwF2AROYGZ4MGcfxHcHDQ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-02_01,2025-08-28_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 spamscore=0 impostorscore=0 bulkscore=0 clxscore=1015
+ suspectscore=0 malwarescore=0 priorityscore=1501 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508300031
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_204744_090182_C7BF3BAC 
-X-CRM114-Status: GOOD (  23.12  )
+X-CRM114-CacheID: sfid-20250901_204834_229130_0B499E1B 
+X-CRM114-Status: GOOD (  16.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,107 +145,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+When linux is booted in EL1, macro "host_data_ptr()" is a wrapper that
+resolves to "&per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)",
+is_hyp_mode_available() return false during kvm_arm_init, the per-CPU base
+pointer __kvm_nvhe_kvm_arm_hyp_percpu_base[cpu] remains uninitialized.
+Consequently, any access via per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)
+will result in a NULL pointer.
 
-On 2025/9/1 23:56, Masami Hiramatsu (Google) wrote:
-> On Fri, 29 Aug 2025 08:26:04 -0400
-> Steven Rostedt <rostedt@goodmis.org> wrote:
->
->> [ Adding arm64 maintainers ]
->>
->> On Fri, 29 Aug 2025 16:29:07 +0800
->> Luo Gengkun <luogengkun@huaweicloud.com> wrote:
->>
->>> On 2025/8/20 1:50, Steven Rostedt wrote:
->>>> On Tue, 19 Aug 2025 10:51:52 +0000
->>>> Luo Gengkun <luogengkun@huaweicloud.com> wrote:
->>>>   
->>>>> Both tracing_mark_write and tracing_mark_raw_write call
->>>>> __copy_from_user_inatomic during preempt_disable. But in some case,
->>>>> __copy_from_user_inatomic may trigger page fault, and will call schedule()
->>>>> subtly. And if a task is migrated to other cpu, the following warning will
->>>> Wait! What?
->>>>
->>>> __copy_from_user_inatomic() is allowed to be called from in atomic context.
->>>> Hence the name it has. How the hell can it sleep? If it does, it's totally
->>>> broken!
->>>>
->>>> Now, I'm not against using nofault() as it is better named, but I want to
->>>> know why you are suggesting this change. Did you actually trigger a bug here?
->>> yes, I trigger this bug in arm64.
->> And I still think this is an arm64 bug.
-> I think it could be.
->
->>>>   
->>>>> be trigger:
->>>>>           if (RB_WARN_ON(cpu_buffer,
->>>>>                          !local_read(&cpu_buffer->committing)))
->>>>>
->>>>> An example can illustrate this issue:
-> You've missed an important part.
->
->>>>> process flow						CPU
->>>>> ---------------------------------------------------------------------
->>>>>
->>>>> tracing_mark_raw_write():				cpu:0
->>>>>      ...
->>>>>      ring_buffer_lock_reserve():				cpu:0
->>>>>         ...
-> 	preempt_disable_notrace(); --> this is unlocked by ring_buffer_unlock_commit()
->
->>>>>         cpu = raw_smp_processor_id()			cpu:0
->>>>>         cpu_buffer = buffer->buffers[cpu]			cpu:0
->>>>>         ...
->>>>>      ...
->>>>>      __copy_from_user_inatomic():				cpu:0
-> So this is called under preempt-disabled.
->
->>>>>         ...
->>>>>         # page fault
->>>>>         do_mem_abort():					cpu:0
->>>> Sounds to me that arm64 __copy_from_user_inatomic() may be broken.
->>>>   
->>>>>            ...
->>>>>            # Call schedule
->>>>>            schedule()					cpu:0
-> If this does not check the preempt flag, it is a problem.
-> Maybe arm64 needs to do fixup and abort instead of do_mem_abort()?
+Add is_kvm_arm_initialised() condition check to ensure that kvm_arm_init
+completes all necessary initialization steps, including init_hyp_mode.
 
-My kernel was built without CONFIG_PREEMPT_COUNT, so the preempt_disable()
-does nothing more than act as a barrier. In this case, it can pass the
-check by schedule(). Perhaps this is another issue?
+Fixes: 054b88391bbe2 ("KVM: arm64: Support trace filtering for guests")
+Signed-off-by: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
+Reviewed-by: James Clark <james.clark@linaro.org>
+---
+Add a check to prevent accessing uninitialized per-CPU data.
+---
+Changes in v2:
+1. Move the warning to the end in order to improve readability. No
+functional change intended
+- Link to v1: https://lore.kernel.org/r/20250901-etm_crash-v1-1-ce65e44c137c@oss.qualcomm.com
+---
+ arch/arm64/kvm/debug.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
->
->>>>> 	 ...
->>>>>      # the task schedule to cpu1
->>>>>      __buffer_unlock_commit():				cpu:1
->>>>>         ...
->>>>>         ring_buffer_unlock_commit():			cpu:1
->>>>> 	 ...
->>>>> 	 cpu = raw_smp_processor_id()			cpu:1
->>>>> 	 cpu_buffer = buffer->buffers[cpu]		cpu:1
-> 	preempt_enable_notrace(); <-- here we enable preempt again.
->
->>>>> As shown above, the process will acquire cpuid twice and the return values
->>>>> are not the same.
->>>>>
->>>>> To fix this problem using copy_from_user_nofault instead of
->>>>> __copy_from_user_inatomic, as the former performs 'access_ok' before
->>>>> copying.
->>>>>
->>>>> Fixes: 656c7f0d2d2b ("tracing: Replace kmap with copy_from_user() in trace_marker writing")
->>>> The above commit was intorduced in 2016. copy_from_user_nofault() was
->>>> introduced in 2020. I don't think this would be the fix for that kernel.
->>>>
->>>> So no, I'm not taking this patch. If you see __copy_from_user_inatomic()
->>>> sleeping, it's users are not the issue. That function is.
->
-> BTW, the biggest difference between __copy_from_user() and
->   __copy_from_user_inatomic() is `might_fault()` and `should_fail_usercopy()`.
-> The latter is a fault injection, so we can ignore it. But since
-> the `might_fail()` is NOT in __copy_from_user_inatomic(), it is designed
-> not to cause fault as Steve said?
->
-> Thank you,
->
+diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
+index 381382c19fe4741980c79b08bbdab6a1bcd825ad..593fcbbc7c014335c5999b774f9bfa367e709cb5 100644
+--- a/arch/arm64/kvm/debug.c
++++ b/arch/arm64/kvm/debug.c
+@@ -233,7 +233,7 @@ void kvm_debug_handle_oslar(struct kvm_vcpu *vcpu, u64 val)
+ void kvm_enable_trbe(void)
+ {
+ 	if (has_vhe() || is_protected_kvm_enabled() ||
+-	    WARN_ON_ONCE(preemptible()))
++	    !is_kvm_arm_initialised() || WARN_ON_ONCE(preemptible()))
+ 		return;
+ 
+ 	host_data_set_flag(TRBE_ENABLED);
+@@ -243,7 +243,7 @@ EXPORT_SYMBOL_GPL(kvm_enable_trbe);
+ void kvm_disable_trbe(void)
+ {
+ 	if (has_vhe() || is_protected_kvm_enabled() ||
+-	    WARN_ON_ONCE(preemptible()))
++	    !is_kvm_arm_initialised() || WARN_ON_ONCE(preemptible()))
+ 		return;
+ 
+ 	host_data_clear_flag(TRBE_ENABLED);
+@@ -252,7 +252,8 @@ EXPORT_SYMBOL_GPL(kvm_disable_trbe);
+ 
+ void kvm_tracing_set_el1_configuration(u64 trfcr_while_in_guest)
+ {
+-	if (is_protected_kvm_enabled() || WARN_ON_ONCE(preemptible()))
++	if (is_protected_kvm_enabled() || !is_kvm_arm_initialised() ||
++	    WARN_ON_ONCE(preemptible()))
+ 		return;
+ 
+ 	if (has_vhe()) {
+
+---
+base-commit: 8cd53fb40a304576fa86ba985f3045d5c55b0ae3
+change-id: 20250901-etm_crash-0ee923eee98c
+
+Best regards,
+-- 
+Yingchao Deng <yingchao.deng@oss.qualcomm.com>
 
 
