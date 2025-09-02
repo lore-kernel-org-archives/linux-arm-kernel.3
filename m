@@ -4,67 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91C43CA100E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 00:45:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAD6CCA1009
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 00:45:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/NSFPAHqSqrxQ0DhjXXLFNCbtDZ2kkzYN2tiwGvwbXA=; b=OJU9cLWt46LuzikVghDcSlSnhn
-	ZMZRg2m62wI2hkXplouORrTxzSjkeYN1VcPEWldoNIXQm1+X2NjT559ZxSGdmw+foCw04PGTTAcW+
-	Bn09zXZoFyGhOT1VT2Pa2tVO510BE80FmNwsr22XtfLm+96sMFhJxJb9/aoeUe4EY0uBSNeK5DvNS
-	Wm4x3U+zmV94wU4vSIaABoAkvIEOl7QcF/73X48ZBoE2QcCgK4cnGlDL1BarPoS7G8fjpquZ1om+s
-	0e+UfOBWqhn4kXBvA5Qn16DGM7sWyhYzQ07TAIcxriTaAx/b1R8CbdZEGtlqjvoFDNb2lF2oP6N7D
-	QuqDe4Gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=VsBq3/9AZEru8W4KCelb+z5GqymkH0CAytNS/b4U49w=; b=4PF/dH8LVbtWOh
+	U2FZhWHnjvtaWxXPLNtMv8oTIsiH/vjQHdGbhCav6EVC0dNA3Xh58QVwUGakkiOa6JbL2LjjGBbHZ
+	4yGQAPkvAHTL3ze3mLCFfTBPiukw1aJ7wXfeZU/B8Nwy4+XjKs2WvT2j9sajrLXZALXJOiVOCVFo6
+	ZgKS2BROve+1Y7sjVpgkauh/CQb+7VfZ4k3pZ5D7wS4LSSN1nernAY3vAD2XHHPA85jx5TBMWcBdC
+	EkcD7UIHe0cIRJklOuK2G9lE7PPjPbq/79H5gCAvHDP5A0sxA/4/3at7/CBIxelrl9Tto9IdNrHX8
+	S2bTzrIVXrNSjgwi8+Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utbcR-00000002pjG-2fwl;
-	Wed, 03 Sep 2025 00:44:59 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1utbcS-00000002pkP-1Us4;
+	Wed, 03 Sep 2025 00:45:00 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utXg7-00000001vQt-0Hsx
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 20:32:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1210641B24;
-	Tue,  2 Sep 2025 20:32:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BB34C4CEED;
-	Tue,  2 Sep 2025 20:32:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756845149;
-	bh=aN+hgxqhYaMjS0OXhoT6xA2ZJ5xTCuRclQagaKdbDmA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gX3RMnNGwDfunjeKLJnizcoSlSH0Y96fUw8jlru3J3uExFS0QX07rGRMViPRYkwyG
-	 rLOZwz4/fbRsYq8fScmJ1zxfA2nbTqxA5W2IGEvPDGSrIyFpCEqB2AsPU1z2RNdyaW
-	 WJWGDwpDPCIMnyeRidGkbkIdlyFErMaCZ3BL2+NnCBnSsdqsIhMtBT/UgLZhk8b5Sk
-	 AQOePqYHwZTuLwfoY5xqfc8q59IzkwM+eV5olmMmM8HWgjht1HycdDnFFqhYY3bLO+
-	 tK+lXj09ZHfqtxIcAVpYcQ/9iF/w1pv9K1NxhES/F1zXVSfwocnzAQlz5lfk+1q89l
-	 8WwY0XKaAIpLg==
-Received: by pali.im (Postfix)
-	id 9BE454BB; Tue,  2 Sep 2025 22:32:26 +0200 (CEST)
-Date: Tue, 2 Sep 2025 22:32:26 +0200
-From: Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Rob Herring <robh@kernel.org>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Jan Palus <jpalus@fastmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
-	regressions@lists.linux.dev
-Subject: Re: [Bug 220479] New: [regression 6.16] mvebu: no pci devices
- detected on turris omnia
-Message-ID: <20250902203226.u4i43vygl4bl2dqa@pali>
-References: <bug-220479-41252@https.bugzilla.kernel.org/>
- <20250820184603.GA633069@bhelgaas>
+	id 1utXs6-00000001xj5-2Hk7;
+	Tue, 02 Sep 2025 20:44:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1756845892;
+	bh=ZypK9sMAZJbpWzGN+Hx+ArMc+6LRYinYdlHAozWT/T0=;
+	h=From:Subject:Date:To:Cc:From;
+	b=WiX8xbMS5sifpaf0AnuCiedgBGH7eFIJvGN9COeD5kgHEkmLZHobzCH0hTTAq3VhC
+	 Po3u7Qy5JcPDNq3jIvIVzc4WswryWZ+ashU6JFXuBpNDybQhnXp/v9KR70X/tF8Is4
+	 i9+99KHCN+bwy9EBBjpV8OdbLenvPuKJtYG0aqf8SlPxw6kniVf0GDdDm2S7rE7DZ3
+	 iFYmrvQs6r0yLN8Q4xF24kOL/t6nbAzTYn1oO/5Cppu5Z4y9Ji3zHC+fEFF6TvrDB4
+	 R4HPjp3RHpvGCZ+WixnLKc541fvy9DoyqDanXLUbOfkivTLgfaEgZLRofjnUXL7vS9
+	 qmnBTWHbSwuDA==
+Received: from localhost (unknown [82.79.138.60])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 430F817E0456;
+	Tue,  2 Sep 2025 22:44:52 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Subject: [PATCH v4 00/11] Add HDMI 2.1 FRL support to
+ phy-rockchip-samsung-hdptx
+Date: Tue, 02 Sep 2025 23:44:35 +0300
+Message-Id: <20250902-phy-hdptx-frl-v4-0-7d69176373ce@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250820184603.GA633069@bhelgaas>
-User-Agent: NeoMutt/20180716
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADNXt2gC/3XQy27DIBAF0F+xWJeKV4zxqv9RdcFjqJEc4wC1H
+ EX592KnUqKmXV6kOczcC8qQAmTUNxeUYAk5xKkG8dIgO+jpE3BwNSNG2IFI0uF5OOPBzWXFPo3
+ YW86ldEZ5BqjOzAl8WHfv/aPmIeQS03nnF7q9/ictFBNsPRDVAmPCizcbx1GbmPSrjUe0aQu7C
+ x05/BZYFRylnXHCtEDMXwJ/EOjTDnzbQSqlpOuMYU/C9XZigtNXbarc7rwX1Tc7rAh7hLc+sOS
+ k8x60sK3uaxMVMjoDruwxlL6ZYC34Z5rWj67fiMLVuJoBAAA=
+X-Change-ID: 20250708-phy-hdptx-frl-fc3377db9f2e
+To: Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Algea Cao <algea.cao@rock-chips.com>, 
+ Dmitry Baryshkov <lumag@kernel.org>
+Cc: kernel@collabora.com, linux-phy@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_133231_154578_5AD35D6E 
-X-CRM114-Status: GOOD (  22.81  )
+X-CRM114-CacheID: sfid-20250902_134454_744789_9A077807 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,193 +82,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These issues have been discussed more times for last 3 years.
-Tested changes which are fixing real bugs and are improving the
-pci-mvebu.c driver from people listed as M: in MAINTAINERS are being
-rejected or silently ignored. And untested changes which are not going
-to fix any bug are being accepted and causing new regressions. People
-then reporting bug reports to M: people who cannot do anything with it.
-The only advice which they can get is to not use mainline kernel.
-This pci-mvebu.c driver in mainline kernel is broken and nobody wanted
-to do anything with this situation for last 3 years, I was pointing for
-it more times. Due to this I'm ignoring bug reports for pci-mvebu.c
-driver for mainline kernel.
+The Samsung HDMI/eDP Transmitter Combo PHY is capable of handling four
+HDMI 2.1 Fixed Rate Link (FRL) lanes, while each lane can operate at
+3Gbps, 6Gbps, 8Gbps, 10Gbps or 12Gbps.
 
-On Wednesday 20 August 2025 13:46:03 Bjorn Helgaas wrote:
-> [+cc maintainers, regressions list]
-> 
-> Jan, thanks very much for the report and the bisection.  Could you
-> attach the devicetree you're using to the bugzilla?
-> 
-> On Wed, Aug 20, 2025 at 05:43:39PM +0000, bugzilla-daemon@kernel.org wrote:
-> > https://bugzilla.kernel.org/show_bug.cgi?id=220479
-> > 
-> >            Summary: [regression 6.16] mvebu: no pci devices detected on
-> >                     turris omnia
-> >           Reporter: jpalus@fastmail.com
-> > 
-> > Booting kernel 6.16 results in no PCI devices being detected (output of `lspci`
-> > is completely empty). Bisected to:
-> > 
-> > 5da3d94a23c6c1ee1f896aeeb00965eacf1d0bb3 is the first new commit
-> > commit 5da3d94a23c6c1ee1f896aeeb00965eacf1d0bb3 (HEAD)
-> > Author: Rob Herring (Arm) <robh@kernel.org>
-> > Date:   Thu Nov 7 16:32:55 2024
-> > 
-> >     PCI: mvebu: Use for_each_of_range() iterator for parsing "ranges"
-> > 
-> >     The mvebu "ranges" is a bit unusual with its own encoding of addresses,
-> >     but it's still just normal "ranges" as far as parsing is concerned.
-> >     Convert mvebu_get_tgt_attr() to use the for_each_of_range() iterator
-> >     instead of open coding the parsing.
-> > 
-> >     Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> >     Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> >     Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> >     Link: https://patch.msgid.link/20241107153255.2740610-1-robh@kernel.org
-> > 
-> >  drivers/pci/controller/pci-mvebu.c | 26 +++++++++-----------------
-> >  1 file changed, 9 insertions(+), 17 deletions(-)
-> > 
-> > 
-> > kernel 6.16 logs following mesages related to PCI:
-> > 
-> > mvebu-pcie soc:pcie: host bridge /soc/pcie ranges:
-> > mvebu-pcie soc:pcie:      MEM 0x00f1080000..0x00f1081fff -> 0x0000080000
-> > mvebu-pcie soc:pcie:      MEM 0x00f1040000..0x00f1041fff -> 0x0000040000
-> > mvebu-pcie soc:pcie:      MEM 0x00f1044000..0x00f1045fff -> 0x0000044000
-> > mvebu-pcie soc:pcie:      MEM 0x00f1048000..0x00f1049fff -> 0x0000048000
-> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
-> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
-> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
-> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
-> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
-> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
-> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
-> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
-> > mvebu-pcie soc:pcie: pcie0.0: cannot get tgt/attr for mem window
-> > mvebu-pcie soc:pcie: pcie1.0: cannot get tgt/attr for mem window
-> > mvebu-pcie soc:pcie: pcie2.0: cannot get tgt/attr for mem window
-> > mvebu-pcie soc:pcie: PCI host bridge to bus 0000:00
-> > pci_bus 0000:00: root bus resource [bus 00-ff]
-> > pci_bus 0000:00: root bus resource [mem 0xf1080000-0xf1081fff] (bus address
-> > [0x00080000-0x00081fff])
-> > pci_bus 0000:00: root bus resource [mem 0xf1040000-0xf1041fff] (bus address
-> > [0x00040000-0x00041fff])
-> > pci_bus 0000:00: root bus resource [mem 0xf1044000-0xf1045fff] (bus address
-> > [0x00044000-0x00045fff])
-> > pci_bus 0000:00: root bus resource [mem 0xf1048000-0xf1049fff] (bus address
-> > [0x00048000-0x00049fff])
-> > pci_bus 0000:00: root bus resource [mem 0xe0000000-0xe7ffffff]
-> > pci_bus 0000:00: root bus resource [io  0x1000-0xeffff]
-> > PCI: bus0: Fast back to back transfers enabled
-> > pci_bus 0000:00: resource 4 [mem 0xf1080000-0xf1081fff]
-> > pci_bus 0000:00: resource 5 [mem 0xf1040000-0xf1041fff]
-> > pci_bus 0000:00: resource 6 [mem 0xf1044000-0xf1045fff]
-> > pci_bus 0000:00: resource 7 [mem 0xf1048000-0xf1049fff]
-> > pci_bus 0000:00: resource 8 [mem 0xe0000000-0xe7ffffff]
-> > pci_bus 0000:00: resource 9 [io  0x1000-0xeffff]
-> > 
-> > 
-> > while kernel 6.15 logs following:
-> > 
-> > mvebu-pcie soc:pcie: host bridge /soc/pcie ranges:
-> > mvebu-pcie soc:pcie:      MEM 0x00f1080000..0x00f1081fff -> 0x0000080000
-> > mvebu-pcie soc:pcie:      MEM 0x00f1040000..0x00f1041fff -> 0x0000040000
-> > mvebu-pcie soc:pcie:      MEM 0x00f1044000..0x00f1045fff -> 0x0000044000
-> > mvebu-pcie soc:pcie:      MEM 0x00f1048000..0x00f1049fff -> 0x0000048000
-> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
-> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
-> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
-> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
-> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
-> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
-> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
-> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
-> > mvebu-pcie soc:pcie: pcie0.0: Slot power limit 10.0W
-> > mvebu-pcie soc:pcie: pcie1.0: Slot power limit 10.0W
-> > mvebu-pcie soc:pcie: pcie2.0: Slot power limit 10.0W
-> > mvebu-pcie soc:pcie: PCI host bridge to bus 0000:00
-> > pci_bus 0000:00: root bus resource [bus 00-ff]
-> > pci_bus 0000:00: root bus resource [mem 0xf1080000-0xf1081fff] (bus address
-> > [0x00080000-0x00081fff])
-> > pci_bus 0000:00: root bus resource [mem 0xf1040000-0xf1041fff] (bus address
-> > [0x00040000-0x00041fff])
-> > pci_bus 0000:00: root bus resource [mem 0xf1044000-0xf1045fff] (bus address
-> > [0x00044000-0x00045fff])
-> > pci_bus 0000:00: root bus resource [mem 0xf1048000-0xf1049fff] (bus address
-> > [0x00048000-0x00049fff])
-> > pci_bus 0000:00: root bus resource [mem 0xe0000000-0xe7ffffff]
-> > pci_bus 0000:00: root bus resource [io  0x1000-0xeffff]
-> > pci 0000:00:01.0: [11ab:6820] type 01 class 0x060400 PCIe Root Port
-> > pci 0000:00:01.0: PCI bridge to [bus 00]
-> > pci 0000:00:01.0:   bridge window [io  0x0000-0x0fff]
-> > pci 0000:00:01.0:   bridge window [mem 0x00000000-0x000fffff]
-> > /soc/pcie/pcie@1,0: Fixed dependency cycle(s) with
-> > /soc/pcie/pcie@1,0/interrupt-controller
-> > pci 0000:00:02.0: [11ab:6820] type 01 class 0x060400 PCIe Root Port
-> > pci 0000:00:02.0: PCI bridge to [bus 00]
-> > pci 0000:00:02.0:   bridge window [io  0x0000-0x0fff]
-> > pci 0000:00:02.0:   bridge window [mem 0x00000000-0x000fffff]
-> > /soc/pcie/pcie@2,0: Fixed dependency cycle(s) with
-> > /soc/pcie/pcie@2,0/interrupt-controller
-> > pci 0000:00:03.0: [11ab:6820] type 01 class 0x060400 PCIe Root Port
-> > pci 0000:00:03.0: PCI bridge to [bus 00]
-> > pci 0000:00:03.0:   bridge window [io  0x0000-0x0fff]
-> > pci 0000:00:03.0:   bridge window [mem 0x00000000-0x000fffff]
-> > /soc/pcie/pcie@3,0: Fixed dependency cycle(s) with
-> > /soc/pcie/pcie@3,0/interrupt-controller
-> > PCI: bus0: Fast back to back transfers disabled
-> > pci 0000:00:01.0: bridge configuration invalid ([bus 00-00]), reconfiguring
-> > pci 0000:00:02.0: bridge configuration invalid ([bus 00-00]), reconfiguring
-> > pci 0000:00:03.0: bridge configuration invalid ([bus 00-00]), reconfiguring
-> > PCI: bus1: Fast back to back transfers enabled
-> > pci_bus 0000:01: busn_res: [bus 01-ff] end is updated to 01
-> > pci 0000:02:00.0: [168c:003c] type 00 class 0x028000 PCIe Endpoint
-> > pci 0000:02:00.0: BAR 0 [mem 0x00000000-0x001fffff 64bit]
-> > pci 0000:02:00.0: ROM [mem 0x00000000-0x0000ffff pref]
-> > pci 0000:02:00.0: supports D1
-> > pci 0000:02:00.0: PME# supported from D0 D1 D3hot
-> > pci 0000:00:02.0: ASPM: current common clock configuration is inconsistent,
-> > reconfiguring
-> > pci 0000:00:02.0: ASPM: Bridge does not support changing Link Speed to 2.5 GT/s
-> > pci 0000:00:02.0: ASPM: Retrain Link at higher speed is disallowed by quirk
-> > PCI: bus2: Fast back to back transfers disabled
-> > pci_bus 0000:02: busn_res: [bus 02-ff] end is updated to 02
-> > pci 0000:03:00.0: [168c:0033] type 00 class 0x028000 PCIe Endpoint
-> > pci 0000:03:00.0: BAR 0 [mem 0x00000000-0x0001ffff 64bit]
-> > pci 0000:03:00.0: ROM [mem 0x00000000-0x0000ffff pref]
-> > pci 0000:03:00.0: supports D1
-> > pci 0000:03:00.0: PME# supported from D0 D1 D3hot
-> > pci 0000:00:03.0: ASPM: current common clock configuration is inconsistent,
-> > reconfiguring
-> > pci 0000:00:03.0: ASPM: Bridge does not support changing Link Speed to 2.5 GT/s
-> > pci 0000:00:03.0: ASPM: Retrain Link at higher speed is disallowed by quirk
-> > PCI: bus3: Fast back to back transfers disabled
-> > pci_bus 0000:03: busn_res: [bus 03-ff] end is updated to 03
-> > pci 0000:00:02.0: bridge window [mem 0x00200000-0x003fffff] to [bus 02]
-> > add_size 200000 add_align 200000
-> > pci 0000:00:02.0: bridge window [mem 0xe0000000-0xe03fffff]: assigned
-> > pci 0000:00:03.0: bridge window [mem 0xe0400000-0xe04fffff]: assigned
-> > pci 0000:00:01.0: PCI bridge to [bus 01]
-> > pci 0000:02:00.0: BAR 0 [mem 0xe0000000-0xe01fffff 64bit]: assigned
-> > pci 0000:02:00.0: ROM [mem 0xe0200000-0xe020ffff pref]: assigned
-> > pci 0000:00:02.0: PCI bridge to [bus 02]
-> > pci 0000:00:02.0:   bridge window [mem 0xe0000000-0xe03fffff]
-> > pci 0000:03:00.0: BAR 0 [mem 0xe0400000-0xe041ffff 64bit]: assigned
-> > pci 0000:03:00.0: ROM [mem 0xe0420000-0xe042ffff pref]: assigned
-> > pci 0000:00:03.0: PCI bridge to [bus 03]
-> > pci 0000:00:03.0:   bridge window [mem 0xe0400000-0xe04fffff]
-> > pci_bus 0000:00: resource 4 [mem 0xf1080000-0xf1081fff]
-> > pci_bus 0000:00: resource 5 [mem 0xf1040000-0xf1041fff]
-> > pci_bus 0000:00: resource 6 [mem 0xf1044000-0xf1045fff]
-> > pci_bus 0000:00: resource 7 [mem 0xf1048000-0xf1049fff]
-> > pci_bus 0000:00: resource 8 [mem 0xe0000000-0xe7ffffff]
-> > pci_bus 0000:00: resource 9 [io  0x1000-0xeffff]
-> > pci_bus 0000:02: resource 1 [mem 0xe0000000-0xe03fffff]
-> > pci_bus 0000:03: resource 1 [mem 0xe0400000-0xe04fffff]
-> > pcieport 0000:00:02.0: enabling device (0140 -> 0142)
-> > pcieport 0000:00:03.0: enabling device (0140 -> 0142)
-> 
-> #regzbot introduced: 5da3d94a23c6 ("PCI: mvebu: Use for_each_of_range() iterator for parsing "ranges"")
+This patchset extends the HDMI PHY configuration API to manage the FRL
+mode and provides all the required HDMI driver changes to enable FRL in
+addition to the already supported TMDS mode.
+
+Also note that since v4 the series depends on the fixes provided by [1].
+Please see the changelog below for more details.
+
+[1] https://lore.kernel.org/r/20250902-phy-hdptx-fixes-v1-0-e8d9ef9748d6@collabora.com
+
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+Changes in v4:
+- Moved the following fixup patches into a separate series [1]:
+  * Fix reported clock rate in high bpc mode
+  * Reduce ROPLL loop bandwidth
+  * Prevent Inter-Pair Skew from exceeding the limits
+- Renamed enum phy_mode_hdmi to phy_hdmi_mode and
+  PHY_MODE_HDMI_{TMDS|FRL} to PHY_HDMI_MODE_{TMDS|FRL} (Dmitry)
+- Rebased remaining patches onto next-20250901
+- Link to v3: https://lore.kernel.org/r/20250818-phy-hdptx-frl-v3-0-c79997d8bb2b@collabora.com
+
+Changes in v3:
+- Reworked patch "phy: hdmi: Add HDMI 2.1 FRL configuration options"
+  according to Dmitry's feedback
+  * Updated commit message providing a brief description of FRL mode
+  * Kept PHY_MODE_HDMI in enum phy_mode and introduced enum
+    phy_mode_hdmi defining the TMDS and FRL submodes
+- Updated "phy: rockchip: samsung-hdptx: Add HDMI 2.1 FRL support"
+  * Implemented .set_mode() callback in rk_hdptx_phy_ops
+  * Introduced .mode member in struct rk_hdptx_hdmi_cfg and used it
+    instead of phy_get_mode() to verify PHY_MODE_HDMI_FRL
+- Rebased series onto next-20250818
+- Link to v2: https://lore.kernel.org/r/20250805-phy-hdptx-frl-v2-0-d118bd4b6e0b@collabora.com
+
+Changes in v2:
+- Added a couple of new patches:
+  * Fix reported clock rate in high bpc mode
+  * Drop hw_rate driver data
+- Applied several tweaks to the following patches:
+  * Compute clk rate from PLL config
+  * Switch to driver specific HDMI config
+  * Add HDMI 2.1 FRL support
+- Rebased series onto next-20250804
+- Link to v1: https://lore.kernel.org/r/20250708-phy-hdptx-frl-v1-0-cfe096e224f4@collabora.com
+
+---
+Cristian Ciocaltea (11):
+      phy: hdmi: Add HDMI 2.1 FRL configuration options
+      phy: rockchip: samsung-hdptx: Use usleep_range() instead of udelay()
+      phy: rockchip: samsung-hdptx: Fix coding style alignment
+      phy: rockchip: samsung-hdptx: Consistently use [rk_]hdptx_[tmds_] prefixes
+      phy: rockchip: samsung-hdptx: Enable lane output in common helper
+      phy: rockchip: samsung-hdptx: Cleanup *_cmn_init_seq lists
+      phy: rockchip: samsung-hdptx: Compute clk rate from PLL config
+      phy: rockchip: samsung-hdptx: Drop hw_rate driver data
+      phy: rockchip: samsung-hdptx: Switch to driver specific HDMI config
+      phy: rockchip: samsung-hdptx: Extend rk_hdptx_phy_verify_hdmi_config() helper
+      phy: rockchip: samsung-hdptx: Add HDMI 2.1 FRL support
+
+ drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 684 ++++++++++++++++++----
+ include/linux/phy/phy-hdmi.h                      |  19 +-
+ 2 files changed, 603 insertions(+), 100 deletions(-)
+---
+base-commit: 58f59f0f890f0a80b28743261bd8800f5a1ed7fb
+change-id: 20250708-phy-hdptx-frl-fc3377db9f2e
+prerequisite-change-id: 20250902-phy-hdptx-fixes-7308ffea4c6a:v1
+prerequisite-patch-id: 777b4d364feed432f604f87d58a6474cf8457431
+prerequisite-patch-id: 7dafe85f5c9ac1291fd1b141a0e0fe68a4a837a9
+prerequisite-patch-id: f4446206cbc7ceb41315085322fec45c72ec734c
+
 
