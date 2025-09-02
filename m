@@ -4,77 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D5F4CA100B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 14:38:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAD7DCA0FFE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 14:41:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TjOhTOTjWqOeuZ4RTO60pbcX73i6fKjNtL2FneRHwZo=; b=os3mObIX21qMGfe4tP8/8ZtuZz
-	CgzpZsH1xZs2DiMEFZAB+2MApt5Gl50KqCl6AYNBGEikGc5W2gF97JBo/xGZUtvNoSPvSVaGYNWW8
-	QV41mZvOJBd0M3xXRYAJgHshZOgljqT94EdP8kst5U5LktFdgt45X6rYQ57BElhdl6tcf7CuYvRnT
-	ZZyr3Mf7ihBBuwgPZFe0JIoPwim53RO771M+beZeX0awKn3n9szekzTGkUXbVh5lX1u+zsspKdcuj
-	FN8xYACOkl2vJHvHJ3KmCCrIJRFUq5yqe3plXq13GJbC4y+twgKAQuAw4ie5QCLkAR8NZftRgCgX3
-	tp6nOtPQ==;
+	bh=xQ8t2bboIzd7cHm3OScP5qlwpTcm1FmAONHyDli97iM=; b=cidNGFhmPhGuSxS4kbzwhDKPRX
+	hrpaN+DhGPgJ5O56MCFhWyBgdLVNhOwO8eS1XOp+eB7YmZaurDmWcvnedQXGUzwpLdxe+cw1mj8WP
+	E/8z/cWBwPM0hH0Rk0ypSdOjWLvtpmrMQAesoS4hUU1WGPCW6h3ChbUorRrPw4ItEyfta2tWDT7Kv
+	0O5Ba8Qpr+lGSxj4ZLda24hN1lOlzADcR5H748kcjq4r7CLacCKfipTYY9nlDy/QyyrbMJ01Dfe1m
+	/qOxBMGTNd0YGgku4Jl8HaRAt0vZ8v7ZaERqalsrP1XGu+MWLWqYGx4KhNEot/E1e/joAUIX+4Gpe
+	ZNprTaUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utS9C-00000000PFS-0N81;
-	Tue, 02 Sep 2025 14:38:10 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1utSBs-00000000QFg-3kXQ;
+	Tue, 02 Sep 2025 14:40:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utPT8-0000000GzXb-25TK
+	id 1utPUH-0000000H010-3xoO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 11:46:34 +0000
+	Tue, 02 Sep 2025 11:47:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DF25960211;
-	Tue,  2 Sep 2025 11:46:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5A38C4CEF5;
-	Tue,  2 Sep 2025 11:45:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AE27244AEA
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  2 Sep 2025 11:47:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BD0FC4CEF7
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  2 Sep 2025 11:47:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756813563;
-	bh=n9Gv38zt8zDnvl+mS5Ep0oghSoUg5vKLb32ofFnUTn0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ofeJM14gdgDf2pe6FEgJB8hmzU6BmyNYQDN1Nr9Rg2dbfrv5Q6BOXnVIHGHXUSEsf
-	 IAgkRaCwwE7TQvVeIFyTt0SKKA7rMQ06NHfnZls0WucwaggIjUyitft2vO7OwnVkXE
-	 MvY9xjdn+J8H5FozY0R5Wq78VtAjnS79BVixngT+kUOb4EEBbtu79jMoCG6oTynGAH
-	 p/k1jtl939ni1Sw6HSL3O7JNfGtmttJj+ZoTFr0c6U7TezAtssq5tgjGoMHAhLsq6k
-	 UPviUrekGduQVfPBVkAQqa7goQdQ5j3hGFRwQsrvYC6yPTdR7vqZJqFuCnzqTzoOts
-	 IkOe2U4D8NaNw==
-From: Mark Brown <broonie@kernel.org>
-Date: Tue, 02 Sep 2025 12:36:26 +0100
-Subject: [PATCH v8 23/29] KVM: arm64: Expose SME specific state to
- userspace
+	s=k20201202; t=1756813665;
+	bh=gAWv/p7BEF+KhNFGeotQ/1FrGNmecWyX1X5tGPHcCbM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=HPfsH/6ZQcNOGF26sYaQeEFwmNMIdemb3Sta1S24MP4Zqrzhp4xCYmME5rlpIalRH
+	 wypS78addLryNXm+pxr8ZGRJ6CcNSwygSiD1yVSMsso71z9NbVxptxqSwM6eYw/hYg
+	 E0n3a2RupUKViIi/xlJEoNXhZ7BEfE1ktdGaf5/LFZ2Ez9stJf6othwGdlk629boGF
+	 /qfOkz7gPd4OTUDCeTkBwoG5jhFrt7JDvzdGAjA8tfRoviw73ahpeW1eDDr4LJyfaL
+	 kf0/YFTRyn96EDkuB2SQEiQU90yOjmPyWIIFwn87EXpdsYgRoiI9E5Ci5ZKOtauLQA
+	 Z0F2061pPrGmQ==
+Received: by mail-ot1-f49.google.com with SMTP id 46e09a7af769-74572fb94b3so1757813a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 04:47:45 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXwdaxEBYKU0jTM60nlaIOBWjGtg3wt9XNciXHfiQ8IUmHmVVvvp/YgRO7b+tjpdNu2Air7RM5Y5+R18ID2MRKj@lists.infradead.org
+X-Gm-Message-State: AOJu0YxRVoKbH2ZUH4CG3j2o1Fu4aJbIw1X0d3luZd7+T1nQPpz/XPDp
+	n58ICJ5/VXjKOcUJgDNvCUtND5WJPTeC6vEkTcGb5PtEwGWBOCC/aCOEiV2NzfjjcYVbgCqcyyH
+	MIg9XCQW53MoIimSpw2XK/cKPX2FPXCw=
+X-Google-Smtp-Source: AGHT+IECJJHjGAnU1NUr4ozcxCWnRFCL9WRpq+BEhjBinEbwysmqVcNyjx+zeZUwmYMUKeDdT6dFc6CYWYPr3CoZ3wk=
+X-Received: by 2002:a05:6830:3746:b0:743:8af2:1b0e with SMTP id
+ 46e09a7af769-74569e90f29mr6034860a34.19.1756813664724; Tue, 02 Sep 2025
+ 04:47:44 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250902-kvm-arm64-sme-v8-23-2cb2199c656c@kernel.org>
-References: <20250902-kvm-arm64-sme-v8-0-2cb2199c656c@kernel.org>
-In-Reply-To: <20250902-kvm-arm64-sme-v8-0-2cb2199c656c@kernel.org>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
- Joey Gouly <joey.gouly@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>, 
- Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <shuah@kernel.org>
-Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>, 
- Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org, 
- kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- Peter Maydell <peter.maydell@linaro.org>, 
- Eric Auger <eric.auger@redhat.com>, Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.15-dev-cff91
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6845; i=broonie@kernel.org;
- h=from:subject:message-id; bh=n9Gv38zt8zDnvl+mS5Ep0oghSoUg5vKLb32ofFnUTn0=;
- b=owGbwMvMwMWocq27KDak/QLjabUkhoxtN7qfKlvu3CrWp2NXd7vkh01kY77Z+egYzTjO2ZGeu
- Q0ia006GY1ZGBi5GGTFFFnWPstYlR4usXX+o/mvYAaxMoFMYeDiFICJJG5l/2fy4e4bqUKBmRIv
- 1C1n3XrmXf2+wFpfJGeZ1yJ+06dXTR0L/0708/b9uyii1YixvEX7tf9V+cKT98yvn+Ro2ha3z9B
- 94fYnP7uE47vYMxd2tvTUmzg51ARctNfJzFlu0VymxBL68rDr3kVfkx/bnV+/Wzrc8tN0/vm7wy
- qs3tvcXfro/YVVsjESH0ze3U6d8+iSY+ip8tWdb0r1f/yRWawT8tvy6ZoS2RLVksbWlsqgpWnXf
- vw0m6z+SlkyP/C9Q9w7gZIm851iRu3WTrcmTPkxYc3ZgLkext+ndZzaJeW3rZj73z310jnXDteo
- R7Ubzzi419Aho7XDTy+EY06JoX1JblbcVjXRcMfFHIKvAQ==
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+References: <20250901085748.36795-1-zhangzihuan@kylinos.cn>
+ <20250901085748.36795-4-zhangzihuan@kylinos.cn> <CAJZ5v0hu48NrMr6Vkjn_UyHywJMx7F5N6yWf2LiXxykZF79EKA@mail.gmail.com>
+ <29890791-4ddf-49c7-a4f2-0ac83e6d53c6@kylinos.cn>
+In-Reply-To: <29890791-4ddf-49c7-a4f2-0ac83e6d53c6@kylinos.cn>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Tue, 2 Sep 2025 13:47:33 +0200
+X-Gmail-Original-Message-ID: <CAJZ5v0jvOKeLRkjWoKR5eVKZ-hib7c8D-VOBvtCvs1+HGfPUiQ@mail.gmail.com>
+X-Gm-Features: Ac12FXxFwO1d3JYj5phS50T_U2DONG2wuxBfs8rK_GU-NaLU6wYAD3eFplzuixw
+Message-ID: <CAJZ5v0jvOKeLRkjWoKR5eVKZ-hib7c8D-VOBvtCvs1+HGfPUiQ@mail.gmail.com>
+Subject: Re: [PATCH v3 03/12] cpufreq: intel_pstate: Use scope-based cleanup helper
+To: Zihuan Zhang <zhangzihuan@kylinos.cn>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+	Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Thierry Reding <thierry.reding@gmail.com>, MyungJoo Ham <myungjoo.ham@samsung.com>, 
+	Kyungmin Park <kyungmin.park@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, 
+	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+	Eduardo Valentin <edubezval@gmail.com>, Keerthy <j-keerthy@ti.com>, Ben Horgan <ben.horgan@arm.com>, 
+	zhenglifeng <zhenglifeng1@huawei.com>, Zhang Rui <rui.zhang@intel.com>, 
+	Len Brown <lenb@kernel.org>, Lukasz Luba <lukasz.luba@arm.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Beata Michalska <beata.michalska@arm.com>, 
+	Fabio Estevam <festevam@gmail.com>, Pavel Machek <pavel@kernel.org>, Sumit Gupta <sumitg@nvidia.com>, 
+	Prasanna Kumar T S M <ptsm@linux.microsoft.com>, Sudeep Holla <sudeep.holla@arm.com>, 
+	Yicong Yang <yangyicong@hisilicon.com>, linux-pm@vger.kernel.org, 
+	linux-acpi@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, intel-gfx@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
+	linux-omap@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250902_044746_021920_56749CE2 
+X-CRM114-Status: GOOD (  27.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,206 +105,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SME introduces two new registers, the ZA matrix register and the ZT0 LUT
-register.  Both of these registers are only accessible when PSTATE.ZA is
-set and ZT0 is only present if SME2 is enabled for the guest. Provide
-support for configuring these from VMMs.
+On Tue, Sep 2, 2025 at 12:33=E2=80=AFPM Zihuan Zhang <zhangzihuan@kylinos.c=
+n> wrote:
+>
+>
+> =E5=9C=A8 2025/9/1 23:17, Rafael J. Wysocki =E5=86=99=E9=81=93:
+> > On Mon, Sep 1, 2025 at 10:58=E2=80=AFAM Zihuan Zhang <zhangzihuan@kylin=
+os.cn> wrote:
+> >> Replace the manual cpufreq_cpu_put() with __free(put_cpufreq_policy)
+> >> annotation for policy references. This reduces the risk of reference
+> >> counting mistakes and aligns the code with the latest kernel style.
+> >>
+> >> No functional change intended.
+> >>
+> >> Signed-off-by: Zihuan Zhang <zhangzihuan@kylinos.cn>
+> >> ---
+> >>   drivers/cpufreq/intel_pstate.c | 8 +++-----
+> >>   1 file changed, 3 insertions(+), 5 deletions(-)
+> >>
+> >> diff --git a/drivers/cpufreq/intel_pstate.c b/drivers/cpufreq/intel_ps=
+tate.c
+> >> index f366d35c5840..4abc1ef2d2b0 100644
+> >> --- a/drivers/cpufreq/intel_pstate.c
+> >> +++ b/drivers/cpufreq/intel_pstate.c
+> >> @@ -1502,9 +1502,8 @@ static void __intel_pstate_update_max_freq(struc=
+t cpufreq_policy *policy,
+> >>
+> >>   static bool intel_pstate_update_max_freq(struct cpudata *cpudata)
+> >>   {
+> >> -       struct cpufreq_policy *policy __free(put_cpufreq_policy);
+> >> +       struct cpufreq_policy *policy __free(put_cpufreq_policy) =3D c=
+pufreq_cpu_get(cpudata->cpu);
+> >>
+> >> -       policy =3D cpufreq_cpu_get(cpudata->cpu);
+> >>          if (!policy)
+> >>                  return false;
+> > The structure of the code is intentional here and there's no reason to
+> > change it.
+>
+>
+> Got it. Thanks for clarifying.
+>
+> So for this case the current structure is intentional -
 
-The ZA matrix is a single SVL*SVL register which is available when
-PSTATE.ZA is set. We follow the pattern established by the architecture
-itself and expose this to userspace as a series of horizontal SVE vectors
-with the streaming mode vector length, using the format already established
-for the SVE vectors themselves.
+Note that I'm talking about this particular change only.  The other
+change in the $subject patch is fine.
 
-ZT0 is a single register with a refreshingly fixed size 512 bit register
-which is like ZA accessible only when PSTATE.ZA is set. Add support for it
-to the userspace API, as with ZA we allow the register to be read or written
-regardless of the state of PSTATE.ZA in order to simplify userspace usage.
-The value will be reset to 0 whenever PSTATE.ZA changes from 0 to 1,
-userspace can read stale values but these are not observable by the guest
-without manipulation of PSTATE.ZA by userspace.
+> should I also avoid similar changes in other drivers?
 
-While there is currently only one ZT register the naming as ZT0 and the
-instruction encoding clearly leave room for future extensions adding more
-ZT registers. This encoding can readily support such an extension if one is
-introduced.
+That depends on who maintains them, which is why I wanted you to split
+the patch into smaller changes in the first place.
 
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- arch/arm64/include/uapi/asm/kvm.h |  17 ++++++
- arch/arm64/kvm/guest.c            | 114 +++++++++++++++++++++++++++++++++++++-
- 2 files changed, 129 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
-index 5220797361e0..cf75a830f17a 100644
---- a/arch/arm64/include/uapi/asm/kvm.h
-+++ b/arch/arm64/include/uapi/asm/kvm.h
-@@ -357,6 +357,23 @@ struct kvm_arm_counter_offset {
- /* SME registers */
- #define KVM_REG_ARM64_SME		(0x17 << KVM_REG_ARM_COPROC_SHIFT)
- 
-+#define KVM_ARM64_SME_VQ_MIN __SVE_VQ_MIN
-+#define KVM_ARM64_SME_VQ_MAX __SVE_VQ_MAX
-+
-+/* ZA and ZTn occupy blocks at the following offsets within this range: */
-+#define KVM_REG_ARM64_SME_ZA_BASE	0
-+#define KVM_REG_ARM64_SME_ZT_BASE	0x600
-+
-+#define KVM_ARM64_SME_MAX_ZAHREG	(__SVE_VQ_BYTES * KVM_ARM64_SME_VQ_MAX)
-+
-+#define KVM_REG_ARM64_SME_ZAHREG(n, i)					\
-+	(KVM_REG_ARM64 | KVM_REG_ARM64_SME | KVM_REG_ARM64_SME_ZA_BASE | \
-+	 KVM_REG_SIZE_U2048 |						\
-+	 (((n) & (KVM_ARM64_SME_MAX_ZAHREG - 1)) << 5) |		\
-+	 ((i) & (KVM_ARM64_SVE_MAX_SLICES - 1)))
-+
-+#define KVM_REG_ARM64_SME_ZTREG_SIZE	(512 / 8)
-+
- /* Vector lengths pseudo-register: */
- #define KVM_REG_ARM64_SME_VLS		(KVM_REG_ARM64 | KVM_REG_ARM64_SME | \
- 					 KVM_REG_SIZE_U512 | 0xffff)
-diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-index 013d66febf10..734120a76623 100644
---- a/arch/arm64/kvm/guest.c
-+++ b/arch/arm64/kvm/guest.c
-@@ -594,23 +594,133 @@ static int set_sme_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- 	return set_vec_vls(ARM64_VEC_SME, vcpu, reg);
- }
- 
-+/*
-+ * Validate SVE register ID and get sanitised bounds for user/kernel SVE
-+ * register copy
-+ */
-+static int sme_reg_to_region(struct vec_state_reg_region *region,
-+			     struct kvm_vcpu *vcpu,
-+			     const struct kvm_one_reg *reg)
-+{
-+	/* reg ID ranges for ZA.H[n] registers */
-+	unsigned int vq = vcpu_sme_max_vq(vcpu) - 1;
-+	const u64 za_h_max = vq * __SVE_VQ_BYTES;
-+	const u64 zah_id_min = KVM_REG_ARM64_SME_ZAHREG(0, 0);
-+	const u64 zah_id_max = KVM_REG_ARM64_SME_ZAHREG(za_h_max - 1,
-+						       SVE_NUM_SLICES - 1);
-+	unsigned int reg_num;
-+
-+	unsigned int reqoffset, reqlen; /* User-requested offset and length */
-+	unsigned int maxlen; /* Maximum permitted length */
-+
-+	size_t sme_state_size;
-+
-+	reg_num = (reg->id & SVE_REG_ID_MASK) >> SVE_REG_ID_SHIFT;
-+
-+	if (reg->id >= zah_id_min && reg->id <= zah_id_max) {
-+		if (!vcpu_has_sme(vcpu) || (reg->id & SVE_REG_SLICE_MASK) > 0)
-+			return -ENOENT;
-+
-+		/* ZA is exposed as SVE vectors ZA.H[n] */
-+		reqoffset = ZA_SIG_ZAV_OFFSET(vq, reg_num) -
-+			ZA_SIG_REGS_OFFSET;
-+		reqlen = KVM_SVE_ZREG_SIZE;
-+		maxlen = SVE_SIG_ZREG_SIZE(vq);
-+	} else if (reg->id == KVM_REG_ARM64_SME_ZT_BASE) {
-+		/* ZA is exposed as SVE vectors ZA.H[n] */
-+		if (!kvm_has_feat(vcpu->kvm, ID_AA64PFR1_EL1, SME, SME2) ||
-+		    (reg->id & SVE_REG_SLICE_MASK) > 0 ||
-+		    reg_num > 0)
-+			return -ENOENT;
-+
-+		/* ZT0 is stored after ZA */
-+		reqlen = KVM_REG_ARM64_SME_ZTREG_SIZE;
-+		maxlen = KVM_REG_ARM64_SME_ZTREG_SIZE;
-+	} else {
-+		return -EINVAL;
-+	}
-+
-+	sme_state_size = vcpu_sme_state_size(vcpu);
-+	if (WARN_ON(!sme_state_size))
-+		return -EINVAL;
-+
-+	region->koffset = array_index_nospec(reqoffset, sme_state_size);
-+	region->klen = min(maxlen, reqlen);
-+	region->upad = reqlen - region->klen;
-+
-+	return 0;
-+}
-+
-+/*
-+ * ZA is exposed as an array of horizontal vectors with the same
-+ * format as SVE, mirroring the architecture's LDR ZA[Wv, offs], [Xn]
-+ * instruction.
-+ */
-+
- static int get_sme_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- {
-+	int ret;
-+	struct vec_state_reg_region region;
-+	char __user *uptr = (char __user *)reg->addr;
-+
- 	/* Handle the KVM_REG_ARM64_SME_VLS pseudo-reg as a special case: */
- 	if (reg->id == KVM_REG_ARM64_SME_VLS)
- 		return get_sme_vls(vcpu, reg);
- 
--	return -EINVAL;
-+	/* Try to interpret reg ID as an architectural SME register... */
-+	ret = sme_reg_to_region(&region, vcpu, reg);
-+	if (ret)
-+		return ret;
-+
-+	if (!kvm_arm_vcpu_vec_finalized(vcpu))
-+		return -EPERM;
-+
-+	/*
-+	 * None of the SME specific registers are accessible unless
-+	 * PSTATE.ZA is set.
-+	 */
-+	if (!vcpu_za_enabled(vcpu))
-+		return -EINVAL;
-+
-+	if (copy_from_user(vcpu->arch.sme_state + region.koffset, uptr,
-+			   region.klen))
-+		return -EFAULT;
-+
-+	return 0;
- }
- 
- static int set_sme_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- {
-+	int ret;
-+	struct vec_state_reg_region region;
-+	char __user *uptr = (char __user *)reg->addr;
-+
- 	/* Handle the KVM_REG_ARM64_SME_VLS pseudo-reg as a special case: */
- 	if (reg->id == KVM_REG_ARM64_SME_VLS)
- 		return set_sme_vls(vcpu, reg);
- 
--	return -EINVAL;
-+	/* Try to interpret reg ID as an architectural SME register... */
-+	ret = sme_reg_to_region(&region, vcpu, reg);
-+	if (ret)
-+		return ret;
-+
-+	if (!kvm_arm_vcpu_vec_finalized(vcpu))
-+		return -EPERM;
-+
-+	/*
-+	 * None of the SME specific registers are accessible unless
-+	 * PSTATE.ZA is set.
-+	 */
-+	if (!vcpu_za_enabled(vcpu))
-+		return -EINVAL;
-+
-+	if (copy_from_user(vcpu->arch.sme_state + region.koffset, uptr,
-+			   region.klen))
-+		return -EFAULT;
-+
-+	return 0;
- }
-+
- int kvm_arch_vcpu_ioctl_get_regs(struct kvm_vcpu *vcpu, struct kvm_regs *regs)
- {
- 	return -EINVAL;
-
--- 
-2.39.5
-
+My personal view is that code formatting changes, which effectively is
+what this particular one is, are pointless unless they make the code
+much easier to follow.
 
