@@ -4,97 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B57DCA100F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:09:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3285CA100D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:09:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2m0AdmzVx62ppePfQnYhxMw6RCz/hoGAXew6yRRziDg=; b=kR5uumlYYyvb6Rm33n04Z9ryoW
-	whIldWPlF3DQa6TQJLkwxpuA9tglOfhVVghMCX++MIc6B+2JrAf5pmpsfPBTCKNGSNaxP4+ggyiTE
-	RegbypP2slD3DkSWqpsf1u/XBcImReppJSwn+I4cTw77v60aBTuFg/AWId6kChfIRqT2cdIGe+D6U
-	zv2e+c6YaPwg9VOiLe4VLGdEz9dTRHNhKoaOFXXIvbA8LsW0t+1cxF3uWJjrq/s3CuWgcgu/RN6MZ
-	Om8rS6ChMVM2WJY2PJLYz0Q5CDr/es7zAZJXvLcVeJp0F6zmHu15uOxTFJ0tfyehSEEEfSjBFiitJ
-	gE4ZFybA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xWK5LjYNDXJb1VRRWLnTGxLcmQ0F3SifvZSboP4ZaLo=; b=lxRm4iZHxLrdIy4wKNY/77tjMs
+	y1dDAAF4Q+t/MV+EXHuaLoOmUZVWvh1FZ160JsiJ4IOZXpe7/Q0K2gsRP+wnQ5B27siBY9pERxTtZ
+	TMtt9dFq7y9/ZbLuWjM4NEVN9k68PXol0KfaKi8LmnLlF9tMYe6wADwb0Diko9pqMgudxWmAggNhg
+	tU9Q//kVlzOrtXtaTBUYhN1tCMQ+y7rc5zjCS4jRKH3Cr4+yioFEl5V/t2A5bKlku6LptF3D01zdz
+	E9Nau1L8R1kgU6sRUEWp1U+pujjbyMygiLjxM927GwrbBZE8GEqmkDAJsqbwaLdT7jwPxQVHchfhs
+	KlOT+Vug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utWNS-00000001Z0a-3k8H;
-	Tue, 02 Sep 2025 19:09:11 +0000
-Received: from meesny.iki.fi ([2001:67c:2b0:1c1::201])
+	id 1utWNQ-00000001Yyi-44fe;
+	Tue, 02 Sep 2025 19:09:09 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utQR1-0000000HQBk-2nmg
+	id 1utQGQ-0000000HMmr-0ncM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 12:48:29 +0000
-Received: from hillosipuli.retiisi.eu (91-158-51-183.elisa-laajakaista.fi [91.158.51.183])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: sailus)
-	by meesny.iki.fi (Postfix) with ESMTPSA id 4cGQWx2kLbzyRp;
-	Tue,  2 Sep 2025 15:48:13 +0300 (EEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi; s=meesny;
-	t=1756817296;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2m0AdmzVx62ppePfQnYhxMw6RCz/hoGAXew6yRRziDg=;
-	b=oD7/YPfrsYF7PqocSEKmT0mRJYjbdf0f+hJIpls01m/zB7brfUZRxI3iZ6H6juIFF9vR5b
-	I5ij7AQaKok6tXEhHwoUOjVy3MZXQ+bm4T/rcJWYyK92+81ZhrvNr/F3C/W1ARspXTYsbt
-	7EE5UnkBi/bV2iOMHKREoS+JUv9j5Ss=
-ARC-Seal: i=1; s=meesny; d=iki.fi; t=1756817296; a=rsa-sha256; cv=none;
-	b=inniAaeJ3cVCOuLXCrrmGOkUPS8+/0QrPFZyvGS7PBqY5RdBqdOvoW+fgPRqFDwDaozrNk
-	bcWaq7Jrq28xHUaeYry4EduTtrMNoFRtd+JL3rzPyCObHiJCdoDv3+l/+k1ZQLIRskOMTW
-	cBjV10vQK05w1wWvX8dK1U8KRoROsD4=
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=sailus smtp.mailfrom=sakari.ailus@iki.fi
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi;
-	s=meesny; t=1756817296;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2m0AdmzVx62ppePfQnYhxMw6RCz/hoGAXew6yRRziDg=;
-	b=TVokqAm9YtsAIJtOLvtXvL6q0rWppmcxEl99Jjp/YiRh+BBysDbQUpd7zcxuO5WEpfO3Dh
-	FFT1A6u11PRC4KxaDmLVGBJXY0TXVplpyfQutYI1JWuV1sHcrFSb9ftx/eoctgdeGDAwLS
-	Z6wsX1x19hjcQxJ5NF9ES2tSJ1y6now=
-Received: from valkosipuli.retiisi.eu (valkosipuli.local [192.168.4.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by hillosipuli.retiisi.eu (Postfix) with ESMTPS id 9C9C8634C93;
-	Tue,  2 Sep 2025 15:48:12 +0300 (EEST)
-Date: Tue, 2 Sep 2025 15:48:12 +0300
-From: Sakari Ailus <sakari.ailus@iki.fi>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Isaac Scott <isaac.scott@ideasonboard.com>, linux-media@vger.kernel.org,
-	rmfrfs@gmail.com, martink@posteo.de, kernel@puri.sm,
-	mchehab@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] imx-mipi-csis: Get the number of active lanes from
- mbus_config
-Message-ID: <aLbnjLapJXlCe67R@valkosipuli.retiisi.eu>
-References: <20250814113701.165644-1-isaac.scott@ideasonboard.com>
- <aJ77VTtZy96JJCHE@valkosipuli.retiisi.eu>
- <20250815103205.GJ6201@pendragon.ideasonboard.com>
- <aJ8ZJFSn5Wxhj2Aj@valkosipuli.retiisi.eu>
- <20250815113633.GM6201@pendragon.ideasonboard.com>
- <aJ8pKs_6YpAiPjlq@valkosipuli.retiisi.eu>
- <20250819024413.GJ5862@pendragon.ideasonboard.com>
- <175681611736.1349241.9877873145029586025@isaac-ThinkPad-T16-Gen-2>
- <20250902123805.GL13448@pendragon.ideasonboard.com>
+	Tue, 02 Sep 2025 12:37:31 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 582CXPwC010299;
+	Tue, 2 Sep 2025 14:37:22 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	xWK5LjYNDXJb1VRRWLnTGxLcmQ0F3SifvZSboP4ZaLo=; b=sxUBENY9z1oeaQHw
+	M1iHcy8NoLBIUzDfpqy3OpvGE+eNMD7FZpT0IsisQBl+ReuUChLMC4vUw49jN23p
+	W9anD+Jrv5Su7COecZmfw3tfv2fDl7D4jTHsEInThvvu52PbalpdF4X49GB1uSyy
+	mEUq84xvFgp7NXQ2/9/Sum7DATQczFGChM5Z+01DvU+drc4q3a97IEfCvvP/U9fv
+	DYathoeSLQYz9VVq5qzqTePnvq5yWv+jBSVpXXXveKL4CzDe5vaZh+otaU+rF13d
+	s1utOxI3xBGCTI/GpXhlI5JAZptYIrTcFoWanY/v+k9h6Pk3dLe5rHT8Bo+DEB7/
+	AEL1rQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48upe7bxyy-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 02 Sep 2025 14:37:21 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 37E9D40046;
+	Tue,  2 Sep 2025 14:35:53 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfcas1node2.st.com [10.75.129.73])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 8BE9B39EDA7;
+	Tue,  2 Sep 2025 14:34:39 +0200 (CEST)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by SHFCAS1NODE2.st.com
+ (10.75.129.73) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Tue, 2 Sep
+ 2025 14:34:39 +0200
+Received: from [10.48.87.127] (10.48.87.127) by SAFDAG1NODE1.st.com
+ (10.75.90.17) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Tue, 2 Sep
+ 2025 14:34:38 +0200
+Message-ID: <f335dfa3-be7e-4321-8625-d6862bb4d574@foss.st.com>
+Date: Tue, 2 Sep 2025 14:34:37 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] gpio: imx-rpmsg: add imx-rpmsg GPIO driver
+To: Shenwei Wang <shenwei.wang@nxp.com>,
+        Linus Walleij
+	<linus.walleij@linaro.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        "Mathieu
+ Poirier" <mathieu.poirier@linaro.org>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+        "Sascha
+ Hauer" <s.hauer@pengutronix.de>,
+        Bartosz Golaszewski <brgl@bgdev.pl>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam
+	<festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+        "linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+        "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+        "imx@lists.linux.dev" <imx@lists.linux.dev>,
+        "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+        "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>,
+        dl-linux-imx <linux-imx@nxp.com>
+References: <20250818204420.794554-1-shenwei.wang@nxp.com>
+ <20250818204420.794554-4-shenwei.wang@nxp.com>
+ <CACRpkdZq25n4gZSesV8z8zrBs6kqU1a8=vwVkPBwM+hFb9JKwg@mail.gmail.com>
+ <bb5cb154-0f7a-4e21-afe3-453ff5ee9373@foss.st.com>
+ <PAXPR04MB91859E0AACFBC1FC913019848907A@PAXPR04MB9185.eurprd04.prod.outlook.com>
+Content-Language: en-US
+From: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
+In-Reply-To: <PAXPR04MB91859E0AACFBC1FC913019848907A@PAXPR04MB9185.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250902123805.GL13448@pendragon.ideasonboard.com>
+X-Originating-IP: [10.48.87.127]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SAFDAG1NODE1.st.com
+ (10.75.90.17)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-02_04,2025-08-28_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_054827_906273_7EE1AE40 
-X-CRM114-Status: GOOD (  44.41  )
+X-CRM114-CacheID: sfid-20250902_053730_491665_5F5C17D8 
+X-CRM114-Status: GOOD (  22.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,96 +118,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Laurent, Isaac,
 
-On Tue, Sep 02, 2025 at 02:38:05PM +0200, Laurent Pinchart wrote:
-> On Tue, Sep 02, 2025 at 01:28:37PM +0100, Isaac Scott wrote:
-> > Quoting Laurent Pinchart (2025-08-19 03:44:13)
-> > <snip>
-> > > > > > > That would need to parse the endpoint every time we start streaming, it
-> > > > > > > doesn't sound ideal.
-> > > > > > 
-> > > > > > Perhaps not, but does that matter in practice? Parsing the endpoint is,
-> > > > > > after all, fairly trivial. The advantage would be simplifying drivers.
-> > > > > 
-> > > > > It's trivial from a code point of view, but it's not a cheap operation.
-> > > > > I'd like to avoid making starting streaming more expensive.
-> > > > 
-> > > > How cheap is "not cheap"? I'd be surprised if parsing an endpoint took more
-> > > > time than e.g. an I�C register write. Of course it depends on the CPU...
-> > > 
-> > > Still, it's not cheap, and I think it can easily be avoided.
-> > > 
-> > > > > > Alternatively we could think of caching this information somewhere but I
-> > > > > > don't think it's worth it.
-> > > > > 
-> > > > > Drivers likely need to parse endpoints for other reasons. I'd cache the
-> > > > > value in drivers, like done today, and pass it to a get_active_lanes
-> > > > > helper.
-> > > > 
-> > > > Then drivers presumably would also validate this against the endpoint
-> > > > configuration, wouldn't they? That's extra code in every CSI-2 receiver
-> > > > driver.
-> > > 
-> > > Why so ? The number of connected lanes can be passed to the helper
-> > > function, which can use it to validate the number of lanes reported by
-> > > the source subdev.
-> > 
-> > Apologies if I'm interpreting this wrong, but it seems that the main
-> > thing I'm reading is that this is not the correct place to implement
-> > this, and it should be implemented at a higher level (e.g. in v4l2) that
-> > lets all MIPI CSI reciever drivers use it?
-> > 
-> > I have noticed that similar functionality has been implemented as part
-> > of __v4l2_get_link_freq_pad. Are you suggesting that I take a similar
-> > approach and resubmit as a new series?
-> 
-> As far as iI understand, Sakari would like a helper function that will
-> query the remote subdev for the number of data lanes it uses, and
-> validates that against the number of connected data lanes as described
-> by DT. I don't like the idea of parsing the endpoint properties every
-> time we do so, so I think the number of connected data lanes should be
-> passed by the driver to the helper instead. The helper would still query
-> the remote subdev, and validate the value.
 
-As long as the bulk of the work is done by the helper, I'm fine. This is a
-fairly specific need but still in principle every CSI-2 receiver driver
-needs it, so ease of use does count.
+On 9/1/25 19:22, Shenwei Wang wrote:
+>
+>> -----Original Message-----
+>> From: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
+>> Sent: Monday, September 1, 2025 2:27 AM
+>> To: Linus Walleij <linus.walleij@linaro.org>; Shenwei Wang
+>> <shenwei.wang@nxp.com>; Bjorn Andersson <andersson@kernel.org>; Mathieu
+>> Poirier <mathieu.poirier@linaro.org>
+>> Cc: Rob Herring <robh@kernel.org>; Krzysztof Kozlowski <krzk+dt@kernel.org>;
+>> Conor Dooley <conor+dt@kernel.org>; Shawn Guo <shawnguo@kernel.org>;
+>> Sascha Hauer <s.hauer@pengutronix.de>; Bartosz Golaszewski <brgl@bgdev.pl>;
+>> Pengutronix Kernel Team <kernel@pengutronix.de>; Fabio Estevam
+>> <festevam@gmail.com>; Peng Fan <peng.fan@nxp.com>; linux-
+>> remoteproc@vger.kernel.org; devicetree@vger.kernel.org; imx@lists.linux.dev;
+>> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org; dl-linux-imx
+>> <linux-imx@nxp.com>
+>> Subject: [EXT] Re: [PATCH 3/4] gpio: imx-rpmsg: add imx-rpmsg GPIO driver
+>>
+>>
+>> Hello,
+>>
+>> On 8/21/25 11:01, Linus Walleij wrote:
+>>> Hi Shenwei,
+>>>
+>>> thanks for your patch!
+>>>
+>>> On Mon, Aug 18, 2025 at 10:45 PM Shenwei Wang <shenwei.wang@nxp.com>
+>> wrote:
+>>>> On i.MX SoCs, the system may include two processors:
+>>>>           - An MCU running an RTOS
+>>>>           - An MPU running Linux
+>>>>
+>>>> These processors communicate via the RPMSG protocol.
+>>>> The driver implements the standard GPIO interface, allowing the Linux
+>>>> side to control GPIO controllers which reside in the remote processor
+>>>> via RPMSG protocol.
+>>>>
+>>>> Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
+>>> Since this is a first RPMSG GPIO driver, I'd like if Björn and/or
+>>> Mathieu have a look at it so I'm sure it is RPMSG-proper!
+>> Could this driver be generic (platform independent) ?
+>> Perhaps i missed something, but it seems to me that there is no IMX specific
+>> code.
+>> Making it generic would allow other platforms to reuse it instead of duplicating it.
+>>
+> The driver uses the RPMSG channel just as a transport layer, so the implementation is actually
+> platform-independent. However, it requires the remote side to implement the same communication
+> protocol and behavior for the GPIO controller.
+>
 
-The helper could e.g. take the number of lanes in the endpoint as an
-additional argument and just return the value if the sub-device doesn't
-implement get_mbus_config() pad op. That'd be fairly trivial to use in a
-driver.
+Yes, pending implementation is needed on the remote processor, as is 
+already the case for the rpmsg_char and
+rpmsg_tty Linux drivers. If a generic remote implementation is needed 
+for this series, then it could be
+implemented in  the OpenAMP project as done for the rpmsg_tty and 
+rpmsg_char [1].
 
-> 
-> > > > > > > > The function could take struct media_pad pointer as an argument, or struct
-> > > > > > > > v4l2_subdev pointer and the pad number.
-> > > > > > > > 
-> > > > > > > > I wonder if any other parameters could change dynamically but I can't think
-> > > > > > > > of that now, so perhaps just the number of lanes is what the function
-> > > > > > > > should indeed return.
-> > > > > > > > 
-> > > > > > > > > +
-> > > > > > > > > +   return 0;
-> > > > > > > > > +}
-> > > > > > > > > +
-> > > > > > > > >  static int mipi_csis_s_stream(struct v4l2_subdev *sd, int enable)
-> > > > > > > > >  {
-> > > > > > > > >     struct mipi_csis_device *csis = sd_to_mipi_csis_device(sd);
-> > > > > > > > > @@ -965,6 +1002,10 @@ static int mipi_csis_s_stream(struct v4l2_subdev *sd, int enable)
-> > > > > > > > >     format = v4l2_subdev_state_get_format(state, CSIS_PAD_SINK);
-> > > > > > > > >     csis_fmt = find_csis_format(format->code);
-> > > > > > > > >  
-> > > > > > > > > +   ret = mipi_csis_get_active_lanes(sd);
-> > > > > > > > > +   if (ret < 0)
-> > > > > > > > > +           dev_dbg(csis->dev, "Failed to get active lanes: %d", ret);
-> > > > > > > > > +
-> > > > > > > > >     ret = mipi_csis_calculate_params(csis, csis_fmt);
-> > > > > > > > >     if (ret < 0)
-> > > > > > > > >             goto err_unlock;
+The idea here would be to have an equivalent of the virtio-gpio driver 
+but based on the RPMsg protocol instead of the
+virtio one.
 
--- 
-Kind regards,
+[1] 
+https://github.com/OpenAMP/openamp-system-reference/tree/main/examples/zephyr/rpmsg_multi_services
 
-Sakari Ailus
+Thanks,
+Arnaud
+
+>
+> Thanks,
+> Shenwei
+>
+>> Thanks,
+>> Arnaud
+>>
+>>>> diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig index
+>>>> a437fe652dbc..2ce4e9b5225e 100644
+>>>> --- a/drivers/gpio/Kconfig
+>>>> +++ b/drivers/gpio/Kconfig
+>>>> @@ -402,6 +402,17 @@ config GPIO_ICH
+>>>>
+>>>>             If unsure, say N.
+>>>>
+>>>> +config GPIO_IMX_RPMSG
+>>>> +       tristate "NXP i.MX SoC RPMSG GPIO support"
+>>>> +       depends on IMX_REMOTEPROC && RPMSG && GPIOLIB
+>>>> +       default IMX_REMOTEPROC
+>>>> +       help
+>>>> +         Say yes here to support the RPMSG GPIO functions on i.MX SoC based
+>>>> +         platform.  Currently supported devices: i.MX7ULP, i.MX8ULP, i.MX8x,
+>>>> +         and i.MX9x.
+>>>> +
+>>>> +         If unsure, say N.
+
 
