@@ -4,60 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C41F0CA0FFE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 12:30:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 453F8CA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 12:30:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ek44j+taq2c0pP3ZgbbarkxWXGF/ST7eK83cOYjQXqo=; b=FQ/1nKxVVS5yeWKbiln5wEhup8
-	DJe2/227cxn+0H/e/QlOIToYhn3MSSg34kMZV+Au8KYsp2R0DvDHEmruLnq90484w4TbPxbpf2sNL
-	3gBggKiVWDEgTE4DaE9Oz55/vJHko5DqmCv9IgWO0ROO2c1j7hTFqFTnygzuflpZWIeE+JW1vG+o3
-	FEXoh4CrwXJxUyUTD0WYhUrk0+i0brMsogonj5rp5mDzIiKeP8Zf+wqtdP+EqhepxhzKhLA5w4/mL
-	D0A2uo4R8dFXqJMtTTIfIntn0vHABD0ZtxE2wmY0ROn+cRAv6JCM9V99oHkgCbiomrpfs1tM39h8D
-	Lg0E/4Kw==;
+	bh=GNCNaMiPJDXvB/7iEX4grRokMrqO0VUFGnAoYlmBZNk=; b=xp1hP/HOMgfiMYdZsNCNc8VoAH
+	NG39uH1lZObCh7aLvwCIpp/a9xmzAYxJmDJyZ/iBDq1Hlh/bPYSdI9Hv3SVnFZH1jbDK4cGA8uybA
+	bbAdPrL/pBPBQxJzoB4oyj/xnIRevIBsLyyj4jrYLT8t3EzJVBYaQWM1Z0dLkOw7JHJmg1Hc7/3WD
+	f4xAbHUGVdMO3JYSaJS7n5YE3vqYRnAGnOW5nBKfbqFh78E8yn9TIha78trGXpKhyDtJikiJoNEgp
+	XsupFTJyuIrp+c5Vd+cG/y3oQMCVLN4OQRYStCuepN5suFhAhIy2inMQmpYQL+CJwGFlFYmZpS1Xx
+	FuFMzbvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utQ9k-0000000HHtB-16yQ;
-	Tue, 02 Sep 2025 12:30:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1utQ9r-0000000HI1E-0ARb;
+	Tue, 02 Sep 2025 12:30:43 +0000
+Received: from [195.187.100.5] (helo=ni.piap.pl)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utNeL-0000000GTus-0aGh
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 09:50:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 90BB6601FC;
-	Tue,  2 Sep 2025 09:50:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7957DC4CEFC;
-	Tue,  2 Sep 2025 09:49:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756806600;
-	bh=8DvXbPFnI4+n7hHxbxXgOGqvAp5g/qxDSdMttlnJd5U=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=DItEqcQPAEKKBmNhaurvDktBCHmT4CxXYPQrpqnvvYXk2r0RBKOm83KnoAEDAwv3f
-	 M+prW8UAbGCbx0WoabkpX+LsWr8thXEGRllDEA03z8xd+6qJUTowAq3bBw4HylU5+k
-	 rJtnUhVHR93a0PTH5cD61Bj6EunKByj7bbyA262xogNu+FrHa/P6nYPAMO0uoNeN9O
-	 wtrCD8yU/JSKvMMo+DZs4uq4VzUqMFalJj8DuwYCk4WIYPpEt+ogQE6wioQoUGasjh
-	 0OXbh1cKAFPZ1a99p8faURKF94Zrsk4jDWZpjMiiMQ75nI5YCh6rqUKLgV7kh14VK7
-	 fQvGPlTVVl1xw==
-From: Vinod Koul <vkoul@kernel.org>
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
- michal.simek@amd.com, radhey.shyam.pandey@amd.com, 
- Abin Joseph <abin.joseph@amd.com>
-Cc: git@amd.com, dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20250825130423.5739-1-abin.joseph@amd.com>
-References: <20250825130423.5739-1-abin.joseph@amd.com>
-Subject: Re: [PATCH RESEND] dt-bindings: dmaengine: xilinx_dma: Remove DMA
- client properties
-Message-Id: <175680659600.246694.18044016578906182085.b4-ty@kernel.org>
-Date: Tue, 02 Sep 2025 15:19:56 +0530
+	id 1utNil-0000000GVYY-048k;
+	Tue, 02 Sep 2025 09:54:40 +0000
+Received: from t19.piap.pl (OSB1819.piap.pl [10.0.9.19])
+	by ni.piap.pl (Postfix) with ESMTPS id 16763C3EEACD;
+	Tue,  2 Sep 2025 11:54:28 +0200 (CEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl 16763C3EEACD
+From: =?utf-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>
+To: Adam Ford <aford173@gmail.com>
+Cc: Stefan Klug <stefan.klug@ideasonboard.com>,  Laurent Pinchart
+ <laurent.pinchart@ideasonboard.com>,  Dafna Hirschfeld
+ <dafna@fastmail.com>,  Heiko Stuebner <heiko@sntech.de>,  Paul Elder
+ <paul.elder@ideasonboard.com>,  Jacopo Mondi
+ <jacopo.mondi@ideasonboard.com>,  Ondrej Jirman <megi@xff.cz>,
+  linux-media@vger.kernel.org,  linux-rockchip@lists.infradead.org,
+  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org
+Subject: Re: FYI: i.MX8MP ISP (RKISP1) MI registers corruption: resolved
+In-Reply-To: <CAHCN7xKq_o_u7PhPMcZ2W9nzrFP8+CnhaYJOyxnjpKfbMTBCEw@mail.gmail.com>
+	(Adam Ford's message of "Tue, 12 Aug 2025 13:22:54 -0500")
+References: <175308758352.3134829.9472501038683860006@localhost>
+	<175326599663.2811177.16620980968274114885@localhost>
+	<m3h5z2vw12.fsf@t19.piap.pl>
+	<175344176070.2811177.10693943493658922992@localhost>
+	<m3qzxyug1s.fsf@t19.piap.pl> <m3cy9futcj.fsf@t19.piap.pl>
+	<m34iumujcs.fsf@t19.piap.pl> <m3zfcet41n.fsf@t19.piap.pl>
+	<m3a545t789.fsf@t19.piap.pl>
+	<20250812103243.GK30054@pendragon.ideasonboard.com>
+	<175501095338.74722.11604545949710100799@localhost>
+	<CAHCN7xKq_o_u7PhPMcZ2W9nzrFP8+CnhaYJOyxnjpKfbMTBCEw@mail.gmail.com>
+Date: Tue, 02 Sep 2025 11:54:27 +0200
+Message-ID: <m31popxjqk.fsf@t19.piap.pl>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.13.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250902_025435_291490_900C423C 
+X-CRM114-Status: UNSURE (   8.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,21 +75,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-On Mon, 25 Aug 2025 18:34:23 +0530, Abin Joseph wrote:
-> Remove DMA client section mentioned in the dt-bindings as it is
-> not required to document client bindings in dmaengine bindings.
-> 
-> 
+summary:
 
-Applied, thanks!
+I've done a few additional tests and it seems the MEDIA_AXI clock is the
+problem. Reducing it to 400 MHz while still running MEDIA_ISP at 500 MHz
+produces no errors.
+MEDIA_ISP at 400 MHz and MEDIA_AXI at 500 MHz produces errors, though
+(register address errors while reading and writing from/to ISP MI
+(memory interface) registers, only on the secondary ISP (isp1), and
+generally only while streaming data from the ISP).
 
-[1/1] dt-bindings: dmaengine: xilinx_dma: Remove DMA client properties
-      commit: d5df661c9c76cb36d90527349ac6197a4baf2aba
+What is driven by MEDIA_AXI clock root? MEDIAMIX: ISI, LCDIF, ISP, DWE.
 
-Best regards,
--- 
-~Vinod
+According to both datasheets (industrial and commercial), MEDIA_AXI
+is limited to 400 MHz in normal mode and 500 MHz in overdrive mode.
+All my hardware is setup for overdrive mode, though (two manufacturers,
+both using the same PMIC setup).
 
+Since no hardware in the official Linux kernel tree (DT) uses the second
+ISP... Should we just add a warning to the imx8mp.dtsi and be done with
+it?
+Out of tree hardware using isp1 (csi1) obviously exists.
+--=20
+Krzysztof "Chris" Ha=C5=82asa
 
+Sie=C4=87 Badawcza =C5=81ukasiewicz
+Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
+Al. Jerozolimskie 202, 02-486 Warszawa
 
