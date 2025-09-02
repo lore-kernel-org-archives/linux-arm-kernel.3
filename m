@@ -4,131 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B92C4CA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:43:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1001CA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:43:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eU5M79LjKC4+cwkd5Ag8mxW8khc38EXWtzBPf6N3YXM=; b=dD+3fluQGXi4RQqFCwB1fC+f2A
-	Iis4WCYlWRsp9H0gmem/ipafByshBPqtpvfo6zY72MbTbh5X7wtCdeH0dXXJY7HS3uzqR3oXu5muZ
-	MtswuuaVDAPnHUsE7d66Z7H5dBTSfvtJpM/e086H4V8Rv7h7A3NkAOhhF6E0+lFGwurTM/MP0H2/7
-	RtNkxvFBoqgm+l/UhDprmr65PPHWKkQhOSUnftD3AAM7+DUdg72XWYdzZi+WfQr5cQ1iNUJeU45Gu
-	+ekV7SEsGUDC9sPXH367D+jGuIDtvP2WCNZjSbe0g3jVuWRcNhwvjFMDVbYt0C4aGZDO475YoXhc/
-	Z4EOLYYA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=z/+y/tdM/NG8BWfS1y/m+V54Xiln8R8eIncX37hI0yA=; b=AmZba30WuegoGBridhX3+izN1h
+	2sHYyWGK2zT8sX7suQfb41/th3xGNVr4dmwv2p4oylsju+bV2CIQKlD23KoLQTUgSjuoyj4yoOhaM
+	sIG9fehnIhYqncQjsBoxByYF7NBwuuYd7jphrMs6T1ZaQZ9JgNqblZKrGDfIsd0ue7Fu9+WCM8Zsu
+	Wklr4OZEu93mVSgXTFxpKAHYwarLfl5w8gbfuH3V4jRXOWyPkDzSnA5NFxpxtnWgf1gcwLPxajDJ5
+	7vIX1MBKVr/bl0eaJxAj30ckOA9jRnFuOQFJtZ9JwEfIvHtkaz1JqgOjLZTHq8OBPe63rZ5sX8R+s
+	PA8CISrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utYmF-00000002Aq9-3EPn;
-	Tue, 02 Sep 2025 21:42:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1utYmI-00000002Av4-1vQ9;
+	Tue, 02 Sep 2025 21:42:58 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utSgY-00000000bwt-3Aq5;
-	Tue, 02 Sep 2025 15:12:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 310196020C;
-	Tue,  2 Sep 2025 15:12:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB76CC4CEED;
-	Tue,  2 Sep 2025 15:12:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756825957;
-	bh=Qm0MENDGoBpJreb7usssnkk4Erhkc9mDyI1kYmenU/k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=fha+upITUjR1W0/UPbGo5pqDEYYHq2VFch/hzfP45Cc4DUFZMu/U1HZBKmEZDtzCu
-	 iBDx0UtAvG1Se/1xc+9eCfwZyjV/3B8QlHOzcSsDpxMRslOobnPh84NMMkD/x0Dv/g
-	 xRaeCkokcz/HiStL81OWybnmfeke8xbUFORD+3qh2QF881mhkN4aMXU+IZJA96/1Sp
-	 GT7K7ZaoP9kdQDHPvQM6s9ZrnoBcNhmkS02rGDVOVe7xI1V4vOYoP+D+XPHVNyGzze
-	 eB8+jAUjKEOBQZvHIRChGOBN8u5j/+qtdlLin+slLI13vbKI95OGhjjit3j4/QyXxt
-	 xBDYlmqE/1jCA==
-Message-ID: <1034c70a-da67-4914-b23c-8d006b7611bf@kernel.org>
-Date: Tue, 2 Sep 2025 17:12:24 +0200
+	id 1utSkt-00000000d03-2Fk0
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 02 Sep 2025 15:17:08 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-45b7c01a708so19340355e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 08:17:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756826226; x=1757431026; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=z/+y/tdM/NG8BWfS1y/m+V54Xiln8R8eIncX37hI0yA=;
+        b=CO2QFQYFKZ0ZvHFmkAzGCgg0vuXZFJ8G7Y++/Al+Sd7n1sMWprx0WV+HbWeuApG4n2
+         Q5OqHt7ag/kQQNyKIawM4FP06moc4074I5vzFrWBSBNpFrKxKNF/zuPBNJFymLwe5l4d
+         l2g0QUOVbb0rR9IkFY6y0IWZqQ+ncWZ7Q2W7gaCIDuMD0Y50WJhrLA7N3hfG9PRCNxWO
+         a12k3p+S1S5Stv380GU3cJ+Cqc6vcg6hSklcmg/JKJ4eJ7ydVRz90CuMFzn8XdHYcSe+
+         TEgzpI+2xEAyCbl2dZcOJQzbc6jcXCqCwxKuBWcdrQ5bxbdCY7f/3k2CfFcrqE1y/SzB
+         YQsQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756826226; x=1757431026;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=z/+y/tdM/NG8BWfS1y/m+V54Xiln8R8eIncX37hI0yA=;
+        b=CgVqYFck7EQoJ2pSHKTmmt9e+GGIgJQ++7bDg3yYuSXuQc8lcVgO3um1Qlnrnog0/a
+         IonMJ5AwRHD3eDphxy77pnHtg+/MMeM3M29EF1SEGt3am+ReEz2aDr/NPFbu6IVM2nHq
+         0MWgc2OcZJMeY64nny7nlsU/a1j1U+R2OnmnHWkk5OKWvW6geyWlSZ0EgpZOly0ipPrA
+         9f8qAWRIC14CZQPb1p/XFnGCs+SfmHUMZkrA9MYCvkakVHoojyiATkFhCNrICE8DuH0l
+         0D/KRl0KYahAykEg+oYfiSaBqBgMDity5YX+SyluAxSc9LxQS/J+ZgOA/qaPc2LHw2oq
+         ZlOw==
+X-Forwarded-Encrypted: i=1; AJvYcCVdGuhuYvwR8KBGIhMKh/Ts/nEJ5HkWy9savjKe2GO8rxJdnNtGnL3h775z6J5pM2lFtAQDtcmQSzl81oupTMRa@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywe56m7jWEZFJMxNkjgo2CTiXA4POz4si1eULXy8Oi7qw8SUmd5
+	hbIoqpyecV8ypEunrqRewAPUdWCR+4Z/DnnuDx0PXOQPFVBmt5A4HkhU
+X-Gm-Gg: ASbGncsvDD8L6PZApDNAPPp4sEuhPepwB3KlpwcyFakrBoLGQJVkIawDt+kknldWdTx
+	iU1UpdblxWnzTtzpp58IITFf5uXNGsReGRVdneDRz92XUk71r03LLRJc0CilLurdxBo5ACmfzow
+	sgXeqd/k5r5XUpUFFm4HjtgNLDbdbW3XTZq6ncqDy4d3ON6ICcFyC382qYy7HfjDwClNJE9BJzG
+	IqpU4SdFC7zmug90eQjYnhn7ObH5w1o/Z9K6nxR59ET5/wC+6b5QJujJdAGVGvTVVakn4joi01n
+	cvt1lecyHgSddECt2ea6iSWosK27BFquHcAR48cv3LoG+PgZl+FiLfHRUnRMMnYoFjVLzXCVko3
+	Br1XPwz9V79SJHFwS7cc9gDc+rjyhvA==
+X-Google-Smtp-Source: AGHT+IHPrxWG9n0jv/V9dHimweE6JV57TFo0vu1l+QiPK2mACEOvsa8ilVRABmpFuv6uFYWMmNxRuw==
+X-Received: by 2002:a05:600c:3ba9:b0:456:1a41:f932 with SMTP id 5b1f17b1804b1-45c6fa9a71amr2875755e9.22.1756826225515;
+        Tue, 02 Sep 2025 08:17:05 -0700 (PDT)
+Received: from mars ([2a02:168:6806:0:3f02:d36b:e22e:74c6])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b6f0d32a2sm308037565e9.9.2025.09.02.08.17.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 02 Sep 2025 08:17:04 -0700 (PDT)
+From: Klaus Kudielka <klaus.kudielka@gmail.com>
+To: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	=?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Klaus Kudielka <klaus.kudielka@gmail.com>,
+	Bjorn Helgaas <helgaas@kernel.org>,
+	Jan Palus <jpalus@fastmail.com>
+Subject: [PATCH] PCI: mvebu: Fix the use of the for_each_of_range() iterator
+Date: Tue,  2 Sep 2025 17:13:42 +0200
+Message-ID: <20250902151543.147439-1-klaus.kudielka@gmail.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 12/16] pinctrl: qcom: use generic pin function helpers
-To: Andy Shevchenko <andriy.shevchenko@intel.com>,
- Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>,
- Alexey Klimov <alexey.klimov@linaro.org>,
- Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Paul Cercueil <paul@crapouillou.net>, Kees Cook <kees@kernel.org>,
- Andy Shevchenko <andy@kernel.org>, Andrew Morton
- <akpm@linux-foundation.org>, David Hildenbrand <david@redhat.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka
- <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
- Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>,
- Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- NXP S32 Linux Team <s32@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Tony Lindgren <tony@atomide.com>, Haojian Zhuang
- <haojian.zhuang@linaro.org>, Geert Uytterhoeven <geert+renesas@glider.be>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>, Mark Brown <broonie@kernel.org>,
- linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
- linux-hardening@vger.kernel.org, linux-mm@kvack.org, imx@lists.linux.dev,
- linux-omap@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-References: <20250902-pinctrl-gpio-pinfuncs-v7-0-bb091daedc52@linaro.org>
- <20250902-pinctrl-gpio-pinfuncs-v7-12-bb091daedc52@linaro.org>
- <aLbt2euqYQM5xXuZ@smile.fi.intel.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <aLbt2euqYQM5xXuZ@smile.fi.intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250902_081707_579978_BF842D49 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,31 +105,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/09/2025 15:15, Andy Shevchenko wrote:
-> On Tue, Sep 02, 2025 at 01:59:21PM +0200, Bartosz Golaszewski wrote:
->>
->> With the pinmux core no longer duplicating memory used to store the
->> struct pinfunction objects in .rodata, we can now use the existing
->> infrastructure for storing and looking up pin functions in qualcomm
->> drivers. Remove hand-crafted callbacks.
-> 
-> ...
-> 
->> +	for (i = 0; i < soc_data->nfunctions; i++) {
->> +		func = &soc_data->functions[i];
->> +
->> +		ret = pinmux_generic_add_pinfunction(pctrl->pctrl, func, NULL);
->> +		if (ret < 0)
-> 
-> Why not simply
-> 
-> 		if (ret)
+The blamed commit simplifies code, by using the for_each_of_range()
+iterator. But it results in no pci devices being detected anymore on
+Turris Omnia (and probably other mvebu targets).
 
+Analysis:
 
-Because existing code is as readable? This is just some serious
-nitpicking which is not actually helping at all at v7.
+To determine range.flags, of_pci_range_parser_one() uses bus->get_flags(),
+which resolves to of_bus_pci_get_flags(). That function already returns an
+IORESOURCE bit field, and NOT the original flags from the "ranges"
+resource.
 
-Best regards,
-Krzysztof
+Then mvebu_get_tgt_attr() attempts the very same conversion again.
+But this is a misinterpretation of range.flags.
+
+Remove the misinterpretation of range.flags in mvebu_get_tgt_addr(),
+to restore the intended behavior.
+
+Signed-off-by: Klaus Kudielka <klaus.kudielka@gmail.com>
+Fixes: 5da3d94a23c6 ("PCI: mvebu: Use for_each_of_range() iterator for parsing "ranges"")
+Reported-by: Bjorn Helgaas <helgaas@kernel.org>
+Closes: https://lore.kernel.org/r/20250820184603.GA633069@bhelgaas/
+Reported-by: Jan Palus <jpalus@fastmail.com>
+Closes: https://bugzilla.kernel.org/show_bug.cgi?id=220479
+---
+ drivers/pci/controller/pci-mvebu.c | 14 ++------------
+ 1 file changed, 2 insertions(+), 12 deletions(-)
+
+diff --git a/drivers/pci/controller/pci-mvebu.c b/drivers/pci/controller/pci-mvebu.c
+index 755651f338..4e2e1fa197 100644
+--- a/drivers/pci/controller/pci-mvebu.c
++++ b/drivers/pci/controller/pci-mvebu.c
+@@ -1168,9 +1168,6 @@ static void __iomem *mvebu_pcie_map_registers(struct platform_device *pdev,
+ 	return devm_ioremap_resource(&pdev->dev, &port->regs);
+ }
+ 
+-#define DT_FLAGS_TO_TYPE(flags)       (((flags) >> 24) & 0x03)
+-#define    DT_TYPE_IO                 0x1
+-#define    DT_TYPE_MEM32              0x2
+ #define DT_CPUADDR_TO_TARGET(cpuaddr) (((cpuaddr) >> 56) & 0xFF)
+ #define DT_CPUADDR_TO_ATTR(cpuaddr)   (((cpuaddr) >> 48) & 0xFF)
+ 
+@@ -1189,17 +1186,10 @@ static int mvebu_get_tgt_attr(struct device_node *np, int devfn,
+ 		return -EINVAL;
+ 
+ 	for_each_of_range(&parser, &range) {
+-		unsigned long rtype;
+ 		u32 slot = upper_32_bits(range.bus_addr);
+ 
+-		if (DT_FLAGS_TO_TYPE(range.flags) == DT_TYPE_IO)
+-			rtype = IORESOURCE_IO;
+-		else if (DT_FLAGS_TO_TYPE(range.flags) == DT_TYPE_MEM32)
+-			rtype = IORESOURCE_MEM;
+-		else
+-			continue;
+-
+-		if (slot == PCI_SLOT(devfn) && type == rtype) {
++		if (slot == PCI_SLOT(devfn) &&
++		    type == (range.flags & IORESOURCE_TYPE_BITS)) {
+ 			*tgt = DT_CPUADDR_TO_TARGET(range.cpu_addr);
+ 			*attr = DT_CPUADDR_TO_ATTR(range.cpu_addr);
+ 			return 0;
+-- 
+2.50.1
 
 
