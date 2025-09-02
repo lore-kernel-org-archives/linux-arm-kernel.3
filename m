@@ -4,95 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17306CA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 22:57:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75D4CCA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 22:58:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=78JjK4tXcA8g9uPjMvbbjnVHA1m2U/+rqmg+Iy3ERTE=; b=W5vDYpffgSg3hrv9GUmNYk3UbG
-	sA5Wsno3Tf+TO/sllIWt/6JUEj7ZMkKyHSt4/I4X+TJaNBAijbNd/3OxukjSHQeSrTk9zp9sOvG4m
-	OKT9XTc2L1oUMB+zKGbWtt4+2PfRtcwUArQdl7bHT6i/7/l6gJaaPeiS5iLCfyTe48iuWw1kzIZrU
-	MmwJepH9ZfUN6B7LRbLdnyaFlJLQ9uEX2EIgAFQ8QiYtV4AmsI024QjyseZC3cdOTvJZX1d9A2v26
-	X0mULZ8Mlv46R5se8gbKwDjsT1YhGOTxEJF1vbPMKxdyGWwzRXHGU1qMznlebhC2ErEdZe6eLx6JY
-	Abtn9kDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u7GIiCQN9D27G1z6WErS2+1QWEeXcHwjOPa6iiJ9sa0=; b=ikuEcO7or8NiygxAae0q+Dtmre
+	j2GRZwxow/+EOOXaH2GFaUraEd2RR6StEFD4tiNsSQlymxUDFdyUHIpI7J6t5uIjC0LRyLaq0EmNW
+	WeMLkxRDYAA/Dh4ru4H/S3EDDoBWoiK67I1tkocFtdyI7xheIEUjMhZakgYfquxzIkIaofws20/Mh
+	hZWRAczOjSPy3JBjg7LOMsOq4Hydhv3oNhquCg0Vr91a6czwR+cZRnZHq7ZN4bwQ7ZR7DHT2s8aqi
+	G/ENODDJjg5oYSvneNtF9TpX9j6XiB7NiaFqnZhAJVWTJPWJsDInONemGZPscsP+GsVecomqrXvo2
+	ZDoZqpJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utZwo-00000002Ucc-0k3x;
-	Tue, 02 Sep 2025 22:57:54 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1utZwj-00000002UXP-1IMn;
+	Tue, 02 Sep 2025 22:57:49 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utWJt-00000001YCl-1JPk
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 19:05:30 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-24622df0d95so43964355ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 12:05:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756839928; x=1757444728; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=78JjK4tXcA8g9uPjMvbbjnVHA1m2U/+rqmg+Iy3ERTE=;
-        b=Fqdlfu2QoLWddam9scKlVWtztf1oRwbpdnOs/vkYgb4CLI7ZsVH3Voy2UiD10Sy8eu
-         5V+fxxzKPL5+J8P4fET+f14VYqzrYZrsSHq5HAzluP44eeKamV1CezCkjElRIc0/IKig
-         mr8fXWF0tfWqYeH9AAp1f+JmOnH6wJLxXrKPDUz8bWgiIWOS17/VXOwUEdYDIP31eO3B
-         nCa79f73cEIgW2ZDzOW8DN++uoI+ah5XMyrMl8fJxwD/ZW10aXStEbVIv1L03kKjH3EY
-         Pf6XLcqoz0jBPz2TYvDBS51pCDm7E+ZO1Ox9r0+bsGK63Vi9qUNnBX46Y95gQFhZg3VN
-         L/AQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756839928; x=1757444728;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=78JjK4tXcA8g9uPjMvbbjnVHA1m2U/+rqmg+Iy3ERTE=;
-        b=VG5iTbHYQA5sw6nInA6bVMcu2cfKhfjvhNmaD0fweul9hLFSPINDuuHKvSF55Pj8c5
-         LxuTppfRJ2Oh1RP3D+fiI7hlenYtYBj9vzGIq87hoGWYw/zvAhOY254JJuIJmPv2Hmlg
-         e7oE1AfCv83nQDMyYrQSnfM3oDU2SsqvMRwjyrr0KZtE398i7kWRVPV16S12O2B8pIOf
-         QzKxq2aNxUUwvatSthDIF/szpZnn36fi39SBvYVshURIGvZ48Fo3U2Z5DXIurlO7LBKJ
-         5Kt4L0PS0HEXVgvde56plZlw5HW5jP06I8ppuQNQL0i+b/y9UOWkudxYZZSsDFyvsjEj
-         nKfw==
-X-Forwarded-Encrypted: i=1; AJvYcCXeEvVzmsYb4g3ePUt4asZYs9WjSnZhCjYrQgBL+aXsZ78BNcdEOOxSoNRoUbaU4C0zUkqiep5fNqb6RRpMyvkh@lists.infradead.org
-X-Gm-Message-State: AOJu0YxAunI+Wv+w9PE8vnco5s8oG9u4R+hD7tRDDJmb1nD0DyN1M1x+
-	8IX6gJCRn7dtl4m/dvQ+FNkQclVKPSFNRjOFYQz2DSFuN1qpE4opwG2o
-X-Gm-Gg: ASbGncvNY80GVs71+Vm99ayWCcxpqMqQb8gcL2IhlTJFXn76ZmFd+Rsi/Q7AbVDJsJ1
-	z3c7rbaBHrAlq52/gvInXptdyBVpZkkHiofhAQEaXRY0DDWstd9F/qAeHoYTNf+t0LD0t1/2yLT
-	1Bbo5+TBSCewYYM1m5oSOscmCo1Y8yCXEeXZ5DVvDxNHKj8WQcsKUpk+a9a2m1Ri5TcKX2DzrlJ
-	oqzZXOIRU634d9hk5a9F6QYi3trnkw0qY/aQdaPjejLSPyccIOkZ6EaeKpVhTgZx7U2KvFBuzWv
-	Jr60Krq0G7qolYHFKzY9jpLEIqhRh/AvI9QwDvKfUxvJHzKf49xmSulm8gGtLhx/xUTq6co2wu3
-	sZNNni06ysgygo42Rg1E/CQ6HlN7YqnCuNNSSYu4gC4okgg==
-X-Google-Smtp-Source: AGHT+IEGvSjCtN2tazfJOvk7JjCLXCOhTbAtGkB2W3n5ns9Jne3onIDumA+e7R7UQzVPVwR1WktAOw==
-X-Received: by 2002:a17:903:2f8a:b0:24a:e25d:c70d with SMTP id d9443c01a7336-24ae25dca0emr91663435ad.48.1756839928286;
-        Tue, 02 Sep 2025 12:05:28 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-327da90ed87sm15053668a91.23.2025.09.02.12.05.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Sep 2025 12:05:27 -0700 (PDT)
-Date: Tue, 2 Sep 2025 12:05:26 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH 1/4] dt-bindings: watchdog: samsung-wdt: Define cluster
- constraints top-level
-Message-ID: <8b935f78-99dc-4857-bb5b-2a1636103772@roeck-us.net>
-References: <20250830-watchdog-s3c-cleanup-v1-0-837ae94a21b5@linaro.org>
- <20250830-watchdog-s3c-cleanup-v1-1-837ae94a21b5@linaro.org>
+	id 1utTpc-00000000wfg-3k2V;
+	Tue, 02 Sep 2025 16:26:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1756830362;
+	bh=WALewwHx2C+Gr6Q65PLmSt5V0bZuUMTVLBppkG5GReI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=mnz2RLK4X3Hk5GbUktymH8Z7xV3xj05l/Ro6j5NbhrNjDWsApUu8raDBfmlyQaJpT
+	 BVPoxC4eqLR3B+te5KPtj0FiQ1ymxK+fJo23QM2Kq8ihnBNB6t/lT0YvhU48OD/S1A
+	 IT1BK+xCwrQDeZqG2pHK8ijHJcop/QUFi57O9hR4Fr6CNSb3WD8DE+/WImSnPaI2oV
+	 3rSa7s6KWHrnrGj2EC+3BcOSJfOFz5IadIRB6dZq3G1FCxI68dOqclnUdZda5CKMnD
+	 tnQcQvg0wg1GGHeLx/vLzWkxAfjYaO79PVi8Aj5VUf5a2Ifp4YkAoD7RepZN4x+vmf
+	 OMyM4CwsQQqtQ==
+Received: from [192.168.1.90] (unknown [82.79.138.60])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2FDA617E0B84;
+	Tue,  2 Sep 2025 18:26:02 +0200 (CEST)
+Message-ID: <2a8ab8c3-36ae-46bd-8f98-6b3760532cb5@collabora.com>
+Date: Tue, 2 Sep 2025 19:26:01 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250830-watchdog-s3c-cleanup-v1-1-837ae94a21b5@linaro.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] drm: Add CRTC background color property
+To: =?UTF-8?B?VmlsbGUgU3lyasOkbMOk?= <ville.syrjala@linux.intel.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, kernel@collabora.com,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ Matt Roper <matthew.d.roper@intel.com>
+References: <20250902-rk3588-bgcolor-v1-0-fd97df91d89f@collabora.com>
+ <20250902-rk3588-bgcolor-v1-1-fd97df91d89f@collabora.com>
+ <aLby6OPxgubt7kd_@intel.com>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <aLby6OPxgubt7kd_@intel.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_120529_354793_154F58FB 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20250902_092605_080674_816F54B5 
+X-CRM114-Status: GOOD (  16.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,11 +82,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 30, 2025 at 12:18:57PM +0200, Krzysztof Kozlowski wrote:
-> Properties should be always constrained in top-level part of the
-> bindings, so move the samsung,cluster-index constrain from if: block.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+On 9/2/25 4:36 PM, Ville Syrjälä wrote:
+> On Tue, Sep 02, 2025 at 12:27:56PM +0300, Cristian Ciocaltea wrote:
+>> Some display controllers can be hardware programmed to show non-black
+>> colors for pixels that are either not covered by any plane or are
+>> exposed through transparent regions of higher planes.  This feature can
+>> help reduce memory bandwidth usage, e.g. in compositors managing a UI
+>> with a solid background color while using smaller planes to render the
+>> remaining content.
+>>
+>> To support this capability, introduce the BACKGROUND_COLOR standard DRM
+>> mode property, which can be attached to a CRTC through the
+>> drm_crtc_attach_background_color_property() helper function.
+>>
+>> Additionally, define a 64-bit ARGB format value to be built with the
+>> help of a dedicated drm_argb64() utility macro.  Individual color
+>> components can be extracted with desired precision using the
+>> corresponding DRM_ARGB64_*() macros.
+>>
+>> Co-developed-by: Matt Roper <matthew.d.roper@intel.com>
+>> Signed-off-by: Matt Roper <matthew.d.roper@intel.com>
+>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>> ---
+>>  drivers/gpu/drm/drm_atomic_state_helper.c |  1 +
+>>  drivers/gpu/drm/drm_atomic_uapi.c         |  4 ++++
+>>  drivers/gpu/drm/drm_blend.c               | 37 +++++++++++++++++++++++++++----
+>>  drivers/gpu/drm/drm_mode_config.c         |  6 +++++
+>>  include/drm/drm_blend.h                   |  4 +++-
+>>  include/drm/drm_crtc.h                    | 12 ++++++++++
+>>  include/drm/drm_mode_config.h             |  5 +++++
+>>  include/uapi/drm/drm_mode.h               | 30 +++++++++++++++++++++++++
+>>  8 files changed, 94 insertions(+), 5 deletions(-)
 
-Acked-by: Guenter Roeck <linux@roeck-us.net>
+[...]
+
+>> +/*
+>> + * Put 16-bit ARGB values into a standard 64-bit representation that
+>> + * can be used for ioctl parameters, inter-driver communication, etc.
+>> + */
+>> +static inline __u64
+>> +drm_argb64(__u16 alpha, __u16 red, __u16 green, __u16 blue)
+>> +{
+>> +	return (__u64)alpha << 48 | (__u64)red << 32 | (__u64)green << 16 | blue;
+>> +}
+>> +
+>> +/*
+>> + * Extract the specified number of least-significant bits of a specific
+>> + * color component from a standard 64-bit ARGB value.
+> 
+> Why would you ever want the least significant bits?
+
+Right, that's useless - will replace with proper helpers dealing with custom
+precision.
+
+Thanks,
+Cristian
+
+>> + */
+>> +#define DRM_ARGB64_COMP(c, shift, numlsb) \
+>> +	((__u16)(((c) >> (shift)) & ((1UL << (numlsb) % 17) - 1)))
+>> +#define DRM_ARGB64_ALPHA_LSB(c, numlsb) DRM_ARGB64_COMP(c, 48, numlsb)
+>> +#define DRM_ARGB64_RED_LSB(c, numlsb)   DRM_ARGB64_COMP(c, 32, numlsb)
+>> +#define DRM_ARGB64_GREEN_LSB(c, numlsb) DRM_ARGB64_COMP(c, 16, numlsb)
+>> +#define DRM_ARGB64_BLUE_LSB(c, numlsb)  DRM_ARGB64_COMP(c, 0, numlsb)
+>> +
+>> +/*
+>> + * Convenience wrappers to extract all 16 bits of a specific color
+>> + * component from a standard 64-bit ARGB value.
+>> + */
+>> +#define DRM_ARGB64_ALPHA(c)		DRM_ARGB64_ALPHA_LSB(c, 16)
+>> +#define DRM_ARGB64_RED(c)		DRM_ARGB64_RED_LSB(c, 16)
+>> +#define DRM_ARGB64_GREEN(c)		DRM_ARGB64_GREEN_LSB(c, 16)
+>> +#define DRM_ARGB64_BLUE(c)		DRM_ARGB64_BLUE_LSB(c, 16)
+>> +
+>>  #if defined(__cplusplus)
+>>  }
+>>  #endif
+>>
+>> -- 
+>> 2.51.0
+> 
+
 
