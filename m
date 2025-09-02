@@ -4,172 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12ED7CA1005
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:09:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18B57CA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:09:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x7cDelXlhSiiYiYvHuutrAKjXkosimBtsJ8K198UDbo=; b=lMLZljbazEwOQMz6oeK2AFoOPs
-	wNXtRAMorTUx6T1p6BTqwbrA7w2XpXYyvzuh1862v781qDb7dloqg4/f5EOD7HYCE4w+oaD2Ed44X
-	x6wiW/4gAZxeJ6LZrB9Ra22am/oO3lzE2RxbNxz+MDTW4zPphO76+SysrP9uo0gmFZ5yzDKTWfbY7
-	G5PVFxlPImSK20wUAFg4LeGHzuycXcFlQ3itZOhMDEmDDUs8tFr/IajjycU+rLE2iQya41P+nrXUp
-	WNVNAaNcPN5ucjpQmVCHg0v3iZrJEhglO+TjqJfZ4Yhu8zMuRa+8fM/+6klIXofntAiTVwuccRQke
-	9mAT6tyw==;
+	bh=c/e8OrCn7tyJZ6JB9iUKgm7HoNe0cFN9wyIlu1mO1DA=; b=m+MWRmvv8s+FGHk5s/PYgP87Sp
+	JHU6zSetp7zdJqZ2oGOPnFPz8qWHUyfCbVvLF7L3jox64v+tqQ8+VBk+Azv1gz2mI56DL9qqbyrsy
+	Np9dbBrHaHkyn21wjH+TNo5D0LZn0tkkYjtDfEZVtDQy4KiOjyfk41z1Iz2msW4amX2xkM4ddl4sC
+	toiBsdrfxebZ1+gzmDqG4lThboT7cZxWNLenntz5oBABbnBsZy9GlUnMtAkgZZ9GDgDPHTf+H6TRi
+	egBoQpQ+4hx6pDiKWyuuhPyXXNGt36d5WH6GtlFd/NF8VEC7f7R8P1cv3oIJybzLAd4VBhfodUHIe
+	KwbXTY4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utWNc-00000001Z9R-0oi7;
-	Tue, 02 Sep 2025 19:09:20 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1utWNd-00000001ZBH-49Wk;
+	Tue, 02 Sep 2025 19:09:21 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utQdy-0000000HUa3-3o3Z
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 13:01:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YgM5rnCJalqqeqPl9/AVPcciMVtjUf1zAyYjfqtaUNclgNO4zXwRhzeBRUgM5yLOEL8YHpGnK7VWcwaG/rAT26DOy9+SasU1VPeeSXLt1vPOmcm8yzIeQHlTpRfIaVTMzQ7tj/qLwW2eSS3/KbJCChYSPn4vlYU+II4Xct6ecKE/5KO8dmwarwq6TtTmE6a9sgI2TckY3Ux3LQLhGVFHgYcvL253JxQ/eiFdYQ/WbydBc/Ob3LvY6CJWQ1zaOcSJIPnFtrLK8axw9y5yUEnmCm0AHvqMLQ1cGH5YzLG1yDVoxiEl02z32XHDiAM4+xSXNO57YPeumkA9a6Uh4YlbJg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=x7cDelXlhSiiYiYvHuutrAKjXkosimBtsJ8K198UDbo=;
- b=bydzW6CYEKUO82yFwd/W5tXI0soqPL9Se0BVdHgW7g468qtuMEPvMtscBHBIgRMu9EFFH2fZPzCP/U/mHGVPljXb8bWpu16RTzwU66BfiU/C9c+vFfXFOWhtyGE4RZvwhDWiBdG4r+T8HRuQv8O5M2LXMIrcHgUMn2+UcjuRyfndL4pJM08C0JFBAB79yPlbNRts7ahIEYwmdE5JnJZ3CZiWlnT57x5HWgPObRuBMrG/ea5YSTlLjKoIDly9Dwefxdrb3o23SX096Cs+q+9EvtocBSFoxpwala/UuM/y7S1zjzJxUXA82of0jzJ7Xqnuxlta+7h8sxjyKydwnhDBaw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=x7cDelXlhSiiYiYvHuutrAKjXkosimBtsJ8K198UDbo=;
- b=AEkVv/jwU0XEavpvcXsoTpcRvZTnRLW0SBHPr5f73XBhnJvBnafod/Vk11N0JuKOntrrAB+p4toJuwbnHPLeJRV/sONNcW+7XSNIzItXfkjP/tF8E7qCYwy8po7zlL23+qFIjvW9v79APrybCrPDDMSJx7wExoIxJDvYnY7acaSJtZiTMDBM+KtaNsyuWLNnqwoXHn6AwDkHJXbOZ85he+9ergszX35CFefUDaPyYkIyOpkaliOWhOko0TRIucPSMjnJo36olKAuLhU8hsyNRJQOV7sHzyyKmIQrkJ+orVz5jnskDL1UYb4MS3Qg2zSSGZ9KlXjWhSkmGSv2vLVdbQ==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AS5PR04MB11393.eurprd04.prod.outlook.com (2603:10a6:20b:6c8::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.16; Tue, 2 Sep
- 2025 13:01:39 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.9094.015; Tue, 2 Sep 2025
- 13:01:39 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>, Arnd Bergmann <arnd@arndb.de>, Sudeep Holla
-	<sudeep.holla@arm.com>, Cristian Marussi <cristian.marussi@arm.com>
-CC: "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v2 0/3] firmware: imx: Add stub functions for MISC/CPU/LMM
- APIs
-Thread-Topic: [PATCH v2 0/3] firmware: imx: Add stub functions for
- MISC/CPU/LMM APIs
-Thread-Index: AQHcFY3715Y6RKM3aEivvywWZpe6MrR/58Ng
-Date: Tue, 2 Sep 2025 13:01:39 +0000
-Message-ID: <PAXPR04MB845910056A522BC1DD5D0F168806A@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20250825-imx9-sm-v2-0-0bae0265e66a@nxp.com>
-In-Reply-To: <20250825-imx9-sm-v2-0-0bae0265e66a@nxp.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|AS5PR04MB11393:EE_
-x-ms-office365-filtering-correlation-id: a216206b-fa72-4622-1fc2-08ddea20db06
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|19092799006|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?SFRENTkwcjdsemhaQW9QZ3IzTllobE5OMnUzdjFrWFhKeC85ek1BMVBHUjlC?=
- =?utf-8?B?VDBkejZDVVVDRkczRmtua3h5dXI1ZWl3YnU4clV1d1RGK2tIMnFpc08wNDJS?=
- =?utf-8?B?OGRsNmt2blpodWJaUStHNEhYUUVqa0x4WUFiR2tpVGdneGkxTEs4ZXJNOVp1?=
- =?utf-8?B?UHlGbFJhbzFYMTE1bTVkUmxWMUQyMHY0TiswRXRvd21paERYMzVOTzJtclhz?=
- =?utf-8?B?KzBGNGYzWjA0OFJaMElqMzZDaWNhZWpLYktaOXArVW10MXpnSHViQ0VIS0FF?=
- =?utf-8?B?UGx6ZGN0VXZTZzZVOHdxNXJSbHR4QWtQdzFreG1XU0dIMzBqSDl0TWp1bHls?=
- =?utf-8?B?dGlUdDNsZHNhRFllMEl6QndFSit2ZytYN3dTZjJFVUtURXVkQzdRSU9MSzd5?=
- =?utf-8?B?YXhaT01PMG16ZHYydDN5U0tkWFJSQlEwNGtGamN0RmlDLzltcCtuczNIVGh3?=
- =?utf-8?B?c05yVWNZUmhUMGxhLzBkeVJvcS9zMjdDbktuQXNrVjlJUXV3L0hPYytYV0dk?=
- =?utf-8?B?eFdieXJnYTdMSXpySWJLZDh0eUZVdi80SXlORDFHMUlHQlkvRFlUMys4emhX?=
- =?utf-8?B?Mk5yelNkVUVqWUlSVjVmM3RwUWNJTDhqZFd6aEFESllHQ1QxbU1tNUVSWFJP?=
- =?utf-8?B?eFgwVE55NDYrVStWeTJLZHpaSGZGNDh0Y1RoMFN4YjBUb0dUbWRaUVFoR2Zx?=
- =?utf-8?B?R0FCbEFEakNCMUJpeTdWZjhSclA4bENqNXBkcHZ3c0gyaVF4NmhVTTlJY1Y1?=
- =?utf-8?B?VmlwTXR1cmhZL3puVGxkaE91OWhDcWMvN2sxUDdMc1BsNDc2NEVpVEM3ZTJy?=
- =?utf-8?B?MVJFZyswSm1oeWtDQkNucUFlZS9PbHBWc3hoK3ZmN0lSS1g4L1FORHU3ZWNx?=
- =?utf-8?B?UEE0cWdZYUhXQmFMTW5qR3pJWkRKRjREanIzNHBtRjg4VFZBRy9XTkJMOU51?=
- =?utf-8?B?TDZRYmxOZGgvUm9GM2ZHUmJBelBVSExDSE01anBMT3hTMDZRS1ZNd1crakRS?=
- =?utf-8?B?a25DZ05iZ05oV1BuZGF5R0RicW9GWEVKS29hbDlHcDhRaHl3ZUQ5OWFERlpE?=
- =?utf-8?B?R1FkY0lNcjRjZ1U3ODhTaEJoeVRadWg4aHdCT0VmcE9JR055Mkl3NUNkdmp0?=
- =?utf-8?B?QUFaRWN6TlRHVGlrejBWN3VzaGVBT2VpYnB6MjFpaHZwcVh5N3dHRkRRK0hO?=
- =?utf-8?B?emQwL0J5ay9XQ04zZ0wvb1NaREhSM2d2eTFGVGpQakE4eEdOd3ZBeWZCeTFO?=
- =?utf-8?B?Ri9KaXh6elEzdVNsOXFqSmw0NkVzYllsVitJbmd5TW45aTArTjdzUmNnakdJ?=
- =?utf-8?B?MnFrREJBZnRFa21PM2h4Q29DQXFnVlhhL1o4c21UN05PL0ZOdEYwVG13aU5V?=
- =?utf-8?B?VGVqcmtlT3RZeWRDV2dYaVREbWo0NjMrZ0pUYXZORkxNeVI0YVRBbytBRGJI?=
- =?utf-8?B?bWRtRUl2NkR2a3hBWVlQa00zVHMrQVdlQXpqbzU2WURXajZpN08wN0xrc0JY?=
- =?utf-8?B?N3h3UnoyZWlCRHVLN1k2czhUdzhjemo3WVo4Y05GSnVDaXB6aVR2NXE2ZVds?=
- =?utf-8?B?OHZNUnNlemN6azVOUEdkbkRLZkRBMmkyMlM3SVcyVGhvSXBOK2tzS0h5cXU0?=
- =?utf-8?B?VFBHUmkrNnpRdTV1Z0FhU1RvQzJ5ZmN0VDVFbGNDK0NBNXlYR0pFby9sZFZZ?=
- =?utf-8?B?d1NkZExWU1RoNFZLMTZWUlF6dUJGMkJTTE5ocE9GekRkZzl3SGZScDk0V1RB?=
- =?utf-8?B?WXVndTM4dHF1alBpaEFVcTJXRVlRa2M1RG1kbWJDMEVob1kzZDJsL3lyQ1cw?=
- =?utf-8?B?bjN6N1lVZnA4eGZYVGhoQ2lWQmt1N0FlckxzcU5HTWFTa2YwNE5oWHFJdDFa?=
- =?utf-8?B?VXhBRWpFTWZUVnBmbnlUK3VYcHBqV2YwdUpxQzVkdnEvQzBSMFNicWZVbEpH?=
- =?utf-8?B?SHJ1RnllMFozOTZEN3hadVZDR1ZEUVJtdXN2QUNBUFVnaDZyMFJ0YXlSbk9h?=
- =?utf-8?B?SFIyY01JNnZRPT0=?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(19092799006)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?SENUUU1JZ28zVDBXdGJ3Yk92aWpXcktYYUVENVcxYVRzTkVzaXFMN3Exb09W?=
- =?utf-8?B?NGlWRS95anI5VHRlVnZPeVJKR0psbVIxMmxSTHVvTVprSEoxaSt3MDBER0Y4?=
- =?utf-8?B?UG4zWnNSdlRTZnd4UFBtZ0lMTWZqUGd4QnRHZGhtd3hQV3lodkZmRHlGd1JI?=
- =?utf-8?B?V3FRM3RrcmZmREJudXhGV3Y4YzltMHhQVmdXaTlsZXZXQXFwd1NSc2lKZCtQ?=
- =?utf-8?B?cjdjb3NkbVZDNVFFRjdla2g5dHJRdzZkQkFRZDlFSnM4ZjFUaFR5czYxTmlO?=
- =?utf-8?B?SEpJTzNmaUZMUFRRbDhrVXAxTjI4OHV1cG1kSHBhb1ZkRU41ZVpjbFJlNWZm?=
- =?utf-8?B?a0dqN0NRMlQxSXMwaWRQY0hndVBNZW5YSDhzamp3WXFIR1QwVjJQNXpjUU9P?=
- =?utf-8?B?VGVhd3NQdmZFeVFUNVRmNEVHdHhBMmo0b1o5TWc3NzMxNDdNTnl2ckt3N2Vi?=
- =?utf-8?B?amNUS1JHNmZ2K2VTbTBRNENwQWpSY01CbEVZcWpjVWw3RUgwb3IvRzFQMi9o?=
- =?utf-8?B?TmY0RGVLTU5hWDRxUzVUcUF0T1UwUUJrT1Nwekl4UGYxS2UrYTVuRmx0OGZS?=
- =?utf-8?B?bk5XcG11d3Y1blJJRU9oL2N5SmFzdWxFa3o2V2hqRFVma0xBeXhRM3BuUjRT?=
- =?utf-8?B?QUExVERXUEx3TlZZZ0RCRUYzdGdHd3I1NE85MVpXQU40Rk9OVUJhcStmOEFl?=
- =?utf-8?B?M1pGWnZLLzNObVJkRFV6UFlwaEhqNXdQc1JTeDV0T2xOeHBMSzk0YjJPbHp4?=
- =?utf-8?B?S3NhcUk1YW1jR0dIa016VFZSL3Z5V0dnTjV2aGdOS3lYd2x2L1piOW5nQ2ds?=
- =?utf-8?B?b1pTb3dqZDhnTWtjeGowNk5HZDQza3RDeCtoU1Z5SDFSTGNtalpMSndxU1k5?=
- =?utf-8?B?ZGhWNHd2Z1N4RkhFemJXSlF0YXRDeHBEbStOZlVHcXQxL1d5SDNHNW1iQldk?=
- =?utf-8?B?RzlHci9tRHhDdE05SWV5R3dZdzRpSzdiR2c5bitCNVlYZDdOcFZVVkJESTNM?=
- =?utf-8?B?aUNFZzV0VEcvdVNxU2w3QlIzZ3ZaUmNtYWk2MzdLN3RtRUVNcmhhUmx2Uzgy?=
- =?utf-8?B?K1RkUFlOaEl6czVGRnNRQzBtaHlaeFJKZnZUMkJjQU9rUUpMZXF3S0d5RE5D?=
- =?utf-8?B?dWhmN1YwL3RmNTVwVFdJbVZHRW9xNlFFQVdEMCtET3dTZDlsc1ZTc1NuK0lp?=
- =?utf-8?B?UzF0dXJpc2htYWNZaEtKdjl0a09UVEF4MmE0RXc3U2lPell6RFlCU0VibUV0?=
- =?utf-8?B?ZmQwSVRJVkc4SWJ0RisvbkRKcUIrbnVxTERFMGUySEkzNFJ1QVZxMnhGcXZy?=
- =?utf-8?B?MTBkWlhqb2NnYTc1VHBWWVZPTGgyNVQ0d1FjQ2lzMjVGc2JJYU9Gcy95VWoz?=
- =?utf-8?B?MHBnRWt2WVhrT2IxNU1rYldseVdxcWc0OTN1YjBvanh5Ty9SUUIyVGsyMmZ2?=
- =?utf-8?B?SmZRdnhMSWdWOUVDbWYzOGdhUWJVdEtsVEtWdWdyNG4xdFZhSDVBSW1jdk1I?=
- =?utf-8?B?Q2wvK0VyZHhLYWVEWUE4N1JaZnN0OGNtL3N6YmRXSUNqcXF5alkybVZJQlMw?=
- =?utf-8?B?R0w2bGcycU1RQnB5a2YwZDVCbzFCUWFORC9vWmRNL2VQazNSZFc0cklEc1Ev?=
- =?utf-8?B?eVBRU1FnMDdsZ09XU0l1dEk2M2wyclhYNHhSQ3hpRi94VGxkUUZkUHlEdmp1?=
- =?utf-8?B?ekkrTnNySzJZVWxtRWE3cFY2OW85ekpNVzRkMUJYc3Q4U2ljWGJrQk5MM1Zn?=
- =?utf-8?B?RnNaVFkycUdOVG1QbC8vbXZoOGZIeXBCdXg5WGdIY0VEbnE3WnVKU1lsZDlQ?=
- =?utf-8?B?YmdSTFFHSStuVTR4VWp3aXIvc0JXeGdOakZqWVV5dVg5VER2cko1MTRzTnVj?=
- =?utf-8?B?R1FBcnU0TTV4UVluVGZDYVdaZ2p4RkVPMkI4ajVNUlM2cnFOT3RQcFgreCtN?=
- =?utf-8?B?L2FQZFhUeFhOYzgyUjJTYWUxRlRXdFZmdFFFbFExS0xNaWtoeGl3MHBTM3Rr?=
- =?utf-8?B?WHlGV3JVZHNLTWdQTWsvTkhicVV0OG9BdFhNL0diWjBkTElqbG11RWVRTytI?=
- =?utf-8?B?OFJENitTblNDYjJ4MHBQcVpFVVZwUzlwajA3S0ZkSWJqcTFPdUpWcWU1VjY2?=
- =?utf-8?Q?gNcY=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	id 1utQii-0000000HWHj-3w5m;
+	Tue, 02 Sep 2025 13:06:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1756818405; x=1788354405;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=304mhcCsZ3DPW/ZeHF0UCdKTce70KODDh/J7W7FbB/E=;
+  b=QpKW6+X4MRSSuP03/rAOknhuHGjeES7EQI4oWlaZWcih2vlftGjqGrkU
+   T3C6dMqCNYdcKhEQnGCNYPVrfMZd0bkKkLOAlF6KfjUuOuG0IO/ij8u84
+   iExXyOcxbtiCLHrCUnLqa6CXURWuzOzx9RQlc09VOFH51dL9yNL4SUQCr
+   paYcRg+lRJapK2TZXMhHXPZkHLQd3AHnQcMAEmMShzSfCihpP0AN7S9iz
+   S4PoQ0x93ljEkoJLLOvOKLMBgf+wf7VIHJdAgXowXKZoWyPC+iMf10SZb
+   XOSTUFFbmbo2SjxM3jVN7klog1Z4dd8txPCcdzOajA287C+vjno8RAYX2
+   w==;
+X-CSE-ConnectionGUID: /Jg5kSB3SU+o9qZIGyiCIQ==
+X-CSE-MsgGUID: mOYNdiPES7mS6QAUkjcJHg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11541"; a="59028192"
+X-IronPort-AV: E=Sophos;i="6.18,230,1751266800"; 
+   d="scan'208";a="59028192"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Sep 2025 06:06:39 -0700
+X-CSE-ConnectionGUID: ahJv6su8QkCwIee8PybbEA==
+X-CSE-MsgGUID: WBNgT/TJTkOlqIdmDhs4Zg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,230,1751266800"; 
+   d="scan'208";a="171432863"
+Received: from smile.fi.intel.com ([10.237.72.52])
+  by orviesa008.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Sep 2025 06:06:29 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@intel.com>)
+	id 1utQiN-0000000AhP0-4600;
+	Tue, 02 Sep 2025 16:06:23 +0300
+Date: Tue, 2 Sep 2025 16:06:23 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Alexey Klimov <alexey.klimov@linaro.org>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Sean Wang <sean.wang@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Paul Cercueil <paul@crapouillou.net>, Kees Cook <kees@kernel.org>,
+	Andy Shevchenko <andy@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@redhat.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>, Dong Aisheng <aisheng.dong@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Jacky Bai <ping.bai@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	NXP S32 Linux Team <s32@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Tony Lindgren <tony@atomide.com>,
+	Haojian Zhuang <haojian.zhuang@linaro.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Mark Brown <broonie@kernel.org>, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-hardening@vger.kernel.org, linux-mm@kvack.org,
+	imx@lists.linux.dev, linux-omap@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v7 01/16] pinctrl: check the return value of
+ pinmux_ops::get_function_name()
+Message-ID: <aLbrz5DYS5Yxx_UE@smile.fi.intel.com>
+References: <20250902-pinctrl-gpio-pinfuncs-v7-0-bb091daedc52@linaro.org>
+ <20250902-pinctrl-gpio-pinfuncs-v7-1-bb091daedc52@linaro.org>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a216206b-fa72-4622-1fc2-08ddea20db06
-X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Sep 2025 13:01:39.0812
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 7EPMf2u1IUZtkcsXTHno4j+NyBR4DsrAMmJGb87/TeuNNXFFK/4uLeZEO41k77MMQGHSZrpR89oic6RrVF2wNg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB11393
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250902-pinctrl-gpio-pinfuncs-v7-1-bb091daedc52@linaro.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_060150_978230_1CE573ED 
-X-CRM114-Status: UNSURE (   8.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250902_060644_987506_334F7CF8 
+X-CRM114-Status: GOOD (  16.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,7 +126,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgU2hhd24sDQoNCj4gU3ViamVjdDogW1BBVENIIHYyIDAvM10gZmlybXdhcmU6IGlteDogQWRk
-IHN0dWIgZnVuY3Rpb25zIGZvcg0KPiBNSVNDL0NQVS9MTU0gQVBJcw0KDQpJcyB0aGlzIHBhdGNo
-c2V0IGdvb2QgZm9yIHlvdSB0byBwaWNrIHVwPw0KDQpUaGFua3MsDQpQZW5nLg0KDQo=
+On Tue, Sep 02, 2025 at 01:59:10PM +0200, Bartosz Golaszewski wrote:
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> 
+> While the API contract in docs doesn't specify it explicitly,
+
+So, why not to amend the doc at the same time?
+
+> the generic implementation of the get_function_name() callback from struct
+> pinmux_ops - pinmux_generic_get_function_name() - can fail and return
+> NULL. This is already checked in pinmux_check_ops() so add a similar
+> check in pinmux_func_name_to_selector() instead of passing the returned
+> pointer right down to strcmp() where the NULL can get dereferenced. This
+> is normal operation when adding new pinfunctions.
+
+Fixes?
+Reported?
+Closes?
+
+...
+
+>  	while (selector < nfuncs) {
+>  		const char *fname = ops->get_function_name(pctldev, selector);
+>  
+> -		if (!strcmp(function, fname))
+> +		if (fname && !strcmp(function, fname))
+>  			return selector;
+
+I would slightly refactor this:
+
+		const char *fname;
+
+		fname = ops->get_function_name(pctldev, selector);
+		if (fname && !strcmp(function, fname))
+			return selector;
+
+>  		selector++;
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
