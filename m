@@ -4,64 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 551F5CA1009
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 08:49:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F81ECA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 08:52:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=edx4+FJnnd5hSSVQbCAZvYcoc4d8akKqCYi6kJbh5UQ=; b=PAT+S04PSJjTalViiF1Zb5M1Ti
-	NIFeyqTXKyy/zAeYe4K4pEL2HtyMbetYidHzagPHmyZbLFyAORwsMqNQgklIyYGZsQXUqm4dSTerU
-	PL5dYoRfK1caA3qS+JsI9GpLX2Vx7Sc+wRYXdgBbRZ1R6Y7TUvu6eVfJWBQ9V8jnIXGKe+FEA42ZY
-	6Vi+7ozavMf6avnX52GAwSyRwMReJzdq5+OkpMaAYAF7pQUq5W2G6bte8vQzylwSFILgbvmzt9V3z
-	ESNc4GuYWTVU/a6uswY/6/jjHOu79feoojZwwweXDUTURUaKGzOCpU3KYJl36hngvsl5FBzfZ07DR
-	Z88RGPXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Hqr2PkWeqj78bgEo/ix/HnyM3/D2QqFTKb1SDJ42Iko=; b=mLToLw0Qfn/8ZvQN/Ktof6irZ3
+	mk45QDo3MxhiUc5A7i52FuP3ybFWMgS1MM7h9LXII5dc3lwVzDBQneODkcBABn5ptF+ONYpiXvCqk
+	Rws1QNFKBc5u43vPJD+QpP136wYAIRq5OJra0PSFptaKgEn0pM2wdiJ26m/h2wKhAwNGw4hfJ7Dzx
+	9OKJlQ+1fIvaP7CqRhK87h7E4OqRgIG6B7j+TPO7KKogP4JXIINnubjH3yd7/MUn747hdM+mJlhKe
+	eLQ+UsPaN6dERfWUJR/1P+ZGQRxTJO9XhY9TSSUkGYL04zzI7sTtNJJm6Pxp7jz3e3tU032QdTKLk
+	0skE4n8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utMhj-0000000GAex-3Ywv;
-	Tue, 02 Sep 2025 08:49:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utMIn-0000000G1ox-1ck4
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 08:23:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1B6D82720;
-	Tue,  2 Sep 2025 01:23:29 -0700 (PDT)
-Received: from [10.57.4.221] (unknown [10.57.4.221])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5EA903F6A8;
-	Tue,  2 Sep 2025 01:23:35 -0700 (PDT)
-Message-ID: <e823610a-e145-4627-9968-6d2dcc873184@arm.com>
-Date: Tue, 2 Sep 2025 09:23:34 +0100
+	id 1utMkT-0000000GBlE-0Dhh;
+	Tue, 02 Sep 2025 08:52:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1utMSB-0000000G4Qu-2dDX;
+	Tue, 02 Sep 2025 08:33:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 00DD460210;
+	Tue,  2 Sep 2025 08:33:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC295C4CEF7;
+	Tue,  2 Sep 2025 08:33:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756802002;
+	bh=Hqr2PkWeqj78bgEo/ix/HnyM3/D2QqFTKb1SDJ42Iko=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eexVNZZOyCZ752U7B0Hxcl7iDb0v3eqNyGVNEJNzf0PCN5A3mrQ0AScJt5LA06Hf8
+	 a5sf4rqTHCA59xQlkbFYGFgseE5b3iaP3LEVm/20ZJspA8j5cy22VIF+SVI9igcSgz
+	 0UlRax8yYiV6MUzZXJbGEAZWizY2Zbj39kpJnvfo8/I0NyNYCiVGbUpt2+IQaDmq0L
+	 vc9Y3Prxj+tY0TBlksdY/5gts7JPJHy/mZCpxdYkUbWOgVxD7JuiK6wKZJbtvOYKwk
+	 qPcfUTqYDxqxCBibyub+dc0VK8JsdVpshCG+MpMFB7DMdDvni4nEY0L6G7UG+G/O6F
+	 AgY1n5wtbq6Aw==
+Date: Tue, 2 Sep 2025 10:33:16 +0200
+From: Niklas Cassel <cassel@kernel.org>
+To: Hans Zhang <18255117159@163.com>
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, bhelgaas@google.com,
+	heiko@sntech.de, mani@kernel.org, yue.wang@amlogic.com,
+	pali@kernel.org, neil.armstrong@linaro.org, robh@kernel.org,
+	jingoohan1@gmail.com, khilman@baylibre.com, jbrunet@baylibre.com,
+	martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v5 0/2] Configure root port MPS during host probing
+Message-ID: <aLarzJZI3E_sb7_Y@flawful.org>
+References: <20250620155507.1022099-1-18255117159@163.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/5] arm64: cpucaps: Add GICv5 Legacy vCPU interface
- (GCIE_LEGACY) capability
-Content-Language: en-GB
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "kvm@vger.kernel.org" <kvm@vger.kernel.org>
-Cc: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
- "oliver.upton@linux.dev" <oliver.upton@linux.dev>,
- Joey Gouly <Joey.Gouly@arm.com>, "yuzenghui@huawei.com"
- <yuzenghui@huawei.com>, "will@kernel.org" <will@kernel.org>,
- "tglx@linutronix.de" <tglx@linutronix.de>,
- "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
- Timothy Hayes <Timothy.Hayes@arm.com>
-References: <20250828105925.3865158-1-sascha.bischoff@arm.com>
- <20250828105925.3865158-4-sascha.bischoff@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20250828105925.3865158-4-sascha.bischoff@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_012341_473255_935D52BC 
-X-CRM114-Status: GOOD (  18.90  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250620155507.1022099-1-18255117159@163.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,55 +73,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/08/2025 11:59, Sascha Bischoff wrote:
-> Implement the GCIE_LEGACY capability as a system feature to be able to
-> check for support from KVM. The type is explicitly
-> ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE, which means that the capability
-> is enabled early if all boot CPUs support it. Additionally, if this
-> capability is enabled during boot, it prevents late onlining of CPUs
-> that lack it, thereby avoiding potential mismatched configurations
-> which would break KVM.
-> 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+On Fri, Jun 20, 2025 at 11:55:05PM +0800, Hans Zhang wrote:
+> Current PCIe initialization exhibits a key optimization gap: Root Ports
+> may operate with non-optimal Maximum Payload Size (MPS) settings. While
+> downstream device configuration is handled during bus enumeration, Root
+> Port MPS values inherited from firmware or hardware defaults often fail
+> to utilize the full capabilities supported by controller hardware. This
+> results in suboptimal data transfer efficiency throughout the PCIe
+> hierarchy.
 
+(snip)
 
-> ---
->   arch/arm64/kernel/cpufeature.c | 15 +++++++++++++++
->   arch/arm64/tools/cpucaps       |  1 +
->   2 files changed, 16 insertions(+)
-> 
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index 9ad065f15f1d..afb3b10afd75 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -2520,6 +2520,15 @@ test_has_mpam_hcr(const struct arm64_cpu_capabilities *entry, int scope)
->   	return idr & MPAMIDR_EL1_HAS_HCR;
->   }
->   
-> +static bool
-> +test_has_gicv5_legacy(const struct arm64_cpu_capabilities *entry, int scope)
-> +{
-> +	if (!this_cpu_has_cap(ARM64_HAS_GICV5_CPUIF))
-> +		return false;
-> +
-> +	return !!(read_sysreg_s(SYS_ICC_IDR0_EL1) & ICC_IDR0_EL1_GCIE_LEGACY);
-> +}
-> +
->   static const struct arm64_cpu_capabilities arm64_features[] = {
->   	{
->   		.capability = ARM64_ALWAYS_BOOT,
-> @@ -3131,6 +3140,12 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
->   		.matches = has_cpuid_feature,
->   		ARM64_CPUID_FIELDS(ID_AA64PFR2_EL1, GCIE, IMP)
->   	},
-> +	{
-> +		.desc = "GICv5 Legacy vCPU interface",
-> +		.type = ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE,
-
-This is the right type for the capability intended, running the test on 
-each boot time CPUs and setting the cap accordingly.
-
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-
+Gentle ping.
 
 
