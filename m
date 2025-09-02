@@ -4,68 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1EE5CA0FFE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 07:38:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 524CDCA100C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 07:46:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XZSLYhdlIbnghXt6TwaEm7+yoO4aoLtOznhHPUnvjTU=; b=F5fQR1uBR2COLqVKBom27w4rv9
-	UlidcwWi1hiklIvilG6eZJTlciabNh9oifcYfE4L1ZCZJ4ndeijUUlrIXMqgL6ziVdEFtCu6NiSRY
-	KZALOcuVTH7Zjne+IK7CsOivLKk6SLQcB97K9aX4TkwxuEaBm+wY54C1x+7Cp8b/DDbw/EItweN5f
-	c0q1OLjparONbQkEhkkdAjaq7xN7VlidO4Tj0cDi9Hg5ATc+UOFq+rCys4jq9JiliRukhirpBUA5o
-	dCQv48Wc85QCtnMkFIw5FEFzloKrHm67iDWrsH3D3iWiOTxBLjgYrgIKl4Jzr5w3ixhWy4UKd/uoO
-	0BoMjw2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gKI5gLGTj07P22khPJSte6uwbo2TpUQvafpvsUjktDU=; b=z9ri1c88LxibRXameyCpDjPFxx
+	fA7NwQ3uWc7GxbCB2UXTVY9BqzIyNiLMgB559Ri0LWBTCuRM+c43f5b0osUskG7Rh+Hvfo+MjRsUv
+	94t2Rw7PoGIE2nckjFvDV7zjle03Alj4qiQ1v+XXXMYYaK5n6S9AYgDaH1mxXAxSltGsM24RVRKtm
+	yRdpOH45h9Gx/Sw5d61cnZzrqncXn0FZhj7o9bDb1uwRHPUQSiUS5V2sIOWwp6jCT/QpmSGrujVSJ
+	nXeEBZmL8AjtSqD3lz3YzoD6d/B79jviGedH4dA6x/u7zb1wa7qwZWQtoeVY/40pwnzpAzr2oX7FD
+	yoWUy6yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utLaf-0000000Fms1-1QKS;
-	Tue, 02 Sep 2025 07:38:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1utLiJ-0000000FoNG-2VPT;
+	Tue, 02 Sep 2025 07:45:59 +0000
+Received: from mail-koreasouthazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c410::1] helo=PUWP216CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utLXy-0000000FmEG-02XU
+	id 1utLfY-0000000FnlQ-3rV4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 07:35:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9CA704348F;
-	Tue,  2 Sep 2025 07:35:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32F30C4CEED;
-	Tue,  2 Sep 2025 07:35:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756798517;
-	bh=E/WY5o6a97fVHU8e5uy2CoWMRAn7yHxp4l1Tt05M7pQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=nymPyFHaAcgHY3kjoLFAWTfg/VeqM5171gZw/UhNyg9PSulFo70S9+Uf89ywYHI2F
-	 TP0kj0tj7CVr8uk31H7r6i8kgwp/Vz/lIMQJfsFXZ+qe5QdumAEUtB7oaB6fWS30oA
-	 ba0B1Z4l66xfrJs0oNuIbiVCvOJzTxdFntl4jR8aunxFyTXYVkITEOMVs9zZvzFT9I
-	 BksleDrnd05NzHesNhvNdLu7bpN3EkUHHVKhhYu27OCgSambrPhwWIieAEK8n3eQys
-	 9QgBDGPKGDm6KMWAW2efFr5R/C+a3M3oSggjnqSZSBuK2CHxWS5GxKmt453CYagsKq
-	 0tCjlMKVdJOnA==
-Date: Tue, 2 Sep 2025 16:35:14 +0900
-From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-To: Luo Gengkun <luogengkun@huaweicloud.com>
-Cc: Steven Rostedt <rostedt@goodmis.org>, mathieu.desnoyers@efficios.com,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Catalin
- Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-arm-kernel@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH] tracing: Fix tracing_marker may trigger page fault
- during preempt_disable
-Message-Id: <20250902163514.f877d9c96e913f08c0c6b0b1@kernel.org>
-In-Reply-To: <cc6eb973-d82b-4afc-83fb-a2c28cc79d36@huaweicloud.com>
-References: <20250819105152.2766363-1-luogengkun@huaweicloud.com>
-	<20250819135008.5f1ba00e@gandalf.local.home>
-	<436e4fa7-f8c7-4c23-a28a-4e5eebe2f854@huaweicloud.com>
-	<20250829082604.1e3fd06e@gandalf.local.home>
-	<20250902005645.8c6436b535731a4917745c5d@kernel.org>
-	<cc6eb973-d82b-4afc-83fb-a2c28cc79d36@huaweicloud.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+	Tue, 02 Sep 2025 07:43:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=M4D6MMVr25acA6P/346bHhSV820MVsdPp8f2lNXYp/gYRNjnrZ87NJmN01gaAYZRWLB9ikS/e10TBti2G4uC7XRJb4gjj2vE0eXDHVA/xwobYhrupirzjbJQptabxwMIP/fFj+w1LwvT0dy59uEbnUGaPvsm3X5e6ODgb57tPHQw2eAK8/JtU/u2L8644SgQGoncKD1jeSYf/mQbm9quB3Hy4sFH4Z7QgJeg350StO/njZS1mGkCpwB6+CaC13wYNkzEXYpfQN9/p7Kltjw3F6EDFtEUSxl9qeJZszdXkuWtROAX+8mHU0WzdtDRHXTGhP0TQDByQCEWDxChJfdY6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gKI5gLGTj07P22khPJSte6uwbo2TpUQvafpvsUjktDU=;
+ b=xna71hb+EFr84yyVjc6/baZ3es7o1uinAQr8SsoM20mzGSZufNhfkwlYG8IL7VNK24Sue51sWMEb+51JAVC/Al8VtxJtfpiqMcViKC258SCb7h24CQWclOKIfoS+poay9J9gDTuV+v6593QXbq++TTpvO/SvTlvMNrFCFKj8RudKUP3ST26Ic569gsdto8KhaffN0SV3nYO9Mznzv1Fanyd92Gp8T2QIw1HeyfgAi78kYjjrgUCj5/EjRuHQSy+55Tc55XvvcrIJ2MMFfzlmNLPVhRZC+Ao5GMRyr845Lrt9uez7Et2+AnsgKulh3ZSVrw66WH34KOZetagi87LxqQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=chipsnmedia.com; dmarc=pass action=none
+ header.from=chipsnmedia.com; dkim=pass header.d=chipsnmedia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chipsnmedia.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=gKI5gLGTj07P22khPJSte6uwbo2TpUQvafpvsUjktDU=;
+ b=hw6WZNX8jtOqFYt+dtqqniwQBS/Q2owvMOBZbgVowStpCLEaZDqo8fmoElAUKSHhJcnYM2TEptW36p9cPIhfxhDH8Uq0P8WJXHX6eY6gpw467gOLEGGZKv7dGVDqG5BiRBtkJn52Dj55be6xS1Z1F211C3WbMxdRG5a2tnccB70=
+Received: from SL2P216MB1246.KORP216.PROD.OUTLOOK.COM (2603:1096:101:a::9) by
+ SE1P216MB1333.KORP216.PROD.OUTLOOK.COM (2603:1096:101:17::12) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9094.14; Tue, 2 Sep 2025 07:42:51 +0000
+Received: from SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+ ([fe80::9e3d:ee20:8cc7:3c07]) by SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+ ([fe80::9e3d:ee20:8cc7:3c07%5]) with mapi id 15.20.9094.015; Tue, 2 Sep 2025
+ 07:42:51 +0000
+From: Nas Chung <nas.chung@chipsnmedia.com>
+To: Nas Chung <nas.chung@chipsnmedia.com>, Krzysztof Kozlowski
+	<krzk@kernel.org>, "mchehab@kernel.org" <mchehab@kernel.org>,
+	"hverkuil@xs4all.nl" <hverkuil@xs4all.nl>, "robh@kernel.org"
+	<robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>, "shawnguo@kernel.org"
+	<shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>
+CC: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-imx@nxp.com" <linux-imx@nxp.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, jackson.lee
+	<jackson.lee@chipsnmedia.com>, lafley.kim <lafley.kim@chipsnmedia.com>
+Subject: RE: [PATCH v3 2/9] dt-bindings: media: nxp: Add Wave6 video codec
+ device
+Thread-Topic: [PATCH v3 2/9] dt-bindings: media: nxp: Add Wave6 video codec
+ device
+Thread-Index: AQHcGMGJZMRvpcS8k0m0pKjSJCiRfbR5qCyAgAWDqKCAAFVmUA==
+Date: Tue, 2 Sep 2025 07:42:50 +0000
+Message-ID: <SL2P216MB1246080FA1F1DE8B707A1C5BFB06A@SL2P216MB1246.KORP216.PROD.OUTLOOK.COM>
+References: <20250829084649.359-1-nas.chung@chipsnmedia.com>
+ <20250829084649.359-3-nas.chung@chipsnmedia.com>
+ <22379203-94f8-468d-a9b6-de67f8fba495@kernel.org>
+ <SL2P216MB12469B8A2DD5B2F6EA2F04DCFB06A@SL2P216MB1246.KORP216.PROD.OUTLOOK.COM>
+In-Reply-To: <SL2P216MB12469B8A2DD5B2F6EA2F04DCFB06A@SL2P216MB1246.KORP216.PROD.OUTLOOK.COM>
+Accept-Language: en-US, ko-KR
+Content-Language: ko-KR
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=chipsnmedia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SL2P216MB1246:EE_|SE1P216MB1333:EE_
+x-ms-office365-filtering-correlation-id: 9527069e-e006-426f-fcc5-08dde9f451c0
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?3N+gRwLRu+Sb7ipBL2qukk610V1+haj3JNIQ4XSD9GKemJ+hISI5M1vZ7JxX?=
+ =?us-ascii?Q?CfIxkYe7LqRbj++bj8ciqz2pWiZKGvlG6wxiEjDd8e8IhSikZ2iH5ma7teWM?=
+ =?us-ascii?Q?vyUVfwZKrZE7fL7B6q77vg/zOJkC7nKlEVnWbighVYWkXPWq5zBNewyZA2FY?=
+ =?us-ascii?Q?1EVFQfuhTCtO20byFSEH75SdbMDUWj1hedu9yHO5guaVmMdfLj++s51lIqlI?=
+ =?us-ascii?Q?TGImCHpEa/OBhazlsXaP32wXx8OwXVgrFOwXHBKbHlbrPEd52s1yPzc3gPCD?=
+ =?us-ascii?Q?lwzkK+omvGzJgbKFKUxrVBGlgTQvRStnCqafEHj6pKBR0NMYIz2plVK+NV/j?=
+ =?us-ascii?Q?u3vhZMQ8Z5KuznEiJxU601sahucpP8/neHp9I7UqjvBkBHY6TwEXlj3+4tL1?=
+ =?us-ascii?Q?a/jnKaDBIq0RJwneZToXFYYlbuwTXfyX1+v91QTlcA4O1rK+Cuwnt98rQqO8?=
+ =?us-ascii?Q?ykF9piOMvkoEDeZDTVFQZatfpY58ykX46uYZASwxSTA214eXDOOY5BCxeUIv?=
+ =?us-ascii?Q?pNS1rLVAvhouL6ZhPexOf58fMIzcn9YnkUV9NvMKlsy9WRVQTfkqjJSevZTQ?=
+ =?us-ascii?Q?N3dhuJNKpcTE5SlOHszvCe+k/zsbBFvY0SvijJm3EjL+gOcKskp4ctuIMBeP?=
+ =?us-ascii?Q?DXEEPrQKlULrBXpf9qNn/Vq5exv48zAKR0VXd7EVa15VT8bnYEp0hDN+UtjL?=
+ =?us-ascii?Q?0nnIfzT2eAMvVL9YcbhGkScFQ/HFmSdzKfG9SYsCHRJd/v51F018Qf0yg6Zm?=
+ =?us-ascii?Q?PVtU3MKK4blz9xKmiVG8YAk6X9cEBoiJ2FTrOb5epPaRw68mg3x17XGS36dV?=
+ =?us-ascii?Q?UFjWUCjL3OcD655B7o0nYdjsnHDzDW3702ckmvqPYQoNhef1fPKRm6Nk0tso?=
+ =?us-ascii?Q?9sE7bbiUicAXJj3SsppLOoy9eVQrj8oXTCXPKsPlRS/IoG26Z/deAiELGJIa?=
+ =?us-ascii?Q?NqBaivL8lSy2R+dZfxuogryOfSNxQklDtnESL3fZ8njp9SlPu61XhJSoOOwk?=
+ =?us-ascii?Q?JeoSPaLY/aVBbQBRoM9xwIjWtWJmJa4RLn0PuX+CtcSMAr+AJkkG0CIINaCX?=
+ =?us-ascii?Q?r3Ganwv/OQ6cQpeTX1+68R2dLreM3y8WvKycKDXWd230e9ziVezLYQSbNY7O?=
+ =?us-ascii?Q?nN0rIq0hABBnwLps32LIfY2Du0MCG6Accc40LNVOXBYZjdIHV8LKhC8ArkIV?=
+ =?us-ascii?Q?p3DQP3XqSzn+tqwMr9S8PxX7Gr9xcp/pOpcdikDEMA9mMDbiCSi1PznTcKGU?=
+ =?us-ascii?Q?XnUX564f8mhkM/Ad7tJ/gEFOw/ASLcifmOC7KpbqeusgNmJjiLX0EoSXmoaV?=
+ =?us-ascii?Q?hZ1Eypwbnc3u/oHMp0pkJ67JjxIEVmrmwsIHN8hCmEPl6ITOXrCZurEHlnPD?=
+ =?us-ascii?Q?VZ/wca9blwKbH1GvlicUVk7VI1rsvN/mrki/NCmpvWW0UEnDCx0UKVMoJaUr?=
+ =?us-ascii?Q?JGsftCAfp2w4/zr04SqZpVKsH7u0Gu08FbVkmjupFc4Roxr8C2Ep7g=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SL2P216MB1246.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?7yRn9ykNZ/6AnY6hYutlz4jNOVIV6E2HGkR1xwIS9d5Ul2LdF/T51OLVSMcB?=
+ =?us-ascii?Q?Tw1bT5ykrAEBUccuTHi5iiEcvBCJU2UoeUPL6yG40JzgXe2orVOTykycdkRU?=
+ =?us-ascii?Q?RY8Hc7wlEip7eVeYs9AEEV/Z+Tk+IzpO/c5OzryesxJv1tVnc3hl5zUoyeF7?=
+ =?us-ascii?Q?DVADeV3TvkM+b/4+4bLCaNPaJAvpXX/UpOiixsEVlVh10nJNTQ8dK/GvvseN?=
+ =?us-ascii?Q?dVqhhI/lKCM94ysunlqzRvtfwOKsSLyiCAH8mhM/oryxt5yLxEyFozGP0v0f?=
+ =?us-ascii?Q?rjwDj7DN4d2Sti/W5+FczyT8I9xN6mlgrrKo9Sq73kGO/yaj03j35RT+iI8O?=
+ =?us-ascii?Q?3ODkRdbZrprItWoOHJsE/t+Jl0zPgzA7zREnWK116QPM+G83G8Glb7wnihvg?=
+ =?us-ascii?Q?WBhyZtWlpSKa/Ubeu10MY0pSgkJNE8qk6C5yw96nayZctAnLSTxTX+54L5Bm?=
+ =?us-ascii?Q?v1M41VvkcR0nEsB3fNJnOMYITBRBy6pb5S1RXTgE6s7wA4/8ekEZS+/vG4U1?=
+ =?us-ascii?Q?UPEfTDXk1zTAqxs/mLie+yUjwYcRPrXJyTk1MKg31MN2/AALoKlHjScVaEI4?=
+ =?us-ascii?Q?j3ZY9WdQnYd5PhOcllGmK4pDnxbtYqLLqjNnm4HAYBtXEF4R4SGH5lroNgvX?=
+ =?us-ascii?Q?lD9h74TCPX23ssLUW4s3VyAqn6NCth7apGPntR7R/hZHS5ZsPR87V7yQpjAL?=
+ =?us-ascii?Q?B9o4tlk6f4IivYR68I+jAmI9/a75AUFG2T8P7hhdpCX1u1TojsQ5/pAVxbeJ?=
+ =?us-ascii?Q?tho6Hh4LUQuWIOh9hJiT7BGrsPApXFnAamwFTH7GoJ/5ADlim0g27R/qjH/C?=
+ =?us-ascii?Q?OTle5ZHrAq8gzmOctC0JnJOyWt4rkzD2opf8nPFjf6Vt/sMSGYaMxUMb0+90?=
+ =?us-ascii?Q?1ZBP2/paYOuggLZK9pRy6Ykz6nBtbAbmHXwDeA92htEvgOJWi26u1AgTqa03?=
+ =?us-ascii?Q?PE1hCVba8i2nn2g2ZGLijxgeS0uxOts1K77q7kRYzFsIw/XDZtACQl0I70Zy?=
+ =?us-ascii?Q?W5pyl7q8iaFOJZCvkQ8M+gL67UTiU18/S8FNe8EfMhM6Wj6NCgWjhC0341Xk?=
+ =?us-ascii?Q?8mY9XzTr6RmBEY+wiCr0wNBB3nFsrpfZn4AaufugZHz89DZATMMBkspfz4yF?=
+ =?us-ascii?Q?CnuKk1EOARHZqsSBRNim2IA+OhIbPwrYx8Ehp09zMbt91vWarF6v9LTgkbRs?=
+ =?us-ascii?Q?gJo7FZd/VfbIasHNG0cZgDxVVhgVVcWyJq08A+mOaVhCl3g87KVaNolxRFai?=
+ =?us-ascii?Q?93IS4G8+gWD0pt+7nBQeuKzU86Jm6Zo09bDp1YSqKXc5qAgo9oqecmhVfiad?=
+ =?us-ascii?Q?WPsI8jccF7kTJwlmKho5ggSPxDZah30j9j27UFEHgGmTDydHeofapJ+Pyy+o?=
+ =?us-ascii?Q?7YF+tVyB0fz20sj+oHuzZJhU3wOOIAblpKFXAKhU7x2ftg3s+EmzCayomgP9?=
+ =?us-ascii?Q?SBFUdhaqrbSH+PeSWJFwWhOA0IfZ648V6BnL7X1/kG+4d6kTZ9bi40S+5jln?=
+ =?us-ascii?Q?z4r8DV/f30QoGjEqVaL4V6LbbNMmmk5l0xUteggg7Ham+g14fEFIar2+oXUw?=
+ =?us-ascii?Q?Ew2daUshIva/0YrJqL1ubne4Af4wiPG5PfxE6pGJ?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: chipsnmedia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9527069e-e006-426f-fcc5-08dde9f451c0
+X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Sep 2025 07:42:50.8740
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 4d70c8e9-142b-4389-b7f2-fa8a3c68c467
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: xkVfCsLxV4pcN13WWRbJ/m4Bu1s5NkLyPgLX5anfDlEcKCUYTiGGxYuY5nW5cZRBZKH7UpQQhtxVcLX/rIy/OCQPbZcPGCvpVvlO9vT/sVI=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE1P216MB1333
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_003518_127397_08A3C471 
-X-CRM114-Status: GOOD (  27.74  )
+X-CRM114-CacheID: sfid-20250902_004309_146561_69FA3271 
+X-CRM114-Status: GOOD (  18.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,92 +173,228 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2 Sep 2025 11:47:32 +0800
-Luo Gengkun <luogengkun@huaweicloud.com> wrote:
+Hi, Krzysztof.
 
-> 
-> On 2025/9/1 23:56, Masami Hiramatsu (Google) wrote:
-> > On Fri, 29 Aug 2025 08:26:04 -0400
-> > Steven Rostedt <rostedt@goodmis.org> wrote:
-> >
-> >> [ Adding arm64 maintainers ]
-> >>
-> >> On Fri, 29 Aug 2025 16:29:07 +0800
-> >> Luo Gengkun <luogengkun@huaweicloud.com> wrote:
-> >>
-> >>> On 2025/8/20 1:50, Steven Rostedt wrote:
-> >>>> On Tue, 19 Aug 2025 10:51:52 +0000
-> >>>> Luo Gengkun <luogengkun@huaweicloud.com> wrote:
-> >>>>   
-> >>>>> Both tracing_mark_write and tracing_mark_raw_write call
-> >>>>> __copy_from_user_inatomic during preempt_disable. But in some case,
-> >>>>> __copy_from_user_inatomic may trigger page fault, and will call schedule()
-> >>>>> subtly. And if a task is migrated to other cpu, the following warning will
-> >>>> Wait! What?
-> >>>>
-> >>>> __copy_from_user_inatomic() is allowed to be called from in atomic context.
-> >>>> Hence the name it has. How the hell can it sleep? If it does, it's totally
-> >>>> broken!
-> >>>>
-> >>>> Now, I'm not against using nofault() as it is better named, but I want to
-> >>>> know why you are suggesting this change. Did you actually trigger a bug here?
-> >>> yes, I trigger this bug in arm64.
-> >> And I still think this is an arm64 bug.
-> > I think it could be.
-> >
-> >>>>   
-> >>>>> be trigger:
-> >>>>>           if (RB_WARN_ON(cpu_buffer,
-> >>>>>                          !local_read(&cpu_buffer->committing)))
-> >>>>>
-> >>>>> An example can illustrate this issue:
-> > You've missed an important part.
-> >
-> >>>>> process flow						CPU
-> >>>>> ---------------------------------------------------------------------
-> >>>>>
-> >>>>> tracing_mark_raw_write():				cpu:0
-> >>>>>      ...
-> >>>>>      ring_buffer_lock_reserve():				cpu:0
-> >>>>>         ...
-> > 	preempt_disable_notrace(); --> this is unlocked by ring_buffer_unlock_commit()
-> >
-> >>>>>         cpu = raw_smp_processor_id()			cpu:0
-> >>>>>         cpu_buffer = buffer->buffers[cpu]			cpu:0
-> >>>>>         ...
-> >>>>>      ...
-> >>>>>      __copy_from_user_inatomic():				cpu:0
-> > So this is called under preempt-disabled.
-> >
-> >>>>>         ...
-> >>>>>         # page fault
-> >>>>>         do_mem_abort():					cpu:0
-> >>>> Sounds to me that arm64 __copy_from_user_inatomic() may be broken.
-> >>>>   
-> >>>>>            ...
-> >>>>>            # Call schedule
-> >>>>>            schedule()					cpu:0
-> > If this does not check the preempt flag, it is a problem.
-> > Maybe arm64 needs to do fixup and abort instead of do_mem_abort()?
-> 
-> My kernel was built without CONFIG_PREEMPT_COUNT, so the preempt_disable()
-> does nothing more than act as a barrier. In this case, it can pass the
-> check by schedule(). Perhaps this is another issue?
+>-----Original Message-----
+>From: Nas Chung <nas.chung@chipsnmedia.com>
+>Sent: Tuesday, September 2, 2025 2:46 PM
+>To: Krzysztof Kozlowski <krzk@kernel.org>; mchehab@kernel.org;
+>hverkuil@xs4all.nl; robh@kernel.org; krzk+dt@kernel.org;
+>conor+dt@kernel.org; shawnguo@kernel.org; s.hauer@pengutronix.de
+>Cc: linux-media@vger.kernel.org; devicetree@vger.kernel.org; linux-
+>kernel@vger.kernel.org; linux-imx@nxp.com; linux-arm-
+>kernel@lists.infradead.org; jackson.lee <jackson.lee@chipsnmedia.com>;
+>lafley.kim <lafley.kim@chipsnmedia.com>
+>Subject: RE: [PATCH v3 2/9] dt-bindings: media: nxp: Add Wave6 video codec
+>device
+>
+>Hi, Krzysztof.
+>
+>>-----Original Message-----
+>>From: Krzysztof Kozlowski <krzk@kernel.org>
+>>Sent: Friday, August 29, 2025 10:57 PM
+>>To: Nas Chung <nas.chung@chipsnmedia.com>; mchehab@kernel.org;
+>>hverkuil@xs4all.nl; robh@kernel.org; krzk+dt@kernel.org;
+>>conor+dt@kernel.org; shawnguo@kernel.org; s.hauer@pengutronix.de
+>>Cc: linux-media@vger.kernel.org; devicetree@vger.kernel.org; linux-
+>>kernel@vger.kernel.org; linux-imx@nxp.com; linux-arm-
+>>kernel@lists.infradead.org; jackson.lee <jackson.lee@chipsnmedia.com>;
+>>lafley.kim <lafley.kim@chipsnmedia.com>
+>>Subject: Re: [PATCH v3 2/9] dt-bindings: media: nxp: Add Wave6 video code=
+c
+>>device
+>>
+>>On 29/08/2025 10:46, Nas Chung wrote:
+>>> Add documents for the Wave6 video codec on NXP i.MX SoCs.
+>>Pretty incomplete commit msg. Nothing explaining hardware, nothing
+>>documenting resolution of previous discussions (where is all this
+>>chip&media?).
+>
+>I see,  I'll improve the commit message in v4 to include hardware details.
+>
+>>
+>>...
+>>
+>>
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    enum:
+>>> +      - nxp,imx95-vpu
+>>> +
+>>> +  reg:
+>>> +    maxItems: 1
+>>> +
+>>> +  clocks:
+>>> +    maxItems: 1
+>>> +
+>>> +  power-domains:
+>>> +    maxItems: 1
+>>> +
+>>> +  memory-region:
+>>> +    maxItems: 1
+>>> +
+>>> +  sram:
+>>> +    $ref: /schemas/types.yaml#/definitions/phandle
+>>> +    description: phandle of the SRAM memory region node.
+>>> +
+>>> +  "#cooling-cells":
+>>> +    const: 2
+>>> +
+>>> +  "#address-cells":
+>>> +    const: 2
+>>> +
+>>> +  "#size-cells":
+>>> +    const: 2
+>>> +
+>>> +  ranges: true
+>>> +
+>>> +patternProperties:
+>>> +  "^video-core@[0-9a-f]+$":
+>>> +    type: object
+>>
+>>Missing description.
+>
+>I'll add a description in v4.
+>
+>>
+>>> +    additionalProperties: false
+>>> +
+>>> +    properties:
+>>> +      compatible:
+>>> +        enum:
+>>> +          - nxp,imx95-vpu-core
+>>
+>>Why do you need here compatible? Can this child be anything else? Can it
+>>be re-used? Is it actually a separate block?
+>>
+>>Your example suggests that the only distinctive resource are the
+>>interrupt and address space and that's on the edge of calling it a
+>>separate device.
+>>
+>>There is some tendency to call such "pseudo-cores" a separate devices in
+>>case of video codec bindings and experience shows these are usually
+>>fake. It's not the same as DP or HDMI sub-block of display pipeline.
+>>
+>>That's why you should come here with strong argument what separate piece
+>>of hardware this is.
+>
+>Thanks for your feedback.
+>
+>As you mentioned, I wanted to represent the interrupts and address space
+>as separate "cores". This is because, from an external perspective (e.g.
+>multi-VM),
+>each of these resources is a VPU interface and can be accessed
+>independently
+>to operate the VPU.
 
-OK, I got it. Indeed, in that case, we have no way to check this
-happens in the preempt critical section.
-Anyway, as in discussed here, __copy_from_user_inatomic() is for
-the internal function, so I'm also OK to this patch.
+Apologies, I forgot to mention one detail in my previous reply.
 
-Reviewed-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+I did not include the SMMU-related properties in the core nodes.
+On this SoC, however, each of these cores has its own SMMU ID
+as part of the SoC's isolation policy.
+This allows them to be treated as independent interfaces,
+even though there is only one actual VPU engine.
 
-BTW, currently we just write a fault message if the
-__copy_from_user_*() hits a fault, but I think we can retry with
-normal __copy_from_user() to a kernel buffer and copy it in the
-ring buffer as slow path.
+Would adding the iommu property be the appropriate way to describe
+this in the device tree?
 
-Thank you,
+Thanks,
+Nas.
 
--- 
-Masami Hiramatsu (Google) <mhiramat@kernel.org>
+>
+>However, there is indeed only one actual VPU processing engine.
+>I understand your point about "pseudo-cores".
+>
+>I would appreciate any guidance on the preferred way to represent
+>these resources in the device tree.
+>
+>>
+>>> +
+>>> +      reg:
+>>> +        maxItems: 1
+>>> +
+>>> +      clocks:
+>>> +        maxItems: 1
+>>> +
+>>> +      power-domains:
+>>> +        maxItems: 1
+>>> +
+>>> +      interrupts:
+>>> +        maxItems: 1
+>>> +
+>>> +    required:
+>>> +      - compatible
+>>> +      - reg
+>>> +      - clocks
+>>> +      - power-domains
+>>> +      - interrupts
+>>> +
+>>> +required:
+>>> +  - compatible
+>>> +  - reg
+>>> +  - clocks
+>>> +  - power-domains
+>>> +  - memory-region
+>>> +
+>>> +additionalProperties: false
+>>> +
+>>> +examples:
+>>> +  - |
+>>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+>>> +    #include <dt-bindings/clock/nxp,imx95-clock.h>
+>>> +
+>>> +    soc {
+>>> +      #address-cells =3D <2>;
+>>> +      #size-cells =3D <2>;
+>>> +
+>>> +      vpu: video-codec@4c4c0000 {
+>>
+>>Unused label, drop
+>
+>Okay. I'll drop the unused label.
+>
+>>
+>>> +        compatible =3D "nxp,imx95-vpu";
+>>> +        reg =3D <0x0 0x4c4c0000 0x0 0x10000>;
+>>> +        clocks =3D <&vpu_blk_ctrl IMX95_CLK_VPUBLK_WAVE>;
+>>> +        power-domains =3D <&scmi_perf 10>;
+>>> +        memory-region =3D <&vpu_boot>;
+>>> +        sram =3D <&sram1>;
+>>> +        #cooling-cells =3D <2>;
+>>> +        #address-cells =3D <2>;
+>>> +        #size-cells =3D <2>;
+>>> +        ranges;
+>>> +
+>>> +        vpucore0: video-core@4c480000 {
+>>
+>>None of these labels are used, drop.
+>
+>I'll drop it.
+>
+>Thanks,
+>Nas.
+>
+>>
+>>> +          compatible =3D "nxp,imx95-vpu-core";
+>>> +          reg =3D <0x0 0x4c480000 0x0 0x10000>;
+>>> +          clocks =3D <&scmi_clk 115>;
+>>> +          power-domains =3D <&scmi_devpd 21>;
+>>> +          interrupts =3D <GIC_SPI 299 IRQ_TYPE_LEVEL_HIGH>;
+>>> +        };
+>>> +
+>>> +        vpucore1: video-core@4c490000 {
+>>> +          compatible =3D "nxp,imx95-vpu-core";
+>>> +          reg =3D <0x0 0x4c490000 0x0 0x10000>;
+>>> +          clocks =3D <&scmi_clk 115>;
+>>> +          power-domains =3D <&scmi_devpd 21>;
+>>> +          interrupts =3D <GIC_SPI 300 IRQ_TYPE_LEVEL_HIGH>;
+>>> +        };
+>>> +
+>>
+>>
+>>
+>>Best regards,
+>>Krzysztof
+
 
