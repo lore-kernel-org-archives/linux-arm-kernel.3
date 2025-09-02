@@ -4,52 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7A53CA0FFE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 13:41:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 440D7CA0FFE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 13:44:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fBpR0hcCLlZB27uUWF3895Xn+8vyX2GTzJaN8eQqtEs=; b=n0lZdDZaWyb49LtWa/9lEGMCYQ
-	3Af1QaaOIhxyRjKUHHK97ZaWLYEvsqlf4vDC54ihVwPwELQaIB5kRUbkWROpUZErMFuFBRuTZ6hCX
-	Tfcp5Ab+SJPCQGhsNU6gIKf6G5QdE30blfgE7PCiFKn6num0ArzxZi24YP8WxkWEYeHtwVF8nxPIO
-	B0U8704lP+htTQdMPXpcwKKMYhHrtC0Mtqysfmni61F3xYnRojwrF2p25vZcQdUgNxz0IkJTj1144
-	xaR9Yswvbb5jC5hzBU2pdLBBW15AWCh4ZICMsJAUw5RmG08CMozDQgoIqHiXDZ2SdCLPMUbcr0Ikt
-	R+3zyHeg==;
+	bh=HsjfZZlbODN4awwj5xJvP6IJw7ZgyuvIZmE3mis7KCs=; b=woKdIyp7zk7ff1DrswDOiAex3P
+	zuF1MZ+shi8gt72doL/50lVoYSJ303NYUIegHG695revLlZaVWh1gH6m9AYUECdOMF3ZdFBFsiEYG
+	m0wtOjsSsvagzy6KLzpRVP5WlB95u4gIV7WrcITS+uO4RUgB66+2Gwx1lgiLb0PIonVVFNUbTXwJe
+	ZIegQAlM5O7oU0fKXui74ign8SbEEHWyGun3odJlQlevLo3wUtkKOE19CWYa5VzECZkzCVM7adr6a
+	g7Ut7ehjJ/0Q6lCDUSB0txegWod5E0CwCaa7C5Fy/Zv6THa8yJB312aId21aEEQbaV4oE668I/J62
+	Whs1o4wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utRGc-000000007N7-2x7y;
-	Tue, 02 Sep 2025 13:41:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1utRJO-000000008O9-2EzG;
+	Tue, 02 Sep 2025 13:44:38 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utPRf-0000000Gyqd-2AlT
+	id 1utPRq-0000000Gyuv-1Bw5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 11:45:04 +0000
+	Tue, 02 Sep 2025 11:45:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 376A444993;
-	Tue,  2 Sep 2025 11:45:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D87CC4CEED;
-	Tue,  2 Sep 2025 11:44:59 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B35A160219;
+	Tue,  2 Sep 2025 11:45:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17513C4CEF5;
+	Tue,  2 Sep 2025 11:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756813503;
-	bh=8axVTKd1b6ikITueHwT3N1OlRgy3HWVT9HvnlpgFOig=;
+	s=k20201202; t=1756813513;
+	bh=m/G5Vt7qKGaxjn4aWQkuI02V12W35pAJXakUbFGbMwk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=PM42uS5qyIDudCvwoqan3/zmhZWu66pe+HV4vdHLketCqU2znvLkY62oQTRR5jX0X
-	 rNbVNjrv5mSvJWOvuBbk/IcTK7yjagmtw/hSgTTgvu1nmjr2C0yGZKMMhyiV+kvD7Z
-	 qU/ri+lFs9M4GKp56CSwCLLB3pBKc0Xm93YzsLb/qf10suV+1nYHMIJE6WgjMpvSmx
-	 fwJTc2WsVuCJ6uQc+R0jr/rJsC9KgXq8tHymKrTC3Sdk9ajefJFHtTH+dalKIcNyEt
-	 ti/8ImK3a0nGiRS8vXT/T4I6mOimM30XgnmyzUpHuzyLNSYvRoWXoPm7rt9mD0uTYz
-	 7/QbyAUsNE+Kw==
+	b=VnMP5hy+Of/j3nsHNGWOvYB50pr+13Ql5nplOhXaHoEPS45+xLU6M3ADH99JQ7rT8
+	 AyDJQ3RzlSThcz87Fc2of048Fwi42wIMhB3HVLge+gzE8OG06TVnaUbEy/fWhDZ4B4
+	 ELjAA4BdYe4MYei5Nx1ntubDnom4W2YXF8dVP0iBiXgq879chNCRFsnkUbOZokYrZp
+	 Sklf7ytanQyY4AOowMA6mjxg1fJMMmSVFA7Ql2aAUaIur/gn4zs23wlKMXg+heJX3a
+	 Ojj2wttnO/sE0nlUCNs6cZAylUV/pfwoOhBYHzWy3l7CCSYQTEz0QNX4F2UdYKlCzR
+	 QVzZCEcat3I3Q==
 From: Mark Brown <broonie@kernel.org>
-Date: Tue, 02 Sep 2025 12:36:13 +0100
-Subject: [PATCH v8 10/29] KVM: arm64: Rename SVE finalization constants to
- be more general
+Date: Tue, 02 Sep 2025 12:36:15 +0100
+Subject: [PATCH v8 12/29] KVM: arm64: Define internal features for SME
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250902-kvm-arm64-sme-v8-10-2cb2199c656c@kernel.org>
+Message-Id: <20250902-kvm-arm64-sme-v8-12-2cb2199c656c@kernel.org>
 References: <20250902-kvm-arm64-sme-v8-0-2cb2199c656c@kernel.org>
 In-Reply-To: <20250902-kvm-arm64-sme-v8-0-2cb2199c656c@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
@@ -64,20 +63,17 @@ Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
  Peter Maydell <peter.maydell@linaro.org>, 
  Eric Auger <eric.auger@redhat.com>, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-cff91
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7220; i=broonie@kernel.org;
- h=from:subject:message-id; bh=8axVTKd1b6ikITueHwT3N1OlRgy3HWVT9HvnlpgFOig=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBottiBNpUJKUYVUW70gYO8L3dsHxzEFA8ZSklq+
- 5zRBZrUJk+JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaLbYgQAKCRAk1otyXVSH
- 0KkpB/4rIjZdmXiI4bS8bUHzYODmGOe77oE9WWqwe9nBVBkJLh7lXq8BAyDVp+T8t7dF0Ho/I3D
- jgggQ72DNEJHEd/WWY/eCGAmsTSl/FMc/W72GvbnlZjXjW1Wetf1SN1McpAur6ZVs+la7TYpBPv
- alQk8kKCVSo2OyIOfwtWh8wIKB0+F8dqVlKN6bIjnN+s9ZvyNkB4Yg2evW2r8t7oKHZbiAehrRw
- xo6LoGtVIhJSiZhmeeLDM0OFimcxspgXLKnR1gNAwndb1SgErguqkzQ0jwrja0FnJwYYUtCiCPR
- XzovtyJKouOea0RwcY7FCjnZItLw80wE6ehkWd2lDeV1Hd3A
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3292; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=m/G5Vt7qKGaxjn4aWQkuI02V12W35pAJXakUbFGbMwk=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBottiDI1QSeHkxBm6R7x1P8j8whI7B6mNwDowf3
+ A8T6xtcfNqJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaLbYgwAKCRAk1otyXVSH
+ 0GgvB/oC4OCLayBnzN0pYrmDlfdx2pr4aooOPClEy+ilszzRnxoeLECQgVeuZJVeyzsvb1PQk2M
+ GV3Y2k1oytxjIh9ju0zOV2aUNS7gqR675qv3xvK0o5SmKs2zxH5FAIGb6+eccFdUK09gbwT4+Ep
+ 2mAwa81qicF+n+69QO+R3bsLTOz1UdNmzlTs12/soLJbr211dqq0xC3ygWy6c9pUYwALeBp/MUR
+ uqtfQGjv55fYAG+YECWErPnhzacGZ0hRbZUS2UhQL3NRvaAmbhdvai3FgElpYiQ4Vu2khl95kRw
+ MX/2C50RqpIhZJd7+/tlv3OtUnaEKGzTN1EmMJI+YD69TXh6
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_044503_625015_20EC7F98 
-X-CRM114-Status: GOOD (  20.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,211 +88,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Due to the overlap between SVE and SME vector length configuration
-created by streaming mode SVE we will finalize both at once.  Rename the
-existing finalization to use _VEC (vector) for the naming to avoid
-confusion.
+In order to simplify interdependencies in the rest of the series define
+the feature detection for SME and it's subfeatures.  Due to the need for
+vector length configuration we define a flag for SME like for SVE.  We
+also have two subfeatures which add architectural state, FA64 and SME2,
+which are configured via the normal ID register scheme.
 
-Since this includes the userspace API we create an alias
-KVM_ARM_VCPU_VEC for the existing KVM_ARM_VCPU_SVE capability, existing
-code which does not enable SME will be unaffected and any SME only code
-will not need to use SVE constants.
-
-No functional change.
+Also provide helpers which check if the vCPU is in streaming mode or has
+ZA enabled.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/asm/kvm_host.h |  8 +++++---
- arch/arm64/include/uapi/asm/kvm.h |  6 ++++++
- arch/arm64/kvm/guest.c            | 10 +++++-----
- arch/arm64/kvm/hyp/nvhe/pkvm.c    |  2 +-
- arch/arm64/kvm/reset.c            | 20 ++++++++++----------
- 5 files changed, 27 insertions(+), 19 deletions(-)
+ arch/arm64/include/asm/kvm_host.h | 35 ++++++++++++++++++++++++++++++++++-
+ arch/arm64/kvm/sys_regs.c         |  2 +-
+ 2 files changed, 35 insertions(+), 2 deletions(-)
 
 diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 8f48c2a488f7..88d184aac789 100644
+index 88d184aac789..98761b601457 100644
 --- a/arch/arm64/include/asm/kvm_host.h
 +++ b/arch/arm64/include/asm/kvm_host.h
-@@ -985,8 +985,8 @@ struct kvm_vcpu_arch {
+@@ -355,6 +355,8 @@ struct kvm_arch {
+ #define KVM_ARCH_FLAG_GUEST_HAS_SVE			9
+ 	/* MIDR_EL1, REVIDR_EL1, and AIDR_EL1 are writable from userspace */
+ #define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS		10
++	/* SME exposed to guest */
++#define KVM_ARCH_FLAG_GUEST_HAS_SME			11
+ 	unsigned long flags;
  
- /* KVM_ARM_VCPU_INIT completed */
- #define VCPU_INITIALIZED	__vcpu_single_flag(cflags, BIT(0))
--/* SVE config completed */
--#define VCPU_SVE_FINALIZED	__vcpu_single_flag(cflags, BIT(1))
-+/* Vector config completed */
-+#define VCPU_VEC_FINALIZED	__vcpu_single_flag(cflags, BIT(1))
- /* pKVM VCPU setup completed */
- #define VCPU_PKVM_FINALIZED	__vcpu_single_flag(cflags, BIT(2))
- 
-@@ -1059,6 +1059,8 @@ struct kvm_vcpu_arch {
+ 	/* VM-wide vCPU feature set */
+@@ -1059,7 +1061,16 @@ struct kvm_vcpu_arch {
  #define vcpu_has_sve(vcpu)	kvm_has_sve((vcpu)->kvm)
  #endif
  
-+#define vcpu_has_vec(vcpu) vcpu_has_sve(vcpu)
+-#define vcpu_has_vec(vcpu) vcpu_has_sve(vcpu)
++#define kvm_has_sme(kvm)	(system_supports_sme() &&		\
++				 test_bit(KVM_ARCH_FLAG_GUEST_HAS_SME, &(kvm)->arch.flags))
 +
++#ifdef __KVM_NVHE_HYPERVISOR__
++#define vcpu_has_sme(vcpu)	kvm_has_sme(kern_hyp_va((vcpu)->kvm))
++#else
++#define vcpu_has_sme(vcpu)	kvm_has_sme((vcpu)->kvm)
++#endif
++
++#define vcpu_has_vec(vcpu) (vcpu_has_sve(vcpu) || vcpu_has_sme(vcpu))
+ 
  #ifdef CONFIG_ARM64_PTR_AUTH
  #define vcpu_has_ptrauth(vcpu)						\
- 	((cpus_have_final_cap(ARM64_HAS_ADDRESS_AUTH) ||		\
-@@ -1561,7 +1563,7 @@ struct kvm *kvm_arch_alloc_vm(void);
- int kvm_arm_vcpu_finalize(struct kvm_vcpu *vcpu, int feature);
- bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu);
+@@ -1705,6 +1716,28 @@ void kvm_set_vm_id_reg(struct kvm *kvm, u32 reg, u64 val);
+ #define kvm_has_sctlr2(k)				\
+ 	(kvm_has_feat((k), ID_AA64MMFR3_EL1, SCTLRX, IMP))
  
--#define kvm_arm_vcpu_sve_finalized(vcpu) vcpu_get_flag(vcpu, VCPU_SVE_FINALIZED)
-+#define kvm_arm_vcpu_vec_finalized(vcpu) vcpu_get_flag(vcpu, VCPU_VEC_FINALIZED)
- 
- #define kvm_has_mte(kvm)					\
- 	(system_supports_mte() &&				\
-diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
-index ed5f3892674c..4d789871bec1 100644
---- a/arch/arm64/include/uapi/asm/kvm.h
-+++ b/arch/arm64/include/uapi/asm/kvm.h
-@@ -107,6 +107,12 @@ struct kvm_regs {
- #define KVM_ARM_VCPU_HAS_EL2		7 /* Support nested virtualization */
- #define KVM_ARM_VCPU_HAS_EL2_E2H0	8 /* Limit NV support to E2H RES0 */
- 
-+/*
-+ * An alias for _SVE since we finalize VL configuration for both SVE and SME
-+ * simultaneously.
-+ */
-+#define KVM_ARM_VCPU_VEC		KVM_ARM_VCPU_SVE
++#define kvm_has_fa64(k)					\
++	(system_supports_fa64() &&			\
++	 kvm_has_feat((k), ID_AA64SMFR0_EL1, FA64, IMP))
 +
- struct kvm_vcpu_init {
- 	__u32 target;
- 	__u32 features[7];
-diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-index 16ba5e9ac86c..f38b95a73169 100644
---- a/arch/arm64/kvm/guest.c
-+++ b/arch/arm64/kvm/guest.c
-@@ -342,7 +342,7 @@ static int set_sve_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- 	if (!vcpu_has_sve(vcpu))
- 		return -ENOENT;
- 
--	if (kvm_arm_vcpu_sve_finalized(vcpu))
-+	if (kvm_arm_vcpu_vec_finalized(vcpu))
- 		return -EPERM; /* too late! */
- 
- 	if (WARN_ON(vcpu->arch.sve_state))
-@@ -497,7 +497,7 @@ static int get_sve_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- 	if (ret)
- 		return ret;
- 
--	if (!kvm_arm_vcpu_sve_finalized(vcpu))
-+	if (!kvm_arm_vcpu_vec_finalized(vcpu))
- 		return -EPERM;
- 
- 	if (copy_to_user(uptr, vcpu->arch.sve_state + region.koffset,
-@@ -523,7 +523,7 @@ static int set_sve_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- 	if (ret)
- 		return ret;
- 
--	if (!kvm_arm_vcpu_sve_finalized(vcpu))
-+	if (!kvm_arm_vcpu_vec_finalized(vcpu))
- 		return -EPERM;
- 
- 	if (copy_from_user(vcpu->arch.sve_state + region.koffset, uptr,
-@@ -657,7 +657,7 @@ static unsigned long num_sve_regs(const struct kvm_vcpu *vcpu)
- 		return 0;
- 
- 	/* Policed by KVM_GET_REG_LIST: */
--	WARN_ON(!kvm_arm_vcpu_sve_finalized(vcpu));
-+	WARN_ON(!kvm_arm_vcpu_vec_finalized(vcpu));
- 
- 	return slices * (SVE_NUM_PREGS + SVE_NUM_ZREGS + 1 /* FFR */)
- 		+ 1; /* KVM_REG_ARM64_SVE_VLS */
-@@ -675,7 +675,7 @@ static int copy_sve_reg_indices(const struct kvm_vcpu *vcpu,
- 		return 0;
- 
- 	/* Policed by KVM_GET_REG_LIST: */
--	WARN_ON(!kvm_arm_vcpu_sve_finalized(vcpu));
-+	WARN_ON(!kvm_arm_vcpu_vec_finalized(vcpu));
- 
- 	/*
- 	 * Enumerate this first, so that userspace can save/restore in
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 338505cb0171..a461f192230a 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -420,7 +420,7 @@ static int pkvm_vcpu_init_sve(struct pkvm_hyp_vcpu *hyp_vcpu, struct kvm_vcpu *h
- 	int ret = 0;
- 
- 	if (!vcpu_has_feature(vcpu, KVM_ARM_VCPU_SVE)) {
--		vcpu_clear_flag(vcpu, VCPU_SVE_FINALIZED);
-+		vcpu_clear_flag(vcpu, VCPU_VEC_FINALIZED);
- 		return 0;
- 	}
- 
-diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
-index 959532422d3a..f7c63e145d54 100644
---- a/arch/arm64/kvm/reset.c
-+++ b/arch/arm64/kvm/reset.c
-@@ -92,7 +92,7 @@ static void kvm_vcpu_enable_sve(struct kvm_vcpu *vcpu)
-  * Finalize vcpu's maximum SVE vector length, allocating
-  * vcpu->arch.sve_state as necessary.
-  */
--static int kvm_vcpu_finalize_sve(struct kvm_vcpu *vcpu)
-+static int kvm_vcpu_finalize_vec(struct kvm_vcpu *vcpu)
++#define kvm_has_sme2(k)					\
++	(system_supports_sme2() &&			\
++	 kvm_has_feat((k), ID_AA64PFR1_EL1, SME, SME2))
++
++#ifdef __KVM_NVHE_HYPERVISOR__
++#define vcpu_has_sme2(vcpu)	kvm_has_sme2(kern_hyp_va((vcpu)->kvm))
++#define vcpu_has_fa64(vcpu)	kvm_has_fa64(kern_hyp_va((vcpu)->kvm))
++#else
++#define vcpu_has_sme2(vcpu)	kvm_has_sme2((vcpu)->kvm)
++#define vcpu_has_fa64(vcpu)	kvm_has_fa64((vcpu)->kvm)
++#endif
++
++#define vcpu_in_streaming_mode(vcpu) \
++	(__vcpu_sys_reg(vcpu, SVCR) & SVCR_SM_MASK)
++
++#define vcpu_za_enabled(vcpu) \
++	(__vcpu_sys_reg(vcpu, SVCR) & SVCR_ZA_MASK)
++
+ static inline bool kvm_arch_has_irq_bypass(void)
  {
- 	void *buf;
- 	unsigned int vl;
-@@ -122,21 +122,21 @@ static int kvm_vcpu_finalize_sve(struct kvm_vcpu *vcpu)
- 	}
- 	
- 	vcpu->arch.sve_state = buf;
--	vcpu_set_flag(vcpu, VCPU_SVE_FINALIZED);
-+	vcpu_set_flag(vcpu, VCPU_VEC_FINALIZED);
- 	return 0;
- }
- 
- int kvm_arm_vcpu_finalize(struct kvm_vcpu *vcpu, int feature)
- {
- 	switch (feature) {
--	case KVM_ARM_VCPU_SVE:
--		if (!vcpu_has_sve(vcpu))
-+	case KVM_ARM_VCPU_VEC:
-+		if (!vcpu_has_vec(vcpu))
- 			return -EINVAL;
- 
--		if (kvm_arm_vcpu_sve_finalized(vcpu))
-+		if (kvm_arm_vcpu_vec_finalized(vcpu))
- 			return -EPERM;
- 
--		return kvm_vcpu_finalize_sve(vcpu);
-+		return kvm_vcpu_finalize_vec(vcpu);
- 	}
- 
- 	return -EINVAL;
-@@ -144,7 +144,7 @@ int kvm_arm_vcpu_finalize(struct kvm_vcpu *vcpu, int feature)
- 
- bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu)
- {
--	if (vcpu_has_sve(vcpu) && !kvm_arm_vcpu_sve_finalized(vcpu))
-+	if (vcpu_has_vec(vcpu) && !kvm_arm_vcpu_vec_finalized(vcpu))
- 		return false;
- 
  	return true;
-@@ -163,7 +163,7 @@ void kvm_arm_vcpu_destroy(struct kvm_vcpu *vcpu)
- 	kfree(vcpu->arch.ccsidr);
- }
- 
--static void kvm_vcpu_reset_sve(struct kvm_vcpu *vcpu)
-+static void kvm_vcpu_reset_vec(struct kvm_vcpu *vcpu)
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 82ffb3b3b3cf..111b07a78787 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -1782,7 +1782,7 @@ static unsigned int sve_visibility(const struct kvm_vcpu *vcpu,
+ static unsigned int sme_visibility(const struct kvm_vcpu *vcpu,
+ 				   const struct sys_reg_desc *rd)
  {
- 	if (vcpu_has_sve(vcpu))
- 		memset(vcpu->arch.sve_state, 0, vcpu_sve_state_size(vcpu));
-@@ -203,11 +203,11 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
- 	if (loaded)
- 		kvm_arch_vcpu_put(vcpu);
+-	if (kvm_has_feat(vcpu->kvm, ID_AA64PFR1_EL1, SME, IMP))
++	if (vcpu_has_sme(vcpu))
+ 		return 0;
  
--	if (!kvm_arm_vcpu_sve_finalized(vcpu)) {
-+	if (!kvm_arm_vcpu_vec_finalized(vcpu)) {
- 		if (vcpu_has_feature(vcpu, KVM_ARM_VCPU_SVE))
- 			kvm_vcpu_enable_sve(vcpu);
- 	} else {
--		kvm_vcpu_reset_sve(vcpu);
-+		kvm_vcpu_reset_vec(vcpu);
- 	}
- 
- 	if (vcpu_el1_is_32bit(vcpu))
+ 	return REG_HIDDEN;
 
 -- 
 2.39.5
