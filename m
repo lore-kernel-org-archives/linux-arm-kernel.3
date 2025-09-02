@@ -4,67 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FA30CA1005
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:10:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2606BCA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:10:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kArzFMIcBIxePD2xmZid//yzmrcW+b6mkQsi9y+ZwnE=; b=sLSBJQ6lFOMwzENoiykEIWJlXC
-	jcdHE7Izv2OwjLMfS5zXbqM1doUi9WwdmGXnzEyhPt28JrEhDnOQpIB4lrPWE+Fg5DtWE58RBiSau
-	9Y0DpgUuQp0p3v4fwaMtC2vwRDNfzPPcrQT0teAshf6Fn/eWeP+rzQTExH+IAs+sjw6f0WtkH6803
-	4qukMiAlrNNjVAmtxKAi+1d/v1CGclABxAQVaBmqdB8aD8Mj9aNhJJAJYBohGM97KaAS3DNMyvCme
-	I4LvPPRFzTJDymYwbJWLO/pb29hKVw5RYeChMAqVgAvWuuCYGrPuQddh9TyUAB0XyBtRB+6Vo40Hm
-	5+P5IcEA==;
+	bh=pHAoQIZFTgS8rsJlU80z1j4gq01F3RHravH7EVfXeog=; b=qLT19OxyfmUY1XohEW34gLI5jP
+	vNtnw6yWhO4ChQ8ky6In7yOtlvKp7Jf8e+vTuqom7HeH5sHiPYzvNnDqeRVVSbmP8uBRKyBsgEF51
+	0fAnfTP3jAjxZiNlLhOkt+eqv/Id6IYLedu3hL9aA4nl0iSDoDvfChgDxJe18+ksVZMon5U40jb/M
+	/zsytBxHqmlY8olFvS+jjsGZn8k2UjluzqcySfM/OBkmz/hYAU8QWToA7XQZZBLgWyQ5Z0xMAXqzD
+	TtSad8I0+yNrw+4JtfoI9hRZTDsDiYlbsIrU6CslNNqH9/sXosIDWVnhSPlP5qsNaa3F+QC6/7exu
+	PPX8LtIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utWO8-00000001a8D-1I6C;
-	Tue, 02 Sep 2025 19:09:52 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1utWOI-00000001aR4-48H8;
+	Tue, 02 Sep 2025 19:10:02 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utQtU-0000000Ha4H-2lmh;
-	Tue, 02 Sep 2025 13:17:53 +0000
+	id 1utQtv-0000000HaDj-00Ne;
+	Tue, 02 Sep 2025 13:18:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 66F9941ABF;
-	Tue,  2 Sep 2025 13:17:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D28A0C4CEED;
-	Tue,  2 Sep 2025 13:17:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6EA8360206;
+	Tue,  2 Sep 2025 13:18:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92BAFC4CEED;
+	Tue,  2 Sep 2025 13:18:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756819072;
-	bh=0xocXOa6y0rnRdA2Z5T9f2V5CZOoroCxOVuasw3Mk80=;
+	s=k20201202; t=1756819098;
+	bh=K0GSdivUZWDBfPpkGbzM+dh5X2lVniJv3YjK1fZ5fEM=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=ov/uQ46s6uLHRT28cJtvqU4C1PYT6pAHKmdPbhEkLxQlRXtMtWdx3n/NT86WxYUNQ
-	 /QemBJckw/cd0Kl7IM9F6QuvSHXE1xkDjxkNDX1RU6bzAnw8GvZJBFagAMj7t9RJ9M
-	 5irkdLBSAGWfn56K8XDFA+9HD217jMMXhBD2QmxEd7NxHslC4kVXBuMX3tbaYS1okJ
-	 c5IpMkelGqNn2SlB3WCRqMLWKbBNSHiG+m//O67IJcgJWMMILEBtsIIEfO04POm8Ps
-	 fsbG2OdRJEAMGPNcPbHwfNMVJuRY6k0ECarHwiOlaL1DmrRVkHAeqE5HfoW+7mKXhC
-	 YZCNwUpN9YqYw==
-Date: Tue, 02 Sep 2025 08:17:49 -0500
+	b=UFqXKUeicCIzvOluYdJkonrNBf/8NoPzAq1tQwdG8JSYZMnvVmrABd/iL+IF7QyHS
+	 ft3YG30ij+cp5MBdJwKPNfJ15Ih3ZgTXTDD9wr9lB14ZlRrjJXvVVcTx5Te0rhKNso
+	 4XdqqPIRU/OzfqghFsZ8tNSLOUi2kngMCdOvll0PwYGssKqoouM/oKpROgjayRMLvV
+	 YPpdQkzGdmlQ+BZ+Fah1AeE8uLrW4N8Bn6LmfDUpDcB/0mB4tGhG65rfvjmKZFDq+w
+	 hxQfjpHBa4uhvOyZpV3c3L0wKz4zHrk6rV4t2e16E4I/pTy/yI4ziyPCWU1xGXzs5f
+	 uuZ4+yvT/+Y4A==
+Date: Tue, 02 Sep 2025 08:18:00 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Conor Dooley <conor+dt@kernel.org>, linux-riscv@lists.infradead.org, 
+Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+ Fred Bloggs <f.blogs@napier.co.nz>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, devicetree@vger.kernel.org, 
- Chen-Yu Tsai <wens@csie.org>, linux-sunxi@lists.linux.dev, 
- Maxime Ripard <mripard@kernel.org>, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Alexandre Ghiti <alex@ghiti.fr>, 
- Samuel Holland <samuel@sholland.org>
-To: Lukas Schmid <lukas.schmid@netcube.li>
-In-Reply-To: <20250831162536.2380589-1-lukas.schmid@netcube.li>
-References: <20250831162536.2380589-1-lukas.schmid@netcube.li>
-Message-Id: <175678730955.877897.3145791714848835564.robh@kernel.org>
-Subject: Re: [PATCH v8 0/5] Add support for NetCube Systems Nagami SoM and
- its carrier boards
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_061752_739828_21BD100D 
-X-CRM114-Status: GOOD (  24.18  )
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ Heiko Stuebner <heiko@sntech.de>, Stephen Rothwell <sfr@canb.auug.org.au>, 
+ linux-kernel@vger.kernel.org
+To: Hsun Lai <i@chainsx.cn>
+In-Reply-To: <20250901025037.81548-1-i@chainsx.cn>
+References: <20250901025037.81548-1-i@chainsx.cn>
+Message-Id: <175678731228.878036.16153642695383320999.robh@kernel.org>
+Subject: Re: [PATCH v3 0/2] Add support for 100ASK DShanPi A1
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,75 +72,41 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sun, 31 Aug 2025 18:25:29 +0200, Lukas Schmid wrote:
-> This series adds support for the NetCube Systems Nagami SoM and its
-> associated carrier boards, the Nagami Basic Carrier and the Nagami Keypad
-> Carrier.
+On Mon, 01 Sep 2025 10:50:35 +0800, Hsun Lai wrote:
+> This series add support for 100ASK DShanPi A1.
 > 
-> Changes in v8:
->   - Use a gpio-mux instead of the gpio-hog for the USB0_SEC_EN signal
->   - Fix the dt-schema issues
-> 
-> Changes in v7:
->   - Fix the gpio numbering for the USB_SEC_EN gpio hog
->   - Fix the gpio-line-names for the keypad carrier
-> 
-> Changes in v6:
->   - Add 'usb0-enable-hog' to the som to enable the USB-OTG port by default
->   - Update the keypad carrier dts to match actual board revision
-> 
-> Changes in v5:
->   - Re-add the non-removable property to the ESP32 interface
->   - Add the mmc-pwrseq node for the ESP32 to initialize the ESP32 correctly
->   - Remove the unused ehci0 and ohci0 nodes from the Keypad Carrier since
->     USB port is peripheral only
-> 
-> Changes in v4:
->   - Disable the default interfaces on the card-edge but keep the pinctrl
->     definitions for them
->   - Split the pinctrl definitions for the SPI interface into the basic spi
->     pins and the hold/wp pins
->   - Move some mmc0 properties to the Basic Carrier dts
->   - Remove non-removable property from the ESP32 interface
->   - Fix typo in the keypad matrix definition
+> Info of device can be found at:
+> https://wiki.dshanpi.org/en/docs/DshanPi-A1/intro/
 > 
 > Changes in v3:
->   - Add missing dcxo node to the SoM dtsi
->   - Rename the multi-led node
->   - Change dr_mode to "peripheral" for the Keypad Carrier
+> - Update the name of vcc_in regulator (Chukun Pan, v2)
+> - Fix PCIE (Chukun Pan, v2)
+> - Update the name of typec5v_pwren_h pinctrl (Chukun Pan, v2)
+> - Fix USB3 (Chukun Pan, v2)
+> - Remove i2c2 node, unsupported RTC model rs4c1338 (Chukun Pan, v2)
 > 
 > Changes in v2:
->  - Squash the binding patches into one patch
->  - Fix formatting of the phy node in the SoM dtsi
->  - Add description on where the phy is located in the SoM dtsi
->  - Fix the phy address in the SoM dtsi
->  - Move the carrier bindings into the same description as enums
+> - Delete the pwm include file (Chukun Pan, v1)
+> - Fix vcc3v3_pcie gpios (Chukun Pan, v1)
+> - Adjust the order of some nodes (Chukun Pan, v1)
+> - Fix sdmmc (Chukun Pan, v1)
+> - Add phy-supply for u2phy0_otg (Chukun Pan, v1)
 > 
-> Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
-> ---
-> Lukas Schmid (5):
->   dt-bindings: arm: sunxi: Add NetCube Systems Nagami SoM and carrier
->     board bindings
->   riscv: dts: allwinner: d1s-t113: Add pinctrl's required by NetCube
->     Systems Nagami SoM
->   ARM: dts: sunxi: add support for NetCube Systems Nagami SoM
->   ARM: dts: sunxi: add support for NetCube Systems Nagami Basic Carrier
->   ARM: dts: sunxi: add support for NetCube Systems Nagami Keypad Carrier
+> Changes in v1:
+> - Add support for 100ASK DShanPi A1
 > 
->  .../devicetree/bindings/arm/sunxi.yaml        |   8 +
->  arch/arm/boot/dts/allwinner/Makefile          |   3 +
->  ...n8i-t113s-netcube-nagami-basic-carrier.dts |  67 +++++
->  ...8i-t113s-netcube-nagami-keypad-carrier.dts | 129 +++++++++
->  .../allwinner/sun8i-t113s-netcube-nagami.dtsi | 250 ++++++++++++++++++
->  .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |  48 ++++
->  6 files changed, 505 insertions(+)
->  create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-basic-carrier.dts
->  create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-keypad-carrier.dts
->  create mode 100644 arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami.dtsi
+> Hsun Lai (2):
+>   dt-bindings: arm: rockchip: Add 100ASK DShanPi A1
+>   arm64: dts: rockchip: add DTs for 100ASK DShanPi A1
+> 
+>  .../devicetree/bindings/arm/rockchip.yaml     |   5 +
+>  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+>  .../dts/rockchip/rk3576-100ask-dshanpi-a1.dts | 795 ++++++++++++++++++
+>  3 files changed, 801 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dts
 > 
 > --
-> 2.39.5
-> 
+> 2.34.1
 > 
 > 
 > 
@@ -170,14 +128,16 @@ make sure dt-schema is up to date:
 
 This patch series was applied (using b4) to base:
  Base: attempting to guess base-commit...
- Base: tags/next-20250829 (best guess, 2/3 blobs matched)
+ Base: tags/v6.17-rc1-22-g7d11b8c260ea (exact match)
 
 If this is not the correct base, please add 'base-commit' tag
 (or use b4 which does this automatically)
 
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/allwinner/' for 20250831162536.2380589-1-lukas.schmid@netcube.li:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for 20250901025037.81548-1-i@chainsx.cn:
 
-arch/arm/boot/dts/allwinner/sun8i-t113s-netcube-nagami-keypad-carrier.dtb: /soc/i2c@2502800/keypad@34: failed to match any schema with compatible: ['ti,tca8418']
+arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dtb: syscon@26034000 (rockchip,rk3576-dcphy-grf): clocks: False schema does not allow [[21, 492]]
+	from schema $id: http://devicetree.org/schemas/soc/rockchip/grf.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dtb: /soc/dsi@27d80000: failed to match any schema with compatible: ['rockchip,rk3576-mipi-dsi2']
 
 
 
