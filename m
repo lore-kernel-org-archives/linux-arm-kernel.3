@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C646CA1007
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC262CA1005
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:09:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,27 +12,27 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x9TuL04vFhiPzgdrP+BZoEcVrXaxSu+12DLf6V0dxlQ=; b=LbKMXxYe5a/65HHn+AMjfLBdsY
-	kiFjcLAwY8aw7HSTzf06KuXlXb8THrg4vuIPJd4PAUQKfpIK3DvGIqGUSEGcnR5Us1t2f93Zq9INr
-	+bfcYNb8UihgPILCn2STH2syd8DBnvJ+av0kggzqCW+2EKkgeTixrGkeN9bO5kL8MO3f2KegVRvM4
-	B7skaLWNhg3g0XVdqAkmVL5ZSqjELxBZY+5su+adi+ukx67JBdKBZTrxGxCkIyBdA58iz7JPU5p7x
-	xF/NedLvrXK9T1nMRTm2BPdsQWGqyuo7OlaVB4WEobepsAeHSipR6+Ecr9fqTPwF/l6XHJ41dAHuV
-	MPKjml0g==;
+	bh=DHzf8zOkoK/gz40/u34nFlS5x0KpraKKt7bj2JGtWEk=; b=duU9KeNMZsMJFZZAtqr3TwMmGG
+	cVHdbPqkJ2sHrXZGDzwssi3MQS/fKSuGCAsyt7AhOJBnnNHtyhYCLzIH6ayXmNrKM5wgj4fViD7IH
+	CARnJBh1+zOEi0tUpTGmWwSWR4CA8S1Vm31tilkKoXJ4V+oc6pYxVIf8JlVF+MZw1yVsWD5k7yON6
+	4e8HEVusKkCVQjmddr28EQoNqrRmu/6gBOA9bcxP+anq9xVkGYJwSqty3uJ5Peiw7c/D/9zHJ7Sey
+	YrKn+AVE9DOVG2+VfpFaL2gsyIfSDXVmKhjnceH/1tKVYi2h/xSElkx0L5tSD50t/lZPXboJqwxTs
+	v6XY1CdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utWNq-00000001Zas-3mTC;
-	Tue, 02 Sep 2025 19:09:34 +0000
+	id 1utWNp-00000001ZY4-2UPb;
+	Tue, 02 Sep 2025 19:09:33 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utQpk-0000000HYlQ-453p
+	id 1utQpk-0000000HYkP-3F1C
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 13:14:02 +0000
+	Tue, 02 Sep 2025 13:14:01 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D6D1F27B5;
-	Tue,  2 Sep 2025 06:13:51 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 200902720;
+	Tue,  2 Sep 2025 06:13:50 -0700 (PDT)
 Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BA5713F694;
-	Tue,  2 Sep 2025 06:13:58 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 098EB3F694;
+	Tue,  2 Sep 2025 06:13:56 -0700 (PDT)
 From: Alexandru Elisei <alexandru.elisei@arm.com>
 To: maz@kernel.org,
 	oliver.upton@linux.dev,
@@ -43,17 +43,17 @@ To: maz@kernel.org,
 	kvmarm@lists.linux.dev,
 	catalin.marinas@arm.com,
 	will@kernel.org
-Subject: [PATCH v2 2/2] KVM: arm64: VHE: Save and restore host MDCR_EL2 value correctly
-Date: Tue,  2 Sep 2025 14:08:33 +0100
-Message-ID: <20250902130833.338216-3-alexandru.elisei@arm.com>
+Subject: [PATCH v2 1/2] KVM: arm64: VHE: Initialize PMSCR_EL1
+Date: Tue,  2 Sep 2025 14:08:32 +0100
+Message-ID: <20250902130833.338216-2-alexandru.elisei@arm.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20250902130833.338216-1-alexandru.elisei@arm.com>
 References: <20250902130833.338216-1-alexandru.elisei@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_061401_087009_B1403B80 
-X-CRM114-Status: GOOD (  12.29  )
+X-CRM114-CacheID: sfid-20250902_061400_852215_D82B39B4 
+X-CRM114-Status: GOOD (  16.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,131 +68,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Prior to commit 75a5fbaf6623 ("KVM: arm64: Compute MDCR_EL2 at
-vcpu_load()"), host MDCR_EL2 was saved correctly:
+According to the pseudocode for StatisticalProfilingEnabled() from Arm
+DDI0487L.b, PMSCR_EL1 controls profiling at EL1 and EL0:
 
-kvm_arch_vcpu_load()
-  kvm_vcpu_load_debug() /* Doesn't touch hardware MDCR_EL2. */
-  kvm_vcpu_load_vhe()
-    __activate_traps_common()
-       /* Saves host MDCR_EL2. */
-       *host_data_ptr(host_debug_state.mdcr_el2) = read_sysreg(mdcr_el2)
-       /* Writes VCPU MDCR_EL2. */
-       write_sysreg(vcpu->arch.mdcr_el2, mdcr_el2)
+- PMSCR_EL1.E1SPE controls profiling at EL1.
+- PMSCR_EL1.E0SPE controls profiling at EL0 if HCR_EL2.TGE=0.
 
-The MDCR_EL2 value saved previously was restored in
-kvm_arch_vcpu_put() -> kvm_vcpu_put_vhe().
+These two fields reset to UNKNOWN values.
 
-After the aforementioned commit, host MDCR_EL2 is never saved:
+When KVM runs in VHE mode and profiling is enabled in the host, before
+entering a guest, KVM does not touch any of the SPE registers, leaving the
+buffer enabled, and it clears HCR_EL2.TGE. As a result, depending on the
+reset value for the E1SPE and E0SPE fields, KVM might unintentionally
+profile a guest. Make the behaviour consistent and predictable by clearing
+PMSCR_EL1 when KVM initialises the host debug configuration.
 
-kvm_arch_vcpu_load()
-  kvm_vcpu_load_debug() /* Writes VCPU MDCR_EL2 */
-  kvm_vcpu_load_vhe()
-    __activate_traps_common()
-       /* Saves **VCPU** MDCR_EL2. */
-       *host_data_ptr(host_debug_state.mdcr_el2) = read_sysreg(mdcr_el2)
-       /* Writes VCPU MDCR_EL2 a second time. */
-       write_sysreg(vcpu->arch.mdcr_el2, mdcr_el2)
-
-kvm_arch_vcpu_put() -> kvm_vcpu_put_vhe() then restores the VCPU MDCR_EL2
-value. Also VCPU's MDCR_EL2 value gets written to hardware twice now.
-
-Fix this by saving the host MDCR_EL2 in kvm_arch_vcpu_load() before it gets
-overwritten by the VCPU's MDCR_EL2 value, and restore it on VCPU put.
+Note that this is not a problem for nVHE, because KVM clears
+PMSCR_EL1.{E1SPE,E0SPE} before entering the guest.
 
 Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
 ---
 
-Tested on a cubie a5e by adding a few print statements. Without the patch:
+Tested by setting PMSCR_EL1.{E1SPE,E0SPE} in __finalise_el2 (to simulate a
+system where the bits reset to 1) and clearing MDCR_EL2.TPMS (so guest
+accesses to PMSCR_EL1 are not trapped). I booted the kernel in the model
+with FEAT_SPE, but without FEAT_FGT (so I wouldn't have to fiddle with
+those traps too).  Then ran a hacked kvm-unit-tests test that reads
+PMSCR_EL1.
 
-[ 1009.416572] kvm_arch_init_vm: MDCR_EL2=0x6
-[ 1028.397204] kvm_arch_destroy_vm: MDCR_EL2=0xe66
-[ 1049.271878] kvm_arch_init_vm: MDCR_EL2=0xe66
-[ 1066.030000] kvm_arch_destroy_vm: MDCR_EL2=0xe66
+Without the patch: PMSCR_EL1 = 0x3 - E1SPE and E0SPE are set.
+With the patch: PMSCR_EL1 = 0x0- E1SPE and E0SPE are not set.
 
-With the patch:
+Also tested by running the series on a cubie a5e (doesn't have FEAT_SPE),
+in vhe, nvhe and protected modes.
 
-[  977.814892] kvm_arch_init_vm: MDCR_EL2=0x6
-[ 1040.084919] kvm_arch_destroy_vm: MDCR_EL2=0x6
-[ 1045.987826] kvm_arch_init_vm: MDCR_EL2=0x6
-[ 1128.720366] kvm_arch_destroy_vm: MDCR_EL2=0x6
-
- arch/arm64/kvm/debug.c                  | 6 ++++++
- arch/arm64/kvm/hyp/include/hyp/switch.h | 5 -----
- arch/arm64/kvm/hyp/nvhe/switch.c        | 6 ++++++
- 3 files changed, 12 insertions(+), 5 deletions(-)
+ arch/arm64/kvm/debug.c | 14 ++++++++++----
+ 1 file changed, 10 insertions(+), 4 deletions(-)
 
 diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
-index e7ce0d5a622d..c81b11c42e4d 100644
+index 381382c19fe4..e7ce0d5a622d 100644
 --- a/arch/arm64/kvm/debug.c
 +++ b/arch/arm64/kvm/debug.c
-@@ -144,6 +144,9 @@ void kvm_vcpu_load_debug(struct kvm_vcpu *vcpu)
- 	/* Must be called before kvm_vcpu_load_vhe() */
- 	KVM_BUG_ON(vcpu_get_flag(vcpu, SYSREGS_ON_CPU), vcpu->kvm);
+@@ -74,13 +74,19 @@ void kvm_init_host_debug_data(void)
+ 	*host_data_ptr(debug_brps) = SYS_FIELD_GET(ID_AA64DFR0_EL1, BRPs, dfr0);
+ 	*host_data_ptr(debug_wrps) = SYS_FIELD_GET(ID_AA64DFR0_EL1, WRPs, dfr0);
  
-+	if (has_vhe())
-+		*host_data_ptr(host_debug_state.mdcr_el2) = read_sysreg(mdcr_el2);
++	if (cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_PMSVer_SHIFT) &&
++	    !(read_sysreg_s(SYS_PMBIDR_EL1) & PMBIDR_EL1_P)) {
++		if (has_vhe()) {
++			/* Clear E{0,1}SPE, which reset to UNKNOWN values. */
++			write_sysreg_el1(0, SYS_PMSCR);
++		} else {
++			host_data_set_flag(HAS_SPE);
++		}
++	}
 +
- 	/*
- 	 * Determine which of the possible debug states we're in:
- 	 *
-@@ -190,6 +193,9 @@ void kvm_vcpu_load_debug(struct kvm_vcpu *vcpu)
- 
- void kvm_vcpu_put_debug(struct kvm_vcpu *vcpu)
- {
-+	if (has_vhe())
-+		write_sysreg(*host_data_ptr(host_debug_state.mdcr_el2), mdcr_el2);
-+
- 	if (likely(!(vcpu->guest_debug & KVM_GUESTDBG_SINGLESTEP)))
+ 	if (has_vhe())
  		return;
  
-diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-index 84ec4e100fbb..b6682202edf3 100644
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -431,9 +431,6 @@ static inline void __activate_traps_common(struct kvm_vcpu *vcpu)
- 		vcpu_set_flag(vcpu, PMUSERENR_ON_CPU);
- 	}
- 
--	*host_data_ptr(host_debug_state.mdcr_el2) = read_sysreg(mdcr_el2);
--	write_sysreg(vcpu->arch.mdcr_el2, mdcr_el2);
+-	if (cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_PMSVer_SHIFT) &&
+-	    !(read_sysreg_s(SYS_PMBIDR_EL1) & PMBIDR_EL1_P))
+-		host_data_set_flag(HAS_SPE);
 -
- 	if (cpus_have_final_cap(ARM64_HAS_HCX)) {
- 		u64 hcrx = vcpu->arch.hcrx_el2;
- 		if (is_nested_ctxt(vcpu)) {
-@@ -454,8 +451,6 @@ static inline void __deactivate_traps_common(struct kvm_vcpu *vcpu)
- {
- 	struct kvm_cpu_context *hctxt = host_data_ptr(host_ctxt);
- 
--	write_sysreg(*host_data_ptr(host_debug_state.mdcr_el2), mdcr_el2);
--
- 	write_sysreg(0, hstr_el2);
- 	if (system_supports_pmuv3()) {
- 		write_sysreg(ctxt_sys_reg(hctxt, PMUSERENR_EL0), pmuserenr_el0);
-diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
-index ccd575d5f6de..d3b9ec8a7c28 100644
---- a/arch/arm64/kvm/hyp/nvhe/switch.c
-+++ b/arch/arm64/kvm/hyp/nvhe/switch.c
-@@ -50,6 +50,10 @@ extern void kvm_nvhe_prepare_backtrace(unsigned long fp, unsigned long pc);
- static void __activate_traps(struct kvm_vcpu *vcpu)
- {
- 	___activate_traps(vcpu, vcpu->arch.hcr_el2);
-+
-+	*host_data_ptr(host_debug_state.mdcr_el2) = read_sysreg(mdcr_el2);
-+	write_sysreg(vcpu->arch.mdcr_el2, mdcr_el2);
-+
- 	__activate_traps_common(vcpu);
- 	__activate_cptr_traps(vcpu);
- 
-@@ -93,6 +97,8 @@ static void __deactivate_traps(struct kvm_vcpu *vcpu)
- 		isb();
- 	}
- 
-+	write_sysreg(*host_data_ptr(host_debug_state.mdcr_el2), mdcr_el2);
-+
- 	__deactivate_traps_common(vcpu);
- 
- 	write_sysreg_hcr(this_cpu_ptr(&kvm_init_params)->hcr_el2);
+ 	/* Check if we have BRBE implemented and available at the host */
+ 	if (cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_BRBE_SHIFT))
+ 		host_data_set_flag(HAS_BRBE);
 -- 
 2.51.0
 
