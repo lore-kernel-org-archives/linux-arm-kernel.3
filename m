@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9AC9CA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:18:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C0FCCA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:20:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P1hJqT/C22nmanBnf/0xq8icrGBh5sfd+c6HBcH+XJM=; b=2fDXkDicu5qOLLVGseGPiNIMDj
-	KrW95PrqljlNZh33IoPWsHUkGBtqv2sDh4RJo9BaDPhQI3Ngyv7JbuFqjBrfKY7xJlXjCA2qfG3Bf
-	YPMLlXr2hKBbqVQ501ePCj53z17vNP5mem18rSKSXu/IGeBr6RD+ionzPBVP5blY8u6/htshNX6c8
-	sDxdWnl9YNoOvr+ZDeHMk2ZGXfIxcZz9hjAZCbZPN3c6nwtD8b/ya1FO5EBiMZFz+JZiWDMYAlY02
-	kUOq/dmf8X01/EZ1Chie+PZtD2u4vGOZtipSw3wfQJyRdKMgCpOer3RgBglnip9IyH3UmgtDFEkqY
-	qdrMeZOQ==;
+	bh=MjRTy6ke9707qyB/BghqB5ATIpNChLwx3v84JNJ5TPk=; b=3Y8YW1i3QCEAKt0dgkecgMi9nn
+	GWYlzO8x8kahQmbZPJhsItuuBuL2C3h091ci7mEnsgItc9TcFqYQ86tiIXtZAJmpXi085c2F9keCj
+	aQXLZ77iHsTynnUR+XwLC3cy+QXCbZumtqXbbLPgbyTOU9Lh9quaAoAZf6ZrgaoE1WeeDRisFHvlx
+	uIXI9tmCTlfTbrEBDmUsSUVmqZEQ0n7B1zhflRQPJGSsDcc78UCVxRzjZVEW+ozSYRq5BANjNR8oa
+	F7t+XLonj5wdva8ozi8jhVnq+ynjlMUsTC7K4Jlc0+Ghcdjr3HZye6MYQjNowyX+1jgmXFfcqLQ3b
+	GzGSp85Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utWW6-00000001gVt-158g;
-	Tue, 02 Sep 2025 19:18:06 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1utWYo-00000001h1U-0nic;
+	Tue, 02 Sep 2025 19:20:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utTOq-00000000p22-3a54
+	id 1utTPv-00000000pRx-348l
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 15:58:26 +0000
+	Tue, 02 Sep 2025 15:59:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6DD204374F;
-	Tue,  2 Sep 2025 15:58:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0060C4CEED;
-	Tue,  2 Sep 2025 15:58:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 12A466021C;
+	Tue,  2 Sep 2025 15:59:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01BDFC4CEED;
+	Tue,  2 Sep 2025 15:59:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756828704;
-	bh=p9LX1J8OB47eGZSBufCQ0NCMRaLyzY7dyM6OvdV2fn4=;
+	s=k20201202; t=1756828770;
+	bh=h6gGkPa+yogQhUhsg5tcVHk0cLLn+dh6AGZcG93uf7s=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Q/fJnIUePrEmtB3jGxs5sXxTiOpjkneVTfCS8aGXxrge+I7eRhoUp/VrWKw0Hp5Av
-	 7/yMMMoDY3uf4zbOr1qrCvQbUQdfF0rxH+L8odYDJGkEzL497fxrw04Ay5tgx5lKow
-	 2mJtK9hw1iTs3p7Nqm8rh+7jqov/ffrQu48zZ3jqGVJUgN/tlYOWCZu/pxnHyUHt8q
-	 rx60Oi0rBmJckMYvBhCX09gIsGWqa1rEdd40SEyfV5zBcUmJAcbkXfU6nC8L3Bn5Xx
-	 kKZSJDcxk0NBwX11+/u16ApogOs6MSqP278oWv9WSTWa3EtFMXF37agP5A/MeoJdgW
-	 fh/6kw64NW2Lw==
-Message-ID: <ff165a2e-cd63-462f-b2ea-cb27cb514ef9@kernel.org>
-Date: Tue, 2 Sep 2025 17:58:11 +0200
+	b=Ud0/eFyjy1LcAqZg8/j8CGG2Y+QtH7azwAQmg7B6nqOqfw7uH3isn8BWEsvAZ/rys
+	 zO9DuR3o+bc/yW7QUD/9dtYpcAQX49gCnPKGsgHgLZW0IZULcY2x+fnynasWOmKQ4U
+	 3HmROMU44lKBDLB/MSAJeZWuJ7IxmOBCqv14kIqng4BI0NGKCBlREva7OmyCvehMZf
+	 aYDsTt0OmKhB88FURiUCJ3Ot+suF9wyekWpNCkvgTMVPqqjZeo6NzUGrl9yKAD69nG
+	 3W7lWRc93bSi6BuXL06aDnkVp8e5I1/cY6kApSel/xtw+cXgctCwzB/n1ANxqWBroC
+	 m5fjuZeIJSwNQ==
+Message-ID: <3815a847-c6ea-44f1-8c4f-666483841b16@kernel.org>
+Date: Tue, 2 Sep 2025 17:59:18 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 04/12] cpufreq: longhaul: Use scope-based cleanup
- helper
+Subject: Re: [PATCH v3 08/12] cpufreq: powerpc: macintosh: Use scope-based
+ cleanup helper
 To: Zihuan Zhang <zhangzihuan@kylinos.cn>,
  "Rafael J . wysocki" <rafael@kernel.org>,
  Viresh Kumar <viresh.kumar@linaro.org>,
@@ -79,7 +79,7 @@ Cc: Ben Horgan <ben.horgan@arm.com>, zhenglifeng <zhenglifeng1@huawei.com>,
  intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
  imx@lists.linux.dev, linux-omap@vger.kernel.org, linux-kernel@vger.kernel.org
 References: <20250901085748.36795-1-zhangzihuan@kylinos.cn>
- <20250901085748.36795-5-zhangzihuan@kylinos.cn>
+ <20250901085748.36795-9-zhangzihuan@kylinos.cn>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -125,12 +125,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250901085748.36795-5-zhangzihuan@kylinos.cn>
+In-Reply-To: <20250901085748.36795-9-zhangzihuan@kylinos.cn>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_085824_938526_F9745DB6 
-X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,22 +143,22 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 01/09/2025 10:57, Zihuan Zhang wrote:
->  static void __exit longhaul_exit(void)
->  {
-> -	struct cpufreq_policy *policy = cpufreq_cpu_get(0);
 > +	struct cpufreq_policy *policy __free(put_cpufreq_policy) = cpufreq_cpu_get(0);
->  	int i;
+>  	struct wf_control *clamp;
+>  	struct device *dev;
+>  	int ret;
 >  
->  	for (i = 0; i < numscales; i++) {
-> @@ -968,7 +968,6 @@ static void __exit longhaul_exit(void)
->  		}
->  	}
+> -	policy = cpufreq_cpu_get(0);
+>  	if (!policy) {
+>  		pr_warn("%s: cpufreq policy not found cpu0\n", __func__);
+>  		return -EPROBE_DEFER;
+> @@ -79,8 +78,6 @@ static int __init wf_cpufreq_clamp_init(void)
+>  	ret = freq_qos_add_request(&policy->constraints, &qos_req, FREQ_QOS_MAX,
+>  				   max_freq);
 >  
 > -	cpufreq_cpu_put(policy);
-
-You are not improving any code here.
-
-
+> -
+Not much improvement. Previously this was simple code, easy to grasp.
 Best regards,
 Krzysztof
 
