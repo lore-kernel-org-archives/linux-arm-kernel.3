@@ -4,73 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE71FCA1005
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 01:54:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D8D8CA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 01:55:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UWnUSCLzGExhpc14PQ8sxyjjtdqvZUyY+G0CrAnF3jo=; b=Bd9Kl2C2fVnlRIWWURmrwjkGKG
-	uI/FL6ym1UDW6fAEM/BEc8mA52xWsWlpgHkTbtEP80NmQXFEgIa36UaVrbLBr0rkxhen3VXsfGqZw
-	EYFGBlsx56jdssJ29pxsRiSfH+0cWHP2G/YBICn3DCEgDPo89bcUGnt6PyOHHm99hjTiAYEzmyiTY
-	RmjYnlDVOplZLLbBWt1sUmCqBt4qSE5hNlwIYNLCytEYM8q/WESB6g0xx2Vt08YCBFQhy3NzUIZiB
-	hIEml8/gmOVR8tPq+cwGOJxeMrWs/HIAwNizi9C3Trubv4CYgktVhC0EAySOHtWpZYQ0pikitipc1
-	P487I2oA==;
+	bh=1BjxUTF6KJCDOLSXe594ZgPyapi05IrD4KuGUkiE+hw=; b=F8qGwdk9ksQvopcyKoAkjZK/pg
+	MaKx18A0Sl492yUCDfE6xQ3QqEqje8TATlr5Qzue6tyEERDyuUE+5qQHPIE9bSNkjkeV5yQYn/mYT
+	sJQYd7YokO+0aQxkDSHOhp2SBBcgv/eVJZP+mq3hoAN4z3DMgEaWc7JEC+f93vuKdDhdEnA3fX/Jl
+	kcDTpDZQatb1JjOtcft53pmshj9XWFlIWBBlOGL2w9QmsLZJH0v2iJOTG81lvuCpnrorTZ5kbFauV
+	aLCQYm/Z5JzcHlVat2ueRVAIWjugPLEa7qoFcLxSWpzNeobPdQcdW+8gojNifBcN+vzzUExCoc7aO
+	clYL/13Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utch9-000000038SL-2PcT;
-	Wed, 03 Sep 2025 01:53:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1utciv-000000038gM-0Vj3;
+	Wed, 03 Sep 2025 01:55:45 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utceN-000000037tg-0dF1;
-	Wed, 03 Sep 2025 01:51:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D7CD7446A8;
-	Wed,  3 Sep 2025 01:51:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA498C4CEFB;
-	Wed,  3 Sep 2025 01:51:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756864262;
-	bh=UWnUSCLzGExhpc14PQ8sxyjjtdqvZUyY+G0CrAnF3jo=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Ijt8rJvF4WQP1+v1wZZCA8bj4GDhjxHSbP8OuvuI9PveJWCSmnTHhaL3YwOvd7VTT
-	 JW24AefzUoFrivSPVVHmYlmrAQ+mDMThV/slNJfdsmVnB1ciQzCzOtvJsmY4dLiAtd
-	 EZ9LEXzrqGRVb+CpdcyxH6IAs0NgDqTPJGkrBoFDZH2XHxOvXBXIWw9c1aK27GrB2q
-	 6iLyK91xmux2NxQU2LH0RWdK0pdRjfPKrPerrabLNKumenFaDCSM2Otv2HnwA5d0hg
-	 KKqKdjadEpGtUw2QSijmjhK1mc4kw7VMcIZmuwIMSaTLnJQ/1RDA0kATl2Gs+LUfLp
-	 6S8ZyAc2aUaWA==
-Received: by mail-ed1-f48.google.com with SMTP id 4fb4d7f45d1cf-61cb4370e7bso9083370a12.3;
-        Tue, 02 Sep 2025 18:51:02 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCV6DqU0H1lNoLRZMLCmw+aAGxVYbh2AYGK3iykV9zDcyZxyn2cBG9LDKekeimZE3wlcTNaHng/FhzXPDduxY+SM@lists.infradead.org, AJvYcCWDbvslWR1K2o4727pPe5I0FNjr1F4CNjnM3ZOz88W59toc3XPYtNBgesTgT0u2EvXMncJRATc1dgJGhC6YJow=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwD+iBwB3gGsmV84tDOWHqEr7+LK8QPzWZw3nYeE5krcXYC7Y9D
-	5SOFOqmKyUXGxHTpnWZnTArh05DEwvNyT9OtxO6K3J1CNcUb2in9MBQygonusjxgfsscmRLiGM9
-	E0O9Hz0qv0nig0bkPYIwtuqiA6nwMVw==
-X-Google-Smtp-Source: AGHT+IFEzOKJp3CdAUlVBLekgFAfgyITfS2lG4F4nPimPGJmbDDqsnOTPnHiFjXPE6SnZ13guf6LeeqRUKJ4FkGPDkY=
-X-Received: by 2002:a05:6402:268e:b0:61c:9193:a4c with SMTP id
- 4fb4d7f45d1cf-61d26987b9dmr10334427a12.1.1756864261267; Tue, 02 Sep 2025
- 18:51:01 -0700 (PDT)
+	id 1utXsC-00000001xmY-2Z7U;
+	Tue, 02 Sep 2025 20:45:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1756845899;
+	bh=NNLPTKtx/ZzBkGT6fzsckp1Yqu0jL2qYmg8gJGldf4c=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=ghJyRqXZNtVVacX25JFsyBeBoCUwgLsHoZZcjYOubidu+4pt52vJEzo5FT68gEstT
+	 xRj6wLjox6yO/n+zuwAr6DkKMA0T+cV3O993iNjqCvVtzZCq0APBL1xOTRK5O1949p
+	 6+QEwCHFjZOV+ituyDPINz9x4yPJw0PJ5BLcxC/O9UPDBz5UZCv7DDSDqFTOF2eoIa
+	 F1ikPuh5wT5M5Jyt12i2Y9VYsDoe55WwEUU67VCSGr3SxIa3TAWZdenxM7Q3EdNwBz
+	 4+sfyOBgY57q31cOoEj+waFbH2F5Mto35meZ34n4pCYbAThfpKF2w2dTuuAf9Lwvh/
+	 X5GigWPGo0+3g==
+Received: from localhost (unknown [82.79.138.60])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 166A817E129F;
+	Tue,  2 Sep 2025 22:44:59 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Tue, 02 Sep 2025 23:44:43 +0300
+Subject: [PATCH v4 08/11] phy: rockchip: samsung-hdptx: Drop hw_rate driver
+ data
 MIME-Version: 1.0
-References: <20250722171152.58923-2-robh@kernel.org> <5d7557f0-841b-45ea-901c-5b595ac8bde3@collabora.com>
-In-Reply-To: <5d7557f0-841b-45ea-901c-5b595ac8bde3@collabora.com>
-From: Rob Herring <robh@kernel.org>
-Date: Tue, 2 Sep 2025 20:50:50 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqJaC47zFY7zvTVFum9oMiV87dgo49a9e3HW1T5_vQtAzA@mail.gmail.com>
-X-Gm-Features: Ac12FXzJRn6b-R8EkQgO1Kk-9Ab88p5fsgS_P7zt_q8WWK__4HS50sDm1CK_f1E
-Message-ID: <CAL_JsqJaC47zFY7zvTVFum9oMiV87dgo49a9e3HW1T5_vQtAzA@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: mediatek: mt8183: Fix out of range pull values
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, Enric Balletbo i Serra <eballetbo@kernel.org>, 
-	Ben Ho <Ben.Ho@mediatek.com>, Fabien Parent <fparent@baylibre.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250902-phy-hdptx-frl-v4-8-7d69176373ce@collabora.com>
+References: <20250902-phy-hdptx-frl-v4-0-7d69176373ce@collabora.com>
+In-Reply-To: <20250902-phy-hdptx-frl-v4-0-7d69176373ce@collabora.com>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Algea Cao <algea.cao@rock-chips.com>, 
+ Dmitry Baryshkov <lumag@kernel.org>
+Cc: kernel@collabora.com, linux-phy@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_185103_226066_E2BCBE56 
-X-CRM114-Status: GOOD (  20.61  )
+X-CRM114-CacheID: sfid-20250902_134500_804169_2CDC170E 
+X-CRM114-Status: GOOD (  13.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,40 +78,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 23, 2025 at 3:16=E2=80=AFAM AngeloGioacchino Del Regno
-<angelogioacchino.delregno@collabora.com> wrote:
->
-> Il 22/07/25 19:11, Rob Herring (Arm) ha scritto:
-> > A value of 10 is not valid for "mediatek,pull-down-adv" and
-> > "mediatek,pull-up-adv" properties which have defined values of 0-3. It
-> > appears the "10" was written as a binary value. The driver only looks a=
-t
-> > the lowest 2 bits, so the value "10" decimal works out the same as if
-> > "2" was used.
-> >
-> > Fixes: cd894e274b74 ("arm64: dts: mt8183: Add krane-sku176 board")
-> > Fixes: 19b6403f1e2a ("arm64: dts: mt8183: add mt8183 pumpkin board")
-> > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> > ---
-> > This is just a few of the warnings related to mt8183-pinctrl... Mediate=
-k
-> > is #1 for DT warnings on arm64. And by #1, I mean worst. :( It would be
-> > nice to see some progress on fixing them. Otherwise, seeing new Mediate=
-k
-> > bindings rather than fixing the existing stuff makes me grumpy.
-> >
->
-> Thanks for this fix.
->
-> You're absolutely right about this, let me check what I can do (and if I =
-can get
-> some colleague(s) of mine to look at that while I'm away in August).
->
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
-ora.com>
+The ->hw_rate member of struct rk_hdptx_phy was mainly used to keep
+track of the clock rate programmed in hardware and support implementing
+the ->recalc_rate() callback in hdptx_phy_clk_ops.
 
-Is this going to get applied and into linux-next sometime soon? Only
-been like 6 weeks...
+Computing the clock rate from the actual PHY PLL configuration seems to
+work reliably, hence remove the now redundant struct member.
 
-Rob
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 13 ++-----------
+ 1 file changed, 2 insertions(+), 11 deletions(-)
+
+diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+index 2303c132172135d3a2678cbd5a1bac6a3e139c47..7b1526c1ea3dfc26323d7b90631dc9fd2e3a7266 100644
+--- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
++++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+@@ -401,7 +401,6 @@ struct rk_hdptx_phy {
+ 
+ 	/* clk provider */
+ 	struct clk_hw hw;
+-	unsigned long hw_rate;
+ 	bool restrict_rate_change;
+ 
+ 	atomic_t usage_count;
+@@ -963,7 +962,7 @@ static int rk_hdptx_tmds_ropll_cmn_config(struct rk_hdptx_phy *hdptx)
+ {
+ 	const struct ropll_config *cfg = NULL;
+ 	struct ropll_config rc = {0};
+-	int ret, i;
++	int i;
+ 
+ 	if (!hdptx->hdmi_cfg.tmds_char_rate)
+ 		return 0;
+@@ -1025,12 +1024,7 @@ static int rk_hdptx_tmds_ropll_cmn_config(struct rk_hdptx_phy *hdptx)
+ 	regmap_update_bits(hdptx->regmap, CMN_REG(0086), PLL_PCG_CLK_EN_MASK,
+ 			   FIELD_PREP(PLL_PCG_CLK_EN_MASK, 0x1));
+ 
+-	ret = rk_hdptx_post_enable_pll(hdptx);
+-	if (!ret)
+-		hdptx->hw_rate = DIV_ROUND_CLOSEST_ULL(hdptx->hdmi_cfg.tmds_char_rate * 8,
+-						       hdptx->hdmi_cfg.bpc);
+-
+-	return ret;
++	return rk_hdptx_post_enable_pll(hdptx);
+ }
+ 
+ static int rk_hdptx_tmds_ropll_mode_config(struct rk_hdptx_phy *hdptx)
+@@ -1935,9 +1929,6 @@ static unsigned long rk_hdptx_phy_clk_recalc_rate(struct clk_hw *hw,
+ 	u64 rate;
+ 	int ret;
+ 
+-	if (hdptx->hw_rate)
+-		return hdptx->hw_rate;
+-
+ 	ret = regmap_read(hdptx->grf, GRF_HDPTX_CON0, &status);
+ 	if (ret || !(status & HDPTX_I_PLL_EN))
+ 		return 0;
+
+-- 
+2.51.0
+
 
