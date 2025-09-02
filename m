@@ -4,61 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8644ECA0FFE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 12:33:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24CF0CA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 12:33:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aOfJELexpmYmKmDqyInQJHF4s7c+pFiB8uvfHE8jLgQ=; b=XjaaTvw1BWRoMhXRlNJWb4sFsA
-	HNDdkZ8uGDuZQzNXIgPK+x5Jm6Ivj0t/SCq+yd8jUv6LtwCvPJENJD7mYrfiMlPSEbJZ/ZQknL8+2
-	pABWQ0av4ACva6pnTzj3vSiwKkb6v9hM3QD20OnUY4FKeGGQeW6MJS5a0jXA7NLf6VySnV6w3qsvt
-	HOX30m/+sFgyA0BwE9XsVD8DIXH3IJ38zJkdJGTICvRe/pfB84V6UhGVGBgqrVV43buunb9gfcYlw
-	T98KWMyXCeSMKGms/ao9ayO0VswEbN2yG3wVB+1oHUHFS3LNjFbZSewjvBF3poiPYnYHC/QJhXJRb
-	KwKE1Dsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z+j4DzEEXL+iF+7p3CmlD9MCQ8f1oEObc3nNAiZjEu4=; b=RE7Y6zomFa82YOuhP5zzWmSrZG
+	S0+hM4u0B9yW2B8gbDqfWsk3H5r9ldWkCkn9mzQLqiKdnz4ExVBFA1dJO4VFPdxe502PugYR3N074
+	46LD6DxUUSaGxLqBDqvzkD3u/9Sm34ZzatIvGgPtZbx44boGRhxABs3Xkb7yZIJ2fzxQvnC1hb8fl
+	gIusvXyoJ8TS7LiBSBAk9551CtbyiJGXLSc7qpgnEdrlev0ytfgKY17egOkyB669ppVKUOOaxjotA
+	nceGPQp+vOl8Ni3oNtSTbm6n4OLFvxPOliDAmKcZJbbvvCVT6nBsbPD+8HtnDPL0HCzdHRf3cccPI
+	aPupldBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utQBz-0000000HKRn-3yPs;
-	Tue, 02 Sep 2025 12:32:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utOQt-0000000GjSU-3WNi
+	id 1utQCX-0000000HL8q-47Qp;
+	Tue, 02 Sep 2025 12:33:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1utNQq-0000000GQ6T-1VAI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 10:40:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 50DA226BE;
-	Tue,  2 Sep 2025 03:40:02 -0700 (PDT)
-Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B8F813F6A8;
-	Tue,  2 Sep 2025 03:40:06 -0700 (PDT)
-Date: Tue, 2 Sep 2025 11:39:53 +0100
-From: Dave Martin <Dave.Martin@arm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org,
-	oliver.upton@linux.dev, anshuman.khandual@arm.com, robh@kernel.org,
-	james.morse@arm.com, mark.rutland@arm.com, joey.gouly@arm.com,
-	ahmed.genidi@arm.com, kevin.brodsky@arm.com,
-	scott@os.amperecomputing.com, mbenes@suse.cz,
-	james.clark@linaro.org, frederic@kernel.org, rafael@kernel.org,
-	pavel@kernel.org, ryan.roberts@arm.com, suzuki.poulose@arm.com,
-	maz@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v4 2/5] arm64: initialise SCTLR2_ELx register at boot time
-Message-ID: <aLbJeQf9LKXFTxzS@e133380.arm.com>
-References: <20250821172408.2101870-1-yeoreum.yun@arm.com>
- <20250821172408.2101870-3-yeoreum.yun@arm.com>
- <aLW4A3rTcJvA0c+j@e133380.arm.com>
- <aLXmCJOuxCHVXEYx@e129823.arm.com>
+	Tue, 02 Sep 2025 09:36:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C5CAE60207;
+	Tue,  2 Sep 2025 09:36:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C0FDC4CEED;
+	Tue,  2 Sep 2025 09:36:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756805763;
+	bh=ib72f7X+GiEiFcjy7r5QiSktmk8kg6DlyrSykY83WcE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=D2QH6YhSVJtfPx/HcPIcPT5AD0vkwPufkFroqxTTTZnhNzYwLYeLMg8qPp7N7F0u0
+	 D5rCZj3IHxo4R0e7wzDo7SEi/VyRycj8GNAoVujaHoEEj4gR6vDHGhnumPoHnQU2Wo
+	 e8oCZ68pEzVI2IjcXPHSKIKSNkTfqNkkWcDmA+14sY6wPCO8P3C4tAhX/RXzEzxVUb
+	 5jMwEMD6qf6Ooq78vlt9oRzBEmSInWij22F333Ty+FMhaunAYx0nJR+hCE6ubzzJdO
+	 edISpTJUizq2Kw2ZXDJBhXxNJASw007Y+ql8RPxTwSlo4BstwKEQS2OiFTRhGalolE
+	 XhQ/xGipaYNpw==
+From: Maxime Ripard <mripard@kernel.org>
+Date: Tue, 02 Sep 2025 11:35:13 +0200
+Subject: [PATCH v2 14/37] drm/atmel-hlcdc: Switch to
+ drm_atomic_get_new_crtc_state()
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aLXmCJOuxCHVXEYx@e129823.arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_034011_957892_AAE925E4 
-X-CRM114-Status: GOOD (  43.75  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250902-drm-no-more-existing-state-v2-14-de98fc5f6d66@kernel.org>
+References: <20250902-drm-no-more-existing-state-v2-0-de98fc5f6d66@kernel.org>
+In-Reply-To: <20250902-drm-no-more-existing-state-v2-0-de98fc5f6d66@kernel.org>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>
+Cc: dri-devel@lists.freedesktop.org, Maxime Ripard <mripard@kernel.org>, 
+ Manikandan Muralidharan <manikandan.m@microchip.com>, 
+ Dharma Balasubiramani <dharma.b@microchip.com>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1610; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=ib72f7X+GiEiFcjy7r5QiSktmk8kg6DlyrSykY83WcE=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDBnbdgU2cRW8azl4ol6HLcbN4mq9tuMrQ8kbPw3NXka5J
+ F1ivy3YMZWFQZiTQVZMkeWJTNjp5e2LqxzsV/6AmcPKBDKEgYtTACZiqMbYMOnVbi8uwQRmprBt
+ Voononbd/5NWIbnLVazJalrn7QlzJX0VEtvCWgU6TXT41TJ+Vycy1srdjlj5NbCMMyEokUflddc
+ bs3ddzS/tC+42WCV5rd+poi0m2Ms0uTbrqIDkx5QKAenDAA==
+X-Developer-Key: i=mripard@kernel.org; a=openpgp;
+ fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,138 +85,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The atmel-hlcdc atomic_check implementation uses the deprecated
+drm_atomic_get_existing_crtc_state() helper.
 
-On Mon, Sep 01, 2025 at 07:29:28PM +0100, Yeoreum Yun wrote:
-> Hi Dave,
-> 
-> > On Thu, Aug 21, 2025 at 06:24:05PM +0100, Yeoreum Yun wrote:
-> > > The value of the SCTLR2_ELx register is UNKNOWN after reset.
-> > > If the firmware initializes these registers properly, no additional
-> > > initialization is required.
-> > > However, in cases where they are not initialized correctly,
-> > > initialize the SCTLR2_ELx registers during CPU/vCPU boot
-> > > to prevent unexpected system behavior caused by invalid values.
-> > >
-> > > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> > > ---
-> >
-> > [...]
-> >
-> > > diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
-> > > index 23be85d93348..c25c2aed5125 100644
-> > > --- a/arch/arm64/include/asm/assembler.h
-> > > +++ b/arch/arm64/include/asm/assembler.h
-> > > @@ -738,6 +738,21 @@ alternative_endif
+This hook is called as part of the global atomic_check, thus before the
+states are swapped. The existing state thus points to the new state, and
+we can use drm_atomic_get_new_crtc_state() instead.
 
-[...]
+Signed-off-by: Maxime Ripard <mripard@kernel.org>
 
-> > > +/* Set SCTLR2_ELx to the @reg value. */
-> > > +.macro set_sctlr2_elx, el, reg, tmp
-> > > +	mrs_s	\tmp, SYS_ID_AA64MMFR3_EL1
-> > > +	ubfx	\tmp, \tmp, #ID_AA64MMFR3_EL1_SCTLRX_SHIFT, #4
-> > > +	cbz	\tmp, .Lskip_sctlr2_\@
-> > > +	.if	\el == 2
-> > > +	msr_s	SYS_SCTLR2_EL2, \reg
-> > > +	.elseif	\el == 12
-> > > +	msr_s	SYS_SCTLR2_EL12, \reg
-> > > +	.else
-> > > +	msr_s	SYS_SCTLR2_EL1, \reg
-> > > +	.endif
-> > > +.Lskip_sctlr2_\@:
-> > > +.endm
+---
+To: Manikandan Muralidharan <manikandan.m@microchip.com>
+To: Dharma Balasubiramani <dharma.b@microchip.com>
+To: Nicolas Ferre <nicolas.ferre@microchip.com>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: dri-devel@lists.freedesktop.org
+Cc: linux-arm-kernel@lists.infradead.org
+---
+ drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-[...]
+diff --git a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c
+index 4a7ba0918eca19eca3fd8febd1db1b2d3a8a6e14..59be5f64c058e2be398f207ad436f922135a5ad0 100644
+--- a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c
++++ b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c
+@@ -712,11 +712,11 @@ static int atmel_hlcdc_plane_atomic_check(struct drm_plane *p,
+ 	int i;
+ 
+ 	if (!hstate->base.crtc || WARN_ON(!fb))
+ 		return 0;
+ 
+-	crtc_state = drm_atomic_get_existing_crtc_state(state, s->crtc);
++	crtc_state = drm_atomic_get_new_crtc_state(state, s->crtc);
+ 	mode = &crtc_state->adjusted_mode;
+ 
+ 	ret = drm_atomic_helper_check_plane_state(s, crtc_state,
+ 						  (1 << 16) / 2048,
+ 						  INT_MAX, true, true);
 
-> > If might be a good idea to migrate other macros that use an "el"
-> > argument to do something similar -- although that probably doesn't
-> > belong in this series.
-> >
-> > The assembler seems to have no ".elseifc" directive, so you'll need
-> > separate nested .ifc blocks:
-> >
-> > 	.ifc	\el,2
-> > 	msr_s	SYS_SCTLR2_EL2, \reg
-> > 	.else
-> > 	.ifc	\el,12
-> > 	msr_s	SYS_SCTLR2_EL12, \reg
-> > 	.else
-> > 	.ifc	\el,1
-> > 	msr_s	SYS_SCTLR2_EL1, \reg
-> > 	.else
-> > 	.error	"Bad EL \"\el\" in set_sctlr2_elx"
-> > 	.endif
-> > 	.endif
-> > 	.endif
-> >
-> > (Note, I've not tested this approach.  If you can think of a better
-> > way, please feel free to suggest.)
-> 
-> Thanks for your suggestion. Let me test and check about this idea could
-> be applied in other macro too :D
-> (But as you mention, I'll apply this for SCTLR2 in other patchset).
+-- 
+2.50.1
 
-Ack, let me know how it goes.
-
-It is probably not worth doing this if the changes become complicated,
-though.
-
-[...]
-
-> > > diff --git a/arch/arm64/kernel/hyp-stub.S b/arch/arm64/kernel/hyp-stub.S
-> > > index 36e2d26b54f5..ac12f1b4f8e2 100644
-> > > --- a/arch/arm64/kernel/hyp-stub.S
-> > > +++ b/arch/arm64/kernel/hyp-stub.S
-> > > @@ -144,7 +144,17 @@ SYM_CODE_START_LOCAL(__finalise_el2)
-> > >
-> > >  .Lskip_indirection:
-> > >  .Lskip_tcr2:
-> > > +	mrs_s	x1, SYS_ID_AA64MMFR3_EL1
-> > > +	ubfx	x1, x1, #ID_AA64MMFR3_EL1_SCTLRX_SHIFT, #4
-> > > +	cbz	x1, .Lskip_sctlr2
-> > > +	mrs_s	x1, SYS_SCTLR2_EL12
-> > > +	msr_s	SYS_SCTLR2_EL1, x1
-> > >
-> > > +	// clean SCTLR2_EL1
-> > > +	mov_q	x1, INIT_SCTLR2_EL1
-> > > +	msr_s	SYS_SCTLR2_EL12, x1
-> >
-> > I'm still not sure why we need to do this.  The code doesn't seem to
-> > clean up by the EL1 value of any other register -- or have I missed
-> > something?
-> >
-> > We have already switched to EL2, via the HVC call that jumped to
-> > __finalise_el2.  We won't run at EL1 again unless KVM starts a guest --
-> > but in that case, it's KVM's responsibility to set up the EL1 registers
-> > before handing control to the guest.
-> >
-> > In any case, is SCTLR2_EL1 ever set to anything except INIT_SCTLR2_EL1
-> > before we get here?
-> 
-> Regardless of VHE and nVHE, between init_kernel_el() and finalise_el2()
-> the kernel modifies SCTLR_EL1/SCTLR2_EL1 (since el level in this period
-> is EL1).
-> and at the end of finalise_el2(), kernel switches to el2 and
-> if VHE, it writes the SCTLR_EL1/SCTLR2_EL1 to SCTLR_EL2/SCTLR2_EL2 and
-> initialize the SCTLR_EL1/SCTLR2_EL1.
-> 
-> Although there is no code to modify SCTLR2_EL1 between this period,
-> as SCTLR1_ELx, I initialize the SCTLR2_EL1 as init value for the future
-> usage.
-
-I think that we don't need to ensure that all sysregs are cleanly
-initialised; only those that can affect execution in some way need to
-be initialised.
-
-Once we are running at EL2 with VHE, we don't switch back to EL1, so
-the _EL1 control registers don't affect execution any more.
-
-
-If we did have to clean up the _EL1 registers, then this code would
-need to clean up all the other regs too, but I can't see clean-up for
-anything other than SCTLR2_EL1 here.  Is there some cleanup code
-elsewhere that I have missed?
-
-Cheers
----Dave
 
