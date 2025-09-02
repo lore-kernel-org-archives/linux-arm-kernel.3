@@ -4,151 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A565CA1005
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 09:28:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79573CA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 09:31:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=424mYQ1VTFxkWQ3X7r+7HzgD9r2j2iABJAmqzJxsGbQ=; b=yLFAeJql1lnkphUkWoGarPLXcU
-	HiAYlxwtbzJ935gFotg35heavKgulUy1HxAEWznjW+GqOuenvXtp7OAxRQq7v1o4zYQQoNuioX42I
-	LralWaiJXixiXs6iMGXSeKdhOFXU9ZYd1PhHsEQGHNmFXgZz52gsAQh5JSgNBaos4s5fumN7Kbjvk
-	12Vf+JXqfzvrbbt7gVMlzug2XKeh6ii1DbNJqE0QDcyjJngnDCZrX97nxkTq99ThgeeCR3OLScT90
-	IZgdW5QZp3L4cQPcRiZ6f38FoXkY5ucfnVa7ILiVGSzC3gN9OHSYJEidF8paRem29au4dFRUt31Lm
-	4PbCiH5A==;
+	bh=Sv5x6X7fdJp4kJ/TwjEMzepd84Y/rx9OdZCYRAadBMY=; b=wUY51MIfuHQNtV/yO7dfadVgvn
+	VlsQ/8xICfg4D1Kf+y9ER65XN5qkzBleXL+GsJKZyZ1JZzdBlGs402nqvSrqdAh6UhRn6L24GNaIa
+	6XegoR/Z8w4WhXxql3Jv/FfVfwJnZrMJj3Z9OJX4O00ILSa3vxO1Wrz2C6GfVqfRhPdSU/iGAmR0D
+	xWoLsdcScWN9hrq/C6iNU3rhsYVTf6RrdcG2GmfI9xkMG7VSDdEC03ZaoGLckSNUF52BzGe+38VBI
+	U3P378yfS4HSg3x+u16pyMr4yHmx0aNF6fZ/TqQN0PEMYB7L2n1dQaUshOrBh2EKsfYOFWGZ9Y9ua
+	uaJ6IjyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utNJc-0000000GNKV-17hS;
-	Tue, 02 Sep 2025 09:28:36 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1utNMI-0000000GOQC-1k7J;
+	Tue, 02 Sep 2025 09:31:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utMsq-0000000GEK0-3mMm
+	id 1utMt3-0000000GEQp-0UbB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 09:00:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QdYSSftxhnX/eiMKx/a35IT+etWRHAtxYQicE/RqZ1DO31aRjfKUsdyhy4k4IblCOyx3rLugzaWoZ8TKhZVlZ6Mwr/IIGR4VzHQzucqjhTlokREx3ONr2FK6tBcWzbD/t4H6jnOlihZvKsfOsh8xRiV69BaaL8McEZmGI/hEEK8jB66WCPATkZk8h8Fell4D8j4YublM1mPmx7IsjMQHhSzIvSbkFIhpPU/EVrCVr51sj2o9HdUf7/h58g4DNjSIadzKJvprPcOIYHHH6GS0RRt0b7xDeQnO9FRwKKuhiOe90t80sEcOSTi8u7/9KHEFjjUlckyZqqfrr5ZpfNx5Jw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=424mYQ1VTFxkWQ3X7r+7HzgD9r2j2iABJAmqzJxsGbQ=;
- b=qaWUB3Oxw0OuPDi4+P1x8Xf5XtGZC8hhuftChp4UZReIfmbpwsOsDhaOxLEXGJCLRf5+GlXsJuMjnoOh9eSsnPrg+FTXxrw0HMAj5+FTpedpuXfh6HCO1n0DBYQvdVSARiOHUn0b86bMxtEaNCyX0EU08i6XG5oMsXC6VEAn+xZSHprgSmWWwe9AY31LFHwkUP0g3JsBarPElohyQzr5cPUlOSJpF/LCns9fkSjY1jtI9T0A/26NIsw7rutuVvFBd8rBJ4XOnWkO4h/I7VQv8Z9ZoPCRmrzapjC5osg1d24izaOMSvYr0CemHPkzEmkDAizJS1qoWF6jor1teJYSCg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=424mYQ1VTFxkWQ3X7r+7HzgD9r2j2iABJAmqzJxsGbQ=;
- b=dRXXfi+ExkkV4O74CsgRhFsBWRSCC4z+Fidn6bQJsYB/+CYc3KtSUjBp6PACa5jnhWPhW1eWMksX//kCtmWnN1np8Nrq4TvI94uOXn0V/BN8JkDeumvsI1j8BXDmaDLHQIh/HyVKt6b8WPxI012qXiFm13dNP/b06UPxULS9aG4+zrIqhB8EfiKQwF2RZ6gHSNkQaS1a8Rxk0Pabg1mSxDev9GF93KpWP3poaKRKvLoUBH1LmhMGa2eMInEYLcTSgGkpQZoOFGm4UW5dUB7o48omXy+jkSDjIoOgoQuJPPk6szyNUCa6DUNL1K2ERcMhhqJU995Suo3UGWzsSJLiNA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
- by AS8PR04MB7638.eurprd04.prod.outlook.com (2603:10a6:20b:291::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.16; Tue, 2 Sep
- 2025 09:00:53 +0000
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::c67b:71cd:6338:9dce]) by DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::c67b:71cd:6338:9dce%4]) with mapi id 15.20.9094.015; Tue, 2 Sep 2025
- 09:00:53 +0000
-Date: Tue, 2 Sep 2025 16:55:13 +0800
-From: Xu Yang <xu.yang_2@nxp.com>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, Pavel Machek <pavel@kernel.org>, 
-	Peter Chen <peter.chen@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
-	imx@lists.linux.dev, arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 3/4] usb: chipidea: ci_hdrc_imx: Set out of band
- wakeup for i.MX95
-Message-ID: <xpso3qwem7d4rsksjazujvfqqvufdmq4vmfp2y7wcqlvk4f5nr@2akfm57mf6jd>
-References: <20250902-pm-v3-0-ffadbb454cdc@nxp.com>
- <20250902-pm-v3-3-ffadbb454cdc@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250902-pm-v3-3-ffadbb454cdc@nxp.com>
-X-ClientProxiedBy: AM0PR10CA0026.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:208:17c::36) To DU2PR04MB8822.eurprd04.prod.outlook.com
- (2603:10a6:10:2e1::11)
+	Tue, 02 Sep 2025 09:01:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8081460203;
+	Tue,  2 Sep 2025 09:01:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93B9BC4CEED;
+	Tue,  2 Sep 2025 09:01:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756803668;
+	bh=mN5alaCamYFIsOV5DNqhwizhf2rPGa+oUFPBFZxEPYY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=t9EC+SXLly+Vx+79G57ZJem3FcxzZXJyPpX9DupmeAU5doHELqySn32k5H3OGMJx2
+	 qGqCX3b9GHQ8otVWjup3BhFcGsFfqwMjZpIHR8D5WDxmC6NJtZobScVVGnuN38Ggst
+	 tpd9w9eJpUyEVaIJvvwnn01I9DzIZ6LysK3vzDUq6wEkVQgE+pXXCXLWKbEQigzmXt
+	 cmycjbwyUnnDQNiHBrvB1wRlI9V+zCWL6EViyWV7QmY8bHsTcHZEBS5SzpC2H6Ar+r
+	 UeEoTrwjt9igTHLYLNMdNiM00GNms+D4swv38K1yF5952+TiIaU9kNBWSYhkcipmp5
+	 1FAVoLcyHaqVA==
+Date: Tue, 2 Sep 2025 11:01:05 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Prabhakar <prabhakar.csengg@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Russell King <linux@armlinux.org.uk>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+	Jose Abreu <joabreu@synopsys.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	linux-renesas-soc@vger.kernel.org, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: Re: [PATCH net-next 2/4] dt-bindings: net: renesas,rzv2h-gbeth:
+ Document Renesas RZ/T2H and RZ/N2H SoCs
+Message-ID: <20250902-gainful-meerkat-of-prestige-dd4952@kuoka>
+References: <20250902001302.3823418-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20250902001302.3823418-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|AS8PR04MB7638:EE_
-X-MS-Office365-Filtering-Correlation-Id: 18972ffc-2f67-4139-9b40-08dde9ff38a2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|366016|376014|7416014|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ZrxXN17lig3MClt72hL+ZZUYw24x+1dM9t0q0EpiibMfwfWZje7YwfY1pvQm?=
- =?us-ascii?Q?wU1wHXQSy/HptmIpaA5Y1FYCFfS5aMKORP8vRWKG2QnznxDrJyu50Qu7y4er?=
- =?us-ascii?Q?D0DKWVb5GPg9f6774TuL08VT90/5HiJS1Z4qp11WovS89t4Z1qgDBuDmVYbO?=
- =?us-ascii?Q?onEsGP/XFXQrmcT136lWywOJV3QQDnOSWsM4gKR11BaghKB7t3cfekWBnx5Y?=
- =?us-ascii?Q?jOVgPsY7vxaIdfliqqXU/vhU49qlLixbSq/NPjz/vG0cR0GlGi/Di6mZzD1S?=
- =?us-ascii?Q?Fa4zh2D7BPYIaOiv0OnsWcmkYrXscs3LjcQf3/hHcE1HKlUPU/cgiBOvonfG?=
- =?us-ascii?Q?ZxxD1cGdKjojUmdHGoTT84HaIx2gRZELm0gRaJw0lBtrQzXNcUFJ7WaZpF3l?=
- =?us-ascii?Q?xvhQRC/Yck6P25JLIkgkUPrXMUoybSSkDQEKeztEKMHoXxu4Y3SonQkwKCgg?=
- =?us-ascii?Q?AEzayUh7ixw3fFBjYFGdD1XuubYQPcBxKVWeX70Nj44qFj31DODRkS1xqxC4?=
- =?us-ascii?Q?i5JmNkEmPjsoRdBPlgXupCqJu1/U4AFUnSmVvyeOvEQmzHdsCY6ZUGAxkQ3D?=
- =?us-ascii?Q?x253xSHw+s0PNXJtXNVxTfvqOzyjGBBMRtk3/dqMv/Xkr8AOO/7dl8WgmvbM?=
- =?us-ascii?Q?nccqhNgihdMR1nrDeFI94SDQwDCUy+vKqupnEyAbZwUGTjjXTVF4wolkOXo0?=
- =?us-ascii?Q?vJNzkIGwzLQ9WlMXgJx4sB/fkUop8Y9t1hMi/9cFI+KM3dKHr5Zf1QhEj0pO?=
- =?us-ascii?Q?tmIknV5TfDJ9tzKExCb0GnsaJcDdZiyUz6KGccCX5R/Tdy8XzPPHGJr2duLp?=
- =?us-ascii?Q?XwuYca/DtB82ZcPg4JLhdF8+FCYjLeFntx8GAwUERmWa/dHmxHZMrP1cgyk/?=
- =?us-ascii?Q?HvUf5Q18N/HHYn4HImJ9TH3E3ONhtNpf7K5xRwMVpR01VezTt1vBfr6XFdYL?=
- =?us-ascii?Q?273rkb7pDhJjyiWdjQSoUkbUl2mhGpFV0UfeqcTHrILPEVQzEi4cf4HP00Ec?=
- =?us-ascii?Q?uQPgcvXtDwhIaohzJ/oYxNYPKK+5IIkZcGoWuydBFhD/nJUNAWy5JOok1tb8?=
- =?us-ascii?Q?9fGHaPUa2UkIaolGoiPOKUOoJkvMB2Y7fpkw91lxnNSwBlvHUKZGCljXR+E6?=
- =?us-ascii?Q?lHN/CpIrRZJ3W/1k+fCOeHIVOIkdxO1J/dZG+/LM6hymzerq/rdo6/JMcSXm?=
- =?us-ascii?Q?fm77FDw9cAivXKn4pr/2LfdrEvBiehmTzkPL/4gn1P401gjOQ+nzXSE/JrtC?=
- =?us-ascii?Q?4gbvMqIoNLzYgddz1rdIScZ5X7Q3z4qmLmsTSXBiKc7J8YocGtHpdK9T1URC?=
- =?us-ascii?Q?2Wh0Wm2q8xv3mCz27M9AUbjQ9IP3GWxABloQAe8k98zk7+Sv37u/niBGyNf/?=
- =?us-ascii?Q?+Zdu/qeXty/xxn46mw51DsD1aB7Q4mj2eqLdMpGNqyAYDwlX52j7ntJbLB1m?=
- =?us-ascii?Q?HvskkdspHcu1rqXAXLSmBiRtM+GriSnwdiRb4GodDS8WBdf3yI4uag=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(366016)(376014)(7416014)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JCBWAyWVYkb9wHfYlFmxcTexKdXUx0RwHaFlFGOS0TxVlRbRZin8RuWtEw2U?=
- =?us-ascii?Q?zAlGzU6il1TDbtb8qHHwAnOFQ2aGaa+7JPYn34hkYEVgRjUgDRxKC9w9VE+E?=
- =?us-ascii?Q?OoifOoeLE2zvL5FmeOLkQA9YbUIcjMMJvajJqDFJbPZks8wjYWkm+QPdonbg?=
- =?us-ascii?Q?HLQ+oe6XlT1SIlZq9V1e68xoLUuTwe6Qt0vELaIkrRMOVED1mBNeGE3O5tw4?=
- =?us-ascii?Q?nWG5A7LtExgwgzWeieYVChIO7/hvjFrgPBV9okCFOA1GiEq/eqaeP9eB9bWL?=
- =?us-ascii?Q?ySO5iXt8cPSQaZMHudOsp5xl6gh9NkbTZ0qKaqLicFwhdPBDX3BGaAXdOnI3?=
- =?us-ascii?Q?J6zNwR1/JMKcu3YgHtNYkPWxbiPrJc/M3Q9S79UN1gz8JPgbu1krQsdFvdr1?=
- =?us-ascii?Q?S4r2FE7ELEtUByv1zj5NmKAp3Cadb2MzdAbNe1zIQl21WlOIawAIzLl3l0qK?=
- =?us-ascii?Q?sklVkJPzLqgiMK2SbLdNJIE8QOfxQEihl0FhP2goATmpyywakcJaVnebhAqD?=
- =?us-ascii?Q?xzWy8b/tRoyCWAvx+x2yDzJfRYeaAlb5SppICqW43Hl7wi8t0v8rw/Qgsh2+?=
- =?us-ascii?Q?VekHEud//qmFMEiVg2bbXmg7t4ZN4xoD+2nPJvrtb3zZyyofXs5H9leKQwYY?=
- =?us-ascii?Q?uYecxZzVf5LRbOgMWuNwmuKMlIdS2HgUhTJlx/EY1jkchidNSkHVux6YW10q?=
- =?us-ascii?Q?ZJ9FHuGcUpa0uZbsZTunI1e9OKtNDYAGRalqEwibqWe1QrhEB3rX6iR/HIXk?=
- =?us-ascii?Q?IZY7+/yQpEG5N55u37PzNDupNb7bo1UUki7iGmyHA8rnsoTWIT1cr/RsqpbB?=
- =?us-ascii?Q?DVPB3i3hs3n6XAqbbIfB5ygqh8cuGJPzUR3xpjYy4CRKwNNxNzwdNxLdlfSi?=
- =?us-ascii?Q?iesTkys50ydSLrW55Ozl34Qf8uo0FAvCtaUsiEkCAzKcGKD4PDS3sidh1Vbo?=
- =?us-ascii?Q?Nzkygq8x6M5WHE58bDcRUPWaD0hwd/W3Vv78Vgh1oDrIZsLTfvY0HmG7HvVR?=
- =?us-ascii?Q?bwWBnxiwRjV3E2sFDakDHDddgq7Nl0wSH3TRUKH8y7DOsWR0IV6pU0z2tayN?=
- =?us-ascii?Q?1oi+zLBvE2FfRASl3DE/nsgN61QmVrfk9JcssSBIuKk0eWt7jc15p6CtfncU?=
- =?us-ascii?Q?Qu8UAgz4wQt7ZxwRF4KqztVDNf9haV949nIgp12e49rn5YcuCDYF24yd+1xd?=
- =?us-ascii?Q?tpZr4iIFMqtRUfX9cPuwdHGIJaNUfLvwriUZslM5W8rUju6w3rVgYWFKzBLX?=
- =?us-ascii?Q?gmZJLaT4fL2yocWRXkcU2wlGAhm3pvbVP3sZNCxXm9SLFwSnUD4CWqKkGtG2?=
- =?us-ascii?Q?HqQDSbxK3J0nLc/jtoNieUivkrZ8eRYQcgypJMJHPv4qOuSHAkTu6BPtl9zh?=
- =?us-ascii?Q?N19hvFM8t8MBvFl+hNReNsHzmAgGZ0dDimLsbHs520j2OUb8cyF88OeHC/Ja?=
- =?us-ascii?Q?7D8iiwZ13ytT9LHG+S0/z3S9UaoWy2eGWGXsxT9Uepnz0A+xVNP1urfmLrUk?=
- =?us-ascii?Q?7eCNAYYaveizyjCJGlgjnYLurf9D6+aD89twE2AlbNDONmdLOAI+9O3P95pv?=
- =?us-ascii?Q?H+3ApjYw3UTLYHgCisAr+mK21WbVZ/r7pojUBGRG?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 18972ffc-2f67-4139-9b40-08dde9ff38a2
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2025 09:00:53.4725
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ++/UlShz9E1Vnjm+aYMQ9R9uRWlRY5HlZ+JnzUtNxO5JvLoXRJUAZ7zkcFpI8dsim2VyQX2W3a9sr63lY4RVGg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7638
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_020056_946670_7CA77B3A 
-X-CRM114-Status: GOOD (  22.94  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250902001302.3823418-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,71 +80,207 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 02, 2025 at 11:33:02AM +0800, Peng Fan wrote:
-> i.MX95 USB2 inside HSIOMIX could still wakeup Linux, even if HSIOMIX
-> power domain(Digital logic) is off. There is still always on logic
-> have the wakeup capability which is out band wakeup capbility.
+On Tue, Sep 02, 2025 at 01:13:00AM +0100, Prabhakar wrote:
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 > 
-> So use device_set_out_band_wakeup for i.MX95 to make sure usb2 could
-> wakeup system even if HSIOMIX power domain is in off state.
+> Document the Ethernet MAC (GMAC) IP present on the Renesas RZ/T2H
+> (R9A09G077) and RZ/N2H (R9A09G087) SoCs. The GMAC IP on RZ/N2H is
+> identical to that found on the RZ/T2H SoC.
 > 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-
-Tested-by: Xu Yang <xu.yang_2@nxp.com>
-Reviewed-by: Xu Yang <xu.yang_2@nxp.com>
-
+> While the RZ/V2H(P), RZ/T2H, and RZ/N2H SoCs all integrate the Synopsys
+> DesignWare MAC (version 5.20), the hardware is synthesized with different
+> options compared to the RZ/V2H(P):
+>   - RZ/T2H requires only 3 clocks instead of 7
+>   - RZ/T2H supports 8 RX/TX queue pairs instead of 4
+>   - RZ/T2H needs 2 reset controls with reset-names property, vs. a single
+>     unnamed reset
+>   - RZ/T2H has the split header feature enabled, while it is disabled on
+>     RZ/V2H(P)
+> 
+> To accommodate these differences, introduce a new generic compatible
+> string `renesas,rzt2h-gbeth`, used as a fallback for both RZ/T2H and
+> RZ/N2H SoCs.
+> 
+> The DT schema is updated to validate the clocks, resets, reset-names,
+> interrupts, and interrupt-names properties accordingly. Also extend
+> `snps,dwmac.yaml` with the new `renesas,rzt2h-gbeth` compatible.
+> 
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 > ---
->  drivers/usb/chipidea/ci_hdrc_imx.c | 8 ++++++++
->  include/linux/usb/chipidea.h       | 1 +
->  2 files changed, 9 insertions(+)
+>  .../bindings/net/renesas,rzv2h-gbeth.yaml     | 177 ++++++++++++++----
+>  .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
+>  2 files changed, 138 insertions(+), 40 deletions(-)
 > 
-> diff --git a/drivers/usb/chipidea/ci_hdrc_imx.c b/drivers/usb/chipidea/ci_hdrc_imx.c
-> index d7c2a1a3c2715967203b98c819fa864e06a00a32..a2b3f673dfc1183a02783bf6ef92f8570c6042cf 100644
-> --- a/drivers/usb/chipidea/ci_hdrc_imx.c
-> +++ b/drivers/usb/chipidea/ci_hdrc_imx.c
-> @@ -79,6 +79,10 @@ static const struct ci_hdrc_imx_platform_flag imx8ulp_usb_data = {
->  		CI_HDRC_HAS_PORTSC_PEC_MISSED,
->  };
+> diff --git a/Documentation/devicetree/bindings/net/renesas,rzv2h-gbeth.yaml b/Documentation/devicetree/bindings/net/renesas,rzv2h-gbeth.yaml
+> index 23e39bcea96b..e01763389164 100644
+> --- a/Documentation/devicetree/bindings/net/renesas,rzv2h-gbeth.yaml
+> +++ b/Documentation/devicetree/bindings/net/renesas,rzv2h-gbeth.yaml
+> @@ -17,63 +17,112 @@ select:
+>            - renesas,r9a09g047-gbeth
+>            - renesas,r9a09g056-gbeth
+>            - renesas,r9a09g057-gbeth
+> +          - renesas,r9a09g077-gbeth
+> +          - renesas,r9a09g087-gbeth
+>            - renesas,rzv2h-gbeth
+>    required:
+>      - compatible
 >  
-> +static const struct ci_hdrc_imx_platform_flag imx95_usb_data = {
-> +	.flags = CI_HDRC_SUPPORTS_RUNTIME_PM | CI_HDRC_OUT_BAND_WAKEUP,
-> +};
+>  properties:
+>    compatible:
+> -    items:
+> -      - enum:
+> -          - renesas,r9a09g047-gbeth # RZ/G3E
+> -          - renesas,r9a09g056-gbeth # RZ/V2N
+> -          - renesas,r9a09g057-gbeth # RZ/V2H(P)
+> -      - const: renesas,rzv2h-gbeth
+> -      - const: snps,dwmac-5.20
+> +    oneOf:
+> +      - items:
+> +          - enum:
+> +              - renesas,r9a09g047-gbeth # RZ/G3E
+> +              - renesas,r9a09g056-gbeth # RZ/V2N
+> +              - renesas,r9a09g057-gbeth # RZ/V2H(P)
+> +          - const: renesas,rzv2h-gbeth
+> +          - const: snps,dwmac-5.20
 > +
->  static const struct ci_hdrc_imx_platform_flag s32g_usb_data = {
->  	.flags = CI_HDRC_DISABLE_HOST_STREAMING,
->  };
-> @@ -94,6 +98,7 @@ static const struct of_device_id ci_hdrc_imx_dt_ids[] = {
->  	{ .compatible = "fsl,imx7d-usb", .data = &imx7d_usb_data},
->  	{ .compatible = "fsl,imx7ulp-usb", .data = &imx7ulp_usb_data},
->  	{ .compatible = "fsl,imx8ulp-usb", .data = &imx8ulp_usb_data},
-> +	{ .compatible = "fsl,imx95-usb", .data = &imx95_usb_data},
->  	{ .compatible = "nxp,s32g2-usb", .data = &s32g_usb_data},
->  	{ /* sentinel */ }
->  };
-> @@ -570,6 +575,9 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
+> +      - items:
+> +          - enum:
+> +              - renesas,r9a09g077-gbeth # RZ/T2H
+> +              - renesas,r9a09g087-gbeth # RZ/N2H
+> +          - const: renesas,rzt2h-gbeth
+> +          - const: snps,dwmac-5.20
 >  
->  	device_set_wakeup_capable(dev, true);
+>    reg:
+>      maxItems: 1
 >  
-> +	if (pdata.flags & CI_HDRC_OUT_BAND_WAKEUP)
-> +		device_set_out_band_wakeup(dev, true);
+>    clocks:
+> -    items:
+> -      - description: CSR clock
+> -      - description: AXI system clock
+> -      - description: PTP clock
+> -      - description: TX clock
+> -      - description: RX clock
+> -      - description: TX clock phase-shifted by 180 degrees
+> -      - description: RX clock phase-shifted by 180 degrees
+> +    oneOf:
+> +      - items:
+> +          - description: CSR clock
+> +          - description: AXI system clock
+> +          - description: PTP clock
+> +          - description: TX clock
+> +          - description: RX clock
+> +          - description: TX clock phase-shifted by 180 degrees
+> +          - description: RX clock phase-shifted by 180 degrees
 > +
->  	return 0;
+
+Drop blank line
+
+> +      - items:
+> +          - description: CSR clock
+> +          - description: AXI system clock
+> +          - description: TX clock
 >  
->  disable_device:
-> diff --git a/include/linux/usb/chipidea.h b/include/linux/usb/chipidea.h
-> index e17ebeee24e3ecc4b1c2d153d9ea9b656b5a3d35..c6451191d2de68607a9380482701d11f949d0ff7 100644
-> --- a/include/linux/usb/chipidea.h
-> +++ b/include/linux/usb/chipidea.h
-> @@ -66,6 +66,7 @@ struct ci_hdrc_platform_data {
->  #define CI_HDRC_HAS_PORTSC_PEC_MISSED	BIT(17)
->  #define CI_HDRC_FORCE_VBUS_ACTIVE_ALWAYS	BIT(18)
->  #define	CI_HDRC_HAS_SHORT_PKT_LIMIT	BIT(19)
-> +#define	CI_HDRC_OUT_BAND_WAKEUP		BIT(20)
->  	enum usb_dr_mode	dr_mode;
->  #define CI_HDRC_CONTROLLER_RESET_EVENT		0
->  #define CI_HDRC_CONTROLLER_STOPPED_EVENT	1
-> 
-> -- 
-> 2.37.1
-> 
+>    clock-names:
+> -    items:
+> -      - const: stmmaceth
+> -      - const: pclk
+> -      - const: ptp_ref
+> -      - const: tx
+> -      - const: rx
+> -      - const: tx-180
+> -      - const: rx-180
+> -
+> -  interrupts:
+> -    minItems: 11
+> +    oneOf:
+> +      - items:
+> +          - const: stmmaceth
+> +          - const: pclk
+> +          - const: ptp_ref
+> +          - const: tx
+> +          - const: rx
+> +          - const: tx-180
+> +          - const: rx-180
+> +
+
+Drop blank line
+
+> +      - items:
+> +          - const: stmmaceth
+> +          - const: pclk
+> +          - const: tx
+> +
+>  
+
+Just one blank line
+
+>    interrupt-names:
+> -    items:
+> -      - const: macirq
+> -      - const: eth_wake_irq
+> -      - const: eth_lpi
+> -      - const: rx-queue-0
+> -      - const: rx-queue-1
+> -      - const: rx-queue-2
+> -      - const: rx-queue-3
+> -      - const: tx-queue-0
+> -      - const: tx-queue-1
+> -      - const: tx-queue-2
+> -      - const: tx-queue-3
+> +    oneOf:
+> +      - items:
+> +          - const: macirq
+> +          - const: eth_wake_irq
+> +          - const: eth_lpi
+> +          - const: rx-queue-0
+> +          - const: rx-queue-1
+> +          - const: rx-queue-2
+> +          - const: rx-queue-3
+> +          - const: tx-queue-0
+> +          - const: tx-queue-1
+> +          - const: tx-queue-2
+> +          - const: tx-queue-3
+> +
+> +      - items:
+> +          - const: macirq
+> +          - const: eth_wake_irq
+> +          - const: eth_lpi
+> +          - const: rx-queue-0
+> +          - const: rx-queue-1
+> +          - const: rx-queue-2
+> +          - const: rx-queue-3
+> +          - const: rx-queue-4
+> +          - const: rx-queue-5
+> +          - const: rx-queue-6
+> +          - const: rx-queue-7
+> +          - const: tx-queue-0
+> +          - const: tx-queue-1
+> +          - const: tx-queue-2
+> +          - const: tx-queue-3
+> +          - const: tx-queue-4
+> +          - const: tx-queue-5
+> +          - const: tx-queue-6
+> +          - const: tx-queue-7
+>  
+>    resets:
+> -    items:
+> -      - description: AXI power-on system reset
+> +    oneOf:
+> +      - items:
+> +          - description: AXI power-on system reset
+> +
+> +      - items:
+> +          - description: GMAC stmmaceth reset
+
+That's the same as before, no?
+
+> +          - description: AHB reset
+> +
+> +  reset-names: true
+
+Does not look needed.
+
+Best regards,
+Krzysztof
+
 
