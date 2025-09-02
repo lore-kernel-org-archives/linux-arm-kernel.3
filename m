@@ -4,58 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5148CA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 01:55:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1434CA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 01:55:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2x9WEOIJFbRg/y2qUNfV6KI6gNqhWSixKcXcE6ONTuE=; b=ubwRhHMCwpKVqkksyZkuLg3VgB
-	3QOBdBRYy4JvWmj82V8hertr7vMbyDnaIQuOe2OE5Z5avHszr3FXdflDKnObilR0wyTHg65swnpod
-	3dlKBxe2CSLI3py03B51T1DzgzvR4ceC5gm4P8Vn2j1NUrWvRKp/Kwzar9b8x3ihsz5hNc7M6mV2H
-	h9o8+zlVF+bQPdWQNl8KZjiHWixMRHuJBRIpkjQ9hsIc0c7fItb+a2Eu25hLarMfJTBj5a+jBDcij
-	y8uL8YiybfLCZ3oefd8x0DPCJ1qKwKInnKC5CaCJkwgN6sPW1soecQrifHVwP+oQE1AqrYSd4Uo3Y
-	4GLn4USw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h1ZYHDqv025lJgwhhRN8DEjjxbXljdscTG4+1iteT+E=; b=l7aZfnNW8MqcF36h+GwxGpqLxg
+	R4mjtTuKZ+nsiCzkEUyRGL2XlhGgQCY3hj0L+U111JbX83tkDD4CGXbXwTIRwM7DzMN8ibzOngcau
+	U8cTtWYvPNZ7ZrpapS8LMr/zrSa47tWwk6Ta+hcG3nJk+YNZQUvHLXfwrJC6ZebMFdkq+JT3NSQSW
+	oMdzbu+G/tuQd93XGE4vpg6Tow53CK5Stq5SpesTRrspmV7orF1p//m1IC/QOSKwK8cFmFJiANfCL
+	nNLinwDJsqx1Qi4TX0Icm8OZ0OEbWXcnsz0vJDTKHJr8XvaovzNaYBDrzVUljhyFyjiHKenbUvgdi
+	d17pIdzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utcj5-000000038v2-2YDq;
-	Wed, 03 Sep 2025 01:55:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utb4F-00000002iue-43xd
+	id 1utcj3-000000038rM-0s7t;
+	Wed, 03 Sep 2025 01:55:53 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1utarF-00000002gkx-3Kpg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 00:09:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 817521764;
-	Tue,  2 Sep 2025 17:09:30 -0700 (PDT)
-Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 11EA83F63F;
-	Tue,  2 Sep 2025 17:09:36 -0700 (PDT)
-From: Andre Przywara <andre.przywara@arm.com>
-To: Michael Turquette <mturquette@baylibre.com>,
+	Tue, 02 Sep 2025 23:56:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1756857372;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=h1ZYHDqv025lJgwhhRN8DEjjxbXljdscTG4+1iteT+E=;
+	b=G/388lof8fZLNVbXRDZbgd5wCnXJVEwFl6QbHUnWykNYnFbQea0l1KDf2vDuyPzDRKGn38
+	7ghgpFs1Zd2yhTWMltM9fzF8WdIaa4cIN6RnNqvoiFoJdIr74ZueZzBUPBErp2A47+vx+H
+	viL24FWuXtfTxr8QWduiUO6LUXxg4Ec=
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com
+ [209.85.219.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-640-renFY7ljO3CODO0d7vQiyA-1; Tue, 02 Sep 2025 19:56:11 -0400
+X-MC-Unique: renFY7ljO3CODO0d7vQiyA-1
+X-Mimecast-MFC-AGG-ID: renFY7ljO3CODO0d7vQiyA_1756857371
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-70ddadde46bso104197546d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 16:56:11 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756857371; x=1757462171;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=h1ZYHDqv025lJgwhhRN8DEjjxbXljdscTG4+1iteT+E=;
+        b=JdUB32F4GczcsDFWU0bus6KnTr9nobeHjm1S2GXVPCozhpcz1Pd8VYaICxk7jtU2cr
+         S6dFPaoviTckOY1P/TRdfbDJICMkzUiJqbcVSM6fNLxrJvH6/EPfVs8tQjP4lMniLTad
+         CYye6AoNlC1htonAPwE0w3MxgWqX+8M03KH9u+2L12xWgT+ERrQW5N+o9wbFdguOaFqf
+         KtQpjzsEANaiKCcu+agXBMH68byTJbli76kyH8lxy5NOVdCPGsRe95SvHDo4vhvQBvdT
+         jw+6211vA4ELeZoZlRn//d/Ze/FS2KwgGKxZNpu4jT4owhyJe5OQdFXYIBgDT3BtS9nC
+         GqYw==
+X-Forwarded-Encrypted: i=1; AJvYcCUhWaiYsiTlP3nKu87qPdszWmfR61s03K9xGmKA6ucRCxIKKpSVKodyMuD7ezOZMmJmmIWCSikFq3tFnRC3aNa0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzj6q+t6oNDZ7PZkxbySBeNIRuJ6ma3JU7W9Lf+6WuS8n0T1cNp
+	xFXcGrEA1YXm03mlEPxMItCY8SUOR++5DKHZUTuXzKHWy7Ns5v8D4nyfKa0D6qrx9Z4UZbNQ+Wu
+	bCFwbmVNuOMMMlG72jdXEDZVnPxM7CvG/MIu8l88S92OnxVPBaEr3oRjBWD1lH1OhcWFZC4I43X
+	eD
+X-Gm-Gg: ASbGncuhg3+vtrS/Nnxm9igJ6bJrN8xnZ/ZiPoK2Caj+sFdv+udxycWGFc7Z3+zV2hY
+	s12rfZyM7PAs5V9VC0JpC47ME6zgVIxWio0RIibLWRCpvC4NiSt6YBjtz7Nq5gbQtQUwzieRLY9
+	y3t+gMMYDyKRqcGdfF15Zioy2s9nx1Vmr+yrctb5Jjl7Ka1CD+UUBf1u7di/lGYKhdHj44aZmCr
+	cAhOEGTWeUQVTrz9ywx8PV/TDepaQ6af736neZPG1RLRQcWNI7Z9nLgcSLxX1sBLK20IPXE6pvS
+	02whzr/+3fSjWv7KYiFNyuqcEvrcZEt0WmxNdpbNB0J78p7j2ZmMmlLs
+X-Received: by 2002:a05:6214:403:b0:70d:ff3a:f96b with SMTP id 6a1803df08f44-70fac89e1acmr152518596d6.44.1756857371117;
+        Tue, 02 Sep 2025 16:56:11 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHB9u8oxnT7u5IixuDLd0JsqQC/w6ZeQd7EFEgifkIuiCwykZelS8Lp+UAMgPRJm62ZRJZeJA==
+X-Received: by 2002:a05:6214:403:b0:70d:ff3a:f96b with SMTP id 6a1803df08f44-70fac89e1acmr152518396d6.44.1756857370724;
+        Tue, 02 Sep 2025 16:56:10 -0700 (PDT)
+Received: from x1 ([2600:382:8106:c00:522a:3619:4560:3aa])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-720b4666156sm19976446d6.39.2025.09.02.16.56.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 02 Sep 2025 16:56:10 -0700 (PDT)
+Date: Tue, 2 Sep 2025 19:56:07 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Samuel Holland <samuel@sholland.org>
-Cc: linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	Mikhail Kalashnikov <iuncuim@gmail.com>
-Subject: [PATCH 0/5] arm64: allwinner: a523: Enable CPU clocks
-Date: Wed,  3 Sep 2025 01:09:05 +0100
-Message-ID: <20250903000910.4860-1-andre.przywara@arm.com>
-X-Mailer: git-send-email 2.46.3
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 2/3] clk: conf: Support assigned-clock-sscs
+Message-ID: <aLeEFzXkPog_dt2B@x1>
+References: <20250901-clk-ssc-version1-v2-0-1d0a486dffe6@nxp.com>
+ <20250901-clk-ssc-version1-v2-2-1d0a486dffe6@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250901-clk-ssc-version1-v2-2-1d0a486dffe6@nxp.com>
+User-Agent: Mutt/2.2.14 (2025-02-20)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: MF_fJ-Dpeu1xhGvVEL9e4QTSjaK9vM8vHNqKLw_DiUY_1756857371
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_170940_049819_839EA257 
-X-CRM114-Status: GOOD (  14.85  )
+X-CRM114-CacheID: sfid-20250902_165613_907297_F71BE33E 
+X-CRM114-Status: GOOD (  21.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,60 +116,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Peng,
 
-this series adds support for the CPU clock controller in the Allwinner
-A523/A527/T527 family of SoCs.
+On Mon, Sep 01, 2025 at 11:51:46AM +0800, Peng Fan wrote:
+> Parse the Spread Spectrum Configuration(SSC) from device tree and configure
+> them before using the clock.
+> 
+> Each SSC is three u32 elements which means '<modfreq spreaddepth
+> modmethod>', so assigned-clock-sscs is an array of multiple three u32
+> elements.
+> 
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 
-In contrast to all earlier Allwinner SoCs, this chip features a separate
-CCU for the CPU clocks (one for each of the two clusters) and the DSU
-clock.
+Stephen has also been asking for kunit tests to be added for new
+functionality in the clk core. There's already one kunit test that
+calls of_clk_set_defaults(). I attached a very rough draft of a patch
+showing that it'd be possible to mock this up in a test with what's
+already there. I set a log statement with the configuration from
+device tree:
 
-Patch 1/5 adds the binding document for the new CCU. This builds on top
-of Chen-Yu's recent patch for the MCU PRCM, listed as a prerequisite
-below.
-Patch 2 and 3 add some slight enhancements to the sunxi-ng clock driver
-framework, to generalise the update bit and allow clocks with just a
-power-of-2 divider.
-Patch 4 adds the actual clock driver, and patch 5 makes use of that by
-adding the clock description to the SoC .dtsi.
+test_assigned_rate0: Spread Sprectrum Configuration: modfreq_hz=10000 spread_bp=3 method=1
 
-Please have a look and test!
+You can run the kunit tests with:
 
-Cheers,
-Andre
+./tools/testing/kunit/kunit.py run \
+	--kunitconfig drivers/clk/.kunitconfig \
+	--raw_output=all
 
-Andre Przywara (5):
-  dt-bindings: clock: sun55i-a523-ccu: Add A523 CPU CCU clock controller
-  clk: sunxi-ng: generalise update bit
-  clk: sunxi-ng: mp: support clocks with just a shift register
-  clk: sunxi-ng: add support for the A523/T527 CPU CCU
-  arm64: dts: allwinner: a523: add CPU clocks
+Additionally, what do you think about making a dt-bindings include file
+for CLK_SSC_CENTER_SPREAD + friends? Right now, the test illustrates
+that we need to hardcode the number from the clk-provider.h file inside
+the DTS.
 
- .../clock/allwinner,sun55i-a523-ccu.yaml      |  25 ++
- .../arm64/boot/dts/allwinner/sun55i-a523.dtsi |  22 ++
- drivers/clk/sunxi-ng/Kconfig                  |   5 +
- drivers/clk/sunxi-ng/Makefile                 |   2 +
- drivers/clk/sunxi-ng/ccu-sun55i-a523-cpu.c    | 338 ++++++++++++++++++
- drivers/clk/sunxi-ng/ccu-sun55i-a523-cpu.h    |  24 ++
- drivers/clk/sunxi-ng/ccu-sun55i-a523.c        |  12 +-
- drivers/clk/sunxi-ng/ccu_common.h             |   5 +-
- drivers/clk/sunxi-ng/ccu_div.c                |   3 +-
- drivers/clk/sunxi-ng/ccu_gate.c               |   6 +-
- drivers/clk/sunxi-ng/ccu_mp.c                 |   6 +-
- drivers/clk/sunxi-ng/ccu_mp.h                 |   8 +-
- drivers/clk/sunxi-ng/ccu_mux.c                |   3 +-
- drivers/clk/sunxi-ng/ccu_nm.c                 |   1 +
- .../dt-bindings/clock/sun55i-a523-cpu-ccu.h   |  13 +
- 15 files changed, 450 insertions(+), 23 deletions(-)
- create mode 100644 drivers/clk/sunxi-ng/ccu-sun55i-a523-cpu.c
- create mode 100644 drivers/clk/sunxi-ng/ccu-sun55i-a523-cpu.h
- create mode 100644 include/dt-bindings/clock/sun55i-a523-cpu-ccu.h
+Here's the patch and feel free to make it your own as you see fit.
+
+Brian
 
 
-base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
-prerequisite-patch-id: 874f647e4961983cbcfda05d2fd906256b008327
--- 
-2.46.3
+
+diff --git a/drivers/clk/clk_test.c b/drivers/clk/clk_test.c
+index a268d7b5d4cb..6cc3ad883b35 100644
+--- a/drivers/clk/clk_test.c
++++ b/drivers/clk/clk_test.c
+@@ -28,6 +28,7 @@ static const struct clk_ops empty_clk_ops = { };
+ struct clk_dummy_context {
+ 	struct clk_hw hw;
+ 	unsigned long rate;
++	struct clk_spread_spectrum sscs;
+ };
+ 
+ static unsigned long clk_dummy_recalc_rate(struct clk_hw *hw,
+@@ -83,6 +84,17 @@ static int clk_dummy_set_rate(struct clk_hw *hw,
+ 	return 0;
+ }
+ 
++static int clk_dummy_set_spread_spectrum(struct clk_hw *hw,
++					 struct clk_spread_spectrum *conf)
++{
++	struct clk_dummy_context *ctx =
++		container_of(hw, struct clk_dummy_context, hw);
++
++	ctx->sscs = *conf;
++
++	return 0;
++}
++
+ static int clk_dummy_single_set_parent(struct clk_hw *hw, u8 index)
+ {
+ 	if (index >= clk_hw_get_num_parents(hw))
+@@ -100,18 +112,21 @@ static const struct clk_ops clk_dummy_rate_ops = {
+ 	.recalc_rate = clk_dummy_recalc_rate,
+ 	.determine_rate = clk_dummy_determine_rate,
+ 	.set_rate = clk_dummy_set_rate,
++	.set_spread_spectrum = clk_dummy_set_spread_spectrum,
+ };
+ 
+ static const struct clk_ops clk_dummy_maximize_rate_ops = {
+ 	.recalc_rate = clk_dummy_recalc_rate,
+ 	.determine_rate = clk_dummy_maximize_rate,
+ 	.set_rate = clk_dummy_set_rate,
++	.set_spread_spectrum = clk_dummy_set_spread_spectrum,
+ };
+ 
+ static const struct clk_ops clk_dummy_minimize_rate_ops = {
+ 	.recalc_rate = clk_dummy_recalc_rate,
+ 	.determine_rate = clk_dummy_minimize_rate,
+ 	.set_rate = clk_dummy_set_rate,
++	.set_spread_spectrum = clk_dummy_set_spread_spectrum,
+ };
+ 
+ static const struct clk_ops clk_dummy_single_parent_ops = {
+@@ -3192,7 +3207,13 @@ static int clk_assigned_rates_test_init(struct kunit *test)
+ 			consumer = of_find_compatible_node(NULL, NULL, "test,clk-consumer"));
+ 		of_node_put_kunit(test, consumer);
+ 
++		// Here's an example of a test that shows where
++		// of_clk_set_defaults() is called for the consumer.
+ 		KUNIT_ASSERT_EQ(test, 0, of_clk_set_defaults(consumer, false));
++		pr_crit("%s: Spread Sprectrum Configuration: modfreq_hz=%u spread_bp=%u method=%u\n",
++			clk_hw_get_name(&ctx->clk0.hw), ctx->clk0.sscs.modfreq_hz,
++			ctx->clk0.sscs.spread_bp, ctx->clk0.sscs.method);
++
+ 	}
+ 
+ 	return 0;
+diff --git a/drivers/clk/kunit_clk_assigned_rates_one_consumer.dtso b/drivers/clk/kunit_clk_assigned_rates_one_consumer.dtso
+index a41dca806318..a157a316a10d 100644
+--- a/drivers/clk/kunit_clk_assigned_rates_one_consumer.dtso
++++ b/drivers/clk/kunit_clk_assigned_rates_one_consumer.dtso
+@@ -14,5 +14,6 @@ kunit-clock-consumer {
+ 		compatible = "test,clk-consumer";
+ 		assigned-clocks = <&clk>;
+ 		assigned-clock-rates = <ASSIGNED_RATES_0_RATE>;
++		assigned-clock-sscs = <10000 3 1>;
+ 	};
+ };
 
 
