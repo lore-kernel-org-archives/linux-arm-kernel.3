@@ -4,183 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D9CCCA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:44:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDE43CA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:44:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uG56eHVLxG42bhiFbgzwGjys0IWCGK6mmXIWGc+TJcg=; b=hPCRlUcD9hG24kb/9Dz00It1XA
-	3BvWnuyIsld0e5ojrZad0DIkKnKBW3n4uh5r7T+5Zez2aFEFVA16UYx5kKgBowCyqy0zblJZhu5lD
-	41stZGwHjQU52xSnin57aZy40ewAPSUMpUUC59whyDdbfvhdT1W1+qtimTy04hvLMFC3kmIA9agpz
-	lBGxJZ0jmIZb8QnRtY9L6CenrFABsPb9zSykd5iliNL9H0ViWpmDJBCEyMCNS+p3ED0MSNfXPgdgj
-	JFXIdag5Mjuk512W5f6hSO4XltCyBg7bkaLlqK8czxBzdx9a4TsYfETY+h8krD+3z3P/1rYvWtiCp
-	sVbZXL4w==;
+	bh=gjQPzp3OKlw/zzV2Y8hLeLQ+4i7hSjApzF/xf3zvApg=; b=zxx5ctnXsDov1/reMFe4hgTH3+
+	H1wz10v5EIHxCDHaEVi6bluApCRefksOrEBrjA4Y3grIpylQXft2ehzhiJkm/BJpkz8hlNW+ZHDjK
+	/UJ+J68xo5Rlh4qPJBChM6V7y+vS/ejGGiajw+6TL6yO6bRJkYO4mVjJvs7bjiN4DT04JLCgmO49U
+	uAuWywP3xGkjaNJI4a+bHX9GHw2pYPaYEyKGhE18R0hmay5bywzEFkQVD/b4YkWnnJbYhbVB4ztFv
+	GJlUiw9D2HvsN+gQ9Gt57iTGDhVMHfQ2UU4r4cvGrWcUPaSZ6mXstnog1mgL/gQGCRhhWwZ177h8T
+	7IrSZ+GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utYnx-00000002D3r-2eB7;
-	Tue, 02 Sep 2025 21:44:41 +0000
-Received: from mail-bn7nam10on2061f.outbound.protection.outlook.com ([2a01:111:f403:2009::61f] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1utYo1-00000002D8H-2IPq;
+	Tue, 02 Sep 2025 21:44:45 +0000
+Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utULn-00000001548-19pR
+	id 1utUO2-000000015a1-3Ho7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 16:59:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hpoRBciZRdxtZA2ycNQnALVkbx0If+nn871WThUPUSXX26LscfG2Qpeh8ZXyRRebRrQq+G8XvVXUEE9BZ7UGddcrxxxN+aSdZ3gNlW7e7xxHAjtf99eoKI9NHzOPZ/w1f44y9u3V5opanMCAMEB2QOXoX55Qhi5FmI51ZhWI2NpPk4bKZ8fDPkKNtj4Hq07fK0HM1JpYPdt/v9F0u89wv+oj888se9lf/Qm1MMP3JBpqPDJHvG8WNojqKoWpVjdhgKesUkFCUaY0YWD5tOdUW8gwd2KLMx1PFW4Q+cIAdl9dEcs4A0GffqjHORgbS4dtCB/nlEIlTGES8blBhOvhlg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uG56eHVLxG42bhiFbgzwGjys0IWCGK6mmXIWGc+TJcg=;
- b=cqDzEVLseq8rrLlPzonf7l6GEKe5GMfme3PrX6Kbb1GfQDSICQ6dsflxslTErxfpBI/xvdtVDr4J/ChZ3IVrClDMbsY+bDLE6CwMaHNo4V9vIdJVSzSc3JUwAkeG3W4QGXlbdhCLq6mrwHyE0Kcc/zMD/zsBT+gv9lu87QnzdN/C6t2A2W5yoDoTICW5Cim3DybTZTMPAuICD4GXFfxJFVti+kgIeHc+3Ph9i6e9q2hfzZvROVFD4VUaJIIqU3wWZcixl3At74ZzzOtyUuBd3t3UTDO3p38N72caKrLTwNxkjgJQxbjs97+4DoE9Qmy+wtclY4tnJyv71z/y/BBU7w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uG56eHVLxG42bhiFbgzwGjys0IWCGK6mmXIWGc+TJcg=;
- b=Z2uPDhGqYXCo5NeH85Tx7d/uNvEuAB/YSr+a1cnlP1beyprOX9oSyJZny5ybCcLZmbzICS0HbFfb7j+ppGLVHAvDYUEei/b72Og3RzOkvG6a20y9SQlHBoszchicPpGAQIzks5oHJK38NPDNRpe553S6DOuVyBETNx89GDGugcGX/bNqvo4GK8kHrbMmUR05szvI9zToLuwcmzV559LQ+QflxcCwYDsrYe3RtaGBetx06rHIdHJiVfhQgbexmIISu+oyvspwoh+CguqvP1iFn+qkDiNmeC6Eaagrq+riwt+82JvP2t5jNRzTOrgD8zdbdGeLIj05rt2sCX5+5hOaRw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DM6PR12MB2667.namprd12.prod.outlook.com (2603:10b6:5:42::28) by
- DS7PR12MB5837.namprd12.prod.outlook.com (2603:10b6:8:78::6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9073.27; Tue, 2 Sep 2025 16:59:05 +0000
-Received: from DM6PR12MB2667.namprd12.prod.outlook.com
- ([fe80::bd88:b883:813d:54a2]) by DM6PR12MB2667.namprd12.prod.outlook.com
- ([fe80::bd88:b883:813d:54a2%3]) with mapi id 15.20.9094.016; Tue, 2 Sep 2025
- 16:59:04 +0000
-Message-ID: <d845ce62-9a6d-45ca-a6a4-4d88daeeac41@nvidia.com>
-Date: Tue, 2 Sep 2025 09:59:02 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 33/33] arm_mpam: Add kunit tests for props_mismatch()
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
- devicetree@vger.kernel.org
-Cc: shameerali.kolothum.thodi@huawei.com,
- D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
- Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, baisheng.gao@unisoc.com,
- Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
- <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>
-References: <20250822153048.2287-1-james.morse@arm.com>
- <20250822153048.2287-68-james.morse@arm.com>
-Content-Language: en-US
-From: Fenghua Yu <fenghuay@nvidia.com>
-In-Reply-To: <20250822153048.2287-68-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: BYAPR03CA0011.namprd03.prod.outlook.com
- (2603:10b6:a02:a8::24) To DM6PR12MB2667.namprd12.prod.outlook.com
- (2603:10b6:5:42::28)
+	Tue, 02 Sep 2025 17:01:40 +0000
+Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-7f8ea864d81so597426685a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 10:01:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1756832497; x=1757437297; darn=lists.infradead.org;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
+         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=gjQPzp3OKlw/zzV2Y8hLeLQ+4i7hSjApzF/xf3zvApg=;
+        b=pldarCDlXG+UWp046+zkqpYC80JO+X9rqONwAHgJNrNEagGAi00LJPjzWfnPa3ERRr
+         tHpJ4Xuy5kiTWnEufmjWePB80bUKRgfMnjNWDFtShikGjpvyQEDasju/cVMkM2xDx4JU
+         2iCm+Q3gcHJPCRMGqy5JT1/GH+Xe8jQ9rjtZ6LBFfUD9iFxQdzzKrkK2kt3PvJ99o/0t
+         Y6l8NDZCl+/K3xieoHNgWsvJRztrQUCZ8NvvPsVz3vU+q+M9ZMt/wrHVhOK8gKS3kp4b
+         3bZ8BfNfMT6oX0BTtzbeSCXWWawEZ9KpoBPbNz6VNLD9FKVYq+b46HderTjCEKKk3V2T
+         VGdA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756832497; x=1757437297;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
+         :from:subject:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gjQPzp3OKlw/zzV2Y8hLeLQ+4i7hSjApzF/xf3zvApg=;
+        b=LH0toD3X47GPpdkwPqyrBz2IJLRaa+yte36aFI+pDUoIOn7o09Dm6yAxbHa54tzthH
+         cI2QVa3aagMIRNRtKlpZjDwHp61NweKImmBD7+FBSGgN9RUHamH0OOZBp2o4kbePqZtw
+         Z4E206PYObimyjk5ty5ugIwDJDWL9TnWDpHNPSkLD+x26XligWuoW43ynpLt/K7y0xcW
+         P40h4UghVyQsDzVR5bk+bfbTHYbrecLGRyLqpzEs1um6XqmK8s07Vvgsb8aoxeX/UGYx
+         qVP/5O0KR1i9Dn/774NVTW86WNzpHLlaMtVhF/Rfj7aX1Sr6Qy6LWWjevfClk5FQWzY5
+         O3ig==
+X-Forwarded-Encrypted: i=1; AJvYcCWHPKkJPOywMZAxCqybTQ3OwDlHMCJ1FfqsNfK1rsKGRBwzpBb8Ok5WNyGH13CBnFaHxj9IDyTqdNHGHVNPVhY+@lists.infradead.org
+X-Gm-Message-State: AOJu0YwqpNirPRsTGgHI4UwoSUGa4eTYLJ8uYriY1EBihA4yyfk12Mlc
+	rbgi6NurjPZyOQRiiR2ZH/u2J1waOH76FG46RM1kl9QRefZIDG80pANzYc4FojIRQfk=
+X-Gm-Gg: ASbGncswxhYGKGOfFEfbnaSzfOLLJH9Pfqfgu5o92l5iiA4olLIEGHVb7yckTjii2hH
+	6f3kfVCEDiZNmW9tDSgD4mqjWbE3jA1FL35LU0OY21YGtfmvSA2QM0UD9E+YKZfbfebxG+FfFyb
+	6QW0jna298NP4416F0oVc/nsTWzAsd1GGJb02l0tyLrrKN/MXtUxigpO/bpgI3tXr4U4axogolO
+	ThT/HyFo63BWI2x4WtTFZtCi+lV+L3Xme9PMEx41hlCjlnicZ+Y65Ff2Q0WaAfkkNx8zTUpeaq6
+	XizAdVGzEEotGXLXBwPMiBOyw4SrLOwTLSxmoFVvjhVnJYQPoSPeEhsONR6vknyLDUCfmtedkSt
+	e8+gLcCTDn8Kjk8jRM8xE7aYJw6N6sgox9j7Vmcd+E60IT4XU
+X-Google-Smtp-Source: AGHT+IGkFaL10RYKipHUpI0kj9FEjJXmVz6qoux7i4ASKOHv4yzHf32aHVHY76E+7bItd5+j6zSurg==
+X-Received: by 2002:a05:620a:1a01:b0:7e8:579d:11c6 with SMTP id af79cd13be357-7ff26eab218mr1387636485a.3.1756832496958;
+        Tue, 02 Sep 2025 10:01:36 -0700 (PDT)
+Received: from ?IPv6:2606:6d00:11:5a76::5ac? ([2606:6d00:11:5a76::5ac])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8069d5b9614sm163429785a.60.2025.09.02.10.01.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 02 Sep 2025 10:01:36 -0700 (PDT)
+Message-ID: <d0102df15412fc827dca3b330b10904f97a1a240.camel@ndufresne.ca>
+Subject: Re: [PATCH] media: amphion: Drop the sequence header after seek for
+ VC1L
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>, mchehab@kernel.org, 
+	hverkuil-cisco@xs4all.nl
+Cc: sebastian.fricke@collabora.com, shawnguo@kernel.org,
+ s.hauer@pengutronix.de, 	kernel@pengutronix.de, festevam@gmail.com,
+ linux-imx@nxp.com, xiahong.bao@nxp.com, 	eagle.zhou@nxp.com,
+ imx@lists.linux.dev, linux-media@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Date: Tue, 02 Sep 2025 13:01:32 -0400
+In-Reply-To: <dbd7ec6c-9837-4bf3-a363-e287d075b677@oss.nxp.com>
+References: <20250725080712.1705-1-ming.qian@oss.nxp.com>
+	 <ede4226a80e27c8b047b0eb25fe8f5ba90214d12.camel@ndufresne.ca>
+	 <dbd7ec6c-9837-4bf3-a363-e287d075b677@oss.nxp.com>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-bV38p/TGIUCsdGFxL5ya"
+User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR12MB2667:EE_|DS7PR12MB5837:EE_
-X-MS-Office365-Filtering-Correlation-Id: 11fe9da1-8034-45e7-0007-08ddea4205fd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?dUsrekNmT3NjOEVVQWpDdDZXNTZRTDFuUjBtcDRRZmZEdEpPaXFYS2d5S1M2?=
- =?utf-8?B?V1dQWnJucUdCWUlLaDQwM3FGdTBJc1FlbnFzQWQyM3pWd2FjR2ZyMUJwaXpk?=
- =?utf-8?B?Z2VWYUNFSmV1aDhMdWZZcWtjVjNEM1lRQkpGQUxFK3FuL2pZNG5GcUVwRHo5?=
- =?utf-8?B?cnFPdE9SRkpTbVIyNVh1b01ZSjBMTzQrNnZ5MnFMR3g3K05hRTJDOVhkdmcz?=
- =?utf-8?B?YW5jL2hyM1hqMVM2cFl3elRHVjlKVkc2ZG9CVklGMWdESWF0L1hpMW5RL3Jz?=
- =?utf-8?B?QjN2Tk5mZFFSVjFoQlU0SlFWMnk5ZHVGMEs1YjRyUjhGOUFmSkswcmJnWjBI?=
- =?utf-8?B?WkdybXVqYzJzTFpVNlZJdHJ1alJGbkY4aXN0VWl3U2FLb2o4WHZmeDlyNXF3?=
- =?utf-8?B?d1FHVms2RG5sc3d2MExEeTZReG9wS3Y0Z1d4QWlmVlQrdE0rNlJjbkYyai9O?=
- =?utf-8?B?MlRQUFk1TVFhVXA5Z3FVYVZKUWk0dmxTcTd2bkd4LytDZWV0ZFI0MG4xRndF?=
- =?utf-8?B?OC9Cbm1aZzJBSVhNSDZrVkRHOUY5VklrTXpwcVZ5NjlzQi9odHVxVmZ0bEUr?=
- =?utf-8?B?R3dhdjFHUnNaL2VJczRxSDFuNTRtSkprd2JxMk9vVUQ3aWVLQU1oa0xFZ2Nn?=
- =?utf-8?B?SGxYSHA5M1pqUGRMeE9Wd3d0UDhCZ3h0UU12QXMxT1QremRZUExKcks5N3p1?=
- =?utf-8?B?R0EvL3VpN0lXYmhQcDZiOXZnUUlYZHIrNXZXUHN3eG9PSzVGcGtHKzZjMk41?=
- =?utf-8?B?TUtEdHJxUnYxS2VoY0UwTHNJak1WWGU5ZTYvQWszcWc3dEV5QlhxdDI3NytU?=
- =?utf-8?B?SzNWNk1zano3Z3BQc05aQjA2TmYwa3drVUIyWDV3TndBblM4NEZFaUxTRStR?=
- =?utf-8?B?dkxSUVBxOGw1OXJaK0VsU3dyUmg2OXFvTHhRc2VFMXdvWFl1UEIwUmR2SnBu?=
- =?utf-8?B?NE5hVXFtTHlrMElPWndnY2dWVkJjQzk5WHlPSkZRN2diZkVTZlY4cmpTSWdr?=
- =?utf-8?B?NHljRzIyV0llbi9uRGZjUmZCT1h6S25lUWlyY29VeElkekt3bDVMRFJyK2VG?=
- =?utf-8?B?UkRKaUZ2Ky85eENQbjV1d2ZncFJ3ZUczZHBweUVFdno5ZnE1QnBWT3JVWVYx?=
- =?utf-8?B?RFVDL2pDS3I5dWxXblY5T2tvclJkbDBNR0ttVjVxVnJuaGRjYWFIUTVyUjZj?=
- =?utf-8?B?UEM3dStxWGl3VDUwUkFSVDhqUWsrVHE0QmNDQWswWVhobnk4dGhmUzRDWlk5?=
- =?utf-8?B?ZXFJaWp6a3Vxd3BvcmppNldTSUdzdy81VXNDRklxVUFFQW56dTFQakVrTG5O?=
- =?utf-8?B?amFlVnpQNjNJY2ZhQW8raXBJK1lnWDh1dk5DUklJWVJJQkZRamFsTU9JRVdB?=
- =?utf-8?B?MXV3Q0l6aXY1M2xzUUQra1JNUUJzM3AzTjMrRUFhd3M4dzZNYXNuWVpXSTJI?=
- =?utf-8?B?RnVIdDAxVHdhdTI0N3N5cm9QV0VxT2haRnVQYTd1bjhXSUpZQlJtdXI1SG1H?=
- =?utf-8?B?OFJPVlhOUFVOMkRqUGN3QmlSU1g0V2d6U1JWS3VzNUpRc09HNEo3S3FieHF0?=
- =?utf-8?B?L2JYMWZoaGh4NFdHbnRRMjFDYjBiYUdIU2ZZUmNneDR2SEd5NklHNEd0dU5O?=
- =?utf-8?B?KzRvWldnRWd0U25DZVdjbWdtN21DQjFOUUI1NlQrOWtBMVVtRmZrQ2oxY3ZD?=
- =?utf-8?B?NVBkd2JybUJPQjcwMWpmSTRpRmx1SVRmYlRyeEYrZlVKcWc4WnlFc2xNOWdE?=
- =?utf-8?B?QlVXeXhHL3R4R05vRTc0Y2oyYWlaOTczS2JqdHZCT1oxanJrOGpCR3FzaWpw?=
- =?utf-8?B?OW9CSWhCNWU1dStmRWNzZUZpU21pNGdsYlFncWV5cHdHaEpSQ2ZlZFV0bE9T?=
- =?utf-8?B?RXk0N2Q2S0RoeStVb3pmaUNacWc1NFJkbnNpcU5hSEJkWjlzMFRBVk5UUWF0?=
- =?utf-8?Q?qVr54a/tLWc=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB2667.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MS8xR09icUdFSUFqL1JXWjBrWVlHcEw4cVVheWhEbG9nS1kyYllrSnRXYWZa?=
- =?utf-8?B?TjF3ODh5SENrcno5ejlZVDQxQk5qdnA5cjZwMmdlSjlOMnhYREZXTXBBUDR5?=
- =?utf-8?B?dDVJM1ZzZW14Rm00L25GMWpkbTlCMTAydFgzS3dCc2cwbmloS281UytsZFgz?=
- =?utf-8?B?VHJNeENpdFhENzFGa3Q0cVcwdnJtZnJkYy82bEY5WEhGQU5Bd2NrcC9DdnRk?=
- =?utf-8?B?K2pGMW1RYndsNkFPa3JrSWtIejN1WmorQlJFZ0t2T3hOOFV2bENqd1JUV09I?=
- =?utf-8?B?N1g4MkFrblBaZU1zQnZhQ2NTRWhiNHN4bzhiNTlrNHVHckdQTjNBRG9TWjNn?=
- =?utf-8?B?Z3ZtbjNjT3J4VWNoNVNVMkhpM3JiVytLL1FwUS96MVhoQW5SaExDL3ArdFdN?=
- =?utf-8?B?OXZWSUFidHM3SklFNzRLRUJIV2VOTzNCdHIvcm1KdGpDT1hUNHBKTW9rQVFp?=
- =?utf-8?B?dER5cUgvbzN2dnJuSktlSW16Z0EydTUzZXIxeEpwTWhQK09KYjhGa1lWU2Jq?=
- =?utf-8?B?RjZWWTFRbG5DMUc1cTFWSUs2empUdXhobi92UWQvN0YwbVdXYnNxenlLUFZZ?=
- =?utf-8?B?emVGT0NiSFBmZm5JWTcvTk13cXVWQjlUMmx3TWVTUFZrUVpuaFJiSk9MZlFM?=
- =?utf-8?B?Nm5aTTNDaEQ3UUowWVJ4VWF6WXlKWjc3RDVBb3dXSldsTFFVQ25ERnM0Rk1P?=
- =?utf-8?B?SXRFSEFFbjBOY1NOVnZNYVFLR1VhbVBPc0QwbGM4Rit3Unl2R0R4ZDVrV1A4?=
- =?utf-8?B?QzU1R1dNQklVS05wY2JKR3gzQ2RaN1RzZXRXRFF6NXFuVzhmUzZvRFlldWNJ?=
- =?utf-8?B?eDR5RGcvNW16dFYxM3VQMDZRVEt3R1JUVHp1bFpOY2FPVUozZk1vc2hTN2NZ?=
- =?utf-8?B?NnpNcTEyazhWWVdZZzQwa2hyYkZGUnVDZDBaaURqUEsvMW1rSHdvdkx4R296?=
- =?utf-8?B?THZMZDhNMUpGeE1WcU90T28vN2JGTEtYRnBWdmV6b1J2bTdvZUZSelFtUzhr?=
- =?utf-8?B?K3dCQVRCZFBkLzAwc0lSSHFMZ0d1ZHdBWTBrWlArK3o5dkg4NW1tV1J2LzZT?=
- =?utf-8?B?TnZtTzMvd281Nm1SZ0d6WFl0aW1veldNUit3WWFJOHJLUWwyTFh3bDVCNW5U?=
- =?utf-8?B?OWtkSVRDSlgzK0tiRVpqSDZVNWxpeUE3T3pQeE1SYmNnS1huMEpwK3o1Sm5D?=
- =?utf-8?B?Q2h4bDRNb2JqRlRhblgweEVPNzJqcWFjVnAyWW51ajBnWUxUWlczeU8wWUd1?=
- =?utf-8?B?cE92RVJSUkpKNDl3Q094VHpYRDdrb2pXeCttbE00YWlHOGZGWGYzOXdnajZo?=
- =?utf-8?B?RzEwaHdrNTlPSTBuZjVlUzFsMDQycXR6bVMvZER5VHVGbHorMG1hM1JUbEd3?=
- =?utf-8?B?cHNmL0xlNmE0RXVlVWJKckJOUWgwWVNOL3BLaHRCMGVsai92ZmVieVZMNEdX?=
- =?utf-8?B?cUlEb1hzbEhNZVY1Y3dGTy93SnJnS3pPSU1FL09sNzQwdkJvVy8wTTlYcjNj?=
- =?utf-8?B?QUVVVXk1T2l3Wkx0Uy9wd2pmbzd2UWZvOS9aT2F2QzErTVBpR05jNXRzTG1H?=
- =?utf-8?B?SGJUSXZEdllGTGdqMkpuR2VGdGNHVGtVN2ZOQStjdEJLdjJOMG9Wa2dFNTIx?=
- =?utf-8?B?R0E4L1VGSUFOTkpWY01uVTI2RHZNblRPV01TMlpUdjZqWnUvMHdiZmtFMDB0?=
- =?utf-8?B?ekxhalR4bmt3KzJGOTlJWkRSeFFsOEp3WE5zZGxoRGdPcjU3ZUwrbWhEcGp2?=
- =?utf-8?B?ZjZlYkR4dEFDNWVRSFNkdWJ2a29UL0J1dUNKUy9xY0NIaUIyWHlFVVhnUHZR?=
- =?utf-8?B?UmRHaTBjK01YL0pxcXVsQ1YrbXNoVENXbEplcDFCS0Z6bmRyL1E4Mk83Zyt1?=
- =?utf-8?B?czRiMHhNUnVGT25PV0NMM3RncHk3UytHV2YxRjJUOU5QRlNuQlZ6M3IrdGNE?=
- =?utf-8?B?WENybkhzd0dNQTI1MmVSN3hMREMyQ1NCQkhyWlNSdk41cUlyZzFUczJPUk5k?=
- =?utf-8?B?ZHJHckZsT2xLbHl1NmIxMDBNQnpyNXdobjFEUTZqTkVrTmY5UzlwOFF6alQ2?=
- =?utf-8?B?Y045elNUVVoza1JKU05MSVNxbGRLRnYrL2kwLzgyMjQrKzN0TmEvbERUbnNv?=
- =?utf-8?Q?fXkdX0r3OTeh1uhNQRG5bx/wk?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 11fe9da1-8034-45e7-0007-08ddea4205fd
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB2667.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2025 16:59:04.8634
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KYAzgb7SnmXglHkrmgMjGOd5TKxHL2d1iOQmOvYWBdXycPJJ2zOWfE4k26Kz5OcM1bQGZU8x1AC0xk+YVRLv8A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB5837
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_095919_747118_30CBC1C2 
-X-CRM114-Status: GOOD (  19.73  )
+X-CRM114-CacheID: sfid-20250902_100138_968522_CFDF3FC9 
+X-CRM114-Status: GOOD (  50.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -195,364 +118,227 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, James,
 
-On 8/22/25 08:30, James Morse wrote:
-> When features are mismatched between MSC the way features are combined
-> to the class determines whether resctrl can support this SoC.
->
-> Add some tests to illustrate the sort of thing that is expected to
-> work, and those that must be removed.
->
-> Signed-off-by: James Morse <james.morse@arm.com>
-> ---
->   drivers/resctrl/mpam_internal.h     |   8 +-
->   drivers/resctrl/test_mpam_devices.c | 322 ++++++++++++++++++++++++++++
->   2 files changed, 329 insertions(+), 1 deletion(-)
-[SNIP]
-> diff --git a/drivers/resctrl/test_mpam_devices.c b/drivers/resctrl/test_mpam_devices.c
-> index 8e9d6c88171c..ef39696e7ff8 100644
-> --- a/drivers/resctrl/test_mpam_devices.c
-> +++ b/drivers/resctrl/test_mpam_devices.c
-> @@ -4,6 +4,326 @@
->   
->   #include <kunit/test.h>
->   
-> +/*
-> + * This test catches fields that aren't being sanitised - but can't tell you
-> + * which one...
-> + */
-> +static void test__props_mismatch(struct kunit *test)
-> +{
-> +	struct mpam_props parent = { 0 };
-> +	struct mpam_props child;
-> +
-> +	memset(&child, 0xff, sizeof(child));
-> +	__props_mismatch(&parent, &child, false);
-> +
-> +	memset(&child, 0, sizeof(child));
-> +	KUNIT_EXPECT_EQ(test, memcmp(&parent, &child, sizeof(child)), 0);
-> +
-> +	memset(&child, 0xff, sizeof(child));
-> +	__props_mismatch(&parent, &child, true);
-> +
-> +	KUNIT_EXPECT_EQ(test, memcmp(&parent, &child, sizeof(child)), 0);
-> +}
-> +
-> +static void test_mpam_enable_merge_features(struct kunit *test)
-> +{
-> +	/* o/` How deep is your stack? o/` */
-> +	struct list_head fake_classes_list;
-> +	struct mpam_class fake_class = { 0 };
-> +	struct mpam_component fake_comp1 = { 0 };
-> +	struct mpam_component fake_comp2 = { 0 };
-> +	struct mpam_vmsc fake_vmsc1 = { 0 };
-> +	struct mpam_vmsc fake_vmsc2 = { 0 };
-> +	struct mpam_msc fake_msc1 = { 0 };
-> +	struct mpam_msc fake_msc2 = { 0 };
-> +	struct mpam_msc_ris fake_ris1 = { 0 };
-> +	struct mpam_msc_ris fake_ris2 = { 0 };
-> +	struct platform_device fake_pdev = { 0 };
-> +
-> +#define RESET_FAKE_HIEARCHY()	do {				\
-> +	INIT_LIST_HEAD(&fake_classes_list);			\
-> +								\
-> +	memset(&fake_class, 0, sizeof(fake_class));		\
-> +	fake_class.level = 3;					\
-> +	fake_class.type = MPAM_CLASS_CACHE;			\
-> +	INIT_LIST_HEAD_RCU(&fake_class.components);		\
-> +	INIT_LIST_HEAD(&fake_class.classes_list);		\
-> +								\
-> +	memset(&fake_comp1, 0, sizeof(fake_comp1));		\
-> +	memset(&fake_comp2, 0, sizeof(fake_comp2));		\
-> +	fake_comp1.comp_id = 1;					\
-> +	fake_comp2.comp_id = 2;					\
-> +	INIT_LIST_HEAD(&fake_comp1.vmsc);			\
-> +	INIT_LIST_HEAD(&fake_comp1.class_list);			\
-> +	INIT_LIST_HEAD(&fake_comp2.vmsc);			\
-> +	INIT_LIST_HEAD(&fake_comp2.class_list);			\
-> +								\
-> +	memset(&fake_vmsc1, 0, sizeof(fake_vmsc1));		\
-> +	memset(&fake_vmsc2, 0, sizeof(fake_vmsc2));		\
-> +	INIT_LIST_HEAD(&fake_vmsc1.ris);			\
-> +	INIT_LIST_HEAD(&fake_vmsc1.comp_list);			\
-> +	fake_vmsc1.msc = &fake_msc1;				\
-> +	INIT_LIST_HEAD(&fake_vmsc2.ris);			\
-> +	INIT_LIST_HEAD(&fake_vmsc2.comp_list);			\
-> +	fake_vmsc2.msc = &fake_msc2;				\
-> +								\
-> +	memset(&fake_ris1, 0, sizeof(fake_ris1));		\
-> +	memset(&fake_ris2, 0, sizeof(fake_ris2));		\
-> +	fake_ris1.ris_idx = 1;					\
-> +	INIT_LIST_HEAD(&fake_ris1.msc_list);			\
-> +	fake_ris2.ris_idx = 2;					\
-> +	INIT_LIST_HEAD(&fake_ris2.msc_list);			\
-> +								\
-> +	fake_msc1.pdev = &fake_pdev;				\
-> +	fake_msc2.pdev = &fake_pdev;				\
-> +								\
-> +	list_add(&fake_class.classes_list, &fake_classes_list);	\
-> +} while (0)
-> +
-> +	RESET_FAKE_HIEARCHY();
-> +
-> +	mutex_lock(&mpam_list_lock);
-> +
-> +	/* One Class+Comp, two RIS in one vMSC with common features */
-> +	fake_comp1.class = &fake_class;
-> +	list_add(&fake_comp1.class_list, &fake_class.components);
-> +	fake_comp2.class = NULL;
-> +	fake_vmsc1.comp = &fake_comp1;
-> +	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
-> +	fake_vmsc2.comp = NULL;
-> +	fake_ris1.vmsc = &fake_vmsc1;
-> +	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
-> +	fake_ris2.vmsc = &fake_vmsc1;
-> +	list_add(&fake_ris2.vmsc_list, &fake_vmsc1.ris);
-> +
-> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
-> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris2.props);
-> +	fake_ris1.props.cpbm_wd = 4;
-> +	fake_ris2.props.cpbm_wd = 4;
-> +
-> +	mpam_enable_merge_features(&fake_classes_list);
-> +
-> +	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
-> +	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 4);
-> +
-> +	RESET_FAKE_HIEARCHY();
-> +
-> +	/* One Class+Comp, two RIS in one vMSC with non-overlapping features */
-> +	fake_comp1.class = &fake_class;
-> +	list_add(&fake_comp1.class_list, &fake_class.components);
-> +	fake_comp2.class = NULL;
-> +	fake_vmsc1.comp = &fake_comp1;
-> +	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
-> +	fake_vmsc2.comp = NULL;
-> +	fake_ris1.vmsc = &fake_vmsc1;
-> +	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
-> +	fake_ris2.vmsc = &fake_vmsc1;
-> +	list_add(&fake_ris2.vmsc_list, &fake_vmsc1.ris);
-> +
-> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
-> +	mpam_set_feature(mpam_feat_cmax_cmin, &fake_ris2.props);
-> +	fake_ris1.props.cpbm_wd = 4;
-> +	fake_ris2.props.cmax_wd = 4;
-> +
-> +	mpam_enable_merge_features(&fake_classes_list);
-> +
-> +	/* Multiple RIS within one MSC controlling the same resource can be mismatched */
-> +	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
-> +	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cmax_cmin, &fake_class.props));
-> +	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cmax_cmin, &fake_vmsc1.props));
-> +	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 4);
-> +	KUNIT_EXPECT_EQ(test, fake_vmsc1.props.cmax_wd, 4);
-> +	KUNIT_EXPECT_EQ(test, fake_class.props.cmax_wd, 4);
-> +
-> +	RESET_FAKE_HIEARCHY();
-> +
-> +	/* One Class+Comp, two MSC with overlapping features */
-> +	fake_comp1.class = &fake_class;
-> +	list_add(&fake_comp1.class_list, &fake_class.components);
-> +	fake_comp2.class = NULL;
-> +	fake_vmsc1.comp = &fake_comp1;
-> +	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
-> +	fake_vmsc2.comp = &fake_comp1;
-> +	list_add(&fake_vmsc2.comp_list, &fake_comp1.vmsc);
-> +	fake_ris1.vmsc = &fake_vmsc1;
-> +	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
-> +	fake_ris2.vmsc = &fake_vmsc2;
-> +	list_add(&fake_ris2.vmsc_list, &fake_vmsc2.ris);
-> +
-> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
-> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris2.props);
-> +	fake_ris1.props.cpbm_wd = 4;
-> +	fake_ris2.props.cpbm_wd = 4;
-> +
-> +	mpam_enable_merge_features(&fake_classes_list);
-> +
-> +	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
-> +	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 4);
-> +
-> +	RESET_FAKE_HIEARCHY();
-> +
-> +	/* One Class+Comp, two MSC with non-overlapping features */
-> +	fake_comp1.class = &fake_class;
-> +	list_add(&fake_comp1.class_list, &fake_class.components);
-> +	fake_comp2.class = NULL;
-> +	fake_vmsc1.comp = &fake_comp1;
-> +	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
-> +	fake_vmsc2.comp = &fake_comp1;
-> +	list_add(&fake_vmsc2.comp_list, &fake_comp1.vmsc);
-> +	fake_ris1.vmsc = &fake_vmsc1;
-> +	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
-> +	fake_ris2.vmsc = &fake_vmsc2;
-> +	list_add(&fake_ris2.vmsc_list, &fake_vmsc2.ris);
-> +
-> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
-> +	mpam_set_feature(mpam_feat_cmax_cmin, &fake_ris2.props);
-> +	fake_ris1.props.cpbm_wd = 4;
-> +	fake_ris2.props.cmax_wd = 4;
-> +
-> +	mpam_enable_merge_features(&fake_classes_list);
-> +
-> +	/*
-> +	 * Multiple RIS in different MSC can't the same resource, mismatched
-> +	 * features can not be supported.
-> +	 */
-> +	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
-> +	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_cmax_cmin, &fake_class.props));
-> +	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 0);
-> +	KUNIT_EXPECT_EQ(test, fake_class.props.cmax_wd, 0);
-> +
-> +	RESET_FAKE_HIEARCHY();
-> +
-> +	/* One Class+Comp, two MSC with incompatible overlapping features */
-> +	fake_comp1.class = &fake_class;
-> +	list_add(&fake_comp1.class_list, &fake_class.components);
-> +	fake_comp2.class = NULL;
-> +	fake_vmsc1.comp = &fake_comp1;
-> +	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
-> +	fake_vmsc2.comp = &fake_comp1;
-> +	list_add(&fake_vmsc2.comp_list, &fake_comp1.vmsc);
-> +	fake_ris1.vmsc = &fake_vmsc1;
-> +	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
-> +	fake_ris2.vmsc = &fake_vmsc2;
-> +	list_add(&fake_ris2.vmsc_list, &fake_vmsc2.ris);
-> +
-> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
-> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris2.props);
-> +	mpam_set_feature(mpam_feat_mbw_part, &fake_ris1.props);
-> +	mpam_set_feature(mpam_feat_mbw_part, &fake_ris2.props);
-> +	fake_ris1.props.cpbm_wd = 5;
-> +	fake_ris2.props.cpbm_wd = 3;
-> +	fake_ris1.props.mbw_pbm_bits = 5;
-> +	fake_ris2.props.mbw_pbm_bits = 3;
-> +
-> +	mpam_enable_merge_features(&fake_classes_list);
-> +
-> +	/*
-> +	 * Multiple RIS in different MSC can't the same resource, mismatched
-> +	 * features can not be supported.
-> +	 */
-> +	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
-> +	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_mbw_part, &fake_class.props));
-> +	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 0);
-> +	KUNIT_EXPECT_EQ(test, fake_class.props.mbw_pbm_bits, 0);
-> +
-> +	RESET_FAKE_HIEARCHY();
-> +
-> +	/* One Class+Comp, two MSC with overlapping features that need tweaking */
-> +	fake_comp1.class = &fake_class;
-> +	list_add(&fake_comp1.class_list, &fake_class.components);
-> +	fake_comp2.class = NULL;
-> +	fake_vmsc1.comp = &fake_comp1;
-> +	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
-> +	fake_vmsc2.comp = &fake_comp1;
-> +	list_add(&fake_vmsc2.comp_list, &fake_comp1.vmsc);
-> +	fake_ris1.vmsc = &fake_vmsc1;
-> +	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
-> +	fake_ris2.vmsc = &fake_vmsc2;
-> +	list_add(&fake_ris2.vmsc_list, &fake_vmsc2.ris);
-> +
-> +	mpam_set_feature(mpam_feat_mbw_min, &fake_ris1.props);
-> +	mpam_set_feature(mpam_feat_mbw_min, &fake_ris2.props);
-> +	mpam_set_feature(mpam_feat_cmax_cmax, &fake_ris1.props);
-> +	mpam_set_feature(mpam_feat_cmax_cmax, &fake_ris2.props);
-> +	fake_ris1.props.bwa_wd = 5;
-> +	fake_ris2.props.bwa_wd = 3;
-> +	fake_ris1.props.cmax_wd = 5;
-> +	fake_ris2.props.cmax_wd = 3;
-> +
-> +	mpam_enable_merge_features(&fake_classes_list);
-> +
-> +	/*
-> +	 * Multiple RIS in different MSC can't the same resource, mismatched
-> +	 * features can not be supported.
-> +	 */
-> +	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_mbw_min, &fake_class.props));
-> +	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cmax_cmax, &fake_class.props));
-> +	KUNIT_EXPECT_EQ(test, fake_class.props.bwa_wd, 3);
-> +	KUNIT_EXPECT_EQ(test, fake_class.props.cmax_wd, 3);
-> +
-> +	RESET_FAKE_HIEARCHY();
-> +
-> +	/* One Class Two Comp with overlapping features */
-> +	fake_comp1.class = &fake_class;
-> +	list_add(&fake_comp1.class_list, &fake_class.components);
-> +	fake_comp2.class = &fake_class;
-> +	list_add(&fake_comp2.class_list, &fake_class.components);
-> +	fake_vmsc1.comp = &fake_comp1;
-> +	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
-> +	fake_vmsc2.comp = &fake_comp2;
-> +	list_add(&fake_vmsc2.comp_list, &fake_comp2.vmsc);
-> +	fake_ris1.vmsc = &fake_vmsc1;
-> +	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
-> +	fake_ris2.vmsc = &fake_vmsc2;
-> +	list_add(&fake_ris2.vmsc_list, &fake_vmsc2.ris);
-> +
-> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
-> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris2.props);
-> +	fake_ris1.props.cpbm_wd = 4;
-> +	fake_ris2.props.cpbm_wd = 4;
-> +
-> +	mpam_enable_merge_features(&fake_classes_list);
-> +
-> +	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
-> +	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 4);
-> +
-> +	RESET_FAKE_HIEARCHY();
-> +
-> +	/* One Class Two Comp with non-overlapping features */
-> +	fake_comp1.class = &fake_class;
-> +	list_add(&fake_comp1.class_list, &fake_class.components);
-> +	fake_comp2.class = &fake_class;
-> +	list_add(&fake_comp2.class_list, &fake_class.components);
-> +	fake_vmsc1.comp = &fake_comp1;
-> +	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
-> +	fake_vmsc2.comp = &fake_comp2;
-> +	list_add(&fake_vmsc2.comp_list, &fake_comp2.vmsc);
-> +	fake_ris1.vmsc = &fake_vmsc1;
-> +	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
-> +	fake_ris2.vmsc = &fake_vmsc2;
-> +	list_add(&fake_ris2.vmsc_list, &fake_vmsc2.ris);
-> +
-> +	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
-> +	mpam_set_feature(mpam_feat_cmax_cmin, &fake_ris2.props);
-> +	fake_ris1.props.cpbm_wd = 4;
-> +	fake_ris2.props.cmax_wd = 4;
-> +
-> +	mpam_enable_merge_features(&fake_classes_list);
-> +
-> +	/*
-> +	 * Multiple components can't control the same resource, mismatched features can
-> +	 * not be supported.
-> +	 */
-> +	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
-> +	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_cmax_cmin, &fake_class.props));
-> +	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 0);
-> +	KUNIT_EXPECT_EQ(test, fake_class.props.cmax_wd, 0);
-> +
-> +	mutex_unlock(&mpam_list_lock);
-> +
-> +#undef RESET_FAKE_HIEARCHY
-> +}
-> +
-In file included from drivers/resctrl/mpam_devices.c:2908:
-drivers/resctrl/test_mpam_devices.c: In function 
-‘test_mpam_enable_merge_features’:
-drivers/resctrl/test_mpam_devices.c:325:1: error: the frame size of 5520 
-bytes is larger than 2048 bytes [-Werror=frame-larger-than=]
-   325 | }
-       | ^
+--=-bV38p/TGIUCsdGFxL5ya
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-It's better to split the big function into a few sub-tests. Each 
-sub-test defines and uses less variables to avoid big frame size issue.
+Le lundi 01 septembre 2025 =C3=A0 17:41 +0800, Ming Qian(OSS) a =C3=A9crit=
+=C2=A0:
+>=20
+> Hi Nicolas,
+>=20
+> > Hi,
+> >=20
+> > Le vendredi 25 juillet 2025 =C3=A0 16:07 +0800, ming.qian@oss.nxp.com=
+=C2=A0a =C3=A9crit :
+> > > From: Ming Qian <ming.qian@oss.nxp.com>
+> > >=20
+> > > For Simple and Main Profiles of VC-1 format stream, the amphion vpu
+> > > requires driver to discard the sequence header, but insert a custom
+> > > sequence start code at the beginning.
+> > > The first buffer after a seek always contains only the sequence heade=
+r.
+> > > But vpu_vb_is_codecconfig() always return false as there is currently=
+ no
+> > > flag indicating that the buffer contains only sequence header data an=
+d
+> > > not frame data.
+> > > So driver needs to drop the first buffer after seek, otherwise the dr=
+iver
+> > > will treat the sequence header as a frame, which will cause the image=
+ to
+> > > be corrupted after the vpu decodes.
+> > >=20
+> > > Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+> > > ---
+> > > =C2=A0 drivers/media/platform/amphion/vpu_malone.c | 4 +---
+> > > =C2=A0 1 file changed, 1 insertion(+), 3 deletions(-)
+> > >=20
+> > > diff --git a/drivers/media/platform/amphion/vpu_malone.c b/drivers/me=
+dia/platform/amphion/vpu_malone.c
+> > > index ba688566dffd..a4c423600d70 100644
+> > > --- a/drivers/media/platform/amphion/vpu_malone.c
+> > > +++ b/drivers/media/platform/amphion/vpu_malone.c
+> > > @@ -1373,11 +1373,9 @@ static int vpu_malone_insert_scode_vc1_l_seq(s=
+truct malone_scode_t *scode)
+> > > =C2=A0=C2=A0	int size =3D 0;
+> > > =C2=A0=C2=A0	u8 rcv_seqhdr[MALONE_VC1_RCV_SEQ_HEADER_LEN];
+> > > =C2=A0=20
+> > > -	if (vpu_vb_is_codecconfig(to_vb2_v4l2_buffer(scode->vb)))
+> >=20
+> > Please remove vpu_vb_is_codecconfig() entirely, it always returns false=
+, so its
+> > miss-leading.
+> >=20
+>=20
+> We have tried to define V4L2_BUF_FLAG_HEADERS_ONLY to to distinguish
+> whether it only contains codec data.
+>=20
+> https://lore.kernel.org/lkml/20221125020741.28239-1-ming.qian@nxp.com/
+>=20
+> Although it was not accepted, we applied this flag in our Android
+> project. Then in the Android platform, vpu_vb_is_codecconfig() doesn't
+> always return false.
+>=20
+> I know that's not enough reason to keep it. I just want to say that this
+> vpu need to know if the buffer only contains codec header in some cases.
+> And if we remove this, I need to add some comments to remind users that
+> they need to pay attention here.
 
-[SNIP]
+In all cases, this dead code have to go away, if we had noticed earlier it =
+would
+have been rejected.
 
-Thanks.
+Either the format document strictly requires codec data as first buffer (al=
+one),
+or you create a new format for you IP. As said, legacy codecs are ill-defin=
+ed
+and we need to gather information from other maintainers of IP that support=
+s it
+to fill in the doc. Perhaps this is the behavior that should have been
+documented, and if this is the case, the fix is simply to put that in the
+documentation.
 
--Fenghua
+>=20
+> So I tend to keep it.
+>=20
+>=20
+> > > -		scode->need_data =3D 0;
+> > > +	scode->need_data =3D 0;
+> > > =C2=A0=C2=A0	if (scode->inst->total_input_count)
+> > > =C2=A0=C2=A0		return 0;
+> > > -	scode->need_data =3D 0;
+> >=20
+> > I only remember testing this once quickly on Exynos 4 and I had no clue=
+ what
+> > Annex G vs J was and most likley the MFC firmware was detecting it. Che=
+cking
+> > quickly, I'm not sure GStreamer actually support both, despite the v4l2=
+ wrapper
+> > pretending. I would expect one to be used in ASF/ISOMP4/AVI, and the ot=
+her used
+> > in MPEG Transport Stream. GStreamer does not support VC1 in MPEG TS.
+> >=20
+> > Have you tested this with FFMPEG ? It only maps annex G.
+> >=20
+> > In general, I don't mind the the change if this is correct userspace be=
+havior.
+> > If ffmpeg and gstreamer don't agree though, we'll have to rethink. GStr=
+eamer
+> > code back in the days was design in a way that it should not matter if =
+the
+> > header is split or not. This limitation came with lower latency decoder=
+ later,
+> > but none had VC1.
+> >=20
+> > Please test both userspace, and lets see if this solution is acceptable=
+. ffmpeg
+> > have ffplay and you can seek with your keyboard arrows.
+> >=20
+> > Nicolas
+>=20
+> I tested this with gstreaer, not FFMPEG,
+> And I checked the gstreamer code in our repository, Then I found the
+> following related code:
+>=20
+> =C2=A0=C2=A0 } else if (g_str_equal (mimetype, "video/x-wmv")) {
+> =C2=A0=C2=A0=C2=A0=C2=A0 const gchar *format =3D gst_structure_get_string=
+ (structure, "format");
+> =C2=A0=C2=A0=C2=A0=C2=A0 if (format) {
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (!g_ascii_strcasecmp (format, "WV=
+C1"))
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 fourcc =3D V4L2_PIX_FMT_=
+VC1_ANNEX_G;
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 else if (!g_ascii_strcasecmp (format=
+, "WMV3"))
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 fourcc =3D V4L2_PIX_FMT_=
+VC1_ANNEX_L;
+> =C2=A0=C2=A0=C2=A0=C2=A0 }
+>=20
+> Basically it processes WMV3 into VC1_ANNEX_L, and WVC1 to VC1_ANNEX_G.
+> I didn't found them in the upstream gstreamer repository.
+> Now I'm not sure if it is correct userspace behavior.
 
+Its a little concerning, since we are in the largely untested territory. Wi=
+thout
+proper documentation and with all the downstream changes done to userspace,=
+ we
+can easily endup with NXP considering this is the right mapping and let's s=
+ay
+Qualcomm or Samsung thinking differently. Since this is for upstream, we ne=
+ed to
+ensure this is concistant. Have you reached to other driver maintainers alr=
+eady
+to discuss and resolve the subject in a way it works for everyone ?
+
+>=20
+> And the reason of this issue is the below code in gstreamer, that the
+> v4l2decoder may only send codec data after seek.
+>=20
+> =C2=A0=C2=A0=C2=A0=C2=A0 codec_data =3D self->input_state->codec_data;
+>=20
+> =C2=A0=C2=A0=C2=A0=C2=A0 /* We are running in byte-stream mode, so we don=
+'t know the=20
+> headers, but
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 * we need to send something, otherwise the=
+ decoder will refuse to
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 * initialize.
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 */
+> =C2=A0=C2=A0=C2=A0=C2=A0 if (codec_data) {
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 gst_buffer_ref (codec_data);
+> =C2=A0=C2=A0=C2=A0=C2=A0 } else {
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 codec_data =3D gst_buffer_ref (frame=
+->input_buffer);
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 processed =3D TRUE;
+> =C2=A0=C2=A0=C2=A0=C2=A0 }
+
+That is truncating a bit too much of the context. The "processed" boolean i=
+s set
+when the codec data and frame is combined. In the case the codec data is on=
+ly to
+be found in caps, it will queue the codec data and immediately queue the fr=
+ame
+data. This is perfectly valid with the way the stateful decoder specificati=
+on is
+written.
+
+In practice, GStreamer stateful decoder is multi-threaded, so it will fill =
+the
+OUTPUT queue with following frames too. What you can do to make your driver=
+ more
+flexible is whenever you didn't find a frame in a buffer, merge this buffer=
+ with
+the next one, and do that until there is no more space in one buffer. This =
+way
+you don't copy all the time like ring buffers do, but you can survive abitr=
+ary
+splits of byte-stream.
+
+Nicolas
+
+>=20
+> Regards,
+> Ming
+>=20
+>=20
+> >=20
+> > > =C2=A0=20
+> > > =C2=A0=C2=A0	ret =3D vpu_malone_insert_scode_seq(scode, MALONE_CODEC_=
+ID_VC1_SIMPLE, sizeof(rcv_seqhdr));
+> > > =C2=A0=C2=A0	if (ret < 0)
+
+--=-bV38p/TGIUCsdGFxL5ya
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaLci7QAKCRDZQZRRKWBy
+9EucAQCDpDQ23PEiLbvrPVu582nT4syH1ECoqvI5lbtG2IxCpQD/Wi1AX61MNSaV
+RP5P644O8Od9w+f8beizyYC77y9jewY=
+=SB3Z
+-----END PGP SIGNATURE-----
+
+--=-bV38p/TGIUCsdGFxL5ya--
 
