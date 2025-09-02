@@ -4,59 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27DBDCA0FFE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 12:32:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D83CCA1009
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 12:32:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Bf4MIGFcO7L2Ms6soL9Wdgx2dozgt6w1dCR79tGsfg=; b=LVc5bCm+ZsWtQ8xFrfE7v7aA6j
-	XlrtC5AJiEDqXmHd1ctos4xDO5i/1NsEVUQJ7ORmDjre226yFp/ytz/P/Pqx3FIcNnS3Dp0PHZEbu
-	h693EhVOFY9MyA3k165uZWLS+Wh4R6TeksgIv4P0pBAX/8jsQnFBP3v11knDj3k8E2/y2v76oQrYG
-	qyt4LqQS64pn7CTEDYyE0X+YZw5oAJdXo9S5rb/+f/es83tZ0QY/HV0CLWVlibaEfXNY9iGvCKvI2
-	RHTnHMGYBJt7pGvhx3dW4Nd1/hP5zNvXKvAqi3HsPuct1I8eilQZh1HjKavBOgsIK5MF4PlEchGs5
-	nQokruUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t+2RmtyC5BdrhVnYkf0pE1bp+20qsxwnCUP1SaL1uDE=; b=yiwhyJxBwqKC+ZrpKqwZYTeaGg
+	LgwGmVslqaDZZvfPVFMH/U1MdiiKE7VWhfvHk8xAMAG7o4J97pYqkbJSMI7+8f/QgupZN0bH6+i9x
+	mJcA/6ZUS6h4cn72DEfaaF4DbhmHmXQ+NQvUm97qhha1yE7h9k4MyJ+v7pj6q4bXZ5uEJ5h8Wqq1s
+	6R4yvvP88l8WW1q7iO5d93pUqeBkCDhv3bgkP5rwTI9H539PetWrUvqKMaljrdfzi+5IYMI2Xcaa9
+	WC7NM0Siqx/mSwjfUcaUEpQarlkJoj/+myzkDJjZ6GIjk4XTvORlxFahoSi9Sy1AIaPLTvhkkuIDZ
+	jTnejKxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utQBd-0000000HJyt-0aDn;
-	Tue, 02 Sep 2025 12:32:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utOFK-0000000Gg3o-3nov
+	id 1utQBf-0000000HK1m-29xR;
+	Tue, 02 Sep 2025 12:32:35 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1utOJx-0000000GhBf-3QB2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 10:28:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5571526BE;
-	Tue,  2 Sep 2025 03:27:56 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F08263F6A8;
-	Tue,  2 Sep 2025 03:28:02 -0700 (PDT)
-Date: Tue, 2 Sep 2025 11:28:00 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Lee Jones <lee@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Pawel Moll <pawel.moll@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH 0/2] mfd: vexpress: convert the driver to using the new
- generic GPIO chip API
-Message-ID: <20250902-kind-gorgeous-armadillo-166b84@sudeepholla>
-References: <20250811-gpio-mmio-mfd-conv-v1-0-68c5c958cf80@linaro.org>
- <CAMRc=Md+2_3w5kdaUF9-nGdHv9C+tGRfN9TTu6E4+hSdFbwGBQ@mail.gmail.com>
+	Tue, 02 Sep 2025 10:33:03 +0000
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-b04260d72bfso32835866b.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 03:33:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1756809180; x=1757413980; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=t+2RmtyC5BdrhVnYkf0pE1bp+20qsxwnCUP1SaL1uDE=;
+        b=TT31SyrW1YozhEfWphETsQdYqH7jh+iqZ+pb2yM4t/RrDxTlxKufstaWLH8lJ3pJfM
+         I1BWSZMBk7QTiNgGJorPQxL8S10MTek/EsI2XaFBhO7onmu2uddKwDruj9KjFX7WwKcM
+         8TnRo1enYmcNV1wW0wSOwrdAngZH2VL9RQuq4bDsKO6X7y8CGOmbJiWsIVvTyaiuxDTP
+         O+RepRdk7PrgEICU+6xgf7UHPZsrwZt7wbVQks4vwzlfXAGAbFoIhoaEhYKIsoFCwpX7
+         0Rc0a/NohUEoJ2xClZJ+ACoaf8c9YRJZ8v/R2KKxdY4OU0tju6ibqDssmOd3cdqIEb1R
+         8xcw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756809180; x=1757413980;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=t+2RmtyC5BdrhVnYkf0pE1bp+20qsxwnCUP1SaL1uDE=;
+        b=Lg39BLaqE5AB8yGAHowAA3p1fnhGndU8Kx2Q93XJ4drFfYTCUeRgctAG4TN5F8lwxs
+         0f/3QaEsYORsdL80zw7LbkDYEp4w4nz+uwIiqcQBf/+VKf2bv5oAtrrlW9A1KRWTI2kT
+         lOeEdJjarSaKOcrbXQnmHdP/K5DtzolwEEDtZJc3i4X8PMUdsddE/ja9lxU2IeTKQy0p
+         tVbzwTjMp0ofemuoqIcSitbCcfSH9DfhqpOEHLpqOK5w59it5kjWOiL5x1bbMDs9CduV
+         bYUyIdyOf6DBymCnCQSta7eBI17c3sTzP3mdrJYY6AzxU1rp/5vfEzB1hjaDSD2zqMXZ
+         MPFg==
+X-Forwarded-Encrypted: i=1; AJvYcCXcz1aTBmiw6AT5M8yDUCS2dEoS6LZ+njrMgPRoias5u8cTiV/7xF/Wf5XL4qol5tl5i1Eo9E3nwZlp8zclaT4n@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy7Olvx3cRIqmjhYqHYSm53/To1WdYhYvMxQX+VQ1BapDgjqHss
+	5rLC3vhlD8AK3f3T+NP/ya62tpnEkvG+25ByqR80tY+yZsFsfNMxybIsi5yadWD/LAg=
+X-Gm-Gg: ASbGncu6ziqWZhOEa6W09cT7SYe0Zyyo3o8Er0u5M3nXHAfZ6YJM+XBXORyZiv3/Fzh
+	6AKgth1LNRrAkSdbOzfDja3jgtK2OrquhP5fxfmT2Pd/IjmnK/1Cew1iX4eiLeaq7+n90/Y9JUO
+	3PeZAs4jSXYvI7uM0z38sEbFgEaDusz9Iv8WGo6Xg0I2gZhxG35AIdWWjv+DekSQY9oIlE1eVJF
+	hKBuTcA2rq7SO4TbtIknIoSTMwVhPfzDoM/hqWWEcp6ITS3EX4gCX0Quq6r5zP4kD7jBvyy7iZu
+	THp7Voxed7B/aHnjL4IHHfjXxCU1uFObVc1U87VQos9MK1QVDgIO0MaFye1kxJ6G99yUm2FRSGh
+	3TFGH/UK1HSSKv7zPQN1DFfGibrqRcjHYFTVX2LV+k4lUcJLpLQ==
+X-Google-Smtp-Source: AGHT+IHAsN/656NaYDyz43thubEPzcHhs+/jF4e7qFvC7WKngX9lMBJC+gCJOclV74lgolxYOi8bDw==
+X-Received: by 2002:a17:906:690:b0:b04:1457:93 with SMTP id a640c23a62f3a-b04145702d1mr390858166b.3.1756809180009;
+        Tue, 02 Sep 2025 03:33:00 -0700 (PDT)
+Received: from [127.0.1.1] ([178.197.219.123])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b0423ed35e4sm516431766b.25.2025.09.02.03.32.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 02 Sep 2025 03:32:59 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Tomasz Figa <tomasz.figa@gmail.com>, 
+ Jonathan Cameron <Jonathan.Cameron@huawei.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Ulf Hansson <ulf.hansson@linaro.org>, Arnd Bergmann <arnd@arndb.de>, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: stable@vger.kernel.org
+In-Reply-To: <20250830111657.126190-3-krzysztof.kozlowski@linaro.org>
+References: <20250830111657.126190-3-krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH 1/2] pinctrl: samsung: Drop unused S3C24xx driver data
+Message-Id: <175680917816.135692.16731223900572881206.b4-ty@linaro.org>
+Date: Tue, 02 Sep 2025 12:32:58 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMRc=Md+2_3w5kdaUF9-nGdHv9C+tGRfN9TTu6E4+hSdFbwGBQ@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_032814_984547_746D6F5D 
-X-CRM114-Status: GOOD (  22.79  )
+X-CRM114-CacheID: sfid-20250902_033301_865663_DD5D78DB 
+X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,42 +110,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 02, 2025 at 11:28:49AM +0200, Bartosz Golaszewski wrote:
-> On Mon, Aug 11, 2025 at 3:36 PM Bartosz Golaszewski <brgl@bgdev.pl> wrote:
-> >
-> > This converts the vexpress-sysreg MFD driver to using the new generic
-> > GPIO interface but first fixes an issue with an unchecked return value
-> > of devm_gpiochio_add_data().
-> >
-> > Lee: Please, create an immutable branch containing these commits after
-> > you pick them up, as I'd like to merge it into the GPIO tree and remove
-> > the legacy interface in this cycle.
-> >
-> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> > ---
-> > Bartosz Golaszewski (2):
-> >       mfd: vexpress-sysreg: check the return value of devm_gpiochip_add_data()
-> >       mfd: vexpress-sysreg: use new generic GPIO chip API
-> >
-> >  drivers/mfd/vexpress-sysreg.c | 25 ++++++++++++++++++++-----
-> >  1 file changed, 20 insertions(+), 5 deletions(-)
-> > ---
-> > base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
-> > change-id: 20250728-gpio-mmio-mfd-conv-d27c2cfbccfe
-> >
-> > Best regards,
-> > --
-> > Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> >
+
+On Sat, 30 Aug 2025 13:16:58 +0200, Krzysztof Kozlowski wrote:
+> Drop unused declarations after S3C24xx SoC family removal in the commit
+> 61b7f8920b17 ("ARM: s3c: remove all s3c24xx support").
 > 
-> It's been almost a month, so gentle ping.
 > 
 
-Sorry for that, LGTM. FWIW:
+Applied, thanks!
 
-Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+[1/2] pinctrl: samsung: Drop unused S3C24xx driver data
+      https://git.kernel.org/pinctrl/samsung/c/358253fa8179ab4217ac283b56adde0174186f87
+[2/2] dt-bindings: pinctrl: samsung: Drop S3C2410
+      https://git.kernel.org/pinctrl/samsung/c/d37db94b078197ec4be1cadebbfd7bf144e3c5e4
 
+Best regards,
 -- 
-Regards,
-Sudeep
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
 
