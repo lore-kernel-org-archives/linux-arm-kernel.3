@@ -4,96 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A484CA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:44:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4435CA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:44:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IPqqn0GnguGU5cSP0RswoQ1BZy2RQuhjSXsG1srLe9w=; b=zhyuoKbJ5Yc8jfEXG9pKrgEWNH
-	UpPTs+aFOtSOaYmmLiwble0M/hANHJ8HwJCwNefAThzM7Ohvbnqu6i6MWyl7RPqftdGsXX9mO2ZST
-	dMzCsIWTX9xtpH7iGTSESDJN5tngkTTspe9LuQ94TDqWSjpJyVxg4uDqs2gfeAJFTIvYsgGDyM2HC
-	ffOZyQlYYeHgRKbV1y0d3TSpzGvQJmqdguiGSdkzLJ4rJarc0//+d1tQ4WAUQEfGedywhd2zgi62g
-	rf8qgE0OPamBX+G+XNV5hDcIJqyN19XMZJfP9dNLUbwwxT3s4f4PADDEVJQrs7FrzD/V6IAcw8NYe
-	J+5FomDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SaZ0obcU0VK6M9ilGonYBOYom8KTG8xnvA8JNugeXXA=; b=N0GAJqnQ217TOSmInDxNHrfRwS
+	WUpFGsPPP9i53Hptq1JM0BMoOv8jxfi4TSZAy5va/waBxHG1K1rcXIyErq3mfrULITwVEe2+RxreF
+	68+6RMgz0glNAvaeUgmiJ+Tzl+0ZeFmbY7JWIUTtpIcpwyq2/EtKztw7VV56OXsWKmbBPhTUMYrnk
+	uWxn5pdzH50z86fiGpAS5L2iJ8JZow/ufgzpf5QCtG9WJqSe5tqLqPrFiFouO4V5ZDeA8zl3fLUCy
+	iSO4imgWSQdMHOpvsVEQbXlbcMpio06RHNtqjZehJvP6kl1fAliY3KEGjYoccSHO0lwdsHlgw7qau
+	YDgj7fhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utYnJ-00000002CFH-2R1B;
-	Tue, 02 Sep 2025 21:44:01 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1utYnV-00000002CTd-01L3;
+	Tue, 02 Sep 2025 21:44:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utTAt-00000000kOB-1McX
+	id 1utTn2-00000000vud-0VOz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 15:44:00 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-afede1b3d05so923655666b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 08:43:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756827838; x=1757432638; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IPqqn0GnguGU5cSP0RswoQ1BZy2RQuhjSXsG1srLe9w=;
-        b=PSY3YCkBEzdjvw+u/hKZfwADAoLL2BWCbPo7N2TKU9Q3u6gjcRBegtVHE6yhbyRvju
-         0oHK8ZFfxKbBZAKvNR3nZJT+lZbNZj9zqFGQ8oYYQMPkQf+8tJ86bfJG/ocxjQXTfula
-         CdaPE5oqz+78WGOG70b2sJJDs3eI7AIiEfVS8ArKoGoltLK+Cqq/SIV0lTksqxZfTD1Z
-         E2DMkDiCf6QrfkYS3lg89XmNiSRIQBSaitRIRkF1mt707Gd3maKYSgdKCuUEremdpF0l
-         tIUfAmmQs01w3dOp3ScB0fvwEDGZvW+6eYL5dey3BRaqByoAiYDR/0Maqz6PmxvLhYqn
-         Mlsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756827838; x=1757432638;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=IPqqn0GnguGU5cSP0RswoQ1BZy2RQuhjSXsG1srLe9w=;
-        b=Js7g5PI9XyWAyjkM2ReMSb71r8JO5mRb8oBMpCRijfGzAENHCZfU3Gx18DbTj5ptWz
-         hwBPGUoJC2BXpBXz3E1w5jWwZYax24XICBRE90+uKHIvVy0/sR48JdMlgVuwHCXwlrhN
-         XhFX2Du/GDmQR8FgIRMPRLqkmupYvIADQina0NiIdZE2/HNsUkNtAko1ig123lxe0acO
-         u0raP7d/C+16OohuP8VIeYS95lSrhFbIwU+wehmq2qhjaHQlZM7dqfe6wNS+sQQXF1th
-         YDkMGauWWX6nQPRAqfSoem5C8Rf+AysY1L4OJ1auKbiseV31+nQlMaAV0fjJZag3XjTJ
-         HwUw==
-X-Forwarded-Encrypted: i=1; AJvYcCWO1JdPrsRiiNWn32asFxa+JYnfwWuP+uEwgY+/Dkw9FVPUYT7B/mX29TGEJMItIivH/UwQj+YLAsA0xscjBKYX@lists.infradead.org
-X-Gm-Message-State: AOJu0YwAaVyqH1Sius9zaQdt0fnU1ctlE6E5QkRCSp1ujBYYuhj6rLkG
-	tFBBkehW8Gw5spREMvnpSGKzviTLd2fY9h3As/PJnjqfC5AHJ058pTTL+dmsdskV4TbWyqMnAXO
-	AKUzJjwZ/NgugMzrWucBwFZrG/jGbPB0=
-X-Gm-Gg: ASbGncs81StuS87MWnFDJk+7J4iSQCsJfO2+IZ1T1gQoyX+ERzwTa13V9stK1n+e62d
-	2vVJ71P6+O75C7mjTH+5qiQPuIclKCf76DJakwiggvyKBlhVcELfz4dxmVQlYX83gnxtHFejlHF
-	HTkLfvQoYGc5/Sz/g4DRkAaltOu6HSAzayAN+SdU8yA6aVX32GVPeyFqJksUGjTDq9x17ieIPtE
-	XH/KPpXq/KnLITWtVHqAz4DWv38SHLyRtBW4mz2NW5KQwsWxHk=
-X-Google-Smtp-Source: AGHT+IGjVz9zqn8BbtmRC26R4QSkX6A4Q84g3hbk2BHW4+6JnnTvFG+jS17Ww+dxP48t8AY/g3mKnA0lZtUe2mcohUY=
-X-Received: by 2002:a17:906:4786:b0:afe:e7f1:28a2 with SMTP id
- a640c23a62f3a-b01d8c7835emr1258659066b.23.1756827837577; Tue, 02 Sep 2025
- 08:43:57 -0700 (PDT)
+	Tue, 02 Sep 2025 16:23:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5A80240A35;
+	Tue,  2 Sep 2025 16:23:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A327C4CEED;
+	Tue,  2 Sep 2025 16:23:21 +0000 (UTC)
+Date: Tue, 2 Sep 2025 17:23:19 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	James Morse <james.morse@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v1 2/2] arm64: tlbflush: Don't broadcast if mm was
+ only active on local cpu
+Message-ID: <aLcZ93VeOYa4ilZb@arm.com>
+References: <20250829153510.2401161-1-ryan.roberts@arm.com>
+ <20250829153510.2401161-3-ryan.roberts@arm.com>
 MIME-Version: 1.0
-References: <20250902001302.3823418-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20250902001302.3823418-2-prabhakar.mahadev-lad.rj@bp.renesas.com> <20250902-spirited-congenial-stingray-f8aff7@kuoka>
-In-Reply-To: <20250902-spirited-congenial-stingray-f8aff7@kuoka>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Tue, 2 Sep 2025 16:43:31 +0100
-X-Gm-Features: Ac12FXzIsq1sQ-x5uMFEMxBzln58PfPIlzCTK000OG7RlVhFny-x7C12oPVK8qY
-Message-ID: <CA+V-a8uy++vzYh5956X2Dpv2Low5uAK+FRTONaP4Nc3FMty6Bw@mail.gmail.com>
-Subject: Re: [PATCH net-next 1/4] dt-bindings: net: dwmac: Increase 'maxItems'
- for 'interrupts' and 'interrupt-names'
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Russell King <linux@armlinux.org.uk>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
-	Jose Abreu <joabreu@synopsys.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	linux-renesas-soc@vger.kernel.org, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, Biju Das <biju.das.jz@bp.renesas.com>, 
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250829153510.2401161-3-ryan.roberts@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_084359_377968_502241B0 
-X-CRM114-Status: GOOD (  15.79  )
+X-CRM114-CacheID: sfid-20250902_092324_198122_DEB8B4DD 
+X-CRM114-Status: GOOD (  29.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,33 +64,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On Fri, Aug 29, 2025 at 04:35:08PM +0100, Ryan Roberts wrote:
+> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+> index f66b8c4696d0..651440e0aff9 100644
+> --- a/arch/arm64/include/asm/tlbflush.h
+> +++ b/arch/arm64/include/asm/tlbflush.h
+> @@ -182,6 +182,52 @@ static inline unsigned long get_trans_granule(void)
+>  		(__pages >> (5 * (scale) + 1)) - 1;			\
+>  	})
+>  
+> +/*
+> + * Determines whether the user tlbi invalidation can be performed only on the
+> + * local CPU or whether it needs to be broadcast. (Returns true for local).
+> + * Additionally issues appropriate barrier to ensure prior pgtable updates are
+> + * visible to the table walker. Must be paired with flush_tlb_user_post().
+> + */
+> +static inline bool flush_tlb_user_pre(struct mm_struct *mm)
+> +{
+> +	unsigned int self, active;
+> +	bool local;
+> +
+> +	migrate_disable();
+> +
+> +	self = smp_processor_id();
+> +
+> +	/*
+> +	 * The load of mm->context.active_cpu must not be reordered before the
+> +	 * store to the pgtable that necessitated this flush. This ensures that
+> +	 * if the value read is our cpu id, then no other cpu can have seen the
+> +	 * old pgtable value and therefore does not need this old value to be
+> +	 * flushed from its tlb. But we don't want to upgrade the dsb(ishst),
+> +	 * needed to make the pgtable updates visible to the walker, to a
+> +	 * dsb(ish) by default. So speculatively load without a barrier and if
+> +	 * it indicates our cpu id, then upgrade the barrier and re-load.
+> +	 */
+> +	active = READ_ONCE(mm->context.active_cpu);
+> +	if (active == self) {
+> +		dsb(ish);
+> +		active = READ_ONCE(mm->context.active_cpu);
+> +	} else {
+> +		dsb(ishst);
+> +	}
 
-Thank you for the review.
+Does the ISH vs ISHST make much difference in practice? I wonder whether
+we could keep this simple.
 
-On Tue, Sep 2, 2025 at 9:49=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.org=
-> wrote:
->
-> On Tue, Sep 02, 2025 at 01:12:59AM +0100, Prabhakar wrote:
-> > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> >
-> > Increase the `maxItems` value for the `interrupts` and `interrupt-names=
-`
-> > properties to 19 to support additional per-channel Tx/Rx completion
-> > interrupts on the Renesas RZ/T2H SoC, which features the
-> > `snps,dwmac-5.20` IP with 8 Rx queues and 8 Tx queues.
->
-> This alone makes no sense. Why would we need more interrupts here if
-> there is no user of it at all? Squash patches.
->
-Ok, I will squash the changes.
+> diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
+> index b2ac06246327..adf4fc26ddb6 100644
+> --- a/arch/arm64/mm/context.c
+> +++ b/arch/arm64/mm/context.c
+> @@ -214,9 +214,10 @@ static u64 new_context(struct mm_struct *mm)
+>  
+>  void check_and_switch_context(struct mm_struct *mm)
+>  {
+> -	unsigned long flags;
+> -	unsigned int cpu;
+> +	unsigned int cpu = smp_processor_id();
+>  	u64 asid, old_active_asid;
+> +	unsigned int active;
+> +	unsigned long flags;
+>  
+>  	if (system_supports_cnp())
+>  		cpu_set_reserved_ttbr0();
+> @@ -251,7 +252,6 @@ void check_and_switch_context(struct mm_struct *mm)
+>  		atomic64_set(&mm->context.id, asid);
+>  	}
+>  
+> -	cpu = smp_processor_id();
+>  	if (cpumask_test_and_clear_cpu(cpu, &tlb_flush_pending))
+>  		local_flush_tlb_all();
+>  
+> @@ -262,6 +262,30 @@ void check_and_switch_context(struct mm_struct *mm)
+>  
+>  	arm64_apply_bp_hardening();
+>  
+> +	/*
+> +	 * Update mm->context.active_cpu in such a manner that we avoid cmpxchg
+> +	 * and dsb unless we definitely need it. If initially ACTIVE_CPU_NONE
+> +	 * then we are the first cpu to run so set it to our id. If initially
+> +	 * any id other than ours, we are the second cpu to run so set it to
+> +	 * ACTIVE_CPU_MULTIPLE. If we update the value then we must issue
+> +	 * dsb(ishst) to ensure stores to mm->context.active_cpu are ordered
+> +	 * against the TTBR0 write in cpu_switch_mm()/uaccess_enable(); the
+> +	 * store must be visible to another cpu before this cpu could have
+> +	 * populated any TLB entries based on the pgtables that will be
+> +	 * installed.
+> +	 */
+> +	active = READ_ONCE(mm->context.active_cpu);
+> +	if (active != cpu && active != ACTIVE_CPU_MULTIPLE) {
+> +		if (active == ACTIVE_CPU_NONE)
+> +			active = cmpxchg_relaxed(&mm->context.active_cpu,
+> +						 ACTIVE_CPU_NONE, cpu);
+> +
+> +		if (active != ACTIVE_CPU_NONE)
+> +			WRITE_ONCE(mm->context.active_cpu, ACTIVE_CPU_MULTIPLE);
+> +
+> +		dsb(ishst);
+> +	}
 
-> You also need to constrain other devices, because now one Renesas
-> binding gets 19 interrupts without any explanation. Please rethink how
-> you split your patches...
->
-I see you have already taken care of this, thank you.
+I think this works. I recall James had a litmus test for the model
+checker confirming this.
 
-Cheers,
-Prabhakar
+In a cut-down version, we'd have:
+
+P0:				P1:
+
+set_pte();			WRITE_ONCE(active_cpu);
+dsb();				dsb();
+READ_ONCE(active_cpu);		READ_ONCE(pte);
+
+The pte read on P1 is implied following the TTBR0 write. As you
+described, if P0 did not see the active_cpu update, P1 would have seen
+the updated pte.
+
+So far I couldn't fail this, so:
+
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
