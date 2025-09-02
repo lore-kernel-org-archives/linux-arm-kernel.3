@@ -4,56 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC262CA1005
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:09:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0770ECA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:09:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DHzf8zOkoK/gz40/u34nFlS5x0KpraKKt7bj2JGtWEk=; b=duU9KeNMZsMJFZZAtqr3TwMmGG
-	cVHdbPqkJ2sHrXZGDzwssi3MQS/fKSuGCAsyt7AhOJBnnNHtyhYCLzIH6ayXmNrKM5wgj4fViD7IH
-	CARnJBh1+zOEi0tUpTGmWwSWR4CA8S1Vm31tilkKoXJ4V+oc6pYxVIf8JlVF+MZw1yVsWD5k7yON6
-	4e8HEVusKkCVQjmddr28EQoNqrRmu/6gBOA9bcxP+anq9xVkGYJwSqty3uJ5Peiw7c/D/9zHJ7Sey
-	YrKn+AVE9DOVG2+VfpFaL2gsyIfSDXVmKhjnceH/1tKVYi2h/xSElkx0L5tSD50t/lZPXboJqwxTs
-	v6XY1CdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KRJDgRmHBw+J65zqV+/QCRhrrek5fZfoXh2Mkgbf81o=; b=jVKgGdFrpsKseAw8F25aYw9wnl
+	Gmgc8YrQdJsG+9BEVGELMZiVX//KjjcCvdAgIzGi+k4HIx2jfThtBxvmPgSB6elyuUxNXh16RkLeK
+	kvyEOIeG1fQ7WkCluUqGSCpg3nXNYmN79F9a+pI9nsSupjlsqYYb0NnxJHz0MH148X1GYPd46+q7b
+	KQbWCvE6MbKnDBtxnDUlwTX7rbJBBbQAInG7n2dCK5BASzb9DdGlpex5RVxaYivWPYVTaRU7bu9Vp
+	VpvZ7dSxNXZmSD/FxDHmESHCgrf0Z2a2cQELcGgPvlsPwDMyfvMJiH0nbJFaHYWV1mmNpOgl7AQsY
+	YGywD1hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utWNp-00000001ZY4-2UPb;
-	Tue, 02 Sep 2025 19:09:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utQpk-0000000HYkP-3F1C
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 13:14:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 200902720;
-	Tue,  2 Sep 2025 06:13:50 -0700 (PDT)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 098EB3F694;
-	Tue,  2 Sep 2025 06:13:56 -0700 (PDT)
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: maz@kernel.org,
-	oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	catalin.marinas@arm.com,
-	will@kernel.org
-Subject: [PATCH v2 1/2] KVM: arm64: VHE: Initialize PMSCR_EL1
-Date: Tue,  2 Sep 2025 14:08:32 +0100
-Message-ID: <20250902130833.338216-2-alexandru.elisei@arm.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20250902130833.338216-1-alexandru.elisei@arm.com>
-References: <20250902130833.338216-1-alexandru.elisei@arm.com>
+	id 1utWNu-00000001Zhg-0RrY;
+	Tue, 02 Sep 2025 19:09:38 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1utQr3-0000000HZAf-0SxN;
+	Tue, 02 Sep 2025 13:15:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1756818921; x=1788354921;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=cIei6RTUCtT55QsspDgWfZe1lPcqVs/yM9oKakcEt4M=;
+  b=FTIEpFsuLv9mZ8+akStrwqn7q0K3h49PXIrkbx8Ksykja4UHhcl3M19D
+   17n1cfItwZn1D8DdsKTTZI0bt/JL4cdyAPrNIS85yJI6QthMY7z1YydGm
+   8KgU3djf9M1El7zJfFU5cvIlFcppF2cX9hvLExudeCXLxkSakQE3i6/Vj
+   JzExbneItCn/D61gR4vI3G+b+y0WOdH6FOPZmmXRlke7rgUONOG4K/UdC
+   I/0AgEAUzAsqbQsdAZZwjzR1lhvlEIb5+zowvYzjlzaulzFuILzghyDAi
+   GoW6bvSER5qEPqyrrxD18t9xJQn4yoPKnpAzVo4kHBQ7XY2ubSvFC2gVP
+   Q==;
+X-CSE-ConnectionGUID: z0U/lNb+TsK3hv0nWldAdw==
+X-CSE-MsgGUID: 01LLDi2FQjKAuAAq1aN69w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="59041784"
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
+   d="scan'208";a="59041784"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Sep 2025 06:15:20 -0700
+X-CSE-ConnectionGUID: QF8sMWo2SGOcClSTfRIdKw==
+X-CSE-MsgGUID: FLZgbnm/Swu9LSfjg8Kdhw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,230,1751266800"; 
+   d="scan'208";a="170530232"
+Received: from smile.fi.intel.com ([10.237.72.52])
+  by orviesa006.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Sep 2025 06:15:09 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@intel.com>)
+	id 1utQqn-0000000AhVQ-1jBt;
+	Tue, 02 Sep 2025 16:15:05 +0300
+Date: Tue, 2 Sep 2025 16:15:05 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Alexey Klimov <alexey.klimov@linaro.org>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Sean Wang <sean.wang@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Paul Cercueil <paul@crapouillou.net>, Kees Cook <kees@kernel.org>,
+	Andy Shevchenko <andy@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@redhat.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>, Dong Aisheng <aisheng.dong@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Jacky Bai <ping.bai@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	NXP S32 Linux Team <s32@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Tony Lindgren <tony@atomide.com>,
+	Haojian Zhuang <haojian.zhuang@linaro.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Mark Brown <broonie@kernel.org>, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-hardening@vger.kernel.org, linux-mm@kvack.org,
+	imx@lists.linux.dev, linux-omap@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Subject: Re: [PATCH v7 12/16] pinctrl: qcom: use generic pin function helpers
+Message-ID: <aLbt2euqYQM5xXuZ@smile.fi.intel.com>
+References: <20250902-pinctrl-gpio-pinfuncs-v7-0-bb091daedc52@linaro.org>
+ <20250902-pinctrl-gpio-pinfuncs-v7-12-bb091daedc52@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250902-pinctrl-gpio-pinfuncs-v7-12-bb091daedc52@linaro.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_061400_852215_D82B39B4 
-X-CRM114-Status: GOOD (  16.25  )
+X-CRM114-CacheID: sfid-20250902_061521_194057_BC27B7A0 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,72 +125,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According to the pseudocode for StatisticalProfilingEnabled() from Arm
-DDI0487L.b, PMSCR_EL1 controls profiling at EL1 and EL0:
+On Tue, Sep 02, 2025 at 01:59:21PM +0200, Bartosz Golaszewski wrote:
+> 
+> With the pinmux core no longer duplicating memory used to store the
+> struct pinfunction objects in .rodata, we can now use the existing
+> infrastructure for storing and looking up pin functions in qualcomm
+> drivers. Remove hand-crafted callbacks.
 
-- PMSCR_EL1.E1SPE controls profiling at EL1.
-- PMSCR_EL1.E0SPE controls profiling at EL0 if HCR_EL2.TGE=0.
+...
 
-These two fields reset to UNKNOWN values.
+> +	for (i = 0; i < soc_data->nfunctions; i++) {
+> +		func = &soc_data->functions[i];
+> +
+> +		ret = pinmux_generic_add_pinfunction(pctrl->pctrl, func, NULL);
+> +		if (ret < 0)
 
-When KVM runs in VHE mode and profiling is enabled in the host, before
-entering a guest, KVM does not touch any of the SPE registers, leaving the
-buffer enabled, and it clears HCR_EL2.TGE. As a result, depending on the
-reset value for the E1SPE and E0SPE fields, KVM might unintentionally
-profile a guest. Make the behaviour consistent and predictable by clearing
-PMSCR_EL1 when KVM initialises the host debug configuration.
+Why not simply
 
-Note that this is not a problem for nVHE, because KVM clears
-PMSCR_EL1.{E1SPE,E0SPE} before entering the guest.
+		if (ret)
 
-Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
----
+> +			return ret;
+> +	}
 
-Tested by setting PMSCR_EL1.{E1SPE,E0SPE} in __finalise_el2 (to simulate a
-system where the bits reset to 1) and clearing MDCR_EL2.TPMS (so guest
-accesses to PMSCR_EL1 are not trapped). I booted the kernel in the model
-with FEAT_SPE, but without FEAT_FGT (so I wouldn't have to fiddle with
-those traps too).  Then ran a hacked kvm-unit-tests test that reads
-PMSCR_EL1.
-
-Without the patch: PMSCR_EL1 = 0x3 - E1SPE and E0SPE are set.
-With the patch: PMSCR_EL1 = 0x0- E1SPE and E0SPE are not set.
-
-Also tested by running the series on a cubie a5e (doesn't have FEAT_SPE),
-in vhe, nvhe and protected modes.
-
- arch/arm64/kvm/debug.c | 14 ++++++++++----
- 1 file changed, 10 insertions(+), 4 deletions(-)
-
-diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
-index 381382c19fe4..e7ce0d5a622d 100644
---- a/arch/arm64/kvm/debug.c
-+++ b/arch/arm64/kvm/debug.c
-@@ -74,13 +74,19 @@ void kvm_init_host_debug_data(void)
- 	*host_data_ptr(debug_brps) = SYS_FIELD_GET(ID_AA64DFR0_EL1, BRPs, dfr0);
- 	*host_data_ptr(debug_wrps) = SYS_FIELD_GET(ID_AA64DFR0_EL1, WRPs, dfr0);
- 
-+	if (cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_PMSVer_SHIFT) &&
-+	    !(read_sysreg_s(SYS_PMBIDR_EL1) & PMBIDR_EL1_P)) {
-+		if (has_vhe()) {
-+			/* Clear E{0,1}SPE, which reset to UNKNOWN values. */
-+			write_sysreg_el1(0, SYS_PMSCR);
-+		} else {
-+			host_data_set_flag(HAS_SPE);
-+		}
-+	}
-+
- 	if (has_vhe())
- 		return;
- 
--	if (cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_PMSVer_SHIFT) &&
--	    !(read_sysreg_s(SYS_PMBIDR_EL1) & PMBIDR_EL1_P))
--		host_data_set_flag(HAS_SPE);
--
- 	/* Check if we have BRBE implemented and available at the host */
- 	if (cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_BRBE_SHIFT))
- 		host_data_set_flag(HAS_BRBE);
 -- 
-2.51.0
+With Best Regards,
+Andy Shevchenko
+
 
 
