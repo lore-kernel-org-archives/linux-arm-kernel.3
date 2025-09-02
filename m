@@ -4,84 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB3A8CA1005
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 14:46:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3211DCA100E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 14:49:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yfvmzc8qZmjMW4mhkIuHV/6a4hUMeSIVMoLiNUvK0Jk=; b=pUVgkzxXhVvigUfcBY4iRoHJY3
-	S3HrXm5Jhxr4gyOmmkEjxLReyT/HzYlTCJHImEBD0pw0GRgr+YALA9bQP6JfaiG2E4c4/x0pIrOin
-	GiaBe8I0CvaVewTgsOqoA/3QiYSRVN5UkRLAwJN/ObjwVH5ywKiEsyFJqJCXkMg+ouxYFvo86xeTU
-	N+OfXiQs70QqDRHMKH0QBKG84L2t+/E9ojlecJo5Wv3vM91vSv6SmkMrFe7QeEebfS9YUj2HGbDUA
-	evfLWMCwdVtTk2PVTpqcABFDJIExDBZKmi+RsYr2tWqw4mh56+Q37zWCwOyN2dtUroRS4yqNHgDSy
-	OGQBYkUA==;
+	bh=Fp4Abv/fzY5toSq5c8kjCytYfJxDDQ+v7rc26B0Blgs=; b=Q5fO4XNh0WoO2K97TDZi8DlP8X
+	PQVw53lXoyqyv9a5RXW+lq+hBhv7ybQYMqa6ug5RfYWKiMuwC56OJmOmXdN1z/1N232wkUQudlpso
+	zpw6wG1BkubefxU7FaDarFwkqOmW8EBWspLxQlD36RWxi39S3gfzJvpBgdyYrU4qJTgjuYcVd9GMK
+	ItchZKBFmGo7Iuk2UJtlf0R9aUNEH0+LNPOfv8l4huIdadHsTZpEWnLPcyG+8yd/ulU2rBndpQhWK
+	1s/B1A/4X7g6FFgWd+T4jZUzar4MSShyrlqjYEIr009z0NuO8vdql7iPbgXEZfiHSsOYnaz8rsEeu
+	gnpvx8lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utSHH-00000000S7l-12vP;
-	Tue, 02 Sep 2025 14:46:31 +0000
-Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
+	id 1utSJz-00000000TGM-0ZFC;
+	Tue, 02 Sep 2025 14:49:19 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utPdW-0000000H3WF-1tTp
+	id 1utPdf-0000000H3aV-0PUU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 11:57:21 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id B1F4E1F748;
-	Tue,  2 Sep 2025 11:57:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1756814235;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yfvmzc8qZmjMW4mhkIuHV/6a4hUMeSIVMoLiNUvK0Jk=;
-	b=mSGou2m35QWKjYxVcVxQArlWxxMr6rCzPkBdM5epuolTdmwUn/CGj7/YzLOTl95SXL+rdW
-	Qmd3zGWZxrgIIbKW+mP6eKYSh2nkdGGx6786bF2vat3cXwuFxalz19AWFtfU8BwLF7FqIb
-	HwEk5o3aJ50JovfkLIaBcFPq6JbztM0XfPdvlM/XHM36dfzFSkWl4W5peWJIk4uv7J7mzE
-	B4HnnnfW76VCNH6Op4IzHvCpnvsjzC1zrXXa2zqwc7EAjwhGIDfULGU/C/B2OzZzo4Qfiw
-	0KqG+//FWeBZMHA88sTqW0lzVIhMgY0wWTGwFuhxHIhocwckKSxb5PZl2e22Cg==
-Date: Tue, 2 Sep 2025 13:57:09 +0200
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong
- <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, Laurent
- Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
- <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten
- Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
- <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
- <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Liu Ying
- <victor.liu@nxp.com>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Tomi Valkeinen
- <tomi.valkeinen@ideasonboard.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Hui Pu <Hui.Pu@gehealthcare.com>, Thomas Petazzoni
- <thomas.petazzoni@bootlin.com>, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, Andrew Morton
- <akpm@linux-foundation.org>, Zijun Hu <quic_zijuhu@quicinc.com>, Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>
-Subject: Re: [PATCH v2 1/9] list: add list_last_entry_or_null()
-Message-ID: <20250902135709.19e1ef54@booty>
-In-Reply-To: <aKXRHAyfPHPpZmMs@smile.fi.intel.com>
-References: <20250801-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v2-0-888912b0be13@bootlin.com>
-	<20250801-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v2-1-888912b0be13@bootlin.com>
-	<aJJ9ttmL7wiw41fY@smile.fi.intel.com>
-	<20250814183609.3788a6df@booty>
-	<aKXRHAyfPHPpZmMs@smile.fi.intel.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-redhat-linux-gnu)
+	Tue, 02 Sep 2025 11:57:28 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-55f687fd3bdso5219870e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 04:57:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756814245; x=1757419045; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Fp4Abv/fzY5toSq5c8kjCytYfJxDDQ+v7rc26B0Blgs=;
+        b=brwfaPL0C7HKtUHr21lffIJVIeMqvsCZe/+WSq9NjnqDEmBBIy2kJpAyO/rsCtYCZ1
+         MEZRVFvZZtCcj7o/ZN7Z3s2FTvX9Gnvg+VmY37BZa9I85Lfw4cUCaUIBGXrOdp2FkdsH
+         dGsSB+QxlbRVXYyLaIdLCB9QuwrynzWsQ80zFlvNMIWlbh3FtpBDeI5EnS+vOHGnlCfI
+         iS0I7N3QJshimRJNfzmpuZjpR1Gj4BdjFO3QncC5y0bkOPn3TpvQOx7Cp6+AaZta9aH6
+         OS4Ba1bLDBdEC98em9pINm73HFhlJuPkbopETC/Q5u56aJjrx55QfjnvCvJT1SeXhjDc
+         LL1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756814245; x=1757419045;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Fp4Abv/fzY5toSq5c8kjCytYfJxDDQ+v7rc26B0Blgs=;
+        b=C/7qFVTIqJHQftfa8jgKzQtghUAkwLMs8xtpN/3Zi2eVSjm5zROm0dT/5boik+RZuU
+         y3C3OU+9w/GBMfi3WIU7Sd8ayHwmoEdLRAZxSMiSILAvGxlfXjcy/WaVihTSYrmWg/GN
+         C9Egzu5xrAvYqgd4MKLEmG1T60s2rPPzsr02Ljt6GMTtBejgauJC9H9yjp37Z5ttjJ6B
+         YYgjRa1zpi5K80eg3eeb8T21eq6/7OlmBF5x0a8BGdKu428ZYrbJrfk2wLoKcclm6fPb
+         H/sYTzDxLt9prti7+nKCarhbkQagBO2+/M0iw5UCDGd5+rrmB5RcsNF3S9QHxJSXucQQ
+         ETWQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWWLsc1xBNqwvujZwwxRMLLp4DjiFurUQcR63U1RP3g5mds49uLhoygrMWbAaIRb34YvLlcEpsULfrbRL8awmW8@lists.infradead.org
+X-Gm-Message-State: AOJu0YwG18oGxSiFht+UMS0bG1KDtoHENpTAaO89ZkGq0zSbcbuSYEke
+	ZpZeA3AT/DChJTPbhQmkRS7zi9MYqg+5bUw4j6Iair7nJFM8v1FcoxA06HaIU93gkQfIYT2VINk
+	JUANFSvSDULy6ZoF6aoduryUOlABM2RaUF2N8qHF5Qg==
+X-Gm-Gg: ASbGncsPky6Xz2AVRU5tQDdH6tBf3vh7YZLWxtsy6XrFHUP1Hzi8EMG6C7o+TVuzK6y
+	dtLuTxF4ZoRlR7rkunFm6s9cZs4MJQ+Z5E3dFmWo5TRF4AvLzA2nuyVtQECLqb3UCrxvu5ezUwZ
+	wnQGbLbfLs0/i5D2rdrA4XEyI8q1/4S04qUlZcueMeGd2KKbb2likU30T040M9iBL13pSq2wS7O
+	pDaJ1faMfDrewnkNoFWmm83fePgFkzKZN9s5Dm9oTisFmdUqg==
+X-Google-Smtp-Source: AGHT+IErcjW0+LGFGJcHQchCQeR1Yt+GA9XuQLP2Vn98G+VTiZcJCdrpPfkwDR775dV3lM7lVH5sLJhNO5IY+DD19Bk=
+X-Received: by 2002:a05:6512:3b8b:b0:55f:554c:b1fb with SMTP id
+ 2adb3069b0e04-55f70912819mr3298424e87.29.1756814244976; Tue, 02 Sep 2025
+ 04:57:24 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvtdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeglefffefghefhtddvfeeufeeiveekgffgleekieduteekkeetvdehudekgfdvvdenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvpdhhvghlohepsghoohhthidpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvkedprhgtphhtthhopegrnhgurhhihidrshhhvghvtghhvghnkhhosehlihhnuhigrdhinhhtvghlrdgtohhmpdhrtghpthhtoheprghnughriigvjhdrhhgrjhgurgesihhnthgvlhdrtghomhdprhgtphhtthhopehnvghilhdrrghrm
- hhsthhrohhngheslhhinhgrrhhordhorhhgpdhrtghpthhtoheprhhfohhssheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepnfgruhhrvghnthdrphhinhgthhgrrhhtsehiuggvrghsohhnsghorghrugdrtghomhdprhgtphhtthhopehjohhnrghssehkfihisghoohdrshgvpdhrtghpthhtohepjhgvrhhnvghjrdhskhhrrggsvggtsehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhgrrghrthgvnhdrlhgrnhhkhhhorhhstheslhhinhhugidrihhnthgvlhdrtghomh
-X-GND-Sasl: luca.ceresoli@bootlin.com
+References: <20250811-gpio-mmio-mfd-conv-v1-0-68c5c958cf80@linaro.org> <175680785548.2247963.242433624241359060.b4-ty@kernel.org>
+In-Reply-To: <175680785548.2247963.242433624241359060.b4-ty@kernel.org>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Tue, 2 Sep 2025 13:57:14 +0200
+X-Gm-Features: Ac12FXztQMclI5iZSDKTIUNQ7QH1_dUHxuo2PxWIXoNlkSSmA9MCP00AzVcpvI0
+Message-ID: <CAMRc=MeWnrSPrLOq7yH71wpw4vP6RJiLnuLCpwXogZn0yugFgw@mail.gmail.com>
+Subject: Re: [PATCH 0/2] mfd: vexpress: convert the driver to using the new
+ generic GPIO chip API
+To: Lee Jones <lee@kernel.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Liviu Dudau <liviu.dudau@arm.com>, 
+	Sudeep Holla <sudeep.holla@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Pawel Moll <pawel.moll@arm.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_045719_038878_3F8B98A5 
-X-CRM114-Status: GOOD (  25.24  )
+X-CRM114-CacheID: sfid-20250902_045727_374057_7AB022E3 
+X-CRM114-Status: GOOD (  18.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,59 +99,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello DRM maintainers,
+On Tue, Sep 2, 2025 at 12:10=E2=80=AFPM Lee Jones <lee@kernel.org> wrote:
+>
+> On Mon, 11 Aug 2025 15:36:15 +0200, Bartosz Golaszewski wrote:
+> > This converts the vexpress-sysreg MFD driver to using the new generic
+> > GPIO interface but first fixes an issue with an unchecked return value
+> > of devm_gpiochio_add_data().
+> >
+> > Lee: Please, create an immutable branch containing these commits after
+> > you pick them up, as I'd like to merge it into the GPIO tree and remove
+> > the legacy interface in this cycle.
+> >
+> > [...]
+>
+> Applied, thanks!
+>
+> [1/2] mfd: vexpress-sysreg: check the return value of devm_gpiochip_add_d=
+ata()
+>       commit: 14b2b50be20bd15236bc7d4c614ecb5d9410c3ec
+> [2/2] mfd: vexpress-sysreg: use new generic GPIO chip API
+>       commit: 8080e2c6138e4c615c1e6bc1378ec042b6f9cd36
+>
+> --
+> Lee Jones [=E6=9D=8E=E7=90=BC=E6=96=AF]
+>
 
-On Wed, 20 Aug 2025 16:43:56 +0300
-Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
+Thanks, you haven't pushed out the changes yet so maybe you're already
+on it but please don't forget to set up an immutable branch for
+merging back of these changes into the GPIO tree.
 
-> On Thu, Aug 14, 2025 at 06:36:09PM +0200, Luca Ceresoli wrote:
-> > On Wed, 6 Aug 2025 00:55:02 +0300
-> > Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
-> >   
-> > > On Fri, Aug 01, 2025 at 07:05:23PM +0200, Luca Ceresoli wrote:  
-> > > > Add an equivalent of list_first_entry_or_null() to obtain the last element
-> > > > of a list.    
-> > > 
-> > > Acked-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>  
-> > 
-> > Thanks Andy!
-> > 
-> > However I'm not sure when and where this should be applied.
-> > 
-> > Except for this one patch, all patches in the series are for
-> > drm-misc-next. Also, patch 1 is currently not needed by any other
-> > series AFAIK.
-> > 
-> > Based on the above, is it correct to assume that the whole series can
-> > be applied on drm-misc-next? (when other patches will have a
-> > R-by/Ack-by of course)
-> > 
-> > Also, is Andy's A-by enough to apply this patch?  
-> 
-> The list.h is common for many, I think going via DRM with my Ack is enough
-> based on the Git history of my changes in this file. But if you want more
-> reliable source, get an Ack from Andrew Morton.
-
-While applying this patch with dim on drm-misc-next, dim push-branch
-failed because:
-
-  dim: ERROR: cb86408b1fc2 ("list: add list_last_entry_or_null()"): Mandatory Maintainer Acked-by missing., aborting
-
-Looking at the dim code, it is looking for a Reviewed- or Acked-by from
-people listed by `scripts/get_maintainer.pl --no-git-fallback -m --nol
---norolestats`. but that command returns an empty string, so it will
-never allow me to push.
-
-How can I get that commit pushed to drm-misc-next?
-
-I think `dim push-branch -f` would work: am I supposed to use it?
-
-(not sure my committer rights allow that)
-
-Luca
-
--- 
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Bartosz
 
