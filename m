@@ -4,84 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C0FCCA1005
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:20:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85DDFCA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:23:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MjRTy6ke9707qyB/BghqB5ATIpNChLwx3v84JNJ5TPk=; b=3Y8YW1i3QCEAKt0dgkecgMi9nn
-	GWYlzO8x8kahQmbZPJhsItuuBuL2C3h091ci7mEnsgItc9TcFqYQ86tiIXtZAJmpXi085c2F9keCj
-	aQXLZ77iHsTynnUR+XwLC3cy+QXCbZumtqXbbLPgbyTOU9Lh9quaAoAZf6ZrgaoE1WeeDRisFHvlx
-	uIXI9tmCTlfTbrEBDmUsSUVmqZEQ0n7B1zhflRQPJGSsDcc78UCVxRzjZVEW+ozSYRq5BANjNR8oa
-	F7t+XLonj5wdva8ozi8jhVnq+ynjlMUsTC7K4Jlc0+Ghcdjr3HZye6MYQjNowyX+1jgmXFfcqLQ3b
-	GzGSp85Q==;
+	bh=sRGhf8kAlbSiuxyvXspVnjIJN8LVC+9FDmXMj1LfzlM=; b=v6hnKivvVjW2iDben9982+InwQ
+	uFXlw4kSwxBT6MLC4cpqv6r2+IsvYp4u1VykHmE+nkn0k4cVZKfZtRRQHIeZjaMvq7ydRCl5S6faV
+	ZEiBByNUJoR6T+EM5H5bYCEURUcZ9wHyMoelFkLHxMyUJtlkkAo7TOURjt3o4F49zwKvJAWNJ05HP
+	hTyBypKOfHwj6Ka1J5EA9X9+fryba8KfA3SgM1uhimqCTZHqKp4jdnj3uwfGnd1L1cF7iUWldfOO9
+	3fnUh5Mk09PNCnyTd2MWWF9jRpRntnSDZgNoNrgWzuXgq89nWqh3QS2qUrgBswu87kzfcJWLQ7wT1
+	L/OZ5PiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utWYo-00000001h1U-0nic;
-	Tue, 02 Sep 2025 19:20:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1utWbU-00000001hlU-4AlE;
+	Tue, 02 Sep 2025 19:23:40 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utTPv-00000000pRx-348l
+	id 1utTSk-00000000qB5-1XON
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 15:59:31 +0000
+	Tue, 02 Sep 2025 16:02:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 12A466021C;
-	Tue,  2 Sep 2025 15:59:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01BDFC4CEED;
-	Tue,  2 Sep 2025 15:59:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 110784055A;
+	Tue,  2 Sep 2025 16:02:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7C8AC4CEED;
+	Tue,  2 Sep 2025 16:02:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756828770;
-	bh=h6gGkPa+yogQhUhsg5tcVHk0cLLn+dh6AGZcG93uf7s=;
+	s=k20201202; t=1756828945;
+	bh=lB5D9KsRYs7OgNcYyTVZgRLKvveUEdtkvlhi3ouxmPQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Ud0/eFyjy1LcAqZg8/j8CGG2Y+QtH7azwAQmg7B6nqOqfw7uH3isn8BWEsvAZ/rys
-	 zO9DuR3o+bc/yW7QUD/9dtYpcAQX49gCnPKGsgHgLZW0IZULcY2x+fnynasWOmKQ4U
-	 3HmROMU44lKBDLB/MSAJeZWuJ7IxmOBCqv14kIqng4BI0NGKCBlREva7OmyCvehMZf
-	 aYDsTt0OmKhB88FURiUCJ3Ot+suF9wyekWpNCkvgTMVPqqjZeo6NzUGrl9yKAD69nG
-	 3W7lWRc93bSi6BuXL06aDnkVp8e5I1/cY6kApSel/xtw+cXgctCwzB/n1ANxqWBroC
-	 m5fjuZeIJSwNQ==
-Message-ID: <3815a847-c6ea-44f1-8c4f-666483841b16@kernel.org>
-Date: Tue, 2 Sep 2025 17:59:18 +0200
+	b=F97Q3CjCNHrjLkc3GoenPkugZEIaxXX9uHGFp12FamsDGTJNfPBdu27cqKcSHxB7U
+	 cXfSZJW/NxgsyZXijUvQZ6jByb4hxmen47YCp+gg5+UAtMdkaIHfbR/spG3AiaXMvQ
+	 JVa266jJh/yU2N+ejEnVOVG++SQsmojoVwp6EteNxU32OhegVQEhzGYcmKoWhBI2Yh
+	 f8RVRersUBQSJTDHNvX/WhBl9nrrpgYvlBRLHxhEAbVBRT32rfvGHVf8DgqoiX214h
+	 yOFBc8FbBremLDrp69OfnInvpoKlWrbcwGgha5kE+rLtl4y99Zm/PJAMPVXCO2xmlS
+	 KXRSkkl8f6QsA==
+Message-ID: <4806391a-1040-4baf-b996-91f1f79fbd70@kernel.org>
+Date: Tue, 2 Sep 2025 18:02:17 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 08/12] cpufreq: powerpc: macintosh: Use scope-based
- cleanup helper
-To: Zihuan Zhang <zhangzihuan@kylinos.cn>,
- "Rafael J . wysocki" <rafael@kernel.org>,
- Viresh Kumar <viresh.kumar@linaro.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Alim Akhtar
- <alim.akhtar@samsung.com>, Thierry Reding <thierry.reding@gmail.com>,
- MyungJoo Ham <myungjoo.ham@samsung.com>,
- Kyungmin Park <kyungmin.park@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>,
- Jani Nikula <jani.nikula@linux.intel.com>,
- Rodrigo Vivi <rodrigo.vivi@intel.com>, Tvrtko Ursulin
- <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Daniel Lezcano <daniel.lezcano@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
- Eduardo Valentin <edubezval@gmail.com>, Keerthy <j-keerthy@ti.com>
-Cc: Ben Horgan <ben.horgan@arm.com>, zhenglifeng <zhenglifeng1@huawei.com>,
- Zhang Rui <rui.zhang@intel.com>, Len Brown <lenb@kernel.org>,
- Lukasz Luba <lukasz.luba@arm.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Beata Michalska <beata.michalska@arm.com>, Fabio Estevam
- <festevam@gmail.com>, Pavel Machek <pavel@kernel.org>,
- Sumit Gupta <sumitg@nvidia.com>,
- Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
- Sudeep Holla <sudeep.holla@arm.com>, Yicong Yang <yangyicong@hisilicon.com>,
- linux-pm@vger.kernel.org, linux-acpi@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
- imx@lists.linux.dev, linux-omap@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250901085748.36795-1-zhangzihuan@kylinos.cn>
- <20250901085748.36795-9-zhangzihuan@kylinos.cn>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH net-next 1/4] dt-bindings: net: dwmac: Increase 'maxItems'
+ for 'interrupts' and 'interrupt-names'
+To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Russell King <linux@armlinux.org.uk>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+ Jose Abreu <joabreu@synopsys.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>, linux-renesas-soc@vger.kernel.org,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, Biju Das <biju.das.jz@bp.renesas.com>,
+ Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20250902001302.3823418-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20250902001302.3823418-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20250902-spirited-congenial-stingray-f8aff7@kuoka>
+ <CA+V-a8uy++vzYh5956X2Dpv2Low5uAK+FRTONaP4Nc3FMty6Bw@mail.gmail.com>
 Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -125,9 +115,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250901085748.36795-9-zhangzihuan@kylinos.cn>
+In-Reply-To: <CA+V-a8uy++vzYh5956X2Dpv2Low5uAK+FRTONaP4Nc3FMty6Bw@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250902_090226_447118_D1A43BF7 
+X-CRM114-Status: UNSURE (   7.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,24 +136,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/09/2025 10:57, Zihuan Zhang wrote:
-> +	struct cpufreq_policy *policy __free(put_cpufreq_policy) = cpufreq_cpu_get(0);
->  	struct wf_control *clamp;
->  	struct device *dev;
->  	int ret;
->  
-> -	policy = cpufreq_cpu_get(0);
->  	if (!policy) {
->  		pr_warn("%s: cpufreq policy not found cpu0\n", __func__);
->  		return -EPROBE_DEFER;
-> @@ -79,8 +78,6 @@ static int __init wf_cpufreq_clamp_init(void)
->  	ret = freq_qos_add_request(&policy->constraints, &qos_req, FREQ_QOS_MAX,
->  				   max_freq);
->  
-> -	cpufreq_cpu_put(policy);
-> -
-Not much improvement. Previously this was simple code, easy to grasp.
+On 02/09/2025 17:43, Lad, Prabhakar wrote:
+> 
+>> You also need to constrain other devices, because now one Renesas
+>> binding gets 19 interrupts without any explanation. Please rethink how
+>> you split your patches...
+>>
+> I see you have already taken care of this, thank you.
+
+No, I am not talking about that. I am talking about
+renesas,rzv2h-gbeth.yaml, which with this patch gets 19 interrupts.
+
 Best regards,
 Krzysztof
-
 
