@@ -4,74 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F032CA1005
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 07:30:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1EE5CA0FFE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 07:38:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RKHmaMqAlKNoVFPe+uzx7ydmqDUhBWUhyYaETomDZac=; b=p5a/U32iiUnWSy5yIXxw66xam7
-	wnfIn4ZNj7CNNgwZ+1AKwwNgJC35oxJBRkA+FGC9bb7iYPioSv9T7oE6IfmgB3uh8QReoY/FAP0dQ
-	ATBjAqex8Ez6JVQN3LUSJet0Kjz+AlJVa2ku+Z8Qh18goU72lEPAkXFQEpGnAQl6tkgS7Dz6TWEU0
-	thPihNNVtMyqnn1JFbCLOfgiBi0I8RnSmoEBs/CTtM01X2Ry0eYrXfR+WHLYZFgP7eAubLN5uMtqf
-	v0Irq1ZFVIj3fdrdCIF1vQ24RLHYyAkJ0QFd2sxvLuzoa9YMKErKg8ElMVRl+DpBhCXA5GhYUYUNA
-	7swFnzyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XZSLYhdlIbnghXt6TwaEm7+yoO4aoLtOznhHPUnvjTU=; b=F5fQR1uBR2COLqVKBom27w4rv9
+	UlidcwWi1hiklIvilG6eZJTlciabNh9oifcYfE4L1ZCZJ4ndeijUUlrIXMqgL6ziVdEFtCu6NiSRY
+	KZALOcuVTH7Zjne+IK7CsOivLKk6SLQcB97K9aX4TkwxuEaBm+wY54C1x+7Cp8b/DDbw/EItweN5f
+	c0q1OLjparONbQkEhkkdAjaq7xN7VlidO4Tj0cDi9Hg5ATc+UOFq+rCys4jq9JiliRukhirpBUA5o
+	dCQv48Wc85QCtnMkFIw5FEFzloKrHm67iDWrsH3D3iWiOTxBLjgYrgIKl4Jzr5w3ixhWy4UKd/uoO
+	0BoMjw2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utLTW-0000000Fl5g-1Xia;
-	Tue, 02 Sep 2025 07:30:42 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1utLaf-0000000Fms1-1QKS;
+	Tue, 02 Sep 2025 07:38:05 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utLIl-0000000FiG7-3wIz
+	id 1utLXy-0000000FmEG-02XU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 07:19:37 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5827JVYg2930057;
-	Tue, 2 Sep 2025 02:19:31 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1756797571;
-	bh=RKHmaMqAlKNoVFPe+uzx7ydmqDUhBWUhyYaETomDZac=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=X90EOp6Kpqu+8V72oBs2A+ZIlZPJdsXmCB3xUSXoeIotbXOvYKyTsVJ7zAPbu5+53
-	 v05Sr44IIdFTLGl04AgnHFMKI0jiFQND455xnAeaUkUvM6XzZUkepmo9TITMdUzgVp
-	 HwX0Ot8zYJgjAjhH+gBAYPuKnf9BAowIAYBWjln0=
-Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5827JVMY2558558
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 2 Sep 2025 02:19:31 -0500
-Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 2
- Sep 2025 02:19:31 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE111.ent.ti.com
- (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Tue, 2 Sep 2025 02:19:31 -0500
-Received: from akashdeep-HP-Z2-Tower-G5-Workstation.dhcp.ti.com (akashdeep-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.68.177])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5827JJga3689199;
-	Tue, 2 Sep 2025 02:19:27 -0500
-From: Akashdeep Kaur <a-kaur@ti.com>
-To: <praneeth@ti.com>, <nm@ti.com>, <afd@ti.com>, <vigneshr@ti.com>,
-        <d-gole@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-CC: <vishalm@ti.com>, <sebin.francis@ti.com>
-Subject: [PATCH v3 1/3] arm64: dts: ti: k3-am62p5-sk: Remove the unused cfg in USB1_DRVVBUS
-Date: Tue, 2 Sep 2025 12:49:15 +0530
-Message-ID: <20250902071917.1616729-2-a-kaur@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250902071917.1616729-1-a-kaur@ti.com>
-References: <20250902071917.1616729-1-a-kaur@ti.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+	Tue, 02 Sep 2025 07:35:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9CA704348F;
+	Tue,  2 Sep 2025 07:35:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32F30C4CEED;
+	Tue,  2 Sep 2025 07:35:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756798517;
+	bh=E/WY5o6a97fVHU8e5uy2CoWMRAn7yHxp4l1Tt05M7pQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=nymPyFHaAcgHY3kjoLFAWTfg/VeqM5171gZw/UhNyg9PSulFo70S9+Uf89ywYHI2F
+	 TP0kj0tj7CVr8uk31H7r6i8kgwp/Vz/lIMQJfsFXZ+qe5QdumAEUtB7oaB6fWS30oA
+	 ba0B1Z4l66xfrJs0oNuIbiVCvOJzTxdFntl4jR8aunxFyTXYVkITEOMVs9zZvzFT9I
+	 BksleDrnd05NzHesNhvNdLu7bpN3EkUHHVKhhYu27OCgSambrPhwWIieAEK8n3eQys
+	 9QgBDGPKGDm6KMWAW2efFr5R/C+a3M3oSggjnqSZSBuK2CHxWS5GxKmt453CYagsKq
+	 0tCjlMKVdJOnA==
+Date: Tue, 2 Sep 2025 16:35:14 +0900
+From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+To: Luo Gengkun <luogengkun@huaweicloud.com>
+Cc: Steven Rostedt <rostedt@goodmis.org>, mathieu.desnoyers@efficios.com,
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Catalin
+ Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH] tracing: Fix tracing_marker may trigger page fault
+ during preempt_disable
+Message-Id: <20250902163514.f877d9c96e913f08c0c6b0b1@kernel.org>
+In-Reply-To: <cc6eb973-d82b-4afc-83fb-a2c28cc79d36@huaweicloud.com>
+References: <20250819105152.2766363-1-luogengkun@huaweicloud.com>
+	<20250819135008.5f1ba00e@gandalf.local.home>
+	<436e4fa7-f8c7-4c23-a28a-4e5eebe2f854@huaweicloud.com>
+	<20250829082604.1e3fd06e@gandalf.local.home>
+	<20250902005645.8c6436b535731a4917745c5d@kernel.org>
+	<cc6eb973-d82b-4afc-83fb-a2c28cc79d36@huaweicloud.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_001936_067887_49B1FF25 
-X-CRM114-Status: GOOD (  14.17  )
+X-CRM114-CacheID: sfid-20250902_003518_127397_08A3C471 
+X-CRM114-Status: GOOD (  27.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,40 +80,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After the SoC has entered the DeepSleep low power mode, USB1 can be used
-to wakeup the SoC based on USB events triggered by USB devices. This
-requires that the pin corresponding to the Type-A connector remains pulled
-up even after the SoC has entered the DeepSleep low power mode.
-For that, either DeepSleep pullup configuration can be selected or the pin
-can have the same configuration that it had when SoC was in active mode.
-But, in order for DeepSleep configuration to take effect, the DeepSleep
-control bit has to be enabled.
-Remove the unnecessary DeepSleep state configuration from USB1_DRVBUS pin,
-as the DeepSleep control bit is not set and the active configuration is
-sufficient to keep the pin pulled up. This simplifies the setup and removes
-redundant configuration.
+On Tue, 2 Sep 2025 11:47:32 +0800
+Luo Gengkun <luogengkun@huaweicloud.com> wrote:
 
-This reverts commit 115290c112952db27009668aa7ae2f29920704f0.
+> 
+> On 2025/9/1 23:56, Masami Hiramatsu (Google) wrote:
+> > On Fri, 29 Aug 2025 08:26:04 -0400
+> > Steven Rostedt <rostedt@goodmis.org> wrote:
+> >
+> >> [ Adding arm64 maintainers ]
+> >>
+> >> On Fri, 29 Aug 2025 16:29:07 +0800
+> >> Luo Gengkun <luogengkun@huaweicloud.com> wrote:
+> >>
+> >>> On 2025/8/20 1:50, Steven Rostedt wrote:
+> >>>> On Tue, 19 Aug 2025 10:51:52 +0000
+> >>>> Luo Gengkun <luogengkun@huaweicloud.com> wrote:
+> >>>>   
+> >>>>> Both tracing_mark_write and tracing_mark_raw_write call
+> >>>>> __copy_from_user_inatomic during preempt_disable. But in some case,
+> >>>>> __copy_from_user_inatomic may trigger page fault, and will call schedule()
+> >>>>> subtly. And if a task is migrated to other cpu, the following warning will
+> >>>> Wait! What?
+> >>>>
+> >>>> __copy_from_user_inatomic() is allowed to be called from in atomic context.
+> >>>> Hence the name it has. How the hell can it sleep? If it does, it's totally
+> >>>> broken!
+> >>>>
+> >>>> Now, I'm not against using nofault() as it is better named, but I want to
+> >>>> know why you are suggesting this change. Did you actually trigger a bug here?
+> >>> yes, I trigger this bug in arm64.
+> >> And I still think this is an arm64 bug.
+> > I think it could be.
+> >
+> >>>>   
+> >>>>> be trigger:
+> >>>>>           if (RB_WARN_ON(cpu_buffer,
+> >>>>>                          !local_read(&cpu_buffer->committing)))
+> >>>>>
+> >>>>> An example can illustrate this issue:
+> > You've missed an important part.
+> >
+> >>>>> process flow						CPU
+> >>>>> ---------------------------------------------------------------------
+> >>>>>
+> >>>>> tracing_mark_raw_write():				cpu:0
+> >>>>>      ...
+> >>>>>      ring_buffer_lock_reserve():				cpu:0
+> >>>>>         ...
+> > 	preempt_disable_notrace(); --> this is unlocked by ring_buffer_unlock_commit()
+> >
+> >>>>>         cpu = raw_smp_processor_id()			cpu:0
+> >>>>>         cpu_buffer = buffer->buffers[cpu]			cpu:0
+> >>>>>         ...
+> >>>>>      ...
+> >>>>>      __copy_from_user_inatomic():				cpu:0
+> > So this is called under preempt-disabled.
+> >
+> >>>>>         ...
+> >>>>>         # page fault
+> >>>>>         do_mem_abort():					cpu:0
+> >>>> Sounds to me that arm64 __copy_from_user_inatomic() may be broken.
+> >>>>   
+> >>>>>            ...
+> >>>>>            # Call schedule
+> >>>>>            schedule()					cpu:0
+> > If this does not check the preempt flag, it is a problem.
+> > Maybe arm64 needs to do fixup and abort instead of do_mem_abort()?
+> 
+> My kernel was built without CONFIG_PREEMPT_COUNT, so the preempt_disable()
+> does nothing more than act as a barrier. In this case, it can pass the
+> check by schedule(). Perhaps this is another issue?
 
-Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
----
- arch/arm64/boot/dts/ti/k3-am62p5-sk.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+OK, I got it. Indeed, in that case, we have no way to check this
+happens in the preempt critical section.
+Anyway, as in discussed here, __copy_from_user_inatomic() is for
+the internal function, so I'm also OK to this patch.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-index 899da7896563..e8f0ac2c55e2 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-@@ -360,7 +360,7 @@ AM62PX_IOPAD(0x01b0, PIN_OUTPUT, 2) /* (G20) MCASP0_ACLKR.UART1_TXD */
- 
- 	main_usb1_pins_default: main-usb1-default-pins {
- 		pinctrl-single,pins = <
--			AM62PX_IOPAD(0x0258, PIN_INPUT | PIN_DS_PULLUD_ENABLE | PIN_DS_PULL_UP, 0) /* (G21) USB1_DRVVBUS */
-+			AM62PX_IOPAD(0x0258, PIN_INPUT, 0) /* (G21) USB1_DRVVBUS */
- 		>;
- 	};
- 
+Reviewed-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+
+BTW, currently we just write a fault message if the
+__copy_from_user_*() hits a fault, but I think we can retry with
+normal __copy_from_user() to a kernel buffer and copy it in the
+ring buffer as slow path.
+
+Thank you,
+
 -- 
-2.34.1
-
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
