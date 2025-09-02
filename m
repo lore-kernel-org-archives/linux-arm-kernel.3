@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7ED4CA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 01:55:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B812CA100F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 01:55:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fKsgyTXs7FUlOl/oN/RY/52O+4AYpWCYzvWyIL/p01s=; b=aUIvepP7tvleGIWiiXU36ly4re
-	1P/QWy1OHOG3t7bOB/cypO5Gz2JF8OOlAuAYQqzwp+cr83nhUflf+5HPMT1vlfbTBzfmFvJTv6K1w
-	y0s7BwZAJ/nBsGb4TgotcZRrBY5JP2eWGQxtPf6Papy/6okFvBqRR/Zeb54Khl97RimPpjfypZag7
-	Sh7HgPWE9EKwSP3RGmkEPMQ3kd8uf0JKO9pViC3Xnb9o6ynaBD8xBVMfKIqJD3XLL7iUUQOcFjKTJ
-	Z8fDpY6KJJrIxytxQ3ZT3oiCRNRvFNjY6kNG71fYDuyDtuJf4H0wqTy0Pk7k0zmof/1dMgK+h7FnM
-	HyZtQCxw==;
+	bh=kLNJNXAhbpZp8f92ANlBR1Z3x7HxYh/GbYA3fzeJAq8=; b=JD1VvpRLTdFIlAa8GA3x5JutxM
+	TiuCQXqN9PrOImk3/BzxafWNuk1LpiFTUWPdMJzg2KvzJ6nKBJ+BHUlhuEzVpuER/QBTtAG7Z8NIk
+	dL7ak9Ub11qPpeuocGRdjMMtuYh6wa2zos7NfZu5CTZbVxxm7aXPzehMmF5MvGTfM4p9r7gtP1SO6
+	+o9FGMiLovnQtEd7jMpi+rlKVwZ15bguurNusYzVFsJxkXW1GMhPa5aIQlZ6Qe0wwiKNuGmDjIUMY
+	XAe1YimTp+tGeA55kVgxsmB6wvaqlvGjx+R0RLxvLzj/N8Gr95Bognlxqb8ksH3JhxjYK0ngQ96vl
+	4XYkOxtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utciw-000000038hg-30ua;
-	Wed, 03 Sep 2025 01:55:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1utcix-000000038jQ-3hGI;
+	Wed, 03 Sep 2025 01:55:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utYIh-000000023s9-2YBS;
-	Tue, 02 Sep 2025 21:12:23 +0000
+	id 1utYUu-000000026if-3VRI
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 02 Sep 2025 21:25:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 07701600AA;
-	Tue,  2 Sep 2025 21:12:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91524C4CEED;
-	Tue,  2 Sep 2025 21:12:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B4C7D441F1;
+	Tue,  2 Sep 2025 21:24:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 772A0C4CEED;
+	Tue,  2 Sep 2025 21:24:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756847542;
-	bh=GapsPE0aKjOsj/qJoAYb40Z1D6PTon6aeSohfFPAuzo=;
+	s=k20201202; t=1756848299;
+	bh=pIkxlL/RsKrNHjL9bzr/Ff/bVEvw0mwr+CfKjwjIOWw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=luFQ2z1CC0aNdVLIANDxZ0V9aM1cSpxaoqrjjYWZUnCkYRFx7s9eRrkwPTqxzQrf9
-	 jxA1rMgN31Exw34cNQDZ42JO9f+PfqIjNsq80CO2/V8bKj+5mu9rYzYKR0D1D2r4C/
-	 Ukq1fbSV/XkTjU6xjopAsFiVmvvO/5a/AC/crHx07Y84sQg/myI0CzTXDSnK+8U4Ke
-	 14eE5fhbCrnOKTag4F5U5gjlNwRTfH2emvWRgLuy0ZBRrNOo1fOEH3qQbCttH0V1tJ
-	 7tPURRQ2zVBOg8pf34fosE9Vypa981lvccN0DQtCafYaaGCm3n47XxDuTXDfl9QBPw
-	 0UeAv33nHfS5Q==
-Date: Tue, 2 Sep 2025 16:12:21 -0500
+	b=s+keo995h383ZM6+v2G9KoeMPR42keu0j33nhQxYc6hfkUa2nW0X1VT4IikS1jlju
+	 7BpXG4Tr+rbHR9sLEMO6qebGvsnUgQALfJ6iuUQLYwdm/TsGaL6hhJphBF5jk3cPFs
+	 pmH9ySG+xHDliQ0PVjLWLx3URJVjO8AuyvndLsSqL40j750mGjHLoRYacugUjGiPSe
+	 KrQQXllhd8pbTgz09P95VO70njQKboE5y8wbztLV+yerxWcae9AtTJYPPM0v0CnnYY
+	 xTTqopJeLy+spwriyMqSMLmU67yEsqcWHy517VjzNj5OlTBErvr8WGdQmucpEQApWr
+	 gGia+LdgY2fuA==
+Date: Tue, 2 Sep 2025 16:24:58 -0500
 From: Rob Herring <robh@kernel.org>
-To: Jacky Chou <jacky_chou@aspeedtech.com>
-Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, bhelgaas@google.com,
-	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
-	andrew@codeconstruct.com.au, vkoul@kernel.org, kishon@kernel.org,
-	linus.walleij@linaro.org, p.zabel@pengutronix.de,
-	linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
-	linux-phy@lists.infradead.org, openbmc@lists.ozlabs.org,
-	linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v3 03/10] dt-bindings: PCI: Add ASPEED PCIe RC support
-Message-ID: <20250902211221.GA1179675-robh@kernel.org>
-References: <20250901055922.1553550-1-jacky_chou@aspeedtech.com>
- <20250901055922.1553550-4-jacky_chou@aspeedtech.com>
+To: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Qiang Zhao <qiang.zhao@nxp.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v5 6/7] dt-bindings: soc: fsl: qe: Convert QE GPIO to DT
+ schema
+Message-ID: <20250902212458.GA1184537-robh@kernel.org>
+References: <cover.1756727747.git.christophe.leroy@csgroup.eu>
+ <48b4e7b25878b94dcb738f8239c815be484cf9c9.1756727747.git.christophe.leroy@csgroup.eu>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250901055922.1553550-4-jacky_chou@aspeedtech.com>
+In-Reply-To: <48b4e7b25878b94dcb738f8239c815be484cf9c9.1756727747.git.christophe.leroy@csgroup.eu>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250902_142500_923256_65104222 
+X-CRM114-Status: GOOD (  17.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,213 +78,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 01, 2025 at 01:59:15PM +0800, Jacky Chou wrote:
-> ASPEED AST2600 provides one PCIe RC for Gen2 and AST2700 provides three
-> PCIe RC for two Gen4 and one Gen2. All of these RCs have just one root
-> port to connect to PCIe device. And also have Mem, I/O access, legacy
-> interrupt and MSI.
+On Mon, Sep 01, 2025 at 02:05:13PM +0200, Christophe Leroy wrote:
+> Convert QE QPIO devicetree binding to DT schema.
 > 
-> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
+> Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 > ---
->  .../bindings/pci/aspeed,ast2600-pcie.yaml     | 179 ++++++++++++++++++
->  1 file changed, 179 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pci/aspeed,ast2600-pcie.yaml
+> v5: New
+> ---
+>  .../fsl/cpm_qe/fsl,mpc8323-qe-pario-bank.yaml | 53 +++++++++++++++++++
+
+This should move to bindings/gpio/
+
+>  .../bindings/soc/fsl/cpm_qe/qe/par_io.txt     | 26 +--------
+>  2 files changed, 54 insertions(+), 25 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,mpc8323-qe-pario-bank.yaml
 > 
-> diff --git a/Documentation/devicetree/bindings/pci/aspeed,ast2600-pcie.yaml b/Documentation/devicetree/bindings/pci/aspeed,ast2600-pcie.yaml
+> diff --git a/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,mpc8323-qe-pario-bank.yaml b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,mpc8323-qe-pario-bank.yaml
 > new file mode 100644
-> index 000000000000..fe75bf2961c8
+> index 000000000000..e6ba319a75c1
 > --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pci/aspeed,ast2600-pcie.yaml
-> @@ -0,0 +1,179 @@
+> +++ b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,mpc8323-qe-pario-bank.yaml
+> @@ -0,0 +1,53 @@
 > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 > +%YAML 1.2
 > +---
-> +$id: http://devicetree.org/schemas/pci/aspeed,ast2600-pcie.yaml#
+> +$id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,mpc8323-qe-pario-bank.yaml#
 > +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +title: ASPEED PCIe Root Complex Controller
+> +title: Freescale QUICC Engine Parallel I/O (QE PARIO) GPIO Bank
 > +
 > +maintainers:
-> +  - Jacky Chou <jacky_chou@aspeedtech.com>
+> +  - Christophe Leroy <christophe.leroy@csgroup.eu>
 > +
 > +description:
-> +  The ASPEED PCIe Root Complex controller provides PCI Express Root Complex
-> +  functionality for ASPEED SoCs, such as the AST2600 and AST2700.
-> +  This controller enables connectivity to PCIe endpoint devices, supporting
-> +  memory and I/O windows, MSI and legacy interrupts, and integration with
-> +  the SoC's clock, reset, and pinctrl subsystems.
+> +  Bindings for the Freescale QUICC Engine Parallel I/O (PARIO) GPIO controller.
+
+Just drop if nothing more to say than 'title'.
+
 > +
 > +properties:
 > +  compatible:
-> +    enum:
-> +      - aspeed,ast2600-pcie
-> +      - aspeed,ast2700-pcie
+> +    items:
+> +      - enum:
+> +          - fsl,chip-qe-pario-bank
+> +      - const: fsl,mpc8323-qe-pario-bank
 > +
 > +  reg:
 > +    maxItems: 1
+> +    description: Offset to the register set and its length.
+
+Drop the description. That's every reg.
+
 > +
-> +  ranges:
-> +    minItems: 2
-> +    maxItems: 2
+> +  gpio-controller: true
 > +
-> +  interrupts:
-> +    maxItems: 1
-> +    description: IntX and MSI interrupt
-> +
-> +  resets:
-> +    items:
-> +      - description: PCIe controller reset
-> +
-> +  reset-names:
-> +    items:
-> +      - const: h2x
-> +
-> +  msi-parent: true
-> +
-> +  aspeed,ahbc:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      Phandle to the ASPEED AHB Controller (AHBC) syscon node.
-> +      This reference is used by the PCIe controller to access
-> +      system-level configuration registers related to the AHB bus.
-> +      To enable AHB access for the PCIe controller.
-> +
-> +  aspeed,pciecfg:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      Phandle to the ASPEED PCIe configuration syscon node.
-> +      This reference allows the PCIe controller to access
-> +      SoC-specific PCIe configuration registers. There are the others
-> +      functions such PCIe RC and PCIe EP will use this common register
-> +      to configure the SoC interfaces.
-> +
-> +  interrupt-controller:
-> +    description: Interrupt controller node for handling legacy PCI interrupts.
-> +    type: object
-> +    properties:
-> +      '#address-cells':
-> +        const: 0
-> +      '#interrupt-cells':
-> +        const: 1
-> +      interrupt-controller: true
-> +
-> +    required:
-> +      - '#address-cells'
-> +      - '#interrupt-cells'
-> +      - interrupt-controller
-> +
-> +    additionalProperties: false
-> +
-> +allOf:
-> +  - $ref: /schemas/pci/pci-host-bridge.yaml#
-> +  - $ref: /schemas/interrupt-controller/msi-controller.yaml#
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: aspeed,ast2600-pcie
-> +    then:
-> +      required:
-> +        - aspeed,ahbc
-> +    else:
-> +      properties:
-> +        aspeed,ahbc: false
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: aspeed,ast2700-pcie
-> +    then:
-> +      required:
-> +        - aspeed,pciecfg
-> +    else:
-> +      properties:
-> +        aspeed,pciecfg: false
+> +  '#gpio-cells':
+> +    const: 2
 > +
 > +required:
+> +  - compatible
 > +  - reg
-> +  - interrupts
-> +  - bus-range
-> +  - ranges
-> +  - resets
-> +  - reset-names
-> +  - msi-parent
-> +  - msi-controller
-> +  - interrupt-map-mask
-> +  - interrupt-map
-> +  - interrupt-controller
+> +  - gpio-controller
+> +  - '#gpio-cells'
 > +
-> +unevaluatedProperties: false
+> +additionalProperties: false
 > +
 > +examples:
 > +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/clock/ast2600-clock.h>
-> +
-> +    apb {
-> +      #address-cells = <1>;
-> +      #size-cells = <1>;
+> +    qe_pio_a: gpio-controller@1400 {
 
-No need to show this node.
+Drop unused labels.
 
-> +
-> +      pcie0: pcie@1e770000 {
-> +        compatible = "aspeed,ast2600-pcie";
-> +        device_type = "pci";
-> +        reg = <0x1e770000 0x100>;
-> +        linux,pci-domain = <0>;
-> +        #address-cells = <3>;
-> +        #size-cells = <2>;
-> +        interrupts = <GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>;
-> +        bus-range = <0x80 0xff>;
-> +
-> +        ranges = <0x01000000 0x0 0x00018000 0x00018000 0x0 0x00008000
-> +            0x02000000 0x0 0x70000000 0x70000000 0x0 0x10000000>;
-> +
-> +        status = "disabled";
+> +        compatible = "fsl,mpc8360-qe-pario-bank", "fsl,mpc8323-qe-pario-bank";
 
-Examples should be enabled. Drop.
+Doesn't match the schema. 
 
-> +
-> +        resets = <&syscon ASPEED_RESET_H2X>;
-> +        reset-names = "h2x";
-> +
-> +        #interrupt-cells = <1>;
-> +        msi-parent = <&pcie0>;
-
-There shouldn't be any need to point to yourself.
-
-> +        msi-controller;
-> +
-> +        aspeed,ahbc = <&ahbc>;
-> +
-> +        interrupt-map-mask = <0 0 0 7>;
-> +        interrupt-map = <0 0 0 1 &pcie_intc0 0>,
-> +                        <0 0 0 2 &pcie_intc0 1>,
-> +                        <0 0 0 3 &pcie_intc0 2>,
-> +                        <0 0 0 4 &pcie_intc0 3>;
-> +        pcie_intc0: interrupt-controller {
-> +          interrupt-controller;
-> +          #address-cells = <0>;
-> +          #interrupt-cells = <1>;
-> +        };
-> +
-> +        pcie@8,0 {
-> +          reg = <0x804000 0 0 0 0>;
-> +          #address-cells = <3>;
-> +          #size-cells = <2>;
-> +          device_type = "pci";
-> +          resets = <&syscon ASPEED_RESET_PCIE_RC_O>;
-> +          reset-names = "perst";
-> +          clocks = <&syscon ASPEED_CLK_GATE_BCLK>;
-> +          pinctrl-names = "default";
-> +          pinctrl-0 = <&pinctrl_pcierc1_default>;
-> +          phys = <&pcie_phy1>;
-> +          ranges;
-> +        };
-> +      };
+> +        reg = <0x1400 0x18>;
+> +        gpio-controller;
+> +        #gpio-cells = <2>;
 > +    };
-> -- 
-> 2.43.0
-> 
+> +
+> +    qe_pio_e: gpio-controller@1460 {
+> +        compatible = "fsl,mpc8360-qe-pario-bank", "fsl,mpc8323-qe-pario-bank";
+> +        reg = <0x1460 0x18>;
+> +        gpio-controller;
+> +        #gpio-cells = <2>;
+> +    };
 
