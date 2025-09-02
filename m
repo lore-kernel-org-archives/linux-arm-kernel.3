@@ -4,64 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D591CA0FFE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 12:32:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27DBDCA0FFE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 12:32:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n9tMkyx+mFjMTsynp+oagnyb2993Em6DLluZKM7yh0g=; b=nUDAorG3uHoUnENwjcip9U80Ej
-	Q1fZnBvmSVHcm/5NEwFdOz5gPvs/tyFS1k7AOvcujoYMiZHD4TJnh7W1CCvKorLZGQJbTFwrBSGI+
-	HcpeUhMgphRM5SuaMWuFMeWVUOvc9CzCuQSEp7yO20FYxBTBKsoCPb5snnhpcZAH7erUtBj30v4Fn
-	7oWhQba/t01toY6vlPNeifc4ul/YKHj8+dNR2XW5+mjeweUrWpkgRcjdC1YYp0bavNWtq9FyzOzpJ
-	I9dwBA2bb9ZLrCpvVSW0nc8HVaLKeBZD4g7ADKbM73OBSIXvqGJzPaYySumPQoqBn7p9TLTwzDHrV
-	ggUktyiA==;
+	bh=1Bf4MIGFcO7L2Ms6soL9Wdgx2dozgt6w1dCR79tGsfg=; b=LVc5bCm+ZsWtQ8xFrfE7v7aA6j
+	XlrtC5AJiEDqXmHd1ctos4xDO5i/1NsEVUQJ7ORmDjre226yFp/ytz/P/Pqx3FIcNnS3Dp0PHZEbu
+	h693EhVOFY9MyA3k165uZWLS+Wh4R6TeksgIv4P0pBAX/8jsQnFBP3v11knDj3k8E2/y2v76oQrYG
+	qyt4LqQS64pn7CTEDYyE0X+YZw5oAJdXo9S5rb/+f/es83tZ0QY/HV0CLWVlibaEfXNY9iGvCKvI2
+	RHTnHMGYBJt7pGvhx3dW4Nd1/hP5zNvXKvAqi3HsPuct1I8eilQZh1HjKavBOgsIK5MF4PlEchGs5
+	nQokruUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utQBX-0000000HJtM-28ma;
-	Tue, 02 Sep 2025 12:32:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utOF6-0000000Gg2X-43eG
+	id 1utQBd-0000000HJyt-0aDn;
+	Tue, 02 Sep 2025 12:32:33 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1utOFK-0000000Gg3o-3nov
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 10:28:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 205BF601D3;
-	Tue,  2 Sep 2025 10:28:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9F8DC4CEED;
-	Tue,  2 Sep 2025 10:27:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756808879;
-	bh=e+JGdBZlEQwB2llDtbOT+bOn4vC2kuWun8FcHjC5bks=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ANsrxkQUFhi5hZBSz0WtooVaJxE5l+wRicHWEAThlbi/a6vHYPAmrVf+PeEhP+Bw3
-	 UCTj3+BSvreM/faFHfcW5E49EPfmbU8clrlZS+jEZRc5AkYAeJDkgkov2Ey2yEEdl/
-	 mbxujtvTFCk/kmgIH4TMjL/E0bs1+DF630opkefAbqRoJfDmjfKtwOi1tQuZele/1z
-	 7FBe5MFj6l3KbH2A1vxqHzAJe9sqx7KrePqCNJ9f+MUBxdhe/HhVogwH7aQZ6vVY3X
-	 gvzIoMc3IsV27cOn0QZMjrmUPnwxRk0VHAYfIOYVx+fs0yUL10nK7YyVh6z1Xtj3jW
-	 PPxGki5FAA4kg==
-Received: from johan by xi.lan with local (Exim 4.98.2)
-	(envelope-from <johan@kernel.org>)
-	id 1utOEr-000000008Uh-0EbN;
-	Tue, 02 Sep 2025 12:27:45 +0200
-Date: Tue, 2 Sep 2025 12:27:45 +0200
-From: Johan Hovold <johan@kernel.org>
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org,
+	Tue, 02 Sep 2025 10:28:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5571526BE;
+	Tue,  2 Sep 2025 03:27:56 -0700 (PDT)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F08263F6A8;
+	Tue,  2 Sep 2025 03:28:02 -0700 (PDT)
+Date: Tue, 2 Sep 2025 11:28:00 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Lee Jones <lee@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Pawel Moll <pawel.moll@arm.com>,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org, Jan Palus <jpalus@fastmail.com>
-Subject: Re: [PATCH] firmware: arm_scmi: quirk: fix write to string constant
-Message-ID: <aLbGoctnA-Ad-Hxv@hovoldconsulting.com>
-References: <20250829132152.28218-1-johan@kernel.org>
- <aLG5XFHXKgcBida8@hovoldconsulting.com>
- <aLa__M_VJYqxb9mc@hovoldconsulting.com>
- <20250902-axiomatic-salamander-of-reputation-d70aa8@sudeepholla>
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH 0/2] mfd: vexpress: convert the driver to using the new
+ generic GPIO chip API
+Message-ID: <20250902-kind-gorgeous-armadillo-166b84@sudeepholla>
+References: <20250811-gpio-mmio-mfd-conv-v1-0-68c5c958cf80@linaro.org>
+ <CAMRc=Md+2_3w5kdaUF9-nGdHv9C+tGRfN9TTu6E4+hSdFbwGBQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250902-axiomatic-salamander-of-reputation-d70aa8@sudeepholla>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMRc=Md+2_3w5kdaUF9-nGdHv9C+tGRfN9TTu6E4+hSdFbwGBQ@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250902_032814_984547_746D6F5D 
+X-CRM114-Status: GOOD (  22.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,60 +71,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 02, 2025 at 11:16:46AM +0100, Sudeep Holla wrote:
-> On Tue, Sep 02, 2025 at 11:59:24AM +0200, Johan Hovold wrote:
-> > On Fri, Aug 29, 2025 at 04:29:48PM +0200, Johan Hovold wrote:
-> > > On Fri, Aug 29, 2025 at 03:21:52PM +0200, Johan Hovold wrote:
-
-> > > > The quirk version range is typically a string constant and must not be
-> > > > modified (e.g. as it may be stored in read-only memory):
-> > > > 
-> > > > 	Unable to handle kernel write to read-only memory at virtual
-> > > > 	address ffffc036d998a947
-> > > > 
-> > > > Fix the range parsing so that it operates on a copy of the version range
-> > > > string, and mark all the quirk strings as const to reduce the risk of
-> > > > introducing similar future issues.
-> > > 
-> > > With Jan's permission, let's add:
-> > > 
-> > > Reported-by: Jan Palus <jpalus@fastmail.com>
-> > > 
+On Tue, Sep 02, 2025 at 11:28:49AM +0200, Bartosz Golaszewski wrote:
+> On Mon, Aug 11, 2025 at 3:36 PM Bartosz Golaszewski <brgl@bgdev.pl> wrote:
+> >
+> > This converts the vexpress-sysreg MFD driver to using the new generic
+> > GPIO interface but first fixes an issue with an unchecked return value
+> > of devm_gpiochio_add_data().
+> >
+> > Lee: Please, create an immutable branch containing these commits after
+> > you pick them up, as I'd like to merge it into the GPIO tree and remove
+> > the legacy interface in this cycle.
+> >
+> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> > ---
+> > Bartosz Golaszewski (2):
+> >       mfd: vexpress-sysreg: check the return value of devm_gpiochip_add_data()
+> >       mfd: vexpress-sysreg: use new generic GPIO chip API
+> >
+> >  drivers/mfd/vexpress-sysreg.c | 25 ++++++++++++++++++++-----
+> >  1 file changed, 20 insertions(+), 5 deletions(-)
+> > ---
+> > base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+> > change-id: 20250728-gpio-mmio-mfd-conv-d27c2cfbccfe
+> >
+> > Best regards,
+> > --
+> > Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> >
 > 
-> I was hoping to hear back, but I assume silence is kind of acceptance.
-
-I sent the reply with the tag after making sure off-list that Jan was OK
-with it. Sorry if that was not clear.
-
-> > Please don't do such (non-trivial) changes without making that clear
-> > in the commit message before your Signed-off-by tag:
-> > 
-> > 	[ sudeep: rewrite commit message; switch to cleanup helpers ]
-> > 
+> It's been almost a month, so gentle ping.
 > 
-> Sorry I meant to do that when I replied and asked you if you are OK
-> with cleanup helpers. Also yes I planned to add a line like something
-> above before finalizing.
 
-Sounds like a mail has gotten lost since I never saw that question from
-you.
+Sorry for that, LGTM. FWIW:
 
-I'm fine with using the helpers here even if I'm not generally a fan of
-them (e.g. due to declarations in middle of functions).
+Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
 
-> > In this case, you also changed the meaning so that the commit message
-> > now reads like the sole reason that writing to string constants is wrong
-> > is that they may reside in read-only memory.
-> 
-> Ah, I didn't realise that it changes the meaning now.
-> 
-> > I used "e.g." on purpose instead of listing further reasons like the
-> > fact that string constants may be shared so that parsing of one quirk
-> > can subtly break a later one.
-> 
-> I see your point, will revert to your commit message.
-
-Thanks!
-
-Johan
+-- 
+Regards,
+Sudeep
 
