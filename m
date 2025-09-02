@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96A92CA1005
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 13:33:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C1A8CA0FFE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 13:36:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZpWmgxfj2V/dQ3mAnOZRDc6v+uecxWMRnny+ARxOkv4=; b=pshVjzKL0pzDcZ68oSw7I1ETt6
-	sJV6/eIHwDunueT1npzLzjKJJlG9kpx4vDDKifYA1o6iiiri/oej2J5QFVUlfAeFQCgADAINwivWG
-	Xl6CjD0d5TE7hs2jBOgQLY+I0whzQ5JHH8EctsnC8P1IeRyGT3qzjF6HRh1lPyYIBl1P3YevRo3N7
-	yjvUY9Sy736hATIVA0jtS0pXlqjYXAeWj2Bq3RijmdZkLkrJcZaorRP79jpXoaukQeAhNUx/Fv7fo
-	OsVvI9cVHzOG6CUJRizivu6lb+tTe/dv+6ezAwVFoCLYzIiUkH3ak99gJ3uozwvKxMGBLSIK2fvFe
-	yVaf8qPQ==;
+	bh=gTVo8M1T6UdpqtDguJT6JF2v4XCJaslKjfXHViH4zjI=; b=D0fdbiTx+n7sSqOUSRJkUiCriG
+	1/l4F83LvMTSNvE+f9gp4iSGkI9IqL5DFGfU+AODZ1kQ3Jvz/gKsKiZtRs0OC9tFHV9j9VR85kH+l
+	S2QvAQHD4uwnQUjOV9N02toQSJ4W3kw4psf3jg5B9QGr3xD5/c3vvsM5FLLD8wuWyOVruIwe5GaJs
+	F83x2BtpTLqrgQjpRgxjNMJTg5SIoAwayxHF4OvntDXHe+um7vMfvELn/WDTvYqmRFZbQ06EKv+ER
+	ihE1x+GU3UGnwwXg978lXAO+lf3W8KzI72ujDQlJXTlos6A0RLBmf4IaRkOri3jPAMUHhBKdRFYTv
+	kl+nRo3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utR8K-000000004V2-18Y0;
-	Tue, 02 Sep 2025 13:33:12 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1utRB5-000000005Kk-1ak8;
+	Tue, 02 Sep 2025 13:36:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utPRX-0000000GymY-2gX2
+	id 1utPRb-0000000Gynr-1oLx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 11:44:55 +0000
+	Tue, 02 Sep 2025 11:45:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 16A826020F;
+	by sea.source.kernel.org (Postfix) with ESMTP id 13A3A43857;
+	Tue,  2 Sep 2025 11:44:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35B7AC4CEF7;
 	Tue,  2 Sep 2025 11:44:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12673C4CEED;
-	Tue,  2 Sep 2025 11:44:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756813494;
-	bh=Sp+TAelZmX24aLyaDocHISqg813AdGCzZMNr5P6CYI4=;
+	s=k20201202; t=1756813498;
+	bh=ZG4fxyvl+fJjEtNXLvLt23cYfT+WmIeEoPP0DgaTqa0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=YHAgqOE7KQtKY7UsOu/+ZFQI7lrbO8HMaKS9ToJzVO6BjFO18dynGNlDq9+Ka1cGD
-	 iudfJAC8rK0ka3LMnYKE/gidF/QDLWZ5o5i8bCtnvPAZz0GQNzGFqbj/d5yZ1CArDD
-	 c+G/rhRJM713NtQhARKr4kVp8O3+E+lS3Fefm9S6XOxfhIiVFSH5c/zOKfLBFQFT0R
-	 7FnmhxDipReRc4GxgjmeZVBxzLlxV3PRhBEkTVyOOKAfwpRCtXT2FaoTefr5LcfEOg
-	 4Rb6AkO3QTlV+JLRu7TmuBHJrCbuLWf2nbXriCiIRV2AnWQOveOBAMHqJsuVAObBvy
-	 /ImwJdI9DL3Ng==
+	b=eia4wU0m9xg4EvTo7aFBbY8yYebfjj5jR1h5o1hy2Jf3tRdg3i/5cnqqTe2kELgFo
+	 c40Eb2ufXtdwL3Hiw/WCvLQiwu7PX2DN6ZDN2kH+q8iCCxSXSRKDr07ktwhJUCbqUa
+	 vpmYEwQt4L16gcge0vbi4jaAlwXgDMNFAIrdr6m+tCJoXGK4TTmZ3eZXweJbI3g8Il
+	 sDciLua1yjnYcZ2ZJzVhuFaktklIgVEgYbwKC7eijDGMKyyk3BKpsCbIM7CrnhP7yo
+	 kazC8NoH53xSqsYWsW6dtzn2KfAsXPLRZTgI29kPSZwcT5Ksq6I231OCHy2Sa3y8Yy
+	 twp8dc72tO55A==
 From: Mark Brown <broonie@kernel.org>
-Date: Tue, 02 Sep 2025 12:36:11 +0100
-Subject: [PATCH v8 08/29] KVM: arm64: Pull ctxt_has_ helpers to start of
- sysreg-sr.h
+Date: Tue, 02 Sep 2025 12:36:12 +0100
+Subject: [PATCH v8 09/29] KVM: arm64: Move SVE state access macros after
+ feature test macros
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250902-kvm-arm64-sme-v8-8-2cb2199c656c@kernel.org>
+Message-Id: <20250902-kvm-arm64-sme-v8-9-2cb2199c656c@kernel.org>
 References: <20250902-kvm-arm64-sme-v8-0-2cb2199c656c@kernel.org>
 In-Reply-To: <20250902-kvm-arm64-sme-v8-0-2cb2199c656c@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
@@ -64,17 +64,20 @@ Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
  Peter Maydell <peter.maydell@linaro.org>, 
  Eric Auger <eric.auger@redhat.com>, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-cff91
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3907; i=broonie@kernel.org;
- h=from:subject:message-id; bh=Sp+TAelZmX24aLyaDocHISqg813AdGCzZMNr5P6CYI4=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBottiAK2q+ieSftP3JR5svFfItgXatZ39qk/zGd
- PtPYIYgO0iJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaLbYgAAKCRAk1otyXVSH
- 0HJhCACA30PK9at39oFg90KacChbs0sADn+mpW6Jo0390EGQbphyyC/+K1gsocs7LFdd7VJ0Jwz
- ZMr0qkcmFhr3w0UrhdAceYzB6GblriRRheA8G6uE5xhCspowyxweVhB85A/J8GT9vABBOqpQqfQ
- K9HcMizFkem7RJxW5Vuxgl9TZAwZ/cG2Sqlj4ywasUB27UyqVoqwaFvUfst4NTzJ7g4nqDGL3vr
- cKRgJUzFaT1vajh2Aqn8EiqvdhSJ487Cc2Cf44TzBbSu1DLeFkNglQmM4Jf4duiD53wuE0c2nrr
- YRNx5Ed+EgsMg1/6dgC1uV1Qz1yepptm4iJjRWkxUkU5KAMO
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2722; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=ZG4fxyvl+fJjEtNXLvLt23cYfT+WmIeEoPP0DgaTqa0=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBottiAa5JvxgG0URYLkAdE3e1wR5kq07dyBcx8i
+ ynF7f4rKKyJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaLbYgAAKCRAk1otyXVSH
+ 0JesB/0UtIZpn6yk/kUasJvMR/f+f+jq1DUI8iOVHrDqUNrfo8I/IQ/aZIQUOacwLyD8O0lohpg
+ ib5n7N2Q9AGT1GJ8IxFSPrAslVi2kaYqbPQn+qiy0E14o/TvuztarwxeGc64RMV2t0a16kwQmR6
+ KLZUVyt70irxOHilX1lyc2doFOkpovMfvtAITwTZb/jfwgytDugfEG8Im9NFkr1fPCpcdj+GG1q
+ YxdQzbzLtckzk57D/1FSfgQWspap4MLk/6xMNI5DFHZ2hlSt75ysY6Y6fAQYRAnoiBw+jjaUJTZ
+ MwBsM5AjhilE+PdjnWauLn/H8qJs2ooJwKZo4wN5mvkDZAVC
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250902_044459_517359_1CBE07A1 
+X-CRM114-Status: GOOD (  13.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,124 +92,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rather than add earlier prototypes of specific ctxt_has_ helpers let's just
-pull all their definitions to the top of sysreg-sr.h so they're all
-available to all the individual save/restore functions.
+In preparation for SME support move the macros used to access SVE state
+after the feature test macros, we will need to test for SME subfeatures to
+determine the size of the SME state.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h | 84 +++++++++++++++---------------
- 1 file changed, 41 insertions(+), 43 deletions(-)
+ arch/arm64/include/asm/kvm_host.h | 50 +++++++++++++++++++--------------------
+ 1 file changed, 25 insertions(+), 25 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
-index a17cbe7582de..5624fd705ae3 100644
---- a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
-@@ -16,8 +16,6 @@
- #include <asm/kvm_hyp.h>
- #include <asm/kvm_mmu.h>
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index b501c2880ba2..8f48c2a488f7 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1045,31 +1045,6 @@ struct kvm_vcpu_arch {
+ #define NESTED_SERROR_PENDING	__vcpu_single_flag(sflags, BIT(8))
  
--static inline bool ctxt_has_s1poe(struct kvm_cpu_context *ctxt);
--
- static inline struct kvm_vcpu *ctxt_to_vcpu(struct kvm_cpu_context *ctxt)
- {
- 	struct kvm_vcpu *vcpu = ctxt->__hyp_running_vcpu;
-@@ -28,47 +26,6 @@ static inline struct kvm_vcpu *ctxt_to_vcpu(struct kvm_cpu_context *ctxt)
- 	return vcpu;
- }
  
--static inline bool ctxt_is_guest(struct kvm_cpu_context *ctxt)
--{
--	return host_data_ptr(host_ctxt) != ctxt;
--}
+-/* Pointer to the vcpu's SVE FFR for sve_{save,load}_state() */
+-#define vcpu_sve_pffr(vcpu) (kern_hyp_va((vcpu)->arch.sve_state) +	\
+-			     sve_ffr_offset((vcpu)->arch.sve_max_vl))
 -
--static inline u64 *ctxt_mdscr_el1(struct kvm_cpu_context *ctxt)
--{
--	struct kvm_vcpu *vcpu = ctxt_to_vcpu(ctxt);
+-#define vcpu_sve_max_vq(vcpu)	sve_vq_from_vl((vcpu)->arch.sve_max_vl)
 -
--	if (ctxt_is_guest(ctxt) && kvm_host_owns_debug_regs(vcpu))
--		return &vcpu->arch.external_mdscr_el1;
+-#define vcpu_sve_zcr_elx(vcpu)						\
+-	(unlikely(is_hyp_ctxt(vcpu)) ? ZCR_EL2 : ZCR_EL1)
 -
--	return &ctxt_sys_reg(ctxt, MDSCR_EL1);
--}
+-#define sve_state_size_from_vl(sve_max_vl) ({				\
+-	size_t __size_ret;						\
+-	unsigned int __vq;						\
+-									\
+-	if (WARN_ON(!sve_vl_valid(sve_max_vl))) {			\
+-		__size_ret = 0;						\
+-	} else {							\
+-		__vq = sve_vq_from_vl(sve_max_vl);			\
+-		__size_ret = SVE_SIG_REGS_SIZE(__vq);			\
+-	}								\
+-									\
+-	__size_ret;							\
+-})
 -
--static inline u64 ctxt_midr_el1(struct kvm_cpu_context *ctxt)
--{
--	struct kvm *kvm = kern_hyp_va(ctxt_to_vcpu(ctxt)->kvm);
+-#define vcpu_sve_state_size(vcpu) sve_state_size_from_vl((vcpu)->arch.sve_max_vl)
 -
--	if (!(ctxt_is_guest(ctxt) &&
--	      test_bit(KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS, &kvm->arch.flags)))
--		return read_cpuid_id();
--
--	return kvm_read_vm_id_reg(kvm, SYS_MIDR_EL1);
--}
--
--static inline void __sysreg_save_common_state(struct kvm_cpu_context *ctxt)
--{
--	*ctxt_mdscr_el1(ctxt)	= read_sysreg(mdscr_el1);
--
--	// POR_EL0 can affect uaccess, so must be saved/restored early.
--	if (ctxt_has_s1poe(ctxt))
--		ctxt_sys_reg(ctxt, POR_EL0)	= read_sysreg_s(SYS_POR_EL0);
--}
--
--static inline void __sysreg_save_user_state(struct kvm_cpu_context *ctxt)
--{
--	ctxt_sys_reg(ctxt, TPIDR_EL0)	= read_sysreg(tpidr_el0);
--	ctxt_sys_reg(ctxt, TPIDRRO_EL0)	= read_sysreg(tpidrro_el0);
--}
--
- static inline bool ctxt_has_mte(struct kvm_cpu_context *ctxt)
- {
- 	struct kvm_vcpu *vcpu = ctxt_to_vcpu(ctxt);
-@@ -131,6 +88,47 @@ static inline bool ctxt_has_sctlr2(struct kvm_cpu_context *ctxt)
- 	return kvm_has_sctlr2(kern_hyp_va(vcpu->kvm));
- }
+ #define KVM_GUESTDBG_VALID_MASK (KVM_GUESTDBG_ENABLE | \
+ 				 KVM_GUESTDBG_USE_SW_BP | \
+ 				 KVM_GUESTDBG_USE_HW | \
+@@ -1105,6 +1080,31 @@ struct kvm_vcpu_arch {
  
-+static inline bool ctxt_is_guest(struct kvm_cpu_context *ctxt)
-+{
-+	return host_data_ptr(host_ctxt) != ctxt;
-+}
+ #define vcpu_gp_regs(v)		(&(v)->arch.ctxt.regs)
+ 
++/* Pointer to the vcpu's SVE FFR for sve_{save,load}_state() */
++#define vcpu_sve_pffr(vcpu) (kern_hyp_va((vcpu)->arch.sve_state) +	\
++			     sve_ffr_offset((vcpu)->arch.sve_max_vl))
 +
-+static inline u64 *ctxt_mdscr_el1(struct kvm_cpu_context *ctxt)
-+{
-+	struct kvm_vcpu *vcpu = ctxt_to_vcpu(ctxt);
++#define vcpu_sve_max_vq(vcpu)	sve_vq_from_vl((vcpu)->arch.sve_max_vl)
 +
-+	if (ctxt_is_guest(ctxt) && kvm_host_owns_debug_regs(vcpu))
-+		return &vcpu->arch.external_mdscr_el1;
++#define vcpu_sve_zcr_elx(vcpu)						\
++	(unlikely(is_hyp_ctxt(vcpu)) ? ZCR_EL2 : ZCR_EL1)
 +
-+	return &ctxt_sys_reg(ctxt, MDSCR_EL1);
-+}
++#define sve_state_size_from_vl(sve_max_vl) ({				\
++	size_t __size_ret;						\
++	unsigned int __vq;						\
++									\
++	if (WARN_ON(!sve_vl_valid(sve_max_vl))) {			\
++		__size_ret = 0;						\
++	} else {							\
++		__vq = sve_vq_from_vl(sve_max_vl);			\
++		__size_ret = SVE_SIG_REGS_SIZE(__vq);			\
++	}								\
++									\
++	__size_ret;							\
++})
 +
-+static inline u64 ctxt_midr_el1(struct kvm_cpu_context *ctxt)
-+{
-+	struct kvm *kvm = kern_hyp_va(ctxt_to_vcpu(ctxt)->kvm);
++#define vcpu_sve_state_size(vcpu) sve_state_size_from_vl((vcpu)->arch.sve_max_vl)
 +
-+	if (!(ctxt_is_guest(ctxt) &&
-+	      test_bit(KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS, &kvm->arch.flags)))
-+		return read_cpuid_id();
-+
-+	return kvm_read_vm_id_reg(kvm, SYS_MIDR_EL1);
-+}
-+
-+static inline void __sysreg_save_common_state(struct kvm_cpu_context *ctxt)
-+{
-+	*ctxt_mdscr_el1(ctxt)	= read_sysreg(mdscr_el1);
-+
-+	// POR_EL0 can affect uaccess, so must be saved/restored early.
-+	if (ctxt_has_s1poe(ctxt))
-+		ctxt_sys_reg(ctxt, POR_EL0)	= read_sysreg_s(SYS_POR_EL0);
-+}
-+
-+static inline void __sysreg_save_user_state(struct kvm_cpu_context *ctxt)
-+{
-+	ctxt_sys_reg(ctxt, TPIDR_EL0)	= read_sysreg(tpidr_el0);
-+	ctxt_sys_reg(ctxt, TPIDRRO_EL0)	= read_sysreg(tpidrro_el0);
-+}
-+
- static inline void __sysreg_save_el1_state(struct kvm_cpu_context *ctxt)
- {
- 	ctxt_sys_reg(ctxt, SCTLR_EL1)	= read_sysreg_el1(SYS_SCTLR);
+ /*
+  * Only use __vcpu_sys_reg/ctxt_sys_reg if you know you want the
+  * memory backed version of a register, and not the one most recently
 
 -- 
 2.39.5
