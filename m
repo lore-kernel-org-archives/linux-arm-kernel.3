@@ -4,153 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5142CA1005
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 13:56:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DFEFCA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 13:58:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gZ+7wlAanwIJv238h6c/oNkorR5v8RxUasRCgVS9dX0=; b=aDcFf5ycaHZOCnykPOwg/2Bf3B
-	fjMrewTO0qtTdDjxrpDxIMe6KlUMGh6hkRIo8wsJhH8yv+qovbwfGo7ybqYE7lJEtOOnbMRMbOmRW
-	cdKSRm2YWIUrLirSK2oci1w/sShEHiL6VXmqgwfe5GZ3tqn75HPCJqM/muqDfmH0Qf0IgsySse6oN
-	wGxelBPVt5AfZAcJAVzd8oRRFiIwaYzRX1Atgd+YZeNXHiqk2YEXTDWNoEu3RYWh3qS8jTm5Z6An4
-	EExIzw8X4nNTiRUGIGr5ck9OlmL83C+ADSUsUOJnGXuDHBb0pdI1fRcHQeIhkHn7gdZv4FE6vl6j+
-	l0y2yyoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hnOIy/XMzg6V74qcKTfNV4IhhXy43rsVuIFJygp9nSU=; b=l9aBCA3Va/NPV625ocLwhL9gRb
+	NgMMV3srfyswAAy0l33ys9EBYOXWJhFpmwRi5xNxB/9MaHOt9fzeytSndHzu6JPWskyhxbtzvJ4Dv
+	9TxXIZuwFRS++GJ//pheeLrQ7xiJUwEzkI1ObcL380nwq5zCLAc85nbNrLJ5tWVcS0xPXWgburY0C
+	JPRL74GsY1cZDOzNGNkw5vinhWX7xA7NQYdO5ORwJvPTMT4RxzIfY1ZDQyIr/B+cNP9xQJtLomY6+
+	iXF85Bl2+a5b33PC8hWinUdjEZv0oqYedJtThSTUU5hJL+mDuugTPGwxPwBgiToc4A1usXoRi6BWf
+	a/L0Zngg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utRUN-00000000C28-0mfE;
-	Tue, 02 Sep 2025 13:55:59 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1utRX9-00000000Cy2-0awO;
+	Tue, 02 Sep 2025 13:58:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utPS7-0000000Gyzg-3OB3
+	id 1utPSB-0000000Gz3W-09V1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 11:45:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iD+nH0W4cLVeGYE76L+caubPuwkiG1ZDWWkwYj9i2qzA+jv4FC7A/B9Jq7nPW+6F7PB+b5c66n+5f2dg1yN7d6PM/huGXNmhI0/RwS88FiWMn1Xem9MJmf70LGx91T0IkE6BLyKfvaIKYIAHQ+mwkn1lvhMM77dOrqp09Qci1vNAmRsEY9VgpM0vYuwwTOK58ZkVsAtI7AK6270shOHFWoraXx2IzJJuDdrfbZw4toaJePGRXIxmUunMmyFGwe17j04YOuUovTD/ethVoT0lrBx/yJCiPw7x1S0bQ8gYTuYC4DYosGdovwGxeV4YnBY78BZ50m54hLR877a9REZb9w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gZ+7wlAanwIJv238h6c/oNkorR5v8RxUasRCgVS9dX0=;
- b=ue/JX4kg8YAZnLG7fPMMxKRov5MAPqT27X8b/oTjQbT2gptTifhAu1zGW1Zs4luIAvqeJTby+PpYBvXfO5DgxdKZffCIDE3c5UCX/D+7FXbYyI14L8bJOB78TChVKjzxu4r+so0Dnus7dSZ/MprmocHRagNX4ZWN6HqJ8XqfrtRTKJgyUU6hbQuTtrEshjlr/hS1Wnq7f687VXnIVpFpIn3lRskUrGiWJ+pw3HMGPWpY16xh3DmE36HXC8v4NiMFizjZ7vbV8Thqf7NaKR7yEwYKsF7dVI3HLwis/6WIpZo2J/Mo9iRpfY4N7ulb3tlwp8/3Emkqnm911nlnnOyXUw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gZ+7wlAanwIJv238h6c/oNkorR5v8RxUasRCgVS9dX0=;
- b=pvZLHngfW/RaXuTVo3RtIMdB1vaL80S7KJdfkmuve8fR/hovyHsaa9f+BGXCAvvdMsIvjctnkSOeT43zOpYmOZhyfgy7Nc9Ucaavc2Bj6zmGabeAsFnQ5QD1VV9eMkGnKJ8CnMNLbnqNt2J803sp4R39hBW1EB4O8KqMlOiR+jeeIx8UTuaw1kcZtpkboqHWnmRZlSajveVXlFM8XAwAoRiX/w6Hv9e3vE3DnvHMCS0A/W50LRkvuS3NXstNq7Gi36upT4FwB8/YlcVyUP+1ztBNQwrB1RRuGXYHrXOq8hhOqMKGqOG/vfe0wP11YH+Dvj1PngK/Zl9DQ8yU9zEp9Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV1PR04MB9135.eurprd04.prod.outlook.com (2603:10a6:150:26::19)
- by VI1PR04MB9787.eurprd04.prod.outlook.com (2603:10a6:800:1d8::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.16; Tue, 2 Sep
- 2025 11:45:19 +0000
-Received: from GV1PR04MB9135.eurprd04.prod.outlook.com
- ([fe80::b1f6:475e:de5d:8442]) by GV1PR04MB9135.eurprd04.prod.outlook.com
- ([fe80::b1f6:475e:de5d:8442%5]) with mapi id 15.20.9094.015; Tue, 2 Sep 2025
- 11:45:18 +0000
-Date: Tue, 2 Sep 2025 14:45:13 +0300
-From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Lucas Stach <l.stach@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 17/37] drm/imx-dcss: Switch to
- drm_atomic_get_new_crtc_state()
-Message-ID: <5cujxtg4t5vq3d2n4fbaf2jxrshuj52szeinjfjzxbkmbrws3h@sox2vmzazoj4>
-References: <20250902-drm-no-more-existing-state-v2-0-de98fc5f6d66@kernel.org>
- <20250902-drm-no-more-existing-state-v2-17-de98fc5f6d66@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250902-drm-no-more-existing-state-v2-17-de98fc5f6d66@kernel.org>
-X-ClientProxiedBy: AS4P189CA0068.EURP189.PROD.OUTLOOK.COM
- (2603:10a6:20b:659::23) To GV1PR04MB9135.eurprd04.prod.outlook.com
- (2603:10a6:150:26::19)
+	Tue, 02 Sep 2025 11:45:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 779CE60213;
+	Tue,  2 Sep 2025 11:45:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46704C4CEF8;
+	Tue,  2 Sep 2025 11:45:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756813534;
+	bh=0fLGhfB6VaFN9V2OPaprNenzTUhxjwQ4WMNFeuSowXY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=g4kXt23bpso+nNFv4THNUTimu6aAahPoUlS7Z6aoNlCLT/j2+CtW5dCfj6EDDQroY
+	 CxDvLmbUpyO8y75GuVNZap4vAKva9rzeu3dNgaGiyhurMFWMxwHNlovKuxO5HZwwtq
+	 0ONwLNEAqk/SNy61KJnLH9//DsOWm/WCTb5BZ+tWfDqGaRkOpVXE9tlMkKGdfloha9
+	 x+pjinSnKXPE7ehi67TFp0oreZBtsnXmoNlBOcyjmQtOXg+VTWsDsvbcvp+4D+tLr/
+	 IUEiZkIJrWyaJsOnCvNGmXtkL593y9itmTIi6gJoL+PYXN83vJGorcyJ8/jiFUOux8
+	 XnMV8IpdTsOLg==
+From: Mark Brown <broonie@kernel.org>
+Date: Tue, 02 Sep 2025 12:36:19 +0100
+Subject: [PATCH v8 16/29] KVM: arm64: Support SME control registers
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV1PR04MB9135:EE_|VI1PR04MB9787:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5cef2217-d98d-45cc-c4ee-08ddea16304c
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|19092799006|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?IPhG6Pf7rJJRinhZ1nDm76MjJb3UEZFNV2dagnF/ykE7AMA46qT3g+REGA1Y?=
- =?us-ascii?Q?VDu+0olfQhx00SWJGm2yFn17esZooKbUc1ooN3VdjmVSA2ySk4NV53Jiz0LR?=
- =?us-ascii?Q?QZ9lTJZc/hNa556B4HIYM0VaurXxrWtP4q4U1gylJxnM97YGl+snUfnHG5JX?=
- =?us-ascii?Q?JTb9oG1dPc/N2JKENe8kUlp2NAGbDPMpcLkJvAWEKBpI6ZkrCcGn/PDG6t0f?=
- =?us-ascii?Q?NKbidrZ3RkQ+yFtrv4nrRPcnWC/Qck3oc6SrBkpT/ARqDZXkAqpBp9P3D0Q0?=
- =?us-ascii?Q?MLWMHd5a8UkR+w4hSWigvfrCOjWwvg85P0nsNyQpm6bqMp3exgTANgntrub3?=
- =?us-ascii?Q?Y46tJcRsuuBXn20jMPtbpu3TfMZT1f8LE9E3/7IHDvNT0FiDKWHfAyaCH3xv?=
- =?us-ascii?Q?cD6If19rEyQnvCirYgz9hLOstcSvJT4QvsA2jgclnaOdgLeeajvbBOiUy5ZX?=
- =?us-ascii?Q?4X6Rc6p7mnV5sXu5ZunPlckaSeSaPUOidOmiZnuc+coqg+/fOBYMrjxM+l5/?=
- =?us-ascii?Q?TIKpwjUt/IpjuTEE7QNkec967uGZxuZc1LVMlv2iNIMgqzALcErXhw1LE0yv?=
- =?us-ascii?Q?VWYggPG6b9oiSi+HZzKpe1j+8tun6682vB/Zc+2+EDNHvlOtfB5afii6jml+?=
- =?us-ascii?Q?sEZxOYps81JWzOgA8TDc9kkkXOw3JJuueaiDDtRnSj6O1q0iZGdvnLN1M2Mj?=
- =?us-ascii?Q?gnPpFPluwIpxZWSYVPy0cxYbIM1T9yXKcGxO0S45LxRa23ZieIZNlG6uo/zT?=
- =?us-ascii?Q?u0FzpCQoF3M/mlIDSUF7RrvNk9SpwybEK6kgKHOtmMMTV1/MNiNfaUS7kBh9?=
- =?us-ascii?Q?v3Fr5gwhMyM37+8z7mjO4XgApj3WXQfFXzfBYQFSdKmaFYfnAw55VBCvrqtT?=
- =?us-ascii?Q?PJQ+AWlwkAkB3qY9Pzg+wo2qexSmwNGgk5crSVp1NRwAFcUN4knlsymvjgZx?=
- =?us-ascii?Q?ESK503c7M5hZDKROrvEiClyx7+Z+FzTdc4eKWbAW7pDX02yem+PgpEd+TD+G?=
- =?us-ascii?Q?FIz4BkgyGjO1DnVW5OlECYeNeLIkyWK7zXLwN7wG/u4lWWqiyAUoOdshg04j?=
- =?us-ascii?Q?/HfEUGSE1nEUbsTgvCiNmih51z/Nh3BBKldhWf8vXs7xO0kSOc9jCIcqQuls?=
- =?us-ascii?Q?7IvCDzwBMSjLN3qTz950HfBB9CEu4Fm80V3HXPRRkf41ZG6egKejhsIJRpf+?=
- =?us-ascii?Q?3Q/hKLM0r9hos8F5WSuLVQqcdw/yZMgBCOKSYWjrBpSCxykNy4efI+UCcsDC?=
- =?us-ascii?Q?1pG0dny3xwAcShgha1BtOzUIulWzyidg5rQsn+RSYhQ3aCARvGwTQM4ch1jb?=
- =?us-ascii?Q?sJ82Fhj8sixhlhHHHKUnerkELV3xnSojUTV3b3yRnke/tGxDMaMcKzs1w+Ix?=
- =?us-ascii?Q?KP59pdmm/oQVqRBqpMJlMtyhv5+3EGfQOtqBpF5MbXM9VEBnihfd2O6GavTI?=
- =?us-ascii?Q?9k86yN03giI=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR04MB9135.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(19092799006)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?q+NFJfmySmqhX7MWl9xFpDUAMM555tEQJmNr2ZBGH7R2wtI0tm+6d7FdObEe?=
- =?us-ascii?Q?nvPjlgpRRgzKg+l27bia10hjSFL8hABNQ/xleDZhx1I2sXp+pgnA7A/zaMoJ?=
- =?us-ascii?Q?/6JjlwXla+o2gdibv0Wl5bpfIZpmYS9YQQm9t4war/RWB4E9RSNplqx82yyA?=
- =?us-ascii?Q?3yPVfBL9zvqax3w8IzIegZCL3h9VwettLcj9pVCjVzC4BmydLCS6hl7Gjptm?=
- =?us-ascii?Q?+kuz5KmYi8Zeu/8ae2td1pOB9Rd1OVefE7QZzPS9acRSiIHtd4tezzfXSPGW?=
- =?us-ascii?Q?k1e5B0veEjRdjb3VUSb1SYRNLggSPMtcacQXBHii+Jps0nHUKq5Ts35P/f6L?=
- =?us-ascii?Q?2BKd/ViJ0BF6oKJ5G9AcQd/H/q3iNblGya15NZqT5Xym2lFtWcGUfjDcT6z0?=
- =?us-ascii?Q?9qPfhTYufeh0pgafLAvnanbCtYhTeKLxdyKrVZL3gbGYJKFjkG4VNOS2+BDV?=
- =?us-ascii?Q?HaeJqiRLhBtlHKEgTlRXRfy8q8aWmBh3iSCthqhI+8xv3yEWn4S4spSrmRfW?=
- =?us-ascii?Q?tUBFNpIyiqynhzVG85xvPDcQjrK6I6ovuy6/68b50J5LRoJ0XNJP8t2xfPhc?=
- =?us-ascii?Q?QQECnJJOC4b7aK1LjKoDYh3XcL4KLozvqtpZ1LU9vThKGbn6Ktoc0ooXtoDb?=
- =?us-ascii?Q?mE88/kntpk//v4N+DSqE8Nt14YSiSRxn+VC5nkwhJPDHAFW1fk+9Suo40Nqi?=
- =?us-ascii?Q?0z5gkCyUgQi1bhhcOgiTOmDU4dO7LGDcuBLkL5OLhIGKFyBNxkH7O2OgGnGj?=
- =?us-ascii?Q?Egr/rvEnrdJY3lKk22J9CPwNpcvy1FCtKySu7GWHB5Pe8vG8TmrLVDA4m5Di?=
- =?us-ascii?Q?IqDRPPlxgE7nzjEl1J8+xMclOMV5c2y6sJTpQSvGGGPe/nztWIZnsQ6cekWL?=
- =?us-ascii?Q?7u4X1nbs9hjiBkpcTOHsVhepevqJnWxgiPNVjqDUcMYKFP647FiYH/jvPA1c?=
- =?us-ascii?Q?i1YwTPshArgVFRTL0XEwMg3Cbklmu3Yx9rczVKGqYxmA6xSzA1skb3ilNw1W?=
- =?us-ascii?Q?0/DQEQExe0HdhMXgcsTwlNm5/GeJax527tHJPPvXPwYgXw9YvcY/Ah7VLEXM?=
- =?us-ascii?Q?zlR6ShrGupTPRauyGrg07VfQy9AZq/3emM8hVorknxy6j7tAFQjmhvL+/iZy?=
- =?us-ascii?Q?MWNxOfZYN0i5W3frDNVjW7CbYcCzgcdxs1kvU9SCKWkpfTfvrz3qkmeUhlzm?=
- =?us-ascii?Q?VxMG0MmnwEYd96miaKZTgVg6j10OsuiU6Y3b7pbteL8PLFPa4Mpq/FQtWWXv?=
- =?us-ascii?Q?6md+ruMyCZo09ROJbv+SEvfE4ro2PBE3YQ6MPhoYVNu+bakpMRqaeigvAkzc?=
- =?us-ascii?Q?501gY2Wr4NMj8KVWAsIjFMHWaVwMIhWYdEpIidf2DGUJIeS7S0n3BThCCdxF?=
- =?us-ascii?Q?sndzNwYOI3JXuhzobv8yEGga62Trw7T1jpZetscpIqN4wMoOlUM1ff17Bc37?=
- =?us-ascii?Q?VZ/B3IhB5Tz5hnYtUCC40CBwsBnSdBl1go72BDla0kZCso0gdz3g5UChhpWe?=
- =?us-ascii?Q?vk9G0YADdb+qEWEJbXgTht3SVRS6D0U3yvUyOhlWPu6HMeAG0dyaREMEold6?=
- =?us-ascii?Q?FwhSYBW8qeviYBblZmMGwsH5oQ/H6Bac/wcimaGehI5uEchBU6hEqZoxiTve?=
- =?us-ascii?Q?/A=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5cef2217-d98d-45cc-c4ee-08ddea16304c
-X-MS-Exchange-CrossTenant-AuthSource: GV1PR04MB9135.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2025 11:45:18.2953
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PdAsq8h9i9C14XMvr9sldDDbezQMhFoM5HIZoJ49oTwQxyrsNrLwuqUMeb5Eim0Zobp8pQmtvCNmbHtoWw8Eaw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9787
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_044531_856001_CCDEDFD7 
-X-CRM114-Status: GOOD (  20.85  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250902-kvm-arm64-sme-v8-16-2cb2199c656c@kernel.org>
+References: <20250902-kvm-arm64-sme-v8-0-2cb2199c656c@kernel.org>
+In-Reply-To: <20250902-kvm-arm64-sme-v8-0-2cb2199c656c@kernel.org>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+ Joey Gouly <joey.gouly@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>, 
+ Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <shuah@kernel.org>
+Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>, 
+ Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org, 
+ kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ Peter Maydell <peter.maydell@linaro.org>, 
+ Eric Auger <eric.auger@redhat.com>, Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-cff91
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4807; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=0fLGhfB6VaFN9V2OPaprNenzTUhxjwQ4WMNFeuSowXY=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBottiGSWd/Ihob9g8NK9RPBSZUvgmJDyCN/VXIh
+ FyC9PxLim2JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaLbYhgAKCRAk1otyXVSH
+ 0GEnB/9nLGGwCKUeQvIiZCjBrlVztcGG0JqnYGJjaypFwfonrlb2ZStP+KZEN5/SScNrtdA0qV3
+ mn/WSpC+Pkd2G9b/FmbIC4y2xUWcLkmYpcDbDFGRfjz02ORZztG2wcby4L7ZamjBoY4UCPkD4Be
+ cB4jm8DBF3Dz2R/xZcGE3T5FVMpn/9kqyq8BCl8D9qefupeJD83xNF2WpAODL1oZqqGj7mufFB4
+ /o7HQ2IzCvt6AaJ2DqGIEvoHiDZvI6vG45poloILrogZWjhjjYk3DohpEUNwIxT0Rfg8ELHxltu
+ FDdwqlR6m7/rc1hn8kBRGlYXRq5yZ79HJgJMc74ps2IfSYnk
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,58 +88,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime,
+SME is configured by the system registers SMCR_EL1 and SMCR_EL2, add
+definitions and userspace access for them.  These control the SME vector
+length in a manner similar to that for SVE and also have feature enable
+bits for SME2 and FA64.  A subsequent patch will add management of them
+for guests as part of the general floating point context switch, as is
+done for the equivalent SVE registers.
 
-On Tue, Sep 02, 2025 at 11:35:16AM +0200, Maxime Ripard wrote:
-> The imx-dcss atomic_check implementation uses the deprecated
-> drm_atomic_get_existing_crtc_state() helper.
-> 
-> This hook is called as part of the global atomic_check, thus before the
-> states are swapped. The existing state thus points to the new state, and
-> we can use drm_atomic_get_new_crtc_state() instead.
-> 
-> Signed-off-by: Maxime Ripard <mripard@kernel.org>
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+ arch/arm64/include/asm/kvm_host.h     |  2 ++
+ arch/arm64/include/asm/vncr_mapping.h |  1 +
+ arch/arm64/kvm/sys_regs.c             | 37 ++++++++++++++++++++++++++++++++++-
+ 3 files changed, 39 insertions(+), 1 deletion(-)
 
-Reviewed-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 4348f297b5ae..edb2acdb4bd1 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -506,6 +506,7 @@ enum vcpu_sysreg {
+ 	CPTR_EL2,	/* Architectural Feature Trap Register (EL2) */
+ 	HACR_EL2,	/* Hypervisor Auxiliary Control Register */
+ 	ZCR_EL2,	/* SVE Control Register (EL2) */
++	SMCR_EL2,	/* SME Control Register (EL2) */
+ 	TTBR0_EL2,	/* Translation Table Base Register 0 (EL2) */
+ 	TTBR1_EL2,	/* Translation Table Base Register 1 (EL2) */
+ 	TCR_EL2,	/* Translation Control Register (EL2) */
+@@ -544,6 +545,7 @@ enum vcpu_sysreg {
+ 	VNCR(ACTLR_EL1),/* Auxiliary Control Register */
+ 	VNCR(CPACR_EL1),/* Coprocessor Access Control */
+ 	VNCR(ZCR_EL1),	/* SVE Control */
++	VNCR(SMCR_EL1),	/* SME Control */
+ 	VNCR(TTBR0_EL1),/* Translation Table Base Register 0 */
+ 	VNCR(TTBR1_EL1),/* Translation Table Base Register 1 */
+ 	VNCR(TCR_EL1),	/* Translation Control Register */
+diff --git a/arch/arm64/include/asm/vncr_mapping.h b/arch/arm64/include/asm/vncr_mapping.h
+index f6ec500ad3fa..5ab6a964bccf 100644
+--- a/arch/arm64/include/asm/vncr_mapping.h
++++ b/arch/arm64/include/asm/vncr_mapping.h
+@@ -44,6 +44,7 @@
+ #define VNCR_HDFGWTR_EL2	0x1D8
+ #define VNCR_ZCR_EL1            0x1E0
+ #define VNCR_HAFGRTR_EL2	0x1E8
++#define VNCR_SMCR_EL1		0x1F0
+ #define VNCR_TTBR0_EL1          0x200
+ #define VNCR_TTBR1_EL1          0x210
+ #define VNCR_FAR_EL1            0x220
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 111b07a78787..81742e9237c0 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -142,6 +142,7 @@ static bool get_el2_to_el1_mapping(unsigned int reg,
+ 		MAPPED_EL2_SYSREG(ELR_EL2,     ELR_EL1,	    NULL	     );
+ 		MAPPED_EL2_SYSREG(SPSR_EL2,    SPSR_EL1,    NULL	     );
+ 		MAPPED_EL2_SYSREG(ZCR_EL2,     ZCR_EL1,     NULL	     );
++		MAPPED_EL2_SYSREG(SMCR_EL2,    SMCR_EL1,    NULL	     );
+ 		MAPPED_EL2_SYSREG(CONTEXTIDR_EL2, CONTEXTIDR_EL1, NULL	     );
+ 		MAPPED_EL2_SYSREG(SCTLR2_EL2,  SCTLR2_EL1,  NULL	     );
+ 	default:
+@@ -2589,6 +2590,37 @@ static bool access_gic_elrsr(struct kvm_vcpu *vcpu,
+ 	return true;
+ }
+ 
++static unsigned int sme_el2_visibility(const struct kvm_vcpu *vcpu,
++				       const struct sys_reg_desc *rd)
++{
++	return __el2_visibility(vcpu, rd, sme_visibility);
++}
++
++static bool access_smcr_el2(struct kvm_vcpu *vcpu,
++			    struct sys_reg_params *p,
++			    const struct sys_reg_desc *r)
++{
++	unsigned int vq;
++	u64 smcr;
++
++	if (guest_hyp_sve_traps_enabled(vcpu)) {
++		kvm_inject_nested_sve_trap(vcpu);
++		return true;
++	}
++
++	if (!p->is_write) {
++		p->regval = vcpu_read_sys_reg(vcpu, SMCR_EL2);
++		return true;
++	}
++
++	smcr = p->regval;
++	vq = SYS_FIELD_GET(SMCR_ELx, LEN, smcr) + 1;
++	vq = min(vq, vcpu_sme_max_vq(vcpu));
++	vcpu_write_sys_reg(vcpu, SYS_FIELD_PREP(SMCR_ELx, LEN, vq - 1),
++			   SMCR_EL2);
++	return true;
++}
++
+ static unsigned int s1poe_visibility(const struct kvm_vcpu *vcpu,
+ 				     const struct sys_reg_desc *rd)
+ {
+@@ -3035,7 +3067,7 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 	{ SYS_DESC(SYS_ZCR_EL1), NULL, reset_val, ZCR_EL1, 0, .visibility = sve_visibility },
+ 	{ SYS_DESC(SYS_TRFCR_EL1), undef_access },
+ 	{ SYS_DESC(SYS_SMPRI_EL1), undef_access },
+-	{ SYS_DESC(SYS_SMCR_EL1), undef_access },
++	{ SYS_DESC(SYS_SMCR_EL1), NULL, reset_val, SMCR_EL1, 0, .visibility = sme_visibility },
+ 	{ SYS_DESC(SYS_TTBR0_EL1), access_vm_reg, reset_unknown, TTBR0_EL1 },
+ 	{ SYS_DESC(SYS_TTBR1_EL1), access_vm_reg, reset_unknown, TTBR1_EL1 },
+ 	{ SYS_DESC(SYS_TCR_EL1), access_vm_reg, reset_val, TCR_EL1, 0 },
+@@ -3391,6 +3423,9 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 
+ 	EL2_REG_VNCR(HCRX_EL2, reset_val, 0),
+ 
++	EL2_REG_FILTERED(SMCR_EL2, access_smcr_el2, reset_val, 0,
++			 sme_el2_visibility),
++
+ 	EL2_REG(TTBR0_EL2, access_rw, reset_val, 0),
+ 	EL2_REG(TTBR1_EL2, access_rw, reset_val, 0),
+ 	EL2_REG(TCR_EL2, access_rw, reset_val, TCR_EL2_RES1),
 
-Thanks,
-Laurentiu
-> 
-> ---
-> To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-> To: Shawn Guo <shawnguo@kernel.org>
-> To: Sascha Hauer <s.hauer@pengutronix.de>
-> Cc: Lucas Stach <l.stach@pengutronix.de>
-> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-> Cc: Fabio Estevam <festevam@gmail.com>
-> Cc: dri-devel@lists.freedesktop.org
-> Cc: imx@lists.linux.dev
-> Cc: linux-arm-kernel@lists.infradead.org
-> ---
->  drivers/gpu/drm/imx/dcss/dcss-plane.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/imx/dcss/dcss-plane.c b/drivers/gpu/drm/imx/dcss/dcss-plane.c
-> index ab6d32bad756d080e1c56d7574403febceff94f4..3a063a53c8dfa6bc5bbbf9afc7ff6519199c2f19 100644
-> --- a/drivers/gpu/drm/imx/dcss/dcss-plane.c
-> +++ b/drivers/gpu/drm/imx/dcss/dcss-plane.c
-> @@ -157,12 +157,12 @@ static int dcss_plane_atomic_check(struct drm_plane *plane,
->  		return 0;
->  
->  	dma_obj = drm_fb_dma_get_gem_obj(fb, 0);
->  	WARN_ON(!dma_obj);
->  
-> -	crtc_state = drm_atomic_get_existing_crtc_state(state,
-> -							new_plane_state->crtc);
-> +	crtc_state = drm_atomic_get_new_crtc_state(state,
-> +						   new_plane_state->crtc);
->  
->  	hdisplay = crtc_state->adjusted_mode.hdisplay;
->  	vdisplay = crtc_state->adjusted_mode.vdisplay;
->  
->  	if (!dcss_plane_is_source_size_allowed(new_plane_state->src_w >> 16,
-> 
-> -- 
-> 2.50.1
-> 
+-- 
+2.39.5
+
 
