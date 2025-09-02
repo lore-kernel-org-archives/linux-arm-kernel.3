@@ -4,90 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11952CA100D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:12:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36ED1CA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:15:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IH9KVtMgBsrkYXH8nnFecmz5YKaJj3+GxgiEXc+y1YA=; b=3NbS3CjvFZfhAVf5CQBeH8u6U9
-	LRRrPKLvVYb+O7T7GNo1xMAxXbK58zuwGO6wUTZ0uNd6MtoUv2mGXbVoGKNX0UAk/uRIACHqFzzeE
-	QeGFkaXku2ZWZ0YDgjMIWhLInq8Mfq3xLic8rA/e+b5W3E+a+zVlqKaoWd28ejYy3jnGiObg+g1o4
-	ivdBxNbf8e688rTGNR/XkKWLVdXBQRAmnSA0MlP+HsfB6E3nJRX5M+vKP811HcsnB7yYmsjJR6e6g
-	GkYvoJHmtGfLFWBchOaT8gFxRgCH7dbph9WcGO/i1tXJ1EPciyZx8fkSJkFBcbnUZmCKe3OiVBT53
-	qnTquzTA==;
+	bh=IkR62HBefO/7qbBeEydcExM6kvo/bbz3P0gkovukbkw=; b=4pvgmjdG4YzRyzBlqJc5Y4EOFh
+	htZQ+EuD81RpnYUb3t7LOcOfuij9lvHmVtKK9iyHvQltTH3lOTcWgDs5DRqkpt/oLlKsilQ2VxmoV
+	rE4nytfE8zK75yTBBEvxXjSv/h2KjR/n2lvSipBLx7z3oDqNjDZVl4Ne55qIvZvxKYFm6GJJyltaB
+	FNP8IXYyYNRSv5L/jFxW6hml49535Tn2hgQiimLGV8FPSf4r6uCgHCjA5uhrGUUHZIjtap/4pAEAd
+	MAMxCGx5pP0aIqBdg8QbJ26ehnvFi4jhfnDLK4A/eEK5O03TuFwnL9VB2quMBEr2IQqvN0iUsx/s4
+	3gZlYD6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utWQs-00000001e0f-3m5g;
-	Tue, 02 Sep 2025 19:12:42 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1utWTQ-00000001fqt-1xLd;
+	Tue, 02 Sep 2025 19:15:20 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utSEl-00000000R8S-46Kv
+	id 1utTO4-00000000oiA-0LGj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 14:43:57 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-45b7e69570bso28189205e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 07:43:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1756824234; x=1757429034; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=IH9KVtMgBsrkYXH8nnFecmz5YKaJj3+GxgiEXc+y1YA=;
-        b=P4jdrm8wbK06T5K3hNOQWzcfrvRL9gA4t+kCyoNTObHp2btlFQ/YsXSvh+IFlIN+1f
-         YVkY9xJYd2xjXX/QTSJrNdgKjdsDd8qcl24sX7XKyNgQuMDnEhHeBlXxVgw4qA/CVqAV
-         NhPc0c+i4Cg0ZqmI0SKoVfjdJB/MuVMYnUjFrMc0QQQFJHZGYLonmYgmQTXNYaa+31M1
-         UhmttuKjhluEtKW5Wz0kc45rrQKEki57q9dyIBLRWNLo74IjBF+V1FGRkYA25TGyVmNn
-         zjodm430/N3D/9YVdrpuCN0TKFWXSph8LoSRG7J8M7gPzKyMlug2Z2Y3gGRnyXh/39o/
-         f1rw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756824234; x=1757429034;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=IH9KVtMgBsrkYXH8nnFecmz5YKaJj3+GxgiEXc+y1YA=;
-        b=EWIYf0GOq1yR6vqDPWybPxY6QVw6W2e6T0vGOOwdqotdRsMGokRcxRgjHnsnLW1xWr
-         2ByJA3LixdZmhUxWn3l70MOx6tPYeccGfpKdneSFL0EqTeEnCf5JBhB1ff9BBz048Znz
-         Kp5gZu4FWNM9UMnaCmQ25ZtPG1pjCAQaLOiAAHqGMBCUeW5t+IFtsuOveZo8r0JYwoMR
-         d4vc12PyGHHP2uRDd7Zpl+vDviqwK0/IOOwjY8dxv0ht4vrORUMBL1b2Ki+hIhAt74Zt
-         lk5Xmtd6m4SfXZgngfS8pxI7wY3eBTdVLBsQNppNuULmTpG//+wns+Tj2dT1YYLDYFUS
-         34Bg==
-X-Forwarded-Encrypted: i=1; AJvYcCXU7PeKvGE7bXYJYDY8jOKmnNbWD+rIuVB08FjUmiSwXzof99hu4UG2NMgDd9fP5zGe4WhFhYHe0PZ/2S/nF8oi@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxloBSsLktCkPj0yywbHiMEDMMV8WQD4g3kGFeDQNjZ6o26AFI
-	acQm2v+wN3N2Wqt6vvwVyYsvdF2B0p26mWD01pkHDo12dmaqRg2ALwIehra9gCKpWRE=
-X-Gm-Gg: ASbGncsiXn+etx//OkSvAQA8H0bWb1PFhzepR7A8RufdJKDBjNEPxQG1pqz9v2trSn9
-	y6lj/EBeXa/ycsSxAnW/ILQfxQrPWYUUmBeKknJ0OA3jqHhH0gqDPJQn7FzGRiqU+rTaFqQ9K0x
-	+BxELmliM2m6HG0YMwCSTxFHjbUQW9P/zKzzkTwOAI3piZgMpbCNpG/fvcFXOekPGyuRdHsWGGY
-	YkMcXVs530stTjUVhHjTW6Q5mWAJdCUt941s6BVtGpf/Un82ywjTGYKQO4H6CTuCfztgE0bbP67
-	fyL/0jSUeJKASS/2isEgxnzMtM9QBQYn6NyAd5RYu0/eG5Jl3aArN8KpPmqAI/rUT1dP/LaCR4w
-	1VNdMZLaPRykQowJtkrswMWVbPkXhyKT/+yVH
-X-Google-Smtp-Source: AGHT+IGpupBT6EHFzOMLYCsL7LBAOUDN4k39dYPwyyUTNOojUsQ7qqzMe2eWw9e30BaKnja3qYWcIA==
-X-Received: by 2002:a05:600c:1c96:b0:459:e466:1bec with SMTP id 5b1f17b1804b1-45b979f4207mr21840595e9.2.1756824234329;
-        Tue, 02 Sep 2025 07:43:54 -0700 (PDT)
-Received: from [127.0.1.1] ([2a01:e0a:e50:3860:5982:3242:38ad:8b12])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b7e8ab093sm209604635e9.22.2025.09.02.07.43.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Sep 2025 07:43:53 -0700 (PDT)
-From: Guillaume La Roque <glaroque@baylibre.com>
-Date: Tue, 02 Sep 2025 16:43:50 +0200
-Subject: [PATCH RESEND v2 2/2] soc: ti: ti_sci_inta_msi: Enable module
- compilation support
+	Tue, 02 Sep 2025 15:57:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 808FD60222;
+	Tue,  2 Sep 2025 15:57:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E22BC4CEED;
+	Tue,  2 Sep 2025 15:57:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756828655;
+	bh=oulaMx6/URE69aku7O02WZT2LJyGeZwWW9oibZaXKh0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=QCpm0nFA8OqlHw6hwDFdaR8n/MIxwCN7Hw7zPhbdV6ZnbaNRJrTDjnrK/f5OwvFCT
+	 o2fFMEgMXc3hP3ka9oJ7VgzD2MqmAi8WWtVmOCSMhGhwTDsFB7YAP1VlwEjrGxPkR0
+	 gRA0UvBQ+XMzjFv4lfHerXM5WYN0Xcsgf4uKQK1to/OuErcmrpqCNytqX9WsdTyt2y
+	 E2Ih4GmHi+UWU7owB15MuvtFfe9iwZ7xNSwYUYaZV+VTyXJMz+j0QAk9slfWfssatR
+	 FJ8iDpnwplN1DbuphLguGPmAm8UCYCJHsvu++drLD1gX65CO+pRhvzSpsCyP9a83Ef
+	 jjWNnJzVIkRRg==
+Message-ID: <b38e64cc-4971-4e71-931c-820453aa91a7@kernel.org>
+Date: Tue, 2 Sep 2025 17:57:22 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 12/12] PM: EM: Use scope-based cleanup helper
+To: Zihuan Zhang <zhangzihuan@kylinos.cn>,
+ "Rafael J . wysocki" <rafael@kernel.org>,
+ Viresh Kumar <viresh.kumar@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Alim Akhtar
+ <alim.akhtar@samsung.com>, Thierry Reding <thierry.reding@gmail.com>,
+ MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>,
+ Jani Nikula <jani.nikula@linux.intel.com>,
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, Tvrtko Ursulin
+ <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Daniel Lezcano <daniel.lezcano@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
+ Eduardo Valentin <edubezval@gmail.com>, Keerthy <j-keerthy@ti.com>
+Cc: Ben Horgan <ben.horgan@arm.com>, zhenglifeng <zhenglifeng1@huawei.com>,
+ Zhang Rui <rui.zhang@intel.com>, Len Brown <lenb@kernel.org>,
+ Lukasz Luba <lukasz.luba@arm.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Beata Michalska <beata.michalska@arm.com>, Fabio Estevam
+ <festevam@gmail.com>, Pavel Machek <pavel@kernel.org>,
+ Sumit Gupta <sumitg@nvidia.com>,
+ Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
+ Sudeep Holla <sudeep.holla@arm.com>, Yicong Yang <yangyicong@hisilicon.com>,
+ linux-pm@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+ intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+ imx@lists.linux.dev, linux-omap@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250901085748.36795-1-zhangzihuan@kylinos.cn>
+ <20250901085748.36795-13-zhangzihuan@kylinos.cn>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <20250901085748.36795-13-zhangzihuan@kylinos.cn>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250902-timsi-v2-2-a5bf0f32905b@baylibre.com>
-References: <20250902-timsi-v2-0-a5bf0f32905b@baylibre.com>
-In-Reply-To: <20250902-timsi-v2-0-a5bf0f32905b@baylibre.com>
-To: Thomas Gleixner <tglx@linutronix.de>, vigneshr@ti.com, 
- Nishanth Menon <nm@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>, 
- Tero Kristo <kristo@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Guillaume La Roque <glaroque@baylibre.com>
-X-Mailer: b4 0.14.1
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_074356_020054_F59CD371 
-X-CRM114-Status: GOOD (  15.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,58 +141,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add module support to the TI SCI INTA MSI driver:
-- Change Kconfig from bool to tristate to allow module compilation
-- Add linux/module.h include for module functionality
-- Add MODULE_LICENSE, MODULE_DESCRIPTION, and MODULE_AUTHOR macros
+On 01/09/2025 10:57, Zihuan Zhang wrote:
+> Replace the manual cpufreq_cpu_put() with __free(put_cpufreq_policy)
+> annotation for policy references. This reduces the risk of reference
+> counting mistakes and aligns the code with the latest kernel style.
+> 
+> No functional change intended.
+> 
+> Signed-off-by: Zihuan Zhang <zhangzihuan@kylinos.cn>
+> ---
+>  kernel/power/energy_model.c | 9 +++------
+>  1 file changed, 3 insertions(+), 6 deletions(-)
+> 
+> diff --git a/kernel/power/energy_model.c b/kernel/power/energy_model.c
+> index ea7995a25780..852d48039ce2 100644
+> --- a/kernel/power/energy_model.c
+> +++ b/kernel/power/energy_model.c
+> @@ -451,7 +451,7 @@ static void
+>  em_cpufreq_update_efficiencies(struct device *dev, struct em_perf_state *table)
+>  {
+>  	struct em_perf_domain *pd = dev->em_pd;
+> -	struct cpufreq_policy *policy;
+> +	struct cpufreq_policy *policy __free(put_cpufreq_policy);
 
-This allows the driver to be compiled as a loadable kernel module
-named ti_sci_inta_msi.
+You are not improving the source code here. This is not how to use
+__free() and you clearly do not understand the source code.
 
-Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
----
- drivers/soc/ti/Kconfig           | 5 ++++-
- drivers/soc/ti/ti_sci_inta_msi.c | 5 +++++
- 2 files changed, 9 insertions(+), 1 deletion(-)
+What's more, you did not use standard tools which would tell you this is
+buggy and wrong.
 
-diff --git a/drivers/soc/ti/Kconfig b/drivers/soc/ti/Kconfig
-index 1a93001c9e36..0a9eb5ac264b 100644
---- a/drivers/soc/ti/Kconfig
-+++ b/drivers/soc/ti/Kconfig
-@@ -85,7 +85,10 @@ config TI_PRUSS
- endif # SOC_TI
- 
- config TI_SCI_INTA_MSI_DOMAIN
--	bool
-+	tristate "TI SCI INTA MSI Domain driver"
- 	select GENERIC_MSI_IRQ
- 	help
- 	  Driver to enable Interrupt Aggregator specific MSI Domain.
-+
-+	  Say Y here to compile it into the kernel or M to compile it as a
-+	  module. The module will be called ti_sci_inta_msi.
-diff --git a/drivers/soc/ti/ti_sci_inta_msi.c b/drivers/soc/ti/ti_sci_inta_msi.c
-index 193266f5e3f9..d92cab319d57 100644
---- a/drivers/soc/ti/ti_sci_inta_msi.c
-+++ b/drivers/soc/ti/ti_sci_inta_msi.c
-@@ -8,6 +8,7 @@
- 
- #include <linux/irq.h>
- #include <linux/irqdomain.h>
-+#include <linux/module.h>
- #include <linux/msi.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
-@@ -115,3 +116,7 @@ int ti_sci_inta_msi_domain_alloc_irqs(struct device *dev,
- 	return ret;
- }
- EXPORT_SYMBOL_GPL(ti_sci_inta_msi_domain_alloc_irqs);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("Texas Instruments K3 Interrupt Aggregator MSI bus");
-+MODULE_AUTHOR("Lokesh Vutla <lokeshvutla@ti.com>");
-
--- 
-2.34.1
+Don't introduce cleanup.h if you do not understand how it works.
+Best regards,
+Krzysztof
 
 
