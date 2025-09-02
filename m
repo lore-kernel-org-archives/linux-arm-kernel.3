@@ -4,77 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84E54CA1005
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:45:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 996FACA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:45:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J9yRl+1sYXysHV78nqhCneCzmXn+YCT41OoxWUn1W70=; b=tX9zNt7F169hKx8Chn+lGwPss2
-	vnglNhbJgvDat+wpbpN70H11wlpZFve5rDxfYQRgSpait+92B9wZaF3VflQjnRGSe7c8t2Su9q88g
-	RmPD22hKqhOEDZVzMbNjA6ohCkOxRwaZMk6pGKB/XUH8iZq7j/BxRk940qo7Qk2dQy7X0ulJxSSZQ
-	2BQmYWovxVjBx283MXXA2trcPnpa96Kd95XVNhE0CmJW2hvB9nNiVpnqfoLvZGwmE/P1v7B2yiocD
-	bC71fqGa8M70VLBPzxNhMJqQR++sBP8RAPyuIKQteLczuS7RTvW5SzBx7ErUL9PE38Dsknd+EbW1h
-	y1meO+sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HY/P1wmmQ5CXIAhE0M3q1QG3EUDBLGeGAVW5/TOHSa0=; b=WIJJ7IXO7U0ddi0P+CbAWxX4l/
+	BkT+pR6OZFS+CpfEoudcO0qzGftT5Den11evBljQplIprAMljvAwfAprHyy6amZIbUM/ZLGa5hIVj
+	dD9a4YFNReOL7a9+ui6OfCqUnvck9EPgOcLp5+p4l5pGZMl0oA1vKjNAk+k+olrAOJtrHmqCPK8J3
+	8OpR7ivIajFY1t0bk0Xc7jIPtv4OXHFdTXagAj+vceCKSEDH7cihbI/7Impq1Ly2QOcTk5IFC6pvM
+	kF6i0wAF0ARbuyl5fqDROzL3LL6CZ/PFp+anTMnGaBUWJqL17DXJ/xXvBhA8Cmme6YE1hTZ+k9DXs
+	09b8C4NA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utYoo-00000002EA6-1G1n;
-	Tue, 02 Sep 2025 21:45:34 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1utYou-00000002EH4-0YXZ;
+	Tue, 02 Sep 2025 21:45:40 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utUy1-00000001EN5-0dPp;
-	Tue, 02 Sep 2025 17:38:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 91CBF60055;
-	Tue,  2 Sep 2025 17:38:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AFE0C4CEED;
-	Tue,  2 Sep 2025 17:38:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756834728;
-	bh=J9yRl+1sYXysHV78nqhCneCzmXn+YCT41OoxWUn1W70=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=galXQsTOy6Nmhq4l/sFifocjOVmnYPMbu8QyED/3YdiDrrbJorHsB1SSIeS8E6VvP
-	 Uz+fs/dvHmXrxaqQG5+c0G2fxRLr7YSOtoIOiGUpG69ni3FlIouslNveVnfbEij/cl
-	 RzMet1lZ8FhUsFQhmrLd2DSXG8IQ9kYJbEAJ97asib0On812k+/z8CuGS4eXpWuY5j
-	 qfs5vGdt4d25mKDA3GOIk7wddbRrKMIirbO4dwqdautQDKZEd+78TzNegkAhWlFgwD
-	 psUHTpD9kaT87XUaarJ9TjeZFIomKjHheKcfAEvYqzPouSTvUzBJaSzPa7VNXCdFw+
-	 RJfS5DqyBFvhw==
-Date: Tue, 2 Sep 2025 19:38:44 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, Chen-Yu Tsai <wens@csie.org>, 
-	Samuel Holland <samuel@sholland.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
-	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
-	Liu Ying <victor.liu@nxp.com>, Rob Clark <robin.clark@oss.qualcomm.com>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>, 
-	Jessica Zhang <jessica.zhang@oss.qualcomm.com>, Sean Paul <sean@poorly.run>, 
-	Marijn Suijten <marijn.suijten@somainline.org>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org
-Subject: Re: [PATCH v2 1/8] drm/connector: let drivers declare infoframes as
- unsupported
-Message-ID: <hyfwwfiazs4rspjre24zgf6n4uq3267qawnyxrksy7n4wfqiuq@46lcdlmdik3s>
-References: <20250819-drm-limit-infoframes-v2-0-7595dda24fbd@oss.qualcomm.com>
- <20250819-drm-limit-infoframes-v2-1-7595dda24fbd@oss.qualcomm.com>
- <20250820-artichoke-silkworm-of-election-521b5e@houat>
- <v7w7xkefm6ap7delx7wsvxmc76fwptqhe4ehokzfh4baueb7hr@acrx36exv42v>
- <20250827-adorable-ocelot-of-adventure-ba88b7@houat>
- <jrvjvayhjczgb4yx3xshbv3e6ndzkmb7uu3ynoes2maniwjg37@hamxu5mzqmf7>
- <20250901-illustrious-dark-kagu-f4ef76@houat>
- <rkxdyzm4uwvq5nxw5q25qv2xqqqvirgn77u54jydebm6a2wrk3@m2y3y3zcjb4j>
+	id 1utV15-00000001EvE-3rnG
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 02 Sep 2025 17:42:01 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-55f7cd8ec2cso2560163e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 10:41:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756834918; x=1757439718; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HY/P1wmmQ5CXIAhE0M3q1QG3EUDBLGeGAVW5/TOHSa0=;
+        b=2cy5RgDRjWyQG/gAVthA4yZM3N7PiEl+lsmAsRU/MW7KJ79IY4Y+87fpXQtR2ZXj0F
+         xoh2h073Y9nF33wHbWZlIWFz/NOpx5YQieqcd4OjFXxu2su2g5R3l6KdcZzd1p8A2xDP
+         yuc3y2g0hgaDkdEhW+6uJ7iDzFZUtob3qzWgw7GBKS6qWv1gNdQDXWFe0w+o1unme/8H
+         uujPvb04rBD3w1QpIfSoiSaysLFhZUTWGVPyVTzzdfx+00IKbRHAcPIvHIWpwyg3hTDI
+         GZpE8RtF6N5o63Xc2sPWjEp28VsLJ3nbx4fJFEMIjTcGscVa+Lc6tKZwCpa/eL7VH4g8
+         Q5NQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756834918; x=1757439718;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=HY/P1wmmQ5CXIAhE0M3q1QG3EUDBLGeGAVW5/TOHSa0=;
+        b=SXoutRiDYTfB1K7khj0YDh4xSvsvJeyzjb0l8kXdOfxqY8tR/xN5fiJhGIRh4sNygb
+         cAT9iuD0gIynrB7gaSz2sxPStM6blVu6DDgk58PkT6dJ/H1S3ND7DtBnAB9qz4W0cv1m
+         i4LSD+UG9EclIbGd0IqeCxtDC9fa36MqKayTwa5jgi3nsWJMcNw31260oZtu+rgOtF52
+         ZH5uU+CCieB4QqUzs7zQiGtPAdxTKvy9vkJVj7h6ZV/zmhsuVfFFXwM0k18+P2WaFjtz
+         d+sMIs9mjmXhiUc+IIt+1sqv4ABoBKT3c1TlEbuzyUbAKJF4COcN2Rjg9fP0jzcPX1rD
+         ek5g==
+X-Forwarded-Encrypted: i=1; AJvYcCVRi3763hyarm+rGPZwA8jF3DstQS69YBVRAwyubV26910Fd8VRKtneKKmskWty7NDYDgK3GCF/Bzwa5Buh5gK+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9RdU0FVAOUbIMD9F/Q0RcL3QEXUAP51pWwMMq7Y4QBrDdqCoY
+	+OV9zp95XUi813fZb16dPvypDtao1IpS3VEHJSTVno7D7YqqntjkJqQWg3fnsuA+h/2TxzYqNIh
+	Sopj4Vyp/pzzfURLh0AVPthGDyzc2I8PAJnWVHeCinA==
+X-Gm-Gg: ASbGnct0uYb9DboayNrZbIHWFDxYfkjt0zMrRRSv41OjHcESg0rUR4p1ZgkNyzNRosY
+	sPEUrGRiK8ZEff0B+VG6C/q/lSU8i2CGnn/rtM3Kx8jFA7+Q1kLVlg3Lzb1gx+zBm5KCQzE28Vk
+	wsdxYRcHpIb1in63rsGar64r9pgx607bgmr8oF8W2Z7rj0pT7j+TSefEEw2SJHZt0+9UvjCcjQW
+	ppns5jcwE20IpwgimRpsa9dAufnEsociNA/Cfvuvk70MFKjZQ==
+X-Google-Smtp-Source: AGHT+IEj8d7P3cFn9WHSMlcQJco2rutroHWRWEZV/BsdBzW10JlelDxpX/d5bcqoiRzS4+dxD5+bg22V2Ltijnn3kOg=
+X-Received: by 2002:a05:6512:61d5:20b0:55f:727d:408c with SMTP id
+ 2adb3069b0e04-55f727d46c3mr3142298e87.50.1756834918139; Tue, 02 Sep 2025
+ 10:41:58 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="rcrjatrx3rsahkt5"
-Content-Disposition: inline
-In-Reply-To: <rkxdyzm4uwvq5nxw5q25qv2xqqqvirgn77u54jydebm6a2wrk3@m2y3y3zcjb4j>
+References: <20250902-pinctrl-gpio-pinfuncs-v7-0-bb091daedc52@linaro.org>
+ <20250902-pinctrl-gpio-pinfuncs-v7-16-bb091daedc52@linaro.org> <aLcBcjvMbrxoDYoC@smile.fi.intel.com>
+In-Reply-To: <aLcBcjvMbrxoDYoC@smile.fi.intel.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Tue, 2 Sep 2025 19:41:47 +0200
+X-Gm-Features: Ac12FXz-Ict8QGMZawDnah9byaE6SYSj17yQF92en6o4smsRWpZmv8sya_ULoRc
+Message-ID: <CAMRc=MfcFMgkNqWNZV5o0NxkAvxBTjC3vv56Cr98n0R2CkxuPw@mail.gmail.com>
+Subject: Re: [PATCH v7 16/16] pinctrl: qcom: make the pinmuxing strict
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Alexey Klimov <alexey.klimov@linaro.org>, 
+	Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Paul Cercueil <paul@crapouillou.net>, Kees Cook <kees@kernel.org>, 
+	Andy Shevchenko <andy@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	David Hildenbrand <david@redhat.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, 
+	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+	Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, NXP S32 Linux Team <s32@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Tony Lindgren <tony@atomide.com>, 
+	Haojian Zhuang <haojian.zhuang@linaro.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Mark Brown <broonie@kernel.org>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mips@vger.kernel.org, linux-hardening@vger.kernel.org, 
+	linux-mm@kvack.org, imx@lists.linux.dev, linux-omap@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250902_104159_953078_EAD88192 
+X-CRM114-Status: GOOD (  16.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,187 +119,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Sep 2, 2025 at 4:38=E2=80=AFPM Andy Shevchenko
+<andriy.shevchenko@intel.com> wrote:
+>
+> On Tue, Sep 02, 2025 at 01:59:25PM +0200, Bartosz Golaszewski wrote:
+> > From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> >
+> > The strict flag in struct pinmux_ops disallows the usage of the same pi=
+n
+> > as a GPIO and for another function. Without it, a rouge user-space
+> > process with enough privileges (or even a buggy driver) can request a
+> > used pin as GPIO and drive it, potentially confusing devices or even
+> > crashing the system. Set it globally for all pinctrl-msm users.
+>
+> How does this keep (or allow) I=E6=B6=8E generic recovery mechanism to wo=
+rk?
+>
 
---rcrjatrx3rsahkt5
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 1/8] drm/connector: let drivers declare infoframes as
- unsupported
-MIME-Version: 1.0
+What even is the "generic recovery mechanism"? That's the first time
+I'm hearing this name.
 
-On Tue, Sep 02, 2025 at 06:12:39AM +0300, Dmitry Baryshkov wrote:
-> On Mon, Sep 01, 2025 at 08:54:18AM +0200, Maxime Ripard wrote:
-> > On Wed, Aug 27, 2025 at 05:04:53PM +0300, Dmitry Baryshkov wrote:
-> > > On Wed, Aug 27, 2025 at 09:30:20AM +0200, Maxime Ripard wrote:
-> > > > On Wed, Aug 20, 2025 at 12:52:44PM +0300, Dmitry Baryshkov wrote:
-> > > > > On Wed, Aug 20, 2025 at 09:15:36AM +0200, Maxime Ripard wrote:
-> > > > > > Hi,
-> > > > > >=20
-> > > > > > On Tue, Aug 19, 2025 at 09:57:30PM +0300, Dmitry Baryshkov wrot=
-e:
-> > > > > > > Currently DRM framework expects that the HDMI connector drive=
-r supports
-> > > > > > > all infoframe types: it generates the data as required and ca=
-lls into
-> > > > > > > the driver to program all of them, letting the driver to soft=
--fail if
-> > > > > > > the infoframe is unsupported. This has a major drawback on us=
-erspace
-> > > > > > > API: the framework also registers debugfs files for all Infof=
-rame types,
-> > > > > > > possibly surprising the users when infoframe is visible in th=
-e debugfs
-> > > > > > > file, but it is not visible on the wire.
-> > > > > > >=20
-> > > > > > > Let drivers declare that they support only a subset of infofr=
-ames,
-> > > > > > > creating a more consistent interface.
-> > > > > > >=20
-> > > > > > > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcom=
-m.com>
-> > > > > >=20
-> > > > > > I'm not really convinced. Infoframes aren't really something yo=
-u should
-> > > > > > ignore, AVI is effectively mandatory, HDMI kind of is too, AUDI=
-O is if
-> > > > > > audio support is enabled, DRM is mandatory if HDR is used.
-> > > > >=20
-> > > > > Nevertheless, sun4i, innohdmi, adv7511, it6263 and rk3066 drivers
-> > > > > provide support only for the AVI infoframe.
-> > > >=20
-> > > > Yes, but it's still something we shouldn't paper over. The spec man=
-dates
-> > > > it, if drivers want to deviate from it it's something we should warn
-> > > > about, not silence.
-> > > >=20
-> > > > sun4i is a good example, to me at least since I have the doc. The
-> > > > hardware supports AVI, Audio, ACP, and SPD. HDR isn't supported, so=
- DRM
-> > > > isn't either. The only missing one is HDMI, but the documentation i=
-sn't
-> > > > the best so it might still be supported. In short, it's a driver is=
-sue.
-> > > >=20
-> > > > adv7511 supports AVI, Audio, ACP, SPD, ACP, and looks to have a
-> > > > mechanism to send any infoframe as is. So, again, driver issue.
-> > >=20
-> > > I've send a patch, enabling SPD and VSI (HDMI) InfoFrames on ADV7511.
-> > >=20
-> > > >=20
-> > > > I couldn't find the other datasheet, but I'd be very surprised if it
-> > > > wasn't the case for these too.
-> > > >=20
-> > > > > Some of them can be extended to support other infoframe kinds (e.=
-g.
-> > > > > ADV7511 has two spare infoframes which can be used for HDMI and S=
-PD).
-> > > > >=20
-> > > > > > SPD is indeed optional though.
-> > > > > >=20
-> > > > > > So, it's really dynamic in essence, and not really something we=
- should
-> > > > > > expect drivers to ignore.
-> > > > > >=20
-> > > > > > I do acknowledge that a lot of drivers just silently ignore the
-> > > > > > infoframes they don't support at the moment, which isn't great =
-either.
-> > > > > >=20
-> > > > > > Maybe we should standardize and document what drivers should do=
- when
-> > > > > > they don't support a given infoframe type?
-> > > > >=20
-> > > > > The chips might be generating infoframes internally. This series =
-was
-> > > > > triggered by LT9611UXC, which does all HDMI work under the hood i=
-n the
-> > > > > firmware. See [1]. The series I posted hooks HDMI audio directly =
-into
-> > > > > the bridge driver, but I'd really prefer to be able to use
-> > > > > drm_atomic_helper_connector_hdmi_hotplug(), especially if I ever =
-get to
-> > > > > implementing CEC support for it.
-> > > > >=20
-> > > > > ADV7511 likewise generates audio infoframe without Linux
-> > > > > help (audio-related fields are programmed, but it's not the
-> > > > > infoframe itself).
-> > > >=20
-> > > > Implementing the write_infoframe hooks as a nop with a comment in t=
-hose
-> > > > case is totally reasonable to me.
-> > > >=20
-> > > > I'd still like to document that drivers should only return 0 if they
-> > > > programmed the infoframe, and -ENOTSUPP (and the core logging a war=
-ning)
-> > > > otherwise.
-> > > >=20
-> > > > That way, we would be able to differentiate between the legimitate
-> > > > LT9611UXC case, and the "driver is broken" sun4i (and others) case.
-> > >=20
-> > > I don't want to end up in a sitation where userspace has a different
-> > > idea of the InfoFrame being sent than the actual one being present on
-> > > the wire.
-> >=20
-> > It's not ideal, sure, but also, what's wrong with it? We're doing it
-> > *all the time*. Modes programmed by userspace are adjusted for the
-> > hardware, and thus the mode reported by the CRTC turns out different
-> > than the one actually used in hardware. Audio sampling rates might not
-> > match exactly what we're doing. The quirks infrastructure disables part
-> > of the EDID the userspace has access to, etc.
-> >=20
-> > And all those are under the userspace control, which the infoframes
-> > aren't.
->=20
-> I think there is a differnece between 'change userspace input',
-> 'knowingly mangle data' and 'lie to userspace because the driver doesn't
-> care'. This is especially important e.g. if a user is trying to debug
-> AV issues which can be caused by wrong information in the infoframe.
-
-We can play semantics if you want, but the line is *very* fine between
-"mangling data" and "lying".
-
-If the mode has been mangled, and you don't report that it has been to
-userspace, are you lying?
-
-I guess you could argue both ways, but it's really the same than what
-we're discussing here. Except for the fact that one is a central part of
-the uapi, that the userspace depends on, and one is a debugfs file that
-*isn't* a uAPI, and the userspace really shouldn't depend on.
-
-> > > It seems, we need several states per the infoframe:
-> > >=20
-> > > - Not supported
-> >=20
-> > Honestly, I'm not sure we need a state for that one. If that infoframe
-> > was set by the framework, then the driver must support it. And if it
-> > wasn't, then there's nothing in debugfs.
->=20
-> Yes, I ended up dropping this and having two separate flags.
->=20
-> >=20
-> > > - Autogenerated
-> >=20
-> > Do we have any way to read them back on those?
->=20
-> Usually not. E.g. I don't think I can read back Audio InfoFrame on
-> ADV7511. Nor can I read InfoFrames on LT9611UXC.
-
-Then if you don't have access to it, we can just not register the
-debugfs files.
-
-Maxime
-
---rcrjatrx3rsahkt5
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaLcrpAAKCRAnX84Zoj2+
-dmn+AX9uKTQUrvsMDdQUvDxi/gST+e7W9A4EczjnFgGEq5QN5en8i+F/9RXq/HUg
-FCAoXccBgLwnwYPqh00A635JjRQAGg5eljItdNuu9ZTITiOIath6Qz4WyYpmdyUF
-HAFD2hq1nQ==
-=L//j
------END PGP SIGNATURE-----
-
---rcrjatrx3rsahkt5--
+Bartosz
 
