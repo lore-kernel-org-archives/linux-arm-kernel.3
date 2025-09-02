@@ -4,71 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FA71CA0FFE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 13:08:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C844CA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 13:11:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=m2AtA+tAEQavDUE5Lhvbc4vZL512MbUCVwiOA2o53ks=; b=m4N8qcEpg86Kr8RRHXbOd/U/M1
-	cbJJVODxGDf600gvdc5R3/MeeXcsLRIyaBdAWDyljEXPjjV83Ph3IyGOvLbK12ZOFcKN4E05TrKEr
-	C7iv54qbI0VLGIMcys1w/59Xz+12CjA3wbZvw69XQTMqyYxN5mrhW35AsNO8+SpYJfKTUEzkPymnQ
-	e9iZOOU6fhJwIC8JI05HJpxo21Qh4M8Cihn+n3a/KnmRJs3zwsQPfg9ojvGILF8BAZrUX3hUdDEdk
-	AFXA0UWNFAGKoYWKlQsfLb775d4CPmTKBEunN2QjZjX8JcSBNPsCh+aUbv3p7KmpRv5O0SFhO3Gub
-	eFmSMC0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wjaApRXcCAfiYPWv3nlNusIHX//6QvdmyQNP78uCTZM=; b=NEIPXr/MqweO7F
+	Ua8F6+Zt4NSPOyO6lQZdqV/oS6AIRmC8y4M439LfJaodCHYGiwqD599tBM5CJka1NXOhELEmEiP5W
+	8FnY4q6xJiPIEOJ7gSankFIHIRx3r0JQ/xcstCSBS+sa0WU1is9VR/Eyo2ILaZgYpUj0IhrXRweGf
+	qUFxpcmYrs285vk2kdTBmIZp4ZQhE1l9yccqF8jmxXRZTQmbZVaZS5+zDXYfICevuuXv0kwFGHbbp
+	l95Rk2N3sq/jBzkbLKtotxhu6tOGzdzOAy0g1T/O/UnVZKaZULnDOFlpTv57yhgHqMNqxTPRSpAW7
+	vTK0oyTAfEUwdMnMbPFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utQk4-0000000HWi8-1Fm5;
-	Tue, 02 Sep 2025 13:08:08 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1utQml-0000000HXlm-1Qfc;
+	Tue, 02 Sep 2025 13:10:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utPI8-0000000GwW5-0Aea
+	id 1utPR0-0000000GyVC-26jt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 11:35:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1756812912; x=1788348912;
-  h=date:from:to:cc:subject:message-id;
-  bh=EFH5/GNwRvyadGKszXwqHyCUqL0MPIN4MCFw0+YwAtg=;
-  b=ckCrt1GoqYneRg4hIlT069oneq3Y9kBTSg/p0WVEFPxb53xWGfZdLaDS
-   SIs4bgxvLeeV/fmPyUGObLb3zsdS/1nUEahAG5YRouD1c53dSgCezAecX
-   Qn8R7FGRQRvJcH0rwmW3dpDULPPyYJ+H+Qe1CT5nbFieAFRhMUVXH/obB
-   Oe89lOOgbM5qmaPqM1s/N/d3MUhbyiFRHA4+EjVbgd37vLS27fZNnqwM6
-   hvXvqicyrNx4SQcMFgRrW5Rma841k/LGp8Cw/kaWiEnut83vQK6CkPQGb
-   dzECrU98fYp+MnnrLPRHQI8Ef894cyKx2vu0BaD72usxckQx9JwX5UzEr
-   A==;
-X-CSE-ConnectionGUID: t03ohTHLToOHwSkERQrmhA==
-X-CSE-MsgGUID: t68VAtoNQeSugOxHgL9ueg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="62912324"
-X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
-   d="scan'208";a="62912324"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Sep 2025 04:35:11 -0700
-X-CSE-ConnectionGUID: ydr7rlkmSJ28zIk9l0BfRA==
-X-CSE-MsgGUID: ZdjPHk6BR4GAGBgAiwhD8g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,230,1751266800"; 
-   d="scan'208";a="175389324"
-Received: from lkp-server02.sh.intel.com (HELO 06ba48ef64e9) ([10.239.97.151])
-  by orviesa003.jf.intel.com with ESMTP; 02 Sep 2025 04:35:09 -0700
-Received: from kbuild by 06ba48ef64e9 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1utPI2-0001un-2j;
-	Tue, 02 Sep 2025 11:35:06 +0000
-Date: Tue, 02 Sep 2025 19:34:52 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:for-next] BUILD SUCCESS
- a88a92ecd15eaa93c047726c96b7f5026dc455a2
-Message-ID: <202509021937.b6pIipyF-lkp@intel.com>
-User-Agent: s-nail v14.9.24
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_043512_134768_9B721E9C 
-X-CRM114-Status: UNSURE (   5.64  )
-X-CRM114-Notice: Please train this message.
+	Tue, 02 Sep 2025 11:44:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CD0F760209;
+	Tue,  2 Sep 2025 11:44:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9395EC4CEF7;
+	Tue,  2 Sep 2025 11:44:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756813461;
+	bh=OXKJgDznqmBNEDzpXiQomCDzhyKW6pZxEPF9RJhBGok=;
+	h=From:Subject:Date:To:Cc:From;
+	b=I0W3xbo14n4Ivt4O63v+SvFNYKtLitjaPmxUdtWThAA8SF9w7ifAdgaUlVzFAouBk
+	 W+ogBB6NwMd/EzR8S/4Uu7JDciMGN7qbDxo+WMhlnfxmmTSZImFLaAKQu8zQWFvghi
+	 46RoZrrJKgn98MuqaXjnAwSewLILIzS1LSC7nOnMcWOjHdYo8HAJaIx0lhB0GzJL6H
+	 m86Lp+gb+x1Nbokq98bLVkj3Ica8/iNK0QyCdA7VTTWCPNR5N3zrx130BAvmxRfZ89
+	 qL7txf3axQFu5K06qvkarcRWoB4SjWsO4+K4nUMLhpSOBYip+AuphvUMj+J1EHa+VX
+	 N/vMJSPcGaQKg==
+From: Mark Brown <broonie@kernel.org>
+Subject: [PATCH v8 00/29] KVM: arm64: Implement support for SME
+Date: Tue, 02 Sep 2025 12:36:03 +0100
+Message-Id: <20250902-kvm-arm64-sme-v8-0-2cb2199c656c@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAKTWtmgC/2XSzW7DIAwA4FepOI8KO+DQnvYe0w78tlGXpCNZt
+ Knqu4806qKFoy0+G2NubAipCQM77m4shakZmr7LgX7ZMXc23SnwxueYocBKVAL4ZWq5SS1JPrS
+ BCzKAknxFFbFsrBkCt8l07jyrsb3O2WsKsfl+dHl7z/G5GcY+/TyaTjBnl/oHxE39CbjgMYL2t
+ bR4CP71ElIXPvZ9OrG51IR/HLDkmLk3iOQsaGFtwasnl5mLLa8yF8oK0A5iDCWXT64EgtxyOXc
+ naUiD8c5hwdXKJdRbrubZJR0MehVVLQtOKydUW06ZA0gXo8x3FyWvV67Lp6szrw0pr9FqC+Ifv
+ y9bTeHzK3+ZcVntsn3Xt20zHncT7fNIyUE+ff8F7Ecyy2gCAAA=
+X-Change-ID: 20230301-kvm-arm64-sme-06a1246d3636
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+ Joey Gouly <joey.gouly@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>, 
+ Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <shuah@kernel.org>
+Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>, 
+ Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org, 
+ kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ Peter Maydell <peter.maydell@linaro.org>, 
+ Eric Auger <eric.auger@redhat.com>, Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-cff91
+X-Developer-Signature: v=1; a=openpgp-sha256; l=10251; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=OXKJgDznqmBNEDzpXiQomCDzhyKW6pZxEPF9RJhBGok=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBotth5Nirbk9sHd1JmWNblP+oQPKJjFF9rl9ZFL
+ meZJ/csT6CJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaLbYeQAKCRAk1otyXVSH
+ 0E0XB/oCAxyRMdbXCU08YIfNJZbkEqK1zDijsXPWwmJC2jLSODEnRKVprUZlYhpfCrynmqzFt6p
+ mdng7OnDELpcOHKckz1VPnHHJImtTPdj3nzRJOGG0ffcxOjtgQI0R7H+7Isi0vqK0TJEtSiZ6rz
+ ju8i0ePWwtz1Iyc26TNsVKUe0uYwyBcwPcbi8BEBLGGVseBU/snFKAvbZhZ52ZUdUyNy24HqoRF
+ dOd2ViwsONDMglLf/m+05umgcynZ0upHRNOUZ94asRK3E5Qc4vfyWBAErd9QLz0RYu5DoL+jEQa
+ f2H5QCvOWbVFuusT5SpCr4l5se8ZY3+mvkmckcWE+bJJMw+H
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,159 +93,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
-branch HEAD: a88a92ecd15eaa93c047726c96b7f5026dc455a2  soc: document merges
+I've removed the RFC tag from this version of the series, but the items
+that I'm looking for feedback on remains the same:
 
-elapsed time: 1463m
+ - The userspace ABI, in particular:
+  - The vector length used for the SVE registers, access to the SVE
+    registers and access to ZA and (if available) ZT0 depending on
+    the current state of PSTATE.{SM,ZA}.
+  - The use of a single finalisation for both SVE and SME.
 
-configs tested: 139
-configs skipped: 3
+ - The addition of control for enabling fine grained traps in a similar
+   manner to FGU but without the UNDEF, I'm not clear if this is desired
+   at all and at present this requires symmetric read and write traps like
+   FGU. That seemed like it might be desired from an implementation
+   point of view but we already have one case where we enable an
+   asymmetric trap (for ARM64_WORKAROUND_AMPERE_AC03_CPU_38) and it
+   seems generally useful to enable asymmetrically.
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+This series implements support for SME use in non-protected KVM guests.
+Much of this is very similar to SVE, the main additional challenge that
+SME presents is that it introduces a new vector length similar to the
+SVE vector length and two new controls which change the registers seen
+by guests:
 
-tested configs:
-alpha                             allnoconfig    clang-22
-alpha                             allnoconfig    gcc-15.1.0
-alpha                            allyesconfig    gcc-15.1.0
-arc                              allmodconfig    gcc-15.1.0
-arc                               allnoconfig    clang-22
-arc                               allnoconfig    gcc-15.1.0
-arc                              allyesconfig    gcc-15.1.0
-arc                   randconfig-001-20250902    gcc-11.5.0
-arc                   randconfig-002-20250902    gcc-9.5.0
-arm                              allmodconfig    gcc-15.1.0
-arm                               allnoconfig    clang-22
-arm                              allyesconfig    gcc-15.1.0
-arm                   randconfig-001-20250902    gcc-15.1.0
-arm                   randconfig-002-20250902    gcc-8.5.0
-arm                   randconfig-003-20250902    clang-22
-arm                   randconfig-004-20250902    clang-22
-arm64                            allmodconfig    clang-19
-arm64                             allnoconfig    clang-22
-arm64                             allnoconfig    gcc-15.1.0
-arm64                 randconfig-001-20250902    gcc-8.5.0
-arm64                 randconfig-002-20250902    clang-22
-arm64                 randconfig-003-20250902    gcc-12.5.0
-arm64                 randconfig-004-20250902    clang-22
-csky                              allnoconfig    clang-22
-csky                              allnoconfig    gcc-15.1.0
-csky                  randconfig-001-20250902    gcc-14.3.0
-csky                  randconfig-002-20250902    gcc-12.5.0
-hexagon                          allmodconfig    clang-17
-hexagon                           allnoconfig    clang-22
-hexagon                          allyesconfig    clang-22
-hexagon               randconfig-001-20250902    clang-18
-hexagon               randconfig-002-20250902    clang-22
-i386                             alldefconfig    gcc-12
-i386                             allmodconfig    gcc-12
-i386                              allnoconfig    gcc-12
-i386        buildonly-randconfig-001-20250902    clang-20
-i386        buildonly-randconfig-001-20250902    gcc-12
-i386        buildonly-randconfig-002-20250902    clang-20
-i386        buildonly-randconfig-002-20250902    gcc-12
-i386        buildonly-randconfig-003-20250902    gcc-12
-i386        buildonly-randconfig-004-20250902    clang-20
-i386        buildonly-randconfig-004-20250902    gcc-12
-i386        buildonly-randconfig-005-20250902    gcc-12
-i386        buildonly-randconfig-006-20250902    clang-20
-i386        buildonly-randconfig-006-20250902    gcc-12
-i386                                defconfig    clang-20
-i386                  randconfig-011-20250902    gcc-12
-i386                  randconfig-012-20250902    gcc-12
-i386                  randconfig-013-20250902    gcc-12
-i386                  randconfig-014-20250902    gcc-12
-i386                  randconfig-015-20250902    gcc-12
-i386                  randconfig-016-20250902    gcc-12
-i386                  randconfig-017-20250902    gcc-12
-loongarch                        allmodconfig    clang-19
-loongarch                         allnoconfig    clang-22
-loongarch             randconfig-001-20250902    clang-22
-loongarch             randconfig-002-20250902    clang-22
-m68k                             allmodconfig    gcc-15.1.0
-m68k                              allnoconfig    gcc-15.1.0
-m68k                             allyesconfig    gcc-15.1.0
-m68k                            mac_defconfig    gcc-15.1.0
-microblaze                       allmodconfig    gcc-15.1.0
-microblaze                        allnoconfig    gcc-15.1.0
-microblaze                       allyesconfig    gcc-15.1.0
-microblaze                          defconfig    gcc-15.1.0
-mips                              allnoconfig    gcc-15.1.0
-mips                         db1xxx_defconfig    clang-22
-mips                      maltaaprp_defconfig    clang-22
-mips                          rb532_defconfig    clang-18
-nios2                             allnoconfig    gcc-11.5.0
-nios2                               defconfig    gcc-11.5.0
-nios2                               defconfig    gcc-15.1.0
-nios2                 randconfig-001-20250902    gcc-9.5.0
-nios2                 randconfig-002-20250902    gcc-11.5.0
-openrisc                          allnoconfig    clang-22
-openrisc                          allnoconfig    gcc-15.1.0
-openrisc                         allyesconfig    gcc-15.1.0
-parisc                           allmodconfig    gcc-15.1.0
-parisc                            allnoconfig    clang-22
-parisc                            allnoconfig    gcc-15.1.0
-parisc                           allyesconfig    gcc-15.1.0
-parisc                              defconfig    gcc-15.1.0
-parisc                randconfig-001-20250902    gcc-8.5.0
-parisc                randconfig-002-20250902    gcc-11.5.0
-parisc64                            defconfig    gcc-15.1.0
-powerpc                          allmodconfig    gcc-15.1.0
-powerpc                           allnoconfig    clang-22
-powerpc                           allnoconfig    gcc-15.1.0
-powerpc               randconfig-001-20250902    gcc-9.5.0
-powerpc               randconfig-002-20250902    gcc-8.5.0
-powerpc               randconfig-003-20250902    gcc-11.5.0
-powerpc                     skiroot_defconfig    clang-22
-powerpc64             randconfig-001-20250902    gcc-12.5.0
-powerpc64             randconfig-002-20250902    clang-22
-powerpc64             randconfig-003-20250902    clang-22
-riscv                             allnoconfig    clang-22
-riscv                             allnoconfig    gcc-15.1.0
-riscv                 randconfig-001-20250902    gcc-13.4.0
-riscv                 randconfig-002-20250902    clang-22
-s390                             allmodconfig    clang-18
-s390                              allnoconfig    clang-22
-s390                             allyesconfig    gcc-15.1.0
-s390                  randconfig-001-20250902    clang-22
-s390                  randconfig-002-20250902    gcc-10.5.0
-sh                               allmodconfig    gcc-15.1.0
-sh                                allnoconfig    gcc-15.1.0
-sh                               allyesconfig    gcc-15.1.0
-sh                    randconfig-001-20250902    gcc-12.5.0
-sh                    randconfig-002-20250902    gcc-12.5.0
-sh                          rsk7269_defconfig    gcc-15.1.0
-sparc                            allmodconfig    gcc-15.1.0
-sparc                             allnoconfig    gcc-15.1.0
-sparc                               defconfig    gcc-15.1.0
-sparc                 randconfig-001-20250902    gcc-14.3.0
-sparc                 randconfig-002-20250902    gcc-8.5.0
-sparc                       sparc32_defconfig    gcc-15.1.0
-sparc64               randconfig-001-20250902    clang-20
-sparc64               randconfig-002-20250902    gcc-9.5.0
-um                               allmodconfig    clang-19
-um                                allnoconfig    clang-22
-um                               allyesconfig    gcc-12
-um                    randconfig-001-20250902    gcc-12
-um                    randconfig-002-20250902    gcc-12
-x86_64                            allnoconfig    clang-20
-x86_64                           allyesconfig    clang-20
-x86_64      buildonly-randconfig-001-20250902    clang-20
-x86_64      buildonly-randconfig-002-20250902    clang-20
-x86_64      buildonly-randconfig-003-20250902    clang-20
-x86_64      buildonly-randconfig-004-20250902    clang-20
-x86_64      buildonly-randconfig-004-20250902    gcc-12
-x86_64      buildonly-randconfig-005-20250902    clang-20
-x86_64      buildonly-randconfig-005-20250902    gcc-12
-x86_64      buildonly-randconfig-006-20250902    clang-20
-x86_64      buildonly-randconfig-006-20250902    gcc-12
-x86_64                              defconfig    gcc-11
-x86_64                          rhel-9.4-rust    clang-20
-xtensa                            allnoconfig    gcc-15.1.0
-xtensa                randconfig-001-20250902    gcc-9.5.0
-xtensa                randconfig-002-20250902    gcc-10.5.0
+ - PSTATE.ZA enables the ZA matrix register and, if SME2 is supported,
+   the ZT0 LUT register.
+ - PSTATE.SM enables streaming mode, a new floating point mode which
+   uses the SVE register set with the separately configured SME vector
+   length.  In streaming mode implementation of the FFR register is
+   optional.
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+It is also permitted to build systems which support SME without SVE, in
+this case when not in streaming mode no SVE registers or instructions
+are available.  Further, there is no requirement that there be any
+overlap in the set of vector lengths supported by SVE and SME in a
+system, this is expected to be a common situation in practical systems.
+
+Since there is a new vector length to configure we introduce a new
+feature parallel to the existing SVE one with a new pseudo register for
+the streaming mode vector length.  Due to the overlap with SVE caused by
+streaming mode rather than finalising SME as a separate feature we use
+the existing SVE finalisation to also finalise SME, a new define
+KVM_ARM_VCPU_VEC is provided to help make user code clearer.  Finalising
+SVE and SME separately would introduce complication with register access
+since finalising SVE makes the SVE registers writeable by userspace and
+doing multiple finalisations results in an error being reported.
+Dealing with a state where the SVE registers are writeable due to one of
+SVE or SME being finalised but may have their VL changed by the other
+being finalised seems like needless complexity with minimal practical
+utility, it seems clearer to just express directly that only one
+finalisation can be done in the ABI.
+
+Access to the floating point registers follows the architecture:
+
+ - When both SVE and SME are present:
+   - If PSTATE.SM == 0 the vector length used for the Z and P registers
+     is the SVE vector length.
+   - If PSTATE.SM == 1 the vector length used for the Z and P registers
+     is the SME vector length.
+ - If only SME is present:
+   - If PSTATE.SM == 0 the Z and P registers are inaccessible and the
+     floating point state accessed via the encodings for the V registers.
+   - If PSTATE.SM == 1 the vector length used for the Z and P registers
+ - The SME specific ZA and ZT0 registers are only accessible if SVCR.ZA is 1.
+
+The VMM must understand this, in particular when loading state SVCR
+should be configured before other state.  It should be noted that while
+the architecture refers to PSTATE.SM and PSTATE.ZA these PSTATE bits are
+not preserved in SPSR_ELx, they are only accessible via SVCR.
+
+There are a large number of subfeatures for SME, most of which only
+offer additional instructions but some of which (SME2 and FA64) add
+architectural state. These are configured via the ID registers as per
+usual.
+
+Protected KVM supported, with the implementation maintaining the
+existing restriction that the hypervisor will refuse to run if streaming
+mode or ZA is enabled.  This both simplfies the code and avoids the need
+to allocate storage for host ZA and ZT0 state, there seems to be little
+practical use case for supporting this and the memory usage would be
+non-trivial.
+
+The new KVM_ARM_VCPU_VEC feature and ZA and ZT0 registers have not been
+added to the get-reg-list selftest, the idea of supporting additional
+features there without restructuring the program to generate all
+possible feature combinations has been rejected.  I will post a separate
+series which does that restructuring.
+
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+Changes in v8:
+- Small fixes in ABI documentation.
+- Link to v7: https://lore.kernel.org/r/20250822-kvm-arm64-sme-v7-0-7a65d82b8b10@kernel.org
+
+Changes in v7:
+- Rebase onto v6.17-rc1.
+- Handle SMIDR_EL1 as a VM wide ID register and use this in feat_sme_smps().
+- Expose affinity fields in SMIDR_EL1.
+- Remove SMPRI_EL1 from vcpu_sysreg, the value is always 0 currently.
+- Prevent userspace writes to SMPRIMAP_EL2.
+- Link to v6: https://lore.kernel.org/r/20250625-kvm-arm64-sme-v6-0-114cff4ffe04@kernel.org
+
+Changes in v6:
+- Rebase onto v6.16-rc3.
+- Link to v5: https://lore.kernel.org/r/20250417-kvm-arm64-sme-v5-0-f469a2d5f574@kernel.org
+
+Changes in v5:
+- Rebase onto v6.15-rc2.
+- Add pKVM guest support.
+- Always restore SVCR.
+- Link to v4: https://lore.kernel.org/r/20250214-kvm-arm64-sme-v4-0-d64a681adcc2@kernel.org
+
+Changes in v4:
+- Rebase onto v6.14-rc2 and Mark Rutland's fixes.
+- Expose SME to nested guests.
+- Additional cleanups and test fixes following on from the rebase.
+- Flush register state on VMM PSTATE.{SM,ZA}.
+- Link to v3: https://lore.kernel.org/r/20241220-kvm-arm64-sme-v3-0-05b018c1ffeb@kernel.org
+
+Changes in v3:
+- Rebase onto v6.12-rc2.
+- Link to v2: https://lore.kernel.org/r/20231222-kvm-arm64-sme-v2-0-da226cb180bb@kernel.org
+
+Changes in v2:
+- Rebase onto v6.7-rc3.
+- Configure subfeatures based on host system only.
+- Complete nVHE support.
+- There was some snafu with sending v1 out, it didn't make it to the
+  lists but in case it hit people's inboxes I'm sending as v2.
+
+---
+Mark Brown (29):
+      arm64/sysreg: Update SMIDR_EL1 to DDI0601 2025-06
+      arm64/fpsimd: Update FA64 and ZT0 enables when loading SME state
+      arm64/fpsimd: Decide to save ZT0 and streaming mode FFR at bind time
+      arm64/fpsimd: Check enable bit for FA64 when saving EFI state
+      arm64/fpsimd: Determine maximum virtualisable SME vector length
+      KVM: arm64: Introduce non-UNDEF FGT control
+      KVM: arm64: Pay attention to FFR parameter in SVE save and load
+      KVM: arm64: Pull ctxt_has_ helpers to start of sysreg-sr.h
+      KVM: arm64: Move SVE state access macros after feature test macros
+      KVM: arm64: Rename SVE finalization constants to be more general
+      KVM: arm64: Document the KVM ABI for SME
+      KVM: arm64: Define internal features for SME
+      KVM: arm64: Rename sve_state_reg_region
+      KVM: arm64: Store vector lengths in an array
+      KVM: arm64: Implement SME vector length configuration
+      KVM: arm64: Support SME control registers
+      KVM: arm64: Support TPIDR2_EL0
+      KVM: arm64: Support SME identification registers for guests
+      KVM: arm64: Support SME priority registers
+      KVM: arm64: Provide assembly for SME register access
+      KVM: arm64: Support userspace access to streaming mode Z and P registers
+      KVM: arm64: Flush register state on writes to SVCR.SM and SVCR.ZA
+      KVM: arm64: Expose SME specific state to userspace
+      KVM: arm64: Context switch SME state for guests
+      KVM: arm64: Handle SME exceptions
+      KVM: arm64: Expose SME to nested guests
+      KVM: arm64: Provide interface for configuring and enabling SME for guests
+      KVM: arm64: selftests: Add SME system registers to get-reg-list
+      KVM: arm64: selftests: Add SME to set_id_regs test
+
+ Documentation/virt/kvm/api.rst                   | 115 ++++++++---
+ arch/arm64/include/asm/fpsimd.h                  |  26 +++
+ arch/arm64/include/asm/kvm_emulate.h             |   6 +
+ arch/arm64/include/asm/kvm_host.h                | 169 ++++++++++++---
+ arch/arm64/include/asm/kvm_hyp.h                 |   5 +-
+ arch/arm64/include/asm/kvm_pkvm.h                |   2 +-
+ arch/arm64/include/asm/vncr_mapping.h            |   2 +
+ arch/arm64/include/uapi/asm/kvm.h                |  33 +++
+ arch/arm64/kernel/cpufeature.c                   |   2 -
+ arch/arm64/kernel/fpsimd.c                       |  89 ++++----
+ arch/arm64/kvm/arm.c                             |  10 +
+ arch/arm64/kvm/config.c                          |   8 +-
+ arch/arm64/kvm/fpsimd.c                          |  28 ++-
+ arch/arm64/kvm/guest.c                           | 252 ++++++++++++++++++++---
+ arch/arm64/kvm/handle_exit.c                     |  14 ++
+ arch/arm64/kvm/hyp/fpsimd.S                      |  28 ++-
+ arch/arm64/kvm/hyp/include/hyp/switch.h          | 175 ++++++++++++++--
+ arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h       | 110 ++++++----
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c               |  86 ++++++--
+ arch/arm64/kvm/hyp/nvhe/pkvm.c                   |  85 ++++++--
+ arch/arm64/kvm/hyp/nvhe/switch.c                 |   4 +-
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c               |   6 +
+ arch/arm64/kvm/hyp/vhe/switch.c                  |  17 +-
+ arch/arm64/kvm/hyp/vhe/sysreg-sr.c               |   7 +
+ arch/arm64/kvm/nested.c                          |   3 +-
+ arch/arm64/kvm/reset.c                           | 156 ++++++++++----
+ arch/arm64/kvm/sys_regs.c                        | 141 ++++++++++++-
+ arch/arm64/tools/sysreg                          |   8 +-
+ include/uapi/linux/kvm.h                         |   1 +
+ tools/testing/selftests/kvm/arm64/get-reg-list.c |  15 +-
+ tools/testing/selftests/kvm/arm64/set_id_regs.c  |  27 ++-
+ 31 files changed, 1327 insertions(+), 303 deletions(-)
+---
+base-commit: 062b3e4a1f880f104a8d4b90b767788786aa7b78
+change-id: 20230301-kvm-arm64-sme-06a1246d3636
+
+Best regards,
+--  
+Mark Brown <broonie@kernel.org>
+
 
