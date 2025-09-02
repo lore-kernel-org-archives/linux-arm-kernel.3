@@ -4,58 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1845DCA0FFE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 05:29:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9F6ECA0FFE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 05:33:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d78W237Ov3pjj5zoTJnwNDCa3ucAFPN9vfLc4BERcDw=; b=U4twqqG++u30gCslV33xsVShBN
-	ihl/aDuVR+WoB9GpqIa1gqFEwV0ONMrqYLWcwZOJeh6ULMmsLyLnfC742kVaP3aTKuqtwYPPd6kZT
-	KIrfDd1KM1kKRZOMgy0YxLVItycuBUo565zqQIH3PLSBLPUsL9vFNcAPmdlKf0FZZVHOfPmp1TZOo
-	MU7qJNFLCZzMpnFV8FpT21bF0V3dGZGRNFO0iMYQ3NO4JkLHbO1xFbWpV2R3TsaAir2ZX9Hd5ANRM
-	M62HJPd5PWX5ZxupVZ2n3A6zuS3NxDZDU1G8TJUx/M+TDoxNGuKu4iHckubIfVQq2L6ejHiZiX0gH
-	ufashXNA==;
+	bh=XVXxGdziaoxBeUwaXlwKAqEmpVy7Hr7kZxhdiqzCnVI=; b=oG2BwLPYRwkaGV25XHAyLSy2bV
+	/iSD+NlVdTi+mEzcCnSUVCOfdlMyDlveEed8/kFgUgKUyKza/QbU6SbO9yI3IY8E17WwbtGuBAQDQ
+	TFoodBzptg2xruTTcmc0rS703l5zXtCQ98+Ct/lI/V7oAy8U2P/7xCYbqDFG8gfwd0+DL+9TIgydl
+	1hux10zS9eC+u6O10du+jyNVTUuFIYfdIUCoA6x12Q2pMtIV4VwjnejxH1hyU9x62k9tPIriJMF1/
+	z7A+0vAU1VHxFwrXZ3xq8aGrkxd3vdIbZmhhRU2rYfbcaQeFKDFEO75ca71ckwyFl/0cg9Jeprrom
+	w5RrSAxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utJaR-0000000FJ4B-0LcJ;
-	Tue, 02 Sep 2025 05:29:43 +0000
-Received: from verein.lst.de ([213.95.11.211])
+	id 1utJdo-0000000FK8m-08LZ;
+	Tue, 02 Sep 2025 05:33:12 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utJXk-0000000FIqK-2Fhb;
-	Tue, 02 Sep 2025 05:26:57 +0000
-Received: by verein.lst.de (Postfix, from userid 2407)
-	id 1565E68AA6; Tue,  2 Sep 2025 07:26:47 +0200 (CEST)
-Date: Tue, 2 Sep 2025 07:26:46 +0200
-From: Christoph Hellwig <hch@lst.de>
-To: Sven Peter <sven@kernel.org>
-Cc: Christoph Hellwig <hch@lst.de>, Nick Chan <towinchenmi@gmail.com>,
-	Janne Grunau <j@jannau.net>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Neal Gompa <neal@gompa.dev>, Jassi Brar <jassisinghbrar@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Hector Martin <marcan@marcan.st>, Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>,
-	Sagi Grimberg <sagi@grimberg.me>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, iommu@lists.linux.dev,
-	linux-nvme@lists.infradead.org
-Subject: Re: [PATCH v3 7/9] nvme: apple: Add Apple A11 support
-Message-ID: <20250902052646.GA11139@lst.de>
-References: <20250821-t8015-nvme-v3-0-14a4178adf68@gmail.com> <20250821-t8015-nvme-v3-7-14a4178adf68@gmail.com> <20250825080710.GA23193@lst.de> <89251134-9685-439e-b220-92717663f038@kernel.org>
+	id 1utJb4-0000000FJBw-31i0
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 02 Sep 2025 05:30:23 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5825UIge2911397;
+	Tue, 2 Sep 2025 00:30:18 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1756791018;
+	bh=XVXxGdziaoxBeUwaXlwKAqEmpVy7Hr7kZxhdiqzCnVI=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=fVzsgIzV8p1Nhrxbv1vwZPx4XgEwwFFZNNiXRvnUfF2OtRKxaec9V2q/OYaenOJvp
+	 YXAtoAiFrWMm+hhObfoITPcuKgzJJmApTBI2IVPOglMWQdcSEjWh90UWpIdGDgDsVS
+	 gaf+xpNHpbWpUY64OZOHwCFNIyhvdC/gILk6yPY8=
+Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5825UIN63247813
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Tue, 2 Sep 2025 00:30:18 -0500
+Received: from DLEE103.ent.ti.com (157.170.170.33) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 2
+ Sep 2025 00:30:18 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE103.ent.ti.com
+ (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Tue, 2 Sep 2025 00:30:18 -0500
+Received: from hp-z2-tower.dhcp.ti.com (hp-z2-tower.dhcp.ti.com [172.24.231.157])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5825UAWo3551148;
+	Tue, 2 Sep 2025 00:30:14 -0500
+From: Hrushikesh Salunke <h-salunke@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <s-vadapalli@ti.com>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <h-salunke@ti.com>, <danishanwar@ti.com>
+Subject: [PATCH v2 1/4] arm64: dts: ti: k3-am62a7-sk: Add bootph-all tag to usb0_phy_ctrl node
+Date: Tue, 2 Sep 2025 11:00:06 +0530
+Message-ID: <20250902053009.1732607-2-h-salunke@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250902053009.1732607-1-h-salunke@ti.com>
+References: <20250902053009.1732607-1-h-salunke@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <89251134-9685-439e-b220-92717663f038@kernel.org>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_222656_718438_B3182DB9 
-X-CRM114-Status: GOOD (  16.03  )
+X-CRM114-CacheID: sfid-20250901_223022_804641_8E6F2C07 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,19 +85,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 27, 2025 at 05:56:33PM +0200, Sven Peter wrote:
->> Do you want to merge this through the apple SOC tree?  If so:
->>
->> Acked-by: Christoph Hellwig <hch@lst.de>
->>
->>
->
-> I don't think that's necessary since there are no build time dependencies 
-> but if you want to I can take it through there.
+Add bootph-all property to the USB0 PHY controller node to make it
+available during all boot phases. This is required for USB DFU boot.
 
-Merging it through nvme sounds fine as well, I just through up
-grabbing everything together would be easier.  I also noticed there's
-another Apple hw enablement series that touches nvme, so I guess both
-should go through the same tree?
+Signed-off-by: Hrushikesh Salunke <h-salunke@ti.com>
+---
+ arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+index bceead5e288e..434d30ce8916 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+@@ -734,6 +734,10 @@ usb0_hs_ep: endpoint {
+ 	};
+ };
+ 
++&usb0_phy_ctrl {
++	bootph-all;
++};
++
+ &usbss1 {
+ 	status = "okay";
+ };
+-- 
+2.34.1
 
 
