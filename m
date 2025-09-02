@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66058CA0FFE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 16:10:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D647ACA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 16:12:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VQGo8mSpNdawdXK5gcjr//W/UJwwByVl1T2RsevJCv8=; b=lcKgUC9HUUYAS4DQsDICKKQBkq
-	2FLvjCw20ZGxscR8+gTS29K14JpZzBLrcOOOuAlzHdepQhuB24ctFvAMfqvcyeoevhY6kJTknWAg5
-	GWYEhvFb2CvQN9q84M3Ce75ZK1/w9yKR5BQyGvSZm3UtZOs8GHfEpkEgYygnjCsEW7/UVd3qUQi6G
-	Fo5rvmuAh8eWMTCG+5HG6dodVprg86r25V/7N1MQmVZU0qh4yzCz3tJm4beH1z5DNoHidt4Ozyv5d
-	MZoJumZirUiVXTjKw7gryGoj6cUKj0KGjf8UprKGHNpoiWdwj6FeFDGqWdamfxr88J9MynwXGQ3h9
-	lGx78Pgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Sua+Wy3SP7kAmiXFJighCnAtG/CYHXm1C30k1V9F5IU=; b=TWjMUGBw2RLHYB0Mng8wU4pEi/
+	kqeO+5+D1790ioyF8VMCkqN5MA+Zwy148gGeif9yN/f8fWI3DBfUhO7ybX6SL90EKYw9PWe/Fu2ye
+	uIVz2ignru35NuVtBIP4A6W3YwtlXI4XcIgHlB1LU3cTVGDE5qLpuf7QV8Z7fCUik0Pvai81KrIEG
+	7idc+qf599aI0AmbO4B9lBdaxNVL7NaFaWisjkW1H0HuEG0dy04iCBFjz+6gsJRpksyy912fPdSxj
+	j0HrdSSvvNJpcJDTTfQ3FHspFCGgPRGGfC5o+sKzf5fl3TWwLIQpO3fRRm3uaqK1FtG291pjFuMF1
+	rmzcW3GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utTa5-00000000sQ7-3Rni;
-	Tue, 02 Sep 2025 16:10:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1utTcm-00000000tH9-2m0O;
+	Tue, 02 Sep 2025 16:12:48 +0000
+Received: from mout.web.de ([212.227.15.3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utQ1v-0000000HC9n-2eeq
+	id 1utQ3c-0000000HCna-14TG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 12:22:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CF5D640BFF;
-	Tue,  2 Sep 2025 12:22:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3778AC4CEF9;
-	Tue,  2 Sep 2025 12:22:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756815750;
-	bh=WNvwZbGhhRwiEb2NPZN3SCJ15SAxBEIHxjUM1lFStyY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YjxLry+kEeJUnxV6320vUXHUgAtysOdDe1jnnqQakBn7XHkLy8IoCYiz8XaXyarnp
-	 bWqO7UB1DMQbu6g/GNEI/9c683OShl1Tm5ybjq3HTAJ0dXNzeBgLPPvO/SE7jgcA6c
-	 on9jzYxcdrpIA8yMU+NHVWtno+Lr2A3a7ziQdUWLsRYUGyi58FjZMBnWq/r9qjRrVt
-	 moZAi2g3uJsCbVOi+L0c9EDWk68EAcF57Jl4mdwJ2fRqfB31D0uMEk7wcBGy/tp+kM
-	 ZrDCqn2GQow2szfYXf3yfR8Z0EfenYPsDinvAIX+5UA855oKs6nUJqJgTB/whvPG1t
-	 ttqlMwa6eVV5A==
-Date: Tue, 2 Sep 2025 14:22:28 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Liu Ying <victor.liu@nxp.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Hui Pu <Hui.Pu@gehealthcare.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, Andrew Morton <akpm@linux-foundation.org>, 
-	Zijun Hu <quic_zijuhu@quicinc.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Subject: Re: [PATCH v2 1/9] list: add list_last_entry_or_null()
-Message-ID: <20250902-speedy-friendly-alpaca-f80709@houat>
-References: <20250801-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v2-0-888912b0be13@bootlin.com>
- <20250801-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v2-1-888912b0be13@bootlin.com>
- <aJJ9ttmL7wiw41fY@smile.fi.intel.com>
- <20250814183609.3788a6df@booty>
- <aKXRHAyfPHPpZmMs@smile.fi.intel.com>
- <20250902135709.19e1ef54@booty>
+	Tue, 02 Sep 2025 12:24:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1756815838; x=1757420638; i=markus.elfring@web.de;
+	bh=Sua+Wy3SP7kAmiXFJighCnAtG/CYHXm1C30k1V9F5IU=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=XG/9C8vD5dCbG/24CuybjYnCt2boqaSep2tSNL7czIHZLx0I1umsXGJqErv8r3zB
+	 /cI9eElvV9qb37S6yOjgVnxWmupmrTfZkGJ+Qui0DRhhiYO0sukcgFRDhfk3aSPnG
+	 ZP89RP3QjiJLItXWMNHEvcaH7ZpU7NR73EaVTqaRxC1IH99ipwch99CnCl46Wgves
+	 XgBdgR93+WRXw+mFShpphFfK5chLieHMXRuquw82Arbq7qhay/dMUA+P75vBOvs6G
+	 TRqndVuYI0UnL7o3vEc3o0JeybQHewkC1YjbVn0iug4bUFmjJfISYv810q2Y5XDks
+	 Qzh8D8i+tNH0X32zAA==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.69.184]) by smtp.web.de (mrweb006
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MdO9E-1uK5Ec1sB6-00dX1r; Tue, 02
+ Sep 2025 14:23:58 +0200
+Message-ID: <bad20725-5b0d-4c60-9ccf-ef4fbaf112eb@web.de>
+Date: Tue, 2 Sep 2025 14:23:56 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="ha3ss3lic4lbxxde"
-Content-Disposition: inline
-In-Reply-To: <20250902135709.19e1ef54@booty>
+User-Agent: Mozilla Thunderbird
+To: Miaoqian Lin <linmq006@gmail.com>, linux-acpi@vger.kernel.org,
+ bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: stable@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
+ Hanjun Guo <guohanjun@huawei.com>, =?UTF-8?B?SsO2cmcgUsO2ZGVs?=
+ <jroedel@suse.de>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Robin Murphy
+ <robin.murphy@arm.com>, Shameer Kolothum <shameerkolothum@gmail.com>,
+ Sudeep Holla <sudeep.holla@arm.com>
+References: <20250828112243.61460-1-linmq006@gmail.com>
+Subject: Re: [PATCH] ACPI/IORT: Fix memory leak in iort_rmr_alloc_sids()
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20250828112243.61460-1-linmq006@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:TU6Q6FqwZr/t71ONHgz9hFpcbuhilBZ/4QzUZ4p73jeIkVOhUKj
+ pO+AytZ5q28fBJK3L5uD2/oTXhPJg0w2JHPokYY7ski/0yvpY5X5xxS8pBnYeJfaPuLDHl9
+ D0ELd5SQFISLRPnQDwIKt0akq5rVDhA+ja/EFFZKkSod+C21xHMICQ2KPFtQadCenWbRwap
+ jeO1nFgc8lkGzbio+nQ4w==
+UI-OutboundReport: notjunk:1;M01:P0:FSnlaNfDKvM=;5uu+LsKHb4IWws/zOdfoIwffpSl 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 nW25+LD5CAKAY34ZPdx
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_052231_716613_C6C612A4 
-X-CRM114-Status: GOOD (  30.54  )
+X-CRM114-CacheID: sfid-20250902_052416_581569_DD48EE59 
+X-CRM114-Status: UNSURE (   6.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,79 +88,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> If krealloc_array() fails in iort_rmr_alloc_sids(), the function returns
+> NULL but does not free the original 'sids' allocation. =E2=80=A6
 
---ha3ss3lic4lbxxde
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 1/9] list: add list_last_entry_or_null()
-MIME-Version: 1.0
+See also:
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Do=
+cumentation/process/submitting-patches.rst?h=3Dv6.17-rc4#n94
 
-On Tue, Sep 02, 2025 at 01:57:09PM +0200, Luca Ceresoli wrote:
-> Hello DRM maintainers,
->=20
-> On Wed, 20 Aug 2025 16:43:56 +0300
-> Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
->=20
-> > On Thu, Aug 14, 2025 at 06:36:09PM +0200, Luca Ceresoli wrote:
-> > > On Wed, 6 Aug 2025 00:55:02 +0300
-> > > Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
-> > >  =20
-> > > > On Fri, Aug 01, 2025 at 07:05:23PM +0200, Luca Ceresoli wrote: =20
-> > > > > Add an equivalent of list_first_entry_or_null() to obtain the las=
-t element
-> > > > > of a list.   =20
-> > > >=20
-> > > > Acked-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com> =20
-> > >=20
-> > > Thanks Andy!
-> > >=20
-> > > However I'm not sure when and where this should be applied.
-> > >=20
-> > > Except for this one patch, all patches in the series are for
-> > > drm-misc-next. Also, patch 1 is currently not needed by any other
-> > > series AFAIK.
-> > >=20
-> > > Based on the above, is it correct to assume that the whole series can
-> > > be applied on drm-misc-next? (when other patches will have a
-> > > R-by/Ack-by of course)
-> > >=20
-> > > Also, is Andy's A-by enough to apply this patch? =20
-> >=20
-> > The list.h is common for many, I think going via DRM with my Ack is eno=
-ugh
-> > based on the Git history of my changes in this file. But if you want mo=
-re
-> > reliable source, get an Ack from Andrew Morton.
->=20
-> While applying this patch with dim on drm-misc-next, dim push-branch
-> failed because:
->=20
->   dim: ERROR: cb86408b1fc2 ("list: add list_last_entry_or_null()"): Manda=
-tory Maintainer Acked-by missing., aborting
->=20
-> Looking at the dim code, it is looking for a Reviewed- or Acked-by from
-> people listed by `scripts/get_maintainer.pl --no-git-fallback -m --nol
-> --norolestats`. but that command returns an empty string, so it will
-> never allow me to push.
->=20
-> How can I get that commit pushed to drm-misc-next?
 
-Adding a MAINTAINERS entry for it would be nice too
+=E2=80=A6
+> ---
+> This follows the same pattern as the fix in commit 06615967d488
+> ("bpf, verifier: Fix memory leak in array reallocation for stack state")=
+.
+=E2=80=A6
 
-Maxime
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/=
+?h=3Dv6.17-rc4&id=3D42378a9ca55347102bbf86708776061d8fe3ece2
 
---ha3ss3lic4lbxxde
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaLbhewAKCRAnX84Zoj2+
-dkQBAYDszpV6SGYWBTBgJCvIUpiseT/exARuDvzdOQmtFKiQnfCnA6jnGgP8dcxi
-1t81QSABfjclCtf2qV5ucKcKjfmq3i46LSX4vnLy8fnGVrq09f1F1r8yuY2lSQs0
-Cp9wkfBFxA==
-=G+6D
------END PGP SIGNATURE-----
-
---ha3ss3lic4lbxxde--
+Regards,
+Markus
 
