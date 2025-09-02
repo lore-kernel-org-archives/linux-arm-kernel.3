@@ -4,124 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85DDFCA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:23:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF4A3CA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 19:26:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sRGhf8kAlbSiuxyvXspVnjIJN8LVC+9FDmXMj1LfzlM=; b=v6hnKivvVjW2iDben9982+InwQ
-	uFXlw4kSwxBT6MLC4cpqv6r2+IsvYp4u1VykHmE+nkn0k4cVZKfZtRRQHIeZjaMvq7ydRCl5S6faV
-	ZEiBByNUJoR6T+EM5H5bYCEURUcZ9wHyMoelFkLHxMyUJtlkkAo7TOURjt3o4F49zwKvJAWNJ05HP
-	hTyBypKOfHwj6Ka1J5EA9X9+fryba8KfA3SgM1uhimqCTZHqKp4jdnj3uwfGnd1L1cF7iUWldfOO9
-	3fnUh5Mk09PNCnyTd2MWWF9jRpRntnSDZgNoNrgWzuXgq89nWqh3QS2qUrgBswu87kzfcJWLQ7wT1
-	L/OZ5PiA==;
+	bh=fhclhhAN+rBOBw5D126RaMzi1C7zOpsEM0rG6HQAxYs=; b=axzhpXV04SxbqFq4gca2xJWx5J
+	ZdET/REFvuaIpJyLJKWCKSgXan9oTRS68mtDFL/m08Kw/kPe5HrnFjNv10XJBxbLkiClFw66jspTU
+	C3+jXBryLbbBNFDjwqAQn/fTiv03blcaP+H9bKVpiJ4ubjGMqV7f/OcESXHAzfl+51AXYHrqB66Hi
+	Vwh1exdKi0CakKss6YhibK3WG7O7cpWvxY1yDDXDOoBx0YcyoypR4Ak8WujoQgEDtOVUI/bmGUgh5
+	7Tvsfvd0+4DX7Ux8rqqtIR9z/FSOq14d+kFLtiGHOBU1nzYalxgJYMDV3iI2IBLlw0uG2qrsSMemm
+	1b+xr+Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utWbU-00000001hlU-4AlE;
-	Tue, 02 Sep 2025 19:23:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1utWeB-00000001iM7-3b1f;
+	Tue, 02 Sep 2025 19:26:27 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utTSk-00000000qB5-1XON
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 16:02:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 110784055A;
-	Tue,  2 Sep 2025 16:02:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7C8AC4CEED;
-	Tue,  2 Sep 2025 16:02:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756828945;
-	bh=lB5D9KsRYs7OgNcYyTVZgRLKvveUEdtkvlhi3ouxmPQ=;
+	id 1utTV7-00000000qsu-3pBN;
+	Tue, 02 Sep 2025 16:04:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1756829092;
+	bh=ovWdbmcLBmA33JBDYg84OE2PqHzIKb6iNt+T6eoF2kw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=F97Q3CjCNHrjLkc3GoenPkugZEIaxXX9uHGFp12FamsDGTJNfPBdu27cqKcSHxB7U
-	 cXfSZJW/NxgsyZXijUvQZ6jByb4hxmen47YCp+gg5+UAtMdkaIHfbR/spG3AiaXMvQ
-	 JVa266jJh/yU2N+ejEnVOVG++SQsmojoVwp6EteNxU32OhegVQEhzGYcmKoWhBI2Yh
-	 f8RVRersUBQSJTDHNvX/WhBl9nrrpgYvlBRLHxhEAbVBRT32rfvGHVf8DgqoiX214h
-	 yOFBc8FbBremLDrp69OfnInvpoKlWrbcwGgha5kE+rLtl4y99Zm/PJAMPVXCO2xmlS
-	 KXRSkkl8f6QsA==
-Message-ID: <4806391a-1040-4baf-b996-91f1f79fbd70@kernel.org>
-Date: Tue, 2 Sep 2025 18:02:17 +0200
+	b=FUUfI3WXYc1B8QJ6WeBpPvR0+1cMVN778Sl29SAmhAoSko8l+RH/Bxm0WuqqyJJW1
+	 lrMAWYbfZ80CGBKTAcbSG/5phmbYDtRElhkRWQsS9uubdqJ8wRB8MMfG+ZuqR0EuH5
+	 cc4hQYsR8yFJX4o5sAEOP2F17NHZFKm/Loaa7WpvuUrKY1fNLRA9RgbCkxZUyWSGld
+	 ZMvRimQ+t3ZM3ANHSvPz18MV+Wjp08FasY9xoJR+TY+A4eE9FUKLI9OF72e5kPK8jO
+	 J7wJyFTpc76oxwxhQbs+xMKsWOMZ1oUXQNvGMP9PG9O5KdeNyGwlOdVxEehCPDsBh3
+	 4dG8NXOEAcTIg==
+Received: from [192.168.1.90] (unknown [82.79.138.60])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5E63E17E131D;
+	Tue,  2 Sep 2025 18:04:51 +0200 (CEST)
+Message-ID: <fc9baa6d-ed38-478b-9338-8a76986639da@collabora.com>
+Date: Tue, 2 Sep 2025 19:04:50 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 1/4] dt-bindings: net: dwmac: Increase 'maxItems'
- for 'interrupts' and 'interrupt-names'
-To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Russell King <linux@armlinux.org.uk>,
- Giuseppe Cavallaro <peppe.cavallaro@st.com>,
- Jose Abreu <joabreu@synopsys.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>, linux-renesas-soc@vger.kernel.org,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, Biju Das <biju.das.jz@bp.renesas.com>,
- Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20250902001302.3823418-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20250902001302.3823418-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20250902-spirited-congenial-stingray-f8aff7@kuoka>
- <CA+V-a8uy++vzYh5956X2Dpv2Low5uAK+FRTONaP4Nc3FMty6Bw@mail.gmail.com>
+Subject: Re: [PATCH 0/2] Introduce BACKGROUND_COLOR DRM CRTC property
+To: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, Matt Roper <matthew.d.roper@intel.com>
+References: <20250902-rk3588-bgcolor-v1-0-fd97df91d89f@collabora.com>
+ <50e3f25c-f4e1-40f6-8e36-23193863f1ee@foss.st.com>
 Content-Language: en-US
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <CA+V-a8uy++vzYh5956X2Dpv2Low5uAK+FRTONaP4Nc3FMty6Bw@mail.gmail.com>
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <50e3f25c-f4e1-40f6-8e36-23193863f1ee@foss.st.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_090226_447118_D1A43BF7 
-X-CRM114-Status: UNSURE (   7.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250902_090454_109141_D715F129 
+X-CRM114-Status: GOOD (  14.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,17 +81,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/09/2025 17:43, Lad, Prabhakar wrote:
+Hi Raphael,
+
+On 9/2/25 4:19 PM, Raphael Gallais-Pou wrote:
 > 
->> You also need to constrain other devices, because now one Renesas
->> binding gets 19 interrupts without any explanation. Please rethink how
->> you split your patches...
+> 
+> On 9/2/25 11:27, Cristian Ciocaltea wrote:
+>> Some display controllers can be hardware-configured to present non-black
+>> colors for pixels which are not covered by any plane (or are exposed
+>> through transparent regions of higher planes).
 >>
-> I see you have already taken care of this, thank you.
+>> The first patch of the series introduces the BACKGROUND_COLOR DRM
+>> property that can be attached to a CRTC via a dedicated helper function.
+>> A 64-bit ARGB color value format is also defined and can be manipulated
+>> with the help of a few utility macros.
+> 
+> Hi Cristian,
+> 
+> Thanks for this work ! :)
+> 
+> FWIW I sent a series also based on Matt's work four years ago:
+> https://lore.kernel.org/dri-devel/20210707084557.22443-2-raphael.gallais-pou@foss.st.com/
+> 
+> IIRC at the time there was some questions around the pixel format used for the
+> property, and non-opaque color vs alpha pre-multiplication.
+> Mind that on STM32MP platforms alpha channel for the background color is not
+> supported.
+> 
+> Hope the thread can bring some insights.
 
-No, I am not talking about that. I am talking about
-renesas,rzv2h-gbeth.yaml, which with this patch gets 19 interrupts.
+Thanks for pointing this out, I will consider it for v2.
 
-Best regards,
-Krzysztof
+Regards,
+Cristian
 
