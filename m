@@ -4,145 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79152CA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 03:51:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9F18CA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 03:53:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u6pXxYvTpFhxbjh80IOUWJOQ14f2Hl+NCOsXpDoJFW0=; b=qMtLedfUfzNvBtzYPCgatQyldj
-	ZBPV53nAT5EICg7RayJYG/YPQ+Zv2nsTAF/ipO5Y0ahuDUGvFU3HENap5WAytxhptSbBmWf9J4ARC
-	8kByY5Q/anZJc2KzF8w/3NX0rtTVakPtRNfzKcIov1DLhSMw9UbfHjxKmsK3BRzDf3Su0ATzFrdix
-	nSR/F5OjZg1yNI22T6ZtSz/qNOg6YfYk7gRVObv4IaapMs+PXsWw1wKTZECAQOTmOFIt6BfNexYVX
-	GiQsbAvwXRjhdVJv0PxkCYwhPmjad3rUmmAGXOh1in4iYUjop23M5LSZhO4fs7Knbb45UHlzVt+xC
-	oosBaNxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XY0eS2Pmvb1kN1KjGDYSxKu5k6JqjgX3BryZI02Dl6k=; b=rwvTg1JdSKZ4QUGWBKqEyzF/M3
+	MsTvixHVprpLSzOyO0rW+gIOUY9tqplMEhvoQH0ONE/8OmfiH9jmi6+8fRvSX6oIpT55fgivNvIqp
+	vk8/MVO67tyf2MxFcYjzFp1bzZzl1Zh8hJcyqNJiuRHTd+RWFK0OmOywsDlg1fhYV6TdwKZ9hZBU4
+	y0PxARnlPhxuTazfoJYifKAcnuT//1fCDvVQAnjOwY0xRjbndk3EEJXIG9bNWYSfXdC08r6svwDo5
+	X4rUo7MUA8M+XZZoUQaCkuBtWPgOphiS7Tc1/Ulsba8MGiVpxp0JK08xxNnrnjNMjTXeyvyOupaZh
+	pTsI9Kdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utI2p-0000000F6Bb-3sZW;
-	Tue, 02 Sep 2025 03:50:55 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1utI5X-0000000F6uH-0Gw8;
+	Tue, 02 Sep 2025 03:53:43 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utHxu-0000000F5C7-1oOh
+	id 1utHzj-0000000F5Xk-2uZs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 03:45:51 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5822S6ek030596
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 2 Sep 2025 03:45:49 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=u6pXxYvTpFhxbjh80IOUWJOQ
-	14f2Hl+NCOsXpDoJFW0=; b=Ev9pT7Vohd0UOB4LnTx/IZrhMtHulcxpfjHQMKUB
-	5u/wMkziB4dzmBnAFLVx58QV1K8TDsrSiJfyBGOBWYiQCEKZkU6OUm0KbPHN4zlW
-	ejptTarpiOyuDXmL03ukZbF4K1AfSDOP9b5cojzU7kGGn+BClV04TEWmHQeKybXe
-	ds5k7eFix+bNnbuRSHptuH4a12WISUyNCf1IzRCib77WLOF7AjnR/HFg1ZO2y8zh
-	HTnj8P/tr1VD6TDZIdCwA7tXAbgNG6NGr+0S9cAzaFa8+4JNa6K3med4PBeaeBLO
-	aX+/UhkaHqV3kpC4Zc8Fud+ioRUwYoPqZlpIaooTP8WLUQ==
-Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48ura8pbsf-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 03:45:49 +0000 (GMT)
-Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-72108a28f05so5224036d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Sep 2025 20:45:49 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756784749; x=1757389549;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=u6pXxYvTpFhxbjh80IOUWJOQ14f2Hl+NCOsXpDoJFW0=;
-        b=YXLVOAqHs2ZdwH9plXzs8ONWyJecsSuFHBioqMJJlMK0oJ5Vy61wGFI13rLloqXeWr
-         I8mgT2WXXzWqNlSKcJDsWW2xEFPzCHJfJNfVNKrStffDfVmJD6DQToz44tHR4pKW7yET
-         7uChnM43nm/RW06pjaSvPUsn2SkI6bsR+j6Q1sZLa4JyMDZM733HkOg9UMvTH6azhv7Y
-         vpXKSmHtjwWyieobpJ/2SgC5rVJSc3sXmT25ZqP+U8Jmp+6aLndKfpCl0/wWKwGSeerN
-         s5bgvjsIkpCxJI2SUs7IjYXeMYRvLSe8BXbKR6/pYgx/SVr7O81MWgkssqyib2gv9uf1
-         2WIg==
-X-Forwarded-Encrypted: i=1; AJvYcCXlMhxUfLU3oLxLifvMdcj+UPV6NoNWLzzEA2l50p+X5NcIEk8yupK1sy/zLjKIMxuztrk6OoepWNPwt2i5Ht3D@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVAJ90gUQS7Ofj4mZTsjcnXabEKLL8gIsOJYtnVxYCStSL4702
-	Vz45t7K05qTmv6DXegcHCEqM029Zs7r5H0QMyNKLep5jAWiN6Ny23Zj0U9AJ4mXKkqZrwLbT0nB
-	oLfKhg6ge1/MPoC4DkhAEuVUIknIxq4pUOgb8lnS7BzGRSSOrwYqd1Z5tmDmYI7rMATTFrd8iaj
-	0hWg==
-X-Gm-Gg: ASbGnctSaeLACtfIOLACm+vIWXUaV0PpMDjoq0iWE0bs3dH6mdbTnmo46pq2LV4odA2
-	zbMD9s81U9wY/qLduM/TYc7GTPSmsZYfJNeyNyS20HpwhJpf8tLBbwfi7Ku1Qarnhx+fDGHfda6
-	fliapr8Dq4fEnb70C8FqBRHeEoi1g8cj3AWxfAccj2ml38u/0Ju1mGg1kUGrC6vWo0gDFXwojxj
-	bwNp/vu3NcaAMr3Oz8sNvgImm9APaLA/P8E3cU2YIY5qswMi1+Q6VjJEIdKpGvRsmy/F1XPSmVW
-	8R0Mz2HuB60PhD/edNRbvpFjHYxH3G5vKLt8Di4RkeZElxcZJ0XfyY+xTxAsbtUif81U5ng3f/l
-	dHRgbyDpNJCN2K87WujYpA+QPdpgpM+cOwSLzf9N/AQA+SejRBg+n
-X-Received: by 2002:a05:6214:414:b0:70d:eb6d:b7f0 with SMTP id 6a1803df08f44-70fac700c86mr114372196d6.10.1756784748534;
-        Mon, 01 Sep 2025 20:45:48 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHW9DgkBw+MvElYTBWkwujyNrejM+p6uDFpj7XgGpJNMn2Ua2wxQ/b8FTcUSXpCO+uXL3IIqQ==
-X-Received: by 2002:a05:6214:414:b0:70d:eb6d:b7f0 with SMTP id 6a1803df08f44-70fac700c86mr114371806d6.10.1756784747861;
-        Mon, 01 Sep 2025 20:45:47 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-560827900absm337975e87.66.2025.09.01.20.45.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Sep 2025 20:45:46 -0700 (PDT)
-Date: Tue, 2 Sep 2025 06:45:44 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Daniel Stone <daniel@fooishbar.org>,
-        Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Sandy Huang <hjc@rock-chips.com>,
-        Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>,
-        Andy Yan <andy.yan@rock-chips.com>, Chen-Yu Tsai <wens@csie.org>,
-        Samuel Holland <samuel@sholland.org>,
-        Dave Stevenson <dave.stevenson@raspberrypi.com>,
-        =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>,
-        Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-        Liu Ying <victor.liu@nxp.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
-        Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev,
-        linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org
-Subject: Re: [PATCH v3 00/11] drm/connector: hdmi: limit infoframes per
- driver capabilities
-Message-ID: <voknqdv3zte2jzue5yxmysdiixxkogvpblvrccp5gu55x5ycca@srrcscly4ch4>
-References: <20250830-drm-limit-infoframes-v3-0-32fcbec4634e@oss.qualcomm.com>
- <CAPj87rNDtfEYV88Ue0bFXJwQop-zy++Ty7uQ9XfrQ2TbAijeRg@mail.gmail.com>
- <57ekub6uba7iee34sviadareqxv234zbmkr7avqofxes4mqnru@vgkppexnj6cb>
- <20250901-voracious-classy-hedgehog-ee28ef@houat>
+	Tue, 02 Sep 2025 03:47:46 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.235])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4cGBX56wp5zKHN7f
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  2 Sep 2025 11:47:33 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.128])
+	by mail.maildlp.com (Postfix) with ESMTP id CB6561A0DB8
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  2 Sep 2025 11:47:33 +0800 (CST)
+Received: from [10.67.108.244] (unknown [10.67.108.244])
+	by APP4 (Coremail) with SMTP id gCh0CgCn8IzUaLZou5poBA--.16810S3;
+	Tue, 02 Sep 2025 11:47:33 +0800 (CST)
+Message-ID: <cc6eb973-d82b-4afc-83fb-a2c28cc79d36@huaweicloud.com>
+Date: Tue, 2 Sep 2025 11:47:32 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250901-voracious-classy-hedgehog-ee28ef@houat>
-X-Proofpoint-ORIG-GUID: 2ArtjV0TdCVGwh6Y2_pz7iuV_xOELAoW
-X-Proofpoint-GUID: 2ArtjV0TdCVGwh6Y2_pz7iuV_xOELAoW
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODMwMDAyMCBTYWx0ZWRfX26CS6rwlLy2r
- 42Bw1cRH+nUeZLQ3w0LrSrS8tpkMPjDl84I9hfY/o6z57e56mFzYMWa5CpU9+8T1WxBFluyE3cz
- MuQUjFNfQLwOeX+nIZkyiELHZQr+vYojbuiAItLX33Sg4Q3bYMpVNJlor6uNnKuaCglZxpOcWYf
- vodvjK7SNujpbDIm+mIJjEZrZYBv6XvQbD8+CiB+2L4FLu2Ude0f/5crj9QGUmHBaC6T6llSHhr
- lxd2aXqpOrVv8FmftFfj8UDM+4DTKoYmO3ai7cTsAyu4dukcL+ReLSpLYKBDneL9dnqQcylW9eA
- /nFi6OLjZNId0jWd+JLpoRvE74DXE4yhlEe/wEjaaLdyGKIvOwSIHXvcKkuncba7PUIqqQnSbme
- nVKAyO+k
-X-Authority-Analysis: v=2.4 cv=VNndn8PX c=1 sm=1 tr=0 ts=68b6686d cx=c_pps
- a=UgVkIMxJMSkC9lv97toC5g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=yJojWOMRYYMA:10 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=pHNJB9hyKJ2XXRMnjhQA:9
- a=CjuIK1q_8ugA:10 a=1HOtulTD9v-eNWfpl4qZ:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-02_01,2025-08-28_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 spamscore=0 impostorscore=0 malwarescore=0 bulkscore=0
- clxscore=1015 adultscore=0 priorityscore=1501 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508300020
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] tracing: Fix tracing_marker may trigger page fault during
+ preempt_disable
+Content-Language: en-US
+To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
+ Steven Rostedt <rostedt@goodmis.org>
+Cc: mathieu.desnoyers@efficios.com, linux-kernel@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>
+References: <20250819105152.2766363-1-luogengkun@huaweicloud.com>
+ <20250819135008.5f1ba00e@gandalf.local.home>
+ <436e4fa7-f8c7-4c23-a28a-4e5eebe2f854@huaweicloud.com>
+ <20250829082604.1e3fd06e@gandalf.local.home>
+ <20250902005645.8c6436b535731a4917745c5d@kernel.org>
+From: Luo Gengkun <luogengkun@huaweicloud.com>
+In-Reply-To: <20250902005645.8c6436b535731a4917745c5d@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: gCh0CgCn8IzUaLZou5poBA--.16810S3
+X-Coremail-Antispam: 1UD129KBjvJXoWxurW8tF17XF1xCr4UJry3XFb_yoWrGr4xpr
+	yfKa9rKF45X34jywsFvw10qryUtr4UXry8Wr1kGF18W34q9rn8XFWxKw48uFWUWr9rJw1S
+	yw4UXr9xWr15Za7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUymb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I
+	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
+	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
+	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vI
+	r41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8Gjc
+	xK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0
+	cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8V
+	AvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E
+	14v26r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x07UAwIDUUUUU=
+X-CM-SenderInfo: 5oxrwvpqjn3046kxt4xhlfz01xgou0bp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_204550_591124_459024FE 
-X-CRM114-Status: GOOD (  51.54  )
+X-CRM114-CacheID: sfid-20250901_204744_090182_C7BF3BAC 
+X-CRM114-Status: GOOD (  23.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,79 +92,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 01, 2025 at 09:07:02AM +0200, Maxime Ripard wrote:
-> On Sun, Aug 31, 2025 at 01:29:13AM +0300, Dmitry Baryshkov wrote:
-> > On Sat, Aug 30, 2025 at 09:30:01AM +0200, Daniel Stone wrote:
-> > > Hi Dmitry,
-> > > 
-> > > On Sat, 30 Aug 2025 at 02:23, Dmitry Baryshkov
-> > > <dmitry.baryshkov@oss.qualcomm.com> wrote:
-> > > > It's not uncommon for the particular device to support only a subset of
-> > > > HDMI InfoFrames. It's not a big problem for the kernel, since we adopted
-> > > > a model of ignoring the unsupported Infoframes, but it's a bigger
-> > > > problem for the userspace: we end up having files in debugfs which do
-> > > > mot match what is being sent on the wire.
-> > > >
-> > > > Sort that out, making sure that all interfaces are consistent.
-> > > 
-> > > Thanks for the series, it's a really good cleanup.
-> > > 
-> > > I know that dw-hdmi-qp can support _any_ infoframe, by manually
-> > > packing it into the two GHDMI banks. So the supported set there is
-> > > 'all of the currently well-known ones, plus any two others, but only
-> > > two and not more'. I wonder if that has any effect on the interface
-> > > you were thinking about for userspace?
-> > 
-> > I was mostly concerned with the existing debugfs interface (as it is
-> > also used e.g. for edid-decode, etc).
-> > 
-> > It seems "everything + 2 spare" is more or less common (ADV7511, MSM
-> > HDMI also have those. I don't have at hand the proper datasheet for
-> > LT9611 (non-UXC one), but I think its InfoFrames are also more or less
-> > generic).  Maybe we should change debugfs integration to register the
-> > file when the frame is being enabled and removing it when it gets unset.
-> 
-> But, like, for what benefit?
-> 
-> It's a debugfs interface for userspace to consume. The current setup
-> works fine with edid-decode already. Why should we complicate the design
-> that much and create fun races like "I'm running edid-decode in parallel
-> to a modeset that would remove the file I just opened, what is the file
-> now?".
 
-Aren't we trading that with the 'I'm running edid-decode in paralle with
-to a modeset and the file suddenly becomes empty'?
+On 2025/9/1 23:56, Masami Hiramatsu (Google) wrote:
+> On Fri, 29 Aug 2025 08:26:04 -0400
+> Steven Rostedt <rostedt@goodmis.org> wrote:
+>
+>> [ Adding arm64 maintainers ]
+>>
+>> On Fri, 29 Aug 2025 16:29:07 +0800
+>> Luo Gengkun <luogengkun@huaweicloud.com> wrote:
+>>
+>>> On 2025/8/20 1:50, Steven Rostedt wrote:
+>>>> On Tue, 19 Aug 2025 10:51:52 +0000
+>>>> Luo Gengkun <luogengkun@huaweicloud.com> wrote:
+>>>>   
+>>>>> Both tracing_mark_write and tracing_mark_raw_write call
+>>>>> __copy_from_user_inatomic during preempt_disable. But in some case,
+>>>>> __copy_from_user_inatomic may trigger page fault, and will call schedule()
+>>>>> subtly. And if a task is migrated to other cpu, the following warning will
+>>>> Wait! What?
+>>>>
+>>>> __copy_from_user_inatomic() is allowed to be called from in atomic context.
+>>>> Hence the name it has. How the hell can it sleep? If it does, it's totally
+>>>> broken!
+>>>>
+>>>> Now, I'm not against using nofault() as it is better named, but I want to
+>>>> know why you are suggesting this change. Did you actually trigger a bug here?
+>>> yes, I trigger this bug in arm64.
+>> And I still think this is an arm64 bug.
+> I think it could be.
+>
+>>>>   
+>>>>> be trigger:
+>>>>>           if (RB_WARN_ON(cpu_buffer,
+>>>>>                          !local_read(&cpu_buffer->committing)))
+>>>>>
+>>>>> An example can illustrate this issue:
+> You've missed an important part.
+>
+>>>>> process flow						CPU
+>>>>> ---------------------------------------------------------------------
+>>>>>
+>>>>> tracing_mark_raw_write():				cpu:0
+>>>>>      ...
+>>>>>      ring_buffer_lock_reserve():				cpu:0
+>>>>>         ...
+> 	preempt_disable_notrace(); --> this is unlocked by ring_buffer_unlock_commit()
+>
+>>>>>         cpu = raw_smp_processor_id()			cpu:0
+>>>>>         cpu_buffer = buffer->buffers[cpu]			cpu:0
+>>>>>         ...
+>>>>>      ...
+>>>>>      __copy_from_user_inatomic():				cpu:0
+> So this is called under preempt-disabled.
+>
+>>>>>         ...
+>>>>>         # page fault
+>>>>>         do_mem_abort():					cpu:0
+>>>> Sounds to me that arm64 __copy_from_user_inatomic() may be broken.
+>>>>   
+>>>>>            ...
+>>>>>            # Call schedule
+>>>>>            schedule()					cpu:0
+> If this does not check the preempt flag, it is a problem.
+> Maybe arm64 needs to do fixup and abort instead of do_mem_abort()?
 
-> > Then in the long run we can add 'slots' and allocate some of the frames
-> > to the slots. E.g. ADV7511 would get 'software AVI', 'software SPD',
-> > 'auto AUDIO' + 2 generic slots (and MPEG InfoFrame which can probably be
-> > salvaged as another generic one)). MSM HDMI would get 'software AVI',
-> > 'software AUDIO' + 2 generic slots (+MPEG + obsucre HDMI which I don't
-> > want to use). Then the framework might be able to prioritize whether to
-> > use generic slots for important data (as DRM HDR, HDMI) or less important
-> > (SPD).
-> 
-> Why is it something for the framework to deal with? If you want to have
-> extra infoframes in there, just go ahead and create additional debugfs
-> files in your driver.
-> 
-> If you want to have the slot mechanism, check in your atomic_check that
-> only $NUM_SLOT at most infoframes are set.
+My kernel was built without CONFIG_PREEMPT_COUNT, so the preempt_disable()
+does nothing more than act as a barrier. In this case, it can pass the
+check by schedule(). Perhaps this is another issue?
 
-The driver can only decide that 'we have VSI, SPD and DRM InfoFrames
-which is -ETOOMUCH for 2 generic slots'. The framework should be able to
-decide 'the device has 2 generic slots, we have HDR data, use VSI and
-DRM InfoFrames and disable SPD for now'.
+>
+>>>>> 	 ...
+>>>>>      # the task schedule to cpu1
+>>>>>      __buffer_unlock_commit():				cpu:1
+>>>>>         ...
+>>>>>         ring_buffer_unlock_commit():			cpu:1
+>>>>> 	 ...
+>>>>> 	 cpu = raw_smp_processor_id()			cpu:1
+>>>>> 	 cpu_buffer = buffer->buffers[cpu]		cpu:1
+> 	preempt_enable_notrace(); <-- here we enable preempt again.
+>
+>>>>> As shown above, the process will acquire cpuid twice and the return values
+>>>>> are not the same.
+>>>>>
+>>>>> To fix this problem using copy_from_user_nofault instead of
+>>>>> __copy_from_user_inatomic, as the former performs 'access_ok' before
+>>>>> copying.
+>>>>>
+>>>>> Fixes: 656c7f0d2d2b ("tracing: Replace kmap with copy_from_user() in trace_marker writing")
+>>>> The above commit was intorduced in 2016. copy_from_user_nofault() was
+>>>> introduced in 2020. I don't think this would be the fix for that kernel.
+>>>>
+>>>> So no, I'm not taking this patch. If you see __copy_from_user_inatomic()
+>>>> sleeping, it's users are not the issue. That function is.
+>
+> BTW, the biggest difference between __copy_from_user() and
+>   __copy_from_user_inatomic() is `might_fault()` and `should_fail_usercopy()`.
+> The latter is a fault injection, so we can ignore it. But since
+> the `might_fail()` is NOT in __copy_from_user_inatomic(), it is designed
+> not to cause fault as Steve said?
+>
+> Thank you,
+>
 
-But... We are not there yet and I don't have clear usecase (we support
-HDR neither on ADV7511 nor on MSM HDMI, after carefully reading the
-guide I realised that ADV7511 has normal audio infoframes). Maybe I
-should drop all the 'auto' features, simplifying this series and land
-[1] for LT9611UXC as I wanted origianlly.
-
-[1] https://lore.kernel.org/dri-devel/20250803-lt9611uxc-hdmi-v1-2-cb9ce1793acf@oss.qualcomm.com/
-
--- 
-With best wishes
-Dmitry
 
