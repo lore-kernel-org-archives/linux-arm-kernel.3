@@ -4,113 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F14D2CA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:42:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36C53CA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:42:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K/IIRX6cZqHveyVdK0XoeTwBR6D1RLXmC/fK5i3cAlQ=; b=h16NrVIG7BxGzevMArqT37WDtA
-	a68nMXc4mJMknmu8TIqkwO9TmaFxW+egSNL3VwGy4Dxu94ktqsobbbVJjguJz6stFvByiVkVMh76q
-	+bN7xWmZCBW60pHnJsMnxCY08P6GVhTvNB2mNREHQHhOpS8sB4u3wLOKRVj9JwpQA3cHmkn6S4IrS
-	NcHXkdXxtkfrDWYj09FVUJEojddxmPuDbFAB3SkREWModOTifdY+qvhuUsl4Xe+kRawFPA2iBHdHx
-	pcp5RUXQhtVwkr5Lgf9AScY5GoM+um/7JMzrJvbyz1uhFlVB6kNEaVrZvKZAz85wEcodTVLoOCel/
-	kqb5R3tA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dE+y6IouNTFh5LnCQS36Be2cwV132cRumEEcY15HKHQ=; b=Jm8D7o6o9Sw1NVmSFQ6JelOdjh
+	wn02m/979ZR7kWrqnopJBOm6CbkNCe7py4d2863/vZcay4tcNkm1KKXXsJJMCYQ168C52x9wLHqpc
+	7Eo4bBCZKUQbYFJcGd2nPVfWWqP2wh9EhDtlxQnkUh629f8uhGDE0q/YM9DgwinEIVNvl92G1ZRQs
+	WTsAr32lOs21dOO/HBbmEraHOE96hG0D7cUrm/3pthlhR0H51KnPqGzpH1/O6k2Vl1llTXvT2Vpe8
+	+EzjVzH3Jqz6BVxT9NuW7se79LdVvyGA5zHteozOs1ZlEfXG9xMJf4/3CtjZ0F/cWHqfVXi8/T5ut
+	8FkxZPyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utYlz-00000002ARS-3MdT;
-	Tue, 02 Sep 2025 21:42:39 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1utYm1-00000002ATk-3Iz1;
+	Tue, 02 Sep 2025 21:42:41 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utREY-000000006Js-3T4R
+	id 1utRJ8-000000008JS-2Omr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 13:39:40 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-24b28de798cso2850355ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 06:39:38 -0700 (PDT)
+	Tue, 02 Sep 2025 13:44:23 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-55f7cd8ec2cso2237460e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 06:44:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756820378; x=1757425178; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=K/IIRX6cZqHveyVdK0XoeTwBR6D1RLXmC/fK5i3cAlQ=;
-        b=KVuHgHw5SI5E8zox28TzjvsdpjdJq6ZvkarRx1vWLbZhUdqMASjUYCVfqAc9s+ETxA
-         /lEPr2768Lpc+5DrT61WJvVixkWB6LlSm0/6jtGaCoj3hIdcvbk/9yLuMoQ4bOgWNu20
-         YqTN9DsX+uW7X/4fMz0lDpO3AEzhzzynIyRcyDUXQ6G4/q4RAZnmJBP1iRBt4BJRprKD
-         ElA4Cy1hxRjNaL6xKMhvHpVU8I4FRrrR43PURsD5r47PQpyIULffcEZhgDrDy+tXHdbb
-         MFPUzYaPEUBHMCYD60cLZnUieW/WBJNuEkEwd4v6KOnIPBRIDMGxPOq/zAxpwooSIaLp
-         ppWg==
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756820661; x=1757425461; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:references:mime-version:in-reply-to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=dE+y6IouNTFh5LnCQS36Be2cwV132cRumEEcY15HKHQ=;
+        b=ym5GsOtnZBLAvK+xaEbThX+fBmntLvOmmxvb8k40RWiRkAV1CSDIfyleWHJUCwyImc
+         1hH2L2FswUFvYJ/VkLd2T++YoJqJYnBfUncixgbWBTmSoMXwXncb4RO2/XD99ZeD+TOF
+         puk2n5D/TWviIUnnjSNMHyLooDQfXZGXx061wIgOCIzvRkcpZL3T6WxDsVVbfJeZUzjx
+         07oNAmge0AzDWoDPxWIp+W76v92WyW/xZnmAFaWzFENP2qnTETuE+oU4cGkrhiWCwA2A
+         CQD59uXxt/w0HB8bjWW99DZaW9/PSKCqrIYmkdYyRijdE/kko6nuKdKJzixzu0dgvruo
+         HlaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756820378; x=1757425178;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=K/IIRX6cZqHveyVdK0XoeTwBR6D1RLXmC/fK5i3cAlQ=;
-        b=r9Tv53Y6k8ZnVk72Uhebv9QVqwfXVEktMFwf4yjiO11htq8HBE/L6A+1GwvPZcaL/a
-         ZMegWWDNKwxzQjbywWBiTxiHTmgPIMbQjV6rI3mlmO5RPpHRI1CgCvQOnoyXBRY2Is73
-         UPmyiZmWht90XsrcbetUllHlpp3kDjRm837w1Ch2XbfzjNBQC3CyRTNqXvU1jK+x4asx
-         T2QLDqYE02oGPDUScRW1vFquaVn1DwV5xhFuJjGBWloTVbS3JeMKH0FsR5kCWWFFFFD9
-         XgYmSbGJy31TSeXNhL6DBPcg/pDdLNrkwkSsJwhogpnvFG1gdnZkRbXZeVFKuqCEPXDy
-         T3mg==
-X-Forwarded-Encrypted: i=1; AJvYcCW/dQKAS53lm5WoXYBKN+ZjVlpylno3OEuux5V7GCFrC8QlqJJFf0rhoJkkHZ6ltpE11RDJ2bBBnotMllAYBMM4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzynu3eDg6mbsNUtwAS3HuIDJD4CKHtuzNX/i3Uj4Xrzqpqz1Ar
-	Ci7P3sWPLWlY9LE+wm7RphG9dxKClKAJPpG1qMmEWyRJffNXqEfjdL/e
-X-Gm-Gg: ASbGncuB6Re6MRLqqci8YxGIEb9utNqkjDLfr6XJUftx5FUIiZOEWsJBQPklJOIbkyZ
-	kpJyoQiiJSQyt/0nvWJMxsz8ZQjKfjGFy+yhQR0LWMcOkehrtYMh5hsB07HEFJobd2y5Dckp+4g
-	FMHNAviesa8zBqFJ18A6t8vklQcdq6jgZCOQgPnNVQq29bDWChzOrC1S3el5iSG2iH3ejiDAkv3
-	ulKrZtggY5ZccMqUyzXua8Au9+78bBeQP4Q0B/21KVzO2/Phw7SIBTtCQzg3LCfUI0RITrQZCA3
-	y6kFtFyDj29WqfjN3p9BDqP166CxF9Zca9aA/JP09eexzjkGd45vMEeNaIoeBrNvf+7EPSR5hKx
-	silBSV7WqGB1j5uTFYsqAxVpgjmzL0vGty9a1/n2Qu2qnF9UeZJ9ubIRnrdoJ8EsPrblqBfRi/t
-	M=
-X-Google-Smtp-Source: AGHT+IHGByeGR+KKpc9TABQ8v/iqUMkl7uHkPzP2VMOjxHn4SHTGndfvld/gXSzjgYNEmT1WtaMBIg==
-X-Received: by 2002:a17:903:384b:b0:245:f7f3:6760 with SMTP id d9443c01a7336-24944b20cbdmr139026075ad.55.1756820377704;
-        Tue, 02 Sep 2025 06:39:37 -0700 (PDT)
-Received: from kaiwan-dell-7550.. ([205.254.163.135])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-24afcbf0268sm33957805ad.8.2025.09.02.06.39.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Sep 2025 06:39:36 -0700 (PDT)
-From: Kaiwan N Billimoria <kaiwan.billimoria@gmail.com>
-To: tglx@linutronix.de
-Cc: Llillian@star-ark.net,
-	agordeev@linux.ibm.com,
-	akpm@linux-foundation.org,
-	alexander.shishkin@linux.intel.com,
-	anna-maria@linutronix.de,
-	bigeasy@linutronix.de,
-	catalin.marinas@arm.com,
-	chenhuacai@kernel.org,
-	francesco@valla.it,
-	frederic@kernel.org,
-	guoweikang.kernel@gmail.com,
-	jstultz@google.com,
-	kpsingh@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	mark.rutland@arm.com,
-	maz@kernel.org,
-	mingo@kernel.org,
-	pmladek@suse.com,
-	rrangel@chromium.org,
-	sboyd@kernel.org,
-	urezki@gmail.com,
-	v-singh1@ti.com,
-	will@kernel.org,
-	peterz@infradead.org,
-	elver@google.com,
-	namcao@linutronix.de
-Subject: Re: [RFC PATCH] time: introduce BOOT_TIME_TRACKER and minimal boot timestamp
-Date: Tue,  2 Sep 2025 19:09:08 +0530
-Message-ID: <20250902133920.973210-1-kaiwan.billimoria@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <871pp14pkr.ffs@tglx>
-References: <871pp14pkr.ffs@tglx>
+        d=1e100.net; s=20230601; t=1756820661; x=1757425461;
+        h=cc:to:subject:message-id:date:references:mime-version:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=dE+y6IouNTFh5LnCQS36Be2cwV132cRumEEcY15HKHQ=;
+        b=IN45WyNziRg8mJIzzBm8kOJ5XtK1QSyIHFeSeiejC74J/nxzJPVMjeAy/Stj21gpPN
+         qSpH8KM+lDdBVrKq7u7k676isEJRNxlJR/G/SRSH5dZzp16/l+SiQ5ku+fuiWl2ZG81J
+         r4hN8ybeVKmiCleenFi7dOwuyArDvWGLeBrcjYfE80IQxUIMtjJMGVbxfgOfcQq3AOP9
+         COdlnySj2oKt2oE08gnWCNsCoohJtKc/e/ktc/U66jKwg2c8wbI+g1xiJPkmZ2aEi2oo
+         VRbCoWEKmkKeBG9MGi/BbX0O+uhSK6NJZWeljcGpZDdFWBSvCfnv/YHmySRfj/mkcT6Q
+         /5uA==
+X-Forwarded-Encrypted: i=1; AJvYcCVUBeaASOFbebbMrQbfovKbWSnc+ojS+GEuH9Ih0huleHhpjAlx4mXMxb8xark9x36tLdCplsvYrXk6JkI4dviU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzxwh0dE2mIO/AbBa4I1FEHTTMX3Gxn2RPACh11fRKP1Rk7QdMC
+	I4D14/DIkUPOXxlyvsYsALwBmK0qFgskhs/qxJbo8buSHGj+vnD25/z2PyFHi70pMX4Lt3Os/Fn
+	ISRBH6eaWuOXfuoJG03sKlFhW9xWwO0FdZIpe/ev30A==
+X-Gm-Gg: ASbGncu7u6c9SLOKn75dg7GCB+YDKOy1kNDtYJ9m3SwneFln4azoJaxSI84wSgwIPSs
+	ZNhAqsB+KiaCpsnC5gukURb5Ly6xe55Jpv5fEzjngUv9sBXvAGgB7XyA7tL9LD1eE5eZ0olLpBY
+	U5AT0yE3w3QR2WKPp+BZtQqc2Sg6IZabQ9TnfnrYF1S/Wr3v/O5vp48c8Auiw06DfAsNaDTtiwv
+	L9sn7f4D+X8J2ZAe85krrUAWMtZ8bKN6efvqNs=
+X-Google-Smtp-Source: AGHT+IFjWoO0id3PcP1NXpHfcbubOLclGZa+2gjsa6UEJt7qXSImOMZixhyJgYfyt1Hb98CHs/tfLZNBHaEkOWQql88=
+X-Received: by 2002:a05:6512:3d10:b0:55f:4bf6:eff1 with SMTP id
+ 2adb3069b0e04-55f709482f9mr3675040e87.39.1756820659308; Tue, 02 Sep 2025
+ 06:44:19 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 2 Sep 2025 09:44:17 -0400
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 2 Sep 2025 09:44:17 -0400
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+In-Reply-To: <c5788504a473625faeb9f99b08d3bca5e7135120.1756727747.git.christophe.leroy@csgroup.eu>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <cover.1756727747.git.christophe.leroy@csgroup.eu> <c5788504a473625faeb9f99b08d3bca5e7135120.1756727747.git.christophe.leroy@csgroup.eu>
+Date: Tue, 2 Sep 2025 09:44:17 -0400
+X-Gm-Features: Ac12FXy_COZhtMDYkikD9QbVVClX9tOwpv2fAavRIrHRKcbOHQym28lIfpzYJKk
+Message-ID: <CAMRc=MfwNr+B-gxkN4ApGX5-k-0=aH=03Aw==WHVSYydy+iHkg@mail.gmail.com>
+Subject: Re: [PATCH v5 3/7] soc: fsl: qe: Drop legacy-of-mm-gpiochip.h header
+ from GPIO driver
+To: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, Qiang Zhao <qiang.zhao@nxp.com>, 
+	Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_063938_877528_C22FDA8A 
-X-CRM114-Status: UNSURE (   7.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250902_064422_610186_865307D2 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,13 +100,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Subject: Re: [RFC PATCH] time: introduce BOOT_TIME_TRACKER and minimal boot timestamp
-> Under the assumption that nothing on the way resets the counter.
-Ah. Is there any known component - within ROM/BL stages/kernel code - that does
-this?
-Forgive my asking, but if fine, will this (above-mentioned) patch be taken? So,
-knowing that, we can proceed forward..
+On Mon, 1 Sep 2025 14:05:10 +0200, Christophe Leroy
+<christophe.leroy@csgroup.eu> said:
+> Remove legacy-of-mm-gpiochip.h header file. The above mentioned
+> file provides an OF API that's deprecated. There is no agnostic
+> alternatives to it and we have to open code the logic which was
+> hidden behind of_mm_gpiochip_add_data(). Note, most of the GPIO
+> drivers are using their own labeling schemas and resource retrieval
+> that only a few may gain of the code deduplication, so whenever
+> alternative is appear we can move drivers again to use that one.
+>
+> As a side effect this change fixes a potential memory leak on
+> an error path, if of_mm_gpiochip_add_data() fails.
+>
+> [Text copied from commit 34064c8267a6 ("powerpc/8xx: Drop
+> legacy-of-mm-gpiochip.h header")]
+>
+> Suggested-by: Bartosz Golaszewski <brgl@bgdev.pl>
+> Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 
-Thanks,
-Kaiwan.
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
