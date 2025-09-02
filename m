@@ -4,160 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BF89CA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 05:47:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BEFDCA0FFE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 05:49:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rpz60VTQpUy8X6xAtDQxKKJH97KtzALJ23EOZNl8AfI=; b=Yu9OWhsroA89XMWZYjfHlLBtBx
-	afYiqPBaR610INy6jqNEcsax5VTwl9q67ON1Y1f/Io0P6HRbHX6hNrrve3v2fl2G3MyWFj/4k6zwA
-	e/m5rLshf4fsRiPIjhlXsKXrGQhMk3MGKFG9AUIAD+kaPjxj8FASEHD4SPX0XH887g1hpAbCcOblU
-	4hkvEAwvAHB4C1I9lrj8UlKjg7wEfmgO6i1xKlKvJUZSjWZ+O196v7yBs9jAvlS9eSKCt5vDlAcrq
-	kmanfRURuDpAPwKFA9qaU0CgjkiLwjTNxiabzD6g5/pyo2/5HHqQ/DC1yfGxh5uS49uHY8LwR9sMy
-	CcXUaRdw==;
+	bh=Dn/PEicwtLNWSyGF6uAmBEgsKb2Yw1yFArxlRJ4odgA=; b=PGoDTek7hOp4K3NFpUrB0ciuep
+	AVFaQeykxZ2qK2icapgPSlW38+ziiHlRbZyJKAbRvkjtiqn6AFK4svsP2P1TB11jVJsCfMvnIJ0ig
+	CxjKCc1gHsJ9stIVG1vlQ7x2Zxq1zKVqATHjiJGlzMEvhdibUnFp7EJDayOKXhBGnpFSihgv0P9xk
+	HpZNfLJvb6bowGF4CiLln/XsT/stufQm6oi32cqaKa0BAOW8OFerDgjVASwUgcmMVjE96g0dUflEx
+	xFMz2IMD5Jc6M/R3wLgIIrdOKIiD9W1K3GKYlHu4FvAV17Z0k5RXwnxU4G+/jC7b84xE74aR7cD6v
+	JHDWQkyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utJrE-0000000FNGc-0LNO;
-	Tue, 02 Sep 2025 05:47:04 +0000
-Received: from mail-bn8nam11on20624.outbound.protection.outlook.com ([2a01:111:f403:2414::624] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1utJtw-0000000FNpw-0fXr;
+	Tue, 02 Sep 2025 05:49:52 +0000
+Received: from mail-koreasouthazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c410::1] helo=PUWP216CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utJfk-0000000FKdC-03JH
+	id 1utJq4-0000000FN1N-33KO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 05:35:13 +0000
+	Tue, 02 Sep 2025 05:45:54 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wMQMpgPwm8B1tCXPveqIiShE0vKKDXJlv5EdlNH8sRy4K9VOWVce4M4d9ZIzxXaPStl6bKGtr56iOK4wQdy08+1BcS+x/wNmyXRSGlYKMwSDxvjQ/ZIpx7UCR5vU/r45XbW/2XY+a9tPPaT77lHyCYwBuLVLnMKOWkHoKq0D3tMMRp5hrRf2u5yo2v0K1ozQYCE5H7QhGTN+LiwsVqvppV+hKvs2P9W/sW0D9vm2BGYAGVd1yQMzbmLorj8Gc8rb9PTAA/sRy2eLtyFe+waZ58bEfCOaC9+CqT96B/cbSGr4ZYfG/C6ZQV0AGtOSlQ8EwHaTUMuccTT8V/m2U53DZg==
+ b=d73wsZVoxlZcOOG4Vqq+CD+U1MXvps6bSXJbppZHWTVjSwKKG8RUd+Ql0O8bmhUx6q5HDoAazwMAeC6hJRn11p3kH/kHd2MbXys9YzJt7RDckm5wM7Te+gEaYwBtNdEnCq48N2LrsxbP6yWwMcvfeur6bMzFNrFcU10bPs6Ek0BI0m48UbtdCL5l98IBILTz+EBRCVabFsWqTxoFAxZHWtw862vjrAo6osL+PFyPuqTZja/wsMmdFrtrsUZDegg+XQ/G38r/oADyCNc2x09wYRo3KRKUuuX/+f1Y3q/6sO9MFgQx+fGD/S/XrY/4aMtR6aDAIajALkbAW6QZ3ZiaVw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rpz60VTQpUy8X6xAtDQxKKJH97KtzALJ23EOZNl8AfI=;
- b=YFVW3LLLwQMk0nvU7MEA9XwbY5srZMnnGZXGa/G6oFuPwHwpNbkVYMQiL5dsyvS8A+vl/5jcO47SlvtxdtECFOy2j0cL/xN0Tid5W7uqqJboxxGWg+jmpYeCceXvxWGq4Ezot/7o6iytn6GZRbDf5KwUc2nUD4B9HX5excYK474RjR4afFs4VSRjDfB/zbX57KypnV7xV01y0v0kp5X2K/p4Fs4euNn0WB24DVM37kmvQNOVDGNBdt7EZEKcBQzZSYidhiHtVq1QHLbfJxHxGBGGKQpmSZYREqDXN/qYmhnGdTz1kF/X9YaLlzFyQYRUl3524V1Pq/ih1smTouIDWA==
+ bh=Dn/PEicwtLNWSyGF6uAmBEgsKb2Yw1yFArxlRJ4odgA=;
+ b=DafvbQJYo6/iCPICvLBDw4+Xe2vcSo1nMUm3jVJwDn6UCgf3fz+bj4JOv2Z9TbZH2ElmXbrxOhyo3UJux5dmDPGHhCTWZ0CKOseYDI/YuFvSdbh9EDYWYRo1xJy4OxkSm/CIyvcOxfleA+iAepR+3OSWZuPzusEoNfi3TObnoZlMOZ38v8hrO0tHab1aj/L0aw34qI4rDPWECtziu3GMSHpUfyiKz98VggZf9yDAKdWnw1lo984SAQhrYcipytiKFN7bXc3d/TqAxqxlgziyLgUPx1qA9t+8bXHVE09F3iBoEHIeCQ2NZBrIdOYpAWL8fFbmeAAonKbSCobnOEBEUA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ smtp.mailfrom=chipsnmedia.com; dmarc=pass action=none
+ header.from=chipsnmedia.com; dkim=pass header.d=chipsnmedia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chipsnmedia.com;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rpz60VTQpUy8X6xAtDQxKKJH97KtzALJ23EOZNl8AfI=;
- b=f5/OY3IFAhRYZjkcCtSAGwA/bGFwts/WOnHsaRUg5apcmsCTlqMGJoHTkS6fz59bKYBMi7aD2mMtiOVrX7kALaQCF9Uu+n3qajS2FlyWpLPJPvVXornLtsFopQKmi1APd0+xffsbq+WKnFiuZkpG8++HzlvBrzOMyncXQOPIOpg=
-Received: from MN0PR12MB5953.namprd12.prod.outlook.com (2603:10b6:208:37c::15)
- by DM6PR12MB4385.namprd12.prod.outlook.com (2603:10b6:5:2a6::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.21; Tue, 2 Sep
- 2025 05:35:03 +0000
-Received: from MN0PR12MB5953.namprd12.prod.outlook.com
- ([fe80::6798:13c6:d7ba:e01c]) by MN0PR12MB5953.namprd12.prod.outlook.com
- ([fe80::6798:13c6:d7ba:e01c%6]) with mapi id 15.20.9073.026; Tue, 2 Sep 2025
- 05:35:03 +0000
-From: "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>
-To: "Joseph, Abin" <Abin.Joseph@amd.com>, "andrew+netdev@lunn.ch"
-	<andrew+netdev@lunn.ch>, "davem@davemloft.net" <davem@davemloft.net>,
-	"edumazet@google.com" <edumazet@google.com>, "kuba@kernel.org"
-	<kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>, "Simek, Michal"
-	<michal.simek@amd.com>
-CC: "git (AMD-Xilinx)" <git@amd.com>, "Joseph, Abin" <Abin.Joseph@amd.com>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+ bh=Dn/PEicwtLNWSyGF6uAmBEgsKb2Yw1yFArxlRJ4odgA=;
+ b=JpaC5/v7hinE31WXYUEICdXnDFU2scZ81Xi0NO/v/I0h8Mo1dMU85Cw/ygvR7pNTV4Zx/tB5zf+zoF2EIXW4usM8Z255+gn8opz4oAgvpjKb6X+ylK5qmxtUSRU7CpwB2UDn76vooUzTYk2Wjodel2pAnmZgxGp6Rvh0t5k+pGc=
+Received: from SL2P216MB1246.KORP216.PROD.OUTLOOK.COM (2603:1096:101:a::9) by
+ PUYP216MB2972.KORP216.PROD.OUTLOOK.COM (2603:1096:301:158::6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9094.16; Tue, 2 Sep 2025 05:45:32 +0000
+Received: from SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+ ([fe80::9e3d:ee20:8cc7:3c07]) by SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+ ([fe80::9e3d:ee20:8cc7:3c07%5]) with mapi id 15.20.9094.015; Tue, 2 Sep 2025
+ 05:45:32 +0000
+From: Nas Chung <nas.chung@chipsnmedia.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, "mchehab@kernel.org"
+	<mchehab@kernel.org>, "hverkuil@xs4all.nl" <hverkuil@xs4all.nl>,
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de"
+	<s.hauer@pengutronix.de>
+CC: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-imx@nxp.com" <linux-imx@nxp.com>,
 	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "stable@vger.kernel.org"
-	<stable@vger.kernel.org>
-Subject: RE: [PATCH net v2] net: xilinx: axienet: Add error handling for RX
- metadata pointer retrieval
-Thread-Topic: [PATCH net v2] net: xilinx: axienet: Add error handling for RX
- metadata pointer retrieval
-Thread-Index: AQHcG6lzcJoCobRwKECrqYgv4+SAPbR/V/5w
-Date: Tue, 2 Sep 2025 05:35:03 +0000
-Message-ID: <MN0PR12MB5953745D77A76528DDFD72E5B706A@MN0PR12MB5953.namprd12.prod.outlook.com>
-References: <20250902013205.2849707-1-abin.joseph@amd.com>
-In-Reply-To: <20250902013205.2849707-1-abin.joseph@amd.com>
-Accept-Language: en-US
-Content-Language: en-US
+	<linux-arm-kernel@lists.infradead.org>, jackson.lee
+	<jackson.lee@chipsnmedia.com>, lafley.kim <lafley.kim@chipsnmedia.com>
+Subject: RE: [PATCH v3 2/9] dt-bindings: media: nxp: Add Wave6 video codec
+ device
+Thread-Topic: [PATCH v3 2/9] dt-bindings: media: nxp: Add Wave6 video codec
+ device
+Thread-Index: AQHcGMGJZMRvpcS8k0m0pKjSJCiRfbR5qCyAgAWDqKA=
+Date: Tue, 2 Sep 2025 05:45:31 +0000
+Message-ID: <SL2P216MB12469B8A2DD5B2F6EA2F04DCFB06A@SL2P216MB1246.KORP216.PROD.OUTLOOK.COM>
+References: <20250829084649.359-1-nas.chung@chipsnmedia.com>
+ <20250829084649.359-3-nas.chung@chipsnmedia.com>
+ <22379203-94f8-468d-a9b6-de67f8fba495@kernel.org>
+In-Reply-To: <22379203-94f8-468d-a9b6-de67f8fba495@kernel.org>
+Accept-Language: en-US, ko-KR
+Content-Language: ko-KR
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Enabled=True;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SetDate=2025-09-02T05:08:45.0000000Z;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Name=AMD
- Internal Distribution
- Only;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ContentBits=3;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Method=Standard
 authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
+ header.d=none;dmarc=none action=none header.from=chipsnmedia.com;
 x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: MN0PR12MB5953:EE_|DM6PR12MB4385:EE_
-x-ms-office365-filtering-correlation-id: e71a9ae4-b43d-411d-e3e4-08dde9e277b2
-x-ld-processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+x-ms-traffictypediagnostic: SL2P216MB1246:EE_|PUYP216MB2972:EE_
+x-ms-office365-filtering-correlation-id: 210e0979-9e7c-4850-b658-08dde9e3ee40
 x-ms-exchange-senderadcheck: 1
 x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7053199007|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?ow4ISTqF8PL0LnWo2myQESYRq+xZK7Cef4lng5z7YXw7oxqbQoN7wPd4vlfc?=
- =?us-ascii?Q?w5dfYfKSQtQ6YbJl5/3JFTCX0IBb50KU3lc5M9hVOjrwm4ePy56DBF83DKf7?=
- =?us-ascii?Q?K0qejWYnkk59CfV9/8EYseCblQQDD3LZdi6zsO8+B+kc8apeLXizrGq68UEh?=
- =?us-ascii?Q?CT1Hrid6t5tp8HmP2ncvxFtBOcBY1wwzQ+utioNXWwRQ+hcyhyx5pJbZ3tDI?=
- =?us-ascii?Q?xhrPlrNIKlG2qR+Q5CXl2EuoSFXEgiejce3vplwXVHrQfNFKa53V7lRR1cQQ?=
- =?us-ascii?Q?sCeY6yMognjFtq6pkXDA9KkJFQl7qMNhozKPzvYFYc1o3zoxhqsQcxqadADt?=
- =?us-ascii?Q?TrknEAbMpXoflXqS1QIsR2+wBDdw/iwn8+EbSl9skWDgXmmn7ER80uWfuoRk?=
- =?us-ascii?Q?43Rv72IGWG10p2ps5PIzXaUf6APAivm9oJdtmrlbfbOJczAhVHomYu+78Cmy?=
- =?us-ascii?Q?db37PuniBrfX5e3y3L2RIw/K/J7DhCZyKtJFcopIB+Q6de6R114xyPgK+0Mp?=
- =?us-ascii?Q?4yEJPL2eWKdt0tYl8PWcxpOj6FIJcJfTuyBQmA9QbGLi1LaYXTlUSqmgtnKw?=
- =?us-ascii?Q?5EU3L69W4f7VtRBMCDx2zmR+A4FnhldqbcTRCx6CjeaPLmlzcp7h1dFsHmxD?=
- =?us-ascii?Q?mHMarqqHaGFbmIkRT5rheIW8rsHwQbc2a/vJk2C97rbYlhBF+a46dEgVXw6A?=
- =?us-ascii?Q?+i6o3dqHvEg22oN8Ea5zA6Hw+B98bR685d6nMQKJ3Hw9V9mJszB4fGau+y5n?=
- =?us-ascii?Q?MkJ8x1lVXkJBnvHAEzFtiqX2IRNoW1F8yIM+uNcr8iTFcTKNXKxfA0v5lCQY?=
- =?us-ascii?Q?77k392hOK3SfyWGqs02plDc9FAeszpcaUFiB6gQJt0pZ67x6uouBXMzyTYtw?=
- =?us-ascii?Q?CsBuMlmzeQd+6aBjjiQfJ/zg37+CG7/mD4R7fUGPFdliXHtpmc06dgSgKtb1?=
- =?us-ascii?Q?Ci+5B3o0SQhmc517qH33ubfVdSc/Ewwr48oPCEr9ZJDABi+VrZo7Dj6pEzTa?=
- =?us-ascii?Q?qIrKmZcu+tD3CrDklEyp2xdcJsv0l8nRsYhSReAPR95I7n3UU+aT6Thnxbd/?=
- =?us-ascii?Q?+cuLBrWKmqOoLTpmELvGV1HN8QCYC/mRG6Yd0LopQYaQPDJjtQXbHygHZIdN?=
- =?us-ascii?Q?8Jggaf+T6lsNS7jDAV4Qf9LFsY0Uu63vD3xW0jbNHMWQGELfn7ngTt+YyJbk?=
- =?us-ascii?Q?saTa7k8A16Adh3Ez4RpoMsxrjOuBCnhC/kM/15sVtH7XC2+b9QYtHoKJiDLk?=
- =?us-ascii?Q?JnpUmTMlVW+x3XAlgxLWvOqBiMlMA+6tGix2E8/zSI9DxTh6GZryGMM0f7Wk?=
- =?us-ascii?Q?kGsv6RAAeryFIFT7GhI6s0JrOaMNvoVXnN4PlZ796TObJV4hsU496zzImVdg?=
- =?us-ascii?Q?hBD4EKYIaYgaDT7uJuAtx5oFz3zul30/C5DfJuI7VPze8CFYnbO158nhLMlB?=
- =?us-ascii?Q?CVJ9ftfRnJsrMUFN8wssWi0NbAJvD7ffu+BNVKth2bdWBMi5NobW4w=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR12MB5953.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7053199007)(38070700018);DIR:OUT;SFP:1101;
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|7416014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?X/exB1f/DFg9S+gyJLT8qS1AvW1YKyT5o7UiBL3/qIQJdWatMYIobdqgRUGy?=
+ =?us-ascii?Q?BwTS91E3HEwn9idRrKhUj12GOEPRVz7MqCczusWWRFtMcnP50FFMi9SdtetO?=
+ =?us-ascii?Q?ZFNDi7WNH33lxjAPJmmgRN5GDb28x/d1Ze3LoGufmNWdKS2BSJ5qHBm2DvEC?=
+ =?us-ascii?Q?KprKmjjwM7g8YE2X23aDwfW10WITV1g/l6IEmEzX9EZnoMyB2YjkeEKb2PH5?=
+ =?us-ascii?Q?/b+twklGpMKvQRJcR/BAJfezdNCBiAoAJjO0WND1rhSOC4Zcb+unDBSA5xim?=
+ =?us-ascii?Q?2p+XrP0tRjxGA7qrFbqfpzLjZwDZs1BRA0gChT7kZYM/NY7t5LromtWpnmdU?=
+ =?us-ascii?Q?1nwciwiNwIgB3NASjsZ4Z8lCuFlJoW55ZkcMvEA7rGxdvg8fpStQOJCwLpTU?=
+ =?us-ascii?Q?KYDsiOw7wqNSIY/sgmv4zcXLqk/t8grlReLr2MD5Rd9d1QT1prPL+INV9q+8?=
+ =?us-ascii?Q?Vc4JezFUKu9CGUcyxHhPUdBwV2WtXOpPU+j9y4fgMM7ffw7qiOTu3aY+B9W2?=
+ =?us-ascii?Q?kOzkAJx8fUjGW34KG3IJj2hBiKXpfkJ23pGA2NYWsUOF5QY11c7PMTq72d4M?=
+ =?us-ascii?Q?wZ083t2GCbxbzqHT5nUO5BqZU4k7NUYmUbxkwwkwoTjKa5khY0etLLg8aurY?=
+ =?us-ascii?Q?/gJhAGAzoBtPuKfaOrJrmU0kAVJPYbs9YWKTP6c3V74whAw38n/BDUw+E9NW?=
+ =?us-ascii?Q?Qj6BUuHyBBk7KPhBY5IaniTxFDjzRPqb0fQLISaCwbw6ce74i6bcE5ZgHfbv?=
+ =?us-ascii?Q?xzMloD/CJklMCkzHkkze0QWa2GbZJm/IA1lvVLaoBXFYQdGpK0n4q7HHzwCb?=
+ =?us-ascii?Q?JAcV1uWg+0fWRYMu/VK3PLYczxasbAyStSWuc80TkLjiWizQ10flDQ3ag7Eg?=
+ =?us-ascii?Q?6BxQ5Ws8wivUk6Caeuul200BMglJ5Em7/HSSJAocQxLUbOrpOAARS28PtvTJ?=
+ =?us-ascii?Q?38s2wU+gYd7dnjwpxul/3ngC+Zq6AzuAaTuZx1RoPEoYtS5lVkCN3nYSYDPj?=
+ =?us-ascii?Q?oOK4ieDmGkmhekokBFJDwCRKdYJr6UYB6lzUcxmO0FDd3PAAT5ANRnsM40Hv?=
+ =?us-ascii?Q?IYYmfeg8NK91JHAP6B31f5aFFRQZZlaqPc0UJZhy5kaW+Vk9hNO/xRchG0YV?=
+ =?us-ascii?Q?q4n7e/V+nbR+0yUl6w3ZzuBKnDtVIH4kqh62wKeC8ELpRRMhJrj8vqsiFck2?=
+ =?us-ascii?Q?+lg5KF5BQvD3NpsLLYDI0vRdIx4R+J21o3J7Ge8wDxoeVpX2rFdpIrXfvO1T?=
+ =?us-ascii?Q?gcGpRSbCy3VaczgmORDZl4itiJaUpN4nshPtx4dyCTw/278aDqegXhujYucp?=
+ =?us-ascii?Q?sKce5IMvqS2l117CYcMC/XCZFw/Ds7SyR/TPlulk5p65fmakA/LlLJUebED6?=
+ =?us-ascii?Q?Kae3DbbltheLa0daI9I++tWAt0WS8CAAgcZPNrOjdtZnnQnkZ1QYcXoX8sPi?=
+ =?us-ascii?Q?Dq2g5syh+AtlUazNj5YN8AwtjTkepDfBoMvt3wbwDpL2L1u+csn+Pg=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SL2P216MB1246.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(7416014)(38070700018);DIR:OUT;SFP:1102;
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?IVvJ4IK6oEwe3EDWqLmfOMxKat5/6LBAtFjgjACtIDTsduIINgHrdvxtzrG3?=
- =?us-ascii?Q?LqGQUOZC2l4QsAISH8Saoph/xuR4Rec3R+b0Pm6h74A0efkcXsFETjG4k2Cr?=
- =?us-ascii?Q?wCNCmwpXf3EI/ddYUODLaHt5yqnt6ZikiiqdUoiMd3gFaXjtZ3xf+1keBxQR?=
- =?us-ascii?Q?mP6wuKyA5JXFbnfoWH5OYMWPdVZxUTlg7xlNXGVDqDTQJuzJmvd6vwOBHys2?=
- =?us-ascii?Q?caFmq7+I3aiD1i+0gD6y/T3YLZPcfdZ88+bS+7BVKM5uhJcQsKGS4lNGgDnv?=
- =?us-ascii?Q?xZVZGBzDYFTNMkvzR/PhDyn1ZmyEWRb5OzS3PSIPyS8lnpIkK3upBogvpD4P?=
- =?us-ascii?Q?it6q3bIfgyrrZvqr6umiMlI4zZGqr+FPS0N7eFqE7parqu1NpdQvrJ+yT4dr?=
- =?us-ascii?Q?5dy+PDWdMFhvtcby6/QDtun7aytsfMHt2De8O8HAaxW6ALkc/b+WKDfM6BKq?=
- =?us-ascii?Q?v22konn7lcErvfKYhVffn+y/CHlJyNHgihfq3mQZaW3dlU1n4lLzV9CkA4cq?=
- =?us-ascii?Q?ECvTmzMOMTGXbsfcH4ab/PAnvSBWF7+lxqZZ8W0l4BAXI5OdKI3aNyObU+Mi?=
- =?us-ascii?Q?Ukk1NzYhIkxcg34uVTOJilbG2+Lec9/45bGky+0d05BadncVZvOzzwpc5g3y?=
- =?us-ascii?Q?nJx6DzsxZnnMvTgbWsXxWenX/KifcqcHmhGkMEtT7KaW107x2uxZLNXOJqPi?=
- =?us-ascii?Q?GLR/jiZOh/q0IdILzK7QIoCaPORd2laCE7jo4nSmk0DADG25IKOLWPlkoeus?=
- =?us-ascii?Q?Q8kHF2HgJ7vMNYHTzkC58CITIqKAnazgXE3tWEA0hxVTowZ2LRWj5eFjPs3G?=
- =?us-ascii?Q?7uVsvE2wVxO8tw/TsC46d+pWFKhyIzPjMSfhjFsde/NKKjubRrINLxQ/LfNC?=
- =?us-ascii?Q?7PFsYBm4Q146Ce9DvyZgrAs4jgGLUxYW9vAOFkpO/nzjaTRuArht8ehBvkRm?=
- =?us-ascii?Q?Fsfb4BUzrPWyg6n/IjE9rBgBvmSKNnnXcmwsxyyk/gjA9sC9QodSpPzc/1Dq?=
- =?us-ascii?Q?kj1J0fJhSGWw4cSHh3LRqDLQT//8FTvuEVaY1vWNlRKc6yuE3n1OzxRcOzIU?=
- =?us-ascii?Q?HrBN5eo8TPb0RPEEdpxf98zwvH7FWzuAHsmMbiPtFAy7OyFfp57jzxC+zWG4?=
- =?us-ascii?Q?biUCIrI8WbGmkXoi/+cWpOuxocgE72WzTPaZpOg9Ft+cE56WG2gXxSqraUoX?=
- =?us-ascii?Q?izmqC54yUclQ+4spdYPGlZitxXOyTfUuGN5UXYdC6mLsAtboGWVGAFcf07gN?=
- =?us-ascii?Q?E7i26kilPYMdYiycjZwUFPw48AXhGk33C2n+GQtWNFliQFt0O8AncUkuwLzh?=
- =?us-ascii?Q?2qKwPLqqcbmteiBvWp3uq/dmiT/MSFgL59P0kLcpTSmxVu5H4PdBW7eko6Aj?=
- =?us-ascii?Q?GrBjd9reCxWOmnnnDl9BLK6mEBf7NC+dYbuXKaraxph1EWLod1PtoCm0xrYL?=
- =?us-ascii?Q?8AL/y3btx9+LBQuBaES2rdApXQK1af0b5HpLaAlmiJ34j9CUzEbEMu/jpFOu?=
- =?us-ascii?Q?Ye6I+QhxXUC3a2v3SK9ucATdSpYEdohgS6Addy6mBEcWsdIRS1BoOg+YbD03?=
- =?us-ascii?Q?zdGHmcOPgYMqeLozsIQ=3D?=
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?SHWPdrtv1rWGzKyVYT2zjcxNOcJ1isCLBWBWkUDIqk3k4XqOAGwoWdTIQDQA?=
+ =?us-ascii?Q?ujeo26mlaKTbG6EaIDIJ30whVl5TaEdqE9kLQKpbzoXdNkvSlN0bgbF7J7oU?=
+ =?us-ascii?Q?gScusdyeu9tHwNz5MzQsRbTcEj25vd3bTQD5kGmJewDcItHPKvzb6X8fwIVz?=
+ =?us-ascii?Q?/45Uj8TZYyfLX0hrbljvzO1nLAWEOa5sL4ipw7tT5WBm0rWTckohsJSwgaLO?=
+ =?us-ascii?Q?D/BFopzlewWekOCJAbvH6EA8dTKj9XCKSV3VGwMGw7Q+QKjS1cFirbdnanvS?=
+ =?us-ascii?Q?No6XSwuyuGyFnA0OzAxGt38i7jmDh4quilSSl+1IaUfDnCOD/+sNndzfLWSS?=
+ =?us-ascii?Q?t/uXsSHbdG7G276wuvdPfF4vDei3hYIJwn57C9ezJKCcqFuOdXWxi5q25LSH?=
+ =?us-ascii?Q?8KSNxfXTrKW7ayNmNIXsKgdFhgFTD0RP2WQHaw5e4CuWEQcsYVBGWvjWc+Zw?=
+ =?us-ascii?Q?0Qbyxb/S7rUBq4G7eBI2y/i8ObE6RqvwkzOhWtYFrKFhOhtRqtlncdPW7fRl?=
+ =?us-ascii?Q?SFY6rAGk8Ubqt0dYAVLuX5YrP7Y5+BQsz/flSBJurH+DK/HYmp9/vAl9GwTX?=
+ =?us-ascii?Q?UGqKk4xrgXK6pyAQxcHOFBv5rWebzsBZ3C+kfKpVy0mi2nSpJdJg/2o2/7Wi?=
+ =?us-ascii?Q?osuhJn46rUGBpKZthZhWE8Y7BIVJDBMp08/iQqJF3hSOTkGhRSHH7Kunrtnw?=
+ =?us-ascii?Q?BwtE+9k0LvsrLrVaSKXHxWzynMSxdDdmJJx32d0ZvMeznTMWnyptCMO/Zhnh?=
+ =?us-ascii?Q?Hshqfkh6N7MaNMqJyeRZI294KpqCLmMXe5/+ysQ85PVFb68WHJQsFWd84Mn+?=
+ =?us-ascii?Q?9hMUtWt5VoCS9Skd+QCMRSFRUcpOfnUrEp8uAVH4FhtnG8S8rxNzV9VRFnI7?=
+ =?us-ascii?Q?tvAs7sTSuQzbXc/Hfxi3ATIqjlvHxz6L5/BT6d6Tevc+nS5C6C+qizf6TXTF?=
+ =?us-ascii?Q?1dlT2TkWo8twE2O1uWlzCATkn3fKpK3lZDsti1Ef1kLUJBu/tY+sew0UWOqZ?=
+ =?us-ascii?Q?TLEUfXARTigqj+3dK0w8RBZuSKeXhLSGhlvqbcz7WxxF5N85j+tBrINOJMb0?=
+ =?us-ascii?Q?HIbq5mYp441D3MYdF1ivbTFYL9+w+Hkkx5/YPFjUsFsFC6zwixEVlDvIeZ4m?=
+ =?us-ascii?Q?fRf48q+mO6U72m+rw5HlfFtuByhs4aYVA7x8syx69fJ0FQkUQPphYwQe0/0Z?=
+ =?us-ascii?Q?sJwlF9SioEZU4BMXDiCj23hOwKg5KFzFBzcdLY5IyqOaEZ3sLlE2NnymkBPX?=
+ =?us-ascii?Q?hYqJOwg9ayxeJHJ3PdIKm0oGWLyASnElCkrzfxvehWBUOKT4zvGqB+HUaNm1?=
+ =?us-ascii?Q?+ZVhqJ/kjj2iN1Bk3jI7MQonCycUV6kE5ZxOjh0QTksofwKFXVW0gYzHT/gH?=
+ =?us-ascii?Q?xae2UOfIaH3oKi/6xNiV31aSxQg5eE0m8NFM1SG6IoA/+HFD+2xxZTZV7Q4j?=
+ =?us-ascii?Q?r2ouXRpOJRUWmGdx5EGFvFCl/Er2nO8OWguiHILP0XEzU4xAZjQMQl3HyeU1?=
+ =?us-ascii?Q?uVLq22M43kF27HRKsXkPssSo42ZpMArbe2yO8a1Bnf4xGbGze6ktu1av+Mz6?=
+ =?us-ascii?Q?MXWs3y3Q2bANstdfTZ5JZD28TKKhhTjSw9ucUjAl?=
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-OriginatorOrg: amd.com
+X-OriginatorOrg: chipsnmedia.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: MN0PR12MB5953.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e71a9ae4-b43d-411d-e3e4-08dde9e277b2
-X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Sep 2025 05:35:03.6318
+X-MS-Exchange-CrossTenant-AuthSource: SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 210e0979-9e7c-4850-b658-08dde9e3ee40
+X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Sep 2025 05:45:32.0294
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-id: 4d70c8e9-142b-4389-b7f2-fa8a3c68c467
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: Z1yAk/Pc6hYSt4SrUd2v1Rp/HlWiw93D+WJD+RRqd7+svJ+SCjRrK3Q6+k7o15J9
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4385
+X-MS-Exchange-CrossTenant-userprincipalname: MeQjeL0CmV8Z0adRBajuLTVFatnO3vPu2GfQdUbG4nWU8zMtNyUEyYt+j8pAZ/dvUx/J2p8fSlbleAZXgR4tfXyERBTyUs/VBDn77LQdvzM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUYP216MB2972
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250901_223512_057911_2D8F73A5 
-X-CRM114-Status: GOOD (  21.20  )
+X-CRM114-CacheID: sfid-20250901_224552_770076_5085D6DF 
+X-CRM114-Status: GOOD (  16.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,85 +172,196 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[AMD Official Use Only - AMD Internal Distribution Only]
+Hi, Krzysztof.
 
-> -----Original Message-----
-> From: Abin Joseph <abin.joseph@amd.com>
-> Sent: Tuesday, September 2, 2025 7:02 AM
-> To: Pandey, Radhey Shyam <radhey.shyam.pandey@amd.com>;
-> andrew+netdev@lunn.ch; davem@davemloft.net; edumazet@google.com;
-> kuba@kernel.org; pabeni@redhat.com; Simek, Michal <michal.simek@amd.com>
-> Cc: git (AMD-Xilinx) <git@amd.com>; Joseph, Abin <Abin.Joseph@amd.com>;
-> netdev@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
-> kernel@vger.kernel.org; stable@vger.kernel.org
-> Subject: [PATCH net v2] net: xilinx: axienet: Add error handling for RX m=
-etadata
-> pointer retrieval
+>-----Original Message-----
+>From: Krzysztof Kozlowski <krzk@kernel.org>
+>Sent: Friday, August 29, 2025 10:57 PM
+>To: Nas Chung <nas.chung@chipsnmedia.com>; mchehab@kernel.org;
+>hverkuil@xs4all.nl; robh@kernel.org; krzk+dt@kernel.org;
+>conor+dt@kernel.org; shawnguo@kernel.org; s.hauer@pengutronix.de
+>Cc: linux-media@vger.kernel.org; devicetree@vger.kernel.org; linux-
+>kernel@vger.kernel.org; linux-imx@nxp.com; linux-arm-
+>kernel@lists.infradead.org; jackson.lee <jackson.lee@chipsnmedia.com>;
+>lafley.kim <lafley.kim@chipsnmedia.com>
+>Subject: Re: [PATCH v3 2/9] dt-bindings: media: nxp: Add Wave6 video codec
+>device
 >
-> Add proper error checking for dmaengine_desc_get_metadata_ptr() which
-> can return an error pointer and lead to potential crashes or undefined
-> behaviour if the pointer retrieval fails.
->
-> Properly handle the error by unmapping DMA buffer, freeing the skb and
-> returning early to prevent further processing with invalid data.
->
-> Fixes: 6a91b846af85 ("net: axienet: Introduce dmaengine support")
-> Signed-off-by: Abin Joseph <abin.joseph@amd.com>
+>On 29/08/2025 10:46, Nas Chung wrote:
+>> Add documents for the Wave6 video codec on NXP i.MX SoCs.
+>Pretty incomplete commit msg. Nothing explaining hardware, nothing
+>documenting resolution of previous discussions (where is all this
+>chip&media?).
 
-Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-With one minor comment below-
+I see,  I'll improve the commit message in v4 to include hardware details.
 
-> ---
 >
-> Changes in v2:
-> Update the alias to net
+>...
 >
-> ---
->  drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 11 +++++++++++
->  1 file changed, 11 insertions(+)
 >
-> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> index 0d8a05fe541a..83469f7f08d1 100644
-> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> @@ -1166,8 +1166,18 @@ static void axienet_dma_rx_cb(void *data, const st=
-ruct
-> dmaengine_result *result)
->       skb =3D skbuf_dma->skb;
->       app_metadata =3D dmaengine_desc_get_metadata_ptr(skbuf_dma->desc,
-> &meta_len,
->                                                      &meta_max_len);
-> +
+>> +
+>> +properties:
+>> +  compatible:
+>> +    enum:
+>> +      - nxp,imx95-vpu
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  clocks:
+>> +    maxItems: 1
+>> +
+>> +  power-domains:
+>> +    maxItems: 1
+>> +
+>> +  memory-region:
+>> +    maxItems: 1
+>> +
+>> +  sram:
+>> +    $ref: /schemas/types.yaml#/definitions/phandle
+>> +    description: phandle of the SRAM memory region node.
+>> +
+>> +  "#cooling-cells":
+>> +    const: 2
+>> +
+>> +  "#address-cells":
+>> +    const: 2
+>> +
+>> +  "#size-cells":
+>> +    const: 2
+>> +
+>> +  ranges: true
+>> +
+>> +patternProperties:
+>> +  "^video-core@[0-9a-f]+$":
+>> +    type: object
+>
+>Missing description.
 
-This is unrelated change.
+I'll add a description in v4.
 
->       dma_unmap_single(lp->dev, skbuf_dma->dma_address, lp->max_frm_size,
->                        DMA_FROM_DEVICE);
-> +
-> +     if (IS_ERR(app_metadata)) {
-> +             if (net_ratelimit())
-> +                     netdev_err(lp->ndev, "Failed to get RX metadata poi=
-nter\n");
-> +             dev_kfree_skb_any(skb);
-> +             lp->ndev->stats.rx_dropped++;
-> +             goto rx_submit;
-> +     }
-> +
->       /* TODO: Derive app word index programmatically */
->       rx_len =3D (app_metadata[LEN_APP] & 0xFFFF);
->       skb_put(skb, rx_len);
-> @@ -1180,6 +1190,7 @@ static void axienet_dma_rx_cb(void *data, const str=
-uct
-> dmaengine_result *result)
->       u64_stats_add(&lp->rx_bytes, rx_len);
->       u64_stats_update_end(&lp->rx_stat_sync);
 >
-> +rx_submit:
->       for (i =3D 0; i < CIRC_SPACE(lp->rx_ring_head, lp->rx_ring_tail,
->                                  RX_BUF_NUM_DEFAULT); i++)
->               axienet_rx_submit_desc(lp->ndev);
-> --
-> 2.34.1
+>> +    additionalProperties: false
+>> +
+>> +    properties:
+>> +      compatible:
+>> +        enum:
+>> +          - nxp,imx95-vpu-core
+>
+>Why do you need here compatible? Can this child be anything else? Can it
+>be re-used? Is it actually a separate block?
+>
+>Your example suggests that the only distinctive resource are the
+>interrupt and address space and that's on the edge of calling it a
+>separate device.
+>
+>There is some tendency to call such "pseudo-cores" a separate devices in
+>case of video codec bindings and experience shows these are usually
+>fake. It's not the same as DP or HDMI sub-block of display pipeline.
+>
+>That's why you should come here with strong argument what separate piece
+>of hardware this is.
 
+Thanks for your feedback.
+
+As you mentioned, I wanted to represent the interrupts and address space
+as separate "cores". This is because, from an external perspective (e.g. mu=
+lti-VM),
+each of these resources is a VPU interface and can be accessed independentl=
+y
+to operate the VPU.
+
+However, there is indeed only one actual VPU processing engine.
+I understand your point about "pseudo-cores".
+
+I would appreciate any guidance on the preferred way to represent
+these resources in the device tree.
+
+>
+>> +
+>> +      reg:
+>> +        maxItems: 1
+>> +
+>> +      clocks:
+>> +        maxItems: 1
+>> +
+>> +      power-domains:
+>> +        maxItems: 1
+>> +
+>> +      interrupts:
+>> +        maxItems: 1
+>> +
+>> +    required:
+>> +      - compatible
+>> +      - reg
+>> +      - clocks
+>> +      - power-domains
+>> +      - interrupts
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - clocks
+>> +  - power-domains
+>> +  - memory-region
+>> +
+>> +additionalProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+>> +    #include <dt-bindings/clock/nxp,imx95-clock.h>
+>> +
+>> +    soc {
+>> +      #address-cells =3D <2>;
+>> +      #size-cells =3D <2>;
+>> +
+>> +      vpu: video-codec@4c4c0000 {
+>
+>Unused label, drop
+
+Okay. I'll drop the unused label.
+
+>
+>> +        compatible =3D "nxp,imx95-vpu";
+>> +        reg =3D <0x0 0x4c4c0000 0x0 0x10000>;
+>> +        clocks =3D <&vpu_blk_ctrl IMX95_CLK_VPUBLK_WAVE>;
+>> +        power-domains =3D <&scmi_perf 10>;
+>> +        memory-region =3D <&vpu_boot>;
+>> +        sram =3D <&sram1>;
+>> +        #cooling-cells =3D <2>;
+>> +        #address-cells =3D <2>;
+>> +        #size-cells =3D <2>;
+>> +        ranges;
+>> +
+>> +        vpucore0: video-core@4c480000 {
+>
+>None of these labels are used, drop.
+
+I'll drop it.
+
+Thanks,
+Nas.
+
+>
+>> +          compatible =3D "nxp,imx95-vpu-core";
+>> +          reg =3D <0x0 0x4c480000 0x0 0x10000>;
+>> +          clocks =3D <&scmi_clk 115>;
+>> +          power-domains =3D <&scmi_devpd 21>;
+>> +          interrupts =3D <GIC_SPI 299 IRQ_TYPE_LEVEL_HIGH>;
+>> +        };
+>> +
+>> +        vpucore1: video-core@4c490000 {
+>> +          compatible =3D "nxp,imx95-vpu-core";
+>> +          reg =3D <0x0 0x4c490000 0x0 0x10000>;
+>> +          clocks =3D <&scmi_clk 115>;
+>> +          power-domains =3D <&scmi_devpd 21>;
+>> +          interrupts =3D <GIC_SPI 300 IRQ_TYPE_LEVEL_HIGH>;
+>> +        };
+>> +
+>
+>
+>
+>Best regards,
+>Krzysztof
 
