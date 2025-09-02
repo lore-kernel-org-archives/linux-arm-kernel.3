@@ -4,139 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC923CA1005
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:42:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD0ABCA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:43:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bQW3/aY2u9o1vyBBGFhdfMivnRKVOreRPGLjsgiFn70=; b=tkH0O0IQA5M09lQZWXVZJPIjib
-	BunMihjW0Mhz2WU85otpheqwsT+X/8aD7qoBwVa0/MfOcYe6oqbI/M9YeQ9g8nQejoP2063FEonRN
-	tUrpya10HDqyYQyxJfxQz9UqfOLY6Eo1IlZ9R9RdIhT5A6fGNC9asKsIp2oK7ttRSDVB+vuuI4dIx
-	lRhStfYfvOfrgXFbnyUZ3p1l2mFWY5/Rx4bi1K13pcoLlj2niu8K0UfSCHczNaeEPW3s0TkRQ5F0Q
-	BxZqWaNBzj6dfH375DHNPTr8mBQshs9BcjGk3HLXZlxnctJqdDOVTOwQFSjslHV4xgNDMpG68xcOB
-	9w5OICiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r1SOQ46E/29ii7NOe0dMseenbNXVTPfB9cR3qwZszXE=; b=0iWmbcbJWvZiOI07arrOcTC/M7
+	E4Oe8RM2+QHPAyHNBD0W8z4U1sTuZne+bGLvAcOP7VZR5XExAPDtIlcmqMmuAbtI4DFSvIExffFEW
+	ATXvZekiXW1qiAQ0tALvov2+7ZRpTanSKyj4jdhv5wRM6JjWfsleuz+TB32EdO7l3BzwHWlT4toJr
+	u7ig8M+WCmC/Ypvfnf8zIZ+/i2GkLqR+sKEfOaAAV6Wi8msCTP1IakbSIQ8PHXbQHZD47CbdNtqq5
+	+UKvzcmjBS5E2JjLyGDTHaR7QteHk/dPxTbfKpilJXlAK5UBbLYbNECWR0W9SijbGmFeNFDVHMxFV
+	MCFA8Xfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utYmC-00000002Akc-1NY3;
-	Tue, 02 Sep 2025 21:42:52 +0000
-Received: from mail-dm6nam11on20627.outbound.protection.outlook.com ([2a01:111:f403:2415::627] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1utYmD-00000002Amv-2AyQ;
+	Tue, 02 Sep 2025 21:42:53 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utSY1-00000000YvU-1cWO
+	id 1utSaK-00000000a3t-08wp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 15:03:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Jbf8wdE+eXTaMum8nFxu5OJ8IWlApWDZuet1tYezbXEQGjR1dIzwtLMz4QVW1MfzqCmgnP0U5tWu0E4BsNwlzKxU/141BHBJWJkfJb2FsQceRqE3gmMw2bELCIdEj9KFib3OSipKIBqpI6MdDfgLjukPhj1OYrCQX3wNOwAAbR+QHo64451iCRqbeI8cSCZ2jXot5+OSsuxaD1GDKI+SAAPnoktP6m8diYOIezYSFLAXQmISh7yi7My5EkK5lw/fkVwyqIYYge4c+nItEJMrx7Oa8YAW6MM3T+gmKVRq1QvZJWJXn33es9NXfvSk3R2PsK8Qh8oYGySR8+AB41mNIQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bQW3/aY2u9o1vyBBGFhdfMivnRKVOreRPGLjsgiFn70=;
- b=fiLZsmXkWHGDojZY+8rrH0+DNTMiktJrjJVunxqjrc6TUPzwVA6Ei7cofaoLNVdqM9ktx/tcIOE2XFEdv1hS0oBQZroUXh+W02wNVQLSyN8g/inCYoCaiZQVGvoD4X61w8LuUkWMoTEK10t7lBQhRNRQ0ICYUZ9yzl/r0oSqYt1eBCvYMUqEntEn34PDPZCNN/Uc8AE8FCY676h3FCS5YXv47WljOGjwVmOMSVJ3dY019+ryKwQn5JSr57VoUozxWoIHjt6Z2vwnNw2C8Y97N1zPu6+zTkbA1uxI5NfNzHeAPY6VfSXk3vtAGoE/lVQXtRyLQM7+TfOhHjz+GTFOhw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bQW3/aY2u9o1vyBBGFhdfMivnRKVOreRPGLjsgiFn70=;
- b=BdDt7jYlGu2TjPTLdwfsYhRgDdqsj8SrYzlS1Esv6x/qAwBjzfu3wFtWibfVZxlue4+16CTIjXxNJcbs5XwflMK/VSpiOxqWmQlFwQxSt/XkmRsfokr3HSWzJPiuDIKeLU9uQmY+Us002VOmxqAen+iejD7S6Zk09ph4M0Yl0WE=
-Received: from MW4PR04CA0349.namprd04.prod.outlook.com (2603:10b6:303:8a::24)
- by SN7PR12MB7274.namprd12.prod.outlook.com (2603:10b6:806:2ad::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.21; Tue, 2 Sep
- 2025 15:03:39 +0000
-Received: from CO1PEPF000042AC.namprd03.prod.outlook.com
- (2603:10b6:303:8a:cafe::b2) by MW4PR04CA0349.outlook.office365.com
- (2603:10b6:303:8a::24) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9073.27 via Frontend Transport; Tue,
- 2 Sep 2025 15:03:39 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
-Received: from SATLEXMB04.amd.com (165.204.84.17) by
- CO1PEPF000042AC.mail.protection.outlook.com (10.167.243.41) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.9094.14 via Frontend Transport; Tue, 2 Sep 2025 15:03:39 +0000
-Received: from SATLEXMB06.amd.com (10.181.40.147) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 2 Sep
- 2025 10:03:25 -0500
-Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB06.amd.com
- (10.181.40.147) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 2 Sep
- 2025 10:03:24 -0500
-Received: from localhost (10.180.168.240) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39 via Frontend
- Transport; Tue, 2 Sep 2025 10:03:23 -0500
-From: Michal Simek <michal.simek@amd.com>
-To: <linux-kernel@vger.kernel.org>, <monstr@monstr.eu>,
-	<michal.simek@xilinx.com>, <git@xilinx.com>
-CC: Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, "open list:OPEN FIRMWARE
- AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, "moderated
- list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH] arm64: versal-net: Describe L2/L3/LLC caches
-Date: Tue, 2 Sep 2025 17:03:10 +0200
-Message-ID: <f2ee23526349a0674149c969a2176c906e529402.1756825388.git.michal.simek@amd.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 02 Sep 2025 15:06:13 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 582EqL68023532
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 2 Sep 2025 15:06:10 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	r1SOQ46E/29ii7NOe0dMseenbNXVTPfB9cR3qwZszXE=; b=YdC/jkh8xvXAp9wu
+	CKDzkCFExpg00v8hlSfM2NnTxpUffrIb2CxhRu/Tp85TV98nCHfTT5zxx/ak2dr8
+	fmVm06mpEff/tLeEc60kwVpX4rna7EewkYbwzUWPFW2Ml2zpwAy+2Sp1aYyaP5cI
+	u+fFVUPHVRNTs3LsMttiNcXZkb/cM4ys5KQZJI9Pd9yPt7Pp9uDWFQ0dpDbosjDN
+	kZq16JV+eU0p8GZeZIs+2B7HCHO3M/mLWSgCaCRJYdp4xbSkvnfjYGpYDi2Mg+SP
+	swQ9VBJ3zpK3VkPXM/qRpoZIEJ5zpTkZYBQpCvGBRTgNRd36hiCDNrV0iBAi9hf4
+	3X2pYg==
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48upnp8cef-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 15:06:09 +0000 (GMT)
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-329b750757aso1890760a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 08:06:09 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756825568; x=1757430368;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=r1SOQ46E/29ii7NOe0dMseenbNXVTPfB9cR3qwZszXE=;
+        b=qmEMSj9+hTsmgy0EUiVdBTMmnE7CZ/6GGGRKDcDJD51Psq+SSt59eQQ4HmfkmadpW0
+         HcdFIKKB7RZ6Fndh9TipA07eVHjRU4rw180oVz96Nrltxw11CrJNtL3HdktiMyoOFx3g
+         bEbhLKKSqWTx967825Z4NMlj2BxCfhfpce2wrpXvtjMj9m7A2VmN2V8Xg4vSmz18e9n0
+         BUP7xT5Z8hGtvbJjD+tOKWXt6XQNqUmW0EAxwL3wg4KSKhty0EoLWgr9CAEi1B0JjMc0
+         v+55BjJ5nm7tE1ALjoNe4Sz+vuYoitVlIC+4LaRewmlSPVEkdpMJQa+VgCQzVhVlLOsQ
+         KCeg==
+X-Forwarded-Encrypted: i=1; AJvYcCX9Zcp9mPZzC2ViX6mGqdZY0li3K4bFimDC6/DC+AL95EM4P1sgKazCmLtNiWo4pJ2FN7g/DgEeHFkj6oXu9Rx0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxh284evbI9HKINGHRTeMji2Ots1ctFZszSEE1SKJCtqnqjsIZl
+	k2D+7j+sxUCxxZag0pnd7YmnxbRh63ShcqRWFzPwOc9yfmQNIBHZ8U76NlATEO+T38ybyBoUoOE
+	N+DAI+O35qPbrmHURhdslAzeV71Cv/NB1XMMOAX/a1p1fk+qRBtPNLYueP0v4DpuG8ryfSeZzBH
+	7vSw==
+X-Gm-Gg: ASbGncsEOE8nY7nWN836Q3Jxr4fQSNviqBzHihYeXRwZsY1quPg0S8TDmlVEK16uxMT
+	9p+NRZJipPmDR6R2TYKlq8c/UfMdxoPMioAyQ7GN3QVTIPKbm//UBDrqXQFxwKb1Vfe2kMb31FR
+	9dz+7sSJy7sHLp3vQevHuAdZuRzIj8S1KANzs8F/AhWeBfPdneQD8cqNNy5/23fC3trUD+mdBCm
+	hyqUkC2EnD3rsZxD+6pKIh1CFGMOUs8zgoPLvqii5WRCt11EtBkE/aAm2iz++MeEZqR2YDwZN+D
+	U36nF+eBUQJYdCcyKGLEsW0/sr5INeduZUNkE1iqcNwtle0C1wkXz2um1oPcsPUNVzx9zt/eR20
+	ybQcGVw==
+X-Received: by 2002:a17:90b:3fc3:b0:325:1548:f0f with SMTP id 98e67ed59e1d1-32815452baamr14929681a91.14.1756825567975;
+        Tue, 02 Sep 2025 08:06:07 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFJe+SAiP+/Rz1UolPPoJ/b1VYRXTQmZzDKLHgwcUU5CG0sTmKazqPtSbReEIm7ZQdOuOTLLw==
+X-Received: by 2002:a17:90b:3fc3:b0:325:1548:f0f with SMTP id 98e67ed59e1d1-32815452baamr14929597a91.14.1756825567148;
+        Tue, 02 Sep 2025 08:06:07 -0700 (PDT)
+Received: from [10.74.205.70] ([27.61.53.99])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-327d9347189sm14704647a91.9.2025.09.02.08.05.55
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 02 Sep 2025 08:06:06 -0700 (PDT)
+Message-ID: <cd5d26a6-cf60-48b4-8c52-d7eae531e9c0@oss.qualcomm.com>
+Date: Tue, 2 Sep 2025 20:35:53 +0530
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=11258; i=michal.simek@amd.com; h=from:subject:message-id; bh=ewz4w44qG8bsdtiUORF3cJqFxzCzReNDxhy/WSoGmhg=; b=owGbwMvMwCG2mv3fB7+vgl8ZT6slMWRsZzeouOXzuZ7lXbOC2aF/Diypp5QDp6za4a/swlG89 P6TZTtmdpSyMIhxMMiKKbJMZ9JxWPPt2lKx5ZH5MHNYmUCGMHBxCsBEuk4yMjTvZQ1t2lE0p0ZS ap+kwMtDf66/bTpZsn3r0o2OBiwnxM4x/GY3OMUYnp1WnTDB+sdFQ1WfTJ83jk8EpT/Pj5t0sHF yNTcA
-X-Developer-Key: i=michal.simek@amd.com; a=openpgp; fpr=67350C9BF5CCEE9B5364356A377C7F21FE3D1F91
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v14 00/10] Implement vendor resets for PSCI SYSTEM_RESET2
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
+        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+        Sudeep Holla <sudeep.holla@arm.com>,
+        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Andy Yan <andy.yan@rock-chips.com>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Arnd Bergmann <arnd@arndb.de>, Konrad Dybcio <konradybcio@kernel.org>,
+        cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+        Stephen Boyd <swboyd@chromium.org>,
+        Andre Draszik
+ <andre.draszik@linaro.org>, linux-pm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        Elliot Berman <quic_eberman@quicinc.com>,
+        Srinivas Kandagatla <srini@kernel.org>,
+        Elliot Berman <elliot.berman@oss.qualcomm.com>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+References: <20250815-arm-psci-system_reset2-vendor-reboots-v14-0-37d29f59ac9a@oss.qualcomm.com>
+ <b08aa8f4-7283-40d5-9f5e-ed8697f882a9@oss.qualcomm.com>
+ <7941da77-06bb-a2d3-c2fa-ad2fba54b4a1@oss.qualcomm.com>
+Content-Language: en-US
+From: Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>
+In-Reply-To: <7941da77-06bb-a2d3-c2fa-ad2fba54b4a1@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000042AC:EE_|SN7PR12MB7274:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8c063834-9419-4146-dd5d-08ddea31e626
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700013|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?4osb2w2oWeBQzTdJZRGwDo/egoQutaEdXrhTohYEhohtlleplM8xAF5U0VWX?=
- =?us-ascii?Q?aCv93HeFGCUrU4hBT9f4WQGrze/aVCraB+JghDXsrNNVtWeWyyRFgJWYT3gn?=
- =?us-ascii?Q?4CCOa9Ch3UhfLGLQbPdjXtGo05LgqXb86pAWa3zFnypI2NbsHnIfFo+neunA?=
- =?us-ascii?Q?cO/zw8k6OaJ+2GyxgpFdN9enIBw0yfvwKH4Zn/dtVrqH5ReuP/K1nstEjWLA?=
- =?us-ascii?Q?tqJz7R9CCATvaWDMUDxb0Q1S3DCT3k5V+wkQzgZnGMFXiLforRlCjCHIMwnh?=
- =?us-ascii?Q?kSts5C7vKGsahJOeInM2kgUFplHJtxdjqgkFLd0uTRvZbIN7hQMepyN51dQm?=
- =?us-ascii?Q?41+yf+0IMDpi+tXiaZpSPNQIKyqQfhcgH7g2O1xd18/5cl5FBSwnxYgPG794?=
- =?us-ascii?Q?KqgrixzIR8FwqiVTb9dZixXUTZRbbUOM66C58StrWxgj2WY1oEvYJGdS7P80?=
- =?us-ascii?Q?M/Bw38nixuNimvT/ryJvAOn+rYfyymTuWCaIcvkXv96hZEbektDeFhAQ8IYx?=
- =?us-ascii?Q?uoLuKEEBFh2/RqhPx81LBi8h0bCqvoCfNdE43OGYna7d05iJ5dmj4JTyk29j?=
- =?us-ascii?Q?s1zOT2jiFZL6Azn0hHOKZPKg5+FlVztgsrSaupKCijJzV3MkirnUvBFhrCDT?=
- =?us-ascii?Q?20s1VOGDGzQG4xCSW1TaeUgzWIzaRphrvDyX6UB1gFlx7N4JCPPbCwqTVVSc?=
- =?us-ascii?Q?NELJLa9bF6NToaJKAxciEJGPlcGM12EXf1TXABH58OcMyt8P+FTxx0iZ2Svq?=
- =?us-ascii?Q?OBGozYVm9DIWjVi4ffFDGQ82dmdE4kh6cbSZ+uqFkKlhSHyrbPviavh/snQq?=
- =?us-ascii?Q?taCPFsUy4OwoW0g1YLzy0EOXE1nRxZo23fpizEVdi2Vgbw1VwK1NE/gZQjvF?=
- =?us-ascii?Q?P6YBPkTNLcwxeQ4cS3Z1dMhRJ2rVxJOkAel5QCFcwCKbZvlcHlC53A8ClTey?=
- =?us-ascii?Q?/hXifz+JMWv49RGuA3LtI3/fSdjR2tv9/0It1tXiGOMYiSvGqCVWgubJ9FmK?=
- =?us-ascii?Q?HNrkpY6zzyQn7H+/qr5rzT8Swc3ZccW0+e4o4q291YBcQJ0zuLA+YpzT0Jar?=
- =?us-ascii?Q?xYhOlLOy19az3nq2W+CY17F5ziVJGLZv3/Tkb8VFk9EqtnWVdDYWZjmFtmyi?=
- =?us-ascii?Q?vbVK/OWI4rija0qhpmjsNV5Fjb/XsP4KVj/ctP+ayUk+gXqYpRroZsQKE65d?=
- =?us-ascii?Q?lfmhigmBhC18yz+L8Vt6LhNlV78ER52tU+43nq/XT/CnOlB0TDUCfvZKoBgj?=
- =?us-ascii?Q?FqxhnbI6Y4Rr+M+8aWRioWbbrh4QyDG8Jq8U7pQI96shUFyFtz2xVuKL6+e1?=
- =?us-ascii?Q?Lz0+cxXI4suAfcRVy88llAu44uBE9UVNqK+YNecIeRTzy/FQ457SOicAIR+o?=
- =?us-ascii?Q?1eV/68YCCcBd/fcz+LDiEFUqehqSHwf4KGjaQzwLDv2kGrzwJL+tPX3INQ0a?=
- =?us-ascii?Q?K7fgXBJGaoq2f7SqOAoo7F5uOoI4pa4gE9xfiFGVKfEOOaIdGZY3xDznZ5VH?=
- =?us-ascii?Q?KelYk1xpuXH441k94owbxqldwCwj6rzzNd2t?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700013)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2025 15:03:39.0731
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8c063834-9419-4146-dd5d-08ddea31e626
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000042AC.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7274
+X-Proofpoint-GUID: Sr8_RC1TWBxWGIef-i-XfOBaU9u9X-tN
+X-Authority-Analysis: v=2.4 cv=Jt/xrN4C c=1 sm=1 tr=0 ts=68b707e1 cx=c_pps
+ a=vVfyC5vLCtgYJKYeQD43oA==:117 a=fw+wMC9hJO9cSnC0spttlA==:17
+ a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8
+ a=EUspDBNiAAAA:8 a=FYkGx2FOHYfMPCDhCJAA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=rl5im9kqc5Lf4LNbBjHf:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-ORIG-GUID: Sr8_RC1TWBxWGIef-i-XfOBaU9u9X-tN
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODMwMDAwMSBTYWx0ZWRfX8ToNyKofNfkn
+ j5Svi8Cr6IRx79v7aD2+wVH6s/T9JyAI0dsKBeAw4Rsnxgsby5qh0w+VinUZnCmhug0Nv07PM95
+ 2WlrSINB90VArHwXyEer81YBiazbDq/W1Z55jRn4S20QcIaAzC7Zh+a5Ggjv+NtCVQtmUf5D7tO
+ buDqI6eBZ0xtZ1u/uOvsuq3f0o53c3Dq01Pqq3FtTq78zBIbrXqg1ZN+TRTB1JQQjF/p2Jdxe1u
+ KhAyzqetl0YRxpiuxtq0jnKI1G4DvG/RrbRYjTHacxeWX3lZc87T0bfBx8pIHYBY3cYy7xeL/NX
+ PL6zxhkZjBj2nxfsCZiEFB4GZAihC7V8h27BCt053st/z+zZzfq/bJNDDrVBaISKQs5o3D8FxTi
+ Z11dQjUW
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-02_05,2025-08-28_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 priorityscore=1501 clxscore=1015 bulkscore=0 impostorscore=0
+ spamscore=0 phishscore=0 suspectscore=0 malwarescore=0 classifier=typeunknown
+ authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2507300000 definitions=main-2508300001
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_080349_779870_ED6E00C7 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20250902_080612_200923_37765A51 
+X-CRM114-Status: GOOD (  27.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,381 +158,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add missing cache layout description.
 
-Signed-off-by: Michal Simek <michal.simek@amd.com>
----
+On 9/2/2025 6:40 PM, Shivendra Pratap wrote:
+>
+> On 8/28/2025 1:35 PM, Kathiravan Thirumoorthy wrote:
+>> On 8/15/2025 8:05 PM, Shivendra Pratap wrote:
+>>> The PSCI SYSTEM_RESET2 call allows vendor firmware to define
+>>> additional reset types which could be mapped to the reboot
+>>> argument.
+>>>
+>>> User-space should be able to reboot a device into different
+>>> operational boot-states supported by underlying bootloader and
+>>> firmware. Generally, some HW registers need to be written, based
+>>> on which the bootloader and firmware decide the next boot state
+>>> of device, after the reset. For example, a requirement on
+>>> Qualcomm platforms may state that reboot with "bootloader"
+>>> command, should reboot the device into bootloader flashing mode
+>>> and reboot with “edl” command, should reboot the device into an
+>>> Emergency flashing mode.  Setting up such reboots on Qualcomm
+>>> devices can be inconsistent across SoC platforms and may require
+>>> setting different HW registers, where some of these registers may
+>>> not be accessible to HLOS. These knobs evolve over product
+>>> generations and require more drivers.  PSCI defines a
+>>> vendor-specific reset in SYSTEM_RESET2 spec, which enables the
+>>> firmware to take care of underlying setting for any such
+>>> supported vendor-specific reboot. Qualcomm firmwares are
+>>> beginning to support and expose PSCI SYSTEM_RESET2
+>>> vendor-specific reset types to simplify driver requirements from
+>>> Linux. With such support added in the firmware, we now need a
+>>> Linux interface which can make use of the firmware calls for PSCI
+>>> vendor-specific resets. This will align such reboot requirement
+>>> across platforms and vendors.
+>>>
+>>> The current psci driver supports two types of resets –
+>>> SYSTEM_RESET2 Arch warm-reset and SYSTEM_RESET cold-reset. The
+>>> patchset introduces the PSCI SYSTEM_RESET2 vendor-specific reset
+>>> into the reset path of the psci driver and aligns it to work with
+>>> reboot system call - LINUX_REBOOT_CMD_RESTART2, when used along
+>>> with a supported string-based command in “*arg”.
+>>>
+>>> The patchset uses reboot-mode based commands, to define the
+>>> supported vendor reset-types commands in psci device tree node
+>>> and registers these commands with the reboot-mode framework.
+>>>
+>>> The PSCI vendor-specific reset takes two arguments, being,
+>>> reset_type and cookie as defined by the spec. To accommodate this
+>>> requirement, enhance the reboot-mode framework to support two
+>>> 32-bit arguments by switching to 64-bit magic values.
+>>>
+>>> Along this line, the patchset also extends the reboot-mode
+>>> framework to add a non-device-based registration function, which
+>>> will allow drivers to register using device tree node, while
+>>> keeping backward compatibility for existing users of reboot-mode.
+>>> This will enable psci driver to register for reboot-mode and
+>>> implement a write function, which will save the magic and then
+>>> use it in psci reset path to make a vendor-specific reset call
+>>> into the firmware. In addition, the patchset will expose a sysfs
+>>> entry interface within reboot-mode which can be used by userspace
+>>> to view the supported reboot-mode commands.
+>>>
+>>> The list of vendor-specific reset commands remains open due to
+>>> divergent requirements across vendors, but this can be
+>>> streamlined and standardized through dedicated device tree
+>>> bindings.
+>>>
+>>> Currently three drivers register with reboot-mode framework -
+>>> syscon-reboot-mode, nvmem-reboot-mode and qcom-pon. Consolidated
+>>> list of commands currently added across various vendor DTs:
+>>>    mode-loader
+>>>    mode-normal
+>>>    mode-bootloader
+>>>    mode-charge
+>>>    mode-fastboot
+>>>    mode-reboot-ab-update
+>>>    mode-recovery
+>>>    mode-rescue
+>>>    mode-shutdown-thermal
+>>>    mode-shutdown-thermal-battery
+>>>
+>>> On gs101 we also pass kernel-generated modes from kernel_restart()
+>>> or panic(), specifically DM verity's 'dm-verity device corrupted':
+>>>      mode-dm-verity-device-corrupted = <0x50>;
+>>>
+>>> - thanks Andre' for providing this.
+>>>
+>>> Detailed list of commands being used by syscon-reboot-mode:
+>>>       arm64/boot/dts/exynos/exynosautov9.dtsi:
+>>>      mode-bootloader = <EXYNOSAUTOV9_BOOT_BOOTLOADER>;
+>>>      mode-fastboot = <EXYNOSAUTOV9_BOOT_FASTBOOT>;
+>>>      mode-recovery = <EXYNOSAUTOV9_BOOT_RECOVERY>;
+>>>
+>>>       arm64/boot/dts/exynos/google/gs101.dtsi:
+>>>           mode-bootloader = <0xfc>;
+>>>           mode-charge = <0x0a>;
+>>>           mode-fastboot = <0xfa>;
+>>>           mode-reboot-ab-update = <0x52>;
+>>>           mode-recovery = <0xff>;
+>>>           mode-rescue = <0xf9>;
+>>>           mode-shutdown-thermal = <0x51>;
+>>>           mode-shutdown-thermal-battery = <0x51>;
+>>>
+>>>       arm64/boot/dts/hisilicon/hi3660-hikey960.dts:
+>>>           mode-normal = <0x77665501>;
+>>>           mode-bootloader = <0x77665500>;
+>>>           mode-recovery = <0x77665502>;
+>>>
+>>>       arm64/boot/dts/hisilicon/hi6220-hikey.dts:
+>>>           mode-normal = <0x77665501>;
+>>>           mode-bootloader = <0x77665500>;
+>>>           mode-recovery = <0x77665502>;
+>>>
+>>>       arm64/boot/dts/rockchip/px30.dtsi:
+>>>           mode-bootloader = <BOOT_BL_DOWNLOAD>;
+>>>           mode-fastboot = <BOOT_FASTBOOT>;
+>>>           mode-loader = <BOOT_BL_DOWNLOAD>;
+>>>           mode-normal = <BOOT_NORMAL>;
+>>>           mode-recovery = <BOOT_RECOVERY>;
+>>>
+>>>       arm64/boot/dts/rockchip/rk3308.dtsi:
+>>>           mode-bootloader = <BOOT_BL_DOWNLOAD>;
+>>>           mode-loader = <BOOT_BL_DOWNLOAD>;
+>>>           mode-normal = <BOOT_NORMAL>;
+>>>           mode-recovery = <BOOT_RECOVERY>;
+>>>           mode-fastboot = <BOOT_FASTBOOT>;
+>>>
+>>>       arm64/boot/dts/rockchip/rk3566-lckfb-tspi.dts:
+>>>           mode-normal = <BOOT_NORMAL>;
+>>>           mode-loader = <BOOT_BL_DOWNLOAD>;
+>>>              mode-recovery = <BOOT_RECOVERY>;
+>>>              mode-bootloader = <BOOT_FASTBOOT>;
+>>>
+>>> Detailed list of commands being used by nvmem-reboot-mode:
+>>>       arm64/boot/dts/qcom/pmXXXX.dtsi:(multiple qcom DTs)
+>>>              mode-recovery = <0x01>;
+>>>              mode-bootloader = <0x02>;
+>>>
+>>> Previous discussions around SYSTEM_RESET2:
+>>> -https://lore.kernel.org/lkml/20230724223057.1208122-2-quic_eberman@quicinc.com/T/
+>>> -https://lore.kernel.org/all/4a679542-b48d-7e11-f33a-63535a5c68cb@quicinc.com/
+>>>
+>>> Signed-off-by: Elliot Berman<quic_eberman@quicinc.com>
+>>> Signed-off-by: Shivendra Pratap<shivendra.pratap@oss.qualcomm.com>
+>>
+>> With this series, 'edl' mode is working fine in QCOM's IPQ5424 SoC. So
+>>
+>> Tested-by: Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com> # IPQ5424-RDP466
+>>
+> Thanks for giving time for testing this series for IPQ5424. So we have PSCI SYS reset2 support for
+> IPQ5424 firmware?
 
- arch/arm64/boot/dts/xilinx/versal-net.dtsi | 248 +++++++++++++++++++++
- 1 file changed, 248 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/xilinx/versal-net.dtsi b/arch/arm64/boot/dts/xilinx/versal-net.dtsi
-index c037a7819967..62861138c8f4 100644
---- a/arch/arm64/boot/dts/xilinx/versal-net.dtsi
-+++ b/arch/arm64/boot/dts/xilinx/versal-net.dtsi
-@@ -104,6 +104,18 @@ cpu0: cpu@0 {
- 			reg = <0>;
- 			operating-points-v2 = <&cpu_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP_0>;
-+			next-level-cache = <&l2_00>;
-+			l2_00: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-size = <0x80000>; /* 512kB */
-+				cache-line-size = <64>;
-+				/* 8 ways set associativity */
-+				/* cache_size / (line_size/associativity) */
-+				cache-sets = <1024>;
-+				cache-unified;
-+				next-level-cache = <&l3_0>;
-+			};
- 		};
- 		cpu100: cpu@100 {
- 			compatible = "arm,cortex-a78";
-@@ -112,6 +124,18 @@ cpu100: cpu@100 {
- 			reg = <0x100>;
- 			operating-points-v2 = <&cpu_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP_0>;
-+			next-level-cache = <&l2_01>;
-+			l2_01: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-size = <0x80000>; /* 512kB */
-+				cache-line-size = <64>;
-+				/* 8 ways set associativity */
-+				/* cache_size / (line_size/associativity) */
-+				cache-sets = <1024>;
-+				cache-unified;
-+				next-level-cache = <&l3_0>;
-+			};
- 		};
- 		cpu200: cpu@200 {
- 			compatible = "arm,cortex-a78";
-@@ -120,6 +144,18 @@ cpu200: cpu@200 {
- 			reg = <0x200>;
- 			operating-points-v2 = <&cpu_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP_0>;
-+			next-level-cache = <&l2_02>;
-+			l2_02: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-size = <0x80000>; /* 512kB */
-+				cache-line-size = <64>;
-+				/* 8 ways set associativity */
-+				/* cache_size / (line_size/associativity) */
-+				cache-sets = <1024>;
-+				cache-unified;
-+				next-level-cache = <&l3_0>;
-+			};
- 		};
- 		cpu300: cpu@300 {
- 			compatible = "arm,cortex-a78";
-@@ -128,6 +164,18 @@ cpu300: cpu@300 {
- 			reg = <0x300>;
- 			operating-points-v2 = <&cpu_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP_0>;
-+			next-level-cache = <&l2_03>;
-+			l2_03: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-size = <0x80000>; /* 512kB */
-+				cache-line-size = <64>;
-+				/* 8 ways set associativity */
-+				/* cache_size / (line_size/associativity) */
-+				cache-sets = <1024>;
-+				cache-unified;
-+				next-level-cache = <&l3_0>;
-+			};
- 		};
- 		cpu10000: cpu@10000 {
- 			compatible = "arm,cortex-a78";
-@@ -136,6 +184,18 @@ cpu10000: cpu@10000 {
- 			reg = <0x10000>;
- 			operating-points-v2 = <&cpu_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP_0>;
-+			next-level-cache = <&l2_10>;
-+			l2_10: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-size = <0x80000>; /* 512kB */
-+				cache-line-size = <64>;
-+				/* 8 ways set associativity */
-+				/* cache_size / (line_size/associativity) */
-+				cache-sets = <1024>;
-+				cache-unified;
-+				next-level-cache = <&l3_1>;
-+			};
- 		};
- 		cpu10100: cpu@10100 {
- 			compatible = "arm,cortex-a78";
-@@ -144,6 +204,18 @@ cpu10100: cpu@10100 {
- 			reg = <0x10100>;
- 			operating-points-v2 = <&cpu_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP_0>;
-+			next-level-cache = <&l2_11>;
-+			l2_11: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-size = <0x80000>; /* 512kB */
-+				cache-line-size = <64>;
-+				/* 8 ways set associativity */
-+				/* cache_size / (line_size/associativity) */
-+				cache-sets = <1024>;
-+				cache-unified;
-+				next-level-cache = <&l3_1>;
-+			};
- 		};
- 		cpu10200: cpu@10200 {
- 			compatible = "arm,cortex-a78";
-@@ -152,6 +224,18 @@ cpu10200: cpu@10200 {
- 			reg = <0x10200>;
- 			operating-points-v2 = <&cpu_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP_0>;
-+			next-level-cache = <&l2_12>;
-+			l2_12: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-size = <0x80000>; /* 512kB */
-+				cache-line-size = <64>;
-+				/* 8 ways set associativity */
-+				/* cache_size / (line_size/associativity) */
-+				cache-sets = <1024>;
-+				cache-unified;
-+				next-level-cache = <&l3_1>;
-+			};
- 		};
- 		cpu10300: cpu@10300 {
- 			compatible = "arm,cortex-a78";
-@@ -160,6 +244,18 @@ cpu10300: cpu@10300 {
- 			reg = <0x10300>;
- 			operating-points-v2 = <&cpu_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP_0>;
-+			next-level-cache = <&l2_13>;
-+			l2_13: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-size = <0x80000>; /* 512kB */
-+				cache-line-size = <64>;
-+				/* 8 ways set associativity */
-+				/* cache_size / (line_size/associativity) */
-+				cache-sets = <1024>;
-+				cache-unified;
-+				next-level-cache = <&l3_1>;
-+			};
- 		};
- 		cpu20000: cpu@20000 {
- 			compatible = "arm,cortex-a78";
-@@ -168,6 +264,18 @@ cpu20000: cpu@20000 {
- 			reg = <0x20000>;
- 			operating-points-v2 = <&cpu_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP_0>;
-+			next-level-cache = <&l2_20>;
-+			l2_20: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-size = <0x80000>; /* 512kB */
-+				cache-line-size = <64>;
-+				/* 8 ways set associativity */
-+				/* cache_size / (line_size/associativity) */
-+				cache-sets = <1024>;
-+				cache-unified;
-+				next-level-cache = <&l3_2>;
-+			};
- 		};
- 		cpu20100: cpu@20100 {
- 			compatible = "arm,cortex-a78";
-@@ -176,6 +284,18 @@ cpu20100: cpu@20100 {
- 			reg = <0x20100>;
- 			operating-points-v2 = <&cpu_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP_0>;
-+			next-level-cache = <&l2_21>;
-+			l2_21: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-size = <0x80000>; /* 512kB */
-+				cache-line-size = <64>;
-+				/* 8 ways set associativity */
-+				/* cache_size / (line_size/associativity) */
-+				cache-sets = <1024>;
-+				cache-unified;
-+				next-level-cache = <&l3_2>;
-+			};
- 		};
- 		cpu20200: cpu@20200 {
- 			compatible = "arm,cortex-a78";
-@@ -184,6 +304,18 @@ cpu20200: cpu@20200 {
- 			reg = <0x20200>;
- 			operating-points-v2 = <&cpu_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP_0>;
-+			next-level-cache = <&l2_22>;
-+			l2_22: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-size = <0x80000>; /* 512kB */
-+				cache-line-size = <64>;
-+				/* 8 ways set associativity */
-+				/* cache_size / (line_size/associativity) */
-+				cache-sets = <1024>;
-+				cache-unified;
-+				next-level-cache = <&l3_2>;
-+			};
- 		};
- 		cpu20300: cpu@20300 {
- 			compatible = "arm,cortex-a78";
-@@ -192,6 +324,18 @@ cpu20300: cpu@20300 {
- 			reg = <0x20300>;
- 			operating-points-v2 = <&cpu_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP_0>;
-+			next-level-cache = <&l2_23>;
-+			l2_23: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-size = <0x80000>; /* 512kB */
-+				cache-line-size = <64>;
-+				/* 8 ways set associativity */
-+				/* cache_size / (line_size/associativity) */
-+				cache-sets = <1024>;
-+				cache-unified;
-+				next-level-cache = <&l3_2>;
-+			};
- 		};
- 		cpu30000: cpu@30000 {
- 			compatible = "arm,cortex-a78";
-@@ -200,6 +344,18 @@ cpu30000: cpu@30000 {
- 			reg = <0x30000>;
- 			operating-points-v2 = <&cpu_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP_0>;
-+			next-level-cache = <&l2_30>;
-+			l2_30: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-size = <0x80000>; /* 512kB */
-+				cache-line-size = <64>;
-+				/* 8 ways set associativity */
-+				/* cache_size / (line_size/associativity) */
-+				cache-sets = <1024>;
-+				cache-unified;
-+				next-level-cache = <&l3_3>;
-+			};
- 		};
- 		cpu30100: cpu@30100 {
- 			compatible = "arm,cortex-a78";
-@@ -208,6 +364,18 @@ cpu30100: cpu@30100 {
- 			reg = <0x30100>;
- 			operating-points-v2 = <&cpu_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP_0>;
-+			next-level-cache = <&l2_31>;
-+			l2_31: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-size = <0x80000>; /* 512kB */
-+				cache-line-size = <64>;
-+				/* 8 ways set associativity */
-+				/* cache_size / (line_size/associativity) */
-+				cache-sets = <1024>;
-+				cache-unified;
-+				next-level-cache = <&l3_3>;
-+			};
- 		};
- 		cpu30200: cpu@30200 {
- 			compatible = "arm,cortex-a78";
-@@ -216,6 +384,18 @@ cpu30200: cpu@30200 {
- 			reg = <0x30200>;
- 			operating-points-v2 = <&cpu_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP_0>;
-+			next-level-cache = <&l2_32>;
-+			l2_32: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-size = <0x80000>; /* 512kB */
-+				cache-line-size = <64>;
-+				/* 8 ways set associativity */
-+				/* cache_size / (line_size/associativity) */
-+				cache-sets = <1024>;
-+				cache-unified;
-+				next-level-cache = <&l3_3>;
-+			};
- 		};
- 		cpu30300: cpu@30300 {
- 			compatible = "arm,cortex-a78";
-@@ -224,7 +404,75 @@ cpu30300: cpu@30300 {
- 			reg = <0x30300>;
- 			operating-points-v2 = <&cpu_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP_0>;
-+			next-level-cache = <&l2_33>;
-+			l2_33: l2-cache {
-+				compatible = "cache";
-+				cache-level = <2>;
-+				cache-size = <0x80000>; /* 512kB */
-+				cache-line-size = <64>;
-+				/* 8 ways set associativity */
-+				/* cache_size / (line_size/associativity) */
-+				cache-sets = <1024>;
-+				cache-unified;
-+				next-level-cache = <&l3_3>;
-+			};
-+		};
-+
-+		l3_0: l3-0-cache { /* cluster private */
-+			compatible = "cache";
-+			cache-level = <3>;
-+			cache-size = <0x200000>; /* 2MB */
-+			cache-line-size = <64>;
-+			/* 16 ways set associativity */
-+			/* cache_size / (line_size/associativity) */
-+			cache-sets = <2048>;
-+			cache-unified;
-+			next-level-cache = <&llc>;
-+		};
-+
-+		l3_1: l3-1-cache { /* cluster private */
-+			compatible = "cache";
-+			cache-level = <3>;
-+			cache-size = <0x200000>; /* 2MB */
-+			cache-line-size = <64>;
-+			/* 16 ways set associativity */
-+			/* cache_size / (line_size/associativity) */
-+			cache-sets = <2048>;
-+			cache-unified;
-+			next-level-cache = <&llc>;
-+		};
-+
-+		l3_2: l3-2-cache { /* cluster private */
-+			compatible = "cache";
-+			cache-level = <3>;
-+			cache-size = <0x200000>; /* 2MB */
-+			cache-line-size = <64>;
-+			/* 16 ways set associativity */
-+			/* cache_size / (line_size/associativity) */
-+			cache-sets = <2048>;
-+			cache-unified;
-+			next-level-cache = <&llc>;
-+		};
-+
-+		l3_3: l3-3-cache { /* cluster private */
-+			compatible = "cache";
-+			cache-level = <3>;
-+			cache-size = <0x200000>; /* 2MB */
-+			cache-line-size = <64>;
-+			/* 16 ways set associativity */
-+			/* cache_size / (line_size/associativity) */
-+			cache-sets = <2048>;
-+			cache-unified;
-+			next-level-cache = <&llc>;
-+		};
-+
-+		llc: l4-cache { /* LLC inside CMN */
-+			compatible = "cache";
-+			cache-level = <4>;
-+			cache-size = <0x1000000>; /* 16MB */
-+			cache-unified;
- 		};
-+
- 		idle-states {
- 			entry-method = "psci";
- 
--- 
-2.43.0
+Yeah, the latest IPQ5424 firmware (To be specific - 
+TZ.WIN_WC.1.0-00043-IPQ5424MAPAANAZT-1 onwards) supports PSCI SYS RESET2.
 
-base-commit: 3160658ea2c4dd09a1d68918271177cf55437a8f
+
+> and did we make any extra changes in DT for edl mode?
+
+
+Yes, I submitted the DTS patch[1] for this similar to the other platforms.
+
+[1] [PATCH] arm64: dts: qcom: ipq5424: Add support for emergency 
+download mode - Kathiravan Thirumoorthy 
+<https://lore.kernel.org/linux-arm-msm/20250828-ipq5424-edl-v1-1-d6a403800023@oss.qualcomm.com/>.
+
+
+>
+> thanks,
+> Shivendra
 
