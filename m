@@ -4,98 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54230CA0FFE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 16:04:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68142CA0FFE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 16:07:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vaJV/AYbl/mon1qabDaukZJ7qz3bjN/L9fdsiOaq8ts=; b=tDR2JqyIOe0McyFSDOJiz/vhkw
-	+6NJ0nD/+WEcNgpKmKb2iIQ0S/dAGZWwRSZkuSNlsk2+yNTR7GGPcbk8V22HjTI6EZYgMr6qX5ic3
-	qg4IR3z1YJdDl1O6DVA3VJBKq4PemoGMx6hxxEu2Na+akf0AAQfn0AcMd5FV2Eo4kcp951wmiCy/b
-	EWmnnu7yHYeqg2vYeAzt/PsRZVgDHN9Wou9rRiZpXxXNd/eFCZlIboGTMzl+X2WUjMj2aCu3QNuje
-	XNm0rfnLpnMjD4FwOj0ALxgiHKGgPsVG9Ia8M4xdfELtjj4sCQV6Q90RXcKAK/nIvogiBZjM0ZHeu
-	bvSoeXzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4slDyr7KGiE0XZi52LNTVAi2VJmkRfwRlKup7c0Bk20=; b=beFvBponTUrJExdfDah78E6aER
+	skbtT/NFbr5oCT73F6U2Gr+imzV0T02D5xdsaaBdcyziuUXsb/UeC2DXZ1+u9ANVxklkfiUQN5lS0
+	y8gk3Y24EiN+IPXmo2kXY+m0yhr7FMarWJSyqJT4qmITGv32GD9WNKDl9YN0DXI6WUchth7X5avK4
+	5abZpgAgsiJ45Tm8CuqWIfE9f2YclKSrXBGN+8ivKeNTPvPFyri5TSEyYeOsU6lC+n1HIA7Yy8Vkh
+	aVH1OKk2/jGb7FxO7XbmFwxAPhzfpp2ik61T6NC18Mq4dnMjjNeHI5xBFBemBrhw9B0WUa+z6jq7O
+	moOtVTTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utTUg-00000000qlN-3W4f;
-	Tue, 02 Sep 2025 16:04:27 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1utTXO-00000000rWY-1vT8;
+	Tue, 02 Sep 2025 16:07:14 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utPry-0000000H8v9-31iW
+	id 1utPui-0000000H9hw-1spe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 12:12:18 +0000
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250902121208epoutp034a78e14cbe985cad8cf75bca0197ba7e~hdg0qaKHF2963929639epoutp03Q
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  2 Sep 2025 12:12:08 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250902121208epoutp034a78e14cbe985cad8cf75bca0197ba7e~hdg0qaKHF2963929639epoutp03Q
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1756815128;
-	bh=vaJV/AYbl/mon1qabDaukZJ7qz3bjN/L9fdsiOaq8ts=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=BnBYEEuoDc/f1i8coBZpjSDdZmLJ/bxS0G7FgAJlchWxp4TzQ3vcxAzYobg68pHid
-	 8pXZJCYwi72bm1bEcRyJ+W1FzGVMP7lUzQNujnBCEk95Yi1k4kRtlQXCP4XmFuFmY5
-	 ASxX6Q58T7MMcXApQeT8Q8IpoA0dCmwhZwQFvxPE=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250902121207epcas5p2d9c0ed34e884b15ee3784c0dee8cc161~hdg0ITcbx1190711907epcas5p2I;
-	Tue,  2 Sep 2025 12:12:07 +0000 (GMT)
-Received: from epdlp11prp5 (unknown [182.195.38.90]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4cGPkG6y72z6B9m6; Tue,  2 Sep
-	2025 12:12:06 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250902121206epcas5p130402f52b030caf571bfd7de06e81958~hdgync_Gb2445224452epcas5p1w;
-	Tue,  2 Sep 2025 12:12:06 +0000 (GMT)
-Received: from INBRO001840 (unknown [107.122.3.105]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250902121202epsmtip21e7e1f2f4beedb479066f12deb8570f3~hdgvc4E3O0979409794epsmtip2f;
-	Tue,  2 Sep 2025 12:12:02 +0000 (GMT)
-From: "Pritam Manohar Sutar" <pritam.sutar@samsung.com>
-To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, "'Alim Akhtar'"
-	<alim.akhtar@samsung.com>
-Cc: <vkoul@kernel.org>, <kishon@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <andre.draszik@linaro.org>,
-	<peter.griffin@linaro.org>, <kauschluss@disroot.org>,
-	<ivo.ivanov.ivanov1@gmail.com>, <igor.belwon@mentallysanemainliners.org>,
-	<johan@kernel.org>, <m.szyprowski@samsung.com>, <s.nawrocki@samsung.com>,
-	<linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <rosa.pila@samsung.com>,
-	<dev.tailor@samsung.com>, <faraz.ata@samsung.com>,
-	<muhammed.ali@samsung.com>, <selvarasu.g@samsung.com>
-In-Reply-To: 
-Subject: RE: [PATCH v7 5/6] dt-bindings: phy: samsung,usb3-drd-phy: add
- ExynosAutov920 combo ssphy
-Date: Tue, 2 Sep 2025 17:42:01 +0530
-Message-ID: <000001dc1c02$cc89fda0$659df8e0$@samsung.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQGSd8blfqR9gZc/NH28iGAFaSn12QHbdVSHAGa/K48CXY/t+wLwFCB2ArX7ZGwBn6FItwLUPA9DAP+/dGQCDX8RFrR+kenQgAZH6FA=
-Content-Language: en-in
-X-CMS-MailID: 20250902121206epcas5p130402f52b030caf571bfd7de06e81958
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250822093022epcas5p42d8c16c851769dab0e1da9d45743ab1f
-References: <20250822093845.1179395-1-pritam.sutar@samsung.com>
-	<CGME20250822093022epcas5p42d8c16c851769dab0e1da9d45743ab1f@epcas5p4.samsung.com>
-	<20250822093845.1179395-6-pritam.sutar@samsung.com>
-	<20250824-rough-fresh-orangutan-eecb2f@kuoka>
-	<007501dc1653$e36c3b50$aa44b1f0$@samsung.com>
-	<83dc9435-5850-425d-b345-52e84ef9262c@kernel.org>
-	<000401dc18cd$ec02a1b0$c407e510$@samsung.com>
-	<e8e99c16-ad40-4d79-be92-1aa55c13f9ea@kernel.org>
-	<263801dc18d3$d1e20950$75a61bf0$@samsung.com>
-	<6b5f20ed-4e88-441e-8f61-20866e2b39c7@kernel.org> 
+	Tue, 02 Sep 2025 12:15:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1756815304; x=1788351304;
+  h=date:from:to:cc:subject:message-id;
+  bh=e2F3ZVHt6Zu7j4Lf/YimEF3074Xtr6ges17IEiu0Z40=;
+  b=VTU476Brs2B8q6EZkDRPpfQBSvyNS03CyczEH1ohVnvDp2URbqMVoxQ9
+   vjQAbx+iwAv9O+9Js20o5O7EWGiQC7W7BIYQ1iAR5DJ9Xw4bkmpsuY3s4
+   /CtedwQuZzZqXMSuPr4QwHcq/YhvpUwx6mDyR8iL0hJykCULVXkQsGSy3
+   j2IbEyHmy3RKEO0JD+x3nC2LU6b1f/yJ2DDfmJYLHcnEcHf43qmfD1Tw8
+   NjS60UauqCPCjP+GJJrsZYbH7H1EXJ4KkBdqjqoFah97XB7ezQFEUS1ch
+   Dx/X47pIUhJvRA3mfe/t6iXx+dMWFP5gNSzreV/s/w6SJ2tZ/yG0O2aLn
+   w==;
+X-CSE-ConnectionGUID: XRkzoacPTHCf2bdIDhV4RA==
+X-CSE-MsgGUID: nFca5c/LS7251K/Vk4lEOQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11540"; a="76686159"
+X-IronPort-AV: E=Sophos;i="6.18,230,1751266800"; 
+   d="scan'208";a="76686159"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Sep 2025 05:15:02 -0700
+X-CSE-ConnectionGUID: Xy1Ty1j+QQqm8Kk0ehoDAA==
+X-CSE-MsgGUID: alQNMqb/TT+K5XWLwc+OAg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,230,1751266800"; 
+   d="scan'208";a="208455123"
+Received: from lkp-server02.sh.intel.com (HELO 06ba48ef64e9) ([10.239.97.151])
+  by orviesa001.jf.intel.com with ESMTP; 02 Sep 2025 05:15:00 -0700
+Received: from kbuild by 06ba48ef64e9 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1utPuI-0001xJ-1t;
+	Tue, 02 Sep 2025 12:14:44 +0000
+Date: Tue, 02 Sep 2025 20:10:01 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:soc/dt] BUILD SUCCESS
+ cea9c89d46c62b5fdc719c60bc7b2e3abd8c0153
+Message-ID: <202509022045.qKenSjUO-lkp@intel.com>
+User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_051216_218440_57C0635A 
-X-CRM114-Status: GOOD (  30.25  )
+X-CRM114-CacheID: sfid-20250902_051504_500024_70791AF2 
+X-CRM114-Status: UNSURE (   5.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,187 +83,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/dt
+branch HEAD: cea9c89d46c62b5fdc719c60bc7b2e3abd8c0153  Merge tag 'sti-dt-for-v6.18-round1' of https://git.kernel.org/pub/scm/linux/kernel/git/pchotard/sti into soc/dt
 
-> -----Original Message-----
-> From: Pritam Manohar Sutar <pritam.sutar=40samsung.com>
-> Sent: 29 August 2025 05:33 PM
-> To: 'Krzysztof Kozlowski' <krzk=40kernel.org>; 'Alim Akhtar'
-> <alim.akhtar=40samsung.com>
-> Cc: 'vkoul=40kernel.org' <vkoul=40kernel.org>; 'kishon=40kernel.org'
-> <kishon=40kernel.org>; 'robh=40kernel.org' <robh=40kernel.org>;
-> 'krzk+dt=40kernel.org' <krzk+dt=40kernel.org>; 'conor+dt=40kernel.org'
-> <conor+dt=40kernel.org>; 'andre.draszik=40linaro.org'
-> <andre.draszik=40linaro.org>; 'peter.griffin=40linaro.org'
-> <peter.griffin=40linaro.org>; 'kauschluss=40disroot.org' <kauschluss=40di=
-sroot.org>;
-> 'ivo.ivanov.ivanov1=40gmail.com' <ivo.ivanov.ivanov1=40gmail.com>;
-> 'igor.belwon=40mentallysanemainliners.org'
-> <igor.belwon=40mentallysanemainliners.org>; 'johan=40kernel.org'
-> <johan=40kernel.org>; 'm.szyprowski=40samsung.com'
-> <m.szyprowski=40samsung.com>; 's.nawrocki=40samsung.com'
-> <s.nawrocki=40samsung.com>; 'linux-phy=40lists.infradead.org' <linux-
-> phy=40lists.infradead.org>; 'devicetree=40vger.kernel.org'
-> <devicetree=40vger.kernel.org>; 'linux-kernel=40vger.kernel.org' <linux-
-> kernel=40vger.kernel.org>; 'linux-arm-kernel=40lists.infradead.org' <linu=
-x-arm-
-> kernel=40lists.infradead.org>; 'linux-samsung-soc=40vger.kernel.org' <lin=
-ux-
-> samsung-soc=40vger.kernel.org>; 'rosa.pila=40samsung.com'
-> <rosa.pila=40samsung.com>; 'dev.tailor=40samsung.com'
-> <dev.tailor=40samsung.com>; 'faraz.ata=40samsung.com'
-> <faraz.ata=40samsung.com>; 'muhammed.ali=40samsung.com'
-> <muhammed.ali=40samsung.com>; 'selvarasu.g=40samsung.com'
-> <selvarasu.g=40samsung.com>
-> Subject: RE: =5BPATCH v7 5/6=5D dt-bindings: phy: samsung,usb3-drd-phy: a=
-dd
-> ExynosAutov920 combo ssphy
->=20
-> Hi Krzysztof,
->=20
-> > -----Original Message-----
-> > From: Krzysztof Kozlowski <krzk=40kernel.org>
-> > Sent: 29 August 2025 04:56 PM
-> > To: Alim Akhtar <alim.akhtar=40samsung.com>; 'Pritam Manohar Sutar'
-> > <pritam.sutar=40samsung.com>
-> > Cc: vkoul=40kernel.org; kishon=40kernel.org; robh=40kernel.org;
-> > krzk+dt=40kernel.org; conor+dt=40kernel.org; andre.draszik=40linaro.org=
-;
-> > peter.griffin=40linaro.org; kauschluss=40disroot.org;
-> > ivo.ivanov.ivanov1=40gmail.com; igor.belwon=40mentallysanemainliners.or=
-g;
-> > johan=40kernel.org; m.szyprowski=40samsung.com; s.nawrocki=40samsung.co=
-m;
-> > linux-phy=40lists.infradead.org; devicetree=40vger.kernel.org; linux-
-> > kernel=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org;
-> > linux-samsung- soc=40vger.kernel.org; rosa.pila=40samsung.com;
-> > dev.tailor=40samsung.com; faraz.ata=40samsung.com;
-> > muhammed.ali=40samsung.com; selvarasu.g=40samsung.com
-> > Subject: Re: =5BPATCH v7 5/6=5D dt-bindings: phy: samsung,usb3-drd-phy:
-> > add
-> > ExynosAutov920 combo ssphy
-> >
-> > On 29/08/2025 12:58, Alim Akhtar wrote:
-> > > Hi Krzysztof
-> > >
-> > >> -----Original Message-----
-> > >> From: Krzysztof Kozlowski <krzk=40kernel.org>
-> > >> Sent: Friday, August 29, 2025 4:07 PM
-> > >> To: Pritam Manohar Sutar <pritam.sutar=40samsung.com>
-> > >> Cc: vkoul=40kernel.org; kishon=40kernel.org; robh=40kernel.org;
-> > >> krzk+dt=40kernel.org; conor+dt=40kernel.org; alim.akhtar=40samsung.c=
-om;
-> > >> andre.draszik=40linaro.org; peter.griffin=40linaro.org;
-> > >> kauschluss=40disroot.org; ivo.ivanov.ivanov1=40gmail.com;
-> > >> igor.belwon=40mentallysanemainliners.org;
-> > >> johan=40kernel.org; m.szyprowski=40samsung.com;
-> s.nawrocki=40samsung.com;
-> > >> linux-phy=40lists.infradead.org; devicetree=40vger.kernel.org;
-> > >> linux-kernel=40vger.kernel.org; linux-arm-
-> > >> kernel=40lists.infradead.org; linux-samsung-soc=40vger.kernel.org;
-> > >> rosa.pila=40samsung.com; dev.tailor=40samsung.com;
-> > faraz.ata=40samsung.com;
-> > >> muhammed.ali=40samsung.com; selvarasu.g=40samsung.com
-> > >> Subject: Re: =5BPATCH v7 5/6=5D dt-bindings: phy: samsung,usb3-drd-p=
-hy:
-> > >> add
-> > >> ExynosAutov920 combo ssphy
-> > >>
-> > >> On 29/08/2025 12:15, Pritam Manohar Sutar wrote:
-> > >>> Hi Krzysztof
-> > >>>
-> > >>>> -----Original Message-----
-> > >>>> From: Krzysztof Kozlowski <krzk=40kernel.org>
-> > >>>> Sent: 26 August 2025 02:05 PM
-> > >>>> To: Pritam Manohar Sutar <pritam.sutar=40samsung.com>
-> > >>>> Cc: vkoul=40kernel.org; kishon=40kernel.org; robh=40kernel.org;
-> > >>> .
-> > >>> .
-> > >>> =5Bsnip=5D
-> > >>> .
-> > >>> .
-> > >>>>>> Subject: Re: =5BPATCH v7 5/6=5D dt-bindings: phy: samsung,usb3-d=
-rd-phy:
-> > >>>>>> add
-> > >>>>>> ExynosAutov920 combo ssphy
-> > >>>>>>
-> > >>>>>> On Fri, Aug 22, 2025 at 03:08:44PM +0530, Pritam Manohar Sutar
-> wrote:
-> > >>>>>>> This phy supports USB3.1 SSP+(10Gbps) protocol and is
-> > >>>>>>> backwards compatible to the USB3.0 SS(5Gbps). It requires two
-> > >>>>>>> clocks, named =22phy=22 and =22ref=22. The required supplies fo=
-r
-> > >>>>>>> USB3.1 are named as vdd075_usb30(0.75v), vdd18_usb30(1.8v).
-> > >>>>>>
-> > >>>>>> Please do not describe the schema, but hardware. This sentence
-> > >>>>>> does not help me in my question further.
-> > >>>>>
-> > >>>>> This is a combo phy having Synopsys usb20 and usb30 phys (these
-> > >>>>> 2 phys are
-> > >>>> totally different).
-> > >>>>> One PHY only supports usb2.0 and data rates whereas another one
-> > >>>>> does
-> > >>>>> usb3.1 ssp+ and usb3.1 ssp
-> > >>>>>
-> > >>>>> This patch only explains about usb30 (since these are two
-> > >>>>> different
-> > >>>>> phys) phy
-> > >>>> and omitted inclusion of usb20 reference (added separate patch
-> > >>>> for this patch no 3).
-> > >>>>>
-> > >>>>> Hope this is clear.
-> > >>>>
-> > >>>> No. That sentence still explains what schema is doing.
-> > >>>>
-> > >>>
-> > >>> Ok, let me simplify the commit message further something like below=
-.
-> > >>> Anyways, the coverletter contains more details about it.
-> > >>>
-> > >>> =22dt-bindings: phy: samsung,usb3-drd-phy: add ExynosAutov920 combo
-> > >>> ssphy
-> > >>>
-> > >>>   Add schema for combo ssphy found on this SoC.
-> > >>> =22
-> > >>>
-> > >>> Please confirm if this looks fine?
-> > >>> If so, will reflect the similar commit messages in patch 1 and 3.
-> > >>
-> > >> Please read my first comment again. I do not see how does this
-> > >> satisfy hardware explanation.
-> > >>
-> > > Just went through the conversation above, until what extent hardware
-> > > description need to be explain in the commit?
-> > > Do we have any guideline for the same?
-> > > Could you please help with an example from previous any commit or
-> > > some
-> > other patches?
-> > > I understand that mentioning, =E2=80=9Ctwo=20clocks,=20two=20supplies=
-=20etc=22=20are=0D=0A>=20>=20>=20part=20of=20schema,=20one=20may=20or=20may=
-=20not=20capture=20that=20in=20the=20commit.=0D=0A>=20>=20>=20However=20men=
-tioning,=20=E2=80=9Cthis=20hardware=20(SoC)=20contain=20a=20combo=20PHY=20w=
-hich=0D=0A>=20>=20supports=20usb3.1=20and=20usb3.0=22=20is=20not=20ok?=0D=
-=0A>=20>=0D=0A>=20>=0D=0A>=20>=20Maybe=20that's=20just=20language,=20but=20=
-to=20me=20the=20commit=20msg=20did=20not=20describe=0D=0A>=20>=20hardware=
-=20after=20first=20sentence,=20but=20said=20what=20schema=20requires=20(som=
-e=0D=0A>=20>=20clocks=20and=20supplies).=20Other=20examples:=0D=0A>=20>=200=
-0399bbe02d2bb6fd8d6eb90573ec305616449f4=0D=0A>=20>=20e4c9a7b475e5d0d9b2440e=
-e48f91d1364eabd6cb=0D=0A>=20>=0D=0A>=20=0D=0A>=20Thank=20you=20for=20the=20=
-pointers,=20will=20refer=20the=20examples=20and=20update=20the=20commit=0D=
-=0A>=20messages=20accordingly.=0D=0A=0D=0ACan=20you=20please=20confirm,=20i=
-f=20below=20message=20looks=20fine?=0D=0A=0D=0A=22=20=0D=0Adt-bindings:=20p=
-hy:=20samsung,usb3-drd-phy:=20add=20ExynosAutov920=20combo=20ssphy=0D=0A=0D=
-=0AThe=20USBDRD31=205nm=20controller=20consists=20of=20Synopsys=20USB20=20p=
-hy=20and=20=0D=0AUSB31=20SSP+=20combophy.=20Document=20support=20for=20the=
-=20USB31=20SSP+=20phy=20found=0D=0Aon=20combophy=20of=20the=20ExynosAutov92=
-0=20SoC.=0D=0A=22=0D=0A=0D=0A>=20=0D=0A>=20>=20and=20here=20another=20anti-=
-pattern:=0D=0A>=20>=2023f793850e9ee7390584c0809f085d6c88de7d3f=0D=0A>=20>=
-=0D=0A>=20>=20(and=20before=20you=20ask=20why=20above=20carries=20my=20Rb=
-=20tag,=20then=20note=20that=0D=0A>=20>=20Samsung's=20revenue=20is=20around=
-=20220=20billion=20USD,=20so=20for=20sure=20it=20has=20a=20lot,=0D=0A>=20>=
-=20really=20a=20lot=20of=20resources=20to=20review=20patches=20internally=
-=20and=20improve=0D=0A>=20>=20their=20quality=20before=20posting).=0D=0A>=
-=20>=0D=0A>=20>=20Best=20regards,=0D=0A>=20>=20Krzysztof=0D=0A>=20=0D=0A>=
-=20Thank=20you.=0D=0A>=20=0D=0A>=20Regards,=0D=0A>=20Pritam=0D=0A=0D=0AThan=
-k=20you.=20=0D=0A=0D=0ARegards,=0D=0APritam=0D=0A=0D=0A
+elapsed time: 1497m
+
+configs tested: 154
+configs skipped: 4
+
+The following configs have been built successfully.
+More configs may be tested in the coming days.
+
+tested configs:
+alpha                             allnoconfig    clang-22
+alpha                             allnoconfig    gcc-15.1.0
+alpha                            allyesconfig    gcc-15.1.0
+arc                              allmodconfig    gcc-15.1.0
+arc                               allnoconfig    clang-22
+arc                               allnoconfig    gcc-15.1.0
+arc                              allyesconfig    gcc-15.1.0
+arc                   randconfig-001-20250902    gcc-11.5.0
+arc                   randconfig-002-20250902    gcc-9.5.0
+arm                              allmodconfig    gcc-15.1.0
+arm                               allnoconfig    clang-22
+arm                              allyesconfig    gcc-15.1.0
+arm                        neponset_defconfig    gcc-15.1.0
+arm                   randconfig-001-20250902    gcc-15.1.0
+arm                   randconfig-002-20250902    gcc-8.5.0
+arm                   randconfig-003-20250902    clang-22
+arm                   randconfig-004-20250902    clang-22
+arm                           stm32_defconfig    gcc-15.1.0
+arm                    vt8500_v6_v7_defconfig    gcc-15.1.0
+arm64                            allmodconfig    clang-19
+arm64                             allnoconfig    clang-22
+arm64                             allnoconfig    gcc-15.1.0
+arm64                 randconfig-001-20250902    gcc-8.5.0
+arm64                 randconfig-002-20250902    clang-22
+arm64                 randconfig-003-20250902    gcc-12.5.0
+arm64                 randconfig-004-20250902    clang-22
+csky                              allnoconfig    clang-22
+csky                              allnoconfig    gcc-15.1.0
+csky                  randconfig-001-20250902    gcc-14.3.0
+csky                  randconfig-002-20250902    gcc-12.5.0
+hexagon                          allmodconfig    clang-17
+hexagon                           allnoconfig    clang-22
+hexagon                          allyesconfig    clang-22
+hexagon               randconfig-001-20250902    clang-18
+hexagon               randconfig-002-20250902    clang-22
+i386                             alldefconfig    gcc-12
+i386                             allmodconfig    gcc-12
+i386                              allnoconfig    gcc-12
+i386        buildonly-randconfig-001-20250902    clang-20
+i386        buildonly-randconfig-002-20250902    clang-20
+i386        buildonly-randconfig-003-20250902    gcc-12
+i386        buildonly-randconfig-004-20250902    clang-20
+i386        buildonly-randconfig-005-20250902    gcc-12
+i386        buildonly-randconfig-006-20250902    clang-20
+i386                                defconfig    clang-20
+i386                  randconfig-011-20250902    gcc-12
+i386                  randconfig-012-20250902    gcc-12
+i386                  randconfig-013-20250902    gcc-12
+i386                  randconfig-014-20250902    gcc-12
+i386                  randconfig-015-20250902    gcc-12
+i386                  randconfig-016-20250902    gcc-12
+i386                  randconfig-017-20250902    gcc-12
+loongarch                        allmodconfig    clang-19
+loongarch                         allnoconfig    clang-22
+loongarch             randconfig-001-20250902    clang-22
+loongarch             randconfig-002-20250902    clang-22
+m68k                             allmodconfig    gcc-15.1.0
+m68k                              allnoconfig    gcc-15.1.0
+m68k                             allyesconfig    gcc-15.1.0
+m68k                            mac_defconfig    gcc-15.1.0
+m68k                        mvme147_defconfig    gcc-15.1.0
+microblaze                       allmodconfig    gcc-15.1.0
+microblaze                        allnoconfig    gcc-15.1.0
+microblaze                       allyesconfig    gcc-15.1.0
+microblaze                          defconfig    gcc-15.1.0
+mips                              allnoconfig    gcc-15.1.0
+mips                        bcm63xx_defconfig    gcc-15.1.0
+mips                         db1xxx_defconfig    clang-22
+mips                      maltaaprp_defconfig    clang-22
+mips                          rb532_defconfig    clang-18
+nios2                             allnoconfig    gcc-11.5.0
+nios2                             allnoconfig    gcc-15.1.0
+nios2                               defconfig    gcc-11.5.0
+nios2                               defconfig    gcc-15.1.0
+nios2                 randconfig-001-20250902    gcc-9.5.0
+nios2                 randconfig-002-20250902    gcc-11.5.0
+openrisc                          allnoconfig    clang-22
+openrisc                          allnoconfig    gcc-15.1.0
+openrisc                         allyesconfig    gcc-15.1.0
+parisc                           allmodconfig    gcc-15.1.0
+parisc                            allnoconfig    clang-22
+parisc                            allnoconfig    gcc-15.1.0
+parisc                           allyesconfig    gcc-15.1.0
+parisc                              defconfig    gcc-15.1.0
+parisc                randconfig-001-20250902    gcc-8.5.0
+parisc                randconfig-002-20250902    gcc-11.5.0
+parisc64                            defconfig    gcc-15.1.0
+powerpc                          allmodconfig    gcc-15.1.0
+powerpc                           allnoconfig    clang-22
+powerpc                           allnoconfig    gcc-15.1.0
+powerpc                          allyesconfig    clang-22
+powerpc               randconfig-001-20250902    gcc-9.5.0
+powerpc               randconfig-002-20250902    gcc-8.5.0
+powerpc               randconfig-003-20250902    gcc-11.5.0
+powerpc                     skiroot_defconfig    clang-22
+powerpc                        warp_defconfig    gcc-15.1.0
+powerpc64             randconfig-001-20250902    gcc-12.5.0
+powerpc64             randconfig-002-20250902    clang-22
+powerpc64             randconfig-003-20250902    clang-22
+riscv                            allmodconfig    clang-22
+riscv                             allnoconfig    clang-22
+riscv                             allnoconfig    gcc-15.1.0
+riscv                            allyesconfig    clang-16
+riscv                 randconfig-001-20250902    gcc-13.4.0
+riscv                 randconfig-002-20250902    clang-22
+s390                             allmodconfig    clang-18
+s390                              allnoconfig    clang-22
+s390                             allyesconfig    gcc-15.1.0
+s390                  randconfig-001-20250902    clang-22
+s390                  randconfig-002-20250902    gcc-10.5.0
+sh                               allmodconfig    gcc-15.1.0
+sh                                allnoconfig    gcc-15.1.0
+sh                               allyesconfig    gcc-15.1.0
+sh                    randconfig-001-20250902    gcc-12.5.0
+sh                    randconfig-002-20250902    gcc-12.5.0
+sh                          rsk7269_defconfig    gcc-15.1.0
+sh                        sh7757lcr_defconfig    gcc-15.1.0
+sparc                            allmodconfig    gcc-15.1.0
+sparc                             allnoconfig    gcc-15.1.0
+sparc                               defconfig    gcc-15.1.0
+sparc                 randconfig-001-20250902    gcc-14.3.0
+sparc                 randconfig-002-20250902    gcc-8.5.0
+sparc                       sparc32_defconfig    gcc-15.1.0
+sparc64               randconfig-001-20250902    clang-20
+sparc64               randconfig-002-20250902    gcc-9.5.0
+um                               allmodconfig    clang-19
+um                                allnoconfig    clang-22
+um                               allyesconfig    gcc-12
+um                    randconfig-001-20250902    gcc-12
+um                    randconfig-002-20250902    gcc-12
+x86_64                            allnoconfig    clang-20
+x86_64                           allyesconfig    clang-20
+x86_64      buildonly-randconfig-001-20250902    clang-20
+x86_64      buildonly-randconfig-002-20250902    clang-20
+x86_64      buildonly-randconfig-003-20250902    clang-20
+x86_64      buildonly-randconfig-004-20250902    clang-20
+x86_64      buildonly-randconfig-004-20250902    gcc-12
+x86_64      buildonly-randconfig-005-20250902    clang-20
+x86_64      buildonly-randconfig-005-20250902    gcc-12
+x86_64      buildonly-randconfig-006-20250902    clang-20
+x86_64      buildonly-randconfig-006-20250902    gcc-12
+x86_64                              defconfig    gcc-11
+x86_64                randconfig-001-20250902    clang-20
+x86_64                randconfig-002-20250902    clang-20
+x86_64                randconfig-003-20250902    clang-20
+x86_64                randconfig-004-20250902    clang-20
+x86_64                randconfig-005-20250902    clang-20
+x86_64                randconfig-006-20250902    clang-20
+x86_64                randconfig-007-20250902    clang-20
+x86_64                randconfig-008-20250902    clang-20
+x86_64                          rhel-9.4-rust    clang-20
+xtensa                            allnoconfig    gcc-15.1.0
+xtensa                randconfig-001-20250902    gcc-9.5.0
+xtensa                randconfig-002-20250902    gcc-10.5.0
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
