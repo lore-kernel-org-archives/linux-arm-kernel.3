@@ -4,77 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 351ECCA0FFE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 12:27:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4FA2CA0FFE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 12:27:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=aaecNdmQjRiKZJguz7vt+CPGtlc/Ef3Ox4gaPS8SLbU=; b=QjpZeG0MFypIf5+3HiFjnDS5PN
-	A7xPefPMqVKtSK85jAiOBZv8TTrK2qP3rsbENNSwHEsDPgOFM/dOPzvVr0JRBL3SIrb8F8haRIoyG
-	yeUyX8/aTlbu1bIjdAHuGfquNmghN5QqoxNChJax4erFcqEdUKHsLVz0+XDkabvqXJuKo7HYBwMlf
-	VB8ZNzQTtg9HU7JayYWqcBYd9tyXkjZM8fxkNgSHeRVU1I/f7ioHMgtVtImFZ6RHcfxEo4o+9fZPn
-	HGt9rYKCAgC4/QyGnAxU8wJjrsCGY+t+ChTakKVw7Wq/CsP7/QJ0yuNxtQ9rCGH+AMR4AsoYY4+P8
-	8L4DZZPw==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0Bz9xu50PN9kfc97pvgwTloxGG9McqyXsZjLSFx34MM=; b=N4InTd9tti3ACLdZ3B5EnUoYYz
+	j2QBhuDOhVK5Rmlg5KKEuQDoOeGCpdPuZHCtt309XaO2YnBdxPtodj/ekr5jgvy2VJyT6Q91j0qB4
+	ELh77KBf3vNeRHevAUdb6CYTa1xf6JC6bYuvMTdvyGmZsO74JHck0TwmyR2lTIXi+k/GXowy0UcdT
+	ZfrtgleUfgV0p5OhSUaUXQ0Ddz4K1BHr5U6xADxDZr7KQ7OSy4IDBZVpIXqQX/Tk52CXloo2s4BfI
+	oeSdJBD6UpBunRJkBaAxYjbpKsrPuhiv/Uug2T9S4JQFtkTiLn/sLDCIWfDn2MWHQ1/YEOi78Qz05
+	lcD5j+Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utQ6q-0000000HE8R-2umY;
-	Tue, 02 Sep 2025 12:27:36 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1utQ6b-0000000HDug-4BHw;
+	Tue, 02 Sep 2025 12:27:22 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utN3m-0000000GI7x-2yRD
+	id 1utN04-0000000GGm3-2tjQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 09:12:16 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5828lbYo000888;
-	Tue, 2 Sep 2025 11:12:05 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=selector1; bh=aaecNdmQjRiKZJguz7vt+C
-	PGtlc/Ef3Ox4gaPS8SLbU=; b=7O8Zs5jsQ4za/Y3eJL/shgp64ezbCeXace0Bjp
-	3qpJBvSZ3icz8GbrjE7LDkB5LFX5D4kX6cGfPPQIhjDQJzryCo/fGiqY/f53xrnT
-	x84GyajQzFPOqzuraMcqoJVQK5VFmN6FETO5Ktdk4QfSkGyQFUyb0Giz7J4Cmy/+
-	WL0fYaEVAGDMR47UhRuiNswPNijdiw506g0MtWFuUgf/D3zuUW/6Ih8KvEjzEOKQ
-	VzIG0uiyZA2i2bAFl1mLl2ijq4aFHy6KXTizT5rCkY5ZqfZxFbSh4lRQRNGDptpc
-	m3puQFOrYDwzT7djbvZ5c28vS1xtHt6KicHpoNrcRm09Oh/g==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48urmxaum7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 02 Sep 2025 11:12:05 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 612B54002D;
-	Tue,  2 Sep 2025 11:11:15 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id F1FBD4025B7;
-	Tue,  2 Sep 2025 11:10:53 +0200 (CEST)
-Received: from localhost (10.130.77.120) by SHFDAG1NODE3.st.com (10.75.129.71)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Tue, 2 Sep
- 2025 11:10:53 +0200
-From: Christian Bruel <christian.bruel@foss.st.com>
-To: <maz@kernel.org>, <tglx@linutronix.de>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <fabrice.gasnier@foss.st.com>, <mani@kernel.org>,
-        Christian Bruel
-	<christian.bruel@foss.st.com>
-Subject: [PATCH v2] irqchip: gic-v2m: Handle Multiple MSI base IRQ Alignment
-Date: Tue, 2 Sep 2025 11:10:45 +0200
-Message-ID: <20250902091045.220847-1-christian.bruel@foss.st.com>
+	Tue, 02 Sep 2025 09:08:25 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58297t4u2552635;
+	Tue, 2 Sep 2025 04:07:55 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1756804075;
+	bh=0Bz9xu50PN9kfc97pvgwTloxGG9McqyXsZjLSFx34MM=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=XiNFVYGS2tdkADPxVC3I4y4hhe+ZRYuzlN+PN9OWFWE6AYesVq4wKIYmOUpkjrupb
+	 kih2PSHS1wxMc5dEjsh34URnw+1aY9F+YN0cFT208jgYMRbXkgkl6VyU7O4+RAbh2x
+	 9Yf6gMxqrQRQyHPJZdsorr+kS5kRZswlq7/lQQiU=
+Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58297tCE2171655
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Tue, 2 Sep 2025 04:07:55 -0500
+Received: from DLEE109.ent.ti.com (157.170.170.41) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 2
+ Sep 2025 04:07:54 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Tue, 2 Sep 2025 04:07:54 -0500
+Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58297sGi3830171;
+	Tue, 2 Sep 2025 04:07:54 -0500
+Received: from localhost (danish-tpc.dhcp.ti.com [172.24.231.152])
+	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 58297rdb020826;
+	Tue, 2 Sep 2025 04:07:53 -0500
+From: MD Danish Anwar <danishanwar@ti.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller"
+	<davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Mathieu
+ Poirier <mathieu.poirier@linaro.org>,
+        Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+        Nishanth Menon <nm@ti.com>, Vignesh
+ Raghavendra <vigneshr@ti.com>,
+        Mengyuan Lou <mengyuanlou@net-swift.com>,
+        MD
+ Danish Anwar <danishanwar@ti.com>, Xin Guo <guoxin09@huawei.com>,
+        Lei Wei
+	<quic_leiwei@quicinc.com>, Lee Trager <lee@trager.us>,
+        Michael Ellerman
+	<mpe@ellerman.id.au>, Fan Gong <gongfan1@huawei.com>,
+        Lorenzo Bianconi
+	<lorenzo@kernel.org>,
+        Geert Uytterhoeven <geert+renesas@glider.be>,
+        Lukas
+ Bulwahn <lukas.bulwahn@redhat.com>,
+        Parthiban Veerasooran
+	<Parthiban.Veerasooran@microchip.com>,
+        Suman Anna <s-anna@ti.com>
+CC: Tero Kristo <kristo@kernel.org>, <netdev@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-remoteproc@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        Roger Quadros
+	<rogerq@kernel.org>
+Subject: [PATCH net-next v2 2/8] dt-bindings: remoteproc: k3-r5f: Add rpmsg-eth subnode
+Date: Tue, 2 Sep 2025 14:37:40 +0530
+Message-ID: <20250902090746.3221225-3-danishanwar@ti.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250902090746.3221225-1-danishanwar@ti.com>
+References: <20250902090746.3221225-1-danishanwar@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-Originating-IP: [10.130.77.120]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-02_02,2025-08-28_01,2025-03-28_01
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_021215_374861_20DEFA23 
-X-CRM114-Status: GOOD (  15.79  )
+X-CRM114-CacheID: sfid-20250902_020824_832464_786414C7 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,61 +120,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PCI Local Bus Specification 3.0 (section 6.8.1.6) allows modifying the
-low-order bits of the MSI Message DATA register to encode nr_irqs interrupt
-numbers in the log2(nr_irqs) bits for the domain.
+Extend the Texas Instruments K3 R5F remoteproc device tree bindings to
+include a 'rpmsg-eth' subnode.
 
-The problem arises if the base vector (GICV2m base spi) is not aligned with
-nr_irqs; in this case, the low-order log2(nr_irqs) bits from the base
-vector conflict with the nr_irqs masking, causing the wrong MSI interrupt
-to be identified.
+This extension allows the RPMsg Ethernet to be defined as a subnode of
+K3 R5F remoteproc nodes, enabling the configuration of shared memory-based
+Ethernet communication between the host and remote processors.
 
-To fix this, use bitmap_find_next_zero_area_off() instead of
-bitmap_find_free_region() to align the initial base vector with nr_irqs.
-
-Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
 ---
-Changes in v2:
-   (Marc Zyngier)
- - Move align_off definition inside the loop
- - Reworked Commit Message
+ .../devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml     | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-Changes in v1:
-   (Marc Zyngier)
- - Replace the incorrect usage of msi_attrib.multiple with nr_irqs
- - Reworked changelog
----
- drivers/irqchip/irq-gic-v2m.c | 13 +++++++++----
- 1 file changed, 9 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/irqchip/irq-gic-v2m.c b/drivers/irqchip/irq-gic-v2m.c
-index 24ef5af569fe..8a3410c2b7b5 100644
---- a/drivers/irqchip/irq-gic-v2m.c
-+++ b/drivers/irqchip/irq-gic-v2m.c
-@@ -153,14 +153,19 @@ static int gicv2m_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
- {
- 	msi_alloc_info_t *info = args;
- 	struct v2m_data *v2m = NULL, *tmp;
--	int hwirq, offset, i, err = 0;
-+	int hwirq, i, err = 0;
-+	unsigned long offset;
-+	unsigned long align_mask = nr_irqs - 1;
+diff --git a/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
+index a492f74a8608..4dbd708ec8ee 100644
+--- a/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
++++ b/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
+@@ -210,6 +210,12 @@ patternProperties:
+           should be defined as per the generic bindings in,
+           Documentation/devicetree/bindings/sram/sram.yaml
  
- 	spin_lock(&v2m_lock);
- 	list_for_each_entry(tmp, &v2m_nodes, entry) {
--		offset = bitmap_find_free_region(tmp->bm, tmp->nr_spis,
--						 get_count_order(nr_irqs));
--		if (offset >= 0) {
-+		unsigned long align_off = tmp->spi_start - (tmp->spi_start & ~align_mask);
++      rpmsg-eth:
++        $ref: /schemas/net/ti,rpmsg-eth.yaml
++        description:
++          RPMsg Ethernet subnode which represents the communication interface
++          between host processor and remote processor.
 +
-+		offset = bitmap_find_next_zero_area_off(tmp->bm, tmp->nr_spis, 0,
-+							nr_irqs, align_mask, align_off);
-+		if (offset < tmp->nr_spis) {
- 			v2m = tmp;
-+			bitmap_set(v2m->bm, offset, nr_irqs);
- 			break;
- 		}
- 	}
+     required:
+       - compatible
+       - reg
 -- 
 2.34.1
 
