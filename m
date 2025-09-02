@@ -4,92 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACC3CCA1005
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:43:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6449BCA100E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 21:43:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Y4Hmeaj9zYXIvPRM6itRd7hBEHF7uK4IZavdf0P3hE=; b=0AVLvh2mVfAzavqL9H6N7XYsPh
-	N49GGFaap8YEjUCu8e797z191KwFTnkpWtSLqo4xpa3zrULiE0nMFNVJp29P2N8e2fiC1sCEPO9Xp
-	LfP//GqYsnHALA/nWYBbhHpiORlz7X/y42cAwMAnHrOFxoyGcyKbbivb9YhIqwshM8pfs59DK/130
-	25s5VwFT5F0NgqDfK028oztfrT5yb+iepRnwmo9bZL8wjhuxEJVSooKFJMh0iOwk4vujEy2mc+/DW
-	p5sNXm6qid0/748zDeEtHbb55kCNDFp0f7sW4JyWXruhE+rxz5YZ5n315OTKTtCPaKGcfJsxMN4/s
-	tIX4u5MQ==;
+	bh=B7uae2n06rSYI5IcLTSg8p1le2edkOnWy0mpbOpJX2w=; b=Y7O+fwLX3deDexNQx3Tx/Qm2Gq
+	E1/+zXB/w6RWlAWC0TcfRtno6ad9xcyd2cGMmara+hN4eXRoBxVQDlPL+C5z7/mavVuAUjawLvsUa
+	+1f6P2c3URvMThMKMpGvfrgYHjcpMix19GCrPWC43u/Q+F5x+wrnOqOAaVeTL1KENWdhqHZW5UhO+
+	jEffiO/iTdD0BaQuo1p041Mo1RzjBN7kNfrh44wV0JyZy5cPM3NlZYVESzorgqUJKwomz8WMyipYt
+	jTTzPR7Ni3HZdXj66lkLnlwExFyrODPIOhiwQ2ueLKzXB9QyyaxXNA3Uom3KKOyjA2cvMW6dP9Vad
+	ir5PSrDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utYmR-00000002B8m-1lmr;
-	Tue, 02 Sep 2025 21:43:07 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1utYmT-00000002BCg-2kPY;
+	Tue, 02 Sep 2025 21:43:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utT3J-00000000ht2-2eTN
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 15:36:10 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b042eb09948so330106766b.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 08:36:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756827368; x=1757432168; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+Y4Hmeaj9zYXIvPRM6itRd7hBEHF7uK4IZavdf0P3hE=;
-        b=DsJM/hNm0nAJIqVD/rJZaTcvhNqiiPZCGLGUNg34XUD1irvY1J+uk0kBgS+fsiJmmC
-         ftrfsz2AAK2CTq1+RfYssbeSz7nidctmrZc8PCHdnfg5JWTAPHgbAlmbv0LbNFSr1eim
-         Cn2Npf6feKpUm3cIj0tGOCtxG3pyh1xvREuFUJmxRSGLvvfqcXZ7oIhz7HbsEh/4hL7x
-         yrXBQbMrS9lg3mYEmEBW3YpUoefUqKO8OiU9B/fgv5CFPqQtNL9VTnkkPB4MbN6CfzwT
-         yeLZ1yd09bRGVhh/qsASWC6VflRdeXkaUIK50XyZLs8IF7Y8C6HlMggCbzRv1PFHNYnM
-         4qWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756827368; x=1757432168;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+Y4Hmeaj9zYXIvPRM6itRd7hBEHF7uK4IZavdf0P3hE=;
-        b=ozfzLMPTugn0AUIANReeo0kL/1wBnyqLPtcErNmQ/Tq5XLkVKSS6vtOmSXvcz2+Qaw
-         idG6JuRAubRgUWADkywpEbpwZxvzdpQX/D1IayQAHiakTkAWjVJWwSgnfCY/q4eMG9xT
-         mjmIKFdpQ4FqYgut6Z5sivx6V8VrJJwU6YbI4XsCdkGHO2ZVlZdg8zbAIGBoxMUgJk8i
-         7bi76OsCW4mIiXXBSzNXBo5KNbu+sCLSBGnT38z7dLwshX8wCXFdAITkjK5L9pNttwul
-         DSsEUZ4Nocu6p8j5rupz/1SAssVUYks8hp97SI25alIi056KGM2d5PIi/g6C3uPBJ0Bm
-         vrTg==
-X-Forwarded-Encrypted: i=1; AJvYcCWr86PdYOjic9iMYJt57zlvBomYYnzmJE2venKmgxC66qyM4BKPfDdWshhYsN6uBmRjmIPPmz8SypgH6HZuPe0Z@lists.infradead.org
-X-Gm-Message-State: AOJu0YxGjQn4+Os0zQNmjfANz9TJdB4/Axu2kwR+OhrBfMCr3nwbLBP2
-	RA6aOHNcQfK0TRg+BuaWyWmZaz7Pin9t9wvUcFATTs55x3b2MqwQNAwmxcLSf6pZfWufyVzsh6F
-	n1FG5pIMB95IJGYMUUVowttDnmxrnWiI=
-X-Gm-Gg: ASbGnctGQop7PchswOu8zkcW8B2Gcx57tLti6Rw6DFuPl0KB6fIrkB+1eTkvRzHk5gK
-	Wpfxhwwd1l/Jz1hYtKFoKirn90hNDcLcy0drxvHkPN6BUie3UrgEE/DNh1pbSiJp+yI0HggcPBZ
-	sX3hfJ/43vMe1zrAonP2/a0Zk5hTB90Diqj7IQGNPG4JMA/h9J6rXDV1+cSeoB/IKFwPSP7yrzA
-	9N00t+1HmgZU/3hDR67bLUIq6WhVrmERpFmTtzv
-X-Google-Smtp-Source: AGHT+IGvRWgNdy0fihhRjw06pq2Hs9JGdwVs/5subwnKQbYsRHg2GMq+oZlBiYJwTVV3dKdKs8PeQUmCZrUBILuRg+I=
-X-Received: by 2002:a17:907:6090:b0:b04:2cc2:e495 with SMTP id
- a640c23a62f3a-b042cc31af3mr770379366b.14.1756827367715; Tue, 02 Sep 2025
- 08:36:07 -0700 (PDT)
+	id 1utT5j-00000000if1-004L;
+	Tue, 02 Sep 2025 15:38:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 466B26021C;
+	Tue,  2 Sep 2025 15:38:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9DD3C4CEED;
+	Tue,  2 Sep 2025 15:38:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756827517;
+	bh=v+DuYfBUiGbE23dCrrZocBSYiEeU9i6PmQBrfDGbt+c=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Zh70MZgOxvxIxj6UMkzT706dj4grAuw+KArw+LrHivUyAmevwHRbmzsy8tdhtqckQ
+	 ctnQW14LrxH7lpGTWRcPysIxgPyheRuMy9Tnoya1qMd019iqz8ogyz/ZzskmCsRTY4
+	 F6vO7VOs9YxEPQ4KZXd48LQZlpVHk12uvjES7uMNnLSDH8kOAWc5bmmaMvxzgl8PYT
+	 QFuBANh8pcFrndFTx8KlSmz3GDHmSM2T49B2D/EK+RnKYtzD4IBBt8MHQCCaSTZdMa
+	 hyyllZ2BaEg7ss7qp0XMJFqiosZEUGgYOmQQXbvtOguQ5wDzIV/4TdwKF//sOzHuI/
+	 Cne8GehwJZyYw==
+Message-ID: <5c9f8c2e-6785-4464-b2cf-f8a6aeec42ea@kernel.org>
+Date: Tue, 2 Sep 2025 17:38:24 +0200
 MIME-Version: 1.0
-References: <20250902091526.105905-3-krzysztof.kozlowski@linaro.org> <20250902091526.105905-4-krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20250902091526.105905-4-krzysztof.kozlowski@linaro.org>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Tue, 2 Sep 2025 16:35:40 +0100
-X-Gm-Features: Ac12FXxX3Y3vXxhmR1yHN5IR8o_v2hNrvGyoSHzsymFzxbirriBpH1NCmvMkVvk
-Message-ID: <CA+V-a8s2H4UzovMqYJ15nWu1X55dL+7qJWifHxMEkqjtTzigzg@mail.gmail.com>
-Subject: Re: [PATCH net-next 2/2] dt-bindings: net: renesas,rzn1-gmac:
- Constrain interrupts
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Matthew Gerlach <matthew.gerlach@altera.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Romain Gantois <romain.gantois@bootlin.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Magnus Damm <magnus.damm@gmail.com>, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_083609_675601_80037975 
-X-CRM114-Status: GOOD (  15.96  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 12/16] pinctrl: qcom: use generic pin function helpers
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Bartosz Golaszewski <brgl@bgdev.pl>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>,
+ Alexey Klimov <alexey.klimov@linaro.org>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Paul Cercueil <paul@crapouillou.net>, Kees Cook <kees@kernel.org>,
+ Andy Shevchenko <andy@kernel.org>, Andrew Morton
+ <akpm@linux-foundation.org>, David Hildenbrand <david@redhat.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka
+ <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>,
+ Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ NXP S32 Linux Team <s32@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Tony Lindgren <tony@atomide.com>, Haojian Zhuang
+ <haojian.zhuang@linaro.org>, Geert Uytterhoeven <geert+renesas@glider.be>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Mark Brown <broonie@kernel.org>,
+ linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+ linux-hardening@vger.kernel.org, linux-mm@kvack.org, imx@lists.linux.dev,
+ linux-omap@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+References: <20250902-pinctrl-gpio-pinfuncs-v7-0-bb091daedc52@linaro.org>
+ <20250902-pinctrl-gpio-pinfuncs-v7-12-bb091daedc52@linaro.org>
+ <aLbt2euqYQM5xXuZ@smile.fi.intel.com>
+ <1034c70a-da67-4914-b23c-8d006b7611bf@kernel.org>
+ <aLcM58IEH8hGYLnx@smile.fi.intel.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <aLcM58IEH8hGYLnx@smile.fi.intel.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,55 +145,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On 02/09/2025 17:27, Andy Shevchenko wrote:
+> On Tue, Sep 02, 2025 at 05:12:24PM +0200, Krzysztof Kozlowski wrote:
+>> On 02/09/2025 15:15, Andy Shevchenko wrote:
+>>> On Tue, Sep 02, 2025 at 01:59:21PM +0200, Bartosz Golaszewski wrote:
+> 
+> ...
+> 
+>>>> +	for (i = 0; i < soc_data->nfunctions; i++) {
+>>>> +		func = &soc_data->functions[i];
+>>>> +
+>>>> +		ret = pinmux_generic_add_pinfunction(pctrl->pctrl, func, NULL);
+>>>> +		if (ret < 0)
+>>>
+>>> Why not simply
+>>>
+>>> 		if (ret)
+>>
+>> Because existing code is as readable?
+> 
+> I don't agree on this. And Bart explained why. So, it's an API requirement
+> after all.
 
-Thank you for the patch.
+If pinmux_generic_add_pinfunction() was returning 0 or error code, which
+I assume you thought this function is doing, then your suggestion was
+nitpicking and existing code would be readable. Requesting (ret) for
+such case is really not helping.
 
-On Tue, Sep 2, 2025 at 10:16=E2=80=AFAM Krzysztof Kozlowski
-<krzysztof.kozlowski@linaro.org> wrote:
->
-> Renesas RZN1 GMAC uses exactly one interrupt in in-kernel DTS and common
-commit message needs updating as we are describing 3 interrupts.
+If, as it turns out if you looked at the code,
+pinmux_generic_add_pinfunction() returns non-error for success, your
+comment was even wrong.
 
-> snps,dwmac.yaml binding is flexible, so define precise constrain for
-> this device.
->
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> ---
->  .../devicetree/bindings/net/renesas,rzn1-gmac.yaml       | 9 +++++++++
->  1 file changed, 9 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/net/renesas,rzn1-gmac.yaml=
- b/Documentation/devicetree/bindings/net/renesas,rzn1-gmac.yaml
-> index d9a8d586e260..16dd7a2631ab 100644
-> --- a/Documentation/devicetree/bindings/net/renesas,rzn1-gmac.yaml
-> +++ b/Documentation/devicetree/bindings/net/renesas,rzn1-gmac.yaml
-> @@ -30,6 +30,15 @@ properties:
->        - const: renesas,rzn1-gmac
->        - const: snps,dwmac
->
-> +  interrupts:
-> +    maxItems: 3
-> +
-> +  interrupt-names:
-> +    items:
-> +      - const: macirq
-> +      - const: eth_wake_irq
-> +      - const: eth_lpi
-> +
+So either you are nitpicking which is not helpful or you are finding
+fake issues which is counter productive.
 
-Changes LGTM,
-
-Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-
-Cheers,
-Prabhakar
-
->    pcs-handle:
->      description:
->        phandle pointing to a PCS sub-node compatible with
-> --
-> 2.48.1
->
->
+Best regards,
+Krzysztof
 
