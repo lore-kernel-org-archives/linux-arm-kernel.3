@@ -4,80 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31AF4CA0FFE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 13:53:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5142CA1005
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Sep 2025 13:56:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PxRLLeJXyu/33YZzg4QGltvyqkMHHXEN80KrCYwVCMQ=; b=FVjl6NiGcNIHjO2VWVsIq21Vx0
-	3lPtXxJOX8cg6gaeLqP3q5N3OdFFDeSAdI/dsWAVznG8BUrOnqduqY8DxeCbFuwFSa9n635W0pnRM
-	beijT7xE/ks6/+8lKZ886VHzctJy/bKScaFTPkFCH0j22Jh3scILcXdhY6LFS1iIUFc5B4WC4LRvx
-	0vC36vdssSm1mNNd5i5buPYx7nWmfn7LAf3Go60OeB8iHKgCQovVPOOJfMadVjg1vaQuAxsXrBcMB
-	OkZZgLsrKBsdO3qYkwsLDvc0QGNNzHRN+dplCllrZZ/xJBj5ED4fKsujUVdD/hI6jIWFYdudZNTz+
-	pqvA2zjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gZ+7wlAanwIJv238h6c/oNkorR5v8RxUasRCgVS9dX0=; b=aDcFf5ycaHZOCnykPOwg/2Bf3B
+	fjMrewTO0qtTdDjxrpDxIMe6KlUMGh6hkRIo8wsJhH8yv+qovbwfGo7ybqYE7lJEtOOnbMRMbOmRW
+	cdKSRm2YWIUrLirSK2oci1w/sShEHiL6VXmqgwfe5GZ3tqn75HPCJqM/muqDfmH0Qf0IgsySse6oN
+	wGxelBPVt5AfZAcJAVzd8oRRFiIwaYzRX1Atgd+YZeNXHiqk2YEXTDWNoEu3RYWh3qS8jTm5Z6An4
+	EExIzw8X4nNTiRUGIGr5ck9OlmL83C+ADSUsUOJnGXuDHBb0pdI1fRcHQeIhkHn7gdZv4FE6vl6j+
+	l0y2yyoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utRRc-00000000Avy-1mP4;
-	Tue, 02 Sep 2025 13:53:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1utRUN-00000000C28-0mfE;
+	Tue, 02 Sep 2025 13:55:59 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utPS6-0000000Gz0f-1BJw
+	id 1utPS7-0000000Gyzg-3OB3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Sep 2025 11:45:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F1EA0442E9;
-	Tue,  2 Sep 2025 11:45:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91E64C4CEED;
-	Tue,  2 Sep 2025 11:45:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756813529;
-	bh=MHP76p9ZYAtyF4GOnpjIu8qVdvdMlEFvQbs8UnH2ZLM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=olq4Bvf2LzQ1ygewu7iLnhAG1XDNmaUIMJ86p7+adfMPEn4hDoAHIWNLeGOpYYYWv
-	 xMmEvzpBy+HFUp/7IUN0k2gUmUWTA9P/Qccg8rlhRkzrMyfN6SqWF70ys2bigtRmmA
-	 loMbU/eEqgNEFiwhpjPwVwNvgBUCSpgXvykY0SSiZEbQ/blB7wrgFl5YHk6v+izCNm
-	 /4wIHV5IVA0S0FJ86gqEAgejJPyEBxmJp+ayRx90vZFXiPeHBimJ/fOaFIhRy4auvm
-	 WFSPmyKyt5gWWrCv39XkzYe7J2V1OCuW4YcV6NnUS2JTf7GZqHbisGDu1XzuD3nEP0
-	 hbX6vmRbsi+pg==
-From: Mark Brown <broonie@kernel.org>
-Date: Tue, 02 Sep 2025 12:36:18 +0100
-Subject: [PATCH v8 15/29] KVM: arm64: Implement SME vector length
- configuration
+	Tue, 02 Sep 2025 11:45:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iD+nH0W4cLVeGYE76L+caubPuwkiG1ZDWWkwYj9i2qzA+jv4FC7A/B9Jq7nPW+6F7PB+b5c66n+5f2dg1yN7d6PM/huGXNmhI0/RwS88FiWMn1Xem9MJmf70LGx91T0IkE6BLyKfvaIKYIAHQ+mwkn1lvhMM77dOrqp09Qci1vNAmRsEY9VgpM0vYuwwTOK58ZkVsAtI7AK6270shOHFWoraXx2IzJJuDdrfbZw4toaJePGRXIxmUunMmyFGwe17j04YOuUovTD/ethVoT0lrBx/yJCiPw7x1S0bQ8gYTuYC4DYosGdovwGxeV4YnBY78BZ50m54hLR877a9REZb9w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gZ+7wlAanwIJv238h6c/oNkorR5v8RxUasRCgVS9dX0=;
+ b=ue/JX4kg8YAZnLG7fPMMxKRov5MAPqT27X8b/oTjQbT2gptTifhAu1zGW1Zs4luIAvqeJTby+PpYBvXfO5DgxdKZffCIDE3c5UCX/D+7FXbYyI14L8bJOB78TChVKjzxu4r+so0Dnus7dSZ/MprmocHRagNX4ZWN6HqJ8XqfrtRTKJgyUU6hbQuTtrEshjlr/hS1Wnq7f687VXnIVpFpIn3lRskUrGiWJ+pw3HMGPWpY16xh3DmE36HXC8v4NiMFizjZ7vbV8Thqf7NaKR7yEwYKsF7dVI3HLwis/6WIpZo2J/Mo9iRpfY4N7ulb3tlwp8/3Emkqnm911nlnnOyXUw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=gZ+7wlAanwIJv238h6c/oNkorR5v8RxUasRCgVS9dX0=;
+ b=pvZLHngfW/RaXuTVo3RtIMdB1vaL80S7KJdfkmuve8fR/hovyHsaa9f+BGXCAvvdMsIvjctnkSOeT43zOpYmOZhyfgy7Nc9Ucaavc2Bj6zmGabeAsFnQ5QD1VV9eMkGnKJ8CnMNLbnqNt2J803sp4R39hBW1EB4O8KqMlOiR+jeeIx8UTuaw1kcZtpkboqHWnmRZlSajveVXlFM8XAwAoRiX/w6Hv9e3vE3DnvHMCS0A/W50LRkvuS3NXstNq7Gi36upT4FwB8/YlcVyUP+1ztBNQwrB1RRuGXYHrXOq8hhOqMKGqOG/vfe0wP11YH+Dvj1PngK/Zl9DQ8yU9zEp9Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV1PR04MB9135.eurprd04.prod.outlook.com (2603:10a6:150:26::19)
+ by VI1PR04MB9787.eurprd04.prod.outlook.com (2603:10a6:800:1d8::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.16; Tue, 2 Sep
+ 2025 11:45:19 +0000
+Received: from GV1PR04MB9135.eurprd04.prod.outlook.com
+ ([fe80::b1f6:475e:de5d:8442]) by GV1PR04MB9135.eurprd04.prod.outlook.com
+ ([fe80::b1f6:475e:de5d:8442%5]) with mapi id 15.20.9094.015; Tue, 2 Sep 2025
+ 11:45:18 +0000
+Date: Tue, 2 Sep 2025 14:45:13 +0300
+From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Lucas Stach <l.stach@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 17/37] drm/imx-dcss: Switch to
+ drm_atomic_get_new_crtc_state()
+Message-ID: <5cujxtg4t5vq3d2n4fbaf2jxrshuj52szeinjfjzxbkmbrws3h@sox2vmzazoj4>
+References: <20250902-drm-no-more-existing-state-v2-0-de98fc5f6d66@kernel.org>
+ <20250902-drm-no-more-existing-state-v2-17-de98fc5f6d66@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250902-drm-no-more-existing-state-v2-17-de98fc5f6d66@kernel.org>
+X-ClientProxiedBy: AS4P189CA0068.EURP189.PROD.OUTLOOK.COM
+ (2603:10a6:20b:659::23) To GV1PR04MB9135.eurprd04.prod.outlook.com
+ (2603:10a6:150:26::19)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250902-kvm-arm64-sme-v8-15-2cb2199c656c@kernel.org>
-References: <20250902-kvm-arm64-sme-v8-0-2cb2199c656c@kernel.org>
-In-Reply-To: <20250902-kvm-arm64-sme-v8-0-2cb2199c656c@kernel.org>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
- Joey Gouly <joey.gouly@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>, 
- Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <shuah@kernel.org>
-Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>, 
- Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org, 
- kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- Peter Maydell <peter.maydell@linaro.org>, 
- Eric Auger <eric.auger@redhat.com>, Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.15-dev-cff91
-X-Developer-Signature: v=1; a=openpgp-sha256; l=10123; i=broonie@kernel.org;
- h=from:subject:message-id; bh=MHP76p9ZYAtyF4GOnpjIu8qVdvdMlEFvQbs8UnH2ZLM=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBottiFnGQXsJT3lPq5cxMpNG9uZl1IM08g364Ob
- baG1pfkffeJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaLbYhQAKCRAk1otyXVSH
- 0D2MB/9CRX8bWn+fm6K9CkWYVEOokM0BmHExbEgLjz6SwPJLx0S4bFxzENCb85qf77fPlGXmBDX
- BCj3sr7A2bVfXogJ4HzVZp0yo/9VPkIPUEYvjzQMlMyRCG3NiJzgBvn63hhpDwGRJmzJzZSumo6
- sCLdvBSzCBCWjFa4RMtyQDV8MSFuYbukRjF3r9xu29hoLooNc4kJZj6RAH6MgURZtF936siBs85
- Y/5kHZ74NBUSMZ82AEcsOSvnzfa/TZYjFQr2Wvh8+u36bYPNLbg/KIAtZl95uVr3CW5jo2CJQsd
- /WNZ/7n5CaTPg5HphPuHydtDC7qkFuWpQwydjnxoo04DPSmJ
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV1PR04MB9135:EE_|VI1PR04MB9787:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5cef2217-d98d-45cc-c4ee-08ddea16304c
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|19092799006|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?IPhG6Pf7rJJRinhZ1nDm76MjJb3UEZFNV2dagnF/ykE7AMA46qT3g+REGA1Y?=
+ =?us-ascii?Q?VDu+0olfQhx00SWJGm2yFn17esZooKbUc1ooN3VdjmVSA2ySk4NV53Jiz0LR?=
+ =?us-ascii?Q?QZ9lTJZc/hNa556B4HIYM0VaurXxrWtP4q4U1gylJxnM97YGl+snUfnHG5JX?=
+ =?us-ascii?Q?JTb9oG1dPc/N2JKENe8kUlp2NAGbDPMpcLkJvAWEKBpI6ZkrCcGn/PDG6t0f?=
+ =?us-ascii?Q?NKbidrZ3RkQ+yFtrv4nrRPcnWC/Qck3oc6SrBkpT/ARqDZXkAqpBp9P3D0Q0?=
+ =?us-ascii?Q?MLWMHd5a8UkR+w4hSWigvfrCOjWwvg85P0nsNyQpm6bqMp3exgTANgntrub3?=
+ =?us-ascii?Q?Y46tJcRsuuBXn20jMPtbpu3TfMZT1f8LE9E3/7IHDvNT0FiDKWHfAyaCH3xv?=
+ =?us-ascii?Q?cD6If19rEyQnvCirYgz9hLOstcSvJT4QvsA2jgclnaOdgLeeajvbBOiUy5ZX?=
+ =?us-ascii?Q?4X6Rc6p7mnV5sXu5ZunPlckaSeSaPUOidOmiZnuc+coqg+/fOBYMrjxM+l5/?=
+ =?us-ascii?Q?TIKpwjUt/IpjuTEE7QNkec967uGZxuZc1LVMlv2iNIMgqzALcErXhw1LE0yv?=
+ =?us-ascii?Q?VWYggPG6b9oiSi+HZzKpe1j+8tun6682vB/Zc+2+EDNHvlOtfB5afii6jml+?=
+ =?us-ascii?Q?sEZxOYps81JWzOgA8TDc9kkkXOw3JJuueaiDDtRnSj6O1q0iZGdvnLN1M2Mj?=
+ =?us-ascii?Q?gnPpFPluwIpxZWSYVPy0cxYbIM1T9yXKcGxO0S45LxRa23ZieIZNlG6uo/zT?=
+ =?us-ascii?Q?u0FzpCQoF3M/mlIDSUF7RrvNk9SpwybEK6kgKHOtmMMTV1/MNiNfaUS7kBh9?=
+ =?us-ascii?Q?v3Fr5gwhMyM37+8z7mjO4XgApj3WXQfFXzfBYQFSdKmaFYfnAw55VBCvrqtT?=
+ =?us-ascii?Q?PJQ+AWlwkAkB3qY9Pzg+wo2qexSmwNGgk5crSVp1NRwAFcUN4knlsymvjgZx?=
+ =?us-ascii?Q?ESK503c7M5hZDKROrvEiClyx7+Z+FzTdc4eKWbAW7pDX02yem+PgpEd+TD+G?=
+ =?us-ascii?Q?FIz4BkgyGjO1DnVW5OlECYeNeLIkyWK7zXLwN7wG/u4lWWqiyAUoOdshg04j?=
+ =?us-ascii?Q?/HfEUGSE1nEUbsTgvCiNmih51z/Nh3BBKldhWf8vXs7xO0kSOc9jCIcqQuls?=
+ =?us-ascii?Q?7IvCDzwBMSjLN3qTz950HfBB9CEu4Fm80V3HXPRRkf41ZG6egKejhsIJRpf+?=
+ =?us-ascii?Q?3Q/hKLM0r9hos8F5WSuLVQqcdw/yZMgBCOKSYWjrBpSCxykNy4efI+UCcsDC?=
+ =?us-ascii?Q?1pG0dny3xwAcShgha1BtOzUIulWzyidg5rQsn+RSYhQ3aCARvGwTQM4ch1jb?=
+ =?us-ascii?Q?sJ82Fhj8sixhlhHHHKUnerkELV3xnSojUTV3b3yRnke/tGxDMaMcKzs1w+Ix?=
+ =?us-ascii?Q?KP59pdmm/oQVqRBqpMJlMtyhv5+3EGfQOtqBpF5MbXM9VEBnihfd2O6GavTI?=
+ =?us-ascii?Q?9k86yN03giI=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR04MB9135.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(19092799006)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?q+NFJfmySmqhX7MWl9xFpDUAMM555tEQJmNr2ZBGH7R2wtI0tm+6d7FdObEe?=
+ =?us-ascii?Q?nvPjlgpRRgzKg+l27bia10hjSFL8hABNQ/xleDZhx1I2sXp+pgnA7A/zaMoJ?=
+ =?us-ascii?Q?/6JjlwXla+o2gdibv0Wl5bpfIZpmYS9YQQm9t4war/RWB4E9RSNplqx82yyA?=
+ =?us-ascii?Q?3yPVfBL9zvqax3w8IzIegZCL3h9VwettLcj9pVCjVzC4BmydLCS6hl7Gjptm?=
+ =?us-ascii?Q?+kuz5KmYi8Zeu/8ae2td1pOB9Rd1OVefE7QZzPS9acRSiIHtd4tezzfXSPGW?=
+ =?us-ascii?Q?k1e5B0veEjRdjb3VUSb1SYRNLggSPMtcacQXBHii+Jps0nHUKq5Ts35P/f6L?=
+ =?us-ascii?Q?2BKd/ViJ0BF6oKJ5G9AcQd/H/q3iNblGya15NZqT5Xym2lFtWcGUfjDcT6z0?=
+ =?us-ascii?Q?9qPfhTYufeh0pgafLAvnanbCtYhTeKLxdyKrVZL3gbGYJKFjkG4VNOS2+BDV?=
+ =?us-ascii?Q?HaeJqiRLhBtlHKEgTlRXRfy8q8aWmBh3iSCthqhI+8xv3yEWn4S4spSrmRfW?=
+ =?us-ascii?Q?tUBFNpIyiqynhzVG85xvPDcQjrK6I6ovuy6/68b50J5LRoJ0XNJP8t2xfPhc?=
+ =?us-ascii?Q?QQECnJJOC4b7aK1LjKoDYh3XcL4KLozvqtpZ1LU9vThKGbn6Ktoc0ooXtoDb?=
+ =?us-ascii?Q?mE88/kntpk//v4N+DSqE8Nt14YSiSRxn+VC5nkwhJPDHAFW1fk+9Suo40Nqi?=
+ =?us-ascii?Q?0z5gkCyUgQi1bhhcOgiTOmDU4dO7LGDcuBLkL5OLhIGKFyBNxkH7O2OgGnGj?=
+ =?us-ascii?Q?Egr/rvEnrdJY3lKk22J9CPwNpcvy1FCtKySu7GWHB5Pe8vG8TmrLVDA4m5Di?=
+ =?us-ascii?Q?IqDRPPlxgE7nzjEl1J8+xMclOMV5c2y6sJTpQSvGGGPe/nztWIZnsQ6cekWL?=
+ =?us-ascii?Q?7u4X1nbs9hjiBkpcTOHsVhepevqJnWxgiPNVjqDUcMYKFP647FiYH/jvPA1c?=
+ =?us-ascii?Q?i1YwTPshArgVFRTL0XEwMg3Cbklmu3Yx9rczVKGqYxmA6xSzA1skb3ilNw1W?=
+ =?us-ascii?Q?0/DQEQExe0HdhMXgcsTwlNm5/GeJax527tHJPPvXPwYgXw9YvcY/Ah7VLEXM?=
+ =?us-ascii?Q?zlR6ShrGupTPRauyGrg07VfQy9AZq/3emM8hVorknxy6j7tAFQjmhvL+/iZy?=
+ =?us-ascii?Q?MWNxOfZYN0i5W3frDNVjW7CbYcCzgcdxs1kvU9SCKWkpfTfvrz3qkmeUhlzm?=
+ =?us-ascii?Q?VxMG0MmnwEYd96miaKZTgVg6j10OsuiU6Y3b7pbteL8PLFPa4Mpq/FQtWWXv?=
+ =?us-ascii?Q?6md+ruMyCZo09ROJbv+SEvfE4ro2PBE3YQ6MPhoYVNu+bakpMRqaeigvAkzc?=
+ =?us-ascii?Q?501gY2Wr4NMj8KVWAsIjFMHWaVwMIhWYdEpIidf2DGUJIeS7S0n3BThCCdxF?=
+ =?us-ascii?Q?sndzNwYOI3JXuhzobv8yEGga62Trw7T1jpZetscpIqN4wMoOlUM1ff17Bc37?=
+ =?us-ascii?Q?VZ/B3IhB5Tz5hnYtUCC40CBwsBnSdBl1go72BDla0kZCso0gdz3g5UChhpWe?=
+ =?us-ascii?Q?vk9G0YADdb+qEWEJbXgTht3SVRS6D0U3yvUyOhlWPu6HMeAG0dyaREMEold6?=
+ =?us-ascii?Q?FwhSYBW8qeviYBblZmMGwsH5oQ/H6Bac/wcimaGehI5uEchBU6hEqZoxiTve?=
+ =?us-ascii?Q?/A=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5cef2217-d98d-45cc-c4ee-08ddea16304c
+X-MS-Exchange-CrossTenant-AuthSource: GV1PR04MB9135.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2025 11:45:18.2953
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: PdAsq8h9i9C14XMvr9sldDDbezQMhFoM5HIZoJ49oTwQxyrsNrLwuqUMeb5Eim0Zobp8pQmtvCNmbHtoWw8Eaw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9787
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_044530_370656_554A72C8 
-X-CRM114-Status: GOOD (  24.96  )
+X-CRM114-CacheID: sfid-20250902_044531_856001_CCDEDFD7 
+X-CRM114-Status: GOOD (  20.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,279 +165,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SME implements a vector length which architecturally looks very similar
-to that for SVE, configured in a very similar manner.  This controls the
-vector length used for the ZA matrix register, and for the SVE vector
-and predicate registers when in streaming mode.  The only substantial
-difference is that unlike SVE the architecture does not guarantee that
-any particular vector length will be implemented.
+Hi Maxime,
 
-Configuration for SME vector lengths is done using a virtual register as
-for SVE, hook up the implementation for the virtual register.  Since we
-do not yet have support for any of the new SME registers stub register
-access functions are provided that only allow VL configuration.  These
-will be extended as the SME specific registers, as for SVE.
+On Tue, Sep 02, 2025 at 11:35:16AM +0200, Maxime Ripard wrote:
+> The imx-dcss atomic_check implementation uses the deprecated
+> drm_atomic_get_existing_crtc_state() helper.
+> 
+> This hook is called as part of the global atomic_check, thus before the
+> states are swapped. The existing state thus points to the new state, and
+> we can use drm_atomic_get_new_crtc_state() instead.
+> 
+> Signed-off-by: Maxime Ripard <mripard@kernel.org>
 
-Since vq_available() is currently only defined for CONFIG_SVE add a stub
-for builds where that is disabled.
+Reviewed-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
 
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- arch/arm64/include/asm/fpsimd.h   |  1 +
- arch/arm64/include/asm/kvm_host.h | 24 ++++++++++--
- arch/arm64/include/uapi/asm/kvm.h |  9 +++++
- arch/arm64/kvm/guest.c            | 82 +++++++++++++++++++++++++++++++--------
- 4 files changed, 96 insertions(+), 20 deletions(-)
-
-diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
-index 0ecdd7dcf623..38c24c6485ad 100644
---- a/arch/arm64/include/asm/fpsimd.h
-+++ b/arch/arm64/include/asm/fpsimd.h
-@@ -340,6 +340,7 @@ static inline int sve_max_vl(void)
- 	return -EINVAL;
- }
- 
-+static inline bool vq_available(enum vec_type type, unsigned int vq) { return false; }
- static inline bool sve_vq_available(unsigned int vq) { return false; }
- 
- static inline void sve_user_disable(void) { BUILD_BUG(); }
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 59b88206d14c..4348f297b5ae 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -812,8 +812,15 @@ struct kvm_vcpu_arch {
- 	 * low 128 bits of the SVE Z registers.  When the core
- 	 * floating point code saves the register state of a task it
- 	 * records which view it saved in fp_type.
-+	 *
-+	 * If SME support is also present then it provides an
-+	 * alternative view of the SVE registers accessed as for the Z
-+	 * registers when PSTATE.SM is 1, plus an additional set of
-+	 * SME specific state in the matrix register ZA and LUT
-+	 * register ZT0.
- 	 */
- 	void *sve_state;
-+	void *sme_state;
- 	enum fp_type fp_type;
- 	unsigned int max_vl[ARM64_VEC_MAX];
- 
-@@ -1095,14 +1102,23 @@ struct kvm_vcpu_arch {
- 
- #define vcpu_gp_regs(v)		(&(v)->arch.ctxt.regs)
- 
--/* Pointer to the vcpu's SVE FFR for sve_{save,load}_state() */
--#define vcpu_sve_pffr(vcpu) (kern_hyp_va((vcpu)->arch.sve_state) +	\
--			     sve_ffr_offset((vcpu)->arch.max_vl[ARM64_VEC_SVE]))
--
- #define vcpu_vec_max_vq(vcpu, type) sve_vq_from_vl((vcpu)->arch.max_vl[type])
- 
- #define vcpu_sve_max_vq(vcpu)	vcpu_vec_max_vq(vcpu, ARM64_VEC_SVE)
-+#define vcpu_sme_max_vq(vcpu)	vcpu_vec_max_vq(vcpu, ARM64_VEC_SME)
-+
-+#define vcpu_sve_max_vl(vcpu)	((vcpu)->arch.max_vl[ARM64_VEC_SVE])
-+#define vcpu_sme_max_vl(vcpu)	((vcpu)->arch.max_vl[ARM64_VEC_SME])
- 
-+#define vcpu_max_vl(vcpu) max(vcpu_sve_max_vl(vcpu), vcpu_sme_max_vl(vcpu))
-+#define vcpu_max_vq(vcpu) sve_vq_from_vl(vcpu_max_vl(vcpu))
-+
-+#define vcpu_cur_sve_vl(vcpu) (vcpu_in_streaming_mode(vcpu) ? \
-+			       vcpu_sme_max_vl(vcpu) : vcpu_sve_max_vl(vcpu))
-+
-+/* Pointer to the vcpu's SVE FFR for sve_{save,load}_state() */
-+#define vcpu_sve_pffr(vcpu) (kern_hyp_va((vcpu)->arch.sve_state) +	\
-+			     sve_ffr_offset(vcpu_cur_sve_vl(vcpu)))
- 
- #define vcpu_sve_zcr_elx(vcpu)						\
- 	(unlikely(is_hyp_ctxt(vcpu)) ? ZCR_EL2 : ZCR_EL1)
-diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
-index 4d789871bec1..5220797361e0 100644
---- a/arch/arm64/include/uapi/asm/kvm.h
-+++ b/arch/arm64/include/uapi/asm/kvm.h
-@@ -354,6 +354,15 @@ struct kvm_arm_counter_offset {
- #define KVM_ARM64_SVE_VLS_WORDS	\
- 	((KVM_ARM64_SVE_VQ_MAX - KVM_ARM64_SVE_VQ_MIN) / 64 + 1)
- 
-+/* SME registers */
-+#define KVM_REG_ARM64_SME		(0x17 << KVM_REG_ARM_COPROC_SHIFT)
-+
-+/* Vector lengths pseudo-register: */
-+#define KVM_REG_ARM64_SME_VLS		(KVM_REG_ARM64 | KVM_REG_ARM64_SME | \
-+					 KVM_REG_SIZE_U512 | 0xffff)
-+#define KVM_ARM64_SME_VLS_WORDS	\
-+	((KVM_ARM64_SVE_VQ_MAX - KVM_ARM64_SVE_VQ_MIN) / 64 + 1)
-+
- /* Bitmap feature firmware registers */
- #define KVM_REG_ARM_FW_FEAT_BMAP		(0x0016 << KVM_REG_ARM_COPROC_SHIFT)
- #define KVM_REG_ARM_FW_FEAT_BMAP_REG(r)		(KVM_REG_ARM64 | KVM_REG_SIZE_U64 | \
-diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-index 81f2b1111180..bcb0d565f1a4 100644
---- a/arch/arm64/kvm/guest.c
-+++ b/arch/arm64/kvm/guest.c
-@@ -310,22 +310,20 @@ static int set_core_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- #define vq_mask(vq) ((u64)1 << ((vq) - SVE_VQ_MIN) % 64)
- #define vq_present(vqs, vq) (!!((vqs)[vq_word(vq)] & vq_mask(vq)))
- 
--static int get_sve_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
-+static int get_vec_vls(enum vec_type vec_type, struct kvm_vcpu *vcpu,
-+		      const struct kvm_one_reg *reg)
- {
- 	unsigned int max_vq, vq;
- 	u64 vqs[KVM_ARM64_SVE_VLS_WORDS];
- 
--	if (!vcpu_has_sve(vcpu))
--		return -ENOENT;
--
--	if (WARN_ON(!sve_vl_valid(vcpu->arch.max_vl[ARM64_VEC_SVE])))
-+	if (WARN_ON(!sve_vl_valid(vcpu->arch.max_vl[vec_type])))
- 		return -EINVAL;
- 
- 	memset(vqs, 0, sizeof(vqs));
- 
--	max_vq = vcpu_sve_max_vq(vcpu);
-+	max_vq = vcpu_vec_max_vq(vcpu, vec_type);
- 	for (vq = SVE_VQ_MIN; vq <= max_vq; ++vq)
--		if (sve_vq_available(vq))
-+		if (vq_available(vec_type, vq))
- 			vqs[vq_word(vq)] |= vq_mask(vq);
- 
- 	if (copy_to_user((void __user *)reg->addr, vqs, sizeof(vqs)))
-@@ -334,40 +332,41 @@ static int get_sve_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- 	return 0;
- }
- 
--static int set_sve_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
-+static int set_vec_vls(enum vec_type vec_type, struct kvm_vcpu *vcpu,
-+		       const struct kvm_one_reg *reg)
- {
- 	unsigned int max_vq, vq;
- 	u64 vqs[KVM_ARM64_SVE_VLS_WORDS];
- 
--	if (!vcpu_has_sve(vcpu))
--		return -ENOENT;
--
- 	if (kvm_arm_vcpu_vec_finalized(vcpu))
- 		return -EPERM; /* too late! */
- 
--	if (WARN_ON(vcpu->arch.sve_state))
-+	if (WARN_ON(!sve_vl_valid(vcpu->arch.max_vl[vec_type])))
- 		return -EINVAL;
- 
- 	if (copy_from_user(vqs, (const void __user *)reg->addr, sizeof(vqs)))
- 		return -EFAULT;
- 
-+	if (WARN_ON(vcpu->arch.sve_state || vcpu->arch.sme_state))
-+		return -EINVAL;
-+
- 	max_vq = 0;
- 	for (vq = SVE_VQ_MIN; vq <= SVE_VQ_MAX; ++vq)
- 		if (vq_present(vqs, vq))
- 			max_vq = vq;
- 
--	if (max_vq > sve_vq_from_vl(kvm_max_vl[ARM64_VEC_SVE]))
-+	if (max_vq > sve_vq_from_vl(kvm_max_vl[vec_type]))
- 		return -EINVAL;
- 
- 	/*
- 	 * Vector lengths supported by the host can't currently be
- 	 * hidden from the guest individually: instead we can only set a
--	 * maximum via ZCR_EL2.LEN.  So, make sure the available vector
-+	 * maximum via xCR_EL2.LEN.  So, make sure the available vector
- 	 * lengths match the set requested exactly up to the requested
- 	 * maximum:
- 	 */
- 	for (vq = SVE_VQ_MIN; vq <= max_vq; ++vq)
--		if (vq_present(vqs, vq) != sve_vq_available(vq))
-+		if (vq_present(vqs, vq) != vq_available(vec_type, vq))
- 			return -EINVAL;
- 
- 	/* Can't run with no vector lengths at all: */
-@@ -375,11 +374,27 @@ static int set_sve_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- 		return -EINVAL;
- 
- 	/* vcpu->arch.sve_state will be alloc'd by kvm_vcpu_finalize_sve() */
--	vcpu->arch.max_vl[ARM64_VEC_SVE] = sve_vl_from_vq(max_vq);
-+	vcpu->arch.max_vl[vec_type] = sve_vl_from_vq(max_vq);
- 
- 	return 0;
- }
- 
-+static int get_sve_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
-+{
-+	if (!vcpu_has_sve(vcpu))
-+		return -ENOENT;
-+
-+	return get_vec_vls(ARM64_VEC_SVE, vcpu, reg);
-+}
-+
-+static int set_sve_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
-+{
-+	if (!vcpu_has_sve(vcpu))
-+		return -ENOENT;
-+
-+	return set_vec_vls(ARM64_VEC_SVE, vcpu, reg);
-+}
-+
- #define SVE_REG_SLICE_SHIFT	0
- #define SVE_REG_SLICE_BITS	5
- #define SVE_REG_ID_SHIFT	(SVE_REG_SLICE_SHIFT + SVE_REG_SLICE_BITS)
-@@ -533,6 +548,39 @@ static int set_sve_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- 	return 0;
- }
- 
-+static int get_sme_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
-+{
-+	if (!vcpu_has_sme(vcpu))
-+		return -ENOENT;
-+
-+	return get_vec_vls(ARM64_VEC_SME, vcpu, reg);
-+}
-+
-+static int set_sme_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
-+{
-+	if (!vcpu_has_sme(vcpu))
-+		return -ENOENT;
-+
-+	return set_vec_vls(ARM64_VEC_SME, vcpu, reg);
-+}
-+
-+static int get_sme_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
-+{
-+	/* Handle the KVM_REG_ARM64_SME_VLS pseudo-reg as a special case: */
-+	if (reg->id == KVM_REG_ARM64_SME_VLS)
-+		return get_sme_vls(vcpu, reg);
-+
-+	return -EINVAL;
-+}
-+
-+static int set_sme_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
-+{
-+	/* Handle the KVM_REG_ARM64_SME_VLS pseudo-reg as a special case: */
-+	if (reg->id == KVM_REG_ARM64_SME_VLS)
-+		return set_sme_vls(vcpu, reg);
-+
-+	return -EINVAL;
-+}
- int kvm_arch_vcpu_ioctl_get_regs(struct kvm_vcpu *vcpu, struct kvm_regs *regs)
- {
- 	return -EINVAL;
-@@ -775,6 +823,7 @@ int kvm_arm_get_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- 	case KVM_REG_ARM_FW_FEAT_BMAP:
- 		return kvm_arm_get_fw_reg(vcpu, reg);
- 	case KVM_REG_ARM64_SVE:	return get_sve_reg(vcpu, reg);
-+	case KVM_REG_ARM64_SME:	return get_sme_reg(vcpu, reg);
- 	}
- 
- 	if (is_timer_reg(reg->id))
-@@ -795,6 +844,7 @@ int kvm_arm_set_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- 	case KVM_REG_ARM_FW_FEAT_BMAP:
- 		return kvm_arm_set_fw_reg(vcpu, reg);
- 	case KVM_REG_ARM64_SVE:	return set_sve_reg(vcpu, reg);
-+	case KVM_REG_ARM64_SME:	return set_sme_reg(vcpu, reg);
- 	}
- 
- 	if (is_timer_reg(reg->id))
-
--- 
-2.39.5
-
+Thanks,
+Laurentiu
+> 
+> ---
+> To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+> To: Shawn Guo <shawnguo@kernel.org>
+> To: Sascha Hauer <s.hauer@pengutronix.de>
+> Cc: Lucas Stach <l.stach@pengutronix.de>
+> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+> Cc: Fabio Estevam <festevam@gmail.com>
+> Cc: dri-devel@lists.freedesktop.org
+> Cc: imx@lists.linux.dev
+> Cc: linux-arm-kernel@lists.infradead.org
+> ---
+>  drivers/gpu/drm/imx/dcss/dcss-plane.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/imx/dcss/dcss-plane.c b/drivers/gpu/drm/imx/dcss/dcss-plane.c
+> index ab6d32bad756d080e1c56d7574403febceff94f4..3a063a53c8dfa6bc5bbbf9afc7ff6519199c2f19 100644
+> --- a/drivers/gpu/drm/imx/dcss/dcss-plane.c
+> +++ b/drivers/gpu/drm/imx/dcss/dcss-plane.c
+> @@ -157,12 +157,12 @@ static int dcss_plane_atomic_check(struct drm_plane *plane,
+>  		return 0;
+>  
+>  	dma_obj = drm_fb_dma_get_gem_obj(fb, 0);
+>  	WARN_ON(!dma_obj);
+>  
+> -	crtc_state = drm_atomic_get_existing_crtc_state(state,
+> -							new_plane_state->crtc);
+> +	crtc_state = drm_atomic_get_new_crtc_state(state,
+> +						   new_plane_state->crtc);
+>  
+>  	hdisplay = crtc_state->adjusted_mode.hdisplay;
+>  	vdisplay = crtc_state->adjusted_mode.vdisplay;
+>  
+>  	if (!dcss_plane_is_source_size_allowed(new_plane_state->src_w >> 16,
+> 
+> -- 
+> 2.50.1
+> 
 
