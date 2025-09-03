@@ -4,170 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56529CA1010
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8BAFCA1015
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 02:10:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:
+	Cc:To:Subject:MIME-Version:Date:Message-ID:Content-Type:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f7GokxwbOlGyjsbY6T5hl1QcIglm1ALtBaQhk3TZ5Bc=; b=xIHp5SLZA45OhBsD2gBB3GRaG9
-	cJ6WX+ZBMJXw64C0mvrtNjYfesVfhSPZce6nleGiSGxMrKj4/1qeHM8hTWR0++o9VowaSolqor47U
-	dxDT3getjnmAnf1Fr0bCBkm2FINTnNobEsMVyAWA6ZB0XQpUAwPfIiz6fdBKyb1cjvRANtS1PNu1C
-	jwadEo+xNpCZf+xq9bRrHyTLfUHAMbes4FoWoB3k1MjK01batHONT3mFkhMXrTxbVu3lr076qdrh1
-	vM6hIpbjq4gpGrrQeMFWR+/3sLN6TNM+PLx81FJrXaGlz/Tvp8Bfl8O/9mKLr05/x58wv7nUUEa1T
-	n4U4+F6w==;
+	bh=ZHjmanIcUbDp1eBa3yuGWLKN46L05l3A9F8rJ1gjMeE=; b=OTlXU3gxAqpnYa+9vISN21nMPQ
+	nlv5zuheZYIrSevV0UBIDtHVVLs9YuINa6IMauuMzRa6w9OKLAtnN9eAwXnMbpTQ0WHHDZyUe9llP
+	Fb5NdBALTAcmNl4K4iE2GPiLIIcum2HETcWvaXTxpBhdTf8W9tPsKVhUq3Im8SEmw7eErKJJScWou
+	6WrV0IaLLd4nDt/hX73WbLl44yAhu/+NvGpKYk7OR+Rjl7qFiBWP2ZkhQ7ktc1a+jheW0GMLAUaqy
+	kSHfFzztjZYCyMdhge0F+yQOTesqsqsNszLs/dxl3JCnkFsukObEB/yAJZErps8m75Gh/6aN3x4XF
+	9RA8yDJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utzR5-00000008FLO-2Bt2;
-	Thu, 04 Sep 2025 02:10:51 +0000
-Received: from mail-mw2nam12on2072a.outbound.protection.outlook.com ([2a01:111:f403:200a::72a] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1utzR6-00000008FOd-3Yc4;
+	Thu, 04 Sep 2025 02:10:52 +0000
+Received: from mout-p-101.mailbox.org ([80.241.56.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utvC9-00000007hni-3hpU
+	id 1utvHx-00000007iMJ-3v7N
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 21:39:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vNbELYRg6MmSierK8wCoCc3UGVQAyiObvCImByhALu3Z4J7m4TEo+YRJU4lJ9I7L1Qb9Q7mgVXKTa8zLQTbnLW8/KrHJu/gmumObjZA0XvCiPLVnm5U/lBmhdgQFRz/FFv2p0ZWfxHG3mQsk/RFxWEYMDBlycXMjgUIK7AGhZH6Pvk1xtl/okFrt3Oi3g3aRFU7geTw9NlW8LESbmPMAxPaovTXZTNXT4JTqHqcY0UDHbu3PKjVLJs8oP8kQN1D/lSVT7fv5ruFlSOjAm4xWdD033Cq90IC8Ot2UKkumILTPOhOf570M8xeZ/H4jmTW52B+SIdQmn+zH/WDmGiJzAg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=f7GokxwbOlGyjsbY6T5hl1QcIglm1ALtBaQhk3TZ5Bc=;
- b=NBPp/JIEm1Mm5XCbkDK4SmoixUrKariKsNIQCZPw4OX2ABby5WVJEBHvOtmZJ5/q6g+S4Ql4jpG9WbBZDkAZ8r+3e3tkV5mvjGNQsOJSQSkhkf3qvzG7G8GvPEXtOSs2UIW1Rz84e2j/8YT8sYRzcQTplxLN6dkdzfGQzvjWXdUVOs2axuwOmCyVKqs+Kkl9BPhOmJOUd3syqaB9Q5cvqsIFfSQGYud+/QcW+ss+eZ+g6a9GRqURqqP6JMZ9uPlCVKokGEmSUW3tW8gKJeXLdNWCgzynBse8ThDVNnG8Xi2Lai14VzofbiDo4hWJ/jdeCoE6csnTP4jkkXy517dfcg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=f7GokxwbOlGyjsbY6T5hl1QcIglm1ALtBaQhk3TZ5Bc=;
- b=TAzaVAohK6fr6zPgtoqevIMjilnw/M9rVZ+gTYdu+3jvpVa3sydchgBhWPz86E/lP7G6cULh6HYrAbg/S/tKYBsJplArT7BUkx9Nk/8xQQvTJ8v1+AkSSWY45f94nm2rFB2U+AucO7+3qAhLQKP8wURNeAocmR2bURIVT9hBPrA=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from SA1PR01MB8179.prod.exchangelabs.com (2603:10b6:806:330::14) by
- CH8PR01MB9456.prod.exchangelabs.com (2603:10b6:610:275::10) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9094.17; Wed, 3 Sep 2025 21:38:51 +0000
-Received: from SA1PR01MB8179.prod.exchangelabs.com
- ([fe80::8e54:8037:e941:a539]) by SA1PR01MB8179.prod.exchangelabs.com
- ([fe80::8e54:8037:e941:a539%6]) with mapi id 15.20.9073.026; Wed, 3 Sep 2025
- 21:38:51 +0000
-Message-ID: <cc8000c0-e457-4bfc-94de-aeeddacab23b@os.amperecomputing.com>
-Date: Wed, 3 Sep 2025 17:38:44 -0400
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] firmware: smccc: Fix Arm SMCCC SOC_ID name call
-To: Sudeep Holla <sudeep.holla@arm.com>,
- Andre Przywara <andre.przywara@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250902172053.304911-1-andre.przywara@arm.com>
- <20250903-great-savvy-bloodhound-38c1ca@sudeepholla>
- <20250903-loutish-orangutan-of-experience-3dcfda@sudeepholla>
-Content-Language: en-US
-From: Paul Benoit <paul@os.amperecomputing.com>
-In-Reply-To: <20250903-loutish-orangutan-of-experience-3dcfda@sudeepholla>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SJ0PR13CA0105.namprd13.prod.outlook.com
- (2603:10b6:a03:2c5::20) To SA1PR01MB8179.prod.exchangelabs.com
- (2603:10b6:806:330::14)
+	Wed, 03 Sep 2025 21:45:11 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4cHGNw69gDz9tGC;
+	Wed,  3 Sep 2025 23:45:04 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1756935904;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZHjmanIcUbDp1eBa3yuGWLKN46L05l3A9F8rJ1gjMeE=;
+	b=vkFm4xmiSkJrIIWfI+hF9v56JXlaziTisVgB/GlTG9jFBC7oXYCdea4poqo1uIryj3BT74
+	U79gyfG7hok/ac/eq/BRraZ8UeKuV/XMKMORJSJL+g0NLYQH8yldjSscUF9QkETfU9MJa9
+	bFSa0PiHK6+g5MXCF0Hsp9VITi2V3HQBOnGiUTvXc/rEnuG8F2WF/3Gc4MyN0QQo3PncKO
+	Ajgt9o3MwWJFKwiTUz199kCI7h4mErrlSXaF9GmzsvjQaasZ7hMrVLiZBXZ8VUhjcozNp5
+	H1zLA24J/zJewbbYpVxkRVv/n0b50Ar+yiHcSl9VEb45aX9LZWuIc35VlLIbEA==
+Content-Type: multipart/mixed; boundary="------------RUV3G7hQJYDoa7JET1paPDuU"
+Message-ID: <838a0c6b-845b-428d-86b3-1480e5b8080f@mailbox.org>
+Date: Wed, 3 Sep 2025 23:44:59 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA1PR01MB8179:EE_|CH8PR01MB9456:EE_
-X-MS-Office365-Filtering-Correlation-Id: ffbbc7f6-e7fe-48b2-6fd0-08ddeb3245a9
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|52116014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZW50eWV3OTBrVHpjdE5lYkpaS1ZvMU56MW9nWGVlajlITEo5dTdIckFUS2JJ?=
- =?utf-8?B?Zitjb0tqSVo0by9GWEgrTlJuRjZNcHc3NkNFQ3VVbVErZkFzdDZXdDlnMlNi?=
- =?utf-8?B?TzMrV3IxNE1sZTVJSXpDZnpDaFdFaXpTY2JDaUt6cDJSblUwOCsvUS9rb1dx?=
- =?utf-8?B?ZUlGRmhGRWJVWUVNNzdMNmVoWk1QbGVyWVNxelNvVjVGQUNnMTZQNEJaZ0xO?=
- =?utf-8?B?Q3JsWWZPNXUwZXExMVF4Tjlia1plTk0vQ2ZLdjFNd0ljS0l4QVNnaUFZZFlU?=
- =?utf-8?B?dmFKVmhIdC9TbHZmdmU5Qk1LRkhCdHZsa09JYXlFQU1rTDFKTGJxdmhzR2ZI?=
- =?utf-8?B?Q0ZEVlRCYUx6UWJBc0dHZXlSbzBkMzlOQ1JhbkVOTllaN2UrZ0NHR1FOTmdx?=
- =?utf-8?B?cmhpWUI2UHc2SGxPTDBsdkV1SVd2TEhYUUdOQ2NSUHpmbG53WDZHYjNpQVlq?=
- =?utf-8?B?NldZSTlLUHA2NitZUVIyYW1jZW4vN2VCTDdudFRlcCtHdE52S2g3bmt0T013?=
- =?utf-8?B?ZUJoSlNGWS9mRnF1UHhwazhHeHl6R3Y4REEycTBTQVNWRDdWS3Z6cE9OdDI0?=
- =?utf-8?B?bzdqSWdPbjhLcG9DbVR5YTFxN2tpaDQ1YzBkVWFYcmJEaGZPeWtEK2dramxH?=
- =?utf-8?B?TUVqQTZQZzBEUkY3N1c5TVZkNmZHeWZmVFlqaVBNWjVhd2xFbkxvK3dhNXI3?=
- =?utf-8?B?ZTdkT0xxK0JRaVBRL081S1ZZRVd0b2Y4Nm5sWDhERDJva1Vvd25BWGtSWjNI?=
- =?utf-8?B?bHhWRTBPZ1MzTDdrOHlzakpVZFJpR1VFUTFGYnhwOGYrRlFadi9GbW5Xd1Ry?=
- =?utf-8?B?NzByY0RhTEJSaUdkcHF3Y21BZC9SN3RDQThQRitCWHVwcXQ4cnBxVkZ2dWJ6?=
- =?utf-8?B?aCtDejR0bS9jaWVpNHhzMURSWEMrZ3lHWVppeStTK2RhNDFqcTFxWjV4eDB4?=
- =?utf-8?B?ZHlUaXRJd1hPOEJ0eFhzVURITHpBS1pIN2VVQzFDV2JpWVVoRUd5aEVtbStN?=
- =?utf-8?B?b2RSWUFQS0dkZURoRWJ3RXZPSU81SjdPQnE5Vno0RjRaRThYL0VhTy9KRTJ5?=
- =?utf-8?B?OE43bW5UaWQxbjJFZUI0NWdJVVRFb2lVREZ2UnU2M01VcDh1ZnhyUG13NFV4?=
- =?utf-8?B?Q0I4TmR1NTZnSjh5cnZKbzkzSzBrVFRGeWozMS9raGlMcmNPQU0za0ZuQmdo?=
- =?utf-8?B?U1JJeDhwb3FZa2s4VGxLeW5lQ3pSa1pZZ1N6Y08rRWI0QUMrVVZ1bXg1cFNR?=
- =?utf-8?B?ZDJ5VHVXTkJIWmNHeldkUmw5bTZpTHdJRUZxcjBWbXVaYjEzTFY0Mm9TVmIx?=
- =?utf-8?B?bGU4cmozSFF0RHVEVjFrb0JkcVN2U2dMVVVIcEpRcWVMTGVtN2VOaVdzN3dL?=
- =?utf-8?B?ZzMwckFSQ1ZMMU1ZcGZibFVpQUNtM2M2T0VWTDF1elhQNTRqeEFOUzkySmJm?=
- =?utf-8?B?NEw4YVN3REpIcElLWUJQeHp0K3ZUWVhyQ25xbkhUam5wSUJsbjh4RGlTNVBy?=
- =?utf-8?B?dzVwZ2pIczdncGtlUkNwdjdJRk4vQ05oT3ZTSlc1eWludnZlaDdCSVYyK25l?=
- =?utf-8?B?U2tVVURvbzVLSXVGZlA1Rno1alkxY0lnUi9UOG1TbDJhTmhXb1FXb2VxZm5x?=
- =?utf-8?B?MGhVWm5uNnlSM2RTMXo0VUdUck9sZUZVd3BURHB2Ky96OEpxL29UQUxmcFNM?=
- =?utf-8?B?eEpJUDY1R1JtbzJDUFErUndldW5KSGRNS3JKRnpLT0RyWU5PSGg2cmNMZS84?=
- =?utf-8?B?SjV2bUNOdmFOV3EzVW5ITHZOVXpZYjdCSXFSRmd4dnlIN3dveFQvc2d1blFQ?=
- =?utf-8?B?RjJHTE9KdDBwVVp4dEEwY08xRE9xbXVRVE5sMlZDbk1CMXdXRis3NnQyWmJv?=
- =?utf-8?B?RitMZnloeVFKZGZnbDJuVDB6VHBDMkFCSU9Jekg3VENPTW9KeHcwMEU2dWI5?=
- =?utf-8?B?bE83UVdzbTNhNUFzeHU5SGRFWExiVjZ6aGNRRTBJV1hEQVpkb2hUbGt4R1FU?=
- =?utf-8?B?MU12eHdMV013PT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR01MB8179.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(52116014)(366016)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WUJBUzlFblJkMmVVQ1RDOWJTcXQ2ekM4MFdOVmZuZ0xXR2RjTDkwSG55Ykx4?=
- =?utf-8?B?cEg0ZUVCOVViek1mZWQzWGNGTlBYRXRLVzlTNE5FSkp2Kzd1cjljQW1HZFo1?=
- =?utf-8?B?b2hacTdOa3ZUT3J0bDRwMWd2cE8vakVteTJJbmFhVVZWcDRlZEZ3TVVNL1pn?=
- =?utf-8?B?ZFNyemJ2TVQ0VGN5RXhyMTh5ZS9UbDNXNHFRTVg4WkNPRGF1c0FWWUxTMno3?=
- =?utf-8?B?UWFNaTh4NnQrc3FnM04zb1ZHVEdzeDMwd2VwQ054TGtlODlFOXQvM3BTRyti?=
- =?utf-8?B?VFdrcWZhTDU3ZTU0TXZzM3hYYVA4cjFhRDlEbEZCOWdFZnhFV2dWWEpycXVM?=
- =?utf-8?B?a3lMYUl4ZkhRWkJPVW84aDNxODhiOVdjaFRXUEs0WS9aZTZRS1pQK1JNZ2lh?=
- =?utf-8?B?NHp2YTZSZEgxa3duMjBTMDQwVzhCOFZXNGdwVHlEVkFpQS9Ua1hQYlI0OGMz?=
- =?utf-8?B?Y01IeHhsenA1VWlHSUdPWEtXaXlaNzlFU3RUWW1CVEtiNlYwL1BGamRqTUYv?=
- =?utf-8?B?c01BSWxGN0lHZzhobUJqWDFYeWJjSVByQmRoTlNqY0dtZGNCU1pvNU9LYWFp?=
- =?utf-8?B?eFNqZkZCMnJ6dzhqaXpNRThQQ0VCWEpKTFNHWEQ5d3R1ZW00U3AwM2R4Z3pl?=
- =?utf-8?B?M0l1TGVUZ0IxajIwMW1HallPWmlQam1kNzBaSnFxbmdhYnQ0VUxhN3lwNU5L?=
- =?utf-8?B?aExTVUZ3aTYwU3pKYU85WDRCTkd4TW5ZSFFtc2F0dzNxdldBbGZTeWVmcTVk?=
- =?utf-8?B?ckFxdzhieXZNcStsY09UWWZtTm8rL25SMWdCNHhIQ210ZUVCUW5VL3g0c1VF?=
- =?utf-8?B?bmlNcnFlU3NrN2R1NHhxT2dpN3lNOFZ2UndBWnluK1UzOU5icG8vd0NjRy9y?=
- =?utf-8?B?VElPV2tBdmdySkMrRlpRZlM2TlZQWnFSa2RBbTRkYzZrK21McXo0V1NIQzly?=
- =?utf-8?B?RkNES2VEZUFkRVJLSXVnK3piMDBVb3ZaMXNDajFKOXFOaDVFOGtVTlVOblcy?=
- =?utf-8?B?Y3dua1V4b0E2dGdhOStUb2c2M0thcTF0MEFUa3Q3N0tlZ28yMis0YXY3QnA3?=
- =?utf-8?B?MUlJc2VhZHA2ZUYrbnJCWWZRWnFpcEVnVldmd3lJbDQrdlVhczdOZWFjZkE5?=
- =?utf-8?B?YjBMYWlhZTlNR3cxcjdWUUdpU2V5RFA0TjdkaDdMVXF5dVF1cjBGMHExd2Nw?=
- =?utf-8?B?M3RRbnhRR0VEcmFoR3UvL1FHN3ZEZVhCNG1EN3p3c0Q4S2F6MVFmc1ptSzVU?=
- =?utf-8?B?NDVrcXJuNm9ieFdMRDJrcU5HN1V5bFZoSTNLWi9idkhCVG5sV2NnUnZRanhN?=
- =?utf-8?B?U2F1UUpEaVozQzRoMGhxQmxlNmVsUFBmb2hKUHNtaFI2Z0ZCMEQ3d2JSSE44?=
- =?utf-8?B?bWI1SkZzOUFMREZib0Zsam95T1JlNlI1RmlkWlprUnBNdFVTdWxBREZqbVdL?=
- =?utf-8?B?REdiWVRYcnNJelBhb1BvQnhiTDZwS2M5a2JOR0J4d2dBTlNJblAvejJPd05u?=
- =?utf-8?B?TW5GZW0zQ05Oc1lwbU5ZblZsUkY3aXJPVzRmVHJXOFJ0b3FvYUh5N29QVGxF?=
- =?utf-8?B?a3R5TGRicEJNYjV6TFNuakE5YVhuUkVWWGJmcGZyd0pHaktMSkxITEpMTEMr?=
- =?utf-8?B?Q1NTam11TjU5ekg5eEhyd296WHdQb0ZGc1hnb1lMOXBuOHVVd0R3UUxGY2tI?=
- =?utf-8?B?U2pVZGt4R013N1NlN2RUMGgySldhT0NWZUVPZkpLY2U1UE40cERzejhmcDEv?=
- =?utf-8?B?aGtCeTIrRGlsbTNVOWZMMDg2T3plbVFBVFV5TUg2UGlzblRmeWR0b00vVHFQ?=
- =?utf-8?B?L1pIbVVPbXpTT05nYjIxUExlYkFwTnBDNStqM0ErZ1ZReitDaENzZGJ5eHY3?=
- =?utf-8?B?cGFaSnJLbG5PbWNMT2l5ZlJyRzBnYnhWSVJNRW1Pd2Nyd2lxQnh1YWhMcmhG?=
- =?utf-8?B?QXdmSUhSbGpnZ2VYbE5pNmlLdUpBZm9PSmQ1cEE2R2dlWWkzaFhRVllQMkZE?=
- =?utf-8?B?dlFWaXBRemlZbDRzN1lpTWQ1aDVEUnpydkxXRlNGUnJJQm82YVV2MEpzOGlu?=
- =?utf-8?B?OUM3Zy9iVE5FREhKdUt5VmVyTFZicVA2NjZvUnlvM2l0SmJuYmMzUFB3MTVh?=
- =?utf-8?B?WjZmdzlxQkNyakV3eVg1SW5FZnRxM2pXTk04L2VVT0hUcnVJdTh0S1JnRUZM?=
- =?utf-8?Q?fEfQQeRWfXzOeKP5yi3hoi0=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ffbbc7f6-e7fe-48b2-6fd0-08ddeb3245a9
-X-MS-Exchange-CrossTenant-AuthSource: SA1PR01MB8179.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2025 21:38:51.0980
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Qq2uvq8xgNuzJAvY8lav1KI6FYWnEeh9T7yHyQKTaZRhknC0a57GWLu58LElXRnCKnL2UKFW6RDNlB5xIU/ve3LIxVKwom3N1/f2SHQ3paw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH8PR01MB9456
+Subject: Re: [PATCH v2 4/9] drm/panthor: Implement optional reset
+To: Boris Brezillon <boris.brezillon@collabora.com>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
+ David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Sebastian Reichel <sre@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>,
+ Steven Price <steven.price@arm.com>, Thomas Zimmermann
+ <tzimmermann@suse.de>, devicetree@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, imx@lists.linux.dev
+References: <20250321200625.132494-1-marex@denx.de>
+ <20250321200625.132494-5-marex@denx.de>
+ <20250324094333.7afb17a1@collabora.com>
+ <c1de2afb-3559-4fbb-b13b-2373175b420b@denx.de>
+ <20250325084349.344a0f11@collabora.com>
+ <7aadf355-edf0-46fc-b969-65c3789375ca@denx.de>
+ <20250325153507.61d82e39@collabora.com>
+ <4c06aef3-a254-437c-aa15-8e3eb7bf5951@denx.de>
+ <20250325155231.0d1b1000@collabora.com>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <20250325155231.0d1b1000@collabora.com>
+X-MBO-RS-ID: d51b669d6529346a39c
+X-MBO-RS-META: u4q78zyf4fuepdgig3d9tbpa5hm16r61
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_143909_924946_28B5017B 
-X-CRM114-Status: GOOD (  25.00  )
+X-CRM114-CacheID: sfid-20250903_144510_130264_B98043DC 
+X-CRM114-Status: GOOD (  26.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,75 +93,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/3/2025 10:49 AM, Sudeep Holla wrote:
-> On Wed, Sep 03, 2025 at 03:23:58PM +0100, Sudeep Holla wrote:
->> On Tue, Sep 02, 2025 at 06:20:53PM +0100, Andre Przywara wrote:
->>> Commit 5f9c23abc477 ("firmware: smccc: Support optional Arm SMCCC SOC_ID
->>> name") introduced the SOC_ID name string call, which reports a human
->>> readable string describing the SoC, as returned by firmware.
->>> The SMCCC spec v1.6 describes this feature as AArch64 only, since we rely
->>> on 8 characters to be transmitted per register. Consequently the SMCCC
->>> call must use the AArch64 calling convention, which requires bit 30 of
->>> the FID to be set. The spec is a bit confusing here, since it mentions
->>> that in the parameter description ("2: SoC name (optionally implemented for
->>> SMC64 calls, ..."), but still prints the FID explicitly as 0x80000002.
->>> But as this FID is using the SMC32 calling convention (correct for the
->>> other two calls), it will not match what mainline TF-A is expecting, so
->>> any call would return NOT_SUPPORTED.
->>>
->>
->> Good catch and I must admit I completely missed it inspite of discussing
->> 32b vs 64b FID around the same time this was introduced.
->>
->>> Add a 64-bit version of the ARCH_SOC_ID FID macro, and use that for the
->>> SoC name version of the call.
->>>
->>> Fixes: 5f9c23abc477 ("firmware: smccc: Support optional Arm SMCCC SOC_ID name")
->>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
->>> ---
->>> Hi,
->>>
->>> as somewhat expected, this now fails on an Ampere machine, which
->>> reported a string in /sys/devices/soc0/machine before, but is now missing
->>> this file.
->>> Any idea what's the best way to handle this? Let the code try the 32-bit
->>> FID, when the 64-bit one fails? Or handle this as some kind of erratum?
->>>
->>
->> Not sure about it yet. Erratum seems good option so that we can avoid
->> others getting it wrong too as they might just run the kernel and be happy
->> if the machine sysfs shows up as we decided to do fallback to 32b FID.
->>
->> I will start a discussion to get the spec updated and pushed out and see
->> how that goes.
->>
->> The change itself looks good and happy to get it merged once we know
->> what is the best approach(erratum vs fallback).
->>
-> 
-> Looking at the SMCCC spec(DEN0028 v1.6 G Edition) ->
-> Section 7.4.6 Implementation responsibilities
-> 
-> If implemented, the firmware:
-> ...
-> • must not implement SoC_ID_type == 2 for SMC32.
-> • can optionally implement SoC_ID_type == 2 for SMC64 (Function ID 0xC000_0002),
-> ...
-> 
-> So Ampere is not spec conformant here and hence I prefer to handle it as
-> erratum. Hopefully we can use SOC_ID version and revision to keep the scope
-> of erratum confined to smallest set of platforms.
-> 
-> Paul,
-> 
-> Thoughts ?
->
+This is a multi-part message in MIME format.
+--------------RUV3G7hQJYDoa7JET1paPDuU
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Am I correctly understanding that, if the SMC64 SOC_ID Name call fails,
-rather than an unconditional fallback to the SMC32 call, the SMC32
-fallback would only be occurring under the proposed erratum?
+On 3/25/25 3:52 PM, Boris Brezillon wrote:
 
-I brought this issue up at a weekly team meeting today, and I'll also be
-communicating with the Ampere Computing firmware team regarding this
-issue.
+Hello Boris,
+
+sorry for the late reply.
+
+>>>>>>> Hm, that might be the cause of the fast reset issue (which is a fast
+>>>>>>> resume more than a fast reset BTW): if you re-assert the reset line on
+>>>>>>> runtime suspend, I guess this causes a full GPU reset, and the MCU ends
+>>>>>>> up in a state where it needs a slow reset (all data sections reset to
+>>>>>>> their initial state). Can you try to move the reset_control_[de]assert
+>>>>>>> to the unplug/init functions?
+>>>>>> Is it correct to assume , that if I remove all reset_control_assert()
+>>>>>> calls (and keep only the _deassert() calls), the slow resume problem
+>>>>>> should go away too ?
+>>>>>
+>>>>> Yeah, dropping the _assert()s should do the trick.
+>>>> Hmmm, no, that does not help. I was hoping maybe NXP can chime in and
+>>>> suggest something too ?
+>>>
+>>> Can you try keep all the clks/regulators/power-domains/... on after
+>>> init, and see if the fast resume works with that. If it does,
+>>> re-introduce one resource at a time to find out which one causes the
+>>> MCU to lose its state.
+>>
+>> I already tried that too . I spent quite a while until I reached that L2
+>> workaround in fact.
+> 
+> So, with your RPM suspend/resume being NOPs, it still doesn't work?
+> Unless the FW is doing something behind our back, I don't really see
+> why this would fail on your platform, but not on the rk3588. Are you
+> sure the power domains are kept on at all times. I'm asking, because if
+> you linked all the PDs, the on/off sequence is automatically handled by
+> the RPM core at suspend/resume time.
+
+I revisited this now.
+
+Can you please test the following patch (also attached) on one of your 
+devices, and tell me what the status is at the end . The diff sets the 
+GLB_HALT bit and then clears it again, which I suspect should first halt 
+the GPU and (this is what I am unsure about) then again un-halt/resume 
+the GPU ?
+
+"
+diff --git a/drivers/gpu/drm/panthor/panthor_fw.c 
+b/drivers/gpu/drm/panthor/panthor_fw.c
+index 9bf06e55eaeea..57c0d4fd29aa2 100644
+--- a/drivers/gpu/drm/panthor/panthor_fw.c
++++ b/drivers/gpu/drm/panthor/panthor_fw.c
+@@ -1087,8 +1087,16 @@ void panthor_fw_pre_reset(struct panthor_device 
+*ptdev, bool on_hang)
+  		struct panthor_fw_global_iface *glb_iface = 
+panthor_fw_get_glb_iface(ptdev);
+  		u32 status;
+
++pr_err("%s[%d] pre-halt status=%x\n", __func__, __LINE__, 
+gpu_read(ptdev, MCU_STATUS));
++
+  		panthor_fw_update_reqs(glb_iface, req, GLB_HALT, GLB_HALT);
+  		gpu_write(ptdev, CSF_DOORBELL(CSF_GLB_DOORBELL_ID), 1);
++mdelay(100);
++pr_err("%s[%d] likely-halted status=%x\n", __func__, __LINE__, 
+gpu_read(ptdev, MCU_STATUS));
++		panthor_fw_update_reqs(glb_iface, req, 0, GLB_HALT);
++mdelay(100);
++pr_err("%s[%d] likely-running ? status=%x\n", __func__, __LINE__, 
+gpu_read(ptdev, MCU_STATUS));
++
+  		if (!gpu_read_poll_timeout(ptdev, MCU_STATUS, status,
+  					   status == MCU_STATUS_HALT, 10,
+  					   100000)) {
+"
+
+In my case, the relevant output looks like this:
+
+"
+[    3.326805] panthor_fw_pre_reset[1090] pre-halt status=1
+[    3.432151] panthor_fw_pre_reset[1095] likely-halted status=2
+[    3.542179] panthor_fw_pre_reset[1098] likely-running ? status=2
+"
+
+That means, the GPU remains halted at the end, even if the "GLB_HALT" 
+bit is cleared before the last print. The clearing of GLB_HALT is also 
+what panthor_fw_post_reset() does.
+
+I suspect the extra soft reset I did before "un-halted" the GPU and 
+allowed it to proceed.
+
+I wonder if there is some way to un-halt the GPU using some gpu_write() 
+direct register access, is there ? Maybe the GPU remains halted because 
+setting the GLB_HALT stops command stream processing, and the GPU never 
+samples the clearing of GLB_HALT and therefore remains halted forever ?
+--------------RUV3G7hQJYDoa7JET1paPDuU
+Content-Type: text/x-patch; charset=UTF-8; name="pan.diff"
+Content-Disposition: attachment; filename="pan.diff"
+Content-Transfer-Encoding: base64
+
+ZGlmZiAtLWdpdCBhL2RyaXZlcnMvZ3B1L2RybS9wYW50aG9yL3BhbnRob3JfZncuYyBiL2Ry
+aXZlcnMvZ3B1L2RybS9wYW50aG9yL3BhbnRob3JfZncuYwppbmRleCA5YmYwNmU1NWVhZWVh
+Li41N2MwZDRmZDI5YWEyIDEwMDY0NAotLS0gYS9kcml2ZXJzL2dwdS9kcm0vcGFudGhvci9w
+YW50aG9yX2Z3LmMKKysrIGIvZHJpdmVycy9ncHUvZHJtL3BhbnRob3IvcGFudGhvcl9mdy5j
+CkBAIC0xMDg3LDggKzEwODcsMTYgQEAgdm9pZCBwYW50aG9yX2Z3X3ByZV9yZXNldChzdHJ1
+Y3QgcGFudGhvcl9kZXZpY2UgKnB0ZGV2LCBib29sIG9uX2hhbmcpCiAJCXN0cnVjdCBwYW50
+aG9yX2Z3X2dsb2JhbF9pZmFjZSAqZ2xiX2lmYWNlID0gcGFudGhvcl9md19nZXRfZ2xiX2lm
+YWNlKHB0ZGV2KTsKIAkJdTMyIHN0YXR1czsKIAorcHJfZXJyKCIlc1slZF0gcHJlLWhhbHQg
+c3RhdHVzPSV4XG4iLCBfX2Z1bmNfXywgX19MSU5FX18sIGdwdV9yZWFkKHB0ZGV2LCBNQ1Vf
+U1RBVFVTKSk7CisKIAkJcGFudGhvcl9md191cGRhdGVfcmVxcyhnbGJfaWZhY2UsIHJlcSwg
+R0xCX0hBTFQsIEdMQl9IQUxUKTsKIAkJZ3B1X3dyaXRlKHB0ZGV2LCBDU0ZfRE9PUkJFTEwo
+Q1NGX0dMQl9ET09SQkVMTF9JRCksIDEpOworbWRlbGF5KDEwMCk7Citwcl9lcnIoIiVzWyVk
+XSBsaWtlbHktaGFsdGVkIHN0YXR1cz0leFxuIiwgX19mdW5jX18sIF9fTElORV9fLCBncHVf
+cmVhZChwdGRldiwgTUNVX1NUQVRVUykpOworCQlwYW50aG9yX2Z3X3VwZGF0ZV9yZXFzKGds
+Yl9pZmFjZSwgcmVxLCAwLCBHTEJfSEFMVCk7CittZGVsYXkoMTAwKTsKK3ByX2VycigiJXNb
+JWRdIGxpa2VseS1ydW5uaW5nID8gc3RhdHVzPSV4XG4iLCBfX2Z1bmNfXywgX19MSU5FX18s
+IGdwdV9yZWFkKHB0ZGV2LCBNQ1VfU1RBVFVTKSk7CisKIAkJaWYgKCFncHVfcmVhZF9wb2xs
+X3RpbWVvdXQocHRkZXYsIE1DVV9TVEFUVVMsIHN0YXR1cywKIAkJCQkJICAgc3RhdHVzID09
+IE1DVV9TVEFUVVNfSEFMVCwgMTAsCiAJCQkJCSAgIDEwMDAwMCkpIHsK
+
+--------------RUV3G7hQJYDoa7JET1paPDuU--
 
