@@ -4,129 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A843CA1011
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 17:10:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03441CA1009
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 17:13:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HX5kx4ezNyL2uuNN875XaXAPApgi1/Rk/Ksal/GGhec=; b=sHqWIgTfuks+V6GRGyboqd8w2M
-	qEdUvVHHXSm3p8rgkujB6pdS3UQfaa8hLVDW4e/C7oVW8TZVd/5mMapaEj3X/uU+5Lk5kVyLhiC7j
-	2asbjilL9sXO4Z+ZaoHj0Y13lhzIILS3hfUvQUiqcnVGf6tw+r9zoqF0csmq/NImkuOFDP9dHS9Fk
-	i4TZ8Hj+haLWJbEA884Ay49lmFCbjj/l0PAf+Xb5+UyP4MdanabhXKanA6jJhZMUEqmpqoU09yWh6
-	pxfjfyXtKb/9niYlG7FNXIhrBqL0s6XndEhJpTn5DDDtH/I2Vzp8+6BFLrSE4PuEtb98YfYjSq00s
-	qRfSGdzQ==;
+	bh=nHcgIku0KtaFMYNLh4blYq4QiR038mlXkofwptYR7Fs=; b=KmTMzMJixc9Tyd3VYiyH0nvKjs
+	jM5DEdamuSYeFwG0R/td6FiC3qnHOkT2Actbgig5HfFpHjz7DlWG9EInVGPa1IWSspyykxdisOhHq
+	HI/CsbX6c3qCrM6zX/9ztlZb3xWqEfW4eT9rTPTvF5YVQEYN2HZPb7ocaFn7TuJ0qjX5zZETgmNqT
+	nYi3QKz67GNxrXU7BbflAjoeV9Xn2QRQyGyWRLw/Ekps0hKr8CCDYT97s2rmHczOm6EPh8tSL6sn5
+	jmvqAyfnjD50E97xj03tGhj9kmOHmONULtlL1m9zLV8yIxK/DNpqxdyg0/HUQ3zC+epmEWTB1IsTy
+	TxWl9PkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utqzr-000000078hP-0dvd;
-	Wed, 03 Sep 2025 17:10:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1utr2a-000000079Px-3ZjG;
+	Wed, 03 Sep 2025 17:13:00 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utnR2-00000006ZfF-3F6d
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 13:22:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1F1206024E;
-	Wed,  3 Sep 2025 13:22:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01DCFC4CEF5;
-	Wed,  3 Sep 2025 13:21:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756905719;
-	bh=omzG/tfscg/AH0Geyyzx8NtLVl0A/Mk4tDyTPdZBMg4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XAqaziDSzarlfzYhn5cPBv/P1v8z34aE1+HWNY2XifIx9e0qPG/6l4e5OskQCK9BN
-	 jwRYatbSFQmGHdWtNFQZoZtYe7gvVCOInQ7lWmNh/6WxOgVSV7YGKhFK1MyjwM8/d/
-	 KYQUA919ODtB8DOUyly2eyFB+C7LG5gD+dLU1qqFfFErf0ptuci/lMJnYtDjb3MmsL
-	 rYYYfkrPsd+3M9WoI/MgRpyV0ALNb4oxdXXDb/0GndgXqtA1Rwr/ZwlQsaIAZjEFVt
-	 4zztWGfyYcxwWVWFwu1yUjnrqrb2d0z7HeJswr0yrm1Tj+03KU2EkX1S0j+zrSHBrr
-	 aVkzyT9CK1cfg==
-Message-ID: <34b5e01e-2f4a-4d57-93ca-ab4549681b17@kernel.org>
-Date: Wed, 3 Sep 2025 15:21:48 +0200
+	id 1utnS5-00000006Zu7-0Zwv;
+	Wed, 03 Sep 2025 13:23:07 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-61e425434bbso5631250a12.2;
+        Wed, 03 Sep 2025 06:23:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756905783; x=1757510583; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nHcgIku0KtaFMYNLh4blYq4QiR038mlXkofwptYR7Fs=;
+        b=D/dfDVEUzZsLO+g0unMARmbUd0ab09R9s/3t83oHDKhlL0cgm/ZmRRDOUmFzwNzRWk
+         2W633ul7Xyaafv8Eh2GEFeXL2Ya0/7Fhz+Z+AD9LXZeUalmkGUEJwCfFxWjqmhy4eY7C
+         XfTL70vNidrI3LmsI6hzJhW3ypg+Yyg/8EZsGiN0zAOr+cpLfAX1BYaqzhKm/T2NBmd9
+         cyueb6HSY8FQlSLtOPpT432dSdt1SNDRjzrhboPGFm2TM7SAZqhePE+w7jXNtDro1iI4
+         apohD3KKneVqSF8WGZnQcdYIu4m6qJDX8PRhuB97iAgB3RTKKGKdJnrNe7zaKelg7ao0
+         DzTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756905783; x=1757510583;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=nHcgIku0KtaFMYNLh4blYq4QiR038mlXkofwptYR7Fs=;
+        b=MJlu6R0l0GW8iGyRZVKwsV+yljI/xLixQoawRmIygwVNsQcHkQCqghslfioHmwABuL
+         1crMgSqX6nXlxi2DoLDfLKe5mWoHOcA5kjBZEMYEF+c+bQB2dUF6iijx6a9gr7zSGYlM
+         jQ/NemZpEil5IBV7m2QsunPNkxTSghDyFomZllYtPy4fJD2Axqe7QbfGUNgjhUs1D9Pg
+         rUvKcnqk64jjhGwT4RK2p/9HYzSSUjxGvq02aX5zLbRtvZxJ33pLeFAvwQNX9kE0Yj8f
+         qqYy0XKQjluKlxNrOos6hzpcnfQMIjFV77FWVi+a6ReFIAOPYu9ocFusEQtMkhqUjz47
+         c8Ug==
+X-Forwarded-Encrypted: i=1; AJvYcCX/qleXZGdFj6h9fgL35a9870F1D/fe5C1VwYyVgSPmra90s4Xf8RbW4uWIt0U0CLMhPRljAg9imz8rS7VZgM3D@lists.infradead.org, AJvYcCXv/rQAjMI3FdpPodYQdXCkWpqbbtZuELuw18UgcAYekP70iCZbsukXNQuz8kvcTieDGxMTm3GQ0snydz9Mn3w=@lists.infradead.org
+X-Gm-Message-State: AOJu0YyYPlrgKylX7AyyPISNUOxacwVuGK2GDBLPYsuCqbU7gabEAb4j
+	/palT8VZpW14uK1XwbAYFlw7TAh50i7loGgXGiTDwZQ7V7Ck9Pt6FUNCWUNvh0v47QkCM0x2aZo
+	U1yIm7ZDraDdAnEz9Dem6LwIqxqwRc4TIF/CxtN9xHlHD
+X-Gm-Gg: ASbGncsbEyK/VAvLZVYeTaNTBxEOdIR4rI+pwl1ZK5hfoo6JBGpJoiqEpvLUpyUcK+a
+	hzWTFqyUhXjfZI1ILlGxCuK/iahecLPYatTu9GK4njlU5Jaz/TH8nQbuQSKVz3Ru47JNGw5U3rS
+	jwGGQJjBVip3GhQpDn61ZF4M9MCBtJ8DeTECm4Xb0SvtGis56+AtvUeUAmj3OIoR9T+WJQ4I6Q4
+	h01VD7gXaxJ71yJdiI=
+X-Google-Smtp-Source: AGHT+IFx4TgsjIdX7221cyH/VERuTiLtGl1nmyNXlK5sfPZGceWTVv6FHkr75y9dprEOFMQNGBF7y7RaQWiL9wKyXig=
+X-Received: by 2002:a05:6402:4407:b0:61e:ae59:5f07 with SMTP id
+ 4fb4d7f45d1cf-61eae5973f6mr7216065a12.20.1756905782989; Wed, 03 Sep 2025
+ 06:23:02 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 10/10] PM: EM: Use scope-based cleanup helper
-To: Zihuan Zhang <zhangzihuan@kylinos.cn>,
- "Rafael J . wysocki" <rafael@kernel.org>,
- Viresh Kumar <viresh.kumar@linaro.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Alim Akhtar
- <alim.akhtar@samsung.com>, Thierry Reding <thierry.reding@gmail.com>,
- MyungJoo Ham <myungjoo.ham@samsung.com>,
- Kyungmin Park <kyungmin.park@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>,
- Jani Nikula <jani.nikula@linux.intel.com>,
- Rodrigo Vivi <rodrigo.vivi@intel.com>, Tvrtko Ursulin
- <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Daniel Lezcano <daniel.lezcano@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
- Eduardo Valentin <edubezval@gmail.com>, Keerthy <j-keerthy@ti.com>
-Cc: Ben Horgan <ben.horgan@arm.com>, zhenglifeng <zhenglifeng1@huawei.com>,
- Zhang Rui <rui.zhang@intel.com>, Len Brown <lenb@kernel.org>,
- Lukasz Luba <lukasz.luba@arm.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Beata Michalska <beata.michalska@arm.com>, Fabio Estevam
- <festevam@gmail.com>, Pavel Machek <pavel@kernel.org>,
- Sumit Gupta <sumitg@nvidia.com>,
- Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
- Sudeep Holla <sudeep.holla@arm.com>, Yicong Yang <yangyicong@hisilicon.com>,
- linux-pm@vger.kernel.org, linux-acpi@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
- imx@lists.linux.dev, linux-omap@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250903131733.57637-1-zhangzihuan@kylinos.cn>
- <20250903131733.57637-11-zhangzihuan@kylinos.cn>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250903131733.57637-11-zhangzihuan@kylinos.cn>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250831104855.45883-1-cn.liweihao@gmail.com> <2235041.irdbgypaU6@diego>
+ <CAPEOAkQYA+XSx9QJSmNFLypH0ifE1jvui=MHiEHZ+5a3SR7=uA@mail.gmail.com> <5052759.PIDvDuAF1L@phil>
+In-Reply-To: <5052759.PIDvDuAF1L@phil>
+From: =?UTF-8?B?5p2O57u06LGq?= <cn.liweihao@gmail.com>
+Date: Wed, 3 Sep 2025 21:22:52 +0800
+X-Gm-Features: Ac12FXxMbXuoikWFpJo4sV8u7OeNSlNP3JsxtdSLpPCiAhy0OcRlc2pHpLo5RYM
+Message-ID: <CAPEOAkQ1haNBYsY_AG9onC7Mu3-52PvqtXD4fNvJErqNV7qn9w@mail.gmail.com>
+Subject: Re: [PATCH v1 3/7] dt-bindings: clock: rk3368: Add SCLK_MIPIDSI_24M
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: robh@kernel.org, hjc@rock-chips.com, andy.yan@rock-chips.com, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-clk@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250903_062305_172894_AF3193B0 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,60 +96,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/09/2025 15:17, Zihuan Zhang wrote:
-> Replace the manual cpufreq_cpu_put() with __free(put_cpufreq_policy)
-> annotation for policy references. This reduces the risk of reference
-> counting mistakes and aligns the code with the latest kernel style.
-> 
-> No functional change intended.
-> 
-> Signed-off-by: Zihuan Zhang <zhangzihuan@kylinos.cn>
-> ---
->  kernel/power/energy_model.c | 7 ++-----
->  1 file changed, 2 insertions(+), 5 deletions(-)
-> 
-> diff --git a/kernel/power/energy_model.c b/kernel/power/energy_model.c
-> index ea7995a25780..99401678e809 100644
-> --- a/kernel/power/energy_model.c
-> +++ b/kernel/power/energy_model.c
-> @@ -451,7 +451,7 @@ static void
->  em_cpufreq_update_efficiencies(struct device *dev, struct em_perf_state *table)
->  {
->  	struct em_perf_domain *pd = dev->em_pd;
-> -	struct cpufreq_policy *policy;
-> +	struct cpufreq_policy *policy __free(put_cpufreq_policy) = NULL;
+Hi,
 
-This is not really correct coding style. Please read how to use
-cleanup.h expressed in that header. You should have here proper
-constructor or this should be moved. Or this should not be __free()...
+Heiko Stuebner <heiko@sntech.de> =E4=BA=8E2025=E5=B9=B49=E6=9C=882=E6=97=A5=
+=E5=91=A8=E4=BA=8C 14:49=E5=86=99=E9=81=93=EF=BC=9A
+>
+> Workflows differ, so when submitting a patch you can't know if maintainer=
+s
+> work from patchwork or directly from their inbox.
+>
+> So it's safer to include more people than not enough :-)
+>
+> Some trimming of the list can be done though, for example your drm patche=
+s
+> would list the core drm maintainers who most likely do not really care
+> about individual driver patches ;-) .
+>
+> get_maintainers.pl thankfully does list the role, so you can decide based
+> on that.
+>
 
+Thank you for your patient reply. I understand now, and I'll try to do
+better next time.
 
->  	int found = 0;
->  	int i, cpu;
->  
-> @@ -479,8 +479,6 @@ em_cpufreq_update_efficiencies(struct device *dev, struct em_perf_state *table)
->  			found++;
->  	}
->  
-> -	cpufreq_cpu_put(policy);
-> -
->  	if (!found)
->  		return;
->  
-> @@ -787,7 +785,7 @@ static void em_check_capacity_update(void)
->  
->  	/* Check if CPUs capacity has changed than update EM */
->  	for_each_possible_cpu(cpu) {
-> -		struct cpufreq_policy *policy;
-> +		struct cpufreq_policy *policy __free(put_cpufreq_policy) = NULL;
-
-Same problem here.
-
-I don't think you really paid attention to my feedback last time.
-
-Cleanup.h requires knowing what you do, not just blindly adding __free()
-here and there.
-
-Best regards,
-Krzysztof
+yours,
+WeiHao
 
