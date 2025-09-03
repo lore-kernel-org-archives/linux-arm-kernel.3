@@ -4,70 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C702CA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 17:27:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4646BCA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 17:29:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lvv5D8mnkMTlnoYs3i3HuxRJ3lgI3ZhGxgUn/QmY3UM=; b=VMWifc8lvFfrNqXXHNggC7G2ei
-	+I5/TQdPXrx1vl3bBgsL15UVbGmyPad9GCiRs3FGyHqWqTMwe0QeJmJghHpWaFdtyL+sTHcO/qiZe
-	dDRe2E8JZvO0Bj4kqnLplURGpz1zDBx5yu2O2JCY8MaTYPbIMHwoIedIeCuh8Mbl5hzH2wM7GrfUs
-	ydvieu2mPbwtyr6rox8oJDk6bYRyv8UCONEAv5tOQu2r+X46y+piH8HkwxyMCI3zAHjIjWDzre4+y
-	tnAePDYMSJXO1b8Pp4ryiMTilhFeVAcQxVrI0c1XoBB/V9AtDJqzaVIChiaGPhDiGnHO+RJ2ao1Hx
-	P2bENGMQ==;
+	bh=/n3w+1nj5a7ZofF+kFNOjqlmFwb00T2hDOvnxtx2+3M=; b=kk9rKCHH+rq2aGUYtCdvacoi59
+	gZeHluYuoPu+ldvUwgbprnZQD2HNJbpTCotAGNCOtRimxRGT41azGoo6pV7dgWQlc28t8k7SZk0nJ
+	gyeZwgVlojqB7NtT10mi28Ws1Dd5Be6CfjrTZ4CE2tbPIWfYX3IQYtT+HOGSyaA9JoxHmQDspKvjZ
+	FhV1Slq25X7Pm1AkCIgZSYK5bJgcy9SDr5ZAbpIT+70JAABnnqUZCn68obuR0erBOK9t25efeeQcw
+	9X2eu9NgEZAUskL3UtSEumfvCU0YtOxypfdldrmSU0qD9WjHj9kMe9I0I7EG2EBO+l7OoyN9ujtDp
+	oyoLvRoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utrG6-00000007BgU-2WIm;
-	Wed, 03 Sep 2025 17:26:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1utrIo-00000007Bse-22b0;
+	Wed, 03 Sep 2025 17:29:46 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utnim-00000006d5m-2SZg
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 13:40:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0C70C60249
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  3 Sep 2025 13:40:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8FACC4CEF5
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  3 Sep 2025 13:40:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756906819;
-	bh=lvv5D8mnkMTlnoYs3i3HuxRJ3lgI3ZhGxgUn/QmY3UM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=fGnE1oZ+39/GuuoRDaaTkt8MY88oEZU5KWK1TUP3Wr1jdXKmEgQIkCCuj+DkbZZLJ
-	 85aUZR0NHrhz3PIWsZTLVJiIFkYbd53gnDJmFxm/bObU3P2udHHEbRa0tztPuSdNKu
-	 ew1FDTCuquP/YVUMFlzLHuYnTaxYOcbz5pHm6O+zCGMhZ9WdU/9Nn40wP1Y/PjWfSq
-	 FbIg9+gIJdb4zfVUU1kHSu6fuYjcS8TPsnWGMQ10yoWh0blkYIyayjZO8QZqIlAbk6
-	 8a1D5zZubfGAeEYGozDY8IyEXKEaBDz2+TIdhlW2XPassEPrCXyH51+mCmy9PXwmzn
-	 E4dcNNhICy7Hw==
-Received: by mail-ed1-f44.google.com with SMTP id 4fb4d7f45d1cf-6188b5ae1e8so7157734a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Sep 2025 06:40:19 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUM3QxF+5va6koOtY9v6EgUMoyMdOSv01bGK7PCkDRG9AAHhbZgHK3GUw15UUaQrWncnr+4/x5f/JEcxZDpiq1t@lists.infradead.org
-X-Gm-Message-State: AOJu0YwXbEAxhct8/j35qFp8qLvtkrabvIPh1XnKRz8klKizfCufj3ZM
-	5h5JNa4VA6tkwpsI9ZbonEdMY79MJ3BIb+k8IZlkrJt8qZs2WOazmfFBxF6mzROUi+vLHRb5hhd
-	zrtOczbjuvSbqZZzCFcpvFLEKknDWyg==
-X-Google-Smtp-Source: AGHT+IEI5rONWAGmUuQ0T6juo/pf8XchiICM5ct7ySlMdcsLqlsl5dtas428fYuAutHdVTYx18c+P5yWiK2OhZsk7uQ=
-X-Received: by 2002:a05:6402:2547:b0:61a:7e43:662b with SMTP id
- 4fb4d7f45d1cf-61d26d78762mr15929022a12.27.1756906818326; Wed, 03 Sep 2025
- 06:40:18 -0700 (PDT)
+	id 1utnjV-00000006dBO-033q;
+	Wed, 03 Sep 2025 13:41:07 +0000
+Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c69:480e:e039:1d0b:c5ff:a9e2])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 33B7D83D;
+	Wed,  3 Sep 2025 15:39:52 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1756906792;
+	bh=K/9dAyFF/P+rSML/+SeNcZwvlUM5MmpiClNT/7DQIXQ=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=N0tq5TFEyFNEPAEWuQykFLtPtYKWwkIk7GdD6zDzio5OcB4Q61rd9DzuNVntZGLCm
+	 saS90oxafBg89QQmQ7ldOuP1fPOj99B68c5gIKWAx8fdaIT0O9rl4P1HvhWBqKxo1A
+	 qJtFV01IqAFswxeh6z1HOBHiL38eALSBaFLczvC4=
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-References: <20250829211330.1336274-1-robh@kernel.org> <0c815a7562551caf3960cd38b5d867c80747de4b.camel@codeconstruct.com.au>
-In-Reply-To: <0c815a7562551caf3960cd38b5d867c80747de4b.camel@codeconstruct.com.au>
-From: Rob Herring <robh@kernel.org>
-Date: Wed, 3 Sep 2025 08:40:06 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqJmTmb3GF+CvidWhzgoDP60tb=BtggMcyEP_Ev9dNtjAQ@mail.gmail.com>
-X-Gm-Features: Ac12FXwNsWO5DYzNPykwatojxDlJys_qPpKp_KZ_wSvZHEoXKmrvoXoQmYLtNWw
-Message-ID: <CAL_JsqJmTmb3GF+CvidWhzgoDP60tb=BtggMcyEP_Ev9dNtjAQ@mail.gmail.com>
-Subject: Re: [PATCH] ARM: dts: aspeed: Drop syscon "reg-io-width" properties
-To: Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Joel Stanley <joel@jms.id.au>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <731ead88-8dc9-4032-86f5-7a2dd5044b22@gmx.net>
+References: <20250827-vchiq-destage-v1-0-5052a0d81c42@ideasonboard.com> <20250827-vchiq-destage-v1-4-5052a0d81c42@ideasonboard.com> <731ead88-8dc9-4032-86f5-7a2dd5044b22@gmx.net>
+Subject: Re: [PATCH 4/5] media: staging: Drop bcm2835-camera driver
+From: Jai Luthra <jai.luthra@ideasonboard.com>
+Cc: linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org, kernel-list@raspberrypi.com, Dave Stevenson <dave.stevenson@raspberrypi.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Florian Fainelli <florian.fainelli@broadcom.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, Stefan Wahren <wahrenst@gmx.net>
+Date: Wed, 03 Sep 2025 19:10:55 +0530
+Message-ID: <175690685574.8095.13306600513284108529@freya>
+User-Agent: alot/0.12.dev28+gd2c823fe
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250903_064105_187660_B452B556 
+X-CRM114-Status: GOOD (  18.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,19 +65,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 3, 2025 at 2:18=E2=80=AFAM Andrew Jeffery
-<andrew@codeconstruct.com.au> wrote:
->
-> On Fri, 2025-08-29 at 16:13 -0500, Rob Herring (Arm) wrote:
-> > The default width is 4 bytes for "syscon" devices, so "reg-io-width" is
-> > redundant and can be dropped.
->
-> I had a quick look in the syscon bindings and can't see that this is
-> documented? The driver implementation behaves this way though.
+Hi Stefan,
 
-It's not. I suppose we could add that to syscon-common.yaml, but
-that's only documentation. It has 0 effect on the schema validation. I
-would guess we have hundreds of syscon's that rely on the default.
+Quoting Stefan Wahren (2025-08-28 00:48:22)
+> Hi Jai,
+>=20
+> Am 27.08.25 um 08:24 schrieb Jai Luthra:
+> > The bcm2835-camera driver is replaced by the V4L2 bcm2835-unicam driver
+> > that is already upstream. So drop it from staging.
+> AFAIK the old Raspberry Pi Camera V1 isn't supported by V4L2=20
+> bcm2835-unicam. Personally i'm fine with this, but this must be clear in =
 
-Rob
+> the commit message.Did you already talked to distributions like Redhat & =
+
+> OpenSuSE about this step?
+
+As Dave mentioned, the OV5647 should work with V4L2. I don't have a sensor
+with me, but I can order one and try to get it working with the upstream
+kernel separate from this series.
+
+I did test the V2 camera module (IMX219) with my series applied on top of
+upstream kernel, and capture worked fine with bcm2835-unicam, so I don't
+believe V1 camera module should be an issue.
+
+> > This also simplifies destaging of VCHIQ MMAL, by reducing the users of
+> > the MMAL API (this driver is one of them).
+> AFAIU this drops the only one user of VCHIQ MMAL. So please explain, why =
+
+> we still need this API and how this should be tested?
+
+The bcm2835-isp and bcm2835-codec are other users, which are currently only
+present in the downstream Pi kernel [1].
+
+I plan to upstream the ISP driver as a subsequent series (that was the main
+motivation for this series), thus keeping the MMAL API still here.
+
+[1] https://github.com/search?q=3Drepo%3Araspberrypi%2Flinux%20%23include%2=
+0%22..%2Fvchiq-mmal%2F&type=3Dcode
+
+>=20
+> Best regards
+
+Thanks,
+    Jai
 
