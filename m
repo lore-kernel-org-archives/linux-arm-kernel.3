@@ -4,73 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67A8BCA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 14:48:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BFC9CA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 14:51:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zkbWduFk8ozX1oSl6OLe8t0wpi3qXVuq+LzyBUgCb+M=; b=XYgDy54S+ZvwLsd0TlEvY8mkJD
-	WYx0PS2eAA+RDBXVWU6pqoFiElvWzUb6LHPMwKNEvI1vQPZLyK2MWlewkyaCzVA+1U/j2TqP1DTSQ
-	2oFXR8Nl9ca8HY+ulW6gCkAQ2Hj/dttWN1DDfFIbRFHRpAM5oXbpcB1eS+qmxSDWIap6XpXf+GHj5
-	gt7Ow/TCRQgI7AVi1ftdiEk/uIVllVVK16qeGoUkzH5kuV8A+C5DkPHlgWsoU1v6Oq2XHrW3yCXH4
-	bmXMN2oKjjn2EgEDXdT4UiEjtS7dCyxKFOIKVkiPFvzF0B49pSegY1aUV7ZZ/AZKLi7z/ELMYoAdI
-	VyMcYtag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bvV8UMNk3qWzyPb5Uu+AntAWNc1TzMc/W+vx04AWWMs=; b=KxFLzGZOr+CJrSJ4bQP+TgFtgS
+	L+DsQ9OsXl0SYyN4qbgDbdNohlb7CSFVj0CRh4C1ovrJJwLLl7tWtBoKJ1ZEFALObwV3s17FLQiZQ
+	HWLZTQpo4jfAzf97fGmhd2Fkgp6THprnM6bkCejJVXZXUa796uiPXgrY2kbNRoOxjGNRTTdMLHY5Q
+	jcb64dgPt3axrGpnaZp4hEBqaNH+w4LVSmqfMd0ZSlaVPWQaoA7zhhB/5dpODbJ8mZ7tcXX5w3ifT
+	UEUnPqZ6S8C4hFKYfmeqmuZ81siZy22qsgLB53DPYXoxyOyp9zEM4nMPQ+FiFj3wJqv3NBPyibjuz
+	1TPCxRuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utomt-00000006m1f-0hjz;
-	Wed, 03 Sep 2025 14:48:39 +0000
-Received: from p-west1-cluster6-host12-snip4-1.eps.apple.com ([57.103.67.14] helo=outbound.pv.icloud.com)
+	id 1utop9-00000006nbO-0DNq;
+	Wed, 03 Sep 2025 14:50:59 +0000
+Received: from fhigh-a6-smtp.messagingengine.com ([103.168.172.157])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utmmv-00000006QHu-4B6y
+	id 1utmr0-00000006R6T-3vF1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 12:40:35 +0000
-Received: from outbound.pv.icloud.com (unknown [127.0.0.2])
-	by p00-icloudmta-asmtp-us-west-1a-60-percent-11 (Postfix) with ESMTPS id 7A5251800858;
-	Wed,  3 Sep 2025 12:40:22 +0000 (UTC)
-Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sswd.pw; s=sig1; bh=zkbWduFk8ozX1oSl6OLe8t0wpi3qXVuq+LzyBUgCb+M=; h=From:To:Subject:Date:Message-ID:MIME-Version:x-icloud-hme; b=hcZ7S69pM88GpDkrUueb4EjUWG2tS5fu9VVySXomdVU9A3aTlATcEqPOmESn8ka+pbfk3cmVL0qSOOMjy+58IOAtylQ280ZLfQegkoRKsDHcLTreCMPiM4t+EvfL60TFNd/4KDeSoi4OYEidW3I07BIVrvMyyLVMCq60ePslX1hvPPJE8WU4Mb+ZUYP4ZGKxZd7pvqUkZ2RZ512y943c27Mlg6i338FCRr25/cBJnjclVkeebS/c90tA96SKdKTYx8UWigIAht10HXT8xQCG12jhCx5ZDeSId4aQfCK7xVu8wPj77L0kaDt+dF0FPPEUwoY6VnJrblnUhlekHm27HQ==
-mail-alias-created-date: 1750314795890
-Received: from localhost.localdomain (pv-asmtp-me-k8s.p00.prod.me.com [17.56.9.36])
-	by p00-icloudmta-asmtp-us-west-1a-60-percent-11 (Postfix) with ESMTPSA id 2854E180016F;
-	Wed,  3 Sep 2025 12:40:20 +0000 (UTC)
-From: p@sswd.pw
-To: kvmarm@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	leedongha <gapdev2004@gmail.com>
-Subject: [PATCH] arm64: kvm: Fix incorrect VNCR invalidation range calculation
-Date: Wed,  3 Sep 2025 21:39:49 +0900
-Message-ID: <20250903123949.24858-1-p@sswd.pw>
-X-Mailer: git-send-email 2.43.0
+	Wed, 03 Sep 2025 12:44:48 +0000
+Received: from phl-compute-09.internal (phl-compute-09.internal [10.202.2.49])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id C9A5514000D7;
+	Wed,  3 Sep 2025 08:44:43 -0400 (EDT)
+Received: from phl-mailfrontend-02 ([10.202.2.163])
+  by phl-compute-09.internal (MEProxy); Wed, 03 Sep 2025 08:44:43 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.com; h=
+	cc:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm1; t=1756903483; x=1756989883; bh=bvV8UMNk3q
+	WzyPb5Uu+AntAWNc1TzMc/W+vx04AWWMs=; b=IQlDaw1dCwrG0YDmB0LOGOAE9O
+	8pQ7HVso/49lcBsyoOeA6PXKgP80I9pTHPTOprK/MTCefJhuJVrjdT7MFd0701ZR
+	FkVo7/fNu/RxF9kTjC7UlYpDFDKGp147e5MCNf7qHvxqXK6P7S/YwmtrULxVLTk/
+	4QbjFsAXdugBMfGC/qJs2U0Oa0PLzUyc/FmYWjAkRyVl4+qB9bwd3JYNBW8tBxlP
+	W8r/+bx9THINV//EZNHzTEdwaymGQ4eX2N3fT2JXehMsBk2vm7n2ivfl+SLdwbTC
+	Ccb4QflwjxwaKVgKeiM0jqM/8kAXrx1/G3I0eYGCQTpncteglKf3o9P3VTIQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
+	1756903483; x=1756989883; bh=bvV8UMNk3qWzyPb5Uu+AntAWNc1TzMc/W+v
+	x04AWWMs=; b=CBLEUrsHweJyv0TtxHS8jKgWGa95t7HxlT8toO+2bkXj2ZHZwxe
+	ZEg9nepo2xXIJCMIbYJ95KfRLl2ILq7MFcOPUW1G87lgOAcbEavvOU/8mwGGhXBu
+	ficww50d+AR75+AU+hG5DdG0MAyg7bhCqSrnrvdMRPVCKO361hOi2ME5slSEDacr
+	clx9UargA616C4XYvL2VgUdtPjwUEXZhXuwjrOr4okgMaKeKznFwzgVoLI+3EyTY
+	ukqSDH40XbCRaVl5cpVWK9117PHMXAmrJl/8UVgV7jC4HtpsRr8eUyfg1f1afJtB
+	A1b9Etd7F901Y2LfwWz0oMjL9qvS//NqEvA==
+X-ME-Sender: <xms:Ozi4aIsWmrNurFvTks3GX9gNEg8WfV77a1DhG1-QIlSAuqYAj6VGCQ>
+    <xme:Ozi4aP6ImQRXyGrs_Q_POXo3X1jTTA5Y9MayIZPoiX-_GaGU-EVSJKilVaqB_UfPl
+    -Vuq2LCEeN8UC5LFw>
+X-ME-Received: <xmr:Ozi4aLQGBsfGQAft1pmB1drmoLZ_chHUGkT-poPbuboHwEqlyAMHvoUWfMhMnmjCaV0zMHOLmghuebAYgyRksbuZI_V-RAc>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdefudejucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceurghi
+    lhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurh
+    epfffhvfevuffkfhggtggujggfsehttdfstddtreejnecuhfhrohhmpeflrghnucfrrghl
+    uhhsuceojhhprghluhhssehfrghsthhmrghilhdrtghomheqnecuggftrfgrthhtvghrnh
+    epveehvdfhkefhueeitddtgffgfeetjefggfetleduvdeggffhueehgefhkeekkeffnecu
+    ffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtnecurf
+    grrhgrmhepmhgrihhlfhhrohhmpehjphgrlhhushesfhgrshhtmhgrihhlrdgtohhmpdhn
+    sggprhgtphhtthhopeduvddpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepkhhlrg
+    hushdrkhhuughivghlkhgrsehgmhgrihhlrdgtohhmpdhrtghpthhtohepthhhohhmrghs
+    rdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtohepphgrlhhise
+    hkvghrnhgvlhdrohhrghdprhgtphhtthhopehlphhivghrrghlihhsiheskhgvrhhnvghl
+    rdhorhhgpdhrtghpthhtohepkhifihhltgiihihnshhkiheskhgvrhhnvghlrdhorhhgpd
+    hrtghpthhtohepmhgrnhhisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehrohgshhes
+    khgvrhhnvghlrdhorhhgpdhrtghpthhtohepsghhvghlghgrrghssehgohhoghhlvgdrtg
+    homhdprhgtphhtthhopehlihhnuhigqdhptghisehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:Ozi4aCu0duqtBePHFXAVHGbwyPk-OUk3LcNZprjXb3wFbmOu___D5g>
+    <xmx:Ozi4aN_3ekEjpLrMLrwqjfDMdunfqS0al7J8HdGjV__wH2H5AbA2Mw>
+    <xmx:Ozi4aLzui9h-hbaEDodAV3I7CsdNUohYRg4wXG47kLn5_HpU4HYVjg>
+    <xmx:Ozi4aP_ZCxf7LE9FH8njlftvWYKMElFcnq2oul0HdUb_AcDKqe-tPw>
+    <xmx:Ozi4aLoWE0_ACk5Zeb1cTK95IEnoZMhCPhOOXlQQRaX2JEUCIZlOH-ON>
+Feedback-ID: i01894241:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 3 Sep 2025 08:44:43 -0400 (EDT)
+Date: Wed, 3 Sep 2025 14:44:40 +0200
+From: Jan Palus <jpalus@fastmail.com>
+To: Klaus Kudielka <klaus.kudielka@gmail.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Bjorn Helgaas <helgaas@kernel.org>
+Subject: Re: [PATCH] PCI: mvebu: Fix the use of the for_each_of_range()
+ iterator
+Message-ID: <hiu2ouj4f7zak2ovtwtigf6fylz4c7fdyyqiqezsddoouzr4n5@bfs7kudjfnp5>
+References: <20250902151543.147439-1-klaus.kudielka@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: CsZx7LOoZ-aqYzrD7XXVTM3fT-9sCVi2
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTAzMDEyNyBTYWx0ZWRfXzCI9zaT0AJ/I
- sWLbJg8s9vK+GTv/4HxVPukUvphLoRmoFeI+kfZn2/6T7ee1ch2ie618ghhiZv0RQZL3HJk+JoT
- SbLtxnRI/euUyL8UlwXX/uN21I3gotcU99k9TqDjACERoA4/njX4whFL4yEbtVkVaf9SQ0lgTpA
- DiG9FGyE8NrZPwvsLbfxz/Toj8yxjm8wk61YKVzXK1084xzQr6gH2xQ/YmDK1dZaABn3VzezigA
- 0TJ/xJoEApddQbNHRWulAzZEtixtUNnsIY/xSijKaq2ScMKtDSelu2bkjVyAMhkg/GCRT/OeE=
-X-Proofpoint-GUID: CsZx7LOoZ-aqYzrD7XXVTM3fT-9sCVi2
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-03_06,2025-08-28_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 phishscore=0
- clxscore=1030 mlxlogscore=955 malwarescore=0 spamscore=0 suspectscore=0
- mlxscore=0 adultscore=0 bulkscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.22.0-2506270000 definitions=main-2509030127
-X-JNJ: AAAAAAABRuhrF1q2p1yBnvoa7/bmADHgJtUTVO9igOrLr4Pd5YRLRDm0Prs5q5ESz7qqchzNl1o+pcsImxY+l47ydiKWMCeotRdwZI3C8IRdQAGIMOMTVPV3lvjLPW3miwKpp/me9o5+BOzf+uGfX1mlQclc0t5/VvtxR4tYnWiaH5o6XTvflxSmt86v3tdDw74fG8zsJKoFOhmwvOuB2ZWW/0cPEPULE+54qyyQ1I28dydHJjxexnUlIjxROVPzQARlobCwX8zyzS0j06fy5eZ2afR0e9+CZoRLGGM3gyfCKHui77UuVKvKYOI/uAWqnib2TF/b0SkQnG2f5Y9Qg1O8hJC6OBsKVbQburFJSNDKuK9Riz8IkG8C696PVRS2e2yhXkJ+gI/ANNQ+EX4ONzfB2dUEa7zdrVb+01YZByesw/sGcSUViHiUvnko/O/qGn1BwnnHhaf9txXdMz6Q9UbXk4dbNXhsU/10MvhwRVWS9BvPQ98mx09KMzNQZM8oKBnN/Z+aFL923XloD5TmoZFgUdUDHYrJIHK0zfHVhvRRWVmjG9jWLSLlX1bIOrD0vq+EOU2+hi8zHiYY9HxFf2xiDNRM0t+KpULR41j5huyaQHiitd5KwW+uG+iSzGxG96PRr0tkqXI6CIJYzDis4m1zWkpc/Hijt7se4ERCcmTx5sawAEUmI39O8fkNbbAXrOC+FdCXfj2V4VbX/bIYSxft1gLHFm6a2Zn/
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250902151543.147439-1-klaus.kudielka@gmail.com>
+User-Agent: NeoMutt/20250510
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_054034_374135_59D92CE0 
-X-CRM114-Status: GOOD (  13.43  )
+X-CRM114-CacheID: sfid-20250903_054447_251240_45133C36 
+X-CRM114-Status: GOOD (  24.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,55 +116,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: leedongha <gapdev2004@gmail.com>
+On 02.09.2025 17:13, Klaus Kudielka wrote:
+> The blamed commit simplifies code, by using the for_each_of_range()
+> iterator. But it results in no pci devices being detected anymore on
+> Turris Omnia (and probably other mvebu targets).
+> 
+> Analysis:
+> 
+> To determine range.flags, of_pci_range_parser_one() uses bus->get_flags(),
+> which resolves to of_bus_pci_get_flags(). That function already returns an
+> IORESOURCE bit field, and NOT the original flags from the "ranges"
+> resource.
+> 
+> Then mvebu_get_tgt_attr() attempts the very same conversion again.
+> But this is a misinterpretation of range.flags.
+> 
+> Remove the misinterpretation of range.flags in mvebu_get_tgt_addr(),
+> to restore the intended behavior.
+> 
+> Signed-off-by: Klaus Kudielka <klaus.kudielka@gmail.com>
+> Fixes: 5da3d94a23c6 ("PCI: mvebu: Use for_each_of_range() iterator for parsing "ranges"")
+> Reported-by: Bjorn Helgaas <helgaas@kernel.org>
+> Closes: https://lore.kernel.org/r/20250820184603.GA633069@bhelgaas/
+> Reported-by: Jan Palus <jpalus@fastmail.com>
+> Closes: https://bugzilla.kernel.org/show_bug.cgi?id=220479
+> ---
+>  drivers/pci/controller/pci-mvebu.c | 14 ++------------
+>  1 file changed, 2 insertions(+), 12 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/pci-mvebu.c b/drivers/pci/controller/pci-mvebu.c
+> index 755651f338..4e2e1fa197 100644
+> --- a/drivers/pci/controller/pci-mvebu.c
+> +++ b/drivers/pci/controller/pci-mvebu.c
+> @@ -1168,9 +1168,6 @@ static void __iomem *mvebu_pcie_map_registers(struct platform_device *pdev,
+>  	return devm_ioremap_resource(&pdev->dev, &port->regs);
+>  }
+>  
+> -#define DT_FLAGS_TO_TYPE(flags)       (((flags) >> 24) & 0x03)
+> -#define    DT_TYPE_IO                 0x1
+> -#define    DT_TYPE_MEM32              0x2
+>  #define DT_CPUADDR_TO_TARGET(cpuaddr) (((cpuaddr) >> 56) & 0xFF)
+>  #define DT_CPUADDR_TO_ATTR(cpuaddr)   (((cpuaddr) >> 48) & 0xFF)
+>  
+> @@ -1189,17 +1186,10 @@ static int mvebu_get_tgt_attr(struct device_node *np, int devfn,
+>  		return -EINVAL;
+>  
+>  	for_each_of_range(&parser, &range) {
+> -		unsigned long rtype;
+>  		u32 slot = upper_32_bits(range.bus_addr);
+>  
+> -		if (DT_FLAGS_TO_TYPE(range.flags) == DT_TYPE_IO)
+> -			rtype = IORESOURCE_IO;
+> -		else if (DT_FLAGS_TO_TYPE(range.flags) == DT_TYPE_MEM32)
+> -			rtype = IORESOURCE_MEM;
+> -		else
+> -			continue;
+> -
+> -		if (slot == PCI_SLOT(devfn) && type == rtype) {
+> +		if (slot == PCI_SLOT(devfn) &&
+> +		    type == (range.flags & IORESOURCE_TYPE_BITS)) {
+>  			*tgt = DT_CPUADDR_TO_TARGET(range.cpu_addr);
+>  			*attr = DT_CPUADDR_TO_ATTR(range.cpu_addr);
 
-The code for invalidating VNCR entries in both kvm_invalidate_vncr_ipa()
-and invalidate_vncr_va() incorrectly uses a bitwise AND with `(size - 1)`
-instead of `~(size - 1)` to align the start address. This results
-in masking the address bits instead of aligning them down to the start
-of the block.
+Thanks for the patch Klaus! While it does improve situation we're not
+quite there yet. It appears that what used to be stored in `cpuaddr` var
+is also very different from `range.cpu_addr` value so the results
+in both `*tgt` and `*attr` are both wrong.
 
-This bug may cause stale VNCR TLB entries to remain valid even after a
-TLBI or MMU notifier, leading to incorrect memory translation and
-unexpected guest behavior.
+Previously `cpuaddr` had a value like ie 0x8e8000000000000 or
+0x4d0000000000000. Now `range.cpu_addr` is always 0xffffffffffffffff.
+Luckily what used to be stored in `cpuaddr`:
 
-Credit
-Team 0xB6 in bob14:
-DongHa Lee (@GAP-dev)
-Gyujeong Jin (@G1uN4sh)
-Daehyeon Ko (@4ncienth)
-Geonha Lee (@leegn4a)
-Hyungyu Oh (@DQPC_lover)
-Jaewon Yang (@R4mbb1)
+u64 cpuaddr = of_read_number(range + na, pna)
 
-Signed-off-by: leedongha <gapdev2004@gmail.com>
----
- arch/arm64/kvm/nested.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+appears to be stored in range.pci_bus_addr now. I can't make any
+informed comment about this discrepancy however I can confirm following
+change (in addition to your patch) makes mvebu driver work again (or at
+least like it used to work in 6.15, it still needs Pali's patches to
+have some devices working):
 
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 77db81bae86f..d0ddce877b5d 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -847,7 +847,7 @@ static void kvm_invalidate_vncr_ipa(struct kvm *kvm, u64 start, u64 end)
- 
- 		ipa_size = ttl_to_size(pgshift_level_to_ttl(vt->wi.pgshift,
- 							    vt->wr.level));
--		ipa_start = vt->wr.pa & (ipa_size - 1);
-+		ipa_start = vt->wr.pa & ~(ipa_size - 1);
- 		ipa_end = ipa_start + ipa_size;
- 
- 		if (ipa_end <= start || ipa_start >= end)
-@@ -887,7 +887,7 @@ static void invalidate_vncr_va(struct kvm *kvm,
- 
- 		va_size = ttl_to_size(pgshift_level_to_ttl(vt->wi.pgshift,
- 							   vt->wr.level));
--		va_start = vt->gva & (va_size - 1);
-+		va_start = vt->gva & ~(va_size - 1);
- 		va_end = va_start + va_size;
- 
- 		switch (scope->type) {
--- 
-2.43.0
-
+-			*tgt = DT_CPUADDR_TO_TARGET(range.cpu_addr);
+-			*attr = DT_CPUADDR_TO_ATTR(range.cpu_addr);
++			*tgt = DT_CPUADDR_TO_TARGET(range.parent_bus_addr);
++			*attr = DT_CPUADDR_TO_ATTR(range.parent_bus_addr);
 
