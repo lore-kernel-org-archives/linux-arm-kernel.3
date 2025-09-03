@@ -4,196 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E786CA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 14:48:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88351CA1015
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 14:48:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q3NdlTvbLJAqDew3DeIkA43nVbPVHdWHo4LGmqYROpA=; b=M1xVNr2qn6Jd7582kAbseA3JZ9
-	rDp6DpYiK/BndXqqFvvnZlDTsyPvHLMZQ6aHUX6/IqfczBXZ5he0fcl4tYJSB1pHdOPA92PCIY8oD
-	1CUZjg3K/LrYtXH+TL2U4/BzIS0eLFT5GjzvCckf5VjE0S3bzQQEqpIdlDxAFyhitKok9El3VEb/w
-	aWb60LS163L1NsawhTgVF7+86014wVm/QKgWPlbnsiu1RrxTxAAzNKB/41AknDQ5PaYH28pXfiIxk
-	0+NLYFpNPAltj9Awv2/zvS47fTDEsEQgp/mimvhyc34F4IWMbXvZZhIchJezIasr4NuUBOAY0Dbv7
-	b9F+Jmrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=z/iJHAwqup1jimrIJd7Pc539FvMqXKAbdRBHlv8G210=; b=UwCqxua5ENkyD9zNMomJTv5N8w
+	UwsrnQ2CWRB3po2DZwPm5nch3jsowVVGIp5LQbn8VDvpPmUbdZHTzwcRvXs28cKGwZ+13faj6hg3M
+	cDUzCMAvGKFwgg2HVhZ7Z7GXp23owtfGwpnIl5jZb6HrBP2gU43S95RQU5JlJ/VH6Q52ZsfoFHKA5
+	ZZ3RggKnDqQVTfw86aBGoQjrE+wkqi2vy1FXnAjeVUs2hyaX/3e9Fo9v7kPZ3vdJMom7GamDgRROW
+	UYSqbCOVYxKCEiII+r+K08muf11ogXYdcVwB226eyMWJOHg/XKr0LbPRwytie/6yeisM1G89tkoXU
+	fhrri49w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utomJ-00000006lCf-3nLh;
-	Wed, 03 Sep 2025 14:48:03 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1utomL-00000006lDp-2ATU;
+	Wed, 03 Sep 2025 14:48:05 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utmIs-00000006LIU-3I1x
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 12:09:32 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=tWmxeWtSPMkXSKAS89VuBZBfsZf+MF4J4D4N3JzystNvAUjFG2pVKfcaJcAB93Tip2XwphmRGeu80YfNgP0uomLW0WkJk6Z86xXr8PtSlsifljN2FAhGvg5OwPCrUIhCVIcPGGP2nm1KIyEIGAKrQ7cu6g1OZ7/1d2Bk0kCJhhQTKcJesceCe6PKP2O/dMgxambmM/bxJ5zRGO2FEyKV/PRHcE/aMFx7YZgEZeLavkpjMaB+M9AvNh84iMUpVdeEvfWDERsTWvDm32ZSkw4v3+byHJ5wR8GUJJs/FU3phaUg1LDtIio/60mi0LbQM2GrvPzqJBD37Wk3SNehb5ayfQ==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Q3NdlTvbLJAqDew3DeIkA43nVbPVHdWHo4LGmqYROpA=;
- b=kPQg299aGM4QbquLRLFdpReH5oqnYtfsIo2pRw+B5BgA4EybmnPswgLGoBQgE2Y3MmXVoUcpj/TWtiIFq8MuT91EpRgMjGkOHZiww5pExVaVvbd+Y6p75JbL2p6fvJo9oGlntPDb6fSv8fP0VTtK2AI1Jd2RUh2MzsLnC9OfKESFOeQy+Yq4vA88bLsh9ctO8jBXeB6N++nBrz8/PnlD+fayHIe7bUb2/x3leSxifnI0BgGkSUxts2VizgcLKMeBurfOXhSiTw9OX05+0gFcsFDHGCbFQh3cdA6Mc7vwBzOVgsHy7E96zwSWRMsnerKfL83rihe4bLCM+D/thQgZyg==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Q3NdlTvbLJAqDew3DeIkA43nVbPVHdWHo4LGmqYROpA=;
- b=DEua+FtXQQwDUa8iMhZ2A9W0CY1SRJGVxMXoSXETcyM4wYuyiGCX9gNWYRgBort758Fklm0r3clpndmZ8WwreZP1FeUsW4WS4dZiRdgCqqoGRLWQ0+eZScgb1+okNw95QRjgl0csPWiN7g1op6+M3fQYvEqrdVWBZIQNAO1/4dk=
-Received: from DU2PR04CA0348.eurprd04.prod.outlook.com (2603:10a6:10:2b4::9)
- by DU0PR08MB9750.eurprd08.prod.outlook.com (2603:10a6:10:446::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.17; Wed, 3 Sep
- 2025 12:09:20 +0000
-Received: from DU6PEPF00009529.eurprd02.prod.outlook.com
- (2603:10a6:10:2b4:cafe::69) by DU2PR04CA0348.outlook.office365.com
- (2603:10a6:10:2b4::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9094.17 via Frontend Transport; Wed,
- 3 Sep 2025 12:09:20 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DU6PEPF00009529.mail.protection.outlook.com (10.167.8.10) with Microsoft SMTP
- Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9073.11 via
- Frontend Transport; Wed, 3 Sep 2025 12:09:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NiNGZ+r9v1l+4eyW3SXnMy/UP5Cb1b4NDBSqNXU3MmLfNxvr90nxJGk7Gei8NBPJarQjUoAF5WGJ6O44sQk3TUPwt6XpaxI2RAEKJ8/JTYguchhSBKZpvLIV1Yh7pfEtWLgrd0EBgjKd//kScDSO+1R/RbwnmRxD2DojoTJ18a4GIoiU1a47xijzIwL6xcxoK06hizgAUUEeDKz/pTqjliiQOfQHWnzs3qWhB0rQI1jUgszP+Y4Np587OmFqhOJWcKmi4zyPz3kHNN157Zh/zZuYd8I5Xv6bQ/tn33FpDo4GaE5w2Ty3caHchjN+irGe++1kOtVQC0GC+Sy69gZNBA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Q3NdlTvbLJAqDew3DeIkA43nVbPVHdWHo4LGmqYROpA=;
- b=lslWwBReRZplJWlHVuph/BIHFwcDZaafr5PEUNz4VLbzWlSH/NO3E9JzLrMD3aXmFK85O8fHIZvDvHU9R9WgWd4CkzXr9hc7tmO/ibj6W+I3KAatuF0hRXfCtE9xhBe0fKKiau2nwpfRubLRHv4SDZv0nlQ7DxXPf6smdX88a1GbkJ+vb3VLdZ24iC+ia9eOgzMzNzxxOlx2927HpXfvDCjXoCalYq/5LsB0S2tGNZ1Wv64YzPUtLjPNF3gEbjKCLH9VTOmrS9NfkgHOwpUroUfkhFY9RqFlmhueOMgGwWzK22vDAZfTMejU1g+nLbTrfXcmUYKMz+Mwast0SQrGiw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Q3NdlTvbLJAqDew3DeIkA43nVbPVHdWHo4LGmqYROpA=;
- b=DEua+FtXQQwDUa8iMhZ2A9W0CY1SRJGVxMXoSXETcyM4wYuyiGCX9gNWYRgBort758Fklm0r3clpndmZ8WwreZP1FeUsW4WS4dZiRdgCqqoGRLWQ0+eZScgb1+okNw95QRjgl0csPWiN7g1op6+M3fQYvEqrdVWBZIQNAO1/4dk=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by DBBPR08MB6137.eurprd08.prod.outlook.com
- (2603:10a6:10:20f::20) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.27; Wed, 3 Sep
- 2025 12:08:48 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%7]) with mapi id 15.20.9073.026; Wed, 3 Sep 2025
- 12:08:48 +0000
-Date: Wed, 3 Sep 2025 13:08:44 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Dave Martin <Dave.Martin@arm.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org,
-	oliver.upton@linux.dev, anshuman.khandual@arm.com, robh@kernel.org,
-	james.morse@arm.com, mark.rutland@arm.com, joey.gouly@arm.com,
-	ahmed.genidi@arm.com, kevin.brodsky@arm.com,
-	scott@os.amperecomputing.com, mbenes@suse.cz,
-	james.clark@linaro.org, frederic@kernel.org, rafael@kernel.org,
-	pavel@kernel.org, ryan.roberts@arm.com, suzuki.poulose@arm.com,
-	maz@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v4 0/5] initialize SCTRL2_ELx
-Message-ID: <aLgvzKeEPn325aRO@e129823.arm.com>
-References: <20250821172408.2101870-1-yeoreum.yun@arm.com>
- <aLW5OIgv8/bvvY9E@e133380.arm.com>
- <aLXjVNCbT6YeWlSS@e129823.arm.com>
- <aLgd0/7peYBA4z87@e133380.arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aLgd0/7peYBA4z87@e133380.arm.com>
-X-ClientProxiedBy: LO2P265CA0504.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:13b::11) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	id 1utmcZ-00000006O9z-2DPP;
+	Wed, 03 Sep 2025 12:29:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:In-Reply-To:References;
+	bh=z/iJHAwqup1jimrIJd7Pc539FvMqXKAbdRBHlv8G210=; b=z3xbhbH6YfVaTYzqFKQ68s21fm
+	YNxMReW+HBzD5ha0264GFI5M2fsc9gxjjiCDU/L7tcsNpO/3Ir/OA7Ttvg8mBpF/E6G9iGNlVK5Gf
+	Oi4jUhx/6VcW/eORD5uRoDjwQa4Ok87g5qqGR64UwbYKFNFEMsM8PcWDm1NRFfsBX2DHmNo6ur02l
+	m7WOFUDGzJvgAThCndaCdgSwGL4J1OuTyvDpaGU1D1QvePaVF9yiAxel+Tr36O73W6n+TS/UyFYI0
+	A53CVj6nx8HIiH7VjABlnoKsJjFV8uUZEXxA5iQhzpScM6Tn2sxenovuSN3/W9TruUktIJpDgZZ2O
+	V6lKYUYQ==;
+Received: from [213.70.40.217] (helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1utmcY-0001kC-4c; Wed, 03 Sep 2025 14:29:50 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: arm@kernel.org
+Cc: soc@kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] Rockchip dts fixes for 6.17 #1
+Date: Wed, 03 Sep 2025 14:29:49 +0200
+Message-ID: <5909239.Y6S9NjorxK@phil>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|DBBPR08MB6137:EE_|DU6PEPF00009529:EE_|DU0PR08MB9750:EE_
-X-MS-Office365-Filtering-Correlation-Id: 454f6507-fba5-4b5a-099b-08ddeae2b6b8
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?iZkmKaqAd0LtT4oN26GVgKGlF1AVPfKIRZXYySYNf6OkV7OiGIa4d7J5JbRy?=
- =?us-ascii?Q?wmimjvlXIXFDZ6u09WNm41t9NXXrzrtCHfajAQpekJxixJ02iuIdhL51OWrA?=
- =?us-ascii?Q?aNAv1OYDFpWO1O9YI/RK1YZJz9SMm5ablSZP0hzOnqdRmg9t2ypkWDvBt80f?=
- =?us-ascii?Q?TY5PSQkMG2weO2WQ7v/Tm26yLcM/+M5BaCADjNU8lezu28FRKeNyjfg2X/H4?=
- =?us-ascii?Q?dtSHr5AnGFesQESrs+jEetPBypLndMQIbi7kqY7OXQVcLPlf4DXvSg5JgVN5?=
- =?us-ascii?Q?YsFLp8K/Oymi5rXjxbw6smkv2lVVbRVsynVnUF7r2P+uzW/duwOieCrFpJSR?=
- =?us-ascii?Q?MYT1hvqkyHbEc50LnS4cLTz/MWxboztvnyhrvMFfVkunRNUqtwUx5FjREzrd?=
- =?us-ascii?Q?k3u/k7GOhTioHG1iOD7b2ITcPlOGw0fMSWkYqW1KT9cNLZeDk3rw3SRMxo7F?=
- =?us-ascii?Q?xvPXEBEX+uSKZKxBbpAR+df6LUxxONBqRgzwCGGRV2WmlqAKLpcRhSFKH9I/?=
- =?us-ascii?Q?DtNSIeNPolC7OP8OqKdVjCmWBBUQLKlyXB/CWpnItuZzvYfYbdHa7e8KeU+R?=
- =?us-ascii?Q?b+jSd6ZE6t9bQlGdAs3TfHryccDLBTsFdxMDgk5r8gRGEmQUwO0cZgz1M73N?=
- =?us-ascii?Q?0MoBWj1CAwAuSpY9wj/gF+EE/xDHA8HREDdIoeN5pgFaM+qYdoAagAmHlB8A?=
- =?us-ascii?Q?zYn5JEXM65MLb4EnGGOF9lEZlHvKE74zeroZugiuxq2+ERknpwr7RE8XvRzZ?=
- =?us-ascii?Q?PPPtqTinY570/GyZ4XqXU+locBiMtUFEh+t9I3A1zE9oUTgYLrgH4yrvu5A7?=
- =?us-ascii?Q?cgZS/zzfpvXb7aBRCH1F7XV05YQZgEKHshoVyNrxIh48K8OZLIK6VO0oSzdw?=
- =?us-ascii?Q?KpKID8DO0bGLXGfrbo/P9R4rgeBMXEV5MLNmixXp52KSH23hk9OXIG74fQVP?=
- =?us-ascii?Q?mOofRJsJfQz8Ry2pD6XGQoUrZa1B4qS693bjfxFbtExmRW6rhQDUMfF8Te3H?=
- =?us-ascii?Q?MWvaepYAODG2oVWmwDYDKRZxuFmQQy+lKpoOlUZAFZyNIIfpnvWkIiuPgSIX?=
- =?us-ascii?Q?FYtWhrBwM/UoxsQSQ5/83RV/LGZxWxfU/som2eS6TKg8tPKVz+GfOmYbiju4?=
- =?us-ascii?Q?YHk9vLO5n0LWBwuz0SSChYPDvRpu2pSG4uwOpW3VBxt1IJ69CjeQK5C4Lz+u?=
- =?us-ascii?Q?8m+PZ4eKZT60PKV+6b4N4zdNsRwvHSLrhGlBc8FsHXDZl460Pr7Wn7wL2kPF?=
- =?us-ascii?Q?Ku8K4lnr+ZlQXTQsoLSD6eK9xl53BYSKE54wJeEP/n16aJAvQrWn4CYGt+0Q?=
- =?us-ascii?Q?zt0nfhzqhiaqZCto1nSwXobfGi2BbXgtTES5ph4KM5kydAts/xet4zSef12z?=
- =?us-ascii?Q?AMthXAevdJKDXi9JxvP1q7HONUg40r9TqMV3kBgfzaWtf9KiZJelk+qHXlPH?=
- =?us-ascii?Q?/89rdOguImQ=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR08MB6137
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU6PEPF00009529.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: a2789604-ca4d-43a7-f432-08ddeae2a333
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|14060799003|82310400026|35042699022|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8ebNwoiuY2GAHCmWGvFA7k2zLHObELCttoYUsr08/W/HNeCi/KYj++V20PKa?=
- =?us-ascii?Q?IiO0o8NgMODCFVh1Iz8v9Qvn8hXYA5NzFpLJxxIzRUYiSBJY+afhWdUnrq96?=
- =?us-ascii?Q?UQQpz+gO6rzAESnvwW0yTmkiso8B68r+X6KUdWQnEHQo0h6i+ljSZHLIk0SB?=
- =?us-ascii?Q?/adGs2njq4AoBSx6xqvBghYO60p7UkCPTAqGZNQvmSSMh/f7NkbNzbqiI96J?=
- =?us-ascii?Q?bV6sPbBLuieNIRhB7uzHM5pIgz6vkt5lNYJzicW4YP4GrMG/TBvpwpv+YiTC?=
- =?us-ascii?Q?BoPI5rZvSBr0W+0IuGUPng9J/8V6mlGqMf2kkD8Sq9R4LKBFMFLzaGWEdvRr?=
- =?us-ascii?Q?i3LK+4AjaT7+2Row3OEmUzgG5OsJ2iFDaMC+vmeAdQV1DRrZV0kZciAnEFG2?=
- =?us-ascii?Q?tzz7q110JvvVlxl2OxtFfxTl7bTT9Yhfo4KBWhUv3qeEl8VcBFwgBaVWDMDJ?=
- =?us-ascii?Q?6k1nfe9bQ0ED+USORUdmlLQmVPkRslW1WCVTR1If3Auo2Cd41LoJ83L5NFYD?=
- =?us-ascii?Q?zGl1zr4A8/wpb5EOTUPoO4vAD1ZFDPmLAuh/fwC//TAr7rjyUuCwY5FqA8t+?=
- =?us-ascii?Q?MCrpJ/d8omY/mcu1wtgofcowH8zIy3z8uQCiw087bCZfxO+St95xaVNcwzdV?=
- =?us-ascii?Q?4VwwEUGGbCXM67FEmUOtO8aI92nyqHLrevWgZVIoRfiuhvGzRExRO+eubQPv?=
- =?us-ascii?Q?aXr2lBDS97c0Rs+Bq2b5QUHhDCQ3pMid1aqaHWemiQpXmolqBeo2hJJz4vQM?=
- =?us-ascii?Q?xH7JoS8Z7ARIB3LQMds1NB0Vmzt5XWSzT6H+4PkjC8x2WFpRUghl6WL4k+96?=
- =?us-ascii?Q?8/T0NSciN2+Eqa8kF5hmZ/w1yDJyBwJNz5bJTo4jXMeObIdvRx3IjQNttq7i?=
- =?us-ascii?Q?XOD2vV10oxVyz1d3EC3s4aWaR4qXOdJ8/JDQtfqZJQm/hK4/jwCnMJiijjcY?=
- =?us-ascii?Q?mUFlxRKp6QNkbwkLF/dGGDq7DUxHUrAX5kab5dvn9Y7xIp4quu3d8J8RR2SX?=
- =?us-ascii?Q?0poLU2ZBhJvpPBJsQv7l05EmDpn8VNiGcvjTZMkPkiOPASb1zjt7rtRuTi6L?=
- =?us-ascii?Q?md/OyZp1yXJaEeZVg520UZowccjhnivweMzrGs0TV1FS6jsS2pn/BP5P5cNn?=
- =?us-ascii?Q?hdXjeWsXpn29vuie6YbSxMuwSg6dCjyjuchBmVBti4R88BZkeBQINq5rNMWJ?=
- =?us-ascii?Q?K9K+YU4KRxqbA2KEmwSe6xJ85u/TDc8kEgu5jbmOTLMUiqOi5kuJvWuOcDz1?=
- =?us-ascii?Q?qEDsCBmQrwFf/v8wDxmGyrTQGNMHw2VHbc+bAfuNiTVmbNZggImsIoytqdBD?=
- =?us-ascii?Q?Dm+df2E8WjLkCS0+Ftto1wlIPzSSxncJQG2UnP+xkIrHIhsBKOJ19Q1sml4J?=
- =?us-ascii?Q?cWlcI3FXVk2ALynRWEI/UsRIfHT5e6dyqH/FSzv1jVdUFZBf+1eDnNOrLeft?=
- =?us-ascii?Q?IhYbY2CNDPR++/hLVKR+7Siv1By8DK+qnPvN0OkN+B1XG4cNBF9KrHafbWK3?=
- =?us-ascii?Q?VkpUK886zyXb/yns0lMmuhh3UWvyNHAolHLI?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(14060799003)(82310400026)(35042699022)(36860700013)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2025 12:09:20.4510
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 454f6507-fba5-4b5a-099b-08ddeae2b6b8
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF00009529.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB9750
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_050931_116458_66C56C8B 
-X-CRM114-Status: GOOD (  33.44  )
+X-CRM114-CacheID: sfid-20250903_052951_571681_7F234661 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -208,69 +67,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dave,
+Hi Arnd, Kevin, Olof,
 
-[...]
-> > > > This series introduces initial support for the SCTLR2_ELx registers in Linux.
-> > > > The feature is optional starting from ARMv8.8/ARMv9.3,
-> > > > and becomes mandatory from ARMv8.9/ARMv9.4.
-> > > >
-> > > > Currently, Linux has no strict need to modify SCTLR2_ELx--
-> > > > at least assuming that firmware initializes
-> > > > these registers to reasonable defaults.
-> > > >
-> > > > However, several upcoming architectural features will require configuring
-> > > > control bits in these registers.
-> > > > Notable examples include FEAT_PAuth_LR and FEAT_CPA2.
-> > >
-> > > This looks OK to me now, except for one or two minor issues (see
-> > > replies to the patches).
-> > >
-> > > I think we will need a way of testing all the code paths before this
-> > > should be merged, though.
-> > >
-> > > Have you tested all the code paths, or are there some things that have
-> > > not been tested?
-> >
-> > I've tested for pKVM, nested and nhve and crash path
-> > (I do my best what can I do for modified path).
->
-> Was that just confirming that the kernel boots / does not crash?
+please find a below some Rockchip fixes for the current 6.17 release-cycle.
 
-Not only that, since the my last mistake, I've check it with debugger
-too -- set the SCTLR2_ELx as I expected.
+Please pull
 
->
-> What about CPU suspend/resume and hotplug?
+Thanks
+Heiko
 
-Of course It's done both enter/exit idle and hotplug with related kselftest test.
 
->
-> My concern is that most of the defined SCTLR2_ELx bits won't affect
-> kernel execution unless the corresponding hardware features are
-> actively being used -- so while we know that the patches don't break
-> the kernel, this may not prove that SCTLR2_ELx is really being
-> initialised / saved / restored / reset correctly.
+The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585:
 
-That's why I've confirmed with debugger whether the SCTLR2_ELx value
-sets as I expected... personally I've done as much as I can for
-test related for SCTLR2_ELx.
->
-> > > Since this code is not useful by itself, it may make sense to delay
-> > > merging it until we have patches for a feature that depends on SCTLR2.
-> >
-> > Whatever I pass this detiermination for maintainer.
->
-> Sure, that's just my opinion.
->
-> Either way, this doesn't stop anyone from building support for specific
-> features on top of this series before it gets merged.
+  Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
 
-Okay.
+are available in the Git repository at:
 
-Thanks!
+  git://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git tags/v6.17-rockchip-dtsfixes1
 
---
-Sincerely,
-Yeoreum Yun
+for you to fetch changes up to dcc6785caffad27f2ea601fdd2f9782036e1faed:
+
+  arm64: dts: rockchip: fix second M.2 slot on ROCK 5T (2025-09-02 08:31:50 +0200)
+
+----------------------------------------------------------------
+The newly added Rock 5T board needed slightly bigger fixes to make the
+PCIe and USB actually work, because the PCIe does share its lanes between
+two ports and the usb needs to toggle a gpio to supply power.
+
+The other interesting fix is the headphone detection on the Orange Pi 5+.
+
+The rest are some added supplies to make the boot log less scary and a
+number of styling fixes.
+
+----------------------------------------------------------------
+Chen-Yu Tsai (1):
+      arm64: dts: rockchip: Add supplies for eMMC on rk3588-orangepi-5
+
+Chukun Pan (1):
+      arm64: dts: rockchip: mark eeprom as read-only for Radxa E52C
+
+Kaison Deng (1):
+      arm64: dts: rockchip: fix es8388 address on rk3588s-roc-pc
+
+Krzysztof Kozlowski (3):
+      ARM: dts: rockchip: Minor whitespace cleanup
+      arm64: dts: rockchip: Minor whitespace cleanup
+      arm64: dts: rockchip: Fix Bluetooth interrupts flag on Neardi LBA3368
+
+Maud Spierings (1):
+      arm64: dts: rockchip: Fix the headphone detection on the orangepi 5 plus
+
+Nicolas Frattaroli (2):
+      arm64: dts: rockchip: fix USB on RADXA ROCK 5T
+      arm64: dts: rockchip: fix second M.2 slot on ROCK 5T
+
+Peter Robinson (2):
+      arm64: dts: rockchip: Add vcc-supply to SPI flash on rk3399-pinebook-pro
+      arm64: dts: rockchip: Add vcc-supply to SPI flash on Pinephone Pro
+
+Sebastian Reichel (1):
+      arm64: dts: rockchip: correct network description on Sige5
+
+ arch/arm/boot/dts/rockchip/rk3128-xpi-3128.dts     |  2 +-
+ arch/arm/boot/dts/rockchip/rv1109-relfor-saib.dts  |  6 ++--
+ arch/arm64/boot/dts/rockchip/px30-pp1516.dtsi      |  8 ++---
+ .../rockchip/px30-ringneck-haikou-video-demo.dtso  |  6 ++--
+ .../boot/dts/rockchip/rk3308-sakurapi-rk3308b.dts  |  2 +-
+ arch/arm64/boot/dts/rockchip/rk3368-lba3368.dts    |  2 +-
+ .../boot/dts/rockchip/rk3399-pinebook-pro.dts      |  1 +
+ .../boot/dts/rockchip/rk3399-pinephone-pro.dts     |  1 +
+ .../rockchip/rk3399-puma-haikou-video-demo.dtso    |  6 ++--
+ .../boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi  |  4 +--
+ .../boot/dts/rockchip/rk3576-armsom-sige5.dts      |  5 +---
+ arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts |  1 +
+ .../boot/dts/rockchip/rk3588-orangepi-5-plus.dts   |  2 +-
+ .../arm64/boot/dts/rockchip/rk3588-orangepi-5.dtsi |  2 ++
+ arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts    | 35 ++++++++++++++++++++++
+ arch/arm64/boot/dts/rockchip/rk3588j.dtsi          |  4 +--
+ arch/arm64/boot/dts/rockchip/rk3588s-roc-pc.dts    |  4 +--
+ 17 files changed, 64 insertions(+), 27 deletions(-)
+
+
+
 
