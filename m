@@ -4,91 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96CB5CA100C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 09:40:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63354CA1009
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 09:43:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hZTy5PSuTM5rEw0pIf6nxs+pKdYAXNk6URBgB/E9ySA=; b=Ca3prLyH3TKaaEHDRfpPkhSGGq
-	UrVKUBBPurr8DBjjIcIjKKeXwEpdI55qcc4IxTkp08oH7yJ7BeXY0mEbeh7LzHgdMxwAIzokotBmG
-	G5NXiyQEw7LGj5EA13y8Ra1lZRFv8puE8Jd9K3Zi0DClyFYrN8CsiWk8TuoebIkeKwdtqNYd05LuK
-	4lyvH/tMQ608nnCZtVdCwaP7/8pGXye79bOrApgUfSTtKTqbqqrcVNZ8DBTF+d9YDXeHe85jQtfnX
-	CygWMUkmg6WQwYfLei4vKCUl4rm8S8BDkGxrB9o4K0+syeIXSjwZItXrETNDc9wi4SlfKmXlOQrne
-	wXnmdOrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1iPxPfD4zEjOJlk3VAJwWUFAVXWlZrkbgT/dCI7bG0g=; b=mn339OqskkcqYaQU+IA1zMIA8n
+	0xXoclEA8eY1Bjs94t4N+7MlPGidVeZkkP/pJrhhT1J5BeqjBL8V2aCzPtkOFC9qw32+e+UQHjm09
+	9ulabEpBMpvakbVncdTCIWwMlEowj6QSdlhifBxR94I/baaWCnFO0YTVBwzAIFQSjzI0/ePnIdbNs
+	ROJwP+MsGlHu+WS7gDRdDGESM5jDabSaeLpQNjYesng6GOHovES01N7XdTxeFcorXWJ9sSnyRzWrX
+	4THu+fQE8A469V2qvTf+5kWSSAOTtuAj1cSVmxQD21rmZjcBuQB6Gtb/MsM0OzCOfMcleiXd9CRGk
+	1UlzWDuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utjyp-00000005xbA-0gOA;
-	Wed, 03 Sep 2025 09:40:39 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1utk1V-00000005xok-14os;
+	Wed, 03 Sep 2025 09:43:25 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utiWS-00000005Pf3-2RIt;
-	Wed, 03 Sep 2025 08:07:17 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-45b76a30584so1267255e9.1;
-        Wed, 03 Sep 2025 01:07:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756886835; x=1757491635; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=hZTy5PSuTM5rEw0pIf6nxs+pKdYAXNk6URBgB/E9ySA=;
-        b=YNzawDtyubX0Dz+EbC+hoD/GsknkC+Ogo4m3hG4r7XYlxkRKQY1g+1OPpNbyzOBTsl
-         UBE77ZWJ4LTqf5gZZcyzN2UGu0gCt8qU038Pgpwr8Zep8b7sCRre4iwlF1jxdJJWyPpn
-         TpV10CowUYYgVdtKdEpwykQYhnEbKKiG09gZvReX78n99JFalwuf59VeG77+huRkzm8+
-         UB3sgaYJTHqW/eFt4MxUTA0ef+f6IB1oFN49R/hJC9I4dbRO5cT0wRokm28bDD9aU9tG
-         nrBlowC/BoAMq4UnUeU1Z0FEmLpNyJIW9jqeVbTHZQPB+JR+7lwdia5hN9CJ2S8iRoFX
-         fzqA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756886835; x=1757491635;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hZTy5PSuTM5rEw0pIf6nxs+pKdYAXNk6URBgB/E9ySA=;
-        b=OXJ5qHP7IF0dLORnC6LGxb1JgC2IsULMxvNyTOBM28KJ3Avo8k1iACvz1ob2THQHHk
-         sulU8okq8MA3uXiixhAjWR3+jtBD+2/6vaBK2F3d+VriyK5mvpCOfUz5kcWelC60cj10
-         bQcZDHCzGuHGd56AuhYcwcEdTtNDvWvE5e9JMzi5c1z53tBY07rgkTUWM+PmBfGj01Ud
-         ybsm8Rc/SAbEBuc47oltI5/7neGQ72DiW/+EWBrZZGrTmVeKfymDbOJTtQUofGok5Pq4
-         ZYTnBnTrtzh9rvpYbPip5R9tqORBTQgvh4iqq92mO5zo76liPW82YGJ/ttjjmEiu8UJF
-         ZOBA==
-X-Forwarded-Encrypted: i=1; AJvYcCUYIwZ+TybPosEfUZ25Ppg1DV7ZySmUbIvMXH00I806obIgN+pHfk790+pH+r/lKsSS0HuWaiWUahm2ybuhAYA=@lists.infradead.org, AJvYcCXm2AY5Cqr1nqPPTx5zmcH6TAE9pZ5hOblUZBC96mZFdQbLRlXML9lCfoVN2lVWoEhYKYfH5CTpJLe6vdNotAo1@lists.infradead.org
-X-Gm-Message-State: AOJu0YzRI87k1LcEyeVQeZo4yAnmMwp3Nwvd5gbN/SwTQhndIpOQbkYK
-	QeoTFCR/4vjLNOo53B/zIgV3RY/6ZQdKEBjPO7Y0be2QvPgO/UC1NuMu
-X-Gm-Gg: ASbGncuH8LFmlaNI5IFiR6juaYVDLZCWW2WAvHSx8kxhmRDY5P7Z240BqmCBoItuvPc
-	qldMZbN4RjNalZUMhokG7puOytfBGA+OUg6BczzBf5dPpBk1NOxwd0z+pwzz1g0I2yGO5L8IX6+
-	znh7UyKMpTLJZbtDcyyHsSLCD9K1de8kteBzUUNBe+H0WEqm2bbyLP8GzWydOWSV17QI5WsO1X4
-	nn+hc9cn/n0+y//QQcgp0mcX6Wc/JG+HEnSfLZci37d/GqZr7EnYqWaCPyMFt9mqnOTRd/rCprb
-	cLapwOON7x1kWcICalzAy1SC4RDyZy89tQFyNsKYjZVSJbDsX5GuCqiYD7Z3gAA1PwkA1YmBUJ6
-	1MVEyjXIRH5a0H3lWY4NrMJOuHGDXKoAYwiKPmdiactXCOouiKhiYOPtnDcSxBA==
-X-Google-Smtp-Source: AGHT+IEpGBOP1B1Jph5fgexU4vMmswDuYQqgA49JGWQuOcwTIUvg6AkoYPsE1hTfBRhrYgvcN4/h2A==
-X-Received: by 2002:a05:6000:2883:b0:3cb:9930:78bd with SMTP id ffacd0b85a97d-3d064dfe9camr6000577f8f.5.1756886834510;
-        Wed, 03 Sep 2025 01:07:14 -0700 (PDT)
-Received: from thomas-precision3591.u-ga.fr ([2001:660:5301:24:6179:26f2:8797:e6a9])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3d3a7492001sm17768599f8f.42.2025.09.03.01.07.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Sep 2025 01:07:14 -0700 (PDT)
-From: Thomas Fourier <fourier.thomas@gmail.com>
-To: 
-Cc: Thomas Fourier <fourier.thomas@gmail.com>,
-	stable@vger.kernel.org,
-	Corentin Labbe <clabbe@baylibre.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Heiko Stuebner <heiko@sntech.de>,
-	John Keeping <john@keeping.me.uk>,
-	linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] crypto: rockchip - Fix dma_unmap_sg() nents value
-Date: Wed,  3 Sep 2025 10:06:46 +0200
-Message-ID: <20250903080648.614539-2-fourier.thomas@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	id 1utiWv-00000005Psz-49MK
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 03 Sep 2025 08:07:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B0B47445E2;
+	Wed,  3 Sep 2025 08:07:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1FBAC4CEF0;
+	Wed,  3 Sep 2025 08:07:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756886865;
+	bh=oylBBl4uKf15Rl0dYmoe29/A3Jm+GijZDxeRqxsoIuk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fOMd+ClNOmVD1CadlRsVv0U/kNNM90vCdRtGb6WjRtylHsNfhk4PSkXUKmwOkDR/C
+	 vK48IXNSmvJhLfUAgQPZ4/Y3gTzF25nlGstPL81xMIuO/7arwJ3LmTesSNWB+nttjK
+	 Ea6DUGKQxzQIFZv+bWSFfZZxF0Xl9yYk0DiPAaDFm/SVZ7gKl7jCHYView402MQGca
+	 kDy41ZypNz7JVgrDCl3LO1M+UUCKtCC2YJO36/Rk4Di2pPGL8W6e+VPhPjqp8sNzH1
+	 th8NXA9hTBowv0+eWIwYAV4IsxdLsWDBYykKOEV6FUNl3jIMvxOJrKr9BcIaS8YEiU
+	 xTiHdPu2j49Uw==
+Date: Wed, 3 Sep 2025 09:07:41 +0100
+From: Lee Jones <lee@kernel.org>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Pawel Moll <pawel.moll@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH 0/2] mfd: vexpress: convert the driver to using the new
+ generic GPIO chip API
+Message-ID: <20250903080741.GD2163762@google.com>
+References: <20250811-gpio-mmio-mfd-conv-v1-0-68c5c958cf80@linaro.org>
+ <175680785548.2247963.242433624241359060.b4-ty@kernel.org>
+ <CAMRc=MeWnrSPrLOq7yH71wpw4vP6RJiLnuLCpwXogZn0yugFgw@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMRc=MeWnrSPrLOq7yH71wpw4vP6RJiLnuLCpwXogZn0yugFgw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_010716_618782_7A074714 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20250903_010746_046174_90558599 
+X-CRM114-Status: GOOD (  20.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,30 +81,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The dma_unmap_sg() functions should be called with the same nents as the
-dma_map_sg(), not the value the map function returned.
+On Tue, 02 Sep 2025, Bartosz Golaszewski wrote:
 
-Fixes: 57d67c6e8219 ("crypto: rockchip - rework by using crypto_engine")
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Thomas Fourier <fourier.thomas@gmail.com>
----
- drivers/crypto/rockchip/rk3288_crypto_ahash.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+> On Tue, Sep 2, 2025 at 12:10 PM Lee Jones <lee@kernel.org> wrote:
+> >
+> > On Mon, 11 Aug 2025 15:36:15 +0200, Bartosz Golaszewski wrote:
+> > > This converts the vexpress-sysreg MFD driver to using the new generic
+> > > GPIO interface but first fixes an issue with an unchecked return value
+> > > of devm_gpiochio_add_data().
+> > >
+> > > Lee: Please, create an immutable branch containing these commits after
+> > > you pick them up, as I'd like to merge it into the GPIO tree and remove
+> > > the legacy interface in this cycle.
+> > >
+> > > [...]
+> >
+> > Applied, thanks!
+> >
+> > [1/2] mfd: vexpress-sysreg: check the return value of devm_gpiochip_add_data()
+> >       commit: 14b2b50be20bd15236bc7d4c614ecb5d9410c3ec
+> > [2/2] mfd: vexpress-sysreg: use new generic GPIO chip API
+> >       commit: 8080e2c6138e4c615c1e6bc1378ec042b6f9cd36
+> >
+> > --
+> > Lee Jones [李琼斯]
+> >
+> 
+> Thanks, you haven't pushed out the changes yet so maybe you're already
+> on it but please don't forget to set up an immutable branch for
+> merging back of these changes into the GPIO tree.
 
-diff --git a/drivers/crypto/rockchip/rk3288_crypto_ahash.c b/drivers/crypto/rockchip/rk3288_crypto_ahash.c
-index d6928ebe9526..b9f5a8b42e66 100644
---- a/drivers/crypto/rockchip/rk3288_crypto_ahash.c
-+++ b/drivers/crypto/rockchip/rk3288_crypto_ahash.c
-@@ -254,7 +254,7 @@ static void rk_hash_unprepare(struct crypto_engine *engine, void *breq)
- 	struct rk_ahash_rctx *rctx = ahash_request_ctx(areq);
- 	struct rk_crypto_info *rkc = rctx->dev;
- 
--	dma_unmap_sg(rkc->dev, areq->src, rctx->nrsg, DMA_TO_DEVICE);
-+	dma_unmap_sg(rkc->dev, areq->src, sg_nents(areq->src), DMA_TO_DEVICE);
- }
- 
- static int rk_hash_run(struct crypto_engine *engine, void *breq)
+No, I actually missed that.  2 secs.
+
 -- 
-2.43.0
-
+Lee Jones [李琼斯]
 
