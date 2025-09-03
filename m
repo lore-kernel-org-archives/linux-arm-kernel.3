@@ -4,91 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A69D8CA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 15:41:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16901CA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 15:44:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rxOgjN7WdDoAv2rvG3Wc6cb+dOveWBvcqA5WgB2sqzo=; b=LAay1rreAFyBd7nFSEdUAr3qIU
-	C/A6M/u/EfbLtn24IdmdZD/MTxrPSO8r6pBwyo/5gU5yLTVkRXAohP8aykITq+HM3vuGZya6WzWxa
-	AfQM3xxeK5t7yU/Jwc2BVaK4IRuGuTpm8fMaMZveuRJqxgSh40lrvKXZzDAwAr9FY3Xxu3Cx+GVP2
-	nIKtf0QxFY5cDlOz/QsDBZEM6Bye/givAEBK1GodJ9O/KIAHiZvVT+nGf3uiWpboC7vKDhjc/fvJp
-	q0A119cQnlpv4+jEVpsdHCHcLyugTtj6sWAtwS+sQ+S6OYya5AHECY/Upant/JOBZ+TPFSuLgb8Jh
-	Bb1x97yQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=El/Xm4jDg9HBHpVGHlt56E3MYyMc4lLjk5+B4z84LHQ=; b=vzZ4TdJK/2E61nEmJOKQuk+vGz
+	2g1c3hYAv/hCf4NqnvSa5+C63eXZjgOw2aSWFYdM1gz0I1L8w2OAHFNMG1AbCkm//hImJuT1xj6LV
+	HZOTdKKTMVjqy+Q6ZrP2wiM5f4FKxXBGeejEhtubkRYWmHo5Xk6oAfkNEYQZ8aYsCFQwCicRtG1ye
+	N4TRVN+9JPFA1Mq7trfy91GcEooHdcfloF6JnZfVT/dDWEHIgoK9aRCY1rCi3HWuhSsgu9F8u/keq
+	pTsB/J2o1glzTtUXuQ2D7BAi58Zyrwvf+WQNFu6MzxkdNxVPMPZ6BkQazybdjmK340QSLz/lPYzi7
+	5YGw3jJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utpbi-00000006x3K-1jwK;
-	Wed, 03 Sep 2025 15:41:10 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1utpeQ-00000006xIk-0VbX;
+	Wed, 03 Sep 2025 15:43:58 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utn7a-00000006VDX-0K9Y;
-	Wed, 03 Sep 2025 13:01:55 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-3d3ff4a4d6fso2539480f8f.0;
-        Wed, 03 Sep 2025 06:01:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756904512; x=1757509312; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rxOgjN7WdDoAv2rvG3Wc6cb+dOveWBvcqA5WgB2sqzo=;
-        b=XFIDqcEqw2iJ8qUHXtEBZY5aEQ38RHHD9P9+KUDGUiRM3yXvSAN5OkqQWbq0h4eDdF
-         51uiNJ9C5BKrHlh3izcAC9hJ8fUbdww51WqAxjevnRETmK8Mcgh0gg/pSuwkUcg0XSoT
-         ly9pOPAL+UFZSUf8AEDvTmC7ttBFUxO10wfU2rTKFXk7HU9B/RhIDtOObKp9wZZwvzIt
-         jcCucd7GNDT0HTdzWTyDCD6qguOsLVNnG7w3RH25ksElBRVv7WqQkWv3LGrp3sLpfwmQ
-         Nq+DYbtnAUUF2ktkzIDFqpmQoyxUUf7ye9akWaO6rp4q4ZIhLTL4pf5UZz3FXTPSi8WU
-         X0Og==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756904512; x=1757509312;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=rxOgjN7WdDoAv2rvG3Wc6cb+dOveWBvcqA5WgB2sqzo=;
-        b=WgXXQs1BOQiC910z26ZblWTRZXksMPKEcpmTS96v6iDI4uPMNHWAjC8QqxewXVE6HQ
-         MWbaQNXD+/nQzHSwgj7ca5A4LnJ2FJNdPA4VoN7QhJvrEY5o3zdyLikcKJ7TVwhJ1TTf
-         LQinWTdzdSLZrxRc1T1njnoiqnzTZ7CUMs9dnabF2IEHwr8lIK4SEAuPcotkYGPHf6t7
-         DSVPugC86+1f541sb1wLEV7REZ5it5+ZJEn7oGe8f+iX1H3UopuYtJrSMqU37DrQMKiL
-         TMKmADutp7C1kzySkf861Oa3xLmeck0BkREYs1miCrHKbxY4gJs4icRJ7QUUq0s7tGoy
-         JHpw==
-X-Forwarded-Encrypted: i=1; AJvYcCUIYJgcpJ+SK1l6hlDdmv3SBWOJE8NCvn/7n7Rg4SQt6nALJuqbRiYnP9ZcQFAfM72IXc+0N25c/Fs=@lists.infradead.org, AJvYcCWlRVKxl3qOmflFJHniF1xlHwU4F0Dh9W9Rcq483kunKOk/Q91pfV6wZ/VVMid8FUJvP+cvskemOdU0XttqVifx@lists.infradead.org, AJvYcCXtUh+vxI35JVfEKCxCPkgn28gEsiLLBUhrFwabefEaNBYquiPfm36O6s42QzNXKEiw4EjvZjyqoi+5p9Q=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzveT6HAxZITpS8+K0zyjG8lv7R1xbqY9vr2lmP/f63jOVC/fFF
-	cgr6r68L32EFeujM9/3CvMhAa1eEX3I7h7agwv+6KBIxMRMA3bdfTlUuvHqi/hHL0b6jmCF6g2w
-	hUneI4rDsn4IN4lHAunCzFy5s2lk4xuM=
-X-Gm-Gg: ASbGncuG7eogbsIZzq1VfeS7NCs3W67orWNuulrotSh6kBCIS8wJ/U/UYPx1/JjQz5W
-	mKZ/zV3fPOU9e/NBG6NxRIQJJiVz2AXDyQckxKft0Hs/tOL5/x7I1clneetwwiQcwoNuMDftFMQ
-	U2mRzEunYKRLZxTZpMcAIsb2DSGTphS/nMidlV1AwKy1pfKhwzHG/86XyIwnEjXe30BmmjoWx4e
-	guzJ2aQ
-X-Google-Smtp-Source: AGHT+IHaI9QHXphQW4NL4BWXS0uWqM/wJHgXqqOYeELhPBU/zEzYKTUTZN/+1NM3wCGA2AyzOKaLxaL5ucEtc3zspBA=
-X-Received: by 2002:a5d:5d0a:0:b0:3dc:3b91:6231 with SMTP id
- ffacd0b85a97d-3dc3b916271mr3074458f8f.12.1756904512228; Wed, 03 Sep 2025
- 06:01:52 -0700 (PDT)
+	id 1utnAc-00000006VqJ-2xp3
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 03 Sep 2025 13:05:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=El/Xm4jDg9HBHpVGHlt56E3MYyMc4lLjk5+B4z84LHQ=; b=aXhrCKnwDwPyqgIkyh8xbWumNA
+	bPACdkz1r6AIkAK/Zw40Q5DBIp/z2qW3NoY1WxV9QUemaGBM64DbKolPC/zl4T5gQAXj1BR7FXYGq
+	7KKUgn7U4EKE6m9A/fqCvttpXv+Yii43tk6MAc1K67AK/WYD6KMQW58Yyjuoi/iU9fdiW4qdR35w9
+	MJGI+6T5ZsDs5lza0HmSvHrlqeCzFrLIbQNn02SQvwa2IVYbLzLCdQDkoO8IoMhKjVhRLpF1P/+bw
+	aAIRnjDCRAQPrARjfSIXjoXtqih5XId4N1802+vC/XO9ItWlijCoYwyyv3BTYDOU05qRXZdmyocGG
+	dxBLcRIg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:57812)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1utnAW-000000000Z2-3nVw;
+	Wed, 03 Sep 2025 14:04:57 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1utnAU-000000000YK-22jm;
+	Wed, 03 Sep 2025 14:04:54 +0100
+Date: Wed, 3 Sep 2025 14:04:54 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 00/11] net: stmmac: mdio cleanups
+Message-ID: <aLg89lkAiC_JxYP0@shell.armlinux.org.uk>
+References: <aLg24RZ6hodr711j@shell.armlinux.org.uk>
 MIME-Version: 1.0
-References: <20250810125746.1105476-1-snovitoll@gmail.com> <20250810125746.1105476-2-snovitoll@gmail.com>
- <CA+fCnZdFp69ZHbccLSEKYH3i7g6r2WdQ0qzyf+quLnA0tjfXJg@mail.gmail.com>
-In-Reply-To: <CA+fCnZdFp69ZHbccLSEKYH3i7g6r2WdQ0qzyf+quLnA0tjfXJg@mail.gmail.com>
-From: Andrey Konovalov <andreyknvl@gmail.com>
-Date: Wed, 3 Sep 2025 15:01:40 +0200
-X-Gm-Features: Ac12FXxqG38KSSLGvfY5HirQQyjqsvLS5blUVLw1nroWjuASE3O6kwm-RqaVNbQ
-Message-ID: <CA+fCnZdkHATBYG4RJ8rR8MciKmeV4QGwVwoQjkhc-O_igpUBTQ@mail.gmail.com>
-Subject: Re: [PATCH v6 1/2] kasan: introduce ARCH_DEFER_KASAN and unify static
- key across modes
-To: Sabyrzhan Tasbolatov <snovitoll@gmail.com>
-Cc: ryabinin.a.a@gmail.com, christophe.leroy@csgroup.eu, bhe@redhat.com, 
-	hca@linux.ibm.com, akpm@linux-foundation.org, zhangqing@loongson.cn, 
-	chenhuacai@loongson.cn, davidgow@google.com, glider@google.com, 
-	dvyukov@google.com, alexghiti@rivosinc.com, alex@ghiti.fr, 
-	agordeev@linux.ibm.com, vincenzo.frascino@arm.com, elver@google.com, 
-	kasan-dev@googlegroups.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linux-um@lists.infradead.org, linux-mm@kvack.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aLg24RZ6hodr711j@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_060154_112790_2D54C6F8 
-X-CRM114-Status: GOOD (  14.38  )
+X-CRM114-CacheID: sfid-20250903_060502_749235_CE102472 
+X-CRM114-Status: GOOD (  12.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,31 +85,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 3, 2025 at 3:00=E2=80=AFPM Andrey Konovalov <andreyknvl@gmail.c=
-om> wrote:
->
-> > +void __kasan_save_free_info(struct kmem_cache *cache, void *object);
-> > +static inline void kasan_save_free_info(struct kmem_cache *cache, void=
- *object)
-> > +{
-> > +       if (kasan_enabled())
-> > +               __kasan_save_free_info(cache, object);
-> > +}
->
-> What I meant with these __wrappers was that we should add them for the
-> KASAN hooks that are called from non-KASAN code (i.e. for the hooks
-> defined in include/linux/kasan.h). And then move all the
-> kasan_enabled() checks from mm/kasan/* to where the wrappers are
-> defined in include/linux/kasan.h (see kasan_unpoison_range() as an
-> example).
->
-> kasan_save_free_info is a KASAN internal function that should need
-> such a wrapper.
+On Wed, Sep 03, 2025 at 01:38:57PM +0100, Russell King (Oracle) wrote:
+> Hi,
+> 
+> Clean up the stmmac MDIO code:
+> - provide an address register formatter to avoid repeated code
+> - provide a common function to wait for the busy bit to clear
+> - pre-compute the CR field (mdio clock divider)
+> - move address formatter into read/write functions
+> - combine the read/write functions into a common accessor function
+> - move runtime PM handling into common accessor function
+> - rename register constants to better reflect manufacturer names
+> - move stmmac_clk_csr_set() into stmmac_mdio
+> - make stmmac_clk_csr_set() return the CR field value and remove
+>   priv->clk_csr
+> - clean up if() range tests in stmmac_clk_csr_set()
+> - use STMMAC_CSR_xxx definitions in initialisers
 
-... should _not_ need ...
+It would be great if someone can test this series please.
 
->
-> For now, to make these patches simpler, you can keep kasan_enabled()
-> checks in mm/kasan/*, where they are now. Later we can move them to
-> include/linux/kasan.h with a separate patch.
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
