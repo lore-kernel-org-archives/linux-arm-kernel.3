@@ -4,87 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77A7FCA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 18:54:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AC4DCA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 18:56:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zXVZJKbB4RX23BYBiT5VVTmKX2+wNkS9HnOJ0KN/2vo=; b=N2p0blqIE2oRKiCeWTsa5icJ/j
-	h60l3pcHYQddgs4k5ysEG2gkH0Zu/XI9+5YV3/w4yM4xzacHvM05OnVR466MgzR8weRfv28KScjSf
-	wvHZyqmdm7d8Awi6GHOYFu2IfzypTgmXtFNuNIANp30KDkLs+uJbwYL+zbIaWHuAOodmMk6hXXivI
-	lqjazytHSnLHVwqfGUpWXAF32CTfCkwXswlmmKOdrhqtvxmlSBFemZKUWmNJy/cu9OszNerzg2mQ7
-	kdK1XlGrY3DL8MQL/U+NsBuxNP9AVke59XxVyDm8SIqTbtRc9J0XSaXwaevoISz8hburL8hytJtYS
-	G0VcIFMw==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vg5ewRXhTTAj3dwOtg+KKWn0lOGtPCOEr24O5UKKpJQ=; b=hmSt6jmfcggiBg1O3B7HfNLaAO
+	BMP6gtKtLKrd7U38m6/dMx4CuO7K8RQti536uYMx7KYW77IZYFiwoDJmUQ0Ix+i9yqmkZAvFDlqVF
+	CTSvQYjSaKbH8nMUebYo6G/ipmwhZQiiqZ8KyDafbcknWnBibL/BxI0sS+UTrYycsQUxGQNnKqf1p
+	r+JsZEPkBBNCeg0aLIDoaq53Jfk44Ba8oESj7vqBionY1OjNpbrLHl4p4kB0RmRhZPf9DU42wBXHP
+	RVIvMlANs8Xl47kVqIs8GKQy3tO/iSguUWiUrrK7M8pGQDf6bevrC5Z5HEQIW2q4Fvna5Br37qjtZ
+	1SIgTdQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utscJ-00000007Mhl-3DVu;
-	Wed, 03 Sep 2025 18:54:00 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1utsf1-00000007NAS-0Mhq;
+	Wed, 03 Sep 2025 18:56:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uto3Z-00000006g7N-2aHd
+	id 1uto70-00000006gca-0JMQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 14:01:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1756908109; x=1788444109;
-  h=message-id:date:mime-version:subject:to:references:from:
-   in-reply-to:content-transfer-encoding;
-  bh=+Ou7/TJXaHnviKBEr5ILfWD+oVZwfeeOf3QKT9caAkE=;
-  b=LPm4cwEAk6pT57vIIyOGFFHYJXpIzJzJFphUa9+zLjHYYmXxk4VlwpAI
-   IYSlEuR6kFpAJcUSCIy42MOEADwZ3z9IUH/bS7FHwDkQnkzO+32Xd+47+
-   lRB2R+RTAR7+7aTTai/FF3raDAPWyl+xsRKltlsIRokx7s/JcHKnWELby
-   fM0OWX1DQYD9wFMuG5cgDe+gRTyRtPw0Dd1laTmHeIp+H5+g/JccVwbUe
-   XliSDDXmjTG/mTw3V6N6DobSXf8yM3bXqNRlNw911mrOCB9aTXmI3g69o
-   ZIYBP/vJqneMdg4OcWuuXzigLhNPy/0h+vQ0bWkL1daC4U0oQ3vo0VM9V
-   Q==;
-X-CSE-ConnectionGUID: v8Jh6wOIR5q2UVBlaHd94g==
-X-CSE-MsgGUID: Ky7Vg2BiRuyQ5qmJAKasTw==
-X-IronPort-AV: E=Sophos;i="6.18,235,1751266800"; 
-   d="scan'208";a="46572767"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 03 Sep 2025 07:01:44 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Wed, 3 Sep 2025 07:01:14 -0700
-Received: from [10.150.206.75] (10.10.85.11) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.44 via Frontend
- Transport; Wed, 3 Sep 2025 07:01:09 -0700
-Message-ID: <50ca5062-5bbd-4c72-83c6-1d9abc6bde2e@microchip.com>
-Date: Wed, 3 Sep 2025 16:01:08 +0200
+	Wed, 03 Sep 2025 14:05:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C82B7447E1
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  3 Sep 2025 14:05:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A95D0C4CEFB
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  3 Sep 2025 14:05:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756908321;
+	bh=eKNu0P169Q3NEmF9/2kn88R7etBh4b2ftcRq7KbNGzg=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=GarjbhYPuBwzN4LKvw70mu25trun6v2gsNZoMS79qq5b6fFdnkIvAU84g+t/ZNTuA
+	 qItjKLs65j8DmS5uRuHG/tkDx9bXVhY6n/sDUArtE3jYBFiDdbCBST3QfRGBlrIjZZ
+	 0EOijnVmbkyGgntMKf9LztVwMTAF3BXSFTiQIhxDLLh5BAaXagqUwEBIB/EXoG4eUl
+	 281whCCc5omD9u36zHFpRpeOaOwok4ld/LprRIQlPor080oofNvmT9lX50gaNYeXn4
+	 27f6a9fUVkD0fJtu6rpxsExGEGI8IjbPgMEwoK885Yu8kqSJZ31Y78BR6mvEm74tEa
+	 BkIhFCAL3LF5Q==
+Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-61cd3748c6dso13488738a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Sep 2025 07:05:21 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXdWzkyFR2+oxtLjIYtZGm8whMYZ+vqeALThPcxfZhhs9z2q0sNM785mYSDuecaqhmNAtYptNsJ5uuljYC8Wg7P@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7NalDN6e2ZxIPlCeKRpM7qe6P8we4uIGg2j9p3eUEWe0Bj2B3
+	dyouWM+gEVRYnZmaMT+YGhU6rsVQxCD/SYLbRpoRRLwvkPEDsYNqsbdBQUfWy+SGnGDbNfC2BQg
+	muv5m1EPxn1qVb4BbBJLkZ+doUydGKQ==
+X-Google-Smtp-Source: AGHT+IHhgqqdWQtLgJ3n4i+fkorAw1PLf/dG7GMkfPu1VyhaFYexbX0Opd6FI4UepF1zq8MJg0/D/0FlKAcuRTaWSho=
+X-Received: by 2002:a05:6402:1ed6:b0:61e:9ebf:d340 with SMTP id
+ 4fb4d7f45d1cf-61e9ebfd58cmr10082183a12.32.1756908320220; Wed, 03 Sep 2025
+ 07:05:20 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: (subset) [PATCH v8 00/10] arm64: lan969x: Add support for
- Microchip LAN969x SoC
-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>, Vinod Koul <vkoul@kernel.org>,
-	<linux@armlinux.org.uk>, <alexandre.belloni@bootlin.com>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <olivia@selenic.com>,
-	<herbert@gondor.apana.org.au>, <davem@davemloft.net>,
-	<andi.shyti@kernel.org>, <lee@kernel.org>, <broonie@kernel.org>,
-	<gregkh@linuxfoundation.org>, <jirislaby@kernel.org>, <arnd@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-crypto@vger.kernel.org>, <dmaengine@vger.kernel.org>,
-	<linux-i2c@vger.kernel.org>, <linux-spi@vger.kernel.org>,
-	<linux-serial@vger.kernel.org>, <o.rempel@pengutronix.de>,
-	<daniel.machon@microchip.com>, Robert Marko <robert.marko@sartura.hr>,
-	<luka.perkov@sartura.hr>, Vinod Koul <vinod.koul@intel.com>
-References: <20250702183856.1727275-1-robert.marko@sartura.hr>
- <175327377884.189941.15214972441246653208.b4-ty@kernel.org>
- <bac5390f-725a-43db-a2b6-17a68d0d733c@tuxon.dev>
- <20250903-gratify-sustained-9acc011bc3c9@thorsis.com>
-From: Nicolas Ferre <nicolas.ferre@microchip.com>
-Content-Language: en-US, fr
-Organization: microchip
-In-Reply-To: <20250903-gratify-sustained-9acc011bc3c9@thorsis.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20250815230841.3487764-1-robh@kernel.org> <307fa87eb552ac4a1f6dd6139450786195e3892a.camel@codeconstruct.com.au>
+ <360776d4dd765dc2c98f0c1b718fe63d4a8a70d4.camel@codeconstruct.com.au>
+In-Reply-To: <360776d4dd765dc2c98f0c1b718fe63d4a8a70d4.camel@codeconstruct.com.au>
+From: Rob Herring <robh@kernel.org>
+Date: Wed, 3 Sep 2025 09:05:06 -0500
+X-Gmail-Original-Message-ID: <CAL_Jsq+TcACG=vGp__tT8RE6kOjchoUSq59i=H_+qSRn-ucMkw@mail.gmail.com>
+X-Gm-Features: Ac12FXwkg-WgIKnHEs8UoaeM3TBl6YtocnO-RvpeXFYLKucgpiCnVNz9w-PqANM
+Message-ID: <CAL_Jsq+TcACG=vGp__tT8RE6kOjchoUSq59i=H_+qSRn-ucMkw@mail.gmail.com>
+Subject: Re: [PATCH] ARM: dts: aspeed: Fix/add I2C device vendor prefixes
+To: Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Joel Stanley <joel@jms.id.au>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Magnus Damm <magnus.damm@gmail.com>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_070149_927232_E1295777 
-X-CRM114-Status: GOOD (  16.30  )
+X-CRM114-CacheID: sfid-20250903_070522_156576_6E543174 
+X-CRM114-Status: GOOD (  24.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,45 +87,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/09/2025 at 15:16, Alexander Dahl wrote:
-> Hello,
-> 
-> Am Thu, Jul 31, 2025 at 11:05:07AM +0300 schrieb Claudiu Beznea:
->> Hi, Vinod,
->>
->> On 23.07.2025 15:29, Vinod Koul wrote:
->>>
->>> On Wed, 02 Jul 2025 20:35:58 +0200, Robert Marko wrote:
->>>> This patch series adds basic support for Microchip LAN969x SoC.
->>>>
->>>> It introduces the SoC ARCH symbol itself under the ARCH_MICROCHIP symbol
->>>> which allows to avoid the need to change dependencies of the drivers that
->>>> are shared for Microchip SoC-s in the future.
->>>>
->>>> DTS and further driver will be added in follow-up series.
->>>>
->>>> [...]
->>>
->>> Applied, thanks!
->>>
->>> [08/10] dma: xdmac: make it selectable for ARCH_MICROCHIP
->>>          commit: e56982021f5303b2523ac247e3c79b063459d012
->>
->> As this one depends, as well, on the first 3 patches in the series (Robert,
->> please correct me if I'm wrong), and there are still discussions ongoing,
->> can you please drop it until all is clear on the first 3 patches?
->>
->> Otherwise, applying only this patch will lead to AT91 XDMAC driver not
->> being built for SAMA5{D2, D3, D4}, SAMA7{G5, D65} SoCs. Linux is not
->> booting on SAMA7G5 SoC only with this patch applied.
-> 
-> Second that.  Just tested v6.17-rc4 on sam9x60 and DMA is not working
-> at all because this driver can not be selected anymore.  This must be
-> fixed before v6.17 release please!
+On Wed, Sep 3, 2025 at 1:52=E2=80=AFAM Andrew Jeffery
+<andrew@codeconstruct.com.au> wrote:
+>
+> On Wed, 2025-09-03 at 15:01 +0930, Andrew Jeffery wrote:
+> > Hi Rob,
+> >
+> > On Fri, 2025-08-15 at 18:08 -0500, Rob Herring (Arm) wrote:
+> > > The ASpeed DTS files have various I2C devices with missing or incorre=
+ct
+> > > vendor prefixes in their compatible strings. This hasn't really matte=
+red
+> > > and doesn't impact ABI compatibility as I2C devices get matched with =
+their
+> > > vendor prefix stripped.
+> > >
+> > > With this, the "maxim,max31790" nodes now validate and have some
+> > > warnings. Remove the spurious "#address-cells" and "#size-cells"
+> > > properties to fix the warnings.
+> > >
+> > > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> > > ---
+> > >  .../aspeed-bmc-arm-stardragon4800-rep2.dts    |  2 +-
+> > >  .../dts/aspeed/aspeed-bmc-facebook-harma.dts  |  8 ++-----
+> > >  .../aspeed/aspeed-bmc-facebook-minerva.dts    | 24 +++++------------=
+--
+> > >  .../aspeed/aspeed-bmc-facebook-tiogapass.dts  |  2 +-
+> > >  .../dts/aspeed/aspeed-bmc-lenovo-hr855xg2.dts |  2 +-
+> > >  .../dts/aspeed/aspeed-bmc-opp-palmetto.dts    |  2 +-
+> > >  .../boot/dts/aspeed/aspeed-bmc-quanta-s6q.dts |  4 ++--
+> > >  7 files changed, 14 insertions(+), 30 deletions(-)
+> > >
+> >
+> > I see you've applied this to your tree. Sorry for being slow on the up-
+> > take, I've been focusing on other things recently. Happy to take it
+> > though, if you're happy to drop it?
+>
+> Actually, do you mind dropping it from your tree? It conflicts with
+> Krzysztof's patch that I'd already applied:
+>
+> https://lore.kernel.org/all/20250819131743.86905-2-krzysztof.kozlowski@li=
+naro.org/
+>
+> I've applied your patch here with a note in the trailer:
+>
+> https://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux.git/commit/?h=
+=3Daspeed/dt&id=3D61a913644a8c5b6c8bd9da09f78f88e50edfaeb
 
-Yep, I'll try to fast forward patch 02 of this series before 6.17-final 
-(this instead of reverting XDMA patch).
+I've dropped it. That was inadvertent.
 
-Regards,
-   Nicolas
+Rob
 
