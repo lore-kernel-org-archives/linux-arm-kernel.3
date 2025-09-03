@@ -4,74 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6B09CA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 21:29:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD2BECA1010
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 21:32:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nEwkoaSrhnsbUPn/W2K1YlkPDVmI9P/QGqBveL8J29g=; b=e+o847TnayVLA0GG8068U9Kwwx
-	pzQyk8rznekike8+hm9GjyoXxyYhM+DgKTb3zhfitsarhUwCDw8xTy36V7QBrZOl+R1sH2T33elhq
-	TNA/dgi+edU+69/1IVjc3+xybc53iZKhOb02+ks5z2JQdXC3lcF/NZCXziLEtCZtHPKhrirOICLEG
-	moelRNb5CHVpBkZZyQB1D621rDa5LVoF04SBMrXHrWAoF6SCFHFl3tsk54NOwBGLXrzE53WHaEtop
-	9SdaJpk07T4VCNMgBYAcsuNskf8ga9ywKq0WdwifAcErZyOU+5jWI54v/5ZYdj9ZXtEAxYRTGquEo
-	SiReQBNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=Uh+JdN6uD2OVYv05+5wOT2A4tD089bjuOjEP6iyKYF8=; b=RReiQuqjljq5k1
+	b0UEpUql6y+NicPJdPNLQSnEkFrMdRjx+CdYsljLGf4nmBNCCmi7Z2AvOYDyEy0AdeVCFa+hwbbXm
+	oNq2XBd4mEq+uNNnY8IwLmCqN6PxV92RirI2y11l0tvcPj76CA14gE9d7Zh7cSg8UXIs3SX1rzPTo
+	nlRzXxDv05MKt2giX8okbDFfyguAcySLSS+Hh4Hsi05mHnSFmGshFQK3dJlCzMK05QOix4Sug7J/3
+	0ohvsLluyheqIS9s6rhnDu5FEKaHEIkIQ2AvvpnSTnvqBZVvdm4Qc6qcoHgV6zZd2psOr2MK9y/uI
+	IMggX8Ui0lK+fLqJCnVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utv2b-00000007gea-0sO0;
-	Wed, 03 Sep 2025 21:29:17 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1utv5H-00000007h07-2yTi;
+	Wed, 03 Sep 2025 21:32:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utrNP-00000007CNO-1bbh
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 17:34:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1756920871; x=1788456871;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=j9uoBR2bCWVLPcGuSh21m2aRxS2t6SdQg9H9h9+omF4=;
-  b=HHnh4GwHIu6SjQ3uRkDt1rpaE74SqOMdbMs9RIox2SsD6vVBcOZlns2x
-   PzjM5EBpBiqxIBp9y/8GUo++zWDTEc3izGoNm7ZztyxTxEWz95uwUHWj7
-   1pucAofmIbGLR/c7w1LHr2++1quqKesw48Uj1SgiNvS4Q+B77kWRl3aR+
-   /hlsuku1EMVsD/H2ZvTtWsZFkOC2alT9Px+phaIhCBxUzvLH5+T9WP4ot
-   koiW3hiCzRKqkwgtngXwd9/mMMUfVKlxNqtJvvFlI89ZI9qwxTp9z4NpZ
-   oqGc8BbEXdJNpxn+HA6QXlkdZ/oaFXMLUrSWaC0i2uF6D9kxZ6eaFWWhJ
-   g==;
-X-CSE-ConnectionGUID: oKJd4GHmSRGRULZoo4t0VA==
-X-CSE-MsgGUID: nliAKuDLT7KKBBDAlGntcQ==
-X-IronPort-AV: E=Sophos;i="6.18,236,1751266800"; 
-   d="scan'208";a="45463451"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 03 Sep 2025 10:34:29 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Wed, 3 Sep 2025 10:34:26 -0700
-Received: from ROU-LL-M43238.microchip.com (10.10.85.11) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.44 via Frontend Transport; Wed, 3 Sep 2025 10:34:24 -0700
-From: <nicolas.ferre@microchip.com>
-To: Arnd Bergmann <arnd@arndb.de>, <arm@kernel.org>, <soc@kernel.org>
-CC: Nicolas Ferre <nicolas.ferre@microchip.com>, Linux Kernel list
-	<linux-kernel@vger.kernel.org>, linux-arm-kernel
-	<linux-arm-kernel@lists.infradead.org>, Alexandre Belloni
-	<alexandre.belloni@bootlin.com>, Vinod Koul <vkoul@kernel.org>, "Alexander
- Dahl" <ada@thorsis.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Subject: [GIT PULL] ARM: at91: fixes for 6.17
-Date: Wed, 3 Sep 2025 19:33:55 +0200
-Message-ID: <20250903173403.113604-1-nicolas.ferre@microchip.com>
-X-Mailer: git-send-email 2.43.0
+	id 1utrO9-00000007CS8-0vXU;
+	Wed, 03 Sep 2025 17:35:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6BFAA419FF;
+	Wed,  3 Sep 2025 17:35:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19105C4CEE7;
+	Wed,  3 Sep 2025 17:35:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756920916;
+	bh=q6ydgpRA1n1VIVTSnFUEGYa1rwgxWt3LP1v3p67itsg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=sOZUP0mp3NJ6r81IFD9cb54V0EIXSHPX4quWZcx7vduX1mse2py9qfzIn+h5zuWlv
+	 IGIC8P0JLeQCX7+F9zxFxViT/V0bbbGHfszPFQCw3zic8XAUhHytPYFc0Fxn/E0xtL
+	 qep8q3Ow1ncZvuj/xkcI5usGLSfQF8fAyLDdHx6wdbfKmeXfcBPL2e3n71Gipez7HM
+	 LvU6ILGBUSCQd53RY2UApho63BbVysdM2MY263lNWtLOgxkLLk/DcTYCNJx2DeT9Bh
+	 X9nDUEjFog3CwA+rj3KD4PuZBQM9JxKXdruBrmZ6kg59MR2SetrlWmH39myq1Zqtjh
+	 A1fPV98oJ59HA==
+Date: Wed, 3 Sep 2025 12:35:14 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Hans Zhang <18255117159@163.com>
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, bhelgaas@google.com,
+	heiko@sntech.de, mani@kernel.org, yue.wang@amlogic.com,
+	pali@kernel.org, neil.armstrong@linaro.org, robh@kernel.org,
+	jingoohan1@gmail.com, khilman@baylibre.com, jbrunet@baylibre.com,
+	martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Niklas Cassel <cassel@kernel.org>
+Subject: Re: [PATCH v5 1/2] PCI: Configure root port MPS during host probing
+Message-ID: <20250903173514.GA1207260@bhelgaas>
 MIME-Version: 1.0
-Organization: microchip
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <76cdf841-2c72-4faa-b2b9-7b2098337de0@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_103431_699469_23187FFB 
-X-CRM114-Status: GOOD (  11.55  )
+X-CRM114-CacheID: sfid-20250903_103517_305947_E0E9595D 
+X-CRM114-Status: GOOD (  30.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,52 +76,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nicolas Ferre <nicolas.ferre@microchip.com>
+On Thu, Sep 04, 2025 at 01:11:22AM +0800, Hans Zhang wrote:
+> On 2025/9/3 01:48, Bjorn Helgaas wrote:
+> > On Fri, Jun 20, 2025 at 11:55:06PM +0800, Hans Zhang wrote:
+> > > Current PCIe initialization logic may leave root ports operating with
+> > > non-optimal Maximum Payload Size (MPS) settings. While downstream device
+> > > configuration is handled during bus enumeration, root port MPS values
+> > > inherited from firmware or hardware defaults ...
+> > 
+> > Apparently Root Port MPS configuration is different from that for
+> > downstream devices?
 
-Dear arm-soc maintainers,
+> Yes, at the very beginning, the situation I tested was like the previous
+> reply:
+> https://lore.kernel.org/linux-pci/bb40385c-6839-484c-90b2-d6c7ecb95ba9@163.com/
 
-Here are the fixes for 6.17. The addition of the Kconfig symbol is taken from a
-bigger series by Robert here:
-https://lore.kernel.org/linux-arm-kernel/20250813174720.540015-1-robert.marko@sartura.hr/
-It is needed because one patch of this series was taken before that symbols were
-defined properly (queued for 6.18). You can read the discussion here:
-https://lore.kernel.org/all/bac5390f-725a-43db-a2b6-17a68d0d733c@tuxon.dev/
+I meant that this commit log suggests the *code path* is different for
+Root Ports than other devices.
 
-Thanks, best regards,
-  Nicolas
+> > > might not utilize the full
+> > > capabilities supported by the controller hardware. This can result in
+> > > suboptimal data transfer efficiency across the PCIe hierarchy.
+> > > 
+> > > During host controller probing phase, when PCIe bus tuning is enabled,
+> > > the implementation now configures root port MPS settings to their
+> > > hardware-supported maximum values. Specifically, when configuring the MPS
+> > > for a PCIe device, if the device is a root port and the bus tuning is not
+> > > disabled (PCIE_BUS_TUNE_OFF), the MPS is set to 128 << dev->pcie_mpss to
+> > > match the Root Port's maximum supported payload size. The Max Read Request
+> > > Size (MRRS) is subsequently adjusted through existing companion logic to
+> > > maintain compatibility with PCIe specifications.
+> > > 
+> > > Note that this initial setting of the root port MPS to the maximum might
+> > > be reduced later during the enumeration of downstream devices if any of
+> > > those devices do not support the maximum MPS of the root port.
+> > > 
+> > > Explicit initialization at host probing stage ensures consistent PCIe
+> > > topology configuration before downstream devices perform their own MPS
+> > > negotiations. This proactive approach addresses platform-specific
+> > > requirements where controller drivers depend on properly initialized
+> > > root port settings, while maintaining backward compatibility through
+> > > PCIE_BUS_TUNE_OFF conditional checks. Hardware capabilities are fully
+> > > utilized without altering existing device negotiation behaviors.
 
-The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585:
+> > Update the MRRS "to maintain compatibility" part.  I'm dubious about
+> > there being a spec compatibility issue with respect to MRRS.  Cite the
+> > relevant section if there is an issue.
+> 
+> The description is inaccurate. I will correct it.
+> 
+> I plan to modify the commit message as follows:
+> If there are any incorrect descriptions, please correct them. Thank you very
+> much.
+> 
+> Current PCIe initialization logic may leave Root Ports operating with
+> non-optimal Maximum Payload Size (MPS) settings. While downstream device
+> configuration is handled during bus enumeration, Root Port MPS values
+> inherited from firmware or hardware defaults might not utilize the full
+> capabilities supported by the controller hardware. This can result in
+> suboptimal data transfer efficiency across the PCIe hierarchy.
+> 
+> With this patch, during the host controller probing phase and when PCIe
+> bus tuning is enabled, the implementation configures Root Port MPS
+> settings to their hardware-supported maximum values. Specifically, when
+> configuring the MPS for a PCIe device, if the device is a Root Port and
+> the bus tuning is not disabled (PCIE_BUS_TUNE_OFF), the MPS is set to
+> 128 << dev->pcie_mpss to match the Root Port's maximum supported payload
+> size. The Max Read Request Size (MRRS) is subsequently adjusted by
+> existing logic in pci_configure_mps() to ensure it is not less than the
+> MPS, maintaining compliance with PCIe specifications (see PCIe r7.0,
+> sec 7.5.3.4).
 
-  Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
+AFAICS, sec 7.5.3.4 doesn't say anything about a relationship between
+MRRS and MPS.  MPS is a constraint on the payload size of TLPs with
+data (Memory Writes, Completions with Data, etc).  MRRS is a
+constraint on the Length field in a Memory Read Request.  A single
+Memory Read can be satisified with several Completions.  MPS is one of
+the things that determines how many Completions are required.
 
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git tags/at91-fixes-6.17
-
-for you to fetch changes up to 217efb440933bf97a78ef328b211d8a39f4ff171:
-
-  ARM: dts: microchip: sama7d65: Force SDMMC Legacy mode (2025-09-03 18:52:08 +0200)
-
-----------------------------------------------------------------
-Microchip AT91 fixes for v6.17
-
-This update includes:
-- adaptation to the SDHCI capabilities on sama7d65 curiosity board DT as
-  SDHCI quirks are not in place yet. SD/MMC don't work without these
-- addition of one Kconfig symbol that is already used in DMA tree for
-  6.17. XDMA cannot be selected if not present.
-
-----------------------------------------------------------------
-Robert Marko (1):
-      ARM: at91: select ARCH_MICROCHIP
-
-Ryan Wanner (1):
-      ARM: dts: microchip: sama7d65: Force SDMMC Legacy mode
-
- arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts | 2 ++
- arch/arm/mach-at91/Kconfig                              | 4 ++++
- 2 files changed, 6 insertions(+)
-
--- 
-Nicolas Ferre
+This has more details and a lot of good discussion:
+https://www.xilinx.com/support/documentation/white_papers/wp350.pdf
 
