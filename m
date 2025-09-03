@@ -4,57 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BF8ACA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 10:08:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12F7DCA1009
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 10:11:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ryoj3LTxsfjRQQADo/jP46yuAnzMRJ2PJMbmihfU5Ck=; b=jpr79ipOCmvKkQIM1hoZ9WBw82
-	JF8mTetvB3EIr8TiWcmRPKTcFD8rI+JW3v2uqyl/C3vajknfkQN5bT0TcT7J+Fbb0PXjexRgWc6kL
-	MUw9/y5Pktlje8YgRhVOH68pE1uEmlg0sc5VfwuA6oiPReVCTVSK327eX5hWrz9onMaFo22Ux7qJZ
-	jASvhI4ltLn2m/M2HaN7SzHPjWm1Cf+yGl36DdWN1lGoFG7drZA0mx5bwIAvgEeTamkeF8fnqfuiS
-	DzfRhxuhCCJsPCyOqb63wUauRS4qyjuuLPKlyH/U5O8//3aoaDRPNdfJ1seO+6rivyonbHUfOvUqb
-	XpAPXPiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rbKUh4rDtzbjG2qFlDf/7rIZszNNmLsVfJ1ClUpiCfw=; b=YuHyFrlV4hROHm3vxd8eEKfksQ
+	B5bar0zSO2kyLBxYsjra5BHVd8g8WLXoU4XtmCKAAshvSZZds3fERTlUxxGVuFZAhj6aSOmydo/yI
+	HxUcx3u+hOgn9ECdiZbMLC2UBySFHfIMb5JZmWl1Zs+NXvg9/uTnvO2bJqyMl8lJ3j3CFcQzfa35y
+	ZlIaaYQ6/ePG5+vqhRxIzDygepunJ2E8m5UaBYL3YLwc/dmgzCEEGGz/DpXwF7rzTMefxyefi7Klp
+	jU3+6CEJ9+ysrjOPeU3Ob6A/C6fpJIjMNBDEn0FqgP3B9irrCHUd4MdvFTgZqQzzRYZDoYa4cFia+
+	CBIIpVwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utkPg-000000062xw-3GQV;
-	Wed, 03 Sep 2025 10:08:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utjJc-00000005nvj-2zHm
+	id 1utkSN-000000063jY-2HNQ;
+	Wed, 03 Sep 2025 10:11:11 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1utjKc-00000005oWD-1AII
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 08:58:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5CAC41688;
-	Wed,  3 Sep 2025 01:57:53 -0700 (PDT)
-Received: from [10.57.5.59] (unknown [10.57.5.59])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 182B03F694;
-	Wed,  3 Sep 2025 01:57:59 -0700 (PDT)
-Message-ID: <2f243b22-d8d3-4352-b226-aaf9ccfe825b@arm.com>
-Date: Wed, 3 Sep 2025 09:57:59 +0100
+	Wed, 03 Sep 2025 08:59:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=q2fKHH1kuFFXfcdYmjd/0tE72AE6ZoyINWTTXpC/AqlDPZoq1Adsuo11XNDZ048tge/m60vfrkyNKX/SbN/DGGVtNeCUjtJgOBS3mCfqAGzN8OENeDvAu6qi9MeHGEd4I5d9w3EjcJNa3ZL9EROhUtvB/GTfAQz+OlGpiThsIJMrEu/bNLd16JMAnhN64otPtLB/U54h9g6AK4zylxEXH5VK6/EWCpQUtVzdZRwYcBN1oC4fQWcwJqcgFKYz3Gek7k/IchlLDQDefmXkivlON2if7tCPFxZ6VG5Y5mN2mmSDjF49XSFNpaax4Ra4Qh3jBiuicx+S8/XdBAXW/WTWdQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rbKUh4rDtzbjG2qFlDf/7rIZszNNmLsVfJ1ClUpiCfw=;
+ b=O7Uu/XAJXX5UrwdhGLYpmG1vtykyZHU5bpQI3yIE4Z07UXpXvB2jTCVLwe6KKyRYAs4U09WPEJU62kUVuxvBxw1yiUV1jfyyeBI7FIlwL2S24NYDqNrfsNDJm5VKKOyUnQEQQyL7dt9LHtYt1kjCCkzEyJQy/6GH6fQWhpeq+dubq4Jezqet3KsG+1ZGKX0NnLErktaCVb0ACCmDnR4p1vn10hCeYrRCYQHVZCSrxegpnyg2twPwO8bbsShJJZneSYAR3U2mrfAqYjnEdZYRKhm5jI8Gvw0hJbypcj5QqnbtAmV3fx0/uoXEhS/5d4doPGaOcXUo9pvnmZ479vmLkw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rbKUh4rDtzbjG2qFlDf/7rIZszNNmLsVfJ1ClUpiCfw=;
+ b=Ty205/DUJyt3+BqBR1x/HPdkGlkQUs9Ezc7nvly9kYcR3SVny4UGXrCsNr2jRc+3BZ0sKmZqxGw/nNFAj1oNcdno+xxJ5uUJYnqUwuHkgQV+zbh5alYcbx6OO0PDMAgya5e/29g2kYo6fpgz9ac6PGm8s9rP7WbUzZnfa2oavWIWvD+bNFBwYNORlO20l+/NHrUNqP9muE2LCtD8JgqkAJHEtn5jkM3snzIBA1OjoQSgRGvDg9n0JrHRBqlv2X50bws/vW99uouHtGKTIhceAdFX928IibtA4DS6tYDgbPys8Pij0rhLMclAMuW4HVtiTYDFWB3G7j4Pqde2lHa7Pw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7)
+ by GV2PR04MB11190.eurprd04.prod.outlook.com (2603:10a6:150:278::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.15; Wed, 3 Sep
+ 2025 08:58:54 +0000
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::a7c2:e2fa:8e04:40db]) by PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::a7c2:e2fa:8e04:40db%5]) with mapi id 15.20.9094.015; Wed, 3 Sep 2025
+ 08:58:54 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: richardcochran@gmail.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	vladimir.oltean@nxp.com,
+	xiaoning.wang@nxp.com,
+	Frank.Li@nxp.com,
+	yangbo.lu@nxp.com,
+	christophe.leroy@csgroup.eu
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev
+Subject: [PATCH net-next 0/3] ptp: add pulse signal loopback support for debugging
+Date: Wed,  3 Sep 2025 16:37:46 +0800
+Message-Id: <20250903083749.1388583-1-wei.fang@nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2P153CA0026.APCP153.PROD.OUTLOOK.COM
+ (2603:1096:4:190::18) To PAXPR04MB8510.eurprd04.prod.outlook.com
+ (2603:10a6:102:211::7)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] coresight: tpda: fix the logic to setup the element
- size
-To: Jie Gan <jie.gan@oss.qualcomm.com>, Mike Leach <mike.leach@linaro.org>,
- James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Tao Zhang <quic_taozha@quicinc.com>, Mao Jinlong <quic_jinlmao@quicinc.com>
-Cc: tingwei.zhang@oss.qualcomm.com, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org
-References: <20250806080931.14322-1-jie.gan@oss.qualcomm.com>
-Content-Language: en-GB
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20250806080931.14322-1-jie.gan@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8510:EE_|GV2PR04MB11190:EE_
+X-MS-Office365-Filtering-Correlation-Id: b147246e-8109-467d-a4fa-08ddeac81bb4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|19092799006|1800799024|366016|52116014|376014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?hS2w8XAOgAHZd70oFS45eKq6UXuWbtuJnfgkMS+K3t3GiNSz5nhtqw23kmJG?=
+ =?us-ascii?Q?6dRol2nqUH20I8uqonorMwBH+IRh7VU8GTVHwGQcBRYSVh1DYj3+4zxVJ0AX?=
+ =?us-ascii?Q?blyO8ul+4lDj5tbPQDjEkNqUx1UnEFMbsR/Np6Y6LH9xRTOYVLWjJu/NyYLc?=
+ =?us-ascii?Q?lO6+MxE/b+c9cwAPw+1gLwjaOyFqFMXk2hFfwEVzBvRPUuAjyYTeZNAzSGPp?=
+ =?us-ascii?Q?OUH6uj6QnAx9jHyVropTcshMplcgo4YpIhaR0v5y7Vc9O+BiU/l2a8VCo7td?=
+ =?us-ascii?Q?o2b9Tkca7g3+kbOn4UTVlMo0J2kD0mGA8uOgmu1IkbomHXb2P5IfqM0I/AmQ?=
+ =?us-ascii?Q?yae2TYIBwfiWPajVuk3gLWtYi3kDHqi5nBj/TsPbpbXyYqbCCFhjgIPPZAvo?=
+ =?us-ascii?Q?ddLP6haAW6BqsDgTlbpKCq7/O8U15DoUVxljhacib/q5oOZzLG8fPAv085qK?=
+ =?us-ascii?Q?5YkFkpfqMDJebgdY0FS4LNtOY6Iu9PxOonXdJ0W3c3fkaOx6dG819Zo5TdaL?=
+ =?us-ascii?Q?QsAkZSR1fjsMVdFcebpkJ5Bwtqey10lyMgn1/S1WjVC8bZxeHlDcGJPf4Ia7?=
+ =?us-ascii?Q?4kyQErT0FYpfUO1GXKmBARAGEOFXiFtXJxnum5scB5A8sQRhVg3SOV+54/G0?=
+ =?us-ascii?Q?svoq7rE3RqdEivZWm1roc2lsNFam58wGHjqj1eC75jy0MNI4nwEDkSwsydYS?=
+ =?us-ascii?Q?Ildbo3Jry2FAVEfF4lh3aUzZPT9T6IbkpwUww2AbqHH3EJwJn5rVhnbe1wyB?=
+ =?us-ascii?Q?+nptSDv9vGDWtnf8hiUcOA3qR1owzUwlAfJqSUDj87gKaEpSNWSQzLd93XDj?=
+ =?us-ascii?Q?kdZiV3bnhsj6IXyMM5DFxfwnlgHJ4R/8/LZEDgSreO88UQCbCwhzdgk2rF44?=
+ =?us-ascii?Q?/KDTvqEgD+Z3pqdoo/iuQPxb8AWDuXefKNtZa9IivY5yGZzX1EZnwXjOLKBy?=
+ =?us-ascii?Q?BR8uu8xxT/gsAAK/NRk+m+i2I8LKBOSVrLHGvDPpTrMm/vp8R1sdlOEUyFVc?=
+ =?us-ascii?Q?nA2Wb4qsns3rsfrVAKgO8tvCKcXAj4jYkqUPPmZXOWtdmSNEWSVbySfnQtil?=
+ =?us-ascii?Q?RAMRfNai6jBnFz+cYrjhhXO5xY/4LrQcqj2+2cP9bXJcy65FkDcwmhK7haQu?=
+ =?us-ascii?Q?PwhMGVppbOLIznyFBb3IQeBxw+VPx6ztq4qWaWWhLmDDJU7JGVi9o43cW8gq?=
+ =?us-ascii?Q?OEQ0NCiR4kt/xiz4POH7SDIKKEsDh/0VKw0jBrjrjwA1VScSFFWDUSR9P2aM?=
+ =?us-ascii?Q?+5aNLrYuH5DaV+/RvhVFwfitFor9iXLgfLH51gNU7KQlZ4OvyQEmUKamV8Ux?=
+ =?us-ascii?Q?cnSSx7K4FFneUBY40h0Ks8y/8qqeRjkE1IQvgRXip4dy6KbVqpYJyLRvJLJY?=
+ =?us-ascii?Q?wYrD118ajTygmr2dbOY55bOf4QkOeSilK7hI64t7Hycv3nkOdC0CcohTuUKg?=
+ =?us-ascii?Q?tjZRjgefSqRWMDcfB9JxClqHQKTEzRk4EEyM3TbN1jujsym9vhDHWbzMp44T?=
+ =?us-ascii?Q?O1cvqeZOLfaLqVx2aesJ7/AdHks3W0I1+0Cw?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8510.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(19092799006)(1800799024)(366016)(52116014)(376014)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/0Ybr4MHFLelmRM8Ikc4gBpheMpBUjxsNxzleEB8FD7x09b4Gg7m3WSrK8Xk?=
+ =?us-ascii?Q?Tuc9IO8IjGUe63s0mhKhIIMFueIdg6KL0ULu8k/158JkbUlky7Db21Wmc2dl?=
+ =?us-ascii?Q?Bxp1bPUMTPhQRA+Ym4TCRJ56y8cEuQ26M72KC6NoxBK8k7wHsodn6VjJzHcS?=
+ =?us-ascii?Q?It4WwDMYszzr7174yV/e+vWsKb+K8qOQCsE3l6PBFxJNWSnwK//Qp4Ygx5H2?=
+ =?us-ascii?Q?hYssMZZ+sJzdX9j04q/5gaNhKeg60B0gRMUbP10m34crSWGEHBqRTRWuTv9h?=
+ =?us-ascii?Q?CP6Htqt823UedJKhQ/BMV2THnmPFM02yRFb+cfP4oDPajSwb0tORXkEK5K/g?=
+ =?us-ascii?Q?x534UBt0seqy64QTykWZoh75zXuwgLOH0u/n6a8t0sSsuMrxcSd4fLxstGNP?=
+ =?us-ascii?Q?l+HvD2ds41ts4NcMyvPQIzNpJBbWGRiEfwWLMXNmVHjJmK8ayy9NjSH4Coi1?=
+ =?us-ascii?Q?/F8Wj7yz6F1pOR7bdThJNsdkuOmPtVEknCDB/Y0YXsUgrf3osLNP2xhtfiLi?=
+ =?us-ascii?Q?gXREFP27VSFMPfK5yQDBiLq0GmXvDLK3zCptn/7qOFbss6Dq/fZMAM+v+uoB?=
+ =?us-ascii?Q?4zFsmXzHoCGPODp/VK2l2jJrEM2Q64Obaw6tNjR7zzpHEBxjN/MyxESpXI8o?=
+ =?us-ascii?Q?3fkWZP7epj+OI/vNdtaXlo6dG4EAaZAfNHg32BLGM0C1cDVYgNeP33pv9b+T?=
+ =?us-ascii?Q?i3cqSfwQ+alz0+4gqx0byZGz9GAJFiacjnYVhV5CKBBUCip75OodvfeinReY?=
+ =?us-ascii?Q?+QJAE7p2wXUfsejHGptICLYonSUT8j/DZDKk5hNGhmEy6qiUPxNbKVIk1ixv?=
+ =?us-ascii?Q?/FR1L1AX9Bw16e0awJexnm4OmeRCswLz1aG2DYm7nHQpc7kpq7mB2apmoDHx?=
+ =?us-ascii?Q?kSzB4vCHtjq5IJKjEBeiEJGEmGYi7IzKc3rFdkbU30PstnpM4RdqXu0oVFgh?=
+ =?us-ascii?Q?ISDeVAhlNI5EyaQqtnZZgDRcJzo+Dkl+vJGuTz7CeJz6H0LHOY2dHwPPF6EW?=
+ =?us-ascii?Q?cvusxqEZY6W60og+k2rJUh9AwSKLiAdgTVFHwpLcd7gqTZ/pAgiz3/uxBp+3?=
+ =?us-ascii?Q?jcI1hntmBhBNlK+ODJY3oncVMjAikKOzMsfvmej/yC0gOQv81HyDb9kt1qWc?=
+ =?us-ascii?Q?mn/T1pINdf9w9qaanlmvlMVb3tGRmDjklHN3vPH//AZ56fQuVRihb0zF1VFa?=
+ =?us-ascii?Q?RLqAYstHkn/A8+GR9deHb3pdS1s09D0sxqf8WZ0rJhd7XtIsgO/ED+P6nYZP?=
+ =?us-ascii?Q?P8IxCkEfn47iG5hBe5vAASxAfW9JRRAGayng3fzU6FAqZHo9H5elHERA3xIy?=
+ =?us-ascii?Q?2rp9gUa/2FtU7tTjWmmi71OaueGYCz/7/lGqIsG1RyRMO59zD1b7cFqdxdk6?=
+ =?us-ascii?Q?QUwBUCbIcQqwlbU8RQ6gXrU8FigCdEIMHtlhYh3VLXFJObzFEehGt5oCSs6J?=
+ =?us-ascii?Q?gg7qlDn0COdPlE2u8zfpQ3yJKRCAmdOooK70xzuMwFBC7qT6HqFzoWibPMK8?=
+ =?us-ascii?Q?S376lSrXvbfYWBHcw0bYWXs07vnWTgNJzJxuupXomYL2MuakfQZZsi5mYtv1?=
+ =?us-ascii?Q?znAVIkGM0bi4wt0CObEDOxG4er7TVrfL7B+lWCgb?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b147246e-8109-467d-a4fa-08ddeac81bb4
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8510.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2025 08:58:54.0658
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: CYOc+qcE/I9HNI5Wp96I00A0/64HIPOwNvTdhIIwr2XVpZyiMAFqrJAO4ooqWS6eBIjAB4V3lVe/S2o5sugTNA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11190
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_015804_799093_E08CC8BB 
-X-CRM114-Status: GOOD (  20.07  )
+X-CRM114-CacheID: sfid-20250903_015906_322457_1D5E0F6F 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,54 +168,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/08/2025 09:09, Jie Gan wrote:
-> Some TPDM devices support both CMB and DSB datasets, requiring
-> the system to enable the port with both corresponding element sizes.
-> 
-> Currently, the logic treats tpdm_read_element_size as successful if
-> the CMB element size is retrieved correctly, regardless of whether
-> the DSB element size is obtained. This behavior causes issues
-> when parsing data from TPDM devices that depend on both element sizes.
-> 
-> To address this, the function should explicitly fail if the DSB
-> element size cannot be read correctly.
+Some PTP devices support looping back the periodic pulse signal for
+debugging, so add the generic debugfs interfaces to the ptp_clock
+driver. The first two patch are separated from the previous patch
+set [1]. The third patch is new added.
 
-But what is the device only has CMB ? Back when this was originally 
-merged, we raised this question and the answer was, "Only one is 
-supported, not both." But this sounds like that is wrong.
-Could we defer the "Warning" to the caller. i.e., Let the caller
-figure out the if the DSB size is found and predicate that on the
-DSB support on the TPDM.
+[1]: https://lore.kernel.org/imx/20250827063332.1217664-1-wei.fang@nxp.com/ #patch 3 and 9
 
-Suzuki
+Wei Fang (3):
+  ptp: add debugfs interfaces to loop back the periodic output signal
+  ptp: netc: add the periodic output signal loopback support
+  ptp: qoriq: covert to use generic interfaces to set loopback mode
 
-> 
-> Fixes: e6d7f5252f73 ("coresight-tpda: Add support to configure CMB element")
-> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> ---
->   drivers/hwtracing/coresight/coresight-tpda.c | 3 +++
->   1 file changed, 3 insertions(+)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
-> index 0633f04beb24..333b3cb23685 100644
-> --- a/drivers/hwtracing/coresight/coresight-tpda.c
-> +++ b/drivers/hwtracing/coresight/coresight-tpda.c
-> @@ -71,6 +71,8 @@ static int tpdm_read_element_size(struct tpda_drvdata *drvdata,
->   	if (tpdm_data->dsb) {
->   		rc = fwnode_property_read_u32(dev_fwnode(csdev->dev.parent),
->   				"qcom,dsb-element-bits", &drvdata->dsb_esize);
-> +		if (rc)
-> +			goto out;
->   	}
->   
->   	if (tpdm_data->cmb) {
-> @@ -78,6 +80,7 @@ static int tpdm_read_element_size(struct tpda_drvdata *drvdata,
->   				"qcom,cmb-element-bits", &drvdata->cmb_esize);
->   	}
->   
-> +out:
->   	if (rc)
->   		dev_warn_once(&csdev->dev,
->   			"Failed to read TPDM Element size: %d\n", rc);
+ MAINTAINERS                      |   1 -
+ drivers/ptp/Kconfig              |   2 +-
+ drivers/ptp/Makefile             |   4 +-
+ drivers/ptp/ptp_clock.c          |  66 ++++++++++++++++++++
+ drivers/ptp/ptp_netc.c           |  25 ++++++++
+ drivers/ptp/ptp_qoriq.c          |  24 +++++++-
+ drivers/ptp/ptp_qoriq_debugfs.c  | 101 -------------------------------
+ include/linux/fsl/ptp_qoriq.h    |  10 ---
+ include/linux/ptp_clock_kernel.h |  10 +++
+ 9 files changed, 125 insertions(+), 118 deletions(-)
+ delete mode 100644 drivers/ptp/ptp_qoriq_debugfs.c
+
+-- 
+2.34.1
 
 
