@@ -4,63 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B4C3CA100B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 06:55:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED8C5CA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 07:01:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iX6E278sLnenR0ElEl7fBs88lDGzWQdjTL8gZ1XkMuQ=; b=D0qN6swVT9FQr5csBP8OHBaD/g
-	bI3/jdsOqxzyMahtCqBGWMgQ/sjXIxnKpfG2CESmow5ii4f9fA7y762E1GblIiIrkEZ4/4MDt0KKP
-	JefUrmmsPkw8SH5Ju46pr0hvYGX/LRN57uoOk9KayLLzZq87liRV/kZaqh7PXb8+D3vHaU79aUGN+
-	zHf7TgFj2eD5N7J2uSg9rGodZ/6jEWMnTX3OwPy/fvhAIHco5GkrbfYJNl6tdRcTYpu5iELtXtXvd
-	peQPxoA9NZXGzlHn1M39yXaRcsGzCo5JN2KVIGplobEjZcEbxtfX/Aon3wOjmULO33GKXh3fmtYSE
-	HOydKYiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Zvbg028o924LlAp46GQB2tjDgAbUJlME1N2hULgcBJ4=; b=erJIAxwAQr/kyy7vd+rdp0fEbg
+	O96xvYJsvprL5i4J2TPLFYL9jDFfBphQ8d5IBCsn/pZnB8IWOvcJWgU98kWfTWemUPWLfqoeL+d28
+	nrNhOwE1qv8ACOkPtRormYVDvydgStnWb2L4xovOTHmza2npJRSQqvDRv90F3v4LRzxhwmONdRh8C
+	GC9OnVg5ezfD8qHsKYn+LaZyM/Edq7+cU/ln5iR5QONSSVm/mRBSq/dR4oHlO2EC83GaxS8SiHM05
+	9wrJXCkc+rXmQWvB8FK9vxsefPdkxZqW/EVJi6X3W5hJCdsyxCVeZkMBWZPMRe3jr5LLsYEYWMEwP
+	W1bmsuDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uthP2-00000004pxt-0IDg;
-	Wed, 03 Sep 2025 06:55:32 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1uthUj-00000004smt-3nPo;
+	Wed, 03 Sep 2025 07:01:25 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uthLg-00000004o2I-3W3q
+	id 1uthS2-00000004rek-0BSQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 06:52:06 +0000
+	Wed, 03 Sep 2025 06:58:39 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-55f7ad815ceso3285494e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Sep 2025 23:58:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1756882321;
-	bh=iX6E278sLnenR0ElEl7fBs88lDGzWQdjTL8gZ1XkMuQ=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=dAHoAAqaJCfLWv6t/f4kUcLxb4ed9cEPu8uYgdRqon2TC5yW7HPgF4I3f+d7kIIrd
-	 HD/2tREDqXOl3kP5qf9DzVqylPq6JZd8JvlxLr0WbyxJeZCppIGrM90WtcWTMeAqgx
-	 vdCR4coU5Dc5OaC8G9KUMIiDtGywshOBQEYWeze1jz1dFVQXTTrWSNPTiH/RpWCMrR
-	 Z0A1pPWpYjmf9L4oZ8Rs2hkjuAoVDX2z+3zo5ZBGwRgBY0DHoH7trP/vMCaiemfnaB
-	 1rxVGui1XlMhDkeNIs7crK3W9K/s9WmwzW9cikY6D6y7GVWwLcqNszRtEwLV71GiPa
-	 RzbNftqiDUHWQ==
-Received: from [IPv6:2405:6e00:242a:e4ac:24d9:ee83:45da:199b] (unknown [120.20.133.19])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 6799D6445D;
-	Wed,  3 Sep 2025 14:51:58 +0800 (AWST)
-Message-ID: <360776d4dd765dc2c98f0c1b718fe63d4a8a70d4.camel@codeconstruct.com.au>
-Subject: Re: [PATCH] ARM: dts: aspeed: Fix/add I2C device vendor prefixes
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: "Rob Herring (Arm)" <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
- <joel@jms.id.au>, Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm
- <magnus.damm@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org
-Date: Wed, 03 Sep 2025 16:21:56 +0930
-In-Reply-To: <307fa87eb552ac4a1f6dd6139450786195e3892a.camel@codeconstruct.com.au>
-References: <20250815230841.3487764-1-robh@kernel.org>
-	 <307fa87eb552ac4a1f6dd6139450786195e3892a.camel@codeconstruct.com.au>
+        d=linaro.org; s=google; t=1756882716; x=1757487516; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Zvbg028o924LlAp46GQB2tjDgAbUJlME1N2hULgcBJ4=;
+        b=bwwnybX7a4BMGw24wnS/KLJxbET8kxU5Ks4ZUj+iNIDi3XNVNEY7SQMWwN3E63WL3V
+         xa1VVwW9Ej9QlCXXxwdX7fXmOqLyOP8oGRS3+NoCJX1CA+9QrVSmAdnLkfD5pKbcqcqy
+         edvGFjkZIi3OkPKUjCfbonI17i14Sgh0xSxO5cBEza6lklzUf4bllJL/uvrHOmogHerx
+         PO+CaM5VrBRkE/+0jh3mv29QnDkKWNCmm4vwHkyUpFGQa1UdMCNVrA9nRlqDIemH2j7B
+         oJXEA5sLAL8Z3DIdRMxEla2/iBiMMl1MCn9KyMNdkfWDzggg1AyJsKv/WqyLL+mQ0Z8f
+         LkOg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756882716; x=1757487516;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Zvbg028o924LlAp46GQB2tjDgAbUJlME1N2hULgcBJ4=;
+        b=aiCDS6zJyhrih6ZDTfMx5xR40jwpkgtuBLbcymmHPUQWxtxJ7i1BV9Z37qNdM4nqxE
+         Ixox3QbFLhK+KRUzl33rkPh1W2ASAyOTblJ/UxaCSB06mI1FJ8/BCRXsuxBLXr05t1vf
+         sPk16X62Aw08h3QDbdH31vu48g30VVol1JwIi+2RaJRPLupy2FYPW2gmhEcNe6JuEYjA
+         sae6jyOOkgf10V8fvnOu+xQ/b4PY/zSUK7I70nAjIwKsTzRi98/AXd/N5sFilNgZoTrx
+         gnfXvrJFdHgSeKvwrqSkMz2chI0zWO0WcypQHHu5ORBO1nhl706ALUXNbl0jpulc8e1W
+         1x/g==
+X-Forwarded-Encrypted: i=1; AJvYcCVdasZ9f4YvczeTVG5J8MpPKeSjuBrTO5A2uHyQksPmDDlHlQ5gAUiQJdvfBgLciLdYxFhGfngguPXUHyX+3dfM@lists.infradead.org
+X-Gm-Message-State: AOJu0YwcGJpMGNS4ibjpAU23qk+Pa8K298usKoKSoHKlXVMmXGQWc/TT
+	gkbscPubaWkIi76mgd8P1ozA/drb6dDpkIlM3lZEV2smfc7BfC/wIFjaPU+816Sel2lbxZk+a/a
+	Lk+qPgUjE44sz87hhBZyD5AxGpTkFvTUg9CkJWvlvPg==
+X-Gm-Gg: ASbGnct02mmioR9JCtocaJuL2NztgLWiLNZPcTiEFwLFQ6hB2In0hkDSPiddddJhcjb
+	Y7DHvQsDFTPWO+yWWT4fCqI3K8phMWpOnMBFYX2EK0MOc45Pa6EoJRCWDFILr/kNSH5sa977Yc4
+	rX26mN0Vxv087n9ONJTH7G+yrVbZKqRNdK05ORGzxREdfSuIGJME/m/0QRbdwWq8B/yiCt64cU8
+	hk1VMlDn2GsEU763g==
+X-Google-Smtp-Source: AGHT+IH3GxfscI6GGSr/NNb7LHY9u9DqMXt7p2udpQ/Pdohy0CbQd0xJDDE+ctimHiSeoPF/quwYh4dzc17DcEr2yUM=
+X-Received: by 2002:a05:6512:6702:b0:55f:486b:7e5b with SMTP id
+ 2adb3069b0e04-55f70995c72mr3489756e87.41.1756882716285; Tue, 02 Sep 2025
+ 23:58:36 -0700 (PDT)
+MIME-Version: 1.0
+References: <cover.1756372805.git.andrea.porta@suse.com>
+In-Reply-To: <cover.1756372805.git.andrea.porta@suse.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Wed, 3 Sep 2025 08:58:25 +0200
+X-Gm-Features: Ac12FXw-cperMlNMDgWs1JD1q73qBaU6s0VdFIuvSNEdtJCo3HZmhANsMkTdUts
+Message-ID: <CACRpkdb8fFvgyWPAaP6AumwHUYhnvc7BXX0V5kwO4sts6zSGUA@mail.gmail.com>
+Subject: Re: [PATCH v4 0/3] Add pin control driver for BCM2712 SoC
+To: Andrea della Porta <andrea.porta@suse.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	florian.fainelli@broadcom.com, wahrenst@gmx.net, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, iivanov@suse.de, 
+	svarbanov@suse.de, mbrugger@suse.com, 
+	Jonathan Bell <jonathan@raspberrypi.com>, Phil Elwell <phil@raspberrypi.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
-MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_235205_067616_11454931 
-X-CRM114-Status: GOOD (  17.52  )
+X-CRM114-CacheID: sfid-20250902_235838_084695_81A9B4DC 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,52 +99,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2025-09-03 at 15:01 +0930, Andrew Jeffery wrote:
-> Hi Rob,
->=20
-> On Fri, 2025-08-15 at 18:08 -0500, Rob Herring (Arm) wrote:
-> > The ASpeed DTS files have various I2C devices with missing or incorrect
-> > vendor prefixes in their compatible strings. This hasn't really mattere=
-d
-> > and doesn't impact ABI compatibility as I2C devices get matched with th=
-eir
-> > vendor prefix stripped.
-> >=20
-> > With this, the "maxim,max31790" nodes now validate and have some
-> > warnings. Remove the spurious "#address-cells" and "#size-cells"
-> > properties to fix the warnings.
-> >=20
-> > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> > ---
-> > =C2=A0.../aspeed-bmc-arm-stardragon4800-rep2.dts=C2=A0=C2=A0=C2=A0 |=C2=
-=A0 2 +-
-> > =C2=A0.../dts/aspeed/aspeed-bmc-facebook-harma.dts=C2=A0 |=C2=A0 8 ++--=
----
-> > =C2=A0.../aspeed/aspeed-bmc-facebook-minerva.dts=C2=A0=C2=A0=C2=A0 | 24=
- +++++--------------
-> > =C2=A0.../aspeed/aspeed-bmc-facebook-tiogapass.dts=C2=A0 |=C2=A0 2 +-
-> > =C2=A0.../dts/aspeed/aspeed-bmc-lenovo-hr855xg2.dts |=C2=A0 2 +-
-> > =C2=A0.../dts/aspeed/aspeed-bmc-opp-palmetto.dts=C2=A0=C2=A0=C2=A0 |=C2=
-=A0 2 +-
-> > =C2=A0.../boot/dts/aspeed/aspeed-bmc-quanta-s6q.dts |=C2=A0 4 ++--
-> > =C2=A07 files changed, 14 insertions(+), 30 deletions(-)
-> >=20
->=20
-> I see you've applied this to your tree. Sorry for being slow on the up-
-> take, I've been focusing on other things recently. Happy to take it
-> though, if you're happy to drop it?
+On Thu, Aug 28, 2025 at 2:45=E2=80=AFPM Andrea della Porta
+<andrea.porta@suse.com> wrote:
 
-Actually, do you mind dropping it from your tree? It conflicts with
-Krzysztof's patch that I'd already applied:
+> The following patches add a pin control driver for the BCM2712 SoC.
 
-https://lore.kernel.org/all/20250819131743.86905-2-krzysztof.kozlowski@lina=
-ro.org/
+I have merged the prerequisites providing .function_is_gpio(),
+do you want to do any last minute changes or shall I just apply
+the v4 version and fix up anything minor in the process?
 
-I've applied your patch here with a note in the trailer:
-
-https://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux.git/commit/?h=3Da=
-speed/dt&id=3D61a913644a8c5b6c8bd9da09f78f88e50edfaeb
-
-Andrew
-
+Yours,
+Linus Walleij
 
