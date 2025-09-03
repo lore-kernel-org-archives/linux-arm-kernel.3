@@ -4,73 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7950CA1009
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 08:56:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6518CA1009
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 08:59:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C1GxC5wEZ7w0hRkO573JUt7hmP/RrOOhSWDg3A2PT/o=; b=Ua+1x3CSdw92F/
-	A5CrRj9wmXo1Yikz9vq88xabgqouLR+U2XD3G4xOJzBk137S2f70WXbAGcqBufIfLIXfRZpg73jHP
-	MUO74EEnc34b/6FaoHyPhpKJFkgdzeZldNRI8wufpZslpE/voHVH5zclkHEqzv8JK3jChO4KnZmGz
-	fwQyrn45Ea+PdAHJBbVS0L7N/gVUl9VTItdlV51KPkjSlEYNcm1/HywO97S7kqhiCK2D0bhruXPw4
-	3KpCAuJJc0Cf4L7I6XV+eYdgXxLVTnPexVrnXvGXHOQMWJwqtNlKhsY+E0rZ4WLgWtdpDmpCVD+/j
-	JOpYwQNQHcgQ2Lm1wu6g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vc5TDK1H8Xst9gKhvws3EuxZaIkfxswLhF5fBNdm9fc=; b=ypUEe0U2PiLeSO2chJ0X1JMm1T
+	pKXFgdGjl16fRauVoZMixQpx0jOKBrz/HG7FotBu+G41Czi/ONPg6L4ipBECatUiz7CPFYN4izns5
+	7PI0yzPw8sgz+KJeTnSvVGVEF/YFi75FjZ33fm9BD3D6g44gFxC87nrPBT6xtzg8h1iZjC9bnhloj
+	Qt9vXyVWieYal7i8Ld4hu0rJZbARS/ZJMpZxAQLa7akeHGyEe2xlADuJzZh8Y+GoHE73t9HDDqP0d
+	lbYCTnpJsUD/dPee0VDXRCHA9xPcgp+ta26J9m2hPvlfio50jBEEQxZZ7sWEwucOqVFR80K7/X0MI
+	fZ943bRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utjHr-00000005mxd-1Fdl;
-	Wed, 03 Sep 2025 08:56:15 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1utjKY-00000005oWi-2tUh;
+	Wed, 03 Sep 2025 08:59:02 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utiO1-00000005KZS-2LyQ
+	id 1utiO3-00000005Kay-2yOn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 07:58:35 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5837w2q73215022;
-	Wed, 3 Sep 2025 02:58:02 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1756886282;
-	bh=C1GxC5wEZ7w0hRkO573JUt7hmP/RrOOhSWDg3A2PT/o=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=gm/FiO2863E9riM2wUW/YKWv+8Hap14okkUNr7krZuwkWdIUMhHcNztY9yuLsb/me
-	 HcYQNkHXf/M0DnC+lgydKkWhm8U+ai3ViN3TsI32t0zs3rNF8a1iM6VSvY3nCXGFZH
-	 AlQQf2CZdmkmuaDdcQSLogjYpUH0z4Br8PsHf/q0=
-Received: from DFLE107.ent.ti.com (dfle107.ent.ti.com [10.64.6.28])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5837w2lr3363202
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 3 Sep 2025 02:58:02 -0500
-Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE107.ent.ti.com
- (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 3
- Sep 2025 02:58:01 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Wed, 3 Sep 2025 02:58:01 -0500
-Received: from [172.24.231.152] (danish-tpc.dhcp.ti.com [172.24.231.152])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5837vpEY1226636;
-	Wed, 3 Sep 2025 02:57:52 -0500
-Message-ID: <d994594f-7055-47c8-842f-938cf862ffb0@ti.com>
-Date: Wed, 3 Sep 2025 13:27:51 +0530
+	Wed, 03 Sep 2025 07:58:36 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-b046fc9f359so22476566b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Sep 2025 00:58:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1756886314; x=1757491114; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=vc5TDK1H8Xst9gKhvws3EuxZaIkfxswLhF5fBNdm9fc=;
+        b=K0YOLahoCShcmvILb1A8OD2jxlHvH0Oao/NnQElpDvkpwt+qaH+anbOUbW/iE2DA7v
+         pj74bpMH4TYdGRv50HApC7Nja6o0KmbljSCnwl4S3q6bPquH++pNUQ0WL1ON2QXnV9XC
+         J1MuMAxrecR13M2z+zw7vOaMhGktp5mJuSTtaV9AuJ6j9JWAe5J+BXS1Ok6+lg27WpsZ
+         IBZ9U/vMkHoIoezN3erRfVKGw8PW8mbV7qW5e286piYRcnGQ9dNihKps5sJNTsQRt1uw
+         I0N1sJbEWrg689n2u/wgL2g154dRWOuzj+SD/YkxddYTbw79mR4Qfd+kZ1VP6sdjX3+k
+         cXgA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756886314; x=1757491114;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=vc5TDK1H8Xst9gKhvws3EuxZaIkfxswLhF5fBNdm9fc=;
+        b=mrDxxJX9x550pehfySNFA4SCGAKDQvB5KXHQ3QT3tDe9YiNQfmEqUPD+So/kMjoNTI
+         HcvH5V9W7h8MiIaWiv4IdDuxkpxYMpbwQ4pFy6LoR5DOUYSg/tUog1qmE7lH0Iuay5/m
+         AzIiF9oPvdXgbr0XgNTyCTLoon44kHKgPyQG3pdosF62kkNAtBODDrtM93nNzzoDADy9
+         5l0fX9BTX133mhMt/HvXL4Q3Ju7KxwnQlH737Kpb7WIRaN2YBkhg2Zjmb3Qqu1A9mO72
+         R2DSS+pzBAJ9qHH6upeZad8oiVvs4pOpXGgSyCBTnwKAumrn694c9Y6U4pt9E4UN97Lh
+         Xo+g==
+X-Forwarded-Encrypted: i=1; AJvYcCVNChqIl7s9qbXgE1iTa6Uj0kTTYkT9uoiEIvj/iWk1HyDsaM1g7q+B2gIPE1EFtzI0R1nARdNo2vVma7tEtf2b@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4h/6LSR7yTBHM/knThRBmkBG7AZseulUj/0mkEw+dN3kY6DMo
+	EK9aybvISTRPHkGk0AAbYlcAIPDSWz/5+ZGzTYNcZsOocmhF+8LKjFpX4K/zg69b/2Y=
+X-Gm-Gg: ASbGncvMCt6qMxfViVqPQRf1W1OYT4WXq8iQeOYfcsvYxuSi2g9CobqZrm4PUU6erbM
+	h+VyLAu21KB8elnTBjyyv+69RJFKkHq0pH1KmSk0AAIbULS3h5U0U+0joAYTMt3vhv29r8kvctl
+	Ag2zBmxItFY/XJlXPZfxhIrNAYucVFNOjqd8TJd+rfjRva+N9RKDQIukm2Yed51BbtCeei2x/3a
+	nfYxYZd+IFO8N3UKb27bxj7i/e4yXlpKAe4XsgE6xny50Q+q9eZJFCIZOzsBc1fiBEIZqwW+gch
+	9nxwYfpD8y5oWZ1B02FsybUdu4smlsBnzknGXABL2Z9yiKI6sOelWMdjjZTP2RCQNhlloN4PH1X
+	h3i+LWtlKe4W9U/ShjGe39P1kOmzbw18/hyqUiZkWi6JpHRSXcRzOjxCWt0NJVkgNOrNqJnhaGj
+	zxZ8KiGvuqDVF8o3YaT4mihFUtt3E=
+X-Google-Smtp-Source: AGHT+IEn64Dxy1FDWMJAmp+prlXFdQxbLUeI9Tc0ZftSDAzkPfUTGMaspxdMpVBKzN42VG8J7KFQzQ==
+X-Received: by 2002:a17:906:c10d:b0:b04:20c0:b219 with SMTP id a640c23a62f3a-b0420c0b768mr1025270966b.64.1756886313590;
+        Wed, 03 Sep 2025 00:58:33 -0700 (PDT)
+Received: from localhost (host-79-36-0-44.retail.telecomitalia.it. [79.36.0.44])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b0413782b94sm875084566b.35.2025.09.03.00.58.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 03 Sep 2025 00:58:33 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Wed, 3 Sep 2025 10:00:29 +0200
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: Andrea della Porta <andrea.porta@suse.com>, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org,
+	florian.fainelli@broadcom.com, wahrenst@gmx.net,
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, iivanov@suse.de, svarbanov@suse.de,
+	mbrugger@suse.com, Jonathan Bell <jonathan@raspberrypi.com>,
+	Phil Elwell <phil@raspberrypi.com>
+Subject: Re: [PATCH v4 0/3] Add pin control driver for BCM2712 SoC
+Message-ID: <aLf1nc20SRkWJW51@apocalypse>
+References: <cover.1756372805.git.andrea.porta@suse.com>
+ <CACRpkdb8fFvgyWPAaP6AumwHUYhnvc7BXX0V5kwO4sts6zSGUA@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 2/8] dt-bindings: remoteproc: k3-r5f: Add
- rpmsg-eth subnode
-To: Krzysztof Kozlowski <krzk@kernel.org>
-References: <20250902090746.3221225-1-danishanwar@ti.com>
- <20250902090746.3221225-3-danishanwar@ti.com>
- <20250903-peculiar-hot-monkey-4e7c36@kuoka>
-Content-Language: en-US
-From: MD Danish Anwar <danishanwar@ti.com>
-In-Reply-To: <20250903-peculiar-hot-monkey-4e7c36@kuoka>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CACRpkdb8fFvgyWPAaP6AumwHUYhnvc7BXX0V5kwO4sts6zSGUA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_005833_697556_16B8ED57 
-X-CRM114-Status: GOOD (  23.99  )
+X-CRM114-CacheID: sfid-20250903_005835_747067_A138E450 
+X-CRM114-Status: GOOD (  13.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,119 +106,27 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Geert Uytterhoeven <geert+renesas@glider.be>, linux-doc@vger.kernel.org, linux-remoteproc@vger.kernel.org, Eric Dumazet <edumazet@google.com>, Fan Gong <gongfan1@huawei.com>, Xin Guo <guoxin09@huawei.com>, Lei Wei <quic_leiwei@quicinc.com>, Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Michael Ellerman <mpe@ellerman.id.au>, Lee Trager <lee@trager.us>, Jakub Kicinski <kuba@kernel.org>, Mengyuan Lou <mengyuanlou@net-swift.com>, Lorenzo Bianconi <lorenzo@kernel.org>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Roger Quadros <rogerq@kernel.org>, Lukas Bulwahn <lukas.bulwahn@redhat.com>, linux-arm-kernel@lists.infradead.org, srk@ti.com, Paolo Abeni <pabeni@redhat.com>, Tero Kristo <kristo@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, netdev@vger.kernel.org, Bjorn Andersson <andersson@kernel.org>, linux-kernel@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>, Simon Horman <horms@kernel.org>, Parthiban Veerasooran <Parthiban.Veerasooran@microchip.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "David S. Miller" <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Linus,
 
-
-On 03/09/25 12:49 pm, Krzysztof Kozlowski wrote:
-> On Tue, Sep 02, 2025 at 02:37:40PM +0530, MD Danish Anwar wrote:
->> Extend the Texas Instruments K3 R5F remoteproc device tree bindings to
->> include a 'rpmsg-eth' subnode.
->>
->> This extension allows the RPMsg Ethernet to be defined as a subnode of
->> K3 R5F remoteproc nodes, enabling the configuration of shared memory-based
->> Ethernet communication between the host and remote processors.
->>
->> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
->> ---
->>  .../devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml     | 6 ++++++
->>  1 file changed, 6 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
->> index a492f74a8608..4dbd708ec8ee 100644
->> --- a/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
->> +++ b/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
->> @@ -210,6 +210,12 @@ patternProperties:
->>            should be defined as per the generic bindings in,
->>            Documentation/devicetree/bindings/sram/sram.yaml
->>  
->> +      rpmsg-eth:
->> +        $ref: /schemas/net/ti,rpmsg-eth.yaml
+On 08:58 Wed 03 Sep     , Linus Walleij wrote:
+> On Thu, Aug 28, 2025 at 2:45 PM Andrea della Porta
+> <andrea.porta@suse.com> wrote:
 > 
-> No, not a separate device. Please read slides from my DT for beginners
+> > The following patches add a pin control driver for the BCM2712 SoC.
+> 
+> I have merged the prerequisites providing .function_is_gpio(),
+> do you want to do any last minute changes or shall I just apply
+> the v4 version and fix up anything minor in the process?
 
-I had synced with Andrew and we came to the conclusion that including
-rpmsg-eth this way will follow the DT guidelines and should be okay.
+No further changes from my side, please go ahead with V4.
 
-I have another approach to handle this.
+Many thanks,
+Andrea
 
-Instead of a new binding and node. I can just add a new phandle to the
-rproc binding. Phandle name `shared-mem-region` or `rpmsg-eth-region`
-
-Below is the device tree and dt binding diff for the same.
-
-diff --git
-a/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
-b/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
-index a492f74a8608..c02c99a5a768 100644
---- a/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
-+++ b/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
-@@ -210,6 +210,16 @@ patternProperties:
-           should be defined as per the generic bindings in,
-           Documentation/devicetree/bindings/sram/sram.yaml
-
-+      rpmsg-eth-region:
-+        $ref: /schemas/types.yaml#/definitions/phandle
-+        description: |
-+          phandle to the reserved memory nodes to be associated with the
-+          remoteproc device for rpmsg eth communication. The reserved
-memory
-+          nodes should be carveout nodes, and should be defined with a
-"no-map"
-+          property as per the bindings in
-+
-Documentation/devicetree/bindings/reserved-memory/reserved-memory.txt
-+        additionalItems: true
-+
-     required:
-       - compatible
-       - reg
-diff --git a/arch/arm64/boot/dts/ti/k3-am642-evm.dts
-b/arch/arm64/boot/dts/ti/k3-am642-evm.dts
-index e01866372293..e70dc542c6be 100644
---- a/arch/arm64/boot/dts/ti/k3-am642-evm.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am642-evm.dts
-@@ -61,7 +61,13 @@ main_r5fss0_core0_dma_memory_region:
-r5f-dma-memory@a0000000 {
-
- 		main_r5fss0_core0_memory_region: r5f-memory@a0100000 {
- 			compatible = "shared-dma-pool";
--			reg = <0x00 0xa0100000 0x00 0xf00000>;
-+			reg = <0x00 0xa0100000 0x00 0x300000>;
-+			no-map;
-+		};
-+
-+		main_r5fss0_core0_memory_region_shm: r5f-shm-memory@a0400000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0xa0400000 0x00 0xc00000>;
- 			no-map;
- 		};
-
-@@ -768,6 +774,7 @@ &main_r5fss0_core0 {
- 	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core0>;
- 	memory-region = <&main_r5fss0_core0_dma_memory_region>,
- 			<&main_r5fss0_core0_memory_region>;
-+	rpmsg-eth-region = <&main_r5fss0_core0_memory_region_shm>;
- };
-
- &main_r5fss0_core1 {
-
-
-In this approach I am creating a new phandle to a memory region that
-will be used by my device.
-
-Can you please let me know if this approach looks okay to you? Or it you
-have any other suggestion on how to handle this?
-
-> talk from OSSE25. This is EXACTLY the case I covered there - what not to
-> do.
-
-Sure I will have a look at that.
-
--- 
-Thanks and Regards,
-Danish
-
+> 
+> Yours,
+> Linus Walleij
 
