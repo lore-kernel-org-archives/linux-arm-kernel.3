@@ -4,53 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4646BCA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 17:29:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBBF3CA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 17:32:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/n3w+1nj5a7ZofF+kFNOjqlmFwb00T2hDOvnxtx2+3M=; b=kk9rKCHH+rq2aGUYtCdvacoi59
-	gZeHluYuoPu+ldvUwgbprnZQD2HNJbpTCotAGNCOtRimxRGT41azGoo6pV7dgWQlc28t8k7SZk0nJ
-	gyeZwgVlojqB7NtT10mi28Ws1Dd5Be6CfjrTZ4CE2tbPIWfYX3IQYtT+HOGSyaA9JoxHmQDspKvjZ
-	FhV1Slq25X7Pm1AkCIgZSYK5bJgcy9SDr5ZAbpIT+70JAABnnqUZCn68obuR0erBOK9t25efeeQcw
-	9X2eu9NgEZAUskL3UtSEumfvCU0YtOxypfdldrmSU0qD9WjHj9kMe9I0I7EG2EBO+l7OoyN9ujtDp
-	oyoLvRoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LtSHdTfd+/QVVScrEVKfgAJRnBoREvz6o6zvp2ZWROY=; b=vH5hLNzdaCJMtwUsghZsDFcv1a
+	2UHJ1tjFeI1cg5E5ARgt/utr7FC+4jZA8gkhSvKVDV2c8mxZ6mimLS2csubpPUJO+rr+wQ3ACofCK
+	WxMhIbRmRJJRyRvUa5NYN2HsJm9frvXtMAONCD+AriHqud6oXlVBU5+tR/33yc0AwRjpldJern5uV
+	PqPOkl7ktIVICGdQc+R3QLitjJig1ZDhsNxFQ+T97WoMBBfXBh81kyXxIQMJ2aqkAgxJIGClvzuTU
+	Q/NQDjQ4jfpeepPD2gQA+GCip4yfJ2T9L/WXeljVUPtU7G0FR7ZoMTY2qxKbcBM7+inebGmBsw+LU
+	7aB/fw2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utrIo-00000007Bse-22b0;
-	Wed, 03 Sep 2025 17:29:46 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1utrLY-00000007CE2-1JFv;
+	Wed, 03 Sep 2025 17:32:36 +0000
+Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utnjV-00000006dBO-033q;
-	Wed, 03 Sep 2025 13:41:07 +0000
-Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c69:480e:e039:1d0b:c5ff:a9e2])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 33B7D83D;
-	Wed,  3 Sep 2025 15:39:52 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1756906792;
-	bh=K/9dAyFF/P+rSML/+SeNcZwvlUM5MmpiClNT/7DQIXQ=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=N0tq5TFEyFNEPAEWuQykFLtPtYKWwkIk7GdD6zDzio5OcB4Q61rd9DzuNVntZGLCm
-	 saS90oxafBg89QQmQ7ldOuP1fPOj99B68c5gIKWAx8fdaIT0O9rl4P1HvhWBqKxo1A
-	 qJtFV01IqAFswxeh6z1HOBHiL38eALSBaFLczvC4=
-Content-Type: text/plain; charset="utf-8"
+	id 1utnjz-00000006dGX-00xm
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 03 Sep 2025 13:41:36 +0000
+Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-71d71bcac45so54971067b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Sep 2025 06:41:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756906893; x=1757511693; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=LtSHdTfd+/QVVScrEVKfgAJRnBoREvz6o6zvp2ZWROY=;
+        b=OQdh41lebVSgnt8TKzwXF1K3Y79Ye1oYOEUKdgi764jS3tqH5uASLmVB8z8dJQAvtA
+         hdvrF0cXvQUjZzBESKwi1iYidQLV30OOd6ZRcws/zJchJ1eUVwY8Iavd3KX1CvlxA/Jw
+         b13wMV9O9HEuMe9A/M0Nhvs3OVnUqQ9lKWotKU2H2MvgtjY60FchYCgH2BQtpcynkIdG
+         XfxkA9uqiQqQicCyRWmUUZ78oXYCvUl9mdK3/ufYouHV7SV4apLs1+oAZBUVTN2HgwQ3
+         tzpJdsgd8GmwNwy78QB5xVKhztReUNEnNi9K3UMW7iS3nVn1DUXniTHvMjgQQz41Trek
+         EFFg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756906893; x=1757511693;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LtSHdTfd+/QVVScrEVKfgAJRnBoREvz6o6zvp2ZWROY=;
+        b=KRdH8MGxHU8PNPcGYJ2DffnBvo6k0I0b7GbGe0BAH1Qg5oxr8LuoGqqf2JyCxoX99x
+         wEJLpXI1Y742VaolbV3PdrFjHE62559HvD5cRTKTGEMjjmvptQFjKkudpJQNpPrGSmB1
+         dyOC9fG3byoHQW5ZDcP4bGcBEuJ3+NOUpmPMhd7xeio0nMVsN/ORTFQ/mu39AdyAxcMY
+         ueGMezWXfmU5FgdApEnPGye9lfysRdJ6vN65JcLxpTw9nfMcEQDdttKSOY6VnMf3rok6
+         TfnkCCOV4Ep1Cl0YASNpv4Y4+jmYLikfS9wWSmtwlGTjSMWEt0HL4bwVHmfc95Cm67zS
+         mvew==
+X-Forwarded-Encrypted: i=1; AJvYcCVNI12WH9Ue5OU4x2hpqchK3VEuaLchGhm+1FssEoQEInX4y6P89PbQEyRK8+PcS4vUXdPtV1jXriO5zpOMalnu@lists.infradead.org
+X-Gm-Message-State: AOJu0YxikVpQa21wier37SIkMDvhNQrgvtEFwHcT1bgH/pjIkrrVOE6r
+	FRA7Znn6paS7wK96u9LngOFAa+lnmVonLiZ+3UqtYscueeJ6dNo5woJj
+X-Gm-Gg: ASbGnctCMuUfVYre2294j0F8vOEoBZeghmU2oDitTnfaKIaDVrvz9ZBUYCUOFozjXgK
+	OLGkJPPtg3EiXBou6VuvTl/MZjmlefUjxMWVW/IVqnxTqQy2lxG8U+bBMW8gACKGGVUsEaWMGJ1
+	JnjNnMljnexnftKR6Z2YrUF3s33JZqWeoDxLEca6TTUpxTUG/vwAnyF5upK9q0Bms2Owkm702uG
+	/Y3zRsjzp1sAh9NDK1QKHMAsIAIn5sTtfAvlO0hkIua6tF0+9tGs4gHqevSGrTm32Ks/nQtlj9W
+	jCgInLfwinyBzQPQyQ5eYr28SQhbFYVKIK7LKp8MBhU6NUE5ZFeAkS0zuHdsCYmefg3sL5KOyBq
+	PvI0/dbzeoBpGI+7mfyfQ9ghHnsyMnPECh6EpNuQ8owXkPKcrPoQ8
+X-Google-Smtp-Source: AGHT+IGnjHsAyQljYLZz2UQHy207mYMU6/HFTBywuxhNBv3nxCgO5MpvlVh0qFbK1/Zdh77rKiaXnQ==
+X-Received: by 2002:a05:690c:4911:b0:71f:e430:666b with SMTP id 00721157ae682-722764acba5mr157076777b3.32.1756906893562;
+        Wed, 03 Sep 2025 06:41:33 -0700 (PDT)
+Received: from hoboy.vegasvil.org ([2600:1700:2430:6f6f:e2d5:5eff:fea5:802f])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-723a8329a4dsm13556527b3.22.2025.09.03.06.41.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 03 Sep 2025 06:41:33 -0700 (PDT)
+Date: Wed, 3 Sep 2025 06:41:30 -0700
+From: Richard Cochran <richardcochran@gmail.com>
+To: Wei Fang <wei.fang@nxp.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, vladimir.oltean@nxp.com,
+	xiaoning.wang@nxp.com, Frank.Li@nxp.com, yangbo.lu@nxp.com,
+	christophe.leroy@csgroup.eu, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
+Subject: Re: [PATCH net-next 0/3] ptp: add pulse signal loopback support for
+ debugging
+Message-ID: <aLhFiqHoUnsBAVR7@hoboy.vegasvil.org>
+References: <20250903083749.1388583-1-wei.fang@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <731ead88-8dc9-4032-86f5-7a2dd5044b22@gmx.net>
-References: <20250827-vchiq-destage-v1-0-5052a0d81c42@ideasonboard.com> <20250827-vchiq-destage-v1-4-5052a0d81c42@ideasonboard.com> <731ead88-8dc9-4032-86f5-7a2dd5044b22@gmx.net>
-Subject: Re: [PATCH 4/5] media: staging: Drop bcm2835-camera driver
-From: Jai Luthra <jai.luthra@ideasonboard.com>
-Cc: linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org, kernel-list@raspberrypi.com, Dave Stevenson <dave.stevenson@raspberrypi.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Florian Fainelli <florian.fainelli@broadcom.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, Stefan Wahren <wahrenst@gmx.net>
-Date: Wed, 03 Sep 2025 19:10:55 +0530
-Message-ID: <175690685574.8095.13306600513284108529@freya>
-User-Agent: alot/0.12.dev28+gd2c823fe
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250903083749.1388583-1-wei.fang@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_064105_187660_B452B556 
-X-CRM114-Status: GOOD (  18.04  )
+X-CRM114-CacheID: sfid-20250903_064135_040622_B78CF949 
+X-CRM114-Status: UNSURE (   9.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,47 +103,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan,
+On Wed, Sep 03, 2025 at 04:37:46PM +0800, Wei Fang wrote:
+> Some PTP devices support looping back the periodic pulse signal for
+> debugging,
 
-Quoting Stefan Wahren (2025-08-28 00:48:22)
-> Hi Jai,
->=20
-> Am 27.08.25 um 08:24 schrieb Jai Luthra:
-> > The bcm2835-camera driver is replaced by the V4L2 bcm2835-unicam driver
-> > that is already upstream. So drop it from staging.
-> AFAIK the old Raspberry Pi Camera V1 isn't supported by V4L2=20
-> bcm2835-unicam. Personally i'm fine with this, but this must be clear in =
+What kinds of debugs can be resolved by this loopback feature?
 
-> the commit message.Did you already talked to distributions like Redhat & =
-
-> OpenSuSE about this step?
-
-As Dave mentioned, the OV5647 should work with V4L2. I don't have a sensor
-with me, but I can order one and try to get it working with the upstream
-kernel separate from this series.
-
-I did test the V2 camera module (IMX219) with my series applied on top of
-upstream kernel, and capture worked fine with bcm2835-unicam, so I don't
-believe V1 camera module should be an issue.
-
-> > This also simplifies destaging of VCHIQ MMAL, by reducing the users of
-> > the MMAL API (this driver is one of them).
-> AFAIU this drops the only one user of VCHIQ MMAL. So please explain, why =
-
-> we still need this API and how this should be tested?
-
-The bcm2835-isp and bcm2835-codec are other users, which are currently only
-present in the downstream Pi kernel [1].
-
-I plan to upstream the ISP driver as a subsequent series (that was the main
-motivation for this series), thus keeping the MMAL API still here.
-
-[1] https://github.com/search?q=3Drepo%3Araspberrypi%2Flinux%20%23include%2=
-0%22..%2Fvchiq-mmal%2F&type=3Dcode
-
->=20
-> Best regards
+It seems pointless to me...
 
 Thanks,
-    Jai
+Richard
 
