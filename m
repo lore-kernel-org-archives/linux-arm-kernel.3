@@ -4,83 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F966CA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 17:55:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5B7DCA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 17:58:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=7UyeZEfRakAOXRipKZZzHzlSyL5Gy818R1oSP4VasTw=; b=QFaNb7Avo+Dqqt
-	PtGZucc260o34aat71tDXOZ2+AJCScehTIAkFzGySwXM9dW8yHGTMPNKABuYCkmS1ef/6b4w+NxOY
-	lh81Zz++h3KPsz80ov24oOA0C5FQFq8aMCDG4ON4ndHnTrUqITV1cudjx6nzbAseTOv/wvSVyRv0E
-	ZGxeZDg6y3ya7ydkzhohFdWcyYZeF18XI0slNfktcrybiIJ99U+8aOr4JUJ0dE4eY6to0Cz8n593R
-	WmFnc3W8k4MbJ8FeOFwOsoVj39aMvQlUFIFtWxo0hFmpEp8X01GNw5MFSOq3d9t5OF6GLyOrGcVI5
-	IopHV5gDZQFL8MP/E0Gg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bdN66op9i3NFpyozSjSkCRDl8+TcoAJ7grYzdeqCoIA=; b=ankqAkEVICwmxAKfBR9U5AH15G
+	G6l31q9J0FrtNziflana/JMkvQvwWoPS3YjR6pDJs5X6ts3bH6X3W9JdYAvbP7y0w6fPsHH20mK6A
+	cc0Ca23AoB74sn5Iw5QZ4P2HhW9Qf1nEsO/Tn5MOuv4IMg6FTTH9+ac3KreFx5VFlvOKA7sU4fRIk
+	lsMHG/vWF0orTII0jjR60cPoqA8OUyjDtHIgpN9EPXFEawgTsySgiFQGcBgBNsC6PWiBOClv6Xfok
+	BeQLEON6Ez9/IlZuvUw070T/ixX48T+z6thB7odYWN6Qvt+gDdfyaNX2GO7JvYUpksBzJz/Fj+X5j
+	4/3XKtSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utrha-00000007F8x-1jBh;
-	Wed, 03 Sep 2025 17:55:22 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1utrkI-00000007FP8-112X;
+	Wed, 03 Sep 2025 17:58:10 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utnyf-00000006f2E-1b6I
+	id 1utnyf-00000006f2i-3W2k
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 13:56:46 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-45b7d485173so40921055e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Sep 2025 06:56:44 -0700 (PDT)
+	Wed, 03 Sep 2025 13:56:47 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-45b9853e630so17778415e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Sep 2025 06:56:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756907803; x=1757512603; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=7UyeZEfRakAOXRipKZZzHzlSyL5Gy818R1oSP4VasTw=;
-        b=mOdzG/zKunjeZHWmuq4WtxE3/xN80NPkD1qlOSpSq817PAyGHqzdoMqqQaGyqGFhz/
-         jQcLjPC5pY5moqsX7EisIlrhB8npwg5Iqfi+CCP3mqHGrv3ZDYe38qzy5LHopELx3JOo
-         7ibeWZEciYfob5A84Iq7+TAVgfQxCLnXxfRbfGBK9+ndQVHcLoKnnN2ReiPM4tXGbopK
-         w0uXy7yzLC+36o+TT8yg1eQeeegoQJxAmFROCMh1PgnbbSQW5C6BMuaaw1R66Aa3+fOs
-         a8/triHKsyFM+8gIqXzzZn3WxfQiXiJoe6yn+Ze1WU1liFFfLYVfBpua4jCzPsqXnwyu
-         UzjQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756907803; x=1757512603;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=linaro.org; s=google; t=1756907804; x=1757512604; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=7UyeZEfRakAOXRipKZZzHzlSyL5Gy818R1oSP4VasTw=;
-        b=OZwNP4GcLILce2lyCgmyzZDFRbQhWtZ2mEWCBnIxtm6j5/qhWQc8wshLzMhiNOnUsO
-         XsXlNuwz17HVGx5vYJ+BONweqWTHBy/oHKxiynOZfNtI4wm5O9mckdpCgeLxheDWB07I
-         77Su3Rhmtqf2EtKVLx7StJMKTO9WxMRvGs9w2unTZy/wpOyWJjWp2O+sA5DE9blmuauX
-         EgLfWzqGq8mwZjVl/j7QTWc5LkwcoKF0Uh7+/qMhcQ0P2PwtDPUy6dM3ZNr5UB4KdlZo
-         AgogZk2ypWIVvzYPnNW+6YpEcLnc+hIZPSJuZuYhdrevdQFmw51Si1FmLe+Yh/3pxyzc
-         rz+Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXq3j5PwAU3Erw6RqoV1bOZupebU08izAo0bHMc/j/aJEMhrqPWYLmMbuyrvQ8GMQY+LIwQblAN9+XvUJXHUM4M@lists.infradead.org
-X-Gm-Message-State: AOJu0YyNsQct4fnlUxBV866/vz4mAq8kdmmFRMvwQX+jy0QH+/0CqzTN
-	Y3KBLOaKFNPtQha7Svn4T9aQCNQzDzlXPNQYSXI2ouAvMecZmDBLtNTa+QrFPiGeLo4=
-X-Gm-Gg: ASbGncseyBsFDcJgQLYkQHNJCexVVK9DPuxD7TpWqwvE/CbV1wNSKI5bYnkbaFWM/w1
-	G655WIL47X8NDAx3n+4SHBltafgQB8+aGtiRLAAz8oQ0D4Khr+LYAnNKU4TqjtsBsmlBhHvMoRO
-	DWiSqAGX7dt9P6cCarTXvy1se/4mfsufjiTlWC7XQBIT5vEsVq4E4+a39dieU+RmSWAvgutFPGJ
-	R5VeVYQTX1TB5yAFqeRo/2qgtvo9+iPzh5xYmZj4+g5Cztn47G4ZGGNN7ljok879VM/tIR2DqlN
-	mj8To3cHrEwNW0VzhxOzJ+QTvo+wDfYGh2MG5KSXh7YEapNxCGQPcT+uUmdY+DfJpiBcW3JTwzd
-	m0Bsd22x7hWnwWLyi8SekvHogsCVMjlJ1ebz76ekZ/4T2m2xyaj1lUQGbnAEJvBuAKIALl/a+WP
-	0ZX6xrDElYPnqZ
-X-Google-Smtp-Source: AGHT+IGAz13CW9qYdP4E1mRFLDKZhAD79+7ZMxCzGrpXuKeHY3BrVbbM+xV+kRrxmTmdkbjk2yyj+w==
-X-Received: by 2002:a05:600c:3ba8:b0:45b:6705:4fca with SMTP id 5b1f17b1804b1-45b8558b82amr147687525e9.31.1756907803419;
-        Wed, 03 Sep 2025 06:56:43 -0700 (PDT)
+        bh=bdN66op9i3NFpyozSjSkCRDl8+TcoAJ7grYzdeqCoIA=;
+        b=AQZ6Irgcal6gzaCU+MCnlv2IhU7Tt3ar17V5CPDXQYKIqxey6ONHBS2zsilX5gG8Q9
+         GNw9ffx3NXoUhl+/g8pgdILlpNM0dyDidv8fmyWDXbbiKY5D2ENhXtVbvkIAxgf3hJmq
+         /hwHjy3/tQ3bXtrxWFc9ZS8ULEGZVqa+vx18LUJOqmORnUX7GN5R/XGRPOBAeaYgrvdF
+         CRDZ+J7U2C39gbsZQKrOcZpMp2tAVKB21i/4yV3RtaCICIN02afPIUG1fweSfOl9POAC
+         /JuhJUDVx5bjWCCYxu3sN7cn1C8e54aee0lbiwmX4CD32IezoZTAGdt4C4k2Uiy2x8u3
+         JB7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756907804; x=1757512604;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=bdN66op9i3NFpyozSjSkCRDl8+TcoAJ7grYzdeqCoIA=;
+        b=hi561dG0EBEmPl2UrF4GrEwyjN6ap/Jl56OcnU7AStywGpY33wO4taa1JzM3vuUK/1
+         odLRIYRuOpZBWuTiNGKnIioWutvR4DBN0chV3DyJBnXt5QIzG0+CKzPLjuRaErElnl6A
+         kOEnhvA5huvmPQ8eOZOYv4jy0fFiLJzsYr4VL6kahPUjfTAhFZauZCIpK00h2kOsHQxg
+         S8d5N9CiL9gC6LZJI9KG1QuSVg7Si6gLIsux5efIqsNuIBwj+nloNo1IJQiQjtKj7vbN
+         5eMNUYIT88y2Db7mqHoJDcrixvB3g8gCGRyVumVmh/ptw9eFdv8jVDwFEu81vP2+nRtM
+         GQxQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUKWvFNmNG/6CM3L94bgyxIvHEz2zkpXUbuy3Be0vD3LYjhkPUPVVKnVhM9KMYffVjIDgOAxCJC+BweqLhPn4Yy@lists.infradead.org
+X-Gm-Message-State: AOJu0YwQg6QwGIqqARMWkClLVOUh5Pgal+rJMx62Sam1MNw5xPCbnzf/
+	1EtS3D1JSavQn6Bvqs1p1Q7AnuQiVBfS52gBb54HA/TQJiHu3X3nCV2fTBKu/r+ajNg=
+X-Gm-Gg: ASbGncusCzWWgKzpVb8QCmDnj+Lq0t3Xct8eVyAMCk34MhiLiUTMJjnYW7HzjfSpTsY
+	ovsJ8ZkLhErwwgUhd9a2vV0BWWFcy1VnKswC2ZRI64qCUvWr07HuTRYX5q5XmsUv44iRDnWrOy3
+	2WkikOavErbJXsvovbIQeL4eIoNnJNEOeAip+SwAO/9QD/Vh045dad7GxaWbpfiENEe1m+4qQly
+	H2+5cPyCHIq7/+BOIM7hvVJFU3ozuNZdQk3SlC4QYU8mzhDU3iFnN1E4UVpUBpnoftdKJzgr3fR
+	mnocm4/k3Jx+gs0eN75CAILOBNjqeD8ZE59M7Fv9mASM57QWLYMHm+7erW1EZNe7POA62S2SOfs
+	+nynGpV043mmi9390ayjaWUAkNQIay/b3DfJq/Xr58HXZDrT4pyuWVTpcwXBTuVUrDsDQcSnBa8
+	4bxA==
+X-Google-Smtp-Source: AGHT+IECR6paJMgzBY3Zw3h8Wf7Abdm7g6RlBanKKC46/zidpsFpNnDAQ1oCeBfUT0qxZEn5rcCT3Q==
+X-Received: by 2002:a05:600c:a41:b0:45b:627a:60cf with SMTP id 5b1f17b1804b1-45b8559b8edmr151397345e9.24.1756907804169;
+        Wed, 03 Sep 2025 06:56:44 -0700 (PDT)
 Received: from ta2.c.googlers.com (219.43.233.35.bc.googleusercontent.com. [35.233.43.219])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b87632365sm197257135e9.16.2025.09.03.06.56.42
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b87632365sm197257135e9.16.2025.09.03.06.56.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Sep 2025 06:56:42 -0700 (PDT)
+        Wed, 03 Sep 2025 06:56:43 -0700 (PDT)
 From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Subject: [PATCH v3 0/5] exynos-acpm: add DVFS protocol and clock driver
-Date: Wed, 03 Sep 2025 13:56:37 +0000
-Message-Id: <20250903-acpm-clk-v3-0-65ecd42d88c7@linaro.org>
+Date: Wed, 03 Sep 2025 13:56:38 +0000
+Subject: [PATCH v3 1/5] dt-bindings: firmware: google,gs101-acpm-ipc: add
+ ACPM clocks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIABVJuGgC/22MTQ6DIBgFr2JYlwY+EdBV79F0wV+V1IqBhrQx3
- r3oyiZdzsubWVBy0buEumpB0WWffJgK1KcKmUFNvcPeFkZAoCGStliZ+YnN+MAgLSghHamJQOU
- +R3f37z11vRUefHqF+NnLmW7rn0immGCutW0FE4wLehn9pGI4h9ijrZLhYII4mFBM6xojuWat5
- uzHXNf1C3fN1dHbAAAA
-X-Change-ID: 20250819-acpm-clk-28d2a78e0307
+Message-Id: <20250903-acpm-clk-v3-1-65ecd42d88c7@linaro.org>
+References: <20250903-acpm-clk-v3-0-65ecd42d88c7@linaro.org>
+In-Reply-To: <20250903-acpm-clk-v3-0-65ecd42d88c7@linaro.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
  Peter Griffin <peter.griffin@linaro.org>, 
@@ -96,16 +95,16 @@ Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
  linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com, 
  Tudor Ambarus <tudor.ambarus@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756907802; l=3867;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1756907802; l=3056;
  i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=Mt2KpjzPULxrWRBMrQwI+fGFUPZG+amrTgGkb7YvIyw=;
- b=DakkBlIHpn7tVePCz5oJ4zp5oD53iKk03icPlLMbc4NT51IpDoL/zCPk2pTUJ/MwmoE6lU8Ae
- 7iEo8dy1mf+A1vb7kEC2c50vYYSwnyl6A0XAf8u2C8lCIsizEpn2dc4
+ bh=ZAh+jVEjk+p7IOugFLPfvW1C8t+Wsd6E695/908UhEY=;
+ b=LdelR0stuthQLZnXmrirVmjYcak2/o60K97PRS1iSdMsSt8ME/KFQNZUxXFvFnn3X+yQ10ki7
+ 84Cj4pTH5pdA4SKB7iyec3ofdfwJhKl3k+3XqAq5yNxcOimpT2VF11S
 X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
  pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_065645_431072_38B4E994 
-X-CRM114-Status: GOOD (  21.47  )
+X-CRM114-CacheID: sfid-20250903_065645_886775_B901BAA6 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,90 +119,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dependencies description:
-The acpm-clk driver (#3) depends on the bindings (#1) and on the
-ACPM DVFS ops (#2), thus I propose to have an immutable tag so that
-the clock subsystem to merge first 3 patches if it really needs the
-new clock driver. Patches #4 and #5 have no dependencies.
+The firmware exposes clocks that can be controlled via the
+Alive Clock and Power Manager (ACPM) interface.
 
-The Alive CLock and Power Manager (ACPM) firmware exposes clocks that
-are variable and index based. These clocks don't provide an entire range
-of values between the limits but only discrete points within the range.
-The firmware also manages the voltage scaling appropriately with the
-clock scaling. Make the ACPM node a clock provider.
-
-Add support for the ACPM DVFS protocol. It translates clock frequency
-requests to messages that can be interpreted by the ACPM firmware.
-Add an ACPM clock driver to model the clocks exposed by the ACPM firmware.
-
-Thanks,
-ta
+Make the ACPM node a clock provider by adding the mandatory
+"#clock-cells" property, which allows devices to reference its
+clock outputs.
 
 Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 ---
-Changes in v3:
-- dt-bindings:
-  - move clock bindings to a new bindings header
-  - update commit's subject, s/add #clock-cells/add ACPM clocks.
-    It also suggests that the bindings are added.
-  - prepend "GS101_" on clocks binding name. The bindings name are the
-    same for GS201 and the acpm-clk driver will likely include both.
-  - collect Rob's R-b
-- clk-acpm:
-  - move clock definitions here instead of keeping them into the
-    ACPM protocol driver
-  - use platform_driver.id_table to differentiate device type
-  - fix Kconfig dependency, || (COMPILE_TEST && !EXYNOS_ACPM_PROTOCOL)
-  - update commit subject, s/dev/pdev
-- exynos-acpm:
-  - move clock definitions to clk-acpm
-  - use devm-action to unregister clk-acpm platform device
-- Link to v2: https://lore.kernel.org/r/20250827-acpm-clk-v2-0-de5c86b49b64@linaro.org
+ .../bindings/firmware/google,gs101-acpm-ipc.yaml   | 11 +++++++++
+ include/dt-bindings/clock/google,gs101-acpm.h      | 26 ++++++++++++++++++++++
+ 2 files changed, 37 insertions(+)
 
-Changes in v2:
-- dt-bindings: clocks are not longer a child of ACPM protocol. Instead
-  make Alive Clock and Power Manager (ACPM) node a clock provider.
-  Update commit message.
-- firmware: exynos-acpm: register by hand the ACPM clocks dev (new
-  patch)
-- firmware: exynos-acpm: use defines intead of enum
-- acpm-clk:
-  - switch to determine_rate
-  - drop __init, __refdata, __initconst, this is a module, we need those
-    methods and data, after boot as well.
-  - fix the assumption that the clocks are defined by ID in ascending order.
-    There's still an assumption that the clk_id < nr_clks, but this is
-    now covered by a sanity check in the clock driver.
-- arm64: defconfig: enable Exynos ACPM clocks (add patch together with
-  this patch set) 
-- Link to v1: https://lore.kernel.org/r/20250819-acpm-clk-v1-0-6bbd97474671@linaro.org
+diff --git a/Documentation/devicetree/bindings/firmware/google,gs101-acpm-ipc.yaml b/Documentation/devicetree/bindings/firmware/google,gs101-acpm-ipc.yaml
+index 9785aac3b5f34955bbfe2718eec48581d050954f..d3bca6088d128485618bb2b538ed8596b4ba14f0 100644
+--- a/Documentation/devicetree/bindings/firmware/google,gs101-acpm-ipc.yaml
++++ b/Documentation/devicetree/bindings/firmware/google,gs101-acpm-ipc.yaml
+@@ -24,6 +24,15 @@ properties:
+   compatible:
+     const: google,gs101-acpm-ipc
+ 
++  "#clock-cells":
++    const: 1
++    description:
++      Clocks that are variable and index based. These clocks don't provide
++      an entire range of values between the limits but only discrete points
++      within the range. The firmware also manages the voltage scaling
++      appropriately with the clock scaling. The argument is the ID of the
++      clock contained by the firmware messages.
++
+   mboxes:
+     maxItems: 1
+ 
+@@ -45,6 +54,7 @@ properties:
+ 
+ required:
+   - compatible
++  - "#clock-cells"
+   - mboxes
+   - shmem
+ 
+@@ -56,6 +66,7 @@ examples:
+ 
+     power-management {
+         compatible = "google,gs101-acpm-ipc";
++        #clock-cells = <1>;
+         mboxes = <&ap2apm_mailbox>;
+         shmem = <&apm_sram>;
+ 
+diff --git a/include/dt-bindings/clock/google,gs101-acpm.h b/include/dt-bindings/clock/google,gs101-acpm.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..e2ba89e09fa6209f7c81f554dd511b2619009e5b
+--- /dev/null
++++ b/include/dt-bindings/clock/google,gs101-acpm.h
+@@ -0,0 +1,26 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Copyright 2025 Linaro Ltd.
++ *
++ * Device Tree binding constants for Google gs101 ACPM clock controller.
++ */
++
++#ifndef _DT_BINDINGS_CLOCK_GOOGLE_GS101_ACPM_H
++#define _DT_BINDINGS_CLOCK_GOOGLE_GS101_ACPM_H
++
++#define GS101_CLK_ACPM_DVFS_MIF				0
++#define GS101_CLK_ACPM_DVFS_INT				1
++#define GS101_CLK_ACPM_DVFS_CPUCL0			2
++#define GS101_CLK_ACPM_DVFS_CPUCL1			3
++#define GS101_CLK_ACPM_DVFS_CPUCL2			4
++#define GS101_CLK_ACPM_DVFS_G3D				5
++#define GS101_CLK_ACPM_DVFS_G3DL2			6
++#define GS101_CLK_ACPM_DVFS_TPU				7
++#define GS101_CLK_ACPM_DVFS_INTCAM			8
++#define GS101_CLK_ACPM_DVFS_TNR				9
++#define GS101_CLK_ACPM_DVFS_CAM				10
++#define GS101_CLK_ACPM_DVFS_MFC				11
++#define GS101_CLK_ACPM_DVFS_DISP			12
++#define GS101_CLK_ACPM_DVFS_BO				13
++
++#endif /* _DT_BINDINGS_CLOCK_GOOGLE_GS101_ACPM_H */
 
----
-Tudor Ambarus (5):
-      dt-bindings: firmware: google,gs101-acpm-ipc: add ACPM clocks
-      firmware: exynos-acpm: add DVFS protocol
-      clk: samsung: add Exynos ACPM clock driver
-      firmware: exynos-acpm: register ACPM clocks pdev
-      arm64: defconfig: enable Exynos ACPM clocks
-
- .../bindings/firmware/google,gs101-acpm-ipc.yaml   |  11 ++
- arch/arm64/configs/defconfig                       |   1 +
- drivers/clk/samsung/Kconfig                        |  10 +
- drivers/clk/samsung/Makefile                       |   1 +
- drivers/clk/samsung/clk-acpm.c                     | 203 +++++++++++++++++++++
- drivers/firmware/samsung/Makefile                  |   4 +-
- drivers/firmware/samsung/exynos-acpm-dvfs.c        |  83 +++++++++
- drivers/firmware/samsung/exynos-acpm-dvfs.h        |  21 +++
- drivers/firmware/samsung/exynos-acpm.c             |  26 +++
- include/dt-bindings/clock/google,gs101-acpm.h      |  26 +++
- .../linux/firmware/samsung/exynos-acpm-protocol.h  |  10 +
- 11 files changed, 395 insertions(+), 1 deletion(-)
----
-base-commit: c17b750b3ad9f45f2b6f7e6f7f4679844244f0b9
-change-id: 20250819-acpm-clk-28d2a78e0307
-
-Best regards,
 -- 
-Tudor Ambarus <tudor.ambarus@linaro.org>
+2.51.0.338.gd7d06c2dae-goog
 
 
