@@ -4,87 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EE8DCA1010
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 22:24:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C076ACA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 22:27:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N3wTVuzRWFsLOmgF08rX8v9agtMLx+eUNjsrlNZ33Qw=; b=qNMFAO2QBodxOvbwLZMwKR4m4V
-	2sZJl5WWDCb7Pcc9HuIRK4cVkkkadr9PS7LOCiJ9MI9QNfd6N5VX0SJZBm5taLG1pwWe9nAiS2vii
-	cH4zCqwqHHW1zKbMMJIbdi1/KSihCwSyRzYMmT2eGgXOYbILZ2y++suCSMu2QCwH/0RDt0yxG4hs6
-	celQq8LxiKMx116wobd9Dl85zJgzC5qAKeiLF+9gavRzlWo5PQw9sXIG2cChb9lSuxVLUm1sn9uJ1
-	C/UxohSRINoL0r+hxRO44UF1ysW1xeUJOnq/lyFDtBHzAiJnKMcQfFqdWtkArqcOIIBoNisYRZUhU
-	kjZq/6Cw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=3/nyJbZwFF3pxbYou+WwrMOAVTBa1xwKLI/Pbg1fscU=; b=3DgeCIKiaMlQVl
+	Rfyp35y0lGoHQuzHStWDt0vP1p6hawOnHgYRwcwPO2OHj4vvHZZX6lryi23Io5HZizSYP83TOkREP
+	PLOgo5oVdRzadx4FpQb1/h2CY3idZKAWZwsrXmB2lWpcjMikAoBVDB3Z4qDlR9C+I/n3dTbdNUyzY
+	PtU94QjW+j3DECM5f5ozRF2nvSYmsudjCJJuaeNP5skdC4olvl2gwm2nJi6pmL3T7IcA4+u2zhBZG
+	AeGlslRBMDSLeejT6vvQWTl4EaAFk+gsbK36WSidbVaD//vmz8XAgO/IUQno8WIKFn7LlVCMKSPm8
+	1D3zFVMUXYYHIJpcd/CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utvuO-00000007n7E-0Men;
-	Wed, 03 Sep 2025 22:24:52 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1utvx3-00000007nPf-3XzG;
+	Wed, 03 Sep 2025 22:27:37 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utsSD-00000007KrE-2eMr;
-	Wed, 03 Sep 2025 18:43:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1756924941; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=XPN1vKcx8Ej224AtZVj8ZCULAAnbkrzDGKmbONvCEkg8h0+2l8E9mxYRh78Jd211J5Yl85xXARVlrrmU5TVjV7pD7h/TFxVW9Z+i554tUn271xCAWqOvs29yNsgTTvRYZ65XJ9RS5WPvJ4R0NhZ7OVH8KsFfOyps1LB1+/AXE4I=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1756924941; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=N3wTVuzRWFsLOmgF08rX8v9agtMLx+eUNjsrlNZ33Qw=; 
-	b=ACPIjUrLHMabibtDfsKXZrSSris3uh3lJmHY78Cvvmg3t2l+crKWa+Mz1P4NIZq1rZLWNCGmzOvJZN1jIAtx07UjCWQE5k/LdRei/w25nl3QI10V743TrG1VqaO42yYlcmYikFfknR58tTlcboCH5WIcRhzwLUZd2BTvZhzpMNI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nfraprado@collabora.com;
-	dmarc=pass header.from=<nfraprado@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1756924941;
-	s=zohomail; d=collabora.com; i=nfraprado@collabora.com;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=N3wTVuzRWFsLOmgF08rX8v9agtMLx+eUNjsrlNZ33Qw=;
-	b=Jo1eOqATLjRJA8HTdL2X5U8rl6y8yyfGPZYaNl9OH+UqdX57//qTAM0JeYml0vJM
-	zQHHIrC/TKwg5vZBW3hvpMxQtb7zaxUWydAb1f3eYfei+stG3e75zv6/B0N78IqP4YT
-	EHlzVNyxP/1DhFoJbKHHpNUBd8aThUouP2eATzTM=
-Received: by mx.zohomail.com with SMTPS id 1756924938273225.66438221064573;
-	Wed, 3 Sep 2025 11:42:18 -0700 (PDT)
-Message-ID: <269ca85a59f613568543f45867fba7e604cc9f11.camel@collabora.com>
-Subject: Re: [PATCH RFC 1/5] drm: Support post-blend color pipeline API
-From: =?ISO-8859-1?Q?N=EDcolas?= "F. R. A. Prado" <nfraprado@collabora.com>
-To: Daniel Stone <daniel@fooishbar.org>, Xaver Hugl <xaver.hugl@gmail.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard	
- <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
-	 <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Chun-Kuang Hu	
- <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Matthias
- Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
- <angelogioacchino.delregno@collabora.com>, Alex Hung <alex.hung@amd.com>, 
-	wayland-devel@lists.freedesktop.org, harry.wentland@amd.com,
- leo.liu@amd.com, 	ville.syrjala@linux.intel.com,
- pekka.paalanen@collabora.com, contact@emersion.fr, 	mwen@igalia.com,
- jadahl@redhat.com, sebastian.wick@redhat.com, 	shashank.sharma@amd.com,
- agoins@nvidia.com, joshua@froggi.es, mdaenzer@redhat.com, 
-	aleixpol@kde.org, victoria@system76.com, uma.shankar@intel.com, 
-	quic_naseer@quicinc.com, quic_cbraga@quicinc.com,
- quic_abhinavk@quicinc.com, 	marcan@marcan.st, Liviu.Dudau@arm.com,
- sashamcintosh@google.com, 	chaitanya.kumar.borah@intel.com,
- louis.chauvet@bootlin.com, mcanal@igalia.com, 	kernel@collabora.com,
- daniels@collabora.com, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, Simona Vetter <simona.vetter@ffwll.ch>
-Date: Wed, 03 Sep 2025 14:42:14 -0400
-In-Reply-To: <CAPj87rMTOD3_tC70QX4xz3G4zdG=tmwt5VgPhq6jNyf8bbW49Q@mail.gmail.com>
-References: <20250822-mtk-post-blend-color-pipeline-v1-0-a9446d4aca82@collabora.com>
-	 <20250822-mtk-post-blend-color-pipeline-v1-1-a9446d4aca82@collabora.com>
-	 <CAPj87rPAoD2D99zTdsvJ=9K8+G17mTS2jDYHMPYmXNtUyp2L_Q@mail.gmail.com>
-	 <CAFZQkGwotQ6cxVCSgp-BhUi5DaZ7MyVvbnrDJW11Z7ztzqy58g@mail.gmail.com>
-	 <CAPj87rMTOD3_tC70QX4xz3G4zdG=tmwt5VgPhq6jNyf8bbW49Q@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.1-1 
+	id 1utsa2-00000007M29-105G;
+	Wed, 03 Sep 2025 18:51:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1756925496;
+	bh=W2yIZ1r7+6qnWApJGxqlyhaa17wQLXOaVNluzcmFVhE=;
+	h=From:Subject:Date:To:Cc:From;
+	b=WplZt4+NdVhr6ry32gY6C8TZaOlkCqq6nL4/e3+L7VqxmBwViO7tweg/69LCu9OOS
+	 1ae1uSmiIae+j5GtQWNWwE6IFUtbEBpV0KYgoHPJ6pWY4MILoDyM8YlFsV4vwy1Zrn
+	 i2qGtutH52IZe9PBTDC0OYDNt3OjJUDERy/68Ir+rc9vrLOc1y8Jd9UhYlBW/y++2x
+	 9ed33NPS4FCFpx8a+Rsgr8cincngotXD6u7bpT2R2E6J2JTw8eYdTK4w88cAHjqTms
+	 ZKzlmtVLctGbsWbpOXdVxYBrmpSfqF96JiwjmDM3/xM0ToF9HGito1+vyuLmaSxOPO
+	 Y2s08niMaO5Qg==
+Received: from localhost (unknown [82.79.138.60])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id CE98D17E0199;
+	Wed,  3 Sep 2025 20:51:35 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Subject: [PATCH v4 0/6] Add HDMI CEC support to Rockchip RK3588/RK3576 SoCs
+Date: Wed, 03 Sep 2025 21:50:58 +0300
+Message-Id: <20250903-rk3588-hdmi-cec-v4-0-fa25163c4b08@collabora.com>
 MIME-Version: 1.0
-X-ZohoMailClient: External
-X-ZohoMail-Owner: <269ca85a59f613568543f45867fba7e604cc9f11.camel@collabora.com>+zmo_0_nfraprado@collabora.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIABKOuGgC/23NTQrCMBAF4KuUrI2kk4SmrryHuMivDbaNJBKU0
+ rubFkSxLmbxHrxvJpRs9DahQzWhaLNPPowlsF2FdCfHi8XelIyAACcNoTheKRcCd2bwWFtdTgr
+ HgRrHBCqrW7TOP1bxdC658+ke4nN9kOulfVtsY+UaEwzKCGNFQ4g2Rx36XqoQ5V6HAS1ehi+jJ
+ lsDiuFKxZSlTOn6n0E/hgC+NWgxWk6BOQXAW/g15nl+AS6G7G06AQAA
+X-Change-ID: 20250703-rk3588-hdmi-cec-cea8f523df48
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Algea Cao <algea.cao@rock-chips.com>, 
+ Derek Foreman <derek.foreman@collabora.com>, 
+ Daniel Stone <daniels@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_114333_695743_F645BDF6 
-X-CRM114-Status: GOOD (  32.69  )
+X-CRM114-CacheID: sfid-20250903_115138_430579_E686046E 
+X-CRM114-Status: GOOD (  16.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,147 +90,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2025-08-26 at 13:25 +0100, Daniel Stone wrote:
-> Hi,
->=20
-> On Mon, 25 Aug 2025 at 19:45, Xaver Hugl <xaver.hugl@gmail.com>
-> wrote:
-> > > > @@ -416,6 +417,24 @@ int drm_mode_object_get_properties(struct
-> > > > drm_mode_object *obj, bool atomic,
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 if (post_blend_color_pipeline && obj->type =3D=3D
-> > > > DRM_MODE_OBJECT_CRTC) {
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct d=
-rm_crtc *crtc =3D
-> > > > obj_to_crtc(obj);
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct d=
-rm_mode_config mode_config =3D
-> > > > crtc->dev->mode_config;
-> > > > +
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (prop=
- =3D=3D
-> > > > mode_config.gamma_lut_property ||
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 prop =3D=3D
-> > > > mode_config.degamma_lut_property ||
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 prop =3D=3D
-> > > > mode_config.gamma_lut_size_property ||
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 prop =3D=3D mode_config.ctm_property)
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 continue;
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 }
-> > > > +
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 if (!post_blend_color_pipeline && obj->type =3D=3D
-> > > > DRM_MODE_OBJECT_CRTC) {
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct d=
-rm_crtc *crtc =3D
-> > > > obj_to_crtc(obj);
-> > > > +
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (prop=
- =3D=3D crtc-
-> > > > >color_pipeline_property)
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 continue;
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 }
-> > >=20
-> > > Hmmm. One issue with this is that it makes things like drm_info
-> > > harder: if drm_info opted into the client cap, it would no longer
-> > > be
-> > > able to see any GAMMA_LUT/etc programmed by the prior userspace.
-> > > So I
-> > > think allowing at least read-only access would be reasonable
-> > > here.
-> >=20
-> > FWIW the cap for per-plane pipelines also hides COLOR_RANGE and
-> > COLOR_ENCODING properties from the client.
-> >=20
-> > From a compositor POV, I slightly prefer hiding the properties
-> > entirely, but ignoring them on the compositor side when a color
-> > pipeline is available would also be trivial.
->=20
-> It makes it impossible to do smooth transitions from legacy clients,
-> as the old (current) properties can't be read back.
->=20
-> I assume the atomic state would also carry the old values (even if
-> the
-> drivers are specified to have to ignore them), so there would be an
-> odd transition:
-> * pre-colorop userspace sets GAMMA_LUT to invert brightness
-> * colorop userspace takes over, does not set any colorops on the
-> CRTC,
-> brightness is no longer inverted (presumably? depends on what the
-> default set of colorops is? and what the drivers do?), but the atomic
-> state still carries the old gamma_lut blob
-> * pre-colorop userspace takes over, does not touch GAMMA_LUT,
-> brightness is inverted as the colorop from the previous atomic state
-> is ignored and the pre-atomic one now takes precedence
->=20
-> This isn't necessarily wrong per se, but does seem kind of janky and
-> error-prone: like should the old state be reset to zero/bypass for
-> commits from colorop-aware clients? Or should we explicitly allow 0
-> but no other value?
+The first patch in the series implements the CEC capability of the
+Synopsys DesignWare HDMI QP TX controller found in RK3588 & RK3576 Socs.
+This is based on the downstream code, but rewritten on top of the CEC
+helpers added recently to the DRM HDMI connector framework.
 
-Hi, thanks for the feedback!
+The second patch is needed for RK3576 in order to fixup the timer base
+setup according to the actual reference clock rate, which differs
+slightly from RK3588.
 
-Based on this discussion, this is my understanding for the changes
-desired on the series and their reasonings:
+The following three patches setup platform data with the new information
+expected by the HDMI QP transmitter library, while improving the error
+handling in the probe path.
 
-1. Add a driver cap, DRM_CAP_POST_BLEND_COLOR_PIPELINE, which drivers
-will use to signal they support post-blend color pipelines.
-  - Reason: Allow userspace to figure out that the driver doesn't
-support post-blend color pipelines and choose to not set the client
-cap, DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE, so it can use legacy
-color management instead.
-2. Make it so setting the client cap,
-DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE, fails if the driver cap,
-DRM_CAP_POST_BLEND_COLOR_PIPELINE, isn't set
-  - Reason: Prevent userspace from making color management unusable if
-the driver doesn't support post-blend color pipelines, as the legacy
-color-management properties (GAMMA_LUT, DEGAMMA_LUT, CTM) would be
-unwriteable with the client cap set.
-3. Make legacy color-management properties (GAMMA_LUT, DEGAMMA_LUT,
-CTM) read-only if the client cap,
-DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE, is set
-  - Reason: Allow drm_info to print legacy color management
-configuration while still enabling post-blend color pipelines through
-the client cap. Also to allow smooth handover from pre-colorop
-userspace client to colorop-ready userspace client, as the latter can
-now replicate the legacy color configuration through the colorops.
+Please note the CEC helpers were affected by a resource deallocation
+issue which could crash the kernel and freeze the system under certain
+test conditions.  This has been already fixed in v6.17-rc1 via commit
+19920ab98e17 ("drm/display: hdmi-cec-helper: Fix adapter
+unregistration").
 
-Side note: Smooth handover back to pre-colorop userspace after tweaking
-the colorops to something else would not be possible without making the
-legacy properties writable too, so that the client could update them to
-match the colorops setting before switching back. I don't imagine this
-would be a common use case, and colorops are a superset of the legacy
-properties so there are cases where it wouldn't even be possible to
-replicate the colorop setting on the legacy properties, but thought I'd
-mention this limitation for completeness' sake.
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+Changes in v4:
+- Fixed the bisect-related issues reported by Daniel by implementing
+  the following operations in dw_hdmi_qp_bind():
+  * Disable CEC support when the related IRQ is not available
+  * Set ref_clk_rate to vendor default in case it was not provided by
+    the platform driver
+  * In both scenarios, also print a warning message to highlight the
+    need for fixing the platform driver
+- Simplified dw_hdmi_qp_cec_init() a bit
+  * Removed the now obsolete cec->irq validation test
+  * Removed the superfluous error checking and logging around
+    devm_request_threaded_irq() call (it already handles all that)
+- Collected R-b tags from Daniel
+- Rebased series onto next-20250903
+- Link to v3: https://lore.kernel.org/r/20250825-rk3588-hdmi-cec-v3-0-95324fb22592@collabora.com
 
-Also, as Xaver noted, this feedback also applies to pre-blend pipelines
-and its legacy color-management properties (COLOR_ENCODING,
-COLOR_RANGE), so the same changes would be desirable there for the same
-reasons. So we should share this feedback on that series as well.
+Changes in v3:
+- Fixup PATCH 1 according to the recent upstream commit 02bb63d1a593
+  ("drm/bridge: Make dp/hdmi_audio_* callback keep the same paramter
+  order with get_modes") which changed the signature of ->hdmi_cec_init()
+  callback of struct drm_bridge_funcs; while at it, also update the
+  copyright section
+- Updated cover letter to indicate that the CEC helpers fix is already
+  available since v6.17-rc1
+- Rebased series onto next-20250825
+- Link to v2: https://lore.kernel.org/r/20250710-rk3588-hdmi-cec-v2-0-f5884be34bc1@collabora.com
 
+Changes in v2:
+- Collected R-b tag from Dmitry
+- Restructured the generic bridge patches to not depend on the
+  platform-specific changes and updated cover letter accordingly (Heiko)
+- Replaced the loop searching for "ref" clock with clk_get() (Maxime)
+- Added new patch "drm/rockchip: dw_hdmi_qp: Improve error handling with
+  dev_err_probe()"
+- Link to v1: https://lore.kernel.org/r/20250704-rk3588-hdmi-cec-v1-0-2bd8de8700cd@collabora.com
 
-Does this sound right?
+---
+Cristian Ciocaltea (6):
+      drm/bridge: dw-hdmi-qp: Add CEC support
+      drm/bridge: dw-hdmi-qp: Fixup timer base setup
+      drm/rockchip: dw_hdmi_qp: Improve error handling with dev_err_probe()
+      drm/rockchip: dw_hdmi_qp: Provide CEC IRQ in dw_hdmi_qp_plat_data
+      drm/rockchip: dw_hdmi_qp: Provide ref clock rate in dw_hdmi_qp_plat_data
+      arm64: defconfig: Enable DW HDMI QP CEC support
 
---=20
-Thanks,
+ arch/arm64/configs/defconfig                   |   1 +
+ drivers/gpu/drm/bridge/synopsys/Kconfig        |   8 +
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c   | 224 ++++++++++++++++++++++++-
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.h   |  14 ++
+ drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c |  77 +++++----
+ include/drm/bridge/dw_hdmi_qp.h                |   2 +
+ 6 files changed, 284 insertions(+), 42 deletions(-)
+---
+base-commit: 5d50cf9f7cf20a17ac469c20a2e07c29c1f6aab7
+change-id: 20250703-rk3588-hdmi-cec-cea8f523df48
 
-N=C3=ADcolas
 
