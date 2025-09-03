@@ -4,56 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF856CA1009
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 12:38:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8744CA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 12:41:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vAdecgndlY/39/fQoxZP6zmku8jlWLThotKjefWO13w=; b=W+PTV+e7eavK8xc4hoTPGYp5gG
-	5EE0Uio1POfcnJgFOhgRIoRcpa7b6bJ267tkxoBvIcK+vQ5Zv8Yb3AxG72D04BPrwUpKFXO8V7ozm
-	ApGUVFtKiY2hmms/0fYyEvT4mfE+8ZYIs2BtxZ6UB0O2AhLg6jFaEhSH56od9nhUXN5ozaBeCp0eR
-	RIYghQNOBcPR31Fb+sT3a8JKKK1uN4r8reAPqqpBzBqYymk65sgw6nbfZ4G71ZZtLA3+JBMgycG9w
-	Zwi2gdl8Eyk1iBucNLRj7RRgaL3OcMreicltiitNfdD0bwyNgdn5Qh6RedYmR+aR/+lPlKxqDZV0f
-	5k9hLqHA==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vPbWqm2e8Pleqh1YH+aI+ivP4R4vMJt3pSY+QJLucY8=; b=SuqX0yx4KaDbm0Prb4dNnIVltM
+	bYXjyRsS9MNE8gxL9F8spTWvdTymiraj1ZUqZQz5kRqM8/KzU+EqORZaz4A8APlH1faxOIXAzNZ+p
+	TYYOGvATBSbxp+Jqd2c7VfCdGxNx8Ara/HK3/ZT+n63sX0M5nZY3MvDG5jVWhsUz/ckI9y8RS6YkV
+	V2MpbKQnZPT/tuwbMGcfKoyskmgdF0yljwcx7AVXnPRwatruyReSPbAY/zGlpYY7jYTBc5t19S7u7
+	jkA3xpwTiK57KWQRAH/oTzKUTuS/wkOuO5691yjpZsOtmE+EiA0DL/deQ4XZvrMQkW73Vj3Mk17DQ
+	NIFzjvag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utml1-00000006Pnm-1o2F;
-	Wed, 03 Sep 2025 12:38:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1utmnh-00000006QOH-3Ljd;
+	Wed, 03 Sep 2025 12:41:22 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utlZP-00000006Din-2or2
+	id 1utlpe-00000006FbT-0AyR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 11:22:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6359F4460E;
-	Wed,  3 Sep 2025 11:22:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74004C4CEF0;
-	Wed,  3 Sep 2025 11:22:29 +0000 (UTC)
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Will Deacon <will@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Andy Lutomirski <luto@kernel.org>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-Cc: John Stultz <jstultz@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: (subset) [PATCH 0/3] arm64: uapi: Provide correct __BITS_PER_LONG for the compat vDSO
-Date: Wed,  3 Sep 2025 12:21:22 +0100
-Message-ID: <175689848208.2711243.6145487727322080491.b4-ty@arm.com>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250821-vdso-arm64-compat-bitsperlong-v1-0-700bcabe7732@linutronix.de>
-References: <20250821-vdso-arm64-compat-bitsperlong-v1-0-700bcabe7732@linutronix.de>
+	Wed, 03 Sep 2025 11:39:19 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 583BdD2T3252926;
+	Wed, 3 Sep 2025 06:39:13 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1756899553;
+	bh=vPbWqm2e8Pleqh1YH+aI+ivP4R4vMJt3pSY+QJLucY8=;
+	h=Date:Subject:To:References:From:In-Reply-To;
+	b=JAfQV2hpQR5m/PvoWDxcipHesmIlLvsceH769vET85mrq+vlx50Dbbxjf4zfsQIgI
+	 bbBS1jEshTbckVtwlirVXdRtmUXJMT/Qlu19ju/dvPqcmPRL4KuKgs+ycuCGCor6R4
+	 J5uR8KIBKmuTbMK3UcP11dEj9Eu37s+vwPIlKAFU=
+Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 583BdD5r3489464
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Wed, 3 Sep 2025 06:39:13 -0500
+Received: from DFLE112.ent.ti.com (10.64.6.33) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 3
+ Sep 2025 06:39:12 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Wed, 3 Sep 2025 06:39:12 -0500
+Received: from [172.24.233.62] (devarsh-precision-tower-3620.dhcp.ti.com [172.24.233.62])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 583Bd9Is1215759;
+	Wed, 3 Sep 2025 06:39:10 -0500
+Message-ID: <1adea165-ae87-463f-a03e-2fe27f4b8695@ti.com>
+Date: Wed, 3 Sep 2025 17:09:09 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: ti: k3-j721e-main: Add DSI and DPHY-TX
+To: Harikrishna Shenoy <h-shenoy@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
+        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>
+References: <20250822124622.1424473-1-h-shenoy@ti.com>
+Content-Language: en-US
+From: Devarsh Thakkar <devarsht@ti.com>
+In-Reply-To: <20250822124622.1424473-1-h-shenoy@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_042231_727068_FBC78352 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20250903_043918_173747_3D350A30 
+X-CRM114-Status: GOOD (  17.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,26 +85,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 21 Aug 2025 09:56:43 +0200, Thomas Weißschuh wrote:
-> The generic vDSO library uses the UAPI headers. On arm64 __BITS_PER_LONG is
-> always '64' even when used from the compat vDSO. In that case __GENMASK()
-> does an illegal bitshift, invoking undefined behaviour.
+Hi Hari,
+
+On 22/08/25 18:16, Harikrishna Shenoy wrote:
+> From: Rahul T R <r-ravikumar@ti.com>
 > 
-> The first patch should go into the 6.17 tree.
+> TI's J721E SoC supports a DPI to DSI video signal conversion bridge on
+> it's platform bus. The IP is from Cadence, and it has a custom TI
+> wrapper around it to facilitate integration.
 > 
+> This IP takes the DPI video signals from DSS and alongwith the DPHY IP,
+> it transmits DSI video signals out of the SoC.
 > 
-> [...]
+> Add support for DSI bridge and the DPHY-TX.
+> 
+> Signed-off-by: Rahul T R <r-ravikumar@ti.com>
+> Signed-off-by: Jayesh Choudhary <j-choudhary@ti.com>
+> Signed-off-by: Harikrishna Shenoy <h-shenoy@ti.com>
+> ---
+>   arch/arm64/boot/dts/ti/k3-j721e-main.dtsi | 31 +++++++++++++++++++++++
+>   1 file changed, 31 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+> index ab3666ff4297..d65b6fcae338 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+> @@ -1887,6 +1887,37 @@ port@4 {
+>   		};
+>   	};
+>   
+> +	dphy2: phy@4480000 {
 
-Applied to arm64 (for-next/fixes), thanks! And sorry for the delay,
-missed it due to holidays.
+I would suggest to have a better label naming:
+s/dphy2/dphy_tx
+s/dphy1/dphy_rx
 
-[1/3] arm64: uapi: Provide correct __BITS_PER_LONG for the compat vDSO
-      https://git.kernel.org/arm64/c/9a6d3ff10f7f
+> +		compatible = "ti,j721e-dphy";
+> +		reg = <0x00 0x04480000 0x00 0x1000>;
+> +		clocks = <&k3_clks 296 1>, <&k3_clks 296 3>;
+> +		clock-names = "psm", "pll_ref";
+> +		#phy-cells = <0>;
+> +		power-domains = <&k3_pds 296 TI_SCI_PD_EXCLUSIVE>;
+> +		assigned-clocks = <&k3_clks 296 3>;
+> +		assigned-clock-parents = <&k3_clks 296 4>;
+> +		assigned-clock-rates = <19200000>;
+> +		status = "disabled";
+> +	};
+> +
+> +	dsi0: dsi@4800000 {
+> +		compatible = "ti,j721e-dsi";
+> +		reg = <0x00 0x04800000 0x00 0x100000>, <0x00 0x04710000 0x00 0x100>;
+> +		clocks = <&k3_clks 150 1>, <&k3_clks 150 5>;
+> +		clock-names = "dsi_p_clk", "dsi_sys_clk";
+> +		power-domains = <&k3_pds 150 TI_SCI_PD_EXCLUSIVE>;
+> +		interrupt-parent = <&gic500>;
+> +		interrupts = <GIC_SPI 600 IRQ_TYPE_LEVEL_HIGH>;
+> +		phys = <&dphy2>;
 
-I'll leave the other two patches to Will for the upcoming merging
-window.
+phys = <&dphy_tx>
 
--- 
-Catalin
+and likewise for dphy_rx.
+
+Regards
+Devarsh
 
 
