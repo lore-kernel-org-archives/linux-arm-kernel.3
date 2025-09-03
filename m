@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34759CA1018
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 02:10:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD470CA1015
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 02:10:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
 	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
 	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gtIN3cJnO/MHuapM5wSVfRxh5/6M/qbYYuGxZdV6eiA=; b=RaoJ5gu8OCyA4Z31CrRoXNxGLO
-	th/yo2FTMIjyXX5HClATMrz67cnsLIVSRi3g5r/IMpT7ithxAmVIMGbUgD5Z7fUNgXRbi4t3cFV8a
-	lLy6X9X3T3JSBXQ3+hea4SJNaYz3Lcy/+M/V5+vbOMnLjAf91qgQS9+c8wNJe8nwvs73uhpevREIe
-	X+wHUBJrfe5QtwP3oVcBAUn9cbeqXpOrxXsaQS+njigyIAb1lt3RHBDocAUkj1ZEBfV/znwuSkClL
-	VQ9NdLtzYeNeqW1ZLyDDU0ZbN/+mhToPDTaKogP3D1fuz1xHYMVQvUQ303zX9XmNCrfSOOixVVdY5
-	vFmzvk8A==;
+	bh=orTd4X7ZJfaZ7b4bvtbdE3/pgZudEHlz9XAiOhtam4U=; b=aV9HUrzk3o4g8IPH/uEu0OFEtZ
+	L2FtpD/Eui0B2X0sdzQqt9Sjkhu+DnH1HJWPaXqQqk1+5NPUL7IFvlN/1FtxbbOftZvPBllLzZYsR
+	pCHse9KmCNIRtUYZJdUkh74iY1P/TIJyez9xmIuGnsbJ8RlPtJMwDYJoklFFpNvf3iqt7yAyhNwT6
+	9nTrm+4jpXse4zj4HUqm8KDbRXoWKa2S2k58X8If+uAwMi/4P+lsXNIuSA5fhv0idb9iRNJ+WvXNS
+	xFgmJa9aT6wnL+2i88Ka5yHdHGQUo4nXbc4Fadv6P8/hNy3NKeNP4z7rFzOieLg9fWrolimqCTYbE
+	uHBtTaNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utzQa-00000008E9d-10Rx;
-	Thu, 04 Sep 2025 02:10:20 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1utzQm-00000008EXQ-0eD4;
+	Thu, 04 Sep 2025 02:10:32 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uttxr-00000007YFw-2NVl
+	id 1uttyK-00000007YQE-2Wk7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 20:20:20 +0000
+	Wed, 03 Sep 2025 20:20:49 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KcSvrSP/hv4rwWnaFlXSSkd5mOtA/10y7qTzAs7E3DY4QJw//F1AmF77EW42T5wdJGEHoye6H1A7lxWkspObCpKId1kf2UdCxzD73o7WvLTrlMUQp4UpwKIJFAREe7nWxolhjGgFRcA5pTxhTwd3mIOeEavZFhzm9CZcdgsfWy2UNlWicJqpSBb3BNdPijl6czCBjA6tCTf7kkGRUq4QazpuJ6Z1CuLxHrpcbK2rWTHCBbsMlGblxIkll13NzEFqo1xqI2OXmCN6M0VzpStgGqQYNzXVURSBoB1yqxAbuynjOarRoj4c+ZdV5qLBaZSMAFisR/crb4qMMm+mWjxYGw==
+ b=pATDkjX5zO1Cl+VgCU2V7PiMTVq+S2CqZVmpMhj0SaOndscBI2dMt3WYv0Ajkk+9xDJ6LoYtVq/0TG8Qi5Y0mWPEXwQYJrCAhZQV3Xv4aYE/MTPm1kG3aVXxRfd7TPOyNE7CcdjJTNmQ3D0VJ6tebJoYiNHgdbOLvkHHbm1vfYyo/PUyACbUtMkItEzfZe3ckAmF5mu75Vxbdbi6B6PoFqd6cbsuNWITRbXDrL29C/uBs5xkScIf0hvK0vrpg1cWzoxLBuZrEJLNwkSCBlaw+8F4OTndjywDl+BDsD2n0FpRYhyVValHOYv5d0Cm3+oZBhf92SfQ1qm2Jq28Pg/GLA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gtIN3cJnO/MHuapM5wSVfRxh5/6M/qbYYuGxZdV6eiA=;
- b=rFnO+yF/ww5vPFNR/H7dOUjLGHmtIHWLyqXcky3DE5cE9QaPPcsxfJVatJlmmHTFNXv+O+FUZ4XbV0rkZ5sIDzk0Y6b9oC9yygwfdsbO9QyOFsnDIkd8CNdkTTLS9olEdMlrs7gEB1W6TfcUUKQixyEWIlsUW0TRv2ToM0AgEfGRdYhJBOxye4/aDHRWQpxoM85P6VpAaDsFyYXvs5vdWJIGlqL5ChujidzczZS+DqsUBmKL7oepWGLXyjwabNh/gt1Kq+5frm8bIWSNGitFMEc+9EyecbNCyLuIIXOGB54lBYXB1nYuP1qbmPfiwtbhW/SUaXa/nFtw3Lt8K1s7wQ==
+ bh=orTd4X7ZJfaZ7b4bvtbdE3/pgZudEHlz9XAiOhtam4U=;
+ b=FJr2IQGZXP6c6X23IhGc2rDF06ZafxCPYrM0AMcQ2omwyCyeeW/6DzxxSDaSHjqyN1AmPgIPO4EEbbjh3hy0/EFlExNwRPgEJQ7sri5KImXecBtrBrTjIDQ8PFluRpog3PUTPY3F0m3FYcYWoX1NLdWN1bT/N2TPOvgWgx5Hj2YQvZrpDHTcQpCbYYOxgIMTVa9ZvgTvGcAf0OEOsqbLYbt5bEaO3URo0eeGspChPX51LTETZ8pGt011wXH0NmFgvFIsHsULoYJWu+xjg4pfWRRY4JJHlGrX4lNhf4gWegXJ2OAQnSuKq5XzpWodjzL8GbOoWdQZt48m+UE9i/Nn9A==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gtIN3cJnO/MHuapM5wSVfRxh5/6M/qbYYuGxZdV6eiA=;
- b=AxWOJrAWZXre87PzezvcAEbkxtN0GSDYaPthy3nHzon2MA6a3MpOgx12oghtFK7UzNoKmYjUsY5ZFtXgmRLMolH67QNbdKN9Mseyruu1q0KwjclaBZhYQ5cnoEN0n5SR/W6LqwxfcIW4IBNoD7CmujUSO86dN554VoeuvAdnsmkqlPtluT1gvjDNgMY3wLxho4JcE0eo21SeeJ+pH+q8VWiwIHLm6deWQYlrAYqGRiAoDWUkXzvXKG9J/5idUsMBxO00lsl/15QUxxXFHsbga8LjmQZgliOaToOb5j7qonP8DZeKYC4qroUxZFbmFUJ0hM55jLxGv+aaPUkCI6Z8tg==
+ bh=orTd4X7ZJfaZ7b4bvtbdE3/pgZudEHlz9XAiOhtam4U=;
+ b=Iv3G+RXSaSHq/KpZaR/JcJT2jKoVrya0Acq3adtxw0RTG9zVTZRmYzH9WSu7TKXkz8ylwDl3mlWNfEUNQwo1pgQO4dfIbty2NM+CucwGjHGvGKHQZT0WLeaJN7J/Pfwbs/t6had/u+X7ZzV0v03Hc6JroOW8XJpXswbjFsLgFmz3uIqSxX913/Ku3+Fp2hXDnIuy9Gn2MnRSJAOn0jzSoqEbxh7uLoz9wYxRpiOPJTkWbCoM7MmFaij3JoPlOdaOrHlCuRc4P1xndPGzxbfC30toBSGFP1zC/Kg60W4Rv5cd//uuFTn746gF03ywUQ0QAPUHSeZc/YhluPxhogN9wg==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by PR3PR04MB7337.eurprd04.prod.outlook.com (2603:10a6:102:81::19) with
+ by DB8PR04MB6890.eurprd04.prod.outlook.com (2603:10a6:10:117::8) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.16; Wed, 3 Sep
- 2025 20:20:14 +0000
+ 2025 20:20:42 +0000
 Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
  ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
  ([fe80::504f:2a06:4579:5f15%7]) with mapi id 15.20.9094.015; Wed, 3 Sep 2025
- 20:20:14 +0000
+ 20:20:42 +0000
 From: Frank Li <Frank.Li@nxp.com>
-Date: Wed, 03 Sep 2025 16:19:55 -0400
-Subject: [PATCH 02/16] ARM: dts: imx6: add key- prefix for gpio-keys
+Date: Wed, 03 Sep 2025 16:20:06 -0400
+Subject: [PATCH 13/16] ARM: dts: imx6ul-14x14-evk: add regulator for ov5640
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250903-imx6_dts_warning-v1-2-1e883d72e790@nxp.com>
+Message-Id: <20250903-imx6_dts_warning-v1-13-1e883d72e790@nxp.com>
 References: <20250903-imx6_dts_warning-v1-0-1e883d72e790@nxp.com>
 In-Reply-To: <20250903-imx6_dts_warning-v1-0-1e883d72e790@nxp.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -69,11 +69,11 @@ Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Frank Li <Frank.Li@nxp.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756930807; l=32465;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1756930807; l=1784;
  i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=QQJKb9R9Qw4NBfRO7ZX2iMWoEr5cXAQ07ID7LUttLd8=;
- b=nheKWjQbvzNcPXedGKx9o9U3IHp7y8lbMkGXZCesT8eLk3TMJSaKF/ew8v7ES5gq+dPynVlMU
- uCdSfVysR93DEwmyezAhnTPBIqWvpD9qCy7b1Ma6xbRGPdcplV1MiOw
+ bh=84T4Y9XhReH6AKZji80bJuf57kqGs+8rg4TUn69An/4=;
+ b=fTZRJqVgiVu/cEKBuRAiEwMFcAi11HQb8vYtkBWQLtnL0dK8+fPhv2FQFYZkoMpWyRmXRZCB0
+ oHIzhzbM9EWDdmPwYx9D0oqkAJRB/BQ1EE8vVCuc+25RbOc+yoquTCA
 X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
  pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
 X-ClientProxiedBy: AM4PR0302CA0016.eurprd03.prod.outlook.com
@@ -81,97 +81,96 @@ X-ClientProxiedBy: AM4PR0302CA0016.eurprd03.prod.outlook.com
  (2603:10a6:102:23f::21)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|PR3PR04MB7337:EE_
-X-MS-Office365-Filtering-Correlation-Id: b07b8020-6488-4360-1319-08ddeb274aa6
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|DB8PR04MB6890:EE_
+X-MS-Office365-Filtering-Correlation-Id: 159529a0-c7d7-4294-f7d8-08ddeb275a73
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|366016|19092799006|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?NnhtU3hwVnEzRlhUSXZXa0R4V3JrUC9HRDhEV1RNemJQcE1wN1NRSDZBYkFw?=
- =?utf-8?B?YzdRNmVxVVBYZ05mNHBnTGx5VGUxRmIvdWM0eEpLWlhnY0FpU3VvRk5YUjZN?=
- =?utf-8?B?U0h2WWt0eENBcFJIcUNoM24yL1JlbDcyalViVjJ6Z0lrS1dTcGJ1OE00UlRi?=
- =?utf-8?B?cC9QbCtCNHNub1BGRElHeVY2ZkZ4UGVUTjd6c1o5UG4raC9aZ2drRVR0S2VK?=
- =?utf-8?B?WWpIbU4vTXcxOGlZSEdHejJpaWxhOEdsOG9lb3ZhL0JXYW1JR21TWEhtT2M1?=
- =?utf-8?B?bWM0MUc0djZ4VnZsbzR2NnJ3OEMrb1NudVE2WlBQZEVPSkwxcUg4V3dCOXB3?=
- =?utf-8?B?MEF5dmRVZHZ5REwyWEMveGxxZzlzZ0p0ZUd3NG5OQVNScE9JdFBUbjFIMGMv?=
- =?utf-8?B?azJPUWNHR2lpTjg0dktZK1JhRFEvc3dBU3ZSdmZqMVRUUDZyUGFtMjdhTUJR?=
- =?utf-8?B?UDFydElKdEdhRER1Q294dDRuSVdoT2VvaGdhaThUZkhLTHo2aEQ1VnhqRzZx?=
- =?utf-8?B?MWNDRGZiSkVESjloZllZSnI0VEJLVmFSc0RkV0VLZi9QR29jUlg3S3pvZEFa?=
- =?utf-8?B?bHllWVh5RFlwMmZRVGtmR1RqNitKeHF1REgvb0doQUJEWkpCSTNsa0tKYkJ6?=
- =?utf-8?B?YTZDQTFHMG1nUEN1Z01jcW9SSlcraHEvTDJ0ZFN5ODVRb29NQVV2c3dBaTlN?=
- =?utf-8?B?WktZTHg2RDRtUTBMSjU4SkV6SlgwZ2lQKytVenVZdWp4VzlpanNieDF2aHFL?=
- =?utf-8?B?anBpUWFSTldpWk1RaG5UK0ZUL0lzeUlLZlRISWZFMXFxYzdmOENjNENmSTRX?=
- =?utf-8?B?Q0NTbzBEay9jRVBodk1BeVBKU3dHOWFNdUErZ0crQ0xGTW5YTDIyNW5XWG4x?=
- =?utf-8?B?SStLMURhbVN0QmdnbEpRaVlOU1NIRzF5eDRsNmtkSlRONmlXajFzZ2VkOVRV?=
- =?utf-8?B?ZDZ6Si9FN3UrZS9XL21CdDN4NEgzajNuSzNkMVl5ZEVsR1hOQXRoeG5IakZD?=
- =?utf-8?B?UUZXZmhVZENUakR5RGFheEswQlpsYXQ0dG5DU1VzdHNadngxdEJuNDR5MkFU?=
- =?utf-8?B?QU1QRGowSlhJQXNTL1hCSFYzdXlmNlBKYXljQkREdlhUcHJxTFA0UzJuNDUy?=
- =?utf-8?B?bHJiS2pvcW91RitZSW5ja0RmUHZ1WWRpUHEvSnZqa1JRWWdjQ0Z0VWFNMmJV?=
- =?utf-8?B?R0NBUW1WaTNVWGpUS2NVbHd4RGdPMm9wcnlJOHBMM3BiN1g5VEJGMVRUL1pT?=
- =?utf-8?B?cERwbExBZkFwWmxkenVRWm9TNVY3SE1EVWd4RTUxTlZhcUhvd05JY0Zqb2sw?=
- =?utf-8?B?Rk0xemNDSVAraTFyZnVkTVZsMGpPcjRDQktFemNJZGtTcncyRWt3bFMzeEdz?=
- =?utf-8?B?T3B0d3ZQdEg0ekIrSlo0anhrMGtBdFpmKzc3VURLVDAyTlUvQ1daWmJvbit5?=
- =?utf-8?B?VGV3cDU5K0t1eXp4OE9IM1NzblJTdmttbGRJVFVJQTdkY05CaThiSHkxOEhx?=
- =?utf-8?B?bldPendtOFhILytYam9KQkhxU0ZEeDJrMitFV0JRU2Q5QTJtbzlDR3pLSHE0?=
- =?utf-8?B?SktwT2ZWYzdBMFhhZklKK3lITlpVc2tsR085T3AvVGRBV0dUZ09McDRBSUFi?=
- =?utf-8?B?WEIwNlIyNlhyaXRjVG5FaTd0RUZrSEJ0S2tzbU04UlAyVTlzdjJQTVo3MHc2?=
- =?utf-8?B?TFp3cG1UdDZzQXczajZicW5meFV4d1JKQlhZQjN1bXZFWW8yVmorMklNZzJn?=
- =?utf-8?B?YTJJQTlMblNJb2J1RFZKSml0Q0pDdVgrSUk3K0paR2NYNzZPRnlYT05VR2Vs?=
- =?utf-8?B?dVdGOE9iTkNEL1VzaFZ5NlYyR3E0R3ZqSlp5WDl1RE8rdEoxR2tQOXVEVHJY?=
- =?utf-8?B?NnZnUEx1Y3dkMGlKelBYdnhBMTB0dWpveXhwRkkzNi9mTlFYcUZPSVFYZWkw?=
- =?utf-8?B?ZDFaeTlnekNjMFpTelBJb0hIVzd4MGFsVlJLKzdvVVNkZ2xYRDFvWXI1M0th?=
- =?utf-8?B?cTc2QnZWZDFBPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(366016)(19092799006)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|376014|366016|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VUo1eW1KbW5LMTJRMW50dk5kOE5qUm1VUlVDUUIrYit0YWpHbitBejFoSUZO?=
+ =?utf-8?B?QWN6Um9yWE5YcS9yRGFaakxvL3ZVeHhta3I1WVdrWndBMEJ2S3FPRHk2UGZQ?=
+ =?utf-8?B?NjJpdUhMaDdCT3R3ZnFHbEhsK1lMQVNaeS9MZVhZNURKWDBwZEFCVHZOb0VE?=
+ =?utf-8?B?YTZyUTNva2llZkpSYzJSTnpmY1B0b2FoZS93UFVra0NLK1hackRWU25MUHRx?=
+ =?utf-8?B?YVhXMys5MkNTNTAycjZtTHhwSTN1aG9hdXhKM21Nb0YzSjVpNEVNQzR0UG56?=
+ =?utf-8?B?d0l4aDZsYjFxSnhPd1FzS3JiN3NsRnl4b3ovV0xWbUlqTEdaRHNqWlkxc211?=
+ =?utf-8?B?TThhV2tCTlFLMGhsY1ZVS2J5RmFwR1AwdGQwTDQ5TkZUeFZqa3ZMaGlCT3RD?=
+ =?utf-8?B?eEVFbWhKWSt5ZVpzQldyaVphN3JZM0ZBbS91ZzU5ZlJtMnpVYXN2OEgxd2Q1?=
+ =?utf-8?B?U3lsS1ZLbnBnUE5SR2UvVHRVS0hGSlF5eXhmSjBRNGM3NCsyWXFReTNtQjR4?=
+ =?utf-8?B?NEVyZ2hOTVBIVzJLZ0grNGxmcENPOVplejhMR21tYjg1cWxVTWlYclhXclNi?=
+ =?utf-8?B?cFBtcFR1OENYcE1uaVFHcUR6YWVjUEtKQWM0Y25ZRTBuTFprMFg2Yi9DTXF2?=
+ =?utf-8?B?VnRQbTlxbnBOTWRJYjFITE9ZVDV2V3QxenlWLzBEV0NxN2hxUXVoTVozNFFU?=
+ =?utf-8?B?bWNkODlMUFNnQlE3WWlWc3R3MTlqL3pPL2xabk1hUnF0OHdFaDFKMVZReWNS?=
+ =?utf-8?B?YTNJeTRQSnNVTGtmeFZUYzB6dXpOTXdGQjBUZStsbXQxZEMvbGdzWWxEUUZG?=
+ =?utf-8?B?bnZTOHg5T1B1NTFvMjk3NmpnM3M4SUNTMERUaHBVZnhLTUZKbEVVcFk3cm9o?=
+ =?utf-8?B?KzF2Mk1ISm5rUDZEendaUXhhcGlSMGl2aDZSczRDV0tidW0zVGYwcEZURFFk?=
+ =?utf-8?B?bWRLcTFzbXRxY1o2eENLVUdUZE0rbEFXdUUrWDFLRjhhVmZkVHIzZWswNGx0?=
+ =?utf-8?B?ZFluM1RKZ3ZhbmQ3b1hiMEp6TlJacEswYTNxbTlwYUIrUFJnUDk2WU5nV1VP?=
+ =?utf-8?B?ZnVSOUpUZDgzODdhOHUwTDBHR3BVRVRxYi9ZckFqRFF0eldndkwwZE5PV0g3?=
+ =?utf-8?B?TDlNMW1OM1RacWJqdjdZTllVNkZEQXRkUFM1TDlBb1JabEJ3Q2RCK1g4bEhv?=
+ =?utf-8?B?bVJGK2RKM2VYdThydW9CdW5FMER1RkYzYkdoVXJLNTdUM0ZDRklEdE8rNWZo?=
+ =?utf-8?B?WWphblRDYUUxVWxvRW9KUFV1VUJlQ2hSSitMNVMzaDNuWCtMZS9GcTN3WlB2?=
+ =?utf-8?B?K1ZSZG4xTTEzQmhTWE81T1dhWTFIS2JYMGNabjRoMHlzWkxUaXA2Vk51cHNK?=
+ =?utf-8?B?Q0x5YzdNSUJ0NjRhTGM5NUZ1K0UySDc4aFovaVNpNWRKZkUzaUxBMWw5UGsx?=
+ =?utf-8?B?Z29ieTVDcnNadTJqUVdJa1hMOUVoQWRUeUxQd0dYVks2LzFFMHJFUHovZEls?=
+ =?utf-8?B?YUU2ZzR2MkJaUkZ6RFA2K3Y1a3EvZzhHNjJtL0FueWM2Z1NlemtrN05UTEVp?=
+ =?utf-8?B?OCsrQklNM0pBNDlkV01ES2UxUlhQbVg1SkduWE4wYkVQcW5uTFRPSmN6ZDVr?=
+ =?utf-8?B?TXY5blh0Zm9rL2hzQ3FLRjd5S1BCUktzckNwN05mTW56UGgxNSt2ZDE4ZlZp?=
+ =?utf-8?B?dDJlNSthSkJtbHNwR1RYMTNLUTFaV29YVSs2YUNXWHJaTnUxbDh6T1pzYm8r?=
+ =?utf-8?B?SFg2WGtXOWt1NE9MNm52OFRuVEdJUFZZZHZRbGYzaE0xOC9Hc3cyQVZxRFEr?=
+ =?utf-8?B?L0xZT1RRRWExbEV6NnZCc0k3L01QcGhldDBuOStIcmRGVHlGd1pmTEVlUzl3?=
+ =?utf-8?B?eDFFdkFnNndQWVlrajI2bUEvUk5Qd3VDOXBGWWhWSVpaai9UU2dkQkM2MVMy?=
+ =?utf-8?Q?fiy2aIQU54E=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(376014)(366016)(19092799006)(38350700014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WWthTWl5UVNEMi9YbjUvWmZtaDRWb3l5NDliRkZwZFBvRVRYSVAxN3RrV05C?=
- =?utf-8?B?cFJSVFp1bnQ3Z0NZeDE0TkVzNUgvVnhrc2VkRnNXQ2dLYTNLZ0l0emhJK1Nk?=
- =?utf-8?B?cVVQWm5VQXpFTVk2R2FOZVJZS3l4bW15amxBN3Q2czNwZ0RJbmRTVWRWUHNa?=
- =?utf-8?B?TzNQTnBWdUdReW9oVDhyNUpTM2FYSGo1RzlxMW5yZHFWMGlnTlN6bTVHbG5v?=
- =?utf-8?B?cmZramF6c1NTdmVCRlpvRnVDMG5PdU1jUHVacjFwNmJPNDV0LzZqUGUrSFJ5?=
- =?utf-8?B?ZFBpMDFIYjFJNm02V1dNZHNGNUZPbDJUL2ZWTVR2TUFORFFuMmlaNTlIYjM1?=
- =?utf-8?B?MjUyRnVLVW5lRkE1d3VzSURzVE1YdDVESzRlNVU5eXFrWHovTDJrSU0vM2dM?=
- =?utf-8?B?dnl3M3hZZDl6SC94L3pyQlptYUEwQkQxckp0NGRIU0pVLzJSZnJ2aHZTczJM?=
- =?utf-8?B?YkFxMnV3RytkaFpRZlZWNmJNVTduYmxXYUh3VzY5ZGVIcEIxTHVQTFQ3c0pY?=
- =?utf-8?B?UWNPL3lwVGY2QUtQVmJITGlmWm1qUXEzcVdaS3RERUl3NGVsY0p2MW5KeVZv?=
- =?utf-8?B?R1M0N1Q0dFVwN2xwZDlMMUxyMTEzS0gxbkpvZnkzMHFZSTlkbWQxS1VPYTZF?=
- =?utf-8?B?SnBpcUVtQWEyN3JNQVJ5enVlN2ZlcmV3eVVMaXJ4QytsbkZ0bVdubjBxQVNM?=
- =?utf-8?B?eDN3aDJjYjBEVk42N2VQdDdNcWhrcmlmL2M3NGh6V2hBZEphMWh2cWpsSkdr?=
- =?utf-8?B?eFQwYUJWZkthcmo0V0pGKzFqNXJaZ3VxNFA3UE1oaHhQZjQyNE1SSEZDVjNa?=
- =?utf-8?B?c0ZqY3I0ZzJ6V0cxNDFzbGl1UUkweW84RDdqcE1VbW1Md2wrTkx4Qjg2VFht?=
- =?utf-8?B?MStnSVJxY3FxdTBjY3hrUEtad2lvaVhmREpjUnJjTWxmY25PMHRmMCs5SjV0?=
- =?utf-8?B?M0xMYTRvdDZTaElqc1prR0JUbHdhTGR2TWJhdHp0S0tmSHZDazJMeXg4bEps?=
- =?utf-8?B?TEZZNU5YTGtCRUhCR2FIcUhQb1JJZlNFeG1IWEpXM3lpY2Y0OXNXNCtLVUlZ?=
- =?utf-8?B?L0VvK0VzUkRsdEI2TVV5emUxaVlKNkVkU21wNHZrSTBPczZ6RkZhbnZBODdH?=
- =?utf-8?B?alRxUi9Md0VEc0NqcDlvU0hkdXk4eDBHaEpqL2NxaEpBYW51Mktpd1JUOWV6?=
- =?utf-8?B?ZUU1YmZvNGdtT3NiZTcwSjBJME02YTUxcytoUythcG4xRlFkVkFSQkFydWt1?=
- =?utf-8?B?b09OcjVFMUd0emRlWFhGZzVHL01VOGxpbDdWeDd0UVpOZVVBcWFuaE5VcUVG?=
- =?utf-8?B?UENrcGJ5K3VBZkV0Sng3K0lvNHk2bXBEM1BGYTU0WDhmRGc5V1F2NmRwYlZX?=
- =?utf-8?B?dXQ3U29palowLzhicUxxTEdzeVp3c1JvUG1lSkRoSFFhaHJvcVFObGZyVlpS?=
- =?utf-8?B?dFNUL2l6aENKYjFpVjI5U29ZQXpnb28rd2lGRkxCY2FlUE81VkNCelJJa3ZP?=
- =?utf-8?B?Q2Qvb3Z5RmxvMFBHMFpuR3hpNlF4Wnp5ZGJQNWxSOEhYd1hEUXZGR3N2cVFm?=
- =?utf-8?B?d2pzWUhFN2lRbUVsRFFEMW5OT3ZUdEJzZHdRdHVHTFFFMDBtSXZ5dVVrUjZL?=
- =?utf-8?B?dUVFVGxTbFlJeEY4WGt4RjV4MVAxRUVkQUFydC9yR0RtcVhDbkhYNXN6dWVu?=
- =?utf-8?B?MWtKUjZ5eVVWcmJFVVFFanFWQm9yTTEwYkhsM1lEQkc2MmJhMXRRVnROS21N?=
- =?utf-8?B?QXF1eUl6V1l3SWIyUHA2Y3RVQUd3WGZpYTNuRnJsazMxOWZiZ2kxT3RnSkdQ?=
- =?utf-8?B?OUlkdWVmL3BNbjVKTGw0WDZndmM4SEJoOFp6OVoramJPa0NBWnEzZWhTUFRp?=
- =?utf-8?B?eUlBZFVndWViY0wyWTc0alpucHpVNXhSM3Zrd0l4cTJlMEtGNXh5d21qQ2Rv?=
- =?utf-8?B?N09pN3BjNER1RWNxaDdIL3hpcmhLWjU4LzlTMTF2TDlIRTZURzBybDlCWGQv?=
- =?utf-8?B?M3ZOWXcrVXhzOThVSUhpNlZpenBpTVdlb1l2R3g1czg0dTZoNXQrbzZIWU00?=
- =?utf-8?B?YmVUNW45cFdUQ3dEUUN1YW1ySTQzNG9ITHY1ajJBdjJyeTZxTnZpeTBEYzIx?=
- =?utf-8?Q?vHPjQPW6OqLJw/kOaaybdZgT6?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?N3lJWnJWekQzZ0pqeC82L2pGSEQ3b3AyV1YrV2RJbEREWDRwcHJheExQN2Jr?=
+ =?utf-8?B?azVKZHJRT0lDRWdLNjdoczBJZUREMzdLSDhIWVc2NXRPRUV4N2pkWUhSTjlS?=
+ =?utf-8?B?RUZpQllaSXg3amNBeHE3c2lMVmE1bm1RRWx6OW8yMVVncm1XMnE3MkIxQitR?=
+ =?utf-8?B?c011VUJZQmxqSjRvcTdCVUJPRHhlMWhmenpHYzMyUi9PdXhLY05VWjRxaVJT?=
+ =?utf-8?B?Mzc4ZWRaUEZBSTloUm44UWxvUC9VTkNhZ2lnYnFsalJQbjl6VitGaTM2NGZm?=
+ =?utf-8?B?RkdTL1IzanNQcWVQamIyS05tTzI4M0pybDF3eEZDN3NNUkJ4WS93ZlZUSTUx?=
+ =?utf-8?B?REVPcVRTdy80dW94aERteENDa3creFhxM05DRDZVSXdySldiekx2eW9kM2tx?=
+ =?utf-8?B?Y1dQeUdsSkRhV3hiQU9UTkU0aEZUVTdmd0c1eC9mZGVaNE9zUHU0bElxQmRt?=
+ =?utf-8?B?RkxnakxHbXlDSmlvWFN4QWw1YUVCNHRnaTNQNmVGdWdhUVYrLzZDdThjam5a?=
+ =?utf-8?B?R2J4YUVSMjd5cGkyajJ5K1VoNldnNVFVQWUxbmxnUUdCakNwT2ladi81SjBT?=
+ =?utf-8?B?WDZxUVZEbnUzNnFTWmg1OTNMOUlXUnI5dEFhU2hMN3VRdFFMVmF6NU1wNUxu?=
+ =?utf-8?B?cmczRzdMQTFrZUl6MFYrR3U4MU82QzhDZ0gyaWFMdW5TZ2NxR0xuWjBVaHUx?=
+ =?utf-8?B?UHQyV0pUTDU3ekVaUEVUK1V5VDFLVHRFeTBFK01qNU5CWGRnWGJkRno3bEtz?=
+ =?utf-8?B?WGRzbXhrL0ZUYjltcUhIbjRLdkg5NDI4dWd0ZkR2RFIxcmo3UkVGSXFaeVVK?=
+ =?utf-8?B?aVZqcUNndjZzY3JldzBBM1ZRSTgxRG9lVFBuSDV0ZkRGRmRPRkhZczV1aHZU?=
+ =?utf-8?B?QkpCZ2xkZklFd1VEb1FQR29Sc3BiVEtqMTlHYzk5bkVvaXZOOGVoODhidDZY?=
+ =?utf-8?B?RlpkSGxZSkg0eUYzYVVVcW4vWUhtTjhUUXhqeUJKajh1K2hkWmhBQitpQS9v?=
+ =?utf-8?B?SXBERnorN3BsK1U3dmx3VnNkdk1PQTlMRXJoMTZsaXlTNk4ybkl3aVArQUlp?=
+ =?utf-8?B?RHU2Qm1BK205NlFiVTE1NE9sV3JyNnZacTlYYjVmK3A4aERGdkxTV3h2eHNv?=
+ =?utf-8?B?RmVLWC9BYUN0ZkdzcExkbnBqVGRpMk9qR0xsVGtwMnMzL0grYWhxQ2xMSzhw?=
+ =?utf-8?B?ZXdENUxrWGdjRzIzdWtnaGpJdXlzUEI5aW91dzhJUzlyMm5xd0d1ODFKZSth?=
+ =?utf-8?B?Z0U3QzhJZHd0N1VtbHNRQlFxblF0K3VhVTRlZ1NicURQM1Z1VjVDdGNJVk8r?=
+ =?utf-8?B?eHB0L29PeXl1YXNvRVI1eG5MeHVpdUNsK3I2VEQ5V2U2Lzl1dnl3VE05bFZw?=
+ =?utf-8?B?b2d4QzcyS3hBb01TdTNxTE5qUklrWi8rN29kcUx0a3l4dEhNcm5INnNxZDVY?=
+ =?utf-8?B?aGhzd3lNOXE3WkJTYTFFL0FVZ1FodnhaRWw4ZU42Qzd6d29jVGZ6SmQxQ3Uv?=
+ =?utf-8?B?K0Q2THE3ZmY3Rk5RMEI4L0YxTkt6bElOcWxaL0dCdGFrUGpycXBoSEpBeDJ0?=
+ =?utf-8?B?ZEpQSmZIM3oxNEtmcW9JdGZrZThUeTdQMUIyS1J5enhSbmttdWo3akkrZUlp?=
+ =?utf-8?B?dnBEdmJmalpmQ2JOMGtpWVhWejhudWVBL3o1dUtvQWh5OElYZGVNeUsyUjlB?=
+ =?utf-8?B?QzlBM2lzRGl4L2t4bWE4M3Z6SlBsZkZ1U2ZBaWV6NWd3R2xEMEFnU3dNeTBK?=
+ =?utf-8?B?UkI5TXJpYTYrZUVKL0NiOWdnY1pJNlRVR0xNb3VzODFmT0dUU2pXM3NLK0xu?=
+ =?utf-8?B?Q3A0TTQrMTBzd09QM1lrcmsrcGQzd00yTmJqNzd2UWtWREpwditUNmM5Y1hu?=
+ =?utf-8?B?VVI5MUFqcnl6K1hTU3E4VTZSMWpNZDdsSzhMajFSVjVGVGxEMWtBNUU5QXJx?=
+ =?utf-8?B?Z3l4R0lpSnFhcDdYOTdlaXI0WGg3WVI1UlhTLzUrb2Q5UHV5WEo0OHhISmwz?=
+ =?utf-8?B?UnNGTmsyYy9ORzNvNlVVUzdzTlp0dytaODBsNVY1VlZHbEFYRkt4ZTFqZ0pw?=
+ =?utf-8?B?R0I1VFdvdHVGY3YvSnRGdjRrUlJaTXNsekd1ZElpTzEyMmpOaWphbFF4WThF?=
+ =?utf-8?Q?T+8EUUH6IEa/niDj78l0+oX8P?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b07b8020-6488-4360-1319-08ddeb274aa6
+X-MS-Exchange-CrossTenant-Network-Message-Id: 159529a0-c7d7-4294-f7d8-08ddeb275a73
 X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2025 20:20:14.6810
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2025 20:20:41.2032
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: VWSBPGbTuUpnzIPdrdVBkBXiWdoXuZXPxoxrKnRafKxpxJ7pFDSMhQcmM5cPwPO62iWcMOz85ySPe8Z17/OIzQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7337
+X-MS-Exchange-CrossTenant-UserPrincipalName: yfZrCmWSx4oBR/s7rSsxyc5dg+NDJLv4LBs8765n6+joWaSfAf32hI5rTXxr3iUKUa3Je9jkvUeSt+k61yvcfw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6890
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_132019_625465_48E90651 
-X-CRM114-Status: GOOD (  13.97  )
+X-CRM114-CacheID: sfid-20250903_132048_646634_60785A36 
+X-CRM114-Status: GOOD (  10.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,1111 +185,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add key- prefix for gpio-keys and rename button_0 to button-0 to fix below
-CHECK_DTB warning:
-  arch/arm/boot/dts/nxp/imx/imx6q-gw51xx.dtb: gpio-keys (gpio-keys): 'eeprom-wp', ...  do not match any of the regexes: '^(button|...))$', 'pinctrl-[0-9]+
+Add required power supply for ov5640.
+
+Fix below CHECK_DTBS warnings:
+arch/arm/boot/dts/nxp/imx/imx6ul-14x14-evk.dtb: camera@3c (ovti,ov5640): 'AVDD-supply' is a required property
+        from schema $id: http://devicetree.org/schemas/media/i2c/ovti,ov5640.yaml#
 
 Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
- arch/arm/boot/dts/nxp/imx/imx6qdl-cubox-i.dtsi               |  2 +-
- arch/arm/boot/dts/nxp/imx/imx6qdl-emcon.dtsi                 |  2 +-
- arch/arm/boot/dts/nxp/imx/imx6qdl-gw51xx.dtsi                | 10 +++++-----
- arch/arm/boot/dts/nxp/imx/imx6qdl-gw52xx.dtsi                | 10 +++++-----
- arch/arm/boot/dts/nxp/imx/imx6qdl-gw53xx.dtsi                | 10 +++++-----
- arch/arm/boot/dts/nxp/imx/imx6qdl-gw54xx.dtsi                | 10 +++++-----
- arch/arm/boot/dts/nxp/imx/imx6qdl-gw551x.dtsi                | 10 +++++-----
- arch/arm/boot/dts/nxp/imx/imx6qdl-gw552x.dtsi                | 10 +++++-----
- arch/arm/boot/dts/nxp/imx/imx6qdl-gw553x.dtsi                | 10 +++++-----
- arch/arm/boot/dts/nxp/imx/imx6qdl-gw560x.dtsi                | 10 +++++-----
- arch/arm/boot/dts/nxp/imx/imx6qdl-gw5903.dtsi                | 10 +++++-----
- arch/arm/boot/dts/nxp/imx/imx6qdl-gw5904.dtsi                | 10 +++++-----
- arch/arm/boot/dts/nxp/imx/imx6qdl-gw5907.dtsi                | 10 +++++-----
- arch/arm/boot/dts/nxp/imx/imx6qdl-gw5910.dtsi                | 10 +++++-----
- arch/arm/boot/dts/nxp/imx/imx6qdl-gw5912.dtsi                | 10 +++++-----
- arch/arm/boot/dts/nxp/imx/imx6qdl-gw5913.dtsi                | 10 +++++-----
- arch/arm/boot/dts/nxp/imx/imx6qdl-nit6xlite.dtsi             |  4 ++--
- arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6_max.dtsi         | 12 ++++++------
- arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6_som2.dtsi        | 12 ++++++------
- arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6x.dtsi            | 12 ++++++------
- .../boot/dts/nxp/imx/imx6qdl-phytec-mira-peb-eval-01.dtsi    |  4 ++--
- arch/arm/boot/dts/nxp/imx/imx6qdl-sabreauto.dtsi             | 10 +++++-----
- arch/arm/boot/dts/nxp/imx/imx6qdl-sabrelite.dtsi             | 12 ++++++------
- arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi               |  6 +++---
- arch/arm/boot/dts/nxp/imx/imx6qdl-savageboard.dtsi           |  2 +-
- arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi                   |  2 +-
- arch/arm/boot/dts/nxp/imx/imx6sx-sdb.dtsi                    |  4 ++--
- .../boot/dts/nxp/imx/imx6ul-phytec-segin-peb-eval-01.dtsi    |  2 +-
- arch/arm/boot/dts/nxp/imx/imx6ull-colibri-aster.dtsi         |  2 +-
- arch/arm/boot/dts/nxp/imx/imx6ull-colibri-iris.dtsi          |  2 +-
- arch/arm/boot/dts/nxp/imx/imx7s-warp.dts                     |  2 +-
- 31 files changed, 116 insertions(+), 116 deletions(-)
+ arch/arm/boot/dts/nxp/imx/imx6ul-14x14-evk.dtsi | 23 +++++++++++++++++++++++
+ 1 file changed, 23 insertions(+)
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-cubox-i.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-cubox-i.dtsi
-index 41d073f5bfe7a5d42ecfe34341d8dc8a39f73801..c504cf7e9492a339658e60cff18ea7d86f3fbc4d 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-cubox-i.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-cubox-i.dtsi
-@@ -118,7 +118,7 @@ gpio-keys {
- 		pinctrl-0 = <&pinctrl_gpio_key>;
- 		pinctrl-names = "default";
- 
--		button_0 {
-+		button-0 {
- 			label = "Button 0";
- 			gpios = <&gpio3 8 GPIO_ACTIVE_LOW>;
- 			linux,code = <BTN_0>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-emcon.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-emcon.dtsi
-index 97763db3959fb1d5906b564ccedc0d1c13a7e02b..6fb873c2983fc03195ffa46245ca89813ca3d999 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-emcon.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-emcon.dtsi
-@@ -33,7 +33,7 @@ gpio-keys {
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&pinctrl_emcon_wake>;
- 
--		wake {
-+		key-wake {
- 			label = "Wake";
- 			linux,code = <KEY_WAKEUP>;
- 			gpios = <&gpio3 2 GPIO_ACTIVE_LOW>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw51xx.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw51xx.dtsi
-index c61e70469b66003c1fe62c75dbcd9608a11661ea..d92d26e40a1cf1c29b6fa9a630858b87ebd15a12 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw51xx.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw51xx.dtsi
-@@ -24,13 +24,13 @@ chosen {
- 	gpio-keys {
- 		compatible = "gpio-keys";
- 
--		user-pb {
-+		key-user-pb {
- 			label = "user_pb";
- 			gpios = <&gsc_gpio 0 GPIO_ACTIVE_LOW>;
- 			linux,code = <BTN_0>;
- 		};
- 
--		user-pb1x {
-+		key-user-pb1x {
- 			label = "user_pb1x";
- 			linux,code = <BTN_1>;
- 			interrupt-parent = <&gsc>;
-@@ -44,21 +44,21 @@ key-erased {
- 			interrupts = <1>;
- 		};
- 
--		eeprom-wp {
-+		key-eeprom-wp {
- 			label = "eeprom_wp";
- 			linux,code = <BTN_3>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <2>;
- 		};
- 
--		tamper {
-+		key-tamper {
- 			label = "tamper";
- 			linux,code = <BTN_4>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <5>;
- 		};
- 
--		switch-hold {
-+		key-switch-hold {
- 			label = "switch_hold";
- 			linux,code = <BTN_5>;
- 			interrupt-parent = <&gsc>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw52xx.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw52xx.dtsi
-index 4f66271bf4a4624cdc6403955022f8fdb69a0c4d..c1d124ad1d66139c62c52bffd9b22f81e3e3792f 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw52xx.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw52xx.dtsi
-@@ -33,13 +33,13 @@ backlight {
- 	gpio-keys {
- 		compatible = "gpio-keys";
- 
--		user-pb {
-+		key-user-pb {
- 			label = "user_pb";
- 			gpios = <&gsc_gpio 0 GPIO_ACTIVE_LOW>;
- 			linux,code = <BTN_0>;
- 		};
- 
--		user-pb1x {
-+		key-user-pb1x {
- 			label = "user_pb1x";
- 			linux,code = <BTN_1>;
- 			interrupt-parent = <&gsc>;
-@@ -53,21 +53,21 @@ key-erased {
- 			interrupts = <1>;
- 		};
- 
--		eeprom-wp {
-+		key-eeprom-wp {
- 			label = "eeprom_wp";
- 			linux,code = <BTN_3>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <2>;
- 		};
- 
--		tamper {
-+		key-tamper {
- 			label = "tamper";
- 			linux,code = <BTN_4>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <5>;
- 		};
- 
--		switch-hold {
-+		key-switch-hold {
- 			label = "switch_hold";
- 			linux,code = <BTN_5>;
- 			interrupt-parent = <&gsc>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw53xx.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw53xx.dtsi
-index cdb40046bd7e58319c897d45c74c9e9c0afe9867..63e604537b06e6af5596298f930dd1e73afee952 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw53xx.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw53xx.dtsi
-@@ -33,13 +33,13 @@ backlight {
- 	gpio-keys {
- 		compatible = "gpio-keys";
- 
--		user-pb {
-+		key-user-pb {
- 			label = "user_pb";
- 			gpios = <&gsc_gpio 0 GPIO_ACTIVE_LOW>;
- 			linux,code = <BTN_0>;
- 		};
- 
--		user-pb1x {
-+		key-user-pb1x {
- 			label = "user_pb1x";
- 			linux,code = <BTN_1>;
- 			interrupt-parent = <&gsc>;
-@@ -53,21 +53,21 @@ key-erased {
- 			interrupts = <1>;
- 		};
- 
--		eeprom-wp {
-+		key-eeprom-wp {
- 			label = "eeprom_wp";
- 			linux,code = <BTN_3>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <2>;
- 		};
- 
--		tamper {
-+		key-tamper {
- 			label = "tamper";
- 			linux,code = <BTN_4>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <5>;
- 		};
- 
--		switch-hold {
-+		key-switch-hold {
- 			label = "switch_hold";
- 			linux,code = <BTN_5>;
- 			interrupt-parent = <&gsc>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw54xx.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw54xx.dtsi
-index 94f1d1ae59aa224d14bdcdf4d06d1bd2b6f8f6fc..66a7b3e03fa1214f4ee56b16835b342328867b3c 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw54xx.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw54xx.dtsi
-@@ -34,13 +34,13 @@ backlight {
- 	gpio-keys {
- 		compatible = "gpio-keys";
- 
--		user-pb {
-+		key-user-pb {
- 			label = "user_pb";
- 			gpios = <&gsc_gpio 0 GPIO_ACTIVE_LOW>;
- 			linux,code = <BTN_0>;
- 		};
- 
--		user-pb1x {
-+		key-user-pb1x {
- 			label = "user_pb1x";
- 			linux,code = <BTN_1>;
- 			interrupt-parent = <&gsc>;
-@@ -54,21 +54,21 @@ key-erased {
- 			interrupts = <1>;
- 		};
- 
--		eeprom-wp {
-+		key-eeprom-wp {
- 			label = "eeprom_wp";
- 			linux,code = <BTN_3>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <2>;
- 		};
- 
--		tamper {
-+		key-tamper {
- 			label = "tamper";
- 			linux,code = <BTN_4>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <5>;
- 		};
- 
--		switch-hold {
-+		key-switch-hold {
- 			label = "switch_hold";
- 			linux,code = <BTN_5>;
- 			interrupt-parent = <&gsc>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw551x.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw551x.dtsi
-index 4db5ef4a3e563dc0889f9a21fffe3818c74d499b..07cb36e65df7c99b7e3a2f650f354f6e31fce3aa 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw551x.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw551x.dtsi
-@@ -26,13 +26,13 @@ chosen {
- 	gpio-keys {
- 		compatible = "gpio-keys";
- 
--		user-pb {
-+		key-user-pb {
- 			label = "user_pb";
- 			gpios = <&gsc_gpio 0 GPIO_ACTIVE_LOW>;
- 			linux,code = <BTN_0>;
- 		};
- 
--		user-pb1x {
-+		key-user-pb1x {
- 			label = "user_pb1x";
- 			linux,code = <BTN_1>;
- 			interrupt-parent = <&gsc>;
-@@ -46,21 +46,21 @@ key-erased {
- 			interrupts = <1>;
- 		};
- 
--		eeprom-wp {
-+		key-eeprom-wp {
- 			label = "eeprom_wp";
- 			linux,code = <BTN_3>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <2>;
- 		};
- 
--		tamper {
-+		key-tamper {
- 			label = "tamper";
- 			linux,code = <BTN_4>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <5>;
- 		};
- 
--		switch-hold {
-+		key-switch-hold {
- 			label = "switch_hold";
- 			linux,code = <BTN_5>;
- 			interrupt-parent = <&gsc>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw552x.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw552x.dtsi
-index 5d5ef18a05936eda6fbd6f21911e933d3a17959e..f152ebbd203dfa1aa3caf793c6c485026ab58bdf 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw552x.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw552x.dtsi
-@@ -25,13 +25,13 @@ chosen {
- 	gpio-keys {
- 		compatible = "gpio-keys";
- 
--		user-pb {
-+		key-user-pb {
- 			label = "user_pb";
- 			gpios = <&gsc_gpio 0 GPIO_ACTIVE_LOW>;
- 			linux,code = <BTN_0>;
- 		};
- 
--		user-pb1x {
-+		key-user-pb1x {
- 			label = "user_pb1x";
- 			linux,code = <BTN_1>;
- 			interrupt-parent = <&gsc>;
-@@ -45,21 +45,21 @@ key-erased {
- 			interrupts = <1>;
- 		};
- 
--		eeprom-wp {
-+		key-eeprom-wp {
- 			label = "eeprom_wp";
- 			linux,code = <BTN_3>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <2>;
- 		};
- 
--		tamper {
-+		key-tamper {
- 			label = "tamper";
- 			linux,code = <BTN_4>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <5>;
- 		};
- 
--		switch-hold {
-+		key-switch-hold {
- 			label = "switch_hold";
- 			linux,code = <BTN_5>;
- 			interrupt-parent = <&gsc>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw553x.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw553x.dtsi
-index a9dfa7cb69ef5872ba6601286c618aef99de21c5..aef920c192b564d5ad4f7a99d128c786e2fd886e 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw553x.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw553x.dtsi
-@@ -24,13 +24,13 @@ chosen {
- 	gpio-keys {
- 		compatible = "gpio-keys";
- 
--		user-pb {
-+		key-user-pb {
- 			label = "user_pb";
- 			gpios = <&gsc_gpio 0 GPIO_ACTIVE_LOW>;
- 			linux,code = <BTN_0>;
- 		};
- 
--		user-pb1x {
-+		key-user-pb1x {
- 			label = "user_pb1x";
- 			linux,code = <BTN_1>;
- 			interrupt-parent = <&gsc>;
-@@ -44,21 +44,21 @@ key-erased {
- 			interrupts = <1>;
- 		};
- 
--		eeprom-wp {
-+		key-eeprom-wp {
- 			label = "eeprom_wp";
- 			linux,code = <BTN_3>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <2>;
- 		};
- 
--		tamper {
-+		key-tamper {
- 			label = "tamper";
- 			linux,code = <BTN_4>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <5>;
- 		};
- 
--		switch-hold {
-+		key-switch-hold {
- 			label = "switch_hold";
- 			linux,code = <BTN_5>;
- 			interrupt-parent = <&gsc>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw560x.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw560x.dtsi
-index 11483daa59fc2c1bead0cff5284415a158b44136..ea92b2b5c50d93b2e3a03d3a6f8d7526bb8e6785 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw560x.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw560x.dtsi
-@@ -50,13 +50,13 @@ backlight-keypad {
- 	gpio-keys {
- 		compatible = "gpio-keys";
- 
--		user-pb {
-+		key-user-pb {
- 			label = "user_pb";
- 			gpios = <&gsc_gpio 0 GPIO_ACTIVE_LOW>;
- 			linux,code = <BTN_0>;
- 		};
- 
--		user-pb1x {
-+		key-user-pb1x {
- 			label = "user_pb1x";
- 			linux,code = <BTN_1>;
- 			interrupt-parent = <&gsc>;
-@@ -70,21 +70,21 @@ key-erased {
- 			interrupts = <1>;
- 		};
- 
--		eeprom-wp {
-+		key-eeprom-wp {
- 			label = "eeprom_wp";
- 			linux,code = <BTN_3>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <2>;
- 		};
- 
--		tamper {
-+		key-tamper {
- 			label = "tamper";
- 			linux,code = <BTN_4>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <5>;
- 		};
- 
--		switch-hold {
-+		key-switch-hold {
- 			label = "switch_hold";
- 			linux,code = <BTN_5>;
- 			interrupt-parent = <&gsc>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw5903.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw5903.dtsi
-index c48dd7d06bce7fc86e2ad4428a178b9d572f7f86..b518bcb6b7a99673de2a7eb49e2a34b75d41fb29 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw5903.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw5903.dtsi
-@@ -34,13 +34,13 @@ backlight {
- 	gpio-keys {
- 		compatible = "gpio-keys";
- 
--		user-pb {
-+		key-user-pb {
- 			label = "user_pb";
- 			gpios = <&gsc_gpio 0 GPIO_ACTIVE_LOW>;
- 			linux,code = <BTN_0>;
- 		};
- 
--		user-pb1x {
-+		key-user-pb1x {
- 			label = "user_pb1x";
- 			linux,code = <BTN_1>;
- 			interrupt-parent = <&gsc>;
-@@ -54,21 +54,21 @@ key-erased {
- 			interrupts = <1>;
- 		};
- 
--		eeprom-wp {
-+		key-eeprom-wp {
- 			label = "eeprom_wp";
- 			linux,code = <BTN_3>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <2>;
- 		};
- 
--		tamper {
-+		key-tamper {
- 			label = "tamper";
- 			linux,code = <BTN_4>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <5>;
- 		};
- 
--		switch-hold {
-+		key-switch-hold {
- 			label = "switch_hold";
- 			linux,code = <BTN_5>;
- 			interrupt-parent = <&gsc>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw5904.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw5904.dtsi
-index 2d24f9bc4106ae185ec8cbccd866089278218879..3df4d345da9898762a55e31a1c2d139116321f76 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw5904.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw5904.dtsi
-@@ -36,13 +36,13 @@ backlight {
- 	gpio-keys {
- 		compatible = "gpio-keys";
- 
--		user-pb {
-+		key-user-pb {
- 			label = "user_pb";
- 			gpios = <&gsc_gpio 0 GPIO_ACTIVE_LOW>;
- 			linux,code = <BTN_0>;
- 		};
- 
--		user-pb1x {
-+		key-user-pb1x {
- 			label = "user_pb1x";
- 			linux,code = <BTN_1>;
- 			interrupt-parent = <&gsc>;
-@@ -56,21 +56,21 @@ key-erased {
- 			interrupts = <1>;
- 		};
- 
--		eeprom-wp {
-+		key-eeprom-wp {
- 			label = "eeprom_wp";
- 			linux,code = <BTN_3>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <2>;
- 		};
- 
--		tamper {
-+		key-tamper {
- 			label = "tamper";
- 			linux,code = <BTN_4>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <5>;
- 		};
- 
--		switch-hold {
-+		key-switch-hold {
- 			label = "switch_hold";
- 			linux,code = <BTN_5>;
- 			interrupt-parent = <&gsc>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw5907.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw5907.dtsi
-index e214a5f2f191b68b05b5101dcc5917fe830845ef..b73a170940a0126ebef98343028994be3ba50bd7 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw5907.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw5907.dtsi
-@@ -24,13 +24,13 @@ chosen {
- 	gpio-keys {
- 		compatible = "gpio-keys";
- 
--		user-pb {
-+		key-user-pb {
- 			label = "user_pb";
- 			gpios = <&gsc_gpio 0 GPIO_ACTIVE_LOW>;
- 			linux,code = <BTN_0>;
- 		};
- 
--		user-pb1x {
-+		key-user-pb1x {
- 			label = "user_pb1x";
- 			linux,code = <BTN_1>;
- 			interrupt-parent = <&gsc>;
-@@ -44,21 +44,21 @@ key-erased {
- 			interrupts = <1>;
- 		};
- 
--		eeprom-wp {
-+		key-eeprom-wp {
- 			label = "eeprom_wp";
- 			linux,code = <BTN_3>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <2>;
- 		};
- 
--		tamper {
-+		key-tamper {
- 			label = "tamper";
- 			linux,code = <BTN_4>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <5>;
- 		};
- 
--		switch-hold {
-+		key-switch-hold {
- 			label = "switch_hold";
- 			linux,code = <BTN_5>;
- 			interrupt-parent = <&gsc>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw5910.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw5910.dtsi
-index 02bfec7af9f2cc752534a69ccd2926cd8747beb9..099ed2f94d61a0a5f594c4d85800a881c330a80d 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw5910.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw5910.dtsi
-@@ -27,13 +27,13 @@ memory@10000000 {
- 	gpio-keys {
- 		compatible = "gpio-keys";
- 
--		user-pb {
-+		key-user-pb {
- 			label = "user_pb";
- 			gpios = <&gsc_gpio 2 GPIO_ACTIVE_LOW>;
- 			linux,code = <BTN_0>;
- 		};
- 
--		user-pb1x {
-+		key-user-pb1x {
- 			label = "user_pb1x";
- 			linux,code = <BTN_1>;
- 			interrupt-parent = <&gsc>;
-@@ -47,21 +47,21 @@ key-erased {
- 			interrupts = <1>;
- 		};
- 
--		eeprom-wp {
-+		key-eeprom-wp {
- 			label = "eeprom_wp";
- 			linux,code = <BTN_3>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <2>;
- 		};
- 
--		tamper {
-+		key-tamper {
- 			label = "tamper";
- 			linux,code = <BTN_4>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <5>;
- 		};
- 
--		switch-hold {
-+		key-switch-hold {
- 			label = "switch_hold";
- 			linux,code = <BTN_5>;
- 			interrupt-parent = <&gsc>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw5912.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw5912.dtsi
-index add700bc11cc19807afca30d057bddb1d9dda8cd..cbca5e58e81211506987f38556da024467ddf48a 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw5912.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw5912.dtsi
-@@ -25,13 +25,13 @@ chosen {
- 	gpio-keys {
- 		compatible = "gpio-keys";
- 
--		user-pb {
-+		key-user-pb {
- 			label = "user_pb";
- 			gpios = <&gsc_gpio 0 GPIO_ACTIVE_LOW>;
- 			linux,code = <BTN_0>;
- 		};
- 
--		user-pb1x {
-+		key-user-pb1x {
- 			label = "user_pb1x";
- 			linux,code = <BTN_1>;
- 			interrupt-parent = <&gsc>;
-@@ -45,21 +45,21 @@ key-erased {
- 			interrupts = <1>;
- 		};
- 
--		eeprom-wp {
-+		key-eeprom-wp {
- 			label = "eeprom_wp";
- 			linux,code = <BTN_3>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <2>;
- 		};
- 
--		tamper {
-+		key-tamper {
- 			label = "tamper";
- 			linux,code = <BTN_4>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <5>;
- 		};
- 
--		switch-hold {
-+		key-switch-hold {
- 			label = "switch_hold";
- 			linux,code = <BTN_5>;
- 			interrupt-parent = <&gsc>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw5913.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw5913.dtsi
-index 0dc239d4975c4583b22c0e38b3fde265a3198888..4e4dce5adc153e5668b2004d1edbb4b82ffb9655 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw5913.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw5913.dtsi
-@@ -24,13 +24,13 @@ chosen {
- 	gpio-keys {
- 		compatible = "gpio-keys";
- 
--		user-pb {
-+		key-user-pb {
- 			label = "user_pb";
- 			gpios = <&gsc_gpio 2 GPIO_ACTIVE_LOW>;
- 			linux,code = <BTN_0>;
- 		};
- 
--		user-pb1x {
-+		key-user-pb1x {
- 			label = "user_pb1x";
- 			linux,code = <BTN_1>;
- 			interrupt-parent = <&gsc>;
-@@ -44,21 +44,21 @@ key-erased {
- 			interrupts = <1>;
- 		};
- 
--		eeprom-wp {
-+		key-eeprom-wp {
- 			label = "eeprom_wp";
- 			linux,code = <BTN_3>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <2>;
- 		};
- 
--		tamper {
-+		key-tamper {
- 			label = "tamper";
- 			linux,code = <BTN_4>;
- 			interrupt-parent = <&gsc>;
- 			interrupts = <5>;
- 		};
- 
--		switch-hold {
-+		key-switch-hold {
- 			label = "switch_hold";
- 			linux,code = <BTN_5>;
- 			interrupt-parent = <&gsc>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-nit6xlite.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-nit6xlite.dtsi
-index 8ee65f9858c0fcfa40e69ee4c08a5baf50e1e178..8d471450d5c5c76131ab9677986228c1615f584e 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-nit6xlite.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-nit6xlite.dtsi
-@@ -57,13 +57,13 @@ gpio-keys {
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&pinctrl_gpio_keys>;
- 
--		home {
-+		key-home {
- 			label = "Home";
- 			gpios = <&gpio7 13 IRQ_TYPE_LEVEL_LOW>;
- 			linux,code = <102>;
- 		};
- 
--		back {
-+		key-back {
- 			label = "Back";
- 			gpios = <&gpio4 5 IRQ_TYPE_LEVEL_LOW>;
- 			linux,code = <158>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6_max.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6_max.dtsi
-index 43d474bbf55d1ca80e317cefa6326fcc81f83496..a096f4d985e753e280cd3f8b2f9ee26588c19e0f 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6_max.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6_max.dtsi
-@@ -86,38 +86,38 @@ gpio-keys {
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&pinctrl_gpio_keys>;
- 
--		power {
-+		key-power {
- 			label = "Power Button";
- 			gpios = <&gpio2 3 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_POWER>;
- 			wakeup-source;
- 		};
- 
--		menu {
-+		key-menu {
- 			label = "Menu";
- 			gpios = <&gpio2 1 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_MENU>;
- 		};
- 
--		home {
-+		key-home {
- 			label = "Home";
- 			gpios = <&gpio2 4 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_HOME>;
- 		};
- 
--		back {
-+		key-back {
- 			label = "Back";
- 			gpios = <&gpio2 2 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_BACK>;
- 		};
- 
--		volume-up {
-+		key-volume-up {
- 			label = "Volume Up";
- 			gpios = <&gpio7 13 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_VOLUMEUP>;
- 		};
- 
--		volume-down {
-+		key-volume-down {
- 			label = "Volume Down";
- 			gpios = <&gpio7 1 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_VOLUMEDOWN>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6_som2.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6_som2.dtsi
-index 8e64314fa8b2a6f69e10fa0577e49ef6bb931345..806af7f60419e7e81c8373cdbaca36453abbbba6 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6_som2.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6_som2.dtsi
-@@ -47,38 +47,38 @@ gpio-keys {
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&pinctrl_gpio_keys>;
- 
--		power {
-+		key-power {
- 			label = "Power Button";
- 			gpios = <&gpio2 3 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_POWER>;
- 			wakeup-source;
- 		};
- 
--		menu {
-+		key-menu {
- 			label = "Menu";
- 			gpios = <&gpio2 1 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_MENU>;
- 		};
- 
--		home {
-+		key-home {
- 			label = "Home";
- 			gpios = <&gpio2 4 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_HOME>;
- 		};
- 
--		back {
-+		key-back {
- 			label = "Back";
- 			gpios = <&gpio2 2 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_BACK>;
- 		};
- 
--		volume-up {
-+		key-volume-up {
- 			label = "Volume Up";
- 			gpios = <&gpio7 13 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_VOLUMEUP>;
- 		};
- 
--		volume-down {
-+		key-volume-down {
- 			label = "Volume Down";
- 			gpios = <&gpio7 1 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_VOLUMEDOWN>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6x.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6x.dtsi
-index 8a0bfc387a5996bcd4ff3fc7ee4dd26c04f3a947..c71aa7498acf4a0b1cc8f74c325c8944ed1a781c 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6x.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6x.dtsi
-@@ -80,38 +80,38 @@ gpio-keys {
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&pinctrl_gpio_keys>;
- 
--		power {
-+		key-power {
- 			label = "Power Button";
- 			gpios = <&gpio2 3 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_POWER>;
- 			wakeup-source;
- 		};
- 
--		menu {
-+		key-menu {
- 			label = "Menu";
- 			gpios = <&gpio2 1 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_MENU>;
- 		};
- 
--		home {
-+		key-home {
- 			label = "Home";
- 			gpios = <&gpio2 4 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_HOME>;
- 		};
- 
--		back {
-+		key-back {
- 			label = "Back";
- 			gpios = <&gpio2 2 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_BACK>;
- 		};
- 
--		volume-up {
-+		key-volume-up {
- 			label = "Volume Up";
- 			gpios = <&gpio7 13 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_VOLUMEUP>;
- 		};
- 
--		volume-down {
-+		key-volume-down {
- 			label = "Volume Down";
- 			gpios = <&gpio4 5 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_VOLUMEDOWN>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-mira-peb-eval-01.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-mira-peb-eval-01.dtsi
-index 037b60197598bca3eaaa3e2c61d176e401e2a7ae..060d2aeb1baf750c1b134ac716d9948fb64e5f10 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-mira-peb-eval-01.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-mira-peb-eval-01.dtsi
-@@ -13,14 +13,14 @@ gpio-keys {
- 		pinctrl-0 = <&pinctrl_gpio_keys>;
- 		status = "disabled";
- 
--		power {
-+		key-power {
- 			label = "Power Button";
- 			gpios = <&gpio5 28 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_WAKEUP>;
- 			wakeup-source;
- 		};
- 
--		sleep {
-+		key-sleep {
- 			label = "Sleep Button";
- 			gpios = <&gpio6 18 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_SLEEP>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-sabreauto.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-sabreauto.dtsi
-index 2587d17c5918573cb103361234194a1b585b6548..b9dde0af3b995feb49fef38fb0fda69eee3a5750 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-sabreauto.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-sabreauto.dtsi
-@@ -32,35 +32,35 @@ gpio-keys {
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&pinctrl_gpio_keys>;
- 
--		home {
-+		key-home {
- 			label = "Home";
- 			gpios = <&gpio1 11 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_HOME>;
- 			wakeup-source;
- 		};
- 
--		back {
-+		key-back {
- 			label = "Back";
- 			gpios = <&gpio1 12 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_BACK>;
- 			wakeup-source;
- 		};
- 
--		program {
-+		key-program {
- 			label = "Program";
- 			gpios = <&gpio2 12 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_PROGRAM>;
- 			wakeup-source;
- 		};
- 
--		volume-up {
-+		key-volume-up {
- 			label = "Volume Up";
- 			gpios = <&gpio2 15 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_VOLUMEUP>;
- 			wakeup-source;
- 		};
- 
--		volume-down {
-+		key-volume-down {
- 			label = "Volume Down";
- 			gpios = <&gpio5 14 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_VOLUMEDOWN>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-sabrelite.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-sabrelite.dtsi
-index bdef7e642d3cf2edd833dfa7b7aa9d9b67f61ef0..f7abc17c7c93a7016854d7beb7d041dc90301514 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-sabrelite.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-sabrelite.dtsi
-@@ -108,38 +108,38 @@ gpio-keys {
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&pinctrl_gpio_keys>;
- 
--		power {
-+		key-power {
- 			label = "Power Button";
- 			gpios = <&gpio2 3 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_POWER>;
- 			wakeup-source;
- 		};
- 
--		menu {
-+		key-menu {
- 			label = "Menu";
- 			gpios = <&gpio2 1 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_MENU>;
- 		};
- 
--		home {
-+		key-home {
- 			label = "Home";
- 			gpios = <&gpio2 4 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_HOME>;
- 		};
- 
--		back {
-+		key-back {
- 			label = "Back";
- 			gpios = <&gpio2 2 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_BACK>;
- 		};
- 
--		volume-up {
-+		key-volume-up {
- 			label = "Volume Up";
- 			gpios = <&gpio7 13 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_VOLUMEUP>;
- 		};
- 
--		volume-down {
-+		key-volume-down {
- 			label = "Volume Down";
- 			gpios = <&gpio4 5 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_VOLUMEDOWN>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi
-index 960e83f5e9043babb5fb9cc979208cdd94256cc8..e8368c6b27ef3be2bae1d1dadc7c29672db0e5df 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi
-@@ -71,21 +71,21 @@ gpio-keys {
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&pinctrl_gpio_keys>;
- 
--		power {
-+		key-power {
- 			label = "Power Button";
- 			gpios = <&gpio3 29 GPIO_ACTIVE_LOW>;
- 			wakeup-source;
- 			linux,code = <KEY_POWER>;
- 		};
- 
--		volume-up {
-+		key-volume-up {
- 			label = "Volume Up";
- 			gpios = <&gpio1 4 GPIO_ACTIVE_LOW>;
- 			wakeup-source;
- 			linux,code = <KEY_VOLUMEUP>;
- 		};
- 
--		volume-down {
-+		key-volume-down {
- 			label = "Volume Down";
- 			gpios = <&gpio1 5 GPIO_ACTIVE_LOW>;
- 			wakeup-source;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-savageboard.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-savageboard.dtsi
-index 6823a639ed2fc25db1e153178ae376733d7c6472..2daf2b6af884965c80e1b309c2d3b8843b618bcc 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-savageboard.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-savageboard.dtsi
-@@ -58,7 +58,7 @@ gpio-keys {
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&pinctrl_gpio_keys>;
- 
--		power {
-+		key-power {
- 			gpios = <&gpio3 7 GPIO_ACTIVE_LOW>;
- 			label = "Power Button";
- 			linux,code = <KEY_POWER>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi
-index 2bb5b762c98400b285426341f0fb21a4e64a0258..57297d6521cf09f1fd629ae375c9994ebb683375 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi
-@@ -44,7 +44,7 @@ mclk: clock {
- 	gpio-keys {
- 		compatible = "gpio-keys";
- 
--		power {
-+		key-power {
- 			label = "Power Button";
- 			gpios = <&gpio5 2 GPIO_ACTIVE_HIGH>;
- 			linux,code = <KEY_POWER>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6sx-sdb.dtsi b/arch/arm/boot/dts/nxp/imx/imx6sx-sdb.dtsi
-index 67cf09e63a638f6383ccdd659b2634670cb8f601..c7aeb99d8f002011a677ee50c7c849b9aab91374 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6sx-sdb.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6sx-sdb.dtsi
-@@ -33,14 +33,14 @@ gpio-keys {
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&pinctrl_gpio_keys>;
- 
--		volume-up {
-+		key-volume-up {
- 			label = "Volume Up";
- 			gpios = <&gpio1 18 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_VOLUMEUP>;
- 			wakeup-source;
- 		};
- 
--		volume-down {
-+		key-volume-down {
- 			label = "Volume Down";
- 			gpios = <&gpio1 19 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_VOLUMEDOWN>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-phytec-segin-peb-eval-01.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-phytec-segin-peb-eval-01.dtsi
-index 2f3fd32a116795ada43a78d967704fa988f7ba3a..d4d6ce9756390d6b7aa296eb585fc7fe61a67443 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-phytec-segin-peb-eval-01.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul-phytec-segin-peb-eval-01.dtsi
-@@ -13,7 +13,7 @@ gpio_keys: gpio-keys {
- 		pinctrl-0 = <&pinctrl_gpio_keys>;
- 		status = "disabled";
- 
--		power {
-+		key-power {
- 			label = "Power Button";
- 			gpios = <&gpio5 0 GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_POWER>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-colibri-aster.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ull-colibri-aster.dtsi
-index de4dc7c1a03aee71800eb509201bdd57af515205..e75dad0f0e231cc4aa1c2596287ad783518c9cbe 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ull-colibri-aster.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ull-colibri-aster.dtsi
-@@ -13,7 +13,7 @@ gpio-keys {
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&pinctrl_snvs_gpiokeys>;
- 
--		power {
-+		key-power {
- 			label = "Wake-Up";
- 			gpios = <&gpio5 1 GPIO_ACTIVE_HIGH>;
- 			linux,code = <KEY_WAKEUP>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-colibri-iris.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ull-colibri-iris.dtsi
-index f52f8b5ad8a6ee73f2d0ce1f1d2183893e8f7179..bce6fbf230b3969b4a7ca22a794205b65bb27283 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ull-colibri-iris.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ull-colibri-iris.dtsi
-@@ -13,7 +13,7 @@ gpio-keys {
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&pinctrl_snvs_gpiokeys>;
- 
--		power {
-+		key-power {
- 			label = "Wake-Up";
- 			gpios = <&gpio5 1 GPIO_ACTIVE_HIGH>;
- 			linux,code = <KEY_WAKEUP>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7s-warp.dts b/arch/arm/boot/dts/nxp/imx/imx7s-warp.dts
-index f2cd95e992e74c04737184f3a7b217b8b8b95748..56dedd4fb8f0894c48eea5e34f2b8445cd38cace 100644
---- a/arch/arm/boot/dts/nxp/imx/imx7s-warp.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx7s-warp.dts
-@@ -23,7 +23,7 @@ gpio-keys {
- 		pinctrl-0 = <&pinctrl_gpio>;
- 		autorepeat;
- 
--		back {
-+		key-back {
- 			label = "Back";
- 			gpios = <&gpio7 1 GPIO_ACTIVE_HIGH>;
- 			linux,code = <KEY_BACK>;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-14x14-evk.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-14x14-evk.dtsi
+index 17989e6d82e6bef95d96cbdc3545eaebf648367d..73c9cfbdba621c1cf42f56ef2e9d31574c4f8311 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ul-14x14-evk.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-14x14-evk.dtsi
+@@ -22,6 +22,26 @@ backlight_display: backlight-display {
+ 		status = "okay";
+ 	};
+ 
++	reg_1v5: regulator-1v5 {
++		compatible = "regulator-fixed";
++		regulator-name = "1v5";
++		regulator-min-microvolt = <1500000>;
++		regulator-max-microvolt = <1500000>;
++	};
++
++	reg_1v8: regulator-1v8 {
++		compatible = "regulator-fixed";
++		regulator-name = "1v8";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++	};
++
++	reg_2v8: regulator-2v8 {
++		compatible = "regulator-fixed";
++		regulator-name = "2v8";
++		regulator-min-microvolt = <2800000>;
++		regulator-max-microvolt = <2800000>;
++	};
+ 
+ 	reg_sd1_vmmc: regulator-sd1-vmmc {
+ 		compatible = "regulator-fixed";
+@@ -182,6 +202,9 @@ camera@3c {
+ 		clock-names = "xclk";
+ 		powerdown-gpios = <&gpio_spi 6 GPIO_ACTIVE_HIGH>;
+ 		reset-gpios = <&gpio_spi 5 GPIO_ACTIVE_LOW>;
++		AVDD-supply = <&reg_2v8>;
++		DVDD-supply = <&reg_1v5>;
++		DOVDD-supply = <&reg_1v8>;
+ 
+ 		port {
+ 			ov5640_to_parallel: endpoint {
 
 -- 
 2.34.1
