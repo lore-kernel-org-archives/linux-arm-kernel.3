@@ -4,72 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B7BFCA100C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 07:38:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 012ECCA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 07:41:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=auDnTh/G9z3Y/t2W15bb+vq1E6EQIAIJTktRaItnI50=; b=dxY7Jj8oi/gfB6Zv5h58fJvoVj
-	TLwbxm7nlY2zLOB8LcOd4rLk790mijfRQGbieQlq810ggRTMb/IoerQXwgqPTVn3tNfgVtkE2o1iy
-	STGdVOyHDtnCdSMcqde9cf7sdppCQjQ+4F90Ex4NNjwIIDrC6eU/HI+lI4WOEIBXZgO1DZ2hY4mtg
-	vLyEFoXeQAKMi2+RwXvhNTY8+vji3sdUnQ/BWwUbbGWJpLUPvJhDOnCrR1Fg+HPj/TlNqjzUKhOHL
-	pi1XSTdErLHCIlLySeiycdviS6A2rmPMQ0KeMfceN5h7k1+9n6YfxU2IuvKxixDSF8uySYpA630Hz
-	w+kY63jg==;
+	bh=65Ke+bDzyxA3FZ+uJntN1eamxu+tv80h0iEtRxVAgzg=; b=zzIVMHleT4WeXK6WadgWTkYcNo
+	WbWj2PtiHo4/D4ky5mOCbSmnDRp/590wnsXnvfQ6wMVz/jXgQETsR68pbH7AkujhhbpLJL09CQWIz
+	zUCXv6WjEDEaNDV2fRgky0BN/1/82ilRVCChaHPyDoRBypHLhU7fgfcAotS5thVjmlWNAmkNXQBb5
+	G9upjlEIvhoxblaRpNFmZ5HgGzjuqQhtwcTK/S8vzF8b5QzQ26mQdWsqXhMDspkL4oGTo9mdYaSK+
+	KMCYJUpmbn3x0lNP3xlZpN75bID3L6FvTgiRqF0P5XuK65rKQiHaRDWDqdrivtAwrcoxvS9MTRA74
+	SPaM2ETw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uti4I-00000005Ajy-1Hv4;
-	Wed, 03 Sep 2025 07:38:10 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1uti70-00000005C8J-0YuI;
+	Wed, 03 Sep 2025 07:40:58 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uthvL-000000055SV-3C4p
+	id 1uthw7-000000055xh-2HMN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 07:28:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1756884534;
- bh=auDnTh/G9z3Y/t2W15bb+vq1E6EQIAIJTktRaItnI50=;
- b=oe/QRFByZvJLL3zM4AlTBG/NU8utt+Qteq5BXB7ZMw2OfR4HLanLhdCcoz2cyhOnEhSkDz1Mr
- UJ8dEcVJE2mNsc+pRiV0QE83QpiXmqEW6ERGk89BddCXWDNeyTLvaGPPAy5Rbfn0KSOsSliVM2W
- gbJaNcaTYv7ejQPi8KXOoapVeymejsRmY5CM3u5su8b+Cy/xDXA2hQRwAzHhVrr7Z5BLhn0gSqA
- zap5Qw+HQRsfNmkMjvARjkEhU0Wpn8GDGPCxVJdgV2pAiB5d2c11/HRvD7qZ0NcFzSGD8YO9IKG
- RrYNkzh2v7vrWgorh3shtiXE6BoN2WiuUUGPVXaPCebw==
-X-Forward-Email-ID: 68b7ee2f3a2f2af95f29221d
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 1.2.11
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <8394c12a-1e1e-44fc-9bb5-92a464dfe410@kwiboo.se>
-Date: Wed, 3 Sep 2025 09:28:41 +0200
+	Wed, 03 Sep 2025 07:29:44 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <a.fatoum@pengutronix.de>)
+	id 1uthvA-0003pQ-KJ; Wed, 03 Sep 2025 09:28:44 +0200
+Message-ID: <fa7e2cef-5242-4f3b-84ea-d77b959f6bdb@pengutronix.de>
+Date: Wed, 3 Sep 2025 09:28:42 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/7] media: rkvdec: Add HEVC backend
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Detlev Casanova <detlev.casanova@collabora.com>
-Cc: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Alex Bee <knaerzche@gmail.com>,
- Sebastian Fricke <sebastian.fricke@collabora.com>,
- linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250810212454.3237486-1-jonas@kwiboo.se>
- <20250810212454.3237486-2-jonas@kwiboo.se>
- <432ab63698b27ca5bce3a7a30d630685aff782b6.camel@collabora.com>
+Subject: Re: [PATCH] ARM: dts: imx6ul-tx6ul: Switch away from deprecated
+ `phy-reset-gpios`
+To: =?UTF-8?B?QmVuY2UgQ3PDs2vDoXM=?= <csokas.bence@prolan.hu>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
+ Csaba Buday <buday.csaba@prolan.hu>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250815-b4-tx6ul-dt-phy-rst-v1-1-9b65e315d9d3@prolan.hu>
 Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <432ab63698b27ca5bce3a7a30d630685aff782b6.camel@collabora.com>
+From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+In-Reply-To: <20250815-b4-tx6ul-dt-phy-rst-v1-1-9b65e315d9d3@prolan.hu>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_002856_203576_B4BA0A29 
-X-CRM114-Status: GOOD (  20.93  )
+X-CRM114-CacheID: sfid-20250903_002943_583958_5C011782 
+X-CRM114-Status: GOOD (  23.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,87 +73,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
+Hello,
 
-On 8/29/2025 10:22 PM, Nicolas Dufresne wrote:
-> Le dimanche 10 août 2025 à 21:24 +0000, Jonas Karlman a écrit :
->> The Rockchip VDEC supports the HEVC codec with the Main and Main10
->> Profile up to Level 5.1 High tier: 4096x2304@60 fps.
->>
->> Add the backend for HEVC format to the decoder.
->>
->> Signed-off-by: Alex Bee <knaerzche@gmail.com>
->> Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
->> Signed-off-by: Sebastian Fricke <sebastian.fricke@collabora.com>
->> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-> 
-> Re-reading myself, most of my comments were off or really "nitty". So let's move
-> forward and spare you the v3. Detlev is happy to rebase and work on top of your
-> series, so let's help everyone getting better RK codec support.
-> 
-> Tested-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-> 
-> Just to be transparent, during testing, it was notice that some concurrent
-> decoding resulted into failures. I tested Detlev port to structure registers,
-> and it didn't change anything (so probably not a stalled state, or one that we
-> control). This could easily be a HW issue with older chip. Since you have used
-> this for years without major issue reported, I happy to move on.
+On 15.08.25 17:17, Bence Csókás wrote:
+> The Ethernet PHY's reset GPIO should be specified in the node of the PHY
+> itself, instead of the MAC (`fec`). The latter is deprecated, and was an
+> i.MX-specific extension, incompatible with the new reset controller
+> subsystem.
 
-Thanks, I found some minor changes compared to the LibreELEC version
-that I am running some new tests on, plan to send out a v3 as soon as
-testing completes later today.
+One reason to do it this way is that the PHY is in reset when the OS starts
+and the external phy-reset-gpios allows MAC probe to get the PHY out of
+reset, so it can be probed after reading its vendor/device IDs.
 
-In LibreELEC version we enable some error detection,
-
-	// sw_cabac_error_e - cabac error enable
-	writel(0xfdfffffd, rkvdec->regs + RKVDEC_REG_STRMD_ERR_EN);
-	// slice end error enable = BIT(28)
-	// frame end error enable = BIT(29)
-	writel(0x30000000, rkvdec->regs + RKVDEC_REG_H264_ERR_E);
-
-and in this series it was fully disabled to closer match H264/VP9:
-
-	writel(0, rkvdec->regs + RKVDEC_REG_STRMD_ERR_EN);
-	writel(0, rkvdec->regs + RKVDEC_REG_H264_ERR_E);
-
-There is also an extra memset(0, ...) in rkvdec_hevc_start:
-
-	memset(priv_tbl, 0, sizeof(*priv_tbl));
-
-This should not really be needed and was removed in this series.
-
-Still unclear if any of these will result in a changed behavior. Enable
-of cabac/slice end/frame end error could possible activate some more
-states when block issue a self-reset, but I am only guessing.
-
-One thing to note for the flaky tests is that when they fail, they
-typically just end up with a different consistent checksum. I have not
-done any visual inspection of those frames, but will extract each frame
-and compare them both bitwise and visually.
-
-Regards,
-Jonas
+Does switching to this new binding address this scenario? If so, it should
+be noted in the commit message.
 
 > 
-> regards,
-> Nicolas
+> Co-developed-by: Csaba Buday <buday.csaba@prolan.hu>
+> Signed-off-by: Csaba Buday <buday.csaba@prolan.hu>
+> Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+> ---
+>  arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi | 8 +++++++-
+>  1 file changed, 7 insertions(+), 1 deletion(-)
 > 
->> ---
->> Changes in v2:
->> - Use new_value in transpose_and_flatten_matrices()
->> - Add NULL check for ctrl->new_elems in rkvdec_hevc_run_preamble()
->> - Set RKVDEC_WR_DDR_ALIGN_EN for RK3328
->> ---
->>  .../media/platform/rockchip/rkvdec/Makefile   |    2 +-
->>  .../rockchip/rkvdec/rkvdec-hevc-data.c        | 1848 +++++++++++++++++
->>  .../platform/rockchip/rkvdec/rkvdec-hevc.c    |  817 ++++++++
->>  .../platform/rockchip/rkvdec/rkvdec-regs.h    |    2 +
->>  .../media/platform/rockchip/rkvdec/rkvdec.c   |   76 +
->>  .../media/platform/rockchip/rkvdec/rkvdec.h   |    1 +
->>  6 files changed, 2745 insertions(+), 1 deletion(-)
->>  create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-data.c
->>  create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
+> diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
+> index f053358bc9317f8447d65013a18670cb470106b2..0a5e90704ea481b0716d6ff6bc6d2110914d4f31 100644
+> --- a/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
+> +++ b/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
+> @@ -246,7 +246,6 @@ &fec1 {
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&pinctrl_enet1 &pinctrl_enet1_mdio &pinctrl_etnphy0_rst>;
+>  	phy-mode = "rmii";
+> -	phy-reset-gpios = <&gpio5 6 GPIO_ACTIVE_LOW>;
+>  	phy-supply = <&reg_3v3_etn>;
+>  	phy-handle = <&etnphy0>;
+>  	status = "okay";
+> @@ -262,6 +261,13 @@ etnphy0: ethernet-phy@0 {
+>  			pinctrl-0 = <&pinctrl_etnphy0_int>;
+>  			interrupt-parent = <&gpio5>;
+>  			interrupts = <5 IRQ_TYPE_EDGE_FALLING>;
+> +			/* Reset SHOULD be a PHY property */
 
-[snip]
+Comment belongs into commit message.
+
+> +			reset-names = "phy";
+> +			reset-gpios = <&gpio5 6 GPIO_ACTIVE_LOW>;
+> +			reset-assert-us = <100>;
+> +			reset-deassert-us = <25000>;
+> +			/* Energy detect sometimes causes link failures */
+> +			smsc,disable-energy-detect;
+
+Unrelated change not described in the commit message.
+
+Cheers,
+Ahmad
+
+>  			status = "okay";
+>  		};
+>  
+> 
+> ---
+> base-commit: 0cc53520e68bea7fb80fdc6bdf8d226d1b6a98d9
+> change-id: 20250815-b4-tx6ul-dt-phy-rst-7afc190a6907
+> 
+> Best regards,
+
+
+-- 
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
