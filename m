@@ -4,64 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD2BECA1010
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 21:32:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64836CA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 21:34:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=Uh+JdN6uD2OVYv05+5wOT2A4tD089bjuOjEP6iyKYF8=; b=RReiQuqjljq5k1
-	b0UEpUql6y+NicPJdPNLQSnEkFrMdRjx+CdYsljLGf4nmBNCCmi7Z2AvOYDyEy0AdeVCFa+hwbbXm
-	oNq2XBd4mEq+uNNnY8IwLmCqN6PxV92RirI2y11l0tvcPj76CA14gE9d7Zh7cSg8UXIs3SX1rzPTo
-	nlRzXxDv05MKt2giX8okbDFfyguAcySLSS+Hh4Hsi05mHnSFmGshFQK3dJlCzMK05QOix4Sug7J/3
-	0ohvsLluyheqIS9s6rhnDu5FEKaHEIkIQ2AvvpnSTnvqBZVvdm4Qc6qcoHgV6zZd2psOr2MK9y/uI
-	IMggX8Ui0lK+fLqJCnVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7YNrTkQkeujqQwWvpA8ASZwQ7ZTxXH+2ZnF/uWdS/fE=; b=DwN36dVXtT+UHFXPbABuCjPTbg
+	6/k7EtVuoDnu8CREOvW7Vl5Ak6kxN8XE4fGOrGVJWCr56qRP3aYkSac+4SYTNtIUgKu2Wbe8XkypI
+	23C/UF8i0+S6RIIEpnUcieofbH1oWQBGRJE+TUtuk+4Pg8XTcHwNmR3qDAkjIxIPN5TYJ12AkkL0q
+	fgD/rScJwUkkZmfJErfpqkfP6VzRLJBnangvw9NWfDJ1bOu4NtB3FtCwteGRL4Ep7kPHPw+SjVPwj
+	p6ZGq/IFVEis6L2wKr4oIlID9os1FNjiYvmjheWhrmGCxb7wrSG2Yi7/rYxK6yN/5LG1AZ2SE7CfQ
+	GhjziDBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utv5H-00000007h07-2yTi;
-	Wed, 03 Sep 2025 21:32:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1utv7y-00000007hO8-3ojz;
+	Wed, 03 Sep 2025 21:34:51 +0000
+Received: from cvsmtppost104.wmail.worksmobile.com ([125.209.209.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utrO9-00000007CS8-0vXU;
-	Wed, 03 Sep 2025 17:35:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6BFAA419FF;
-	Wed,  3 Sep 2025 17:35:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19105C4CEE7;
-	Wed,  3 Sep 2025 17:35:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756920916;
-	bh=q6ydgpRA1n1VIVTSnFUEGYa1rwgxWt3LP1v3p67itsg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=sOZUP0mp3NJ6r81IFD9cb54V0EIXSHPX4quWZcx7vduX1mse2py9qfzIn+h5zuWlv
-	 IGIC8P0JLeQCX7+F9zxFxViT/V0bbbGHfszPFQCw3zic8XAUhHytPYFc0Fxn/E0xtL
-	 qep8q3Ow1ncZvuj/xkcI5usGLSfQF8fAyLDdHx6wdbfKmeXfcBPL2e3n71Gipez7HM
-	 LvU6ILGBUSCQd53RY2UApho63BbVysdM2MY263lNWtLOgxkLLk/DcTYCNJx2DeT9Bh
-	 X9nDUEjFog3CwA+rj3KD4PuZBQM9JxKXdruBrmZ6kg59MR2SetrlWmH39myq1Zqtjh
-	 A1fPV98oJ59HA==
-Date: Wed, 3 Sep 2025 12:35:14 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Hans Zhang <18255117159@163.com>
-Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, bhelgaas@google.com,
-	heiko@sntech.de, mani@kernel.org, yue.wang@amlogic.com,
-	pali@kernel.org, neil.armstrong@linaro.org, robh@kernel.org,
-	jingoohan1@gmail.com, khilman@baylibre.com, jbrunet@baylibre.com,
-	martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Niklas Cassel <cassel@kernel.org>
-Subject: Re: [PATCH v5 1/2] PCI: Configure root port MPS during host probing
-Message-ID: <20250903173514.GA1207260@bhelgaas>
+	id 1utp2d-00000006pk1-0qA1
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 03 Sep 2025 15:04:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=worksmobile.com;
+	s=s20171120; t=1756911890;
+	bh=3FhiaCfmZwkYLyKJbI+B3fuYEbKg6EUl6NdwQ1AxukY=;
+	h=From:To:Subject:Date:Message-ID:From:Subject:Feedback-ID:
+	 X-Works-Security;
+	b=yoeS5+qLqwx51cCugDjTqy/HAuqvWmjhXmTMaOBS2ZR7ht81xBTCXx8WyrysE3QJJ
+	 gSgUmt9qJF/+tQe0Be5xHgunSYVvJqPVdiNesCr0bjNFoDQ9buoHcHZo8EhUp1TaNN
+	 Bi1g2x4atDw8iIZxYz+Q2QPUv/GR6OkS2GiMmMxTrblO2qwMoHvyZD/Bc4ytNOdLMT
+	 /gABI8y93gSX733fVKDQEx/7ij5xhAHoxlU3dN8WV5zK0+rUcqLFPyZRfH+1JWOc3w
+	 eiZynDBdqJTxRvegMLncIkSI2U/qOotbvbClgay43HllGGvI3Ii730J6WafNYQgux5
+	 zSXJ6ZSqz7U2g==
+X-Originating-IP: 130.162.137.185
+Received: from cvsendbo004.wmail ([10.113.20.173])
+  by cvsmtppost104.wmail.worksmobile.com with ESMTP id H0kQQm4mTQuMa-YoioN1nw
+  for <linux-arm-kernel@lists.infradead.org>;
+  Wed, 03 Sep 2025 15:04:50 -0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=korea.ac.kr;
+	s=naverworks; t=1756911890;
+	bh=3FhiaCfmZwkYLyKJbI+B3fuYEbKg6EUl6NdwQ1AxukY=;
+	h=From:To:Subject:Date:Message-ID:From:Subject:Feedback-ID:
+	 X-Works-Security;
+	b=dsAQssHOInAbkx77EBdrK50Cc/qJksE186U24D/5Hg2iqMTOllmi6xSx1+WQ0F07J
+	 FxMh2k/I/PrMUpjvEbjaVec/KRkpTAkK1Uyw9yWZcQy8RDJWHvg+yC+B41ClQHQeIB
+	 8vNSBIBg917LJnvOgvvu7dbv17YwtF5NDwsfwMLA=
+X-Session-ID: paH7lmGFTMuO7byS2M2b2w
+X-Originating-IP: 130.162.137.185
+X-Works-Send-Opt: L/bwjAJYjHm/FqMrKBmmKxg/FACYjHmm
+X-Works-Smtp-Source: VdnXaAM9FqJZ+Hmmaxtl+6E=
+Received: from camellia.vcn11051708.oraclevcn.com ([130.162.137.185])
+  by cvnsmtp104.wmail.worksmobile.com with ESMTP id paH7lmGFTMuO7byS2M2b2w
+  for <multiple recipients>
+  (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+  Wed, 03 Sep 2025 15:04:50 -0000
+From: Geonha Lee <w1nsom3gna@korea.ac.kr>
+To: kvmarm@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Geonha Lee <w1nsom3gna@korea.ac.kr>
+Subject: [PATCH] KVM: arm64: nested: fix VNCR TLB ASID match logic for non-Global entries
+Date: Thu,  4 Sep 2025 00:04:21 +0900
+Message-ID: <20250903150421.90752-1-w1nsom3gna@korea.ac.kr>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <76cdf841-2c72-4faa-b2b9-7b2098337de0@163.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_103517_305947_E0E9595D 
-X-CRM114-Status: GOOD (  30.86  )
+X-CRM114-CacheID: sfid-20250903_080455_829902_B7B37321 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,84 +96,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 04, 2025 at 01:11:22AM +0800, Hans Zhang wrote:
-> On 2025/9/3 01:48, Bjorn Helgaas wrote:
-> > On Fri, Jun 20, 2025 at 11:55:06PM +0800, Hans Zhang wrote:
-> > > Current PCIe initialization logic may leave root ports operating with
-> > > non-optimal Maximum Payload Size (MPS) settings. While downstream device
-> > > configuration is handled during bus enumeration, root port MPS values
-> > > inherited from firmware or hardware defaults ...
-> > 
-> > Apparently Root Port MPS configuration is different from that for
-> > downstream devices?
+kvm_vncr_tlb_lookup() is supposed to return true when the cached VNCR
+TLB entry is valid for the current context. For non-Global entries, that
+means the entry’s ASID must match the current ASID.
 
-> Yes, at the very beginning, the situation I tested was like the previous
-> reply:
-> https://lore.kernel.org/linux-pci/bb40385c-6839-484c-90b2-d6c7ecb95ba9@163.com/
+The current code returns true when the ASIDs do *not* match, which
+inverts the logic. This is a potential vulnerability:
 
-I meant that this commit log suggests the *code path* is different for
-Root Ports than other devices.
+- Valid entries are ignored and we fall back to kvm_translate_vncr(),
+  hurting performance.
+- Mismatched entries are treated as permission faults (-EPERM) instead
+  of triggering a fresh translation.
+- This can also cause stale translations to be (wrongly) considered
+  valid across address spaces.
 
-> > > might not utilize the full
-> > > capabilities supported by the controller hardware. This can result in
-> > > suboptimal data transfer efficiency across the PCIe hierarchy.
-> > > 
-> > > During host controller probing phase, when PCIe bus tuning is enabled,
-> > > the implementation now configures root port MPS settings to their
-> > > hardware-supported maximum values. Specifically, when configuring the MPS
-> > > for a PCIe device, if the device is a root port and the bus tuning is not
-> > > disabled (PCIE_BUS_TUNE_OFF), the MPS is set to 128 << dev->pcie_mpss to
-> > > match the Root Port's maximum supported payload size. The Max Read Request
-> > > Size (MRRS) is subsequently adjusted through existing companion logic to
-> > > maintain compatibility with PCIe specifications.
-> > > 
-> > > Note that this initial setting of the root port MPS to the maximum might
-> > > be reduced later during the enumeration of downstream devices if any of
-> > > those devices do not support the maximum MPS of the root port.
-> > > 
-> > > Explicit initialization at host probing stage ensures consistent PCIe
-> > > topology configuration before downstream devices perform their own MPS
-> > > negotiations. This proactive approach addresses platform-specific
-> > > requirements where controller drivers depend on properly initialized
-> > > root port settings, while maintaining backward compatibility through
-> > > PCIE_BUS_TUNE_OFF conditional checks. Hardware capabilities are fully
-> > > utilized without altering existing device negotiation behaviors.
+Flip the predicate so non-Global entries only hit when ASIDs match.
 
-> > Update the MRRS "to maintain compatibility" part.  I'm dubious about
-> > there being a spec compatibility issue with respect to MRRS.  Cite the
-> > relevant section if there is an issue.
-> 
-> The description is inaccurate. I will correct it.
-> 
-> I plan to modify the commit message as follows:
-> If there are any incorrect descriptions, please correct them. Thank you very
-> much.
-> 
-> Current PCIe initialization logic may leave Root Ports operating with
-> non-optimal Maximum Payload Size (MPS) settings. While downstream device
-> configuration is handled during bus enumeration, Root Port MPS values
-> inherited from firmware or hardware defaults might not utilize the full
-> capabilities supported by the controller hardware. This can result in
-> suboptimal data transfer efficiency across the PCIe hierarchy.
-> 
-> With this patch, during the host controller probing phase and when PCIe
-> bus tuning is enabled, the implementation configures Root Port MPS
-> settings to their hardware-supported maximum values. Specifically, when
-> configuring the MPS for a PCIe device, if the device is a Root Port and
-> the bus tuning is not disabled (PCIE_BUS_TUNE_OFF), the MPS is set to
-> 128 << dev->pcie_mpss to match the Root Port's maximum supported payload
-> size. The Max Read Request Size (MRRS) is subsequently adjusted by
-> existing logic in pci_configure_mps() to ensure it is not less than the
-> MPS, maintaining compliance with PCIe specifications (see PCIe r7.0,
-> sec 7.5.3.4).
+Reported-by: Team 0xB6 in bob14
+  DongHa Lee (@GAP-dev)
+  Gyujeong Jin (@gyutrange)
+  Daehyeon Ko (@4ncienth)
+  Geonha Lee (@leegn4a)
+  Hyungyu Oh (@DQPC_lover)
+  Jaewon Yang (@R4mbb)
 
-AFAICS, sec 7.5.3.4 doesn't say anything about a relationship between
-MRRS and MPS.  MPS is a constraint on the payload size of TLPs with
-data (Memory Writes, Completions with Data, etc).  MRRS is a
-constraint on the Length field in a Memory Read Request.  A single
-Memory Read can be satisified with several Completions.  MPS is one of
-the things that determines how many Completions are required.
+Signed-off-by: Geonha Lee <w1nsom3gna@korea.ac.kr>
+---
+ arch/arm64/kvm/nested.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-This has more details and a lot of good discussion:
-https://www.xilinx.com/support/documentation/white_papers/wp350.pdf
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 77db81bae86f..24eab94d7d7f 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -1276,7 +1276,7 @@ static bool kvm_vncr_tlb_lookup(struct kvm_vcpu *vcpu)
+ 		    !(tcr & TCR_ASID16))
+ 			asid &= GENMASK(7, 0);
+ 
+-		return asid != vt->wr.asid;
++		return asid == vt->wr.asid;
+ 	}
+ 
+ 	return true;
+-- 
+2.43.0
+
 
