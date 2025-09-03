@@ -4,84 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76F84CA1012
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92624CAC580
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 21:18:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dWrHhZZ5Y+olcUt6NWxG3dwik630us9WBSc1ItXrPyA=; b=MFZRM+Mk9AawEoO7oHjZ55TjG1
-	l4Ab/bG6dO+MwpKJfPY8sqjgCEsx19bAxiq9fLyOpmwZugcSGGEAj6q37M8RpF4s6cDi8+R3xwVqr
-	OToDzCtMwy8QKbn9RSI+KaePj4fDdvn44MMoi/E3TQnDFWTFQVDnxM7U9kMhQN9dsNeMQItcZyMBz
-	mm25/taeqZQYWD8xLfDyqCN6crJ36pWBji9jUu2bQARmnXmNKZCjPaIxhMgugKrOViy49q73SRebH
-	fXDTyCoseur67xGdaZwIsqYpSM+kwHwOYYs7Un51UbaECRIP8/sqQc6l894IkomTsyT6rK1/HTsg6
-	mCx/wdJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dX2PcYPQSVjDwFmbWsV0OIUgomv3GNPXnvUZvIgd9ZY=; b=31JH7g9OV4DWzaxiclHSp7xM07
+	RWtPDe/ZI19okDEfshbqRiurDJO1In3Pz5c/pSRkIKo32LwcbX68Y7XtLwvd2wrrjrKYtJ2EMsp9X
+	xJX8dYmDpJNRQ5TonBf/eMul5WR29fMs9zNeggmo1QFdeb40d6CduDGm7lZGpMI7/VBhW42v9FMZb
+	CN54IvNskYhQmWSviClGgbJMpjiBRyDPj8UyxgOwQrfbTibbnzeXpG+9SpUXt0EYvtgvME/KhMvKm
+	hxb6XmYO+KQ+shAmsfpJV0S9dwW/jZ0pU7vG2aOCAhwCL3wiaOSLls3wpu8bv7IT/0+7cRcc/ODFE
+	fzpOyF3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uturo-00000007dWn-1ZRD;
-	Wed, 03 Sep 2025 21:18:08 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uturp-00000007dXu-2TtM;
+	Wed, 03 Sep 2025 21:18:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utqUC-0000000753j-38Z7
+	id 1utqZz-000000075la-2rcq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 16:37:30 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 583GF4h9004481;
-	Wed, 3 Sep 2025 18:37:27 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	dWrHhZZ5Y+olcUt6NWxG3dwik630us9WBSc1ItXrPyA=; b=jwNFTUJVQWe3AyRQ
-	BLz2ELpsAgKAhizZ89xkl9oXPtRcy4FzgmTFpEjmGC0A1Kl7rPIt39oz29kCYtwV
-	YCjBXyVwyK+Dkrvtaf53HdguP4+kKW6vRDHovmWpdBwMGVgekoaI6I9CCYDPRffJ
-	WkZv54WRwVC11tzmDifVWwgruXmYhKIP38le9pYA/jMRDo54A8Rwzx8DZhqt9iov
-	kw+q95DEJVxhnwLD5x0Pk+dQfAZVLE/KzK5WyLIcKBOjdukU2sPwtg0be3BHZavT
-	vtSMcErkSUS260hwQcjk5ygM8CiS6E1743qkhnk+4G094DJ77qkbLHQgIILrE++3
-	ScBuMg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48vav2qrj4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 03 Sep 2025 18:37:27 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 2956940045;
-	Wed,  3 Sep 2025 18:36:39 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 53CAF39EDBD;
-	Wed,  3 Sep 2025 18:36:16 +0200 (CEST)
-Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 3 Sep
- 2025 18:36:15 +0200
-Message-ID: <7d810c0d-12f4-42da-b6d9-b981ef5415eb@foss.st.com>
-Date: Wed, 3 Sep 2025 18:36:15 +0200
+	Wed, 03 Sep 2025 16:43:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0ABE060248;
+	Wed,  3 Sep 2025 16:43:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F85BC4CEE7;
+	Wed,  3 Sep 2025 16:43:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756917806;
+	bh=AkA4dzUeMeAnqy5b40dZ57UDlURr08Yuge2wOJ7h2Lo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Bq91ZOLsPXtnywSL0n01fUFf3HGbluHxTTlrKq4YOWy+oSiYHQUb8lH9kDHubCn3r
+	 y5gNxmYsAiIK3CH9q0yk0xu01AsEU/Z2pZd5Q/1aFa8aeKR+nrpXtcabeqzr+D502y
+	 rByVLKZblyDw7pQOQ7L38CDLNJ++FfwiPvddveK6RIHLPtmnm3Y1Wug2f+9WiW/ryS
+	 jhCmrok2BLBGvhmpUTx4plIHYBrLYWVV8nbwyruYul4jDYoHnYAd/QMJLYv5/anwR1
+	 EctRN/T6egnHSW3kKkCMoImAJ772lynQ1mtEHt+K++Jlv0y7ubSfJw2lX3ZS5RUdY1
+	 OFkdPx/DBKZzA==
+Date: Wed, 3 Sep 2025 11:43:25 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: linux-stm32@st-md-mailman.stormreply.com,
+	Jakub Kicinski <kuba@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Eric Dumazet <edumazet@google.com>, linux-kernel@vger.kernel.org,
+	Matthew Gerlach <matthew.gerlach@altera.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, netdev@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	"David S. Miller" <davem@davemloft.net>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Paolo Abeni <pabeni@redhat.com>, devicetree@vger.kernel.org,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: Re: [PATCH v2 2/2] dt-bindings: net: renesas,rzn1-gmac: Constrain
+ interrupts
+Message-ID: <175691780521.2465839.12589280217452124752.robh@kernel.org>
+References: <20250902154051.263156-3-krzysztof.kozlowski@linaro.org>
+ <20250902154051.263156-4-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND] docs: arm: stm32: fix typo "busses" -> "buses"
-To: Jonathan Corbet <corbet@lwn.net>,
-        Akshaykumar Gunari
-	<akshaygunari@gmail.com>,
-        <mcoquelin.stm32@gmail.com>
-CC: <linux-doc@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20250807145119.2214-1-akshaygunari@gmail.com>
- <078fb552-c848-49ef-b917-14aec0e4b6aa@foss.st.com>
- <87plc7zlcx.fsf@trenco.lwn.net>
-Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <87plc7zlcx.fsf@trenco.lwn.net>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-03_08,2025-08-28_01,2025-03-28_01
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_093729_087621_B91DF866 
-X-CRM114-Status: GOOD (  11.38  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250902154051.263156-4-krzysztof.kozlowski@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,41 +85,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jon
 
-On 9/3/25 16:01, Jonathan Corbet wrote:
-> Alexandre TORGUE <alexandre.torgue@foss.st.com> writes:
+On Tue, 02 Sep 2025 17:40:53 +0200, Krzysztof Kozlowski wrote:
+> Renesas RZN1 GMAC uses three interrupts in in-kernel DTS and common
+> snps,dwmac.yaml binding is flexible, so define precise constraint for
+> this device.
 > 
->> Hi
->>
->> On 8/7/25 16:51, Akshaykumar Gunari wrote:
->>> Fix the spelling of "busses" to the preferred form "buses" in STM32 ARM
->>> architecture documentation.
->>>
->>> Signed-off-by: Akshaykumar Gunari <akshaygunari@gmail.com>
->>> ---
->>>    Documentation/arch/arm/stm32/stm32f746-overview.rst  | 2 +-
->>>    Documentation/arch/arm/stm32/stm32f769-overview.rst  | 2 +-
->>>    Documentation/arch/arm/stm32/stm32h743-overview.rst  | 2 +-
->>>    Documentation/arch/arm/stm32/stm32h750-overview.rst  | 2 +-
->>>    Documentation/arch/arm/stm32/stm32mp13-overview.rst  | 2 +-
->>>    Documentation/arch/arm/stm32/stm32mp151-overview.rst | 2 +-
->>>    6 files changed, 6 insertions(+), 6 deletions(-)
->>>
->>
->> Applied on stm32-next.
+> Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 > 
-> I had already done so (and copied you) on August 12.  I can drop my
-> copy, I suppose, if that's how you want to do it?
+> ---
+> 
+> Changes in v2:
+> 1. Minor typo in commit msg.
+> 2. one->three interrupts in commit msg
+> 3. Rb tag
+> ---
+>  .../devicetree/bindings/net/renesas,rzn1-gmac.yaml       | 9 +++++++++
+>  1 file changed, 9 insertions(+)
+> 
 
-Sorry I missed it. Let me drop it on my side (my fault).
-
-Thank
-Alex
-
-> 
-> Thanks,
-> 
-> jon
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
