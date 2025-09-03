@@ -4,53 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E864DCA1009
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 17:46:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F37BDCA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 17:49:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HO4piufgL4b2TRhKr7+dw7lW+Kk5Lvomc9NRz1XQGR8=; b=ogd3I92KCwMnYFKJwdRrv7dQab
-	dKfaGJukvyb/0y7h+66oJ5pbqH6FhpZQ99bZVR+3WJJspMNuT5H2hETe58BWgOyQdP1TJ17CuF+DI
-	BQ2Lc9sNBGcCrJ+6s1BUeDubqj+e+1TNgOMQ1IZR87N+SY+5jybYvAaSP04gaTeIy2i0AJAi9uEMw
-	eBYYy+6GrnnVgkYa55ydpjynCh/g8NdL690cEce/PDKleWIRsB/fTntnCrb1c2YFrI1xUx3XGqy7w
-	KeSdDES916R85Px912OVHmgSEtVrxRsq6ZtQKqW4LET+SrONS8cx3VgVdGKFl3M8doIvj5AEaI5Hx
-	+VKgypKw==;
+	bh=dBdIdnKI53kzwYZV6kySizOPUkzoS2PQD2DaHLLIqVs=; b=PDFOOk+ro7wd7aOXmYSeB69hcF
+	/YPxtytEZ9jL3XGguMNC9TBW1AJMsBKtsLuW9mHo7GPV3EwJ8O9UtwQrx6Tt5xinc6uO6AJ0Q0RMs
+	LZl9ddwcEAMYx97kapGNq7YoJKG4r+LyZt1NP63/4DaZ4jx1fpdmjr6Q7K1gYjq5xfjYJLeYMmVzg
+	xJdES9WQY9/1vpgetTMCbqfUSpwsRcnXU/p1+fXyMqyffB+5vVlrxZL88Bhvd2QMhR/EwsyJnF+1P
+	LalnKWmt756/CWwcllYQ/y8gbOrBEEpuxgu6+j77B4pL9FCnXYQRuWcEV05U7OD/p9b6vDVqjrRLe
+	OWDbybJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utrZ1-00000007Dhp-1NrB;
-	Wed, 03 Sep 2025 17:46:31 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1utrcC-00000007EaD-2h9r;
+	Wed, 03 Sep 2025 17:49:50 +0000
+Received: from mailout1.samsung.com ([203.254.224.24])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utnqP-00000006eAV-1dZR;
-	Wed, 03 Sep 2025 13:48:14 +0000
-Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c69:480e:e039:1d0b:c5ff:a9e2])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 8F429C6D;
-	Wed,  3 Sep 2025 15:47:02 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1756907223;
-	bh=wHSYdEndGYVsU4nyD1UO39BeJ41HSWWrWO3/X8oENnI=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=j/80TZBIS2ZgBtU2z7ngDSkl6Xqsr7xzKUvqOtwBn4fLRbLIAv/OAaMnCP5kjLf+d
-	 mecrk4AEnkcwsQYiOg7rj/MqqMcn+gS2p0cN6uKWd0+Teq0EfCBa6cWFDXGUvVNIIX
-	 71MiP5VLXJjCIqvxK2NjVm0JRXfY8wghQfeqdWZ4=
-Content-Type: text/plain; charset="utf-8"
+	id 1utntd-00000006ePT-3udD
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 03 Sep 2025 13:51:36 +0000
+Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250903135124epoutp0196841aba43ce00fc8a81887e45f7b43d~hygx-LdzY0390003900epoutp01J
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  3 Sep 2025 13:51:24 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250903135124epoutp0196841aba43ce00fc8a81887e45f7b43d~hygx-LdzY0390003900epoutp01J
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1756907484;
+	bh=dBdIdnKI53kzwYZV6kySizOPUkzoS2PQD2DaHLLIqVs=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=dpd8hw/MupKTr0qtPO77S41WAB8tiH6YV/1JhHJBPEo3/4hwDwHHPHeAglXSEuURo
+	 yrsKiwkV5fuDTfYvShVDeCmIhmZwr3zd5ozvD/HAnDR2qhXqhLQzKTGYAWG8J8xYnR
+	 AAPqLNsh5LFGngoS6smBXAW7X5xHYz4x7z5ER3yM=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
+	20250903135124epcas5p18fa26f5f659e6fee887eb66d26da80c4~hygxjFWjW3191731917epcas5p1g;
+	Wed,  3 Sep 2025 13:51:24 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.94]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4cH3tM1dWgz2SSKY; Wed,  3 Sep
+	2025 13:51:23 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20250903135122epcas5p33bc7da2841b332773bceb3535f368af2~hygwEAZGf2373223732epcas5p3U;
+	Wed,  3 Sep 2025 13:51:22 +0000 (GMT)
+Received: from INBRO002520 (unknown [107.122.1.191]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250903135121epsmtip12fd955463311b1f218dd2bddb5a961ad~hyguqdbwg1911719117epsmtip1h;
+	Wed,  3 Sep 2025 13:51:20 +0000 (GMT)
+From: "Devang Tailor" <dev.tailor@samsung.com>
+To: "'Alexandre Belloni'" <alexandre.belloni@bootlin.com>
+Cc: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<alim.akhtar@samsung.com>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-rtc@vger.kernel.org>,
+	<faraz.ata@samsung.com>
+In-Reply-To: <20250903122342a2996825@mail.local>
+Subject: RE: [PATCH v2 0/3] On-chip RTC support for ExynosAutov9
+Date: Wed, 3 Sep 2025 19:21:19 +0530
+Message-ID: <001a01dc1cd9$d52c1830$7f844890$@samsung.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <c35ab51a-e9df-48f5-bc18-889980098d08@gmx.net>
-References: <20250827-vchiq-destage-v1-0-5052a0d81c42@ideasonboard.com> <20250827-vchiq-destage-v1-1-5052a0d81c42@ideasonboard.com> <20250827124016.GF5650@pendragon.ideasonboard.com> <we7tl65ijs44ae2zxfejmvnml3ls2pkfhcp2fqsmvec2eqevwm@yb45fs7nnf5s> <8ed6519a-6e45-4793-b11b-7b63c1703d6e@gmx.net> <910dae68-0545-46fa-b41f-8e4fb32ed649@broadcom.com> <c35ab51a-e9df-48f5-bc18-889980098d08@gmx.net>
-Subject: Re: [PATCH 1/5] include: linux: Destage VCHIQ interface headers
-From: Jai Luthra <jai.luthra@ideasonboard.com>
-Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org, kernel-list@raspberrypi.com
-To: Florian Fainelli <florian.fainelli@broadcom.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Stefan Wahren <wahrenst@gmx.net>, Umang Jain <uajain@igalia.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Wed, 03 Sep 2025 19:18:06 +0530
-Message-ID: <175690728665.8095.6551736878574350999@freya>
-User-Agent: alot/0.12.dev28+gd2c823fe
+Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQJ8w0UJjWiHDR7+9bjoByRdFpd+nAMc6yo9AXLNbhMBpryuBbMOciLw
+Content-Language: en-in
+X-CMS-MailID: 20250903135122epcas5p33bc7da2841b332773bceb3535f368af2
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250710082533epcas5p111be26bea2ccc08718eebcb12929bbbf
+References: <CGME20250710082533epcas5p111be26bea2ccc08718eebcb12929bbbf@epcas5p1.samsung.com>
+	<20250710083434.1821671-1-dev.tailor@samsung.com>
+	<000001dc1cc7$6bfee9d0$43fcbd70$@samsung.com>
+	<20250903122342a2996825@mail.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_064813_565155_08F4D75D 
-X-CRM114-Status: GOOD (  22.04  )
+X-CRM114-CacheID: sfid-20250903_065134_607267_2F6E908A 
+X-CRM114-Status: GOOD (  33.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,72 +97,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Florian, Stefan,
 
-Quoting Stefan Wahren (2025-08-28 11:49:47)
-> Hi Florian,
->=20
-> Am 28.08.25 um 04:17 schrieb Florian Fainelli:
+Hi Alexandre,
+
+
+> -----Original Message-----
+> From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+> Sent: 03 September 2025 17:54
+> To: Devang Tailor <dev.tailor@samsung.com>
+> Cc: robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org;
+> alim.akhtar@samsung.com; devicetree@vger.kernel.org; linux-arm-
+> kernel@lists.infradead.org; linux-samsung-soc@vger.kernel.org; linux-
+> kernel@vger.kernel.org; linux-rtc@vger.kernel.org; faraz.ata@samsung.com
+> Subject: Re: [PATCH v2 0/3] On-chip RTC support for ExynosAutov9
+> 
+> On 03/09/2025 17:09:32+0530, Devang Tailor wrote:
+> >
+> > Hi,
 > >
 > >
-> > On 8/27/2025 12:05 PM, Stefan Wahren wrote:
-> >> Hi,
-> >>
-> >> Am 27.08.25 um 16:33 schrieb Umang Jain:
-> >>> On Wed, Aug 27, 2025 at 02:40:16PM +0200, Laurent Pinchart wrote:
-> >>>> Hi Jai,
-> >>>>
-> >>>> Thank you for the patch.
-> >>>>
-> >>>> On Wed, Aug 27, 2025 at 11:54:08AM +0530, Jai Luthra wrote:
-> >>>>> From: Umang Jain <umang.jain@ideasonboard.com>
-> >>>>>
-> >>>>> Move the VCHIQ headers from drivers/staging/vc04_services/include to
-> >>>>> include/linux/vchiq
-> >>>>>
-> >>>>> This is done so that they can be shared between the VCHIQ interface
-> >>>>> (which is going to be de-staged in a subsequent commit from staging)
-> >>>>> and the VCHIQ drivers left in the staging/vc04_services (namely
-> >>>>> bcm2835-audio, bcm2835-camera).
-> >>>>>
-> >>>>> The include/linux/vchiq/ provides a central location to serve both
-> >>>>> of these areas.
-> >>>> Lots of SoC-specific headers are stored in include/linux/soc/$vendor=
-/.
-> >>>> This would be include/linux/soc/bcm/vchiq/ in this case. I'm also fi=
-ne
-> >>>> with include/linux/vchiq/ but other people may have a preference.
-> >>> I agree with this point and I might have missed to notice the
-> >>> include/linux/soc earlier. That's seems a better location to me since
-> >>> it's actually broadcom-specific.
-> >> I would expect that headers and source would be more related.
-> >>
-> >> For example:
-> >>
-> >> include/linux/soc/bcm
-> >>
-> >> drivers/soc/bcm/
+> > > -----Original Message-----
+> > > From: Devang Tailor <dev.tailor@samsung.com>
+> > > Sent: 10 July 2025 14:05
+> > > To: robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org;
+> > > alim.akhtar@samsung.com; alexandre.belloni@bootlin.com;
+> > > devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
+> > > linux- samsung-soc@vger.kernel.org; linux-kernel@vger.kernel.org;
+> > > linux- rtc@vger.kernel.org; faraz.ata@samsung.com
+> > > Cc: Devang Tailor <dev.tailor@samsung.com>
+> > > Subject: [PATCH v2 0/3] On-chip RTC support for ExynosAutov9
+> > >
+> > > Enable on-chip RTC support. The on-chip RTC of this SoC is similar
+> > > to the previous versions of Samsung SoC. So re-use the existing RTC
+> > > driver with applicable call-backs for initialization and IRQ handling.
+> > > Add a separate call-back for disabling RTC since existing '.disable'
+> > > call-backs updates additional bit not valid for RTC of ExynosAutov9.
+> > >
+> > > Setting and getting hardware clock has been tested using 'hwclock'
+> > > and 'date' utilities.
+> > >
+> > > Alarm interrupt has been checked with incrementing interrupt count
+> > > via "cat /proc/interrupts | grep rtc" for 10sec wakeup time via
+> > > "echo +10 > /sys/class/rtc/rtc0/wakealarm"
+> > >
+> > > changelog
+> > > ---
+> > > Changes in v2:
+> > > - Fixed the review comment of v1 for mis-aligmnent & asymmetry bit
+> logic.
+> > > - link for v1 :
+> > > https://lore.kernel.org/linux-rtc/20250702052426.2404256-1-
+> > > dev.tailor@samsung.com/
+> > >
 > >
-> > This is not Broadcom code, it is Raspberry Pi AFAICT, therefore, just=20
-> > like drivers/firmware/raspberrypi.c, we would need some namespacing=20
-> > here that reflects that, ideally.
-> The VCHIQ code originally comes from Broadcom, but the current=20
-> implementation has been adapted and tested for Raspberry Pi. I'm not=20
-> against a Raspberry Pi specific namespace.
+> > Reminder!
+> > Can you please help to identify if anything is pending in this patch
+series ? I
+> see all three patches are reviewed.
+> >
+> 
+> You have actions after those reviews:
+> 
+>
+https://lore.kernel.org/all/20250711-shapeless-adorable-lobster-d2efbf@krzk-
+> bin/
+> 
 
-Thanks for the suggestions. For v2 I'll use:
+Thanks for the pointer. I had given the explanation for that,
+https://lore.kernel.org/all/188001dbf249$831afd00$8950f700$@samsung.com/
+after which I didn't get any feedback.
 
-include/linux/soc/raspberrypi
-drivers/soc/raspberrypi
+As per my understanding I have addressed the review comment given in V1 for
+[PATCH 2/3] (without ignoring any).
+So I am not getting what I have missed. Would you help to point out what was
+left ?
 
->=20
-> Should this also apply to the DT bindings?
->=20
-> Documentation/devicetree/bindings/soc/bcm/brcm,bcm2835-vchiq.yaml
->=20
-> Best regards
->=20
+> > >
+> > > Devang Tailor (3):
+> > >   dt-bindings: rtc: s3c-rtc: add compatible for exynosautov9
+> > >   rtc: s3c: support for exynosautov9 on-chip RTC
+> > >   arm64: dts: exynosautov9: add RTC DT node
+> > >
+> > >  .../devicetree/bindings/rtc/s3c-rtc.yaml       |  1 +
+> > >  .../boot/dts/exynos/exynosautov9-sadk.dts      |  4 ++++
+> > >  arch/arm64/boot/dts/exynos/exynosautov9.dtsi   | 10 ++++++++++
+> > >  drivers/rtc/rtc-s3c.c                          | 18
+++++++++++++++++++
+> > >  4 files changed, 33 insertions(+)
+> > >
+> > >
+> > > base-commit: 58ba80c4740212c29a1cf9b48f588e60a7612209
+> > > --
+> > > 2.34.1
+> >
+> >
+> 
+> --
+> Alexandre Belloni, co-owner and COO, Bootlin Embedded Linux and Kernel
+> engineering https://protect2.fireeye.com/v1/url?k=62b10b19-03cce365-
+> 62b08056-74fe485cc33c-bc602ba9f8c455fd&q=1&e=14890047-79c7-46fe-
+> 85a0-48fc7c9b3d91&u=https%3A%2F%2Fbootlin.com%2F
 
-Thanks,
-    Jai
 
