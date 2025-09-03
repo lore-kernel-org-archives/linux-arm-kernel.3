@@ -4,163 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79A66CA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 06:17:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 726A2CA100B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 06:19:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pEow0o3ceypLjB8Iqku7pgwDNZutIIUzm7PuvAeqQBM=; b=0b0eppnPsZVcQ70/HuB3rJIYN4
-	+A7agrkxGruhKZK1j3X/sbicJOZyZQ89hHoHGCY6SCj6Ph59MALGtIz6FICfSk73TGWuaNn94urbI
-	O5OtzrxdtTUKTRHi+9/xjhPnacOigf76VqPRcMFcg4Eca23ywwcDJRcjfUXYtEwPDBaSam2XPjAbP
-	qK2kMdpR4wotMJd1WU5tGXfHZVpvQEH3mz+5SHBdH/JOVue1wWBH7MBpa4nULpClKlFUVkRbjYBNH
-	v/fdrF7XiarIb1EQbtK6/v+wOChFYxaTYTKy0sgP+JTByTImfxwbBLMfDZU18GPu205wXWcYRge52
-	CR8x1bhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tQU80Q78MBhtFBfM5J1N4FBRhwtn0GKBK4O/dLbfS+Y=; b=NtaeSiHwDvSqv0jn9gdk0GSB4/
+	nj9t0yg3vtqJEbYM4TGfij9c/44WtouA983u5kGAMYhlAF/WcEeCAjZIx6VlZCOLFNcSAMGznFKXC
+	ZwHUkHJP86aSig+svQePt8iI2qwskTF3ox7oDvW0KJAUacyFYAN5N4VBMORm+qFP8pMlcEy7+pkOm
+	oH1CwdXA9yA7VpprsWCoeoqrI1/d+fyrfUa267hbRukDdMschlscsuwU+Mysnctw64+ckTl8g9Z7X
+	jPWMT2AKw2UfjpH3K9OpPX8aPbr8XnAny/jSqZWc25CD1jhfwocad7WAIvI/637Uhlq0hbrCWxbdX
+	gVK63qVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utgnk-00000004XJk-1cTu;
-	Wed, 03 Sep 2025 06:17:00 +0000
-Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1utgqR-00000004Z3I-3yX8;
+	Wed, 03 Sep 2025 06:19:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utgk4-00000004Vn7-3aRZ;
-	Wed, 03 Sep 2025 06:13:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JblDCFHFxjVfFBW9Nxm+R350MEwlZHCw0FRCATtE+LFT4H88QcZMdSNGdslQ/ZeGMTZVKplMF7QC9+8y+FjFG8rBUTm9iDZ5HIq/w9y/JY+XIHZS/wBLMLzKcW0cweO6SyhhCy9z6NLduCseydfM2znZ7SpFFIZc61wk1f9UgUKxkbjyzkuWpR+/3K0Ucy5U7DXZafWr4NUQ5p1CH3LJ8GTEdzYj2OcOyvvV4HAW/CDVZY8zHI4M6/FlE+BGQwcZsgWEvgdPS5YS1/Q9b1/P22pGQI466ofpvyeZUNnSt5yCWC/Bqw3fnvFlsVobSzvrLmEcGCRXHf6jSptw3v7FhA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pEow0o3ceypLjB8Iqku7pgwDNZutIIUzm7PuvAeqQBM=;
- b=ukMjGD5wVCd4PMA4SkCs5vfVtJBtjVp8ynqVJ5DAz9yMulYHrS7gPSucGtWjjQFJz69E4FMx/MHI0K+bQAK0XDi4o+NpHEOOg90LSJiW4TdDgGTjQ9XuIR7n854YU1Kg1btkst271BCglNM+8T8RA1WQyBqNeZ9xmgVSVUrTBBfA+BmBLHVrshEo9q+5dfLsS/EkOqEtPXMPYEPxIpfLPNxAUVp1DeQpuvLazOqLc19qoYrTgeqshNo0ahclER14YXZ1VMI8o/KX1N9iYBQwGm+5gOUv9fUXLfiilNC4TJfRbDm034fSlP9NOXpTSPc2/9T9JRsgp5jia3VfCnHdUQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pEow0o3ceypLjB8Iqku7pgwDNZutIIUzm7PuvAeqQBM=;
- b=Hdu0nLy/t4tkQiofPQ1R387OgNBcWfHoAqb3fCPCgSTxmoQbqya2U6+Zm5isD3bebAVjt0Ma7Y970fMuPDQV+ITb6P1ry+06IBr9F3LfK6OEYyUcxGslmRBbgdhYX4rabrcTgMAPRFZR42OfFpD4NnIl73UrBs5iz3Hh3qCtaipUNkThsvOV0mPbVlz21HT/6YNow1+6w8GHiVCZoFtPdCzzCRw94a8QTOmvArkiKtUyclGkbypA51JQOct94Kl3O0biXkfchZx93yuE+gIMFNeiVDZSWL3fTiW9HW6OcfdTbK/AdXlUtw9zclCSnMXTpEq8uNuPPlWBdAxG9uAbVA==
-Received: from SEYPR06MB5134.apcprd06.prod.outlook.com (2603:1096:101:5a::12)
- by KL1PR0601MB5550.apcprd06.prod.outlook.com (2603:1096:820:c1::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.17; Wed, 3 Sep
- 2025 06:12:44 +0000
-Received: from SEYPR06MB5134.apcprd06.prod.outlook.com
- ([fe80::6b58:6014:be6e:2f28]) by SEYPR06MB5134.apcprd06.prod.outlook.com
- ([fe80::6b58:6014:be6e:2f28%7]) with mapi id 15.20.9073.026; Wed, 3 Sep 2025
- 06:12:44 +0000
-From: Jacky Chou <jacky_chou@aspeedtech.com>
-To: Rob Herring <robh@kernel.org>
-CC: "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>, "lpieralisi@kernel.org"
-	<lpieralisi@kernel.org>, "kwilczynski@kernel.org" <kwilczynski@kernel.org>,
-	"mani@kernel.org" <mani@kernel.org>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"joel@jms.id.au" <joel@jms.id.au>, "andrew@codeconstruct.com.au"
-	<andrew@codeconstruct.com.au>, "vkoul@kernel.org" <vkoul@kernel.org>,
-	"kishon@kernel.org" <kishon@kernel.org>, "linus.walleij@linaro.org"
-	<linus.walleij@linaro.org>, "p.zabel@pengutronix.de"
-	<p.zabel@pengutronix.de>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-phy@lists.infradead.org"
-	<linux-phy@lists.infradead.org>, "openbmc@lists.ozlabs.org"
-	<openbmc@lists.ozlabs.org>, "linux-gpio@vger.kernel.org"
-	<linux-gpio@vger.kernel.org>
-Subject: [PATCH v3 03/10] dt-bindings: PCI: Add ASPEED PCIe RC support
-Thread-Topic: [PATCH v3 03/10] dt-bindings: PCI: Add ASPEED PCIe RC support
-Thread-Index: AQHcGwWW5d3OP3gN0EOH5yEQdLB1CbSAZn+AgACUtzA=
-Date: Wed, 3 Sep 2025 06:12:43 +0000
-Message-ID: <SEYPR06MB5134D2683D1FBD637955D2099D01A@SEYPR06MB5134.apcprd06.prod.outlook.com>
-References: <20250901055922.1553550-1-jacky_chou@aspeedtech.com>
- <20250901055922.1553550-4-jacky_chou@aspeedtech.com>
- <20250902211221.GA1179675-robh@kernel.org>
-In-Reply-To: <20250902211221.GA1179675-robh@kernel.org>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SEYPR06MB5134:EE_|KL1PR0601MB5550:EE_
-x-ms-office365-filtering-correlation-id: 0787d4b7-acae-4054-9c35-08ddeab0e54d
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?F9izYmWxS3wRVKe4EMtgezauE5KZ7h8HbrVKO7rYr3gXphjjI9yYRWckKvoy?=
- =?us-ascii?Q?xt69v0XWNLPgHk05RbUeVC10Gzy+43YP7BqTCwLT+sken2u8/5ua7nlkf+xO?=
- =?us-ascii?Q?s3X7cA5tHucRMb6o5mWNiGPZIxmostswIlV0Xm5MLpUelmca6les+LTZI9vf?=
- =?us-ascii?Q?IRm9794VGFBhaXSjhUyIP0AhbVQufiKe4v1hDKEtMLGm0nPq98WH7rfrqCCg?=
- =?us-ascii?Q?o3g2vIb5aSNlYSsCsVSW4B9xxu++TGtDlh9z1nJAQEPrfmTfN8aOnypiSgVm?=
- =?us-ascii?Q?BFT/bOa1iM8pFn60wCNzNJNBsc/hFqBg7MbQy74Wph8adjxOIN+H8/5bmixD?=
- =?us-ascii?Q?txGHPraVDmFPOPSoku9hoXXlvya09Hf560qhgIDLcdcTH7xjbu0Dwqv3Q8pP?=
- =?us-ascii?Q?PeBwe5JsUaiWrGl/3cM5cadvBUXqdDU+iVEUQX4DMHrX4TU4t/OW4FoFeSM6?=
- =?us-ascii?Q?MV8GntAYFUtcoUZXR+Z+RF2hZ2YwpFtFd9rtCQ3Co0wS80McjrXHKgVAkNwM?=
- =?us-ascii?Q?gMgvDRq9u9dUI0Fuaib4DJwyM+SuFrGkrzXbuVjpGG7carfGcKvgt7MqzZov?=
- =?us-ascii?Q?I4yRowinSULfvKsJN67ZKfvP7kMOGFF0+yX74vGBRqnum2jZFJLet+5w/uoG?=
- =?us-ascii?Q?8UJPkd83Mv2Dh5wLaAC+PNkaKmjHs69gDKIGWBiTefz0hLmDRU223KLAJDcb?=
- =?us-ascii?Q?VGj0YlWl9aiKLcD0MD2fWdsXfuC8vxqrGwaM1A9JNQc6RR0s0skxgCKhQhAm?=
- =?us-ascii?Q?dUw3b703vX84SZN08N1IkNiJ+EPAkaAixcNTUqyFyx+L/vCr0HXp4N+pZDNb?=
- =?us-ascii?Q?Fz8s2RVkhaO2n3XFEeOdjJDEvMCl9o8vRJWUlR3lqu+fiCfWYzfIX1pVslNw?=
- =?us-ascii?Q?Oprlv/xZOYB58Yr2wp2Xbdv09lmfwisdJlCwBb395La7T7wzJuFxEaBgD949?=
- =?us-ascii?Q?uU/8msls2KO3zbdI84YQIOpLmKf32sxgbCwl99fkyFyTG8sJpjjKZyn6FU+k?=
- =?us-ascii?Q?iVFkobBPyi/waG9hLIE6CSef6gaO47IdMgQJUIKJ7xB9PlujEKcCsG7uyv+G?=
- =?us-ascii?Q?IHarX/ocJR0v+3/tsPIPJ0B4cxJJ6uS8OvURm0fMcDpKMbmsc1bCVP1mVb1g?=
- =?us-ascii?Q?C2OHmLK7t849Hy8jI0VEj0BdrV46j5cP7y1lDtKgfFLAncCNH5Oy5t4LJC+7?=
- =?us-ascii?Q?Haa8+4UyacDdj5NNLNw4++Xp1L2NvVfADwr/LBL1k8XGEuzO2atzk+dSZhtI?=
- =?us-ascii?Q?phPTDFf20jlrr28UGQZyYn234xgYRqbjoBRUCjI6t6T5M545tFjLD14oTj13?=
- =?us-ascii?Q?aKnVPQetSsi5LMU7/Y7u+f/1DLVkWL8j3+JM45ndhn3SA/REG3xLYDfLLsTK?=
- =?us-ascii?Q?N0h41rZlQ1IvNbD9mukj7T66xC6SyoJLerFCgFI39Ti7NB6dLlFGcEzKJ85u?=
- =?us-ascii?Q?8vYjTu4rdpQNdV7mCDiIEqArsgyeLyX2ez7tFGtDbmV+OKOelcofTw=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB5134.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(38070700018);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Z9oPKLkbMIGoYupseEy5yYVmmYnWDFDQiqDDwh9zcJ1T7V+r9YC8lbItMFws?=
- =?us-ascii?Q?Q55zqJzN/x9chj++0hddgqcLZqkspjA17qmbgHN3YqQTS1CHCbQ+9HmGyhH8?=
- =?us-ascii?Q?65I7Fd7uILCX8cbfNMM7kPHIzkI2qa9PdTOVtu1g7yrmKZSQFObouTFfxkAX?=
- =?us-ascii?Q?KJeY+RjhVwccMVNLVLDSYc+F7jreqIA8jE196D1V9bmmLfcDZ9mkS6EbR1BR?=
- =?us-ascii?Q?Xs4FUBCcyV8qoLuS8WYPXdmWf7UuW3dbkL1HuflbQMbfuNOSTuxWa+bZADMk?=
- =?us-ascii?Q?EU3qdUfD++SCJ5dFEbNZZYwVPnwTQXvYYbnQ8VNSzmvQyuhM2HPE66kk8Cbj?=
- =?us-ascii?Q?XAEBW6719strtk+PaIy9ybmGK+pw3HOXOdm4ziW5H+Xl1UA6wt3S+Wt+ODBO?=
- =?us-ascii?Q?sTI/jJB9gEu5AAugxNPHvgeqXMX1+sxVvsB74Rs6GmmQcnKu37JJLJ2PqPTH?=
- =?us-ascii?Q?b0iYr4S6EQHffN8caTBqiYkbEl1PDhT3rr3BZOtuFZbVoNDCkz5T+H2lqQoW?=
- =?us-ascii?Q?ARk45bjYlKDHbtJNm0f5ZzV6BOf3A9iGbpKTgDEBWcnrEtmPHhpHvOEd8eCw?=
- =?us-ascii?Q?tCBvY9CNNULHe1wFbzmkZQwtkEhm0Xf3Oq2xQ1/wQOruRMxalcxTSs1WERtY?=
- =?us-ascii?Q?YU4wbkmktWP8ZmAJyWF1RcZQwck+lFtJ/iqZ4N0199dW7xk60FUJgJUqqlW2?=
- =?us-ascii?Q?jfzkzO4eWHFPwZLHCJ3NPYwqVNXCFCY1/7mdtEguW9HLQws5GLGkKmu2uH3p?=
- =?us-ascii?Q?7UEAcIdc1sDu3hJVWAd0bGzpUSWxNgKpKJGdpJl2raklUXmWizMmK0KepmoC?=
- =?us-ascii?Q?c+jfIakVuJRzMUhvPJqRncaHDDTJCij2UtF6diQF2vmXNgxch+ktMA8p+OTS?=
- =?us-ascii?Q?Esa4W5mFIw+JSz54Q9+fEoMPvorA4xdEnQbz1cfkFeoPhOMetOgtseD8jM9y?=
- =?us-ascii?Q?L4XO8v86X2PuetIUvAyBtJUm47HriRX/MfxK4OBCZphSlAJ/MKYiYEEas0Bk?=
- =?us-ascii?Q?+/xFzkZVEp8px/kQK+rT4a/ivTD57HAhXih/yjozeTUO8VmjVpA5AXXy15Yc?=
- =?us-ascii?Q?Xqc78FzicsyXr55KDpYeIxOdsQFAktrimiqXolcBnC6/sGdbcXHLesPRXapE?=
- =?us-ascii?Q?R7e2uAS2Bg5HRE7kC6zCebzpQbDNDSCNPYlOUjp8WILQel04aQ3TH6c2ow8Z?=
- =?us-ascii?Q?DoJc+bptogxNrzLtjWJcEtupETeeOO6XvI6Bw6/bjkNczxyw4TG0zrQaaIPW?=
- =?us-ascii?Q?X/s5Djd0gdapqkBqGCavWlakmnoEi/+FHmNijk8ua1H2LekxyJXpgwtzyJo/?=
- =?us-ascii?Q?qYJu1JCJRuMdy/cg7NdSDu4sq/g6olbJCPCAI3HEpPJGOBXzqztUo+UVOF5v?=
- =?us-ascii?Q?scrWh5KBx43TfMwdBAjEjisGemtTK8efUCb/Visv1Lt5CyNfJPm5Ri4VRfAt?=
- =?us-ascii?Q?JPe9KsQfOnHCmo+fbEGDfjO29Pq3iQQTznRCWx5WtzPGdbnQQvgiLRSN/uAg?=
- =?us-ascii?Q?VxYQbsUoFq7aoEuvgpuS3njiJGPYkCyGy9tj+P8E/iC4AWuYjICeTMXwOVdM?=
- =?us-ascii?Q?2wJPVxthrQHtFjxy3rBkfTODAm17BNAU94zHUA0z?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1utgl0-00000004WA0-1zTX
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 03 Sep 2025 06:14:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 98B2A60239;
+	Wed,  3 Sep 2025 06:14:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F218FC4CEF0;
+	Wed,  3 Sep 2025 06:14:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756880049;
+	bh=Z0ZueLOg7EgXP4wjwbs33b6kJu0PLFw/NnsxA0K9Eqs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Vo5dIU3CVhcV4y/VVOlW34ypUKtDL6kyzZ6mNkF3V+f+HBHMr+K2abMr7wuLSdB8z
+	 OffZhveIbeSFBI3khwOMw15JTa4XARoCvoFsEleAVw5gXZRINMaA/YQ78jgmX4KUMu
+	 1q6b17YKrTtGssCbnsurMw/NpkzP3TjbH4fqxqE/y/IbBoRyn64u8Xu/R1YuZh6bbP
+	 I4OFSAoBigkohi9V7o8KUbJ9AYJC/QWrtYkBWfKXUi02A9BK/TfLA3/0b/9VVb3eJS
+	 l3RJp8sg61nTPTaoFvR/5JA5gRpyLHsyHcLiUuof0Zm9ZNxIqLyIr/NQ4mgqRduhio
+	 ff3K0rQGzhVnA==
+Message-ID: <05665d48-72d7-4304-9dd1-1f337235ecd4@kernel.org>
+Date: Wed, 3 Sep 2025 08:14:05 +0200
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB5134.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0787d4b7-acae-4054-9c35-08ddeab0e54d
-X-MS-Exchange-CrossTenant-originalarrivaltime: 03 Sep 2025 06:12:43.8267
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: vORN54ZhoKI3N7g5uRvg10aH/CLIjF+iW2S4U7jeG9P3tsc+Nn4nMbcs2mJFQ9bCSUJAXkX/E1rvwtDqKNhM8IhJ2WQDQYSlbbAHSietzUI=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR0601MB5550
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_231312_895137_EB44ED22 
-X-CRM114-Status: GOOD (  11.10  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 6/8] arm64: dts: bst: add support for Black Sesame
+ Technologies C1200 CDCU1.0 board
+To: Albert Yang <yangzh0906@thundersoft.com>
+Cc: adrian.hunter@intel.com, arnd@arndb.de, conor+dt@kernel.org,
+ devicetree@vger.kernel.org, gordon.ge@bst.ai, krzk+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ robh@kernel.org
+References: <ce1285be-5a3f-4d4b-bca1-e31f56573597@kernel.org>
+ <20250903034018.3422601-1-yangzh0906@thundersoft.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <20250903034018.3422601-1-yangzh0906@thundersoft.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,64 +117,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
+On 03/09/2025 05:40, Albert Yang wrote:
+> 
+>>> +           gic: interrupt-controller@32800000 {
+>>> +                   compatible = "arm,gic-v3";
+>>> +                   #interrupt-cells = <3>;
+>>> +                   #address-cells = <2>;
+>>> +                   #size-cells = <2>;
+>>> +                   interrupt-controller;
+>>> +                   ranges;
+>>> +                   reg = <0x0 0x32800000 0x0 0x10000>,
+>>> +                         <0x0 0x32880000 0x0 0x100000>;
+>>
+>> Random order...
+> 
+> Refs: arm,gic‑v3 binding
+> https://raw.githubusercontent.com/torvalds/linux/master/Documentation/devicetree/bindings/interrupt-controller/arm,gic-v3.yaml
+> Updated as follows:
 
-Thank you for your reply.
+No, you need to finally read and follow DTS coding style.
 
-> > +
-> > +examples:
-> > +  - |
-> > +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> > +    #include <dt-bindings/clock/ast2600-clock.h>
-> > +
-> > +    apb {
-> > +      #address-cells =3D <1>;
-> > +      #size-cells =3D <1>;
->=20
-> No need to show this node.
->=20
-
-Agreed.
-I will remove the apb node in next version.
-
-> > +
-> > +      pcie0: pcie@1e770000 {
-> > +        compatible =3D "aspeed,ast2600-pcie";
-> > +        device_type =3D "pci";
-> > +        reg =3D <0x1e770000 0x100>;
-> > +        linux,pci-domain =3D <0>;
-> > +        #address-cells =3D <3>;
-> > +        #size-cells =3D <2>;
-> > +        interrupts =3D <GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>;
-> > +        bus-range =3D <0x80 0xff>;
-> > +
-> > +        ranges =3D <0x01000000 0x0 0x00018000 0x00018000 0x0
-> 0x00008000
-> > +            0x02000000 0x0 0x70000000 0x70000000 0x0 0x10000000>;
-> > +
-> > +        status =3D "disabled";
->=20
-> Examples should be enabled. Drop.
->=20
-
-Agreed.
-I will remove it in next version.
-
-> > +
-> > +        resets =3D <&syscon ASPEED_RESET_H2X>;
-> > +        reset-names =3D "h2x";
-> > +
-> > +        #interrupt-cells =3D <1>;
-> > +        msi-parent =3D <&pcie0>;
->=20
-> There shouldn't be any need to point to yourself.
->=20
-
-Agreed.
-Since this RC implements its own MSI controller, the self-referential msi-p=
-arent isn't needed.
-I will remove it in next version.
-
-Thanks,
-Jacky
+> 		gic: interrupt-controller@32800000 {
+> 			compatible = "arm,gic-v3";
+> 			#interrupt-cells = <3>;
+Best regards,
+Krzysztof
 
