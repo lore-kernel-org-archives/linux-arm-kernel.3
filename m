@@ -4,82 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 385F1CA1009
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 09:01:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F5CECA100C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 09:04:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=DpPPqJ6vfvGH4vuO+e6EX5ng+865t3uw6R5fP2qsALM=; b=eYqXPotu/uIipX
-	Ix4VPyfxWYJs/bkwgNkjnCurNOyNU3bUVRYjF8kINBgm3dPa6COZPqcCnxu/zaRH+cceshmsFV5HA
-	5OxGbWTC+uJtkc4+cix7oI+119AxKJtRT19KmojiLG8QUKzxyB318jlw5+PAo0JQV8/61JNiUEVrs
-	9ebFrkRZaQbKzEBySYJFFWgjYI40oQ6ltAcqDAY7JOoafibt5xfnkZtNkvA+wiKdTG3/CP50s3w4f
-	6cxLTGYVhYn8ZOLI7CyZiWatj3je8qIqpGgXiY37DB7yTrqxBGpdNyMhxzOZjLEWX6R8kQ2RfSfGM
-	9UX486LpcvOzpWVwYXEQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=28SrxqKbfMpenNCR7Jms+O0M7RdbqCMd1LJP2Wh5U4U=; b=KEFTD+ZVrLtqmEfxda304Klm/U
+	7bKcIkDIkbeCDFQqvBPYRFF/1tu16ENPOkALovA7NlbLfPjxsMhajEr+OdbtUwovnlEHEu73D++YR
+	25X7niILZhgwxMyq+4sSbn4a18zDPtVCtPsA8MQOTafHrez3InkZAlZzQU041e5+d8aHN+CVU95ti
+	oO8dwZf8jTuOq3cMCq+A49J+orXuEkb4/cyJxWcn1Qg1QyHvIfm5/fdqWmDpRNp2ounv6lyAJAB53
+	0D6X19Qny109+GhaIhcmPomVjPl/nUjwcgLlDXkEszZeerzkWuRACcPHuGaC7xY4prJ/6t45DR5em
+	QBNfp39g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utjNG-00000005pqu-0H02;
-	Wed, 03 Sep 2025 09:01:50 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1utjPx-00000005rBg-0LEE;
+	Wed, 03 Sep 2025 09:04:37 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utiPl-00000005LhB-41bp
+	id 1utiPn-00000005Lhq-2Srt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 08:00:23 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-45b87bc67a4so24841285e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Sep 2025 01:00:21 -0700 (PDT)
+	Wed, 03 Sep 2025 08:00:24 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-45cb659e858so1626525e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Sep 2025 01:00:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756886420; x=1757491220; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=DpPPqJ6vfvGH4vuO+e6EX5ng+865t3uw6R5fP2qsALM=;
-        b=EvlhRMRQTz5laEdp4yLLetX1Gwven4B57DxJeUC9fsWiF8HClQPk/VTN2kOhDg2E5O
-         B2fWGmD5FSjGEzMeP929X5fTgW9Sv9w1OZTiBe+tiGh9KF7zABQJR8eA0jlpOS6NWgHl
-         5Qi4vkp5JV/uzVDfiJC4cBhdOgCQuY4G4+IBappKhlMkGsZM6/k7ckqOp4BDl4M4a2Zl
-         e5nO9Tl54D4CbTvks7+Fmm+lkKJ1Rze7Aom2vbN6J3ExUVA9mEcCJC2fHBCJJQ8THEnF
-         3I6H/t7KtG45L2GfoO+CYGT7ZJxrS/iWmcX7NjoCq4foTg9z+/lSEmyaePacmm26gCG6
-         Ng5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756886420; x=1757491220;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756886422; x=1757491222; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=DpPPqJ6vfvGH4vuO+e6EX5ng+865t3uw6R5fP2qsALM=;
-        b=OlSn0KNbW435BVROah7WqIcM3cWScZlh5QJ3ZiCmx1S+sXOAv90QARYCWuRsbKdfOe
-         R2nla0Z2troYzlYJ74yttHTfqd+OZ37KTYl2lNAUUP/bTnAkP+3dn+VzzHnEhrcdlxXr
-         SGiCoI9GT2ufGAq0ZOcq7NZcBnDOLERhmebsLDdXJY+wRq9eRQz+Gvc7QbnRCHTuw+QK
-         op8qwjrsqrTH0Fd3x2ZlpdM34eD0Rn5q9Df4q3KqZ1nrpAhwjS7zpLMnBgRk9LiV2FRD
-         yyiE8jB5blJi6Xr8ObYoypcETdu0+lSIQ4h83Bt8pzxfBA28ESQ9LyAFs5eRf62Df4Wk
-         1xUQ==
-X-Forwarded-Encrypted: i=1; AJvYcCViY3lws6FQTj9n24XIJ7A2H77m9PR4IZ8gP7PpmE7rvQjBiIuZ3RSOfXC2gGOjbBrmIpEEuxKMoPPOfx0cEEJH@lists.infradead.org
-X-Gm-Message-State: AOJu0YxEoT5Ovj32cOxhATgeu8NDDZxQ6dilSL3lAn8hAtGvvZ6PG3mv
-	0eTq70ytBytjDO/cpxRkPtuvDUBXaCNeiXp0Mfy2u1x0OCs+sdLmBZWvIY/mEorDLGs=
-X-Gm-Gg: ASbGncv3E/GgOza+42RcJN4367jUX5FUQcVTqHFRIGCzuoFYaVf9nl8hhSs/qZAIMFa
-	t055mYuH4HulmabFLJnMxPansaG4JfvaYzCjPnOrmyVQtU0VrlUesy7Q0gbqg5ALR/PsfCzishB
-	pdiUj8TjX2YyCnpOobOyh0liqb8mwrS/GFG7JjA6JQj29cojqyxfmGyvKgA+QAtv8HzxbzO6mpJ
-	Wbvz9AbwpAMU/X1Af1zzYmnqNoqMyb3ObXzl9sjkFjEASuxyUrWRdDD6uZe2eFPHInSJ7jL6KlX
-	/AThn2SN8BXNowHOTL3UNnlIzkhz2nFzJrMYCIbMnTPdlH71Kosw/GarEFyMK9yV1IHa5Jw1QyD
-	/ZVIH629cPNvx/BHG
-X-Google-Smtp-Source: AGHT+IFwjP7yYn1uifzActrfXYI79jTCrc8TnAVAgAEQ4T0bxdVQdBTd41jSKK0TuTYpRpjrFDEjGw==
-X-Received: by 2002:a05:600c:4e44:b0:459:dde3:1a27 with SMTP id 5b1f17b1804b1-45b855fc86amr107466725e9.26.1756886420178;
-        Wed, 03 Sep 2025 01:00:20 -0700 (PDT)
+        bh=28SrxqKbfMpenNCR7Jms+O0M7RdbqCMd1LJP2Wh5U4U=;
+        b=tKBWgoRvaAPTnB/3PedD0pZ3XZsPKtVJZ3zpc9kbHInLyR5l4XD7BZ4n9oG6fpwr28
+         NTBMnYrtaOAAqKsQjR5lnPRvIXnRR6chpRBP7e0ftRlpAm02ddiIeOpi3/p+hb6252fF
+         e/P3YiRVufaKd6IN+j74Kloprru7Oexn/YDDre6Vaj73kKXdjgVbI1qZ3T/TMZhptMJ9
+         RXB5TcBTitMEKFXOi9664EqUXOraIfyZIZwr6H/0iiO9v++OUT3tU+DbPnChGwsYKOHi
+         4iLWDKJdzyqYOuZQjWwJokev3tQEIr44hLpkapH3DyKVCm4COcbOwgV3dHHCiSomP6dw
+         Nd8A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756886422; x=1757491222;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=28SrxqKbfMpenNCR7Jms+O0M7RdbqCMd1LJP2Wh5U4U=;
+        b=s+vP4w9ZQ/S5Rpu3bosH9jfiWSkgaftjAcwqSt9BLOYELEJdY3cPuKvym0TlXKo+kk
+         8KceMvDsiW0vs4Cf2rp/NFWjFXPTEIO39rpHHugi6FNo4EzEJ13YJ2En6ys7MNnQx6Kq
+         v/zBS06yIbCIqr2XbwuOLYjCLVnPxBB3AQ5fooyeB+fdtf+wybXGpmrsU2/qyBONVUZJ
+         gmmL2QxhD68gq9ra5Evznm2z/fctq6MVFPiHrQHWuBeo+ZRAMppbiNIWHr7UDVN7qpJ8
+         8csV3RJA/vGBzbuY/bLdB8YNOeDnFQF8Aal6pXW+BdzRjMYcP5EO88HJO5KQ4sKkI2Ex
+         FzZg==
+X-Forwarded-Encrypted: i=1; AJvYcCVTucKIHhxY4UVYZVBJTqQEF2SxTBUiX8oY2gzBuCPqPKv4dTRXFiJuG/1X5Nwl7zzjzdHahTQieanVy7SXZdnF@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBWukQl9P7NnZiC3/oc6Kufvx200Hknv+JaRwjwK50wDmccsFG
+	nvIgzZ/7+g+hjkuGfFDshMpUGMX1Sey7pq24xPPg99zuFWnYpYr7pNlMlObg30xc88w=
+X-Gm-Gg: ASbGnctSfytjuitbzvne/sxKTx5HdqWN+2ep7REkaJbeACwJaAUc/eQwnvtNrwreJJT
+	hXi6vkPlaPDmNdTpdE4PDy1ifc+rDjJqu+IDZnkV/wnIuck4VEyxpriSfZOi3+9rHLYD3KRHN62
+	pBgIXLTgwoa0T+sDBG9xmFxr6cJXKEyuAtQwLq1Lqyehe1Wvx5ftTLET+mxWA4e/xwquWvePaMc
+	T61Eo9YsIDgoIiAKou092pQtpMNUsWJhOsHDYsCtxZS37Ac1FF7tNaUdESt6+oyshe+5W0cQ46s
+	at+Idr15seZshlqKz6SKSQTXRANP4kKgZUrCcueHS2mxT5wd8VLuzg234KTMkmVefO3g+oNldxr
+	nTsmC7lArg9kVpRKhVGpvafcIPV8=
+X-Google-Smtp-Source: AGHT+IE23n8KEnm9RVMvzUtmDbHmQx/BpqNBQW7ho4oltG87X/6lye41dV5DPXCUu+eVURRe7SjPfA==
+X-Received: by 2002:a05:600c:4f51:b0:45b:9c93:d237 with SMTP id 5b1f17b1804b1-45b9c93d3a5mr28813005e9.14.1756886421328;
+        Wed, 03 Sep 2025 01:00:21 -0700 (PDT)
 Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:2f8b:4799:6bd6:35df])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b83e954b7sm113331635e9.1.2025.09.03.01.00.19
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b83e954b7sm113331635e9.1.2025.09.03.01.00.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Sep 2025 01:00:19 -0700 (PDT)
+        Wed, 03 Sep 2025 01:00:20 -0700 (PDT)
 From: Bartosz Golaszewski <brgl@bgdev.pl>
-Subject: [PATCH 00/12] gpio: replace legacy bgpio_init() with its
- modernized alternative - part 3
-Date: Wed, 03 Sep 2025 10:00:04 +0200
-Message-Id: <20250903-gpio-mmio-gpio-conv-part3-v1-0-ff346509f408@linaro.org>
+Date: Wed, 03 Sep 2025 10:00:05 +0200
+Subject: [PATCH 01/12] gpio: ixp4xx: allow building the module with
+ COMPILE_TEST enabled
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAIT1t2gC/x2MOwqAMBAFryJbuxCjInoVsTBxE7fIh0REEO9uS
- DO8Kd68kCkxZViaFxLdnDn4Il3bgD53bwn5KA5SyFHMokMbOaBzBXXp4G+Me7p6HPtBzcaoiaS
- G8o+JDD+1vW7f9wMBCkNvawAAAA==
-X-Change-ID: 20250901-gpio-mmio-gpio-conv-part3-534b9ffb7e2c
+Message-Id: <20250903-gpio-mmio-gpio-conv-part3-v1-1-ff346509f408@linaro.org>
+References: <20250903-gpio-mmio-gpio-conv-part3-v1-0-ff346509f408@linaro.org>
+In-Reply-To: <20250903-gpio-mmio-gpio-conv-part3-v1-0-ff346509f408@linaro.org>
 To: Linus Walleij <linus.walleij@linaro.org>, 
  Bartosz Golaszewski <brgl@bgdev.pl>, Linus Walleij <linusw@kernel.org>, 
  Imre Kaloz <kaloz@openwrt.org>, James Cowgill <james.cowgill@blaize.com>, 
@@ -90,27 +89,26 @@ Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, 
  Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1600;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=732;
  i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=gKWwUvnAEvt2ScQRr56TGrFFGK11fkBKFuB/ae7rjDs=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBot/WMzbJ/KeLZaXwwbG7zHqK/b9QJqWbxJVEkF
- NwdikCx+xqJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaLf1jAAKCRARpy6gFHHX
- ciaYEACZUQUFrz8EUOXz/wW+8FpV4nOg7WED+poFNv1ix3BYoSfeycNXw6ASf8bmTHYuRUfMeN1
- RfJfuwFT9hdegcIBuWDhcHRmW/MhmZN/lfl2jipA5Z0T+f9Bcs/jU64irF6NgBMONC36lWxz434
- tSq+qphMiMajKiFrcwoWa8GenarK0R3+JcoTAhDwfAr5F6+GTanDnjNwY6CVcz/ns6Jpkj6Qjm/
- DXZgC2xB1dlOgRk/KBm0uVd5ztLeToZOW93AyDUZdsF8aKnRvKKU85ypaJ/U3hxwQEpw0r5X9c/
- 4vwFH4beR1yILC2lFhkhsU/M8fU0lhSmgc6ajG/XeV7EuUlPhz9+ozGz/OxCzeHr5Zuq3SQc3VT
- jPCVSYynJOUfAWmBKaKgKg4YGHufyqswORJ1Gu6S+PokAhRamn2cFOF+zfsJ+n83f02+J5YT4S6
- m38OkRc6GTE636Q9OnZOk0VoH2hhWWQMsn+VPysDq7YQQiJWli9piqELKJ4lT+wKVJSgDcIixNk
- A2UvApfvhhuPYuFH+Wdtp8ivAh2v57RpT1czjXW4nHXz9KtIj7r2G/93f6wED0SMWHaGkSn5Bgg
- aLBCXTs8AyWbCXyQEagHqPvuVrllsdtt8bKra3fhbclCiYgUYtC9e64Dby7AYCdtdAUK5l2bLQp
- htd9ZzHD04avA7g==
+ bh=t1lfr9CGD5hAUu0wxuYijAuMnGmaaqaWqRG/nWsgM6o=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBot/WQJnZVk4R49ta4SC2jyrvwBxAkuePGg6LgL
+ Ag/zatRYt6JAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaLf1kAAKCRARpy6gFHHX
+ cowZEACJ60IcLQ33Gz4l+86NKu9gu7IpmgUlHDd5ok5S+95AVHa3s8fnM0+K4kB56bF83VDaANV
+ wgnvG4d+jxv2c+uOb8GaLQTh3wusDzZroIkwQXZtNXRb+4nAF26tcRvI1x5awtyZoCQM0YSwIB7
+ scKnSsoX7vafPALdlagy+sI4e5KQNXE/NdRhpU+Tb4GMZIl2bpHxT6vUOOtyOrySECDUityOItj
+ SqBuDtgAjmXzJAuoxxmnLyRRnpTfNsSlw/zYyheFaoGKk+Vpg19Y/OG11E+7GexnzSGL1YVdII9
+ dPffXmg7PaYnj+HMKJc8dw9SGTJcdhrAXQPtCXiEwZVLuSi3+NyHq0HSckkE8o9PBJ8/esnCDLg
+ uiUDTFUOHBKHeXXEi3zcUmxZAdAHgv5H/GlSLo2h7UMXa9W7+4gPE2ItftlQOEYUkAICy6m4Q3O
+ GVAw+ZWh16zaNnpdGEokgNkH7wys0wJLg+Plfxet7SUyYkGh+HQONUtKeOBBfgZgVQbTF0THurd
+ hPIExC4/Y586Z0iEv3YXgVKp/d8rEnFhQo0Y4k3E9/N4Y/e3D7wlB3RRmjIX19rElcAfUIozH/l
+ BGtTomeoRJJwjNtLbB2Iva15e58xgNg8qvTiReFziP918VanQq0LCKcYzQraiwkI3li7j2N8GpS
+ kTn8PiXSsFdscfQ==
 X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_010022_002836_65019780 
-X-CRM114-Status: UNSURE (   8.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250903_010023_636478_61EA073F 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,40 +123,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Here's another round of patches converting GPIO drivers to the
-modernized generic GPIO chip API.
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+
+Increase build coverage by allowing the module to be built with
+COMPILE_TEST=y.
 
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 ---
-Bartosz Golaszewski (12):
-      gpio: ixp4xx: allow building the module with COMPILE_TEST enabled
-      gpio: ixp4xx: use new generic GPIO chip API
-      gpio: idt3243x: use new generic GPIO chip API
-      gpio: blzp1600: use new generic GPIO chip API
-      gpio: tb10x: order includes alphabetically
-      gpio: tb10x: allow building the module with COMPILE_TEST=y
-      gpio: tb10x: use new generic GPIO chip API
-      gpio: mlxbf: use new generic GPIO chip API
-      gpio: ep93xx: allow building the module with COMPILE_TEST enabled
-      gpio: ep93xx: order includes alphabetically
-      gpio: ep93xx: use new generic GPIO chip API
-      gpio: mlxbf3: use new generic GPIO chip API
+ drivers/gpio/Kconfig | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
- drivers/gpio/Kconfig         |   8 ++--
- drivers/gpio/gpio-blzp1600.c |  39 ++++++++++-------
- drivers/gpio/gpio-ep93xx.c   |  33 +++++++++-----
- drivers/gpio/gpio-idt3243x.c |  45 +++++++++----------
- drivers/gpio/gpio-ixp4xx.c   |  70 +++++++++++++++---------------
- drivers/gpio/gpio-mlxbf.c    |  25 ++++++-----
- drivers/gpio/gpio-mlxbf3.c   | 101 ++++++++++++++++++++++---------------------
- drivers/gpio/gpio-tb10x.c    |  74 +++++++++++++++----------------
- 8 files changed, 214 insertions(+), 181 deletions(-)
----
-base-commit: 5d50cf9f7cf20a17ac469c20a2e07c29c1f6aab7
-change-id: 20250901-gpio-mmio-gpio-conv-part3-534b9ffb7e2c
+diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig
+index 6fd904e29c3e744acf599c75147a25a01a3a2cc2..0fd5b09c499ac8468269b62a306f9ec03c3f7a9b 100644
+--- a/drivers/gpio/Kconfig
++++ b/drivers/gpio/Kconfig
+@@ -408,8 +408,7 @@ config GPIO_IMX_SCU
+ 
+ config GPIO_IXP4XX
+ 	bool "Intel IXP4xx GPIO"
+-	depends on ARCH_IXP4XX
+-	depends on OF
++	depends on (ARCH_IXP4XX && OF) || COMPILE_TEST
+ 	select GPIO_GENERIC
+ 	select GPIOLIB_IRQCHIP
+ 	select IRQ_DOMAIN_HIERARCHY
 
-Best regards,
 -- 
-Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+2.48.1
 
 
