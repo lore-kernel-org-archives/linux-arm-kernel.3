@@ -4,79 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2913ACA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 15:24:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBF2DCA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 15:27:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OkP7TTKiElQOLd+SowOImk0xgxSLg9GSlZ1Kn2yvf34=; b=i6ygWAFwAC9Z4+Sc/vcYNuyKcc
-	RCxnmwXYE6JIvMraa960g+A1tEeoB5TGJOeq7vayvyzVAUILdmgC0CYrA0+I97zxt/YFJv6L+iMsy
-	e0qZOieni8T2LHXg/Kl3bj5euUOy+vwuO62GdnhnqQD2FNwrymQyeZ/4WQJ21CF9gfdhjCRC5RiRi
-	vd+Mk5HUWj/l2YcWN31UW7OPkwhVrhR3Ta34Ttfw+fpKg4osONqQBV8ZmpXSbygI2/2ZVgbKKz+Ls
-	Aktkc0++PDQtJxrKs1xC+kVy5STObMxeH/Sb0p9MpFQdlkuUOJt6uEz48hLXY2S9LF6Y8iSNAaEIo
-	RlyiSmhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pR/cYTMw3jgl+YXiMt8OJ3yKr+qlutsK3voWnGrYc7M=; b=eidIgiFgeEiAb5qoBz5Ka29qjh
+	rnqhWO9bHDSyF1nAPn0td7Eb0Fgc5IW8ZAuIeJLRGXvH/cObiE7pcqKQT+ZPpb2m+QK3B7c2oHzwL
+	86VnyBjMcVsfISgth4DNUDQNgKAks+jjvO3gidRimQ+TdLlVhrKs3Rd0AGqS32950PziGY1TlXDxk
+	PloQX1td9fugtFB1t4gX0mktfXlTHO3fOXtvP7V9lK6u1E2c6Zaz75p1He1CcJ5Nemxp4qugycQtI
+	+BUK0m94Nw1GNTzAbzxstvWJUO1E+hjGAM1UkD0v3a43X9fJaQ7N+HbF1uP95X5Orf8OEgrj23ah3
+	CRIcLDeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utpLU-00000006tsk-0zj5;
-	Wed, 03 Sep 2025 15:24:24 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1utpOB-00000006uP4-406t;
+	Wed, 03 Sep 2025 15:27:12 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utmsp-00000006RYt-1W21
+	id 1utmuk-00000006S8d-0qKA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 12:46:40 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 583CkQOg2770254;
-	Wed, 3 Sep 2025 07:46:26 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1756903586;
-	bh=OkP7TTKiElQOLd+SowOImk0xgxSLg9GSlZ1Kn2yvf34=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=lu8QFZOq0GHhlc4pg8xuXfh+rDajawczMPBhzeODcLlUGrflN8aT2q1hu+TRFuEf3
-	 hpCW1t7heWchbukP3ihr753FtCrvq3QvaGv8ODZI/SMgw5pJzYNEmG89w429Vrw2bD
-	 qO1np7XB/eGIrjjoR5R3ZNEQ07D1M7CimjPo7n3w=
-Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 583CkQdW084587
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 3 Sep 2025 07:46:26 -0500
-Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 3
- Sep 2025 07:46:26 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Wed, 3 Sep 2025 07:46:26 -0500
-Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [172.24.231.84])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 583Cj5wc1576150;
-	Wed, 3 Sep 2025 07:46:20 -0500
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <mani@kernel.org>,
-        <robh@kernel.org>, <bhelgaas@google.com>, <jingoohan1@gmail.com>,
-        <fan.ni@samsung.com>, <quic_wenbyao@quicinc.com>,
-        <namcao@linutronix.de>, <mayank.rana@oss.qualcomm.com>,
-        <thippeswamy.havalige@amd.com>, <quic_schintav@quicinc.com>,
-        <shradha.t@samsung.com>, <inochiama@gmail.com>, <cassel@kernel.org>,
-        <kishon@kernel.org>, <18255117159@163.com>, <rongqianfeng@vivo.com>,
-        <jirislaby@kernel.org>
-CC: <linux-pci@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        <s-vadapalli@ti.com>
-Subject: [PATCH 11/11] PCI: keystone: Add support to build as a loadable module
-Date: Wed, 3 Sep 2025 18:14:52 +0530
-Message-ID: <20250903124505.365913-12-s-vadapalli@ti.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250903124505.365913-1-s-vadapalli@ti.com>
-References: <20250903124505.365913-1-s-vadapalli@ti.com>
+	Wed, 03 Sep 2025 12:48:39 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 583CHub7021895;
+	Wed, 3 Sep 2025 14:48:33 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	pR/cYTMw3jgl+YXiMt8OJ3yKr+qlutsK3voWnGrYc7M=; b=GDUw3m80Tdt3GIPv
+	3e7yfOHZMxy6xuwAfJxoGFaJVQx4jWE6yi+nojXsxJFTZe1pqz4CUNF6PpN/avDN
+	m3AYpAlSjNuGJt1x5m5dZwZT5OcgWOOVfaGEUsOxaNtgo19etY6M+YxVEUr2tKKT
+	KP96+dMgyO+6Ar+U405fJGFYAje9q3Xu8paz/EFQa8LVzWrY64BgfZ02GABhV/iO
+	lpJStkAC9IFR1+zXSaN7Fx35r+bAW53rj/MfnFo7nBllDMTaJ89HG9Sf/5lUNisA
+	cXcFDDhsVl49uMSPj+UDYCb1o1SMr1Rll/LHM4AjOJfyCDJf6/MaHvDRzVzCiTPi
+	4XipYw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48vav2psd4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 03 Sep 2025 14:48:32 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 5FB3B4004A;
+	Wed,  3 Sep 2025 14:47:35 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 0437A2B4D47;
+	Wed,  3 Sep 2025 14:46:25 +0200 (CEST)
+Received: from [10.48.87.141] (10.48.87.141) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 3 Sep
+ 2025 14:46:24 +0200
+Message-ID: <dca0faa3-2d87-4a93-bc67-7028a7846647@foss.st.com>
+Date: Wed, 3 Sep 2025 14:46:27 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] arm64: dts: st: enable ethernet1 controller on
+ stm32mp257f-ev1
+To: Andrew Lunn <andrew@lunn.ch>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250903-mp2_ethernet-v1-0-4105b0ad2344@foss.st.com>
+ <20250903-mp2_ethernet-v1-3-4105b0ad2344@foss.st.com>
+ <faa673a3-d68c-4b7f-a2b6-1f5bf40aabfb@lunn.ch>
+Content-Language: en-US
+From: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
+In-Reply-To: <faa673a3-d68c-4b7f-a2b6-1f5bf40aabfb@lunn.ch>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.141]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-03_06,2025-08-28_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_054639_486007_C024CBA0 
-X-CRM114-Status: GOOD (  22.14  )
+X-CRM114-CacheID: sfid-20250903_054838_534464_20323167 
+X-CRM114-Status: UNSURE (   7.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,132 +101,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The 'pci-keystone.c' driver is the application/glue/wrapper driver for the
-Designware PCIe Controllers on TI SoCs. Now that all of the helper APIs
-that the 'pci-keystone.c' driver depends upon have been exported for use,
-enable support to build the driver as a loadable module.
 
-Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
----
- drivers/pci/controller/dwc/Kconfig        |  6 ++---
- drivers/pci/controller/dwc/pci-keystone.c | 28 ++++++++++++++++++++---
- 2 files changed, 28 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-index deafc512b079..33f3dab7b385 100644
---- a/drivers/pci/controller/dwc/Kconfig
-+++ b/drivers/pci/controller/dwc/Kconfig
-@@ -458,10 +458,10 @@ config PCI_DRA7XX_EP
- 	  This uses the DesignWare core.
- 
- config PCI_KEYSTONE
--	bool
-+	tristate
- 
- config PCI_KEYSTONE_HOST
--	bool "TI Keystone PCIe controller (host mode)"
-+	tristate "TI Keystone PCIe controller (host mode)"
- 	depends on ARCH_KEYSTONE || ARCH_K3 || COMPILE_TEST
- 	depends on PCI_MSI
- 	select PCIE_DW_HOST
-@@ -473,7 +473,7 @@ config PCI_KEYSTONE_HOST
- 	  DesignWare core functions to implement the driver.
- 
- config PCI_KEYSTONE_EP
--	bool "TI Keystone PCIe controller (endpoint mode)"
-+	tristate "TI Keystone PCIe controller (endpoint mode)"
- 	depends on ARCH_KEYSTONE || ARCH_K3 || COMPILE_TEST
- 	depends on PCI_ENDPOINT
- 	select PCIE_DW_EP
-diff --git a/drivers/pci/controller/dwc/pci-keystone.c b/drivers/pci/controller/dwc/pci-keystone.c
-index 4ed6eab0a2f0..eabe7e9ed44b 100644
---- a/drivers/pci/controller/dwc/pci-keystone.c
-+++ b/drivers/pci/controller/dwc/pci-keystone.c
-@@ -17,6 +17,7 @@
- #include <linux/irqchip/chained_irq.h>
- #include <linux/irqdomain.h>
- #include <linux/mfd/syscon.h>
-+#include <linux/module.h>
- #include <linux/msi.h>
- #include <linux/of.h>
- #include <linux/of_irq.h>
-@@ -132,6 +133,7 @@ struct keystone_pcie {
- 	struct			device_node *msi_intc_np;
- 	struct irq_domain	*intx_irq_domain;
- 	struct device_node	*np;
-+	struct gpio_desc	*reset_gpio;
- 
- 	/* Application register space */
- 	void __iomem		*va_app_base;	/* DT 1st resource */
-@@ -862,7 +864,7 @@ static int ks_pcie_fault(unsigned long addr, unsigned int fsr,
- }
- #endif
- 
--static int __init ks_pcie_init_id(struct keystone_pcie *ks_pcie)
-+static int ks_pcie_init_id(struct keystone_pcie *ks_pcie)
- {
- 	int ret;
- 	unsigned int id;
-@@ -906,7 +908,7 @@ static void ks_pcie_host_deinit(struct dw_pcie_rp *pp)
- 		dw_pcie_free_domains(pp);
- }
- 
--static int __init ks_pcie_host_init(struct dw_pcie_rp *pp)
-+static int ks_pcie_host_init(struct dw_pcie_rp *pp)
- {
- 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
- 	struct keystone_pcie *ks_pcie = to_keystone_pcie(pci);
-@@ -1211,6 +1213,7 @@ static const struct of_device_id ks_pcie_of_match[] = {
- 	},
- 	{ },
- };
-+MODULE_DEVICE_TABLE(of, ks_pcie_of_match);
- 
- static int ks_pcie_probe(struct platform_device *pdev)
- {
-@@ -1329,6 +1332,7 @@ static int ks_pcie_probe(struct platform_device *pdev)
- 			dev_err(dev, "Failed to get reset GPIO\n");
- 		goto err_link;
- 	}
-+	ks_pcie->reset_gpio = gpiod;
- 
- 	/* Obtain references to the PHYs */
- 	for (i = 0; i < num_lanes; i++)
-@@ -1440,9 +1444,23 @@ static void ks_pcie_remove(struct platform_device *pdev)
- {
- 	struct keystone_pcie *ks_pcie = platform_get_drvdata(pdev);
- 	struct device_link **link = ks_pcie->link;
-+	struct dw_pcie *pci = ks_pcie->pci;
- 	int num_lanes = ks_pcie->num_lanes;
-+	const struct ks_pcie_of_data *data;
- 	struct device *dev = &pdev->dev;
-+	enum dw_pcie_device_mode mode;
-+
-+	ks_pcie_disable_error_irq(ks_pcie);
-+	data = of_device_get_match_data(dev);
-+	mode = data->mode;
-+	if (mode == DW_PCIE_RC_TYPE) {
-+		dw_pcie_host_deinit(&pci->pp);
-+	} else {
-+		pci_epc_deinit_notify(pci->ep.epc);
-+		dw_pcie_ep_deinit(&pci->ep);
-+	}
- 
-+	gpiod_set_value_cansleep(ks_pcie->reset_gpio, 0);
- 	pm_runtime_put(dev);
- 	pm_runtime_disable(dev);
- 	ks_pcie_disable_phy(ks_pcie);
-@@ -1458,4 +1476,8 @@ static struct platform_driver ks_pcie_driver = {
- 		.of_match_table = ks_pcie_of_match,
- 	},
- };
--builtin_platform_driver(ks_pcie_driver);
-+module_platform_driver(ks_pcie_driver);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("PCIe host controller driver for Texas Instruments Keystone SoCs");
-+MODULE_AUTHOR("Murali Karicheri <m-karicheri2@ti.com>");
--- 
-2.43.0
+On 9/3/25 14:24, Andrew Lunn wrote:
+>> +		phy1_eth1: ethernet-phy@4 {
+>> +			compatible = "ethernet-phy-id001c.c916";
+>> +			reset-gpios =  <&gpioj 9 GPIO_ACTIVE_LOW>;
+>> +			reset-assert-us = <10000>;
+>> +			reset-deassert-us = <80000>;
+>> +			reg = <4>;
+> 
+> The DT coding style would suggest reg comes after compatible.
+> 
+> 	Andrew
 
+Hi Andrew,
+
+Right, I will fix that for V2!
+
+Best regards,
+Gatien
 
