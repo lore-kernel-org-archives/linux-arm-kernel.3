@@ -4,93 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67C37CA1009
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 09:51:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C58DCA100C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 09:54:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tBLclJ49GwXW6Sl/7GWX5bwphgDLjuO5JM0C91emygw=; b=QNIg5ymf73n1ldRQUZqzvoDbP6
-	5fWCqBEgTfkEeHbBy2nSm+Ke0SQkr23WFjb7h9RZ9bJPXBnVlBUSnRvPrB9k6aCHPbJYDLWfIuAN3
-	Qh6Gg8mSEgthyfGTQh2yl49X4wgPDUFKkXA7sf9J1KrE/IKGkDnwHZVjFBeAIzBc224Tj5wtQqypl
-	0kENdRDTXGuutKbDiqEkgQOLb46gD5fwMPl8KQVvEkXFvj4FuP8hqQiXiOF6baw7WlHCOYSlOzafQ
-	uTdX6KzneXYCqX44ss0xx3bTK9JQaNv3QZymXe2D8QQz6eoaHE+xIt0Ugq0XDK1UpB8GJCyE+kFIv
-	7TtA3DnA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7LsFiMwaXNtMD4UGW/F7YfEyj+RV6YjYj1NvvWGVzGU=; b=Ojh5wKKrvu9LNMeE+vQMJFrAWB
+	AsEzQvZnlA5bfKGGGIn5ZweHek1Opog93HfEGsCtWne7uYi5sDIXJ9XhAxttxQHP3w9QKlvZHXROC
+	ssCH1ovT3wF6M5kqTZlaUJ28WO2kWQqnZHavv05Q3EWp6YVz2l2h74EEYa+rSW/Coa5/wkOx1h+T0
+	3HGn72pe4w+8i6S0mFVaO2BVh9bXu61XBRXiceR94JcBxbaeacH6/BbXiZJsKf5LXMzY6oz54IUyZ
+	wKOarnFjaO+0hgC/ZIvnXrmBPKHFkPSJNixsSkxdHNJE/IJARcGYA1o0T0IWJjlIaWV+irJfNX4DG
+	AHUCJ0MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utk9Z-00000005zfD-0J0M;
-	Wed, 03 Sep 2025 09:51:45 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1utkCF-000000060Jf-3hsa;
+	Wed, 03 Sep 2025 09:54:31 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utiy5-00000005d2F-35Lm
+	id 1utj62-00000005h17-3Rbw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 08:35:51 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-45b9bc2df29so1894925e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Sep 2025 01:35:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756888548; x=1757493348; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=tBLclJ49GwXW6Sl/7GWX5bwphgDLjuO5JM0C91emygw=;
-        b=VcbEZUsr0wxVX9+0mOSZBZwWikihmE8fxqvWUjsn2tCS0+LbpPbFYkz/wI/PyqUVu2
-         UA3cLxxSF+qf7SH8ONoS6wdBcl1+dxQSK5uEb+QkU0NBa1AxYZKS6W6HrV9extYxs524
-         aZzR+6p7cJotGJmFBfA2wf9tkasjFgUX8KoHPWHVSHG692IrO+v1PIbaAX/2GapGii2V
-         zIpz+BRdbVPONpIlH/ELqeY5YLVjVz68bjm5BlrA1tWFIXv/GwqEe6mZt5YPSZvbA3z4
-         7Rk8UXzcOOmzaloWT/XZM6yc1CehcBMQFIfTj9ey/4r31YKY379qHS6j+ax7vXkmD4Pz
-         8P9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756888548; x=1757493348;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=tBLclJ49GwXW6Sl/7GWX5bwphgDLjuO5JM0C91emygw=;
-        b=PvBtyw5xYh+mh0qW4eLJZOHxEeBgmjWBqFWmlgcRmhqEQkFLIRVGJL6xqTkTeG0fHa
-         ZVUMEMMG4FyXhv34FDrgViCHx6cpxYS6Yn9Spk0y0b7dX+IPD1jhzRIcKi/s9bIou2I2
-         HkL0/RAXVcJiiQS9iyuIVy/U0gDgy+9Ceb12YuyRdMNEzcGplE+YykydQIYqG7CTWr5D
-         vkwT6bK05Or+qmtiHnI/N2dj3Oz4DTCIqAFHv67OMo+NM+M9aT/Yh9bhD2dsGJJFZv5K
-         lb/M5ilCiMMxWka6+GNpfbWI4e/O6V3A/lPsd1iHzWgygeN7bY4ICPHbO2R1wClS1ooQ
-         lVDQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXr8616rx19GB6A5pticMNK12snohe6MDn0DlMZ8QmHzW0PhMItK6J3TfuV8aPiOliJsScnCKQtjNLcp/TQ9F1k@lists.infradead.org
-X-Gm-Message-State: AOJu0Yza4mfFTqzNqMgt/JjGZJrc3VfwUURntCJyOwj2eE1dljGHTvwX
-	UykEH0zvOQekMTYVrlYx8fdwYLUY0vVA7ed59EHfX7rcWZStzAJqSEts
-X-Gm-Gg: ASbGncvEKdvpEAHekHWGO+2hgvKApYIGndYQgY+CJB30H2OZ8dCVLZWbMadEZMgyVqv
-	6Wjlc+zF/dTV64qBmIGEMELpTvQl0/2hArnCFIyRa6enGiRFSbHKtvERRvhqWx7FcY1UK52EWN+
-	VHdEKX1/n6vI6o8TIyZokuu18v1K+LF73TocL+weAyluGHfv6CajYETaDCLyTCBfyVKbxzwSC92
-	qQF4XmWtVo/Rycnza8IOYjZ1cvXDAJoafaJTA1/YuQwKco0ttfDbzj33cRACBH1u+mDZDd22hWa
-	hMAs/hSyX+u8CIe1usUM9de3IfP6VVcAYZXeLwJ9/+yIKwewiyUi4MwvJw6/WRp6U8kQ+Lg02x4
-	X5cxO1sTqt91ej5qT2l7x96OLE4wAywVEgpCwAl3Od6AuZZvzekB0M+EtMVR62Q==
-X-Google-Smtp-Source: AGHT+IFW9ALHmxwCXj4TL9k6+4FVJDaJACd/tV4951OuhZUxWmtj7iVAKFlPyglc3iIZQiAhzOjBKQ==
-X-Received: by 2002:a05:600c:3486:b0:45b:71fc:75cb with SMTP id 5b1f17b1804b1-45b802d2fa7mr81398485e9.5.1756888548145;
-        Wed, 03 Sep 2025 01:35:48 -0700 (PDT)
-Received: from thomas-precision3591.u-ga.fr ([2001:660:5301:24:6179:26f2:8797:e6a9])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-45b87abc740sm164460585e9.7.2025.09.03.01.35.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Sep 2025 01:35:47 -0700 (PDT)
-From: Thomas Fourier <fourier.thomas@gmail.com>
-To: 
-Cc: Thomas Fourier <fourier.thomas@gmail.com>,
-	stable@vger.kernel.org,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Nicolas Royer <nicolas@eukrea.com>,
-	=?UTF-8?q?Eric=20B=C3=A9nard?= <eric@eukrea.com>,
-	linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] crypto: atmel - Fix dma_unmap_sg() direction
-Date: Wed,  3 Sep 2025 10:34:46 +0200
-Message-ID: <20250903083448.621694-2-fourier.thomas@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 03 Sep 2025 08:44:04 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <a.fatoum@pengutronix.de>)
+	id 1utj5n-00047A-Ka; Wed, 03 Sep 2025 10:43:47 +0200
+Message-ID: <e3966efb-9f81-4c01-86f3-c89864a89173@pengutronix.de>
+Date: Wed, 3 Sep 2025 10:43:46 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ARM: dts: imx6ul-tx6ul: Switch away from deprecated
+ `phy-reset-gpios`
+To: Buday Csaba <buday.csaba@prolan.hu>
+Cc: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250815-b4-tx6ul-dt-phy-rst-v1-1-9b65e315d9d3@prolan.hu>
+ <fa7e2cef-5242-4f3b-84ea-d77b959f6bdb@pengutronix.de>
+ <c85a94ee-59e1-47d6-8200-813bb434caf2@prolan.hu>
+ <1bf75411-4a51-4103-b314-a8a7253bafca@pengutronix.de>
+ <aLf162kc8_VB163Z@debianbuilder>
+Content-Language: en-US, de-DE, de-BE
+From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+In-Reply-To: <aLf162kc8_VB163Z@debianbuilder>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_013549_771639_811CEDEE 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20250903_014402_860445_581F9C18 
+X-CRM114-Status: GOOD (  38.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,30 +77,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It seems like everywhere in this file, dd->in_sg is mapped with
-DMA_TO_DEVICE and dd->out_sg is mapped with DMA_FROM_DEVICE.
+Hi,
 
-Fixes: 13802005d8f2 ("crypto: atmel - add Atmel DES/TDES driver")
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Thomas Fourier <fourier.thomas@gmail.com>
----
- drivers/crypto/atmel-tdes.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On 9/3/25 10:01 AM, Buday Csaba wrote:
+> On Wed, Sep 03, 2025 at 09:50:08AM +0200, Ahmad Fatoum wrote:
+>>> [1] https://lore.kernel.org/lkml/20250709133222.48802-4-buday.csaba@prolan.hu/
+>>
+>> Is this mainline yet?
+>>
+> 
+> No, it is not. It was never the most beautiful piece of code, so I understand
+> that.
+> 
+> But if you could give us some guidance, that would help a lot.
+> 
+> Specifically:
+> 
+> 1)  If `phy-reset-gpios` is deprecated, than we should start treating it as
+>     such, and not rely on it in future releases. Perhaps we should also add a
+>     warning message, when it is found in the device tree.
 
-diff --git a/drivers/crypto/atmel-tdes.c b/drivers/crypto/atmel-tdes.c
-index 098f5532f389..3b2a92029b16 100644
---- a/drivers/crypto/atmel-tdes.c
-+++ b/drivers/crypto/atmel-tdes.c
-@@ -512,7 +512,7 @@ static int atmel_tdes_crypt_start(struct atmel_tdes_dev *dd)
- 
- 	if (err && (dd->flags & TDES_FLAGS_FAST)) {
- 		dma_unmap_sg(dd->dev, dd->in_sg, 1, DMA_TO_DEVICE);
--		dma_unmap_sg(dd->dev, dd->out_sg, 1, DMA_TO_DEVICE);
-+		dma_unmap_sg(dd->dev, dd->out_sg, 1, DMA_FROM_DEVICE);
- 	}
- 
- 	return err;
+Disagreed. Deprecated properties should be removed only about clarifying
+the impact of the removal on users. Replacing a deprecated property with
+an expectation that bootloader board code has deasserted reset is not
+acceptable IMO.
+
+> 2)  On the other hand, if it is here to stay for a long time, it should be
+>     fixed. Now the gpio is claimed during fec_reset_phy(), and never released.
+>     It can not be used by the driver later, like in fec_init(), because the
+>     gpio reference is only stored in a local variable of fec_reset_phy().
+>     Previous patches that would have stored the reference in the driver were
+>     rejected on the grounds that it is deprecated. But if it is not, then we
+>     can create a patch that would make it work properly.
+
+Ye, this needs to be solved differently.
+
+> 3)  Andrew pointed out, that resetting a PHY before probing it may cause
+>     regressions. That is certainly a valid concern, but for most of the 
+>     devices resetting it means starting from a known state, and should be the
+>     default. But we could create a device tree property, that controls this
+>     behaviour.
+
+Marco had a more involved series to address this:
+https://lore.kernel.org/all/20230405-net-next-topic-net-phy-reset-v1-0-7e5329f08002@pengutronix.de/
+
+But it went no where. I don't recall the details.
+
+I think the best you can do with existing bindings is to give your PHY a
+compatible that spells out vendor/device ID, e.g. ethernet-phy-id0141.0dd4.
+
+Then Linux can probe the device even while it's in reset.
+
+The downside is that it hardcodes a specific PHY ID, but this may be
+acceptable here.
+
+Cheers,
+Ahmad
+
+> 
+> Regards,
+> Csaba
+> 
+>> Cheers,
+>> Ahmad
+>>
+>>>
+>>>>>
+>>>>> Co-developed-by: Csaba Buday <buday.csaba@prolan.hu>
+>>>>> Signed-off-by: Csaba Buday <buday.csaba@prolan.hu>lan8710 reset
+>>>>> Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+>>>>> ---
+>>>>>   arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi | 8 +++++++-
+>>>>>   1 file changed, 7 insertions(+), 1 deletion(-)
+>>>>>
+>>>>> diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
+>>>>> index f053358bc9317f8447d65013a18670cb470106b2..0a5e90704ea481b0716d6ff6bc6d2110914d4f31 100644
+>>>>> --- a/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
+>>>>> +++ b/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
+>>>>> @@ -246,7 +246,6 @@ &fec1 {
+>>>>>       pinctrl-names = "default";
+>>>>>       pinctrl-0 = <&pinctrl_enet1 &pinctrl_enet1_mdio &pinctrl_etnphy0_rst>;
+>>>>>       phy-mode = "rmii";
+>>>>> -    phy-reset-gpios = <&gpio5 6 GPIO_ACTIVE_LOW>;
+>>>>>       phy-supply = <&reg_3v3_etn>;
+>>>>>       phy-handle = <&etnphy0>;
+>>>>>       status = "okay";
+>>>>> @@ -262,6 +261,13 @@ etnphy0: ethernet-phy@0 {
+>>>>>               pinctrl-0 = <&pinctrl_etnphy0_int>;
+>>>>>               interrupt-parent = <&gpio5>;
+>>>>>               interrupts = <5 IRQ_TYPE_EDGE_FALLING>;
+>>>>> +            /* Reset SHOULD be a PHY property */
+>>>>
+>>>> Comment belongs into commit message.
+>>>
+>>> Agreed.
+>>>
+>>>>> +            reset-names = "phy";
+>>>>> +            reset-gpios = <&gpio5 6 GPIO_ACTIVE_LOW>;
+>>>>> +            reset-assert-us = <100>;
+>>>>> +            reset-deassert-us = <25000>;
+>>>>> +            /* Energy detect sometimes causes link failures */
+>>>>> +            smsc,disable-energy-detect;
+>>>>
+>>>> Unrelated change not described in the commit message.
+>>>
+>>> Oh, this has accidentally made it into here from our DT. Thanks for spotting it!
+>>>
+>>>> Cheers,
+>>>> Ahmad
+>>>>
+>>>>>               status = "okay";
+>>>>>           };
+>>>>>  
+>>>>> ---
+>>>>> base-commit: 0cc53520e68bea7fb80fdc6bdf8d226d1b6a98d9
+>>>>> change-id: 20250815-b4-tx6ul-dt-phy-rst-7afc190a6907
+>>>>>
+>>>>> Best regards,
+>>>>
+>>>>
+>>>
+>>> Bence
+>>>
+>>>
+>>
+>>
+>> -- 
+>> Pengutronix e.K.                           |                             |
+>> Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+>> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+>> Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+>>
+> 
+> 
+
 -- 
-2.43.0
+Pengutronix e.K.                  |                             |
+Steuerwalder Str. 21              | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany         | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686  | Fax:   +49-5121-206917-5555 |
 
 
