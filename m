@@ -4,172 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2D75CA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 18:51:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77A7FCA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 18:54:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e3ZU34ScHjDppS3jFMXq6El24hP6FOyJh34xQFMxl5I=; b=GhhkrA8lqXOGAAmMrkSkH86Kmy
-	UVFErgKynpT5g9vSdzeOB/JwCCYdhmh5yMrMIXm5wYY2L93niQJVuiOPkBYfV+zRCqQADVk17joNI
-	fdPmiWUJwfqWK2iSndacLKHSOGkcB+EL4in2//+kjkie4lJ1I+a7PStVeMrz4AfAM77E+dUosS/86
-	jvi0I+LMp93RSkEbOwkinH4blwEmwOAE1pV6hgK52VPo4TajJOqXaMjuV9Ic4R/SbxG4w9lX0EIqx
-	c4VCV8op07slu5LylFak1bgaxtF287k+rahDlhzxdK46xGkL5hMbgsFC5zqfXEKJKR2UhmpjM+K/K
-	58n03pbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zXVZJKbB4RX23BYBiT5VVTmKX2+wNkS9HnOJ0KN/2vo=; b=N2p0blqIE2oRKiCeWTsa5icJ/j
+	h60l3pcHYQddgs4k5ysEG2gkH0Zu/XI9+5YV3/w4yM4xzacHvM05OnVR466MgzR8weRfv28KScjSf
+	wvHZyqmdm7d8Awi6GHOYFu2IfzypTgmXtFNuNIANp30KDkLs+uJbwYL+zbIaWHuAOodmMk6hXXivI
+	lqjazytHSnLHVwqfGUpWXAF32CTfCkwXswlmmKOdrhqtvxmlSBFemZKUWmNJy/cu9OszNerzg2mQ7
+	kdK1XlGrY3DL8MQL/U+NsBuxNP9AVke59XxVyDm8SIqTbtRc9J0XSaXwaevoISz8hburL8hytJtYS
+	G0VcIFMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utsZa-00000007Lw1-3q4N;
-	Wed, 03 Sep 2025 18:51:10 +0000
-Received: from mail-dm6nam12on20611.outbound.protection.outlook.com ([2a01:111:f403:2417::611] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1utscJ-00000007Mhl-3DVu;
+	Wed, 03 Sep 2025 18:54:00 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uto3U-00000006g6O-1hmA
+	id 1uto3Z-00000006g7N-2aHd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 14:01:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mBe7YIgpEVkqaHLDyGX4DSce+M06mql8MWvZz4bbgT7u2z03rxKfbVwhS4JlVVIxKmDj4PyVHuEhbMRgmhEUJ+zByGL85J+q+KPxU+NBr4Jr4EWwHKtysqHvtgnwDRxoFgGt2fnOLF7A4TQG4diQJG2QKwbkLyfSJP/zEst+UEPjuAOary8MKolezY4mfzx5qyAAfNrUljXpqh62K7M3kykv+puFrbNDiuh6nDKhgbedetFXDrVxp/ucvdzZ7ETWfGXegqNXy/23jWb5gOfe5VGJ1IH9sipVAAXgD7iX99LwCBaiP+EiliveZa70KWG5GvKQ33etQmcQMiH35vnTQQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=e3ZU34ScHjDppS3jFMXq6El24hP6FOyJh34xQFMxl5I=;
- b=QFG98kH+ABNhdE3wDwrRHWBm4iAhpGQ0+1LwuTbTpHpm6oAfrZ44ctmKK+h7WIsDwJg5mivLJ/PXsVEbBWw8luVZ9aJ0YdF4+50QhLi2EgL9EWBVvM85GnYB1CP1ZnCkk6pPs2caSjGjy1t6KswiFlH6kyRBz74YwxivnFRS+sz6gWnDUbxLxKJFilIMfkRmo5R/ODKuyT3qxznMR+1LUnjyf03S9U+bN3V1CezKb8tteMxQugR64n6XbLudxgJsp+f61MT67yUhzzmUc+YkbjaVhaTuxW0Sz6ZdqvUwpXbn9dmyPoEp6C5AcoP5JHX1JGTbO9x220QHdSjURK9BzQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=e3ZU34ScHjDppS3jFMXq6El24hP6FOyJh34xQFMxl5I=;
- b=I90r8IFbXv6YHIKetCZe1huwN4oUP2lwgWN4LRUj1i5a2TF/oKMFFqrA2gqHZCbqAB0U7gEIFx0DK9oZbFC0JHBE2UmtG5bvGMwIHk5fxIZzrRbusa6UXEtZOIeupFo/ZNQT+Q78T+Y49FageLSzz+GlPl4JFN9FL3/IvN1jriU=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from BL1PR12MB5969.namprd12.prod.outlook.com (2603:10b6:208:398::7)
- by DM4PR12MB5986.namprd12.prod.outlook.com (2603:10b6:8:69::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.17; Wed, 3 Sep
- 2025 14:01:39 +0000
-Received: from BL1PR12MB5969.namprd12.prod.outlook.com
- ([fe80::1ac7:adec:34f4:86d1]) by BL1PR12MB5969.namprd12.prod.outlook.com
- ([fe80::1ac7:adec:34f4:86d1%5]) with mapi id 15.20.9094.016; Wed, 3 Sep 2025
- 14:01:39 +0000
-Message-ID: <8f4fda7e-38a4-440d-9464-3facb10742a2@amd.com>
-Date: Wed, 3 Sep 2025 16:01:35 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 11/11] drm: xlnx: zynqmp: Add support for XVUY2101010
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Michal Simek <michal.simek@amd.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Pekka Paalanen <ppaalanen@gmail.com>
-References: <20250425-xilinx-formats-v5-0-c74263231630@ideasonboard.com>
- <20250425-xilinx-formats-v5-11-c74263231630@ideasonboard.com>
-From: "Sagar, Vishal" <vishal.sagar@amd.com>
-Content-Language: en-US
-In-Reply-To: <20250425-xilinx-formats-v5-11-c74263231630@ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: DB8P191CA0028.EURP191.PROD.OUTLOOK.COM
- (2603:10a6:10:130::38) To BL1PR12MB5969.namprd12.prod.outlook.com
- (2603:10b6:208:398::7)
+	Wed, 03 Sep 2025 14:01:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1756908109; x=1788444109;
+  h=message-id:date:mime-version:subject:to:references:from:
+   in-reply-to:content-transfer-encoding;
+  bh=+Ou7/TJXaHnviKBEr5ILfWD+oVZwfeeOf3QKT9caAkE=;
+  b=LPm4cwEAk6pT57vIIyOGFFHYJXpIzJzJFphUa9+zLjHYYmXxk4VlwpAI
+   IYSlEuR6kFpAJcUSCIy42MOEADwZ3z9IUH/bS7FHwDkQnkzO+32Xd+47+
+   lRB2R+RTAR7+7aTTai/FF3raDAPWyl+xsRKltlsIRokx7s/JcHKnWELby
+   fM0OWX1DQYD9wFMuG5cgDe+gRTyRtPw0Dd1laTmHeIp+H5+g/JccVwbUe
+   XliSDDXmjTG/mTw3V6N6DobSXf8yM3bXqNRlNw911mrOCB9aTXmI3g69o
+   ZIYBP/vJqneMdg4OcWuuXzigLhNPy/0h+vQ0bWkL1daC4U0oQ3vo0VM9V
+   Q==;
+X-CSE-ConnectionGUID: v8Jh6wOIR5q2UVBlaHd94g==
+X-CSE-MsgGUID: Ky7Vg2BiRuyQ5qmJAKasTw==
+X-IronPort-AV: E=Sophos;i="6.18,235,1751266800"; 
+   d="scan'208";a="46572767"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 03 Sep 2025 07:01:44 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Wed, 3 Sep 2025 07:01:14 -0700
+Received: from [10.150.206.75] (10.10.85.11) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.44 via Frontend
+ Transport; Wed, 3 Sep 2025 07:01:09 -0700
+Message-ID: <50ca5062-5bbd-4c72-83c6-1d9abc6bde2e@microchip.com>
+Date: Wed, 3 Sep 2025 16:01:08 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL1PR12MB5969:EE_|DM4PR12MB5986:EE_
-X-MS-Office365-Filtering-Correlation-Id: 34caa164-90b6-4531-e5f1-08ddeaf266fe
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?M1FMdkdKZkdnQk1BY09FdGd3VTJMN2tVL3VnUFRmUFBoeTMvdkQ1MnRtVFVO?=
- =?utf-8?B?S29yS3NDVWZzOXpuUkpUYW1nOEd4dXFPbVkxVjd3M1I0Y2IrbGlzVVQxNVc5?=
- =?utf-8?B?ZEFPaG0wV21vOExVQzhDU1ZzTk12K1o3aC9TZFRxMGp0eUYrMUdtMWI5TjJY?=
- =?utf-8?B?WEVxbFMyeEFZemF5UUF3eSs0aGo1a2lyMlNwbFp2UUpLK0tEcXZrQmEwb05E?=
- =?utf-8?B?cHJCU1VZRnNZcmtVMnphblh2MTlqNEhnZlVQdDJPeGh0YnRPc2l5S0tESzd6?=
- =?utf-8?B?TFBRUmVNOWpZNkVmR1lrUG5lT2tUUGIyUzkzZklLekZWdGt1VXhEZGRVNWRI?=
- =?utf-8?B?TDRoeEhCK016WjhkZVpKc1VJNWI1VTVweVhUNU5sRkZvMlhic1R6a09tckhD?=
- =?utf-8?B?M1owOVZVaEJyV1I4QkMyaXhWOHJUNTAwd054SkN0SEFwNWRzNkE4VStSNWx2?=
- =?utf-8?B?YUczclhiMDFEWEh2WjN1dUVlUCt3eVF6dVFGQlJvUmZyS0VtUTdjdTF3UHZp?=
- =?utf-8?B?aEFlbHBkcSt1OEtKS1F5a09DaHB3NGt6UFdOTnFud0RJQmVnRFlxQmhrdTBx?=
- =?utf-8?B?U1FGb3JlREhSUUszOEtrZE9oSmdEeGIzOEJuMDhrMnQxRW9KYUxvek5ucjMx?=
- =?utf-8?B?Wk41U1Z0anJ1b1N5Q0VvN2t2c1lPWmVjWWQzVVZKdjdxZnZRZ3k1NlJNeTFK?=
- =?utf-8?B?U3ZuMGFXdnZXU0RCeW9RTEp4c3BMZ2JpZVZxRUx4b0tWN3FIcWxNZmxxVjh6?=
- =?utf-8?B?NXNIb25La1ZwVVZta2ZpbnNaRFRXUUlLcS9wUzBxRFdreHhQOWdBWjcvejFG?=
- =?utf-8?B?NFJoREZPejRLWHBKYUcvWkJYdzkzaFdMUlRrL3VoN0t3YUg1KzdmWEdiWWo4?=
- =?utf-8?B?U3VQbUZYV081czAzS1d2M29uUjFKdGhrb2tLYW5RaWc4dWNGQzV2YUN1MkE5?=
- =?utf-8?B?d3NDbWVNTldsRENjQjBHZjRzMEMveTVwekxqdktCMGwxWjU5QzFBZjZQbXo2?=
- =?utf-8?B?dzB5RjlXSU5TSmF0Smt6NzQyWXRmZUxaMHFEU01sVEwyUFhWU3pQRmJnb1ly?=
- =?utf-8?B?SmYyamN6TnREQk5QcHNMWEYzRlhvUkhIR1dNeEE1NEM1ZGRwYk9kaG5TMDF2?=
- =?utf-8?B?dHB1S0NRWm9ZU3U3bDRkNGFqOHhXMTVhbEdnTFRrZkhndGVTZHJvd0I0SSty?=
- =?utf-8?B?MUNMeVJWZ3BRdWd6S3c0eVgreXpxb1RwNzJKTTU1UU80NXFBWFBZQjNDdGlz?=
- =?utf-8?B?QWJlQzZGQjJKMzVBd2N2Z3doS0ordWowc001VWFDSjNwUThVOHFIZGEyNGIv?=
- =?utf-8?B?VnFYUHVXSHo3amY3UERYZVAzMExTRjYraWVESGRUNWxYUC9FZE1KcC9WNHNu?=
- =?utf-8?B?SklTcjl0QzR0dDYzSEUzeTMyQ1o4dElOdllTbnc1YnUyNmozWFJycU1VMlJD?=
- =?utf-8?B?LzNLUkR4NjZlaTErZTZPNTBwSUlWdzNpSHBxYXF4M3hobmhQRU9XS0t3SzZ3?=
- =?utf-8?B?QzlYaytNakdsZVVpTmtoWVNvclRhbDVQUUFzL2ZzcXRXUTN0RlRRclZFL2JH?=
- =?utf-8?B?V2lBelNvalZVRldTYS91M3V5VHlQQ1B1TFFJQVhVOUdxOTB5UTJTcG1VUFVC?=
- =?utf-8?B?Y0o3UHlxd3VEb2JTTmdENHRvb2FLNDJmU2xSdXgyV3JXdkE3dCtsL0pnNFRM?=
- =?utf-8?B?YUVCKzhta2x0c2pzZFdtUXZ4SDRjSmdNUWk1cFRXYzFRcmhmQVlLNUsrZlha?=
- =?utf-8?B?ZWI0UVllb0QxOEU1QU9kcGhtSXcvUnVGZUNUUDdZM2p5MHM0RXkrRWZjNzFa?=
- =?utf-8?B?NDBQMER0Q201VXQ5WHVxVzlrc1RFbXJVeVdzN1NVaXozVGlsZjJqQ2V3YWNw?=
- =?utf-8?B?KzhqUm4weVJxTXBlY0xIUDJCeVdiWEl3YXlWbnNKcVFKb3FJK0lOTG93YUxh?=
- =?utf-8?Q?Pifb+YATUSw=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PR12MB5969.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?R09YTE5YUEozcGFVSnVtYUxna2ZHdGVaeGJsVXZJdTIxU1RQL0RWdDQ4bUs3?=
- =?utf-8?B?OGpabElNdUJkMEdLTFl3cEpTMS9oSlNrdnJBN0Foc2lyL3VFVlBuR2RudzBN?=
- =?utf-8?B?dUI0WkFQaGxNWU5JY3ZnaDllRDMybnFYajA2VGFpVXk0MlI4dkIwb3JVN0VT?=
- =?utf-8?B?OGpBaXRabktETEN5TGtDcEhlVzZnbEp2ZGFrOXQ0bStzM0oreFlEUUYrdStm?=
- =?utf-8?B?M3pjVnhUUStRcU1PcEhrZnIzcElOVFlwU0dld3ZnRndiU2xCMUNRcGQrazBK?=
- =?utf-8?B?Ymo2a0lpNG5pL1BvUGl3ZDgzSFlGWHY2Z1JpQkVNZ1p4RlJHREhzSE9ZQ1RL?=
- =?utf-8?B?aDVKSXpOd3p2ek9tUzJmQ3hxbEdrV2NPamRJRFhiY0JRbWdMMExKaXBKc2E0?=
- =?utf-8?B?YkRhQVhtZ1JzWHd1M1RBVmJaZXRkVk5HSlVsYmtvL3E3My92M01pT3ZlZk44?=
- =?utf-8?B?ZFp2cnFUbzBma2dyc002dGZlbzVBMkRQRHBiajNtQ2UvUUdKUFZYRzdyaStU?=
- =?utf-8?B?LzNVWmtuVDVOVmRObG1NdlJmbHRDUllWWVZqSTNxbW01dExhRUJyLzExTVVq?=
- =?utf-8?B?WVl0NXRKL0ZVTG1OSk9ERFJ1emJFMGdlU0hKcGFzNUxXaUNndkp6RmYzNkht?=
- =?utf-8?B?TmVIWWpiN2lJMmlZOGVXVzUrOVJ2WExWRDgwRnQ4TlhtRHBlNjFPTGFvVTg0?=
- =?utf-8?B?RFlPREVjRU1wdkZFOW5pL3ZRSm04aVk3K0YxOWlTeHhkblJORkt2eDZZSWVO?=
- =?utf-8?B?cllFU2k3L25paVFqbEVPNS9JejR1SUhqNi9qekd6eEpQd1QwTVFNNjRUMFV0?=
- =?utf-8?B?WnRYTGZyZmFTcHpPTXMwRUJ4M05iSDdJRXVncmJKQ1NCdEV0bGd1dTFRd09C?=
- =?utf-8?B?REh2aVJqNTZZMlplYVUzb2d2UVEwS01YSGpldmkxVktLLzhDczA0bXVSVHl1?=
- =?utf-8?B?VWtWTFQwakM4dXBPOGlISVR2VnBxeEpTcVdaa2tUYy9PWFNMRW82b1ZXVHhP?=
- =?utf-8?B?azhKRGxzaG9INUt2VTBwYXA3OG8xVGFLOTdkdkl0Z3FNM1ZJT055aTNMejBN?=
- =?utf-8?B?WTZpSUtGMGpvMzU4VG1xalR5VmRuTXRKN2E5cnJOZDBHRnh0MFUzdkFLc3NN?=
- =?utf-8?B?V2ZFWE4rZ2orVm9TTCtCTGV2THEySVRhZ3hkU0liVUgvbDFtR3dEVHVFY2lt?=
- =?utf-8?B?d2UyZU84VU9sMHF6Z2ZaZis4ZzFEVTlaeERtZXFrczBmY2hMYXFhbkVEUGZD?=
- =?utf-8?B?aDJpMkFHTSt1djRoNnN6M0hHK011bUlBMnFHT21kd3E3OEg3WFZxWkFYemly?=
- =?utf-8?B?R2t2TzYybi82WnFOTDBDdTk1VzRuV05MdHBicHNMenF1SkNlUGRydytDQm5j?=
- =?utf-8?B?OHNCaEVlTFYxWTJIa010TW1YQW90OGRMdTJCbDRqVWp4QnZOMjZlR3ZOSzQ2?=
- =?utf-8?B?c3ZNeDRlejFGRU5SeENYQzBoM0ZoRjVlcjgwSHlDZHRPODBvVTRWa093dlpC?=
- =?utf-8?B?RmxOaXVoQ1ZhbTQ5UXhjcjJ1WTQxd25Da0hnWFhCZmNWRHRRUXJkY2dsdXd1?=
- =?utf-8?B?enhhZmdqbUVNS0w4UGlaaG91ZG9PZHJDTWFYbmh5cXdyZnRjRnZTeHl0cjZS?=
- =?utf-8?B?RHAyc0l3Ty9EUE9tZEtIdG91NU1rWkZBWVZlZFVuclJRS3BNZi8zSFZDWlZV?=
- =?utf-8?B?d2Z2YlZsaEUyRmxnTHJFNWV6WS9jMktjNTNHYzVDUGozalVyWkhzZjgwaHhO?=
- =?utf-8?B?dnZlQ3BGdFdiMUJXNitKYU1FZFFKb2I2RGtBRnVVK1ZFdnp4YjNaYjllemZD?=
- =?utf-8?B?d0pFSklBWjVCUFFWUVRmMFB0cHZRRWhybDMxRTREVUsyS0p5UWxnNVR5NE16?=
- =?utf-8?B?QXZMaFBSVnM4UE92VWw2dHo3NkdLZHA5RkJSWmMxditDclQrYzJiOGd2K0Q0?=
- =?utf-8?B?MDlRa3dwYkZoUExUTHJZMWRiTnlNcHlWa1hHVXRpTHpMT0Q1NmVicjh6eXU4?=
- =?utf-8?B?Y29YZnVCU0xRclZ4b1JvQ0RHRWU0VzZDdUc1dnZxU29USTQ3OERVS1Y2UENy?=
- =?utf-8?B?bHJyMXp4ZENSNkxRT01ETmZ3R3Y2cy9XWm1YNVVqZkRsSWpoVWI5Rm5hb2RE?=
- =?utf-8?Q?MqGPU6n9QGqgVpds2fA+56A/U?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 34caa164-90b6-4531-e5f1-08ddeaf266fe
-X-MS-Exchange-CrossTenant-AuthSource: BL1PR12MB5969.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2025 14:01:39.0379
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: r9JuMfUyhwzbv4/4ol0hBMob/zUOYfUCs4TqIrsTaLlV5tjBhhSo0OgYTML5I1YP
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB5986
+User-Agent: Mozilla Thunderbird
+Subject: Re: (subset) [PATCH v8 00/10] arm64: lan969x: Add support for
+ Microchip LAN969x SoC
+To: Claudiu Beznea <claudiu.beznea@tuxon.dev>, Vinod Koul <vkoul@kernel.org>,
+	<linux@armlinux.org.uk>, <alexandre.belloni@bootlin.com>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <olivia@selenic.com>,
+	<herbert@gondor.apana.org.au>, <davem@davemloft.net>,
+	<andi.shyti@kernel.org>, <lee@kernel.org>, <broonie@kernel.org>,
+	<gregkh@linuxfoundation.org>, <jirislaby@kernel.org>, <arnd@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-crypto@vger.kernel.org>, <dmaengine@vger.kernel.org>,
+	<linux-i2c@vger.kernel.org>, <linux-spi@vger.kernel.org>,
+	<linux-serial@vger.kernel.org>, <o.rempel@pengutronix.de>,
+	<daniel.machon@microchip.com>, Robert Marko <robert.marko@sartura.hr>,
+	<luka.perkov@sartura.hr>, Vinod Koul <vinod.koul@intel.com>
+References: <20250702183856.1727275-1-robert.marko@sartura.hr>
+ <175327377884.189941.15214972441246653208.b4-ty@kernel.org>
+ <bac5390f-725a-43db-a2b6-17a68d0d733c@tuxon.dev>
+ <20250903-gratify-sustained-9acc011bc3c9@thorsis.com>
+From: Nicolas Ferre <nicolas.ferre@microchip.com>
+Content-Language: en-US, fr
+Organization: microchip
+In-Reply-To: <20250903-gratify-sustained-9acc011bc3c9@thorsis.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_070144_458738_04E5992C 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20250903_070149_927232_E1295777 
+X-CRM114-Status: GOOD (  16.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,37 +99,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Tomi,
-
-On 4/25/2025 1:01 PM, Tomi Valkeinen wrote:
-> Add support for XVUY2101010 format.
+On 03/09/2025 at 15:16, Alexander Dahl wrote:
+> Hello,
 > 
-> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-> ---
->   drivers/gpu/drm/xlnx/zynqmp_disp.c | 5 +++++
->   1 file changed, 5 insertions(+)
+> Am Thu, Jul 31, 2025 at 11:05:07AM +0300 schrieb Claudiu Beznea:
+>> Hi, Vinod,
+>>
+>> On 23.07.2025 15:29, Vinod Koul wrote:
+>>>
+>>> On Wed, 02 Jul 2025 20:35:58 +0200, Robert Marko wrote:
+>>>> This patch series adds basic support for Microchip LAN969x SoC.
+>>>>
+>>>> It introduces the SoC ARCH symbol itself under the ARCH_MICROCHIP symbol
+>>>> which allows to avoid the need to change dependencies of the drivers that
+>>>> are shared for Microchip SoC-s in the future.
+>>>>
+>>>> DTS and further driver will be added in follow-up series.
+>>>>
+>>>> [...]
+>>>
+>>> Applied, thanks!
+>>>
+>>> [08/10] dma: xdmac: make it selectable for ARCH_MICROCHIP
+>>>          commit: e56982021f5303b2523ac247e3c79b063459d012
+>>
+>> As this one depends, as well, on the first 3 patches in the series (Robert,
+>> please correct me if I'm wrong), and there are still discussions ongoing,
+>> can you please drop it until all is clear on the first 3 patches?
+>>
+>> Otherwise, applying only this patch will lead to AT91 XDMAC driver not
+>> being built for SAMA5{D2, D3, D4}, SAMA7{G5, D65} SoCs. Linux is not
+>> booting on SAMA7G5 SoC only with this patch applied.
 > 
-> diff --git a/drivers/gpu/drm/xlnx/zynqmp_disp.c b/drivers/gpu/drm/xlnx/zynqmp_disp.c
-> index b7cc7a7581ad..f548f375750e 100644
-> --- a/drivers/gpu/drm/xlnx/zynqmp_disp.c
-> +++ b/drivers/gpu/drm/xlnx/zynqmp_disp.c
-> @@ -322,6 +322,11 @@ static const struct zynqmp_disp_format avbuf_vid_fmts[] = {
->   		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_YV24_10,
->   		.swap		= false,
->   		.sf		= scaling_factors_101010,
-> +	}, {
-> +		.drm_fmt	= DRM_FORMAT_XVUY2101010,
-> +		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_YUV444_10,
-> +		.swap		= false,
-> +		.sf		= scaling_factors_101010,
->   	},
->   };
->   
-> 
+> Second that.  Just tested v6.17-rc4 on sam9x60 and DMA is not working
+> at all because this driver can not be selected anymore.  This must be
+> fixed before v6.17 release please!
 
-Reviewed-by: Vishal Sagar <vishal.sagar@amd.com>
+Yep, I'll try to fast forward patch 02 of this series before 6.17-final 
+(this instead of reverting XDMA patch).
 
-Regards
-Vishal Sagar
+Regards,
+   Nicolas
 
