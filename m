@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AE40CA100C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 07:49:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADA15CA100C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 07:52:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U8biUgrbmhqoy6ImwYHNZ85z7bDPbo86mIUx8VSMBxc=; b=XpY8QbivgnVdxWWiDfZfab2C4z
-	iddjCnWkLbb2oxGZdliL5mCh8Nd9ejyQouhKVQb6zMiQxH8kTyEcjzIjojlCxr+qFIAbJ0G4mlSB/
-	Uj1hUwyZS3+ks2DKaTblZI1zqx2ACBod8Pal43/HgeJjJ3HxXdjs28le9pODQ1YytD3xUbqarKQ4D
-	ijyc0V9cV+4EaSv/IB9e4GbwQEW8hi475kBLMh982sOLdsHU0OCZWuxBSKA+nzFuLgq0b3WBpa3Wa
-	OuBiGB2RkOAdUU1A0xZmvs8sNJOnfuUWoa9qulZl2kq2WNwDAcX6yUT8CbSrjnzMEmOTgrZYVFIgY
-	/Ttd+NLw==;
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=Nl/95CQP0kAhBPJy4ztV09wUy+3E/X4uiZmgYlv0GDo=; b=k2Blt+9PmUG8fERGO8at2p3MGJ
+	4JbwC6eoeDkfkLQh+PlLBhbQbg/udgGfZvFxQRn+4w1uzltjILU7LHwXorsrC82X2yAs2i2AUknjO
+	9c5BJlcASxdnx84n1GP92p1C5n3yjFSpxw2awpTe98LuBssH7MIyDNtjH/lD8gL3YwvRgqWFErPBo
+	/RWzHgj5QP3Iis+OVu1cjJ85Yg24acO5Bp9AvV7t4LL8kA0FbFVrQuoBxE7DTiq0mDk4WvhP4XcbG
+	21Y24ESAde8yAdRDjKj/w14gRdN8TAM9uRsZZr5Wu7cMU7sfioiMuXyP2yuLBA1GDu6Hrof/FDbf0
+	dlHhBMFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utiF5-00000005FwO-0Ujl;
-	Wed, 03 Sep 2025 07:49:19 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1utiHl-00000005HNr-24tO;
+	Wed, 03 Sep 2025 07:52:05 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uthwB-00000005640-1gY6
+	id 1uthw8-000000055vp-3Pcg
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 03 Sep 2025 07:29:50 +0000
 Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250903072945epoutp0181f16b475d7da632e0b2725fe5a2d94b~htTjGgwhA1340113401epoutp014
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  3 Sep 2025 07:29:45 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250903072945epoutp0181f16b475d7da632e0b2725fe5a2d94b~htTjGgwhA1340113401epoutp014
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250903072935epoutp0263febc654a7431864587d715870c1051~htTZwQ5K22964729647epoutp02c
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  3 Sep 2025 07:29:35 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250903072935epoutp0263febc654a7431864587d715870c1051~htTZwQ5K22964729647epoutp02c
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1756884585;
-	bh=U8biUgrbmhqoy6ImwYHNZ85z7bDPbo86mIUx8VSMBxc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=I0Dze26XPryFpTCs+1wxaIKAifxm8NmL2jCygMKbFw/KQy7Jb0aOAMn+tUCc5tZV4
-	 jV0o3ykGLexR+OA1rCpjMM8+ztOFPT16O0+jHX9PiCNYBwEx3Qz3aPTf+1Zu2Q0irj
-	 f/smhA90zhg36xVn7nivtMqUC1KpQCYi9pgCz/ZI=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
-	20250903072944epcas5p31eb60c88907761fda0defbcfa85ee83e~htTiY2_Cu2293822938epcas5p31;
-	Wed,  3 Sep 2025 07:29:44 +0000 (GMT)
-Received: from epcas5p4.samsung.com (unknown [182.195.38.87]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4cGvPz2T8Yz3hhTD; Wed,  3 Sep
-	2025 07:29:43 +0000 (GMT)
+	s=mail20170921; t=1756884575;
+	bh=Nl/95CQP0kAhBPJy4ztV09wUy+3E/X4uiZmgYlv0GDo=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=VXzdXXjEuHobmPk2m8QGmBAfvNXpqWQKRnxdWk44mKZA6v3GlaJyLvzoog9Yo3uAs
+	 MIK7lt4QtSLffmwyNDXdIbI0skBaSDN7H+ZxIIB0LxrCMP4sH4eSV/dm1OdQvQSbMZ
+	 fA0Tn0vwLLkSE3P6jUjajSOa5UAn7B0/2G3xo6mU=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
+	20250903072934epcas5p4a89ecaedff3e84dedb577b2f17f80533~htTZO5ZF71574115741epcas5p4A;
+	Wed,  3 Sep 2025 07:29:34 +0000 (GMT)
+Received: from epcas5p3.samsung.com (unknown [182.195.38.86]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4cGvPn3BpJz2SSKX; Wed,  3 Sep
+	2025 07:29:33 +0000 (GMT)
 Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250903072942epcas5p2154a85b45152af50e2714248c38c5adc~htTg3bZdO1236712367epcas5p2g;
-	Wed,  3 Sep 2025 07:29:42 +0000 (GMT)
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250903072932epcas5p4dc5b5ada87f09f6f0c4e1b750874fc85~htTXnbSsB2774827748epcas5p4m;
+	Wed,  3 Sep 2025 07:29:32 +0000 (GMT)
 Received: from bose.samsungds.net (unknown [107.108.83.9]) by
 	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250903072939epsmtip2455dc285a7eb49093c51aabf1e508bac~htTeA3VNU2549225492epsmtip2G;
-	Wed,  3 Sep 2025 07:29:39 +0000 (GMT)
+	20250903072929epsmtip2e6060834bb0b8ccb4d7f883fedad7be4~htTUshDhh2487024870epsmtip2Z;
+	Wed,  3 Sep 2025 07:29:29 +0000 (GMT)
 From: Pritam Manohar Sutar <pritam.sutar@samsung.com>
 To: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org,
 	krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com,
@@ -64,26 +64,23 @@ Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
 	linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
 	dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
 	selvarasu.g@samsung.com
-Subject: [PATCH v8 3/6] dt-bindings: phy: samsung,usb3-drd-phy: add
- ExynosAutov920 combo hsphy
-Date: Wed,  3 Sep 2025 13:08:24 +0530
-Message-Id: <20250903073827.3015662-4-pritam.sutar@samsung.com>
+Subject: [PATCH v8 0/6] initial usbdrd phy support for Exynosautov920 soc
+Date: Wed,  3 Sep 2025 13:08:21 +0530
+Message-Id: <20250903073827.3015662-1-pritam.sutar@samsung.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250903073827.3015662-1-pritam.sutar@samsung.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250903072942epcas5p2154a85b45152af50e2714248c38c5adc
+X-CMS-MailID: 20250903072932epcas5p4dc5b5ada87f09f6f0c4e1b750874fc85
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 CMS-TYPE: 105P
 cpgsPolicy: CPGSC10-542,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250903072942epcas5p2154a85b45152af50e2714248c38c5adc
-References: <20250903073827.3015662-1-pritam.sutar@samsung.com>
-	<CGME20250903072942epcas5p2154a85b45152af50e2714248c38c5adc@epcas5p2.samsung.com>
+X-CMS-RootMailID: 20250903072932epcas5p4dc5b5ada87f09f6f0c4e1b750874fc85
+References: <CGME20250903072932epcas5p4dc5b5ada87f09f6f0c4e1b750874fc85@epcas5p4.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_002947_749948_B920FDA2 
-X-CRM114-Status: GOOD (  14.36  )
+X-CRM114-CacheID: sfid-20250903_002945_521827_1498CEE6 
+X-CRM114-Status: GOOD (  18.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,44 +95,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The USBDRD31 5nm controller consists of Synopsys USB2.0 femptophy and
-USBSS combophy. Add-on USB20 femptophy is required to support USB20 data
-rates along with USBSS phy. Document support for the USB2.0 femptophy
-found on combophy of the this SoC.
+This SoC has a single USB 3.1 DRD combo phy and three USB2.0 only
+DRD phy controllers as mentined below
 
-Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
----
- .../devicetree/bindings/phy/samsung,usb3-drd-phy.yaml          | 3 +++
- 1 file changed, 3 insertions(+)
+  * Combo phy supports USB3.1 SSP+(10Gbps) protocol and is backwards
+    compatible to the USB3.0 SS(5Gbps). 'Add-on USB2.0' phy is added
+    to support USB2.0 HS(480Mbps), FS(12Mbps) and LS(1.5Mbps) data rates.
+    These two phys are combined to form a combo phy as mentioned below.
 
-diff --git a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-index 8d8114eb5660..4a8bcf63cd91 100644
---- a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-+++ b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-@@ -34,6 +34,7 @@ properties:
-       - samsung,exynos7870-usbdrd-phy
-       - samsung,exynos850-usbdrd-phy
-       - samsung,exynos990-usbdrd-phy
-+      - samsung,exynosautov920-usbdrd-combo-hsphy
-       - samsung,exynosautov920-usbdrd-phy
- 
-   clocks:
-@@ -229,6 +230,7 @@ allOf:
-               - samsung,exynos7870-usbdrd-phy
-               - samsung,exynos850-usbdrd-phy
-               - samsung,exynos990-usbdrd-phy
-+              - samsung,exynosautov920-usbdrd-combo-hsphy
-               - samsung,exynosautov920-usbdrd-phy
-     then:
-       properties:
-@@ -252,6 +254,7 @@ allOf:
-         compatible:
-           contains:
-             enum:
-+              - samsung,exynosautov920-usbdrd-combo-hsphy
-               - samsung,exynosautov920-usbdrd-phy
-     then:
-       required:
+
+   USB30DRD_0 port
+
+ +------------------------------------------------------------+
+ |                                                            |
+ |                (combo) USB phy controller                  |
+ |      +----------------------------------------------+      |
+ |      |                  USB HSPHY                   |      |
+ |      |  (samsung,exynosautov920-usbdrd-combo-hsphy) |      |
+ |      +----------------------------------------------+      |
+ |                                                            |
+ |    +--------------------------------------------------+    |
+ |    |                   USB SSPHY                      |    |
+ |    |   (samsung,exynosautov920-usb31drd-combo-ssphy)  |    |
+ |    +--------------------------------------------------+-   |
+ |                                                            |
+ +------------------------------------------------------------+
+ |                                                            |
+ |                     USBDRD30 Link                          |
+ |                       Controller                           |
+ +------------------------------------------------------------+
+
+  * USB2.0 phy supports only UTMI+ interface. USB2.0DRD phy
+    is very similar to the existing Exynos850 support in this driver.
+
+    USB20DRD_0/1/2 ports
+
+      +---------------------------------------------------+
+      |                                                   |
+      |                USB PHY controller                 |
+      |    +-----------------------------------------+    |
+      |    |              USB HSPHY                  |    |
+      |    |  (samsung,exynosautov920-usbdrd-phy)    |    |
+      |    +-----------------------------------------+    |
+      |                                                   |
+      +---------------------------------------------------+
+      |                                                   |
+      |             USBDRD20_* Link                       |
+      |                Controller                         |
+      |                                                   |
+      +---------------------------------------------------+
+
+The "USB20 phy output isolation" is shared across the USB20 phys.
+We have to bypass isolation when any one of the USBs is configured
+and enable it when all are turned off. The "USB31 phy isolation"
+is seperate for USB31 phy.
+
+This patchset only supports device mode and same is verified with
+as NCM device
+
+changelog
+----------
+Changes in v8:
+- modified supplies' names in schema and driver.
+- Since supplies' names are changed, modified patch no 5. to
+  fix warnings in dtbs_check dt_binding_check.
+- updated commit message for patch no. 1, 3 and 5 to describe
+  hardware details.
+  link for v7: https://lore.kernel.org/linux-phy/20250822093845.1179395-1-pritam.sutar@samsung.com/
+
+Changes in v7:
+- added fixes for driver build warnings
+  link for v6: https://lore.kernel.org/linux-phy/20250821073703.2498302-1-pritam.sutar@samsung.com/
+
+Changes in v6:
+- added else part for new supplies in schemas those are only
+  supported for exynosautov920.
+- addressed comments for driver given in v5.
+  link for v5: https://lore.kernel.org/linux-phy/20250805115216.3798121-1-pritam.sutar@samsung.com/
+
+Changes in v5:
+- significant changes were added in v4, removed "Reviewed-by" tag.
+- addressed comments from v4 patchset.
+  - patch (1/6)
+    - DTS style is corrected and added required supplies in code/schema.
+    - schema block added to resolve below failure during 'dtbs_check'.
+      Unevaluated properties are not allowed ('dvdd075-usb-supply', 'vdd18-usb20-supply', 'vdd33-usb20-supply' were unexpected.
+  - patch (2/6)
+    - removed usage_counter(take this later in subsequent patch-sets)
+  - patch (3/6)
+    - There are 3 types of the phys in this SoC.
+      - one is simmilar with exynos850 as mentioned in patch no.1.
+      - second supports only USB3.1 SSP+ and denoted in patch no 5
+      - third supports only USB2.0 HS as in patch3.
+    - hs phy in combo phy is "NOT" same as phy. (in patch no. 1)
+    - These three phys(usbdrd-phy, combo-hsphy, combo-ssphy) are totally
+      deferent, "NOT" same, hence added three compatible for three phys.
+  - patch (5/6)
+    - Since there are two phys in combo phy, explaination is given
+      in each patch.
+  link for v4: https://lore.kernel.org/linux-phy/20250701120706.2219355-1-pritam.sutar@samsung.com/
+
+Changes in v4:
+- addressed comments from v3 patchset
+  - removed dts related patches, to be posted in new patchset.
+  - added regulator, pmu and power sequences.
+  - phy isol is shared across USBs, added usage counter to bypass or
+    enable phy isolation.
+  - modified schemas with hs and combo phy compatible names
+    (used "combo" to denote combo phy) and regulators
+- modified code to work with binding and unbinding devices/drivers
+- added "Reviewed-by" tag.
+  link for v3: https://lore.kernel.org/linux-phy/20250613055613.866909-1-pritam.sutar@samsung.com/
+
+Changes in v3:
+- Updated dt-bindings for USB2.0 only.
+- Added dt-bindings for combo phy.
+- Added implementation for combo phy (SS and HS phy).
+- Added added DTS nodes for all the phys
+  link for v2: https://lore.kernel.org/linux-phy/20250516102650.2144487-1-pritam.sutar@samsung.com/
+
+Changes in v2:
+- Used standard GENMASK() and FIELD_GET() to get the major version
+  from controller version register.
+  link for v1: https://lore.kernel.org/linux-phy/20250514134813.380807-1-pritam.sutar@samsung.com/
+
+Pritam Manohar Sutar (6):
+  dt-bindings: phy: samsung,usb3-drd-phy: add ExynosAutov920 HS phy
+    compatible
+  phy: exynos5-usbdrd: support HS phy for ExynosAutov920
+  dt-bindings: phy: samsung,usb3-drd-phy: add ExynosAutov920 combo hsphy
+  phy: exynos5-usbdrd: support HS combo phy for ExynosAutov920
+  dt-bindings: phy: samsung,usb3-drd-phy: add ExynosAutov920 combo ssphy
+  phy: exynos5-usbdrd: support SS combo phy for ExynosAutov920
+
+ .../bindings/phy/samsung,usb3-drd-phy.yaml    |  48 ++
+ drivers/phy/samsung/phy-exynos5-usbdrd.c      | 651 ++++++++++++++++++
+ include/linux/soc/samsung/exynos-regs-pmu.h   |   3 +
+ 3 files changed, 702 insertions(+)
+
 -- 
 2.34.1
 
