@@ -4,56 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7C9ACA1009
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 19:54:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE7C2CA1014
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 19:54:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+WlOWAIUFF7a1x04Q6onji4j9FWc+bKg2OvgOqN2HKU=; b=t2HoCf2LMsww+vsXipzarwMYZX
-	qvDgIfJsNKu4i3an+4MI3rFHcgprQwaRVZ83+Bu4WQcXXb+OH9fQcrDhVY9wZafKt9aWiYgMInKUZ
-	iR009uZ0AtpB/+gHmfFQ46I8QCFiRcKzmTQDbLrrLtXZfZRsKaA3+KcKMuUeDnRwz7ESSm8BRWWy5
-	5vADGb7Ld0/by0WhmU6r0qjmCDpUwtMdjl52yBEyV4HCSIMpsL+3/d3220/niV9VmPKRdCVv/FWGw
-	SxGW6KoyCYMNabm/1XZ02fiTQPPlv8FmoIGO4LaxQ/gbFXvyw8qWcUfjZOFD5hIn+/U6N9Ox9aqOV
-	oqbSnrRQ==;
+	bh=W18pVm0xKISXgoLnbsgEyTuJbkKff+G5hzJ+STp3dcc=; b=e5H4h3HwKAJfeS5VClg2Tthjfv
+	0qBvqq6GlVJNyx9mtclUgRF1XSkfAosdqJQ3nteFNhNO8ITv2KsFJxSYSk+OJTBu5jguPHuSr92xk
+	xT+Oya79ZOnhdITekFpas2AoWNz3FMPIY6goI/t8BCMygi3gVXKu6kRHgMrnN4Q2CE+GUXA3btG+J
+	G3ruqAMtWs8oFfplVlFoZ3G5+RGSYSrW3joFlCPZvX63Aj7usd5uGsqxr68oHZr3pRWZ8kkHnCNGX
+	jYQsMD1U8MIYGoQRwFXYZb9TEgNslFzqnwJcYtMz246jxP7bzb4SJ8eG8piLjpgB6k/pnvv/twE+t
+	o1TrCKFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uttZ3-00000007Uc2-2wJW;
-	Wed, 03 Sep 2025 19:54:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utoo3-00000006nKy-1muy
+	id 1uttZ6-00000007Udi-3vsv;
+	Wed, 03 Sep 2025 19:54:44 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1utou0-00000006oJg-3Pou
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 14:49:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 09E271688;
-	Wed,  3 Sep 2025 07:49:42 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 136BB3F6A8;
-	Wed,  3 Sep 2025 07:49:48 -0700 (PDT)
-Date: Wed, 3 Sep 2025 15:49:46 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Andre Przywara <andre.przywara@arm.com>,
-	Paul Benoit <paul@os.amperecomputing.com>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] firmware: smccc: Fix Arm SMCCC SOC_ID name call
-Message-ID: <20250903-loutish-orangutan-of-experience-3dcfda@sudeepholla>
-References: <20250902172053.304911-1-andre.przywara@arm.com>
- <20250903-great-savvy-bloodhound-38c1ca@sudeepholla>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Wed, 03 Sep 2025 14:56:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TZSjGVT+UW2SnoZ/be8jZ+973WHKFO+i1pa/u02OPpcOwMN9Rcm0d2k408jylsIxtocSK4kIEEXXS0b6n6Qs7YcjqJlFLVnp4XNmlVk6bGbQeNh8y/tsXf+u7qOXa9Z+xh5qCAGtP3DbKj0lFtkvzh2sy0zGG1GORW6231ECTtUYvofQhBikWSkH56UA0JxComFFTp3bF32S0jwpLfH3GWFv8PmF5KrwsxToxFKi5tMYKbYPu+7HnaqbJFXkJh+W1X4LhXK4WJFeuVgtuwx844K1ZItnYwxOxCN/fB888+IYPmVS0xYLkF5avNewgXsx8DoEXrtsO8J44ldl5O1AUA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=W18pVm0xKISXgoLnbsgEyTuJbkKff+G5hzJ+STp3dcc=;
+ b=Zo1SMIp/sIoAeOb5Ogg96ar6Bz0BtNbtFpnJqWb6E37qgADQrH40a/46AdneUJunKNzfyVvYvnM0vHS1RGjJSX/JygbEDFdU6310NsiQxYVsoLgdZfKelUvarOuTaV2BCH8esswfsD2KyARhSoqpKAplvqqb9Yd3gUUY7rPz9QBpGBQfCO6DjecoWjF/SOauocIPel5+GCcRmxy0FTLEwpd/PBkY5+h+uNqCQvsKeCiUcMshkeo0x9hvn0XeKM7mMW3ytwRJ6bcx/N20NrQw9ILrYMOf9wY9ETfZ0m2FxBO05BJGNGASyu5g3+6txDADFJitPDSZlekbPcbpZiAzyw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=W18pVm0xKISXgoLnbsgEyTuJbkKff+G5hzJ+STp3dcc=;
+ b=D9RmjCmxe2aLCtUjQ6uwLV9FkKgJfKuuQZWPNPu9xCqLIDgebuGn8W0NUQeu6r7MybsFLfjiBd7u8z8dJbCRtnsb8y5IQ345GubcakI6tbj9oWQ/Lhkdy/61Vcv9RJKwVcngceT8iNtLkTQjALLFkV+Zo8o10sAkbHbsmnHty82ubeD2qg2l3PvUEq+X1F9cb6Rzc254x+kB5cQqicO55L3FGSf0CQW5aB9qTRLpIcVo6iMBDJnfk2A+MS2vf2oUMmHNUDTVWjJCbePIsDWXbDvMAy5HUCe2wc8FXTnBycuOkESoJyp3dGmePTzcSqJiV5JlAT0Bo7CFNIufZ70HkQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by DB9PR04MB8233.eurprd04.prod.outlook.com (2603:10a6:10:24b::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.27; Wed, 3 Sep
+ 2025 14:55:55 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%7]) with mapi id 15.20.9094.015; Wed, 3 Sep 2025
+ 14:55:54 +0000
+Date: Wed, 3 Sep 2025 10:55:45 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Marco Felsch <m.felsch@pengutronix.de>
+Cc: Vinod Koul <vkoul@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jiada Wang <jiada_wang@mentor.com>, dmaengine@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 03/11] dmaengine: imx-sdma: cosmetic cleanup
+Message-ID: <aLhW8XQV/PSqCZrx@lizhi-Precision-Tower-5810>
+References: <20250903-v6-16-topic-sdma-v1-0-ac7bab629e8b@pengutronix.de>
+ <20250903-v6-16-topic-sdma-v1-3-ac7bab629e8b@pengutronix.de>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250903-great-savvy-bloodhound-38c1ca@sudeepholla>
+In-Reply-To: <20250903-v6-16-topic-sdma-v1-3-ac7bab629e8b@pengutronix.de>
+X-ClientProxiedBy: BYAPR21CA0014.namprd21.prod.outlook.com
+ (2603:10b6:a03:114::24) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|DB9PR04MB8233:EE_
+X-MS-Office365-Filtering-Correlation-Id: 360f325f-b548-48d1-4f1a-08ddeaf9fb1d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|19092799006|52116014|376014|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5D2hw2uJPLZp08WG7Orx05sE0RYKtM0CCFlEZ+8dWMa5J2z9aD/7dXNE4xDV?=
+ =?us-ascii?Q?YKYuUPgBpVadHeM2rhjNmihANdN0cd93beWMR+dSEOXN/8lFer4zk27BNQd5?=
+ =?us-ascii?Q?jIEh8O9c/IWTcNJ7Af4GsnkfjulAf5ihb1DNjTgZmT/1PulHdQa2MWz+p5pW?=
+ =?us-ascii?Q?N/DUgtqgXOoz0YmkkDRBW9J6R2NNxmewWRCvHKkzYIKMervfy5Q1j4G1rvcC?=
+ =?us-ascii?Q?YPiPaiteP0xJvOvea1FPImtNaQcqL33k85f+qIvkqrb8wXKkwqQXk9S59QVe?=
+ =?us-ascii?Q?WFS84JSp40EV21weraj2d4J81UxENkhg/9TIIJuaufvSJpZL1q9plKjvwbQt?=
+ =?us-ascii?Q?tWJkXSjy7XtIn9mQnyYFWhZpCMyisaiTCVGZMHs2YE3ZiQY1Q95Ih60WE/96?=
+ =?us-ascii?Q?kZ3D02eK8Gm4kQHPyTxmZT8uJdEeHWIUJGUpDOzfff3wqkYMHziqhkda35d4?=
+ =?us-ascii?Q?KhERTOfRsqJWSAKvgoKzMBLvWCsEIpFhe4EliiuD8TSuA/L8+s6MTJeSc3gV?=
+ =?us-ascii?Q?8GkhCfx2gR7a7gcD7qQl16nEMieLWeE2wsI3RTsl7M//cOYi8HJ/sAxae/vh?=
+ =?us-ascii?Q?QJwvOHh3qTj8lFl6LycSZBxUFbJZkTUS9/jXDHMBvC9hOM8PzX9UVcxOwd9P?=
+ =?us-ascii?Q?B4D7NFiuw1AaXQbaq4zFlRb40ofnobVisyIGogZXeA5x7vn2rJ2L3TW1YgOG?=
+ =?us-ascii?Q?KlYGD1rDg4WIhVPeeolPnE1dCOc3mX5SnZ2AiayAu88NITMqg1x5DveTW3n6?=
+ =?us-ascii?Q?pG7b0Yp3uJNxO6JJ+iwbnr06QP0cDiWpTU64JTPngrlvA3u7ZvVbCFc8cZ/K?=
+ =?us-ascii?Q?jLqqrm2etzae4MLcbu10xGtOuHd0PvrPp1w7CNqKfMVR0DgMFsGmoSejJL4l?=
+ =?us-ascii?Q?2vrqOBnI0rPS6038//UIOEGQbAFS3sXtg0N5fhTilht1NJfGnw38IUFuSlkI?=
+ =?us-ascii?Q?blNxwCdE5NDTK6bU7JmpgFZdU5qEhXsdzqIFyWfH+VWWX6e6l8Hr0Fm+LXE/?=
+ =?us-ascii?Q?UzWf+yro8ntoLhNFhFziETgDQETG2a1q01fpeKWeoVpKGXcWvQXLF/WLrdaf?=
+ =?us-ascii?Q?f4xY9vqr472MqBuwZeCh/BbLvVrQr57QL73Xz8+iRWQ7997kHm9LV1QzxMW5?=
+ =?us-ascii?Q?58F0yinWV8DkDcEbzyGaCzo5bKmqD+75pZtOvvGVXNWcdFReUY4WpC5K4peN?=
+ =?us-ascii?Q?yiGEU9UPj+7BlTLZEeM3VDPuizLOGiuiHDTcZsjYKzXbfJjGkUKo0qU84SiZ?=
+ =?us-ascii?Q?syG8C2Tm5bdwe94DQXQKkbWD8UBZ0ACg69Sw/YDuShfcKgFWxo4znWpAhm0U?=
+ =?us-ascii?Q?zaGTUd1RzCa3/XP5ott2vBPsMd0ek47hKvMjCMJV0uS8ciYzQuwtBFCtHwM5?=
+ =?us-ascii?Q?8JylyfG16cF0uWlEfK5825oTm1O/H+Qz92z3Qya0cVgWod++dlHZakNfQd6H?=
+ =?us-ascii?Q?q3TDncJbowTIsfmJi0CK3fkT8qYRjTYek8ClKbeyQBcZIO79rmApDw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(19092799006)(52116014)(376014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9Xsh6iz412epglYGvYAuuiGDKiw1y9LTAwCUEhYeaPmWeWL9PziSdqeYffqW?=
+ =?us-ascii?Q?5TsDDziuO3hFf7+GgraH6hcqZd2K7GlwOP2BFDJgZyjn+tXoBosBPhZ6Pw7x?=
+ =?us-ascii?Q?Tc21ktbQRI/Bwj03dPrq8K9xtdXvC3bfPdr15IkoPmu2ak10NGgzk94Riwi8?=
+ =?us-ascii?Q?oqYfOxriElCOnfNB/hkCXOcKbnGB66085ZaT2If9bmT31E/mG3l/Jrm4EAr2?=
+ =?us-ascii?Q?IChOWNFunuVC1lrqdNvptF/Lxyw7z6obCDN0vtXUHQUACHtq7NKdHvGDs6L/?=
+ =?us-ascii?Q?R0HW6w3vHgO4r4QM8PsypVZnf/T7udD9srCz8tC9clbhiQblZKC5inbJxNuz?=
+ =?us-ascii?Q?EfNtH8HrK79o46PeuwG4sx1v9mB1nmqKpwaItEVzSuUy8Zekk1aUyF3UfP1f?=
+ =?us-ascii?Q?HBtZK1XAw7eNTeLnSvYmfe74/7WDBVl3P/e7NSAjUFwLVi0m3SEVnwiNBL2e?=
+ =?us-ascii?Q?Q1zxCStIGThB/4xr6SNccIVLgFoNhw2djri8VBVLLRZXPgUn2LOc340hfM1T?=
+ =?us-ascii?Q?KaeKO/zV1/7WLTAwkMIR1LtcPdEvh1Eu0ql9L9n/yBkL6jm0t9r3b+isynrS?=
+ =?us-ascii?Q?Pz7gRGtmhsBAYnHvvdWuaoUrl7wUQwF+QiFBo2HxMrAXuq71L372FeOWnSBD?=
+ =?us-ascii?Q?eWoTZX00qkJVJiXl+icPINLDhiqPgFf+++Q1SlWS1MKWRSnBhS2jTQw2QBH9?=
+ =?us-ascii?Q?mZOFiEoRfXSybrpeUXx2vcyW0e41by63V6JRbo0QPQM4CYSW1k85CcXZq4zz?=
+ =?us-ascii?Q?+6Ac4PL03xt+nWlibTVSkm9njYC1j8loNdORrqDJhxHjz02r/2RCjlyJ6TPa?=
+ =?us-ascii?Q?JsYqS6im+XBj+6sNkOc/9W0KqGycWHGOZSIFdDj4VwvgoeWi2myjbJGvfLvq?=
+ =?us-ascii?Q?laywSKtzS1ZyCIwFqNc0Bz++PNhKSDiwRFr+8welCoBdfbBJfG1IcB7o0b9F?=
+ =?us-ascii?Q?uELxvWWyGsmJiTg8wI47e+gu0dsXIPkzj9COmiLwWLxa5qKyWf5vE1R2NLBj?=
+ =?us-ascii?Q?vtxH2XHsqoRbjqbvUxoUKneeYG5uykl/DnBYGRLscArEFeHFwVIsT5tV9Sqp?=
+ =?us-ascii?Q?p44ytHAGeEg8KSOy2sPulf71WJXSWeX/+8TPBgqlyZcDufsSG4PA16heVjcW?=
+ =?us-ascii?Q?sy5aDYDjxXyXd7cbaQQnWOMBRR1zX5BWpdTRxfP3Ry2IioOGDmdKFEgj+9Iy?=
+ =?us-ascii?Q?WU1JIn2GekWAmNdsIj61+Nz7o7UeuzFJfdPF0fi++eAtslXk0u6AYHFfYdWp?=
+ =?us-ascii?Q?3LuPYh/8IDoiUv0jHtHuxCF7M0Jf5XwUm24Yb8UZ9qZ6nB0zSpkZvTL6Zpni?=
+ =?us-ascii?Q?w9irRBD3nex0tw2tGAOL8FWsnQDKVuaUXa8+9Yiz3HDWCjADZ5v4QxSHTHwk?=
+ =?us-ascii?Q?DcvcClZmbpT+y+A47yV1hql7G4T2aB4xvf7P3nCcbUKfVRhWQDjTS0ImUX7x?=
+ =?us-ascii?Q?ZgkkdtfWRkHQfFgURLzJJkvYdBQXhp89M6cYzbcMGKtrMqi/1c8CAPMjEKTK?=
+ =?us-ascii?Q?BPfjaK+cokZLqKg3dgRzSwX2CQ8zCl18JASn3P+I5hDahUSwEvjQCul4Mf3S?=
+ =?us-ascii?Q?2ZC8NkRRaYkabTAm/ObqEqRFOaS+cWTYehMtYflu?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 360f325f-b548-48d1-4f1a-08ddeaf9fb1d
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2025 14:55:54.1322
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: KfdCwM3EYLqmGay7HFJZD5pYfR6IdkTrr+sYNmHnZv57NMAY+3u2WczMoS2p9mkPuMfNhpjxQXqfbyOBfbAHjA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8233
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_074951_550554_DC14026D 
-X-CRM114-Status: GOOD (  30.59  )
+X-CRM114-CacheID: sfid-20250903_075600_856974_6BC80E18 
+X-CRM114-Status: GOOD (  22.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,69 +161,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 03, 2025 at 03:23:58PM +0100, Sudeep Holla wrote:
-> On Tue, Sep 02, 2025 at 06:20:53PM +0100, Andre Przywara wrote:
-> > Commit 5f9c23abc477 ("firmware: smccc: Support optional Arm SMCCC SOC_ID
-> > name") introduced the SOC_ID name string call, which reports a human
-> > readable string describing the SoC, as returned by firmware.
-> > The SMCCC spec v1.6 describes this feature as AArch64 only, since we rely
-> > on 8 characters to be transmitted per register. Consequently the SMCCC
-> > call must use the AArch64 calling convention, which requires bit 30 of
-> > the FID to be set. The spec is a bit confusing here, since it mentions
-> > that in the parameter description ("2: SoC name (optionally implemented for
-> > SMC64 calls, ..."), but still prints the FID explicitly as 0x80000002.
-> > But as this FID is using the SMC32 calling convention (correct for the
-> > other two calls), it will not match what mainline TF-A is expecting, so
-> > any call would return NOT_SUPPORTED.
-> > 
-> 
-> Good catch and I must admit I completely missed it inspite of discussing
-> 32b vs 64b FID around the same time this was introduced.
-> 
-> > Add a 64-bit version of the ARCH_SOC_ID FID macro, and use that for the
-> > SoC name version of the call.
-> > 
-> > Fixes: 5f9c23abc477 ("firmware: smccc: Support optional Arm SMCCC SOC_ID name")
-> > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> > ---
-> > Hi,
-> > 
-> > as somewhat expected, this now fails on an Ampere machine, which
-> > reported a string in /sys/devices/soc0/machine before, but is now missing
-> > this file.
-> > Any idea what's the best way to handle this? Let the code try the 32-bit
-> > FID, when the 64-bit one fails? Or handle this as some kind of erratum?
-> > 
-> 
-> Not sure about it yet. Erratum seems good option so that we can avoid
-> others getting it wrong too as they might just run the kernel and be happy
-> if the machine sysfs shows up as we decided to do fallback to 32b FID.
-> 
-> I will start a discussion to get the spec updated and pushed out and see
-> how that goes.
-> 
-> The change itself looks good and happy to get it merged once we know
-> what is the best approach(erratum vs fallback).
-> 
+On Wed, Sep 03, 2025 at 03:06:11PM +0200, Marco Felsch wrote:
+> Make use of local struct device pointer to not dereference the
+> platform_device pointer everytime.
+>
+> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+> ---
+>  drivers/dma/imx-sdma.c | 31 ++++++++++++++++---------------
+>  1 file changed, 16 insertions(+), 15 deletions(-)
+>
+> diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
+> index 422086632d3445b2ce3f2e5df9b2130174a311e8..a85739d279f51fdb517fce90b3dc67673cf2b56c 100644
+> --- a/drivers/dma/imx-sdma.c
+> +++ b/drivers/dma/imx-sdma.c
+> @@ -2234,7 +2234,8 @@ static struct dma_chan *sdma_xlate(struct of_phandle_args *dma_spec,
+>
+>  static int sdma_probe(struct platform_device *pdev)
+>  {
+> -	struct device_node *np = pdev->dev.of_node;
+> +	struct device *dev = &pdev->dev;
+> +	struct device_node *np = dev->of_node;
+>  	struct device_node *spba_bus;
+>  	const char *fw_name;
+>  	int ret;
+> @@ -2244,18 +2245,18 @@ static int sdma_probe(struct platform_device *pdev)
+>  	struct sdma_engine *sdma;
+>  	s32 *saddr_arr;
+>
+> -	ret = dma_coerce_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(32));
+> +	ret = dma_coerce_mask_and_coherent(dev, DMA_BIT_MASK(32));
+>  	if (ret)
+>  		return ret;
 
-Looking at the SMCCC spec(DEN0028 v1.6 G Edition) ->
-Section 7.4.6 Implementation responsibilities
+Not related this patch, you can remove this check later because
+dma_coerce_mask_and_coherent() never return failure when >= 32bit.
 
-If implemented, the firmware:
-...
-• must not implement SoC_ID_type == 2 for SMC32.
-• can optionally implement SoC_ID_type == 2 for SMC64 (Function ID 0xC000_0002),
-...
-
-So Ampere is not spec conformant here and hence I prefer to handle it as
-erratum. Hopefully we can use SOC_ID version and revision to keep the scope
-of erratum confined to smallest set of platforms.
-
-Paul,
-
-Thoughts ?
-
--- 
-Regards,
-Sudeep
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+>
+> -	sdma = devm_kzalloc(&pdev->dev, sizeof(*sdma), GFP_KERNEL);
+> +	sdma = devm_kzalloc(dev, sizeof(*sdma), GFP_KERNEL);
+>  	if (!sdma)
+>  		return -ENOMEM;
+>
+>  	spin_lock_init(&sdma->channel_0_lock);
+>
+> -	sdma->dev = &pdev->dev;
+> -	sdma->drvdata = of_device_get_match_data(sdma->dev);
+> +	sdma->dev = dev;
+> +	sdma->drvdata = of_device_get_match_data(dev);
+>
+>  	irq = platform_get_irq(pdev, 0);
+>  	if (irq < 0)
+> @@ -2265,11 +2266,11 @@ static int sdma_probe(struct platform_device *pdev)
+>  	if (IS_ERR(sdma->regs))
+>  		return PTR_ERR(sdma->regs);
+>
+> -	sdma->clk_ipg = devm_clk_get(&pdev->dev, "ipg");
+> +	sdma->clk_ipg = devm_clk_get(dev, "ipg");
+>  	if (IS_ERR(sdma->clk_ipg))
+>  		return PTR_ERR(sdma->clk_ipg);
+>
+> -	sdma->clk_ahb = devm_clk_get(&pdev->dev, "ahb");
+> +	sdma->clk_ahb = devm_clk_get(dev, "ahb");
+>  	if (IS_ERR(sdma->clk_ahb))
+>  		return PTR_ERR(sdma->clk_ahb);
+>
+> @@ -2281,8 +2282,8 @@ static int sdma_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		goto err_clk;
+>
+> -	ret = devm_request_irq(&pdev->dev, irq, sdma_int_handler, 0,
+> -				dev_name(&pdev->dev), sdma);
+> +	ret = devm_request_irq(dev, irq, sdma_int_handler, 0,
+> +			       dev_name(dev), sdma);
+>  	if (ret)
+>  		goto err_irq;
+>
+> @@ -2327,7 +2328,7 @@ static int sdma_probe(struct platform_device *pdev)
+>
+>  	sdma->iram_pool = of_gen_pool_get(np, "iram", 0);
+>  	if (sdma->iram_pool)
+> -		dev_info(&pdev->dev, "alloc bd from iram.\n");
+> +		dev_info(dev, "alloc bd from iram.\n");
+>
+>  	ret = sdma_init(sdma);
+>  	if (ret)
+> @@ -2340,7 +2341,7 @@ static int sdma_probe(struct platform_device *pdev)
+>  	if (sdma->drvdata->script_addrs)
+>  		sdma_add_scripts(sdma, sdma->drvdata->script_addrs);
+>
+> -	sdma->dma_device.dev = &pdev->dev;
+> +	sdma->dma_device.dev = dev;
+>
+>  	sdma->dma_device.device_alloc_chan_resources = sdma_alloc_chan_resources;
+>  	sdma->dma_device.device_free_chan_resources = sdma_free_chan_resources;
+> @@ -2363,13 +2364,13 @@ static int sdma_probe(struct platform_device *pdev)
+>
+>  	ret = dma_async_device_register(&sdma->dma_device);
+>  	if (ret) {
+> -		dev_err(&pdev->dev, "unable to register\n");
+> +		dev_err(dev, "unable to register\n");
+>  		goto err_init;
+>  	}
+>
+>  	ret = of_dma_controller_register(np, sdma_xlate, sdma);
+>  	if (ret) {
+> -		dev_err(&pdev->dev, "failed to register controller\n");
+> +		dev_err(dev, "failed to register controller\n");
+>  		goto err_register;
+>  	}
+>
+> @@ -2389,11 +2390,11 @@ static int sdma_probe(struct platform_device *pdev)
+>  	ret = of_property_read_string(np, "fsl,sdma-ram-script-name",
+>  				      &fw_name);
+>  	if (ret) {
+> -		dev_warn(&pdev->dev, "failed to get firmware name\n");
+> +		dev_warn(dev, "failed to get firmware name\n");
+>  	} else {
+>  		ret = sdma_get_firmware(sdma, fw_name);
+>  		if (ret)
+> -			dev_warn(&pdev->dev, "failed to get firmware from device tree\n");
+> +			dev_warn(dev, "failed to get firmware from device tree\n");
+>  	}
+>
+>  	return 0;
+>
+> --
+> 2.47.2
+>
 
