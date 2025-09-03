@@ -4,88 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A268CA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 15:49:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2A61CA1009
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 15:52:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TceoMbVPyrzcVBNVbAOHGzxGRGxrO0zSw59TjOdJc7U=; b=enx32ik5++KyRRRR4wrufsbBA2
-	eGnooFl/w0AugylrauKGIxebmp8jabieMM2Upaesqt96uhabxdm7iakr0/S0WRzyx0X5gpee0QE2o
-	yUFv+6u38OEjVe+lWvFJYjTBee30dmFOlo3OavwzpN32u6n109iU1zO77oLwGhoDm3sLCbbqT6yCA
-	CHV6BxONsCLJVEi9iDfOZEMojWZqcRI7YEpz93/uLKDxAbqOLIGztHThjOo99ToI7f8PkZbnPSZYW
-	wJUGnekcpb7LC3IYkaLxPtdUH2pQBwOeBpQ8Wj/rZvTE+udLUjWf5OnZnNi52MXOZM+YRpbFwZPcn
-	Dt2zAXMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dhel0eduSE2xvhrZF4NE5hKb2a+SKOrORrIh2AU9kXg=; b=OD7K2eGaOHg58d
+	nQu4Z+OEv4lTyL1q+wEUvET6Fe8TYOGgvufPd97pV2sUKFdSErmKRPd7hiY0Jt2KH6UVAgDdbdb9F
+	BQ/EPRvFI0NvmHpkcqEZgBeHdrpfw80gzkKZL2AmNOSDAFaQ5IoWwnf0B7PBRuVtZZ8SGqdKUQUSs
+	qOpTuzWRdmFAkitvLfjSG3ajEKMPzAB6VNig5DM7sH7Rf1LfN4J/CkuxzFj+uGDpquyQk3aQqs9gr
+	LZXEA76hHFP6zmScrwnPo/ZTg75C1DI4YHWDsuc10E/uNzSJpUYzjBRexXBPprJyj6SkU9/WNJKDj
+	AE65BwQvApPc/DbGwe6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utpjn-00000006yEe-0ddn;
-	Wed, 03 Sep 2025 15:49:31 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1utpmV-00000006ylm-12S2;
+	Wed, 03 Sep 2025 15:52:19 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utnBa-00000006W2r-2a80
+	id 1utnBp-00000006W5C-1Bx0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 13:06:07 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-560880bb751so1335245e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Sep 2025 06:06:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756904761; x=1757509561; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TceoMbVPyrzcVBNVbAOHGzxGRGxrO0zSw59TjOdJc7U=;
-        b=PtVqx60ERm5AO6nxCQMjAB0R/tyog1gxpVfDZxC9JXLDO4zUHNDEhyd0jZEkvgnVbK
-         SN6jwWCWBJeS7cuUchJap0vJH2C+FEHfnlnAUEqTbEeTF0IIDG8pfIL/9FXxXr5GPzfr
-         YUilwJi6t5VfovdHv9R9HV5nyLNBv1J5CvaXkPWyEgmtR1SnjCVyhA7oo+0zVp3ad9Gw
-         6BW4JPHz0+WSLdMiZw2tYAYC2OzkuABxBaNJ/Sb4KKPODFvPOR7OCq4JdDgZ+b8+M48t
-         MD6knMifX4Ca65vdiDg4QKY4FM1nGxJo760vJtWEwuErYAUte8WDNDJfxuWAnIRjm8Xq
-         fCUA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756904761; x=1757509561;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TceoMbVPyrzcVBNVbAOHGzxGRGxrO0zSw59TjOdJc7U=;
-        b=feIj+A5lpI3bXJl825epg2lUXUNr+5DY4hWJM0NEkhAcMjhWoajM1FktI5r5dRGrzv
-         NexsKykrM+HTaB/81WoCIN2kD/C/3zIm/iSCwvj03l3zq9u9ciDpNcoslo8yyCZA14Cm
-         q43PlMdFnXbt4Mn4r//9bOmae9Lvp5FwZq7edLotxYSCg2gvyyePzcKuYelC5E/LuuLh
-         1rgjTlAiYa7j/iFFGrPhPj+9h7OHV3GF/E+ziSqX09sD+6vsib17D1fSjWXMq/IU8G8G
-         7qQ6pRg4/A6WvBTzDQeQ31ONvO74atLqh3l1faMPfH1Ky57BOcbq3kuFt7TvquwsvpkZ
-         yfCw==
-X-Forwarded-Encrypted: i=1; AJvYcCXge/s2bde3+ws0dM/2ImbKBpOntFi7mF7A3pxMjyuO/N4zx6jiUQg/oKTPwB6xpIcRsyc4DP1aVIZk03i3aaRN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9/9/7MfBDW1k98l2kby5Wnksh+zsUgqYuUBfqmtJCkFtaysCj
-	qqhcBejp8nu8MHUaIGYnkQ+UISaGTWh3JhltGxtyZKexan220y2G5U1pY+qMm3K+zDbowmFxD39
-	mbR2q4IgmEeFhVEDgzLfF0RLPzCpLGuAaf86J4e9yVQ==
-X-Gm-Gg: ASbGnctRMsiqVhwx5C+17xSy0005ekE5bohI7t/E4XQPSkbU2R83uNtCo3KMf5HIDlG
-	lsgfkWw7jIcg2Uzw+ULS9NvSR2n4udUVPxu9uWpSyzMdkXCzVoitvYjtiaDQuo8ker1IvMXSrkr
-	zuVHraH2bNZg+3eJjXRnXSKed3r0Vm4SGKiKMe6MMCpBaw1YB64wk6u6qDJGVp9IrkzMdkrWTZX
-	yZ9Vsw6pVG29CpLSu8BKULTLdMYGikHPJ6IiY5QE4SWyMwD6HaxHomsVkqv
-X-Google-Smtp-Source: AGHT+IFWW9Hzk4QvmFEIuxTuSzFqwAls1HtiU6FKjjOhdyOYjenmw3Gr/l6kYIu5clusIxlO2SHNIG7AoIrDQKR+nnE=
-X-Received: by 2002:a05:6512:6812:b0:55f:43ba:93f2 with SMTP id
- 2adb3069b0e04-55f708b5457mr3760512e87.18.1756904760711; Wed, 03 Sep 2025
- 06:06:00 -0700 (PDT)
+	Wed, 03 Sep 2025 13:06:18 +0000
+Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <m.felsch@pengutronix.de>)
+	id 1utnBl-00006Z-Hg; Wed, 03 Sep 2025 15:06:13 +0200
+From: Marco Felsch <m.felsch@pengutronix.de>
+Subject: [PATCH 00/11] i.MX SDMA cleanups and fixes
+Date: Wed, 03 Sep 2025 15:06:08 +0200
+Message-Id: <20250903-v6-16-topic-sdma-v1-0-ac7bab629e8b@pengutronix.de>
 MIME-Version: 1.0
-References: <20250811-gpio-mmio-mfd-conv-v1-0-68c5c958cf80@linaro.org>
- <20250903090922.GE2163762@google.com> <20250903125524.GP2163762@google.com>
-In-Reply-To: <20250903125524.GP2163762@google.com>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Wed, 3 Sep 2025 15:05:49 +0200
-X-Gm-Features: Ac12FXy3NMzM2aB5ePiUft0RXfVSx9L7KjPMSrAtYJCok4KyCrb9wj58C2zdW0k
-Message-ID: <CAMRc=Mfn-F+99EmwUABOy8=qh7W+ixL6hoEKvnmXd=EiW6QiaQ@mail.gmail.com>
-Subject: Re: [GIT PULL v2] Immutable branch between MFD and GPIO due for the
- v6.18 merge window
-To: Lee Jones <lee@kernel.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Liviu Dudau <liviu.dudau@arm.com>, 
-	Sudeep Holla <sudeep.holla@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Pawel Moll <pawel.moll@arm.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAEE9uGgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDSwNj3TIzXUMz3ZL8gsxk3eKU3ERdk2SLtBTjpCQDc2MLJaC2gqLUtMw
+ KsJHRsbW1AHQt96hiAAAA
+X-Change-ID: 20250903-v6-16-topic-sdma-4c8fd3bb0738
+To: Vinod Koul <vkoul@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Jiada Wang <jiada_wang@mentor.com>
+Cc: dmaengine@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Marco Felsch <m.felsch@pengutronix.de>
+X-Mailer: b4 0.14.2
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::28
+X-SA-Exim-Mail-From: m.felsch@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_060602_654547_4EB37B46 
-X-CRM114-Status: GOOD (  14.41  )
+X-CRM114-CacheID: sfid-20250903_060617_325692_D9A071FC 
+X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,41 +72,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 3, 2025 at 2:55=E2=80=AFPM Lee Jones <lee@kernel.org> wrote:
->
-> This time with the correct commits!
->
-> The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d5=
-85:
->
->   Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
->
-> are available in the Git repository at:
->
->   git://git.kernel.org/pub/scm/linux/kernel/git/lee/mfd.git ib-mfd-gpio-v=
-6.18
->
-> for you to fetch changes up to 9b33bbc084accb4ebde3c6888758b31e3bdf1c57:
->
->   mfd: vexpress-sysreg: Use new generic GPIO chip API (2025-09-03 12:45:3=
-3 +0100)
->
-> ----------------------------------------------------------------
-> Immutable branch between MFD and GPIO due for the v6.18 merge window
->
-> ----------------------------------------------------------------
-> Bartosz Golaszewski (2):
->       mfd: vexpress-sysreg: Check the return value of devm_gpiochip_add_d=
-ata()
->       mfd: vexpress-sysreg: Use new generic GPIO chip API
->
->  drivers/mfd/vexpress-sysreg.c | 25 ++++++++++++++++++++-----
->  1 file changed, 20 insertions(+), 5 deletions(-)
->
-> --
-> Lee Jones [=E6=9D=8E=E7=90=BC=E6=96=AF]
+Hi,
 
-Thanks! Pulled.
+the current i.MX SDMA driver doesn't honor current active DMA users once
+the i.MX SDMA driver is getting removed. Which can lead into very
+situations e.g. hang the whole system.
 
-Bartosz
+This is fixed by cleaning up the driver and adding devlink support to
+the SDMA driver.
+
+This series also fixes the i.MX SDMA handling on i.MX8M* devices, which
+do have multiple SPBA buses.
+
+Regards,
+  Marco
+
+Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+---
+Marco Felsch (11):
+      dmaengine: imx-sdma: drop legacy device_node np check
+      dmaengine: imx-sdma: sdma_remove minor cleanups
+      dmaengine: imx-sdma: cosmetic cleanup
+      dmaengine: imx-sdma: make use of devm_kzalloc for script_addrs
+      dmaengine: imx-sdma: make use of devm_clk_get_prepared()
+      dmaengine: imx-sdma: make use of devm_add_action_or_reset to unregiser the dma_device
+      dmaengine: imx-sdma: make use of dev_err_probe()
+      dmaengine: imx-sdma: fix missing of_dma_controller_free()
+      dmaengine: add support for device_link
+      dmaengine: imx-sdma: drop remove callback
+      dmaengine: imx-sdma: fix spba-bus handling for i.MX8M
+
+ drivers/dma/dmaengine.c |   8 +++
+ drivers/dma/imx-sdma.c  | 188 +++++++++++++++++++++++-------------------------
+ 2 files changed, 97 insertions(+), 99 deletions(-)
+---
+base-commit: 038d61fd642278bab63ee8ef722c50d10ab01e8f
+change-id: 20250903-v6-16-topic-sdma-4c8fd3bb0738
+
+Best regards,
+-- 
+Marco Felsch <m.felsch@pengutronix.de>
+
 
