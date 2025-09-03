@@ -4,64 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99F43CA1009
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 11:59:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B920CCA1009
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 12:02:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DEdmwPLHvbOsh4bwWxxStD0XvRblLCjIU1ccbSTvbCo=; b=inv1JOcy57i/f7+d+zHyiVITHN
-	6qddlqPg6wlcIMolHcBWQ/Rez4xW/sK8bUdzEUfsIuqomb+XNjohFbUoeciXRlPrFB9P2E//GqPJX
-	90IBoJ5e1VWnpXfd0iMGCupBrot6LLCGC4++2L/OJT53BUonLBnBs9GA9kjanpR5m4Zno+etuUTOg
-	xnePsekAfRq8zi2V79knXiocNt/aN4j5m7gOBemOK/ucJqHM3wqOWGa09OJ8U2xNAEhuBkjnxy+fK
-	M+K4VphlqJvRzipU9PFALSzLreWCCbuSAjgQJOKPuMXHyK6WAYDfE5kvCwHvhB92xakGnbHm5lM3Q
-	F1sLgRog==;
+	bh=j6RJiG9LKdMiF6JHUgt/C676r7v1TC9rEint4KQ3yj4=; b=DZ/zw9PUFr18Whmy9I2Dwozp+U
+	E4oxaBBw0LhdHH0ZwOHX7JiEmPtyU0KibG0QzSsLMmrdIKVPiKovdcNu2mVadIxsNSMzC6fC1Abzq
+	EVKNDqpk+8T+VrDSnXAE/MGh28xcQxh+1R2j/QVpsILVQhvEN0YzQszCXKG3xMuw607E17owUDdvd
+	IxEquCe2ETR46hfNuyFGESmAuIpdCYXD7rJ480HJnGnJWtKgfMzEvxUj8IEmc71KtumY41SOg+c1r
+	2jDePH4Jzzr710RneRanlwHpKs4TciTmI4+hiAYCOjLaH6AaZcGsVb+xDyqIeaUTXQTq+btIf1vSx
+	Surn5OHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utm9B-00000006JBc-1CJN;
-	Wed, 03 Sep 2025 11:59:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utkxj-0000000681d-2dX4
+	id 1utmBs-00000006JiS-0E5v;
+	Wed, 03 Sep 2025 12:02:16 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1utl3z-000000068ez-1Qai
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 10:43:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A0E321688;
-	Wed,  3 Sep 2025 03:43:24 -0700 (PDT)
-Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0DDAD3F6A8;
-	Wed,  3 Sep 2025 03:43:28 -0700 (PDT)
-Date: Wed, 3 Sep 2025 11:43:09 +0100
-From: Dave Martin <Dave.Martin@arm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org,
-	oliver.upton@linux.dev, anshuman.khandual@arm.com, robh@kernel.org,
-	james.morse@arm.com, mark.rutland@arm.com, joey.gouly@arm.com,
-	ahmed.genidi@arm.com, kevin.brodsky@arm.com,
-	scott@os.amperecomputing.com, mbenes@suse.cz,
-	james.clark@linaro.org, frederic@kernel.org, rafael@kernel.org,
-	pavel@kernel.org, ryan.roberts@arm.com, suzuki.poulose@arm.com,
-	maz@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v4 2/5] arm64: initialise SCTLR2_ELx register at boot time
-Message-ID: <aLgbvWYeCr5l1MF6@e133380.arm.com>
-References: <20250821172408.2101870-1-yeoreum.yun@arm.com>
- <20250821172408.2101870-3-yeoreum.yun@arm.com>
- <aLW4A3rTcJvA0c+j@e133380.arm.com>
- <aLXmCJOuxCHVXEYx@e129823.arm.com>
- <aLbJeQf9LKXFTxzS@e133380.arm.com>
- <aLbPjmy/ZYSd+wzA@e129823.arm.com>
+	Wed, 03 Sep 2025 10:50:04 +0000
+Date: Wed, 3 Sep 2025 12:49:58 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1756896599;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=j6RJiG9LKdMiF6JHUgt/C676r7v1TC9rEint4KQ3yj4=;
+	b=Edp5VoE1mfxAQsPaKzt2DFJgUvT2YTcfW4Fs825/HOglXQzoMIoUM0J5gc/EQ7i0+nAopc
+	r+84KlJ3Ak0A5juv7Q4Cj1AVXHtAYpgXEX5sg0x1iWxqtDDTq4darlByJeoTIEJZuYwAgf
+	Na89kCg+E4PKsKkko58WOPoVTjSfsUAtgUiAADiOwTd/tsGmb08UaYslJjmdETPrbS0XA8
+	+lEeT9NmcExZtlV54ghoEiNVPekg3fUxN8k3pZaci+pJgrVD4FB+ld3Gy3XJ1nZ/FHeu+K
+	gcFcBo9qm8cMRzO8a+DDOP1ejRWRTaexXFBRH/J4CA6d6eOTa3lfBVhjdXZilA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1756896599;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=j6RJiG9LKdMiF6JHUgt/C676r7v1TC9rEint4KQ3yj4=;
+	b=8g7ZmmO/QT8/F2MQldoLuxcXIMLtJdf6KmIJgbamVe7nrdXUyrz4JIIhtCluFUSERUhA9/
+	W1Sw3g5HXR9NxRBQ==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Vincenzo Frascino <vincenzo.frascino@arm.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Arnd Bergmann <arnd@arndb.de>, 
+	Andy Lutomirski <luto@kernel.org>, John Stultz <jstultz@google.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/3] arm64: uapi: Provide correct __BITS_PER_LONG for the
+ compat vDSO
+Message-ID: <20250903124853-7dd41845-8939-4a01-b50d-42f87cc6583d@linutronix.de>
+References: <20250821-vdso-arm64-compat-bitsperlong-v1-0-700bcabe7732@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <aLbPjmy/ZYSd+wzA@e129823.arm.com>
+In-Reply-To: <20250821-vdso-arm64-compat-bitsperlong-v1-0-700bcabe7732@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_034335_744176_C4A49071 
-X-CRM114-Status: GOOD (  42.23  )
+X-CRM114-CacheID: sfid-20250903_035003_524117_DDD4B64A 
+X-CRM114-Status: GOOD (  14.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,109 +81,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi arm64 folks,
 
-On Tue, Sep 02, 2025 at 12:05:50PM +0100, Yeoreum Yun wrote:
-> Hi Dave,
+On Thu, Aug 21, 2025 at 09:56:43AM +0200, Thomas Weiﬂschuh wrote:
+> The generic vDSO library uses the UAPI headers. On arm64 __BITS_PER_LONG is
+> always '64' even when used from the compat vDSO. In that case __GENMASK()
+> does an illegal bitshift, invoking undefined behaviour.
 > 
-> [...]
+> The first patch should go into the 6.17 tree.
+
+Could you take this series?
+
+
+Thanks,
+
+> Signed-off-by: Thomas Weiﬂschuh <thomas.weissschuh@linutronix.de>
+> ---
+> Thomas Weiﬂschuh (3):
+>       arm64: uapi: Provide correct __BITS_PER_LONG for the compat vDSO
+>       arm64: vdso32: Stop suppressing warnings
+>       arm64: vdso32: Respect -Werror from kbuild
 > 
-> > > > > diff --git a/arch/arm64/kernel/hyp-stub.S b/arch/arm64/kernel/hyp-stub.S
-> > > > > index 36e2d26b54f5..ac12f1b4f8e2 100644
-> > > > > --- a/arch/arm64/kernel/hyp-stub.S
-> > > > > +++ b/arch/arm64/kernel/hyp-stub.S
-> > > > > @@ -144,7 +144,17 @@ SYM_CODE_START_LOCAL(__finalise_el2)
-> > > > >
-> > > > >  .Lskip_indirection:
-> > > > >  .Lskip_tcr2:
-> > > > > +	mrs_s	x1, SYS_ID_AA64MMFR3_EL1
-> > > > > +	ubfx	x1, x1, #ID_AA64MMFR3_EL1_SCTLRX_SHIFT, #4
-> > > > > +	cbz	x1, .Lskip_sctlr2
-> > > > > +	mrs_s	x1, SYS_SCTLR2_EL12
-> > > > > +	msr_s	SYS_SCTLR2_EL1, x1
-> > > > >
-> > > > > +	// clean SCTLR2_EL1
-> > > > > +	mov_q	x1, INIT_SCTLR2_EL1
-> > > > > +	msr_s	SYS_SCTLR2_EL12, x1
-> > > >
-> > > > I'm still not sure why we need to do this.  The code doesn't seem to
-> > > > clean up by the EL1 value of any other register -- or have I missed
-> > > > something?
-> > > >
-> > > > We have already switched to EL2, via the HVC call that jumped to
-> > > > __finalise_el2.  We won't run at EL1 again unless KVM starts a guest --
-> > > > but in that case, it's KVM's responsibility to set up the EL1 registers
-> > > > before handing control to the guest.
-> > > >
-> > > > In any case, is SCTLR2_EL1 ever set to anything except INIT_SCTLR2_EL1
-> > > > before we get here?
-
-[...]
-
-> When I look at init_el2(), it returns to EL1 via:
+>  arch/arm64/include/uapi/asm/bitsperlong.h |  5 +++++
+>  arch/arm64/kernel/vdso32/Makefile         | 13 +------------
+>  2 files changed, 6 insertions(+), 12 deletions(-)
+> ---
+> base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+> change-id: 20250820-vdso-arm64-compat-bitsperlong-4f59ae7ef6e7
 > 
->   mov x0, #INIT_PSTATE_EL1
->   msr spsr_el2, x0
->   ...
->   eret
+> Best regards,
+> -- 
+> Thomas Weiﬂschuh <thomas.weissschuh@linutronix.de>
 > 
-> In other words, from init_kernel_el() through finalise_el2(),
-> all system-register accesses are made at EL1 (i.e., SYS_REG_EL1).
-> During this period, it appears that only SCTLR_EL1 is modified,
-> so the code only needs to care about the accessed register ‚Äî SCTLR_EL1.
-> 
-> That‚Äôs why SCTLR_EL1 is reinitialised at the end of finalise_el2().
-> Otherwise, the MMU bit might remain enabled, which could cause errors later
-> when launching a VM under VHE.
-> 
-> However, the idea behind this patch is to initialise SCTLR2_ELx
-> the same way as SCTLR_ELx.
-> I‚Äôm not sure whether SCTLR2_ELx is modified during this period.
-> If it is (now or in the future),
-> it should be cleared/reinitialised just like SCTLR_EL1.
-> 
-> This patch is based on the assumption that there may be modifications to
-> SCTLR2_ELx during this period. So it isn‚Äôt about other system registers;
-> it‚Äôs about the register actually used during this period.
-> 
-> Am I missing anything?
-> 
-> Thanks!
-> 
-> --
-> Sincerely,
-> Yeoreum Yun
-
-I think I missed the SCTLR_EL1 reset in the idmap code after the
-enter_vhe label.
-
-Actually, I'm not sure whether there is any architectural reason for
-setting SCTLR_EL1 to INIT_SCTLR_EL1_MMU_OFF here.  "for good measure"
-suggests that it felt like a good idea but there was no known reason
-for it.  The commit message for the original patch doesn't offer an
-explanation -- maybe Marc can remember.
-
-This might be a defence against speculative translation table walks
-using the EL1&0 regime (but the architecture says [RNRJPP]: "If an
-implementation is executing at EL3 or EL2, the PE is not permitted to
-use the registers associated with the EL1&0 translation regime to
-speculatively access memory or translation tables.")  So it shouldn't
-really matter, but in case buggy CPUs don't implement this rule
-properly it may be a good idea to turn the stage1 MMU off just in case.
-
-Since it's there, though, it probably does make sense to reinitialise
-SCTLR2_EL1 at the same time -- but can you move this so that it is next
-to the SCTLR_EL1 reinitialisation?  Otherwise, the purpose of
-reinitialising SCTLR2_EL1 is unclear.  It really should come under the
-same "for good measure" justification as the SCTLR_EL1 reset.
-
-
-However, I don't think this has anything to do with putting things into
-a clean state for VMs.  KVM defines the reset state for all the _EL1
-regs explicitly -- failing to do that would be a bug in KVM.
-
-(See arch/arm64/kvm/sys_regs.c : sys_reg_descs[], kvm_reset_sys_regs().)
-
-Cheers
----Dave
 
