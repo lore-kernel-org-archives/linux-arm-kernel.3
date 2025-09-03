@@ -4,75 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A6D7CA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 22:02:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 450B6CA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 22:05:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CZo1QLahALrmkDN63JQmCMj7vBZnmPYdOiAkRsEwF88=; b=qGYzMuidZTpM3RBkorKoCzHunu
-	Qm6EXlnBlRmGpyb/qDZwGJmC8W03g6FmdVyzgdtgHNQT9QOT8UJGkh8/eLZD14cPHL6FRwr2PiyrO
-	mxjxdjl+D4oHf2kgdrbjCZ9G5CyzORQ69QK5m/2BJIk+q9vqsShX9AO1pJt9w5xjpOGQS2NRqyl/b
-	qRGh52gO5c3NLSOiqGw7ygfRa+zRedbxc7VJTnyqkgHSpdNRuqXIwJ0MkxROr9by5u+ySCDPIulR3
-	LiqZAok/wde9ALdk7SMzZPP425Ulab9WHyyh8w5kFzEq1iU0hU+uSejl3jhC8C93R7RszlBxnAu3Z
-	o1pgTQMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ILlg6H0QFNXmeckwoyYoH3jWoCvXgLN4aTQjLz4Am8k=; b=3GIdRJY0p5F6AisP4Ydibknq0a
+	sAYHyUS4BxmA0V1rQufpAVbBvQmI6L2iENIJEBYy0iUwkvF/U6EdDQrgUoGk5bh4HOu9MWX7i+Ke5
+	I9NXx0l0X1IYDeRKYIZVvpb1npuiuuOaO926D9twmr/oV89fwkgF2lsptvNhCA4ndHcK03+B3iA5t
+	l5Seqb6eBuEIwlxW462Uc+qxi2VOZK6SbPDMLM8syznBEz901gFzc7NE6fvf6NSov2Fg0Vl1lBsNb
+	tz1HiMkZ50bIT6MAH1ZstCVm6zDG/+mTSvnCg2prwJyPjB2ckx/97R1OVE6gmF3S3vCoL4+VcvL0D
+	YsZ43dww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utvYt-00000007kXe-0dPX;
-	Wed, 03 Sep 2025 22:02:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1utvbZ-00000007ktq-3t7Q;
+	Wed, 03 Sep 2025 22:05:25 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utpQT-00000006uw0-35WS
+	id 1utpRU-00000006vAh-0Frt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 15:29:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 70CE744C51
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  3 Sep 2025 15:29:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5711CC4AF09
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  3 Sep 2025 15:29:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756913373;
-	bh=VIC3yESeSFavKGxbmPdXIWhH/KHmeXOIED4A31+ezvE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=apnG0CKTdKsdZHcilpZah+9QTA9Pp8xfDSZM28TFW3A/lnYW/imlO23Yo30cBBGaJ
-	 FGaW8LjAN6LvwhElgRSMceeMZhJdfeQch20cEt+2eLyIYVIcWPKPhzis378GXOVOSM
-	 jZiRhphCsvLh/+yrR3YM5mGsSC7HH+IEl+AXnJIDJHknOwJdQfat/egCULhZnnLEUe
-	 tTRhCLKOwRFcv6zrXJeugd5cWol4mRcJv3i7ZPisLE331rl0JAm+ardoLSW1juW5Ns
-	 5n1yLqrkqufDz+9UnhKbMuf1iwzKDdbeM/RYv18Y6UiAX4k03p72QHiR/DCDZnjUVJ
-	 bl+uTgi5gThcQ==
-Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-61cb4374d2fso9766949a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Sep 2025 08:29:33 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCW4tOynIT9JBGSxEnWYzoJQ8SSXPecNSzhTJV3mnCOdqqVH/r9UBNpO3ePiz+LbxvXXQHLS/4FU2gI/Ato0SJpd@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+9oXpioGoj0vRdykZlA4+LhUtZD24Z2siUJS9vTZ9wG5VpbOM
-	fw+d8ry9n38aFJftTowfCugK1I5NUVTJH/vQE0QBPPFG9wYsiNaBMRsDddgSqYMbtXN+lJhN4jF
-	MjnuGS/MJcsu/bOixX7ZQO3a/oL4YPQ==
-X-Google-Smtp-Source: AGHT+IHIZntuL2/Ac5u2OaDFAuRDB+LbG/bkyWkqoVLmP8JAXC3VGc5IAFp7aOeSXvXSi7KwhtkL+44jIjkwTuJse7Y=
-X-Received: by 2002:a05:6402:3594:b0:61e:49dc:171f with SMTP id
- 4fb4d7f45d1cf-61e49dc176fmr10199592a12.1.1756913371891; Wed, 03 Sep 2025
- 08:29:31 -0700 (PDT)
+	Wed, 03 Sep 2025 15:30:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=p9uRZwhNtWF+F3j0/lYcXUrUIPCAeAwAWK3IyWlCnFqvQWllzScpvfJ4i+VqvztyBGcmTkJ+Zkkdpsa3PsePvWhwbcnr2ADumRKII3h5hB/1T/qj+WFAZeERcGpwK9R5sDAGwDs24HM4/mwM7cXSCIxwqfngEcig90zOopRELSwH6hJ9tnsxMNkrEB6qmYkjfcn7I1lbrOUTFLaqDFnA83TTkmtp8tbohDD0gARqc5bLNxxJ3gNzyQN888nzv4GhBWY6QYYIbAyKQCs4yIWHbdZzba6IRzxGbS1r2/OHCMNo2ih8voGUyxOYBcRlglH+Bi7a1IJn+jdjoMvxu2p8Og==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ILlg6H0QFNXmeckwoyYoH3jWoCvXgLN4aTQjLz4Am8k=;
+ b=FAv7Alft8IsHgV9qMczfrsp2CT2ki+m8/1DzjaPrkcCiN5QqgucY++N8h4/cBoy2ijqLvEsaBFZdfu0xJC1PmCuZZEVfFW1nQ0J+QsdPA3AkLSAlGb2AIssMGBB3Z9b7AlUeJkhJH4NBcxH2yqqRsQs750Wpj+Ah6fGxwzrdWW63XeKXmba+usicf4hhf1wfwnfb96Rsxy5ABHhbL84hLgNN0gW+Zh1Yzdb2O6Ygwq2F+pGqtya0uD80s1My2EhVN0D7mTzuhjm03b/oAoPHyRafNPl/EBJkdm3CpPOjCGe1zyxQvZMDEfs8mh1+cCtoFN636MYju774ivfx4lsCoA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ILlg6H0QFNXmeckwoyYoH3jWoCvXgLN4aTQjLz4Am8k=;
+ b=kzNaGhyseyakq4/v0ewoLBxe3xbcJGbySW/KqH9YeVaAwNP6If4kMcoj0EpASIMfUGZJm3njvzLegxQO6Kpt8ml6MLLVRkpobuxpT10LLjEusIDmcUJsQRfVinqXMB8DbllXz+OqDQh3m+/PGIqhzseHmd+sv6cwyVvr9YAmcOPW0pZhD8wys6Xwq908zPOMGZygop/MhLG9yQ+p5uou/ATbx7IjYBScVcQ4hiNWZvEDxcwqpHSFICMgZpkhg+XDJ4bdAJhRA1Jm4fZNmCq0L2acoari4gY6loNvqWXsG2WiHIS4SfNF3xlISO56hAPURSWpBnQ6XkbgfUTzKZUYEA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by GV1PR04MB10848.eurprd04.prod.outlook.com (2603:10a6:150:20f::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.16; Wed, 3 Sep
+ 2025 15:30:28 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%7]) with mapi id 15.20.9094.015; Wed, 3 Sep 2025
+ 15:30:28 +0000
+Date: Wed, 3 Sep 2025 11:30:16 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Isaac Scott <isaac.scott@ideasonboard.com>
+Cc: laurent.pinchart@ideasonboard.com, rmfrfs@gmail.com, martink@posteo.de,
+	kernel@puri.sm, mchehab@kernel.org, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	linux-media@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	hverkuil@kernel.org, nicolas.dufresne@collabora.com,
+	sakari.ailus@linux.intel.com, tomi.valkeinen@ideasonboard.com,
+	jonas@kwiboo.se, dan.scally+renesas@ideasonboard.com,
+	m.szyprowski@samsung.com, mehdi.djait@linux.intel.com,
+	niklas.soderlund+renesas@ragnatech.se
+Subject: Re: [PATCH v2 1/3] media: v4l: Add helper to get number of active
+ lanes via a pad
+Message-ID: <aLhfCFJGU7R9Uh+P@lizhi-Precision-Tower-5810>
+References: <20250903102243.1563527-1-isaac.scott@ideasonboard.com>
+ <20250903102243.1563527-2-isaac.scott@ideasonboard.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250903102243.1563527-2-isaac.scott@ideasonboard.com>
+X-ClientProxiedBy: BY1P220CA0017.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:a03:5c3::6) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
 MIME-Version: 1.0
-References: <20250902151543.147439-1-klaus.kudielka@gmail.com> <hiu2ouj4f7zak2ovtwtigf6fylz4c7fdyyqiqezsddoouzr4n5@bfs7kudjfnp5>
-In-Reply-To: <hiu2ouj4f7zak2ovtwtigf6fylz4c7fdyyqiqezsddoouzr4n5@bfs7kudjfnp5>
-From: Rob Herring <robh@kernel.org>
-Date: Wed, 3 Sep 2025 10:29:19 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqLo8WbHMtjdbsauncusFh--OkNWXcN_pkpPxxT8xAmBNA@mail.gmail.com>
-X-Gm-Features: Ac12FXy3-NzR24Y_vWe7NkORfh2uesLtfRvYO0BBWxGtos2fLyE26nKGT2Xfr8k
-Message-ID: <CAL_JsqLo8WbHMtjdbsauncusFh--OkNWXcN_pkpPxxT8xAmBNA@mail.gmail.com>
-Subject: Re: [PATCH] PCI: mvebu: Fix the use of the for_each_of_range() iterator
-To: Jan Palus <jpalus@fastmail.com>
-Cc: Klaus Kudielka <klaus.kudielka@gmail.com>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Bjorn Helgaas <helgaas@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|GV1PR04MB10848:EE_
+X-MS-Office365-Filtering-Correlation-Id: 94b71bc9-436d-40d7-087f-08ddeafecf57
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|19092799006|1800799024|7416014|52116014|376014|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xEN+JmZEUaBSqEn9SP1aOAzAnfGpX6yIuueMS3XgDgoOO0JCHvP4YyC3i1/v?=
+ =?us-ascii?Q?9q2tJywk8OAjD88jh2DS6qFgevEu+EBvlFdk/n3GyleRIRxil72YTyEaJhQK?=
+ =?us-ascii?Q?Gg2E55tMQNtjEw9V246+kgY034KnIOL7BT1rfGc3Q5d4QCbs4mJv+lGz8/r4?=
+ =?us-ascii?Q?M1z+D60KmZgaBcdkAIDZAkFiWOUfRUyhM6gdevw1NKOhyKkRXhww+OdRDx6R?=
+ =?us-ascii?Q?1oOXoDkH2yTPqYoyWMEf1FKPdLHcQVs3sXfa1mA+9wOrqHtjFnC2Flq+W+7s?=
+ =?us-ascii?Q?4KITR28DgAQCidl+JRHAX37dnUgCGRufRTMotgL+X4vECiRNHmOrnjiXHqfv?=
+ =?us-ascii?Q?Hmi8vcSQt7knxFMglRsRZpO8ZolD0DovAvzArZcdSOweQfmwNVuw2Tf42Hwa?=
+ =?us-ascii?Q?iKqZLaza1FeQFJKUrjHryqVA3Aa5fNcwfb/EYirj9SGSbqZLYUwl/X6psuRl?=
+ =?us-ascii?Q?bpHfi4Or4EaOoONx/xkjsEScIoofX+bF2WNST6yut2wIpR6L5kAPk00u4qqa?=
+ =?us-ascii?Q?FD7oePqy++tZ248UhijPhzWOHRVS5Ny88VkiTRs7KtYITmCFdmcCU2ZAVzV/?=
+ =?us-ascii?Q?M6X0KEREGkFoKk3+uJ7zsc2GN+I0hf/xy2d4oWR4dAyOAq+cBvwsNpU+MULz?=
+ =?us-ascii?Q?briuMaWG7Y2LQDIxq1oUhy8faekWuHn80D4GpLO5AG5rCL0Khtxv4I99XABL?=
+ =?us-ascii?Q?SJvUDSv++ukuusGCkWgVLwrifX585FvL25qwLJe/ImhZZaPIcktvH4NihGYD?=
+ =?us-ascii?Q?o2RdgLvlWReDKNLz4K/vkRcNbqrl6ImkAV4aDZgXjyvs2LWx7CP7KWdCstnb?=
+ =?us-ascii?Q?P99+GeXVBCZnPoRNTQyawhL7qtN9nDJUhQhwcPGJVpd0bAa8v59DX3ooJm1H?=
+ =?us-ascii?Q?LNcexCElUlfPmRX1sx2jGuGCyJLuEZInuoCqHuVjc1yF/pTXty8tjCVU8ms4?=
+ =?us-ascii?Q?0FQkaMT2CQZm0Z6jHnt7hZULBogAbSip3jbsXvxImSzHrecyLc5CLkzs3aMw?=
+ =?us-ascii?Q?OOlt/KFM2Y2WqVe0tn+ntiwx/BC6Bo0pF3giprRuL08NqMvGNi3n207HpnZB?=
+ =?us-ascii?Q?B1BcMHBBt0eS9anCZ91wdrjHT+ZkgREYz+aXulB0yiEw0D9Hp0cG2pUOsRW5?=
+ =?us-ascii?Q?xx91JT/RwJ3bzvlZDmONHWgC2Hw/CfY4Ufz0f8fdqgSdVlCf6NaAhWAHbUFw?=
+ =?us-ascii?Q?kN7m93ZxKYIC4a8svhgwtSEKACXfmsMDTSfM6FsYTQ/Im1eb8U5akcNBFd9l?=
+ =?us-ascii?Q?z2uARwLDONHAKvX1wPcSmtc3ghP5wRHa6ktnaJy8k5iG7ufI23va++FTU7LA?=
+ =?us-ascii?Q?Eiinsu5tQNhz4s5PfFM1ikvoQ/aY6L9OPpbEqy9wdCdC6XikPUPxrL1B09Rg?=
+ =?us-ascii?Q?JRcFNxRCvStJfWVN+PYEx6NPCoSh99LiK05XY6Bo1jGTm/lqDft8aoxYfV17?=
+ =?us-ascii?Q?NnPuJeIqdCg=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(19092799006)(1800799024)(7416014)(52116014)(376014)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Ir8Arr6QprAJnBOx/l6Cg1dRIlEeuI2l+A70SrZ1ZYKV1SAdGCd3SdeAnST0?=
+ =?us-ascii?Q?o/QWYdjW10hskQkKp5Lik13bnFjCo9F2OiBqzbdfXHomAp0pjuqz2cxHlT0M?=
+ =?us-ascii?Q?dgTsNUI6nXTx4nLocmrY4/Sr9Lh6/tQKr9y9kbRJU91CvzwyMuilzMa3g0O2?=
+ =?us-ascii?Q?M5/Oi14PVP26tr8Vz38l4Ax/ctc6MYkYhMgXqJtrnIvv03iGF0r0/wczKPq/?=
+ =?us-ascii?Q?7y73xACigDixv2v6hIveG+aA9FdhNAMgge/jOeSlzxZoqtU2rw+fwLgAWrLc?=
+ =?us-ascii?Q?nfy8cQ0qJ9XcrVJoB8yRxxA6JWOM+WR8W0Dsk1x4Klk4MskXzwFumPtCd4JZ?=
+ =?us-ascii?Q?A1+3Tqy6WKVGHlQVJmKF4uc2H3OyV+w0RmUJZfJ33e+GhPJU0obbk+IVM9XT?=
+ =?us-ascii?Q?KLtM/X3IJ9U1mueL028r+CgpDKYMIKKpUy9MkCzRWZfHnDiAw5p29r4Qdwju?=
+ =?us-ascii?Q?Uzjgg5c1BU7GHvy/ZSwPlWrtrNOybpltSlkhrmQfoxP51i8ut2c5Rv9AHRz5?=
+ =?us-ascii?Q?L9ePLhKDRF0bx81a5UiiGa10EXC/NwMHzgE4phYvg1RUGBuuAHIMi9IvQ7So?=
+ =?us-ascii?Q?aloW16Jpkc6GhxWrLJipiNr1s7BswrsOymIZNIs7BkqL3XUvuaiJD0UQH3uu?=
+ =?us-ascii?Q?khtqadzHr8BTIZX8H5Cf8zcAwUVSNW0U0XcCP2IhCILd4wJzrTXWvVlgIF/D?=
+ =?us-ascii?Q?YfXVxAEogsz5tZ5nrKqB7DQEs4kR46TDRzM9nkK64codnbuu3+dQI57Kjbgc?=
+ =?us-ascii?Q?xuBb76Ww/dPLPz7Ae8h6VhYeeTpprqoVVDFdpR5e7WA0TclNStxarQonHyoT?=
+ =?us-ascii?Q?fepN/toHfUvwIlEcMwkZyyBfMxK2Pd8Fbvmua3E1oqsIT0xZGUSpHudyN196?=
+ =?us-ascii?Q?p/OR4RcKG/1EJnW8NvXpTTflXaASiTeqU0ZjVNo2sXHcRVDrqbGCqgT94rDc?=
+ =?us-ascii?Q?tDowOqXr7IgoamMLSvNY4N8VhZLgNl0OQUfGGbivrwLvwdubkImCT/DgP63M?=
+ =?us-ascii?Q?HdwejupcgkCZbbUIUJj+ywsflziVjE7QfanTkOQKFjkgONxI+5NYgrDSWYPM?=
+ =?us-ascii?Q?bD90O1GUbPemcI6NlISs4w28qRW5kYQLNVBgh6VV4kqJvn6HlJ+t075Qhh9q?=
+ =?us-ascii?Q?auNBx2YOmVfgYOyBL0uAYxCFZfurpJjD7TO5qOtr4ls6BbEk+qPPK7ypkice?=
+ =?us-ascii?Q?9BHVPWahKlSEK9AjcKmVK9wiQsQ/TLEeWF4mJ7dryXK5/TH92GZM7rMVYSV5?=
+ =?us-ascii?Q?MnfGPwgrMlq1TV6I5+YD1xsDwrNFG+fweDkHfSGZ2bt4Np2mGx1LHd7ZJBxe?=
+ =?us-ascii?Q?p/iYCprGSIxHA5PuWbpH/zz3vhiygCKG8hQYhoP55SfVCuqcniTy8T7T2luH?=
+ =?us-ascii?Q?Ht9gXJeJzNL07/Z7QqpZgZTn15Gy1ZB0wH1rZZRr2afeQ3dSbG89PivYLKH+?=
+ =?us-ascii?Q?FRLXZnZf/QY/iBtK31PRa26GDiM9r/VT7JPioIDILvTCZCXR+uC2PsbSeHj4?=
+ =?us-ascii?Q?YmAcHg4uE0rcR2Z+Xawb/zVTAQMXs37tKMUbl44GkH+1txzPXBtr7eiJW2+K?=
+ =?us-ascii?Q?5ci+LNXyIc5IcbafInBejnuT3Wx4EsRtO1FdwDuGj1pWGyoXnp74Oq3BXTK0?=
+ =?us-ascii?Q?f8MnVSnJ4LCieIZHs4XzJwvgpFXQPrwod9yOqvKSqqOg?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 94b71bc9-436d-40d7-087f-08ddeafecf57
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2025 15:30:28.0813
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1axdYn4pXIms3I3eImKHU/NICFfGMZstFV89Um91QKrpyJKTpJdX3M+SrYzdB6Vu1sKuv2O54EcCc8hvo6W9GQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10848
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_082933_814269_C2DD77A8 
-X-CRM114-Status: GOOD (  26.86  )
+X-CRM114-CacheID: sfid-20250903_083036_098597_C06E85E3 
+X-CRM114-Status: GOOD (  23.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,90 +167,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 3, 2025 at 7:44=E2=80=AFAM Jan Palus <jpalus@fastmail.com> wrot=
-e:
+On Wed, Sep 03, 2025 at 11:22:40AM +0100, Isaac Scott wrote:
+> Sometimes, users will not use all of the MIPI CSI 2 lanes available when
+> connecting to the MIPI CSI receiver of their device. Add a helper
+> function that checks the mbus_config for the device driver to allow
+> users to define the number of active data lanes through the
+> get_mbus_config op.
 >
-> On 02.09.2025 17:13, Klaus Kudielka wrote:
-> > The blamed commit simplifies code, by using the for_each_of_range()
-> > iterator. But it results in no pci devices being detected anymore on
-> > Turris Omnia (and probably other mvebu targets).
-> >
-> > Analysis:
-> >
-> > To determine range.flags, of_pci_range_parser_one() uses bus->get_flags=
-(),
-> > which resolves to of_bus_pci_get_flags(). That function already returns=
- an
-> > IORESOURCE bit field, and NOT the original flags from the "ranges"
-> > resource.
-> >
-> > Then mvebu_get_tgt_attr() attempts the very same conversion again.
-> > But this is a misinterpretation of range.flags.
-> >
-> > Remove the misinterpretation of range.flags in mvebu_get_tgt_addr(),
-> > to restore the intended behavior.
-> >
-> > Signed-off-by: Klaus Kudielka <klaus.kudielka@gmail.com>
-> > Fixes: 5da3d94a23c6 ("PCI: mvebu: Use for_each_of_range() iterator for =
-parsing "ranges"")
-> > Reported-by: Bjorn Helgaas <helgaas@kernel.org>
-> > Closes: https://lore.kernel.org/r/20250820184603.GA633069@bhelgaas/
-> > Reported-by: Jan Palus <jpalus@fastmail.com>
-> > Closes: https://bugzilla.kernel.org/show_bug.cgi?id=3D220479
-> > ---
-> >  drivers/pci/controller/pci-mvebu.c | 14 ++------------
-> >  1 file changed, 2 insertions(+), 12 deletions(-)
-> >
-> > diff --git a/drivers/pci/controller/pci-mvebu.c b/drivers/pci/controlle=
-r/pci-mvebu.c
-> > index 755651f338..4e2e1fa197 100644
-> > --- a/drivers/pci/controller/pci-mvebu.c
-> > +++ b/drivers/pci/controller/pci-mvebu.c
-> > @@ -1168,9 +1168,6 @@ static void __iomem *mvebu_pcie_map_registers(str=
-uct platform_device *pdev,
-> >       return devm_ioremap_resource(&pdev->dev, &port->regs);
-> >  }
-> >
-> > -#define DT_FLAGS_TO_TYPE(flags)       (((flags) >> 24) & 0x03)
-> > -#define    DT_TYPE_IO                 0x1
-> > -#define    DT_TYPE_MEM32              0x2
-> >  #define DT_CPUADDR_TO_TARGET(cpuaddr) (((cpuaddr) >> 56) & 0xFF)
-> >  #define DT_CPUADDR_TO_ATTR(cpuaddr)   (((cpuaddr) >> 48) & 0xFF)
-> >
-> > @@ -1189,17 +1186,10 @@ static int mvebu_get_tgt_attr(struct device_nod=
-e *np, int devfn,
-> >               return -EINVAL;
-> >
-> >       for_each_of_range(&parser, &range) {
-> > -             unsigned long rtype;
-> >               u32 slot =3D upper_32_bits(range.bus_addr);
-> >
-> > -             if (DT_FLAGS_TO_TYPE(range.flags) =3D=3D DT_TYPE_IO)
-> > -                     rtype =3D IORESOURCE_IO;
-> > -             else if (DT_FLAGS_TO_TYPE(range.flags) =3D=3D DT_TYPE_MEM=
-32)
-> > -                     rtype =3D IORESOURCE_MEM;
-> > -             else
-> > -                     continue;
-> > -
-> > -             if (slot =3D=3D PCI_SLOT(devfn) && type =3D=3D rtype) {
-> > +             if (slot =3D=3D PCI_SLOT(devfn) &&
-> > +                 type =3D=3D (range.flags & IORESOURCE_TYPE_BITS)) {
-> >                       *tgt =3D DT_CPUADDR_TO_TARGET(range.cpu_addr);
-> >                       *attr =3D DT_CPUADDR_TO_ATTR(range.cpu_addr);
+> If the driver does not implement this op, fall back to using the number
+> of data lanes specified in device tree.
 >
-> Thanks for the patch Klaus! While it does improve situation we're not
-> quite there yet. It appears that what used to be stored in `cpuaddr` var
-> is also very different from `range.cpu_addr` value so the results
-> in both `*tgt` and `*attr` are both wrong.
->
-> Previously `cpuaddr` had a value like ie 0x8e8000000000000 or
-> 0x4d0000000000000. Now `range.cpu_addr` is always 0xffffffffffffffff.
-> Luckily what used to be stored in `cpuaddr`:
+> Signed-off-by: Isaac Scott <isaac.scott@ideasonboard.com>
 
-~0 is OF_BAD_ADDR which means we couldn't translate the address. Seems
-it is not needed here, but it should work. Can you define DEBUG in
-drivers/of/address.c and post the log?
-
-Rob
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  drivers/media/v4l2-core/v4l2-common.c | 25 +++++++++++++++++++++++++
+>  include/media/v4l2-common.h           |  1 +
+>  2 files changed, 26 insertions(+)
+>
+> diff --git a/drivers/media/v4l2-core/v4l2-common.c b/drivers/media/v4l2-core/v4l2-common.c
+> index 6e585bc76367..8683107b3704 100644
+> --- a/drivers/media/v4l2-core/v4l2-common.c
+> +++ b/drivers/media/v4l2-core/v4l2-common.c
+> @@ -571,6 +571,31 @@ s64 __v4l2_get_link_freq_pad(struct media_pad *pad, unsigned int mul,
+>  	return __v4l2_get_link_freq_ctrl(sd->ctrl_handler, mul, div);
+>  }
+>  EXPORT_SYMBOL_GPL(__v4l2_get_link_freq_pad);
+> +
+> +unsigned int v4l2_get_active_data_lanes(const struct media_pad *pad, unsigned int dt_lanes)
+> +{
+> +	struct v4l2_mbus_config mbus_config = {};
+> +	struct v4l2_subdev *sd;
+> +	unsigned int lanes;
+> +	int ret;
+> +
+> +	sd = media_entity_to_v4l2_subdev(pad->entity);
+> +	ret = v4l2_subdev_call(sd, pad, get_mbus_config, pad->index,
+> +			       &mbus_config);
+> +	if (ret < 0 && ret != -ENOIOCTLCMD)
+> +		return ret;
+> +
+> +	if (!mbus_config.bus.mipi_csi2.num_data_lanes)
+> +		return dt_lanes;
+> +
+> +	lanes = mbus_config.bus.mipi_csi2.num_data_lanes;
+> +
+> +	if (lanes < 0 || lanes > dt_lanes)
+> +		return -EINVAL;
+> +
+> +	return lanes;
+> +}
+> +EXPORT_SYMBOL_GPL(v4l2_get_active_data_lanes);
+>  #endif /* CONFIG_MEDIA_CONTROLLER */
+>
+>  /*
+> diff --git a/include/media/v4l2-common.h b/include/media/v4l2-common.h
+> index 0a43f56578bc..3f8937260c76 100644
+> --- a/include/media/v4l2-common.h
+> +++ b/include/media/v4l2-common.h
+> @@ -584,6 +584,7 @@ int v4l2_fill_pixfmt_mp(struct v4l2_pix_format_mplane *pixfmt, u32 pixelformat,
+>  	(pad, mul, div)
+>  s64 __v4l2_get_link_freq_pad(struct media_pad *pad, unsigned int mul,
+>  			     unsigned int div);
+> +unsigned int v4l2_get_active_data_lanes(const struct media_pad *pad, unsigned int dt_lanes);
+>  #else
+>  #define v4l2_get_link_freq(handler, mul, div)		\
+>  	__v4l2_get_link_freq_ctrl(handler, mul, div)
+> --
+> 2.43.0
+>
 
