@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3082FCA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 23:03:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04E9ACA1010
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 23:09:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VXRq4apmEamZdvq2d1xSOZY75J3qH8SSfCfS4DJoIVY=; b=psuCMYh5qHYyPEXYc45brkQJx7
-	H1iTqLXqGqzteTgl1ErCDzoREFL0P3rEZ1tIZSDXe+3BmLUscOAOZw+HSlKGMSbSOpwhALLxMnd9a
-	t7b+ArHbrvxdKPhsABWz5uvWwF5vValOi+hpnGfAQ1WyYZfG9yovuCxqZslQakXexPIoPnWp4caL+
-	U/9+wGWJMozahl3eChfSa0ifSsyYNfYH9nBpq3vn8+BLzSO4wrbz7YTMOj3m4usyAXOuSOjl5Smpj
-	MuLQ6uyMm2mNiLKNgIX2rIdvrH8eBQTxSJjWLblRDlu0NKoyLszqlSukiwhAeSyVIptLwF99Z6j1V
-	Ep/aP/Pg==;
+	bh=4xP13CUGWmP4Epf7561SmRsYIMeFmCIW416h7MJfMP4=; b=tAiqSut4dB8kCFyWgC76XPE9+k
+	4cwO9Y37bAfXVxiHunNULgsu5p4eXnwdeVUWCrDKacCmFCE7oSWSdOMVxDjqkDwyG4AoT4rdLkZ5h
+	jbcPSZ84wI/lwBsGsOvHZl+3D6esarCdF3BceahMEu6rgzVbFKHMrPRjfp6WE/mvZODsDUaOS0/ts
+	iCP2ATHTjo+5GYeVOL83vYKOvBhVw0QRQhZUpKMTey13E7VZgsmEV5DUCbcy90qRvdrM+KboFEtJz
+	/k3tAl8kn07K7gmnKXTDU+JKONBgy1Lf6+FrTAAhHJYhGPWYZjyaOWE4m4IjiHJHkVAkOJT6a5pfs
+	tcb9Sn8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utwVz-00000007rlE-36IV;
-	Wed, 03 Sep 2025 23:03:43 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1utwbM-00000007s9n-1nFV;
+	Wed, 03 Sep 2025 23:09:16 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utshr-00000007NZv-3ixH;
-	Wed, 03 Sep 2025 18:59:44 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-248ff68356aso8762795ad.1;
-        Wed, 03 Sep 2025 11:59:43 -0700 (PDT)
+	id 1utshv-00000007Ncn-2wPv;
+	Wed, 03 Sep 2025 18:59:48 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-b4c53892a56so132623a12.2;
+        Wed, 03 Sep 2025 11:59:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756925983; x=1757530783; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1756925987; x=1757530787; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=VXRq4apmEamZdvq2d1xSOZY75J3qH8SSfCfS4DJoIVY=;
-        b=jOl9G3Ixb4F5ZB9ag6aMqO6PC1RXl18a+7dAPm8EK7K4wzUSHBDRZ+zR5J1fqcToAJ
-         MKej0b+4VwYjIv9m1pFcwaKca5vHFjlEWnQ5m+aQH3xzYPbjWuW6H83veQsd6RMI5kz5
-         DcGANjkg2UJPqRhFsJbWBGzTP2kcvlOpDoVnzvAhCthszzc5dxHxMhWGBK9t3GEkvr1a
-         IRe5viCA6lzJwu2aNVHvqDV9sT93PXhw48F5llWDY/q2MSYOyRm96Pf67I+HlmhkV1sa
-         7+XCAsw0qo3vnwZ5J8EkaiMsisRYbFJbTPukOJqRDn+l9ClI2HOpWdbtpR0l/+5GgMnt
-         w8kw==
+        bh=4xP13CUGWmP4Epf7561SmRsYIMeFmCIW416h7MJfMP4=;
+        b=HFinBIKXBD0mCwu/+rGdqprgEZfIOtmTGrSY+KUy0S4t5SuVjkwMDqgZnTT+S0PLeA
+         9Lvp5g6ZKpIAgEwH8eRDGM91qCEkqdkCFPlNLwREg3kOAi4UBk2163ejbpY8N3Wz2y65
+         m8bKgatBd5NZewAekoFKPryHNNewHUrCZpIipatAHaqV+aIwIz3SLSGD8ls5dKUAbDMD
+         Bueb0uB1a450quBTMZXgI/jPDxarJ+YgAsDKiVcbW+JmUIvPgBVQO9hv25Dq6Ju5CkIw
+         3oqOlHZ56WDwu7zMJsQ6dY9A0rFg9SxVQCJcUGc2GKajqEfRpQ6/+JmDPyLAvKjGsZgs
+         ecuA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756925983; x=1757530783;
+        d=1e100.net; s=20230601; t=1756925987; x=1757530787;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=VXRq4apmEamZdvq2d1xSOZY75J3qH8SSfCfS4DJoIVY=;
-        b=ZAY+z3OExlvWv2hul48aLMULd82WLU9v1+kCpnCV5tQ2wqZpOrHiP3NNsiVA4URo9p
-         usJOhlpPfTr+IDkBUW9EhGy44cLj4UQXj+um/QDw1xCkZnAai2Ewkku6nbhkM7noFMUG
-         FhAQKiDeeUEMufm+rfch6YrvGUBJSFhBDW9obrlnL7Teg/FP8IFFo05uiRqjp5C6mWSL
-         jXmvU/5uoBfXQprQFJcTAH88yj+QVKTBBVGwyJgB4aD+PR9BF0p0cCY4j5FOyap9Cgm2
-         EG/3z6Xv1DrDYsHmm0Uk5IZ0CSe19A3qpgdtrlY/3YCC0ElmWnuwBR6Acp/Zt9fL/zej
-         NkVw==
-X-Forwarded-Encrypted: i=1; AJvYcCVWOUlxOapVsSZP0b6VtxnSf5LBti3ILJjDTurPk+K+tmeY8H5chwp8Z6qrxikadMPWl6xBqJK/MdxQzgmpmXdP@lists.infradead.org, AJvYcCWpCWIpj9Utpk2semJpsF2z6uuXZh46Z1vZnhValjtvhrVd7vWjvAvx+RIyAiE6Bp8ggJ4Gvx0IDpGXyKs=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSFzJAHYaCqxERuY8NBuV8FYgiRvbfgU9QCrnsuouGJqbCsK5Z
-	ELQL86Al06zIFaCYv76Uy5igtVZbOcnGUVs9Eww8/5/UKy6NXuqjYs3W
-X-Gm-Gg: ASbGncsHzTOYulTAqaqkdjBG16n7nYaSiVz0Uijd/eJA9ipr5cvTAG+yenm4nOs/t79
-	jek64PG5Ngsi+M7Z6UBrPOBqOpthyxyuF6KalxnQflbD32dsugTzkPj4BgzUAFQvnRefIjTM5rd
-	zYC/yyjKKWj0wwP9rIEzDYneh8V+NrgFrqJg+6NQDYtSMvgAsEY1dulJjNzcyHj4ogsrNucN/cZ
-	Y2Vq9Cpbnj+HraT7rrQe1/8Sbg8uKGkdvGAYK8cjhguX5GWfJi0+ya/xevm6qqGP8PG18yTsdKT
-	N86I0y1N/864b3i2i2ft4iS+3kY5sfCuIWuuLHUeX1Rp075VoSa38nPnyro0So9MWOQcgh/YA0p
-	12X3QrVMG/fF6a5RC40vLIuvDyuzHMjcBl9PJ2NfKfzIFzlvg/tJcnb+PjgWgrEMr+jRjwhMjOY
-	Y=
-X-Google-Smtp-Source: AGHT+IGnOdoMz4pWaL7qXoMT+R27TwnQ4+tCeRLJ9HFet8fs0efEGIfh6YbGSI9RHeToTjhpbJgt1A==
-X-Received: by 2002:a17:902:f688:b0:248:aa0d:bb22 with SMTP id d9443c01a7336-249446d2aa2mr226131105ad.0.1756925983252;
-        Wed, 03 Sep 2025 11:59:43 -0700 (PDT)
+        bh=4xP13CUGWmP4Epf7561SmRsYIMeFmCIW416h7MJfMP4=;
+        b=cfbQw4myRB+qJWMoSzPLsMC4Wxhdmm4BMXu+eh26XP/gzoDP+CODN+itvh/3iiIkW6
+         +mBoHT/X6fFBVkqZYuk3rsX9kziat9W2UGSXsJzCnIdkHtbTt1txxWFMBTVgPTEjjMnB
+         ib3E/NFRre1kE95LbYfuQ5ICcx2S/ARDr4tLLShXTiO+v8pPxgtd0KbLBz+V7sVTB0A4
+         2GvKnq0GlYlaFFRZZRGF7JeSol0vbB6P//szfMw/2398CwVKARLVuWHrbvQag+vn4DI7
+         1CYykvpkQ3JlqxWE4AFclVlK6Rw+jTqSc+vBEILKoQ1pL/P60C7wt2UObc806M/trrLQ
+         BR3w==
+X-Forwarded-Encrypted: i=1; AJvYcCU/89lxGcP+e4ekDYTi9ERSwIviNN7cteUnwZOIAxKkQnGazJHKWwoYeqoCQp1yOWFAB/q9Hq+GYWMHbMA=@lists.infradead.org, AJvYcCX83roA9/M1OhIos6K3Ufe8/g/w4du1KagIawmWmMimtijnItNRHbU5Q39fdhKeNciwQ0DrmX254PCLKHUL47aC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3tQd9hPV4bHI5D/gfKNckQsbs70OgK+X2NDfUgIeREFDIF0vD
+	g8x/EeUZOPDVPjRrah6Lje0HfT0vKvD5MuMrjsPJD4vVt/Wvc6FOw1JOUiYiMw==
+X-Gm-Gg: ASbGncse6HYFNtBNnEh68mi44ivnKbylT/GulG/HZ01qf9xC0JEq6+MJD8IGrXvtUgN
+	p/bkg63DmYE5r7FsNepR/83J3o3JIAm5iurmVLjnWrzvrhYgTnJ4+i2fEIP00Sk7PENd2uqIWU0
+	PWYOw5VjjtGjZIOla1XuGGq6EIj4td6asIL2aKfMcgutVbTuN852I0dePa6YagLF3wyrDlZf4Q/
+	oHH1N9Cr6YY/Y628Mv4/1iMS8uxymHJzvIq/De4fjoeAQ68smvxeJOM/f9utxvKclhgo730gcex
+	mIvwpWISxfIyHrsKBL2Cw72S+unVsD8vpBGdfRbrh2Oe2bGSlXRceKjPyomObaRBmUy6X/KHDFD
+	FG9y5y+F8qoHb6Tes8ZAs3jTEtLA7AyWkJKtZr7ns6KyTyrTyzoFsiWFan2Z1ex2I
+X-Google-Smtp-Source: AGHT+IGWl2NVhEd4Mf3PXgbO9PNmoIZrvx3puV/+d96WnhVgMh+tacbQQZaHLdVwJGJAzq5ejH+5QQ==
+X-Received: by 2002:a17:902:e5d0:b0:24b:1766:cc70 with SMTP id d9443c01a7336-24b1766d2d6mr89341175ad.39.1756925986861;
+        Wed, 03 Sep 2025 11:59:46 -0700 (PDT)
 Received: from fedora (c-67-164-59-41.hsd1.ca.comcast.net. [67.164.59.41])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-249065ab343sm169403475ad.126.2025.09.03.11.59.41
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-249065ab343sm169403475ad.126.2025.09.03.11.59.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Sep 2025 11:59:42 -0700 (PDT)
+        Wed, 03 Sep 2025 11:59:46 -0700 (PDT)
 From: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
 To: linux-mm@kvack.org
 Cc: linux-kernel@vger.kernel.org,
@@ -80,20 +79,19 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-efi@vger.kernel.org,
 	virtualization@lists.linux.dev,
 	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
-Subject: [PATCH v3 5/7] powerpc: Stop calling page_address() in free_pages()
-Date: Wed,  3 Sep 2025 11:59:19 -0700
-Message-ID: <20250903185921.1785167-6-vishal.moola@gmail.com>
+	"Michael S. Tsirkin" <mst@redhat.com>,
+	David Hildenbrand <david@redhat.com>
+Subject: [PATCH v3 7/7] virtio_balloon: Stop calling page_address() in free_pages()
+Date: Wed,  3 Sep 2025 11:59:21 -0700
+Message-ID: <20250903185921.1785167-8-vishal.moola@gmail.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20250903185921.1785167-1-vishal.moola@gmail.com>
 References: <20250903185921.1785167-1-vishal.moola@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_115943_939419_DAFB3D48 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20250903_115947_739220_4E0B1336 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,24 +110,43 @@ free_pages() should be used when we only have a virtual address. We
 should call __free_pages() directly on our page instead.
 
 Signed-off-by: Vishal Moola (Oracle) <vishal.moola@gmail.com>
-Reviewed-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
 ---
- arch/powerpc/mm/book3s64/radix_pgtable.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/virtio/virtio_balloon.c | 8 +++-----
+ 1 file changed, 3 insertions(+), 5 deletions(-)
 
-diff --git a/arch/powerpc/mm/book3s64/radix_pgtable.c b/arch/powerpc/mm/book3s64/radix_pgtable.c
-index be523e5fe9c5..73977dbabcf2 100644
---- a/arch/powerpc/mm/book3s64/radix_pgtable.c
-+++ b/arch/powerpc/mm/book3s64/radix_pgtable.c
-@@ -780,7 +780,7 @@ static void __meminit free_vmemmap_pages(struct page *page,
- 		while (nr_pages--)
- 			free_reserved_page(page++);
- 	} else
--		free_pages((unsigned long)page_address(page), order);
-+		__free_pages(page, order);
- }
+diff --git a/drivers/virtio/virtio_balloon.c b/drivers/virtio/virtio_balloon.c
+index eae65136cdfb..7f3fd72678eb 100644
+--- a/drivers/virtio/virtio_balloon.c
++++ b/drivers/virtio/virtio_balloon.c
+@@ -488,8 +488,7 @@ static unsigned long return_free_pages_to_mm(struct virtio_balloon *vb,
+ 		page = balloon_page_pop(&vb->free_page_list);
+ 		if (!page)
+ 			break;
+-		free_pages((unsigned long)page_address(page),
+-			   VIRTIO_BALLOON_HINT_BLOCK_ORDER);
++		__free_pages(page, VIRTIO_BALLOON_HINT_BLOCK_ORDER);
+ 	}
+ 	vb->num_free_page_blocks -= num_returned;
+ 	spin_unlock_irq(&vb->free_page_list_lock);
+@@ -719,8 +718,7 @@ static int get_free_page_and_send(struct virtio_balloon *vb)
+ 	if (vq->num_free > 1) {
+ 		err = virtqueue_add_inbuf(vq, &sg, 1, p, GFP_KERNEL);
+ 		if (unlikely(err)) {
+-			free_pages((unsigned long)p,
+-				   VIRTIO_BALLOON_HINT_BLOCK_ORDER);
++			__free_pages(page, VIRTIO_BALLOON_HINT_BLOCK_ORDER);
+ 			return err;
+ 		}
+ 		virtqueue_kick(vq);
+@@ -733,7 +731,7 @@ static int get_free_page_and_send(struct virtio_balloon *vb)
+ 		 * The vq has no available entry to add this page block, so
+ 		 * just free it.
+ 		 */
+-		free_pages((unsigned long)p, VIRTIO_BALLOON_HINT_BLOCK_ORDER);
++		__free_pages(page, VIRTIO_BALLOON_HINT_BLOCK_ORDER);
+ 	}
  
- static void __meminit remove_pte_table(pte_t *pte_start, unsigned long addr,
+ 	return 0;
 -- 
 2.51.0
 
