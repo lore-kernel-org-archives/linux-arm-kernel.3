@@ -4,101 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D4E3CA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 14:48:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58D91CA1015
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 14:48:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=coCvg9toaaZHalzdq7we7HoqSKMDL7gNaulcB9obD/s=; b=DBW3TRxC4zsWzqpahHtvIY5U4T
-	ToUSsRt2QZP1/nSR+IXFxJHIzqIRZwo2oBzKRTRkrker+JGz+evSc3lWc5nIdeM6EG3LNyzQftGsJ
-	6uT7awkoARXWbfDMHN8YIZTcvtd1BcZHCtm9ShZ9GUm6M9kOHfHDG7+Uli+DpR9cp0AquBgKOksat
-	tpDlMoURFLNBmnIMUnv+x4fvDjgy/OLInhrR7/aLNkfc+MPoUU3bScjZ6ve5h6/jZMtPhmUEcl8av
-	oQf4U3TIzeZBrd8YpBEuIUQQ2w0u1o3GxFNqzkmtomrsLZZA78Z1sUWtBs/vcfGNOQO2kcHiG/Dxy
-	YxTQQTCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZWXN3lccSEg1goFEfsy0CS9OdO0KcxItBlMNoiHBWvc=; b=EA/5xOnPpNvXCQIIFvXbfwPbZ5
+	CJUbRgkrGBCmH3Yl0qGdhz6t27DNQHNSu2A1ICR5z/251mwNYq1+jQVQ3Zn48TJIxDdVtWfAsNAlq
+	dFlp9pmI4xQ1N4LrAAZyyiT36GTiZJr0Vq8KoXIWrzRrfT3Jv5XKj4T6vim5fbREBP1DsYK6du8rQ
+	ASvc4pKbWmio9QMvtog1VYz3o6QZez0I1Wm7bMSlwr1ens1aNsmUNixa/1zdnQODPTjPnSk4j3kaB
+	Ice9KH2X0OWYQkO+wryg68hMsRwaZ/ZRFz16DBx0ZBfI/fEBSer9rkXb0xccgbjUTPnRW6WqTVAwj
+	E+/oJpsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utomG-00000006l9Z-1uSq;
-	Wed, 03 Sep 2025 14:48:00 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1utomX-00000006lTL-2hga;
+	Wed, 03 Sep 2025 14:48:17 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utmAf-00000006JTf-0Hbr
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 03 Sep 2025 12:01:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=coCvg9toaaZHalzdq7we7HoqSKMDL7gNaulcB9obD/s=; b=WZkYdzs8/uiMGcyOG2noOcR81H
-	47JTVVlI4qY2en8fU1GPwQg0x4/2pD9GovohSZv7V5m05qrbeCU3oFdh6FPgB7ol8bNWajFZyruGL
-	wviEWTg5+ld7c4GAw8nMC9+7B1wmuMdJO3xsnh4fY5ktTAs2tM3f62yeM/EvmHaPGmc6uqRJrLQte
-	3lHWVBudbXmX/LyROmk1twbqyMmP0YMinI1kd9dB125GoW7sL7zm86ZWgoXgoUtJoDGC0LZCXjzHf
-	XTonYM95Dv67Dd5iMXoyObnBpDCIwoM1EsNj5eecGxM5gtzQrUnzDS4L2miycTILnKSfNlf8HGkzV
-	yqZasy1A==;
-Received: from cp2.siel.si ([46.19.12.180])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utmAa-000000049wn-3r6S
+	id 1utmlp-00000006Q08-3hjN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 12:00:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
-	s=default; h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:
-	Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=coCvg9toaaZHalzdq7we7HoqSKMDL7gNaulcB9obD/s=; b=o2ZMvI9BejTF4cXzOojjDzjoMq
-	V3qzoWK+kJHDNUFa3Q7jBydchZ2zA+NAQIfaUaCOV4pyhDwJFSbBL5B9xxEhZ0haczUkxYQPiEeDI
-	ttEqiXVlDmjMWZPSLrRHrPtbQGYcotpXC49FZhU4Z51wiOERsjSReZ+E/j+7mAJrBu6+PiRc4c4+d
-	8NIaK3TJYFxRM7LdTPFo6QAPWpT5WKcrkSOer5cZDZBe7f4sxZ9kyjOQ8hNglHzSG7B9wbxYU5K2Y
-	0xQfc21VTxvndLbilf+pfJ0IKNY/4OJdFYVcW8Zio6HkmtX1XwYbZo4rgTMYQ1qTUIhk0fi9T/4dh
-	B8TOZt+A==;
-Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:52410 helo=localhost.localdomain)
-	by cp2.siel.si with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	Wed, 03 Sep 2025 12:39:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=ZWXN3lccSEg1goFEfsy0CS9OdO0KcxItBlMNoiHBWvc=; b=J/vnGkOCPkUvuaEzd4Tc5Hcb/9
+	A3VesxVDakJlErUZhEi2H6HrYB23iKPaUGi/BwbT4U7vLwkZN6IlO/tYi8h9c2NMKz872OtJNihHF
+	qoHpWXMtdecmh9UDaiVRMFPVPWm01YrqBS5u1NfXAFIrf72WwUeFSfG81k8sgwl67apZDILsrw/ht
+	v7Uq/fbNtEyINWWXnQiwJk8DD02fF+PGNEL1u5pBADngNeam9xMVciNYphiw8O4UlLGP0icG4Gk2N
+	Z0CTicEgX3Ewt9T2o17NW0qSuBeIGgs6lASnKo0WZyGZ9N2kmR50i8gWbukB9dAIqukL0eDjC8cv1
+	wl1t90Iw==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:51034 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
-	(envelope-from <primoz.fiser@norik.com>)
-	id 1utlnU-000000034mQ-1Rh5;
-	Wed, 03 Sep 2025 13:37:02 +0200
-From: Primoz Fiser <primoz.fiser@norik.com>
-To: Peter Rosin <peda@axentia.se>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno Sa <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: linux-iio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1utmlj-000000000Ut-39bT;
+	Wed, 03 Sep 2025 13:39:19 +0100
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1utmli-00000001s00-49Uk;
+	Wed, 03 Sep 2025 13:39:19 +0100
+In-Reply-To: <aLg24RZ6hodr711j@shell.armlinux.org.uk>
+References: <aLg24RZ6hodr711j@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	upstream@lists.phytec.de
-Subject: [PATCH 1/2] dt-bindings: iio: afe: current-sense-amplifier: Add io-channel-cells
-Date: Wed,  3 Sep 2025 13:36:59 +0200
-Message-Id: <20250903113700.3079626-1-primoz.fiser@norik.com>
-X-Mailer: git-send-email 2.34.1
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next 01/11] net: stmmac: mdio: provide address register
+ formatter
 MIME-Version: 1.0
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - cp2.siel.si
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - norik.com
-X-Get-Message-Sender-Via: cp2.siel.si: authenticated_id: primoz.fiser@norik.com
-X-Authenticated-Sender: cp2.siel.si: primoz.fiser@norik.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1utmli-00000001s00-49Uk@rmk-PC.armlinux.org.uk>
+Date: Wed, 03 Sep 2025 13:39:18 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_130057_271905_F8AEFB48 
-X-CRM114-Status: UNSURE (   6.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250903_053925_927299_6E454882 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,49 +89,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current-sense-amplifier is an IIO provider thus can be referenced by
-IIO consumers (via "io-channels" property in consumer device node). Such
-provider is required to describe number of cells used in phandle lookup
-with "io-channel-cells" property, otherwise the following kernel error
-is present:
+Rather than duplicating the logic for filling the PA (MDIO address),
+GR (MDIO register/devad), CR (clock range) and GB (busy) fields of the
+address register in four locations, provide a helper to do this.
 
-  OF: /iio-hwmon: could not get #io-channel-cells for /current-sense
-
-Also fixes the following dtbs_check warning:
-
-  current-sense: '#io-channel-cells' does not match any of the regexes:
-  'pinctrl-[0-9]+' from schema $id:
-  http://devicetree.org/schemas/iio/afe/current-sense-amplifier.yaml#
-
-Fixes: fbac26b9ad21 ("dt-bindings:iio:afe:current-sense-amplifier: txt to yaml conversion.")
-Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../devicetree/bindings/iio/afe/current-sense-amplifier.yaml  | 4 ++++
- 1 file changed, 4 insertions(+)
+ .../net/ethernet/stmicro/stmmac/stmmac_mdio.c | 53 +++++++++----------
+ 1 file changed, 26 insertions(+), 27 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/iio/afe/current-sense-amplifier.yaml b/Documentation/devicetree/bindings/iio/afe/current-sense-amplifier.yaml
-index 527501c1d695..bcf4ddcfd13b 100644
---- a/Documentation/devicetree/bindings/iio/afe/current-sense-amplifier.yaml
-+++ b/Documentation/devicetree/bindings/iio/afe/current-sense-amplifier.yaml
-@@ -24,6 +24,9 @@ properties:
-     description: |
-       Channel node of a voltage io-channel.
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+index 0a302b711bc2..3106fef6eed8 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+@@ -229,6 +229,24 @@ static int stmmac_xgmac2_mdio_write_c45(struct mii_bus *bus, int phyaddr,
+ 					phydata);
+ }
  
-+  "#io-channel-cells":
-+    const: 0
++/**
++ * stmmac_mdio_format_addr() - format the address register
++ * @priv: struct stmmac_priv pointer
++ * @pa: 5-bit MDIO package address
++ * @gr: 5-bit MDIO register address (C22) or MDIO device address (C45)
++ */
++static u32 stmmac_mdio_format_addr(struct stmmac_priv *priv,
++				   unsigned int pa, unsigned int gr)
++{
++	const struct mii_regs *mii_regs = &priv->hw->mii;
 +
-   sense-resistor-micro-ohms:
-     description: The sense resistance.
++	return ((pa << mii_regs->addr_shift) & mii_regs->addr_mask) |
++	       ((gr << mii_regs->reg_shift) & mii_regs->reg_mask) |
++	       ((priv->clk_csr << mii_regs->clk_csr_shift) &
++		mii_regs->clk_csr_mask) |
++	       MII_BUSY;
++}
++
+ static int stmmac_mdio_read(struct stmmac_priv *priv, int data, u32 value)
+ {
+ 	unsigned int mii_address = priv->hw->mii.addr;
+@@ -263,18 +281,14 @@ static int stmmac_mdio_read(struct stmmac_priv *priv, int data, u32 value)
+ static int stmmac_mdio_read_c22(struct mii_bus *bus, int phyaddr, int phyreg)
+ {
+ 	struct stmmac_priv *priv = netdev_priv(bus->priv);
+-	u32 value = MII_BUSY;
+ 	int data = 0;
++	u32 value;
  
-@@ -46,6 +49,7 @@ examples:
-   - |
-     sysi {
-         compatible = "current-sense-amplifier";
-+        #io-channel-cells = <0>;
-         io-channels = <&tiadc 0>;
+ 	data = pm_runtime_resume_and_get(priv->device);
+ 	if (data < 0)
+ 		return data;
  
-         sense-resistor-micro-ohms = <20000>;
+-	value |= (phyaddr << priv->hw->mii.addr_shift)
+-		& priv->hw->mii.addr_mask;
+-	value |= (phyreg << priv->hw->mii.reg_shift) & priv->hw->mii.reg_mask;
+-	value |= (priv->clk_csr << priv->hw->mii.clk_csr_shift)
+-		& priv->hw->mii.clk_csr_mask;
++	value = stmmac_mdio_format_addr(priv, phyaddr, phyreg);
+ 	if (priv->plat->has_gmac4)
+ 		value |= MII_GMAC4_READ;
+ 
+@@ -300,20 +314,16 @@ static int stmmac_mdio_read_c45(struct mii_bus *bus, int phyaddr, int devad,
+ 				int phyreg)
+ {
+ 	struct stmmac_priv *priv = netdev_priv(bus->priv);
+-	u32 value = MII_BUSY;
+ 	int data = 0;
++	u32 value;
+ 
+ 	data = pm_runtime_resume_and_get(priv->device);
+ 	if (data < 0)
+ 		return data;
+ 
+-	value |= (phyaddr << priv->hw->mii.addr_shift)
+-		& priv->hw->mii.addr_mask;
+-	value |= (priv->clk_csr << priv->hw->mii.clk_csr_shift)
+-		& priv->hw->mii.clk_csr_mask;
++	value = stmmac_mdio_format_addr(priv, phyaddr, devad);
+ 	value |= MII_GMAC4_READ;
+ 	value |= MII_GMAC4_C45E;
+-	value |= (devad << priv->hw->mii.reg_shift) & priv->hw->mii.reg_mask;
+ 
+ 	data |= phyreg << MII_GMAC4_REG_ADDR_SHIFT;
+ 
+@@ -357,18 +367,13 @@ static int stmmac_mdio_write_c22(struct mii_bus *bus, int phyaddr, int phyreg,
+ {
+ 	struct stmmac_priv *priv = netdev_priv(bus->priv);
+ 	int ret, data = phydata;
+-	u32 value = MII_BUSY;
++	u32 value;
+ 
+ 	ret = pm_runtime_resume_and_get(priv->device);
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	value |= (phyaddr << priv->hw->mii.addr_shift)
+-		& priv->hw->mii.addr_mask;
+-	value |= (phyreg << priv->hw->mii.reg_shift) & priv->hw->mii.reg_mask;
+-
+-	value |= (priv->clk_csr << priv->hw->mii.clk_csr_shift)
+-		& priv->hw->mii.clk_csr_mask;
++	value = stmmac_mdio_format_addr(priv, phyaddr, phyreg);
+ 	if (priv->plat->has_gmac4)
+ 		value |= MII_GMAC4_WRITE;
+ 	else
+@@ -395,21 +400,15 @@ static int stmmac_mdio_write_c45(struct mii_bus *bus, int phyaddr,
+ {
+ 	struct stmmac_priv *priv = netdev_priv(bus->priv);
+ 	int ret, data = phydata;
+-	u32 value = MII_BUSY;
++	u32 value;
+ 
+ 	ret = pm_runtime_resume_and_get(priv->device);
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	value |= (phyaddr << priv->hw->mii.addr_shift)
+-		& priv->hw->mii.addr_mask;
+-
+-	value |= (priv->clk_csr << priv->hw->mii.clk_csr_shift)
+-		& priv->hw->mii.clk_csr_mask;
+-
++	value = stmmac_mdio_format_addr(priv, phyaddr, devad);
+ 	value |= MII_GMAC4_WRITE;
+ 	value |= MII_GMAC4_C45E;
+-	value |= (devad << priv->hw->mii.reg_shift) & priv->hw->mii.reg_mask;
+ 
+ 	data |= phyreg << MII_GMAC4_REG_ADDR_SHIFT;
+ 
 -- 
-2.34.1
+2.47.2
 
 
