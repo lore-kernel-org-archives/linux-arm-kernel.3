@@ -4,82 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 755E8CA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 10:05:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BF8ACA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 10:08:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZkD6N94ilMQMZ/1AznthtrIqGjZkUyT7cBFMEz0JeqM=; b=y+0aQCr3OmIGN3Wuyg8e2vqz4z
-	9Wy0HaxSre2Osr6LGEeC4tJwtUZ6SAiEO3dfAUUL5NSLwOLZJeTyJUEtpBwk5kuTNSlSMqFTmVc9k
-	kvQnHZBYJ2z/QJ1Zh1Fuzuuey4Y271MkLUhSB0fDo7GSZ3/Cb6v5wRVKY9NQN+UM/paRYKrqlwh+5
-	k5Oi9HdsLIu6XPebqsfTWIStr4RiNkkwPCHVc2szv5g27mQPO27ydCV9uvSdR2iv66prG8zGy94ml
-	3UwCg91twqkmDDB3+11ht4n00ouqb8XxH8I99adMQsJmdo4ZaJXPjRLTpAVPI6RWFXzBddXaViAB7
-	JxbAPZRA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ryoj3LTxsfjRQQADo/jP46yuAnzMRJ2PJMbmihfU5Ck=; b=jpr79ipOCmvKkQIM1hoZ9WBw82
+	JF8mTetvB3EIr8TiWcmRPKTcFD8rI+JW3v2uqyl/C3vajknfkQN5bT0TcT7J+Fbb0PXjexRgWc6kL
+	MUw9/y5Pktlje8YgRhVOH68pE1uEmlg0sc5VfwuA6oiPReVCTVSK327eX5hWrz9onMaFo22Ux7qJZ
+	jASvhI4ltLn2m/M2HaN7SzHPjWm1Cf+yGl36DdWN1lGoFG7drZA0mx5bwIAvgEeTamkeF8fnqfuiS
+	DzfRhxuhCCJsPCyOqb63wUauRS4qyjuuLPKlyH/U5O8//3aoaDRPNdfJ1seO+6rivyonbHUfOvUqb
+	XpAPXPiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utkN0-000000062Zg-313N;
-	Wed, 03 Sep 2025 10:05:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utjHr-00000005mxg-20ox
+	id 1utkPg-000000062xw-3GQV;
+	Wed, 03 Sep 2025 10:08:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1utjJc-00000005nvj-2zHm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 08:56:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 30EDD43BE0;
-	Wed,  3 Sep 2025 08:56:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 10859C4CEF0;
-	Wed,  3 Sep 2025 08:56:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756889775;
-	bh=q0tHz+BMppn+t5zOxfWZIctQRwVYHLuE0UcrNZZKdo4=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=NIpTPaTzzHX7kB1f8K503erRMyypAXp1ExsDMwEhyLo+dF1be4OFKtlwDQVfIIahP
-	 ESEMMz41sEaWtoKNZ03tJ9d9IJ0MiI6QaSzTeo8avGezs+TtC5yI5a30t4d4BB6v/6
-	 O70WUoRIcXFhUmhrDmBDs88a/69IwmCC65sslg6afBp+/xZyXD8e2qAuXVJyWEsxrx
-	 CXYDyRL8LpCA4/AYREoiSV59XCl7Br2dG/n1P6aqY+OtupCCehxq1SbsjnPAu0OFKq
-	 jVjETpWA9H//y/7Wx7qZHhKDGss7GCsWGMKJCFiO0ekZAQdNIo4sEMed3DvDWI/WB4
-	 mycw0vDRbpR5A==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F03F0CA1009;
-	Wed,  3 Sep 2025 08:56:14 +0000 (UTC)
-From: Anthony Brandon via B4 Relay <devnull+anthony.amarulasolutions.com@kernel.org>
-Date: Wed, 03 Sep 2025 10:56:13 +0200
-Subject: [PATCH v4] dmaengine: xilinx: xdma: Fix regmap max_register
+	Wed, 03 Sep 2025 08:58:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5CAC41688;
+	Wed,  3 Sep 2025 01:57:53 -0700 (PDT)
+Received: from [10.57.5.59] (unknown [10.57.5.59])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 182B03F694;
+	Wed,  3 Sep 2025 01:57:59 -0700 (PDT)
+Message-ID: <2f243b22-d8d3-4352-b226-aaf9ccfe825b@arm.com>
+Date: Wed, 3 Sep 2025 09:57:59 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] coresight: tpda: fix the logic to setup the element
+ size
+To: Jie Gan <jie.gan@oss.qualcomm.com>, Mike Leach <mike.leach@linaro.org>,
+ James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Tao Zhang <quic_taozha@quicinc.com>, Mao Jinlong <quic_jinlmao@quicinc.com>
+Cc: tingwei.zhang@oss.qualcomm.com, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org
+References: <20250806080931.14322-1-jie.gan@oss.qualcomm.com>
+Content-Language: en-GB
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20250806080931.14322-1-jie.gan@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250903-xdma-max-reg-v4-1-894721175025@amarulasolutions.com>
-X-B4-Tracking: v=1; b=H4sIAKwCuGgC/33OywqDMBCF4VeRrJuSycVLV32P0sVooga0KYmKR
- Xz3RleloMv/wHzMQoLx1gRySxbizWSDda8Y8pKQqsVXY6jVsQlnXLGCAZ11j7THmXrTUEhlUaV
- SFULlJJ68vantvHOPZ+zWhsH5z65PsK0H0AQUaJkikyoFo0u4Y49+7DC4bhziT+FauZ5s5sTPH
- B6dGkXGBWaQV/rEEb8O/3NEdNQGlbnmJagDZ13XL3+nWz9DAQAA
-X-Change-ID: 20250901-xdma-max-reg-1649c6459358
-To: Lizhi Hou <lizhi.hou@amd.com>, Brian Xu <brian.xu@amd.com>, 
- Raj Kumar Rampelli <raj.kumar.rampelli@amd.com>, 
- Vinod Koul <vkoul@kernel.org>, Michal Simek <michal.simek@amd.com>
-Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Anthony Brandon <anthony@amarulasolutions.com>, 
- Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3123;
- i=anthony@amarulasolutions.com; h=from:subject:message-id;
- bh=L9Jh4ojlLzKIglwK2lLLxgJIk6sX82XB7wh+bXhzPgA=;
- b=owGbwMvMwCUWIi5b4HjluATjabUkhowdTGuXbz2h8O6vR9h7l8sJXDd2xeuveNJvuSdM7f7co
- LlBt/jiO0pZGMS4GGTFFFnKdeR5PZTrypVmPjGGmcPKBDKEgYtTACayiJHhn8qiHF9TpoxqOeMV
- 03eG+W0RdGx0+/VCIXcmz4H1iZdzmxgZnspOWb3hmObTayGdPPNCuJXqK/8y2R1pOFGZv0JJr9i
- bEwA=
-X-Developer-Key: i=anthony@amarulasolutions.com; a=openpgp;
- fpr=772C1F0D48237E772299E43354171D7041D4C718
-X-Endpoint-Received: by B4 Relay for anthony@amarulasolutions.com/default
- with auth_id=505
-X-Original-From: Anthony Brandon <anthony@amarulasolutions.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_015615_572793_07B080AA 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20250903_015804_799093_E08CC8BB 
+X-CRM114-Status: GOOD (  20.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,102 +66,57 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: anthony@amarulasolutions.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Anthony Brandon <anthony@amarulasolutions.com>
+On 06/08/2025 09:09, Jie Gan wrote:
+> Some TPDM devices support both CMB and DSB datasets, requiring
+> the system to enable the port with both corresponding element sizes.
+> 
+> Currently, the logic treats tpdm_read_element_size as successful if
+> the CMB element size is retrieved correctly, regardless of whether
+> the DSB element size is obtained. This behavior causes issues
+> when parsing data from TPDM devices that depend on both element sizes.
+> 
+> To address this, the function should explicitly fail if the DSB
+> element size cannot be read correctly.
 
-The max_register field is assigned the size of the register memory
-region instead of the offset of the last register.
-The result is that reading from the regmap via debugfs can cause
-a segmentation fault:
+But what is the device only has CMB ? Back when this was originally 
+merged, we raised this question and the answer was, "Only one is 
+supported, not both." But this sounds like that is wrong.
+Could we defer the "Warning" to the caller. i.e., Let the caller
+figure out the if the DSB size is found and predicate that on the
+DSB support on the TPDM.
 
-tail /sys/kernel/debug/regmap/xdma.1.auto/registers
-Unable to handle kernel paging request at virtual address ffff800082f70000
-Mem abort info:
-  ESR = 0x0000000096000007
-  EC = 0x25: DABT (current EL), IL = 32 bits
-  SET = 0, FnV = 0
-  EA = 0, S1PTW = 0
-  FSC = 0x07: level 3 translation fault
-[...]
-Call trace:
- regmap_mmio_read32le+0x10/0x30
- _regmap_bus_reg_read+0x74/0xc0
- _regmap_read+0x68/0x198
- regmap_read+0x54/0x88
- regmap_read_debugfs+0x140/0x380
- regmap_map_read_file+0x30/0x48
- full_proxy_read+0x68/0xc8
- vfs_read+0xcc/0x310
- ksys_read+0x7c/0x120
- __arm64_sys_read+0x24/0x40
- invoke_syscall.constprop.0+0x64/0x108
- do_el0_svc+0xb0/0xd8
- el0_svc+0x38/0x130
- el0t_64_sync_handler+0x120/0x138
- el0t_64_sync+0x194/0x198
-Code: aa1e03e9 d503201f f9400000 8b214000 (b9400000)
----[ end trace 0000000000000000 ]---
-note: tail[1217] exited with irqs disabled
-note: tail[1217] exited with preempt_count 1
-Segmentation fault
+Suzuki
 
-Fixes: 17ce252266c7 ("dmaengine: xilinx: xdma: Add xilinx xdma driver")
-Signed-off-by: Anthony Brandon <anthony@amarulasolutions.com>
-Reviewed-by: Lizhi Hou <lizhi.hou@amd.com>
-Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
----
-Changes in v4:
-- Reorder Reviewed-by
-- Link to v3: https://lore.kernel.org/r/20250902-xdma-max-reg-v3-1-5fa37b8d2b15@amarulasolutions.com
-
-Changes in v3:
-- Add Fixes tag
-- Link to v2: https://lore.kernel.org/r/20250901-xdma-max-reg-v2-1-fa3723a718cd@amarulasolutions.com
-
-Changes in v2:
-- Define new constant XDMA_MAX_REG_OFFSET and use that.
-- Link to v1: https://lore.kernel.org/r/20250901-xdma-max-reg-v1-1-b6a04561edb1@amarulasolutions.com
----
- drivers/dma/xilinx/xdma-regs.h | 1 +
- drivers/dma/xilinx/xdma.c      | 2 +-
- 2 files changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/dma/xilinx/xdma-regs.h b/drivers/dma/xilinx/xdma-regs.h
-index 6ad08878e93862b770febb71b8bc85e66813428e..70bca92621aa41b0367d1e236b3e276344a26320 100644
---- a/drivers/dma/xilinx/xdma-regs.h
-+++ b/drivers/dma/xilinx/xdma-regs.h
-@@ -9,6 +9,7 @@
- 
- /* The length of register space exposed to host */
- #define XDMA_REG_SPACE_LEN	65536
-+#define XDMA_MAX_REG_OFFSET	(XDMA_REG_SPACE_LEN - 4)
- 
- /*
-  * maximum number of DMA channels for each direction:
-diff --git a/drivers/dma/xilinx/xdma.c b/drivers/dma/xilinx/xdma.c
-index 0d88b1a670e142dac90d09c515809faa2476a816..5ecf8223c112e468c79ce635398ba393a535b9e0 100644
---- a/drivers/dma/xilinx/xdma.c
-+++ b/drivers/dma/xilinx/xdma.c
-@@ -38,7 +38,7 @@ static const struct regmap_config xdma_regmap_config = {
- 	.reg_bits = 32,
- 	.val_bits = 32,
- 	.reg_stride = 4,
--	.max_register = XDMA_REG_SPACE_LEN,
-+	.max_register = XDMA_MAX_REG_OFFSET,
- };
- 
- /**
-
----
-base-commit: b320789d6883cc00ac78ce83bccbfe7ed58afcf0
-change-id: 20250901-xdma-max-reg-1649c6459358
-
-Best regards,
--- 
-Anthony Brandon <anthony@amarulasolutions.com>
-
+> 
+> Fixes: e6d7f5252f73 ("coresight-tpda: Add support to configure CMB element")
+> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-tpda.c | 3 +++
+>   1 file changed, 3 insertions(+)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
+> index 0633f04beb24..333b3cb23685 100644
+> --- a/drivers/hwtracing/coresight/coresight-tpda.c
+> +++ b/drivers/hwtracing/coresight/coresight-tpda.c
+> @@ -71,6 +71,8 @@ static int tpdm_read_element_size(struct tpda_drvdata *drvdata,
+>   	if (tpdm_data->dsb) {
+>   		rc = fwnode_property_read_u32(dev_fwnode(csdev->dev.parent),
+>   				"qcom,dsb-element-bits", &drvdata->dsb_esize);
+> +		if (rc)
+> +			goto out;
+>   	}
+>   
+>   	if (tpdm_data->cmb) {
+> @@ -78,6 +80,7 @@ static int tpdm_read_element_size(struct tpda_drvdata *drvdata,
+>   				"qcom,cmb-element-bits", &drvdata->cmb_esize);
+>   	}
+>   
+> +out:
+>   	if (rc)
+>   		dev_warn_once(&csdev->dev,
+>   			"Failed to read TPDM Element size: %d\n", rc);
 
 
