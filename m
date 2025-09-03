@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27591CA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 12:53:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED83DCA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 12:56:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=j5iEAlc4MoMtFJUAvR6dtjmQqf3jvqvKGSuRvb2CExE=; b=pwlHSzrSXQ8O3YDzACMEuHO8FV
-	9SEvljGibRmezgftGEm3bLD3vpQ3XQ7xbIW87JQ4sHAknD25yHPGJnHxwqjy+Ilaq53om8JUFeiQS
-	8SwrNUNLHjDpcolGZhC3EE6GFZ+MlLdgMI2YV9XEP+j6j2i1YFxhbCe9jy6yAOxLoYmpvHSvQLcj4
-	dUMmhVqCLijj6ujtrNEMabahMZDbuqc/FThuL9yfIihCYxwKuUAowUkVFiQR6sSaPYUqYb7DfgAIj
-	UKSAg/UUK/vCZuZ9J6ALyZw89hddCB2KrJKdnvo9UivJUPV3JhrGp0TMx4YqCuhHj9SiPTFmj1DEI
-	tUrG6Qbg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RqGQhSrmR9KNt2mlgrpLBIlQIaWDRnvltPL/Gn6wm7Q=; b=pE5P42BEmdjBhVtJeuvhF+8GFq
+	sEeC+op/HNo8QqR8WjhQnt9/SwmpaLRc3rtKTd4R//aRXOqadF9LVK5BDOI8IZtQhOO4+ntyYTcno
+	lwadqIBEjxAt+STlmjbyqH4cu5MJSRHzdXBwn3w/PVgxO1RXr1a9lhkOsnywj/EP6JLKNjtG8yKM+
+	pXLKCAoTYY/ilX6ZFNhVOc2FRnGvg+NVk9ctoXJJkubWZA+whKG7oLQWkcm2M1PZJZ8XUhQhRT3hm
+	fF3ZO4TR/NwoER3qqPrk8p+1XffxXUcPbrgEVkuNt/b7O9EyAWW6i8oVVcOqsZlnJTx8i9krtDxB7
+	rGTK2TIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utmzD-00000006TNM-1VBH;
-	Wed, 03 Sep 2025 12:53:15 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1utn1v-00000006Tzl-0oZS;
+	Wed, 03 Sep 2025 12:56:03 +0000
+Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utmFa-00000006KcG-1McF
+	id 1utmFc-00000006Kcf-2ifK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 12:06:07 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2445826fd9dso76352955ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Sep 2025 05:06:05 -0700 (PDT)
+	Wed, 03 Sep 2025 12:06:09 +0000
+Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-b4e84a61055so2328904a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Sep 2025 05:06:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756901165; x=1757505965; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=j5iEAlc4MoMtFJUAvR6dtjmQqf3jvqvKGSuRvb2CExE=;
-        b=GHHoJN4IHmzgz1UkZ7y6CUu18F3EVdsE7t8dHpNTZPZn0dj8ZayUvZg19xoMbENaya
-         V+jHMyVKQU7JXz/cpnBYnq9ctJb6n8zI4D7Id2Jf3EEP3tkQGLwbHp1lBgOOS3vkuvmj
-         qzJEXzVlSrGMIuALnndeErK2AiG7b/ydaPCOKgo04CVQMad33RdY5mhHcE5pRYYOFFZZ
-         HFB2Q31qqfw7D1miINq+TnhDtmktgLTS4r9Dx5D7wWi6rjgCpRqP5gyGnjVdpGrutLov
-         1/IP15VzuSr7DrvZCtCGK+hqgTFFBTxoeJkWpc9Gza/N/3Ca1fKpnlKAazjnhcmB8hD4
-         sKAw==
+        d=gmail.com; s=20230601; t=1756901168; x=1757505968; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RqGQhSrmR9KNt2mlgrpLBIlQIaWDRnvltPL/Gn6wm7Q=;
+        b=avU+Eom7D8GaW0Aro4FLn1EZHZVigYVB1Dl3eY80QOl2SGh7imy1JHvxwP2U/tjHui
+         LwZQdZilVHyiRVKUDbmOluA7QPY6ocogVbarwaWGjeW0Q28aKJCQQR4gmmBrIDFA9m+v
+         BTNpEb1xhabV+AG9bIhRlLpUZs5Rer6DrPTW+FQ2rgPmAZk9qRPuLL4FhfQXQ5C24O2W
+         ILAwHLHRhuqWhwc3jYmcWxNi8sH46KJ8LLgfjZYr48n+dtUi3foaIl2MvpkRJ8eWjsAw
+         ch7xH5W2TxiM6hNdmJRSlI5t2MhEj/4a7dGgiag2yCIbhxtFDTLf8gjW90RuzEv5txZN
+         FoqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756901165; x=1757505965;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=j5iEAlc4MoMtFJUAvR6dtjmQqf3jvqvKGSuRvb2CExE=;
-        b=EofjPnhXdfcgJkjOHd7KokzSTq3h6NPRrs00YCMFvatcbcR4IvXGegRTYYJ5Nt4AeE
-         l5yT18NeLxAwu/fEAQ6xc5OJIluzoliizaN99y3W5HvHocTqbVSwTI602Vd+xI/XfUyv
-         GUzkX6cOfZCp7+xq8jD2Kt7XXcCqIgdtQGCvreTfsjRiBB3nZYoMPgJktMUixMOx4T9S
-         RHUSy/HpW5p/rHc6+cH7n81qNThVa2Bvss7EBtVKVkO5UZlEEuo8j2oePblna//lJttn
-         25ko4A87KCwZoEvycI643zB7F8/mXYQy9bS+/8ZtVApgHA6G+HDsSOhENk3sPPOD92qb
-         vIqg==
-X-Forwarded-Encrypted: i=1; AJvYcCXfjC3ovT834THhrJTt+WhV2wXqn2N1E5kPn74/sL80uo9SlErRg3TIIqONp89lKw3cTUjUP1JR5ZTw+edqd+vf@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLSRsjKXia3wWn+B9kXZC8pd/ASEZcuvh9CBNYWCIoZ6T/5PH/
-	tQgH5NSlh4hb5eR9+2x4N1K5GRRAGNO/nC4+eLmUhfxRC5VAGeM/MPmU
-X-Gm-Gg: ASbGncsCSgWl82EuNjaYWwvCSWFBt3ebyhYOYfUEqmQGhq5D8H1gEYuxyrgiyzVmeps
-	1G+7EPuSjYSBDaZ5YOsWhMrvkIlzCDxOoYuju1kw1jgKj4x0Nnvxd6D8vmtbtDaSdRIxbC6QOIR
-	Lg83Gsx8B4dHC0ZK0CSh+hmdlXZx/fp0Ue+Q+dafupTpX1EvSS0zdnxTTRQhFcV/cDiWC1w1f9A
-	PDdDc9wSaZGA5IdjXR24BVPx0RJM2CBUaHe820FtEhHk0OrzKA3aPWNdUrhsTEYGURMFFQPWwJR
-	7IsBCM2g+p8LXZ0FNhg9Tu1ilGtdYzH13Kd/PsSMbXlVcZ97AFTEHi4041KR7RreKjyv2ed8F0H
-	nkGJ4NJkVwITSLbWOabRO4wTmqEiEYwRspE94DwPOZC0mAatHQjG/XAaV/4kaGsxHVlyK3bZrsR
-	kQxiaYm0Ng5p+krAYhrgzTbyCRIrUOvQ==
-X-Google-Smtp-Source: AGHT+IGmOK+zU4uhlF8L1/G5THkM81+gGkxdGDOsluSdhqpOhIUayM/TmHmVlI5g8VrEuAb6A/4e9g==
-X-Received: by 2002:a17:903:2383:b0:246:570:2d9a with SMTP id d9443c01a7336-24944b1fc6emr204959945ad.59.1756901165063;
-        Wed, 03 Sep 2025 05:06:05 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1756901168; x=1757505968;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=RqGQhSrmR9KNt2mlgrpLBIlQIaWDRnvltPL/Gn6wm7Q=;
+        b=CYWQCZ+pbhXUXbJ5Dri1sVr6/90nFQyEtVRoO1Y/GwSI1tq0YE2ZyFhnVmE2UGR1+G
+         BhGBuiypQvWByUgYpOqw8eiC8NGEcCGbQEikd1XUv6YLge+zJskBOy9a8bV7kGwVUdEe
+         vM0rI78tNPW0vSfbZ2hyL/DTNHr8eaPjcyI0TDU2shcev+MCzNwrgFQPx7VUGnfKnQvc
+         Fe0H5Kio+AvjtitlAHQpBYjAtaSKwoaja20ghsSvCMdHXTVzn3zZt5KfR6RHmSABwiRE
+         9VBQhXMjGaB9AawrGwHlxE4iCjCfvpMErJFe+1Q1oRQFUxNMPJ+9GoAnbZRGbegXy0+f
+         on8A==
+X-Forwarded-Encrypted: i=1; AJvYcCX9ahsRrOD/foTYMEcTUqrt9QvZNmLIyVyxn23PQCRUGYVLAcpWSFs4iw6rHECylRhkS0EeYtWYqDlCiWj6kf6/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8m6ftw8fZGX1mAZaWdnP7+Qk8xaN44xpME3OdwP9+x3TjIEoG
+	cU3oDQD+dY8lW+NI9iycLNmoWRNhKJpOgBCgWEGFfJrmHmaPuGDu4peN
+X-Gm-Gg: ASbGncv/c5GmWRn1kvIQNLpRajcQV7IkQ5PSHmsJwOukUAVgeTqvKdATP+oXUufyIIh
+	/iBNI8eIvQg7BRSqUVqmvtJBNgxFO5bumCKkicQKx67BivvXXxM7KL9F0X5OxxMsprGOq9wMrWO
+	1rtH+52m+GtD/oiED4BNA/oWc/9zzXrGKwjbfMYXMM6wd9pudRqO3hkoorvGU/7IBiOAPuGPG10
+	dGnBfErb8UoS2fccRXf7l4r8H6x7XNf5FkkLItGpk8YWx/d86RiAsWdKtWm7fwFVmk+IheQB0dt
+	3fW4wPoYYi1L9anieEket0SDno6erzvtBaDVIZcZxaI7QF056POJBFegokoI2msi5IuL8kY2RcB
+	I4YRqxfOLmuHjcWCI6M4WCBicGZwffjQpcc8A2COduKPbFIX1DJWH/bX1YVg+lUQkgdpitVVvq4
+	BMtNvgadRGb5rTPfqyJ30=
+X-Google-Smtp-Source: AGHT+IGRwP+2jhI7HlYV8PivgRIYsoYupEDByvIyv5rCdBLRIMTGG2RxKeItgA988VxEJG/hq8+L9g==
+X-Received: by 2002:a17:903:190:b0:246:e8cc:8cef with SMTP id d9443c01a7336-24944870a4emr227499035ad.3.1756901167713;
+        Wed, 03 Sep 2025 05:06:07 -0700 (PDT)
 Received: from pk-pc.dhcpserver.bu9bmc.local (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2490648c89bsm160905185ad.109.2025.09.03.05.06.02
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2490648c89bsm160905185ad.109.2025.09.03.05.06.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Sep 2025 05:06:04 -0700 (PDT)
+        Wed, 03 Sep 2025 05:06:07 -0700 (PDT)
 From: "P.K. Lee" <pkleequanta@gmail.com>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -84,15 +85,18 @@ Cc: Jerry.Lin@quantatw.com,
 	Jason-Hsu@quantatw.com,
 	yang.chen@quantatw.com,
 	p.k.lee@quantatw.com
-Subject: [PATCH v11 0/2] Add Meta (Facebook) Ventura BMC (AST2600)
-Date: Wed,  3 Sep 2025 20:05:58 +0800
-Message-ID: <20250903120600.632041-1-pkleequanta@gmail.com>
+Subject: [PATCH v11 1/2] dt-bindings: arm:aspeed add Meta Ventura board
+Date: Wed,  3 Sep 2025 20:05:59 +0800
+Message-ID: <20250903120600.632041-2-pkleequanta@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250903120600.632041-1-pkleequanta@gmail.com>
+References: <20250903120600.632041-1-pkleequanta@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_050606_366459_0739C818 
-X-CRM114-Status: GOOD (  13.91  )
+X-CRM114-CacheID: sfid-20250903_050608_684193_1F55A5D8 
+X-CRM114-Status: UNSURE (   9.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,77 +111,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add Linux device tree entry related to Meta (Facebook) Ventura specific
-devices connected to the BMC (AST2600) SoC. The purpose of Ventura is to
-detect liquid leakage from all compute trays, switch trays and rack
-sensors within the rack, log the events, and take necessary actions
-accordingly.
+Document the new compatibles used on Meta Ventura.
 
+Signed-off-by: P.K. Lee <pkleequanta@gmail.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
-v1:
-    1. Create ventura dts file.
-    2. Add commit msg.
-    3. Use format-patch to generate patch.
-    4. Add subject prefixes matching the subsystem.
----
-v2:
-    1. Modify email content.
----
-v3:
-    1. Add mail list.
----
-v4:
-    1. Apply git send-email --thread option.
-    2. Sort nodes in the dts alphanumerically.
----
-v5:
-    1. Run scripts/checkpatch.pl and fix reported warnings.
-    2. Remove unnecessary 88E6393X CONFIG FRU.
----
-v6:
-    1. Add a new stage for the DTS change.
-    2. Run scripts/checkpatch.pl and fix reported error.
-    3. Fix the issue in a separate patch.
----
-v7:
-    1. Fix broken indentation in the device tree file.
-    2. Sort nodes alphabetically, then by address if equal.
-    3. Rename fan sensor nodes from 'hwmon' to 'fan-controller'.
----
-v8:
-    1. This patch series has significant changes compared to
-       previous versions, and quite some time has passed since the last
-       submission.Therefore, previously received Acked-by/Reviewed-by/Tested-by
-       tags are not included in this version.
-       If needed, tags can be added again after review of thisnew version.
----
-v9:
-    1. Reordered the node sequence under i2c5.
-    2. Added a description of the platform's intended use to the commit
-       messages.
-    3. Added 3 GPIO expanders to i2c10 and defined the necessary GPIO
-       line names.
----
-v10:
-    1. Added IRQ support in GPIO expanders under i2c10 to handle edge-triggered
-       events.
-    2. Reordered the nodes.
----
-v11:
-    1. Modified the position for i2c3mux0ch6 and i2c3mux0ch7.
+ Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-P.K. Lee (2):
-  dt-bindings: arm:aspeed add Meta Ventura board
-  ARM: dts: aspeed: ventura: add Meta Ventura BMC
-
- .../bindings/arm/aspeed/aspeed.yaml           |    1 +
- arch/arm/boot/dts/aspeed/Makefile             |    1 +
- .../aspeed/aspeed-bmc-facebook-ventura.dts    | 1578 +++++++++++++++++
- 3 files changed, 1580 insertions(+)
- create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dts
-
-base-commit: 533cec246f7f0ccadd7d9fb4e664d38418633c6 
-branch: dev-6.6
+diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+index aedefca7cf4a..1eecb4b69fe6 100644
+--- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
++++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+@@ -91,6 +91,7 @@ properties:
+               - facebook,greatlakes-bmc
+               - facebook,harma-bmc
+               - facebook,minerva-cmc
++              - facebook,ventura-rmc
+               - facebook,santabarbara-bmc
+               - facebook,yosemite4-bmc
+               - ibm,blueridge-bmc
 -- 
 2.43.0
 
