@@ -4,60 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED6BECA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 07:26:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C76DCA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 07:29:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
 	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4wDJcKGcGxupJM604GGXLvgc51Kpu4CWdIIFkT9cgoI=; b=vQDJ/Zn/Chze+yX07wzSOu0jUK
-	0xMYYlh/nHTLMBSh0Nmnmjir5mAnU3X6jFEqsT5zQKEu8KyMlIM/xR++c/Q6W31hiCt0JiijIWw92
-	FI5s7B3llsxkgwCjYqIKMs94YYLG3MnMpYNnJyM/M3rAS/zV5ggrrgz1qMIYd2YBAPCMGWaHwrpNb
-	TPPoyx2qfa8G0DFhrbRcbTq/GA8NuVoyAkdUDlrIJIxRs5bTPNhqzDOJczMLIDuGwE4vRq49ULeI0
-	C0wvRydPBEVzZd6KWswtd772SBWKLU+M2cxmUchD+jWGI2mHbZSa2ynwtlbkhbTYKlhJwr/Pao24Y
-	ce+KhvtA==;
+	bh=v94fhSJslU1H3Wxe60+RJevetmgL7o9TlKQFbvSCB7k=; b=orTBEA0SlsdouGVThtGNsK7JGM
+	aEZLq+oAjvm9WFE+758ps9pehRGkiUoIUY5NJcaDPjrdnzIw42nTduvzcYant6hHoUgHPD6eSjsKr
+	7LhCZ5dJqCLyGPF7WaGpKCYvLxjnDeUtkNhnIuzxDtXM2JgDPHz81FFbetFa50OxSqjlZSvGOovFQ
+	iCFf2G62pii32ZTwLFOafV9LxXbzlogQB3ilCuEO04F0Cvc5y8YKA/tjSQMTbpPpEm8q1uvVDEWUu
+	jg5gG1Cqgh4Lh9d50qe+DNEaC3aQuVL1f+X2hkBAEL2755JshN6oNRjI0ezBYY4Hkg4hRzZ1m2a3Y
+	9fqfpG8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uthtL-000000054hL-46fI;
-	Wed, 03 Sep 2025 07:26:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uthw2-000000055tW-39z2;
+	Wed, 03 Sep 2025 07:29:38 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uthlk-000000050x9-0M3a
+	id 1uthmc-000000051KN-1SMh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 07:19:01 +0000
+	Wed, 03 Sep 2025 07:19:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 706CF41A37;
-	Wed,  3 Sep 2025 07:18:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB547C4CEF0;
-	Wed,  3 Sep 2025 07:18:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 84D9160233;
+	Wed,  3 Sep 2025 07:19:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A57A0C4CEF0;
+	Wed,  3 Sep 2025 07:19:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756883939;
-	bh=ZIuFqgAiUGNMdLEb14nhjqW/5x7OSbzlYnguRxrnXtM=;
+	s=k20201202; t=1756883993;
+	bh=IvjNC842MxY+UMDgGJhsWF+myFJMSct3VEgfMUbeQZE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FfQ/aKQRPHWLa2/xC6SOkrUTiSOmO2665c0RuiJmNm//8eUnqCAtOypxhPc+q4ilx
-	 jJ6JpROOVvtkogaWrZdCZNb9usGXQMtmENumkgNTjX9/A61z9Vsie0majUkdxSVEos
-	 hLjKhz2eLeQppAZn65yVNmwoXBr6Ttyp9VyXEX8DIM/10sIePjPEZMQeitHi38kVIc
-	 0/GCj9G9aVymPwg+9ujDC4IWnoyl4BKjLxVBTu24MXFGfeGA2tenyhGx+ZXLm646ZI
-	 4y2Rcgx4dHiT+PMNxdvu8NKaqYgtrX1k5v/hPmOy8VhRn0JA4eKu77L0qjtQd65hJ3
-	 /HvDxSMOWHKxw==
-Date: Wed, 3 Sep 2025 09:18:56 +0200
+	b=dzpC8NcTdV93L+kP5jVNgQ4UCYWOQzmQciejKr4kGXbl54WgEgZ1pSXr7Kaif45E4
+	 i9RJZ69FyRGUaeXJ3cHFRwKsrvKePFVsPZYfVWjMkUsSh8S2Ky7z9dDQEqqrSf79aG
+	 dzwBAKT3FBl0Q0wuAWlbE3V0YVDyysYmk6dN6c445HEYIbiBuiXCT1ZXjvlBoZvZHz
+	 ZsXqyG0eOGvm6C5lByvbTLEBSNLj1wVODOZHWpxg98dD+QcCZha95ghAp1oCJNGFV5
+	 PeFB9UT61Pv/iviFsqZVWJfVwGb3nL/j+mDNyqAeme5qmrKhzXEdr7xPo/qJaUI3HZ
+	 HwRkZUcx6Lzkw==
+Date: Wed, 3 Sep 2025 09:19:50 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: MD Danish Anwar <danishanwar@ti.com>
-Subject: Re: [PATCH net-next v2 1/8] dt-bindings: net: ti,rpmsg-eth: Add DT
- binding for RPMSG ETH
-Message-ID: <20250903-vehement-outrageous-corgi-ddcc6b@kuoka>
+Subject: Re: [PATCH net-next v2 2/8] dt-bindings: remoteproc: k3-r5f: Add
+ rpmsg-eth subnode
+Message-ID: <20250903-peculiar-hot-monkey-4e7c36@kuoka>
 References: <20250902090746.3221225-1-danishanwar@ti.com>
- <20250902090746.3221225-2-danishanwar@ti.com>
+ <20250902090746.3221225-3-danishanwar@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250902090746.3221225-2-danishanwar@ti.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_001900_141684_283AFF84 
-X-CRM114-Status: UNSURE (   7.63  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20250902090746.3221225-3-danishanwar@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,19 +69,33 @@ Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Geert Uyt
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 02, 2025 at 02:37:39PM +0530, MD Danish Anwar wrote:
-> Add device tree binding documentation for Texas Instruments RPMsg Ethernet
-> channels. This binding describes the shared memory communication interface
-> between host processor and a remote processor for Ethernet packet exchange.
+On Tue, Sep 02, 2025 at 02:37:40PM +0530, MD Danish Anwar wrote:
+> Extend the Texas Instruments K3 R5F remoteproc device tree bindings to
+> include a 'rpmsg-eth' subnode.
 > 
-> The binding defines the required 'memory-region' property that references
+> This extension allows the RPMsg Ethernet to be defined as a subnode of
+> K3 R5F remoteproc nodes, enabling the configuration of shared memory-based
+> Ethernet communication between the host and remote processors.
+> 
+> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+> ---
+>  .../devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml     | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
+> index a492f74a8608..4dbd708ec8ee 100644
+> --- a/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
+> +++ b/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
+> @@ -210,6 +210,12 @@ patternProperties:
+>            should be defined as per the generic bindings in,
+>            Documentation/devicetree/bindings/sram/sram.yaml
+>  
+> +      rpmsg-eth:
+> +        $ref: /schemas/net/ti,rpmsg-eth.yaml
 
-Describe the hardware, not "this binding".
-
-A nit, subject: drop second/last, redundant "DT binding". The
-"dt-bindings" prefix is already stating that these are bindings.
-See also:
-https://elixir.bootlin.com/linux/v6.17-rc3/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
+No, not a separate device. Please read slides from my DT for beginners
+talk from OSSE25. This is EXACTLY the case I covered there - what not to
+do.
 
 Best regards,
 Krzysztof
