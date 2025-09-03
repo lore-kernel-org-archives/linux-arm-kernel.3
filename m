@@ -4,57 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50385CA1009
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 10:36:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08126CA1009
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 10:38:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Vigy/juMXsMxO7jPK9oodOECQJjX/OUJcKZNlgqpCk=; b=l6DnwAgUDS5V9GImhSa2vpJiRu
-	l3cDjYO0giBVhOPiX/7blwk1Bqiy9yNjgSqBw4NnYIYYpzI4z0H5RABzouh1zX/gcVUdShx9oPF8A
-	SGeprMDoi/eJwvAND38ZfKnO8spwlF9nZLdX7eQQEwc9Vw3VPwRg3xr0edwS6zHDdLTH1Od/ZyXMw
-	CR0I6Vrf2pKMTD6ikoBFzqguMJ9aX4bubnJYqP7mFn87WfYdFab/iztW4wVmaITNz9OnBUcYFC7qi
-	gkSBV4xeDdTU0qRUI74ZVVOkHT5EgeGLv3Wb3V4pS2dRLtR00h5WzR+HqITMtRku/BHzYHBniFH6B
-	vcn16T7Q==;
+	bh=aNzUH3rzrGFTDrMkVZm6xGkNoz+KsR/o/BnTXMf3rvA=; b=Ka4NUl02vyfsW2bM7HFW1HQyNB
+	m4y9Td4xvUQxzDbt+S9lN0MTQDGvuRI1SiRApylhwLnjGU/TbLmrYSY/yD40Nf9a3azP8klNCoqwm
+	SOXrm8p4wMOYgOBKIyxkQRrzXBC4CgS7OBxFyT11AiJ9r9a3XovX/R4F3vLmPayccr3rowthqTfw2
+	kme/EUUYOdWiPXyqKHW3ogp2hAKj01u3GyVUlTrhcCo9/A6f5ydD7tFc9mfC3QmqasZIC7zYsMKm8
+	skDtRgUm1vc5zpX+helEemB60Dd0ybMhgfsUcgD4NJp8D4uGwBBBG1LWAN2I+uPTAVRKwc5sj5UUY
+	BqH8bYhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utkqV-0000000674O-1ktp;
-	Wed, 03 Sep 2025 10:36:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1utktB-000000067Sm-3I4Y;
+	Wed, 03 Sep 2025 10:38:53 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utjm1-00000005vhn-0YI5
+	id 1utk2o-00000005y6V-2Ro3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 09:27:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8DE6C44776;
-	Wed,  3 Sep 2025 09:27:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52E21C4CEF0;
-	Wed,  3 Sep 2025 09:27:21 +0000 (UTC)
-Date: Wed, 3 Sep 2025 10:27:18 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Ankur Arora <ankur.a.arora@oracle.com>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
-	arnd@arndb.de, will@kernel.org, peterz@infradead.org,
-	akpm@linux-foundation.org, mark.rutland@arm.com,
-	harisokn@amazon.com, cl@gentwo.org, ast@kernel.org,
-	memxor@gmail.com, zhenglifeng1@huawei.com,
-	xueshuai@linux.alibaba.com, joao.m.martins@oracle.com,
-	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
-Subject: Re: [PATCH v4 0/5] barrier: Add smp_cond_load_*_timewait()
-Message-ID: <aLgJ9iqQhq-LT9S0@arm.com>
-References: <20250829080735.3598416-1-ankur.a.arora@oracle.com>
- <aLWITwwDg06F1eXu@arm.com>
- <87tt1kpj4z.fsf@oracle.com>
+	Wed, 03 Sep 2025 09:44:47 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1756892682;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=aNzUH3rzrGFTDrMkVZm6xGkNoz+KsR/o/BnTXMf3rvA=;
+	b=NmffAbaYRJ/BLwiaYCX7+off0Sl2s5QpfYS+7lHWaovOb+vz3snoPbardObenRD4PB+8+4
+	5R8qY6NAvop+PQ1pBgCsPdDc0/NjK21ANJuNRkIpk094g9OC5NiaSrF1HDJ527nvamXujT
+	eSW6D6K0atpAewG8C56AZVLabwFlklwiNnBnopjQoPUG11KpPVdkEOspNskKAqNBo+/75v
+	fMzvksOOauWZuoQm0TfIAi4qCGeNuxjVu+Lp/LBU86yzrlj6xcAEQK5aQ+CGrPB06ccho4
+	aUT8ZP+heVtxpbJR8FTRtA07//6vnyED7iuAzXQaJEVpzA9BZGa8jXPuKtKTvA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1756892682;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=aNzUH3rzrGFTDrMkVZm6xGkNoz+KsR/o/BnTXMf3rvA=;
+	b=UWZAizU8tA08seZmWpTGdsvblCGJ08Rg6lPXSSCjDbxUVVTvy431UBPZFEUnQT7rUNfNyB
+	DtauH6sSIsjn0oAg==
+To: Guillaume La Roque <glaroque@baylibre.com>, vigneshr@ti.com, Nishanth
+ Menon <nm@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>, Tero Kristo
+ <kristo@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Guillaume La Roque <glaroque@baylibre.com>
+Subject: Re: [PATCH RESEND v2 2/2] soc: ti: ti_sci_inta_msi: Enable module
+ compilation support
+In-Reply-To: <20250902-timsi-v2-2-a5bf0f32905b@baylibre.com>
+References: <20250902-timsi-v2-0-a5bf0f32905b@baylibre.com>
+ <20250902-timsi-v2-2-a5bf0f32905b@baylibre.com>
+Date: Wed, 03 Sep 2025 11:44:40 +0200
+Message-ID: <87cy87zx87.ffs@tglx>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <87tt1kpj4z.fsf@oracle.com>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_022725_182697_9D8D6515 
-X-CRM114-Status: GOOD (  23.74  )
+X-CRM114-CacheID: sfid-20250903_024446_757583_470C462A 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,73 +78,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 02, 2025 at 03:46:52PM -0700, Ankur Arora wrote:
-> Catalin Marinas <catalin.marinas@arm.com> writes:
-> > Can you have a go at poll_idle() to see how it would look like using
-> > this API? It doesn't necessarily mean we have to merge them all at once
-> > but it gives us a better idea of the suitability of the interface.
-> 
-> So, I've been testing with some version of the following:
-> 
-> diff --git a/drivers/cpuidle/poll_state.c b/drivers/cpuidle/poll_state.c
-> index 9b6d90a72601..361879396d0c 100644
-> --- a/drivers/cpuidle/poll_state.c
-> +++ b/drivers/cpuidle/poll_state.c
-> @@ -8,35 +8,25 @@
->  #include <linux/sched/clock.h>
->  #include <linux/sched/idle.h>
-> 
-> -#define POLL_IDLE_RELAX_COUNT	200
-> -
->  static int __cpuidle poll_idle(struct cpuidle_device *dev,
->  			       struct cpuidle_driver *drv, int index)
->  {
-> -	u64 time_start;
-> -
-> -	time_start = local_clock_noinstr();
-> +	unsigned long flags;
-> 
->  	dev->poll_time_limit = false;
-> 
->  	raw_local_irq_enable();
->  	if (!current_set_polling_and_test()) {
-> -		unsigned int loop_count = 0;
-> -		u64 limit;
-> +		u64 limit, time_end;
-> 
->  		limit = cpuidle_poll_time(drv, dev);
-> +		time_end = local_clock_noinstr() + limit;
-> 
-> -		while (!need_resched()) {
-> -			cpu_relax();
-> -			if (loop_count++ < POLL_IDLE_RELAX_COUNT)
-> -				continue;
-> +		flags = smp_cond_load_relaxed_timewait(&current_thread_info()->flags,
-> +						       VAL & _TIF_NEED_RESCHED,
-> +						       (local_clock_noinstr() >= time_end));
+On Tue, Sep 02 2025 at 16:43, Guillaume La Roque wrote:
+> Add module support to the TI SCI INTA MSI driver:
+> - Change Kconfig from bool to tristate to allow module compilation
+> - Add linux/module.h include for module functionality
+> - Add MODULE_LICENSE, MODULE_DESCRIPTION, and MODULE_AUTHOR macros
+>
+> This allows the driver to be compiled as a loadable kernel module
+> named ti_sci_inta_msi.
 
-It makes sense to have the non-strict comparison, though it changes the
-original behaviour slightly. Just mention it in the commit log.
+No objection per se, but looking at this "driver" just makes me
+cry. There is zero justification for this to be separate from the actual
+ti-sci-inta irq chip driver, which selects this monstrosity
+unconditionally.
 
-> 
-> -			loop_count = 0;
-> -			if (local_clock_noinstr() - time_start > limit) {
-> -				dev->poll_time_limit = true;
-> -				break;
-> -			}
-> -		}
-> +		dev->poll_time_limit = (local_clock_noinstr() >= time_end);
+All of this code can be moved into the irq chip driver and thereby
+consolidated to do the chip initialization and the domain fiddling in
+the related data structures instead of doing it programatically.
+Consolidating it reduces the number of exports and makes it one module.
 
-Could we do this instead and avoid another clock read:
+No?
 
-		dev->poll_time_limit = !(flags & _TIF_NEED_RESCHED);
+Thanks,
 
-In the original code, it made sense since it had to check the clock
-anyway and break the loop.
+        tglx
 
-When you repost, please include the rqspinlock and poll_idle changes as
-well to show how the interface is used.
 
--- 
-Catalin
+
+
 
