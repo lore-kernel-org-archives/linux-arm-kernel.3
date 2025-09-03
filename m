@@ -4,88 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 640D3CA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 08:25:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FEFFCA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 08:28:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IK5YoDRQ4t81y/D2uNEJ8djqA/NjXOv6ASwvdW3BTQ4=; b=1zGYyPBGvHNozADYzboH8QH7OE
-	o3myFO7PsislSpi0Jmd6vVNj3ijly/2BY9d33SbSf+dtqwAb5tTELXpQ8rQ7TFzxcBadmee1UccNd
-	1fPOLnBj01bUtRGcspQ/38bz8NqJZHfB9U4MQVJPCq4/g4rzaLev8ySz6lQ1lQ5DgXBdgh+45wwTK
-	Q7tyg8pWzSfdAgnQ1kf1EJPH/XfPcMMItKTvsdoBcq12G3ZvTw1orJMEIoKqHeD+wJFjShrRAkHKG
-	sUeEN4q6/EX5Wo4rRiuRHxOTGUDdSRM5Yfr8S5erDvwN0qCe+PaOEUaN63jxQVeijyX2oIcyRg4wl
-	lFCn7BRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oTO3GWe6vWTxVF1nz0fRYpUGQk7A1HpUGiGkoFHYPaU=; b=bWF39rt4qCV3ii9z447bJhP4sE
+	Hbnph/cMf2/hn32C7CTDCj3uTj0+6Ek/6880gJK9oQ3eE+GRVhstNsaEWghNwnYiVudkPflidEWPb
+	4A8f44LLUiQhK063TSKi5Snxolb8pc5k/D38JsdHGB/bvGdv7QP5QEUW1MGpW8G7kwuPPvExfyP2u
+	mpLmL9uB7utSB4t/5iUv7wc0DHT86F5mGR7xwgYJY6fYIXAl5MfhPgQUg+LcIADgjG6EjFNcDDuGy
+	/75PRgCzvca+j5/6GCClgSexqTA5VOrwIXiYNb8VqywRFLkcBQMwDHUf0VEtPpUtXJeREwTQc7SB9
+	LGpHh63g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utio8-00000005XoR-0nps;
-	Wed, 03 Sep 2025 08:25:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1utiqr-00000005ZHj-1Hfg;
+	Wed, 03 Sep 2025 08:28:21 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uti5a-00000005BRl-2HbM;
-	Wed, 03 Sep 2025 07:39:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F2A0360233;
-	Wed,  3 Sep 2025 07:39:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EA52C4CEF0;
-	Wed,  3 Sep 2025 07:39:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756885169;
-	bh=nabVaKDp95bXX1pjLpK4nzWf1nseMWBruv5tgZaJBoA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qoDk0nl6DGMhrsb9Zero2GRf3mxlO2Zkmtca2Z/KeKD/A+oBDZ96dYcBPT94dwlkU
-	 f0DLzIj/ZwhCrb5B4tPNd/VVQsfYxVSV2/QOOMs9cLSO9APl7W8P7vIBAVhCCtvHGN
-	 Wtzw48LeMkWre+8zpgwv+Li+KmKBA5Y9dXQUwTFoIo9DK79zaqWKJYA9eeL0JZADFS
-	 qD9EiS0+jbqaNpPL+mO71C0U1WpdfN7z2meHxEAo+95mgjgwwldX3TLfUrljS59Nku
-	 X8Zz7gNiYLjBFpa/8drEj34cjLfh0bA/7FZxXieklmnEs9cQou/+e+pY9sOk2PlsS3
-	 SwaRwN9OWsD2w==
-Date: Wed, 3 Sep 2025 08:39:20 +0100
-From: Lee Jones <lee@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Benson Leung <bleung@chromium.org>,
-	Guenter Roeck <groeck@chromium.org>,
-	Tim Harvey <tharvey@gateworks.com>,
-	Michael Walle <mwalle@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Jean Delvare <jdelvare@suse.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Cheng-Yi Chiang <cychiang@chromium.org>,
-	Tzung-Bi Shih <tzungbi@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Tinghan Shen <tinghan.shen@mediatek.com>,
-	devicetree@vger.kernel.org, chrome-platform@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-hwmon@vger.kernel.org, linux-pwm@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org,
-	linux-watchdog@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Mathew McBride <matt@traverse.com.au>
-Subject: Re: (subset) [PATCH v2] dt-bindings: mfd: Move embedded controllers
- to own directory
-Message-ID: <20250903073920.GA2163762@google.com>
-References: <20250822075712.27314-2-krzysztof.kozlowski@linaro.org>
- <175682479961.2401991.17056649550187344851.b4-ty@kernel.org>
- <63e43445-ef5f-49b2-85c1-f85d95426d5d@kernel.org>
+	id 1uti5s-00000005BZE-0jnA
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 03 Sep 2025 07:39:49 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5835jZYh007176;
+	Wed, 3 Sep 2025 09:39:41 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	oTO3GWe6vWTxVF1nz0fRYpUGQk7A1HpUGiGkoFHYPaU=; b=f6PnfX052q4atmjA
+	4p3rG7NLg6nSAVvfPHh6OoDoJ9dtKFB0rFd47RkIdkqjqCCGJjNTrbpt4kg2J84U
+	pBnd95KHLWdfLW5pqkSEbZmPM8Cys06fUkwx6ech9Oc9DGwOBLwv4Ariy2xGfNPc
+	9jqReH9MmUyvD2HO+ValDs6G3mc1iSD94QBiqSQz/s/mdWrIBcThvxei/RxUlH76
+	1r3e7ySt4POeitq9b+NXlZTINueQH+OPaIYYAhULAZq/FiHjJN7cNvZUa1p5mFV2
+	lbaiHBVoulwpXub7Ej9idqGItDfO1fCXtNIxRRBhD3nHfWwZUd+GR6DTF0PWUlgO
+	AKhqoA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48upqkg5u3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 03 Sep 2025 09:39:41 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 8F4154002D;
+	Wed,  3 Sep 2025 09:38:53 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id C354029038A;
+	Wed,  3 Sep 2025 09:38:20 +0200 (CEST)
+Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 3 Sep
+ 2025 09:38:20 +0200
+Message-ID: <667a4a36-5b5a-4a45-9300-d0abd10d4b53@foss.st.com>
+Date: Wed, 3 Sep 2025 09:38:19 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <63e43445-ef5f-49b2-85c1-f85d95426d5d@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ARM: dts: stm32: stm32mp151c-plyaqm: Use correct
+ dai-format property
+To: Jihed Chaibi <jihed.chaibi.dev@gmail.com>, <mcoquelin.stm32@gmail.com>,
+        <robh@kernel.org>
+CC: <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <shuah@kernel.org>
+References: <20250830225115.303663-1-jihed.chaibi.dev@gmail.com>
+Content-Language: en-US
+From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+In-Reply-To: <20250830225115.303663-1-jihed.chaibi.dev@gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.79]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-03_04,2025-08-28_01,2025-03-28_01
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250903_003948_862773_952DD63D 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,23 +95,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 02 Sep 2025, Krzysztof Kozlowski wrote:
+Hi Jihed
 
-> On 02/09/2025 16:53, Lee Jones wrote:
-> >> [...]
-> > 
-> > Applied, thanks!
-> > 
-> > [1/1] dt-bindings: mfd: Move embedded controllers to own directory
-> >       commit: 152afab28f7659a4292c9f7d3324eaeb49a55b8b
+On 8/31/25 00:51, Jihed Chaibi wrote:
+> The stm32-i2s binding inherits from the standard audio-graph-port
+> schema for its 'port' subnode, audio-graph-port requires the use
+> of the 'dai-format' property. The stm32mp151c-plyaqm dts file was
+> using the non-standard name 'format'.
 > 
+> Correct the property name to 'dai-format' to fix the dtbs_check
+> validation error.
 > 
-> There was a v3 here:
+> Fixes: 9365fa46be358 ("ARM: dts: stm32: Add Plymovent AQM devicetree")
+> Signed-off-by: Jihed Chaibi <jihed.chaibi.dev@gmail.com>
+> ---
+>   arch/arm/boot/dts/st/stm32mp151c-plyaqm.dts | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> https://lore.kernel.org/r/20250825081201.9775-2-krzysztof.kozlowski@linaro.org/
+> diff --git a/arch/arm/boot/dts/st/stm32mp151c-plyaqm.dts b/arch/arm/boot/dts/st/stm32mp151c-plyaqm.dts
+> index 39a3211c613..55fe916740d 100644
+> --- a/arch/arm/boot/dts/st/stm32mp151c-plyaqm.dts
+> +++ b/arch/arm/boot/dts/st/stm32mp151c-plyaqm.dts
+> @@ -239,7 +239,7 @@ &i2s1 {
+>   
+>   	i2s1_port: port {
+>   		i2s1_endpoint: endpoint {
+> -			format = "i2s";
+> +			dai-format = "i2s";
+>   			mclk-fs = <256>;
+>   			remote-endpoint = <&codec_endpoint>;
+>   		};
 
-Drop this, applied that!
+Applied on stm32-next.
 
--- 
-Lee Jones [李琼斯]
+Thanks
+Alex
 
