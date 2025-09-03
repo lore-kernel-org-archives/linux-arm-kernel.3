@@ -4,95 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F078BCA1010
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 02:10:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56529CA1010
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 02:10:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Y9IdYr7ifwPo37nMqOKFyBDGthrrSK9O17//tYeYLvU=; b=mMkQ8Py4Gc1aJcScG7OwEBDhEs
-	2wUQbYA6sxqWmf0WNN6ujWg9qXm6u5B/w9MaPcg6C20oqUg+Dhi/wDUKhpyerryqrWey61dreVBSe
-	iFR3WzWjd68zn+G9EXxMP2XuJSIYmzNCR60K2T1fX8gnC1voBcoJkZue1/u1YPasPO2JtSy/gXNhb
-	vCVpRyz04aCHqRZmKheGbFQPTPbTzmC2u/cxUVJt45ElLE82eojJcEFk8R5r2ewAuATxhyRoju/7d
-	2UVjcFf8+gVrw7vTKoJQ5qvm2jsgcnk4wIpXpJY+LGH8vfJfLxWFdXIvj2kzS6X5i0NqPR4mU+cnG
-	tQkTfoiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f7GokxwbOlGyjsbY6T5hl1QcIglm1ALtBaQhk3TZ5Bc=; b=xIHp5SLZA45OhBsD2gBB3GRaG9
+	cJ6WX+ZBMJXw64C0mvrtNjYfesVfhSPZce6nleGiSGxMrKj4/1qeHM8hTWR0++o9VowaSolqor47U
+	dxDT3getjnmAnf1Fr0bCBkm2FINTnNobEsMVyAWA6ZB0XQpUAwPfIiz6fdBKyb1cjvRANtS1PNu1C
+	jwadEo+xNpCZf+xq9bRrHyTLfUHAMbes4FoWoB3k1MjK01batHONT3mFkhMXrTxbVu3lr076qdrh1
+	vM6hIpbjq4gpGrrQeMFWR+/3sLN6TNM+PLx81FJrXaGlz/Tvp8Bfl8O/9mKLr05/x58wv7nUUEa1T
+	n4U4+F6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utzR2-00000008FDT-123D;
-	Thu, 04 Sep 2025 02:10:48 +0000
-Received: from fhigh-b6-smtp.messagingengine.com ([202.12.124.157])
+	id 1utzR5-00000008FLO-2Bt2;
+	Thu, 04 Sep 2025 02:10:51 +0000
+Received: from mail-mw2nam12on2072a.outbound.protection.outlook.com ([2a01:111:f403:200a::72a] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utuwu-00000007fsD-1hyM
+	id 1utvC9-00000007hni-3hpU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 21:23:26 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id EA3DE7A00C5;
-	Wed,  3 Sep 2025 17:23:20 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Wed, 03 Sep 2025 17:23:21 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:message-id:mime-version:reply-to
-	:subject:subject:to:to; s=fm3; t=1756934600; x=1757021000; bh=Y9
-	IdYr7ifwPo37nMqOKFyBDGthrrSK9O17//tYeYLvU=; b=GneLnXY9/+o4MD0IMC
-	+WKedw1q9xGX72Zizi9Dsr3Z5Jz/HWGPoloI0m8IHKzAnildtayDa2YZPXhOaI4s
-	K8PH0T0M3uS1ib7xj57XeB+ILrqm0kGy8O9T9XOyE8kY8ieO4vLGJJGVVTwLulXz
-	BuFt5qMxJt7GtH0u7TbKGKJbawhx2yPQDeOCzvoZlSFD1nbaz3w6BZdgLNPH4uyr
-	Y1eazuEAL6gDJyC0ObW9+xkaYWUfPp6pBen0LUWldaT4JgNXpRUOSzWPm7jh0Vlr
-	5OBq72WwMnRqCqT0aR8DIaRuG0cGLohk8MVY3E/0a+3MNOcnvQoDMTghfzPYhPBz
-	6XIQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm1; t=1756934600; x=1757021000; bh=Y9IdYr7ifwPo37nMqOKFyBDGthrr
-	SK9O17//tYeYLvU=; b=bwiNL4tbdR3eWc7H6evEIScht00Fu0NUt/SJy6t8+2zu
-	BKMlJW69Fj/Hqvwqt+l/qlBdmOVbh6K7DRoKmRrBtJOv+aHO+IhSQI41b5U4u7UQ
-	pIeG/ja946jzidVbHBmioGuX7qB0I/mMZuGT6eFekxeUEa9LJ9rKf6v+43JbN0CZ
-	vly7PlLHzNoe+yS69IIKfpAceJzBvcNMvbJ0hqPjfNp4QLbxoRcsjhJAwVOvmgnZ
-	fT5mtv2wgTegGM0dDwR9SaPrEY7PD+jkZgjAkq5+uXrJ264j1xHxT7egBrPoG4tK
-	WhmKw8eYvMpMlp0X/yUjfQ6VpFDFaHPBVgPFXo3Axg==
-X-ME-Sender: <xms:yLG4aGE5XdympMWJvQjEbfzr4eKxY6jTdEXb_rdujwuw2q7FzAFCKg>
-    <xme:yLG4aHWwoOAPC--eOEP7Q8sel9JX-wsDPewlEeKS4kpnNJPHQ1N2Mt5SRt8VCT3Sy
-    Jb5e-2V69Ylglki-5k>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdegvddtucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceurghi
-    lhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurh
-    epofggfffhvfevkffutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhguuceuvghr
-    ghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvghrnhepud
-    elieegkeevueegtedtjedttdelgeehhfdvhfeuheethfduleffuddvueelveetnecuffho
-    mhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtnecurfgrrh
-    grmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthho
-    peegpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehtohhrvhgrlhgusheslhhinh
-    hugidqfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdq
-    khgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepsh
-    hotgeslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehlihhnuhigqdhkvghr
-    nhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:yLG4aCGYN4jYoFWWtgfahbc44OwWXeeyArsp1e5g-MI_lcQ2haYvhg>
-    <xmx:yLG4aO3-13G8Rr8QNDs3hRzCqG-YrnD57VIg0bpX2vrzozHRdlFOlg>
-    <xmx:yLG4aCmjHZZY1Ot0_Ji9_Wb9aAXBVSdpKNEsu_IItRMnnHFPHJFlxw>
-    <xmx:yLG4aG8LF7hofKozrmHJTGr69kAaDmfQRNdzkThfs1_oHgzYwVlZJA>
-    <xmx:yLG4aNFtmuKIdNHSZ2qH_mvJ1N-F5yUMD_CJGmVLbFc_u2VE9kATHcci>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 5F01C700065; Wed,  3 Sep 2025 17:23:20 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 03 Sep 2025 21:39:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vNbELYRg6MmSierK8wCoCc3UGVQAyiObvCImByhALu3Z4J7m4TEo+YRJU4lJ9I7L1Qb9Q7mgVXKTa8zLQTbnLW8/KrHJu/gmumObjZA0XvCiPLVnm5U/lBmhdgQFRz/FFv2p0ZWfxHG3mQsk/RFxWEYMDBlycXMjgUIK7AGhZH6Pvk1xtl/okFrt3Oi3g3aRFU7geTw9NlW8LESbmPMAxPaovTXZTNXT4JTqHqcY0UDHbu3PKjVLJs8oP8kQN1D/lSVT7fv5ruFlSOjAm4xWdD033Cq90IC8Ot2UKkumILTPOhOf570M8xeZ/H4jmTW52B+SIdQmn+zH/WDmGiJzAg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=f7GokxwbOlGyjsbY6T5hl1QcIglm1ALtBaQhk3TZ5Bc=;
+ b=NBPp/JIEm1Mm5XCbkDK4SmoixUrKariKsNIQCZPw4OX2ABby5WVJEBHvOtmZJ5/q6g+S4Ql4jpG9WbBZDkAZ8r+3e3tkV5mvjGNQsOJSQSkhkf3qvzG7G8GvPEXtOSs2UIW1Rz84e2j/8YT8sYRzcQTplxLN6dkdzfGQzvjWXdUVOs2axuwOmCyVKqs+Kkl9BPhOmJOUd3syqaB9Q5cvqsIFfSQGYud+/QcW+ss+eZ+g6a9GRqURqqP6JMZ9uPlCVKokGEmSUW3tW8gKJeXLdNWCgzynBse8ThDVNnG8Xi2Lai14VzofbiDo4hWJ/jdeCoE6csnTP4jkkXy517dfcg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=f7GokxwbOlGyjsbY6T5hl1QcIglm1ALtBaQhk3TZ5Bc=;
+ b=TAzaVAohK6fr6zPgtoqevIMjilnw/M9rVZ+gTYdu+3jvpVa3sydchgBhWPz86E/lP7G6cULh6HYrAbg/S/tKYBsJplArT7BUkx9Nk/8xQQvTJ8v1+AkSSWY45f94nm2rFB2U+AucO7+3qAhLQKP8wURNeAocmR2bURIVT9hBPrA=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from SA1PR01MB8179.prod.exchangelabs.com (2603:10b6:806:330::14) by
+ CH8PR01MB9456.prod.exchangelabs.com (2603:10b6:610:275::10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9094.17; Wed, 3 Sep 2025 21:38:51 +0000
+Received: from SA1PR01MB8179.prod.exchangelabs.com
+ ([fe80::8e54:8037:e941:a539]) by SA1PR01MB8179.prod.exchangelabs.com
+ ([fe80::8e54:8037:e941:a539%6]) with mapi id 15.20.9073.026; Wed, 3 Sep 2025
+ 21:38:51 +0000
+Message-ID: <cc8000c0-e457-4bfc-94de-aeeddacab23b@os.amperecomputing.com>
+Date: Wed, 3 Sep 2025 17:38:44 -0400
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] firmware: smccc: Fix Arm SMCCC SOC_ID name call
+To: Sudeep Holla <sudeep.holla@arm.com>,
+ Andre Przywara <andre.przywara@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250902172053.304911-1-andre.przywara@arm.com>
+ <20250903-great-savvy-bloodhound-38c1ca@sudeepholla>
+ <20250903-loutish-orangutan-of-experience-3dcfda@sudeepholla>
+Content-Language: en-US
+From: Paul Benoit <paul@os.amperecomputing.com>
+In-Reply-To: <20250903-loutish-orangutan-of-experience-3dcfda@sudeepholla>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SJ0PR13CA0105.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c5::20) To SA1PR01MB8179.prod.exchangelabs.com
+ (2603:10b6:806:330::14)
 MIME-Version: 1.0
-Date: Wed, 03 Sep 2025 23:21:19 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Linus Torvalds" <torvalds@linux-foundation.org>
-Cc: soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Message-Id: <0baf22fa-281e-4f56-a807-917152f0bc79@app.fastmail.com>
-Subject: [GIT PULL] soc: fixes for 6.17, part 2
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA1PR01MB8179:EE_|CH8PR01MB9456:EE_
+X-MS-Office365-Filtering-Correlation-Id: ffbbc7f6-e7fe-48b2-6fd0-08ddeb3245a9
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|52116014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZW50eWV3OTBrVHpjdE5lYkpaS1ZvMU56MW9nWGVlajlITEo5dTdIckFUS2JJ?=
+ =?utf-8?B?Zitjb0tqSVo0by9GWEgrTlJuRjZNcHc3NkNFQ3VVbVErZkFzdDZXdDlnMlNi?=
+ =?utf-8?B?TzMrV3IxNE1sZTVJSXpDZnpDaFdFaXpTY2JDaUt6cDJSblUwOCsvUS9rb1dx?=
+ =?utf-8?B?ZUlGRmhGRWJVWUVNNzdMNmVoWk1QbGVyWVNxelNvVjVGQUNnMTZQNEJaZ0xO?=
+ =?utf-8?B?Q3JsWWZPNXUwZXExMVF4Tjlia1plTk0vQ2ZLdjFNd0ljS0l4QVNnaUFZZFlU?=
+ =?utf-8?B?dmFKVmhIdC9TbHZmdmU5Qk1LRkhCdHZsa09JYXlFQU1rTDFKTGJxdmhzR2ZI?=
+ =?utf-8?B?Q0ZEVlRCYUx6UWJBc0dHZXlSbzBkMzlOQ1JhbkVOTllaN2UrZ0NHR1FOTmdx?=
+ =?utf-8?B?cmhpWUI2UHc2SGxPTDBsdkV1SVd2TEhYUUdOQ2NSUHpmbG53WDZHYjNpQVlq?=
+ =?utf-8?B?NldZSTlLUHA2NitZUVIyYW1jZW4vN2VCTDdudFRlcCtHdE52S2g3bmt0T013?=
+ =?utf-8?B?ZUJoSlNGWS9mRnF1UHhwazhHeHl6R3Y4REEycTBTQVNWRDdWS3Z6cE9OdDI0?=
+ =?utf-8?B?bzdqSWdPbjhLcG9DbVR5YTFxN2tpaDQ1YzBkVWFYcmJEaGZPeWtEK2dramxH?=
+ =?utf-8?B?TUVqQTZQZzBEUkY3N1c5TVZkNmZHeWZmVFlqaVBNWjVhd2xFbkxvK3dhNXI3?=
+ =?utf-8?B?ZTdkT0xxK0JRaVBRL081S1ZZRVd0b2Y4Nm5sWDhERDJva1Vvd25BWGtSWjNI?=
+ =?utf-8?B?bHhWRTBPZ1MzTDdrOHlzakpVZFJpR1VFUTFGYnhwOGYrRlFadi9GbW5Xd1Ry?=
+ =?utf-8?B?NzByY0RhTEJSaUdkcHF3Y21BZC9SN3RDQThQRitCWHVwcXQ4cnBxVkZ2dWJ6?=
+ =?utf-8?B?aCtDejR0bS9jaWVpNHhzMURSWEMrZ3lHWVppeStTK2RhNDFqcTFxWjV4eDB4?=
+ =?utf-8?B?ZHlUaXRJd1hPOEJ0eFhzVURITHpBS1pIN2VVQzFDV2JpWVVoRUd5aEVtbStN?=
+ =?utf-8?B?b2RSWUFQS0dkZURoRWJ3RXZPSU81SjdPQnE5Vno0RjRaRThYL0VhTy9KRTJ5?=
+ =?utf-8?B?OE43bW5UaWQxbjJFZUI0NWdJVVRFb2lVREZ2UnU2M01VcDh1ZnhyUG13NFV4?=
+ =?utf-8?B?Q0I4TmR1NTZnSjh5cnZKbzkzSzBrVFRGeWozMS9raGlMcmNPQU0za0ZuQmdo?=
+ =?utf-8?B?U1JJeDhwb3FZa2s4VGxLeW5lQ3pSa1pZZ1N6Y08rRWI0QUMrVVZ1bXg1cFNR?=
+ =?utf-8?B?ZDJ5VHVXTkJIWmNHeldkUmw5bTZpTHdJRUZxcjBWbXVaYjEzTFY0Mm9TVmIx?=
+ =?utf-8?B?bGU4cmozSFF0RHVEVjFrb0JkcVN2U2dMVVVIcEpRcWVMTGVtN2VOaVdzN3dL?=
+ =?utf-8?B?ZzMwckFSQ1ZMMU1ZcGZibFVpQUNtM2M2T0VWTDF1elhQNTRqeEFOUzkySmJm?=
+ =?utf-8?B?NEw4YVN3REpIcElLWUJQeHp0K3ZUWVhyQ25xbkhUam5wSUJsbjh4RGlTNVBy?=
+ =?utf-8?B?dzVwZ2pIczdncGtlUkNwdjdJRk4vQ05oT3ZTSlc1eWludnZlaDdCSVYyK25l?=
+ =?utf-8?B?U2tVVURvbzVLSXVGZlA1Rno1alkxY0lnUi9UOG1TbDJhTmhXb1FXb2VxZm5x?=
+ =?utf-8?B?MGhVWm5uNnlSM2RTMXo0VUdUck9sZUZVd3BURHB2Ky96OEpxL29UQUxmcFNM?=
+ =?utf-8?B?eEpJUDY1R1JtbzJDUFErUndldW5KSGRNS3JKRnpLT0RyWU5PSGg2cmNMZS84?=
+ =?utf-8?B?SjV2bUNOdmFOV3EzVW5ITHZOVXpZYjdCSXFSRmd4dnlIN3dveFQvc2d1blFQ?=
+ =?utf-8?B?RjJHTE9KdDBwVVp4dEEwY08xRE9xbXVRVE5sMlZDbk1CMXdXRis3NnQyWmJv?=
+ =?utf-8?B?RitMZnloeVFKZGZnbDJuVDB6VHBDMkFCSU9Jekg3VENPTW9KeHcwMEU2dWI5?=
+ =?utf-8?B?bE83UVdzbTNhNUFzeHU5SGRFWExiVjZ6aGNRRTBJV1hEQVpkb2hUbGt4R1FU?=
+ =?utf-8?B?MU12eHdMV013PT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR01MB8179.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(52116014)(366016)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WUJBUzlFblJkMmVVQ1RDOWJTcXQ2ekM4MFdOVmZuZ0xXR2RjTDkwSG55Ykx4?=
+ =?utf-8?B?cEg0ZUVCOVViek1mZWQzWGNGTlBYRXRLVzlTNE5FSkp2Kzd1cjljQW1HZFo1?=
+ =?utf-8?B?b2hacTdOa3ZUT3J0bDRwMWd2cE8vakVteTJJbmFhVVZWcDRlZEZ3TVVNL1pn?=
+ =?utf-8?B?ZFNyemJ2TVQ0VGN5RXhyMTh5ZS9UbDNXNHFRTVg4WkNPRGF1c0FWWUxTMno3?=
+ =?utf-8?B?UWFNaTh4NnQrc3FnM04zb1ZHVEdzeDMwd2VwQ054TGtlODlFOXQvM3BTRyti?=
+ =?utf-8?B?VFdrcWZhTDU3ZTU0TXZzM3hYYVA4cjFhRDlEbEZCOWdFZnhFV2dWWEpycXVM?=
+ =?utf-8?B?a3lMYUl4ZkhRWkJPVW84aDNxODhiOVdjaFRXUEs0WS9aZTZRS1pQK1JNZ2lh?=
+ =?utf-8?B?NHp2YTZSZEgxa3duMjBTMDQwVzhCOFZXNGdwVHlEVkFpQS9Ua1hQYlI0OGMz?=
+ =?utf-8?B?Y01IeHhsenA1VWlHSUdPWEtXaXlaNzlFU3RUWW1CVEtiNlYwL1BGamRqTUYv?=
+ =?utf-8?B?c01BSWxGN0lHZzhobUJqWDFYeWJjSVByQmRoTlNqY0dtZGNCU1pvNU9LYWFp?=
+ =?utf-8?B?eFNqZkZCMnJ6dzhqaXpNRThQQ0VCWEpKTFNHWEQ5d3R1ZW00U3AwM2R4Z3pl?=
+ =?utf-8?B?M0l1TGVUZ0IxajIwMW1HallPWmlQam1kNzBaSnFxbmdhYnQ0VUxhN3lwNU5L?=
+ =?utf-8?B?aExTVUZ3aTYwU3pKYU85WDRCTkd4TW5ZSFFtc2F0dzNxdldBbGZTeWVmcTVk?=
+ =?utf-8?B?ckFxdzhieXZNcStsY09UWWZtTm8rL25SMWdCNHhIQ210ZUVCUW5VL3g0c1VF?=
+ =?utf-8?B?bmlNcnFlU3NrN2R1NHhxT2dpN3lNOFZ2UndBWnluK1UzOU5icG8vd0NjRy9y?=
+ =?utf-8?B?VElPV2tBdmdySkMrRlpRZlM2TlZQWnFSa2RBbTRkYzZrK21McXo0V1NIQzly?=
+ =?utf-8?B?RkNES2VEZUFkRVJLSXVnK3piMDBVb3ZaMXNDajFKOXFOaDVFOGtVTlVOblcy?=
+ =?utf-8?B?Y3dua1V4b0E2dGdhOStUb2c2M0thcTF0MEFUa3Q3N0tlZ28yMis0YXY3QnA3?=
+ =?utf-8?B?MUlJc2VhZHA2ZUYrbnJCWWZRWnFpcEVnVldmd3lJbDQrdlVhczdOZWFjZkE5?=
+ =?utf-8?B?YjBMYWlhZTlNR3cxcjdWUUdpU2V5RFA0TjdkaDdMVXF5dVF1cjBGMHExd2Nw?=
+ =?utf-8?B?M3RRbnhRR0VEcmFoR3UvL1FHN3ZEZVhCNG1EN3p3c0Q4S2F6MVFmc1ptSzVU?=
+ =?utf-8?B?NDVrcXJuNm9ieFdMRDJrcU5HN1V5bFZoSTNLWi9idkhCVG5sV2NnUnZRanhN?=
+ =?utf-8?B?U2F1UUpEaVozQzRoMGhxQmxlNmVsUFBmb2hKUHNtaFI2Z0ZCMEQ3d2JSSE44?=
+ =?utf-8?B?bWI1SkZzOUFMREZib0Zsam95T1JlNlI1RmlkWlprUnBNdFVTdWxBREZqbVdL?=
+ =?utf-8?B?REdiWVRYcnNJelBhb1BvQnhiTDZwS2M5a2JOR0J4d2dBTlNJblAvejJPd05u?=
+ =?utf-8?B?TW5GZW0zQ05Oc1lwbU5ZblZsUkY3aXJPVzRmVHJXOFJ0b3FvYUh5N29QVGxF?=
+ =?utf-8?B?a3R5TGRicEJNYjV6TFNuakE5YVhuUkVWWGJmcGZyd0pHaktMSkxITEpMTEMr?=
+ =?utf-8?B?Q1NTam11TjU5ekg5eEhyd296WHdQb0ZGc1hnb1lMOXBuOHVVd0R3UUxGY2tI?=
+ =?utf-8?B?U2pVZGt4R013N1NlN2RUMGgySldhT0NWZUVPZkpLY2U1UE40cERzejhmcDEv?=
+ =?utf-8?B?aGtCeTIrRGlsbTNVOWZMMDg2T3plbVFBVFV5TUg2UGlzblRmeWR0b00vVHFQ?=
+ =?utf-8?B?L1pIbVVPbXpTT05nYjIxUExlYkFwTnBDNStqM0ErZ1ZReitDaENzZGJ5eHY3?=
+ =?utf-8?B?cGFaSnJLbG5PbWNMT2l5ZlJyRzBnYnhWSVJNRW1Pd2Nyd2lxQnh1YWhMcmhG?=
+ =?utf-8?B?QXdmSUhSbGpnZ2VYbE5pNmlLdUpBZm9PSmQ1cEE2R2dlWWkzaFhRVllQMkZE?=
+ =?utf-8?B?dlFWaXBRemlZbDRzN1lpTWQ1aDVEUnpydkxXRlNGUnJJQm82YVV2MEpzOGlu?=
+ =?utf-8?B?OUM3Zy9iVE5FREhKdUt5VmVyTFZicVA2NjZvUnlvM2l0SmJuYmMzUFB3MTVh?=
+ =?utf-8?B?WjZmdzlxQkNyakV3eVg1SW5FZnRxM2pXTk04L2VVT0hUcnVJdTh0S1JnRUZM?=
+ =?utf-8?Q?fEfQQeRWfXzOeKP5yi3hoi0=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ffbbc7f6-e7fe-48b2-6fd0-08ddeb3245a9
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR01MB8179.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2025 21:38:51.0980
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Qq2uvq8xgNuzJAvY8lav1KI6FYWnEeh9T7yHyQKTaZRhknC0a57GWLu58LElXRnCKnL2UKFW6RDNlB5xIU/ve3LIxVKwom3N1/f2SHQ3paw=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH8PR01MB9456
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_142324_961166_341EC844 
-X-CRM114-Status: GOOD (  15.91  )
+X-CRM114-CacheID: sfid-20250903_143909_924946_28B5017B 
+X-CRM114-Status: GOOD (  25.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,142 +182,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 1b237f190eb3d36f52dffe07a40b5eb210280e00:
+On 9/3/2025 10:49 AM, Sudeep Holla wrote:
+> On Wed, Sep 03, 2025 at 03:23:58PM +0100, Sudeep Holla wrote:
+>> On Tue, Sep 02, 2025 at 06:20:53PM +0100, Andre Przywara wrote:
+>>> Commit 5f9c23abc477 ("firmware: smccc: Support optional Arm SMCCC SOC_ID
+>>> name") introduced the SOC_ID name string call, which reports a human
+>>> readable string describing the SoC, as returned by firmware.
+>>> The SMCCC spec v1.6 describes this feature as AArch64 only, since we rely
+>>> on 8 characters to be transmitted per register. Consequently the SMCCC
+>>> call must use the AArch64 calling convention, which requires bit 30 of
+>>> the FID to be set. The spec is a bit confusing here, since it mentions
+>>> that in the parameter description ("2: SoC name (optionally implemented for
+>>> SMC64 calls, ..."), but still prints the FID explicitly as 0x80000002.
+>>> But as this FID is using the SMC32 calling convention (correct for the
+>>> other two calls), it will not match what mainline TF-A is expecting, so
+>>> any call would return NOT_SUPPORTED.
+>>>
+>>
+>> Good catch and I must admit I completely missed it inspite of discussing
+>> 32b vs 64b FID around the same time this was introduced.
+>>
+>>> Add a 64-bit version of the ARCH_SOC_ID FID macro, and use that for the
+>>> SoC name version of the call.
+>>>
+>>> Fixes: 5f9c23abc477 ("firmware: smccc: Support optional Arm SMCCC SOC_ID name")
+>>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>>> ---
+>>> Hi,
+>>>
+>>> as somewhat expected, this now fails on an Ampere machine, which
+>>> reported a string in /sys/devices/soc0/machine before, but is now missing
+>>> this file.
+>>> Any idea what's the best way to handle this? Let the code try the 32-bit
+>>> FID, when the 64-bit one fails? Or handle this as some kind of erratum?
+>>>
+>>
+>> Not sure about it yet. Erratum seems good option so that we can avoid
+>> others getting it wrong too as they might just run the kernel and be happy
+>> if the machine sysfs shows up as we decided to do fallback to 32b FID.
+>>
+>> I will start a discussion to get the spec updated and pushed out and see
+>> how that goes.
+>>
+>> The change itself looks good and happy to get it merged once we know
+>> what is the best approach(erratum vs fallback).
+>>
+> 
+> Looking at the SMCCC spec(DEN0028 v1.6 G Edition) ->
+> Section 7.4.6 Implementation responsibilities
+> 
+> If implemented, the firmware:
+> ...
+> • must not implement SoC_ID_type == 2 for SMC32.
+> • can optionally implement SoC_ID_type == 2 for SMC64 (Function ID 0xC000_0002),
+> ...
+> 
+> So Ampere is not spec conformant here and hence I prefer to handle it as
+> erratum. Hopefully we can use SOC_ID version and revision to keep the scope
+> of erratum confined to smallest set of platforms.
+> 
+> Paul,
+> 
+> Thoughts ?
+>
 
-  Linux 6.17-rc3 (2025-08-24 12:04:12 -0400)
+Am I correctly understanding that, if the SMC64 SOC_ID Name call fails,
+rather than an unconditional fallback to the SMC32 call, the SMC32
+fallback would only be occurring under the proposed erratum?
 
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.17-2
-
-for you to fetch changes up to 875691ceb8bd619de7791243b1cf6184ab534865:
-
-  Merge tag 'at91-fixes-6.17' of git://git.kernel.org/pub/scm/linux/kernel/git/at91/linux into arm/fixes (2025-09-03 23:02:54 +0200)
-
-----------------------------------------------------------------
-soc: fixes for 6.17, part 2
-
-These are mainly devicetree fixes for the rockchip and nxp platforms on
-arm64, addressing mistakes in the board and soc specific descriptions.
-In particular the newly added Rock 5T board required multiple bugfixes for
-PCIe and USB, while on the i.MX platform there are a number of regulator
-related fixes. The only other platforms with devicetree fixes are at91
-with a fixup for SD/MMC and a change to enable all the available UARTS
-on the Axiado reference board.
-
-Also on the at91 platform, a Kconfig change addresses a regression that
-stopped the DMA engine from working in 6.17-rc.
-
-Three drivers each have a simple bugfix, stopping incorrect behavior in
-op-tee firmware, the tee subsystem and the qualcomm mdt_loader.
-
-Two trivial MAINTAINERS file changes are needed to make sure that
-patches reach the correct maintainer, but don't change the actual
-responsibilities.
-
-----------------------------------------------------------------
-Arnd Bergmann (6):
-      Merge tag 'qcom-drivers-fixes-for-6.17' of https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux into arm/fixes
-      Merge tag 'tee-fixes-for-v6.17' of https://git.kernel.org/pub/scm/linux/kernel/git/jenswi/linux-tee into arm/fixes
-      Merge tag 'optee-typo-fix-for-v6.17' of https://git.kernel.org/pub/scm/linux/kernel/git/jenswi/linux-tee into arm/fixes
-      Merge tag 'imx-fixes-6.17' of https://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux into arm/fixes
-      Merge tag 'v6.17-rockchip-dtsfixes1' of git://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip into arm/fixes
-      Merge tag 'at91-fixes-6.17' of git://git.kernel.org/pub/scm/linux/kernel/git/at91/linux into arm/fixes
-
-Bjorn Andersson (1):
-      soc: qcom: mdt_loader: Deal with zero e_shentsize
-
-Chen-Yu Tsai (1):
-      arm64: dts: rockchip: Add supplies for eMMC on rk3588-orangepi-5
-
-Chukun Pan (1):
-      arm64: dts: rockchip: mark eeprom as read-only for Radxa E52C
-
-Haibo Chen (1):
-      arm64: dts: imx95-19x19-evk: correct the phy setting for flexcan1/2
-
-Harshit Shah (1):
-      arm64: dts: axiado: Add missing UART aliases
-
-Kaison Deng (1):
-      arm64: dts: rockchip: fix es8388 address on rk3588s-roc-pc
-
-Krzysztof Kozlowski (3):
-      ARM: dts: rockchip: Minor whitespace cleanup
-      arm64: dts: rockchip: Minor whitespace cleanup
-      arm64: dts: rockchip: Fix Bluetooth interrupts flag on Neardi LBA3368
-
-Marek Vasut (3):
-      arm64: dts: imx8mp: Fix missing microSD slot vqmmc on DH electronics i.MX8M Plus DHCOM
-      arm64: dts: imx8mp: Fix missing microSD slot vqmmc on Data Modul i.MX8M Plus eDM SBC
-      arm64: dts: imx95: Fix JPEG encoder node assigned clock
-
-Markus Niebel (2):
-      arm64: dts: imx8mp-tqma8mpql: fix LDO5 power off
-      arm64: dts: imx8mp-tqma8mpql: remove virtual 3.3V regulator
-
-Maud Spierings (1):
-      arm64: dts: rockchip: Fix the headphone detection on the orangepi 5 plus
-
-Nicolas Frattaroli (2):
-      arm64: dts: rockchip: fix USB on RADXA ROCK 5T
-      arm64: dts: rockchip: fix second M.2 slot on ROCK 5T
-
-Nobuhiro Iwamatsu (1):
-      MAINTAINERS: Update Nobuhiro Iwamatsu's email address
-
-Pei Xiao (2):
-      tee: fix NULL pointer dereference in tee_shm_put
-      tee: fix memory leak in tee_dyn_shm_alloc_helper
-
-Peter Robinson (2):
-      arm64: dts: rockchip: Add vcc-supply to SPI flash on rk3399-pinebook-pro
-      arm64: dts: rockchip: Add vcc-supply to SPI flash on Pinephone Pro
-
-Robert Marko (1):
-      ARM: at91: select ARCH_MICROCHIP
-
-Ryan Wanner (1):
-      ARM: dts: microchip: sama7d65: Force SDMMC Legacy mode
-
-Sebastian Reichel (2):
-      arm64: dts: rockchip: correct network description on Sige5
-      MAINTAINERS: exclude defconfig from ARM64 PORT
-
-Sungbae Yoo (1):
-      tee: optee: ffa: fix a typo of "optee_ffa_api_is_compatible"
-
- .mailmap                                           |  1 +
- MAINTAINERS                                        |  3 +-
- .../boot/dts/microchip/at91-sama7d65_curiosity.dts |  2 ++
- arch/arm/boot/dts/rockchip/rk3128-xpi-3128.dts     |  2 +-
- arch/arm/boot/dts/rockchip/rv1109-relfor-saib.dts  |  6 ++--
- arch/arm/mach-at91/Kconfig                         |  4 +++
- arch/arm64/boot/dts/axiado/ax3000-evk.dts          |  3 ++
- .../dts/freescale/imx8mp-data-modul-edm-sbc.dts    |  1 +
- .../arm64/boot/dts/freescale/imx8mp-dhcom-som.dtsi |  1 +
- .../freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts   | 13 ++++----
- .../dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts    | 13 ++++----
- .../arm64/boot/dts/freescale/imx8mp-tqma8mpql.dtsi | 31 +++++++++++++------
- arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts  | 10 +++----
- arch/arm64/boot/dts/freescale/imx95.dtsi           |  2 +-
- arch/arm64/boot/dts/rockchip/px30-pp1516.dtsi      |  8 ++---
- .../rockchip/px30-ringneck-haikou-video-demo.dtso  |  6 ++--
- .../boot/dts/rockchip/rk3308-sakurapi-rk3308b.dts  |  2 +-
- arch/arm64/boot/dts/rockchip/rk3368-lba3368.dts    |  2 +-
- .../boot/dts/rockchip/rk3399-pinebook-pro.dts      |  1 +
- .../boot/dts/rockchip/rk3399-pinephone-pro.dts     |  1 +
- .../rockchip/rk3399-puma-haikou-video-demo.dtso    |  6 ++--
- .../boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi  |  4 +--
- .../boot/dts/rockchip/rk3576-armsom-sige5.dts      |  5 +---
- arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts |  1 +
- .../boot/dts/rockchip/rk3588-orangepi-5-plus.dts   |  2 +-
- .../arm64/boot/dts/rockchip/rk3588-orangepi-5.dtsi |  2 ++
- arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts    | 35 ++++++++++++++++++++++
- arch/arm64/boot/dts/rockchip/rk3588j.dtsi          |  4 +--
- arch/arm64/boot/dts/rockchip/rk3588s-roc-pc.dts    |  4 +--
- drivers/soc/qcom/mdt_loader.c                      | 12 ++++----
- drivers/tee/optee/ffa_abi.c                        |  4 +--
- drivers/tee/tee_shm.c                              | 14 ++++++---
- 32 files changed, 139 insertions(+), 66 deletions(-)
+I brought this issue up at a weekly team meeting today, and I'll also be
+communicating with the Ampere Computing firmware team regarding this
+issue.
 
