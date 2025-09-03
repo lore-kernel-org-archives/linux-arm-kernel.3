@@ -4,94 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 187F3CA1013
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C98BCA1018
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 21:18:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sJgQ4wFgS+Q4c8sjFQ1HI1R30BLvBEm5k6Lw0ZflD58=; b=LiTbk+8O4souTLl1QAS+ZJAr5P
-	9soZiEMrtdZDwIotn2vxvZm6WOYNT4t7xRuGW8D41LzleFxWMjVw6eoPagl2pjD24x+5pWs9NX0C0
-	CyCV9ZELMOLuIz33z42b4uWHAJ+ix4X9oYrSwjgxesMbfJJiCPb8Cul5/F/WC5rz8cOO1RjPtCL/F
-	k2YBsboSjZqzmiga8vMUkCXIcl/Tl06Xdx4disKZvFSUSetYNf7VkRL9a8e/tqD/4s4wLvmzwsvgu
-	57PEAuWzdi+sVeUN86e04OoCh6+5nyU8VbZd+Xw/oHzyIRMinlw2XXK54BmnS/7R4Pw+5o+Frm8fy
-	jLp+zvKA==;
+	bh=tjKN0U25Br3FtvU+oCN6aTZaMOV6BZcMe11X4TvFP/M=; b=mvZIwF8JgIkDut5MEmhdlBS0aF
+	EaEtFu1ejz42r7Sf4zFdHM/k+C1Ag0NUhhI2xM/2iyBMlE6X1j2ntq2VNuo8sTxZu0H8HNVrIqssc
+	M5EA80WGs/n6PnJ2E9F9+nLaSE/2hfczpLcDP+GsL+jTEE3+gRdewPwpnSbDvxO9E2gCwDVGAeAYo
+	pxQdn7cR9H89LtYuftxzvvP1b/D15/mbFwa3S/nxv5Kmh7lhndIy5R14aGpp8lMxhZYmFSR++8mNU
+	2+/KLs5gMu+zj4/m6f0zi0kuvrUQut1HXBywMbdk1jdex+U9jX4UJG2W2uSrHad7XWh8JPHADJz58
+	fS7qEwRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uturn-00000007dWH-2IG2;
-	Wed, 03 Sep 2025 21:18:07 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uturi-00000007dQv-1E4P;
+	Wed, 03 Sep 2025 21:18:02 +0000
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utqQt-000000074mK-1LWA
+	id 1utq8K-000000071Re-1ulj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 16:34:05 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 583EMrHv014128;
-	Wed, 3 Sep 2025 18:33:54 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	sJgQ4wFgS+Q4c8sjFQ1HI1R30BLvBEm5k6Lw0ZflD58=; b=lQhwXFr1YA3vYFsB
-	zEywhbZtYavi123rwSnRHg/LdNbXMB1hUX9pim/k7svnF2laG1phu1TzK+36lh64
-	b4TGruJGG9evzDFBdnDPPgQjiLusbVYh0linc2EpPu3HsCuAWxRHfNxXDS6YRsh2
-	W/NVMeGGLB/XvQdPez4RzXVxxUcc3TFp5bE0DhDOLZEx93tRXp5SyciK9nAsfQty
-	TaE8wePCS5xM7igexFkTuC+HcQTwe0wQnZPZiKnEPisqaHjmNZlToYJfcqjnFTvU
-	quMwNmwdMeX3kcmfL4O7ouCIg7RDASYEhQXsUtmUx9V9JtP910fcSObpphS0BEvq
-	0ZYxIg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48vav2qr89-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 03 Sep 2025 18:33:54 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id A7DB140047;
-	Wed,  3 Sep 2025 18:32:44 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 2601E2B4B65;
-	Wed,  3 Sep 2025 18:31:31 +0200 (CEST)
-Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 3 Sep
- 2025 18:31:30 +0200
-Message-ID: <2e57454f-14fd-4d41-8753-2eac06f0597d@foss.st.com>
-Date: Wed, 3 Sep 2025 18:31:29 +0200
+	Wed, 03 Sep 2025 16:14:53 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-55f72452a8eso5000772e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Sep 2025 09:14:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756916091; x=1757520891; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tjKN0U25Br3FtvU+oCN6aTZaMOV6BZcMe11X4TvFP/M=;
+        b=oEfSGN/uCnxnp56xgy9ulj3SUSG4JzpmyrWxszlh5ZQNIiOcgtVMQDlAvl9Ll0hMQE
+         WGe8sgqbmQ3VyEr8q12qV5s4kTL6vovb+8rfyBDYWksVFc9QwdMQ99NdHjUOQuFodfdZ
+         oCr+wATnG6yL5zHS+4FKvm9kc4jphfd3kAY/ReJMsDfAbm0d3dhjvZHrImxLvuBY/cYs
+         nRXuM3eich4FMCDm5gOREc7BGMQYjbIEXgos2V07LJJojCihm0dMu6KaVyxrpOfTrrSt
+         7zUUySF2JIVAEwd43PuHzLGImzQAmDnXbWMn+gs2s6JR9Fjwly1YN+sn1TCcY/opD7S3
+         +/Pg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756916091; x=1757520891;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=tjKN0U25Br3FtvU+oCN6aTZaMOV6BZcMe11X4TvFP/M=;
+        b=WD6x3cfWUy3nQIzSrtHFeZQKqRsz8iw/P7ITZNJRUYM+9fZKbhK7z/PZsmB2PJS4DL
+         V3k0GTTChexLe10gFNSjtwwafNhWMzctNznZkdyVUpd/jVjgmE9pg+ERXW8p4Kxkevua
+         ib9uIRtHIB6SxkYISNieYwVfejjnqgUUTBppeVnJ0t+eqKPciXBQrq2yeHtzkB9znhIZ
+         KSTjGnjC4N2aKy3e4HcdjmQ7K2hmtKGx/tzLptSVRj89EYZM5cFu1KtxfmJRNi1VN1oh
+         lBGxIjbhENrt8lKyC9LP4ZEa1ZXAhYjDfpz9YgW9tuXIhzTFO7eB3mdKiaNlYDXwX1n2
+         +lNA==
+X-Forwarded-Encrypted: i=1; AJvYcCVoXpWox4GRvB60wiQyWboT8pKrDxGkIccTPl5xS5TuQ0dKD7wmP+pfcywlJlHTKcWppWylOKVO9yw54yiEqH6l@lists.infradead.org
+X-Gm-Message-State: AOJu0YyU8QE4050qvzzvIw44w1VidnvFFV0a3YbZv3XyKhSW+TbeKh2F
+	qQAXr9U7Vj2BCYw+3nCLN+2xCb5R+bF0YVPLBmnyPWNqPWcD6N0PRXKO5PONsOIyM+EjjyKQpOd
+	C1J3lCYxzn78Te/8F7ebODz9diK+RZs5Kp2RSB2SSWg==
+X-Gm-Gg: ASbGncsAJkw16KWMWYNWRWkt+kzGIGnZ4X7boVxrAW516IvkLdIkQk+PwJS5KI1dWAz
+	YtfLHfI8JQ9MLZxwO3lFbftBi1eZ2QsZi1N0piylw4dc5ddBcxxwW7iVN4n7Rx7Fd9+Xlj0G9Qa
+	qFemlyowe+PVmWHa7R7xzZxiCgYoguwZ1KWIpethPrRjoQrPg2zzJe+YURiLaFJ4NQmvI9cMoIV
+	IzVMFQwOHGRSGIriEhUaMxccfKlXneG3PikyVLj9Z/v/nyDTw==
+X-Google-Smtp-Source: AGHT+IEYSoT9PG8aDYwGOjTAyyVLf8UrHyR2tnQVPp7h/U/Zc10Xoq9OuXixYnOi9MZP7jxzk7HWZjPy8zIrFh00r+8=
+X-Received: by 2002:a19:6b18:0:b0:560:827f:9ff4 with SMTP id
+ 2adb3069b0e04-560827fa6eamr2023502e87.27.1756916090513; Wed, 03 Sep 2025
+ 09:14:50 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 0/8] Introduce HDP support for STM32MP platforms
-To: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>,
-        "Linus
- Walleij" <linus.walleij@linaro.org>,
-        Rob Herring <robh@kernel.org>,
-        "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        "Maxime Coquelin" <mcoquelin.stm32@gmail.com>,
-        Bartosz
- Golaszewski <brgl@bgdev.pl>,
-        Antonio Borneo <antonio.borneo@foss.st.com>,
-        =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>
-References: <20250711-hdp-upstream-v7-0-faeecf7aaee1@foss.st.com>
-Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20250711-hdp-upstream-v7-0-faeecf7aaee1@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-03_08,2025-08-28_01,2025-03-28_01
+References: <20250825-gpio-mmio-gpio-conv-v1-0-356b4b1d5110@linaro.org>
+ <20250825-gpio-mmio-gpio-conv-v1-7-356b4b1d5110@linaro.org>
+ <aLhie72v1T9Bw1vx@black.igk.intel.com> <aLhjOAttpdT--tW7@black.igk.intel.com>
+In-Reply-To: <aLhjOAttpdT--tW7@black.igk.intel.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Wed, 3 Sep 2025 18:14:39 +0200
+X-Gm-Features: Ac12FXxw2HgYwqaw48OzmEBdzdirvLd_j34-_oFlC6LOY6De-1zKdNxJynwFI20
+Message-ID: <CAMRc=McKc9PR-gDs5PtLJaibouwjm96Fiy37s_DC7_f_pdebpg@mail.gmail.com>
+Subject: Re: [PATCH RESEND 07/14] gpio: ts4800: use new generic GPIO chip API
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Yinbo Zhu <zhuyinbo@loongson.cn>, 
+	Hoan Tran <hoan@os.amperecomputing.com>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Yang Shen <shenyang39@huawei.com>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-unisoc@lists.infradead.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_093404_005701_20F1F9C1 
-X-CRM114-Status: GOOD (  16.18  )
+X-CRM114-CacheID: sfid-20250903_091452_497013_56060840 
+X-CRM114-Status: GOOD (  22.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,58 +101,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Clément
+On Wed, Sep 3, 2025 at 5:48=E2=80=AFPM Andy Shevchenko
+<andriy.shevchenko@intel.com> wrote:
+>
+> On Wed, Sep 03, 2025 at 05:44:59PM +0200, Andy Shevchenko wrote:
+> > On Mon, Aug 25, 2025 at 11:48:48AM +0200, Bartosz Golaszewski wrote:
+> > >
+> > > Convert the driver to using the new generic GPIO chip interfaces from
+> > > linux/gpio/generic.h.
+>
+> ...
+>
+> > > +   config =3D (typeof(config)){
+> >
+> > First of all, what's wrong with the pattern used in the kernel when we
+> > explicitly show the compound literal? Also we put a space before {.
+> >
+> > > +           .dev =3D dev,
+> > > +           .sz =3D 2,
+> > > +           .dat =3D base_addr + INPUT_REG_OFFSET,
+> > > +           .set =3D base_addr + OUTPUT_REG_OFFSET,
+> > > +           .dirout =3D base_addr + DIRECTION_REG_OFFSET,
+> > > +   };
+> > > +
+> > > +   retval =3D gpio_generic_chip_init(chip, &config);
+> > >     if (retval)
+> > > -           return dev_err_probe(dev, retval, "bgpio_init failed\n");
+> > > +           return dev_err_probe(dev, retval,
+> > > +                                "failed to initialize the generic GP=
+IO chip\n");
+> >
+> > Second, can't it all be hidden in the GPIOLIB just by passing the point=
+er to
+> > the above initialised structure? Yes, it will take a pointer space in G=
+PIO chip
+> > for all, but I think it will reduce the burden.
+>
+> Okay, it seems the motivation is to make it in align with, e.g., gpio-reg=
+map.
+> But why not simply convert the drivers to use gpio-regmap instead?
+>
 
-On 7/11/25 09:41, Clément Le Goffic wrote:
-> This patch series introduces the Hardware Debug Port (HDP) support for
-> STM32MP platforms.
-> 
-> It includes updates to the mmio gpio driver, the addition of device tree
-> bindings, the HDP driver, and updates to the device tree files for
-> STM32MP13, STM32MP15,
-> and STM32MP25 SoCs.
-> The series also updates the MAINTAINERS file to include myself as the
-> maintainer for the STM32 HDP driver and adds the necessary
-> pinmux configurations for HDP pins on STM32MP157C-DK2 as example.
-> 
-> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
-> ---
+Because the goal of this rework is removing the gpio-mmio fields out
+of struct gpio_chip and also I can't test this conversion
+functionally. Out of scope basically. But if you want to do the
+conversion, I'm absolutely open to it. :)
 
-...
-
-> 
-> ---
-> Clément Le Goffic (8):
->        dt-bindings: pinctrl: stm32: Introduce HDP
->        pinctrl: stm32: Introduce HDP driver
->        MAINTAINERS: add Clément Le Goffic as STM32 HDP maintainer
->        ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp13
->        ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp15
->        ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp25
->        ARM: dts: stm32: add alternate pinmux for HDP pin and add HDP pinctrl node
->        ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp157c-dk2 board
-> 
->   .../devicetree/bindings/pinctrl/st,stm32-hdp.yaml  | 187 ++++++
->   MAINTAINERS                                        |   6 +
->   arch/arm/boot/dts/st/stm32mp131.dtsi               |   7 +
->   arch/arm/boot/dts/st/stm32mp15-pinctrl.dtsi        |  25 +
->   arch/arm/boot/dts/st/stm32mp151.dtsi               |   7 +
->   arch/arm/boot/dts/st/stm32mp157c-dk2.dts           |   6 +
->   arch/arm64/boot/dts/st/stm32mp251.dtsi             |   7 +
->   drivers/pinctrl/stm32/Kconfig                      |  14 +
->   drivers/pinctrl/stm32/Makefile                     |   1 +
->   drivers/pinctrl/stm32/pinctrl-stm32-hdp.c          | 720 +++++++++++++++++++++
->   10 files changed, 980 insertions(+)
-> ---
-> base-commit: 31b6d25a25ac3fe4ee6092f2bf04a816e4b5b64a
-> change-id: 20250224-hdp-upstream-622e5da14a9f
-> 
-> Best regards,
-> --
-> Clément Le Goffic <clement.legoffic@foss.st.com>
-
-DT patches applied on stm32-next.
-
-Thanks.
-Alex
+Bart
 
