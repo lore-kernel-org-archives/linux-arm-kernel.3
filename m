@@ -4,112 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99E33CA1009
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 11:56:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99F43CA1009
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 11:59:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+DICLpeLEk5QfxI0uLHQeTK/2wiRnzmCNbLnrX8FqT8=; b=lC5Mna4gEATuP2kTrtIKLsrZCB
-	tjS5F4qxQoEBwtR4ZwiWIlbR08G5Bwjz0xngHRJXg2z5XS38rPRYE2rq2CpiyduI/kl2opfvh7AFC
-	PH5prr2VbEIfHQ0VF6R0VMDXMRomzcRodDTYK/pgwZsPQfLWRfvdo7KLith2nGKdSWitkYDIJeoxy
-	P6Q184MNlueeEpbwnrQeb8L00OtO2jbpWosGJvkf8y8ciUVJ3903tSYNyOyfYRIBnIERlnRL8m2+p
-	WN5qhL/jiMDPDjPQyz/soY70fmZ4SQsdPCBTSi1PBj7rX83USOuo1UwIgf5pp0XISG/AbupdPAlEy
-	KzRoK6Jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DEdmwPLHvbOsh4bwWxxStD0XvRblLCjIU1ccbSTvbCo=; b=inv1JOcy57i/f7+d+zHyiVITHN
+	6qddlqPg6wlcIMolHcBWQ/Rez4xW/sK8bUdzEUfsIuqomb+XNjohFbUoeciXRlPrFB9P2E//GqPJX
+	90IBoJ5e1VWnpXfd0iMGCupBrot6LLCGC4++2L/OJT53BUonLBnBs9GA9kjanpR5m4Zno+etuUTOg
+	xnePsekAfRq8zi2V79knXiocNt/aN4j5m7gOBemOK/ucJqHM3wqOWGa09OJ8U2xNAEhuBkjnxy+fK
+	M+K4VphlqJvRzipU9PFALSzLreWCCbuSAjgQJOKPuMXHyK6WAYDfE5kvCwHvhB92xakGnbHm5lM3Q
+	F1sLgRog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utm6U-00000006IVz-0dUw;
-	Wed, 03 Sep 2025 11:56:42 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utkwD-000000067kN-2ne6
+	id 1utm9B-00000006JBc-1CJN;
+	Wed, 03 Sep 2025 11:59:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1utkxj-0000000681d-2dX4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 10:42:02 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-55f76454f69so3366716e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Sep 2025 03:42:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756896120; x=1757500920; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+DICLpeLEk5QfxI0uLHQeTK/2wiRnzmCNbLnrX8FqT8=;
-        b=p+XORQPH36TrgLMWDVbrwsen8BB+w5xuA/wtxafIc9d+scSRXqNNP4ENq8jb7Ttofh
-         OL3nXm8vbUFbvRq52BmZJ++09XXGgLcEQGCUB84l+wAzLgoyIYi4txtLa3WCpOSuQyDp
-         J6xuD8mjZXCz1KFschKg4CN4SUPPtDKr8jxD48IjXB+5jYcvOLDirR66+o52ZuLRqiU+
-         1DHb0nR16I/zx42QMbsJS27lxAWhkaSxmiSI+6uC1kimQLZeCtohFXb00TKYBx+C7f5x
-         G6CLMo3/f1X+16EXzReCRXVm76VjJEAcuIFB38NQLMIg5sO6W32mEdxw2HwsitIDHqk3
-         mTWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756896120; x=1757500920;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+DICLpeLEk5QfxI0uLHQeTK/2wiRnzmCNbLnrX8FqT8=;
-        b=qT7fVvC0ABgUI23vPoEXhgNDDq2CPfl3dOlu9avITBXIYYiJRf7DkU5fy6TzAguF0s
-         NazdRzJaxTPDhgl1r/pj0GdJVcmrBwVjm88tWc6aIggWbSLFF87x/jSTu6/X5RBIziuD
-         9yoQGvEnXyHJ6xrokX6ym/qJV1brdqb83g/xqzvVv8cIuisgjGdFCddK+y/TvS9WVUY9
-         CuVzBDPEH9TeHV1aPoUn7p2esdKJpeKq/++KPaN43Ua7YBXSevNRDfaKLNzJgXDZmIQM
-         RSNOBJviAQF2FiYpsAMblaFwp2a3ZIlKH/zMOFL4WEmpxM3F5Z6Z59Mk34y0hu/wSQa5
-         R42Q==
-X-Forwarded-Encrypted: i=1; AJvYcCX/Q7DYcuphqd91H6PtU3ZVQc3c14+igXWeWd5MtxcHsvzhxALZaLEtJdPvVbeqacIjI1LbK8REA7Q8C//64f3R@lists.infradead.org
-X-Gm-Message-State: AOJu0YxoU8KwhS3xe+VhMvFAu1DJWdGqX7PNKatQr72MpSR+35fnWZuB
-	l6LjNG/c6tAoyHQLS8mZSLJ1uypHulfw07RfP64IfHP28gFQUt81pp/TxgRExWyeXvghXfOksle
-	biEhbNGbEMAI/VzfuHYvHv9pS2HKx4mst+Elb/x3Zkg==
-X-Gm-Gg: ASbGncsKiDyoUhML54bFmtAWb9cPS8KXfZGSRPVLbD1giOpeEBCjfy9DxgoAXKbTQO/
-	+GIfJSNWEVoxcyq8uYdsP5IM3pN7c/1kd8AsEycZ0t0W4viBSarMKCTH0W5o1sIJ8a5mY+SoQjV
-	pfp9dzSp5SJWAQEw5NAhXzOo8ZozjvKyZGv2Pa08Ado/rt46l18N97LntX+HaDBT0/rBkKaqwlp
-	MY+gBWMy0Vt42uO3ohcbKEgqrGVowqsYA/dKKY=
-X-Google-Smtp-Source: AGHT+IG+m7ivvcbSy5vEIztmUhS+t7hNv39lHZt0A7pC6ogTKWUtHExG+a5EtFY7oJjunqJek5PQQ93pvgc0Giy7D2Q=
-X-Received: by 2002:a05:6512:2447:b0:55f:6adb:b847 with SMTP id
- 2adb3069b0e04-55f708b1b9cmr3479644e87.13.1756896119817; Wed, 03 Sep 2025
- 03:41:59 -0700 (PDT)
+	Wed, 03 Sep 2025 10:43:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A0E321688;
+	Wed,  3 Sep 2025 03:43:24 -0700 (PDT)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0DDAD3F6A8;
+	Wed,  3 Sep 2025 03:43:28 -0700 (PDT)
+Date: Wed, 3 Sep 2025 11:43:09 +0100
+From: Dave Martin <Dave.Martin@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org,
+	oliver.upton@linux.dev, anshuman.khandual@arm.com, robh@kernel.org,
+	james.morse@arm.com, mark.rutland@arm.com, joey.gouly@arm.com,
+	ahmed.genidi@arm.com, kevin.brodsky@arm.com,
+	scott@os.amperecomputing.com, mbenes@suse.cz,
+	james.clark@linaro.org, frederic@kernel.org, rafael@kernel.org,
+	pavel@kernel.org, ryan.roberts@arm.com, suzuki.poulose@arm.com,
+	maz@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v4 2/5] arm64: initialise SCTLR2_ELx register at boot time
+Message-ID: <aLgbvWYeCr5l1MF6@e133380.arm.com>
+References: <20250821172408.2101870-1-yeoreum.yun@arm.com>
+ <20250821172408.2101870-3-yeoreum.yun@arm.com>
+ <aLW4A3rTcJvA0c+j@e133380.arm.com>
+ <aLXmCJOuxCHVXEYx@e129823.arm.com>
+ <aLbJeQf9LKXFTxzS@e133380.arm.com>
+ <aLbPjmy/ZYSd+wzA@e129823.arm.com>
 MIME-Version: 1.0
-References: <20250902-pinctrl-gpio-pinfuncs-v7-0-bb091daedc52@linaro.org>
- <20250902-pinctrl-gpio-pinfuncs-v7-16-bb091daedc52@linaro.org>
- <aLcBcjvMbrxoDYoC@smile.fi.intel.com> <CAMRc=MfcFMgkNqWNZV5o0NxkAvxBTjC3vv56Cr98n0R2CkxuPw@mail.gmail.com>
- <CAHp75VcgaqnDrPH27wxfgyK6zz4RAKJQB0r7G2vbTONTxkEzTw@mail.gmail.com>
- <CAMRc=MfhhX2NJ0fhhX8u+7=sdyUy0G27n7caGf9=TpHxUDJVxg@mail.gmail.com>
- <aLgW7J-j4nn0u8uo@smile.fi.intel.com> <CAMRc=MdA21fwnamymG6YhqBjKDso_nJs_4xefPNONQNfEcPHXA@mail.gmail.com>
- <aLgaoivmBUgoeO6B@smile.fi.intel.com>
-In-Reply-To: <aLgaoivmBUgoeO6B@smile.fi.intel.com>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Wed, 3 Sep 2025 12:41:48 +0200
-X-Gm-Features: Ac12FXzqWEtt2S2TE9mSxpi98I-TDCIBZvSibEo9i2pyKL48Vs1B0BzDGCeR2o4
-Message-ID: <CAMRc=Me84OX=UEmAXxmwE8oOH=1UBsyHe-7XmU0c8a2gG9JnCA@mail.gmail.com>
-Subject: Re: [PATCH v7 16/16] pinctrl: qcom: make the pinmuxing strict
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: Andy Shevchenko <andy.shevchenko@gmail.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Alexey Klimov <alexey.klimov@linaro.org>, Lorenzo Bianconi <lorenzo@kernel.org>, 
-	Sean Wang <sean.wang@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Paul Cercueil <paul@crapouillou.net>, Kees Cook <kees@kernel.org>, 
-	Andy Shevchenko <andy@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	David Hildenbrand <david@redhat.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, 
-	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
-	Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, NXP S32 Linux Team <s32@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Tony Lindgren <tony@atomide.com>, 
-	Haojian Zhuang <haojian.zhuang@linaro.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Mark Brown <broonie@kernel.org>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mips@vger.kernel.org, linux-hardening@vger.kernel.org, 
-	linux-mm@kvack.org, imx@lists.linux.dev, linux-omap@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aLbPjmy/ZYSd+wzA@e129823.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_034201_714018_39D8FF69 
-X-CRM114-Status: GOOD (  26.06  )
+X-CRM114-CacheID: sfid-20250903_034335_744176_C4A49071 
+X-CRM114-Status: GOOD (  42.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,57 +76,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 3, 2025 at 12:38=E2=80=AFPM Andy Shevchenko
-<andriy.shevchenko@intel.com> wrote:
->
-> On Wed, Sep 03, 2025 at 12:34:00PM +0200, Bartosz Golaszewski wrote:
-> > On Wed, Sep 3, 2025 at 12:22=E2=80=AFPM Andy Shevchenko
-> > <andriy.shevchenko@intel.com> wrote:
-> > > On Wed, Sep 03, 2025 at 09:33:34AM +0200, Bartosz Golaszewski wrote:
-> > > > On Tue, Sep 2, 2025 at 10:46=E2=80=AFPM Andy Shevchenko
-> > > > <andy.shevchenko@gmail.com> wrote:
-> > > > > On Tue, Sep 2, 2025 at 8:42=E2=80=AFPM Bartosz Golaszewski <brgl@=
-bgdev.pl> wrote:
-> > > > > > On Tue, Sep 2, 2025 at 4:38=E2=80=AFPM Andy Shevchenko
-> > > > > > <andriy.shevchenko@intel.com> wrote:
-> > > > > > > On Tue, Sep 02, 2025 at 01:59:25PM +0200, Bartosz Golaszewski=
- wrote:
->
-> ...
->
-> > > > > > > > The strict flag in struct pinmux_ops disallows the usage of=
- the same pin
-> > > > > > > > as a GPIO and for another function. Without it, a rouge use=
-r-space
-> > > > > > > > process with enough privileges (or even a buggy driver) can=
- request a
-> > > > > > > > used pin as GPIO and drive it, potentially confusing device=
-s or even
-> > > > > > > > crashing the system. Set it globally for all pinctrl-msm us=
-ers.
-> > > > > > >
-> > > > > > > How does this keep (or allow) I=C2=B2C generic recovery mecha=
-nism to work?
+Hi,
+
+On Tue, Sep 02, 2025 at 12:05:50PM +0100, Yeoreum Yun wrote:
+> Hi Dave,
+> 
+> [...]
+> 
+> > > > > diff --git a/arch/arm64/kernel/hyp-stub.S b/arch/arm64/kernel/hyp-stub.S
+> > > > > index 36e2d26b54f5..ac12f1b4f8e2 100644
+> > > > > --- a/arch/arm64/kernel/hyp-stub.S
+> > > > > +++ b/arch/arm64/kernel/hyp-stub.S
+> > > > > @@ -144,7 +144,17 @@ SYM_CODE_START_LOCAL(__finalise_el2)
+> > > > >
+> > > > >  .Lskip_indirection:
+> > > > >  .Lskip_tcr2:
+> > > > > +	mrs_s	x1, SYS_ID_AA64MMFR3_EL1
+> > > > > +	ubfx	x1, x1, #ID_AA64MMFR3_EL1_SCTLRX_SHIFT, #4
+> > > > > +	cbz	x1, .Lskip_sctlr2
+> > > > > +	mrs_s	x1, SYS_SCTLR2_EL12
+> > > > > +	msr_s	SYS_SCTLR2_EL1, x1
+> > > > >
+> > > > > +	// clean SCTLR2_EL1
+> > > > > +	mov_q	x1, INIT_SCTLR2_EL1
+> > > > > +	msr_s	SYS_SCTLR2_EL12, x1
 > > > >
-> > > > Anyway, what is your point? I don't think it has any impact on this=
-.
-> > >
-> > > If we have a group of pins that are marked as I=C2=B2C, and we want t=
-o use recovery
-> > > via GPIOs, would it be still possible to request as GPIO when control=
-ler driver
-> > > is in the strict mode?
-> >
-> > Yes, if you mark that function as a "GPIO" function in the pin
-> > controller driver.
->
-> How would it prevent from requesting from user space?
->
+> > > > I'm still not sure why we need to do this.  The code doesn't seem to
+> > > > clean up by the EL1 value of any other register -- or have I missed
+> > > > something?
+> > > >
+> > > > We have already switched to EL2, via the HVC call that jumped to
+> > > > __finalise_el2.  We won't run at EL1 again unless KVM starts a guest --
+> > > > but in that case, it's KVM's responsibility to set up the EL1 registers
+> > > > before handing control to the guest.
+> > > >
+> > > > In any case, is SCTLR2_EL1 ever set to anything except INIT_SCTLR2_EL1
+> > > > before we get here?
 
-It wouldn't, we don't discriminate between user-space and in-kernel
-GPIO users. A function either is a GPIO or isn't. Can you point me to
-the driver you're thinking about or is this a purely speculative
-question?
+[...]
 
-Bartosz
+> When I look at init_el2(), it returns to EL1 via:
+> 
+>   mov x0, #INIT_PSTATE_EL1
+>   msr spsr_el2, x0
+>   ...
+>   eret
+> 
+> In other words, from init_kernel_el() through finalise_el2(),
+> all system-register accesses are made at EL1 (i.e., SYS_REG_EL1).
+> During this period, it appears that only SCTLR_EL1 is modified,
+> so the code only needs to care about the accessed register — SCTLR_EL1.
+> 
+> That’s why SCTLR_EL1 is reinitialised at the end of finalise_el2().
+> Otherwise, the MMU bit might remain enabled, which could cause errors later
+> when launching a VM under VHE.
+> 
+> However, the idea behind this patch is to initialise SCTLR2_ELx
+> the same way as SCTLR_ELx.
+> I’m not sure whether SCTLR2_ELx is modified during this period.
+> If it is (now or in the future),
+> it should be cleared/reinitialised just like SCTLR_EL1.
+> 
+> This patch is based on the assumption that there may be modifications to
+> SCTLR2_ELx during this period. So it isn’t about other system registers;
+> it’s about the register actually used during this period.
+> 
+> Am I missing anything?
+> 
+> Thanks!
+> 
+> --
+> Sincerely,
+> Yeoreum Yun
+
+I think I missed the SCTLR_EL1 reset in the idmap code after the
+enter_vhe label.
+
+Actually, I'm not sure whether there is any architectural reason for
+setting SCTLR_EL1 to INIT_SCTLR_EL1_MMU_OFF here.  "for good measure"
+suggests that it felt like a good idea but there was no known reason
+for it.  The commit message for the original patch doesn't offer an
+explanation -- maybe Marc can remember.
+
+This might be a defence against speculative translation table walks
+using the EL1&0 regime (but the architecture says [RNRJPP]: "If an
+implementation is executing at EL3 or EL2, the PE is not permitted to
+use the registers associated with the EL1&0 translation regime to
+speculatively access memory or translation tables.")  So it shouldn't
+really matter, but in case buggy CPUs don't implement this rule
+properly it may be a good idea to turn the stage1 MMU off just in case.
+
+Since it's there, though, it probably does make sense to reinitialise
+SCTLR2_EL1 at the same time -- but can you move this so that it is next
+to the SCTLR_EL1 reinitialisation?  Otherwise, the purpose of
+reinitialising SCTLR2_EL1 is unclear.  It really should come under the
+same "for good measure" justification as the SCTLR_EL1 reset.
+
+
+However, I don't think this has anything to do with putting things into
+a clean state for VMs.  KVM defines the reset state for all the _EL1
+regs explicitly -- failing to do that would be a bug in KVM.
+
+(See arch/arm64/kvm/sys_regs.c : sys_reg_descs[], kvm_reset_sys_regs().)
+
+Cheers
+---Dave
 
