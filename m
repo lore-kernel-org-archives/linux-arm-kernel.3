@@ -4,66 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9787CA100C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 09:46:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EB82CA100C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 09:49:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fMwdJv+wJtqLW3chVUQ3IvOB2iB/ebloZFds4lrIsdE=; b=khaEVVDcajRT95J2HYyCc6LM0o
-	DHClgmyD+r3UDnXFpuorYN4ZL3Gw5umMtN2LvhWrPlbVo5DAPR0vetBS/UaZcv8A+GPkS4F9OTBe+
-	MfwfbEWjPd0N4bPeH8Woc0E0r+vBaHygtYwELavV0Meb2SZ26aNa41MAmNiOXNNCkte2QAwBFksf6
-	VSHEGW5bU7MRPj/McEbRpMbiBgJXoKUqpW5GYsG5uleNKMrnM095Fctc9eYN+PzcQppvKnoP08tGb
-	E+cI0famdXbtmN24XNBM+D1uAkrjGqZNAQRs3NXYMb/9fkxZV2copfn42HjHLUqnWBzteZ7SDtJKh
-	zyxmQIGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CbG/DgXgau78CIkI3+MQbjX+sYb7ZYtoUXtP9IbZlwA=; b=cgrlAizCX5l+UsfZE3zRxT3RV4
+	CKuqkfQpYf3Hg0Rc8ae6ChDvWjbieWsPV5Tq1q0x2KxNoBmAw3Yt1i2Yh/Dy3sd7DU9hAnLyoNOwH
+	47H11N7ktOtAvX4Xfl9Ajv2mxTG3fhNMI806jw8nAayjqmgiiafkBujT7gM2C+Vv405jhQUvFYlcI
+	mgL+uNJHm0PttlnmyfY+WErMzNm050zy+HXzNx9hGGTSexxUwmZAskzbS+wgXztGVLkeK26m2ESfV
+	YVZcIG0UlroOEA5eL+W1mXjAJXlqwJAXp+mtC8ptGs/pnQci9icSZ5PmcQqMqnGiYo38dKWxlbZ1I
+	/9yTv6eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utk4B-00000005yLC-0HTI;
-	Wed, 03 Sep 2025 09:46:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1utk6s-00000005z9Y-3rpk;
+	Wed, 03 Sep 2025 09:48:59 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utiXk-00000005QIS-0dxS
+	id 1utivt-00000005blY-12zn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 08:08:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D90F443260;
-	Wed,  3 Sep 2025 08:08:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3043BC4CEF0;
-	Wed,  3 Sep 2025 08:08:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756886915;
-	bh=EMAfKG5WztTKvDmx2+gKQZ2+1J1TvqlSW1ctnPEBHNQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=M3/uVeBTi+xK76sun7oUdvRHtu8uyW3MPEyCizLqysjXs1iW5jiL/JcrfwrkbIgVd
-	 0nUNFeChtEXOKMOL97pWuY8dSN/P2QETLkeXWbJd/5pk2B5/GR5ARwUBrbTi7cWOTx
-	 lAvQPQ+ei/Tvf0bXHK4aHI9Xv39IvpzNCO+/KN94l7IJHuB3gFzpahMkIyd0zCHK+A
-	 aScBW6MiGHRrmEeGmf/NHdwutn3oBvU7y9473mbov96FchaY0sx3YTa3neOMcr9vf6
-	 xFA6OU/eNYpYhJlHglbdWuKGzSd2kOFgLIRRf3QYPe7TORLMrGwjxYAikl5SCAFbx/
-	 qLhyjTTfwA7qw==
-Date: Wed, 3 Sep 2025 10:08:33 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Chen-Yu Tsai <wens@csie.org>, 
-	Samuel Holland <samuel@sholland.org>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	Mikhail Kalashnikov <iuncuim@gmail.com>
-Subject: Re: [PATCH 1/5] dt-bindings: clock: sun55i-a523-ccu: Add A523 CPU
- CCU clock controller
-Message-ID: <20250903-meticulous-didactic-degu-621fe0@kuoka>
-References: <20250903000910.4860-1-andre.przywara@arm.com>
- <20250903000910.4860-2-andre.przywara@arm.com>
+	Wed, 03 Sep 2025 08:33:34 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5838RtY8015449;
+	Wed, 3 Sep 2025 10:33:12 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	CbG/DgXgau78CIkI3+MQbjX+sYb7ZYtoUXtP9IbZlwA=; b=7quNYpbMIWXq5ZTh
+	UGu5GfZUH8lRpdGGUowWnlLGHmly1s9B/zQ2/ZzuvzxWf7TiwTCJbgBGSqNeA6ss
+	cF34z/PZVT/SPNX/kdyhGpPjmagnj+dD3mRaeOJskZS7sBu/6H9qo1Wz3CtNOlCq
+	dHarfBeyrSzZZrKizqtq7au1TC4H4F+iq7lz/2cWSsDJPeBlnJdyTWCFL8j6wFKb
+	sd8CiDkQzXlUCFpd3KMyufYtPVsTZssENKuAHDxIg20MvneLF5eB1Dr1mkT2g0/h
+	lbfASz1oqbrsyMqQIKPOxSIMTU/FXEFlG2PfwOzOVG07Ztcy3Bm1vNxu+VLRREbR
+	nuyIrw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48upqkgg2h-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 03 Sep 2025 10:33:12 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 3F7FB4002D;
+	Wed,  3 Sep 2025 10:32:03 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id AC4342BBC2D;
+	Wed,  3 Sep 2025 10:31:19 +0200 (CEST)
+Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 3 Sep
+ 2025 10:31:19 +0200
+Message-ID: <0dbcc59d-2797-4106-b247-9bd575c5de2c@foss.st.com>
+Date: Wed, 3 Sep 2025 10:31:18 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250903000910.4860-2-andre.przywara@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm: dts: stm32: Drop redundant status=okay
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        "Christoph Niedermaier" <cniedermaier@dh-electronics.com>,
+        Marek Vasut
+	<marex@denx.de>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <kernel@dh-electronics.com>
+References: <20250818143730.244379-2-krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+In-Reply-To: <20250818143730.244379-2-krzysztof.kozlowski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.79]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-03_05,2025-08-28_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_010836_242613_F37A1278 
-X-CRM114-Status: GOOD (  22.06  )
+X-CRM114-CacheID: sfid-20250903_013333_584287_6DB95F9E 
+X-CRM114-Status: UNSURE (   8.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,92 +102,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 03, 2025 at 01:09:06AM +0100, Andre Przywara wrote:
-> There are four clock controllers in the A523 SoC, but only three are
-> described in the DT binding so far.
+Hi
+
+On 8/18/25 16:37, Krzysztof Kozlowski wrote:
+> Device nodes are enabled by default, so remove confusing or duplicated
+> enabling of few nodes.  No practical impact, verified with dtx_diff.
 > 
-> Add a description for the CPU CCU, which provides separate clocks for
-> the two CPU clusters and the DSU interconnect.
-> 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 > ---
->  .../clock/allwinner,sun55i-a523-ccu.yaml      | 25 +++++++++++++++++++
->  .../dt-bindings/clock/sun55i-a523-cpu-ccu.h   | 13 ++++++++++
->  2 files changed, 38 insertions(+)
->  create mode 100644 include/dt-bindings/clock/sun55i-a523-cpu-ccu.h
+>   arch/arm/boot/dts/st/stm32mp157c-dk2.dts          | 2 --
+>   arch/arm/boot/dts/st/stm32mp157f-dk2.dts          | 2 --
+>   arch/arm/boot/dts/st/stm32mp15xx-dhcom-drc02.dtsi | 1 -
+>   arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2.dtsi  | 3 ---
+>   arch/arm/boot/dts/st/stm32mp15xx-dhcom-som.dtsi   | 2 --
+>   5 files changed, 10 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
-> index 1dbd92febc471..367d26800fd0d 100644
-> --- a/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
-> +++ b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
-> @@ -19,6 +19,7 @@ properties:
->    compatible:
->      enum:
->        - allwinner,sun55i-a523-ccu
-> +      - allwinner,sun55i-a523-cpu-ccu
->        - allwinner,sun55i-a523-mcu-ccu
->        - allwinner,sun55i-a523-r-ccu
->  
-> @@ -64,6 +65,30 @@ allOf:
->              - const: iosc
->              - const: losc-fanout
->  
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          enum:
-> +            - allwinner,sun55i-a523-cpu-ccu
-> +
-> +    then:
-> +      properties:
-> +        clocks:
-> +          items:
-> +            - description: High Frequency Oscillator (usually at 24MHz)
-> +            - description: Low Frequency Oscillator (usually at 32kHz)
-> +            - description: Internal Oscillator
-> +            - description: Peripherals PLL 0 (1200 MHz output)
-> +            - description: Peripherals PLL 0 (600 MHz output)
-> +
-> +        clock-names:
-> +          items:
-> +            - const: hosc
-> +            - const: losc
-> +            - const: iosc
-> +            - const: pll-periph0-2x
-> +            - const: pll-periph0-600m
-> +
->    - if:
->        properties:
->          compatible:
-> diff --git a/include/dt-bindings/clock/sun55i-a523-cpu-ccu.h b/include/dt-bindings/clock/sun55i-a523-cpu-ccu.h
-> new file mode 100644
-> index 0000000000000..042f2310f64de
-> --- /dev/null
-> +++ b/include/dt-bindings/clock/sun55i-a523-cpu-ccu.h
 
-Filename based on compatible.
+Applied on stm32-next.
 
-
-> @@ -0,0 +1,13 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
-> +/*
-> + * Copyright 2025 Arm Ltd.
-> + */
-> +
-> +#ifndef _DT_BINDINGS_CLK_SUN55I_A523_CPU_CCU_H_
-> +#define _DT_BINDINGS_CLK_SUN55I_A523_CPU_CCU_H_
-> +
-> +#define CLK_CPU_L		7
-> +#define CLK_CPU_DSU		8
-> +#define CLK_CPU_B		9
-
-I don't see the header being used by the driver and odd numbers (they
-should start from 0 or 1) suggest these are not bindings.
-
-Otherwise please explain in commit msg what exactly are you binding
-here.
-
-Best regards,
-Krzysztof
-
+thanks
+Alex
 
