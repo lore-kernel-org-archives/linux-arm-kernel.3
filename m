@@ -4,89 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49CABCA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 08:39:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 824D8CA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 08:42:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JclnwSMvldXNg3mzAIKsE19OGsHun7hVYkpQHQzEaGg=; b=sIP57MatKKuFuflysIjOWk/H7F
-	x8u83JxgwJqbvBw9NFcXjUgr4FlhX+hFArI5Sf28+WM0607l4ZQxCw4rLM1D8nXflfGr3dtmy4+nr
-	KdC76LO+kn2vaz6zedXpaFy1T2R1sCswTd9m/ImI5gECuJrRmCVwRzBT9Two3U0MSTvscsvbWDrET
-	29oTHZryukgRr12UNxe6Qi9XBDP4rjQc9P5baqa91otN+Nt7K9QgJvMtOac0bcB9XzZTwSxM0Htwi
-	1no1mTWrUxHNztUjJMQVKZfnVudlR9s1dqLuIulpFENItNJEIfSYSKc5g4rMOBiWxU8oVnHpLQahp
-	iadjnCnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FApP1W/k3dKMuicxqC1R55fg6lwlL7PNEPqG6Xm5msg=; b=L1FKwstePJpgylsFJaUggPiqur
+	LHszaDmfe8IzZj/p1AFRPBJsbtNESE093oTjnuRsY3unxiZFMDv1/7jBws7UypqGpfdCsY3rF32W+
+	cTmL9pQ4GdbDndtBuaf9yjR/uCxsYu5gs84OcwbHsxhX2n2dRh5vVE5+AWIt9i4i9+C4LCc5mS/AV
+	YocnY11DwrttmpWgrrEnty/3KOFtexCn0uuv0VQ+iXOybsCKrsIUAqC2MUx15BIEL+8HEjhXkHxnN
+	VHZ3xgeShv1hxWO6+Zuz42ukZ7czxfkjSmR8do2Gl5pjRm0U90znBkRjwf5L2MT0u6iYK63ywQEza
+	D4NT8C8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utj1e-00000005en0-0yss;
-	Wed, 03 Sep 2025 08:39:30 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1utj4L-00000005gFQ-24hr;
+	Wed, 03 Sep 2025 08:42:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utiEB-00000005FXG-2Zog
+	id 1utiFy-00000005GMn-3MZc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 07:48:25 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58376lcY022966;
-	Wed, 3 Sep 2025 09:48:15 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	JclnwSMvldXNg3mzAIKsE19OGsHun7hVYkpQHQzEaGg=; b=O3nFrIWCMqFeoPD+
-	GoHXZrTfbqsYitdNwTPnW4e1DXmCkb6S1MXA/EDCUuRVJVEj+OAaeWDr4xoVAW02
-	2xmMfdRgGlHd8M4e6RyeqQi/szE6kEIgNQ2STmdBfKqBmY2PNSIvjm0TQWiaoiKK
-	nHEeIrrxPtHB/WOH8MUpFkJ0kLxbmuH19keFnPUYwmIe2pVsAIGGvt/DybJkx+t/
-	TvjcsqMlW25zZX35sdFPogsXzYn0YPgWGELkfkBPYJB3hLzDMBLCB1F0y2DBAytI
-	B3gN7L+Ey7YWQyOsvKTIE+AiMrmfERn9VLt/mxakGMarya/EtVIlaU5646XHqJYS
-	BrXCBQ==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48urmxfmrt-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 03 Sep 2025 09:48:15 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id A372840046;
-	Wed,  3 Sep 2025 09:47:20 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 4935329039A;
-	Wed,  3 Sep 2025 09:46:48 +0200 (CEST)
-Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 3 Sep
- 2025 09:46:47 +0200
-Message-ID: <7cf42f82-5f90-47a7-8308-5f0c34f3fa1d@foss.st.com>
-Date: Wed, 3 Sep 2025 09:46:47 +0200
+	Wed, 03 Sep 2025 07:50:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 41B9B6013B;
+	Wed,  3 Sep 2025 07:50:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBEC7C4CEF0;
+	Wed,  3 Sep 2025 07:50:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756885813;
+	bh=5akVTFofggby9D3NroVdSFslNTvcjqv8xij7f8QA1t8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CgQJrgQbFSIpsGJz3v4UQ/I4zcdTTIQxNXa0T3A6+MC/W3X4Ly4UVjMwGXYg8FJiK
+	 1JBzpl1daPS8nag5vkVFH0i9U+rfh5uSszNxuV7cy0Lg8W83JP+z6W1ScHxc0g12WD
+	 qTNu2dOprqyF+eqWLi479M6GiHMDvMSKRPjo4pXraKRoeKSgpzrf8FvTuGQU/RJPXI
+	 zTPRbgFFopyqFE+kqXfiiwWvJ/w7h7ihBAZYvsGo79/qZQyT9+uNIt1FAXWKr6XnSI
+	 8IRIkmL9uj/4fcCbF3DjWWp1A0Io+CQIkD9RryGxYZ7CevkiOWp5cU+Bkj2obEZN1Y
+	 sPdQ2YMgVsisA==
+Date: Wed, 3 Sep 2025 13:20:04 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Bjorn Helgaas <helgaas@kernel.org>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Jan Palus <jpalus@fastmail.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, regressions@lists.linux.dev
+Subject: Re: [Bug 220479] New: [regression 6.16] mvebu: no pci devices
+ detected on turris omnia
+Message-ID: <fi257eqhpzxp245g5vab3ttth5kuiuwpk7dsyhnoxo4sjlq535@fgpwb442eeek>
+References: <bug-220479-41252@https.bugzilla.kernel.org/>
+ <20250820184603.GA633069@bhelgaas>
+ <20250902203226.u4i43vygl4bl2dqa@pali>
+ <CAL_Jsq+cytAQAtSB7VjR8oKrXJJSSrOouKQZYQAWNvu+tStTnA@mail.gmail.com>
+ <20250903073558.6v2d7q6n6hm2vv3a@pali>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: dts: stm32: Minor whitespace cleanup
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        =?UTF-8?B?R29yYW4gUmHEkWVub3ZpxIc=?= <goran.radni@gmail.com>,
-        =?UTF-8?B?QsO2cmdlIFN0csO8bXBmZWw=?= <boerge.struempfel@gmail.com>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20250819131707.86657-3-krzysztof.kozlowski@linaro.org>
- <20250819131707.86657-4-krzysztof.kozlowski@linaro.org>
-Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20250819131707.86657-4-krzysztof.kozlowski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-03_04,2025-08-28_01,2025-03-28_01
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_004823_947122_ACADEB1C 
-X-CRM114-Status: GOOD (  13.14  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250903073558.6v2d7q6n6hm2vv3a@pali>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,42 +75,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
-
-On 8/19/25 15:17, Krzysztof Kozlowski wrote:
-> The DTS code coding style expects exactly one space around '='
-> character.
+On Wed, Sep 03, 2025 at 09:35:58AM GMT, Pali Rohár wrote:
+> On Tuesday 02 September 2025 20:35:14 Rob Herring wrote:
+> > On Tue, Sep 2, 2025 at 3:32 PM Pali Rohár <pali@kernel.org> wrote:
+> > >
+> > > These issues have been discussed more times for last 3 years.
+> > > Tested changes which are fixing real bugs and are improving the
+> > > pci-mvebu.c driver from people listed as M: in MAINTAINERS are being
+> > > rejected or silently ignored. And untested changes which are not going
+> > > to fix any bug are being accepted and causing new regressions. People
+> > > then reporting bug reports to M: people who cannot do anything with it.
+> > > The only advice which they can get is to not use mainline kernel.
+> > > This pci-mvebu.c driver in mainline kernel is broken and nobody wanted
+> > > to do anything with this situation for last 3 years, I was pointing for
+> > > it more times. Due to this I'm ignoring bug reports for pci-mvebu.c
+> > > driver for mainline kernel.
+> > 
+> > This makes no sense. Mainline is broken, but yet there's a regression
+> > in mainline breaking the driver. The pci-mvebu.c maintainers have the
+> > ability to test patches, but refuse to test any submitted patches
+> > other than their own. I guess the only solution here is just remove
+> > the driver...
+> > 
+> > Rob
 > 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> ---
->   arch/arm64/boot/dts/st/stm32mp257f-ev1.dts | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
+> This is not the way how to get patches being tested. Ignoring other
+> people and taking untested patches because you did not wanted to
+> communicate with maintainers. I have no reason to test other patches if
+> my own are being ignored. This is fair. In past I spent lot of time on
+> addressing issues in this driver, preparing fixes for real bugs and
+> whole time was wasted. And if you expected that it would work in that,
+> then go ahead and do it, remove the driver.
 > 
-> diff --git a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-> index 836b1958ce65..4ff334563599 100644
-> --- a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-> +++ b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-> @@ -100,7 +100,7 @@ &combophy {
->   };
->   
->   &csi {
-> -	vdd-supply =  <&scmi_vddcore>;
-> +	vdd-supply = <&scmi_vddcore>;
->   	vdda18-supply = <&scmi_v1v8>;
->   	status = "okay";
->   	ports {
-> @@ -151,7 +151,7 @@ phy0_eth2: ethernet-phy@1 {
->   			reg = <1>;
->   			reset-assert-us = <10000>;
->   			reset-deassert-us = <300>;
-> -			reset-gpios =  <&gpiog 6 GPIO_ACTIVE_LOW>;
-> +			reset-gpios = <&gpiog 6 GPIO_ACTIVE_LOW>;
->   		};
->   	};
->   };
 
-ARM & arm64 patches applied on stm32-next.
+Pali, as I communicated earlier, please send your fixes again and I'll try to
+get them merged if we do not have any blocking reasons and the patches make
+sense. I do not know what happened earlier with your patches and that's
+irrelevant for me.
 
-regards
-alex
+But if none of the other mainainters oppose your changes (IRQ in specific),
+there are no reasons to not merge them IMO. But if there are concerns, then it
+is your job to address them.
+
+That being said, if you do not want to send them again and the driver continues
+to being untested in mainline, we may need to mark it as Orphan/Obsolete and get
+it removed later.
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
