@@ -4,79 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEC6ECA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 21:18:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0192CCA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 21:18:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fLuqSAPV5wSjtTIGF/DwaJYWgJhPU9kjtRiI0sYj4qA=; b=U+19P7OqLrgRSO11TZs9go4GiK
-	PJZg4A5AK1DP9A20nuuNQ9ZIg2RyqTk88B82XvgPT0WBFToVswvD7/dPdODOIgUoxAaaddWDzO+iS
-	XeF/rfIwALZq8hcWpr1pp4aa6e7A7wI7r6x6iQ/X7dUWZj9lLcgJDY4rBWgKLk89/jvVI7BLjT3RA
-	LQCmquZZBw3mlYULZy9zIKJGMHU+i666p8UQ0MM9LmTx3mTuWGsgatCQNFpPEJgLIHOopGOANGvOs
-	Qzi5PZ0R0XqCxWVmqqkVtK6XAlkOD4+UsoD+U15P4Asrg4PzlvGMjQ1pS2pdkOyBEXL36AKIpt/It
-	jrGnZ1dg==;
+	bh=JnuUgpoxqT/R2cHiZvXGYBC70wBbE5DG9KP+Z3Sy5do=; b=OVQaTyhS/RC/FB6HWgpi7eTFb7
+	puXCVMJfuVIiQie9MvA+h9pptCjPjFZkputQfPcYQYwZL4+OV5ioAR53U8s3O8K4vj/8pDE+XiZFl
+	F/xjVmGDSKwdTrUA0WkWzpzYvg5nIhdJaVUOdJ5bdybLPPoQdevSove7GIdIfXVRdP7Hstl77wlLT
+	cb/FjKLHq8KQBYd1QfshlP3tXasl7dr2LmKYgsKiQAh0j6YVeVetDal31aKeeT+B02BNl3ikb1NwP
+	7QPeKNcVT0aPL/bq8OHpTsHzLQoXLo4H7LIrPe0BpZtZ3m6Cz6bXJnWDJm5ZFrkGPZ7fhTk6yJIjV
+	sdigRnyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uturq-00000007dYZ-2fyA;
-	Wed, 03 Sep 2025 21:18:10 +0000
-Received: from mout.web.de ([212.227.15.14])
+	id 1uturj-00000007dRe-0HpM;
+	Wed, 03 Sep 2025 21:18:03 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utr0R-000000078rG-2wQc
+	id 1utq9p-000000071i5-3aec
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 17:10:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1756919445; x=1757524245; i=markus.elfring@web.de;
-	bh=fLuqSAPV5wSjtTIGF/DwaJYWgJhPU9kjtRiI0sYj4qA=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=vIhii5/48wKnO7kk+EdTsvr0h7gM6WBi0u8ZNthQ2V7hJpe8Xb/UGc9wONZ+Znaf
-	 7Pkgd2pj8wBjABmxZLyBdB7XyTILnLnulobFG2Xgr+GdVa344ok4HMZnZaNk7HDAJ
-	 u6rVoDFi65C+LC/f+YANqbsLjBM8dLxsKfWje1t9yO4Q90h1bzSvOMKYLwhTjUQGZ
-	 t3Hjey+a06NDLymStucaTUUyQ8lrLDJ3tLu4Tvu/fISr2YcK5HgvnWDVZEj24fEv8
-	 viPZRnoe4GUEyxrxLCPlCrJfpGgil7jjRivjQOe/+HJ3whQ7LMEbSZpBa2ZOJSwZl
-	 ygWfdbUWI4qegE4fXA==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.92.225]) by smtp.web.de (mrweb005
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1N9cLR-1uQRcm0FqX-00xN5X; Wed, 03
- Sep 2025 19:10:45 +0200
-Message-ID: <14f774db-2f44-49f3-bb02-7d4033675b04@web.de>
-Date: Wed, 3 Sep 2025 19:10:43 +0200
+	Wed, 03 Sep 2025 16:16:27 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-55f7ad815ceso3845084e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Sep 2025 09:16:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756916184; x=1757520984; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JnuUgpoxqT/R2cHiZvXGYBC70wBbE5DG9KP+Z3Sy5do=;
+        b=qvEQ52VJAC/1q40CQBY4VZj2FWU9SuV/G581hin6+ijWgrOcpe59r8e07WeB8zeel8
+         7jUzUNw5Jlw+obdj3NP28iwKErlnxK31tUciYCfWO6UT8WReKLuxuB2wM77hjBxbtayg
+         DZVFV+sDJi94/UWX6pE39rpm7dvOeYKtYu600x/sbu6gyprz6zROB37DwOQnrTswzo34
+         HkV7+JChEp/SU+3Frla44OCGv93A8lSUn3KoQFeET0NOgkR+l7BAoSeXED1l49nx4YsA
+         L0LmKT1GEP6WosEjp0X8GN3k6cRxynjHbPetHIApBPayg1ziphKdwCbdKnMNdWKZJLtL
+         Mgmw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756916184; x=1757520984;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=JnuUgpoxqT/R2cHiZvXGYBC70wBbE5DG9KP+Z3Sy5do=;
+        b=ETqsItl/Bo8fb0bhz0djBxOTeJKiopHR2Uu8TxiUMyw96fDmwcFQi0Y0Zniw8YaKdz
+         JIljg2yPVM/dW6Ivp2sQOI0QXcecSa3EdfHpJ+Jn7i0j8k6cSkpHBQUQuGce6cNuNukF
+         XsAGUEG9z6oYBjjMycv4XT1wSat2OdeYq2uTjxTFk6PnhqnBgmbd7L7JGZ7TXreXu5kT
+         WT09BGNcdCtbWUIIsCQ+oO2GrJ24ivs4w3pNDhSQ8sSZiSQhJMzA74w+MXHjDVLRd5L4
+         +zrLj9wdon79+9qXTELvq3k1aGxzqZvM/GeMIQjIJ28STScSle2PWO15hRh5mTp/kThx
+         fd4g==
+X-Forwarded-Encrypted: i=1; AJvYcCXDCj/Y3m5uTdm+w+B6WOGd3eg07wIubKomgrgeSTOe2+zt8LayzlB82OWVatBKVEhE7KcnXuhNxvhLBiMrcrS9@lists.infradead.org
+X-Gm-Message-State: AOJu0YzuMqbzdq/k6Ufgkru+JF9CkbHR/n8oxicpK0aLMrjA/wtzy0M2
+	KSuK91IdlgpQXB//BpzhrkmzDVNI4nUaDKLwYmrUvmwYj7sONHzM4b3eD/ZEmUPxheSDZK50BWL
+	8EWsFsBa8VNOnENK2/ao5MBYAZ7rMikERGp47+cMZcw==
+X-Gm-Gg: ASbGncsCjC/3SkkkLsL+G4GcoE1Zn+hZikKN9X61uWhSMIDA3afUxlqECRnsudAIghT
+	l8Rz5ZXC6VCckA55N/gRKkzEAXsNTpWa7C9H1wP178dbWlrzOtRefQskxGejEaQgANKZfW6SMqZ
+	IDLG9FgfHVj3W2A+6Bb4u0/e+8oI4N7cDeYaIpwo4t6qzuXhB8vLZ9lF543/Vvi2V/NI5p/wK6s
+	L8BBT6esCzKLx7UhyF0Nb6DVozvP7b4QDngfgM3Jr7pqKnHrA==
+X-Google-Smtp-Source: AGHT+IETvnuci7NX/iSfBNiVm70fb0ED1MLT3AMRYWYzaOQPVbLN1BKnBTrWBjGhb7WJoLmVGbMIstEEvAOjYxu1SWQ=
+X-Received: by 2002:a05:6512:4608:b0:55f:639b:8057 with SMTP id
+ 2adb3069b0e04-55f708b33b2mr4219335e87.4.1756916183991; Wed, 03 Sep 2025
+ 09:16:23 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Miaoqian Lin <linmq006@gmail.com>, imx@lists.linux.dev,
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kernel@pengutronix.de
-Cc: stable@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Fabio Estevam <festevam@gmail.com>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Lucas Stach <l.stach@pengutronix.de>, Manivannan Sadhasivam
- <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Richard Zhu <hongxing.zhu@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Shawn Guo <shawnguo@kernel.org>, Trent Piepho <tpiepho@impinj.com>
-References: <20250903135150.2527259-1-linmq006@gmail.com>
-Subject: Re: [PATCH] PCI: imx: fix device node reference leak in
- imx_pcie_probe
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20250903135150.2527259-1-linmq006@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Provags-ID: V03:K1:jogpiOwnRJCCSx9ze+nNG+5f9IS3la51icG7IOx8k1elYl1/Q36
- tbh4XXjVbwMkhTlGHlLodny7Rp+bpEL4ehP1xCR6Qz3G2bXKMzoxbm3sEgJUksnJJ1C7KHl
- Heov7yDl/uuoGD67Os9DqAEg64REeokQUq4/P89E50lXArsJ+i7Af+KyNPd7Mhz0NqBvVGs
- m9jfntakm461kj4FnSGgQ==
-UI-OutboundReport: notjunk:1;M01:P0:JwLOkV3kG50=;lxX1e4gktR2E3a+91vB57R/y3O4 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
+References: <20250825-gpio-mmio-gpio-conv-v1-0-356b4b1d5110@linaro.org>
+ <20250825-gpio-mmio-gpio-conv-v1-9-356b4b1d5110@linaro.org> <aLhj6xsR-NepfRx0@black.igk.intel.com>
+In-Reply-To: <aLhj6xsR-NepfRx0@black.igk.intel.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Wed, 3 Sep 2025 18:16:12 +0200
+X-Gm-Features: Ac12FXy4hHxwtV529JMcJlTzXuQUmxOxLYAQnOsq8scl9FcZoY_Q3ary9lE1izM
+Message-ID: <CAMRc=MdDmPumdsrJ0ELPSgRB9UBzW8LcGBRSt5N71eZy21oDAA@mail.gmail.com>
+Subject: Re: [PATCH RESEND 09/14] gpio: dwapb: use new generic GPIO chip API
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Yinbo Zhu <zhuyinbo@loongson.cn>, 
+	Hoan Tran <hoan@os.amperecomputing.com>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Yang Shen <shenyang39@huawei.com>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-unisoc@lists.infradead.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_101048_043249_527AC62D 
-X-CRM114-Status: UNSURE (   5.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250903_091625_917034_113103E7 
+X-CRM114-Status: GOOD (  17.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,21 +100,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Add missing of_node_put() after of_parse_phandle() call to properly
-> release the device node reference.
+On Wed, Sep 3, 2025 at 5:51=E2=80=AFPM Andy Shevchenko
+<andriy.shevchenko@intel.com> wrote:
+>
+> On Mon, Aug 25, 2025 at 11:48:50AM +0200, Bartosz Golaszewski wrote:
+> > From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> >
+> > Convert the driver to using the new generic GPIO chip interfaces from
+> > linux/gpio/generic.h.
+>
+> ...
+>
+> > +static inline struct dwapb_gpio *to_dwapb_gpio(struct gpio_chip *gc)
+> > +{
+> > +     return container_of(to_gpio_generic_chip(gc),
+> > +                         struct dwapb_gpio_port, chip)->gpio;
+> > +}
+>
+> Since it's not a macro anymore it can be done better:
+>
+>         struct dwapb_gpio_port *port;
+>
+>         port =3D container_of(to_gpio_generic_chip(gc), struct dwapb_gpio=
+_port, chip);
+>         return port->gpio;
+>
 
-How do you think about to increase the application of scope-based resource management?
-https://elixir.bootlin.com/linux/v6.17-rc4/source/include/linux/of.h#L138
+Sure. I already applied it so can you send a follow-up?
 
+> Also, have you checked the bloat-o-meter before and after, wondering if w=
+e gain
+> something with this.
+>
 
-> Found via static analysis.
+Not yet we don't but we will move the gpio-mmio-specific fields out of
+struct gpio_chip so we'll gain several fields worth of memory per
+non-generic chip system-wide.
 
-Which concrete software tools would be involved for this purpose?
-
-
-How do you think about to append parentheses to the function name
-in the summary phrase?
-
-Regards,
-Markus
+Bart
 
