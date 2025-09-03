@@ -4,66 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28F9FCA1010
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 22:22:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EE8DCA1010
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 22:24:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8TMfc9eA7/FJxuIp8+Try5tXIsc3Y1RIaSKtGnBEg5M=; b=eiFbO9h85BIYbPN0oMMeuQ4LYx
-	2lJg3Ub6vkQ2hRIFI2OyvKhyLLbwvkfojdj2v6E0w5ZUV5S6JvU0otJCObRjMGwgIZsW0oOcRYp0s
-	TozLzKgDx1/6GfYAnnl+HI0x3MvH7HU/dwsphHB4Cf5T8O3kbxGKyuJfDCtjoDlEkcG2PG6MAzlym
-	RrOi/5edItq5VMHpQjX5Yf3xpcnvWNWRFZQ4TkiLs9a1iRQXWMVfJ1gKh14sPTQCZRJNF20BdDKLK
-	uu2PpA6VbTRZ5zUD/8shHfEHFILB93gc4Xh4YR/Ru9YzlvR0ComThbJPxZOmjRIJHklbNvEaDLXdp
-	CSLxL9NQ==;
+	bh=N3wTVuzRWFsLOmgF08rX8v9agtMLx+eUNjsrlNZ33Qw=; b=qNMFAO2QBodxOvbwLZMwKR4m4V
+	2sZJl5WWDCb7Pcc9HuIRK4cVkkkadr9PS7LOCiJ9MI9QNfd6N5VX0SJZBm5taLG1pwWe9nAiS2vii
+	cH4zCqwqHHW1zKbMMJIbdi1/KSihCwSyRzYMmT2eGgXOYbILZ2y++suCSMu2QCwH/0RDt0yxG4hs6
+	celQq8LxiKMx116wobd9Dl85zJgzC5qAKeiLF+9gavRzlWo5PQw9sXIG2cChb9lSuxVLUm1sn9uJ1
+	C/UxohSRINoL0r+hxRO44UF1ysW1xeUJOnq/lyFDtBHzAiJnKMcQfFqdWtkArqcOIIBoNisYRZUhU
+	kjZq/6Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utvrh-00000007mjj-1Cqo;
-	Wed, 03 Sep 2025 22:22:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1utvuO-00000007n7E-0Men;
+	Wed, 03 Sep 2025 22:24:52 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utsNS-00000007K6J-0bw7
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 18:38:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 91E23601A9;
-	Wed,  3 Sep 2025 18:38:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97D90C4CEF7;
-	Wed,  3 Sep 2025 18:38:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756924717;
-	bh=j8OqivN37U7s/3MXyiGRY0V9zEvCu9lIMomm6PVYCJY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Q4MvYT+4HWfKOeRmVv/QVqMHo0ZHV6viDUD5TCHmInuzXrQC9briLLdhe6nPf254m
-	 DJHpH8YKEbcC5AhFSqObCVrYvSw7CXSXGHTkRvroq8y6MEJckf0cuUTB+apvw+m0Tb
-	 fSCqoc/XeI/Ddcia7IcAxJj49Md8mgTxdJLDkT2Qz1tnDtcbqEO0MjlWT8G+fJcDXB
-	 7Yxy06GTC2TJ4FRJ/lKMxjkA2Ol1ouTfpGgn/wj4+/04GEopzIeRGv1rFslRQVaRWC
-	 W077qbNHaIattrXPS4xVpttQ82fH1ifGj5qpod/COxwqlYlLtF2HNxQvnaDG1N26sx
-	 j4sPqLpu04VnQ==
-Date: Wed, 3 Sep 2025 19:38:32 +0100
-From: Simon Horman <horms@kernel.org>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 0/2] net: stmmac: correctly populate
- ptp_clock_ops.getcrosststamp
-Message-ID: <20250903183832.GE361157@horms.kernel.org>
-References: <aLhJ8Gzb0T2qpXBE@shell.armlinux.org.uk>
+	id 1utsSD-00000007KrE-2eMr;
+	Wed, 03 Sep 2025 18:43:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1756924941; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=XPN1vKcx8Ej224AtZVj8ZCULAAnbkrzDGKmbONvCEkg8h0+2l8E9mxYRh78Jd211J5Yl85xXARVlrrmU5TVjV7pD7h/TFxVW9Z+i554tUn271xCAWqOvs29yNsgTTvRYZ65XJ9RS5WPvJ4R0NhZ7OVH8KsFfOyps1LB1+/AXE4I=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1756924941; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=N3wTVuzRWFsLOmgF08rX8v9agtMLx+eUNjsrlNZ33Qw=; 
+	b=ACPIjUrLHMabibtDfsKXZrSSris3uh3lJmHY78Cvvmg3t2l+crKWa+Mz1P4NIZq1rZLWNCGmzOvJZN1jIAtx07UjCWQE5k/LdRei/w25nl3QI10V743TrG1VqaO42yYlcmYikFfknR58tTlcboCH5WIcRhzwLUZd2BTvZhzpMNI=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nfraprado@collabora.com;
+	dmarc=pass header.from=<nfraprado@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1756924941;
+	s=zohomail; d=collabora.com; i=nfraprado@collabora.com;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=N3wTVuzRWFsLOmgF08rX8v9agtMLx+eUNjsrlNZ33Qw=;
+	b=Jo1eOqATLjRJA8HTdL2X5U8rl6y8yyfGPZYaNl9OH+UqdX57//qTAM0JeYml0vJM
+	zQHHIrC/TKwg5vZBW3hvpMxQtb7zaxUWydAb1f3eYfei+stG3e75zv6/B0N78IqP4YT
+	EHlzVNyxP/1DhFoJbKHHpNUBd8aThUouP2eATzTM=
+Received: by mx.zohomail.com with SMTPS id 1756924938273225.66438221064573;
+	Wed, 3 Sep 2025 11:42:18 -0700 (PDT)
+Message-ID: <269ca85a59f613568543f45867fba7e604cc9f11.camel@collabora.com>
+Subject: Re: [PATCH RFC 1/5] drm: Support post-blend color pipeline API
+From: =?ISO-8859-1?Q?N=EDcolas?= "F. R. A. Prado" <nfraprado@collabora.com>
+To: Daniel Stone <daniel@fooishbar.org>, Xaver Hugl <xaver.hugl@gmail.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard	
+ <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
+	 <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Chun-Kuang Hu	
+ <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
+ <angelogioacchino.delregno@collabora.com>, Alex Hung <alex.hung@amd.com>, 
+	wayland-devel@lists.freedesktop.org, harry.wentland@amd.com,
+ leo.liu@amd.com, 	ville.syrjala@linux.intel.com,
+ pekka.paalanen@collabora.com, contact@emersion.fr, 	mwen@igalia.com,
+ jadahl@redhat.com, sebastian.wick@redhat.com, 	shashank.sharma@amd.com,
+ agoins@nvidia.com, joshua@froggi.es, mdaenzer@redhat.com, 
+	aleixpol@kde.org, victoria@system76.com, uma.shankar@intel.com, 
+	quic_naseer@quicinc.com, quic_cbraga@quicinc.com,
+ quic_abhinavk@quicinc.com, 	marcan@marcan.st, Liviu.Dudau@arm.com,
+ sashamcintosh@google.com, 	chaitanya.kumar.borah@intel.com,
+ louis.chauvet@bootlin.com, mcanal@igalia.com, 	kernel@collabora.com,
+ daniels@collabora.com, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, Simona Vetter <simona.vetter@ffwll.ch>
+Date: Wed, 03 Sep 2025 14:42:14 -0400
+In-Reply-To: <CAPj87rMTOD3_tC70QX4xz3G4zdG=tmwt5VgPhq6jNyf8bbW49Q@mail.gmail.com>
+References: <20250822-mtk-post-blend-color-pipeline-v1-0-a9446d4aca82@collabora.com>
+	 <20250822-mtk-post-blend-color-pipeline-v1-1-a9446d4aca82@collabora.com>
+	 <CAPj87rPAoD2D99zTdsvJ=9K8+G17mTS2jDYHMPYmXNtUyp2L_Q@mail.gmail.com>
+	 <CAFZQkGwotQ6cxVCSgp-BhUi5DaZ7MyVvbnrDJW11Z7ztzqy58g@mail.gmail.com>
+	 <CAPj87rMTOD3_tC70QX4xz3G4zdG=tmwt5VgPhq6jNyf8bbW49Q@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.1-1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aLhJ8Gzb0T2qpXBE@shell.armlinux.org.uk>
+X-ZohoMailClient: External
+X-ZohoMail-Owner: <269ca85a59f613568543f45867fba7e604cc9f11.camel@collabora.com>+zmo_0_nfraprado@collabora.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250903_114333_695743_F645BDF6 
+X-CRM114-Status: GOOD (  32.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,40 +99,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 03, 2025 at 03:00:16PM +0100, Russell King (Oracle) wrote:
+On Tue, 2025-08-26 at 13:25 +0100, Daniel Stone wrote:
 > Hi,
-> 
-> While reviewing code in the stmmac PTP driver, I noticed that the
-> getcrosststamp() method is always populated, irrespective of whether
-> it is implemented or not by the stmmac platform specific glue layer.
-> 
-> Where a platform specific glue layer does not implement it, the core
-> stmmac driver code returns -EOPNOTSUPP. However, the PTP clock core
-> code uses the presence of the method in ptp_clock_ops to determine
-> whether this facility should be advertised to userspace (see
-> ptp_clock_getcaps()).
-> 
-> Moreover, the only platform glue that implements this method is the
-> Intel glue, and for it not to return -EOPNOTSUPP, the CPU has to
-> support X86_FEATURE_ART.
-> 
-> This series updates the core stmmac code to only provide the
-> getcrosststamp() method in ptp_clock_ops when the platform glue code
-> provides an implementation, and then updates the Intel glue code to
-> only provide its implementation when the CPU has the necessary
-> X86_FEATURE_ART feature.
-> 
-> As I do not have an Intel card to test with, these changes are
-> untested, so if anyone has such a card, please test. Thanks.
+>=20
+> On Mon, 25 Aug 2025 at 19:45, Xaver Hugl <xaver.hugl@gmail.com>
+> wrote:
+> > > > @@ -416,6 +417,24 @@ int drm_mode_object_get_properties(struct
+> > > > drm_mode_object *obj, bool atomic,
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 if (post_blend_color_pipeline && obj->type =3D=3D
+> > > > DRM_MODE_OBJECT_CRTC) {
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct d=
+rm_crtc *crtc =3D
+> > > > obj_to_crtc(obj);
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct d=
+rm_mode_config mode_config =3D
+> > > > crtc->dev->mode_config;
+> > > > +
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (prop=
+ =3D=3D
+> > > > mode_config.gamma_lut_property ||
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 prop =3D=3D
+> > > > mode_config.degamma_lut_property ||
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 prop =3D=3D
+> > > > mode_config.gamma_lut_size_property ||
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 prop =3D=3D mode_config.ctm_property)
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 continue;
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 }
+> > > > +
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 if (!post_blend_color_pipeline && obj->type =3D=3D
+> > > > DRM_MODE_OBJECT_CRTC) {
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct d=
+rm_crtc *crtc =3D
+> > > > obj_to_crtc(obj);
+> > > > +
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (prop=
+ =3D=3D crtc-
+> > > > >color_pipeline_property)
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 continue;
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 }
+> > >=20
+> > > Hmmm. One issue with this is that it makes things like drm_info
+> > > harder: if drm_info opted into the client cap, it would no longer
+> > > be
+> > > able to see any GAMMA_LUT/etc programmed by the prior userspace.
+> > > So I
+> > > think allowing at least read-only access would be reasonable
+> > > here.
+> >=20
+> > FWIW the cap for per-plane pipelines also hides COLOR_RANGE and
+> > COLOR_ENCODING properties from the client.
+> >=20
+> > From a compositor POV, I slightly prefer hiding the properties
+> > entirely, but ignoring them on the compositor side when a color
+> > pipeline is available would also be trivial.
+>=20
+> It makes it impossible to do smooth transitions from legacy clients,
+> as the old (current) properties can't be read back.
+>=20
+> I assume the atomic state would also carry the old values (even if
+> the
+> drivers are specified to have to ignore them), so there would be an
+> odd transition:
+> * pre-colorop userspace sets GAMMA_LUT to invert brightness
+> * colorop userspace takes over, does not set any colorops on the
+> CRTC,
+> brightness is no longer inverted (presumably? depends on what the
+> default set of colorops is? and what the drivers do?), but the atomic
+> state still carries the old gamma_lut blob
+> * pre-colorop userspace takes over, does not touch GAMMA_LUT,
+> brightness is inverted as the colorop from the previous atomic state
+> is ignored and the pre-atomic one now takes precedence
+>=20
+> This isn't necessarily wrong per se, but does seem kind of janky and
+> error-prone: like should the old state be reset to zero/bypass for
+> commits from colorop-aware clients? Or should we explicitly allow 0
+> but no other value?
 
-Hi Russell,
+Hi, thanks for the feedback!
 
-Although not strictly related to stmmac,
-I am wondering if similar treatment is appropriate for:
+Based on this discussion, this is my understanding for the changes
+desired on the series and their reasonings:
 
-* drivers/virtio/virtio_rtc_ptp.c:viortc_ptp_getcrosststamp
-* drivers/net/ethernet/intel/ice/ice_ptp.c:ice_ptp_getcrosststamp
+1. Add a driver cap, DRM_CAP_POST_BLEND_COLOR_PIPELINE, which drivers
+will use to signal they support post-blend color pipelines.
+  - Reason: Allow userspace to figure out that the driver doesn't
+support post-blend color pipelines and choose to not set the client
+cap, DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE, so it can use legacy
+color management instead.
+2. Make it so setting the client cap,
+DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE, fails if the driver cap,
+DRM_CAP_POST_BLEND_COLOR_PIPELINE, isn't set
+  - Reason: Prevent userspace from making color management unusable if
+the driver doesn't support post-blend color pipelines, as the legacy
+color-management properties (GAMMA_LUT, DEGAMMA_LUT, CTM) would be
+unwriteable with the client cap set.
+3. Make legacy color-management properties (GAMMA_LUT, DEGAMMA_LUT,
+CTM) read-only if the client cap,
+DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE, is set
+  - Reason: Allow drm_info to print legacy color management
+configuration while still enabling post-blend color pipelines through
+the client cap. Also to allow smooth handover from pre-colorop
+userspace client to colorop-ready userspace client, as the latter can
+now replicate the legacy color configuration through the colorops.
 
-And if some sort of documentation of the behaviour you describe is
-appropriate. Say in the Kernel doc for struct ptp_clock_info.
+Side note: Smooth handover back to pre-colorop userspace after tweaking
+the colorops to something else would not be possible without making the
+legacy properties writable too, so that the client could update them to
+match the colorops setting before switching back. I don't imagine this
+would be a common use case, and colorops are a superset of the legacy
+properties so there are cases where it wouldn't even be possible to
+replicate the colorop setting on the legacy properties, but thought I'd
+mention this limitation for completeness' sake.
+
+Also, as Xaver noted, this feedback also applies to pre-blend pipelines
+and its legacy color-management properties (COLOR_ENCODING,
+COLOR_RANGE), so the same changes would be desirable there for the same
+reasons. So we should share this feedback on that series as well.
+
+
+Does this sound right?
+
+--=20
+Thanks,
+
+N=C3=ADcolas
 
