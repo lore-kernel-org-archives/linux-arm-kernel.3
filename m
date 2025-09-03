@@ -4,150 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C010CA1014
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 19:55:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCE8ECA1009
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 19:57:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=plnbngCPUVbYWa1BsicwezENb9/v5bfu3F4Am6tRHlw=; b=19Uo8fjALu6A8582VgDPjOjBH6
-	rJqWf2TLp1hP4R3/cs/ulZymQrzT/3iVZEjnSN08ErnPh2yc1Zx4gfkDncEYW0m6+AMX8spQUHdk0
-	cEKya2avfxIq6hAs58BoR/nMq2Nsex8TyvDpJxKXsUvQA4X+JrABjquv5WUydJHP3i0IsdFWDlDQ7
-	y6EOBgUPAU5wClS63vZvwY0b+3iZ9W4kRI1Jh2qfLXHNFIQfzr5cU2dJ7bWLRxxE9HyPhAZFVmQms
-	wtqMGzTV6Sk0xk220E1iNpWU2nkZJ+CWRvNqAaFCaLQ8IMw+4SUslEpnxEa41aK040jPNga/JNDjR
-	8z3+FlgA==;
+	bh=AIXMvGqfXdYiAbZkWQSwKWDwnY4kZ7HlWOtTEmHX7l0=; b=Ht8jhsX4aCd/o74yI58Hy3oYdL
+	Px2qoTWfiZMeKh4X1WjBMfESqKfc7GubthbQbTSn3Vms7x1M+u9PzsNwLRN573KCwu3sT/cik1aea
+	vdU37cA52SXiIZNmEBJYGE2PFRm4ynQQxRRINUQp1EHwaUzxy9pjqik9QxUDpL69Ju6MOuqsh9tIw
+	1l5MH8aYl3aBAWC4GKSTKB/OuMTSRxrra6LQL3SANECpHsSMagVDQe2pr9ygkJjbHk9r9dyG4a0MD
+	1vyeyPIplt9HzLe/olOpA8Kqp7fyzSIw+gNFvhKGvWmkFCGlx7CgNwIZjd09U7fO5YuWZ1ExvNchD
+	gObItHGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uttZ4-00000007UcD-11XI;
-	Wed, 03 Sep 2025 19:54:42 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1uttbu-00000007WDm-1JHo;
+	Wed, 03 Sep 2025 19:57:38 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utoo5-00000006nLn-3sE6
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 14:49:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kClNajcLpvqcNWNuta9pU7Izo0dRkr68Y/Mzg1FpKC6unwqXlMUQT6mc6oa9t7otGcy5sBUKqhjTLaLAxxYablCHROlfjJ2ImbL6XcLuXsTPhbGbpBUBgeDBi2WQn2iLQM0Wyz49aRKiPDvARky0V8dGgoEw6X2QcYpbeW8hNw3cUqDchDYWDnI2hfUZdkzTJWlvAMFxINdAJh14kLasJrzrjWgPUxwwMys4WNP146uSPdZrtXtKYoLtWXGcf2Y0MWaQIiQfwk0N2WK1rk+6ayQSoaMDiGImD48zeDFD/wMMK3uDpQZwituSx4w1JA4EV1+AcdvSGJrPQQ8TKJZSDQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=plnbngCPUVbYWa1BsicwezENb9/v5bfu3F4Am6tRHlw=;
- b=hprHP7kV1q/+xpGbwuBd5HwxFZhLwkKjy6KSXsvze7hYm3vbaXNR3If26D//Wn1Eog/zNrI4B+11CDAhNb1iSXYb6qSxbaY5qIe1RF0zKb9FEKlWWD3w+uolMNrym3Rx+rcVOV01sWUD7Q56TdEo8Tzu61yU120MXoOQiYGxKbKmtKKWJ54zSUyWPQxCTW74pJZMfOpSSVaz8O5hehXugnFf6GMl6W1ODQDGjQqesnKHeUMrKp1vbe7QLNjrLAeU+Di6q4oMo3BQ2YMZJ/ohnYlkiEXE9VQhA51fUj4WqeWamGkCxP0YWFuDnmfGu2vG8nUx9Z5rBQ7OH2dQm2KXpw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=plnbngCPUVbYWa1BsicwezENb9/v5bfu3F4Am6tRHlw=;
- b=BpCpmjTihT2y/6vocxSVO19pRdp5x6xQqgZEF89cS3WeNO9rdC9NUAHiRqrx8wzmsGTdEJXgMj8AnwCzSM5iDSwwFOh9Sh2iZLCzSYM9xKnyHy+/UctY1jVUDaliU02S5pUIITZjRK1t/cFa8JDzXpe4sHSfOVbU0OmUYqbo5rwLlJlD+q9E3j6avwumNJ41MkgoancOejj4nGL1gyAwMsifeYbgJWqaFcqMNzuexYsFVVa1981wk65fQJDWrZY+r1BxGD/hfJaX4PXXKZq0hYZHV55xWvgMLxL3U74DAiOMYe8eyXm5EdI+1T2fEpGbZqbqon5jQQmcNo6AXjIPRw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by AM9PR04MB8422.eurprd04.prod.outlook.com (2603:10a6:20b:3ea::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.16; Wed, 3 Sep
- 2025 14:49:30 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%7]) with mapi id 15.20.9094.015; Wed, 3 Sep 2025
- 14:49:30 +0000
-Date: Wed, 3 Sep 2025 10:48:59 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Marco Felsch <m.felsch@pengutronix.de>
-Cc: Vinod Koul <vkoul@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Jiada Wang <jiada_wang@mentor.com>, dmaengine@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 01/11] dmaengine: imx-sdma: drop legacy device_node np
- check
-Message-ID: <aLhVW2xkjer5SEkZ@lizhi-Precision-Tower-5810>
-References: <20250903-v6-16-topic-sdma-v1-0-ac7bab629e8b@pengutronix.de>
- <20250903-v6-16-topic-sdma-v1-1-ac7bab629e8b@pengutronix.de>
+	id 1utpfU-00000006xPY-3AFK;
+	Wed, 03 Sep 2025 15:45:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1756914305; x=1788450305;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=RmIXgX4EPYbEWf+ZuRyxg8gVS0O/rPn4FNVOhp5P5DQ=;
+  b=HUmjNwYefqozFulfvhzDN4QhVqH6Rc8D/xaqEZerat3IAxge0JcwGhxp
+   BvM8AJbl8chb3ji0nPRPsOPtmRjDmQ7r/0Y9oRxHgr4k+jT+KMQlN9MNw
+   2ptEobpSm06TE2cEELonEsxOW/4QV3q7YeutEIWkrz6TkW6S03eSeuUxc
+   8DseELcQ+NZjewJWuf/j4cz0ughOJoD9y9KeQjpFQxwUV936IRnSJOxz8
+   mGUReOj4wCj8+aM4UAY7tZFC4aQsUS4JWn8jQvt/z1MCNjjNQSz3FCTPb
+   NwKg3Lj94HDyQf9n3dx6+kB0lHpmpIwr3X3HZWbSOc2q3LO5Zl75xfHGM
+   w==;
+X-CSE-ConnectionGUID: nNSvh+b5QGaWQfifrgqLsw==
+X-CSE-MsgGUID: x/WJa1sJTRCWtrucmYYHgg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11542"; a="84662831"
+X-IronPort-AV: E=Sophos;i="6.18,236,1751266800"; 
+   d="scan'208";a="84662831"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Sep 2025 08:45:04 -0700
+X-CSE-ConnectionGUID: iISP29WiSIKcCafvMOGpUw==
+X-CSE-MsgGUID: JOSrHn6xRGumw7gqBYMURg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,236,1751266800"; 
+   d="scan'208";a="175985164"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by orviesa004.jf.intel.com with ESMTP; 03 Sep 2025 08:45:01 -0700
+Received: by black.igk.intel.com (Postfix, from userid 1003)
+	id D7E0695; Wed, 03 Sep 2025 17:44:59 +0200 (CEST)
+Date: Wed, 3 Sep 2025 17:44:59 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Yinbo Zhu <zhuyinbo@loongson.cn>,
+	Hoan Tran <hoan@os.amperecomputing.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Yang Shen <shenyang39@huawei.com>, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-unisoc@lists.infradead.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH RESEND 07/14] gpio: ts4800: use new generic GPIO chip API
+Message-ID: <aLhie72v1T9Bw1vx@black.igk.intel.com>
+References: <20250825-gpio-mmio-gpio-conv-v1-0-356b4b1d5110@linaro.org>
+ <20250825-gpio-mmio-gpio-conv-v1-7-356b4b1d5110@linaro.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250903-v6-16-topic-sdma-v1-1-ac7bab629e8b@pengutronix.de>
-X-ClientProxiedBy: BYAPR05CA0004.namprd05.prod.outlook.com
- (2603:10b6:a03:c0::17) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|AM9PR04MB8422:EE_
-X-MS-Office365-Filtering-Correlation-Id: 12e99a3b-8b95-4e74-2d40-08ddeaf9098d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|19092799006|7416014|1800799024|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?XXGYfWEYgKTitcm2xPP2Kg4qy/0QiWmJjAf3+Xh1OzYNCG6O83tNX+keXGeE?=
- =?us-ascii?Q?vB+vEQ0tWTHwx//Khc33azFlBYBXgRQVXhbxRFz8BMm4M8n3OniNgyMRk8iM?=
- =?us-ascii?Q?K3zo3ayewA46KGY8g068oBM1flsxsEemRT6zF9UmBelX165AAhPpssFYDSN5?=
- =?us-ascii?Q?ikgGhVqVipuLphE4PTbKqvio1Fa5ZPDXz7I3SdwMm/VFOE15CzwIRpebhKvJ?=
- =?us-ascii?Q?W3fJRY8PM3CibrVHbD9J9n4AXLaqA2aT1msElTnUcziAZv5ls+Fp8hbIqV3E?=
- =?us-ascii?Q?dwuOi1O+/X7WQKJ7P0O0WANPWs/0HaubXahuQMPfezrrwnbJCH/B1hpNjOzR?=
- =?us-ascii?Q?AWRpUWofr2YWPgs08JH5DzD2Nq7eJzfWCORpe+9XMQGnsycV8b9/Ls7ZgkY/?=
- =?us-ascii?Q?hbhTQKq3Egt+40yHdgtCCjo1yYcBWBJ2o8zO8OGx0IlM/SpGTQGXqB8COOnk?=
- =?us-ascii?Q?ybUmh9wH3f+0a8b3MaACWM79mUL2qHKiYRGPhes5Hv14EGr4tJtMUQtD/BGh?=
- =?us-ascii?Q?3+/eyF9xEsl5laKDRfje1DSeQRm5qYNVGlXgm04eMcu06w/sSMFFqRGfhrs4?=
- =?us-ascii?Q?zrjCW51FlQta36StPIbUoB3dUW7GpCZscKSqQZEXC8krEahxhiyH/AjusHWx?=
- =?us-ascii?Q?bSWz0Gim0EKxNBCJa2W936q/g+5rDuhEhwxgTpdeh8IV8jmweP4l/MtEJaDX?=
- =?us-ascii?Q?zPo2kEE0gpAi4dQhT/2QLNA9PxKDftJBAENg6KEnjfZ/v+BS7S9HqpE7g2gb?=
- =?us-ascii?Q?EN/6JmEjsTru1Rhf0CUFtgbLIxDudsudngQ8K/vy9z5lYk7HLI4s1Gh7mr96?=
- =?us-ascii?Q?vrYEHuTuis+VmzgtQPXSLkMW+TqmEokPmloNBtoW3D+3AS73k07U3gB9s8oP?=
- =?us-ascii?Q?VXrfQaLIss4DaHO2LM8qyKz4QrC/nNlBOZq55Qn2v0X6J89R9SBANkyK4t5x?=
- =?us-ascii?Q?sjsHWwz3qJFYFoPJu2zsqEYGWP2CWw3A9vJ5C4sWpsqGB+sdFQQ1H7v8Er5d?=
- =?us-ascii?Q?yVadUYGsrsANM+7fJJt2lRHtQSDb7Vro+UK3rSW67rKo/hXj527UgYP8JXMS?=
- =?us-ascii?Q?a6ZVb8ZvKA0EsuEIFm5khTkoRKWWVH7mmOViJUySrIJKu/eGZdnV6JbpRdis?=
- =?us-ascii?Q?lGVm4Qkvxzr7VN5EPH/6sUweC+tF3KbjXQT+gL0U2YK47x1Z9tHVHzMFH34h?=
- =?us-ascii?Q?o7z4TWfuHo0RvCdtOi16gSNRUo8ZvSh2kl0iFuhv21V0zZxBRAPxhkA48DAF?=
- =?us-ascii?Q?vLmFF5JvMMFPRw8ttsEjQBdkfCUpPMEHjTXJxj7mOCs5OpmgMEGDzHwoFbAw?=
- =?us-ascii?Q?G5uWkHX5LPD30g0DkokaZakyHllNM/WxnIK+eQaf1CR51nEtvYyCYnp0zeUN?=
- =?us-ascii?Q?ra+EGJ2iOWPuaThq5ZS/QgmENtZRZLLXwf4LH/oqIw+NB1iDruLnZy6n4EVb?=
- =?us-ascii?Q?lgqLtuLa/kSFi4X0Y5jMQ74zmPFpqS3PxzZDVaSvKZ4w3/eb4wBEPQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(19092799006)(7416014)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Sh1EJ4J/b+NBJKUDyL5b/0myVqN4I3CGHaoclKSnO9bmBghT4fLayzw3SxK5?=
- =?us-ascii?Q?5afV8Wxj7hP1LBH4Z0KKbuitjvQ/HIlb5hj0DMl3Nx4TsJC6fgLiCbvoGkHS?=
- =?us-ascii?Q?Zgjzs4FVo6SYufASkEBZEF5PZAbpQqmC1XvvqWuk0VhEYMGYctLIbE23XRs4?=
- =?us-ascii?Q?amnRyWoaLikG2w4XwuAB1hJizg735+33yPkd+nmyYolbnr1q4h822qLWuN/A?=
- =?us-ascii?Q?ON6t7ZHKB2AJwzQ27OrKkZJndh7ooubQ5wU7S8vcXJv3yIJTorMA4+uHsQ1U?=
- =?us-ascii?Q?vZmf3Wp7OVQ50G6vEa41UBe0yG03lTwR1piId2SCYWJ6mhD0iPmprImotJam?=
- =?us-ascii?Q?7stX6HSNmt1bNqh2RtfbxW9TK7JAPsxeTkxhnzm1lljXdnesVsB4rf16wOsf?=
- =?us-ascii?Q?S4pQuLc8810AbI+p7AyNxF4qHc46xC6tFXfl50R3GU4JnkrtvbRzpBX8xzq6?=
- =?us-ascii?Q?IemeMV7dqES0blvV9ZPEwM9iunz1QSPGwogD9Dk+NfAxMYBWLggU6OTgOD2Q?=
- =?us-ascii?Q?amI8sDv7DEodC56W2ZWzKJfpot5qGXTEdLhcrV82f4+Ak0QUImjDt/grkniZ?=
- =?us-ascii?Q?ROEZO32vPR2Szlqg8SLBscjyqyVYvjVR+hc34rbahh+jDcQVb7Lq8zV0HbA2?=
- =?us-ascii?Q?nmh1qKW6fgd96lrZmJuGC4MAy2WoJMKTPo/684INbORclYtC0XBsLFM5SkGQ?=
- =?us-ascii?Q?vhETjyFZc7+0iVyl9i9EgkH4RhhnjNQLasj2kYdbNM73QOh1PWj8XUsG/KJn?=
- =?us-ascii?Q?fNvN9uQv4ApeRhvDbR00bo7x375q5zndTNTj5+NRpuJ3mHcge129bUqUZEbk?=
- =?us-ascii?Q?m8yrJy0o59uea1SkuSo58zN1QxNzd6yDDDI5Jxw5/Tfk86XD8TffhCv8PnD4?=
- =?us-ascii?Q?kXqjtRm84OAZavoyDgxveiNMLtW76yRokwQXOEarvP4tnUtLjqxbFOGtbzHc?=
- =?us-ascii?Q?CvMu7M/yrXmZ05mek+Dk1bTC9jEJkemK79Sa3vUOsTCcAwjieFkx/gnBODad?=
- =?us-ascii?Q?Lvjf7ra3IRth3gI1R6iuaIg5a81ZoTqx7E1CjGPx2VrlV4M8MA72H0trh0cD?=
- =?us-ascii?Q?8wLXyInLLxaOdgNvW0tKQrKp/YMQ3fi8mj8c0+m9ZtUN4Js4jyu4DJBRlpWp?=
- =?us-ascii?Q?SOcCD8eEu50SVxZJD7xOw4T2Xf3xxBe+e6EgFxN/6otl/wYtTNdnrYHyeXbP?=
- =?us-ascii?Q?NrwYRb70nuJpAS70rRqXzLRhgRTB/66ymbE8RodiM6ZQtulUGwQo732utNDR?=
- =?us-ascii?Q?tnomC/OLJDl1wYKpJO+wtM/TVWPYPrs1qbZE2mMQk4etDqvTd2ttUIPTt/gw?=
- =?us-ascii?Q?mtyQYzK5kf/xpnWqR0+NGl85HHNNU1H6+aLmTCV7BzgB8gzmWwMI631qpq1L?=
- =?us-ascii?Q?/AmEfaZ+WaEkCNXUR9JBvas7vefun0fKISAa6SqneYjU/UEIJ9ZE10P/6Uzu?=
- =?us-ascii?Q?0keP6iGzADtHUzVcZEv3k0KKVve9fCUuNFUOvFCdcUbWjqBYRRojY+9N6Z/X?=
- =?us-ascii?Q?PQ/wVyo95bMNV8YPVU9iDpdDEMbW37r6AehYvmRCpt5ZAWj+CmzKJgWXVeMm?=
- =?us-ascii?Q?0Gg1xl5bm7VOgRa1KBRfwxp872AoKc806g+GTG53?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 12e99a3b-8b95-4e74-2d40-08ddeaf9098d
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2025 14:49:30.1531
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dkbLsJ7oA7muMXPeu56DYW4ywtgPXDwyMnihngOQsrkLDtyfalbvjmWMgwvbk7bb6I7Q/ggg+Q1xA1tlpl9zyA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8422
+In-Reply-To: <20250825-gpio-mmio-gpio-conv-v1-7-356b4b1d5110@linaro.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_074954_043536_07A09950 
-X-CRM114-Status: GOOD (  21.30  )
+X-CRM114-CacheID: sfid-20250903_084504_806786_49CD1F90 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,74 +92,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 03, 2025 at 03:06:09PM +0200, Marco Felsch wrote:
-> The legacy 'if (np)' was required in past where we had pdata and dt.
-> Nowadays the driver binds only to dt platforms. So using a new kernel
-> but still use pdata is not possible, therefore we can drop the legacy
-> 'if' code path.
->
-> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+On Mon, Aug 25, 2025 at 11:48:48AM +0200, Bartosz Golaszewski wrote:
+> 
+> Convert the driver to using the new generic GPIO chip interfaces from
+> linux/gpio/generic.h.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+...
 
-> ---
->  drivers/dma/imx-sdma.c | 32 ++++++++++++++------------------
->  1 file changed, 14 insertions(+), 18 deletions(-)
->
-> diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
-> index 02a85d6f1bea2df7d355858094c0c0b0bd07148e..89b4b1266726a9c8a552dc48670825ae00717e1c 100644
-> --- a/drivers/dma/imx-sdma.c
-> +++ b/drivers/dma/imx-sdma.c
-> @@ -2325,11 +2325,9 @@ static int sdma_probe(struct platform_device *pdev)
->  			vchan_init(&sdmac->vc, &sdma->dma_device);
->  	}
->
-> -	if (np) {
-> -		sdma->iram_pool = of_gen_pool_get(np, "iram", 0);
-> -		if (sdma->iram_pool)
-> -			dev_info(&pdev->dev, "alloc bd from iram.\n");
-> -	}
-> +	sdma->iram_pool = of_gen_pool_get(np, "iram", 0);
-> +	if (sdma->iram_pool)
-> +		dev_info(&pdev->dev, "alloc bd from iram.\n");
->
->  	ret = sdma_init(sdma);
->  	if (ret)
-> @@ -2369,21 +2367,19 @@ static int sdma_probe(struct platform_device *pdev)
->  		goto err_init;
->  	}
->
-> -	if (np) {
-> -		ret = of_dma_controller_register(np, sdma_xlate, sdma);
-> -		if (ret) {
-> -			dev_err(&pdev->dev, "failed to register controller\n");
-> -			goto err_register;
-> -		}
-> +	ret = of_dma_controller_register(np, sdma_xlate, sdma);
-> +	if (ret) {
-> +		dev_err(&pdev->dev, "failed to register controller\n");
-> +		goto err_register;
-> +	}
->
-> -		spba_bus = of_find_compatible_node(NULL, NULL, "fsl,spba-bus");
-> -		ret = of_address_to_resource(spba_bus, 0, &spba_res);
-> -		if (!ret) {
-> -			sdma->spba_start_addr = spba_res.start;
-> -			sdma->spba_end_addr = spba_res.end;
-> -		}
-> -		of_node_put(spba_bus);
-> +	spba_bus = of_find_compatible_node(NULL, NULL, "fsl,spba-bus");
-> +	ret = of_address_to_resource(spba_bus, 0, &spba_res);
-> +	if (!ret) {
-> +		sdma->spba_start_addr = spba_res.start;
-> +		sdma->spba_end_addr = spba_res.end;
->  	}
-> +	of_node_put(spba_bus);
->
->  	/*
->  	 * Because that device tree does not encode ROM script address,
->
-> --
-> 2.47.2
->
+> +	config = (typeof(config)){
+
+First of all, what's wrong with the pattern used in the kernel when we
+explicitly show the compound literal? Also we put a space before {.
+
+> +		.dev = dev,
+> +		.sz = 2,
+> +		.dat = base_addr + INPUT_REG_OFFSET,
+> +		.set = base_addr + OUTPUT_REG_OFFSET,
+> +		.dirout = base_addr + DIRECTION_REG_OFFSET,
+> +	};
+> +
+> +	retval = gpio_generic_chip_init(chip, &config);
+>  	if (retval)
+> -		return dev_err_probe(dev, retval, "bgpio_init failed\n");
+> +		return dev_err_probe(dev, retval,
+> +				     "failed to initialize the generic GPIO chip\n");
+
+Second, can't it all be hidden in the GPIOLIB just by passing the pointer to
+the above initialised structure? Yes, it will take a pointer space in GPIO chip
+for all, but I think it will reduce the burden.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
