@@ -4,119 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C31ACA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 11:20:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C08EECA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 11:23:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T31GhvMgDcDqa/8wxluLN+dNwm4mTxHX2BFlOQeV59E=; b=t9y6rZF9CRwriVJjAxFPoyuEml
-	FOBSNg5PQgXTPjGznMGj59i6jPp4LXC5kaZz8YHaDGQkq1aZcdtIa8t/LF0FVyJ8ZKEOtDU9pu4wv
-	wkVYpwo1KlxCAIvKpF9zBm4n/yfdPNz4B7qvf1rlk+LzBa5C7utRg7zUfkRmC68wrhLHO4jFjE2Mb
-	2ndM2JWEb9QkEhCP04+4Fl//sNnJbSCZ5Tuztxai5U8sdxar+3gkHy32bmzdUEdigSn4Arm73/zfO
-	ensd6Z4kNfOF8Rl5lZOIt+SLa8wuYRCnEpDggRrBRzKVgnk9xQFwXO/fnnDlneStoT8wIkMQslFjW
-	d5j/yDHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zJ6lk10drS8kog/BCmHNRXmgQlXNVZUkPyO4hnEXlIs=; b=HhyF2VtAvxX3GPzigf+LQ0jIgo
+	nKVcwhqqfL9sId19+Fle54QqErrZehrP00tmlt521uWJDgO8cOW1xaGGiD1beW1BrxoxPS6eqPEC0
+	BYZQqBgAAovK39oacNJv4TG7rTwf7xYUpb+wxDokjcEoak4emDL8bDrIGaHop8JFnddyoeDVBAdPc
+	8uwwMdRtoua2jpRNUmoUyIhwMsWnV6UztjkzFRUWcOnuYmuMs+KpJkNEu4kEzZhQ0j/JR4MDRxolW
+	r6F7PvBNH9sb68sxpiDgOh/6lDqbmJzwoXiFBuuHME640sKuAm26UvZw9pJtQri8FX86QRYpoRFnP
+	Y3F7nYfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utlXZ-00000006DX2-3l8O;
-	Wed, 03 Sep 2025 11:20:37 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1utlaG-00000006DoY-3jYy;
+	Wed, 03 Sep 2025 11:23:24 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utkdf-000000065Ng-44HY;
-	Wed, 03 Sep 2025 10:22:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1756894972; x=1788430972;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=hEddkyRBq0eYhs86EpYDI0PR1kM06ibMXa7C70wF0A8=;
-  b=HggVaUDs6B5f0jjwnfhFSe8/Ze/5LEgjauNQ/5TUJY30DB18cimKRVkT
-   +aNsLVgdW55iJaeiH7gtEgadiG+IjSN3n6xz20M2CsssdMiQ0/aLUtxlc
-   vCgaGi1TB7AbGvlg6SgwfpuANKZ9vf3lKfLI1k8V6BsWuiC+kv095E8sM
-   OZE3t4WV4l13e4hwEWIuf4Q+dVawdt66nXtB5qSekXcp5xPM5iX+QLm96
-   2DjXdKqLpo/pKvvgwFGszxCfBbhoaMEKEfjafZYOW9AEgzkvYZwBDfXy5
-   h97+mgrGnUqBdI38YP63yiC4Fl8T1uGjmG1zPyi6o60nqR/5is3wICIE3
-   g==;
-X-CSE-ConnectionGUID: Odia2/aFTpuG0+Qricx9Bg==
-X-CSE-MsgGUID: l2xcyZZeS6GpueNME6T+OQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11541"; a="59318114"
-X-IronPort-AV: E=Sophos;i="6.18,233,1751266800"; 
-   d="scan'208";a="59318114"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Sep 2025 03:22:50 -0700
-X-CSE-ConnectionGUID: YTo0WasPQBSP1GD2jJB+Ig==
-X-CSE-MsgGUID: 5tCXY7/9Tha1Hp4Y6DZptQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,233,1751266800"; 
-   d="scan'208";a="195180921"
-Received: from smile.fi.intel.com ([10.237.72.52])
-  by fmviesa002.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Sep 2025 03:22:40 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@intel.com>)
-	id 1utkdQ-0000000AxFa-1l46;
-	Wed, 03 Sep 2025 13:22:36 +0300
-Date: Wed, 3 Sep 2025 13:22:36 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Andy Shevchenko <andy.shevchenko@gmail.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Alexey Klimov <alexey.klimov@linaro.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Sean Wang <sean.wang@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Paul Cercueil <paul@crapouillou.net>, Kees Cook <kees@kernel.org>,
-	Andy Shevchenko <andy@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@redhat.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>, Dong Aisheng <aisheng.dong@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
-	Jacky Bai <ping.bai@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	NXP S32 Linux Team <s32@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Tony Lindgren <tony@atomide.com>,
-	Haojian Zhuang <haojian.zhuang@linaro.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Mark Brown <broonie@kernel.org>, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linux-hardening@vger.kernel.org, linux-mm@kvack.org,
-	imx@lists.linux.dev, linux-omap@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: Re: [PATCH v7 16/16] pinctrl: qcom: make the pinmuxing strict
-Message-ID: <aLgW7J-j4nn0u8uo@smile.fi.intel.com>
-References: <20250902-pinctrl-gpio-pinfuncs-v7-0-bb091daedc52@linaro.org>
- <20250902-pinctrl-gpio-pinfuncs-v7-16-bb091daedc52@linaro.org>
- <aLcBcjvMbrxoDYoC@smile.fi.intel.com>
- <CAMRc=MfcFMgkNqWNZV5o0NxkAvxBTjC3vv56Cr98n0R2CkxuPw@mail.gmail.com>
- <CAHp75VcgaqnDrPH27wxfgyK6zz4RAKJQB0r7G2vbTONTxkEzTw@mail.gmail.com>
- <CAMRc=MfhhX2NJ0fhhX8u+7=sdyUy0G27n7caGf9=TpHxUDJVxg@mail.gmail.com>
+	id 1utke4-000000065SF-1OIw
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 03 Sep 2025 10:23:17 +0000
+Received: from isaac-ThinkPad-T16-Gen-2.lan (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id A277A982;
+	Wed,  3 Sep 2025 12:22:03 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1756894924;
+	bh=GbcLAdAhFKI9Ex7GIGV1fgOFZiAQOcEHxjTZZhi1/kw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=JxgJgN5k0EjPF1CIuYMT1+2TtAjMpHWrC5RxIg8Kj2tPMVQsWxh+C28GuFMkA26Uy
+	 GPJpN5dbvhbgPsdjIid5iXS0i8UHRVwGEBz3SgDbivbLS4nGLPBneTe75HhYNLWF24
+	 QX8sQ71uRGV4zzobYJ1wOArfTX24rEVbaK54uhjk=
+From: Isaac Scott <isaac.scott@ideasonboard.com>
+To: laurent.pinchart@ideasonboard.com
+Cc: rmfrfs@gmail.com,
+	martink@posteo.de,
+	kernel@puri.sm,
+	mchehab@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	linux-media@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	hverkuil@kernel.org,
+	nicolas.dufresne@collabora.com,
+	sakari.ailus@linux.intel.com,
+	tomi.valkeinen@ideasonboard.com,
+	jonas@kwiboo.se,
+	dan.scally+renesas@ideasonboard.com,
+	m.szyprowski@samsung.com,
+	mehdi.djait@linux.intel.com,
+	niklas.soderlund+renesas@ragnatech.se,
+	Isaac Scott <isaac.scott@ideasonboard.com>
+Subject: [PATCH v2 0/3] media: imx-mipi-csis: Get the number of active lanes from mbus_config
+Date: Wed,  3 Sep 2025 11:22:39 +0100
+Message-ID: <20250903102243.1563527-1-isaac.scott@ideasonboard.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMRc=MfhhX2NJ0fhhX8u+7=sdyUy0G27n7caGf9=TpHxUDJVxg@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_032252_019514_BA31E234 
-X-CRM114-Status: GOOD (  21.11  )
+X-CRM114-CacheID: sfid-20250903_032316_507266_EF368D16 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,33 +84,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 03, 2025 at 09:33:34AM +0200, Bartosz Golaszewski wrote:
-> On Tue, Sep 2, 2025 at 10:46 PM Andy Shevchenko
-> <andy.shevchenko@gmail.com> wrote:
-> > On Tue, Sep 2, 2025 at 8:42 PM Bartosz Golaszewski <brgl@bgdev.pl> wrote:
-> > > On Tue, Sep 2, 2025 at 4:38 PM Andy Shevchenko
-> > > <andriy.shevchenko@intel.com> wrote:
-> > > > On Tue, Sep 02, 2025 at 01:59:25PM +0200, Bartosz Golaszewski wrote:
+It is possible that the number of desired active MIPI CSI2 data lanes
+does not match the maximum listed in device tree. Add a helper function
+to v4l2_common that calls the get_mbus_config op to get the number of
+actively used data lanes in drivers that support it.
 
-...
+Compare it to the number of lanes configured in device tree, and if its
+invalid, use the number present in device tree.
 
-> > > > > The strict flag in struct pinmux_ops disallows the usage of the same pin
-> > > > > as a GPIO and for another function. Without it, a rouge user-space
-> > > > > process with enough privileges (or even a buggy driver) can request a
-> > > > > used pin as GPIO and drive it, potentially confusing devices or even
-> > > > > crashing the system. Set it globally for all pinctrl-msm users.
-> > > >
-> > > > How does this keep (or allow) I²C generic recovery mechanism to work?
-> 
-> Anyway, what is your point? I don't think it has any impact on this.
+This series also uses the helper in imx-mipi-csis driver to set the
+currently configured num_data_lanes, while keeping track of the number
+of data lanes set in device tree to ensure we can still use all possible
+lanes if we need to, and the upstream subdev driver requests them.
 
-If we have a group of pins that are marked as I²C, and we want to use recovery
-via GPIOs, would it be still possible to request as GPIO when controller driver
-is in the strict mode?
+Tested on v6.15, compile tested on v6.17-rc4.
+
+---------
+
+Changes v1 -> v2:
+
+- Added helper function to get active data lanes in v4l2-common
+- Store the maximum data lanes possible, as configured in device tree
+- Added media: prefix to commit titles
+
+Isaac Scott (3):
+  media: v4l: Add helper to get number of active lanes via a pad
+  media: imx-mipi-csis: Store the number of data_lanes configured in dt
+  media: imx-mipi-csis: Get number of active lanes via mbus_config
+
+ drivers/media/platform/nxp/imx-mipi-csis.c |  8 ++++++-
+ drivers/media/v4l2-core/v4l2-common.c      | 25 ++++++++++++++++++++++
+ include/media/v4l2-common.h                |  1 +
+ 3 files changed, 33 insertions(+), 1 deletion(-)
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.43.0
 
 
