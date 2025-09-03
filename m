@@ -4,94 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5925FCA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 21:40:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAF90CA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 21:43:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1wTAdyOlm/H89MIPXpHNMclT4BvrXX7ltwC3KFNrpZs=; b=3HBMm7lAFUnkLPHgca4q0Gt6FJ
-	yn6zgmX9sTx0TfBs7QmCXV5QMoQowNnEw32XCnVS6LJMbV3Wgg5ORiKfVlaBK0MPtBJxmo2uVegcP
-	4W5/CeDODFOFsK/QFrJKASuopI1ekFsbFEVc5mtPdeoDyPrBolnZHDB99eM+782pTyy0QyOCcXxyE
-	F7p6UJphERGZ4zBXm0M1qSupPluSrQiv83fGdtdUtHsWAQRDwBIB4JauogDsBQUhi6cZymBQTrYW6
-	2kGlZZrkvGirQ5gMNaaBjy1SbcMXmVy1HvKxCna8VNUkr6K0V0n/Y3w3QUteYVUf0WT0OXq+g7pvA
-	z2GKgw8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9Be6CmeA7WhGKWOATU+IgFXolrTkHcEuodTkohAhBME=; b=D+Z7BA1y++qiv/GeFvWV2+499m
+	U5PiCa2liGdSa1ctgTNvDLUbmEAiHge2I+s4zGfqNf5JmYVjNez2YsXOXboUbaFVVD4Ub0jo9z88r
+	JcbZK/bqghINkW6SG5/svCH0q13owHkFVUFNWnlvCFtaLgydxVspvzoVcCNz51TPgibjCxBX2RfTL
+	Ysrc+av30xwdw2uxwYcrqlMF260to6GIHnvQM1vwqK2pX4G+mphFdkMbFtU07uYeBbOoEFi3oZI+6
+	9nV+AVb2i68mPFYJaAG/kbOxefjmmkTKV8JakTw46BTEE1YfffJ/QM9Sphe2AbE+SgwNQrKL6imRH
+	mWWQdO4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utvDM-00000007hsO-14K3;
-	Wed, 03 Sep 2025 21:40:24 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1utvG3-00000007i94-0AB6;
+	Wed, 03 Sep 2025 21:43:11 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utp4S-00000006pyM-1vfQ
+	id 1utp60-00000006qBx-1YVd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 15:06:49 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-619487c8865so1964939a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Sep 2025 08:06:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1756912007; x=1757516807; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1wTAdyOlm/H89MIPXpHNMclT4BvrXX7ltwC3KFNrpZs=;
-        b=Fy07FpkZ8EtFF7U8YFBhgQRtFEVYcd33o9zirdSpPnpsMhKCG8HdANKiOpFsHqlcff
-         loVuYSE0+R213ddU3LRyLfrVmPt13WI4HGZiaEvzPhV1lIgfpjEuULz4LNrl8/eSy7lU
-         MB6thEiZoUQOkrTixmOnCp508zp2mDD7AOmkGQcCCqKcPfBerIww7JUQipQchqnOOAus
-         Klrgsqsd6OtFwVDLMdMuQFQDCgFhUynyDjocV54T1KobXSJmePY2wO9TTued7PuqiXE2
-         G7x8PNRMQWUcRLNmtMsXML3gFDFtE4rTOrHI9zTqcGkbaJxlUA3Jxdx/imYksL/Cb4nF
-         c5ug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756912007; x=1757516807;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=1wTAdyOlm/H89MIPXpHNMclT4BvrXX7ltwC3KFNrpZs=;
-        b=q9k1SUeOsqZBF+UWgG1O9rKqO+YqCsBYgCPZmNMN2ncNVBH5meFtZ3nPRakSsxQkp4
-         lf9Qwice9tdT9T2EvywtdAY4AEuGusyndXIJggboUARZpz10xcTZWPXnBAoR5QyF4qvk
-         ogRcp65aXiqI94BVczRdGfH7DPFMjzD7UzU20Zo+dKlNd2s7NzE3aTQoxRt1S9UXuszN
-         3X1svb1VqZG6YiqryS8Y1tDJgPlXYDKx10V/n3/guWg/mpCcVkE34SkeTRQhLa0wOLTN
-         JbeudYn62LPu2iPwGZC9tjKq58WVQjhZHVW88W0lLNCbXBW8g877/sGJnnSMWiT38RX2
-         Bk6g==
-X-Forwarded-Encrypted: i=1; AJvYcCXlQa1aghMV81CjDcHuon85OsfjuLeeTbuTQ5jjU7/pw0lR9TawDoac7wGHZCRL9zfd0CPJdZp7jMAYlrNpemor@lists.infradead.org
-X-Gm-Message-State: AOJu0YxT2rr/JrYJ4BdlHEBiCsB7ZC+jNqgBkBaApqrrFRCicQDzy97X
-	YVGKUGQuOkrxEA0HPzpP2zeW/sEkNgDFG7A7hkmVqANzcmvqnYXqGN2hN41d6wJRftDIdfw+rZl
-	3pHWW/KTGRonHIvEHd921Efg1X8CHSIaqc1UAU7YuaA==
-X-Gm-Gg: ASbGncvo+c2MfV1NC7uoIRSbSNMX2771ZyYKnrBgQU3TO+ex0tcsAOzLH8pr2M38NSt
-	SgEQ+C0g4xgF5DhQ6takVyJ+uhcrwSdBXgELbuCpjlXZXm05ER3mMjpZ3AbkSf0ZpftxRt4L4D9
-	o0U1T5+d/1gRhZC4PqKOJJzE/ls1xNU8JU2fyoAySJc+41Fft6vz60828jrj9o8zv9Bwz9Hipym
-	bH/LtD8jYcfU1bPNNKjCBVazCLZaWSS7rUE2XkruzBT7pApNUXpX3KAxxEcrKwQ3lLdCEWlXCqK
-	PSoxIw==
-X-Google-Smtp-Source: AGHT+IF+0pwoAAxX3gf5UWkmV+omghafmOGaLYNyWJBUplkZID7VrCGzVwPUHydMxnaJb7KCcSQuj+InbQ/V0zcvok0=
-X-Received: by 2002:a05:6402:3494:b0:61d:9a4c:d03 with SMTP id
- 4fb4d7f45d1cf-61d9a4c0e7cmr12317883a12.13.1756912006605; Wed, 03 Sep 2025
- 08:06:46 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250821-imx95-rproc-1-v5-0-e93191dfac51@nxp.com>
- <20250821-imx95-rproc-1-v5-2-e93191dfac51@nxp.com> <aLHOhKpAQbVCC76-@p14s>
- <20250830125208.GA22718@nxa18884-linux.ap.freescale.net> <aLcdmY-gqd5cFOYc@p14s>
- <20250903045611.GA8860@nxa18884-linux.ap.freescale.net> <20250903063915.GA18615@nxa18884-linux.ap.freescale.net>
-In-Reply-To: <20250903063915.GA18615@nxa18884-linux.ap.freescale.net>
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-Date: Wed, 3 Sep 2025 09:06:34 -0600
-X-Gm-Features: Ac12FXxkYEichdIeujGDnw-u0qzphz0riJYUzRCbZ9M50zatPIwa4Kz2wZhsuT4
-Message-ID: <CANLsYkw0YqSDC7-SmA4x4hB1Z1kO5MVR-dZb8PAbkw6RMW6PNA@mail.gmail.com>
-Subject: Re: [PATCH v5 2/3] remoteproc: imx_rproc: Add support for System
- Manager API
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Peng Fan <peng.fan@nxp.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>, 
-	Daniel Baluta <daniel.baluta@nxp.com>, Iuliana Prodan <iuliana.prodan@nxp.com>, 
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Wed, 03 Sep 2025 15:08:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sGdKdM7x8MoYqKi0AdvEnl0xbaISkFkPwuExrWNd1jLtToeBJ3PE7eH1WF67iu7Sa6NC5M6g7mhPigZ7+9Rk9HcDa0o9VdY1rM6IBxm82e4P3Rwzo71MPpbpCvWMX2dEb9SsVXCLYcyV9hDyq2Pabj0TKIPy+Yc2uKdZMGRxyUhoYwEz608iVsicwvA/NKzuuw1WltqH+uQ012JWjfkQxDjyKCYTpBEXLn+Qafy4cyZOL2H55SPbISusHDcs9hsceVpOZnHTgD0nhWKu46ZEfb18Qv5CD7YHb3iPO51LrQKTEfFzPyJt+ULqZxnTdidcXVOyo6rrkUZx4j4PLftrpw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9Be6CmeA7WhGKWOATU+IgFXolrTkHcEuodTkohAhBME=;
+ b=UzbeDCsvvUr+c7BloWjfjawbNNhM3NaFw9O+Y7CtbeoJ2jdQiw/LcZr9DTMzIoaSfCcl1Bt+QRKWcsj0cu+NPizk3uMw3IRl2E5uxTKFfeXSLUTzXUlYBNTBWlESSzv+1dWBPW+4ZwANXqdrtld72RQG7tiqS11LH4UfTRb6FqGYeJK1Q1CIgZklKH6PdX5rvA0+H/L58lXI/dhw8bj6ONCNXkTcVHGbjcJZhVNPv2LGbv4MZvntC1wEj5jO25JsIhcqtuUFdryOR3ROIdPTKe1VdpPYVHYPik0eEwBCgXERDDw6FGotttNh8s+VzO7CQOWqD1f/JcKWEOK24QvEZQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9Be6CmeA7WhGKWOATU+IgFXolrTkHcEuodTkohAhBME=;
+ b=UOPMXZp5tS4U8vRJA82N/XjZCFHyLaOHEGzbQuS87On/W2ooyDj4WtXK3yjKpTvHoRHVVj8yFazEsR4nonKCrt8AlEvwV/XO/C8B4a3whFXo+We4k6GRQiOCupDGsGK3DHFj9ai/ZpBLd2rK9CYVxWkNhNZrZXHKog5IUWPtsPFh6WSGOixbwCwrhJo+cRYWZ8Z41ZijOQqgnf3/zKuRQ1Gv5pHkfu9OHmq/IbMk6gwaMBbRS8vvC6I1hQiURyVtZfTng0JBSbvLSDvQZhnLW0KR8DxCCN6FY2VOjJitO5iLF4orL7LO6rP4ubqaHhfWGGaYd4/5hnvRl1FF15mm6Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by AS8PR04MB7989.eurprd04.prod.outlook.com (2603:10a6:20b:28b::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.16; Wed, 3 Sep
+ 2025 15:08:20 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%7]) with mapi id 15.20.9094.015; Wed, 3 Sep 2025
+ 15:08:19 +0000
+Date: Wed, 3 Sep 2025 11:08:11 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Marco Felsch <m.felsch@pengutronix.de>
+Cc: Vinod Koul <vkoul@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jiada Wang <jiada_wang@mentor.com>, dmaengine@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 08/11] dmaengine: imx-sdma: fix missing
+ of_dma_controller_free()
+Message-ID: <aLhZ2zfh5bnNoH8X@lizhi-Precision-Tower-5810>
+References: <20250903-v6-16-topic-sdma-v1-0-ac7bab629e8b@pengutronix.de>
+ <20250903-v6-16-topic-sdma-v1-8-ac7bab629e8b@pengutronix.de>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250903-v6-16-topic-sdma-v1-8-ac7bab629e8b@pengutronix.de>
+X-ClientProxiedBy: PH7P221CA0052.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:33c::23) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|AS8PR04MB7989:EE_
+X-MS-Office365-Filtering-Correlation-Id: 23948485-8e79-42a8-bce1-08ddeafbb7c0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|52116014|7416014|10070799003|19092799006|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?7qwy6JsQGxjn+fA9w7KHbCbt+CH3BdwdWqrrthqd8N/cMnF79sJwiJK0g8Ev?=
+ =?us-ascii?Q?c5bPgRjtZM5mL+WMi68LD89FCYjbfbD6AgiRnA4133le2SO7bBpmkYVfJg17?=
+ =?us-ascii?Q?qaHEwN0aIHaB2pu3/nvHPhahErCvKEqJ8oES6PoxQXwntUS1Mubox4xqUMol?=
+ =?us-ascii?Q?ea8X7ZLQUd40hh10fZuF4K7DuIoH9qjBCan+kQfrQlmqR7H4R1pYMkcCuf55?=
+ =?us-ascii?Q?CIo5OM6OoeVUM+HmadEKQBKAJ4T4VcvLi49ZtjOoJNszF8et8eVLWddQ+Gpx?=
+ =?us-ascii?Q?fPN8GNdsHa6xK862wo+oNFXctJw4xndo0Yuqh9WicL+dh7IX0RcXCvjtzZgX?=
+ =?us-ascii?Q?LvtP375/tbwG+hwY1b3nX7Sgt4l7QMUD0e2da2vWRVBuuiy4Rfjkzhzc8Bno?=
+ =?us-ascii?Q?ZNuAwMZXSYEytiCi0ya0z6La45pETHvpa0C4Dy4/g4OJeIoVCqeJQLGtG5tn?=
+ =?us-ascii?Q?d6C5iMeTX6JKv8xToir1lBcpsgieAxYRxB5uGgM4NzlvvK5gPjMhDs4s/yKs?=
+ =?us-ascii?Q?Rw/vm89TBHDVvwVjG+k+q+d4ps/d6oAkfcluNwdZP4/BMlVGWwtEp/V7xL8o?=
+ =?us-ascii?Q?U1Cy+yc96J9di16SelOxazgOdYE14/ZU2biaXLrx7aiN6Jy67aN6XIuSUnyV?=
+ =?us-ascii?Q?b2gl3gtCz+H/NwMZusx1KAfmZ+yY5kmupHjw9uJtWWsAY3INX1VD6B2telEZ?=
+ =?us-ascii?Q?u2X7F2gmFqiPlW/uoWmka7DAwNqfFi/qGLRZ28Wm7A1Nb4eY7tiOlCwjdg8B?=
+ =?us-ascii?Q?IMX3foD5RWlBnWOCnPUuBDM4WmtVoConzOpj3/KcV8WHjNQdLb3zbqWnARHd?=
+ =?us-ascii?Q?sz/FXreAyvUs/kKLc/QbVuReDOLb4xS1bnhENKmze/DZif8l9gegLjk+Loxx?=
+ =?us-ascii?Q?/3MMtINBKKz8Ka+CPibtSlZU9v+gF4C2SV4yIDXfYrmnbWWomCrC/x7OCDB7?=
+ =?us-ascii?Q?RdU9jAgpee5/w9BHE0Ggy2nmNzOEvXb7wcKgfpa0aS76TtBSD6fzp4+rXYnt?=
+ =?us-ascii?Q?AQ+9lXgz7Xe3BQOcUBV3v8IsNR1HKhzMlC6gsmV9QojDWD478wWAHZ4OWSM7?=
+ =?us-ascii?Q?kVglDETXGG5Ee3tZ7Buejo3viddWLZ8eEXhJ7sLXz1rDa5NVt88QWClQLFtj?=
+ =?us-ascii?Q?HuMdAovN96uxf6u6+8iVX1N2vu9nUfmohjNPKA/FRDgYigGyMmL9yfKQNJJQ?=
+ =?us-ascii?Q?sAgfHNxqxAgX9W91uPGK4Rt9kBIPNLvI+CIVv7YE6bTZpK8Ebu7ywB5RkXD4?=
+ =?us-ascii?Q?yrSL0vCDZxM5RT6iloAa41nQYOS98WRuCOsMpQxdWGVPm2doK1tkjhbybU6/?=
+ =?us-ascii?Q?Nyw3v5MyFhvq6xoPINJ9QeLhkjqVi8HG9cFwTOYdEkXAtfSRh16ts/NzuJRK?=
+ =?us-ascii?Q?e9AhvyoWGmxQ21NpC+T6BT6GactZNilg547H+BtKsd7RndGwNWB9mQWGd2XE?=
+ =?us-ascii?Q?N7LBYh4Cnec=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(52116014)(7416014)(10070799003)(19092799006)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cZbpk9Igy/4EdyWUHy1E/m9DnJ6WkrkFnsMRK3y/ciexyTcPz78ufbOfyCJf?=
+ =?us-ascii?Q?8WRT6PHbvcPWnSmLZxc8lZh2ibZ/kzgQL4VJLKYDv9Md356q12rOmsCc2mWR?=
+ =?us-ascii?Q?PqHXqkecTCmFbiCPAa2dS5pi2DQjBeVmCJWXpr5sOLB3B0am/kbe6WDgKH5L?=
+ =?us-ascii?Q?jOkxb15igHyvnrOXRjg2lci6pLIeZ9/W4994RT0izkoxDWQgtiFDb02Cn04r?=
+ =?us-ascii?Q?hGqj1+dne/mHe9jTiqBR7OFzagVV+B3BNxfshErXu46/oCH1TGu3I/ePy4aJ?=
+ =?us-ascii?Q?hZ9el/Bqlcod2SLJ6wmXaENWaGe7TINTA2ryM8sZhCWLwT7tejPJyXD4xu0Q?=
+ =?us-ascii?Q?Bdcw1fMmrnYDDGqgUWqxx5jpvmAdlMFvt4/VBVffJ6wo6cMpWTlknO91lqFI?=
+ =?us-ascii?Q?5nad9yFqePHK5IH0G1z99GSVJ2JG8zyQiqezTn+O94d3lCVqOT6L9OM85RoY?=
+ =?us-ascii?Q?MZ7GD4Z9n2Z5Cv/Wwqux49ym81RYZbBY44CU2QrZ9Kz87ySxuAuLOWpk4qld?=
+ =?us-ascii?Q?XYMLUwAMjnpwM5yVx/5ADmOj9EBze75D8u/tpRRwUdLrfx5TPaydZ4/SKNdc?=
+ =?us-ascii?Q?5+Cdsc/dTxWrLu5pjaEB30mqRhg2skTJuRfoVzWstFp0CTyl9VrRJHlxohjI?=
+ =?us-ascii?Q?gepZBUcbdGu6zhRZ2d3R9RZYoqGppY416mPhcfYzRxV/6IdqIrC85wLeIASv?=
+ =?us-ascii?Q?diIkvJDfW01J+p53qUSUxoqYeCRTe9Wfqx+nTSlOtxCWb4xwpP8MuBtzMq+/?=
+ =?us-ascii?Q?HRFnGPtm0IJDCaCLcIlpf0eU/7shzFSI7k77Y5t6kUKOAYCtQ603iwYdTgQJ?=
+ =?us-ascii?Q?M+EhfX/gPoNX/JI14zcj07y8BOwMkJS08fwnmEJ5/lxIZjvheBA+G85LodbH?=
+ =?us-ascii?Q?tyAxpP+r9JtrZ59LAt0m8Zltk5UfkweM6Hh+UQfIQ1/q/jRk9VtmTvByKiFb?=
+ =?us-ascii?Q?Ztj1zknO2UA4m7Ilb3hSPc0iK0Sya8LXhjp9ILtgjEsDY2o5yWDcjwMnTn3t?=
+ =?us-ascii?Q?xmzFLlmlLwDYaJlyNsvzT2c69NLaNtMVDtTb3naZp0v9KDHrjzS6SGtREBGP?=
+ =?us-ascii?Q?VujFn2nqffLhZgX+iekB6d2euDiB/lYmBAIE21OgrRIz/u65iXSQasvtTJfc?=
+ =?us-ascii?Q?wOoePGpqdGs8WRDGsBGYJ9PKzJOzg76TbGeVxDjrmYG6h5yEIjyArFvhjcGY?=
+ =?us-ascii?Q?YD7EIsJV0eXpyWULeMbdi4ns/W12xf3ANIjpRDq8h38QCGO1naIKJhS8zoeH?=
+ =?us-ascii?Q?zrUyIJug7RoZTpZSyXWrv1aljMO0zS9iLjaS6t3ig6EBfPTg9CuaAHXHSVVv?=
+ =?us-ascii?Q?I8YsatcNqK0Wku+QY+TSR5lR4TZ2YObMx3nF6PW/TEimlRoQwWNEakhep1Mu?=
+ =?us-ascii?Q?YalP69iaGtmKRXd6O9NtFkhifwUmNZViA9eKH4tSBFIVTBk7cvKchutjzuxc?=
+ =?us-ascii?Q?mhqa1U4/qqdtRmHU3N6DaHz3GA0MHpEaD7qm2zikk+bvvDB04idrpLxP60+w?=
+ =?us-ascii?Q?o0XlU6coxKMmJS32MCNAUPST/dZe/03mdcirVqIM+DxmHYgB9lK68/3wAkvW?=
+ =?us-ascii?Q?unjSoLt/8ckSQ4xb2oXkiN/E8CMuw9ahjV5pbuuCEQfB+cJYwYwkg/Yvr3xt?=
+ =?us-ascii?Q?A9DYRqH0VBu186LM8xnqzq0Qx5wjgg2g6Iji71mXtnVn?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 23948485-8e79-42a8-bce1-08ddeafbb7c0
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2025 15:08:19.9090
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: depLDcqY5sTAYD09AxAFzwfCFi76kz5uZDZjOtnOsijugfeNZyt/yBVBdF/Z3rQZgHgipvYIId0beKCbF7Ejhg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7989
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_080648_508372_ADE377B3 
-X-CRM114-Status: GOOD (  50.16  )
+X-CRM114-CacheID: sfid-20250903_080824_413655_92269F10 
+X-CRM114-Status: GOOD (  20.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,333 +163,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2 Sept 2025 at 23:28, Peng Fan <peng.fan@oss.nxp.com> wrote:
+On Wed, Sep 03, 2025 at 03:06:16PM +0200, Marco Felsch wrote:
+> Add the missing of_dma_controller_free() to free the resources allocated
+> via of_dma_controller_register(). The missing free was introduced long
+> time ago  by commit 23e118113782 ("dma: imx-sdma: use
+> module_platform_driver for SDMA driver") while adding a proper .remove()
+> implementation.
 >
-> On Wed, Sep 03, 2025 at 12:56:11PM +0800, Peng Fan wrote:
-> >On Tue, Sep 02, 2025 at 10:38:49AM -0600, Mathieu Poirier wrote:
-> >>On Sat, Aug 30, 2025 at 08:52:09PM +0800, Peng Fan wrote:
-> >>> On Fri, Aug 29, 2025 at 10:00:04AM -0600, Mathieu Poirier wrote:
-> >>> >Good day,
-> >>> >
-> >>> >On Thu, Aug 21, 2025 at 05:05:05PM +0800, Peng Fan wrote:
-> >>> >> i.MX95 features a Cortex-M33 core, six Cortex-A55 cores, and
-> >>> >> one Cortex-M7 core. The System Control Management Interface(SCMI)
-> >>> >> firmware runs on the M33 core. The i.MX95 SCMI firmware named Syst=
-em
-> >>> >> Manager(SM) includes vendor extension protocols, Logical Machine
-> >>> >> Management(LMM) protocol and CPU protocol and etc.
-> >>> >>
-> >>> >> There are three cases for M7:
-> >>> >>  (1) M7 in a separate Logical Machine(LM) that Linux can't control=
- it.
-> >>> >>  (2) M7 in a separate Logical Machine that Linux can control it us=
-ing
-> >>> >>      LMM protocol
-> >>> >>  (3) M7 runs in same Logical Machine as A55, so Linux can control =
-it
-> >>> >>      using CPU protocol
-> >>> >>
-> >>> >> So extend the driver to using LMM and CPU protocol to manage the M=
-7 core.
-> >>> >>  - Add IMX_RPROC_SM to indicate the remote core runs on a SoC that
-> >>> >>    has System Manager.
-> >>> >>  - Compare linux LM ID(got using scmi_imx_lmm_info) and M7 LM ID(t=
-he ID
-> >>> >>    is fixed as 1 in SM firmware if M7 is in a seprate LM),
-> >>> >>    if Linux LM ID equals M7 LM ID(linux and M7 in same LM), use CP=
-U
-> >>> >>    protocol to start/stop. Otherwise, use LMM protocol to start/st=
-op.
-> >>> >>    Whether using CPU or LMM protocol to start/stop, the M7 status
-> >>> >>    detection could use CPU protocol to detect started or not. So
-> >>> >>    in imx_rproc_detect_mode, use scmi_imx_cpu_started to check the
-> >>> >>    status of M7.
-> >>> >>  - For above case 1 and 2, Use SCMI_IMX_LMM_POWER_ON to detect whe=
-ther
-> >>> >>    the M7 LM is under control of A55 LM.
-> >>> >>
-> >>> >> Current setup relies on pre-Linux software(U-Boot) to do
-> >>> >> M7 TCM ECC initialization. In future, we could add the support in =
-Linux
-> >>> >> to decouple U-Boot and Linux.
-> >>> >>
-> >>> >> Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
-> >>> >> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> >>> >> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> >>> >> ---
-> >>> >>  drivers/remoteproc/Kconfig     |   2 +
-> >>> >>  drivers/remoteproc/imx_rproc.c | 123 ++++++++++++++++++++++++++++=
-++++++++++++-
-> >>> >>  drivers/remoteproc/imx_rproc.h |   5 ++
-> >>> >>  3 files changed, 127 insertions(+), 3 deletions(-)
-> >>> >>
-> >>> >> diff --git a/drivers/remoteproc/Kconfig b/drivers/remoteproc/Kconf=
-ig
-> >>> >> index 48a0d3a69ed08057716f1e7ea950899f60bbe0cf..ee54436fea5ad08a9c=
-198ce74d44ce7a9aa206de 100644
-> >>> >> --- a/drivers/remoteproc/Kconfig
-> >>> >> +++ b/drivers/remoteproc/Kconfig
-> >>> >> @@ -27,6 +27,8 @@ config IMX_REMOTEPROC
-> >>> >>          tristate "i.MX remoteproc support"
-> >>> >>          depends on ARCH_MXC
-> >>> >>          depends on HAVE_ARM_SMCCC
-> >>> >> +        depends on IMX_SCMI_CPU_DRV || !IMX_SCMI_CPU_DRV
-> >>> >> +        depends on IMX_SCMI_LMM_DRV || !IMX_SCMI_LMM_DRV
-> >>> >>          select MAILBOX
-> >>> >>          help
-> >>> >>            Say y here to support iMX's remote processors via the r=
-emote
-> >>> >> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/i=
-mx_rproc.c
-> >>> >> index a6eef0080ca9e46efe60dcb3878b9efdbdc0f08e..151b9ca34bac2dac9d=
-f0ed873f493791f2d1466e 100644
-> >>> >> --- a/drivers/remoteproc/imx_rproc.c
-> >>> >> +++ b/drivers/remoteproc/imx_rproc.c
-> >>> >> @@ -8,6 +8,7 @@
-> >>> >>  #include <linux/clk.h>
-> >>> >>  #include <linux/err.h>
-> >>> >>  #include <linux/firmware/imx/sci.h>
-> >>> >> +#include <linux/firmware/imx/sm.h>
-> >>> >>  #include <linux/interrupt.h>
-> >>> >>  #include <linux/kernel.h>
-> >>> >>  #include <linux/mailbox_client.h>
-> >>> >> @@ -22,6 +23,7 @@
-> >>> >>  #include <linux/reboot.h>
-> >>> >>  #include <linux/regmap.h>
-> >>> >>  #include <linux/remoteproc.h>
-> >>> >> +#include <linux/scmi_imx_protocol.h>
-> >>> >>  #include <linux/workqueue.h>
-> >>> >>
-> >>> >>  #include "imx_rproc.h"
-> >>> >> @@ -92,6 +94,11 @@ struct imx_rproc_mem {
-> >>> >>  #define ATT_CORE_MASK   0xffff
-> >>> >>  #define ATT_CORE(I)     BIT((I))
-> >>> >>
-> >>> >> +/* Logical Machine Operation */
-> >>> >> +#define IMX_RPROC_FLAGS_SM_LMM_OP       BIT(0)
-> >>> >> +/* Linux has permission to handle the Logical Machine of remote c=
-ores */
-> >>> >> +#define IMX_RPROC_FLAGS_SM_LMM_AVAIL    BIT(1)
-> >>> >> +
-> >>> >>  static int imx_rproc_xtr_mbox_init(struct rproc *rproc, bool tx_b=
-lock);
-> >>> >>  static void imx_rproc_free_mbox(struct rproc *rproc);
-> >>> >>
-> >>> >> @@ -116,6 +123,8 @@ struct imx_rproc {
-> >>> >>          u32                             entry;          /* cpu st=
-art address */
-> >>> >>          u32                             core_index;
-> >>> >>          struct dev_pm_domain_list       *pd_list;
-> >>> >> +        /* For i.MX System Manager based systems */
-> >>> >> +        u32                             flags;
-> >>> >>  };
-> >>> >>
-> >>> >>  static const struct imx_rproc_att imx_rproc_att_imx93[] =3D {
-> >>> >> @@ -394,6 +403,30 @@ static int imx_rproc_start(struct rproc *rpro=
-c)
-> >>> >>          case IMX_RPROC_SCU_API:
-> >>> >>                  ret =3D imx_sc_pm_cpu_start(priv->ipc_handle, pri=
-v->rsrc_id, true, priv->entry);
-> >>> >>                  break;
-> >>> >> +        case IMX_RPROC_SM:
-> >>> >> +                if (priv->flags & IMX_RPROC_FLAGS_SM_LMM_OP) {
-> >>> >> +                        if (!(priv->flags & IMX_RPROC_FLAGS_SM_LM=
-M_AVAIL))
-> >>> >> +                                return -EACCES;
-> >>> >> +
-> >>> >> +                        ret =3D scmi_imx_lmm_reset_vector_set(dcf=
-g->lmid, dcfg->cpuid, 0, 0);
-> >>> >> +                        if (ret) {
-> >>> >> +                                dev_err(dev, "Failed to set reset=
- vector lmid(%u), cpuid(%u): %d\n",
-> >>> >> +                                        dcfg->lmid, dcfg->cpuid, =
-ret);
-> >>> >> +                        }
-> >>> >> +
-> >>> >> +                        ret =3D scmi_imx_lmm_operation(dcfg->lmid=
-, SCMI_IMX_LMM_BOOT, 0);
-> >>> >> +                        if (ret)
-> >>> >> +                                dev_err(dev, "Failed to boot lmm(=
-%d): %d\n", ret, dcfg->lmid);
-> >>> >> +                } else {
-> >>> >> +                        ret =3D scmi_imx_cpu_reset_vector_set(dcf=
-g->cpuid, 0, true, false, false);
-> >>> >> +                        if (ret) {
-> >>> >> +                                dev_err(dev, "Failed to set reset=
- vector cpuid(%u): %d\n",
-> >>> >> +                                        dcfg->cpuid, ret);
-> >>> >> +                        }
-> >>> >> +
-> >>> >> +                        ret =3D scmi_imx_cpu_start(dcfg->cpuid, t=
-rue);
-> >>> >> +                }
-> >>> >> +                break;
-> >>> >>          default:
-> >>> >>                  return -EOPNOTSUPP;
-> >>> >>          }
-> >>> >> @@ -436,6 +469,16 @@ static int imx_rproc_stop(struct rproc *rproc=
-)
-> >>> >>          case IMX_RPROC_SCU_API:
-> >>> >>                  ret =3D imx_sc_pm_cpu_start(priv->ipc_handle, pri=
-v->rsrc_id, false, priv->entry);
-> >>> >>                  break;
-> >>> >> +        case IMX_RPROC_SM:
-> >>> >> +                if (priv->flags & IMX_RPROC_FLAGS_SM_LMM_OP) {
-> >>> >> +                        if (priv->flags & IMX_RPROC_FLAGS_SM_LMM_=
-AVAIL)
-> >>> >> +                                ret =3D scmi_imx_lmm_operation(dc=
-fg->lmid, SCMI_IMX_LMM_SHUTDOWN, 0);
-> >>> >> +                        else
-> >>> >> +                                ret =3D -EACCES;
-> >>> >> +                } else {
-> >>> >> +                        ret =3D scmi_imx_cpu_start(dcfg->cpuid, f=
-alse);
-> >>> >> +                }
-> >>> >> +                break;
-> >>> >>          default:
-> >>> >>                  return -EOPNOTSUPP;
-> >>> >>          }
-> >>> >> @@ -546,10 +589,48 @@ static int imx_rproc_mem_release(struct rpro=
-c *rproc,
-> >>> >>          return 0;
-> >>> >>  }
-> >>> >>
-> >>> >> +static int imx_rproc_sm_lmm_prepare(struct rproc *rproc)
-> >>> >> +{
-> >>> >> +        struct imx_rproc *priv =3D rproc->priv;
-> >>> >> +        const struct imx_rproc_dcfg *dcfg =3D priv->dcfg;
-> >>> >> +        int ret;
-> >>> >> +
-> >>> >> +        if (!(priv->flags & IMX_RPROC_FLAGS_SM_LMM_OP))
-> >>> >> +                return 0;
-> >>> >> +
-> >>> >> +        /*
-> >>> >> +         * Power on the Logical Machine to make sure TCM is avail=
-able.
-> >>> >> +         * Also serve as permission check. If in different Logica=
-l
-> >>> >> +         * Machine, and linux has permission to handle the Logica=
-l
-> >>> >> +         * Machine, set IMX_RPROC_FLAGS_SM_LMM_AVAIL.
-> >>> >> +         */
-> >>> >> +        ret =3D scmi_imx_lmm_operation(dcfg->lmid, SCMI_IMX_LMM_P=
-OWER_ON, 0);
-> >>> >> +        if (ret =3D=3D 0) {
-> >>> >> +                dev_info(priv->dev, "lmm(%d) powered on\n", dcfg-=
->lmid);
-> >>> >> +                priv->flags |=3D IMX_RPROC_FLAGS_SM_LMM_AVAIL;
-> >>> >
-> >>> >Why is setting this flag needed?  The check that is done on it in
-> >>> >imx_rproc_{start|stop} should be done here.  If there is an error th=
-en we don't
-> >>> >move forward.
-> >>>
-> >>> The flag is to indicate M7 LM could be controlled by Linux LM(to save=
- SCMI
-> >>> calls. without this flag, heavy SCMI calls will be runs into). The re=
-ason
-> >>> on why set it here:
-> >>> The prepare function will be invoked in two path: rproc_attach and rp=
-roc_fw_boot.
-> >>> When M7 LM works in detached state and not under control of Linux LM,=
- rproc_stop
-> >>> could still be invoked, so we need to avoid Linux runs into scmi call=
-s to
-> >>> stop M7 LM(even if scmi firmware will return -EACCESS, but with a fla=
-g, we could
-> >>> save a SCMI call), so there is a check in imx_rproc_stop and this is =
-why
-> >>> we need a flag there.
-> >>>
-> >>> The flag check in start might be redundant, but to keep safe, I still=
- keep
-> >>> it there.
-> >>
-> >>One of the (many) problem I see with this patch is that there is no
-> >>IMX_RPROC_FLAGS_SM_CPU_OP to complement IMX_RPROC_FLAGS_SM_LMM_OP in
-> >>imx_rproc_detect_mode(), leading to if/else statements that are hard to=
- follow.
-> >
-> >There are only two methods as written in commit log.
-> >one is LMM_OP, the other is CPU_OP
-> >
-> >>
-> >>In imx_rproc_sm_lmm_prepare(), if scmi_imx_lmm_operation() is successfu=
-l, return
-> >>0 immediately.  If -EACCESS the LMM method is unavailable in both norma=
-l and
-> >>detached mode, so priv->flags &=3D ~IMX_RPROC_FLAGS_SM_LMM_OP.
-> >
-> >No. LMM in avaiable in normal and detach mode. I have written in commit =
-log,
-> >There are three cases for M7:
-> > (1) M7 in a separate Logical Machine(LM) that Linux can't control it.
-> > (2) M7 in a separate Logical Machine that Linux can control it using
-> >     LMM protocol
-> > (3) M7 runs in same Logical Machine as A55, so Linux can control it
-> >     using CPU protocol
-> >
-> >>
-> >>The main takeaway here is that the code introduced by this patch is dif=
-ficult to
-> >>understand and maintain.  I suggest you find a way to make things simpl=
-er.
-> >
-> >You asked Daniel to help review this patchset. Daniel and Frank both hel=
-p
-> >reviewed this patchset and gave R-b.
-> >
-> >You also said this patchset "looks fine to you" Jul 21 [1].
-> >
-> >Now you overturn these and say "find a way to make things simpler.
-> >What's the point to ask my colleague to review?  What should I do,
-> >redesign the patchset according to "make things simpler"?
-> >
-> >Please give detailed suggestions, but not a general comment.
->
-> I realize my previous message may have come across as frustrated =E2=80=
-=94 I truly
-> appreciate your time and feedback. I=E2=80=99m just trying to understand =
-the
-> direction you=E2=80=99d prefer for this patchset, especially since it had=
- prior
-> R-b=E2=80=99s and your earlier comment that it =E2=80=9Clooks fine.=E2=80=
-=9D
->
+> Fixes: 23e118113782 ("dma: imx-sdma: use module_platform_driver for SDMA driver")
 
-I simply started taking a closer look and quickly found problems.
+Look it is hard to back port to old kernel.  Can move it to before cleanup?
 
-> Could you please help clarify what specifically you=E2=80=99d like simpli=
-fied?
-> I=E2=80=99m happy to revise accordingly, but I=E2=80=99d really appreciat=
-e concrete
-> suggestions so I can move forward effectively.
+> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+> ---
+>  drivers/dma/imx-sdma.c | 9 +++++++++
+>  1 file changed, 9 insertions(+)
 >
-
-I did give suggestions.  The core of this patch is 123 lines - even
-after spending two full hours reviewing it I still don't have a clear
-picture of what is happening.  When that is the case, something is not
-right.  When I look at a patchset, I usually ask myself if I'll
-remember what it does when looking at it again in 6 months.  The
-answer was a clear "no" with this one.
-
-> @Daniel, @Frank =E2=80=94 since you've reviewed and R-b'd this patchset, =
-do you
-> have thoughts on the latest feedback from Mathieu? Would you agree that
-> further simplification is needed, or is the current structure acceptable?=
-=E2=80=9D
+> diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
+> index e30dd46cf6522ee2aa4d3aca9868a01afbd29615..6c6d38b202dd2deffc36b1bd27bc7c60de3d7403 100644
+> --- a/drivers/dma/imx-sdma.c
+> +++ b/drivers/dma/imx-sdma.c
+> @@ -2232,6 +2232,13 @@ static struct dma_chan *sdma_xlate(struct of_phandle_args *dma_spec,
+>  				     ofdma->of_node);
+>  }
 >
-> Thanks again!
+> +static void sdma_dma_of_dma_controller_unregister_action(void *data)
+> +{
+> +	struct sdma_engine *sdma = data;
+> +
+> +	of_dma_controller_free(sdma->dev->of_node);
+> +}
+> +
+>  static void sdma_dma_device_unregister_action(void *data)
+>  {
+>  	struct sdma_engine *sdma = data;
+> @@ -2370,6 +2377,8 @@ static int sdma_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		return dev_err_probe(dev, ret, "failed to register controller\n");
 >
-> Thanks,
-> Peng
+> +	devm_add_action_or_reset(dev, sdma_dma_of_dma_controller_unregister_action, sdma);
+> +
+>  	spba_bus = of_find_compatible_node(NULL, NULL, "fsl,spba-bus");
+>  	ret = of_address_to_resource(spba_bus, 0, &spba_res);
+>  	if (!ret) {
 >
-> >
-> >[1] https://lore.kernel.org/all/CANLsYkwZz4xLOG25D6S-AEGFeUBWwyp1=3Dytmu=
-2q90NyEpkoX9g@mail.gmail.com/
-> >
-> >Thanks,
-> >Peng
-> >>
-> >
+> --
+> 2.47.2
+>
 
