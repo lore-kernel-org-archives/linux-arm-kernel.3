@@ -4,59 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FB9ACA1015
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 02:11:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB5AECA1010
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 02:11:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ouk5IL+iTtW2cG9N5ZDLd72zIzLq+KLHHUfELQzw6Ws=; b=2+rCP4gpgq7WW3RsuTIXqhR5Sp
-	pJf7xFWGqprFUEPLA0jlCWpBveWmqIiuT8uQqTLeNU8Q7dGHHTQb/6xsJ4lHfkIA83hr/NR8v6ebC
-	WqPVjtt7UgjKmhR0U0h6JqMDVLdkmQCZp+pVUeq/WQN3B3BKWuvIPz9vtdjDBy+loVmB4csIApZ4I
-	+0GMKlXBBkQaPepGqt6imXm/mm0MqBLU5DE7ujYyRhADoCWimbgGUhEdeipk1hn+HNlGTaV8ufaS5
-	4eQFdx2Zu8ZOLEPjK8Zd2Sw88ey2ZCtEtynhz140wQ50iTrroSWoLWCbJfPzNXyXsGUej0BlyU4iC
-	rZYeh5BA==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=x3WyPe8tzcvkjPJMTuyLmMzJxuLJegDqZyREtGdOCyA=; b=iX96XEDpV/CNzz
+	Iq5N1vyb7KVwqU0Znp/JgydXwNi4EjWXSooWLyLoPfWI3gAPRtgQQCxbPJSos4triq8aAxOeu1RoS
+	6XRpAngSJFTyXRjWAlTj28sqF3X2UEcVeYEhK8R7A6/TEIvQerM9tt3nz7GTpYCciwxT3K4q28eev
+	ergD40soT6UsmujBMDBG8wnNg+c3opNf1+hi5mw+rccv65fxZEIUyH+NQ/PQ1yjSnX6iHjk4aGylJ
+	8cZZQmpmYleImyatSyNgWurgxdsHjb2+y1W6Big5hJZ8VqyCvZYzov9FZT7UHKzcwuSN2UgIASalp
+	D4R2UVf3lkUHKety9u6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utzRA-00000008FVp-3qKm;
-	Thu, 04 Sep 2025 02:10:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1utzRC-00000008FYL-0IAj;
+	Thu, 04 Sep 2025 02:10:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utvVU-00000007k9e-3QFI
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 21:59:10 +0000
+	id 1utw1O-00000007nqT-2nO6;
+	Wed, 03 Sep 2025 22:32:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EB8594042B;
-	Wed,  3 Sep 2025 21:59:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C411C4CEE7;
-	Wed,  3 Sep 2025 21:59:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 568336024F;
+	Wed,  3 Sep 2025 22:32:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEB75C4CEE7;
+	Wed,  3 Sep 2025 22:32:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756936747;
-	bh=0GKVuSXSJlSkzp6pFM2J9RqAsra+LJOjM8sTloa5vZI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QZQdJBc8vH6UcWmXya2a2zyHBrnnDAfbC0OahIBH+9TlWOzp6Z680MfwRZjjs8ZSa
-	 SvegDfNOMcPQKzc4LKAXanPl3lGiWKWPfJJeMNIBepZrsNVOzS9z93y5g3a0yT6uxE
-	 YSFdBxnUNk8wz459J42nWKuhwXQCQcM9EdY+UYX5DsgtAuHbUUanAa7L49VdOoizOH
-	 4x/rX6A7JWPc7qXStA1TDjzGuj6dFFXxDAjMxIKGi75gAJlzcpfKwftRjjeM79gopj
-	 PXSguAysaUH3+APtXo2HwaiY+xqqz2pr0MNhrDmZ7lp6EfUFFe0lZkSjrBAfsxX6vn
-	 b3g3T1X2uwN0A==
-Date: Wed, 3 Sep 2025 16:59:05 -0500
-From: Bjorn Andersson <andersson@kernel.org>
-To: arm@kernel.org, soc@kernel.org, Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
-Subject: Re: [GIT PULL] Qualcomm driver fixes for v6.17-rc1
-Message-ID: <lvpubhge5dfyokvnsuhupus4kocroeb2dmlngl6efxplmwe7h6@raldw456w6r5>
-References: <20250811145613.120917-1-andersson@kernel.org>
+	s=k20201202; t=1756938724;
+	bh=0zNxbRiK/0aMy5wdBnW9WCgQpg46kf3uIF2gp8dwHmQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=Nrz9NKhMC5qUarkd7J+XDkSpZDWKsfS09dlIk7Cm6jJKudqb+qGchlrAH1B3u2qBH
+	 NxOy+gtbBuB6w0bqYYfEWi6QfniE4omkp5oXpUbC7VLbCjyLivl1eW2YWrxQSCgOQn
+	 VgGPsYF3+fxTUZ6f1T5fgq3F9L1J6DD5DIIzMXE1D8K+S5CpeYQAtX21OXz4pK8HK3
+	 ucbSC3pRXndnyQYZVRe5JXO5apjS3rw8iMp5mtKLM4kbwKatUSPZcMYOaY0aSJMEtt
+	 hOUFxBzIzmltmb5JpiQmUMLEbEuVkvToIWP1FFS3F4jtQfq9Hm+T16ydICw5SgYNLz
+	 oybtOg+x53FlA==
+Date: Wed, 3 Sep 2025 17:32:02 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, bhelgaas@google.com,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	joel@jms.id.au, andrew@codeconstruct.com.au, vkoul@kernel.org,
+	kishon@kernel.org, linus.walleij@linaro.org, p.zabel@pengutronix.de,
+	linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+	linux-phy@lists.infradead.org, openbmc@lists.ozlabs.org,
+	linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v3 08/10] PCI: Add FMT and TYPE definition for TLP header
+Message-ID: <20250903223202.GA1235935@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250811145613.120917-1-andersson@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_145908_876647_AAC2D6F9 
-X-CRM114-Status: GOOD (  14.47  )
+In-Reply-To: <20250901055922.1553550-9-jacky_chou@aspeedtech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,38 +73,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 11, 2025 at 09:56:11AM -0500, Bjorn Andersson wrote:
+On Mon, Sep 01, 2025 at 01:59:20PM +0800, Jacky Chou wrote:
+> According to PCIe specification, add FMT and TYPE definition
+> for TLP header.
 > 
-> The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585:
+> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
+> ---
+>  drivers/pci/pci.h | 12 ++++++++++++
+>  1 file changed, 12 insertions(+)
 > 
->   Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
-> 
-> are available in the Git repository at:
-> 
->   https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-drivers-fixes-for-6.17
-> 
-> for you to fetch changes up to 25daf9af0ac1bf12490b723b5efaf8dcc85980bc:
-> 
->   soc: qcom: mdt_loader: Deal with zero e_shentsize (2025-08-10 21:02:14 -0500)
+> diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
+> index 34f65d69662e..45d47d6c4f53 100644
+> --- a/drivers/pci/pci.h
+> +++ b/drivers/pci/pci.h
+> @@ -81,6 +81,18 @@ struct pcie_tlp_log;
+>  #define PCIE_MSG_CODE_DEASSERT_INTC	0x26
+>  #define PCIE_MSG_CODE_DEASSERT_INTD	0x27
+>  
+> +/* Format of TLP; PCIe r5.0, sec 2.2.1 */
 
-Arnd, could you please pull this for v6.17-rc?
+Please update to PCIe r7.0.
 
-Regards,
-Bjorn
-
+> +#define PCIE_TLP_FMT_3DW_NO_DATA	0x00 /* 3DW header, no data */
+> +#define PCIE_TLP_FMT_4DW_NO_DATA	0x01 /* 4DW header, no data */
+> +#define PCIE_TLP_FMT_3DW_DATA		0x02 /* 3DW header, with data */
+> +#define PCIE_TLP_FMT_4DW_DATA		0x03 /* 4DW header, with data */
+> +
+> +/* Type of TLP; PCIe r5.0, sec 2.2.1 */
+> +#define PCIE_TLP_TYPE_CFG0_RD		0x04 /* Config Type 0 Read Request */
+> +#define PCIE_TLP_TYPE_CFG0_WR		0x04 /* Config Type 0 Write Request */
+> +#define PCIE_TLP_TYPE_CFG1_RD		0x05 /* Config Type 1 Read Request */
+> +#define PCIE_TLP_TYPE_CFG1_WR		0x05 /* Config Type 1 Write Request */
+> +
+>  extern const unsigned char pcie_link_speed[];
+>  extern bool pci_early_dump;
+>  
+> -- 
+> 2.43.0
 > 
-> ----------------------------------------------------------------
-> Qualcomm driver fixes for v6.17-rc1
-> 
-> The recently extended sanity checks for the Qualcomm firmware files
-> turned out to be too restrictive, preventing a variety of firmware
-> images from being loaded. Adjust the checks to allow section header
-> sizes of 0 when sections aren't used.
-> 
-> ----------------------------------------------------------------
-> Bjorn Andersson (1):
->       soc: qcom: mdt_loader: Deal with zero e_shentsize
-> 
->  drivers/soc/qcom/mdt_loader.c | 12 +++++++-----
->  1 file changed, 7 insertions(+), 5 deletions(-)
 
