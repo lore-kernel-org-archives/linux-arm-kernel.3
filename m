@@ -4,77 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BBC4CA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 08:34:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F11DCA1009
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 08:36:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QElgaNiZq1zvMjZCZZcc+Tq8PfTitADDIX5munfHjFY=; b=387jNtMQJBhxVzLnEkRrFBvwh5
-	P8OZcSO5YsInqqUl4khZuCwD8MW3z/ZBDwyKocMr6HrAcqWVMowNv0NSAfv7RvbI1T8hPXNkPadsR
-	gY1yliSwqL91hdOwXpIvmxZzRKXNelr/xiapqY/XcZBVMcrWXWKst8cWhhgbW6g8G1LuLENSLrKod
-	u/HjQCHd7AO89pbHht2uCjjz1FmpGV7QtFeH3mIe/iZKgx1ACfR3rBRn5Gi35aFprRtaD2bS6cF9Z
-	v7sLkGacaOtRRPcUqtL5wcVOZFppwbgh0q1K8GiEciC+wEM26rIxkMRv/O4yODFF3kJ576g0xrCVJ
-	Gc85uNhQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=La6ncxcZEmWdKtlYiqu4qaaCsos1RqPeSH44Dfbmrsg=; b=eRlLGyUi7OlCy+
+	RXK7Hm65tIs7Q0PUUmoR1g5Hi4G5bd3Avgftnjp9YnUrL6lyB9ksTFL3YeiYVKkSXNFT8I6lBd5gv
+	RsVKhttIJoG/z8uD5Vtgca9uqi7BnztO4rm071clhc9MH5b8MpGAtJ/ug1bF/dgxhREfHlwzwHdDA
+	VNuASLZLvX6D3vspkIRwdjfhmDyEaV0m6QJ/4le4HKOA0mMVVHE8NdiyiQtbkL4R63tdHCnBtInV+
+	9nKw9goFqKUQgdsx1GUr8f5OU6/GKAErxejv5yplO7KubtbKZ2I4AWdhpPtIqNJSxFR/rzRw4uorI
+	iQ80yrUMRGNsMgpKd3mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utiwF-00000005bzy-4Akr;
-	Wed, 03 Sep 2025 08:33:55 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1utiyw-00000005dUw-3SCx;
+	Wed, 03 Sep 2025 08:36:42 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uti9Q-00000005D3W-0hZv
+	id 1utiAH-00000005Db8-2zYZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 07:43:30 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 1F39BA06F3;
-	Wed,  3 Sep 2025 09:43:16 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=QElgaNiZq1zvMjZCZZcc
-	+Tq8PfTitADDIX5munfHjFY=; b=nDC4+i3HL9AigOmaugF0rG+1yYi/J6AQS+G2
-	ZK618COiL36xqptql1G4POu4Rdz4pjX3xrRs3MEQx7y42It1ylBAHQxaxNIKWZUx
-	tTtWV/fEgtp2ofebJQuErJPly7LvUjlG22sU8kcr51s49ItVmooS1Ks2xWdkUDEB
-	POrsYRb/dsh4SbrVrx1AHolBMsK0B1cu9oNI8+VyExlgYPhSnpUq4P81OsBNATeO
-	JsQxweubc88BattPT7pSYiZtDbB9QnOZacmWMWa3aRQB5PfXgOpqDmGbDnp0LCWm
-	4ub+QbERocY1mFM81RsqVkFP1aZiqA9uqzDfSrvnE+54HiZ6sqV5sBTmHlW3cjhV
-	i2ajUKr5U0wv+UfETIBoc6YZOhn3DXl3eEU+miGaq8L+MnFwpyz7evysSGe8oBTc
-	X4PS0Yr0td58pVKolpdyY3olarr6GenKXGQ6UePpIgiBf0A+be0Dar4WcEpUmMyK
-	Lsm5Jvn5ammypt9kq60q4j1x2I6G1bX7HUlSWx+pO5Dd/2NLJhcKb/+BvPyAxLVI
-	fN1Rzch82+Ze+pCQ1g3EbReeiUEDauKOF3lkpgaOLdkv5yhAbVkxrXSQ3g4uO1Sx
-	pdUq7uq1EhvRzIq0eT0IicxJ8932eHmzW90RfJrndDiHhUAZWN/erXOBDs+5SBC9
-	/0FfcqM=
-Message-ID: <c85a94ee-59e1-47d6-8200-813bb434caf2@prolan.hu>
-Date: Wed, 3 Sep 2025 09:43:14 +0200
+	Wed, 03 Sep 2025 07:44:23 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5837hlMt2779765;
+	Wed, 3 Sep 2025 02:43:47 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1756885427;
+	bh=La6ncxcZEmWdKtlYiqu4qaaCsos1RqPeSH44Dfbmrsg=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=oOC5tY9q0MixsxO5Xobph2w7N4vEUNiRky93Q69HAAoIx2sePLaFHBWx0X3ND+G1E
+	 3FU6rH9ecK8AXPX9Y4vFv5fmMEZnKD9TkEnHh8cjFxWAnuDv91+beFx84zl5YwhTeZ
+	 rA6bQxoBaqnERooaaKdWbS7tAcH0XNXKIPTNtoXo=
+Received: from DFLE108.ent.ti.com (dfle108.ent.ti.com [10.64.6.29])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5837hle13356790
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Wed, 3 Sep 2025 02:43:47 -0500
+Received: from DFLE102.ent.ti.com (10.64.6.23) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 3
+ Sep 2025 02:43:46 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE102.ent.ti.com
+ (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Wed, 3 Sep 2025 02:43:46 -0500
+Received: from [172.24.231.152] (danish-tpc.dhcp.ti.com [172.24.231.152])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5837hbje1211215;
+	Wed, 3 Sep 2025 02:43:37 -0500
+Message-ID: <ce3b3241-b944-4d2b-95e9-259c71b26026@ti.com>
+Date: Wed, 3 Sep 2025 13:13:36 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: dts: imx6ul-tx6ul: Switch away from deprecated
- `phy-reset-gpios`
-To: Ahmad Fatoum <a.fatoum@pengutronix.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>
-CC: <devicetree@vger.kernel.org>, <imx@lists.linux.dev>, Csaba Buday
-	<buday.csaba@prolan.hu>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-References: <20250815-b4-tx6ul-dt-phy-rst-v1-1-9b65e315d9d3@prolan.hu>
- <fa7e2cef-5242-4f3b-84ea-d77b959f6bdb@pengutronix.de>
+Subject: Re: [PATCH net-next v2 1/8] dt-bindings: net: ti,rpmsg-eth: Add DT
+ binding for RPMSG ETH
+To: Krzysztof Kozlowski <krzk@kernel.org>
+References: <20250902090746.3221225-1-danishanwar@ti.com>
+ <20250902090746.3221225-2-danishanwar@ti.com>
+ <20250903-dark-horse-of-storm-cf68ea@kuoka>
 Content-Language: en-US
-From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
-In-Reply-To: <fa7e2cef-5242-4f3b-84ea-d77b959f6bdb@pengutronix.de>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.254.253.11]
-X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
- ATLAS.intranet.prolan.hu (10.254.0.229)
-X-EsetResult: clean, is OK
-X-EsetId: 37303A296767155E637062
+From: MD Danish Anwar <danishanwar@ti.com>
+In-Reply-To: <20250903-dark-horse-of-storm-cf68ea@kuoka>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_004328_674080_00E22BF4 
-X-CRM114-Status: GOOD (  20.95  )
+X-CRM114-CacheID: sfid-20250903_004421_848865_11D1EFA0 
+X-CRM114-Status: GOOD (  19.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,98 +82,78 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Geert Uytterhoeven <geert+renesas@glider.be>, linux-doc@vger.kernel.org, linux-remoteproc@vger.kernel.org, Eric Dumazet <edumazet@google.com>, Fan Gong <gongfan1@huawei.com>, Xin Guo <guoxin09@huawei.com>, Lei Wei <quic_leiwei@quicinc.com>, Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Michael Ellerman <mpe@ellerman.id.au>, Lee Trager <lee@trager.us>, Jakub Kicinski <kuba@kernel.org>, Mengyuan Lou <mengyuanlou@net-swift.com>, Lorenzo Bianconi <lorenzo@kernel.org>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Roger Quadros <rogerq@kernel.org>, Lukas Bulwahn <lukas.bulwahn@redhat.com>, linux-arm-kernel@lists.infradead.org, srk@ti.com, Paolo Abeni <pabeni@redhat.com>, Tero Kristo <kristo@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, netdev@vger.kernel.org, Bjorn Andersson <andersson@kernel.org>, linux-kernel@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>, Simon Horman <horms@kernel.org>, Parthiban Veerasooran <Parthiban.Veerasooran@microchip.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "David S. Miller" <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Krzysztof,
 
-On 2025. 09. 03. 9:28, Ahmad Fatoum wrote:
-> Hello,
-> 
-> On 15.08.25 17:17, Bence Csókás wrote:
->> The Ethernet PHY's reset GPIO should be specified in the node of the PHY
->> itself, instead of the MAC (`fec`). The latter is deprecated, and was an
->> i.MX-specific extension, incompatible with the new reset controller
->> subsystem.
-> 
-> One reason to do it this way is that the PHY is in reset when the OS starts
-> and the external phy-reset-gpios allows MAC probe to get the PHY out of
-> reset, so it can be probed after reading its vendor/device IDs.
-> 
-> Does switching to this new binding address this scenario? If so, it should
-> be noted in the commit message.
-
-Yes, but after it has been reset, if the platform supports Power 
-Management, the PHY's clock will be turned off, which some PHYs (in our 
-case the LAN8710) don't tolerate. This has been reported many times, 
-just search LKML for "lan8710 reset".
-
-So we want a more general solution [1] where the PHY subsystem resets 
-them before enumerating. However, if the MAC driver claims the GPIO, 
-then it can't be used by the PHY.
-
-I will clarify the commit msg with this in mind.
-
-[1] 
-https://lore.kernel.org/lkml/20250709133222.48802-4-buday.csaba@prolan.hu/
-
+On 03/09/25 12:48 pm, Krzysztof Kozlowski wrote:
+> On Tue, Sep 02, 2025 at 02:37:39PM +0530, MD Danish Anwar wrote:
+>> Add device tree binding documentation for Texas Instruments RPMsg Ethernet
+>> channels. This binding describes the shared memory communication interface
+>> between host processor and a remote processor for Ethernet packet exchange.
 >>
->> Co-developed-by: Csaba Buday <buday.csaba@prolan.hu>
->> Signed-off-by: Csaba Buday <buday.csaba@prolan.hu>lan8710 reset
->> Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+>> The binding defines the required 'memory-region' property that references
+>> the dedicated shared memory area used for exchanging Ethernet packets
+>> between processors.
+>>
+>> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
 >> ---
->>   arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi | 8 +++++++-
->>   1 file changed, 7 insertions(+), 1 deletion(-)
+>>  .../devicetree/bindings/net/ti,rpmsg-eth.yaml | 38 +++++++++++++++++++
+>>  1 file changed, 38 insertions(+)
+>>  create mode 100644 Documentation/devicetree/bindings/net/ti,rpmsg-eth.yaml
 >>
->> diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
->> index f053358bc9317f8447d65013a18670cb470106b2..0a5e90704ea481b0716d6ff6bc6d2110914d4f31 100644
->> --- a/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
->> +++ b/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
->> @@ -246,7 +246,6 @@ &fec1 {
->>   	pinctrl-names = "default";
->>   	pinctrl-0 = <&pinctrl_enet1 &pinctrl_enet1_mdio &pinctrl_etnphy0_rst>;
->>   	phy-mode = "rmii";
->> -	phy-reset-gpios = <&gpio5 6 GPIO_ACTIVE_LOW>;
->>   	phy-supply = <&reg_3v3_etn>;
->>   	phy-handle = <&etnphy0>;
->>   	status = "okay";
->> @@ -262,6 +261,13 @@ etnphy0: ethernet-phy@0 {
->>   			pinctrl-0 = <&pinctrl_etnphy0_int>;
->>   			interrupt-parent = <&gpio5>;
->>   			interrupts = <5 IRQ_TYPE_EDGE_FALLING>;
->> +			/* Reset SHOULD be a PHY property */
+>> diff --git a/Documentation/devicetree/bindings/net/ti,rpmsg-eth.yaml b/Documentation/devicetree/bindings/net/ti,rpmsg-eth.yaml
+>> new file mode 100644
+>> index 000000000000..1c86d5c020b0
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/net/ti,rpmsg-eth.yaml
+>> @@ -0,0 +1,38 @@
+>> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/net/ti,rpmsg-eth.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: Texas Instruments RPMsg channel nodes for Ethernet communication
+>> +
+>> +description: |
+>> +  RPMsg Ethernet subnode represents the communication interface between host
+>> +  processor and a remote processor.
+>> +
+>> +maintainers:
+>> +  - MD Danish Anwar <danishanwar@ti.com>
+>> +
+>> +properties:
+>> +  memory-region:
+>> +    $ref: /schemas/types.yaml#/definitions/phandle
+>> +    description: |
+>> +      Phandle to the shared memory region used for communication between the
+>> +      host processor and the remote processor.
+>> +      This shared memory region is used to exchange Ethernet packets.
+>> +
+>> +required:
+>> +  - memory-region
+>> +
+>> +additionalProperties: false
 > 
-> Comment belongs into commit message.
-
-Agreed.
-
->> +			reset-names = "phy";
->> +			reset-gpios = <&gpio5 6 GPIO_ACTIVE_LOW>;
->> +			reset-assert-us = <100>;
->> +			reset-deassert-us = <25000>;
->> +			/* Energy detect sometimes causes link failures */
->> +			smsc,disable-energy-detect;
-> 
-> Unrelated change not described in the commit message.
-
-Oh, this has accidentally made it into here from our DT. Thanks for 
-spotting it!
-
-> Cheers,
-> Ahmad
-> 
->>   			status = "okay";
->>   		};
->>   
->>
->> ---
->> base-commit: 0cc53520e68bea7fb80fdc6bdf8d226d1b6a98d9
->> change-id: 20250815-b4-tx6ul-dt-phy-rst-7afc190a6907
->>
->> Best regards,
+> This cannot be really tested and is pointless binding... Really, one
+> property does not make it a device node.
 > 
 > 
 
-Bence
+I tried to do something similar to google,cros-ec.yaml and
+qcom,glink-edge.yaml
+
+They are also rpmsg related and used by other vendors. I created similar
+to that as my use case seems similar to them.
+
+The only difference being I only need one property.
+
+
+-- 
+Thanks and Regards,
+Danish
 
 
