@@ -4,68 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67AEECA1009
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 17:04:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 051C7CA1009
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 17:07:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FBBuLaZa4gEtAfPJX3dNokGZZogemb1sOznVKIynf8s=; b=ZdX+vWzXKJ/LaNME02nKCDuhgP
-	hjzohO7dKd9+aH7VjKGTKMHKfpzDKcJE8GIKFt3YQy995/NFSw13QaFHxK+6IaNkICt9bVQjzLb3L
-	CmbxAhKGENTiEzUGAWlUXYIUpMPsrwui1PVQ3narOzO9Xr1F5yk4plk/B1S6ILHohurmXP+OOxX/g
-	qjj6D649XmA4O25Oeu61lk1jcl8lglZb8voq+JtL9A46nw1+nCG8IUKheK81nKR0+0b11h4UOCwnW
-	EfuvVsMJTjjzaBEDgDfDdoKYPg5Dj//Mab4VbhzW55xyRM9Y+89zZGYsgCZYUfDf+7V1cOqmXBKsC
-	b6scY5FQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OkV/DeaXa2eIU6w26hvqIdLHtMibXdPwaApwqqLdeuY=; b=qtedHCdHcxS8pjkArcgRQHJ/vD
+	UXzeYT1xLPjvY1qJTw2KExcRxKGOJMu78YiRD3ZXbDOa/4omGIxK+CU9YeC6+mReHsqNe+/woXVye
+	PMjMy4SB8YW6/9PPXeWTO+FQy4UMEhwT6ZOgCS2TRnylY+OS4BwGnjRkIQiheMCvkChQT34VjKPYe
+	K8gIQ06qWEFcDVlrEB4OmUnHhQjqHXZVyYcSlEHJ7pZG7x/Mme3ldUHvEqQ90pjIwfbGAtGgULepG
+	VlhEiCBKE+vxcKfzeQQG+zsRTOwFzY9uSRFX7j2Nl7lKu23xXgdpJVDJQnCKSYcjWVM323RcpxclA
+	eTWDKPwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utquT-0000000786t-2Az4;
-	Wed, 03 Sep 2025 17:04:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1utqxA-000000078NI-1aEI;
+	Wed, 03 Sep 2025 17:07:24 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utnQR-00000006ZWD-43Wi
+	id 1utnQh-00000006ZZ9-1xCH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 13:21:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 617316023F;
-	Wed,  3 Sep 2025 13:21:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99C89C4CEF0;
-	Wed,  3 Sep 2025 13:21:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756905683;
-	bh=lBZol3zBpE9PLURdaNvaImTKk9Qw5lA3TBKTVi4cHhw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BnRrxS0Jw0KWz4Vhi0qzEoQdScbrpFv0Tv0DbeulUAa0+/CM3cfCRiifWOJb2Qkv5
-	 p5g7m85ViSnSKw0b12Ci1Nbgpt7C4K2keLr5ulinYAnVcAuJ8KqMWisiULe1hvuKMS
-	 OCjUVbnpCiVOGwQF3hejsvTlwrV7pNBWIppU1CJH2wy+nm+KasxAClb3gbp3w3XAZ1
-	 JI43v2rSwwBt3tknYO2acreeqKbJ10G7f3176exCOMt4N7RsC/zz8366Hp0ZnCIrMI
-	 EpSLpEi57i56aZHoesr2K8ErO9PacVQCXhgYHlCAr0Xyvj6Q//YsEQmscItIcSM/1Y
-	 tpIrrRCxoFyFA==
-Date: Wed, 3 Sep 2025 18:51:14 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
-	bhelgaas@google.com, helgaas@kernel.org, kishon@kernel.org, vigneshr@ti.com, 
-	stable@vger.kernel.org, linux-pci@vger.kernel.org, linux-omap@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, srk@ti.com
-Subject: Re: [PATCH v3] PCI: j721e: Fix programming sequence of "strap"
- settings
-Message-ID: <whinfqhjgqbbvlnuzgbukklqi6gocjji4gakqyycovrse4qq6s@6xq5imqbzvux>
-References: <20250829091707.2990211-1-s-vadapalli@ti.com>
- <oztilfun77apxtjxumx4tydkcd2gsalsak4m2rvsry2oooqjna@2yvcx6cnuemm>
- <b2fb9252-6bfc-45da-973a-31cdfcc86b3d@ti.com>
- <z3ubracmtlq23yicbrhqjgnzrfoqheffm6cvhfnawlvbu4cmmp@ddu2o7xhw5tz>
- <48e9d897-2cd3-48ef-b46a-635ae75f5ac6@ti.com>
- <3wc3t6y5gzzspgfeklsqo3bupfp6gsfy6mls6t66hflcqlqsfk@cu26wv3sow4y>
- <9d2bba15-52e4-432a-8f7f-a0f5d7c2e4ad@ti.com>
- <7hxdcjm7evlphkldct7seytno4is7rjkx5vquvtfhpdkzxdhu6@yocrjgzciwu3>
- <08b87b5f-838b-4f40-ae90-10ded134356e@ti.com>
+	Wed, 03 Sep 2025 13:21:40 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 583D4th8003424;
+	Wed, 3 Sep 2025 15:21:37 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	OkV/DeaXa2eIU6w26hvqIdLHtMibXdPwaApwqqLdeuY=; b=m6bXDn8VgVZgJnCr
+	34JFmOEJIAaNaUVwkEeVxQIW9bR6uzN5c76vT1s8vnLJORKV+M9g1FFhvbbgqrJq
+	JrI+I8nrIwHqabXed9I3RzAQ+m3PBLiE8z+gYvoL9Su8Iq0/UjxWPsVjO89a30hv
+	SHXY2o6KR51g9QV9wjkHHbcH9f9m7BANHv/VLO9K41D3MEy9NUxsWeVDCKL3r9sp
+	5LfSXj2Uu3qwLrXULX8kFA35vu5fDw/E2GDgxjAXlmrQvPW2s72YSwqFJquwvjA2
+	CBnNmOgVH+GDasuSfg5ARyOB0AG93aUdPPvhZ1IRjGM1EQUz+qygK1125NqoaV1z
+	SdU9CQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48upe7gxae-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 03 Sep 2025 15:21:37 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 924634002D;
+	Wed,  3 Sep 2025 15:20:50 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 5F4E32B5120;
+	Wed,  3 Sep 2025 15:20:29 +0200 (CEST)
+Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 3 Sep
+ 2025 15:20:28 +0200
+Message-ID: <078fb552-c848-49ef-b917-14aec0e4b6aa@foss.st.com>
+Date: Wed, 3 Sep 2025 15:20:28 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <08b87b5f-838b-4f40-ae90-10ded134356e@ti.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND] docs: arm: stm32: fix typo "busses" -> "buses"
+To: Akshaykumar Gunari <akshaygunari@gmail.com>, <corbet@lwn.net>,
+        <mcoquelin.stm32@gmail.com>
+CC: <linux-doc@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250807145119.2214-1-akshaygunari@gmail.com>
+Content-Language: en-US
+From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+In-Reply-To: <20250807145119.2214-1-akshaygunari@gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.79]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-03_07,2025-08-28_01,2025-03-28_01
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250903_062139_772749_D525BACF 
+X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,128 +93,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 02, 2025 at 10:34:51AM GMT, Siddharth Vadapalli wrote:
-> On Mon, Sep 01, 2025 at 08:15:24PM +0530, Manivannan Sadhasivam wrote:
-> > On Mon, Sep 01, 2025 at 04:50:02PM GMT, Siddharth Vadapalli wrote:
-> > > On Mon, Sep 01, 2025 at 12:14:51PM +0530, Manivannan Sadhasivam wrote:
-> > > > On Mon, Sep 01, 2025 at 11:51:33AM GMT, Siddharth Vadapalli wrote:
+Hi
+
+On 8/7/25 16:51, Akshaykumar Gunari wrote:
+> Fix the spelling of "busses" to the preferred form "buses" in STM32 ARM
+> architecture documentation.
 > 
-> [...]
-> 
-> > > > > 
-> > > > > If I understand correctly, are you suggesting the following?
-> > > > > 
-> > > > > j721e_pcie_probe()
-> > > > > 	pm_runtime_set_active()
-> > > > > 	pm_runtime_enable()
-> > > > > 	ret = j721e_pcie_ctrl_init(pcie);
-> > > > > 		/*
-> > > > > 		 * PCIe Controller should be powered off here, but is there
-> > > > > 		 * a way to ensure that it has been powered off?
-> > > > > 		 */
-> > > > > 		=> Program the strap settings and return to
-> > > > > 		j721e_pcie_probe()
-> > > > > 	/* Power on the PCIe Controller now */
-> > > > > 	ret = pm_runtime_get_sync(dev);
-> > > > 
-> > > > This pm_runtime_get_sync() should be part of j721e_pcie_ctrl_init() where you
-> > > > do power off, program strap and power on.
-> > > > 
-> > > > This should not be part of probe() as by that time, controller is already
-> > > > powered on. So pm_runtime_set_active() and pm_runtime_enable() should be enough
-> > > > to convey the state of the device to PM core.
-> > > 
-> > > I have tried out the suggestion in the following manner:
-> > > 
-> > > 	j721e_pcie_probe()
-> > > 		...
-> > > 		pm_runtime_set_active(dev);
-> > > 		pm_runtime_enable(dev);
-> > > 		ret = j721e_pcie_ctrl_init(pcie);
-> > > 			... within j721e_pcie_ctrl_init()
-> > > 			ret = pm_runtime_put_sync(dev);
-> > > 			/* Program Strap Settings */
-> > > 			ret = pm_runtime_get_sync(dev);
-> > > 			...
-> > > 		...
-> > > 		exit probe
-> > > 
-> > > Since a 'pm_runtime_get_sync()' hasn't yet been invoked prior to the
-> > > section where 'pm_runtime_put_sync()' is invoked, it leads to a ref-count
-> > > underflow error at runtime. Please let me know if I am missing
-> > > something.
-> > > 
-> > 
-> > Doh... At the start of probe(), device PM usage_count will be 0. So we cannot
-> > decrement it without incrementing it.
-> > 
-> > Could you try below sequence?
-> > 
-> > 	probe()
-> > 	...
-> > 	pm_runtime_set_active()
-> > 	pm_runtime_enable()
-> > 	j721e_pcie_ctrl_init()
-> > 		...
-> > 		pm_runtime_get() /* Just increment usage_count */
-> > 		pm_runtime_put_sync() /* ask PM core to turn off */
-> > 		/* program strap setting */
-> > 		pm_runtime_get_sync() /* ask PM core to turn on */
-> > 		pm_runtime_put_noidle() /* balance the usage_count without
-> > 						suspending the device */
-> > 	...
-> 
-> The above sequence powers off the controller at the point in time that
-> the strap settings are programmed. 'pm_runtime_get_sync()' is powering
-> on the controller afterwards. However, the 'pm_runtime_put_noidle()'
-> at the end is causing the controller to be powered off again leading to
-> a crash. Removing 'pm_runtime_put_noidle()' results in a functional
-> sequence.
-> 
-> Please consider the existing sequence prior to this patch:
-> 
-> probe()
-> 	...
-> 	pm_runtime_enable()
-> 	pm_runtime_get_sync() => usage_count is 1
-> 	...
-> 	exit probe
-> 
-> With the suggested sequence above, we have:
-> 
-> probe()
-> 	...
-> 	pm_runtime_set_active()
-> 	pm_runtime_enable()
-> 	j721e_pcie_ctrl_init()
-> 		...
-> 		pm_runtime_get() => usage_count is 1
-> 		pm_runtime_put_sync() => usage_count is 0
-> 		/* Controller is powered off now */
-> 		/* Strap settings are programmed */
-> 		pm_runtime_get_sync() => usage_count is 1
-> 		/* Controller is powered on now */
-> 		pm_runtime_put_noidle() => usage_count is 0
-> 		/* Controller is powered off in a while */
-> 	...
-> 	/* Crash is observed aroung this point before probe finishes */
-> 
-> Please let me know if the fix is to drop 'pm_runtime_put_noidle()'
-> from the above sequence.
+> Signed-off-by: Akshaykumar Gunari <akshaygunari@gmail.com>
+> ---
+>   Documentation/arch/arm/stm32/stm32f746-overview.rst  | 2 +-
+>   Documentation/arch/arm/stm32/stm32f769-overview.rst  | 2 +-
+>   Documentation/arch/arm/stm32/stm32h743-overview.rst  | 2 +-
+>   Documentation/arch/arm/stm32/stm32h750-overview.rst  | 2 +-
+>   Documentation/arch/arm/stm32/stm32mp13-overview.rst  | 2 +-
+>   Documentation/arch/arm/stm32/stm32mp151-overview.rst | 2 +-
+>   6 files changed, 6 insertions(+), 6 deletions(-)
 > 
 
-I thought put_noidle() will just reduce the refcount and not invoke the
-idle/suspend callbacks, but I seem to be wrong here.
+Applied on stm32-next.
 
-Anyway, I guess we have no option here other than to drop the
-pm_runtime_put_noidle() call. This will keep refcount as 1 and will prevent the
-parent (genpd) to not enter runtime suspend, but we have to live with it (this
-was also the previous beahvior as well).
-
-Btw, pm_runtime_set_active/enable change belongs to a separate patch.
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+Thanks
+Alex
 
