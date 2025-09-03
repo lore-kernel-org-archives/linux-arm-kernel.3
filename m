@@ -4,73 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16901CA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 15:44:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE26CCA1009
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 15:46:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=El/Xm4jDg9HBHpVGHlt56E3MYyMc4lLjk5+B4z84LHQ=; b=vzZ4TdJK/2E61nEmJOKQuk+vGz
-	2g1c3hYAv/hCf4NqnvSa5+C63eXZjgOw2aSWFYdM1gz0I1L8w2OAHFNMG1AbCkm//hImJuT1xj6LV
-	HZOTdKKTMVjqy+Q6ZrP2wiM5f4FKxXBGeejEhtubkRYWmHo5Xk6oAfkNEYQZ8aYsCFQwCicRtG1ye
-	N4TRVN+9JPFA1Mq7trfy91GcEooHdcfloF6JnZfVT/dDWEHIgoK9aRCY1rCi3HWuhSsgu9F8u/keq
-	pTsB/J2o1glzTtUXuQ2D7BAi58Zyrwvf+WQNFu6MzxkdNxVPMPZ6BkQazybdjmK340QSLz/lPYzi7
-	5YGw3jJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=auNWYKuwMRaiIsuE6I2MaR2Q9fd6AG9LtumLpCZlPMg=; b=SkjEgB4cbjWefPGAs1Fi1Ivygf
+	g4CvpN2x9L7xDSAznNF4Id+9Grqe+1GwkwcogyfRjpPpi+n3bXruhLqvjiyK1S45+icMmnsgaGUaT
+	kRFGxdxlylUx3Uwuw9YAe4N8HsQkYedeUK4PI6ybtetiOAm6SuKh3MmjXxwLWw+0p9G9tX6KgJARs
+	uDDnrTaRc1LuhNIUa+bKXJJm5MV1RIjvfiVGqHIuiq7GB0ZzHNrtBrVIX53E3Pz8mSDdPFGVvc0vo
+	ai/Vcju77tywp6fy98JUrNxG7Q4PU1tjm86ULHTRHIQJvkGE7o7St3jv+SjH4o1fx9JsAX14stBx+
+	1fpAOqUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utpeQ-00000006xIk-0VbX;
-	Wed, 03 Sep 2025 15:43:58 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1utph6-00000006xgb-3nIw;
+	Wed, 03 Sep 2025 15:46:44 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utnAc-00000006VqJ-2xp3
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 13:05:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=El/Xm4jDg9HBHpVGHlt56E3MYyMc4lLjk5+B4z84LHQ=; b=aXhrCKnwDwPyqgIkyh8xbWumNA
-	bPACdkz1r6AIkAK/Zw40Q5DBIp/z2qW3NoY1WxV9QUemaGBM64DbKolPC/zl4T5gQAXj1BR7FXYGq
-	7KKUgn7U4EKE6m9A/fqCvttpXv+Yii43tk6MAc1K67AK/WYD6KMQW58Yyjuoi/iU9fdiW4qdR35w9
-	MJGI+6T5ZsDs5lza0HmSvHrlqeCzFrLIbQNn02SQvwa2IVYbLzLCdQDkoO8IoMhKjVhRLpF1P/+bw
-	aAIRnjDCRAQPrARjfSIXjoXtqih5XId4N1802+vC/XO9ItWlijCoYwyyv3BTYDOU05qRXZdmyocGG
-	dxBLcRIg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:57812)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1utnAW-000000000Z2-3nVw;
-	Wed, 03 Sep 2025 14:04:57 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1utnAU-000000000YK-22jm;
-	Wed, 03 Sep 2025 14:04:54 +0100
-Date: Wed, 3 Sep 2025 14:04:54 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 00/11] net: stmmac: mdio cleanups
-Message-ID: <aLg89lkAiC_JxYP0@shell.armlinux.org.uk>
-References: <aLg24RZ6hodr711j@shell.armlinux.org.uk>
+	id 1utnBM-00000006VzW-0evz;
+	Wed, 03 Sep 2025 13:05:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1756904745;
+	bh=65Cy4eE/Dbap4x4XSMPP5MYg4UIWlMJAYB2KAsuUEOM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qu4mmDCDhFLO5+ELxckT0gE8rs6NIalQ//oyW76Y1Q12bEdUkmyxERmGtl3gd/5Cb
+	 ACWOJ8mwcL5RwYv04uIf4VWQx4M8gzjuUMg2xAu7cwent5z5hZHNyCcZJZjdXGZ6B5
+	 Glf7D3k2pwuXHnEPWq/avscUiPDC0ExrnhAsli3I/xv52eXqiBTCOJDcDdcT8JUmNX
+	 rWu6x3+kIPa0tfE1yG+4hAlLFHNeUQ5c/e8Eabcqnob+JSr+6zO9yVsUOEYVBX5vNy
+	 kAb06ow8nOgQFQ+kk2uAPy7wTkRZ7w+YmGZkVGNYPVt+JQRnZ+J5yXIcFCtB3jsrsc
+	 0Xv/mjVBORwdw==
+Received: from [192.168.1.90] (unknown [82.79.138.60])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9FE5517E0FFA;
+	Wed,  3 Sep 2025 15:05:44 +0200 (CEST)
+Message-ID: <218de818-2063-432d-b61b-4537ea702cd6@collabora.com>
+Date: Wed, 3 Sep 2025 16:05:44 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aLg24RZ6hodr711j@shell.armlinux.org.uk>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 1/2] drm/rockchip: inno-hdmi: Convert to drm bridge
+To: Heiko Stuebner <heiko@sntech.de>, dmitry.baryshkov@oss.qualcomm.com,
+ Andy Yan <andyshrk@163.com>
+Cc: mripard@kernel.org, neil.armstrong@linaro.org, andrzej.hajda@intel.com,
+ jernej.skrabec@gmail.com, jonas@kwiboo.se,
+ Laurent.pinchart@ideasonboard.com, maarten.lankhorst@linux.intel.com,
+ rfoss@kernel.org, simona@ffwll.ch, tzimmermann@suse.de, knaerzche@gmail.com,
+ devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, Andy Yan <andy.yan@rock-chips.com>
+References: <20250903110825.776807-1-andyshrk@163.com>
+ <20250903110825.776807-2-andyshrk@163.com> <5255838.1BCLMh4Saa@phil>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <5255838.1BCLMh4Saa@phil>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_060502_749235_CE102472 
-X-CRM114-Status: GOOD (  12.85  )
+X-CRM114-CacheID: sfid-20250903_060548_373448_D81C344C 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,26 +81,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 03, 2025 at 01:38:57PM +0100, Russell King (Oracle) wrote:
-> Hi,
+Hello Heiko,
+
+On 9/3/25 2:59 PM, Heiko Stuebner wrote:
+> Hi Andy,
 > 
-> Clean up the stmmac MDIO code:
-> - provide an address register formatter to avoid repeated code
-> - provide a common function to wait for the busy bit to clear
-> - pre-compute the CR field (mdio clock divider)
-> - move address formatter into read/write functions
-> - combine the read/write functions into a common accessor function
-> - move runtime PM handling into common accessor function
-> - rename register constants to better reflect manufacturer names
-> - move stmmac_clk_csr_set() into stmmac_mdio
-> - make stmmac_clk_csr_set() return the CR field value and remove
->   priv->clk_csr
-> - clean up if() range tests in stmmac_clk_csr_set()
-> - use STMMAC_CSR_xxx definitions in initialisers
+> Am Mittwoch, 3. September 2025, 13:07:38 Mitteleuropäische Sommerzeit schrieb Andy Yan:
+>> From: Andy Yan <andy.yan@rock-chips.com>
+>>
+>> Convert it to drm bridge driver, it will be convenient for us to
+>> migrate the connector part to the display driver later.
+>>
+>> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+> 
+> more like a general remark, this essentially conflicts with the
+> big hiword-cleanup [0] that was merged today, as the inno-hdmi driver
+> "lost" its separate HIWORD_UPDATE macro in favor a nicer generic one.
+> 
+> I'm not sure what the best way to proceed is, apart from waiting for
+> 6.18-rc1.
 
-It would be great if someone can test this series please.
+This is actually what I also intended to ask you, as I'm in the process of
+rebasing the HDMI CEC series on top of next-20250903.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Would it be possible to have an immutable branch of bitmap-for-next and get
+it merged to drm-misc-next?
+
+Regards,
+Cristian
 
