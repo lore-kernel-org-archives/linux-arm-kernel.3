@@ -4,82 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E403CA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 16:28:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC50ACA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 16:31:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aHqRa8jsx4scxQoHsogOHYRV2hwQ6tQgcKa606SaBXY=; b=yJ6aFu01gEgEzflxJzlPCRQ1V2
-	4mFBuvxami97miOjMEQdEccYD8YZ+Xr2brXP0bckFkprmQUqGZQ+wDiB2IimFL0wDv5kYK+YQT5Yw
-	g7qA9O/3jcpcvw2qHNqoChRzWj+g6AjPLv0iQQZUAxjShPw64ivxo6rEeNBoPd3Jnc/mmThYhcOEi
-	10q3PHISmykE2P7j+nItngoYr8g7IlGwiDWmKjowyEgHlGlfYfOeXz3fumoDDnlIBDGSJ9FQJT1OO
-	EmWPRKTz7a/8UlSZ50SnRCDPudIuQIThsQE0wWAHZ95Ko5+LwDfw857T9fmdeKQV+s6dWex0wAEs7
-	m+hQvTDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TxPNmVy7a9D1x/9mzPwHQ/ox2v5u9+IiO3TQ4kcH9to=; b=Hajn1U+ra/3tuQ1bbt/YIbTvMA
+	S+PtVJxlsxB2ml87+pZ/FyAbKUnBpGIxbRiKWJs6HXx7P/+sYZLXhqgkOWu4/yVk+ULGl1C8LX5Y7
+	cZhywBYx4/nFVO/a/ROfWZIhn0MeYmqNioYMz3Sz24RIUtbAraPp2aHZ4U/LPJQtmLUx+iXilkp2r
+	2OrsTAMX/4EohkhXuExeU9/kCf79mqLDUkpj54YqL12I6UKG0p6llW8RSP3pV719fPKvJpls+fnx9
+	v6Djk1ub7yoUo+/KyROcoXHI94P1eetSLbHVL55kdPHRQG/xI2ULqAp8ZW5czyaSpYI8uahUPfRmm
+	QBV1GWJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utqLW-000000074Dc-2nqL;
-	Wed, 03 Sep 2025 16:28:30 +0000
-Received: from mail.thorsis.com ([2003:a:e28:26e4::10])
+	id 1utqOD-000000074V9-1iYl;
+	Wed, 03 Sep 2025 16:31:17 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utnLk-00000006YGX-1Nfl
+	id 1utnNJ-00000006Yei-2fnR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 13:16:34 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C4D4D1487E25;
-	Wed,  3 Sep 2025 15:16:16 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
-	t=1756905386; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=aHqRa8jsx4scxQoHsogOHYRV2hwQ6tQgcKa606SaBXY=;
-	b=Mi40bUy3Qk6XWegkRfPM2jnv4dDk/bMr2lj8J/pF4Gri48WBAkFX2c8VfueH8QqgCf2Ng8
-	j5AcfYSFfVjl6qZmg4jeiz3c6SMpf4oy8SG4v5oJmU7JXVKjlUK0bGcYIOJWNDqUGyZcms
-	Sff7vKAfUKeT6nvfJzbKbjFGimAEMj1wL7WqwQ3CZM5jPi07ldAlfZilQmSE3wtlrNL8Gv
-	OYP7T1CFZSdYRfuoHH7n6uRcTI+N6s7ysLFA6qazlJP/eibZT1JQi7uKBLnEPtQqfcfvvh
-	qz6NHVk6ppVZmLyBYDYcwkHh/+haGNIMfW6/g/QOTfw6wH67NV3Kug8C4llwIQ==
-Date: Wed, 3 Sep 2025 15:16:10 +0200
-From: Alexander Dahl <ada@thorsis.com>
-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: Vinod Koul <vkoul@kernel.org>, linux@armlinux.org.uk,
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
-	catalin.marinas@arm.com, will@kernel.org, olivia@selenic.com,
-	herbert@gondor.apana.org.au, davem@davemloft.net,
-	andi.shyti@kernel.org, lee@kernel.org, broonie@kernel.org,
-	gregkh@linuxfoundation.org, jirislaby@kernel.org, arnd@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-crypto@vger.kernel.org, dmaengine@vger.kernel.org,
-	linux-i2c@vger.kernel.org, linux-spi@vger.kernel.org,
-	linux-serial@vger.kernel.org, o.rempel@pengutronix.de,
-	daniel.machon@microchip.com, Robert Marko <robert.marko@sartura.hr>,
-	luka.perkov@sartura.hr
-Subject: Re: (subset) [PATCH v8 00/10] arm64: lan969x: Add support for
- Microchip LAN969x SoC
-Message-ID: <20250903-gratify-sustained-9acc011bc3c9@thorsis.com>
-Mail-Followup-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Vinod Koul <vkoul@kernel.org>, linux@armlinux.org.uk,
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
-	catalin.marinas@arm.com, will@kernel.org, olivia@selenic.com,
-	herbert@gondor.apana.org.au, davem@davemloft.net,
-	andi.shyti@kernel.org, lee@kernel.org, broonie@kernel.org,
-	gregkh@linuxfoundation.org, jirislaby@kernel.org, arnd@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-crypto@vger.kernel.org, dmaengine@vger.kernel.org,
-	linux-i2c@vger.kernel.org, linux-spi@vger.kernel.org,
-	linux-serial@vger.kernel.org, o.rempel@pengutronix.de,
-	daniel.machon@microchip.com, Robert Marko <robert.marko@sartura.hr>,
-	luka.perkov@sartura.hr
-References: <20250702183856.1727275-1-robert.marko@sartura.hr>
- <175327377884.189941.15214972441246653208.b4-ty@kernel.org>
- <bac5390f-725a-43db-a2b6-17a68d0d733c@tuxon.dev>
+	Wed, 03 Sep 2025 13:18:11 +0000
+X-UUID: 6680d70888c811f0b29709d653e92f7d-20250903
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.45,REQID:d056df0d-9490-46b5-b02b-45f4d6409240,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:6493067,CLOUDID:b3d8cc48d38f17ba8c0258a26b8c30c8,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|850,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
+	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 6680d70888c811f0b29709d653e92f7d-20250903
+Received: from mail.kylinos.cn [(10.44.16.175)] by mailgw.kylinos.cn
+	(envelope-from <zhangzihuan@kylinos.cn>)
+	(Generic MTA)
+	with ESMTP id 431355095; Wed, 03 Sep 2025 21:17:54 +0800
+Received: from mail.kylinos.cn (localhost [127.0.0.1])
+	by mail.kylinos.cn (NSMail) with SMTP id DD192E008FA4;
+	Wed,  3 Sep 2025 21:17:53 +0800 (CST)
+X-ns-mid: postfix-68B84000-2111002
+Received: from localhost.localdomain (unknown [172.25.120.24])
+	by mail.kylinos.cn (NSMail) with ESMTPA id 86984E008FA2;
+	Wed,  3 Sep 2025 21:17:43 +0800 (CST)
+From: Zihuan Zhang <zhangzihuan@kylinos.cn>
+To: "Rafael J . wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	MyungJoo Ham <myungjoo.ham@samsung.com>,
+	Kyungmin Park <kyungmin.park@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Eduardo Valentin <edubezval@gmail.com>,
+	Keerthy <j-keerthy@ti.com>
+Cc: Ben Horgan <ben.horgan@arm.com>,
+	zhenglifeng <zhenglifeng1@huawei.com>,
+	Zhang Rui <rui.zhang@intel.com>,
+	Len Brown <lenb@kernel.org>,
+	Lukasz Luba <lukasz.luba@arm.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Beata Michalska <beata.michalska@arm.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Pavel Machek <pavel@kernel.org>,
+	Sumit Gupta <sumitg@nvidia.com>,
+	Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	linux-pm@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	intel-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,
+	imx@lists.linux.dev,
+	linux-omap@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Zihuan Zhang <zhangzihuan@kylinos.cn>
+Subject: [PATCH v4 00/10] cpufreq: use __free() for all cpufreq_cpu_get() references
+Date: Wed,  3 Sep 2025 21:17:23 +0800
+Message-Id: <20250903131733.57637-1-zhangzihuan@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <bac5390f-725a-43db-a2b6-17a68d0d733c@tuxon.dev>
-User-Agent: Mutt/2.2.12 (2023-09-09)
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_061632_865919_D824C946 
-X-CRM114-Status: GOOD (  19.28  )
+X-CRM114-CacheID: sfid-20250903_061809_975187_F085B162 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,41 +122,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+This patchset converts all remaining cpufreq users to rely on the
+__free(put_cpufreq_policy) annotation for policy references, instead of
+calling cpufreq_cpu_put() manually.
 
-Am Thu, Jul 31, 2025 at 11:05:07AM +0300 schrieb Claudiu Beznea:
-> Hi, Vinod,
-> 
-> On 23.07.2025 15:29, Vinod Koul wrote:
-> > 
-> > On Wed, 02 Jul 2025 20:35:58 +0200, Robert Marko wrote:
-> >> This patch series adds basic support for Microchip LAN969x SoC.
-> >>
-> >> It introduces the SoC ARCH symbol itself under the ARCH_MICROCHIP symbol
-> >> which allows to avoid the need to change dependencies of the drivers that
-> >> are shared for Microchip SoC-s in the future.
-> >>
-> >> DTS and further driver will be added in follow-up series.
-> >>
-> >> [...]
-> > 
-> > Applied, thanks!
-> > 
-> > [08/10] dma: xdmac: make it selectable for ARCH_MICROCHIP
-> >         commit: e56982021f5303b2523ac247e3c79b063459d012
-> 
-> As this one depends, as well, on the first 3 patches in the series (Robert,
-> please correct me if I'm wrong), and there are still discussions ongoing,
-> can you please drop it until all is clear on the first 3 patches?
-> 
-> Otherwise, applying only this patch will lead to AT91 XDMAC driver not
-> being built for SAMA5{D2, D3, D4}, SAMA7{G5, D65} SoCs. Linux is not
-> booting on SAMA7G5 SoC only with this patch applied.
+Motivation:
+- Reduce the chance of reference counting mistakes
+- Make the code more consistent with the latest kernel style
+- behavior remains the same, but reference counting is now safer=20
+  and easier to maintain.
 
-Second that.  Just tested v6.17-rc4 on sam9x60 and DMA is not working
-at all because this driver can not be selected anymore.  This must be
-fixed before v6.17 release please!
+The changes are split into 12 patches as they touch different subsystems
+and are maintained by different people. There is no functional change.
 
-Greets
-Alex
+V4:
+ - Fix compile error in topology.c
+ - drop 2 patches
+ - Move code into a function in processor_thermal.c
+ - Move code into a function in intel_pstate.c
+ - Move policy declare in dtpm_cpu.c
+ - Fix compile error in imx_thermal.c
+ - Fix compile error in ti-thermal-common.c
+ - Fix compile error in energy_model.c
+
+V3:
+ - drop patch 'KVM: x86: Use __free(put_cpufreq_policy) for policy refere=
+nce'
+ - removed 5 patches which has been applied
+ - Consolidate CPUFreq policy assignments and allocations into one line,
+   suggested by Ben Horgan
+ - Change cpu_has_cpufreq() return type to bool, following Rafael's sugge=
+stion
+ - Change the title to 'Use scope-based cleanup helper'
+
+V2:
+ - Fix compile error in powernv-cpufreq.c
+ - Split patch to separate logical changes
+
+Zihuan Zhang (10):
+  arm64: topology: Use scope-based cleanup helper
+  ACPI: processor: thermal: Use scope-based cleanup helper
+  cpufreq: intel_pstate: Use scope-based cleanup helper
+  cpufreq: powernv: Use scope-based cleanup helper
+  PM / devfreq: Use scope-based cleanup helper
+  drm/i915: Use scope-based cleanup helper
+  powercap: dtpm_cpu: Use scope-based cleanup helper
+  thermal: imx: Use scope-based cleanup helper
+  thermal/drivers/ti-soc-thermal: Use scope-based cleanup helper
+  PM: EM: Use scope-based cleanup helper
+
+ arch/arm64/kernel/topology.c                  |  9 ++---
+ drivers/acpi/processor_thermal.c              | 37 +++++++++++--------
+ drivers/cpufreq/intel_pstate.c                | 19 ++++++----
+ drivers/cpufreq/powernv-cpufreq.c             | 11 +++---
+ drivers/devfreq/governor_passive.c            | 25 +++++-------
+ drivers/gpu/drm/i915/gt/intel_llc.c           |  4 +-
+ drivers/powercap/dtpm_cpu.c                   | 30 ++++++---------
+ drivers/thermal/imx_thermal.c                 | 14 +++----
+ .../ti-soc-thermal/ti-thermal-common.c        | 13 ++-----
+ kernel/power/energy_model.c                   |  7 +---
+ 10 files changed, 73 insertions(+), 96 deletions(-)
+
+--=20
+2.25.1
+
 
