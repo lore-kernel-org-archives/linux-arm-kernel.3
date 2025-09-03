@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84BC6CA1009
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 11:34:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63642CA1009
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 11:37:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+i8oAUMTsIvcjOYfs13X6uUC2HQZZABG0CDIqEY1zDw=; b=kuARDZPMHsNM/zys7L7hFaTxpa
-	4ssC3vRp0MaQJPRtk/gmNG8hiUgSHWdKpa4u3T1wWQyE9kxb+iD3mA/hJtkGPPeuWH1/lyCAHDIvL
-	8UBTDmT5h1JVJEL+4KeYZVC41Kpn5jqzu1MxnQoZ7m033lI4Y+7t1EMshseSZfC6JswaDUIq1kbc1
-	WKiOjdZfD7ni6UFshqOFuT35EIPPGrDmCZE8BJBL54D44THklzMTU38dmGrzXA3h1UepwZKDrwrs/
-	suwo9QJXA5JQYsE7L+GPZ95GOps5pDrQe66cydFz+jVNvdwvi3H43mR9EzCBmFyW0w/ImMl35eGCy
-	fghCvv2Q==;
+	bh=j8WwRyidorWq6I/V1DikgrexlK9rJb32nczwqmy5r40=; b=AscrzrQsL/c6yVEZwDFhB2cuHV
+	0zUVHurC0yVzLPxNEjhLt32OP2+702LEpdbKGrX1mM4qzZzRNs/TACf1hoSeSCSVD2ynkq74Zs8Qh
+	u6O1moX0xZcAiorj6N8xhNrDc34UcliGZzzpYmB6Q+rc5UobX1BKmPj9pZLamrcTDIXzv2VjhNJps
+	smlmfpzmH84OYPNS24yh6Spu+RMS1y7mkWbzxf4JIxZoP3Oh479VsakOcv+bpUWA1w3P/BjHs93f2
+	4VrpqLtuNOjzV7A+uVGFKKY+3lR4lTYIph/u0EtE1vvQ1hqWk9KTOwrPVEnwCW/GgOjwa9ciRqP+W
+	2tihn2Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utlkz-00000006F2v-1Vwi;
-	Wed, 03 Sep 2025 11:34:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1utlng-00000006FPD-0nV5;
+	Wed, 03 Sep 2025 11:37:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utkg0-000000065ny-2s0k
+	id 1utkhb-0000000662M-3M2q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 10:25:16 +0000
+	Wed, 03 Sep 2025 10:26:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E34706013B;
-	Wed,  3 Sep 2025 10:25:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4897BC4CEF0;
-	Wed,  3 Sep 2025 10:25:12 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3B13E6013B;
+	Wed,  3 Sep 2025 10:26:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43BD8C4CEF0;
+	Wed,  3 Sep 2025 10:26:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756895115;
-	bh=TaFWHQjvVfXejaDsEJWPpAUgrBcapiu1AuP/gQXiR+U=;
+	s=k20201202; t=1756895214;
+	bh=j8WwRyidorWq6I/V1DikgrexlK9rJb32nczwqmy5r40=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=EBWzAqCgxdZBq3OvTkX0ocQlR2ksWFCW23qk48jmCjpTKj1u7LTt5BNg2jisUKtYO
-	 Cq2G7lrQaCc3ZDM7VpDAum42Q8y0UDsPYYE7Qph9+QbWslQd5DZF/d0kYzmlFbX+R+
-	 ObleuNHa9roYs4nTOjDlw80MZ73g59tPaauhusUpAw+2jBHwBGwThvxUBqSrGweuo6
-	 /zxhHErvk34CX2Tjegmxn+TuKOQ15zTBgToBe9QDrB83Pj728bmHnqj/nQWLUKPYeQ
-	 rGPVncHJTU6KtpS8/iKPknyCQdShtL2YztwTD2HxmYj+haXW6VozRP6kwFBC74oqIT
-	 ucOic0QtJL8ug==
-Message-ID: <998b2faf-4093-487b-a9b0-a7cfe1d96c3f@kernel.org>
-Date: Wed, 3 Sep 2025 12:25:10 +0200
+	b=vObmhpe0Q8lYt1oStUpRbxEUo8Fw6bIAFPTh80RVydOl4Xsql3X8cns+Lcxn+nH8V
+	 O6VF6dAu4pn81O3GMb4yBI9oEkVWlWuZ27HQxwayjCHj1062gc/1myhEkzvIkaNILQ
+	 b3NVz/tI5iX0ey2dI96nc9kZafHX8ENeNjACYLRR1FTuBotUDSsIMBaUHOQUCvfWww
+	 v8pQtsLO2D3zcitfX/yGMafpwquqZJCbTRKO2GfPgtAjOFVpcYGDWC5Qu955s34knY
+	 FZkywIAK2UhfdH0QY9Z0ebI3RK4ztQIbn2oOEG0/ys8poXnUm+5n/SaDBmbfpebp8v
+	 TIZ4xIpxXsAtA==
+Message-ID: <701542d5-adfd-4e35-a173-94791c118db5@kernel.org>
+Date: Wed, 3 Sep 2025 12:26:48 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/5] dt-bindings: clock: sun55i-a523-ccu: Add A523 CPU CCU
- clock controller
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH 4/5] clk: sunxi-ng: add support for the A523/T527 CPU CCU
+To: Andre Przywara <andre.przywara@arm.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
  Mikhail Kalashnikov <iuncuim@gmail.com>
 References: <20250903000910.4860-1-andre.przywara@arm.com>
- <20250903000910.4860-2-andre.przywara@arm.com>
- <20250903-meticulous-didactic-degu-621fe0@kuoka>
- <20250903104644.7359a86d@donnerap>
+ <20250903000910.4860-5-andre.przywara@arm.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,7 +103,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250903104644.7359a86d@donnerap>
+In-Reply-To: <20250903000910.4860-5-andre.przywara@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -123,32 +120,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/09/2025 11:46, Andre Przywara wrote:
->>
->>
->>> @@ -0,0 +1,13 @@
->>> +/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
->>> +/*
->>> + * Copyright 2025 Arm Ltd.
->>> + */
->>> +
->>> +#ifndef _DT_BINDINGS_CLK_SUN55I_A523_CPU_CCU_H_
->>> +#define _DT_BINDINGS_CLK_SUN55I_A523_CPU_CCU_H_
->>> +
->>> +#define CLK_CPU_L		7
->>> +#define CLK_CPU_DSU		8
->>> +#define CLK_CPU_B		9  
->>
->> I don't see the header being used by the driver and odd numbers (they
->> should start from 0 or 1) suggest these are not bindings.
-> 
-> This header is included by the private header (at the end of patch 4/5).
-> The private header is then included by the driver.
-
-Ah, I see now.
-
-> 
-
+On 03/09/2025 02:09, Andre Przywara wrote:
+> +#include "ccu_common.h"
+> +#include "ccu_reset.h"
+> +
+> +#include "ccu_div.h"
+> +#include "ccu_gate.h"
+> +#include "ccu_mp.h"
+> +#include "ccu_nm.h"
+> +#include "ccu_mult.h"
+> +
+> +#include "ccu-sun55i-a523-cpu.h"
+You should not rely on some other headers pulling other headers. You use
+here bindings, so you should include here bindings header as well.
 
 Best regards,
 Krzysztof
