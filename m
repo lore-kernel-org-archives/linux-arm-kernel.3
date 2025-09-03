@@ -4,75 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AC4DCA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 18:56:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98F33CA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 18:59:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vg5ewRXhTTAj3dwOtg+KKWn0lOGtPCOEr24O5UKKpJQ=; b=hmSt6jmfcggiBg1O3B7HfNLaAO
-	BMP6gtKtLKrd7U38m6/dMx4CuO7K8RQti536uYMx7KYW77IZYFiwoDJmUQ0Ix+i9yqmkZAvFDlqVF
-	CTSvQYjSaKbH8nMUebYo6G/ipmwhZQiiqZ8KyDafbcknWnBibL/BxI0sS+UTrYycsQUxGQNnKqf1p
-	r+JsZEPkBBNCeg0aLIDoaq53Jfk44Ba8oESj7vqBionY1OjNpbrLHl4p4kB0RmRhZPf9DU42wBXHP
-	RVIvMlANs8Xl47kVqIs8GKQy3tO/iSguUWiUrrK7M8pGQDf6bevrC5Z5HEQIW2q4Fvna5Br37qjtZ
-	1SIgTdQw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IKFS3y5daOqWaKHPU+LGGnIxAUZ7p5yYYNJ7KEL39IE=; b=jCkOFgjnp5k5desEotZQPuG0Iz
+	OyyyZfD0nvUagNVxTw6/jdBNLJyKFTdlhto04kh532qYdNc0P4o8aOPC5tkTFbTMIN9f4xrHhXOjE
+	hr9qOvkhDgWU1s6XVRpknoWeGJ87k2hRdnZ7yqfxh9IkSZ2C4uZrlB5tHbgnnpBSHHMKhqlP7FwRD
+	D5rdUWXt0nofTcFByrYDSa+bxpnLFiDRijuOTmL/ZPD1v3h0S0I9dngQ3INrVthZlSs3U81PAT0WJ
+	GCS+tmpafdLcRWasNyRALQPzIynGHzKhRMOQpXaaxfcUhgJalZ8s4ERhh2Xe7xLcpmgNP3T2XNPXc
+	dCs2NLfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utsf1-00000007NAS-0Mhq;
-	Wed, 03 Sep 2025 18:56:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1utshf-00000007NSp-28ow;
+	Wed, 03 Sep 2025 18:59:31 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uto70-00000006gca-0JMQ
+	id 1uto8k-00000006grW-3Kky
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 14:05:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C82B7447E1
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  3 Sep 2025 14:05:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A95D0C4CEFB
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  3 Sep 2025 14:05:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756908321;
-	bh=eKNu0P169Q3NEmF9/2kn88R7etBh4b2ftcRq7KbNGzg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=GarjbhYPuBwzN4LKvw70mu25trun6v2gsNZoMS79qq5b6fFdnkIvAU84g+t/ZNTuA
-	 qItjKLs65j8DmS5uRuHG/tkDx9bXVhY6n/sDUArtE3jYBFiDdbCBST3QfRGBlrIjZZ
-	 0EOijnVmbkyGgntMKf9LztVwMTAF3BXSFTiQIhxDLLh5BAaXagqUwEBIB/EXoG4eUl
-	 281whCCc5omD9u36zHFpRpeOaOwok4ld/LprRIQlPor080oofNvmT9lX50gaNYeXn4
-	 27f6a9fUVkD0fJtu6rpxsExGEGI8IjbPgMEwoK885Yu8kqSJZ31Y78BR6mvEm74tEa
-	 BkIhFCAL3LF5Q==
-Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-61cd3748c6dso13488738a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Sep 2025 07:05:21 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXdWzkyFR2+oxtLjIYtZGm8whMYZ+vqeALThPcxfZhhs9z2q0sNM785mYSDuecaqhmNAtYptNsJ5uuljYC8Wg7P@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7NalDN6e2ZxIPlCeKRpM7qe6P8we4uIGg2j9p3eUEWe0Bj2B3
-	dyouWM+gEVRYnZmaMT+YGhU6rsVQxCD/SYLbRpoRRLwvkPEDsYNqsbdBQUfWy+SGnGDbNfC2BQg
-	muv5m1EPxn1qVb4BbBJLkZ+doUydGKQ==
-X-Google-Smtp-Source: AGHT+IHhgqqdWQtLgJ3n4i+fkorAw1PLf/dG7GMkfPu1VyhaFYexbX0Opd6FI4UepF1zq8MJg0/D/0FlKAcuRTaWSho=
-X-Received: by 2002:a05:6402:1ed6:b0:61e:9ebf:d340 with SMTP id
- 4fb4d7f45d1cf-61e9ebfd58cmr10082183a12.32.1756908320220; Wed, 03 Sep 2025
- 07:05:20 -0700 (PDT)
+	Wed, 03 Sep 2025 14:07:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=IKFS3y5daOqWaKHPU+LGGnIxAUZ7p5yYYNJ7KEL39IE=; b=PKC7mlYtwmdrYmC9dO0eS6a/1v
+	PnXfB4PUclYOsME0dz80pvRIdvUM0urIXWfGBQSbQIQzjczgiDnrkhBvigxhm7SEKwENJis2+wpNp
+	eZOiMa3C0pyuvMvz0nVBaAawfzkfQom27j8rZtAF+mksOE4PLxCJa/OUlt/RsI7j3GrQ=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uto88-0071kq-AO; Wed, 03 Sep 2025 16:06:32 +0200
+Date: Wed, 3 Sep 2025 16:06:32 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Anwar, Md Danish" <a0501179@ti.com>
+Subject: Re: [PATCH net-next v2 2/8] dt-bindings: remoteproc: k3-r5f: Add
+ rpmsg-eth subnode
+Message-ID: <6e56f36f-70fd-4635-b83f-a221780237ba@lunn.ch>
+References: <20250902090746.3221225-1-danishanwar@ti.com>
+ <20250902090746.3221225-3-danishanwar@ti.com>
+ <20250903-peculiar-hot-monkey-4e7c36@kuoka>
+ <d994594f-7055-47c8-842f-938cf862ffb0@ti.com>
+ <f2550076-57b5-46f2-a90a-414e5f2cb8d7@kernel.org>
+ <38c054a3-1835-4f91-9f89-fbe90ddba4a9@ti.com>
 MIME-Version: 1.0
-References: <20250815230841.3487764-1-robh@kernel.org> <307fa87eb552ac4a1f6dd6139450786195e3892a.camel@codeconstruct.com.au>
- <360776d4dd765dc2c98f0c1b718fe63d4a8a70d4.camel@codeconstruct.com.au>
-In-Reply-To: <360776d4dd765dc2c98f0c1b718fe63d4a8a70d4.camel@codeconstruct.com.au>
-From: Rob Herring <robh@kernel.org>
-Date: Wed, 3 Sep 2025 09:05:06 -0500
-X-Gmail-Original-Message-ID: <CAL_Jsq+TcACG=vGp__tT8RE6kOjchoUSq59i=H_+qSRn-ucMkw@mail.gmail.com>
-X-Gm-Features: Ac12FXwkg-WgIKnHEs8UoaeM3TBl6YtocnO-RvpeXFYLKucgpiCnVNz9w-PqANM
-Message-ID: <CAL_Jsq+TcACG=vGp__tT8RE6kOjchoUSq59i=H_+qSRn-ucMkw@mail.gmail.com>
-Subject: Re: [PATCH] ARM: dts: aspeed: Fix/add I2C device vendor prefixes
-To: Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Joel Stanley <joel@jms.id.au>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Magnus Damm <magnus.damm@gmail.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <38c054a3-1835-4f91-9f89-fbe90ddba4a9@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_070522_156576_6E543174 
-X-CRM114-Status: GOOD (  24.10  )
+X-CRM114-CacheID: sfid-20250903_070710_830822_FA593CC4 
+X-CRM114-Status: GOOD (  20.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,57 +68,42 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Geert Uytterhoeven <geert+renesas@glider.be>, linux-doc@vger.kernel.org, linux-remoteproc@vger.kernel.org, Eric Dumazet <edumazet@google.com>, Fan Gong <gongfan1@huawei.com>, Xin Guo <guoxin09@huawei.com>, Lei Wei <quic_leiwei@quicinc.com>, Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Michael Ellerman <mpe@ellerman.id.au>, Krzysztof Kozlowski <krzk@kernel.org>, Lee Trager <lee@trager.us>, Jakub Kicinski <kuba@kernel.org>, Mengyuan Lou <mengyuanlou@net-swift.com>, Lorenzo Bianconi <lorenzo@kernel.org>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Roger Quadros <rogerq@kernel.org>, Lukas Bulwahn <lukas.bulwahn@redhat.com>, linux-arm-kernel@lists.infradead.org, srk@ti.com, Paolo Abeni <pabeni@redhat.com>, Tero Kristo <kristo@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, netdev@vger.kernel.org, Bjorn Andersson <andersson@kernel.org>, linux-kernel@vger.kernel.org, MD Danish Anwar <danishanwar@ti.com>, Andrew Lunn <andrew+netdev@lunn.ch>, Simon Horman <horms@kernel.org>, Parthiban Veerasooran <Parthiban.Veerasooran@microchip.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "David S. Miller" <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 3, 2025 at 1:52=E2=80=AFAM Andrew Jeffery
-<andrew@codeconstruct.com.au> wrote:
->
-> On Wed, 2025-09-03 at 15:01 +0930, Andrew Jeffery wrote:
-> > Hi Rob,
-> >
-> > On Fri, 2025-08-15 at 18:08 -0500, Rob Herring (Arm) wrote:
-> > > The ASpeed DTS files have various I2C devices with missing or incorre=
-ct
-> > > vendor prefixes in their compatible strings. This hasn't really matte=
-red
-> > > and doesn't impact ABI compatibility as I2C devices get matched with =
-their
-> > > vendor prefix stripped.
-> > >
-> > > With this, the "maxim,max31790" nodes now validate and have some
-> > > warnings. Remove the spurious "#address-cells" and "#size-cells"
-> > > properties to fix the warnings.
-> > >
-> > > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> > > ---
-> > >  .../aspeed-bmc-arm-stardragon4800-rep2.dts    |  2 +-
-> > >  .../dts/aspeed/aspeed-bmc-facebook-harma.dts  |  8 ++-----
-> > >  .../aspeed/aspeed-bmc-facebook-minerva.dts    | 24 +++++------------=
---
-> > >  .../aspeed/aspeed-bmc-facebook-tiogapass.dts  |  2 +-
-> > >  .../dts/aspeed/aspeed-bmc-lenovo-hr855xg2.dts |  2 +-
-> > >  .../dts/aspeed/aspeed-bmc-opp-palmetto.dts    |  2 +-
-> > >  .../boot/dts/aspeed/aspeed-bmc-quanta-s6q.dts |  4 ++--
-> > >  7 files changed, 14 insertions(+), 30 deletions(-)
-> > >
-> >
-> > I see you've applied this to your tree. Sorry for being slow on the up-
-> > take, I've been focusing on other things recently. Happy to take it
-> > though, if you're happy to drop it?
->
-> Actually, do you mind dropping it from your tree? It conflicts with
-> Krzysztof's patch that I'd already applied:
->
-> https://lore.kernel.org/all/20250819131743.86905-2-krzysztof.kozlowski@li=
-naro.org/
->
-> I've applied your patch here with a note in the trailer:
->
-> https://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux.git/commit/?h=
-=3Daspeed/dt&id=3D61a913644a8c5b6c8bd9da09f78f88e50edfaeb
+> >>  	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core0>;
+> >>  	memory-region = <&main_r5fss0_core0_dma_memory_region>,
+> >>  			<&main_r5fss0_core0_memory_region>;
+> >> +	rpmsg-eth-region = <&main_r5fss0_core0_memory_region_shm>;
+> > 
+> > You already have here memory-region, so use that one.
+> > 
+> 
+> There is a problem with using memory-region. If I add
+> `main_r5fss0_core0_memory_region_shm` to memory region, to get this
+> phandle from driver I would have to use
+> 	
+> 	of_parse_phandle(np, "memory-region", 2)
+> 
+> Where 2 is the index for this region. But the problem is how would the
+> driver know this index. This index can vary for different vendors and
+> their rproc device.
+> 
+> If some other vendor tries to use this driver but their memory-region
+> has 3 existing entries. so this this entry will be the 4th one.
 
-I've dropped it. That was inadvertent.
+Just adding to this, there is nothing really TI specific in this
+system. We want the design so that any vendor can use it, just by
+adding the needed nodes to their rpmsg node, indicating there is a
+compatible implementation on the other end, and an indication of where
+the shared memory is.
 
-Rob
+Logically, it is a different shared memory. memory-region above is for
+the rpmsg mechanism itself. A second shared memory is used for the
+Ethernet drivers where it can place Ethernet frames. The Ethernet
+frames themselves are not transported over rpmsg. The rpmsg is just
+used for the control path, not the data path.
+
+	Andrew
 
