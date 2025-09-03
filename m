@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A189FCA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 19:02:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BD31CA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 19:05:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
 	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y/aOgcvyDGgPV7j77cBtuA5/aN08vOGaxIZpxN4kJy0=; b=cdCl8+MBBIuwI9
-	Wi5u9BDoWvZ/a0xyAF7jA5s/LKdMl8EXWcJ17qaZUJAq1h9KCwnOsTiQziRtyUvGqPiV+ZyrDchSl
-	Mxg2RE+/lFDuWlbyr43vx9II80m+Skb8ZZ5hQnOLYTcxwojftwWJ9+YX0PhUoZElg11NV8ChBhHWY
-	+9Z33G9fCqKqdaVZ1Jcw6ibICilTxLiDj1ko8cmL1Ga1Y7Y/WqV3q9IDZdCgYZUZAdGNUdWjcGpb9
-	2lno5xp4dC9S9k3UVu++ppr0pDyCaWlvdoaeBzncG/PWz1Jqw4ck6SlZ6ZgsrcOasAfcxOSfKjgFF
-	Fz2mhBF7xNB2fc8q97mg==;
+	List-Owner; bh=078pFd/Wdz2/ANWhtssdAEuutIYNAQNHN+OsZ9Wb9nk=; b=py7RNU4AN8VZ/M
+	rkRa93IQ6dDvBL6ezvleLhTJpAGz5WHzh8m9fewT/lvSOOr01U/y9Qjbu05nVyGHGyig+Z7zD+awU
+	TmXdPSqoTaNO+aD8QaIoRpZc5lsIOECnPPoEHZkeErPznqOkXfEK5ZRrDM2VhBWlhs+9l5zkJXerk
+	DnRXPXlm6smyzr1WooM6NNhKXqtfAeoMzRzD/UwvXRjcqWWYx0FcxRouVnft8QIeY9r5h/10fqwmR
+	NkFQH3CgXfIXyP1p1Hfl0QnpRgqY0r1R88BDIjVVvuL82ffpsg6TpyuzbPKLTm5svj8OzWabBTNdy
+	0avLpwlUUHqzx121tTJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utskM-00000007OVd-3I7G;
-	Wed, 03 Sep 2025 19:02:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1utsn1-00000007P06-2YZj;
+	Wed, 03 Sep 2025 19:05:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utoLA-00000006iik-0ctN
+	id 1utoOx-00000006iyr-2KSo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 14:20:01 +0000
+	Wed, 03 Sep 2025 14:23:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C03E4417FF;
-	Wed,  3 Sep 2025 14:19:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64960C4CEE7;
-	Wed,  3 Sep 2025 14:19:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B7B4260237;
+	Wed,  3 Sep 2025 14:23:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8677FC4CEE7;
+	Wed,  3 Sep 2025 14:23:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756909199;
-	bh=82KpDV1PvR2wNvrkgtAIHeyUyj1MQlrsKRL99mRDZBs=;
+	s=k20201202; t=1756909434;
+	bh=RH0JXllZP6MZUtbdIyvnSL6xOTZGtSyzuKbcwgJZhZ8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=rTYnTc4yE0MczD5gf388EJftHMhVDIb7K97+qI8yphSe8s6QtmkejjXb+d8GJTmt6
-	 9cVe0Rd0ingn3ucmy/fba5ChlZuxw9VxgICeBrk5+T3byxSscBwtdzB3u5q1POsB2/
-	 S7NhFIhw+aFBixFRCPZO37J1227jFcN2bkuENiD1TUGY5QON21fQiVbReovZ3gdvBw
-	 7JYD7den7jFxsrR8ltXDV74H9mCTmUO0+k3QPTpOatu9YLcWf6Moteg33kohNt9njG
-	 /6YYhB6XJqT+ahKXXzEdAEURKMgct0Kpx9tSUFNwlxcro0ThpySo5hqiIIDmIoNHje
-	 T7aUset+eHlzA==
-Message-ID: <ea75a30b-01f4-4c2d-b3ab-0a9ab0d9de80@kernel.org>
-Date: Wed, 3 Sep 2025 16:19:50 +0200
+	b=uGiphPDg6pqRYghg8mQ3iJf9rZTGTJvVgt56Ntji54toOVqzoEMmxeFzOPC0It7R8
+	 33TOcKwEnNxlz54A8OS7qkEGg/j5U7pOgUnTYAJ6lnjSQGSjv5hb240/CXNXCQCxND
+	 5W9UEdnq33hwParQ+7Ynp9e0qFQPgl1z1gs+Bkrm8B+Kc5kqNQHMJXaOEgp4Tkb34D
+	 lejn1a6pGiHPxyVsO5l6uTwf2ROY+9cfxMLtdZlud4b9vFoLCpGkUP3BuA6FmrHVOk
+	 6HT2/7tKocLDXCApRo3xnxsNBwxsj7IHGMT9FXqqmU80u9FtnyHtjTQ/vY3TU30Bkx
+	 yQjRdEjmbZcFQ==
+Message-ID: <9c2a863c-0c8a-4563-a58d-d59112ac45a8@kernel.org>
+Date: Wed, 3 Sep 2025 16:23:44 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH net-next v2 2/8] dt-bindings: remoteproc: k3-r5f: Add
  rpmsg-eth subnode
-To: "Anwar, Md Danish" <a0501179@ti.com>, MD Danish Anwar <danishanwar@ti.com>
+To: Andrew Lunn <andrew@lunn.ch>, "Anwar, Md Danish" <a0501179@ti.com>
 References: <20250902090746.3221225-1-danishanwar@ti.com>
  <20250902090746.3221225-3-danishanwar@ti.com>
  <20250903-peculiar-hot-monkey-4e7c36@kuoka>
  <d994594f-7055-47c8-842f-938cf862ffb0@ti.com>
  <f2550076-57b5-46f2-a90a-414e5f2cb8d7@kernel.org>
  <38c054a3-1835-4f91-9f89-fbe90ddba4a9@ti.com>
+ <6e56f36f-70fd-4635-b83f-a221780237ba@lunn.ch>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,12 +101,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <38c054a3-1835-4f91-9f89-fbe90ddba4a9@ti.com>
+In-Reply-To: <6e56f36f-70fd-4635-b83f-a221780237ba@lunn.ch>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_072000_229222_491E3C91 
-X-CRM114-Status: GOOD (  28.35  )
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,105 +115,53 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Geert Uytterhoeven <geert+renesas@glider.be>, linux-doc@vger.kernel.org, linux-remoteproc@vger.kernel.org, Eric Dumazet <edumazet@google.com>, Fan Gong <gongfan1@huawei.com>, Xin Guo <guoxin09@huawei.com>, Lei Wei <quic_leiwei@quicinc.com>, Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Michael Ellerman <mpe@ellerman.id.au>, Lee Trager <lee@trager.us>, Jakub Kicinski <kuba@kernel.org>, Mengyuan Lou <mengyuanlou@net-swift.com>, Lorenzo Bianconi <lorenzo@kernel.org>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Roger Quadros <rogerq@kernel.org>, Lukas Bulwahn <lukas.bulwahn@redhat.com>, linux-arm-kernel@lists.infradead.org, srk@ti.com, Paolo Abeni <pabeni@redhat.com>, Tero Kristo <kristo@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, netdev@vger.kernel.org, Bjorn Andersson <andersson@kernel.org>, linux-kernel@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>, Simon Horman <horms@kernel.org>, Parthiban Veerasooran <Parthiban.Veerasooran@microchip.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "David S. Miller" <davem@davemloft.net>
+Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Geert Uytterhoeven <geert+renesas@glider.be>, linux-doc@vger.kernel.org, linux-remoteproc@vger.kernel.org, Eric Dumazet <edumazet@google.com>, Fan Gong <gongfan1@huawei.com>, Xin Guo <guoxin09@huawei.com>, Lei Wei <quic_leiwei@quicinc.com>, Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Michael Ellerman <mpe@ellerman.id.au>, Lee Trager <lee@trager.us>, Jakub Kicinski <kuba@kernel.org>, Mengyuan Lou <mengyuanlou@net-swift.com>, Lorenzo Bianconi <lorenzo@kernel.org>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Roger Quadros <rogerq@kernel.org>, Lukas Bulwahn <lukas.bulwahn@redhat.com>, linux-arm-kernel@lists.infradead.org, srk@ti.com, Paolo Abeni <pabeni@redhat.com>, Tero Kristo <kristo@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, netdev@vger.kernel.org, Bjorn Andersson <andersson@kernel.org>, linux-kernel@vger.kernel.org, MD Danish Anwar <danishanwar@ti.com>, Andrew Lunn <andrew+netdev@lunn.ch>, Simon Horman <horms@kernel.org>, Parthiban Veerasooran <Parthiban.Veerasooran@microchip.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "David S. Miller" <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/09/2025 15:32, Anwar, Md Danish wrote:
-> 
-> 
-> On 9/3/2025 6:24 PM, Krzysztof Kozlowski wrote:
->> On 03/09/2025 09:57, MD Danish Anwar wrote:
->>>>> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
->>>>> ---
->>>>>  .../devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml     | 6 ++++++
->>>>>  1 file changed, 6 insertions(+)
->>>>>
->>>>> diff --git a/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
->>>>> index a492f74a8608..4dbd708ec8ee 100644
->>>>> --- a/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
->>>>> +++ b/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
->>>>> @@ -210,6 +210,12 @@ patternProperties:
->>>>>            should be defined as per the generic bindings in,
->>>>>            Documentation/devicetree/bindings/sram/sram.yaml
->>>>>  
->>>>> +      rpmsg-eth:
->>>>> +        $ref: /schemas/net/ti,rpmsg-eth.yaml
->>>>
->>>> No, not a separate device. Please read slides from my DT for beginners
+On 03/09/2025 16:06, Andrew Lunn wrote:
+>>>>  	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core0>;
+>>>>  	memory-region = <&main_r5fss0_core0_dma_memory_region>,
+>>>>  			<&main_r5fss0_core0_memory_region>;
+>>>> +	rpmsg-eth-region = <&main_r5fss0_core0_memory_region_shm>;
 >>>
->>> I had synced with Andrew and we came to the conclusion that including
->>> rpmsg-eth this way will follow the DT guidelines and should be okay.
+>>> You already have here memory-region, so use that one.
+>>>
 >>
->> ... and did you check the guidelines? Instead of repeating something not
->> related to my comment rather bring argument matching the comment.
+>> There is a problem with using memory-region. If I add
+>> `main_r5fss0_core0_memory_region_shm` to memory region, to get this
+>> phandle from driver I would have to use
+>> 	
+>> 	of_parse_phandle(np, "memory-region", 2)
 >>
+>> Where 2 is the index for this region. But the problem is how would the
+>> driver know this index. This index can vary for different vendors and
+>> their rproc device.
 >>
->> ...
->>
->>> @@ -768,6 +774,7 @@ &main_r5fss0_core0 {
->>>  	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core0>;
->>>  	memory-region = <&main_r5fss0_core0_dma_memory_region>,
->>>  			<&main_r5fss0_core0_memory_region>;
->>> +	rpmsg-eth-region = <&main_r5fss0_core0_memory_region_shm>;
->>
->> You already have here memory-region, so use that one.
->>
+>> If some other vendor tries to use this driver but their memory-region
+>> has 3 existing entries. so this this entry will be the 4th one.
 > 
-> There is a problem with using memory-region. If I add
-> `main_r5fss0_core0_memory_region_shm` to memory region, to get this
-> phandle from driver I would have to use
-> 	
-> 	of_parse_phandle(np, "memory-region", 2)
-> 
-> Where 2 is the index for this region. But the problem is how would the
-> driver know this index. This index can vary for different vendors and
-> their rproc device.
+> Just adding to this, there is nothing really TI specific in this
+> system. We want the design so that any vendor can use it, just by
+> adding the needed nodes to their rpmsg node, indicating there is a
+> compatible implementation on the other end, and an indication of where
+> the shared memory is.
 
-Index is fixed, cannot be anything else. Cannot vary.
-
+I don't know your drivers, but I still do not see here a problem with
+'memory-region'. You just need to tell this common code which
+memory-region phandle by index or name is the one for rpmsg.
 
 > 
-> If some other vendor tries to use this driver but their memory-region
-> has 3 existing entries. so this this entry will be the 4th one.
+> Logically, it is a different shared memory. memory-region above is for
+> the rpmsg mechanism itself. A second shared memory is used for the
+> Ethernet drivers where it can place Ethernet frames. The Ethernet
+> frames themselves are not transported over rpmsg. The rpmsg is just
+> used for the control path, not the data path.
 
-None of these are reasons to add completely new node in DT. You use
-arguments of drivers in hardware description. Really, can you read the
-slides I asked for already?
-
-> 
-> But the driver code won't work for this. We need to have a way to know
-
-Driver code can easily work with this. Multiple choices from using names
-up to having driver match data with index.
-
-> which index to look for in existing memory-region which can defer from
-> vendor to vendor.
-> 
-> So to avoid this, I thought of using a new memory region. Which will
-> have only 1 entry specifically for this case, and the driver can always
-> 
-> 	of_parse_phandle(np, "rpmsg-eth-region", 0)
-> 
-> to get the memory region.
-
-Please don't drag the discussion. Look:
-
-Q: I need a child node for my device to instantiate Linux driver"
-A: NO
-
-Q: I need new “vendor,foo-prop” property
-A: Please look at existing common properties from common schemas or
-devices representing similar class
-
-Or actually let's start with most important:
-
-"What Could You Put into DTS?"
-Answers:
-1. "Not the Linux Device Driver model"
-2. "No Linux driver choices"
-
-And that's exactly what you do and how you argue.
+It is still "shared-dma-pool", right? Nothing in the bindings says that
+all memory-region phandles are equal or the same. Just like phandles for
+clocks. Some clocks need to be enabled for entire lifetime of the
+device, some are toggled on-off during runtime PM.
 
 Best regards,
 Krzysztof
