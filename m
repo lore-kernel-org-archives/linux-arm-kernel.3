@@ -4,69 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE26CCA1009
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 15:46:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A268CA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 15:49:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=auNWYKuwMRaiIsuE6I2MaR2Q9fd6AG9LtumLpCZlPMg=; b=SkjEgB4cbjWefPGAs1Fi1Ivygf
-	g4CvpN2x9L7xDSAznNF4Id+9Grqe+1GwkwcogyfRjpPpi+n3bXruhLqvjiyK1S45+icMmnsgaGUaT
-	kRFGxdxlylUx3Uwuw9YAe4N8HsQkYedeUK4PI6ybtetiOAm6SuKh3MmjXxwLWw+0p9G9tX6KgJARs
-	uDDnrTaRc1LuhNIUa+bKXJJm5MV1RIjvfiVGqHIuiq7GB0ZzHNrtBrVIX53E3Pz8mSDdPFGVvc0vo
-	ai/Vcju77tywp6fy98JUrNxG7Q4PU1tjm86ULHTRHIQJvkGE7o7St3jv+SjH4o1fx9JsAX14stBx+
-	1fpAOqUg==;
+	bh=TceoMbVPyrzcVBNVbAOHGzxGRGxrO0zSw59TjOdJc7U=; b=enx32ik5++KyRRRR4wrufsbBA2
+	eGnooFl/w0AugylrauKGIxebmp8jabieMM2Upaesqt96uhabxdm7iakr0/S0WRzyx0X5gpee0QE2o
+	yUFv+6u38OEjVe+lWvFJYjTBee30dmFOlo3OavwzpN32u6n109iU1zO77oLwGhoDm3sLCbbqT6yCA
+	CHV6BxONsCLJVEi9iDfOZEMojWZqcRI7YEpz93/uLKDxAbqOLIGztHThjOo99ToI7f8PkZbnPSZYW
+	wJUGnekcpb7LC3IYkaLxPtdUH2pQBwOeBpQ8Wj/rZvTE+udLUjWf5OnZnNi52MXOZM+YRpbFwZPcn
+	Dt2zAXMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utph6-00000006xgb-3nIw;
-	Wed, 03 Sep 2025 15:46:44 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1utpjn-00000006yEe-0ddn;
+	Wed, 03 Sep 2025 15:49:31 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utnBM-00000006VzW-0evz;
-	Wed, 03 Sep 2025 13:05:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1756904745;
-	bh=65Cy4eE/Dbap4x4XSMPP5MYg4UIWlMJAYB2KAsuUEOM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qu4mmDCDhFLO5+ELxckT0gE8rs6NIalQ//oyW76Y1Q12bEdUkmyxERmGtl3gd/5Cb
-	 ACWOJ8mwcL5RwYv04uIf4VWQx4M8gzjuUMg2xAu7cwent5z5hZHNyCcZJZjdXGZ6B5
-	 Glf7D3k2pwuXHnEPWq/avscUiPDC0ExrnhAsli3I/xv52eXqiBTCOJDcDdcT8JUmNX
-	 rWu6x3+kIPa0tfE1yG+4hAlLFHNeUQ5c/e8Eabcqnob+JSr+6zO9yVsUOEYVBX5vNy
-	 kAb06ow8nOgQFQ+kk2uAPy7wTkRZ7w+YmGZkVGNYPVt+JQRnZ+J5yXIcFCtB3jsrsc
-	 0Xv/mjVBORwdw==
-Received: from [192.168.1.90] (unknown [82.79.138.60])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9FE5517E0FFA;
-	Wed,  3 Sep 2025 15:05:44 +0200 (CEST)
-Message-ID: <218de818-2063-432d-b61b-4537ea702cd6@collabora.com>
-Date: Wed, 3 Sep 2025 16:05:44 +0300
+	id 1utnBa-00000006W2r-2a80
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 03 Sep 2025 13:06:07 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-560880bb751so1335245e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Sep 2025 06:06:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1756904761; x=1757509561; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TceoMbVPyrzcVBNVbAOHGzxGRGxrO0zSw59TjOdJc7U=;
+        b=PtVqx60ERm5AO6nxCQMjAB0R/tyog1gxpVfDZxC9JXLDO4zUHNDEhyd0jZEkvgnVbK
+         SN6jwWCWBJeS7cuUchJap0vJH2C+FEHfnlnAUEqTbEeTF0IIDG8pfIL/9FXxXr5GPzfr
+         YUilwJi6t5VfovdHv9R9HV5nyLNBv1J5CvaXkPWyEgmtR1SnjCVyhA7oo+0zVp3ad9Gw
+         6BW4JPHz0+WSLdMiZw2tYAYC2OzkuABxBaNJ/Sb4KKPODFvPOR7OCq4JdDgZ+b8+M48t
+         MD6knMifX4Ca65vdiDg4QKY4FM1nGxJo760vJtWEwuErYAUte8WDNDJfxuWAnIRjm8Xq
+         fCUA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756904761; x=1757509561;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TceoMbVPyrzcVBNVbAOHGzxGRGxrO0zSw59TjOdJc7U=;
+        b=feIj+A5lpI3bXJl825epg2lUXUNr+5DY4hWJM0NEkhAcMjhWoajM1FktI5r5dRGrzv
+         NexsKykrM+HTaB/81WoCIN2kD/C/3zIm/iSCwvj03l3zq9u9ciDpNcoslo8yyCZA14Cm
+         q43PlMdFnXbt4Mn4r//9bOmae9Lvp5FwZq7edLotxYSCg2gvyyePzcKuYelC5E/LuuLh
+         1rgjTlAiYa7j/iFFGrPhPj+9h7OHV3GF/E+ziSqX09sD+6vsib17D1fSjWXMq/IU8G8G
+         7qQ6pRg4/A6WvBTzDQeQ31ONvO74atLqh3l1faMPfH1Ky57BOcbq3kuFt7TvquwsvpkZ
+         yfCw==
+X-Forwarded-Encrypted: i=1; AJvYcCXge/s2bde3+ws0dM/2ImbKBpOntFi7mF7A3pxMjyuO/N4zx6jiUQg/oKTPwB6xpIcRsyc4DP1aVIZk03i3aaRN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9/9/7MfBDW1k98l2kby5Wnksh+zsUgqYuUBfqmtJCkFtaysCj
+	qqhcBejp8nu8MHUaIGYnkQ+UISaGTWh3JhltGxtyZKexan220y2G5U1pY+qMm3K+zDbowmFxD39
+	mbR2q4IgmEeFhVEDgzLfF0RLPzCpLGuAaf86J4e9yVQ==
+X-Gm-Gg: ASbGnctRMsiqVhwx5C+17xSy0005ekE5bohI7t/E4XQPSkbU2R83uNtCo3KMf5HIDlG
+	lsgfkWw7jIcg2Uzw+ULS9NvSR2n4udUVPxu9uWpSyzMdkXCzVoitvYjtiaDQuo8ker1IvMXSrkr
+	zuVHraH2bNZg+3eJjXRnXSKed3r0Vm4SGKiKMe6MMCpBaw1YB64wk6u6qDJGVp9IrkzMdkrWTZX
+	yZ9Vsw6pVG29CpLSu8BKULTLdMYGikHPJ6IiY5QE4SWyMwD6HaxHomsVkqv
+X-Google-Smtp-Source: AGHT+IFWW9Hzk4QvmFEIuxTuSzFqwAls1HtiU6FKjjOhdyOYjenmw3Gr/l6kYIu5clusIxlO2SHNIG7AoIrDQKR+nnE=
+X-Received: by 2002:a05:6512:6812:b0:55f:43ba:93f2 with SMTP id
+ 2adb3069b0e04-55f708b5457mr3760512e87.18.1756904760711; Wed, 03 Sep 2025
+ 06:06:00 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/2] drm/rockchip: inno-hdmi: Convert to drm bridge
-To: Heiko Stuebner <heiko@sntech.de>, dmitry.baryshkov@oss.qualcomm.com,
- Andy Yan <andyshrk@163.com>
-Cc: mripard@kernel.org, neil.armstrong@linaro.org, andrzej.hajda@intel.com,
- jernej.skrabec@gmail.com, jonas@kwiboo.se,
- Laurent.pinchart@ideasonboard.com, maarten.lankhorst@linux.intel.com,
- rfoss@kernel.org, simona@ffwll.ch, tzimmermann@suse.de, knaerzche@gmail.com,
- devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org, Andy Yan <andy.yan@rock-chips.com>
-References: <20250903110825.776807-1-andyshrk@163.com>
- <20250903110825.776807-2-andyshrk@163.com> <5255838.1BCLMh4Saa@phil>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <5255838.1BCLMh4Saa@phil>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20250811-gpio-mmio-mfd-conv-v1-0-68c5c958cf80@linaro.org>
+ <20250903090922.GE2163762@google.com> <20250903125524.GP2163762@google.com>
+In-Reply-To: <20250903125524.GP2163762@google.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Wed, 3 Sep 2025 15:05:49 +0200
+X-Gm-Features: Ac12FXy3NMzM2aB5ePiUft0RXfVSx9L7KjPMSrAtYJCok4KyCrb9wj58C2zdW0k
+Message-ID: <CAMRc=Mfn-F+99EmwUABOy8=qh7W+ixL6hoEKvnmXd=EiW6QiaQ@mail.gmail.com>
+Subject: Re: [GIT PULL v2] Immutable branch between MFD and GPIO due for the
+ v6.18 merge window
+To: Lee Jones <lee@kernel.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Liviu Dudau <liviu.dudau@arm.com>, 
+	Sudeep Holla <sudeep.holla@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Pawel Moll <pawel.moll@arm.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_060548_373448_D81C344C 
-X-CRM114-Status: GOOD (  13.35  )
+X-CRM114-CacheID: sfid-20250903_060602_654547_4EB37B46 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,32 +100,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Heiko,
+On Wed, Sep 3, 2025 at 2:55=E2=80=AFPM Lee Jones <lee@kernel.org> wrote:
+>
+> This time with the correct commits!
+>
+> The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d5=
+85:
+>
+>   Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
+>
+> are available in the Git repository at:
+>
+>   git://git.kernel.org/pub/scm/linux/kernel/git/lee/mfd.git ib-mfd-gpio-v=
+6.18
+>
+> for you to fetch changes up to 9b33bbc084accb4ebde3c6888758b31e3bdf1c57:
+>
+>   mfd: vexpress-sysreg: Use new generic GPIO chip API (2025-09-03 12:45:3=
+3 +0100)
+>
+> ----------------------------------------------------------------
+> Immutable branch between MFD and GPIO due for the v6.18 merge window
+>
+> ----------------------------------------------------------------
+> Bartosz Golaszewski (2):
+>       mfd: vexpress-sysreg: Check the return value of devm_gpiochip_add_d=
+ata()
+>       mfd: vexpress-sysreg: Use new generic GPIO chip API
+>
+>  drivers/mfd/vexpress-sysreg.c | 25 ++++++++++++++++++++-----
+>  1 file changed, 20 insertions(+), 5 deletions(-)
+>
+> --
+> Lee Jones [=E6=9D=8E=E7=90=BC=E6=96=AF]
 
-On 9/3/25 2:59 PM, Heiko Stuebner wrote:
-> Hi Andy,
-> 
-> Am Mittwoch, 3. September 2025, 13:07:38 Mitteleuropäische Sommerzeit schrieb Andy Yan:
->> From: Andy Yan <andy.yan@rock-chips.com>
->>
->> Convert it to drm bridge driver, it will be convenient for us to
->> migrate the connector part to the display driver later.
->>
->> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-> 
-> more like a general remark, this essentially conflicts with the
-> big hiword-cleanup [0] that was merged today, as the inno-hdmi driver
-> "lost" its separate HIWORD_UPDATE macro in favor a nicer generic one.
-> 
-> I'm not sure what the best way to proceed is, apart from waiting for
-> 6.18-rc1.
+Thanks! Pulled.
 
-This is actually what I also intended to ask you, as I'm in the process of
-rebasing the HDMI CEC series on top of next-20250903.
-
-Would it be possible to have an immutable branch of bitmap-for-next and get
-it merged to drm-misc-next?
-
-Regards,
-Cristian
+Bartosz
 
