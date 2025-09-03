@@ -4,149 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A564CA1009
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 19:21:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7C9ACA1009
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 19:54:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=poq9ZQ05B1ue/HKKmitvqsBg+yynD+ZMPKISQz2JGzU=; b=amEtfQa8vYbKWJDX38K8sCD5Rp
-	9ZOohqS8ce+qSJJo++YvMytuddA/WynkSJXaPCAjCytVeCI0YOBmYZ7HJOhLk4FoRvThcGXzyjTit
-	XVAZ/c3DD97DgWmiATlwguqv1frHzrY0VqBYAuXdhclwQ/RFLy7ybcqo8/z+EWwlDa77C5qIP7rgS
-	XPxPQMgARCMiXkjU4faZCFBk+Vp8FgkTu9uviYV/wvinO+YFotx2la2LcjDAYc3hObBNqlaFYaEfp
-	unPTOnQXTCcj357wqAvmWZaA4ogoD307bE0em0RQ90eE6XnOJ3LPc9ONBCRMdyCFsKDtoahqUUwft
-	f0IhuqdQ==;
+	bh=+WlOWAIUFF7a1x04Q6onji4j9FWc+bKg2OvgOqN2HKU=; b=t2HoCf2LMsww+vsXipzarwMYZX
+	qvDgIfJsNKu4i3an+4MI3rFHcgprQwaRVZ83+Bu4WQcXXb+OH9fQcrDhVY9wZafKt9aWiYgMInKUZ
+	iR009uZ0AtpB/+gHmfFQ46I8QCFiRcKzmTQDbLrrLtXZfZRsKaA3+KcKMuUeDnRwz7ESSm8BRWWy5
+	5vADGb7Ld0/by0WhmU6r0qjmCDpUwtMdjl52yBEyV4HCSIMpsL+3/d3220/niV9VmPKRdCVv/FWGw
+	SxGW6KoyCYMNabm/1XZ02fiTQPPlv8FmoIGO4LaxQ/gbFXvyw8qWcUfjZOFD5hIn+/U6N9Ox9aqOV
+	oqbSnrRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utt33-00000007Rha-15Jv;
-	Wed, 03 Sep 2025 19:21:37 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utokx-00000006kzO-25oq
+	id 1uttZ3-00000007Uc2-2wJW;
+	Wed, 03 Sep 2025 19:54:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1utoo3-00000006nKy-1muy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 14:46:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CA2Lnc0i5TXN51i/E4mMsho+QJLX9aJzNe3bHlklZwIpnpr42lGl0zINoCap0qtVABl6IqBiOAdhg6yNs/GwVyZHjwOJH1UKsixK9/gi7t0XA6Tanb8NYIG/FGF1cMLy3UER2Hbm2R5tBq0xmd/IuzoPysNPbUG/D6B9K4NzyV4gLXCTszzULKhuD3LMpxgRjsRxOiOA3r5oB2IsNoMln0nbCvfSi5Ep/+eb9Z6nuESscPlT2DSixV0+GbBxlEoTehpL71HVdIaOXyg3A93n3yZMuWjMEBuza1903ajq6VQvGR0KSfnOl5kTlYfKGYrCOlUI1VUZsLJvgxqnUjsdMQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=poq9ZQ05B1ue/HKKmitvqsBg+yynD+ZMPKISQz2JGzU=;
- b=BrW5bz6X4s6LKNaxyOGe/K6yAR626Zjvwvr27TxFRTficooOqGjS+uVk3sI8N9rfeGMKOIRHy0wNoZC79mbxZkxjszaEa8YYBvi+G622Wb29iw0ADGFj8Jb/2GYRwfO+Udrd+Xr1l75VaRxsdlVbOCtMpG+ALUGbzQq/RmOAhjloinqJLclhUUUTxlNNw0hxafEsNq/S/JJg86H+YBA/eXjlcnJzfMxr2DV2Odwa1+sYs+9OyAmE1rh90lZXCvGyq2Z/Nf3B+NSuUqGApyPD2O0+gZhSDZffOGh0f6P5JDmhHybQ0mCdlQ0/Z8NXi7NPXUjnc0f+ASDBlVtHhXgZqw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=poq9ZQ05B1ue/HKKmitvqsBg+yynD+ZMPKISQz2JGzU=;
- b=jX3KITNDWQ72P3SJS5KK8gxdiBchBPTy3+cq/24wO2QU3LSFRoJs9XDL+UYs6EdtCllGtPFQs2znvcrWpJBVsyRjW1T3TO9sEyLtZpvRs70BMueoYcl673+csfBauedtOcFfVRgoAt7/W/rixIarP9l9dfwJWNgQxkUBeZ+ouIxJmBiW8UKLvNISueKl746PNhIP7QwW87sO+Jkc6PMY7ff+BT5pGOmEnabpvOYBkZU7mDrj3KX6s7rxgMMc+zgzNumEHSvdp8zgj+6dNT6vgqItwDWJ6oO4YJ/tnpPeuI0Sx1aX9Dk4GFv1HTWwSm+ZaaLxi7p3Xqrs5lzdC2aFRw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by AS8PR04MB8963.eurprd04.prod.outlook.com (2603:10a6:20b:42e::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.15; Wed, 3 Sep
- 2025 14:46:33 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%7]) with mapi id 15.20.9094.015; Wed, 3 Sep 2025
- 14:46:32 +0000
-Date: Wed, 3 Sep 2025 10:46:23 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Marco Felsch <m.felsch@pengutronix.de>
-Cc: Vinod Koul <vkoul@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Jiada Wang <jiada_wang@mentor.com>, dmaengine@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 09/11] dmaengine: add support for device_link
-Message-ID: <aLhUv+mtr1uZTCth@lizhi-Precision-Tower-5810>
-References: <20250903-v6-16-topic-sdma-v1-0-ac7bab629e8b@pengutronix.de>
- <20250903-v6-16-topic-sdma-v1-9-ac7bab629e8b@pengutronix.de>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250903-v6-16-topic-sdma-v1-9-ac7bab629e8b@pengutronix.de>
-X-ClientProxiedBy: PH8PR07CA0020.namprd07.prod.outlook.com
- (2603:10b6:510:2cd::12) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
+	Wed, 03 Sep 2025 14:49:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 09E271688;
+	Wed,  3 Sep 2025 07:49:42 -0700 (PDT)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 136BB3F6A8;
+	Wed,  3 Sep 2025 07:49:48 -0700 (PDT)
+Date: Wed, 3 Sep 2025 15:49:46 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Andre Przywara <andre.przywara@arm.com>,
+	Paul Benoit <paul@os.amperecomputing.com>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] firmware: smccc: Fix Arm SMCCC SOC_ID name call
+Message-ID: <20250903-loutish-orangutan-of-experience-3dcfda@sudeepholla>
+References: <20250902172053.304911-1-andre.przywara@arm.com>
+ <20250903-great-savvy-bloodhound-38c1ca@sudeepholla>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|AS8PR04MB8963:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8d9fcdb8-4678-43a4-0937-08ddeaf8ac2e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|376014|7416014|19092799006|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?siX3A6EKMNNTFXyMuTk+AUW+DaEQgfQFyXkSa/tw9OKhLOeoVoX7y+VjgJxg?=
- =?us-ascii?Q?kZpjA0wF9HZXmC17fVWcjftzAi9owdOGni5UEBeNHXkgTtjI5ydxlN/fSe5r?=
- =?us-ascii?Q?+ZoDJ+yZT54gEYym/sx1+/tfkMV9TYebU28fCj2tqFHZJX9eIxI9ChORcm4K?=
- =?us-ascii?Q?61P35lZpjr5cavoGPln5bBqK+vgE2jz60eDhNX3JWaz3fZ2LlxF6au2Pf8Nq?=
- =?us-ascii?Q?it30Lt0h1p9cjw5bKUXBg/KLqfze/JAU1be8Y7dB0xNZ2oHBUOc9wj5nIeXO?=
- =?us-ascii?Q?V3otyKc6fZ2OUll5cDCciPaBe/lVkdM2di/zqpdanTE1k0XLo+Tpe1FKlHD7?=
- =?us-ascii?Q?iaM1l4OAnvvdsh+4cIgG9a1XZDbe7fN0dACRG6Pkq+dNImfrO1qokRSiB/z0?=
- =?us-ascii?Q?W3Je0eNON4+VZ3VtYe60KwNrBpcZ2TNM/oJBq5f3Nca/1CExRY67ih3jyfjR?=
- =?us-ascii?Q?WLP3j8gqkNpGteQOa1eDj/KQSPr3PFY2G86PT9D8m3g150xWIDUZIqPpbTpo?=
- =?us-ascii?Q?D1tDu2RzNTM/1d+RpVGDhC4DOEvozqMfvOahcA92p1flLqZ1aR5fEQYWn8GS?=
- =?us-ascii?Q?kj0vYtuGBC/pKzZtEkFn0D78ilSzD21fvG9g+zO23gm7Mhpyy+no6g3csHtX?=
- =?us-ascii?Q?9xaGV3UcAiLXxfu9n1MejmufWviiq9RG/uy2C6YxccYThqT7p/6r3NpigoUz?=
- =?us-ascii?Q?O1Aw7iof9+B1DbLm1w643j6aqzsscaNwAn9nOMy4GSTvVDbAJhf64wtzz35m?=
- =?us-ascii?Q?+qGgQV9uaFEqbdqzg1nB56mdB9j9uNeynl4h1HlDhULsI5QABEIU5RSVyvdS?=
- =?us-ascii?Q?4jxWugNsyNJ6r7Gw7IYCZ8rX/Xu3I2tSQSpQtevPddkXFTIlB9S/i7z+3yRh?=
- =?us-ascii?Q?zWYGDvkMNxaT0L762zqsKtYf3c903trSSHfy5U0YteqE56y1pcjxtrVTLQlD?=
- =?us-ascii?Q?oEzOeaNUbbNpvvCJJ09H1uocLU/uYMOOX3lU92/q2apYDt2KKgQSMlmnQNPT?=
- =?us-ascii?Q?H1+Uy6k7SxKIKMrQrIwF56XWy8ZQwKtfudFXz+9+TGhgs4BaMUmMDzwyCsG8?=
- =?us-ascii?Q?VgVSncYni56WDF3HSL2dsY4s2BVYOaBiRQb+s8MP16o+V3hXFE3BMjNezz/w?=
- =?us-ascii?Q?pTgOMycSruQhvPoJ7f3SZYhq/Yg8pj7aEzqCrlx9EVWVlecr/5GxHB/kDdMS?=
- =?us-ascii?Q?9fRMImN7fXrygTDj3snGOCYKueFK1uMJ2ycWrLR3Nszd48EMruquIeYMIhLc?=
- =?us-ascii?Q?C3TaC1YfYyRrhJZDFwYq+ZypV5Fblic+0RqFudmVFOAzrgHwN7f2dRBeR4kT?=
- =?us-ascii?Q?PHTrpUmRZaulpBqA385DiFjBEMFKR1Ty/LzKtgy1Xq305WIdyA/7sMUhhF/d?=
- =?us-ascii?Q?p75R12l6VGGbl7pO3yLcbUbh3vPYBMydOKVgq8wkQrJPfEoqtxdwJRaoWhvn?=
- =?us-ascii?Q?euiOV0oewq0nM3B3MNRehis1JZQPH7YCwP5JB73yMf6vwyYuQkSaqg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(376014)(7416014)(19092799006)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?j6zf8LvyzlZmlQb/LoeRByAzIViPcA4x0Z1nTvEiiq/LwWPNsk4AS0UIWuxe?=
- =?us-ascii?Q?0TPcfSxn69ewMnkS//9J7aKFIZJDakmLarYSmOdMXtBCb4uADspaaO5Pqlsq?=
- =?us-ascii?Q?D+M0jMy4G2TYW9Pu8I7TQjPgTAs4Ce3x6OfrXGYfNR6qQ+Oot0kBBKpVeeBD?=
- =?us-ascii?Q?9BO5dmWMG0iBxbhsWYAbd3UyXhBEJ4v+8VBKKxRe2mmyAcP+r0r5w4bQPdRB?=
- =?us-ascii?Q?MZoPffAYeHgb0oLbytSakpKOlP4x+kwMwo0e2h/s5HMNG9ZPT9IyEsefNipk?=
- =?us-ascii?Q?u7u0aYjA3IM7fuXI8AkH88smTxScW1e+Qmtfw0iiZy59v5QmmNCP10xBHfZe?=
- =?us-ascii?Q?m8SK+/zV2yXHsnjcZII7sSRpdxqYy4KE/X5Z/AjmdFOObpKS14jux8FzzQ2f?=
- =?us-ascii?Q?0WluQADVNqp1I4y5t8Od9rV7qg4yi/yIkMrmeXUs6iJ2uXb3urE3MLtrq7bp?=
- =?us-ascii?Q?6BLvISpgdrmxNbihLE7MEwXUoXeeUi8nrHRZ62Wcxvu7NPLBTv2J+qKvFaKc?=
- =?us-ascii?Q?jX2ov0ZlpryAozabdDoJD2EQdFCZjR+Rwe5iLc+Kti1fFY/X8GtCP/miKoVp?=
- =?us-ascii?Q?XXM3xcMz9j4gzB+v/E0yXEC1oMICurVxClB/fLBmlfURZk5tqnBn9jkQaji9?=
- =?us-ascii?Q?+IpQwyZ8rq1OxoTaD0ifhdEz4/DXLWRhRdKTzX41lrgkS894fzTMN41edAZE?=
- =?us-ascii?Q?QfwPdj24ahQpIl2v72KbpnIxEfmssLhIthuoeST9dimGbvLdgCPsQ5uS5Fec?=
- =?us-ascii?Q?mR+RWHYLpcysyD5mfGPL8HapchwyWQjtv5Ej0A47wl3tQtKoDfHD6qGgJNar?=
- =?us-ascii?Q?AQL4GdEU0+QKWz9sTOPuFO5q2eg4r8u71DT182nNT2LYYSbKUppsD+kTLpPc?=
- =?us-ascii?Q?fJWzhIy8s/ZOXVTglzZPus49ModcXAkTPneHDkXD3zkbczO/AygYD+l67lQb?=
- =?us-ascii?Q?9o6Z2GVpo7MHgf9ByB1XH/bQ2dATtoj2ytyjif/eEjzAsfaly/ummy69lHnt?=
- =?us-ascii?Q?ZxlUwRliOAZoNhLZmEfXHHShxdKldX/RcGuDk239XhaZ2gQphdrRR4XSLULw?=
- =?us-ascii?Q?ZTx6q+ID+D4JmB2WdLGNranbdFcQjS0cLtqi4hzouhSKGP+bfPrYVLd9rHIh?=
- =?us-ascii?Q?jnIkWTMkIOQV8U6W4Sx+EMggjrQTDwbhYIGvwpWRzvQF8qHwO2R4LgCcVWjz?=
- =?us-ascii?Q?Jxj7h9aoivA+ZydVG+agcpyZLMKk6L/BiszRulNzrYuMvmYVKC0wgWrr5WvK?=
- =?us-ascii?Q?2S3qfUg/VBeVpEDqN6JGQmFi0V6wony7vVp5rKMIwBEkzBIPXMDQSh1PyiDe?=
- =?us-ascii?Q?7zgHfofAjOzt6KW+8DsdU2pmQEAG+GY9YdwJXzar6gSgwsnELzOgLK7XCcB8?=
- =?us-ascii?Q?cuCLDxnK6mGJTj6kpk1xMqeFlRL+FBMtSD4LzkK2rq27KKVLZxGCrJ2+8f5i?=
- =?us-ascii?Q?9dnhYltYGy1Ipgf3kWRuaSq95blRa8WmQLA6HKhi3YeEW6jzgS+fI0/9Un4y?=
- =?us-ascii?Q?joR9G2X37ay5s7Kdh27g3dCAeiJMkY06PRqxcXU4QZ/F0VBYOoEB/fvYpagi?=
- =?us-ascii?Q?sj6n+B7EukwHonB3UzQ=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8d9fcdb8-4678-43a4-0937-08ddeaf8ac2e
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2025 14:46:32.0680
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: gs9H7wbdPQrgRN4EAqfLcFf0FXgtdzOZgk4jRc/3yWIMBr9tg86Up/cT3N5c6XoRTlpocDfiSEfrsNPfBXumrw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8963
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250903-great-savvy-bloodhound-38c1ca@sudeepholla>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_074639_545573_7DC11B25 
-X-CRM114-Status: GOOD (  29.23  )
+X-CRM114-CacheID: sfid-20250903_074951_550554_DC14026D 
+X-CRM114-Status: GOOD (  30.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,114 +68,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 03, 2025 at 03:06:17PM +0200, Marco Felsch wrote:
-> Add support to create device_links between dmaengine suppliers and the
-> dma consumers. This shifts the device dep-chain teardown/bringup logic
-> to the driver core.
->
-> Moving this to the core allows the dmaengine drivers to simplify the
-> .remove() hooks and also to ensure that no dmaengine driver is ever
-> removed before the consumer is removed.
->
-> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
-> ---
+On Wed, Sep 03, 2025 at 03:23:58PM +0100, Sudeep Holla wrote:
+> On Tue, Sep 02, 2025 at 06:20:53PM +0100, Andre Przywara wrote:
+> > Commit 5f9c23abc477 ("firmware: smccc: Support optional Arm SMCCC SOC_ID
+> > name") introduced the SOC_ID name string call, which reports a human
+> > readable string describing the SoC, as returned by firmware.
+> > The SMCCC spec v1.6 describes this feature as AArch64 only, since we rely
+> > on 8 characters to be transmitted per register. Consequently the SMCCC
+> > call must use the AArch64 calling convention, which requires bit 30 of
+> > the FID to be set. The spec is a bit confusing here, since it mentions
+> > that in the parameter description ("2: SoC name (optionally implemented for
+> > SMC64 calls, ..."), but still prints the FID explicitly as 0x80000002.
+> > But as this FID is using the SMC32 calling convention (correct for the
+> > other two calls), it will not match what mainline TF-A is expecting, so
+> > any call would return NOT_SUPPORTED.
+> > 
+> 
+> Good catch and I must admit I completely missed it inspite of discussing
+> 32b vs 64b FID around the same time this was introduced.
+> 
+> > Add a 64-bit version of the ARCH_SOC_ID FID macro, and use that for the
+> > SoC name version of the call.
+> > 
+> > Fixes: 5f9c23abc477 ("firmware: smccc: Support optional Arm SMCCC SOC_ID name")
+> > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> > ---
+> > Hi,
+> > 
+> > as somewhat expected, this now fails on an Ampere machine, which
+> > reported a string in /sys/devices/soc0/machine before, but is now missing
+> > this file.
+> > Any idea what's the best way to handle this? Let the code try the 32-bit
+> > FID, when the 64-bit one fails? Or handle this as some kind of erratum?
+> > 
+> 
+> Not sure about it yet. Erratum seems good option so that we can avoid
+> others getting it wrong too as they might just run the kernel and be happy
+> if the machine sysfs shows up as we decided to do fallback to 32b FID.
+> 
+> I will start a discussion to get the spec updated and pushed out and see
+> how that goes.
+> 
+> The change itself looks good and happy to get it merged once we know
+> what is the best approach(erratum vs fallback).
+> 
 
-Thank you work for devlink between dmaengine and devices. I have similar
-idea.
+Looking at the SMCCC spec(DEN0028 v1.6 G Edition) ->
+Section 7.4.6 Implementation responsibilities
 
-This patch should be first patch.
+If implemented, the firmware:
+...
+• must not implement SoC_ID_type == 2 for SMC32.
+• can optionally implement SoC_ID_type == 2 for SMC64 (Function ID 0xC000_0002),
+...
 
-The below what planned commit message in my local tree.
+So Ampere is not spec conformant here and hence I prefer to handle it as
+erratum. Hopefully we can use SOC_ID version and revision to keep the scope
+of erratum confined to smallest set of platforms.
 
-Implementing runtime PM for DMA channels is challenging. If a channel
-resumes at allocation and suspends at free, the DMA engine often remains on
-because most drivers request a channel at probe.
+Paul,
 
-Tracking the number of pending DMA descriptors is also problematic, as some
-consumers append new descriptors in atomic contexts, such as IRQ handlers,
-where runtime resume cannot be called.
+Thoughts ?
 
-Using a device link simplifies this issue. If a consumer requires data
-transfer, it must be in a runtime-resumed state, ensuring that the DMA
-channel is also active by device link. This allows safe operations, like
-appending new descriptors. Conversely, when the consumer no longer requires
-data transfer, both it and the supplier (DMA channel) can enter a suspended
-state if no other consumer is using it.
-
-Introduce the `create_link` flag to enable this feature.
-
-also suggest add create_link flag to enable this feature in case some
-side impact to other dma-engine. After some time test, we can enable it
-default.
-
->  drivers/dma/dmaengine.c | 8 ++++++++
->  1 file changed, 8 insertions(+)
->
-> diff --git a/drivers/dma/dmaengine.c b/drivers/dma/dmaengine.c
-> index 758fcd0546d8bde8e8dddc6039848feeb1e24475..a50652bc70b8ce9d4edabfaa781b3432ee47d31e 100644
-> --- a/drivers/dma/dmaengine.c
-> +++ b/drivers/dma/dmaengine.c
-> @@ -817,6 +817,7 @@ struct dma_chan *dma_request_chan(struct device *dev, const char *name)
->  	struct fwnode_handle *fwnode = dev_fwnode(dev);
->  	struct dma_device *d, *_d;
->  	struct dma_chan *chan = NULL;
-> +	struct device_link *dl;
->
->  	if (is_of_node(fwnode))
->  		chan = of_dma_request_slave_channel(to_of_node(fwnode), name);
-> @@ -858,6 +859,13 @@ struct dma_chan *dma_request_chan(struct device *dev, const char *name)
->  	/* No functional issue if it fails, users are supposed to test before use */
->  #endif
->
-> +	dl = device_link_add(dev, chan->device->dev, DL_FLAG_AUTOREMOVE_CONSUMER);
-
-chan->device->dev is dmaengine devices. But some dmaengine's each channel
-have device, consumer should link to chan's device, not dmaengine device
-because some dmaengine support per channel clock\power management.
-
-chan's device's parent devices is dmaengine devices. it should also work
-for sdma case
-
-
-        if (chan->device->create_devlink) {
-                u32 flags = DL_FLAG_STATELESS | DL_FLAG_PM_RUNTIME | DL_FLAG_AUTOREMOVE_CONSUMER;
-
-                if (pm_runtime_active(dev))
-                        flags |= DL_FLAG_RPM_ACTIVE;
-
-When create device link (apply channel), consume may active.
-
-
-                dl = device_link_add(chan->slave, &chan->dev->device, flags);
-        }
-
-Need update kernel doc
-
-diff --git a/include/linux/dmaengine.h b/include/linux/dmaengine.h
-index bb146c5ac3e4c..ffb3a8f0070ba 100644
---- a/include/linux/dmaengine.h
-+++ b/include/linux/dmaengine.h
-@@ -323,7 +323,8 @@ struct dma_router {
-  * @cookie: last cookie value returned to client
-  * @completed_cookie: last completed cookie for this channel
-  * @chan_id: channel ID for sysfs
-- * @dev: class device for sysfs
-+ * @dev: class device for sysfs, also use for pre channel runtime pm and
-+ *       use custom/different dma-mapping
-
-Frank
-
-
-> +	if (!dl) {
-> +		dev_err(dev, "failed to create device link to %s\n",
-> +			dev_name(chan->device->dev));
-> +		return ERR_PTR(-EINVAL);
-> +	}
->  	chan->name = kasprintf(GFP_KERNEL, "dma:%s", name);
->  	if (!chan->name)
->  		return chan;
->
-> --
-> 2.47.2
->
+-- 
+Regards,
+Sudeep
 
