@@ -4,74 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99C93CA1017
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 19:54:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09F7DCA1014
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 19:54:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GWtECCYO/W3ZeQTeOSKG2/hfJYDhLePie2ke5lizwtk=; b=HZ3AuGGr+fmNA92V9UWlHxXDQd
-	CFbClUaUMWOHFPt3rdzKJHRK589XYQYkibXaUit4mVanV2Pq3u/uDCx6gzxK48w9H56CCvP5K4B9k
-	s2bUcfWbKklG8HyuowYyPyc4qa3IIsby8HrWTou3r+WgLIXTwWtzSWF04o+Dl/sHnVehUCA8CiOT6
-	nrry7xJhsoMb/EOUsHNbr5ipJMh8Q62Vpv/sSDPOsQce37PxxOe2qVQh6UHTei8Juy4Pwj9H5tINS
-	CMFmkx4/xwzoreDQetfHgClJqFF3Z963RQ35fMtGmZAjG54vKmATvHhns0FcOCb3L8yrGNAjliEV8
-	6EIubI1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yDEQO40adDSMD8q+tu9TI04+C0QjRv8MiiZRHO5baY4=; b=HwUsL8ctY+W3D2jQRXb2vc//0D
+	sq1REmnV6L/gAR/rx3Edpr7Te+6iAk7nWoUS1vtdCJuYJy1ukTOVSWCch8L9mDUsb+eQDT609iQNm
+	44NWlpdTWA9ayhNbkHC8jE41mMd+Do3rsT4bZgdbFWrSqBl1rHKAhf3W++5vdxp6xBn7o3nm4frkE
+	xQcBeD/m80R4p7RD3980e/wpgLqhM+jXzHh2thqszOciA/+bByWnfhfj600Ef/5BCxCoK3jlyHBcz
+	o7rZOS9COq3wtCwYks2l8MT+sh44+t3WXHgw+ACLKlLxV0JcvbQzlnTV/SecfHYOqFBWI2pkxz23L
+	CF2uF9Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uttZB-00000007Ugy-2Ts6;
-	Wed, 03 Sep 2025 19:54:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utoyT-00000006otL-3jIy
+	id 1uttZC-00000007Uik-3ZxS;
+	Wed, 03 Sep 2025 19:54:50 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1utoyf-00000006oz1-0M2S
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 15:00:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 65C9A1688;
-	Wed,  3 Sep 2025 08:00:21 -0700 (PDT)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D89543F694;
-	Wed,  3 Sep 2025 08:00:25 -0700 (PDT)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: ryabinin.a.a@gmail.com,
-	glider@google.com,
-	andreyknvl@gmail.com,
-	dvyukov@google.com,
-	vincenzo.frascino@arm.com,
-	corbet@lwn.net,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	akpm@linux-foundation.org,
-	scott@os.amperecomputing.com,
-	jhubbard@nvidia.com,
-	pankaj.gupta@amd.com,
-	leitao@debian.org,
-	kaleshsingh@google.com,
-	maz@kernel.org,
-	broonie@kernel.org,
-	oliver.upton@linux.dev,
-	james.morse@arm.com,
-	ardb@kernel.org,
-	hardevsinh.palaniya@siliconsignals.io,
-	david@redhat.com,
-	yang@os.amperecomputing.com
-Cc: kasan-dev@googlegroups.com,
-	workflows@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v7 0/2] introduce kasan.write_only option in hw-tags
-Date: Wed,  3 Sep 2025 16:00:18 +0100
-Message-Id: <20250903150020.1131840-1-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 03 Sep 2025 15:00:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gZT3pHOkNiZn4/2mcLytGUkpQoGh3/Iag2luG2gHTxYjHsNPx9rnPOs1atLxPXMsVd7ggG8PY/bt/y5lxDMkDP7O8hBix0r8msITkNfjJLyZQWqseCBcBXRg2cYAduBSPkpstE+/IdlkKQTSLhDs+6WEx+jCmEjhpiZb8j+A7LbPPZj6qTCVzIucbOdJN9ZpRBQ4ALRyK64Q5RYosLaclah4SrIWGytwHkAOo3dboe/ifS+b2kKRVVKGwYqfa5L9ZQne8ZURClVxBXS3DjCSMOgwzkFK7GqEENKMNeWtkrD+aT/h1P5rhGcX9WoCvxi7Ue+5QfkOCaEG+4QDJGOP3A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yDEQO40adDSMD8q+tu9TI04+C0QjRv8MiiZRHO5baY4=;
+ b=nG4DPvfMQWUInsV5zrB/b63kmzGrXyeGHVc7iERK2wGyMhUoC72yr/fgkzrM5D0jQJQF2HLBIhpC7FKr6qNC+QgVpd5Rh+lw2A7EWJt/dBj5o+473BZcw/CM6hl4R0VxhpXjjkk/w/r/pfOJSmxStfyliFR4lw9/tbRapG+NbdwmrrSOljst0iuWPquJn0O9TQ5aXn2IGazN/z31OgrHxI3hcurnnKalCGr2B7+aBuzI2ufO0hxS6TpFeHc6zHbV2I/g+eYwCqJHLgld0Z2+jwtPibsAMs688NR1mypXBgLl6sopdMGkUTD/rXGlNure5WFbkUQj/fKjWITO0AyHWA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yDEQO40adDSMD8q+tu9TI04+C0QjRv8MiiZRHO5baY4=;
+ b=YHkXlrUmYhhBTgMxtHYajGfKQCEgPCGVE/ko7qtiskpq6x4IkSNqYa16FGljMbsHkqQjszPEIGObLSORTlpygnJ/Cn0v7/Z6KBdM/3QedMNmtOBxyV6RGe0xfdiByV94S7ouIDm0u35g6cnoR9YL5unmjw68CHBidvXgyS/MHCK+kv8CshoflxbjIlZsbwe3EYVrI55pUO7ldmqItXWI8bQGqe+E6At2Vg46nglb7y8qUhXCdOlpa0I/VuG4T0bPX0wsHvH0fESz6ia1Wv54uGBrxPY3fYJcM74gUi8IZtLgq/Fp1eu43raMF9Uw8sf0EXD82/PCpu67aex7VMvSZQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by AS8PR04MB8342.eurprd04.prod.outlook.com (2603:10a6:20b:3fe::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.16; Wed, 3 Sep
+ 2025 15:00:42 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%7]) with mapi id 15.20.9094.015; Wed, 3 Sep 2025
+ 15:00:42 +0000
+Date: Wed, 3 Sep 2025 11:00:31 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Marco Felsch <m.felsch@pengutronix.de>
+Cc: Vinod Koul <vkoul@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jiada Wang <jiada_wang@mentor.com>, dmaengine@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 04/11] dmaengine: imx-sdma: make use of devm_kzalloc for
+ script_addrs
+Message-ID: <aLhYDxSUnEUwPV91@lizhi-Precision-Tower-5810>
+References: <20250903-v6-16-topic-sdma-v1-0-ac7bab629e8b@pengutronix.de>
+ <20250903-v6-16-topic-sdma-v1-4-ac7bab629e8b@pengutronix.de>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250903-v6-16-topic-sdma-v1-4-ac7bab629e8b@pengutronix.de>
+X-ClientProxiedBy: SJ0PR03CA0133.namprd03.prod.outlook.com
+ (2603:10b6:a03:33c::18) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|AS8PR04MB8342:EE_
+X-MS-Office365-Filtering-Correlation-Id: 673f4602-64a1-45ed-b40b-08ddeafaa6c2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|1800799024|376014|10070799003|366016|19092799006|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HDaaMPuP0ymT+Qj07Cx6CPOt5hF0IdXXGYi3jP3TEe1pu0kf4cRTty0vKDbr?=
+ =?us-ascii?Q?9tvC1fZiE9eJk1tLs8WvdHYdFANpcbYCgEYYrS1r2UJUAXJD0FMxPS2Q07hy?=
+ =?us-ascii?Q?1naJ1T5zYPgLp4jY4Ml34rKJ0APz7ULvpxayTCq9E39985nAsBUmc2An9P8Y?=
+ =?us-ascii?Q?35oWjrB+rMHjg+JPZWuoKh9VhfKq8+P4pnKXy4c+lkKXB4FQ1Y7q+vCFhm8A?=
+ =?us-ascii?Q?q5NTK0CD738lRPO8VK1mA+L5KmSPYWKtAmVeGyOiRCuSb1If7bdlB21OGBLS?=
+ =?us-ascii?Q?lIShErTDwndcsSvW3Sd/e9vs/WE1oSxXlYS9QVg2PeU7jRCkwU6DZTxWWEYv?=
+ =?us-ascii?Q?f7m4WopBjfdmeM5MTSldiD0AssMUI89W0dQuXl91+KoVSeDGs3xptUxbw3nR?=
+ =?us-ascii?Q?SIzMW/KNAg9b/IOvvFcGpgKMB7+KrxjU/CrRnFe/uK3wj06zRNbRAX298KqK?=
+ =?us-ascii?Q?2v/FvNQ0eQDGmLulnv+6C1GDUA+G2dKNWqzt9mRorINv+17tYN73DaRwXyua?=
+ =?us-ascii?Q?b30tqql2XSD2xpCbvBHaMSh5kl38wmjr7URj1+SAffPIL+504gknoLF+JrkA?=
+ =?us-ascii?Q?CJXf1gw6ucVXZ7Sh8OxhIwoQICKqMhWtmiKhIBwO7nkSd2XU7ABfIY9jh24c?=
+ =?us-ascii?Q?78Vkqv2IvzbgCWo2MAg1hSTsykRVMsSlMIgftsjplfg5A7izryB0HVYpMIyE?=
+ =?us-ascii?Q?bQvkqC8jShsY+dpKOYPrgHyPrOjZdPOs1/FVqHahsCtyGgRodXSuHpvr4cxz?=
+ =?us-ascii?Q?vH2VjDIYzB+HwWU02Xpz9zDFHrte2+a91vJZSLykQ8gp69h+iipV0kl6biuU?=
+ =?us-ascii?Q?GWUc9lzI4dy3XuXhBeb1AoJaJmjkSdwCH+J07RL5h8lnNxuoi+09q9R9cyzQ?=
+ =?us-ascii?Q?XSaJmIT9ZIIEoSBXFqMPIAo7EAp9AszlzBNVyU4Qtf07nmJz3j+bg/mtE83V?=
+ =?us-ascii?Q?yr17JZkRTNVpDebc8reZ97vG8ggUt082XZo7FLL54QdRel6+I3JGPvXKMKWP?=
+ =?us-ascii?Q?Ayhc0JrsU2xGLew5VwKP/Xe96PK0Hs/Cd+Bsn4lNB4k/MRsEPHWrTy1kXoXV?=
+ =?us-ascii?Q?5kUfSzHqi3R7rKvlFc6aGg6k6pesXnFoVlerguXvLTAyQleMeU9t3Vf+igc6?=
+ =?us-ascii?Q?xTBoCPMXojIdekLKqyZMCbRP9vx6UeV8dVVfJ2Xm1hkRP5JjFfkqoqHSiAmO?=
+ =?us-ascii?Q?mRWSCIeQTSV6C6UoHkchwBm+yDXmt8Bdt6f8RZE9X16L28tcXP6E8GOmhXOl?=
+ =?us-ascii?Q?OdLt61LbySERNh7TR+bmG6fgm+YKgmb43dtbVCot3xPP+UqW8c12xs/gDVF5?=
+ =?us-ascii?Q?7yKazDAQLIVkSGHKZdQPChfPyXOm0fJYE5FtQVklrzpYGtFjkcf5kRsTsmTL?=
+ =?us-ascii?Q?LO63cp8O0wFM62ECkk5TKU4e13uah19pLt/MbqtNAv1yaceXT+K207AJ898n?=
+ =?us-ascii?Q?oQEO22y8fYQ=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(1800799024)(376014)(10070799003)(366016)(19092799006)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?QKrfVuKYHfHhD6cOyj0Kxoo77C+WovvWKGcBKD+ZfvtfXQQlEzeoDqsWzv/y?=
+ =?us-ascii?Q?w9q/Z1nX2EDQaZdLB+okko+66tR2j+/O4FC/KrteCupkyfJ0bVMe/diNyFhO?=
+ =?us-ascii?Q?eAJROYTQhZsyEtg1LU/6SgtDodgZWxbqXIzs3RmocdY+T89DTgZv8brfxWYT?=
+ =?us-ascii?Q?c44e+TcyJnBSGN49P1cKkWytOSJjYEqYra4S0LzRs7zcUDbP7g1sMWEZcntF?=
+ =?us-ascii?Q?sAdP/qiT3Hz23l86iEapS1vw4281UlMTDHWf17XaHa7WofllobmQnDHylb+P?=
+ =?us-ascii?Q?jt2JU98wvWuG0ypbDM/Bx1c3ujih061givBNj8t606W+F7Q9C3f51s+poUz9?=
+ =?us-ascii?Q?hGktCA/tl6vJI70wGtdjJD4QZahRUfmXvaBSh0T/X3TDXm7jeH/oZTqqwQ5c?=
+ =?us-ascii?Q?b5jtsLy/r8/9ikXpUJBMocZ6pcrauY5c61U4iMAAcxiDkgTQzgNwLKdEwLhK?=
+ =?us-ascii?Q?g7zrxmCvr2+5INcFpJrIrbB4qx594fi4LxwHrRFi6rBkRWwZP9jCoZ/dcwwG?=
+ =?us-ascii?Q?fkjx3YpogTxeplijGA5ZcZvb78f0Y4+JGCnT2kY4Esib1qz/Yn6lu7mgaB4r?=
+ =?us-ascii?Q?0MfQ62tFinx7pQUUBl0OBYeMtgqACIXTVHdadsXHDMIrriCZppO1HW3hjX+K?=
+ =?us-ascii?Q?M0wXFhdF6k0NMsnrDdE3+cVdhIc/76QylwBaGDYqVE5q6aDueJ8hMYGT29p/?=
+ =?us-ascii?Q?F0iUG7hs/+bIRb79SA+bhsSvOQzLZbjkz9CORdAbb2xWudEc6W+TJpNcdsf4?=
+ =?us-ascii?Q?DIy4hhJIZm6c1HdiKgC0cvK6uI9qvlNolqWLXIew0GmqsG6FLEU43jSLjMPz?=
+ =?us-ascii?Q?5lZ4Db929sjTr47oC58FOGjl4X5kDAv/FEbpzNZWzpBiuV510JmU94aFJ+8c?=
+ =?us-ascii?Q?dS/89O8r3wsCoOnVT27BUVHOz7OHE8Y6si5M850/7pv+Tc8mRvivJ7+J3gU5?=
+ =?us-ascii?Q?ZyOTiUW6uv3wNS2mRpGPpY4Uquik0xp1lBBebDUJM7RdYCsf3a051s9y+Ljm?=
+ =?us-ascii?Q?vx7v1MlCe7ojWjOIGe2HTRWlH2/fFs2XNBmx71i7c6z66w9eEjvj9WYqsKjy?=
+ =?us-ascii?Q?fz7WTxS9e2S68VX0yyyqCx9g+xl1JWu7JZrXU44hxHuRWs/NFTF0g9Z+OISw?=
+ =?us-ascii?Q?s0Bo6cWhw+zvbd0kXxvzGiSssRIHHYmVbudyCrlqi31EET6D4ckzRJ44zlzg?=
+ =?us-ascii?Q?JnAl1aBmXirQ8aU5Sj9XcSd8RDzFqFFa+Rhp5tSjeCxigWJkglQQAo04DB4U?=
+ =?us-ascii?Q?M/pb8X9X+yXfpkNXiyFCnPZIIURBNVoSkT9APuMJwrr/Y5H6j1l7O/CSpodS?=
+ =?us-ascii?Q?zrgykmVeFT7Dd2NrpkuENYshjyYMMN+rt5IRLRcQRcA/B/1s2Btl3O4feTo6?=
+ =?us-ascii?Q?0VfAs7NVPsyBgBQS8S3gLQYbAPfpb93zkWLqVuNa8gVno1mJ46k2gyQkpMEv?=
+ =?us-ascii?Q?G8yIvefCq2+nb+R/kPO4LdDcp15qmQgZebGt5fUKFSWO/RNtrHPySW0D87Bs?=
+ =?us-ascii?Q?syDpqEYuUoa/Dp7zp+OMTcaMbed5DStmGHX4UiaHa6JOzhOPZZtrDUSQK7AY?=
+ =?us-ascii?Q?AVBMdCtInAvbzOj3LFtWdAP16P59EYhC0qDjx0sBxwQ5TeKAZv7am8BTVIZP?=
+ =?us-ascii?Q?MtsbHUSBJQPf7hPqL/QAUImHk85vAtqznhZHMbdEoQk5?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 673f4602-64a1-45ed-b40b-08ddeafaa6c2
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2025 15:00:41.9011
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: F4on2bFUZiHSeY404VHbXfyWXtv3urNFzonep5G7CN6v5Lgf60gkSaQJ5BAti0OVCQHE8aOCbe66JZ52MYv18Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8342
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_080037_995970_A536F131 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20250903_080049_125035_D6A83F1F 
+X-CRM114-Status: GOOD (  21.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,80 +163,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hardware tag based KASAN is implemented using the Memory Tagging Extension
-(MTE) feature.
+On Wed, Sep 03, 2025 at 03:06:12PM +0200, Marco Felsch wrote:
+> Shuffle the allocation of script_addrs and make use of devm_kzalloc() to
+> drop the local error handling as well as the kfree() during the remove.
+>
+> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+> ---
 
-MTE is built on top of the ARMv8.0 virtual address tagging TBI
-(Top Byte Ignore) feature and allows software to access a 4-bit
-allocation tag for each 16-byte granule in the physical address space.
-A logical tag is derived from bits 59-56 of the virtual
-address used for the memory access. A CPU with MTE enabled will compare
-the logical tag against the allocation tag and potentially raise an
-tag check fault on mismatch, subject to system registers configuration.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Since ARMv8.9, FEAT_MTE_STORE_ONLY can be used to restrict raise of tag
-check fault on store operation only.
-
-Using this feature (FEAT_MTE_STORE_ONLY), introduce KASAN write-only mode
-which restricts KASAN check write (store) operation only.
-This mode omits KASAN check for read (fetch/load) operation.
-Therefore, it might be used not only debugging purpose but also in
-normal environment.
-
-This patch is based on v6.17-rc4.
-
-Patch History
-=============
-from v6 to v7:
-  - modify some comments on KASAN kunit test.
-  - rebased to v6.17-rc4.
-  - https://lore.kernel.org/all/20250901104623.402172-1-yeoreum.yun@arm.com/
-
-from v5 to v6:
-  - change macro name for KASAN kunit test.
-  - remove and restore useless line adding/removal.
-  - modify some comments on KASAN kunit test.
-  - https://lore.kernel.org/all/20250820071243.1567338-1-yeoreum.yun@arm.com/
-
-from v4 to v5:
-  - fix wrong allocation
-  - add small comments
-  - https://lore.kernel.org/all/20250818075051.996764-1-yeoreum.yun@arm.com/
-
-from v3 to v4:
-  - fix wrong condition
-  - https://lore.kernel.org/all/20250816110018.4055617-1-yeoreum.yun@arm.com/
-
-from v2 to v3:
-  - change MET_STORE_ONLY feature as BOOT_CPU_FEATURE
-  - change store_only to write_only
-  - move write_only setup into the place other option's setup place
-  - change static key of kasan_flag_write_only to static boolean.
-  - change macro KUNIT_EXPECT_KASAN_SUCCESS to KUNIT_EXPECT_KASAN_FAIL_READ.
-  - https://lore.kernel.org/all/20250813175335.3980268-1-yeoreum.yun@arm.com/
-
-from v1 to v2:
-  - change cryptic name -- stonly to store_only
-  - remove some TCF check with store which can make memory courruption.
-  - https://lore.kernel.org/all/20250811173626.1878783-1-yeoreum.yun@arm.com/
-
-Yeoreum Yun (2):
-  kasan/hw-tags: introduce kasan.write_only option
-  kasan: apply write-only mode in kasan kunit testcases
-
- Documentation/dev-tools/kasan.rst  |   3 +
- arch/arm64/include/asm/memory.h    |   1 +
- arch/arm64/include/asm/mte-kasan.h |   6 +
- arch/arm64/kernel/cpufeature.c     |   2 +-
- arch/arm64/kernel/mte.c            |  18 +++
- mm/kasan/hw_tags.c                 |  70 +++++++++-
- mm/kasan/kasan.h                   |   7 +
- mm/kasan/kasan_test_c.c            | 205 +++++++++++++++++++----------
- 8 files changed, 240 insertions(+), 72 deletions(-)
-
-
-base-commit: b320789d6883cc00ac78ce83bccbfe7ed58afcf0
---
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
-
+>  drivers/dma/imx-sdma.c | 19 +++++++------------
+>  1 file changed, 7 insertions(+), 12 deletions(-)
+>
+> diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
+> index a85739d279f51fdb517fce90b3dc67673cf2b56c..b6e649fda71dbce12a2106c94887f90d0aaaf600 100644
+> --- a/drivers/dma/imx-sdma.c
+> +++ b/drivers/dma/imx-sdma.c
+> @@ -2253,6 +2253,10 @@ static int sdma_probe(struct platform_device *pdev)
+>  	if (!sdma)
+>  		return -ENOMEM;
+>
+> +	sdma->script_addrs = devm_kzalloc(dev, sizeof(*sdma->script_addrs), GFP_KERNEL);
+> +	if (!sdma->script_addrs)
+> +		return -ENOMEM;
+> +
+>  	spin_lock_init(&sdma->channel_0_lock);
+>
+>  	sdma->dev = dev;
+> @@ -2289,12 +2293,6 @@ static int sdma_probe(struct platform_device *pdev)
+>
+>  	sdma->irq = irq;
+>
+> -	sdma->script_addrs = kzalloc(sizeof(*sdma->script_addrs), GFP_KERNEL);
+> -	if (!sdma->script_addrs) {
+> -		ret = -ENOMEM;
+> -		goto err_irq;
+> -	}
+> -
+>  	/* initially no scripts available */
+>  	saddr_arr = (s32 *)sdma->script_addrs;
+>  	for (i = 0; i < sizeof(*sdma->script_addrs) / sizeof(s32); i++)
+> @@ -2332,11 +2330,11 @@ static int sdma_probe(struct platform_device *pdev)
+>
+>  	ret = sdma_init(sdma);
+>  	if (ret)
+> -		goto err_init;
+> +		goto err_irq;
+>
+>  	ret = sdma_event_remap(sdma);
+>  	if (ret)
+> -		goto err_init;
+> +		goto err_irq;
+>
+>  	if (sdma->drvdata->script_addrs)
+>  		sdma_add_scripts(sdma, sdma->drvdata->script_addrs);
+> @@ -2365,7 +2363,7 @@ static int sdma_probe(struct platform_device *pdev)
+>  	ret = dma_async_device_register(&sdma->dma_device);
+>  	if (ret) {
+>  		dev_err(dev, "unable to register\n");
+> -		goto err_init;
+> +		goto err_irq;
+>  	}
+>
+>  	ret = of_dma_controller_register(np, sdma_xlate, sdma);
+> @@ -2401,8 +2399,6 @@ static int sdma_probe(struct platform_device *pdev)
+>
+>  err_register:
+>  	dma_async_device_unregister(&sdma->dma_device);
+> -err_init:
+> -	kfree(sdma->script_addrs);
+>  err_irq:
+>  	clk_unprepare(sdma->clk_ahb);
+>  err_clk:
+> @@ -2417,7 +2413,6 @@ static void sdma_remove(struct platform_device *pdev)
+>
+>  	devm_free_irq(&pdev->dev, sdma->irq, sdma);
+>  	dma_async_device_unregister(&sdma->dma_device);
+> -	kfree(sdma->script_addrs);
+>  	clk_unprepare(sdma->clk_ahb);
+>  	clk_unprepare(sdma->clk_ipg);
+>  	/* Kill the tasklet */
+>
+> --
+> 2.47.2
+>
 
