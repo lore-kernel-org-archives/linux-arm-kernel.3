@@ -4,60 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E772ECA1009
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 10:47:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D77A4CA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 10:50:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E2LkM0CRhYlayStnyE7Z9rNgLXzgCPJgWeo/c0YwSv0=; b=euFEGV52oOAAlbJAB3nNxHyLpr
-	ejm+C923nN5ILH3FYWvkVSyC31q7OkvKAsCDpx5ArNoKiBF72r1VHCXS8E+r9yy7/nfRQRdWboqon
-	o2jmN/8LNWhnAKfhUpGV/lN228DRbOYBwuajKv6l9oT8hVm2l85JUXzPuYbTzKO1716hZWoKPdpNP
-	wJttG2Uu2QW/DfmCWuTYSJzazjMpfvyGklZZr6bLKsU/LRm5cD438L0ftZDCcnjG7VP4wK85BWpUI
-	he3GWG/uqHP6MqqZW5AthGQcjhj1u3DfXwGLyQtH5tZcal82yUe8sCZRd4MqBv09LdWlczNc+XLnh
-	Zj5VHy8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MjGeDQJzxnXd8m1pIJ6GNIDiTH2Wa1YICtpm3j0RxX4=; b=nIyqZ4eeiINREqx1aDZssvr/J/
+	bGGqeOJ8TG7i23M6i+Lr9pkYaoqjedpKqdWLjDCgs8iR0RoDUG9a2gCFDrwmjFSdfEiYUgumXsHUf
+	q2YCMdil1Gmtw//TFpCdvVWy+4rPKslx7O9EypB4Di5uVXjlUnHzSKFlfDib7Qe7dRxEdY6PRr0Sa
+	joyBD+93sVBFjPr2ihT1ZTWtqi6jj+PushbPBLK4lwDuw2ZnOwzb/5frV6NdWNFEIflj6F12WLhOk
+	RA7X8Lx5hDlrPFdi6Ioi8BkBIjOyivpDD2+i6FQEewEbwydDr5hQp3Ro8DmpKKqjG8t0y/F5Vq9y4
+	1/w8/5DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utl1H-000000068Rx-22Bu;
-	Wed, 03 Sep 2025 10:47:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utk50-00000005yfg-0NWY
+	id 1utl3y-000000068fI-1Nny;
+	Wed, 03 Sep 2025 10:50:02 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1utkAc-00000005zyB-1sCr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 09:47:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D5D7E1595;
-	Wed,  3 Sep 2025 02:46:52 -0700 (PDT)
-Received: from donnerap (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 749973F694;
-	Wed,  3 Sep 2025 02:46:59 -0700 (PDT)
-Date: Wed, 3 Sep 2025 10:46:44 +0100
-From: Andre Przywara <andre.przywara@arm.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Chen-Yu Tsai <wens@csie.org>, Samuel Holland
- <samuel@sholland.org>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, Mikhail Kalashnikov <iuncuim@gmail.com>
-Subject: Re: [PATCH 1/5] dt-bindings: clock: sun55i-a523-ccu: Add A523 CPU
- CCU clock controller
-Message-ID: <20250903104644.7359a86d@donnerap>
-In-Reply-To: <20250903-meticulous-didactic-degu-621fe0@kuoka>
-References: <20250903000910.4860-1-andre.przywara@arm.com>
-	<20250903000910.4860-2-andre.przywara@arm.com>
-	<20250903-meticulous-didactic-degu-621fe0@kuoka>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	Wed, 03 Sep 2025 09:52:51 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5839qlnB3236541;
+	Wed, 3 Sep 2025 04:52:47 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1756893167;
+	bh=MjGeDQJzxnXd8m1pIJ6GNIDiTH2Wa1YICtpm3j0RxX4=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=EZJFfu2Din84QWVQd4CeC7AEySaoz1CCOw3Qda0+r34RHjKuHo6AT9rqluagfvO86
+	 zzrJZVm2yySq0IvxuN3+6qDG7HtLLvT2GnvvT4WbWRWPdUwu4zCUVuoHZcy1EuD5NP
+	 AImybWnCiITMHDFWHnD+s6echUu/16ORBfz7+Sug=
+Received: from DFLE103.ent.ti.com (dfle103.ent.ti.com [10.64.6.24])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5839qlkn3435497
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Wed, 3 Sep 2025 04:52:47 -0500
+Received: from DFLE106.ent.ti.com (10.64.6.27) by DFLE103.ent.ti.com
+ (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 3
+ Sep 2025 04:52:46 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE106.ent.ti.com
+ (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Wed, 3 Sep 2025 04:52:46 -0500
+Received: from localhost (uda0492258.dhcp.ti.com [172.24.231.84])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5839qj8C1092983;
+	Wed, 3 Sep 2025 04:52:46 -0500
+Date: Wed, 3 Sep 2025 15:22:44 +0530
+From: s-vadapalli <s-vadapalli@ti.com>
+To: Hrushikesh Salunke <h-salunke@ti.com>
+CC: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <s-vadapalli@ti.com>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <danishanwar@ti.com>
+Subject: Re: [PATCH v2 0/4] arm64: dts: ti: Add bootph-all tag to USB PHY
+ controller
+Message-ID: <b870f831-a560-4dfa-a339-7ef95fee9f38@ti.com>
+References: <20250902053009.1732607-1-h-salunke@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250902053009.1732607-1-h-salunke@ti.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_024702_215896_81C55B5E 
-X-CRM114-Status: GOOD (  32.63  )
+X-CRM114-CacheID: sfid-20250903_025250_527989_6B84CA31 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,115 +85,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 3 Sep 2025 10:08:33 +0200
-Krzysztof Kozlowski <krzk@kernel.org> wrote:
+On Tue, Sep 02, 2025 at 11:00:05AM +0530, Hrushikesh Salunke wrote:
+> This patch series adds the bootph-all property to USB0 PHY controller
+> nodes across multiple TI SoCs (AM62, AM62A, AM62P, J722S).
 
-Hi,
+I believe that you are referring to boards rather than SoCs based on the
+changes made in the patches which address Nishanth's feedback on the v1
+series.
 
-> On Wed, Sep 03, 2025 at 01:09:06AM +0100, Andre Przywara wrote:
-> > There are four clock controllers in the A523 SoC, but only three are
-> > described in the DT binding so far.
-> > 
-> > Add a description for the CPU CCU, which provides separate clocks for
-> > the two CPU clusters and the DSU interconnect.
-> > 
-> > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> > ---
-> >  .../clock/allwinner,sun55i-a523-ccu.yaml      | 25 +++++++++++++++++++
-> >  .../dt-bindings/clock/sun55i-a523-cpu-ccu.h   | 13 ++++++++++
-> >  2 files changed, 38 insertions(+)
-> >  create mode 100644 include/dt-bindings/clock/sun55i-a523-cpu-ccu.h
-> > 
-> > diff --git a/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
-> > index 1dbd92febc471..367d26800fd0d 100644
-> > --- a/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
-> > +++ b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
-> > @@ -19,6 +19,7 @@ properties:
-> >    compatible:
-> >      enum:
-> >        - allwinner,sun55i-a523-ccu
-> > +      - allwinner,sun55i-a523-cpu-ccu
-> >        - allwinner,sun55i-a523-mcu-ccu
-> >        - allwinner,sun55i-a523-r-ccu
-> >  
-> > @@ -64,6 +65,30 @@ allOf:
-> >              - const: iosc
-> >              - const: losc-fanout
-> >  
-> > +  - if:
-> > +      properties:
-> > +        compatible:
-> > +          enum:
-> > +            - allwinner,sun55i-a523-cpu-ccu
-> > +
-> > +    then:
-> > +      properties:
-> > +        clocks:
-> > +          items:
-> > +            - description: High Frequency Oscillator (usually at 24MHz)
-> > +            - description: Low Frequency Oscillator (usually at 32kHz)
-> > +            - description: Internal Oscillator
-> > +            - description: Peripherals PLL 0 (1200 MHz output)
-> > +            - description: Peripherals PLL 0 (600 MHz output)
-> > +
-> > +        clock-names:
-> > +          items:
-> > +            - const: hosc
-> > +            - const: losc
-> > +            - const: iosc
-> > +            - const: pll-periph0-2x
-> > +            - const: pll-periph0-600m
-> > +
-> >    - if:
-> >        properties:
-> >          compatible:
-> > diff --git a/include/dt-bindings/clock/sun55i-a523-cpu-ccu.h b/include/dt-bindings/clock/sun55i-a523-cpu-ccu.h
-> > new file mode 100644
-> > index 0000000000000..042f2310f64de
-> > --- /dev/null
-> > +++ b/include/dt-bindings/clock/sun55i-a523-cpu-ccu.h  
 > 
-> Filename based on compatible.
+> The bootph-all tag ensures that these USB PHY controller nodes are 
+> available during all boot phases, which is required for USB DFU 
+> (Device Firmware Upgrade) boot functionality.
 > 
+> Changes sice v1:
+> Updated patch series to add "bootph-all" tag to board specific file
+> instead of SoC file.
+> Rebased on current next.
 > 
-> > @@ -0,0 +1,13 @@
-> > +/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
-> > +/*
-> > + * Copyright 2025 Arm Ltd.
-> > + */
-> > +
-> > +#ifndef _DT_BINDINGS_CLK_SUN55I_A523_CPU_CCU_H_
-> > +#define _DT_BINDINGS_CLK_SUN55I_A523_CPU_CCU_H_
-> > +
-> > +#define CLK_CPU_L		7
-> > +#define CLK_CPU_DSU		8
-> > +#define CLK_CPU_B		9  
-> 
-> I don't see the header being used by the driver and odd numbers (they
-> should start from 0 or 1) suggest these are not bindings.
+> This series is based on commit:
+> 33bcf93b9a6b Add linux-next specific files for 20250901
 
-This header is included by the private header (at the end of patch 4/5).
-The private header is then included by the driver.
-Happy to change that, but that's the pattern used in all the other drivers.
+For the series,
 
-Those numbers represent the publicly exposed clocks, the other clocks are
-internal. Having gaps in those numbers is somewhat common in sunxi-ng
-(check sun50i-h616-ccu.h). This large gap at the beginning here is mostly
-due to the somewhat extreme design of this CCU, which requires quite some
-helper clocks to get to the actual ones.
-We could sort the identifiers to have the public clocks first, but
-that would only be the case until we discover a missed clock (which seems
-to happen from times to times). And again, that's the pattern used in the
-sibling drivers, so I'd rather stay consistent here.
+Reviewed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
 
-Cheers,
-Andre
-
-> Otherwise please explain in commit msg what exactly are you binding
-> here.
-> 
-> Best regards,
-> Krzysztof
-> 
-
+Regards,
+Siddharth.
 
