@@ -4,158 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 199C9CAC582
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11BD8CAC581
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 14:48:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aBcQZkZP3ZSJeXLm7DZuf+5QVEXu+I/XZtZSUW9EIv4=; b=wUPzhZw2Go5SdBx7oEX8bTOUA5
-	T0GiYCKDpXs++rO25CuAjZD69vLJS5KtCH5mp1AorOYhlbMmAgs4naVwgBYIapMvdfEqC3L4MPdoU
-	B1ybOke20Kn4lE5ObyM3zv8DMkDHgUKMijsMkaIkbLOQd6Rb7YN8cdv7xUGuKaeijwinsoEWucqvs
-	SpLjUiLmz6CQ7wN7RCsHq1nmgywXi4f0KM2rE+46PaczVLmzOftXa1x9IWmvFIqUJPVtLzvWs8l7V
-	SS5L9HSV+XleBj80iwlsm+5YShfubMlSXymaq4DZ/ihJYem6Pgul2kMDSjqJ0WbQr9QVRcWKIgpeM
-	aWFYp6uw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZOenNhon7WaisY3VTWVx6XvzUrCIft1GDsFy/zuDvrw=; b=1OymIK2I38J3dl7inVLjIEGJKK
+	58l18k17URO5gcx2ZG++9lad/q+Q66xSdUiyDVDhV+T49XvCwVO6CFCj+wfNV1wClZTpbXBKccdKD
+	9/s5clmYZpH/zi2/uCvJIZcTrC8AikwiSSumh+8Ar1fExdLvL79hJQvE7+thaIezPLv+uBuMBSxeK
+	VI5OEfZtsg7I31asXpFCO7Oo5P8QkfgfCN2U3dB6R/JweQ5H7d10jvLnG/HVPXzFR+OECDnKDkkrI
+	8eVZ/ZQ4H/V9Z33OwjIq6oswNDIOnVVy3dN1gmpI+6XTSXdma6zH4TTlp1epH4NNe7tcLgYzzkwCN
+	A1uXy4PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utomS-00000006lK5-02r8;
-	Wed, 03 Sep 2025 14:48:12 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1utomI-00000006lAv-2Nt4;
+	Wed, 03 Sep 2025 14:48:02 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utmgx-00000006OvP-3r9k
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 12:34:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=w25c27zN8MH/DvCSws6tL5+WW80NxqjXKXxRfQkG5wbwI8Jrn9C/G5k/ziQCxIaF8O4cGvO1N8l2y08WDX/mfKBYXxDisgFRmNJQRIm2uQdpWiKBKsyL5ziArR6gVcN/GukHeCPwi/ajaTO/JhtBcW2e48vApLjwv4D18hQXrvOYIt97S1ryqTU/msmPEgSpw0sdoaQGjReONJRwZLXh1EUlyX8fbLksSyN3XyhyOAauReMWbCaHCSFA1PPyFwpFrm44OWYJRRYvDy1qj2reFaNdeHaXEVgPDq50Bc5iGxGBBSQ+Hu/UEDWjUJ82XUBWnAWOqW1x0uTRwSXUqSkzig==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aBcQZkZP3ZSJeXLm7DZuf+5QVEXu+I/XZtZSUW9EIv4=;
- b=pjoL+BI9zRjCOnLhlw9MRSehSY5IiwiStu5IkvpK8pOAP2v9DYhXeuccHfhByLgt8RmgN8kspXgRSXhmjWeTkv6FPJVkKqDYa5sA+mwgWjK9ELcRYUKDhQSq1Q2TA67HOYyFMculf9QSKlv4St1u0MSGD+qJuDTmoCR1wVAf1qGBbRX54B9mv373bQq+4bcguFCnIcVR4GN6kcesOjM2JdSSEon6Snc4PGUhCM+g7B7Y7/2T4UwDSmzG+Wm8R2S/D4liLlE7N1hYzFA9z+OYiWXvPK67ens8P6i2yFVCE48FrOiT2ExEF1pbK4VXmsZOo5Hw4JyVaRzt/3p7ZNhgRQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aBcQZkZP3ZSJeXLm7DZuf+5QVEXu+I/XZtZSUW9EIv4=;
- b=qIXoPSGcxTuc+0BQaSa82WYOAFAMe5YqnA98NPUr0ccCBn9gpjKHKljUPRrsZL/msc7CKlPp5bC6AZPNMDaplPirFD2D8yqXgVcfSURwVVKG+tPJCS6Ht8bUsaDgkiexURjWiOLbT7JsBJ1f3mN7p1EAdzoorv68T/0gtTBP20HQUZ0WHPjW+dlRKJXVvpJZFX8g5Y+InW6SR/z0QeeOHvtlRKPfrAJcUimoDQ/HHVyt5jXwEcBtg5qZZT92qUuIzt6vCFhZYgin0JFXMdB+RVGbxzktOChlt5xXd4Grup8d/shIwYNLn2ONUabKcKQZQBCGZpAOkyIzaYonwd5BAg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV1PR04MB9135.eurprd04.prod.outlook.com (2603:10a6:150:26::19)
- by DB9PR04MB8233.eurprd04.prod.outlook.com (2603:10a6:10:24b::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.27; Wed, 3 Sep
- 2025 12:34:16 +0000
-Received: from GV1PR04MB9135.eurprd04.prod.outlook.com
- ([fe80::b1f6:475e:de5d:8442]) by GV1PR04MB9135.eurprd04.prod.outlook.com
- ([fe80::b1f6:475e:de5d:8442%5]) with mapi id 15.20.9094.015; Wed, 3 Sep 2025
- 12:34:16 +0000
-From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-To: imx@lists.linux.dev,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Frank Li <frank.li@nxp.com>,
-	Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 7/9] arm64: dts: imx943: Add display pipeline nodes
-Date: Wed,  3 Sep 2025 15:33:25 +0300
-Message-Id: <20250903123332.2569241-8-laurentiu.palcu@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250903123332.2569241-1-laurentiu.palcu@oss.nxp.com>
-References: <20250903123332.2569241-1-laurentiu.palcu@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: FR4P281CA0229.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:e9::7) To GV1PR04MB9135.eurprd04.prod.outlook.com
- (2603:10a6:150:26::19)
+	id 1utmHN-00000006L18-0ybU;
+	Wed, 03 Sep 2025 12:07:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=ZOenNhon7WaisY3VTWVx6XvzUrCIft1GDsFy/zuDvrw=; b=iUJ9ElgQf60LxlCjHOOQ1c/Fd7
+	BYiUf3C0Qz/+VRgXBlKyU2e9nV844hAstYooKL2/Ld44LHRv7wUCqAbEFRxleYnsUwXWdpjZ0MoGe
+	55qrbCHIjwf7FI/WBm98PFYOW7NFhpbdHbZvQnMu/cxIbKUMDsPtmanc1GPLl3O8A9JU0gjrCtjSi
+	BM18wN5K4mjCJXjG/le0ylwp3EqWJiWTBcjIQw8/HReyuAyqlHPYUO3EnImQ1++WYpvJwlP0uo84y
+	RmBjcI6PoJHz4qwEVUMK3cgvGg3h6mc4L29EB6bi7uvoa5a2wqU6Wpqj7cduk/8xpdNoglutCCThY
+	6/M5rA8Q==;
+Received: from [213.70.40.217] (helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1utmHI-0001wC-4F; Wed, 03 Sep 2025 14:07:52 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: robh@kernel.org, WeiHao Li <cn.liweihao@gmail.com>
+Cc: hjc@rock-chips.com, andy.yan@rock-chips.com, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-clk@vger.kernel.org, WeiHao Li <cn.liweihao@gmail.com>
+Subject: Re: [PATCH v1 1/7] drm/rockchip: dsi: Add support for RK3368
+Date: Wed, 03 Sep 2025 14:07:50 +0200
+Message-ID: <42028191.XM6RcZxFsP@phil>
+In-Reply-To: <20250831104855.45883-2-cn.liweihao@gmail.com>
+References: <20250831104855.45883-1-cn.liweihao@gmail.com>
+ <20250831104855.45883-2-cn.liweihao@gmail.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV1PR04MB9135:EE_|DB9PR04MB8233:EE_
-X-MS-Office365-Filtering-Correlation-Id: 785eefa3-41db-4935-afc6-08ddeae631cf
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|19092799006|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?bdAj9het0i5R1SA4WJ2TDh7bGSG+a4ltCQ/wC58J5od0jjINmj3G3OhK6uUF?=
- =?us-ascii?Q?AQjidyQLoaLLqM8Hx2CefEA0N9oLJ8BZT919e6VNlyd2+PkXEBxVQIh9cBA3?=
- =?us-ascii?Q?OoKtPaSeJoknOL/4t9mflSaYUFgZLb+UP9Tn1Ynuyxe8nqHuRjNcwmppBJ3R?=
- =?us-ascii?Q?8WHuSeAP13eb4S2l/6jHLsuhHIbJbr3rLJOsR/RMufZta76r/t21asIHyJMo?=
- =?us-ascii?Q?6ExYoohCjLSShnXlMq5bMjYj9Cx78EE4RWg00hFsZfO/65hBGbtEcsnsugL4?=
- =?us-ascii?Q?uV9cwBMjo+phUrkAlu+dmw1q/yMl+XSJstrp74NJD4NleSnBuR0qvW97rKLx?=
- =?us-ascii?Q?Lo7KTCRSgyo/EgxDD66ngSoUT2cXoKekAGAa42l/fEsnq8KH+uP9I8axFyiM?=
- =?us-ascii?Q?i8tIa0KNLhKPvCHZXwlG4Mtk9s6uSnJclXxjr4Ptp2Umdb45XKTeF2pHk1e9?=
- =?us-ascii?Q?thBcw3FppWbGHjKeSCZWIIv/J4oKXsKcNPrhGI9E2QIGN5wYm8XNOitkSrnf?=
- =?us-ascii?Q?2ANafFQ9n7NptB3VjVWp8KeMynI9H3DsSDDCuujF4A5ejsBrT89Q8HA965rw?=
- =?us-ascii?Q?1X155qfTJGbLLIZSRd5l6E883K5qab9HdmYwK5Y1PNEotchoV2UkI0cjOeYK?=
- =?us-ascii?Q?sjXlUAcr5Bbzjea7z0O8hJ4is1qZtrfCYBeHsh+RgEnpOY5lmuTNhWVfo3o6?=
- =?us-ascii?Q?BSacxojFoZ0k74T171oNsIyg52HZuIbXaz5nYsm2dBz6EmMmvDwmfOw3jpLh?=
- =?us-ascii?Q?ch/z4ARGbjsnUF9a/b3mQ8uf19K6IgroyJAnYO6TwIFeomRoE2OhK+tmwBZ8?=
- =?us-ascii?Q?IN4w7uaUjEodUON8ziDvylaHpL+SHSQL5KdwPIFUCxW9g8qfce19PzBIvQoG?=
- =?us-ascii?Q?BDCuIkiBUV2oo0Cm4aHJkAej1pBWS85818uq+RSa611lo/cbrbo7rAfX3zA7?=
- =?us-ascii?Q?6eLJyH089U19knl84qxZhZDiG7nHB22/EK9vddF1Cnzc1hA2zmFYGfepVtY7?=
- =?us-ascii?Q?Vngy4ndhzOW3joIVGBU22V13MTQpJLojVupuGCcFOIRXeupzanrN/u+vtZ0O?=
- =?us-ascii?Q?ySo2Oj4mRSClf/zKyqGAmTRimJkiFDcJx41Q+wXnzJ9eu20AFuEYvy/r1DYL?=
- =?us-ascii?Q?cb5niXoa4oudSn84qIndbBvDDgvgMUhBu3c3dR166tQePzwtsAYnwft8NXWs?=
- =?us-ascii?Q?x798YyYruCvSZDTemZLXlMTZ1Q0tfUb6oxW1yoCjQhwgCjpmHEBOnTjBOTlC?=
- =?us-ascii?Q?4s72Jb3fxyPcmLpnCFBQ5fU/zh0xa0Gf8zJQBZt09S6Hx2aw8ha2h3MvNlef?=
- =?us-ascii?Q?u7gFtYPhwznhDCLSA/FlFrxZeqDyyrBFl9SSmqzQrUcA1TCyZqzsHZhQYGYK?=
- =?us-ascii?Q?/Yz1Hln6SKTC0nKTAxA7F7o5iL3uL6xr2JwwRKmfuqNuCqicrqSQR7mumNyw?=
- =?us-ascii?Q?p4yB41OCw3k=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR04MB9135.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(19092799006)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?E8RJtkI9YuJjn+gdapyqA/jtBj8Y88+rIDrpFsfvxop0VK4DtL1+MCSHxKvy?=
- =?us-ascii?Q?cBxqRoHuEmlnZ3T91Qyj0kGWC72hGTV7oh3rwLYTP3cOfocS89dVRO1Wx/Kk?=
- =?us-ascii?Q?vd9fyUFzMgnl13JpR/iazeNibsTsFEjcDenS0pSOlrccRjOHA9oTQCUDu5U+?=
- =?us-ascii?Q?MHKLfDmvxRHapdq/ZurZ79JGUOih/OWddVNUuu44HIEb9E+WigjGxyxkwFUB?=
- =?us-ascii?Q?Hd5npXoMEkqRPwJZGCzLUNzBJrDFNHD61BsEqN33qBD4ZiH5tCuRLh9wPULn?=
- =?us-ascii?Q?aAs8h8PakqX9SGdFd/dkkdF+xdH6F+0URqJ4uEk78kyvVVHd43DuEur6IUQU?=
- =?us-ascii?Q?XZA8Il46zUsoMrJsSIJKuMYQ1MGnW9yUvyMNik765S8ucWF4qVurJcE6wO+2?=
- =?us-ascii?Q?Putu2rHE8pK6ur41qnHe8/aehem6KHHVa1XnfAIIh23+P8rJMWtnlZJkvhKT?=
- =?us-ascii?Q?9hNisv3iNcOJORwOd1jONydSIpm8jCYmyhL9uy3+VyXFZsrppa66DRM9Vhw9?=
- =?us-ascii?Q?WOJ4cL/xRiu8q+2NQcEuPC4BXUlUBDjyI/Lt1Sbcbbxxx74pzC37SZF9kCpF?=
- =?us-ascii?Q?Dqi1FsrP2tUWSXkh5KG2Vn7b8ef8Qrd0fuxZyRXUXfOgTjnZM7Y+eM2YRgji?=
- =?us-ascii?Q?gXvtm2VTZlrJ0Y8voT0CNf/7PdX+JX99wIH27O2KSHmgNW8GFpw+jDMECjtq?=
- =?us-ascii?Q?vv3oydWiBbsNlbBtKJeC6WwA2wQZt7Ujysmno2TF+KFUcSdSI/dSNPOlCvee?=
- =?us-ascii?Q?Wxc81jUXYGdJlFXaNonEjzhN8JaSFr/8YvGRHf6g/EmpoywXEEey9JUAWOaz?=
- =?us-ascii?Q?uVor1BS5+nyRnQgN5jYxo+pLTKeCW5OseIBc62KeZ5qgR/dQnmntbDwHyFbd?=
- =?us-ascii?Q?Br5JTQ677PZNk4zDLGRS3Kg4Km5JPbAbrYYgy2ZFo9/7N6yucZMY9n9lPvg6?=
- =?us-ascii?Q?G+wTd/d9Hcwn79wkUYDMr9aZa4t6+FPwpfk6kJsn3cufpfJ908sEe0rOd2s1?=
- =?us-ascii?Q?RWfQuQ9FAMZuAkn+9teMW/NLvraQ3EvCYVkxb6cnIMwfDHx0H4r2S/yvm5OQ?=
- =?us-ascii?Q?awp7+PPRZX94130o/9NZrzcWOFPH9Vrt55oY0qnNkkh2Nxu8hhWwelMTBfmv?=
- =?us-ascii?Q?JMfiTrEfKg2ThFAGG6zTZkX1TSnrulYawDf8gPi9CDm5cwuPayq9TRmVMsvG?=
- =?us-ascii?Q?FQyOAh5VblCT+n08MsBBftoJmhV4c3rD7bFK3ou8AsFob21aMDjc0YAtmjop?=
- =?us-ascii?Q?vpuz9hFNEfzldspR9lMvJPdQbygp1MgCnTz6zw/5SzvQkYbkVili5gl2NOwT?=
- =?us-ascii?Q?tSq0nE6FVh0SOarCs6PATg/+75hOqAA7YqWazXVPMfT7131Vx/anKA+PvJeH?=
- =?us-ascii?Q?8L89GrzvXVxoS5Wca3Iw92qMsRjUqRuGF3R+FAHRjh1luEY4JYdyT4jTUVRu?=
- =?us-ascii?Q?2VckXNDDkJ+hlcLf/yf7WVWon5mzDwK8B0j3wQYbxXlRejdnysByxAgHYLwx?=
- =?us-ascii?Q?8JehxwXHQLnx6QdUhK4j70VDT9EBUB8dcnmVyHUgBvuQoMrHOM9Ly+FsXr0T?=
- =?us-ascii?Q?V+E60hD4lNR++xXC3S7H8oIbOOqFSiYm9uDUTEGS4ofs1pXDbmm4/hMhzoe4?=
- =?us-ascii?Q?oA=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 785eefa3-41db-4935-afc6-08ddeae631cf
-X-MS-Exchange-CrossTenant-AuthSource: GV1PR04MB9135.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2025 12:34:16.1084
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: tG05M8RMxWsKAeXRYyL50rgW3xtTWHHq8xfCnEqNzonyINsn57Q/jrQAMu1zc3UKPsWIqBuyoKHVG3LZwv75LA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8233
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_053423_960948_8F010710 
-X-CRM114-Status: GOOD (  10.83  )
+X-CRM114-CacheID: sfid-20250903_050757_269224_5F21F705 
+X-CRM114-Status: GOOD (  18.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,88 +71,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add display controller and LDB support in imx943.
+Hi,
 
-Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
----
- arch/arm64/boot/dts/freescale/imx943.dtsi | 53 ++++++++++++++++++++++-
- 1 file changed, 52 insertions(+), 1 deletion(-)
+Am Sonntag, 31. August 2025, 12:48:49 Mitteleurop=C3=A4ische Sommerzeit sch=
+rieb WeiHao Li:
+> RK3368 has DesignWare MIPI DSI controller and an external inno D-PHY.
+>=20
+> Signed-off-by: WeiHao Li <cn.liweihao@gmail.com>
 
-diff --git a/arch/arm64/boot/dts/freescale/imx943.dtsi b/arch/arm64/boot/dts/freescale/imx943.dtsi
-index 657c81b6016f2..9a91beef54e86 100644
---- a/arch/arm64/boot/dts/freescale/imx943.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx943.dtsi
-@@ -148,7 +148,7 @@ l3_cache: l3-cache {
- 		};
- 	};
- 
--	clock-ldb-pll-div7 {
-+	clock_ldb_pll_div7: clock-ldb-pll-div7 {
- 		compatible = "fixed-factor-clock";
- 		#clock-cells = <0>;
- 		clocks = <&scmi_clk IMX94_CLK_LDBPLL>;
-@@ -174,9 +174,60 @@ dispmix_csr: syscon@4b010000 {
- 		lvds_csr: syscon@4b0c0000 {
- 			compatible = "nxp,imx94-lvds-csr", "syscon";
- 			reg = <0x0 0x4b0c0000 0x0 0x10000>;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
- 			clocks = <&scmi_clk IMX94_CLK_DISPAPB>;
- 			#clock-cells = <1>;
- 			power-domains = <&scmi_devpd IMX94_PD_DISPLAY>;
-+
-+			ldb: ldb@4 {
-+				compatible = "fsl,imx94-ldb";
-+				reg = <0x4 0x4>, <0x8 0x4>;
-+				reg-names = "ldb", "lvds";
-+				clocks = <&lvds_csr IMX94_CLK_DISPMIX_LVDS_CLK_GATE>;
-+				clock-names = "ldb";
-+				status = "disabled";
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+
-+						lvds_in: endpoint {
-+							remote-endpoint = <&dcif_out>;
-+						};
-+					};
-+
-+					port@1 {
-+						reg = <1>;
-+					};
-+				};
-+			};
-+		};
-+
-+		dcif: display-controller@4b120000 {
-+			compatible = "nxp,imx94-dcif";
-+			reg = <0x0 0x4b120000 0x0 0x300000>;
-+			interrupts = <GIC_SPI 377 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 378 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 379 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "common", "bg_layer", "fg_layer";
-+			clocks = <&scmi_clk IMX94_CLK_DISPAPB>,
-+				 <&scmi_clk IMX94_CLK_DISPAXI>,
-+				 <&dispmix_csr IMX94_CLK_DISPMIX_CLK_SEL>;
-+			clock-names = "apb", "axi", "pix";
-+			assigned-clocks = <&dispmix_csr IMX94_CLK_DISPMIX_CLK_SEL>;
-+			assigned-clock-parents = <&clock_ldb_pll_div7>;
-+			power-domains = <&scmi_devpd IMX94_PD_DISPLAY>;
-+			status = "disabled";
-+
-+			port {
-+				dcif_out: endpoint {
-+					remote-endpoint = <&lvds_in>;
-+				};
-+			};
- 		};
- 	};
- };
--- 
-2.49.0
+as a general remark, this patch will likely need to wait for 6.18-rc1,
+because a big update of the HIWORD_MASK macros was merged [0].
+
+So introducing a new user now would cause havok :-) .
+
+Also when sending a v2, please base it on top of that changeset, or
+just take linux-next [1] as a base.
+
+Also in a separate patch, please add the needed rk3368 entry to the
+devicetree binding [2], this will pacify the bot that checked your
+devicetree changes :-) .
+
+Please also make sure that relevant additions to the lists below
+are made (the binding contains specific settings for some controllers
+furter below) .
+
+
+Heiko
+
+
+[0] https://lore.kernel.org/linux-rockchip/20250825-byeword-update-v3-0-947=
+b841cdb29@collabora.com/
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/
+[2] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
+/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-mipi-dsi.ya=
+ml
+
+> ---
+>  .../gpu/drm/rockchip/dw-mipi-dsi-rockchip.c   | 20 +++++++++++++++++++
+>  1 file changed, 20 insertions(+)
+>=20
+> diff --git a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c b/drivers/gp=
+u/drm/rockchip/dw-mipi-dsi-rockchip.c
+> index 3398160ad..5d76e3e04 100644
+> --- a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
+> +++ b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
+> @@ -162,6 +162,11 @@
+>  #define RK3288_DSI0_LCDC_SEL		BIT(6)
+>  #define RK3288_DSI1_LCDC_SEL		BIT(9)
+> =20
+> +#define RK3368_GRF_SOC_CON7		0x41c
+> +#define RK3368_DSI_FORCETXSTOPMODE	(0xf << 7)
+> +#define RK3368_DSI_FORCERXMODE		BIT(6)
+> +#define RK3368_DSI_TURNDISABLE		BIT(5)
+> +
+>  #define RK3399_GRF_SOC_CON20		0x6250
+>  #define RK3399_DSI0_LCDC_SEL		BIT(0)
+>  #define RK3399_DSI1_LCDC_SEL		BIT(4)
+> @@ -1530,6 +1535,18 @@ static const struct rockchip_dw_dsi_chip_data rk32=
+88_chip_data[] =3D {
+>  	{ /* sentinel */ }
+>  };
+> =20
+> +static const struct rockchip_dw_dsi_chip_data rk3368_chip_data[] =3D {
+> +	{
+> +		.reg =3D 0xff960000,
+> +		.lanecfg1_grf_reg =3D RK3368_GRF_SOC_CON7,
+> +		.lanecfg1 =3D HIWORD_UPDATE(0, RK3368_DSI_TURNDISABLE |
+> +						RK3368_DSI_FORCETXSTOPMODE |
+> +						RK3368_DSI_FORCERXMODE),
+> +		.max_data_lanes =3D 4,
+> +	},
+> +	{ /* sentinel */ }
+> +};
+> +
+>  static int rk3399_dphy_tx1rx1_init(struct phy *phy)
+>  {
+>  	struct dw_mipi_dsi_rockchip *dsi =3D phy_get_drvdata(phy);
+> @@ -1693,6 +1710,9 @@ static const struct of_device_id dw_mipi_dsi_rockch=
+ip_dt_ids[] =3D {
+>  	}, {
+>  	 .compatible =3D "rockchip,rk3288-mipi-dsi",
+>  	 .data =3D &rk3288_chip_data,
+> +	}, {
+> +	 .compatible =3D "rockchip,rk3368-mipi-dsi",
+> +	 .data =3D &rk3368_chip_data,
+>  	}, {
+>  	 .compatible =3D "rockchip,rk3399-mipi-dsi",
+>  	 .data =3D &rk3399_chip_data,
+>=20
+
+
+
 
 
