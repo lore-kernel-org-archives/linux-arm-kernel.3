@@ -4,101 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D121ACA1009
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 20:06:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0566CA1010
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 21:18:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:CC:To:From:Subject:Reply-To:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Shk7aP7NdVdTxePF1n5l+uKN9YxwBMJp3bE/HqRzo1U=; b=nMmBqwJOHBbvEgrZD1s6sfMQHX
-	NkiwVGpZi/n1CFAXPLYDTUzD4W4onnWDcEknXBtFUVdJ4OmxBQB+9y8cxRQQO9W+eZw4mCOKSgB4G
-	Paj8hSrghLisuwDiBQ6L/kt1QjD2oDFCbMpSIg65WIhi9ccS3h42t7fhEWYltFaNvq/OP/RgDWMbZ
-	sEePxu/i1VAuvzO3vW2rE+bvRsPGlVhSAIkJMPGTZ73yLdGd7Y7RttdtDU7g3fOGj110x2UTsrN6f
-	b0a7oZyEuHWTzAzhz9og2D4jrOHFqAC/FsZe4yqrvWc8zmdBikrSaufezJkpC3TMfUShopNe7AJZ6
-	CWKvc5mg==;
+	bh=naiguCmQixdnHGLdSeGC1JbSxxv+Z9dT+/IMsE9bOUs=; b=YRdOv4RulBmdWLmVgk0HFh/HGW
+	B95CRZqWEf3Fx6/r2z17w6guYGreu1utQFDkTEtkEzvYkueNMBMSW75n6nPEx6EocOoV6fDm9OjtA
+	/Quz8soGjYfMIpp9Q2b65bEW3g1UQFKeh2wTABB7TDNqw1PFThUrRHWYSvauZqbd1XLCw4f+bPqpM
+	iirWQUKzfi5ZxZSNS/mYW31XxUqQtGhzL6UsyIPJvSh/tXpeMX0nXLxhdPMWB0zDVRdmR67PqSaOe
+	behLR1UqHF57kHnelLgFIJfvwfxRC10FGJ/Z6uARA04ZhEuSX7+BfBt23H/VuqEPkibV1tsSJwWfp
+	VHGgNWng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uttjw-00000007XBM-0buY;
-	Wed, 03 Sep 2025 20:05:56 +0000
-Received: from pdx-out-006.esa.us-west-2.outbound.mail-perimeter.amazon.com ([52.26.1.71])
+	id 1uturm-00000007dVB-0Bn5;
+	Wed, 03 Sep 2025 21:18:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utpqn-00000006zI7-22Vk
+	id 1utqJ2-000000073jS-3vij
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 15:56:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1756915005; x=1788451005;
-  h=from:to:cc:date:message-id:references:in-reply-to:
-   content-id:content-transfer-encoding:mime-version:subject;
-  bh=Shk7aP7NdVdTxePF1n5l+uKN9YxwBMJp3bE/HqRzo1U=;
-  b=jYY0yHcWQGUX4ldNv9zGa2hwqixp+cYDcyuGaJdscOcRboRsHH9to3hV
-   9F1c7NaWAYcLB0K73cEbtYLT13tWD+OLKH3qezvOIu42EV13W17587shO
-   /QKXvrT9AWAtDIPt3XOrEt/zVvr8Pf8jJjWXDDQIaqX2H1Tc+uDJwX71W
-   KiKEvoaMzEqOQLw+vKbKNBhCK2K0mTlGTYxXbzBQccJXmBdk7/NA+6vnz
-   FIRwXMotSP7eS8stzk5meKq5mVSQiErbg4y+j+yR+aenmRt+EtTZHp9Fi
-   zMXv2SbmgkfxOyEo+Uu6kgYa/zwIPdim7E70RsTWyNFQXuGzsJM5BFCaQ
-   g==;
-X-CSE-ConnectionGUID: QiOcNpiNSHuG08I7kgtVrw==
-X-CSE-MsgGUID: efa5nN+GQgSifqLXSQNwvw==
-X-IronPort-AV: E=Sophos;i="6.18,236,1751241600"; 
-   d="scan'208";a="2318615"
-Subject: Re: [PATCH v4 0/5] barrier: Add smp_cond_load_*_timewait()
-Thread-Topic: [PATCH v4 0/5] barrier: Add smp_cond_load_*_timewait()
-Received: from ip-10-5-9-48.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.9.48])
-  by internal-pdx-out-006.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Sep 2025 15:56:39 +0000
-Received: from EX19MTAUWB002.ant.amazon.com [10.0.38.20:35374]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.63.19:2525] with esmtp (Farcaster)
- id 3521494c-cd0c-4c7e-a87c-f69a666db393; Wed, 3 Sep 2025 15:56:39 +0000 (UTC)
-X-Farcaster-Flow-ID: 3521494c-cd0c-4c7e-a87c-f69a666db393
-Received: from EX19D032UWA004.ant.amazon.com (10.13.139.56) by
- EX19MTAUWB002.ant.amazon.com (10.250.64.231) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
- Wed, 3 Sep 2025 15:56:39 +0000
-Received: from EX19D032UWA003.ant.amazon.com (10.13.139.37) by
- EX19D032UWA004.ant.amazon.com (10.13.139.56) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
- Wed, 3 Sep 2025 15:56:38 +0000
-Received: from EX19D032UWA003.ant.amazon.com ([fe80::8e94:8f60:9531:c497]) by
- EX19D032UWA003.ant.amazon.com ([fe80::8e94:8f60:9531:c497%5]) with mapi id
- 15.02.2562.020; Wed, 3 Sep 2025 15:56:38 +0000
-From: "Okanovic, Haris" <harisokn@amazon.com>
-To: "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"ankur.a.arora@oracle.com" <ankur.a.arora@oracle.com>
-CC: "joao.m.martins@oracle.com" <joao.m.martins@oracle.com>,
-	"xueshuai@linux.alibaba.com" <xueshuai@linux.alibaba.com>,
-	"boris.ostrovsky@oracle.com" <boris.ostrovsky@oracle.com>, "memxor@gmail.com"
-	<memxor@gmail.com>, "zhenglifeng1@huawei.com" <zhenglifeng1@huawei.com>,
-	"konrad.wilk@oracle.com" <konrad.wilk@oracle.com>, "cl@gentwo.org"
-	<cl@gentwo.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"ast@kernel.org" <ast@kernel.org>, "linux-arch@vger.kernel.org"
-	<linux-arch@vger.kernel.org>, "arnd@arndb.de" <arnd@arndb.de>,
-	"will@kernel.org" <will@kernel.org>, "mark.rutland@arm.com"
-	<mark.rutland@arm.com>, "peterz@infradead.org" <peterz@infradead.org>,
-	"bpf@vger.kernel.org" <bpf@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "Okanovic, Haris"
-	<harisokn@amazon.com>
-Thread-Index: AQHcGLwkeAOmnfRWAUuaDQGZvBHLrrR+O4GAgANprQA=
-Date: Wed, 3 Sep 2025 15:56:38 +0000
-Message-ID: <23aca480075a8efc307c9aa07ff62f0f39bbee4e.camel@amazon.com>
-References: <20250829080735.3598416-1-ankur.a.arora@oracle.com>
-	 <aLWITwwDg06F1eXu@arm.com>
-In-Reply-To: <aLWITwwDg06F1eXu@arm.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.106.178.32]
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <0E18BDB4F8F2474DAC3E5EE6935FEE88@amazon.com>
-Content-Transfer-Encoding: base64
+	Wed, 03 Sep 2025 16:25:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 50E486025C;
+	Wed,  3 Sep 2025 16:25:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78F67C4CEE7;
+	Wed,  3 Sep 2025 16:25:51 +0000 (UTC)
+Date: Wed, 3 Sep 2025 17:25:48 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Cc: james.morse@arm.com, linux-cxl@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	Will Deacon <will@kernel.org>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Yicong Yang <yangyicong@huawei.com>, linuxarm@huawei.com,
+	Yushan Wang <wangyushan12@huawei.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	x86@kernel.org, Andy Lutomirski <luto@kernel.org>
+Subject: Re: [PATCH v3 5/8] arm64: Select GENERIC_CPU_CACHE_MAINTENANCE and
+ ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+Message-ID: <aLhsDCcMcqhXM0x6@arm.com>
+References: <20250820102950.175065-1-Jonathan.Cameron@huawei.com>
+ <20250820102950.175065-6-Jonathan.Cameron@huawei.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_085645_563986_7B4CCD1F 
-X-CRM114-Status: GOOD (  14.81  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250820102950.175065-6-Jonathan.Cameron@huawei.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,24 +74,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAyMDI1LTA5LTAxIGF0IDEyOjQ5ICswMTAwLCBDYXRhbGluIE1hcmluYXMgd3JvdGU6
-DQo+IENBVVRJT046IFRoaXMgZW1haWwgb3JpZ2luYXRlZCBmcm9tIG91dHNpZGUgb2YgdGhlIG9y
-Z2FuaXphdGlvbi4gRG8gbm90IGNsaWNrIGxpbmtzIG9yIG9wZW4gYXR0YWNobWVudHMgdW5sZXNz
-IHlvdSBjYW4gY29uZmlybSB0aGUgc2VuZGVyIGFuZCBrbm93IHRoZSBjb250ZW50IGlzIHNhZmUu
-DQo+IA0KPiANCj4gDQo+IE9uIEZyaSwgQXVnIDI5LCAyMDI1IGF0IDAxOjA3OjMwQU0gLTA3MDAs
-IEFua3VyIEFyb3JhIHdyb3RlOg0KPiA+IEFua3VyIEFyb3JhICg1KToNCj4gPiAgIGFzbS1nZW5l
-cmljOiBiYXJyaWVyOiBBZGQgc21wX2NvbmRfbG9hZF9yZWxheGVkX3RpbWV3YWl0KCkNCj4gPiAg
-IGFybTY0OiBiYXJyaWVyOiBBZGQgc21wX2NvbmRfbG9hZF9yZWxheGVkX3RpbWV3YWl0KCkNCj4g
-PiAgIGFybTY0OiBycXNwaW5sb2NrOiBSZW1vdmUgcHJpdmF0ZSBjb3B5IG9mDQo+ID4gICAgIHNt
-cF9jb25kX2xvYWRfYWNxdWlyZV90aW1ld2FpdA0KPiA+ICAgYXNtLWdlbmVyaWM6IGJhcnJpZXI6
-IEFkZCBzbXBfY29uZF9sb2FkX2FjcXVpcmVfdGltZXdhaXQoKQ0KPiA+ICAgcnFzcGlubG9jazog
-dXNlIHNtcF9jb25kX2xvYWRfYWNxdWlyZV90aW1ld2FpdCgpDQo+IA0KPiBDYW4geW91IGhhdmUg
-YSBnbyBhdCBwb2xsX2lkbGUoKSB0byBzZWUgaG93IGl0IHdvdWxkIGxvb2sgbGlrZSB1c2luZw0K
-PiB0aGlzIEFQST8gSXQgZG9lc24ndCBuZWNlc3NhcmlseSBtZWFuIHdlIGhhdmUgdG8gbWVyZ2Ug
-dGhlbSBhbGwgYXQgb25jZQ0KPiBidXQgaXQgZ2l2ZXMgdXMgYSBiZXR0ZXIgaWRlYSBvZiB0aGUg
-c3VpdGFiaWxpdHkgb2YgdGhlIGludGVyZmFjZS4NCg0KVGhpcyBpcyB3aGF0IEkgdGVzdGVkIG9u
-IEFSTSBvbiBGcmk6DQoNCmh0dHBzOi8vZ2l0aHViLmNvbS9oYXJpc29rYW5vdmljL2xpbnV4L2Js
-b2IvMzdlMDJiOTUwYzk5MzcwNDY2ZTczODVlNWU3NTRiYmQ2MjMyZWY5NS9kcml2ZXJzL2NwdWlk
-bGUvcG9sbF9zdGF0ZS5jI0wyNA0KDQpSZWdhcmRzLA0KSGFyaXMgT2thbm92aWMNCkFXUyBHcmF2
-aXRvbiBTb2Z0d2FyZQ0KDQo+IA0KPiAtLQ0KPiBDYXRhbGluDQoNCg==
+On Wed, Aug 20, 2025 at 11:29:47AM +0100, Jonathan Cameron wrote:
+> Ensure the hooks that the generic cache maintenance framework uses are
+> available on ARM64 by selecting ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION.
+> 
+> The generic CPU cache maintenance framework provides a way to register
+> drivers for devices implementing the underlying support for
+> cpu_cache_has_invalidate_memregion().
+> 
+> Signed-off-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+> ---
+>  arch/arm64/Kconfig | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index e9bbfacc35a6..15bf429b3f59 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -21,6 +21,7 @@ config ARM64
+>  	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
+>  	select ARCH_HAS_CACHE_LINE_SIZE
+>  	select ARCH_HAS_CC_PLATFORM
+> +	select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+
+We could drop this if GENERIC_CPU_CACHE_MAINTENANCE selects it.
+
+>  	select ARCH_HAS_CURRENT_STACK_POINTER
+>  	select ARCH_HAS_DEBUG_VIRTUAL
+>  	select ARCH_HAS_DEBUG_VM_PGTABLE
+> @@ -146,6 +147,7 @@ config ARM64
+>  	select GENERIC_ARCH_TOPOLOGY
+>  	select GENERIC_CLOCKEVENTS_BROADCAST
+>  	select GENERIC_CPU_AUTOPROBE
+> +	select GENERIC_CPU_CACHE_MAINTENANCE
+
+Either way:
+
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 
