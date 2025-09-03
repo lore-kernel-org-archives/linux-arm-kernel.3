@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDB6CCA101F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDBB6CAC582
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 21:18:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,94 +12,96 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QksT58lJYyQue7qfj5sBxd5t1SOILKVGpmQ75/i+2ow=; b=AVLiFnZPXe6tzJocEo1B4hj+QI
-	QbJjyHlS+6RHP+4zDCHFG/9r3OXKcyU8pjUMFP9etf89h9udqnXR18rFVDBnr8Y5C2he2//tUEbOa
-	v+stGx/COjxiJR/TeJRZvYp+mQ4viCXUTnJkCb4Q5p96gcDrAKy1oRltFf0pPLY3k6rqKAurXhdmt
-	rjjCnldBOc/IPDw+dzMXW46kM//sFepgBZe9kc8MmXy9F/wXRIS9YUg7rM0OScXO1FtcZhrOXihSO
-	KLBv0AmtSy3VEmaYBWi3V1j8G89/tAzHIN5mhy91GI9zKVft46ers8maoKD4KmgjXBSKOj1C2hRR3
-	DV/PDezA==;
+	bh=NEyeMhR/QXTIN+yafgST63K3oGIIG+IXiOqEdcRlOfE=; b=GG+bgch/4aXqgtpO+E1DrHKR/g
+	wSuyjtP3elNrwC58Q6Veu8x1Dda1uzWYw8XifY6RAc5qhTledjsexkNgK68LVcjLaPkkQl9wIXaHA
+	ckCpcuOMtrNyWzpY5wa4w9Bzi2T3fhOUVmolnPi6Q/yH75cbPV1agz/3naoF89SbyZVGT63zdB7Ee
+	dhusiWUvXyuFD1WzkqjJfUkCgKLRnPc9SshQ6caeOdALCqBZ5b7e0rwd1wBMqaogr3Rw4uLFaCllj
+	Ae4qjzgIaZ2rcuAYFsLzEBmdaAxfug/eKVC9BsvA7YNRnY1AsCiE0OLYcornXPgTQycgY+FbJ4IZG
+	FyA6YDNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uturh-00000007dQY-30ML;
-	Wed, 03 Sep 2025 21:18:01 +0000
-Received: from mail-pl1-x663.google.com ([2607:f8b0:4864:20::663])
+	id 1uturk-00000007dSz-29ZN;
+	Wed, 03 Sep 2025 21:18:04 +0000
+Received: from mail-pf1-x463.google.com ([2607:f8b0:4864:20::463])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utq6h-000000071Aj-3MNS
+	id 1utqAU-000000071ou-2K17
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 16:13:13 +0000
-Received: by mail-pl1-x663.google.com with SMTP id d9443c01a7336-24622df0d95so909615ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Sep 2025 09:13:11 -0700 (PDT)
+	Wed, 03 Sep 2025 16:17:07 +0000
+Received: by mail-pf1-x463.google.com with SMTP id d2e1a72fcca58-772843b6057so55474b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Sep 2025 09:17:06 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756915990; x=1757520790;
+        d=1e100.net; s=20230601; t=1756916226; x=1757521026;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:dkim-signature:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=QksT58lJYyQue7qfj5sBxd5t1SOILKVGpmQ75/i+2ow=;
-        b=d6mjR31BGH5/8Ul0nwHkbC9cTKxT92nCdf5gSsTRDEokIfqof/Y4R6HYjPBiiIlsou
-         dm4zjZRIB8+1WkesG9SFynQe8kcaEMEzHSkEFEHZzSgtzNkbPthxDAPKjpiNaQtnMvpf
-         ZlZZPzUIj4gYkFaTz3xr2JnC+mAYby8M8OmEobKbthjqgh+tqPXiQbRiWxe/Uaq1hvo1
-         OEUHnG+bKDOoQLYJwjhkMPqhDYs9sAMOojNmvKCf07a9ZYXD+Ds3w8Oi7t7iow6xp1iD
-         3mRhexxkCzo02iMC5UQFagq+6zHpAHl3xc5AuDidzhe4/hhQHYbhI+czrt6au5yxGIIx
-         QV9w==
-X-Forwarded-Encrypted: i=1; AJvYcCUINWljzsQMwRei/8R1B5qaR5GGm24CkNZo8+h3ahrCuBPOnwTCZBH4lfSyi+yubxgJUBAeAEMTmyi9ILXjSSly@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9DsDxrKjgBJmkvzBblxv3BRDsCzSq1ApL1b0sSJ0SHgYXYAmJ
-	iWzHAX/cp9igfvK9e+tTQ3YW127mFeatDpjuOGfWyRJ738uB1iVS+VKYGD2Y7hmYR94arZWH9NW
-	4vrM+sHa2wdbWMcMpPMEQi1djyFdHVf38cLybHchrVL7r4Cnuq0gEm/rJwPA8HS0rdYghlGNdnl
-	ns4COAYzPBaA1ZCIGpHJ5Ghqs0qMf2MK8ODr9QFK1V5uyduyqS6hsum+M90To7qvDycYxkIw09F
-	rmIHZLz+oAL1eA4pjLsWgp5y4vfQyGqjik=
-X-Gm-Gg: ASbGncvzbVf0hqANuJOBNJjq7X2noR8w7Q/RF8piBFt7Rt2y6eWhuHnH/c90dMFnLWt
-	NcCYSX8tOcW/m1YNYdqQOUJ/V3iBRpsZEZXrRM/2L4BrtU+gzl0csQC0uXiu6sAIuvRIC6PBaRE
-	A8pa1lWyfO6sibKzQ2djDdhtWmDX7cqLFvQ+mmhZDfvIQbvVb1jBCT5hlsiwS/oUcz/uX3Rm1Di
-	8KN2/uaTk1yBhR8RsvZkIC57vvW4GqmhaRYBsUbhZ0ESqQPCUfMOW2Mx60qCYVcrUR9eFiDkvXD
-	3Mn7CXtBHoFoq1sAy1YA5RCdhYJ5H+ymvctj9ULACIVef1JPh6o6GOTAoZfeCKv/pBEZ4syrEgb
-	LLjTYHPXBGNu5RYlAwJ3nPN5PD/IedBDxRxb8iXbXNOfSn3jXU+FEEVfjdWu5IXyBVbQ9nTKElc
-	eIPhRs
-X-Google-Smtp-Source: AGHT+IFYd4lWz+XVG2ufg7HJEi1d6J232NqQIxRi6ds/dqkf9dizBDKJAyGpaSG7tefbbhurdjZfgC5JqThq
-X-Received: by 2002:a17:902:cf07:b0:240:3239:21c7 with SMTP id d9443c01a7336-24944aa1e6dmr208301945ad.37.1756915989813;
-        Wed, 03 Sep 2025 09:13:09 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-16.dlp.protect.broadcom.com. [144.49.247.16])
-        by smtp-relay.gmail.com with ESMTPS id d9443c01a7336-2490375f600sm12555265ad.18.2025.09.03.09.13.09
+        bh=NEyeMhR/QXTIN+yafgST63K3oGIIG+IXiOqEdcRlOfE=;
+        b=K4VuUTGYfwU3TSM4my/HjQ+eOu5Jbu1TAWvCbtgVkRWbg+SR9tvXjuaT7txa6HELxc
+         IaApNrSXmcBjXPtbRgHQVM2FtPL8Kuv+tbqZ9fDC5la7vOTllILL1bR7xDutYiIc7HWl
+         qsgNoV5ZZJzE6sAMIf2ni+dTze94UO5wF5XTnL5fgvEvS8QdcNryMk+n0bqovhQaiYIa
+         D/PPS5JnYTtlux3UGMhKJSrhXETqCQjTnZ+gLff5EQOaBDKYR8tyTi2DLphtjqX89IBa
+         nTHDP0PbXArm3Zp3HiIznG6W5jivjacvgEBLIFpNwM06niciIUFlU4DZzunfF+ardHC2
+         UqFQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUfCJ6xhy96SJbFdYstEKQYqdlM0EqWs9Db6bK930wTtuYUdS1A9T2zSsfFHBFCYtFZt1oAz2fVmL4A75n6pK2I@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6q2a+DMXPslslHY9+1JALMT50JFVU4laVwaBJG0ADazbP++s8
+	ESzpFlTqlMHC2Pn2SGgi/gC73HlvejTcHrEw5IzCT6yL77M3DZTDIon4mY1O5V1UrUlhvlRRmQI
+	yYqs+XdCa79PyR21Mt0ZpoMXlCgQF+YVv9BxoWS4sFQhOkMkoSPpx2G60Nz98I4Qb4t9Xsk1oR9
+	GAIr3lDhQsZ8ncq04g8CQDHh8SWD9pk4k0wze7+J6g+GOZt11QqhKbjhI/5NYujvwOsDT0Wmg1O
+	ZxO0ttX260Sn7bnuqrGxIDEGiqbUF1lW6g=
+X-Gm-Gg: ASbGncvIMs00EfHkctytrdALaAE/Big5aQcYdM2jb+zWYO2BB9ooDHtMxtrssx9bdNC
+	lRK9xqh+M24gn12rIq3ah/SFgTnRaLm4gJ3+wYMX83pNdA9zMo3KavwnSFnh9nSzH37Rxfs0nTS
+	UR5IeUfoJCEYXiHE4cwObamkHzGkBf7R8whAgQUEhBzz0C6qFh45AB+y74ruhrzXblr//BO5qXr
+	MrfFPkpnR/+zVhsBa1D3WBl/RadbKYLve9ZNXAp3M2umkxMJZ1cKqDEUX6QDc4FWlP0Z3nIz3wJ
+	ek9SIXVvyeF9cgYF3xdTDpXF4Bk2CnHIhiQZODl2ZTvn4JRiONzE8oUq5ADFpHyt14SLUOLeacQ
+	BwmaAMdWuo1LbEQ1Pj49jFPoE7yqoUDS5U9/ED36QhiK4uwAgMvvzcS960ZoFPceJxK9atI+RrQ
+	lCU0GJFaY=
+X-Google-Smtp-Source: AGHT+IFRQlTO98oTiaPPZnjiPkY9uuwZQ/hdfk0W6agCiUXHov4yS3gsmILRTLQRzxT9qc3i4mRycjNx/ODM
+X-Received: by 2002:a05:6a00:2d24:b0:771:e4e5:2ea0 with SMTP id d2e1a72fcca58-7723e2246a8mr16532312b3a.10.1756916225570;
+        Wed, 03 Sep 2025 09:17:05 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-121.dlp.protect.broadcom.com. [144.49.247.121])
+        by smtp-relay.gmail.com with ESMTPS id d2e1a72fcca58-7728416c140sm96756b3a.8.2025.09.03.09.17.05
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 03 Sep 2025 09:13:09 -0700 (PDT)
+        Wed, 03 Sep 2025 09:17:05 -0700 (PDT)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-8080713fa17so16232885a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Sep 2025 09:13:09 -0700 (PDT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4b47b4d296eso1791441cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Sep 2025 09:17:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1756915989; x=1757520789; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1756916224; x=1757521024; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=QksT58lJYyQue7qfj5sBxd5t1SOILKVGpmQ75/i+2ow=;
-        b=XD8kTZTCPNaQtLOde7xpOzDidWfFpieOVAHaKi10/9xVuj798IuGn8II4+mWJbfCSn
-         z/UvtiPc3M7LU7A3FAnPga1JXk1lprEybMAAKQW87FNKWPtVNww/+sxCGK7UdCf04Xiv
-         xt/iWGqCSK401wMsJI1OyDj0hbSAM4vYHwAMo=
-X-Forwarded-Encrypted: i=1; AJvYcCXq5ojM4E35Y4g6dU0P6qYlyehrkqKrJgB+Bygbzd87RQq0lLSpam40k+KNqaFCmsxzzX8WyzQkNKjbQmgC6j4S@lists.infradead.org
-X-Received: by 2002:a05:6214:3018:b0:70d:ae3c:b712 with SMTP id 6a1803df08f44-70fac78f732mr169448336d6.26.1756915988541;
-        Wed, 03 Sep 2025 09:13:08 -0700 (PDT)
-X-Received: by 2002:a05:6214:3018:b0:70d:ae3c:b712 with SMTP id 6a1803df08f44-70fac78f732mr169447226d6.26.1756915987413;
-        Wed, 03 Sep 2025 09:13:07 -0700 (PDT)
+        bh=NEyeMhR/QXTIN+yafgST63K3oGIIG+IXiOqEdcRlOfE=;
+        b=iOcxzWLBxZ3iUVxQgm7O4v4J76OPqe7COJ024BmNqq/59X0WsE24/IaBf0VRIHV3nS
+         GUTP6biTpdB9yngKtL3jRW63kLWRroc09bt5gEFayUu+NndMt6a6B0h5pOfH8qT5giBN
+         SOIOTb/klaHVC1PDle72E4fpvJJj6/dm0Zqk0=
+X-Forwarded-Encrypted: i=1; AJvYcCUtTraX+jBIWWEg0pJuhQCZYpRppP1Hwz6KyskhKUhHqOQ1uI4ONApEPIbAZb3NZSGaAqjUKi+gFR8KoqbmgtD5@lists.infradead.org
+X-Received: by 2002:ac8:57cc:0:b0:4b3:b34:9395 with SMTP id d75a77b69052e-4b31dd27962mr180189221cf.65.1756916224079;
+        Wed, 03 Sep 2025 09:17:04 -0700 (PDT)
+X-Received: by 2002:ac8:57cc:0:b0:4b3:b34:9395 with SMTP id d75a77b69052e-4b31dd27962mr180188711cf.65.1756916223483;
+        Wed, 03 Sep 2025 09:17:03 -0700 (PDT)
 Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-720b644f2c9sm31043936d6.63.2025.09.03.09.13.02
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4b48f756d93sm13694341cf.33.2025.09.03.09.16.59
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 03 Sep 2025 09:13:05 -0700 (PDT)
-Message-ID: <b266c39c-ae53-48dd-8fb9-0e05efca33d4@broadcom.com>
-Date: Wed, 3 Sep 2025 09:13:00 -0700
+        Wed, 03 Sep 2025 09:17:02 -0700 (PDT)
+Message-ID: <b229ea9b-96c9-4910-a827-f4d9cc14fa96@broadcom.com>
+Date: Wed, 3 Sep 2025 09:16:57 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 1/5] include: linux: Destage VCHIQ interface headers
-To: Stefan Wahren <wahrenst@gmx.net>, Umang Jain <uajain@igalia.com>,
- Jai Luthra <jai.luthra@ideasonboard.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Stefan Wahren <wahrenst@gmx.net>, Jai Luthra
+ <jai.luthra@ideasonboard.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Umang Jain <uajain@igalia.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>
 Cc: Broadcom internal kernel review list
  <bcm-kernel-feedback-list@broadcom.com>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Ray Jui
  <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
  linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org,
- kernel-list@raspberrypi.com, Dave Stevenson <dave.stevenson@raspberrypi.com>
+ kernel-list@raspberrypi.com
 References: <20250827-vchiq-destage-v1-0-5052a0d81c42@ideasonboard.com>
  <20250827-vchiq-destage-v1-1-5052a0d81c42@ideasonboard.com>
  <20250827124016.GF5650@pendragon.ideasonboard.com>
@@ -107,6 +109,8 @@ References: <20250827-vchiq-destage-v1-0-5052a0d81c42@ideasonboard.com>
  <8ed6519a-6e45-4793-b11b-7b63c1703d6e@gmx.net>
  <910dae68-0545-46fa-b41f-8e4fb32ed649@broadcom.com>
  <c35ab51a-e9df-48f5-bc18-889980098d08@gmx.net>
+ <175690728665.8095.6551736878574350999@freya>
+ <02213561-7a72-474a-be83-98d5ba575f0c@gmx.net>
 Content-Language: en-US
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -141,13 +145,13 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <c35ab51a-e9df-48f5-bc18-889980098d08@gmx.net>
+In-Reply-To: <02213561-7a72-474a-be83-98d5ba575f0c@gmx.net>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_091311_875882_C37C5FEC 
-X-CRM114-Status: GOOD (  19.48  )
+X-CRM114-CacheID: sfid-20250903_091706_594215_A7A2BC69 
+X-CRM114-Status: GOOD (  17.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,62 +166,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/27/25 23:19, Stefan Wahren wrote:
-> Hi Florian,
-> 
-> Am 28.08.25 um 04:17 schrieb Florian Fainelli:
+On 9/3/25 08:03, Stefan Wahren wrote:
+> Am 03.09.25 um 15:48 schrieb Jai Luthra:
+>> Hi Florian, Stefan,
 >>
->>
->> On 8/27/2025 12:05 PM, Stefan Wahren wrote:
->>> Hi,
+>> Quoting Stefan Wahren (2025-08-28 11:49:47)
+>>> Hi Florian,
 >>>
->>> Am 27.08.25 um 16:33 schrieb Umang Jain:
->>>> On Wed, Aug 27, 2025 at 02:40:16PM +0200, Laurent Pinchart wrote:
->>>>> Hi Jai,
+>>> Am 28.08.25 um 04:17 schrieb Florian Fainelli:
+>>>>
+>>>> On 8/27/2025 12:05 PM, Stefan Wahren wrote:
+>>>>> Hi,
 >>>>>
->>>>> Thank you for the patch.
+>>>>> Am 27.08.25 um 16:33 schrieb Umang Jain:
+>>>>>> On Wed, Aug 27, 2025 at 02:40:16PM +0200, Laurent Pinchart wrote:
+>>>>>>> Hi Jai,
+>>>>>>>
+>>>>>>> Thank you for the patch.
+>>>>>>>
+>>>>>>> On Wed, Aug 27, 2025 at 11:54:08AM +0530, Jai Luthra wrote:
+>>>>>>>> From: Umang Jain <umang.jain@ideasonboard.com>
+>>>>>>>>
+>>>>>>>> Move the VCHIQ headers from drivers/staging/vc04_services/ 
+>>>>>>>> include to
+>>>>>>>> include/linux/vchiq
+>>>>>>>>
+>>>>>>>> This is done so that they can be shared between the VCHIQ interface
+>>>>>>>> (which is going to be de-staged in a subsequent commit from 
+>>>>>>>> staging)
+>>>>>>>> and the VCHIQ drivers left in the staging/vc04_services (namely
+>>>>>>>> bcm2835-audio, bcm2835-camera).
+>>>>>>>>
+>>>>>>>> The include/linux/vchiq/ provides a central location to serve both
+>>>>>>>> of these areas.
+>>>>>>> Lots of SoC-specific headers are stored in include/linux/soc/ 
+>>>>>>> $vendor/.
+>>>>>>> This would be include/linux/soc/bcm/vchiq/ in this case. I'm also 
+>>>>>>> fine
+>>>>>>> with include/linux/vchiq/ but other people may have a preference.
+>>>>>> I agree with this point and I might have missed to notice the
+>>>>>> include/linux/soc earlier. That's seems a better location to me since
+>>>>>> it's actually broadcom-specific.
+>>>>> I would expect that headers and source would be more related.
 >>>>>
->>>>> On Wed, Aug 27, 2025 at 11:54:08AM +0530, Jai Luthra wrote:
->>>>>> From: Umang Jain <umang.jain@ideasonboard.com>
->>>>>>
->>>>>> Move the VCHIQ headers from drivers/staging/vc04_services/include to
->>>>>> include/linux/vchiq
->>>>>>
->>>>>> This is done so that they can be shared between the VCHIQ interface
->>>>>> (which is going to be de-staged in a subsequent commit from staging)
->>>>>> and the VCHIQ drivers left in the staging/vc04_services (namely
->>>>>> bcm2835-audio, bcm2835-camera).
->>>>>>
->>>>>> The include/linux/vchiq/ provides a central location to serve both
->>>>>> of these areas.
->>>>> Lots of SoC-specific headers are stored in include/linux/soc/$vendor/.
->>>>> This would be include/linux/soc/bcm/vchiq/ in this case. I'm also fine
->>>>> with include/linux/vchiq/ but other people may have a preference.
->>>> I agree with this point and I might have missed to notice the
->>>> include/linux/soc earlier. That's seems a better location to me since
->>>> it's actually broadcom-specific.
->>> I would expect that headers and source would be more related.
->>>
->>> For example:
->>>
->>> include/linux/soc/bcm
->>>
->>> drivers/soc/bcm/
+>>>>> For example:
+>>>>>
+>>>>> include/linux/soc/bcm
+>>>>>
+>>>>> drivers/soc/bcm/
+>>>> This is not Broadcom code, it is Raspberry Pi AFAICT, therefore, just
+>>>> like drivers/firmware/raspberrypi.c, we would need some namespacing
+>>>> here that reflects that, ideally.
+>>> The VCHIQ code originally comes from Broadcom, but the current
+>>> implementation has been adapted and tested for Raspberry Pi. I'm not
+>>> against a Raspberry Pi specific namespace.
+>> Thanks for the suggestions. For v2 I'll use:
 >>
->> This is not Broadcom code, it is Raspberry Pi AFAICT, therefore, just 
->> like drivers/firmware/raspberrypi.c, we would need some namespacing 
->> here that reflects that, ideally.
-> The VCHIQ code originally comes from Broadcom, but the current 
-> implementation has been adapted and tested for Raspberry Pi. I'm not 
-> against a Raspberry Pi specific namespace.
+>> include/linux/soc/raspberrypi
+>> drivers/soc/raspberrypi
+> I'm fine with this.
 
-OK, that's a fair point, but it's not applicable to any other Broadcom 
-SoC, more on that below.
+Still is not properly name spaced IMHO. There is clearly a lot of cross 
+pollination between Raspberry Pi and Broadcom on the BCM283x and BCM27xx 
+SoCs, but ultimately, Broadcom makes the SoC and delivers it to 
+Raspberry Pi.
 
-> 
-> Should this also apply to the DT bindings?
-
-Ideally yes.
+I would really rather that you used drivers/platform/raspberrypi and 
+include/linux/raspberrypi than the previously suggested paths.
 -- 
 Florian
 
