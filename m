@@ -4,180 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41F44CAC586
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5683ACAC587
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 14:48:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H34Sy6siy10siiEQulVrU+G71BqfD+QU+TCBhABMql8=; b=Kc9/7Y/MVmbGNQ/FtYNVgaqTKB
-	wUrkmkReqlNVUuMIl9cFRcdyb6mxtxQA5AvjhG8DSuEM4Ea5Okqd48rrDLUEpELHXxKrMRCx+t3yU
-	MSskVb6Gpoa6B71qQutbcK9eRUOeuGBcGdLiBaKIFs+VssXAWynGzUB+UUdqtorSGjHpRLJ3PNiMe
-	jrdy2zSmKa3eDdi/dm/1K/vYisp/t7b3y7Jckc/c6up7fX7AcRjT2fqzHyBaHHb3ROnNaimwTtDvf
-	Vvdcuzcey+XDlqQakJcARnv1lhRJKvpIN6UtxhzLpRI0cL6VjO0MTTB97zgMs7GI9FSpZhCmv4TAo
-	wCzScV7Q==;
+	bh=IedR9gLTqIst+0+I6/rCBWY1cT0eeORo9UueU/viVUs=; b=YDR1pb34H+hQAmZfmXcbrSyzMc
+	DOQgmLpQkXsnXk9vJP2kfiefwD3MqdGAButI2d4MWVzz23CTDOqjspeLa2WM3T292zTcHJDGJIveq
+	/iWiEH9xtT6lDxJg/WtIa1JyTflqtfC3TdhFppcnseMIW6PUup3D7EnlFAKJzk19SP7izN/Ngxyh6
+	PI/Nzgy7l0cIeACDsf2M9Xc4VMqII9us0Jid5Ip+1JJQ224pgoV0vm9PKP68HFJbsgVVqL8EdtI02
+	iaqjMJnBxI+lxdvZNtc8kpXa00DGHvivAS1Buhf6MGD8v2mIdCcjndgJXP5TAq+ztQ6YAVgZQi9t9
+	wmExawCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utomO-00000006lFv-0LSw;
-	Wed, 03 Sep 2025 14:48:08 +0000
-Received: from mail-bn7nam10on20602.outbound.protection.outlook.com ([2a01:111:f403:2009::602] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1utomJ-00000006lBg-0YtE;
+	Wed, 03 Sep 2025 14:48:03 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utmgY-00000006Oka-1Jmv
+	id 1utmHN-00000006L0F-15Hq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 12:33:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hnScqUPbAoSfd6e5arFH54GFrDiijObtggVnXAyL25wbpH9m++EPWyeXmT/tk7a3/hYdyLgsJLxIDl3gOC2cBHXvGSsgE1PnQeZfLKdbnSojuqw119aVlUvUKkzoYda1OrjIgAj0/1aSN6lj4OOIrsCebWPtt4ilK6kpl6xHKwLo1tKyRf8mstFtVMX6VrPozGQUDPcPzpS7duJy9Z1R4qhLMczXNbowha+exy/mb8HwCn0b1c/oQd8yvk3N6ON9YqF77v/iGpjoMqNsDv4Xyj224zOcvWUg/UJ2bb5AtZyW0bLYptvV5ZLuhkehUPwL7BRcp+ovN6sTZJ400Evi4w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=H34Sy6siy10siiEQulVrU+G71BqfD+QU+TCBhABMql8=;
- b=qXsqW9IHaUgaWPS5eeyM9t0ACBxnQKjomoxYwnTTOFDun6Bgg8RKkS4E+faHyM33fh6FXgmatKm72fhhJpuTkrxl1S68eym7npEQ7Fjca2Nnt75mYId/6X5iUsh0c9P8omp7zloShNznEPX7BCbXChXsD8q9UBy6NadgalS6ZoMoiAsi8mXVMASpTHD5frBW0PiFVoN6TXs8jXhgvT6BowX6Go4l5+jhOdvs7Qkk3BL5mWVb38fZWvh5CAUQ64fz9v7AE7Yi7eFSEFtFSUlZCOWIxmsvK/C0RBQjSkgSpmktYo538xjMUef8SBtIURRjr6QJfYBJqm+HBYH+CkRgiw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=H34Sy6siy10siiEQulVrU+G71BqfD+QU+TCBhABMql8=;
- b=SoFcd1tgfsr5k/TkXQSCkPgim0y5BWKH5gX9d0t3clTE+La7P8EXoqw5iKVprDRVf+m0KzPH4lmeABJKidUYU3xL6lxHtvjRqaW5/sDBo93XT3eNMMrxrP4L0Asaa4zFhwaPsanffDXoYUkPothhEo9D0O3Mc+/WF4TUEs/AOEWvt6HorVKuOk8BcusBhNuOYdBBqnIBVdQ9C/Yka5HrGgLVvDaJJPnIZpwSy7PvpLwTtQbp9s9HYBwvT+pXhFjHxPU6ApxiQACX1FK/Jh9iAvblmr2DH0DBTJyv8CgtVSBvNsFejb+3X0TdDeSrxxGG+5Yg0fCerfXXCwLvGYxQOA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ2PR12MB8784.namprd12.prod.outlook.com (2603:10b6:a03:4d0::11)
- by DS7PR12MB5864.namprd12.prod.outlook.com (2603:10b6:8:7b::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.17; Wed, 3 Sep
- 2025 12:33:51 +0000
-Received: from SJ2PR12MB8784.namprd12.prod.outlook.com
- ([fe80::1660:3173:eef6:6cd9]) by SJ2PR12MB8784.namprd12.prod.outlook.com
- ([fe80::1660:3173:eef6:6cd9%5]) with mapi id 15.20.9073.026; Wed, 3 Sep 2025
- 12:33:51 +0000
-Message-ID: <a904d953-acb2-44f6-81bd-118f7abd22da@nvidia.com>
-Date: Wed, 3 Sep 2025 13:33:44 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 20/24] pmdomain: core: Default to use
- of_genpd_sync_state() for genpd providers
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Saravana Kannan <saravanak@google.com>, Stephen Boyd <sboyd@kernel.org>,
- linux-pm@vger.kernel.org, "Rafael J . Wysocki" <rafael@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Michael Grzeschik <m.grzeschik@pengutronix.de>,
- Bjorn Andersson <andersson@kernel.org>, Abel Vesa <abel.vesa@linaro.org>,
- Peng Fan <peng.fan@oss.nxp.com>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Johan Hovold <johan@kernel.org>, Maulik Shah <maulik.shah@oss.qualcomm.com>,
- Michal Simek <michal.simek@amd.com>, Konrad Dybcio <konradybcio@kernel.org>,
- Thierry Reding <thierry.reding@gmail.com>,
- Hiago De Franco <hiago.franco@toradex.com>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-References: <20250701114733.636510-1-ulf.hansson@linaro.org>
- <20250701114733.636510-21-ulf.hansson@linaro.org>
- <4478f28b-47f8-4049-bf17-b7fc95cfac65@nvidia.com>
- <CAPDyKFqSyP3e=JRFYEuFefWVN5SYJWULU8SKzXmrThvyiVGXgg@mail.gmail.com>
-From: Jon Hunter <jonathanh@nvidia.com>
-Content-Language: en-US
-In-Reply-To: <CAPDyKFqSyP3e=JRFYEuFefWVN5SYJWULU8SKzXmrThvyiVGXgg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO2P265CA0512.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:13b::19) To SJ2PR12MB8784.namprd12.prod.outlook.com
- (2603:10b6:a03:4d0::11)
+	Wed, 03 Sep 2025 12:07:58 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1756901272;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=IedR9gLTqIst+0+I6/rCBWY1cT0eeORo9UueU/viVUs=;
+	b=xw/ZxplnLljYchtWLlcn8/J04+jjSWmOTBlUk/gySEikZE1mr57Wbp1d7/9uobUQVXr1Re
+	PC9yMoasYgYWcYxeqatqpDgKLJmb40+9epAxAishKhajLizLCIN9729JQvO7m/3rmiu/NV
+	c1bV6U/02I5tY7qN/w7XgBt89Kxh8LGPRpfwRKpL97zHuWBXP37P1ZxEGB0m1Mk3lizpPw
+	ElIIjQbOpvCqDh65s6WA1OPxwtBnkcofkLE4U9Ke3iJyyxI25x0bc/0CMoV/l8QFoo7phX
+	SKcImogCcFIxEKkB14R83VYNQa+wb47PrXeePbZm74VoH2n9SMxVYLYSwg4NKg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1756901272;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=IedR9gLTqIst+0+I6/rCBWY1cT0eeORo9UueU/viVUs=;
+	b=jPYvEOdCiB5SxSTGT9FwgczyLLPEoJxm5A6QgwYbgaVy+O/K2p/7OfoPcRKZ0HSfnwhFHD
+	iXWyk916Zaz6ZXCA==
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
+ <kvmarm@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, "kvm@vger.kernel.org"
+ <kvm@vger.kernel.org>
+Cc: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
+ "oliver.upton@linux.dev" <oliver.upton@linux.dev>, Joey Gouly
+ <Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
+ "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "will@kernel.org"
+ <will@kernel.org>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+ Timothy Hayes <Timothy.Hayes@arm.com>
+Subject: Re: [PATCH 5/5] irqchip/gic-v5: Drop has_gcie_v3_compat from
+ gic_kvm_info
+In-Reply-To: <20250828105925.3865158-6-sascha.bischoff@arm.com>
+References: <20250828105925.3865158-1-sascha.bischoff@arm.com>
+ <20250828105925.3865158-6-sascha.bischoff@arm.com>
+Date: Wed, 03 Sep 2025 14:07:51 +0200
+Message-ID: <874itjzqlk.ffs@tglx>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB8784:EE_|DS7PR12MB5864:EE_
-X-MS-Office365-Filtering-Correlation-Id: 911f05a4-ba35-4212-0987-08ddeae6236f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|10070799003|376014|7416014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?NU1lU2Q1UWRPZTluYTlhWnRjNFRHbm9FOEhwQTUwcnR3RnF2YmM5R3FmVGpY?=
- =?utf-8?B?Mm45bVdoQVUyY2Y4NkJ4MnFxU2E3SmwrTHdWN1hFcVFQTEFvc2pJVnBVUUI5?=
- =?utf-8?B?bEE3MWJoVjdWK09DV2hXazRUMi9EeWRabEdzY1plak5CRjdLKyt1b21CNmxn?=
- =?utf-8?B?UUZDNGFjemhVR0VoR01DS2hLZWQzZEtZSGNYbUtpdHpsZVlSMDAyNFl6S0RT?=
- =?utf-8?B?Z0l3TURTY1NvZG5qQmlIN0pIZVUvNHFqL2Qrd256QnhUdXFGd2N4anRzSlYv?=
- =?utf-8?B?ZmJlaDlxc3p2emNKVU43K09ObkYrTTVjczdlVlc4T2JibHNQdTF1VjZYOUQr?=
- =?utf-8?B?dGxkTUQ5eFMzYXdYUW9LaTBlSSszRVhTTm5XTnRlVktRaU5HRzY4cTFwN3cw?=
- =?utf-8?B?YVdEbEt2NWFaWHpZcUxOeTQrK2Rja2ttcHhESU1QSlVPelB4emkvSUFJYjdh?=
- =?utf-8?B?Z0tkQVc5ejRRbk1uVHl2c3grU2lXdFRGMGNpREpaQUVBNCtqYVZmWjZRUVZC?=
- =?utf-8?B?bHJZUDNxMzgrOU1Cem5FYmp1KzBlSER1amtHMkZYWXFCQ2hOaDVkTys0b3Er?=
- =?utf-8?B?UHZyN3FLc3FlQ2VweDE4UjFBKzBTb08vRHVGMnVWR1pUWXRYM3pDZC9EUStC?=
- =?utf-8?B?cW1XRW9DWmlCc2FnSVFSdGF6Rmt6eXgyYWo0V3JIcWdYbFBQanJwYmZTT1Fw?=
- =?utf-8?B?ckZlWkNLN0xrenlUSmFSbW51amw0Zm0wc25jbWllY0wvNm1RMzlmWHlIMHFw?=
- =?utf-8?B?SDAzMm8zWU1Cb0VBRHJRUFNkTUV1cmZYS3JsMGpBemtZRk9zclBqdkxlbk5q?=
- =?utf-8?B?azZXZzlpemNWQkhFemVsb3NWaFZ6WndCY1RDemp2dDVvbnc1ei9Wenl0N2JW?=
- =?utf-8?B?VnpuNUtYVSs1M0d1T0syYjZuWjhjWVlmdFhsMURURWU0ZzFQaXh1d2UrMGhr?=
- =?utf-8?B?Uy81TlNOci9JQlkzOG90ZjQ0azNnUXdjcWNCRnZLN0RXK3BMT0dSYmxNcGlk?=
- =?utf-8?B?anZyak4rcVBFdGJJZ20vZWZqK3RSRzEra0c1UEF5R1N4Ulp4eitHNUpFRzNk?=
- =?utf-8?B?eGhaQ0M4ekpEV1RGZ0ZET3dvRGxpbzg2L2pHaE1DTWx0V3ZQeWFvT1BEenpK?=
- =?utf-8?B?UXIvL1dob2RYWEE0VHlDalMxb2dqSHFlVWJHd1ZiVXltTnN2VHUvZllWT2Uy?=
- =?utf-8?B?ZXRGbFBUQ2dmZmdGRnJraG5LTnc1UkEycm9QcWQ1dmFCdWJCYlduSTRiM0RN?=
- =?utf-8?B?RjhocDNvY0NuZzI5b2N1eEFMVEYvZjJMa0pJQjc0Q0ZkYnRvMDFWOVgyaEVX?=
- =?utf-8?B?RnRVV3F0MTA2YmNlMGZ1a2ZzcGk2cW15ZXRHL0lsZlh6N1BlbTQyYjd1OHlv?=
- =?utf-8?B?bnlSVEM1bWMzN3NqdWpkWm1ydjN3WWVMS0ViUWRXMjA4VGN2VjUycjExTld5?=
- =?utf-8?B?eW1WU1ZCRFU4NkJ1bnowT0l4WURnUkN0REZTb2VHZHFOTk1iSGhyS2hyN3Qy?=
- =?utf-8?B?S0YzdldqOWN0Zm5hQVhLdFVtNGZmd3RzOTdTbmlwNGlOQ0NWeFc0akNDS05P?=
- =?utf-8?B?STFMYnc3NlVjVXBrMG5NT0V3Wnp6dldiVHZMdUNNdFp4d2V6QkxoVlBEYVh5?=
- =?utf-8?B?bk9uWTU4NXpaOWdOSUxtMnZnWnBiVjM2dTk3dlJkVWMyN1ZnYkJTKysvVmJU?=
- =?utf-8?B?R056ZXMyZDFCQ0VhL3F3YXdpc01VWG9VU0xjR28rV1M4RjFXTFUybzNudGFU?=
- =?utf-8?B?cVdOMm4xSXN6YVNGSG8xcDZaR1pvbEVVTWhtVFFldHpZZTEzd3ZzY1B3NUNG?=
- =?utf-8?B?N25RNCtFcjFIQUs1ZjZMNmgwM3RlUkUyN2NwOWtJWW1MRk0wUjArYkhOOEpx?=
- =?utf-8?B?ZmpQR3lGOW04WkdwaU1yZ2RZZ2pxRGZYQ0VxOGFvMWJidXlLN2UrNXdlTDha?=
- =?utf-8?Q?75/68FOWmB0=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB8784.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(10070799003)(376014)(7416014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cVVlM29pUG1ta3NWY2IvK2MxdW9GcVhtd2ZVdXZLU2tKUkhaVjFMN2VUTFV2?=
- =?utf-8?B?a1Jka3lLQ3Q2MHF4Uk5YdXF2VUZnNGlNSGt5cDZKY2hDdmNxb04zMmJnYVpW?=
- =?utf-8?B?TkFWMi9qOVpadEtnVW56YkE5NmRDb1NjR3VGREZxSGtnYmUvZFRtZDBKOThK?=
- =?utf-8?B?YktnVlBrc2NCT25ZZTlVK2tCNjh2ZSswMGdIM2pKK25IcmdZS1ZMMEJzK3hs?=
- =?utf-8?B?aXNmTTNTQVlNNmF3OE1nZVFhM0ZLdG1wbXIyeWdLYkFtK1BtRVVsSW1oTXFs?=
- =?utf-8?B?NEtFNjNVOUpQZjVXQUxsMGZYbEtxdU9jbnhBSCtvYUh5dFV1UHJMZ1l0VnZx?=
- =?utf-8?B?VEJRQWZvNE9GRFNGck5EbzQwV0xGdHFhaS9GRGtqeCtJL0Z2SnVuaHpkR0pn?=
- =?utf-8?B?dzg2cUZUTjR1TXNad0NEeGMvRnpVOGhqTzAxWWNneHlSdGNSZmpQQytjcW5V?=
- =?utf-8?B?dEZ5K1VhaGNWckRHK0w0RWx6Q0NXd1M1L0Z4VEp6REMzclFpdmZpRThGL05Y?=
- =?utf-8?B?VDVDcHpaUnFiSjc0VmQ2THV1ZFYwdUxFYVN6c0tUZVZQZlFuZVF2UzNlWnpm?=
- =?utf-8?B?bnlDS0Y1dkt4dG9JODhPZGpnUjlsN2xKaWNsMCsrcVBkNjFkWVZnNkt2NldW?=
- =?utf-8?B?QU5JTHE2U0k0M0RUREMrQXpWKzBJTmNPblZKWTR2ZllBdnJKWTRNa3VoZkhM?=
- =?utf-8?B?clAzaXYxV21udXprTFhid08vY00xUWlpMG9ra2dxaXNUMi85SUs4dnBrTnJw?=
- =?utf-8?B?Z0tLSUZQR1RqUzFOREJCMXZyS0dEbDFEYmtRallpWlBtVDlaQnhaS2wzTFFi?=
- =?utf-8?B?RE5jSFF3cWc5dVlsc3RiL1puamVUamRWSE5iRTNpMllqY251eTU2N3JhUlFj?=
- =?utf-8?B?WDdzQjZWd1BiQlpmQ0djTVVmaGsyVXYzSG41SHBWR3lMNlZ6U2pyY3dwaEs1?=
- =?utf-8?B?Ukg5bGh3M0NEZHcvVGVOTEVmNy9mbXZ2b1puUEoxMExsMmVVa0VsdHhxM0ll?=
- =?utf-8?B?VytFbGk0bzRmTnJUN3l3WDVHWkorVW9Ca0hBWXYzTGJBRXJKaTc4UEY5dkd6?=
- =?utf-8?B?V2QybjZwbVJXQ2phVTY5NWZwVTBneWdTZ04xb0FNdDJ3QklMeUNsL0l5Z3hZ?=
- =?utf-8?B?eEU4NHBUcHVYazFoTFFKOVh2Z1pDWEMrVmN2eWxPdFp1STVSNVZqekNpNEVO?=
- =?utf-8?B?WVNTRk45akxSeDA1T25rSXdzNUZNT0o4eU1jOS9oSkpoM3IrL1VUMUJaSjJu?=
- =?utf-8?B?MzhzTE9WdkNYYUdXQmIyR2RhV0Y5elFtbnlXMzJWc3h5MDFjb3ZobUFDK2ZW?=
- =?utf-8?B?OWpQVXhLSE0wYU1HYzY2a015VXZMbmlkejd2ck9CR3N0NVhxY0YvTEZVTVFG?=
- =?utf-8?B?VXB4VTd0WUdwWWdrdHA3Zm9mbDN3eXEwSU5HSDZSWUZvWkpqWk14eStyQXRJ?=
- =?utf-8?B?YUZKcUhGN2JYL1k4MGR1NXdsdFNVOTU3aWN4QTBmdXArekludTkrWTFCMk43?=
- =?utf-8?B?YlRxVENvT2VodHB4WDBUa0F6TTEvc1BIUWg3bEZqY0YyQUxta2E2ckhsTWh1?=
- =?utf-8?B?bEkwa0RQM3NtMzdud3Zid0o3Q3ZGaldIYUthaXo1bmRzKzN1a2dhby9HZlZE?=
- =?utf-8?B?OTJkRlFEUGw2RTJJU0VFdWg5djIwSDZNZ1hhSnV5Z1RiWkhDMGtIeXJzbEND?=
- =?utf-8?B?cm53VTFoRGNJQ1U5Q0gwU3VkcDIrR2hYR1hKbjV0YlM1aCtRQ2xzQ2pnUlFZ?=
- =?utf-8?B?VkpEUUNRSUZ3dyt3Wjc4dGsvbGM5T3dXNHdzOFpsSUJyV0I1OGJOdE0yZEEy?=
- =?utf-8?B?Zkt1ZVhSRWxwMTdYWGpiUFFVdVVDaWlQWVExYVh1ZmhPK3A3SlI4M0l4SjFK?=
- =?utf-8?B?SzVxVkl6Q3JMeVg5ckNIZ1hYWDFzSmtHcFY1SllMWmx0Z1lhTzEwSVF2VERv?=
- =?utf-8?B?algxYmNreVhYMWU4UnZTWjJBaGtMUjVCbXk5TGFjRE1EVCs4aEsyTjVyTVFV?=
- =?utf-8?B?M1N4b2FEVjgvaWI0U0VYSjNWTzlkVnRIK09na0hqc2RPWUhkZWJDdUFnMUw3?=
- =?utf-8?B?NU14SnpyQmR3NkdtZDJxMGZZTXhOdnNjSVQxTjF4UGZZRTl5bzh5Q1ltMHlG?=
- =?utf-8?B?dThsMXhsa01UK3VsbGY0RWtXdkpBdFNlT0MyUnlRTEowblBYd2Jlb0lWdDlJ?=
- =?utf-8?Q?iiOTCXERowEoQriVfC531CbQjz/+h1b1lL89E2RGgyPf?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 911f05a4-ba35-4212-0987-08ddeae6236f
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB8784.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2025 12:33:51.5937
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: F6Ts65PteBXAXBOCKhwx8O5asZn7uHciY6JZuxQQT+FvmBn3Ns3mRHx8H5EboS9HpB9a8O10qq29MdVRGGYYqw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB5864
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_053358_429009_6BCB26C5 
-X-CRM114-Status: GOOD (  23.79  )
+X-CRM114-CacheID: sfid-20250903_050757_435509_6C660250 
+X-CRM114-Status: UNSURE (   7.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,108 +86,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ulf,
+On Thu, Aug 28 2025 at 10:59, Sascha Bischoff wrote:
+> The presence of FEAT_GCIE_LEGACY is now handled as a CPU
+> feature. Therefore, drop the check and flag from the GIC driver and
+> gic_kvm_info as it is no longer required or used by KVM.
+>
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 
-On 11/08/2025 13:11, Ulf Hansson wrote:
-> On Thu, 31 Jul 2025 at 17:07, Jon Hunter <jonathanh@nvidia.com> wrote:
->>
->> Hi Ulf,
->>
->> On 01/07/2025 12:47, Ulf Hansson wrote:
->>> Unless the typical platform driver that act as genpd provider, has its own
->>> ->sync_state() callback implemented let's default to use
->>> of_genpd_sync_state().
->>>
->>> More precisely, while adding a genpd OF provider let's assign the
->>> ->sync_state() callback, in case the fwnode has a device and its driver
->>> doesn't have the ->sync_state() set already. In this way the typical
->>> platform driver doesn't need to assign ->sync_state(), unless it has some
->>> additional things to manage beyond genpds.
->>>
->>> Suggested-by: Saravana Kannan <saravanak@google.com>
->>> Tested-by: Hiago De Franco <hiago.franco@toradex.com> # Colibri iMX8X
->>> Tested-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> # TI AM62A,Xilinx ZynqMP ZCU106
->>> Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
->>> ---
->>>    drivers/pmdomain/core.c | 9 +++++++++
->>>    1 file changed, 9 insertions(+)
->>>
->>> diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
->>> index ca47f91b9e91..5cef6de60c72 100644
->>> --- a/drivers/pmdomain/core.c
->>> +++ b/drivers/pmdomain/core.c
->>> @@ -2600,6 +2600,11 @@ static bool genpd_present(const struct generic_pm_domain *genpd)
->>>        return ret;
->>>    }
->>>
->>> +static void genpd_sync_state(struct device *dev)
->>> +{
->>> +     return of_genpd_sync_state(dev->of_node);
->>> +}
->>> +
->>>    /**
->>>     * of_genpd_add_provider_simple() - Register a simple PM domain provider
->>>     * @np: Device node pointer associated with the PM domain provider.
->>> @@ -2628,6 +2633,8 @@ int of_genpd_add_provider_simple(struct device_node *np,
->>>        if (!dev && !genpd_is_no_sync_state(genpd)) {
->>>                genpd->sync_state = GENPD_SYNC_STATE_SIMPLE;
->>>                device_set_node(&genpd->dev, fwnode);
->>> +     } else {
->>> +             dev_set_drv_sync_state(dev, genpd_sync_state);
->>>        }
->>>
->>>        put_device(dev);
->>> @@ -2700,6 +2707,8 @@ int of_genpd_add_provider_onecell(struct device_node *np,
->>>        dev = get_dev_from_fwnode(fwnode);
->>>        if (!dev)
->>>                sync_state = true;
->>> +     else
->>> +             dev_set_drv_sync_state(dev, genpd_sync_state);
->>>
->>>        put_device(dev);
->>>
->>
->> Following this change I am seeing the following warning on our Tegra194
->> devices ...
->>
->>    WARNING KERN tegra-bpmp bpmp: sync_state() pending due to 17000000.gpu
->>    WARNING KERN tegra-bpmp bpmp: sync_state() pending due to 3960000.cec
->>    WARNING KERN tegra-bpmp bpmp: sync_state() pending due to 15380000.nvjpg
->>    WARNING KERN tegra-bpmp bpmp: sync_state() pending due to 154c0000.nvenc
->>    WARNING KERN tegra-bpmp bpmp: sync_state() pending due to 15a80000.nvenc
->>
->> Per your change [0], the 'GENPD_FLAG_NO_SYNC_STATE' is set for Tegra
->> and so should Tegra be using of_genpd_sync_state() by default?
-> 
-> This is a different power-domain provider (bpmp) in
-> drivers/firmware/tegra/bpmp.c and
-> drivers/pmdomain/tegra/powergate-bpmp.c.
-> 
-> For the bpmp we don't need GENPD_FLAG_NO_SYNC_STATE, as the
-> power-domain provider is described along with the
-> "nvidia,tegra186-bpmp" compatible string. In the other case
-> (drivers/soc/tegra/pmc.c) the "core-domain" and "powergates" are
-> described through child-nodes, while ->sync_state() is managed by the
-> parent-device-node.
-> 
-> In the bpmp case there is no ->sync_state() callback assigned, which
-> means genpd decides to assign a default one.
-> 
-> The reason for the warnings above is because we are still waiting for
-> those devices to be probed, hence the ->sync_state() callback is still
-> waiting to be invoked. Enforcing ->sync_state() callback to be invoked
-> can be done via user-space if that is needed.
-> 
-> Did that make sense?
+Assuming this goes through the arm/kvm tree:
 
-Sorry for the delay, I was on vacation. Yes makes sense and drivers for 
-some of the above drivers are not yet upstreamed to mainline and so this 
-would be expected for now.
-
-Thanks
-Jon
-
--- 
-nvpublic
+Acked-by: Thomas Gleixner <tglx@linutronix.de>
 
 
