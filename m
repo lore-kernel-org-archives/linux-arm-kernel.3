@@ -4,61 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 012ECCA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 07:41:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03D29CA100C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 07:43:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=65Ke+bDzyxA3FZ+uJntN1eamxu+tv80h0iEtRxVAgzg=; b=zzIVMHleT4WeXK6WadgWTkYcNo
-	WbWj2PtiHo4/D4ky5mOCbSmnDRp/590wnsXnvfQ6wMVz/jXgQETsR68pbH7AkujhhbpLJL09CQWIz
-	zUCXv6WjEDEaNDV2fRgky0BN/1/82ilRVCChaHPyDoRBypHLhU7fgfcAotS5thVjmlWNAmkNXQBb5
-	G9upjlEIvhoxblaRpNFmZ5HgGzjuqQhtwcTK/S8vzF8b5QzQ26mQdWsqXhMDspkL4oGTo9mdYaSK+
-	KMCYJUpmbn3x0lNP3xlZpN75bID3L6FvTgiRqF0P5XuK65rKQiHaRDWDqdrivtAwrcoxvS9MTRA74
-	SPaM2ETw==;
+	bh=1cHHzvpcToVfUQ+s6oKU0F9PCcevPZTTm727qZ7syWg=; b=aXkNFaGfRLP7/pGr2j/56hV8J7
+	jNwaq1RSujf1ZjEA0u8P9lVDr4u7/pgevN5c5ChjJs/ODmAtUrXJBhMaq8xFvBjOrtCugE9i5ZbyM
+	XNuQAwIeLArpPkGL1wlpRgTpU1OvQ23+CA/TovCcTmgTWOHiNp5ujfHoXkWwoCPAhTS/Qm/yGr5sh
+	1sCypgHHEg+hvG+ePs/ufIjAGgIh97bJSCVnDb2ek8ET9dS7jfXel20/YjivZDm/U5gotJkC7Kr5d
+	jTKmlExkRlf5BCtbmXn4jg0Puc07dRdPE31JTN1TD5vx8oNBko6eRZ0lXLJNd2qE4DkXzyJNtCSan
+	ZNO+NrDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uti70-00000005C8J-0YuI;
-	Wed, 03 Sep 2025 07:40:58 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uti9g-00000005DGH-1Doa;
+	Wed, 03 Sep 2025 07:43:44 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uthw7-000000055xh-2HMN
+	id 1uthw8-000000055w2-3PZT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 07:29:44 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1uthvA-0003pQ-KJ; Wed, 03 Sep 2025 09:28:44 +0200
-Message-ID: <fa7e2cef-5242-4f3b-84ea-d77b959f6bdb@pengutronix.de>
-Date: Wed, 3 Sep 2025 09:28:42 +0200
+	Wed, 03 Sep 2025 07:29:48 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250903072938epoutp03f6371e9712f34eb77c146571a955acc6~htTdKlPQx2359223592epoutp03R
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  3 Sep 2025 07:29:38 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250903072938epoutp03f6371e9712f34eb77c146571a955acc6~htTdKlPQx2359223592epoutp03R
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1756884578;
+	bh=1cHHzvpcToVfUQ+s6oKU0F9PCcevPZTTm727qZ7syWg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Efuz+Vbwwk8pbAgOELhnkw7hJu1m8keUdVoSODbouG7xhGThr6vyO1uULlJFKmh1c
+	 hvBNyY2zj/iznMaBT9BphmP2w9KrirP60YU5uGZxITVaJBRzi/FZGZPHyT2vIVvyTF
+	 5lz4f9Ighpe8Nx5gOE7c/kjDSjESnnZlsT4bUlNY=
+Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
+	20250903072937epcas5p363acb7df02fcdd202b8299e1b35f697e~htTccMDIK2807428074epcas5p3D;
+	Wed,  3 Sep 2025 07:29:37 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.92]) by
+	epsnrtp01.localdomain (Postfix) with ESMTP id 4cGvPr5vCcz6B9m5; Wed,  3 Sep
+	2025 07:29:36 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250903072936epcas5p4a28d0e63c7f0792b516b0cbc68bf3a8e~htTa3DKDo2045620456epcas5p4v;
+	Wed,  3 Sep 2025 07:29:36 +0000 (GMT)
+Received: from bose.samsungds.net (unknown [107.108.83.9]) by
+	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250903072932epsmtip20e01ed3ee241f03e3553f0744bf70758~htTXz-USp2480024800epsmtip2N;
+	Wed,  3 Sep 2025 07:29:32 +0000 (GMT)
+From: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+To: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com,
+	andre.draszik@linaro.org, peter.griffin@linaro.org, kauschluss@disroot.org,
+	ivo.ivanov.ivanov1@gmail.com, igor.belwon@mentallysanemainliners.org,
+	m.szyprowski@samsung.com, s.nawrocki@samsung.com, pritam.sutar@samsung.com
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
+	dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
+	selvarasu.g@samsung.com
+Subject: [PATCH v8 1/6] dt-bindings: phy: samsung,usb3-drd-phy: add
+ ExynosAutov920 HS phy compatible
+Date: Wed,  3 Sep 2025 13:08:22 +0530
+Message-Id: <20250903073827.3015662-2-pritam.sutar@samsung.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250903073827.3015662-1-pritam.sutar@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: dts: imx6ul-tx6ul: Switch away from deprecated
- `phy-reset-gpios`
-To: =?UTF-8?B?QmVuY2UgQ3PDs2vDoXM=?= <csokas.bence@prolan.hu>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
- Csaba Buday <buday.csaba@prolan.hu>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20250815-b4-tx6ul-dt-phy-rst-v1-1-9b65e315d9d3@prolan.hu>
-Content-Language: en-US
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <20250815-b4-tx6ul-dt-phy-rst-v1-1-9b65e315d9d3@prolan.hu>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-CMS-MailID: 20250903072936epcas5p4a28d0e63c7f0792b516b0cbc68bf3a8e
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250903072936epcas5p4a28d0e63c7f0792b516b0cbc68bf3a8e
+References: <20250903073827.3015662-1-pritam.sutar@samsung.com>
+	<CGME20250903072936epcas5p4a28d0e63c7f0792b516b0cbc68bf3a8e@epcas5p4.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_002943_583958_5C011782 
-X-CRM114-Status: GOOD (  23.03  )
+X-CRM114-CacheID: sfid-20250903_002945_531973_1F1BFBC1 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,75 +98,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Document support for the USB20 phy found on the ExynosAutov920 SoC. The
+USB20 phy is functionally identical to that on the Exynos850 SoC, so no
+driver changes are needed to support this phy. However, add a dedicated
+compatible string for USB20 phy found in this SoC.
 
-On 15.08.25 17:17, Bence Csókás wrote:
-> The Ethernet PHY's reset GPIO should be specified in the node of the PHY
-> itself, instead of the MAC (`fec`). The latter is deprecated, and was an
-> i.MX-specific extension, incompatible with the new reset controller
-> subsystem.
+Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+---
+ .../bindings/phy/samsung,usb3-drd-phy.yaml    | 29 +++++++++++++++++++
+ 1 file changed, 29 insertions(+)
 
-One reason to do it this way is that the PHY is in reset when the OS starts
-and the external phy-reset-gpios allows MAC probe to get the PHY out of
-reset, so it can be probed after reading its vendor/device IDs.
-
-Does switching to this new binding address this scenario? If so, it should
-be noted in the commit message.
-
-> 
-> Co-developed-by: Csaba Buday <buday.csaba@prolan.hu>
-> Signed-off-by: Csaba Buday <buday.csaba@prolan.hu>
-> Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
-> ---
->  arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi | 8 +++++++-
->  1 file changed, 7 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
-> index f053358bc9317f8447d65013a18670cb470106b2..0a5e90704ea481b0716d6ff6bc6d2110914d4f31 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
-> +++ b/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
-> @@ -246,7 +246,6 @@ &fec1 {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_enet1 &pinctrl_enet1_mdio &pinctrl_etnphy0_rst>;
->  	phy-mode = "rmii";
-> -	phy-reset-gpios = <&gpio5 6 GPIO_ACTIVE_LOW>;
->  	phy-supply = <&reg_3v3_etn>;
->  	phy-handle = <&etnphy0>;
->  	status = "okay";
-> @@ -262,6 +261,13 @@ etnphy0: ethernet-phy@0 {
->  			pinctrl-0 = <&pinctrl_etnphy0_int>;
->  			interrupt-parent = <&gpio5>;
->  			interrupts = <5 IRQ_TYPE_EDGE_FALLING>;
-> +			/* Reset SHOULD be a PHY property */
-
-Comment belongs into commit message.
-
-> +			reset-names = "phy";
-> +			reset-gpios = <&gpio5 6 GPIO_ACTIVE_LOW>;
-> +			reset-assert-us = <100>;
-> +			reset-deassert-us = <25000>;
-> +			/* Energy detect sometimes causes link failures */
-> +			smsc,disable-energy-detect;
-
-Unrelated change not described in the commit message.
-
-Cheers,
-Ahmad
-
->  			status = "okay";
->  		};
->  
-> 
-> ---
-> base-commit: 0cc53520e68bea7fb80fdc6bdf8d226d1b6a98d9
-> change-id: 20250815-b4-tx6ul-dt-phy-rst-7afc190a6907
-> 
-> Best regards,
-
-
+diff --git a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+index e906403208c0..8d8114eb5660 100644
+--- a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
++++ b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+@@ -34,6 +34,7 @@ properties:
+       - samsung,exynos7870-usbdrd-phy
+       - samsung,exynos850-usbdrd-phy
+       - samsung,exynos990-usbdrd-phy
++      - samsung,exynosautov920-usbdrd-phy
+ 
+   clocks:
+     minItems: 1
+@@ -110,6 +111,15 @@ properties:
+   vddh-usbdp-supply:
+     description: VDDh power supply for the USB DP phy.
+ 
++  dvdd-supply:
++    description: 0.75V power supply for the USB phy.
++
++  vdd18-supply:
++    description: 1.8V power supply for the USB phy.
++
++  vdd33-supply:
++    description: 3.3V power supply for the USB phy.
++
+ required:
+   - compatible
+   - clocks
+@@ -219,6 +229,7 @@ allOf:
+               - samsung,exynos7870-usbdrd-phy
+               - samsung,exynos850-usbdrd-phy
+               - samsung,exynos990-usbdrd-phy
++              - samsung,exynosautov920-usbdrd-phy
+     then:
+       properties:
+         clocks:
+@@ -236,6 +247,24 @@ allOf:
+         reg-names:
+           maxItems: 1
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - samsung,exynosautov920-usbdrd-phy
++    then:
++      required:
++        - dvdd-supply
++        - vdd18-supply
++        - vdd33-supply
++
++    else:
++      properties:
++        dvdd-supply: false
++        vdd18-supply: false
++        vdd33-supply: false
++
+ unevaluatedProperties: false
+ 
+ examples:
 -- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+2.34.1
+
 
