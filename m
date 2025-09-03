@@ -4,88 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F18ACA1009
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 16:25:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E403CA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 16:28:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RXR6l5zH9EuL6ygVcZdx0q8KXP/yLgdiG12ZI87yuuE=; b=GHPFYAFlYEPLcS1oeYnO07U74H
-	8RQfo6T8BrrT9EprK0sdJthOeyfJEhjv81sHK+AyhL3tSC9J6n+dtTKgRoSxxbDM8zVIdfROVyWub
-	xe2k/TYhl38QfP0VJOgzXbhAHPOG+axeNuyy+lzjErVutIaXR3vh69Kosaju3blDtOP/KMR9+wnGi
-	jnAoCN5G/RuP0gAtafqf0Olq8/GMh4jk5WE07pBIozOYiIQSgETFkd8XAj39kWt6sKqAS5tLjpldB
-	dHHspDk0oHRnlHZ/ppxLCTNcsrJUsXRTD5clJRkywnM++LtVz3StgaxOgvm3Ji56A5VIVnFzEJCVW
-	SwQAKENw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aHqRa8jsx4scxQoHsogOHYRV2hwQ6tQgcKa606SaBXY=; b=yJ6aFu01gEgEzflxJzlPCRQ1V2
+	4mFBuvxami97miOjMEQdEccYD8YZ+Xr2brXP0bckFkprmQUqGZQ+wDiB2IimFL0wDv5kYK+YQT5Yw
+	g7qA9O/3jcpcvw2qHNqoChRzWj+g6AjPLv0iQQZUAxjShPw64ivxo6rEeNBoPd3Jnc/mmThYhcOEi
+	10q3PHISmykE2P7j+nItngoYr8g7IlGwiDWmKjowyEgHlGlfYfOeXz3fumoDDnlIBDGSJ9FQJT1OO
+	EmWPRKTz7a/8UlSZ50SnRCDPudIuQIThsQE0wWAHZ95Ko5+LwDfw857T9fmdeKQV+s6dWex0wAEs7
+	m+hQvTDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utqIo-000000073eU-0yzb;
-	Wed, 03 Sep 2025 16:25:42 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1utqLW-000000074Dc-2nqL;
+	Wed, 03 Sep 2025 16:28:30 +0000
+Received: from mail.thorsis.com ([2003:a:e28:26e4::10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utnIv-00000006XbY-0Prv
+	id 1utnLk-00000006YGX-1Nfl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 13:13:38 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 583Cav0x002331;
-	Wed, 3 Sep 2025 15:13:25 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	RXR6l5zH9EuL6ygVcZdx0q8KXP/yLgdiG12ZI87yuuE=; b=1XAqNyxb4d0nLr+5
-	/nhC7xFCng4Jy7BmFmFwA/fpX3aQlJxJ5gqJ9vIIptA1g7UdVjnJkMSizX/xx1yt
-	uJqY1ad5BbFYKSNncLqKqzBvnraO1r5QNIjc/JtP59wmhkFekHmeVArisrcVmAmd
-	Mi4FpTXOJ8JLMyAlzf+J7sMUXkz8BrXcYvjkRr5/g2CKbLF0ASzOGFqDTZFyNzvL
-	zWWLtppycLqkRe0PccSj0f7qAByaCMOIMD8/KNC4vqvdA1hS0mOTjjpnG0Ykbz/y
-	Sc6Iy/gcH20DLowj/lHthmw5rXjWUAAz3BgYUCLzlGBttwwFTlmHbG6ZkxIQLX8N
-	okP9Og==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48ur6frhek-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 03 Sep 2025 15:13:25 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id DD40540045;
-	Wed,  3 Sep 2025 15:11:33 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id D9020290800;
-	Wed,  3 Sep 2025 15:10:43 +0200 (CEST)
-Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 3 Sep
- 2025 15:10:43 +0200
-Message-ID: <59f25804-d310-4492-b95f-19c42cf3cd42@foss.st.com>
-Date: Wed, 3 Sep 2025 15:10:42 +0200
+	Wed, 03 Sep 2025 13:16:34 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C4D4D1487E25;
+	Wed,  3 Sep 2025 15:16:16 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
+	t=1756905386; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=aHqRa8jsx4scxQoHsogOHYRV2hwQ6tQgcKa606SaBXY=;
+	b=Mi40bUy3Qk6XWegkRfPM2jnv4dDk/bMr2lj8J/pF4Gri48WBAkFX2c8VfueH8QqgCf2Ng8
+	j5AcfYSFfVjl6qZmg4jeiz3c6SMpf4oy8SG4v5oJmU7JXVKjlUK0bGcYIOJWNDqUGyZcms
+	Sff7vKAfUKeT6nvfJzbKbjFGimAEMj1wL7WqwQ3CZM5jPi07ldAlfZilQmSE3wtlrNL8Gv
+	OYP7T1CFZSdYRfuoHH7n6uRcTI+N6s7ysLFA6qazlJP/eibZT1JQi7uKBLnEPtQqfcfvvh
+	qz6NHVk6ppVZmLyBYDYcwkHh/+haGNIMfW6/g/QOTfw6wH67NV3Kug8C4llwIQ==
+Date: Wed, 3 Sep 2025 15:16:10 +0200
+From: Alexander Dahl <ada@thorsis.com>
+To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: Vinod Koul <vkoul@kernel.org>, linux@armlinux.org.uk,
+	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+	catalin.marinas@arm.com, will@kernel.org, olivia@selenic.com,
+	herbert@gondor.apana.org.au, davem@davemloft.net,
+	andi.shyti@kernel.org, lee@kernel.org, broonie@kernel.org,
+	gregkh@linuxfoundation.org, jirislaby@kernel.org, arnd@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-crypto@vger.kernel.org, dmaengine@vger.kernel.org,
+	linux-i2c@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-serial@vger.kernel.org, o.rempel@pengutronix.de,
+	daniel.machon@microchip.com, Robert Marko <robert.marko@sartura.hr>,
+	luka.perkov@sartura.hr
+Subject: Re: (subset) [PATCH v8 00/10] arm64: lan969x: Add support for
+ Microchip LAN969x SoC
+Message-ID: <20250903-gratify-sustained-9acc011bc3c9@thorsis.com>
+Mail-Followup-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Vinod Koul <vkoul@kernel.org>, linux@armlinux.org.uk,
+	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+	catalin.marinas@arm.com, will@kernel.org, olivia@selenic.com,
+	herbert@gondor.apana.org.au, davem@davemloft.net,
+	andi.shyti@kernel.org, lee@kernel.org, broonie@kernel.org,
+	gregkh@linuxfoundation.org, jirislaby@kernel.org, arnd@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-crypto@vger.kernel.org, dmaengine@vger.kernel.org,
+	linux-i2c@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-serial@vger.kernel.org, o.rempel@pengutronix.de,
+	daniel.machon@microchip.com, Robert Marko <robert.marko@sartura.hr>,
+	luka.perkov@sartura.hr
+References: <20250702183856.1727275-1-robert.marko@sartura.hr>
+ <175327377884.189941.15214972441246653208.b4-ty@kernel.org>
+ <bac5390f-725a-43db-a2b6-17a68d0d733c@tuxon.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] ARM: dts: stm32: add resets property to m_can
- nodes in the stm32mp153
-To: Marc Kleine-Budde <mkl@pengutronix.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Chandrasekar Ramakrishnan
-	<rcsekar@samsung.com>,
-        Vincent Mailhol <mailhol.vincent@wanadoo.fr>
-CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <kernel@pengutronix.de>, <linux-can@vger.kernel.org>
-References: <20250807-stm32mp15-m_can-add-reset-v2-0-f69ebbfced1f@pengutronix.de>
- <20250807-stm32mp15-m_can-add-reset-v2-2-f69ebbfced1f@pengutronix.de>
-Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20250807-stm32mp15-m_can-add-reset-v2-2-f69ebbfced1f@pengutronix.de>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-03_07,2025-08-28_01,2025-03-28_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <bac5390f-725a-43db-a2b6-17a68d0d733c@tuxon.dev>
+User-Agent: Mutt/2.2.12 (2023-09-09)
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_061337_410966_779C3D4B 
-X-CRM114-Status: GOOD (  12.87  )
+X-CRM114-CacheID: sfid-20250903_061632_865919_D824C946 
+X-CRM114-Status: GOOD (  19.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,41 +94,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc
+Hello,
 
-On 8/7/25 08:09, Marc Kleine-Budde wrote:
-> On the STM32MP153 the m_cam IP cores (a.k.a. FDCAN) have an external
-> shared reset in the RCC. Add the reset to both m_can nodes.
+Am Thu, Jul 31, 2025 at 11:05:07AM +0300 schrieb Claudiu Beznea:
+> Hi, Vinod,
 > 
-> Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
-> ---
->   arch/arm/boot/dts/st/stm32mp153.dtsi | 2 ++
->   1 file changed, 2 insertions(+)
+> On 23.07.2025 15:29, Vinod Koul wrote:
+> > 
+> > On Wed, 02 Jul 2025 20:35:58 +0200, Robert Marko wrote:
+> >> This patch series adds basic support for Microchip LAN969x SoC.
+> >>
+> >> It introduces the SoC ARCH symbol itself under the ARCH_MICROCHIP symbol
+> >> which allows to avoid the need to change dependencies of the drivers that
+> >> are shared for Microchip SoC-s in the future.
+> >>
+> >> DTS and further driver will be added in follow-up series.
+> >>
+> >> [...]
+> > 
+> > Applied, thanks!
+> > 
+> > [08/10] dma: xdmac: make it selectable for ARCH_MICROCHIP
+> >         commit: e56982021f5303b2523ac247e3c79b063459d012
 > 
-> diff --git a/arch/arm/boot/dts/st/stm32mp153.dtsi b/arch/arm/boot/dts/st/stm32mp153.dtsi
-> index 4640dafb1598..92794b942ab2 100644
-> --- a/arch/arm/boot/dts/st/stm32mp153.dtsi
-> +++ b/arch/arm/boot/dts/st/stm32mp153.dtsi
-> @@ -40,6 +40,7 @@ m_can1: can@4400e000 {
->   		interrupt-names = "int0", "int1";
->   		clocks = <&rcc CK_HSE>, <&rcc FDCAN_K>;
->   		clock-names = "hclk", "cclk";
-> +		resets = <&rcc FDCAN_R>;
->   		bosch,mram-cfg = <0x0 0 0 32 0 0 2 2>;
->   		access-controllers = <&etzpc 62>;
->   		status = "disabled";
-> @@ -54,6 +55,7 @@ m_can2: can@4400f000 {
->   		interrupt-names = "int0", "int1";
->   		clocks = <&rcc CK_HSE>, <&rcc FDCAN_K>;
->   		clock-names = "hclk", "cclk";
-> +		resets = <&rcc FDCAN_R>;
->   		bosch,mram-cfg = <0x1400 0 0 32 0 0 2 2>;
->   		access-controllers = <&etzpc 62>;
->   		status = "disabled";
+> As this one depends, as well, on the first 3 patches in the series (Robert,
+> please correct me if I'm wrong), and there are still discussions ongoing,
+> can you please drop it until all is clear on the first 3 patches?
 > 
+> Otherwise, applying only this patch will lead to AT91 XDMAC driver not
+> being built for SAMA5{D2, D3, D4}, SAMA7{G5, D65} SoCs. Linux is not
+> booting on SAMA7G5 SoC only with this patch applied.
 
-How those reset are handled at driver side ?
+Second that.  Just tested v6.17-rc4 on sam9x60 and DMA is not working
+at all because this driver can not be selected anymore.  This must be
+fixed before v6.17 release please!
 
-regards
-alex
+Greets
+Alex
 
