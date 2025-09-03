@@ -4,60 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56CCECA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 12:05:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9FA9CA1009
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 12:07:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3l5EXnV8dhZCYDK2LVBHPRjROKaeOb5ViilrJhZCEjE=; b=GUNFSQfkeuybfEiJZssQKZsyWW
-	f6yCYC7lZyjISB9K1d70NoeK7xUxipKy01scn9pA293ntSwrJP1zu3F+gROQsRuKiW+NQzhuJL3Z6
-	Bxa1icA/roJJpm5UEWp62LfNkM/+hiEY2clOJj7TVG1FqzK2lSboTEw8hCZXVFjEfbw2kBHSykn9E
-	iyBH2iXadrlCgO+zOuMIJkA6HNhsIbgZTlI8B8BlLJxCleEZgnN4KgYzHs0qHmEYNgnk0Wvtxvmb0
-	b0ZVWZ83R2mtTqc7hkI92rFnIDlHUb37Ng5fRuayoK7aT3LSiTP7nVIWlklAvx3j8cYsBKyHNKrD3
-	WUPyR/1A==;
+	bh=WXY0E2WsQ9csWMZHv9bqH28cayEHGe2aO8uPYZUAjXo=; b=GELr54EPNMZvxYbfUyiJgq/A6v
+	VXCEMEual4ma1hHJbtOhCIcMY4Ou1QCxWbCslKYXKvVG01FEvnfUnfm/r6DQr5yL7ncNKFv3sacqr
+	PCkGH2/qS1epi9Gv9265ztcZWbb+73bdsIvn0rlcnif+z+PiHo8IXVn7dqtlHy6P5XfEHBu/uPoRR
+	dBahN7W/+FD6/NwdzH7o837Brmn9cZOuZ0PT7Zm/ahtckiY5dpKV+xhgAbL/VvmJOvOwmf//AwF4S
+	CQOSwqeLO6f1zsZbpmM452htR/4763PlsC9nERM3hPMU+SPqMF7CVRSzgIMpu9/7pKYes6Ayp1fIV
+	gnqfYYEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utmEZ-00000006KKB-3rb5;
-	Wed, 03 Sep 2025 12:05:03 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utl63-000000068xc-1Vnf
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 10:52:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4C72914BF;
-	Wed,  3 Sep 2025 03:52:02 -0700 (PDT)
-Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ACADB3F694;
-	Wed,  3 Sep 2025 03:52:06 -0700 (PDT)
-Date: Wed, 3 Sep 2025 11:52:03 +0100
-From: Dave Martin <Dave.Martin@arm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org,
-	oliver.upton@linux.dev, anshuman.khandual@arm.com, robh@kernel.org,
-	james.morse@arm.com, mark.rutland@arm.com, joey.gouly@arm.com,
-	ahmed.genidi@arm.com, kevin.brodsky@arm.com,
-	scott@os.amperecomputing.com, mbenes@suse.cz,
-	james.clark@linaro.org, frederic@kernel.org, rafael@kernel.org,
-	pavel@kernel.org, ryan.roberts@arm.com, suzuki.poulose@arm.com,
-	maz@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v4 0/5] initialize SCTRL2_ELx
-Message-ID: <aLgd0/7peYBA4z87@e133380.arm.com>
-References: <20250821172408.2101870-1-yeoreum.yun@arm.com>
- <aLW5OIgv8/bvvY9E@e133380.arm.com>
- <aLXjVNCbT6YeWlSS@e129823.arm.com>
+	id 1utmHG-00000006KyM-1ENG;
+	Wed, 03 Sep 2025 12:07:50 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1utl78-000000069An-10WD;
+	Wed, 03 Sep 2025 10:53:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1756896798; x=1788432798;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=FUmeNCPfNa/iZWbYGZH641C9Ogg0J/3dPBsw0VAIiWE=;
+  b=dEgQXq78M2YQgnpeO8U3xJcmbQg0Ro5XBbZvHD1s35peTP5NOI33bJU+
+   ro2oD5mWx3fM9t/J36Jr1VOipX7QUkJiFHjXd2wQfZuVgw2t+GHF5GZ1J
+   jz3+FHa32PN8YkKzT82PMmfj1j0p9Sw3sLJKW5e7oopJ2SYfJGL+0KgQe
+   TR2llJ90P+NA8Z2q3ERTabciaNU8LovQSyF0/fMsyktjBIASor5oJq3jb
+   FBDl0h/Mz0jLEAWICL16xmFxnBlXFY5pSulqJZS2R6/kg+tpTXBlUxns+
+   YQ10Q8Wuofcfc4WFKx8plfQu0uO/E/TDpX5/DqfA7NfGnW4wNnVOfrfAs
+   A==;
+X-CSE-ConnectionGUID: nkRWs0AnTMytfE7v4vQzUA==
+X-CSE-MsgGUID: ov8W/LmCRamLDKYL/ao6BQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="59273784"
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
+   d="scan'208";a="59273784"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Sep 2025 03:53:17 -0700
+X-CSE-ConnectionGUID: fZSJg/OdSLSicfgtY1CHmg==
+X-CSE-MsgGUID: PfccqARKQ1qrVxLteKqPew==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,233,1751266800"; 
+   d="scan'208";a="175704587"
+Received: from smile.fi.intel.com ([10.237.72.52])
+  by orviesa003.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Sep 2025 03:53:06 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@intel.com>)
+	id 1utl6r-0000000Axff-11tp;
+	Wed, 03 Sep 2025 13:53:01 +0300
+Date: Wed, 3 Sep 2025 13:53:00 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Andy Shevchenko <andy.shevchenko@gmail.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Alexey Klimov <alexey.klimov@linaro.org>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Sean Wang <sean.wang@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Paul Cercueil <paul@crapouillou.net>, Kees Cook <kees@kernel.org>,
+	Andy Shevchenko <andy@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@redhat.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>, Dong Aisheng <aisheng.dong@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Jacky Bai <ping.bai@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	NXP S32 Linux Team <s32@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Tony Lindgren <tony@atomide.com>,
+	Haojian Zhuang <haojian.zhuang@linaro.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Mark Brown <broonie@kernel.org>, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-hardening@vger.kernel.org, linux-mm@kvack.org,
+	imx@lists.linux.dev, linux-omap@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Subject: Re: [PATCH v7 16/16] pinctrl: qcom: make the pinmuxing strict
+Message-ID: <aLgeDNLABpmkShIU@smile.fi.intel.com>
+References: <20250902-pinctrl-gpio-pinfuncs-v7-0-bb091daedc52@linaro.org>
+ <20250902-pinctrl-gpio-pinfuncs-v7-16-bb091daedc52@linaro.org>
+ <aLcBcjvMbrxoDYoC@smile.fi.intel.com>
+ <CAMRc=MfcFMgkNqWNZV5o0NxkAvxBTjC3vv56Cr98n0R2CkxuPw@mail.gmail.com>
+ <CAHp75VcgaqnDrPH27wxfgyK6zz4RAKJQB0r7G2vbTONTxkEzTw@mail.gmail.com>
+ <CAMRc=MfhhX2NJ0fhhX8u+7=sdyUy0G27n7caGf9=TpHxUDJVxg@mail.gmail.com>
+ <aLgW7J-j4nn0u8uo@smile.fi.intel.com>
+ <CAMRc=MdA21fwnamymG6YhqBjKDso_nJs_4xefPNONQNfEcPHXA@mail.gmail.com>
+ <aLgaoivmBUgoeO6B@smile.fi.intel.com>
+ <CAMRc=Me84OX=UEmAXxmwE8oOH=1UBsyHe-7XmU0c8a2gG9JnCA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <aLXjVNCbT6YeWlSS@e129823.arm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMRc=Me84OX=UEmAXxmwE8oOH=1UBsyHe-7XmU0c8a2gG9JnCA@mail.gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_035211_441980_B96E0E4F 
-X-CRM114-Status: GOOD (  30.08  )
+X-CRM114-CacheID: sfid-20250903_035318_319199_636D5C78 
+X-CRM114-Status: GOOD (  32.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,56 +135,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, Sep 03, 2025 at 12:41:48PM +0200, Bartosz Golaszewski wrote:
+> On Wed, Sep 3, 2025 at 12:38 PM Andy Shevchenko
+> <andriy.shevchenko@intel.com> wrote:
+> > On Wed, Sep 03, 2025 at 12:34:00PM +0200, Bartosz Golaszewski wrote:
+> > > On Wed, Sep 3, 2025 at 12:22 PM Andy Shevchenko
+> > > <andriy.shevchenko@intel.com> wrote:
+> > > > On Wed, Sep 03, 2025 at 09:33:34AM +0200, Bartosz Golaszewski wrote:
+> > > > > On Tue, Sep 2, 2025 at 10:46 PM Andy Shevchenko
+> > > > > <andy.shevchenko@gmail.com> wrote:
+> > > > > > On Tue, Sep 2, 2025 at 8:42 PM Bartosz Golaszewski <brgl@bgdev.pl> wrote:
+> > > > > > > On Tue, Sep 2, 2025 at 4:38 PM Andy Shevchenko
+> > > > > > > <andriy.shevchenko@intel.com> wrote:
+> > > > > > > > On Tue, Sep 02, 2025 at 01:59:25PM +0200, Bartosz Golaszewski wrote:
 
-On Mon, Sep 01, 2025 at 07:17:56PM +0100, Yeoreum Yun wrote:
-> Hi Dave,
-> 
-> > On Thu, Aug 21, 2025 at 06:24:03PM +0100, Yeoreum Yun wrote:
-> > > This series introduces initial support for the SCTLR2_ELx registers in Linux.
-> > > The feature is optional starting from ARMv8.8/ARMv9.3,
-> > > and becomes mandatory from ARMv8.9/ARMv9.4.
+...
+
+> > > > > > > > > The strict flag in struct pinmux_ops disallows the usage of the same pin
+> > > > > > > > > as a GPIO and for another function. Without it, a rouge user-space
+> > > > > > > > > process with enough privileges (or even a buggy driver) can request a
+> > > > > > > > > used pin as GPIO and drive it, potentially confusing devices or even
+> > > > > > > > > crashing the system. Set it globally for all pinctrl-msm users.
+> > > > > > > >
+> > > > > > > > How does this keep (or allow) I²C generic recovery mechanism to work?
+> > > > >
+> > > > > Anyway, what is your point? I don't think it has any impact on this.
+> > > >
+> > > > If we have a group of pins that are marked as I²C, and we want to use recovery
+> > > > via GPIOs, would it be still possible to request as GPIO when controller driver
+> > > > is in the strict mode?
 > > >
-> > > Currently, Linux has no strict need to modify SCTLR2_ELx--
-> > > at least assuming that firmware initializes
-> > > these registers to reasonable defaults.
-> > >
-> > > However, several upcoming architectural features will require configuring
-> > > control bits in these registers.
-> > > Notable examples include FEAT_PAuth_LR and FEAT_CPA2.
+> > > Yes, if you mark that function as a "GPIO" function in the pin
+> > > controller driver.
 > >
-> > This looks OK to me now, except for one or two minor issues (see
-> > replies to the patches).
-> >
-> > I think we will need a way of testing all the code paths before this
-> > should be merged, though.
-> >
-> > Have you tested all the code paths, or are there some things that have
-> > not been tested?
+> > How would it prevent from requesting from user space?
 > 
-> I've tested for pKVM, nested and nhve and crash path
-> (I do my best what can I do for modified path).
+> It wouldn't, we don't discriminate between user-space and in-kernel
+> GPIO users. A function either is a GPIO or isn't. Can you point me to
+> the driver you're thinking about or is this a purely speculative
+> question?
 
-Was that just confirming that the kernel boots / does not crash?
+The recovery mechanism is in I²C core and many drivers use that.
+I'm not aware of Qualcomm drivers in particular. But mechanism is
+in use in I²C DesignWare which is distributed a lot among platforms,
+so using word 'purely' is incorrect, and word 'speculative' is a bit
+strong, but you can think of the issue coming later on when somebody
+does something like this.
 
-What about CPU suspend/resume and hotplug?
+The same applies to the in-band wakeup UART mechanism.
 
-My concern is that most of the defined SCTLR2_ELx bits won't affect
-kernel execution unless the corresponding hardware features are
-actively being used -- so while we know that the patches don't break
-the kernel, this may not prove that SCTLR2_ELx is really being
-initialised / saved / restored / reset correctly.
+Which means that with this series we will relax it back anyway for
+the above mentioned cases.
 
-> > Since this code is not useful by itself, it may make sense to delay
-> > merging it until we have patches for a feature that depends on SCTLR2.
-> 
-> Whatever I pass this detiermination for maintainer.
+(Not sure, but SPI DesignWare requires programming SPI native chip selects even
+ if the GPIO is used for that, this might have also some implications, but here
+ it's for real 'purely speculative'.)
 
-Sure, that's just my opinion.
+-- 
+With Best Regards,
+Andy Shevchenko
 
-Either way, this doesn't stop anyone from building support for specific
-features on top of this series before it gets merged.
 
-Cheers
----Dave
 
