@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58D91CA1015
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 14:48:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3454CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 14:48:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZWXN3lccSEg1goFEfsy0CS9OdO0KcxItBlMNoiHBWvc=; b=EA/5xOnPpNvXCQIIFvXbfwPbZ5
-	CJUbRgkrGBCmH3Yl0qGdhz6t27DNQHNSu2A1ICR5z/251mwNYq1+jQVQ3Zn48TJIxDdVtWfAsNAlq
-	dFlp9pmI4xQ1N4LrAAZyyiT36GTiZJr0Vq8KoXIWrzRrfT3Jv5XKj4T6vim5fbREBP1DsYK6du8rQ
-	ASvc4pKbWmio9QMvtog1VYz3o6QZez0I1Wm7bMSlwr1ens1aNsmUNixa/1zdnQODPTjPnSk4j3kaB
-	Ice9KH2X0OWYQkO+wryg68hMsRwaZ/ZRFz16DBx0ZBfI/fEBSer9rkXb0xccgbjUTPnRW6WqTVAwj
-	E+/oJpsA==;
+	bh=89Pirc1gdz/+FhXD1SYe0RDV3wF24KaWnBhuIYtR8Co=; b=wIj1859YSOwfWteIilEiVx2dIe
+	JpkS/QyWzzeKk5Ax32j1hvlQTr5PVohkIXDwq1aSNnmHUZr5FOIkRY8uW2jjkxFAq2tyK68eoLwA7
+	wKiQ3L2Qimqgp2fvDS1ueZrD91r9I+sfIClPPoLsKIkPiQmjmhoxMnKUr2oaO8hjXhGB6MuA8algv
+	1HIzLi1s5ZugO6AiC2ZCmbQJO7EF9k7ybIQ3ASumhaChctWCQyN//RGjPC7ASBw7yDXyPT2c1+HoI
+	imN0NXuS/wsAbQFb1E+qPxlZOldm2r2j9IoUUk07i0G3MdksXmVMQp1eCW3AHtMCchLXJ+oVPoXtt
+	mJFVvNfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utomX-00000006lTL-2hga;
-	Wed, 03 Sep 2025 14:48:17 +0000
+	id 1utomZ-00000006lWM-1pYu;
+	Wed, 03 Sep 2025 14:48:19 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utmlp-00000006Q08-3hjN
+	id 1utmly-00000006Q3N-16w4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 12:39:27 +0000
+	Wed, 03 Sep 2025 12:39:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ZWXN3lccSEg1goFEfsy0CS9OdO0KcxItBlMNoiHBWvc=; b=J/vnGkOCPkUvuaEzd4Tc5Hcb/9
-	A3VesxVDakJlErUZhEi2H6HrYB23iKPaUGi/BwbT4U7vLwkZN6IlO/tYi8h9c2NMKz872OtJNihHF
-	qoHpWXMtdecmh9UDaiVRMFPVPWm01YrqBS5u1NfXAFIrf72WwUeFSfG81k8sgwl67apZDILsrw/ht
-	v7Uq/fbNtEyINWWXnQiwJk8DD02fF+PGNEL1u5pBADngNeam9xMVciNYphiw8O4UlLGP0icG4Gk2N
-	Z0CTicEgX3Ewt9T2o17NW0qSuBeIGgs6lASnKo0WZyGZ9N2kmR50i8gWbukB9dAIqukL0eDjC8cv1
-	wl1t90Iw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:51034 helo=rmk-PC.armlinux.org.uk)
+	bh=89Pirc1gdz/+FhXD1SYe0RDV3wF24KaWnBhuIYtR8Co=; b=ZOr1+w81C3EMXtHncCOJtem4OH
+	MSoE5NPA8lIJhTDeQKockj6T+Z1FMeYkS503DajJJDx9c2LMuNRcwXF7tLpx9qxv7tC6Psdp1pJoa
+	iFvZ2KcAT0LMfysV38HiE07U2UpyAIkTWsnhNvE6C/cKKU5zfNI0yajJu+0SbSXhPU2emx1LgeoIV
+	saJChiZbnEGxFPl41upIpCq+8Uef4olMv/qhyRSWo5To45VfcRFVbioxEMRlQdMounJWDsBFWpAg1
+	Y1SOArjxCNQdozPGp0gJXIJOQUFOF9QEmep9KoceLjaMFrpXHGL/axvhoXfvWca+RBM4S2r9wiKjp
+	GtM3yWJQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:37348 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1utmlj-000000000Ut-39bT;
-	Wed, 03 Sep 2025 13:39:19 +0100
+	id 1utmlt-000000000VL-4439;
+	Wed, 03 Sep 2025 13:39:30 +0100
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1utmli-00000001s00-49Uk;
-	Wed, 03 Sep 2025 13:39:19 +0100
+	id 1utmlt-00000001s0C-0wac;
+	Wed, 03 Sep 2025 13:39:29 +0100
 In-Reply-To: <aLg24RZ6hodr711j@shell.armlinux.org.uk>
 References: <aLg24RZ6hodr711j@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -64,17 +64,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 01/11] net: stmmac: mdio: provide address register
- formatter
+Subject: [PATCH net-next 03/11] net: stmmac: mdio: provide
+ priv->gmii_address_bus_config
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1utmli-00000001s00-49Uk@rmk-PC.armlinux.org.uk>
-Date: Wed, 03 Sep 2025 13:39:18 +0100
+Message-Id: <E1utmlt-00000001s0C-0wac@rmk-PC.armlinux.org.uk>
+Date: Wed, 03 Sep 2025 13:39:29 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_053925_927299_6E454882 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20250903_053934_305014_D14C36F1 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,133 +89,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rather than duplicating the logic for filling the PA (MDIO address),
-GR (MDIO register/devad), CR (clock range) and GB (busy) fields of the
-address register in four locations, provide a helper to do this.
+Provide a pre-formatted value for the MDIO address register fields
+which remain constant across the various different transactions
+rather than recreating the register value from scratch every time.
+Currently, we only do this for the CR (clock range) field.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../net/ethernet/stmicro/stmmac/stmmac_mdio.c | 53 +++++++++----------
- 1 file changed, 26 insertions(+), 27 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  1 +
+ .../net/ethernet/stmicro/stmmac/stmmac_mdio.c | 26 ++++++++++++-------
+ 2 files changed, 18 insertions(+), 9 deletions(-)
 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+index 78d6b3737a26..4d5577935b13 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+@@ -290,6 +290,7 @@ struct stmmac_priv {
+ 	int wolopts;
+ 	int wol_irq;
+ 	int clk_csr;
++	u32 gmii_address_bus_config;
+ 	struct timer_list eee_ctrl_timer;
+ 	int lpi_irq;
+ 	u32 tx_lpi_timer;
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-index 0a302b711bc2..3106fef6eed8 100644
+index 7887340ae7b6..2267a93ce44d 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-@@ -229,6 +229,24 @@ static int stmmac_xgmac2_mdio_write_c45(struct mii_bus *bus, int phyaddr,
- 					phydata);
+@@ -104,9 +104,7 @@ static int stmmac_xgmac2_mdio_read(struct stmmac_priv *priv, u32 addr,
+ 	if (ret)
+ 		goto err_disable_clks;
+ 
+-	value |= (priv->clk_csr << priv->hw->mii.clk_csr_shift)
+-		& priv->hw->mii.clk_csr_mask;
+-	value |= MII_XGMAC_READ;
++	value |= priv->gmii_address_bus_config | MII_XGMAC_READ;
+ 
+ 	/* Wait until any existing MII operation is complete */
+ 	ret = stmmac_mdio_wait(priv->ioaddr + mii_data, MII_XGMAC_BUSY);
+@@ -174,10 +172,7 @@ static int stmmac_xgmac2_mdio_write(struct stmmac_priv *priv, u32 addr,
+ 	if (ret)
+ 		goto err_disable_clks;
+ 
+-	value |= (priv->clk_csr << priv->hw->mii.clk_csr_shift)
+-		& priv->hw->mii.clk_csr_mask;
+-	value |= phydata;
+-	value |= MII_XGMAC_WRITE;
++	value |= priv->gmii_address_bus_config | phydata | MII_XGMAC_WRITE;
+ 
+ 	/* Wait until any existing MII operation is complete */
+ 	ret = stmmac_mdio_wait(priv->ioaddr + mii_data, MII_XGMAC_BUSY);
+@@ -239,8 +234,7 @@ static u32 stmmac_mdio_format_addr(struct stmmac_priv *priv,
+ 
+ 	return ((pa << mii_regs->addr_shift) & mii_regs->addr_mask) |
+ 	       ((gr << mii_regs->reg_shift) & mii_regs->reg_mask) |
+-	       ((priv->clk_csr << mii_regs->clk_csr_shift) &
+-		mii_regs->clk_csr_mask) |
++	       priv->gmii_address_bus_config |
+ 	       MII_BUSY;
  }
  
-+/**
-+ * stmmac_mdio_format_addr() - format the address register
-+ * @priv: struct stmmac_priv pointer
-+ * @pa: 5-bit MDIO package address
-+ * @gr: 5-bit MDIO register address (C22) or MDIO device address (C45)
-+ */
-+static u32 stmmac_mdio_format_addr(struct stmmac_priv *priv,
-+				   unsigned int pa, unsigned int gr)
+@@ -515,6 +509,18 @@ void stmmac_pcs_clean(struct net_device *ndev)
+ 	priv->hw->xpcs = NULL;
+ }
+ 
++static void stmmac_mdio_bus_config(struct stmmac_priv *priv, u32 value)
 +{
-+	const struct mii_regs *mii_regs = &priv->hw->mii;
++	value <<= priv->hw->mii.clk_csr_shift;
 +
-+	return ((pa << mii_regs->addr_shift) & mii_regs->addr_mask) |
-+	       ((gr << mii_regs->reg_shift) & mii_regs->reg_mask) |
-+	       ((priv->clk_csr << mii_regs->clk_csr_shift) &
-+		mii_regs->clk_csr_mask) |
-+	       MII_BUSY;
++	if (value & ~priv->hw->mii.clk_csr_mask)
++		dev_warn(priv->device,
++			 "clk_csr value out of range (0x%08x exceeds mask 0x%08x), truncating\n",
++			 value, priv->hw->mii.clk_csr_mask);
++
++	priv->gmii_address_bus_config = value & priv->hw->mii.clk_csr_mask;
 +}
 +
- static int stmmac_mdio_read(struct stmmac_priv *priv, int data, u32 value)
- {
- 	unsigned int mii_address = priv->hw->mii.addr;
-@@ -263,18 +281,14 @@ static int stmmac_mdio_read(struct stmmac_priv *priv, int data, u32 value)
- static int stmmac_mdio_read_c22(struct mii_bus *bus, int phyaddr, int phyreg)
- {
- 	struct stmmac_priv *priv = netdev_priv(bus->priv);
--	u32 value = MII_BUSY;
- 	int data = 0;
-+	u32 value;
+ /**
+  * stmmac_mdio_register
+  * @ndev: net device structure
+@@ -535,6 +541,8 @@ int stmmac_mdio_register(struct net_device *ndev)
+ 	if (!mdio_bus_data)
+ 		return 0;
  
- 	data = pm_runtime_resume_and_get(priv->device);
- 	if (data < 0)
- 		return data;
- 
--	value |= (phyaddr << priv->hw->mii.addr_shift)
--		& priv->hw->mii.addr_mask;
--	value |= (phyreg << priv->hw->mii.reg_shift) & priv->hw->mii.reg_mask;
--	value |= (priv->clk_csr << priv->hw->mii.clk_csr_shift)
--		& priv->hw->mii.clk_csr_mask;
-+	value = stmmac_mdio_format_addr(priv, phyaddr, phyreg);
- 	if (priv->plat->has_gmac4)
- 		value |= MII_GMAC4_READ;
- 
-@@ -300,20 +314,16 @@ static int stmmac_mdio_read_c45(struct mii_bus *bus, int phyaddr, int devad,
- 				int phyreg)
- {
- 	struct stmmac_priv *priv = netdev_priv(bus->priv);
--	u32 value = MII_BUSY;
- 	int data = 0;
-+	u32 value;
- 
- 	data = pm_runtime_resume_and_get(priv->device);
- 	if (data < 0)
- 		return data;
- 
--	value |= (phyaddr << priv->hw->mii.addr_shift)
--		& priv->hw->mii.addr_mask;
--	value |= (priv->clk_csr << priv->hw->mii.clk_csr_shift)
--		& priv->hw->mii.clk_csr_mask;
-+	value = stmmac_mdio_format_addr(priv, phyaddr, devad);
- 	value |= MII_GMAC4_READ;
- 	value |= MII_GMAC4_C45E;
--	value |= (devad << priv->hw->mii.reg_shift) & priv->hw->mii.reg_mask;
- 
- 	data |= phyreg << MII_GMAC4_REG_ADDR_SHIFT;
- 
-@@ -357,18 +367,13 @@ static int stmmac_mdio_write_c22(struct mii_bus *bus, int phyaddr, int phyreg,
- {
- 	struct stmmac_priv *priv = netdev_priv(bus->priv);
- 	int ret, data = phydata;
--	u32 value = MII_BUSY;
-+	u32 value;
- 
- 	ret = pm_runtime_resume_and_get(priv->device);
- 	if (ret < 0)
- 		return ret;
- 
--	value |= (phyaddr << priv->hw->mii.addr_shift)
--		& priv->hw->mii.addr_mask;
--	value |= (phyreg << priv->hw->mii.reg_shift) & priv->hw->mii.reg_mask;
--
--	value |= (priv->clk_csr << priv->hw->mii.clk_csr_shift)
--		& priv->hw->mii.clk_csr_mask;
-+	value = stmmac_mdio_format_addr(priv, phyaddr, phyreg);
- 	if (priv->plat->has_gmac4)
- 		value |= MII_GMAC4_WRITE;
- 	else
-@@ -395,21 +400,15 @@ static int stmmac_mdio_write_c45(struct mii_bus *bus, int phyaddr,
- {
- 	struct stmmac_priv *priv = netdev_priv(bus->priv);
- 	int ret, data = phydata;
--	u32 value = MII_BUSY;
-+	u32 value;
- 
- 	ret = pm_runtime_resume_and_get(priv->device);
- 	if (ret < 0)
- 		return ret;
- 
--	value |= (phyaddr << priv->hw->mii.addr_shift)
--		& priv->hw->mii.addr_mask;
--
--	value |= (priv->clk_csr << priv->hw->mii.clk_csr_shift)
--		& priv->hw->mii.clk_csr_mask;
--
-+	value = stmmac_mdio_format_addr(priv, phyaddr, devad);
- 	value |= MII_GMAC4_WRITE;
- 	value |= MII_GMAC4_C45E;
--	value |= (devad << priv->hw->mii.reg_shift) & priv->hw->mii.reg_mask;
- 
- 	data |= phyreg << MII_GMAC4_REG_ADDR_SHIFT;
- 
++	stmmac_mdio_bus_config(priv, priv->clk_csr);
++
+ 	new_bus = mdiobus_alloc();
+ 	if (!new_bus)
+ 		return -ENOMEM;
 -- 
 2.47.2
 
