@@ -4,60 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D82C9CA1009
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 11:17:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C31ACA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 11:20:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZRNuvtDEs2CIycsK4maQdP6MUdFSI0xchkkpiQAZH7Y=; b=B0noaMejlp0dpbvAgIQCNVFOjK
-	EjxJ+ulAaMMx6n73ptl4iXBcZDa/1YjHjBSmJ9nJrc7rmyJ28V6e+WkcN6VhuLzU+Z/UebD5U75YQ
-	0Xg3gMhAZ040Xy7F5ewaN3ePDFbRM12UqGWkHMutrJlHFoNmqlCw2zw8Dkosoq2tUgqrIBM0hqHOQ
-	K0Six3cc3fsSjZ8LNENB9lYkuZ9ZASnuH9lCZNrBwkk2kpOUTFHvLRVQew30DzUDtlmwI2KspnE1o
-	6mRjy8JjaKtZg7hCRahH33oZVp7dIQleGT79kWwe4biPlv23ca2Qi21wE1kfPleiO/WOBQEZER+mI
-	KSjpGTbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T31GhvMgDcDqa/8wxluLN+dNwm4mTxHX2BFlOQeV59E=; b=t9y6rZF9CRwriVJjAxFPoyuEml
+	FOBSNg5PQgXTPjGznMGj59i6jPp4LXC5kaZz8YHaDGQkq1aZcdtIa8t/LF0FVyJ8ZKEOtDU9pu4wv
+	wkVYpwo1KlxCAIvKpF9zBm4n/yfdPNz4B7qvf1rlk+LzBa5C7utRg7zUfkRmC68wrhLHO4jFjE2Mb
+	2ndM2JWEb9QkEhCP04+4Fl//sNnJbSCZ5Tuztxai5U8sdxar+3gkHy32bmzdUEdigSn4Arm73/zfO
+	ensd6Z4kNfOF8Rl5lZOIt+SLa8wuYRCnEpDggRrBRzKVgnk9xQFwXO/fnnDlneStoT8wIkMQslFjW
+	d5j/yDHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utlUs-00000006D8N-1pHQ;
-	Wed, 03 Sep 2025 11:17:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utkbu-000000065Fq-28Jw
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 10:21:07 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4D0121688;
-	Wed,  3 Sep 2025 03:20:53 -0700 (PDT)
-Received: from donnerap (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 088923F6A8;
-	Wed,  3 Sep 2025 03:20:59 -0700 (PDT)
-Date: Wed, 3 Sep 2025 11:20:54 +0100
-From: Andre Przywara <andre.przywara@arm.com>
-To: Chen-Yu Tsai <wens@csie.org>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
- <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-sunxi@lists.linux.dev>,
- Mikhail Kalashnikov <iuncuim@gmail.com>
-Subject: Re: [PATCH 3/5] clk: sunxi-ng: mp: support clocks with just a shift
- register
-Message-ID: <20250903112054.173fe7b8@donnerap>
-In-Reply-To: <CAGb2v66DHvE5gcWDvHwoiiCgNEnPiGjB6ash407PwJr8oMwyhw@mail.gmail.com>
-References: <20250903000910.4860-1-andre.przywara@arm.com>
-	<20250903000910.4860-4-andre.przywara@arm.com>
-	<CAGb2v66DHvE5gcWDvHwoiiCgNEnPiGjB6ash407PwJr8oMwyhw@mail.gmail.com>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	id 1utlXZ-00000006DX2-3l8O;
+	Wed, 03 Sep 2025 11:20:37 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1utkdf-000000065Ng-44HY;
+	Wed, 03 Sep 2025 10:22:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1756894972; x=1788430972;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=hEddkyRBq0eYhs86EpYDI0PR1kM06ibMXa7C70wF0A8=;
+  b=HggVaUDs6B5f0jjwnfhFSe8/Ze/5LEgjauNQ/5TUJY30DB18cimKRVkT
+   +aNsLVgdW55iJaeiH7gtEgadiG+IjSN3n6xz20M2CsssdMiQ0/aLUtxlc
+   vCgaGi1TB7AbGvlg6SgwfpuANKZ9vf3lKfLI1k8V6BsWuiC+kv095E8sM
+   OZE3t4WV4l13e4hwEWIuf4Q+dVawdt66nXtB5qSekXcp5xPM5iX+QLm96
+   2DjXdKqLpo/pKvvgwFGszxCfBbhoaMEKEfjafZYOW9AEgzkvYZwBDfXy5
+   h97+mgrGnUqBdI38YP63yiC4Fl8T1uGjmG1zPyi6o60nqR/5is3wICIE3
+   g==;
+X-CSE-ConnectionGUID: Odia2/aFTpuG0+Qricx9Bg==
+X-CSE-MsgGUID: l2xcyZZeS6GpueNME6T+OQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11541"; a="59318114"
+X-IronPort-AV: E=Sophos;i="6.18,233,1751266800"; 
+   d="scan'208";a="59318114"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Sep 2025 03:22:50 -0700
+X-CSE-ConnectionGUID: YTo0WasPQBSP1GD2jJB+Ig==
+X-CSE-MsgGUID: 5tCXY7/9Tha1Hp4Y6DZptQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,233,1751266800"; 
+   d="scan'208";a="195180921"
+Received: from smile.fi.intel.com ([10.237.72.52])
+  by fmviesa002.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Sep 2025 03:22:40 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@intel.com>)
+	id 1utkdQ-0000000AxFa-1l46;
+	Wed, 03 Sep 2025 13:22:36 +0300
+Date: Wed, 3 Sep 2025 13:22:36 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Andy Shevchenko <andy.shevchenko@gmail.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Alexey Klimov <alexey.klimov@linaro.org>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Sean Wang <sean.wang@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Paul Cercueil <paul@crapouillou.net>, Kees Cook <kees@kernel.org>,
+	Andy Shevchenko <andy@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@redhat.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>, Dong Aisheng <aisheng.dong@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Jacky Bai <ping.bai@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	NXP S32 Linux Team <s32@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Tony Lindgren <tony@atomide.com>,
+	Haojian Zhuang <haojian.zhuang@linaro.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Mark Brown <broonie@kernel.org>, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-hardening@vger.kernel.org, linux-mm@kvack.org,
+	imx@lists.linux.dev, linux-omap@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Subject: Re: [PATCH v7 16/16] pinctrl: qcom: make the pinmuxing strict
+Message-ID: <aLgW7J-j4nn0u8uo@smile.fi.intel.com>
+References: <20250902-pinctrl-gpio-pinfuncs-v7-0-bb091daedc52@linaro.org>
+ <20250902-pinctrl-gpio-pinfuncs-v7-16-bb091daedc52@linaro.org>
+ <aLcBcjvMbrxoDYoC@smile.fi.intel.com>
+ <CAMRc=MfcFMgkNqWNZV5o0NxkAvxBTjC3vv56Cr98n0R2CkxuPw@mail.gmail.com>
+ <CAHp75VcgaqnDrPH27wxfgyK6zz4RAKJQB0r7G2vbTONTxkEzTw@mail.gmail.com>
+ <CAMRc=MfhhX2NJ0fhhX8u+7=sdyUy0G27n7caGf9=TpHxUDJVxg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMRc=MfhhX2NJ0fhhX8u+7=sdyUy0G27n7caGf9=TpHxUDJVxg@mail.gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_032102_625716_CF25DD96 
-X-CRM114-Status: GOOD (  27.97  )
+X-CRM114-CacheID: sfid-20250903_032252_019514_BA31E234 
+X-CRM114-Status: GOOD (  21.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,81 +131,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 3 Sep 2025 12:20:55 +0800
-Chen-Yu Tsai <wens@csie.org> wrote:
+On Wed, Sep 03, 2025 at 09:33:34AM +0200, Bartosz Golaszewski wrote:
+> On Tue, Sep 2, 2025 at 10:46 PM Andy Shevchenko
+> <andy.shevchenko@gmail.com> wrote:
+> > On Tue, Sep 2, 2025 at 8:42 PM Bartosz Golaszewski <brgl@bgdev.pl> wrote:
+> > > On Tue, Sep 2, 2025 at 4:38 PM Andy Shevchenko
+> > > <andriy.shevchenko@intel.com> wrote:
+> > > > On Tue, Sep 02, 2025 at 01:59:25PM +0200, Bartosz Golaszewski wrote:
 
-> On Wed, Sep 3, 2025 at 8:09=E2=80=AFAM Andre Przywara <andre.przywara@arm=
-.com> wrote:
-> >
-> > The "mp" clock models a mod clock with divider and a shift field. At
-> > least one clock in the Allwinner A523 features just a power-of-2 divider
-> > field, so support an initialisation of the clock without providing an
-> > actual divider field.
-> >
-> > Add a check whether the "width" field is 0, and skip the divider
-> > handling in this case, as the GENMASK macro will not work with a zero
-> > length.
-> >
-> > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> > --- =20
->=20
-> In my series I have a patch that adds this to the divider clocks,
-> thus adding a P-clock type to the M-clock bits.
+...
 
-Yeah, I saw that, but wasn't convinced this would be better. Hence wanted
-to post my version as an alternative.
+> > > > > The strict flag in struct pinmux_ops disallows the usage of the same pin
+> > > > > as a GPIO and for another function. Without it, a rouge user-space
+> > > > > process with enough privileges (or even a buggy driver) can request a
+> > > > > used pin as GPIO and drive it, potentially confusing devices or even
+> > > > > crashing the system. Set it globally for all pinctrl-msm users.
+> > > >
+> > > > How does this keep (or allow) I²C generic recovery mechanism to work?
+> 
+> Anyway, what is your point? I don't think it has any impact on this.
 
-> Maybe use that instead? I prefer we use actual matching types instead
-> of disabling one part of a complex clock type.
+If we have a group of pins that are marked as I²C, and we want to use recovery
+via GPIOs, would it be still possible to request as GPIO when controller driver
+is in the strict mode?
 
-Good that you bring up that topic: when looking for matching clocks I saw
-we have a lot of them, though often one is just a subset of some others,
-with some code duplication. And we use the pattern of "use type A, but
-without feature X" already, for instance for "NKMP without the K".
+-- 
+With Best Regards,
+Andy Shevchenko
 
-So I was wondering if we should revisit this and clean this up. IIUC those
-clocks were all modelled after the H3 and earlier generation, and the
-clocks have changed since then. For instance I don't see PLLs with two
-multipliers (NK) after the A64 anymore.
-
-So what about we consolidate the various types into just a few distinct
-ones, like NKMP for all PLLs, for instance, and provides macros that
-disable fields as needed? This could ideally be done under the hood,
-leaving the per-SoC drivers mostly alone, hopefully.
-
-What do people think about that?
-
-Cheers,
-Andre
-
-> >  drivers/clk/sunxi-ng/ccu_mp.c | 6 ++++--
-> >  1 file changed, 4 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/drivers/clk/sunxi-ng/ccu_mp.c b/drivers/clk/sunxi-ng/ccu_m=
-p.c
-> > index 354c981943b6f..a03dac294d048 100644
-> > --- a/drivers/clk/sunxi-ng/ccu_mp.c
-> > +++ b/drivers/clk/sunxi-ng/ccu_mp.c
-> > @@ -236,9 +236,11 @@ static int ccu_mp_set_rate(struct clk_hw *hw, unsi=
-gned long rate,
-> >         spin_lock_irqsave(cmp->common.lock, flags);
-> >
-> >         reg =3D readl(cmp->common.base + cmp->common.reg);
-> > -       reg &=3D ~GENMASK(cmp->m.width + cmp->m.shift - 1, cmp->m.shift=
-);
-> > +       if (cmp->m.width)
-> > +               reg &=3D ~GENMASK(cmp->m.width + cmp->m.shift - 1, cmp-=
->m.shift);
-> >         reg &=3D ~GENMASK(cmp->p.width + cmp->p.shift - 1, cmp->p.shift=
-);
-> > -       reg |=3D (m - cmp->m.offset) << cmp->m.shift;
-> > +       if (cmp->m.width)
-> > +               reg |=3D (m - cmp->m.offset) << cmp->m.shift;
-> >         if (shift)
-> >                 reg |=3D ilog2(p) << cmp->p.shift;
-> >         else
-> > --
-> > 2.46.3
-> > =20
 
 
