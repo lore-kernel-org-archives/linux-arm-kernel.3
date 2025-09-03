@@ -4,77 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC608CA100C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 09:37:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96CB5CA100C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 09:40:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NxYdDeBt3ISiaJZS8Nj6jPsgZ8vTJC3HBOq7SluJ1CE=; b=n0k5g+LsZHmp3YmD9Vc/QR44AZ
-	1zeZflTR28epVFruImzbBX1f4NtABU0NyVeV90PpgoTZUhjv7cJkUbIja+h8m/6JZqPfUYcfgtSB8
-	aI/hGgJhqWsYVkVNWD30bFLvKCbzF2FA7HCqI7p5LD0awPm/xjPKK7WjHEHDlterI4O3U8MZw+6LX
-	292NLIEHULB/UfAtpwNs690CfMH8h+mxzpPMeUk26YPShw3xX/mXJ0Ppg6Nd23G9F6lrH7Uw1mTm3
-	SC+VkCw1S/dbXMxDGSUjiCxGfeoPn7qw4N1EJxoIyzp5WSAo6s3N+8L5/023XokBPpNhZkmtJsSx7
-	hpxztqNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hZTy5PSuTM5rEw0pIf6nxs+pKdYAXNk6URBgB/E9ySA=; b=Ca3prLyH3TKaaEHDRfpPkhSGGq
+	UrVKUBBPurr8DBjjIcIjKKeXwEpdI55qcc4IxTkp08oH7yJ7BeXY0mEbeh7LzHgdMxwAIzokotBmG
+	G5NXiyQEw7LGj5EA13y8Ra1lZRFv8puE8Jd9K3Zi0DClyFYrN8CsiWk8TuoebIkeKwdtqNYd05LuK
+	4lyvH/tMQ608nnCZtVdCwaP7/8pGXye79bOrApgUfSTtKTqbqqrcVNZ8DBTF+d9YDXeHe85jQtfnX
+	CygWMUkmg6WQwYfLei4vKCUl4rm8S8BDkGxrB9o4K0+syeIXSjwZItXrETNDc9wi4SlfKmXlOQrne
+	wXnmdOrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utjw9-00000005xGt-1Rn7;
-	Wed, 03 Sep 2025 09:37:53 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1utjyp-00000005xbA-0gOA;
+	Wed, 03 Sep 2025 09:40:39 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utiRE-00000005MgR-1vF7
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 08:01:53 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 25D9BA0D47;
-	Wed,  3 Sep 2025 10:01:49 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=NxYdDeBt3ISiaJZS8Nj6
-	jPsgZ8vTJC3HBOq7SluJ1CE=; b=Ppw939ggPE4xtXbZXt0bWgebMHysSYt/LTGa
-	R3WtVxAR9k6Ii8iiPae+0uR+U9jJw5JO8YvI3tS8uJrTBalK/7+jDXCTgJiIgT0O
-	OPwTzqMji+oyIimYGsG4Lj9UuqK4eR4L/DL0O+qVpmM5tOBV0qhDY6gL07IUT3Ll
-	MHkmjxifEIzTIznuq6SIxfk5TsCMjqFcN3XGjrmQKOMynT37iohH9IwTqrlTXzLM
-	j4NTiMrut75iCZAqEQWitN1o9X8gSz/5fykBxTywy9SyKo1h/l4HfsjfKrore/uu
-	1/Krs28o9Dpkj1NfdUxSrpYN8Q+qCHB8702S0N0vtScBTukxVoZQ887iZE2RXyPn
-	WNA7/+0GtVfTWqz2TjAwxWNhMkBso0cmVRCkiaf5GWO3hUFr8MpMLdgZDJgpf0VK
-	hlqH8RyitxcJYw9h8apkazWTRVARmfR+YfpE1vr8fn7M0E0nKk+ios6b+Q6E3wTt
-	Ggh9MC6qTHitOuCRfXF6b2Onj2QjLyDJ+iAd3cca3ckwi9/maApevhrWmDk1rH0u
-	gV8+grgK4E7DMmqIsS7H4Lnw0cvQAisPtAvdIsfXV/qW7eKwkcoVBh6RSR+b92tZ
-	ShUTdEi0rG/ELTpSbd0kebIMkddGH494FQzhvquSjH2IPzCbAfmWEHNCojiCgvac
-	PBHFGuI=
-Date: Wed, 3 Sep 2025 10:01:47 +0200
-From: Buday Csaba <buday.csaba@prolan.hu>
-To: Ahmad Fatoum <a.fatoum@pengutronix.de>
-CC: =?iso-8859-1?B?Q3Pza+Fz?= Bence <csokas.bence@prolan.hu>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
-	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, <devicetree@vger.kernel.org>,
-	<imx@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH] ARM: dts: imx6ul-tx6ul: Switch away from deprecated
- `phy-reset-gpios`
-Message-ID: <aLf162kc8_VB163Z@debianbuilder>
-References: <20250815-b4-tx6ul-dt-phy-rst-v1-1-9b65e315d9d3@prolan.hu>
- <fa7e2cef-5242-4f3b-84ea-d77b959f6bdb@pengutronix.de>
- <c85a94ee-59e1-47d6-8200-813bb434caf2@prolan.hu>
- <1bf75411-4a51-4103-b314-a8a7253bafca@pengutronix.de>
+	id 1utiWS-00000005Pf3-2RIt;
+	Wed, 03 Sep 2025 08:07:17 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-45b76a30584so1267255e9.1;
+        Wed, 03 Sep 2025 01:07:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756886835; x=1757491635; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=hZTy5PSuTM5rEw0pIf6nxs+pKdYAXNk6URBgB/E9ySA=;
+        b=YNzawDtyubX0Dz+EbC+hoD/GsknkC+Ogo4m3hG4r7XYlxkRKQY1g+1OPpNbyzOBTsl
+         UBE77ZWJ4LTqf5gZZcyzN2UGu0gCt8qU038Pgpwr8Zep8b7sCRre4iwlF1jxdJJWyPpn
+         TpV10CowUYYgVdtKdEpwykQYhnEbKKiG09gZvReX78n99JFalwuf59VeG77+huRkzm8+
+         UB3sgaYJTHqW/eFt4MxUTA0ef+f6IB1oFN49R/hJC9I4dbRO5cT0wRokm28bDD9aU9tG
+         nrBlowC/BoAMq4UnUeU1Z0FEmLpNyJIW9jqeVbTHZQPB+JR+7lwdia5hN9CJ2S8iRoFX
+         fzqA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756886835; x=1757491635;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hZTy5PSuTM5rEw0pIf6nxs+pKdYAXNk6URBgB/E9ySA=;
+        b=OXJ5qHP7IF0dLORnC6LGxb1JgC2IsULMxvNyTOBM28KJ3Avo8k1iACvz1ob2THQHHk
+         sulU8okq8MA3uXiixhAjWR3+jtBD+2/6vaBK2F3d+VriyK5mvpCOfUz5kcWelC60cj10
+         bQcZDHCzGuHGd56AuhYcwcEdTtNDvWvE5e9JMzi5c1z53tBY07rgkTUWM+PmBfGj01Ud
+         ybsm8Rc/SAbEBuc47oltI5/7neGQ72DiW/+EWBrZZGrTmVeKfymDbOJTtQUofGok5Pq4
+         ZYTnBnTrtzh9rvpYbPip5R9tqORBTQgvh4iqq92mO5zo76liPW82YGJ/ttjjmEiu8UJF
+         ZOBA==
+X-Forwarded-Encrypted: i=1; AJvYcCUYIwZ+TybPosEfUZ25Ppg1DV7ZySmUbIvMXH00I806obIgN+pHfk790+pH+r/lKsSS0HuWaiWUahm2ybuhAYA=@lists.infradead.org, AJvYcCXm2AY5Cqr1nqPPTx5zmcH6TAE9pZ5hOblUZBC96mZFdQbLRlXML9lCfoVN2lVWoEhYKYfH5CTpJLe6vdNotAo1@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRI87k1LcEyeVQeZo4yAnmMwp3Nwvd5gbN/SwTQhndIpOQbkYK
+	QeoTFCR/4vjLNOo53B/zIgV3RY/6ZQdKEBjPO7Y0be2QvPgO/UC1NuMu
+X-Gm-Gg: ASbGncuH8LFmlaNI5IFiR6juaYVDLZCWW2WAvHSx8kxhmRDY5P7Z240BqmCBoItuvPc
+	qldMZbN4RjNalZUMhokG7puOytfBGA+OUg6BczzBf5dPpBk1NOxwd0z+pwzz1g0I2yGO5L8IX6+
+	znh7UyKMpTLJZbtDcyyHsSLCD9K1de8kteBzUUNBe+H0WEqm2bbyLP8GzWydOWSV17QI5WsO1X4
+	nn+hc9cn/n0+y//QQcgp0mcX6Wc/JG+HEnSfLZci37d/GqZr7EnYqWaCPyMFt9mqnOTRd/rCprb
+	cLapwOON7x1kWcICalzAy1SC4RDyZy89tQFyNsKYjZVSJbDsX5GuCqiYD7Z3gAA1PwkA1YmBUJ6
+	1MVEyjXIRH5a0H3lWY4NrMJOuHGDXKoAYwiKPmdiactXCOouiKhiYOPtnDcSxBA==
+X-Google-Smtp-Source: AGHT+IEpGBOP1B1Jph5fgexU4vMmswDuYQqgA49JGWQuOcwTIUvg6AkoYPsE1hTfBRhrYgvcN4/h2A==
+X-Received: by 2002:a05:6000:2883:b0:3cb:9930:78bd with SMTP id ffacd0b85a97d-3d064dfe9camr6000577f8f.5.1756886834510;
+        Wed, 03 Sep 2025 01:07:14 -0700 (PDT)
+Received: from thomas-precision3591.u-ga.fr ([2001:660:5301:24:6179:26f2:8797:e6a9])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3d3a7492001sm17768599f8f.42.2025.09.03.01.07.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 03 Sep 2025 01:07:14 -0700 (PDT)
+From: Thomas Fourier <fourier.thomas@gmail.com>
+To: 
+Cc: Thomas Fourier <fourier.thomas@gmail.com>,
+	stable@vger.kernel.org,
+	Corentin Labbe <clabbe@baylibre.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Heiko Stuebner <heiko@sntech.de>,
+	John Keeping <john@keeping.me.uk>,
+	linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] crypto: rockchip - Fix dma_unmap_sg() nents value
+Date: Wed,  3 Sep 2025 10:06:46 +0200
+Message-ID: <20250903080648.614539-2-fourier.thomas@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <1bf75411-4a51-4103-b314-a8a7253bafca@pengutronix.de>
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1756886508;VERSION=7998;MC=1461641227;ID=1362923;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
-X-ESET-Antispam: OK
-X-EsetResult: clean, is OK
-X-EsetId: 37303A296767155E637062
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_010152_661198_3C1B970D 
-X-CRM114-Status: GOOD (  43.99  )
+X-CRM114-CacheID: sfid-20250903_010716_618782_7A074714 
+X-CRM114-Status: GOOD (  12.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,140 +103,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 03, 2025 at 09:50:08AM +0200, Ahmad Fatoum wrote:
-> Hi,
-> 
-> On 03.09.25 09:43, Csókás Bence wrote:
-> > Hi,
-> > 
-> > On 2025. 09. 03. 9:28, Ahmad Fatoum wrote:
-> >> Hello,
-> >>
-> >> On 15.08.25 17:17, Bence Csókás wrote:
-> >>> The Ethernet PHY's reset GPIO should be specified in the node of the PHY
-> >>> itself, instead of the MAC (`fec`). The latter is deprecated, and was an
-> >>> i.MX-specific extension, incompatible with the new reset controller
-> >>> subsystem.
-> >>
-> >> One reason to do it this way is that the PHY is in reset when the OS starts
-> >> and the external phy-reset-gpios allows MAC probe to get the PHY out of
-> >> reset, so it can be probed after reading its vendor/device IDs.
-> >>
-> >> Does switching to this new binding address this scenario? If so, it should
-> >> be noted in the commit message.
-> > 
-> > Yes, but after it has been reset, if the platform supports Power Management, the PHY's clock will be turned off, which some PHYs (in our case the LAN8710) don't tolerate. This has been reported many times, just search LKML for "lan8710 reset".
-> > 
-> > So we want a more general solution [1] where the PHY subsystem resets them before enumerating. However, if the MAC driver claims the GPIO, then it can't be used by the PHY.
-> 
-> I agree that it makes sense for a PHY reset to be associated with the PHY
-> device and controlled by the PHY driver. I am wary of regressions though,
-> which is why I wanted the commit message to clearly spell out the implications.
-> 
-> > I will clarify the commit msg with this in mind.
-> 
-> Thanks.
-> 
-> > [1] https://lore.kernel.org/lkml/20250709133222.48802-4-buday.csaba@prolan.hu/
-> 
-> Is this mainline yet?
-> 
+The dma_unmap_sg() functions should be called with the same nents as the
+dma_map_sg(), not the value the map function returned.
 
-No, it is not. It was never the most beautiful piece of code, so I understand
-that.
+Fixes: 57d67c6e8219 ("crypto: rockchip - rework by using crypto_engine")
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Thomas Fourier <fourier.thomas@gmail.com>
+---
+ drivers/crypto/rockchip/rk3288_crypto_ahash.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-But if you could give us some guidance, that would help a lot.
-
-Specifically:
-
-1)  If `phy-reset-gpios` is deprecated, than we should start treating it as
-    such, and not rely on it in future releases. Perhaps we should also add a
-    warning message, when it is found in the device tree.
-2)  On the other hand, if it is here to stay for a long time, it should be
-    fixed. Now the gpio is claimed during fec_reset_phy(), and never released.
-    It can not be used by the driver later, like in fec_init(), because the
-    gpio reference is only stored in a local variable of fec_reset_phy().
-    Previous patches that would have stored the reference in the driver were
-    rejected on the grounds that it is deprecated. But if it is not, then we
-    can create a patch that would make it work properly.
-3)  Andrew pointed out, that resetting a PHY before probing it may cause
-    regressions. That is certainly a valid concern, but for most of the 
-    devices resetting it means starting from a known state, and should be the
-    default. But we could create a device tree property, that controls this
-    behaviour.
-
-Regards,
-Csaba
-
-> Cheers,
-> Ahmad
-> 
-> > 
-> >>>
-> >>> Co-developed-by: Csaba Buday <buday.csaba@prolan.hu>
-> >>> Signed-off-by: Csaba Buday <buday.csaba@prolan.hu>lan8710 reset
-> >>> Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
-> >>> ---
-> >>>   arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi | 8 +++++++-
-> >>>   1 file changed, 7 insertions(+), 1 deletion(-)
-> >>>
-> >>> diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
-> >>> index f053358bc9317f8447d65013a18670cb470106b2..0a5e90704ea481b0716d6ff6bc6d2110914d4f31 100644
-> >>> --- a/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
-> >>> +++ b/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
-> >>> @@ -246,7 +246,6 @@ &fec1 {
-> >>>       pinctrl-names = "default";
-> >>>       pinctrl-0 = <&pinctrl_enet1 &pinctrl_enet1_mdio &pinctrl_etnphy0_rst>;
-> >>>       phy-mode = "rmii";
-> >>> -    phy-reset-gpios = <&gpio5 6 GPIO_ACTIVE_LOW>;
-> >>>       phy-supply = <&reg_3v3_etn>;
-> >>>       phy-handle = <&etnphy0>;
-> >>>       status = "okay";
-> >>> @@ -262,6 +261,13 @@ etnphy0: ethernet-phy@0 {
-> >>>               pinctrl-0 = <&pinctrl_etnphy0_int>;
-> >>>               interrupt-parent = <&gpio5>;
-> >>>               interrupts = <5 IRQ_TYPE_EDGE_FALLING>;
-> >>> +            /* Reset SHOULD be a PHY property */
-> >>
-> >> Comment belongs into commit message.
-> > 
-> > Agreed.
-> > 
-> >>> +            reset-names = "phy";
-> >>> +            reset-gpios = <&gpio5 6 GPIO_ACTIVE_LOW>;
-> >>> +            reset-assert-us = <100>;
-> >>> +            reset-deassert-us = <25000>;
-> >>> +            /* Energy detect sometimes causes link failures */
-> >>> +            smsc,disable-energy-detect;
-> >>
-> >> Unrelated change not described in the commit message.
-> > 
-> > Oh, this has accidentally made it into here from our DT. Thanks for spotting it!
-> > 
-> >> Cheers,
-> >> Ahmad
-> >>
-> >>>               status = "okay";
-> >>>           };
-> >>>  
-> >>> ---
-> >>> base-commit: 0cc53520e68bea7fb80fdc6bdf8d226d1b6a98d9
-> >>> change-id: 20250815-b4-tx6ul-dt-phy-rst-7afc190a6907
-> >>>
-> >>> Best regards,
-> >>
-> >>
-> > 
-> > Bence
-> > 
-> > 
-> 
-> 
-> -- 
-> Pengutronix e.K.                           |                             |
-> Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-> Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
-> 
+diff --git a/drivers/crypto/rockchip/rk3288_crypto_ahash.c b/drivers/crypto/rockchip/rk3288_crypto_ahash.c
+index d6928ebe9526..b9f5a8b42e66 100644
+--- a/drivers/crypto/rockchip/rk3288_crypto_ahash.c
++++ b/drivers/crypto/rockchip/rk3288_crypto_ahash.c
+@@ -254,7 +254,7 @@ static void rk_hash_unprepare(struct crypto_engine *engine, void *breq)
+ 	struct rk_ahash_rctx *rctx = ahash_request_ctx(areq);
+ 	struct rk_crypto_info *rkc = rctx->dev;
+ 
+-	dma_unmap_sg(rkc->dev, areq->src, rctx->nrsg, DMA_TO_DEVICE);
++	dma_unmap_sg(rkc->dev, areq->src, sg_nents(areq->src), DMA_TO_DEVICE);
+ }
+ 
+ static int rk_hash_run(struct crypto_engine *engine, void *breq)
+-- 
+2.43.0
 
 
