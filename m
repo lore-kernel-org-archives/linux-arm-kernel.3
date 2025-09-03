@@ -4,88 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20C0ECA1009
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 17:21:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAF32CA0FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 17:24:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bzHn34jeAFC+trUamzDM6dfK6EpwqtxxyQu4NkAXCys=; b=0dq0MVsXgSnIYzR1fKyA6Pw0C2
-	O0h8RJn+8eSryVemoIYaUAXuCl0+28Bz8n7ove2dCNJf8qlRTRolKMoObEE+EXBqXHIKco8ZeCe0+
-	Q0yxhK1Ly2/nKBv7fkUlrYtjgsZp6XWF6kYqs9qRV6kAXx6Q0PCY10uJFhiooG+MYXeLJwYzVfayp
-	/gGI4HnK3eYRWrEPO5nihghcGjoBAv8VNk1Fk/9kaqSPYwPZpoKaX3Ua/HWef0z5JHPblGS0wOtXU
-	KN56C8Zs8jJD0WExzukYT+qfdD2KfCZde8b9tIjQCYpKc25/MpfMDZhuy8QcG5nxVlO5Boi6S5VcI
-	RokSek7Q==;
+	bh=PbL/EGQbhxJhOitVzc5HwwJYAZFXLJWkRn1NxA9OrZc=; b=tgD7tarJs0U7IPEiUobKiw4R+Y
+	60rds4qJKTPceDs8lSC2yamp/DySnId2sZvemaz/AlCMFJOScYI6PBVsl2bU5wQULEGcLMR7wJGAY
+	krSevYwhlEEw1GUOiT1dOSUgnajGZiut7rHRBLZo1UtKPdgYaD4lyvYrgWg5yOlO1ZSQLivaCcWnL
+	H2FbMYPPbyqWhEXZFCnjtg8VgYjRycaZFXZrMRmzgA19NPURpwMcHlFeMF6mzl/J9H5DYWFzq7LXV
+	Gk9nrviby8UTWXHp+sdR08qLxEhAr83imxLXn4Ec74DWxJxyRZ3Vh6GXKuhMD2v8UlTlNQfrG+p1B
+	QuQVmzWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utrAi-00000007B8X-3Ljw;
-	Wed, 03 Sep 2025 17:21:24 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1utrDQ-00000007BOT-0hml;
+	Wed, 03 Sep 2025 17:24:12 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utnf6-00000006cMD-1Vou
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 13:36:33 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 583DWqw3022718;
-	Wed, 3 Sep 2025 15:36:20 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	bzHn34jeAFC+trUamzDM6dfK6EpwqtxxyQu4NkAXCys=; b=OswDVRc0fkrDCn+U
-	jX9Y6JwB7sKv9I9GTRnblCrimf8bCCzaFC3f1b+uFYAEXx6/574guT5BrAlfqg1T
-	PrWMo7cxoxMAkTaiYjUpKBkHTr3sfMklY/xnyHXWZyfGvPD5YTYsSuSyEZCRLqRw
-	I5zHZ507T90b1NGGwQSvuo5slo6I7Q/q9a7UgHQS24fchqokjpK66XnlEmg7UyyL
-	eG8m6eKen77x59fEljxL5h50lzGd+MZ2LXqtLAhaz5FekOi8b8KxAZZyyWPja/tD
-	reaKyH3dlFCXRvxHAQYTHdLWJ0nq3v9hOXTHThTsGo1C/QUXCp66FCoIvJ9p/fuB
-	NFd1tw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48vav2q0p7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 03 Sep 2025 15:36:20 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id EA26D40049;
-	Wed,  3 Sep 2025 15:35:27 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 6162A2B4B41;
-	Wed,  3 Sep 2025 15:34:53 +0200 (CEST)
-Received: from [10.48.87.141] (10.48.87.141) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 3 Sep
- 2025 15:34:52 +0200
-Message-ID: <9cfa9cb4-bf7e-4d48-b0cc-0726784b7462@foss.st.com>
-Date: Wed, 3 Sep 2025 15:35:01 +0200
+	id 1utng3-00000006cYE-1jJE;
+	Wed, 03 Sep 2025 13:37:32 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-61e8fdfd9b4so2051754a12.1;
+        Wed, 03 Sep 2025 06:37:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756906650; x=1757511450; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PbL/EGQbhxJhOitVzc5HwwJYAZFXLJWkRn1NxA9OrZc=;
+        b=KIo/pYVWeuNL/d7N3BAkUf8PAEgwmqRz9Pokd2Yb1VHBYg0ncvbImS7A9Lr/dd0mxV
+         4ooguxEMmudczldpUjXnCgir6SbYgAxUBOqFbXvZh0y1hh+BIcQijXsmA88ZBRiJXox7
+         giuSCEosOh63miFUQPKvgK+rGk2h/IpszzrvobGjEQUYCL79F69R3jM/5vMJ8WkbdjQf
+         VSwfL+UScwdeTFQ0pF+FDSLfrGYM9vs+mefoCRU2klWbgx4YG7i4CKdFBMbeExDCPppk
+         nH36P4B6aZYO9s/+XACP+x540ijTthmc0DcQkmd7EoXpyZ010abmI8D0oQ/0R9Ctwh6K
+         kG1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756906650; x=1757511450;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=PbL/EGQbhxJhOitVzc5HwwJYAZFXLJWkRn1NxA9OrZc=;
+        b=CW7tWvsKsr7QMzIjl5+zyqkmWHXaqaSHiktPaespUjr5Oht+kekDZGrkkCVr4f0C7o
+         ly+HSnHS7dAteepAmP/Sjk93iJd5/z12jew6Sedrc4zXLUHJgk2+CWzDVLnIbX6IUOfP
+         KqFJj+zZq5/JJ0vI4/mFTsn8HFdGz2h41NW560hB2jvqJZL5uS9AZ4Hm3+Qow5c4FLW9
+         N3U/9Wtn5xG04FRFL2dtthbn9nkNI2zv0AcioPB0ygU50pTVINUwmptlDDVHd7a8rNv8
+         MWYtJ4wU7zdfC3lJ0HIVvCEXhvvUEVIDPYtE/olIdRPwgrRFqlZS8AyiLnDkr00QrEYy
+         tddQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVvbw6DtnrkwLqaw2gCC+EO4ZPF1qgnRuc60Pa9s8vwURqreXbEBczxQjM74h+yk8Pney52y2hgALYqR0+D5j8=@lists.infradead.org, AJvYcCXLksKz847TTsF30P3OJrMwd3ODbiepoY5ErcuJ3bttm0fxA1UAq2Ixbskp585oodkPec8sL66njZmnODQ04EiB@lists.infradead.org
+X-Gm-Message-State: AOJu0YxVvx6ptH3uyl+RMnr1gJxu5Q99lEuj8Djut3hhqJ9XmtNXIB8C
+	G0dyN/PNQc7O1boFaYorznSDm+GdUDN1zFS58ybWq8WEG3NkxfBb86sdfe30nWLMrZA1GFr+pUS
+	eXlOAJVX1mW3KWFpF9m1UMPGS6kDoU2w=
+X-Gm-Gg: ASbGnct4VAg1kAnwQLpInMry4QH2FYqoDm4XYMmhZL9wflFG71coe1AbSm5ulyUtYsT
+	gMsGs8Wz4etoqY4xMl7ijR/lePfq3MoR4gblaGjNHwk/v6Fb1GGceucCwmagPTygMnbmGoxPm9E
+	Rwy9aZbjTAFlzyzDqs0Ds02WR9JfLseFp5rkiCRqKbwdytrPaJOvKglJ/2TM5sBhCB2b5hl7BWP
+	g2S+QTtGp5yfPllVb+Q7u2qVejEVqnMVTbS
+X-Google-Smtp-Source: AGHT+IHvQXQHTKEMoyFaTqaFVMbln/qgY7S7KV3L7ZG8Nf/m54vluMUEQq7iKiQYNXvspMMnhgUINllpQJ2XVCLCUPs=
+X-Received: by 2002:a05:6402:3494:b0:61d:9a4c:d03 with SMTP id
+ 4fb4d7f45d1cf-61d9a4c0e7cmr11965634a12.13.1756906649669; Wed, 03 Sep 2025
+ 06:37:29 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] arm64: dts: st: enable ethernet1 controller on
- stm32mp257f-dk
-To: Andrew Lunn <andrew@lunn.ch>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20250903-mp2_ethernet-v1-0-4105b0ad2344@foss.st.com>
- <20250903-mp2_ethernet-v1-2-4105b0ad2344@foss.st.com>
- <5c49e94a-9267-459a-ba6c-70f3763f1a7b@lunn.ch>
-Content-Language: en-US
-From: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
-In-Reply-To: <5c49e94a-9267-459a-ba6c-70f3763f1a7b@lunn.ch>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.141]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-03_07,2025-08-28_01,2025-03-28_01
+References: <20250831104855.45883-1-cn.liweihao@gmail.com> <20250831104855.45883-2-cn.liweihao@gmail.com>
+ <42028191.XM6RcZxFsP@phil>
+In-Reply-To: <42028191.XM6RcZxFsP@phil>
+From: =?UTF-8?B?5p2O57u06LGq?= <cn.liweihao@gmail.com>
+Date: Wed, 3 Sep 2025 21:37:25 +0800
+X-Gm-Features: Ac12FXx8u4DAg0EdT2iuAXVd9emM64ORc15VdHEwcPQcLyGaOTv-5kYx7yMGYWo
+Message-ID: <CAPEOAkTjVN4auBj_CLrt0XN6SqU2=ogLjZDecEwGx00pixJNAw@mail.gmail.com>
+Subject: Re: [PATCH v1 1/7] drm/rockchip: dsi: Add support for RK3368
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: robh@kernel.org, hjc@rock-chips.com, andy.yan@rock-chips.com, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-clk@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_063632_691971_9859C54A 
-X-CRM114-Status: GOOD (  10.13  )
+X-CRM114-CacheID: sfid-20250903_063731_454650_66B2A4B4 
+X-CRM114-Status: GOOD (  12.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,24 +96,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
+Heiko Stuebner <heiko@sntech.de> =E4=BA=8E2025=E5=B9=B49=E6=9C=883=E6=97=A5=
+=E5=91=A8=E4=B8=89 20:07=E5=86=99=E9=81=93=EF=BC=9A
+>
+> as a general remark, this patch will likely need to wait for 6.18-rc1,
+> because a big update of the HIWORD_MASK macros was merged [0].
+>
+> So introducing a new user now would cause havok :-) .
+>
+> Also when sending a v2, please base it on top of that changeset, or
+> just take linux-next [1] as a base.
+>
+> Also in a separate patch, please add the needed rk3368 entry to the
+> devicetree binding [2], this will pacify the bot that checked your
+> devicetree changes :-) .
+>
+> Please also make sure that relevant additions to the lists below
+> are made (the binding contains specific settings for some controllers
+> furter below) .
+>
 
-On 9/3/25 14:21, Andrew Lunn wrote:
->> +&ethernet1 {
->> +	pinctrl-0 = <&eth1_rgmii_pins_b>;
->> +	pinctrl-1 = <&eth1_rgmii_sleep_pins_b>;
->> +	pinctrl-names = "default", "sleep";
->> +	max-speed = <1000>;
-> 
-> RGMII naturally has a max-speed of 1G, so this line is pointless.
-> 
-> You only use max-speed when you need to restrict the system below what
-> it would normally use, for example if the PCB is badly designed and
-> the tracks don't support 1G, but can do 100Mbps
-> 
-> 	Andrew
+Got it. I'll rebase my patch serial to linux-next tree and test it
+before sending v2, and I will also add the necessary commit
+description and device tree binding information.
 
-Right, I'll simply remove these lines.
-
-Gatien
+Yours,
+Weihao
 
