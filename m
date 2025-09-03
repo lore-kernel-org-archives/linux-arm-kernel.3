@@ -4,63 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65EAFCA1007
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 06:10:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1D46CA100B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 06:14:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4RROh9iqQ70OdBywmW1IULQcZq8kweW4OW0QocIf8EY=; b=iBveztjQ6pNfkx/DVWEBOD1vtF
-	nlxPpS9PocJa7YK4DntdpJxzLiy20Me0aT4dBnqnuL+M9Sdt2426BtowsC+JsblPyQHzPwLUpOFUd
-	ukFCXCTHkzmCuAQQXf7CIZbsWMfhVcWXz1poTnN15KSeBy0XaaOU79vGJZ+3fAoMxFE9x5at7W+73
-	UzYLCLaDj/OQyYgurbZqN2NTxBsBYGIZI1hWKbfAtlukpg/Y9ovEOmeTo2LFCZD4gb1RK546VpMl3
-	uhE07gMI7/5sD3vimbcIR+ydQWA3fbhZPstTdlVLjNXgWIC0SskKWKtWJ+TYJMB96Qz5HF/W/hWq2
-	ENakRtZw==;
+	bh=d0WyNGuYiKE0na4f5iWEitE07ZRC6jMpsx7P8kw5Wxc=; b=HF35zM9uvd7w0TYqd4j3NEsxci
+	RW2HJeuRAtmxxkr9fRWXZHZOvJ1so+tdzj35ZwOycapd1wK3V+pIWilJ/mOSMR3qGHdTU/W1JSJie
+	Sq6ReRDETQgspgRmOWeZ+uVm/dzXhJcPMh0+5AKkkEiDB/WWcH9BiwHvjvkf0aXKo4xQFImdm9yaP
+	gKhb5FrF2ym0Jpba0kGI7m7ENjy77lrWg1z1FNcQCu+9SqjK1dY3tuIcTNUwD09mWDA8h37G2Uah0
+	8JQJM1CMKozu+1DSZ4MGRkSByXA80IHTrUckLlFTQvDPxRxxQzvYCLOx0JO8qWq85fbAimjgdUOWY
+	/05X5xQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utghF-00000004UIu-0kXT;
-	Wed, 03 Sep 2025 06:10:17 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1utgl3-00000004WCD-2Wmm;
+	Wed, 03 Sep 2025 06:14:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utgeV-00000004TDY-49BM
+	id 1utgiM-00000004V3u-1R3m
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 06:07:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1756879645;
-	bh=4RROh9iqQ70OdBywmW1IULQcZq8kweW4OW0QocIf8EY=;
-	h=From:To:In-Reply-To:References:Subject:Date;
-	b=GSYt7p1g4bETO9d6Qq8Y5QOvEUe42ZM625lNOjYH+OOczlvKkSlbOn09/ufRp4XfZ
-	 /et9W1u79/dBVZYfAdiSPWGbocL1uHaGz/HqQE6pSBs52GRUY3GnGJbjvwn2U53KR+
-	 mRmemqbaug9is1yOMIsfZrrIaxPTY0pQk1BSvXgJpztqfeicGoY6TtHY96JD8YxrJr
-	 i0iiy03mDtRx8apj5TcfPYGFP3V2yxoCmiM2j2udEh6YsjO3T3qGOL4nOMTB5jKxGp
-	 WueU2FKz47+e9inVRGwvv7OgDVoNnwyqxy5Xf3I2x64EBU1Hn4CjVK8VMG8BrDsPuj
-	 K4+GGYvegHX5w==
-Received: from [127.0.1.1] (unknown [180.150.112.213])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 59A716E02C;
-	Wed,  3 Sep 2025 14:07:24 +0800 (AWST)
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
- "Guilherme G. Piccoli" <gpiccoli@igalia.com>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
- linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20250819131743.86905-2-krzysztof.kozlowski@linaro.org>
-References: <20250819131743.86905-2-krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH] ARM: dts: aspeed: Minor whitespace cleanup
-Message-Id: <175687964426.808220.6591590873945932888.b4-ty@codeconstruct.com.au>
-Date: Wed, 03 Sep 2025 15:37:24 +0930
+	Wed, 03 Sep 2025 06:11:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 45E8960236;
+	Wed,  3 Sep 2025 06:11:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2C74C4CEF0;
+	Wed,  3 Sep 2025 06:11:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756879884;
+	bh=DEWGVqilbGOs6UgUqJ9p5sDy7a3JODRL7uL+KLdqaDM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=OhG5GB8keEQ58YNgxAI/Sjc1rocLhOfxCLl/XZwlEzS1WCwat/fRihODLk7ZhvcWr
+	 H3XYzOgamWZw2UP1IcvzjzFaTBdCBESmwBjW57Q0I4QlZ/cxF1rW0y5KmmG5aM1SZs
+	 0uwLCKpyV6hM1ZLubZDbjoGbQOQY4z6fZm3zXiREW8Xa2eaDBHXBu8+MrVOXj9aNfo
+	 pqJnCWRxzZG176Yw/RX5egzLS+IB1ebxgjYZCtkELZ6V0YgtZVtdAYK9klO4OCqnRM
+	 DQ1ON/yN8nE1oOUXnkRR5ccXnOp7joOzEV/f+6jB4MMYU965FZbZcYRzziTXfVhat1
+	 LzBIkLuy7dzZg==
+Message-ID: <04ca5584-b10e-465d-bbda-627b7f743ce9@kernel.org>
+Date: Wed, 3 Sep 2025 08:11:12 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_230728_221095_16DCE60D 
-X-CRM114-Status: UNSURE (   7.18  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 12/12] PM: EM: Use scope-based cleanup helper
+To: Zihuan Zhang <zhangzihuan@kylinos.cn>
+Cc: airlied@gmail.com, alim.akhtar@samsung.com, beata.michalska@arm.com,
+ ben.horgan@arm.com, bp@alien8.de, catalin.marinas@arm.com,
+ cw00.choi@samsung.com, daniel.lezcano@kernel.org,
+ dave.hansen@linux.intel.com, dri-devel@lists.freedesktop.org,
+ edubezval@gmail.com, festevam@gmail.com, imx@lists.linux.dev,
+ intel-gfx@lists.freedesktop.org, j-keerthy@ti.com,
+ jani.nikula@linux.intel.com, kernel@pengutronix.de,
+ kyungmin.park@samsung.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-omap@vger.kernel.org, linux-pm@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, lukasz.luba@arm.com, mpe@ellerman.id.au,
+ myungjoo.ham@samsung.com, pavel@kernel.org, ptsm@linux.microsoft.com,
+ rafael@kernel.org, rodrigo.vivi@intel.com, rui.zhang@intel.com,
+ s.hauer@pengutronix.de, shawnguo@kernel.org, simona@ffwll.ch,
+ srinivas.pandruvada@linux.intel.com, sudeep.holla@arm.com,
+ sumitg@nvidia.com, thierry.reding@gmail.com, tursulin@ursulin.net,
+ viresh.kumar@linaro.org, will@kernel.org, yangyicong@hisilicon.com,
+ zhenglifeng1@huawei.com
+References: <b38e64cc-4971-4e71-931c-820453aa91a7@kernel.org>
+ <20250903021230.1044454-1-zhangzihuan@kylinos.cn>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250903021230.1044454-1-zhangzihuan@kylinos.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,15 +130,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 19 Aug 2025 15:17:44 +0200, Krzysztof Kozlowski wrote:
-> The DTS code coding style expects exactly one space around '=' or '{'
-> characters.
+On 03/09/2025 04:12, Zihuan Zhang wrote:
+>> You are not improving the source code here. This is not how to use
+>>  __free() and you clearly do not understand the source code.
 > 
+> Sorry for the problem, policy should be assigned after cpumask_test_cpu().
 > 
+> I actually realized earlier that __free() only frees at the end of the variable’s lifetime. 
+> I had suggested using a braced macro in cpufreq.h to allow immediate release after use, 
+> but I understand the maintainer’s advice to “keep it simple” and will follow that.
+> 
+>> What's more, you did not use standard tools which would tell you this is
+>> buggy and wrong.
+> 
+> Could you please let me know which standard tools you recommend for detecting such issues? 
+> 
+> I’d like to use them to avoid similar mistakes in the future.
+All standard tools used for kernel development, sparse, smatch, clang,
+coccinelle, see my talk from OSSE25.
 
-Thanks, I've applied this to the BMC tree.
-
--- 
-Andrew Jeffery <andrew@codeconstruct.com.au>
-
+Best regards,
+Krzysztof
 
