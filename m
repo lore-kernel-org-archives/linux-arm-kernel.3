@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADA15CA100C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 07:52:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6B99CA100C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 07:55:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=Nl/95CQP0kAhBPJy4ztV09wUy+3E/X4uiZmgYlv0GDo=; b=k2Blt+9PmUG8fERGO8at2p3MGJ
-	4JbwC6eoeDkfkLQh+PlLBhbQbg/udgGfZvFxQRn+4w1uzltjILU7LHwXorsrC82X2yAs2i2AUknjO
-	9c5BJlcASxdnx84n1GP92p1C5n3yjFSpxw2awpTe98LuBssH7MIyDNtjH/lD8gL3YwvRgqWFErPBo
-	/RWzHgj5QP3Iis+OVu1cjJ85Yg24acO5Bp9AvV7t4LL8kA0FbFVrQuoBxE7DTiq0mDk4WvhP4XcbG
-	21Y24ESAde8yAdRDjKj/w14gRdN8TAM9uRsZZr5Wu7cMU7sfioiMuXyP2yuLBA1GDu6Hrof/FDbf0
-	dlHhBMFg==;
+	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zwyovO0ASEWGRpGzQGQdUfUh30qf34h0maaSJcAyoVU=; b=oEew4yzBz1ZkRY8BoOJBoMDb8i
+	ss9aW3qswkSIu6qGYuIN/9F1Q2P502lj7GEFctkGJJc4aIgb6XORENGux9k++TsC15jwf1KXahw+N
+	gLrEyuSsQ47dCIIHtoWa0BN0CG3PezpdV9dN+1+QywmFlWFwh82utPjh9BQIloMJUNkXcgJmSzllB
+	H7KqYp46nh6seIwxMYmaA7ho7cpp38Yjq2kDtZpKXbbhMiYOfpotws3FXWGyPNmVi+YGIeCbUCKlj
+	fqaQVwCENKalp+2W76As0JeeGjxMfNvEFJRDeAyvHQSn/c0QY+Hz+Lq6CflVh9tbEEVh1BVUt9PTe
+	ztVG8Gaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utiHl-00000005HNr-24tO;
-	Wed, 03 Sep 2025 07:52:05 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1utiKS-00000005ImO-2ic4;
+	Wed, 03 Sep 2025 07:54:53 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uthw8-000000055vp-3Pcg
+	id 1uthwE-0000000567R-3bTO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 07:29:50 +0000
+	Wed, 03 Sep 2025 07:29:52 +0000
 Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250903072935epoutp0263febc654a7431864587d715870c1051~htTZwQ5K22964729647epoutp02c
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  3 Sep 2025 07:29:35 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250903072935epoutp0263febc654a7431864587d715870c1051~htTZwQ5K22964729647epoutp02c
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250903072948epoutp035b2f04636e9d10973d29340553b3b503~htTmQTgMH2590125901epoutp03W
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  3 Sep 2025 07:29:48 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250903072948epoutp035b2f04636e9d10973d29340553b3b503~htTmQTgMH2590125901epoutp03W
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1756884575;
-	bh=Nl/95CQP0kAhBPJy4ztV09wUy+3E/X4uiZmgYlv0GDo=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=VXzdXXjEuHobmPk2m8QGmBAfvNXpqWQKRnxdWk44mKZA6v3GlaJyLvzoog9Yo3uAs
-	 MIK7lt4QtSLffmwyNDXdIbI0skBaSDN7H+ZxIIB0LxrCMP4sH4eSV/dm1OdQvQSbMZ
-	 fA0Tn0vwLLkSE3P6jUjajSOa5UAn7B0/2G3xo6mU=
+	s=mail20170921; t=1756884588;
+	bh=zwyovO0ASEWGRpGzQGQdUfUh30qf34h0maaSJcAyoVU=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Y4EQOn+eRn+X2nWMztQDli0ToGXKve3WrUWZddKQCZ6wtPWlo+zizde6SLukqt+jK
+	 N/4y8By3ptWNPgUr+fqDMHqazlwqz61eV9g8o3HS4eV90Dd566W30mL6QtV60XRs9H
+	 H47m2t9SfBYlzAw9dg4G+u3nl+smJn/N92RxsDDY=
 Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
-	20250903072934epcas5p4a89ecaedff3e84dedb577b2f17f80533~htTZO5ZF71574115741epcas5p4A;
-	Wed,  3 Sep 2025 07:29:34 +0000 (GMT)
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
+	20250903072947epcas5p2444604a2356154af605746e59479ae1a~htTlfF1Df1236712367epcas5p2r;
+	Wed,  3 Sep 2025 07:29:47 +0000 (GMT)
 Received: from epcas5p3.samsung.com (unknown [182.195.38.86]) by
-	epsnrtp02.localdomain (Postfix) with ESMTP id 4cGvPn3BpJz2SSKX; Wed,  3 Sep
-	2025 07:29:33 +0000 (GMT)
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4cGvQ253s6z2SSKZ; Wed,  3 Sep
+	2025 07:29:46 +0000 (GMT)
 Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20250903072932epcas5p4dc5b5ada87f09f6f0c4e1b750874fc85~htTXnbSsB2774827748epcas5p4m;
-	Wed,  3 Sep 2025 07:29:32 +0000 (GMT)
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20250903072946epcas5p371f7d0e15d8757f738c08f80a8eefb60~htTkAnYzY2293822938epcas5p36;
+	Wed,  3 Sep 2025 07:29:46 +0000 (GMT)
 Received: from bose.samsungds.net (unknown [107.108.83.9]) by
 	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250903072929epsmtip2e6060834bb0b8ccb4d7f883fedad7be4~htTUshDhh2487024870epsmtip2Z;
-	Wed,  3 Sep 2025 07:29:29 +0000 (GMT)
+	20250903072942epsmtip2b4e3eaf3636d0132734a9f1c1b9c2919~htThGciqr2480024800epsmtip2S;
+	Wed,  3 Sep 2025 07:29:42 +0000 (GMT)
 From: Pritam Manohar Sutar <pritam.sutar@samsung.com>
 To: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org,
 	krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com,
@@ -64,23 +64,26 @@ Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
 	linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
 	dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
 	selvarasu.g@samsung.com
-Subject: [PATCH v8 0/6] initial usbdrd phy support for Exynosautov920 soc
-Date: Wed,  3 Sep 2025 13:08:21 +0530
-Message-Id: <20250903073827.3015662-1-pritam.sutar@samsung.com>
+Subject: [PATCH v8 4/6] phy: exynos5-usbdrd: support HS combo phy for
+ ExynosAutov920
+Date: Wed,  3 Sep 2025 13:08:25 +0530
+Message-Id: <20250903073827.3015662-5-pritam.sutar@samsung.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250903073827.3015662-1-pritam.sutar@samsung.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250903072932epcas5p4dc5b5ada87f09f6f0c4e1b750874fc85
+X-CMS-MailID: 20250903072946epcas5p371f7d0e15d8757f738c08f80a8eefb60
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 CMS-TYPE: 105P
 cpgsPolicy: CPGSC10-542,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250903072932epcas5p4dc5b5ada87f09f6f0c4e1b750874fc85
-References: <CGME20250903072932epcas5p4dc5b5ada87f09f6f0c4e1b750874fc85@epcas5p4.samsung.com>
+X-CMS-RootMailID: 20250903072946epcas5p371f7d0e15d8757f738c08f80a8eefb60
+References: <20250903073827.3015662-1-pritam.sutar@samsung.com>
+	<CGME20250903072946epcas5p371f7d0e15d8757f738c08f80a8eefb60@epcas5p3.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_002945_521827_1498CEE6 
-X-CRM114-Status: GOOD (  18.07  )
+X-CRM114-CacheID: sfid-20250903_002951_220853_F2B7E683 
+X-CRM114-Status: GOOD (  21.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,144 +98,274 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This SoC has a single USB 3.1 DRD combo phy and three USB2.0 only
-DRD phy controllers as mentined below
+Support UTMI+ combo phy for this SoC which is somewhat simmilar to
+what the existing Exynos850 support does. The difference is that
+some register offsets and bit fields are defferent from Exynos850.
 
-  * Combo phy supports USB3.1 SSP+(10Gbps) protocol and is backwards
-    compatible to the USB3.0 SS(5Gbps). 'Add-on USB2.0' phy is added
-    to support USB2.0 HS(480Mbps), FS(12Mbps) and LS(1.5Mbps) data rates.
-    These two phys are combined to form a combo phy as mentioned below.
+Add required change in phy driver to support combo HS phy for this SoC.
 
+Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+---
+ drivers/phy/samsung/phy-exynos5-usbdrd.c | 211 +++++++++++++++++++++++
+ 1 file changed, 211 insertions(+)
 
-   USB30DRD_0 port
-
- +------------------------------------------------------------+
- |                                                            |
- |                (combo) USB phy controller                  |
- |      +----------------------------------------------+      |
- |      |                  USB HSPHY                   |      |
- |      |  (samsung,exynosautov920-usbdrd-combo-hsphy) |      |
- |      +----------------------------------------------+      |
- |                                                            |
- |    +--------------------------------------------------+    |
- |    |                   USB SSPHY                      |    |
- |    |   (samsung,exynosautov920-usb31drd-combo-ssphy)  |    |
- |    +--------------------------------------------------+-   |
- |                                                            |
- +------------------------------------------------------------+
- |                                                            |
- |                     USBDRD30 Link                          |
- |                       Controller                           |
- +------------------------------------------------------------+
-
-  * USB2.0 phy supports only UTMI+ interface. USB2.0DRD phy
-    is very similar to the existing Exynos850 support in this driver.
-
-    USB20DRD_0/1/2 ports
-
-      +---------------------------------------------------+
-      |                                                   |
-      |                USB PHY controller                 |
-      |    +-----------------------------------------+    |
-      |    |              USB HSPHY                  |    |
-      |    |  (samsung,exynosautov920-usbdrd-phy)    |    |
-      |    +-----------------------------------------+    |
-      |                                                   |
-      +---------------------------------------------------+
-      |                                                   |
-      |             USBDRD20_* Link                       |
-      |                Controller                         |
-      |                                                   |
-      +---------------------------------------------------+
-
-The "USB20 phy output isolation" is shared across the USB20 phys.
-We have to bypass isolation when any one of the USBs is configured
-and enable it when all are turned off. The "USB31 phy isolation"
-is seperate for USB31 phy.
-
-This patchset only supports device mode and same is verified with
-as NCM device
-
-changelog
-----------
-Changes in v8:
-- modified supplies' names in schema and driver.
-- Since supplies' names are changed, modified patch no 5. to
-  fix warnings in dtbs_check dt_binding_check.
-- updated commit message for patch no. 1, 3 and 5 to describe
-  hardware details.
-  link for v7: https://lore.kernel.org/linux-phy/20250822093845.1179395-1-pritam.sutar@samsung.com/
-
-Changes in v7:
-- added fixes for driver build warnings
-  link for v6: https://lore.kernel.org/linux-phy/20250821073703.2498302-1-pritam.sutar@samsung.com/
-
-Changes in v6:
-- added else part for new supplies in schemas those are only
-  supported for exynosautov920.
-- addressed comments for driver given in v5.
-  link for v5: https://lore.kernel.org/linux-phy/20250805115216.3798121-1-pritam.sutar@samsung.com/
-
-Changes in v5:
-- significant changes were added in v4, removed "Reviewed-by" tag.
-- addressed comments from v4 patchset.
-  - patch (1/6)
-    - DTS style is corrected and added required supplies in code/schema.
-    - schema block added to resolve below failure during 'dtbs_check'.
-      Unevaluated properties are not allowed ('dvdd075-usb-supply', 'vdd18-usb20-supply', 'vdd33-usb20-supply' were unexpected.
-  - patch (2/6)
-    - removed usage_counter(take this later in subsequent patch-sets)
-  - patch (3/6)
-    - There are 3 types of the phys in this SoC.
-      - one is simmilar with exynos850 as mentioned in patch no.1.
-      - second supports only USB3.1 SSP+ and denoted in patch no 5
-      - third supports only USB2.0 HS as in patch3.
-    - hs phy in combo phy is "NOT" same as phy. (in patch no. 1)
-    - These three phys(usbdrd-phy, combo-hsphy, combo-ssphy) are totally
-      deferent, "NOT" same, hence added three compatible for three phys.
-  - patch (5/6)
-    - Since there are two phys in combo phy, explaination is given
-      in each patch.
-  link for v4: https://lore.kernel.org/linux-phy/20250701120706.2219355-1-pritam.sutar@samsung.com/
-
-Changes in v4:
-- addressed comments from v3 patchset
-  - removed dts related patches, to be posted in new patchset.
-  - added regulator, pmu and power sequences.
-  - phy isol is shared across USBs, added usage counter to bypass or
-    enable phy isolation.
-  - modified schemas with hs and combo phy compatible names
-    (used "combo" to denote combo phy) and regulators
-- modified code to work with binding and unbinding devices/drivers
-- added "Reviewed-by" tag.
-  link for v3: https://lore.kernel.org/linux-phy/20250613055613.866909-1-pritam.sutar@samsung.com/
-
-Changes in v3:
-- Updated dt-bindings for USB2.0 only.
-- Added dt-bindings for combo phy.
-- Added implementation for combo phy (SS and HS phy).
-- Added added DTS nodes for all the phys
-  link for v2: https://lore.kernel.org/linux-phy/20250516102650.2144487-1-pritam.sutar@samsung.com/
-
-Changes in v2:
-- Used standard GENMASK() and FIELD_GET() to get the major version
-  from controller version register.
-  link for v1: https://lore.kernel.org/linux-phy/20250514134813.380807-1-pritam.sutar@samsung.com/
-
-Pritam Manohar Sutar (6):
-  dt-bindings: phy: samsung,usb3-drd-phy: add ExynosAutov920 HS phy
-    compatible
-  phy: exynos5-usbdrd: support HS phy for ExynosAutov920
-  dt-bindings: phy: samsung,usb3-drd-phy: add ExynosAutov920 combo hsphy
-  phy: exynos5-usbdrd: support HS combo phy for ExynosAutov920
-  dt-bindings: phy: samsung,usb3-drd-phy: add ExynosAutov920 combo ssphy
-  phy: exynos5-usbdrd: support SS combo phy for ExynosAutov920
-
- .../bindings/phy/samsung,usb3-drd-phy.yaml    |  48 ++
- drivers/phy/samsung/phy-exynos5-usbdrd.c      | 651 ++++++++++++++++++
- include/linux/soc/samsung/exynos-regs-pmu.h   |   3 +
- 3 files changed, 702 insertions(+)
-
+diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+index dfc2cc71e579..c52b0e25a423 100644
+--- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
++++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+@@ -41,6 +41,13 @@
+ #define EXYNOS2200_CLKRST_LINK_PCLK_SEL		BIT(1)
+ 
+ #define EXYNOS2200_DRD_UTMI			0x10
++
++/* ExynosAutov920 bits */
++#define UTMICTL_FORCE_UTMI_SUSPEND		BIT(13)
++#define UTMICTL_FORCE_UTMI_SLEEP		BIT(12)
++#define UTMICTL_FORCE_DPPULLDOWN		BIT(9)
++#define UTMICTL_FORCE_DMPULLDOWN		BIT(8)
++
+ #define EXYNOS2200_UTMI_FORCE_VBUSVALID		BIT(1)
+ #define EXYNOS2200_UTMI_FORCE_BVALID		BIT(0)
+ 
+@@ -250,6 +257,22 @@
+ #define EXYNOS850_DRD_HSP_TEST			0x5c
+ #define HSP_TEST_SIDDQ				BIT(24)
+ 
++#define EXYNOSAUTOV920_DRD_HSP_CLKRST		0x100
++#define HSPCLKRST_PHY20_SW_PORTRESET		BIT(3)
++#define HSPCLKRST_PHY20_SW_POR			BIT(1)
++#define HSPCLKRST_PHY20_SW_POR_SEL		BIT(0)
++
++#define EXYNOSAUTOV920_DRD_HSPCTL		0x104
++#define HSPCTRL_VBUSVLDEXTSEL			BIT(13)
++#define HSPCTRL_VBUSVLDEXT			BIT(12)
++#define HSPCTRL_EN_UTMISUSPEND			BIT(9)
++#define HSPCTRL_COMMONONN			BIT(8)
++
++#define EXYNOSAUTOV920_DRD_HSP_TEST		0x10c
++
++#define EXYNOSAUTOV920_DRD_HSPPLLTUNE		0x110
++#define HSPPLLTUNE_FSEL				GENMASK(18, 16)
++
+ /* Exynos9 - GS101 */
+ #define EXYNOS850_DRD_SECPMACTL			0x48
+ #define SECPMACTL_PMA_ROPLL_REF_CLK_SEL		GENMASK(13, 12)
+@@ -2054,6 +2077,140 @@ static const struct exynos5_usbdrd_phy_drvdata exynos990_usbdrd_phy = {
+ 	.n_regulators		= ARRAY_SIZE(exynos5_regulator_names),
+ };
+ 
++static void
++exynosautov920_usbdrd_utmi_init(struct exynos5_usbdrd_phy *phy_drd)
++{
++	void __iomem *reg_phy = phy_drd->reg_phy;
++	u32 reg;
++
++	/*
++	 * Disable HWACG (hardware auto clock gating control). This
++	 * forces QACTIVE signal in Q-Channel interface to HIGH level,
++	 * to make sure the PHY clock is not gated by the hardware.
++	 */
++	reg = readl(reg_phy + EXYNOS850_DRD_LINKCTRL);
++	reg |= LINKCTRL_FORCE_QACT;
++	writel(reg, reg_phy + EXYNOS850_DRD_LINKCTRL);
++
++	/* De-assert link reset */
++	reg = readl(reg_phy + EXYNOS2200_DRD_CLKRST);
++	reg &= ~CLKRST_LINK_SW_RST;
++	writel(reg, reg_phy + EXYNOS2200_DRD_CLKRST);
++
++	/* Set PHY POR High */
++	reg = readl(reg_phy + EXYNOSAUTOV920_DRD_HSP_CLKRST);
++	reg |= HSPCLKRST_PHY20_SW_POR | HSPCLKRST_PHY20_SW_POR_SEL;
++	writel(reg, reg_phy + EXYNOSAUTOV920_DRD_HSP_CLKRST);
++
++	/* Enable UTMI+ */
++	reg = readl(reg_phy + EXYNOS2200_DRD_UTMI);
++	reg &= ~(UTMICTL_FORCE_UTMI_SUSPEND | UTMICTL_FORCE_UTMI_SLEEP |
++		UTMICTL_FORCE_DPPULLDOWN | UTMICTL_FORCE_DMPULLDOWN);
++	writel(reg, reg_phy + EXYNOS2200_DRD_UTMI);
++
++	/* set phy clock & control HS phy */
++	reg = readl(reg_phy + EXYNOSAUTOV920_DRD_HSPCTL);
++	reg |= HSPCTRL_EN_UTMISUSPEND | HSPCTRL_COMMONONN;
++	writel(reg, reg_phy + EXYNOSAUTOV920_DRD_HSPCTL);
++
++	fsleep(100);
++
++	/* Set VBUS Valid and DP-Pull up control by VBUS pad usage */
++	reg = readl(reg_phy + EXYNOS850_DRD_LINKCTRL);
++	reg |= FIELD_PREP_CONST(LINKCTRL_BUS_FILTER_BYPASS, 0xf);
++	writel(reg, reg_phy + EXYNOS850_DRD_LINKCTRL);
++
++	reg = readl(reg_phy + EXYNOS2200_DRD_UTMI);
++	reg |= EXYNOS2200_UTMI_FORCE_VBUSVALID | EXYNOS2200_UTMI_FORCE_BVALID;
++	writel(reg, reg_phy + EXYNOS2200_DRD_UTMI);
++
++	reg = readl(reg_phy + EXYNOSAUTOV920_DRD_HSPCTL);
++	reg |= HSPCTRL_VBUSVLDEXTSEL | HSPCTRL_VBUSVLDEXT;
++	writel(reg, reg_phy + EXYNOSAUTOV920_DRD_HSPCTL);
++
++	/* Setting FSEL for refference clock */
++	reg = readl(reg_phy + EXYNOSAUTOV920_DRD_HSPPLLTUNE);
++	reg &= ~HSPPLLTUNE_FSEL;
++
++	switch (phy_drd->extrefclk) {
++	case EXYNOS5_FSEL_50MHZ:
++		reg |= FIELD_PREP(HSPPLLTUNE_FSEL, 7);
++		break;
++	case EXYNOS5_FSEL_26MHZ:
++		reg |= FIELD_PREP(HSPPLLTUNE_FSEL, 6);
++		break;
++	case EXYNOS5_FSEL_24MHZ:
++		reg |= FIELD_PREP(HSPPLLTUNE_FSEL, 2);
++		break;
++	case EXYNOS5_FSEL_20MHZ:
++		reg |= FIELD_PREP(HSPPLLTUNE_FSEL, 1);
++		break;
++	case EXYNOS5_FSEL_19MHZ2:
++		reg |= FIELD_PREP(HSPPLLTUNE_FSEL, 0);
++		break;
++	default:
++		dev_warn(phy_drd->dev, "unsupported ref clk: %#.2x\n",
++			 phy_drd->extrefclk);
++		break;
++	}
++	writel(reg, reg_phy + EXYNOSAUTOV920_DRD_HSPPLLTUNE);
++
++	/* Enable PHY Power Mode */
++	reg = readl(reg_phy + EXYNOSAUTOV920_DRD_HSP_TEST);
++	reg &= ~HSP_TEST_SIDDQ;
++	writel(reg, reg_phy + EXYNOSAUTOV920_DRD_HSP_TEST);
++
++	/* before POR low, 10us delay is needed to Finish PHY reset */
++	fsleep(10);
++
++	/* Set PHY POR Low */
++	reg = readl(reg_phy + EXYNOSAUTOV920_DRD_HSP_CLKRST);
++	reg |= HSPCLKRST_PHY20_SW_POR_SEL;
++	reg &= ~(HSPCLKRST_PHY20_SW_POR | HSPCLKRST_PHY20_SW_PORTRESET);
++	writel(reg, reg_phy + EXYNOSAUTOV920_DRD_HSP_CLKRST);
++
++	/* after POR low and delay 75us, PHYCLOCK is guaranteed. */
++	fsleep(75);
++
++	/* force pipe3 signal for link */
++	reg = readl(reg_phy + EXYNOS850_DRD_LINKCTRL);
++	reg |= LINKCTRL_FORCE_PIPE_EN;
++	reg &= ~LINKCTRL_FORCE_PHYSTATUS;
++	reg |= LINKCTRL_FORCE_RXELECIDLE;
++	writel(reg, reg_phy + EXYNOS850_DRD_LINKCTRL);
++}
++
++static void
++exynosautov920_usbdrd_hsphy_disable(struct exynos5_usbdrd_phy *phy_drd)
++{
++	u32 reg;
++	void __iomem *reg_phy = phy_drd->reg_phy;
++
++	/* set phy clock & control HS phy */
++	reg = readl(reg_phy + EXYNOS2200_DRD_UTMI);
++	reg |= UTMICTL_FORCE_UTMI_SUSPEND | UTMICTL_FORCE_UTMI_SLEEP;
++	reg &= ~(UTMICTL_FORCE_DPPULLDOWN | UTMICTL_FORCE_DMPULLDOWN);
++	writel(reg, reg_phy + EXYNOS2200_DRD_UTMI);
++
++	/* Disable PHY Power Mode */
++	reg = readl(reg_phy + EXYNOSAUTOV920_DRD_HSP_TEST);
++	reg |= HSP_TEST_SIDDQ;
++	writel(reg, reg_phy + EXYNOSAUTOV920_DRD_HSP_TEST);
++
++	/* clear force q-channel */
++	reg = readl(reg_phy + EXYNOS850_DRD_LINKCTRL);
++	reg &= ~LINKCTRL_FORCE_QACT;
++	writel(reg, reg_phy + EXYNOS850_DRD_LINKCTRL);
++
++	/* link sw reset is need for USB_DP/DM high-z in host mode */
++	reg = readl(reg_phy + EXYNOS2200_DRD_CLKRST);
++	reg |= CLKRST_LINK_SW_RST;
++	writel(reg, reg_phy + EXYNOS2200_DRD_CLKRST);
++	fsleep(10);
++	reg &= ~CLKRST_LINK_SW_RST;
++	writel(reg, reg_phy + EXYNOS2200_DRD_CLKRST);
++}
++
+ static int exynosautov920_usbdrd_phy_init(struct phy *phy)
+ {
+ 	struct phy_usb_instance *inst = phy_get_drvdata(phy);
+@@ -2095,6 +2252,27 @@ static int exynosautov920_usbdrd_phy_exit(struct phy *phy)
+ 	return 0;
+ }
+ 
++static int exynosautov920_usbdrd_combo_phy_exit(struct phy *phy)
++{
++	struct phy_usb_instance *inst = phy_get_drvdata(phy);
++	struct exynos5_usbdrd_phy *phy_drd = to_usbdrd_phy(inst);
++	int ret = 0;
++
++	ret = clk_bulk_prepare_enable(phy_drd->drv_data->n_clks, phy_drd->clks);
++	if (ret)
++		return ret;
++
++	if (inst->phy_cfg->id == EXYNOS5_DRDPHY_UTMI)
++		exynosautov920_usbdrd_hsphy_disable(phy_drd);
++
++	/* enable PHY isol */
++	inst->phy_cfg->phy_isol(inst, true);
++
++	clk_bulk_disable_unprepare(phy_drd->drv_data->n_clks, phy_drd->clks);
++
++	return 0;
++}
++
+ static int exynosautov920_usbdrd_phy_power_on(struct phy *phy)
+ {
+ 	struct phy_usb_instance *inst = phy_get_drvdata(phy);
+@@ -2146,6 +2324,36 @@ static const char * const exynosautov920_usb20_regulators[] = {
+ 	"dvdd", "vdd18", "vdd33",
+ };
+ 
++static const struct phy_ops exynosautov920_usbdrd_combo_hsphy_ops = {
++	.init		= exynosautov920_usbdrd_phy_init,
++	.exit		= exynosautov920_usbdrd_combo_phy_exit,
++	.power_on	= exynosautov920_usbdrd_phy_power_on,
++	.power_off	= exynosautov920_usbdrd_phy_power_off,
++	.owner		= THIS_MODULE,
++};
++
++static const struct
++exynos5_usbdrd_phy_config usbdrd_hsphy_cfg_exynosautov920[] = {
++	{
++		.id		= EXYNOS5_DRDPHY_UTMI,
++		.phy_isol	= exynos5_usbdrd_phy_isol,
++		.phy_init	= exynosautov920_usbdrd_utmi_init,
++	},
++};
++
++static const
++struct exynos5_usbdrd_phy_drvdata exynosautov920_usbdrd_combo_hsphy = {
++	.phy_cfg		= usbdrd_hsphy_cfg_exynosautov920,
++	.phy_ops		= &exynosautov920_usbdrd_combo_hsphy_ops,
++	.pmu_offset_usbdrd0_phy	= EXYNOSAUTOV920_PHY_CTRL_USB20,
++	.clk_names		= exynos5_clk_names,
++	.n_clks			= ARRAY_SIZE(exynos5_clk_names),
++	.core_clk_names		= exynos5_core_clk_names,
++	.n_core_clks		= ARRAY_SIZE(exynos5_core_clk_names),
++	.regulator_names	= exynosautov920_usb20_regulators,
++	.n_regulators		= ARRAY_SIZE(exynosautov920_usb20_regulators),
++};
++
+ static const struct phy_ops exynosautov920_usbdrd_phy_ops = {
+ 	.init		= exynosautov920_usbdrd_phy_init,
+ 	.exit		= exynosautov920_usbdrd_phy_exit,
+@@ -2380,6 +2588,9 @@ static const struct of_device_id exynos5_usbdrd_phy_of_match[] = {
+ 	}, {
+ 		.compatible = "samsung,exynos990-usbdrd-phy",
+ 		.data = &exynos990_usbdrd_phy
++	}, {
++		.compatible = "samsung,exynosautov920-usbdrd-combo-hsphy",
++		.data = &exynosautov920_usbdrd_combo_hsphy
+ 	}, {
+ 		.compatible = "samsung,exynosautov920-usbdrd-phy",
+ 		.data = &exynosautov920_usbdrd_phy
 -- 
 2.34.1
 
