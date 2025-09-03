@@ -4,73 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8744CA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 12:41:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01134CA1009
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 12:44:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vPbWqm2e8Pleqh1YH+aI+ivP4R4vMJt3pSY+QJLucY8=; b=SuqX0yx4KaDbm0Prb4dNnIVltM
-	bYXjyRsS9MNE8gxL9F8spTWvdTymiraj1ZUqZQz5kRqM8/KzU+EqORZaz4A8APlH1faxOIXAzNZ+p
-	TYYOGvATBSbxp+Jqd2c7VfCdGxNx8Ara/HK3/ZT+n63sX0M5nZY3MvDG5jVWhsUz/ckI9y8RS6YkV
-	V2MpbKQnZPT/tuwbMGcfKoyskmgdF0yljwcx7AVXnPRwatruyReSPbAY/zGlpYY7jYTBc5t19S7u7
-	jkA3xpwTiK57KWQRAH/oTzKUTuS/wkOuO5691yjpZsOtmE+EiA0DL/deQ4XZvrMQkW73Vj3Mk17DQ
-	NIFzjvag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7brYymqqs4aIaN8Zo+JAkRMDFy6v/aAdvXLq9zLu890=; b=pyzqFKUXXpJ1kECQizfHKoMqAB
+	fEetaJ/Sj1Lhl42fOCfMizrZ9dn2yjw8nOHKSNqIrg4qGBPIlT8hPoaHBH6yJZtD/5Chw0Xt1dHlq
+	DhEZ0hpjVgQiJEzhC1VXCxJB4yXfx/3pB8eCwMIjG2k2YLBPdJ+Pr1yVYhydorp4XOhx0f2nMDgUH
+	kKgyvcYK0G6T0jSc9lHmF0ZDQiG1T4Rm+sxs4yRxizRlQn8SAkO96LRDTYu+GF+SJMiY86RrDqAxT
+	fIYtml2oFcQsmamHmfh/t51jGKZe1Ho3xijXjtr6ofKhIcA0joDGynZwVB/Zy1xkdTGQil2Gg1DeE
+	Rat/40ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utmnh-00000006QOH-3Ljd;
-	Wed, 03 Sep 2025 12:41:22 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1utmqP-00000006R17-3aK9;
+	Wed, 03 Sep 2025 12:44:10 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utlpe-00000006FbT-0AyR
+	id 1utlq3-00000006FdF-3xEw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 11:39:19 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 583BdD2T3252926;
-	Wed, 3 Sep 2025 06:39:13 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1756899553;
-	bh=vPbWqm2e8Pleqh1YH+aI+ivP4R4vMJt3pSY+QJLucY8=;
-	h=Date:Subject:To:References:From:In-Reply-To;
-	b=JAfQV2hpQR5m/PvoWDxcipHesmIlLvsceH769vET85mrq+vlx50Dbbxjf4zfsQIgI
-	 bbBS1jEshTbckVtwlirVXdRtmUXJMT/Qlu19ju/dvPqcmPRL4KuKgs+ycuCGCor6R4
-	 J5uR8KIBKmuTbMK3UcP11dEj9Eu37s+vwPIlKAFU=
-Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 583BdD5r3489464
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 3 Sep 2025 06:39:13 -0500
-Received: from DFLE112.ent.ti.com (10.64.6.33) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 3
- Sep 2025 06:39:12 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Wed, 3 Sep 2025 06:39:12 -0500
-Received: from [172.24.233.62] (devarsh-precision-tower-3620.dhcp.ti.com [172.24.233.62])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 583Bd9Is1215759;
-	Wed, 3 Sep 2025 06:39:10 -0500
-Message-ID: <1adea165-ae87-463f-a03e-2fe27f4b8695@ti.com>
-Date: Wed, 3 Sep 2025 17:09:09 +0530
+	Wed, 03 Sep 2025 11:39:46 +0000
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250903113936epoutp04941ea46865ae178b48a16746ee68466f~hwttUUy3y1531615316epoutp04q
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  3 Sep 2025 11:39:36 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250903113936epoutp04941ea46865ae178b48a16746ee68466f~hwttUUy3y1531615316epoutp04q
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1756899576;
+	bh=7brYymqqs4aIaN8Zo+JAkRMDFy6v/aAdvXLq9zLu890=;
+	h=From:To:In-Reply-To:Subject:Date:References:From;
+	b=nbCnIuKd5yIhoIE+HHSRXan/tD+ViEyZ8LVorLByq27qYgcqt/txouJAuDyrJrNXG
+	 d0kL19mYOXMlDG/sVQ5CNH9AJU98j2WWIIjmqzDbRKr7y1dGpCz5TC1hLBReAduiWj
+	 AVjNYCduDqNeEI+Hwpuul+dQRMjYlotdFhsRu4Xs=
+Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
+	20250903113936epcas5p2a2fc50ab07b0fd777b4bee856b31511c~hwttCSEIa0673206732epcas5p2L;
+	Wed,  3 Sep 2025 11:39:36 +0000 (GMT)
+Received: from epcas5p3.samsung.com (unknown [182.195.38.93]) by
+	epsnrtp01.localdomain (Postfix) with ESMTP id 4cH0yH46Bnz6B9m4; Wed,  3 Sep
+	2025 11:39:35 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20250903113935epcas5p3227334fa7684fe2170093c2851f27476~hwtrskr2T2284122841epcas5p3A;
+	Wed,  3 Sep 2025 11:39:35 +0000 (GMT)
+Received: from INBRO002520 (unknown [107.122.1.191]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250903113933epsmtip13e7d48e7582eba797719ac5d7c4a2873~hwtqTZwKo0781907819epsmtip1o;
+	Wed,  3 Sep 2025 11:39:33 +0000 (GMT)
+From: "Devang Tailor" <dev.tailor@samsung.com>
+To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<alim.akhtar@samsung.com>, <alexandre.belloni@bootlin.com>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-samsung-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-rtc@vger.kernel.org>, <faraz.ata@samsung.com>
+In-Reply-To: <20250710083434.1821671-1-dev.tailor@samsung.com>
+Subject: RE: [PATCH v2 0/3] On-chip RTC support for ExynosAutov9
+Date: Wed, 3 Sep 2025 17:09:32 +0530
+Message-ID: <000001dc1cc7$6bfee9d0$43fcbd70$@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: ti: k3-j721e-main: Add DSI and DPHY-TX
-To: Harikrishna Shenoy <h-shenoy@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
-        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>
-References: <20250822124622.1424473-1-h-shenoy@ti.com>
-Content-Language: en-US
-From: Devarsh Thakkar <devarsht@ti.com>
-In-Reply-To: <20250822124622.1424473-1-h-shenoy@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQJ8w0UJjWiHDR7+9bjoByRdFpd+nAMc6yo9sycffmA=
+Content-Language: en-in
+X-CMS-MailID: 20250903113935epcas5p3227334fa7684fe2170093c2851f27476
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250710082533epcas5p111be26bea2ccc08718eebcb12929bbbf
+References: <CGME20250710082533epcas5p111be26bea2ccc08718eebcb12929bbbf@epcas5p1.samsung.com>
+	<20250710083434.1821671-1-dev.tailor@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_043918_173747_3D350A30 
-X-CRM114-Status: GOOD (  17.41  )
+X-CRM114-CacheID: sfid-20250903_043944_629028_6A216DCC 
+X-CRM114-Status: GOOD (  19.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,68 +94,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Hari,
 
-On 22/08/25 18:16, Harikrishna Shenoy wrote:
-> From: Rahul T R <r-ravikumar@ti.com>
-> 
-> TI's J721E SoC supports a DPI to DSI video signal conversion bridge on
-> it's platform bus. The IP is from Cadence, and it has a custom TI
-> wrapper around it to facilitate integration.
-> 
-> This IP takes the DPI video signals from DSS and alongwith the DPHY IP,
-> it transmits DSI video signals out of the SoC.
-> 
-> Add support for DSI bridge and the DPHY-TX.
-> 
-> Signed-off-by: Rahul T R <r-ravikumar@ti.com>
-> Signed-off-by: Jayesh Choudhary <j-choudhary@ti.com>
-> Signed-off-by: Harikrishna Shenoy <h-shenoy@ti.com>
+Hi,
+
+
+> -----Original Message-----
+> From: Devang Tailor <dev.tailor=40samsung.com>
+> Sent: 10 July 2025 14:05
+> To: robh=40kernel.org; krzk+dt=40kernel.org; conor+dt=40kernel.org;
+> alim.akhtar=40samsung.com; alexandre.belloni=40bootlin.com;
+> devicetree=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; lin=
+ux-
+> samsung-soc=40vger.kernel.org; linux-kernel=40vger.kernel.org; linux-
+> rtc=40vger.kernel.org; faraz.ata=40samsung.com
+> Cc: Devang Tailor <dev.tailor=40samsung.com>
+> Subject: =5BPATCH v2 0/3=5D On-chip RTC support for ExynosAutov9
+>=20
+> Enable on-chip RTC support. The on-chip RTC of this SoC is similar to the
+> previous versions of Samsung SoC. So re-use the existing RTC driver with
+> applicable call-backs for initialization and IRQ handling.
+> Add a separate call-back for disabling RTC since existing '.disable'
+> call-backs updates additional bit not valid for RTC of ExynosAutov9.
+>=20
+> Setting and getting hardware clock has been tested using 'hwclock'
+> and 'date' utilities.
+>=20
+> Alarm interrupt has been checked with incrementing interrupt count via =
+=22cat
+> /proc/interrupts =7C grep rtc=22 for 10sec wakeup time via =22echo +10 >
+> /sys/class/rtc/rtc0/wakealarm=22
+>=20
+> changelog
 > ---
->   arch/arm64/boot/dts/ti/k3-j721e-main.dtsi | 31 +++++++++++++++++++++++
->   1 file changed, 31 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-> index ab3666ff4297..d65b6fcae338 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-> @@ -1887,6 +1887,37 @@ port@4 {
->   		};
->   	};
->   
-> +	dphy2: phy@4480000 {
+> Changes in v2:
+> - Fixed the review comment of v1 for mis-aligmnent & asymmetry bit logic.
+> - link for v1 : https://lore.kernel.org/linux-rtc/20250702052426.2404256-=
+1-
+> dev.tailor=40samsung.com/
+>=20
 
-I would suggest to have a better label naming:
-s/dphy2/dphy_tx
-s/dphy1/dphy_rx
+Reminder=21
+Can you please help to identify if anything is pending in this patch series=
+ ? I see all three patches are reviewed.
 
-> +		compatible = "ti,j721e-dphy";
-> +		reg = <0x00 0x04480000 0x00 0x1000>;
-> +		clocks = <&k3_clks 296 1>, <&k3_clks 296 3>;
-> +		clock-names = "psm", "pll_ref";
-> +		#phy-cells = <0>;
-> +		power-domains = <&k3_pds 296 TI_SCI_PD_EXCLUSIVE>;
-> +		assigned-clocks = <&k3_clks 296 3>;
-> +		assigned-clock-parents = <&k3_clks 296 4>;
-> +		assigned-clock-rates = <19200000>;
-> +		status = "disabled";
-> +	};
-> +
-> +	dsi0: dsi@4800000 {
-> +		compatible = "ti,j721e-dsi";
-> +		reg = <0x00 0x04800000 0x00 0x100000>, <0x00 0x04710000 0x00 0x100>;
-> +		clocks = <&k3_clks 150 1>, <&k3_clks 150 5>;
-> +		clock-names = "dsi_p_clk", "dsi_sys_clk";
-> +		power-domains = <&k3_pds 150 TI_SCI_PD_EXCLUSIVE>;
-> +		interrupt-parent = <&gic500>;
-> +		interrupts = <GIC_SPI 600 IRQ_TYPE_LEVEL_HIGH>;
-> +		phys = <&dphy2>;
+>=20
+> Devang Tailor (3):
+>   dt-bindings: rtc: s3c-rtc: add compatible for exynosautov9
+>   rtc: s3c: support for exynosautov9 on-chip RTC
+>   arm64: dts: exynosautov9: add RTC DT node
+>=20
+>  .../devicetree/bindings/rtc/s3c-rtc.yaml       =7C  1 +
+>  .../boot/dts/exynos/exynosautov9-sadk.dts      =7C  4 ++++
+>  arch/arm64/boot/dts/exynos/exynosautov9.dtsi   =7C 10 ++++++++++
+>  drivers/rtc/rtc-s3c.c                          =7C 18 ++++++++++++++++++
+>  4 files changed, 33 insertions(+)
+>=20
+>=20
+> base-commit: 58ba80c4740212c29a1cf9b48f588e60a7612209
+> --
+> 2.34.1
 
-phys = <&dphy_tx>
-
-and likewise for dphy_rx.
-
-Regards
-Devarsh
 
 
