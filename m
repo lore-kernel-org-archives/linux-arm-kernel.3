@@ -4,105 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 726A2CA100B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 06:19:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98EC4CA100B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 06:24:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tQU80Q78MBhtFBfM5J1N4FBRhwtn0GKBK4O/dLbfS+Y=; b=NtaeSiHwDvSqv0jn9gdk0GSB4/
-	nj9t0yg3vtqJEbYM4TGfij9c/44WtouA983u5kGAMYhlAF/WcEeCAjZIx6VlZCOLFNcSAMGznFKXC
-	ZwHUkHJP86aSig+svQePt8iI2qwskTF3ox7oDvW0KJAUacyFYAN5N4VBMORm+qFP8pMlcEy7+pkOm
-	oH1CwdXA9yA7VpprsWCoeoqrI1/d+fyrfUa267hbRukDdMschlscsuwU+Mysnctw64+ckTl8g9Z7X
-	jPWMT2AKw2UfjpH3K9OpPX8aPbr8XnAny/jSqZWc25CD1jhfwocad7WAIvI/637Uhlq0hbrCWxbdX
-	gVK63qVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WZnT5uA6KIeOMSm0wIllaXOm74j1vYgVbnkWPxMD/7Y=; b=sjWRbVU/EopwaXaPP7g1AgfeV5
+	5wYjAO9TBz/B8Lz/ceuBXWkxyh/g4sVIpEl5iuN8s53TdKVVuZsUn9DuF1m+9h3X744/ilSkEfRK4
+	Uvxv7N0+6VfuPONaZQV9mgsxkwMWlEQQ7SjfduRIWgBpu3G8uJ9SjJ5ndPYf29QIcjk0uRA1WFLR2
+	W/KqRKnXwVfcd+COa3rol0ou8Poj7NfWgET1edSYZDUragrH9NL91KmvjVvH9HuOad0WtKaoOpM19
+	cjmE3p+sJMmyk2x0hlRsBLHWD+0xJukQaP/6UjkcE7mMySdL7B3q+cYsKa9XRxWaeYfU10bHQCKNt
+	UtykAOIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utgqR-00000004Z3I-3yX8;
-	Wed, 03 Sep 2025 06:19:47 +0000
+	id 1utgua-00000004bW8-2niO;
+	Wed, 03 Sep 2025 06:24:04 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utgl0-00000004WA0-1zTX
+	id 1utgrs-00000004a9N-2n0g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 06:14:10 +0000
+	Wed, 03 Sep 2025 06:21:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 98B2A60239;
-	Wed,  3 Sep 2025 06:14:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F218FC4CEF0;
-	Wed,  3 Sep 2025 06:14:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C78636023A;
+	Wed,  3 Sep 2025 06:21:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7590BC4CEF0;
+	Wed,  3 Sep 2025 06:21:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756880049;
-	bh=Z0ZueLOg7EgXP4wjwbs33b6kJu0PLFw/NnsxA0K9Eqs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Vo5dIU3CVhcV4y/VVOlW34ypUKtDL6kyzZ6mNkF3V+f+HBHMr+K2abMr7wuLSdB8z
-	 OffZhveIbeSFBI3khwOMw15JTa4XARoCvoFsEleAVw5gXZRINMaA/YQ78jgmX4KUMu
-	 1q6b17YKrTtGssCbnsurMw/NpkzP3TjbH4fqxqE/y/IbBoRyn64u8Xu/R1YuZh6bbP
-	 I4OFSAoBigkohi9V7o8KUbJ9AYJC/QWrtYkBWfKXUi02A9BK/TfLA3/0b/9VVb3eJS
-	 l3RJp8sg61nTPTaoFvR/5JA5gRpyLHsyHcLiUuof0Zm9ZNxIqLyIr/NQ4mgqRduhio
-	 ff3K0rQGzhVnA==
-Message-ID: <05665d48-72d7-4304-9dd1-1f337235ecd4@kernel.org>
-Date: Wed, 3 Sep 2025 08:14:05 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 6/8] arm64: dts: bst: add support for Black Sesame
- Technologies C1200 CDCU1.0 board
-To: Albert Yang <yangzh0906@thundersoft.com>
-Cc: adrian.hunter@intel.com, arnd@arndb.de, conor+dt@kernel.org,
- devicetree@vger.kernel.org, gordon.ge@bst.ai, krzk+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- robh@kernel.org
-References: <ce1285be-5a3f-4d4b-bca1-e31f56573597@kernel.org>
- <20250903034018.3422601-1-yangzh0906@thundersoft.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250903034018.3422601-1-yangzh0906@thundersoft.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+	s=k20201202; t=1756880475;
+	bh=NznlH5PgUYjdRJyI7ivYzbTBuMkKWeEALjW0fPj3M9g=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=QOgFF4LedZbxEfKfHATx+pSSrDBulZnJOFdTjB7Hb5RX+IARuNNSGttBgxL1+Io7B
+	 d5ZzUAle8y9/OeT/5GeEoldpPPuJT/N+ip7NolMPM7t39iy3l/qKj0fiX5wq0OOqYD
+	 2DoJK4oTd+X+kCHd9SUmxnxAV0tsMvG2WlbDH4HYVAGpws2FXaJUzVmbEmozbeGcqF
+	 tStKTAairJKSJs1oczK7dw5P4drPd4dQsuvLIwjd4rnylY8YgkVvOJJu4u4MIdwdw2
+	 lhpij5ZkaKXOVZnQUf2fCbZFPdlAQNINrCdd5bqdynDdZmmnBcNEoxRwvhieJb+YX1
+	 7jxiiSNEBRRlw==
+Received: from 93-47-110-174.ip112.fastwebnet.it ([93.47.110.174] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1utgro-00000002qgc-3rgU;
+	Wed, 03 Sep 2025 06:21:13 +0000
+Date: Wed, 03 Sep 2025 07:21:07 +0100
+Message-ID: <87y0qwys30.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Zenghui Yu <yuzenghui@huawei.com>
+Cc: <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>,
+	<lpieralisi@kernel.org>,
+	<tglx@linutronix.de>,
+	<wanghaibin.wang@huawei.com>
+Subject: Re: [PATCH] irqchip/gic-v5: Remove the redundant ITS cache invalidation
+In-Reply-To: <20250903023319.1820-1-yuzenghui@huawei.com>
+References: <20250903023319.1820-1-yuzenghui@huawei.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 93.47.110.174
+X-SA-Exim-Rcpt-To: yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, lpieralisi@kernel.org, tglx@linutronix.de, wanghaibin.wang@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,29 +83,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/09/2025 05:40, Albert Yang wrote:
+On Wed, 03 Sep 2025 03:33:19 +0100,
+Zenghui Yu <yuzenghui@huawei.com> wrote:
 > 
->>> +           gic: interrupt-controller@32800000 {
->>> +                   compatible = "arm,gic-v3";
->>> +                   #interrupt-cells = <3>;
->>> +                   #address-cells = <2>;
->>> +                   #size-cells = <2>;
->>> +                   interrupt-controller;
->>> +                   ranges;
->>> +                   reg = <0x0 0x32800000 0x0 0x10000>,
->>> +                         <0x0 0x32880000 0x0 0x100000>;
->>
->> Random order...
+> An ITS cache invalidation has been performed immediately after programming
+> the L2 DTE in gicv5_its_device_register(). No need to perform it again
+> right after a successful gicv5_its_device_register().
+
+Indeed. And this call doesn't check it's been successful either.
+
 > 
-> Refs: arm,gic‑v3 binding
-> https://raw.githubusercontent.com/torvalds/linux/master/Documentation/devicetree/bindings/interrupt-controller/arm,gic-v3.yaml
-> Updated as follows:
+> Remove it.
+> 
+> Signed-off-by: Zenghui Yu <yuzenghui@huawei.com>
+> ---
+>  drivers/irqchip/irq-gic-v5-its.c | 2 --
+>  1 file changed, 2 deletions(-)
+> 
+> diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
+> index 2fb58d76f521..554485f0be1f 100644
+> --- a/drivers/irqchip/irq-gic-v5-its.c
+> +++ b/drivers/irqchip/irq-gic-v5-its.c
+> @@ -768,8 +768,6 @@ static struct gicv5_its_dev *gicv5_its_alloc_device(struct gicv5_its_chip_data *
+>  		goto out_dev_free;
+>  	}
+>  
+> -	gicv5_its_device_cache_inv(its, its_dev);
+> -
+>  	its_dev->its_node = its;
+>  
+>  	its_dev->event_map = (unsigned long *)bitmap_zalloc(its_dev->num_events, GFP_KERNEL);
 
-No, you need to finally read and follow DTS coding style.
+Reviewed-by: Marc Zyngier <maz@kernel.org>
 
-> 		gic: interrupt-controller@32800000 {
-> 			compatible = "arm,gic-v3";
-> 			#interrupt-cells = <3>;
-Best regards,
-Krzysztof
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
