@@ -4,82 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01134CA1009
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 12:44:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56540CA1009
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 12:47:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7brYymqqs4aIaN8Zo+JAkRMDFy6v/aAdvXLq9zLu890=; b=pyzqFKUXXpJ1kECQizfHKoMqAB
-	fEetaJ/Sj1Lhl42fOCfMizrZ9dn2yjw8nOHKSNqIrg4qGBPIlT8hPoaHBH6yJZtD/5Chw0Xt1dHlq
-	DhEZ0hpjVgQiJEzhC1VXCxJB4yXfx/3pB8eCwMIjG2k2YLBPdJ+Pr1yVYhydorp4XOhx0f2nMDgUH
-	kKgyvcYK0G6T0jSc9lHmF0ZDQiG1T4Rm+sxs4yRxizRlQn8SAkO96LRDTYu+GF+SJMiY86RrDqAxT
-	fIYtml2oFcQsmamHmfh/t51jGKZe1Ho3xijXjtr6ofKhIcA0joDGynZwVB/Zy1xkdTGQil2Gg1DeE
-	Rat/40ag==;
+	bh=DFA746l+FQKeF8fniwaJ6EqIocMxPsuQyDMVkrVoQx4=; b=Pm3qYSeGlnOxBKxfZJ0jrVmmrR
+	ZYpJFwFOd0YkiL0d985jzbDWrxEKqzawOQ/vqZIO1s+/rqpS7y2TcKP+kyyoFd6kW2FVcz/N2aVL5
+	83zejg9z0eXyu1oNz5TlNCPkTc58flTpNECy1KTWBczQ9BpJ3mL032CiGczjp93nv124qM/fnmnRv
+	Vemjxh0t1fU4vpLciVPItmukt2DPY20G3dQ0xRHQ12BTLuZ79otSh4NpD9cG49vHdjA/cXeuF2zyb
+	JnddI596W3fVaHAbNMyGu7fIq0GZTzbRl8cQGQDMY/oqQnCi9FayvDnUHVvxqmsyKfPKrnvQk3Oc4
+	tpB2lTMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utmqP-00000006R17-3aK9;
-	Wed, 03 Sep 2025 12:44:10 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1utmt7-00000006ReW-2Q2E;
+	Wed, 03 Sep 2025 12:46:57 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utlq3-00000006FdF-3xEw
+	id 1utltk-00000006G1s-0DSG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 11:39:46 +0000
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250903113936epoutp04941ea46865ae178b48a16746ee68466f~hwttUUy3y1531615316epoutp04q
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  3 Sep 2025 11:39:36 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250903113936epoutp04941ea46865ae178b48a16746ee68466f~hwttUUy3y1531615316epoutp04q
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1756899576;
-	bh=7brYymqqs4aIaN8Zo+JAkRMDFy6v/aAdvXLq9zLu890=;
-	h=From:To:In-Reply-To:Subject:Date:References:From;
-	b=nbCnIuKd5yIhoIE+HHSRXan/tD+ViEyZ8LVorLByq27qYgcqt/txouJAuDyrJrNXG
-	 d0kL19mYOXMlDG/sVQ5CNH9AJU98j2WWIIjmqzDbRKr7y1dGpCz5TC1hLBReAduiWj
-	 AVjNYCduDqNeEI+Hwpuul+dQRMjYlotdFhsRu4Xs=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250903113936epcas5p2a2fc50ab07b0fd777b4bee856b31511c~hwttCSEIa0673206732epcas5p2L;
-	Wed,  3 Sep 2025 11:39:36 +0000 (GMT)
-Received: from epcas5p3.samsung.com (unknown [182.195.38.93]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4cH0yH46Bnz6B9m4; Wed,  3 Sep
-	2025 11:39:35 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
-	20250903113935epcas5p3227334fa7684fe2170093c2851f27476~hwtrskr2T2284122841epcas5p3A;
-	Wed,  3 Sep 2025 11:39:35 +0000 (GMT)
-Received: from INBRO002520 (unknown [107.122.1.191]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250903113933epsmtip13e7d48e7582eba797719ac5d7c4a2873~hwtqTZwKo0781907819epsmtip1o;
-	Wed,  3 Sep 2025 11:39:33 +0000 (GMT)
-From: "Devang Tailor" <dev.tailor@samsung.com>
-To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<alim.akhtar@samsung.com>, <alexandre.belloni@bootlin.com>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-rtc@vger.kernel.org>, <faraz.ata@samsung.com>
-In-Reply-To: <20250710083434.1821671-1-dev.tailor@samsung.com>
-Subject: RE: [PATCH v2 0/3] On-chip RTC support for ExynosAutov9
-Date: Wed, 3 Sep 2025 17:09:32 +0530
-Message-ID: <000001dc1cc7$6bfee9d0$43fcbd70$@samsung.com>
+	Wed, 03 Sep 2025 11:43:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 61D0C44C18
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  3 Sep 2025 11:43:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4287DC116C6
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  3 Sep 2025 11:43:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756899811;
+	bh=vKQkkEhiJ1pWIqj+5+l0nwZXdLd03e23W2MiNNRAENI=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=ZpjrJSUQT1mjo/GMosxVE9BlKGzz1qGPGvR96j4+cgvYWF0u5LAVlwLWXP3ABf9xh
+	 emKGoXYpzikhccqTWnXBUrcQPaehl9+DjtD8mRrCZAUG0qMfiELP4YWuYF1/F3FhRs
+	 aW14nUDCO+/AYANfE36disnrS+dbIk61uVm2aK4DwbZr4D6ZklHcUzH8AB5VT4ETkI
+	 oemvw0KIyTt5h9EWGtcRYHX1XymPMBJ5M8rR/7taIhWazv9RCHjo2E6MQK1ZSFsIft
+	 KMXYcw8DilfLBcBV9GtUI2eD4qkQH6J3a3mK4SaX7Nes6EUJ273H+CqQgGGZuh4kFd
+	 y6ffvET3JkSjQ==
+Received: by mail-oo1-f51.google.com with SMTP id 006d021491bc7-61e48b28bebso1207382eaf.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Sep 2025 04:43:31 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWz2E2W4dZTMaRA0o8GbfQIeQuPWX560pTdfwvU0FLY7azVS35X2gSB+BlZ91ymFEkSRYxGvoDHo5Cr0Aot82o6@lists.infradead.org
+X-Gm-Message-State: AOJu0YwdzLBVGRbetcCbxWGfOef55mxUzPAVKnDGNbbSfAEZv1ZthGEW
+	t3Kh0vj/T9W2+j1NiQMkIuYOGsRXzluZs9VKCEFzbGju/5Vjt6/Doj868lUV8I7P8Tgjp3TuPzz
+	P2723WDAwRkiuyjK4JWW60+3zpU6J3Iw=
+X-Google-Smtp-Source: AGHT+IFudXZ/fyz4UQ3WH+8GjEXukDIGbLh/LZigzEMBTf0gXA3YZsKNByr0Anw/wDvM05EPCnSrOq7ywW0PFfzffo4=
+X-Received: by 2002:a05:6820:1694:b0:619:7d9b:3f0b with SMTP id
+ 006d021491bc7-61e33740f82mr7219508eaf.5.1756899810069; Wed, 03 Sep 2025
+ 04:43:30 -0700 (PDT)
 MIME-Version: 1.0
+References: <20250901085748.36795-1-zhangzihuan@kylinos.cn> <20250901085748.36795-10-zhangzihuan@kylinos.cn>
+In-Reply-To: <20250901085748.36795-10-zhangzihuan@kylinos.cn>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Wed, 3 Sep 2025 13:43:17 +0200
+X-Gmail-Original-Message-ID: <CAJZ5v0gwpefQt8VJ3XUyFy7u7rFhvPT=sXqG-1gHobw=1NgJpw@mail.gmail.com>
+X-Gm-Features: Ac12FXwdhTUIKZ7oynz9F8Wzgqo7R3jPRBfEv1CLslQcvLPWz0YXuuodu9R2gpg
+Message-ID: <CAJZ5v0gwpefQt8VJ3XUyFy7u7rFhvPT=sXqG-1gHobw=1NgJpw@mail.gmail.com>
+Subject: Re: [PATCH v3 09/12] powercap: dtpm_cpu: Use scope-based cleanup helper
+To: Zihuan Zhang <zhangzihuan@kylinos.cn>
+Cc: "Rafael J . wysocki" <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+	Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Thierry Reding <thierry.reding@gmail.com>, MyungJoo Ham <myungjoo.ham@samsung.com>, 
+	Kyungmin Park <kyungmin.park@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, 
+	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+	Eduardo Valentin <edubezval@gmail.com>, Keerthy <j-keerthy@ti.com>, Ben Horgan <ben.horgan@arm.com>, 
+	zhenglifeng <zhenglifeng1@huawei.com>, Zhang Rui <rui.zhang@intel.com>, 
+	Len Brown <lenb@kernel.org>, Lukasz Luba <lukasz.luba@arm.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Beata Michalska <beata.michalska@arm.com>, 
+	Fabio Estevam <festevam@gmail.com>, Pavel Machek <pavel@kernel.org>, Sumit Gupta <sumitg@nvidia.com>, 
+	Prasanna Kumar T S M <ptsm@linux.microsoft.com>, Sudeep Holla <sudeep.holla@arm.com>, 
+	Yicong Yang <yangyicong@hisilicon.com>, linux-pm@vger.kernel.org, 
+	linux-acpi@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, intel-gfx@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
+	linux-omap@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQJ8w0UJjWiHDR7+9bjoByRdFpd+nAMc6yo9sycffmA=
-Content-Language: en-in
-X-CMS-MailID: 20250903113935epcas5p3227334fa7684fe2170093c2851f27476
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250710082533epcas5p111be26bea2ccc08718eebcb12929bbbf
-References: <CGME20250710082533epcas5p111be26bea2ccc08718eebcb12929bbbf@epcas5p1.samsung.com>
-	<20250710083434.1821671-1-dev.tailor@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_043944_629028_6A216DCC 
-X-CRM114-Status: GOOD (  19.28  )
+X-CRM114-CacheID: sfid-20250903_044332_135070_C303A975 
+X-CRM114-Status: GOOD (  22.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,65 +103,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-Hi,
-
-
-> -----Original Message-----
-> From: Devang Tailor <dev.tailor=40samsung.com>
-> Sent: 10 July 2025 14:05
-> To: robh=40kernel.org; krzk+dt=40kernel.org; conor+dt=40kernel.org;
-> alim.akhtar=40samsung.com; alexandre.belloni=40bootlin.com;
-> devicetree=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; lin=
-ux-
-> samsung-soc=40vger.kernel.org; linux-kernel=40vger.kernel.org; linux-
-> rtc=40vger.kernel.org; faraz.ata=40samsung.com
-> Cc: Devang Tailor <dev.tailor=40samsung.com>
-> Subject: =5BPATCH v2 0/3=5D On-chip RTC support for ExynosAutov9
->=20
-> Enable on-chip RTC support. The on-chip RTC of this SoC is similar to the
-> previous versions of Samsung SoC. So re-use the existing RTC driver with
-> applicable call-backs for initialization and IRQ handling.
-> Add a separate call-back for disabling RTC since existing '.disable'
-> call-backs updates additional bit not valid for RTC of ExynosAutov9.
->=20
-> Setting and getting hardware clock has been tested using 'hwclock'
-> and 'date' utilities.
->=20
-> Alarm interrupt has been checked with incrementing interrupt count via =
-=22cat
-> /proc/interrupts =7C grep rtc=22 for 10sec wakeup time via =22echo +10 >
-> /sys/class/rtc/rtc0/wakealarm=22
->=20
-> changelog
+On Mon, Sep 1, 2025 at 10:58=E2=80=AFAM Zihuan Zhang <zhangzihuan@kylinos.c=
+n> wrote:
+>
+> Replace the manual cpufreq_cpu_put() with __free(put_cpufreq_policy)
+> annotation for policy references. This reduces the risk of reference
+> counting mistakes and aligns the code with the latest kernel style.
+>
+> No functional change intended.
+>
+> Signed-off-by: Zihuan Zhang <zhangzihuan@kylinos.cn>
 > ---
-> Changes in v2:
-> - Fixed the review comment of v1 for mis-aligmnent & asymmetry bit logic.
-> - link for v1 : https://lore.kernel.org/linux-rtc/20250702052426.2404256-=
-1-
-> dev.tailor=40samsung.com/
->=20
+>  drivers/powercap/dtpm_cpu.c | 26 +++++++-------------------
+>  1 file changed, 7 insertions(+), 19 deletions(-)
+>
+> diff --git a/drivers/powercap/dtpm_cpu.c b/drivers/powercap/dtpm_cpu.c
+> index 99390ec1481f..5e18438782f8 100644
+> --- a/drivers/powercap/dtpm_cpu.c
+> +++ b/drivers/powercap/dtpm_cpu.c
+> @@ -144,19 +144,15 @@ static int update_pd_power_uw(struct dtpm *dtpm)
+>  static void pd_release(struct dtpm *dtpm)
+>  {
+>         struct dtpm_cpu *dtpm_cpu =3D to_dtpm_cpu(dtpm);
+> -       struct cpufreq_policy *policy;
+> +       struct cpufreq_policy *policy __free(put_cpufreq_policy) =3D cpuf=
+req_cpu_get(dtpm_cpu->cpu);
+>
+>         if (freq_qos_request_active(&dtpm_cpu->qos_req))
+>                 freq_qos_remove_request(&dtpm_cpu->qos_req);
+>
+> -       policy =3D cpufreq_cpu_get(dtpm_cpu->cpu);
 
-Reminder=21
-Can you please help to identify if anything is pending in this patch series=
- ? I see all three patches are reviewed.
+Since policy is not needed earlier, you may as well declare it here.
 
->=20
-> Devang Tailor (3):
->   dt-bindings: rtc: s3c-rtc: add compatible for exynosautov9
->   rtc: s3c: support for exynosautov9 on-chip RTC
->   arm64: dts: exynosautov9: add RTC DT node
->=20
->  .../devicetree/bindings/rtc/s3c-rtc.yaml       =7C  1 +
->  .../boot/dts/exynos/exynosautov9-sadk.dts      =7C  4 ++++
->  arch/arm64/boot/dts/exynos/exynosautov9.dtsi   =7C 10 ++++++++++
->  drivers/rtc/rtc-s3c.c                          =7C 18 ++++++++++++++++++
->  4 files changed, 33 insertions(+)
->=20
->=20
-> base-commit: 58ba80c4740212c29a1cf9b48f588e60a7612209
+> -       if (policy) {
+> +       if (policy)
+>                 for_each_cpu(dtpm_cpu->cpu, policy->related_cpus)
+>                         per_cpu(dtpm_per_cpu, dtpm_cpu->cpu) =3D NULL;
+>
+> -               cpufreq_cpu_put(policy);
+> -       }
+> -
+>         kfree(dtpm_cpu);
+>  }
+>
+> @@ -192,7 +188,7 @@ static int cpuhp_dtpm_cpu_online(unsigned int cpu)
+>  static int __dtpm_cpu_setup(int cpu, struct dtpm *parent)
+>  {
+>         struct dtpm_cpu *dtpm_cpu;
+> -       struct cpufreq_policy *policy;
+> +       struct cpufreq_policy *policy __free(put_cpufreq_policy) =3D cpuf=
+req_cpu_get(cpu);
+>         struct em_perf_state *table;
+>         struct em_perf_domain *pd;
+>         char name[CPUFREQ_NAME_LEN];
+> @@ -202,21 +198,16 @@ static int __dtpm_cpu_setup(int cpu, struct dtpm *p=
+arent)
+>         if (dtpm_cpu)
+>                 return 0;
+>
+> -       policy =3D cpufreq_cpu_get(cpu);
+
+Ditto.
+
+>         if (!policy)
+>                 return 0;
+>
+>         pd =3D em_cpu_get(cpu);
+> -       if (!pd || em_is_artificial(pd)) {
+> -               ret =3D -EINVAL;
+> -               goto release_policy;
+> -       }
+> +       if (!pd || em_is_artificial(pd))
+> +               return -EINVAL;
+>
+>         dtpm_cpu =3D kzalloc(sizeof(*dtpm_cpu), GFP_KERNEL);
+> -       if (!dtpm_cpu) {
+> -               ret =3D -ENOMEM;
+> -               goto release_policy;
+> -       }
+> +       if (!dtpm_cpu)
+> +               return -ENOMEM;
+>
+>         dtpm_init(&dtpm_cpu->dtpm, &dtpm_ops);
+>         dtpm_cpu->cpu =3D cpu;
+> @@ -239,7 +230,6 @@ static int __dtpm_cpu_setup(int cpu, struct dtpm *par=
+ent)
+>         if (ret < 0)
+>                 goto out_dtpm_unregister;
+>
+> -       cpufreq_cpu_put(policy);
+>         return 0;
+>
+>  out_dtpm_unregister:
+> @@ -251,8 +241,6 @@ static int __dtpm_cpu_setup(int cpu, struct dtpm *par=
+ent)
+>                 per_cpu(dtpm_per_cpu, cpu) =3D NULL;
+>         kfree(dtpm_cpu);
+>
+> -release_policy:
+> -       cpufreq_cpu_put(policy);
+>         return ret;
+>  }
+>
 > --
-> 2.34.1
-
-
 
