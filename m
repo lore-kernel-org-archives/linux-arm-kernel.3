@@ -4,79 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 733EECA0FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 08:53:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7950CA1009
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 08:56:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G9LuJtlyVxPJhHT/WYbeGudzGNgkTAxPFbkh2SdZG50=; b=MMSwRzXAWpjyj28+NQLOAKjoBT
-	CzR5vktYsDdvvjafRa4jfhCXnrb3mFWQQWJWYObcnzG3BDjg2Pv3fZBM7feyb4JtTt9rSNdnK8M0W
-	PiANYpbDtxUk2UuuFwMwN2PaDJw1HD9RMmE5FvOTfqerqcKj4GXVRjr6TdtgSEqnT3SyAopK1YHwU
-	wPZ1LHBK/x7V4oacxq2z32N1i+BYpBivTg9h1tBLL0B51vwDhU2K+xl3Z/9BMCikx3jWLAK1sF24Q
-	39bXPdif5/5jn00fAnagX9/8dEz94TCkeGskGiJd8JuueHk3hjZhz+Xd4tjgHqQgguPrPY5ph5Ml8
-	ZU5T6VEw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=C1GxC5wEZ7w0hRkO573JUt7hmP/RrOOhSWDg3A2PT/o=; b=Ua+1x3CSdw92F/
+	A5CrRj9wmXo1Yikz9vq88xabgqouLR+U2XD3G4xOJzBk137S2f70WXbAGcqBufIfLIXfRZpg73jHP
+	MUO74EEnc34b/6FaoHyPhpKJFkgdzeZldNRI8wufpZslpE/voHVH5zclkHEqzv8JK3jChO4KnZmGz
+	fwQyrn45Ea+PdAHJBbVS0L7N/gVUl9VTItdlV51KPkjSlEYNcm1/HywO97S7kqhiCK2D0bhruXPw4
+	3KpCAuJJc0Cf4L7I6XV+eYdgXxLVTnPexVrnXvGXHOQMWJwqtNlKhsY+E0rZ4WLgWtdpDmpCVD+/j
+	JOpYwQNQHcgQ2Lm1wu6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utjF8-00000005lT4-2usd;
-	Wed, 03 Sep 2025 08:53:27 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1utjHr-00000005mxd-1Fdl;
+	Wed, 03 Sep 2025 08:56:15 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utiMx-00000005Jsl-0lm7
+	id 1utiO1-00000005KZS-2LyQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 07:57:28 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id AEB01A0AE8;
-	Wed,  3 Sep 2025 09:57:25 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=G9LuJtlyVxPJhHT/WYbe
-	GudzGNgkTAxPFbkh2SdZG50=; b=W/FEEsSfmuCfkCG0oEWET5i9SdjR+Z0hvfnD
-	919tOq99XHewP0Qxui/gVeTMGHVF+bAraGIUssL4DjV3wPhiMWjXY6wsd6R3IHJG
-	RrWJpi0osuY+ejwE+x128F/NtgLzQH+zwIU9rL7L6ddeLx8swhRjX9OGUBd+kNus
-	/Jpy+IXIvZm/72mCZgnQi3IO68KBYNnOusbDZEYp5J0PX0w3JlLG258yJpHITK2e
-	4fxm7IlwRESqtaTuTqnjf0VxPxGtMkdV2YgL9KuHoLRlO1CZFkAxLiO8gNpOAre9
-	SGH0m+ZLq72p+eOJqA474r5WhVUBkw2RRm4mBSo7sN6JzqTAnss+T1VMT/AFcq6M
-	1M9/GwtSaqWxhg+YPw1Kvm2bNF2Infl214GRQCmt0Ywc1csgo9Ucg1e6LUMEW38f
-	52c/acGWhU5oNA8/FEGNN0XhlzlaKzVABqO8xJKnTBnaDANfSwNEbGEdaG2MlFmA
-	gQGVycQpR7SccNLHkGJtuhc7nqBH+atmeDsa/d6xqtAoRs/mhHP3eb3eKpV7BWCh
-	MG3g0giYeSF3brw1etx7ozIrhO5BGshnl0ydzwoiWDSCYR62WYOFHCk1mIqgeacB
-	0YcEQglvKToDXPJ7syEfUzPjzBWS6iaQ8A6S4KL7NnHRauOicMemAL5gJ3tooSKJ
-	EWvW6/w=
-Message-ID: <57518c46-2e92-4689-80a3-ae4c99b9fc32@prolan.hu>
-Date: Wed, 3 Sep 2025 09:57:17 +0200
+	Wed, 03 Sep 2025 07:58:35 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5837w2q73215022;
+	Wed, 3 Sep 2025 02:58:02 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1756886282;
+	bh=C1GxC5wEZ7w0hRkO573JUt7hmP/RrOOhSWDg3A2PT/o=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=gm/FiO2863E9riM2wUW/YKWv+8Hap14okkUNr7krZuwkWdIUMhHcNztY9yuLsb/me
+	 HcYQNkHXf/M0DnC+lgydKkWhm8U+ai3ViN3TsI32t0zs3rNF8a1iM6VSvY3nCXGFZH
+	 AlQQf2CZdmkmuaDdcQSLogjYpUH0z4Br8PsHf/q0=
+Received: from DFLE107.ent.ti.com (dfle107.ent.ti.com [10.64.6.28])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5837w2lr3363202
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Wed, 3 Sep 2025 02:58:02 -0500
+Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE107.ent.ti.com
+ (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 3
+ Sep 2025 02:58:01 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Wed, 3 Sep 2025 02:58:01 -0500
+Received: from [172.24.231.152] (danish-tpc.dhcp.ti.com [172.24.231.152])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5837vpEY1226636;
+	Wed, 3 Sep 2025 02:57:52 -0500
+Message-ID: <d994594f-7055-47c8-842f-938cf862ffb0@ti.com>
+Date: Wed, 3 Sep 2025 13:27:51 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: dts: imx6ul-tx6ul: Switch away from deprecated
- `phy-reset-gpios`
-To: Ahmad Fatoum <a.fatoum@pengutronix.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>
-CC: <devicetree@vger.kernel.org>, <imx@lists.linux.dev>, Csaba Buday
-	<buday.csaba@prolan.hu>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-References: <20250815-b4-tx6ul-dt-phy-rst-v1-1-9b65e315d9d3@prolan.hu>
- <fa7e2cef-5242-4f3b-84ea-d77b959f6bdb@pengutronix.de>
- <c85a94ee-59e1-47d6-8200-813bb434caf2@prolan.hu>
- <1bf75411-4a51-4103-b314-a8a7253bafca@pengutronix.de>
+Subject: Re: [PATCH net-next v2 2/8] dt-bindings: remoteproc: k3-r5f: Add
+ rpmsg-eth subnode
+To: Krzysztof Kozlowski <krzk@kernel.org>
+References: <20250902090746.3221225-1-danishanwar@ti.com>
+ <20250902090746.3221225-3-danishanwar@ti.com>
+ <20250903-peculiar-hot-monkey-4e7c36@kuoka>
 Content-Language: en-US
-From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
-In-Reply-To: <1bf75411-4a51-4103-b314-a8a7253bafca@pengutronix.de>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.254.253.11]
-X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
- ATLAS.intranet.prolan.hu (10.254.0.229)
-X-EsetResult: clean, is OK
-X-EsetId: 37303A296767155E637062
+From: MD Danish Anwar <danishanwar@ti.com>
+In-Reply-To: <20250903-peculiar-hot-monkey-4e7c36@kuoka>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_005727_381048_88F74E6C 
-X-CRM114-Status: GOOD (  17.50  )
+X-CRM114-CacheID: sfid-20250903_005833_697556_16B8ED57 
+X-CRM114-Status: GOOD (  23.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,53 +82,119 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Geert Uytterhoeven <geert+renesas@glider.be>, linux-doc@vger.kernel.org, linux-remoteproc@vger.kernel.org, Eric Dumazet <edumazet@google.com>, Fan Gong <gongfan1@huawei.com>, Xin Guo <guoxin09@huawei.com>, Lei Wei <quic_leiwei@quicinc.com>, Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Michael Ellerman <mpe@ellerman.id.au>, Lee Trager <lee@trager.us>, Jakub Kicinski <kuba@kernel.org>, Mengyuan Lou <mengyuanlou@net-swift.com>, Lorenzo Bianconi <lorenzo@kernel.org>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Roger Quadros <rogerq@kernel.org>, Lukas Bulwahn <lukas.bulwahn@redhat.com>, linux-arm-kernel@lists.infradead.org, srk@ti.com, Paolo Abeni <pabeni@redhat.com>, Tero Kristo <kristo@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, netdev@vger.kernel.org, Bjorn Andersson <andersson@kernel.org>, linux-kernel@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>, Simon Horman <horms@kernel.org>, Parthiban Veerasooran <Parthiban.Veerasooran@microchip.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "David S. Miller" <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On 2025. 09. 03. 9:50, Ahmad Fatoum wrote:
-> Hi,
-> 
-> On 03.09.25 09:43, Csókás Bence wrote:
->> Hi,
+
+On 03/09/25 12:49 pm, Krzysztof Kozlowski wrote:
+> On Tue, Sep 02, 2025 at 02:37:40PM +0530, MD Danish Anwar wrote:
+>> Extend the Texas Instruments K3 R5F remoteproc device tree bindings to
+>> include a 'rpmsg-eth' subnode.
 >>
->> On 2025. 09. 03. 9:28, Ahmad Fatoum wrote:
->>> Hello,
->>>
->>> On 15.08.25 17:17, Bence Csókás wrote:
->>>> The Ethernet PHY's reset GPIO should be specified in the node of the PHY
->>>> itself, instead of the MAC (`fec`). The latter is deprecated, and was an
->>>> i.MX-specific extension, incompatible with the new reset controller
->>>> subsystem.
->>>
->>> One reason to do it this way is that the PHY is in reset when the OS starts
->>> and the external phy-reset-gpios allows MAC probe to get the PHY out of
->>> reset, so it can be probed after reading its vendor/device IDs.
->>>
->>> Does switching to this new binding address this scenario? If so, it should
->>> be noted in the commit message.
+>> This extension allows the RPMsg Ethernet to be defined as a subnode of
+>> K3 R5F remoteproc nodes, enabling the configuration of shared memory-based
+>> Ethernet communication between the host and remote processors.
 >>
->> Yes, but after it has been reset, if the platform supports Power Management, the PHY's clock will be turned off, which some PHYs (in our case the LAN8710) don't tolerate. This has been reported many times, just search LKML for "lan8710 reset".
+>> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+>> ---
+>>  .../devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml     | 6 ++++++
+>>  1 file changed, 6 insertions(+)
 >>
->> So we want a more general solution [1] where the PHY subsystem resets them before enumerating. However, if the MAC driver claims the GPIO, then it can't be used by the PHY.
+>> diff --git a/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
+>> index a492f74a8608..4dbd708ec8ee 100644
+>> --- a/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
+>> +++ b/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
+>> @@ -210,6 +210,12 @@ patternProperties:
+>>            should be defined as per the generic bindings in,
+>>            Documentation/devicetree/bindings/sram/sram.yaml
+>>  
+>> +      rpmsg-eth:
+>> +        $ref: /schemas/net/ti,rpmsg-eth.yaml
 > 
-> I agree that it makes sense for a PHY reset to be associated with the PHY
-> device and controlled by the PHY driver. I am wary of regressions though,
-> which is why I wanted the commit message to clearly spell out the implications.
+> No, not a separate device. Please read slides from my DT for beginners
 
-You're right. We'll put this all in the message.
+I had synced with Andrew and we came to the conclusion that including
+rpmsg-eth this way will follow the DT guidelines and should be okay.
 
->> I will clarify the commit msg with this in mind.
-> 
-> Thanks.
-> 
->> [1] https://lore.kernel.org/lkml/20250709133222.48802-4-buday.csaba@prolan.hu/
-> 
-> Is this mainline yet?
+I have another approach to handle this.
 
-Unfortunately, no. It apparently still needs some polish.
+Instead of a new binding and node. I can just add a new phandle to the
+rproc binding. Phandle name `shared-mem-region` or `rpmsg-eth-region`
 
-Bence
+Below is the device tree and dt binding diff for the same.
+
+diff --git
+a/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
+b/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
+index a492f74a8608..c02c99a5a768 100644
+--- a/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
++++ b/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
+@@ -210,6 +210,16 @@ patternProperties:
+           should be defined as per the generic bindings in,
+           Documentation/devicetree/bindings/sram/sram.yaml
+
++      rpmsg-eth-region:
++        $ref: /schemas/types.yaml#/definitions/phandle
++        description: |
++          phandle to the reserved memory nodes to be associated with the
++          remoteproc device for rpmsg eth communication. The reserved
+memory
++          nodes should be carveout nodes, and should be defined with a
+"no-map"
++          property as per the bindings in
++
+Documentation/devicetree/bindings/reserved-memory/reserved-memory.txt
++        additionalItems: true
++
+     required:
+       - compatible
+       - reg
+diff --git a/arch/arm64/boot/dts/ti/k3-am642-evm.dts
+b/arch/arm64/boot/dts/ti/k3-am642-evm.dts
+index e01866372293..e70dc542c6be 100644
+--- a/arch/arm64/boot/dts/ti/k3-am642-evm.dts
++++ b/arch/arm64/boot/dts/ti/k3-am642-evm.dts
+@@ -61,7 +61,13 @@ main_r5fss0_core0_dma_memory_region:
+r5f-dma-memory@a0000000 {
+
+ 		main_r5fss0_core0_memory_region: r5f-memory@a0100000 {
+ 			compatible = "shared-dma-pool";
+-			reg = <0x00 0xa0100000 0x00 0xf00000>;
++			reg = <0x00 0xa0100000 0x00 0x300000>;
++			no-map;
++		};
++
++		main_r5fss0_core0_memory_region_shm: r5f-shm-memory@a0400000 {
++			compatible = "shared-dma-pool";
++			reg = <0x00 0xa0400000 0x00 0xc00000>;
+ 			no-map;
+ 		};
+
+@@ -768,6 +774,7 @@ &main_r5fss0_core0 {
+ 	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core0>;
+ 	memory-region = <&main_r5fss0_core0_dma_memory_region>,
+ 			<&main_r5fss0_core0_memory_region>;
++	rpmsg-eth-region = <&main_r5fss0_core0_memory_region_shm>;
+ };
+
+ &main_r5fss0_core1 {
+
+
+In this approach I am creating a new phandle to a memory region that
+will be used by my device.
+
+Can you please let me know if this approach looks okay to you? Or it you
+have any other suggestion on how to handle this?
+
+> talk from OSSE25. This is EXACTLY the case I covered there - what not to
+> do.
+
+Sure I will have a look at that.
+
+-- 
+Thanks and Regards,
+Danish
 
 
