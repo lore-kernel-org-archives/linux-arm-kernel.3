@@ -4,175 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82BE4CA1005
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 00:53:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6023CA1007
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Sep 2025 00:56:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=95XfnWx7t/4d8J+7Mrt629jxiJTguJAdFa2GliEpD2g=; b=mBd53ksW0OCg5t58hbRyVEuqy6
-	qKSjDfOCYOzd/ODYK6IIgmg8qarwVCMa94dQE41v/RDb6RNf2fE8orDauAZes443O6PjC/oBm957g
-	6Q1JArYflg2uKl1HmnCTe7cTZ9/ov+f5B6QGw7S8tMpMVnCekpIm93PjtC28nkS11ATlnB0QeTUMY
-	KnHiE9HUT6ULkJwI2oBhYt9g4ijFuVhtqfms6Vio//dvC4Rsgbh6ZhB4bLGoKEwav5LFMbfcW+qUM
-	Slq6BfaYPnqykmRB99OX4ahFEAs7URatMzM+gZY4J2EeSuPFl7Fn1JVjir3+BHSwvCP4E21hccFVb
-	F5BjPTQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zxqA4w29q+rwRyQ2/Ht97x0u7kuCwxko6jKzWp02gGI=; b=0n9hsHS+6BRJxE1jUPF8lYlTA6
+	iQgkzh/PS1rwo+Qz6fqN+0K7dp1//WHY+s4ytLSJVFQWM50axr2U3Rpvw1d6epQ4KGmQMAZVVfKzE
+	/vFWYkw6ue46g3a0fLUDpKeGNls3JWMxUuHXYOG/xOZg1Yxa1SUw4qdRDjrjavOZb8q6hoLRNZJAa
+	wXN9CsbFJdxk4cgbOOjZ7sFN9A8kBYXRdXbkE1qnumzY5Jus+KDih1iIhLtvPodwWKtmmuBtSE3JZ
+	5I4BOvZkO9qH/u9FqUbgGw2s8z6S2Q0f3w9NXGRmwgsUYelTXB1eAyLz7z9d5Hndl16AQCST3oBTW
+	rIJ4Wlqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utbkl-00000002wC0-3Muy;
-	Wed, 03 Sep 2025 00:53:35 +0000
-Received: from mail-bn8nam04on20715.outbound.protection.outlook.com ([2a01:111:f403:2408::715] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
+	id 1utbnR-00000002wlH-2cNW;
+	Wed, 03 Sep 2025 00:56:21 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utbi3-00000002vZc-2nPt
+	id 1utbig-00000002vkV-42Pd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Sep 2025 00:50:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=OOKk5BtUWphMRglEdWQdmZAVHLjB6Buq0nJn2LDB2XNuEFrD4ezwqxGuQb4sjxYdkP/4iGVOVi8Fbd00GafQ1+tzkogUJkURk1QLYpLlW0ZhrJSDL5AzPq64udezECXlISNajzBp8sbok5iHf0uBktDJxiXEiFVx32ztr7BzKUZCn2yhorC/lMj6AR52AER87Oi2RSLB3YD7VydD9xLTXm9yrfO0UR7Y8vEf2FL8E4N+FOWT2Pllanl6F/5hem6k3Ys/fK4k7113LLnd9tOZGH3FD1dDfbaMeddYsNUYvJiP0QhsYrQuvXYubrMhpO7p9jSfq1SRpxm3R0DzejYBUA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=95XfnWx7t/4d8J+7Mrt629jxiJTguJAdFa2GliEpD2g=;
- b=tZyvqpCHIIbn4Gjip4+nvTORWFA03XTV/hPFj2mvHPp9yDDBKgk/KxN1wiuAbPGJRG2O/FIMGck9Jx76aQuDMNGIAPMW0fPUXSNJBf6kHNQSUtcLluQCSAHRF4pb2WVJm2i8K9AL/hX1Z73y6YLvqK2hxqDFc1l//KDweQCSTGIN/ukA+9kW9KAFVg8E8Kp8QLt5aLundAxD36eYAMnBK3SbnlpU829N8Qnc3hvvrRIfDelbZdBvOkQKtVPWoVWpcUija80HELqVqUkfzXoSKMVMqNh8HMQKD0rNG7UzTW2HNKMqhDLrSdEWDFKRExgO+ucc0AJ61gVq4QypyHYD3g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=95XfnWx7t/4d8J+7Mrt629jxiJTguJAdFa2GliEpD2g=;
- b=lpv0qTGaMAIA+KjiA92S03xUF/eVYzvI6eunL/EuIjCkS+NIELDrh9GVFtYdR5c0cCf2A5bQRGsL9lvF4p4iXvKg6p2H6OoJsxOOKi99T0wGk4cP+swuGsvlCJk9YC85OmIFhb7amEKrB9itmpr8pqiNzwkNlMNHgTxts6aVJe4=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- MW4PR01MB6322.prod.exchangelabs.com (2603:10b6:303:7e::17) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9073.27; Wed, 3 Sep 2025 00:50:37 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460%2]) with mapi id 15.20.9073.026; Wed, 3 Sep 2025
- 00:50:37 +0000
-Message-ID: <612940d2-4c8e-459c-8d7d-4ccec08fce0a@os.amperecomputing.com>
-Date: Tue, 2 Sep 2025 17:50:33 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 0/6] arm64: support FEAT_BBM level 2 and large block
- mapping when rodata=full
-From: Yang Shi <yang@os.amperecomputing.com>
-To: Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@redhat.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Ard Biesheuvel <ardb@kernel.org>, scott@os.amperecomputing.com, cl@gentwo.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-References: <20250829115250.2395585-1-ryan.roberts@arm.com>
- <e722e49a-d982-4b58-98f7-6fef3d0a4468@arm.com>
- <dd242f5b-8bbe-48e8-8d5f-be6a835a8841@arm.com>
- <aeb76956-f980-417f-b4e7-fe0503bb5a2b@os.amperecomputing.com>
-Content-Language: en-US
-In-Reply-To: <aeb76956-f980-417f-b4e7-fe0503bb5a2b@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: CYZPR17CA0021.namprd17.prod.outlook.com
- (2603:10b6:930:8c::26) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+	Wed, 03 Sep 2025 00:51:28 +0000
+X-UUID: 1864b9c6886011f0b29709d653e92f7d-20250903
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.45,REQID:149e317a-1aff-43d6-90c9-1a5d04dd57b0,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:6493067,CLOUDID:461f970947de3929c2a541614ce8e229,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0|52,EDM:
+	-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
+	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 1864b9c6886011f0b29709d653e92f7d-20250903
+Received: from mail.kylinos.cn [(10.44.16.175)] by mailgw.kylinos.cn
+	(envelope-from <zhangzihuan@kylinos.cn>)
+	(Generic MTA)
+	with ESMTP id 1164660955; Wed, 03 Sep 2025 08:51:15 +0800
+Received: from mail.kylinos.cn (localhost [127.0.0.1])
+	by mail.kylinos.cn (NSMail) with SMTP id 22D4BE008FA3;
+	Wed,  3 Sep 2025 08:51:15 +0800 (CST)
+X-ns-mid: postfix-68B79102-9412696
+Received: from [172.25.120.24] (unknown [172.25.120.24])
+	by mail.kylinos.cn (NSMail) with ESMTPA id 28EDFE008FA2;
+	Wed,  3 Sep 2025 08:51:07 +0800 (CST)
+Message-ID: <40706b1f-e23c-417b-b3e1-2dc839828588@kylinos.cn>
+Date: Wed, 3 Sep 2025 08:51:06 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|MW4PR01MB6322:EE_
-X-MS-Office365-Filtering-Correlation-Id: c0c65bf0-aa70-457f-03b0-08ddea83e5d5
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZEZUWHpoRnRLWVhWaUhpdlE5VmUrcnU5c3RIRFNjSXk0U0dvb2I5TWxBTG9D?=
- =?utf-8?B?MVFieW5SSHpUNVUzZFZsUEpVTEhmR1RXcWI2TG5lUGpMMlR4d1VaSHZORi91?=
- =?utf-8?B?WCt2NjFVZVlpTEd4ZVpqNVczUGRTTktKWkJ0ckE2OEw1NGJWTGE4NU0vcFdw?=
- =?utf-8?B?aU4wYURaclROWG45TmQ2Tlozd2ZHUFZmSWMrS3MyeTg5V0xDRzRMRXE5ZXB2?=
- =?utf-8?B?NXcyVlZPNW45c0tHY3Y1cXZtVXdpb2QzWS81bFg1dC9jOFRwWEFIUUVYREFl?=
- =?utf-8?B?ZjB5VktQWnBkbEZyOEpCaXliNkdZZGFIKzZyTmIzMkt2dnUyQjFlcFl0OHk1?=
- =?utf-8?B?RCtvY2xxNWQrd3JUb0UvRWJjdzVmcXB5ckl4UjF0NmM2eXFoMFFzd0JrR0N5?=
- =?utf-8?B?TXlXa0czR2xpMERMSld4TSt0cFlKNmRoZFFTd0lPczI2MGFjalhzYkJCOFBG?=
- =?utf-8?B?T2xOWEtidmlIQVAxa1hJaVZuN0p0SG9PVXJnckNhekRvSjZOVHAxdE50Wm1E?=
- =?utf-8?B?eDVmRkNac3NNNjA4Wm10dU96clcxTHZNUk5qZHFvbVBZTUMvczR1Nk5RZmZy?=
- =?utf-8?B?aGVneHF6d1VzOUEzdi9ISndESVFNT2l1OE4zZlRZdTMxL09JZ3hDL3dvNHE1?=
- =?utf-8?B?S3pLUXpTYjNJMHBUbU1DMUZHODNQZmJ4ZXFXRXZSb0lUTzhhWFp3bzQ0K2dr?=
- =?utf-8?B?V0I4aWhOOG0vWnVnMlExSStUcjdEY3pURE1wbmxINzREWFlteE4xMXFMZFpS?=
- =?utf-8?B?WjFSYTlMMWpkSFI2ZHhCZm9wRDRuZ0Q4UXl3eTU1THBOSWtYaFJUYWlvdUpa?=
- =?utf-8?B?TlFLUkdBNXF5RFRZdTFVVDVkUXZndGZSNnM3R3RXSkFJWEg0OUdrR1RoN0Ey?=
- =?utf-8?B?b3VFbmJvZitJZnJzMGFyNU9Bdk0vakF2eDBIZ2xQaE1UQlF6d2tYZG5nNmd5?=
- =?utf-8?B?cDgra0R0emtVVVdpdnBmb3FLS1lmb2Zqcmp1RUZRd3Qyd3lHcFMwZXpzcytB?=
- =?utf-8?B?MWkzYXFPa3lGcXZiRUJpQmpUOG0xOHBVSU9sdmFEanZ2YW9MWW5CWUlyeVdm?=
- =?utf-8?B?cUdKWDdrTUJsZUx2YWJoVU5DQVg0T3BDV3AzK0IxYTZQM0drOWtUSkFDZnM1?=
- =?utf-8?B?VkpIeGZWSHhVN3cxYktMWXRZaDFjc0ZRSmpFZlJpcGl4ZDRYWlUyK1Bhdktn?=
- =?utf-8?B?Z1FlVDVkWXBFaUlsOUdDRlRYR3NoODh6bnRPaVYwNmZ2NFVyT2hOMEwwMjBV?=
- =?utf-8?B?a2xvZlo1aFdubVNYUFhsZEVIWnQyQ1Z3M2pnL2pNQzROK2htRWhFcW9qbnRa?=
- =?utf-8?B?SGx3UVVrVjVCZm1VcXgyQkl6NVlra3hoV1hHMXRBNVdoL0o5SzRmQ2FQVzdt?=
- =?utf-8?B?TUtycVp4aEVFMjF0Q3ZuTWNCUG41VWJQdEJyczkxT0pqc3EzRCs3aDNhdWRs?=
- =?utf-8?B?MDR3RjNGcUZDQ2w3QTIyM0JvZjBNanMrODZqYUJZWXpRWlVvOGpmdzJBR2Uy?=
- =?utf-8?B?KzlzMnlZMnhLU0RSK0VxVVJTU3ludnpGeTlQdy9Ha0xVcXpTdHQwK0tsRDF1?=
- =?utf-8?B?ZjlPZXBVTmtzeHBUUDdtNTFJQjJkVVAvSHNLUVViTW9TNUVGWmhEYXFYNjBN?=
- =?utf-8?B?dENCWGhjN0JlTG1ldndhYXYwalVPMnkyUXJkZFJHdEZvUExuTWtlSGpKZFdw?=
- =?utf-8?B?T2p0eWZybVNxRWNaQmhrN0tqcU1vVGpZMXRrSCt4Y05mU3dIVTZTdDFXUnQr?=
- =?utf-8?B?Zmx1RWp0N0V1Nlc5b3h2cTNRQkpJZU1STFRYM29rdGxOZ1F3cEsrWEZDQVpj?=
- =?utf-8?B?WUE2aTVZbHlSeHhhUklMd0Vsa29xUGt6dkdNNDR2YitYUndVUkowbXVzOU1S?=
- =?utf-8?B?cUgxSXcxOGRNTGlHTGV5TjRWTzFpWUo2cWthM0hnNXVCV0pZWW1FdEpjZHdR?=
- =?utf-8?B?UWk3YU9WQ2RJanVtVXlFK3pPUTZhYzJzN3ZqaDlZcTNZeUNpT3JWc2toVVNJ?=
- =?utf-8?B?UXptNDhRLzdBPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(921020);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VzNWc1lyYXFGTEs5QVVXLzYybzBERUZKVFZ3aXhPTW0rSi9pUlkrMXlGcS9E?=
- =?utf-8?B?QzNtdm9jaUVnN0hrbDc4ZzI1ekpFVlFXMHZOWXVoOHZic3pQNktmalpXT2VE?=
- =?utf-8?B?bnNwTVBZL2hldXZvTkJqMk1VRXRWYjE0SmFyUDhrVUtxK3E4QWRzNDM4eVVo?=
- =?utf-8?B?R1RwcmpPVUhCT2xlMWxVNGRjZnMzUjBDZDhkZDZQY05BeFhzLzJUZWZRbEpW?=
- =?utf-8?B?Qkl4N1kwajcvVXo2R01yWmtWcWlEenJVVUVFZkk1UHU3eUFsdGNhMUEyTzFC?=
- =?utf-8?B?aGtCb2I5eVFZdUpVNUhucFhVdXlkRGFvOUY1emtLeEthLzE4R3ExRGs5blZ0?=
- =?utf-8?B?T3Q3SUVvdHdCRW9ZT0lYV3crS2s0ejZCWTdtc0NsRnpMZS9IaTZPNjU1M2lj?=
- =?utf-8?B?U2NOWWIvVUFtNExNblk0dXI2ODJPNUtmeWVVbytPcXJFR00rdWZUSmEwUlZ5?=
- =?utf-8?B?WEp0Zjl0VnpZVUtIVEdVRlkrcndKaWhWTkgvQkRKN0xhU0FaVDBQRGtHMnhi?=
- =?utf-8?B?STRQVStLd2J0Y3FLMXBMcGsyOVgzcjBISE9KdmJjUStSM3hubVZydlBJU1p4?=
- =?utf-8?B?ZDVXdmxQYXBaOWRtTTllN1BUU3hJcVRJZUg3cUNhMTFEOGd1VXdlZ2srUFdI?=
- =?utf-8?B?bXV1WDZ2NTlWNXRBc2pKYkYvT1JscHFtTVVBRWJ2TElyMldKckd2WVZKVDNI?=
- =?utf-8?B?dEwyaU9HRTBzWERxWnFiUWVWZkxkNXVoeUJldmpFNFFLMk9jcW1GWEViS25a?=
- =?utf-8?B?bnZ2Q1NWdkhTUjFXTk1DNUVCR0MrUE9KdTZvRVVZOVhwWTlNOHlLOWYwQTZn?=
- =?utf-8?B?S3ZESERLNGQxM0dHcW5qSjdHL3lZejdrZldiNkUyMThHVlpVZ2pWWENXMnNh?=
- =?utf-8?B?dms3ZVRtMmdUS1QrQ3RmYzRQNThzbEhSY3gwYzJxdFFiMjVDUkZ0UXlXa2tF?=
- =?utf-8?B?ZkF5bVQ0WDBSQ0c0WWZQRkpWV2Q3dm5pQy9EYjNheTJldzYxbElsdnhMMm5I?=
- =?utf-8?B?TjBxSlZyYWJtSi9HTlBwc0JPWFZHRGhXbTJ2WWV2bEZnYkJ2VWVTZ0kyTjVE?=
- =?utf-8?B?SC9YR05WNlRYZ3JOSUxpbmx4eitwbVQ5cVlHR3JPQkpBVkhIMzJhWEt5T3M1?=
- =?utf-8?B?VXd3bzBhcStOYVF1c1ZweWxsdE5pZWFQeWErci8rbGRMemdLbCsvT21CYjY3?=
- =?utf-8?B?ZDkwTmE5ZkxOeTBBOWhqMnNQWXRCQkM3djd0ckxweDFUbkQ0dkZrWHJTSHJL?=
- =?utf-8?B?LzEwVDdLbDNncmphcmpwNjY0UXJpbzRkUng5RzVZd3pwU3JDbG0xWkVJZWpP?=
- =?utf-8?B?clZ3c1BWMFU4MHhUTWRTNmw2ZVZHcHU0VTZ2QnQzcGNybXp3WUh2VTYrMXIv?=
- =?utf-8?B?YU5hV3VKK0NWM29wditzc2ppNk5KVGlqZWY4VkRLanpSMVQ1aGVMNFlmRzRD?=
- =?utf-8?B?VHBJeG8xNlF6cXZGaStRQS9jdWJMbGh6RXZWUXljc2pVRnFvR2R1bUtocnNG?=
- =?utf-8?B?VUxuamV6OHZKd1FIaUY1MjZUcVNwYzBDNnorQ0NTWXdnTlljMzVIblhkUHFv?=
- =?utf-8?B?MmI1RHZ3ckR5bU1FemI1RloyN21mZlhoY0ZBYWFtdHNJUy9lRGJQblljbkZo?=
- =?utf-8?B?eG03MnAwbmtBMnEzb3ljVHhQT0t3M0pVeURkc21GeEhURmNJWXFwejk2TkJX?=
- =?utf-8?B?YnlqY1lrWTRjdEgvRnVFU3o0SndPUVFnS2lKS24xa3JlVzBVcnN2ZGx1bG8z?=
- =?utf-8?B?UHFiMkpCakZRUVNQcy9wNnMwUE1xcVBYVnNQUC9wblZMMXk0SUNOc3BzY21W?=
- =?utf-8?B?ampZYWlMWGUyYThkRloySGxnS2IrVG8rS2Y4bzNrN1lUSkFjdkc5cDBCbk0w?=
- =?utf-8?B?MlcvY1dzWm9NY084KzFUekYwY05wdkRicklkU3ZwTGhTaVdqNDdKZG1SSDh6?=
- =?utf-8?B?YllETmRXUmloRzJOcXRybkRBK2o2dEFmMTRKWWg2OW9uNlNDbGlZeDBsMWlj?=
- =?utf-8?B?TzVObGRxR1JKQ2lEcXFralc4UUg5VlR2RXR4TE9WUktpYzNIcWp5UzhjRFI4?=
- =?utf-8?B?ZkdFQU9IUDNNb0VWUHdoRkY3L0RyL0xUcWs4cHBrSDE4dW0zeVBsVEVRdUR6?=
- =?utf-8?B?cy9WVU41TzFyd1RnNVJPSXVlUUQ0WTZvVEJ3c3ZwVlR3eUJUQmxHdzBuSnpu?=
- =?utf-8?Q?etrRJZ+tzCiaq1+EKaWOW+M=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c0c65bf0-aa70-457f-03b0-08ddea83e5d5
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2025 00:50:37.5859
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: kgeLJ4zailIMo7J2bfKJkG4p9+8hRqpS9Pluc06Q9r0LFh76WZhbab16GxbaQEN4Fz3HU5nAQ7fItG3vjV0sistXteDtFUEuCuo8CN287Q0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR01MB6322
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 03/12] cpufreq: intel_pstate: Use scope-based cleanup
+ helper
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+Cc: Viresh Kumar <viresh.kumar@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Krzysztof Kozlowski
+ <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Thierry Reding <thierry.reding@gmail.com>,
+ MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>,
+ Jani Nikula <jani.nikula@linux.intel.com>,
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, Tvrtko Ursulin
+ <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Daniel Lezcano <daniel.lezcano@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
+ Eduardo Valentin <edubezval@gmail.com>, Keerthy <j-keerthy@ti.com>,
+ Ben Horgan <ben.horgan@arm.com>, zhenglifeng <zhenglifeng1@huawei.com>,
+ Zhang Rui <rui.zhang@intel.com>, Len Brown <lenb@kernel.org>,
+ Lukasz Luba <lukasz.luba@arm.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Beata Michalska <beata.michalska@arm.com>, Fabio Estevam
+ <festevam@gmail.com>, Pavel Machek <pavel@kernel.org>,
+ Sumit Gupta <sumitg@nvidia.com>,
+ Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
+ Sudeep Holla <sudeep.holla@arm.com>, Yicong Yang <yangyicong@hisilicon.com>,
+ linux-pm@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+ intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+ imx@lists.linux.dev, linux-omap@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250901085748.36795-1-zhangzihuan@kylinos.cn>
+ <20250901085748.36795-4-zhangzihuan@kylinos.cn>
+ <CAJZ5v0hu48NrMr6Vkjn_UyHywJMx7F5N6yWf2LiXxykZF79EKA@mail.gmail.com>
+ <29890791-4ddf-49c7-a4f2-0ac83e6d53c6@kylinos.cn>
+ <CAJZ5v0jvOKeLRkjWoKR5eVKZ-hib7c8D-VOBvtCvs1+HGfPUiQ@mail.gmail.com>
+From: Zihuan Zhang <zhangzihuan@kylinos.cn>
+In-Reply-To: <CAJZ5v0jvOKeLRkjWoKR5eVKZ-hib7c8D-VOBvtCvs1+HGfPUiQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250902_175047_700753_ABBD4D87 
-X-CRM114-Status: GOOD (  15.30  )
+X-CRM114-CacheID: sfid-20250902_175127_296351_0A7A9CDC 
+X-CRM114-Status: GOOD (  17.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,45 +113,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->>>
->>>
->>> I am wondering whether we can just have a warn_on_once or something 
->>> for the case
->>> when we fail to allocate a pagetable page. Or, Ryan had
->>> suggested in an off-the-list conversation that we can maintain a 
->>> cache of PTE
->>> tables for every PMD block mapping, which will give us
->>> the same memory consumption as we do today, but not sure if this is 
->>> worth it.
->>> x86 can already handle splitting but due to the callchains
->>> I have described above, it has the same problem, and the code has 
->>> been working
->>> for years :)
->> I think it's preferable to avoid having to keep a cache of pgtable 
->> memory if we
->> can...
->
-> Yes, I agree. We simply don't know how many pages we need to cache, 
-> and it still can't guarantee 100% allocation success.
 
-This is wrong... We can know how many pages will be needed for splitting 
-linear mapping to PTEs for the worst case once linear mapping is 
-finalized. But it may require a few hundred megabytes memory to 
-guarantee allocation success. I don't think it is worth for such rare 
-corner case.
+=E5=9C=A8 2025/9/2 19:47, Rafael J. Wysocki =E5=86=99=E9=81=93:
+> On Tue, Sep 2, 2025 at 12:33=E2=80=AFPM Zihuan Zhang <zhangzihuan@kylin=
+os.cn> wrote:
+>>
+>> =E5=9C=A8 2025/9/1 23:17, Rafael J. Wysocki =E5=86=99=E9=81=93:
+>>> On Mon, Sep 1, 2025 at 10:58=E2=80=AFAM Zihuan Zhang <zhangzihuan@kyl=
+inos.cn> wrote:
+>>>> Replace the manual cpufreq_cpu_put() with __free(put_cpufreq_policy)
+>>>> annotation for policy references. This reduces the risk of reference
+>>>> counting mistakes and aligns the code with the latest kernel style.
+>>>>
+>>>> No functional change intended.
+>>>>
+>>>> Signed-off-by: Zihuan Zhang <zhangzihuan@kylinos.cn>
+>>>> ---
+>>>>    drivers/cpufreq/intel_pstate.c | 8 +++-----
+>>>>    1 file changed, 3 insertions(+), 5 deletions(-)
+>>>>
+>>>> diff --git a/drivers/cpufreq/intel_pstate.c b/drivers/cpufreq/intel_=
+pstate.c
+>>>> index f366d35c5840..4abc1ef2d2b0 100644
+>>>> --- a/drivers/cpufreq/intel_pstate.c
+>>>> +++ b/drivers/cpufreq/intel_pstate.c
+>>>> @@ -1502,9 +1502,8 @@ static void __intel_pstate_update_max_freq(str=
+uct cpufreq_policy *policy,
+>>>>
+>>>>    static bool intel_pstate_update_max_freq(struct cpudata *cpudata)
+>>>>    {
+>>>> -       struct cpufreq_policy *policy __free(put_cpufreq_policy);
+>>>> +       struct cpufreq_policy *policy __free(put_cpufreq_policy) =3D=
+ cpufreq_cpu_get(cpudata->cpu);
+>>>>
+>>>> -       policy =3D cpufreq_cpu_get(cpudata->cpu);
+>>>>           if (!policy)
+>>>>                   return false;
+>>> The structure of the code is intentional here and there's no reason t=
+o
+>>> change it.
+>>
+>> Got it. Thanks for clarifying.
+>>
+>> So for this case the current structure is intentional -
+> Note that I'm talking about this particular change only.  The other
+> change in the $subject patch is fine.
+>
+>> should I also avoid similar changes in other drivers?
+> That depends on who maintains them, which is why I wanted you to split
+> the patch into smaller changes in the first place.
+>
+> My personal view is that code formatting changes, which effectively is
+> what this particular one is, are pointless unless they make the code
+> much easier to follow.
 
-Thanks,
-Yang
 
->
-> Thanks,
-> Yang
->
->>
->> Thanks,
->> Ryan
->>
->>
->
+UnderStood, Thanks!
 
 
