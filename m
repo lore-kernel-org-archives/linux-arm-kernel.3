@@ -4,71 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2661FCA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 19:51:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 833FCCA1015
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 19:52:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k2MuHVj1H0ctbdHyJenA3pNfqrxOrWR2w80OlIQkJlo=; b=HClzemLMKND0A4WZM80fbT79Tu
-	KFmmFPNcxo4iO+kCh49Hgy6mElOCQMgVrVh0P5t7W/Uw3Ne5vjCrWt81WQ+Kev9ojQxieTidAcjY5
-	QskvdPiiN/Q92puqxyN5fyWi5AqtLEgupR5cUpXHKFHeh2HIqvX0AZ1yGZR/1DqXsbneYB0B0GTov
-	6RTlB47LM37+nSA8bimHjBiNAY+uGzPhhY+GqSvoufGndl1d6EMzaOLHQIwyJWB0c19aqUMQyX6S9
-	Yt/HteTQdi/bAszTLYqpZpsoh117M2Mq35KXnmd05jvmZDaFMhfOX/DSYyhAlsYtFEYcjGrf8yTy+
-	CC+jdZaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ps0O7+4QAd8ZPsjC+XlmtSAuEwLSI/hp1jScWS1y0uQ=; b=TPhMBzmEJvvNdATcEkBZ/i7YFP
+	aBXPsmpMMJ/yX3soyhiTqgGLizcYkfk/pIkpWAJobMFsJvsPyTTrAoEm2TmKAYjziRq3sb4F1HKCp
+	Lg1f+w5XQQ2idm7Q4dTGQD7qBa10/cVcVxX4r9ghK8IKrU1fXaG+PmQOMMYvF1TVwJUf88B85/sg9
+	fGvZ5MX4W/u+TcWydBgtYYno/wjcz0p/VHyvz0CeYJwfBoI+MfsGDNw/BGVMd9jdLchjE+CHsY10+
+	Z864JwAnmZ2b/4ipjDxe5lRyNhoyIEEvTqGzK5vx0Z3rT/ijOtXXJSD7H4i5om4Ui8fJClBdNs4NG
+	xsMekPXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuFzl-0000000E1iD-2eyF;
-	Thu, 04 Sep 2025 19:51:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uuFzx-0000000E1zT-1PhB;
+	Thu, 04 Sep 2025 19:51:57 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuB3t-0000000CFg5-1bNz;
-	Thu, 04 Sep 2025 14:35:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C64C160210;
-	Thu,  4 Sep 2025 14:35:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4991CC4CEF0;
-	Thu,  4 Sep 2025 14:35:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1756996540;
-	bh=zI6dlT7OfZMIFDyCs2yOrFWg2VXfUlEcp0qJeItApO0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=W+BqF3zyMBbLODFjNyiAuAEyCtRns/mqv+H9HndxC3iKNf3z/4J/jCuKNAl5evtkt
-	 HaHHknaPNaPM8UHHc4aYtWQ2maQXO+lXKmffFqsB32SQjtzkd7C0QHzyW+ZHWCeNA1
-	 5Zk6XmzwlEjXUsZ9YSHfWb++3W2n7kiIY57bi/TYPL+SBmR4URCuAgy+UjTkym491x
-	 GWndwGJKIXbcWxY5CxfzrU/Gs8/l7coFDPlqOceCwf5hv4Ys5iN2NRlunCjpaBBJi/
-	 au2wEFxhFBKTVZ5z1oNsGC9jMHqj7TRtgHL3FQatPNn3P5MB42z22fB04/7qyu3rRA
-	 //A/W+hLISu7g==
-From: Bjorn Andersson <andersson@kernel.org>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Vladimir Zapolskiy <vz@mleia.com>,
-	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Brian Masney <bmasney@redhat.com>
-Cc: linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	sophgo@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: Re: (subset) [PATCH 0/8] clk: convert drivers from deprecated round_rate() to determine_rate()
-Date: Thu,  4 Sep 2025 09:35:32 -0500
-Message-ID: <175699653023.2182903.15754546225268713483.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250828-clk-round-rate-v2-v1-0-b97ec8ba6cc4@redhat.com>
-References: <20250828-clk-round-rate-v2-v1-0-b97ec8ba6cc4@redhat.com>
+	id 1uuB7U-0000000CH88-1Hc6
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Sep 2025 14:39:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1756996764; x=1788532764;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=ps0O7+4QAd8ZPsjC+XlmtSAuEwLSI/hp1jScWS1y0uQ=;
+  b=fmq/Uo/69V9d3rQuwJHbXdG5DX7hMAuuDUA8KdxbDjo1+H4m7R48izC7
+   me0oL4VxGd2iT6sz88pIU/3wvLS/AN8NPKXdrjNLSIkM5HzCgMFXdpj34
+   uUY6UCWvu3cyYDseZKqi133qL9SvPUbfEakfXZXiQD/wUo1CXLijndVN8
+   E0MhK6VmN3P0LTNW8vAeFjqStVvmHSoWy72AG7FVQDwVMovbt4h3vyDKR
+   Led0AFK27j6fGrBq+nlIUtIBwQ4gRE+ksFeN+8twR2PeLishM2BePFwvn
+   vLz7nQqVNWolAaEpZMiHj4eYcOCoN5i0FMYWOPJLWdMyxNBCIYQcoXeQz
+   w==;
+X-CSE-ConnectionGUID: ZUNtD6joRBO5U+tPGeVMdg==
+X-CSE-MsgGUID: fz5wvPgRRIWdooSDi1AZkw==
+X-IronPort-AV: E=Sophos;i="6.18,238,1751234400"; 
+   d="scan'208";a="46080766"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 04 Sep 2025 16:39:21 +0200
+X-CheckPoint: {68B9A499-11-AD8F5F64-F0EACAA5}
+X-MAIL-CPID: E3008ABF7ED2178689814A7AA6E161E5_1
+X-Control-Analysis: str=0001.0A2D031C.68B9A49A.0051,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id EBC21161344;
+	Thu,  4 Sep 2025 16:39:06 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1756996757;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=ps0O7+4QAd8ZPsjC+XlmtSAuEwLSI/hp1jScWS1y0uQ=;
+	b=MXowUIlr1cezGYBd7yCnJDooczCfeW/6PrA8HFwKnJU2o8ZgQ0wQCAoFlyUoGw1iDkxHsj
+	1oBEHJWR5OFCPQ+UetaAZBDjcYB45m+oAcT74o5pOvIaYQTwAHlO/CKIqR+39UEcuKH6dW
+	SIZt0pebReDu0nFmUM5/qf+plrzLN44amwR+3Q1/Oe+RtmQ0MCfWUglXz0WRtNQwHMYil7
+	kFAbEjCeKQaY63Y2I2ZxpyfQmNwf3drdxgs2n4XGuvvrRvbKIlNDtB0UQvZ08Ad3iLXo+p
+	ik7MRMPEaTovGMmBM+zu/FzWM5luEpgUBxhbK5/oIK2KAkFhH1qeboTDLU6/nw==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: dri-devel@lists.freedesktop.org, Marek Vasut <marek.vasut@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
+ David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Sebastian Reichel <sre@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>,
+ Steven Price <steven.price@arm.com>, Thomas Zimmermann <tzimmermann@suse.de>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ Boris Brezillon <boris.brezillon@collabora.com>
+Subject: Re: [PATCH v2 4/9] drm/panthor: Implement optional reset
+Date: Thu, 04 Sep 2025 16:39:06 +0200
+Message-ID: <7020337.lOV4Wx5bFT@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <52e3c5dd-6952-43b5-94f9-43f30734680e@mailbox.org>
+References: <20250321200625.132494-1-marex@denx.de> <3372501.aeNJFYEL58@steina-w>
+ <52e3c5dd-6952-43b5-94f9-43f30734680e@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250904_073924_677014_6B8588F6 
+X-CRM114-Status: GOOD (  18.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,23 +103,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-On Thu, 28 Aug 2025 20:38:19 -0400, Brian Masney wrote:
-> Here's a minor v2 to my larger 114 patch series at
-> https://lore.kernel.org/linux-clk/20250811-clk-for-stephen-round-rate-v1-0-b3bf97b038dc@redhat.com/
-> that only includes 8 patches where a v2 was needed. To reduce the noise
-> in everyone's mailboxes I'm not including the other 106 patches that are
-> still valid. I will supply a 'b4 am --cherry-pick xxx' command on the
-> other cover letter to exclude the patches in this series.
-> 
-> [...]
+Am Donnerstag, 4. September 2025, 15:52:38 CEST schrieb Marek Vasut:
+> On 9/4/25 8:36 AM, Alexander Stein wrote:
+>=20
+> Hello Alexander,
+>=20
+> >>> Maybe the GPU remains halted because
+> >>> setting the GLB_HALT stops command stream processing, and the GPU nev=
+er
+> >>> samples the clearing of GLB_HALT and therefore remains halted forever=
+ ?
+> >>
+> >> Exactly that, and that's expected.
+> >=20
+> > FYI: in a new release of system manager software (starting from lf-6.12=
+=2E3-1.0.0),
+> > the GPU reset is reasserted in SM software already [1] and access to GPU
+> > block control has been removed from Cortex-A [2]. Starting from B0 step=
+ this
+> > version is required AFAIK.
+>=20
+> I don't think the SM is involved in this, because if I do the following=20
+> test, the MCU also fails to boot unless I do a reset:
 
-Applied, thanks!
+Is this some other reset than BLK_CTRL_GPUMIX? If so, it might be required.
+Don't know much about internal details though.
 
-[2/8] clk: qcom: alpha-pll: convert from round_rate() to determine_rate()
-      commit: 0e56e3369b60506ac030546c8a63a1aef153d486
+Best regards
+Alexander
 
-Best regards,
--- 
-Bjorn Andersson <andersson@kernel.org>
+> "
+> diff --git a/drivers/gpu/drm/panthor/panthor_device.c=20
+> b/drivers/gpu/drm/panthor/panthor_device.c
+> index d4d73eebca49d..fd81cd2654111 100644
+> --- a/drivers/gpu/drm/panthor/panthor_device.c
+> +++ b/drivers/gpu/drm/panthor/panthor_device.c
+> @@ -642,6 +642,18 @@ int panthor_device_suspend(struct device *dev)
+>   		panthor_fw_suspend(ptdev);
+>   		panthor_mmu_suspend(ptdev);
+>   		panthor_gpu_suspend(ptdev);
+> +
+> +
+> +panthor_gpu_soft_reset(ptdev); // needed, else panthor_fw_resume()=20
+> below fails
+> +
+> +		panthor_gpu_resume(ptdev);
+> +		panthor_mmu_resume(ptdev);
+> +
+> +		ret =3D panthor_fw_resume(ptdev);
+> +		if (!ret)
+> +			return 0;
+> +
+> +
+>   		drm_dev_exit(cookie);
+>   	}
+>=20
+> "
+>=20
+
+
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
+
 
