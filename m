@@ -4,86 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80625CA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 19:53:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7DB1CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 19:53:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I++08KjYUaNnGA2vqwEBlEjrmrBVzCtUSpLQK9eM7Jw=; b=jocgDbPSY9yr2v4SjcDZSvj0oB
-	8BWf3YWHXxyUdId6qHBt2VA0rYJgV6BU9J1BaVSb/9NR5nwU6Yz6aIy113PYUi/OsiRhleBrF5xmA
-	+xmbc9qxY6VgxWoLHW/I/PcuMqnPVuQoQq9vcLDuLOx88A3+Vp8ZM8nzyh1DKCw3drxzbyYgNV2Aw
-	M+2EekaFM6AQ5wpquGgCM/pN6aVJgpjMMOiPINUgB+6oqgAtPQ+hTHeZpZyqYXSFh5eemSTxvv285
-	S1Hdcs5DqxK8V9gi2zDcr2I7fYwIrXyK8w0MK9maxwh+ORDpbxeoC1w1z/shUDl6XwzpZR6+97q1w
-	aleMizXQ==;
+	bh=pnelLJyS9J55hcHKl4p6uGqOHl1Ys0oXzYQLKPfkrEQ=; b=jzfILDafZ/ZEIJoPsfXT5v+xYI
+	QGOTYjajIAa4QwAAGeAQ5WQx2bjdTvNkNLb5MJ+RGUIccT0mpSHOau95HcdVsiICphZytAYZckz2P
+	9/iZkZ6vhQ4BWU2py/XXcXjSxJhbNQeOGuhJ2kDKujam3c9uicTcjC5rVd5gkqZChSrWx3lU8kGpP
+	LVO3k1wzUkEKljA2hgAXmZWQS+MDo47qFwysfOkC5cZh0jyX+vcQjZNyg6X8yAaeZy/Z9tZ80XdMc
+	b030T6pahVpnaaxVVUucg3obn7xzDY7JeycdfNPmAtgknlTmKgn8QGT3TnQGFcZHQq5/WWEGq/RNN
+	1CROt/Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuG19-0000000E3bT-2iRs;
-	Thu, 04 Sep 2025 19:53:11 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uuG1E-0000000E3hX-01nr;
+	Thu, 04 Sep 2025 19:53:16 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuBlD-0000000CVDy-1jZN
+	id 1uuBrh-0000000CXB5-0aDQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 15:20:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1756999225;
-	bh=lVG6RUOs/vuQiBSENy+Q+/Zs0wuP4CpZcsQ73d+Pss8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=U7Y5JcbY2K+IP0RMcFoAhMxwWToXwsmZAUBPqSUOj9V997aSIGUmbeK0y6imQs3Mq
-	 /yPGz/VKDcqdAlxxChCXdUDccQSCCrYO4CdLPYL4kBDnGqqnjlpchyf4QFdGbXfcpA
-	 s2cd5lGAV2Um5SV545DCTXRIJJPXvwOKFonzwsvH+mZSWKpDK5FZOkP+2ew0Rs5nHg
-	 wBtisdLnWdyT4UFDT1tBM9hQcvR5sfg7iZ7U/DEdUKx0NHagcfrDeXuT8Q/itWCbBc
-	 QjAgvmjtx5TS18EhBtX3mi52zUojjACKwpZnC5uobBoTUFImGh4oXZDLVVJa6ZGyBI
-	 cv54/J3WQod/w==
-Received: from fedora (unknown [IPv6:2a01:e0a:2c:6930:d919:a6e:5ea1:8a9f])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: bbrezillon)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A057617E04D6;
-	Thu,  4 Sep 2025 17:20:24 +0200 (CEST)
-Date: Thu, 4 Sep 2025 17:20:19 +0200
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: Peng Fan <peng.fan@nxp.com>, linux-arm-kernel@lists.infradead.org, Conor
- Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>, Fabio
- Estevam <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Liviu Dudau <liviu.dudau@arm.com>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>, Philipp Zabel
- <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Sebastian Reichel <sre@kernel.org>, Shawn Guo
- <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>, Steven Price
- <steven.price@arm.com>, Thomas Zimmermann <tzimmermann@suse.de>,
- devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- imx@lists.linux.dev
-Subject: Re: [PATCH v2 4/9] drm/panthor: Implement optional reset
-Message-ID: <20250904172019.58e5f589@fedora>
-In-Reply-To: <36298ed9-05e4-4871-8e99-dfe814342c29@mailbox.org>
-References: <20250321200625.132494-1-marex@denx.de>
-	<20250321200625.132494-5-marex@denx.de>
-	<20250324094333.7afb17a1@collabora.com>
-	<c1de2afb-3559-4fbb-b13b-2373175b420b@denx.de>
-	<20250325084349.344a0f11@collabora.com>
-	<7aadf355-edf0-46fc-b969-65c3789375ca@denx.de>
-	<20250325153507.61d82e39@collabora.com>
-	<4c06aef3-a254-437c-aa15-8e3eb7bf5951@denx.de>
-	<20250325155231.0d1b1000@collabora.com>
-	<838a0c6b-845b-428d-86b3-1480e5b8080f@mailbox.org>
-	<20250904082224.113d0cd1@fedora>
-	<7d4e773b-64ac-49ce-8d8b-7a39c353d18f@mailbox.org>
-	<20250904160445.1671f140@fedora>
-	<36298ed9-05e4-4871-8e99-dfe814342c29@mailbox.org>
-Organization: Collabora
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-redhat-linux-gnu)
+	Thu, 04 Sep 2025 15:27:10 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 584FR39u3106568;
+	Thu, 4 Sep 2025 10:27:03 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1756999623;
+	bh=pnelLJyS9J55hcHKl4p6uGqOHl1Ys0oXzYQLKPfkrEQ=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=IHTh20+/gih3yKu3QsCiGw7GD9puu2EmeSCpat9wR2nCNB4G0+2bYY4GCmLs8rVpz
+	 c1TSCdcirLvNUtEWbP4Uf7fJrUBkw5Y/JMEyWukDWZ2mHYJx7tKN26bNdGD5Bpd5rY
+	 VVfm89P7Rh90fTBjy4WyjQYpqxFKs5oNw+/6/bOI=
+Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 584FR3Kj215045
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 4 Sep 2025 10:27:03 -0500
+Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 4
+ Sep 2025 10:27:03 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Thu, 4 Sep 2025 10:27:02 -0500
+Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 584FR3Lq3471897;
+	Thu, 4 Sep 2025 10:27:03 -0500
+Message-ID: <44a55012-32e9-4ecd-8643-d9c0008bc5d2@ti.com>
+Date: Thu, 4 Sep 2025 10:27:02 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] arm64: dts: ti: k3-am62p/j722s: Move sdhci0 from
+ common
+To: Nishanth Menon <nm@ti.com>
+CC: Moteen Shah <m-shah@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Tero
+ Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+References: <20250904004723.2856005-1-jm@ti.com>
+ <20250904004723.2856005-2-jm@ti.com>
+ <20250904033834.cmn5i7satksnpr6o@revolver>
+Content-Language: en-US
+From: Judith Mendez <jm@ti.com>
+In-Reply-To: <20250904033834.cmn5i7satksnpr6o@revolver>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_082027_604472_B8FB7FE5 
-X-CRM114-Status: GOOD (  26.70  )
+X-CRM114-CacheID: sfid-20250904_082709_343342_4B22A674 
+X-CRM114-Status: GOOD (  15.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,41 +93,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 4 Sep 2025 16:54:38 +0200
-Marek Vasut <marek.vasut@mailbox.org> wrote:
+Hi Nishanth,
 
-> On 9/4/25 4:04 PM, Boris Brezillon wrote:
+On 9/3/25 10:38 PM, Nishanth Menon wrote:
+> On 19:47-20250903, Judith Mendez wrote:
+>> Since eMMC HS400 has been descoped for j722s due to errata i2478 [0]
+>> and is supported for am62p SR1.2 device, remove sdhci0 node from
+>> common-main.dtsi and include instead in each device's main.dtsi
+>> appropriately.
+>>
+>> [0] https://www.ti.com/lit/pdf/sprz575
+>> Signed-off-by: Judith Mendez <jm@ti.com>
+>> ---
+>>   .../dts/ti/k3-am62p-j722s-common-main.dtsi    | 25 -------------------
+>>   arch/arm64/boot/dts/ti/k3-am62p-main.dtsi     | 25 +++++++++++++++++++
+>>   arch/arm64/boot/dts/ti/k3-j722s-main.dtsi     | 22 ++++++++++++++++
+>>   3 files changed, 47 insertions(+), 25 deletions(-)
+>>
+>> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+>> index 4427b12058a6..84083f5125df 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+>> +++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+>> @@ -566,31 +566,6 @@ main_gpio1: gpio@601000 {
+>>   		clock-names = "gpio";
+>>   	};
+>>   
+>> -	sdhci0: mmc@fa10000 {
+>> -		compatible = "ti,am64-sdhci-8bit";
+>> -		reg = <0x00 0x0fa10000 0x00 0x1000>, <0x00 0x0fa18000 0x00 0x400>;
+>> -		interrupts = <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH>;
+>> -		power-domains = <&k3_pds 57 TI_SCI_PD_EXCLUSIVE>;
+>> -		clocks = <&k3_clks 57 1>, <&k3_clks 57 2>;
+>> -		clock-names = "clk_ahb", "clk_xin";
+>> -		bus-width = <8>;
+>> -		mmc-ddr-1_8v;
+>> -		mmc-hs200-1_8v;
+>> -		mmc-hs400-1_8v;
+>> -		ti,clkbuf-sel = <0x7>;
+>> -		ti,strobe-sel = <0x77>;
+>> -		ti,trm-icp = <0x8>;
+>> -		ti,otap-del-sel-legacy = <0x1>;
+>> -		ti,otap-del-sel-mmc-hs = <0x1>;
+>> -		ti,otap-del-sel-ddr52 = <0x6>;
+>> -		ti,otap-del-sel-hs200 = <0x8>;
+>> -		ti,otap-del-sel-hs400 = <0x5>;
 > 
-> Hello Boris,
-> 
-> >>>> I suspect the extra soft reset I did before "un-halted" the GPU and
-> >>>> allowed it to proceed.  
-> >>>
-> >>> Hm, not quite. I mean, you still need to explicitly boot the MCU after
-> >>> a reset, which is what the write to MCU_CONTROL [1] does. What the
-> >>> soft-reset does though, is reset all GPU blocks, including the MCU.
-> >>> This means the MCU starts from a fresh state when you reach [1].  
-> >>
-> >> I have a feeling the write to MCU_CONTROL does nothing in my case.  
-> > 
-> > I believe it does, otherwise you wouldn't be able to kick the MCU
-> > and get things working until the first runtime suspend happens. I gut
-> > feeling is that there's something fishy in the FW or SoC integration
-> > that causes the FW HALT request to put the MCU/GPU in a bad state
-> > preventing further MCU_CONTROL(AUTO_START) from functioning correctly
-> > after that point.  
-> 
-> I wonder who at NXP could chime in ... Peng, do you know ?
-> 
-> >> Is there some way to probe the MCU state before/after setting GLB_HALT,
-> >> and also before/after the MCU_CONTROL write, using
-> >> gpu_read()/gpu_write() register operations, to find out what is going on
-> >> with the MCU at each point ?  
-> > 
-> > Yes, there's an MCU_STATUS register [1].  
-> Is that the only register I can use , or is there something more 
-> detailed ? This register only returns values 0..3 which is not very 
-> informative.
+> would'nt it be sufficient to provide this in am62p and keep the common
+> stuff here?
 
-Not that I'm aware.
+Either way works, I can keep a common no problem.
+
+> 
+> Additionally handling of SR1.2 should be documented in am62p
+
+WYM? Why document anything on  SR1.2? For am62p, we support HS400 mode
+which is the default, all other silicon revision will automatically
+be reduced to HS200, that logic is abstracted away in the driver.
+
+There is nothing to document here IMO.
+
+~ Judith
+
+
+
+> 
+>> -		ti,itap-del-sel-legacy = <0x10>;
+>> -		ti,itap-del-sel-mmc-hs = <0xa>;
+>> -		ti,itap-del-sel-ddr52 = <0x3>;
+>> -		status = "disabled";
+>> -	};
+>> -
+>>   	sdhci1: mmc@fa00000 {
+>>   		compatible = "ti,am62-sdhci";
+>>   		reg = <0x00 0x0fa00000 0x00 0x1000>, <0x00 0x0fa08000 0x00 0x400>;
+>> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
+>> index 6aea9d3f134e..fb8473ce403a 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
+>> +++ b/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
+>> @@ -31,6 +31,31 @@ usb1: usb@31100000 {
+>>   			snps,usb2-lpm-disable;
+>>   		};
+>>   	};
+>> +
+>> +	sdhci0: mmc@fa10000 {
+>> +		compatible = "ti,am64-sdhci-8bit";
+>> +		reg = <0x00 0x0fa10000 0x00 0x1000>, <0x00 0x0fa18000 0x00 0x400>;
+>> +		interrupts = <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH>;
+>> +		power-domains = <&k3_pds 57 TI_SCI_PD_EXCLUSIVE>;
+>> +		clocks = <&k3_clks 57 1>, <&k3_clks 57 2>;
+>> +		clock-names = "clk_ahb", "clk_xin";
+>> +		bus-width = <8>;
+>> +		mmc-ddr-1_8v;
+>> +		mmc-hs200-1_8v;
+>> +		mmc-hs400-1_8v;
+>> +		ti,clkbuf-sel = <0x7>;
+>> +		ti,strobe-sel = <0x77>;
+>> +		ti,trm-icp = <0x8>;
+>> +		ti,otap-del-sel-legacy = <0x1>;
+>> +		ti,otap-del-sel-mmc-hs = <0x1>;
+>> +		ti,otap-del-sel-ddr52 = <0x6>;
+>> +		ti,otap-del-sel-hs200 = <0x8>;
+>> +		ti,otap-del-sel-hs400 = <0x5>;
+>> +		ti,itap-del-sel-legacy = <0x10>;
+>> +		ti,itap-del-sel-mmc-hs = <0xa>;
+>> +		ti,itap-del-sel-ddr52 = <0x3>;
+>> +		status = "disabled";
+>> +	};
+>>   };
+>>   
+>>   &oc_sram {
+>> diff --git a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+>> index 993828872dfb..2978fe1a151e 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+>> +++ b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+>> @@ -404,6 +404,28 @@ e5010: jpeg-encoder@fd20000 {
+>>   		power-domains = <&k3_pds 201 TI_SCI_PD_EXCLUSIVE>;
+>>   		interrupts = <GIC_SPI 98 IRQ_TYPE_LEVEL_HIGH>;
+>>   	};
+>> +
+>> +	sdhci0: mmc@fa10000 {
+>> +		compatible = "ti,am64-sdhci-8bit";
+>> +		reg = <0x00 0x0fa10000 0x00 0x1000>, <0x00 0x0fa18000 0x00 0x400>;
+>> +		interrupts = <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH>;
+>> +		power-domains = <&k3_pds 57 TI_SCI_PD_EXCLUSIVE>;
+>> +		clocks = <&k3_clks 57 1>, <&k3_clks 57 2>;
+>> +		clock-names = "clk_ahb", "clk_xin";
+>> +		bus-width = <8>;
+>> +		mmc-ddr-1_8v;
+>> +		mmc-hs200-1_8v;
+>> +		ti,clkbuf-sel = <0x7>;
+>> +		ti,trm-icp = <0x8>;
+>> +		ti,otap-del-sel-legacy = <0x1>;
+>> +		ti,otap-del-sel-mmc-hs = <0x1>;
+>> +		ti,otap-del-sel-ddr52 = <0x6>;
+>> +		ti,otap-del-sel-hs200 = <0x8>;
+>> +		ti,itap-del-sel-legacy = <0x10>;
+>> +		ti,itap-del-sel-mmc-hs = <0xa>;
+>> +		ti,itap-del-sel-ddr52 = <0x3>;
+>> +		status = "disabled";
+>> +	};
+>>   };
+>>   
+>>   &main_bcdma_csi {
+>> -- 
+>> 2.51.0
+>>
+> 
+
 
