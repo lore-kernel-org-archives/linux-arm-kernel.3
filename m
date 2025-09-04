@@ -4,95 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2149CA1015
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 10:17:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84C3BCA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 10:20:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2h0hGRH+p/ZYPpa7nBtN0gSoPZrJRzZ1us1G/RrbZEk=; b=rFGLEqWFyW2mREe7ZYP+QKTcm7
-	6uYa58PpDqjL1xatd0j31MDc3qPAR6BAmgr2xJDXoM0B356oXRP/FjxYnOfYTKV/GjtrQd9vXmA0j
-	ey4XZ9MoapghpMFcIFf/y40hmUNWSuE0dqhEN8YQXvH63g+OvrM6sS1fC7LxD65eKCnLWiYB26t0p
-	eYlvj7fVWzPm999ppHDdB5IKt5ZTGKKLMVMXJZDpnxEpN4bSee62A1UNh248ePEwE5rAmqi2yDswF
-	3yAQbbyy/hhTKZJkU2+gaYfGVKusoooOVtRH4lL1WPbxq7dl0q7vF6FrmD/N6D+AZ/fgNyhvxi1lw
-	HhdiW4aA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6cfOekzhoclFCm+LWn+5CpA0OPOwnIdUmFfLhBpoTmE=; b=J9WYlgyCze4oOGj+QU9oUHlids
+	Z/Y5hogHzmpwxK0OSp9ynkOkFbVAwPHtswLZbpScVQq0eMPg0+gl3goFEa2PhrgghoHUOfTzKBDip
+	bq2QqAhA2Okht6dqVblPx6QBVa7gwzaPmKSgGjVfJ3n9Nzn/7Pi9rmcL5heJCWMOs45/1/wrhoblk
+	f7B4/InHPBMHw3ZQSB4fMYqqL93vYr3z0OW4OEshVDUJXsN+wKlIQpAl/HL/FEgTaChvR6Ki8qRvr
+	hJoSiXq0p6UZUyq8w2JIazrYarVxLren3yYIw+3J+ENRPgBY41c5kAvPWVgTqvVR9A7eBVmrTlJba
+	MYJV6QWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu71s-0000000ApJp-2aXs;
-	Thu, 04 Sep 2025 10:17:20 +0000
-Received: from zg8tmja2lje4os4yms4ymjma.icoremail.net ([206.189.21.223])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu5qp-0000000AQEX-1Pmp
+	id 1uu74b-0000000AqXP-0l8f;
+	Thu, 04 Sep 2025 10:20:09 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uu61f-0000000ATym-0L5F
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 09:01:52 +0000
-Received: from E0005182LT.eswin.cn (unknown [10.12.96.155])
-	by app1 (Coremail) with SMTP id TAJkCgC32xFnVbloOGXIAA--.39044S2;
-	Thu, 04 Sep 2025 17:01:31 +0800 (CST)
-From: weishangjuan@eswincomputing.com
-To: devicetree@vger.kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	yong.liang.choong@linux.intel.com,
-	vladimir.oltean@nxp.com,
-	rmk+kernel@armlinux.org.uk,
-	faizal.abdul.rahim@linux.intel.com,
-	prabhakar.mahadev-lad.rj@bp.renesas.com,
-	inochiama@gmail.com,
-	jan.petrous@oss.nxp.com,
-	jszhang@kernel.org,
-	p.zabel@pengutronix.de,
-	boon.khai.ng@altera.com,
-	0x1207@gmail.com,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	emil.renner.berthing@canonical.com
-Cc: ningyu@eswincomputing.com,
-	linmin@eswincomputing.com,
-	lizhi2@eswincomputing.com,
-	pinkesh.vaghela@einfochips.com,
-	Shangjuan Wei <weishangjuan@eswincomputing.com>
-Subject: [PATCH v5 2/2] ethernet: eswin: Add eic7700 ethernet driver
-Date: Thu,  4 Sep 2025 17:01:25 +0800
-Message-Id: <20250904090125.2598-1-weishangjuan@eswincomputing.com>
-X-Mailer: git-send-email 2.31.1.windows.1
-In-Reply-To: <20250904085913.2494-1-weishangjuan@eswincomputing.com>
-References: <20250904085913.2494-1-weishangjuan@eswincomputing.com>
+	Thu, 04 Sep 2025 09:13:04 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5849Cl9c3476356;
+	Thu, 4 Sep 2025 04:12:47 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1756977167;
+	bh=6cfOekzhoclFCm+LWn+5CpA0OPOwnIdUmFfLhBpoTmE=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=D9rxwAfYltIFcAjtwe3bCFvCgZ08dx1fMKFRi0gaqhHkw3fM8rXENUuxsFRPU72SZ
+	 dNOUlIPIwIuvWOUuJfaGzNYv2H/9hKPHLxjJM86KROHOAanxXkFPqzIU648hxMkpa9
+	 9pXujYPsqyB+tebuOepQbiHsPKgrQZb2owLu4u1g=
+Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5849ClU93707400
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 4 Sep 2025 04:12:47 -0500
+Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 4
+ Sep 2025 04:12:47 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Thu, 4 Sep 2025 04:12:47 -0500
+Received: from localhost (uda0492258.dhcp.ti.com [172.24.231.84])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5849CjkL3027798;
+	Thu, 4 Sep 2025 04:12:46 -0500
+Date: Thu, 4 Sep 2025 14:42:45 +0530
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Jiri Slaby <jirislaby@kernel.org>
+CC: Siddharth Vadapalli <s-vadapalli@ti.com>, <lpieralisi@kernel.org>,
+        <kwilczynski@kernel.org>, <mani@kernel.org>, <robh@kernel.org>,
+        <bhelgaas@google.com>, <jingoohan1@gmail.com>, <fan.ni@samsung.com>,
+        <quic_wenbyao@quicinc.com>, <namcao@linutronix.de>,
+        <mayank.rana@oss.qualcomm.com>, <thippeswamy.havalige@amd.com>,
+        <quic_schintav@quicinc.com>, <shradha.t@samsung.com>,
+        <inochiama@gmail.com>, <cassel@kernel.org>, <kishon@kernel.org>,
+        <18255117159@163.com>, <rongqianfeng@vivo.com>,
+        <linux-pci@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>
+Subject: Re: [PATCH 09/11] PCI: keystone: Switch to devm_request_irq() for
+ "ks-pcie-error-irq" IRQ
+Message-ID: <249d79be-deed-4277-96c3-845bafcec37a@ti.com>
+References: <20250903124505.365913-1-s-vadapalli@ti.com>
+ <20250903124505.365913-10-s-vadapalli@ti.com>
+ <3d3a4b52-e343-42f3-9d69-94c259812143@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: TAJkCgC32xFnVbloOGXIAA--.39044S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3tF45CrWxKr1rZr13KFyUZFb_yoWDWF45pF
-	W8Aa4Yqrnrtr1fK398JF40vas5Ka12gF1Y9ryfJ3Z3ZFZ0yrZ8Zw4ktFyYkFykJr95uw13
-	Ga1UAFWxuFn0k3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBl14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r4a6rW5MxkIecxEwVCm-wCF04
-	k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18
-	MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Wrv_Gr1UMIIYrxkI7VAKI4
-	8JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26F4j6r4U
-	JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcV
-	C2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7sRiWrW5UUUUU==
-X-CM-SenderInfo: pzhl2xxdqjy31dq6v25zlqu0xpsx3x1qjou0bp/
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <3d3a4b52-e343-42f3-9d69-94c259812143@kernel.org>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_020151_635881_339B608C 
-X-CRM114-Status: GOOD (  21.53  )
+X-CRM114-CacheID: sfid-20250904_021303_221356_EEAD3A20 
+X-CRM114-Status: GOOD (  29.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,312 +93,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shangjuan Wei <weishangjuan@eswincomputing.com>
+On Thu, Sep 04, 2025 at 09:24:01AM +0200, Jiri Slaby wrote:
+> On 03. 09. 25, 14:44, Siddharth Vadapalli wrote:
+> > In preparation for enabling loadable module support for the driver,
+> > there is motivation to switch to devm_request_irq() to simplify the
+> > cleanup on driver removal. Additionally, since the interrupt handler
+> > associated with the "ks-pcie-error-irq" namely "ks_pcie_handle_error_irq()
+> > is only printing the error and is clearing the interrupt, there is no
+> > necessity to prefer devm_request_threaded_irq() over devm_request_irq().
+> > Hence, switch from request_irq() to devm_request_irq().
+> > 
+> > Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> > ---
+> >   drivers/pci/controller/dwc/pci-keystone.c | 4 ++--
+> >   1 file changed, 2 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/drivers/pci/controller/dwc/pci-keystone.c b/drivers/pci/controller/dwc/pci-keystone.c
+> > index bb93559f6468..02f9a6d0e4a8 100644
+> > --- a/drivers/pci/controller/dwc/pci-keystone.c
+> > +++ b/drivers/pci/controller/dwc/pci-keystone.c
+> > @@ -1277,8 +1277,8 @@ static int ks_pcie_probe(struct platform_device *pdev)
+> >   	if (irq < 0)
+> >   		return irq;
+> > -	ret = request_irq(irq, ks_pcie_err_irq_handler, IRQF_SHARED,
+> > -			  "ks-pcie-error-irq", ks_pcie);
+> > +	ret = devm_request_irq(dev, irq, ks_pcie_err_irq_handler, IRQF_SHARED,
+> > +			       "ks-pcie-error-irq", ks_pcie);
+> >   	if (ret < 0) {
+> >   		dev_err(dev, "failed to request error IRQ %d\n",
+> >   			irq);
+> 
+> Ugh, so you are not removing any free_irq() from anywhere?
+> 
+> <me checking>
+> 
+> Because there is none...
+> 
+> So you are actually fixing an IRQ leak in case something later fails -- I
+> guess this needs Fixes and Cc stable tags, right?
 
-Add Ethernet controller support for Eswin's eic7700 SoC. The driver
-provides management and control of Ethernet signals for the eiC7700
-series chips.
+Yes! While working on this series and unloading the module, I had seen
+the issue and narrowed it down to the absence of a free_irq() in the
+driver's .remove callback. Since the driver cannot be unloaded prior to
+this series (driver can only be built-in), I had felt that a separate
+fix may not be required for adding the missing free_irq() in the .remove
+callback. However, after you pointed it out now, I realize that there
+are other places during the driver's probe where we may exit in the
+event of an error, without freeing the interrupt. Thank you for noticing
+this. The commit to be fixed is:
+0790eb175ee0 PCI: keystone: Cleanup error_irq configuration
+Link to the commit is:
+https://github.com/torvalds/linux/commit/0790eb175ee0
+I will include the Fixes tag for the above commit and also Cc stable when
+I post the v2 series. I will wait for feedback on the remaining patches
+in the series before posting the v2 series.
 
-Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
-Signed-off-by: Shangjuan Wei <weishangjuan@eswincomputing.com>
----
- drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 +
- drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
- .../ethernet/stmicro/stmmac/dwmac-eic7700.c   | 250 ++++++++++++++++++
- 3 files changed, 262 insertions(+)
- create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-index 67fa879b1e52..a13b15ce1abd 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-+++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-@@ -67,6 +67,17 @@ config DWMAC_ANARION
-
- 	  This selects the Anarion SoC glue layer support for the stmmac driver.
-
-+config DWMAC_EIC7700
-+	tristate "Support for Eswin eic7700 ethernet driver"
-+	select CRC32
-+	select MII
-+	depends on OF && HAS_DMA && ARCH_ESWIN || COMPILE_TEST
-+	help
-+	  This driver supports the Eswin EIC7700 Ethernet controller,
-+	  which integrates Synopsys DesignWare QoS features. It enables
-+	  high-speed networking with DMA acceleration and is optimized
-+	  for embedded systems.
-+
- config DWMAC_INGENIC
- 	tristate "Ingenic MAC support"
- 	default MACH_INGENIC
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
-index b591d93f8503..f4ec5fc16571 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Makefile
-+++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
-@@ -14,6 +14,7 @@ stmmac-$(CONFIG_STMMAC_SELFTESTS) += stmmac_selftests.o
- # Ordering matters. Generic driver must be last.
- obj-$(CONFIG_STMMAC_PLATFORM)	+= stmmac-platform.o
- obj-$(CONFIG_DWMAC_ANARION)	+= dwmac-anarion.o
-+obj-$(CONFIG_DWMAC_EIC7700)	+= dwmac-eic7700.o
- obj-$(CONFIG_DWMAC_INGENIC)	+= dwmac-ingenic.o
- obj-$(CONFIG_DWMAC_IPQ806X)	+= dwmac-ipq806x.o
- obj-$(CONFIG_DWMAC_LPC18XX)	+= dwmac-lpc18xx.o
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-new file mode 100644
-index 000000000000..b6c99562ccc5
---- /dev/null
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-@@ -0,0 +1,250 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Eswin DWC Ethernet linux driver
-+ *
-+ * Copyright 2025, Beijing ESWIN Computing Technology Co., Ltd.
-+ *
-+ * Authors:
-+ *   Zhi Li <lizhi2@eswincomputing.com>
-+ *   Shuang Liang <liangshuang@eswincomputing.com>
-+ *   Shangjuan Wei <weishangjuan@eswincomputing.com>
-+ */
-+
-+#include <linux/platform_device.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/stmmac.h>
-+#include <linux/regmap.h>
-+#include <linux/of.h>
-+
-+#include "stmmac_platform.h"
-+
-+/* eth_phy_ctrl_offset eth0:0x100 */
-+#define EIC7700_ETH_TX_CLK_SEL		BIT(16)
-+#define EIC7700_ETH_PHY_INTF_SELI	BIT(0)
-+
-+/* eth_axi_lp_ctrl_offset eth0:0x108 */
-+#define EIC7700_ETH_CSYSREQ_VAL		BIT(0)
-+
-+/*
-+ * TX/RX Clock Delay Bit Masks:
-+ * - TX Delay: bits [14:8] — TX_CLK delay (unit: 0.1ns per bit)
-+ * - RX Delay: bits [30:24] — RX_CLK delay (unit: 0.1ns per bit)
-+ */
-+#define EIC7700_ETH_TX_ADJ_DELAY	GENMASK(14, 8)
-+#define EIC7700_ETH_RX_ADJ_DELAY	GENMASK(30, 24)
-+
-+#define EIC7700_MAX_DELAY_UNIT 0x7F
-+
-+static const char * const eic7700_clk_names[] = {
-+	"tx", "axi", "cfg",
-+};
-+
-+struct eic7700_qos_priv {
-+	struct plat_stmmacenet_data *plat_dat;
-+	struct device *dev;
-+	struct regmap *hsp_regmap;
-+	u32 tx_delay_ps;
-+	u32 rx_delay_ps;
-+};
-+
-+/**
-+ * eic7700_apply_delay - Apply TX or RX delay to a register value.
-+ * @delay_ps: Delay in picoseconds, converted to 0.1ns units.
-+ * @reg:      Pointer to register value to update in-place.
-+ * @is_rx:    True for RX delay (bits 30:24), false for TX delay (bits 14:8).
-+ *
-+ * Converts delay from ps to 0.1ns units, capped by EIC7700_MAX_DELAY_UNIT.
-+ * Updates only the RX or TX delay field (using FIELD_PREP), leaving all
-+ * other bits in *@reg unchanged.
-+ */
-+static void eic7700_apply_delay(u32 delay_ps, u32 *reg, bool is_rx)
-+{
-+	u32 val = min(delay_ps / 100, EIC7700_MAX_DELAY_UNIT);
-+
-+	if (is_rx) {
-+		*reg &= ~EIC7700_ETH_RX_ADJ_DELAY;
-+		*reg |= FIELD_PREP(EIC7700_ETH_RX_ADJ_DELAY, val);
-+	} else {
-+		*reg &= ~EIC7700_ETH_TX_ADJ_DELAY;
-+		*reg |= FIELD_PREP(EIC7700_ETH_TX_ADJ_DELAY, val);
-+	}
-+}
-+
-+static int eic7700_clks_config(void *priv, bool enabled)
-+{
-+	struct eic7700_qos_priv *dwc = (struct eic7700_qos_priv *)priv;
-+	struct plat_stmmacenet_data *plat = dwc->plat_dat;
-+	int ret = 0;
-+
-+	if (enabled)
-+		ret = clk_bulk_prepare_enable(plat->num_clks, plat->clks);
-+	else
-+		clk_bulk_disable_unprepare(plat->num_clks, plat->clks);
-+
-+	return ret;
-+}
-+
-+static int eic7700_dwmac_probe(struct platform_device *pdev)
-+{
-+	struct plat_stmmacenet_data *plat_dat;
-+	struct stmmac_resources stmmac_res;
-+	struct eic7700_qos_priv *dwc_priv;
-+	u32 eth_axi_lp_ctrl_offset;
-+	u32 eth_phy_ctrl_offset;
-+	u32 eth_phy_ctrl_regset;
-+	u32 eth_rxd_dly_offset;
-+	u32 eth_dly_param = 0;
-+	int i, ret;
-+
-+	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				"failed to get resources\n");
-+
-+	plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
-+	if (IS_ERR(plat_dat))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(plat_dat),
-+				"dt configuration failed\n");
-+
-+	dwc_priv = devm_kzalloc(&pdev->dev, sizeof(*dwc_priv), GFP_KERNEL);
-+	if (!dwc_priv)
-+		return -ENOMEM;
-+
-+	dwc_priv->dev = &pdev->dev;
-+
-+	/* Read rx-internal-delay-ps and update rx_clk delay */
-+	if (!of_property_read_u32(pdev->dev.of_node,
-+				  "rx-internal-delay-ps",
-+				  &dwc_priv->rx_delay_ps)) {
-+		eic7700_apply_delay(dwc_priv->rx_delay_ps,
-+				    &eth_dly_param, true);
-+	} else {
-+		dev_warn(&pdev->dev, "can't get rx-internal-delay-ps\n");
-+	}
-+
-+	/* Read tx-internal-delay-ps and update tx_clk delay */
-+	if (!of_property_read_u32(pdev->dev.of_node,
-+				  "tx-internal-delay-ps",
-+				  &dwc_priv->tx_delay_ps)) {
-+		eic7700_apply_delay(dwc_priv->tx_delay_ps,
-+				    &eth_dly_param, false);
-+	} else {
-+		dev_warn(&pdev->dev, "can't get tx-internal-delay-ps\n");
-+	}
-+
-+	dwc_priv->hsp_regmap = syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
-+							       "eswin,hsp-sp-csr");
-+	if (IS_ERR(dwc_priv->hsp_regmap))
-+		return dev_err_probe(&pdev->dev,
-+				PTR_ERR(dwc_priv->hsp_regmap),
-+				"Failed to get hsp-sp-csr regmap\n");
-+
-+	ret = of_property_read_u32_index(pdev->dev.of_node,
-+					 "eswin,hsp-sp-csr",
-+					 1, &eth_phy_ctrl_offset);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev,
-+				ret,
-+				"can't get eth_phy_ctrl_offset\n");
-+
-+	regmap_read(dwc_priv->hsp_regmap, eth_phy_ctrl_offset,
-+		    &eth_phy_ctrl_regset);
-+	eth_phy_ctrl_regset |=
-+		(EIC7700_ETH_TX_CLK_SEL | EIC7700_ETH_PHY_INTF_SELI);
-+	regmap_write(dwc_priv->hsp_regmap, eth_phy_ctrl_offset,
-+		     eth_phy_ctrl_regset);
-+
-+	ret = of_property_read_u32_index(pdev->dev.of_node,
-+					 "eswin,hsp-sp-csr",
-+					 2, &eth_axi_lp_ctrl_offset);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev,
-+				ret,
-+				"can't get eth_axi_lp_ctrl_offset\n");
-+
-+	regmap_write(dwc_priv->hsp_regmap, eth_axi_lp_ctrl_offset,
-+		     EIC7700_ETH_CSYSREQ_VAL);
-+
-+	ret = of_property_read_u32_index(pdev->dev.of_node,
-+					 "eswin,hsp-sp-csr",
-+					 3, &eth_rxd_dly_offset);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev,
-+				ret,
-+				"can't get eth_rxd_dly_offset\n");
-+
-+	regmap_write(dwc_priv->hsp_regmap, eth_rxd_dly_offset,
-+		     eth_dly_param);
-+
-+	plat_dat->num_clks = ARRAY_SIZE(eic7700_clk_names);
-+	plat_dat->clks = devm_kcalloc(&pdev->dev,
-+				      plat_dat->num_clks,
-+				      sizeof(*plat_dat->clks),
-+				      GFP_KERNEL);
-+	if (!plat_dat->clks)
-+		return -ENOMEM;
-+
-+	for (i = 0; i < ARRAY_SIZE(eic7700_clk_names); i++)
-+		plat_dat->clks[i].id = eic7700_clk_names[i];
-+
-+	ret = devm_clk_bulk_get_optional(&pdev->dev,
-+					 plat_dat->num_clks,
-+					 plat_dat->clks);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev,
-+				ret,
-+				"Failed to get clocks\n");
-+
-+	plat_dat->clk_tx_i = stmmac_pltfr_find_clk(plat_dat, "tx");
-+	plat_dat->set_clk_tx_rate = stmmac_set_clk_tx_rate;
-+	plat_dat->bsp_priv = dwc_priv;
-+	plat_dat->clks_config = eic7700_clks_config;
-+	dwc_priv->plat_dat = plat_dat;
-+
-+	ret = eic7700_clks_config(dwc_priv, true);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev,
-+				ret,
-+				"error enable clock\n");
-+
-+	ret = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
-+	if (ret) {
-+		eic7700_clks_config(dwc_priv, false);
-+		return dev_err_probe(&pdev->dev,
-+				ret,
-+				"Failed to driver probe\n");
-+	}
-+
-+	return ret;
-+}
-+
-+static void eic7700_dwmac_remove(struct platform_device *pdev)
-+{
-+	struct eic7700_qos_priv *dwc_priv = get_stmmac_bsp_priv(&pdev->dev);
-+
-+	stmmac_pltfr_remove(pdev);
-+	eic7700_clks_config(dwc_priv, false);
-+}
-+
-+static const struct of_device_id eic7700_dwmac_match[] = {
-+	{ .compatible = "eswin,eic7700-qos-eth" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, eic7700_dwmac_match);
-+
-+static struct platform_driver eic7700_dwmac_driver = {
-+	.probe  = eic7700_dwmac_probe,
-+	.remove = eic7700_dwmac_remove,
-+	.driver = {
-+		.name           = "eic7700-eth-dwmac",
-+		.pm             = &stmmac_pltfr_pm_ops,
-+		.of_match_table = eic7700_dwmac_match,
-+	},
-+};
-+module_platform_driver(eic7700_dwmac_driver);
-+
-+MODULE_AUTHOR("Zhi Li <lizhi2@eswincomputing.com>");
-+MODULE_AUTHOR("Shuang Liang <liangshuang@eswincomputing.com>");
-+MODULE_AUTHOR("Shangjuan Wei <weishangjuan@eswincomputing.com>");
-+MODULE_DESCRIPTION("Eswin eic7700 qos ethernet driver");
-+MODULE_LICENSE("GPL");
---
-2.17.1
-
+Regards,
+Siddharth.
 
