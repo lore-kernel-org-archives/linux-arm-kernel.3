@@ -4,70 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE5A7CA1016
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 12:59:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F7F6CA1015
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 13:02:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w32Z8An9AE74RRjZOQNiyp9a2tv/8S16VZROzHgn0T4=; b=r3fnNfxIssOPzqybYlruRq80OO
-	IbBJkwN85XTzo3dqQBkAVHMrGkVyOSNYuwKiT/aAV3lu/EuMRuZf1fCkO+oVd+606D8/UHdU3typd
-	CvnbTjFPqYySGydmygeMCgT9aINFQ+DLpcOL9LQTNx196Ak/kBE2u1bVW2RD+IwhKMOydsWwZ8qlS
-	BYvjGtMAvJEHkti71QuyW7SVXUKQmpi6sKPUuE8fGYUzus9TS10dQY+6utINha/XJSxhWeFUfmuGR
-	ETpLkxLiLla9RhemOgBHr3P394gamZC5108g0+pmR2NEjOLLLBeaiJB47LlJVr6az03SaOdyXs1JZ
-	abRGbM8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Of4871CVYXNFMmAuQuYzFWLYXjthmqVo/Gg9annv4Ek=; b=JlihiR2435Rg4kZkQQ9NG2U6pH
+	YQVrnw+T55QHlv+ut+MN5iLVAGpzq6Zc6dNnK5OvNChVmRy01RalbC+QhJ5x2QjMagNkGUqrPJL5+
+	Lw0FBWPB5pZxrFfEYx6gpGWSmaVLN6NtmXZ1f8YGI+hDW1q0jG1ASgikE7hKdv3wqmPMfj9pXt/T2
+	ypXCABbvxWWp7yW0/d+qiPObbHM4vVzlJUUpxYoaKX7C0dgvone7Zo2tbPbScsmvBzk9ikthgdZEs
+	xyUgBHEwAo++1Rg5C6gzbfIV9GSeqhEPbQe+mShLTul/lc4XNVozzECHw+p7atwSHHhvoexvc3YYu
+	Sp6/jZUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu9YX-0000000Bj5a-0qd4;
-	Thu, 04 Sep 2025 12:59:13 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1uu9bG-0000000BkHN-1Y37;
+	Thu, 04 Sep 2025 13:02:02 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu819-0000000BAzU-1lyn;
-	Thu, 04 Sep 2025 11:20:40 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 1919520575;
-	Thu,  4 Sep 2025 13:20:38 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id DiYsnYBqwS5a; Thu,  4 Sep 2025 13:20:37 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1756984837; bh=VX1Qorr4cLCVKxPq56XPUJlujQHb0CreFY/Z5gKIYUI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ZdR2EzMXKNwMV0GD4t+UBqKkew284HTouolI5UMo3Nzd8iCtUBbc/XUbI8E39Cmxd
-	 U6mxlFG727uVHvXfbvpDNK5TP58JclnlusDCngy9wBIFwF4lp7jtkCuKKLgUudAySd
-	 tF63jMXOwagGkOyOBNun2B1ceVUfRR/7nkWxrIVx4sdBepH91ZPRkBDsZLVnPR4qCO
-	 vFn0uecDRhRw7CF3vKHEht6yk/+RlYEEEQRybNW/Lg1ixSRPBVpaXs9Cqc2JRyRQiV
-	 37w/UvDUU7ZvZnIf7Lec27pnDu1/rCWKbBo3vaL9n30qr5wOAdycsW6f0i07gDAwKE
-	 mJ0WBo+ZnQAsQ==
-Date: Thu, 4 Sep 2025 11:20:28 +0000
-From: Yao Zi <ziyao@disroot.org>
-To: Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	"Russell King (Oracle)" <linux@armlinux.org.uk>,
-	Simon Horman <horms@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Jonas Karlman <jonas@kwiboo.se>, David Wu <david.wu@rock-chips.com>,
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH net] net: stmmac: dwmac-rk: Ensure clk_phy doesn't
- contain invalid address
-Message-ID: <aLl1_AjVZus5wx0M@pie>
-References: <20250904031222.40953-3-ziyao@disroot.org>
- <20250904103443.GH372207@horms.kernel.org>
- <aLluvYQ-i-Z9vyp7@shell.armlinux.org.uk>
- <b0f9d781-6b8f-49dd-bfa1-456a26d01290@rock-chips.com>
+	id 1uu83H-0000000BBsp-0AF1
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Sep 2025 11:22:52 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 584BMkJE3000155;
+	Thu, 4 Sep 2025 06:22:46 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1756984966;
+	bh=Of4871CVYXNFMmAuQuYzFWLYXjthmqVo/Gg9annv4Ek=;
+	h=From:To:CC:Subject:Date;
+	b=hkKDReeYQFrIf5B2HNpRQGd/lEMzLCSywNOyL39pvOXOOG0wDx2FNWKjm/dz8or/h
+	 YZ7+MiesGGa6WBU9rdyjnffpDijFdvwjnAnSHrzoeNZavgnDdpJnO34nxb8n7AK28a
+	 pQ6uAJRAn+0VUXqhps31FRcejP2muQ/j+1R4bmsw=
+Received: from DLEE111.ent.ti.com (dlee111.ent.ti.com [157.170.170.22])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 584BMkax079760
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 4 Sep 2025 06:22:46 -0500
+Received: from DLEE106.ent.ti.com (157.170.170.36) by DLEE111.ent.ti.com
+ (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 4
+ Sep 2025 06:22:45 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE106.ent.ti.com
+ (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Thu, 4 Sep 2025 06:22:45 -0500
+Received: from akashdeep-HP-Z2-Tower-G5-Workstation.dhcp.ti.com (akashdeep-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.68.177])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 584BMf5w3176722;
+	Thu, 4 Sep 2025 06:22:42 -0500
+From: Akashdeep Kaur <a-kaur@ti.com>
+To: <praneeth@ti.com>, <nm@ti.com>, <afd@ti.com>, <vigneshr@ti.com>,
+        <d-gole@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+CC: <vishalm@ti.com>, <sebin.francis@ti.com>
+Subject: [PATCH v4 0/4] Remove unused bits from dts and add support for remaining pinctrl macros 
+Date: Thu, 4 Sep 2025 16:52:34 +0530
+Message-ID: <20250904112238.522591-1-a-kaur@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b0f9d781-6b8f-49dd-bfa1-456a26d01290@rock-chips.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_042039_590787_5EA7A4C4 
-X-CRM114-Status: GOOD (  22.47  )
+X-CRM114-CacheID: sfid-20250904_042251_275752_59CCF230 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,47 +84,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 04, 2025 at 06:58:12PM +0800, Chaoyi Chen wrote:
-> 
-> On 9/4/2025 6:49 PM, Russell King (Oracle) wrote:
-> > On Thu, Sep 04, 2025 at 11:34:43AM +0100, Simon Horman wrote:
-> > > Thanks, and sorry for my early confusion about applying this patch.
-> > > 
-> > > I agree that the bug you point out is addressed by this patch.
-> > > Although I wonder if it is cleaner not to set bsp_priv->clk_phy
-> > > unless there is no error, rather than setting it then resetting
-> > > it if there is an error.
-> > +1 !
-> > 
-> > > More importantly, I wonder if there is another bug: does clk_set_rate need
-> > > to be called in the case where there is no error and bsp_priv->integrated_phy
-> > > is false?
-> > I think there's another issue:
-> > 
-> > static int rk_gmac_clk_init(struct plat_stmmacenet_data *plat)
-> > {
-> > ...
-> >          if (plat->phy_node) {
-> >                  bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
+This patch series cleans up the dts files to remove the pin control 
+DeepSleep configuration that does not take effect in hardware.
+This series also adds the remaining macros in the pin control file 
+supported by SoC so that any configuration can be used as per requirement 
+in dts files.
 
-This is the only invokation to of_clk_get() in the driver. Should we
-convert it to the devres-managed variant? And rk_gmac_remove could be
-simplified further.
+Link to Previous Versions:
+  -V1: https://lore.kernel.org/linux-arm-kernel/20250731115631.3263798-1-a-kaur@ti.com/
+  -V2: https://lore.kernel.org/linux-arm-kernel/20250901122835.3022850-1-a-kaur@ti.com/
+  -V3: https://lore.kernel.org/linux-arm-kernel/20250902071917.1616729-1-a-kaur@ti.com/
 
-> > ...
-> > 
-> > static void rk_gmac_remove(struct platform_device *pdev)
-> > {
-> > ...
-> >          if (priv->plat->phy_node && bsp_priv->integrated_phy)
-> >                  clk_put(bsp_priv->clk_phy);
-> > 
-> > So if bsp_priv->integrated_phy is false, then we get the clock but
-> > don't put it.
-> 
-> Yes! Just remove "bsp_priv->integrated_phy"
-> 
+Change Log:
+V1-> V2:
+  -Added the macros that were removed earlier for backward compatibility
+  -Fixed the indentation 
+  -Added documentation references in commit message
 
-Cheers,
-Yao Zi
+V2-> V3:
+  -Updated the commit message to be more descriptive and Clear
+  -Fixed errors introduced in previous version
+
+V3->V4:
+  -Rearranged pinctrl macros so that all macros of same type are at same place 
+  -Removed any redundant macros added in previous versions of the series
+  -Added new commit to fix the missing existing macro definition
+
+Akashdeep Kaur (4):
+  arm64: dts: ti: k3-am62p5-sk: Remove the unused cfg in USB1_DRVVBUS
+  arm64: dts: ti: k3-am62x-sk-common: Remove the unused cfg in
+    USB1_DRVVBUS
+  arm64: dts: ti: k3-pinctrl: Add the remaining macros
+  arm64: dts: ti: k3-pinctrl: Fix the bug in existing macros
+
+ arch/arm64/boot/dts/ti/k3-am62p5-sk.dts       |  2 +-
+ .../arm64/boot/dts/ti/k3-am62x-sk-common.dtsi |  2 +-
+ arch/arm64/boot/dts/ti/k3-pinctrl.h           | 51 +++++++++++++++++--
+ 3 files changed, 50 insertions(+), 5 deletions(-)
+
+-- 
+2.34.1
+
 
