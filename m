@@ -4,112 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71641CA1015
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 13:27:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49E5ACA1015
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 13:30:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vXb8mTCa12E7PD5ud6pKJPyr7dPjDCXvT3tWLQPFbjE=; b=P3yODTHBeBEmjZfLl1I2t7rqM6
-	tEFGapVGDQqzOlSMrC9q4bk+T9avmO3qhH7FYiz0z8Uc0EG0zCFuoDCsnv8PG7BIMuM5J6t5zKxsn
-	V6/6FlxWllJD+QfdlHnH3YwOuHeEGhJZuhWMQjx46xSl9ZyisMdhRAaD7U5G9GyxbBP3NfR6hd9i1
-	0+3fhUmw6pJ2zkJ3jt7/eW+5SdZ4BJDGNFyZnso2he5SbjS9YN5SYEBsI1fxT8tmY2Zd5BbpIBEe5
-	uj/zj7QQfKHFamBUiJvlalZ0V4XCMzqG5+wNsfIzf88B2ra0WwhBg6PAxowUL1723F7Ph3HcUc+Pq
-	J/cl15Bw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=chhjTT0HkHObU9k2wz0nc4+UzZ/+2+7nfCcx6T7u6pQ=; b=vy/BfUKUhyyUCn7ouYJbqyhDzg
+	cVUZLJCAAxJo703744cT9hWhr5FBDrawLura0TeK8mqyee3X1yWC1+DHuUQtH4BgbfARzvsuxGs9g
+	NiTgmm9hK2qaHGKwZIfWx1LxR1IlkOx/yq6A8MSZJ6b3YLpTwUrGwnNLM4d+flDqN2+UxG5Nida4w
+	64OAA3f5jzGMNSBOh0yu1rSD/dHH1XZ7SExsDhuD5WKGJgicWI7tJGPGLXyOgQKbomDLwkb5sMGTx
+	Z8KJtIMM7loICu8AqCV/Uo2T2wTHArggx0PWdR44TlNFnPdWvT5L5lxLVaWdROtaLqEdQtpP959px
+	BCzytIDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu9zc-0000000Bsdz-2mBa;
-	Thu, 04 Sep 2025 13:27:12 +0000
-Received: from server.couthit.com ([162.240.164.96])
+	id 1uuA2L-0000000BtcB-0Zs0;
+	Thu, 04 Sep 2025 13:30:01 +0000
+Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu875-0000000BDWF-1bBL
+	id 1uu89F-0000000BEWq-1zIu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 11:26:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=vXb8mTCa12E7PD5ud6pKJPyr7dPjDCXvT3tWLQPFbjE=; b=TSdOItAX/FXacAbGYZbdpr+xH+
-	JYJ72snoQvToduIAZcq/QeTUGWfO/ssacvtseRh/1tFjPYErbDYXOq8NU3HnNsByB8lhAGlJ8eKDh
-	iNge23+YmwW2XYpvuqwI1fRJTZD6QMZaqccnQkLXKuAVAz4cerLDyg3mxnv4X2qZBssvg4zdASK1p
-	svAnKgz31Z2DNcwvjPUmJgio3hdH1+dlFf2WHTnRqU8QUSv9fTx1oAA0aXctFSM2/V53jzt89lqAM
-	Jib1avTSx7hXydBfi7E38l7ua7ezuZfrs/U55aPuFlXrVfV8n055RdwYA1I5POuoOXmTKto5fZ6kk
-	Yo9CpEPA==;
-Received: from [122.175.9.182] (port=19521 helo=cypher.couthit.local)
-	by server.couthit.com with esmtpa (Exim 4.98.1)
-	(envelope-from <parvathi@couthit.com>)
-	id 1uu870-0000000CONA-1w6e;
-	Thu, 04 Sep 2025 07:26:42 -0400
-From: Parvathi Pudi <parvathi@couthit.com>
-To: danishanwar@ti.com,
-	rogerq@kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	ssantosh@kernel.org,
-	richardcochran@gmail.com,
-	m-malladi@ti.com,
-	s.hauer@pengutronix.de,
-	afd@ti.com,
-	michal.swiatkowski@linux.intel.com,
-	jacob.e.keller@intel.com,
-	horms@kernel.org,
-	johan@kernel.org,
-	alok.a.tiwari@oracle.com,
-	m-karicheri2@ti.com,
-	s-anna@ti.com,
-	glaroque@baylibre.com,
-	saikrishnag@marvell.com,
-	kory.maincent@bootlin.com,
-	diogo.ivo@siemens.com,
-	javier.carrasco.cruz@gmail.com,
-	basharath@couthit.com,
-	parvathi@couthit.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	vadim.fedorenko@linux.dev,
-	bastien.curutchet@bootlin.com,
-	pratheesh@ti.com,
-	prajith@ti.com,
-	vigneshr@ti.com,
-	praneeth@ti.com,
-	srk@ti.com,
-	rogerq@ti.com,
-	krishna@couthit.com,
-	pmohan@couthit.com,
-	mohan@couthit.com
-Subject: [PATCH net-next v15 5/5] net: ti: icssm-prueth: Adds IEP support for PRUETH on AM33x, AM43x and AM57x SOCs
-Date: Thu,  4 Sep 2025 16:53:36 +0530
-Message-ID: <20250904112523.694288-6-parvathi@couthit.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250904101729.693330-1-parvathi@couthit.com>
-References: <20250904101729.693330-1-parvathi@couthit.com>
-MIME-Version: 1.0
+	Thu, 04 Sep 2025 11:29:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=l2Hre2urpvptKT5DCQjHIHbg8rwa6SpY4O/JNKGp7APSzvhXFHOYhZEw4x8ylyO5TXRx4nIc2xcvY+OuIx3OWSa1dRDggG4MN373DAy1IT1dUbo9hK3tobW5Aqqj1tezs9fLE9Cf7I/Dcp+hSJEIdCWkeieJjAxY7OsE3pjJ/yE1hbhHHCtiNA3ef0U8BAOjTehoIfqgzjmY2+77O65+Gx0FqT2r+5z5Yccpc/BzKg10/eM8HfqbDefEh+nQ37CobDKqGVLU4P6zsI7saMAN+AUozNp6ckM11dE3jRLIs66+jd6WE0paxGc62eSQAutRaZHcBbMn8QKjUXh9YyoCjQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=chhjTT0HkHObU9k2wz0nc4+UzZ/+2+7nfCcx6T7u6pQ=;
+ b=s2Jz9XMPVL/P+t2xu5JiXJGAsOhl+bpt6I7rtJCR3CKjnbZyyQTEPrMNN5hborL7vdWa/mkCKyP4vCGgmR9tE1MH+UYqj9CSoqXAaVowo1uIgvBQveCMa0wsOiWY0scYCCNlq5oTDmRbjD2ZGLpuZmOHLjjAPX79Ce6pstRtT891dkX+L54CJL08FpypwK6573fdl/ILltt6Jjf5S1COHsq6agnjr0i6u0nLXu6epuBLpBcpEsMLsHdTWZHF10h3LoueZNh6TP/TptBu1RA3aPnX2HYg2EZ0Gy0bSDMcSfNmdfp2c2PzTcdbizw3ZcpzCdBDNHMv2DASrESw3IDf6w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
+ dkim=pass header.d=vivo.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=chhjTT0HkHObU9k2wz0nc4+UzZ/+2+7nfCcx6T7u6pQ=;
+ b=VQ40FkwFCYqUAivxvp2/uRZobitbo+UBNCKsJFdcbnLPk6X2Aq8xQ3Gevb52E/RN6/TWl8AlxLnKvmLF7410zRgVr1MdhuHg+7HqnE1t9fVvqjnAHtUyJUFTAGBMta6g/U0az6zaaG5fagQLOxSQFVj+UF8j+PDNHem69pJulcsKfcPYbffhaiuS1lCR058vNm/P/cpOnbXgbn84Q+61m2yXvHiFGMU7Ok4JJnP1DHf/3VInhmSy5BsnvHPR1PmDyPhWYQMy18Jc9AVv4QUwOMXP+SU1W+v5fLpiWUo8IccLqZGmLZlZ9XTWbaq8PhfJkWFeum9Lfu2jaZXv/b4x2A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=vivo.com;
+Received: from SEZPR06MB5576.apcprd06.prod.outlook.com (2603:1096:101:c9::14)
+ by TY0PR06MB5753.apcprd06.prod.outlook.com (2603:1096:400:271::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.27; Thu, 4 Sep
+ 2025 11:28:34 +0000
+Received: from SEZPR06MB5576.apcprd06.prod.outlook.com
+ ([fe80::5c0a:2748:6a72:99b6]) by SEZPR06MB5576.apcprd06.prod.outlook.com
+ ([fe80::5c0a:2748:6a72:99b6%7]) with mapi id 15.20.9094.016; Thu, 4 Sep 2025
+ 11:28:34 +0000
+From: Liao Yuanhong <liaoyuanhong@vivo.com>
+To: Maxime Ripard <mripard@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	dri-devel@lists.freedesktop.org (open list:DRM DRIVERS FOR ALLWINNER A10),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Allwinner sunXi SoC support),
+	linux-sunxi@lists.linux.dev (open list:ARM/Allwinner sunXi SoC support),
+	linux-kernel@vger.kernel.org (open list)
+Cc: Liao Yuanhong <liaoyuanhong@vivo.com>
+Subject: [PATCH] drm/sun4i: hdmi: Remove redundant ternary operators
+Date: Thu,  4 Sep 2025 19:28:23 +0800
+Message-Id: <20250904112824.350939-1-liaoyuanhong@vivo.com>
+X-Mailer: git-send-email 2.34.1
 Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.couthit.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
-X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Type: text/plain
+X-ClientProxiedBy: TYCP286CA0054.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:2b5::19) To SEZPR06MB5576.apcprd06.prod.outlook.com
+ (2603:1096:101:c9::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SEZPR06MB5576:EE_|TY0PR06MB5753:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4f36aa20-567f-4ed9-7fa7-08ddeba62f21
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|52116014|7416014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?4hFukAXH+uNDDZoyJkoqUBbm3p8NJl+nnoXg+Vyticf/rWZIElPVHa6afN45?=
+ =?us-ascii?Q?5MAm+EEfEhWBYXtqW627BZ9IaGpWx5kffM0oOk0xFKmuiVHlX9rfRIsb78CZ?=
+ =?us-ascii?Q?+TAcYgD8zjAoLzg6J2AHKa22e0U+DZl9Pjs/TwqsOZIluEDnnYU5RtnBz0lS?=
+ =?us-ascii?Q?wP0KHLJsEP+kyY/D1MPuYqq8qqruxuVnCTPgB3161j2NE4GsTCML8TpTBlM1?=
+ =?us-ascii?Q?dh/uxDtG9jSEWW+RjSlwDw79reZ6X29gAY6PDKHSBvYOzobaOqv0O/T1PvF2?=
+ =?us-ascii?Q?4WKGOgDVzWsipLAf0ESZ3zdJZ7NtfMnPjkAhBhmEIvO2Nthe9QJ9qMT1e9if?=
+ =?us-ascii?Q?j/JQQSJyZ46GtM3sxraAvNRgGq0dGJ5ipmSFf0dFHy0e5kgG1QY1YsqF0xwj?=
+ =?us-ascii?Q?NU+FFrHxeloJT8T+BEUv+/pWyGXkmpGeN3beFK4NRvuq4VThnd0ZndDXrEdx?=
+ =?us-ascii?Q?ke45V+0niYwxUDT0WqVOm0GuXS/JjwAGdqjzqGs9vg0Au3O5mPJzOXI/Pixq?=
+ =?us-ascii?Q?lTn/Yqad00ePOnMMg3yi7KsXRgqi6jBYouv04FR6Zy1r3KoE3wWJYD2efxbV?=
+ =?us-ascii?Q?stOaz/TZP8cE4/DtFaDoU94wSJA0fPF46CaSe4XW5PNEiEEjFYZjlUSRdkZu?=
+ =?us-ascii?Q?LmWs/HCY4D/OHjL72KvaW2TvPxNxsIAgrK24oQfM7PPRTm7zDI4Vf9V3fA95?=
+ =?us-ascii?Q?1eGkKS3916Z249a7MzG9upcgMcrEccACT/awwYEvk0t6rl4ahBO9opThMw8Z?=
+ =?us-ascii?Q?63/88iw1YaqP1l/wGchhGv2kd68nXKz5ms47tG8/y1lASTz+YJETlpxnsoW9?=
+ =?us-ascii?Q?opllnaZC+BRZNnM2cMIM3Moxh4ctBY6mBnSZnz1ZA0cPY9AN0QIrbfmc9uL8?=
+ =?us-ascii?Q?5Iq8YZsAi1xdn09GFyjaREJb2P5BBDMJhuyJCMKbj9ckTldwD1Gy/rUUkKMq?=
+ =?us-ascii?Q?gZwt6P+STfw00oXS7pso+gdqMxUPtBunWk6OTQVgVsWj+eI+N8kkI2ZNZITT?=
+ =?us-ascii?Q?k8QmifVuVuoK9VtwsFeI0MZvDH9137g+AfzuSnZcb5fgsxo1MjLHfE2ar00U?=
+ =?us-ascii?Q?TE2vd59w+MJ4NldbRdCu0jkSz2WcQwfaqqmDnrFpb915iaPEh6QyzYp+hxSQ?=
+ =?us-ascii?Q?Mq1RX/JEodNPJrvaiMseeLxm4+78o17YclzkT/InoBDHrV1ue5SN7U13BSOk?=
+ =?us-ascii?Q?LESHrERwogekypLLgGWJAWzneK8iN0Z9LaLnrayfJY0gvZ/+E2rYmhL1e62I?=
+ =?us-ascii?Q?yF248rC+T3sHJdkvOM0vBbJB4m88YvlEX32SK56aQuFYTujMspLtXufjdprs?=
+ =?us-ascii?Q?c8RMg28zyDj9PC6pSBHOOxRhNqIe4mJM9d6FbDlFqZ6Bb7+rALaRlqj2KfbO?=
+ =?us-ascii?Q?MkGR5C1eMm280RjtAfLuVwhNIaGL/hBXio+SRefUBL1uUXgzlaasVZ38CNxj?=
+ =?us-ascii?Q?dAIyfL4OrOmK+cSCthlS5MTfzSKmnUnZRSgFJWo32PpPtFxD4zOBD6TvQfBC?=
+ =?us-ascii?Q?h+tyyVvD1LVmMl8=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5576.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(52116014)(7416014)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?XmdDCcaBmdxdP49Qv016mf5bvlaOi33848xx3G+eFjnXIg0gZ47U+aBGhIcu?=
+ =?us-ascii?Q?qg6BpaDHMVfxK7wLVsl4PeG7OTlFeBo8OFg8B1/uIbjDn0XSkq+EetBZrs1G?=
+ =?us-ascii?Q?i2IDXnz3uZjiah6D9bLM+arLZ4F3M3xnrjtCKv8Wfvt0ZLZP+MUCZZKPo1nc?=
+ =?us-ascii?Q?t+dpEsoqe1uoenXLI0gA2lJyEDSwbhQ79e848QgLIemnrgnUMc+JXNRZqmd+?=
+ =?us-ascii?Q?yR8KvX69fgLgcxlG5v2Cddp5UHviZ1nGzkczVNLDWc7I4K+h52JBq+DCoj9a?=
+ =?us-ascii?Q?guaaySmHPHfpu8IM5g/P2LPoWzh3QbONsQtitM92A0gIJv1VXl81F9iZOkJv?=
+ =?us-ascii?Q?f3uSf9f1V9KmEHkihT4dlUi1ivTDZT9CNKR03glqqu42M59JOpqNp7VvcHrO?=
+ =?us-ascii?Q?S+adOVk1DlIHEE+qsoFcwi7BrqQzDh/gAvB1cIYCps+GU77dF6tEE/bNyu+3?=
+ =?us-ascii?Q?YRF84Fp6gDJNaRi+JXisgJ3FNNsPXuhKgpearKrVLqxhvJKmDYU70GuTxEqr?=
+ =?us-ascii?Q?R+hLZ00/76lEGhl7S3rniZvGUnh9tX+N/tN3HvNij3TLvDMWbZpK1hCh3ikK?=
+ =?us-ascii?Q?PzvWiUWZCobVxpr60KGaWrFAl07/13MNj6ASv6yoOQuSoZLxqhRoNaqXsPuG?=
+ =?us-ascii?Q?wY7Ij2dgWP9La9o+cSiDQoivXKxTRmqefmdrncTSCKbuG7UCxE7c1MNIE/kj?=
+ =?us-ascii?Q?/l/omAq4jZmf9zBEQhN/JovCsLss2orbJfduoQSX9d8jmiyYwcxtJkeiiq3Y?=
+ =?us-ascii?Q?p7V7Mi9A9CObT8WhdZO0k1aQARH4w0wMLjks/NPhOyb4fhKnARtHvLvZ0ML4?=
+ =?us-ascii?Q?Er3Ys7SZGVnKZNxRToSoXkJCQSVU9USXOpgE6v87rrWXHXT7RCOm6iife4zL?=
+ =?us-ascii?Q?BYEtSrUg9mjHXlXKrG5g921oFCj94UK91U4q6n9o6nstY6wTPQ4HtkYFyHu+?=
+ =?us-ascii?Q?nI194Mvcw4wAqkaqwChOPaRiJLdO14AHBQwjgGFq2SRjL7ojklaG3c2iik37?=
+ =?us-ascii?Q?mRS34lHsen2reEPKNGkWvhG7blCxzuonxvaboi/kCFodpAIUEYDttz3v7vVD?=
+ =?us-ascii?Q?srrL/lltSFLAQYofQkrjvCqEDh/9dqFXSlLcKG/7+UNn3Zli9Erfkl8b4CKI?=
+ =?us-ascii?Q?0pinpGtulCT8jfAjOnMeSv7kLj6dLADEOX9bmVQrROaVJuLbfIzMzFcx5UQm?=
+ =?us-ascii?Q?5qXWbwCAi0xUaFlGP+qwF86rQM9LlgzofHH0kSLHQvhAfrOQ0pnkN1SiBzdK?=
+ =?us-ascii?Q?qj3ilSXTQkHlbBu0XRgIFahZIhamShNhqjGY/JnxVVEVOSwxDuq2HP2cszdB?=
+ =?us-ascii?Q?m2Brd5RUz7VJ9W3Y9czSZrOZ9ACrnuo1ypgBCOMwWUOF4JDax30D77C8MHEm?=
+ =?us-ascii?Q?YHCHjCw3/KJk4DeuC85onb97sEFpzEIAOCqbvC+d9Q2pAJiAWBMJqAeO9hlw?=
+ =?us-ascii?Q?RLg0t19+2w5YOEp4wUuBDOCkwugoCR167Oz7h0O/A98TEa9oxonQWR4IFmME?=
+ =?us-ascii?Q?DrzIcKzPED2a1NyNsQmnloaeYhIp+kapz+IjgGHp2MAjp9STV/Pah3m3VVfl?=
+ =?us-ascii?Q?gTgGnVTWHJx7Rc4lLHRriqGDnRk5of+DlKOhE1MI?=
+X-OriginatorOrg: vivo.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4f36aa20-567f-4ed9-7fa7-08ddeba62f21
+X-MS-Exchange-CrossTenant-AuthSource: SEZPR06MB5576.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2025 11:28:34.6443
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: vKodWlc21FAAV0c8qFpGf/GD2zV8D5EoC6WKCm39X8s1Mwi/JGt+gGXvsJ6O+ToC+565O4BQKWzq2GfUoZWANQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR06MB5753
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_042647_464015_BA5A7EAD 
-X-CRM114-Status: GOOD (  20.96  )
+X-CRM114-CacheID: sfid-20250904_042901_507003_400C5247 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,384 +165,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Added API hooks for IEP module (legacy 32-bit model) to support
-timestamping requests from application.
+For ternary operators in the form of "a ? true : false", if 'a' itself
+returns a boolean result, the ternary operator can be omitted. Remove
+redundant ternary operators to clean up the code.
 
-Signed-off-by: Roger Quadros <rogerq@ti.com>
-Signed-off-by: Andrew F. Davis <afd@ti.com>
-Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
-Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
+Signed-off-by: Liao Yuanhong <liaoyuanhong@vivo.com>
 ---
- drivers/net/ethernet/ti/icssg/icss_iep.c      | 101 ++++++++++++++++++
- drivers/net/ethernet/ti/icssm/icssm_prueth.c  |  74 ++++++++++++-
- drivers/net/ethernet/ti/icssm/icssm_prueth.h  |   2 +
- .../net/ethernet/ti/icssm/icssm_prueth_ptp.h  |  85 +++++++++++++++
- 4 files changed, 260 insertions(+), 2 deletions(-)
- create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_ptp.h
+ drivers/gpu/drm/sun4i/sun4i_hdmi_tmds_clk.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/ti/icssg/icss_iep.c b/drivers/net/ethernet/ti/icssg/icss_iep.c
-index d8c9fe1d98c4..ec085897edf0 100644
---- a/drivers/net/ethernet/ti/icssg/icss_iep.c
-+++ b/drivers/net/ethernet/ti/icssg/icss_iep.c
-@@ -982,11 +982,112 @@ static const struct icss_iep_plat_data am654_icss_iep_plat_data = {
- 	.config = &am654_icss_iep_regmap_config,
- };
- 
-+static const struct icss_iep_plat_data am57xx_icss_iep_plat_data = {
-+	.flags = ICSS_IEP_64BIT_COUNTER_SUPPORT |
-+		 ICSS_IEP_SLOW_COMPEN_REG_SUPPORT,
-+	.reg_offs = {
-+		[ICSS_IEP_GLOBAL_CFG_REG] = 0x00,
-+		[ICSS_IEP_COMPEN_REG] = 0x08,
-+		[ICSS_IEP_SLOW_COMPEN_REG] = 0x0c,
-+		[ICSS_IEP_COUNT_REG0] = 0x10,
-+		[ICSS_IEP_COUNT_REG1] = 0x14,
-+		[ICSS_IEP_CAPTURE_CFG_REG] = 0x18,
-+		[ICSS_IEP_CAPTURE_STAT_REG] = 0x1c,
-+
-+		[ICSS_IEP_CAP6_RISE_REG0] = 0x50,
-+		[ICSS_IEP_CAP6_RISE_REG1] = 0x54,
-+
-+		[ICSS_IEP_CAP7_RISE_REG0] = 0x60,
-+		[ICSS_IEP_CAP7_RISE_REG1] = 0x64,
-+
-+		[ICSS_IEP_CMP_CFG_REG] = 0x70,
-+		[ICSS_IEP_CMP_STAT_REG] = 0x74,
-+		[ICSS_IEP_CMP0_REG0] = 0x78,
-+		[ICSS_IEP_CMP0_REG1] = 0x7c,
-+		[ICSS_IEP_CMP1_REG0] = 0x80,
-+		[ICSS_IEP_CMP1_REG1] = 0x84,
-+
-+		[ICSS_IEP_CMP8_REG0] = 0xc0,
-+		[ICSS_IEP_CMP8_REG1] = 0xc4,
-+		[ICSS_IEP_SYNC_CTRL_REG] = 0x180,
-+		[ICSS_IEP_SYNC0_STAT_REG] = 0x188,
-+		[ICSS_IEP_SYNC1_STAT_REG] = 0x18c,
-+		[ICSS_IEP_SYNC_PWIDTH_REG] = 0x190,
-+		[ICSS_IEP_SYNC0_PERIOD_REG] = 0x194,
-+		[ICSS_IEP_SYNC1_DELAY_REG] = 0x198,
-+		[ICSS_IEP_SYNC_START_REG] = 0x19c,
-+	},
-+	.config = &am654_icss_iep_regmap_config,
-+};
-+
-+static bool am335x_icss_iep_valid_reg(struct device *dev, unsigned int reg)
-+{
-+	switch (reg) {
-+	case ICSS_IEP_GLOBAL_CFG_REG ... ICSS_IEP_CAPTURE_STAT_REG:
-+	case ICSS_IEP_CAP6_RISE_REG0:
-+	case ICSS_IEP_CMP_CFG_REG ... ICSS_IEP_CMP0_REG0:
-+	case ICSS_IEP_CMP8_REG0 ... ICSS_IEP_SYNC_START_REG:
-+		return true;
-+	default:
-+		return false;
-+	}
-+}
-+
-+static const struct regmap_config am335x_icss_iep_regmap_config = {
-+	.name = "icss iep",
-+	.reg_stride = 1,
-+	.reg_write = icss_iep_regmap_write,
-+	.reg_read = icss_iep_regmap_read,
-+	.writeable_reg = am335x_icss_iep_valid_reg,
-+	.readable_reg = am335x_icss_iep_valid_reg,
-+};
-+
-+static const struct icss_iep_plat_data am335x_icss_iep_plat_data = {
-+	.flags = 0,
-+	.reg_offs = {
-+		[ICSS_IEP_GLOBAL_CFG_REG] = 0x00,
-+		[ICSS_IEP_COMPEN_REG] = 0x08,
-+		[ICSS_IEP_COUNT_REG0] = 0x0c,
-+		[ICSS_IEP_CAPTURE_CFG_REG] = 0x10,
-+		[ICSS_IEP_CAPTURE_STAT_REG] = 0x14,
-+
-+		[ICSS_IEP_CAP6_RISE_REG0] = 0x30,
-+
-+		[ICSS_IEP_CAP7_RISE_REG0] = 0x38,
-+
-+		[ICSS_IEP_CMP_CFG_REG] = 0x40,
-+		[ICSS_IEP_CMP_STAT_REG] = 0x44,
-+		[ICSS_IEP_CMP0_REG0] = 0x48,
-+
-+		[ICSS_IEP_CMP8_REG0] = 0x88,
-+		[ICSS_IEP_SYNC_CTRL_REG] = 0x100,
-+		[ICSS_IEP_SYNC0_STAT_REG] = 0x108,
-+		[ICSS_IEP_SYNC1_STAT_REG] = 0x10c,
-+		[ICSS_IEP_SYNC_PWIDTH_REG] = 0x110,
-+		[ICSS_IEP_SYNC0_PERIOD_REG] = 0x114,
-+		[ICSS_IEP_SYNC1_DELAY_REG] = 0x118,
-+		[ICSS_IEP_SYNC_START_REG] = 0x11c,
-+	},
-+	.config = &am335x_icss_iep_regmap_config,
-+};
-+
- static const struct of_device_id icss_iep_of_match[] = {
- 	{
- 		.compatible = "ti,am654-icss-iep",
- 		.data = &am654_icss_iep_plat_data,
- 	},
-+	{
-+		.compatible = "ti,am5728-icss-iep",
-+		.data = &am57xx_icss_iep_plat_data,
-+	},
-+	{
-+		.compatible = "ti,am4376-icss-iep",
-+		.data = &am335x_icss_iep_plat_data,
-+	},
-+	{
-+		.compatible = "ti,am3356-icss-iep",
-+		.data = &am335x_icss_iep_plat_data,
-+	},
- 	{},
- };
- MODULE_DEVICE_TABLE(of, icss_iep_of_match);
-diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-index 3ffa5523663a..c3f114e79742 100644
---- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-+++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-@@ -30,6 +30,7 @@
- 
- #include "icssm_prueth.h"
- #include "../icssg/icssg_mii_rt.h"
-+#include "../icssg/icss_iep.h"
- 
- #define OCMC_RAM_SIZE		(SZ_64K)
- 
-@@ -883,6 +884,48 @@ static int icssm_emac_request_irqs(struct prueth_emac *emac)
- 	return ret;
- }
- 
-+static void icssm_ptp_dram_init(struct prueth_emac *emac)
-+{
-+	void __iomem *sram = emac->prueth->mem[PRUETH_MEM_SHARED_RAM].va;
-+	u64 temp64;
-+
-+	writew(0, sram + MII_RX_CORRECTION_OFFSET);
-+	writew(0, sram + MII_TX_CORRECTION_OFFSET);
-+
-+	/* Initialize RCF to 1 (Linux N/A) */
-+	writel(1 * 1024, sram + TIMESYNC_TC_RCF_OFFSET);
-+
-+	/* This flag will be set and cleared by firmware */
-+	/* Write Sync0 period for sync signal generation in PTP
-+	 * memory in shared RAM
-+	 */
-+	writel(200000000 / 50, sram + TIMESYNC_SYNC0_WIDTH_OFFSET);
-+
-+	/* Write CMP1 period for sync signal generation in PTP
-+	 * memory in shared RAM
-+	 */
-+	temp64 = 1000000;
-+	memcpy_toio(sram + TIMESYNC_CMP1_CMP_OFFSET, &temp64, sizeof(temp64));
-+
-+	/* Write Sync0 period for sync signal generation in PTP
-+	 * memory in shared RAM
-+	 */
-+	writel(1000000, sram + TIMESYNC_CMP1_PERIOD_OFFSET);
-+
-+	/* Configures domainNumber list. Firmware supports 2 domains */
-+	writeb(0, sram + TIMESYNC_DOMAIN_NUMBER_LIST);
-+	writeb(0, sram + TIMESYNC_DOMAIN_NUMBER_LIST + 1);
-+
-+	/* Configure 1-step/2-step */
-+	writeb(1, sram + DISABLE_SWITCH_SYNC_RELAY_OFFSET);
-+
-+	/* Configures the setting to Link local frame without HSR tag */
-+	writeb(0, sram + LINK_LOCAL_FRAME_HAS_HSR_TAG);
-+
-+	/* Enable E2E/UDP PTP message timestamping */
-+	writeb(1, sram + PTP_IPV4_UDP_E2E_ENABLE);
-+}
-+
- /**
-  * icssm_emac_ndo_open - EMAC device open
-  * @ndev: network adapter device
-@@ -905,9 +948,18 @@ static int icssm_emac_ndo_open(struct net_device *ndev)
- 
- 	icssm_prueth_emac_config(emac);
- 
-+	if (!prueth->emac_configured) {
-+		icssm_ptp_dram_init(emac);
-+		ret = icss_iep_init(prueth->iep, NULL, NULL, 0);
-+		if (ret) {
-+			netdev_err(ndev, "Failed to initialize iep: %d\n", ret);
-+			goto iep_exit;
-+		}
-+	}
-+
- 	ret = icssm_emac_set_boot_pru(emac, ndev);
- 	if (ret)
--		return ret;
-+		goto iep_exit;
- 
- 	ret = icssm_emac_request_irqs(emac);
- 	if (ret)
-@@ -931,6 +983,10 @@ static int icssm_emac_ndo_open(struct net_device *ndev)
- rproc_shutdown:
- 	rproc_shutdown(emac->pru);
- 
-+iep_exit:
-+	if (!prueth->emac_configured)
-+		icss_iep_exit(prueth->iep);
-+
- 	return ret;
- }
- 
-@@ -1447,12 +1503,19 @@ static int icssm_prueth_probe(struct platform_device *pdev)
+diff --git a/drivers/gpu/drm/sun4i/sun4i_hdmi_tmds_clk.c b/drivers/gpu/drm/sun4i/sun4i_hdmi_tmds_clk.c
+index fbf7da9d9592..591962db626d 100644
+--- a/drivers/gpu/drm/sun4i/sun4i_hdmi_tmds_clk.c
++++ b/drivers/gpu/drm/sun4i/sun4i_hdmi_tmds_clk.c
+@@ -49,7 +49,7 @@ static unsigned long sun4i_tmds_calc_divider(unsigned long rate,
+ 			    (rate - tmp_rate) < (rate - best_rate)) {
+ 				best_rate = tmp_rate;
+ 				best_m = m;
+-				is_double = (d == 2) ? true : false;
++				is_double = d == 2;
+ 			}
  		}
  	}
- 
-+	prueth->iep = icss_iep_get(np);
-+	if (IS_ERR(prueth->iep)) {
-+		ret = PTR_ERR(prueth->iep);
-+		dev_err(dev, "unable to get IEP\n");
-+		goto netdev_exit;
-+	}
-+
- 	/* register the network devices */
- 	if (eth0_node) {
- 		ret = register_netdev(prueth->emac[PRUETH_MAC0]->ndev);
- 		if (ret) {
- 			dev_err(dev, "can't register netdev for port MII0");
--			goto netdev_exit;
-+			goto iep_put;
- 		}
- 
- 		prueth->registered_netdevs[PRUETH_MAC0] =
-@@ -1486,6 +1549,10 @@ static int icssm_prueth_probe(struct platform_device *pdev)
- 		unregister_netdev(prueth->registered_netdevs[i]);
- 	}
- 
-+iep_put:
-+	icss_iep_put(prueth->iep);
-+	prueth->iep = NULL;
-+
- netdev_exit:
- 	for (i = 0; i < PRUETH_NUM_MACS; i++) {
- 		eth_node = prueth->eth_node[i];
-@@ -1554,6 +1621,9 @@ static void icssm_prueth_remove(struct platform_device *pdev)
- 						 &prueth->mem[i]);
- 	}
- 
-+	icss_iep_put(prueth->iep);
-+	prueth->iep = NULL;
-+
- 	pruss_put(prueth->pruss);
- 
- 	if (prueth->eth_node[PRUETH_MAC0])
-diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.h b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-index f5b6b1e99bd4..8e7e0af08144 100644
---- a/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-+++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-@@ -14,6 +14,7 @@
- #include <linux/remoteproc/pruss.h>
- 
- #include "icssm_switch.h"
-+#include "icssm_prueth_ptp.h"
- 
- /* ICSSM size of redundancy tag */
- #define ICSSM_LRE_TAG_SIZE	6
-@@ -238,6 +239,7 @@ struct prueth {
- 	struct pruss_mem_region mem[PRUETH_MEM_MAX];
- 	struct gen_pool *sram_pool;
- 	struct regmap *mii_rt;
-+	struct icss_iep *iep;
- 
- 	const struct prueth_private_data *fw_data;
- 	struct prueth_fw_offsets *fw_offsets;
-diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth_ptp.h b/drivers/net/ethernet/ti/icssm/icssm_prueth_ptp.h
-new file mode 100644
-index 000000000000..e0bf692beda1
---- /dev/null
-+++ b/drivers/net/ethernet/ti/icssm/icssm_prueth_ptp.h
-@@ -0,0 +1,85 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2020-2021 Texas Instruments Incorporated - https://www.ti.com
-+ */
-+#ifndef PRUETH_PTP_H
-+#define PRUETH_PTP_H
-+
-+#define RX_SYNC_TIMESTAMP_OFFSET_P1		0x8    /* 8 bytes */
-+#define RX_PDELAY_REQ_TIMESTAMP_OFFSET_P1	0x14   /* 12 bytes */
-+
-+#define DISABLE_PTP_FRAME_FORWARDING_CTRL_OFFSET 0x14	/* 1 byte */
-+
-+#define RX_PDELAY_RESP_TIMESTAMP_OFFSET_P1	0x20   /* 12 bytes */
-+#define RX_SYNC_TIMESTAMP_OFFSET_P2		0x2c   /* 12 bytes */
-+#define RX_PDELAY_REQ_TIMESTAMP_OFFSET_P2	0x38   /* 12 bytes */
-+#define RX_PDELAY_RESP_TIMESTAMP_OFFSET_P2	0x44   /* 12 bytes */
-+#define TIMESYNC_DOMAIN_NUMBER_LIST		0x50   /* 2 bytes */
-+#define P1_SMA_LINE_DELAY_OFFSET		0x52   /* 4 bytes */
-+#define P2_SMA_LINE_DELAY_OFFSET		0x56   /* 4 bytes */
-+#define TIMESYNC_SECONDS_COUNT_OFFSET		0x5a   /* 6 bytes */
-+#define TIMESYNC_TC_RCF_OFFSET			0x60   /* 4 bytes */
-+#define DUT_IS_MASTER_OFFSET			0x64   /* 1 byte */
-+#define MASTER_PORT_NUM_OFFSET			0x65   /* 1 byte */
-+#define SYNC_MASTER_MAC_OFFSET			0x66   /* 6 bytes */
-+#define TX_TS_NOTIFICATION_OFFSET_SYNC_P1	0x6c   /* 1 byte */
-+#define TX_TS_NOTIFICATION_OFFSET_PDEL_REQ_P1	0x6d   /* 1 byte */
-+#define TX_TS_NOTIFICATION_OFFSET_PDEL_RES_P1	0x6e   /* 1 byte */
-+#define TX_TS_NOTIFICATION_OFFSET_SYNC_P2	0x6f   /* 1 byte */
-+#define TX_TS_NOTIFICATION_OFFSET_PDEL_REQ_P2	0x70   /* 1 byte */
-+#define TX_TS_NOTIFICATION_OFFSET_PDEL_RES_P2	0x71   /* 1 byte */
-+#define TX_SYNC_TIMESTAMP_OFFSET_P1		0x72   /* 12 bytes */
-+#define TX_PDELAY_REQ_TIMESTAMP_OFFSET_P1	0x7e   /* 12 bytes */
-+#define TX_PDELAY_RESP_TIMESTAMP_OFFSET_P1	0x8a   /* 12 bytes */
-+#define TX_SYNC_TIMESTAMP_OFFSET_P2		0x96   /* 12 bytes */
-+#define TX_PDELAY_REQ_TIMESTAMP_OFFSET_P2	0xa2   /* 12 bytes */
-+#define TX_PDELAY_RESP_TIMESTAMP_OFFSET_P2	0xae   /* 12 bytes */
-+#define TIMESYNC_CTRL_VAR_OFFSET		0xba   /* 1 byte */
-+#define DISABLE_SWITCH_SYNC_RELAY_OFFSET	0xbb   /* 1 byte */
-+#define MII_RX_CORRECTION_OFFSET		0xbc   /* 2 bytes */
-+#define MII_TX_CORRECTION_OFFSET		0xbe   /* 2 bytes */
-+#define TIMESYNC_CMP1_CMP_OFFSET		0xc0   /* 8 bytes */
-+#define TIMESYNC_SYNC0_CMP_OFFSET		0xc8   /* 8 bytes */
-+#define TIMESYNC_CMP1_PERIOD_OFFSET		0xd0   /* 4 bytes */
-+#define TIMESYNC_SYNC0_WIDTH_OFFSET		0xd4   /* 4 bytes */
-+#define SINGLE_STEP_IEP_OFFSET_P1		0xd8   /* 8 bytes */
-+#define SINGLE_STEP_SECONDS_OFFSET_P1		0xe0   /* 8 bytes */
-+#define SINGLE_STEP_IEP_OFFSET_P2		0xe8   /* 8 bytes */
-+#define SINGLE_STEP_SECONDS_OFFSET_P2		0xf0   /* 8 bytes */
-+#define LINK_LOCAL_FRAME_HAS_HSR_TAG		0xf8   /* 1 bytes */
-+#define PTP_PREV_TX_TIMESTAMP_P1		0xf9  /* 8 bytes */
-+#define PTP_PREV_TX_TIMESTAMP_P2		0x101  /* 8 bytes */
-+#define PTP_CLK_IDENTITY_OFFSET			0x109  /* 8 bytes */
-+#define PTP_SCRATCH_MEM				0x111  /* 16 byte */
-+#define PTP_IPV4_UDP_E2E_ENABLE			0x121  /* 1 byte */
-+
-+enum {
-+	PRUETH_PTP_SYNC,
-+	PRUETH_PTP_DLY_REQ,
-+	PRUETH_PTP_DLY_RESP,
-+	PRUETH_PTP_TS_EVENTS,
-+};
-+
-+#define PRUETH_PTP_TS_SIZE		12
-+#define PRUETH_PTP_TS_NOTIFY_SIZE	1
-+#define PRUETH_PTP_TS_NOTIFY_MASK	0xff
-+
-+/* Bit definitions for TIMESYNC_CTRL */
-+#define TIMESYNC_CTRL_BG_ENABLE    BIT(0)
-+#define TIMESYNC_CTRL_FORCED_2STEP BIT(1)
-+
-+static inline u32 icssm_prueth_tx_ts_offs_get(u8 port, u8 event)
-+{
-+	return TX_SYNC_TIMESTAMP_OFFSET_P1 + port *
-+		PRUETH_PTP_TS_EVENTS * PRUETH_PTP_TS_SIZE +
-+		event * PRUETH_PTP_TS_SIZE;
-+}
-+
-+static inline u32 icssm_prueth_tx_ts_notify_offs_get(u8 port, u8 event)
-+{
-+	return TX_TS_NOTIFICATION_OFFSET_SYNC_P1 +
-+		PRUETH_PTP_TS_EVENTS * PRUETH_PTP_TS_NOTIFY_SIZE * port +
-+		event * PRUETH_PTP_TS_NOTIFY_SIZE;
-+}
-+
-+#endif /* PRUETH_PTP_H */
 -- 
-2.43.0
+2.34.1
 
 
