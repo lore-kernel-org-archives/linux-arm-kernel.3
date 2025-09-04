@@ -4,61 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0141FCA1002
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 16:24:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13FD6CA1015
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 16:24:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0BVgZret26t6joDeTTBQI34Y0mRUPMR1vBVbDsAGgDs=; b=m2bHLOL9oTuH9WuGCa7+9aEQsR
-	ED7sGFIz3EZSCzZufzTNBVxXDNOdrgevnqyRIf/6NJjbklCSpWr2WI8QSfiDYxV2On8abmWDtK5Xh
-	LOh8A0Z1iokTt0k1UlabB/M94h2jWA7tN/gil8t6eWoEhEF88qyDjAdb3LGnRlxfGu71vwRX3+XAD
-	5/yrPGVzqSG7oo+VeEHPUwcUIg1In9OlVncotBDbyWmzu8eusnw2208OU3IeP2e4zgO9P6K07y8Jh
-	LQXUuaYovLJ6PM9v26o5dl0Obx+kGa3RwSISriWbsfm3vgDmezqMqWd51BEQ44Dh69W87VWBg4pyT
-	usJj86qw==;
+	bh=ULNdmNCRIkxTZoG3Dhg+00hD3xZk802sCVX/OceuCXk=; b=aYsdqDM8SBqeYUGT2VGRpopfAF
+	6kVwHzMsxB8wlDcU0gPnRSnOjpSCcrh0dGg9/v9CQI+cA2iptsd3IiHVjgZACuvFsv/RWVR3p7taD
+	tETLxV3Pkd8Q7C5c2OmNYVXkaOmV/Jm4OQSF1xBxRtHgn/VPyk8nV5YKgU58sju5X6hIQlsiOsn0m
+	gs8O9n0DlxJE9WhMzmVevhZ0crWjWIVVqzCd1eQEON2e0H0xeXiQiAVCxsFJomLxMbEWdqJ0KIGAv
+	1/gyBbtDL296JLtv05tIjWUSNFrx6sVaeGOHOmyOTl1IsAAvTDVzOlSTJeV4cwb6d9b1kjkDlYy6y
+	RMCaCJtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuCl3-0000000CqKV-0kpy;
-	Thu, 04 Sep 2025 16:24:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu7nW-0000000B66f-40R0
+	id 1uuClE-0000000CqSI-035L;
+	Thu, 04 Sep 2025 16:24:32 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uu8o8-0000000BT57-2Cuw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 11:06:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 361531756;
-	Thu,  4 Sep 2025 04:06:24 -0700 (PDT)
-Received: from [10.1.37.179] (XHFQ2J9959.cambridge.arm.com [10.1.37.179])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7B4D43F6A8;
-	Thu,  4 Sep 2025 04:06:30 -0700 (PDT)
-Message-ID: <42b3b394-a6ec-4d70-b5a1-941a0628cd25@arm.com>
-Date: Thu, 4 Sep 2025 12:06:29 +0100
+	Thu, 04 Sep 2025 12:11:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=ULNdmNCRIkxTZoG3Dhg+00hD3xZk802sCVX/OceuCXk=; b=vcQihDfN3gMaQiuBf8ew4pox7j
+	7jNiz2DnlR2GdLbke/hlIY+/eDcKVQbEMNYzgP7Tjiotnks50pHa8HpLEe0LrubZNTrYPcWedwdQa
+	N5Ab0BJ+Oe+RJATmx0fFgK9HboPcqMkWlYodGiunL1PtgOOSx+rn/Ivieud8C+D3fxXWZ4tzkEE5G
+	gr2vFRW2jhW+YAn3HZoY7tTxULKuVshPK23EKZYQHQ1i5uvsQ9XQaKNnBDCxyiqfAyjiDru++3yR8
+	1JHhU/HX1AK8KRovfviR65FBbf3mZEhyvFvUYnxilA9vvgEXOVqFhONT4lrq+pfVC08YfmjY4E0kO
+	5/Bo094g==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:36092 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1uu8o3-000000001xZ-0ySZ;
+	Thu, 04 Sep 2025 13:11:11 +0100
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1uu8o2-00000001vog-1LyK;
+	Thu, 04 Sep 2025 13:11:10 +0100
+In-Reply-To: <aLmBwsMdW__XBv7g@shell.armlinux.org.uk>
+References: <aLmBwsMdW__XBv7g@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next v2 03/11] net: stmmac: mdio: provide
+ priv->gmii_address_bus_config
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/6] arm64: Enable permission change on arm64 kernel
- block mappings
-Content-Language: en-GB
-To: Jinjiang Tu <tujinjiang@huawei.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@redhat.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Yang Shi <yang@os.amperecomputing.com>, Ard Biesheuvel <ardb@kernel.org>,
- Dev Jain <dev.jain@arm.com>, scott@os.amperecomputing.com, cl@gentwo.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-References: <20250829115250.2395585-1-ryan.roberts@arm.com>
- <20250829115250.2395585-2-ryan.roberts@arm.com>
- <7705c29b-4f08-4b56-aab3-024795ee9124@huawei.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <7705c29b-4f08-4b56-aab3-024795ee9124@huawei.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1uu8o2-00000001vog-1LyK@rmk-PC.armlinux.org.uk>
+Date: Thu, 04 Sep 2025 13:11:10 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_040635_115276_1745FA16 
-X-CRM114-Status: GOOD (  34.56  )
+X-CRM114-CacheID: sfid-20250904_051116_578722_7554E7DE 
+X-CRM114-Status: GOOD (  12.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,366 +89,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/09/2025 04:40, Jinjiang Tu wrote:
-> 
-> 在 2025/8/29 19:52, Ryan Roberts 写道:
->> From: Dev Jain <dev.jain@arm.com>
->>
->> This patch paves the path to enable huge mappings in vmalloc space and
->> linear map space by default on arm64. For this we must ensure that we
->> can handle any permission games on the kernel (init_mm) pagetable.
->> Previously, __change_memory_common() used apply_to_page_range() which
->> does not support changing permissions for block mappings. We move away
->> from this by using the pagewalk API, similar to what riscv does right
->> now. It is the responsibility of the caller to ensure that the range
->> over which permissions are being changed falls on leaf mapping
->> boundaries. For systems with BBML2, this will be handled in future
->> patches by dyanmically splitting the mappings when required.
->>
->> Unlike apply_to_page_range(), the pagewalk API currently enforces the
->> init_mm.mmap_lock to be held. To avoid the unnecessary bottleneck of the
->> mmap_lock for our usecase, this patch extends this generic API to be
->> used locklessly, so as to retain the existing behaviour for changing
->> permissions. Apart from this reason, it is noted at [1] that KFENCE can
->> manipulate kernel pgtable entries during softirqs. It does this by
->> calling set_memory_valid() -> __change_memory_common(). This being a
->> non-sleepable context, we cannot take the init_mm mmap lock.
->>
->> Add comments to highlight the conditions under which we can use the
->> lockless variant - no underlying VMA, and the user having exclusive
->> control over the range, thus guaranteeing no concurrent access.
->>
->> We require that the start and end of a given range do not partially
->> overlap block mappings, or cont mappings. Return -EINVAL in case a
->> partial block mapping is detected in any of the PGD/P4D/PUD/PMD levels;
->> add a corresponding comment in update_range_prot() to warn that
->> eliminating such a condition is the responsibility of the caller.
->>
->> Note that, the pte level callback may change permissions for a whole
->> contpte block, and that will be done one pte at a time, as opposed to an
->> atomic operation for the block mappings. This is fine as any access will
->> decode either the old or the new permission until the TLBI.
->>
->> apply_to_page_range() currently performs all pte level callbacks while
->> in lazy mmu mode. Since arm64 can optimize performance by batching
->> barriers when modifying kernel pgtables in lazy mmu mode, we would like
->> to continue to benefit from this optimisation. Unfortunately
->> walk_kernel_page_table_range() does not use lazy mmu mode. However,
->> since the pagewalk framework is not allocating any memory, we can safely
->> bracket the whole operation inside lazy mmu mode ourselves. Therefore,
->> wrap the call to walk_kernel_page_table_range() with the lazy MMU
->> helpers.
->>
->> Link: https://lore.kernel.org/linux-arm-kernel/89d0ad18-4772-4d8f-
->> ae8a-7c48d26a927e@arm.com/ [1]
->> Signed-off-by: Dev Jain <dev.jain@arm.com>
->> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
->> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
->> ---
->>  arch/arm64/mm/pageattr.c | 153 +++++++++++++++++++++++++++++++--------
->>  include/linux/pagewalk.h |   3 +
->>  mm/pagewalk.c            |  36 ++++++---
->>  3 files changed, 149 insertions(+), 43 deletions(-)
->>
->> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
->> index 04d4a8f676db..6da8cbc32f46 100644
->> --- a/arch/arm64/mm/pageattr.c
->> +++ b/arch/arm64/mm/pageattr.c
->> @@ -8,6 +8,7 @@
->>  #include <linux/mem_encrypt.h>
->>  #include <linux/sched.h>
->>  #include <linux/vmalloc.h>
->> +#include <linux/pagewalk.h>
->>  
->>  #include <asm/cacheflush.h>
->>  #include <asm/pgtable-prot.h>
->> @@ -20,6 +21,99 @@ struct page_change_data {
->>  	pgprot_t clear_mask;
->>  };
->>  
->> +static ptdesc_t set_pageattr_masks(ptdesc_t val, struct mm_walk *walk)
->> +{
->> +	struct page_change_data *masks = walk->private;
->> +
->> +	val &= ~(pgprot_val(masks->clear_mask));
->> +	val |= (pgprot_val(masks->set_mask));
->> +
->> +	return val;
->> +}
->> +
->> +static int pageattr_pgd_entry(pgd_t *pgd, unsigned long addr,
->> +			      unsigned long next, struct mm_walk *walk)
->> +{
->> +	pgd_t val = pgdp_get(pgd);
->> +
->> +	if (pgd_leaf(val)) {
->> +		if (WARN_ON_ONCE((next - addr) != PGDIR_SIZE))
->> +			return -EINVAL;
->> +		val = __pgd(set_pageattr_masks(pgd_val(val), walk));
->> +		set_pgd(pgd, val);
->> +		walk->action = ACTION_CONTINUE;
->> +	}
->> +
->> +	return 0;
->> +}
->> +
->> +static int pageattr_p4d_entry(p4d_t *p4d, unsigned long addr,
->> +			      unsigned long next, struct mm_walk *walk)
->> +{
->> +	p4d_t val = p4dp_get(p4d);
->> +
->> +	if (p4d_leaf(val)) {
->> +		if (WARN_ON_ONCE((next - addr) != P4D_SIZE))
->> +			return -EINVAL;
->> +		val = __p4d(set_pageattr_masks(p4d_val(val), walk));
->> +		set_p4d(p4d, val);
->> +		walk->action = ACTION_CONTINUE;
->> +	}
->> +
->> +	return 0;
->> +}
->> +
->> +static int pageattr_pud_entry(pud_t *pud, unsigned long addr,
->> +			      unsigned long next, struct mm_walk *walk)
->> +{
->> +	pud_t val = pudp_get(pud);
->> +
->> +	if (pud_leaf(val)) {
->> +		if (WARN_ON_ONCE((next - addr) != PUD_SIZE))
->> +			return -EINVAL;
->> +		val = __pud(set_pageattr_masks(pud_val(val), walk));
->> +		set_pud(pud, val);
->> +		walk->action = ACTION_CONTINUE;
->> +	}
->> +
->> +	return 0;
->> +}
->> +
->> +static int pageattr_pmd_entry(pmd_t *pmd, unsigned long addr,
->> +			      unsigned long next, struct mm_walk *walk)
->> +{
->> +	pmd_t val = pmdp_get(pmd);
->> +
->> +	if (pmd_leaf(val)) {
->> +		if (WARN_ON_ONCE((next - addr) != PMD_SIZE))
->> +			return -EINVAL;
->> +		val = __pmd(set_pageattr_masks(pmd_val(val), walk));
->> +		set_pmd(pmd, val);
->> +		walk->action = ACTION_CONTINUE;
->> +	}
->> +
->> +	return 0;
->> +}
-> 
-> #define pmd_leaf(pmd)        (pmd_present(pmd) && !pmd_table(pmd))
-> #define pmd_present(pmd)	pte_present(pmd_pte(pmd))
-> #define pte_present(pte)	(pte_valid(pte) || pte_present_invalid(pte))
-> 
-> When PTE_VALID is cleared, pmd_leaf() will return false. As a result, the
-> caller won't be able to set PTE_VALID for the pmd.
+Provide a pre-formatted value for the MDIO address register fields
+which remain constant across the various different transactions
+rather than recreating the register value from scratch every time.
+Currently, we only do this for the CR (clock range) field.
 
-Ouch - good spot!
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  1 +
+ .../net/ethernet/stmicro/stmmac/stmmac_mdio.c | 26 ++++++++++++-------
+ 2 files changed, 18 insertions(+), 9 deletions(-)
 
-So this will break set_direct_map_default_noflush(), set_memory_valid() and
-__set_memory_enc_dec(). I wonder why it doesn't cause problems with mm selftests
-- I'll investigate.
-
-Anyway, I think the simplest solution is to replace the pmd_leaf()/pud_leaf()
-checks with !pmd_table()/!pud_table() checks. (and I think we can entirely
-remove the pgd and p4d callbacks because pgd_leaf() and p4d_leaf() always return
-false on arm64). As long as no code ever clears PTE_VALID from a table entry, I
-think this works.
-
-Thanks,
-Ryan
-
-> 
->> +
->> +static int pageattr_pte_entry(pte_t *pte, unsigned long addr,
->> +			      unsigned long next, struct mm_walk *walk)
->> +{
->> +	pte_t val = __ptep_get(pte);
->> +
->> +	val = __pte(set_pageattr_masks(pte_val(val), walk));
->> +	__set_pte(pte, val);
->> +
->> +	return 0;
->> +}
->> +
->> +static const struct mm_walk_ops pageattr_ops = {
->> +	.pgd_entry	= pageattr_pgd_entry,
->> +	.p4d_entry	= pageattr_p4d_entry,
->> +	.pud_entry	= pageattr_pud_entry,
->> +	.pmd_entry	= pageattr_pmd_entry,
->> +	.pte_entry	= pageattr_pte_entry,
->> +};
->> +
->>  bool rodata_full __ro_after_init = IS_ENABLED(CONFIG_RODATA_FULL_DEFAULT_ENABLED);
->>  
->>  bool can_set_direct_map(void)
->> @@ -37,32 +131,35 @@ bool can_set_direct_map(void)
->>  		arm64_kfence_can_set_direct_map() || is_realm_world();
->>  }
->>  
->> -static int change_page_range(pte_t *ptep, unsigned long addr, void *data)
->> +static int update_range_prot(unsigned long start, unsigned long size,
->> +			     pgprot_t set_mask, pgprot_t clear_mask)
->>  {
->> -	struct page_change_data *cdata = data;
->> -	pte_t pte = __ptep_get(ptep);
->> +	struct page_change_data data;
->> +	int ret;
->>  
->> -	pte = clear_pte_bit(pte, cdata->clear_mask);
->> -	pte = set_pte_bit(pte, cdata->set_mask);
->> +	data.set_mask = set_mask;
->> +	data.clear_mask = clear_mask;
->>  
->> -	__set_pte(ptep, pte);
->> -	return 0;
->> +	arch_enter_lazy_mmu_mode();
->> +
->> +	/*
->> +	 * The caller must ensure that the range we are operating on does not
->> +	 * partially overlap a block mapping, or a cont mapping. Any such case
->> +	 * must be eliminated by splitting the mapping.
->> +	 */
->> +	ret = walk_kernel_page_table_range_lockless(start, start + size,
->> +						    &pageattr_ops, NULL, &data);
->> +	arch_leave_lazy_mmu_mode();
->> +
->> +	return ret;
->>  }
->>  
->> -/*
->> - * This function assumes that the range is mapped with PAGE_SIZE pages.
->> - */
->>  static int __change_memory_common(unsigned long start, unsigned long size,
->> -				pgprot_t set_mask, pgprot_t clear_mask)
->> +				  pgprot_t set_mask, pgprot_t clear_mask)
->>  {
->> -	struct page_change_data data;
->>  	int ret;
->>  
->> -	data.set_mask = set_mask;
->> -	data.clear_mask = clear_mask;
->> -
->> -	ret = apply_to_page_range(&init_mm, start, size, change_page_range,
->> -					&data);
->> +	ret = update_range_prot(start, size, set_mask, clear_mask);
->>  
->>  	/*
->>  	 * If the memory is being made valid without changing any other bits
->> @@ -174,32 +271,26 @@ int set_memory_valid(unsigned long addr, int numpages, int enable)
->>  
->>  int set_direct_map_invalid_noflush(struct page *page)
->>  {
->> -	struct page_change_data data = {
->> -		.set_mask = __pgprot(0),
->> -		.clear_mask = __pgprot(PTE_VALID),
->> -	};
->> +	pgprot_t clear_mask = __pgprot(PTE_VALID);
->> +	pgprot_t set_mask = __pgprot(0);
->>  
->>  	if (!can_set_direct_map())
->>  		return 0;
->>  
->> -	return apply_to_page_range(&init_mm,
->> -				   (unsigned long)page_address(page),
->> -				   PAGE_SIZE, change_page_range, &data);
->> +	return update_range_prot((unsigned long)page_address(page),
->> +				 PAGE_SIZE, set_mask, clear_mask);
->>  }
->>  
->>  int set_direct_map_default_noflush(struct page *page)
->>  {
->> -	struct page_change_data data = {
->> -		.set_mask = __pgprot(PTE_VALID | PTE_WRITE),
->> -		.clear_mask = __pgprot(PTE_RDONLY),
->> -	};
->> +	pgprot_t set_mask = __pgprot(PTE_VALID | PTE_WRITE);
->> +	pgprot_t clear_mask = __pgprot(PTE_RDONLY);
->>  
->>  	if (!can_set_direct_map())
->>  		return 0;
->>  
->> -	return apply_to_page_range(&init_mm,
->> -				   (unsigned long)page_address(page),
->> -				   PAGE_SIZE, change_page_range, &data);
->> +	return update_range_prot((unsigned long)page_address(page),
->> +				 PAGE_SIZE, set_mask, clear_mask);
->>  }
->>  
->>  static int __set_memory_enc_dec(unsigned long addr,
->> diff --git a/include/linux/pagewalk.h b/include/linux/pagewalk.h
->> index 682472c15495..88e18615dd72 100644
->> --- a/include/linux/pagewalk.h
->> +++ b/include/linux/pagewalk.h
->> @@ -134,6 +134,9 @@ int walk_page_range(struct mm_struct *mm, unsigned long start,
->>  int walk_kernel_page_table_range(unsigned long start,
->>  		unsigned long end, const struct mm_walk_ops *ops,
->>  		pgd_t *pgd, void *private);
->> +int walk_kernel_page_table_range_lockless(unsigned long start,
->> +		unsigned long end, const struct mm_walk_ops *ops,
->> +		pgd_t *pgd, void *private);
->>  int walk_page_range_vma(struct vm_area_struct *vma, unsigned long start,
->>  			unsigned long end, const struct mm_walk_ops *ops,
->>  			void *private);
->> diff --git a/mm/pagewalk.c b/mm/pagewalk.c
->> index 648038247a8d..936689d8bcac 100644
->> --- a/mm/pagewalk.c
->> +++ b/mm/pagewalk.c
->> @@ -606,10 +606,32 @@ int walk_page_range(struct mm_struct *mm, unsigned long start,
->>  int walk_kernel_page_table_range(unsigned long start, unsigned long end,
->>  		const struct mm_walk_ops *ops, pgd_t *pgd, void *private)
->>  {
->> -	struct mm_struct *mm = &init_mm;
->> +	/*
->> +	 * Kernel intermediate page tables are usually not freed, so the mmap
->> +	 * read lock is sufficient. But there are some exceptions.
->> +	 * E.g. memory hot-remove. In which case, the mmap lock is insufficient
->> +	 * to prevent the intermediate kernel pages tables belonging to the
->> +	 * specified address range from being freed. The caller should take
->> +	 * other actions to prevent this race.
->> +	 */
->> +	mmap_assert_locked(&init_mm);
->> +
->> +	return walk_kernel_page_table_range_lockless(start, end, ops, pgd,
->> +						     private);
->> +}
->> +
->> +/*
->> + * Use this function to walk the kernel page tables locklessly. It should be
->> + * guaranteed that the caller has exclusive access over the range they are
->> + * operating on - that there should be no concurrent access, for example,
->> + * changing permissions for vmalloc objects.
->> + */
->> +int walk_kernel_page_table_range_lockless(unsigned long start, unsigned long end,
->> +		const struct mm_walk_ops *ops, pgd_t *pgd, void *private)
->> +{
->>  	struct mm_walk walk = {
->>  		.ops		= ops,
->> -		.mm		= mm,
->> +		.mm		= &init_mm,
->>  		.pgd		= pgd,
->>  		.private	= private,
->>  		.no_vma		= true
->> @@ -620,16 +642,6 @@ int walk_kernel_page_table_range(unsigned long start, unsigned long end,
->>  	if (!check_ops_valid(ops))
->>  		return -EINVAL;
->>  
->> -	/*
->> -	 * Kernel intermediate page tables are usually not freed, so the mmap
->> -	 * read lock is sufficient. But there are some exceptions.
->> -	 * E.g. memory hot-remove. In which case, the mmap lock is insufficient
->> -	 * to prevent the intermediate kernel pages tables belonging to the
->> -	 * specified address range from being freed. The caller should take
->> -	 * other actions to prevent this race.
->> -	 */
->> -	mmap_assert_locked(mm);
->> -
->>  	return walk_pgd_range(start, end, &walk);
->>  }
->>  
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+index 78d6b3737a26..4d5577935b13 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+@@ -290,6 +290,7 @@ struct stmmac_priv {
+ 	int wolopts;
+ 	int wol_irq;
+ 	int clk_csr;
++	u32 gmii_address_bus_config;
+ 	struct timer_list eee_ctrl_timer;
+ 	int lpi_irq;
+ 	u32 tx_lpi_timer;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+index 6acce54b5d55..4294262c208d 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+@@ -104,9 +104,7 @@ static int stmmac_xgmac2_mdio_read(struct stmmac_priv *priv, u32 addr,
+ 	if (ret)
+ 		goto err_disable_clks;
+ 
+-	value |= (priv->clk_csr << priv->hw->mii.clk_csr_shift)
+-		& priv->hw->mii.clk_csr_mask;
+-	value |= MII_XGMAC_READ;
++	value |= priv->gmii_address_bus_config | MII_XGMAC_READ;
+ 
+ 	/* Wait until any existing MII operation is complete */
+ 	ret = stmmac_mdio_wait(priv->ioaddr + mii_data, MII_XGMAC_BUSY);
+@@ -174,10 +172,7 @@ static int stmmac_xgmac2_mdio_write(struct stmmac_priv *priv, u32 addr,
+ 	if (ret)
+ 		goto err_disable_clks;
+ 
+-	value |= (priv->clk_csr << priv->hw->mii.clk_csr_shift)
+-		& priv->hw->mii.clk_csr_mask;
+-	value |= phydata;
+-	value |= MII_XGMAC_WRITE;
++	value |= priv->gmii_address_bus_config | phydata | MII_XGMAC_WRITE;
+ 
+ 	/* Wait until any existing MII operation is complete */
+ 	ret = stmmac_mdio_wait(priv->ioaddr + mii_data, MII_XGMAC_BUSY);
+@@ -241,8 +236,7 @@ static u32 stmmac_mdio_format_addr(struct stmmac_priv *priv,
+ 
+ 	return ((pa << mii_regs->addr_shift) & mii_regs->addr_mask) |
+ 	       ((gr << mii_regs->reg_shift) & mii_regs->reg_mask) |
+-	       ((priv->clk_csr << mii_regs->clk_csr_shift) &
+-		mii_regs->clk_csr_mask) |
++	       priv->gmii_address_bus_config |
+ 	       MII_BUSY;
+ }
+ 
+@@ -517,6 +511,18 @@ void stmmac_pcs_clean(struct net_device *ndev)
+ 	priv->hw->xpcs = NULL;
+ }
+ 
++static void stmmac_mdio_bus_config(struct stmmac_priv *priv, u32 value)
++{
++	value <<= priv->hw->mii.clk_csr_shift;
++
++	if (value & ~priv->hw->mii.clk_csr_mask)
++		dev_warn(priv->device,
++			 "clk_csr value out of range (0x%08x exceeds mask 0x%08x), truncating\n",
++			 value, priv->hw->mii.clk_csr_mask);
++
++	priv->gmii_address_bus_config = value & priv->hw->mii.clk_csr_mask;
++}
++
+ /**
+  * stmmac_mdio_register
+  * @ndev: net device structure
+@@ -537,6 +543,8 @@ int stmmac_mdio_register(struct net_device *ndev)
+ 	if (!mdio_bus_data)
+ 		return 0;
+ 
++	stmmac_mdio_bus_config(priv, priv->clk_csr);
++
+ 	new_bus = mdiobus_alloc();
+ 	if (!new_bus)
+ 		return -ENOMEM;
+-- 
+2.47.2
 
 
