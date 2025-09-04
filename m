@@ -4,105 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18A85CA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 18:32:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D43B1CA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 18:33:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AQbUui2bkGKG7EBeLpHjxdTepdI99tueiIT2G5JOAB0=; b=3qBEOJY6518rhx2pkzZ/qVy/2U
-	zLzuBJgenjoqwFMg7gfsUP/5nGNF6RAGc7iwEVUej9Fkh6q3L3K1Z0fxgzpJ8VqjkV0Y+bvp9rkh9
-	8kB08ucn2NJxH/mjxycqUkBc/SSrAIqw3pUhzFyVqVczpzEQlP66BOM/Lyvj+o3pmRo877picZXwP
-	AuYS1yIDXlbB2GPMLzBt9Sg1Z3/TTDqo37BD7JIsiWbrwRCqtou2F7WeCNLTo4hlYqFndSxc5rVjX
-	i2bZS3ZqXrznnfjFP2o6ix9PiaQNN7KHsvhGociYhWgVK69YSQLrwa5ZBLuepqfkHTHSXEuCGco7h
-	J3pVib3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vlZcEmjAeowBNBG5Q9J1i4UIQfBNvIdlOTMjzOq2HW0=; b=qlLssSVLOxTM7UukHtnJ1cKBAx
+	2DKNdQKYsEZn0CTW7p6MzftOZ+LdnEnBWW8YW3tTOECH6u6BkgqjaSCU1C0TP6nkWWJP1pb29zf+Q
+	+yvqRKGt4HSHVTspSj2BNPDlvMsfhmiUYxpEjlyNXB6twEsowB3njY+gy5IC9+m9J1gGEygXLosa4
+	E5r4sKyxpaamj382qZxKRtsD/LpVbEUnF0bTYOPAXMS+z4nbBHSqcmOZ5Brc6yh2KYQoc8CKg7qe6
+	zNe8tVRj4E3BFY8l4Pxqjo6GJagGMUtVino0c/74fxvjzVNT4mHh4ym5n8rOPHEE+ISrco5c9aDGc
+	JO/L89lA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuEl9-0000000DbZY-18jp;
-	Thu, 04 Sep 2025 18:32:35 +0000
-Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
+	id 1uuElN-0000000Dbye-1qn6;
+	Thu, 04 Sep 2025 18:32:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuAcQ-0000000C5hI-14f6
+	id 1uuAlz-0000000C9Cm-2rh9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 14:07:19 +0000
-Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-80e2c52703bso99802385a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 07:07:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1756994837; x=1757599637; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=AQbUui2bkGKG7EBeLpHjxdTepdI99tueiIT2G5JOAB0=;
-        b=dt+VyJ1welvokU7JePkJ6xP0uLcSiCkrlWgmmmia6l8WjF6CFBEjToU9ijrqKh5TIa
-         OGn2yZHng2UYcQCQvIrIl1+97NvOh+zb+yyY93zFmQnZBEg9PGbue7QAFDjovytL4afd
-         0IOOFx8PGiUBkqiz9c5ICySo60zhM1AhertmNmoaGiNhp1ub8QHCkQreR2ICRr7u0ILs
-         EpqSB+S2C3bH641WMsi2ai0/MrIkmszP1/8vviYGyFAsxVMMF/F7g0qr6mvC3aFKiQJY
-         XWF/+ipbaXxFJU1g96aD5wsoZgWw2PwRMyjfQnYqicOzj3csQMNc4JbeeFllBt9W1T/Y
-         jQrA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1756994837; x=1757599637;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=AQbUui2bkGKG7EBeLpHjxdTepdI99tueiIT2G5JOAB0=;
-        b=ilbJl/+M71byotxCphIn7mfCdrmUGGVt5szzdC6qorXkLpCLBZYtzQ8AhGbmridE1t
-         /x5IWothJoiRugPVOs9OjIdbycZ57svCsXmScYFbesGDzY08abGHLkoT0vnpihMDk+98
-         6Qg5EBAPqqf7+DECFmau1Qu+H/S0WKUW1oaGv2qCdzQP3xfvFkAMskplGvohyAfGzsyh
-         +H1+Wyer3RB40oc7s2/PEL8JyfSbtwNWGUblAdJ51JH3u5xG+9YIF6MUCx+OtimGtFh6
-         VShQTVHH5yQsljS4pz+NJqmWOBq4awCDRQiL6E6HoxgsDA+khdHyx0N0YRFJ+vmJGdjN
-         hyJw==
-X-Forwarded-Encrypted: i=1; AJvYcCUUueR+W/oLpoxkIduTtg27btaEbM+drGrrxfuQlh8apaYnFOlFci8fIYV3PLkauK1Dl9QgIbxoJhtMLr4FH/H+@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZKPTrLUHr15ERjtdPEyg2YW3boDdIfhELKrsiHJB0NzdT9mcj
-	nTMDwDF7nBMdtZBQeCbUqIH3qHOvVpNb6K9xb7aNO/rV3qcTId6oFTk5
-X-Gm-Gg: ASbGncuFkzC8z6l2joqLjhbn6agBzMA40pPmka78Wha4eX2OGgg2OEOxXohJFJO9K3g
-	RlHFPIVrBLczpDU16kR/Ae0wsv9gPNfT3nRJh2GKVZ4gz2oxBMChtwV6J+iIlmlBlbPuQnq4e05
-	RfXC7n9IbHkrua2qgOHoGsaCI/+jp5gTlIkOcjoQtjv64QCIf6HvS9l1uZKrob3/61QElgvk0M+
-	ahSTtMGhrRQjaK9g6SyINj1ZXvUpuiM3WFevYUKZ3MI3PkJMTvOy7Riv20VwalXO23GUbZtmSLm
-	MOh/3cvn3p+G68OaHHia/1sHNkvIuU0vuVNsXqD66K3nYUD1Iw9jVjI5Hqdc5upY2MrS8tbJy6D
-	dk5wTRsn/z33qH8beUW/ND2qQx3ZHKIH/Mt7aUMWQ2IaBxWVOmQ==
-X-Google-Smtp-Source: AGHT+IHq/xxFdWJlU+2WryWLfgdKbagbPMPj9QUjM/EX0bmWcPN2dNhctsEDsJoaBCr6UBfUzIFnyg==
-X-Received: by 2002:a05:620a:4621:b0:809:e8aa:aa89 with SMTP id af79cd13be357-809e8aaab57mr909452685a.14.1756994836809;
-        Thu, 04 Sep 2025 07:07:16 -0700 (PDT)
-Received: from [127.0.0.1] ([74.249.85.194])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-80bdedfeaedsm212280285a.70.2025.09.04.07.07.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Sep 2025 07:07:16 -0700 (PDT)
-From: Denzeel Oliva <wachiturroxd150@gmail.com>
-Date: Thu, 04 Sep 2025 14:07:14 +0000
-Subject: [PATCH v3 4/4] arm64: dts: exynos990: Enable PERIC0 and PERIC1
- clock controllers
-MIME-Version: 1.0
+	Thu, 04 Sep 2025 14:17:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1B875601AD;
+	Thu,  4 Sep 2025 14:17:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0FEAC4CEF0;
+	Thu,  4 Sep 2025 14:17:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1756995430;
+	bh=ejGIkx8afYA1cykDAUIyzFsHzUPSCskfk2RxoKQ3LsU=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=PU7y7ZPvcIO89FIJIPqyrPdXX4XP2Py83uvM8umriHzBUA9mExfPQVemGWCJxL25n
+	 zq5lHshGAmj3ySkKiHLdZcdClZadu8XTX4X6ukwGZACbYzEhwxg8G5vSzr4JQaQMFN
+	 fjk3qag5IjfPF/CmKJkMHWf7ebvFO1JjYJ/684mc9QBMDCcKj0j2kKlbRw5WoJUNN9
+	 spo7Z6ZRUa5RyPsnX0ssLt5NN9ivoz/elCiMlWm24DRP50YVzprthjxDyBnFXV+X+v
+	 E9/wJmqtJB1GWMtfliobdlPP7Mct77/kvMFVOFhyXlD7+N/SAinZCUQFsSTVGPLjEX
+	 C9ABexQos/lEQ==
+Date: Thu, 04 Sep 2025 09:17:10 -0500
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250904-perics-usi-v3-4-3ea109705cb6@gmail.com>
-References: <20250904-perics-usi-v3-0-3ea109705cb6@gmail.com>
-In-Reply-To: <20250904-perics-usi-v3-0-3ea109705cb6@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Igor Belwon <igor.belwon@mentallysanemainliners.org>, 
- Andi Shyti <andi.shyti@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org, 
- Denzeel Oliva <wachiturroxd150@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1756994833; l=1581;
- i=wachiturroxd150@gmail.com; s=20250831; h=from:subject:message-id;
- bh=2QadQ6p8DLVRx/cTe7HdT6hSMdg6XZNjMfLKvG2yQww=;
- b=lhQ28jDDQdtdqkS4uzcvkeiUDTYYHpnSRGBbH3JSREg1X9aSx2b7oxOVidB1+ag+Id/8EocOy
- SdDO4lDJsJnBk0iZx1BQW2zDy23X5do+OlT4DHo+XBt+zMPTK8f3W3R
-X-Developer-Key: i=wachiturroxd150@gmail.com; a=ed25519;
- pk=3fZmF8+BzoNPhZuzL19/BkBXzCDwLBPlLqQYILU0U5k=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_070718_297739_5637C8AF 
-X-CRM114-Status: GOOD (  10.71  )
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, willmcvicker@google.com, 
+ kernel-team@android.com, Will Deacon <will@kernel.org>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-samsung-soc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Peter Griffin <peter.griffin@linaro.org>
+To: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20250903-acpm-dvfs-dt-v3-0-f24059e5cd95@linaro.org>
+References: <20250903-acpm-dvfs-dt-v3-0-f24059e5cd95@linaro.org>
+Message-Id: <175699523574.4060004.693479596122414416.robh@kernel.org>
+Subject: Re: [PATCH v3 0/3] arm64: dts: exynos: gs101: add cpufreq support
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,54 +75,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add clock controller nodes for PERIC0 and PERIC1 blocks for USI nodes.
 
-Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
----
- arch/arm64/boot/dts/exynos/exynos990.dtsi | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+On Wed, 03 Sep 2025 14:24:34 +0000, Tudor Ambarus wrote:
+> Define the CPU clocks and OPPs.
+> 
+> Patch #2 has a dependency on the ACPM clock bindings sent at:
+> https://lore.kernel.org/linux-samsung-soc/20250903-acpm-clk-v3-1-65ecd42d88c7@linaro.org/
+> 
+> The following error will be seen without the bindings patch:
+> arch/arm64/boot/dts/exynos/google/gs101.dtsi:10:10: fatal error: dt-bindings/clock/google,gs101-acpm.h: No such file or directory
+>    10 | #include <dt-bindings/clock/google,gs101-acpm.h>
+>       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> 
+> Thanks,
+> ta
+> 
+> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+> ---
+> Changes in v3:
+> - the ACPM clock bindings were moved to their own file, update the
+>   references accordingly.
+> - Link to v2: https://lore.kernel.org/r/20250827-acpm-dvfs-dt-v2-0-e1d2890d12b4@linaro.org
+> 
+> Changes in v2:
+> - acpm node becomes a clock provider.
+> - reword commit message, extend cover letter with info about dependency
+>   on a bindings patch.
+> - Link to v1: https://lore.kernel.org/r/20250819-acpm-dvfs-dt-v1-0-4e38b95408c4@linaro.org
+> 
+> ---
+> Tudor Ambarus (3):
+>       arm64: dts: exynos: gs101: add #clock-cells to the ACPM protocol node
+>       arm64: dts: exynos: gs101: add CPU clocks
+>       arm64: dts: exynos: gs101: add OPPs
+> 
+>  arch/arm64/boot/dts/exynos/google/gs101.dtsi | 285 +++++++++++++++++++++++++++
+>  1 file changed, 285 insertions(+)
+> ---
+> base-commit: c17b750b3ad9f45f2b6f7e6f7f4679844244f0b9
+> change-id: 20250819-acpm-dvfs-dt-06bc794bdccd
+> 
+> Best regards,
+> --
+> Tudor Ambarus <tudor.ambarus@linaro.org>
+> 
+> 
+> 
 
-diff --git a/arch/arm64/boot/dts/exynos/exynos990.dtsi b/arch/arm64/boot/dts/exynos/exynos990.dtsi
-index dd7f99f51a75412f5c3b91c3425a63652546fa5e..418fc59fd9e9122f3059482276d3388920fab382 100644
---- a/arch/arm64/boot/dts/exynos/exynos990.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynos990.dtsi
-@@ -225,12 +225,34 @@ gic: interrupt-controller@10101000 {
- 			#size-cells = <1>;
- 		};
- 
-+		cmu_peric0: clock-controller@10400000 {
-+			compatible = "samsung,exynos990-cmu-peric0";
-+			reg = <0x10400000 0x8000>;
-+			#clock-cells = <1>;
-+
-+			clocks = <&oscclk>,
-+				 <&cmu_top CLK_DOUT_CMU_PERIC0_BUS>,
-+				 <&cmu_top CLK_DOUT_CMU_PERIC0_IP>;
-+			clock-names = "oscclk", "bus", "ip";
-+		};
-+
- 		pinctrl_peric0: pinctrl@10430000 {
- 			compatible = "samsung,exynos990-pinctrl";
- 			reg = <0x10430000 0x1000>;
- 			interrupts = <GIC_SPI 392 IRQ_TYPE_LEVEL_HIGH>;
- 		};
- 
-+		cmu_peric1: clock-controller@10700000 {
-+			compatible = "samsung,exynos990-cmu-peric1";
-+			reg = <0x10700000 0x8000>;
-+			#clock-cells = <1>;
-+
-+			clocks = <&oscclk>,
-+				 <&cmu_top CLK_DOUT_CMU_PERIC1_BUS>,
-+				 <&cmu_top CLK_DOUT_CMU_PERIC1_IP>;
-+			clock-names = "oscclk", "bus", "ip";
-+		};
-+
- 		pinctrl_peric1: pinctrl@10730000 {
- 			compatible = "samsung,exynos990-pinctrl";
- 			reg = <0x10730000 0x1000>;
 
--- 
-2.50.1
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: using specified base-commit c17b750b3ad9f45f2b6f7e6f7f4679844244f0b9
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/exynos/' for 20250903-acpm-dvfs-dt-v3-0-f24059e5cd95@linaro.org:
+
+In file included from arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi:15,
+                 from arch/arm64/boot/dts/exynos/google/gs101-oriole.dts:11:
+arch/arm64/boot/dts/exynos/google/gs101.dtsi:10:10: fatal error: dt-bindings/clock/google,gs101-acpm.h: No such file or directory
+   10 | #include <dt-bindings/clock/google,gs101-acpm.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[4]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/exynos/google/gs101-oriole.dtb] Error 1
+make[3]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/exynos/google] Error 2
+make[3]: Target 'arch/arm64/boot/dts/exynos/google/gs101-oriole.dtb' not remade because of errors.
+make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/exynos] Error 2
+make[2]: Target 'arch/arm64/boot/dts/exynos/google/gs101-oriole.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1480: exynos/google/gs101-oriole.dtb] Error 2
+In file included from arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi:15,
+                 from arch/arm64/boot/dts/exynos/google/gs101-raven.dts:11:
+arch/arm64/boot/dts/exynos/google/gs101.dtsi:10:10: fatal error: dt-bindings/clock/google,gs101-acpm.h: No such file or directory
+   10 | #include <dt-bindings/clock/google,gs101-acpm.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[4]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/exynos/google/gs101-raven.dtb] Error 1
+make[3]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/exynos/google] Error 2
+make[3]: Target 'arch/arm64/boot/dts/exynos/google/gs101-raven.dtb' not remade because of errors.
+make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/exynos] Error 2
+make[2]: Target 'arch/arm64/boot/dts/exynos/google/gs101-raven.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1480: exynos/google/gs101-raven.dtb] Error 2
+make: *** [Makefile:248: __sub-make] Error 2
+make: Target 'exynos/exynos8895-dreamlte.dtb' not remade because of errors.
+make: Target 'exynos/exynos2200-g0s.dtb' not remade because of errors.
+make: Target 'exynos/exynos850-e850-96.dtb' not remade because of errors.
+make: Target 'exynos/exynos7870-on7xelte.dtb' not remade because of errors.
+make: Target 'exynos/exynos7885-jackpotlte.dtb' not remade because of errors.
+make: Target 'exynos/exynos990-x1slte.dtb' not remade because of errors.
+make: Target 'exynos/exynos5433-tm2.dtb' not remade because of errors.
+make: Target 'exynos/exynos990-r8s.dtb' not remade because of errors.
+make: Target 'exynos/exynos7-espresso.dtb' not remade because of errors.
+make: Target 'exynos/google/gs101-oriole.dtb' not remade because of errors.
+make: Target 'exynos/google/gs101-raven.dtb' not remade because of errors.
+make: Target 'exynos/exynosautov920-sadk.dtb' not remade because of errors.
+make: Target 'exynos/exynosautov9-sadk.dtb' not remade because of errors.
+make: Target 'exynos/exynos990-c1s.dtb' not remade because of errors.
+make: Target 'exynos/exynos9810-starlte.dtb' not remade because of errors.
+make: Target 'exynos/exynos990-x1s.dtb' not remade because of errors.
+make: Target 'exynos/exynos7870-a2corelte.dtb' not remade because of errors.
+make: Target 'exynos/exynos5433-tm2e.dtb' not remade because of errors.
+make: Target 'exynos/exynos7870-j6lte.dtb' not remade because of errors.
+
+
+
+
 
 
