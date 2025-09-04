@@ -4,174 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E665CA1014
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 03:26:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05808CA1017
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 03:26:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YDTEyE6j9iNq9rQ530ue73eAqD+14Rkt4yQxh1AotEU=; b=nzCiYtMhTeQcwQslN9Lh7etoR8
-	Mk1Qo/OTpinQgBxzG7r2OP3b+V4D27QIfZgY5H0CwH4+wX70qFyzJVXH4SGm+OLqogg1EnUorgLwo
-	q7mMhrheKzvb0hCVEy5NnB2PqUS/rfMQ2H5IyEntIgLAp9r/F+SjksotrOgJFR8ilN+YTeBSfV6pq
-	1WyPSqUMyokmYyRX99W+zmSDDD+gzz8KqgI6AJEr3U/5xr2k1G4AJil/CSOTusmvWgCt1OFVo6vMN
-	uhLGFZZi0epWFOlKHjOwjjNBNZVGfKuxPQjT1c6rFl8dey06DddrqjRXSXEu6sH16A0LDXDIybK6N
-	m6F8MTbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7njPfNTcpPdg8Z7GRQ0wpSB5tks6F/Y/ruF1ZVPe6d0=; b=AmZ7+BvLlPdp/kpVwHCS7JSWng
+	F7oLTHmwcvC0I3fgDoLLKYtwaP5kYPn4coT2fvvKbhw1fDLm5ozEebzUpaTyriL6MrtrmA8bjyjMe
+	lb8t0IzWz3bRgzdbPK82/tlgFOMOrNOOifgjmV5OrwoB4yZP5zeYY0AcIVuALCJMUVtKq4n3EVz3p
+	tVnQfGns1hdchowMetuRcszkhA2brAAuokqjfU14LbIO2Q4bD2macveHF4th43qNtQL5QlBkVf8nx
+	mSBWmkxvbk7/I4/bpq5XRpzRRT/kYyvl4qf3rqIfbWGFm+9BxNOSdRdMRq73Lx5F3588EkckBLUaf
+	8jUr2KEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu0br-00000008fVq-2Q6Y;
-	Thu, 04 Sep 2025 03:26:03 +0000
-Received: from mail-co1nam11on2070b.outbound.protection.outlook.com ([2a01:111:f403:2416::70b] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	id 1uu0bv-00000008fdF-2U2u;
+	Thu, 04 Sep 2025 03:26:07 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1utyAB-00000008169-2ZRp
+	id 1utzU5-00000008Jtg-2p9y
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 04 Sep 2025 02:13:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:To:From:Sender:Reply-To:Cc:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=7njPfNTcpPdg8Z7GRQ0wpSB5tks6F/Y/ruF1ZVPe6d0=; b=ppNu1n8DmPtwTAKvwMUZbWrUqu
+	vQMq5gVCOO605WZZwUmrlkjvGm9iZ090ZwHmXBjkr10CWIReDCxJtiy3xDezqU0b89mJXq/obmM21
+	u2eL1/GNNtepjrlbRqEfr8KVo3KJpIN7ouXMTF8OGKMSMXdiDj9QCMUEegWf5LkLA/9io1nkE5RkV
+	H7KW+9fQuV9ZjojJRrp+aBZ/BULMo8m/+/KFcDQZgA0Gk+UNvTXek9znkZIZILm/BhMTcFRnySzit
+	Y+81/aijwNdnD/NwVCB4gJcrd5+882QyfKUkwO9LlUKQIzL2Ys0h/PBVuNzbcsrZcdlPaIjyrNh0m
+	WDRict0Q==;
+Received: from esa9.hc1455-7.c3s2.iphmx.com ([139.138.36.223])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1utzTz-00000004G1R-3WzA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 00:49:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iqDN8OjeZLMYHQKPbR87g4Si8p+xdnNYJScZk6cXfqIyo9XbHr4BKU1/qLioL3jKT9ed6IR+CLZMe0y0BUvxsg4gtf9GKqiY129MSoJQSyPmQlPyPNdsPzUcrU8PHyd45+R6y4gZbA0Gwa0eKtdlcF5ZwLoLyzNQz20SUGiO6Ap5dHzKaAoa2aOajQXjkhp4adSZxrCoVVrHjjmu0haJAHmeRXqu7aJgK8XyTmfp0UCcofmBHk5lmHVwTyssnOl57Nc2KY0/bGxrKnCrGFpLeN+cWNFfSquA7Fkpce3pMDdQF491G646vFhL/NKfqtXNhKeEh5+lCgmokiPv91o4MA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YDTEyE6j9iNq9rQ530ue73eAqD+14Rkt4yQxh1AotEU=;
- b=nt2Sx6ArDMMifBNm4ZXKMzHESRaZdTNun+iV8GgLgiiRrzb68eZIw89G2QI8aQggbgWuzCvATo7cWnbbSc5GIJDB5VoVCOMBPiXxF5NYOw07Hb/Uo7LlqSRSu56g8cKYIcFejpS/GEukxyjroML5jRLCSCAfsfS4NV1cXG5bHSzMCiNicv/WqWLgWBfREBDXqp9ySiIfhvGXWkJ1OqPTbiYhtSYVW+PCoHsb5WnzEBEcgMAKxrF9NL0d92hS/LmFw9B5KRvQdPU6d2D0lG4JKxuVbxR691cgJjzmeDg/bWMcDqqqvQVL1ndGA/OuyE/P3hB3ekS8ULq1tqa2K23Adw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YDTEyE6j9iNq9rQ530ue73eAqD+14Rkt4yQxh1AotEU=;
- b=dtQcn3ahfoPEpQkrIgAMbiPapNnV8BkRBx7zCy2OMfft24FI0sxkzAy5mR279rw5z9fIV3F/xCcjM26l5uEaQ+rz6SkUpaVCfPYPVwnzv+J/VnrZsZtOZTP0s4lqLy9bpUfDIbi03q2DZi0cW4Kpjn3iuI/yEmmeRP8VFMf5izU=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- SA1PR01MB6735.prod.exchangelabs.com (2603:10b6:806:18b::17) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9094.17; Thu, 4 Sep 2025 00:49:13 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460%2]) with mapi id 15.20.9094.016; Thu, 4 Sep 2025
- 00:49:13 +0000
-Message-ID: <077c2bab-5b01-4d2f-b1ff-c54487e7abf6@os.amperecomputing.com>
-Date: Wed, 3 Sep 2025 17:49:08 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 2/6] arm64: cpufeature: add AmpereOne to BBML2 allow
- list
-To: Catalin Marinas <catalin.marinas@arm.com>,
- Ryan Roberts <ryan.roberts@arm.com>
-Cc: Will Deacon <will@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@redhat.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Ard Biesheuvel <ardb@kernel.org>, Dev Jain <dev.jain@arm.com>,
- scott@os.amperecomputing.com, cl@gentwo.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-References: <20250829115250.2395585-1-ryan.roberts@arm.com>
- <20250829115250.2395585-3-ryan.roberts@arm.com> <aLh52smiWpVMCB6v@arm.com>
-Content-Language: en-US
-From: Yang Shi <yang@os.amperecomputing.com>
-In-Reply-To: <aLh52smiWpVMCB6v@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SJ0PR13CA0085.namprd13.prod.outlook.com
- (2603:10b6:a03:2c4::30) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+	Thu, 04 Sep 2025 02:13:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1756952032; x=1788488032;
+  h=from:to:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=XifEQaEwL+l6vZkDls8pq+6stCZBSvWTzAx4W5FKgck=;
+  b=JRFtyrgc/uaKieU26QSSFCOLN9IOWIpqCCj+HV/ORbGLd4EfPw5SvITw
+   taNelyG3SMmLcNQnRhRIaWMockfbkx4vI0OrfyUseBjMeXof4S79yiLgv
+   ul+BI3kCj2TdADDb/aPx2Z8gpvUUh87cCLvAHdxil08zxD740oyILeo2m
+   p9eEa9cq+740GwwMVfqrhhEjHfOYE3XmuTJhoP/yy+RJdsYqc3l7+8ZC1
+   t+5WtLOKqoc1LUXfTRXWrFzcAWygERhd3Stho4p7VqEtsPXeeK0argmzU
+   5TyNWShv1QxepeHniTeRdddyTYDeB6WfwMvb0pm6O50Hdt7qnxCWrLPzm
+   w==;
+X-CSE-ConnectionGUID: ajieGLrYTpiwgUCLi7MxiQ==
+X-CSE-MsgGUID: hg40UOd9RmG3wCAoWpZIOg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11542"; a="200142974"
+X-IronPort-AV: E=Sophos;i="6.18,237,1751209200"; 
+   d="scan'208";a="200142974"
+Received: from unknown (HELO az2uksmgr4.o.css.fujitsu.com) ([52.151.125.19])
+  by esa9.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Sep 2025 11:13:45 +0900
+Received: from az2uksmgm2.o.css.fujitsu.com (unknown [10.151.22.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmgr4.o.css.fujitsu.com (Postfix) with ESMTPS id 15C8AC00577
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  4 Sep 2025 02:13:45 +0000 (UTC)
+Received: from az2uksmom2.o.css.fujitsu.com (az2uksmom2.o.css.fujitsu.com [10.151.22.203])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmgm2.o.css.fujitsu.com (Postfix) with ESMTPS id C9E78182FD6B
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  4 Sep 2025 02:13:44 +0000 (UTC)
+Received: from sm-arm-grace07.ssoft.mng.com (sm-x86-stp01.soft.fujitsu.com [10.124.178.20])
+	by az2uksmom2.o.css.fujitsu.com (Postfix) with ESMTP id CD60414002E7;
+	Thu,  4 Sep 2025 02:13:38 +0000 (UTC)
+From: Koichi Okuno <fj2767dz@fujitsu.com>
+To: Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Gowthami Thiagarajan <gthiagarajan@marvell.com>,
+	Linu Cherian <lcherian@marvell.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Besar Wicaksono <bwicaksono@nvidia.com>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	Ilkka Koskinen <ilkka@os.amperecomputing.com>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Koichi Okuno <fj2767dz@fujitsu.com>
+Subject: [PATCH v8] perf: Fujitsu: Add the Uncore PMU driver
+Date: Thu,  4 Sep 2025 11:12:31 +0900
+Message-ID: <20250904021315.353541-1-fj2767dz@fujitsu.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|SA1PR01MB6735:EE_
-X-MS-Office365-Filtering-Correlation-Id: c3582dfb-8aca-4b13-f958-08ddeb4cdddd
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?M0NyamNGUVdVZkVmb2ZGN2lsVVJLOUVPaUVHb3JlQTVhdUNPNlZIWXFaWkMv?=
- =?utf-8?B?d29FeitqcEJuanRidzR5OGRIaW14WTQ0QitZVE5HaTNXYW1xQ2tNTUM5MU9v?=
- =?utf-8?B?R21ZWnk1aHBNUm1Ud1FOMlpVSEpxOUNQRFp6WVZNVmVybjBJb0s1R013M0JR?=
- =?utf-8?B?Ti9BeXRIcVlwZlcrak8rNjJIeG4yR1hPU0NncWVNVU9idFo0SzlRUmwzKy9n?=
- =?utf-8?B?cmk3WU1ieGo3Vlp1QWpCcE1DRVl6cldGTURlMzd3U0ZCR2p3R0pyZXJwTlpL?=
- =?utf-8?B?MnZvK2NYdG8xVUpxdWdEcGJsRVU4c0Jpb1dERU1aU20zL0VNOWNzMWk3eW1n?=
- =?utf-8?B?a2k2WjNaTnNhUE85MC80YlVuNHFENjBVSERhQndzVXlmRFhYeVZRNkM4TWE0?=
- =?utf-8?B?enhjVkQzNUllbHZib1Z6dUN6RkpPS2Q2dGNmSzdVb2lYMGdiNHNVcU92ZVNC?=
- =?utf-8?B?V1Zyc3F1N09POHkrMkU0OEU4Ujc5SXBBcklMRjBXVW1qOTlHQU9RUjQyZTFH?=
- =?utf-8?B?VllBK3kxdEcrQXNQOGw0NDY1ZlAvLyswWmt5dUN0NU9qM3ljRDZqWGlRUFZG?=
- =?utf-8?B?ZGl6cllYU1YrYzdzaFlHNWFFTDgwWHlvVFBVRE04ZENsYWtrU05CL0tXamE1?=
- =?utf-8?B?MkVrdHpDVUtTWXpJN3ZLY3ZRNnMxWVZ0V0dBYW50WjR0d0EvY1N5QmNCZWts?=
- =?utf-8?B?bjNScU1JWDBER3l0dlJxSDQ1VjJQQXlmQjZScHhaSDBmYWtGK3VXWS9HSmZ0?=
- =?utf-8?B?SnA1NUpsL0NKS0dhN0U0WEtKZmI3SHVUelhNc3NNeU4zU2ppOUVpSjhIR0RJ?=
- =?utf-8?B?TWZPRC9ZRnF5NnhtUWNwRExJczZNQTloOEhvQTdKY2p0cW5Jc3VOZUtRaVNr?=
- =?utf-8?B?T2NQa3kwM29UWEY1OW4vdHBXcXM0VWkxU1lTN1VuZGd3cTNlQWsveFdWMUxq?=
- =?utf-8?B?YitZMk1CMERXblVhbVFHNzl0eDVjSVJHMFY3OTBuR01WUEE1TVdqMFoydk85?=
- =?utf-8?B?UGJ0c05mMVhQZlgwZGdNam1DT3hMZXRZY1pjRURTODczS2ZXWUZiNDZ1ejdp?=
- =?utf-8?B?ZDNvRjVBOXUwQkYwN1EzZzNheGNjdDNSejFQbVNRVGl2MnNpYVBwa2lUdFd0?=
- =?utf-8?B?a3l0VlFCck8vVG51VVluUVdXNjg1WTVxY3lVcE0veVpZOVRzUHQzL0J6YUNZ?=
- =?utf-8?B?SWlSU3dOSzZyRXU0RFFQWEphU0dDQ1RtYXIyV0JVWTBMYW9ROFpmQWFCVFJS?=
- =?utf-8?B?OEt2Q0JRQjJpTnRJRlNEM0xqMVVQZUxMajdKQlFEd3VYQWJQcWplREI1TWFB?=
- =?utf-8?B?aU1kQVFCVnlWMnd4VjQxb1pKY01BdzBwQkhwcHZQc0FlRU43dTB1aUdRc2pO?=
- =?utf-8?B?RHppV09DVTM1M3dFaStlWkRzTmFTUjlVUys5dWJGcHM5RktEZ2tsTERSbURv?=
- =?utf-8?B?QVpPY3dTVW13SUxCaitkazFDejNrNEh4N042M09KRkNVUXF5NmFKb3YzM0M1?=
- =?utf-8?B?TWt3UjVxTGNIamVoTTdoK2NRTnlFRlR5ZmE0aGt6YlgrQkhMb2J3LzlSalFt?=
- =?utf-8?B?K0RxaFFLSGk1NVA1WEIvQU51N0tvTXgwT1cySWZGTDlONVlsczE2NXp3ZWdB?=
- =?utf-8?B?N2FyOXU5cDBham5UYllDZ2pUT1MybmtRTjJ2UHFBNFBaQnAyNVp6VHdDUCtV?=
- =?utf-8?B?NXlNeENqV3pZbXpZbmlqSG1OSi9McE01cGp0K09ZSnFSWXE0RnROWDlmbjha?=
- =?utf-8?B?L0RTTDBzS2xmTjBxempNMjJsSlhrdUdrMEcrSVhXeXRXcHlJWndIcmRoZDJI?=
- =?utf-8?B?TkNodGhOTmt1SHdXNDRqQkVXaVFENyt0Sk5lVmwzNHpabkJxcWJDaFVGKzE5?=
- =?utf-8?B?VkdhNmpLcUQ5aWdoVTlsQno4ZVpmaS9acnN3MysweUFWWGZOeTYyZHN4RmhV?=
- =?utf-8?Q?UJiSkjzuk9A=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TmMwRXJNOVBWTUNVOTRTTUxRc1U0VTRUMmxaS25Qc3BjYUJETWZTZDB0TmN1?=
- =?utf-8?B?VVRxQ0pJSG9DMHdKY2lzd2UrT0hhRlJrVFdGdUhkZG9iSDNQaVlJYmZUUFEz?=
- =?utf-8?B?My96aUh1eDhBbXFNVU9WaFl5QkltVlIwekMvNXFkM2pmQ0tZcmxvQzFXZGU1?=
- =?utf-8?B?a21rUjFYeGp4SS95U2Y3S25SS1BNYXJWUkFHeXlFWXUwUUltc1NVSGd2Uk5W?=
- =?utf-8?B?bmplaGFlRE9PREhYR1V2U1dodGtYMHJ3bm1VYjJDcVNRNjRnUnlmNnNrSUdv?=
- =?utf-8?B?WU5FTWFiYmN0eXRKMU5MVDJLaVpaTzI1WmZ5NnhZdnRnM0xSdzJ1VEEyTnJU?=
- =?utf-8?B?YjNrSzJ6cnlxY1pRdGdQOHBkYzl6bzA5dk9Lc1BsNzlLQkpTMmtvME42blZr?=
- =?utf-8?B?Z0pValE3cjFVb3NDeU5TTkszOW9CRWhJdGJJQUdWRy9Ddkh6Y0FtRW93NEdY?=
- =?utf-8?B?dkZlWXFVb05kL1FER09hTnpva3Y5OGZmemtGWUdqZWZYRHg3dmNPMDJhUWZ3?=
- =?utf-8?B?bklxRWI3aHF4T21MdHpucXFGbllMc0lCYzRHVXNsWVVwa1ZZVDcrK3E0OUZx?=
- =?utf-8?B?T0pHU1NDYmRuU05IOUVZV3VNVjJpS2RjWVFEQmRuMHphakpDeHdsWERiSSsz?=
- =?utf-8?B?VGhQWDdiZGxMOFFuMjJpZFNvTCttRm5UNUR1YjdMYnFvVklYallkMXNJRk5s?=
- =?utf-8?B?QUs5SXN4YUcxRjBBNDRUMWs5ZGxUZjBmVVVwbUFkcFUvVTdnSEljaGFEcDdr?=
- =?utf-8?B?OVFoeHQwNDZmR1dtQ1JiVGNWbG1QMFl3QVZJWlNXb2hHcW9kaXhqdFNYcG1y?=
- =?utf-8?B?WmFxUmdZZE5MSExtL2YrR1k4akxMQlpuNDdoVyt3RTE4OEtZMkJjSTdQMDY0?=
- =?utf-8?B?L0JFVyt2a1ZMTnphWEZvNlJOTjhHdTUySG8yRUlSU05MNXp0Y0JNMTZsQnRY?=
- =?utf-8?B?Z0xUYnU4b285SjIyeW5JNmtTa0M4NXJRaklwMjMvSE9aOFZndEtmcHRVdm1C?=
- =?utf-8?B?cjFWVHVPbEpzdzY0Q0RQcy9TZ0R4WTNHZ29UWmNVV01FYUVuaDI5MlF0a1Fw?=
- =?utf-8?B?N3ljcjUrSW5TVDhmM2FkdXJDdVVTTWR2N2lSamMrbDBwcGFJc1JZZy9vS2Yx?=
- =?utf-8?B?bWwxVkVYbUVYZEU1Q1VUcTJpT0ZHN3BGR3RVSHpMa2JJdFlaRW9WUVBoMjBS?=
- =?utf-8?B?TXh2RXo1T1RMYjRyelFPMEkzNk10MjFMMDBKaFBkbi9ZakJwWjRMTDROZzBm?=
- =?utf-8?B?YUxzT0c2TENFb0tXMUVtS0pJdDk1TDBZNkFTdTBpZ2pKbzBiZGdGTEt5UHFE?=
- =?utf-8?B?azllNWgrTWE2Z0YzSEwwc25lRlpiK2xSb0N6a1NzR3M5bHBpSTdWS0JPQkc1?=
- =?utf-8?B?SktmdVpoWG9SOCtuZHpuMnE2dmVxczhLMDllOW0yYUVjMWZxcXltdFJMVDN1?=
- =?utf-8?B?QW1LaHZrZlRRK2JhU1ZyUkk5dkw2UHhqd2xwQmJFL3N1TS9NZURlUHR6a0l1?=
- =?utf-8?B?YytyWDJscDE4MUVnQjNMNE1yYUJGblZhdjVSSEhVUFRXSmVtZVFpUUlpL0Vp?=
- =?utf-8?B?bVdsS2xaQzRaWFJ3RjZoZHZBblFrcW1sdDJWMXBVdjB1ZUFaY1Z4bjVjbUY2?=
- =?utf-8?B?Q05HZWZtYkl1ZkYrY0dpSld3bzJRWGhUbmdxSTZQZDkzT0VmVXRhRzY0bzBo?=
- =?utf-8?B?Mlk0cVl6VXV6Z09Nc25jcjdDRU1ReFpZUjJUTXVkYVJEeG1NTVdhK1I2UjV6?=
- =?utf-8?B?TFc1Qm5zRDJKYjM0VDBPT2E3aWN2eTloQVZkSlNEWktXNjRpVWxtRHV0UkZk?=
- =?utf-8?B?SXlwWTBLMnduMklYdW1CYllmNWhRUFhucnVMRktPRTNEamVPSnhuaDF1aDZw?=
- =?utf-8?B?bHozTFNqU24xZFRPdWxFTVFWVHdKaHhDK29HRVhxazhGbVpIUU5ib1dhTUcz?=
- =?utf-8?B?ZFFHSEdXenJsLzdYSWVRQVpTMDM5dEI2ak1mS05NOGZkK2hhcSsvN29NejJm?=
- =?utf-8?B?ZVhkcm41NXRlZHZYQXRYTVlXRUdvWTNOVHFZWFZ6NXBiMllSQy8zMzJOQzM0?=
- =?utf-8?B?Y2pZRU1tWVR1bHhZNmFoamhTZjB0SERnNjc3VUt5YU1hVWFkL0d1TkpYdENG?=
- =?utf-8?B?ZTR1aHJVSnBYMGczSVdyNVlKMTVVbUFzbEROLzh5a3BlUkMrSFR4VzEyeGZI?=
- =?utf-8?Q?Z5YHBjs/+GK27ZDsrzmgmrw=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c3582dfb-8aca-4b13-f958-08ddeb4cdddd
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2025 00:49:13.5109
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: cBGtlF+7Fae4jd0lheGJnRnemCA29OaciK0aNoozQMgzT9Rfe3IeFLkzcAmqILy+Ulx6I5CIm2qPn+cOhGqB2Vg2AqgO5GOsMS+SwMwecQU=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR01MB6735
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250903_174919_666610_7576F2DC 
-X-CRM114-Status: UNSURE (   8.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250904_031352_550967_2F06DD37 
+X-CRM114-Status: GOOD (  31.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,24 +116,814 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This adds a new dynamic PMU to the Perf Events framework to program and
+control the Uncore PMUs in Fujitsu chips.
 
+This driver exports formatting and event information to sysfs so it can
+be used by the perf user space tools with the syntaxes:
 
-On 9/3/25 10:24 AM, Catalin Marinas wrote:
-> On Fri, Aug 29, 2025 at 12:52:43PM +0100, Ryan Roberts wrote:
->> From: Yang Shi <yang@os.amperecomputing.com>
->>
->> AmpereOne supports BBML2 without conflict abort, add to the allow list.
->>
->> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
->> Reviewed-by: Christoph Lameter (Ampere) <cl@gentwo.org>
->> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-> Here it is again:
->
-> Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+perf stat -e pci_iod0_pci0/ea-pci/ ls
+perf stat -e pci_iod0_pci0/event=0x80/ ls
+perf stat -e mac_iod0_mac0_ch0/ea-mac/ ls
+perf stat -e mac_iod0_mac0_ch0/event=0x80/ ls
 
-Thank you!
+FUJITSU-MONAKA PMU Events Specification v1.1 URL:
+https://github.com/fujitsu/FUJITSU-MONAKA
 
-Yang
+Signed-off-by: Koichi Okuno <fj2767dz@fujitsu.com>
+---
+Changes in v8:
+- Modify the code as suggested.
+  - This driver has been modularized.
+  - The MAC PMU driver and PCI PMU driver have been integrated into a single driver.
+  - Adding irq_set_affinity() Calls.
+  - I have addressed the other feedback.
+- Link to v7: https://lore.kernel.org/all/20250815034751.3726963-1-fj2767dz@fujitsu.com/
 
+ .../admin-guide/perf/fujitsu_uncore_pmu.rst   | 110 ++++
+ Documentation/admin-guide/perf/index.rst      |   1 +
+ drivers/perf/Kconfig                          |   9 +
+ drivers/perf/Makefile                         |   1 +
+ drivers/perf/fujitsu_uncore_pmu.c             | 611 ++++++++++++++++++
+ 5 files changed, 732 insertions(+)
+ create mode 100644 Documentation/admin-guide/perf/fujitsu_uncore_pmu.rst
+ create mode 100644 drivers/perf/fujitsu_uncore_pmu.c
+
+diff --git a/Documentation/admin-guide/perf/fujitsu_uncore_pmu.rst b/Documentation/admin-guide/perf/fujitsu_uncore_pmu.rst
+new file mode 100644
+index 000000000000..46595b788d3a
+--- /dev/null
++++ b/Documentation/admin-guide/perf/fujitsu_uncore_pmu.rst
+@@ -0,0 +1,110 @@
++.. SPDX-License-Identifier: GPL-2.0-only
++
++================================================
++Fujitsu Uncore Performance Monitoring Unit (PMU)
++================================================
++
++This driver supports the Uncore MAC PMUs and the Uncore PCI PMUs found
++in Fujitsu chips.
++Each MAC PMU on these chips is exposed as a uncore perf PMU with device name
++mac_iod<iod>_mac<mac>_ch<ch>.
++And each PCI PMU on these chips is exposed as a uncore perf PMU with device name
++pci_iod<iod>_pci<pci>.
++
++The driver provides a description of its available events and configuration
++options in sysfs, see /sys/bus/event_sources/devices/mac_iod<iod>_mac<mac>_ch<ch>/
++and /sys/bus/event_sources/devices/pci_iod<iod>_pci<pci>/.
++This driver exports:
++- formats, used by perf user space and other tools to configure events
++- events, used by perf user space and other tools to create events
++  symbolically, e.g.:
++    perf stat -a -e mac_iod0_mac0_ch0/event=0x21/ ls
++    perf stat -a -e pci_iod0_pci0/event=0x24/ ls
++- cpumask, used by perf user space and other tools to know on which CPUs
++  to open the events
++
++This driver supports the following events for MAC:
++- cycles
++  This event counts MAC cycles at MAC frequency.
++- read-count
++  This event counts the number of read requests to MAC.
++- read-count-request
++  This event counts the number of read requests including retry to MAC.
++- read-count-return
++  This event counts the number of responses to read requests to MAC.
++- read-count-request-pftgt
++  This event counts the number of read requests including retry with PFTGT
++  flag.
++- read-count-request-normal
++  This event counts the number of read requests including retry without PFTGT
++  flag.
++- read-count-return-pftgt-hit
++  This event counts the number of responses to read requests which hit the
++  PFTGT buffer.
++- read-count-return-pftgt-miss
++  This event counts the number of responses to read requests which miss the
++  PFTGT buffer.
++- read-wait
++  This event counts outstanding read requests issued by DDR memory controller
++  per cycle.
++- write-count
++  This event counts the number of write requests to MAC (including zero write,
++  full write, partial write, write cancel).
++- write-count-write
++  This event counts the number of full write requests to MAC (not including
++  zero write).
++- write-count-pwrite
++  This event counts the number of partial write requests to MAC.
++- memory-read-count
++  This event counts the number of read requests from MAC to memory.
++- memory-write-count
++  This event counts the number of full write requests from MAC to memory.
++- memory-pwrite-count
++  This event counts the number of partial write requests from MAC to memory.
++- ea-mac
++  This event counts energy consumption of MAC.
++- ea-memory
++  This event counts energy consumption of memory.
++- ea-memory-mac-write
++  This event counts the number of write requests from MAC to memory.
++- ea-ha
++  This event counts energy consumption of HA.
++
++  'ea' is the abbreviation for 'Energy Analyzer'.
++
++Examples for use with perf::
++
++  perf stat -e mac_iod0_mac0_ch0/ea-mac/ ls
++
++And, this driver supports the following events for PCI:
++- pci-port0-cycles
++  This event counts PCI cycles at PCI frequency in port0.
++- pci-port0-read-count
++  This event counts read transactions for data transfer in port0.
++- pci-port0-read-count-bus
++  This event counts read transactions for bus usage in port0.
++- pci-port0-write-count
++  This event counts write transactions for data transfer in port0.
++- pci-port0-write-count-bus
++  This event counts write transactions for bus usage in port0.
++- pci-port1-cycles
++  This event counts PCI cycles at PCI frequency in port1.
++- pci-port1-read-count
++  This event counts read transactions for data transfer in port1.
++- pci-port1-read-count-bus
++  This event counts read transactions for bus usage in port1.
++- pci-port1-write-count
++  This event counts write transactions for data transfer in port1.
++- pci-port1-write-count-bus
++  This event counts write transactions for bus usage in port1.
++- ea-pci
++  This event counts energy consumption of PCI.
++
++  'ea' is the abbreviation for 'Energy Analyzer'.
++
++Examples for use with perf::
++
++  perf stat -e pci_iod0_pci0/ea-pci/ ls
++
++Given that these are uncore PMUs the driver does not support sampling, therefore
++"perf record" will not work. Per-task perf sessions are not supported.
+diff --git a/Documentation/admin-guide/perf/index.rst b/Documentation/admin-guide/perf/index.rst
+index 072b510385c4..47d9a3df6329 100644
+--- a/Documentation/admin-guide/perf/index.rst
++++ b/Documentation/admin-guide/perf/index.rst
+@@ -29,3 +29,4 @@ Performance monitor support
+    cxl
+    ampere_cspmu
+    mrvl-pem-pmu
++   fujitsu_uncore_pmu
+diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
+index a9188dec36fe..638321fc9800 100644
+--- a/drivers/perf/Kconfig
++++ b/drivers/perf/Kconfig
+@@ -178,6 +178,15 @@ config FSL_IMX9_DDR_PMU
+ 	 can give information about memory throughput and other related
+ 	 events.
+ 
++config FUJITSU_UNCORE_PMU
++	tristate "Fujitsu Uncore PMU"
++	depends on (ARM64 && ACPI) || (COMPILE_TEST && 64BIT)
++	 help
++	 Provides support for the Uncore performance monitor unit (PMU)
++	 in Fujitsu processors.
++	 Adds the Uncore PMU into the perf events subsystem for
++	 monitoring Uncore events.
++
+ config QCOM_L2_PMU
+ 	bool "Qualcomm Technologies L2-cache PMU"
+ 	depends on ARCH_QCOM && ARM64 && ACPI
+diff --git a/drivers/perf/Makefile b/drivers/perf/Makefile
+index 192fc8b16204..ea52711a87e3 100644
+--- a/drivers/perf/Makefile
++++ b/drivers/perf/Makefile
+@@ -13,6 +13,7 @@ obj-$(CONFIG_ARM_XSCALE_PMU) += arm_xscale_pmu.o
+ obj-$(CONFIG_ARM_SMMU_V3_PMU) += arm_smmuv3_pmu.o
+ obj-$(CONFIG_FSL_IMX8_DDR_PMU) += fsl_imx8_ddr_perf.o
+ obj-$(CONFIG_FSL_IMX9_DDR_PMU) += fsl_imx9_ddr_perf.o
++obj-$(CONFIG_FUJITSU_UNCORE_PMU) += fujitsu_uncore_pmu.o
+ obj-$(CONFIG_HISI_PMU) += hisilicon/
+ obj-$(CONFIG_QCOM_L2_PMU)	+= qcom_l2_pmu.o
+ obj-$(CONFIG_QCOM_L3_PMU) += qcom_l3_pmu.o
+diff --git a/drivers/perf/fujitsu_uncore_pmu.c b/drivers/perf/fujitsu_uncore_pmu.c
+new file mode 100644
+index 000000000000..e0ea9f4cd82d
+--- /dev/null
++++ b/drivers/perf/fujitsu_uncore_pmu.c
+@@ -0,0 +1,611 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Driver for the Uncore PMUs in Fujitsu chips.
++ *
++ * See Documentation/admin-guide/perf/fujitsu_uncore_pmu.rst for more details.
++ *
++ * Copyright (c) 2025 Fujitsu. All rights reserved.
++ */
++
++#include <linux/acpi.h>
++#include <linux/bitfield.h>
++#include <linux/bitops.h>
++#include <linux/interrupt.h>
++#include <linux/io.h>
++#include <linux/list.h>
++#include <linux/mod_devicetable.h>
++#include <linux/module.h>
++#include <linux/perf_event.h>
++#include <linux/platform_device.h>
++
++/* Number of counters on each PMU */
++#define MAC_NUM_COUNTERS  8
++#define PCI_NUM_COUNTERS  8
++/* Mask for the event type field within perf_event_attr.config and EVTYPE reg */
++#define UNCORE_EVTYPE_MASK   0xFF
++
++/* Perfmon registers */
++#define PM_EVCNTR(__cntr)           (0x000 + (__cntr) * 8)
++#define PM_CNTCTL(__cntr)           (0x100 + (__cntr) * 8)
++#define PM_CNTCTL_RESET             0
++#define PM_EVTYPE(__cntr)           (0x200 + (__cntr) * 8)
++#define PM_EVTYPE_EVSEL(__val)      FIELD_GET(UNCORE_EVTYPE_MASK, __val)
++#define PM_CR                       0x400
++#define PM_CR_RESET                 BIT(1)
++#define PM_CR_ENABLE                BIT(0)
++#define PM_CNTENSET                 0x410
++#define PM_CNTENSET_IDX(__cntr)     BIT(__cntr)
++#define PM_CNTENCLR                 0x418
++#define PM_CNTENCLR_IDX(__cntr)     BIT(__cntr)
++#define PM_CNTENCLR_RESET           0xFF
++#define PM_INTENSET                 0x420
++#define PM_INTENSET_IDX(__cntr)     BIT(__cntr)
++#define PM_INTENCLR                 0x428
++#define PM_INTENCLR_IDX(__cntr)     BIT(__cntr)
++#define PM_INTENCLR_RESET           0xFF
++#define PM_OVSR                     0x440
++#define PM_OVSR_OVSRCLR_RESET       0xFF
++
++enum fujitsu_uncore_pmu {
++	FUJITSU_UNCORE_PMU_MAC = 1,
++	FUJITSU_UNCORE_PMU_PCI = 2,
++};
++
++struct uncore_pmu {
++	int			num_counters;
++	struct pmu		pmu;
++	struct hlist_node	node;
++	void __iomem		*regs;
++	struct perf_event	**events;
++	unsigned long		*used_mask;
++	int			cpu;
++	int			irq;
++	struct device		*dev;
++};
++
++#define to_uncore_pmu(p) (container_of(p, struct uncore_pmu, pmu))
++
++static int uncore_pmu_cpuhp_state;
++
++static void fujitsu_uncore_counter_start(struct perf_event *event)
++{
++	struct uncore_pmu *uncorepmu = to_uncore_pmu(event->pmu);
++	int idx = event->hw.idx;
++
++	/* Initialize the hardware counter and reset prev_count*/
++	local64_set(&event->hw.prev_count, 0);
++	writeq_relaxed(0, uncorepmu->regs + PM_EVCNTR(idx));
++
++	/* Set the event type */
++	writeq_relaxed(PM_EVTYPE_EVSEL(event->attr.config), uncorepmu->regs + PM_EVTYPE(idx));
++
++	/* Enable interrupt generation by this counter */
++	writeq_relaxed(PM_INTENSET_IDX(idx), uncorepmu->regs + PM_INTENSET);
++
++	/* Finally, enable the counter */
++	writeq_relaxed(PM_CNTCTL_RESET, uncorepmu->regs + PM_CNTCTL(idx));
++	writeq_relaxed(PM_CNTENSET_IDX(idx), uncorepmu->regs + PM_CNTENSET);
++}
++
++static void fujitsu_uncore_counter_stop(struct perf_event *event)
++{
++	struct uncore_pmu *uncorepmu = to_uncore_pmu(event->pmu);
++	int idx = event->hw.idx;
++
++	/* Disable the counter */
++	writeq_relaxed(PM_CNTENCLR_IDX(idx), uncorepmu->regs + PM_CNTENCLR);
++
++	/* Disable interrupt generation by this counter */
++	writeq_relaxed(PM_INTENCLR_IDX(idx), uncorepmu->regs + PM_INTENCLR);
++}
++
++static void fujitsu_uncore_counter_update(struct perf_event *event)
++{
++	struct uncore_pmu *uncorepmu = to_uncore_pmu(event->pmu);
++	int idx = event->hw.idx;
++	u64 prev, new;
++
++	do {
++		prev = local64_read(&event->hw.prev_count);
++		new = readq_relaxed(uncorepmu->regs + PM_EVCNTR(idx));
++	} while (local64_cmpxchg(&event->hw.prev_count, prev, new) != prev);
++
++	local64_add(new - prev, &event->count);
++}
++
++static inline void fujitsu_uncore_init(struct uncore_pmu *uncorepmu)
++{
++	int i;
++
++	writeq_relaxed(PM_CR_RESET, uncorepmu->regs + PM_CR);
++
++	writeq_relaxed(PM_CNTENCLR_RESET, uncorepmu->regs + PM_CNTENCLR);
++	writeq_relaxed(PM_INTENCLR_RESET, uncorepmu->regs + PM_INTENCLR);
++	writeq_relaxed(PM_OVSR_OVSRCLR_RESET, uncorepmu->regs + PM_OVSR);
++
++	for (i = 0; i < uncorepmu->num_counters; ++i) {
++		writeq_relaxed(PM_CNTCTL_RESET, uncorepmu->regs + PM_CNTCTL(i));
++		writeq_relaxed(PM_EVTYPE_EVSEL(0), uncorepmu->regs + PM_EVTYPE(i));
++	}
++}
++
++static irqreturn_t fujitsu_uncore_handle_irq(int irq_num, void *data)
++{
++	struct uncore_pmu *uncorepmu = data;
++	/* Read the overflow status register */
++	long status = readq_relaxed(uncorepmu->regs + PM_OVSR);
++	int idx;
++
++	if (status == 0)
++		return IRQ_NONE;
++
++	/* Clear the bits we read on the overflow status register */
++	writeq_relaxed(status, uncorepmu->regs + PM_OVSR);
++
++	for_each_set_bit(idx, &status, uncorepmu->num_counters) {
++		struct perf_event *event;
++
++		event = uncorepmu->events[idx];
++		if (!event)
++			continue;
++
++		fujitsu_uncore_counter_update(event);
++	}
++
++	return IRQ_HANDLED;
++}
++
++static void fujitsu_uncore_pmu_enable(struct pmu *pmu)
++{
++	writeq_relaxed(PM_CR_ENABLE, to_uncore_pmu(pmu)->regs + PM_CR);
++}
++
++static void fujitsu_uncore_pmu_disable(struct pmu *pmu)
++{
++	writeq_relaxed(0, to_uncore_pmu(pmu)->regs + PM_CR);
++}
++
++static bool fujitsu_uncore_validate_event_group(struct perf_event *event)
++{
++	struct uncore_pmu *uncorepmu = to_uncore_pmu(event->pmu);
++	struct perf_event *leader = event->group_leader;
++	struct perf_event *sibling;
++	int counters = 1;
++
++	if (leader == event)
++		return true;
++
++	if (leader->pmu == event->pmu)
++		counters++;
++
++	for_each_sibling_event(sibling, leader) {
++		if (sibling->pmu == event->pmu)
++			counters++;
++	}
++
++	/*
++	 * If the group requires more counters than the HW has, it
++	 * cannot ever be scheduled.
++	 */
++	return counters <= uncorepmu->num_counters;
++}
++
++static int fujitsu_uncore_event_init(struct perf_event *event)
++{
++	struct uncore_pmu *uncorepmu = to_uncore_pmu(event->pmu);
++	struct hw_perf_event *hwc = &event->hw;
++
++	/* Is the event for this PMU? */
++	if (event->attr.type != event->pmu->type)
++		return -ENOENT;
++
++	/*
++	 * Sampling not supported since these events are not
++	 * core-attributable.
++	 */
++	if (hwc->sample_period)
++		return -EINVAL;
++
++	/*
++	 * Task mode not available, we run the counters as socket counters,
++	 * not attributable to any CPU and therefore cannot attribute per-task.
++	 */
++	if (event->cpu < 0)
++		return -EINVAL;
++
++	/* Validate the group */
++	if (!fujitsu_uncore_validate_event_group(event))
++		return -EINVAL;
++
++	hwc->idx = -1;
++
++	event->cpu = uncorepmu->cpu;
++
++	return 0;
++}
++
++static void fujitsu_uncore_event_start(struct perf_event *event, int flags)
++{
++	struct hw_perf_event *hwc = &event->hw;
++
++	hwc->state = 0;
++	fujitsu_uncore_counter_start(event);
++}
++
++static void fujitsu_uncore_event_stop(struct perf_event *event, int flags)
++{
++	struct hw_perf_event *hwc = &event->hw;
++
++	if (hwc->state & PERF_HES_STOPPED)
++		return;
++
++	fujitsu_uncore_counter_stop(event);
++	if (flags & PERF_EF_UPDATE)
++		fujitsu_uncore_counter_update(event);
++	hwc->state |= PERF_HES_STOPPED | PERF_HES_UPTODATE;
++}
++
++static int fujitsu_uncore_event_add(struct perf_event *event, int flags)
++{
++	struct uncore_pmu *uncorepmu = to_uncore_pmu(event->pmu);
++	struct hw_perf_event *hwc = &event->hw;
++	int idx;
++
++	/* Try to allocate a counter. */
++	idx = bitmap_find_free_region(uncorepmu->used_mask, uncorepmu->num_counters, 0);
++	if (idx < 0)
++		/* The counters are all in use. */
++		return -EAGAIN;
++
++	hwc->idx = idx;
++	hwc->state = PERF_HES_STOPPED | PERF_HES_UPTODATE;
++	uncorepmu->events[idx] = event;
++
++	if (flags & PERF_EF_START)
++		fujitsu_uncore_event_start(event, 0);
++
++	/* Propagate changes to the userspace mapping. */
++	perf_event_update_userpage(event);
++
++	return 0;
++}
++
++static void fujitsu_uncore_event_del(struct perf_event *event, int flags)
++{
++	struct uncore_pmu *uncorepmu = to_uncore_pmu(event->pmu);
++	struct hw_perf_event *hwc = &event->hw;
++
++	/* Stop and clean up */
++	fujitsu_uncore_event_stop(event, flags | PERF_EF_UPDATE);
++	uncorepmu->events[hwc->idx] = NULL;
++	bitmap_release_region(uncorepmu->used_mask, hwc->idx, 0);
++
++	/* Propagate changes to the userspace mapping. */
++	perf_event_update_userpage(event);
++}
++
++static void fujitsu_uncore_event_read(struct perf_event *event)
++{
++	fujitsu_uncore_counter_update(event);
++}
++
++#define UNCORE_PMU_FORMAT_ATTR(_name, _config)				      \
++	(&((struct dev_ext_attribute[]) {				      \
++		{ .attr = __ATTR(_name, 0444, device_show_string, NULL),      \
++		  .var = (void *)_config, }				      \
++	})[0].attr.attr)
++
++static struct attribute *fujitsu_uncore_pmu_formats[] = {
++	UNCORE_PMU_FORMAT_ATTR(event, "config:0-7"),
++	NULL
++};
++
++static const struct attribute_group fujitsu_uncore_pmu_format_group = {
++	.name = "format",
++	.attrs = fujitsu_uncore_pmu_formats,
++};
++
++static ssize_t fujitsu_uncore_pmu_event_show(struct device *dev,
++					     struct device_attribute *attr, char *page)
++{
++	struct perf_pmu_events_attr *pmu_attr;
++
++	pmu_attr = container_of(attr, struct perf_pmu_events_attr, attr);
++	return sysfs_emit(page, "event=0x%02llx\n", pmu_attr->id);
++}
++
++#define MAC_EVENT_ATTR(_name, _id)					     \
++	PMU_EVENT_ATTR_ID(_name, fujitsu_uncore_pmu_event_show, _id)
++
++static struct attribute *fujitsu_uncore_mac_pmu_events[] = {
++	MAC_EVENT_ATTR(cycles,				0x00),
++	MAC_EVENT_ATTR(read-count,			0x10),
++	MAC_EVENT_ATTR(read-count-request,		0x11),
++	MAC_EVENT_ATTR(read-count-return,		0x12),
++	MAC_EVENT_ATTR(read-count-request-pftgt,	0x13),
++	MAC_EVENT_ATTR(read-count-request-normal,	0x14),
++	MAC_EVENT_ATTR(read-count-return-pftgt-hit,	0x15),
++	MAC_EVENT_ATTR(read-count-return-pftgt-miss,	0x16),
++	MAC_EVENT_ATTR(read-wait,			0x17),
++	MAC_EVENT_ATTR(write-count,			0x20),
++	MAC_EVENT_ATTR(write-count-write,		0x21),
++	MAC_EVENT_ATTR(write-count-pwrite,		0x22),
++	MAC_EVENT_ATTR(memory-read-count,		0x40),
++	MAC_EVENT_ATTR(memory-write-count,		0x50),
++	MAC_EVENT_ATTR(memory-pwrite-count,		0x60),
++	MAC_EVENT_ATTR(ea-mac,				0x80),
++	MAC_EVENT_ATTR(ea-memory,			0x90),
++	MAC_EVENT_ATTR(ea-memory-mac-write,		0x92),
++	MAC_EVENT_ATTR(ea-ha,				0xa0),
++	NULL
++};
++
++#define PCI_EVENT_ATTR(_name, _id)					     \
++	PMU_EVENT_ATTR_ID(_name, fujitsu_uncore_pmu_event_show, _id)
++
++static struct attribute *fujitsu_uncore_pci_pmu_events[] = {
++	PCI_EVENT_ATTR(pci-port0-cycles,		0x00),
++	PCI_EVENT_ATTR(pci-port0-read-count,		0x10),
++	PCI_EVENT_ATTR(pci-port0-read-count-bus,	0x14),
++	PCI_EVENT_ATTR(pci-port0-write-count,		0x20),
++	PCI_EVENT_ATTR(pci-port0-write-count-bus,	0x24),
++	PCI_EVENT_ATTR(pci-port1-cycles,		0x40),
++	PCI_EVENT_ATTR(pci-port1-read-count,		0x50),
++	PCI_EVENT_ATTR(pci-port1-read-count-bus,	0x54),
++	PCI_EVENT_ATTR(pci-port1-write-count,		0x60),
++	PCI_EVENT_ATTR(pci-port1-write-count-bus,	0x64),
++	PCI_EVENT_ATTR(ea-pci,				0x80),
++	NULL
++};
++
++static const struct attribute_group fujitsu_uncore_mac_pmu_events_group = {
++	.name = "events",
++	.attrs = fujitsu_uncore_mac_pmu_events,
++};
++
++static const struct attribute_group fujitsu_uncore_pci_pmu_events_group = {
++	.name = "events",
++	.attrs = fujitsu_uncore_pci_pmu_events,
++};
++
++static ssize_t cpumask_show(struct device *dev,
++			    struct device_attribute *attr, char *buf)
++{
++	struct uncore_pmu *uncorepmu = to_uncore_pmu(dev_get_drvdata(dev));
++
++	return cpumap_print_to_pagebuf(true, buf, cpumask_of(uncorepmu->cpu));
++}
++static DEVICE_ATTR_RO(cpumask);
++
++static struct attribute *fujitsu_uncore_pmu_cpumask_attrs[] = {
++	&dev_attr_cpumask.attr,
++	NULL
++};
++
++static const struct attribute_group fujitsu_uncore_pmu_cpumask_attr_group = {
++	.attrs = fujitsu_uncore_pmu_cpumask_attrs,
++};
++
++static const struct attribute_group *fujitsu_uncore_mac_pmu_attr_grps[] = {
++	&fujitsu_uncore_pmu_format_group,
++	&fujitsu_uncore_mac_pmu_events_group,
++	&fujitsu_uncore_pmu_cpumask_attr_group,
++	NULL
++};
++
++static const struct attribute_group *fujitsu_uncore_pci_pmu_attr_grps[] = {
++	&fujitsu_uncore_pmu_format_group,
++	&fujitsu_uncore_pci_pmu_events_group,
++	&fujitsu_uncore_pmu_cpumask_attr_group,
++	NULL
++};
++
++static void fujitsu_uncore_pmu_migrate(struct uncore_pmu *uncorepmu, unsigned int cpu)
++{
++	perf_pmu_migrate_context(&uncorepmu->pmu, uncorepmu->cpu, cpu);
++	irq_set_affinity(uncorepmu->irq, cpumask_of(cpu));
++	uncorepmu->cpu = cpu;
++}
++
++static int fujitsu_uncore_pmu_online_cpu(unsigned int cpu, struct hlist_node *cpuhp_node)
++{
++	struct uncore_pmu *uncorepmu;
++	int node;
++
++	uncorepmu = hlist_entry_safe(cpuhp_node, struct uncore_pmu, node);
++	node = dev_to_node(uncorepmu->dev);
++	if (cpu_to_node(uncorepmu->cpu) != node && cpu_to_node(cpu) == node)
++		fujitsu_uncore_pmu_migrate(uncorepmu, cpu);
++
++	return 0;
++}
++
++static int fujitsu_uncore_pmu_offline_cpu(unsigned int cpu, struct hlist_node *cpuhp_node)
++{
++	struct uncore_pmu *uncorepmu;
++	unsigned int target;
++	int node;
++
++	uncorepmu = hlist_entry_safe(cpuhp_node, struct uncore_pmu, node);
++	if (cpu != uncorepmu->cpu)
++		return 0;
++
++	node = dev_to_node(uncorepmu->dev);
++	target = cpumask_any_and_but(cpumask_of_node(node), cpu_online_mask, cpu);
++	if (target >= nr_cpu_ids)
++		target = cpumask_any_but(cpu_online_mask, cpu);
++
++	if (target < nr_cpu_ids)
++		fujitsu_uncore_pmu_migrate(uncorepmu, target);
++
++	return 0;
++}
++
++static int fujitsu_uncore_pmu_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	unsigned long device_type = (unsigned long)device_get_match_data(dev);
++	const struct attribute_group **attr_groups;
++	struct uncore_pmu *uncorepmu;
++	struct resource *memrc;
++	size_t alloc_size;
++	char *name;
++	int ret;
++	int irq;
++	u64 uid;
++
++	ret = acpi_dev_uid_to_integer(ACPI_COMPANION(dev), &uid);
++	if (ret)
++		return dev_err_probe(dev, ret, "unable to read ACPI uid\n");
++
++	uncorepmu = devm_kzalloc(dev, sizeof(*uncorepmu), GFP_KERNEL);
++	if (!uncorepmu)
++		return -ENOMEM;
++	uncorepmu->dev = dev;
++	uncorepmu->cpu = cpumask_local_spread(0, dev_to_node(dev));
++	platform_set_drvdata(pdev, uncorepmu);
++
++	switch (device_type) {
++	case FUJITSU_UNCORE_PMU_MAC:
++		uncorepmu->num_counters = MAC_NUM_COUNTERS;
++		attr_groups = fujitsu_uncore_mac_pmu_attr_grps;
++		name = devm_kasprintf(dev, GFP_KERNEL, "mac_iod%llu_mac%llu_ch%llu",
++				      (uid >> 8) & 0xF, (uid >> 4) & 0xF, uid & 0xF);
++		break;
++	case FUJITSU_UNCORE_PMU_PCI:
++		uncorepmu->num_counters = PCI_NUM_COUNTERS;
++		attr_groups = fujitsu_uncore_pci_pmu_attr_grps;
++		name = devm_kasprintf(dev, GFP_KERNEL, "pci_iod%llu_pci%llu",
++				      (uid >> 4) & 0xF, uid & 0xF);
++		break;
++	default:
++		return dev_err_probe(dev, -EINVAL, "illegal device type: %lu\n", device_type);
++	}
++	if (!name)
++		return -ENOMEM;
++
++	uncorepmu->pmu = (struct pmu) {
++		.parent		= dev,
++		.task_ctx_nr	= perf_invalid_context,
++
++		.attr_groups	= attr_groups,
++
++		.pmu_enable	= fujitsu_uncore_pmu_enable,
++		.pmu_disable	= fujitsu_uncore_pmu_disable,
++		.event_init	= fujitsu_uncore_event_init,
++		.add		= fujitsu_uncore_event_add,
++		.del		= fujitsu_uncore_event_del,
++		.start		= fujitsu_uncore_event_start,
++		.stop		= fujitsu_uncore_event_stop,
++		.read		= fujitsu_uncore_event_read,
++
++		.capabilities	= PERF_PMU_CAP_NO_EXCLUDE | PERF_PMU_CAP_NO_INTERRUPT,
++	};
++
++	alloc_size = sizeof(uncorepmu->events[0]) * uncorepmu->num_counters;
++	uncorepmu->events = devm_kzalloc(dev, alloc_size, GFP_KERNEL);
++	if (!uncorepmu->events)
++		return -ENOMEM;
++
++	alloc_size = sizeof(uncorepmu->used_mask[0]) * BITS_TO_LONGS(uncorepmu->num_counters);
++	uncorepmu->used_mask = devm_kzalloc(dev, alloc_size, GFP_KERNEL);
++	if (!uncorepmu->used_mask)
++		return -ENOMEM;
++
++	uncorepmu->regs = devm_platform_get_and_ioremap_resource(pdev, 0, &memrc);
++	if (IS_ERR(uncorepmu->regs))
++		return PTR_ERR(uncorepmu->regs);
++
++	fujitsu_uncore_init(uncorepmu);
++
++	irq = platform_get_irq(pdev, 0);
++	if (irq < 0)
++		return irq;
++
++	ret = devm_request_irq(dev, irq, fujitsu_uncore_handle_irq, 0,
++			       name, uncorepmu);
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to request IRQ:%d\n", irq);
++
++	ret = irq_set_affinity(irq, cpumask_of(uncorepmu->cpu));
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to set irq affinity:%d\n", irq);
++
++	uncorepmu->irq = irq;
++
++	/* Add this instance to the list used by the offline callback */
++	ret = cpuhp_state_add_instance(uncore_pmu_cpuhp_state, &uncorepmu->node);
++	if (ret)
++		return dev_err_probe(dev, ret, "Error registering hotplug");
++
++	ret = perf_pmu_register(&uncorepmu->pmu, name, -1);
++	if (ret < 0) {
++		cpuhp_state_remove_instance_nocalls(uncore_pmu_cpuhp_state, &uncorepmu->node);
++		return dev_err_probe(dev, ret, "Failed to register %s PMU\n", name);
++	}
++
++	dev_dbg(dev, "Registered %s, type: %d\n", name, uncorepmu->pmu.type);
++
++	return 0;
++}
++
++static void fujitsu_uncore_pmu_remove(struct platform_device *pdev)
++{
++	struct uncore_pmu *uncorepmu = platform_get_drvdata(pdev);
++
++	writeq_relaxed(0, uncorepmu->regs + PM_CR);
++
++	perf_pmu_unregister(&uncorepmu->pmu);
++	cpuhp_state_remove_instance_nocalls(uncore_pmu_cpuhp_state, &uncorepmu->node);
++}
++
++static const struct acpi_device_id fujitsu_uncore_pmu_acpi_match[] = {
++	{ "FUJI200C", FUJITSU_UNCORE_PMU_MAC },
++	{ "FUJI200D", FUJITSU_UNCORE_PMU_PCI },
++	{ }
++};
++MODULE_DEVICE_TABLE(acpi, fujitsu_uncore_pmu_acpi_match);
++
++static struct platform_driver fujitsu_uncore_pmu_driver = {
++	.driver = {
++		.name = "fujitsu-uncore-pmu",
++		.acpi_match_table = fujitsu_uncore_pmu_acpi_match,
++		.suppress_bind_attrs = true,
++	},
++	.probe = fujitsu_uncore_pmu_probe,
++	.remove = fujitsu_uncore_pmu_remove,
++};
++
++static int __init fujitsu_uncore_pmu_init(void)
++{
++	int ret;
++
++	/* Install a hook to update the reader CPU in case it goes offline */
++	ret = cpuhp_setup_state_multi(CPUHP_AP_ONLINE_DYN,
++				      "perf/fujitsu/uncore:online",
++				      fujitsu_uncore_pmu_online_cpu,
++				      fujitsu_uncore_pmu_offline_cpu);
++	if (ret < 0)
++		return ret;
++
++	uncore_pmu_cpuhp_state = ret;
++
++	ret = platform_driver_register(&fujitsu_uncore_pmu_driver);
++	if (ret)
++		cpuhp_remove_multi_state(uncore_pmu_cpuhp_state);
++
++	return ret;
++}
++
++static void __exit fujitsu_uncore_pmu_exit(void)
++{
++	platform_driver_unregister(&fujitsu_uncore_pmu_driver);
++	cpuhp_remove_multi_state(uncore_pmu_cpuhp_state);
++}
++
++module_init(fujitsu_uncore_pmu_init);
++module_exit(fujitsu_uncore_pmu_exit);
++
++MODULE_AUTHOR("Koichi Okuno <fj2767dz@fujitsu.com>");
++MODULE_DESCRIPTION("Fujitsu Uncore PMU driver");
++MODULE_LICENSE("GPL");
+-- 
+2.43.0
 
 
