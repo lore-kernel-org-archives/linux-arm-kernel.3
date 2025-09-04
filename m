@@ -4,188 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72F59CA1012
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 09:02:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE7BFCA1002
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Sep 2025 09:04:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LNDYRNMn4hyPVWV/UXN8nZ23zIc7fA9eDgUdJV7eBak=; b=IuN2//lYgd+7K+UoBA9mxtI83S
-	S3vecsU+iMrPTzgA/tvYUk4QRid6iV1vKMscQLgs6UUdyRVSJx29NL7ybbEJHRbiakSLueQbzVyQs
-	24PwPrDD4pTXQVWHLnABjwbm4z0nWyvGEt/7HKh4kaJVmWthru26PLlabw80veccfE8HN7DAO2tgn
-	FMOUM0B6e3CL5Mv+w4/3guthRBKRP6a4DSGt0LlfLFhDN+u7qlYNb/bhjYjfhoT5uBfK/apbYPULX
-	tH5HXubikMeRK9SEr9wMTN4POMz4+nFTiP4tWJtX+9GB31IEAaeFQFCk3H4u/hmzIN5mq+/abyq44
-	obOFnIKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M5d16o/K/PDCx6Sj/QbZw1TA3sOMpy5ZnNHJchVHOXQ=; b=toMiOIq8on+22jQeWHHssy8KAw
+	4t+L2dh9KuImSdLdYwtlaohlCpyi7BFV15UNmKUpqb9+KRqALHHrEYdXxTWMBte3PuwaAQm8YEwgq
+	f17kPD2431vns1uoVxLOUWXV+4uPX2OgzpAUkzygSpL8rVXuA/jXzjxEwNUr6EF6agkYCoZjOiYi4
+	5Ich0DUhLZZTD+kRGGlJ74OiUOVncNWdXEs7p8q513YJn9TeC/2LgH0l3LaLqnK+Ew1n+G5p/ypqv
+	O6drU36Fxn6mjgQrRHQn0AI4sPJp9Q2Q5YWBPvsB7SZyIRPnu/CQK9Iv4hUWZ3AS1n62ylBAAKMfP
+	0CPHwzrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu5qr-0000000AQH1-413P;
-	Thu, 04 Sep 2025 09:01:53 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1uu5tZ-0000000AROh-37A5;
+	Thu, 04 Sep 2025 09:04:41 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uu5K9-0000000AEMj-17rO
+	id 1uu5Kw-0000000AEhs-3oKO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 08:28:06 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58488lZZ006600;
-	Thu, 4 Sep 2025 10:27:40 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	LNDYRNMn4hyPVWV/UXN8nZ23zIc7fA9eDgUdJV7eBak=; b=HQ3irstksWCB/5iw
-	BuBK739dIqvnU96PQHljyYviSqic5W78cEoipc0otGY8kd7x8zZLkHDh1PMWEKv+
-	sRPrigqfQSmEQnTMGRVyxdIACMMFs9yxFuUd1wBfyMHxt1OZ5MxKqzbFp/czL5qO
-	mBEsFwrnSntfFECBFOXbeSP0Q1q7D6pkuM8LEkijuJjJV+N2ze9HT7bFjgiJmDIr
-	ajlBDc/vurL9yuhYsnKRkVsEnsKlWZ8J74vJ9vYFiuhloVuMNhEphv12VQGTGi8G
-	pCx8/BYebD6VjQZTr4HhRyJwfR+SnFXCEEkLb13oIfuuT+vE0pOJlIZy0bxd5Y68
-	OWbr0g==
-Received: from gvxpr05cu001.outbound.protection.outlook.com (mail-swedencentralazon11013006.outbound.protection.outlook.com [52.101.83.6])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48upe7mg08-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 04 Sep 2025 10:27:40 +0200 (MEST)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=F2V6FSi8CQhUphkiaojjkwqCLlpdzXrj2YzIXJwGJF6Vso0fkGNsMTYBrP4j9UfS1d2TbPp7LupTWKEbBmcuinovnT5KcqRbX2YpFuI1clZBaMH/uLX/ZbUokeEfiVaCNuce8T8vEyhTaM56Zio5TAzvWHX1smx+AuL5ogmudq9FKw52z16tpUn+HPPAnKfmOLbnXDvfbXE4BCCOVyhHijU7uulrh4/KrqGOyo6yzZ13kEDdEiSHMUKqgMFX5fY4n4WUAnPYjHwj3Vo/O9dEWlNlWyRSKwMPnGxSnUZAobsNJ//Hw6BWdxbJGNeDfvFen1SUCQV/58vMw3TfOtU4cw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LNDYRNMn4hyPVWV/UXN8nZ23zIc7fA9eDgUdJV7eBak=;
- b=rb3V1vFVccL3993U+CC/w66+dz+JSFdOVOmKCGWLya+eUIWEfOC7eWC+quffU8zoxAFFloS013+ms5em4KMjw/E/+1/1C8UeQO3T0v2qko6zuEkF6fD92sEB+fqnrWjGMNYTEn609HXQXHNPfcONR2/CqXHzpj0qWd9ctmzeIG+6j5x4u8TlguSiqE3cS+j/YW2h/DfcQC5LutcJH07GaC7/2YH1rm1zByY8L6MuGQEfZaPQv/D/+u0P8qBZIc2uFfug7L70SUZPXJ6JjVjUFHKVX+VGBoyxUczxE1hh9u0T4x6b5dmzjtJ/YNtpKOhFSBj8nseDbBYNFuk36PrnXA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.44) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=stmicroelectronics.onmicrosoft.com;
- s=selector2-stmicroelectronics-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LNDYRNMn4hyPVWV/UXN8nZ23zIc7fA9eDgUdJV7eBak=;
- b=AaCZF1n2sRdYEOndyLpwrrW8c3dmbCNeYKyzM9aEpCkrA84H6MCoj8XFX5g1MvixSKzYRmHPyowM9h642OZQbxm2C4w/cSBlh192q6DiCbMQXUyyR0D3jT5hcauTXGeNfhCMOLMVn39FO1MqoCnDfRFT8xHyNnIi8BSpDpnsJzk=
-Received: from DB8PR03CA0019.eurprd03.prod.outlook.com (2603:10a6:10:be::32)
- by AS8PR10MB6176.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:54d::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9073.27; Thu, 4 Sep
- 2025 08:27:38 +0000
-Received: from DU2PEPF0001E9BF.eurprd03.prod.outlook.com
- (2603:10a6:10:be:cafe::98) by DB8PR03CA0019.outlook.office365.com
- (2603:10a6:10:be::32) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9094.18 via Frontend Transport; Thu,
- 4 Sep 2025 08:27:38 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.44)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.44 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.44; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.44) by
- DU2PEPF0001E9BF.mail.protection.outlook.com (10.167.8.68) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9094.14 via Frontend Transport; Thu, 4 Sep 2025 08:27:37 +0000
-Received: from SHFDAG1NODE1.st.com (10.75.129.69) by smtpO365.st.com
- (10.250.44.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Thu, 4 Sep
- 2025 10:20:23 +0200
-Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Thu, 4 Sep
- 2025 10:27:36 +0200
-Message-ID: <d6acec91-1da8-4aca-9d51-f3c4bf9a7083@foss.st.com>
-Date: Thu, 4 Sep 2025 10:27:35 +0200
+	Thu, 04 Sep 2025 08:28:56 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5848So0d3034383;
+	Thu, 4 Sep 2025 03:28:50 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1756974530;
+	bh=M5d16o/K/PDCx6Sj/QbZw1TA3sOMpy5ZnNHJchVHOXQ=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=vENxZqKgMjh3XHHlrKcJDb58zgbybx48s8gxJ/nPs3RmeiTg9PuGD211LWHmOj2lu
+	 bYWlR70iQAw448BM/OeWMKE9kh6cEl2GpsHW4bAMolkp0JLedLrehePB/5YhNI/llG
+	 t3m07DHEJweZKoc2hPFWtDIBkskf5/EshV7YulII=
+Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5848SoZa3678746
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 4 Sep 2025 03:28:50 -0500
+Received: from DFLE103.ent.ti.com (10.64.6.24) by DFLE110.ent.ti.com
+ (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 4
+ Sep 2025 03:28:50 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE103.ent.ti.com
+ (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Thu, 4 Sep 2025 03:28:49 -0500
+Received: from localhost (lcpd911.dhcp.ti.com [172.24.233.130])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5848Smgl2680474;
+	Thu, 4 Sep 2025 03:28:49 -0500
+Date: Thu, 4 Sep 2025 13:58:48 +0530
+From: Dhruva Gole <d-gole@ti.com>
+To: Akashdeep Kaur <a-kaur@ti.com>
+CC: <praneeth@ti.com>, <nm@ti.com>, <afd@ti.com>, <vigneshr@ti.com>,
+        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <vishalm@ti.com>, <sebin.francis@ti.com>
+Subject: Re: [PATCH v3 2/3] arm64: dts: ti: k3-am62x-sk-common: Remove the
+ unused cfg in USB1_DRVVBUS
+Message-ID: <20250904082848.xyu5oll527t4kcwk@lcpd911>
+References: <20250902071917.1616729-1-a-kaur@ti.com>
+ <20250902071917.1616729-3-a-kaur@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 00/11] Add STM32MP25 PCIe drivers
-To: Christian Bruel <christian.bruel@foss.st.com>, <lpieralisi@kernel.org>,
-        <kwilczynski@kernel.org>, <mani@kernel.org>, <robh@kernel.org>,
-        <bhelgaas@google.com>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <mcoquelin.stm32@gmail.com>, <linus.walleij@linaro.org>,
-        <corbet@lwn.net>, <p.zabel@pengutronix.de>, <shradha.t@samsung.com>,
-        <mayank.rana@oss.qualcomm.com>, <namcao@linutronix.de>,
-        <qiang.yu@oss.qualcomm.com>, <thippeswamy.havalige@amd.com>,
-        <inochiama@gmail.com>, <quic_schintav@quicinc.com>
-CC: <johan+linaro@kernel.org>, <linux-pci@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-gpio@vger.kernel.org>, <linux-doc@vger.kernel.org>
-References: <20250820075411.1178729-1-christian.bruel@foss.st.com>
-Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20250820075411.1178729-1-christian.bruel@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PEPF0001E9BF:EE_|AS8PR10MB6176:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4f77061a-bf9c-472b-c766-08ddeb8ce806
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|7416014|376014|36860700013|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MzFrSC84YmVlc1Nsem9hSDNtRWVMY29yTVVqb3l2aGd6bkFITmVyWDd2aFY3?=
- =?utf-8?B?eUd5VEIraHhzcEY3SGJndGhjVnpkWVlxS0FyYUllL1JTRWlCdGk3RUFVY01L?=
- =?utf-8?B?eERKR01ib2RlcTFQQU02SUphRnRxVlZTSDc2VVEzUVpGNHJYM3FkR0RZMTV5?=
- =?utf-8?B?aEhHKy9vOEM4bU9hNlhhcTErS1Rncm9TazdHdjBIMHlSbkp4aWovWCtYaUxy?=
- =?utf-8?B?MjVaT3gyMGVlbFJ1dmVxbWtuWVZ5T3JLNFh6Y0dqa3pVVEc4QmJlc2ZWYWpY?=
- =?utf-8?B?QUxwdzA4Z3V3Y1djOXdtOFlVeUVoKzBMeGdldVFzLzBBaERSdDQvdXdqNlNY?=
- =?utf-8?B?NElySVBZM3dlenhMcnZHUGtPaCtnYTJJZENHSlc1bWQrZ0FsQlAyUzJQcFYz?=
- =?utf-8?B?RzErRDBvL1NWV0JvL2FXSlNKcXZqUjJSMmk1c0lYc3lNRFJmbFlTS2MvcHVO?=
- =?utf-8?B?aWlpbEhUaFBPVmVzUmNnUFNkUjZQVkNtRzRDZVd2NkU4QVBZTzE0YnFEN1Uy?=
- =?utf-8?B?SzRTcUxkUTdPQjBXbEI2SllwcC9BRVdiRHRuQ0lhTDA2ODBzRCswZzIyNEpY?=
- =?utf-8?B?T3YvWXZtZFU1QjRtbXhHZUZWWE9MUmJIRUhDU08yY0RRQ2lvamdYdjZ5M2ZG?=
- =?utf-8?B?Q1B2ZFA1bjErbmNRYUlEdVY1eldLdGFMSU9tRHJvQ1ExVCt6S1hFcURZZVly?=
- =?utf-8?B?a2JkTzZvbWdHcW9zaThHRVEya2c0SGdhdUo3NWhjRDlWQlFQZDJiUkNZZVJR?=
- =?utf-8?B?Um0vbEl6RHpIaXJheE9PbDBUVERtME81WVlxelg3NEtWMUplVThVYjdyT2xl?=
- =?utf-8?B?OXlzVkE1dFF1anVHTXlib0ptSDEvZm1WcWVhMmhweVZJU0dsYnZsa09jckpr?=
- =?utf-8?B?OEQ2L0ZtMktSSW91QjVGRDRkWDdnb1lBQUI0dFJ2aGZ3ek93WkZNV2xuSXM1?=
- =?utf-8?B?anlpbWJrWXVJWG5MendOVnFOaWxFNGpXcUJwbDd1N2F0cU5Uck1yNVQvSXY2?=
- =?utf-8?B?cXlIRTZBbGFnZDVrOVRLMDBXYi9MYkV5YlN0R0M2SkhUY011Y2c4Y3NMTkx2?=
- =?utf-8?B?MDBIcmxWa0NsQ01yQmtYbVk5NExCY0pxc3dJakgzR2FRQzcvWGpnVlpLQnVS?=
- =?utf-8?B?TjNHMDRzRlQyS25iS01rbTk3NEJhQ1kvc0l0OW0wZ3Fub2toUm9QYXRNNXdP?=
- =?utf-8?B?STE1MzRwbVNZOGNjMW5nekpLS21GMVhqeUo1R0dkWnVxUkZobCs2dXc3bjBG?=
- =?utf-8?B?a1dXN09Fa0hlZUtrZTZjalhxb01KTWFPVFNjc3BnejlLQUlJSG9GWGxjWTFl?=
- =?utf-8?B?THpIUTBkdFp1cFBrWmxlTmtaWU1zbXZPQ1hub2hnbFZJaEFVUzI3Y0JDQmFi?=
- =?utf-8?B?a3BnTVovUlY0NTlqU25mc3VySHJVU2ZVZnpFMjRad1JXbmRGall5S1M0Z0R2?=
- =?utf-8?B?Z1ErQ2xvWjlDWjVYQXN1SEs1TTEreE9DeWM3V2dZaytJejFkclYxSlpRQnFh?=
- =?utf-8?B?Njh6OXp0T0NPK1p5YU51RE1zSmlJWkY1UVpzVm4yNGlGTkw0RDhpT1FmVm9E?=
- =?utf-8?B?Zi9PMXp2N1JNTDIwc0dXZ3hmNDJHYWM0bXBFc0JOOXA3aDVoU25aZDE0aURY?=
- =?utf-8?B?Mm51YUZBOWRvaWxyNFhLaTZpUGVvMjFEcjJadC9OSnlibEtxZ2VKMEN5Smtm?=
- =?utf-8?B?dXJnVjhnZ3ZJcGNtSzR3Q3VvOHRqMzMvYVJSNyt2QlhLNWNVUVB3R0crVWpZ?=
- =?utf-8?B?SWlVdFEyWHJtbVJ5T0tGbitMVnlCMWMxU04wYU9BS1FQV2pzWGlTY0hGNGFi?=
- =?utf-8?B?eHRoWlA1ZXRTQlljaGIvUFp5TDZoUzh6TkRtQUtZZS93N0R6VERKSDNLZlIv?=
- =?utf-8?B?eWpjME5aMVJ5RWl3MzdTYmlMdlJ2eTJRSnZUYktBUnNDWllCNitnalY1aEZs?=
- =?utf-8?B?OHBUV0xiOW92dWc4TnI2elg5d0lJa1FSRnZKRndwbnlMeWhQUS9LNGtRaW9q?=
- =?utf-8?B?R0wvb1dQVFVSeUdURWE4ZFc1ZDlhNndGRVlNK1ExMyt2b0pPV1pQUUh6UFlx?=
- =?utf-8?B?RklSR0FKTUI5OEV6T3ozU0I1MS9aYzAxbzdQUT09?=
-X-Forefront-Antispam-Report: CIP:164.130.1.44;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(7416014)(376014)(36860700013)(921020);DIR:OUT;SFP:1101;
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2025 08:27:37.6002
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4f77061a-bf9c-472b-c766-08ddeb8ce806
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.44];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF0001E9BF.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR10MB6176
-X-Proofpoint-GUID: rqgO1ltUNRBY-HTj590O55CLH_niWc6a
-X-Proofpoint-ORIG-GUID: rqgO1ltUNRBY-HTj590O55CLH_niWc6a
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODI5MDIyMCBTYWx0ZWRfX4GuZXUuHfwqg U0E/cqv9sLpNzBzC5e43IIlo7tVG7DjyrT9/MB9kBjmxaOhNp4XzPy5hA6Kvm+BAMC2vFZqWQfS RMWuEvB9sjcAA+YQTGWVwpVwYss68D5TGT8jKPxb7dnZkMwDkaurUhgCgI/Lsn12bjtLGSFJzAr
- 3Uq/j9elxipt7W/DRRCYmk2/qQTEeajhh4LGd+HuSxA5yb0//dgrvzHgZ8apTlPIIpatXoB6YkL keAXjkc/EpTDFb21JUkn7zfxHUr2dOaQH+wEqxKYs7L+jmoo1cLehGsOIJaRiIYvjhDXNFmWNEe i/ZdE4UorEsrBedhaUk0y5zs2rMkjfv8PQZWxagaSwDU0rQmFnwo3rcQ/Rl7KBQhP6BFTFTYpRh /62Ot/E8
-X-Authority-Analysis: v=2.4 cv=Vq0jA/2n c=1 sm=1 tr=0 ts=68b94d7c cx=c_pps a=6EwHhcPr6SQIsPQpIcuDPA==:117 a=Tm9wYGWyy1fMlzdxM1lUeQ==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=h8e1o3o8w34MuCiiGQrqVE4VwXA=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
- a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=TP8aPCUxYTYA:10 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=s63m1ICgrNkA:10 a=FUbXzq8tPBIA:10 a=ycXS4Ko-rP-ybcqW0P0A:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-04_03,2025-08-28_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 priorityscore=1501 malwarescore=0
- impostorscore=0 spamscore=0 suspectscore=0 adultscore=0 clxscore=1011
- bulkscore=0 phishscore=0 classifier=typeunknown authscore=0 authtc=
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2508290220
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250902071917.1616729-3-a-kaur@ti.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_012805_577020_73D3D58C 
-X-CRM114-Status: GOOD (  12.75  )
+X-CRM114-CacheID: sfid-20250904_012855_038059_C40FF583 
+X-CRM114-Status: GOOD (  22.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -200,61 +87,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Christian
+On Sep 02, 2025 at 12:49:16 +0530, Akashdeep Kaur wrote:
+> After the SoC has entered the DeepSleep low power mode, USB1 can be
+> used to wakeup the SoC based on USB events triggered by USB devices.
+> This requires that the pin corresponding to the Type-A connector
+> remains pulled up even after the SoC has entered the DeepSleep low power
+> mode.
+> For that, either DeepSleep pullup configuration can be selected or the pin
+> can have the same configuration that it had when SoC was in active mode.
+> But, in order for DeepSleep configuration to take effect, the DeepSleep
+> control bit has to be enabled.
+> Remove the unnecessary DeepSleep state configuration from USB1_DRVBUS pin,
+> as the DeepSleep control bit is not set and the active configuration is
+> sufficient to keep the pin pulled up. This simplifies the setup and removes
+> redundant configuration.
 
-On 8/20/25 09:54, Christian Bruel wrote:
-> Changes in v13:
->     - Rebase on pci/next
->     - Replace access to dev->pins->init_state by new
->       pinctrl_pm_select_init_state().
->     - Document pinctrl PM state API.
->     - Group GPIO PERST# de-assertion with PVPERL delay. (Bjorn)
+Okay this makes sense...
+It would be a fair question for someone to ask what these bits really do and
+that can lead to confusion,
+The other flags were there but were not really doing anything so best to
+remove them to avoid any confusion altogether. 
+
+Reviewed-by: Dhruva Gole <d-gole@ti.com>
+
+> 
+> This reverts commit 527f884d2d94981016e181dcbd4c4b5bf597c0ad.
+> 
+> Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
+> ---
+>  arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
+> index 13e1d36123d5..d3bed23134ca 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
+> @@ -249,7 +249,7 @@ AM62X_IOPAD(0x12c, PIN_OUTPUT, 0) /* (AD19/V15) RGMII1_TX_CTL */
+>  
+>  	main_usb1_pins_default: main-usb1-default-pins {
+>  		pinctrl-single,pins = <
+> -			AM62X_IOPAD(0x0258, PIN_OUTPUT | PIN_DS_PULLUD_ENABLE | PIN_DS_PULL_UP, 0) /* (F18/E16) USB1_DRVVBUS */
+> +			AM62X_IOPAD(0x0258, PIN_OUTPUT, 0) /* (F18/E16) USB1_DRVVBUS */
+>  		>;
+>  	};
+>  
+> -- 
+> 2.34.1
 > 
 
-...
-
-> 
-> Christian Bruel (11):
->    Documentation: pinctrl: Describe PM helper functions for standard
->      states.
->    pinctrl: Add pinctrl_pm_select_init_state helper function
->    dt-bindings: PCI: Add STM32MP25 PCIe Root Complex bindings
->    PCI: stm32: Add PCIe host support for STM32MP25
->    dt-bindings: PCI: Add STM32MP25 PCIe Endpoint bindings
->    PCI: stm32: Add PCIe Endpoint support for STM32MP25
->    MAINTAINERS: add entry for ST STM32MP25 PCIe drivers
->    arm64: dts: st: add PCIe pinctrl entries in stm32mp25-pinctrl.dtsi
->    arm64: dts: st: Add PCIe Root Complex mode on stm32mp251
->    arm64: dts: st: Add PCIe Endpoint mode on stm32mp251
->    arm64: dts: st: Enable PCIe on the stm32mp257f-ev1 board
-> 
->   .../bindings/pci/st,stm32-pcie-common.yaml    |  33 ++
->   .../bindings/pci/st,stm32-pcie-ep.yaml        |  73 ++++
->   .../bindings/pci/st,stm32-pcie-host.yaml      | 112 +++++
->   Documentation/driver-api/pin-control.rst      |  57 ++-
->   MAINTAINERS                                   |   7 +
->   arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi |  20 +
->   arch/arm64/boot/dts/st/stm32mp251.dtsi        |  59 +++
->   arch/arm64/boot/dts/st/stm32mp257f-ev1.dts    |  21 +
->   drivers/pci/controller/dwc/Kconfig            |  24 ++
->   drivers/pci/controller/dwc/Makefile           |   2 +
->   drivers/pci/controller/dwc/pcie-stm32-ep.c    | 384 ++++++++++++++++++
->   drivers/pci/controller/dwc/pcie-stm32.c       | 360 ++++++++++++++++
->   drivers/pci/controller/dwc/pcie-stm32.h       |  16 +
->   drivers/pinctrl/core.c                        |  13 +
->   include/linux/pinctrl/consumer.h              |  10 +
->   15 files changed, 1189 insertions(+), 2 deletions(-)
->   create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml
->   create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-ep.yaml
->   create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
->   create mode 100644 drivers/pci/controller/dwc/pcie-stm32-ep.c
->   create mode 100644 drivers/pci/controller/dwc/pcie-stm32.c
->   create mode 100644 drivers/pci/controller/dwc/pcie-stm32.h
-> 
-
-DT patches (8 to 11) applied on stm32-next.
-
-Cheers
-
-Alex
+-- 
+Best regards,
+Dhruva Gole
+Texas Instruments Incorporated
 
