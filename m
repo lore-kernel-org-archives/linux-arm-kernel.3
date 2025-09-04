@@ -4,111 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4770DCA1017
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:19:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28EFBCA1012
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:19:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3HWs5BM/Zczfcib8xW5oddFZsmYZHDcxWDdtx5r08Kk=; b=xRHvmKw/V3rUp5PgM9xbABrQGd
-	sB0fy5udnsbL5psZcutjQWzyRFdpsdpppjV3yeAoyQxwP/wz7ACeLxUQcfYfE2+Iosy+vHHysbJr0
-	f30Kp+cjpMbyAV+/Nesu+fDSeE7AiBEdZInBmfwioImJ38HMLcgsZQ1UbVACifIcB/8psy7KoBu44
-	T3g2T3PilsEjgUfN7RVVuCWNv7+l5xzooPppUHb+eKRjIrMm9ZY4neY0h8Qb8CdnlcwIBnwa4jNDo
-	yS2VpepBWiMKFZnCTxKyjyBwk8AFRQCQgqy3p/hWfNzprRnKfy7+Wrn8BAq46CW29KB/wjQBgKY1L
-	Nvo3G7Ew==;
+	bh=XViZ7K4qUIDoQ+R0DNxwBPH2Ie9zst4zMX81EjLVreE=; b=y4DOJl6hhS/QE4lqgQi4Gjx+x4
+	SjXNZc7y7Oslafnck7X+uFgkzdAhP2JABY8jM6myuFgAVPa32wFSB0i9A7Jc/ruU51g8UYpyY71Dv
+	gSs97II8hwo5StoCslFbd8VDVDairNHYLsuKuOkZahwxxyuuL41Mxbb9UyUV7nkhRL9aI0xNGhf6G
+	xXLgb1jrx+WDityJiCbqusNgXGDO/yudO3efhWBxJB/3FQ9IbtwsvM5LwaqY7kVkpkcAC/QRddF/s
+	EYhFknqhM9ZYf7Pp5KN0Twx/p2wppxEjescZdWFqBrkJfDtWuAZgRU+e7JzJ+GPgmwUyVl5MrwrtX
+	WbRMeW5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuM31-0000000G1cs-0ZCo;
-	Fri, 05 Sep 2025 02:19:31 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1uuM33-0000000G1gR-2SUb;
+	Fri, 05 Sep 2025 02:19:33 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuGkR-0000000EKbM-0kBf
+	id 1uuGlT-0000000EKyp-3UtL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 20:40:00 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-45b804ed966so6266305e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Sep 2025 13:39:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757018397; x=1757623197; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3HWs5BM/Zczfcib8xW5oddFZsmYZHDcxWDdtx5r08Kk=;
-        b=U3sClBlw+UOPnSJ2JO5Ny2wj7x66uN2/A2F84ZqQky7Mx0J+R1Oah1p1MM6FDXM5qy
-         GVuv0Kl4rX6alXaNM/n5038n0HB8WPPZEF2eLoXuiQech2M36d1qq8kh7kuFtRZ+/i5X
-         1EHuSLYfSHjGCXKaQNY0Pp2Hnu787z58AMXITnCWuC1DgaRpW5VRi5CsxJIam8HoeHrS
-         3XZiJZ+xREUg6GftF8nVyQc/Df1TJwCWG1/J3OHr5PN2bJOlhYOT1aSiK62ovPjdOwDG
-         K2atsPXmqzI9t5ZLxDkvHLrGaym7KM+CAoEl68cVvk3slOVkWj30RAiComhx8hg4kg9x
-         ul1Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757018397; x=1757623197;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3HWs5BM/Zczfcib8xW5oddFZsmYZHDcxWDdtx5r08Kk=;
-        b=bjbKbQj5R3bkhbnbgy5wRN4DrXvFhNeiyk+JWkAmTWGUcWAEBQE92vvlqhl8490ED8
-         b3wy+1XLctH41yWwBogNLRj+knFlP/vs+mJV/E5b9HBhm2iMN84w6EDNc4zNUPQbhNiE
-         BrB2Re9XX9nTD1CwMNkcp6hfTqZyg44hRtpjRgWxjUvtFSGObhpiqmWsnoRUm+0odudC
-         3YQJEMp4qTesRSx/b2OjfMDNMGI0881bVDjMJqZHNfkbMQ/JwCOltfeA4+Dlk5LCuFgV
-         7To8XOYDgUOVUtV2xGMgvQVBJ/s4P9UFQdJCJtYUtgn/ZD4Uz7e1BS8iGLw+1wtAYa2T
-         XSrA==
-X-Forwarded-Encrypted: i=1; AJvYcCVNo7FsGPpwKwrU8vKcNtsrppOEQjCCkhCwnieGxLORv87/Kexy7LSWfnNCyYxWtABkqEWy2AfGFZRKMtyeBiMv@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMoOkI8T3VomhNnBjGyhel8rEBxn3SzUoMvwK2pA95w6i++QAG
-	0CL+l14K2+jBcQFbPdMLXF5LgCR7MBYC1iFC4BVTWc4JPOqSUgI426lU
-X-Gm-Gg: ASbGnctCpoMVXH6KdZmXwmzqw7MdRZ1OTA9wRXCnEcAFx903ODf5wOcwdFLnsZaAfvF
-	ZPlDSMHPnd8Ou+OQz6VWrqmM2r21t6VMmkLCmb9X0TOYUVVQ0CI2zF85Vrjw8PXjro8jo8SWQjQ
-	IbaEjKoC+677+Nz3+VluSKHhIyYFYp5vRihYVND/tRntfv2cwqvbg0mX3Cn1qAq74aqF0RxJcyo
-	ZOxrXexIfNPPrlVV/PEGmPtFeUWj7W13KrQUCmfitVHM/hPVy3t86qmtLAZuYVqHv+wuFj2PEB0
-	nc0fX80FhP0ZX3AYlmpvY12TnCALb4ts9Azkt2h8R/gSA1x31pbirWayde2tchrvBpmGqjq4AA5
-	ROtepPGY5Tav9ObwbXh3++IzxJ/4ONGfwxIHDKrBzZotOdA3CrBVDlmiSvQ==
-X-Google-Smtp-Source: AGHT+IHL1oc02XZbGobYDQotXvvBze1vwYgK+kccWNcOGisk96waxJM71NYowbvY/REwkkmrpI/Nag==
-X-Received: by 2002:a05:600c:a04:b0:45b:7d24:beac with SMTP id 5b1f17b1804b1-45b8553335amr189504555e9.10.1757018397490;
-        Thu, 04 Sep 2025 13:39:57 -0700 (PDT)
-Received: from iku.Home ([2a06:5906:61b:2d00:904e:70c8:edf3:59a4])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b6f306c93sm385528165e9.14.2025.09.04.13.39.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Sep 2025 13:39:56 -0700 (PDT)
-From: Prabhakar <prabhakar.csengg@gmail.com>
-X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Russell King <linux@armlinux.org.uk>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>
-Cc: netdev@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Prabhakar <prabhakar.csengg@gmail.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH net-next v2 3/3] net: stmmac: dwmac-renesas-gbeth: Add support for RZ/T2H SoC
-Date: Thu,  4 Sep 2025 21:39:49 +0100
-Message-ID: <20250904203949.292066-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20250904203949.292066-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20250904203949.292066-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	Thu, 04 Sep 2025 20:41:08 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 584KepBk3595659;
+	Thu, 4 Sep 2025 15:40:51 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1757018451;
+	bh=XViZ7K4qUIDoQ+R0DNxwBPH2Ie9zst4zMX81EjLVreE=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=ptTOBHWt/JWN/jXCAdnAvShJZj5EA/1fBWY56d+Ab7GX7zbZotqkTEKu7Vd0GjZEb
+	 OngvCoFOuqN3Izm3HTkrxPZ/UN5Ul/rXTJV+1ETYarkWNlyCGHQVxkPSHm1lTOGkY7
+	 NLTgWpiAxKWpQ5BZpfST2qg+sVGGCpyv2A1LKlwI=
+Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 584KeoJN379192
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 4 Sep 2025 15:40:51 -0500
+Received: from DLEE211.ent.ti.com (157.170.170.113) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 4
+ Sep 2025 15:40:50 -0500
+Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE211.ent.ti.com
+ (157.170.170.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id 15.2.2562.20; Thu, 4 Sep
+ 2025 15:40:50 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Thu, 4 Sep 2025 15:40:50 -0500
+Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 584Keo8e3561056;
+	Thu, 4 Sep 2025 15:40:50 -0500
+Message-ID: <8fea9d7d-faa0-4e51-b7a5-e17a945bf1ed@ti.com>
+Date: Thu, 4 Sep 2025 15:40:50 -0500
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 00/33] Refactor TI IPC DT configs into dtsi
+To: Beleswar Padhi <b-padhi@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
+        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>
+CC: <afd@ti.com>, <u-kumar1@ti.com>, <hnagalla@ti.com>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Robert Nelson
+	<robertcnelson@gmail.com>,
+        Jo_o Paulo Gon_alves <joao.goncalves@toradex.com>,
+        Parth Pancholi <parth.pancholi@toradex.com>,
+        Emanuele Ghidoli
+	<emanuele.ghidoli@toradex.com>,
+        Francesco Dolcini
+	<francesco.dolcini@toradex.com>,
+        Matthias Schiffer
+	<matthias.schiffer@ew.tq-group.com>,
+        Logan Bristol
+	<logan.bristol@utexas.edu>,
+        Josua Mayer <josua@solid-run.com>, John Ma
+	<jma@phytec.com>,
+        Nathan Morrisson <nmorrisson@phytec.com>,
+        Garrett Giordano
+	<ggiordano@phytec.com>,
+        Matt McKee <mmckee@phytec.com>, Wadim Egorov
+	<w.egorov@phytec.de>,
+        Andrejs Cainikovs <andrejs.cainikovs@toradex.com>,
+        "Max
+ Krummenacher" <max.krummenacher@toradex.com>,
+        Stefan Eichenberger
+	<stefan.eichenberger@toradex.com>,
+        Hiago De Franco <hiago.franco@toradex.com>
+References: <20250823160901.2177841-1-b-padhi@ti.com>
+Content-Language: en-US
+From: Judith Mendez <jm@ti.com>
+In-Reply-To: <20250823160901.2177841-1-b-padhi@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_133959_223938_A589561A 
-X-CRM114-Status: GOOD (  21.84  )
+X-CRM114-CacheID: sfid-20250904_134103_976643_D393AB7D 
+X-CRM114-Status: GOOD (  18.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,143 +116,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Hi Beleswar,
 
-Extend the Renesas GBETH stmmac glue driver to support the RZ/T2H SoC,
-where the GMAC is connected through a MIIC PCS. Introduce a new
-`has_pcs` flag in `struct renesas_gbeth_of_data` to indicate when PCS
-handling is required.
+On 8/23/25 11:08 AM, Beleswar Padhi wrote:
+> The TI K3 SoCs have multiple programmable remote processors like
+> R5F, M4F, C6x/C7x etc. The TI SDKs for these SoCs offer sample firmware
+> which could be run on these cores to demonstrate an "echo" IPC test.
+> Those firmware require certain memory carveouts to be reserved from
+> system memory, timers to be reserved, and certain mailbox
+> configurations for interrupt based messaging. These configurations
+> could be different for a different firmware.
+> 
+> Refactor these firmware dependent configurations from board level DTS
+> into a dtsi for now. This dtsi for TI IPC firmware is board-independent
+> and can be applied to all boards from the same SoC Family. This gets
+> rid of code duplication (>50%) and allows more freedom for users
+> developing custom firmware (or no firmware) to utilize system resources
+> better; easily by swapping out this dtsi. To maintain backward
+> compatibility, the dtsi is included in all existing boards.
+> 
+> DTSI vs Overlay:
+> 1. I chose DTSI over overlay as both the ways required including the
+> refactored file in existing board-level files to maintain backward
+> compatibility, so didn't see the advantage of using overlays here.
+> 2. If we do down the overlay path, existing board-level file names have
+> to be changed to indicate they are without the IPC support; so that
+> they can be combined with the overlay to generate the same-named DTBs.
+> For example:
+> k3-am69-sk.dtb := k3-am69-sk-sans-ipc.dtb k3-j784s4-ti-ipc-firmware.dtbo
+> 			     ~~~~~~~~
+> 
+> I am not sure if this renaming of files is ideal?
+> 
 
-When enabled, the driver parses the `pcs-handle` phandle, creates a PCS
-instance with `miic_create()`, and wires it into phylink. Proper cleanup
-is done with `miic_destroy()`. New init/exit/select hooks are added to
-`plat_stmmacenet_data` for PCS integration.
+Thanks for you patches, I was able to boot test on am62px SK and
+am62ax SK boards. I was also able do a simple rpmsg echo test with some
+additional patches on top of your changes:
+https://gist.github.com/jmenti/4ae7a6a65c2cb95fd54f48d32430c1e9
 
-Update Kconfig to select `PCS_RZN1_MIIC` when building the Renesas GBETH
-driver so the PCS support is always available.
+so for am62ax and am62px SK boards:
 
-Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
----
-v1->v2:
-- Switched using "renesas,r9a09g077-gbeth" compatible string for RZ/T2H
-  instead of "renesas,rzt2h-gbeth".
----
- drivers/net/ethernet/stmicro/stmmac/Kconfig   |  1 +
- .../stmicro/stmmac/dwmac-renesas-gbeth.c      | 52 +++++++++++++++++++
- 2 files changed, 53 insertions(+)
+Tested-by: Judith Mendez <jm@ti.com>
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-index 67fa879b1e52..a01c83b109f9 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-+++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-@@ -136,6 +136,7 @@ config DWMAC_RENESAS_GBETH
- 	tristate "Renesas RZ/V2H(P) GBETH support"
- 	default ARCH_RENESAS
- 	depends on OF && (ARCH_RENESAS || COMPILE_TEST)
-+	select PCS_RZN1_MIIC
- 	help
- 	  Support for Gigabit Ethernet Interface (GBETH) on Renesas
- 	  RZ/V2H(P) SoCs.
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
-index 022e595a9e1b..129543c37a5e 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
-@@ -17,6 +17,7 @@
- #include <linux/device.h>
- #include <linux/module.h>
- #include <linux/of.h>
-+#include <linux/pcs-rzn1-miic.h>
- #include <linux/platform_device.h>
- #include <linux/reset.h>
- #include <linux/types.h>
-@@ -33,6 +34,7 @@
-  *                handled by the glue driver or core driver.
-  * @set_clk_tx_rate: Flag to indicate if Tx clock is fixed or
-  *                   set_clk_tx_rate is needed.
-+ * @has_pcs: Flag to indicate if the MAC has a PCS
-  */
- struct renesas_gbeth_of_data {
- 	const char * const *clks;
-@@ -40,6 +42,7 @@ struct renesas_gbeth_of_data {
- 	u32 stmmac_flags;
- 	bool handle_reset;
- 	bool set_clk_tx_rate;
-+	bool has_pcs;
- };
- 
- struct renesas_gbeth {
-@@ -53,6 +56,41 @@ static const char *const renesas_gbeth_clks[] = {
- 	"tx", "tx-180", "rx", "rx-180",
- };
- 
-+static const char *const renesas_gmac_clks[] = {
-+	"tx",
-+};
-+
-+static int renesas_gmac_pcs_init(struct stmmac_priv *priv)
-+{
-+	struct device_node *np = priv->device->of_node;
-+	struct device_node *pcs_node;
-+	struct phylink_pcs *pcs;
-+
-+	pcs_node = of_parse_phandle(np, "pcs-handle", 0);
-+	if (pcs_node) {
-+		pcs = miic_create(priv->device, pcs_node);
-+		of_node_put(pcs_node);
-+		if (IS_ERR(pcs))
-+			return PTR_ERR(pcs);
-+
-+		priv->hw->phylink_pcs = pcs;
-+	}
-+
-+	return 0;
-+}
-+
-+static void renesas_gmac_pcs_exit(struct stmmac_priv *priv)
-+{
-+	if (priv->hw->phylink_pcs)
-+		miic_destroy(priv->hw->phylink_pcs);
-+}
-+
-+static struct phylink_pcs *renesas_gmac_select_pcs(struct stmmac_priv *priv,
-+						   phy_interface_t interface)
-+{
-+	return priv->hw->phylink_pcs;
-+}
-+
- static int renesas_gbeth_init(struct platform_device *pdev, void *priv)
- {
- 	struct plat_stmmacenet_data *plat_dat;
-@@ -149,6 +187,11 @@ static int renesas_gbeth_probe(struct platform_device *pdev)
- 	plat_dat->init = renesas_gbeth_init;
- 	plat_dat->exit = renesas_gbeth_exit;
- 	plat_dat->flags |= gbeth->of_data->stmmac_flags;
-+	if (of_data->has_pcs) {
-+		plat_dat->pcs_init = renesas_gmac_pcs_init;
-+		plat_dat->pcs_exit = renesas_gmac_pcs_exit;
-+		plat_dat->select_pcs = renesas_gmac_select_pcs;
-+	}
- 
- 	return devm_stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
- }
-@@ -163,7 +206,16 @@ static const struct renesas_gbeth_of_data renesas_gbeth_of_data = {
- 			STMMAC_FLAG_SPH_DISABLE,
- };
- 
-+static const struct renesas_gbeth_of_data renesas_gmac_of_data = {
-+	.clks = renesas_gmac_clks,
-+	.num_clks = ARRAY_SIZE(renesas_gmac_clks),
-+	.stmmac_flags = STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY |
-+			STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP,
-+	.has_pcs = true,
-+};
-+
- static const struct of_device_id renesas_gbeth_match[] = {
-+	{ .compatible = "renesas,r9a09g077-gbeth", .data = &renesas_gmac_of_data },
- 	{ .compatible = "renesas,rzv2h-gbeth", .data = &renesas_gbeth_of_data },
- 	{ /* Sentinel */ }
- };
--- 
-2.51.0
+
+
 
 
