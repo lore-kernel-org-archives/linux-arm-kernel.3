@@ -4,97 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36EF2CA1017
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:22:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C806CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Sep 2025 02:22:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S3bQF2gp251DcQgalU4BELuM5R45YeVQZjcPHAOrjvE=; b=bdWS7XeCkbCUZ+gV2949JSgRpN
-	3m27e5wdlgKmBQlZjrh1tqbyPKXPMP01dHSkkXwd1oEoNnHQf1lnRbFufvlMJaveZRmYcacV2Tv5V
-	MPaeyW1wMrsQ4xLTkLAXGitYj2EdEcY9wTE9/DPrlPs0+BfVhjNq13hJRudku7UINd2XC/IVYyiZg
-	hGkV/dLpyJnSsiXnaOE2PnBlD1DxKh/gUgD0bNBYNPLTcveWHNgc/rKHX7NQLmxgtibNy+ReYUwcD
-	lL1kP1ob+6gxBLhpYyUZWCbF2tZYK5Vdumr21WjTnbikt1nIwydi326dh1b6IxxVVR9WJvtOiF4jg
-	ift2OfHw==;
+	bh=O1s9lw6tbe2htYbahVRtjD5lIa+YY9RGI9knjEL6DjU=; b=2F1UgF6zLcpZN73WiObAdQJMEW
+	Tj/QrXnvfNyLxP1Yt1ARO1Mp/JPp6hji7Sdmsh8+9ka02Arzth+OWZYQt684VJ6FRZOaWCXYihJ7k
+	KwzVZLRvsfKQ8iZsi+NN5pqerFd90sIzTgzGoTLu8/4+zo4asiZSrudRdLXERFlsFicaD80C97unu
+	z4oXqbJUyZQvpzuU+HMhu8V6ZViUg4LFyLT1EUFbJtOJNi+hH9cwoy8FXPol4q7USk7eOut77Wl7I
+	hFw0oa5S/3XW12wO9wUcq3o8tjSkv54XtjKougHzCx8TcRboZ4TCpEHe9nbF20iqjfS8jmUzLQx5N
+	Jw8gru4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuM6G-0000000G5CC-0KNg;
-	Fri, 05 Sep 2025 02:22:52 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.144.205])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uuIFS-0000000Enlc-2LmQ
+	id 1uuM6F-0000000G5Ay-21uD;
+	Fri, 05 Sep 2025 02:22:51 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uuIEG-0000000EnYJ-3Thh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Sep 2025 22:16:11 +0000
-Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 00813C00151A;
-	Thu,  4 Sep 2025 15:16:05 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 00813C00151A
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1757024165;
-	bh=FfkRI+Thfq9FLWdeGquE+YXJSXWp3aWZQCznOMbITyI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=jj5agdIupuNpfglCUEa2dAc3pRYIR+M/3P1yNtjfospVkOl8dfiOPDXtFcjcZc0sl
-	 eArjms3P9QmpLWWz9ORrwX30AtSoOAraPOsvB//vvB6dy32Khkc8G+s3384E8r85bd
-	 e9z4/294XS+ibqTGk0Y2m9N0FdrJIZhZb1BgLxlg=
-Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 58A7C18000530;
-	Thu,  4 Sep 2025 15:15:34 -0700 (PDT)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: bcm-kernel-feedback-list@broadcom.com,
-	Andrea della Porta <andrea.porta@suse.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Phil Elwell <phil@raspberrypi.com>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	kernel-list@raspberrypi.com,
-	Matthias Brugger <mbrugger@suse.com>,
-	iivanov@suse.de,
-	svarbanov@suse.de
-Cc: Florian Fainelli <f.fainelli@gmail.com>
-Subject: Re: [PATCH 2/2] arm64: dts: broadcom: amend the comment about the role of BCM2712 board DTS
-Date: Thu,  4 Sep 2025 15:15:33 -0700
-Message-ID: <20250904221533.227156-1-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <47f6368a77d6bd846c02942d20c07dd48e0ae7df.1754914766.git.andrea.porta@suse.com>
-References: <cover.1754914766.git.andrea.porta@suse.com> <47f6368a77d6bd846c02942d20c07dd48e0ae7df.1754914766.git.andrea.porta@suse.com>
+	Thu, 04 Sep 2025 22:14:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2977D1596;
+	Thu,  4 Sep 2025 15:14:43 -0700 (PDT)
+Received: from [10.57.58.14] (unknown [10.57.58.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 46B793F63F;
+	Thu,  4 Sep 2025 15:14:44 -0700 (PDT)
+Message-ID: <75db1f58-98b3-463c-af4f-2ce9878cba9f@arm.com>
+Date: Fri, 5 Sep 2025 00:14:39 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/7] mm: introduce local state for lazy_mmu sections
+To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Andreas Larsson <andreas@gaisler.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
+ <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@redhat.com>, "David S. Miller"
+ <davem@davemloft.net>, "H. Peter Anvin" <hpa@zytor.com>,
+ Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
+ Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
+ <Liam.Howlett@oracle.com>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
+ <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
+ Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
+ xen-devel@lists.xenproject.org
+References: <20250904125736.3918646-1-kevin.brodsky@arm.com>
+ <20250904125736.3918646-3-kevin.brodsky@arm.com>
+ <22131943-3f92-4f5a-be28-7b668c07a25c@lucifer.local>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <22131943-3f92-4f5a-be28-7b668c07a25c@lucifer.local>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250904_151606_695708_91CC7B16 
-X-CRM114-Status: GOOD (  14.27  )
+X-CRM114-CacheID: sfid-20250904_151452_909398_9C49A454 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,29 +85,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Florian Fainelli <f.fainelli@gmail.com>
+On 04/09/2025 19:28, Lorenzo Stoakes wrote:
+> Hi Kevin,
+>
+> This is causing a build failure:
+>
+> In file included from ./include/linux/mm.h:31,
+>                  from mm/userfaultfd.c:8:
+> mm/userfaultfd.c: In function ‘move_present_ptes’:
+> ./include/linux/pgtable.h:247:41: error: statement with no effect [-Werror=unused-value]
+>   247 | #define arch_enter_lazy_mmu_mode()      (LAZY_MMU_DEFAULT)
+>       |                                         ^
+> mm/userfaultfd.c:1103:9: note: in expansion of macro ‘arch_enter_lazy_mmu_mode’
+>  1103 |         arch_enter_lazy_mmu_mode();
+>       |         ^~~~~~~~~~~~~~~~~~~~~~~~
+> ./include/linux/pgtable.h:248:54: error: expected expression before ‘)’ token
+>   248 | #define arch_leave_lazy_mmu_mode(state) ((void)(state))
+>       |                                                      ^
+> mm/userfaultfd.c:1141:9: note: in expansion of macro ‘arch_leave_lazy_mmu_mode’
+>  1141 |         arch_leave_lazy_mmu_mode();
+>       |         ^~~~~~~~~~~~~~~~~~~~~~~~
+>
+> It seems you haven't carefully checked call sites here, please do very
+> carefully recheck these - I see Yeoreum reported a mising kasan case, so I
+> suggest you just aggressively grep this + make sure you've covered all
+> bases :)
 
-On Mon, 11 Aug 2025 16:12:35 +0200, Andrea della Porta <andrea.porta@suse.com> wrote:
-> Current board DTS for Raspberry Pi5 states that bcm2712-rpi-5-b.dts
-> should not be modified and all declarations should go in the overlay
-> board DTS instead (bcm2712-rpi-5-b-ovl-rp1.dts).
-> 
-> There's a caveat though: there's currently no infrastructure to reliably
-> reference nodes that have not been declared yet, as is the case when
-> loading those nodes from a runtime overlay. For more details about
-> these limitations see [1] and follow-ups.
-> 
-> Change the comment to make it clear which DTS file will host specific
-> nodes, especially the RP1 related nodes which should be customized
-> outside the overlay DTS.
-> 
-> Link
-> [1] - https://lore.kernel.org/all/CAMEGJJ3=W8_R0xBvm8r+Q7iExZx8xPBHEWWGAT9ngpGWDSKCaQ@mail.gmail.com/
-> 
-> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> ---
+I did check all call sites pretty carefully and of course build-tested,
+but my series is based on v6.17-rc4 - just like the calls Yeoreum
+mentioned, the issue is that those calls are in mm-stable but not in
+mainline :/ I suppose I should post a v2 rebased on mm-stable ASAP then?
 
-Applied to https://github.com/Broadcom/stblinux/commits/devicetree-arm64/next, thanks!
---
-Florian
+- Kevin
 
